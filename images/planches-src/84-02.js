@@ -8,6 +8,10 @@
 // Au chapeau : deux temps, le bonnet cassé, puis le grillage gratté.
 // Le crochet : la broche (ou le long clou) couchée le long du bout de la perche, deux ligatures de
 // fil de fer, les bouts tordus ensemble. La fourche : une branche coupée à une main du tronc.
+// Refaite le 13 octobre 2026 : l'homme est le corps simple de profil (perche-levee), les bras posés
+// par le calcul sur la perche. Le rouge : la zone où la plaque glisse et tombe (on se tient hors
+// de sa trajectoire, côté pignon), la poussée qui casse le bonnet, le va-et-vient qui gratte le
+// grillage ; la chute de la plaque et le bonnet qui part restent en noir.
 module.exports = (h) => {
   const A = h.a;
   const NOIR = A.plein.match(/fill="([^"]+)"/)[1], BLANC = '#FFFFFF';
@@ -32,7 +36,6 @@ module.exports = (h) => {
     ? `<path d="${d}" fill="none" stroke="${NOIR}" stroke-width="${f(ep)}" stroke-linecap="round" stroke-linejoin="round"/>\n`
       + `<path d="${d}" fill="none" stroke="${BLANC}" stroke-width="${f(ep - 1.3)}" stroke-linecap="round" stroke-linejoin="round"/>`
     : `<path d="${d}" fill="none" stroke="${NOIR}" stroke-width="${f(ep)}" stroke-linecap="round" stroke-linejoin="round"/>`;
-  const double = d => `<path d="${d}" ${A.arete} marker-start="url(#fl)" marker-end="url(#fl)"/>`;
 
   // ── Le repère de la perche : u le long de la perche vers le bout, v à sa droite (mm) ──
   const repere = (O, d, s) => { const n = [-d[1], d[0]]; return ([u, v]) => [O[0] + s * (u * d[0] + v * n[0]), O[1] + s * (u * d[1] + v * n[1])]; };
@@ -132,6 +135,30 @@ module.exports = (h) => {
     const ox = (z.l - s * (x1 - x0)) / 2 - s * x0, oy = (z.h - s * (y1 - y0)) / 2 + s * y1;
     return { s, P: (x, y, zz) => { const b = brut(x, y, zz); return [ox + s * b[0], oy - s * b[1]]; } };
   };
+  // Pose les deux bras d'un corps simple de profil pour que ses prises tombent sur les cibles (vue) :
+  // le poignet visé (la cible moins le décalage de la prise), le coude qui plie vers l'avant.
+  const RD_ = Math.PI / 180;
+  const dirPose = a => [Math.sin(a * RD_), Math.cos(a * RD_)];
+  const anglePose = v => Math.atan2(v[0], v[1]) / RD_;
+  const atteint = (o, cibles) => {
+    let c = h.formes.corps(o);
+    const ang = {};
+    const A_ = c.articulations, S0 = A_.epauleP;
+    const L1 = Math.hypot(A_.coudeP[0] - S0[0], A_.coudeP[1] - S0[1]), L2 = Math.hypot(A_.poignetP[0] - A_.coudeP[0], A_.poignetP[1] - A_.coudeP[1]);
+    for (let it = 0; it < 4; it++) {
+      for (const k of ['P', 'L']) {
+        const Wr = c.articulations['poignet' + k], M = [c['main' + k].x, c['main' + k].y], T = cibles[k];
+        const W = [T[0] - (M[0] - Wr[0]), T[1] - (M[1] - Wr[1])];
+        const d = [W[0] - S0[0], W[1] - S0[1]], D = Math.min(L1 + L2 - 0.3, Math.hypot(d[0], d[1]));
+        const al = Math.acos(Math.max(-1, Math.min(1, (L1 * L1 + D * D - L2 * L2) / (2 * L1 * D)))) / RD_;
+        const bras = anglePose(d) - al, Eb = [S0[0] + dirPose(bras)[0] * L1, S0[1] + dirPose(bras)[1] * L1];
+        const avb = anglePose([W[0] - Eb[0], W[1] - Eb[1]]);
+        ang['bras' + k] = bras; ang['avantbras' + k] = avb; ang['main' + k] = avb + 10;
+      }
+      c = h.formes.corps({ ...o, angles: { ...(o.angles || {}), ...ang } });
+    }
+    return c;
+  };
   const scene = z => {
     const { s, P } = geoScene(z), o = [];
     const bande = (x, zs, bas, haut) => [...zs.map(zz => P(x, toit(zz) + haut, zz)), ...zs.slice().reverse().map(zz => P(x, toit(zz) + bas, zz))];
@@ -166,6 +193,10 @@ module.exports = (h) => {
     // la chute : la plaque glisse droit dans la pente, passe l'avant-toit et tombe au pied du mur
     const XF = 2400, chute = [P(XF, toit(1050) + SN, 1050), P(XF, toit(-OV + 60) + SN, -OV + 60)];
     o.push(h.fleche(`M${pt(chute[0])} L${pt(chute[1])}`, A.arete));
+    // la zone dangereuse : le versant sous la plaque, droit dans la pente, et le pied du mur où elle tombe
+    const zp = [P(X1 - 150, toit(ZH + 150) + SN, ZH + 150), P(X2 + 150, toit(ZH + 150) + SN, ZH + 150), P(X2 + 150, EE + SN, -OV),
+      P(X2 + 150, 0, -OV - 700), P(X1 - 150, 0, -OV - 700), P(X1 - 150, EE + SN, -OV)];
+    o.push(h.chemin(zp, A.zone, true));
     // le banc de neige le long du mur, et celui du pignon, où l'homme se tient
     o.push(h.path(lisse([P(-200, 0, -60), P(600, 160, -120), P(1600, 240, -160), P(2600, 300, -200), P(3600, 220, -160), P(LG + 250, 0, -60)]), A.detail));
     const banc = [[-3250, 0], [-2950, 300], [-2650, 600], [-2250, BANC], [-1750, BANC], [-1350, 560], [-950, 300], [-600, 90], [-300, 0]].map(([x, y]) => P(x, y, CZ));
@@ -182,18 +213,11 @@ module.exports = (h) => {
     const Tl = repere(Tp, dv, s), long = lg / s + 330;
     o.push(perche(Tl, 50, -long, { casse: false, face: false }));
     o.push(fil(lisse(crosseBroche(-120, 14).map(Tl)), 1.1));
-    // l'homme : les deux mains sur la perche
+    // l'homme : le corps simple de profil (perche-levee), debout sur le banc ; les bras posés par le
+    // calcul, la main proche (P, la haute) à 450 mm de la main loin (L, au bout de la perche)
     const G2 = Tl([-(lg / s) + 450, 0]), G1v = Tl([-(lg / s), 0]);
-    const base0 = { x: P(PERSO, BANC, CZ)[0], y: P(PERSO, BANC, CZ)[1], echelle: s, pose: 'debout', penche: 4, regard: -28 };
-    let w = { proche: G2.slice(), loin: G1v.slice() }, pers;
-    for (let i = 0; i < 8; i++) {
-      pers = h.formes.personnage(Object.assign({}, base0, { mains: w }));
-      for (const k of ['proche', 'loin']) {
-        const Wr = pers.poignets[k], F = pers.mains[k], cible = k === 'proche' ? G2 : G1v;
-        const cm = [Wr[0] + (F[0] - Wr[0]) * 0.42, Wr[1] + (F[1] - Wr[1]) * 0.42];
-        w[k] = [w[k][0] + cible[0] - cm[0], w[k][1] + cible[1] - cm[1]];
-      }
-    }
+    const pied = P(PERSO, BANC, CZ);
+    const pers = atteint({ x: pied[0], y: pied[1], pose: 'perche-levee', vue: 'profil', age: 'adulte', echelle: s }, { P: G2, L: G1v });
     o.push(String(pers));
     return o.join('\n');
   };
@@ -209,7 +233,7 @@ module.exports = (h) => {
     o.push(ch.svg);
     // la poussée, le long de la perche ; le morceau qui part
     const p1 = T([-250, -95]), p2 = T([-70, -95]);
-    o.push(h.fleche(`M${pt(p1)} L${pt(p2)}`, A.arete));
+    o.push(h.geste(`M${pt(p1)} L${pt(p2)}`));
     const bd = ch.info.bonnetD;
     o.push(h.fleche(`M${pt([bd[0] - 12, bd[1] - 22])} Q${pt([Math.min(bd[0] + 6, z.l - 4), bd[1] - 12])} ${pt([Math.min(bd[0] + 3, z.l - 6), bd[1] + 18])}`, A.arete));
     return o.join('\n');
@@ -224,7 +248,7 @@ module.exports = (h) => {
     o.push(ch.svg);
     o.push(perche(T, 50, dansVue(T, 27, z), { face: false }), fil(lisse(crosseBroche(-120, 14).map(T)), 1.4));
     const xa = contact[0] - 13;
-    o.push(double(`M${f(xa)} ${f(contact[1] - 16)} L${f(xa)} ${f(contact[1] + 14)}`));
+    o.push(h.geste(`M${f(xa)} ${f(contact[1] - 16)} L${f(xa)} ${f(contact[1] + 14)}`, { double: true }));
     return o.join('\n');
   };
 

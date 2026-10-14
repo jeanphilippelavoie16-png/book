@@ -289,8 +289,9 @@ module.exports = (h) => {
       o.push(h.cercle(...P(c), RB * s, h.a.hachure('bois', 'arete')));
     }
     // on lève : les deux poignées ensemble
+    // le geste : on lève les deux poignées ensemble
     const q = P([0, -DP - rh - 12]);
-    o.push(h.fleche(`M${f1(q[0])} ${f1(q[1])} L${f1(q[0])} ${f1(q[1] - 70 * s)}`, A.arete));
+    o.push(h.geste(`M${f1(q[0])} ${f1(q[1])} L${f1(q[0])} ${f1(q[1] - 70 * s)}`));
     return o.join('\n');
   };
   const leveRenvois = z => {
@@ -300,29 +301,23 @@ module.exports = (h) => {
     ];
   };
 
-  // La main : modèle s11 (poing fermé, vu de la paume) retourné, l'avant-bras qui monte ; son
-  // poignet (le milieu des bords en y = 150 du modèle) tombe sur celui du personnage, les deux
-  // bâtons traversent le poing. SM : pixels du modèle → unités de vue ; G : le milieu des bâtons.
-  const SMP = 1.4;
-  const poing = (wr, e) => { const s = SMP * e; return [wr[0] - 19 * s, wr[1] + 108 * s + 3.5 * e]; };
-  const mainPoing = (G, e) => F.modele('s11', { x: G[0], y: G[1] - 3.5 * e, ancre: [68, 42], angle: 180, echelle: SMP * e,
-    masquer: [[0, 150, 140, 175]] });
-
   // ═══ Vue 4 : porté contre la jambe ═════════════════════════════════════════════════════
+  // Le porteur : le corps simple, debout, de profil ; le bras proche pend, la main fermée sur les
+  // deux bâtons réunis (main tournée vers le bas : les bâtons passent à l'horizontale dans le
+  // poing). Le sac pend du côté proche, contre la jambe : il passe devant le corps et derrière le
+  // bras proche.
+  const PORTEUR = { pose: 'debout', angles: { brasP: 1, avantbrasP: 1, mainP: 1 }, mains: { P: 'prise' }, prise: { P: 34 } };
   const geoPorte = z => {
     const e = (z.h - 12) / 1800, x0 = z.l * 0.44, y0 = z.h - 6;
-    return { e, x0, y0, T: ([x, y]) => [x0 + x * e, y0 + y * e] };
+    const sonde = F.corps({ x: x0, y: y0, echelle: e, ...PORTEUR, objetP: '<g/>' });
+    return { e, x0, y0, T: ([x, y]) => [x0 + x * e, y0 + y * e], G: [sonde.mainP.x, sonde.mainP.y] };
   };
   const porte = z => {
-    const g = geoPorte(z), { e, T } = g, o = [];
+    const g = geoPorte(z), { e, T, G } = g, o = [];
     o.push(h.ligne(...T([-560, 0]), ...T([760, 0]), A.arete));
-    const pers = F.personnage({ x: g.x0, y: g.y0, pose: 'debout', echelle: e, mains: { proche: T([30, -760]) } });
-    o.push(pers);
-    // la main qui tient les deux poignées : son poignet sur celui du personnage
-    const G = poing(pers.poignets.proche, e);
-    const Gm = [(G[0] - g.x0) / e, (G[1] - g.y0) / e];                   // en mm, repère du personnage
-    const M = ([x, y]) => T([Gm[0] + x, Gm[1] + y]);
+    const M = ([x, y]) => [G[0] + x * e, G[1] + y * e];
     const rh = RB + 2.2, bas = DP + RP + 3;
+    const sac = [];
     // les bouts de bûches qui dépassent de la toile, devant et derrière (le plus loin d'abord)
     const L2 = LA / 2;
     const ord = paquet.map((p, i) => ({ p, i, e: etendue(p) })).sort((a, b) => b.e.x0 - a.e.x0);
@@ -331,38 +326,40 @@ module.exports = (h) => {
         const dx = (long[i] - LA) / 2 + sg * decal[i];
         const xa = sg * (L2 - 6), xb = sg * (L2 + dx);
         const ya = DP + ex.y0, yb = DP + ex.y1, hh = yb - ya;
-        o.push(h.chemin([[xa, ya], [xb, ya + 1], [xb + sg * 2, ya + hh * 0.45], [xb - sg * 1, ya + hh * 0.75], [xb, yb], [xa, yb]].map(M), W(A.arete), true));
-        o.push(h.path(lisse([[xa, ya + hh * 0.3], [(xa + xb) / 2, ya + hh * 0.34], [xb - sg * 4, ya + hh * 0.3]].map(M)), A.fin));
+        sac.push(h.chemin([[xa, ya], [xb, ya + 1], [xb + sg * 2, ya + hh * 0.45], [xb - sg * 1, ya + hh * 0.75], [xb, yb], [xa, yb]].map(M), W(A.arete), true));
+        sac.push(h.path(lisse([[xa, ya + hh * 0.3], [(xa + xb) / 2, ya + hh * 0.34], [xb - sg * 4, ya + hh * 0.3]].map(M)), A.fin));
       }
     }
     // les deux bâtons : ils dépassent la toile de chaque côté ; celui du fond un peu plus haut
     for (const dy of [-7, 0]) {
       const a = M([-LB / 2, -RB + dy]);
-      o.push(h.rect(a[0], a[1], LB * e, 2 * RB * e, W(A.arete)));
+      sac.push(h.rect(a[0], a[1], LB * e, 2 * RB * e, W(A.arete)));
     }
-    // la toile qui pend : l'ourlet autour du bâton en haut, le berceau plein en bas
+    // la toile qui pend : l'ourlet autour du bâton en haut, le berceau plein en bas ; sa face de
+    // droite à l'ombre
     const haut = -rh;
     const toile = [[-L2 + 10, haut], [L2 - 10, haut], [L2, haut + 12], [L2 - 6, DP - RP * 0.9], [L2 + 4, DP - 6],
       [L2 - 8, bas - 26], [L2 - 48, bas - 2], [0, bas + 3], [-L2 + 48, bas - 2], [-L2 + 8, bas - 26], [-L2 - 4, DP - 6],
       [-L2 + 6, DP - RP * 0.9], [-L2, haut + 12]];
-    o.push(h.path(lisse(toile.map(M), true), W(A.contour)));
+    const dToile = lisse(toile.map(M), true);
+    sac.push(h.path(dToile, A.blanc));
+    sac.push(`<clipPath id="toile-24-04"><path d="${dToile}" fill="#FFFFFF" stroke="none"/></clipPath>`);
+    { const a = M([L2 * 0.38, haut - 10]), b = M([L2 + 20, bas + 10]);
+      sac.push(`<g clip-path="url(#toile-24-04)">${h.rect(a[0], a[1], b[0] - a[0], b[1] - a[1], A.ombre)}</g>`); }
+    sac.push(h.path(dToile, A.contour));
     // la couture de l'ourlet, et les plis de la toile tendue sur la brassée
-    o.push(h.ligne(...M([-L2 + 8, rh + 34]), ...M([L2 - 8, rh + 34]), `${A.fin} stroke-dasharray="3 2.4"`));
-    o.push(h.path(lisse([[-L2 + 26, DP - RP * 0.45], [0, DP - RP * 0.58], [L2 - 26, DP - RP * 0.45]].map(M)), A.fin));
-    o.push(h.path(lisse([[-L2 + 40, DP + RP * 0.62], [0, DP + RP * 0.74], [L2 - 40, DP + RP * 0.62]].map(M)), A.fin));
-    o.push(h.path(lisse([[-100, rh + 58], [-78, DP - RP * 0.7]].map(M)), A.fin));
-    o.push(h.path(lisse([[96, rh + 58], [74, DP - RP * 0.72]].map(M)), A.fin));
-    // la main, par-dessus
-    o.push(mainPoing(G, e));
-    g.G = G;
+    sac.push(h.ligne(...M([-L2 + 8, rh + 34]), ...M([L2 - 8, rh + 34]), `${A.fin} stroke-dasharray="3 2.4"`));
+    sac.push(h.path(lisse([[-L2 + 26, DP - RP * 0.45], [0, DP - RP * 0.58], [L2 - 26, DP - RP * 0.45]].map(M)), A.fin));
+    sac.push(h.path(lisse([[-L2 + 40, DP + RP * 0.62], [0, DP + RP * 0.74], [L2 - 40, DP + RP * 0.62]].map(M)), A.fin));
+    sac.push(h.path(lisse([[-100, rh + 58], [-78, DP - RP * 0.7]].map(M)), A.fin));
+    sac.push(h.path(lisse([[96, rh + 58], [74, DP - RP * 0.72]].map(M)), A.fin));
+    o.push(F.corps({ x: g.x0, y: g.y0, echelle: e, ...PORTEUR, trait: 'fort', objetP: sac.join('\n') }).svg);
     return o.join('\n');
   };
   const porteRenvois = z => {
-    const g = geoPorte(z), { e, T } = g;
-    const pers = F.personnage({ x: g.x0, y: g.y0, pose: 'debout', echelle: e, mains: { proche: T([30, -760]) } });
-    const G = poing(pers.poignets.proche, e);
+    const { e, G } = geoPorte(z);
     return [
-      { n: 8, rond: [G[0] + 150 * e + 40, G[1] - 40], cible: [G[0] + 30 * e, G[1] - 6], texte: 'une main, bras pendant, rien à serrer' },
+      { n: 8, rond: [G[0] + 150 * e + 40, G[1] - 40], cible: [G[0] + 18 * e, G[1] - 30 * e], texte: 'une main, bras pendant, rien à serrer' },
       { n: 9, rond: [G[0] + 150 * e + 40, G[1] + (DP + 40) * e], cible: [G[0] + 120 * e, G[1] + (DP + 40) * e], texte: 'la charge pend contre la jambe' },
     ];
   };
@@ -370,7 +367,7 @@ module.exports = (h) => {
   return {
     ref: '24-04',
     titre: 'Le porte-bûches',
-    desc: 'Un rectangle de toile épaisse ou de peau, un bâton glissé dans un ourlet cousu à chaque bout. La brassée se couche dessus, parallèle aux bâtons ; on réunit les deux poignées d’une main et la charge pend contre la jambe, dans le berceau de la toile, sans que le bras ait à la serrer.',
+    desc: 'Un rectangle de toile épaisse ou de peau, un bâton glissé dans un ourlet cousu à chaque bout. La brassée se couche dessus, parallèle aux bâtons ; on réunit les deux poignées d’une main et la charge pend contre la jambe, dans le berceau de la toile, sans que le bras ait à la serrer : le porteur de profil, le bras proche pendant, le sac contre sa jambe.',
     format: 'pleine',
     disposition: [['plan', 'ourlet'], ['leve', 'porte']],
     hauteurs: [1, 1.25],

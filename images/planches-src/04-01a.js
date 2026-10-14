@@ -1,4 +1,4 @@
-// Planche 04-01a — La pièce d'abri chargée (chapitre 6, variante « Sans sous-sol et sans caveau »)
+// Planche 04-01a — La pièce d'abri chargée (chapitre 4, variante « Sans sous-sol et sans caveau »)
 // Cotes : 2/3 (sacs remplis aux deux tiers, variante).
 module.exports = (h) => {
   const A = h.a;
@@ -68,9 +68,11 @@ module.exports = (h) => {
     for (const cy of [222, 212, 202]) for (const cx of [316, 326, 336]) o.push(h.cercle(cx, cy, 5, W(A.arete)), h.cercle(cx, cy, 1.6, A.fin));
     o.push(bidon(344, 202));
     for (let i = 0; i < 5; i++) o.push(h.rect(366 + (i % 2), 227 - 4 * (i + 1), 20 - (i % 3), 4, W(A.detail)));
-    // un dormeur sous la table : le pictogramme couché sur le dos, la tête à gauche
-    o.push(rr(284, 272, 88, 6, 2, W(A.arete)));
-    o.push(h.formes.personnage({ x: 326, y: 272, pose: 'couche', echelle: 0.05, mains: { proche: [332, 266], loin: [331, 265] } }).toString());
+    // un dormeur sous la table : le corps simple couché sur le dos, la tête à gauche, à l'échelle des
+    // billes (200 mm = 11) ; les genoux levés pour tenir entre les pattes de la table
+    o.push(rr(284, 272, 92, 6, 2, W(A.arete)));
+    o.push(h.formes.corps({ x: 331, y: 272, pose: 'couche-dos', echelle: 0.055,
+      angles: { cuisseP: 140, jambeP: 40, cuisseL: 136, jambeL: 44, piedP: 92, piedL: 92 } }).toString());
 
     return `<g transform="translate(0,-21)">\n${o.join('\n')}\n</g>`;
   };
@@ -88,8 +90,11 @@ module.exports = (h) => {
       const xs = xout(Math.min(yl, 188.4)) + 1;
       for (let k = 0; k < 3; k++) o.push(rr(xs + 24 * k, yh + 0.5, 23.5, 13, 5, A.hachure('terre', 'arete')));
     }
-    // quelqu'un assis dessous, le dos au mur : le pictogramme assis au sol
-    o.push(h.formes.personnage({ x: 113, y: yf, pose: 'assis-sol', echelle: 0.066, penche: -2, mains: { proche: [133, 177], loin: [131, 178] } }).toString());
+    // quelqu'un assis dessous, le dos au mur : le corps simple assis au sol, à l'échelle de la porte
+    // (2030 mm = 160), les genoux remontés pour rester sous les portes
+    o.push(h.formes.corps({ x: 113, y: yf, pose: 'assis-sol', echelle: 0.076,
+      angles: { cuisseP: 128, jambeP: 38, cuisseL: 124, jambeL: 42, piedP: 94, piedL: 94, tronc: -4, cou: -2,
+        brasP: 20, avantbrasP: 70, mainP: 80, brasL: 16, avantbrasL: 66, mainL: 76 } }).toString());
     return `<g transform="translate(0,-6)">\n${o.join('\n')}\n</g>`;
   };
 

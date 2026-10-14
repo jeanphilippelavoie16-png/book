@@ -5,13 +5,15 @@
 // Quatre temps : la bande de peau à plat et ses deux plis ; le carré plié, fendu, lacé, vu de
 // face (le côté qui va au sol) ; la coupe A–A au lacet du haut, à plus grande échelle, pour lire
 // les trois épaisseurs et le lacet qui les traverse ; la genouillère nouée sur la jambe debout
-// et en usage, un genou au sol ; ce genou à la loupe, deux mains qui serrent le nœud du haut.
+// et en usage, un genou au sol (le corps simple, de profil) ; ce genou à la loupe, deux mains qui
+// serrent le nœud du haut (gros plan de mains calquées : laissé tel quel, la bibliothèque de mains
+// simples le refera). Rouge : les deux bouts qui se rabattent, le geste du pliage.
 //
 // Aucune cote : le chapitre ne donne aucune mesure. La peau est dessinée carrée une fois pliée
 // (une bande trois fois plus longue que large), comme le dit le chapitre.
 //
 // Unités de la coupe et des vues portées : millimètres (côté du carré S = 200, épaisseur d'une
-// peau t = 4,5) ; le personnage de la bibliothèque est en millimètres d'adulte.
+// peau t = 4,5) ; le corps simple est en millimètres d'adulte.
 
 module.exports = (h) => {
   const F = h.formes;
@@ -49,8 +51,8 @@ module.exports = (h) => {
     o.push(h.path(`M${f1(x0 + 3)} ${Y0} L${f1(x0 + 3 * P - 3)} ${Y0} Q${f1(x0 + 3 * P)} ${Y0} ${f1(x0 + 3 * P)} ${Y0 + 3} L${f1(x0 + 3 * P)} ${f1(Y0 + P - 3)} Q${f1(x0 + 3 * P)} ${f1(Y0 + P)} ${f1(x0 + 3 * P - 3)} ${f1(Y0 + P)} L${f1(x0 + 3)} ${f1(Y0 + P)} Q${f1(x0)} ${f1(Y0 + P)} ${f1(x0)} ${f1(Y0 + P - 3)} L${f1(x0)} ${Y0 + 3} Q${f1(x0)} ${Y0} ${f1(x0 + 3)} ${Y0} Z`, `fill="#fff" ${h.a.contour.replace('fill="none" ', '')}`));
     for (const k of [1, 2]) o.push(h.ligne(x0 + k * P, Y0 - 5, x0 + k * P, Y0 + P + 5, pli));
     // les deux bouts qui se rabattent sur le milieu
-    o.push(h.fleche(`M${f1(x0 + 0.5 * P)} ${Y0 - 4} Q${f1(x0 + 0.95 * P)} ${Y0 - 34} ${f1(x0 + 1.4 * P)} ${Y0 - 6}`));
-    o.push(h.fleche(`M${f1(x0 + 2.5 * P)} ${Y0 - 4} Q${f1(x0 + 2.05 * P)} ${Y0 - 34} ${f1(x0 + 1.6 * P)} ${Y0 - 6}`));
+    o.push(h.geste(`M${f1(x0 + 0.5 * P)} ${Y0 - 4} Q${f1(x0 + 0.95 * P)} ${Y0 - 34} ${f1(x0 + 1.4 * P)} ${Y0 - 6}`));
+    o.push(h.geste(`M${f1(x0 + 2.5 * P)} ${Y0 - 4} Q${f1(x0 + 2.05 * P)} ${Y0 - 34} ${f1(x0 + 1.6 * P)} ${Y0 - 6}`));
     return o.join('\n');
   };
   const platR = z => {
@@ -188,20 +190,25 @@ module.exports = (h) => {
   const pas = (p, u, t) => [p[0] + u[0] * t, p[1] + u[1] * t];
   const CENTRE = [-150, -150], RAYON = 200;   // le cercle de la loupe, dans le repère du personnage
   const SOUS = CENTRE[1] + RAYON - LEVE;   // ce que le cercle descend sous le sol
-  // Le genou au sol est la jambe « loin » de la posture 'genou' du pictogramme : la cuisse droite,
-  // la jambe couchée au sol vers l'arrière. Le personnage se pose une première fois pour lire où
-  // tombe ce genou, puis se décale pour que le cercle de la loupe tienne dans la vue.
+  // Un genou au sol : le corps simple, posture « genou », de profil ; le genou au sol est le genou
+  // proche (la genouillère dessus, vers l'œil), la main loin posée sur le genou levé. Le corps est
+  // levé de l'épaisseur de la peau pliée sous le genou, pour que son genou tombe sur celui de la
+  // loupe (le centre du genou à 76 mm du sol).
+  // la main loin posée à plat sur le genou levé (angles cherchés une fois : le poignet juste derrière
+  // le haut du genou, la main qui descend dessus)
+  const ANGLES_G = { brasL: 2.5, avantbrasL: 70, mainL: 112 };
+  const G1 = F.corps({ x: 0, y: 0, pose: 'genou', echelle: 1, angles: ANGLES_G });
+  const LEVE_G = -KC[1] + G1.articulations.genouP[1];
   const gPlace = z => {
     const e = Math.min((z.l - 12) / 1380, (z.h - 22) / 1340), sol = z.h - 6 - (LCENTRE[1] - KC[1] + LRAYON) * e + 61 * e;
-    const k0 = F.personnage({ x: 0, y: sol, pose: 'genou', echelle: e }).genoux.loin;
-    const dx = 6 + 720 * e - k0[0];       // la jambe couchée et le pied, derrière le genou
-    const K = [k0[0] + dx, k0[1]];
-    return { e, sol, ox: dx, oy: sol, K, V: (x, y) => [K[0] + e * x, K[1] + e * (y - KC[1])] };
+    const xK = 6 - G1.boite.x0 * e + 20 * e;            // le genou au sol (la jambe couchée et le pied derrière lui)
+    const K = [xK + G1.articulations.genouP[0] * e, sol + KC[1] * e];
+    return { e, sol, xK, K, V: (x, y) => [K[0] + e * x, sol + e * y] };
   };
   const place = z => {
-    const { e, sol, V, ox, oy } = gPlace(z), o = [];
+    const { e, sol, V, xK } = gPlace(z), o = [];
     o.push(h.rect(6, sol, z.l - 12, 8, h.a.hachure('terre', 'aucun')), h.ligne(6, sol, z.l - 6, sol, h.a.arete));
-    o.push(F.personnage({ x: ox, y: oy, pose: 'genou', echelle: e }));
+    o.push(F.corps({ x: xK, y: sol - LEVE_G * e, pose: 'genou', echelle: e, angles: ANGLES_G, trait: 'fort' }).svg);
     // la peau, en noir, de l'avant de la cuisse au-dessous du genou : à cette échelle, sa place
     o.push(h.path(courbe(PEAU_DEHORS.map(q => V(...q))), `fill="none" stroke="${NOIR}" stroke-width="${f1(14 * e + 1)}" stroke-linecap="round"`));
     // le cercle de la loupe

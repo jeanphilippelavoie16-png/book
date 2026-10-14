@@ -1,6 +1,8 @@
-// Planche 03-09 — l'abri dans la pièce (ch. 4, section 9, « Le chauffage » ; ch. 9, la tente
-// dans la pièce : couverture sur la table, draps jusqu'aux chaises, matelas debout au mur).
-// Coupe et plan en cm : x = distance au mur ; dans le plan, y = le long du mur.
+// Planche 03-09 — l'abri dans la pièce (ch. 3, section 9, « Le chauffage » : couverture sur la table,
+// drap jusqu'aux chaises, matelas debout au mur ; les enfants au milieu, les adultes aux bouts).
+// Coupes en cm : en travers, x = distance au mur ; en long, x = le long du mur.
+// 13 oct. : plus de corps vus de dessus (JP) ; la vue de dessus devient une coupe en long, où le
+// dormeur est de profil (corps simple sous sa couverture) et où les deux bouts descendent au plancher.
 module.exports = (h) => {
   const blanc = a => a.replace('fill="none"', h.a.blanc.split(' ')[0]);
   const r1 = v => Math.round(v * 10) / 10;
@@ -40,42 +42,17 @@ module.exports = (h) => {
       `A ${r1(r)},${r1(r)} 0 0 0 ${r1(P[0] + nx)},${r1(P[1] + ny)} Z`;
   };
   const rond = (cx, cy, r) => `M ${r1(cx - r)},${r1(cy)} A ${r1(r)},${r1(r)} 0 1 0 ${r1(cx + r)},${r1(cy)} A ${r1(r)},${r1(r)} 0 1 0 ${r1(cx - r)},${r1(cy)} Z`;
-  // Peint comme la bibliothèque : toutes les silhouettes en 2,4 dessous, puis chaque pièce son blanc
-  // et son trait 1,4 : le contour extérieur sort fort, les recouvrements restent fins.
+  // Peint comme les corps simples : toutes les silhouettes en 2,3 dessous, puis chaque pièce son blanc
+  // et son trait 0,7 : le contour extérieur sort à 1,5, les recouvrements restent fins (0,7).
   const NOIR = '#1A1A1A';
   const peindre = ds => [
-    ...ds.map(d => `<path d="${d}" fill="none" stroke="${NOIR}" stroke-width="2.4" stroke-linejoin="round"/>`),
-    ...ds.map(d => `<path d="${d}" fill="#FFFFFF" stroke="${NOIR}" stroke-width="1.4" stroke-linejoin="round"/>`),
+    ...ds.map(d => `<path d="${d}" fill="none" stroke="${NOIR}" stroke-width="2.3" stroke-linejoin="round"/>`),
+    ...ds.map(d => `<path d="${d}" fill="#FFFFFF" stroke="${NOIR}" stroke-width="0.7" stroke-linejoin="round"/>`),
   ].join('\n');
   // Mesures du pictogramme, en cm : adulte (175 cm) et enfant de 5 ans (110 cm).
   const MES = {
     adulte: { tete: 10.5, cou: 2, epaule: 34, hanche: 30, tronc: 50, bras: 8.5, lBras: 72, jambe: 11, ecart: 7.5, lJambe: 85, pied: 6, prof: 22 },
     enfant: { tete: 8.5, cou: 1.5, epaule: 23, hanche: 20, tronc: 31, bras: 6, lBras: 44, jambe: 7.5, ecart: 5, lJambe: 50, pied: 4, prof: 15 },
-  };
-  // Couché sur le dos, vu de dessus : la tête en haut, les bras le long du corps, les pieds levés.
-  // P(x, y) passe des cm du corps (x au milieu, y = 0 au sommet du crâne) au repère de la vue.
-  const dessusCorps = (P, age, s) => {
-    const m = MES[age], yS = 2 * m.tete + m.cou, yH = yS + m.tronc, yK = yH + m.lJambe;
-    const rb = m.bras / 2, rj = m.jambe / 2, xb = m.epaule / 2 + rb - 1.2;
-    const pp = (x, y) => P(x, y).map(r1).join(',');
-    const ds = [];
-    // jambes et pieds (le pied levé se voit de dessus en un court ovale, orteils vers le haut)
-    for (const sg of [-1, 1]) {
-      ds.push(capsule(P(sg * m.ecart, yH - rj), P(sg * (m.ecart + 0.6), yK), rj * s));
-      ds.push(capsule(P(sg * (m.ecart + 0.6), yK - 0.5), P(sg * (m.ecart + 2.2), yK + m.pied), rj * 0.92 * s));
-    }
-    // bras le long du corps, la main en bout de bande
-    for (const sg of [-1, 1]) ds.push(capsule(P(sg * xb, yS + rb), P(sg * (xb + 1.2), yS + m.lBras - rb), rb * s));
-    // le tronc : épaules arrondies, taille, hanches
-    const e = m.epaule / 2, hh = m.hanche / 2, t = m.tronc;
-    ds.push(`M ${pp(-e + 5, yS)} L ${pp(e - 5, yS)} Q ${pp(e, yS)} ${pp(e, yS + 6)} L ${pp(e - 2.5, yS + t * 0.62)} ` +
-      `Q ${pp(hh + 0.5, yS + t * 0.8)} ${pp(hh, yH - 3)} Q ${pp(hh, yH + 1)} ${pp(hh - 4, yH + 1)} L ${pp(-hh + 4, yH + 1)} ` +
-      `Q ${pp(-hh, yH + 1)} ${pp(-hh, yH - 3)} Q ${pp(-hh - 0.5, yS + t * 0.8)} ${pp(-e + 2.5, yS + t * 0.62)} ` +
-      `L ${pp(-e, yS + 6)} Q ${pp(-e, yS)} ${pp(-e + 5, yS)} Z`);
-    // la tête, sur un cou court
-    const [cx, cy] = P(0, m.tete);
-    ds.push(rond(cx, cy, m.tete * s));
-    return peindre(ds);
   };
   // Couché sur le dos, coupé en travers à la poitrine : le tronc et les deux bras posés à côté.
   // Rend les pièces { cx, a, b } (demi-largeur, demi-hauteur), le dessous sur le lit.
@@ -171,34 +148,84 @@ module.exports = (h) => {
     return out.join('\n');
   };
 
-  // ── Vu de dessus : la rangée des dormeurs ──
-  const geoPlan = z => {
-    const s = Math.min((z.l - 6) / 270, (z.h - 4) / 228);
-    const ox = (z.l - 270 * s) / 2 + 14 * s, oy = (z.h - 228 * s) / 2;
-    return { s, X: c => ox + c * s, Y: c => oy + c * s };
+  // ─── L'enveloppe d'un corps simple (sac de couchage, couverture roulée) : la pose sert de gabarit,
+  // le contour visible est celui de l'enveloppe. C'est le contour du corps rendu, uni, dilaté de
+  // « marge » mm et lissé par Clipper (celui des corps simples) ; le visage reste à découvert dans
+  // l'ouverture du capuchon ; « cloisons » : des coutures du duvet en travers, en part de la longueur ;
+  // « garder » [x0, y0, x1, y1] : ne garder que ce rectangle (une couverture : du cou aux pieds, sur le lit) ;
+  // « avec » : des rectangles unis au corps avant la dilatation (le lit, pour que la couverture y retombe).
+  const CL = require(require('path').join(__dirname, '../../.claude/skills/planches/scripts/corps/clipper.js'));
+  const sac = (c, { marge = 55, lisse = 150, trait = 1.4, visage = true, cloisons = [], garder = null, avec = [] } = {}) => {
+    const SC = 100, k = c.echelle, polys = [], r1 = v => Math.round(v * 10) / 10;
+    for (const m of String(c.svg).matchAll(/<path d="([^"]+)" fill="#(?:FFFFFF|E6E6E6)"/g))
+      for (const sub of m[1].split('Z')) {
+        const n = sub.match(/-?[\d.]+/g); if (!n || n.length < 6) continue;
+        const P = []; for (let i = 0; i + 1 < n.length; i += 2) P.push({ X: Math.round(+n[i] * SC), Y: Math.round(+n[i + 1] * SC) });
+        polys.push(P);
+      }
+    const op = (t, a, b, ouvert = false) => {
+      const x = new CL.Clipper(); x.AddPaths(a, CL.PolyType.ptSubject, !ouvert); if (b) x.AddPaths(b, CL.PolyType.ptClip, true);
+      if (ouvert) { const tr = new CL.PolyTree(); x.Execute(t, tr, CL.PolyFillType.pftNonZero, CL.PolyFillType.pftNonZero); return CL.Clipper.OpenPathsFromPolyTree(tr); }
+      const r = new CL.Paths(); x.Execute(t, r, CL.PolyFillType.pftNonZero, CL.PolyFillType.pftNonZero); return r;
+    };
+    const off = (p, d) => { const o = new CL.ClipperOffset(2, 0.05 * SC); o.AddPaths(p, CL.JoinType.jtRound, CL.EndType.etClosedPolygon); const r = new CL.Paths(); o.Execute(r, d * SC); return r; };
+    // « avec » : des rectangles [x0, y0, x1, y1] unis au corps (le lit sous une couverture, qu'elle y retombe)
+    for (const [a, b, cc, d] of avec) polys.push([[a, b], [cc, b], [cc, d], [a, d]].map(([x, y]) => ({ X: Math.round(x * SC), Y: Math.round(y * SC) })));
+    let env = off(off(op(CL.ClipType.ctUnion, polys), (marge + lisse) * k), -lisse * k);
+    if (garder) {
+      const [a, b, cc, d] = garder.map(v => Math.round(v * SC)), R = 30 * k;
+      env = off(off(op(CL.ClipType.ctIntersection, env, [[{ X: a, Y: b }, { X: cc, Y: b }, { X: cc, Y: d }, { X: a, Y: d }]]), -R), R);
+    }
+    if (visage) {
+      const t = c.tete, hx = t.haut[0] - t.x, hy = t.haut[1] - t.y, L = Math.hypot(hx, hy) || 1, mi = c.miroir ? -1 : 1;
+      const fx = -hy / L * mi, fy = hx / L * mi, r = 100 * k, D = [];
+      for (let i = 0; i < 48; i++) { const a = i / 48 * 2 * Math.PI; D.push({ X: Math.round((t.x + fx * 0.6 * r + 0.78 * r * Math.cos(a)) * SC), Y: Math.round((t.y + fy * 0.6 * r + 0.78 * r * Math.sin(a)) * SC) }); }
+      env = op(CL.ClipType.ctDifference, env, [D]);
+    }
+    const dP = P => 'M' + P.map(q => `${r1(q.X / SC)} ${r1(q.Y / SC)}`).join(' L');
+    const out = [`<path d="${env.map(P => dP(P) + ' Z').join(' ')}" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="${trait}" stroke-linejoin="round"/>`];
+    if (cloisons.length) {
+      const b = c.boite, x0 = b.x0 - marge * k, x1 = b.x1 + marge * k, dedans = off(env, -2.2);
+      const lignes = cloisons.map(t => { const x = Math.round((x0 + (x1 - x0) * t) * SC); return [{ X: x, Y: Math.round((b.y0 - 400 * k) * SC) }, { X: x, Y: Math.round((b.y1 + 400 * k) * SC) }]; });
+      const cl = op(CL.ClipType.ctIntersection, lignes, dedans, true);
+      if (cl.length) out.push(`<path d="${cl.map(dP).join(' ')}" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linecap="round"/>`);
+    }
+    return out.join('\n');
   };
 
-  const plan = z => {
-    const { s, X, Y } = geoPlan(z);
+  // ── En long : l'abri coupé dans sa longueur, devant le dormeur le plus proche du drap ──
+  // On regarde vers le mur. La table est au-delà de la coupe (gris loin) ; le drap, coupé à sa hauteur
+  // (≈ 82 cm), descend au plancher aux deux bouts. Le dormeur est le corps simple couché sur le dos,
+  // sous sa couverture (la pose sert de gabarit, le contour visible est celui de la couverture).
+  const geoLong = z => {
+    const G = z.h - 16, s = Math.min((z.l - 14) / 212, (G - 40) / 100);
+    const ox = (z.l - 212 * s) / 2;
+    const X = c => ox + c * s, Y = c => G - c * s;
+    const ep = 5, C = G - 2 * ep, K = C - 12 * s, B = K - 3;
+    const k = s / 10;                                        // unités de vue par mm
+    return { G, s, X, Y, ep, C, K, B, k, DRAP: 81.6 };
+  };
+  const enLong = z => {
+    const { G, s, X, Y, ep, C, K, B, k, DRAP } = geoLong(z);
     const out = [];
-    const R = (x1, y1, x2, y2, a) => h.rect(X(x1), Y(y1), (x2 - x1) * s, (y2 - y1) * s, a);
-    out.push(R(-14, 0, 0, 228, h.a.hachure('bois')));
-    out.push(R(0, 10, 18, 200, h.a.hachure('isolant') + ' rx="3"'));
-    // le bord des tissus au plancher : l'abri fermé
-    out.push(R(18, 4, 256, 208, h.a.contour + ' rx="4"'));
-    // la literie, sous les corps
-    out.push(R(19, 8, 196, 204, h.a.detail));
-    // les quatre dormeurs sur le dos, vus de dessus : les adultes aux bouts, les enfants au milieu
-    for (const [c, age] of [[45, 'adulte'], [87, 'enfant'], [125, 'enfant'], [167, 'adulte']])
-      out.push(dessusCorps((x, y) => [X(c + x), Y(12 + y)], age, s));
-    // la table, au-dessus : pattes et contour du dessus
-    for (const [a, b] of [[22, 14], [104, 14], [22, 192], [104, 192]]) out.push(R(a, b, a + 4, b + 4, h.a.plein));
-    out.push(R(20, 12, 110, 200, h.a.cache));
-    // les deux chaises, dossier vers le dehors
-    for (const b of [40, 130]) {
-      out.push(R(204, b, 246, b + 42, blanc(h.a.arete) + ' rx="2"'));
-      out.push(R(242, b - 1, 248, b + 43, blanc(h.a.arete)));
-    }
+    out.push(h.rect(0, G, z.l, 14, h.a.hachure('bois', 'aucun')), h.ligne(0, G, z.l, G, h.a.arete));
+    // la table, au fond : ses deux pattes et son dessus, en gris loin
+    for (const a of [14, 192]) out.push(h.rect(X(a), Y(75), 4 * s, B - Y(75), h.a.loin), h.rect(X(a), Y(75), 4 * s, B - Y(75), h.a.detail));
+    out.push(h.rect(X(12), Y(82), 188 * s, 3.5 * s, h.a.loin), h.rect(X(12), Y(82), 188 * s, 3.5 * s, h.a.detail));
+    // cartons, coussins, couverture du dessous
+    out.push(carton(X(6), X(206), C, ep), carton(X(6), X(206), C + ep, ep));
+    for (const [a, b] of [[8, 73], [73, 139], [139, 204]]) out.push(h.rect(X(a) + 0.6, K, (b - a) * s - 1.2, C - K, blanc(h.a.arete) + ' rx="6"'));
+    out.push(h.rect(X(8), B, 196 * s, 3, blanc(h.a.detail)));
+    // le dormeur, la tête vers le bout de gauche, et sa couverture du cou aux pieds
+    const d = h.formes.corps({ pose: 'couche-dos', x: X(16) + 822 * k, y: B, echelle: k,
+      angles: { cuisseP: 84, jambeP: 96, cuisseL: 84, jambeL: 96 } });
+    out.push(d.toString());
+    const cou = d.articulations.cou[0] + 20 * k;
+    out.push(sac(d, { marge: 35, lisse: 120, visage: false, garder: [cou, B - 400 * k, X(206), B], avec: [[cou, B - 40 * k, d.boite.x1, B]] }));
+    // le drap, coupé : sa hauteur sur toute la longueur, et aux deux bouts il descend au plancher
+    const r = 6 * s, yD = Y(DRAP);
+    out.push(h.path(`M ${r1(X(4))} ${r1(G)} L ${r1(X(4))} ${r1(yD + r)} Q ${r1(X(4))} ${r1(yD)} ${r1(X(4) + r)} ${r1(yD)} `
+      + `L ${r1(X(208) - r)} ${r1(yD)} Q ${r1(X(208))} ${r1(yD)} ${r1(X(208))} ${r1(yD + r)} L ${r1(X(208))} ${r1(G)}`, h.a.arete));
     return out.join('\n');
   };
 
@@ -281,12 +308,12 @@ module.exports = (h) => {
   };
 
   // ── La comparaison : ce qui est sous le corps ──
-  // le dormeur sur le dos, de profil : le pictogramme de la bibliothèque, la tête à gauche
+  // le dormeur sur le dos, de profil : le corps simple, la tête à gauche (le sommet du crâne en x0),
+  // les genoux à peine fléchis ; Lb unités pour 1750 mm
   const dormeur = (x0, base, Lb) => {
     const e = Lb / 1750;
-    const essai = h.formes.personnage({ x: 0, y: base, pose: 'couche', echelle: e });
-    const dx = x0 - (essai.tete.x - essai.tete.r);
-    return h.formes.personnage({ x: dx, y: base, pose: 'couche', echelle: e }).toString();
+    return h.formes.corps({ pose: 'couche-dos', x: x0 + 822 * e, y: base, echelle: e,
+      angles: { cuisseP: 82, jambeP: 98, cuisseL: 82, jambeL: 98 } }).toString();
   };
   const epaisseur = (a, b) => x => {
     const e = 5, c = 1.6, r = 8;
@@ -296,7 +323,7 @@ module.exports = (h) => {
   };
   const comparaison = (z, cartons, nb) => {
     const G = z.h - 14, Lb = Math.min(210, z.l - 70), x0 = (z.l - Lb) / 2;
-    const x1 = 12, x2 = z.l - 12, t = epaisseur(x0 + 4, x0 + Lb * 0.99);
+    const x1 = 12, x2 = z.l - 12, t = epaisseur(x0 + 4, x0 + Lb * 0.97);
     const out = [h.rect(0, G, z.l, 14, h.a.hachure('bois', 'aucun')), h.ligne(0, G, z.l, G, h.a.arete)];
     const sol = G - cartons * 5;
     for (let i = 0; i < cartons; i++) out.push(carton(x1, x2, G - (i + 1) * 5, 5));
@@ -316,7 +343,7 @@ module.exports = (h) => {
     titre: 'L’abri dans la pièce : la tente de table et le lit en couches',
     desc: 'En coupe : contre le mur, un matelas debout ; une couverture part du haut du matelas et couvre la table ; un drap, pris sous la couverture sur la table, continue jusqu’au dossier d’une chaise, puis descend au plancher. Dessous, sur des cartons et des coussins de divan, les quatre dormeurs, coupés à la poitrine (le tronc et un bras de chaque côté, la tête qui dépasse au fond), sous une même couverture. Vu de dessus, en pictogrammes couchés sur le dos : un adulte contre le matelas, les deux enfants au milieu, l’autre adulte côté drap ; aux deux bouts, couverture et drap descendent jusqu’au plancher. De près : cartons, branches de sapin, couverture, le corps, puis couverture, journal froissé et couverture. En bas : un dormeur sur quatre couvertures écrasées à même le plancher, la chaleur qui part dans le bois ; un autre sur deux cartons et une couverture.',
     format: 'pleine',
-    disposition: [['coupe'], ['plan', 'couches'], ['rate', 'bon']],
+    disposition: [['coupe'], ['long', 'couches'], ['rate', 'bon']],
     hauteurs: [5, 5, 2],
     largeurs: [[1], [4, 3], [1, 1]],
     vues: {
@@ -324,25 +351,24 @@ module.exports = (h) => {
         titre: 'En coupe, en travers de l’abri',
         dessin: coupe,
         renvois: z => {
-          const { X, Y, K, C, dessus, drapY } = geoCoupe(z);
+          const { X, Y, K, C, B, s, dessus, drapY } = geoCoupe(z);
           return [
             { n: 1, rond: [X(23), Y(100) - 22], cible: [X(23), Y(92)], texte: 'matelas debout contre le mur' },
             { n: 2, rond: [X(80), Y(95)], cible: [X(84), Y(80.2)], texte: 'couverture par-dessus la table' },
             { n: 3, rond: [X(186), Y(101)], cible: [X(180), Y(drapY(180))], texte: 'drap tendu jusqu’au dossier et au plancher' },
             { n: 4, rond: [X(150), Y(58)], cible: [X(166), dessus(X(166)) - 3], texte: 'une même couverture pour les quatre' },
             { n: 5, rond: [X(214), Y(30)], cible: [X(200), (K + C) / 2], texte: 'coussins de divan' },
+            { n: 6, rond: [X(101), Y(64)], cible: [X(101), B - 23.6 * s - 0.8], texte: 'les enfants au milieu, un adulte aux bouts' },
           ];
         },
       },
-      plan: {
-        titre: 'Vu de dessus, la table en pointillé',
-        dessin: plan,
+      long: {
+        titre: 'En long, les deux bouts fermés',
+        dessin: enLong,
         renvois: z => {
-          const { X, Y } = geoPlan(z);
+          const { X, Y, G, DRAP } = geoLong(z);
           return [
-            { n: 6, rond: [X(225), Y(106)], cible: [X(176), Y(72)], texte: 'un adulte à chaque bout de la rangée' },
-            { n: 7, rond: [X(106), Y(160)], cible: [X(87), Y(98)], texte: 'les enfants au milieu' },
-            { n: 8, rond: [X(170), Y(216)], cible: [X(205), Y(208)], texte: 'les deux bouts fermés jusqu’au plancher' },
+            { n: 7, rond: [X(186), Y(DRAP) - 26], cible: [X(208) + 1, Y(DRAP / 2)], texte: 'les deux bouts fermés jusqu’au plancher' },
           ];
         },
       },
@@ -353,10 +379,10 @@ module.exports = (h) => {
           const { G, e, S, L, fin, rx, cx, nappe } = geoCouches(z);
           const xt = cx + rx * 0.7;
           return [
-            { n: 9, rond: [z.l - 13, G - 2 * e - 11], cible: [z.l - 34, G - 1.5 * e], texte: 'cartons aplatis ou tapis roulé' },
-            { n: 10, rond: [z.l - 28, S - 5], cible: [z.l - 58, S + 16], texte: 'branches de sapin, ou matelas, ou coussins' },
-            { n: 11, rond: [z.l - 40, L - 26], cible: [fin - 3, L + 3.5], texte: 'couverture sous le corps' },
-            { n: 12, rond: [z.l - 30, nappe(23, xt) - 24], cible: [xt, (nappe(5, xt) + nappe(18, xt)) / 2], texte: 'journal froissé entre deux couvertures' },
+            { n: 8, rond: [z.l - 13, G - 2 * e - 11], cible: [z.l - 34, G - 1.5 * e], texte: 'cartons aplatis ou tapis roulé' },
+            { n: 9, rond: [z.l - 28, S - 5], cible: [z.l - 58, S + 16], texte: 'branches de sapin, ou matelas, ou coussins' },
+            { n: 10, rond: [z.l - 40, L - 26], cible: [fin - 3, L + 3.5], texte: 'couverture sous le corps' },
+            { n: 11, rond: [z.l - 30, nappe(23, xt) - 24], cible: [xt, (nappe(5, xt) + nappe(18, xt)) / 2], texte: 'journal froissé entre deux couvertures' },
           ];
         },
       },

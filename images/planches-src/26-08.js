@@ -4,6 +4,11 @@
 // rembourrage de linge ou de mousse sèche sur l'os saillant ; attachée en trois points ; doigts
 // à vérifier, desserrer au premier blanchiment. L'écharpe : le pan de la chemise relevé
 // par-dessus l'avant-bras et épinglé au devant de la chemise.
+// Depuis le 13 octobre au soir (JP : plus de corps de face), la vue de l'écharpe, un buste de face
+// en chemise, est sortie de la planche : le corps simple ne se montre que de profil, et de profil
+// l'avant-bras en écharpe passe en travers du ventre, vers l'œil, ce que le moteur ne dessine pas.
+// « Mouler et attacher » est un gros plan de bras et de main : laissé tel quel (bibliothèque de mains
+// à venir).
 // Aucun chiffre sur le dessin : le chapitre n'en donne aucun pour l'attelle improvisée.
 module.exports = (h) => {
   const BL = h.a.blanc.split(' ')[0];
@@ -113,8 +118,10 @@ module.exports = (h) => {
   const tremper = z => {
     const o = boite(z, T.L, T.y0, T.y1);
     return g(o, [
-      // la marmite
+      // la marmite ; sa face de droite à l'ombre (la lumière vient d'en haut à gauche)
       h.path('M27,205 Q29,272 43,292 A72 14 0 0 0 187,292 Q201,272 203,205', plein(h.a.contour)),
+      h.path('M150,221.5 Q182,216 203,205 Q201,272 187,292 Q172,302 150,304 Z', h.a.ombre),
+      h.path('M27,205 Q29,272 43,292 A72 14 0 0 0 187,292 Q201,272 203,205', h.a.contour),
       h.ellipse(115, 209, 79, 11, h.a.hachure('eau', 'detail')),
       h.ellipse(115, 205, 88, 18, h.a.contour),
       h.ellipse(115, 206, 83, 15.5, h.a.detail),
@@ -229,6 +236,8 @@ module.exports = (h) => {
       h.path([lien(3.5), lien(0.5)].map(b => 'M' + b.map(p => p.map(v => v.toFixed(1)).join(',')).join(' L') + ' Z').join(' '),
         plein(h.a.arete) + ' fill-rule="evenodd"'),
       noeud(cx, cy - bras[1] - 6, 1),
+      // le point à contrôler : le lien, qu'on desserre au premier blanchiment des doigts
+      h.controle(cx, cy - bras[1] - 6, 12),
     ]);
   };
 
@@ -284,11 +293,13 @@ module.exports = (h) => {
 
   return {
     ref: '26-08',
-    titre: 'L’attelle d’écorce moulée, et l’écharpe au pan de chemise',
-    desc: 'Quatre vues. Une plaque d’écorce de bouleau trempe dans une marmite d’eau chaude. Un bras plié, vu de côté : l’écorce moulée en gouttière sous l’avant-bras et derrière le haut du bras prend le coude et le poignet, le rembourrage dépasse au coude et au poignet, trois liens la tiennent hors de la cassure, marquée en zigzag sur le dessus de l’avant-bras ; la main, vue du dos, doigts à demi fermés et pouce le long de l’index, dépasse le bout de l’écorce. Un trait de coupe A–A traverse le lien près du poignet. La coupe A–A : le bras, le rembourrage, la gouttière d’écorce durcie et le lien. Le blessé de face : le pan avant de sa chemise est relevé par-dessus l’avant-bras attelé et épinglé au devant de la chemise ; le coude dépasse d’un côté, les doigts détendus de l’autre.',
+    titre: 'L’attelle d’écorce moulée',
+    desc: 'Trois vues. Une plaque d’écorce de bouleau trempe dans une marmite d’eau chaude. Un bras plié, vu de côté : l’écorce moulée en gouttière sous l’avant-bras et derrière le haut du bras prend le coude et le poignet, le rembourrage dépasse au coude et au poignet, trois liens la tiennent hors de la cassure, marquée en zigzag sur le dessus de l’avant-bras ; la main, vue du dos, doigts à demi fermés et pouce le long de l’index, dépasse le bout de l’écorce. Un trait de coupe A–A traverse le lien près du poignet. La coupe A–A : le bras, le rembourrage, la gouttière d’écorce durcie et le lien, qu’on desserre au premier blanchiment des doigts.',
     format: 'pleine',
-    disposition: [['tremper', 'mouler'], ['coupe', 'echarpe']],
-    largeurs: [[2, 3], [2, 3]],
+    disposition: [['tremper', 'mouler'], ['coupe']],
+    largeurs: [[2, 3], [1]],
+    hauteurs: [1, 0.85],
+    fichier: 'planche-26-08-attelle-ecorce-moulee-echarpe.svg',   // le nom reste : l'écharpe est sortie de la planche
     vues: {
       tremper: {
         titre: 'Tremper',
@@ -324,18 +335,7 @@ module.exports = (h) => {
           return [
             { n: 9, rond: P(o, 30, 252), cible: P(o, ...E(C.cx, C.cy, 74.5, 57.5, 120)), texte: 'durcie, elle épouse le bras' },
             { n: 10, rond: P(o, 18, 96), cible: P(o, ...E(C.cx, C.cy, 65.5, 48.5, 160)), texte: 'linge ou mousse sèche' },
-            { n: 11, rond: [z.l - 20, o.oy + 66], cible: P(o, ...E(C.cx, C.cy, 65, 48, 300)), texte: 'desserré au blanchiment' },
-          ];
-        },
-      },
-      echarpe: {
-        titre: 'L’écharpe',
-        dessin: echarpe,
-        renvois: z => {
-          const o = boite(z, S.L, S.y0, S.y1);
-          return [
-            { n: 12, rond: P(o, 22, 262), cible: P(o, 130, 228), texte: 'pan relevé sur le bras' },
-            { n: 13, rond: P(o, 215, 100), cible: P(o, 214, 137), texte: 'épinglé au devant' },
+            { n: 11, rond: P(o, C.L + 20, 66), cible: P(o, ...E(C.cx, C.cy, 65, 48, 300)), texte: 'desserré au blanchiment' },
           ];
         },
       },

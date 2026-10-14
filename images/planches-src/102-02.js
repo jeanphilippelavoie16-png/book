@@ -1,3 +1,7 @@
+// Planche 102-02 — La poutre à écharner et l'angle du couteau.
+// 13 oct. : l'homme est le corps simple (pose « penche-pousse ») ; « En travers de la poutre » est un
+// gros plan de mains calquées, laissé tel quel pour la nouvelle bibliothèque. La charte : le dessous
+// de la bille à l'ombre, la flèche de la poussée en rouge.
 module.exports = (h) => {
   // ─── petits outils de tracé ──────────────────────────────────────────────
   const f = p => `${p[0].toFixed(1)},${p[1].toFixed(1)}`;
@@ -35,7 +39,11 @@ module.exports = (h) => {
   const A = [230, 144], v = [0.9006, 0.4343], w = [0.4343, -0.9006], r = 12;
   const P = (d, e) => [A[0] + v[0] * d + w[0] * e, A[1] + v[1] * d + w[1] * e];
   const G = 294;
-  const X_PIEDS = 156, E_HOMME = 0.18, PENCHE = 57;
+  // l'homme : le corps simple (pose « penche-pousse ») ; le devant des cuisses touche le bout de la
+  // poutre, les bras recalculés pour que les deux poings tombent sur les poignées (vues par le bout,
+  // l'une derrière l'autre)
+  const X_PIEDS = 196.5, E_HOMME = 0.18;
+  const BRAS = { brasP: -5.3, avantbrasP: 60.6, mainP: 60, brasL: -8.3, avantbrasL: 62.9, mainL: 60 };
   // le couteau : posé sur la peau à KD le long de la poutre, la lame penchée vers celui qui pousse
   const KD = 118, KB = [A[0] + v[0] * KD + w[0] * 9, A[1] + v[1] * KD + w[1] * 9], KH = [KB[0] - 11.5, KB[1] - 24];
   // bord bas de la peau pendante, et ses poils
@@ -58,6 +66,9 @@ module.exports = (h) => {
     h.chemin([[568.7, G], P(380, 12), P(380, -12), [513.5, G]], W(h.a.cache), true),
     // la poutre, hors terre
     h.chemin([P(0, 12), [568.7, G], [513.5, G], P(0, -12)], W(h.a.contour), true),
+    // le dessous de la bille, à l'ombre, puis le contour repassé par-dessus
+    h.chemin([P(150, -2), [536.5, G], [513.5, G], P(150, -12)], h.a.ombre, true),
+    h.chemin([P(0, 12), [568.7, G], [513.5, G], P(0, -12)], h.a.contour, true),
     h.chemin([P(212, 4), P(320, 4)], h.a.detail),
     h.chemin([P(232, -5), P(300, -5)], h.a.detail),
     h.chemin([P(250, 1), P(282, 1)], h.a.detail),
@@ -71,18 +82,14 @@ module.exports = (h) => {
     // d'autre, sans quoi la bille ronde roule du piquet au premier coup de travers
     h.chemin([[269.2, 212], [269.1, 188], [263.5, 163], [268.5, 163], [274, 179], [279.5, 163],
       [284.5, 163], [278.9, 188], [278.8, 216]], h.a.cache),
-    // la lame vue par le bout, puis l'homme penché par-dessus : pictogramme (règle 8), les deux
-    // poings fermés sur les poignées (la poignée de derrière cachée par celle de devant)
+    // la lame vue par le bout, puis l'homme penché par-dessus, les deux poings fermés sur les
+    // poignées (la poignée de derrière cachée par celle de devant) ; le bout de la poignée se voit
+    // dans le poing proche
     h.path(membre([KB, KH], [7, 7], 'rond', 'plat'), h.a.hachure('metal', 'contour')),
-    (() => {
-      const M = { x: KH[0], y: KH[1], pose: 'prise', vue: 'profil', diametre: 9, echelle: 0.22 };
-      const p = h.formes.personnage({ x: X_PIEDS, y: G, pose: 'penche', echelle: E_HOMME, penche: PENCHE, regard: 22,
-        prises: { proche: M, loin: Object.assign({}, M, { x: KH[0] - 2, y: KH[1] - 2 }) } });
-      const t = p.mains.proche.trou;
-      return p + h.cercle(t.x, t.y, t.r, W(h.a.arete));
-    })(),
-    // le sens de la poussée
-    h.fleche(`M${KH[0] + 34},${KH[1] + 2} L${KH[0] + 88},${KH[1] + 28}`, h.a.arete),
+    String(h.formes.corps({ x: X_PIEDS, y: G, pose: 'penche-pousse', echelle: E_HOMME, angles: BRAS,
+      objet: c => h.cercle(c.mainP.x, c.mainP.y, 4.5, W(h.a.arete)) })),
+    // le geste : la poussée, vers le bas de la poutre
+    h.geste(`M${KH[0] + 34},${KH[1] + 2} L${KH[0] + 88},${KH[1] + 28}`),
   ].join('\n') + '</g>';
 
   const T = (x, y) => [x + DX, y];
@@ -128,7 +135,7 @@ module.exports = (h) => {
   return {
     ref: '102-02',
     titre: 'La poutre à écharner et l’angle du couteau',
-    desc: 'De côté : un tronc écorcé planté en biais, calé par un piquet à hauteur de hanche ; la peau, chair en l’air, est appuyée contre le ventre et tenue par le poids du corps ; le couteau est poussé à deux mains vers le bas de la poutre. En travers : la lame droite ne touche la peau qu’au sommet de la courbe, les poignées sont aux deux bouts. En coupe : la lame, dos arrondi sur la peau, penchée vers celui qui pousse, décolle la membrane en une seule feuille qui monte sur la lame.',
+    desc: 'De côté : un tronc écorcé planté en biais, calé par un piquet à hauteur de hanche ; la peau, chair en l’air, est appuyée contre le ventre et tenue par le poids du corps ; l’homme penché par-dessus pousse le couteau à deux mains vers le bas de la poutre (flèche rouge). En travers : la lame droite ne touche la peau qu’au sommet de la courbe, les poignées sont aux deux bouts. En coupe : la lame, dos arrondi sur la peau, penchée vers celui qui pousse, décolle la membrane en une seule feuille qui monte sur la lame.',
     format: 'pleine',
     disposition: [['poste'], ['prise', 'angle']],
     hauteurs: [5, 4],

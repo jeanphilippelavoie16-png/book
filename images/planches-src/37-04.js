@@ -6,7 +6,11 @@
 // monde en arrière, la première eau jetée de loin avec une louche liée au bout d'une perche.
 // Aucune cote : le chapitre ne donne que la taille des pierres (10 à 15 cm), et une pierre qu'on
 // trie se reconnaît, elle ne se construit pas.
+// Lot 3 (13 octobre) : l'homme à la perche passe au corps simple de profil (debout-perche-devant).
+// Rouge : le tireté de la zone où partent les éclats, autour du feu (l'homme est dehors), et le
+// cercle sur la fente de la pierre qui éclate — ce qu'on regarde pour la jeter.
 module.exports = (h) => {
+  const F = h.formes;
   const NOIR = '#1A1A1A';
   const f = v => Math.round(v * 10) / 10;
   const P = p => `${f(p[0])},${f(p[1])}`;
@@ -207,11 +211,23 @@ module.exports = (h) => {
     return { G, px, G1, E, Lc, Rb, xf, xc, M, loupe, k: 3.9, LP0 };
   };
 
-  // l'homme qui tient la perche : pictogramme debout, échelle du dessin (0,12 par mm)
-  const homme = g => {
-    const prise = d => { const c = [g.G1[0] + d * U[0], g.G1[1] + d * U[1]];
-      return { x: c[0], y: c[1], pose: 'prise', vue: 'dos', diametre: 40 * S }; };
-    return h.formes.personnage({ x: g.px, y: g.G, pose: 'debout', echelle: S, prises: { proche: prise(16), loin: prise(36) } });
+  // L'homme qui tient la perche : le corps simple de profil (debout-perche-devant), à l'échelle du
+  // dessin. Les angles des bras viennent d'une recherche faite une fois (Nelder-Mead sur corps(),
+  // lot 3) : les deux poings sur la perche (Ø 40 mm), le proche à 133 mm du bout tenu à la hanche, le
+  // lointain à 300 mm. La perche passe dans les poings (objetP : devant le tronc, derrière le bras
+  // proche) ; l'homme est glissé pour que le poing proche tombe pile dessus.
+  const BRAS = { brasP: -1.6, avantbrasP: 84.9, mainP: -2.3, brasL: 29.4, avantbrasL: 73.2, mainL: 0.2 };
+  const memoH = {};
+  const homme = (g, objet) => {
+    const o = { y: g.G, pose: 'debout-perche-devant', echelle: S, angles: BRAS, prise: { P: 40, L: 40 } };
+    const k = [g.px, g.G].join(',');
+    if (!memoH[k]) {
+      const c0 = F.corps(Object.assign({ x: g.px }, o));
+      const cP = [g.G1[0] + 16 * U[0], g.G1[1] + 16 * U[1]];
+      memoH[k] = { dx: cP[0] - c0.mainP.x, tete: c0.tete };
+    }
+    const m = memoH[k];
+    return objet === undefined ? m : F.corps(Object.assign({ x: g.px + m.dx, objetP: objet }, o));
   };
 
   // la perche, le manche, les ligatures et le bol, dessinés par une fonction de passage T
@@ -302,10 +318,12 @@ module.exports = (h) => {
     const g = geo(z), G = g.G, o = [], id = p => p;
     o.push(h.rect(0, G, z.l, 7, h.a.hachure('terre', 'aucun')), h.ligne(0, G, z.l, G, h.a.arete));
     o.push(foyer(g, id, 1));
-    // l'homme, loin en arrière, debout de profil (le pictogramme de la bibliothèque) : les deux
-    // poings fermés sur la perche, vus du dos de la main, le proche à la hanche, le lointain plus loin
-    o.push(louche(g, id, 1, false));
-    o.push(homme(g).toString());
+    // la zone où partent les éclats d'une pierre qui éclate : à hauteur de visage, autour du feu
+    const zx = g.xf, zr = 118, zh = 150;
+    o.push(h.path(`M ${f(zx - zr)},${f(G)} C ${f(zx - zr)},${f(G - zh * 1.05)} ${f(zx + zr)},${f(G - zh * 1.05)} ${f(zx + zr)},${f(G)}`, h.a.zone));
+    // l'homme, loin en arrière, debout de profil : les deux poings fermés sur la perche, le proche à
+    // la hanche, le lointain plus loin ; la perche et la louche passent dans ses poings
+    o.push(homme(g, louche(g, id, 1, false)).toString());
     // loupe sur la louche : le manche lié sous la perche, le bol qui verse
     loupe(o, g.M, g.loupe, g.k, 'k3704-louche', T => louche(g, T, g.k, true));
     return o.join('\n');
@@ -337,6 +355,8 @@ module.exports = (h) => {
     // l'eau qui tombe de la louche, hors du cadre
     const goutte = (x, y, r) => h.path(`M ${f(x)},${f(y - 2.2 * r)} C ${f(x + 1.1 * r)},${f(y - 0.4 * r)} ${f(x + r)},${f(y + r)} ${f(x)},${f(y + r)} C ${f(x - r)},${f(y + r)} ${f(x - 1.1 * r)},${f(y - 0.4 * r)} ${f(x)},${f(y - 2.2 * r)} Z`, W(h.a.detail));
     for (let y = top - 14; y > 8; y -= 30) o.push(goutte(cx + 1, y, 3.6));
+    // le point à contrôler : la fente — ce qui craque, se fend ou s'écaille, on le jette
+    o.push(h.controle(cx, yc - 6, 16));
     return o.join('\n');
   };
 
@@ -386,7 +406,7 @@ module.exports = (h) => {
           const g = geo(z), L = g.loupe;
           return [
             { n: 7, rond: [g.xf - 100, g.G - 70], cible: [g.xf - 60, g.G - 14], texte: 'chaque pierre au feu, avant de la monter' },
-            { n: 8, rond: [g.px + 44, 16], cible: [g.px + 12, 44], texte: 'tous en arrière, personne penché dessus' },
+            { n: 8, rond: [g.px + 64, 16], cible: (() => { const m = homme(g), t = m.tete; return [t.x + m.dx + 4, t.y - 10]; })(), texte: 'tous en arrière, personne penché dessus' },
             { n: 9, rond: [L.c[0] - L.r - 18, 18], cible: [L.c[0] - 28, L.c[1] - 14], texte: 'louche liée au bout d’une perche' },
           ];
         },

@@ -2,6 +2,9 @@
 // La pousse de bouleau à papier (écorce foncée, pas blanche), le rameau cassé qu'on sent avant
 // de mâcher (un buste qui tient le rameau au poing, h.formes), le bout mâché, et la brosse finie : un bout en brosse, l'autre taillé en pointe.
 // Aucune cote : le chapitre ne donne ni longueur ni diamètre.
+// Lot 3 (13 octobre) : les deux bustes passent au corps simple de profil (buste-main-bouche), la
+// petite main du moteur au poing sur le rameau. Rouge : un seul cercle, sur la cassure sous la
+// narine — « casser et sentir avant de mâcher, chaque fois ».
 module.exports = (h) => {
   const A = h.a, F = h.formes;
   const NOIR = '#1A1A1A', BLANC = '#FFFFFF';
@@ -44,9 +47,20 @@ module.exports = (h) => {
     const T = (u, v) => [x + u * c - v * s, y + u * s + v * c];
     return h.path(`M${P(T(0, -ep))} Q${P(T(lg * 0.55, -ep * 1.1))} ${P(T(lg, 0))} Q${P(T(lg * 0.55, ep * 1.1))} ${P(T(0, ep))} Z`, sombre);
   };
-  // les deux bustes : même échelle, même coupe ; le bras qui travaille va chercher sa main
-  const EB = 0.46, COUPE = 560, SENT_DECAL = 25, MACH_DECAL = 25;
-  const dirA = d => [Math.cos(d * Math.PI / 180), Math.sin(d * Math.PI / 180)];
+  // Les deux bustes : le corps simple de profil (buste-main-bouche), même échelle, recadré par la
+  // vue sous la taille. Les angles du bras viennent d'une recherche faite une fois (Nelder-Mead sur
+  // corps(), lot 3, 13 oct.) : le poing devant le menton, l'axe du rameau qui passe sous la narine
+  // (sentir) ou entre les lèvres (mâcher), penché vers l'avant de 20° ou 24°. Le rameau se pose
+  // ensuite sur la géométrie rendue : du point du visage au centre du poing.
+  const EB = 0.43;
+  const BRAS = {
+    sentir: { brasP: 66.2, avantbrasP: -147.7, mainP: -200 },
+    macher: { brasP: 54.8, avantbrasP: -156.4, mainP: -204 },
+  };
+  // le point du visage, en mm depuis le centre de la tête (le corps simple n'a pas de visage :
+  // relevé sur son contour, le nez au plus avancé à +24 mm, le creux sous la narine à +34, les
+  // lèvres à +58)
+  const VISAGE = { sentir: [99, 34], macher: [83, 58] };
   const plus = (p, u, k) => [p[0] + u[0] * k, p[1] + u[1] * k];
   // le rameau tenu : droit, d'un bout B à l'autre bout Q, un peu cambré
   const rameauDroit = (Q, B, r0, r1, n = 14) => {
@@ -56,43 +70,37 @@ module.exports = (h) => {
       return [Q[0] + (B[0] - Q[0]) * t + nx * k, Q[1] + (B[1] - Q[1]) * t + ny * k];
     });
   };
-  // l'angle de la main que le bras choisit tout seul (coude bas, devant la poitrine), lu sur l'axe
-  // de la main qu'il rend ; on recommence jusqu'à ce que le rameau passe par la main à cet angle
-  const angleDe = (X, Y, mo) => {
-    const m = F.buste({ x: X, y: Y, echelle: EB, coupe: COUPE, main: mo }).mains.proche;
-    return Math.atan2(m.trou.axe[0], -m.trou.axe[1]) * 180 / Math.PI;
+  const memo = {};
+  const Y_SOL = 8 + 1773 * EB;                           // le sommet du crâne à 8 du haut de la vue
+  const buste = (cle, X, z) => {
+    const k = [cle, X, z.l, z.h].join(',');
+    if (!memo[k]) memo[k] = F.corps({ x: X, y: Y_SOL, pose: 'buste-main-bouche', echelle: EB, angles: BRAS[cle] });
+    return memo[k];
   };
-  // une prise du poing (vue du dos) sur un rameau dont un bout A est posé au visage : le poing est
-  // à k de A le long du rameau ; l'angle est celui que le bras prend tout seul, plus decal
-  const geoPrise = (X, Y, A, k, decal) => {
-    let u = [1, 0], M, ang;
-    for (let i = 0; i < 6; i++) {
-      M = plus(A, u, k);
-      ang = angleDe(X, Y, { x: M[0], y: M[1], pose: 'prise', vue: 'dos', diametre: 6.8, bras: 60 }) + decal;
-      const ax = dirA(ang - 90);                           // l'axe de la main (vers le haut à angle 0)
-      u = ax[0] > 0 ? ax : [-ax[0], -ax[1]];               // du visage vers l'avant
-    }
-    return { u, M: plus(A, u, k), ang };
+  // la géométrie d'une vue : le point du visage A, le poing M, la direction u du visage vers l'avant
+  const geoBuste = (cle, z) => {
+    const X = z.l * 0.27;
+    const c = buste(cle, X, z);
+    const A = [c.tete.x + VISAGE[cle][0] * EB, c.tete.y + VISAGE[cle][1] * EB], M = [c.mainP.x, c.mainP.y];
+    const L = Math.hypot(M[0] - A[0], M[1] - A[1]), u = [(M[0] - A[0]) / L, (M[1] - A[1]) / L];
+    return { X, c, A, M, u, k: L };
+  };
+  // le corps et son objet (le rameau, derrière le poing vu du dos, devant le visage), coupé au
+  // bord de la vue : un buste
+  const rendre = (cle, X, z, objet) => {
+    const id = `rogne-27-05-${cle}`;
+    const c = F.corps({ x: X, y: Y_SOL, pose: 'buste-main-bouche', echelle: EB, angles: BRAS[cle], objetP: objet });
+    return `<clipPath id="${id}"><rect x="0" y="0" width="${f1(z.l)}" height="${f1(z.h)}"/></clipPath>\n<g clip-path="url(#${id})">\n${c}\n</g>`;
   };
   // la vue « sentir » : la cassure sous la narine, le rameau tenu au poing devant le menton
-  const SENT = { k: 30, queue: 58, decal: SENT_DECAL };
-  const geoSentir = z => {
-    const X = z.l * 0.3, Y = z.h - 2;
-    const b0 = F.buste({ x: X, y: Y, echelle: EB, coupe: COUPE });
-    const B = [b0.nez[0] + 4, b0.nez[1] + 4];
-    const g = geoPrise(X, Y, B, SENT.k, SENT.decal);
-    return { X, Y, B, ...g, bout: plus(B, g.u, SENT.queue) };
-  };
+  const SENT = { queue: 58 };
+  const geoSentir = z => { const g = geoBuste('sentir', z); return { ...g, B: g.A, bout: plus(g.A, g.u, g.k + SENT.queue - 12) }; };
   // la vue « mâcher » : le bout coupé entre les lèvres, la pousse tenue au poing
-  const MACH = { k: 44, decal: MACH_DECAL };
   const geoMacher = z => {
-    const X = z.l * 0.28, Y = z.h - 2;
-    const b0 = F.buste({ x: X, y: Y, echelle: EB, coupe: COUPE });
-    const C = [b0.bouche[0] + 2, b0.bouche[1]];
-    const g = geoPrise(X, Y, C, MACH.k, MACH.decal);
+    const g = geoBuste('macher', z), C = g.A;
     // le bout mince : aussi loin que la vue le permet
     const lg = Math.min(150, (z.l - 8 - C[0]) / g.u[0], (z.h * 0.75 - C[1]) / Math.max(0.01, g.u[1]));
-    return { X, Y, C, ...g, D: plus(C, g.u, lg) };
+    return { ...g, C, D: plus(C, g.u, lg) };
   };
   // pseudo-hasard stable
   let graine = 7;
@@ -193,8 +201,8 @@ module.exports = (h) => {
           [[-1, -0.3, 7, -1.1], [0.2, 1, 9, 1.2], [-0.6, 0.2, 11, -0.2], [-0.1, 0.6, 5, 0.5]].forEach(([b0, b1, lg, bt]) =>
             rameau.push(h.path(`M${P(Pt(-0.5, b0 * r))} L${P(Pt(lg, bt * r))} L${P(Pt(-0.5, b1 * r))} Z`, bois)));
           rameau.push(h.path(`M${P(Pt(-1, -r))} L${P(Pt(2.5, -r * 0.7))} L${P(Pt(0.5, -r * 0.2))} L${P(Pt(2, r * 0.4))} L${P(Pt(-0.5, r * 0.8))} L${P(Pt(-3, 0))} Z`, sombre));
-          return F.buste({ x: g.X, y: g.Y, echelle: EB, coupe: COUPE,
-            main: { x: g.M[0], y: g.M[1], pose: 'prise', vue: 'dos', angle: g.ang, diametre: 6.8, bras: 60, objet: rameau.join('\n') } }).toString();
+          // le point à contrôler : l'odeur de la cassure, sous la narine, chaque fois
+          return [rendre('sentir', g.X, z, rameau.join('\n')), h.controle(g.B[0] - 1, g.B[1] + 1, 9)].join('\n');
         },
         renvois: z => {
           const g = geoSentir(z);
@@ -216,10 +224,7 @@ module.exports = (h) => {
             objet.push(bourgeon(pts[i][0] + Math.cos(aR) * rr * 0.7, pts[i][1] + Math.sin(aR) * rr * 0.7, a + sg * -32, 7, 2.2));
           });
           objet.push(bourgeon(g.D[0] - 1, g.D[1], angDe(30), 7, 1.9));
-          const angM = Math.atan2(g.u[1], g.u[0]) * 180 / Math.PI + 90 + 180;
-          const b = F.buste({ x: g.X, y: g.Y, echelle: EB, coupe: COUPE,
-            main: { x: g.M[0], y: g.M[1], pose: 'prise', vue: 'dos', angle: g.ang, diametre: 6.8, bras: 60, objet: objet.join('\n') } });
-          return b.toString();
+          return rendre('macher', g.X, z, objet.join('\n'));
         },
         renvois: z => {
           const g = geoMacher(z);

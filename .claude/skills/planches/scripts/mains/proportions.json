@@ -1,0 +1,1029 @@
+{
+ "source": "Adultes : Greiner T.M. (1991) Hand Anthropometry of U.S. Army Personnel, NATICK/TR-92/011 (DTIC ADA244533), 1304 femmes, 1003 hommes : longueurs de liens articulation à articulation, largeurs et périmètres des articulations ; table relevée par OCR et rapports réconciliés dans le dépôt GitHub ErnestWang31/hand-kinematics (MIT ; données du gouvernement fédéral américain, domaine public), fichiers data/greiner_hand_1988.csv, hand_model.yaml et hand_anthropometry.md, téléchargés le 14 octobre 2026. Recoupés par ANSUR II (2012), fichiers publics « ANSUR II MALE/FEMALE Public.csv » (4082 hommes, 1986 femmes ; miroir GitHub senihberkay/US-Army-ANSUR-II, md5 97c30e4c… et 4dd69c81…), statistiques calculées ici. Enfants : le facteur de taille du corps des planches (corps/proportions.json : main de Drillis-Contini corrigée), la largeur par le rapport de Wen et coll. (2020) Journal of International Medical Research (décembre 2020), et la longueur d’avant-bras d’AnthroKids 1977 (NIST, Snyder et coll. 1977). Les pages n’ont pas pu être enregistrées dans /sources (le réseau de la session ne joint ni DTIC, ni NIST, ni PMC) ; les fichiers de données sont dans le scratch de l’agent 4 (telecharge/). Usage : dessin des planches seulement, rien de ceci ne s’imprime.",
+ "unites": "mm",
+ "repere": "Longueur de la main = pli distal du poignet → bout du majeur. Le moteur dessine la main de l’homme à 190 (extremites.js ; corps/proportions.json : 189) ; Greiner mesure 194,1 et ANSUR II 193,3. Les trois clés que le moteur lit sont AU REPÈRE DU DESSIN : main.longueur = 190 × facteur, main.largeur (la largeur mesurée ramenée à cette longueur), avantbras.longueur (celle du corps des planches, pour que gros plan et corps entier aient le même bras). Toutes les autres cotes en mm sont les MOYENNES MESURÉES (main.longueur_mesuree, etc.) : les multiplier par vers_dessin pour le repère 190. « dessin_homme » donne la main de l’homme déjà ramenée à 190.",
+ "vers_dessin": 0.9789,
+ "definitions": {
+  "metacarpe": "lien du poignet (milieu du pli distal) à la MCP pour les doigts ; du trapèze (CMC) à la MCP pour le pouce",
+  "p1": "MCP → IPP (pouce : MCP → IP)",
+  "p2": "IPP → IPD",
+  "p3": "IPD → bout du doigt, pulpe comprise (pouce : IP → bout)",
+  "bout_au_poignet_mesure": "bout du doigt → pli du poignet, mesuré directement (contrôle de la somme des liens)",
+  "racine.largeur": "largeur du doigt à sa racine, dans la palmure",
+  "ipp, ipd": "largeur (de côté à côté), épaisseur (dos → paume) et périmètre du doigt sur l’articulation",
+  "palmures": "hauteur du fond de chaque palmure au-dessus du pli du poignet",
+  "main.epaisseur_paume_ellipse": "épaisseur de la paume aux métacarpes déduite de la largeur et du périmètre comme une ellipse : borne haute (la section est plus plate)",
+  "main.epaisseur_paume_stade": "la même comme un stade (deux côtés plats, deux bouts ronds) : borne basse ; la vraie est entre les deux, près de epaisseur_mcp3",
+  "main.epaisseur_mcp3": "épaisseur de la main sur la MCP du majeur",
+  "poignet.epaisseur": "déduite de la largeur et du périmètre du poignet comme une ellipse (Ramanujan) ; epaisseur_stade : comme un stade, borne basse",
+  "avantbras.longueur_radiale_stylion": "radiale (tête du radius) → stylion (styloïde radiale)",
+  "avantbras.circonference_max": "périmètre maximal de l’avant-bras, près du coude (ANSUR II « forearm circumference flexed »)",
+  "avantbras.diametre_moyen_coude": "circonference_max / π : la section ronde équivalente ; la part largeur / épaisseur manque",
+  "prise.poignet_centre_prise": "pli du poignet → centre d’un manche tenu (Greiner « wrist to center of grip »)",
+  "prise.coude_centre_prise": "coude → centre du manche tenu (ANSUR II « forearm center of grip length »)"
+ },
+ "rapports_longueur": {
+  "pouce": {
+   "metacarpe": 0.232,
+   "p1": 0.165,
+   "p3": 0.14
+  },
+  "index": {
+   "metacarpe": 0.435,
+   "p1": 0.247,
+   "p2": 0.117,
+   "p3": 0.141
+  },
+  "majeur": {
+   "metacarpe": 0.432,
+   "p1": 0.275,
+   "p2": 0.139,
+   "p3": 0.141
+  },
+  "annulaire": {
+   "metacarpe": 0.396,
+   "p1": 0.268,
+   "p2": 0.126,
+   "p3": 0.144
+  },
+  "auriculaire": {
+   "metacarpe": 0.376,
+   "p1": 0.209,
+   "p2": 0.09,
+   "p3": 0.131
+  },
+  "note": "fractions de la longueur de la main (HL), réconciliées sur Greiner par hand-kinematics : somme des liens = bout au poignet mesuré à 0,3 mm près pour le majeur, l’annulaire et l’auriculaire ; la P1 de l’index ramenée à 0,90 × P1 du majeur (Greiner prend la MCP de l’index au pli palmaire) ; le pouce anatomique (métacarpe 45, P1 32, P3 27 mm à HL 194) calé sur le bout du pouce au poignet mesuré (−0,2 % chez la femme, −1,8 % chez l’homme), les liens du pouce de Greiner étant inutilisables. Recoupement : métacarpe I de 46,22 ± 3,94 mm à la radiographie (Buryanov et Kotiuk 2010, Int. J. Morphol. 28(3), 66 adultes). Les mêmes rapports chez la femme et l’enfant [À VÉRIFIER] pour l’enfant."
+ },
+ "position_mcp_largeur_main": {
+  "index": 0.39,
+  "majeur": 0.13,
+  "annulaire": -0.13,
+  "auriculaire": -0.39,
+  "note": "décalage latéral de chaque MCP en fraction de la largeur de la main, + vers le pouce (hand-kinematics : répartition régulière, choix de modèle) [À VÉRIFIER]"
+ },
+ "articulations": {
+  "note": "amplitudes fonctionnelles en degrés, flexion positive (hand-kinematics, d’après les normes AAOS et la littérature citée dans hand_anthropometry.md) ; à prendre comme bornes de dessin",
+  "poignet": {
+   "flexion": [
+    -70,
+    80
+   ],
+   "deviation": [
+    -20,
+    35
+   ]
+  },
+  "mcp": {
+   "flexion": [
+    -30,
+    90
+   ],
+   "ecart": {
+    "index": 20,
+    "majeur": 15,
+    "annulaire": 20,
+    "auriculaire": 30
+   }
+  },
+  "ipp": [
+   -5,
+   110
+  ],
+  "ipd": [
+   -10,
+   80
+  ],
+  "pouce": {
+   "cmc_flexion": [
+    -25,
+    30
+   ],
+   "cmc_abduction": [
+    -5,
+    60
+   ],
+   "cmc_rotation": [
+    -20,
+    20
+   ],
+   "mcp": [
+    -10,
+    60
+   ],
+   "ip": [
+    -25,
+    85
+   ]
+  },
+  "couplages": {
+   "ipd_ipp": "IPD ≈ 0,67 × IPP (± 15°) : l’IPD ne plie pas seule",
+   "ecart_mcp": "l’écart d’un doigt tombe à 0 quand la MCP est pliée à 90° : écart_max × (1 − flexion_MCP / 90)",
+   "voisins": "deux MCP voisines ne diffèrent pas de plus de 25 à 30° ; deux IPP de 35 à 45°",
+   "arche": "la MCP de l’annulaire descend de 0 à 15°, celle de l’auriculaire de 0 à 25° dans une prise (la paume se creuse)"
+  },
+  "poses_de_reference": {
+   "repos": {
+    "mcp": 25,
+    "ipp": 45,
+    "ipd": 20,
+    "pouce_cmc_abduction": 30,
+    "pouce_mcp": 10,
+    "pouce_ip": 15
+   },
+   "prise_50mm": {
+    "mcp": 60,
+    "ipp": 75,
+    "ipd": 45,
+    "pouce_cmc_abduction": 25,
+    "pouce_mcp": 40,
+    "pouce_ip": 30
+   },
+   "pince_bout": {
+    "mcp": 40,
+    "ipp": 60,
+    "ipd": 40,
+    "pouce_cmc_flexion": -5,
+    "pouce_cmc_abduction": 45,
+    "pouce_mcp": 30,
+    "pouce_ip": 30
+   }
+  }
+ },
+ "dessin_homme": {
+  "note": "la main de l’homme ramenée à 190 (× 0.9789) : longueurs de liens, en mm. mcp = [x, y] de la MCP dans le repère du moteur (x le long de la main depuis le pli du poignet, y vers l’auriculaire) : y = − décalage latéral × largeur (position_mcp_largeur_main, [À VÉRIFIER]), x = √(métacarpe² − y²). p3 va jusqu’au bout du doigt, pulpe comprise : le moteur, dont la dernière phalange s’arrête au centre de l’arrondi, en retire le rayon du bout.",
+  "largeur": 88.5,
+  "doigts": {
+   "index": {
+    "metacarpe": 82.7,
+    "mcp": [
+     75.1,
+     -34.5
+    ],
+    "p1": 46.9,
+    "p2": 22.2,
+    "p3": 26.8
+   },
+   "majeur": {
+    "metacarpe": 82.1,
+    "mcp": [
+     81.3,
+     -11.5
+    ],
+    "p1": 52.3,
+    "p2": 26.4,
+    "p3": 26.8
+   },
+   "annulaire": {
+    "metacarpe": 75.2,
+    "mcp": [
+     74.4,
+     11.5
+    ],
+    "p1": 50.9,
+    "p2": 23.9,
+    "p3": 27.4
+   },
+   "auriculaire": {
+    "metacarpe": 71.4,
+    "mcp": [
+     62.5,
+     34.5
+    ],
+    "p1": 39.7,
+    "p2": 17.1,
+    "p3": 24.9
+   }
+  },
+  "pouce": {
+   "metacarpe": 44.1,
+   "p1": 31.4,
+   "p2": 26.6,
+   "cmc": [
+    22.8,
+    -21.2
+   ],
+   "note": "p2 = IP → bout, pulpe comprise ; cmc : [À VÉRIFIER]"
+  },
+  "avantbras": {
+   "longueur": 255.5,
+   "note": "le corps des planches (Drillis-Contini, centre à centre) ; radiale-stylion mesuré : 262.2 au repère"
+  }
+ },
+ "alias": {
+  "adulte": "homme",
+  "enfant": "enfant6"
+ },
+ "ages": {
+  "homme": {
+   "facteur": 1.0,
+   "main": {
+    "longueur": 190.0,
+    "largeur": 88.5,
+    "circonference": 213.3,
+    "paume": 110.5,
+    "epaisseur_paume_ellipse": 40.6,
+    "epaisseur_paume_stade": 28.5,
+    "epaisseur_mcp3": 33.0,
+    "longueur_mesuree": 194.1,
+    "largeur_mesuree": 90.4
+   },
+   "doigts": {
+    "index": {
+     "longueurs": {
+      "metacarpe": 84.4,
+      "p1": 47.9,
+      "p2": 22.7,
+      "p3": 27.4,
+      "bout_au_poignet_mesure": 185.2
+     },
+     "racine": {
+      "largeur": 23.7,
+      "note": "déduite : largeur de la main partagée au prorata des périmètres IPP"
+     },
+     "ipp": {
+      "perimetre": 68.4,
+      "largeur": 23.0,
+      "epaisseur": 20.5
+     },
+     "ipd": {
+      "perimetre": 57.4,
+      "largeur": 19.3,
+      "epaisseur": 17.2
+     },
+     "bout": {
+      "largeur": "[À VÉRIFIER]",
+      "epaisseur": "[À VÉRIFIER]"
+     }
+    },
+    "majeur": {
+     "longueurs": {
+      "metacarpe": 83.9,
+      "p1": 53.4,
+      "p2": 27.0,
+      "p3": 27.4,
+      "bout_au_poignet_mesure": 194.5
+     },
+     "racine": {
+      "largeur": 24.1,
+      "note": "déduite : largeur de la main partagée au prorata des périmètres IPP"
+     },
+     "ipp": {
+      "perimetre": 69.6,
+      "largeur": 22.5,
+      "epaisseur": 21.8
+     },
+     "ipd": {
+      "perimetre": 57.8,
+      "largeur": 18.7,
+      "epaisseur": 18.1
+     },
+     "bout": {
+      "largeur": "[À VÉRIFIER]",
+      "epaisseur": "[À VÉRIFIER]"
+     }
+    },
+    "annulaire": {
+     "longueurs": {
+      "metacarpe": 76.9,
+      "p1": 52.0,
+      "p2": 24.5,
+      "p3": 28.0,
+      "bout_au_poignet_mesure": 185.0
+     },
+     "racine": {
+      "largeur": 22.5,
+      "note": "déduite : largeur de la main partagée au prorata des périmètres IPP"
+     },
+     "ipp": {
+      "perimetre": 64.9,
+      "largeur": 21.0,
+      "epaisseur": 20.3,
+      "note": "largeur et épaisseur déduites (rapport du majeur)"
+     },
+     "ipd": {
+      "perimetre": 54.2,
+      "largeur": 17.5,
+      "epaisseur": 17.0,
+      "note": "[À VÉRIFIER] déduit (rapport IPD/IPP de l’index et du majeur)"
+     },
+     "bout": {
+      "largeur": "[À VÉRIFIER]",
+      "epaisseur": "[À VÉRIFIER]"
+     }
+    },
+    "auriculaire": {
+     "longueurs": {
+      "metacarpe": 73.0,
+      "p1": 40.6,
+      "p2": 17.5,
+      "p3": 25.4,
+      "bout_au_poignet_mesure": 159.9
+     },
+     "racine": {
+      "largeur": 20.0,
+      "note": "déduite : largeur de la main partagée au prorata des périmètres IPP"
+     },
+     "ipp": {
+      "perimetre": 57.8,
+      "largeur": 18.7,
+      "epaisseur": 18.1,
+      "note": "largeur et épaisseur déduites (rapport du majeur)"
+     },
+     "ipd": {
+      "perimetre": 48.3,
+      "largeur": 15.6,
+      "epaisseur": 15.1,
+      "note": "[À VÉRIFIER] déduit (rapport IPD/IPP de l’index et du majeur)"
+     },
+     "bout": {
+      "largeur": "[À VÉRIFIER]",
+      "epaisseur": "[À VÉRIFIER]"
+     }
+    }
+   },
+   "pouce": {
+    "longueurs": {
+     "metacarpe": 45.0,
+     "p1": 32.0,
+     "p3": 27.2,
+     "bout_au_poignet_mesure": 137.9
+    },
+    "cmc": {
+     "x_hb": 0.24,
+     "y_hl": 0.12,
+     "x": 21.7,
+     "y": 23.3,
+     "note": "position du trapèze, modèle hand-kinematics [À VÉRIFIER]"
+    },
+    "ip": {
+     "perimetre": 72.3,
+     "diametre_moyen": 23.0,
+     "largeur": "[À VÉRIFIER]",
+     "epaisseur": "[À VÉRIFIER]"
+    }
+   },
+   "palmures": {
+    "pouce_index": 69.1,
+    "index_majeur": 110.4,
+    "majeur_annulaire": 109.9,
+    "annulaire_auriculaire": 96.6
+   },
+   "poignet": {
+    "largeur": 65.8,
+    "circonference": 174.3,
+    "epaisseur": 44.1,
+    "epaisseur_stade": 37.4
+   },
+   "avantbras": {
+    "longueur": 255.5,
+    "longueur_radiale_stylion": 267.9,
+    "circonference_max": 310.1,
+    "diametre_moyen_coude": 98.7,
+    "largeur_coude": "[À VÉRIFIER]",
+    "epaisseur_coude": "[À VÉRIFIER]"
+   },
+   "prise": {
+    "poignet_centre_prise": 76.0,
+    "coude_centre_prise": 349.0
+   },
+   "provenance": {
+    "main (longueur, largeur, circonférence, paume), doigts (longueurs mesurées, IPP, IPD), pouce (IP, bout au poignet), palmures, poignet (largeur, circonférence), prise.poignet_centre_prise": "Greiner 1991, moyennes hommes",
+    "doigts.longueurs (métacarpe, p1, p2, p3), pouce.longueurs": "rapports_longueur × longueur de la main",
+    "doigts.ipp (annulaire, auriculaire), doigts.ipd (annulaire, auriculaire), doigts.racine, poignet.epaisseur, main.epaisseur_paume_ellipse": "déduits (voir les notes et definitions)",
+    "main.epaisseur_mcp3": "[À VÉRIFIER] 33 mm : « Hand Thickness, Metacarpal III » 1,3 (ET 0,1), unité lue comme le pouce, tableau sans en-tête (Anthropometric Guidelines, DENIX, Webb Associates) ; pas recoupé",
+    "avantbras, prise.coude_centre_prise": "ANSUR II 2012, moyennes hommes (n = 4082)",
+    "avantbras.largeur_coude, epaisseur_coude, doigts.bout": "[À VÉRIFIER] aucune source trouvée"
+   }
+  },
+  "femme": {
+   "facteur": 0.931,
+   "main": {
+    "longueur": 176.9,
+    "largeur": 77.8,
+    "circonference": 186.5,
+    "paume": 100.9,
+    "epaisseur_paume_ellipse": 34.8,
+    "epaisseur_paume_stade": 24.1,
+    "epaisseur_mcp3": 28.0,
+    "longueur_mesuree": 180.7,
+    "largeur_mesuree": 79.5
+   },
+   "doigts": {
+    "index": {
+     "longueurs": {
+      "metacarpe": 78.6,
+      "p1": 44.6,
+      "p2": 21.1,
+      "p3": 25.5,
+      "bout_au_poignet_mesure": 169.9
+     },
+     "racine": {
+      "largeur": 21.1,
+      "note": "déduite : largeur de la main partagée au prorata des périmètres IPP"
+     },
+     "ipp": {
+      "perimetre": 61.2,
+      "largeur": 19.9,
+      "epaisseur": 19.1
+     },
+     "ipd": {
+      "perimetre": 50.8,
+      "largeur": 16.5,
+      "epaisseur": 15.8
+     },
+     "bout": {
+      "largeur": "[À VÉRIFIER]",
+      "epaisseur": "[À VÉRIFIER]"
+     }
+    },
+    "majeur": {
+     "longueurs": {
+      "metacarpe": 78.1,
+      "p1": 49.7,
+      "p2": 25.1,
+      "p3": 25.5,
+      "bout_au_poignet_mesure": 178.4
+     },
+     "racine": {
+      "largeur": 21.1,
+      "note": "déduite : largeur de la main partagée au prorata des périmètres IPP"
+     },
+     "ipp": {
+      "perimetre": 61.3,
+      "largeur": 19.3,
+      "epaisseur": 19.7
+     },
+     "ipd": {
+      "perimetre": 50.9,
+      "largeur": 16.0,
+      "epaisseur": 16.4
+     },
+     "bout": {
+      "largeur": "[À VÉRIFIER]",
+      "epaisseur": "[À VÉRIFIER]"
+     }
+    },
+    "annulaire": {
+     "longueurs": {
+      "metacarpe": 71.6,
+      "p1": 48.4,
+      "p2": 22.8,
+      "p3": 26.0,
+      "bout_au_poignet_mesure": 168.9
+     },
+     "racine": {
+      "largeur": 19.8,
+      "note": "déduite : largeur de la main partagée au prorata des périmètres IPP"
+     },
+     "ipp": {
+      "perimetre": 57.4,
+      "largeur": 18.1,
+      "epaisseur": 18.5,
+      "note": "largeur et épaisseur déduites (rapport du majeur)"
+     },
+     "ipd": {
+      "perimetre": 47.7,
+      "largeur": 15.0,
+      "epaisseur": 15.3,
+      "note": "[À VÉRIFIER] déduit (rapport IPD/IPP de l’index et du majeur)"
+     },
+     "bout": {
+      "largeur": "[À VÉRIFIER]",
+      "epaisseur": "[À VÉRIFIER]"
+     }
+    },
+    "auriculaire": {
+     "longueurs": {
+      "metacarpe": 67.9,
+      "p1": 37.8,
+      "p2": 16.3,
+      "p3": 23.7,
+      "bout_au_poignet_mesure": 145.5
+     },
+     "racine": {
+      "largeur": 17.5,
+      "note": "déduite : largeur de la main partagée au prorata des périmètres IPP"
+     },
+     "ipp": {
+      "perimetre": 50.6,
+      "largeur": 15.9,
+      "epaisseur": 16.3,
+      "note": "largeur et épaisseur déduites (rapport du majeur)"
+     },
+     "ipd": {
+      "perimetre": 42.0,
+      "largeur": 13.2,
+      "epaisseur": 13.5,
+      "note": "[À VÉRIFIER] déduit (rapport IPD/IPP de l’index et du majeur)"
+     },
+     "bout": {
+      "largeur": "[À VÉRIFIER]",
+      "epaisseur": "[À VÉRIFIER]"
+     }
+    }
+   },
+   "pouce": {
+    "longueurs": {
+     "metacarpe": 41.9,
+     "p1": 29.8,
+     "p3": 25.3,
+     "bout_au_poignet_mesure": 125.7
+    },
+    "cmc": {
+     "x_hb": 0.24,
+     "y_hl": 0.12,
+     "x": 19.1,
+     "y": 21.7,
+     "note": "position du trapèze, modèle hand-kinematics [À VÉRIFIER]"
+    },
+    "ip": {
+     "perimetre": 63.0,
+     "diametre_moyen": 20.1,
+     "largeur": "[À VÉRIFIER]",
+     "epaisseur": "[À VÉRIFIER]"
+    }
+   },
+   "palmures": {
+    "pouce_index": 62.8,
+    "index_majeur": 100.5,
+    "majeur_annulaire": 100.3,
+    "annulaire_auriculaire": 87.9
+   },
+   "poignet": {
+    "largeur": 57.0,
+    "circonference": 151.4,
+    "epaisseur": 38.5,
+    "epaisseur_stade": 32.8
+   },
+   "avantbras": {
+    "longueur": 238.0,
+    "longueur_radiale_stylion": 241.3,
+    "circonference_max": 264.1,
+    "diametre_moyen_coude": 84.1,
+    "largeur_coude": "[À VÉRIFIER]",
+    "epaisseur_coude": "[À VÉRIFIER]"
+   },
+   "prise": {
+    "poignet_centre_prise": 69.8,
+    "coude_centre_prise": 317.7
+   },
+   "provenance": {
+    "main, doigts, pouce, palmures, poignet, prise.poignet_centre_prise": "Greiner 1991, moyennes femmes ; mêmes déductions que l’homme",
+    "main.epaisseur_mcp3": "[À VÉRIFIER] 28 mm : 1,1 (ET 0,1) dans le même tableau DENIX sans en-tête",
+    "avantbras, prise.coude_centre_prise": "ANSUR II 2012, moyennes femmes (n = 1986)",
+    "facteur": "Greiner F/M 180,7 / 194,1 = 0,931 ; le corps des planches a 176 / 189 = 0,931 : la même main"
+   }
+  },
+  "enfant6": {
+   "facteur": 0.647,
+   "main": {
+    "longueur": 122.9,
+    "largeur": 57.3,
+    "circonference": 138.0,
+    "paume": 71.5,
+    "epaisseur_paume_ellipse": 26.3,
+    "epaisseur_paume_stade": 18.4,
+    "epaisseur_mcp3": "[À VÉRIFIER]",
+    "note_largeur": "largeur = 0,466 × longueur : rapport des garçons de 5,0-5,4 ans (Wen et coll. 2020 : 130,8 / 61,0 mm), le même que l’homme (Greiner 0,466)",
+    "longueur_mesuree": 125.6,
+    "largeur_mesuree": 58.5
+   },
+   "doigts": {
+    "index": {
+     "longueurs": {
+      "metacarpe": 54.6,
+      "p1": 31.0,
+      "p2": 14.7,
+      "p3": 17.7,
+      "bout_au_poignet_mesure": 119.8
+     },
+     "racine": {
+      "largeur": 15.3,
+      "note": "déduite : largeur de la main partagée au prorata des périmètres IPP"
+     },
+     "ipp": {
+      "perimetre": 44.3,
+      "largeur": 14.9,
+      "epaisseur": 13.3
+     },
+     "ipd": {
+      "perimetre": 37.1,
+      "largeur": 12.5,
+      "epaisseur": 11.1
+     },
+     "bout": {
+      "largeur": "[À VÉRIFIER]",
+      "epaisseur": "[À VÉRIFIER]"
+     }
+    },
+    "majeur": {
+     "longueurs": {
+      "metacarpe": 54.3,
+      "p1": 34.5,
+      "p2": 17.5,
+      "p3": 17.7,
+      "bout_au_poignet_mesure": 125.8
+     },
+     "racine": {
+      "largeur": 15.6,
+      "note": "déduite : largeur de la main partagée au prorata des périmètres IPP"
+     },
+     "ipp": {
+      "perimetre": 45.0,
+      "largeur": 14.6,
+      "epaisseur": 14.1
+     },
+     "ipd": {
+      "perimetre": 37.4,
+      "largeur": 12.1,
+      "epaisseur": 11.7
+     },
+     "bout": {
+      "largeur": "[À VÉRIFIER]",
+      "epaisseur": "[À VÉRIFIER]"
+     }
+    },
+    "annulaire": {
+     "longueurs": {
+      "metacarpe": 49.8,
+      "p1": 33.6,
+      "p2": 15.9,
+      "p3": 18.1,
+      "bout_au_poignet_mesure": 119.7
+     },
+     "racine": {
+      "largeur": 14.6,
+      "note": "déduite : largeur de la main partagée au prorata des périmètres IPP"
+     },
+     "ipp": {
+      "perimetre": 42.0,
+      "largeur": 13.6,
+      "epaisseur": 13.1,
+      "note": "largeur et épaisseur déduites (rapport du majeur)"
+     },
+     "ipd": {
+      "perimetre": 35.1,
+      "largeur": 11.3,
+      "epaisseur": 11.0,
+      "note": "[À VÉRIFIER] déduit (rapport IPD/IPP de l’index et du majeur)"
+     },
+     "bout": {
+      "largeur": "[À VÉRIFIER]",
+      "epaisseur": "[À VÉRIFIER]"
+     }
+    },
+    "auriculaire": {
+     "longueurs": {
+      "metacarpe": 47.2,
+      "p1": 26.3,
+      "p2": 11.3,
+      "p3": 16.4,
+      "bout_au_poignet_mesure": 103.5
+     },
+     "racine": {
+      "largeur": 12.9,
+      "note": "déduite : largeur de la main partagée au prorata des périmètres IPP"
+     },
+     "ipp": {
+      "perimetre": 37.4,
+      "largeur": 12.1,
+      "epaisseur": 11.7,
+      "note": "largeur et épaisseur déduites (rapport du majeur)"
+     },
+     "ipd": {
+      "perimetre": 31.3,
+      "largeur": 10.1,
+      "epaisseur": 9.8,
+      "note": "[À VÉRIFIER] déduit (rapport IPD/IPP de l’index et du majeur)"
+     },
+     "bout": {
+      "largeur": "[À VÉRIFIER]",
+      "epaisseur": "[À VÉRIFIER]"
+     }
+    }
+   },
+   "palmures": {
+    "pouce_index": 44.7,
+    "index_majeur": 71.4,
+    "majeur_annulaire": 71.1,
+    "annulaire_auriculaire": 62.5
+   },
+   "poignet": {
+    "largeur": 42.6,
+    "circonference": 112.8,
+    "epaisseur": 28.5,
+    "epaisseur_stade": 24.2
+   },
+   "pouce": {
+    "longueurs": {
+     "metacarpe": 29.1,
+     "p1": 20.7,
+     "p3": 17.6,
+     "bout_au_poignet_mesure": 89.2
+    },
+    "ip": {
+     "perimetre": 46.8,
+     "diametre_moyen": 14.9,
+     "largeur": "[À VÉRIFIER]",
+     "epaisseur": "[À VÉRIFIER]"
+    },
+    "cmc": {
+     "x_hb": 0.24,
+     "y_hl": 0.12
+    }
+   },
+   "avantbras": {
+    "longueur": 165.3,
+    "longueur_radiale_stylion_garcons": 173.0,
+    "note_longueur": "AnthroKids 1977 (Snyder et coll.), garçons 5,5-6,5 ans, n = 43, ET 11 ; le corps des planches a 165,3 (Drillis-Contini, centre à centre)",
+    "circonference_max": "[À VÉRIFIER]",
+    "diametre_moyen_coude": 63.9,
+    "note": "diamètre : celui de l’homme × facteur [À VÉRIFIER]"
+   },
+   "prise": {
+    "poignet_centre_prise": 49.2
+   },
+   "provenance": {
+    "facteur": "corps/proportions.json : main 122,3 / 189 (Drillis-Contini × 0,971, correction d’envergure d’Engelbach) ; la main de l’enfant reste celle de la vitrine des corps",
+    "main.largeur": "Wen et coll. 2020 (enfants chinois) : rapport largeur / longueur 0,466 à 5,0-5,4 ans (garçons)",
+    "le reste": "l’homme × facteur : mêmes rapports que l’adulte ; les cotes « _mesuree » et toutes les autres sont celles de l’homme mesuré × facteur [À VÉRIFIER]",
+    "recoupements": "Wen et coll. 2020 : garçons chinois de 5,0-5,4 ans, main 130,8 ± 7,2 mm, largeur 61,0 ± 3,5 ; NIST AnthroKids : avant-bras (radiale-stylion) des garçons 173 mm à 5,5-6,5 ans. Ces deux chiffres font la main de 6 ans plus grande que 122,3 (de 4 à 8 %) : [À VÉRIFIER] — le tableau « Hand Length » d’AnthroKids 1977 (item 47) tranche, introuvable ici"
+   }
+  },
+  "enfant4": {
+   "facteur": 0.571,
+   "main": {
+    "longueur": 108.5,
+    "largeur": 50.5,
+    "circonference": 121.8,
+    "paume": 63.1,
+    "epaisseur_paume_ellipse": 23.2,
+    "epaisseur_paume_stade": 16.3,
+    "epaisseur_mcp3": "[À VÉRIFIER]",
+    "note_largeur": "largeur = 0,466 × longueur : rapport des garçons de 5,0-5,4 ans (Wen et coll. 2020 : 130,8 / 61,0 mm), le même que l’homme (Greiner 0,466)",
+    "longueur_mesuree": 110.8,
+    "largeur_mesuree": 51.6
+   },
+   "doigts": {
+    "index": {
+     "longueurs": {
+      "metacarpe": 48.2,
+      "p1": 27.4,
+      "p2": 13.0,
+      "p3": 15.6,
+      "bout_au_poignet_mesure": 105.7
+     },
+     "racine": {
+      "largeur": 13.5,
+      "note": "déduite : largeur de la main partagée au prorata des périmètres IPP"
+     },
+     "ipp": {
+      "perimetre": 39.1,
+      "largeur": 13.1,
+      "epaisseur": 11.7
+     },
+     "ipd": {
+      "perimetre": 32.8,
+      "largeur": 11.0,
+      "epaisseur": 9.8
+     },
+     "bout": {
+      "largeur": "[À VÉRIFIER]",
+      "epaisseur": "[À VÉRIFIER]"
+     }
+    },
+    "majeur": {
+     "longueurs": {
+      "metacarpe": 47.9,
+      "p1": 30.5,
+      "p2": 15.4,
+      "p3": 15.6,
+      "bout_au_poignet_mesure": 111.1
+     },
+     "racine": {
+      "largeur": 13.8,
+      "note": "déduite : largeur de la main partagée au prorata des périmètres IPP"
+     },
+     "ipp": {
+      "perimetre": 39.7,
+      "largeur": 12.8,
+      "epaisseur": 12.4
+     },
+     "ipd": {
+      "perimetre": 33.0,
+      "largeur": 10.7,
+      "epaisseur": 10.3
+     },
+     "bout": {
+      "largeur": "[À VÉRIFIER]",
+      "epaisseur": "[À VÉRIFIER]"
+     }
+    },
+    "annulaire": {
+     "longueurs": {
+      "metacarpe": 43.9,
+      "p1": 29.7,
+      "p2": 14.0,
+      "p3": 16.0,
+      "bout_au_poignet_mesure": 105.6
+     },
+     "racine": {
+      "largeur": 12.8,
+      "note": "déduite : largeur de la main partagée au prorata des périmètres IPP"
+     },
+     "ipp": {
+      "perimetre": 37.1,
+      "largeur": 12.0,
+      "epaisseur": 11.6,
+      "note": "largeur et épaisseur déduites (rapport du majeur)"
+     },
+     "ipd": {
+      "perimetre": 30.9,
+      "largeur": 10.0,
+      "epaisseur": 9.7,
+      "note": "[À VÉRIFIER] déduit (rapport IPD/IPP de l’index et du majeur)"
+     },
+     "bout": {
+      "largeur": "[À VÉRIFIER]",
+      "epaisseur": "[À VÉRIFIER]"
+     }
+    },
+    "auriculaire": {
+     "longueurs": {
+      "metacarpe": 41.7,
+      "p1": 23.2,
+      "p2": 10.0,
+      "p3": 14.5,
+      "bout_au_poignet_mesure": 91.3
+     },
+     "racine": {
+      "largeur": 11.4,
+      "note": "déduite : largeur de la main partagée au prorata des périmètres IPP"
+     },
+     "ipp": {
+      "perimetre": 33.0,
+      "largeur": 10.7,
+      "epaisseur": 10.3,
+      "note": "largeur et épaisseur déduites (rapport du majeur)"
+     },
+     "ipd": {
+      "perimetre": 27.6,
+      "largeur": 8.9,
+      "epaisseur": 8.6,
+      "note": "[À VÉRIFIER] déduit (rapport IPD/IPP de l’index et du majeur)"
+     },
+     "bout": {
+      "largeur": "[À VÉRIFIER]",
+      "epaisseur": "[À VÉRIFIER]"
+     }
+    }
+   },
+   "palmures": {
+    "pouce_index": 39.5,
+    "index_majeur": 63.0,
+    "majeur_annulaire": 62.8,
+    "annulaire_auriculaire": 55.2
+   },
+   "poignet": {
+    "largeur": 37.6,
+    "circonference": 99.5,
+    "epaisseur": 25.2,
+    "epaisseur_stade": 21.4
+   },
+   "pouce": {
+    "longueurs": {
+     "metacarpe": 25.7,
+     "p1": 18.3,
+     "p3": 15.5,
+     "bout_au_poignet_mesure": 78.7
+    },
+    "ip": {
+     "perimetre": 41.3,
+     "diametre_moyen": 13.1,
+     "largeur": "[À VÉRIFIER]",
+     "epaisseur": "[À VÉRIFIER]"
+    },
+    "cmc": {
+     "x_hb": 0.24,
+     "y_hl": 0.12
+    }
+   },
+   "avantbras": {
+    "longueur": 146.0,
+    "longueur_radiale_stylion_garcons": 145.0,
+    "note_longueur": "AnthroKids 1977 (Snyder et coll.), garçons 3,5-4,5 ans, n = 44, ET 11 ; le corps des planches a 146,0",
+    "circonference_max": "[À VÉRIFIER]",
+    "diametre_moyen_coude": 56.4,
+    "note": "diamètre : celui de l’homme × facteur [À VÉRIFIER]"
+   },
+   "prise": {
+    "poignet_centre_prise": 43.4
+   },
+   "provenance": {
+    "facteur": "corps/proportions.json : main 108 / 189",
+    "main.largeur": "même rapport 0,466 (Wen et coll. 2020, 5 ans) [À VÉRIFIER] à 4 ans",
+    "le reste": "l’homme mesuré × facteur, cotes « _mesuree » comprises [À VÉRIFIER]",
+    "recoupements": "NIST AnthroKids : avant-bras des garçons 145 mm à 3,5-4,5 ans (le corps : 146, cohérent)"
+   }
+  }
+ },
+ "recoupement_ansur_ii": {
+  "note": "ANSUR II 2012 contre Greiner 1991 (moyennes, mm) : les deux enquêtes de l’armée américaine s’accordent à 2 mm près",
+  "homme": {
+   "n": 4082,
+   "stature": {
+    "moyenne": 1756.2,
+    "ecart_type": 68.6,
+    "p5": 1648.0,
+    "p95": 1870.0
+   },
+   "handlength": {
+    "moyenne": 193.3,
+    "ecart_type": 9.9,
+    "p5": 177.0,
+    "p95": 210.0
+   },
+   "handbreadth": {
+    "moyenne": 88.3,
+    "ecart_type": 4.4,
+    "p5": 81.0,
+    "p95": 96.0
+   },
+   "handcircumference": {
+    "moyenne": 212.3,
+    "ecart_type": 10.2,
+    "p5": 195.0,
+    "p95": 230.0
+   },
+   "palmlength": {
+    "moyenne": 116.5,
+    "ecart_type": 6.2,
+    "p5": 107.0,
+    "p95": 127.0
+   },
+   "wristcircumference": {
+    "moyenne": 175.9,
+    "ecart_type": 9.0,
+    "p5": 162.0,
+    "p95": 191.0
+   }
+  },
+  "femme": {
+   "n": 1986,
+   "stature": {
+    "moyenne": 1628.5,
+    "ecart_type": 64.2,
+    "p5": 1525.0,
+    "p95": 1740.0
+   },
+   "handlength": {
+    "moyenne": 181.1,
+    "ecart_type": 10.1,
+    "p5": 165.0,
+    "p95": 199.0
+   },
+   "handbreadth": {
+    "moyenne": 78.2,
+    "ecart_type": 3.8,
+    "p5": 72.0,
+    "p95": 85.0
+   },
+   "handcircumference": {
+    "moyenne": 186.6,
+    "ecart_type": 8.8,
+    "p5": 173.0,
+    "p95": 202.0
+   },
+   "palmlength": {
+    "moyenne": 108.7,
+    "ecart_type": 5.9,
+    "p5": 100.0,
+    "p95": 119.0
+   },
+   "wristcircumference": {
+    "moyenne": 154.8,
+    "ecart_type": 7.8,
+    "p5": 142.0,
+    "p95": 168.0
+   }
+  },
+  "greiner": {
+   "homme": {
+    "stature": 1757.4,
+    "handlength": 194.1,
+    "handbreadth": 90.4,
+    "handcircumference": 213.3,
+    "palmlength": 110.5,
+    "wristcircumference": 174.3
+   },
+   "femme": {
+    "stature": 1630.2,
+    "handlength": 180.7,
+    "handbreadth": 79.5,
+    "handcircumference": 186.5,
+    "palmlength": 100.9,
+    "wristcircumference": 151.4
+   }
+  }
+ }
+}

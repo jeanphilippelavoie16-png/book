@@ -73,79 +73,57 @@ module.exports = (h) => {
     return { x: cible[0] - e[0], y: cible[1] - e[1] };
   };
 
-  // ── pose 1 : dans l'eau, face au côté d'où l'on venait ──────────────────────
-  // le corps droit dans l'eau, la poitrine au ras de la glace, les avant-bras à plat dessus
-  const PIC1 = [[-47, -5], [-42, -5]];
+  // ── les corps simples (13 oct.) : de profil, tournés vers la gauche (côté d'où l'on venait) ──
+  // Un pic tenu en poignard dans le poing f (unités de vue) : le manche vertical passe dans le poing
+  // (peint derrière le bras proche : le poing le couvre), le clou sort sous le petit doigt et entre
+  // dans la glace (en tireté dans la glace). Le pic loin est derrière le proche : on n'en voit qu'un.
+  const picDans = (f, s, yGlace) => {
+    const haut = f[1] - 7.5 * s, bas = f[1] + 5 * s;
+    const manche = h.path(cap([f[0], haut], [f[0], bas], 1.5 * s, 1.5 * s), AR);
+    const yb = Math.max(bas, yGlace);
+    const clou = (yGlace > bas ? h.ligne(f[0], bas, f[0], yGlace, `stroke="${INK}" stroke-width="2" stroke-linecap="round" fill="none"`) + '\n' : '')
+      + h.ligne(f[0], yb, f[0], yb + 7 * s, h.a.cache);
+    return { manche, clou };
+  };
+
+  // ── pose 1 : dans l'eau jusqu'aux aisselles, face au côté d'où l'on venait, les avant-bras à
+  // plat sur la glace, les pics dans les poings ; (x, y) du corps : sous les avant-bras, entre les
+  // coudes, posés sur la glace à 5 cm du bord
   const pose1 = (z, c) => {
-    const R = rep(c.xL, c.W, c.s), T = R.T, s = c.s;
-    const pl = picTenu(R, PIC1[0], 0, 'gauche'), pp = picTenu(R, PIC1[1], 0, 'gauche');
-    const base = { pose: 'debout', cote: 'gauche', echelle: s / 10, regard: -6 };
-    const pos = poser(base, T([20, -18]));
-    const corps = F.personnage(Object.assign({}, base, pos, { mains: { loin: pl.poignet, proche: pp.poignet } }));
-    return { svg: [pl.manche, pp.manche, String(corps), pl.clou, pp.clou].join('\n'), corps };
+    const R = rep(c.xL, c.W, c.s), T = R.T, s = c.s, yG = T([0, -2])[1];
+    let pic = null;
+    const corps = F.corps({ pose: 'eau-avantbras', cote: 'gauche', echelle: s / 10, x: T([-5, 0])[0], y: yG,
+      objetP: g => { pic = picDans([g.mainP.x, g.mainP.y], s, yG); return pic.manche; } });
+    return { svg: [String(corps), pic.clou].join('\n'), corps };
   };
 
-  // ── pose 2 : à l'horizontale, coudes sur la glace près du bord, on tire ─────
-  // le corps couché à plat ventre, tourné à l'horizontale ; la poitrine sur les coudes, les
-  // pics plantés à une longueur d'avant-bras devant eux, et non à bout de bras
-  const PIC2 = [[-57, -5], [-52, -5]];
+  // ── pose 2 : sur les coudes, les hanches au bord, les jambes à l'horizontale juste sous la
+  // surface ; les pics plantés au bout des avant-bras, près du bord, et non à bout de bras ;
+  // (x, y) du corps : le bassin, au bord du trou, à fleur d'eau
+  const ANG2 = { tronc: 42, cou: 24, tete: 8, brasP: 6, avantbrasP: 92, mainP: 90, brasL: 2, avantbrasL: 88, mainL: 90,
+    cuisseP: -80, jambeP: -86, cuisseL: -84, jambeL: -92 };
   const pose2 = (z, c) => {
-    const R = rep(c.xL, c.W, c.s), T = R.T, s = c.s;
-    const pl = picTenu(R, PIC2[0], 0, 'gauche'), pp = picTenu(R, PIC2[1], 0, 'gauche');
-    const base = { pose: 'debout', cote: 'gauche', angle: -66, echelle: s / 10, regard: -30 };
-    const pos = poser(base, T([6, -24]));
-    const corps = F.personnage(Object.assign({}, base, pos, { mains: { loin: pl.poignet, proche: pp.poignet } }));
-    const f = (a, b) => h.fleche(`M ${P(...T(a))} L ${P(...T(b))}`);
-    return { svg: [pl.manche, pp.manche, String(corps), pl.clou, pp.clou,
-      f([62, -46], [16, -46]),
-      f([122, 84], [122, 66]), f([142, 66], [142, 84])].join('\n'), corps };
-  };
-
-  // ── le pictogramme vu de face ou de dessus ──────────────────────────────────
-  // Mêmes mesures et même trait que personnage() de formes.js (adulte de 1750 mm), vu de face :
-  // tête ronde sans visage, tronc en bloc arrondi, membres en bandes d'épaisseur égale.
-  //   x, y : le milieu des hanches ; e : unités de vue par mm ; angle : rotation (degrés)
-  //   bras : { g: [bras, avant-bras], d: […] } en degrés depuis la verticale, + vers l'extérieur
-  const { capsule, ser, lisse } = F._interne;
-  const faceP = o => {
-    const e = o.e, th = (o.angle || 0) * RAD, co = Math.cos(th), si = Math.sin(th);
-    const T = p => [o.x + (p[0] * co - p[1] * si) * e, o.y + (p[0] * si + p[1] * co) * e];
-    const v = (a, sg) => [sg * Math.sin(a * RAD), Math.cos(a * RAD)];
-    const add = (a, b) => [a[0] + b[0], a[1] + b[1]], mul = (a, k) => [a[0] * k, a[1] * k];
-    const rB = 46, rJ = 61;
-    const tronc = lisse([[-172, 40], [-178, -100], [-166, -250], [-186, -420], [-160, -500], [-70, -522], [70, -522], [160, -500], [186, -420], [166, -250], [178, -100], [172, 40], [90, 74], [-90, 74]], true);
-    const Ct = [0, -522 - 26 - 122];
-    const k = 0.5523, rT = 122, d = a => [Math.cos(a * RAD), Math.sin(a * RAD)];
-    const rondC = [['M', add(Ct, mul(d(0), rT))], ...[0, 90, 180, 270].map(a => ['C', add(add(Ct, mul(d(a), rT)), mul(d(a + 90), k * rT)), add(add(Ct, mul(d(a + 90), rT)), mul(d(a), k * rT)), add(Ct, mul(d(a + 90), rT))]), ['Z']];
-    const bras = sg => {
-      const [a1, a2] = (o.bras || {})[sg < 0 ? 'g' : 'd'] || [6, 3];
-      const S = [sg * 222, -452], E = add(S, mul(v(a1, sg), 300)), Fm = add(E, mul(v(a2, sg), 255 + 166));
-      return { S, E, F: Fm, pieces: [capsule(S, E, rB), capsule(E, Fm, rB)] };
-    };
-    const jambe = sg => {
-      const Hh = [sg * 88, 0], K = add(Hh, [sg * 6, 430]), A = add(K, [sg * 4, 420]), Pd = add(A, [sg * 4, 110]);
-      return [capsule(K, A, rJ), capsule(Hh, K, rJ), capsule(A, Pd, rJ * 0.72)];
-    };
-    const bg = bras(-1), bd = bras(1);
-    const ordre = [...(o.jambes === false ? [] : [...jambe(-1), ...jambe(1)]), tronc, rondC];
-    const peint = liste => {
-      const out = [];
-      for (const c of liste) out.push(`<path d="${ser(c, T)}" ${h.a.contour}/>`);
-      for (const c of liste) out.push(`<path d="${ser(c, T)}" fill="#FFFFFF" stroke="${INK}" stroke-width="1.4" stroke-linejoin="round"/>`);
-      return out.join('\n');
-    };
-    return {
-      corps: peint(ordre), brasG: peint(bg.pieces), brasD: peint(bd.pieces), T,
-      tete: T(Ct), epaules: { g: T(bg.S), d: T(bd.S) }, mains: { g: T(bg.F), d: T(bd.F) },
-      aisselles: { g: T([-186, -400]), d: T([186, -400]) },
-    };
+    const R = rep(c.xL, c.W, c.s), T = R.T, s = c.s, yG = T([0, -2])[1];
+    let pic = null;
+    const corps = F.corps({ pose: 'ventre-hisse', cote: 'gauche', appui: 'aucun', echelle: s / 10, x: T([6, 2])[0], y: T([6, 2])[1],
+      angles: ANG2, objetP: g => { pic = picDans([g.mainP.x, g.mainP.y], s, yG); return pic.manche; } });
+    const f = (a, b, at) => h.fleche(`M ${P(...T(a))} L ${P(...T(b))}`, at);
+    const m = [corps.mainP.x, corps.mainP.y];
+    return { svg: [String(corps), pic.clou,
+      // le geste : on tire, en glissant vers l'avant
+      h.geste(`M ${P(...T([40, -60]))} L ${P(...T([-6, -60]))}`),
+      // les jambes battent (mouvement secondaire, en noir)
+      f([121, 26], [121, 10]), f([133, 10], [133, 26]),
+      // à contrôler : le pic planté près du bord, pas à bout de bras
+      h.controle(m[0], yG, 8)].join('\n'), corps, pic: [m[0], yG] };
   };
 
   // ── vue de dessus : le trou, les traces, la roulade ─────────────────────────
+  // 13 oct. : plus de corps vu de dessus. La roulade se dit par la flèche du geste, en boucles, qui
+  // part du bord du trou et longe les traces : la glace qui a porté à l'aller.
   const dessus = z => {
     const s = (z.h - 12) / 190;
-    const cy = z.h * 0.46;
-    const xF = z.l * 0.42, yH = 6 + 88 * s;
+    const cy = z.h * 0.5;
     const hx = z.l * 0.8;
     const trou = [[-62, -8], [-48, -34], [-20, -44], [8, -40], [30, -46], [56, -28], [64, 2], [52, 30], [22, 44], [-10, 40], [-40, 42], [-60, 20]]
       .map(p => [hx + p[0] * s * 1.1, cy + p[1] * s]);
@@ -156,29 +134,19 @@ module.exports = (h) => {
     out.push(h.chemin([[hx + 72 * s, cy - 2 * s], [hx + 92 * s, cy - 8 * s], [hx + 104 * s, cy - 4 * s], [hx + 122 * s, cy - 12 * s]], h.a.detail));
     out.push(h.chemin([[hx + 30 * s, cy + 46 * s], [hx + 38 * s, cy + 62 * s], [hx + 34 * s, cy + 76 * s]], h.a.detail));
     // traces de bottes, du bord gauche jusqu'au trou : semelle et talon, vers le trou
-    const xG = xF + 78 * s;
     const pas = [];
     for (let x = 16, i = 0; x < hx - 76 * s; x += 26 * s, i++) {
-      const y = cy + (i % 2 ? 7 : -7) * s;
+      const y = cy + 18 * s + (i % 2 ? 7 : -7) * s;
       pas.push([x, y]);
-      if (Math.abs(x - xF) < 40 * s || Math.abs(x - xG) < 34 * s) continue;
       out.push(h.ellipse(x + 2.5 * s, y, 6 * s, 3.2 * s, h.a.arete), h.ellipse(x - 9 * s, y, 2.4 * s, 2.6 * s, h.a.arete));
     }
-    // le corps couché en travers des traces, tête en haut, un peu de biais
-    const th = 7 * Math.PI / 180, co = Math.cos(th), si = Math.sin(th);
-    const rot = p => [p[0] * co - p[1] * si, p[0] * si + p[1] * co];
-    const R = { s, T: p => { const q = rot(p); return [xF + q[0] * s, yH + q[1] * s]; } }, T = R.T;
-    // la place d'où il a roulé, en tireté
-    const Tg = p => { const q = rot(p); return [xG + q[0] * s, yH + q[1] * s]; };
-    out.push(h.path(cap(Tg([0, 92]), Tg([0, -48]), 20 * s, 22 * s), h.a.cache), h.path(rond(Tg([0, -70]), 11 * s), h.a.cache));
-    const pf = faceP({ x: T([0, 2])[0], y: T([0, 2])[1], e: s / 10, angle: 7, bras: { g: [10, 4], d: [10, 4] } });
-    out.push(pf.corps, pf.brasG, pf.brasD);
-    // la roulade : deux arcs vers la gauche
-    for (const y of [-30, 40]) {
-      const a = T([58, y]), b = T([-44, y]);
-      out.push(h.fleche(`M ${P(...a)} A ${(64 * s).toFixed(1)} ${(15 * s).toFixed(1)} 7 0 1 ${P(...b)}`));
-    }
-    return { svg: out.join('\n'), cy, xF, yH, s, hx, T, pas };
+    // le geste : rouler, du bord du trou vers les traces (une cycloïde allongée : chaque boucle, un tour)
+    const x0 = hx - 72 * s, yR = cy - 22 * s, Rr = 7 * s, Dd = 11 * s, tours = 5, pts = [];
+    for (let t = 0; t <= tours * 2 * Math.PI + 0.01; t += 0.12) pts.push([x0 - (Rr * t - Dd * Math.sin(t)), yR - Dd * Math.cos(t) + Dd]);
+    const fin = pts[pts.length - 1];
+    pts.push([fin[0] - 10 * s, fin[1]]);
+    out.push(h.geste('M ' + pts.map(p => P(p[0], p[1])).join(' L ')));
+    return { svg: out.join('\n'), cy, s, hx, pas, boucle: pts[Math.round(pts.length * 0.42)] };
   };
 
   // ── les pics faits maison ───────────────────────────────────────────────────
@@ -189,26 +157,39 @@ module.exports = (h) => {
     const q = z.h / 173, bx = 120 * q + 10;
     const Y = y => y * q, X = x => bx + x * q;
     const out = [];
-    // le porteur, vu de face : le pictogramme coupé à la taille par le bas de la vue
-    const e0 = 24 * q / 122, cxP = X(0), cyT = Y(46);
-    const pf = faceP({ x: cxP, y: cyT + 670 * e0, e: e0, bras: { g: [7, 3], d: [7, 3] }, jambes: false });
-    out.push(`<clipPath id="porteur-1501"><rect x="0" y="0" width="${z.l.toFixed(1)}" height="${(z.h).toFixed(1)}"/></clipPath>`);
-    out.push(`<g clip-path="url(#porteur-1501)">`, pf.corps, pf.brasG);
-    // la paire emboîtée, en bandoulière : le cordon court passe sur une épaule, par-dessus
-    // la tête, et sous le bras opposé ; la paire est au milieu de la poitrine, un pic à
-    // chaque bout du cordon, les deux faces à clou l'une contre l'autre, l'élastique au joint
-    // le poids de la paire tire le devant de la boucle en V : elle pend au bas du V
-    const S = pf.T([-96, -510]), A = pf.T([184, -380]);
-    const M = pf.T([14, -292]), u = [0.99, -0.139], nn = [-u[1], u[0]];
-    const at = (t, k = 0) => [M[0] + (u[0] * t + nn[0] * k) * q, M[1] + (u[1] * t + nn[1] * k) * q];
-    const lp = 26, dp = 4.5;
-    const P1 = at(-lp), P2 = at(lp);
-    out.push(corde(`M ${P(...S)} L ${P(...P1)}`, 3.4), corde(`M ${P(...P2)} L ${P(...A)}`, 3.4));
+    // le porteur, de profil (13 oct. : plus de corps de face) : le corps simple debout, coupé à la
+    // taille par le bas de la vue, tourné vers le pic. La paire emboîtée pend au milieu de la poitrine
+    // (vue de biais, raccourcie) ; le cordon court passe sur l'épaule d'en face et sous le bras proche :
+    // il descend du cou à la paire, puis repart vers l'aisselle, derrière le bras proche.
+    const e0 = 24 * q / 122, cxP = X(-14), cyT = Y(46);
+    const bord = (svg, y, max) => {           // le bord avant (max) ou arrière du corps à la hauteur y
+      let r = max ? -Infinity : Infinity;
+      for (const m of String(svg).matchAll(/<path d="([^"]+)" fill="#FFFFFF"/g)) for (const sub of m[1].split('Z')) {
+        const n = (sub.match(/-?[\d.]+/g) || []).map(Number), pts = [];
+        for (let i = 0; i + 1 < n.length; i += 2) pts.push([n[i], n[i + 1]]);
+        for (let i = 0; i < pts.length; i++) { const [x1, y1] = pts[i], [x2, y2] = pts[(i + 1) % pts.length];
+          if ((y1 - y) * (y2 - y) <= 0 && y1 !== y2) { const x = x1 + (x2 - x1) * (y - y1) / (y2 - y1); r = max ? Math.max(r, x) : Math.min(r, x); } }
+      }
+      return r;
+    };
+    const o0 = { pose: 'debout', echelle: e0, x: cxP, y: cyT + 1665 * e0 };
+    const g0 = F.corps(o0), A0 = g0.articulations;
+    const yS = A0.epauleP[1] + 150 * e0, xS = bord(g0, yS, true);              // le sternum
+    const yC = A0.cou[1] + 10 * e0, xC = bord(g0, yC, true);                   // le bas du cou, devant
+    const ais = [A0.epauleP[0] - 40 * e0, A0.epauleP[1] + 150 * e0];          // l'aisselle, derrière le bras
+    const lp = 120 * e0, ep = 15 * e0, inc = 14 * Math.PI / 180;               // la paire : 2 × 120 mm, Ø 30
+    const M = [xS + ep + 1, yS + 20 * e0], ua = [Math.sin(inc), Math.cos(inc)], na = [ua[1], -ua[0]];
+    const at = (t, k = 0) => [M[0] + ua[0] * t + na[0] * k, M[1] + ua[1] * t + na[1] * k];
     const bloc = (t0, t1, k) => poly([at(t0, -k), at(t1, -k), at(t1, k), at(t0, k)]);
-    out.push(h.path(bloc(-lp, 0, dp), AR), h.path(bloc(0, lp, dp), AR));
-    out.push(h.path(bloc(-2, 2, dp + 0.9), h.a.plein));
-    out.push(pf.brasD, '</g>');
-    const porte = { M, cordon: [(P2[0] + A[0]) / 2, (P2[1] + A[1]) / 2] };
+    const P1 = at(-lp * 0.5), P2 = at(lp * 0.5);
+    const porteurC = F.corps(Object.assign({}, o0, { objetP: () => [
+      corde(`M ${P(xC - 4 * e0, yC - 6 * e0)} Q ${P(xC + 10 * e0, yC + 40 * e0)} ${P(...P1)}`, 3.4),
+      corde(`M ${P(...P2)} Q ${P(P2[0] - 30 * e0, P2[1] + 60 * e0)} ${P(...ais)}`, 3.4),
+      h.path(bloc(-lp * 0.5, 0, ep), AR), h.path(bloc(0, lp * 0.5, ep), AR), h.path(bloc(-1.6, 1.6, ep + 0.9), h.a.plein),
+    ].join('\n') }));
+    out.push(`<clipPath id="porteur-1501"><rect x="0" y="0" width="${z.l.toFixed(1)}" height="${(z.h).toFixed(1)}"/></clipPath>`);
+    out.push(`<g clip-path="url(#porteur-1501)">`, String(porteurC), '</g>');
+    const porte = { M, cordon: [xC + 2 * e0, yC + 30 * e0] };
     // un pic en grand
     const x0 = z.l * 0.5, x1 = z.l * 0.86, cy = z.h * 0.56, r = 20 * q;
     const cote = x0 + 22 * q;
@@ -238,7 +219,7 @@ module.exports = (h) => {
   return {
     ref: '15-01',
     titre: 'Sortir d’un trou dans la glace',
-    desc: 'En tête, les pics faits d’un gros clou étêté entré dans un bout de manche à balai, emboîtés l’un dans l’autre et portés en bandoulière au milieu de la poitrine. En coupe : dans l’eau, face au côté d’où l’on venait, avant-bras à plat sur la glace ; puis le corps ramené à l’horizontale en battant des jambes, coudes sur la glace et pics plantés près du bord, on tire à plat ventre. Vu de dessus : sorti, on roule sur la glace vers ses traces au lieu de se relever.',
+    desc: 'En tête, les pics faits d’un gros clou étêté entré dans un bout de manche à balai, emboîtés l’un dans l’autre et portés en bandoulière au milieu de la poitrine (le porteur de profil). En coupe : dans l’eau, face au côté d’où l’on venait, avant-bras à plat sur la glace ; puis le corps ramené à l’horizontale en battant des jambes, coudes sur la glace et pics plantés près du bord, on tire à plat ventre. Vu de dessus : sorti, on roule sur la glace vers ses traces au lieu de se relever (la flèche en boucles, sans corps).',
     format: 'pleine',
     disposition: [['pics', 'prise'], ['s1', 's2'], ['s3']],
     largeurs: [[3, 1], [1, 1], [1]],
@@ -253,8 +234,8 @@ module.exports = (h) => {
             { n: 1, rond: [(p.x0 + p.x1) / 2, z.h - 12], cible: [(p.x0 + p.x1) / 2, p.cy + p.r + 1.5] },
             { n: 2, rond: [p.x1 - 80 * p.q + 16, z.h - 12], cible: [p.x1 - 80 * p.q, p.cy] },
             { n: 3, rond: [p.x1 + 26 * p.q, 16], cible: [p.x1 - 22 * p.q, p.yt] },
-            { n: 4, rond: [p.X(96), p.Y(140)], cible: p.porte.cordon },
-            { n: 5, rond: [p.X(80), p.Y(52)], cible: p.porte.M },
+            { n: 4, rond: [p.X(80), p.Y(52)], cible: p.porte.cordon },
+            { n: 5, rond: [p.X(96), p.Y(140)], cible: [p.porte.M[0] + 3, p.porte.M[1] + 6] },
           ].map((o, i) => ({ ...o, texte: ['bout de manche à balai', 'clou étêté, côté coupé au fond du trou', 'second trou : loge la pointe de l’autre pic', 'cordon court, par-dessus la tête, sous un bras', 'la paire emboîtée au milieu de la poitrine'][i] }));
         },
       },
@@ -282,8 +263,8 @@ module.exports = (h) => {
         dessin: z => { const c = cadre(z); return [glace(z, c, true), pose1(z, c).svg,
           h.fleche(`M ${P(12, c.W - 14 * c.s)} L ${P(c.xL - 76 * c.s, c.W - 14 * c.s)}`, h.a.cache)].join('\n'); },
         renvois: z => { const c = cadre(z), T = rep(c.xL, c.W, c.s).T; return [
-          { n: 6, rond: T([48, -34]), cible: T([24, -38]), texte: 'face au côté d’où l’on venait' },
-          { n: 7, rond: T([-30, -36]), cible: T([-26, -7]), texte: 'avant-bras à plat sur la glace' },
+          { n: 6, rond: [pose1(z, c).corps.tete.x + 44, pose1(z, c).corps.tete.y + 4], cible: [pose1(z, c).corps.tete.x + 10, pose1(z, c).corps.tete.y], texte: 'face au côté d’où l’on venait' },
+          { n: 7, rond: T([-50, -26]), cible: T([-26, -4.6]), texte: 'avant-bras à plat sur la glace' },
         ]; },
       },
       s2: {
@@ -291,15 +272,15 @@ module.exports = (h) => {
         dessin: z => { const c = cadre(z); return [glace(z, c, false), pose2(z, c).svg].join('\n'); },
         renvois: z => { const c = cadre(z), T = rep(c.xL, c.W, c.s).T; return [
           { n: 8, rond: T([78, 58]), cible: T([74, 9]), texte: 'battre des jambes jusqu’à l’horizontale' },
-          { n: 9, rond: T([-92, -18]), cible: T(picTenu(rep(0, 0, 1), PIC2[0], 0).milieu), texte: 'pics plantés près du bord, pas à bout de bras' },
+          { n: 9, rond: T([-96, -26]), cible: [pose2(z, c).pic[0] - 9, pose2(z, c).pic[1] - 3], texte: 'pics plantés près du bord, pas à bout de bras' },
         ]; },
       },
       s3: {
-        titre: 'Rouler, vu de dessus',
+        titre: 'Rouler vers ses traces, vu de dessus',
         dessin: z => dessus(z).svg,
         renvois: z => { const d = dessus(z); return [
-          { n: 10, rond: d.T([-78, -54]), cible: d.T([-44, -30]), texte: 'rouler au lieu de se relever' },
-          { n: 11, rond: [d.pas[3][0] + 2.5 * d.s, d.cy + 44 * d.s], cible: [d.pas[3][0] + 2.5 * d.s, d.pas[3][1] + 3.5 * d.s], texte: 'ses traces : la glace qui a porté' },
+          { n: 10, rond: [d.boucle[0] - 4, 14], cible: [d.boucle[0], d.boucle[1] - 2], texte: 'rouler au lieu de se relever' },
+          { n: 11, rond: [d.pas[3][0] + 2.5 * d.s, d.cy + 58 * d.s], cible: [d.pas[3][0] + 2.5 * d.s, d.pas[3][1] + 3.5 * d.s], texte: 'ses traces : la glace qui a porté' },
         ]; },
       },
     },

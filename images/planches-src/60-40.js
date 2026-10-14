@@ -11,6 +11,11 @@
 // Vu de dessus : le vent de travers, la proue dans le courant, l'engin qui monte le long du bord
 // sous le vent.
 // Aucune cote : c'est un geste, et le chapitre ne donne aucune dimension du verveux.
+// Refaite le 13 octobre 2026 : JP ne veut plus de corps vus de dos. Tournées vers le bord sous le vent,
+// les deux personnes se voient DE PROFIL depuis l'arrière : deux corps simples à genoux (genoux, les
+// bras posés par le calcul sur le bois du cerceau), celle du fond en gris (le plan loin). Le gilet et
+// le couteau sont dessinés sur le tronc du corps simple. Le rouge : la flèche du geste (on remonte
+// l'engin le long du bord) et le cercle du point à contrôler (le poids contre le plat-bord, étape 10).
 
 module.exports = (h) => {
   const A = h.a, F = h.formes;
@@ -51,55 +56,49 @@ module.exports = (h) => {
     return h.fleche(lisse(pts), A.arete);
   };
 
-  // ─── Le gilet et le couteau, posés sur un personnage de la bibliothèque ───────────────────
-  // Même construction que formes.js : le tronc (TRONC) tourne autour de la hanche, le bassin du
-  // tiers, la poitrine en entier ; puis le repère de la vue.
-  const HANCHE = { genoux: [-45, -495], genou: [-110, -470] };
-  const kP = y => { const t = Math.max(0, Math.min(1, (-150 - y) / 150)); return 0.35 + 0.65 * t * t * (3 - 2 * t); };
-  const troncVue = o => p => { const q0 = HANCHE[o.pose], q = tourne(p, o.penche * kP(p[1])); return [o.x + (q0[0] + q[0]) * o.echelle, o.y + (q0[1] + q[1]) * o.echelle]; };
-  const gilet = o => {
-    const T = troncVue(o);
-    const bord = [[-119, -190], [-121, -250], [-136, -340], [-143, -420], [-126, -490], [-74, -538], [-18, -552],
-      [42, -540], [100, -506], [134, -446], [141, -372], [128, -290], [124, -200], [122, -190]].map(T);
-    const out = [h.path(lisse(bord) + ' Z', W(A.arete))];
-    // la sangle et sa boucle, la couture du panneau avant
-    out.push(h.path(lisse([[-121, -236], [0, -240], [126, -236]].map(T)), A.detail));
-    const b = [[108, -228], [134, -228], [134, -248], [108, -248]].map(T);
-    out.push(h.chemin(b, W(A.detail), true));
-    out.push(h.path(lisse([[84, -500], [104, -440], [108, -370], [100, -300], [98, -196]].map(T)), A.detail));
-    out.push(h.path(lisse([[-100, -480], [-112, -420], [-104, -340], [-98, -250], [-96, -196]].map(T)), A.detail));
+  // ─── Le gilet et le couteau, posés sur le corps simple ────────────────────────────────────
+  // Dans le repère du tronc : s le long du tronc depuis la hanche (mm), t vers l'avant (mm). Ils se
+  // peignent en objetP : devant le tronc, derrière le bras proche.
+  const repTronc = (g, e) => {
+    const H = g.articulations.hancheP, N = g.articulations.cou;
+    const L = Math.hypot(N[0] - H[0], N[1] - H[1]) || 1, u = [(N[0] - H[0]) / L, (N[1] - H[1]) / L], n = [-u[1], u[0]];
+    return ([s, t]) => [H[0] + (u[0] * s + n[0] * t) * e, H[1] + (u[1] * s + n[1] * t) * e];
+  };
+  // Le gilet suit le tronc du corps simple (demi-largeurs de profil : ~100 mm devant, ~95 derrière),
+  // 15 mm plus épais, de la taille au-dessus de l'épaule.
+  const gilet = (g, e) => {
+    const T = repTronc(g, e);
+    const bord = [[150, -110], [260, -106], [360, -114], [440, -120], [495, -104], [522, -58], [520, 40], [492, 102],
+      [430, 134], [340, 128], [250, 116], [150, 112]].map(T);
+    const out = [h.path(lisse(bord, true), W(A.arete))];
+    // la sangle et sa boucle, la couture des panneaux
+    out.push(h.path(lisse([[212, -108], [210, 0], [212, 116]].map(T)), A.detail));
+    out.push(h.chemin([[198, 100], [228, 100], [228, 126], [198, 126]].map(T), W(A.detail), true));
+    out.push(h.path(lisse([[160, 88], [300, 100], [440, 104]].map(T)), A.detail));
+    out.push(h.path(lisse([[160, -86], [300, -92], [430, -98]].map(T)), A.detail));
     return out.join('\n');
   };
-  const couteau = o => {
-    const T = troncVue(o);
-    const a = T([22, -150]), b = T([22, -40]);
-    const L = Math.hypot(b[0] - a[0], b[1] - a[1]), d = [(b[0] - a[0]) / L, (b[1] - a[1]) / L], n = [-d[1], d[0]];
-    const e = o.echelle, P = (s, t) => [a[0] + d[0] * s * e + n[0] * t * e, a[1] + d[1] * s * e + n[1] * t * e];
-    const out = [];
-    // la ceinture
-    out.push(h.path(lisse([[-92, -150], [0, -156], [96, -150]].map(T)), A.arete));
-    // le fourreau, pointe en bas ; le manche qui dépasse, la garde
-    out.push(h.path(lisse([P(-14, -20), P(40, -21), P(110, -17), P(150, -4), P(154, 3), P(128, 13), P(40, 19), P(-14, 19)]) + ' Z', W(A.arete)));
-    out.push(h.path(`M${pt(P(4, -20))} L${pt(P(4, 19))}`, A.detail));
-    out.push(h.path(lisse([P(-14, -14), P(-60, -14), P(-100, -12), P(-114, -6), P(-114, 8), P(-100, 13), P(-60, 13), P(-14, 13)]) + ' Z', W(A.arete)));
-    out.push(h.path(`M${pt(P(-14, -22))} L${pt(P(-14, 21))}`, A.arete));
+  // Le couteau dans son fourreau, pendu à la ceinture sur la hanche : le fourreau tombe droit (la
+  // gravité, pas l'axe du tronc), le manche dépasse vers le haut et l'avant.
+  const couteau = (g, e) => {
+    const T = repTronc(g, e), out = [];
+    out.push(h.path(lisse([[96, -100], [100, 0], [96, 104]].map(T)), A.arete));      // la ceinture
+    const a = T([92, 30]), V = (dx, dy) => [a[0] + dx * e, a[1] + dy * e];        // dx vers l'avant, dy vers le bas (mm)
+    out.push(h.path(lisse([V(-13, 0), V(-14, 70), V(-8, 118), V(0, 128), V(8, 118), V(14, 70), V(13, 0)], true), W(A.arete)));
+    out.push(h.path(lisse([V(-11, 0), V(-4, -50), V(4, -86), V(16, -84), V(13, -46), V(11, 0)], true), W(A.arete)));
+    out.push(h.chemin([V(-16, 0), V(16, 0)], A.arete));
     return out.join('\n');
   };
-  // Le bras proche, repeint seul par-dessus le gilet (même moyen que la 04-40).
-  const brasProche = pers => {
-    const L = String(pers).split('\n');
-    const i0 = L.findIndex(l => l.includes('stroke="none"'));
-    let iF = -1; L.forEach((l, i) => { if (l.includes('stroke="none"')) iF = i; });
-    return [L[i0 - 1], ...L.slice(iF, L.length - 1)].join('\n');
-  };
-  const habille = (o, pers) => [String(pers), gilet(o), couteau(o), brasProche(pers)].join('\n');
-
+  const habit = (couteauAussi) => g => [gilet(g, g.echelle), couteauAussi ? couteau(g, g.echelle) : ''].join('\n');
 
   // La pose des deux personnes (mm, avant la gîte ; degrés) : où tombe le genou sur le fond, de
   // combien le tronc penche, la tête ; où les mains prennent le cerceau (angle sur le cerceau, 0 à
   // droite, -90 en haut). DEVIE : de combien une prise peut tourner hors du rayon du cerceau pour
   // suivre l'avant-bras (le reste du pli se fait au poignet).
-  const PARAM = { x1: 240, p1: 28, r1: 25, a1: { proche: -121, loin: -97 }, x2: 660, p2: 20, r2: 30, dy2: 0, a2: { proche: -93, loin: -82 }, devie: 25 };
+  // Les deux personnes, de profil (tournées vers tribord, le bord sous le vent, c'est de profil qu'on
+  // les voit depuis l'arrière) : x, l'abscisse du genou sur le fond (mm) ; tronc, le penché ;
+  // a, où chaque main prend le cerceau (degrés sur le cerceau, 0 à droite, -90 en haut).
+  const PARAM = { x1: 230, t1: 44, a1: { P: -128, L: -112 }, x2: 470, t2: 26, a2: { P: -96, L: -84 } };
   // ─── Vu de l'arrière ──────────────────────────────────────────────────────────────────────
   // Une vraie coupe en travers : le bordé coupé en U (aplat noir), le banc du milieu coupé
   // (hachure bois), le plat-bord coupé de chaque côté. Au-delà de la coupe, rien du bateau sauf
@@ -169,88 +168,52 @@ module.exports = (h) => {
     const C = [flanc[0] + R + EPC / 2 + 1, cy];
     const surCerceau = deg => [C[0] + R * Math.cos(deg * RAD), C[1] + R * Math.sin(deg * RAD)];
 
-    // Les deux personnes : à genoux sur le fond, tournées vers tribord, penchées sur le bord.
-    // Celle de devant tient le bois du cerceau à deux mains : des prises de la bibliothèque, vues
-    // du dos, les doigts qui passent par-dessus le bois et se referment derrière. Son bras
-    // s'arrête au poignet de la prise (la palette du personnage est découpée) et l'avant-bras de
-    // la prise prolonge le sien. Celle du fond, au-delà du cerceau, le tient par derrière : ses
-    // mains sont cachées par le filet, on voit ses bras jusqu'aux poignets, posés sur le bois.
-    const SM = 60 * E / 54.5; // le poignet du modèle (54,5 px) à la largeur du bras du personnage au poignet (60 mm)
-    const radial = deg => [Math.cos(deg * RAD), Math.sin(deg * RAD)];
-    const angleDe = v => Math.atan2(v[1], v[0]) / RAD;
-    const borneA = (a, c, d) => { let x = a - c; while (x > 180) x -= 360; while (x < -180) x += 360; return c + Math.max(-d, Math.min(d, x)); };
-    const K = ['proche', 'loin'];
-    const tient = (base, angles) => {
-      let dir = { proche: radial(angles.proche), loin: radial(angles.loin) }, pers, mains, cibles;
-      for (let it = 0; it < 8; it++) {
-        mains = {}; cibles = {};
-        for (const k of K) {
-          const G = surCerceau(angles[k]);
-          const aBras = borneA(angleDe(dir[k]), angles[k], PARAM.devie); // l'avant-bras, près du rayon
-          // modèle s11 (poing fermé, le bois passe dans le poing ; bâton du modèle ≈ 25 px) :
-          // l'avant-bras du modèle, vers le bas, tourné dans la direction de l'avant-bras du personnage ;
-          // le poignet du modèle (y = 150) s'arrête là, le bras du personnage le prolonge
-          const m = F.modele('s11', { x: G[0], y: G[1], ancre: [68, 42], angle: aBras - 90, echelle: SM, miroir: k === 'loin',
-            masquer: [[0, 150, 140, 175]] });
-          m.bords = [m.P([21.8, 150]), m.P([76.3, 150])];
-          { const t = m.P([68, 42]); m.trou = { x: t[0], y: t[1] }; }
-          mains[k] = m; cibles[k] = m.P([49, 150]);
+    // Les deux personnes : à genoux sur le fond, tournées vers tribord, penchées sur le bord, les deux
+    // mains fermées sur le bois du cerceau (26 mm). Les bras se posent par le calcul : le poignet là où
+    // la main tombe sur le bois, le coude qui plie vers l'avant.
+    const RD_ = Math.PI / 180;
+    const dirPose = a => [Math.sin(a * RD_), Math.cos(a * RD_)];            // 0 = vers le bas, + = vers l'avant
+    const anglePose = v => Math.atan2(v[0], v[1]) / RD_;
+    const atteint = (base, cibles) => {
+      let ang = { ...base.angles };
+      let c = F.corps({ ...base, angles: ang });
+      const S0 = c.articulations.epauleP;
+      const L1 = Math.hypot(c.articulations.coudeP[0] - S0[0], c.articulations.coudeP[1] - S0[1]);
+      const L2 = Math.hypot(c.articulations.poignetP[0] - c.articulations.coudeP[0], c.articulations.poignetP[1] - c.articulations.coudeP[1]);
+      for (let it = 0; it < 4; it++) {
+        for (const k of ['P', 'L']) {
+          // le décalage de la prise depuis le poignet, dans le repère de l'avant-bras
+          const W0 = c.articulations['poignet' + k], M0 = [c['main' + k].x, c['main' + k].y];
+          const fa = ang['avantbras' + k], off = tourne([M0[0] - W0[0], M0[1] - W0[1]], fa);
+          const T = cibles[k];
+          // le poignet visé : la cible moins le décalage tourné avec l'avant-bras (qui va changer)
+          let W = [T[0] - tourne(off, -fa)[0], T[1] - tourne(off, -fa)[1]];
+          const d = [W[0] - S0[0], W[1] - S0[1]], D = Math.min(L1 + L2 - 0.5, Math.hypot(d[0], d[1]));
+          const phi = anglePose(d), alpha = Math.acos(Math.max(-1, Math.min(1, (L1 * L1 + D * D - L2 * L2) / (2 * L1 * D)))) / RD_;
+          const bras = phi - alpha, Eb = [S0[0] + dirPose(bras)[0] * L1, S0[1] + dirPose(bras)[1] * L1];
+          const avb = anglePose([W[0] - Eb[0], W[1] - Eb[1]]);
+          ang['bras' + k] = bras; ang['avantbras' + k] = avb; ang['main' + k] = avb + 18;
         }
-        pers = F.personnage({ ...base, mains: cibles });
-        for (const k of K) { const u = uni([pers.mains[k][0] - pers.poignets[k][0], pers.mains[k][1] - pers.poignets[k][1]]); dir[k] = [-u[0], -u[1]]; }
+        c = F.corps({ ...base, angles: ang });
       }
-      // la palette du personnage, au-delà du poignet, est découpée
-      const coupes = K.map(k => {
-        const P = cibles[k], u = [-dir[k][0], -dir[k][1]], n = [-u[1], u[0]], w = 34 * E, L = 240 * E, r = 1 * E;
-        const q = [[P[0] + n[0] * w + u[0] * r, P[1] + n[1] * w + u[1] * r], [P[0] - n[0] * w + u[0] * r, P[1] - n[1] * w + u[1] * r],
-          [P[0] - n[0] * w + u[0] * L, P[1] - n[1] * w + u[1] * L], [P[0] + n[0] * w + u[0] * L, P[1] + n[1] * w + u[1] * L]];
-        return 'M-50 -50 H' + f1(z.l + 50) + ' V' + f1(z.h + 50) + ' H-50 Z M' + q.map(pt).join(' L') + ' Z';
-      });
-      const poignets = K.map(k => {
-        const P = cibles[k], u = [-dir[k][0], -dir[k][1]], n = [-u[1], u[0]], w = 54.5 * SM / 2;
-        let [a, b] = mains[k].bords;
-        const pA = [P[0] + n[0] * w, P[1] + n[1] * w], pB = [P[0] - n[0] * w, P[1] - n[1] * w];
-        if ((a[0] - P[0]) * n[0] + (a[1] - P[1]) * n[1] < 0) [a, b] = [b, a];
-        // le trait visible d'une forme déborde de 0,4 hors de son bord (silhouette à 2,4 à moitié couverte)
-        const ab = uni([a[0] - b[0], a[1] - b[1]]), o = 0.42;
-        const hors = (p, d, s) => [p[0] + d[0] * o * s, p[1] + d[1] * o * s];
-        return [h.chemin([pA, a, b, pB], A.blanc, true),
-          h.chemin([hors(pA, n, 1), hors(a, ab, 1)], A.arete), h.chemin([hors(pB, n, -1), hors(b, ab, -1)], A.arete)].join('\n');
-      });
-      const ecart = K.map(k => f1(Math.abs(angleDe(dir[k]) - angles[k]))).join(' / ');
-      return { pers, mains, cibles, coupes, ecart, poignets };
+      return { ang, c };
     };
-    // les poignets posés sur le bord extérieur du bois : la main passe derrière
-    const derriere = (base, angles) => {
-      const cibles = {};
-      for (const k of K) { const d = radial(angles[k]); cibles[k] = [C[0] + d[0] * (R + EPC / 2 + 6 * E), C[1] + d[1] * (R + EPC / 2 + 6 * E)]; }
-      const pers = F.personnage({ ...base, mains: cibles });
-      const manque = K.map(k => f1(Math.hypot(pers.poignets[k][0] - cibles[k][0], pers.poignets[k][1] - cibles[k][1]) / E)).join(' / ');
-      return { pers, cibles, manque };
-    };
-    const decoupe = (id, coupes, contenu) => {
-      let s = contenu;
-      coupes.forEach((d, i) => { s = '<clipPath id="' + id + '-' + i + '"><path d="' + d + '" fill="none" clip-rule="evenodd"/></clipPath>\n<g clip-path="url(#' + id + '-' + i + ')">\n' + s + '\n</g>'; });
-      return s;
-    };
-    // celle du fond : plus vers la proue, plus à droite, plus droite, la tête plus haut
-    const g2 = B([PARAM.x2, fond(PARAM.x2)]);
-    const oLoin = { pose: 'genoux', penche: PARAM.p2, echelle: E, x: g2[0], y: g2[1] - PARAM.dy2 };
-    const L2 = derriere({ ...oLoin, regard: PARAM.r2 }, PARAM.a2);
-    // celle de devant
-    const g1 = B([PARAM.x1, fond(PARAM.x1)]);
-    const oPres = { pose: 'genoux', penche: PARAM.p1, echelle: E, x: g1[0], y: g1[1] };
-    const L1 = tient({ ...oPres, regard: PARAM.r1 }, PARAM.a1);
-    out.push([String(L2.pers), gilet(oLoin), brasProche(L2.pers)].join('\n'));
-    out.push(decoupe('k6040-p', L1.coupes, habille(oPres, L1.pers)));
-
+    const g1 = B([PARAM.x1, fond(PARAM.x1)]), g2 = B([PARAM.x2, fond(PARAM.x2)]);
+    const base = (g, t) => ({ x: g[0], y: g[1], pose: 'genoux', vue: 'profil', age: 'adulte', echelle: E,
+      mains: { P: 'prise', L: 'prise' }, prise: { P: 26, L: 26 },
+      angles: { tronc: t, cou: t * 0.7, tete: t * 0.55, brasP: 50, avantbrasP: 70, mainP: 88, brasL: 46, avantbrasL: 66, mainL: 84 } });
+    const sur = a => ({ P: surCerceau(a.P), L: surCerceau(a.L) });
+    const P2 = atteint(base(g2, PARAM.t2), sur(PARAM.a2));
+    const P1 = atteint(base(g1, PARAM.t1), sur(PARAM.a1));
     // le cerceau : le bois (deux traits, blanc entre les deux), le filet dedans ; l'eau repasse
     out.push(h.cercle(C[0], C[1], R + EPC / 2, 'fill="#FFFFFF" ' + A.arete.replace('fill="none" ', '')));
     out.push(h.cercle(C[0], C[1], R - EPC / 2, A.hachure('grillage', 'arete')));
     out.push(h.path(vague(C[0] - R - 6, C[0] + R + 6, Y0, 1.6, 34), A.arete));
-    // les deux mains de devant, sur le bois, et leurs poignets
-    // (le poignet du modèle tombe sur celui du personnage : plus de raccord à dessiner)
-    out.push(String(L1.mains.loin), String(L1.mains.proche));
+    // celle du fond, plus vers la proue : le plan loin, en gris ; puis celle de devant, couteau à la ceinture
+    const loin = F.corps({ ...base(g2, PARAM.t2), angles: P2.ang, objetP: habit(false) });
+    out.push(String(loin).replace(/fill="#FFFFFF"/g, 'fill="#E6E6E6"'));
+    const pres = F.corps({ ...base(g1, PARAM.t1), angles: P1.ang, objetP: habit(true) });
+    out.push(String(pres));
     // la coupe, la plus près de l'œil : le banc du milieu, le bordé, les plats-bords
     const yb = -150, eb = 32;
     const banc = [[cote(yb, -1), yb], [cote(yb, 1), yb], [cote(yb + eb, 1), yb + eb], [cote(yb + eb, -1), yb + eb]];
@@ -262,7 +225,13 @@ module.exports = (h) => {
     // le vent, du côté opposé à la levée
     const v = [28, B([-770, -378])[1] - 70];
     out.push(vent(v[0], v[1], 1, 0, 78, 20));
-    RA = { C, R, EPC, surCerceau, L1, L2, S, B, v, troncP: troncVue(oPres), troncL: troncVue(oLoin), g1 };
+    // le rouge : le geste (on remonte l'engin, à la verticale, le long du bord) et le point à
+    // contrôler (étape 10 : le poids reste contre le plat-bord)
+    const xg = C[0] + R + EPC / 2 + 14;
+    out.push(h.geste(`M${f1(xg)} ${f1(C[1] + R * 0.45)} L${f1(xg)} ${f1(C[1] - R * 0.55)}`));
+    const Gc = surCerceau(-150);
+    out.push(h.controle(Gc[0], Gc[1], 11));
+    { const a0 = repTronc(pres, E)([92, 30]); RA = { C, R, EPC, surCerceau, S, B, v, pres, loin, g1, g2, troncP: p => repTronc(pres, E)(p), couteauPt: [a0[0], a0[1] + 70 * E] }; }
     return out.join('\n');
   };
 
@@ -323,14 +292,14 @@ module.exports = (h) => {
         titre: 'Vu de l’arrière',
         dessin: arriere,
         renvois: z => {
-          arriere(z); const { L1, v, troncP, surCerceau, g1 } = RA;
+          arriere(z); const { pres, v, troncP, surCerceau, g1 } = RA;
           const G = surCerceau(-150);
           return [
             { n: 1, rond: [v[0] + 40, v[1] - 36], cible: [v[0] + 40, v[1] - 2], texte: 'le vent' },
             { n: 2, rond: [70, z.h - 30], cible: [g1[0] - 8, g1[1] - 10], texte: 'à deux, à genoux au fond' },
-            { n: 3, rond: [150, 24], cible: troncP([-122, -400]), texte: 'gilet enfilé à la rive' },
-            { n: 4, rond: [40, z.h * 0.55], cible: troncP([22, -70]), texte: 'couteau à portée d’une main' },
-            { n: 5, rond: [z.l - 30, 24], cible: [L1.mains.loin.trou.x, L1.mains.loin.trou.y], texte: 'mains au cerceau, sans boucle' },
+            { n: 3, rond: [150, 24], cible: troncP([380, -118]), texte: 'gilet enfilé à la rive' },
+            { n: 4, rond: [40, z.h * 0.55], cible: RA.couteauPt, texte: 'couteau à portée d’une main' },
+            { n: 5, rond: [z.l - 30, 24], cible: [pres.mainP.x, pres.mainP.y - 4], texte: 'mains au cerceau, sans boucle' },
             { n: 6, rond: [z.l - 16, z.h * 0.52], cible: G, texte: 'le poids contre le plat-bord' },
           ];
         },

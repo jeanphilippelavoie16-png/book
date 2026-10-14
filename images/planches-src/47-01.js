@@ -14,33 +14,18 @@
 // droit du lanceur, et son bras proche est celui qui lance. Vu de dessus, le bras droit balaie
 // par le sud et le bâton tourne dans le sens antihoraire ; vu de côté, lancé par-dessus l'épaule,
 // il tourne dans le sens horaire (le bout du haut part vers la bête).
-const fs = require('fs'), path = require('path');
-
-// ─── deux poses de lanceur, prêtées au pictogramme au chargement ──────────────────────
-// Le pictogramme de formes.js (règle 8) n'a ni fente ni bras armé. On lui ajoute deux poses
-// sans toucher au fichier, au format de ses POSES_P : penché du tronc, regard, et pour chaque
-// jambe l'angle de la cuisse, de la jambe et du pied depuis la verticale (+ vers l'avant).
-// Le pied proche (le droit) recule, le pied loin (le gauche) avance : un droitier qui lance.
-// Les mains sont posées par la planche (prises) : la main droite fermée sur le bâton.
-const POSES = {
-  // de côté : la fente basse, le genou avant plié, le tronc penché vers la bête
-  lanceBas: { t: 54, regard: -40, ancre: 'pieds', proche: [-26, -40, 34], loin: [76, -4, 0], bras: { proche: [40, 70], loin: [48, 62] } },
-  // par-dessus l'épaule : un pas en avant, le tronc droit, le bras libre tendu vers la bête
-  lanceHaut: { t: -4, regard: -12, ancre: 'pieds', proche: [-20, -10, 12], loin: [20, 4, 0], bras: { proche: [150, 170], loin: [108, 104] } },
-};
-function formesDuLanceur(h) {
-  const cle = 'const POSES_P = {';
-  const dirFormes = path.join(__dirname, '..', '..', '.claude', 'skills', 'planches', 'scripts');
-  const src = fs.readFileSync(path.join(dirFormes, 'formes.js'), 'utf8');
-  if (!src.includes(cle)) throw new Error('47-01 : formes.js n’a plus « const POSES_P = { » ; revoir les poses du lanceur');
-  const m = { exports: null };
-  // __dirname : formes.js y trouve images/modeles (les modèles calqués)
-  new Function('module', 'require', '__dirname', src.replace(cle, `${cle} ...h.posesEnPlus,`))(m, require, dirFormes);
-  return m.exports(Object.assign(Object.create(h), { posesEnPlus: POSES }));
-}
-
+//
+// Refaite le 13 octobre 2026 avec les corps simples (poses debout, lance-bas, lance-haut, de profil)
+// et la charte. Le soir, JP : plus de corps vus de face ni de dessus. La vue de dessus du lancer de
+// côté garde ce qu'elle montre de l'objet (le bâton qui tourne à plat, la bande balayée, le lièvre)
+// et perd le lanceur : il n'en reste que le bâton dans la main au départ du geste (la main, grossie
+// dans le rond, est un gros plan laissé tel quel) et l'arc que le bras balaie.
+// Les deux lanceurs sont droitiers : le bras proche (le droit) lance, le pied gauche avance (les
+// jambes de lance-bas et lance-haut sont échangées dans la planche).
+// Le rouge : la flèche du geste, une par lancer (le bras qui balaie, le bras qui passe au-dessus de
+// l'épaule). Le vol du bâton et ses tours restent en noir.
 module.exports = (h) => {
-  const F = formesDuLanceur(h);
+  const F = h.formes;
   const A = h.a;
   const NOIR = '#1A1A1A';
   const RAD = Math.PI / 180;
@@ -164,13 +149,6 @@ module.exports = (h) => {
       h.cercle(...t([-140, -266]), Math.max(0.9, 10 * s), A.plein),
     ].join('\n');
   };
-  // Une semelle de botte vue de dessus, pointe vers +x tournée de ang ; c : son milieu.
-  const semelle = (c, ang, s) => {
-    const pts = [[148, 0], [136, -38], [96, -52], [40, -48], [-10, -38], [-52, -40], [-112, -42], [-146, -22], [-150, 0],
-      [-146, 22], [-112, 42], [-52, 40], [-10, 38], [40, 48], [96, 52], [136, 38]].map(p => add(c, tourne(mul(p, s), ang)));
-    const talon = [[-62, -40], [-66, 0], [-62, 40]].map(p => add(c, tourne(mul(p, s), ang)));
-    return [h.path(cr(pts, true), blanc(1.4)), h.path(cr(talon), A.fin)].join('\n');
-  };
   // Le poing calqué (modèle s11, poing fermé vu de la paume) sur un bout du bâton. C : le centre du
   // bâton dans le poing ; angM : l'avant-bras part vers -(cos angM, sin angM) ; dB : où file le
   // bâton, du côté du pouce et de l'index (le petit doigt sur le bout mousse) ; d : son épaisseur
@@ -181,32 +159,17 @@ module.exports = (h) => {
       echelle: ech, masquer: [[0, 150, 140, 175]],
       bras: long ? { a: [21.8, 150], a0: [20.8, 135], b: [76.3, 150], b0: [76.2, 135], long } : undefined });
   };
-  // Le lanceur vu de dessus : la tête ronde, l'ovale des épaules, le bras droit tendu le long de
-  // l'arc qu'il balaie (au départ du geste, derrière lui) et le poing au bout.
+  // La main au départ du geste, vue de dessus : derrière le lanceur, au bout de l'arc que le bras
+  // balaie ; le bâton à plat qui traîne derrière le poing (le poing lui-même est dans la loupe).
   const mainDessus = g => {
     const a = 100 * RAD, M = add(g.S, [RB * 0.85 * Math.cos(a), RB * 0.85 * Math.sin(a)]);
     const u = uni(sub(M, g.S));
     return { M, u, tr: [-u[1], u[0]], angM: Math.atan2(u[1], u[0]) / RAD };
   };
-  const lanceurDessus = g => {
-    const c = [g.S[0], g.yCorps], a = 100 * RAD;
-    // la main au départ du geste, derrière lui, vue de dessus : le dos de la main, le poing fermé
-    // sur un bout du bâton qui traîne derrière elle, à plat (on voit sa face, son coude)
-    const M = add(g.S, [RB * 0.85 * Math.cos(a), RB * 0.85 * Math.sin(a)]);
-    const u = uni(sub(M, g.S));
-    const tr = [-u[1], u[0]];                                            // tangent, à l'opposé du geste
-    const angM = Math.atan2(u[1], u[0]) / RAD;                          // l'avant-bras de main() part vers +x
-    const eM = 0.12, cB = add(M, mul(tr, LB * 0.5 - (53 * eM + 2)));   // le bout mousse dépasse du petit doigt
-    const m = poingS11(M, angM, tr, eM);
-    const W = m.P([49, 150]), w = 44 * E, n = [-u[1], u[0]];
-    const brasP = [add(g.S, mul(n, w)), add(W, mul(n, w * 0.8)), sub(W, mul(n, w * 0.8)), sub(g.S, mul(n, w))];
-    return [
-      h.path(poly(brasP), blanc(1.4)),
-      baton(cB, LB, Math.atan2(tr[1], tr[0]) / RAD),
-      m.toString(),
-      `<ellipse cx="${f1(c[0])}" cy="${f1(c[1])}" rx="${f1(130 * E)}" ry="${f1(240 * E)}" ${blanc(1.4)}/>`,
-      h.cercle(c[0] + 25 * E, c[1], 95 * E, blanc(1.4)),
-    ].join('\n');
+  const batonDepart = g => {
+    const { M, tr } = mainDessus(g), eM = 0.12;
+    const cB = add(M, mul(tr, LB * 0.5 - (53 * eM + 2)));              // le bout mousse dépasse du petit doigt
+    return baton(cB, LB, Math.atan2(tr[1], tr[0]) / RAD);
   };
   // La neige : un trait de sol et une bande pointillée dessous.
   const neige = (z, yG) => [h.rect(4, yG, z.l - 8, 9, A.hachure('neige', 'aucun')), h.ligne(4, yG, z.l - 4, yG, A.arete)].join('\n');
@@ -215,50 +178,58 @@ module.exports = (h) => {
   // Le bâton fait 740 mm à cette échelle : du bout des doigts à l'épaule du personnage de la
   // bibliothèque (bras 300, avant-bras 255, main 185). La bête est à un peu plus de deux
   // longueurs de bâton de la main : « quelques longueurs de bâton, pas plus ».
-  const E = 0.087;                        // unités de vue par mm
+  const E = 0.075;                        // unités de vue par mm (le corps en fente tient avec le lièvre dans la vue)
   const LB = 740 * E;
   const RB = 740 * E;                     // le rayon du geste : du centre de l'épaule au bout des doigts
 
+  // Un corps posé à gauche de sa vue : on le rend une fois pour lire sa boîte, puis à sa place.
+  const corpsA = (o, xMin) => { const c0 = F.corps({ ...o, x: 0 }); return F.corps({ ...o, x: xMin - c0.boite.x0 }); };
+  // le droitier : le pied gauche (loin) devant, le droit (proche) derrière
+  const JAMBES_BAS = { cuisseP: -52, jambeP: -63, piedP: 41, cuisseL: 76, jambeL: -4, piedL: 90 };
+  const JAMBES_HAUT = { cuisseP: -22, jambeP: -24, piedP: 70, cuisseL: 18, jambeL: 2, piedL: 90 };
+
   const geoCote = z => {
-    const yG = z.h - 16, xP = 40;
-    // la main droite fermée sur le bâton, au lâcher : vu de côté, le bâton qui part à plat se
-    // présente par le bout, et la main se voit du côté du pouce (prise de profil)
-    const p0 = F.personnage({ x: xP, y: yG, pose: 'lanceBas', echelle: E });
-    const S0 = p0.epaules.proche.map(Number);
-    const mp = [S0[0] + 330 * E, S0[1] + 540 * E];
-    const pers = F.personnage({ x: xP, y: yG, pose: 'lanceBas', echelle: E,
-      prises: { proche: { x: mp[0], y: mp[1], pose: 'prise', vue: 'profil', diametre: BATON.w * LB } } });
+    const yG = z.h - 16;
+    // la main droite fermée sur un bout du bâton, au lâcher : le bâton qui part à plat se présente
+    // par le bout (son coupe aplatie dans le poing)
+    const pers = corpsA({ y: yG, pose: 'lance-bas', vue: 'profil', age: 'adulte', echelle: E, angles: JAMBES_BAS,
+      objet: g => { const r = g.mainP.r || 15 * E;
+        return `<ellipse cx="${f1(g.mainP.x)}" cy="${f1(g.mainP.y)}" rx="${f1(r)}" ry="${f1(r * 0.5)}" transform="rotate(${f1(g.mainP.angle)} ${f1(g.mainP.x)} ${f1(g.mainP.y)})" ${A.plein}/>`; } }, 6);
+    const mp = [pers.mainP.x, pers.mainP.y], S0 = pers.articulations.epauleP;
     // vue de dessus : l'épaule droite 200 mm au sud du milieu du corps ; la main lâche le bâton
     // au bout d'un arc de rayon RB, à l'aplomb de la main de la vue de côté
     const Sx = S0[0];
     const aLache = Math.acos(Math.min(1, (mp[0] - Sx) / RB));
     const yCorps = 26, Sy = yCorps + 200 * E;
     const yRel = Sy + RB * Math.sin(aLache);
-    const xs = [0, 1, 2].map(i => mp[0] + LB * (0.5 + 0.75 * i));
+    const xs = [0, 1, 2].map(i => mp[0] + LB * (0.45 + 0.62 * i));
     const hs = [250, 195, 190].map(v => yG - v * E);
     const ang = [20, -45, -105];
-    const xH = mp[0] + LB * 2.5;
-    return { yG, xP, pers, mp, xs, hs, ang, xH, yRel, yCorps, S: [Sx, Sy], aLache: aLache / RAD, yLievre: yRel - 0.2 * LB, loupe: [52, 184] };
+    const xH = mp[0] + LB * 2.2;
+    return { yG, pers, mp, xs, hs, ang, xH, yRel, yCorps, S: [Sx, Sy], aLache: aLache / RAD, yLievre: yRel - 0.2 * LB, loupe: [52, 184] };
   };
   const geoEpaule = z => {
-    const yG = z.h - 16, xP = 76;
-    // la main droite armée derrière la tête, le coude haut, fermée sur un bout du bâton qui pend
-    // dans le dos : la main vue du dos, l'avant-bras couché vers l'arrière
-    const p0 = F.personnage({ x: xP, y: yG, pose: 'lanceHaut', echelle: E });
-    const S = p0.epaules.proche.map(Number);
-    const mp = [S[0] - 420 * E, S[1] - 415 * E], angM = -150;
-    const axeM = [Math.sin(angM * RAD), -Math.cos(angM * RAD)];          // l'axe du manche dans la main
-    const dB = axeM[1] > 0 ? axeM : mul(axeM, -1);                        // le bâton pend dans le dos
+    const yG = z.h - 16;
+    // la main droite armée derrière la tête, le coude haut, le poignet cassé vers l'arrière, fermée
+    // sur un bout du bâton qui pend dans le dos
+    const o = { y: yG, pose: 'lance-haut', vue: 'profil', age: 'adulte', echelle: E, angles: { ...JAMBES_HAUT, mainP: -100 } };
+    const p0 = corpsA(o, 40);
+    const mp = [p0.mainP.x, p0.mainP.y], S = p0.articulations.epauleP;
+    const ax = [Math.cos(p0.mainP.angle * RAD), Math.sin(p0.mainP.angle * RAD)];
+    const dB = ax[1] > 0 ? ax : mul(ax, -1);                               // le bâton pend dans le dos
     const cB = add(mp, mul(dB, LB * 0.5 - 75 * E)), angB = Math.atan2(dB[1], dB[0]) / RAD;
-    const pers = F.personnage({ x: xP, y: yG, pose: 'lanceHaut', echelle: E,
-      prises: { proche: { x: mp[0], y: mp[1], pose: 'prise', vue: 'dos', angle: angM, diametre: BATON.w * LB, objet: baton(cB, LB, angB) } } });
+    const pers = corpsA({ ...o, objetP: baton(cB, LB, angB) }, 40);
+    // la loupe garde la main de l'ancienne planche (gros plan laissé tel quel) : son angle et son bâton
+    const angM = -150;
+    const axeL = [Math.sin(angM * RAD), -Math.cos(angM * RAD)];
+    const dLoupe = axeL[1] > 0 ? axeL : mul(axeL, -1);
     const R = [S[0] + 150 * E, S[1] - 560 * E];                         // le lâcher, au-dessus de la tête
     const xs = [0, 1, 2].map(i => R[0] + LB * (0.42 + 0.68 * i));
     const hs = [1965, 1930, 1900].map(v => yG - v * E);
     const ang = [-60, 15, 90];
     const xG = R[0] + LB * 2.25, yBr = yG - 1700 * E;
     const xT = xG + LB * 0.42;
-    return { yG, xP, pers, mp, R, S, xs, hs, ang, xG, yBr, xT, yBande: yG - 1900 * E, angM, dB };
+    return { yG, pers, mp, R, S, xs, hs, ang, xG, yBr, xT, yBande: yG - 1900 * E, angM, dB: dLoupe };
   };
 
   // Une épinette : le tronc effilé, des branches qui tombent un peu et relèvent le bout,
@@ -332,8 +303,10 @@ module.exports = (h) => {
   // ─── sa longueur : le bâton debout à côté du bras qui pend ────────────────────────────
   const geoMesure = z => {
     const e = (z.h - 10) / 1790, yG = z.h - 4, x = 44;
-    const p = F.personnage({ x, y: yG, pose: 'debout', echelle: e, regard: 2 });
-    const epaule = [x + 10.6 * e, yG - 1420 * e], doigts = p.mains.proche.map(Number);
+    const p = F.corps({ x, y: yG, pose: 'debout', vue: 'profil', age: 'adulte', echelle: e });
+    const epaule = p.articulations.epauleP;
+    // le bout des doigts : le poignet, plus une main (189 mm) le long de l'axe de la main
+    const doigts = add(p.poignetP, mul([Math.cos(p.mainP.axe * RAD), Math.sin(p.mainP.axe * RAD)], 189 * e));
     const L = doigts[1] - epaule[1];
     const c = [x + 420 * e, (doigts[1] + epaule[1]) / 2];
     const xs = place(BATON.contour, c, L, 90).map(q => q[0]);
@@ -414,8 +387,9 @@ module.exports = (h) => {
           const x1 = g.xH + LB * 0.32;
           out.push(h.ligne(g.mp[0], g.yRel - LB / 2, x1, g.yRel - LB / 2, pointille));
           out.push(h.ligne(g.mp[0], g.yRel + LB / 2, x1, g.yRel + LB / 2, pointille));
-          out.push(lanceurDessus(g));
-          out.push(h.fleche(arc(g.S, RB, 94, g.aLache + 6, 0), A.arete));
+          out.push(batonDepart(g));
+          // le geste : le bras balaie à l'horizontale, de derrière le lanceur jusqu'au lâcher
+          out.push(h.geste(arc(g.S, RB, 94, g.aLache + 6, 0)));
           out.push(lievreDessus([g.xH, g.yLievre], E * 1.5));
           out.push(h.fleche(`M${XY([g.mp[0] + 2, g.yRel])} L${XY([x1 - 4, g.yRel])}`, trajet));
           g.xs.forEach((x, i) => out.push(baton([x, g.yRel], LB, g.ang[i])));
@@ -423,9 +397,6 @@ module.exports = (h) => {
           // ── vue de côté ──
           out.push(neige(z, g.yG));
           out.push(g.pers.toString());
-          // le bout du bâton dans le poing : sa coupe aplatie, à plat
-          const rT = Number(g.pers.mains.proche.trou.r);
-          out.push(`<ellipse cx="${f1(g.mp[0])}" cy="${f1(g.mp[1])}" rx="${f1(rT)}" ry="${f1(rT * 0.55)}" ${A.plein}/>`);
           out.push(lievreProfil([g.xH, g.yG], E));
           const pts = [[g.mp[0], g.mp[1]], ...g.xs.map((x, i) => [x, g.hs[i]]), [g.xH - 0.33 * LB, g.hs[2]]];
           out.push(h.fleche(cr(pts), trajet));
@@ -446,9 +417,9 @@ module.exports = (h) => {
         },
         renvois: z => {
           const g = geoCote(z);
-          const bras = add(g.S, [RB * Math.cos(78 * RAD), RB * Math.sin(78 * RAD)]);
+          const bras = add(g.S, [RB * Math.cos(70 * RAD), RB * Math.sin(70 * RAD)]);
           return [
-            { n: 5, rond: [bras[0] + 34, bras[1] + 44], cible: bras },
+            { n: 5, rond: [bras[0] + 30, bras[1] + 40], cible: bras },
             { n: 6, rond: [g.xs[1] + 26, g.hs[1] - 40], cible: [g.xs[1] + 8, g.hs[1] - 2] },
             { n: 7, rond: [g.xH - 0.3 * LB, g.yRel - LB / 2 - 24], cible: [g.xH - 0.62 * LB, g.yRel - LB / 2] },
             { n: 8, rond: [g.xH + 8, g.yG - 58], cible: [g.xH + 6, g.yG - 18] },
@@ -465,7 +436,7 @@ module.exports = (h) => {
           out.push(epinette(z, g));
           out.push(tetras([g.xG, g.yBr], E));
           out.push(g.pers.toString());
-          out.push(h.fleche(cr([[-300, -560], [-120, -760], [150, -720], [300, -560]].map(q => add(g.S, mul(q, E)))), A.arete));
+          out.push(h.geste(cr([[-300, -560], [-120, -760], [150, -720], [300, -560]].map(q => add(g.S, mul(q, E))))));
           const pts = [[g.R[0], g.R[1]], ...g.xs.map((x, i) => [x, g.hs[i]]), [g.xG - 0.34 * LB, g.yG - 1880 * E]];
           out.push(h.fleche(cr(pts), trajet));
           g.xs.forEach((x, i) => out.push(baton([x, g.hs[i]], LB, g.ang[i])));

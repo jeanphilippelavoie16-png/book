@@ -11,10 +11,10 @@
 // pivotant sur le bon pied.
 // Cotes : « taille » (le blessé debout) et « 50 mm » (sous le creux). La longueur, taille moins
 // 400 mm, est cotée sur la 24-06b.
-// Le blessé : le personnage de formes.js (1750 ; épaule à 1420, creux de l'aisselle à 1325), vu de
-// son côté droit ; le côté sain est le droit, la cheville blessée la gauche. De face, un buste
-// dessiné ici aux mêmes proportions (tête 230, épaules 490 hors tout, poitrine 320 sous
-// l'aisselle, bras de 88), coupé au-dessus des coudes.
+// Le blessé : le corps simple « debout-bequille » (corps/moteur.js), vu de son côté droit ; le côté
+// sain est le droit, la cheville blessée la gauche (la jambe loin, soulagée). Depuis le 13 octobre
+// au soir, un corps ne se montre que de profil : la vue de face sous l'aisselle est remplacée par
+// un gros plan de profil sur l'aisselle, où se lisent les 50 mm.
 // Géométrie de dessin, jamais imprimée (mm) : béquille de 32 au pied, branches de 22 à 20, 190
 // hors tout à la poignée ; le bout posé 330 devant le pied du personnage, 300 devant l’aisselle ; rembourrage de 82 sur 80, 44 d’épais vu de
 // face ; empreintes de semelle de 270 × 100, pas de 300.
@@ -56,26 +56,23 @@ module.exports = (h) => {
   const miroir = pts => pts.map(p => [p[0], -p[1]]);
 
   // ── le blessé et la béquille en place (mm, repère du personnage : sol en y = 0, face vers +x) ──
-  const S = [8.4, -1420];                    // l'épaule proche (la droite)
-  const T = [330, 0], P = [30, -1275];       // le bout, un peu devant le pied ; le haut, 50 sous le creux
+  // Tout part du corps simple : l'épaule, le creux de l'aisselle (95 mm sous l'articulation de
+  // l'épaule), la main sur la traverse. Le haut de la béquille est 50 mm sous le creux ; son axe
+  // passe par la main ; le bout tombe au sol, là où cet axe le touche.
+  const POSE = 'debout-bequille';
+  // le pied blessé (loin) soulagé, levé du sol : on ne pose que le bon pied
+  const ANGLES = { cuisseL: 16, jambeL: -36, piedL: 58 };
+  const C0 = F.corps({ x: 0, y: 0, pose: POSE, echelle: 1, angles: ANGLES, ancrer: false, objetP: '<g/>' });
+  const S = C0.articulations.epauleP;                    // l'épaule proche (la droite)
+  const CREUX = [S[0] + 6, S[1] + 95];
+  const P = [CREUX[0], CREUX[1] + 50];                   // le haut, 50 sous le creux
+  const MAIN = [C0.mainP.x, C0.mainP.y];
+  const T = (() => { const d = sub(MAIN, P); return [P[0] + d[0] * (-P[1]) / d[1], 0]; })();
   const L = nrm(sub(P, T));
   const ax = uni(sub(P, T)), bx = [-ax[1], ax[0]];
   const enPlace = (u, v) => add(add(T, mul(ax, u)), mul(bx, v));
-  const DIAM = 22;
-  // La main calquée : modèle s11 (poing fermé, vu de la paume) en miroir, le pouce vers l'avant,
-  // la traverse dans le poing, l'avant-bras tendu vers l'épaule. Le poignet du modèle (58 px de
-  // large en y = 120) a la largeur de l'avant-bras du personnage, qui y arrive ; le reste de
-  // l'avant-bras du modèle est masqué.
-  const ECH = 83 / 58;
-  const angleMain = c => { const d = uni(sub(S, c)); return Math.atan2(-d[0], d[1]) * 180 / Math.PI; };
-  const poing = (c, ang, k = 1, x = c) => F.modele('s11', { x: x[0], y: x[1], ancre: [68, 42], angle: ang, miroir: true, echelle: ECH * k,
-    masquer: [[0, 120, 140, 175]] });
-  const poignetMain = c => poing(c, angleMain(c)).P([49, 120]);
-  // la traverse tombe là où arrive la main, le bras tendu
-  const poignetA = u => poignetMain(enPlace(u, 0));
-  let lo = 600, hi = 950;
-  for (let i = 0; i < 40; i++) { const m = (lo + hi) / 2; if (nrm(sub(poignetA(m), S)) > 552) lo = m; else hi = m; }
-  const uC = (lo + hi) / 2, uF = uC - 170, uR = 60;
+  // la traverse tombe là où est la main
+  const uC = (MAIN[0] - T[0]) * ax[0] + (MAIN[1] - T[1]) * ax[1], uF = uC - 170, uR = 60;
 
   // la béquille dans son repère (u, v)
   const bordExt = [[0, 16], [200, 15.6], [uF - 120, 14.8], [uF - 40, 15], [uF + 5, 19], [uF + 45, 34], [uF + 100, 55], [uC, 76],
@@ -115,35 +112,20 @@ module.exports = (h) => {
   }
 
   const C = enPlace(uC, 0);
-  const W = poignetMain(C);
-  const dirBras = uni(sub(W, S)), nBras = [-dirBras[1], dirBras[0]];
-  const E = add(S, mul(dirBras, 300));       // le coude
 
-  // ── le buste de face (x vers la gauche du blessé, d sous le sommet du crâne ; mm) ──
-  // Le côté de la béquille (le droit du blessé) est à gauche du dessin : σ = −1.
-  const J = [185, 345];                                    // l'articulation de l'épaule, côté +
-  const flanc = [[158, 430], [150, 480], [140, 550], [128, 632]];
-  const flancX = d => { for (let i = 0; i < flanc.length - 1; i++) { const a = flanc[i], b = flanc[i + 1];
-    if (d <= b[1]) return a[0] + (b[0] - a[0]) * (d - a[1]) / (b[1] - a[1]); } return flanc[flanc.length - 1][0]; };
-  const DCOUPE = 632;
-  const brasFace = alpha => {
-    const t = alpha * Math.PI / 180, dir = [Math.sin(t), Math.cos(t)], n = [Math.cos(t), -Math.sin(t)];
-    const larg = u => u < 300 ? 44 - 4 * u / 300 : 40;
-    const bord = (u, s) => add(add(J, mul(dir, u)), mul(n, s * larg(u)));
-    const tFin = (DCOUPE - J[1]) / dir[1];
-    // le creux : là où le dedans du bras quitte le flanc
-    let t0 = 20;
-    while (t0 < 300 && bord(t0, -1)[0] < flancX(bord(t0, -1)[1])) t0 += 1;
-    const dehors = [[182, 307], [212, 317], [233, 335], [244, 368], ...[80, 160, 240].map(u => bord(u, 1)), [bord(tFin, 1)[0], DCOUPE]];
-    const dedans = [...[t0, t0 + 50, 150, 220].filter((u, i, a) => i === 0 || u > a[i - 1] + 20).map(u => bord(u, -1)), [bord(tFin, -1)[0], DCOUPE]];
-    return { dehors: lisse(dehors), dedans: lisse(dedans), creux: bord(t0, -1), dir };
+  // la scène de côté : le sol, le blessé, la béquille (pleine devant le tronc, cachée derrière le
+  // bras proche, redessinée là en tireté) ; V : mm → vue ; s : unités de vue par mm
+  // gros : le bras proche ne se peint pas, son contour revient en tireté par-dessus (on voit au
+  // travers le haut de la béquille sous l'aisselle)
+  const scene = (V, s, { gros = false } = {}) => {
+    const Mb = (u, v) => V(enPlace(u, v));
+    const [x0, y0] = V([0, 0]);
+    const base = { x: x0, y: y0, pose: POSE, echelle: s, angles: ANGLES, ancrer: false, trait: 'fort' };
+    if (!gros) return [F.corps({ ...base, objetP: bequille(Mb) }).svg, bequille(Mb, { cache: true })].join(NL);
+    const bras = [...F.corps({ ...base, objetP: '<g/>' }).svg.matchAll(/<path d="([^"]+)" fill="#FFFFFF" stroke="none"\/>/g)][1][1];
+    return [F.corps({ ...base, masquer: ['brasP'], objetP: bequille(Mb) }).svg,
+      h.path(bras, A.cache.replace('stroke-width="0.7"', 'stroke-width="1"'))].join(NL);
   };
-  const ALPHA_B = 13, ALPHA_A = 7;
-  const brasB = brasFace(ALPHA_B), brasA = brasFace(ALPHA_A);
-  const creux = brasB.creux;                               // le creux de l'aisselle, côté béquille
-  const dHaut = creux[1] + 50;                             // le haut du rembourrage : 50 sous le creux
-  const xT = flancX(dHaut + 35) + 22 - 2;                  // l'axe de la béquille : le rembourrage touche les côtes
-  const INCL = 10;                                         // la béquille penche un peu vers le dehors, vers la main
 
   // ── les empreintes (mm, vues de dessus, la marche vers le haut) ──
   const semelle = lisse([[0, 128], [30, 122], [42, 100], [44, 60], [44, 20], [48, -30], [52, -70], [50, -100], [38, -122], [15, -134],
@@ -152,11 +134,11 @@ module.exports = (h) => {
   return {
     ref: '24-06a',
     titre: 'La béquille de fourche, en place',
-    desc: 'Un blessé debout, vu de côté, tient une béquille faite d’un jeune arbre fourchu sous le bras du côté sain : la perche part du sol un peu devant le pied, fourche un peu sous la main, et ses deux branches passent de chaque côté du bras avant de se rejoindre sous l’aisselle, derrière le bras (en tireté). La main serre une traverse liée entre les branches, le bras tendu. La taille du blessé est cotée. De face, le haut rembourré de la béquille est serré contre les côtes, entre le bras et le flanc, et s’arrête 50 mm, deux ou trois doigts, sous le creux de l’aisselle. En bas, trois temps vus de dessus avec des empreintes de semelle : la béquille et le pied blessé (hachuré) avancent ensemble ; le bon pied passe devant ; on tourne en pivotant sur le bon pied.',
+    desc: 'Un blessé debout, vu de côté, tient une béquille faite d’un jeune arbre fourchu sous le bras du côté sain : la perche part du sol un peu devant le pied, fourche un peu sous la main, et ses deux branches passent de chaque côté du bras avant de se rejoindre sous l’aisselle, derrière le bras (en tireté). La main serre une traverse liée entre les branches, le bras tendu. La taille du blessé est cotée. De près, de profil : le haut rembourré de la béquille, caché derrière le bras, serré contre les côtes, s’arrête 50 mm, deux ou trois doigts, sous le creux de l’aisselle. En bas, trois temps vus de dessus avec des empreintes de semelle : la béquille et le pied blessé (hachuré) avancent ensemble ; le bon pied passe devant ; on tourne en pivotant sur le bon pied.',
     format: 'pleine',
-    disposition: [['place', 'face'], ['pas']],
+    disposition: [['place', 'aisselle'], ['pas']],
     hauteurs: [3, 1.05],
-    largeurs: [[1, 1.05], [1]],
+    largeurs: [[1, 0.9], [1]],
     vues: {
       // ─── le blessé debout, de côté ───
       place: (() => {
@@ -169,33 +151,23 @@ module.exports = (h) => {
         return {
           titre: 'De côté',
           dessin: z => {
-            const { s, g, x0, V } = geo(z);
-            const cadre = [[0, 0], [z.l, 0], [z.l, z.h], [0, z.h]];
+            const { s, g, V } = geo(z);
             const out = [];
             out.push(h.rect(4, g, z.l - 8, 5, A.hachure('terre', 'aucun')));
             out.push(h.ligne(4, g, z.l - 4, g, A.arete));
-            // le blessé ; sa main pendante est effacée, la main de formes.js la remplace sur la traverse
-            const pers = F.personnage({ x: x0, y: g, echelle: s, mains: { proche: V(W) } });
-            const dMain = uni(sub(W, E)), nM = [-dMain[1], dMain[0]];
-            const effaceMain = [add(add(W, mul(dMain, 22)), mul(nM, 40)), add(add(W, mul(dMain, 230)), mul(nM, 40)),
-              add(add(W, mul(dMain, 230)), mul(nM, -40)), add(add(W, mul(dMain, 22)), mul(nM, -40))].map(V);
-            out.push(decoupe(String(pers), [effaceMain], true, cadre));
-            // la béquille : pleine hors du bras, en tireté derrière lui
-            const bras = [add(S, mul(nBras, -52)), add(E, mul(nBras, -41)), add(W, mul(nBras, -25)), add(W, mul(nBras, 26)),
-              add(E, mul(nBras, 42)), add(S, mul(nBras, 52)), add(S, mul(dirBras, -60))].map(V);
-            const Mb = (u, v) => V(enPlace(u, v));
-            out.push(decoupe(bequille(Mb), [bras], true, cadre));
-            const c = V(C);
-            out.push(String(poing(C, angleMain(C), s, c)));
+            out.push(scene(V, s));
             // la taille
             const xc = V([500, 0])[0], yt = V([0, -1748])[1];
-            out.push(h.ligne(V([60, -1748])[0], yt, xc + 5, yt, rappel));
+            out.push(h.ligne(V([160, -1748])[0], yt, xc + 5, yt, rappel));
             out.push(h.cote(xc, g, xc, yt, 'taille', { cote: 'droite' }));
+            // le cadre du gros plan
+            const a = V([CREUX[0] - 150, CREUX[1] - 140]), b = V([CREUX[0] + 150, CREUX[1] + 160]);
+            out.push(h.rect(a[0], a[1], b[0] - a[0], b[1] - a[1], A.fin + ' stroke-dasharray="3 2.5"'));
             return out.join(NL);
           },
           renvois: z => {
             const { V } = geo(z);
-            const tr = V(enPlace(uC, -90)), coude = V(add(E, mul(nBras, 38))), perche = V(enPlace(330, -15));
+            const tr = V(enPlace(uC, -90)), coude = V(add(C0.articulations.coudeP, [26, 0])), perche = V(enPlace(330, -15));
             return [
               { n: 1, rond: [14, Math.round(coude[1]) - 40], cible: coude, texte: 'coude tendu : le poids dans les mains' },
               { n: 2, rond: [14, Math.round(tr[1])], cible: tr, texte: 'traverse-poignée : là où tombe la main' },
@@ -205,79 +177,37 @@ module.exports = (h) => {
         };
       })(),
 
-      // ─── de face : le haut de la béquille sous l'aisselle ───
-      face: (() => {
+      // ─── le gros plan de l'aisselle, de profil ───
+      aisselle: (() => {
         const geo = z => {
-          const s = Math.min((z.l - 16) / 560, (z.h - 30) / DCOUPE);
-          const cx = z.l / 2 + 16 * s, top = 8;
-          const V = p => [cx + s * p[0], top + s * p[1]];
-          return { s, cx, top, V };
+          const s = Math.min(z.l / 300, (z.h - 10) / 300);
+          const c = [z.l / 2, z.h / 2 - 10];
+          const V = p => [c[0] + s * (p[0] - CREUX[0]), c[1] + s * (p[1] - CREUX[1] - 10)];
+          return { s, V };
         };
-        const cote = (σ, pts) => pts.map(p => [σ * p[0], p[1]]);
         return {
-          titre: 'De face, sous l’aisselle',
+          titre: 'L’aisselle, de près',
           dessin: z => {
             const { s, V } = geo(z);
-            const Vp = pts => pts.map(V);
             const out = [];
-            // le tronc
-            const tronc1 = [[56, 262], [100, 283], [145, 297], [182, 307], [205, 340], [195, 390], ...flanc];
-            const tronc = [...cote(-1, tronc1), ...cote(1, tronc1).reverse()];
-            out.push(h.path(dP(Vp(tronc), true), A.blanc));
-            for (const σ of [-1, 1]) {
-              out.push(h.path(dP(Vp(cote(σ, lisse([[56, 262], [100, 283], [145, 297], [182, 307]])))), A.contour));
-              const cr = (σ < 0 ? brasB : brasA).creux;
-              out.push(h.path(dP(Vp(cote(σ, lisse([cr, ...flanc.filter(p => p[1] > cr[1] + 25)])))), A.contour));
-              // clavicule et bord du pectoral, au trait fin
-              out.push(h.path(dP(Vp(cote(σ, lisse([[22, 292], [80, 298], [140, 294], [172, 304]])))), A.detail));
-              out.push(h.path(dP(Vp(cote(σ, lisse([add(cr, [-3, 6]), [118, 494], [72, 506], [32, 502]])))), A.detail));
-            }
-            // le cou et la tête
-            const tete = lisse([[0, 0], [48, 12], [70, 50], [76, 100], [72, 145], [60, 185], [40, 215], [18, 229], [0, 232],
-              [-18, 229], [-40, 215], [-60, 185], [-72, 145], [-76, 100], [-70, 50], [-48, 12]], 8, true);
-            const cou = [[-52, 205], [-56, 262], [56, 262], [52, 205]];
-            out.push(h.path(dP(Vp(cou), true), A.blanc));
-            for (const σ of [-1, 1]) {
-              out.push(h.path(dP(Vp(cote(σ, lisse([[52, 200], [54, 235], [57, 262], [64, 268]])))), A.contour));
-              out.push(h.path(dP(Vp(cote(σ, lisse([[73, 96], [84, 104], [87, 128], [80, 152], [70, 160]], 6)))), blanc(A.contour)));
-            }
-            out.push(h.path(dP(Vp(tete), true), blanc(A.contour)));
-            // les bras
-            for (const [σ, b] of [[1, brasA], [-1, brasB]]) {
-              const fond = [...b.dehors, ...b.dedans.slice().reverse(), [J[0] - 30, J[1]]];
-              out.push(h.path(dP(Vp(cote(σ, fond)), true), A.blanc));
-              out.push(h.path(dP(Vp(cote(σ, b.dehors))), A.contour));
-              out.push(h.path(dP(Vp(cote(σ, b.dedans))), A.contour));
-            }
-            // la béquille par la tranche : la perche, puis le rembourrage serré entre le bras et les côtes
-            const c0 = [-xT, dHaut + 50];
-            const R = p => tourne([-xT + p[0], dHaut + p[1]], c0, INCL);
-            const perche = [[-10, 82], [10, 82], [11 + 0, DCOUPE - dHaut + 40], [-10, DCOUPE - dHaut + 40]].map(R);
-            out.push(decoupe(h.path(dP(Vp(perche), true), blanc(A.arete)), [[[-1000, 0], [1000, 0], [1000, DCOUPE], [-1000, DCOUPE]].map(V)], false));
-            // le rembourrage : bloc de linge plié, 44 de large, serré dessous par trois tours de lien
-            const tampon = lisse([[-12, 86], [-10, 80], [-8, 74], [-16, 68], [-21, 60], [-22, 40], [-22, 18], [-19, 6], [-10, 1], [0, 0], [10, 1], [19, 6], [22, 18],
-              [22, 40], [21, 60], [16, 68], [8, 74], [10, 80], [12, 86]]).map(R);
-            out.push(h.path(dP(Vp(tampon), true), blanc(A.arete)));
-            for (const y of [22, 44]) out.push(h.path(dP(Vp(lisse([[-21, y + 1], [-10, y - 2], [2, y + 1.5], [12, y - 1.5], [21, y + 1]], 5).map(R))), A.fin));
-            out.push(h.path(dP(Vp(lisse([[-17, 64], [-8, 70], [-3, 74]], 5).map(R))), A.fin));
-            out.push(h.path(dP(Vp(lisse([[17, 64], [8, 70], [3, 74]], 5).map(R))), A.fin));
-            for (const y of [73, 76.5, 80]) out.push(String(F.corde(Vp([[-11.5, y - 1], [11.5, y + 1]].map(R)), { ep: 3 * s, debut: 'ouvert', fin: 'ouvert', trait: 'detail' })));
-            // la cote : du creux au haut du rembourrage
-            const top = R([0, 0]);
-            const xq = V([-30, 0])[0];
-            out.push(h.ligne(V(creux.map((v, i) => i ? v : -v))[0] + 3, V(creux)[1], xq + 5, V(creux)[1], rappel));
-            out.push(h.ligne(V(top)[0] + 3, V(top)[1], xq + 5, V(top)[1], rappel));
-            out.push(h.cote(xq, V(creux)[1], xq, V(top)[1], '50 mm', { cote: 'droite' }));
+            out.push(`<clipPath id="p2406a-gros"><rect x="0" y="0" width="${z.l}" height="${z.h}"/></clipPath>`);
+            out.push(`<g clip-path="url(#p2406a-gros)">${scene(V, s, { gros: true })}</g>`);
+            // le creux et le haut de la béquille : la cote, devant le bras (le bras en tireté)
+            const xq = V([CREUX[0] + 120, 0])[0];
+            const yc = V(CREUX)[1], yp = V(P)[1];
+            out.push(h.ligne(V(CREUX)[0] - 4, yc, xq + 5, yc, rappel));
+            out.push(h.ligne(V(P)[0] + 4, yp, xq + 5, yp, rappel));
+            out.push(h.cote(xq, yc, xq, yp, '50 mm', { cote: 'droite' }));
+            // le point à contrôler : le jour sous le creux, l'aisselle ne porte pas
+            out.push(h.controle(V(CREUX)[0], (yc + yp) / 2, 0.55 * (yp - yc)));
             return out.join(NL);
           },
           renvois: z => {
             const { V } = geo(z);
-            const c0 = [-xT, dHaut + 50];
-            const R = p => tourne([-xT + p[0], dHaut + p[1]], c0, INCL);
-            const creuxV = V([-creux[0] - 4, creux[1] + 22]), cotes = V(R([21, 45]));
+            const pad = V(enPlace(L - 40, 26));
             return [
-              { n: 4, rond: [14, Math.round(creuxV[1]) - 70], cible: creuxV, texte: 'deux ou trois doigts sous le creux' },
-              { n: 5, rond: [Math.round(V([60, 0])[0]), Math.round(cotes[1]) + 60], cible: cotes, texte: 'serré contre les côtes, sans porter' },
+              { n: 4, rond: [14, Math.round(V(CREUX)[1]) - 30], cible: V([CREUX[0] - 30, CREUX[1] + 25]), texte: 'deux ou trois doigts sous le creux' },
+              { n: 5, rond: [14, Math.round(pad[1]) + 50], cible: pad, texte: 'serré contre les côtes, sans porter' },
             ];
           },
         };
@@ -314,7 +244,9 @@ module.exports = (h) => {
             let x = xs[0];
             out.push(pied(x, [-75, 0], -1, { fantome: true }), anneau(x, [235, -40], true));
             out.push(pied(x, [75, 0], 1), pied(x, [-75, -300], -1, { blesse: true }), anneau(x, [235, -340]));
-            out.push(fl(x, [-150, -10], [-150, -300]), fl(x, [335, -50], [335, -330]));
+            // le geste : la béquille et le pied blessé avancent ensemble
+            const gs = (a, b) => h.geste(`M${f(x + s * a[0])} ${f(cy + s * a[1])} L${f(x + s * b[0])} ${f(cy + s * b[1])}`);
+            out.push(gs([-150, -10], [-150, -300]), gs([335, -50], [335, -330]));
             // 2 : le bon pied passe devant
             x = xs[1];
             out.push(pied(x, [75, 0], 1, { fantome: true }));

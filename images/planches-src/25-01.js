@@ -1,4 +1,8 @@
 // Planche 25-01 — l'enveloppe croisée, avec deux couvertures et une bâche (ch. 3, §9 et étapes 7-9).
+// Depuis le 13 octobre au soir, un corps ne se montre que de profil : vu de dessus, le blessé couché
+// et sa tête sont retirés ; sa place est le contour du paquet, en tireté, et le paquet fermé garde son
+// seul contour de couverture. Les coupes gardent le corps en forme simple (ellipse et bras ronds).
+// Rouge : les deux bords qu'on rabat (le geste), et l'encadré danger.
 module.exports = (h) => {
   const c = Math.SQRT1_2;
   const BACHE = 'bâche dessous, bordée ensuite';
@@ -229,7 +233,7 @@ module.exports = (h) => {
   return {
     ref: '25-01',
     titre: 'L’enveloppe croisée, avec deux couvertures et une bâche',
-    desc: 'Montage de l’enveloppe croisée vu de dessus en trois temps : les deux couvertures décalées d’une demi-largeur, '
+    desc: 'Montage de l’enveloppe croisée vu de dessus en trois temps, sans le corps : les deux couvertures décalées d’une demi-largeur, la place du blessé en tireté au milieu, '
       + 'le bout des pieds remonté puis le bord gauche rabattu et bordé sous le flanc droit, le bord droit rabattu par-dessus '
       + 'et bordé sous le flanc gauche. En coupe à la poitrine : lit de sapin, bâche, couvertures croisées, bouteilles '
       + 'chaudes aux aisselles, sur la poitrine et sous le haut du dos ; la bâche dehors si la personne est sèche, contre elle si elle est mouillée. '
@@ -251,8 +255,10 @@ module.exports = (h) => {
             rectP(P, p, -112.5, 18, 150, 200, laine),
             h.ligne(...P(-37.5, 18), ...P(-37.5, 218), h.a.cache),
             bandes(P, -112.5, 37.5, [40, 44, 192, 196]),
-            personne(P),
-            tete(P, p),
+            // la place du blessé : le contour du paquet qu'on va fermer, en tireté (un corps ne se
+            // montre plus vu de dessus)
+            h.path(paquet(P), 'fill="none" stroke="#FFFFFF" stroke-width="4" stroke-linejoin="round"'),
+            h.path(paquet(P), h.a.cache.replace('stroke-width="0.7"', 'stroke-width="1.4"')),
             h.ligne(...P(-112.5, 222), ...P(-112.5, 258), h.a.fin),
             h.ligne(...P(-37.5, 222), ...P(-37.5, 258), h.a.fin),
             h.cote(...P(-112.5, 252), ...P(-37.5, 252), '½ largeur', { cote: 'dessous' }),
@@ -280,8 +286,7 @@ module.exports = (h) => {
             h.path(paquet(P), h.a.contour.replace('fill="none"', 'fill="url(#h-isolant)"')),
             bandes(P, -27, 27, [40, 44]),
             h.ligne(...P(8, 30), ...P(8, 166), h.a.cache),
-            tete(P, p),
-            h.fleche(`M${P(-88, 108).map(f).join(' ')} Q${P(-52, 58).map(f).join(' ')} ${P(-16, 92).map(f).join(' ')}`),
+            h.geste(`M${P(-88, 108).map(f).join(' ')} Q${P(-52, 58).map(f).join(' ')} ${P(-16, 92).map(f).join(' ')}`),
           ].join('\n');
         },
         renvois: (z) => {
@@ -307,8 +312,7 @@ module.exports = (h) => {
             h.path(paquet(P), h.a.contour.replace('fill="none"', 'fill="#FFFFFF"')),
             bandes(P, -27, 27, [40, 44]),
             h.ligne(...P(-8, 30), ...P(-8, 166), h.a.cache),
-            tete(P, p),
-            h.fleche(`M${P(88, 108).map(f).join(' ')} Q${P(52, 58).map(f).join(' ')} ${P(16, 92).map(f).join(' ')}`),
+            h.geste(`M${P(88, 108).map(f).join(' ')} Q${P(52, 58).map(f).join(' ')} ${P(16, 92).map(f).join(' ')}`),
           ].join('\n');
         },
         renvois: (z) => {

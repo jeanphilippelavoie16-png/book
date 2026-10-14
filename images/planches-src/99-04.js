@@ -4,6 +4,9 @@
 // marche sur le tas sur des planches, parce qu'un foin brûlé en dedans laisse une cavité sous une
 // croûte qui cède ; le tas monté sur un lit de pierres qui laisse passer l'air (étape 60).
 // Aucune autre mesure : le tas, la planche et le diamètre de la tige ne sont pas cotés.
+// 13 oct. : l'homme est le corps simple (pose « sonde ») ; les deux vues du bas sont des gros plans
+// de mains calquées, laissés tels quels pour la nouvelle bibliothèque. Rouge : le geste d'enfoncer,
+// la zone de la croûte qui cède.
 module.exports = (h) => {
   const A = h.a, F = h.formes;
 
@@ -34,11 +37,14 @@ module.exports = (h) => {
   };
 
   const TIGE = 4;                             // largeur dessinée de la tige dans la coupe
+  // les bras du corps simple, calculés pour des poings à 1,15 et 1,30 m au-dessus de la planche, à
+  // 0,70 m devant les chevilles, l'axe de la prise vertical (la tige)
+  const BRAS = { brasP: 26.8, avantbrasP: 97.6, mainP: 90, brasL: 36.9, avantbrasL: 126.9, mainL: 90 };
 
   return {
     ref: '99-04',
     titre: 'La sonde du fenil',
-    desc: 'Encadré danger : que faire quand la tige est trop chaude pour la main. Coupe d’un tas de foin sur son lit de pierres : debout sur une planche posée en travers du dessus, par-dessus une cavité brûlée, un homme enfonce une tige de fer jusqu’au cœur du tas. À côté, la tige seule, cotée. En bas, la tige retirée, touchée d’abord du dos de la main, puis empoignée.',
+    desc: 'Encadré danger : que faire quand la tige est trop chaude pour la main. Coupe d’un tas de foin sur son lit de pierres : debout sur une planche posée en travers du dessus, par-dessus une cavité brûlée (la croûte qui cède, en tireté rouge), un homme enfonce une tige de fer jusqu’au cœur du tas (flèche rouge). À côté, la tige seule, cotée. En bas, la tige retirée, touchée d’abord du dos de la main, puis empoignée.',
     format: 'pleine',
     disposition: [['coupe', 'tige'], ['dos', 'prise']],
     hauteurs: [2, 1],
@@ -78,23 +84,24 @@ module.exports = (h) => {
           // la planche, posée en travers du dessus, par-dessus la cavité
           const x1 = X(-1.5), x2 = X(-0.07);
           out.push(h.rect(x1, g.ypl, x2 - x1, g.yt - g.ypl, A.hachure('bois', 'contour')));
+          // la zone qui cède : la croûte au-dessus de la cavité, où l'on ne marche que sur la planche
+          out.push(h.path(lisse([[-1.36, 2.5], [-1.34, 2.1], [-1.2, 1.72], [-0.85, 1.66], [-0.5, 1.72], [-0.36, 2.0], [-0.33, 2.5]].map(([x, y]) => [X(x), Yh(y)])), A.zone));
           // la tige, du haut au cœur du tas
-          out.push(h.rect(xc - TIGE / 2, g.ysom, TIGE, g.ycoeur - g.ysom, A.blanc));
-          out.push(h.rect(xc - TIGE / 2, g.ysom, TIGE, g.ycoeur - g.ysom, A.arete));
-          // l'homme debout sur la planche, penché sur la tige, les deux poings refermés dessus
-          // (mains de la bibliothèque, vues du dos : les doigts s'enroulent autour de la tige)
-          const pr = yp => ({ x: xc, y: yp, pose: 'prise', vue: 'dos', diametre: TIGE, trait: 'fort' });
-          out.push(F.personnage({ x: xc - 0.66 * s, y: g.ypl, pose: 'debout', echelle: s / 1000, penche: 24, regard: 35,
-            prises: { proche: pr(g.ypl - 0.95 * s), loin: pr(g.ypl - 1.15 * s) } }));
+          const tige = [h.rect(xc - TIGE / 2, g.ysom, TIGE, g.ycoeur - g.ysom, A.blanc),
+            h.rect(xc - TIGE / 2, g.ysom, TIGE, g.ycoeur - g.ysom, A.arete)].join('\n');
+          // l'homme debout sur la planche, penché sur la tige : le corps simple (pose « sonde »), les
+          // bras recalculés pour que les deux poings se ferment l'un au-dessus de l'autre sur la tige ;
+          // la tige passe devant le poing loin et dans le poing proche
+          out.push(String(F.corps({ x: xc - 0.7 * s, y: g.ypl, pose: 'sonde', echelle: s / 1000, angles: BRAS, objetP: tige })));
           // le geste : enfoncer
-          out.push(h.fleche(`M${xc + 14} ${g.ypl - 1.3 * s} L${xc + 14} ${g.ypl - 0.62 * s}`, A.contour));
+          out.push(h.geste(`M${xc + 14} ${g.ypl - 1.3 * s} L${xc + 14} ${g.ypl - 0.62 * s}`));
           return out.join('\n');
         },
         renvois: z => {
           const g = geo(z), s = g.s, xc = z.l * 0.56;
           const X = m => xc + m * s, Yh = m => g.yb - m * s;
           return [
-            { n: 1, rond: [X(0.75), g.ypl - 1.45 * s], cible: [xc + 2, g.ypl - 1.05 * s] },
+            { n: 1, rond: [X(0.75), g.ypl - 1.55 * s], cible: [xc + 2, g.ypl - 1.38 * s] },
             { n: 2, rond: [X(1.2), Yh(1.25)], cible: [xc + 2, g.ycoeur - 2] },
             { n: 3, rond: [X(-1.95), g.ypl - 0.5 * s], cible: [X(-1.3), g.ypl + 1] },
             { n: 4, rond: [X(-2.25), Yh(1.9)], cible: [X(-1.05), Yh(1.95)] },

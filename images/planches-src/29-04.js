@@ -7,6 +7,11 @@
 // La vue du milieu est un gros plan en coupe par le milieu du corps (la jambe proche enlevée) :
 // l'utérus, le vagin, le poing, sans aucune anatomie détaillée.
 // Repère de chaque vue : M(x, h) en mm, x vers les pieds depuis la hanche, h au-dessus du sol.
+// Lot 3 (13 octobre) : la mère et l'aide passent au corps simple de profil (couche-genoux femme,
+// genoux-poing) ; l'aide n'est plus un aplat noir, elle est derrière la mère, au trait fort. Les
+// mains calquées des deux vues du haut et leurs manches noires restent telles quelles (la
+// bibliothèque de mains les refera). Rouge : le geste de chaque vue (frotter en tournant, ramener
+// l'utérus vers le poing, pousser vers le dos) et le pouls à l'aine, à faire disparaître.
 module.exports = (h) => {
   const A = h.a, F = h.formes;
   const r1 = v => Math.round(v * 10) / 10;
@@ -38,9 +43,27 @@ module.exports = (h) => {
     `<clipPath id="${id}"><rect x="0" y="0" width="${z.l}" height="${z.h}"/></clipPath>\n<g clip-path="url(#${id})">\n${contenu}\n</g>`;
   const sol = (z, c) => [h.ligne(0, c.sol, z.l, c.sol, A.contour), h.ligne(0, c.sol + 7, z.l, c.sol + 7, A.fin)].join(NL);
 
-  const mere = (c, extra = {}) => {
-    const [x, y] = c.T(0, 0);
-    return F.personnage({ x, y, pose: 'couche-genoux', echelle: c.s, ...extra });
+  // La mère : le corps simple de profil (couche-genoux, femme), la hanche en x = 0 du repère. Le
+  // dessus de son ventre, en mm au-dessus du sol, se lit sur son contour (dessus) : l'anatomie et
+  // les mains se posent dessus (le corps simple est plus mince que l'ancien pictogramme).
+  const coupesX = (svg, x) => {
+    const ys = [];
+    for (const m of String(svg).matchAll(/ d="([^"]+)"/g)) {
+      const n = m[1].match(/-?\d+(\.\d+)?/g).map(Number);
+      for (let i = 0; i + 3 < n.length; i += 2) {
+        const [x0, y0, x1, y1] = [n[i], n[i + 1], n[i + 2], n[i + 3]];
+        if (x0 !== x1 && (x0 - x) * (x1 - x) <= 0) ys.push(y0 + (y1 - y0) * (x - x0) / (x1 - x0));
+      }
+    }
+    return ys;
+  };
+  const MERE_MM = F.corps({ x: 0, y: 0, pose: 'couche-genoux', age: 'femme', echelle: 1 });
+  const dessus = x => -Math.min(...coupesX(MERE_MM, x));
+  const memo = {};
+  const mere = (c, masquer = []) => {
+    const k = [c.s, c.T(0, 0).join(','), masquer.join(',')].join('|');
+    if (!memo[k]) { const [x, y] = c.T(0, 0); memo[k] = F.corps({ x, y, pose: 'couche-genoux', age: 'femme', echelle: c.s, masquer }); }
+    return memo[k];
   };
   // l'utérus en poire, du col (C) au fond (Fd), en mm ; k : la largeur
   const uterus = (c, C, Fd, k = 1) => {
@@ -53,7 +76,7 @@ module.exports = (h) => {
   // la rotation de la main : une ellipse à plat au-dessus d'elle
   const tour = (cx, cy, rx, ry) =>
     h.path(`M ${r1(cx - rx)} ${r1(cy)} A ${r1(rx)} ${r1(ry)} 0 1 0 ${r1(cx + rx * 0.5)} ${r1(cy - ry * 0.866)}`, 'fill="none" stroke="#FFFFFF" stroke-width="4.4" stroke-linecap="round"') + NL +
-    h.fleche(`M ${r1(cx - rx)} ${r1(cy)} A ${r1(rx)} ${r1(ry)} 0 1 0 ${r1(cx + rx * 0.5)} ${r1(cy - ry * 0.866)}`, A.arete);
+    h.geste(`M ${r1(cx - rx)} ${r1(cy)} A ${r1(rx)} ${r1(ry)} 0 1 0 ${r1(cx + rx * 0.5)} ${r1(cy - ry * 0.866)}`);
 
   // l'avant-bras de l'aide en aplat noir, comme son corps dans la vue d'ensemble : de la coupe de
   // la main (m.coupe) jusqu'hors de la vue
@@ -81,24 +104,30 @@ module.exports = (h) => {
     return { svg: String(m), m: manche(m.P([20.1, 125]), m.P([76.7, 125]), [1, 0]) };
   };
 
-  // l'aide, à genoux derrière la mère, tournée vers ses pieds
-  // (aplat noir : elle se détache de la mère, dessinée au trait devant elle)
-  const aide = (c, xGenou, penche, prises, cote) => {
-    const [x, y] = c.T(xGenou, 0);
-    return F.personnage({ x, y, pose: 'genoux', penche, regard: 30, echelle: c.s, prises, rendu: 'plein', cote });
-  };
-  // l'aide dont le bras proche descend tendu, à la verticale, jusqu'au poing : on cherche le penché
-  // qui met l'épaule à bout de bras au-dessus du poignet, puis on la glisse au-dessus de lui
-  const aideBrasTendu = (c, prises) => {
-    const L = (300 + 255) * c.s;
-    let best = null;
-    for (let p = 0; p <= 70; p += 0.5) {
-      const a = aide(c, -560, p, prises);
-      const S = a.epaules.proche, W = a.mains.proche.poignet;
-      const e = Math.abs(W[1] - S[1] - L);
-      if (!best || e < best.e) best = { e, p, dx: (W[0] - S[0]) / c.s };
+  // L'aide : le corps simple à genoux (genoux-poing), de l'autre côté de la mère (son côté gauche),
+  // tourné vers ses pieds. Les angles viennent d'une recherche faite une fois (Nelder-Mead sur
+  // corps(), lot 3) : le poing droit juste au-dessus du nombril, le bras tendu (incliné de 11° : sinon
+  // la main gauche n'atteint pas l'aine), la main gauche à plat au pli de l'aine. La mère, peinte
+  // par-dessus, cache ses genoux ; ce qui dépasse sous le dessus de la mère (ses pieds derrière la
+  // tête) est coupé.
+  const AIDE = { tronc: 35.1, brasP: -11.1, avantbrasP: -11.1, mainP: -1.1, brasL: 10.4, avantbrasL: 9.6, mainL: 30.1 };
+  const POING = [-235, 0];                                   // x du poing (mm) ; sa hauteur suit le corps
+  const aide = c => {
+    const k = 'aide|' + c.s;
+    if (memo[k]) return memo[k];
+    const [x0, y0] = c.T(0, 0);
+    const g = F.corps({ x: 0, y: y0, pose: 'genoux-poing', echelle: c.s, trait: 'fort', angles: AIDE });
+    const dx = c.T(POING[0], 0)[0] - g.mainP.x;
+    // la découpe : au-dessus du contour de la mère ; hors d'elle, au-dessus de 150 mm du sol
+    const m = mere(c), b = m.boite, haut = [];
+    for (let x = -2; x <= 2000; x += 3) {
+      const ys = x >= b.x0 && x <= b.x1 ? coupesX(m, x) : [];
+      haut.push([x, ys.length ? Math.min(...ys) + 1.5 : y0 - 150 * c.s]);
     }
-    return aide(c, -560 + best.dx, best.p, prises);
+    const clip = `<clipPath id="rogne-29-04-aide"><path fill="none" d="M -2 -2 L 2000 -2 ${haut.slice().reverse().map(p => `L ${r1(p[0])} ${r1(p[1])}`).join(' ')} Z"/></clipPath>`;
+    const svg = `${clip}\n<g clip-path="url(#rogne-29-04-aide)">\n<g transform="translate(${r1(dx)} 0)">\n${g}\n</g>\n</g>`;
+    const sh = p => [p[0] + dx, p[1]];
+    return (memo[k] = { svg, epaule: sh(g.articulations.epauleP), poignet: sh(g.articulations.poignetP), poing: sh([g.mainP.x, g.mainP.y]), aine: sh([g.mainL.x, g.mainL.y]) });
   };
 
   // les fenêtres
@@ -119,19 +148,19 @@ module.exports = (h) => {
         titre: 'Utérus mou : le frotter',
         dessin: z => {
           const c = cadre(z, W1), s = c.s;
-          const [hx, hy] = c.T(-180, 287);
+          const [hx, hy] = c.T(-180, dessus(-180));
           const m = plat(hx, hy, s, 38);
           return coupe('zone-29-04-a', z, [
             sol(z, c),
             mere(c),
-            h.path(uterus(c, [10, 120], [-195, 268], 1.05), A.cache),
+            h.path(uterus(c, [10, 92], [-185, dessus(-185) - 22], 0.85), A.cache),
             avBras(m.m),
             m.svg,
             tour(hx + 18 * s, hy - 70 * s, 70 * s, 18 * s),
           ].join(NL));
         },
         renvois: z => {
-          const c = cadre(z, W1), [cx, cy] = c.T(-140, 300);
+          const c = cadre(z, W1), [cx, cy] = c.T(-140, dessus(-140) + 12);
           return [{ n: 1, rond: [z.l - 18, 18], cible: [cx, cy], texte: 'Serrer l’utérus en tournant jusqu’à ce qu’il durcisse' }];
         },
       },
@@ -140,31 +169,33 @@ module.exports = (h) => {
         dessin: z => {
           const c = cadre(z, W2), s = c.s;
           // le ventre enfoncé là où la main du dessus appuie
-          const m = mere(c, { coupe: true });
-          // le vagin élargi autour du poing et de l'avant-bras, de la vulve au col
+          // la coupe par le milieu du corps : la jambe et le bras proches enlevés
+          const m = mere(c, ['jambeP', 'brasP']);
+          // le vagin élargi autour du poing et de l'avant-bras, de la vulve au col (hauteurs ramenées
+          // au corps simple, plus mince que l'ancien pictogramme : × 0,74)
           const vagin = cr(c.P([[100, 200], [60, 222], [20, 232], [-30, 230], [-66, 210], [-76, 168], [-64, 120],
-            [-24, 100], [20, 104], [60, 120], [100, 134]]));
-          const [qx, qy] = c.T(-8, 166);
+            [-24, 100], [20, 104], [60, 120], [100, 134]].map(([x, hh]) => [x, hh * 0.74])));
+          const [qx, qy] = c.T(-8, 123);
           const poing = poingS(qx, qy, s);
-          const [dx, dy] = c.T(-205, 287);
-          const dessus = plat(dx, dy, s, 40);
-          const [f1x, f1y] = c.T(-150, 420), [f2x, f2y] = c.T(-95, 340);
+          const [dx, dy] = c.T(-205, dessus(-205));
+          const mainDessus = plat(dx, dy, s, 40);
+          const [f1x, f1y] = c.T(-150, dessus(-150) + 125), [f2x, f2y] = c.T(-95, dessus(-95) + 50);
           return coupe('zone-29-04-b', z, [
             sol(z, c),
             m,
-            h.path(uterus(c, [-50, 160], [-200, 270], 0.95), A.arete.replace('fill="none"', 'fill="#FFFFFF"')),
+            h.path(uterus(c, [-50, 120], [-200, dessus(-200) - 18], 0.8), A.arete.replace('fill="none"', 'fill="#FFFFFF"')),
             h.path(vagin, A.blanc),
             h.path(vagin.replace(/ Z$/, ''), A.detail),
             avBras(poing.m),
             poing.svg,
-            avBras(dessus.m),
-            dessus.svg,
-            h.fleche(`M ${r1(f1x)} ${r1(f1y)} L ${r1(f2x)} ${r1(f2y)}`, A.arete),
+            avBras(mainDessus.m),
+            mainDessus.svg,
+            h.geste(`M ${r1(f1x)} ${r1(f1y)} L ${r1(f2x)} ${r1(f2y)}`),
           ].join(NL));
         },
         renvois: z => {
           const c = cadre(z, W2);
-          const [px, py] = c.T(-20, 170), [ax, ay] = c.T(-230, 300);
+          const [px, py] = c.T(-20, 126), [ax, ay] = c.T(-230, dessus(-230) + 12);
           return [
             { n: 2, rond: [z.l - 18, z.h - 30], cible: [px, py], texte: 'Poing au fond du vagin, au-dessus du col' },
             { n: 3, rond: [18, 18], cible: [ax, ay], texte: 'L’autre main ramène l’utérus vers le poing' },
@@ -175,29 +206,27 @@ module.exports = (h) => {
       aorte: {
         titre: 'Toujours rien : comprimer l’aorte',
         dessin: z => {
-          const c = cadre(z, W3);
-          const [px, py] = c.T(-235, 330), [gx, gy] = c.T(40, 262);
-          const a = aideBrasTendu(c, {
-            proche: { x: px, y: py, pose: 'prise', vue: 'dos', angle: 90, diametre: 22 * c.s, bras: 15 },
-            loin: { x: gx, y: gy, pose: 'appui', vue: 'profil', angle: 48, bras: 15 },
-          });
-          const [a1x, a1y] = c.T(-330, 760), [a2x, a2y] = c.T(-330, 560);
+          const c = cadre(z, W3), a = aide(c);
+          // le geste : pousser fort vers le dos, dans l'axe du bras tendu (à côté, la cuisse de l'aide
+          // et son autre bras brouillent : la flèche passe dans le bras)
+          const S = a.epaule, W = a.poignet, u = [W[0] - S[0], W[1] - S[1]], lu = Math.hypot(u[0], u[1]), n = [-u[1] / lu, u[0] / lu], off = 0;
+          const g0 = [S[0] + u[0] * 0.3 + n[0] * off, S[1] + u[1] * 0.3 + n[1] * off], g1 = [S[0] + u[0] * 0.9 + n[0] * off, S[1] + u[1] * 0.9 + n[1] * off];
           return coupe('zone-29-04-c', z, [
             sol(z, c),
-            a,
+            a.svg,
             mere(c),
-            a.mains.loin,
-            a.mains.proche,
-            h.fleche(`M ${r1(a1x)} ${r1(a1y)} L ${r1(a2x)} ${r1(a2y)}`, A.contour),
+            h.geste(`M ${r1(g0[0])} ${r1(g0[1])} L ${r1(g1[0])} ${r1(g1[1])}`),
+            // le point à contrôler : le pouls à l'aine, qu'on appuie jusqu'à ce qu'il disparaisse
+            h.controle(a.aine[0], a.aine[1], 11),
           ].join(NL));
         },
         renvois: z => {
-          const c = cadre(z, W3);
-          const [bx, by] = c.T(-250, 560), [px, py] = c.T(-235, 300), [dx, dy] = c.T(40, 280);
+          const c = cadre(z, W3), a = aide(c);
+          const B = [a.epaule[0] + (a.poignet[0] - a.epaule[0]) * 0.18, a.epaule[1] + (a.poignet[1] - a.epaule[1]) * 0.18];
           return [
-            { n: 4, rond: [bx - 120, 24], cible: [bx, by], texte: 'Bras tendu : pousser fort vers le dos' },
-            { n: 5, rond: [px - 150, py - 10], cible: [px, py], texte: 'Poing au-dessus du nombril, côté gauche de la mère' },
-            { n: 6, rond: [dx + 120, 24], cible: [dx, dy], texte: 'À l’aine : appuyer jusqu’à perdre le pouls' },
+            { n: 4, rond: [B[0] - 120, 24], cible: B, texte: 'Bras tendu : pousser fort vers le dos' },
+            { n: 5, rond: [a.poing[0] - 150, a.poing[1] - 10], cible: a.poing, texte: 'Poing au-dessus du nombril, côté gauche de la mère' },
+            { n: 6, rond: [a.aine[0] + 120, 24], cible: [a.aine[0] + 2, a.aine[1] - 4], texte: 'À l’aine : appuyer jusqu’à perdre le pouls' },
           ];
         },
       },

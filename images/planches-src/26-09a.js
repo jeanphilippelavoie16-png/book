@@ -1,5 +1,8 @@
 // Planche 26-09a — Déplacer un blessé : la bâche roulée sur deux perches, vue de dessus et en
 // coupe, et la prise sous les aisselles pour trois mètres sans rien.
+// Depuis le 13 octobre au soir, un corps ne se montre que de profil : vu de dessus, le blessé couché
+// est retiré (la bâche et les perches restent) ; la coupe garde son corps en forme simple ; la prise
+// est refaite avec deux corps simples. Rouge : le porteur qui recule (le geste).
 module.exports = (h) => {
   const BL = h.a.blanc.split(' ')[0];
   const plein = t => t.replace('fill="none"', BL);
@@ -45,91 +48,41 @@ module.exports = (h) => {
     return h.chemin(P, a);
   };
 
-  // Un corps couché sur le dos, vu de dessus, tête à gauche : le pictogramme de la règle 8
-  // (tête ronde, bandes arrondies d'épaisseur égale), aux proportions de formes.js (mm d'adulte).
-  // x0 : sommet du crâne ; H : la longueur dessinée du crâne aux talons (1700 mm).
-  const capsule = (x1, y1, x2, y2, r, a) => {
-    const dx = x2 - x1, dy = y2 - y1, L = Math.hypot(dx, dy), ux = dx / L, uy = dy / L, nx = -uy * r, ny = ux * r;
-    return h.path(`M${f(x1 + nx)},${f(y1 + ny)} L${f(x2 + nx)},${f(y2 + ny)} A${f(r)},${f(r)} 0 0 0 ${f(x2 - nx)},${f(y2 - ny)} L${f(x1 - nx)},${f(y1 - ny)} A${f(r)},${f(r)} 0 0 0 ${f(x1 + nx)},${f(y1 + ny)} Z`, a);
-  };
-  const corpsDessus = (x0, cy, H, a) => {
-    const m = v => v * H / 1700, X = v => x0 + m(v), Y = v => cy + m(v), out = [];
-    const rB = 46, rJ = 61;
-    // les bras le long du corps, rentrés sous le bord du tronc
-    for (const s of [-1, 1]) out.push(capsule(X(330), Y(s * 236), X(1010), Y(s * 250), m(rB), a));
-    // les jambes, un peu écartées
-    for (const s of [-1, 1]) out.push(capsule(X(830), Y(s * 84), X(1640), Y(s * 100), m(rJ), a));
-    // le tronc : épaules rondes, un peu plus étroit à la ceinture
-    out.push(h.path(lisse([[268, 0], [276, -150], [310, -212], [380, -224], [560, -205], [760, -180], [850, -150], [872, 0],
-      [850, 150], [760, 180], [560, 205], [380, 224], [310, 212], [276, 150]].map(([x, y]) => [X(x), Y(y)]), true), a));
-    // la tête ronde, un blanc pour le cou
-    out.push(h.cercle(X(122), cy, m(122), a));
-    return out.join('\n');
-  };
-
-  // ─── la prise sous les aisselles : deux pictogrammes de la bibliothèque ───
-  // Le blessé assis au sol, le tronc renversé contre le porteur ; le porteur à demi accroupi
-  // derrière lui, les bras passés sous ses aisselles, les mains croisées devant sa poitrine.
+  // ─── la prise sous les aisselles : deux corps simples, de profil ───
+  // Le blessé assis au sol, les jambes allongées, le tronc renversé contre le porteur, son bras
+  // replié sur la poitrine ; les fesses à peine décollées, les talons au sol. Le porteur, accroupi
+  // derrière lui et penché, a passé les bras sous ses aisselles et tient à deux mains l'avant-bras
+  // replié ; la tête du blessé repose contre son ventre. Les angles ont été cherchés une fois pour
+  // que les deux mains du porteur tombent sur l'avant-bras du blessé (mm d'adulte, origine du
+  // blessé ; le porteur a ses pieds 690 mm derrière).
+  const ANG_B = { tronc: -40, cou: -30, tete: -14, brasP: 38, avantbrasP: 196, mainP: 196, brasL: 34, avantbrasL: 192, mainL: 192,
+    cuisseP: 82, jambeP: 82, cuisseL: 82, jambeL: 82 };
+  const ANG_P = { tronc: 38, cou: 30, tete: 24, cuisseP: 55, jambeP: -45, piedP: 90, cuisseL: 50, jambeL: -50, piedL: 90,
+    brasP: -10, avantbrasP: 52.5, mainP: 52.5, brasL: 0, avantbrasL: 47.5, mainL: 47.5 };
   const geoPrise = z => {
-    const F = h.formes, e = Math.min(z.l / 2500, z.h / 2000), G = z.h - 40, rad = Math.PI / 180;
-    // Le blessé est assis, soulevé par le haut du corps : les fesses décollent, les talons restent
-    // au sol. On le dessine assis puis on le bascule autour du talon (rotation R, angle A).
-    const A = 16, xh = z.l * 0.42, piv = [xh + 880 * e, G];
-    const ca = Math.cos(A * rad), sa = Math.sin(A * rad);
-    const R = p => [f(piv[0] + (p[0] - piv[0]) * ca - (p[1] - piv[1]) * sa), f(piv[1] + (p[0] - piv[0]) * sa + (p[1] - piv[1]) * ca)];
-    const Ri = p => [piv[0] + (p[0] - piv[0]) * ca + (p[1] - piv[1]) * sa, piv[1] - (p[0] - piv[0]) * sa + (p[1] - piv[1]) * ca];
-    const mat = `matrix(${[ca, sa, -sa, ca, piv[0] - piv[0] * ca + piv[1] * sa, piv[1] - piv[0] * sa - piv[1] * ca].map(v => Math.round(v * 10000) / 10000).join(' ')})`;
-    const opt = { x: xh, y: G, pose: 'assis-sol', echelle: e, penche: -24, regard: -4 };
-    const B0 = F.personnage(opt);
-    const S0 = B0.epaules.proche, S = R(S0);
-    // son bras proche ballant, tendu vers le sol (dans la vue), à côté de la cuisse
-    const da = 18 * rad, dB = [Math.sin(da), Math.cos(da)];
-    const Wv = [S[0] + dB[0] * 562 * e, S[1] + dB[1] * 562 * e];
-    const W0 = Ri(Wv);
-    const B = F.personnage(Object.assign({}, opt, { mains: { proche: W0, loin: [W0[0] - 14 * e, W0[1] - 10 * e] } }));
-    const Bsvg = `<g transform="${mat}">\n${B}\n</g>`;
-    // les mains du porteur, devant la poitrine du blessé, sous les aisselles
-    const T = -24 + A, Fw = [Math.cos(T * rad), Math.sin(T * rad)], U = [Math.sin(T * rad), -Math.cos(T * rad)];
-    const mainP = [f(S[0] + e * (Fw[0] * 300 - U[0] * 250)), f(S[1] + e * (Fw[1] * 300 - U[1] * 250))];
-    const mainL = [f(mainP[0] - 10 * e), f(mainP[1] + 6 * e)];
-    const P = F.personnage({ x: xh - 400 * e, y: G, pose: 'tire', penche: 34, regard: 16, echelle: e, mains: { proche: mainP, loin: mainL } });
+    const F = h.formes, e = Math.min((z.l - 20) / 1850, (z.h - 60) / 1420), G = z.h - 40;
+    const X = 12 + 820 * e;                                  // l'origine du blessé (sous ses fesses)
+    const B = F.corps({ x: X, y: G, pose: 'assis-sol', echelle: e, trait: 'fort', angles: ANG_B });
+    const P = F.corps({ x: X - 690 * e, y: G, pose: 'debout', echelle: e, trait: 'fort', angles: ANG_P, mains: { P: 'prise', L: 'prise' } });
+    const mains = [(P.mainP.x + P.mainL.x) / 2, (P.mainP.y + P.mainL.y) / 2];
     const out = [];
     out.push(h.rect(0, G, z.l, 7, h.a.hachure('neige', 'aucun')));
     out.push(h.ligne(0, G, z.l, G, h.a.arete));
-    // le porteur derrière, le blessé devant ; puis repeints par-dessus : l'avant-bras du porteur,
-    // qui passe devant la poitrine du blessé, et le bras proche du blessé, qui pend par-dessus
-    out.push(P, Bsvg);
-    const bande = (A1, A2, w) => { const d = [A2[0] - A1[0], A2[1] - A1[1]], L = Math.hypot(d[0], d[1]), u = [d[0] / L, d[1] / L], n = [-u[1] * w, u[0] * w];
-      const a = [A1[0] - u[0] * w, A1[1] - u[1] * w], b = [A2[0] + u[0] * w, A2[1] + u[1] * w];
-      return [[a[0] + n[0], a[1] + n[1]], [b[0] + n[0], b[1] + n[1]], [b[0] - n[0], b[1] - n[1]], [a[0] - n[0], a[1] - n[1]]].map(pt).join(' '); };
-    const tip = [S[0] + dB[0] * 760 * e, S[1] + dB[1] * 760 * e];
-    // le bras proche du porteur passe à côté de la tête du blessé, de notre côté, et entre dans
-    // l'aisselle : on retrouve son coude (deux os de 300 et 255 mm, le coude vers l'arrière)
-    const tcv = R([B.tete.x, B.tete.y]);
-    const Sp = P.epaules.proche, Wp = P.poignets.proche, Mp = Array.isArray(P.mains.proche) ? P.mains.proche : [P.mains.proche.x, P.mains.proche.y];
-    const l1 = 300 * e, l2 = 255 * e, dx = Wp[0] - Sp[0], dy = Wp[1] - Sp[1], d = Math.min(Math.hypot(dx, dy), l1 + l2 - 0.01);
-    const aa = (l1 * l1 - l2 * l2 + d * d) / (2 * d), hh = Math.sqrt(Math.max(0, l1 * l1 - aa * aa));
-    const ux = dx / Math.hypot(dx, dy), uy = dy / Math.hypot(dx, dy);
-    const E1 = [Sp[0] + ux * aa - uy * hh, Sp[1] + uy * aa + ux * hh], E2 = [Sp[0] + ux * aa + uy * hh, Sp[1] + uy * aa - ux * hh];
-    const Ep = E1[0] < E2[0] ? E1 : E2;
-    const S40 = [Sp[0] + (Ep[0] - Sp[0]) * 0.45, Sp[1] + (Ep[1] - Sp[1]) * 0.45];
-    out.push(`<defs><clipPath id="clip-prise-av"><polygon points="${bande(S40, Ep, 56 * e)}"/><polygon points="${bande(Ep, Mp, 56 * e)}"/></clipPath>` +
-      `<clipPath id="clip-prise-tete"><circle cx="${tcv[0]}" cy="${tcv[1]}" r="${f(B.tete.r + 2.5)}"/></clipPath>` +
-      `<clipPath id="clip-prise-bras"><polygon points="${bande([S[0] - dB[0] * 10 * e, S[1] - dB[1] * 10 * e], tip, 52 * e)}"/></clipPath></defs>`);
-    out.push(`<g clip-path="url(#clip-prise-av)">\n${P}\n</g>`);
-    out.push(`<g clip-path="url(#clip-prise-tete)">\n${Bsvg}\n</g>`);
-    out.push(`<g clip-path="url(#clip-prise-bras)">\n${Bsvg}\n</g>`);
-    // il recule
-    const fl = [f(Math.max(P.tete.x - 20, 80)), f(P.tete.y - 34)];
-    out.push(h.fleche(`M${fl[0]},${fl[1]} L${f(fl[0] - 50)},${fl[1]}`));
-    const tc = R([B.tete.x, B.tete.y]);
-    return { svg: out.join('\n'), mainP: [f(Mp[0] - 6), f(Mp[1])], teteB: { x: tc[0], y: tc[1], r: B.tete.r }, fl: [f(fl[0] - 25), fl[1]] };
+    // le porteur derrière, le blessé devant ; puis les mains du porteur, repeintes par-dessus :
+    // elles tiennent l'avant-bras replié devant la poitrine du blessé
+    out.push(P.svg, B.svg);
+    out.push(`<clipPath id="clip-prise-mains"><circle cx="${f(mains[0])}" cy="${f(mains[1])}" r="${f(70 * e)}"/></clipPath>`);
+    out.push(`<g clip-path="url(#clip-prise-mains)">\n${P.svg}\n</g>`);
+    // le geste : il recule
+    const fl = [f(P.tete.x - 40 * e), f(P.tete.haut[1] - 70 * e)];
+    out.push(h.geste(`M${fl[0]},${fl[1]} L${f(fl[0] - 260 * e)},${fl[1]}`));
+    return { svg: out.join('\n'), mainP: [f(mains[0] + 4), f(mains[1])], teteB: { x: B.tete.x, y: B.tete.y, r: 100 * e }, fl: [f(fl[0] - 130 * e), fl[1]], e };
   };
 
   return {
     ref: '26-09a',
     titre: 'Déplacer un blessé : la bâche sur deux perches, la prise sous les aisselles',
-    desc: 'Une bâche dont les deux bords sont roulés autour de deux perches, vue de dessus avec le blessé couché dessus, puis en coupe : la bâche fait plusieurs tours sur chaque perche et creuse sous le corps. En bas, pour trois mètres sans rien : le porteur, penché, passe les bras sous les aisselles du blessé, la tête du blessé appuyée contre son ventre, et recule en le tirant, les fesses à peine décollées, les talons qui traînent au sol.',
+    desc: 'Une bâche dont les deux bords sont roulés autour de deux perches, vue de dessus, puis en coupe avec le blessé dessus : la bâche fait plusieurs tours sur chaque perche et creuse sous le corps. En bas, pour trois mètres sans rien, de profil : le porteur, accroupi et penché, passe les bras sous les aisselles du blessé et tient à deux mains son avant-bras replié sur la poitrine, la tête du blessé appuyée contre son ventre ; il recule en le tirant, les fesses à peine décollées, les talons qui traînent au sol.',
     format: 'pleine',
     disposition: [['dessus'], ['coupe', 'prise']],
     hauteurs: [0.85, 1],
@@ -145,8 +98,6 @@ module.exports = (h) => {
           for (const x of [xa + 5, xb - 5]) out.push(h.ligne(x, cy - e + rr, x, cy + e - rr, h.a.fin));
           for (const x of [xa + 10, xb - 10]) for (const y of [-48, -16, 16, 48]) out.push(h.cercle(x, cy + y * sc, 2, h.a.detail));
           const S = v => f(v * sc);
-          // le blessé couché au creux
-          out.push(corpsDessus(xa + S(26), cy, xb - xa - S(60), plein(h.a.arete)));
           // les deux perches et leur roulé
           const pw = Math.max(3.6, 5 * sc);
           for (const s of [-1, 1]) {
@@ -205,9 +156,9 @@ module.exports = (h) => {
         renvois: z => {
           const g = geoPrise(z);
           return [
-            { n: 4, rond: [z.l - 40, f(g.mainP[1] - 70)], cible: g.mainP, texte: 'les bras passés sous les aisselles' },
-            { n: 5, rond: [f(g.teteB.x - 20), f(g.teteB.y - 95)], cible: [f(g.teteB.x), f(g.teteB.y - g.teteB.r + 3)], texte: 'sa tête contre le ventre du porteur' },
-            { n: 6, rond: [f(g.fl[0] - 14), f(g.fl[1] + 26)], cible: [f(g.fl[0] - 14), f(g.fl[1])], texte: 'le porteur recule' },
+            { n: 4, rond: [f(g.mainP[0] + 260 * g.e), f(g.mainP[1] - 150 * g.e)], cible: g.mainP, texte: 'les bras passés sous les aisselles' },
+            { n: 5, rond: [f(g.teteB.x + 330 * g.e), f(g.teteB.y - 300 * g.e)], cible: [f(g.teteB.x - 0.2 * g.teteB.r), f(g.teteB.y - 0.95 * g.teteB.r)], texte: 'sa tête contre le ventre du porteur' },
+            { n: 6, rond: [f(g.fl[0]), f(g.fl[1] + 28)], cible: [f(g.fl[0]), f(g.fl[1] + 2)], texte: 'le porteur recule' },
           ];
         },
       },

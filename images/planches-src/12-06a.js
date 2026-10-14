@@ -15,6 +15,43 @@ module.exports = (h) => {
   const P = (pts, ferme = false) => pts.map(([x, y], i) => `${i ? 'L' : 'M'} ${f(x)} ${f(y)}`).join(' ') + (ferme ? ' Z' : '');
   const neige = h.a.hachure('neige', 'aucun');
 
+  // ─── L'enveloppe d'un corps simple (sac de couchage, couverture roulée) : la pose sert de gabarit,
+  // le contour visible est celui de l'enveloppe. C'est le contour du corps rendu, uni, dilaté de
+  // « marge » mm et lissé par Clipper (celui des corps simples) ; le visage reste à découvert dans
+  // l'ouverture du capuchon ; « cloisons » : des coutures du duvet en travers, en part de la longueur.
+  const CL = require(require('path').join(__dirname, '../../.claude/skills/planches/scripts/corps/clipper.js'));
+  const sac = (c, { marge = 55, lisse = 150, trait = 1.4, visage = true, cloisons = [] } = {}) => {
+    const SC = 100, k = c.echelle, polys = [], r1 = v => Math.round(v * 10) / 10;
+    for (const m of String(c.svg).matchAll(/<path d="([^"]+)" fill="#(?:FFFFFF|E6E6E6)"/g))
+      for (const sub of m[1].split('Z')) {
+        const n = sub.match(/-?[\d.]+/g); if (!n || n.length < 6) continue;
+        const P = []; for (let i = 0; i + 1 < n.length; i += 2) P.push({ X: Math.round(+n[i] * SC), Y: Math.round(+n[i + 1] * SC) });
+        polys.push(P);
+      }
+    const op = (t, a, b, ouvert = false) => {
+      const x = new CL.Clipper(); x.AddPaths(a, CL.PolyType.ptSubject, !ouvert); if (b) x.AddPaths(b, CL.PolyType.ptClip, true);
+      if (ouvert) { const tr = new CL.PolyTree(); x.Execute(t, tr, CL.PolyFillType.pftNonZero, CL.PolyFillType.pftNonZero); return CL.Clipper.OpenPathsFromPolyTree(tr); }
+      const r = new CL.Paths(); x.Execute(t, r, CL.PolyFillType.pftNonZero, CL.PolyFillType.pftNonZero); return r;
+    };
+    const off = (p, d) => { const o = new CL.ClipperOffset(2, 0.05 * SC); o.AddPaths(p, CL.JoinType.jtRound, CL.EndType.etClosedPolygon); const r = new CL.Paths(); o.Execute(r, d * SC); return r; };
+    let env = off(off(op(CL.ClipType.ctUnion, polys), (marge + lisse) * k), -lisse * k);
+    if (visage) {
+      const t = c.tete, hx = t.haut[0] - t.x, hy = t.haut[1] - t.y, L = Math.hypot(hx, hy) || 1, mi = c.miroir ? -1 : 1;
+      const fx = -hy / L * mi, fy = hx / L * mi, r = 100 * k, D = [];
+      for (let i = 0; i < 48; i++) { const a = i / 48 * 2 * Math.PI; D.push({ X: Math.round((t.x + fx * 0.6 * r + 0.78 * r * Math.cos(a)) * SC), Y: Math.round((t.y + fy * 0.6 * r + 0.78 * r * Math.sin(a)) * SC) }); }
+      env = op(CL.ClipType.ctDifference, env, [D]);
+    }
+    const dP = P => 'M' + P.map(q => `${r1(q.X / SC)} ${r1(q.Y / SC)}`).join(' L');
+    const out = [`<path d="${env.map(P => dP(P) + ' Z').join(' ')}" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="${trait}" stroke-linejoin="round"/>`];
+    if (cloisons.length) {
+      const b = c.boite, x0 = b.x0 - marge * k, x1 = b.x1 + marge * k, dedans = off(env, -2.2);
+      const lignes = cloisons.map(t => { const x = Math.round((x0 + (x1 - x0) * t) * SC); return [{ X: x, Y: Math.round((b.y0 - 400 * k) * SC) }, { X: x, Y: Math.round((b.y1 + 400 * k) * SC) }]; });
+      const cl = op(CL.ClipType.ctIntersection, lignes, dedans, true);
+      if (cl.length) out.push(`<path d="${cl.map(dP).join(' ')}" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linecap="round"/>`);
+    }
+    return out.join('\n');
+  };
+
   // Profil de la butte, de la base gauche à la base droite par le sommet.
   const profil = (cx, G, R, H, n = 72) => {
     const pts = [];
@@ -204,34 +241,20 @@ module.exports = (h) => {
           idx.forEach(i => out.push(h.ligne(O[i][0], O[i][1], I[i][0], I[i][1], h.a.contour)));
           // Le bâton laissé dans le trou d'aération.
           out.push(h.ligne(xd - 2.5, yIg + 1, xd + 5, yOg - 24, h.a.arete));
+          // À contrôler : la pelle qui touche un bâton (on arrête là, point 6) ; le trou d'aération,
+          // qu'on rouvre au bâton à chaque réveil (point 9).
+          out.push(h.controle(I[52][0], I[52][1]), h.controle(xd - 1, yIg - 4));
           // Le bloc devant la porte.
           out.push(h.rect(bx, G - bh, 11, bh, h.a.hachure('neige', 'contour')));
-          // Sur le banc : le lit, puis le dormeur sur le dos dans son sac momie, la tête au fond,
-          // sortie du capuchon. Repère du dormeur en mm : u le long du corps (0 à l'oreille),
-          // v au-dessus du lit.
+          // Sur le banc : le lit, puis le dormeur sur le dos dans son sac momie, la tête au fond, le
+          // visage dans l'ouverture du capuchon : le corps simple sert de gabarit au sac. L'échelle est
+          // celle du lit (2140 mm sur sa longueur).
           const xl0 = xi + wr + 3, xl1 = xbe - 5, yl = yb - 5;
           out.push(h.rect(xl0, yl, xl1 - xl0, 5, blanc(h.a.detail)));
-          const es = (xl1 - xl0 - 4) / 2140, X0 = xl0 + 2 + 160 * es;
-          const S = ([u, v]) => [X0 + u * es, yl - v * es];
-          const lisse = pts => {
-            const q = pts.map(S); let d = `M ${f(q[0][0])} ${f(q[0][1])}`;
-            for (let i = 0; i < q.length - 1; i++) {
-              const p0 = q[Math.max(0, i - 1)], p1 = q[i], p2 = q[i + 1], p3 = q[Math.min(q.length - 1, i + 2)];
-              d += ` C ${f(p1[0] + (p2[0] - p0[0]) / 6)} ${f(p1[1] + (p2[1] - p0[1]) / 6)} ${f(p2[0] - (p3[0] - p1[0]) / 6)} ${f(p2[1] - (p3[1] - p1[1]) / 6)} ${f(p2[0])} ${f(p2[1])}`;
-            }
-            return d;
-          };
-          // le capuchon, derrière et sous la tête ; le pictogramme (tête au fond, à gauche) ; puis le
-          // corps du sac, qui le couvre du cou jusqu'au-delà des pieds
-          out.push(h.path(lisse([[170, 300], [60, 352], [-90, 336], [-168, 245], [-174, 120], [-122, 30], [-20, 0]]) + ` L ${f(S([150, 0])[0])} ${f(S([150, 0])[1])} Z`, blanc(h.a.arete)));
-          out.push(h.formes.personnage({ pose: 'couche', x: S([700, 0])[0], y: yl, echelle: es }));
-          const dessusSac = [[120, 40], [118, 200], [150, 290], [260, 325], [480, 326], [760, 304], [1050, 278], [1330, 250], [1450, 262], [1540, 335], [1610, 396], [1705, 392], [1772, 330], [1798, 190], [1788, 60], [1768, 0]];
-          out.push(h.path(lisse(dessusSac) + ` L ${f(S([120, 0])[0])} ${f(S([120, 0])[1])} Z`, blanc(h.a.arete)));
-          // les cloisons du duvet, en travers
-          for (const u of [440, 780, 1120]) {
-            const top = dessusSac.reduce((a, b) => Math.abs(b[0] - u) < Math.abs(a[0] - u) ? b : a)[1];
-            out.push(h.path(lisse([[u + 18, top - 10], [u, top * 0.5], [u + 18, 8]]), h.a.fin));
-          }
+          const es = (xl1 - xl0 - 4) / 2140, M = 55;
+          const dormeur = h.formes.corps({ pose: 'couche-dos', x: xl0 + 2 + (80 + M + 822) * es, y: yl - M * es, echelle: es,
+            angles: { cuisseP: 84, jambeP: 96, cuisseL: 84, jambeL: 96 } });
+          out.push(dormeur.toString(), sac(dormeur, { marge: M, cloisons: [0.3, 0.47, 0.64, 0.8] }));
           // L'air : il entre par-dessus le bloc, par le bas, et sort par le trou du sommet.
           const ax = xg + 2.5;
           out.push(h.fleche(`M ${f(cx + R + 44)} ${f(G - bh - 6)} L ${f(bx + 4)} ${f(G - bh - 4)} Q ${f(xpo)} ${f(G - bh - 4)} ${f(xpi)} ${f(G - 25)} L ${f(cx + 80)} ${f(G - 25)} C ${f(cx + 45)} ${f(G - 27)} ${f(cx + 32)} ${f(yIg + 30)} ${f(ax)} ${f(yIg + 2)} L ${f(ax)} ${f(yOg - 18)}`, h.a.cache));
@@ -249,7 +272,7 @@ module.exports = (h) => {
           return [
             { n: 8, rond: [cx + 42, yOg - 44], cible: [xd + 4, yOg - 20], texte: 'trou d’aération et son bâton' },
             { n: 9, rond: [cx - 0.42 * R, yIg + 38], cible: [xv, yA(I, xv) + 1], texte: 'voûte en arc, lisse' },
-            { n: 10, rond: [cx + R - 4, G - H + 4], cible: [(O[b][0] + I[b][0]) / 2, (O[b][1] + I[b][1]) / 2], texte: 'arrêt au premier bâton' },
+            { n: 10, rond: [cx + R - 4, G - H + 4], cible: [0.8 * O[b][0] + 0.2 * I[b][0], 0.8 * O[b][1] + 0.2 * I[b][1]], texte: 'arrêt au premier bâton' },
             { n: 11, rond: [xbe + 18, G - 12], cible: [xbe + 1, yb + 8], texte: 'banc plus haut que la porte' },
             { n: 12, rond: [z.l - 12, G - 12], cible: [bx + 10, G - bh / 2], texte: 'porte basse, bloc devant' },
             { n: 13, rond: [z.l - 14, G - bh - 44], cible: [cx + R + 34, G - bh - 6], texte: 'l’air entre bas, sort en haut' },

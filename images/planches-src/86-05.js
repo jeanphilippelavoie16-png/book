@@ -15,6 +15,10 @@
 //    bout au-dessus de l'eau à cet endroit est la chute du tronçon.
 //  - Au manomètre : le boyau plein de la prise à la roue, bout du haut ouvert à la surface, bout
 //    du bas fermé par le manomètre : l'eau ne coule pas, la jauge lit la hauteur d'eau H.
+// Refaite le 13 octobre 2026 : la personne du bas est le corps simple de profil (bras-leve), le bras
+// posé par le calcul sur le boyau. Le rouge : la flèche du geste (on lève le bout) et le cercle du
+// bout du boyau au niveau de la prise, là où l'eau cesse de couler. La main d'en haut (au bout dans
+// l'eau) et « Le bout levé » sont des gros plans de main calquée, laissés tels quels.
 
 module.exports = (h) => {
   const A = h.a, F = h.formes, W = A.blanc;
@@ -172,6 +176,28 @@ module.exports = (h) => {
   const LIT_T = [[-300, 940], [100, 985], [250, 1170], [520, 1250], [860, 1230], [1010, 1080], [1120, 1120], [1500, 1310], [1900, 1440], [1990, 1630], [2500, 1830], [2900, 1970], [3020, 2220], [3500, 2400], [4000, 2550], [4260, 2670], [4700, 2700], [5100, 2690], [5500, 2700]];
   const XB = 4700;                  // le boyau levé, en bas du tronçon
   const X0T = -250, Y0T = -230, BWT = 5700, BHT = 3160;
+  // Le bras proche d'un corps simple de profil, posé pour que sa prise tombe sur la cible (vue) :
+  // calcul dans le repère du corps (x vers l'avant), le coude qui plie vers le bas.
+  const RD_ = Math.PI / 180;
+  const dirPose = a => [Math.sin(a * RD_), Math.cos(a * RD_)];
+  const anglePose = v => Math.atan2(v[0], v[1]) / RD_;
+  function poseBras(o, cible) {
+    const m = o.cote === 'gauche' ? -1 : 1, M = q => [m * (q[0] - o.x), q[1]];
+    let c = F.corps(o), ang = {};
+    const A_ = c.articulations, S0 = M(A_.epauleP);
+    const L1 = Math.hypot(A_.coudeP[0] - A_.epauleP[0], A_.coudeP[1] - A_.epauleP[1]), L2 = Math.hypot(A_.poignetP[0] - A_.coudeP[0], A_.poignetP[1] - A_.coudeP[1]);
+    for (let it = 0; it < 4; it++) {
+      const Wr = M(c.articulations.poignetP), Mn = M([c.mainP.x, c.mainP.y]), T = M(cible);
+      const W = [T[0] - (Mn[0] - Wr[0]), T[1] - (Mn[1] - Wr[1])];
+      const d = [W[0] - S0[0], W[1] - S0[1]], D = Math.min(L1 + L2 - 0.2, Math.hypot(d[0], d[1]));
+      const al = Math.acos(Math.max(-1, Math.min(1, (L1 * L1 + D * D - L2 * L2) / (2 * L1 * D)))) / RD_;
+      const bras = anglePose(d) - al, Eb = [S0[0] + dirPose(bras)[0] * L1, S0[1] + dirPose(bras)[1] * L1];
+      const avb = anglePose([W[0] - Eb[0], W[1] - Eb[1]]);
+      ang = { brasP: bras, avantbrasP: avb, mainP: avb + 6 };
+      c = F.corps({ ...o, angles: { ...(o.angles || {}), ...ang } });
+    }
+    return c;
+  }
   function geoTroncon(z) {
     const c = cadre(z, X0T, Y0T, BWT, BHT);
     const { s, P } = c;
@@ -180,8 +206,10 @@ module.exports = (h) => {
     // Personne en haut : seule la main qui tient le bout du boyau juste au-dessus de l'eau.
     const haut = null;
     // Debout dans l'eau du bas, les bottes sous la surface.
-    const bas = F.personnage({ x: P(4990, 2690)[0], y: P(4990, 2690)[1], pose: 'debout', cote: 'gauche', echelle: s, regard: -4,
-      mains: { proche: P(4830, 1250) } });
+    // Le corps simple de profil (bras-leve), tourné vers l'amont ; le bras proche posé par le calcul
+    // pour que le poing fermé sur le boyau (20 mm) tombe sur le boyau levé, 250 mm sous le bout.
+    const bas = poseBras({ x: P(5230, 2690)[0], y: P(5230, 2690)[1], pose: 'bras-leve', vue: 'profil', cote: 'gauche', age: 'adulte', echelle: s },
+      P(XB, 1250));
     return { ...c, haut, bas, poing: P(1000, 930) };
   }
   function dessinTroncon(z) {
@@ -206,11 +234,14 @@ module.exports = (h) => {
     o.push(F.modele('s11', { x: poing[0], y: poing[1], ancre: [68, 42], angle: -112, echelle: 0.8 * s * 2.2, masquer: [[0, 150, 140, 175]],
       bras: { a: [21.8, 150], a0: [20.8, 135], b: [76.3, 150], b0: [76.2, 135], long: 34 * s * 2.2, fin: 'ouvert' } }).toString());
     // L'eau du bas repasse sur les bottes.
-    o.push(eau(Q, [[4830, 2600], [5160, 2600]], 2720), terre(Q, LIT_T, BHT + Y0T, 200));
+    o.push(eau(Q, [[5060, 2600], [5420, 2600]], 2720), terre(Q, LIT_T, BHT + Y0T, 200));
     // Du poing au sol puis le long de la berge : le boyau passe du côté proche, devant les pieds.
         // La cote : du bout levé à l'eau, à cet endroit.
     o.push(h.chemin(Q([[XB - 380, 1000], [XB - 60, 1000]]), A.cache));
     o.push(h.cote(...P(XB - 300, 1000), ...P(XB - 300, 2600), 'h1', { cote: 'gauche' }));
+    // le rouge : le geste (on lève le bout) et le point à contrôler (l'eau cesse de couler au niveau de la prise)
+    o.push(h.geste(`M${P(XB - 130, 2050).join(' ')} L${P(XB - 130, 1560).join(' ')}`));
+    o.push(h.controle(...P(XB, 1000), 7));
     return o.join('\n');
   }
 

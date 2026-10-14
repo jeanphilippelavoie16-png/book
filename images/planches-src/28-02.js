@@ -14,6 +14,11 @@
 // tabouret, penché sur un bol posé sur la table (JP, 12 octobre : le « petit bonhomme » refait).
 //
 // Aucune mesure de seringue ni de corps dans le chapitre : aucune cote.
+//
+// Lot 3 (13 octobre) : la dernière vue passe au corps simple de profil (assis-penche-bol, enfant de
+// 4 ans) ; les avant-bras à plat sur la table, le bol entre eux, sous le menton. Les deux vues de la
+// tête sur l'oreiller (une tête de profil, le corps sous la couverture) restent telles quelles. Rouge :
+// la poussée du piston (première vue), la tête qu'on tourne (deuxième vue).
 
 'use strict';
 
@@ -172,7 +177,8 @@ module.exports = (h) => {
     out.push(clip(id, 0, 0, z.l, z.h, couv.join('\n')));
     // la poussée du piston, dans l'axe, vers le nez
     const a = sg.dos(36), b = sg.dos(8);
-    out.push(h.fleche(`M${f(a[0])} ${f(a[1])} L${f(b[0])} ${f(b[1])}`, h.a.arete));
+    // (en rouge dans la première vue, où le geste se fait ; noire dans la seconde, qui le répète)
+    out.push(avecTour ? h.fleche(`M${f(a[0])} ${f(a[1])} L${f(b[0])} ${f(b[1])}`, h.a.arete) : h.geste(`M${f(a[0])} ${f(a[1])} L${f(b[0])} ${f(b[1])}`));
     let tour = null;
     if (avecTour) {
       // un demi-cercle qui frôle le sommet du crâne : le nez passe d'un côté à l'autre
@@ -182,31 +188,49 @@ module.exports = (h) => {
         const th = (100 + k * (160 / 24)) * RAD;
         pts.push([oc[0] + Math.cos(th) * R, oc[1] - s * Math.sin(th) * R]);
       }
-      out.push(h.fleche(cr(pts), h.a.arete));
+      out.push(h.geste(cr(pts)));
       tour = pts[12];
     }
     return { svg: out.join('\n'), T, P, sg, tour };
   };
 
   // ─── il crache : assis, penché sur le bol posé sur la table ──────────────────────────
-  // Le pictogramme de la bibliothèque (règle 8), enfant de 5 ans, assis sur un tabouret, le tronc
-  // penché au-dessus du bol, les deux mains posées au bord de la table. La table et le tabouret sont
-  // à la taille d'un enfant ; la tête tombe au-dessus du bol.
+  // Le corps simple de profil (assis-penche-bol, enfant de 4 ans, sur un tabouret de 244 mm) : les
+  // avant-bras à plat sur la table, le bol entre eux, sous le menton. Le bol passe derrière le bras
+  // proche (objetP) : on en voit le bord au-dessus de l'avant-bras. La table est mise à la hauteur
+  // du dessous des avant-bras.
+  const coupesX = (svg, x) => {
+    const ys = [];
+    for (const m of String(svg).matchAll(/ d="([^"]+)"/g)) {
+      const n = m[1].match(/-?\d+(\.\d+)?/g).map(Number);
+      for (let i = 0; i + 3 < n.length; i += 2) {
+        const [x0, y0, x1, y1] = [n[i], n[i + 1], n[i + 2], n[i + 3]];
+        if (x0 !== x1 && (x0 - x) * (x1 - x) <= 0) ys.push(y0 + (y1 - y0) * (x - x0) / (x1 - x0));
+      }
+    }
+    return ys;
+  };
+  const ANGLES = { avantbrasP: 90, mainP: 90, avantbrasL: 90, mainL: 90 };
+  const memoC = {};
   const crache = z => {
-    const E = 0.27, solY = z.h - 14;
-    const hx = 46;                                     // sous la hanche
-    const mm = v => v * E;
-    const tableY = solY - mm(420), tx0 = hx + mm(170);   // le dessus de la table, son bord proche
-    const pose = { x: hx, y: solY, pose: 'assis', age: 'enfant', echelle: E, penche: 20, regard: 42,
-      mains: { proche: [tx0 + 6, tableY - 9], loin: [tx0 + 1, tableY - 9] } };
-    const p = F.personnage(pose);
-    const rx = 25, bx = p.bouche[0] + 26, bord = tableY - 17;
-    return { E, solY, hx, tableY, tx0, pose, p, bx, rx, bord, m: p.bouche };
+    const cle = [z.l, z.h].join(',');
+    if (memoC[cle]) return memoC[cle];
+    const E = 0.3, solY = z.h - 14, hx = 98;
+    const c = F.corps({ x: hx, y: solY, pose: 'assis-penche-bol', age: 'enfant4', echelle: E, angles: ANGLES });
+    const A = c.articulations, W = A.poignetP, K = A.coudeP;
+    // le dessus de la table : le dessous de l'avant-bras proche, à mi-chemin du coude au poignet
+    const xm = (K[0] + W[0]) / 2, ym = (K[1] + W[1]) / 2;
+    const tableY = Math.min(...coupesX(c, xm).filter(y => y > ym)) + 0.4;
+    const tx0 = K[0] - 26 * E * 3;                       // le bord de la table, sous le coude
+    // le bol : sous le menton, posé sur la table
+    const T = c.tete, bx = T.x + 50 * E, rx = 62 * E, prof = 72 * E, bord = tableY - prof;
+    const m = [T.x + 52 * E, T.y + 70 * E];               // le bas du visage, d'où ça tombe
+    return (memoC[cle] = { E, solY, hx, tableY, tx0, bx, rx, prof, bord, m, siege: c.siege });
   };
   return {
     ref: '28-02',
     titre: 'Rincer le nez d’un enfant de 4 ans',
-    desc: 'Vu d’en haut, l’enfant couché sur le dos sous sa couverture, la tête tournée sur le côté : l’embout d’une seringue orale de 10 mL dans la narine du haut, le piston poussé vers le nez. Puis la tête tournée de l’autre côté, la seringue dans l’autre narine. Enfin l’enfant assis, penché sur un bol, qui crache.',
+    desc: 'Vu d’en haut, l’enfant couché sur le dos sous sa couverture, la tête tournée sur le côté : l’embout d’une seringue orale de 10 mL dans la narine du haut, le piston poussé vers le nez (flèche rouge). Puis la tête tournée de l’autre côté (flèche rouge), la seringue dans l’autre narine. Enfin l’enfant assis sur un tabouret, les avant-bras à plat sur la table, penché sur un bol posé entre ses bras, qui crache.',
     format: 'pleine',
     disposition: [['un'], ['deux', 'trois']],
     hauteurs: [1.2, 1],
@@ -237,29 +261,31 @@ module.exports = (h) => {
       trois: {
         titre: 'Il se relève et crache',
         dessin: z => {
-          const { E, solY, hx, tableY, tx0, p, bx, rx, bord, m } = crache(z);
+          const { E, solY, hx, tableY, tx0, bx, rx, prof, bord, m, siege } = crache(z);
           const out = [];
           const mm = v => v * E;
           // le sol
           out.push(h.ligne(4, solY, z.l - 4, solY, h.a.arete));
-          // la table, sous les mains et au-dessus des cuisses ; elle sort de la vue à droite
+          // la table : le plateau sous les avant-bras ; un pied au loin ; elle sort de la vue à droite
           const tx1 = z.l + 4, epT = mm(30);
+          out.push(h.rect(tx0 + mm(420), tableY + epT, mm(45), solY - tableY - epT, BT(1.4)));
           out.push(h.rect(tx0, tableY, tx1 - tx0, epT, BT(1.4)));
-          out.push(h.rect(tx0 + mm(330), tableY + epT, mm(45), solY - tableY - epT, BT(1.4)));
-          // le tabouret sous la hanche
-          const sy = solY - mm(292);
-          out.push(h.rect(hx - mm(150), sy + mm(25), mm(36), solY - sy - mm(25), BT(1.4)));
-          out.push(h.rect(hx + mm(80), sy + mm(25), mm(36), solY - sy - mm(25), BT(1.4)));
-          out.push(h.rect(hx - mm(170), sy, mm(310), mm(25), BT(1.4)));
-          // l'enfant
-          out.push(p);
-          // le bol sur la table, sous la bouche
-          out.push(h.path(`M${f(bx - rx)} ${f(bord)} C${f(bx - rx + 2)} ${f(tableY - 4)} ${f(bx - 12)} ${f(tableY)} ${f(bx)} ${f(tableY)} C${f(bx + 12)} ${f(tableY)} ${f(bx + rx - 2)} ${f(tableY - 4)} ${f(bx + rx)} ${f(bord)} Z`, BT(1.4)));
-          out.push(h.ellipse(bx, bord, rx, 5, BT(1.4)));
+          // le tabouret sous la fesse : le dessus à la hauteur du siège de la pose
+          const sy = siege[1];
+          out.push(h.rect(siege[0] - mm(30), sy + mm(25), mm(36), solY - sy - mm(25), BT(1.4)));
+          out.push(h.rect(siege[0] + mm(190), sy + mm(25), mm(36), solY - sy - mm(25), BT(1.4)));
+          out.push(h.rect(siege[0] - mm(48), sy, mm(290), mm(25), BT(1.4)));
+          // le bol, entre les avant-bras : derrière le bras proche ; sa face de droite à l'ombre
+          const bol = [
+            h.path(`M${f(bx - rx)} ${f(bord)} C${f(bx - rx + 2)} ${f(tableY - 4)} ${f(bx - 12)} ${f(tableY)} ${f(bx)} ${f(tableY)} C${f(bx + 12)} ${f(tableY)} ${f(bx + rx - 2)} ${f(tableY - 4)} ${f(bx + rx)} ${f(bord)} Z`, BT(1.4)),
+            h.ellipse(bx, bord, rx, 4.5, BT(1.4)),
+          ].join('\n');
+          // l'enfant, le bol tenu entre ses bras
+          out.push(F.corps({ x: hx, y: solY, pose: 'assis-penche-bol', age: 'enfant4', echelle: E, angles: ANGLES, objetP: bol }));
           // ce qu'il crache tombe dans le bol
           const goutte = (x, y, r) => h.path(`M${f(x)} ${f(y - 2.4 * r)} C${f(x + 0.4 * r)} ${f(y - 1.2 * r)} ${f(x + r)} ${f(y - 0.6 * r)} ${f(x + r)} ${f(y)} A${f(r)} ${f(r)} 0 0 1 ${f(x - r)} ${f(y)} C${f(x - r)} ${f(y - 0.6 * r)} ${f(x - 0.4 * r)} ${f(y - 1.2 * r)} ${f(x)} ${f(y - 2.4 * r)} Z`, BT(0.7));
-          const y0 = m[1] + 8, y1 = bord - 1;
-          [0.25, 0.85].forEach((t, i) => out.push(goutte(m[0] + 4 + 14 * t, y0 + (y1 - y0) * t, i ? 3 : 2.6)));
+          const y0 = m[1] + 7, y1 = bord - 2;
+          [0.2, 0.8].forEach((t, i) => out.push(goutte(m[0] + 2 * t, y0 + (y1 - y0) * t, i ? 2.8 : 2.4)));
           return out.join('\n');
         },
         renvois: z => {

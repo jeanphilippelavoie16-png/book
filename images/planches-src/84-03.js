@@ -5,6 +5,10 @@
 // l'entrée du tuyau ; l'autre est dehors, au bout du pignon, hors du versant qui porte le conduit,
 // la tête levée vers le chapeau. Trois vignettes : ce qu'on voit à la porte du poêle et au chapeau.
 // Aucune cote : rien ne se construit ici, et le chapitre ne donne aucune mesure du chalet.
+// Refaite le 13 octobre 2026 avec les corps simples de profil (genou-torche, debout la tête levée).
+// Le rouge : deux points à contrôler, la clé du tuyau ouverte avant tout et le chapeau où la fumée
+// doit sortir ; la fumée et l'air restent en flèches noires. Les vignettes (la main qui tient la
+// torche à la porte du poêle) sont des gros plans de main calquée, laissés tels quels.
 module.exports = (h) => {
   const F = h.formes;
   const BL = h.a.blanc;
@@ -87,7 +91,7 @@ module.exports = (h) => {
     st: { x0: 950, x1: 1650, y0: 500, y1: 1100, z1: 1300, d0: 640, d1: 1000 },   // le poêle ; d0-d1 : sa porte
     px: 1300, pd: 150,                                                          // l'axe et le diamètre du tuyau
     porte: { z0: 1900, z1: 2700, y1: 2350 },                                   // la porte du chalet, au pignon
-    xi: 2050, xe: 6900, zs: 2300,                                                        // où sont les deux adultes
+    xi: 2250, xe: 6900, zs: 2300,                                                        // où sont les deux adultes
   };
   C.pTop = C.hr + 480;
   C.pente = (C.hr - C.he) / (C.W / 2);
@@ -98,13 +102,37 @@ module.exports = (h) => {
     const P = (x, y, zz = C.zc) => [r1(ox + s * (x + KX * zz)), r1(oy - s * (y + KY * zz))];
     return { P, ox, oy };
   };
+  // Les deux adultes, corps simples de profil tournés vers la gauche. Celui du poêle : un genou au
+  // sol (genou-torche), le bras proche posé par le calcul pour que son poing tombe devant la porte du
+  // poêle, la torche dans le poing (objetP : devant le tronc, sous le bras), le bout dans le foyer.
+  // L'autre : debout dehors, la tête levée vers le chapeau.
+  const RD_ = Math.PI / 180;
+  const dirPose = a => [Math.sin(a * RD_), Math.cos(a * RD_)];
+  const anglePose = v => Math.atan2(v[0], v[1]) / RD_;
   const perso = (z, P) => {
-    const pi = F.personnage({ x: P(C.xi, C.fl)[0], y: P(C.xi, C.fl)[1], pose: 'genou', cote: 'gauche', echelle: s, penche: 22, regard: 10,
-      mains: { proche: P(C.st.x1 + 150, C.st.y0 + 250) } });
-    // la tête levée vers le chapeau
-    const oeil0 = P(C.xe - 150, 1620, C.zs), ch = P(C.px, C.pTop + 120);
-    const ang = Math.atan2(oeil0[1] - ch[1], oeil0[0] - ch[0]) * 180 / Math.PI;
-    const pe = F.personnage({ x: P(C.xe, 0, C.zs)[0], y: P(C.xe, 0, C.zs)[1], pose: 'debout', cote: 'gauche', echelle: s, regard: -Math.min(40, ang + 6) });
+    const cible = P(C.st.x1 + 150, C.st.y0 + 250), T1 = P(C.px + 60, C.st.y1 - 150);
+    const o = { x: P(C.xi, C.fl)[0], y: P(C.xi, C.fl)[1], pose: 'genou-torche', vue: 'profil', cote: 'gauche', age: 'adulte', echelle: s };
+    let c = F.corps(o), ang = {};
+    // de profil à gauche, l'écran est en miroir : on calcule dans le repère du corps (x vers l'avant)
+    const M = q => [-(q[0] - o.x), q[1]];
+    const S0 = M(c.articulations.epauleP), L1 = Math.hypot(c.articulations.coudeP[0] - c.articulations.epauleP[0], c.articulations.coudeP[1] - c.articulations.epauleP[1]);
+    const L2 = Math.hypot(c.articulations.poignetP[0] - c.articulations.coudeP[0], c.articulations.poignetP[1] - c.articulations.coudeP[1]);
+    for (let it = 0; it < 4; it++) {
+      const Wr = M(c.articulations.poignetP), Mn = M([c.mainP.x, c.mainP.y]), T = M(cible);
+      const W = [T[0] - (Mn[0] - Wr[0]), T[1] - (Mn[1] - Wr[1])];
+      const d = [W[0] - S0[0], W[1] - S0[1]], D = Math.min(L1 + L2 - 0.2, Math.hypot(d[0], d[1]));
+      const al = Math.acos(Math.max(-1, Math.min(1, (L1 * L1 + D * D - L2 * L2) / (2 * L1 * D)))) / RD_;
+      const bras = anglePose(d) - al, Eb = [S0[0] + dirPose(bras)[0] * L1, S0[1] + dirPose(bras)[1] * L1];
+      const avb = anglePose([W[0] - Eb[0], W[1] - Eb[1]]);
+      ang = { brasP: bras, avantbrasP: avb, mainP: avb + 14 };
+      c = F.corps({ ...o, angles: ang });
+    }
+    const T0 = [c.mainP.x, c.mainP.y];
+    const pi = F.corps({ ...o, angles: ang, objetP: [torche(T0, T1, 2.4, 3.6), flamme(T1[0] - 0.5, T1[1] - 1, 6, 9)].join('\n') });
+    const oe = { x: P(C.xe, 0, C.zs)[0], y: P(C.xe, 0, C.zs)[1], pose: 'debout', vue: 'profil', cote: 'gauche', age: 'adulte', echelle: s,
+      angles: { cou: -2, tete: -32 } };
+    const pe = F.corps(oe);
+    pe.hanche = pe.articulations.hancheP;
     return { pi, pe };
   };
 
@@ -145,12 +173,9 @@ module.exports = (h) => {
     o.push(h.chemin(qg, BL, true), h.chemin(qg, h.a.arete, true));
     // les deux adultes
     const { pi, pe } = perso(z, P);
-    // le dessous de la cuisse levée s'arrête sur le devant de la cuisse agenouillée, jonction arrondie
-    o.push(String(pi).replace('L203.7 262.5', 'L198.6 262.2 Q200.6 262.3 200.6 264'));
-    const pw = pi.poignets.proche, pf = pi.mains.proche;
-    const T0 = [r1(pw[0] + (pf[0] - pw[0]) * 0.5), r1(pw[1] + (pf[1] - pw[1]) * 0.5)];
-    const T1 = P(px + 60, y1 - 150);
-    o.push(torche(T0, T1, 2.4, 3.6), flamme(T1[0] - 0.5, T1[1] - 1, 6, 9));
+    o.push(String(pi));
+    // le point à contrôler avant tout : la clé du tuyau, ouverte
+    o.push(h.controle(...P(px + pd / 2 + 92, y1 + 330), 6.5));
     // le pignon de droite, vu du dehors, avec sa porte ouverte
     const gable = [P(L, fb), P(L, fb, W), P(L, he, W), P(L, hr, W / 2), P(L, yu(zc))];
     o.push(poly(gable, BL), poly(gable, h.a.arete));
@@ -191,7 +216,9 @@ module.exports = (h) => {
     // l'autre adulte, dehors, au bout du pignon, debout sur le sentier pelleté devant la porte
     const sent = [P(L, 0, porte.z0 - 100), P(C.xe + 700, 0, porte.z0 - 100), P(C.xe + 700, 0, porte.z1 + 100), P(L, 0, porte.z1 + 100)];
     o.push(h.chemin(sent, BL, true), h.chemin(sent, h.a.fin, true));
-    o.push(pe);
+    o.push(String(pe));
+    // le point à contrôler dehors : le chapeau, où la fumée doit sortir
+    o.push(h.controle(cx, cyT - 6, 12));
     return o.join('\n');
   };
 
@@ -256,7 +283,7 @@ module.exports = (h) => {
             { n: 2, rond: [P(C.t, 0)[0] + 20, P(0, st.y0 + 200)[1]], cible: P(st.x1 - 130, st.y0 + 330), texte: 'torche de papier journal ou d’écorce de bouleau' },
             { n: 3, rond: [P(C.t, 0)[0] + 20, P(0, st.y1 + 750)[1]], cible: P(C.px - 20, st.y1 - 60), texte: 'tenue haut, contre l’entrée du tuyau' },
             { n: 4, rond: [P(C.L + 1500, 0, C.porte.z1)[0] + 14, P(0, C.porte.y1 + 900, C.porte.z1)[1]], cible: P(C.L + 450, C.porte.y1 - 400, C.porte.z1), texte: 'porte et fenêtres encore ouvertes' },
-            { n: 5, rond: [z.l - 22, pe.hanche[1] - 60], cible: [pe.hanche[0] + 2, pe.hanche[1] - 45], texte: 'l’autre adulte, dehors, du côté du pignon' },
+            { n: 5, rond: [z.l - 22, pe.hanche[1] - 60], cible: [pe.hanche[0] + 1, pe.hanche[1] - 22], texte: 'l’autre adulte, dehors, du côté du pignon' },
           ];
         },
       },

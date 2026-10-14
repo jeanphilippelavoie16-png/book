@@ -3,8 +3,11 @@
 // l'intérieur du poignet ; la bouteille de métal d'eau chaude roulée dans un linge sec ; le malade
 // couché, la compresse sur la cuisse ; la même, coupée par le milieu, couche par couche ; le linge
 // qui a servi part à la casserole. Aucune cote : le chapitre ne donne aucune mesure de la compresse.
+// Lot 3 (13 octobre) : le malade couché passe au corps simple de profil (couche-dos). Les deux vues
+// de mains (tordre le linge, le poignet) restent telles quelles : la bibliothèque de mains les
+// refera. Rouge : le geste de rouler la bouteille dans le linge.
 module.exports = (h) => {
-  const A = h.a, F = h.formes;
+  const A = h.a, A_ = h.a, F = h.formes;
   const f = v => Math.round(v * 10) / 10;
   const pt = p => `${f(p[0])} ${f(p[1])}`;
   const trace = (Q, ferme = false) => 'M' + Q.map(pt).join(' L') + (ferme ? ' Z' : '');
@@ -141,7 +144,7 @@ module.exports = (h) => {
     out.push(bouteille(x1 + 14, yB, 108, rB));
     // le sens du roulé : le bord proche du linge passe par-dessus la bouteille et file vers le bord loin
     const xa = x1 + 70;
-    out.push(h.fleche(`M${xa - 8} ${yN + 8} C${xa - 34} ${yN - 8}, ${xa - 20} ${yB - 30}, ${xa + 6} ${yF + 20}`, A.arete));
+    out.push(h.geste(`M${xa - 8} ${yN + 8} C${xa - 34} ${yN - 8}, ${xa - 20} ${yB - 30}, ${xa + 6} ${yF + 20}`));
     // après : le rouleau, le fond de la bouteille à gauche, le goulot et le bouchon qui dépassent à droite
     const { yR, rR, xr1, xr2 } = rouleau(z), rb = rR - 5, rn = rb * 0.42, rc = rb * 0.52;
     out.push(h.path(`M${xr1} ${yR - rR} L${xr2} ${yR - rR} Q${xr2 + 4} ${yR} ${xr2} ${yR + rR} L${xr1} ${yR + rR} Z`, blanc(A.contour)));
@@ -157,40 +160,38 @@ module.exports = (h) => {
     return out.join('\n');
   };
 
-  // ─── 4. Couché : le malade sur le dos, la tête sur un oreiller, la compresse sur la cuisse ─
-  const ang = -89, eP = 0.2;
+  // ─── 4. Couché : le malade sur le dos, la compresse sur la cuisse ─────────────────────────
+  // Le corps simple de profil (couche-dos), centré ; la compresse (sous sa serviette) bombée sur le
+  // dessus de la cuisse, à mi-chemin de la hanche au genou, posée sur le contour du corps.
+  const coupesX = (svg, x) => {
+    const ys = [];
+    for (const m of String(svg).matchAll(/ d="([^"]+)"/g)) {
+      const n = m[1].match(/-?\d+(\.\d+)?/g).map(Number);
+      for (let i = 0; i + 3 < n.length; i += 2) {
+        const [x0, y0, x1, y1] = [n[i], n[i + 1], n[i + 2], n[i + 3]];
+        if (x0 !== x1 && (x0 - x) * (x1 - x) <= 0) ys.push(y0 + (y1 - y0) * (x - x0) / (x1 - x0));
+      }
+    }
+    return ys;
+  };
+  const memoC = {};
   const couche = z => {
-    const X0 = z.l / 2 + 190;
-    const a = ang * Math.PI / 180, ca = Math.cos(a), sa = Math.sin(a);
-    const TvY = Y0 => l => [X0 + eP * (l[0] * ca - l[1] * sa), Y0 + eP * (l[0] * sa + l[1] * ca)];
-    const perso = Y0 => {
-      const Tv = TvY(Y0);
-      const p = F.personnage({ x: X0, y: Y0, pose: 'debout', echelle: eP, angle: ang });
-      const s = String(p);
-      const v = [...s.matchAll(/ d="([^"]*)"/g)].map(m => m[1]).join(' ').match(/-?\d+\.?\d*/g).map(Number);
-      const pts = []; for (let i = 0; i + 1 < v.length; i += 2) pts.push([v[i], v[i + 1]]);
-      return { s, pts, Tv };
-    };
-    // premier passage pour mesurer, second pour poser le corps sur le lit, au bas de la vue
-    const essai = perso(0), bas = Math.max(...essai.pts.map(q => q[1]));
-    const Y0 = z.h - 3 - bas, { s, pts, Tv } = perso(Y0);
-    const lit = Math.max(...pts.map(q => q[1]));
-    // repère du personnage debout : x vers l'avant, y vers le haut négatif, en mm
-    const Tl = q => { const d = [(q[0] - X0) / eP, (q[1] - Y0) / eP]; return [d[0] * ca + d[1] * sa, -d[0] * sa + d[1] * ca]; };
-    // le devant de la cuisse, au milieu entre la hanche et le genou
-    const yc = -720, avant = Math.max(...pts.map(Tl).filter(l => Math.abs(l[1] - yc) < 70 && l[0] > 0).map(l => l[0]));
+    const e = 0.28, lit = z.h - 6, cle = [z.l, z.h].join(',');
+    const c = memoC[cle] || (memoC[cle] = F.corps({ x: 0, y: lit, pose: 'couche-dos', echelle: e }));
+    const dx = (z.l - (c.boite.x1 - c.boite.x0)) / 2 - c.boite.x0;
+    const A = c.articulations, dessus = x => Math.min(...coupesX(c, x - dx));
     const out = [];
-    out.push(h.ligne(0, lit, z.l, lit, A.arete));
-    // l'oreiller sous la tête et les épaules
-    const xT = Math.min(...pts.map(q => q[0]));
-    out.push(h.path(`M${f(xT - 10)} ${f(lit)} C${f(xT - 14)} ${f(lit - 18)}, ${f(xT + 28)} ${f(lit - 21)}, ${f(xT + 76)} ${f(lit - 10)} C${f(xT + 90)} ${f(lit - 6)}, ${f(xT + 92)} ${f(lit)}, ${f(xT + 92)} ${f(lit)} Z`, blanc(A.arete)));
-    out.push(s);
-    // la compresse sous sa serviette, bombée sur le devant de la cuisse
-    const c0 = Tv([avant - 4, yc]), c1 = Tv([avant - 4, yc + 150]), c2 = Tv([avant - 4, yc - 150]);
-    const d = norm([c1[0] - c2[0], c1[1] - c2[1]]), nn = [d[1], -d[0]];
-    const P = (t, hgt) => add(add(c0, mul(d, t)), mul(nn, hgt));
-    const bosse = courbe([P(-30, -1), P(-26, 4), P(-16, 11), P(0, 12.5), P(16, 11), P(26, 4), P(30, -1)], false, 8);
-    out.push(h.path(trace(bosse, true), A.hachure('isolant', 'arete')));
+    out.push(h.ligne(0, lit, z.l, lit, A_.arete));
+    out.push(`<g transform="translate(${f(dx)} 0)">\n${c}\n</g>`);
+    // la compresse sous sa serviette : 260 mm de long, 70 mm d'épaisseur, bombée
+    const xc = A.hancheP[0] + 0.5 * (A.genouP[0] - A.hancheP[0]) + dx, L = 130 * e, H = 70 * e;
+    const haut = [], bas = [];
+    for (let k = 0; k <= 24; k++) {
+      const t = -1 + 2 * k / 24, x = xc + t * L, yb = dessus(x);
+      haut.push([x, yb - H * Math.pow(1 - Math.pow(Math.abs(t), 3), 0.6)]);
+      bas.push([x, yb + 0.6]);
+    }
+    out.push(h.path(trace([...haut, ...bas.reverse()], true), A_.hachure('isolant', 'arete')));
     return out.join('\n');
   };
 

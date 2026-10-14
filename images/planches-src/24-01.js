@@ -4,14 +4,13 @@
 // (raté). Vu de dessus, pour porter la caisse de côté : les pieds tournent avec elle (bon) ; les
 // pieds restent plantés et le tronc tourne sous la charge (raté).
 //
-// Corps simples (h.formes.corps) : debout-charge-ventre et debout-bras-tendus de profil (bras
-// retouchés : mains à 250 et à 500 mm de la cheville proche), la même pose vue de dessus. D'en haut,
-// les pieds sont sous le corps et la caisse : ils se dessinent en arête cachée (tireté à 1,4), ce
-// qui dépasse en trait plein. La charte : la caisse est l'objet (contour 2,4, arêtes 1,4, clous),
-// les jours entre ses planches à l'ombre ; les empreintes d'avant le tour en gris loin. Rouge : le
-// point à contrôler du bon (la caisse contre le ventre), l'endroit où le raté casse (le bas du dos),
-// la flèche du geste (le quart de tour fait avec les pieds). La flèche du tronc qui tourne, sur le
-// raté, reste noire : ce n'est pas un geste à faire.
+// Corps simples (h.formes.corps), de profil seulement (JP, 13 octobre au soir) : debout-charge-ventre
+// et debout-bras-tendus (bras retouchés : mains à 250 et à 500 mm de la cheville proche). D'en haut,
+// plus de corps : les deux bottes et la caisse, avant le tour en gris tireté, après en trait. La
+// charte : la caisse de profil est l'objet (contour 2,4, arêtes 1,4, clous), les jours entre ses
+// planches à l'ombre ; d'en haut, les bottes sont l'objet (2,4). Rouge (3) : le point à contrôler du
+// bon (la caisse contre le ventre), l'endroit où le raté casse (le bas du dos), la flèche du geste
+// (le quart de tour des pieds). La caisse qui tourne sans les pieds, sur le raté, reste en noir.
 module.exports = (h) => {
   const A = h.a, F = h.formes;
   const f1 = v => Math.round(v * 10) / 10;
@@ -70,57 +69,63 @@ module.exports = (h) => {
   const pV = z => profil(z, 'debout-charge-ventre', 'ventre', { brasP: -3, brasL: -6 });
   const pB = z => profil(z, 'debout-bras-tendus', 'poignet', { brasP: 55, brasL: 55, avantbrasP: 62, avantbrasL: 62, mainP: 92, mainL: 92 });
 
-  // ─── Vu de dessus ──────────────────────────────────────────────────────────────────────
-  const S = 0.27;                          // unités de vue par mm, les deux vues de dessus
-  const centre = z => [z.l * 0.52, z.h * 0.60];
-  // la caisse vue de dessus, devant le ventre : le couvercle de trois planches, deux jours
-  const caisseDessus = (c, ang) => {
+  // ─── Vu de dessus : les empreintes et la caisse, sans le corps ───────────────────────────
+  // JP, 13 octobre au soir : un corps ne se montre que de profil. D'en haut, il reste ce qui dit le
+  // geste : les deux bottes au sol et la caisse devant elles. Avant le tour, en gris : la caisse droit
+  // devant, vers le haut. Après : la caisse à droite ; les pieds l'ont suivie (bon) ou sont restés
+  // plantés (raté).
+  const S = 0.25;                          // unités de vue par mm, les deux vues de dessus
+  const centre = z => [z.l * 0.50, z.h * 0.64];
+  const POSE = 'debout-charge-ventre';
+  // la caisse vue de dessus, devant les pieds : le couvercle de trois planches, deux jours à l'ombre ;
+  // ang : où elle est (0 = à droite des pieds, -90 = devant, vers le haut) ; gris : avant le tour.
+  // Portée, elle est juste au-dessus des orteils ; sans le corps, on la pose juste devant, pour que
+  // les bottes restent lisibles
+  const caisseDessus = (c, ang, gris = false) => {
     const T = p => { const q = tourne(p, ang); return [c[0] + q[0] * S, c[1] + q[1] * S]; };
-    const x0 = 120, x1 = 420, w = 170, jeu = 16, pl = (2 * w - 2 * jeu) / 3;
-    const out = [h.chemin([[x0, -w], [x1, -w], [x1, w], [x0, w]].map(T), A.blanc, true)];
+    const x0 = 250, x1 = 550, w = 170, jeu = 16, pl = (2 * w - 2 * jeu) / 3;
+    const bord = [[x0, -w], [x1, -w], [x1, w], [x0, w]].map(T);
+    if (gris) return h.chemin(bord, `fill="#E6E6E6" ${A.cache.replace('fill="none" ', '')}`, true);
+    const out = [h.chemin(bord, A.blanc, true)];
     for (let i = 1; i < 3; i++) {
       const y = -w + i * pl + (i - 1) * jeu;
       out.push(h.chemin([[x0, y], [x1, y], [x1, y + jeu], [x0, y + jeu]].map(T), A.ombre, true));
-      out.push(h.chemin([[x0, y], [x1, y]].map(T), A.arete), h.chemin([[x0, y + jeu], [x1, y + jeu]].map(T), A.arete));
+      out.push(h.chemin([[x0, y], [x1, y]].map(T), A.detail), h.chemin([[x0, y + jeu], [x1, y + jeu]].map(T), A.detail));
     }
-    out.push(h.chemin([[x0, -w], [x1, -w], [x1, w], [x0, w]].map(T), A.contour, true));
+    out.push(h.chemin(bord, A.arete, true));
     return out.join('\n');
   };
-  // l'homme vu de dessus, la caisse devant lui. Ses pieds sont sous lui : on ne les voit pas d'en
-  // haut. Ils se dessinent en arête cachée (tireté à 1,4), par-dessus le corps et la caisse ; les
-  // jambes, invisibles d'en haut, sont masquées.
-  const POSE = 'debout-charge-ventre';
-  // les pieds : d'abord pleins, sous le corps (ce qui dépasse se voit en trait plein), puis leur
-  // contour en tireté par-dessus (ce qui est caché sous le corps et la caisse)
-  const cache = s => s.replace(/fill="none" stroke="#1A1A1A" stroke-width="[\d.]+"([^>]*)stroke-dasharray="3 2.2"/g, 'fill="none" stroke="#1A1A1A" stroke-width="1.4"$1stroke-dasharray="4.5 3"');
-  const plein = s => s.replace(/fill="none" stroke="#1A1A1A" stroke-width="[\d.]+"([^>]*) stroke-dasharray="3 2.2"/g, 'fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.5"$1');
-  const homme = (c, angles = {}) => F.corps({ x: c[0], y: c[1], pose: POSE, vue: 'dessus', echelle: S, angles, masquer: ['jambeP', 'jambeL'] });
-  const pieds = (c, angles = {}, extra = {}) => F.corps({ x: c[0], y: c[1], pose: POSE, vue: 'dessus', echelle: S, angles, fantome: 'pieds', ...extra });
-  // les pieds d'avant le tour : deux empreintes grises au sol, là où il était (il a fait un pas en tournant)
-  const empreintes = g => g.svg.replace(/fill="none"/g, `fill="#E6E6E6"`);
+  // les deux bottes vues de dessus (le contour des pieds du corps simple, rien d'autre) ; angle : où
+  // elles pointent (0 = vers la droite, -90 = vers le haut)
+  const bottes = (c, angle, gris = false) => {
+    const g = F.corps({ x: c[0], y: c[1], pose: POSE, vue: 'dessus', echelle: S, angle, fantome: 'pieds' });
+    const svg = g.svg.replace(/fill="none" stroke="#1A1A1A" stroke-width="[\d.]+"([^>]*) stroke-dasharray="3 2.2"/g,
+      gris ? 'fill="#E6E6E6" stroke="#1A1A1A" stroke-width="0.7"$1 stroke-dasharray="5 3.5"' : 'fill="#FFFFFF" stroke="#1A1A1A" stroke-width="2.4"$1');
+    return { svg, P: g.pieds.P.cheville, L: g.pieds.L.cheville };
+  };
   const pol = (c, r, a) => { const q = tourne([r, 0], a); return [c[0] + q[0] * S, c[1] + q[1] * S]; };
   // un arc autour de c, de a0 à a1 degrés (0 = vers la droite, sens horaire à l'écran), rayon r en mm
   const arcD = (c, r, a0, a1) => { const P = []; for (let k = 0; k <= 24; k++) P.push(pol(c, r, a0 + (a1 - a0) * k / 24)); return 'M' + P.map(pt).join(' L'); };
-  const ARC = [450, -150, -36], ARC_RATE = [450, -118, -36];
-  const AVANT = [-330, 70];              // où il était, en mm, par rapport à où il est
+  const AVANT = [-300, 70];              // où étaient les pieds, en mm, par rapport à où ils sont : un pas en tournant
+  const ARC_PIEDS = [300, -168, -28];     // le quart de tour des pieds, autour du milieu du pas
+  const ARC_CAISSE = [500, -64, -24];     // le quart de tour de la caisse, d'une place à l'autre, autour des pieds plantés
 
   const vueBon = z => {
-    const c = centre(z);
-    const avant = pieds([c[0] + AVANT[0] * S, c[1] + AVANT[1] * S], {}, { angle: -90 });
-    const apres = pieds(c);
-    return { c, avant, apres, svg: [empreintes(avant), plein(apres.svg), homme(c).svg, caisseDessus(c, 0), cache(apres.svg), h.geste(arcD(c, ...ARC))].join('\n') };
+    const c = centre(z), b = [c[0] + AVANT[0] * S, c[1] + AVANT[1] * S];
+    const avant = bottes(b, -90, true), apres = bottes(c, 0);
+    const m = [(b[0] + c[0]) / 2, (b[1] + c[1]) / 2 - 20 * S];
+    return { c, b, m, avant, apres, svg: [caisseDessus(b, -90, true), avant.svg, caisseDessus(c, 0), apres.svg, h.geste(arcD(m, ...ARC_PIEDS))].join('\n') };
   };
-  const twist = { tourneBassin: -90, tourneTronc: 90 };
   const vueRate = z => {
     const c = centre(z);
-    const g = pieds(c, twist);
-    return { c, g, svg: [plein(g.svg), homme(c, twist).svg, caisseDessus(c, 0), cache(g.svg), h.fleche(arcD(c, ...ARC_RATE))].join('\n') };
+    const g = bottes(c, -90);
+    return { c, g, svg: [caisseDessus(c, -90, true), caisseDessus(c, 0), g.svg, h.fleche(arcD(c, ...ARC_CAISSE))].join('\n') };
   };
 
   return {
     ref: '24-01',
     titre: 'Lever près, lever sans tourner',
-    desc: 'De profil, le même homme porte la même caisse sur ses deux paumes : serrée contre le ventre, les mains à 25 cm des chevilles, puis à bout de bras, les mains à 50 cm ; un tireté descend de ses mains au sol. Vu de dessus, ses pieds cachés sous lui en tireté : pour porter la caisse de côté, il fait un pas en tournant et ses pieds regardent où regarde la caisse, ses empreintes d’avant en gris ; le raté garde les pieds plantés et tourne le tronc d’un quart de tour sous la charge.',
+    desc: 'De profil, le même homme porte la même caisse sur ses deux paumes : serrée contre le ventre, les mains à 25 cm des chevilles, puis à bout de bras, les mains à 50 cm ; un tireté descend de ses mains au sol. Vu de dessus, les deux bottes et la caisse seules : pour porter la caisse de côté, les bottes font un quart de tour avec elle, en un pas, la place d’avant en gris ; sur le raté, les bottes restent plantées et la caisse passe de devant à côté, le tronc tourné d’un quart de tour sous la charge.',
     format: 'pleine',
     disposition: [['ventre', 'bras'], ['pieds', 'tronc']],
     hauteurs: [3, 2],
@@ -158,8 +163,8 @@ module.exports = (h) => {
         renvois: z => {
           const v = vueBon(z), c = v.c;
           return [
-            { n: 4, rond: [c[0] + 40 * S, z.h - 14], cible: [c[0] + 60 * S, c[1] + 152 * S], texte: 'les pieds tournent, pas à pas' },
-            { n: 5, rond: [16, z.h - 14], cible: [c[0] + (AVANT[0] - 112) * S, c[1] + (AVANT[1] + 60) * S], texte: 'les pieds avant le tour' },
+            { n: 4, rond: [c[0] + 40 * S, z.h - 12], cible: [v.apres.P[0] + 70 * S, v.apres.P[1] + 48 * S], texte: 'les pieds tournent, pas à pas' },
+            { n: 5, rond: [v.b[0] - 210 * S, z.h - 12], cible: [v.avant.L[0] - 4 * S, v.avant.L[1] + 52 * S], texte: 'les pieds avant le tour' },
           ];
         },
       },
@@ -169,8 +174,8 @@ module.exports = (h) => {
         renvois: z => {
           const v = vueRate(z), c = v.c;
           return [
-            { n: 6, rond: [c[0] - 330 * S, c[1] + 120 * S], cible: [c[0] - 118 * S, c[1] + 30 * S], texte: 'les pieds plantés' },
-            { n: 7, rond: pol(c, 520, -142), cible: pol(c, ARC_RATE[0], -116), texte: 'le tronc tourne d’un quart de tour' },
+            { n: 6, rond: [c[0] - 330 * S, c[1] + 150 * S], cible: [v.g.L[0] - 40 * S, v.g.L[1] + 40 * S], texte: 'les pieds plantés' },
+            { n: 7, rond: pol(c, 640, -40), cible: pol(c, ARC_CAISSE[0], -44), texte: 'le tronc tourne d’un quart de tour' },
           ];
         },
       },

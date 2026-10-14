@@ -184,8 +184,10 @@ module.exports = (h) => {
   const posture = (x, y, l, ht) => {
     const cle = [x, y, l, ht].join(',');
     if (memo[cle]) return memo[cle];
-    const yg = y + ht - 6, e = 0.092;
-    const pat0 = F.corps({ x: 0, y: yg, pose: 'couche-dos', echelle: e }), dp = x + (l - (pat0.boite.x1 - pat0.boite.x0)) / 2 - pat0.boite.x0 + 2;
+    // Agrandie (JP, 13 oct. au soir : les vues de côté restent) : à 0,108 le blessé est plus long que
+    // la vignette ; sa tête reste dedans, ses pieds sortent du cadre à droite.
+    const yg = y + ht - 6, e = 0.108;
+    const pat0 = F.corps({ x: 0, y: yg, pose: 'couche-dos', echelle: e }), dp = x + 5 - pat0.boite.x0;
     const A = pat0.articulations;
     const xt = A.hancheP[0] + 0.5 * (A.genouP[0] - A.hancheP[0]), yt = Math.min(...coupesX(pat0, xt));
     // Les deux mains à plat l'une sur l'autre ne se lisent pas à cette taille (une main fait 3 px
@@ -202,8 +204,10 @@ module.exports = (h) => {
     // la flèche du geste : le long des bras, côté tronc, jusqu'au-dessus des mains
     const u = [W[0] - S[0], W[1] - S[1]], lu = Math.hypot(u[0], u[1]), n = [-u[1] / lu, u[0] / lu];
     const off = 10, p0 = [S[0] + u[0] * 0.15 + n[0] * off, S[1] + u[1] * 0.15 + n[1] * off], p1 = [S[0] + u[0] * 0.9 + n[0] * off, S[1] + u[1] * 0.9 + n[1] * off];
-    return (memo[cle] = { svg: [h.rect(x, y, l, ht, h.a.fin), aid, deplace(pat0, dp), h.ligne(x + 3, yg, x + l - 3, yg, h.a.detail),
-      h.geste(`M${pt(p0)} L${pt(p1)}`)].join('\n'),
+    const idv = 'rogne-26-40-vignette';
+    return (memo[cle] = { svg: [`<clipPath id="${idv}"><rect x="${f(x)}" y="${f(y)}" width="${f(l)}" height="${f(ht)}"/></clipPath>`,
+      `<g clip-path="url(#${idv})">`, aid, deplace(pat0, dp), h.ligne(x + 3, yg, x + l, yg, h.a.detail), '</g>',
+      h.rect(x, y, l, ht, h.a.fin), h.geste(`M${pt(p0)} L${pt(p1)}`)].join('\n'),
       bras: [(S[0] + W[0]) / 2, (S[1] + W[1]) / 2], W, mainP: [g0.mainP.x + da, g0.mainP.y], tronc: t });
   };
   // ─── A. Appuyer : vue de dessus, la cuisse de la hanche au genou, la compresse sur la plaie, les
@@ -213,7 +217,7 @@ module.exports = (h) => {
     const C = cuisseDessus(z, u0, s, cy);
     const P = [C.X(22), cy + 0.3 * s];
     const M = deuxMains(P, s, z);
-    return { s, C, P, M, cy, vg: { x: 2, y: 2, l: z.l - 4, h: 108 } };
+    return { s, C, P, M, cy, vg: { x: 2, y: 2, l: z.l - 4, h: 119 } };
   };
   const dessinA = z => {
     const g = geoA(z), s = g.s, out = [];
@@ -521,7 +525,7 @@ module.exports = (h) => {
           const paume = g.M.ici(g.M.O2, g.M.u2, -40, 0);
           return [
             { n: 1, rond: [12, g.cy + 13 * g.s], cible: paume, texte: 'la paume sur la plaie même' },
-            { n: 2, rond: [z.l - 12, g.vg.y + g.vg.h + 14], cible: v.bras, texte: 'bras tendus : tout son poids' },
+            { n: 2, rond: [z.l - 12, g.vg.y + g.vg.h + 12], cible: v.bras, texte: 'bras tendus : tout son poids' },
           ];
         },
       },

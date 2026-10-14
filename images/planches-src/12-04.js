@@ -14,6 +14,29 @@ module.exports = (h) => {
   const noir = ep => `fill="none" stroke="#1A1A1A" stroke-width="${ep}" stroke-linecap="round" stroke-linejoin="round"`;
   const blancT = ep => `fill="none" stroke="#ffffff" stroke-width="${ep}" stroke-linecap="round" stroke-linejoin="round"`;
 
+  // ─── Le dormeur dans son sac : le corps simple couché sur le dos (la pose sert de gabarit), et le
+  // sac autour : le contour du corps rendu, uni, dilaté et lissé par Clipper (celui des corps simples),
+  // le visage à découvert dans l'ouverture du capuchon.
+  const CL = require(require('path').join(__dirname, '../../.claude/skills/planches/scripts/corps/clipper.js'));
+  const sac = (c, { marge = 55, lisse = 150, trait = 1.4 } = {}) => {
+    const SC = 100, k = c.echelle, polys = [];
+    for (const m of String(c.svg).matchAll(/<path d="([^"]+)" fill="#(?:FFFFFF|E6E6E6)"/g))
+      for (const sub of m[1].split('Z')) {
+        const n = sub.match(/-?[\d.]+/g); if (!n || n.length < 6) continue;
+        const P = []; for (let i = 0; i + 1 < n.length; i += 2) P.push({ X: Math.round(+n[i] * SC), Y: Math.round(+n[i + 1] * SC) });
+        polys.push(P);
+      }
+    const op = (t, a, b) => { const x = new CL.Clipper(); x.AddPaths(a, CL.PolyType.ptSubject, true); if (b) x.AddPaths(b, CL.PolyType.ptClip, true); const r = new CL.Paths(); x.Execute(t, r, CL.PolyFillType.pftNonZero, CL.PolyFillType.pftNonZero); return r; };
+    const off = (p, d) => { const o = new CL.ClipperOffset(2, 0.05 * SC); o.AddPaths(p, CL.JoinType.jtRound, CL.EndType.etClosedPolygon); const r = new CL.Paths(); o.Execute(r, d * SC); return r; };
+    let env = off(off(op(CL.ClipType.ctUnion, polys), (marge + lisse) * k), -lisse * k);
+    const t = c.tete, hx = t.haut[0] - t.x, hy = t.haut[1] - t.y, L = Math.hypot(hx, hy) || 1, mi = c.miroir ? -1 : 1;
+    const fx = -hy / L * mi, fy = hx / L * mi, r = 100 * k, D = [];
+    for (let i = 0; i < 48; i++) { const a = i / 48 * 2 * Math.PI; D.push({ X: Math.round((t.x + fx * 0.6 * r + 0.78 * r * Math.cos(a)) * SC), Y: Math.round((t.y + fy * 0.6 * r + 0.78 * r * Math.sin(a)) * SC) }); }
+    env = op(CL.ClipType.ctDifference, env, [D]);
+    const d = env.map(P => 'M' + P.map(q => `${f(q.X / SC)} ${f(q.Y / SC)}`).join(' L') + ' Z').join(' ');
+    return `<path d="${d}" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="${trait}" stroke-linejoin="round"/>`;
+  };
+
   // ─── Le cône, en mètres.
   const R = 2.75, H = 3.0, LP = Math.hypot(R, H), TA = R / H;
   const T_TIP = 1 + 0.4 / LP;           // bout des perches, au-delà du croisement
@@ -46,6 +69,16 @@ module.exports = (h) => {
     const kP = Math.cos(rad(26));
     const PR = t => [cx + kP * Rp * (1 - t), yg - t * Hp];
     return { Rp, cx, s, Hp, yg, ya, WL, WR, PR };
+  };
+
+  // Le dormeur de la coupe : le corps simple couché sur le dos, à l'échelle de la coupe (s unités par
+  // mètre), le bout du sac (marge M mm autour du corps) à 0,33 m du pied du mur, sur le sapinage, les
+  // genoux un peu levés : il reste un écart entre le pied du sac et le feu (le test de la main, point 3).
+  const dormeurDe = z => {
+    const { Rp, cx, s, yg } = coupe(z), xL = cx - Rp, k = s / 1000, M = 55, yb = yg - 6;
+    const dormeur = h.formes.corps({ pose: 'couche-dos', x: xL + (0.33 * 1000 + M + 822) * k, y: yb - M * k, echelle: k,
+      angles: { cuisseP: 114, jambeP: 66, cuisseL: 112, jambeL: 68, piedP: 160, piedL: 160 } });
+    return { dormeur, M, k, piedSac: dormeur.boite.x1 + M * k };
   };
 
   // ─── Le sommet, de près.
@@ -176,13 +209,12 @@ module.exports = (h) => {
           for (const sx of [-12, 12]) { out.push(h.cercle(cx + sx, yg - 19.5, 4.6, blancA)); out.push(h.cercle(cx + sx, yg - 19.5, 3, h.a.fin)); }
           const flamme = (x, hf, w) => h.path(`M ${f(x - w)} ${f(yg - 16)} Q ${f(x - w)} ${f(yg - 16 - hf * 0.55)} ${f(x)} ${f(yg - 16 - hf)} Q ${f(x + w)} ${f(yg - 16 - hf * 0.55)} ${f(x + w)} ${f(yg - 16)} Z`, h.a.arete.replace('fill="none"', 'fill="#ffffff"'));
           out.push(flamme(cx - 3, 12, 3.5), flamme(cx + 3, 11, 3.2), flamme(cx, 17, 4));
-          // Le dormeur, dans son sac, la tête au mur et les pieds au feu.
-          const xh = xL + 0.41 * s, xf = cx - 0.54 * s, yb = yg - 6;
-          const Lb = xf - xh, X = k => f(xh + k * Lb);
-          out.push(h.path(`M ${f(xh - 2)} ${f(yb)} Q ${f(xh - 5)} ${f(yb - 14)} ${f(xh + 6)} ${f(yb - 14)} Q ${f(xh + 12)} ${f(yb - 14)} ${f(xh + 13)} ${f(yb - 10)} `
-            + `Q ${X(0.2)} ${f(yb - 13.5)} ${X(0.3)} ${f(yb - 12.5)} Q ${X(0.55)} ${f(yb - 11)} ${X(0.72)} ${f(yb - 8.5)} L ${X(0.9)} ${f(yb - 8)} `
-            + `Q ${X(0.93)} ${f(yb - 12.5)} ${X(0.97)} ${f(yb - 11.5)} Q ${X(1.01)} ${f(yb - 9)} ${X(1)} ${f(yb)} Z`, h.a.arete.replace('fill="none"', 'fill="#ffffff"')));
-          out.push(h.cercle(xh + 5.5, yb - 7, 4.4, h.a.arete.replace('fill="none"', 'fill="#ffffff"')));
+          // Le dormeur, dans son sac, la tête au mur et les pieds au feu : le corps simple à l'échelle
+          // de la coupe (s unités par mètre), le bout du sac à 0,36 m du pied du mur, couché sur le sapinage.
+          const { dormeur, M, k, piedSac } = dormeurDe(z);
+          out.push(dormeur.toString(), sac(dormeur, { marge: M }));
+          // à contrôler : l'écart entre le pied du sac et le feu (le test de la main)
+          out.push(h.controle((piedSac + cx - 21) / 2, yg - 9));
           // Les perches : celle du vent dans le plan, celles de la porte au-delà.
           out.push(h.ligne(...PR(0), ...PR(T_TIP), h.a.arete));
           out.push(h.ligne(...WL(0, 0), ...WL(T_TIP, 0), h.a.contour));
@@ -200,10 +232,11 @@ module.exports = (h) => {
         },
         renvois: z => {
           const { Rp, cx, s, Hp, yg, ya } = coupe(z), xL = cx - Rp, xR = cx + Rp;
+          const { dormeur, M, k } = dormeurDe(z), pied = [dormeur.boite.x1 - 1, dormeur.boite.y0 - M * k];
           return [
-            { n: 3, rond: [cx - 40, yg + 20], cible: [cx - 14, yg - 12], texte: 'foyer : pierres sèches sur billes vertes' },
+            { n: 3, rond: [cx - 4, yg + 24], cible: [cx - 9, yg - 9], texte: 'foyer : pierres sèches sur billes vertes' },
             { n: 4, rond: [cx + 62, yg + 20], cible: [cx + 50, yg - 3], texte: 'sapinage, jamais jusqu’au foyer' },
-            { n: 5, rond: [xL + 84, yg - 50], cible: [xL + 62, yg - 17], texte: 'couché les pieds vers le feu' },
+            { n: 5, rond: [pied[0] - 22, yg - 58], cible: pied, texte: 'couché les pieds vers le feu' },
             { n: 6, rond: [xL - 34, yg + 20], cible: [xL - 16, yg - 8], texte: 'base renchaussée de neige, côté vent' },
             { n: 7, rond: [z.l - 18, yg - 34], cible: [z.l - 16, yg - 6], texte: 'l’air entre par le bas, côté porte' },
             { n: 8, rond: [cx - 34, ya - 26], cible: [cx + 1, ya - 12], texte: 'la fumée sort par le sommet ouvert' },
@@ -294,6 +327,8 @@ module.exports = (h) => {
           out.push(h.fleche(`M ${Pt(Ls - 18, O1 + D).map(f).join(' ')} L ${Pt(JH + 8, O1 + D).map(f).join(' ')} L ${Pt(JH - 2, O1 + T + 1.8).map(f).join(' ')} L ${Pt(JB + 4, O1 + T + 1.8).map(f).join(' ')}`, h.a.cache));
           const [gx, gy] = Pt(JB - 4, -W - 1);
           for (const dy of [12, 25, 38]) out.push(goutte(gx, gy + dy));
+          // là où ça casse : le joint ouvert vers le haut, qui recueille l'eau
+          out.push(h.controle(...Pt(JH - 3, O1 + T / 2), 9));
           return out.join('\n');
         },
         renvois: () => [],

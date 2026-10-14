@@ -14,6 +14,10 @@
 // (« Les deux mains ») reprend la chaudière et les deux poings, tournés comme sur le personnage.
 // Reprise du 12 octobre (JP : « corps et main ») : le pictogramme remplace l'ancienne silhouette,
 // les bras vont chercher les mains de la bibliothèque, et la vue en gros montre la prise.
+// 13 oct. : le vanneur est le corps simple (pose « vanner », bras recalculés sur l'anse et le fond) ;
+// « Les deux mains » est un gros plan de mains, laissé tel quel pour la nouvelle bibliothèque. La
+// charte : la chaudière pèse, son flanc du dessous et la face droite des lattes à l'ombre, la toile
+// sous les tamis en gris loin ; le rouge sur le fond qu'on lève pour verser.
 module.exports = (h) => {
   const A = h.a, F = h.formes;
   const BLANC = '#FFFFFF';
@@ -105,6 +109,10 @@ module.exports = (h) => {
   const PRISE = (x, y, ech, angle) => Object.assign({ x, y, pose: 'prise', vue: 'profil', diametre: D_POIGNEE * ech, echelle: ech, bras: 70 }, angle == null ? {} : { angle });
   const COIN = (x, y, ech, angle) => PRISE(x, y, ech, angle);
   const ANG = { anse: -28 };
+  // les bras du corps simple (vue 1), calculés pour que les poings tombent sur Q(ANSE) et Q(FOND)
+  const BRAS_VAN = { brasP: 96.1, avantbrasP: 126.2, mainP: 118, brasL: 40.7, avantbrasL: 144, mainL: 145 };
+  // l'ancien pictogramme : il ne sert plus qu'à donner aux poings du gros plan (« Les deux mains »)
+  // l'angle que leurs bras leur donnaient ; le gros plan attend la nouvelle bibliothèque de mains
   const personnageVanne = g => {
     const pa = g.Q(ANSE), pf = g.Q(FOND(g));
     return F.personnage({ x: g.x0, y: g.G, pose: 'debout', echelle: g.e, penche: 4, regard: 16,
@@ -112,10 +120,14 @@ module.exports = (h) => {
   };
   const poignee = (m, ech) => h.cercle(m.trou.x, m.trou.y, D_POIGNEE / 2 * ech, A.hachure('bois', ech > 0.3 ? 'arete' : 'detail'));
   // la chaudière penchée, dans son repère Q (u en travers de la gueule, v de la gueule vers le fond)
-  const chaudiere = (Q, rt, rb, hb, r, gros = false) => {
+  const chaudiere = (Q, rt, rb, hb, r, gros = false, charte = false) => {
     const o = [];
     const corps = [Q([-rt, 0]), Q([rt, 0]), Q([rb, hb]), Q([-rb, hb])];
-    o.push(h.chemin(corps, W(A.arete), true));
+    if (charte) {
+      // la charte (vue 1) : le blanc, le flanc du dessous à l'ombre, puis le contour qui pèse
+      o.push(h.chemin(corps, A.blanc, true), h.chemin([Q([rt, 0]), Q([rb, hb]), Q([0.4 * rb, hb]), Q([0.4 * rt, 0])], A.ombre, true),
+        h.chemin(corps, A.contour, true));
+    } else o.push(h.chemin(corps, W(A.arete), true));
     // la gueule vue un peu en biais : le grain dedans, qui glisse vers le rebord bas
     const gueule = [];
     for (let i = 0; i < 24; i++) { const t = i / 24 * 2 * Math.PI; gueule.push(Q([rt * Math.cos(t), 30 * Math.sin(t)])); }
@@ -178,11 +190,17 @@ module.exports = (h) => {
       const p = P([c[0] + (r() - 0.5) * lg, c[1]]);
       o.push(grain(p, 3.6, 1.8, 70 + 40 * r(), { plein: true }));
     }
-    // le personnage, la chaudière, puis par-dessus le bras proche et la main loin.
-    const pers = personnageVanne(g);
+    // le vanneur : le corps simple (pose « vanner »), les bras recalculés pour que le poing proche
+    // serre la poignée de l'anse et le poing loin le coin bas du fond. La chaudière passe devant le
+    // bras loin (son poing serre le jonc derrière elle) et derrière le bras proche ; le bout de la
+    // poignée de bois se voit dans le poing proche.
+    const seau = chaudiere(Q, rt, rb, hb, r, false, true);
+    const pers = F.corps({ x: g.x0, y: g.G, pose: 'vanner', echelle: e, mains: { L: 'prise' }, angles: BRAS_VAN, objetL: seau,
+      objet: c => h.cercle(c.mainP.x, c.mainP.y, D_POIGNEE / 2 * e, A.hachure('bois', 'detail')) });
     o.push(String(pers));
-    o.push(chaudiere(Q, rt, rb, hb, r));
-    o.push(mainLoin(pers), brasProche(pers), poignee(pers.mains.proche, e));
+    // le geste : le poing loin lève le fond, la chaudière bascule et verse
+    const ga = Q([rb + 75, hb - 30]), gb = Q([rb + 30, hb + 70]), gc = Q([10, hb + 75]);
+    o.push(h.geste(`M${f(ga[0])} ${f(ga[1])} Q${f(gb[0])} ${f(gb[1])} ${f(gc[0])} ${f(gc[1])}`));
     // le vent, dans le dos, et la balle qu'il emporte
     for (const y of [-1600, -1080, -560]) {
       const a = P([-590, y]), b = P([-210, y]);
@@ -241,7 +259,8 @@ module.exports = (h) => {
       const q = pts => h.chemin(pts.map(T), W(A.detail), true);
       o.push(q([[u0, v0, 0], [u1, v0, 0], [u1, v0, Hf], [u0, v0, Hf]]));        // devant
       o.push(q([[u0, v0, Hf], [u1, v0, Hf], [u1, v1, Hf], [u0, v1, Hf]]));      // dessus
-      o.push(q([[u1, v0, 0], [u1, v1, 0], [u1, v1, Hf], [u1, v0, Hf]]));        // côté droit
+      const cd = [[u1, v0, 0], [u1, v1, 0], [u1, v1, Hf], [u1, v0, Hf]].map(T);   // côté droit, à l'ombre
+      o.push(h.chemin(cd, A.ombre, true), h.chemin(cd, A.detail, true));
     };
     boite(0, U, V - t, V);        // latte du fond
     boite(0, t, t, V - t);        // latte de gauche
@@ -317,7 +336,7 @@ module.exports = (h) => {
     for (let i = 1; i <= 4; i++) bord.push(pt(U + 18 + (i % 2 ? 4 : 0), -14 + (V + 28) * i / 4));
     for (let i = 7; i >= 0; i--) bord.push(pt(-18 + (U + 36) * i / 8, V + 14 + (i % 2 ? -3 : 0)));
     for (let i = 3; i >= 1; i--) bord.push(pt(-18 + (i % 2 ? -4 : 0), -14 + (V + 28) * i / 4));
-    const o = [h.path(lisse(bord, true), W(A.arete))];
+    const o = [h.path(lisse(bord, true), A.loin), h.path(lisse(bord, true), A.arete)];
     o.push(h.path(lisse([pt(U * 0.18, -10), pt(U * 0.22, V * 0.3), pt(U * 0.2, V * 0.6)]), A.fin));
     o.push(h.path(lisse([pt(U * 0.86, V + 10), pt(U * 0.8, V * 0.7), pt(U * 0.83, V * 0.45)]), A.fin));
     return o.join('\n');
@@ -420,7 +439,7 @@ module.exports = (h) => {
   return {
     ref: '98-08',
     titre: 'Vanner et tamiser le grain',
-    desc: 'Vanner au vent : le grain versé de la hauteur de l’épaule sur une toile, le vent dans le dos emporte la balle loin, le grain tombe en tas. Puis les deux tamis, écartés : le grillage de poulailler cloué sur un cadre de lattes retient tiges et épis, la tôle percée au clou retient le bon grain, et dessous tombent poussière, petites graines et grain cassé. En détail, la tôle en coupe et vue de dessus : le trou fait au clou, le grain entier qui le couvre et reste, le grain cassé qui passe.',
+    desc: 'Vanner au vent : la chaudière tenue à bout de bras, le poing proche sur la poignée de l’anse, le poing loin qui lève le fond (flèche rouge) ; le grain versé de la hauteur de l’épaule sur une toile, le vent dans le dos emporte la balle loin, le grain tombe en tas. En gros, les deux mains sur la chaudière. Puis les deux tamis, écartés : le grillage de poulailler cloué sur un cadre de lattes retient tiges et épis, la tôle percée au clou retient le bon grain, et dessous tombent poussière, petites graines et grain cassé. En détail, la tôle en coupe et vue de dessus : le trou fait au clou, le grain entier qui le couvre et reste, le grain cassé qui passe.',
     format: 'pleine',
     disposition: [['vanner', 'mains'], ['tamis', 'trou']],
     hauteurs: [1.1, 1],
