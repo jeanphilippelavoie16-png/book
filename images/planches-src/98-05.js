@@ -5,8 +5,9 @@
 // croisés comblent les bandes claires qu'un seul passage laisse toujours.
 // Aucune cote : le chapitre ne donne ni la largeur des bandes ni la taille du carré.
 // 13 oct. : le semeur de profil est le corps simple (pose « semer ») ; vu de dessus, il n'est plus que
-// ses empreintes (un corps ne se montre plus que de profil). Le médaillon des mains (gros plan calqué)
-// attend la nouvelle bibliothèque de mains. Rouge : l'arc du bras (première moitié), le niveau.
+// ses empreintes (un corps ne se montre plus que de profil). Rouge : l'arc du bras (première moitié), le niveau.
+// 14 oct. : le médaillon des mains passe aux mains simples (mains/moteur.js) : le poing plein (poing, vu côté
+// paume) au lieu du calque s05, la main ouverte (plat, de profil) au lieu du calque s10-plat.
 module.exports = (h) => {
   const A = h.a, F = h.formes;
   const f = v => Math.round(v * 10) / 10;
@@ -138,25 +139,28 @@ module.exports = (h) => {
     // devant le tronc et devant le bras loin, derrière le bras proche.
     const p = F.corps({ x, y: y0, pose: 'semer', echelle: e, objetP: seau });
     const main = [p.mainP.x + 30 * e, p.mainP.y];
-    // le médaillon, grossi : la main pleine fermée sur le grain, puis la même qui s'ouvre
-    const mR = Math.min(50, z.l * 0.22), mx = z.l - mR - 4, my = mR + 4;
-    const rg = alea(9811), poing = [];
-    const rP = 17 * mR / 250;
-    for (let i = 0; i < 40 && poing.length < 9; i++) { const gx = (rg() - 0.5) * 2 * rP, gy = (rg() - 0.5) * 2 * rP;
-      if (Math.hypot(gx, gy) < rP - 1.4) poing.push(grain(mx + mR * 0.05 + gx, my - mR * 0.4 + gy, rg() * 180, 0.9)); }
-    const ouv = [];
-    for (let i = 0; i < 9; i++) { const t = rg(); ouv.push(grain(mx + mR * 0.22 + t * mR * 0.25 + rg() * 3, my + mR * 0.42 + t * mR * 0.38 + rg() * 3, 60 + rg() * 60, 1.1)); }
-    const med = [h.cercle(mx, my, mR, A.blanc), h.cercle(mx, my, mR, A.arete),
-      // modèle s05 (les doigts repliés sur ce qu'ils tiennent, le pouce dessus), en miroir :
-      // l'avant-bras à gauche, le creux du poing plein de grain (140 px du poignet aux jointures ≈ 110 mm)
-      F.modele('s05', { x: mx + mR * 0.12, y: my - mR * 0.4, ancre: [12, 30], miroir: true, echelle: 0.96 * mR / 250, masquer: [[222, 0, 240, 120]],
-        bras: { a: [222, 39.1], a0: [200, 38.1], b: [222, 104.3], b0: [200, 100.8], long: 0.12 * mR } }),
-      poing.join(''),
-      // modèle s10-plat retourné (la main à plat, paume en bas, les doigts vers la droite), penché
-      // de 22° : la main ouverte, le grain part du bout des doigts (214 px = 190 mm)
-      F.modele('s10-plat', { x: mx + mR * 0.2, y: my + mR * 0.4, ancre: [14, 47], angle: 180 + 22, echelle: 1.2 * 190 / 214 * mR / 250,
-        masquer: [[228, 0, 245, 125]], bras: { a: [228, 57.6], a0: [210, 58.4], b: [228, 110.8], b0: [210, 108.8], long: 0.12 * mR } }),
-      ouv.join('\n'),
+    // le médaillon, grossi : deux mains simples (mains/moteur.js), à une même échelle, coupées par le
+    // cercle. En haut, le poing vu côté paume (tourné de 35°), le pouce en bas : il est plein, le grain
+    // affleure entre le pouce et l'index. En bas, la même main ouverte à plat, penchée : le grain part
+    // du bout des doigts.
+    const mR = Math.min(50, z.l * 0.22), mx = z.l - mR - 4, my = mR + 4, eM = 0.3, rg = alea(9811);
+    const idC = 'med-9805', clip = `<clipPath id="${idC}"><circle cx="${f(mx)}" cy="${f(my)}" r="${f(mR - 1.2)}"/></clipPath>`;
+    const pPoing = [mx + mR * 0.1, my - mR * 0.45];
+    const mPoing = F.mainSimple({ x: pPoing[0], y: pPoing[1], pose: 'poing', vue: 'paume', cote: 'droite', echelle: eM, angle: 0, rotation: [0, 35, 0],
+      avantbras: { vers: [mx - 400, pPoing[1]], longueur: 140 } });
+    const pBout = [mx + mR * 0.45, my + mR * 0.34];
+    const mOuv = F.mainSimple({ x: pBout[0], y: pBout[1], ancre: 'bout', pose: 'plat', vue: 'pouce', cote: 'droite', echelle: eM, angle: 22,
+      rotation: [-25, 0, 0], avantbras: { vers: [mx - 400, pBout[1] - 30], longueur: 140 } });
+    // le grain qui affleure du poing, entre le pouce et l'index
+    const gP = [], pb = mPoing.articulations['pouce.bout'], im = mPoing.articulations['index.mcp'];
+    const c0 = [(pb[0] + im[0]) / 2 + 2, Math.max(pb[1], im[1]) + 2];
+    for (const [dx, dy, a] of [[-2.5, 0, 70], [0.5, 1.2, 100], [3, 0.2, 80], [-0.8, 3.4, 95], [1.6, 4.8, 85], [0.2, 7.5, 90]])
+      gP.push(grain(c0[0] + dx, c0[1] + dy, a, 0.95));
+    // le grain qui part du bout des doigts de la main ouverte, en filet qui s'élargit vers le bas
+    const ouv = [], bo = mOuv.bout;
+    for (let i = 0; i < 12; i++) { const t = (i + 0.5) / 12; ouv.push(grain(bo[0] - 1 + t * mR * 0.04 + (i % 3 - 1) * 5 * t, bo[1] + 4 + t * mR * 0.32 + (i % 2) * 1.5, 50 + rg() * 80, 1.1)); }
+    const med = [h.cercle(mx, my, mR, A.blanc), clip, `<g clip-path="url(#${idC})">`, mPoing.svg, gP.join(''), mOuv.svg, ouv.join('\n'), '</g>',
+      h.cercle(mx, my, mR, A.arete),
       h.fleche(`M ${f(mx + mR * 0.55)} ${f(my - mR * 0.5)} Q ${f(mx + mR * 0.78)} ${f(my - mR * 0.2)} ${f(mx + mR * 0.6)} ${f(my + mR * 0.12)}`, A.detail)].join('\n');
     // le grain qui quitte la main ouverte, en éventail, et tombe devant
     const r = alea(9805), vol = [];

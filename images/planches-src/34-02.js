@@ -11,8 +11,9 @@
 // La tête vue de dos (le haut relevé en chignon, le bas en mèches, la mèche de travail au milieu),
 // puis la racine de la même mèche en gros plan de côté, le peigne un peu de trois quarts pour qu’
 // on voie ses dents. La loupe grossit la lente plus que les doigts, sinon elle ne se verrait pas.
-// Mains simples et charte (14 octobre) : les deux bouts de doigts dessinés à la main deviennent une main simple
-// entière (pince-pointe de profil) dans la loupe. La tête vue de dos est gardée telle quelle. Rouge : les quatre
+// Mains simples et charte (14 octobre) : les deux bouts de doigts dessinés à la main sortent de la loupe, et aucune
+// pince de la bibliothèque ne s'y lit ; la loupe garde le cheveu et la lente, le renvoi 7 dit la prise. La tête vue
+// de dos est gardée telle quelle. Rouge : les quatre
 // gestes (tirer le peigne, deux fois ; le tremper ; glisser la lente).
 module.exports = (h) => {
   const A = h.a, F = h.formes, I = F._interne;
@@ -198,39 +199,17 @@ module.exports = (h) => {
     const s = Math.min(z.l, z.h) / (2 * R + 3);
     const cx = z.l / 2, cy = z.h / 2;
     const P = (x, y) => [cx + x * s, cy + y * s];
-    const T = p => P(p[0], p[1]);
     const o = [`<clipPath id="pl3402-loupe"><circle cx="${f1(cx)}" cy="${f1(cy)}" r="${f1(R * s)}"/></clipPath>`, '<g clip-path="url(#pl3402-loupe)">'];
     // le cuir chevelu et d'autres cheveux
     const cuir = [[-26.8, -40], [-26.2, -18], [-26, 0], [-26.2, 18], [-26.8, 40]];
     o.push(h.path(courbe(P, cuir), A.arete));
     // le cheveu pincé
     o.push(h.path(courbe(P, [[-26, 0.45], [-14, 0.55], [4, 0.2], [24, 0.8], [40, 0.4]]), A.detail));
-    // la main droite qui pince (main simple, pince-pointe de profil côté pouce : le bout du pouce contre le bout de
-    // l'index), entière dans la loupe : à la taille des anciens bouts de doigts, le « O » de la pince remplissait la
-    // loupe et ne se lisait plus. Le moteur ne dessine pas d'ongle : le bord libre de chaque ongle s'ajoute au bout du
-    // doigt, côté dos ; la lente, grossie plus que la main, se peint par-dessus les deux bouts
-    const C0 = P(-18.6, -1.1);
-    const m = F.mainSimple({ x: C0[0], y: C0[1], pose: 'pince-pointe', vue: 'pouce', cote: 'droite', diametre: 1.2, echelle: 0.3 * s, angle: 210,
-      avantbras: { longueur: 60 } });
-    o.push(m.svg);
-    const Ar = m.articulations, nrm = v => { const l = Math.hypot(v[0], v[1]) || 1; return [v[0] / l, v[1] / l]; };
-    const ctrO = [0, 1].map(i => (Ar['index.ipp'][i] + Ar['index.ipd'][i] + Ar['pouce.ip'][i] + Ar['pouce.mcp'][i]) / 4);
-    const ongle = (centre, joint, tip) => {
-      const u = nrm([centre[0] - joint[0], centre[1] - joint[1]]), r = Math.hypot(tip[0] - centre[0], tip[1] - centre[1]), e = 2 * r / 0.96;
-      let nd = [-u[1], u[0]];
-      if ((centre[0] - ctrO[0]) * nd[0] + (centre[1] - ctrO[1]) * nd[1] < 0) nd = [-nd[0], -nd[1]];
-      const wd = e * 0.44, wv = e * 0.52, w = wd + wv, at = (p, d, l) => [p[0] + d[0] * l, p[1] + d[1] * l];
-      const Ap = at(centre, nd, wd), Bp = at(centre, nd, -wv * 0.2), c1 = at(Ap, u, 0.74 * w), c2 = at(Bp, u, 0.62 * w);
-      const cub = t => { const q = 1 - t; return [0, 1].map(i => q * q * q * Ap[i] + 3 * q * q * t * c1[i] + 3 * q * t * t * c2[i] + t * t * t * Bp[i]); };
-      const Q = at(centre, u, 0.2 * r), dedans = [], dehors = [];
-      for (let k = 0; k <= 10; k++) {
-        const t = 0.04 + k * 0.06, p = cub(t), d = nrm([p[0] - Q[0], p[1] - Q[1]]);
-        dedans.push(p); dehors.push(at(p, d, 0.12 * r * Math.sin(Math.PI * k / 10) ** 0.6));
-      }
-      return h.path('M' + [...dehors, ...dedans.reverse()].map(p => p.map(f1).join(' ')).join(' L') + ' Z', blanc(0.7));
-    };
-    o.push(ongle(Ar['index.bout'], Ar['index.ipd'], m.doigts.index), ongle(Ar['pouce.bout'], Ar['pouce.ip'], m.doigts.pouce));
-    // la lente, par-dessus le bout des doigts qui la pincent : un œuf collé au cheveu, la base vers le cuir chevelu, le couvercle au bout
+    // deux cheveux voisins, sans lente
+    o.push(h.path(courbe(P, [[-26.4, -11], [-12, -11.6], [6, -12.4], [24, -12], [40, -13]]), A.detail));
+    o.push(h.path(courbe(P, [[-26.3, 11.5], [-12, 12.2], [6, 12.6], [24, 13.4], [40, 13]]), A.detail));
+    // la lente : un œuf collé au cheveu, la base vers le cuir chevelu, le couvercle au bout. Pas de main : à cette
+    // échelle, aucune pince de la bibliothèque ne se lit (le « O » des doigts fait une boîte) ; le renvoi 7 dit la prise.
     const LC = [-19.6, -1.35], LR = [4.0, 1.8], LA = -7 * RAD;
     const G = (lx, ly) => [LC[0] + lx * Math.cos(LA) - ly * Math.sin(LA), LC[1] + lx * Math.sin(LA) + ly * Math.cos(LA)];
     const oeuf = [];
@@ -239,7 +218,7 @@ module.exports = (h) => {
     o.push(h.path(courbe(P, [G(2.9, -1.35), G(2.4, 0), G(2.9, 1.35)]), A.detail));
     o.push(h.path(courbe(P, [G(-3.0, 1.4), G(-4.4, 1.75), [-25, 0.45]]), A.detail));
     // le geste : on glisse vers le bout du cheveu
-    o.push(h.geste(`M${P(-5, -4).map(f1).join(' ')} L${P(17, -4).map(f1).join(' ')}`));
+    o.push(h.geste(`M${P(-13, -4.5).map(f1).join(' ')} L${P(15, -4.5).map(f1).join(' ')}`));
     o.push('</g>');
     o.push(h.cercle(cx, cy, R * s, A.contour));
     return o.join('\n');
@@ -287,7 +266,7 @@ module.exports = (h) => {
         dessin: loupe,
         renvois: z => [
           { n: 6, rond: pl(z, -32.5, 21), cible: pl(z, -22, -1.1), texte: 'lente vivante, près du cuir chevelu' },
-          { n: 7, rond: pl(z, 32.5, -21), cible: pl(z, 9, -4), texte: 'glissée entre deux ongles jusqu’au bout' },
+          { n: 7, rond: pl(z, 32.5, -21), cible: pl(z, 9, -4.5), texte: 'glissée entre deux ongles jusqu’au bout' },
         ],
       },
     },

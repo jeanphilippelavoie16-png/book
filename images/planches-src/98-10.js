@@ -5,6 +5,9 @@
 // Le chapitre ne donne ni la taille de la claie, ni la hauteur, ni la distance au poêle : aucune
 // cote. Le montage (perches, lattes clouées, brides aux solives) est le plus simple qui tienne ;
 // la moustiquaire tendue sur des lattes vient du ch. 100 §9, auquel le chapitre renvoie.
+// 14 oct. : la main qui brasse le grain est une main simple (mains/moteur.js, plat vue du pouce) au lieu
+// du calque s10-plat ; son va-et-vient (le geste) passe en rouge. La charte : les perches de la claie
+// au contour 2,4, le côté des lattes à l'ombre.
 module.exports = (h) => {
   const A = h.a, F = h.formes;
   const r1 = v => Math.round(v * 10) / 10;
@@ -22,7 +25,6 @@ module.exports = (h) => {
     const p1 = [x + rx * c, y + rx * sn], p2 = [x - rx * c, y - rx * sn];
     return h.path(`M${pt(p1)} A${rx} ${ry} ${r1(ang)} 1 0 ${pt(p2)} A${rx} ${ry} ${r1(ang)} 1 0 ${pt(p1)} Z`, at);
   };
-  const double = (d, at = A.arete) => `<path d="${d}" ${at} marker-start="url(#fl)" marker-end="url(#fl)"/>`;
   let nClip = 0;
   const decoupe = (pts, contenu) => {
     const id = `k9810-${++nClip}`;
@@ -116,7 +118,7 @@ module.exports = (h) => {
   };
   const perche = (y, seed) => {
     const q = [];
-    q.push(poly(enveloppe([...capot(0, y), ...capot(L, y)]), bA));
+    q.push(poly(enveloppe([...capot(0, y), ...capot(L, y)]), bC));     // la charte : la claie pèse
     // l'écorce : quelques traits fins le long
     const rr = alea(seed);
     for (let i = 0; i < 5; i++) {
@@ -191,7 +193,8 @@ module.exports = (h) => {
       const x2 = xl + LAL, y0 = -45, y1 = W + 45, za = Zs, zb = Zs + LAE;
       o.push(poly([P(xl, y1, zb), P(x2, y1, zb), P(x2, y0, zb), P(xl, y0, zb)], bA));           // dessus
       o.push(poly([P(xl, y0, za), P(x2, y0, za), P(x2, y0, zb), P(xl, y0, zb)], A.hachure('bois', 'arete'))); // bout
-      o.push(poly([P(x2, y0, za), P(x2, y1, za), P(x2, y1, zb), P(x2, y0, zb)], bA));           // côté
+      const cote = [P(x2, y0, za), P(x2, y1, za), P(x2, y1, zb), P(x2, y0, zb)];
+      o.push(poly(cote, A.ombre), poly(cote, A.arete));                                             // côté, à l'ombre
       for (const yy of [0, W]) o.push(h.cercle(...P(xl + LAL / 2, yy, zb), 1.5, A.plein));
     }
 
@@ -279,18 +282,19 @@ module.exports = (h) => {
     // la cassure : la claie continue à droite
     const xc = xFin, yc = yFin;
     o.push(h.chemin([[xc, yc - EP - 8], [xc + 3, yc - EP + 2], [xc - 3, yc - 2], [xc, yc + 6]], A.detail));
-    // la main à plat sur le grain, venue par-dessus la perche
-    // modèle s10-plat (la main à plat de côté) retourné : la paume posée sur le grain, le pouce
-    // dessous, les doigts vers l'arrière de la claie, l'avant-bras qui remonte à gauche ; tourné de
-    // 10,3° de plus pour que le bout des doigts et le dessous du pouce touchent tous deux le grain
-    const tg = Math.atan2(surf(xm + 45) - surf(xm + 35), 10) * 180 / Math.PI;
-    const m = F.modele('s10-plat', { x: xm + 40, y: surf(xm + 40) - 0.5, ancre: [100, 31], angle: 180 + 10.3 + tg, echelle: 0.89 * k,
-      masquer: [[228, 0, 245, 125]], bras: { a: [228, 57.6], a0: [210, 58.4], b: [228, 110.8], b0: [210, 108.8], bord: z } });
-    o.push(m);
+    // la main à plat sur le grain, venue par-dessus la perche (main simple, plat vue du pouce, un peu vue
+    // d'en haut, comme 50-40) : la paume posée sur le grain, le pouce dessous, les doigts vers l'arrière
+    // de la claie, l'avant-bras qui remonte à gauche et sort de la vue
+    const xt = xm + 75, tg = Math.atan2(surf(xt + 5) - surf(xt - 5), 10) * 180 / Math.PI;
+    const oM = { x: xt, ancre: 'bout', pose: 'plat', vue: 'pouce', cote: 'gauche', echelle: 0.75, angle: tg, rotation: [-25, 0, 0],
+      avantbras: { vers: [xm - 300, surf(xm) - 220], bord: { x0: 0, y0: 0, x1: z.l, y1: z.h }, longueur: 130 } };
+    const m0 = F.mainSimple({ ...oM, y: surf(xt) });
+    const dy = surf(m0.pouce[0]) - m0.pouce[1] - 0.8;                  // le pouce posé sur le grain
+    o.push(F.mainSimple({ ...oM, y: surf(xt) + dy }).svg);
     // brasser : aller-retour à plat
     // (au-dessus de la main calquée, dont l'avant-bras remonte à gauche)
     const yb = surf(xm) - 70;
-    o.push(double(`M${pt([xm + 8, yb])} Q${pt([xm + 63, yb - 10])} ${pt([xm + 118, yb])}`, A.arete));
+    o.push(h.geste(`M${pt([xm + 8, yb])} Q${pt([xm + 63, yb - 10])} ${pt([xm + 118, yb])}`, { double: true }));   // le geste (charte)
     return o.join('\n');
   };
 
