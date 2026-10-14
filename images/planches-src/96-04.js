@@ -9,6 +9,10 @@
 // l'on tire.
 // Repère 3D (unités de dessin, pas des mm imprimés) : x le long de la traîne, le nez vers +x ; y en
 // travers, 0 du côté de l'œil ; z en hauteur, 0 au sol.
+// La charte : dans les pièces écartées, le flanc du patin de devant au contour fort, le patin du
+// fond, derrière, qui recule en gris loin. Pas d'ombre :
+// les faces des planches et le bout des patins sont trop minces à cette échelle. Le rouge : le sens où
+// l'on tire la boucle (le geste). Pas de gris sur la vue de dessus, à plat.
 module.exports = (h) => {
   const A = h.a;
   const F = h.formes;
@@ -121,18 +125,19 @@ module.exports = (h) => {
   const eclatee = z => {
     const { P, s } = gE(z);
     const out = [];
-    const patin = y0 => {
+    const patin = (y0, at = bA, atFlanc = at) => {
       const o = [];
-      o.push(poly([[0, H], [L, H]].map(([x, zz]) => P(x, y0, zz)).concat([P(L, y0 + E, H), P(0, y0 + E, H)])));   // dessus
+      o.push(poly([[0, H], [L, H]].map(([x, zz]) => P(x, y0, zz)).concat([P(L, y0 + E, H), P(0, y0 + E, H)]), at));   // dessus
       o.push(ligne([P(0, y0 + E / 2, H), P(L, y0 + E / 2, H)]));
-      o.push(poly([P(L, y0, ZT), P(L, y0 + E, ZT), P(L, y0 + E, H), P(L, y0, H)]));                               // bout
-      o.push(poly(profil.map(([x, zz]) => P(x, y0, zz))));                                                     // flanc
+      o.push(poly([P(L, y0, ZT), P(L, y0 + E, ZT), P(L, y0 + E, H), P(L, y0, H)], at));                               // bout
+      o.push(poly(profil.map(([x, zz]) => P(x, y0, zz)), atFlanc));                                                // flanc
       for (const f of fils) o.push(ligne(f.map(([x, zz]) => P(x, y0, zz))));
       return o.join('\n');
     };
     const ep = Math.max(2.6, 16 * s);
     // patin du fond, les deux brins et la boucle, puis le patin de devant par-dessus
-    out.push(patin(PAT[1]));
+    // le patin du fond, derrière : gris loin
+    out.push(patin(PAT[1], A.arete.replace('fill="none"', 'fill="#E6E6E6"')));
     // le trou, sur le flanc intérieur du patin du fond, d'où sort la corde
     out.push(poly(Array.from({ length: 16 }, (_, i) => { const a = 2 * Math.PI * i / 16; return P(TROU[0] + RT * Math.cos(a), PAT[1], TROU[1] + RT * Math.sin(a)); }), A.plein));
     const ap = P(...APEX);
@@ -143,7 +148,7 @@ module.exports = (h) => {
     ]));
     const ax = (() => { const a = P(APEX[0], APEX[1], APEX[2]), b = P(APEX[0] + 100, APEX[1], APEX[2]); const n = Math.hypot(b[0] - a[0], b[1] - a[1]); return [(b[0] - a[0]) / n, (b[1] - a[1]) / n]; })();
     out.push(noeud(ap, ax, ep * 1.25));
-    out.push(patin(PAT[0]));
+    out.push(patin(PAT[0], bA, blanc(A.contour)));      // le patin de devant : son flanc au contour fort
     // le nœud d'arrêt, dehors, sur le flanc du patin de devant
     const kn = P(TROU[0], PAT[0] - 10, TROU[1]);
     out.push(noeud(kn, [0.5, -0.87], ep * 1.2, [P(TROU[0] + 50, PAT[0] - 16, TROU[1] - 4), P(TROU[0] + 95, PAT[0] - 18, TROU[1] - 14)]));
@@ -188,7 +193,7 @@ module.exports = (h) => {
     out.push(noeud(ap, [1, 0], ep * 1.25));
     // le sens où l'on tire
     const f0 = [X(APEX[0] + 200), Z(APEX[2] + 14)];
-    out.push(h.fleche(`M${r1(f0[0])} ${r1(f0[1])} L${r1(f0[0] + dir[0] * 40)} ${r1(f0[1] + dir[1] * 40)}`, A.arete));
+    out.push(h.geste(`M${r1(f0[0])} ${r1(f0[1])} L${r1(f0[0] + dir[0] * 40)} ${r1(f0[1] + dir[1] * 40)}`));
     // le patin de devant, avec son fil
     out.push(poly(profil.map(([x, zz]) => [X(x), Z(zz)]), blanc(A.contour)));
     for (const f of fils) out.push(ligne(f.map(([x, zz]) => [X(x), Z(zz)])));

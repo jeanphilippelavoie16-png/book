@@ -147,6 +147,7 @@
 <path d="M 448.4 98.6 L 518.4 102.8" fill="none" stroke="#FFFFFF" stroke-width="4.5" stroke-linecap="round"/>
 <path d="M 448.4 98.6 L 518.4 102.8" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl)"/>
 <path d="M 551 108.5 L 574 114.5" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl)"/>
+<circle cx="324.4" cy="101" r="11" fill="none" stroke="#9B2C1E" stroke-width="1.6"/>
 </g>
 <text x="40" y="481.3" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#1A1A1A">Coupe B-B, la tranchée en travers</text>
 <g transform="translate(40 489.3)" data-vue="trans">

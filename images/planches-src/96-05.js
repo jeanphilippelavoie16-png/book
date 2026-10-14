@@ -12,6 +12,9 @@
 // Vues alignées : le plan et la coupe A-A partagent leurs x (le bois à gauche, en haut de la
 // pente ; le point bas à droite). B-B coupe la tranchée en travers, à l'échelle vraie ; la rigole
 // en travers est un détail, deux fois plus gros.
+// La charte : pas de gris (un plan à plat, trois coupes en trame). Le rouge : le fond de la tranchée,
+// cerclé (le point à vérifier : il descend sans contre-pente, sinon l'eau s'y arrête). Les flèches
+// d'eau restent noires ; il n'y a pas de geste dessiné.
 module.exports = (h) => {
   const N = '#1A1A1A', B = '#FFFFFF';
   const f = (v) => Math.round(v * 10) / 10;
@@ -199,6 +202,8 @@ module.exports = (h) => {
       ouvert([[a, mi(a)], [b, mi(b)]], 'fill="none" stroke="#FFFFFF" stroke-width="4.5" stroke-linecap="round"'),
       h.fleche(`M ${f(a)} ${f(mi(a))} L ${f(b)} ${f(mi(b))}`)));
     out.push(h.fleche(`M ${f(xo - 1)} ${f(yo - 2.5)} L ${f(xo + 22)} ${f(yG(xo + 22) - 4)}`));
+    // le point à vérifier : le fond descend partout, sans contre-pente
+    { const xm = xs + 60; out.push(h.controle(xm, yB(xm), 11)); }
     return out.join('\n');
   };
 

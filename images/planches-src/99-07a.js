@@ -261,12 +261,12 @@ const planche = (h) => {
     out.push(O.sol(P, SOL.x0, SOL.x1, SOL.fond));
     // la position d'avant, en tireté, et le geste
     out.push(h.path(lisse(O.AVANT.map(q => P(...q))), A.cache));
-    out.push(h.fleche(`M ${pt(P(74, -49))} C ${pt(P(76, -40))} ${pt(P(76, -30))} ${pt(P(74, -17))}`, A.arete));
-    out.push(h.fleche(`M ${pt(P(112, -49))} C ${pt(P(114, -44))} ${pt(P(115, -38))} ${pt(P(115, -31))}`, A.arete));
+    // La charte : une seule flèche du geste par vue, en rouge : coucher la branche (le bout suit)
+    out.push(h.geste(`M ${pt(P(74, -49))} C ${pt(P(76, -40))} ${pt(P(76, -30))} ${pt(P(74, -17))}`));
     // le plant mère
     out.push(O.plantMere(P));
     // la branche couchée : du collet au sol, sous la butte, le bout dehors
-    out.push(O.tube(P, O.COUCHEE, 2 * O.RB, 1.1));
+    out.push(O.tube(P, O.COUCHEE, 2 * O.RB, 1.1, 2.4));   // la charte : l'objet de la vue, contour à 2,4
     // les pousses de côté (elles sortent de la butte) et le bout
     for (const p of O.POUSSES.courtes) out.push(tige(P, p, { ep: 1.4, debut: 12, pas: 7, L: 5, halo: true, feuillesDes: 12 }));
     out.push(O.feuille(P, [117, -26], -95, 4.4, 0.15), O.feuille(P, [117.4, -19], -20, 4.4), O.feuille(P, [116.3, -12], 200, 4.2));
@@ -315,7 +315,7 @@ const planche = (h) => {
     out.push(O.traitCoupe(P1, O.mul(dA, O.CR.bras), dA, 3));
     // le demi-tour
     const c = [z.l * 0.45, 8 + 12 * s];
-    out.push(h.fleche(`M ${r1(c[0] - 14)} ${r1(c[1] + 12)} A 16 16 0 1 1 ${r1(c[0] + 14)} ${r1(c[1] + 12)}`, A.arete));
+    out.push(h.geste(`M ${r1(c[0] - 14)} ${r1(c[1] + 12)} A 16 16 0 1 1 ${r1(c[0] + 14)} ${r1(c[1] + 12)}`));   // la charte : le geste, retourner
     // Retourné : le crochet, le pied taillé en pointe
     out.push(O.crochet(P2, [0, 0], O.mul(d, O.CR.bras)));
     out.push(h.ligne(...P2(-0.25, O.CR.bas - 2.4), ...P2(0, O.CR.bas - 0.2), A.fin));
@@ -345,6 +345,8 @@ const planche = (h) => {
     out.push(h.cercle(...P(...Cb), O.RB * s + 2.5, 'fill="#fff" stroke="none"'));
     out.push(O.crochet(P, J, O.mul(O.dirBras(), O.CR.bras), { halo: true }));
     out.push(h.cercle(...P(...Cb), O.RB * s, O.A.hachure('bois', 'arete')));
+    // La charte : le point à contrôler, la branche coincée dans l'angle du crochet
+    out.push(h.controle(...P(...Cb), O.RB * s + 7));
     // la section du bras, là où il touche la branche : rien de plus
     out.push(h.ligne(...P(-22, 0), ...P(-18, 0), A.contour), h.ligne(...P(18, 0), ...P(22, 0), A.contour));
     out.push(h.path(lisse(BT.map(q => P(...q))), A.contour));

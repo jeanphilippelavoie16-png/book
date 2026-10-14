@@ -11,6 +11,11 @@
 //    sous la traverse et y est ligaturé.
 //  - Sur un canot fini, le flanc est lacé au plat-bord : le bout repasse à l'intérieur sous
 //    le plat-bord à travers le flanc, comme le laçage, au-dessus de l'eau.
+//
+// La charte : en travers, le creux du canot, vu par la coupe, en gris loin ; pas de gris sur les
+// coupes hachurées ni sur la vue de dessus. Le rouge : le bout qu'on plie (le geste), le bout
+// qu'on passe par-dessus, dehors, dessous (le geste) et le plein qui bute sur le plat-bord (le
+// point à vérifier : c'est lui qui tient les flancs qui rentrent).
 
 module.exports = (h) => {
   const rad = d => d * Math.PI / 180;
@@ -138,7 +143,7 @@ module.exports = (h) => {
     o.push(h.chemin(bande(med, t * 0.85), h.a.blanc, true));
     o.push(h.chemin(bande(med, t * 0.85), h.a.fin, true));
     const bout = med[med.length - 1];
-    o.push(h.fleche(`M ${x1 + 8} ${yt + t + 4} Q ${bout[0] + 22} ${yt + 16} ${bout[0] + 8} ${bout[1] - 8}`));
+    o.push(h.geste(`M ${x1 + 8} ${yt + t + 4} Q ${bout[0] + 22} ${yt + 16} ${bout[0] + 8} ${bout[1] - 8}`));
     return o.join('\n');
   }
 
@@ -164,6 +169,8 @@ module.exports = (h) => {
       [cx + (gxR - cx) * 0.3, ybot]);
     const F = flancTroue(densifie(haut.concat(desc.slice(1), [[cx, ybot]]), 0.5), gxR, yg, rg, s, t, 1.6);
     const coque = F.bas.slice().reverse().map(mir).concat(F.bas.slice(1));
+    // le creux du canot, vu par la coupe : gris loin, sous la coque et la traverse
+    o.push(h.chemin(coque, h.a.loin, true));
     o.push(h.chemin(bande(coque, s + 0.6), h.a.plein, true));
     [F.haut, F.haut.map(mir)].forEach(m => o.push(h.chemin(bande(m, s + 0.6), h.a.plein, true)));
     // Plats-bords.
@@ -242,8 +249,10 @@ module.exports = (h) => {
     }
     // Le sens du tour : par-dessus, dehors, dessous.
     const Rf = R2 + 13, f0 = rad(-78), f1 = rad(38);
-    o.push(h.fleche(`M ${gx + Rf * Math.cos(f0)} ${yg + Rf * Math.sin(f0)} ` +
+    o.push(h.geste(`M ${gx + Rf * Math.cos(f0)} ${yg + Rf * Math.sin(f0)} ` +
       `A ${Rf} ${Rf} 0 0 1 ${gx + Rf * Math.cos(f1)} ${yg + Rf * Math.sin(f1)}`));
+    // le point à vérifier : le plein qui bute sur le plat-bord
+    o.push(h.controle(face + 1, yg, 13));
     return o.join('\n');
   }
 

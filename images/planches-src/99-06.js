@@ -174,7 +174,8 @@ module.exports = (h) => {
   };
   const unBout = z => {
     const { c, k, x, yb, yt } = gB(z);
-    const o = [bout(c, 0, LONG), face(c, LONG, wBout(LONG))];
+    // La charte : le bout est l'objet de la vue, son contour pèse (2,4)
+    const o = [bout(c, 0, LONG, { trait: blanc(A.contour) }), face(c, LONG, wBout(LONG))];
     // la longueur, à gauche
     const xg = x - 58;
     o.push(h.ligne(x - 6, yb, xg - 5, yb, A.fin), h.ligne(x - 6, yt, xg - 5, yt, A.fin));
@@ -216,7 +217,9 @@ module.exports = (h) => {
     const c3 = g.bouture(g.xs[2], g.yg - 1);
     o.push(bout(c3, 0, LONG, PETIT), face(c3, LONG, wBout(LONG)));
     const xf = g.xs[2] + 22;
-    o.push(h.fleche(`M${r1(xf)} ${r1(g.yg - 150 * g.k)} L${r1(xf)} ${r1(g.yg - 58 * g.k)}`, A.arete));
+    o.push(h.geste(`M${r1(xf)} ${r1(g.yg - 150 * g.k)} L${r1(xf)} ${r1(g.yg - 58 * g.k)}`));   // la charte : le geste, enfoncer
+    // La charte : le point à contrôler, la terre juste sous le bourgeon : un ou deux dehors, pas plus
+    o.push(h.controle(g.xs[0], g.yg - 6, 12));
     // l'écart des boutures, entre les deux premières
     const yc = g.yg - 72 * g.k, ytop = g.yg - (LONG - SOL) * g.k;
     for (const x of g.xs.slice(0, 2)) o.push(h.ligne(x, ytop - 8, x, yc - 6, A.fin));
