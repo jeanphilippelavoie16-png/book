@@ -4,10 +4,15 @@
 // Le pot fait deux fois le volume du levain, son couvercle se pose et ne se visse pas.
 // La même boîte fait lever la pâte (bol couvert, jusqu'au double).
 // Aucune cote : le chapitre ne donne aucune mesure de la boîte, du pot ni de la bouteille.
+// La charte : la moitié vide du pot, vue par la coupe, en gris loin (on lit « à moitié ») ; la
+// caisse de bois et le linge plié ont leur face de droite à l'ombre. Pas de gris sur la laine ni
+// sur la coque coupées. Le rouge : le dernier linge qu'on pose (le geste) et, sur le raté, le
+// contact de la bouteille contre le pot (l'endroit où ça casse).
 module.exports = (h) => {
   const r1 = v => Math.round(v * 10) / 10;
   const pts = p => p.map(q => q.map(r1).join(',')).join(' ');
   const blanc = a => a.replace('fill="none"', h.a.blanc.split(' ')[0]);
+  const ombre = a => a.replace('fill="none"', h.a.ombre.split(' ')[0]);
 
   // Bulles du levain et de la pâte : positions fixes, relatives au rectangle qu'elles remplissent
   const BULLES = [
@@ -34,9 +39,12 @@ module.exports = (h) => {
     };
     const out = [];
     out.push(h.path(profil(0) + ' Z', h.a.blanc));
+    // la moitié vide, vue par la coupe : gris loin ; le levain la recouvre en blanc par en bas
+    out.push(h.path(profil(e) + ' Z', h.a.loin));
     // le levain : la moitié basse du pot, surface bombée, plein de bulles
     const yl = yb - jh * 0.5, xl = cx - jw / 2 + e, xr = cx + jw / 2 - e, b = yb - e, r = 6 * s;
-    out.push(h.path(`M ${r1(xl)},${r1(yl + 3 * s)} Q ${r1(cx)},${r1(yl - 5 * s)} ${r1(xr)},${r1(yl + 3 * s)} L ${r1(xr)},${r1(b - r)} Q ${r1(xr)},${r1(b)} ${r1(xr - r)},${r1(b)} L ${r1(xl + r)},${r1(b)} Q ${r1(xl)},${r1(b)} ${r1(xl)},${r1(b - r)} Z`, h.a.detail));
+    const lev = `M ${r1(xl)},${r1(yl + 3 * s)} Q ${r1(cx)},${r1(yl - 5 * s)} ${r1(xr)},${r1(yl + 3 * s)} L ${r1(xr)},${r1(b - r)} Q ${r1(xr)},${r1(b)} ${r1(xr - r)},${r1(b)} L ${r1(xl + r)},${r1(b)} Q ${r1(xl)},${r1(b)} ${r1(xl)},${r1(b - r)} Z`;
+    out.push(h.path(lev, h.a.blanc), h.path(lev, h.a.detail));
     out.push(bulles(xl + 3 * s, yl + 2 * s, xr - xl - 6 * s, b - yl - 6 * s, s));
     // le verre : deux traits
     out.push(h.path(profil(0), h.a.contour));
@@ -137,7 +145,7 @@ module.exports = (h) => {
     const W = 150 * q, H = 66 * q, D = 96 * q, ep = 6 * q, x0 = (z.l - W - D * 0.5) / 2 - 6, G = z.h - 10, yH = G - H;
     const out = [plancher(0, z.l, G)];
     // flanc droit et face, en planches clouées
-    out.push(h.path(`M ${pts([[x0 + W, yH], O(x0 + W, yH, D), O(x0 + W, G, D), [x0 + W, G]])} Z`, blanc(h.a.contour)));
+    out.push(h.path(`M ${pts([[x0 + W, yH], O(x0 + W, yH, D), O(x0 + W, G, D), [x0 + W, G]])} Z`, ombre(h.a.contour)));
     out.push(h.rect(x0, yH, W, H, blanc(h.a.contour)));
     for (const f of [1 / 3, 2 / 3]) {
       out.push(h.ligne(x0, yH + H * f, x0 + W, yH + H * f, h.a.detail));
@@ -167,7 +175,7 @@ module.exports = (h) => {
     const mil = (P1, P2, dy) => [(P1[0] + P2[0]) / 2, (P1[1] + P2[1]) / 2 + dy];
     const Q = (P1, P2, dy) => { const m = mil(P1, P2, dy); return `Q ${r1(m[0])},${r1(m[1])} ${r1(P2[0])},${r1(P2[1])}`; };
     const Bb = [B[0], B[1] + lt], Cb = [C[0], C[1] + lt];
-    out.push(h.path(`M ${r1(B[0])},${r1(B[1])} ${Q(B, C, -2)} L ${r1(Cb[0])},${r1(Cb[1] - 3)} Q ${r1(Cb[0] + 3)},${r1(Cb[1])} ${r1(Cb[0] - 2)},${r1(Cb[1] + 1)} ${Q([Cb[0] - 2, Cb[1] + 1], Bb, 3)} Z`, blanc(h.a.arete)));
+    out.push(h.path(`M ${r1(B[0])},${r1(B[1])} ${Q(B, C, -2)} L ${r1(Cb[0])},${r1(Cb[1] - 3)} Q ${r1(Cb[0] + 3)},${r1(Cb[1])} ${r1(Cb[0] - 2)},${r1(Cb[1] + 1)} ${Q([Cb[0] - 2, Cb[1] + 1], Bb, 3)} Z`, ombre(h.a.arete)));
     out.push(h.path(`M ${r1(A[0])},${r1(A[1])} ${Q(A, B, -3)} ${Q(B, C, -2)} ${Q(C, Dd, -3)} ${Q(Dd, A, -2)} Z`, h.a.hachure('isolant', 'arete')));
     // la tranche avant : les plis, bombés
     const fr = `M ${r1(A[0])},${r1(A[1])} C ${r1(A[0] - 6 * q)},${r1(A[1] + 1)} ${r1(A[0] - 6 * q)},${r1(A[1] + lt)} ${r1(A[0] + 2)},${r1(A[1] + lt + 1)} `
@@ -177,7 +185,8 @@ module.exports = (h) => {
       out.push(h.path(`M ${r1(A[0] - 3 * q)},${r1(ly + lt * f)} Q ${r1(lx + lw / 2)},${r1(ly + lt * f + 3.5 * q)} ${r1(B[0])},${r1(ly + lt * f)}`, h.a.fin));
     }
     const [fx, fy] = O(lx + lw / 2, ly + lt, ld / 2);
-    out.push(h.fleche(`M ${r1(fx)},${r1(fy + 12 * q)} L ${r1(fx)},${r1(cy - ry - 16 * q)}`));
+    // le geste : poser le dernier linge par-dessus
+    out.push(h.geste(`M ${r1(fx)},${r1(fy + 12 * q)} L ${r1(fx)},${r1(cy - ry - 16 * q)}`));
     return { svg: out.join('\n'), linge: O(lx + lw * 0.72, ly - 2, ld * 0.45), q };
   };
 
@@ -220,6 +229,8 @@ module.exports = (h) => {
     out.push(h.chemin(bord, h.a.hachure('isolant', 'detail'), true));
     const p = pot(gx + 31 * s, yb, s), b = bouteille(gx + 62 * s + 17 * s + 0.6, yb, s);
     out.push(p.svg, b.svg);
+    // l'endroit où ça casse : la bouteille collée contre le pot
+    out.push(h.controle(p.xr, yb - 30 * s, 12 * s));
     return { svg: out.join('\n'), p, b, y1, s };
   };
 

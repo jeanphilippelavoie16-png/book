@@ -150,7 +150,7 @@ module.exports = (h) => {
     // le point à vérifier : le vide entre deux tranches, qui ne se touchent pas
     {
       const YG = pend(g.x0 - 2, g.yG, g.x1 + 2, g.yG, g.sagG);
-      const a = g.x0 + g.marge, b = g.x1 - g.marge, pas = (b - a) / (g.n - 1), xv = a + pas * 1.5 + g.t / 2;
+      const a = g.x0 + g.marge, b = g.x1 - g.marge, pas = (b - a) / (g.n - 1), xv = a + pas * 2.5 + g.t / 2;
       o.push(h.controle(xv, YG(xv) + 0.22 * g.s, 9));
     }
     // les bottes : chacune pendue au fil par sa boucle
@@ -321,7 +321,7 @@ module.exports = (h) => {
           return [
             { n: 4, rond: [z.l - 13, f(p.Y(p.bx[1]) + 96 * p.e)], cible: [f(p.bx[1] + 4), f(p.Y(p.bx[1]) + 66 * p.e)], texte: `les bottes, à côté du poêle` },
             { n: 5, rond: [xr + 44, p.ybT + 30], cible: [xr + 19, p.ybT + 30], texte: `l’air chaud qui monte` },
-            { n: 6, rond: [p.xs0 + p.ws * 0.2, p.ybT - 22], cible: [p.xs0 + p.ws * 0.2, p.ybT - 3], texte: `au-dessus, la feuille cuit` },
+            { n: 6, rond: [p.xs0 + p.ws * 0.2, p.ybT - 44], cible: [p.xs0 + p.ws * 0.2, p.ybT - 3], texte: `au-dessus, la feuille cuit` },
           ];
         },
       },
