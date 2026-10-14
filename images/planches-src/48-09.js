@@ -87,6 +87,9 @@ module.exports = (h) => {
           const oe = P(0, 0, ZH + 2);
           out.push(h.cercle(oe[0], oe[1], 1.8, h.a.detail));
           out.push(h.ligne(oe[0], oe[1] - 1.8, oe[0], P(0, 0, ZB)[1] + 2.6, h.a.arete));
+          // le point à vérifier : la boucle autour du cou, la tête passée
+          const cc = P(4, 0, ZH - RZ);
+          out.push(h.controle(cc[0], cc[1], RZ * s + 5));
 
           // Le bâtonnet en travers de la piste, du crochet (derrière le piquet) jusqu'au-dessus de la piste.
           const b0 = P(0, 22, ZB), b1 = P(0, YP + 10, ZB);
