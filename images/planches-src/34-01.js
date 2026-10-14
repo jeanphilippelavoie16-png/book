@@ -10,6 +10,9 @@
 // le pli de l'aine, sur un os ou une articulation.
 // Aucune cote : rien ne se construit ici, et le chapitre ne donne pas de mesure de l'incision.
 // Les coupes sont des coupes de principe, en mm d'adulte mis à l'échelle s (px/mm).
+// Lot 3 (JP, 13 octobre au soir : les corps de profil seulement) : le corps de face et de dos et le
+// visage de face sortent. Un seul corps simple de profil porte les zones du chapitre ; le triangle du
+// visage et le cou passent sur la tête du même corps, en grand. Rouge : le geste du trait à faire.
 module.exports = (h) => {
   const F = h.formes._interne;
   const f = v => (+v).toFixed(1);
@@ -368,7 +371,7 @@ module.exports = (h) => {
     ref: '34-01',
     titre: 'Ouvrir un abcès mûr',
     format: 'pleine',
-    desc: 'Sept vues. Vue de dessus : la bosse ovale, la poche qu’on sent sous les doigts, la rougeur autour ; l’index et le pouce de l’autre main la tiennent de part et d’autre, et un seul trait noir est fait au centre, dans le grand axe. En coupe dans ce grand axe : la peau, la poche de pus juste dessous, partagée par deux cloisons ; la lame debout, perpendiculaire à la peau, pointe dans la poche au bout du trait, et une flèche suit la peau jusqu’à l’autre bout, assez loin pour qu’un doigt entre. Le trait fait : seule la loge du milieu se vide : son pus monte par le trait, déborde de la lèvre et coule sur la peau ; les deux loges derrière les cloisons restent pleines. Le doigt entre par le trait et balaie la poche d’un bout à l’autre : les cloisons sont cassées, il ne reste qu’une poche ; s’il sent battre au fond ou touche l’os, il ressort. Rincer : une bouteille souple entière, pincée au milieu, bouchon vissé en bas et percé au clou, pleine d’eau bouillie salée, envoie un jet en file de gouttes jusqu’au fond de la poche, et l’eau ressort par le trait. En marge, un corps de face et de dos, zones hachurées où l’on n’ouvre jamais : le devant et les côtés du cou, les seins, les mains, le pli de l’aine, les épaules, les coudes, les genoux, les chevilles, et de dos le tour de l’anus ; un visage de face où le triangle entre la racine du nez et les coins de la bouche est hachuré.',
+    desc: 'Sept vues. Vue de dessus : la bosse ovale, la poche qu’on sent sous les doigts, la rougeur autour ; l’index et le pouce de l’autre main la tiennent de part et d’autre, et un seul trait noir est fait au centre, dans le grand axe. En coupe dans ce grand axe : la peau, la poche de pus juste dessous, partagée par deux cloisons ; la lame debout, perpendiculaire à la peau, pointe dans la poche au bout du trait, et une flèche rouge suit la peau jusqu’à l’autre bout, assez loin pour qu’un doigt entre. Le trait fait : seule la loge du milieu se vide ; les deux loges derrière les cloisons restent pleines. Le doigt entre par le trait et balaie la poche d’un bout à l’autre : les cloisons sont cassées, il ne reste qu’une poche. Rincer : une bouteille souple, bouchon en bas et percé au clou, envoie un jet jusqu’au fond de la poche, et l’eau ressort par le trait. Un corps de profil, zones hachurées où l’on n’ouvre jamais : le devant et les côtés du cou, le sein, la main, le pli de l’aine, le tour de l’anus au bas de la fesse, l’épaule, le coude, le genou, la cheville ; et la tête du même corps, en grand, de profil : le triangle du milieu du visage, de la racine du nez aux coins de la bouche, et le devant et les côtés du cou, hachurés.',
     disposition: [['dessus', 'trait'], ['loges', 'doigt'], ['jet', 'corps', 'visage']],
     hauteurs: [0.86, 0.86, 1.62],
     largeurs: [[1, 1.2], [1, 1.2], [1.25, 0.6, 1.05]],

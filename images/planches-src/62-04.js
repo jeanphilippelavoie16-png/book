@@ -237,7 +237,9 @@ module.exports = (h) => {
   const couture = (tr, pts, fine = false) =>
     `<path d="${dD(tr(pts))}" ${lisere(fine ? 3 : 4.5)}/>\n<path d="${dD(tr(pts))}" ${fine ? COUTURE_FINE : COUTURE}/>`;
   const bord = (tr, pts) => `<path d="${dD(tr(pts))}" ${trait(0.7)}/>`;
-  const fleche = (tr, pts) => `<path d="${dD(tr(pts))}" ${lisere(4)}/>\n` + h.fleche(dD(tr(pts)), h.a.arete);
+  // La charte : le chemin du couteau est le geste de la planche, en rouge (h.geste), une flèche
+  // par vue, sur un liseré blanc qui la détache des trames.
+  const geste = (tr, pts) => `<path d="${dD(tr(pts))}" ${lisere(5)}/>\n` + h.geste(dD(tr(pts)));
   const remplir = (id, tr, morceaux, clip) => `<g clip-path="url(#${clip})">\n` + Object.entries(morceaux)
     .filter(([, m]) => m.trame).map(([, m]) => `<path d="${dD(tr(m.pts), true)}" fill="url(#${id}-${m.trame})" stroke="none"/>`).join('\n') + '\n</g>';
 
@@ -251,11 +253,11 @@ module.exports = (h) => {
       + "blanc. Les coutures entre deux morceaux sont en gros points, celles entre deux muscles d'un même morceau en "
       + "petits points. Face externe : le haut de surlonge sur le bassin, la pointe devant le fémur, l'extérieur "
       + "derrière, la noix au bord arrière, le jarret sous le grasset ; les coutures du haut de surlonge et de la pointe "
-      + "se rejoignent au grand trochanter, et deux flèches suivent "
+      + "se rejoignent au grand trochanter, et une flèche rouge suit "
       + "le couteau de la rotule au grand trochanter, puis vers le devant du bassin. Face interne : le gracilis en "
       + "chapeau, le couturier devant lui, le semi-membraneux derrière. Gracilis et couturier ôtés : le pectiné, l'adducteur, le "
-      + "semi-membraneux, et la flèche du couteau de l'intérieur, du bas du fémur vers la pointe de la fesse. En bas, "
-      + "la carcasse entière avec le quartier en valeur, et la coupe au milieu de la cuisse, vue d'en haut, l'avant à "
+      + "semi-membraneux, et la flèche rouge du couteau de l'intérieur, du bas du fémur vers la pointe de la fesse. En bas, "
+      + "la carcasse entière avec le quartier en noir et les pattes du côté loin en gris, et la coupe au milieu de la cuisse, vue d'en haut, l'avant à "
       + "gauche et le dehors en bas : le fémur au centre, chaque morceau autour, séparé des autres par ses coutures.",
     format: 'pleine',
     disposition: [['ext', 'int', 'dessous'], ['ou', 'coupe']],
@@ -273,8 +275,9 @@ module.exports = (h) => {
             noix: { pts: MORCEAUX_EXT.noix, trame: 'noix' },
           };
           const coutureK = [S1, S2, S3a, S3b, S4, sd(GR)];
-          const couteauPointe = rogne(decale(S2, 9, [1200, 560]), 26, 14);
-          const couteauCroupe = rogne(decale(rev(S1), 9, [1300, 380]), 14, 24);
+          // Un seul chemin de couteau : de la rotule au grand trochanter (pointe de surlonge), puis
+          // du grand trochanter vers le devant du bassin (haut de surlonge). Une flèche, un geste.
+          const couteau = [...rogne(decale(S2, 9, [1200, 560]), 26, 4), ...rogne(decale(rev(S1), 9, [1300, 380]), 4, 24)];
           const ligne = [[X_COUPE[0] - 16, Y_COUPE], [X_COUPE[1] + 16, Y_COUPE]];
           return [
             `<defs>${trames(id)}<clipPath id="${id}-q"><path d="${dD(tr(Q), true)}" fill="${BLANC}"/></clipPath></defs>`,
@@ -283,8 +286,7 @@ module.exports = (h) => {
             os(p, ['bassin', 'femur', 'rotule', 'tibia', 'calcaneum', 'tarse', 'metatarse'], 'cache'),
             ...coutureK.map(c => couture(tr, c)),
             '</g>',
-            fleche(tr, couteauPointe),
-            fleche(tr, couteauCroupe),
+            geste(tr, couteau),
             `<path d="${dD(tr(ligne))}" ${lisere(3)}/>`,
             `<path d="${dD(tr(ligne))}" ${MIXTE}/>`,
             ((a, b) => [h.ligne(a[0], a[1], a[0] + 8, a[1], h.a.arete), h.ligne(b[0] - 8, b[1], b[0], b[1], h.a.arete)].join('\n'))(p.T(ligne[0]), p.T(ligne[1])),
@@ -355,7 +357,7 @@ module.exports = (h) => {
             couture(tr, sd(ADD_AV)), couture(tr, sd(SM_AV)), couture(tr, sd(ADD_AR), true),
             couture(tr, sd(GR)),
             '</g>',
-            fleche(tr, COUTEAU_INT),
+            geste(tr, COUTEAU_INT),
             `<path d="${dD(tr(Q), true)}" ${trait(2.4)}/>`,
           ].join('\n');
         },
@@ -373,9 +375,13 @@ module.exports = (h) => {
         titre: 'Sur la carcasse',
         dessin: z => {
           const id = 'qd', p = C.placer(z, { echelle: 0.125 }), tr = TR(p);
+          // La charte : les pattes du côté loin en gris loin (le module les peint en blanc à 0,7 ; ce
+          // sont les seuls tracés blancs à 0,7 de cette vue, sans os ni muscles).
+          const carcasse = C.dessiner(h, p, { id, loin: 'fin' })
+            .split(`fill="${BLANC}" stroke="${NOIR}" stroke-width="0.7"`).join(h.a.loin.replace('stroke="none"', `stroke="${NOIR}" stroke-width="0.7"`));
           return [
             `<defs>${trames(id)}</defs>`,
-            C.dessiner(h, p, { id, loin: 'fin' }),
+            carcasse,
             `<g clip-path="url(#${id}-corps)"><path d="${dD(tr(Q), true)}" ${h.a.plein}/></g>`,
             `<path d="${dD(tr(lisseFerme(S)), true)}" ${trait(2.4)}/>`,
           ].join('\n');

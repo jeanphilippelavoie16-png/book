@@ -95,9 +95,13 @@ module.exports = (h) => {
     o.push(h.rect(...p(CX0 + EP, FI), (CX1 - CX0 - 2 * EP) * S, (FI - BT) * S, A.hachure('isolant', 'detail')));
     o.push(h.rect(...p(CX0 + EP, TE), (CX1 - CX0 - 2 * EP) * S, (TE - FI) * S, A.hachure('neige', 'detail')));
     o.push(h.chemin([p(CX0 + EP, FI), p(CX1 - EP, FI)], A.detail));
+    // La charte : au-dessus du terreau, on voit par l'ouverture la paroi du fond du coffre (le
+    // côté ouest, derrière le plan de coupe) : gris loin, sous le châssis.
+    o.push(poly([p(CX0 + EP, TE), p(CX1 - EP, TE), p(CX1 - EP, glace(CX1 - EP)), p(CX0 + EP, glace(CX0 + EP))], A.loin));
     o.push(h.chemin([p(CX0 + EP, TE), p(CX1 - EP, TE)], A.arete));
-    // contours : fosse, lit, rechaussage
-    o.push(h.chemin([p(XL, 0), p(0, 0), p(0, -PD), p(PW, -PD), p(PW, 0), p(XR, 0)], A.arete));
+    // contours : le sol à côté, puis la fosse, qui est le contour du lit (objet principal, 2,4)
+    o.push(h.chemin([p(XL, 0), p(0, 0)], A.arete), h.chemin([p(PW, 0), p(XR, 0)], A.arete));
+    o.push(h.chemin([p(0, 0), p(0, -PD), p(PW, -PD), p(PW, 0)], A.contour));
     o.push(h.chemin([p(0, -PD + GR), p(PW, -PD + GR)], A.detail));
     o.push(h.chemin([p(0, 0), p(RF, FT), p(CX0, FT)], A.contour));
     o.push(h.chemin([p(CX1, BK), p(RB, BK), p(PW, 0)], A.contour));
@@ -114,13 +118,17 @@ module.exports = (h) => {
     o.push(h.chemin([c(RL, CH * 0.55), c(L - RL, CH * 0.55)], A.arete));
     // la chaleur monte du fumier dans le terreau
     for (const x of [122, 206]) o.push(fleche(p(x, 22), p(x, 53)));
-    // le thermomètre à sonde, planté à 8 cm
+    // le thermomètre à sonde, planté à 8 cm ; le liseré blanc seulement dans le terreau, pour ne
+    // pas faire de halo sur le gris du fond
     const tige = [p(TX, TE - 8), p(TX, TE + 4)];
-    o.push(h.ligne(...tige[0], ...tige[1], 'fill="none" stroke="#FFFFFF" stroke-width="4"'));
+    o.push(h.ligne(...tige[0], ...p(TX, TE), 'fill="none" stroke="#FFFFFF" stroke-width="4"'));
     o.push(h.ligne(...tige[0], ...tige[1], A.arete));
     const cad = p(TX, TE + 4 + 3.4);
     o.push(h.cercle(cad[0], cad[1], 3.4 * S, blanc(A.arete)));
     o.push(h.chemin([cad, [cad[0] + 2 * S, cad[1] - 1.8 * S]], A.detail));
+    // La charte : le point à contrôler. « C'est le thermomètre qui décide, pas le nombre de jours »
+    // (étape 12) : on sème quand il est redescendu vers 30 °C.
+    o.push(h.controle(cad[0], cad[1], 3.4 * S + 3));
     // niveau du dessus du devant, reporté à l'arrière
     o.push(h.ligne(...p(CX0, FT), ...p(XD + 3, FT), 'fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="4 3"'));
     // rappels
@@ -181,7 +189,7 @@ module.exports = (h) => {
   return {
     ref: '97-01a',
     titre: 'La couche chaude au fumier, en coupe',
-    desc: 'Coupe nord-sud d’une couche chaude à un châssis, le sud à gauche, à l’échelle, et la même couche vue de dessus, châssis enlevé, alignée dessous. Une fosse d’au moins 460 mm creusée dans la terre, 10 cm de gros gravier au fond ; le fumier frais y est chargé par lits tassés sur 600 à 750 mm, jusqu’au-dessus du sol ; le coffre de madriers est posé sur le lit, l’arrière au moins 150 mm plus haut que le devant ; 100 à 150 mm de fumier tassé dans le coffre, puis 130 à 150 mm de terreau qui arrive presque au bord du devant ; du fumier empilé contre l’extérieur du coffre jusqu’en haut, sur 300 à 380 mm, descend en talus jusqu’au bord de la fosse. La vieille fenêtre porte sur le devant et l’arrière ; le thermomètre à sonde est planté à 80 mm dans le terreau ; deux flèches montrent la chaleur qui monte du fumier. De dessus : le rechaussage fait le tour du coffre ; le coffre mesure 910 sur 1830 mm à l’extérieur, 1730 mm à l’intérieur du devant à l’arrière, un poteau dans chaque coin ; la fosse déborde le coffre de tous côtés.',
+    desc: 'Coupe nord-sud d’une couche chaude à un châssis, le sud à gauche, à l’échelle, et la même couche vue de dessus, châssis enlevé, alignée dessous. Une fosse d’au moins 460 mm creusée dans la terre, 10 cm de gros gravier au fond ; le fumier frais y est chargé par lits tassés sur 600 à 750 mm, jusqu’au-dessus du sol ; le coffre de madriers est posé sur le lit, l’arrière au moins 150 mm plus haut que le devant ; 100 à 150 mm de fumier tassé dans le coffre, puis 130 à 150 mm de terreau qui arrive presque au bord du devant ; du fumier empilé contre l’extérieur du coffre jusqu’en haut, sur 300 à 380 mm, descend en talus jusqu’au bord de la fosse. La vieille fenêtre porte sur le devant et l’arrière ; le thermomètre à sonde est planté à 80 mm dans le terreau ; deux flèches montrent la chaleur qui monte du fumier ; au-dessus du terreau, la paroi du fond du coffre en gris ; le thermomètre est cerclé de rouge : c’est lui qui dit quand semer. De dessus : le rechaussage fait le tour du coffre ; le coffre mesure 910 sur 1830 mm à l’extérieur, 1730 mm à l’intérieur du devant à l’arrière, un poteau dans chaque coin ; la fosse déborde le coffre de tous côtés.',
     format: 'pleine',
     disposition: [['coupe'], ['plan']],
     hauteurs: [ZT - ZBAS, YB - YH],

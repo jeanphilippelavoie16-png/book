@@ -1,5 +1,9 @@
 // Planche 83-10 — La truie : le poêle de baril de 205 L (chapitre 15, « Le poêle de fortune : la truie »)
 // Cotes : une main (lit de sable sur la sole). Aucun autre chiffre : le chapitre n'en donne pas.
+// La charte : l'intérieur du baril et du tuyau, vu par la coupe, en gris loin ; le tuyau du bout
+// opposé, derrière, en gris loin dans la vue de la porte ; la face de dessous et de droite du tuyau
+// de la fenêtre à l'ombre. Le rouge : la barre qu'on rabat (le geste), la sortie en haut au bout
+// opposé (le point qui décide du tirage) et le jeu d'air autour du tuyau dans la tôle.
 module.exports = (h) => {
   const A = h.a;
   const W = at => at.replace('fill="none"', 'fill="#FFFFFF"');
@@ -24,6 +28,10 @@ module.exports = (h) => {
     const yS = yB - 28;                  // dessus du lit de sable : une main
     const yD = yT + 30;                  // la tôle suspendue
     const xp1 = 364, xp2 = 406, xpc = (xp1 + xp2) / 2;
+
+    // l'intérieur du baril et du tuyau, vu par la coupe : gris loin, peint avant tout trait
+    o.push(h.rect(xa, yT, xb - xa, yS - yT, A.loin));
+    o.push(h.chemin([[xp1, 11.75], [xp1 + 12, 8], [xp2 - 12, 16], [xp2, 12.25], [xp2, yT], [xp1, yT]], A.loin, true));
 
     // plancher et caisson de sable
     o.push(h.rect(10, yF, z.l - 20, 7, A.hachure('bois', 'aucun')), h.ligne(10, yF, z.l - 10, yF, A.arete));
@@ -76,6 +84,8 @@ module.exports = (h) => {
 
     // cote : l'épaisseur du lit
     o.push(h.cote(xa - 22, yS, xa - 22, yB, 'une main', { cote: 'gauche' }));
+    // le point qui décide : la sortie en haut, au bout opposé à la porte
+    o.push(h.controle(xpc + 1, yT + 8, 26));
     return o.join('\n');
   };
 
@@ -90,7 +100,8 @@ module.exports = (h) => {
     o.push(h.rect(4, yF, z.l - 8, 5, A.hachure('bois', 'aucun')), h.ligne(4, yF, z.l - 4, yF, A.arete));
     o.push(h.rect(cx - 101, yBt, 202, yF - yBt, A.hachure('gravier', 'aucun')), h.ligne(cx - 101, yBt, cx + 101, yBt, A.detail));
     o.push(h.rect(cx - 106, yBt - 4, 5, yF - yBt + 4, W(A.arete)), h.rect(cx + 101, yBt - 4, 5, yF - yBt + 4, W(A.arete)));
-    // le tuyau, au bout opposé, qui dépasse derrière
+    // le tuyau, au bout opposé, qui dépasse derrière : gris loin
+    o.push(h.chemin([[cx - 20, 22], [cx - 8, 18], [cx + 8, 26], [cx + 20, 22], [cx + 20, cy - R - 6], [cx - 20, cy - R - 6]], A.loin, true));
     o.push(h.ligne(cx - 20, 22, cx - 20, cy - R - 6, A.arete), h.ligne(cx + 20, 22, cx + 20, cy - R - 6, A.arete));
     o.push(h.path(`M${cx - 23} 23 L${cx - 8} 18 L${cx + 8} 26 L${cx + 23} 21`, A.detail));
     // le bout du baril : bourrelet et fond
@@ -124,7 +135,8 @@ module.exports = (h) => {
     o.push(h.ligne(cx + 33, yb - 17, cx + 33, yb + 14, A.fin));
     o.push(h.cercle(cx + 38, yb + 9, 1.4, A.plein), h.cercle(cx + 36, yb - 11, 1.2, A.plein));
     // le geste : on rabat la barre vers le bas, elle monte sur la rampe et serre la porte
-    o.push(h.fleche(`M${cx + 14} ${yb - 15} A 20 20 0 0 1 ${cx + 20} ${yb + 5}`, A.arete));
+    // (en rouge, centré sur le pivot ; la pointe vient appuyer sur le dessus de la barre)
+    o.push(h.geste(`M${cx + 1.6} ${yb - 17.9} A 18 18 0 0 1 ${cx + 17.6} ${yb - 3.7}`));
     // l'arrivée d'air : le gros bouchon, plaque coulissante sur un boulon
     const bx = cx + 40, by = cy + 19;
     o.push(h.cercle(bx, by, 7.5, W(A.arete)), h.cercle(bx, by, 4.5, A.plein));
@@ -164,6 +176,8 @@ module.exports = (h) => {
     const xm1 = 78, xm2 = 96, xt = 87;          // le mur, et la tôle au milieu
     const yh = 30, ys = 178;                     // linteau et appui
     const t1 = 92, t2 = 118;                     // le tuyau
+    // la face de dessous et de droite du tuyau, à l'ombre : une bande, coupée aux onglets des coudes
+    o.push(h.chemin([[32, z.h], [32, t2 - 8], [138, t2 - 8], [138, 9], [146, 6], [146, t2], [40, t2], [40, z.h]], A.ombre, true));
     o.push(h.rect(xm1, 0, xm2 - xm1, yh - 8, A.hachure('bois')));
     o.push(h.rect(xm1, yh - 8, xm2 - xm1, 8, W(A.arete)));
     o.push(h.rect(xm1 - 4, ys, xm2 - xm1 + 8, 7, W(A.arete)));
@@ -175,7 +189,8 @@ module.exports = (h) => {
     o.push(h.chemin([[40, z.h], [40, t2], [146, t2], [146, 4]], A.contour));
     o.push(h.path(`M14 ${t1} L40 ${t2} M120 ${t1} L146 ${t2}`, A.detail));
     o.push(h.path(`M117 6 L128 2 L138 9 L149 5`, A.detail));
-    return `<g transform="scale(0.9 1)">` + o.join('\n') + '</g>';
+    // le jeu d'air entre la tôle et le tuyau : le point à vérifier (hors du groupe écrasé, pour rester rond)
+    return `<g transform="scale(0.9 1)">` + o.join('\n') + '</g>\n' + h.controle(xt * 0.9, (yh + t1) / 2 + 21, 13);
   };
 
   return {
@@ -205,12 +220,12 @@ module.exports = (h) => {
         renvois: z => {
           const cx = Math.round(z.l / 2), cy = z.h - 20 - 92;
           return [
-            { n: 7, rond: [z.l - 12, 16], cible: sp(z, cx + 12, cy - 30), texte: 'découpée au ciseau à froid' },
+            { n: 7, rond: [z.l - 12, 52], cible: sp(z, cx + 12, cy - 30), texte: 'découpée au ciseau à froid' },
             { n: 8, rond: [14, 70], cible: sp(z, cx - 38, cy - 30), texte: 'charnières boulonnées' },
             { n: 9, rond: [z.l - 12, 100], cible: sp(z, cx + 40, cy + 2), texte: 'barre de fermeture à came' },
             { n: 10, rond: [24, 22], cible: sp(z, cx - 8, cy - 43.5), texte: 'jeu comblé à l’argile' },
             { n: 11, rond: [z.l - 12, 150], cible: sp(z, cx + 62, cy + 22), texte: 'arrivée d’air à glissière' },
-            { n: 12, rond: [z.l - 12, 52], cible: sp(z, cx + 44, cy - 44), texte: 'l’autre bouchon, bouché' },
+            { n: 12, rond: [z.l - 12, 16], cible: sp(z, cx + 44, cy - 44), texte: 'l’autre bouchon, bouché' },
           ];
         },
       },

@@ -155,7 +155,10 @@
 //
 // Unités internes : mm. L'union, les décalages et les découpes passent par Clipper (corps/clipper.js).
 // Un appel neuf coûte 40 à 120 ms (le premier du processus, ~200 : la compilation) ; le même pose/vue/âge à
-// une autre place, une autre échelle ou un autre angle sort du cache en ~2 ms.
+// une autre place, une autre échelle ou un autre angle sort du cache en ~2 ms. Les constructions se gardent
+// aussi sur disque (MAINS_CACHE, défaut : <tmp>/mains-simples-cache ; MAINS_CACHE=0 : sans) : une planche
+// recomposée les relit en ~10 ms ; la clé porte la date des fichiers du moteur, des poses, du profil, des prises
+// et des proportions.
 
 'use strict';
 
@@ -1411,23 +1414,88 @@ function dessiner(o, prep = null) {
       patch.bordDev = contourDe(patch.regDev);
       patch.Ug = decale(U, 0.2);
     }
-    // la marge (mm) couvre le trait de l'objet et son anticrénelage : 2,4 de vue au moins (le trait de contour du
-    // livre, dont la moitié déborde de la région de l'objet) ; calculée au rendu, selon l'échelle
-    patch.pour = mm => {
-      const k = Math.round(mm * 5) / 5;
-      if (patch.parMarge.has(k)) return patch.parMarge.get(k);
-      let v = { fond: [], bord: [], traits: [] };
-      if (patch.regDev) {
-        const ext = decale(ob.region, k);
-        v = { fond: inter(ext, inter(decale(patch.regDev, k), patch.Ug)), bord: lignesDans(patch.bordDev, ext), traits: lignesDans(patch.tDev, ext) };
-      }
-      patch.parMarge.set(k, v);
-      return v;
-    };
+    patchPour(patch, ob.region);
   }
   T_('patch');
-  return { C, pieces, U, traits, peint, devantObjet, rel, ordre, ob, coupe, vue, patch };
+  // ce que le rendu garde (le cache) : le reste (enveloppes, sphères, intersections) est jeté
+  return {
+    C: { pose: { objet: C.pose.objet }, sq: { points: C.sq.points, extremites: C.sq.extremites, segments: C.sq.segments, age: C.sq.age }, M: C.M, F: C.F },
+    pieces: pieces.map(P => ({ id: P.id, groupe: P.groupe, region: P.region, gris: P.gris })),
+    U, traits, peint, devantObjet, vue, patch,
+    ob: ob ? { region: ob.region, A: ob.A, raccourci: ob.raccourci, bouts: ob.bouts, coupe: ob.coupe } : null,
+    coupe: coupe ? { a: coupe.a, b: coupe.b, region: coupe.region, plein: coupe.plein } : null,
+  };
 }
+// la marge (mm) couvre le trait de l'objet et son anticrénelage : 2,4 de vue au moins (le trait de contour du
+// livre, dont la moitié déborde de la région de l'objet) ; calculée au rendu, selon l'échelle
+function patchPour(patch, regionObjet) {
+  patch.parMarge = new Map();
+  patch.pour = mm => {
+    const k = Math.round(mm * 5) / 5;
+    if (patch.parMarge.has(k)) return patch.parMarge.get(k);
+    let v = { fond: [], bord: [], traits: [] };
+    if (patch.regDev) {
+      const ext = decale(regionObjet, k);
+      v = { fond: inter(ext, inter(decale(patch.regDev, k), patch.Ug)), bord: lignesDans(patch.bordDev, ext), traits: lignesDans(patch.tDev, ext) };
+    }
+    patch.parMarge.set(k, v);
+    return v;
+  };
+  return patch;
+}
+// ─── le cache sur disque : une construction se garde d'un processus à l'autre (une planche par processus) ────
+// La clé porte la date des fichiers qui la font (moteur, poses, profil, prises, proportions) : un fichier qui
+// change rend les anciennes constructions caduques. Le dossier : MAINS_CACHE, ou le dossier temporaire.
+const os = require('os');
+const crypto = require('crypto');
+const DOSSIER_CACHE = process.env.MAINS_CACHE || path.join(os.tmpdir(), 'mains-simples-cache');
+function versionSources() {
+  return ['moteur.js', 'poses.json', 'profil.js', 'prises.js', 'proportions.json'].map(f => { try { return fs.statSync(path.join(__dirname, f)).mtimeMs; } catch (e) { return 0; } }).join(',');
+}
+const plat = paths => paths.map(P => { const a = new Array(P.length * 2); P.forEach((q, i) => { a[2 * i] = q.X; a[2 * i + 1] = q.Y; }); return a; });
+const deplat = A => A.map(a => { const P = []; for (let i = 0; i < a.length; i += 2) P.push({ X: a[i], Y: a[i + 1] }); return P; });
+function versDisque(R) {
+  const pa = R.patch;
+  return JSON.stringify({
+    C: { pose: R.C.pose, sq: R.C.sq, M: R.C.M },
+    pieces: R.pieces.map(P => ({ id: P.id, groupe: P.groupe, region: plat(P.region), gris: P.gris })),
+    U: plat(R.U), traits: R.traits, peint: R.peint, devantObjet: [...R.devantObjet], vue: R.vue,
+    ob: R.ob ? Object.assign({}, R.ob, { region: plat(R.ob.region) }) : null,
+    coupe: R.coupe ? Object.assign({}, R.coupe, { region: R.coupe.region ? plat(R.coupe.region) : null }) : null,
+    patch: pa ? { dansMain: plat(pa.dansMain), regDev: pa.regDev ? plat(pa.regDev) : null, tDev: pa.tDev || [], bordDev: pa.bordDev || [], Ug: pa.Ug ? plat(pa.Ug) : null } : null,
+  });
+}
+function deDisque(txt, F) {
+  const J = JSON.parse(txt);
+  const R = {
+    C: { pose: J.C.pose, sq: J.C.sq, M: J.C.M, F },
+    pieces: J.pieces.map(P => Object.assign(P, { region: deplat(P.region) })),
+    U: deplat(J.U), traits: J.traits, peint: J.peint, devantObjet: new Set(J.devantObjet), vue: J.vue,
+    ob: J.ob ? Object.assign(J.ob, { region: deplat(J.ob.region) }) : null,
+    coupe: J.coupe ? Object.assign(J.coupe, { region: J.coupe.region ? deplat(J.coupe.region) : null }) : null,
+    patch: null,
+  };
+  if (J.patch) {
+    R.patch = { dansMain: deplat(J.patch.dansMain), regDev: J.patch.regDev ? deplat(J.patch.regDev) : null, tDev: J.patch.tDev, bordDev: J.patch.bordDev, Ug: J.patch.Ug ? deplat(J.patch.Ug) : null };
+    patchPour(R.patch, R.ob ? R.ob.region : []);
+  }
+  return R;
+}
+function lireDisque(cle, F) {
+  if (process.env.MAINS_CACHE === '0') return null;
+  try { const f = path.join(DOSSIER_CACHE, cle + '.json'); if (!fs.existsSync(f)) return null; return deDisque(fs.readFileSync(f, 'utf8'), F); } catch (e) { return null; }
+}
+function ecrireDisque(cle, R) {
+  if (process.env.MAINS_CACHE === '0') return;
+  try {
+    fs.mkdirSync(DOSSIER_CACHE, { recursive: true });
+    const f = path.join(DOSSIER_CACHE, cle + '.json'), tmp = f + '.' + process.pid + '.tmp';
+    fs.writeFileSync(tmp, versDisque(R)); fs.renameSync(tmp, f);
+    // de temps en temps, les constructions de plus de trois jours s'en vont
+    if (Math.random() < 0.02) for (const n of fs.readdirSync(DOSSIER_CACHE)) { const g = path.join(DOSSIER_CACHE, n); try { if (Date.now() - fs.statSync(g).mtimeMs > 3 * 864e5) fs.unlinkSync(g); } catch (e) { /* un autre processus */ } }
+  } catch (e) { /* le cache n'est qu'un raccourci */ }
+}
+
 // des polylignes aux points rapprochés (pour les tests point par point)
 function densifier(ls, pas) {
   return ls.map(l => {
@@ -1459,11 +1527,16 @@ function mainSimple(o = {}) {
   // première passe : la géométrie (pour l'ancre)
   const clePrep = JSON.stringify(cleBase);
   let prep = CACHE_PREP.get(clePrep);
-  if (!prep) { prep = preparer(o); CACHE_PREP.set(clePrep, prep); if (CACHE_PREP.size > 400) CACHE_PREP.delete(CACHE_PREP.keys().next().value); }
+  if (!prep) { prep = preparer(o); CACHE_PREP.set(clePrep, prep); if (CACHE_PREP.size > 150) CACHE_PREP.delete(CACHE_PREP.keys().next().value); }
   const obtenir = abOpt => {
     const cle = JSON.stringify([cleBase, abOpt]);
     let R = CACHE.get(cle);
-    if (!R) { R = dessiner(Object.assign({}, o, { avantbras: abOpt }), prep); CACHE.set(cle, R); if (CACHE.size > 400) CACHE.delete(CACHE.keys().next().value); }
+    if (!R) {
+      const h = crypto.createHash('sha1').update(cle + '|' + versionSources()).digest('hex').slice(0, 24);
+      R = lireDisque(h, prep.F);
+      if (!R) { R = dessiner(Object.assign({}, o, { avantbras: abOpt }), prep); ecrireDisque(h, R); }
+      CACHE.set(cle, R); if (CACHE.size > 150) CACHE.delete(CACHE.keys().next().value);
+    }
     return R;
   };
   const abBase = ab === false ? false : { longueur: ab.longueur, coupe: ab.coupe };
