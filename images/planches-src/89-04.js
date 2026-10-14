@@ -288,7 +288,7 @@ const OPT_C = { pose: 'debout', appui: 'aucun', masquer: ['brasP', 'brasL', 'jam
 const PIED_C = { pied: 'mukluk', H: 150 };
 // la lanière, dans le repère du pied (mm) : la bride monte du cordon sur les orteils ; le tour du
 // talon longe le pied et passe derrière le talon, au-dessus de l'os, sous le tendon
-const BRIDE_P = [[171, 76], [174.5, 66], [178.5, 55], [182.5, 45], [185.5, 37.5]];
+const BRIDE_P = [[171, 76], [175, 64], [179.5, 51], [184, 39.5], [187, 31]];
 const TALON_P = [[169, 76], [140, 69.5], [90, 61], [40, 53], [0, 45.5], [-32, 38.5], [-52, 33.5], [-60, 31.5], [-63, 31]];
 const NOEUD_P = [-65, 31];
 

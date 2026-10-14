@@ -103,7 +103,7 @@ function raquetteProfil(h, G) {
 // à l'écran l'angle de la raquette moins celui du talon levé, et le tibia reste d'équerre au pied.
 const { jambeEtPied } = require('./_pieds');
 const PLANTE = [150, 74.5];                 // sous la plante, dans le repère du pied (mm)
-const DESSUS = [184, 35];                   // le dessus du pied, devant la plante : la corde y passe
+const DESSUS = [184, 30];                   // le dessus du pied, devant la plante : la corde y passe
 function botteC(h, G, cfg, id) {
   const beta = cfg.t - cfg.phi;             // l'angle de la semelle à l'écran, pointe en haut positive
   const opt = { pose: 'debout', appui: 'aucun', echelle: G.s / 10, angles: { jambeP: beta, cuisseP: beta + 8 }, masquer: ['brasP', 'brasL', 'jambeL'] };
