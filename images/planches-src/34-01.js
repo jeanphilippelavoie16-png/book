@@ -185,7 +185,7 @@ module.exports = (h) => {
     out.push(h.chemin(manche.map(p => P(...p)), h.a.hachure('bois', 'arete'), true));
     // le trait à faire : la flèche suit la peau jusqu'au bout du trait, qu'un cran marque
     const fl = range(ut + 7, G, 12).map(u => P(u, peau(u) - 2.6));
-    out.push(h.fleche(cr(fl), h.a.arete));
+    out.push(h.geste(cr(fl)));
     out.push(h.ligne(...P(G, peau(G) - 1.2), ...P(G, peau(G) + 1.2), h.a.arete));
     return cadre('trait', z, out.join('\n'));
   };
@@ -278,101 +278,89 @@ module.exports = (h) => {
     return cadre('jet', z, out.join('\n'));
   };
 
-  // ─── Où l'on n'ouvre pas : le corps de face et de dos. mm, x depuis l'axe, y depuis le sommet.
-  const DEMI = [
-    [0, 0], [42, 10], [70, 44], [79, 96], [75, 146], [64, 186], [55, 222], [53, 262], [66, 290], [120, 312], [178, 334], [208, 356],
-    [224, 398], [229, 470], [236, 560], [246, 660], [256, 740], [270, 830], [276, 885],
-    [292, 920], [302, 962], [298, 990], [296, 1030], [290, 1075], [270, 1098], [246, 1092], [228, 1052], [222, 990], [222, 900],
-    [213, 820], [201, 740], [192, 670], [180, 590], [168, 520], [158, 462],
-    [162, 520], [158, 600], [142, 690], [140, 760], [156, 840], [176, 910], [180, 990], [172, 1090], [158, 1180], [146, 1262],
-    [152, 1340], [150, 1420], [134, 1520], [120, 1628], [126, 1680], [138, 1718], [134, 1748], [96, 1752], [56, 1748], [46, 1718], [52, 1650],
-    [50, 1560], [44, 1450], [40, 1360], [44, 1262], [36, 1150], [24, 1040], [10, 966], [0, 955],
-  ];
-  const silhouette = DEMI.slice(0, -1).concat(DEMI.slice(1, -1).reverse().map(([x, y]) => [-x, y]));
-  const geoCorps = z => {
-    const s = (z.h - 4) / 1760, y0 = 2, x1 = z.l * 0.27, x2 = z.l * 0.75;
-    return { s, y0, x1, x2 };
-  };
-  const zonesCorps = (X, Y, face) => {
-    const out = [], Z = pts => pts.map(([x, y]) => [X(x), Y(y)]);
-    const disque = (x, y, r) => Z(ellipsePts(x, y, r, r, 20));
-    const zones = [];
-    for (const k of [1, -1]) {
-      // la main, du poignet au bout des doigts
-      zones.push(Z(DEMI.slice(18, 29).map(([x, y]) => [k * x, y])));
-      // les articulations : épaule, coude, genou, cheville
-      zones.push(disque(k * 196, 380, 34), disque(k * 222, 690, 32), disque(k * 96, 1262, 42), disque(k * 88, 1640, 34));
-      if (face) {
-        zones.push(disque(k * 88, 520, 42));                                                  // le sein
-        zones.push(Z([[k * 130, 866], [k * 150, 896], [k * 42, 978], [k * 22, 950]]));        // le pli de l'aine
+  // ─── Où l'on n'ouvre pas : le corps simple de profil (JP, 13 octobre au soir : les corps de
+  // profil seulement). Un seul profil porte toutes les zones du chapitre (ch. 34, étape 25) : le
+  // devant et les côtés du cou, le sein, la main, le pli de l'aine, le tour de l'anus (au bas de la
+  // fesse), et les articulations (épaule, coude, genou, cheville). La main proche est portée un peu
+  // devant la hanche, pour qu'elle ne cache ni l'aine ni la fesse. Repère : mm, x vers l'avant
+  // depuis le point au sol, y vers le haut (négatif à l'écran).
+  const ANGLES = { brasP: 10, avantbrasP: 40, mainP: 40, brasL: 4, avantbrasL: 24, mainL: 24 };
+  const scanY = (svg, y) => {
+    const xs = [];
+    for (const m of String(svg).matchAll(/ d="([^"]+)"/g)) {
+      const n = m[1].match(/-?\d+(\.\d+)?/g).map(Number);
+      for (let i = 0; i + 3 < n.length; i += 2) {
+        const [x0, y0, x1, y1] = [n[i], n[i + 1], n[i + 2], n[i + 3]];
+        if (y0 !== y1 && (y0 - y) * (y1 - y) <= 0) xs.push(x0 + (x1 - x0) * (y - y0) / (y1 - y0));
       }
     }
-    if (face) zones.push(Z([[-53, 226], [-40, 214], [0, 236], [40, 214], [53, 226], [55, 262], [62, 290], [0, 300], [-62, 290], [-55, 262]]));   // le cou, devant et côtés
-    else zones.push(disque(0, 948, 26));                                                           // le tour de l'anus
-    zones.forEach(p => { out.push(hachure(p, 1.5, 45, 0.6)); out.push(h.path(cr(p, true), h.a.fin)); });
-    return out.join('\n');
+    return xs;
+  };
+  // le corps en mm (une fois) : les bords avant et arrière du tronc seul, lus sur son contour
+  const C_MM = h.formes.corps({ x: 0, y: 0, pose: 'debout', echelle: 1, pieds: 'nu', angles: ANGLES });
+  const T_MM = h.formes.corps({ x: 0, y: 0, pose: 'debout', echelle: 1, pieds: 'nu', angles: ANGLES, masquer: ['brasP', 'brasL'] });
+  const avant = y => Math.max(...scanY(T_MM, y)), arriere = y => Math.min(...scanY(T_MM, y));
+  const J = C_MM.articulations;
+  // les zones, en mm
+  const ZONES = (() => {
+    const z = [], disque = (c, r) => ellipsePts(c[0], c[1], r, r, 24);
+    // le devant et les côtés du cou : du dessous de la mâchoire à la base du cou, les deux tiers avant
+    const cou = [], dos = [];
+    for (let y = -1512; y <= -1466; y += 4) { const a = avant(y), b = arriere(y); cou.push([a - 0.8, y]); dos.push([b + 0.38 * (a - b), y]); }
+    z.push([...cou, ...dos.reverse()]);
+    // le sein : sur le devant de la poitrine
+    const yS = -1300; z.push(ellipsePts(avant(yS) - 34, yS, 40, 46, 24));
+    // le pli de l'aine : le devant de la hanche, en biais
+    z.push([[avant(-952) - 1, -952], [avant(-872) - 1, -872], [avant(-872) - 46, -884], [avant(-940) - 56, -940]]);
+    // le tour de l'anus : au bas de la fesse, côté raie
+    const yA = -838; z.push(ellipsePts(arriere(yA) + 24, yA, 22, 26, 20));
+    // la main : de la base des doigts au poignet, dans l'axe
+    const W = J.poignetP, M = [C_MM.mainP.x, C_MM.mainP.y], u = [M[0] - W[0], M[1] - W[1]], lu = Math.hypot(u[0], u[1]);
+    const cM = [W[0] + u[0] / lu * 78, W[1] + u[1] / lu * 78], a = Math.atan2(u[1], u[0]);
+    z.push(Array.from({ length: 24 }, (_, i) => { const t = 2 * Math.PI * i / 24, x = 88 * Math.cos(t), y = 30 * Math.sin(t); return [cM[0] + x * Math.cos(a) - y * Math.sin(a), cM[1] + x * Math.sin(a) + y * Math.cos(a)]; }));
+    // les articulations : épaule, coude, genou, cheville
+    z.push(disque(J.epauleP, 44), disque(J.coudeP, 34), disque(J.genouP, 46), disque(J.chevilleP, 34));
+    return { z, aine: [avant(-905) - 18, -905], anus: [arriere(yA) + 24, yA], cou: [avant(-1490) - 10, -1490] };
+  })();
+  const geoCorps = z => {
+    const s = (z.h - 6) / 1760, x0 = z.l / 2 - 40 * s, y0 = z.h - 3;
+    return { s, x0, y0, X: x => x0 + x * s, Y: y => y0 + y * s };
   };
   const dessinCorps = z => {
     const g = geoCorps(z), out = [];
-    for (const [cx, face] of [[g.x1, true], [g.x2, false]]) {
-      const X = x => cx + x * g.s, Y = y => g.y0 + y * g.s;
-      const pts = silhouette.map(([x, y]) => [X(x), Y(y)]);
-      out.push(h.path(cr(pts, true), BL));
-      out.push(zonesCorps(X, Y, face));
-      out.push(h.path(cr(pts, true), h.a.arete));
-      if (face) {
-        out.push(h.cercle(X(0), Y(700), 0.9, h.a.plein));                                     // le nombril
-      } else {
-        out.push(h.path(cr([[0, 300], [0, 560], [0, 800]].map(([x, y]) => [X(x), Y(y)])), h.a.fin));   // l'échine
-        out.push(h.path(cr([[0, 842], [2, 900], [0, 950]].map(([x, y]) => [X(x), Y(y)])), h.a.detail)); // la raie des fesses
-        for (const k of [1, -1]) out.push(h.path(cr([[k * 30, 972], [k * 90, 985], [k * 150, 968]].map(([x, y]) => [X(x), Y(y)])), h.a.fin));
-      }
-    }
+    // le corps entier, puis les zones hachurées (découpées par sa silhouette)
+    const c = h.formes.corps({ x: g.x0, y: g.y0, pose: 'debout', echelle: g.s, pieds: 'nu', angles: ANGLES });
+    out.push(String(c));
+    const P = pts => pts.map(([x, y]) => [g.X(x), g.Y(y)]);
+    const zs = ZONES.z.map(p => { const q = P(p); return [hachure(q, 1.3, 45, 0.6), h.path(cr(q, true), h.a.detail)].join('\n'); });
+    out.push(dansLeCorps('corps', c, zs.join('\n')));
     return out.join('\n');
   };
-
-  // ─── Le visage, de face. Unités : la hauteur de la tête (du sommet au menton).
-  const geoVisage = z => {
-    const H = Math.min((z.h - 4) / 1.32, (z.l - 8) / 0.98), cx = z.l / 2, y0 = 2;
-    const V = (x, y) => [cx + x * H, y0 + y * H];
-    return { H, cx, y0, V };
+  // ce qui se dessine sur le corps est découpé par sa silhouette (ses formes pleines, blanches et grises)
+  const dansLeCorps = (id, c, contenu) => {
+    const formes = [...String(c).matchAll(/<path d="([^"]+)" fill="#(?:FFFFFF|E6E6E6)"/gi)].map(m => `<path d="${m[1]}" fill="none"/>`);
+    return `<clipPath id="corps-34-${id}">${formes.join('')}</clipPath>\n<g clip-path="url(#corps-34-${id})">\n${contenu}\n</g>`;
   };
+
+  // ─── Le visage, de profil : la tête et le cou du même corps simple, en grand. Le triangle du
+  // milieu du visage (de la racine du nez aux coins de la bouche) suit le contour du visage ; le coin
+  // de la bouche est à 26 mm en arrière des lèvres. Le devant et les côtés du cou, hachurés aussi.
+  const geoVisage = z => {
+    const s = Math.min((z.h - 4) / 420, (z.l - 10) / 300), x0 = z.l * 0.42 - 30 * s, y0 = 4 + 1760 * s;   // le sommet du crâne en haut
+    return { s, x0, y0, X: x => x0 + x * s, Y: y => y0 + y * s };
+  };
+  const TRIANGLE = (() => {
+    const yR = -1656, yB = -1563, out = [];
+    for (let y = yR; y <= yB; y += 3) out.push([avant(y) - 0.6, y]);
+    out.push([avant(yB) - 26, yB + 2], [avant(-1605) - 36, -1606], [avant(yR) - 16, yR + 3]);
+    return out;
+  })();
   const dessinVisage = z => {
-    const g = geoVisage(z), V = g.V, out = [];
-    const sym = pts => [...pts, ...pts.slice(0, -1).reverse().map(([x, y]) => [-x, y])];
-    const Vp = pts => pts.map(p => V(...p));
-    // épaules et cou, puis la tête par-dessus
-    for (const k of [1, -1]) out.push(h.path(cr(Vp([[k * 0.225, 0.9], [k * 0.23, 1.12], [k * 0.34, 1.2], [k * 0.52, 1.25], [k * 0.6, 1.3]])), h.a.arete));
-    const cou = Vp([[-0.225, 0.86], [-0.23, 1.12], [-0.12, 1.18], [0, 1.19], [0.12, 1.18], [0.23, 1.12], [0.225, 0.86], [0.2, 0.9], [0, 1.0], [-0.2, 0.9]]);
-    out.push(hachure(cou, 2.6, 45, 0.5));
-    out.push(h.path(cr(Vp([[-0.1, 1.2], [-0.04, 1.17], [0, 1.175], [0.04, 1.17], [0.1, 1.2]])), h.a.fin));   // le creux du cou
-    // les oreilles
-    for (const k of [1, -1]) out.push(h.path(cr(Vp([[k * 0.365, 0.42], [k * 0.415, 0.43], [k * 0.43, 0.5], [k * 0.405, 0.6], [k * 0.36, 0.66]])), plein(h.a.arete)));
-    const tete = sym([[0, 0], [0.2, 0.025], [0.33, 0.12], [0.37, 0.28], [0.37, 0.44], [0.355, 0.58], [0.315, 0.72], [0.235, 0.86], [0.13, 0.955], [0, 0.995]]);
-    out.push(h.path(cr(Vp(tete), true), plein(h.a.arete)));
-    // le triangle du milieu du visage : la racine du nez, les deux coins de la bouche
-    const tri = Vp([[0, 0.44], [0.135, 0.795], [-0.135, 0.795]]);
-    out.push(hachure(tri, 2.6, 45, 0.5));
-    out.push(h.chemin(tri, h.a.detail, true));
-    // les cheveux
-    out.push(h.path(cr(Vp([[-0.35, 0.3], [-0.26, 0.2], [-0.1, 0.16], [0.06, 0.17], [0.22, 0.2], [0.35, 0.3]])), h.a.detail));
-    // les sourcils, les yeux
-    for (const k of [1, -1]) {
-      out.push(h.path(cr(Vp([[k * 0.07, 0.4], [k * 0.15, 0.375], [k * 0.25, 0.385], [k * 0.29, 0.405]])), trait(1.4)));
-      const ex = k * 0.165, ey = 0.47, w = 0.08;
-      out.push(h.path(`M${V(ex - w, ey).map(f).join(' ')} Q${V(ex, ey - 0.055).map(f).join(' ')} ${V(ex + w, ey).map(f).join(' ')} Q${V(ex, ey + 0.035).map(f).join(' ')} ${V(ex - w, ey).map(f).join(' ')} Z`, plein(h.a.detail)));
-      out.push(h.cercle(...V(ex, ey - 0.004), 0.027 * g.H, h.a.detail), h.cercle(...V(ex, ey - 0.004), 0.011 * g.H, h.a.plein));
-    }
-    // le nez : l'arête, les ailes, les narines
-    for (const k of [1, -1]) {
-      out.push(h.path(cr(Vp([[k * 0.045, 0.49], [k * 0.05, 0.57], [k * 0.06, 0.63]])), h.a.fin));
-      out.push(h.path(cr(Vp([[k * 0.06, 0.63], [k * 0.085, 0.655], [k * 0.08, 0.685], [k * 0.05, 0.69]])), h.a.detail));
-      out.push(h.path(cr(Vp([[k * 0.042, 0.683], [k * 0.025, 0.69], [k * 0.012, 0.696]])), h.a.detail));
-    }
-    // la bouche
-    out.push(h.path(cr(Vp([[-0.135, 0.795], [-0.06, 0.785], [0, 0.79], [0.06, 0.785], [0.135, 0.795]])), h.a.detail));
-    out.push(h.path(cr(Vp([[-0.1, 0.785], [-0.05, 0.765], [0, 0.772], [0.05, 0.765], [0.1, 0.785]])), h.a.fin));
-    out.push(h.path(cr(Vp([[-0.085, 0.812], [0, 0.838], [0.085, 0.812]])), h.a.fin));
+    const g = geoVisage(z), out = [];
+    const c = h.formes.corps({ x: g.x0, y: g.y0, pose: 'debout', echelle: g.s, pieds: 'nu', angles: ANGLES });
+    out.push(cadre('visage', z, String(c)));
+    const P = pts => pts.map(([x, y]) => [g.X(x), g.Y(y)]);
+    out.push(dansLeCorps('visage', c, [TRIANGLE, ZONES.z[0]].map(p => { const q = P(p); return [hachure(q, 2.4, 45, 0.6), h.path(cr(q, true), h.a.detail)].join('\n'); }).join('\n')));
     return out.join('\n');
   };
 
@@ -383,7 +371,7 @@ module.exports = (h) => {
     desc: 'Sept vues. Vue de dessus : la bosse ovale, la poche qu’on sent sous les doigts, la rougeur autour ; l’index et le pouce de l’autre main la tiennent de part et d’autre, et un seul trait noir est fait au centre, dans le grand axe. En coupe dans ce grand axe : la peau, la poche de pus juste dessous, partagée par deux cloisons ; la lame debout, perpendiculaire à la peau, pointe dans la poche au bout du trait, et une flèche suit la peau jusqu’à l’autre bout, assez loin pour qu’un doigt entre. Le trait fait : seule la loge du milieu se vide : son pus monte par le trait, déborde de la lèvre et coule sur la peau ; les deux loges derrière les cloisons restent pleines. Le doigt entre par le trait et balaie la poche d’un bout à l’autre : les cloisons sont cassées, il ne reste qu’une poche ; s’il sent battre au fond ou touche l’os, il ressort. Rincer : une bouteille souple entière, pincée au milieu, bouchon vissé en bas et percé au clou, pleine d’eau bouillie salée, envoie un jet en file de gouttes jusqu’au fond de la poche, et l’eau ressort par le trait. En marge, un corps de face et de dos, zones hachurées où l’on n’ouvre jamais : le devant et les côtés du cou, les seins, les mains, le pli de l’aine, les épaules, les coudes, les genoux, les chevilles, et de dos le tour de l’anus ; un visage de face où le triangle entre la racine du nez et les coins de la bouche est hachuré.',
     disposition: [['dessus', 'trait'], ['loges', 'doigt'], ['jet', 'corps', 'visage']],
     hauteurs: [0.86, 0.86, 1.62],
-    largeurs: [[1, 1.2], [1, 1.2], [1.05, 1.3, 0.75]],
+    largeurs: [[1, 1.2], [1, 1.2], [1.25, 0.6, 1.05]],
     vues: {
       dessus: {
         titre: 'Vu de dessus',
@@ -446,21 +434,22 @@ module.exports = (h) => {
         titre: 'Où l’on n’ouvre pas',
         dessin: dessinCorps,
         renvois: z => {
-          const g = geoCorps(z), X1 = x => g.x1 + x * g.s, X2 = x => g.x2 + x * g.s, Y = y => g.y0 + y * g.s;
+          const g = geoCorps(z);
           return [
-            { n: 13, rond: [12, Y(1000)], cible: [X1(-86), Y(922)], texte: 'hachuré : on n’ouvre jamais' },
-            { n: 14, rond: [z.l - 12, Y(1150)], cible: [X2(0), Y(955)], texte: 'le tour de l’anus' },
+            { n: 13, rond: [z.l - 12, g.Y(-1080)], cible: [g.X(ZONES.aine[0]), g.Y(ZONES.aine[1])], texte: 'hachuré : on n’ouvre jamais' },
+            { n: 14, rond: [12, g.Y(-700)], cible: [g.X(ZONES.anus[0]), g.Y(ZONES.anus[1])], texte: 'le tour de l’anus' },
           ];
         },
       },
       visage: {
-        titre: 'Le visage',
+        titre: 'Le visage, le cou',
         dessin: dessinVisage,
         renvois: z => {
-          const g = geoVisage(z), V = g.V;
+          const g = geoVisage(z), r = TRIANGLE[0], b = TRIANGLE[TRIANGLE.length - 3];
           return [
-            { n: 15, rond: [z.l - 11, 12], cible: V(0, 0.445), texte: 'la racine du nez' },
-            { n: 16, rond: [z.l - 11, V(0, 0.98)[1]], cible: V(0.135, 0.8), texte: 'les coins de la bouche' },
+            { n: 15, rond: [z.l - 12, g.Y(-1700)], cible: [g.X(r[0]) - 2, g.Y(r[1])], texte: 'la racine du nez' },
+            { n: 16, rond: [z.l - 12, g.Y(-1545)], cible: [g.X(b[0]), g.Y(b[1])], texte: 'les coins de la bouche' },
+            { n: 17, rond: [z.l - 12, g.Y(-1440)], cible: [g.X(ZONES.cou[0]), g.Y(ZONES.cou[1])], texte: 'le devant et les côtés du cou' },
           ];
         },
       },

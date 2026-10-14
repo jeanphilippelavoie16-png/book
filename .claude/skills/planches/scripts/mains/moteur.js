@@ -1259,12 +1259,12 @@ function dessiner(o, prep = null) {
   for (const G of groupes.values()) {
     if (G.base) continue;
     let gris = loinImp.includes(G.nom) || G.ids.some(i => loinImp.includes(pieces[i].id));
-    // derrière l'objet : à partir de la première phalange qui passe derrière lui, jusqu'au bout, si aucune ne
-    // revient devant (le doigt qui fait le tour d'un manche reste blanc ; le crochet a le bout gris)
+    // derrière l'objet : le doigt entier, si aucune de ses phalanges ne passe devant lui et qu'une s'y cache (le
+    // doigt qui fait le tour d'un manche reste blanc ; celui qui passe derrière une barre est gris)
     if (!gris && ob && ob.region.length) {
-      const ids = G.ids.slice().sort((a, b) => pieces[a].rang - pieces[b].rang);
-      const k0 = ids.findIndex(i => pieces[i].surObjet && !devantObjet.has(i) && pieces[i].partObjet > 0.15);
-      if (k0 >= 0 && !ids.slice(k0).some(i => devantObjet.has(i))) for (const i of ids.slice(k0)) pieces[i].gris = true;
+      const devant = G.ids.some(i => devantObjet.has(i));
+      const derriere = G.ids.some(i => pieces[i].surObjet && !devantObjet.has(i) && pieces[i].partObjet > 0.05);
+      if (!devant && derriere) gris = true;
     }
     // caché pour plus de moitié par les doigts devant lui
     let devantLui = [];
