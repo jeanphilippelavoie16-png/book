@@ -27,7 +27,15 @@
 //               (jusqu'à sortir de la boîte bord) ; vers: [x, y] (la direction : un point de la vue vers lequel il
 //               part ; le poignet y tourne en courbe sur 45 mm) ; bord: { x0, y0, x1, y1 } ou { l, h } (la boîte
 //               de la vue : ce qui en sort est coupé net, par clipPath) ; coupe: 'ouverte' (défaut : les deux
-//               bords s'arrêtent ; une main loin, grise, la ferme d'un trait) · 'franche' (un trait de coupe, 0,7) }
+//               bords s'arrêtent ; une main loin, grise, la ferme d'un trait) · 'franche' (un trait de coupe, 0,7) ;
+//               fin: [[x0, y0], [x1, y1]] (une droite de la vue où le membre s'arrête, quelle que soit sa longueur :
+//               deux mains l'une sur l'autre coupées à la même droite, ouverte pour les deux, même la grise) ;
+//               bras: { vers: [x, y] (un point de la vue vers lequel le bras part du coude) ou pli: degrés (le coude
+//               plié à l'écran, + : sens horaire, comme angle), longueur: mm · 'entier' (jusqu'à l'épaule, 325 × l'âge)
+//               · 'bord' (défaut avec bord : sortir de la boîte, coupé net) ; défaut : la moitié du bras } : le bras
+//               enchaîné au coude dans le même contour (l'avant-bras est alors entier) ; le coude plié arrondi dehors,
+//               net dedans, replié de plus de 100° un trait de pli ; 150° au plus (au-delà, la butée et un
+//               avertissement). .coude, .articulations.epaule, .coupe (au bout du bras) suivent }
 //               avantbras: false : pas d'avant-bras (le poignet coupé)
 //     trait     'normal' (1,5 / 0,7) · 'fort' (1,9 / 0,9) · ou un nombre (la silhouette)
 //     age       'homme' (défaut) · 'femme' · 'enfant6' · 'enfant4' : mains/proportions.json (agent 4)
@@ -46,7 +54,8 @@
 //              angle } est sa face coupée, à hachurer, et bouts[0] le bout coupé. Sans objet : le creux de la
 //              paume, r = 0.
 //   .poignet   [x, y]   .coude [x, y] (le coude : l'avant-bras entier, même s'il n'est pas dessiné)
-//   .coupe     [[x, y], [x, y]] les deux coins de la coupe de l'avant-bras (null s'il file au bord)
+//   .coupe     [[x, y], [x, y]] les deux coins de la coupe de l'avant-bras (du bras, avec bras ; sur la droite
+//              de fin, avec fin ; null s'il est entier)
 //   .bout      [x, y]  le bout de l'index        .pouce [x, y]  le bout du pouce
 //   .doigts    { index: [x, y], majeur, annulaire, auriculaire, pouce }  le bout de chaque doigt
 //   .articulations  { 'index.mcp': [x, y], … }   tous les points du squelette, projetés
@@ -68,7 +77,7 @@
 //   '<doigt>.cmc' '<doigt>.mcp' '<doigt>.ipp' '<doigt>.ipd' '<doigt>.bout'   doigt : index · majeur · annulaire
 //                                                                            · auriculaire
 //   'pouce.cmc' 'pouce.mcp' 'pouce.ip' 'pouce.bout'
-//   'coude'      (au bout de l'avant-bras entier)
+//   'coude'      (au bout de l'avant-bras entier)   'epaule' (avec avantbras.bras : au bout du bras entier)
 // '.bout' est le CENTRE de l'arrondi du bout du doigt ; le bout réel est à rayon de pulpe plus loin
 // (`squelette().extremites['index']`).
 //
@@ -142,7 +151,10 @@
 //   3. pour chaque pièce qui chevauche l'objet, si elle est devant ou derrière lui, par la profondeur des deux
 //      surfaces, point par point sur leur recouvrement ; si l'objet passe en partie devant, en partie derrière la
 //      même phalange (un fil entre deux doigts), elle est partagée par la droite qui sépare le mieux les deux
-//      (pose.devant[vue] surcharge le tout : ids de pièces ou de doigts) ;
+//      (pose.devant[vue] surcharge le tout : ids de pièces ou de doigts). Une phalange qui ne fait qu'effleurer
+//      l'objet (moins de 12 % de son aire) suit, pour la peinture, sa voisine du même doigt qui y est franchement
+//      (sans quoi le doigt change de côté au ras du bord : une marche) ; une pièce derrière l'objet qui n'en
+//      dépasse que d'un ergot (moins de 3 mm de large ou de 20 mm²) ne s'y dessine pas ;
 //   4. le gris, par doigt entier : un doigt dont aucune phalange ne passe devant l'objet et qui s'y cache ; vu de
 //      dos ou de paume, un doigt caché pour plus de moitié par les doigts devant lui (de profil, les doigts
 //      repliés restent blancs, en marches) ; un doigt dont ce qu'on voit est plus loin que
@@ -153,7 +165,8 @@
 //   b. le blanc de l'objet dans la main (masque : une hachure est transparente) ;
 //   c. l'objet (option objet) ;
 //   d. les pièces DEVANT l'objet, repeintes là où l'objet passe (blanc, silhouette, traits) : le manche
-//      entre d'un côté du poing et ressort de l'autre, derrière les doigts qui l'entourent.
+//      entre d'un côté du poing et ressort de l'autre, derrière les doigts qui l'entourent. Le blanc déborde
+//      l'objet de quoi couvrir son trait ; les traits, d'un demi-trait seulement (la couche a les continue).
 //
 // ═══ LES COUPLAGES DU SQUELETTE (proportions.json, articulations.couplages) ═════════════════════════════════
 //
