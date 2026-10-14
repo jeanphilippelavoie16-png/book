@@ -15,7 +15,7 @@ module.exports = (h) => {
     const P = (px, py) => `${x + s * px},${y + py}`;
     const R = (rx, ry, w, ht, at) => h.rect(s > 0 ? x + rx : x - rx - w, y + ry, w, ht, at);
     return [
-      h.path(`M${P(0, 0)} L${P(58, 0)} L${P(58, 24)} L${P(0, 56)} Z`, h.a.ombre),
+      h.path(`M${P(0, 23.7)} L${P(58, 10.1)} L${P(58, 24)} L${P(0, 56)} Z`, h.a.ombre),   // sous une génératrice, à 25° sous l'axe
       h.path(`M${P(0, -56)} L${P(58, -24)} L${P(58, 24)} L${P(0, 56)}`, h.a.contour),
       h.path(`M${P(58, -26)} L${P(84, -26)} A6,26 0 0 ${s > 0 ? 1 : 0} ${P(84, 26)} L${P(58, 26)} Z`, W(h.a.contour)),
       h.ligne(x + s * 66, y - 26, x + s * 66, y + 26, h.a.detail),

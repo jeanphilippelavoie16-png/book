@@ -1726,15 +1726,18 @@ function patchPour(patch, regionObjet) {
   // mm : la marge le long des bords de l'objet (elle couvre son trait, jusqu'à 2,4 de vue, et son
   // anticrénelage) ; le long des pièces de devant, le blanc ne déborde que de 0,25 mm (plus, il posait un liseré
   // blanc sur l'objet entre les doigts : agent 5, C8)
-  patch.pour = mm => {
-    const k = Math.round(mm * 5) / 5;
-    if (patch.parMarge.has(k)) return patch.parMarge.get(k);
+  // les traits (le bord des pièces de devant, leurs traits intérieurs) ne débordent l'objet que de mmT : la moitié
+  // de son trait. Plus loin, la couche du dessous les dessine déjà ; un bout de contour de doigt qui longeait le
+  // bord de l'objet dans la marge du blanc y faisait un ergot (agent 5, M13 : la face coupée de prise-grosse)
+  patch.pour = (mm, mmT = mm) => {
+    const k = Math.round(mm * 5) / 5, kT = Math.min(k, Math.round(mmT * 10) / 10), cle = k + ',' + kT;
+    if (patch.parMarge.has(cle)) return patch.parMarge.get(cle);
     let v = { fond: [], bord: [], traits: [] };
     if (patch.regDev) {
-      const ext = decale(regionObjet, k);
-      v = { fond: inter(ext, inter(decale(patch.regDev, 0.25), patch.Ug)), bord: lignesDans(patch.bordDev, ext), traits: lignesDans(patch.tDev, ext) };
+      const ext = decale(regionObjet, k), extT = kT < k ? decale(regionObjet, kT) : ext;
+      v = { fond: inter(ext, inter(decale(patch.regDev, 0.25), patch.Ug)), bord: lignesDans(patch.bordDev, extT), traits: lignesDans(patch.tDev, extT) };
     }
-    patch.parMarge.set(k, v);
+    patch.parMarge.set(cle, v);
     return v;
   };
   return patch;
@@ -1937,7 +1940,7 @@ function rendre(R, o, { Tloc, s, m, ang, ab }) {
     // la marge : la moitié du trait de contour de l'objet (1,2 de vue) et un peu d'anticrénelage ; plus large, elle
     // posait un liseré blanc sur l'objet le long des doigts de devant (des encoches entre les doigts, la face
     // coupée du manche « mordue ») — agent 5, révision ; c'était max(1,6 mm, 2,6 de vue)
-    const pv = pa.pour(Math.max(1.0, 2.0 / s));
+    const pv = pa.pour(Math.max(1.0, 2.0 / s), 1.25 / s);
     // la coupe ouverte de l'avant-bras ne se redessine pas non plus là où l'objet passe derrière elle (un manche
     // qui file derrière le bout coupé du bras y laissait un tiret : agent 5, tour 2)
     const bordDev = coupe && coupe.region && !coupe.plein && !franche ? lignesHors(pv.bord, decale(coupe.region, 0.4)) : pv.bord;

@@ -83,7 +83,7 @@
 <circle cx="100" cy="38" r="34" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <circle cx="100" cy="38" r="31" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
 <rect x="98.4" y="7" width="3.2" height="14" fill="#1A1A1A" stroke="none"/>
-<text x="100" y="38" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">4 °C</text>
+<text x="100" y="57" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">4 °C</text>
 <path d="M244 82 H356 Q364 82 364 90 V120 Q364 128 356 128 H244 Q236 128 236 120 V90 Q236 82 244 82 Z" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M246 86 H354 Q360 86 360 92 V118 Q360 124 354 124 H246 Q240 124 240 118 V92 Q240 86 246 86 Z" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
 <rect x="298.4" y="72" width="3.2" height="28" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
@@ -91,7 +91,7 @@
 <circle cx="300" cy="38" r="34" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <circle cx="300" cy="38" r="31" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
 <rect x="298.4" y="7" width="3.2" height="14" fill="#1A1A1A" stroke="none"/>
-<text x="300" y="38" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">4 °C</text>
+<text x="300" y="57" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">4 °C</text>
 <line x1="300" y1="38" x2="279.2" y2="26" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <circle cx="300" cy="38" r="1.6" fill="#1A1A1A" stroke="none"/>
 <path d="M444 82 H556 Q564 82 564 90 V120 Q564 128 556 128 H444 Q436 128 436 120 V90 Q436 82 444 82 Z" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
@@ -101,7 +101,7 @@
 <circle cx="500" cy="38" r="34" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <circle cx="500" cy="38" r="31" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
 <rect x="498.4" y="7" width="3.2" height="14" fill="#1A1A1A" stroke="none"/>
-<text x="500" y="38" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">4 °C</text>
+<text x="500" y="57" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">4 °C</text>
 <line x1="500" y1="38" x2="520.8" y2="26" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <circle cx="500" cy="38" r="1.6" fill="#1A1A1A" stroke="none"/>
 <circle cx="100" cy="96" r="10" fill="none" stroke="#9B2C1E" stroke-width="1.6"/>

@@ -135,7 +135,7 @@ module.exports = (h) => {
       out.push(h.chemin([[c - 1.6, basY - 5], [c, basY], [c + 1.6, basY - 5]], A.plein, true));
       out.push(h.cercle(c, dialY, R, bA), h.cercle(c, dialY, R - 3, A.fin));
       out.push(h.rect(c - 1.6, dialY - R + 3, 3.2, 14, A.plein));
-      out.push(h.texte(c, dialY - R + 34, '4 °C'));
+      out.push(h.texte(c, dialY + 19, '4 °C'));   // sous le pivot : l'aiguille ne le barre plus
       if (angle === null) return;
       const a = angle * Math.PI / 180;           // 0 = midi, positif = sens horaire
       out.push(h.ligne(c, dialY, c + Math.sin(a) * (R - 10), dialY - Math.cos(a) * (R - 10), A.arete));

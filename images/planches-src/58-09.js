@@ -16,9 +16,11 @@ module.exports = (h) => {
     h.path('M 476 54 C 450 86 450 120 476 148', h.a.arete),                    // opercule
     h.cercle(512, 80, 8, h.a.arete),
     h.cercle(513, 80, 3.5, h.a.plein),
-    h.path(GOSIER + ' Z', h.a.blanc),
+    // la gorge ouverte en écorché : l'intérieur vu par l'ouverture, en gris loin
+    h.path(GOSIER + ' Z', h.a.loin),
     h.path(GOSIER, h.a.arete),
-    // l'appât, avalé tête la première
+    // l'appât, avalé tête la première (fond blanc : il est devant la paroi du gosier)
+    h.path('M 330 100 C 334.8 90.4 349.2 88 366 88 C 408 89.2 444 94 462 96.4 L 479 93 L 474 100 L 479 107 L 462 103.6 C 444 106 408 110.8 366 112 C 349.2 112 334.8 109.6 330 100 Z', h.a.blanc),
     h.path('M 330 100 C 334.8 90.4 349.2 88 366 88 C 408 89.2 444 94 462 96.4 L 479 93 L 474 100 L 479 107 L 462 103.6 C 444 106 408 110.8 366 112 C 349.2 112 334.8 109.6 330 100 Z', h.a.detail),
     h.path('M 354 90 Q 359 100 354 110', h.a.detail),
     h.cercle(340, 98, 2, h.a.detail),
@@ -89,7 +91,8 @@ module.exports = (h) => {
           h.path('M 400 100 L 474 100 C 510 100 540 102 559 102 L 598 102', h.a.arete),
           plein('M 390 56 Q 407.8 98.2 410 144 Q 392.2 101.8 390 56 Z'),
           h.cercle(400, 100, 2.6, h.a.plein),
-          h.fleche('M 566 118 L 596 118'),
+          // le geste : tirer sur la ligne
+          h.geste('M 566 118 L 596 118'),
         ].join('\n'),
         renvois: z => [
           { n: 5, rond: [372, 14], cible: [390.5, 58], texte: 'la traction met la pièce en travers' },
