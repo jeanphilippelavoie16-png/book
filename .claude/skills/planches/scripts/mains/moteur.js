@@ -1129,6 +1129,11 @@ function construire(o, prep = null) {
   for (const P of pieces) {
     let u = union(P.polys);
     if (P.id === 'paume') u = ferme(u, 5);
+    // les autres : un segment couché dans le plan de la vue a ses sections vues par la tranche, et ses
+    // enveloppes ne font que se toucher bord à bord ; l'union y laisse des fentes de largeur nulle et des
+    // trous en aiguille, dont le contour sortait en tirets (le long de l'avant-bras de profil, en travers d'un
+    // doigt). Une fermeture de 0,3 mm les recoud sans rien changer à la forme. (agent 5, révision)
+    else u = ferme(u, 0.3);
     P.region = lisserCL(u, 0.8, 5);
     P.boite = boiteCL(u);
   }
@@ -1266,17 +1271,28 @@ function dessiner(o, prep = null) {
     // doigt qui fait le tour d'un manche reste blanc ; celui qui passe derrière une barre est gris)
     if (!gris && ob && ob.region.length) {
       const devant = G.ids.some(i => devantObjet.has(i));
-      const derriere = G.ids.some(i => pieces[i].surObjet && !devantObjet.has(i) && pieces[i].partObjet > 0.05);
+      // derrière un objet mince (un fil, une ficelle : moins de 8 mm), il faut que le doigt y soit caché pour une
+      // part sensible (le quart de son aire) : un fil qui passe devant un doigt ne le rend pas gris (pince
+      // latérale : l'index restait gris derrière une ficelle de 3 mm) ; agent 5, révision. Derrière un manche,
+      // la règle d'avant : une phalange qui s'y cache.
+      let derriere;
+      if ((ob.r || 16) < 4) {
+        let cache = 0;
+        for (const i of G.ids) if (pieces[i].surObjet && !devantObjet.has(i)) cache += pieces[i].partObjet * Math.abs(aireCL(pieces[i].region));
+        derriere = cache > 0.25 * G.aire;
+      } else derriere = G.ids.some(i => pieces[i].surObjet && !devantObjet.has(i) && pieces[i].partObjet > 0.05);
       if (!devant && derriere) gris = true;
     }
-    // caché pour plus de moitié par les doigts devant lui
-    let devantLui = [];
-    for (const H of groupes.values()) if (H !== G && !H.base && seCroisent(G.boite, H.boite) && ordreG.get(H.nom + ',' + G.nom)) devantLui.push(...H.region);
+    // caché pour plus de moitié par les doigts devant lui. Le pouce ne compte pas : il passe devant l'index dans
+    // la pince et le poing vus de côté, et l'index, l'acteur de la pince, devenait gris (agent 5, révision) ;
+    // le gris reste celui des doigts loin, cachés derrière les doigts proches
+    let devantLui = [], devantPouce = [];
+    for (const H of groupes.values()) if (H !== G && !H.base && seCroisent(G.boite, H.boite) && ordreG.get(H.nom + ',' + G.nom)) (H.nom === 'pouce' ? devantPouce : devantLui).push(...H.region);
     if (!gris && devantLui.length && Math.abs(aireCL(inter(G.region, unionCL([devantLui])))) > 0.55 * G.aire) gris = true;
     // de l'autre côté de la paume : ce qu'on en voit est plus loin que la face loin de la paume (le pouce vu côté
     // auriculaire, le pouce qui tient le manche vu du dos)
     if (!gris && loinPaume !== null) {
-      const caches = devantLui.slice();
+      const caches = devantLui.concat(devantPouce);
       for (const j of groupes.get('base').ids) caches.push(...pieces[j].region);
       const vis = moins(G.region, unionCL([caches]));
       const ech = vis.length ? echantillons(vis, 7) : [];
@@ -1325,6 +1341,14 @@ function dessiner(o, prep = null) {
   const poignetRond = inter(ferme(inter(tout, [versCL(positif(disque([0, 0], 70 * kL, 48)))]), 16 * kL), zoneP);
   let U = lisserCL(ferme(unionCL([tout, poignetRond]), 1.2), 0.7, 5, { c: [0, 0], r: 42 * kL });
   if (coupe && coupe.region) U = moins(U, coupe.region);
+  // un trou mince dans la silhouette (moins de 6 mm de large, ou moins de 60 mm²) : une fente entre le pouce et
+  // l'index, entre deux doigts qui se touchent presque ; dessiné, il se lit comme une faute (une boutonnière).
+  // On le bouche ; un vrai jour entre le pouce et l'index (la pince ouverte) reste. (agent 5, révision)
+  U = U.filter(P => {
+    if (CL.Clipper.Orientation(P)) return true;
+    const trou = [P.slice().reverse()];
+    return !(Math.abs(aireCL(trou)) < 60 || !ouvre(trou, 3.0).length);
+  });
   T_('U');
   // ── les traits intérieurs : le bord d'un doigt (ou de la paume) qui passe devant autre chose ──
   // Un doigt devant un autre doigt : le contour du doigt de devant, là où il touche ou recouvre l'autre (une
@@ -1401,6 +1425,21 @@ function dessiner(o, prep = null) {
   // une ligne courte qui ne part pas du contour est une saleté
   const rive = decale(U, -(E + 1.6));
   for (let i = 0; i < n; i++) traits[i] = traits[i].filter(l => longueur(l) > 9 || !dedans(rive, l[0]) || !dedans(rive, l[l.length - 1]));
+  // une fourche : un bout de contour de la paume (la jointure qui passe devant la racine d'un doigt plié),
+  // court, qui part du trait entre deux doigts ou y arrive ; il fait un crochet ou un Y au pied du trait (vues
+  // dos et paume des prises). On le laisse tomber. (agent 5, révision)
+  {
+    const base = groupes.get('base');
+    const iB = base ? base.ids[0] : -1;
+    const tDoigts = [];
+    for (const G of groupes.values()) if (!G.base) tDoigts.push(...traits[G.ids[0]]);
+    if (iB >= 0 && traits[iB].length && tDoigts.length) {
+      const dSeg = (p, a, b) => { const ab = sub(b, a), l2 = dot(ab, ab) || 1e-9, t = Math.max(0, Math.min(1, dot(sub(p, a), ab) / l2)); return lon(sub(p, add(a, mul(ab, t)))); };
+      const pres = (p, l, d) => { for (let k = 1; k < l.length; k++) if (dSeg(p, l[k - 1], l[k]) < d) return true; return false; };
+      const touche = l => tDoigts.some(m => pres(l[0], m, 2.5) || pres(l[l.length - 1], m, 2.5) || pres(m[0], l, 2.5) || pres(m[m.length - 1], l, 2.5));
+      traits[iB] = traits[iB].filter(l => longueur(l) > 22 || !touche(l));
+    }
+  }
 
   T_('traits');
   // l'objet : le blanc sous lui dans la main, et les pièces de devant à repeindre là où il passe
@@ -1607,7 +1646,10 @@ function rendre(R, o, { Tloc, s, m, ang, ab }) {
   if (pa) {
     if (o.masque !== false && pa.dansMain.length) couches.masque = plein(pa.dansMain, loin ? GRIS : BLANC);
     // les pièces devant l'objet, repeintes là où il passe : leur blanc, leur bord contre l'objet, leurs traits
-    const pv = pa.pour(Math.max(1.6, 2.6 / s));
+    // la marge : la moitié du trait de contour de l'objet (1,2 de vue) et un peu d'anticrénelage ; plus large, elle
+    // posait un liseré blanc sur l'objet le long des doigts de devant (des encoches entre les doigts, la face
+    // coupée du manche « mordue ») — agent 5, révision ; c'était max(1,6 mm, 2,6 de vue)
+    const pv = pa.pour(Math.max(0.6, 1.5 / s));
     if (pv.fond.length) couches.devant = [plein(pv.fond, loin ? GRIS : BLANC), ligne(pv.bord, tr.sil), ligne(pv.traits, tr.int)].filter(Boolean).join('\n');
   }
   if (o.objet !== undefined && o.objet !== null) {
@@ -1661,6 +1703,9 @@ function geometrie(R, Tloc, s, m, ang) {
       const cc = p2(ob.coupe.centre), Av = u3(matVec(M, ob.coupe.axe)), rr = ob.coupe.r * s;
       const aa = angEcran([-Av[1], Av[0]]);
       geo.prise.coupe = { x: r1(cc[0]), y: r1(cc[1]), rx: r1(rr), ry: r1(rr * Math.abs(Av[2])), angle: r1(aa) };
+      // bouts[0] est toujours le bout coupé (l'en-tête le promet ; vu côté auriculaire, l'ordre venait inversé)
+      const B = geo.prise.bouts;
+      if (B && Math.hypot(B[1][0] - cc[0], B[1][1] - cc[1]) < Math.hypot(B[0][0] - cc[0], B[0][1] - cc[1])) geo.prise.bouts = [B[1], B[0]];
     }
   } else {
     const c = ancreDe(R, 'paume');

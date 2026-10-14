@@ -153,7 +153,10 @@ function objetDeVue(objet, sq, M, outils = {}) {
   if (!objet || objet.type === 'plan' || objet.type === 'sphere' || !objet.centre || !objet.axe || !sq || !sq.segments) return null;
   const dep = p => M[2][0] * p[0] + M[2][1] * p[1] + M[2][2] * p[2];
   const A = objet.axe, dA = dep(A);
-  if (Math.abs(dA) < 0.35) return null;
+  // l'objet ne se coupe que s'il vient vraiment vers l'œil (à moins de 45° de l'axe de vue) : à 0,35 (70°), une
+  // petite inclinaison de la vue (rotation de 25 à 50°) coupait déjà le manche, et sa face coupée flottait loin de
+  // la main, sur le plan du doigt le plus proche (agent 5, révision)
+  if (Math.abs(dA) < 0.7) return null;
   const kW = (sq.age && sq.age.kW) || 1;
   let dMin = Infinity;
   for (const d of DOIGTS) for (const k of ['p1', 'p2', 'p3']) {

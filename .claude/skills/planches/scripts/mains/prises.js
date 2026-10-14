@@ -1166,7 +1166,12 @@ function deuxMains(mainSimple, o) {
   let svg;
   if (res.every(r => r.g.couches)) {
     const k = key => res.map(r => r.g.couches[key] || '').filter(Boolean).join('\n');
-    svg = [k('main'), k('masque'), dessin(geos[0].prise ? Object.assign({}, geos[0], geos[0].prise) : geos[0]), k('devant')].filter(Boolean).join('\n');
+    // la géométrie passée à l'objet : celle que le moteur lui passe (la prise, plus ce qui l'accompagne) ; pas
+    // Object.assign(main, prise) : le .coupe de la main (les coins de la coupe de l'avant-bras) y écrasait
+    // l'absence de .prise.coupe, et l'objet se dessinait comme coupé, loin du manche
+    const g0 = geos[0];
+    const gObj = g0.prise ? Object.assign({}, g0.prise, { prise: g0.prise, poignet: g0.poignet, bout: g0.bout, pouce: g0.pouce, echelle: g0.echelle, vue: g0.vue, geo: g0 }) : g0;
+    svg = [k('main'), k('masque'), dessin(gObj), k('devant')].filter(Boolean).join('\n');
   } else {
     const out = [];
     res.forEach((r, i) => {
