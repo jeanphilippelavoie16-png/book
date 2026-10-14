@@ -164,7 +164,7 @@
 <path d="M85.2 90.4 L111.2 10.7 L106.8 9.3 L82 89.4 Z" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M78 107.5 A10 5 -72.3 0 1 84 88.5 A10 5 -72.3 0 1 78 107.5 Z" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M91 108 V122" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl)"/>
-<circle cx="55" cy="150" r="17" fill="none" stroke="#9B2C1E" stroke-width="1.6"/>
+<circle cx="55" cy="149" r="13" fill="none" stroke="#9B2C1E" stroke-width="1.6"/>
 </g>
 <line x1="54.5" y1="68.7" x2="70.5" y2="124.4" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
 <line x1="54.5" y1="68.7" x2="70.5" y2="124.4" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
