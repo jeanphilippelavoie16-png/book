@@ -363,7 +363,7 @@ module.exports = (h) => {
   return {
     ref: '37-04',
     titre: 'Trier et éprouver les pierres du sauna',
-    desc: 'Six pierres posées au sol, au même cadrage : la bonne, foncée, dense et sans couches, puis les cinq à jeter — feuilletée, pâle et grenue de quartz, piquée de cubes dorés de pyrite, poreuse et friable, et le galet pris dans le ruisseau. En bas, l’épreuve au feu dehors : les pierres dans le feu, l’homme loin en arrière qui jette la première eau avec une louche liée au bout d’une perche, et la pierre douteuse qui éclate.',
+    desc: 'Six pierres posées au sol, au même cadrage : la bonne, foncée, dense et sans couches, puis les cinq à jeter — feuilletée, pâle et grenue de quartz, piquée de cubes dorés de pyrite, poreuse et friable, et le galet pris dans le ruisseau. En bas, l’épreuve au feu dehors : les pierres dans le feu, l’homme loin en arrière, hors du tireté rouge qui marque la zone où partent les éclats, jette la première eau avec une louche liée au bout d’une perche ; et la pierre douteuse qui éclate, sa fente cerclée de rouge.',
     format: 'pleine',
     disposition: [['garder', 'feuillet', 'quartz'], ['pyrite', 'poreuse', 'eau'], ['epreuve', 'eclate']],
     hauteurs: [1, 1, 1.75],

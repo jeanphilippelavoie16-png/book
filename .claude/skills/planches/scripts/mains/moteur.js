@@ -455,7 +455,7 @@ const FORMES = {
   // la paume : des bosses dont l'enveloppe convexe fait la paume, dans le repère de la main
   // { c: centre, h: [le long de x, radial (−y), ulnaire (+y), dorsal (−z), palmaire (+z)] }
   paume: [
-    { nom: 'carpe', c: [3, 0, 1], h: [7, 32, 32.5, 17, 18] },
+    { nom: 'carpe', c: [2, 0, 1], h: [9, 32.5, 33, 17, 18] },
     { nom: 'carpe2', c: [16, 0, 2], h: [10, 33, 33.5, 16, 17] },
     { nom: 'hypothenar', c: [36, 29, 5], h: [22, 10, 12, 10.5, 14] },
     { nom: 'thenar', c: [33, -23, 10], h: [16, 8, 8, 8, 12] },
@@ -468,16 +468,16 @@ const FORMES = {
 // ─── les poses intégrées (en attendant mains/poses.json) ──────────────────────────────────────────────────
 const doigtsPareils = (o, pouce) => ({ index: { ...o }, majeur: { ...o }, annulaire: { ...o }, auriculaire: { ...o }, pouce });
 const POSES = {
-  ouverte: { doigts: { index: { ecart: 9, mcp: 5, ipp: 8, ipd: 5 }, majeur: { ecart: 2, mcp: 6, ipp: 10, ipd: 6 },
-    annulaire: { ecart: 8, mcp: 8, ipp: 13, ipd: 7 }, auriculaire: { ecart: 16, mcp: 11, ipp: 16, ipd: 8 },
-    pouce: { opposition: 10, cmc: -10, mcp: 8, ip: 12 } }, poignet: { flexion: 0, deviation: 0 } },
+  ouverte: { doigts: { index: { ecart: 12, mcp: 5, ipp: 8, ipd: 5 }, majeur: { ecart: 3, mcp: 6, ipp: 10, ipd: 6 },
+    annulaire: { ecart: 10, mcp: 8, ipp: 13, ipd: 7 }, auriculaire: { ecart: 20, mcp: 11, ipp: 16, ipd: 8 },
+    pouce: { opposition: 12, cmc: -22, mcp: 8, ip: 14 } }, poignet: { flexion: 0, deviation: 0 } },
   plat: { doigts: doigtsPareils({ ecart: 0, mcp: 0, ipp: 0, ipd: 0 }, { opposition: -16, cmc: 4, mcp: 0, ip: 0 }), poignet: { flexion: 0, deviation: 0 } },
   'prise-manche': { doigts: { index: { ecart: 0 }, majeur: { ecart: 0 }, annulaire: { ecart: 0 }, auriculaire: { ecart: 0 },
-    pouce: { opposition: 38, cmc: 9, mcp: 21, ip: 39, rotation: -47 } }, poignet: { flexion: 0, deviation: 0 },
+    pouce: { opposition: 48, cmc: -12, mcp: 50, ip: 12, rotation: -50 } }, poignet: { flexion: 0, deviation: 0 },
     objet: { type: 'cylindre', diametre: 32 }, enrouler: true },
   poing: { doigts: { index: { ecart: 0, mcp: 85, ipp: 100, ipd: 55 }, majeur: { ecart: 0, mcp: 88, ipp: 102, ipd: 55 },
     annulaire: { ecart: 0, mcp: 90, ipp: 104, ipd: 55 }, auriculaire: { ecart: 0, mcp: 92, ipp: 106, ipd: 55 },
-    pouce: { opposition: 36, cmc: 22, mcp: 32, ip: 28 } }, poignet: { flexion: 0, deviation: 0 } },
+    pouce: { opposition: 30, cmc: 3, mcp: 23, ip: 70, rotation: 12 } }, poignet: { flexion: 0, deviation: 0 } },
 };
 
 // lus une fois, relus si le fichier change
@@ -1238,7 +1238,7 @@ function dessiner(o) {
   const tout = unionCL(pieces.map(P => P.region));
   // le poignet : un grand arrondi entre l'avant-bras et la main, au voisinage du poignet seulement
   const kL = C.sq.age.kL;
-  const zoneP = [versCL(positif(disque([0, 0], 30 * kL, 48)))];
+  const zoneP = [versCL(positif(disque([0, 0], 38 * kL, 48)))];
   const poignetRond = inter(ferme(inter(tout, [versCL(positif(disque([0, 0], 70 * kL, 48)))]), 16 * kL), zoneP);
   let U = lisserCL(ferme(unionCL([tout, poignetRond]), 1.2), 0.7, 5);
   if (coupe && coupe.region) U = moins(U, coupe.region);
