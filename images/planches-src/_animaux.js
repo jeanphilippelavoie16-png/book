@@ -14,6 +14,7 @@
 //   echelle   unités de vue par mm (le lièvre fait ~ 360 mm du derrière au museau, accroupi)
 //   cote      'droite' (défaut : il regarde vers +x) · 'gauche'
 //   trait     1,5 par défaut (le corps simple) · 2,4 quand l'animal est le sujet de la vue
+//   oreilles  rotation des oreilles autour de leur base, en degrés (+ vers l'avant ; 0 : couchées en arrière)
 //
 // Unités internes : mm, x vers l'avant de la bête, y vers le HAUT, origine au sol sous le cou.
 // L'union passe par Clipper, celui du moteur des corps simples (corps/moteur.js, _interne).
@@ -147,28 +148,34 @@ function lievre(h, o = {}) {
   // l'oreille : posée sur l'arrière du crâne, couchée vers l'arrière, plus courte que la tête
   const OREILLE = [[52, 150], [50, 170], [40, 196], [24, 220], [8, 234], [0, 231], [-1, 220], [6, 196], [14, 172], [20, 150]];
   const OREILLE_L = [[62, 150], [62, 172], [56, 200], [44, 226], [32, 238], [24, 235], [24, 224], [28, 198], [32, 172], [32, 150]];
-  const PATTE_L = [[6, 50], [12, 30], [16, 12], [17, 5], [32, 2], [34, 0, 'c'], [8, 0, 'c'], [4, 10], [-2, 30], [-6, 50]];
+  const PATTE_L = [[10, 50], [18, 30], [24, 12], [25, 5], [40, 2], [42, 0, 'c'], [16, 0, 'c'], [12, 10], [4, 30], [-2, 50]];
+  // o.oreilles : la rotation des oreilles autour de leur base, en degrés (+ vers l'avant)
+  const rotO = (pts, c) => pts.map(p => { const a = (o.oreilles || 0) * RAD, dx = p[0] - c[0], dy = p[1] - c[1];
+    return [c[0] + dx * Math.cos(-a) - dy * Math.sin(-a), c[1] + dx * Math.sin(-a) + dy * Math.cos(-a)].concat(p.slice(2)); });
+  OREILLE.splice(0, OREILLE.length, ...rotO(OREILLE, [36, 150]));
+  OREILLE_L.splice(0, OREILLE_L.length, ...rotO(OREILLE_L, [46, 150]));
   const oreilleP = cl(trace(OREILLE));
   const proche = lisser(M.ferme(U(corpsCL, oreilleP), 4), 1.2);
   const loin = lisser(M.moins(U(cl(trace(OREILLE_L)), cl(trace(PATTE_L))), M.decale(proche, -0.5)), 0.8);
 
   // Les traits intérieurs (0,7) : le devant de la cuisse, le creux de l'oreille.
   const cuisseL = trace([[-166, 164], [-122, 140], [-104, 100], [-110, 62], [-124, 34]], false);
-  const axeO = trace([[28, 166], [20, 190], [10, 212]], false);
+  const axeO = trace(rotO([[28, 166], [20, 190], [10, 212]], [36, 150]), false);
   // le bout noir de l'oreille : ce qui est au-delà d'une ligne en travers, du côté de la pointe
   const coupe = (a, b, pointe) => {
     const d = [b[0] - a[0], b[1] - a[1]]; let n = [-d[1], d[0]];
     if (n[0] * (pointe[0] - a[0]) + n[1] * (pointe[1] - a[1]) < 0) n = [-n[0], -n[1]];
     return cl([a, b, [b[0] + n[0] * 3, b[1] + n[1] * 3], [a[0] + n[0] * 3, a[1] + n[1] * 3]]);
   };
-  const boutP = M.inter(M.inter(proche, oreilleP), coupe([34, 218], [-12, 208], [4, 234]));
-  const boutL = M.inter(loin, coupe([54, 226], [14, 216], [28, 238]));
+  const [ca, cb, cp] = rotO([[34, 218], [-12, 208], [4, 234]], [36, 150]);
+  const boutP = M.inter(M.inter(proche, oreilleP), coupe(ca, cb, cp));
+  const [la, lb, lp] = rotO([[54, 226], [14, 216], [28, 238]], [46, 150]);
+  const boutL = M.inter(loin, coupe(la, lb, lp));
 
   // L'œil : grand, en amande, haut sur le côté de la tête ; la narine.
   const oeilC = [72, 128];
   const oeil = ellipse(oeilC, 9.5, 7, -10, 36);
-  const narine = trace([[103, 113], [106, 110], [109, 106]], false);
-
+  
   const R = rendu({ echelle: s }, Tm);
   const out = [`<g data-animal="lievre">`];
   out.push(R.plein(loin, GRIS), R.bord(loin, ep));
@@ -177,7 +184,7 @@ function lievre(h, o = {}) {
   out.push(R.plein(proche, BLANC));
   out.push(R.plein(boutP, NOIR));
   out.push(R.bord(proche, ep));
-  out.push(R.ligne([cuisseL, axeO, narine], epI));
+  out.push(R.ligne([cuisseL, axeO], epI));
   out.push(R.plein(cl(oeil), NOIR));
   out.push('</g>');
   const svg = out.filter(Boolean).join('\n');
