@@ -4,7 +4,7 @@
 // opposé, derrière, en gris loin dans la vue de la porte ; la face de dessous et de droite du tuyau
 // de la fenêtre à l'ombre. Le rouge : la barre qu'on rabat (le geste), la sortie en haut au bout
 // opposé (le point qui décide du tirage) et le jeu d'air autour du tuyau dans la tôle ; dans le collet,
-// le coup sur le ciseau, la languette qu'on rabat et la languette qui serre le tuyau.
+// le coup sur le ciseau et la languette qu'on rabat.
 // Collet refait au redessin du 14 octobre (groupe E, « abstrait ») : trois temps de haut en bas,
 // entailler l'étoile au ciseau, rabattre les languettes vers l'intérieur, enfoncer le tuyau. La vue de
 // la porte cède 16 de largeur au collet.
@@ -209,7 +209,6 @@ module.exports = (h) => {
     // les deux languettes coupées, plaquées contre le tuyau
     o.push(h.ligne(cx - rT, y3, cx - rT, y3 + L, A.contour), h.ligne(cx + rT, y3, cx + rT, y3 + L, A.contour));
     o.push(h.fleche(`M${cx} ${yH - k * rp - 14} L${cx} ${yH - k * rp + 6}`));
-    o.push(h.controle(cx + rT, y3 + L / 2, 8));
     return o.join('\n');
   };
 
