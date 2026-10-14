@@ -459,7 +459,7 @@ const POSES = {
   ouverte: { doigts: { index: { ecart: 9, mcp: 5, ipp: 8, ipd: 5 }, majeur: { ecart: 2, mcp: 6, ipp: 10, ipd: 6 },
     annulaire: { ecart: 8, mcp: 8, ipp: 13, ipd: 7 }, auriculaire: { ecart: 16, mcp: 11, ipp: 16, ipd: 8 },
     pouce: { opposition: 10, cmc: -10, mcp: 8, ip: 12 } }, poignet: { flexion: 0, deviation: 0 } },
-  plat: { doigts: doigtsPareils({ ecart: 0, mcp: 0, ipp: 0, ipd: 0 }, { opposition: 0, cmc: 12, mcp: 0, ip: 0 }), poignet: { flexion: 0, deviation: 0 } },
+  plat: { doigts: doigtsPareils({ ecart: 0, mcp: 0, ipp: 0, ipd: 0 }, { opposition: -16, cmc: 4, mcp: 0, ip: 0 }), poignet: { flexion: 0, deviation: 0 } },
   'prise-manche': { doigts: { index: { ecart: 0 }, majeur: { ecart: 0 }, annulaire: { ecart: 0 }, auriculaire: { ecart: 0 },
     pouce: { opposition: 38, cmc: 9, mcp: 21, ip: 39, rotation: -47 } }, poignet: { flexion: 0, deviation: 0 },
     objet: { type: 'cylindre', diametre: 32 }, enrouler: true },
@@ -1147,31 +1147,36 @@ function dessiner(o) {
   };
   const devantG = (G, p) => { let z = Infinity; for (const i of G.ids) { const P = pieces[i]; if (p[0] < P.boite.x0 - 1 || p[0] > P.boite.x1 + 1 || p[1] < P.boite.y0 - 1 || p[1] > P.boite.y1 + 1) continue; z = Math.min(z, profondeur(P, p).devant); } return z; };
 
+  // la face loin de la paume, dans cette vue
+  let loinPaume = null;
+  { const Pa = pieces.find(P => P.id === 'paume'); if (Pa) { loinPaume = -Infinity; for (const q of Pa.spheres) loinPaume = Math.max(loinPaume, q.z + q.r * 0.8); } }
   // ── les teintes : un doigt entier derrière l'objet, ou caché pour moitié par ce qui passe devant lui ──
   pieces.forEach(P => { P.gris = !!o.loin; });
   const loinImp = [].concat((pose.loin && pose.loin[vue]) || [], (C.F.ext && C.F.ext.loin && C.F.ext.loin[vue]) || []);
   for (const G of groupes.values()) {
     if (G.base) continue;
     let gris = loinImp.includes(G.nom) || G.ids.some(i => loinImp.includes(pieces[i].id));
-    // derrière l'objet
+    // derrière l'objet : aucune de ses phalanges ne passe devant, et il s'y cache
     if (!gris && ob && ob.region.length) {
-      let derr = 0; for (const i of G.ids) { const P = pieces[i]; if (P.surObjet && !devantObjet.has(i)) derr += P.partObjet * Math.abs(aireCL(P.region)); }
-      if (derr > 0.3 * G.aire) gris = true;
+      let derr = 0, devant = false;
+      for (const i of G.ids) { const P = pieces[i]; if (devantObjet.has(i)) devant = true; else if (P.surObjet) derr += P.partObjet * Math.abs(aireCL(P.region)); }
+      if (!devant && derr > 0.2 * G.aire) gris = true;
     }
-    // caché par les autres doigts devant lui, ou par la paume quand elle passe nettement devant
-    if (!gris) {
-      const caches = [];
-      for (const H of groupes.values()) {
-        if (H === G || !seCroisent(G.boite, H.boite)) continue;
-        if (!H.base) { if (ordreG.get(H.nom + ',' + G.nom)) caches.push(H.region); continue; }
-        for (const j of H.ids) {
-          const I = inter(G.region, pieces[j].region); if (!I.length) continue;
-          const ech = echantillons(I, 6); if (!ech.length) continue;
-          let dv = 0; for (const p of ech) dv += devantG(G, p) - profondeur(pieces[j], p).devant;
-          if (dv / ech.length > SEUIL * 2) caches.push(I);
-        }
+    // caché pour plus de moitié par les doigts devant lui
+    let devantLui = [];
+    for (const H of groupes.values()) if (H !== G && !H.base && seCroisent(G.boite, H.boite) && ordreG.get(H.nom + ',' + G.nom)) devantLui.push(...H.region);
+    if (!gris && devantLui.length && Math.abs(aireCL(inter(G.region, unionCL([devantLui])))) > 0.55 * G.aire) gris = true;
+    // de l'autre côté de la paume : ce qu'on en voit est plus loin que la face loin de la paume (le pouce vu côté
+    // auriculaire, le pouce qui tient le manche vu du dos)
+    if (!gris && loinPaume !== null) {
+      const caches = devantLui.slice();
+      for (const j of groupes.get('base').ids) caches.push(...pieces[j].region);
+      const vis = moins(G.region, unionCL([caches]));
+      const ech = vis.length ? echantillons(vis, 7) : [];
+      if (ech.length >= 3) {
+        let z = 0; for (const p of ech) z += devantG(G, p);
+        if (z / ech.length > loinPaume) gris = true;
       }
-      if (caches.length && Math.abs(aireCL(inter(G.region, unionCL(caches)))) > 0.55 * G.aire) gris = true;
     }
     if (gris) for (const i of G.ids) pieces[i].gris = true;
   }
