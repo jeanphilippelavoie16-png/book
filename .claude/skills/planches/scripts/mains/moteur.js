@@ -178,6 +178,8 @@ const NOIR = '#1A1A1A', BLANC = '#FFFFFF', GRIS = '#E6E6E6';
 const RAD = Math.PI / 180;
 const DOIGTS = ['index', 'majeur', 'annulaire', 'auriculaire'];
 const ARCHE = { annulaire: 10, auriculaire: 20 };
+const BRAS_SUR_AVANTBRAS = 325.5 / 255.5;                    // épaule → coude sur coude → poignet (corps/proportions.json, homme)
+const PLI_COUDE_MAX = 150;                                    // degrés : le coude replié au plus
 const AVANTBRAS_COURT = 85;                                   // mm : l'avant-bras d'un gros plan, coupé              // degrés, à MCP pliée de 90°
 
 // ─── vecteurs 3D ────────────────────────────────────────────────────────────────────────────────────────
@@ -330,6 +332,17 @@ function boiteCL(paths) {
   for (const P of paths) for (const q of P) { const x = q.X / SC, y = q.Y / SC; if (x < x0) x0 = x; if (x > x1) x1 = x; if (y < y0) y0 = y; if (y > y1) y1 = y; }
   return { x0, y0, x1, y1 };
 }
+// le rayon p + t·d sort du polygone convexe Q (local, mm) en t (le plus loin des croisements) ; null s'il ne le croise pas
+function sortieRayon(p, d, Q) {
+  let t = null;
+  for (let i = 0; i < Q.length; i++) {
+    const a = Q[i], b = Q[(i + 1) % Q.length], e = sub(b, a), den = crx(d, e);
+    if (Math.abs(den) < 1e-12) continue;
+    const w = sub(a, p), tt = crx(w, e) / den, u = crx(w, d) / den;
+    if (tt > 0 && u >= -1e-9 && u <= 1 + 1e-9 && (t === null || tt > t)) t = tt;
+  }
+  return t;
+}
 const seCroisent = (a, b, m = 0) => a.x0 - m < b.x1 && b.x0 - m < a.x1 && a.y0 - m < b.y1 && b.y0 - m < a.y1;
 const disque = (c, r, n = 40) => Array.from({ length: n }, (_, k) => add(c, [r * Math.cos(2 * Math.PI * k / n), r * Math.sin(2 * Math.PI * k / n)]));
 
@@ -476,6 +489,9 @@ const FORMES = {
     // muscles s'élargit, plus du côté radial (le long supinateur), jusqu'aux trois quarts (≈ 93 de large : le tour
     // relevé est de 310 mm près du coude) ; un peu moins au coude
     'avantbras': [[0, 32, 32], [0.1, 32.4, 32.2], [0.22, 35.5, 34], [0.4, 42.5, 38.5], [0.58, 47.5, 42], [0.75, 48.5, 44], [0.9, 46, 42.5], [1, 42.5, 40]],
+    // le bras (avantbras.bras), du coude (t = 0) à l'épaule (t = 1) : un peu moins large que l'avant-bras au coude,
+    // puis le biceps et le deltoïde (≈ 100 de large à l'épaule : corps/moteur.js, mis à cette main)
+    'bras': [[0, 40, 40], [0.15, 41.5, 41.5], [0.45, 45, 45], [0.75, 48, 48], [1, 51, 51]],
   },
   // provisoire, en attendant profil.js (agent 2)
   profil: {
@@ -495,6 +511,7 @@ const FORMES = {
     'pouce.p1': [[0, 9.6, 10.6], [1, 8.9, 9.9]],
     'pouce.p2': [[0, 8.9, 9.9], [0.5, 8.5, 9.6], [1, 7.2, 8.6]],
     'avantbras': [[0, 20.5, 22], [0.12, 22, 24], [0.3, 25, 28], [0.65, 32, 33], [1, 31, 31]],
+    'bras': [[0, 33, 35], [0.15, 37, 39], [0.45, 42, 45], [0.75, 45, 47], [1, 50, 50]],
   },
   // la paume : des bosses dont l'enveloppe convexe fait la paume, dans le repère de la main
   // { c: centre, h: [le long de x, radial (−y), ulnaire (+y), dorsal (−z), palmaire (+z)] }
