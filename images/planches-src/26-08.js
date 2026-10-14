@@ -73,7 +73,7 @@ module.exports = (h) => {
   };
 
   // ─── Mouler et attacher ───────────────────────────────────────────────────────────────
-  const M = { L: 322, y0: 0, y1: 294 };   // 322 : le dessin décalé de 12 à droite, la main entière dans la vue
+  const M = { L: 304, y0: 0, y1: 294 };   // 304 : le dessin décalé de 21 à droite, la main entière dans la vue
   // la main gauche, vue du dos, ouverte (mainSimple, pose ouverte) : le poignet en x 94, à la hauteur de
   // l'avant-bras, les cinq doigts libres au-delà du bout de l'écorce, là où on les vérifie. La pose relachee vue du
   // dos faisait palette (doigts collés, pouce caché : JP, 14 octobre). Son avant-bras s'arrête sous le lien du
