@@ -120,9 +120,7 @@ module.exports = (h) => {
       .map(([u, v]) => [cx + u * a, yb - ep * 0.62 - b * 0.35 + v * b * 1.1]);
     const T = p => tourne(p, ang, px, py);
     // l'épaisseur, face de dessous : entre le rebord du dessus et le bord du dessous, à l'ombre
-    const [r0, r1] = [rebord[0], rebord[rebord.length - 1]];
-    const flanc = [...rebord, [cx + a * 0.97, yb - ep * 0.35], [cx + a, yb], ...[...dessous].reverse(), [cx - a * 0.97, yb - ep * 0.35], r0];
-    void r1;
+    const flanc = [...rebord, [cx + a * 0.97, yb - ep * 0.35], [cx + a, yb], ...[...dessous].reverse(), [cx - a * 0.97, yb - ep * 0.35], rebord[0]];
     return [
       h.chemin(T(contour), h.a.blanc, true),
       h.chemin(T(flanc), h.a.ombre, true),
