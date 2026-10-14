@@ -53,17 +53,17 @@ module.exports = (h) => {
   // La tête de la bibliothèque, regard vers la droite, repère à l'oreille, en mm. Un seul œil :
   // le coton posé dessus, la flèche du geste sous l'œil, du coin du nez (devant) vers le coin
   // extérieur (vers l'oreille). L'autre œil passe par le renvoi 5, sur le second coton du bol.
-  // Un gros plan : la vue coupe la tête au front, derrière l'oreille et sous la bouche, comme
-  // l'ancienne vue de face coupait le visage.
-  const R_COTON = 9;                       // mm
-  const FEN = [-62, -112, 178, 36];         // la fenêtre, en mm de tête : de l'oreille au nez, du front à la bouche
+  // La tête entière, du sommet au menton ; le bas de la vue coupe le cou, que la tête de la
+  // bibliothèque laisse de toute façon ouvert.
+  const R_COTON = 11;                      // mm : une boule de coton d'un peu plus de 2 cm
+  const FEN = [-96, -140, 124, 108];        // la fenêtre, en mm de tête
   const geoV = (z) => {
     const e = Math.min(z.l / (FEN[2] - FEN[0]), z.h / (FEN[3] - FEN[1]));
     const x = (z.l - e * (FEN[2] - FEN[0])) / 2 - FEN[0] * e, y = (z.h - e * (FEN[3] - FEN[1])) / 2 - FEN[1] * e;
     return { e, x, y, V: ([u, v]) => [x + u * e, y + v * e] };
   };
   const COTON = [79, -23];                 // sur l'œil (l'œil de la tête est en [80, -24])
-  const GESTE = [[95, -10], [86, -5], [74, -4.5], [62, -8.5]];   // sous l'œil, du devant vers l'oreille
+  const GESTE = [[100, -9], [88, -2], [72, -1.5], [54, -7.5]];   // sous l'œil, du devant vers l'oreille
 
   const visage = (z) => {
     const { e, x, y, V } = geoV(z);
@@ -129,8 +129,8 @@ module.exports = (h) => {
           const { V, e } = geoV(z);
           const c = V(COTON);
           return [
-            { n: 3, rond: V([150, -82]), cible: [c[0] + R_COTON * e * 0.6, c[1] - R_COTON * e * 0.75], texte: 'trempé, passé du coin du nez vers le coin extérieur' },
-            { n: 4, rond: V([150, 4]), cible: V(GESTE[1]), texte: 'toujours dans le même sens, sans frotter' },
+            { n: 3, rond: V([146, -86]), cible: [c[0] + R_COTON * e * 0.6, c[1] - R_COTON * e * 0.75], texte: 'trempé, passé du coin du nez vers le coin extérieur' },
+            { n: 4, rond: V([146, 40]), cible: V(GESTE[1]), texte: 'toujours dans le même sens, sans frotter' },
           ];
         },
       },
