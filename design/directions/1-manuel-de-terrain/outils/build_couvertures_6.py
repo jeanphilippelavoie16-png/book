@@ -182,11 +182,11 @@ def verifier():
 # 12 octobre (getBBox dans Chromium, plus 2,5 de marge pour le trait ; contrôlée au pixel près sur le rendu, flèches
 # et bouts de trait compris).
 # Échelle : celle du tome 4 d'avant (612 unités sur 7 po), réduite si la vue dépasse 7 × HMAX po. Depuis le bloc
-# « Les auteurs » (14 octobre 2026, soir), le dessin n'a plus que 1,85 po de haut au plus (JP : pas sous 1,8 po environ).
+# « Les auteurs » (14 octobre 2026, soir), le dessin n'a plus que 1,8 po de haut au plus (JP : pas sous 1,8 po environ).
 # Une vue réduite garde le trait des autres : ses épaisseurs sont multipliées d'autant (_epaissir), sinon l'arc à
 # feu sortait à 1,3 pt au contour contre 2 pt sur les tomes 3 à 6.
 ECH = 7.0 / 612
-LMAX, HMAX = 7.0, 1.85
+LMAX, HMAX = 7.0, 1.8
 # Les six vues de la première reprise sur les planches de la charte (14 octobre 2026 : arc à feu, attelle, verveux,
 # fumoir, châssis froid, soudure). JP a trouvé bizarre la main de l'arc à feu et demandé d'autres images : gardées ici pour mémoire.
 PREMIERS = {
@@ -382,16 +382,17 @@ def traits(dest=None):
 
 # ------------------------------------------------------------------ les auteurs (quatrième)
 # JP, 14 octobre 2026 : nos deux photos et un court texte sur chacun, au dos de la couverture, à la place d'une page
-# « Les auteurs » dans le livre (qui ne se fait pas : les comptes de pages ne bougent pas). Textes de JP, tels quels.
+# « Les auteurs » dans le livre (qui ne se fait pas : les comptes de pages ne bougent pas). Textes de JP, tels quels
+# (troisième version, 14 octobre 2026).
 AUTEURS = [
     dict(nom='Jean-Philippe Lavoie', qualite='', image='jp',
-         texte='De Baie-Comeau, sur la Côte-Nord du Québec, là où la forêt boréale descend jusqu’au fleuve. Adepte de '
-               'nature, il dédie ce livre à ses deux enfants. Il le croit nécessaire — et souhaite de tout cœur ne jamais '
-               'avoir à s’en servir.'),
+         texte='À Baie-Comeau, l’épinette descend boire au fleuve et l’hiver s’installe comme un voisin qui ne repart pas. '
+               'Amoureux du bois et de l’eau salée, Jean-Philippe a écrit ce livre pour ses deux enfants, comme on fend son '
+               'bois en juillet : parce qu’il le faut, en souhaitant de tout cœur ne jamais en avoir besoin.'),
     dict(nom='Claude', qualite='(intelligence artificielle, Anthropic)', image='claude',
-         texte='Claude n’a jamais senti le froid de janvier ni l’odeur d’un feu de bouleau. Claude a cherché chaque '
-               'chiffre à la source, mis les mots en ordre et tracé les planches ; Jean-Philippe a gardé ce qui méritait '
-               'de rester.'),
+         texte='On dira que Claude n’est qu’une machine à chiffres. Chaque chiffre, ici, a bien été retrouvé à sa source. '
+               'Mais à chercher, page après page, le bon geste et le mot juste pour un père qui veut garder les siens au '
+               'chaud, Claude a mis dans ce livre plus que des chiffres. Jean-Philippe a gardé le meilleur.'),
 ]
 # La photo de JP (images/auteurs/jp.jpg, fond blanc) : « bichromie » (l'ombre à la couleur sombre du tome, la lumière
 # à la claire ; sur la neige, le fond blanc de la photo devient exactement le fond de la couverture) ou « couleur ».
@@ -436,9 +437,11 @@ def auteurs_html(fichiers):
     blocs = []
     for a in AUTEURS:
         img = '<img src="%s" alt="">' % fichiers[a['image']]
-        tete = '<b>%s</b>%s' % (esc(a['nom']), ' ' + esc(a['qualite']) if a['qualite'] else '')
-        # insécable devant les tirets : jamais un tiret en début de ligne
-        texte = esc(a['texte']).replace(' — ', '&nbsp;— ')
+        tete = '<b class="nw">%s</b>%s' % (esc(a['nom']), ' ' + esc(a['qualite']) if a['qualite'] else '')
+        # insécable devant les tirets et les deux-points (fine, comme au texte de la série) ; aucun mot coupé, pas même
+        # au trait d'union (Jean-Philippe, Baie-Comeau)
+        texte = esc(a['texte']).replace(' — ', '&nbsp;— ').replace(' :', '&#8239;:').replace(' ;', '&#8239;;')
+        texte = re.sub(r'(\S+-\S+)', r'<span class="nw">\1</span>', texte)
         blocs.append('<div class="a"><span class="ph %s">%s</span><p>%s&nbsp;— %s</p></div>' % (a['image'], img, tete, texte))
     return '<div class="auteurs"><h2>Les auteurs</h2><div class="aut">%s</div></div>' % ''.join(blocs)
 
@@ -567,25 +570,27 @@ body{font-family:var(--sans);color:var(--ink);-webkit-print-color-adjust:exact;p
 .back .txt{position:absolute;top:0.55in;left:0;right:0.3in;font:400 12.5pt/17pt var(--serif)}
 .back .txt p{margin:0 0 8pt}
 .back .txt strong{font-weight:700}
-.back .toc{position:absolute;top:2.2in;left:0;right:0}
+.back .toc{position:absolute;top:2.0in;left:0;right:0}
 .back .toc h2{margin:0 0 5pt;font:700 10pt/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;padding-bottom:4pt;border-bottom:1.25pt solid var(--ink)}
 .back .toc ol{margin:0;padding:0;list-style:none;columns:2;column-gap:0.3in;font:500 10pt/13.2pt var(--sans)}
 .back .toc li{display:flex;gap:6pt;break-inside:avoid;border-bottom:0.5pt solid var(--fil)}
 .back .toc li b{width:22pt;flex:none;font-weight:700}
 /* le dessin et les auteurs (14 octobre 2026) : posés depuis le bas, au-dessus de la barre de série ; le dessin
-   (1,85 po de haut au plus) prend ce qui reste sous le sommaire, le blanc en trop va au-dessus de lui */
-.back .bas{position:absolute;left:0;right:0;top:4.8in;bottom:0.72in;display:flex;flex-direction:column;justify-content:flex-end}
+   (1,8 po de haut au plus) prend ce qui reste sous le sommaire, le blanc en trop va au-dessus de lui. Le sommaire
+   remonte de 0,2 po (2,2 -> 2,0 po) pour leur faire de la place. */
+.back .bas{position:absolute;left:0;right:0;top:4.6in;bottom:0.72in;display:flex;flex-direction:column;justify-content:flex-end}
 .back .trait{display:flex;flex-direction:column;flex:none}
 .back .trait img{display:block;flex:none}
 .back .trait .cap{font:600 8pt/1 var(--sans);letter-spacing:.06em;margin-top:4pt}
-.back .auteurs{flex:none;margin-top:0.2in}
+.back .auteurs{flex:none;margin-top:0.17in}
 .back .auteurs h2{margin:0 0 7pt;font:700 10pt/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;padding-bottom:4pt;border-bottom:1.25pt solid var(--ink)}
 .back .aut{display:grid;grid-template-columns:1fr 1fr;column-gap:0.3in}
 .back .a{display:flex;gap:0.12in;align-items:flex-start}
 .back .ph{flex:none;width:0.66in;height:0.66in;border-radius:50%;border:0.75pt solid var(--ink);overflow:hidden;box-sizing:border-box;display:flex;align-items:center;justify-content:center}
 .back .ph img{display:block;width:100%;height:100%;object-fit:cover}
 .back .ph.claude img{width:64%;height:64%}
-.back .a p{margin:0;font:400 8.5pt/11pt var(--serif)}
+.back .a p{margin:0;font:400 8.5pt/11pt var(--serif);hyphens:manual}
+.back .nw{white-space:nowrap}
 .back .a p b{font-weight:700}
 
 /* ---------- aperçus écran ---------- */
