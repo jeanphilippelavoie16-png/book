@@ -81,3 +81,7 @@ JP ensuite : « c'est bien mais pas encore parfait, les formes que tu as pas de 
   redessinées montrées sont validées. 26-04 (le garrot) garde sa vue de face validée : de profil, la bande vue sur la
   tranche se lisait comme un piquet planté dans la cuisse. Un gros plan sur un membre peut rester de face quand la face
   montre le geste ; c'est le corps entier qui se montre de profil.
+- **14 octobre, fin du redessin des 34 planches faibles : « all good ».** Les 14 dernières sont validées (29-05 avec la
+  nuque recollée dans le raté, 60-10a, 60-10b, 62-16 sans le renvoi « chef latéral », 67-10, 80-40, 86-01b, 86-03a,
+  89-03, 89-04, 89-05a, 89-06, 95-40a, 96-01). `a-valider/` est vide. Nouveaux modules : `images/planches-src/_animaux.js`
+  (lièvre, canard, lagopède, chien) et `_pieds.js` (pied nu à orteils, mukluk souple).
