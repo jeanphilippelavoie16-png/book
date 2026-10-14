@@ -235,7 +235,12 @@ CANDIDATS = {
         dict(planche='planche-24-03-chevalet-sciage.svg', vue='axo', vb=(95.7, 53.2, 259.1, 261.8), fic='trait-24-03',
              cap='Ch. 24 · Le chevalet de sciage'),
         dict(planche='planche-34-03-sirop-pese-fleau-bras.svg', vue='vide', vb=(44.7, 181, 329.6, 162.8), fic='trait-34-03',
-             cap='Ch. 34 · Le fléau à bras égaux')],
+             cap='Ch. 34 · Le fléau à bras égaux'),
+        # JP, 14 octobre 2026 : l'armature laissait du vide à droite ; la cabane du sauna à fumée, pendant la chauffe, en
+        # coupe (le poêle de pierres, la fumée, le banc), sans son cercle de contrôle ; l'encadré danger est hors de la vue
+        dict(planche='planche-37-05-sauna-fumee-poele-pierres.svg', vue='cabane', vb=(37.7, 357.2, 397.6, 199.6), fic='trait-37-05',
+             cap='Ch. 37 · Le sauna à fumée, pendant la chauffe',
+             sans=[r'<circle cx="305\.4" cy="113\.6" r="11" fill="none" stroke="#9B2C1E"'])],
     3: [dict(planche='planche-55-08-assommoir-sa-gachette-trois.svg', vue='arme', vb=(37.7, 102.5, 359.6, 190.5), fic='trait-55-08',
              cap='Ch. 55 · L’assommoir armé'),
         dict(planche='planche-58-07-brimbale-bois.svg', vue='elevation', vb=(37.7, 26.3, 437.6, 260.5), fic='trait-58-07',
@@ -263,9 +268,13 @@ CANDIDATS = {
                    r'<line x1="216" y1="176\.4" x2="216" y2="192\.4"', r'<line x1="210" y1="176\.4" x2="222"',
                    r'<line x1="210" y1="192\.4" x2="222"', r'>½ ép\.<']),
         dict(planche='planche-109-12-tourniquet-espagnol.svg', vue='montage', vb=(45.7, 43.5, 588.6, 166.4), fic='trait-109-12',
-             cap='Ch. 109 · Le tourniquet espagnol')],
+             cap='Ch. 109 · Le tourniquet espagnol'),
+        # JP, 14 octobre 2026 : la mortaise laissait du vide à droite ; on reprend la soudure aux deux batteries
+        dict(PREMIERS[6])],
 }
-CHOIX = {1: 2, 2: 1, 3: 1, 4: 1, 5: 1, 6: 1}   # tome 1 : le chalet (JP, 14 oct. : « non, une autre » pour la maison de blocs)
+CHOIX = {1: 2, 2: 4, 3: 1, 4: 3, 5: 1, 6: 4}   # tome 1 : le chalet (JP, 14 oct. : « non, une autre » pour la maison de blocs)
+# tomes 2, 4 et 6 (JP, 14 oct., sur les six couvertures finales) : dessin trop petit, du vide à droite -> le sauna à fumée,
+# le fléau et ses étalons, la soudure aux deux batteries
 
 def choisir(choix=None):
     """TRAIT : le candidat retenu pour chaque tome (CHOIX, ou les choix donnés)."""
@@ -582,11 +591,11 @@ body{font-family:var(--sans);color:var(--ink);-webkit-print-color-adjust:exact;p
    (1,8 po de haut au plus) prend ce qui reste sous le sommaire, le blanc en trop va au-dessus de lui. Le sommaire
    remonte de 0,3 po (2,2 -> 1,9 po) pour leur faire de la place ; les textes des auteurs (quatrième version de JP)
    sont en 8 pt, le demi-point de moins que JP a permis, pour tenir sans couper. */
-.back .bas{position:absolute;left:0;right:0;top:4.5in;bottom:0.72in;display:flex;flex-direction:column;justify-content:flex-end}
+.back .bas{position:absolute;left:0;right:0;top:4.35in;bottom:0.72in;display:flex;flex-direction:column;justify-content:flex-end}
 .back .trait{display:flex;flex-direction:column;flex:none}
 .back .trait img{display:block;flex:none}
 .back .trait .cap{font:600 8pt/1 var(--sans);letter-spacing:.06em;margin-top:4pt}
-.back .auteurs{flex:none;margin-top:0.17in}
+.back .auteurs{flex:none;margin-top:0.11in}
 .back .auteurs h2{margin:0 0 7pt;font:700 10pt/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;padding-bottom:4pt;border-bottom:1.25pt solid var(--ink)}
 .back .aut{display:grid;grid-template-columns:1fr 1fr;column-gap:0.3in}
 /* le texte coule autour du cercle, puis sous lui : la colonne garde toute sa largeur sous la photo */

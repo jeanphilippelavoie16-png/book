@@ -100,3 +100,7 @@ JP ensuite : « c'est bien mais pas encore parfait, les formes que tu as pas de 
 - **14 octobre : « c'est parfait le reste, nos bios » ; tomes remontés avec la dédicace : 334, 416, 334, 300, 440, 202 pages ; couvertures finales rendues.** Tome 1 : la maison de blocs refusée (« non, une autre ») ; le chalet paré aux braises (11-03) à la place ; bloc
   des auteurs, photo en bichromie). Les dessins recommandés pour les autres dos sont pris : 37-03a, 55-08, 70-12, 90-07a,
   110-01a (`CHOIX` dans `build_couvertures_6.py`). Textes des auteurs : la 4ᵉ version. 13-01 : le palier seul (B).
+- **14 octobre, dessins des dos, version finale (« oui pour dessins ») :** tome 1 le chalet paré aux braises (11-03),
+  tome 2 le sauna à fumée en coupe (37-05), tome 3 l'assommoir armé (55-08), tome 4 le fléau et ses étalons (67-09),
+  tome 5 le canot d'écorce (90-07a), tome 6 la soudure aux deux batteries (107-09). Couvertures finales rendues dans
+  `livre/tome-N/couverture.pdf`.
