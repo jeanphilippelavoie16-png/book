@@ -304,7 +304,7 @@ module.exports = (h) => {
   const SOUS = 'fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-dasharray="3.5 2.5"';
   // Les mains : des mains simples (mains/moteur.js) à 0,3 px/mm. Une main gantée porte le gant du moteur (gant:
   // true), hachuré : le dessus du gant a touché le malade. La hachure se pose sous le contour de la main.
-  const EG = +(process.env.EG || 0.3);
+  const EG = 0.3;
   const F = h.formes;
   const silhouetteDe = m => (String(m.svg).match(/<path d="([^"]+)" fill="#FFFFFF"/) || [])[1] || '';
   // le gant s'arrête au bout de sa manchette (45 mm au-delà du poignet) : au-delà, l'avant-bras est nu. demiPlan :
@@ -344,16 +344,16 @@ module.exports = (h) => {
       ['Q', 0, 20.5, 14.3, 19], ['Q', 14.8, 15.5, 13, 13]], p1), blanc(A.arete)));
     out.push(h.path(place([['M', 13, 13], ['Q', 0, 7, -13, 1], ['L', -26, 3.5]], p1, false), A.contour));
     // la main droite gantée qui pince le rebord, de profil côté pouce, l'avant-bras à droite
-    out.push(main30({ x: PINCE_P[0], y: PINCE_P[1], pose: 'pince-fine', vue: process.env.V1 || 'pouce', cote: process.env.C1 || 'droite', diametre: 2, angle: 180 + PINCE_ROT + +(process.env.A1 || 0) }, C1, true).svg);
+    out.push(main30({ x: PINCE_P[0], y: PINCE_P[1], pose: 'pince-fine', vue: 'dos', cote: 'droite', diametre: 2, angle: 180 + PINCE_ROT }, C1, true).svg);
     out.push(h.geste('M63 91 Q74 66 56 45'));
     // 2. le premier gant, retourné, reste dans la main encore gantée
     out.push(main30({ x: pw + 38, y: 100, ancre: 'poignet', pose: 'ouverte', vue: 'paume', cote: 'gauche', angle: -90 }, C2, false).svg);
-    out.push(main30({ x: pw + 97, y: 79, pose: 'prise-manche', vue: 'paume', cote: 'droite', diametre: 30, angle: +(process.env.A2 || -100),
+    out.push(main30({ x: pw + 97, y: 79, pose: 'prise-manche', vue: 'paume', cote: 'droite', diametre: 30, angle: -100,
       objet: retourne(pw + 97, 79, 0.95, { doigts: 20, ouverture: 200 }) }, C2, true).svg);
     // 3. deux doigts nus sous le rebord du second, par l'intérieur : le rebord passe
     //    par-dessus, les bouts de doigts se suivent en tireté sous le gant
     const oy = ph;
-    const R3 = main30({ x: 94, y: oy + 40, pose: 'prise-manche', vue: 'paume', cote: 'droite', diametre: 30, angle: +(process.env.A2 || -100),
+    const R3 = main30({ x: 94, y: oy + 40, pose: 'prise-manche', vue: 'paume', cote: 'droite', diametre: 30, angle: -100,
       objet: retourne(94, oy + 40, 0.95, { doigts: 20, ouverture: 200 }) }, C3, true);
     const L3 = main30({ x: 93, y: oy + 59.8, ancre: 'bout', pose: 'deux-doigts', vue: 'dos', cote: 'gauche', angle: -90 + 14 }, C3, false);
     out.push(L3.svg, R3.svg);
