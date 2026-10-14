@@ -316,16 +316,18 @@ module.exports = (h) => {
   const X0m = -1.35, X1m = 0.03, Y0m = -0.26, Y1m = 0.72;
   const geoMotte = z => {
     const s = Math.min((z.l - 6) / (X1m - X0m), (z.h - 6) / (Y1m - Y0m));
-    const ox = (z.l - (X1m - X0m) * s) / 2, y0 = z.h - 3 - (-Y0m) * s - ((z.h - 6) - (Y1m - Y0m) * s) / 2;
-    return { s, X: m => ox + (m - X0m) * s, Y: m => y0 - m * s };
+    // le dessin près de son titre ; une part de la hauteur qui reste va au sol, coupé un peu plus bas
+    const libre = (z.h - 6) - (0.64 - Y0m) * s, y0 = 3 + 0.64 * s + libre * 0.3;   // 0,64 : le haut de la motte levée
+    const fondY = Math.max(-0.45, Math.min(Y0m, -(z.h - 3 - y0) / s + 0.04));
+    return { s, fondY, X: m => (z.l - (X1m - X0m) * s) / 2 + (m - X0m) * s, Y: m => y0 - m * s };
   };
   const motte = z => {
-    const { s, X, Y } = geoMotte(z);
+    const { s, X, Y, fondY } = geoMotte(z);
     const o = [];
     const d = EP_M, g = rig(-1, d), Lh = 0.04 * s;
     // le sol, la rigole ouverte
     const surf = [[X0m, 0], [g[3], 0], [g[2], -d], [g[1], -d], [g[0], 0], [X1m, 0]];
-    const fond = []; for (let i = 0; i <= 14; i++) { const m = X1m - i * (X1m - X0m) / 14; fond.push([X(m), Y(Y0m + 0.02 + 0.015 * Math.sin(i * 1.9))]); }
+    const fond = []; for (let i = 0; i <= 14; i++) { const m = X1m - i * (X1m - X0m) / 14; fond.push([X(m), Y(fondY + 0.02 + 0.015 * Math.sin(i * 1.9))]); }
     o.push(`<path d="M${surf.map(([x, y]) => `${f(X(x))} ${f(Y(y))}`).join(' L')} L${fond.map(p => p.map(f).join(' ')).join(' L')} Z" ${A.hachure('terre', 'aucun')}/>`);
     o.push(h.chemin(fond, A.fin));
     o.push(h.chemin(surf.map(([x, y]) => [X(x), Y(y)]), A.contour));
@@ -373,6 +375,8 @@ module.exports = (h) => {
     format: 'pleine',
     disposition: [['poser', 'couvrir'], ['retourner', 'butter'], ['plan', 'motte']],
     hauteurs: [0.62, 0.84, 1.9],
+    // la motte prend plus de largeur que la vue de dessus, qui s'allonge seule dans la hauteur
+    largeurs: [[1, 1], [1, 1], [0.88, 1.12]],
     vues: {
       poser: {
         titre: 'Poser les semences sur le sol non retourné',

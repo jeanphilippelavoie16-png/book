@@ -6,19 +6,20 @@
 //
 // La raquette est calculée dans un seul repère en centimètres, vue de dessus : la pointe à gauche
 // en x = 0, la queue à droite, l'axe sur y = 0, y vers le bas. Le trou des orteils agrandit ce même
-// repère. Les gros plans de la pointe et le cabestan ont leur repère propre, en millimètres.
+// repère. Les gros plans de la pointe et le cabestan ont leur repère propre, en millimètres, le
+// fût vu en biais (redessin du 14 octobre 2026 : le laçage se lisait mal).
 // La babiche se dessine en ruban à deux bords (h.formes.cordes) : à chaque croisement, le brin du
 // dessous est coupé de part et d'autre de celui du dessus.
 //
-// La charte : rien à ajouter. Les vues sont de dessus ou coupées dans le fût, donc sans gris ; la
-// babiche et le contour de la raquette portent déjà le trait fort. Pas de rouge : les flèches
+// La charte : un gris, l'ombre, sur le chant du fût vu en biais dans les gros plans et au centre ;
+// la babiche des gros plans au trait fort, le fût au trait d'arête. Pas de rouge : les flèches
 // disent le trajet de la babiche (elles restent noires, comme le trajet du fil à la 27-01), et le
 // chapitre ne donne pas de point à vérifier qui se montre sur le dessin.
 module.exports = (h) => ({
   ref: '89-03',
   fichier: 'planche-89-03-lacage-trois-zones.svg',
   titre: 'Le laçage en trois zones',
-  desc: 'En haut, une raquette à queue vue de dessus, pointe à gauche, l’axe en trait mixte : le fût de bouleau fait le tour, les deux bouts superposés et ligaturés à la queue ; deux traverses, à 380 à 410 mm l’une de l’autre, la coupent en trois zones. La pointe et le talon sont remplis de petits triangles serrés en babiche fine ; le centre, en babiche forte, a des mailles plus grandes. Juste derrière la traverse avant, le trou des orteils, nettement décalé d’un côté de l’axe. À droite, l’aiguille à lacer, plate, bouts arrondis, la babiche dans le chas au milieu : elle passe dans un sens comme dans l’autre, et vue de chant, mince. Au milieu, la pointe en quatre gros plans, la babiche en ruban. 1, la lisière : dans le fût, des paires de trous percés en biais ; la babiche entre par le chant intérieur, court dans le bois (en tireté), sort sur le dessus, replonge et ressort en petite boucle sur le bord intérieur. 2, le départ, au coin où la traverse rejoint le fût : le bout du brin, fendu en œil, fait le tour de la boucle de lisière du coin ; puis le dormant passe par-dessus un bord de l’œil et ressort sous l’autre, et on tire vers la pointe ; le bout libre dépasse de l’œil. 3, la boucle suivante : le brin fait le tour d’une boucle de lisière, puis ses deux brins se tordent d’un tour complet, deux croisements, avant de repartir. 4, le brin qui croise une passe déjà posée en fait le tour complet : dessus, dessous, dessus. En bas à gauche, le trou des orteils de près : le cordon de cinq brins, les haubans de trois brins enroulés sur le cordon et de deux ou trois tours sur la traverse, le bord tordu autour d’eux, 100 mm entre les haubans. En bas à droite, le centre contre le fût, sans trou : le brin monte du laçage, passe par-dessus le fût, en fait le tour, croise par-dessus lui-même, fait un second tour et ressort sous le croisement, vers le laçage : un nœud de cabestan, montré lâche, à côté du nœud voisin serré. Plus bas, le brin qui monte a fait un tour serré sur la passe en biais du nœud voisin : dessus, dessous en tireté, dessus. 20 mm entre deux brins parallèles.',
+  desc: 'En haut, une raquette à queue vue de dessus, pointe à gauche, l’axe en trait mixte : le fût de bouleau fait le tour, les deux bouts superposés et ligaturés à la queue ; deux traverses, à 380 à 410 mm l’une de l’autre, la coupent en trois zones. La pointe et le talon sont remplis de petits triangles serrés en babiche fine ; le centre, en babiche forte, a des mailles plus grandes. Juste derrière la traverse avant, le trou des orteils, nettement décalé d’un côté de l’axe. À droite, l’aiguille à lacer, plate, bouts arrondis, la babiche dans le chas au milieu : elle passe dans un sens comme dans l’autre, et vue de chant, mince. Au milieu, la pointe en quatre gros plans, la babiche en ruban, le fût vu en biais, d’en haut et du côté du laçage : son dessus et son chant. 1, la lisière : des paires de trous percés en biais ; la babiche entre par le chant, court dans le bois (en tireté), sort sur le dessus, replonge et ressort par le chant, puis fait une petite boucle jusqu’à la paire suivante. 2, le départ, au coin où la traverse rejoint le fût, de plus près : le bout du brin, fendu en œil, fait le tour de la boucle de lisière du coin, par-dessus puis par-dessous ; le brin revient passer dans son œil, par-dessus la lèvre du haut, par la fente, sous la lèvre du bas, et on tire. 3, la boucle suivante : le brin fait le tour d’une boucle de lisière, puis ses deux brins se tordent d’un tour complet, deux croisements, avant de repartir. 4, le brin qui croise une passe déjà posée en fait le tour complet : dessus, dessous, dessus. En bas à gauche, le trou des orteils de près : le cordon de cinq brins, les haubans de trois brins enroulés sur le cordon et de deux ou trois tours sur la traverse, le bord tordu autour d’eux, 100 mm entre les haubans. En bas à droite, le centre contre le fût, sans trou, le fût vu en biais : le brin monte du laçage, passe par-dessus le fût, en fait le tour (en tireté, derrière et dessous), ressort sous le chant, croise par-dessus lui-même, fait un second tour, ressort et passe sous le croisement, vers le laçage : un nœud de cabestan, montré lâche, à côté du nœud voisin serré. 20 mm entre deux brins parallèles.',
   format: 'pleine',
   disposition: [['raquette', 'aiguille'], ['s1', 's2', 's3', 's4'], ['orteils', 'centre']],
   hauteurs: [0.95, 0.965, 1.1],
@@ -663,8 +664,8 @@ function cabestan() {
   const yD = pr(0, -EPC, HTF)[1], yM = (YA + yD) / 2;
   const xS = 2, xV = 22, yb = 21.5;                      // le brin qui monte ; le brin droit du voisin ; bas des brins
   const monte = [[xS, yb, 0], [xS, 12, 0], [xS, 3, 0], [xS + 0.1, 0, 0], [xS + 0.2, YA, 0], [xS + 2.0, yM, 0], [xS + 3.8, yD, 0]];
-  const tour1 = [[9.2, YB, 0], [9.7, 4.6, 0.3], [7.8, 8.2, 1], [xS, 9.5, 1], [-4.4, 8.6, 1], [-8.8, 5.4, 0.4], [-10, 1.6, 0], [-10, YA, 0], [-8.2, yM, 0], [-6.4, yD, 0]];
-  const sortie = [[-3.2, YB, 0], [-3.2, 4.6, -0.5], [-3.6, 8.4, -1], [-5.2, 12, 0], [-7.6, 16.4, 0], [-10.6, yb + 0.6, 0]];
+  const tour1 = [[9.2, YB, 0], [9.25, YB + 1.4, 0], [9.5, 5.4, 0.3], [7.8, 8.4, 1], [xS, 9.5, 1], [-4.4, 8.6, 1], [-8.8, 5.4, 0.4], [-10, 1.6, 0], [-10, YA, 0], [-8.2, yM, 0], [-6.4, yD, 0]];
+  const sortie = [[-3.2, YB, 0], [-3.2, YB + 1.4, 0], [-3.2, 4.8, -0.5], [-3.6, 8.4, -1], [-5.2, 12, 0], [-7.6, 16.4, 0], [-10.6, yb + 0.6, 0]];
   const voisin = [[xV, yb, 0], [xV, 3, 0], [xV + 0.1, 0, 0], [xV + 0.2, YA, 0], [xV + 2.0, yM, 0], [xV + 3.8, yD, 0]];
   const voisin2 = [[31.6, yb - 1.5, 0], [28.0, 8, 0], [26.2, 3, 0], [25.9, 0, 0], [26.0, YA, 0], [27.8, yM, 0], [29.6, yD, 0]];
   CAB = { yD, xS, xV, yb, monte, tour1, sortie, voisin, voisin2, croisement: [xS + 0.4, 9.5], sous: [[9.2, YB], [-3.2, YB]],
