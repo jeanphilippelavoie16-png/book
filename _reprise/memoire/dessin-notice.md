@@ -72,3 +72,8 @@ JP ensuite : « c'est bien mais pas encore parfait, les formes que tu as pas de 
   validée d'avant les têtes simples (l'aide penchée et les bébés dessinés dans la planche) : la tête simple de l'aide,
   écrasée à plat sur le bébé, se lisait moins bien. Les 73 autres planches (68 de mains avec les 13 reprises, 5 de
   têtes) sont validées. `a-valider/` est vide ; 363 planches dans `validees/`.
+- **14 octobre, le redessin des 34 planches faibles : « oui lance toute », puis « 2 go, continue le reste ».** Cinq essais
+  vus et acceptés (48-09 le lièvre de profil, 50-10 le castor dans la coulée, 12-05a la vraie égoïne, 86-04 la vue de
+  dessus hiérarchisée, 24-08 la jambe en corps simple). Le lièvre reçoit un cercle rouge sur le cou. Les animaux vivent
+  dans `images/planches-src/_animaux.js`. Le réseau de la session bloque Wikimedia : les animaux se calquent sur les
+  planches Fuertes du dépôt, ou se construisent. Suivi dans le scratch `suivi-charte.md`.
