@@ -106,13 +106,12 @@ module.exports = (h) => {
     if (memoK[cle]) return memoK[cle];
     const e = Math.min(0.62, (z.h - 40) / 330), mat = z.h - 26;
     // le visage : la tête simple (corps({ visage }), 14 oct.), les yeux ouverts, la bouche fermée. Couché à
-    // plat, le crâne de la tête simple descend plus bas que la tête du corps : le moteur pose
-    // alors l'enfant sur l'arrière de sa tête, le dos en l'air. On le redescend de cet écart : le dos repose
-    // sur le matelas et la tête s'y enfonce un peu.
-    const cD = F.corps({ x: 0, y: mat, pose: 'couche-dos', age: 'enfant4', echelle: e });
-    const c0 = F.corps({ x: 0, y: mat, pose: 'couche-dos', age: 'enfant4', echelle: e, visage: VISAGE_C });
-    const enfonce = cD.articulations.bassin[1] - c0.articulations.bassin[1];
-    const c = F.corps({ x: 44 - c0.boite.x0, y: mat + enfonce, pose: 'couche-dos', age: 'enfant4', echelle: e, visage: VISAGE_C });
+    // plat (cou et tête à −90°), le crâne de la tête simple descend 25 mm plus bas que la tête du corps : le
+    // moteur pose l'enfant sur l'arrière de sa tête, le dos en l'air. Le menton rentre un peu (cou −80°, tête
+    // −74°, cherchés) : l'occiput et le dos reposent ensemble sur le matelas, à moins d'un millimètre près.
+    const ANG_C = { cou: -80, tete: -74 };
+    const c0 = F.corps({ x: 0, y: mat, pose: 'couche-dos', age: 'enfant4', echelle: e, angles: ANG_C, visage: VISAGE_C });
+    const c = F.corps({ x: 44 - c0.boite.x0, y: mat, pose: 'couche-dos', age: 'enfant4', echelle: e, angles: ANG_C, visage: VISAGE_C });
     const T = c.tete;
     // la narine : sous le bout du nez, côté bouche
     const nez = c.visage.nez, bo = c.visage.bouche;
