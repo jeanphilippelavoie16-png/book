@@ -113,15 +113,52 @@ function preparer(outils, o = {}) {
     const id = `${d}.${k}`;
     ray[id] = [0, 0.5, 1].map(t => demi(id, t));
   }
-  const S = { sqf, base, F, kW, demi, doigts, ray, an: base.an, age: o.age || 'homme', cachePouce: new Map() };
+  // l'arche (la tête du métacarpien de l'annulaire et de l'auriculaire descend quand la MCP plie) : son amplitude
+  // se lit sur le moteur, MCP à 90°, autour de l'axe du majeur
+  const pm = base.points['majeur.mcp'];
+  const s90 = sqf({ doigts: { annulaire: { mcp: 90 }, auriculaire: { mcp: 90 } } });
+  for (const d of DOIGTS) {
+    const a0 = S3(base.points[d + '.mcp'], pm), a1 = S3(s90.points[d + '.mcp'], pm);
+    doigts[d].arche90 = (d === 'annulaire' || d === 'auriculaire') ? Math.atan2(a0[1] * a1[2] - a0[2] * a1[1], a0[1] * a1[1] + a0[2] * a1[2]) / RAD : 0;
+    doigts[d].pivot = pm;
+  }
+  const S = { sqf, base, F, kW, demi, doigts, ray, an: base.an, age: o.age || 'homme', cachePouce: new Map(), cacheDoigt: new Map() };
+  // la formule d'ici contre le moteur : si elles divergent (le moteur a changé), on passe par le moteur
+  S.boiteNoire = false;
+  let ecartMax = 0;
+  for (const q of [{ ecart: 6, mcp: 30, ipp: 60, ipd: 40 }, { ecart: -4, mcp: 85, ipp: 100, ipd: 66 }, { ecart: 10, mcp: -10, ipp: 5, ipd: 0 }, { mcp: 55, ipp: 70, ipd: 47, arche: 6 }]) {
+    const sq = sqf({ doigts: Object.fromEntries(DOIGTS.map(d => [d, q])) });
+    for (const d of DOIGTS) {
+      const P = chaineDoigt(S, d, q).P, Q = ['mcp', 'ipp', 'ipd', 'bout'].map(k => sq.points[d + '.' + k]);
+      for (let i = 0; i < 4; i++) ecartMax = Math.max(ecartMax, L3(S3(P[i], Q[i])));
+    }
+  }
+  if (ecartMax > 0.05) S.boiteNoire = true;
+  S.ecartReplique = ecartMax;
+  let ecartPouce = 0;
+  for (const q of [{ opposition: 30, cmc: 10, mcp: 20, ip: 30 }, { opposition: 70, cmc: -20, rotation: 60, mcp: -10, ip: 70 }]) {
+    const sq = sqf({ doigts: { pouce: q } }), P = chainePouce(S, q).P, Q = ['cmc', 'mcp', 'ip', 'bout'].map(k => sq.points['pouce.' + k]);
+    for (let i = 0; i < 4; i++) ecartPouce = Math.max(ecartPouce, L3(S3(P[i], Q[i])));
+  }
+  if (ecartPouce > 0.05) S.poucenoir = true;
+  S.ecartPouce = ecartPouce;
   S.paume = paumeObstacle(S);
   return S;
 }
 // la chaîne d'un doigt : 4 points (MCP, IPP, IPD, centre du bout) et les cadres des 3 phalanges
 function chaineDoigt(S, d, q) {
   const D = S.doigts[d], Q = Object.assign({ ecart: 0, mcp: 0, ipp: 0, ipd: 0 }, q || {});
-  let n = D.n0.slice(), u = rot3(D.u0, [0, 0, -1], D.s * (Q.ecart || 0));
-  const P = [D.mcp.slice()], cadres = [];
+  if (S.boiteNoire) return chaineDoigtMoteur(S, d, Q);
+  // les couplages du moteur : l'écart s'efface quand la MCP plie ; l'arche de l'annulaire et de l'auriculaire
+  let n = D.n0.slice(), u = rot3(D.u0, [0, 0, -1], D.s * (Q.ecart || 0) * borne(1 - Math.max(0, Q.mcp) / 90, 0, 1));
+  let mcp = D.mcp.slice();
+  const ka = Q.arche !== undefined ? Q.arche : (D.arche90 || 0) * borne(Q.mcp / 90, 0, 1);
+  if (ka) {
+    const pm = D.pivot, c = Math.cos(ka * RAD), sn = Math.sin(ka * RAD), dy = mcp[1] - pm[1], dz = mcp[2] - pm[2];
+    mcp = [mcp[0], pm[1] + dy * c - dz * sn, pm[2] + dy * sn + dz * c];
+    u = rot3(u, [1, 0, 0], ka); n = rot3(n, [1, 0, 0], ka);
+  }
+  const P = [mcp], cadres = [];
   const fl = [Q.mcp, Q.ipp, Q.ipd];
   for (let k = 0; k < 3; k++) {
     const a = U3(X3(n, u));
@@ -131,10 +168,31 @@ function chaineDoigt(S, d, q) {
   }
   return { P, cadres };
 }
+// le doigt par le moteur lui-même (repli quand la formule d'ici ne suit plus), mémoïsé
+function chaineDoigtMoteur(S, d, Q) {
+  const cle = d + ':' + ['ecart', 'mcp', 'ipp', 'ipd', 'arche'].map(k => Q[k] === undefined ? '' : Math.round(Q[k] * 20)).join(',');
+  let c = S.cacheDoigt.get(cle);
+  if (c) return c;
+  const sq = S.sqf({ doigts: { [d]: Q } });
+  c = { P: ['mcp', 'ipp', 'ipd', 'bout'].map(k => sq.points[d + '.' + k]), cadres: ['p1', 'p2', 'p3'].map(k => { const g = sq.segments[d + '.' + k]; return { u: g.u, n: g.n, r: g.r }; }) };
+  if (S.cacheDoigt.size > 50000) S.cacheDoigt.clear();
+  S.cacheDoigt.set(cle, c);
+  return c;
+}
 // le pouce : le métacarpien par le moteur (sa cinématique est la sienne : opposition, cmc, rotation), mémoïsé ;
 // les deux phalanges par la même formule que les doigts (contrôlée contre le moteur, voir verifier)
 function chainePouce(S, q) {
   const Q = Object.assign({ opposition: 0, cmc: 0, mcp: 0, ip: 0 }, q || {});
+  if (S.poucenoir) {                                     // le moteur a changé : tout le pouce par lui
+    const cle = 'N' + ['opposition', 'cmc', 'rotation', 'mcp', 'ip'].map(k => Q[k] === undefined ? '' : Math.round(Q[k] * 20)).join(',');
+    let c = S.cachePouce.get(cle);
+    if (!c) {
+      const sq = S.sqf({ doigts: { pouce: Q } });
+      c = { P: ['cmc', 'mcp', 'ip', 'bout'].map(k => sq.points['pouce.' + k]), cadres: ['meta', 'p1', 'p2'].map(k => { const g = sq.segments['pouce.' + k]; return { u: g.u, n: g.n, r: g.r }; }) };
+      S.cachePouce.set(cle, c);
+    }
+    return c;
+  }
   const cle = ['opposition', 'cmc', 'rotation'].map(k => Q[k] === undefined ? '' : Math.round(Q[k] * 20)).join(',');
   let m = S.cachePouce.get(cle);
   if (!m) {
@@ -1050,33 +1108,43 @@ function resoudre(pose, outils) {
 // ─── deux mains ────────────────────────────────────────────────────────────────────────────────────────────
 // Deux mains sur un même manche (la hache, la pelle, la plane). Chaque main est posée par mainSimple sur l'axe du
 // manche : son ancre 'prise' à la fraction t du manche, son angle tel que l'axe de sa prise suive le manche. Le
-// manche est peint par la PREMIÈRE main (sa couche d'objet, entre ses pièces de derrière et de devant) ; la
-// seconde le repeint seulement près d'elle (un clipPath autour de sa boîte), pour que son poing le recouvre
-// et qu'il passe à travers lui sans repasser sur la première main.
-//   manche  { x0, y0, x1, y1, r } (unités de vue) ; mains [{ t, vue, cote, pose, diametre, … }] ; objet g => SVG
+// moteur rend chaque main en couches (.couches = { main, masque, devant }) ; on les peint dans l'ordre : les deux
+// corps de main, les deux masques, le manche une seule fois, puis les deux devants. Le manche passe ainsi DANS
+// chacun des deux poings. (Sans .couches, repli : le manche peint par la première main, et par la seconde près
+// d'elle seulement, dans un clipPath.)
+//   manche  { x0, y0, x1, y1, r } (unités de vue) ; mains [{ t, vue, cote, pose, diametre, sens, … }] ; objet g => SVG
 function deuxMains(mainSimple, o) {
   const { manche } = o;
   const ang = Math.atan2(manche.y1 - manche.y0, manche.x1 - manche.x0) / RAD;
-  const out = [], geos = [];
-  o.mains.forEach((m, i) => {
+  const res = [], geos = [];
+  const dessin = gg => (typeof o.objet === 'function' ? o.objet(Object.assign({}, gg, { manche })) : String(o.objet || ''));
+  for (const m of o.mains) {
     const x = manche.x0 + (manche.x1 - manche.x0) * m.t, y = manche.y0 + (manche.y1 - manche.y0) * m.t;
     const base = Object.assign({ pose: 'prise-manche', echelle: o.echelle || 1 }, m, { x, y, ancre: 'prise' });
-    delete base.t;
-    // l'angle de la main tel que l'axe de sa prise tombe sur le manche
-    const essai = mainSimple(Object.assign({}, base, { angle: 0, objet: undefined }));
+    delete base.t; delete base.sens;
+    // l'angle de la main tel que l'axe de sa prise tombe sur le manche (dans un sens ou dans l'autre)
+    const essai = mainSimple(Object.assign({}, base, { angle: 0 }));
     let a = ang - essai.prise.angle;
     if (m.sens === -1) a += 180;
-    const g = mainSimple(Object.assign({}, base, { angle: a, objet: undefined }));
-    geos.push(g);
-    const dessinObjet = gg => (typeof o.objet === 'function' ? o.objet(Object.assign({}, gg, { manche })) : String(o.objet || ''));
-    if (i === 0) out.push(String(mainSimple(Object.assign({}, base, { angle: a, objet: dessinObjet }))));
-    else {
-      const b = g.boite, id = `deuxMains-${Math.random().toString(36).slice(2, 8)}`;
-      const clip = `<clipPath id="${id}"><rect x="${r1(b.x0 - 2)}" y="${r1(b.y0 - 2)}" width="${r1(b.x1 - b.x0 + 4)}" height="${r1(b.y1 - b.y0 + 4)}"/></clipPath>`;
-      out.push(clip, String(mainSimple(Object.assign({}, base, { angle: a, objet: gg => `<g clip-path="url(#${id})">${dessinObjet(gg)}</g>` }))));
-    }
-  });
-  const svg = out.join('\n');
+    const g = mainSimple(Object.assign({}, base, { angle: a, objet: '' }));
+    res.push({ g, base, a }); geos.push(g);
+  }
+  let svg;
+  if (res.every(r => r.g.couches)) {
+    const k = key => res.map(r => r.g.couches[key] || '').filter(Boolean).join('\n');
+    svg = [k('main'), k('masque'), dessin(geos[0].prise ? Object.assign({}, geos[0], geos[0].prise) : geos[0]), k('devant')].filter(Boolean).join('\n');
+  } else {
+    const out = [];
+    res.forEach((r, i) => {
+      if (i === 0) out.push(String(mainSimple(Object.assign({}, r.base, { angle: r.a, objet: dessin }))));
+      else {
+        const b = r.g.boite, id = `deuxMains-${i}-${Math.round(b.x0)}-${Math.round(b.y0)}`;
+        out.push(`<clipPath id="${id}"><rect x="${r1(b.x0 - 2)}" y="${r1(b.y0 - 2)}" width="${r1(b.x1 - b.x0 + 4)}" height="${r1(b.y1 - b.y0 + 4)}"/></clipPath>`,
+          String(mainSimple(Object.assign({}, r.base, { angle: r.a, objet: gg => `<g clip-path="url(#${id})">${dessin(gg)}</g>` }))));
+      }
+    });
+    svg = out.join('\n');
+  }
   return { svg, toString() { return svg; }, mains: geos };
 }
 // Deux mains à plat l'une sur l'autre, vues du dessus (vue dos) : celle du dessous en gris (loin), celle du

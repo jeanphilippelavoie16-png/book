@@ -29,20 +29,27 @@
 //     trait     'normal' (1,5 / 0,7) · 'fort' (1,9 / 0,9) · ou un nombre (la silhouette)
 //     age       'homme' (défaut) · 'femme' · 'enfant6' · 'enfant4' : mains/proportions.json (agent 4)
 //     loin      true : toute la main en gris (la main du dessous, la deuxième main derrière la première)
+//     gant      true ou { epaisseur (mm, défaut 1,8 : chaque demi-largeur gonflée d'autant), manchette (mm de
+//               manchette sur l'avant-bras, défaut 45 ; false : sans) } : la main gantée
 //     masque    false : ne pas peindre le blanc de l'objet sous lui (voir « Les couches »)
 //
 // Le résultat se colle comme une chaîne SVG et porte la géométrie, en unités de vue :
-//   .prise     { x, y, angle, r, axe: [ux, uy], raccourci, bouts }  l'axe de l'objet tenu : son point au creux
-//              de la main, l'angle de l'axe à l'écran (degrés), le rayon vu, raccourci (1 : l'axe dans le plan
-//              de la vue ; 0 : vu par le bout, l'objet est le cercle r), bouts (les deux bouts de l'objet s'il
-//              a une longueur). Sans objet : le creux de la paume, r = 0.
+//   .prise     { x, y, angle, r, axe: [ux, uy], raccourci, bouts, coupe }  l'axe de l'objet tenu : son point au
+//              creux de la main, l'angle de l'axe à l'écran (degrés), le rayon vu, raccourci (1 : l'axe dans le
+//              plan de la vue ; 0 : vu par le bout), bouts (les deux bouts de l'objet, vus). De profil, l'objet
+//              qui vient vers l'œil est coupé au ras de la main (profil.js, objetDeVue) : coupe = { x, y, rx, ry,
+//              angle } est sa face coupée, à hachurer, et bouts[0] le bout coupé. Sans objet : le creux de la
+//              paume, r = 0.
 //   .poignet   [x, y]   .coude [x, y] (le coude : l'avant-bras entier, même s'il n'est pas dessiné)
 //   .coupe     [[x, y], [x, y]] les deux coins de la coupe de l'avant-bras (null s'il file au bord)
 //   .bout      [x, y]  le bout de l'index        .pouce [x, y]  le bout du pouce
 //   .doigts    { index: [x, y], majeur, annulaire, auriculaire, pouce }  le bout de chaque doigt
 //   .articulations  { 'index.mcp': [x, y], … }   tous les points du squelette, projetés
 //   .contact   [[x, y], …]  les points où la main touche l'objet ou la surface (pulpes, paume)
-//   .boite     { x0, y0, x1, y1 }   .echelle   .vue   .devant (les pièces peintes devant l'objet)
+//   .boite     { x0, y0, x1, y1 }   .echelle   .vue   .devant (les pièces peintes devant l'objet)   .gris
+//   .couches   { main, masque, devant } : les couches en SVG, pour peindre l'objet soi-même entre elles (deux
+//              mains sur un même manche : mainA.main, mainB.main, les masques, l'objet, mainA.devant,
+//              mainB.devant). Elles existent dès que la pose a un objet, même sans l'option objet.
 //
 // ═══ LE REPÈRE ET LE SQUELETTE (contrat entre moteur.js, profil.js et prises.js) ═══════════════════════
 //
@@ -119,11 +126,20 @@
 // ═══ LES COUCHES ═══════════════════════════════════════════════════════════════════════════════════════════
 //
 // Les pièces : 'avantbras', 'paume' (enveloppe + palmures + pouce.meta), '<doigt>.p1|p2|p3', 'pouce.p1|p2'.
-// Chacune a sa profondeur (des sphères le long de l'os) ; le moteur décide, pour chaque vue :
-//   1. l'ordre des pièces entre elles (deux doigts : celui qui est devant ; un doigt et la paume : se fondent,
-//      ou le doigt passe devant avec un écart réel de profondeur, et alors seulement il a son trait 0,7) ;
-//   2. pour chaque pièce qui chevauche l'objet, si elle est devant ou derrière lui (pose.devant le surcharge) ;
-//      un doigt derrière l'objet (ou caché aux deux tiers derrière un autre doigt) est peint en gris.
+// Chacune a sa profondeur (des sphères le long de l'os ; la paume : le plan de la face vue) ; le moteur décide,
+// pour chaque vue :
+//   1. l'ordre des doigts entre eux, par doigt entier (la moyenne des écarts de profondeur sur leurs
+//      recouvrements ; à égalité, PRIORITE de la vue) ;
+//   2. les traits intérieurs, par doigt entier : entre deux doigts, le contour de celui de devant là où il touche
+//      l'autre à 1,3 mm près (une seule ligne entre deux doigts serrés) ; entre un doigt et la paume, seulement
+//      là où l'un passe devant l'autre de plus de 2,6 mm (à la racine, ils se fondent) ; entre deux phalanges
+//      d'un même doigt, jamais. Un trait court qui ne part pas du contour tombe ;
+//   3. pour chaque pièce qui chevauche l'objet, si elle est devant ou derrière lui, par la profondeur des deux
+//      surfaces sur leur recouvrement (pose.devant[vue] le surcharge : ids de pièces ou de doigts) ;
+//   4. le gris, par doigt entier : un doigt dont aucune phalange ne passe devant l'objet et qui s'y cache ; un
+//      doigt caché pour plus de moitié par les doigts devant lui ; un doigt dont ce qu'on voit est plus loin que
+//      la face loin de la paume (le pouce vu côté auriculaire, le pouce qui tient le manche vu du dos) ;
+//      pose.loin[vue] et profil.loin[vue]. Un filet gris de moins de 4 mm ou de 25 mm² ne se dessine pas.
 // L'ordre de peinture :
 //   a. la main entière : le blanc, les pièces grises, la silhouette (1,5) et les traits intérieurs (0,7) ;
 //   b. le blanc de l'objet dans la main (masque : une hachure est transparente) ;
@@ -131,7 +147,15 @@
 //   d. les pièces DEVANT l'objet, repeintes là où l'objet passe (blanc, silhouette, traits) : le manche
 //      entre d'un côté du poing et ressort de l'autre, derrière les doigts qui l'entourent.
 //
+// ═══ LES COUPLAGES DU SQUELETTE (proportions.json, articulations.couplages) ═════════════════════════════════
+//
+//   l'écart d'un doigt s'efface quand sa MCP plie : écart × (1 − mcp / 90) ;
+//   l'arche : la tête du métacarpien de l'annulaire descend vers la paume de 10° × mcp / 90, celle de
+//   l'auriculaire de 20° × mcp / 90, autour de l'axe du majeur (doigts.annulaire.arche l'impose, en degrés).
+//
 // Unités internes : mm. L'union, les décalages et les découpes passent par Clipper (corps/clipper.js).
+// Un appel neuf coûte 40 à 120 ms (le premier du processus, ~200 : la compilation) ; le même pose/vue/âge à
+// une autre place, une autre échelle ou un autre angle sort du cache en ~2 ms.
 
 'use strict';
 
@@ -541,6 +565,20 @@ function formes() {
   const tete = Object.assign({}, FORMES.tete, (P && P.tete) || {});
   return { dos: FORMES.dos, profil: prof, paume: (P && P.paume) || FORMES.paume, tete, fut: (P && P.fut) || FORMES.fut, ext: P };
 }
+// le gant : chaque demi-largeur et demi-épaisseur gonflée de d mm (le cuir, la doublure), la paume aussi
+const CACHE_GANT = new Map();
+function formesGant(F, d = 1.8) {
+  const cle = F.ext ? 1 : 0;
+  const c = CACHE_GANT.get(F);
+  if (c && c.d === d) return c.v;
+  const plus = T => Object.fromEntries(Object.entries(T).map(([k, l]) => [k, l.map(([t, a, b]) => [t, a + d, b + d])]));
+  const v = { dos: plus(F.dos), profil: plus(F.profil), paume: F.paume.map(b => Object.assign({}, b, { h: b.h.map((x, i) => (i ? x + d * 0.8 : x)) })),
+    tete: Object.fromEntries(Object.entries(F.tete).map(([k, h]) => [k, h.map((x, i) => (i ? x + d : x))])),
+    fut: Array.isArray(F.fut) ? F.fut.map((x, i) => (i ? x + d : x)) : Object.fromEntries(Object.entries(F.fut).map(([k, h]) => [k, h.map((x, i) => (i ? x + d : x))])),
+    ext: F.ext, gant: d };
+  CACHE_GANT.set(F, { d, v }); void cle;
+  return v;
+}
 const CACHE_INTERP = new Map();
 function table(F, id) {
   const cle = id;
@@ -931,7 +969,8 @@ function echantillons(region, n = 7) {
 
 // ─── la construction, dans le repère de la vue (mm, avant le miroir, l'angle et l'échelle) ─────────────────
 function construire(o) {
-  const F = formes();
+  const g0 = o.gant ? (typeof o.gant === 'object' ? o.gant : {}) : null;
+  const F = g0 ? formesGant(formes(), g0.epaisseur !== undefined ? g0.epaisseur : 1.8) : formes();
   let pose = JSON.parse(JSON.stringify(trouverPose(o.pose || 'ouverte')));
   // surcharges
   if (o.doigts) for (const [d, v] of Object.entries(o.doigts)) pose.doigts = Object.assign({}, pose.doigts, { [d]: Object.assign({}, (pose.doigts || {})[d], v) });
@@ -952,7 +991,7 @@ function construire(o) {
   if (sansAngles) pose = enrouler(pose, pose.objet, { age, F });
   // l'avant-bras dirigé vers un point : le poignet suit, dans le plan de la vue
   const sq = squelette(pose, { age, F });
-  const kW = sq.age.kW;
+  const kW = sq.age.kW, kL0 = sq.age.kL;
   const M = matriceVue(o.vue || 'dos', o.rotation);
   const proj = p => matVec(M, p);
   const p2 = p => { const q = proj(p); return [q[0], q[1]]; };
@@ -1061,6 +1100,18 @@ function construire(o) {
     let iMin = 0, iMax = 0;
     sec.forEach((p, i) => { if (dot(p, nrm) < dot(sec[iMin], nrm)) iMin = i; if (dot(p, nrm) > dot(sec[iMax], nrm)) iMax = i; });
     coupe = { a: sec[iMin], b: sec[iMax], c: p2(cFin), ax: ax2, region: null, plein: tMax >= 1 };
+    // la manchette du gant : une bande plus large autour du poignet, son bord côté main en trait intérieur
+    if (g0 && g0.manchette !== false) {
+      const Lm = (g0.manchette || 45) * kL0, t0 = 4 / SA.L, t1 = Math.min(tMax, t0 + Lm / SA.L), mp = [];
+      const secs = [];
+      for (let k = 0; k <= 6; k++) {
+        const t = t0 + (t1 - t0) * k / 6, c = a3([0, 0, 0], m3(Sinv.u, SA.L * t)), w = demiAxes(Fab, 'avantbras', t, kW).map(v => v + 3.5);
+        secs.push(section(c, Sinv, w).map(p2));
+      }
+      for (let k = 0; k < secs.length - 1; k++) mp.push(enveloppe(secs[k].concat(secs[k + 1])));
+      piece('manchette', 'base', mp, f.spheres.map(q => Object.assign({}, q, { r: q.r + 3.5 })), -2);
+      pieces[pieces.length - 1].bordTrait = true;
+    }
   }
 
   // ── les régions : chaque pièce unifiée, ses plis arrondis ──
@@ -1328,6 +1379,12 @@ function dessiner(o) {
     ls = lignesDans(ls, Uin);
     traits[A.ids[0]] = recoller(ls).filter(l => longueur(l) > 2.5);
   }
+  // la manchette du gant : son bord dans la main (le cuir qui finit sur le poignet)
+  pieces.forEach((P, i) => {
+    if (!P.bordTrait) return;
+    const autres = unionCL(pieces.filter(Q => Q !== P).map(Q => Q.region));
+    traits[i] = traits[i].concat(lignesDans(bordsDans(P.region, decale(autres, -E)), Uin));
+  });
   // une ligne courte qui ne part pas du contour est une saleté
   const rive = decale(U, -(E + 1.6));
   for (let i = 0; i < n; i++) traits[i] = traits[i].filter(l => longueur(l) > 9 || !dedans(rive, l[0]) || !dedans(rive, l[l.length - 1]));
@@ -1382,7 +1439,7 @@ function mainSimple(o = {}) {
   // l'avant-bras vers un point de la vue : la direction, dans le repère local de la vue (avant le miroir,
   // l'angle et l'échelle) — calculée après le placement, d'où deux passes si ancre ≠ poignet
   const cleBase = { pose: o.pose, vue, rotation: o.rotation, doigts: o.doigts, poignet: o.poignet, diametre: o.diametre,
-    age: o.age, loin: !!o.loin, objetPose: o.objetPose };
+    age: o.age, loin: !!o.loin, objetPose: o.objetPose, gant: o.gant || null };
   const ab = o.avantbras === false ? false : Object.assign({}, o.avantbras || {});
   const m = o.cote === 'gauche' ? -1 : 1;
   const ang = o.angle || 0;
