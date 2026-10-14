@@ -11,8 +11,10 @@
 // La main est entière et vient de la bibliothèque (h.formes.main, pose « boule » : le « C »,
 // le pouce dessus, les doigts dessous), l'avant-bras qui passe devant le torse. Elle reste à
 // la même place sur le sein d'une vue à l'autre : on ne glisse pas. Un geste : aucune cote.
-// Mains simples et charte (14 octobre) : la main en « C » passe par mainSimple (coupe-c de profil côté pouce, 82 mm ;
-// 66 mm quand on pince), l'avant-bras qui sort à gauche. Rouge : enfoncer, pincer, tourner.
+// Mains simples et charte (14 octobre) : la main en « C » passe par mainSimple (coupe-c de profil côté pouce,
+// ouverte à 100 mm, 80 mm quand on pince), l'avant-bras qui sort en haut à gauche. Fermée à 82 mm, elle faisait une
+// pince de crabe et un pouce en motton. Pour tourner, la main fait 65° vers la gauche, et les empreintes sont posées
+// là où le pouce et l'index de « Placer » appuyaient. Rouge : enfoncer, pincer, tourner.
 module.exports = (h) => {
   const A = h.a, F = h.formes, RAD = Math.PI / 180;
   const E = 0.92;                                 // unités de vue par mm
@@ -27,11 +29,14 @@ module.exports = (h) => {
     return [h.ellipse(N[0], N[1] + 4 * E, 62 * E, 58 * E, blanc('contour')),
       h.cercle(N[0], N[1], RA, A.arete), h.cercle(N[0], N[1], RM, blanc('arete'))].join('\n');
   }
-  // la main de face : le « C » autour de l'aréole, le pouce dessus, l'index dessous, à 4 cm
-  // (main simple, coupe-c de profil côté pouce : le pouce d'un côté, les doigts de l'autre, l'avant-bras vers la gauche)
+  // la main de face : le « C » ouvert autour du sein, le pouce dessus, l'index dessous
+  // (main simple, coupe-c de profil côté pouce, ouverte à 100 mm : le pouce allongé sur le dessus, les doigts
+  // dessous ; plus fermée, à 82 mm, le pouce faisait un motton et les doigts une pince de crabe)
   const mainC = (x, y, diametre, angle, z) => F.mainSimple({ x, y, pose: 'coupe-c', vue: 'pouce', cote: 'droite', echelle: E, diametre, angle,
-    avantbras: { vers: [x - 400 * Math.cos((angle - 60) * RAD), y - 400 * Math.sin((angle - 60) * RAD)], longueur: 'bord', bord: { x0: 0, y0: 0, x1: z.l, y1: z.h } } }).svg;
-  const mainFace = (N, z, angle = 0) => mainC(N[0], N[1], 82, 60 + angle, z);
+    avantbras: { vers: [x - 400 * Math.cos((angle - 60) * RAD), y - 400 * Math.sin((angle - 60) * RAD)], longueur: 'bord', bord: { x0: 0, y0: 0, x1: z.l, y1: z.h } } });
+  const mainFace = (N, z, angle = 0) => mainC(N[0], N[1], 100, 90 + angle, z);
+  // la pulpe d'un doigt de la main de face : le bout, ramené de 6 mm vers le mamelon
+  const pulpe = (N, b) => { const d = Math.hypot(b[0] - N[0], b[1] - N[1]); return [b[0] + (N[0] - b[0]) * 6 * E / d, b[1] + (N[1] - b[1]) * 6 * E / d]; };
 
   // ─── le sein de profil : la femme regarde à droite ─────────────────────────────────────
   // O : la paroi à hauteur du mamelon. Un dôme : la pente du dessus, l'arrondi du dessous qui
@@ -52,7 +57,7 @@ module.exports = (h) => {
   }
   // la main de profil : le même « C », le pouce sur le dessus du sein, l'index dessous
   const CP = [56, 2];
-  const mainProfil = (O, z, diametre = 82) => mainC(O[0] + CP[0] * E, O[1] + CP[1] * E, diametre, 60, z);
+  const mainProfil = (O, z, diametre = 100) => mainC(O[0] + CP[0] * E, O[1] + CP[1] * E, diametre, 90, z).svg;
 
   function empreinte(C, rx, ry, rot, tiret) {
     const ov = (k) => { const pts = []; for (let t = 0; t < 360; t += 12) { const x = rx * k * Math.cos(t * RAD), y = ry * k * Math.sin(t * RAD); pts.push([C[0] + x * Math.cos(rot * RAD) - y * Math.sin(rot * RAD), C[1] + x * Math.sin(rot * RAD) + y * Math.cos(rot * RAD)]); } return pts; };
@@ -77,12 +82,12 @@ module.exports = (h) => {
     vues: {
       placer: {
         titre: '1. Placer',
-        dessin: z => { const N = faceN(z); return [seinFace(N), mainFace(N, z)].join('\n'); },
+        dessin: z => { const N = faceN(z); return [seinFace(N), mainFace(N, z).svg].join('\n'); },
         renvois: z => {
-          const N = faceN(z);
+          const N = faceN(z), m = mainFace(N, z);
           return [
-            { n: 1, rond: [N[0] + 70, N[1] - 104], cible: [N[0] - 14, N[1] - rP - 10], texte: 'pouce, à 2 à 5 cm du mamelon' },
-            { n: 2, rond: [N[0] + 96, N[1] + 92], cible: [N[0] + 30, N[1] + rP + 6], texte: 'index en face, sous l’aréole' },
+            { n: 1, rond: [N[0] + 70, N[1] - 104], cible: pulpe(N, m.doigts.pouce), texte: 'pouce, à 2 à 5 cm du mamelon' },
+            { n: 2, rond: [N[0] + 96, N[1] + 92], cible: pulpe(N, m.doigts.index), texte: 'index en face, sous l’aréole' },
           ];
         },
       },
@@ -114,7 +119,7 @@ module.exports = (h) => {
             `M ${P([b[0] + 1, b[1] + 2])} Q ${P([b[0] + 28, b[1] + 8])} ${P([b[0] + 36, by - 6])}`,
           ];
           const mx = O[0] + 28;
-          return [s.svg, mainProfil(O, z, 66),
+          return [s.svg, mainProfil(O, z, 80),
             h.geste(`M ${P([mx, O[1] - 100])} L ${P([mx, O[1] - 70])}`),
             h.geste(`M ${P([mx + 50, O[1] + 100])} L ${P([mx + 50, O[1] + 70])}`),
             ...jets.map(d => h.path(d, A.cache)),
@@ -138,19 +143,23 @@ module.exports = (h) => {
         titre: '4. Tourner',
         dessin: z => {
           const N = faceN(z);
-          const out = [seinFace(N)];
-          out.push(empreinte(pol(N, rP, -120), 10.5 * E, 8 * E, -30, false), empreinte(pol(N, rP, 50), 9.5 * E, 7 * E, -30, false));
-          out.push(mainFace(N, z, -45));
+          // les empreintes de la prise d'avant, là où le pouce et l'index de « Placer » appuyaient ; la main a tourné de
+          // 65° vers la gauche : le pouce passe du dessus au côté, les doigts dessous, et les deux empreintes restent à vue
+          const m0 = mainFace(N, z), out = [seinFace(N)];
+          for (const [b, rx, ry] of [[m0.doigts.pouce, 10.5, 8], [m0.doigts.index, 9.5, 7]]) {
+            const q = pulpe(N, b);
+            out.push(empreinte(q, rx * E, ry * E, Math.atan2(q[1] - N[1], q[0] - N[0]) / RAD + 90, false));
+          }
+          out.push(mainFace(N, z, -65).svg);
           const ra = rP + 40 * E;
-          const arc = (t0, t1) => `M ${P(pol(N, ra, t0))} A ${f(ra)} ${f(ra)} 0 0 1 ${P(pol(N, ra, t1))}`;
-          out.push(h.geste(arc(-100, -62)));
+                    out.push(h.geste(`M ${P(pol(N, ra, -95))} A ${f(ra)} ${f(ra)} 0 0 0 ${P(pol(N, ra, -140))}`));
           return out.join('\n');
         },
         renvois: z => {
           const N = faceN(z), ra = rP + 40 * E;
           return [
-            { n: 8, rond: [N[0] - 110, N[1] - 100], cible: pol(N, rP, -120), texte: 'empreintes de la prise d’avant' },
-            { n: 9, rond: [N[0] + 70, N[1] - 120], cible: pol(N, ra, -78), texte: 'relâcher, tourner, reprendre' },
+            { n: 8, rond: [N[0] + 84, N[1] - 108], cible: pulpe(N, mainFace(N, z).doigts.pouce), texte: 'empreintes de la prise d’avant' },
+            { n: 9, rond: [N[0] - 104, N[1] - 108], cible: pol(N, ra, -118), texte: 'relâcher, tourner, reprendre' },
           ];
         },
       },

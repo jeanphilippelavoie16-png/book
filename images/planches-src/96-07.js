@@ -52,13 +52,13 @@ module.exports = (h) => {
   // ─── la main qui fait le ruban (main simple, mains/moteur.js) ─────────────────────────
   // Le gros plan des bouts de doigts (reprise du 14 oct. : la main entière en petit faisait un pouce en
   // triangle) : la main droite vue du côté du pouce (pince-laterale, tournée de 40° pour montrer le bout du
-  // pouce), très grande (2,6 par mm) et coupée par le bord de la vue ; seuls le bout du pouce et l'index
+  // pouce), très grande (3,2 par mm) et coupée par le bord de la vue ; seuls le bout du pouce et l'index
   // allongé y entrent. La pulpe du pouce serre la pâte contre l'index ; le pouce pousse, la pâte sort sous
   // son bout en un ruban d'épaisseur égale qui glisse sur l'index et dépasse son bout. Le ruban est l'objet
   // de la prise : peint par le moteur entre les couches de la main (le pouce devant lui, l'index dessous).
   const F = h.formes;
   const lerp = (a, b, t) => [a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t];
-  const E_MAIN = 2.6, T_RUB = 6.5 * E_MAIN;            // la main en unités par mm ; l'épaisseur du ruban
+  const E_MAIN = 3.2, T_RUB = 6.5 * E_MAIN;            // la main en unités par mm ; l'épaisseur du ruban
   const oMain = (z, px, py) => ({ x: z.l * px, y: z.h * py, ancre: 'bout', pose: 'pince-laterale', vue: 'pouce', cote: 'droite', echelle: E_MAIN,
     diametre: 6.5, doigts: { index: { mcp: 15, ipp: 10, ipd: 5 } }, angle: 0, rotation: [0, -40, 0],
     avantbras: { longueur: 60 } });
@@ -198,11 +198,11 @@ module.exports = (h) => {
       pousser: {
         titre: 'Pousser le ruban',
         dessin: z => {
-          const g = geoMain(z, 0.8, 0.6);
+          const g = geoMain(z, 0.78, 0.62);
           return [DEFS, mainRuban(z, g, ruban(milieuRuban(g, VIR_SORT), 'rond')), h.geste(flechePouce(g).d)].join('\n');
         },
         renvois: z => {
-          const g = geoMain(z, 0.8, 0.6), pts = milieuRuban(g, VIR_SORT), fin = pts[pts.length - 1], th = g.m.articulations;
+          const g = geoMain(z, 0.78, 0.62), pts = milieuRuban(g, VIR_SORT), fin = pts[pts.length - 1], th = g.m.articulations;
           const sortie = lerp(g.p0, g.p1, 0.75);                           // la pâte, au sortir du pouce
           const pouce = add(lerp(th['pouce.ip'], g.m.pouce, 0.75), mul(g.nH, 6 * E_MAIN));
           const dans = ([x, y]) => [Math.max(14, Math.min(z.l - 14, x)), Math.max(14, Math.min(z.h - 14, y))];
@@ -216,8 +216,8 @@ module.exports = (h) => {
       casser: {
         titre: 'Il casse sous son propre poids',
         dessin: z => {
-          const gm = geoMain(z, 0.38, 0.38), g = geoCasse(gm), k = E_MAIN;
-          const tr = troncon(g.piece, [4 * k, 12 * k], -12);
+          const gm = geoMain(z, 0.4, 0.27), g = geoCasse(gm), k = E_MAIN;
+          const tr = troncon(g.piece, [3 * k, 9 * k], -12);
           // la mesure, sans chiffre : du bout de l'index à la cassure, le long du ruban resté,
           // au-dessus de lui, avec ses deux traits d'arrêt
           const out = [mainRuban(z, gm, ruban(g.reste, 'casse')), tr.svg, h.chemin(g.mesure, h.a.detail)];
@@ -231,7 +231,7 @@ module.exports = (h) => {
           return out.join('\n');
         },
         renvois: z => {
-          const g = geoCasse(geoMain(z, 0.38, 0.38)), c = g.mesure[Math.floor(g.mesure.length / 2)];
+          const g = geoCasse(geoMain(z, 0.4, 0.27)), c = g.mesure[Math.floor(g.mesure.length / 2)];
           return [{ n: 4, rond: [c[0] + 14, c[1] - 40], cible: c, texte: 'on mesure ce qui dépassait avant la cassure' }];
         },
       },
