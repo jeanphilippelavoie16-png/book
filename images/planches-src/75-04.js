@@ -1,4 +1,6 @@
-// Planche 75-04 — le bac de glace monté en couches (chapitre 70, étapes 19 à 24 et section 9).
+// Planche 75-04 — le bac de glace monté en couches (chapitre 75, étapes 19 à 24 et section 9).
+// La charte : coupe hachurée sans gris ; en travers, la cavité du ventre en gris loin. Le rouge :
+// la pointe de la sonde (là où on lit 4 à -1 °C) et le drain ouvert. L'eau de fonte reste en noir.
 module.exports = (h) => {
   const blanc = t => t.replace('fill="none"', 'fill="#ffffff"');
   const halo = (ep = 5) => `fill="none" stroke="#ffffff" stroke-width="${ep}" stroke-linecap="round" stroke-linejoin="round"`;
@@ -138,6 +140,9 @@ module.exports = (h) => {
           out.push(h.ligne(xs, yb, xs, yp, h.a.cache));
           out.push(h.cercle(xs, yd, 7, blanc(h.a.arete)));
           out.push(h.ligne(xs, yd, xs + 4, yd - 5, h.a.detail));
+          // ce qu'on vérifie : la pointe de la sonde dans la chair épaisse, et le drain qui coule
+          out.push(h.controle(xs, yp, 9));
+          out.push(h.controle(X1 + 2, F - 3, 10));
           // couvercle soulevé, même épaisseur que les parois, débordant
           const th = 6 * Math.PI / 180, cs = Math.cos(th), sn = Math.sin(th), ov = 8;
           const rot = pts => pts.map(([x, y]) => [r1(X1 + (x - X1) * cs - (y - T) * sn), r1(T + (x - X1) * sn + (y - T) * cs)]);
@@ -178,7 +183,7 @@ module.exports = (h) => {
           // cavité : vide, ouverte vers le bas
           const cav = `M${P(7, 44)} C${P(14, 32)} ${P(18, 14)} ${P(15, 2)} C${P(12, -6)} ${P(5, -8)} ${P(0, -8)}`
             + ` C${P(-5, -8)} ${P(-12, -6)} ${P(-15, 2)} C${P(-18, 14)} ${P(-14, 32)} ${P(-7, 44)} Z`;
-          out.push(h.path(cav, h.a.blanc));
+          out.push(h.path(cav, h.a.loin));   // la cavité, vide : on voit l'intérieur, en gris loin
           out.push(h.path(`M${P(-2.5, -45)} L${P(0, -63)} L${P(2.5, -45)} Z`, blanc(h.a.arete)));
           const chair = `M${P(0, -46)} C${P(18, -44)} ${P(29, -20)} ${P(28, 2)} C${P(27, 22)} ${P(20, 38)} ${P(13, 46)}`
             + ` L${P(7, 44)} C${P(14, 32)} ${P(18, 14)} ${P(15, 2)} C${P(12, -6)} ${P(5, -8)} ${P(0, -8)}`

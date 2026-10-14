@@ -1,6 +1,10 @@
 // Planche 76-05 — Le bac de salage en coupe (ch. 71, procédure E, point 3, et variante « Le bac,
 // la claie, le poids, sans rien d'acheté »). Aucune cote : le chapitre ne donne aucune dimension
 // du bac ; l'échelle est portée par la truite elle-même.
+// La charte : le bac du haut et sa pile portent le trait fort ; le bac du bas, secondaire, passe au
+// trait moyen. L'intérieur des deux bacs, vu par la coupe, en gris loin : les pièces et le linge
+// restent blancs devant. Pas de gris sur les parois hachurées. Le rouge : un trou du fond percé,
+// le point qui décide (la saumure sort au lieu de baigner les pièces). Pas de geste.
 module.exports = (h) => {
   // ── Bac du haut : boîte de bois, fond percé ──
   const B = { x0: 135, x1: 465, haut: 34, fond: 136, ep: 10 };  // extérieur ; fond = dessous de la planche
@@ -30,7 +34,7 @@ module.exports = (h) => {
   const piece = i => {
     const bas = xs.map(x => [x, c[i](x)]);
     const haut = xs.map(x => [x, c[i + 1](x)]).reverse();
-    return h.chemin(bas.concat(haut), h.a.arete, true);
+    return h.chemin(bas.concat(haut), h.a.blanc, true) + '\n' + h.chemin(bas.concat(haut), h.a.arete, true);
   };
   // la peau : une rangée d'écailles le long du bord extérieur de chaque pièce
   const doublurePeau = (i, T = (x, y) => [x, y]) => {
@@ -131,13 +135,16 @@ module.exports = (h) => {
     vues: {
       coupe: {
         dessin: z => [
+          // l'intérieur des bacs, vu par la coupe : le fond de la boîte, derrière
+          h.rect(S.x0 + S.ep, S.rebord, S.x1 - S.x0 - 2 * S.ep, S.saumure - S.rebord, h.a.loin),
+          h.rect(B.x0 + B.ep, B.haut, B.x1 - B.x0 - 2 * B.ep, B.fond - B.ep - B.haut, h.a.loin),
           // bac du bas
           h.rect(S.x0, S.rebord, S.ep, S.fond - S.rebord, h.a.hachure('bois')),
           h.rect(S.x1 - S.ep, S.rebord, S.ep, S.fond - S.rebord, h.a.hachure('bois')),
           h.rect(S.x0 + S.ep, S.fond - S.ep, S.x1 - S.x0 - 2 * S.ep, S.ep, h.a.hachure('bois')),
           h.rect(S.x0 + S.ep, S.saumure, S.x1 - S.x0 - 2 * S.ep, S.fond - S.ep - S.saumure, h.a.hachure('eau')),
           h.ligne(S.x0 + S.ep, S.rebord, S.x1 - S.ep, S.rebord, h.a.arete),        // rebord du fond, derrière
-          h.chemin([[S.x0, S.rebord], [S.x0, S.fond], [S.x1, S.fond], [S.x1, S.rebord]], h.a.contour),
+          h.chemin([[S.x0, S.rebord], [S.x0, S.fond], [S.x1, S.fond], [S.x1, S.rebord]], h.a.arete),
           // les deux bâtons, en bout
           ...batons.flatMap(x => [
             h.cercle(x, S.rebord - r, r, h.a.blanc),
@@ -169,6 +176,8 @@ module.exports = (h) => {
           goutte(300, 141), goutte(300, 172),
           goutte(360, 156), goutte(360, 186),
           goutte(428, 141), goutte(428, 178),
+          // le point qui décide : la saumure sort par le fond, elle ne baigne pas les pièces
+          h.controle(trous[2], B.fond - B.ep / 2, 13),
           // la pile éclatée
           ...[0, 1, 2, 3].map(pieceE),
           ...serre(0), ...serre(1),

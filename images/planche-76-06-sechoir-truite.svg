@@ -10,6 +10,7 @@
 <rect x="0" y="0" width="680" height="826" fill="#FFFFFF"/>
 <text x="40" y="38" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#1A1A1A">En élévation, toile de la porte arrachée</text>
 <g transform="translate(40 46)" data-vue="elevation">
+<rect x="68.5" y="55" width="152" height="198" fill="#E6E6E6" stroke="none"/>
 <rect x="59.5" y="100" width="170" height="4" fill="#FFFFFF" stroke="none"/>
 <rect x="59.5" y="100" width="170" height="4" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M 62.5,100 C 62.5,96 67.5,94 73.5,95 Q 76.5,97 79.5,95 C 85.5,94 90.5,96 90.5,100 Z" fill="#FFFFFF" stroke="none"/>
@@ -212,6 +213,7 @@
 <path d="M 12,130 C 40,130 84.5,125 119.5,127 S 174.5,135 206.5,130 L 277,130" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="5 3.5" marker-end="url(#fl)"/>
 <path d="M 12,190 C 40,190 84.5,185 119.5,187 S 174.5,195 206.5,190 L 277,190" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="5 3.5" marker-end="url(#fl)"/>
 <path d="M 12,247 C 40,247 84.5,242 119.5,244 S 174.5,252 206.5,247 L 277,247" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="5 3.5" marker-end="url(#fl)"/>
+<circle cx="205.5" cy="212" r="13" fill="none" stroke="#9B2C1E" stroke-width="1.6"/>
 <rect x="18" y="324" width="253" height="7" fill="url(#h-terre)" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round"/>
 <line x1="18" y1="324" x2="271" y2="324" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 </g>
@@ -314,14 +316,17 @@
 <path d="M 278.5,101 Q 285.05,108 288.28,104" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M 274.5,120 Q 267.95,127 268.14,123" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M 278.5,120 Q 285.05,127 284.86,123" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="252" cy="84" r="12" fill="none" stroke="#9B2C1E" stroke-width="1.6"/>
 </g>
 <text x="408.8" y="422.4" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#1A1A1A">Détail : la ligature en croix</text>
 <g transform="translate(408.8 430.4)" data-vue="ligature">
 <path d="M 85,6 C 87,70 84,150 85,220 L 139,220 C 140,150 137,70 139,6 Z" fill="#FFFFFF" stroke="none"/>
+<path d="M 124,6 L 139,6 C 137,70 140,150 139,220 L 124,220 Z" fill="#CFCFCF" stroke="none"/>
 <path d="M 85,6 C 87,70 84,150 85,220 L 139,220 C 140,150 137,70 139,6 Z" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
 <line x1="124" y1="8" x2="124" y2="218" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
 <line x1="97" y1="120" x2="97" y2="200" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M 8,74 C 70,73 160,75 224,74 L 224,110 C 160,111 70,109 8,110 Z" fill="#FFFFFF" stroke="none"/>
+<path d="M 8,98 L 224,98 L 224,110 C 160,111 70,109 8,110 Z" fill="#CFCFCF" stroke="none"/>
 <path d="M 8,74 C 70,73 160,75 224,74 L 224,110 C 160,111 70,109 8,110 Z" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
 <line x1="10" y1="98" x2="222" y2="98" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M 100.0,168.0 L 100.0,98.0" fill="none" stroke="#1A1A1A" stroke-width="5.4" stroke-linecap="butt" stroke-linejoin="round"/>

@@ -1446,7 +1446,25 @@ function dessiner(o, prep = null) {
       }
       if (dev) devantObjet.add(i);
     });
-    if (process.env.MAINS_DBG_OBJ) pieces.forEach((P, i) => { if (P.surObjet) console.error(P.id, 'part', P.partObjet.toFixed(3), devantObjet.has(i) ? 'DEVANT' : 'derriere'); });
+    // une phalange qui ne fait qu'effleurer le bord de l'objet (moins de 12 % de son aire dessus) suit, pour la
+    // peinture, sa voisine du même doigt qui y est franchement : sinon le doigt change de côté à l'articulation,
+    // au ras du bord, et la couche de devant y fait une marche (agent 5, M12 : l'index de prise-pouce-dos de
+    // profil, qui passe derrière le manche après une P1 peinte devant ; M13 : la P1 derrière la face coupée de
+    // prise-grosse, sous une P2 devant, une encoche dans le bord de la face). Devant → derrière : la phalange
+    // n'est plus repeinte sur l'objet, mais le doigt reste « devant » pour le gris (il fait le tour, il reste blanc).
+    if (!imposes && !process.env.MAINS_SANS_BASCULE) {
+      const parId = new Map(pieces.map((P, i) => [P.id, i]));
+      const voisins = id => { const m = /^(\w+)\.p(\d)$/.exec(id); if (!m) return []; const k = +m[2]; return [k - 1, k + 1].map(j => parId.get(`${m[1]}.p${j}`)).filter(j => j !== undefined); };
+      const bascule = [];
+      pieces.forEach((P, i) => {
+        if (!P.surObjet || P.partObjet >= 0.12) return;
+        let v = null;
+        for (const j of voisins(P.id)) { const Q = pieces[j]; if (Q.surObjet && !Q.partDevant && Q.partObjet > Math.max(0.1, 1.8 * P.partObjet) && (!v || Q.partObjet > pieces[v].partObjet)) v = j; }
+        if (v !== null && devantObjet.has(v) !== devantObjet.has(i)) bascule.push([i, devantObjet.has(v)]);
+      });
+      for (const [i, dev] of bascule) { if (dev) devantObjet.add(i); else pieces[i].pasRepeinte = true; }
+    }
+    if (process.env.MAINS_DBG_OBJ) pieces.forEach((P, i) => { if (P.surObjet) console.error(P.id, 'part', P.partObjet.toFixed(3), devantObjet.has(i) ? 'DEVANT' : 'derriere', P.pasRepeinte ? '(pas repeinte)' : ''); });
   }
   // ── les doigts entiers (groupes) : leur contour, leurs sphères, l'ordre entre eux ──
   const groupes = new Map();
@@ -1699,7 +1717,7 @@ function dessiner(o, prep = null) {
   let patch = null;
   if (ob && ob.region.length) {
     patch = { dansMain: inter(ob.region, U), parMarge: new Map(), regDev: null };
-    const dev = [...devantObjet];
+    const dev = [...devantObjet].filter(i => !pieces[i].pasRepeinte);
     if (dev.length) {
       patch.regDev = unionCL(dev.map(i => pieces[i].partDevant || pieces[i].region));
       patch.tDev = lignesDans(traits.flat(), decale(patch.regDev, -0.2));

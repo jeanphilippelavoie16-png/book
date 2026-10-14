@@ -46,6 +46,9 @@ module.exports = (h) => {
         dessin: z => {
           const cyF = f(z.h * 0.28), cyC = f(z.h * 0.74);
           const out = [];
+          // le dessous du manche (un tuyau), à l'ombre, peint avant tout le reste
+          out.push(h.rect(X0, cyF + R * 0.35, XM - X0, R * 0.65, h.a.ombre));
+          out.push(h.rect(X0, cyC + R * 0.35, XM - X0, R * 0.65, h.a.ombre));
           // ── de face : on regarde le côté du biseau
           const W = 9, WT = 13;
           out.push(blanc(`M ${P([[XM, cyF - W], [XB - 30, cyF - W], [XT, cyF - WT], [XT, cyF + WT], [XB - 30, cyF + W], [XM, cyF + W]])} Z`));
@@ -103,7 +106,8 @@ module.exports = (h) => {
           const pt = (a, b) => [c[0] + u[0] * a + n[0] * b, c[1] + u[1] * a + n[1] * b];
           out.push(blanc(`M ${P([pt(-12, -19), pt(12, -19), pt(12, 19), pt(-12, 19)])} Z`));
           out.push(blanc(`M ${P([pt(12, -4), pt(108, -3), pt(108, 5), pt(12, 6)])} Z`, h.a.arete));
-          out.push(h.fleche(`M ${P([pt(-34, 26), pt(-34, -8)])}`));
+          // le geste : frapper le bout chauffé, dessus seulement
+          out.push(h.geste(`M ${P([pt(-34, 26), pt(-34, -8)])}`));
           return out.join('\n');
         },
         renvois: z => {
@@ -129,7 +133,8 @@ module.exports = (h) => {
           out.push(blanc(`M ${P([pt(-70, 0), pt(160, 0), pt(160, 9), pt(-70, 9)])} Z`));
           out.push(blanc(`M ${P([pt(-70, 2.5), pt(-104, 3.5), pt(-104, 5.5), pt(-70, 6.5)])} Z`, h.a.arete));
           for (let s = -62; s < 156; s += 7) out.push(h.chemin([pt(s, 1), pt(s + 5, 8)], h.a.fin));
-          out.push(h.fleche(`M ${P([pt(-20, 24), pt(70, 24)])}`));
+          // le geste : la lime poussée sur le biseau, vers le fil
+          out.push(h.geste(`M ${P([pt(-20, 24), pt(70, 24)])}`));
           return out.join('\n');
         },
         renvois: z => {

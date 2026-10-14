@@ -167,7 +167,8 @@ function paume() {
 //     (il ressortait en boîte entre le pouce et la paume, ou longeait l'avant-bras : « une planchette attachée
 //     au bras », agent 5, P3) ; objet.loin = n (mm) : le manche va jusqu'à n mm derrière la face loin des doigts
 //     qui l'entourent ; objet.loin = false : toute sa longueur.
-//   objetDeVue(objet, sq, M, { demiAxes, F }) → null (l'objet est dans le plan de la vue : rien à couper) ou
+//   objetDeVue(objet, sq, M, { demiAxes, F }) → null (l'objet est dans le plan de la vue, ou c'est un fil de
+//     moins de 8 mm, qui reste un trait ou un point : rien à couper) ou
 //     { objet: le cylindre raccourci (même axe ; bouts : la face coupée et le bout loin),
 //       coupe: { centre: [x, y, z] (repère de la main), axe, r } (la face coupée, à dessiner hachurée) }
 //   M : la matrice de la vue (3 × 3, la 3e ligne est la profondeur, l'œil du côté des petites).

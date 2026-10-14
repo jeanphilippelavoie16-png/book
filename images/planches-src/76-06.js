@@ -1,6 +1,11 @@
 // Planche 76-06 — Le séchoir à truite (ch. 71, section G et section 9).
 // Aucune dimension du séchoir n'est donnée au chapitre : pas de cote. L'échelle est portée
 // par la truite ouverte, objet connu, et par le rapport claie / poisson du tableau Matériel.
+// La charte : en élévation, l'intérieur vu par la porte ouverte en gris loin, les claies et les
+// truites blanches devant. Au détail, la face de droite de la perche et le dessous de la baguette
+// à l'ombre. La coupe et la claie vue de dessus restent sans gris. Le rouge : deux points à
+// contrôler, la toile qui ne touche pas la chair (coupe) et le vide entre deux pièces (claie).
+// Les flèches d'air restent noires ; pas de geste.
 module.exports = (h) => {
   // Trois claies, même hauteur en élévation et en coupe.
   const NIV = [100, 160, 220];
@@ -59,6 +64,8 @@ module.exports = (h) => {
         dessin: z => {
           const cx = z.l / 2, X0 = cx - 95, X1 = cx + 95, yg = z.h - 16;
           const out = [];
+          // le fond du séchoir, vu par la porte ouverte
+          out.push(h.rect(cx - 76, 55, 152, 198, h.a.loin));
           // intérieur : claies de face, truites de bout
           for (const L of NIV) {
             out.push(h.rect(cx - 85, L, 170, 4, h.a.blanc), h.rect(cx - 85, L, 170, 4, h.a.arete));
@@ -161,6 +168,8 @@ module.exports = (h) => {
               `S ${cx + 30},${y0 + 5} ${cx + 62},${y0} L ${z.l - 12},${y0}`;
             out.push(h.fleche(d, h.a.cache));
           }
+          // le point à contrôler : la toile ne touche pas la chair
+          out.push(h.controle(cx + 61, NIV[2] - 8, 13));
           out.push(sol(z));
           return out.join('\n');
         },
@@ -193,6 +202,8 @@ module.exports = (h) => {
           }
           // cinq truites, un vide entre chacune
           for (let i = 0; i < 5; i++) out.push(dessus(56 + 24.5 + i * 49, 30, 144, 19));
+          // le point à contrôler : les pièces ne se touchent pas
+          out.push(h.controle(252, 84, 12));
           return out.join('\n');
         },
         renvois: z => [
@@ -232,9 +243,15 @@ module.exports = (h) => {
           const bag = `M 8,${cy - RH} C 70,${cy - RH - 1} 160,${cy - RH + 1} 224,${cy - RH} L 224,${cy + RH} ` +
             `C 160,${cy + RH + 1} 70,${cy + RH - 1} 8,${cy + RH} Z`;
           out.push(
-            h.path(perche, h.a.blanc), h.path(perche, h.a.contour),
+            h.path(perche, h.a.blanc),
+            // la face de droite de la perche, à l'ombre
+            h.path(`M ${cx + 12},6 L ${cx + RV},6 C ${cx + RV - 2},70 ${cx + RV + 1},150 ${cx + RV},220 L ${cx + 12},220 Z`, h.a.ombre),
+            h.path(perche, h.a.contour),
             h.ligne(cx + 12, 8, cx + 12, 218, h.a.detail), h.ligne(cx - 15, 120, cx - 15, 200, h.a.fin),
-            h.path(bag, h.a.blanc), h.path(bag, h.a.contour),
+            h.path(bag, h.a.blanc),
+            // le dessous de la baguette, à l'ombre
+            h.path(`M 8,${cy + 6} L 224,${cy + 6} L 224,${cy + RH} C 160,${cy + RH + 1} 70,${cy + RH - 1} 8,${cy + RH} Z`, h.a.ombre),
+            h.path(bag, h.a.contour),
             h.ligne(10, cy + 6, 222, cy + 6, h.a.detail),
           );
           // départ : cabestan sur la perche, sous la baguette ; bout court remonté sous les tours

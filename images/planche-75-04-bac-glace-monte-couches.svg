@@ -371,6 +371,8 @@
 <line x1="108.1" y1="95.5" x2="108.1" y2="107.2" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="5 3.5"/>
 <circle cx="108.1" cy="54.7" r="7" fill="#ffffff" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <line x1="108.1" y1="54.7" x2="112.1" y2="49.7" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="108.1" cy="107.2" r="9" fill="none" stroke="#9B2C1E" stroke-width="1.6"/>
+<circle cx="377" cy="171" r="10" fill="none" stroke="#9B2C1E" stroke-width="1.6"/>
 <path d="M30 10.3 L381.1 47.2 L379.4 63.1 L28.3 26.2 Z" fill="url(#h-isolant)" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round"/>
 <path d="M26.4 5.9 L385.5 43.7 L385 47.6 L26 9.9 Z" fill="url(#h-bois)" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round"/>
 <path d="M24.4 25.8 L383.4 63.6 L383 67.5 L23.9 29.8 Z" fill="url(#h-bois)" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round"/>
@@ -580,7 +582,7 @@
 <path d="M111.5 166 L121.1 164.2 L121.8 170.5 L109 171.9 Z" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M124.3 164.2 L135.9 165.5 L135.9 171.5 L125 170.5 Z" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
 <line x1="128" y1="166.7" x2="131.3" y2="165.6" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M79,138 C86,126 90,108 87,96 C84,88 77,86 72,86 C67,86 60,88 57,96 C54,108 58,126 65,138 Z" fill="#FFFFFF" stroke="none"/>
+<path d="M79,138 C86,126 90,108 87,96 C84,88 77,86 72,86 C67,86 60,88 57,96 C54,108 58,126 65,138 Z" fill="#E6E6E6" stroke="none"/>
 <path d="M69.5,49 L72,31 L74.5,49 Z" fill="#ffffff" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M72,48 C90,50 101,74 100,96 C99,116 92,132 85,140 L79,138 C86,126 90,108 87,96 C84,88 77,86 72,86 C67,86 60,88 57,96 C54,108 58,126 65,138 L59,140 C52,132 45,116 44,96 C43,74 54,50 72,48 Z" fill="#ffffff" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
 <circle cx="72" cy="70" r="4.5" fill="#1A1A1A" stroke="none"/>

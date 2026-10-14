@@ -3,6 +3,10 @@
 // Quatre vues : la coupe en long, fermée, sur sa cale, avec les cruches gelées ; le drain au
 // point bas, agrandi ; l'éclaté du montage ; le bord du couvercle, agrandi.
 // Seule cote : « une main », la seule mesure que le chapitre donne.
+// La charte : le dedans de la caisse (coupe) et des caisses ouvertes (éclaté) en gris loin ; la
+// face de droite des caisses et du couvercle à l'ombre (pas sur le cadre de lattes, trop mince).
+// Le rouge : la cheville qu'on tire, et le trou à ras du plancher. Les pièces qui descendent à leur
+// place et l'eau restent en noir.
 module.exports = (h) => {
   const r1 = v => Math.round(v * 10) / 10;
   const blanc = t => t.replace('fill="none"', 'fill="#ffffff"');
@@ -66,7 +70,7 @@ module.exports = (h) => {
     o.push(R(X0, G - p, L, p, bois), R(X0, T, p, G - p - T, bois), R(X1 - p, T, p, G - p - T, bois));
     // caisse intérieure : fond sous les parois, deux bouts, le dedans vide
     o.push(R(xa - p, Fi, xb - xa + 2 * p, p, bois));
-    o.push(R(xa, T, xb - xa, Fi - T, h.a.blanc));
+    o.push(R(xa, T, xb - xa, Fi - T, h.a.loin));   // le dedans, vu par la coupe : en gris loin
     o.push(R(xa - p, T, p, Fi - T, bois), R(xb, T, p, Fi - T, bois));
     // les lattes qui ferment le vide par le haut
     o.push(R(X0, T - p, 2 * p + g, p, bois), R(X1 - 2 * p - g, T - p, 2 * p + g, p, bois));
@@ -148,7 +152,9 @@ module.exports = (h) => {
     const chev = [[t0, yc - 4.5], [t1, yc - r], [t2, yc - 11], [t2 + 4, yc - 7], [t2 + 4, yc + 7], [t2, yc + 11], [t1, yc + r], [t0, yc + 4.5]];
     o.push(ferme(chev, bois), ferme(chev, h.a.arete));
     // on la tire
-    o.push(h.fleche(`M${xe + 8},${r1(yc + 26)} L${xe + 44},${r1(yc + 26)}`));
+    o.push(h.geste(`M${xe + 8},${r1(yc + 26)} L${xe + 44},${r1(yc + 26)}`));
+    // le point qui décide : le bas du trou à ras du plancher, sinon l'eau reste au fond
+    o.push(h.controle(xa, r1(Fi - 2), 12));
     // ruptures
     o.push(rupture(xa - 4, y0, xe + 4, y0));
     o.push(rupture(8, Fi - 8, 8, Gs));
@@ -189,12 +195,16 @@ module.exports = (h) => {
     const caisse = (x0, y0, z0, L, D, H) => {
       const x1 = x0 + L, y1 = y0 + D, z1 = z0 + H, s = [];
       s.push(quad(P(x0, y0, z1), P(x1, y0, z1), P(x1, y1, z1), P(x0, y1, z1), blanc(h.a.arete)));
-      s.push(quad(P(x0 + t, y0 + t, z1), P(x1 - t, y0 + t, z1), P(x1 - t, y1 - t, z1), P(x0 + t, y1 - t, z1), blanc(h.a.arete)));
+      // le dedans, vu par l'ouverture : en gris loin
+      s.push(quad(P(x0 + t, y0 + t, z1), P(x1 - t, y0 + t, z1), P(x1 - t, y1 - t, z1), P(x0 + t, y1 - t, z1), h.a.loin));
+      s.push(quad(P(x0 + t, y0 + t, z1), P(x1 - t, y0 + t, z1), P(x1 - t, y1 - t, z1), P(x0 + t, y1 - t, z1), h.a.arete));
       // l'arête du coin du fond, vue par l'ouverture jusqu'au rebord avant
       const cf = P(x0 + t, y1 - t, z1);
       s.push(ouvert([cf, [cf[0], r1(cf[1] + (P(0, y0 + t, z1)[1] - P(0, y1 - t, z1)[1]))]], h.a.detail));
       s.push(quad(P(x0, y0, z0), P(x1, y0, z0), P(x1, y0, z1), P(x0, y0, z1), blanc(h.a.arete)));
-      s.push(quad(P(x1, y0, z0), P(x1, y1, z0), P(x1, y1, z1), P(x1, y0, z1), blanc(h.a.arete)));
+      // la face de droite, à l'ombre
+      s.push(quad(P(x1, y0, z0), P(x1, y1, z0), P(x1, y1, z1), P(x1, y0, z1), h.a.ombre));
+      s.push(quad(P(x1, y0, z0), P(x1, y1, z0), P(x1, y1, z1), P(x1, y0, z1), h.a.arete));
       for (const f of [1 / 3, 2 / 3]) {
         const zz = z0 + H * f;
         s.push(ouvert([P(x0, y0, zz), P(x1, y0, zz), P(x1, y1, zz)], h.a.fin));
@@ -235,7 +245,8 @@ module.exports = (h) => {
     const Lc = Lo + 2 * ov, Dc = Do + 2 * ov, Hc = 2 * t + gg, zc1 = zc + Hc;
     o.push(quad(P(-ov, -ov, zc1), P(Lo + ov, -ov, zc1), P(Lo + ov, Do + ov, zc1), P(-ov, Do + ov, zc1), blanc(h.a.arete)));
     o.push(quad(P(-ov, -ov, zc), P(Lo + ov, -ov, zc), P(Lo + ov, -ov, zc1), P(-ov, -ov, zc1), blanc(h.a.arete)));
-    o.push(quad(P(Lo + ov, -ov, zc), P(Lo + ov, Do + ov, zc), P(Lo + ov, Do + ov, zc1), P(Lo + ov, -ov, zc1), blanc(h.a.arete)));
+    o.push(quad(P(Lo + ov, -ov, zc), P(Lo + ov, Do + ov, zc), P(Lo + ov, Do + ov, zc1), P(Lo + ov, -ov, zc1), h.a.ombre));
+    o.push(quad(P(Lo + ov, -ov, zc), P(Lo + ov, Do + ov, zc), P(Lo + ov, Do + ov, zc1), P(Lo + ov, -ov, zc1), h.a.arete));
     for (const f of [1 / 4, 2 / 4, 3 / 4]) o.push(ouvert([P(-ov, -ov + Dc * f, zc1), P(Lo + ov, -ov + Dc * f, zc1)], h.a.fin));
     o.push(ouvert([P(-ov, -ov, zc + t), P(Lo + ov, -ov, zc + t), P(Lo + ov, Do + ov, zc + t)], h.a.fin));
     o.push(ouvert([P(-ov, -ov, zc1 - t), P(Lo + ov, -ov, zc1 - t), P(Lo + ov, Do + ov, zc1 - t)], h.a.fin));

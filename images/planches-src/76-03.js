@@ -2,6 +2,8 @@
 // Poisson déjà vidé (ch. 70) : il se travaille sur le dos, ventre ouvert, la lame entre par la
 // cavité, à plat contre l'arête, jusqu'à la peau du dos sans la percer. La peau du dos fait la
 // charnière ; la feuille s'étale peau dessous et l'arête sort d'une pièce.
+// La charte : en coupe, la cavité ouverte en gris loin. Le rouge : la lame qui court le long du
+// dos, la pointe qui s'arrête avant la peau, l'arête qu'on lève.
 
 const f = n => n.toFixed(1);
 
@@ -125,7 +127,7 @@ module.exports = (h) => ({
         // le trajet de la lame, le long du dos, jusqu'à la queue
         const traj = [];
         for (let u = 0.47; u <= 0.841; u += 0.0925) traj.push(P(u, 0.55 * interp(DOS, u)));
-        out.push(h.fleche(lisse(traj), h.a.arete));
+        out.push(h.geste(lisse(traj)));   // le geste : la lame court le long du dos
 
         // le couteau : entre par la fente, pointe contre l'arête, vers le dos
         const E = P(0.2, interp(VENTRE, 0.2)), T = P(0.42, 0.066);
@@ -171,6 +173,8 @@ module.exports = (h) => ({
           [-0.06, 0.065], [0, 0.075], [0.06, 0.065], [0.12, 0.03], [0.155, -0.04], [0.165, -0.15], [0.15, -0.26],
           [0.11, -0.36], [0.062, -0.43]];
         const e = ext.map(([x, y]) => Q(x, y)), i = int.map(([x, y]) => Q(x, y));
+        // la cavité du ventre, ouverte : on voit dedans, en gris loin
+        out.push(h.path(lisse(i) + ' Z', h.a.loin));
         out.push(h.path(lisse(e) + ` L ${i[0].map(f).join(' ')}` + suite(i) + ' Z', blancTrait(h, 'contour')));
         // chair : cloison horizontale et myomères
         out.push(h.ligne(...Q(-0.04, 0.15), ...Q(-0.232, 0.12), h.a.detail));
@@ -189,6 +193,8 @@ module.exports = (h) => ({
         // la lame, vue par la tranche, à plat contre l'arête ; le fil s'arrête avant la peau du dos
         const xa = -0.042, ep = 0.026;
         out.push(h.chemin([Q(xa - ep, -0.6), Q(xa, -0.6), Q(xa, 0.4), Q(xa - ep / 2, 0.445), Q(xa - ep, 0.4)], h.a.plein, true));
+        // le point à vérifier : la pointe s'arrête avant la peau du dos
+        out.push(h.controle(...Q(xa - ep / 2, 0.47), 0.05 * S));
         return out.join('\n');
       },
       renvois: z => {
@@ -231,7 +237,7 @@ module.exports = (h) => ({
         out.push(h.ligne(X, vy + rv, X, vy + rv + 0.22 * s, h.a.arete));
         for (const sx of [-1, 1])
           out.push(h.path(lisse([[X + sx * rv * 0.9, vy - rv * 0.4], [X + sx * 0.1 * s, vy - 0.07 * s], [X + sx * 0.13 * s, vy - 0.17 * s]]), h.a.arete));
-        out.push(h.fleche(`M ${f(X + 0.3 * s)} ${f(yb - t - 0.12 * s)} L ${f(X + 0.3 * s)} ${f(yb - t - 0.5 * s)}`, h.a.arete));
+        out.push(h.geste(`M ${f(X + 0.3 * s)} ${f(yb - t - 0.12 * s)} L ${f(X + 0.3 * s)} ${f(yb - t - 0.5 * s)}`));   // on lève l'arête
         return out.join('\n');
       },
       renvois: z => {
