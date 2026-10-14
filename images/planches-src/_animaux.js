@@ -270,7 +270,139 @@ function canard(h, o = {}) {
   return Object.assign({ svg, toString() { return svg; } }, geo);
 }
 
+// ─── le lagopède des saules, en plumage d'hiver ───────────────────────────────────────────
+// La silhouette est calquée sur le tétras du Canada mâle de Fuertes (pl. 41, Birds of New York,
+// 1910, domaine public ; images/photos/lot5/45-04a-gelinotte-tetras-fuertes-pl41.jpg) : même
+// famille, même gabarit. Masque de couleur (l'oiseau foncé sur le fond crème), contour relevé en
+// points clés ; les pattes et la branche sont retirées, le dessous du ventre refermé à la main.
+// Ce qui change pour le lagopède d'hiver, et rien d'autre : tout blanc (la silhouette blanche du
+// livre), et les pieds emplumés jusqu'aux doigts, en raquettes (ch. 43). Le corps se penche vers
+// l'avant (o.angle) : le tétras de la planche se tient droit, le lagopède qui passe la tête dans
+// une ouverture la tend devant lui.
+// Points en pixels de la planche (y vers le bas, la bête regarde à droite) ; 786 px de la queue
+// au bec = 380 mm (l'ordre de grandeur ; rien ne s'imprime).
+const TETRAS_PL = {
+  corps: [[551, 960], [502, 943], [480, 926], [448, 915], [356, 891], [299, 864], [237, 862], [205, 850], [190, 825],
+    [156, 816], [140, 802], [131, 770], [136, 748], [161, 734], [226, 738], [303, 737], [402, 720], [473, 694], [529, 660],
+    [611, 572], [696, 493], [727, 458], [742, 418], [741, 332], [749, 293], [761, 272], [782, 247], [817, 229], [849, 234],
+    [875, 247], [902, 252], [915, 263, 'c'], [894, 277], [878, 307], [861, 335], [855, 360], [871, 407], [905, 470], [921, 576],
+    [923, 676], [910, 752], [864, 829], [816, 887], [773, 921], [730, 940], [690, 962], [640, 972], [590, 968]],
+  aile: [[705, 640], [668, 745], [590, 835], [490, 895]],
+  bec: [[898, 250], [896, 264], [893, 279]],
+  oeil: [838, 272],
+  // le cou, sous la tête : la nuque et la gorge à la même hauteur le long du cou
+  nuque: [744, 330], gorge: [858, 345],
+  pattes: [[600, 966], [688, 962]],
+  ancre: [640, 965], mm: 380 / 786,
+};
+
+// o : x, y (vue) = le point sur la neige sous les pieds ; echelle (vue par mm) ; cote 'droite' (défaut,
+// il regarde vers +x) ou 'gauche' ; angle : le corps penché vers l'avant, en degrés (0 : droit
+// comme le tétras de la planche) ; pattes : hauteur des pattes sous le ventre, en mm ; trait (1,5).
+function lagopede(h, o = {}) {
+  const s = o.echelle || 0.4, m = o.cote === 'gauche' ? -1 : 1;
+  const X = o.x || 0, Y = o.y || 0;
+  const ep = o.trait || 1.5, epI = 0.7;
+  const C = TETRAS_PL, k = C.mm, a = -(o.angle || 0) * RAD, L = o.pattes == null ? 30 : o.pattes;
+  // pixels de la planche -> mm, y vers le haut, le ventre en 0, penché ; puis levé pour que le bas
+  // du corps soit à la hauteur des pattes
+  const tourne = ([x, y]) => { const u = (x - C.ancre[0]) * k, v = (C.ancre[1] - y) * k; return [u * Math.cos(a) - v * Math.sin(a), u * Math.sin(a) + v * Math.cos(a)]; };
+  const leve = L - Math.min(...C.corps.map(q => tourne(q)[1]));
+  const mm = ([x, y, c]) => { const q = tourne([x, y]); q[1] += leve; return c ? [q[0], q[1], c] : q; };
+  const Tm = p => [X + m * s * p[0], Y - s * p[1]];
+  const corps = lisser(cl(trace(C.corps.map(mm))), 0.8);
+  // Les pieds emplumés : une jambe courte et touffue, puis la raquette à plat sur la neige, les
+  // doigts emplumés jusqu'au bout ; l'un devant (blanc), l'autre derrière (gris loin).
+  const pied = (ancre, dx) => {
+    const b = mm(ancre), x0 = b[0] + dx;
+    const pts = [[b[0] - 13, b[1] + 8], [b[0] + 13, b[1] + 8], [x0 + 13, 20], [x0 + 30, 11], [x0 + 41, 5], [x0 + 39, 0, 'c'],
+      [x0 - 20, 0, 'c'], [x0 - 21, 7], [x0 - 14, 20]];
+    return cl(trace(pts));
+  };
+  const piedP = pied(C.pattes[1], 0), piedL = pied(C.pattes[0], -6);
+  const proche = lisser(M.ferme(U(corps, piedP), 3), 0.5);
+  const loin = M.moins(piedL, M.decale(proche, -0.4));
+  // le bec, noir : ce qui est devant la base du bec
+  const b0 = mm(C.bec[0]), b2 = mm(C.bec[2]), tip = mm([915, 263]);
+  const dB = [tip[0] - (b0[0] + b2[0]) / 2, tip[1] - (b0[1] + b2[1]) / 2];
+  const bec = M.inter(corps, cl([b0, b2, [b2[0] + 3 * dB[0], b2[1] + 3 * dB[1]], [b0[0] + 3 * dB[0], b0[1] + 3 * dB[1]]]));
+  const R = rendu({ echelle: s }, Tm);
+  const plumes = (base, dx) => { const b = mm(base), x0 = b[0] + dx; return [[[x0 - 10, 13], [x0 - 9, 5]], [[x0 + 2, 14], [x0 + 3, 5]], [[x0 + 14, 12], [x0 + 16, 4]], [[x0 + 26, 8], [x0 + 28, 3]]]; };
+  const out = [`<g data-animal="lagopede">`];
+  out.push(R.plein(loin, GRIS), R.bord(loin, ep));
+  if (o.derriere) out.push(o.derriere);
+  out.push(R.plein(proche, BLANC));
+  out.push(R.plein(bec, NOIR));
+  out.push(R.ligne([trace(C.aile.map(mm), false)], epI), R.ligne(plumes(C.pattes[1], 0), epI));
+  out.push(R.plein(cl(ellipse(mm(C.oeil), Math.max(2.6, 1.3 / s), Math.max(2.6, 1.3 / s), 0, 20)), NOIR));   // l'œil reste visible en petit
+  out.push(R.bord(proche, ep));
+  out.push('</g>');
+  const svg = out.filter(Boolean).join('\n');
+  const P = q => Tm(mm(q));
+  const geo = { nuque: P(C.nuque), gorge: P(C.gorge), oeil: P(C.oeil), bec: P([915, 263]), queue: P([131, 770]), sol: Y, echelle: s, miroir: m < 0 };
+  geo.cou = [(geo.nuque[0] + geo.gorge[0]) / 2, (geo.nuque[1] + geo.gorge[1]) / 2];
+  return Object.assign({ svg, toString() { return svg; } }, geo);
+}
+
+// ─── le chien, dressé sur ses pattes de derrière ──────────────────────────────────────────
+// Construit sans modèle (aucune planche de chien dans le dépôt), comme le lièvre : le squelette
+// d'abord (pied, jarret, grasset, hanche, épaule, coude, poignet), puis le contour tracé par points
+// clés, de profil. Un chien de taille moyenne, oreilles droites, la queue qui pend : dressé, les
+// pattes de devant appuyées sur une perche, la tête levée vers ce qui est au-dessus.
+// Repère en mm : x vers la perche, y vers le haut, l'origine au sol sous le pied de derrière.
+// o : x, y (vue) = ce point-là ; echelle (vue par mm) ; cote ; trait (1,5) ; loin (true : tout le
+// chien en gris loin, quand il ne sert que d'échelle) ; appui : [x, y] en mm, le haut de la perche
+// où posent les pattes de devant (défaut [400, 1050]).
+function chien(h, o = {}) {
+  const s = o.echelle || 0.1, m = o.cote === 'gauche' ? -1 : 1;
+  const X = o.x || 0, Y = o.y || 0;
+  const ep = o.trait || 1.5, epI = 0.7;
+  const Tm = p => [X + m * s * p[0], Y - s * p[1]];
+  const ap = o.appui || [400, 1050], dA = [ap[0] - 400, ap[1] - 1050];
+  const A = ([x, y, c]) => (c ? [x + dA[0], y + dA[1], c] : [x + dA[0], y + dA[1]]);   // ce qui suit l'appui
+  const CORPS = [
+    [48, 0, 'c'], [44, 16], [22, 34], [14, 60], [28, 150], [54, 250], [70, 300],          // le pied, le devant de la jambe, le grasset
+    [76, 350], [92, 420], [138, 520], [196, 640], [246, 740], [288, 812],                 // le ventre, la poitrine
+    [292, 880], [304, 970], [322, 1065], [344, 1140], [372, 1170],                        // le poitrail, la gorge, la mâchoire
+    [404, 1196, 'c'], [404, 1214], [394, 1226], [345, 1236], [300, 1250], [262, 1266],   // la truffe, le chanfrein, le front
+    [215, 1268], [176, 1240], [150, 1185], [118, 1090], [90, 995],                        // le crâne, la nuque, le cou
+    [64, 905], [26, 790], [-14, 660], [-50, 548], [-76, 468],                              // le dos, la croupe
+    [-92, 405], [-86, 330], [-66, 255], [-44, 175], [-36, 132, 'c'],                       // l'arrière de la cuisse, le jarret
+    [-36, 90], [-30, 36], [-30, 10], [-20, 0, 'c'],                                       // le canon, le talon
+  ];
+  // la patte de devant : bras, avant-bras, la main posée sur la perche
+  const patte = (dx, dy) => U(capsule([200 + dx, 900 + dy], [238 + dx, 806 + dy], 40, 30),
+    capsule([238 + dx, 806 + dy], A([368 + dx, 1012 + dy]), 26, 21), capsule(A([362 + dx, 1012 + dy]), A([402 + dx, 1052 + dy]), 22, 20));
+  const queue = cl(trace([[-70, 470], [-104, 430], [-140, 340], [-162, 240], [-170, 170], [-152, 150], [-128, 210], [-102, 300], [-72, 380], [-60, 440]]));
+  const OREILLE = [[214, 1258], [206, 1300], [204, 1345, 'c'], [232, 1310], [254, 1262]];
+  const OREILLE_L = [[236, 1262], [234, 1306], [238, 1350, 'c'], [262, 1312], [276, 1266]];
+  const corps = cl(trace(CORPS));
+  const proche = lisser(M.ferme(U(corps, patte(0, 0), cl(trace(OREILLE)), queue), 6), 1.5);
+  const loin = M.moins(U(patte(22, 26), cl(trace(OREILLE_L))), M.decale(proche, -0.4));
+  // traits intérieurs : le devant de la cuisse, le bras sur la poitrine, le creux de l'oreille
+  const cuisse = trace([[60, 430], [44, 360], [52, 300]], false);
+  const bras = M.bordsDans(patte(0, 0), M.decale(corps, -4));
+  const oreilleI = trace([[220, 1272], [216, 1300], [214, 1326]], false);
+  const truffe = cl(trace([[404, 1196], [406, 1214], [394, 1222], [386, 1210]]));
+  const bouche = trace([[392, 1192], [370, 1186], [350, 1180]], false);
+  const oeil = ellipse([306, 1236], 8, 5.5, 18, 24);
+  const R = rendu({ echelle: s }, Tm);
+  const out = [`<g data-animal="chien">`];
+  if (o.loin) {
+    out.push(R.plein(loin, GRIS), R.bord(loin, ep), R.plein(proche, GRIS));
+  } else {
+    out.push(R.plein(loin, GRIS), R.bord(loin, ep), R.plein(proche, BLANC));
+  }
+  out.push(R.ligne([cuisse, oreilleI, bouche], epI), R.ligne(bras, epI));
+  out.push(R.plein(truffe, NOIR), R.plein(cl(oeil), NOIR));
+  out.push(R.bord(proche, ep));
+  out.push('</g>');
+  const svg = out.filter(Boolean).join('\n');
+  const geo = { appui: Tm(ap), tete: Tm([300, 1268]), sol: Y, echelle: s, miroir: m < 0 };
+  return Object.assign({ svg, toString() { return svg; } }, geo);
+}
+
 // l'union de polygones (listes de points) : les contours qui en sortent, en listes de points
 const unir = polys => M.union(polys).map(P => M.deCL(P));
 
-module.exports = { lievre, canard, _outils: { ellipse, disque, capsule, bez, trace, lisser, rendu, unir } };
+module.exports = { lievre, canard, lagopede, chien, _outils: { ellipse, disque, capsule, bez, trace, lisser, rendu, unir } };

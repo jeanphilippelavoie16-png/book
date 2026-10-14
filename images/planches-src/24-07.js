@@ -8,6 +8,12 @@
 // touchée (corps). Le rouge : les orteils cerclés dans la vue de face, parce que c'est là que
 // l'encadré dit de regarder, couleur et chaleur, chaque nuit. Pas de geste ; les flèches de
 // l'enflure et du trait de coupe restent noires.
+//
+// La vue des bardeaux a été redessinée le 14 octobre 2026 : la jambe y était entièrement en tireté
+// et la bande de cuir remontait en un panneau arrondi qui se lisait comme une troisième planche.
+// La jambe est maintenant vue de face, debout sur la bande entre les deux bardeaux, avec ses
+// orteils ; le bardeau de droite en cache une partie. La bande de cuir est plus étroite, passe sous
+// les deux bardeaux et remonte à plat sur la face extérieure, coupée net, clouée de deux pointes.
 module.exports = (h) => {
   const f = v => Math.round(v * 10) / 10;
   const pt = p => `${f(p[0])} ${f(p[1])}`;
@@ -335,37 +341,41 @@ module.exports = (h) => {
     out.push(face([P(-50, 0, 0), P(-42, 0, 0), P(-42, YB, 0), P(-50, YB, 0)]));
     out.push(face([P(-50, YB, 0), P(-42, YB, 0), P(-42, YB, 100), P(-50, YB, 100)]));
     // la bande de cuir : le dessus, sous le talon, entre les bardeaux
-    out.push(face([P(-42, 0, 25), P(42, 0, 25), P(42, 0, 75), P(-42, 0, 75)]));
-    // la jambe, posée entre les deux : cachée en tireté, visible au-dessus des bardeaux
+    out.push(face([P(-42, 0, 33), P(42, 0, 33), P(42, 0, 67), P(-42, 0, 67)]));
+    // la jambe, debout entre les deux sur la bande, vue de face : elle passe devant le bardeau de
+    // gauche, le bardeau de droite la cache en partie
     const jg = gaucheF.filter(q => q[1] <= YB + 18).map(q => [q[0] * 0.95, q[1] + 3]);
     const jd = droiteF.filter(q => q[1] <= YB + 18).map(q => [q[0] * 0.95, q[1] + 3]);
     const PJ = q => P(q[0], q[1], 50);
     const jambe = jg.concat(jd.slice().reverse());
     out.push(h.path(trace(jambe.map(PJ), true), h.a.blanc));
-    const coupe = (Q, haut) => Q.filter(q => haut ? q[1] >= YB - 2 : q[1] <= YB + 2);
-    for (const Q of [jg, jd]) out.push(h.path(trace(coupe(Q, true).map(PJ)), h.a.contour));
+    for (const Q of [jg, jd]) out.push(h.path(trace(Q.map(PJ)), h.a.arete));
+    out.push(h.path(trace([jg[jg.length - 1], jd[jd.length - 1]].map(PJ)), h.a.arete));
+    for (const [x0, x1, top] of ORTEILS) {
+      const r = (x1 - x0) / 2 * 0.95, xm = (x0 + x1) / 2 * 0.95, a0 = x0 * 0.95, a1 = x1 * 0.95;
+      const Q = (x, y) => pt(PJ([x, y + 3]));
+      out.push(h.path(`M${Q(a0, 0)} L${Q(a0, top - r)} Q${Q(a0, top)} ${Q(xm, top)} Q${Q(a1, top)} ${Q(a1, top - r)} L${Q(a1, 0)}`, rempli(h.a.detail)));
+    }
     const [c0, c1] = [PJ(jg[0]), PJ(jd[0])];
     out.push(h.path(`M${pt(c0)} C${f(c0[0] + 14)} ${f(c0[1] - 6)} ${f(c0[0] + 22)} ${f(c0[1] + 6)} ${f((c0[0] + c1[0]) / 2)} ${f((c0[1] + c1[1]) / 2)} S${f(c1[0] - 9)} ${f(c1[1] - 6)} ${pt(c1)}`, h.a.detail));
-    const cache = [jg, jd].map(Q => h.path(trace(coupe(Q, false).map(PJ)), h.a.cache)).join('\n') + h.path(trace([jg[jg.length - 1], jd[jd.length - 1]].map(PJ)), h.a.cache);
     // bardeau de droite : tranche avant, face extérieure, bout scié (il cache la jambe)
     out.push(face([P(42, 0, 0), P(50, 0, 0), P(50, YB, 0), P(42, YB, 0)]));
     out.push(face([P(50, 0, 0), P(50, 0, 100), P(50, YB, 100), P(50, YB, 0)], ombre), grain(50, [16, 36, 56, 76, 90]));
     out.push(face([P(42, YB, 0), P(50, YB, 0), P(50, YB, 100), P(42, YB, 100)]));
-    // la bande de cuir : sa tranche, sous les deux bardeaux, puis collée à plat sur la face
-    // extérieure de droite, clouée de deux pointes ; de même à gauche, de l'autre côté
-    out.push(face([P(-50, -3, 25), P(53, -3, 25), P(53, 0, 25), P(-50, 0, 25)]));
-    out.push(face([P(53, -3, 25), P(53, -3, 75), P(53, 0, 75), P(53, 0, 25)]));
-    const [l0, l1, l2, l3, lm] = [P(50.4, 0, 25), P(50.4, 58, 25), P(50.4, 58, 75), P(50.4, 0, 75), P(50.4, 63, 50)];
-    out.push(h.path(`M${pt(l0)} L${pt(l1)} Q${pt(lm)} ${pt(l2)} L${pt(l3)} Z`, rempli(h.a.contour)));
-    for (const zz of [38, 62]) { const c = P(50.4, 44, zz); out.push(h.cercle ? h.cercle(c[0], c[1], 2.4, h.a.plein) : `<circle cx="${f(c[0])}" cy="${f(c[1])}" r="2.4" fill="#1A1A1A"/>`); }
-    out.push(cache);
+    // la bande de cuir : sa tranche, sous les deux bardeaux, puis remontée à plat sur la face
+    // extérieure de droite, coupée net et clouée de deux pointes ; de même à gauche, de l'autre côté
+    out.push(face([P(-50, -3, 33), P(53, -3, 33), P(53, 0, 33), P(-50, 0, 33)]));
+    out.push(face([P(53, -3, 33), P(53, -3, 67), P(53, 0, 67), P(53, 0, 33)]));
+    out.push(face([P(53, -3, 33), P(53, 62, 33), P(53, 62, 67), P(53, -3, 67)]));
+    out.push(face([P(50, 62, 33), P(53, 62, 33), P(53, 62, 67), P(50, 62, 67)]));
+    for (const yy of [22, 46]) { const c = P(53, yy, 50); out.push(h.cercle(c[0], c[1], 1.8, h.a.plein)); }
     return out.join('\n');
   };
 
   return {
     ref: '24-07',
     titre: 'L’étrier de cheville en écorce',
-    desc: 'L’attelle en U d’une cheville tordue, sur une jambe droite. De côté : la plaque d’écorce de bouleau moulée sur la face extérieure du mollet descend jusque sous le talon ; la bande élastique fait le tour de la cheville par derrière et redescend sous le pied. De face : une branche d’écorce de chaque côté, bombée sur le rembourrage des chevilles osseuses ; le devant de la jambe reste à découvert et la bande se croise en X sur le cou-de-pied ; le fond du U, caché sous le talon, ne montre que son épaisseur sous la semelle. En coupe à la hauteur des chevilles, vue de dessus, orteils vers le bas : l’os juste sous la peau, le rembourrage, l’écorce d’un côté et de l’autre seulement, la bande qui fait seule le tour, et l’enflure qui pousse par le devant ouvert. Faute d’écorce : deux bardeaux reliés par une bande de cuir qui passe sous le talon et remonte, clouée à plat, sur leur face extérieure ; la jambe, en tireté, est posée entre les deux.',
+    desc: 'L’attelle en U d’une cheville tordue, sur une jambe droite. De côté : la plaque d’écorce de bouleau moulée sur la face extérieure du mollet descend jusque sous le talon ; la bande élastique fait le tour de la cheville par derrière et redescend sous le pied. De face : une branche d’écorce de chaque côté, bombée sur le rembourrage des chevilles osseuses ; le devant de la jambe reste à découvert et la bande se croise en X sur le cou-de-pied ; le fond du U, caché sous le talon, ne montre que son épaisseur sous la semelle. En coupe à la hauteur des chevilles, vue de dessus, orteils vers le bas : l’os juste sous la peau, le rembourrage, l’écorce d’un côté et de l’autre seulement, la bande qui fait seule le tour, et l’enflure qui pousse par le devant ouvert. Faute d’écorce : deux bardeaux reliés par une bande de cuir qui passe sous le talon et remonte, clouée à plat, sur leur face extérieure ; la jambe, vue de face, est debout entre les deux sur la bande.',
     format: 'pleine',
     disposition: [['cote', 'face'], ['coupe', 'bardeaux']],
     hauteurs: [3.1, 2],
@@ -413,7 +423,7 @@ module.exports = (h) => {
         dessin: dessinBard,
         renvois: z => {
           const { P } = geoBard(z);
-          const [a, b, g] = [P(50, 130, 55), P(-18, 0, 58), P(-50, 0, 0)];
+          const [a, b, g] = [P(50, 130, 55), P(-24, 0, 38), P(-50, 0, 0)];
           return [
             { n: 11, rond: [a[0] + 52, a[1] - 20], cible: a, texte: 'un bardeau de chaque côté de la jambe' },
             { n: 12, rond: [g[0] - 24, b[1] + 2], cible: b, texte: 'bande de cuir qui les relie sous le talon' },

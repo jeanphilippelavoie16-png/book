@@ -5,6 +5,11 @@
 // Aucune mesure dans le chapitre : aucune cote. La vue du dehors et la coupe sont à la même échelle
 // (même ligne de neige, même boucle) ; la vue de dessus est plus petite.
 // L'attache n'est pas décrite : le fil est tourné sur la branche qui borde l'ouverture.
+// Le lagopède de la coupe vient de _animaux.js (lagopede) : la silhouette du tétras du Canada de
+// Fuertes (pl. 41), en blanc, les pieds emplumés ; la boucle est mise à la hauteur de son cou et à
+// sa taille, dans les deux vues de près.
+const A_ = require('./_animaux');
+
 module.exports = (h) => {
   const r = (n) => Math.round(n * 10) / 10;
   let graine = 4704;
@@ -118,7 +123,11 @@ module.exports = (h) => {
   };
 
   // ─── Les vues de près : même échelle, même neige, même boucle ─────────────────────────
-  const NEIGE = 205, BY = 140, BR = 20;
+  // Le lagopède (_animaux.js, lagopede) fixe la hauteur de la boucle : elle est au cou de l'oiseau
+  // qui marche, dans les deux vues. Il marche vers la droite, le cou dans le plan de la haie (XB).
+  const NEIGE = 205, XB = 176, ECH = 0.31, PENCHE = 16;
+  const essai = A_.lagopede(h, { x: 0, y: NEIGE, echelle: ECH, angle: PENCHE });
+  const BY = Math.round(essai.cou[1]), BR = 13, XL = XB - essai.cou[0];
 
   // Une branche de saule plantée : tige effilée qui ondule, piquée dans la neige, rameaux qui
   // montent. interdit : [x0, x1] où aucun rameau ne doit entrer (l'ouverture).
@@ -163,7 +172,7 @@ module.exports = (h) => {
   const face = (z) => {
     graine = 911;
     const o = [neigeSol(z)];
-    const cx = r(z.l / 2), g = cx - 28, d = cx + 28, gap = [g + 3, d - 3];
+    const cx = r(z.l / 2), g = cx - BR - 8, d = cx + BR + 8, gap = [g + 3, d - 3];
     for (let x = 6; x < z.l; x += 13) {
       const xx = x + entre(-2.5, 2.5);
       if (xx > g - 9 && xx < d + 9) continue;
@@ -186,41 +195,14 @@ module.exports = (h) => {
     return o.join('\n');
   };
 
-  // Le lagopède d'hiver, de profil, tourné vers la droite : tout blanc, la queue noire,
-  // les pieds emplumés d'où ne sortent que les griffes. La tête a passé la boucle.
-  const HX = 189, HY = 129, HR = 12;
-  const oiseau = () => {
-    const o = [];
-    // les pieds emplumés : de larges chaussons posés à plat, la patte presque cachée
-    [[114, 0], [140, 1]].forEach(([x]) => {
-      o.push(h.path(`M ${x - 6} 186 C ${x - 8} 196 ${x - 11} 201 ${x - 13} ${NEIGE} L ${x + 15} ${NEIGE} `
-        + `C ${x + 13} 201 ${x + 9} 196 ${x + 6} 186 Z`, blanc(h.a.arete)));
-      [-6, 0, 6].forEach((dx) => o.push(h.path(`M ${x + dx} 196 q 1 4 0 7`, h.a.fin)));
-      o.push(h.path(`M ${x + 13} ${NEIGE - 1} l 4 0.6 M ${x + 9} ${NEIGE - 1} l 4 0.6`, h.a.detail));
-    });
-    const a = (deg) => [r(HX + HR * Math.cos(deg * Math.PI / 180)), r(HY + HR * Math.sin(deg * Math.PI / 180))];
-    const nuque = a(218), gorge = a(132);
-    // dos arrondi, queue courte, poitrine pleine, cou court où passe la boucle, petite tête
-    o.push(h.path(`M ${nuque[0]} ${nuque[1]} C 170 120 156 110 134 111 C 110 112 92 118 82 128 `
-      + `L 64 135 C 60 138 60 148 63 151 L 80 156 `
-      + `C 88 180 108 191 133 190 C 158 189 174 176 176 160 C 177 152 173 146 ${gorge[0]} ${gorge[1]} `
-      + `A ${HR} ${HR} 0 1 0 ${nuque[0]} ${nuque[1]} Z`, blanc(h.a.contour)));
-    // la queue noire au bout, sous les couvertures blanches
-    o.push(h.path('M 70 134 L 64 135 C 60 138 60 148 63 151 L 70 153 Q 67 144 70 134 Z', h.a.plein));
-    // l'aile repliée
-    o.push(h.path('M 160 148 C 140 138 110 136 88 146', h.a.detail));
-    o.push(h.path('M 148 166 C 128 166 108 160 94 153', h.a.fin));
-    // le bec court et épais, l'œil
-    const b0 = a(-38), b1 = a(18);
-    o.push(h.path(`M ${b0[0]} ${b0[1]} Q ${r(HX + HR + 4)} ${r(HY - 4)} ${r(HX + HR + 5)} ${r(HY + 1)} Q ${r(HX + HR + 2)} ${r(HY + 4)} ${b1[0]} ${b1[1]} Z`, h.a.plein));
-    o.push(h.cercle(HX + 2, HY - 3, 1.8, h.a.plein));
-    return o.join('\n');
-  };
+  // Le lagopède d'hiver, de profil, tourné vers la droite (_animaux.js) : tout blanc, les pieds
+  // emplumés en raquettes. La tête a passé la boucle.
+  const oiseau = () => A_.lagopede(h, { x: XL, y: NEIGE, echelle: ECH, angle: PENCHE }).svg;
 
   const passe = (z) => {
     graine = 3131;
     const o = [neigeSol(z)];
-    const xb = 176;
+    const xb = XB;
     // Le bord de l'ouverture, derrière : la haie mince vue de son bout, qui file au loin.
     [[160, 44], [167, 36], [175, 48], [183, 40]].forEach(([x, y]) => o.push(branche(x, y, null, 3)));
     // La boucle vue de chant : la moitié du fond d'abord…
@@ -242,7 +224,7 @@ module.exports = (h) => {
     desc: 'Vue de dessus : un bouquet de saules entouré d’une haie mince de branches plantées serré dans la neige, '
       + 'percée de six petites ouvertures, un collet dans chacune ; une piste d’empreintes rondes longe la haie par le dehors '
       + 'et entre par une ouverture jusqu’au collet. Vue du dehors : l’ouverture entre deux branches, la boucle qui la remplit, '
-      + 'l’œillet en haut, le fil tourné sur la branche du bord. En coupe : le lagopède blanc à queue noire passe la tête dans la boucle.',
+      + 'l’œillet en haut, le fil tourné sur la branche du bord. En coupe : le lagopède blanc, les pieds emplumés, passe la tête dans la boucle.',
     format: 'pleine',
     disposition: [['plan'], ['face', 'passe']],
     hauteurs: [3, 2],
@@ -262,15 +244,15 @@ module.exports = (h) => {
         titre: 'Une ouverture, vue du dehors',
         dessin: face,
         renvois: (z) => [
-          { n: 6, rond: [24, 90], cible: [z.l / 2 - 28, BY - BR - 12], texte: 'le fil tourné sur la branche' },
-          { n: 7, rond: [z.l - 22, 100], cible: [z.l / 2 + BR, BY + 4], texte: 'la boucle, l’œillet en haut' },
+          { n: 6, rond: [24, BY - BR - 40], cible: [z.l / 2 - BR - 8, BY - BR - 12], texte: 'le fil tourné sur la branche' },
+          { n: 7, rond: [z.l - 22, BY + 40], cible: [z.l / 2 + BR, BY + 4], texte: 'la boucle, l’œillet en haut' },
         ],
       },
       passe: {
         titre: 'En coupe dans l’ouverture',
         dessin: passe,
         renvois: (z) => [
-          { n: 8, rond: [240, 168], cible: [178, BY + BR - 2], texte: 'la tête passe, la boucle serre' },
+          { n: 8, rond: [XB - 70, BY - 42], cible: [XB - 3, BY - 8], texte: 'la tête passe, la boucle serre' },
         ],
       },
     },

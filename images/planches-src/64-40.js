@@ -3,11 +3,15 @@
 // patte écartée, la lame à plat entre l'omoplate et le gril costal, tranchant vers l'os plat, on
 // suit les côtes, on finit au-dessus de la pointe de l'omoplate sous la bosse du garrot, aucun os
 // coupé) et étape 6 (le jarret avant au coude : ouvrir la face arrière, plier pour faire bâiller
-// le joint). Aucun chiffre : le chapitre n'en donne pas pour ce geste. La hanche n'est pas dans
-// ce chapitre (quartier arrière, ch. 63) : elle n'est pas dessinée.
-// La charte : la cage vidée en gris loin (pas de gris sur les os hachurés) ; le rouge sur la patte
-// qu'on écarte, la lame qui descend le long de l'humérus, la patte qu'on plie, et le cercle du point
-// où la coupe s'arrête, sous la bosse du garrot.
+// le joint). Aucun chiffre : le chapitre n'en donne pas pour ce geste.
+// Vue A refaite au redessin du 14 octobre (groupe E : la coupe en travers de l'épaule était de
+// l'anatomie sans modèle réel) : l'épaule vue de côté sur la carcasse commune des planches du
+// ch. 62 (images/planches-src/_carcasse-orignal.js : silhouette NIH de l'orignal, os et dentelé
+// ventral d'Ellenberger recalés), avec le pourtour de l'épaule, l'omoplate et son cartilage sur
+// les côtes, le chemin de la lame et le point où elle s'arrête. Les vues du coude ne bougent pas.
+// La charte : la patte du côté opposé en gris loin ; le rouge sur le chemin de la lame, la patte
+// qu'on écarte, la lame qui descend le long de l'humérus, la patte qu'on plie, et le cercle du
+// point où la coupe s'arrête, sous la bosse du garrot.
 module.exports = (h) => {
   const B = h.a.blanc.match(/fill="([^"]+)"/)[1];
   const blanc = t => h.a[t].replace('fill="none"', `fill="${B}"`);
@@ -79,147 +83,60 @@ module.exports = (h) => {
   };
 
   // ════════════════════════════════════════════════════════════════════════════════════
-  // Vue A — l'épaule coupée en travers. Moitié droite du dessin en repère propre (x vers
-  // l'extérieur, y vers le bas) ; la moitié gauche en est le miroir, en place ; la moitié
-  // droite a la patte écartée (le quartier tourne autour de sa pointe, sous la bosse).
+  // Vue A — sur la bête, de côté. La carcasse commune des planches du ch. 62 (_carcasse-orignal.js :
+  // silhouette NIH de l'orignal, os d'Ellenberger recalés), cadrée sur l'épaule : l'omoplate et son
+  // cartilage en trait fort, posés sur les côtes ; l'humérus, le coude ; l'écharpe (dentelé ventral)
+  // en tireté. La lame entre par l'aisselle, monte à plat sous l'omoplate le long des côtes et
+  // s'arrête au-dessus du cartilage, sous la bosse du garrot.
   // ════════════════════════════════════════════════════════════════════════════════════
-  const RIB_O = [[20, 152], [40, 158], [62, 174], [82, 200], [96, 236], [103, 275], [102, 315], [94, 350], [78, 378], [52, 396], [24, 404], [0, 406]];
-  const RIB_I = [[18, 164], [36, 170], [55, 185], [72, 208], [85, 240], [91, 276], [90, 313], [83, 344], [69, 368], [47, 384], [22, 392], [0, 394]];
-  const SCAP = [[42, 112], [58, 138], [78, 168], [98, 203], [112, 240], [118, 276]];   // face interne de l'omoplate
-  const QEXT = [[38, 100], [62, 106], [90, 126], [116, 156], [136, 194], [147, 236], [150, 278], [147, 318], [141, 350], [138, 385], [136, 420], [135, 452]];
-  const JAMBE_INT = [[97, 452], [96, 420], [95, 395], [95, 368]];
-  const QINT = [[95, 368], [97, 345], [104, 315], [110, 292], [118, 276]];
-  const BOSSE = [[38, 100], [34, 72], [26, 47], [14, 32], [0, 28]];
-  const POITRAIL = [[95, 368], [89, 386], [70, 406], [38, 421], [0, 426]];
-  const PIV = [38, 100];
-  const ECART = -22;          // la patte écartée : le quartier pivote sous la bosse
-  const TC = 0.46;            // où en est la coupe le long de l'omoplate
-
-  const ribO = dense(RIB_O), ribI = dense(RIB_I), scapI = dense(SCAP);
-  const scapO0 = decale(scapI, 8);
-  const ms = Math.round(scapO0.length * 0.42);
-  const sd = unit(scapO0[ms - 1], scapO0[ms + 1]), sn = [sd[1], -sd[0]], sc = scapO0[ms];
-  const scapO = [...scapO0.slice(0, ms),
-    [sc[0] + sn[0] * 21 - sd[0] * 2.5, sc[1] + sn[1] * 21 - sd[1] * 2.5],
-    [sc[0] + sn[0] * 25 - sd[0] * 4.2, sc[1] + sn[1] * 25 - sd[1] * 4.2],
-    [sc[0] + sn[0] * 27, sc[1] + sn[1] * 27],
-    [sc[0] + sn[0] * 25 + sd[0] * 4.2, sc[1] + sn[1] * 25 + sd[1] * 4.2],
-    [sc[0] + sn[0] * 21 + sd[0] * 2.5, sc[1] + sn[1] * 21 + sd[1] * 2.5],
-    ...scapO0.slice(ms + 1)];
-  const scapPoly = [...scapI, ...scapO.slice().reverse()];
-  const qext = dense(QEXT), jambe = dense(JAMBE_INT), qint = dense(QINT);
-
-  // l'écharpe : fibres de la face interne de l'omoplate vers le gril costal
-  const Lrib = longueurs(ribO), sr0 = Lrib[8] + 4, sr1 = Lrib[5 * 8 + 3];
-  const fibres = Array.from({ length: 12 }, (_, i) => {
-    const t = 0.05 + 0.86 * i / 11;
-    return { t, s: auT(scapI, t).p, r: surLigne(ribO, sr0 + t * (sr1 - sr0)).p };
-  });
-  // les attaches du haut (entre la pointe de l'omoplate et les épines du dos)
-  const hautes = [0, 1, 2, 3].map(i => ({ s: [41 + i * 1.2, 106 + i * 4], r: [4.2, 88 + i * 13] }));
-
+  const CARC = require('./_carcasse-orignal');
+  const CADRE_A = [480, 126, 945, 766];
+  const repA = z => CARC.placer(z, { cadre: CADRE_A });
+  // dans le repère de la carcasse (U)
+  const ENTREE = [800, 606];            // l'aisselle, derrière le coude, sous le triceps
+  const FIN = [756, 286];               // au-dessus du cartilage de l'omoplate, sous la bosse
   const vueA = z => {
-    const s = Math.min(z.l / 400, z.h / 440);
-    const cx = z.l / 2 - 36 * s, oy = (z.h - 440 * s) / 2 - 24 * s;
-    const V = p => [cx + p[0] * s, oy + p[1] * s];
-    const G = p => V([-p[0], p[1]]);                        // moitié gauche, en place
-    const Dq = p => V(rot(p, PIV, ECART));                 // moitié droite, pièces du quartier
-    const Dt = p => V(p);                                  // moitié droite, pièces du tronc
+    const p = repA(z), T = p.T, k = p.k;
     const out = [];
-
-    // le tronc : la bosse et le poitrail
-    out.push(h.path(trace(dense([...BOSSE.map(p => [-p[0], p[1]]), ...BOSSE.slice(0, -1).reverse()]).map(V)), h.a.contour));
-    out.push(h.path(trace(dense([...POITRAIL.map(p => [-p[0], p[1]]), ...POITRAIL.slice(0, -1).reverse()]).map(V)), h.a.contour));
-    // à droite, l'aisselle ouverte : la tranche du poitrail contre les côtes
-    out.push(h.path(trace([[95, 368], [96, 356], [95.5, 348]].map(Dt)), h.a.arete));
-
-    // le gril costal (un U d'os coupé) et le sternum
-    const riboL = ribO.map(p => [-p[0], p[1]]), ribiL = ribI.map(p => [-p[0], p[1]]);
-    // la cage vidée, vue par la coupe : en gris loin, peinte avant les os (elle s'arrête sous la vertèbre)
-    const sousVert = [[-16, 172], [-12, 181], [-5, 186], [5, 186], [12, 181], [16, 172]];
-    out.push(h.path(trace([...ribI, ...ribiL.slice().reverse(), ...sousVert].map(V), true), h.a.loin));
-    const bande = [...ribO, ...riboL.slice(0, -1).reverse(), ...ribiL, ...ribI.slice(0, -1).reverse()];
-    out.push(h.path(trace(bande.map(V), true), h.a.hachure('bois')));
-    // la vertèbre et son épine, qui fait la bosse
-    const vert = [[-4.5, 142], [-4.6, 66], [-4, 59.5], [-2.5, 55.5], [0, 54.2], [2.5, 55.5], [4, 59.5], [4.6, 66], [4.5, 142], [10, 145], [15, 148], [20, 151], [20.5, 157], [16, 160], [14.5, 163],
-      [16, 172], [12, 181], [5, 186], [-5, 186], [-12, 181], [-16, 172], [-14.5, 163], [-16, 160], [-20.5, 157], [-20, 151], [-15, 148], [-10, 145]];
-    out.push(h.path(trace(vert.map(V), true), h.a.hachure('bois')));
-    const cv = V([0, 154]);
-    out.push(h.cercle(cv[0], cv[1], 5 * s, blanc('arete')));
-
-    // l'écharpe à gauche : intacte
-    fibres.forEach(F => out.push(h.path(trace([G(F.s), G(F.r)]), h.a.fin)));
-    hautes.forEach(F => out.push(h.path(trace([G(F.s), G(F.r)]), h.a.fin)));
-    // à droite : le haut tient encore, tendu ; le bas est tranché
-    fibres.forEach(F => {
-      const a = Dq(F.s), b = Dt(F.r);
-      if (F.t < TC) out.push(h.path(trace([a, b]), h.a.fin));
-      else {
-        const d = unit(a, b), L = 6 * s;
-        out.push(h.path(trace([a, [a[0] + d[0] * L, a[1] + d[1] * L]]), h.a.fin));
-        out.push(h.path(trace([b, [b[0] - d[0] * L, b[1] - d[1] * L]]), h.a.fin));
-      }
-    });
-    hautes.forEach(F => out.push(h.path(trace([Dq(F.s), Dt(F.r)]), h.a.fin)));
-
-    // le quartier : la viande, l'omoplate, la patte
-    const quartier = (M) => {
-      const bas = cassure(M(qext[qext.length - 1]), M(jambe[0]), 4.5);
-      const contour = [...qext.map(M), ...bas.slice(1, -1), ...jambe.map(M), ...qint.slice(1).map(M), ...scapI.slice().reverse().slice(1).map(M)];
-      return [
-        h.path(trace(contour, true), fond),
-        h.path(trace(qext.map(M)), h.a.contour),
-        h.path(trace(bas), h.a.detail),
-        h.path(trace(jambe.map(M)), h.a.contour),
-        h.path(trace(qint.map(M)), h.a.arete),
-        h.path(trace(scapPoly.map(M), true), h.a.hachure('bois')),
-        // l'humérus, coupé plus bas dans la masse du bras : il part avec le quartier
-        h.path(trace(arcPts([121, 330], 1, 0, 360, 28).map(p => [121 + (p[0] - 121) * 10, 330 + (p[1] - 330) * 13]).map(M), true), h.a.hachure('bois')),
-      ].join('\n');
-    };
-    out.push(quartier(G));
-    out.push(quartier(Dq));
-
-    // le couteau, à plat contre les côtes, le tranchant vers l'omoplate, la pointe au front de coupe
-    const fr = surLigne(ribO, sr0 + TC * (sr1 - sr0) - 3);
-    const nOut = [fr.t[1], -fr.t[0]];
-    const tip = [fr.p[0] + nOut[0] * 4.5, fr.p[1] + nOut[1] * 4.5];
-    const dir = unit(tip, surLigne(ribO, sr0 + TC * (sr1 - sr0) + 40).p.map((v, i) => v + nOut[i] * 9));
-    const nK = [dir[1], -dir[0]], dos = (nK[0] * nOut[0] + nK[1] * nOut[1]) > 0 ? -1 : 1;   // le dos côté côtes
-    out.push(couteau({ pointe: Dt(tip), dir, lame: 48 * s, larg: 8.5 * s, manche: 42 * s, epM: 10 * s, e: -1, dos }));
-
-    // le chemin de la lame : on monte le long des côtes jusqu'au-dessus de la pointe de l'omoplate
-    const chemin = [];
-    const sTip = sr0 + TC * (sr1 - sr0) - 10;
-    for (let x = sTip; x > 4; x -= 6) { const q = surLigne(ribO, x); chemin.push([q.p[0] + q.t[1] * 5, q.p[1] - q.t[0] * 5]); }
-    chemin.push([33, 140], [34, 118], [37, 106]);
-    out.push(h.fleche(trace(dense(chemin, 4).map(Dt)), h.a.cache));
-
-    // la patte écartée : la flèche suit la rotation autour de la pointe de l'omoplate
-    const pj = rot([136, 440], PIV, ECART), rr = Math.hypot(pj[0] - PIV[0], pj[1] - PIV[1]) + 18;
-    const th = Math.atan2(pj[1] - PIV[1], pj[0] - PIV[0]) * 180 / Math.PI;
-    out.push(h.geste(trace(arcPts(PIV, rr, th + 3, th - 9, 16).map(V))));
-    // le point qui arrête la coupe : au-dessus de la pointe de l'omoplate, sous la bosse
-    const fc = Dt([36, 106]);
-    out.push(h.controle(fc[0], fc[1], 11));
-
-    vueA.geo = { V, G, Dq, Dt, s, tip, dir, fin: [37, 106] };
+    out.push(CARC.dessiner(h, p, {
+      id: 'a', os: ['cotes', 'omoplate', 'cartilageOmoplate', 'humerus', 'radius', 'cubitus'],
+      osForts: ['omoplate', 'cartilageOmoplate'], loin: 'gris',
+    }));
+    // ce qu'on voit sur la bête : le pourtour de l'épaule, là où le quartier se sépare du tronc
+    out.push(h.path(trace(dense(CARC.LIMITES.epaule.map(q => [q[0], q[1]]), 6).map(T)), h.a.arete));
+    // l'écharpe : le dentelé ventral, sous l'omoplate, en tireté
+    out.push(h.path(trace(dense(CARC.MUSCLES.dentelVentral.pts.map(q => [q[0], q[1]]).concat([CARC.MUSCLES.dentelVentral.pts[0]]), 6).map(T)), h.a.cache));
+    // le couteau : manche dehors, sous l'aisselle ; la lame, sous la viande, en tireté
+    const dir = unit(T(FIN), T(ENTREE));                    // de la pointe vers le manche
+    const pointe = T([786, 540]);
+    const Lb = 70 * k, wb = 14 * k;
+    const n = [-dir[1], dir[0]];
+    const P = (u, v) => [pointe[0] + dir[0] * u + n[0] * v, pointe[1] + dir[1] * u + n[1] * v];
+    out.push(h.path(trace([P(0, 0), P(0.3 * Lb, -0.5 * wb), P(Lb, -0.5 * wb), P(Lb, 0.5 * wb), P(0.3 * Lb, 0.45 * wb)], true), h.a.cache));
+    out.push(couteau({ pointe: P(Lb, 0), dir, lame: 0.001, larg: wb, manche: 54 * k, epM: 15 * k, e: 1 }));
+    // le chemin de la lame : de l'aisselle, à plat le long des côtes, jusque sous la bosse
+    const chemin = [[812, 520], [818, 470], [812, 420], [796, 372], [776, 330], [764, 304]];
+    out.push(h.geste(trace(dense(chemin, 6).map(T))));
+    // la patte qu'on écarte : elle pivote à l'épaule, vers l'avant et loin du corps
+    const piv = [650, 548], rP = 206;
+    const arcP = Array.from({ length: 13 }, (_, i) => { const a = (72 + 26 * i / 12) * Math.PI / 180; return [piv[0] + rP * Math.cos(a), piv[1] + rP * Math.sin(a)]; });
+    out.push(h.geste(trace(arcP.map(T))));
+    // le point où la coupe s'arrête
+    const fc = T(FIN);
+    out.push(h.controle(fc[0], fc[1], 9));
     return out.join('\n');
   };
-
   const renvoisA = z => {
-    vueA(z);
-    const { V, G, Dq, Dt, s, tip, dir } = vueA.geo;
-    const midScap = [(auT(scapI, 0.7).p[0] + auT(scapO0, 0.7).p[0]) / 2, (auT(scapI, 0.7).p[1] + auT(scapO0, 0.7).p[1]) / 2];
-    const fib = fibres[7], mf = [(fib.s[0] + fib.r[0]) / 2, (fib.s[1] + fib.r[1]) / 2];
-    const lameMil = Dt([tip[0] + dir[0] * 20, tip[1] + dir[1] * 20]);
+    const p = repA(z), T = p.T;
+    const r = q => T(q).map(v => Math.round(v * 10) / 10);
+    const cx = T([700, 0])[0];
     return [
-      { n: 1, rond: V([-212, 205]), cible: G(midScap), texte: 'l’omoplate : aucun os ne la retient' },
-      { n: 2, rond: V([-42, 222]), cible: G(mf), texte: 'l’écharpe de muscles, seule attache' },
-      { n: 3, rond: V([-42, 296]), cible: G([97, 296]), texte: 'le gril costal' },
-      { n: 4, rond: V([262, 300]), cible: Dq([138, 400]), texte: 'la patte écartée ouvre l’aisselle' },
-      { n: 5, rond: V([45, 262]), cible: lameMil, texte: 'lame à plat, tranchant vers l’omoplate' },
-      { n: 6, rond: V([96, 62]), cible: Dt([36, 108]), texte: 'fin de coupe, sous la bosse du garrot' },
+      { n: 1, rond: [r([700, 0])[0] - 150, r([0, 430])[1]], cible: r([690, 430]), texte: 'l’omoplate : aucun os ne la retient' },
+      { n: 2, rond: [r([960, 0])[0] + 46, r([0, 520])[1]], cible: r([895, 530]), texte: 'l’écharpe de muscles, seule attache' },
+      { n: 3, rond: [r([960, 0])[0] + 46, r([0, 400])[1]], cible: r([905, 420]), texte: 'le gril costal' },
+      { n: 4, rond: [r([960, 0])[0] + 46, r([0, 690])[1]], cible: r([740, 728]), texte: 'la patte écartée ouvre l’aisselle' },
+      { n: 5, rond: [r([700, 0])[0] - 150, r([0, 600])[1]], cible: r([790, 566]), texte: 'lame à plat, tranchant vers l’omoplate' },
+      { n: 6, rond: [r([700, 0])[0] - 150, r([0, 250])[1]], cible: r([748, 287]), texte: 'fin de coupe, sous la bosse du garrot' },
     ];
   };
 
@@ -329,14 +246,14 @@ module.exports = (h) => {
   return {
     ref: '64-40',
     titre: 'Démonter le quartier avant sans scie',
-    desc: 'L’épaule coupée en travers : l’omoplate n’est tenue au gril costal que par une écharpe de muscles ; '
-      + 'la patte écartée ouvre l’aisselle, la lame à plat suit les côtes et finit sous la bosse du garrot, sans couper un os. '
+    desc: 'L’épaule de l’orignal vue de côté, sur la carcasse écorchée : le pourtour de l’épaule sur le tronc ; dessous, l’omoplate et son cartilage posés sur les côtes, tenus seulement par une écharpe de muscles (en tireté) ; '
+      + 'la patte qu’on écarte vers l’avant ouvre l’aisselle ; le couteau y entre, la lame à plat sous l’omoplate, et monte le long des côtes jusqu’au-dessus du cartilage, sous la bosse du garrot, sans couper un os. '
       + 'Puis le coude vu de côté : la face arrière ouverte au couteau, la patte pliée, le joint bâille et le jarret avant se détache.',
     format: 'pleine',
     disposition: [['epaule'], ['coude', 'plie']],
-    hauteurs: [1.15, 1],
+    hauteurs: [1.6, 1],
     vues: {
-      epaule: { titre: 'En travers de l’épaule : en place à gauche, la patte écartée à droite', dessin: vueA, renvois: renvoisA },
+      epaule: { titre: 'Sur la bête, de côté : la lame monte sous l’omoplate, le long des côtes', dessin: vueA, renvois: renvoisA },
       coude: { titre: 'Le coude : ouvrir la face arrière', dessin: vueB, renvois: renvoisB },
       plie: { titre: 'Plier la patte : le joint bâille', dessin: vueC, renvois: renvoisC },
     },
