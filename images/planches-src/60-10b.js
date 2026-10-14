@@ -10,6 +10,10 @@
 // Le ramendage, en trois temps : le trou ; recoupé jusqu'à un contour de mailles entières (les
 // mailles enlevées, en tireté, sont celles qu'il faudra refaire, ni plus ni moins) ; renoué rang
 // par rang à l'aiguille, le fil neuf en trait fort. Aucune cote : le chapitre ne donne aucune mesure.
+//
+// Redessin du 14 octobre 2026 (le ramendage restait trop dense) : de grandes mailles, deux rangs
+// au-dessus du moule, le trou au milieu de sa vue ; la loupe du nœud renoué est enlevée (illisible,
+// et le nœud est celui de la 60-10a) ; plus de bouts de brin dans les coins.
 
 'use strict';
 
@@ -228,7 +232,7 @@ module.exports = (h) => {
       }
       // les demi-tours aux bords
       const a2 = gT(z).a, v2 = gT(z).v;
-      fl.push(h.fleche(`M ${P(X(3) - 2, Y(2.6))} Q ${P(X(3) + a2 * 0.45, Y(3))} ${P(X(3) - 2, Y(3.4))}`, h.a.fin));
+      // (le demi-tour de droite est sous l'aiguille : celui de gauche suffit à dire l'aller-retour)
       fl.push(h.fleche(`M ${P(X(-3) + 2, Y(3.6))} Q ${P(X(-3) - a2 * 0.45, Y(4))} ${P(X(-3) + 2, Y(4.4))}`, h.a.fin));
       out.push(...fl);
     }
