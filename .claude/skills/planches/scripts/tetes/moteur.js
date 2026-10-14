@@ -129,30 +129,97 @@ const TETES = {
     crane: [[76, -153], [42, -181], [-4, -190], [-36, -186], [-66, -170], [-92, -136], [-102, -90], [-94, -50], [-72, -16], [-40, 6]],
     gorge: [[22, 34], [-6, 14]],
     visage: {
-      front: [[91, -116], [94.5, -98]],           // le front, la bosse du sourcil
-      nasion: [92.5, -87],
+      front: [[91, -116], [94.5, -99]],           // le front, la bosse du sourcil
+      nasion: [92.5, -86],
       nez: [[99, -66], [107.5, -45], [110.5, -37]],  // l'arête, droite, puis le bout
       bout: [[109.5, -31], [103.5, -27.5]],       // le dessous du nez, jusqu'au creux sous le nez
       sous: [99.5, -26],                          // le creux sous le nez (subnasale)
-      levreH: [100.6, -16], stomion: [98.8, -8.5], levreB: [99.6, -1.5],
-      sillon: [95.6, 8.5],                        // le creux sous la lèvre
+      levreH: [100.8, -15.5], stomion: [99.8, -8.5], levreB: [100.3, -2],
+      sillon: [96.3, 8.5],                          // le creux sous la lèvre
       menton: [[97.8, 21], [93, 35.5], [77, 45], [52, 46.5]],   // le menton, la mâchoire dessous
     },
-    rep: { oeil: [79, -70], sourcil: [[87, -80], [77, -83], [66, -81]], oreille: { c: [-16, -55], h: 62, l: 30 }, mach: [-8, -48] },
+    rep: { oeil: [79, -70], kOeil: 1, sourcil: [[87, -80], [77, -83], [66, -81]], oreille: { c: [-16, -55], h: 62, l: 30 }, mach: [-8, -48] },
     zone: 64,
+    cheveux: {
+      ep: 7, tri: [80, -147],
+      // la ligne d'implantation : du front, par la tempe et la patte, jusque dans l'oreille ; elle ressort derrière
+      // l'oreille et descend à la nuque (ou le long du cou). Elle se coupe autour de l'oreille, qui passe devant.
+      court: [[80, -147], [65, -141], [51, -128], [40, -112], [30, -98], [18, -88], [4, -80], [-8, -72], [-30, -44], [-40, -32], [-56, -21], [-74, -17]],
+      long: { ligne: [[79.5, -148], [64, -141], [50, -127], [40, -110], [32, -96], [22, -86], [8, -82], [-6, -72], [-30, -46], [-37, -28], [-39, 0], [-43, 30], [-52, 60], [-70, 86]],
+        occiput: [-101, -80], chute: [[-112, -58], [-115, -20], [-112, 20], [-104, 54], [-90, 78]] },
+      queue: { ligne: [[79.5, -148], [64, -141], [50, -127], [40, -110], [32, -96], [22, -86], [8, -82], [-6, -72], [-30, -46], [-40, -32], [-56, -21], [-74, -17]],
+        queue: [[-99, -106], [-114, -106], [-126, -94], [-133, -70], [-134, -40], [-131, -10], [-126, 16], [-120, 34], [-115, 12], [-112, -16], [-108, -44], [-103, -66], [-98, -88]],
+        lien: [[[-100, -104], [-104, -88]], [[-105, -107], [-109, -90]]] },
+    },
   },
 };
 // La femme : le même crâne (à sa taille), le menton plus fin et moins avancé, le nez plus petit.
 TETES.femme = {
   crane: TETES.homme.crane, gorge: TETES.homme.gorge,
   visage: {
-    front: [[90, -116], [93, -97]], nasion: [91, -85],
-    nez: [[98, -66], [107, -45], [110, -38]], bout: [[108, -32], [101, -28]], sous: [97.5, -26],
-    levreH: [100.5, -14], stomion: [97.5, -6], levreB: [99, 2.5], sillon: [92.5, 13],
-    menton: [[95, 24], [88, 37], [72, 44], [50, 45]],
+    front: [[90.5, -116], [93.5, -99]], nasion: [91.5, -87],
+    nez: [[97.5, -68], [105, -47], [107.5, -39.5]], bout: [[106.5, -33.5], [101.5, -29]], sous: [98, -27.5],
+    levreH: [99.8, -17], stomion: [97.8, -9.5], levreB: [98.8, -2.5], sillon: [94.8, 7.5],
+    menton: [[96, 19.5], [90.5, 33.5], [74, 43.5], [50, 45.5]],
   },
-  rep: { oeil: [77, -71], sourcil: [[85, -81], [75, -84.5], [64, -82]], oreille: { c: [-16, -55], h: 60, l: 28 }, mach: [-8, -48] },
+  rep: { oeil: [78, -71], kOeil: 1, sourcil: [[86, -81], [76, -84.5], [65, -82.5]], oreille: { c: [-16, -55], h: 60, l: 28 }, mach: [-8, -48] },
   zone: 62,
+  cheveux: TETES.homme.cheveux,
+};
+// L'enfant de 6 ans : le crâne plus long et plus rond, le front qui bombe, le visage plus petit et plus bas
+// (proportions.json : la part du visage dans la hauteur de la tête), le nez court qui retrousse, le menton rond.
+TETES.enfant6 = {
+  crane: [[70, -170], [30, -187], [-10, -191], [-50, -183], [-86, -161], [-110, -126], [-120, -82], [-115, -42], [-96, -12], [-62, 8]],
+  gorge: [[18, 32], [-14, 14]],
+  visage: {
+    front: [[96, -138], [103.5, -108], [104.5, -87]], nasion: [102.6, -72],
+    nez: [[104.6, -60], [108.5, -46], [111, -39]], bout: [[110.5, -33], [106, -28.5]], sous: [102, -25.5],
+    levreH: [103.6, -15], stomion: [101.8, -6.5], levreB: [102.4, 0.5],
+    sillon: [99, 9.5],
+    menton: [[100.4, 20.5], [95, 33.5], [80, 42.5], [56, 45]],
+  },
+  rep: { oeil: [86, -60], kOeil: 1.05, sourcil: [[93, -71], [84, -74], [74, -72]], oreille: { c: [-14, -42], h: 64, l: 30 }, mach: [-8, -38] },
+  zone: 66,
+  cheveux: {
+    ep: 7, tri: [101, -126],
+    court: [[101.5, -125], [91, -123], [77, -118], [63, -108], [51, -94], [38, -80], [22, -72], [6, -68], [-6, -62], [-32, -28], [-42, -20], [-60, -12], [-90, -9]],
+    long: { ligne: [[101.5, -125], [91, -123], [77, -118], [63, -108], [51, -94], [38, -80], [22, -72], [6, -68], [-6, -62], [-32, -30], [-38, -12], [-41, 14], [-45, 38], [-55, 62], [-72, 82]],
+      occiput: [-118, -78], chute: [[-128, -54], [-130, -18], [-125, 20], [-113, 54], [-94, 76]] },
+    queue: { ligne: [[101.5, -125], [91, -123], [77, -118], [63, -108], [51, -94], [38, -80], [22, -72], [6, -68], [-6, -62], [-32, -28], [-42, -20], [-60, -12], [-90, -9]],
+      queue: [[-114, -112], [-129, -112], [-141, -100], [-148, -76], [-149, -46], [-146, -16], [-141, 10], [-135, 28], [-130, 6], [-127, -22], [-123, -50], [-118, -72], [-113, -94]],
+      lien: [[[-115, -110], [-119, -94]], [[-120, -113], [-124, -96]]] },
+  },
+};
+// L'enfant de 4 ans : le même dessin, le visage encore un peu plus petit et plus bas, le crâne plus long.
+TETES.enfant4 = {
+  crane: [[72, -168], [32, -187], [-12, -191], [-54, -183], [-92, -159], [-117, -122], [-126, -77], [-119, -35], [-97, -6], [-62, 10]],
+  gorge: [[18, 32], [-14, 14]],
+  visage: {
+    front: [[98, -136], [106, -104], [106.5, -81]], nasion: [104, -65],
+    nez: [[106, -54], [109.5, -41], [111.5, -35]], bout: [[111, -29], [106.5, -24.5]], sous: [102.5, -22],
+    levreH: [104, -11.5], stomion: [102, -2.5], levreB: [102.6, 4],
+    sillon: [99.2, 12.5],
+    menton: [[100.4, 23], [95, 35], [80, 43], [56, 45.2]],
+  },
+  rep: { oeil: [87, -53], kOeil: 1.08, sourcil: [[94, -64], [85, -67], [75, -65]], oreille: { c: [-14, -37], h: 65, l: 31 }, mach: [-8, -33] },
+  zone: 66,
+  cheveux: TETES.enfant6.cheveux,
+};
+// Le nouveau-né : le crâne énorme, le visage minuscule tassé dans le bas, le nez à peine marqué, le menton
+// fuyant ; le cou ne se voit pas (court et large : cou par défaut très court).
+TETES.bebe = {
+  crane: [[66, -168], [24, -188], [-20, -191], [-60, -182], [-94, -159], [-114, -122], [-120, -78], [-112, -36], [-94, -4], [-64, 14]],
+  gorge: [[16, 34], [-16, 18]],
+  visage: {
+    front: [[92, -142], [104, -110], [106.5, -80]], nasion: [101.5, -56],
+    nez: [[103, -45], [106, -32], [107, -26.5]], bout: [[106, -21.5], [102.5, -19]], sous: [99.5, -17.5],
+    levreH: [101.2, -9.5], stomion: [99.6, -3], levreB: [100, 3],
+    sillon: [95.8, 11],
+    menton: [[95, 21], [89, 33], [74, 42], [52, 45.5]],
+  },
+  rep: { oeil: [85, -47], kOeil: 1.15, sourcil: null, oreille: { c: [-12, -30], h: 64, l: 31 }, mach: [-8, -28] },
+  zone: 62,
+  cheveux: TETES.enfant6.cheveux,
 };
 
 // ─── le contour d'une tête ────────────────────────────────────────────────────────────────
@@ -197,41 +264,95 @@ function contourTete(D, o) {
   return { pts, levres, bouche: bouchePt, mach: a };
 }
 
+// ─── les cheveux : une masse autour du crâne, sa limite au front et à la tempe ─────────────────────
+// C : le contour lissé (unités de tête). La masse : le bord du crâne décalé vers l'extérieur de ep (nul à la
+// limite du front, plein dès le haut du front, qui retombe à la nuque), refermée par la ligne d'implantation.
+function cheveuxDe(D, C, sorte) {
+  const H = D.cheveux;
+  if (!H || !sorte || sorte === 'aucun') return { polys: [], liens: [] };
+  const proche = q => { let im = 0, dm = Infinity; C.forEach((p, i) => { const d = lon(sub(p, q)); if (d < dm) { dm = d; im = i; } }); return im; };
+  const cx = C.reduce((s, p) => s + p[0], 0) / C.length, cy = C.reduce((s, p) => s + p[1], 0) / C.length;
+  // le bord du crâne de i0 (le front) à i1, en reculant dans le contour (le front → le sommet → l'occiput)
+  const bordCrane = (i0, i1) => { const out = []; for (let i = i0; ; i = (i - 1 + C.length) % C.length) { out.push(C[i]); if (i === i1) break; } return out; };
+  const decaleBord = (pts, ep) => {
+    const L = [0]; for (let i = 1; i < pts.length; i++) L.push(L[i - 1] + lon(sub(pts[i], pts[i - 1])));
+    const tot = L[L.length - 1] || 1;
+    return pts.map((p, i) => {
+      const a = pts[Math.max(0, i - 1)], b = pts[Math.min(pts.length - 1, i + 1)];
+      let nn = gau(uni(sub(b, a))); if ((p[0] - cx) * nn[0] + (p[1] - cy) * nn[1] < 0) nn = mul(nn, -1);
+      return add(p, mul(nn, ep(L[i] / tot, L[i])));
+    });
+  };
+  const lisse = t => t * t * (3 - 2 * t);
+  const monte = (d, l) => lisse(Math.min(1, d / l));
+  const polys = [], liens = [];
+  if (sorte === 'court' || sorte === 'queue') {
+    const ligne = sorte === 'court' ? H.court : H.queue.ligne;
+    const i0 = proche(ligne[0]), i1 = proche(ligne[ligne.length - 1]);
+    const bord = bordCrane(i0, i1);
+    const ep = sorte === 'queue' ? H.ep * 0.8 : H.ep;
+    const dessus = decaleBord(bord, (t, d) => ep * monte(d, 26) * (1 - 0.85 * lisse(Math.max(0, (t - 0.82) / 0.18))));
+    polys.push(dessus.concat(lisseOuvert(ligne, 6).reverse()));
+    if (sorte === 'queue') {
+      polys.push(lisseFerme(H.queue.queue, 8));
+      for (const l of H.queue.lien) liens.push(lisseOuvert(l, 4));
+    }
+  } else if (sorte === 'long') {
+    const Lg = H.long, ligne = Lg.ligne;
+    const i0 = proche(ligne[0]), i1 = proche(Lg.occiput);
+    const bord = bordCrane(i0, i1);
+    const dessus = decaleBord(bord, (t, d) => H.ep * 1.3 * monte(d, 26));
+    const chute = lisseOuvert([dessus[dessus.length - 1], ...Lg.chute, ligne[ligne.length - 1]], 8).slice(1);
+    polys.push(dessus.concat(chute, lisseOuvert(ligne, 6).reverse().slice(1)));
+  }
+  return { polys, liens };
+}
+
 // ─── les pièces d'une tête, en mm réels, repère du corps (origine à la nuque, x vers l'avant) ────────
 // pieces(age, o) → { contour (polygone lissé), cheveux: [polygones], details: [lignes], zone (le visage,
-// polygone), rep { oeil, nez, bouche, menton, sommet, oreille, levres }, k }
+// polygone), rep { oeil, nez, bouche, menton, sommet, oreille, levres }, k, kT }
 function pieces(ageDemande, o = {}) {
   const age = ALIAS[ageDemande] || 'homme';
   const D = TETES[age] || TETES.homme;
   const { k, kT } = echelleAge(age);
   const c = contourTete(D, Object.assign({}, o, { k }));
   const K = p => mul(p, k);
-  const contour = lisseFerme(c.pts, 8).map(K);
+  const C = lisseFerme(c.pts, 8);
+  const contour = C.map(K);
   const details = [];
   const R = D.rep;
-  // l'œil
-  const E = R.oeil;
+  // l'œil : un petit trait (fermé) ou une amande ouverte vers l'avant
+  const E = R.oeil, ke = R.kOeil || 1, e = v => add(E, mul(v, ke));
   if ((o.yeux || 'ouverts') === 'fermes') {
-    details.push(lisseOuvert([add(E, [4.5, 0.3]), add(E, [0, 1.6]), add(E, [-5, 0.6])], 8).map(K));
+    details.push(lisseOuvert([e([4.5, 0.2]), e([0, 1.7]), e([-5, 0.5])], 8).map(K));
   } else {
-    details.push(lisseOuvert([add(E, [4, -2.4]), add(E, [-0.5, -2.2]), add(E, [-5, 0.3])], 8).map(K));
-    details.push(lisseOuvert([add(E, [4.3, 2.2]), add(E, [-0.5, 1.8]), add(E, [-5, 0.3])], 8).map(K));
+    details.push(lisseOuvert([e([4, -2.4]), e([-0.5, -2.2]), e([-5, 0.3])], 8).map(K));
+    details.push(lisseOuvert([e([4.3, 2.2]), e([-0.5, 1.8]), e([-5, 0.3])], 8).map(K));
   }
   // le sourcil
   const sourcil = o.sourcil == null ? (age === 'homme' || age === 'femme') : !!o.sourcil;
   if (sourcil && R.sourcil) details.push(lisseOuvert(R.sourcil, 8).map(K));
   // l'oreille : un C ouvert vers l'avant
   const Oc = R.oreille.c, oh = R.oreille.h / 2, ol = R.oreille.l;
-  details.push(lisseOuvert([add(Oc, [6, -oh * 0.86]), add(Oc, [-ol * 0.35, -oh]), add(Oc, [-ol * 0.62, -oh * 0.55]),
-    add(Oc, [-ol * 0.6, oh * 0.15]), add(Oc, [-ol * 0.35, oh * 0.82]), add(Oc, [0, oh]), add(Oc, [5, oh * 0.8])], 8).map(K));
+  const oreille = lisseOuvert([add(Oc, [6, -oh * 0.86]), add(Oc, [-ol * 0.35, -oh]), add(Oc, [-ol * 0.62, -oh * 0.55]),
+    add(Oc, [-ol * 0.6, oh * 0.15]), add(Oc, [-ol * 0.35, oh * 0.82]), add(Oc, [0, oh]), add(Oc, [5, oh * 0.8])], 8).map(K);
+  details.push(oreille);
+  // la commissure : la bouche fermée, un trait court qui part des lèvres
+  if ((o.bouche || 'fermee') === 'fermee' && o.commissure !== false) {
+    const O = D.visage.stomion;
+    details.push(lisseOuvert([add(O, [0.5, 0]), add(O, [-4, 0.6]), add(O, [-8.5, 1.1])], 4).map(K));
+  }
+  // les cheveux
+  const sorte = o.cheveux == null ? (age === 'femme' ? 'long' : age === 'bebe' ? 'aucun' : 'court') : o.cheveux;
+  const ch = cheveuxDe(D, C, sorte);
   // la zone du visage : devant x = zone, du sommet au menton
   const zone = [[D.zone, -260], [260, -260], [260, 90], [D.zone, 90]].map(K);
   const rep = {
     oeil: K(E), nez: K(D.visage.nez[D.visage.nez.length - 1]), bouche: K(c.bouche),
-    menton: K(D.visage.menton[1]), sommet: K([-4, -190]), oreille: K(Oc),
+    menton: K(D.visage.menton[1]), sommet: K(C.reduce((m, p) => (p[1] < m[1] ? p : m))), oreille: K(Oc),
     levres: c.levres.haut ? { haut: K(c.levres.haut), bas: K(c.levres.bas) } : null,
   };
-  return { contour, cheveux: [], details, zone, rep, k, kT, age };
+  return { contour, cheveux: ch.polys.map(P => P.map(K)), liens: ch.liens.map(l => l.map(K)), details, zone, rep, k, kT, age, sorte, oreille };
 }
 
 // ─── le cou, comme le corps simple ────────────────────────────────────────────────────────
@@ -258,12 +379,15 @@ function teteSimple(o = {}) {
   const penche = o.penche || 0;
   const PT = p => tourne(p, penche);                 // la tête sur le cou, autour de la nuque
   const tete = T0.contour.map(PT);
+  const cheveux = T0.cheveux.map(P => P.map(PT));
   // le cou : sa longueur sous la nuque, en mm réels
   const Lcou = o.cou === false ? 62 * k : (typeof o.cou === 'number' ? o.cou : 95 * kT);
   const cou = bandeCou(Lcou + 60, kT);
   // l'union, l'arrondi hors du visage (la nuque, la gorge), puis la coupe
   const zone = [I.versCL(T0.zone.map(PT))];
-  const X = I.unionCL([I.union([tete]), I.union([cou.poly])]);
+  const peau = I.unionCL([I.union([tete]), I.union([cou.poly])]);
+  const chCL = cheveux.length ? I.union(cheveux) : [];
+  const X = I.unionCL([peau, chCL]);
   const F = I.ferme(X, 20);
   const horsZone = I.moins(F, zone);
   let S = I.unionCL([X, horsZone]);
@@ -294,8 +418,14 @@ function teteSimple(o = {}) {
   // les traits intérieurs, coupés au contour
   const E = 1.0;
   const dedans = I.decale(S, -E);
-  const lignes = T0.details.map(l => l.map(PT));
+  const lignes = T0.details.concat(T0.liens).map(l => l.map(PT));
   const intLignes = lignesDans(lignes, dedans);
+  // la limite des cheveux : le bord de la masse qui tombe sur la peau (le front, la tempe, la nuque, le cou)
+  // (coupée autour de l'oreille, qui passe devant)
+  if (chCL.length) {
+    const zOr = I.decale([I.versCL(T0.oreille.map(PT))], 3 * k);
+    intLignes.push(...I.bordsDans(chCL, I.moins(I.inter(I.decale(peau, -E), dedans), zOr)));
+  }
 
   // ── la géométrie ──
   const geo = {};

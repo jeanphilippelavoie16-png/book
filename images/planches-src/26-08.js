@@ -77,8 +77,8 @@ module.exports = (h) => {
   // la main gauche, vue du dos, détendue (mainSimple, pose relachee) : le poignet en x 94, à la hauteur de
   // l'avant-bras, les doigts qui dépassent le bout de l'écorce. Son avant-bras s'arrête sous le lien du poignet
   // (x 104 à 124), où il rejoint l'avant-bras dessiné de la planche.
-  const EM = 0.6, XW = 94, YW = 228;
-  const MAIN_M = h.formes.mainSimple({ x: XW, y: YW, ancre: 'poignet', pose: 'relachee', vue: 'dos', cote: 'gauche', angle: 174,
+  const EM = 0.6, XW = 94, YW = 227;
+  const MAIN_M = h.formes.mainSimple({ x: XW, y: YW, ancre: 'poignet', pose: 'relachee', vue: 'dos', cote: 'gauche', angle: 177,
     rotation: [-20, 0, 0], echelle: EM, avantbras: { fin: [[114, 150], [114, 300]] } });
   // le trait de coupe A–A : en travers du lien de l'avant-bras près du poignet, regardé vers la main
   const XA = 114, YA = [186, 272];
@@ -321,7 +321,7 @@ module.exports = (h) => {
         renvois: z => {
           const o = boite(z, S.L, S.y0, S.y1);
           return [
-            { n: 12, rond: P(o, 120, 274), cible: P(o, 176, 232), texte: 'pan relevé sur le bras' },
+            { n: 12, rond: P(o, 120, 274), cible: P(o, 188, 230), texte: 'pan relevé sur le bras' },
             { n: 13, rond: P(o, 118, 96), cible: P(o, EPINGLES[0][0], EPINGLES[0][1] - 13), texte: 'épinglé au devant' },
           ];
         },
