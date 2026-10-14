@@ -144,6 +144,8 @@ module.exports = (h) => {
     const ext = decale(g.moitieA, BANDE), int = decale(g.moitieA, -BANDE);
     o.push(`<path d="${pd(ext, true)} ${pd(int.slice().reverse(), true)}" ${A.hachure('terre', 'aucun')} fill-rule="evenodd"/>`);
     o.push(`<path d="${pd(ext, true)}" ${A.detail}/>`, `<path d="${pd(int, true)}" ${A.detail}/>`);
+    // charte : la zone qui brûle, en tireté rouge, sur le bord extérieur du coupe-feu
+    o.push(`<path d="${pd(decale(g.moitieA, BANDE + 3.5), true)}" ${A.zone}/>`);
     // le front de flammes : des langues couchées vers où va le vent, sur une ligne de feu
     const yA0 = yDiv + BANDE + 6, bas = Math.max(...int.map(p => p[1])) - 4;
     const ligne = [];
@@ -334,7 +336,7 @@ module.exports = (h) => {
     // le geste : on tire vers soi
     const f0 = P(FU - 26, FV - 13, 1), f1 = P(FU - 78, FV - 13, 1);
     o.push(`<path d="M${r1(f0[0])} ${r1(f0[1])} L${r1(f1[0])} ${r1(f1[1])}" fill="none" stroke="${BLANC}" stroke-width="6" stroke-linecap="round"/>`);
-    o.push(h.fleche(`M${r1(f0[0])} ${r1(f0[1])} L${r1(f1[0])} ${r1(f1[1])}`, A.arete));
+    o.push(h.geste(`M${r1(f0[0])} ${r1(f0[1])} L${r1(f1[0])} ${r1(f1[1])}`));        // charte : le geste en rouge
     return o.join('\n');
   };
   const renvoisBloc = z => {
@@ -376,6 +378,7 @@ module.exports = (h) => {
     for (const p of pousses) { o.push(h.rect(p.x - 1.4, s.yg, 2.8, s.yRz(p.x) - s.yg, bF)); o.push(p.t.svg); }
     o.push(h.ligne(4, s.yg, z.l - 4, s.yg, A.contour));
     o.push(h.ellipse(xc, s.yg, 3.2, 1.5, bD), point([xc, s.yg], 0.6));
+    o.push(h.controle(xc, s.yg, 10));                    // charte : le point à vérifier, la coupe à ras
     return o.join('\n');
   };
   const HC = 52;
@@ -395,6 +398,7 @@ module.exports = (h) => {
     // les pousses de côté : grêles, courtes, qui partent du flanc et se redressent
     for (const p of pousses) o.push(`<path d="M${r1(p.x0)} ${r1(p.y)} Q${r1(p.p1[0])} ${r1(p.p1[1])} ${r1(p.p2[0])} ${r1(p.p2[1])}" ${A.fin}/>`, point(p.p2, 0.8));
     o.push(h.ligne(4, s.yg, z.l - 4, s.yg, A.contour));
+    o.push(h.controle(xc, s.yg - HC, 10));               // charte : là où ça rate, la coupe trop haute
     return o.join('\n');
   };
 

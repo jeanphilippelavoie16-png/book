@@ -1,6 +1,10 @@
 // Planche 94-31 — l'auge au billot et les pierres chaudes (ch. 60, §9, « Faire bouillir sans casserole »).
 // Séquence : creuser aux braises, gratter le charbon entre deux passes, bouillir aux pierres.
 // Aucune cote : le chapitre ne donne aucune dimension d'auge. L'échelle, c'est le couteau.
+// La charte : la demi-bille au contour fort, son bout (la face de droite, lumière en haut à gauche)
+// à l'ombre. Le rouge : le raclage du couteau et la pierre qu'on plonge à la pince (les gestes), et
+// le niveau de sève contre le bord (le point à vérifier : il ne descend jamais). Le souffle, la
+// pierre refroidie qu'on ressort restent en noir.
 
 module.exports = (h) => {
   const r1 = (n) => Math.round(n * 10) / 10;
@@ -51,8 +55,12 @@ module.exports = (h) => {
       while (x < x1) { const l = 14 + 30 * R2(); seg.push(h.ligne(r1(x), r1(y), r1(Math.min(x + l, x1)), r1(y), h.a.detail)); x += l + 6 + 10 * R2(); }
       return seg.join('\n');
     });
+    const tour = [P(0, 0), P(0, 1), P(L, 1), ...arc(L, 1, ts), ...arc(0, ts, 0)];
     const svg = [
-      h.chemin([P(0, 0), P(0, 1), P(L, 1), ...arc(L, 1, ts), ...arc(0, ts, 0)], B(h.a.contour), true),
+      h.chemin(tour, h.a.blanc, true),
+      // le bout de la bille, la face de droite, à l'ombre
+      h.chemin([P(L, 0), P(L, 1), ...arc(L, 1, 0)], h.a.ombre, true),
+      h.chemin(tour, h.a.contour, true),
       h.ligne(...P(0, 0), ...P(L, 0), h.a.arete),
       h.chemin(arc(L, ts, 0), h.a.arete),
       h.chemin(arc(L, 0, 1, 0.9), h.a.detail),
@@ -136,7 +144,7 @@ module.exports = (h) => {
       ...eclats,
       couteau(tip[0], tip[1], -0.62, 72, 62),
       // sens du raclage : parallèle à la lame, vers la zone grattée
-      h.fleche(`M${r1(tip[0] + 70)},${r1(tip[1] - 92)} L${r1(tip[0] + 70 - 40 * Math.cos(0.62))},${r1(tip[1] - 92 + 40 * Math.sin(0.62))}`, h.a.arete),
+      h.geste(`M${r1(tip[0] + 70)},${r1(tip[1] - 92)} L${r1(tip[0] + 70 - 40 * Math.cos(0.62))},${r1(tip[1] - 92 + 40 * Math.sin(0.62))}`),
     ].join('\n');
   };
 
@@ -195,7 +203,9 @@ module.exports = (h) => {
       h.ellipse(r1(pB[0]), r1(pB[1] + 4), 20, 4.5, h.a.detail),
       pinceSvg, noeud(0.34, 1), noeud(0.55, -1),
       // la pierre descend : flèche parallèle à la pince, dégagée de sa branche du dessus
-      h.fleche(`M${r1(pB[0] - 66)},${r1(pB[1] - 117)} L${r1(pB[0] - 18)},${r1(pB[1] - 74)}`, h.a.arete),
+      h.geste(`M${r1(pB[0] - 66)},${r1(pB[1] - 117)} L${r1(pB[0] - 18)},${r1(pB[1] - 74)}`),
+      // le point à vérifier : le niveau tenu haut contre le bord
+      h.controle(...bl.P(cu + 60, 0.24, 6), 11),
       // pierre refroidie, ressortie
       pierre(C.xa + C.L + C.ox + 34, g - 12, 17, 12, 65),
       h.fleche(`M${r1(bl.P(C.L - 10, 0.9)[0])},${r1(bl.P(C.L - 10, 0.9)[1] - 16)} Q${r1(C.xa + C.L + C.ox + 40)},${r1(yf - 96)} ${r1(C.xa + C.L + C.ox + 36)},${r1(g - 34)}`, h.a.cache),
