@@ -4,6 +4,10 @@
 // longueur. Le seul chiffre dessiné est la hauteur de saumure au-dessus du chou (au moins 3 cm).
 // La bonde d'eau, le chapitre la décrit sur un couvercle de pot : elle est dessinée sur le pot
 // Mason, pas sur le baril, que le chapitre laisse ouvert sous son sac de saumure.
+// La charte : dans le baril en coupe, la paroi d'en face, vue par-dessus le sac, en gris loin ; le
+// baril vu de dehors a sa face de droite à l'ombre. Le rouge : le coup de maillet (le geste), et le
+// pourtour où le sac se plaque à la paroi, là où l'air passerait. Les flèches des cercles qui
+// descendent ou montent, du gaz et de l'air restent noires.
 module.exports = (h) => {
   const A = h.a;
   const r1 = n => Math.round(n * 10) / 10;
@@ -84,6 +88,8 @@ module.exports = (h) => {
     const ys = yl - 18;                                // surface de la saumure
     const xg = y => cx - Ri(y), xd = y => cx + Ri(y);
 
+    // la paroi d'en face, vue par-dessus le sac : en gris loin
+    out.push(h.path(poly([...courbe(xg, yt, yFondH - eFond, 24), ...courbe(xd, yFondH - eFond, yt, 24)]), A.loin));
     // le fond de la paroi d'en face, vu de l'intérieur : les joints du merrain
     for (let k = -3; k <= 3; k++) {
       const s = Math.sin(k * Math.PI / 8);
@@ -139,6 +145,8 @@ module.exports = (h) => {
     // le cadre du grossissement
     const gx0 = cx - Ro(ys) - 10, gy0 = ys - 40;
     out.push(h.rect(gx0, gy0, 86, 72, A.cache));
+    // le point qui décide : le sac plaqué à la paroi ferme le pourtour, là où l'air passerait
+    out.push(h.controle(xd(ys) - 4, ys - 3, 11));
 
     return {
       svg: out.join('\n'),
@@ -272,7 +280,11 @@ module.exports = (h) => {
     const ry = 9;                                  // le baril vu un peu d'en haut
     // silhouette
     const g = courbe(y => cx - R(y), yt, yb), d = courbe(y => cx + R(y), yb, yt);
-    out.push(h.path(poly([...g, ...d]), bC));
+    out.push(h.path(poly([...g, ...d]), A.blanc));
+    // la face de droite du baril, à l'ombre : du joint du merrain au flanc
+    const s2 = Math.sin(2 * Math.PI / 8), c2 = Math.cos(2 * Math.PI / 8);
+    out.push(h.path(poly([...courbe(y => cx + R(y) * s2, yt + ry * c2, yb + ry * c2 * 0.9, 16), ...courbe(y => cx + R(y), yb, yt, 16)]), A.ombre));
+    out.push(h.path(poly([...g, ...d]), A.contour));
     // le bas : l'arc de devant
     out.push(h.path(`M${r1(cx - re)} ${r1(yb)} A${r1(re)} ${ry} 0 0 0 ${r1(cx + re)} ${r1(yb)}`, A.contour));
     // l'ouverture du haut
@@ -310,7 +322,7 @@ module.exports = (h) => {
     };
     const xm = cx - R(yq) + 8;
     out.push(maillet(xm, 1, bD, blanc(A.hachure('bois', 'contour'))));
-    out.push(h.fleche(`M${r1(xm - 34)} ${r1(yq - th - 30)} Q${r1(xm - 4)} ${r1(yq - th - 34)} ${r1(xm)} ${r1(yq - th - 10)}`, A.arete));
+    out.push(h.geste(`M${r1(xm - 34)} ${r1(yq - th - 30)} Q${r1(xm - 4)} ${r1(yq - th - 34)} ${r1(xm)} ${r1(yq - th - 10)}`));
     // son coup suivant, de l'autre côté
     const xm2 = cx + R(yq) - 8;
     out.push(maillet(xm2, -1, A.cache, A.cache));

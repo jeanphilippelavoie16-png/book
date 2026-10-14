@@ -220,56 +220,22 @@ module.exports = (h) => {
     return [v.svg, h.fleche(`M${pt(fl[0])} L${pt(fl[1])}`, A.arete), h.controle(pc[0], pc[1], 15)].join('\n');
   };
 
-  // ─── Souffler, vu d'en haut : le visage du bébé couché, de face, et l'anneau des lèvres de
-  // l'aide posé dessus, qui enferme ensemble le nez et la bouche. En mm, repère entre les yeux.
-  const CADRE_D = [-60, 60, -66, 88];
-  const LEVRES = { c: [0, 25.5], ext: [28.5, 22], int: [21, 15.5] };
+  // ─── Souffler, bouche sur bouche et nez, de profil (JP, 14 octobre : « passe-les de profil »).
+  // Le bébé de « la tête droite », en gros plan, coupé après les épaules ; au-dessus, la tête de
+  // l'aide (bibliothèque de formes), le visage vers le bas, le front vers la tête du bébé : ses
+  // lèvres couvrent ensemble le nez et la bouche du bébé. La tête de l'aide est peinte après le
+  // bébé : son blanc cache le nez et la bouche qu'elle couvre.
+  const XS = 118, CADRE_D = [-150, XS + 2, -336, 34];
+  const BOUCHE = [20, -133];                   // le point de la bouche de l'aide, entre le nez et les lèvres du bébé
+  const BOUCHE_TETE = [35.5, 100.5];           // la bouche de la tête, tournée de -90° en miroir, depuis son repère
   const dessus = z => {
-    const { k, V } = cadre(z, ...CADRE_D);
-    const P = pts => pts.map(V);
-    const out = [];
-    // le cou et les épaules, coupés par une brisure au haut de la poitrine
-    const Y_BR = 82;
-    const epD = [[19, 46], [23, 58], [32, 66], [46, 71], [55, 76], [58, Y_BR]];
-    const epG = miroir(epD).reverse();
-    const br = [];
-    for (let i = 0; i <= 10; i++) br.push([58 - 116 * i / 10, Y_BR + (i > 0 && i < 10 ? (i % 2 ? 2.5 : -2.5) : 0)]);
-    out.push(h.path(lisse(P(epG)) + ` L${pt(V(epD[0]))}` + lisse(P(epD), false, true) + lisse(P(br), false, true) + ' Z', A.blanc));
-    out.push(h.path(lisse(P(epG)), A.arete));
-    out.push(h.path(lisse(P(epD)), A.arete));
-    out.push(h.path(lisse(P(br)), A.detail));
-    out.push(h.path(lisse(P([[-14, 58.5], [0, 62], [14, 58.5]])), A.fin));      // le pli du cou
-    // les oreilles, sur les côtés de la tête
-    const oreilleD = [[43, -7], [50, -9.5], [55, -3], [55.5, 7], [52.5, 16], [46, 21], [42, 17]];
-    for (const o of [oreilleD, miroir(oreilleD)]) out.push(h.path(lisse(P(o), true), blanc(A.arete)));
-    for (const o of [[[48, -4], [51.5, 1], [51.5, 9], [48.5, 14.5]], miroir([[48, -4], [51.5, 1], [51.5, 9], [48.5, 14.5]])]) out.push(h.path(lisse(P(o)), A.fin));
-    // la tête : un gros crâne, les joues rondes, un petit menton
-    const TFd = [[0, -62], [25, -58.5], [41.5, -46], [48.5, -25], [47.5, -4], [45, 15], [41, 31.5], [32.5, 44.5], [18.5, 52.5]];
-    const TF = [...TFd, [0, 55], ...miroir(TFd.slice(1)).reverse()];
-    out.push(h.path(lisse(P(TF), true), blanc(A.arete)));
-    // les sourcils, les yeux fermés
-    const sourcil = [[9, -11], [18, -12.5], [27, -10]], oeil = [[9.5, -0.5], [18, 3], [26.5, -0.5]];
-    for (const s of [sourcil, miroir(sourcil)]) out.push(h.path(lisse(P(s)), A.fin));
-    for (const s of [oeil, miroir(oeil)]) out.push(h.path(lisse(P(s)), A.arete));
-    // le nez, court et rond : les ailes et les narines
-    const aile = [[3.5, 12], [8.5, 14.5], [9, 18.5], [5.5, 20.5]];
-    for (const s of [aile, miroir(aile)]) out.push(h.path(lisse(P(s)), A.detail));
-    out.push(h.path(lisse(P([[-3, 21.8], [0, 22.6], [3, 21.8]])), A.fin));
-    for (const x of [-3.4, 3.4]) out.push(h.ellipse(...V([x, 19.5]), 1.5 * k, 0.9 * k, A.plein));
-    // la bouche fermée
-    out.push(h.path(lisse(P([[-11, 31.5], [-5, 28.8], [0, 30], [5, 28.8], [11, 31.5]])), A.detail));
-    out.push(h.path(lisse(P([[-11, 31.5], [-5, 32.6], [0, 32.2], [5, 32.6], [11, 31.5]])), A.arete));
-    out.push(h.path(lisse(P([[-7.5, 35.5], [0, 37.8], [7.5, 35.5]])), A.detail));
-    // l'anneau des lèvres de l'aide : il cache les joues et laisse voir, dedans, le nez et la bouche
-    const c = V(LEVRES.c);
-    const ext = ellipseD(c, LEVRES.ext[0] * k, LEVRES.ext[1] * k), int = ellipseD(c, LEVRES.int[0] * k, LEVRES.int[1] * k);
-    out.push(h.path(`${ext} ${int}`, `${A.blanc} fill-rule="evenodd"`));
-    out.push(h.path(ext, A.contour));
-    out.push(h.path(int, A.arete));
-    return out.join('\n');
+    const v = vignette(z, A0, CADRE_D, XS);
+    const ancre = v.V([BOUCHE[0] - BOUCHE_TETE[0], BOUCHE[1] - BOUCHE_TETE[1]]);
+    const aide = h.formes.tete({ x: ancre[0], y: ancre[1], echelle: v.k, angle: -90, cote: 'gauche', age: 'adulte' });
+    return `<clipPath id="vue-2905-souffler"><rect x="0" y="0" width="${f(z.l)}" height="${f(z.h)}" fill="#FFFFFF"/></clipPath>\n` +
+      `<g clip-path="url(#vue-2905-souffler)">\n${v.svg}\n${aide}\n</g>`;
   };
   const posD = (z, p) => cadre(z, ...CADRE_D).V(p);
-  const surLevres = (deg) => [LEVRES.c[0] + LEVRES.ext[0] * Math.cos(deg * RAD), LEVRES.c[1] + LEVRES.ext[1] * Math.sin(deg * RAD)];
 
   return {
     ref: '29-05',
@@ -302,10 +268,10 @@ module.exports = (h) => {
         ],
       },
       dessus: {
-        titre: 'Souffler, vu d’en haut',
+        titre: 'Bouche sur bouche et nez',
         dessin: dessus,
         renvois: z => [
-          { n: 6, rond: posD(z, [48, 60]), cible: posD(z, surLevres(35)), texte: 'bouche sur bouche et nez' },
+          { n: 6, rond: posD(z, [96, -128]), cible: posD(z, [30, -131]), texte: 'bouche sur bouche et nez' },
         ],
       },
       souffler: {
