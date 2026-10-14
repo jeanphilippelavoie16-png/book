@@ -411,8 +411,8 @@ chauve « laid en tabarnak » : chaque fois, c'était une forme dessinée planch
 - **La main** : `h.formes.main({ pose, vue, … })`. Elle **reste et se dessine bien** : on ne
   l'enlève pas pour ne pas avoir à la dessiner (JP, 12 octobre : « je les voulais mais bien
   faites »). Le geste porté par une main se montre avec la main.
-- **La tête de profil** : `h.formes.tete({ age: 'adulte' | 'enfant' | 'bebe', cheveux })`, au
-  trait sobre de manuel. **Le buste** : `h.formes.buste({ main: { …options de main() } })` —
+- **La tête de profil** : `h.formes.teteSimple` (voir plus bas) ; l'ancienne `h.formes.tete()` ne sert plus
+  aux planches neuves. **Le buste** : `h.formes.buste({ main: { …options de main() } })` —
   le bras va chercher la main, l'avant-bras rejoint son poignet sans cassure.
 - **Le corps entier** : `h.formes.personnage({ pose })`, le **pictogramme** de la règle 8
   (tête ronde sans visage, bandes d'épaisseur égale) : debout, penche, accroupi, assis,
@@ -422,8 +422,15 @@ chauve « laid en tabarnak » : chaque fois, c'était une forme dessinée planch
   de côté sont toutes vraiment belles, élimine toutes les vues de face et de haut »). Le corps entier passe par
   `h.formes.corps` (la bibliothèque des corps simples, `scripts/corps/`). Une vue de dessus d'un objet seul
   reste, sans corps.
-- **Les gros plans de mains** attendent la bibliothèque de mains simples (`scripts/mains/`, `mainSimple`) :
-  JP a jugé les mains calquées « pas acceptables ».
+- **Les gros plans de mains** passent par `h.formes.mainSimple` (`scripts/mains/`) : JP a jugé les mains
+  calquées « pas acceptables », et les 68 planches de mains sont migrées (14 octobre 2026). Le poing et la
+  prise de manche vus de la paume, tournés de `[-25, 0, 0]`, se lisent bien ; le poing vu de dos fait moufle.
+  **Une main laide ne s'imprime pas** (JP : « les prises que c'est laid, on élimine ») : pour une pince, le
+  gros plan des deux bouts de doigts coupés par le bord de la vue (27-04, 23-02, 34-01) ; sinon une autre
+  prise (la pierre à feu dans le poing, 13-09) ; sinon l'objet seul, et le renvoi dit la prise (24-16, 34-02).
+- **La tête avec un visage** passe par `h.formes.teteSimple` (`scripts/tetes/`), ou `corps({ visage })` pour un
+  corps simple : œil en amande vide, bouche au contour seul, cheveux en ligne de contour (JP, 14 octobre :
+  « les têtes sont belles »). Une tête écrasée à plat contre une autre se lit mal (29-05 garde sa tête d'avant).
 - Il manque une pose, un âge, une prise ? **On l'ajoute à formes.js**, on la regarde en grand
   sur les feuilles d'essai (`images/planches-src/_formes-essai-*.js`), puis on s'en sert.
 
