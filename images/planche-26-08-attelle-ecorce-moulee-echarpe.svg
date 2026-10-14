@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="680" height="826" viewBox="0 0 680 826" role="img">
-<title>Planche 26-08 — L’attelle d’écorce moulée</title>
-<desc>Trois vues. Une plaque d’écorce de bouleau trempe dans une marmite d’eau chaude. Un bras plié, vu de côté : l’écorce moulée en gouttière sous l’avant-bras et derrière le haut du bras prend le coude et le poignet, le rembourrage dépasse au coude et au poignet, trois liens la tiennent hors de la cassure, marquée en zigzag sur le dessus de l’avant-bras ; la main, vue du dos, doigts à demi fermés et pouce le long de l’index, dépasse le bout de l’écorce. Un trait de coupe A–A traverse le lien près du poignet. La coupe A–A : le bras, le rembourrage, la gouttière d’écorce durcie et le lien, qu’on desserre au premier blanchiment des doigts.</desc>
+<title>Planche 26-08 — L’attelle d’écorce moulée, et l’écharpe au pan de chemise</title>
+<desc>Quatre vues. Une plaque d’écorce de bouleau trempe dans une marmite d’eau chaude. Un bras plié, vu de côté : l’écorce moulée en gouttière sous l’avant-bras et derrière le haut du bras prend le coude et le poignet, le rembourrage dépasse au coude et au poignet, trois liens la tiennent hors de la cassure, marquée en zigzag sur le dessus de l’avant-bras ; la main, vue du dos, détendue, dépasse le bout de l’écorce. Un trait de coupe A–A traverse le lien près du poignet. La coupe A–A : le bras, le rembourrage, la gouttière d’écorce durcie et le lien, qu’on desserre au premier blanchiment des doigts. L’écharpe, en gros plan, vue du devant : le même bras attelé, l’avant-bras à l’horizontale dans le pan de la chemise relevé par-dessus et épinglé au devant de la chemise en deux points ; la main détendue sort à gauche, le coude et l’écorce à droite, le haut du bras monte vers l’épaule.</desc>
 <defs>
 <pattern id="h-isolant" width="12" height="8" patternUnits="userSpaceOnUse"><path d="M0 6 Q3 0 6 4 T12 2" fill="none" stroke="#1A1A1A" stroke-width="0.5"/></pattern>
 <pattern id="h-eau" width="16" height="7" patternUnits="userSpaceOnUse"><line x1="1" y1="2" x2="8" y2="2" stroke="#1A1A1A" stroke-width="0.5"/><line x1="9" y1="5.5" x2="15" y2="5.5" stroke="#1A1A1A" stroke-width="0.5"/></pattern>
@@ -8,7 +8,7 @@
 <rect x="0" y="0" width="680" height="826" fill="#FFFFFF"/>
 <text x="40" y="38" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#1A1A1A">Tremper</text>
 <g transform="translate(40 46)" data-vue="tremper">
-<g transform="translate(0,-37)">
+<g transform="translate(0,-45)">
 <path d="M27,205 Q29,272 43,292 A72 14 0 0 0 187,292 Q201,272 203,205" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M150,221.5 Q182,216 203,205 Q201,272 187,292 Q172,302 150,304 Z" fill="#CFCFCF" stroke="none"/>
 <path d="M27,205 Q29,272 43,292 A72 14 0 0 0 187,292 Q201,272 203,205" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
@@ -42,7 +42,7 @@
 </g>
 <text x="293.2" y="38" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#1A1A1A">Mouler et attacher</text>
 <g transform="translate(293.2 46)" data-vue="mouler">
-<g transform="translate(0,10)">
+<g transform="translate(12,2)">
 <path d="M226,0 C227,10 228,20 229,28 M306,0 C305,10 304,20 303,28" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M240,0 Q244,12 241,26 M290,2 Q286,14 292,26" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M229,28 Q266,22 303,28 L302,46 Q266,40 231,46 Z" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
@@ -50,46 +50,29 @@
 <path d="M234,46 C228,80 226,130 235,168 C239,184 237,192 232,196" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M296,46 C301,100 300,160 297,200 C298,225 300,245 290,256" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M236,184 Q231,193 222,195" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M232,196 C200,186 160,196 120,206 L107.2,210.7" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M290,256 C250,262 180,252 120,246 L107.2,247.9" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
-<g data-forme="main-detendue">
-<path d="M107.2 210.7 C105.8 210.8 101.8 210.9 98.8 211.3 C95.8 211.7 90.9 213 89.3 213.3" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M41.8 251.5 C40.3 251.5 31.3 251.4 32.8 251.5 C34.3 251.6 44.3 252.4 50.8 252.1 C57.3 251.9 64.6 250.9 71.8 250 C79 249.2 88.1 247.4 94 247 C99.9 246.7 105 247.8 107.2 247.9" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M27.1 218.6 Q28.2 218.9 23.4 219.8" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M25.1 231.2 Q28.1 231.4 25.2 232.9" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M28.1 243.1 Q32.5 243.4 31.4 245.9" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M31.4 245.9 Q28.3 247.5 25.2 249 C24.7 249.2 23.9 249.8 23.6 250.2 Q21.9 252.2 20.7 254.6 C20.2 255.2 20.5 254.7 20.2 255.4 Q19.9 255.7 20.3 256.3 C18.5 260.4 24.6 263.2 26.4 259.1 Q27 258.9 27.2 258.6 C27.3 258.3 26.5 259.6 26.7 259.4 Q27.6 258.4 28.6 257.6 Q35.2 254.5 41.8 251.6" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M25.2 233 Q19.2 234.8 13.1 236.6 C12.5 236.8 11.7 237.2 11.3 237.6 Q7.7 240.6 4.5 244.1 C3.6 244.9 4.6 243.8 3.9 244.8 Q2.8 246.1 2.4 247.8 C-0.6 251.8 5.4 256.2 8.4 252.2 Q9.7 251.2 10.8 250 C11 249.7 9.9 250.9 10.1 250.7 Q12.7 248.8 15.4 247 Q21.6 245.2 27.9 243.4" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M23.4 219.9 Q16.1 221.3 8.8 222.5 C8 222.6 7.6 222.7 6.9 223.2 Q2.1 226 -2.4 229.5 C-3.8 230.3 -2 228.9 -3.2 230 Q-5.2 231.8 -6.7 234.2 C-10.6 237.7 -5.3 243.6 -1.3 240 Q-0.3 239.8 0.5 239.3 Q4.9 236.5 9.5 234 Q17.1 232.7 24.7 231.6" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M38.5 206.5 Q25.9 207.8 13.3 208.6 C12.3 208.7 12.5 208.6 11.6 209.1 Q6.6 211.2 1.9 214 C0.4 214.6 2.5 213.4 1.1 214.4 Q-1.3 216.1 -3.3 218.3 C-7.5 221.3 -3.1 227.6 1.1 224.6 Q2.3 224.3 3.4 223.8 Q7.9 221.7 12.5 219.8 Q19.5 219.3 26.4 219" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M89.3 213.3 L64 202.2 C63.8 202.1 62.8 201.8 62.6 201.7 Q53 199.8 43.3 198.8 C42.6 198.7 42.9 198.7 42.2 198.7 Q35 199.1 27.8 200.1 C21.7 200.4 22.1 209.5 28.2 209.3 Q34.3 209.8 40.3 209.6 Q49.7 210.8 59 212.8 L61.5 213.9" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M107.2 210.7 C105.8 210.8 101.8 210.9 98.8 211.3 C95.8 211.7 94.8 214.2 89.3 213.3 C83.8 212.5 73 207.4 65.8 206.2 C58.6 205 50.9 206.1 46 206.2 C41.1 206.3 40.3 205.9 36.1 206.7 C31.9 207.5 24.4 207.3 20.8 211 C17.2 214.7 14.8 223 14.8 229 C14.8 235 16.3 243.3 20.8 247 C25.3 250.7 39.8 250.7 41.8 251.5 C43.8 252.2 31.3 251.4 32.8 251.5 C34.3 251.6 44.3 252.4 50.8 252.1 C57.3 251.9 64.6 250.9 71.8 250 C79 249.2 88.1 247.4 94 247 C99.9 246.7 105 247.8 107.2 247.9 Z" fill="#FFFFFF" stroke="none"/>
-<path d="M107.2 210.7 C105.8 210.8 101.8 210.9 98.8 211.3 C95.8 211.7 90.9 213 89.3 213.3" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M41.8 251.5 C40.3 251.5 31.3 251.4 32.8 251.5 C34.3 251.6 44.3 252.4 50.8 252.1 C57.3 251.9 64.6 250.9 71.8 250 C79 249.2 88.1 247.4 94 247 C99.9 246.7 105 247.8 107.2 247.9" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M27.1 218.6 Q28.2 218.9 23.4 219.8" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M25.1 231.2 Q28.1 231.4 25.2 232.9" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M28.1 243.1 Q32.5 243.4 31.4 245.9" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M50.9 236.5 L42.1 240.5 Q33.7 244.9 25.2 249 C24.7 249.2 23.9 249.8 23.6 250.2 Q21.9 252.2 20.7 254.6 C20.2 255.2 20.5 254.7 20.2 255.4 Q19.9 255.7 20.3 256.3 C18.5 260.4 24.6 263.2 26.4 259.1 Q27 258.9 27.2 258.6 C27.3 258.3 26.5 259.6 26.7 259.4 Q27.6 258.4 28.6 257.6 Q37.4 253.5 46.3 249.7 L55 245.7 Z" fill="#FFFFFF" stroke="none"/>
-<path d="M31.4 245.9 Q28.3 247.5 25.2 249 C24.7 249.2 23.9 249.8 23.6 250.2 Q21.9 252.2 20.7 254.6 C20.2 255.2 20.5 254.7 20.2 255.4 Q19.9 255.7 20.3 256.3 C18.5 260.4 24.6 263.2 26.4 259.1 Q27 258.9 27.2 258.6 C27.3 258.3 26.5 259.6 26.7 259.4 Q27.6 258.4 28.6 257.6 Q35.2 254.5 41.8 251.6" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M25.5 251 Q26.2 253.5 28.4 254.7" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M45.9 226.7 L36.7 229.3 Q24.9 233.1 13.1 236.6 C12.5 236.8 11.7 237.2 11.3 237.6 Q7.7 240.6 4.5 244.1 C3.6 244.9 4.6 243.8 3.9 244.8 Q2.8 246.1 2.4 247.8 C-0.6 251.8 5.4 256.2 8.4 252.2 Q9.7 251.2 10.8 250 C11 249.7 9.9 250.9 10.1 250.7 Q12.7 248.8 15.4 247 Q27.5 243.4 39.7 240.2 L49 237.6 Z" fill="#FFFFFF" stroke="none"/>
-<path d="M25.2 233 Q19.2 234.8 13.1 236.6 C12.5 236.8 11.7 237.2 11.3 237.6 Q7.7 240.6 4.5 244.1 C3.6 244.9 4.6 243.8 3.9 244.8 Q2.8 246.1 2.4 247.8 C-0.6 251.8 5.4 256.2 8.4 252.2 Q9.7 251.2 10.8 250 C11 249.7 9.9 250.9 10.1 250.7 Q12.7 248.8 15.4 247 Q21.6 245.2 27.9 243.4" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M13.2 239 Q13.6 241.8 15.7 243.8" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M44.7 216.2 L35.2 217.6 Q22 220.2 8.8 222.5 C8 222.6 7.6 222.7 6.9 223.2 Q2.1 226 -2.4 229.5 C-3.8 230.3 -2 228.9 -3.2 230 Q-5.2 231.8 -6.7 234.2 C-10.6 237.7 -5.3 243.6 -1.3 240 Q-0.3 239.8 0.5 239.3 Q4.9 236.5 9.5 234 Q23.2 231.7 37 229.8 L46.5 228.4 Z" fill="#FFFFFF" stroke="none"/>
-<path d="M23.4 219.9 Q16.1 221.3 8.8 222.5 C8 222.6 7.6 222.7 6.9 223.2 Q2.1 226 -2.4 229.5 C-3.8 230.3 -2 228.9 -3.2 230 Q-5.2 231.8 -6.7 234.2 C-10.6 237.7 -5.3 243.6 -1.3 240 Q-0.3 239.8 0.5 239.3 Q4.9 236.5 9.5 234 Q17.1 232.7 24.7 231.6" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M8.6 225 Q8.7 228 10.6 230.5" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M48.1 206.1 L38.5 206.5 Q25.9 207.8 13.3 208.6 C12.3 208.7 12.5 208.6 11.6 209.1 Q6.6 211.2 1.9 214 C0.4 214.6 2.5 213.4 1.1 214.4 Q-1.3 216.1 -3.3 218.3 C-7.5 221.3 -3.1 227.6 1.1 224.6 Q2.3 224.3 3.4 223.8 Q7.9 221.7 12.5 219.8 Q25.8 218.9 39.1 218.5 L48.7 218 Z" fill="#FFFFFF" stroke="none"/>
-<path d="M38.5 206.5 Q25.9 207.8 13.3 208.6 C12.3 208.7 12.5 208.6 11.6 209.1 Q6.6 211.2 1.9 214 C0.4 214.6 2.5 213.4 1.1 214.4 Q-1.3 216.1 -3.3 218.3 C-7.5 221.3 -3.1 227.6 1.1 224.6 Q2.3 224.3 3.4 223.8 Q7.9 221.7 12.5 219.8 Q19.5 219.3 26.4 219" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M13 211 Q12.7 214 14.2 216.5" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M96.9 216.8 L89.3 213.3 L64 202.2 C63.8 202.1 62.8 201.8 62.6 201.7 Q53 199.8 43.3 198.8 C42.6 198.7 42.9 198.7 42.2 198.7 Q35 199.1 27.8 200.1 C21.7 200.4 22.1 209.5 28.2 209.3 Q34.3 209.8 40.3 209.6 Q49.7 210.8 59 212.8 L84.3 224.3 L92 227.7 Z" fill="#FFFFFF" stroke="none"/>
-<path d="M89.3 213.3 L64 202.2 C63.8 202.1 62.8 201.8 62.6 201.7 Q53 199.8 43.3 198.8 C42.6 198.7 42.9 198.7 42.2 198.7 Q35 199.1 27.8 200.1 C21.7 200.4 22.1 209.5 28.2 209.3 Q34.3 209.8 40.3 209.6 Q49.7 210.8 59 212.8 L61.5 213.9" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M42.6 201.4 Q41.4 204 42.2 206.8" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M36.4 199.3 C35.1 200.8 29.6 201.2 25.4 200.9" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M40 209.1 Q37.3 212.5 40 215.9" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M37.3 220.3 Q34.6 223.7 37.3 227.2" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M39.4 231.6 Q36.7 234.8 39.4 237.9" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M232,196 C200,186 160,196 120,206 L114,206.27" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M290,256 C250,262 180,252 120,246 L114,245.25" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+<g data-main="relachee-dos">
+<path d="M45.06 206.21 L44.47 206.68 L43.77 207.02 L34.4 209.98 L19.63 214.27 L3.42 221.5 L-0.23 223.41 L-1.05 223.97 L-1.59 224.47 L-2.49 225.71 L-2.94 226.92 L-3.13 228.16 L-3.11 229.05 L-2.9 229.94 L-2.43 230.97 L-2.13 231.44 L-1.71 231.9 L-1.6 232.22 L-1.66 232.62 L-1.95 232.97 L-2.35 233.22 L-3.95 233.84 L-7.21 235.32 L-8.73 236.25 L-9.14 236.61 L-9.95 237.68 L-10.33 238.46 L-10.68 239.78 L-10.72 240.55 L-10.47 241.99 L-9.91 243.22 L-9.39 243.84 L-8.1 244.76 L-7.4 244.96 L-6.13 245.17 L-4.92 245.01 L-3.61 244.71 L-3.23 244.76 L-2.92 244.99 L-2.79 245.36 L-2.84 245.74 L-3.41 246.91 L-3.73 248.07 L-3.77 248.79 L-3.69 249.57 L-3.29 250.83 L-2.94 251.37 L-2.44 251.95 L-1.64 252.5 L-1.09 252.79 L-0.37 253 L0.58 253.06 L2.11 252.92 L5.21 252.29 L10.71 250.9 L16.01 250.11 L16.41 250.21 L16.68 250.48 L16.77 250.86 L16.71 251.16 L16.1 252.25 L15.86 252.98 L15.72 253.84 L15.91 255.25 L16.49 256.28 L16.84 256.74 L17.95 257.49 L18.23 257.58 L19.98 257.8 L22.37 257.77 L28.39 257.25 L47.82 257.69 L55.62 257.96 L56.41 258.12 L57.97 259.04 L58.61 259.1 L61.23 258.79 L78.44 254.67 L84.19 252.04 L94.32 247.14 L96 246.5 L98.17 246.12 L108.9 245.12 L114 244.76 L113.99 206.72 L109.05 207.63 L105.36 208.19 L92.8 209.66 L90.87 210.02 L89.32 210.05 L48.83 205.99 L47.57 205.92 Z" fill="#FFFFFF" fill-rule="nonzero" stroke="none"/>
+<path d="M38.42 213.88 L37.91 214 L30.72 216.93 L28.74 217.83 L27.72 218.55 L26.8 219.44 L26.24 220.24 L25.68 221.51 L25.51 222.3 L25.56 223.43 L25.72 223.96 L26.28 225.04 L27.69 226.46 L28.68 227 L30.25 227.51 L35.62 227.17 L38.42 226.46 L40.14 225.85 L41.34 225.34 L41.99 224.85 L42.69 223.84 L43.18 221.96 L43.19 220.24 L42.85 218.31 L41.79 215.53 L41.31 214.74 L40.85 214.21 L40.3 213.89 L39.65 213.7 Z" fill="#E6E6E6" fill-rule="nonzero" stroke="none"/>
+<path d="M48.51 212.65 L38.93 213.78 L38.29 214.13 L37.56 214.85 L37.05 215.66 L36.48 217.15 L36.18 218.9 L36.17 220.56 L36.48 222.24 L37.12 223.84 L37.45 224.35 L38.13 225.11 L38.91 225.65 L39.23 225.73 L56.4 224.94 L56.71 224.83 L57.66 224.14 L58.46 222.86 L58.94 221.35 L59.2 218.72 L59.13 217.1 L58.53 214.35 L58.21 213.35 L57.62 212.32 L56.84 211.76 L56.5 211.67 L56.04 211.68 Z" fill="#E6E6E6" fill-rule="nonzero" stroke="none"/>
+<path d="M8.43 219.23 L3.44 221.48 L0.21 223.14 L-1.18 224.07 L-1.93 224.86 L-2.44 225.62 L-2.94 226.89 L-3.06 227.47 L-3.14 228.61 L-3.06 229.33 L-2.75 230.33 L-2.19 231.36 L-1.69 231.93 L-0.24 232.85 L1.27 233.12 L2.73 232.96 L5.74 232.12 L8.62 231.09 L11.82 229.84 L12.55 229.41 L12.76 229.19 L13.25 227.92 L13.36 227.19 L13.34 226.48 L13.23 225.33 L12.83 223.79 L12.53 222.99 L12.15 222.16 L11.4 220.94 L10.33 219.77 L9.49 219.3 L9.12 219.18 L8.83 219.14 Z" fill="#FFFFFF" fill-rule="nonzero" stroke="none"/>
+<path d="M19.46 214.32 L11.4 217.99 L9.07 218.97 L8.23 219.48 L8.01 219.76 L7.7 221.01 L7.66 221.93 L7.8 223.46 L8.18 225.15 L8.76 226.78 L9.46 228.13 L9.98 228.85 L10.91 229.67 L11.16 229.77 L11.95 229.8 L20.41 227.48 L23.15 226.68 L23.88 226.24 L24.09 225.98 L24.52 224.94 L24.68 223.59 L24.51 221.77 L24.11 219.97 L23.54 218.43 L23.12 217.54 L22.4 216.32 L21.41 215.13 L21.07 214.84 L20.31 214.39 L19.72 214.23 Z" fill="#FFFFFF" fill-rule="nonzero" stroke="none"/>
+<path d="M14.16 226.59 L4.54 230.49 L1.39 231.68 L0.92 231.92 L0.54 232.25 L0.19 233 L-0.05 234.15 L-0.05 235.65 L0.15 236.87 L0.73 238.9 L1.23 239.96 L2.02 241.16 L2.69 241.8 L3.28 242.14 L4.15 242.22 L17.25 239.08 L18.22 238.66 L18.48 238.44 L18.94 237.59 L19.12 237.05 L19.32 235.96 L19.27 234.17 L18.91 232.36 L18.6 231.39 L18.24 230.46 L17.42 228.9 L16.65 227.92 L15.9 227.21 L15.26 226.78 L14.72 226.54 Z" fill="#FFFFFF" fill-rule="nonzero" stroke="none"/>
+<path d="M5.72 241.83 L2.76 242.77 L-0.23 243.86 L-1.88 244.74 L-2.8 245.73 L-3.24 246.46 L-3.58 247.4 L-3.77 248.39 L-3.77 248.79 L-3.6 249.98 L-3.33 250.73 L-2.75 251.63 L-2.14 252.2 L-1.13 252.77 L-0.46 252.99 L0.73 253.05 L1.67 252.99 L4.78 252.4 L10.34 251 L11.59 250.55 L12.06 250.08 L12.43 249.53 L12.76 248.58 L12.89 246.85 L12.68 245.45 L12.38 244.42 L11.97 243.46 L11.18 242.24 L10.48 241.57 L9.7 241.06 L8.79 240.89 Z" fill="#FFFFFF" fill-rule="nonzero" stroke="none"/>
+<path d="M1.06 231.8 L-3.95 233.84 L-7.21 235.31 L-8.6 236.16 L-9.4 236.89 L-10.21 238.16 L-10.59 239.34 L-10.73 240.17 L-10.58 241.56 L-10.42 242.16 L-9.81 243.37 L-9.41 243.82 L-8.04 244.79 L-6.21 245.17 L-5.08 245.04 L-1.58 244.16 L3.94 242.28 L4.86 241.88 L5.12 241.66 L5.67 240.79 L5.95 239.49 L5.93 237.98 L5.61 236.54 L5.16 235.31 L4.91 234.76 L4.22 233.64 L3.11 232.48 L2.15 231.89 L1.41 231.73 Z" fill="#FFFFFF" fill-rule="nonzero" stroke="none"/>
+<path d="M24.47 248.62 L22.2 248.98 L19.06 249.65 L17.77 250.21 L16.9 250.96 L16.3 251.79 L16.09 252.25 L15.78 253.33 L15.73 253.82 L15.74 254.28 L15.96 255.35 L16.73 256.65 L18.13 257.56 L20.49 257.81 L23.29 257.72 L28.31 257.25 L29.05 257.03 L29.59 256.65 L30.04 256.1 L30.41 255.4 L30.78 253.78 L30.77 252.38 L30.56 251.26 L29.91 249.7 L29.42 249.05 L28.88 248.56 L27.96 248.16 Z" fill="#FFFFFF" fill-rule="nonzero" stroke="none"/>
+<path d="M41.79 207.65 L34.51 209.94 L20.26 214.07 L19.64 214.33 L19.31 214.8 L19.1 216.2 L19.11 217.3 L19.39 219.46 L19.83 221.4 L20.42 223.25 L21.17 224.95 L21.56 225.65 L21.95 226.16 L22.49 226.61 L22.78 226.7 L23.45 226.62 L37.32 222.85 L48.37 219.97 L49.01 219.73 L49.23 219.53 L49.53 218.85 L49.69 217.79 L49.66 216.29 L49.39 214.35 L49.05 212.79 L48.43 210.76 L47.66 208.93 L46.95 207.66 L46.38 206.99 L46.12 206.49 L45.98 206.36 L45.74 206.38 Z" fill="#FFFFFF" fill-rule="nonzero" stroke="none"/>
+<path d="M39.74 220.14 L29.13 223.01 L14.62 226.47 L14.35 226.59 L13.95 227.03 L13.65 228 L13.54 229.3 L13.64 231.25 L13.93 233.06 L14.42 234.98 L15.05 236.7 L15.84 238.16 L16.56 238.89 L17.02 239.06 L17.27 239.08 L31.69 235.87 L45.73 233.03 L46.38 232.84 L46.63 232.65 L47.03 232 L47.21 231.32 L47.36 229.76 L47.25 227.83 L46.92 225.82 L46.36 223.69 L45.85 222.29 L45.15 220.83 L43.91 219.05 L43.65 219.05 Z" fill="#FFFFFF" fill-rule="nonzero" stroke="none"/>
+<path d="M18.21 237.99 L12.23 239.91 L9.28 240.75 L8.47 241.06 L8.05 241.41 L7.6 242.24 L7.35 243.33 L7.27 244.78 L7.43 246.34 L7.82 247.84 L8.18 248.75 L8.98 250.04 L9.72 250.67 L9.99 250.78 L10.84 250.88 L22.83 249.11 L23.65 248.76 L24.16 248.21 L24.53 247.58 L24.76 246.8 L24.96 245.46 L24.98 244.6 L24.66 242.3 L24.26 240.96 L23.49 239.34 L22.57 238.15 L21.65 237.44 L21.13 237.24 L20.75 237.23 Z" fill="#FFFFFF" fill-rule="nonzero" stroke="none"/>
+<path d="M35.84 246.79 L27.86 248.13 L27.26 248.34 L27.01 248.52 L26.52 249.2 L26.08 250.2 L25.82 251.55 L25.76 252.48 L25.76 253.08 L26.03 254.74 L26.33 255.6 L26.91 256.61 L27.56 257.11 L28.7 257.26 L36.62 257.47 L37.61 257.21 L37.88 257.02 L38.4 256.47 L38.58 256.21 L39.06 255.09 L39.38 253.58 L39.42 251.91 L39.21 250.25 L38.69 248.82 L38.23 248 L37.92 247.61 L37.56 247.25 L36.96 246.83 L36.53 246.72 Z" fill="#FFFFFF" fill-rule="nonzero" stroke="none"/>
+<path d="M36.42 246.79 L35.98 247.18 L35.53 248.01 L35.19 249.15 L35 250.14 L34.84 251.77 L34.9 254.1 L35.14 255.47 L35.56 256.68 L36.11 257.32 L36.65 257.47 L47.71 257.69 L58.77 258.09 L59.25 257.86 L59.5 257.61 L60.02 256.73 L60.38 255.65 L60.7 253.88 L60.81 252.04 L60.74 250.39 L60.49 248.79 L60.19 247.84 L59.93 247.24 L59.33 246.4 L47.91 246.7 L36.7 246.72 Z" fill="#FFFFFF" fill-rule="nonzero" stroke="none"/>
+<path d="M49.64 232.48 L35.27 234.99 L21.44 237.11 L20.81 237.29 L20.39 237.75 L20.04 238.68 L19.86 239.92 L19.81 241.64 L19.97 243.63 L20.3 245.35 L20.8 247.06 L21.25 248.04 L21.82 248.81 L22.09 249.01 L22.7 249.14 L36.89 247.29 L50.62 245.62 L51.34 245.45 L51.6 245.27 L52 244.65 L52.23 243.98 L52.44 242.77 L52.5 240.77 L52.36 238.9 L51.96 236.76 L51.38 234.84 L50.78 233.59 L50.05 232.57 L49.93 232.47 Z" fill="#FFFFFF" fill-rule="nonzero" stroke="none"/>
+<path d="M45.02 206.22 L43.51 207.58 L42.08 208.27 L42.26 209.2 L42.18 210.34 L41.71 211.99 L40.31 219.6 L40.03 220.42 L39.55 221.11 L39.25 221.39 L38.52 221.83 L37.51 222.14 L36.56 222.24 L35.49 222.05 L34.71 222.16 L27 224.16 L30.52 223.59 L32.81 223.37 L35.84 222.63 L36.84 222.7 L37.65 222.95 L38.59 223.67 L38.86 224 L39.22 224.77 L39.36 225.65 L39.42 226.8 L39.97 229.52 L39.87 230.35 L39.56 231.11 L39.09 231.73 L37.34 233.48 L36.64 234 L36.24 234.17 L28.11 235.94 L31.82 235.69 L33.26 235.8 L40.38 234.69 L41.21 234.78 L41.98 235.11 L42.32 235.35 L42.92 236.02 L43.17 236.46 L45.45 241.77 L45.68 242.61 L45.67 243.48 L45.4 244.28 L45.19 244.65 L44.63 245.27 L44.28 245.51 L43.91 245.71 L43.06 245.94 L40.83 246.23 L46.86 246.44 L47.72 246.63 L48.48 247.05 L48.84 247.39 L49.46 248.2 L55.59 257.59 L57.89 259 L58.48 259.12 L61.11 258.82 L78.34 254.7 L84.19 252.03 L95.87 246.35 L96.66 245.72 L104.68 237.43 L105.17 236.63 L108.05 230.55 L108.22 229.53 L108.3 226.71 L108.17 225.84 L107.44 223.09 L106.94 222.21 L103.16 217.35 L102.85 216.99 L102.07 216.38 L92.32 210.43 L48.42 205.95 L47.58 205.92 Z" fill="#FFFFFF" fill-rule="nonzero" stroke="none"/>
+<path d="M111.58 207.18 L105.06 208.24 L92.58 209.68 L92.23 209.74 L92.09 209.93 L95.84 245.83 L95.9 246.2 L96.08 246.35 L109.07 245.11 L114 244.76 L114 206.71 Z" fill="#FFFFFF" fill-rule="nonzero" stroke="none"/>
+<path d="M45.06 206.21 L44.47 206.68 L43.77 207.02 L34.4 209.98 L19.63 214.27 L3.42 221.5 L-0.23 223.41 L-1.05 223.97 L-1.59 224.47 L-2.49 225.71 L-2.94 226.92 L-3.13 228.16 L-3.11 229.05 L-2.9 229.94 L-2.43 230.97 L-2.13 231.44 L-1.71 231.9 L-1.6 232.22 L-1.66 232.62 L-1.95 232.97 L-2.35 233.22 L-3.95 233.84 L-7.21 235.32 L-8.73 236.25 L-9.14 236.61 L-9.95 237.68 L-10.33 238.46 L-10.68 239.78 L-10.72 240.55 L-10.47 241.99 L-9.91 243.22 L-9.39 243.84 L-8.1 244.76 L-7.4 244.96 L-6.13 245.17 L-4.92 245.01 L-3.61 244.71 L-3.23 244.76 L-2.92 244.99 L-2.79 245.36 L-2.84 245.74 L-3.41 246.91 L-3.73 248.07 L-3.77 248.79 L-3.69 249.57 L-3.29 250.83 L-2.94 251.37 L-2.44 251.95 L-1.64 252.5 L-1.09 252.79 L-0.37 253 L0.58 253.06 L2.11 252.92 L5.21 252.29 L10.71 250.9 L16.01 250.11 L16.41 250.21 L16.68 250.48 L16.77 250.86 L16.71 251.16 L16.1 252.25 L15.86 252.98 L15.72 253.84 L15.91 255.25 L16.49 256.28 L16.84 256.74 L17.95 257.49 L18.23 257.58 L19.98 257.8 L22.37 257.77 L28.39 257.25 L47.82 257.69 L55.62 257.96 L56.41 258.12 L57.97 259.04 L58.61 259.1 L61.23 258.79 L78.44 254.67 L84.19 252.04 L94.32 247.14 L96 246.5 L98.17 246.12 L108.9 245.12 L113.01 244.82 M45.06 206.21 L47.57 205.92 L48.83 205.99 L89.32 210.05 L90.87 210.02 L92.8 209.66 L105.36 208.19 L109.05 207.63 L113.01 206.89" fill="none" stroke="#1A1A1A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M24.91 224.02 L32.39 222.17 L39.74 220.14 L29.13 223.01 L14.16 226.59 L4.54 230.49 L-1.39 232.79 M44.67 246.34 L22.65 249.14 L16.75 250.01 M29.73 235.84 L20.75 237.23 L12.23 239.91 L8.17 241.08 L2.76 242.77 L-0.23 243.86 L-1.65 244.58 L-2.33 245.17" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"/>
 </g>
-<path d="M107.2,210.7 L98.8,211.3" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M160,197 L165,203 L158,209 L164,215 L159,221 L163,227" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M226,229 Q226,221 232,221 Q238,218 242,219 Q246,214 251,212 Q255,208 257,206 Q261,202 261,196 Q263,188 263,176 L272,176 L272,232 Z" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M64,236 Q66,228 72,228 Q78,225 84,226 Q90,224 96,227 Q102,225 106,236 Z" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
@@ -143,9 +126,9 @@
 <text x="114" y="287" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">A</text>
 </g>
 </g>
-<text x="40" y="395.7" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#1A1A1A">Coupe A–A</text>
-<g transform="translate(40 403.7)" data-vue="coupe">
-<g transform="translate(185,-27)">
+<text x="40" y="379" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#1A1A1A">Coupe A–A</text>
+<g transform="translate(40 387)" data-vue="coupe">
+<g transform="translate(0,-10)">
 <path d="M179.3 127.2 L181.7 131.5 L183.6 136 L184.9 140.6 L185.7 145.3 L186 150 L185.7 154.7 L184.9 159.4 L183.6 164 L181.7 168.5 L179.3 172.8 L176.5 177 L173.2 181 L169.4 184.7 L165.2 188.2 L160.6 191.4 L155.7 194.2 L150.5 196.8 L145 198.9 L139.3 200.7 L133.4 202.2 L127.3 203.2 L121.2 203.8 L115 204 L108.8 203.8 L102.7 203.2 L96.6 202.2 L90.7 200.7 L85 198.9 L79.5 196.8 L74.3 194.2 L69.4 191.4 L64.8 188.2 L60.6 184.7 L56.8 181 L53.5 177 L50.7 172.8 L48.3 168.5 L46.4 164 L45.1 159.4 L44.3 154.7 L44 150 L44.3 145.3 L45.1 140.6 L46.4 136 L48.3 131.5 L50.7 127.2 L60.6 131.8 L58.6 135.3 L57 138.9 L55.9 142.5 L55.2 146.3 L55 150 L55.2 153.7 L55.9 157.5 L57 161.1 L58.6 164.7 L60.6 168.2 L63 171.5 L65.9 174.7 L69 177.6 L72.6 180.4 L76.4 182.9 L80.6 185.2 L85 187.2 L89.6 189 L94.5 190.4 L99.5 191.5 L104.6 192.3 L109.8 192.8 L115 193 L120.2 192.8 L125.4 192.3 L130.5 191.5 L135.5 190.4 L140.4 189 L145 187.2 L149.4 185.2 L153.6 182.9 L157.4 180.4 L161 177.6 L164.1 174.7 L167 171.5 L169.4 168.2 L171.4 164.7 L173 161.1 L174.1 157.5 L174.8 153.7 L175 150 L174.8 146.3 L174.1 142.5 L173 138.9 L171.4 135.3 L169.4 131.8 Z" fill="url(#h-isolant)" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round"/>
 <ellipse cx="115" cy="150" rx="60" ry="43" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
 <ellipse cx="98" cy="138" rx="16" ry="12" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
@@ -160,82 +143,158 @@
 <circle cx="115" cy="101" r="12" fill="none" stroke="#9B2C1E" stroke-width="1.6"/>
 </g>
 </g>
-<line x1="249.3" y1="76" x2="190" y2="149" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
-<line x1="249.3" y1="76" x2="190" y2="149" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
-<circle cx="190" cy="149" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
-<circle cx="255" cy="69" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="tremper"/>
-<text x="255" y="73" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">1</text>
-<line x1="250.7" y1="174.9" x2="226" y2="220" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
-<line x1="250.7" y1="174.9" x2="226" y2="220" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
-<circle cx="226" cy="220" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
-<circle cx="255" cy="167" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="tremper"/>
-<text x="255" y="171" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">2</text>
-<line x1="442" y1="222.6" x2="454.2" y2="260" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
-<line x1="442" y1="222.6" x2="454.2" y2="260" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
-<circle cx="454.2" cy="260" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
-<circle cx="439.2" cy="214" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="mouler"/>
-<text x="439.2" y="218" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">3</text>
-<line x1="618.9" y1="328.5" x2="595.2" y2="304" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
-<line x1="618.9" y1="328.5" x2="595.2" y2="304" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
-<circle cx="595.2" cy="304" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
-<circle cx="625.2" cy="335" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="mouler"/>
-<text x="625.2" y="339" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">4</text>
-<line x1="373.4" y1="326.3" x2="379.2" y2="304" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
-<line x1="373.4" y1="326.3" x2="379.2" y2="304" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
-<circle cx="379.2" cy="304" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
-<circle cx="371.2" cy="335" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="mouler"/>
-<text x="371.2" y="339" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">5</text>
-<line x1="511.2" y1="206" x2="543.2" y2="270" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
-<line x1="511.2" y1="206" x2="543.2" y2="270" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
-<circle cx="543.2" cy="270" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
-<circle cx="507.2" cy="198" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="mouler"/>
-<text x="507.2" y="202" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">6</text>
-<line x1="497.3" y1="139.9" x2="537.2" y2="159" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
-<line x1="497.3" y1="139.9" x2="537.2" y2="159" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
-<circle cx="537.2" cy="159" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
-<circle cx="489.2" cy="136" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="mouler"/>
-<text x="489.2" y="140" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">7</text>
-<line x1="312" y1="224.4" x2="292.1" y2="277.5" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
-<line x1="312" y1="224.4" x2="292.1" y2="277.5" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
-<circle cx="292.1" cy="277.5" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
-<circle cx="315.2" cy="216" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="mouler"/>
-<text x="315.2" y="220" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">8</text>
-<line x1="261.1" y1="622.1" x2="302.8" y2="576.5" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
-<line x1="261.1" y1="622.1" x2="302.8" y2="576.5" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
-<circle cx="302.8" cy="576.5" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
-<circle cx="255" cy="628.7" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="coupe"/>
-<text x="255" y="632.7" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">9</text>
-<line x1="247" y1="480.7" x2="278.5" y2="543.3" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
-<line x1="247" y1="480.7" x2="278.5" y2="543.3" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
-<circle cx="278.5" cy="543.3" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
-<circle cx="243" cy="472.7" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="coupe"/>
-<text x="243" y="476.7" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">10</text>
-<line x1="467.7" y1="446.1" x2="372.5" y2="485.1" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
-<line x1="467.7" y1="446.1" x2="372.5" y2="485.1" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
-<circle cx="372.5" cy="485.1" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
-<circle cx="476" cy="442.7" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="coupe"/>
-<text x="476" y="446.7" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">11</text>
-<text x="40" y="698" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">Planche 26-08 — L’attelle d’écorce moulée.</text>
-<text x="56" y="723" text-anchor="end" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">1</text>
-<text x="62" y="723" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">plaque d’écorce de bouleau</text>
-<text x="56" y="740" text-anchor="end" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">2</text>
-<text x="62" y="740" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">eau chaude, qui l’assouplit</text>
-<text x="56" y="757" text-anchor="end" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">3</text>
-<text x="62" y="757" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">cassure : aucun lien dessus</text>
-<text x="56" y="774" text-anchor="end" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">4</text>
-<text x="62" y="774" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">prend le coude, au-dessus</text>
-<text x="56" y="791" text-anchor="end" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">5</text>
-<text x="62" y="791" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">prend le poignet, en dessous</text>
-<text x="56" y="808" text-anchor="end" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">6</text>
-<text x="62" y="808" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">rembourré sur l’os saillant</text>
-<text x="368" y="723" text-anchor="end" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">7</text>
-<text x="374" y="723" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">attachée en trois points</text>
-<text x="368" y="740" text-anchor="end" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">8</text>
-<text x="374" y="740" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">doigts dehors, à vérifier</text>
-<text x="368" y="757" text-anchor="end" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">9</text>
-<text x="374" y="757" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">durcie, elle épouse le bras</text>
-<text x="368" y="774" text-anchor="end" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">10</text>
-<text x="374" y="774" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">linge ou mousse sèche</text>
-<text x="368" y="791" text-anchor="end" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">11</text>
-<text x="374" y="791" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">desserré au blanchiment</text>
+<text x="293.2" y="379" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#1A1A1A">L’écharpe</text>
+<g transform="translate(293.2 387)" data-vue="echarpe">
+<g transform="translate(0,0)">
+<path d="M201,0 L201,156 M207,0 L207,156" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="204" cy="34" r="2.6" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="204" cy="84" r="2.6" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="204" cy="134" r="2.6" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M110 229.4 L116 230 L122 229.2 L128 228.4 L134 227.1 L140 225.1 L146 222.9 L152 221.5 L158 221.5 L164 221.6 L170 221.9 L176 222.2 L182 222.7 L188 223.2 L194 223.9 L200 224.5 L206 225.1 L212 225.7 L218 226.2 L224 226.8 L230 227.3 L236 227.7 L242 228.1 L248 228.5 L254 228.9 L260 229.1 L266 229.2 L272 229.1 L278 229 L284 228.9 L290 228.8 L296 228.7 L302 228.6 L303.3 228.6 L309.1 228.7 L315.2 228.6 L321.8 228 L328.4 225.9 L333.2 221.1 L335.2 214.4 L335.8 207.8 L335.9 201.8 L335.9 196 L335.9 190 L336 182 L336.1 174 L336.2 166 L336.5 158 L336.8 150 L337.1 142 L337.5 134 L337.8 126 L338.2 118 L338.4 110 L338.7 102 L339 94 L339.3 86 L339.5 78 L339.7 70 L340 62 L340 60 L291.3 60 L291.3 186 L110 196 Z" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<ellipse cx="120" cy="225.9" rx="4" ry="0.9" fill="#1A1A1A" stroke="none"/>
+<ellipse cx="142" cy="220.8" rx="4" ry="0.9" fill="#1A1A1A" stroke="none"/>
+<ellipse cx="272" cy="225.6" rx="4" ry="0.9" fill="#1A1A1A" stroke="none"/>
+<ellipse cx="294" cy="225.2" rx="4" ry="0.9" fill="#1A1A1A" stroke="none"/>
+<ellipse cx="332.7" cy="166" rx="0.9" ry="4" fill="#1A1A1A" stroke="none"/>
+<ellipse cx="333.7" cy="140" rx="0.9" ry="4" fill="#1A1A1A" stroke="none"/>
+<ellipse cx="334.8" cy="114" rx="0.9" ry="4" fill="#1A1A1A" stroke="none"/>
+<ellipse cx="335.7" cy="88" rx="0.9" ry="4" fill="#1A1A1A" stroke="none"/>
+<g data-main="relachee-dos">
+<clipPath id="mainS-1"><rect x="0" y="0" width="346" height="297"/></clipPath>
+<g clip-path="url(#mainS-1)">
+<path d="M274.13 -9.15 L273.89 -9.07 L273.79 -8.9 L273.77 -8.58 L273.88 5.46 L275.01 54 L276.03 103.55 L277.51 152.87 L277.61 167.24 L277.6 167.53 L277.47 167.87 L277.21 168.14 L276.86 168.26 L276.46 168.25 L267.65 167.87 L257.05 167.93 L246.36 168.21 L242.29 168.39 L236 168.81 L227.5 169.62 L220.79 170.38 L211.54 171.54 L203.44 172.69 L186.59 175.23 L174.32 176.7 L168.45 177.22 L164.23 177.45 L160.04 177.57 L150.53 177.64 L148.73 177.8 L146.26 177.51 L106.94 169.3 L106.13 169.19 L103.75 169.18 L103.38 169.32 L102.97 169.62 L102.24 169.89 L92.61 171.84 L77.26 174.62 L69.01 177.38 L65.75 178.36 L60.59 180.06 L57.2 181.39 L55.63 182.24 L54.69 183.09 L54.28 183.63 L53.71 184.8 L53.38 186.01 L53.32 186.89 L53.43 187.8 L53.78 188.87 L54.04 189.38 L54.41 189.87 L54.49 190.2 L54.38 190.59 L54.06 190.92 L53.63 191.12 L51.97 191.57 L49.06 192.52 L47.76 193.06 L46.76 193.61 L45.93 194.36 L45.34 195.17 L44.8 196.33 L44.57 197.19 L44.6 198.71 L44.98 200.05 L45.2 200.52 L45.52 200.94 L46.57 201.92 L47.38 202.27 L48.46 202.59 L49.54 202.6 L51.17 202.42 L51.55 202.5 L51.84 202.76 L51.93 203.15 L51.84 203.52 L51.36 204.21 L50.93 205.1 L50.71 205.74 L50.59 206.45 L50.6 207.38 L50.79 208.32 L51.14 209.1 L51.58 209.74 L52.66 210.61 L53.33 210.94 L54.47 211.16 L55.09 211.19 L58.72 210.93 L64.77 210.06 L70.12 209.84 L70.51 209.97 L70.75 210.27 L70.8 210.66 L70.72 210.96 L70 211.97 L69.68 212.68 L69.45 213.51 L69.49 214.94 L69.95 216.02 L70.28 216.53 L71.29 217.38 L71.55 217.5 L73.27 217.9 L75.65 218.12 L81.69 218.23 L100.97 220.7 L108.7 221.78 L109.47 222.02 L110.92 223.1 L111.55 223.23 L114.19 223.2 L131.74 220.9 L137.73 218.88 L148.31 215.07 L150.06 214.61 L151.92 214.46 L164.37 214.62 L168.09 214.74 L175.07 215.15 L186.29 216.05 L210.61 218.6 L227.92 220.12 L252.46 221.81 L260.52 222.16 L268.08 222.23 L289.04 221.79 L302.66 221.62 L306.44 221.69 L312.94 222 L316.44 222.04 L319.75 221.81 L322.3 221.24 L323.17 220.92 L325.18 219.91 L325.4 219.72 L327.11 217.99 L328.34 215.52 L329.02 212.51 L329.28 209.15 L329.25 205.77 L328.97 199.13 L328.91 195.86 L328.96 181.86 L329.2 167.26 L329.63 153.45 L331.12 118.85 L331.93 96.7 L334.66 5.43 L334.88 -8.59 L334.78 -8.74 L334.28 -8.85 Z" fill="#FFFFFF" fill-rule="nonzero" stroke="none"/>
+<path d="M96.2 176.15 L95.68 176.22 L88.22 178.37 L86.16 179.07 L85.07 179.67 L84.06 180.47 L83.42 181.2 L82.73 182.4 L82.48 183.17 L82.42 184.3 L82.51 184.85 L82.96 185.98 L84.22 187.53 L85.15 188.18 L86.65 188.85 L92.03 189.07 L94.88 188.66 L96.66 188.24 L97.91 187.85 L98.6 187.43 L99.4 186.5 L100.09 184.68 L100.28 182.97 L100.15 181.02 L99.38 178.14 L98.98 177.3 L98.58 176.73 L98.07 176.35 L97.44 176.09 Z" fill="#E6E6E6" fill-rule="nonzero" stroke="none"/>
+<path d="M106.37 175.98 L96.72 176.1 L96.05 176.39 L95.24 177.02 L94.65 177.78 L93.93 179.19 L93.45 180.9 L93.26 182.55 L93.4 184.26 L93.86 185.91 L94.14 186.46 L94.74 187.29 L95.46 187.91 L95.77 188.02 L112.93 189.03 L113.25 188.95 L114.26 188.36 L115.19 187.17 L115.82 185.72 L116.36 183.13 L116.46 181.52 L116.15 178.72 L115.94 177.69 L115.46 176.6 L114.74 175.96 L114.41 175.84 L113.96 175.8 Z" fill="#E6E6E6" fill-rule="nonzero" stroke="none"/>
+<path d="M65.81 178.34 L60.62 180.05 L57.23 181.37 L55.75 182.15 L54.92 182.85 L54.34 183.56 L53.71 184.76 L53.53 185.33 L53.33 186.45 L53.33 187.18 L53.53 188.21 L53.98 189.29 L54.43 189.9 L55.77 190.97 L57.25 191.4 L58.71 191.39 L61.79 190.87 L64.76 190.14 L68.08 189.24 L68.85 188.89 L69.08 188.69 L69.7 187.48 L69.88 186.77 L69.94 186.06 L69.95 184.91 L69.71 183.33 L69.5 182.5 L69.2 181.64 L68.59 180.34 L67.65 179.07 L66.86 178.52 L66.51 178.36 L66.22 178.29 Z" fill="#FFFFFF" fill-rule="nonzero" stroke="none"/>
+<path d="M77.3 174.6 L68.9 177.41 L66.48 178.14 L65.59 178.56 L65.35 178.82 L64.91 180.03 L64.77 180.93 L64.75 182.47 L64.94 184.2 L65.36 185.88 L65.91 187.29 L66.35 188.06 L67.19 188.98 L67.43 189.11 L68.21 189.21 L76.87 187.79 L79.67 187.28 L80.45 186.92 L80.69 186.69 L81.22 185.69 L81.52 184.37 L81.54 182.54 L81.33 180.71 L80.92 179.12 L80.6 178.19 L80.02 176.9 L79.15 175.61 L78.85 175.29 L78.13 174.76 L77.56 174.54 Z" fill="#FFFFFF" fill-rule="nonzero" stroke="none"/>
+<path d="M70.75 186.25 L60.77 189.12 L57.51 189.98 L57.02 190.17 L56.6 190.46 L56.18 191.16 L55.82 192.29 L55.67 193.78 L55.73 195.02 L56.1 197.09 L56.49 198.2 L57.14 199.47 L57.74 200.18 L58.3 200.58 L59.16 200.75 L72.51 198.99 L73.52 198.68 L73.8 198.49 L74.35 197.69 L74.59 197.18 L74.9 196.11 L75.04 194.33 L74.86 192.48 L74.66 191.49 L74.4 190.53 L73.75 188.89 L73.09 187.84 L72.41 187.05 L71.82 186.56 L71.3 186.26 Z" fill="#FFFFFF" fill-rule="nonzero" stroke="none"/>
+<path d="M60.76 200.52 L57.72 201.15 L54.62 201.92 L52.9 202.63 L51.88 203.52 L51.37 204.2 L50.93 205.09 L50.63 206.06 L50.59 206.46 L50.64 207.66 L50.83 208.43 L51.31 209.39 L51.86 210.02 L52.81 210.69 L53.44 210.98 L54.62 211.17 L55.56 211.2 L58.72 210.94 L64.39 210.12 L65.68 209.81 L66.2 209.4 L66.62 208.89 L67.05 207.98 L67.37 206.27 L67.3 204.85 L67.11 203.79 L66.8 202.8 L66.14 201.51 L65.52 200.76 L64.79 200.18 L63.91 199.91 Z" fill="#FFFFFF" fill-rule="nonzero" stroke="none"/>
+<path d="M57.17 190.06 L51.97 191.57 L48.58 192.69 L47.11 193.39 L46.24 194.03 L45.29 195.21 L44.8 196.35 L44.57 197.16 L44.57 198.55 L44.68 199.17 L45.15 200.43 L45.5 200.93 L46.76 202.03 L48.55 202.61 L49.69 202.59 L53.25 202.08 L58.94 200.79 L59.9 200.49 L60.17 200.3 L60.82 199.49 L61.24 198.23 L61.37 196.72 L61.2 195.25 L60.88 193.98 L60.7 193.41 L60.13 192.23 L59.14 190.96 L58.25 190.26 L57.53 190.04 Z" fill="#FFFFFF" fill-rule="nonzero" stroke="none"/>
+<path d="M78.7 209.24 L76.4 209.36 L73.21 209.7 L71.86 210.12 L70.93 210.77 L70.24 211.54 L69.98 211.97 L69.56 213.02 L69.46 213.5 L69.43 213.95 L69.53 215.04 L70.16 216.41 L71.45 217.47 L73.78 217.97 L76.57 218.16 L81.61 218.22 L82.37 218.08 L82.95 217.76 L83.45 217.26 L83.89 216.6 L84.43 215.03 L84.56 213.63 L84.47 212.5 L83.99 210.88 L83.57 210.18 L83.09 209.64 L82.21 209.15 Z" fill="#FFFFFF" fill-rule="nonzero" stroke="none"/>
+<path d="M100.2 170.3 L92.72 171.82 L78.12 174.44 L77.48 174.63 L77.1 175.07 L76.75 176.44 L76.64 177.53 L76.69 179.71 L76.93 181.68 L77.32 183.59 L77.89 185.35 L78.2 186.09 L78.54 186.64 L79.03 187.14 L79.3 187.26 L79.98 187.25 L94.16 184.95 L105.46 183.24 L106.12 183.08 L106.36 182.9 L106.73 182.25 L107 181.22 L107.12 179.72 L107.06 177.76 L106.88 176.17 L106.48 174.09 L105.91 172.19 L105.34 170.85 L104.83 170.13 L104.63 169.61 L104.51 169.46 L104.27 169.45 Z" fill="#FFFFFF" fill-rule="nonzero" stroke="none"/>
+<path d="M96.86 182.51 L86.01 184.26 L71.22 186.18 L70.94 186.27 L70.49 186.67 L70.09 187.6 L69.85 188.88 L69.74 190.83 L69.84 192.66 L70.12 194.62 L70.57 196.4 L71.2 197.93 L71.84 198.74 L72.29 198.96 L72.53 198.99 L87.2 197.31 L101.47 195.96 L102.13 195.83 L102.41 195.68 L102.86 195.07 L103.12 194.42 L103.43 192.87 L103.52 190.94 L103.4 188.91 L103.07 186.73 L102.71 185.28 L102.17 183.77 L101.12 181.86 L100.87 181.83 Z" fill="#FFFFFF" fill-rule="nonzero" stroke="none"/>
+<path d="M73.58 198.02 L67.43 199.29 L64.42 199.83 L63.57 200.05 L63.11 200.36 L62.59 201.13 L62.22 202.19 L61.99 203.63 L61.99 205.19 L62.22 206.73 L62.48 207.66 L63.14 209.03 L63.82 209.73 L64.07 209.88 L64.91 210.06 L77.01 209.55 L77.87 209.29 L78.43 208.8 L78.86 208.22 L79.18 207.46 L79.51 206.15 L79.62 205.29 L79.55 202.98 L79.28 201.6 L78.69 199.91 L77.9 198.63 L77.06 197.83 L76.56 197.57 L76.19 197.52 Z" fill="#FFFFFF" fill-rule="nonzero" stroke="none"/>
+<path d="M90.2 208.61 L82.12 209.1 L81.5 209.25 L81.23 209.41 L80.67 210.03 L80.13 210.98 L79.73 212.3 L79.57 213.21 L79.51 213.81 L79.61 215.49 L79.81 216.38 L80.29 217.44 L80.88 218 L82 218.28 L89.86 219.31 L90.86 219.15 L91.16 219 L91.73 218.5 L91.94 218.27 L92.53 217.2 L93.01 215.73 L93.22 214.08 L93.18 212.4 L92.81 210.92 L92.44 210.06 L92.18 209.64 L91.86 209.25 L91.31 208.76 L90.89 208.61 Z" fill="#FFFFFF" fill-rule="nonzero" stroke="none"/>
+<path d="M90.77 208.67 L90.29 209.01 L89.76 209.79 L89.3 210.89 L89 211.85 L88.68 213.45 L88.49 215.78 L88.59 217.16 L88.88 218.42 L89.36 219.11 L89.89 219.32 L100.86 220.68 L111.82 222.24 L112.32 222.06 L112.6 221.84 L113.21 221.02 L113.67 219.99 L114.17 218.26 L114.47 216.44 L114.58 214.79 L114.5 213.17 L114.31 212.19 L114.11 211.58 L113.59 210.68 L102.2 209.78 L91.06 208.62 Z" fill="#FFFFFF" fill-rule="nonzero" stroke="none"/>
+<path d="M105.41 195.81 L90.86 196.82 L76.88 197.48 L76.24 197.59 L75.77 198 L75.33 198.89 L75.02 200.1 L74.79 201.81 L74.74 203.81 L74.89 205.55 L75.21 207.3 L75.55 208.32 L76.04 209.15 L76.28 209.37 L76.88 209.57 L91.19 209.21 L105.02 208.99 L105.75 208.89 L106.03 208.74 L106.49 208.17 L106.79 207.53 L107.12 206.34 L107.39 204.36 L107.45 202.49 L107.27 200.32 L106.9 198.35 L106.43 197.04 L105.81 195.95 L105.71 195.84 Z" fill="#FFFFFF" fill-rule="nonzero" stroke="none"/>
+<path d="M103.56 169.22 L101.92 170.42 L100.43 170.95 L100.51 171.89 L100.31 173.02 L99.67 174.61 L97.48 182.04 L97.12 182.82 L96.57 183.45 L96.24 183.71 L95.47 184.06 L94.43 184.26 L93.48 184.26 L92.44 183.97 L91.64 183.99 L83.77 185.18 L87.32 184.98 L89.63 185 L92.72 184.58 L93.71 184.76 L94.49 185.09 L95.35 185.9 L95.58 186.26 L95.86 187.07 L95.91 187.95 L95.84 189.1 L96.11 191.86 L95.92 192.68 L95.53 193.4 L95 193.97 L93.08 195.53 L92.33 195.97 L91.91 196.1 L83.64 197.01 L87.36 197.15 L88.78 197.4 L95.97 197.04 L96.79 197.22 L97.52 197.63 L97.84 197.91 L98.36 198.63 L98.56 199.1 L100.28 204.62 L100.42 205.48 L100.31 206.34 L99.97 207.11 L99.72 207.45 L99.09 208.02 L98.72 208.22 L98.33 208.38 L97.46 208.52 L95.22 208.57 L101.19 209.42 L102.02 209.69 L102.74 210.19 L103.06 210.57 L103.6 211.43 L108.71 221.41 L110.84 223.05 L111.43 223.23 L114.07 223.21 L131.63 220.92 L137.74 218.88 L149.95 214.45 L150.79 213.9 L159.64 206.49 L160.21 205.75 L163.7 200.01 L163.99 199.01 L164.36 196.22 L164.32 195.33 L163.88 192.53 L163.48 191.59 L160.22 186.37 L159.95 185.97 L159.24 185.29 L150.17 178.35 L106.97 169.31 L106.14 169.19 Z" fill="#FFFFFF" fill-rule="nonzero" stroke="none"/>
+<path d="M273.8 -9.01 L273.78 -2.08 L273.88 5.46 L275.01 54 L275.71 89.35 L276.44 118.58 L277.51 152.98 L277.6 160.05 L277.62 167.76 L277.57 168.02 L277.33 168.21 L276.91 168.26 L267.65 167.87 L252.88 168 L242.69 168.37 L235.56 168.85 L227.92 169.58 L220.79 170.38 L211.12 171.6 L203.03 172.75 L189.2 174.87 L174.44 176.69 L168.34 177.23 L164.11 177.46 L160.19 177.57 L150.15 177.66 L149.99 177.83 L149.96 178.2 L149.96 213.93 L149.99 214.29 L150.15 214.46 L164.26 214.61 L167.97 214.74 L174.95 215.14 L186.16 216.04 L210.61 218.6 L227.92 220.12 L242.18 221.15 L252.88 221.84 L257.47 222.05 L263.57 222.22 L270.7 222.19 L289.04 221.79 L302.79 221.62 L306.32 221.69 L312.94 222.01 L316.93 222.02 L319.65 221.82 L322.75 221.1 L325.1 219.96 L327.15 217.91 L328.37 215.45 L329 212.63 L329.29 209.15 L329.26 205.77 L328.97 199.02 L328.91 195.99 L328.96 181.99 L329.2 167.39 L329.62 153.59 L331.12 118.85 L331.93 96.7 L334.66 5.29 L334.81 -1.64 L334.86 -8.7 L334.72 -8.85 L275.24 -9.15 L273.96 -9.16 Z" fill="#FFFFFF" fill-rule="nonzero" stroke="none"/>
+<path d="M273.79 -8.17 L273.88 5.46 L275.01 54 L276.03 103.55 L277.51 152.87 L277.61 167.24 L277.6 167.53 L277.47 167.87 L277.21 168.14 L276.86 168.26 L267.65 167.87 L252.88 168 L242.29 168.39 L236 168.81 L227.5 169.62 L220.79 170.38 L211.54 171.54 L203.44 172.69 L186.59 175.23 L174.32 176.7 L168.45 177.22 L164.23 177.45 L160.04 177.57 L150.53 177.64 L148.73 177.8 L146.26 177.51 L106.94 169.3 L106.13 169.19 L103.75 169.18 L103.38 169.32 L102.97 169.62 L102.24 169.89 L92.61 171.84 L77.26 174.62 L69.01 177.38 L65.75 178.36 L60.59 180.06 L57.2 181.39 L56.12 181.92 L55.3 182.5 L54.69 183.09 L54.28 183.63 L53.91 184.33 L53.55 185.25 L53.38 186.01 L53.32 186.89 L53.43 187.8 L53.66 188.55 L54.04 189.38 L54.41 189.87 L54.49 190.2 L54.38 190.59 L54.06 190.92 L53.63 191.12 L51.97 191.57 L49.06 192.52 L47.76 193.06 L46.76 193.61 L45.93 194.36 L45.34 195.17 L45.04 195.73 L44.66 196.77 L44.54 197.53 L44.6 198.71 L44.98 200.05 L45.2 200.52 L45.52 200.94 L46.57 201.92 L47.38 202.27 L48.46 202.59 L49.54 202.6 L51.17 202.42 L51.55 202.5 L51.84 202.76 L51.93 203.15 L51.84 203.52 L51.36 204.21 L50.93 205.1 L50.71 205.74 L50.59 206.45 L50.6 207.38 L50.79 208.32 L51.35 209.45 L51.91 210.03 L52.66 210.61 L53.33 210.94 L54.47 211.16 L55.09 211.19 L58.72 210.93 L64.77 210.06 L70.12 209.84 L70.51 209.97 L70.75 210.27 L70.8 210.66 L70.72 210.96 L70 211.97 L69.68 212.68 L69.45 213.51 L69.49 214.94 L69.95 216.02 L70.28 216.53 L71.29 217.38 L71.55 217.5 L73.27 217.9 L75.65 218.12 L81.69 218.23 L100.97 220.7 L108.7 221.78 L109.47 222.02 L110.92 223.1 L111.55 223.23 L114.19 223.2 L131.74 220.9 L137.73 218.88 L148.31 215.07 L150.06 214.61 L151.92 214.46 L164.37 214.62 L168.09 214.74 L175.07 215.15 L186.29 216.05 L210.61 218.6 L227.92 220.12 L252.46 221.81 L260.52 222.16 L268.08 222.23 L289.04 221.79 L302.66 221.62 L306.44 221.69 L312.94 222 L317.38 221.99 L319.75 221.81 L322.87 221.06 L325.18 219.91 L327.11 217.99 L328.34 215.52 L329.02 212.51 L329.28 209.15 L329.25 205.77 L328.97 199.13 L328.91 195.86 L328.96 181.86 L329.2 167.26 L329.63 153.45 L331.12 118.85 L331.93 96.7 L334.66 5.43 L334.86 -7.86" fill="none" stroke="#1A1A1A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M81.71 184.82 L89.33 183.76 L96.86 182.51 L86.01 184.26 L70.75 186.25 L60.77 189.12 L54.64 190.79 M99.02 209.09 L76.84 209.57 L70.87 209.81 M85.27 197.08 L76.19 197.52 L67.43 199.29 L63.28 200.03 L57.72 201.15 L54.62 201.92 L53.14 202.49 L52.4 203.01" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</g>
+<path d="M275.915751765893,98 L339.882460496614,98 Q342.882460496614,107 339.22422121896165,116 L276.403600973236,116 Q273.403600973236,107 275.915751765893,98 Z" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M300.89910613125346,106 Q295.89910613125346,113 296.89910613125346,121 L300.89910613125346,121 Q299.89910613125346,113 304.89910613125346,107 Z" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M305.89910613125346,106 Q311.89910613125346,112 315.89910613125346,119 L318.89910613125346,117 Q314.89910613125346,110 308.89910613125346,104 Z" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M296.89910613125346,106 Q295.89910613125346,99 302.89910613125346,98 Q310.89910613125346,98 310.89910613125346,104 Q309.89910613125346,108 303.89910613125346,108 Q298.89910613125346,108 296.89910613125346,106 Z" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M300.89910613125346,99 Q303.89910613125346,103 306.89910613125346,107" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M272.3116069221261,24 Q303.3,19 336.1045480442643,24 L335.56614550235565,42 Q303.3,37 272.73064276885043,42 Z" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M285.3,27 Q288.3,33 286.3,39 M309.3,26 Q312.3,32 310.3,39" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M154,158 Q164,154 174,160 Q206,166 238,158 Q250,154 258,157 C261,190 258,208 246,232 Q206,258 166,234 C154,208 151,190 154,158 Z" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M155,164 Q164,160 174,166 Q206,172 238,164 Q250,160 257,163" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M174,230 Q206,248 238,228" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M177,176 Q178,212 184,236 M235,174 Q234,212 228,236 M164,166 Q160,206 170,228 M248,166 Q253,206 240,226" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M201,171 Q200,216 201,244 M207,171 Q206,216 207,244" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="172" y1="151" x2="172" y2="168" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="176" y1="152" x2="176" y2="168" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="174" cy="171" r="3" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="170.5" y="145" width="7" height="6" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="236" y1="149" x2="236" y2="166" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="240" y1="150" x2="240" y2="166" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="238" cy="169" r="3" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="234.5" y="143" width="7" height="6" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+</g>
+</g>
+<line x1="249.3" y1="68" x2="190" y2="141" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+<line x1="249.3" y1="68" x2="190" y2="141" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
+<circle cx="190" cy="141" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
+<circle cx="255" cy="61" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="tremper"/>
+<text x="255" y="65" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">1</text>
+<line x1="250.7" y1="166.9" x2="226" y2="212" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+<line x1="250.7" y1="166.9" x2="226" y2="212" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
+<circle cx="226" cy="212" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
+<circle cx="255" cy="159" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="tremper"/>
+<text x="255" y="163" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">2</text>
+<line x1="454" y1="214.6" x2="466.2" y2="252" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+<line x1="454" y1="214.6" x2="466.2" y2="252" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
+<circle cx="466.2" cy="252" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
+<circle cx="451.2" cy="206" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="mouler"/>
+<text x="451.2" y="210" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">3</text>
+<line x1="620.7" y1="319.2" x2="607.2" y2="296" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+<line x1="620.7" y1="319.2" x2="607.2" y2="296" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
+<circle cx="607.2" cy="296" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
+<circle cx="625.2" cy="327" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="mouler"/>
+<text x="625.2" y="331" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">4</text>
+<line x1="385.4" y1="318.3" x2="391.2" y2="296" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+<line x1="385.4" y1="318.3" x2="391.2" y2="296" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
+<circle cx="391.2" cy="296" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
+<circle cx="383.2" cy="327" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="mouler"/>
+<text x="383.2" y="331" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">5</text>
+<line x1="523.2" y1="198" x2="555.2" y2="262" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+<line x1="523.2" y1="198" x2="555.2" y2="262" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
+<circle cx="555.2" cy="262" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
+<circle cx="519.2" cy="190" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="mouler"/>
+<text x="519.2" y="194" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">6</text>
+<line x1="509.3" y1="131.9" x2="549.2" y2="151" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+<line x1="509.3" y1="131.9" x2="549.2" y2="151" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
+<circle cx="549.2" cy="151" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
+<circle cx="501.2" cy="128" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="mouler"/>
+<text x="501.2" y="132" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">7</text>
+<line x1="324.2" y1="216.5" x2="302.7" y2="277.6" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+<line x1="324.2" y1="216.5" x2="302.7" y2="277.6" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
+<circle cx="302.7" cy="277.6" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
+<circle cx="327.2" cy="208" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="mouler"/>
+<text x="327.2" y="212" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">8</text>
+<line x1="76.1" y1="622.4" x2="117.8" y2="576.8" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+<line x1="76.1" y1="622.4" x2="117.8" y2="576.8" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
+<circle cx="117.8" cy="576.8" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
+<circle cx="70" cy="629" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="coupe"/>
+<text x="70" y="633" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">9</text>
+<line x1="62" y1="481" x2="93.5" y2="543.6" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+<line x1="62" y1="481" x2="93.5" y2="543.6" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
+<circle cx="93.5" cy="543.6" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
+<circle cx="58" cy="473" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="coupe"/>
+<text x="58" y="477" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">10</text>
+<line x1="243.5" y1="448" x2="187.5" y2="485.4" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+<line x1="243.5" y1="448" x2="187.5" y2="485.4" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
+<circle cx="187.5" cy="485.4" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
+<circle cx="251" cy="443" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="coupe"/>
+<text x="251" y="447" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">11</text>
+<line x1="420.4" y1="655.6" x2="469.2" y2="619" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+<line x1="420.4" y1="655.6" x2="469.2" y2="619" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
+<circle cx="469.2" cy="619" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
+<circle cx="413.2" cy="661" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="echarpe"/>
+<text x="413.2" y="665" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">12</text>
+<line x1="417.9" y1="489.1" x2="467.2" y2="534" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+<line x1="417.9" y1="489.1" x2="467.2" y2="534" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
+<circle cx="467.2" cy="534" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
+<circle cx="411.2" cy="483" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="echarpe"/>
+<text x="411.2" y="487" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">13</text>
+<text x="40" y="715" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">Planche 26-08 — L’attelle d’écorce moulée, et l’écharpe au pan de chemise.</text>
+<text x="56" y="740" text-anchor="end" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">1</text>
+<text x="62" y="740" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">plaque d’écorce de bouleau</text>
+<text x="56" y="757" text-anchor="end" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">2</text>
+<text x="62" y="757" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">eau chaude, qui l’assouplit</text>
+<text x="56" y="774" text-anchor="end" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">3</text>
+<text x="62" y="774" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">cassure : aucun lien dessus</text>
+<text x="56" y="791" text-anchor="end" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">4</text>
+<text x="62" y="791" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">prend le coude, au-dessus</text>
+<text x="56" y="808" text-anchor="end" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">5</text>
+<text x="62" y="808" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">prend le poignet, en dessous</text>
+<text x="264" y="740" text-anchor="end" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">6</text>
+<text x="270" y="740" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">rembourré sur l’os saillant</text>
+<text x="264" y="757" text-anchor="end" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">7</text>
+<text x="270" y="757" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">attachée en trois points</text>
+<text x="264" y="774" text-anchor="end" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">8</text>
+<text x="270" y="774" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">doigts dehors, à vérifier</text>
+<text x="264" y="791" text-anchor="end" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">9</text>
+<text x="270" y="791" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">durcie, elle épouse le bras</text>
+<text x="264" y="808" text-anchor="end" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">10</text>
+<text x="270" y="808" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">linge ou mousse sèche</text>
+<text x="472" y="740" text-anchor="end" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">11</text>
+<text x="478" y="740" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">desserré au blanchiment</text>
+<text x="472" y="757" text-anchor="end" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">12</text>
+<text x="478" y="757" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">pan relevé sur le bras</text>
+<text x="472" y="774" text-anchor="end" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">13</text>
+<text x="478" y="774" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">épinglé au devant</text>
 </svg>

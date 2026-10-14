@@ -129,14 +129,14 @@ const TETES = {
     crane: [[76, -153], [42, -181], [-4, -190], [-36, -186], [-66, -170], [-92, -136], [-102, -90], [-94, -50], [-72, -16], [-40, 6]],
     gorge: [[22, 34], [-6, 14]],
     visage: {
-      front: [[91, -116], [95, -96]],             // le front, la bosse du sourcil
-      nasion: [93, -84],
-      nez: [[101, -63], [111, -42], [114, -35]],  // l'arête, droite, puis le bout
-      bout: [[112, -30], [104, -27]],             // le dessous du nez, jusqu'au creux sous le nez
-      sous: [100, -25],                           // le creux sous le nez (subnasale)
-      levreH: [102, -13], stomion: [99.5, -5], levreB: [100.5, 3],
-      sillon: [94, 14],                           // le creux sous la lèvre
-      menton: [[98, 26], [92, 39], [76, 46], [52, 46]],   // le menton, la mâchoire dessous
+      front: [[91, -116], [94.5, -98]],           // le front, la bosse du sourcil
+      nasion: [92.5, -87],
+      nez: [[99, -66], [107.5, -45], [110.5, -37]],  // l'arête, droite, puis le bout
+      bout: [[109.5, -31], [103.5, -27.5]],       // le dessous du nez, jusqu'au creux sous le nez
+      sous: [99.5, -26],                          // le creux sous le nez (subnasale)
+      levreH: [100.6, -16], stomion: [98.8, -8.5], levreB: [99.6, -1.5],
+      sillon: [95.6, 8.5],                        // le creux sous la lèvre
+      menton: [[97.8, 21], [93, 35.5], [77, 45], [52, 46.5]],   // le menton, la mâchoire dessous
     },
     rep: { oeil: [79, -70], sourcil: [[87, -80], [77, -83], [66, -81]], oreille: { c: [-16, -55], h: 62, l: 30 }, mach: [-8, -48] },
     zone: 64,
@@ -259,7 +259,7 @@ function teteSimple(o = {}) {
   const PT = p => tourne(p, penche);                 // la tête sur le cou, autour de la nuque
   const tete = T0.contour.map(PT);
   // le cou : sa longueur sous la nuque, en mm réels
-  const Lcou = o.cou === false ? 22 * k / 0.97 : (typeof o.cou === 'number' ? o.cou : 120 * kT);
+  const Lcou = o.cou === false ? 62 * k : (typeof o.cou === 'number' ? o.cou : 95 * kT);
   const cou = bandeCou(Lcou + 60, kT);
   // l'union, l'arrondi hors du visage (la nuque, la gorge), puis la coupe
   const zone = [I.versCL(T0.zone.map(PT))];
@@ -289,7 +289,7 @@ function teteSimple(o = {}) {
   const dFerme = paths => paths.map(Pp => { const q = I.allege(I.deCL(Pp), tol, true).map(T); return 'M' + q.map(p => `${f1(p[0])} ${f1(p[1])}`).join(' L') + ' Z'; }).join(' ');
   const dOuvert = ls => ls.filter(l => l.length > 1).map(l => { const q = I.allege(l, tol).map(T); return 'M' + q.map(p => `${f1(p[0])} ${f1(p[1])}`).join(' L'); }).join(' ');
   // le trait de la silhouette : tout le bord, sauf la coupe du cou
-  const bandeCoupe = [I.versCL([add(P0, mul(n, -400)), add(P0, mul(n, 400)), add(add(P0, mul(n, 400)), mul(u, 0.6)), add(add(P0, mul(n, -400)), mul(u, 0.6))])];
+  const bandeCoupe = [I.versCL([add(add(P0, mul(n, -400)), mul(u, -0.6)), add(add(P0, mul(n, 400)), mul(u, -0.6)), add(add(P0, mul(n, 400)), mul(u, 0.6)), add(add(P0, mul(n, -400)), mul(u, 0.6))])];
   const bord = I.bordsDans(S, I.moins([I.versCL([[-2000, -2000], [2000, -2000], [2000, 2000], [-2000, 2000]])], bandeCoupe));
   // les traits intérieurs, coupés au contour
   const E = 1.0;

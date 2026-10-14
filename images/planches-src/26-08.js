@@ -1,14 +1,13 @@
 // Planche 26-08 — L'attelle d'écorce moulée, et l'écharpe au pan de chemise.
-// Chapitre 27, section 9 : écorce de bouleau à papier trempée à l'eau chaude, moulée autour du
+// Chapitre 26 (ancien 27), section 9, « Ce qui se fabrique » : écorce de bouleau à papier trempée à l'eau chaude, moulée autour du
 // membre et laissée sécher en gouttière ; l'articulation au-dessus et celle en dessous ;
 // rembourrage de linge ou de mousse sèche sur l'os saillant ; attachée en trois points ; doigts
 // à vérifier, desserrer au premier blanchiment. L'écharpe : le pan de la chemise relevé
 // par-dessus l'avant-bras et épinglé au devant de la chemise.
-// Depuis le 13 octobre au soir (JP : plus de corps de face), la vue de l'écharpe, un buste de face
-// en chemise, est sortie de la planche : le corps simple ne se montre que de profil, et de profil
-// l'avant-bras en écharpe passe en travers du ventre, vers l'œil, ce que le moteur ne dessine pas.
-// « Mouler et attacher » est un gros plan de bras et de main : laissé tel quel (bibliothèque de mains
-// à venir).
+// L'écharpe était un buste de face en chemise, sorti le 13 octobre (JP : plus de corps de face). Elle revient le
+// 14 octobre en gros plan (JP) : le bras attelé seul, vu du devant, l'avant-bras à l'horizontale dans le pan relevé,
+// sans corps. Les mains sont des mains simples (mainSimple, pose relachee), le bras de l'écharpe enchaîné au coude
+// (avantbras.bras).
 // Aucun chiffre sur le dessin : le chapitre n'en donne aucun pour l'attelle improvisée.
 module.exports = (h) => {
   const BL = h.a.blanc.split(' ')[0];
@@ -42,70 +41,6 @@ module.exports = (h) => {
     h.ellipse(x, y, 6, 4.5, plein(h.a.arete)),
   ].join('\n');
 
-  // La main détendue, vue du dos, construite avec les pièces de la bibliothèque de formes.
-  // Repère en mm : doigts vers +x, pouce vers -y (main droite ; miroir : main gauche).
-  // Les doigts plient vers la paume, donc loin de l'œil : vus du dos, ils raccourcissent,
-  // d'autant plus que la phalange est loin, et s'enroulent un peu vers l'auriculaire. Ils
-  // s'étagent (le majeur le plus long) ; le pouce part de la base de la paume et se couche
-  // le long de l'index, pas plus gros qu'un doigt.
-  const mainDetendue = (o) => {
-    const I = h.formes._interne, RAD = Math.PI / 180;
-    const dirA = d => [Math.cos(d * RAD), Math.sin(d * RAD)];
-    const add = (a, b) => [a[0] + b[0], a[1] + b[1]];
-    const lerp = (a, b, t) => [a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t];
-    const DG = {
-      index: { ph: [43, 25, 21], ep: [19, 16.2, 14.2, 12.2] },
-      majeur: { ph: [46, 28, 22], ep: [19.5, 16.8, 14.8, 12.6] },
-      annulaire: { ph: [43, 27, 21], ep: [18, 15.6, 13.8, 11.8] },
-      auriculaire: { ph: [34, 20, 19], ep: [16, 13.6, 12.2, 10.6] },
-    };
-    const faceW = ep => [[ep[0] / 2, ep[1] / 2], [ep[1] / 2, ep[2] / 2], [ep[2] / 2, ep[3] / 2]];
-    const Wx = -92, cut = Wx - (o.bras == null ? 40 : o.bras), k = o.courbe == null ? 0.4 : o.courbe;
-    // nom, base (tête du métacarpien), direction, flexion de chaque phalange (degrés)
-    const doigts = [
-      ['index', [0, -27.5], -5, [12, 32, 18]],
-      ['majeur', [4.5, -8.8], -0.5, [14, 34, 18]],
-      ['annulaire', [1, 9.6], 4.5, [17, 38, 20]],
-      ['auriculaire', [-9, 26.8], 10, [22, 42, 22]],
-    ].map(([nom, P0, a, fl]) => {
-      let cum = 0;
-      const L = DG[nom].ph.map((l, i) => { cum += fl[i]; return l * Math.cos(cum * RAD); });
-      return { nom, d: { ...DG[nom], ep: DG[nom].ep.map(v => v * 1.05) }, pts: I.plie(P0, dirA(a), L, fl.map(f => f * k), 1) };
-    });
-    const wF = g => faceW(g.d.ep);
-    const bI = s => I.pointBord(doigts[0].pts, wF(doigts[0]), 1, 1, s);
-    const vA = s => I.pointBord(doigts[3].pts, wF(doigts[3]), 1, -1, s);
-    const ptsP = [[-80, -17], [-38, -36], [-6, -41.5], [18, -40.5]];
-    const wP = [[10, 9.6], [9.6, 9], [9, 7.6]];
-    const bP = s => I.pointBord(ptsP, wP, 1, 1, s);
-    const sW = 20;
-    const haut = I.lisse([[cut, -30.5], [Wx - 8, -29.5], bP(0)]);
-    const cubital = I.lisse([vA(8), [10, 37.5], [-20, 38.5], [-55, 35], [Wx, 30], [cut, 31.5]]);
-    const webs = [];
-    for (let i = 0; i < 3; i++) {
-      const a = doigts[i], b = doigts[i + 1];
-      const pa = I.pointBord(a.pts, wF(a), 1, -1, sW), pb = I.pointBord(b.pts, wF(b), 1, 1, sW);
-      const fondW = lerp(I.pointBord(a.pts, wF(a), 1, -1, sW - 5), I.pointBord(b.pts, wF(b), 1, 1, sW - 5), 0.5);
-      webs.push([['M', pa], ['Q', fondW, pb]]);
-    }
-    const remp = [...I.lisse([[cut, -30.5], [Wx - 8, -29.5], bP(0), [-45, -38], [-12, -38], bI(4), [30, -30], [40, 0], [30, 30],
-      vA(8), [10, 37.5], [-20, 38.5], [-55, 35], [Wx, 30], [cut, 31.5]]), ['Z']];
-    const jointures = doigts.slice(0, 3).map(g => { const p = g.pts[0], w = g.d.ep[0] * 0.28; return [['M', add(p, [-2, -w])], ['Q', add(p, [2.5, 0]), add(p, [-2, w])]]; });
-    const pieces = [{ remp, trait: [haut, cubital, ...webs], det: [] }];
-    doigts.slice().reverse().forEach((g, j) => {
-      const i = 3 - j;
-      pieces.push(I.tube({ pts: g.pts, dos: wF(g), ventre: wF(g), coussin: [-0.15, -0.1, 0.15], bosseDos: [-0.15, 0.3, 0.3],
-        bout: 'rond', base: 16, rides: [{ j: 1, n: 1, l: 0.55 }], ouvre: { dos: i === 0 ? 0 : sW, ventre: i === 3 ? 8 : sW } }));
-    });
-    pieces.push(I.tube({ pts: ptsP, sens: 1, dos: wP, ventre: wP, coussin: [0, -0.3, 0.3], bosseDos: [0, 0.4, 0.3],
-      bout: 'rond', ongle: 'cote', base: 14, ouvre: { dos: 0, ventre: 44 }, rides: [{ j: 2, n: 1, l: 0.5 }] }));
-    pieces.push({ remp: null, trait: [], det: jointures, silhouette: false, epDet: 0.5 });
-    const Tm = I.repere({ x: o.x, y: o.y, echelle: o.echelle, miroir: !!o.miroir });
-    const r1 = p => Tm(p).map(v => Math.round(v * 10) / 10);
-    return { svg: `<g data-forme="main-detendue">\n${I.peindre(pieces, Tm)}\n</g>`,
-      bouts: doigts.map(g => r1(g.pts[3])), coupe: [r1([cut, -30.5]), r1([cut, 31.5])] };
-  };
-
   // ─── Tremper ──────────────────────────────────────────────────────────────────────────
   const T = { L: 231, y0: 80, y1: 308 };
   const xl = y => 98 - 26 * (y - 100) / 113 - 6 * Math.sin(Math.PI * (y - 100) / 113);
@@ -138,13 +73,13 @@ module.exports = (h) => {
   };
 
   // ─── Mouler et attacher ───────────────────────────────────────────────────────────────
-  const M = { L: 346, y0: 0, y1: 294 };
-  // la main : le poignet en x 86, à la hauteur de l'avant-bras ; les doigts dépassent le bout de l'écorce
-  // Échelle de la main : celle du bras (le poignet fait ~40 de haut, l'avant-bras ~210 de long),
-  // pour que la main ait sa vraie taille d'adulte, aux trois quarts de l'avant-bras.
-  const EM = 0.6, XW = 94;   // XW : le poignet, en x de la vue
-  const MAIN_M = mainDetendue({ x: XW - 92 * EM, y: 229, echelle: EM, miroir: true, bras: 22, courbe: 0.65 });
-  const POIGNET_M = [Math.round((XW + 8 * EM) * 10) / 10, Math.round((229 - 29.5 * EM) * 10) / 10];   // le haut du poignet
+  const M = { L: 322, y0: 0, y1: 294 };   // 322 : le dessin décalé de 12 à droite, la main entière dans la vue
+  // la main gauche, vue du dos, détendue (mainSimple, pose relachee) : le poignet en x 94, à la hauteur de
+  // l'avant-bras, les doigts qui dépassent le bout de l'écorce. Son avant-bras s'arrête sous le lien du poignet
+  // (x 104 à 124), où il rejoint l'avant-bras dessiné de la planche.
+  const EM = 0.6, XW = 94, YW = 228;
+  const MAIN_M = h.formes.mainSimple({ x: XW, y: YW, ancre: 'poignet', pose: 'relachee', vue: 'dos', cote: 'gauche', angle: 174,
+    rotation: [-20, 0, 0], echelle: EM, avantbras: { fin: [[114, 150], [114, 300]] } });
   // le trait de coupe A–A : en travers du lien de l'avant-bras près du poignet, regardé vers la main
   const XA = 114, YA = [186, 272];
   const traitCoupe = () => {
@@ -158,8 +93,17 @@ module.exports = (h) => {
     });
     return out.join('\n');
   };
+  // le nœud posé sur la face du lien, deux bouts qui pendent
+  const noeudLien = (x, y) => [
+    h.path(`M${x - 3},${y + 2} Q${x - 8},${y + 9} ${x - 7},${y + 17} L${x - 3},${y + 17} Q${x - 4},${y + 9} ${x + 1},${y + 3} Z`, plein(h.a.arete)),
+    h.path(`M${x + 2},${y + 2} Q${x + 8},${y + 8} ${x + 12},${y + 15} L${x + 15},${y + 13} Q${x + 11},${y + 6} ${x + 5},${y} Z`, plein(h.a.arete)),
+    h.path(`M${x - 7},${y + 2} Q${x - 8},${y - 5} ${x - 1},${y - 6} Q${x + 7},${y - 6} ${x + 7},${y} Q${x + 6},${y + 4} ${x},${y + 4} Q${x - 5},${y + 4} ${x - 7},${y + 2} Z`, plein(h.a.arete)),
+    h.path(`M${x - 3},${y - 5} Q${x},${y - 1} ${x + 3},${y + 3}`, h.a.detail),
+  ].join('\n');
   const mouler = z => {
     const o = boite(z, M.L, M.y0, M.y1);
+    // les deux coins de la coupe de l'avant-bras de la main, le haut d'abord
+    const [haut, bas] = MAIN_M.coupe.slice().sort((a, b) => a[1] - b[1]);
     // bord du dessus de l'avant-bras, pour poser les liens dessus
     const dessus = x => x >= 120 ? 206 - (x - 120) * 0.12 - 10 * Math.sin(Math.PI * Math.min(1, (x - 120) / 112)) * 0.9 : 206 + (120 - x) * 0.22;
     // un lien de tissu qui fait le tour : bords courbés comme un anneau sur un cylindre
@@ -170,13 +114,6 @@ module.exports = (h) => {
         h.path(`M${x + 15},${y2 + 6} Q${x + 12},${ym} ${x + 15},${yb - 5}`, h.a.detail),
       ].join('\n');
     };
-    // le nœud posé sur la face du lien, deux bouts qui pendent
-    const noeudLien = (x, y) => [
-      h.path(`M${x - 3},${y + 2} Q${x - 8},${y + 9} ${x - 7},${y + 17} L${x - 3},${y + 17} Q${x - 4},${y + 9} ${x + 1},${y + 3} Z`, plein(h.a.arete)),
-      h.path(`M${x + 2},${y + 2} Q${x + 8},${y + 8} ${x + 12},${y + 15} L${x + 15},${y + 13} Q${x + 11},${y + 6} ${x + 5},${y} Z`, plein(h.a.arete)),
-      h.path(`M${x - 7},${y + 2} Q${x - 8},${y - 5} ${x - 1},${y - 6} Q${x + 7},${y - 6} ${x + 7},${y} Q${x + 6},${y + 4} ${x},${y + 4} Q${x - 5},${y + 4} ${x - 7},${y + 2} Z`, plein(h.a.arete)),
-      h.path(`M${x - 3},${y - 5} Q${x},${y - 1} ${x + 3},${y + 3}`, h.a.detail),
-    ].join('\n');
     return g(o, [
       // la manche roulée, puis le haut du bras nu
       h.path('M226,0 C227,10 228,20 229,28 M306,0 C305,10 304,20 303,28', h.a.contour),
@@ -187,11 +124,10 @@ module.exports = (h) => {
       h.path('M296,46 C301,100 300,160 297,200 C298,225 300,245 290,256', h.a.contour),
       h.path('M236,184 Q231,193 222,195', h.a.detail),
       // l'avant-bras, jusqu'au poignet
-      h.path(`M232,196 C200,186 160,196 120,206 L${MAIN_M.coupe[0].join(',')}`, h.a.contour),
-      h.path(`M290,256 C250,262 180,252 120,246 L${MAIN_M.coupe[1].join(',')}`, h.a.contour),
-      // la main gauche, vue du dos : doigts à demi fermés et étagés, le pouce le long de l'index
+      h.path(`M232,196 C200,186 160,196 120,206 L${haut.join(',')}`, h.a.contour),
+      h.path(`M290,256 C250,262 180,252 120,246 L${bas.join(',')}`, h.a.contour),
+      // la main gauche, vue du dos, détendue, le pouce le long de l'index
       MAIN_M.svg,
-      h.path(`M${MAIN_M.coupe[0].join(',')} L${POIGNET_M.join(',')}`, h.a.contour),   // le trait de l'avant-bras jusqu'au poignet
       // le foyer de la fracture, entre les deux articulations
       h.path('M160,197 L165,203 L158,209 L164,215 L159,221 L163,227', h.a.arete),
       // le rembourrage qui dépasse de la gouttière : coude et poignet
@@ -242,64 +178,104 @@ module.exports = (h) => {
   };
 
   // ─── L'écharpe ────────────────────────────────────────────────────────────────────────
-  const S = { L: 346, y0: 0, y1: 296 };
+  // Gros plan sur le bras attelé, porté dans le pan de la chemise : le même bras gauche que « Mouler et attacher »,
+  // vu du devant du blessé. L'avant-bras à l'horizontale, la main détendue qui sort à gauche, le coude à droite et le
+  // haut du bras qui monte vers l'épaule (mainSimple, avantbras.bras), coupé au bord. Derrière, au trait seulement
+  // (un aplat gris faisait un bloc ; la ceinture et le flanc, du décor) : la patte de la chemise et ses boutons. Le pan relevé passe devant
+  // l'avant-bras, son ourlet épinglé au devant.
+  const S = { L: 346, y0: 0, y1: 297 };
+  const ES = 0.6, XS = 150, YS = 196;                // la main : la même échelle que dans « Mouler et attacher »
+  const PAN = { g: 154, d: 258, h: 156, b: 242 };    // le pan : bords gauche et droit, ourlet, pli du dessous
+  const PATTE = 204;                                 // la patte de boutonnage, au milieu du devant
+  const EPINGLES = [[174, 160], [238, 158]], [E1, E2] = EPINGLES, MI = (E1[0] + E2[0]) / 2;
   const epingle = (x, y) => [
     h.ligne(x - 2, y - 9, x - 2, y + 8, h.a.arete),
     h.ligne(x + 2, y - 8, x + 2, y + 8, h.a.arete),
     h.cercle(x, y + 11, 3, h.a.arete),
     h.rect(x - 3.5, y - 15, 7, 6, plein(h.a.arete)),
   ].join('\n');
-  // la paume reste sous le pan : le bord du pan passe juste derrière les jointures
-  const MAIN_S = mainDetendue({ x: 249, y: 203, echelle: 0.62, bras: 0, courbe: 0.5 });
+  // le contour plein d'une main simple (son aplat blanc), en points ; ses bords à une abscisse ou une ordonnée
+  const contourDe = m => ((String(m.svg).match(/<path d="([^"]+)" fill="#FFFFFF"/) || [])[1] || '')
+    .split(/[MLZ]/).map(t => t.trim()).filter(Boolean).map(t => t.split(/\s+/).map(Number));
+  const coupes = (pts, k, v) => {
+    const out = [];
+    for (let i = 0; i < pts.length; i++) {
+      const a = pts[i], b = pts[(i + 1) % pts.length];
+      if ((a[k] - v) * (b[k] - v) < 0) out.push(a[1 - k] + (v - a[k]) / (b[k] - a[k]) * (b[1 - k] - a[1 - k]));
+    }
+    return out;
+  };
   const echarpe = z => {
     const o = boite(z, S.L, S.y0, S.y1);
+    const bord = { x0: -o.ox, y0: -o.oy, x1: z.l - o.ox, y1: z.h - o.oy };
+    const base = { x: XS, y: YS, ancre: 'poignet', pose: 'relachee', vue: 'dos', cote: 'gauche', angle: 180, rotation: [-20, 0, 0], echelle: ES };
+    const c0 = h.formes.mainSimple({ ...base, avantbras: { longueur: 'entier' } }).coude;
+    const bras = h.formes.mainSimple({ ...base, avantbras: { bord, bras: { vers: [c0[0] + 3, -400] } } });
+    const C = bras.coude, pts = contourDe(bras);
+    const bas = x => Math.max(...coupes(pts, 0, x)), droite = y => Math.max(...coupes(pts, 1, y));
+    // l'écorce : derrière le bras, elle dépasse de 7 sous l'avant-bras, autour du coude et le long du dehors du haut
+    // du bras ; elle finit sous le talon de la main (prend le poignet) et à 60 sous l'épaule
+    const EP = 7, X0 = XS - 40, Y1 = 60;
+    const ext = [];
+    for (let x = X0; x < C[0]; x += 6) ext.push([x, bas(x) + EP]);
+    for (let t = 90; t >= 0; t -= 10) {
+      const u = [Math.cos(t * Math.PI / 180), Math.sin(t * Math.PI / 180)];
+      let r = 0;
+      for (let i = 0; i < pts.length; i++) {
+        const p = pts[i], q = pts[(i + 1) % pts.length], d = [q[0] - p[0], q[1] - p[1]];
+        const det = u[0] * -d[1] + d[0] * u[1];
+        if (Math.abs(det) < 1e-9) continue;
+        const w = [p[0] - C[0], p[1] - C[1]], tt = (w[0] * -d[1] + d[0] * w[1]) / det, ss = (u[0] * w[1] - u[1] * w[0]) / det;
+        if (tt > 0 && ss >= 0 && ss <= 1) r = Math.max(r, tt);
+      }
+      ext.push([C[0] + u[0] * (r + EP), C[1] + u[1] * (r + EP)]);
+    }
+    for (let y = C[1] - 6; y > Y1; y -= 8) ext.push([droite(y) + EP, y]);
+    ext.push([droite(Y1) + EP, Y1]);
+    const ecorce = ext.concat([[C[0] - 12, Y1], [C[0] - 12, C[1] - 10], [X0, YS]]);
+    const lentE = [];
+    for (let x = X0 + 10; x < PAN.g - 4; x += 22) lentE.push([x, bas(x) + EP / 2, 4]);
+    for (let x = PAN.d + 14; x < C[0] - 4; x += 22) lentE.push([x, bas(x) + EP / 2, 4]);
+    const lentD = [];
+    for (let y = C[1] - 30; y > Y1 + 12; y -= 26) lentD.push([droite(y) + EP / 2, y, 4]);
+    // le lien du haut du bras, par-dessus le bras et l'écorce
+    const yL = 98, wL = 18;
+    const xg = Math.min(...coupes(pts, 1, yL)), xd = droite(yL) + EP + 1;
+    const xg2 = Math.min(...coupes(pts, 1, yL + wL)), xd2 = droite(yL + wL) + EP + 1;
     return g(o, [
-      // cou, col, épaules
-      h.path('M152,0 C153,10 152,16 150,20 M194,0 C193,10 194,16 196,20', h.a.contour),
-      h.path('M150,20 Q173,30 196,20', h.a.arete),
-      h.path('M150,18 L146,26 L160,46 L173,32 L186,46 L200,26 L196,18', h.a.arete),
-      h.path('M146,26 C120,34 90,40 72,48 M200,26 C226,34 256,40 274,48', h.a.contour),
-      h.path('M76,50 Q92,72 96,100 M270,50 Q254,72 250,100', h.a.detail),
-      h.path('M170,34 L170,150 M176,34 L176,150', h.a.detail),
-      h.cercle(173, 62, 2.6, h.a.arete), h.cercle(173, 94, 2.6, h.a.arete), h.cercle(173, 126, 2.6, h.a.arete),
-      // le bras valide, qui pend
-      h.path('M274,48 C292,56 300,110 301,170 C302,230 304,270 304,296', h.a.contour),
-      h.path('M250,100 C256,150 260,230 262,296', h.a.contour),
-      h.path('M266,150 Q282,160 297,156 M265,212 Q281,222 301,217', h.a.detail),
-      // le bas du tronc, sous le pli
-      h.path('M98,238 C100,262 101,280 102,296', h.a.contour),
-      h.path('M101,274 L261,274 M101,284 L261,284', h.a.arete),
-      h.rect(164, 272, 18, 14, plein(h.a.arete)),
-      h.ligne(173, 286, 173, 296, h.a.detail),
-      // le bras blessé : manche roulée, écorce le long du dehors, coude sorti de l'écharpe
-      h.path('M72,48 C56,60 50,110 48,160 C47,190 46,205 47,214 C48,228 58,236 72,236 L88,236', h.a.contour),
-      h.path('M96,100 C94,140 92,170 90,196', h.a.contour),
-      h.path('M53,104 Q74,100 95,106 L94,120 Q73,114 51,118 Z', plein(h.a.arete)),
-      h.path('M60,106 Q64,111 62,116 M80,105 Q83,110 82,117', h.a.detail),
-      h.path('M51,124 C49,160 48,190 47,214 C48,229 58,236 72,236 L88,236 L88,242 L72,242 C54,242 42,232 42,214 C42,190 43,160 45,124 Z', plein(h.a.arete)),
-      h.path('M45,124 C43,160 42,190 42,214 C42,232 54,242 72,242 L88,242', h.a.contour),
-      h.path('M42,150 Q68,154 93,149 L92,160 Q68,165 42,161 Z', plein(h.a.arete)),
-      // la main droite, vue du dos, détendue : elle sort du pan jusqu'aux jointures
-      MAIN_S.svg,
-      // le pan de chemise relevé par-dessus l'avant-bras
-      h.path('M86,152 Q106,158 126,151 Q170,161 214,149 Q230,155 244,149 C246,180 246,210 245,238 Q166,256 86,240 C84,210 84,180 86,152 Z', plein(h.a.contour)),
-      h.path('M88,158 Q106,164 126,157 Q170,167 214,155 Q230,161 243,155', h.a.fin),
-      h.path('M126,158 Q118,192 104,234 M214,156 Q224,192 234,236 M150,164 Q152,204 142,246', h.a.detail),
-      h.path('M170,161 L168,246 M176,161 L175,246', h.a.detail),
-      epingle(126, 151),
-      epingle(214, 149),
+      // derrière : le devant de la chemise, sa patte et trois boutons
+      h.path(`M${PATTE - 3},${-o.oy} L${PATTE - 3},${PAN.h} M${PATTE + 3},${-o.oy} L${PATTE + 3},${PAN.h}`, h.a.detail),
+      h.cercle(PATTE, 34, 2.6, plein(h.a.arete)), h.cercle(PATTE, 84, 2.6, plein(h.a.arete)), h.cercle(PATTE, 134, 2.6, plein(h.a.arete)),
+      // l'écorce, derrière le bras
+      h.chemin(ecorce, plein(h.a.arete), true),
+      lent(lentE), lent(lentD, true),
+      // le bras gauche, la main détendue
+      bras.svg,
+      // le lien du haut du bras
+      h.path(`M${xg},${yL} L${xd},${yL} Q${xd + 3},${yL + wL / 2} ${xd2},${yL + wL} L${xg2},${yL + wL} Q${xg2 - 3},${yL + wL / 2} ${xg},${yL} Z`, plein(h.a.arete)),
+      noeudLien((xg + xd) / 2 - 4, yL + 6),
+      // la manche roulée, au haut du bras
+      h.path(`M${Math.min(...coupes(pts, 1, 24)) - 2},24 Q${C[0]},19 ${droite(24) + 2},24 L${droite(42) + 2},42 Q${C[0]},37 ${Math.min(...coupes(pts, 1, 42)) - 2},42 Z`, plein(h.a.contour)),
+      h.path(`M${C[0] - 18},27 Q${C[0] - 15},33 ${C[0] - 17},39 M${C[0] + 6},26 Q${C[0] + 9},32 ${C[0] + 7},39`, h.a.detail),
+      // le pan relevé par-dessus l'avant-bras, en hamac : l'ourlet en haut, épinglé ; le pli dessous, au plus bas au
+      // milieu ; les plis du tissu partent des épingles vers ce creux
+      h.path(`M${PAN.g},${PAN.h + 2} Q${E1[0] - 10},${PAN.h - 2} ${E1[0]},${E1[1]} Q${MI},${PAN.h + 10} ${E2[0]},${E2[1]} Q${PAN.d - 8},${PAN.h - 2} ${PAN.d},${PAN.h + 1} C${PAN.d + 3},${PAN.h + 34} ${PAN.d},${PAN.b - 34} ${PAN.d - 12},${PAN.b - 10} Q${MI},${PAN.b + 16} ${PAN.g + 12},${PAN.b - 8} C${PAN.g},${PAN.b - 34} ${PAN.g - 3},${PAN.h + 34} ${PAN.g},${PAN.h + 2} Z`, plein(h.a.contour)),
+      h.path(`M${PAN.g + 1},${PAN.h + 8} Q${E1[0] - 10},${PAN.h + 4} ${E1[0]},${E1[1] + 6} Q${MI},${PAN.h + 16} ${E2[0]},${E2[1] + 6} Q${PAN.d - 8},${PAN.h + 4} ${PAN.d - 1},${PAN.h + 7}`, h.a.fin),
+      h.path(`M${PAN.g + 20},${PAN.b - 12} Q${MI},${PAN.b + 6} ${PAN.d - 20},${PAN.b - 14}`, h.a.detail),
+      h.path(`M${E1[0] + 3},${E1[1] + 16} Q${E1[0] + 4},${PAN.h + 56} ${MI - 22},${PAN.b - 6} M${E2[0] - 3},${E2[1] + 16} Q${E2[0] - 4},${PAN.h + 56} ${MI + 22},${PAN.b - 6} M${E1[0] - 10},${PAN.h + 10} Q${PAN.g + 6},${PAN.h + 50} ${PAN.g + 16},${PAN.b - 14} M${E2[0] + 10},${PAN.h + 10} Q${PAN.d - 5},${PAN.h + 50} ${PAN.d - 18},${PAN.b - 16}`, h.a.detail),
+      h.path(`M${PATTE - 3},${PAN.h + 15} Q${PATTE - 4},${PAN.h + 60} ${PATTE - 3},${PAN.b + 2} M${PATTE + 3},${PAN.h + 15} Q${PATTE + 2},${PAN.h + 60} ${PATTE + 3},${PAN.b + 2}`, h.a.detail),
+      ...EPINGLES.map(([x, y]) => epingle(x, y)),
     ]);
   };
 
   return {
     ref: '26-08',
-    titre: 'L’attelle d’écorce moulée',
-    desc: 'Trois vues. Une plaque d’écorce de bouleau trempe dans une marmite d’eau chaude. Un bras plié, vu de côté : l’écorce moulée en gouttière sous l’avant-bras et derrière le haut du bras prend le coude et le poignet, le rembourrage dépasse au coude et au poignet, trois liens la tiennent hors de la cassure, marquée en zigzag sur le dessus de l’avant-bras ; la main, vue du dos, doigts à demi fermés et pouce le long de l’index, dépasse le bout de l’écorce. Un trait de coupe A–A traverse le lien près du poignet. La coupe A–A : le bras, le rembourrage, la gouttière d’écorce durcie et le lien, qu’on desserre au premier blanchiment des doigts.',
+    titre: 'L’attelle d’écorce moulée, et l’écharpe au pan de chemise',
+    desc: 'Quatre vues. Une plaque d’écorce de bouleau trempe dans une marmite d’eau chaude. Un bras plié, vu de côté : l’écorce moulée en gouttière sous l’avant-bras et derrière le haut du bras prend le coude et le poignet, le rembourrage dépasse au coude et au poignet, trois liens la tiennent hors de la cassure, marquée en zigzag sur le dessus de l’avant-bras ; la main, vue du dos, détendue, dépasse le bout de l’écorce. Un trait de coupe A–A traverse le lien près du poignet. La coupe A–A : le bras, le rembourrage, la gouttière d’écorce durcie et le lien, qu’on desserre au premier blanchiment des doigts. L’écharpe, en gros plan, vue du devant : le même bras attelé, l’avant-bras à l’horizontale dans le pan de la chemise relevé par-dessus et épinglé au devant de la chemise en deux points ; la main détendue sort à gauche, le coude et l’écorce à droite, le haut du bras monte vers l’épaule.',
     format: 'pleine',
-    disposition: [['tremper', 'mouler'], ['coupe']],
-    largeurs: [[2, 3], [1]],
-    hauteurs: [1, 0.85],
-    fichier: 'planche-26-08-attelle-ecorce-moulee-echarpe.svg',   // le nom reste : l'écharpe est sortie de la planche
+    disposition: [['tremper', 'mouler'], ['coupe', 'echarpe']],
+    largeurs: [[2, 3], [2, 3]],
+    fichier: 'planche-26-08-attelle-ecorce-moulee-echarpe.svg',
     vues: {
       tremper: {
         titre: 'Tremper',
@@ -323,7 +299,7 @@ module.exports = (h) => {
             { n: 5, rond: P(o, 78, 279), cible: P(o, 86, 248), texte: 'prend le poignet, en dessous' },
             { n: 6, rond: P(o, 214, 142), cible: P(o, 250, 214), texte: 'rembourré sur l’os saillant' },
             { n: 7, rond: P(o, 196, 80), cible: P(o, 244, 103), texte: 'attachée en trois points' },
-            { n: 8, rond: P(o, 22, 160), cible: P(o, ...MAIN_M.bouts[0]), texte: 'doigts dehors, à vérifier' },
+            { n: 8, rond: P(o, 22, 160), cible: P(o, ...MAIN_M.doigts.index), texte: 'doigts dehors, à vérifier' },
           ];
         },
       },
@@ -335,7 +311,18 @@ module.exports = (h) => {
           return [
             { n: 9, rond: P(o, 30, 252), cible: P(o, ...E(C.cx, C.cy, 74.5, 57.5, 120)), texte: 'durcie, elle épouse le bras' },
             { n: 10, rond: P(o, 18, 96), cible: P(o, ...E(C.cx, C.cy, 65.5, 48.5, 160)), texte: 'linge ou mousse sèche' },
-            { n: 11, rond: P(o, C.L + 20, 66), cible: P(o, ...E(C.cx, C.cy, 65, 48, 300)), texte: 'desserré au blanchiment' },
+            { n: 11, rond: [z.l - 20, o.oy + 66], cible: P(o, ...E(C.cx, C.cy, 65, 48, 300)), texte: 'desserré au blanchiment' },
+          ];
+        },
+      },
+      echarpe: {
+        titre: 'L’écharpe',
+        dessin: echarpe,
+        renvois: z => {
+          const o = boite(z, S.L, S.y0, S.y1);
+          return [
+            { n: 12, rond: P(o, 120, 274), cible: P(o, 176, 232), texte: 'pan relevé sur le bras' },
+            { n: 13, rond: P(o, 118, 96), cible: P(o, EPINGLES[0][0], EPINGLES[0][1] - 13), texte: 'épinglé au devant' },
           ];
         },
       },
