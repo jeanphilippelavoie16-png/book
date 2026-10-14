@@ -129,12 +129,16 @@ module.exports = (h) => ({
         // la jambe de pantalon, rentrée dans la tige, coupée en haut par un trait de rupture
         const pa = cr([[12, -275], [7, -300], [5, -345]], false, 8).map(T);
         const pv = cr([[132, -275], [137, -300], [139, -345]], false, 8).map(T);
+        const r0 = T([5, -345]), r1 = T([139, -345]), pas = (r1[0] - r0[0]) / 6;
+        const rupt = Array.from({ length: 6 }, (_, k) => `q${f1(pas / 2)},${k % 2 ? 4 : -4} ${f1(pas)},0`).join(' ');
+        // charte : la jambe de pantalon, objet secondaire, en gris loin
+        out.push(h.path(`M${f1(pa[0][0])},${f1(pa[0][1])} ` + pa.slice(1).map(p => `L${f1(p[0])},${f1(p[1])}`).join(' ')
+          + ` ${rupt} ` + pv.slice().reverse().map(p => `L${f1(p[0])},${f1(p[1])}`).join(' ') + ' Z', h.a.loin));
         out.push(h.chemin(pa, h.a.arete));
         out.push(h.chemin(pv, h.a.arete));
         out.push(h.path(['M' + pts([[22, -280], [48, -286], [70, -281]].map(T)), 'M' + pts([[64, -292], [96, -299], [122, -290]].map(T)),
           'M' + pts([[18, -306], [40, -312], [58, -306]].map(T))].join(' '), h.a.detail));
-        const r0 = T([5, -345]), r1 = T([139, -345]), pas = (r1[0] - r0[0]) / 6;
-        out.push(h.path(`M${f1(r0[0])},${f1(r0[1])} ` + Array.from({ length: 6 }, (_, k) => `q${f1(pas / 2)},${k % 2 ? 4 : -4} ${f1(pas)},0`).join(' '), h.a.detail));
+        out.push(h.path(`M${f1(r0[0])},${f1(r0[1])} ` + rupt, h.a.detail));
         // la botte
         out.push(h.chemin(g.silhouette, h.a.contour, true));
         out.push(h.chemin([T([12, -275]), T([132, -275])], h.a.contour));
@@ -216,8 +220,8 @@ module.exports = (h) => ({
         out.push(h.path(g.anneau(E_MINCE, E_EPAISSE), `${h.a.blanc} fill-rule="evenodd"`));
         // le pied : hachure fine à 45°, espacée
         out.push(h.chemin(g.off(0), h.a.hachure('metal', 'aucun'), true));
-        // chaussette mince : gris plein uni
-        out.push(h.path(g.anneau(0, E_MINCE), 'fill="#9A9A9A" stroke="none" fill-rule="evenodd"'));
+        // chaussette mince : gris plein uni (charte : le gris #CFCFCF, plus de troisième gris)
+        out.push(h.path(g.anneau(0, E_MINCE), `${h.a.ombre} fill-rule="evenodd"`));
         // chaussette épaisse : petites boucles serrées de tricot
         { const mil = equi([...g.off((E_MINCE + E_EPAISSE) / 2), g.off((E_MINCE + E_EPAISSE) / 2)[0]], 150);
           const r = (E_EPAISSE - E_MINCE) * g.s * 0.28;
