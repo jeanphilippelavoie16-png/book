@@ -160,6 +160,7 @@
 <line x1="13.4" y1="163.8" x2="217.6" y2="163.8" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
 <circle cx="12.2" cy="163.8" r="1.9" fill="#1A1A1A" stroke="none"/>
 <circle cx="218.8" cy="163.8" r="1.9" fill="#1A1A1A" stroke="none"/>
+<circle cx="165.3" cy="163.8" r="9.1" fill="none" stroke="#9B2C1E" stroke-width="1.6"/>
 </g>
 <text x="40" y="289.5" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#1A1A1A">Le câblage, vu de l’arrière de l’alternateur</text>
 <g transform="translate(40 297.5)" data-vue="cablage">
@@ -234,6 +235,7 @@
 <line x1="335.4" y1="71.6" x2="341.9" y2="57.6" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
 <circle cx="341.9" cy="56.7" r="2.9" fill="#FFFFFF" stroke="none"/>
 <circle cx="341.9" cy="56.7" r="2.9" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="337" cy="71.6" r="16.4" fill="none" stroke="#9B2C1E" stroke-width="1.6"/>
 <path d="M346.9 79 L411 79 L453 91.3" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M458.7 6.6 L516.3 6.6 L516.3 42.8 L458.7 42.8 Z" fill="#FFFFFF" stroke="none"/>
 <path d="M458.7 6.6 L516.3 6.6 L516.3 42.8 L458.7 42.8 Z" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>

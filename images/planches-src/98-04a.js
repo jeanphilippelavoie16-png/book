@@ -95,7 +95,8 @@ module.exports = (h) => {
       const d = i % 2 ? 4 : -4;
       o.push(h.path(`M${pt(Q(x, z0))} Q${pt(Q(x + d * 0.3, z0 - lon * 0.6))} ${pt(Q(x + d, z0 - lon))}`, h.a.detail));
     });
-    o.push(h.chemin(pas(-500, 500, 8).map((x) => Q(x, T(x))), h.a.arete));
+    // La charte : le dessus de la planche montée est l'objet de la vue, son contour pèse (2,4)
+    o.push(h.chemin(pas(-500, 500, 8).map((x) => Q(x, T(x))), h.a.contour));
     return o.join('\n');
   };
 
@@ -155,7 +156,8 @@ module.exports = (h) => {
           const g0 = q(760, 0), g1 = q(960, -125);
           o.push(h.rect(g0[0], g0[1], g1[0] - g0[0], g1[1] - g0[1], h.a.cache));
           pas(775, 945, 20).forEach((x, i) => o.push(h.ligne(...q(x, 0), ...q(x + (i % 2 ? 4 : -4), 14), h.a.fin)));
-          o.push(h.fleche(`M${pt(q(870, 30))} Q${pt(q(760, 480))} ${pt(q(432, 184))}`));
+          // La charte : le geste, la motte levée de la tranchée et posée à l'envers sur la planche
+          o.push(h.geste(`M${pt(q(870, 30))} Q${pt(q(760, 480))} ${pt(q(432, 184))}`));
           // au sommet de l'arc, la même motte tournée d'un quart de tour : l'herbe passe sur le côté
           const mx = 705, mz = 294, m0 = q(mx - 62, mz + 100), m1 = q(mx + 62, mz - 100);
           o.push(h.rect(m0[0], m0[1], m1[0] - m0[0], m1[1] - m0[1], 'fill="#FFFFFF" ' + h.a.fin.replace('fill="none" ', '')));

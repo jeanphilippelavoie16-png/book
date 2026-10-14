@@ -46,8 +46,8 @@ module.exports = (h) => {
       out.push(h.path(peg, h.a.contour));
       out.push(h.ligne(xm - 3, top + 8, xm - 3, y0 - 4, h.a.detail));
       out.push(h.ligne(xm + 4, top + 14, xm + 4, y0 - 10, h.a.detail));
-      // On chasse vers le bas ; le tenon part vers le fond.
-      out.push(h.fleche(`M ${cr + 18} ${PT - 48} V ${PT - 14}`));
+      // On chasse vers le bas (la charte : le geste en rouge) ; le tenon part vers le fond.
+      out.push(h.geste(`M ${cr + 18} ${PT - 48} V ${PT - 14}`));
       out.push(h.fleche(`M ${RX - 18} ${RB + 20} H ${SH + 40}`));
     } else {
       const b = st.off, top = PT - 14, bot = PB + 5, tip = PB + 22;
@@ -57,6 +57,8 @@ module.exports = (h) => {
       out.push(h.path(peg, h.a.blanc));
       out.push(h.path(peg, h.a.contour));
       out.push(h.path(`M ${xm + 2} ${top + 6} V ${TT - 7} C ${xm + 2} ${TT} ${xm + 2 + b} ${TT} ${xm + 2 + b} ${TT + 7} V ${TB - 7} C ${xm + 2 + b} ${TB} ${xm + 2} ${TB} ${xm + 2} ${TB + 7} V ${bot - 2}`, h.a.detail));
+      // la charte : le point à contrôler, l'épaulement au contact du poteau, sans jour
+      out.push(h.controle(PR, cy - 76, 11));
     }
     return out.join('\n');
   }

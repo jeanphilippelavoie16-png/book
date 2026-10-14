@@ -12,6 +12,11 @@
 // l'alternateur ; excitation : + batterie → interrupteur → ampoule témoin → borne du témoin ;
 // sortie : gros câble au + ; borne S au + ; boîtier au − ; voltmètre sur les deux bornes.
 // Les deux poulies tournent dans le même sens (courroie ouverte).
+//
+// La charte : pas de gris, la planche n'a que des élévations de face, un plan, un schéma et deux
+// coupes hachurées. Le rouge : deux points à contrôler, le fil tendu qui touche la face de la
+// poulie de l'alternateur (les arbres alignés), et l'interrupteur du témoin, ouvert à l'arrêt.
+// Aucun geste fléché : rien ne change.
 
 module.exports = (h) => {
   const r1 = v => Math.round(v * 10) / 10;
@@ -195,6 +200,8 @@ module.exports = (h) => {
     o.push(h.ligne(...P(22, fy), ...P(358, fy), h.a.detail));
     o.push(h.cercle(...P(20, fy), 3.2 * s, h.a.plein));
     o.push(h.cercle(...P(360, fy), 3.2 * s, h.a.plein));
+    // le point à contrôler : le fil touche la face de la poulie de l'alternateur
+    o.push(h.controle(...P(Ca[0], fy), 15 * s));
     return o.join('\n');
   }
 
@@ -264,6 +271,8 @@ module.exports = (h) => {
     o.push(poly(Q([[334, yT - 9], [362, yT - 9], [362, yT + 9], [334, yT + 9]])));
     o.push(h.ligne(...P(348, yT - 9), ...P(356, yT - 26), h.a.contour));
     o.push(disque(P(356, yT - 27), 3.5 * s));
+    // le point à contrôler : l'interrupteur, ouvert à l'arrêt
+    o.push(h.controle(...P(350, yT - 9), 20 * s));
     o.push(fil(Q([[362, yT], [440, yT], [491, Pp[1] + 1]])));
     // Voltmètre sur les deux bornes.
     const V = { x: 498, y: 8, l: 70, h: 44 };

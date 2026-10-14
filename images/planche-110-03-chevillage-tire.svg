@@ -4,6 +4,7 @@
 <defs>
 <pattern id="h-bois" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" stroke="#1A1A1A" stroke-width="0.7"/></pattern>
 <marker id="fl" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#1A1A1A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker>
+<marker id="fl-r" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9 Z" fill="#9B2C1E" stroke="#9B2C1E" stroke-width="1" stroke-linejoin="round"/></marker>
 </defs>
 <rect x="0" y="0" width="680" height="826" fill="#FFFFFF"/>
 <text x="40" y="38" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#1A1A1A">Vu de face, avant la cheville (décalage exagéré)</text>
@@ -68,7 +69,7 @@
 <path d="M 102 16 H 118 L 120 18 V 109 L 110 128 L 100 109 V 18 Z" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
 <line x1="107" y1="24" x2="107" y2="105" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
 <line x1="114" y1="30" x2="114" y2="99" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M 138 18 V 52" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl)"/>
+<path d="M 138 18 V 52" fill="none" stroke="#9B2C1E" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl-r)"/>
 <path d="M 255 256 H 194" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl)"/>
 </g>
 <text x="351" y="363.8" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#1A1A1A">Chassée : le joint se serre seul</text>
@@ -93,6 +94,7 @@
 <path d="M 102 52 H 118 L 120 54 V 119 C 120 126 125 126 125 133 V 179 C 125 186 120 186 120 193 V 251 L 110 268 L 100 251 V 193 C 100 186 105 186 105 179 V 133 C 105 126 100 126 100 119 V 54 Z" fill="#FFFFFF" stroke="none"/>
 <path d="M 102 52 H 118 L 120 54 V 119 C 120 126 125 126 125 133 V 179 C 125 186 120 186 120 193 V 251 L 110 268 L 100 251 V 193 C 100 186 105 186 105 179 V 133 C 105 126 100 126 100 119 V 54 Z" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M 112 58 V 119 C 112 126 117 126 117 133 V 179 C 117 186 112 186 112 193 V 249" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="150" cy="80" r="11" fill="none" stroke="#9B2C1E" stroke-width="1.6"/>
 </g>
 <line x1="62.6" y1="82.7" x2="89.7" y2="108.2" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
 <line x1="62.6" y1="82.7" x2="89.7" y2="108.2" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
