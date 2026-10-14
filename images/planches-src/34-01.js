@@ -13,9 +13,10 @@
 // Lot 3 (JP, 13 octobre au soir : les corps de profil seulement) : le corps de face et de dos et le
 // visage de face sortent. Un seul corps simple de profil porte les zones du chapitre ; le triangle du
 // visage et le cou passent sur la tête du même corps, en grand. Rouge : le geste du trait à faire.
-// Mains simples (14 octobre) : vu de dessus, la main entière (pince-ouverte-dessus, vue du dos) tient la bosse
-// entre le pouce et l'index ; la vue est au tiers de l'ancienne échelle pour qu'elle entre. Le doigt dans la poche :
+// Mains simples (14 octobre) : vu de dessus, les bouts de l'index et du pouce, en gros plan et coupés par le bord,
+// tiennent la bosse de part et d'autre (la main entière faisait la bosse minuscule). Le doigt dans la poche :
 // pointe de profil à l'échelle de la coupe, la main sort par le haut. Rouge : le doigt qui balaie la poche.
+// La tête du « visage, le cou » vient de la bibliothèque de têtes (corps({ visage: true })), et ses zones suivent.
 module.exports = (h) => {
   const F = h.formes._interne;
   const f = v => (+v).toFixed(1);
@@ -141,12 +142,19 @@ module.exports = (h) => {
   const echelle = z => Math.min((z.h - 8) / 42, (z.l - 20) / 70);
 
   // ─── Vu de dessus : la bosse, le trait dans le grand axe, le pouce et l'index de l'autre main
-  // l'échelle : la main entière doit entrer dans la vue (JP : plus de bouts de doigts seuls), la bosse rapetisse d'autant
+  // en gros plan : la bosse en grand, et seuls les bouts de l'index (dessus) et du pouce (dessous) entrent dans la
+  // vue, coupés par le bord, posés de part et d'autre de la poche. Chaque bout est le bout d'un doigt tendu de la
+  // main simple (pointe, vu du dos), le pouce un peu plus gros. La main entière, essayée d'abord, faisait la bosse
+  // minuscule et on ne voyait plus les deux doigts tendre la peau.
   const geoDessus = z => {
-    const s = Math.min(z.h / 160, z.l / 300), cx = z.l * 0.6, cy = z.h / 2 - 4;
+    const s = Math.min(z.h / 68, z.l / 115), cx = z.l * 0.5, cy = z.h / 2;
     const P = (u, v) => [cx + u * s, cy + v * s];
-    return { s, cx, cy, P };
+    // les bouts : [u, v] du bout du doigt, l'angle du doigt, le grossissement
+    const B = { index: [-2, -16.5, 10, 1], pouce: [-2, 17.5, -10, 1.1] };
+    return { s, cx, cy, P, B };
   };
+  const boutDessus = (g, [u, v, ang, k]) => h.formes.mainSimple({ ...Object.fromEntries([['x', g.P(u, v)[0]], ['y', g.P(u, v)[1]]]),
+    pose: 'pointe', vue: 'dos', cote: 'gauche', echelle: g.s * k, angle: ang, ancre: 'bout' });
   const dessinDessus = z => {
     const g = geoDessus(z), s = g.s, P = g.P, out = [];
     // la rougeur, la poche qu'on sent sous les doigts, le grand axe
@@ -156,10 +164,8 @@ module.exports = (h) => {
     // le trait de lame : une fente noire en fuseau
     const fente = [...range(-G, G, 16).map(u => [u, -0.9 * Math.sqrt(1 - (u / G) ** 2)]), ...range(G, -G, 16).map(u => [u, 0.9 * Math.sqrt(1 - (u / G) ** 2)])];
     out.push(h.chemin(fente.map(p => P(...p)), h.a.plein, true));
-    // la main gauche, vue du dos (main simple, pince-ouverte-dessus) : l'index au-dessus de la bosse, le pouce en
-    // dessous, écartés de 60 mm de part et d'autre ; la main vient d'en bas à gauche, l'avant-bras sort de la vue
-    out.push(h.formes.mainSimple({ x: g.cx, y: g.cy, pose: 'pince-ouverte-dessus', vue: 'dos', cote: 'gauche', echelle: s, diametre: 60, angle: -30,
-      avantbras: { bord: { x0: 0, y0: 0, x1: z.l, y1: z.h }, bras: { pli: 0 } } }).svg);
+    // les bouts de l'index et du pouce de la main gauche, de part et d'autre de la poche
+    out.push(boutDessus(g, g.B.index).svg, boutDessus(g, g.B.pouce).svg);
     return cadre('dessus', z, out.join('\n'));
   };
 
@@ -332,25 +338,39 @@ module.exports = (h) => {
     return `<clipPath id="corps-34-${id}">${formes.join('')}</clipPath>\n<g clip-path="url(#corps-34-${id})">\n${contenu}\n</g>`;
   };
 
-  // ─── Le visage, de profil : la tête et le cou du même corps simple, en grand. Le triangle du
-  // milieu du visage (de la racine du nez aux coins de la bouche) suit le contour du visage ; le coin
-  // de la bouche est à 26 mm en arrière des lèvres. Le devant et les côtés du cou, hachurés aussi.
+  // ─── Le visage, de profil : la tête et le cou du même corps simple, en grand, avec le visage de la bibliothèque
+  // de têtes (corps({ visage: true }), réglages par défaut). Le triangle du milieu du visage suit le contour de ce
+  // visage : de la racine du nez (le creux du profil entre le front et le nez, près de l'œil) aux coins de la
+  // bouche (à 26 mm en arrière des lèvres, à la hauteur de la bouche que donne .visage). Le devant et les côtés du
+  // cou, hachurés aussi, suivent le même contour.
   const geoVisage = z => {
     const s = Math.min((z.h - 4) / 420, (z.l - 10) / 300), x0 = z.l * 0.42 - 30 * s, y0 = 4 + 1760 * s;   // le sommet du crâne en haut
     return { s, x0, y0, X: x => x0 + x * s, Y: y => y0 + y * s };
   };
+  const TV_MM = h.formes.corps({ x: 0, y: 0, pose: 'debout', echelle: 1, pieds: 'nu', angles: ANGLES, masquer: ['brasP', 'brasL'], visage: true });
+  const V = TV_MM.visage, avantV = y => Math.max(...scanY(TV_MM, y)), arriereV = y => Math.min(...scanY(TV_MM, y));
   const TRIANGLE = (() => {
-    const yR = -1656, yB = -1563, out = [];
-    for (let y = yR; y <= yB; y += 3) out.push([avant(y) - 0.6, y]);
-    out.push([avant(yB) - 26, yB + 2], [avant(-1605) - 36, -1606], [avant(yR) - 16, yR + 3]);
+    let yR = V.oeil[1], creux = 1e9;
+    for (let y = V.oeil[1] - 25; y <= V.oeil[1] + 5; y += 1) { const a = avantV(y); if (a < creux) { creux = a; yR = y; } }
+    const yB = V.bouche[1], out = [];
+    for (let y = yR; y <= yB; y += 3) out.push([avantV(y) - 0.6, y]);
+    // la pointe du triangle à la racine du nez, sa base des lèvres au coin de la bouche ; le bord arrière, un peu
+    // bombé, passe devant l'œil
+    const coin = [V.bouche[0] - 26, yB + 1], haut = [avantV(yR) - 2.5, yR + 2];
+    out.push(coin, [(coin[0] + haut[0]) / 2 - 1, (yR + yB) / 2], haut);
     return out;
+  })();
+  const COU_V = (() => {
+    const cou = [], dos = [];
+    for (let y = -1512; y <= -1466; y += 4) { const a = avantV(y), b = arriereV(y); cou.push([a - 0.8, y]); dos.push([b + 0.38 * (a - b), y]); }
+    return [...cou, ...dos.reverse()];
   })();
   const dessinVisage = z => {
     const g = geoVisage(z), out = [];
-    const c = h.formes.corps({ x: g.x0, y: g.y0, pose: 'debout', echelle: g.s, pieds: 'nu', angles: ANGLES });
+    const c = h.formes.corps({ x: g.x0, y: g.y0, pose: 'debout', echelle: g.s, pieds: 'nu', angles: ANGLES, visage: true });
     out.push(cadre('visage', z, String(c)));
     const P = pts => pts.map(([x, y]) => [g.X(x), g.Y(y)]);
-    out.push(dansLeCorps('visage', c, [TRIANGLE, ZONES.z[0]].map(p => { const q = P(p); return [hachure(q, 2.4, 45, 0.6), h.path(cr(q, true), h.a.detail)].join('\n'); }).join('\n')));
+    out.push(dansLeCorps('visage', c, [TRIANGLE, COU_V].map(p => { const q = P(p); return [hachure(q, 2.4, 45, 0.6), h.path(cr(q, true), h.a.detail)].join('\n'); }).join('\n')));
     return out.join('\n');
   };
 
@@ -370,7 +390,7 @@ module.exports = (h) => {
           const g = geoDessus(z), P = g.P;
           return [
             { n: 1, rond: [z.l - 12, 14], cible: P(5, 0), texte: 'un trait, dans le grand axe' },
-            { n: 2, rond: [z.l - 12, z.h - 12], cible: P(-6, 26), texte: 'le pouce et l’index' },
+            { n: 2, rond: [z.l - 12, z.h - 12], cible: P(g.B.pouce[0] - 12, g.B.pouce[1] + 1), texte: 'le pouce et l’index' },
           ];
         },
       },
@@ -439,7 +459,7 @@ module.exports = (h) => {
           return [
             { n: 15, rond: [z.l - 12, g.Y(-1700)], cible: [g.X(r[0]) - 2, g.Y(r[1])], texte: 'la racine du nez' },
             { n: 16, rond: [z.l - 12, g.Y(-1545)], cible: [g.X(b[0]), g.Y(b[1])], texte: 'les coins de la bouche' },
-            { n: 17, rond: [z.l - 12, g.Y(-1440)], cible: [g.X(ZONES.cou[0]), g.Y(ZONES.cou[1])], texte: 'le devant et les côtés du cou' },
+            { n: 17, rond: [z.l - 12, g.Y(-1440)], cible: [g.X(avantV(-1490) - 10), g.Y(-1490)], texte: 'le devant et les côtés du cou' },
           ];
         },
       },

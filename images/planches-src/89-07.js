@@ -2,7 +2,7 @@
 // La charte : la pièce au contour fort, le reste fin ; pas de gris (le devant noirci a déjà sa
 // trame, la coupe est hachurée) ; pas de rouge : ni geste ni point à vérifier.
 // Les têtes passent de profil (JP, 14 octobre) : la vue de dessus sur une tête devient la tête de
-// profil (h.formes.tete), lunettes portées : on y voit la pièce qui revient sur la tempe en suivant
+// profil (la tête simple de la bibliothèque, tetes/moteur.js), lunettes portées : on y voit la pièce qui revient sur la tempe en suivant
 // le visage, la fente, la visière, la lanière qui passe au-dessus de l'oreille et le nœud derrière.
 module.exports = (h) => ({
   ref: '89-07',
@@ -47,10 +47,10 @@ module.exports = (h) => ({
       titre: 'Portées, de profil',
       dessin: z => {
         const D = porte(z);
-        const P = pts => pts.map(D.T);
+        const P = pts => pts.map(D.T), Q = pts => pts.map(D.TP);
         return [
-          // la tête de profil, regard à droite (la bibliothèque des têtes)
-          h.formes.tete({ x: D.x0, y: D.y0, echelle: D.e, age: 'adulte' }),
+          // la tête simple de profil, regard à droite, repère à l'oreille
+          String(h.formes.teteSimple({ x: D.x0, y: D.y0, echelle: D.e })),
           // les bouts de la lanière, qui pendent derrière la tête, puis le nœud
           lanière(h, { pts: P(BOUT_1) }, 3.5),
           lanière(h, { pts: P(BOUT_2) }, 3.5),
@@ -59,18 +59,18 @@ module.exports = (h) => ({
           h.ellipse(...D.T(NOEUD_P), 5, 4.2, h.a.blanc),
           h.ellipse(...D.T(NOEUD_P), 5, 4.2, h.a.arete),
           // la pièce, vue de côté : elle revient du devant jusqu'à la tempe
-          h.chemin(P(BANDE_P), h.a.blanc, true),
-          h.chemin(P(FENTE_P), h.a.plein, true),
-          h.chemin(P(VISIERE_P), h.a.arete),
-          h.chemin(P(VISIERE_BOUT), h.a.blanc, true),
-          h.chemin(P(VISIERE_BOUT), h.a.arete, true),
-          h.chemin(P(BANDE_P), h.a.contour, true),
+          h.chemin(Q(BANDE_P), h.a.blanc, true),
+          h.chemin(Q(FENTE_P), h.a.plein, true),
+          h.chemin(Q(VISIERE_P), h.a.arete),
+          h.chemin(Q(VISIERE_BOUT), h.a.blanc, true),
+          h.chemin(Q(VISIERE_BOUT), h.a.arete, true),
+          h.chemin(Q(BANDE_P), h.a.contour, true),
         ].join('\n');
       },
       renvois: z => {
         const D = porte(z);
         return [
-          { n: 5, rond: [z.l - 12, 22], cible: D.T([78, -40.5]), texte: 'bois un peu courbé, épouse le visage' },
+          { n: 5, rond: [z.l - 12, 22], cible: D.TP([78, -40.5]), texte: 'bois un peu courbé, épouse le visage' },
           { n: 6, rond: [14, z.h - 40], cible: D.T([NOEUD_P[0] - 4, NOEUD_P[1] + 4]), texte: 'lanières nouées derrière la tête' },
         ];
       },
@@ -140,21 +140,25 @@ function face(z) {
 }
 
 // ─── Portées, de profil ──────────────────────────────────────────────────────────────────
-// Repère de la tête (h.formes.tete) : millimètres, l'oreille en 0,0, regard vers +x, y vers le
-// bas ; l'œil en (80, -24), le haut du nez en (98, -33). La pièce mesure environ 4 cm de haut
-// devant l'œil et s'amincit vers la tempe, comme de face.
+// Repère de la tête : millimètres, l'oreille en 0,0, regard vers +x, y vers le bas. La pièce est
+// dessinée pour un œil en (80, -24) et le haut du nez en (98, -33) ; la tête simple a son œil en
+// (92,4, -16) : la pièce se décale de DEC (TP). La lanière et le nœud sont posés sur la tête simple :
+// la lanière passe au-dessus de l'oreille (son haut en y = -30), le nœud sur l'arrière du crâne.
+// La pièce mesure environ 4 cm de haut devant l'œil et s'amincit vers la tempe, comme de face.
 const BANDE_P = [[110, -47], [96, -46.5], [80, -43], [66, -37], [55, -31], [49, -27.5], [47.5, -24.5], [49, -21.5],
   [56, -19.5], [70, -15], [88, -9.5], [107, -6], [109, -26]];
 const FENTE_P = [[109.5, -27.8], [92, -27.4], [74, -26.4], [60, -25.4], [58, -24.2], [60, -22.8], [74, -22.4], [92, -21.8], [109.5, -21.2]];
 const VISIERE_P = [[109, -31.5], [92, -31.2], [76, -30], [64, -28.8]];
 const VISIERE_BOUT = [[109.5, -35], [119, -31.5], [119, -29.5], [109.5, -28.2]];
-const LANIERE_P = [[52, -25], [30, -30], [4, -36], [-26, -36], [-56, -31], [-86, -24], [-94, -22]];
-const NOEUD_P = [-95, -22];
-const BOUT_1 = [[-96, -19], [-102, -8], [-106, 4]];
-const BOUT_2 = [[-93, -19], [-95, -6], [-94, 6]];
+const DEC = [12.4, 8];
+const LANIERE_P = [[64, -17], [40, -25], [12, -35], [-20, -38], [-52, -34], [-78, -27], [-89, -24]];
+const NOEUD_P = [-90, -24];
+const BOUT_1 = [[-91, -21], [-97, -10], [-101, 2]];
+const BOUT_2 = [[-88, -21], [-90, -8], [-89, 4]];
 function porte(z) {
   const e = 0.7, x0 = r1(z.l / 2 - 8 * e + 2), y0 = r1(30 + 129 * e);
-  return { e, x0, y0, T: ([u, v]) => [r1(x0 + e * u), r1(y0 + e * v)] };
+  const T = ([u, v]) => [r1(x0 + e * u), r1(y0 + e * v)];
+  return { e, x0, y0, T, TP: ([u, v]) => T([u + DEC[0], v + DEC[1]]) };
 }
 
 // ─── En coupe ────────────────────────────────────────────────────────────────────────────
