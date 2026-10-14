@@ -60,6 +60,55 @@ module.exports = (h) => {
     return { k, P, L: 70, DY: 85 };
   };
 
+  // L'égoïne, dans le plan du trait du bout (Y = L), vue à plat. Repère de la scie : u le long de
+  // la lame, du talon (0) vers la pointe ; v en travers, des dents (0) vers le dos. La lame fait
+  // 64 de long, 12 de large au talon et 5 à la pointe ; la poignée fermée est du côté u < 0.
+  // Debout, pointe en bas : X = XD + v, Z = ZT - u. Le talon est à ZT au-dessus de la neige.
+  const XD = 2, ZT = 15, LAME = 64;
+  const larg = u => 12 - 7 * u / LAME;
+  const bez = (p0, p1, p2, p3, n = 10) => Array.from({ length: n }, (_, i) => {
+    const t = i / n, s = 1 - t;
+    return [0, 1].map(j => s * s * s * p0[j] + 3 * s * s * t * p1[j] + 3 * s * t * t * p2[j] + t * t * t * p3[j]);
+  });
+  const courbeBez = (dep, segs) => {
+    const pts = []; let p = dep;
+    for (const [c1, c2, q] of segs) { pts.push(...bez(p, c1, c2, q)); p = q; }
+    pts.push(p);
+    return pts;
+  };
+  const egoine = (P, L) => {
+    const S = ([u, v]) => P(XD + v, L, ZT - u);
+    // la poignée fermée, en crosse de pistolet : la corne en haut, la prise qui file vers l'arrière
+    const poignee = courbeBez([2, 12], [
+      [[0, 13.5], [-2, 15.5], [-4.5, 17]],
+      [[-6, 18], [-7.6, 18.8], [-8.6, 18]],
+      [[-9.6, 17.2], [-10, 15.6], [-10.5, 14]],
+      [[-12, 9.5], [-14, 4.5], [-16, 0.5]],
+      [[-17.2, -1.5], [-17, -3.6], [-15, -4]],
+      [[-12, -4.4], [-9, -2.6], [-6, -1.3]],
+      [[-3, -0.3], [0, 0], [2, 0]],
+      [[3.4, 3], [3.4, 9], [2, 12]],
+    ]).map(S);
+    // le trou de la main, parallèle à la prise
+    const A = [-7.2, 13], B = [-11.3, 3], rr = 1.9;
+    const ax = B[0] - A[0], ay = B[1] - A[1], al = Math.hypot(ax, ay), nx = -ay / al, ny = ax / al;
+    const ang0 = Math.atan2(ny, nx);
+    const demi = (c, a0) => Array.from({ length: 13 }, (_, i) => { const a = a0 + Math.PI * i / 12; return [c[0] + rr * Math.cos(a), c[1] + rr * Math.sin(a)]; });
+    const trou = demi(B, ang0).concat(demi(A, ang0 + Math.PI)).map(S);
+    // la lame hors de la neige : le dos, puis les dents de la neige jusqu'à la poignée
+    const uN = ZT;                                     // u où la lame entre dans la neige
+    const dos = pas(1, uN, 6).map(u => [u, larg(u)]);
+    const dents = [];
+    for (let u = uN; u > 2.6; u -= 2.4) { dents.push([u, 0]); if (u - 1.2 > 2.6) dents.push([u - 1.2, -1.1]); }
+    dents.push([2.2, 0]);
+    const lame = dos.concat(dents).map(S);
+    // la lame dans la neige, cachée, jusqu'à la pointe
+    const cachee = [[uN, larg(uN)], [LAME, larg(LAME)], [LAME, 0], [uN, 0]].map(S);
+    // le va-et-vient de la scie, à côté du dos
+    const va = [[-2, 22], [uN - 2, 22]].map(S).map(p => p.map(c => +c.toFixed(1)));
+    return { poignee, trou, lame, dents: dents.map(S), cachee, va };
+  };
+
   // ─── Vue 2 : le premier rang et le départ de la spirale, vus de trois quarts.
   const N = 13, D = 2 * Math.PI / N, TH0 = Math.PI / 2 + 0.9 * D, E = 0.5, HT = 180 * E * 2 + 140;
   const sG = z => {
@@ -141,11 +190,16 @@ module.exports = (h) => {
           out.push(h.chemin([P(22, 0, 0), P(22, L, 0), P(0, L, 0)], h.a.arete));
           out.push(h.chemin([P(22, 0, 0), P(22, 0, -60), P(0, 0, -60)], h.a.arete));
           out.push(h.chemin([P(0, L, 0), P(0, L, -60)], h.a.arete));
-          // l'égoïne, plongée dans le trait du bout jusqu'à la profondeur de la lame
-          out.push(h.chemin([P(4, L, 0), P(7, L, -60), P(12, L, -60), P(16, L, 0)], h.a.cache));
-          out.push(h.chemin([P(4, L, 0), P(3, L, 12), P(19, L, 12), P(16, L, 0)], blanc(h.a.arete)));
-          out.push(h.chemin([P(1, L, 12), P(1, L, 30), P(22, L, 30), P(22, L, 12)], blanc(h.a.arete), true));
-          out.push(h.chemin([P(6, L, 17), P(6, L, 25), P(17, L, 25), P(17, L, 17)], h.a.detail, true));
+          // l'égoïne, debout dans le trait du bout, en haut de sa course : la poignée fermée, la
+          // lame qui s'effile vers la pointe, les dents à l'entrée dans la neige, le reste en tireté
+          const eg = egoine(P, L);
+          out.push(h.chemin(eg.cachee, h.a.cache));
+          out.push(h.chemin(eg.lame, blanc(h.a.arete), true));
+          out.push(h.chemin(eg.dents, h.a.arete));
+          out.push(h.chemin([P(22, L, 0), P(0, L, 0)], h.a.arete));
+          out.push(h.chemin(eg.poignee, blanc(h.a.arete), true));
+          out.push(h.chemin(eg.trou, h.a.arete, true));
+          out.push(h.geste(`M ${eg.va[0].join(' ')} L ${eg.va[1].join(' ')}`, { double: true }));
           // cotes
           const [ax, ay] = P(0, 0, -74), [bx] = P(22, 0, -74);
           out.push(h.cote(ax, ay, bx, ay, '20 à 25 cm', { cote: 'dessous' }));
