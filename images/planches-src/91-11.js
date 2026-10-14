@@ -5,11 +5,16 @@
 // Ajouts de construction que le chapitre ne nomme pas, pour que la chose se bâtisse et marche :
 // les bûches (le bas ouvert doit respirer), les tasseaux (la claie doit reposer sur quelque
 // chose), la porte à l'avant (les claies doivent sortir pour être tournées).
+// La charte : la caisse et sa claie au contour fort ; le poêle, qui n'est là que pour dire « à
+// côté », recule en gris loin, en coupe comme de dessus ; la claie du haut, vue par la part
+// ouverte du trou, en gris loin aussi. Le rouge : la tôle qu'on avance ou recule (le geste), et
+// la perle de jus du fruit pas prêt (le point que le test vérifie). Les flèches d'air restent
+// noires.
 
 module.exports = (h) => {
   const f = v => Math.round(v * 10) / 10;
   const blanc = a => a.replace('fill="none"', 'fill="#FFFFFF"');
-  const deuxBouts = a => `${a} marker-start="url(#fl)" marker-end="url(#fl)"`;
+  const gris = a => a.replace('fill="none"', 'fill="#E6E6E6"');
   const fleAir = d => h.fleche(d, h.a.cache);
 
   // Proportions communes à la coupe et au plan, en fractions de la largeur de la coupe.
@@ -41,13 +46,13 @@ module.exports = (h) => {
 
     // poêle, en élévation
     const { xs0, ws, ybB, ybT, hs } = c;
-    o.push(h.rect(xs0 + 6, ybB, 7, c.pattes, blanc(h.a.arete)));
-    o.push(h.rect(xs0 + ws - 13, ybB, 7, c.pattes, blanc(h.a.arete)));
+    o.push(h.rect(xs0 + 6, ybB, 7, c.pattes, gris(h.a.arete)));
+    o.push(h.rect(xs0 + ws - 13, ybB, 7, c.pattes, gris(h.a.arete)));
     const xp = xs0 + ws * 0.62, wp = 16;
-    o.push(h.rect(xp, 0, wp, ybT - 6, blanc(h.a.arete)));
+    o.push(h.rect(xp, 0, wp, ybT - 6, gris(h.a.arete)));
     o.push(h.ligne(xp, f((ybT - 6) * 0.45), xp + wp, f((ybT - 6) * 0.45), h.a.detail));
-    o.push(h.rect(xs0, ybT, ws, hs, blanc(h.a.arete)));
-    o.push(h.rect(xs0 - 4, ybT - 6, ws + 8, 6, blanc(h.a.arete)));
+    o.push(h.rect(xs0, ybT, ws, hs, gris(h.a.arete)));
+    o.push(h.rect(xs0 - 4, ybT - 6, ws + 8, 6, gris(h.a.arete)));
     const px = xs0 + ws * 0.14, pw = ws * 0.6, py = ybT + hs * 0.24, ph = hs * 0.48;
     o.push(h.rect(f(px), f(py), f(pw), f(ph), h.a.detail));
     o.push(h.ligne(f(px + pw - 9), f(py + ph * 0.4), f(px + pw - 9), f(py + ph * 0.6), h.a.arete));
@@ -119,15 +124,16 @@ module.exports = (h) => {
   const dessinPlan = z => {
     const p = plan(z), o = [];
     // poêle, vu de dessus
-    o.push(h.rect(p.xs0, p.ySt, p.ws, p.dS, blanc(h.a.arete)));
+    o.push(h.rect(p.xs0, p.ySt, p.ws, p.dS, gris(h.a.arete)));
     o.push(h.rect(p.xs0 + 5, p.ySt + 5, p.ws - 10, p.dS - 10, h.a.detail));
-    o.push(h.cercle(f(p.xs0 + p.ws * 0.66), f(p.ySt + p.dS * 0.36), 8, blanc(h.a.arete)));
+    o.push(h.cercle(f(p.xs0 + p.ws * 0.66), f(p.ySt + p.dS * 0.36), 8, gris(h.a.arete)));
 
     // dessus de la caisse, percé
     o.push(h.rect(p.xB, p.yBk, p.wB, p.dB, blanc(h.a.contour)));
     // l'ouverture : en tireté sous la tôle, en trait plein là où elle est découverte
     o.push(h.rect(p.xO1, p.yO1, p.xO2 - p.xO1, p.yO2 - p.yO1, h.a.cache));
-    // la claie du haut, vue par la part ouverte
+    // la claie du haut, vue par la part ouverte : l'intérieur, en gris loin
+    o.push(h.rect(p.xT1, p.yO1, p.xO2 - p.xT1, p.yO2 - p.yO1, h.a.loin));
     for (let y = p.yO1 + 8; y < p.yO2 - 4; y += 10) {
       for (let x = p.xT1 + 7; x < p.xO2 - 4; x += 10) o.push(h.cercle(x, y, 3.8, h.a.detail));
     }
@@ -138,7 +144,8 @@ module.exports = (h) => {
     o.push(h.path(`M ${p.xT1} ${p.yO1} L ${p.xO1} ${p.yO1} L ${p.xO1} ${p.yO2} L ${p.xT1} ${p.yO2}`, h.a.cache));
     o.push(h.path(`M ${p.xT1} ${p.yO1} L ${p.xO2} ${p.yO1} L ${p.xO2} ${p.yO2} L ${p.xT1} ${p.yO2}`, h.a.arete));
     const yf = p.yBk - 16;
-    o.push(h.path(`M ${p.xO1 - 10} ${yf} L ${p.xT1 + 14} ${yf}`, deuxBouts(h.a.arete)));
+    // le geste : avancer ou reculer la tôle
+    o.push(h.geste(`M ${p.xO1 - 10} ${yf} L ${p.xT1 + 14} ${yf}`, { double: true }));
 
     // porte à l'avant, charnière du côté opposé au poêle
     const ep = 5, xH = p.xB + p.wB, yH = p.yF + ep;
@@ -230,6 +237,8 @@ module.exports = (h) => {
       const gx = x + 2, gy = yc + 1;
       o.push(h.path(`M ${gx} ${gy} C ${gx + 8} ${gy + 6} ${gx + 10} ${gy + 14} ${gx} ${gy + 18} C ${gx - 10} ${gy + 14} ${gx - 8} ${gy + 6} ${gx} ${gy} Z`, blanc(h.a.arete)));
       o.push(h.path(`M ${gx - 4} ${gy + 10} Q ${gx - 4} ${gy + 14} ${gx - 0.5} ${gy + 15}`, h.a.fin));
+      // le point que le test vérifie : la fente pressée qui laisse sortir le jus
+      o.push(h.controle(gx, gy + 9, 14));
       o.push(couronne(x, yc - R + 7));
     }
     // 3. séché trop chaud, coupé en deux : croûte dehors, humide au centre

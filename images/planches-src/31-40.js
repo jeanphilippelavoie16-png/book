@@ -1,5 +1,10 @@
 // Planche 31-40 — Le puits absorbant des eaux grises (ch. 31, section F, étapes 32, 33, 35 ;
 // variante « Le puits absorbant fait à la pelle »). Suite de la 31-04 (le piège à graisse).
+//
+// La charte : les coupes et le plan gardent leurs trames, sans gris, sauf l'intérieur du tronc de
+// visite, vu par la coupe, en gris loin ; le flanc du dessous du seau penché est à l'ombre. Le
+// rouge : le va-et-vient de la main qui brasse la chaudière, et le cercle sur l'eau qui sort, qui
+// doit sortir claire. Les flèches de l'eau restent noires ; la main (modèle s11) n'est pas touchée.
 module.exports = (h) => {
   const N = '#1A1A1A', B = '#FFFFFF';
   const f = v => Math.round(v * 10) / 10;
@@ -132,6 +137,7 @@ module.exports = (h) => {
 
     // l'ouverture de visite : un tronc creux, du gravier du fond jusqu'au-dessus de la butte
     out.push(poly([[tx - tr, tH], [tx + tr, tH], [tx + tr, tB], [tx - tr, tB]], h.a.blanc));
+    out.push(poly([[tx - tr + te, tH], [tx + tr - te, tH], [tx + tr - te, tB], [tx - tr + te, tB]], h.a.loin));   // l'intérieur du tronc, vu par la coupe
     out.push(poly([[tx - tr, tH], [tx - tr + te, tH], [tx - tr + te, tB], [tx - tr, tB]], h.a.hachure('bois', 'arete')));
     out.push(poly([[tx + tr - te, tH], [tx + tr, tH], [tx + tr, tB], [tx + tr - te, tB]], h.a.hachure('bois', 'arete')));
     // sa planche, ôtée et posée sur la butte
@@ -150,7 +156,9 @@ module.exports = (h) => {
     const R = (x, y) => [bx + x * Math.cos(th) - y * Math.sin(th), by + x * Math.sin(th) + y * Math.cos(th)];
     // chaudière : flancs évasés vers l'ouverture, bourrelet roulé au rebord, anse qui pend
     const seau = [R(-160, 0), R(160, 0), R(108, 350), R(-108, 350)];
-    out.push(poly(seau, `fill="${B}" ${h.a.contour.replace('fill="none" ', '')}`));
+    out.push(poly(seau, h.a.blanc));
+    out.push(poly([R(55, 0), R(160, 0), R(108, 350), R(37, 350)], h.a.ombre));   // le flanc du dessous, à l'ombre
+    out.push(poly(seau, h.a.contour));
     out.push(poly([R(-172, -10), R(172, -10), R(170, 22), R(-170, 22)], `fill="${B}" ${h.a.arete.replace('fill="none" ', '')}`));   // bourrelet
     out.push(poly([R(-150, 120), R(150, 120)], h.a.fin, false), poly([R(-118, 300), R(118, 300)], h.a.fin, false));
     {
@@ -276,8 +284,10 @@ module.exports = (h) => {
     const c0 = P(-360, 90), c1 = P(-200, 90);
     out.push(h.fleche(`M${f(c0[0])} ${f(c0[1])} L${f(c1[0])} ${f(c1[1])}`, h.a.arete));
     const v = P(0, -460), dv = 70 * s;
-    out.push(h.fleche(`M${f(v[0] + 12 * s)} ${f(v[1])} L${f(v[0] + 12 * s + dv)} ${f(v[1])}`, h.a.detail));
-    out.push(h.fleche(`M${f(v[0] - 12 * s)} ${f(v[1])} L${f(v[0] - 12 * s - dv)} ${f(v[1])}`, h.a.detail));
+    out.push(h.geste(`M${f(v[0] + 12 * s)} ${f(v[1])} L${f(v[0] + 12 * s + dv)} ${f(v[1])}`));
+    out.push(h.geste(`M${f(v[0] - 12 * s)} ${f(v[1])} L${f(v[0] - 12 * s - dv)} ${f(v[1])}`));
+    // ce qu'on regarde : l'eau qui sort de la chaudière, jusqu'à ce qu'elle sorte claire
+    out.push(h.controle(...P(235, 140), 15));
     return out.join('\n');
   };
 

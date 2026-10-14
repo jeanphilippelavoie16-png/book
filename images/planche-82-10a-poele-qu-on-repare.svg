@@ -5,13 +5,17 @@
 <pattern id="h-metal" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="10" stroke="#1A1A1A" stroke-width="0.7"/></pattern>
 <pattern id="h-terre" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="5.5" stroke="#1A1A1A" stroke-width="0.7"/><line x1="4.5" y1="4.5" x2="4.5" y2="9" stroke="#1A1A1A" stroke-width="0.5"/></pattern>
 <marker id="fl" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#1A1A1A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker>
+<marker id="fl-r" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9 Z" fill="#9B2C1E" stroke="#9B2C1E" stroke-width="1" stroke-linejoin="round"/></marker>
 </defs>
 <rect x="0" y="0" width="680" height="826" fill="#FFFFFF"/>
 <text x="40" y="38" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#1A1A1A">Roulée sur une bille, de côté et du bout</text>
 <g transform="translate(40 46)" data-vue="bille">
 <rect x="109.5" y="121.5" width="381" height="7" fill="url(#h-terre)" stroke="none"/>
 <line x1="109.5" y1="121.5" x2="490.5" y2="121.5" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M117.1 40.8 L357.1 40.8 L359.1 67.5 L357.1 119.6 L117.1 119.6 L115.2 89.7 Z" fill="#ffffff" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M117.1 40.8 L357.1 40.8 L359.1 67.5 L357.1 119.6 L117.1 119.6 L115.2 89.7 Z" fill="#FFFFFF" stroke="none"/>
+<path d="M116.5 109.4 L147.6 109.4 L147.6 119.6 L117.1 119.6 Z" fill="#CFCFCF" stroke="none"/>
+<path d="M319.1 109.4 L357.5 109.4 L357.1 119.6 L319.1 119.6 Z" fill="#CFCFCF" stroke="none"/>
+<path d="M117.1 40.8 L357.1 40.8 L359.1 67.5 L357.1 119.6 L117.1 119.6 L115.2 89.7 Z" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <line x1="119.7" y1="48.5" x2="137.4" y2="48.5" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
 <line x1="123.5" y1="65" x2="141.3" y2="65" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
 <line x1="118.4" y1="99.3" x2="134.9" y2="99.3" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
@@ -20,7 +24,9 @@
 <line x1="327.9" y1="67.5" x2="350.8" y2="67.5" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
 <line x1="321.6" y1="94.2" x2="349.5" y2="94.2" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
 <line x1="330.5" y1="109.4" x2="354.6" y2="109.4" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
-<rect x="147.6" y="38.9" width="171.5" height="82.6" fill="#ffffff" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="147.6" y="38.9" width="171.5" height="82.6" fill="#FFFFFF" stroke="none"/>
+<rect x="147.6" y="109.4" width="171.5" height="12.1" fill="#CFCFCF" stroke="none"/>
+<rect x="147.6" y="38.9" width="171.5" height="82.6" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
 <line x1="150.1" y1="110.7" x2="316.5" y2="110.7" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
 <line x1="150.1" y1="114.5" x2="316.5" y2="114.5" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
 <line x1="150.1" y1="117.7" x2="316.5" y2="117.7" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
@@ -28,7 +34,7 @@
 <line x1="147.6" y1="36.7" x2="319.1" y2="36.7" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M245.4 11 L314 5.9 L315.2 11 L245.4 16.7 Z" fill="#ffffff" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <rect x="227.6" y="5.3" width="17.8" height="17.8" fill="#ffffff" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M221.3 7.8 L221.3 29.4" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl)"/>
+<path d="M221.3 7.8 L221.3 29.4" fill="none" stroke="#9B2C1E" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl-r)"/>
 <circle cx="436.5" cy="80.2" r="39.4" fill="#ffffff" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <circle cx="436.5" cy="80.2" r="29.2" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
 <circle cx="436.5" cy="80.2" r="19.7" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
@@ -52,7 +58,7 @@
 <path d="M444.1 82.1 L420.4 82.1 C410.5 82.1 410.5 68.5 400.6 68.5 L357.2 68.5 A4.5 4.5 0 0 0 357.2 77.6 L390.8 77.6" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M390.8 31 L434.2 27 L435.2 34 L390.8 37.9 Z" fill="#ffffff" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <rect x="363.1" y="21.1" width="27.6" height="29.6" fill="#ffffff" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M353.3 19.2 L353.3 52.7" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl)"/>
+<path d="M353.3 19.2 L353.3 52.7" fill="none" stroke="#9B2C1E" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl-r)"/>
 <path d="M451.9 82.1 L542.7 82.1 A4.5 4.5 0 0 0 542.7 73 L509.2 73" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M592.1 82.1 L568.4 82.1 C558.5 82.1 558.5 68.5 548.6 68.5 L505.2 68.5 A4.5 4.5 0 0 0 505.2 77.6 L538.8 77.6" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
 <rect x="522" y="65.5" width="5.9" height="19.5" fill="#ffffff" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
@@ -61,6 +67,7 @@
 </g>
 <text x="40" y="396.4" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#1A1A1A">La clé, en coupe</text>
 <g transform="translate(40 404.4)" data-vue="cle">
+<rect x="82.3" y="7.6" width="95.5" height="171.8" fill="#E6E6E6" stroke="none"/>
 <path d="M118.1 180.6 C118.1 142.4 85.8 135.3 85.8 111.4 L85.8 78 C85.8 58.9 118.1 61.3 118.1 12.4" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="5 3.5" marker-end="url(#fl)"/>
 <path d="M141.9 180.6 C141.9 142.4 174.2 135.3 174.2 111.4 L174.2 78 C174.2 58.9 141.9 61.3 141.9 12.4" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="5 3.5" marker-end="url(#fl)"/>
 <line x1="82.3" y1="7.6" x2="82.3" y2="179.4" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
@@ -70,6 +77,7 @@
 <circle cx="130" cy="91.1" r="2.4" fill="#ffffff" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M126.4 94.4 C125.8 85.1 134.2 85.1 133.6 94.4" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
 <rect x="130.6" y="50.5" width="1.8" height="81.1" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="5 3.5"/>
+<circle cx="85.8" cy="94.4" r="6" fill="none" stroke="#9B2C1E" stroke-width="1.6"/>
 </g>
 <text x="322.1" y="396.4" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#1A1A1A">La clé, vue de dessus</text>
 <g transform="translate(322.1 404.4)" data-vue="dessus">

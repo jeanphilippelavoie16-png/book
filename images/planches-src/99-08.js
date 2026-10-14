@@ -162,6 +162,8 @@ module.exports = (h) => {
     ecorce(t4, 22, 7, 0.02, 0.6);
     bourgeonBout(t4, 5, 3.2);
     S.push(t4);
+    // charte : le tronc de chaque tige, l'objet de la vue, porte le contour à 2,4 ; les rameaux restent à 1,4
+    S.forEach(s => { s.trait = blanc(A.contour); });
     return { gy, H, X, S, cour3 };
   };
   const ages = z => {
@@ -234,10 +236,15 @@ module.exports = (h) => {
     const fond = [];
     for (let i = 1; i < 12; i++) { const f = Math.PI * i / 12; fond.push(add(add(P0, piece.N(0), -rs * Math.cos(f)), piece.T(0), -0.32 * rs * Math.sin(f))); }
     o.push(h.chemin([...fond, ...D, ...G.slice().reverse()], A.blanc, true));
-    o.push(h.chemin([G[n], ...G.slice(0, n).reverse(), G[0], ...fond, D[0], ...D.slice(1)], A.arete));
+    // la face à l'ombre du bout enlevé (lumière en haut à gauche) : le tiers de droite
+    const Dm = D.map((p, i) => { const t = i / n, q = piece.P(t), nm = piece.N(t), r = piece.w(t) / 2; return add(q, nm, r * 0.35); });
+    o.push(h.chemin([...Dm, ...D.slice().reverse()], A.ombre, true));
+    o.push(h.chemin([G[n], ...G.slice(0, n).reverse(), G[0], ...fond, D[0], ...D.slice(1)], A.contour));
     ecorce(piece, 12, 51, 0.05, 0.95); o.push(...piece.apres);
-    // le geste : on l'enlève
-    o.push(h.fleche(`M${r1(sx + 34)} ${r1(g.gy - 14)} L${r1(sx + 34)} ${r1(g.gy - 78)}`, A.arete));
+    // le geste : on l'enlève (charte : la flèche du geste en rouge)
+    o.push(h.geste(`M${r1(sx + 34)} ${r1(g.gy - 14)} L${r1(sx + 34)} ${r1(g.gy - 78)}`));
+    // le point à contrôler : la coupe à plat avec la terre
+    o.push(h.controle(sx, cy, rs + 7));
     return o.join(NL);
   };
 
