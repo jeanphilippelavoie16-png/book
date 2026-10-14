@@ -1831,6 +1831,23 @@ function mainSimple(o = {}) {
       if (D[1] > 1e-9) t = Math.min(t, (y1 - W[1]) / D[1]); if (D[1] < -1e-9) t = Math.min(t, (y0 - W[1]) / D[1]);
       abO.versDist = Math.round(Math.max(20, (isFinite(t) ? t : 300) + 15));
     }
+    const r2 = p => [Math.round(p[0] * 100) / 100, Math.round(p[1] * 100) / 100];
+    // la droite de fin, dans le repère local
+    if (Array.isArray(ab.fin) && ab.fin.length === 2) abO.finLocal = ab.fin.map(p => r2(Tinv(p, OX, OY)));
+    // le bras : sa direction (un point de la vue, ou le pli du coude à l'écran : le miroir l'inverse), et la boîte
+    // de la vue pour 'bord' (ses quatre coins, dans le repère local)
+    if (ab.bras) {
+      const b = ab.bras === true ? {} : ab.bras, bo = { longueur: b.longueur };
+      if (Array.isArray(b.vers)) bo.versLocal = r2(Tinv(b.vers, OX, OY));
+      else if (typeof b.pli === 'number') bo.pli = m * b.pli;
+      if (ab.bord && b.longueur !== 'entier' && typeof b.longueur !== 'number') {
+        const q = ab.bord, x0 = q.x0 !== undefined ? q.x0 : 0, y0 = q.y0 !== undefined ? q.y0 : 0;
+        const x1 = q.x1 !== undefined ? q.x1 : x0 + q.l, y1 = q.y1 !== undefined ? q.y1 : y0 + q.h;
+        bo.bordLocal = [[x0, y0], [x1, y0], [x1, y1], [x0, y1]].map(p => r2(Tinv(p, OX, OY)));
+      }
+      abO.bras = bo;
+      delete abO.versDist;
+    }
     R = obtenir(abO);
   } else R = obtenir(false);
   return rendre(R, o, { Tloc: p => Tloc(p, OX, OY), s, m, ang, ab });

@@ -8,6 +8,11 @@
 // Étapes 34 et 47-48 pour l'encadré : la dent de lait ne se remet jamais.
 // Rien ne se construit : aucune cote. Les dents sont dessinées en mm d'adulte (incisive
 // centrale du haut), mis à l'échelle k (unités de vue par mm) dans chaque vue.
+//
+// La charte : pas de gris (la tasse est en coupe, la tête est un corps). Le rouge, cinq marques :
+// les deux doigts qui pincent la couronne, la dent qu'on trempe et ressort, la poussée dans le
+// trou, et le cercle sur le bord qui doit arriver au niveau des voisines. Le va-et-vient tournant
+// reste noir : il accompagne la poussée, une seule flèche rouge par vue.
 module.exports = (h) => {
   const A = h.a, F = h.formes;
   const f = v => (Math.round(v * 10) / 10).toString();
@@ -147,7 +152,7 @@ module.exports = (h) => {
         dessin: z => {
           const { k, T } = g1(z);
           const [xg, y] = T([-4.4, -4.5]), [xd] = T([4.35, -4.5]);
-          return [dent(T, k, bC), h.fleche(`M${f(xg - 7 * k)} ${f(y)} L${f(xg - 1.2 * k)} ${f(y)}`), h.fleche(`M${f(xd + 7 * k)} ${f(y)} L${f(xd + 1.2 * k)} ${f(y)}`)].join('\n');
+          return [dent(T, k, bC), h.geste(`M${f(xg - 7 * k)} ${f(y)} L${f(xg - 1.2 * k)} ${f(y)}`), h.geste(`M${f(xd + 7 * k)} ${f(y)} L${f(xd + 1.2 * k)} ${f(y)}`)].join('\n');
         },
         renvois: z => {
           const { T } = g1(z);
@@ -178,7 +183,7 @@ module.exports = (h) => {
           out.push(h.ligne(xl0, yl, xl1, yl, A.detail));
           // tremper, ressortir
           const [, yb0] = T([0, 0.1]);
-          out.push(deux(`M${f(cx)} ${f(yb0 - 26 * e)} L${f(cx)} ${f(yb0 - 5 * e)}`));
+          out.push(h.geste(`M${f(cx)} ${f(yb0 - 26 * e)} L${f(cx)} ${f(yb0 - 5 * e)}`, { double: true }));
           return out.join('\n');
         },
         renvois: z => {
@@ -201,7 +206,7 @@ module.exports = (h) => {
           const p = t => [ax + rx * Math.cos(t * Math.PI / 180), ay + ry * Math.sin(t * Math.PI / 180)];
           const [p0, p1] = [p(160), p(20)];
           out.push(deux(`M${f(p0[0])} ${f(p0[1])} A${f(rx)} ${f(ry)} 0 0 0 ${f(p1[0])} ${f(p1[1])}`));
-          out.push(h.fleche(`M${f(ax)} ${f(ay + ry + 9 * k)} L${f(ax)} ${f(ay + ry + 1.5 * k)}`));
+          out.push(h.geste(`M${f(ax)} ${f(ay + ry + 9 * k)} L${f(ax)} ${f(ay + ry + 1.5 * k)}`));
           return out.join('\n');
         },
         renvois: z => {
@@ -221,6 +226,8 @@ module.exports = (h) => {
           const out = [rangee(T, true), h.path(lisse(COURONNE.map(Td), true), bA), gencive(T)];
           const [x0, y0] = T([-22, 0.1]), [x1] = T([22, 0.1]);
           out.push(h.ligne(x0, y0, x1, y0, A.cache));
+          const [bx, by] = T([4.25, 0.1]);               // le bord de la dent remise, sur la ligne
+          out.push(h.controle(bx, by, 14));
           return out.join('\n');
         },
         renvois: z => {

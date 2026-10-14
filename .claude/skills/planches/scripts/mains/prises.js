@@ -1318,8 +1318,96 @@ function mainSurMain(mainSimple, o) {
   return { svg, toString() { return svg; }, dessous, dessus };
 }
 
+// ─── deux pinces sur un lacet ───────────────────────────────────────────────────────────────────────────────
+// Deux mains qui tirent les deux bouts d'un lacet pour serrer un nœud (24-16). Posées à la main, deux pinces à
+// 60 mm l'une de l'autre se mêlent : une main de profil fait 60 à 80 mm d'épaisseur. Ici :
+//   1. chaque main pince son bout : l'axe du fil dans la pince (.prise.axe) suit le lacet, le poignet du côté
+//      opposé au nœud, l'avant-bras qui tourne vers la direction du lacet (on tire dans l'axe de l'avant-bras) ;
+//   2. le côté de chaque main (cote 'droite' ou 'gauche', le miroir par l'axe de la main) est choisi pour que sa
+//      masse (la paume, les doigts repliés) tombe HORS de l'angle des deux lacets ;
+//   3. les deux points de pince reculent ensemble le long de leur lacet, depuis o.distance, jusqu'à ce que les deux
+//      silhouettes (avant-bras compris) soient à o.marge l'une de l'autre.
+// Conseil de mise en vue : écarter les deux lacets d'au moins 90° (chaque main tire dans sa direction : l'une
+// monte, l'autre part de côté). À 36° d'écart, il faut ~2,5 longueurs de main entre le nœud et les pinces.
+//   o = { noeud: [x, y], directions: [[ux, uy], [ux, uy]] (du nœud vers chaque main), distance (départ, en unités
+//         de vue ; défaut 40 mm), pas (défaut 4 mm), max (défaut 400 mm), marge (défaut 6 mm), pose ('pince-fine'),
+//         vue ('pouce'), echelle, cotes (forcer ['droite', 'gauche']), et le reste pour mainSimple (age, trait,
+//         objet, avantbras : { longueur }, …) }
+//   → { points: [P1, P2], distance (unités de vue), ecart (le jeu entre les mains), options: [o1, o2] (prêtes pour
+//       mainSimple), mains: [m1, m2], svg }
+// La planche tire chaque lacet du nœud jusqu'à son point de pince, puis peint les deux mains (svg).
+function silhouetteDe(m) {
+  const t = String(m.couches ? m.couches.main : m), i = t.indexOf(' d="');
+  if (i < 0) return [];
+  const d = t.slice(i + 4, t.indexOf('"', i + 4)), out = [];
+  const re = /([ML])\s*(-?[\d.]+)[ ,](-?[\d.]+)/g;
+  let k, n = 0;
+  while ((k = re.exec(d))) { if (k[1] === 'M' && n++ > 0) break; out.push([+k[2], +k[3]]); }
+  return out;
+}
+function jeuPolygones(A, B) {
+  // le jeu entre deux polygones (négatif s'ils se recouvrent) : la plus courte distance sommet–arête, dans les
+  // deux sens, et l'inclusion d'un sommet dans l'autre polygone
+  const dedans = (p, Q) => { let c = false; for (let i = 0, j = Q.length - 1; i < Q.length; j = i++) {
+    const a = Q[i], b = Q[j]; if ((a[1] > p[1]) !== (b[1] > p[1]) && p[0] < (b[0] - a[0]) * (p[1] - a[1]) / (b[1] - a[1]) + a[0]) c = !c; } return c; };
+  const dSeg = (p, a, b) => { const vx = b[0] - a[0], vy = b[1] - a[1], l2 = vx * vx + vy * vy || 1;
+    const t = Math.max(0, Math.min(1, ((p[0] - a[0]) * vx + (p[1] - a[1]) * vy) / l2)); return Math.hypot(p[0] - a[0] - t * vx, p[1] - a[1] - t * vy); };
+  let m = Infinity;
+  for (const [P, Q] of [[A, B], [B, A]]) for (const p of P) {
+    if (dedans(p, Q)) return -1;
+    for (let i = 0, j = Q.length - 1; i < Q.length; j = i++) m = Math.min(m, dSeg(p, Q[j], Q[i]));
+  }
+  return m;
+}
+function pincesSurLacet(mainSimple, o) {
+  const s = o.echelle || 1, N = o.noeud;
+  const V = o.directions.map(v => { const l = Math.hypot(v[0], v[1]); return [v[0] / l, v[1] / l]; });
+  const reste = Object.assign({}, o);
+  for (const k of ['noeud', 'directions', 'distance', 'pas', 'max', 'marge', 'cotes', 'x', 'y', 'angle']) delete reste[k];
+  const base = Object.assign({ pose: 'pince-fine', vue: 'pouce', ancre: 'prise' }, reste, { echelle: s });
+  const rot = (p, a) => { const c = Math.cos(a), sn = Math.sin(a); return [p[0] * c - p[1] * sn, p[0] * sn + p[1] * c]; };
+  const croix = (a, b) => a[0] * b[1] - a[1] * b[0];
+  // l'angle et le côté de chaque main
+  const regl = V.map((v, k) => {
+    const autre = V[1 - k], cotes = o.cotes ? [o.cotes[k]] : ['droite', 'gauche'];
+    let best = null;
+    for (const cote of cotes) {
+      const g0 = mainSimple(Object.assign({}, base, { cote, x: 0, y: 0, angle: 0, avantbras: false, objet: '' }));
+      const ax = g0.prise.axe, w0 = g0.poignet, sil = silhouetteDe(g0);
+      const c0 = sil.reduce((a, p) => [a[0] + p[0] / sil.length, a[1] + p[1] / sil.length], [0, 0]);
+      for (const sens of [1, -1]) {
+        const t = [-v[0] * sens, -v[1] * sens];                       // l'axe du fil, aligné sur le lacet
+        const a = Math.atan2(t[1], t[0]) - Math.atan2(ax[1], ax[0]);
+        const w = rot(w0, a), c = rot(c0, a);
+        if (w[0] * v[0] + w[1] * v[1] <= 0) continue;                  // le poignet du côté du nœud : non
+        const dehors = Math.sign(croix(v, c)) !== Math.sign(croix(v, autre));
+        const note = (dehors ? 0 : 10) + (o.cotes ? 0 : (cote === (k ? 'gauche' : 'droite') ? 0 : 0.1));
+        if (!best || note < best.note) best = { cote, angle: a / RAD, note };
+      }
+    }
+    return best;
+  });
+  const opts = L => V.map((v, k) => {
+    const P = [N[0] + v[0] * L, N[1] + v[1] * L];
+    const ab = o.avantbras === false ? false : Object.assign({ longueur: 85, vers: [P[0] + v[0] * 2000, P[1] + v[1] * 2000] }, o.avantbras || {});
+    return Object.assign({}, base, { cote: regl[k].cote, angle: regl[k].angle, x: P[0], y: P[1], avantbras: ab });
+  });
+  const marge = (o.marge !== undefined ? o.marge : 6) * s, pas = (o.pas || 4) * s, max = (o.max || 400) * s;
+  let L = (o.distance !== undefined ? o.distance : 40 * s), jeu = -1, mains = null;
+  for (; L <= max; L += pas) {
+    const op = opts(L);
+    mains = op.map(x => mainSimple(Object.assign({}, x, { objet: '' })));
+    jeu = jeuPolygones(silhouetteDe(mains[0]), silhouetteDe(mains[1]));
+    if (jeu >= marge) break;
+  }
+  const options = opts(L);
+  mains = options.map(x => mainSimple(x));
+  const svg = mains.map(String).join('\n');
+  return { points: options.map(x => [x.x, x.y]), distance: L, ecart: jeu, options, mains, svg, toString() { return svg; } };
+}
+
 module.exports = {
-  resoudre, CATALOGUE, ecrirePoses, construirePose, couches, controle, deuxMains, mainSurMain, interpoler,
+  resoudre, CATALOGUE, ecrirePoses, construirePose, couches, controle, deuxMains, mainSurMain, pincesSurLacet, interpoler,
   // la géométrie, pour les essais et le moteur
   A3, S3, M3, D3, X3, L3, U3, I3, rot3, orth, RAD, DOIGTS,
   preparer, chaineDoigt, chainePouce, segments, rayonVers, OBST, paumeObstacle, ecart, ecartMin, obstSegments,

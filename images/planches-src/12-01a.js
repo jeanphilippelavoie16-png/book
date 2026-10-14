@@ -8,6 +8,12 @@
 // renchaussement sur la jupe (au moins 500 mm, seule cote : ch. 12, 5C point 6).
 // Aucune autre dimension n'est dans le chapitre : les proportions sont celles d'une tente de
 // prospecteur, sans cote.
+//
+// La charte : le dedans de la tente, vu par la coupe, en gris loin dans les deux vues (le lit de
+// neige, coupé et tramé, reste blanc) ; le poêle et le tuyau restent blancs. Le rouge : deux
+// points que le chapitre fait vérifier — la toile au bord de la plaque (le test de la main) et
+// la tête des pieux sous le poêle (charbonnée ou pas, chaque matin). Les flèches du vent et de
+// l'air restent noires.
 
 module.exports = (h) => {
   const f = v => Math.round(v * 10) / 10;
@@ -120,6 +126,9 @@ module.exports = (h) => {
         dessin: z => {
           const { k, X, Y } = T(z), out = [];
           const po = G.poele, rp = G.rp * k;
+          // Le dedans de la tente, vu par la coupe.
+          out.push(h.chemin([[X(-G.W), Y(0)], [X(-G.W), Y(G.He - G.rp)], [X(-(G.W - G.rp)), Y(G.He)], [X(0), Y(G.Hr)],
+            [X(G.W - G.rp), Y(G.He)], [X(G.W), Y(G.He - G.rp)], [X(G.W), Y(0)]], h.a.loin, true));
           // Sol et neige.
           out.push(h.rect(2, Y(-G.D), z.l - 4, G.Sol * k, h.a.hachure('terre', 'aucun')));
           out.push(h.ligne(2, Y(-G.D), z.l - 2, Y(-G.D), h.a.arete));
@@ -183,6 +192,9 @@ module.exports = (h) => {
             out.push(h.ligne(x0, y0, x0, y0 - 0.08 * k, h.a.arete));
           }
           out.push(pareEt(X(G.lp), Y(2.98), Y(G.haut), k));
+          // À vérifier : la toile au bord de la plaque, la tête des pieux.
+          out.push(h.controle(...sh(pt(-pl)), 9));
+          out.push(h.controle(X(po.l0 + 0.06), Y(po.b), 9));
           // Le vent, et l'air qui entre par la boîte jusqu'au poêle.
           out.push(h.fleche(`M ${f(X(-3.0))} ${f(Y(0.2))} L ${f(X(-2.1))} ${f(Y(0.2))}`));
           out.push(h.fleche(`M ${f(X(c0 + 0.03))} ${f(Y(cd / 2))} L ${f(X(-1.25))} ${f(Y(cd / 2))} Q ${f(X(-1.05))} ${f(Y(cd / 2))} ${f(X(-0.95))} ${f(Y(0.24))} L ${f(X(0.25))} ${f(Y(0.24))}`, h.a.cache));
@@ -205,6 +217,8 @@ module.exports = (h) => {
         titre: 'En long, par le faîte : la porte à gauche, le fond à droite',
         dessin: z => {
           const { k, S, Y } = Lo(z), out = [], rp = G.rp * k;
+          // Le dedans de la tente, vu par la coupe, sans le lit de neige.
+          out.push(h.chemin([[S(0), Y(0)], [S(0), Y(G.Hr)], [S(Lg), Y(G.Hr)], [S(Lg), Y(0.5)], [S(Lg / 2), Y(0.5)], [S(Lg / 2), Y(0)]], h.a.loin, true));
           // Sol et neige.
           out.push(h.rect(2, Y(-G.D), z.l - 4, G.Sol * k, h.a.hachure('terre', 'aucun')));
           out.push(h.ligne(2, Y(-G.D), z.l - 2, Y(-G.D), h.a.arete));

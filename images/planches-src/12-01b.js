@@ -8,6 +8,10 @@
 // grand que le tuyau et plus petit que la plaque, cousue au fil de fer.
 // La charpente vue du bout : le chevalet en X lié au croisement, le faîte dans la fourche, les
 // traverses sur leurs piquets fourchus. Aucune cote : le chapitre n'en donne pas.
+//
+// La charte : la face de droite du tuyau à l'ombre, dans la coupe de la collerette ; rien sur le
+// plan, la plaque à plat et les perches, trop minces. Le rouge : la toile au bord de la plaque,
+// cerclée — c'est là que le chapitre fait le test de la main. La flèche du vent reste noire.
 
 module.exports = (h) => {
   const f = v => Math.round(v * 10) / 10;
@@ -150,7 +154,9 @@ module.exports = (h) => {
         dessin: z => {
           const g = Co(z), { k, P, n, cx } = g, out = [];
           // Le tuyau, vertical, à travers le pan.
-          out.push(h.rect(cx - rt * k, 4, 2 * rt * k, z.h - 8, blanc(h.a.arete)));
+          out.push(h.rect(cx - rt * k, 4, 2 * rt * k, z.h - 8, h.a.blanc));
+          out.push(h.rect(cx + rt * k - 12, 4, 12, z.h - 8, h.a.ombre));
+          out.push(h.rect(cx - rt * k, 4, 2 * rt * k, z.h - 8, h.a.arete));
           // La toile, ouverte plus grand que le tuyau et plus petit que la plaque.
           const tm = (z.l / 2 - 3) / (k * Math.cos(th));
           out.push(h.chemin([P(-tm), P(-g.ouv)], h.a.arete));
@@ -167,6 +173,8 @@ module.exports = (h) => {
             const a = P(t - 0.012, -4), b = P(t - 0.012, 8), c = P(t + 0.012, 8), d = P(t + 0.012, -4);
             out.push(h.path(`M ${f(a[0])} ${f(a[1])} L ${f(b[0])} ${f(b[1])} L ${f(c[0])} ${f(c[1])} L ${f(d[0])} ${f(d[1])} Z`, h.a.detail));
           }
+          // le test de la main : la toile, au bord de la plaque
+          out.push(h.controle(...P(-R, 2.9), 10));
           return out.join('\n');
         },
         renvois: z => {

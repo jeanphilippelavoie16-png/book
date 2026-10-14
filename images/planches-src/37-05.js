@@ -4,6 +4,10 @@
 // largeur du foyer, ni l'épaisseur des murets, ni celle de la dalle, ni la taille de la cabane. Proportions seulement.
 // La voûte sans mortier n'est pas dessinée : le chapitre dit qu'il ne l'enseigne pas. La dalle-linteau et les
 // deux dalles en toit, qu'il décrit, le sont.
+// La charte : le creux du foyer, vu par la coupe, en gris loin (sous la dalle, sous les deux dalles en
+// toit, dans la cabane et par la bouche vidée). Pas de gris sur les murets et la dalle : la hachure
+// dit déjà la pierre. Le rouge : la couche de fumée au niveau du banc du haut (le point à
+// contrôler pendant la chauffe) et le charbon sorti à la pelle jusqu'au contenant (le geste).
 module.exports = (h) => {
   const A = h.a;
   const W = at => at.replace('fill="none"', 'fill="#FFFFFF"');
@@ -101,7 +105,7 @@ module.exports = (h) => {
   const poeleCoupe = (ox, yG, s, k) => {
     const X = v => ox + v * s, Y = v => yG - v * s;
     const p = pile(ox, Y(HM + D), s, 172, k + 100);
-    return { P: p.P, svg: [feu(ox, yG, s), murets(ox, yG, s, k),
+    return { P: p.P, svg: [h.rect(X(-F / 2 - 2), Y(HM), (F + 4) * s, HM * s, A.loin), feu(ox, yG, s), murets(ox, yG, s, k),
       bloc(X(-F / 2 - T), Y(HM + D), (2 * T + F) * s, D * s, k + 60, A.hachure('pierre', 'contour')), p.svg].join('\n') };
   };
 
@@ -125,6 +129,8 @@ module.exports = (h) => {
   const vueToit = z => {
     const s = sRang1(z), yG = z.h - 12, ox = z.l / 2;
     const X = v => ox + v * s, Y = v => yG - v * s, o = [sol(z, yG)];
+    // le creux du foyer, sous les deux dalles : gris loin
+    o.push(h.chemin([[-F / 2 - 2, 0], [-F / 2 - 2, HM], [-190, HM], [0, HM + 230], [190, HM], [F / 2 + 2, HM], [F / 2 + 2, 0]].map(([x, y]) => [X(x), Y(y)]), A.loin, true));
     o.push(feu(ox, yG, s), murets(ox, yG, s, 41));
     // les deux dalles : le pied à plat sur le muret, les têtes l'une contre l'autre
     const dalle = sd => h.chemin([[X(sd * 300), Y(HM)], [X(sd * 190), Y(HM)], [X(0), Y(HM + 230)], [X(0), Y(HM + 350)]], A.hachure('pierre', 'contour'), true);
@@ -190,6 +196,8 @@ module.exports = (h) => {
     o.push(fl(`M${f(xRi - 70)} ${f(Y(HW - 180))} Q${f(xRi - 20)} ${f(yT)} ${f(xRo + 22)} ${f(yT + 4)} Q${f(xRo + deb + 14)} ${f(yT + 2)} ${f(xRo + deb + 14)} ${f(yEb - tR - 20)}`, A.cache));
     // l'air du feu entre par le bas de la porte
     o.push(fl(`M${f(xLo - 22)} ${f(Y(230))} L${f(ox - (F / 2 + T) * s - 6)} ${f(Y(230))}`, A.detail));
+    // le point à contrôler : le bas de la couche de fumée, au niveau du banc du haut
+    o.push(h.controle(xRi - 120 * s, yL - 4, 11));
     K = { s, yG, Y, xLo, xRo, xLi, xRi, xp1, xp2, yL, yW, yt, a, ox };
     return o.join('\n');
   };
@@ -203,6 +211,7 @@ module.exports = (h) => {
     const X = v => ox + v * s, Y = v => yG - v * s;
     o.push(sol(z, yG));
     // le poêle comme la première vue, mais la bouche vide : sol nu, ni flamme ni bûche
+    o.push(h.rect(X(-F / 2 - 2), Y(HM), (F + 4) * s, HM * s, A.loin));       // le creux du foyer, vidé
     o.push(murets(ox, yG, s, 23), bloc(X(-F / 2 - T), Y(HM + D), (2 * T + F) * s, D * s, 63, A.hachure('pierre', 'contour')));
     o.push(pile(ox, Y(HM + D), s, 172, 400).svg);
     // le contenant métallique
@@ -231,7 +240,9 @@ module.exports = (h) => {
     o.push(h.chemin([P(0, 0), P(240, 0), P(255, 58), P(0, 50)], W(A.contour), true));                   // la lame
     [[30, 14], [70, 16], [110, 15], [150, 16], [190, 14], [50, 34], [95, 36], [140, 35], [180, 32], [120, 52]].forEach(([a, b], i) => { const [x, y] = P(a, b); o.push(galet(x, y, 18 * s, 11 * s, 520 + i, A.plein)); });
     // le trajet : de la bouche du foyer jusqu'au contenant
-    o.push(fl(`M${f(X(F / 2 + T + 20))} ${f(Y(330))} C${f(X(F / 2 + T + 90))} ${f(Y(520))} ${f(X(xc - 200))} ${f(Y(520))} ${f(X(xc - 70))} ${f(Y(Hp + 70))}`, A.cache));
+    // le geste : le charbon sorti à la pelle, de la bouche du foyer jusqu'au contenant
+    const dG = `M${f(X(F / 2 + T + 20))} ${f(Y(330))} C${f(X(F / 2 + T + 90))} ${f(Y(520))} ${f(X(xc - 200))} ${f(Y(520))} ${f(X(xc - 70))} ${f(Y(Hp + 70))}`;
+    o.push(h.path(dG, HALO), h.geste(dG));
     V = { s, X, Y, xc, P };
     return o.join('\n');
   };
