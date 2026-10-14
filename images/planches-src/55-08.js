@@ -56,6 +56,8 @@ module.exports = (h) => {
   };
   const seg = (P, a, b, attrs) => h.chemin(P([a, b]), attrs);
   const fleche = (P, a, b) => { const [p, q] = P([a, b]); return h.fleche(`M${p[0].toFixed(1)},${p[1].toFixed(1)} L${q[0].toFixed(1)},${q[1].toFixed(1)}`); };
+  // la flèche rouge du geste : la traction vers le bas qui fait tout lâcher
+  const geste = (P, a, b) => { const [p, q] = P([a, b]); return h.geste(`M${p[0].toFixed(1)},${p[1].toFixed(1)} L${q[0].toFixed(1)},${q[1].toFixed(1)}`); };
   const plein = (P, pts, trait, fond = h.a.blanc) => [h.chemin(P(pts), fond, true), h.chemin(P(pts), trait, true)];
   // découpe d'un polygone par un demi-plan f(p) <= 0
   const coupe = (poly, f) => {
@@ -129,13 +131,13 @@ module.exports = (h) => {
           const { P } = cadre(z, BB_A);
           return [
             ...sol(P, -52, 140),
-            // le tuteur du fond, derrière la masse
-            ...plein(P, piquet(40, 8), h.a.arete),
+            // le tuteur du fond, derrière la masse : il recule en gris
+            ...plein(P, piquet(40, 8), h.a.arete, h.a.loin),
             h.chemin(P(pierre), h.a.blanc, true),
             h.chemin(P(pierre), h.a.hachure('pierre', 'contour'), true),
-            ...plein(P, montant(), h.a.arete),
-            ...plein(P, traverse, h.a.arete),
-            ...plein(P, languette, h.a.arete),
+            ...plein(P, montant(), h.a.contour),
+            ...plein(P, traverse, h.a.contour),
+            ...plein(P, languette, h.a.contour),
             ...plein(P, appat, h.a.arete),
             // le tuteur guide le bout qui tombe, pas celui qui pivote au sol
             ...plein(P, piquet(30, 4), h.a.arete),
@@ -146,7 +148,7 @@ module.exports = (h) => {
           return [
             { n: 1, rond: T([66, 14]), cible: T([72, 55]), texte: 'masse : tue du premier coup' },
             { n: 2, rond: T([82, 90]), cible: T([59, 73]), texte: 'appât sous la masse' },
-            { n: 3, rond: T([10, 12]), cible: T([28, 18]), texte: 'tuteur, un de chaque côté' },
+            { n: 3, rond: T([12, -7]), cible: T([27.8, 9]), texte: 'tuteur, un de chaque côté' },
           ];
         },
       },
@@ -156,11 +158,15 @@ module.exports = (h) => {
           const { P } = cadre(z, BB_B);
           const fx = p => p[0] - 17, fy = p => p[1] - 84;
           return [
-            ...coupeDessin(P, pierre, fx, h.a.contour, h.a.hachure('pierre', 'aucun'), 2),
+            // la pierre n'est pas le sujet de cette vue : elle recule, trait fin sur gris clair
+            h.chemin(P(coupe(pierre, fx)), h.a.loin, true),
+            ...coupeDessin(P, pierre, fx, h.a.arete, h.a.hachure('pierre', 'aucun'), 2),
             ...coupeDessin(P, montant(), fy, h.a.contour),
             ...plein(P, traverse, h.a.contour),
             ...coupeDessin(P, languette, fx, h.a.contour),
-            fleche(P, [11.5, 74.5], [11.5, 84]),
+            geste(P, [11.5, 74.5], [11.5, 84]),
+            // le point qui décide : les méplats croisés, ajustés pour tenir tout juste
+            (() => { const [c] = P([[0, LM]]); return h.controle(c[0], c[1], 15); })(),
           ].join('\n');
         },
         renvois: z => {
@@ -217,10 +223,10 @@ module.exports = (h) => {
             fleche(P, [-24, 31], [-24, 83]),
             fleche(P, [24, 31], [24, 83]),
             h.chemin(P(dalle), h.a.hachure('pierre', 'contour'), true),
-            ...plein(P, piquet(-51, 10), h.a.contour),
-            ...plein(P, piquet(51, 10), h.a.contour),
+            ...plein(P, piquet(-51, 10), h.a.arete),
+            ...plein(P, piquet(51, 10), h.a.arete),
             // l'appât écrasé qui déborde sous le bord de la dalle
-            ...plein(P, [[-9, SOL], [-8, 97.6], [-4, 96.6], [1, 96.9], [6, 96.4], [9.5, 97.8], [10, SOL]], h.a.contour),
+            ...plein(P, [[-9, SOL], [-8, 97.6], [-4, 96.6], [1, 96.9], [6, 96.4], [9.5, 97.8], [10, SOL]], h.a.arete),
           ].join('\n');
         },
         renvois: z => {
