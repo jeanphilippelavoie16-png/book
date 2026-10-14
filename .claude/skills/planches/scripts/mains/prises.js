@@ -48,7 +48,8 @@
 //               pulpes face à face, à l'épaisseur de l'objet, rien ne s'interpénètre, et un JOUR de 3 mm entre le
 //               pouce et l'index vus de profil (vue pouce) hors des pulpes : le « O » se lit. Les autres doigts : le
 //               majeur suit l'index (caché derrière lui), l'annulaire et l'auriculaire presque tendus, hors du O.
-//               sortes : fine · pointe · ouverte · laterale (le pouce contre le côté de l'index).
+//               sortes : fine · pointe · ouverte · laterale (le pouce contre le côté de l'index). L'objet est un
+//               fil, sauf pour ouverte : une sphère qui remplit le jour (peau, pâte, bosse), comme pinceDessus.
 //   pinceDessus la pince ouverte vue de dessus : l'index plié vers la peau, le pouce écarté à côté de lui, les deux
 //               bouts à d l'un de l'autre en travers de la main ; la bosse est une sphère entre eux.
 //   crochet · coiffe · plat (chaque doigt plie au MCP jusqu'à poser sa pulpe sur le plan : la ligne de contact
@@ -822,8 +823,11 @@ const PRISES = {
     const M = I3(ci.I, ct.P, 0.5);
     const sgI = segments(S, 'index', chaineDoigt(S, 'index', doigts.index))[2];
     const w = o.fil === 'travers' ? orth(sgI.c.r, ci.n) : orth(U3(S3(sgI.b, sgI.a)), ci.n);
-    const dia = sorte === 'ouverte' ? 6 : Math.max(1.2, e);
-    const objet = { type: 'fil', diametre: dia, centre: M, axe: w, longueur: sorte === 'ouverte' ? 60 : 120 };
+    // la pince ouverte ne tient pas un fil : elle tend une peau, une pâte, une bosse ; l'objet est la boule qui
+    // remplit le jour entre les deux pulpes (comme pinceDessus), pas un bâton de 6 mm planté au milieu
+    const objet = sorte === 'ouverte'
+      ? { type: 'sphere', diametre: Math.max(6, L3(S3(ct.P, ci.I)) - 2), centre: M, axe: w }
+      : { type: 'fil', diametre: Math.max(1.2, e), centre: M, axe: w, longueur: 120 };
     return { doigts, objet, contact: { type: 'pince', points: [ci.I, ct.P], normale: ci.n }, erreur: L3(S3(ct.P, A3(ci.I, M3(ci.n, e)))) };
   },
   // (révision R4) la pince ouverte VUE DE DESSUS : l'index et le pouce écartés de part et d'autre d'une bosse de

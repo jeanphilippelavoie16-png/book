@@ -171,7 +171,7 @@
       "pouce": {"opposition":44,"cmc":8.4,"rotation":-40,"mcp":-2.4,"ip":-8.1}
     },
     "poignet": {"flexion":0,"deviation":0},
-    "objet": {"type":"fil","diametre":6,"centre":[100.6,-33,67.7],"axe":[0.31,0.024,0.95],"longueur":60},
+    "objet": {"type":"sphere","diametre":37.8,"centre":[100.6,-33,67.7],"axe":[0.31,0.024,0.95]},
     "contact": {"type":"pince","points":[[119.3,-31,61.2],[81.9,-34.9,74.2]],"normale":[-0.947,-0.074,0.311]},
     "solveur": {"prise":"pincer","sorte":"ouverte","diametre":40},
     "table": [
