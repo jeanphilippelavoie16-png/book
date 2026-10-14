@@ -6,8 +6,8 @@
 // blanc avec la ligne de l'émail et la pulpe, le ciment en trame de terre (la même que la pâte).
 // Mains simples et charte (14 octobre) : les deux bouts de doigts calqués (s09) deviennent deux bouts de doigts de
 // la main simple, en gros plan, coupés par le bord de la vue ; la main entière qui pince, essayée d'abord, faisait la
-// boulette minuscule et les doigts du fond en pince d'oiseau. Rouge : le geste de rouler, les doigts qui s'écartent
-// sur la pâte qui colle, le ciment pressé contre les parois (un éventail de trois flèches : un seul geste), puis au
+// boulette minuscule et les doigts du fond en pince d'oiseau. Rouge : le geste de rouler, l'index qui se lève de la
+// pâte qui colle, le ciment pressé contre les parois (un éventail de trois flèches : un seul geste), puis au
 // centre.
 // La poudre tirée vers le liquide reste en noir (c'est la poudre qui se déplace). Pas de gris : la tranche de la
 // vitre est trop mince pour une ombre.
@@ -352,8 +352,8 @@ module.exports = (h) => {
         titre: 'Elle colle',
         dessin: z => {
           const { bx, by, r } = GD(z), e = r * 2.2, xf = bx + r * 3.4;
-          return [doigts(z, 'doigts-colle', e), filante(bx, by - e, by + e, r),
-            geste([[xf, by - r * 0.9], [xf, by - r * 2.7]]), geste([[xf, by + r * 0.9], [xf, by + r * 2.7]])].join('\n');
+          // un seul geste : l'index se lève, le pouce reste
+          return [doigts(z, 'doigts-colle', e), filante(bx, by - e, by + e, r), geste([[xf, by - r * 0.3], [xf, by - r * 2.6]])].join('\n');
         },
         renvois: z => {
           const { bx, by, r } = GD(z);
