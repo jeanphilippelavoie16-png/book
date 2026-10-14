@@ -1,7 +1,7 @@
 # Tome 1 · Tenir — rapport d'assemblage
 
-- **Produit le :** 2026-09-29 06:47, par `design/outils/assembler-tome.py 1`
-- **Fichier :** `livre/tome-1/interieur.pdf` — 332 pages, 68.9 Mo
+- **Produit le :** 2026-10-14 20:08, par `design/outils/assembler-tome.py 1 --hors-ligne`
+- **Fichier :** `livre/tome-1/interieur.pdf` — 332 pages, 69.5 Mo
 - **Ouvertures :** toujours au recto (page de droite), une page blanche devant au besoin
 - **Placements :** design/epreuves-livre/placements.json, design/epreuves-livre/placements-tome-1.json
 - **Exigences de Blurb :** `sources/blurb-specifications.md` (relevées le 27 septembre 2026)
@@ -48,38 +48,17 @@ Les chapitres seuls font 322 pages ; 6 blanche(s) servent à faire ouvrir chaque
 | Nombre de pages | pair, de 20 à 440 (papier Standard) | 332 | oui |
 | Page 1 | à droite | ouverture du chapitre 00 | oui |
 | Polices incorporées | toutes | 63 police(s), 0 non incorporée(s) | oui |
-| Taille du fichier | 2 Go au plus | 68.9 Mo | oui |
+| Taille du fichier | 2 Go au plus | 69.5 Mo | oui |
 | Marques d'imprimeur | aucune | aucune | oui |
 | Couleur | CMJN ou sRVB, sans ton direct | sRVB (Edge) | oui |
 | Noir du texte | 100 % K | noir sRVB (0, 0, 0) : la conversion est faite chez Blurb | à juger sur épreuve |
 | PDF/X | plus exigé en 2026 (le guide de 2010 le demandait) | PDF 1.4 d'Edge, pas PDF/X | à surveiller au téléversement |
 
-Polices du fichier : Georgia, Georgia-Italic, IBMPlexSansCond-Bold, IBMPlexSansCond-Italic, IBMPlexSansCond-Medium, IBMPlexSansCond-SemiBold, IBMPlexSansCond-SemiBoldItalic, IBMPlexSerif-Bold, IBMPlexSerif-Italic, IBMPlexSerif-Regular, IBMPlexSerif-SemiBold, IBMPlexSerif-SemiBoldItalic, NotoSansSymbols2-Regular, NotoSerif-Bold, NotoSerif-Regular, Type 3 sans nom (texte des planches)
+Polices du fichier : IBMPlexSansCond-Bold, IBMPlexSansCond-Italic, IBMPlexSansCond-Medium, IBMPlexSansCond-SemiBold, IBMPlexSansCond-SemiBoldItalic, IBMPlexSerif-Bold, IBMPlexSerif-Italic, IBMPlexSerif-Regular, IBMPlexSerif-SemiBold, IBMPlexSerif-SemiBoldItalic, LiberationSerif, LiberationSerif-Italic, NotoSansSymbols2-Regular, NotoSerif-Bold, NotoSerif-Regular, Type 3 sans nom (texte des planches)
 
 ## Tranche et couverture
 
-Calculateur de Blurb interrogé le 2026-09-29 06:47 pour **332 pages**, papier Standard, couverture **souple** (`softcover`), en pouces :
-
-**Tranche : 0.75 x 10.25 po. PDF de couverture : 17.0 x 10.25 po.**
-
-| Pages (ce PDF) | Pouces |
-| --- | --- |
-| Final, exported PDF should measure (w x h) | 8.125 x 10.25 |
-| Page size / trim line (w x h) | 8.0 x 10.0 |
-| Bleed (top, bottom, and outside edges) | 0.125 |
-| Inset for Margins / Safe boundary (Top, Bottom, Outside Edge) | 0.25 |
-| Inset for Margins / Safe boundary (Binding Edge) | 0.5 |
-
-| Couverture | Pouces |
-| --- | --- |
-| Final, exported PDF should measure (w x h) | 17.0 x 10.25 |
-| Total Page size / trim line (w x h) | 16.75 x 10.0 |
-| Bleed (all edges) | 0.125 |
-| Flaps (w x h, measured from trim edge to fold) | none |
-| Gutter / Spine (w x h) | 0.75 x 10.25 |
-| Inset for Margins / Safe boundary (from edge of trim) | 0.25 |
-
-La tranche change par paliers avec le nombre de pages : la couverture se fait **après** le dernier assemblage, avec la mesure du jour.
+Calculateur non interrogé (--hors-ligne). Relevé du 27 septembre 2026 dans `sources/blurb-specifications.md` §2 ; pour 332 pages, prendre la ligne du tableau dont le palier couvre ce nombre, et revérifier au calculateur. [À VÉRIFIER]
 
 ## Figures
 
@@ -91,17 +70,17 @@ Les planches de `images/a-valider/` sont posées comme les validées (JP les rel
 | 00b | — | — | — | 0 (ancien 00b) |
 | 01 | — | — | — | 6 (ancien 01) |
 | 02 | — | — | — | 6 (ancien 02) |
-| 03 | 03-09 (99, pleine), 03-08 (101, pleine), 03-10 (103, pleine) | — | — | 7 (ancien 04) |
-| 04 | 04-01a (117, pleine), 04-01b (118, pleine), 04-40 (121, pleine, à valider), 04-lichen-caribous-tapis.jpg (111) | — | — | 6 (ancien 06) |
+| 03 | 03-09 (98, pleine), 03-08 (101, pleine), 03-10 (102, pleine) | — | — | 7 (ancien 04) |
+| 04 | 04-01a (117, pleine), 04-01b (118, pleine), 04-40 (121, pleine), 04-lichen-caribous-tapis.jpg (111) | — | — | 6 (ancien 06) |
 | 05 | 05-boite-bombee.jpg (135) | — | — | 5 (ancien 08) |
 | 06 | — | — | — | 5 (ancien 09) |
 | 07 | — | — | — | 5 (ancien 10) |
 | 08 | — | — | — | 6 (ancien 11) |
 | 09 | 09-08 (195, pleine) | — | — | 7 (ancien 12) |
 | 10 | 10-02 (210, pleine), 10-07 (212, pleine), 10-01 (209), 10-03 (213), 10-hutte-castor.jpg (199) | — | — | 6 (ancien 13) |
-| 11 | 11-03 (229, pleine, à valider) | — | — | 0 (ancien 16b) |
-| 12 | 12-01a (235, pleine, à valider), 12-01b (236, pleine, à valider), 12-02 (237, pleine, à valider), 12-03 (239, pleine, à valider), 12-04 (241, pleine, à valider), 12-06a (243, pleine, à valider), 12-05a (245, pleine, à valider), 12-05b (246, pleine, à valider), 12-06b (252, pleine, à valider) | — | — | 0 (ancien 16c) |
-| 13 | 13-40 (258, pleine, à valider), 13-08 (264, pleine), 13-07 (267, pleine), 13-09 (268, pleine, à valider), 13-01 (270, pleine), 13-bouleau-ecorce-rubans.jpg (265), 13-gomme-epinette.jpg (265) | — | — | 6 (ancien 17) |
+| 11 | 11-03 (229, pleine) | — | — | 0 (ancien 16b) |
+| 12 | 12-01a (235, pleine), 12-01b (236, pleine), 12-02 (237, pleine), 12-03 (239, pleine), 12-04 (241, pleine), 12-06a (243, pleine), 12-05a (245, pleine), 12-05b (246, pleine), 12-06b (252, pleine) | — | — | 0 (ancien 16c) |
+| 13 | 13-40 (258, pleine), 13-08 (264, pleine), 13-07 (267, pleine), 13-09 (268, pleine), 13-01 (270, pleine), 13-bouleau-ecorce-rubans.jpg (265), 13-gomme-epinette.jpg (265) | — | — | 6 (ancien 17) |
 | 14 | 14-01 (280, pleine) | — | — | 7 (ancien 19) |
 | 15 | 15-01 (288, pleine) | — | — | 8 (ancien 20) |
 | 16 | 16-07 (304, pleine), 16-08 (306, pleine) | — | — | 7 (ancien 21) |
