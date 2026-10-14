@@ -134,8 +134,8 @@ const TETES = {
       nez: [[99, -66], [107.5, -45], [110.5, -37]],  // l'arête, droite, puis le bout
       bout: [[109.5, -31], [103.5, -27.5]],       // le dessous du nez, jusqu'au creux sous le nez
       sous: [99.5, -26],                          // le creux sous le nez (subnasale)
-      levreH: [100.8, -15.5], stomion: [99.8, -8.5], levreB: [100.3, -2],
-      sillon: [96.3, 8.5],                          // le creux sous la lèvre
+      levreH: [101, -15.5], stomion: [100.9, -8.5], levreB: [100.4, -2],
+      sillon: [96.8, 8.5],                          // le creux sous la lèvre
       menton: [[97.8, 21], [93, 35.5], [77, 45], [52, 46.5]],   // le menton, la mâchoire dessous
     },
     rep: { oeil: [79, -70], kOeil: 1, sourcil: [[87, -80], [77, -83], [66, -81]], oreille: { c: [-16, -55], h: 62, l: 30 }, mach: [-8, -48] },
@@ -159,7 +159,7 @@ TETES.femme = {
   visage: {
     front: [[90.5, -116], [93.5, -99]], nasion: [91.5, -87],
     nez: [[97.5, -68], [105, -47], [107.5, -39.5]], bout: [[106.5, -33.5], [101.5, -29]], sous: [98, -27.5],
-    levreH: [99.8, -17], stomion: [97.8, -9.5], levreB: [98.8, -2.5], sillon: [94.8, 7.5],
+    levreH: [100.2, -17], stomion: [100, -9.5], levreB: [99.4, -2.5], sillon: [95.6, 7.5],
     menton: [[96, 19.5], [90.5, 33.5], [74, 43.5], [50, 45.5]],
   },
   rep: { oeil: [78, -71], kOeil: 1, sourcil: [[86, -81], [76, -84.5], [65, -82.5]], oreille: { c: [-16, -55], h: 60, l: 28 }, mach: [-8, -48] },
@@ -174,8 +174,8 @@ TETES.enfant6 = {
   visage: {
     front: [[96, -138], [103.5, -108], [104.5, -87]], nasion: [102.6, -72],
     nez: [[104.6, -60], [108.5, -46], [111, -39]], bout: [[110.5, -33], [106, -28.5]], sous: [102, -25.5],
-    levreH: [103.6, -15], stomion: [101.8, -6.5], levreB: [102.4, 0.5],
-    sillon: [99, 9.5],
+    levreH: [103.8, -15], stomion: [103.6, -7], levreB: [103, 0],
+    sillon: [99.8, 9.5],
     menton: [[100.4, 20.5], [95, 33.5], [80, 42.5], [56, 45]],
   },
   rep: { oeil: [86, -60], kOeil: 1.05, sourcil: [[93, -71], [84, -74], [74, -72]], oreille: { c: [-14, -42], h: 64, l: 30 }, mach: [-8, -38] },
@@ -197,8 +197,8 @@ TETES.enfant4 = {
   visage: {
     front: [[98, -136], [106, -104], [106.5, -81]], nasion: [104, -65],
     nez: [[106, -54], [109.5, -41], [111.5, -35]], bout: [[111, -29], [106.5, -24.5]], sous: [102.5, -22],
-    levreH: [104, -11.5], stomion: [102, -2.5], levreB: [102.6, 4],
-    sillon: [99.2, 12.5],
+    levreH: [104.2, -11.5], stomion: [104, -3.5], levreB: [103.3, 3.5],
+    sillon: [100, 12.5],
     menton: [[100.4, 23], [95, 35], [80, 43], [56, 45.2]],
   },
   rep: { oeil: [87, -53], kOeil: 1.08, sourcil: [[94, -64], [85, -67], [75, -65]], oreille: { c: [-14, -37], h: 65, l: 31 }, mach: [-8, -33] },
@@ -213,8 +213,8 @@ TETES.bebe = {
   visage: {
     front: [[92, -142], [104, -110], [106.5, -80]], nasion: [101.5, -56],
     nez: [[103, -45], [106, -32], [107, -26.5]], bout: [[106, -21.5], [102.5, -19]], sous: [99.5, -17.5],
-    levreH: [101.2, -9.5], stomion: [99.6, -3], levreB: [100, 3],
-    sillon: [95.8, 11],
+    levreH: [101.6, -9.5], stomion: [101.4, -3], levreB: [100.8, 3],
+    sillon: [96.8, 11],
     menton: [[95, 21], [89, 33], [74, 42], [52, 45.5]],
   },
   rep: { oeil: [85, -47], kOeil: 1.15, sourcil: null, oreille: { c: [-12, -30], h: 64, l: 31 }, mach: [-8, -28] },
@@ -385,12 +385,12 @@ function teteSimple(o = {}) {
   const cou = bandeCou(Lcou + 60, kT);
   // l'union, l'arrondi hors du visage (la nuque, la gorge), puis la coupe
   const zone = [I.versCL(T0.zone.map(PT))];
-  const peau = I.unionCL([I.union([tete]), I.union([cou.poly])]);
+  // la peau (la tête et le cou) s'arrondit à la nuque et sous le menton, hors du visage ; les cheveux
+  // s'ajoutent ensuite tels quels (l'arrondi boucherait le jour entre la queue et la nuque)
+  const peau0 = I.unionCL([I.union([tete]), I.union([cou.poly])]);
+  const peau = I.unionCL([peau0, I.moins(I.ferme(peau0, 20), zone)]);
   const chCL = cheveux.length ? I.union(cheveux) : [];
-  const X = I.unionCL([peau, chCL]);
-  const F = I.ferme(X, 20);
-  const horsZone = I.moins(F, zone);
-  let S = I.unionCL([X, horsZone]);
+  let S = I.unionCL([peau, chCL]);
   // la coupe : perpendiculaire à l'axe du cou, à Lcou sous la nuque
   const u = cou.u, n = cou.nAv, P0 = mul(u, -Lcou);
   const demi = [I.versCL([add(P0, mul(n, -400)), add(P0, mul(n, 400)), add(add(P0, mul(n, 400)), mul(u, 900)), add(add(P0, mul(n, -400)), mul(u, 900))])];

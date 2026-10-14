@@ -9,12 +9,28 @@ module.exports = (h) => {
   const A = h.a, F = h.formes;
   const f = v => Math.round(v * 10) / 10;
   const blanc = at => at.replace('fill="none"', 'fill="#FFFFFF"');
+  const ombre = at => at.replace('fill="none"', 'fill="#CFCFCF"');     // la face à l'ombre (charte : h.a.ombre)
   const motif = (id, at) => at.replace('fill="none"', `fill="url(#${id})"`);
   const NOIR = '#1A1A1A';
   const PINCE_ANG = 60;
   const dOf = (pts, ferme = false) => pts.map((p, i) => `${i ? 'L' : 'M'}${f(p[0])} ${f(p[1])}`).join(' ') + (ferme ? ' Z' : '');
   const add = (p, q, k = 1) => [p[0] + q[0] * k, p[1] + q[1] * k];
   const unit = v => { const n = Math.hypot(v[0], v[1]); return [v[0] / n, v[1] / n]; };
+  const BORD = z => ({ x0: 0, y0: 0, x1: z.l, y1: z.h });
+  // l'angle de la main qui met l'axe de sa prise sur `axe` (degrés à l'écran) et son avant-bras du côté de `vers`
+  const poser = (o, axe, vers) => {
+    const base = Object.assign({}, o, { angle: 0, avantbras: { longueur: 100 } });
+    delete base.objet;
+    const e0 = F.mainSimple(base);
+    let best = null;
+    for (const k of [0, 180]) {
+      const a = axe - e0.prise.angle + k, e = F.mainSimple(Object.assign({}, base, { angle: a }));
+      const d = [e.coude[0] - e.poignet[0], e.coude[1] - e.poignet[1]], w = [vers[0] - e.poignet[0], vers[1] - e.poignet[1]];
+      const c = (d[0] * w[0] + d[1] * w[1]) / ((Math.hypot(d[0], d[1]) * Math.hypot(w[0], w[1])) || 1);
+      if (!best || c > best.c) best = { a, c };
+    }
+    return best.a;
+  };
 
   // Catmull-Rom : une courbe lisse par des points (fermée ou ouverte), en polyligne.
   const lisse = (P, ferme = false, n = 8) => {
@@ -41,7 +57,7 @@ module.exports = (h) => {
 </defs>`;
 
   // ─── La queue : contour en plan (u le long, v en travers, en mm), mise en oblique ───
-  const Lp = 300, W = 180, TE = 20, RR = 23, LR = 72;     // palette, largeur, rive visible, base ronde
+  const Lp = 300, W = 180, TE = 20, RR = 17.5, LR = 72;     // palette, largeur, rive visible, base ronde
   const prof = [[0, 0.13], [0.06, 0.2], [0.15, 0.32], [0.3, 0.43], [0.45, 0.49], [0.6, 0.5], [0.75, 0.46], [0.87, 0.37], [0.95, 0.24]];
   const demi = u => {                                      // demi-largeur à u (interpolée)
     const s = u / Lp;
@@ -66,7 +82,7 @@ module.exports = (h) => {
     return {
       dessous, dessus,
       svg: [
-        h.path(dOf(dessous, true), blanc(A.contour)),
+        h.path(dOf(dessous, true), ombre(A.contour)),
         h.path(dOf(dessus, true), blanc(A.arete)),
         h.path(dOf(dessus, true), motif(trame, A.fin)),
         h.path(dOf(dessus, true), A.arete),
@@ -79,11 +95,11 @@ module.exports = (h) => {
     const n = 14, haut = [], bas = [];
     for (let i = 0; i <= n; i++) {
       const t = i / n, x = c0[0] + (c1[0] - c0[0]) * t, r = r0 + (r1 - r0) * t, poil = i % 2 ? 2.2 : 0;
-      haut.push([x + (i % 2 ? -1.5 : 0), c0[1] - r - poil]);
-      bas.push([x + (i % 2 ? -1.5 : 0), c0[1] + r + poil]);
+      haut.push([x + (i % 2 ? -1.5 : 0), c0[1] - r + poil]);
+      bas.push([x + (i % 2 ? -1.5 : 0), c0[1] + r - poil]);
     }
     const corps = [...haut, ...bas.slice().reverse()];
-    const rb = r0 + 1;
+    const rb = r0 - 0.4 * S;
     return {
       c0, c1, r: r1,
       svg: [
@@ -100,11 +116,20 @@ module.exports = (h) => {
     const P = oblique(ox, oy, S);
     return { S, P, ox, oy, sol: z.h - 10 };
   };
+  const mainBraises = z => {
+    const { S, P } = vueBraises(z);
+    // le poing serre le collet de la queue, là où la base ronde rejoint la palette : la base ressort à gauche
+    const ug = 12, b = base(P, S), grip = [P(ug, 0, 0)[0], b.c0[1]];
+    const d = 2 * RR * (1 + 0.12 * (8 - ug) / (LR + 8));                // le diamètre de la base au poing (mm)
+    const o = { x: grip[0], y: grip[1], pose: 'prise-manche', vue: 'paume', cote: 'droite', echelle: S, diametre: d };
+    const vers = [grip[0] + 10, -400];
+    return F.mainSimple({ ...o, angle: poser(o, 0, vers), avantbras: { vers, bord: BORD(z), bras: { pli: 0 } } });
+  };
   const dessinBraises = z => {
     const { S, P, sol } = vueBraises(z);
-    const out = [];
+    const out = [], obj = [];
     const q = queue(P, S, 'p5040-ecaille');
-    out.push(q.svg);
+    obj.push(q.svg);
     // la fente, le long de la queue, un peu en avant du milieu : une déchirure qui laisse voir le gras
     const levre1 = [], levre2 = [];
     for (let u = 0.2 * Lp, i = 0; u <= 0.8 * Lp + 1; u += 0.03 * Lp, i++) {
@@ -114,32 +139,32 @@ module.exports = (h) => {
       levre2.push([x + 1.5, y + (i % 2 ? 0.6 : 2) * bout + 1.8 * bout]);
     }
     const ouverture = [...levre1, ...levre2.slice().reverse()];
-    out.push(h.path(dOf(ouverture, true), blanc(A.detail)));
-    out.push(h.path(dOf(ouverture, true), motif('p5040-gras', 'fill="none" stroke="none"')));
-    out.push(h.path(dOf(ouverture, true), A.detail));
+    obj.push(h.path(dOf(ouverture, true), blanc(A.detail)));
+    obj.push(h.path(dOf(ouverture, true), motif('p5040-gras', 'fill="none" stroke="none"')));
+    obj.push(h.path(dOf(ouverture, true), A.detail));
     // les cloques : bulles lisses qui cassent les écailles
     const cloques = [[0.12, -0.22, 6], [0.3, -0.3, 7], [0.5, -0.18, 5.5], [0.66, -0.3, 6.5], [0.8, 0.22, 5], [0.42, 0.3, 6], [0.9, -0.05, 4.5], [0.22, 0.25, 4.5]];
     for (const [s, t, r] of cloques) {
       const [x, y] = P(s * Lp, t * W, TE);
-      out.push(h.ellipse(x, y, r * S * 1.6, r * S * 0.9, blanc(A.detail)));
-      out.push(h.path(`M${f(x - r * S * 0.8)} ${f(y - r * S * 0.2)} Q${f(x - r * S * 0.2)} ${f(y - r * S * 0.75)} ${f(x + r * S * 0.5)} ${f(y - r * S * 0.55)}`, A.fin));
+      obj.push(h.ellipse(x, y, r * S * 1.6, r * S * 0.9, blanc(A.detail)));
+      obj.push(h.path(`M${f(x - r * S * 0.8)} ${f(y - r * S * 0.2)} Q${f(x - r * S * 0.2)} ${f(y - r * S * 0.75)} ${f(x + r * S * 0.5)} ${f(y - r * S * 0.55)}`, A.fin));
     }
     // cloques sur la rive, du côté des braises
     for (const s of [0.25, 0.42, 0.58, 0.72]) {
       const [x, y] = P(s * Lp, demi(s * Lp), 0);
-      out.push(h.path(`M${f(x - 5)} ${f(y - 1)} Q${f(x)} ${f(y + 6)} ${f(x + 5)} ${f(y - 1)}`, blanc(A.detail)));
+      obj.push(h.path(`M${f(x - 5)} ${f(y - 1)} Q${f(x)} ${f(y + 6)} ${f(x + 5)} ${f(y - 1)}`, blanc(A.detail)));
     }
-    // la base ronde, tenue dans la main par-dessus
+    // la palette d'abord : la main passe devant ; la base ronde, elle, passe dans le poing
     const b = base(P, S);
-    const grip = [b.c0[0] + (b.c1[0] - b.c0[0]) * 0.48, b.c0[1]];
-    out.push(b.svg);
-    // la main qui tient la base par-dessus, le poing fermé autour, l'avant-bras qui monte
-    // modèle s11 (poing fermé, vu de la paume) retourné : l'avant-bras monte, les doigts passent
-    // sous la base de la queue, qui traverse le poing
-    out.push(F.modele('s11', { x: grip[0], y: grip[1], ancre: [68, 42], angle: 180, echelle: 0.86 * S, masquer: [[0, 150, 140, 175]],
-      bras: { a: [21.8, 150], a0: [20.8, 135], b: [76.3, 150], b0: [76.2, 135], bord: z } }));
+    out.push(obj.join('\n'));
+    // la main (mains simples) : le poing fermé autour de la base, vu côté paume, l'avant-bras qui monte ;
+    // la base entre d'un côté du poing, la queue ressort de l'autre
+    const m = mainBraises(z);
+    out.push(m.couches.main, m.couches.masque, b.svg, m.couches.devant);
+    // le point à surveiller : la peau qui cloque et se fend
+    { const [x, y] = P(0.6 * Lp, -0.02 * W, TE); out.push(h.controle(x, y, 13)); }
     // le geste : on la tourne au-dessus des braises
-    { const [cx, cy] = b.c0; out.push(h.fleche(`M${f(cx + 18)} ${f(cy + 34)} A 24 24 0 0 1 ${f(cx - 18)} ${f(cy + 34)}`, A.arete)); }
+    { const [cx, cy] = b.c0; out.push(h.geste(`M${f(cx + 18)} ${f(cy + 34)} A 24 24 0 0 1 ${f(cx - 18)} ${f(cy + 34)}`)); }
     // les braises : des tisons de bois carbonisé, craquelés en damier, sur un lit de cendre
     const xa = P(0.04 * Lp, 0, 0)[0], xb = P(1.02 * Lp, 0, 0)[0];
     const cendre = [[xa, sol]];
@@ -230,6 +255,13 @@ module.exports = (h) => {
     const um = (u1 + u2) / 2 + 6, prise = R(um, demi(um) - vp - 2);
     return { S, P, R, rabat, pliLigne, bord, empreinte, rive, prise, um };
   };
+  const mainPele = z => {
+    const v = vuePele(z), [px, py] = v.prise;
+    // la pince fine, de profil côté pouce : les pulpes du pouce et de l'index serrent le bord libre de la plaque,
+    // l'annulaire et l'auriculaire tendus au-dessus du bord ; l'avant-bras remonte en haut à droite
+    return F.mainSimple({ x: px, y: py + 5, ancre: 'bout', pose: 'pince-fine', vue: 'pouce', cote: 'droite', echelle: v.S, diametre: 3, angle: 186,
+      avantbras: { vers: [px + 200, py - 260], bord: BORD(z), longueur: 'bord' } });
+  };
   const dessinPele = z => {
     const v = vuePele(z), { S, P } = v;
     const out = [];
@@ -239,7 +271,7 @@ module.exports = (h) => {
     const pl = [add(P(-LR - 40, -W * 0.72, 0), [sk, 0]), add(P(Lp + 20, -W * 0.72, 0), [sk, 0]), add(P(Lp + 20, W * 0.72, 0), [-sk * 0.2, 0]), add(P(-LR - 40, W * 0.72, 0), [-sk * 0.2, 0])];
     const ep = 12 * S;
     out.push(h.path(dOf([pl[3], pl[2], add(pl[2], [0, ep]), add(pl[3], [0, ep])], true), blanc(A.arete)));
-    out.push(h.path(dOf([pl[2], pl[1], add(pl[1], [0, ep]), add(pl[2], [0, ep])], true), blanc(A.arete)));
+    out.push(h.path(dOf([pl[2], pl[1], add(pl[1], [0, ep]), add(pl[2], [0, ep])], true), ombre(A.arete)));
     out.push(h.path(dOf(pl, true), blanc(A.arete)));
     out.push(h.ligne(pl[3][0] + 40, pl[3][1] - 8, pl[2][0] - 20, pl[2][1] - 8, A.fin));
     out.push(h.ligne(pl[0][0] + 20, pl[0][1] + 8, pl[1][0] - 70, pl[1][1] + 8, A.fin));
@@ -255,38 +287,36 @@ module.exports = (h) => {
     out.push(h.path(dOf(v.pliLigne.map(p => add(p, [0, 2.2]))), A.fin));
     // la plaque levée, tenue par son bord libre ; on voit son envers, lisse
     const rabat = [
-      h.path(dOf(v.rabat, true), blanc(A.arete)),
+      h.path(dOf(v.rabat, true), blanc(A.contour)),
       h.path(dOf(v.bord.map(p => add(p, [0, 2.4]))), A.fin),
     ].join('\n');
     out.push(rabat);
-    const [px, py] = v.prise, mk = S * 1.25;
-    // la main qui pince le bord libre de la plaque, le poignet qui monte
-    // modèle s09 (le pouce et l'index qui pincent, vue de côté) : la pince sur le bord libre, l'avant-
-    // bras qui monte vers la droite
-    out.push(F.modele('s09', { x: px, y: py, ancre: [12, 66], angle: -47, echelle: 1.2 * S, masquer: [[200, 0, 230, 125]],
-      bras: { a: [200, 64.1], a0: [185, 63.9], b: [200, 112.1], b0: [185, 108.4], bord: z } }));
+    const m = mainPele(z);
+    out.push(m.svg);
     // la traction : vers le haut, à côté du poignet
-    out.push(h.fleche(`M${f(px + 78 * mk)} ${f(py + 4 * mk)} L${f(px + 78 * mk)} ${f(py - 60 * mk)}`, A.arete));
+    { const [px, py] = v.prise, x = px - 40; out.push(h.geste(`M${f(x)} ${f(py - 30)} L${f(x)} ${f(py - 90)}`)); }
     return out.join('\n');
   };
 
   // ─── Vue 3 : la nappe de gras, en coupe sur le dos ───
-  // La main à plat (pose « appui », de profil) glisse sur la viande nue, le pouce devant ; la nappe
-  // se décolle au bout des doigts et remonte sur le dos de la main. Le profil du dos de la main est
-  // relevé sur le rendu de la bibliothèque (à echelle 0,95 : bout des doigts +137, dessus du bout
-  // +132/-16, jointures +42/-24, poignet -28/-37, par rapport au milieu de la paume).
+  // La main à plat glisse sur la viande nue, le pouce dessous ; la nappe se décolle au bout des doigts
+  // et remonte sur le dos de la main.
   const vueNappe = z => {
     const x0 = 22, x1 = z.l - 22, yb = z.h - 8, xc = (x0 + x1) / 2 + 30, demiL = (x1 - x0) / 2;
     const ym = x => yb - 104 + 22 * Math.pow((x - xc) / demiL, 2);
     const tf = 17, xj = z.l * 0.56;
     const tang = x => Math.atan2(ym(x + 1) - ym(x - 1), 2) * 180 / Math.PI;
-    const e = 1.25, xm = xj - 2 - 147 * e, xmil = xm + 45 * e, pente = (ym(xmil + 1) - ym(xmil - 1)) / 2;
-    const y0 = ym(xmil) - pente * (xmil - xm), angle = Math.atan(pente) * 180 / Math.PI, th = Math.atan(pente);
-    // dos de la main, pris sur la pose « appui / profil » à echelle 1 (bras 60, inclinaison 26)
-    const M = ([dx, dy]) => [xm + e * (dx * Math.cos(th) - dy * Math.sin(th)), y0 + e * (dx * Math.sin(th) + dy * Math.cos(th))];
-    const dosMain = [[142, -12], [100, -17], [60, -18], [30, -25], [0, -29], [-40, -46], [-70, -60]].map(M);
-    const pouce = [xj - 84, ym(xj - 84) - 6];          // le bout du pouce, sous la nappe
-    return { x0, x1, yb, ym, tf, xj, tang, e, xm, y0, angle, dosMain, pouce, M };
+    return { x0, x1, yb, ym, tf, xj, tang };
+  };
+  // la main à plat (mains simples), de profil côté pouce, un peu vue d'en haut : le bout des doigts sous le bord
+  // de la nappe, le pouce dessous, posé sur la viande ; l'avant-bras repart vers le haut à gauche
+  const mainNappe = z => {
+    const v = vueNappe(z), xt = v.xj - 6;
+    const o = { x: xt, ancre: 'bout', pose: 'plat', vue: 'pouce', cote: 'gauche', echelle: 0.85, angle: v.tang(xt), rotation: [-25, 0, 0],
+      avantbras: { vers: [-200, v.ym(xt) - 160], bord: BORD(z), longueur: 'bord' } };
+    const m0 = F.mainSimple({ ...o, y: v.ym(xt) });
+    const dy = v.ym(m0.pouce[0]) - m0.pouce[1] - 0.8;                 // le pouce posé sur la viande
+    return F.mainSimple({ ...o, y: v.ym(xt) + dy });
   };
   const dessinNappe = z => {
     const v = vueNappe(z), { x0, x1, yb, ym, tf, xj } = v;
@@ -309,7 +339,7 @@ module.exports = (h) => {
       out.push(h.path(`M${f(pa)} ${f(ym(pa) + 2)} Q${f((pa + pb) / 2)} ${f(ym((pa + pb) / 2) + creux * 1.6)} ${f(pb)} ${f(yb - 2)}`, A.detail));
     }
     // la nappe : d'un seul tenant, collée à la viande à droite, décollée à gauche où elle monte
-    // sur le dos de la main ; une seule bande, du bout libre à la coupe. La main passe devant.
+    // sur le dos de la main ; une seule bande, du bout libre à la coupe. Elle passe sur la main.
     // le rabat déjà levé : de la jointure, il monte vers la gauche et finit dans la main
     const jx = xj + 8, Y = x => ym(x);
     const axe = lisse([
@@ -325,19 +355,15 @@ module.exports = (h) => {
     });
     const bout = [add(g[0], [-3, 1]), add(axe[0], [-6, -1]), add(d[0], [-3, -2])];
     const nappe = [...g, ...coupe(x1, g[g.length - 1][1], d[d.length - 1][1], 2).slice(1, -1), ...d.slice().reverse(), ...bout.slice().reverse()];
-    out.push(h.path(dOf(nappe, true), blanc(A.arete)));
-    out.push(h.path(dOf(nappe, true), motif('p5040-gras', 'fill="none" stroke="none"')));
-    out.push(h.path(dOf(nappe, true), A.arete));
+    const nappeSvg = [h.path(dOf(nappe, true), blanc(A.contour)), h.path(dOf(nappe, true), motif('p5040-gras', 'fill="none" stroke="none"')),
+      h.path(dOf(nappe, true), A.contour)].join('\n');
+
     // la poussée : le pouce avance à plat, vers la nappe encore collée
-    // modèle s10-plat (construit sur s10 : la main tendue, le pouce ramené le long de l'index) retourné :
-    // la main à plat, paume sur la viande, le bout des doigts sous le bord de la nappe, le pouce dessous ;
-    // l'avant-bras repart vers la gauche
-    { const xt = xj - 6;
-      out.push(F.modele('s10-plat', { x: xt, y: Y(xt) - 0.5, ancre: [14, 47], angle: 180 + 10.7 + v.tang(xt), echelle: 1.0,
-        masquer: [[228, 0, 245, 125]],
-        bras: { a: [228, 57.6], a0: [210, 58.4], b: [228, 110.8], b0: [210, 108.8], bord: z } })); }
-    const fy = Y(xj) - 100;
-    out.push(h.fleche(`M${f(xj + 10)} ${f(Y(xj + 10) - 4)} L${f(xj + 70)} ${f(Y(xj + 70) - 3)}`, A.arete));
+    const m = mainNappe(z);
+    out.push(m.svg);
+    // la nappe par-dessus : levée au bout des doigts, elle remonte sur le dos de la main
+    out.push(nappeSvg);
+    out.push(h.geste(`M${f(xj + 10)} ${f(Y(xj + 10) - 4)} L${f(xj + 70)} ${f(Y(xj + 70) - 3)}`));
 
     return out.join(String.fromCharCode(10));
   };
@@ -356,10 +382,10 @@ module.exports = (h) => {
         dessin: z => dessinBraises(z),
         renvois: z => {
           const { P, S } = vueBraises(z);
-          const b = P(-LR * 0.4, 0, TE / 2);
+          const b = P(-LR + 14, 0, TE / 2);
           return [
-            { n: 1, rond: [16, 18], cible: [b[0] - 6, b[1] - RR * S + 2], texte: 'la queue tenue par la base' },
-            { n: 2, rond: [z.l - 14, 34], cible: P(0.66 * Lp, -0.3 * W, TE), texte: 'la peau cloque et se fend' },
+            { n: 1, rond: [16, 18], cible: [b[0], b[1] + RR * S * 0.5], texte: 'la queue tenue par la base' },
+            { n: 2, rond: [z.l - 14, 34], cible: P(0.62 * Lp, 0.1 * W, TE), texte: 'la peau cloque et se fend' },
           ];
         },
       },
@@ -384,7 +410,7 @@ module.exports = (h) => {
           return [
             { n: 5, rond: [z.l - 16, v.ym(z.l - 70) - 42], cible: [z.l - 70, v.ym(z.l - 70) - v.tf / 2], texte: 'la nappe de gras, d’un tenant' },
             { n: 6, rond: [z.l - 16, v.yb - 20], cible: [z.l - 80, v.yb - 36], texte: 'la viande' },
-            { n: 7, rond: [v.pouce[0] + 60, v.yb - 20], cible: v.pouce, texte: 'le pouce glissé sous le gras' },
+            { n: 7, rond: [mainNappe(z).pouce[0] + 60, v.yb - 20], cible: mainNappe(z).pouce, texte: 'le pouce glissé sous le gras' },
           ];
         },
       },

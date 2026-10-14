@@ -9,15 +9,16 @@
 // cadre : le trou se règle sur le grain, pas sur une mesure.
 // Géométrie de dessin, jamais imprimée : le pictogramme de 1750 (formes.js), épaule à 1430 ;
 // chaudière de 250 à la gueule, 270 de haut, penchée de 105° ; le rebord bas de la gueule à la
-// hauteur de l'épaule, à 620 devant les pieds. Les mains viennent de formes.js : le poing proche
-// sur la poignée de bois de l'anse, le poing loin sur le jonc du coin bas du fond. Une vue en gros
-// (« Les deux mains ») reprend la chaudière et les deux poings, tournés comme sur le personnage.
+// hauteur de l'épaule, à 620 devant les pieds. Une vue en gros (« Les deux mains ») reprend la
+// chaudière dans la même orientation : le poing proche sur la poignée de bois de l'anse, la main loin
+// à plat sous le fond, qui le lève.
 // Reprise du 12 octobre (JP : « corps et main ») : le pictogramme remplace l'ancienne silhouette,
 // les bras vont chercher les mains de la bibliothèque, et la vue en gros montre la prise.
-// 13 oct. : le vanneur est le corps simple (pose « vanner », bras recalculés sur l'anse et le fond) ;
-// « Les deux mains » est un gros plan de mains, laissé tel quel pour la nouvelle bibliothèque. La
-// charte : la chaudière pèse, son flanc du dessous et la face droite des lattes à l'ombre, la toile
+// 13 oct. : le vanneur est le corps simple (pose « vanner », bras recalculés sur l'anse et le fond).
+// La charte : la chaudière pèse, son flanc du dessous et la face droite des lattes à l'ombre, la toile
 // sous les tamis en gris loin ; le rouge sur le fond qu'on lève pour verser.
+// 14 oct. : « Les deux mains » passe aux mains simples (mains/moteur.js, mainSimple) et à la charte ;
+// la chaudière du gros plan, qui débordait de sa vue à droite, y est centrée.
 module.exports = (h) => {
   const A = h.a, F = h.formes;
   const BLANC = '#FFFFFF';
@@ -39,16 +40,6 @@ module.exports = (h) => {
     }
     return s + (ferme ? ' Z' : '');
   };
-  // le bras proche d'un personnage à prises (sa silhouette, l'épaule, l'avant-bras et la main),
-  // repeint par-dessus ce qu'il tient
-  const brasProche = pers => {
-    const L = String(pers).split('\n');
-    const iFond = L.findIndex(l => l.includes('stroke="none"'));
-    const sil = L.slice(0, iFond).filter(l => l.includes('stroke-width="2.4"')).slice(-2);
-    let iG = -1; L.forEach((l, i) => { if (l.startsWith('<g data-forme="main-')) iG = i; });
-    return [...sil, ...L.slice(iG - 4, L.length - 1)].join('\n');
-  };
-
   // ── les petites choses : grain, grain cassé, balle, graine ──
   // un grain entier, couché : un fuseau aux bouts arrondis, le sillon au milieu
   const grain = (c, Lg, La, ang, { pli = true, at = W(A.detail), plein = false } = {}) => {
@@ -100,25 +91,10 @@ module.exports = (h) => {
   // l'anse : de l'oreille, sur le flanc à 40 sous le rebord, levée et rabattue vers le fond
   // jusqu'au fil du dessus, vu par le bout
   const OREILLE = [0, 40], ANSE = [-140, 135];
-  // Les deux mains de la bibliothèque, que les bras vont chercher : la main proche, le poing fermé
-  // sur la poignée de bois de l'anse (vue par le bout : les doigts par-dessus, le pouce en face),
-  // qui porte ; la main loin, le poing fermé sur le jonc du fond, au coin bas (le coin dans le
-  // poing), qui soulève et fait pencher.
-  const D_POIGNEE = 28;
-  const FOND = g => [g.rb - 4, g.hb - 4];
-  const PRISE = (x, y, ech, angle) => Object.assign({ x, y, pose: 'prise', vue: 'profil', diametre: D_POIGNEE * ech, echelle: ech, bras: 70 }, angle == null ? {} : { angle });
-  const COIN = (x, y, ech, angle) => PRISE(x, y, ech, angle);
-  const ANG = { anse: -28 };
-  // les bras du corps simple (vue 1), calculés pour que les poings tombent sur Q(ANSE) et Q(FOND)
+  const D_POIGNEE = 28;                                // mm : la poignée de bois de l'anse (dessin, jamais imprimé)
+  // les bras du corps simple (vue 1), calculés pour que les poings tombent sur Q(ANSE) et sur le coin
+  // bas du fond, Q([rb − 4, hb − 4])
   const BRAS_VAN = { brasP: 96.1, avantbrasP: 126.2, mainP: 118, brasL: 40.7, avantbrasL: 144, mainL: 145 };
-  // l'ancien pictogramme : il ne sert plus qu'à donner aux poings du gros plan (« Les deux mains »)
-  // l'angle que leurs bras leur donnaient ; le gros plan attend la nouvelle bibliothèque de mains
-  const personnageVanne = g => {
-    const pa = g.Q(ANSE), pf = g.Q(FOND(g));
-    return F.personnage({ x: g.x0, y: g.G, pose: 'debout', echelle: g.e, penche: 4, regard: 16,
-      prises: { proche: PRISE(pa[0], pa[1], g.e, ANG.anse), loin: COIN(pf[0], pf[1], g.e) } });
-  };
-  const poignee = (m, ech) => h.cercle(m.trou.x, m.trou.y, D_POIGNEE / 2 * ech, A.hachure('bois', ech > 0.3 ? 'arete' : 'detail'));
   // la chaudière penchée, dans son repère Q (u en travers de la gueule, v de la gueule vers le fond)
   const chaudiere = (Q, rt, rb, hb, r, gros = false, charte = false) => {
     const o = [];
@@ -146,13 +122,6 @@ module.exports = (h) => {
     o.push(h.path(dL([or, an]), ech > 0.3 ? A.contour : A.arete));
     o.push(h.cercle(or[0], or[1], 2.5 * ech, A.plein));
     return o.join('\n');
-  };
-  // la main loin d'un personnage à prises (le premier groupe de main), repeinte par-dessus
-  const mainLoin = pers => {
-    const L = String(pers).split('\n');
-    const i0 = L.findIndex(l => l.startsWith('<g data-forme="main-'));
-    let i1 = i0; while (L[i1] !== '</g>') i1++;
-    return L.slice(i0, i1 + 1).join('\n');
   };
   const vanner = z => {
     const g = vanGeo(z), { P, e, Q, rt, rb, hb, filet } = g, o = [];
@@ -212,31 +181,67 @@ module.exports = (h) => {
   };
 
   // ═══ Vue 1 bis : les deux mains sur la chaudière, en gros ═══════════════════════════════
-  // La même chaudière et les mêmes mains que sur le personnage, dans la même orientation, à une
-  // échelle où on voit les doigts : l'avant-bras coupé, dans l'axe qui remonte vers l'épaule.
-  const VANZ = { l: 429, h: 303 };   // les angles des bras ne dépendent pas de l'échelle
+  // La même chaudière que sur le vanneur, dans la même orientation, à une échelle où on voit les
+  // doigts. Les mains simples gardent leur taille : leur echelle est celle de la vue (la chaudière en
+  // mm), et c'est la prise qui se ferme sur la poignée. Les avant-bras partent vers les coudes du
+  // vanneur de la vue 1 (mêmes directions : les deux vues ont la même rotation) et sortent de la vue.
+  //   La main proche (droite) : le poing par-dessus la poignée de bois de l'anse, vue par le bout ;
+  // du côté de l'auriculaire, c'est ce qu'on voit d'un poing droit fermé paume en bas, par la droite
+  // du vanneur. Tourné de 20° (rotation) pour que le bout de la poignée tombe dans le poing.
+  //   La main loin (gauche) : à plat sous le fond, la paume en l'air contre le flanc du dessous, le
+  // poignet juste passé le coin du fond, les doigts vers la gueule ; vue elle aussi du côté de
+  // l'auriculaire (une main gauche paume en l'air, vue par la droite). Elle lève le fond : la flèche.
+  const VANZ = { l: 429, h: 303 };
   const mainsGeo = z => {
-    const ech = Math.min(z.l / 340, (z.h - 30) / 420);
+    const ech = Math.min(z.l / 352, (z.h - 30) / 420);
     const rt = 125, rb = 105, hb = 270, th = 105;
-    const c = [z.l * 0.6, z.h * 0.36];                        // le milieu de la chaudière
+    // la chaudière centrée en largeur : sa gueule ne sort plus de la vue
+    const bx = [[-rt, 0], [rt, 0], [rb, hb], [-rb, hb], ...[0, 1, 2, 3, 4, 5, 6, 7].map(i => [rt * Math.cos(i * Math.PI / 4), 30 * Math.sin(i * Math.PI / 4)])]
+      .map(p => rot([p[0] * ech, (p[1] - hb / 2) * ech], th)[0]);
+    const c = [(z.l - Math.max(...bx) - Math.min(...bx)) / 2, z.h * 0.42];   // le milieu de la chaudière
     const Mm = add(c, rot([0, -hb / 2 * ech], th));          // centre de la gueule
     const Q = p => add(Mm, rot([p[0] * ech, p[1] * ech], th));
     return { ech, rt, rb, hb, th, Q };
   };
+  // la direction poignet → coude de chaque bras du vanneur (vue 1), en degrés écran
+  const directionsBras = () => {
+    const g = vanGeo(VANZ);
+    const A = F.corps({ x: g.x0, y: g.G, pose: 'vanner', echelle: g.e, mains: { L: 'prise' }, angles: BRAS_VAN }).articulations;
+    const d = (p, c) => Math.atan2(A[c][1] - A[p][1], A[c][0] - A[p][0]) / RAD;
+    return { P: d('poignetP', 'coudeP'), L: d('poignetL', 'coudeL') };
+  };
   const mainsGros = z => {
-    const m = mainsGeo(z), { ech, Q, rt } = m, o = [], r = alea(9809);
-    const pers = personnageVanne(vanGeo(VANZ)), pa = Q(ANSE), pf = Q(FOND(m));
+    const m = mainsGeo(z), { ech, Q, rt, rb, hb } = m, o = [], r = alea(9809);
+    const BORD = { x0: 0, y0: 0, x1: z.l, y1: z.h };
+    const dir = directionsBras(), loinDe = (p, deg) => [p[0] + Math.cos(deg * RAD) * 600, p[1] + Math.sin(deg * RAD) * 600];
     // le filet de grain qui part du rebord bas
     const Lb = Q([rt, 0]);
     for (let i = 0; i < 40; i++) {
       const s = r(), y = Lb[1] + 4 + s * (z.h - Lb[1] - 6), x = Lb[0] + 3 + 8 * Math.sqrt(s) + (r() - 0.5) * (4 + 8 * s);
       o.push(grain([x, y], 9, 4.2, 75 + 30 * r(), { plein: true }));
     }
-    o.push(chaudiere(Q, m.rt, m.rb, m.hb, r, true));
-    const ax = pers.mains.loin.trou.axe, angC = Math.atan2(ax[0], -ax[1]) / RAD;   // l'angle que le bras a donné au poing
-    o.push(F.main(Object.assign(COIN(pf[0], pf[1], ech, angC), { bras: 130 })));
-    const mA = F.main(Object.assign(PRISE(pa[0], pa[1], ech, ANG.anse), { bras: 130 }));
-    o.push(mA, poignee(mA, ech));
+    o.push(chaudiere(Q, m.rt, m.rb, m.hb, r, true, true));
+    // la main loin, la paume posée sur le flanc du dessous (la paume de la pose plat est à 24,5 mm de
+    // l'axe de la main ; 1,2 de plus pour ne pas manger le contour de la chaudière)
+    const B1 = Q([rb, hb]), G1 = Q([rt, 0]);                      // le coin bas du fond, le rebord bas de la gueule
+    const lF = Math.hypot(G1[0] - B1[0], G1[1] - B1[1]), uF = [(G1[0] - B1[0]) / lF, (G1[1] - B1[1]) / lF];
+    const nF = [-uF[1], uF[0]];                                   // la normale du flanc, vers le dessous
+    const ePaume = 24.5 * ech + 1.2;
+    const surFlanc = (mm, dessous) => [B1[0] + uF[0] * mm * ech + nF[0] * dessous, B1[1] + uF[1] * mm * ech + nF[1] * dessous];
+    const PL = surFlanc(20, ePaume);                              // le poignet, 20 mm passé le coin du fond
+    o.push(String(F.mainSimple({ x: PL[0], y: PL[1], ancre: 'poignet', pose: 'plat', vue: 'auriculaire', cote: 'gauche', echelle: ech,
+      angle: Math.atan2(uF[1], uF[0]) / RAD, avantbras: { vers: loinDe(PL, 140), bord: BORD, longueur: 'bord' } })));
+    // la main proche, le poing sur la poignée ; la face coupée de la poignée, hachurée
+    const pa = Q(ANSE);
+    o.push(String(F.mainSimple({ x: pa[0], y: pa[1], pose: 'prise-manche', vue: 'auriculaire', cote: 'droite', echelle: ech, diametre: D_POIGNEE,
+      angle: dir.P + 180, rotation: [-20, 0, 0],
+      objet: g => g.coupe
+        ? h.ellipse(g.coupe.x, g.coupe.y, g.coupe.rx, Math.max(g.coupe.ry, 0.8), A.hachure('bois', 'arete')).replace('/>', ` transform="rotate(${f(g.coupe.angle)} ${f(g.coupe.x)} ${f(g.coupe.y)})"/>`)
+        : h.cercle(g.x, g.y, g.r, A.hachure('bois', 'arete')),
+      avantbras: { vers: loinDe(pa, dir.P), bord: BORD, longueur: 'bord' } })));
+    // le geste : la main loin lève le fond
+    const a0 = surFlanc(120, ePaume + 34), a1 = surFlanc(120, ePaume + 14);
+    o.push(h.geste(`M${f(a0[0])} ${f(a0[1])} L${f(a1[0])} ${f(a1[1])}`));
     return o.join('\n');
   };
 
@@ -439,7 +444,7 @@ module.exports = (h) => {
   return {
     ref: '98-08',
     titre: 'Vanner et tamiser le grain',
-    desc: 'Vanner au vent : la chaudière tenue à bout de bras, le poing proche sur la poignée de l’anse, le poing loin qui lève le fond (flèche rouge) ; le grain versé de la hauteur de l’épaule sur une toile, le vent dans le dos emporte la balle loin, le grain tombe en tas. En gros, les deux mains sur la chaudière. Puis les deux tamis, écartés : le grillage de poulailler cloué sur un cadre de lattes retient tiges et épis, la tôle percée au clou retient le bon grain, et dessous tombent poussière, petites graines et grain cassé. En détail, la tôle en coupe et vue de dessus : le trou fait au clou, le grain entier qui le couvre et reste, le grain cassé qui passe.',
+    desc: 'Vanner au vent : la chaudière tenue à bout de bras, le poing proche sur la poignée de l’anse, le poing loin qui lève le fond (flèche rouge) ; le grain versé de la hauteur de l’épaule sur une toile, le vent dans le dos emporte la balle loin, le grain tombe en tas. En gros, les deux mains sur la chaudière : le poing par-dessus la poignée de l’anse, la main loin à plat sous le fond, qui le lève (flèche rouge). Puis les deux tamis, écartés : le grillage de poulailler cloué sur un cadre de lattes retient tiges et épis, la tôle percée au clou retient le bon grain, et dessous tombent poussière, petites graines et grain cassé. En détail, la tôle en coupe et vue de dessus : le trou fait au clou, le grain entier qui le couvre et reste, le grain cassé qui passe.',
     format: 'pleine',
     disposition: [['vanner', 'mains'], ['tamis', 'trou']],
     hauteurs: [1.1, 1],
