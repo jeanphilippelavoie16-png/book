@@ -118,7 +118,7 @@ module.exports = (h) => {
     const S = lisse(p, SUPRA, true), I = lisse(p, INFRA, true), Lg = lisse(p, LONG, true), La = lisse(p, LAT, true);
     return [
       C.dessiner(h, p, {
-        id: 'v1', loin: 'fin', fondOs: false,
+        id: 'v1', loin: 'gris', fondOs: false,
         os: ['omoplate', 'cartilageOmoplate', 'humerus', 'radius', 'cubitus'],
         osForts: ['cubitus'],                   // l'olécrane ; l'épine est repassée en trait fort plus bas
       }),
@@ -144,7 +144,7 @@ module.exports = (h) => {
     const k = p.k;
     return [
       C.dessiner(h, p, {
-        id: 'v2', loin: 'fin', fondOs: false,
+        id: 'v2', loin: 'gris', fondOs: false,
         os: ['omoplate', 'cartilageOmoplate', 'humerus', 'radius', 'cubitus'],
       }),
       `<g clip-path="url(#v2-corps)">`,
@@ -230,7 +230,7 @@ module.exports = (h) => {
     out.push(`<path d="${dd(T(entier, Y_A), true)}" fill="${BLANC}" ${trait(2.4).replace('fill="none" ', '')}/>`);
     out.push(`<path d="${dd(T(lame, Y_A), true)}" fill="${NOIR}" stroke="${NOIR}" stroke-width="0.5"/>`);
     const fl = T([[LI + 14, -12], [DEBUT_LAME + 4, -12]], Y_A);
-    out.push(h.fleche(dd(fl), trait(1.4)));
+    out.push(h.geste(dd(fl)));   // la charte : la refente, le geste, en rouge
     // B — ouvert : les deux moitiés écartées, la lame retirée entre elles
     const yB = Y_B;
     out.push(`<path d="${dd(T(C.dense(moitieHaut, 2, true), yB - ECART), true)}" fill="${BLANC}" ${trait(2.4).replace('fill="none" ', '')}/>`);

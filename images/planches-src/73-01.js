@@ -1,6 +1,9 @@
 // Planche 73-01 — la cache de gel sur poteaux (chapitre 68, Le froid naturel).
 // Aucune cote : le chapitre ne donne aucune dimension de la cache. L'échelle vient de la
 // boîte de conserve (collet, rapiéçage).
+// La charte : le dedans de la cache et la lambourde derrière la coupe en gris loin ; le poteau, la
+// tôle et la boîte du détail ont leur flanc de droite à l'ombre. Un rouge : le témoin de dégel (un
+// cercle sur le min-max, collé au moraillon, se lisait comme s'il désignait le cadenas). L'air reste en noir ; plans à plat sans gris.
 
 const blanc = (a) => a.replace('fill="none"', 'fill="#FFFFFF"');
 
@@ -76,8 +79,10 @@ module.exports = (h) => {
             out.push(h.chemin([[p - 1, yC], [p + 17, yC], [p + 23, yC + 15], [p - 7, yC + 15]], blanc(h.a.arete), true));
             out.push(h.cercle(p + 5, yC + 4, 1.3, h.a.plein), h.cercle(p + 11, yC + 4, 1.3, h.a.plein));
           }
-          // lambourde, vue derrière le plan de coupe
-          out.push(h.rect(x0 - 14, yF + 14, W + 28, 11, blanc(h.a.fin)));
+          // lambourde, vue derrière le plan de coupe : en gris loin
+          out.push(h.rect(x0 - 14, yF + 14, W + 28, 11, h.a.loin), h.rect(x0 - 14, yF + 14, W + 28, 11, h.a.fin));
+          // le dedans de la cache, vu par la coupe : en gris loin, sous la charge
+          out.push(h.chemin([[x0 + t, lid(x0 + t)], [x1 - t, lid(x1 - t)], [x1 - t, yF], [x0 + t, yF]], h.a.loin, true));
           // grillage : parois et dessous
           out.push(maille([[x0 - 3, yS + 2], [x0 - 3, yF + 11], [x1 + 3, yF + 11], [x1 + 3, yN + 2]]));
           // parois coupées
@@ -158,6 +163,7 @@ module.exports = (h) => {
           out.push(h.cercle(bx0 + 110, y1 - 78, 8, blanc(h.a.arete)));
           out.push(h.cercle(bx0 + 110, y1 - 78, 6, h.a.detail));
           out.push(h.cercle(bx0 + 111, y1 - 77, 2.4, h.a.plein));
+          out.push(h.controle(bx0 + 110, y1 - 78, 13));   // le témoin : la pièce coulée au fond, il a dégelé
           // nord
           const xn = bx1 + 36;
           out.push(h.ligne(xn, y0 + 48, xn, y0 + 20, h.a.arete));
@@ -181,6 +187,10 @@ module.exports = (h) => {
         dessin: (z) => {
           const { L, H, pc, pl, pr, yb, bh } = gk(z);
           const out = [];
+          // le flanc de droite du poteau, à l'ombre (découpé par le poteau lui-même)
+          const dPot = `M ${pl} 10 q 11 -5 22 0 t 22 0 L ${pr} ${H - 10} Q ${pc + 11} ${H - 5} ${pc} ${H - 10} Q ${pl + 11} ${H - 15} ${pl} ${H - 10} Z`;
+          out.push(`<clipPath id="om-73-01-poteau">${h.path(dPot, h.a.blanc)}</clipPath>`);
+          out.push(`<g clip-path="url(#om-73-01-poteau)">${h.rect(pr - 15, 0, 15, H, h.a.ombre)}</g>`);
           // poteau écorcé, coupé en haut et en bas
           out.push(h.ligne(pl, 10, pl, H - 10, h.a.contour), h.ligne(pr, 10, pr, H - 10, h.a.contour));
           out.push(h.path(`M ${pl} 10 q 11 -5 22 0 t 22 0`, h.a.arete));
@@ -188,12 +198,18 @@ module.exports = (h) => {
           for (const dx of [9, 20, 33]) out.push(h.path(`M ${pl + dx} 14 C ${pl + dx + 3} ${H * 0.35} ${pl + dx - 3} ${H * 0.65} ${pl + dx} ${H - 14}`, h.a.detail));
           out.push(h.ellipse(pl + 27, H * 0.8, 3, 6, h.a.detail));
           // la bande de tôle, rebord évasé vers le bas
-          out.push(h.path(`M ${pl - 2} ${yb} Q ${pc} ${yb + 9} ${pr + 2} ${yb} L ${pr + 2} ${yb + bh} L ${pr + 12} ${yb + bh + 14} Q ${pc} ${yb + bh + 26} ${pl - 12} ${yb + bh + 14} L ${pl - 2} ${yb + bh} Z`, blanc(h.a.arete)));
+          const dCol = `M ${pl - 2} ${yb} Q ${pc} ${yb + 9} ${pr + 2} ${yb} L ${pr + 2} ${yb + bh} L ${pr + 12} ${yb + bh + 14} Q ${pc} ${yb + bh + 26} ${pl - 12} ${yb + bh + 14} L ${pl - 2} ${yb + bh} Z`;
+          out.push(h.path(dCol, h.a.blanc));
+          // la tôle aussi a son flanc de droite à l'ombre
+          out.push(`<clipPath id="om-73-01-collet">${h.path(dCol, h.a.blanc)}</clipPath>`);
+          out.push(`<g clip-path="url(#om-73-01-collet)">${h.rect(pc + 9, yb - 4, 30, bh + 34, h.a.ombre)}</g>`);
+          out.push(h.path(dCol, h.a.arete));
           out.push(h.path(`M ${pl - 2} ${yb + bh} Q ${pc} ${yb + bh + 9} ${pr + 2} ${yb + bh}`, h.a.detail));
           out.push(h.ligne(pc + 14, yb + 7, pc + 14, yb + bh + 8, h.a.arete));
           for (const y of [yb + 12, yb + 20, yb + 28]) out.push(h.cercle(pc + 17, y, 1.8, h.a.plein));
           for (const x of [pl + 6, pc - 6]) out.push(h.cercle(x, yb + 14, 1.8, h.a.plein));
-          // la boîte de conserve, ouverte aux deux bouts et fendue
+          // la boîte de conserve, ouverte aux deux bouts et fendue ; son flanc de droite à l'ombre
+          out.push(h.path(`M 70.8 24 L 84 24 L 84 76 A 24 7 0 0 1 70.8 82.3 Z`, h.a.ombre));
           out.push(h.ellipse(60, 24, 24, 7, blanc(h.a.arete)), h.ellipse(60, 24, 20, 5, h.a.detail));
           out.push(h.ligne(36, 24, 36, 76, h.a.arete), h.ligne(84, 24, 84, 76, h.a.arete));
           out.push(h.path('M 36 76 A 24 7 0 0 0 84 76', h.a.arete));

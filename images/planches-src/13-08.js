@@ -1,6 +1,11 @@
 // Planche 13-08 — la boîte à braise : chargée en coupe, portée au bout de son anse,
 // et le geste de la percer au clou sur une bûche.
 // Aucune cote : le chapitre ne donne aucune dimension, et la durée porte [À VÉRIFIER].
+//
+// La charte : à l'ombre, la face de droite de la boîte portée, le dessous de la bûche et de la
+// boîte couchée ; la coupe pleine de cendre reste sans gris. Le rouge : le coup de marteau sur
+// le clou (le geste) ; le trou du couvercle, où l'on regarde s'il fume encore, cerclé. Les
+// flèches d'air et de fumée restent noires.
 
 module.exports = (h) => {
   const f = v => Math.round(v * 10) / 10;
@@ -183,6 +188,10 @@ module.exports = (h) => {
           const { W, H, cx, yB, yT, ry, xl, xr, yA, poing } = portee(z);
           const out = [];
 
+          // La face de droite, à l'ombre : du bord avant du dessus jusqu'au fond.
+          { const av = x => ry * Math.sqrt(Math.max(0, 1 - ((x - cx) / (W / 2)) ** 2)), xs = [];
+            for (let x = cx + 0.22 * W; x <= xr + 0.01; x += W / 60) xs.push(x);
+            out.push(h.chemin([...xs.map(x => [x, yT + av(x)]), ...xs.slice().reverse().map(x => [x, yB + av(x)])], h.a.ombre, true)); }
           // Le corps de la boîte, ses ondulations, son fond.
           out.push(h.path(`M ${xl} ${yT} L ${xl} ${yB} A ${W / 2} ${ry} 0 0 0 ${xr} ${yB} L ${xr} ${yT}`, h.a.contour));
           for (const k of [0.2, 0.44, 0.9]) {
@@ -207,6 +216,8 @@ module.exports = (h) => {
           // Un filet de fumée au couvercle.
           const sx = cx + 0.22 * W, sy = yT + 4 + 0.4 * (ry - 3);
           out.push(h.path(`M ${f(sx)} ${f(sy - 3)} C ${f(sx - 8)} ${f(sy - 14)} ${f(sx + 8)} ${f(sy - 24)} ${f(sx)} ${f(sy - 34)} S ${f(sx + 6)} ${f(sy - 52)} ${f(sx - 2)} ${f(sy - 60)}`, h.a.fin));
+          // À chaque arrêt : fume-t-il encore au trou ?
+          out.push(h.controle(sx, sy - 1, 9));
 
           // L'anse : les deux brins montent jusqu'au bord de la vue (la main est hors champ, loin du corps).
           const py = 2;
@@ -240,7 +251,13 @@ module.exports = (h) => {
           out.push(h.rect(12, G, z.l - 24, 8, h.a.hachure('terre', 'aucun')));
 
           // La bûche : le bout scié à gauche, l'écorce, puis la partie cachée dans la boîte.
-          const yb0 = ya - r, yb1 = ya + r;
+          const yb0 = ya - r, yb1 = ya + r, yc0 = ya - R, yc1 = ya + R;
+          // Le dessous de la bûche et de la boîte couchée, à l'ombre.
+          out.push(h.rect(xb0, ya + 0.45 * r, xo - xb0, 0.55 * r, h.a.ombre));
+          { const pts = [[xo, ya + 0.45 * R], [xf, ya + 0.45 * R]];
+            for (let k = 0; k <= 12; k++) { const u = Math.asin(0.45) + (Math.PI / 2 - Math.asin(0.45)) * k / 12; pts.push([xf + exC * Math.cos(u), ya + R * Math.sin(u)]); }
+            pts.push([xo, yc1]);
+            out.push(h.chemin(pts, h.a.ombre, true)); }
           out.push(h.ligne(xb0, yb0, xo, yb0, h.a.contour), h.ligne(xb0, yb1, xo, yb1, h.a.contour));
           out.push(h.ellipse(xb0, ya, ex, r, h.a.blanc));
           out.push(h.ellipse(xb0, ya, ex, r, h.a.contour));
@@ -253,7 +270,6 @@ module.exports = (h) => {
           out.push(h.ligne(xf - 10, yb0, xf - 10, yb1, h.a.cache));
 
           // La boîte couchée : bord ouvert à gauche, fond à droite, ondulations.
-          const yc0 = ya - R, yc1 = ya + R;
           out.push(h.path(`M ${xo} ${yc0} L ${xf} ${yc0} A ${exC} ${R} 0 0 1 ${xf} ${yc1} L ${xo} ${yc1}`, h.a.contour));
           out.push(h.path(`M ${xo} ${yc0} A ${exC} ${R} 0 0 1 ${xo} ${yc1}`, h.a.contour));
           for (const k of [0.12, 0.5]) {
@@ -275,7 +291,7 @@ module.exports = (h) => {
           const mh = yP - nh - 12;
           out.push(h.rect(xh - 12, mh - 22, 24, 22, h.a.hachure('metal', 'contour')));
           out.push(h.chemin([[xh + 12, mh - 14], [xh + 118, mh - 36], [xh + 120, mh - 26], [xh + 12, mh - 7]], h.a.hachure('bois', 'arete'), true));
-          out.push(h.fleche(`M ${xh - 26} ${mh - 30} L ${xh - 26} ${mh + 4}`));
+          out.push(h.geste(`M ${xh - 26} ${mh - 30} L ${xh - 26} ${mh + 4}`));
 
           return out.join('\n');
         },

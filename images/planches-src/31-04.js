@@ -1,4 +1,9 @@
 // Planche 31-04 — Le piège à graisse à deux chaudières (ch. 28, « Le piège à graisse fabriqué »)
+//
+// La charte : les contenus gardent leurs trames. Au-dessus d'eux, la paroi du fond de chaque
+// chaudière, vue par la coupe, recule en gris loin. Le rouge : le cercle sur la bouche du boyau,
+// à mi-hauteur entre la graisse et les solides : c'est elle qui fait marcher le piège. Les
+// flèches de l'eau restent noires.
 module.exports = (h) => {
   const N = '#1A1A1A', B = '#FFFFFF';
   const geo = (z) => {
@@ -69,6 +74,9 @@ module.exports = (h) => {
           const xp = x1 - wt * 0.37;
           return [
             h.ligne(x1 - wt / 2 - 40, G, x2 + wt / 2 + 40, G, h.a.arete),
+            // la paroi du fond, vue au-dessus du contenu
+            couche(g, x1, yT, yS, h.a.loin),
+            couche(g, x2, yT, y2S, h.a.loin),
             // première chaudière : eau, graisse, solides
             couche(g, x1, yG, yF + 4, h.a.hachure('eau', 'aucun')),
             couche(g, x1, yS, yG, h.a.hachure('neige', 'aucun')),
@@ -98,6 +106,7 @@ module.exports = (h) => {
             h.path(d(pts(bol)), h.a.arete),
             h.chemin(manche, h.a.plein, true),
             h.chemin(manche, h.a.detail, true),
+            h.controle(hx, yM + 1, 13),   // la bouche, à mi-hauteur
           ].join('\n');
         },
         renvois: (z) => {

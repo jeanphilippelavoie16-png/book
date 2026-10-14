@@ -174,6 +174,8 @@ module.exports = (h) => {
         ].join('\n');
       })(),
       couteau(add(H, [-2, -2]), [-0.2, -1], 40, 7.5, 30, 9),
+      // le point qu'on surveille : la lame entre le lard et le muscle, ni dans l'un ni dans l'autre
+      h.controle(...H, 11),
     ].join('\n');
 
     const renvois = [
@@ -236,7 +238,8 @@ module.exports = (h) => {
       h.ligne(...bas[n], ...haut[n], h.a.arete),
       h.chemin([[x1, ys], [x1, yl], [J, yl]].concat(haut), h.a.contour),
       ...lameC,
-      h.fleche(`M${kx + 48} ${yi + 3} L${kx + 10} ${yi + 3}`, h.a.detail),
+      // le geste : pousser la lame à plat, sous le lard
+      h.geste(`M${kh + 26} ${yi - 13} L${kh - 4} ${yi - 13}`),
     ].join('\n');
 
     const renvois = [

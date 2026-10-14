@@ -1,4 +1,8 @@
 // Planche 31-08 — Creuser un sol gelé au feu (ch. 28, « Creuser un trou dans un sol gelé »)
+//
+// La charte : les coupes gardent leurs trames, sans gris, sauf le trou de septembre : vide, sa paroi
+// du fond, vue derrière le plan de coupe, recule en gris loin. Le rouge : la pelletée qu'on jette
+// sur le tas.
 module.exports = (h) => {
   const S = 22;                                   // épaisseur de la neige au sol
   const forme = (t) => 1 - Math.pow(Math.abs(t), 4);   // fond plat, parois raides
@@ -182,7 +186,7 @@ module.exports = (h) => {
             tas(z.l * 0.865, z.l - 3, g.GS - S, 15),
             tas(g.cx - 60, g.cx - 45, fond, 6),
             pelle(g.cx - 46, fond, -32),
-            h.fleche(`M ${R(g.cx - 24)} ${R(fond - 16)} Q ${R(g.cx + 30)} ${R(g.GS - 78)} ${R(z.l * 0.9)} ${R(g.GS - S - 22)}`, h.a.arete),
+            h.geste(`M ${R(g.cx - 24)} ${R(fond - 16)} Q ${R(g.cx + 30)} ${R(g.GS - 78)} ${R(z.l * 0.9)} ${R(g.GS - S - 22)}`),
           ].join('\n');
         },
         renvois: (z) => {
@@ -224,6 +228,7 @@ module.exports = (h) => {
           const trou = [[0, GS], [xa, GS], [xa + 1, GS + D * 0.4], [xa - 1, GS + D * 0.75], [xa + 2, GS + D],
             [xb - 1, GS + D], [xb + 1, GS + D * 0.7], [xb - 1, GS + D * 0.35], [xb, GS], [z.l, GS]];
           const bas = casse(z, yb).reverse();
+          out.push(h.chemin(trou.slice(1, -1), h.a.loin, true));   // la paroi du fond du trou, derrière la coupe
           out.push(h.chemin([...trou, ...bas], h.a.hachure('terre', 'aucun'), true));
           out.push(h.chemin(casse(z, yb), h.a.fin));
           out.push(h.chemin(trou, h.a.contour));

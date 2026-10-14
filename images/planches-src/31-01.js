@@ -1,5 +1,9 @@
 // Planche 31-01 — La bécosse à fosse sèche. Chapitre 28, section C (étapes 13 à 20, 23)
 // et variante d'urgence « La bécosse devient un trou et une planche » (siège, couvercle, colonne).
+//
+// La charte : les coupes gardent leurs hachures, sans gris. Le gris loin va sur la paroi du fond
+// de la fosse, vue derrière le plan de coupe, et sur le fond de la fosse vu de dessus. Le rouge :
+// le cercle sur l'encoche du niveau plein, ce qu'on surveille.
 module.exports = (h) => {
   const blanc = (t) => t.replace('fill="none"', 'fill="#ffffff"');
   const zigzag = (x, y1, y2) => {
@@ -45,11 +49,13 @@ module.exports = (h) => {
           out.push(h.ligne(55, yRoc, 272, yRoc, h.a.arete));
           // la fosse vide
           out.push(h.rect(pxL, yg, pxR - pxL, yF - yg, h.a.blanc));
+          out.push(h.rect(pxL + 3, yg, pxR - pxL - 6, yMid - yg, h.a.loin));   // la paroi du fond, derrière la coupe
           // paroi du fond, vue en élévation : serrée en haut, ajourée en bas
           for (let y = yg + 11.7; y < yMid; y += 11.7) out.push(h.ligne(pxL + 3, y, pxR - 3, y, h.a.detail));
           out.push(h.ligne(pxL + 3, yMid, pxR - 3, yMid, h.a.detail));
           const pb = (yF - yMid - 21) / 4;      // planches basses, jours de 7 px
           const bas = [0, 1, 2, 3].map(i => [yMid + i * (pb + 7), i === 3 ? yF : yMid + i * (pb + 7) + pb]);
+          for (const [a, b] of bas) out.push(h.rect(pxL + 3, a, pxR - pxL - 6, b - a, h.a.loin));
           for (let i = 0; i < bas.length - 1; i++) {
             out.push(h.rect(pxL + 3, bas[i][1], pxR - pxL - 6, bas[i + 1][0] - bas[i][1], h.a.hachure('terre', 'detail')));
           }
@@ -65,6 +71,7 @@ module.exports = (h) => {
           out.push(h.path(tas, h.a.blanc), h.path(tas, h.a.hachure('gravier', 'detail')));
           // encoche du niveau plein, à 40 cm
           out.push(h.ligne(pxR - 10, yg + 0.4 * s, pxR, yg + 0.4 * s, h.a.contour));
+          out.push(h.controle(pxR - 5, yg + 0.4 * s, 10));
           // bord de la fosse
           out.push(h.chemin([[pxL, yg], [pxL, yF], [pxR, yF], [pxR, yg]], h.a.contour));
           out.push(h.ligne(wL + 8, yg, pxL, yg, h.a.arete), h.ligne(pxR, yg, wR - 8, yg, h.a.arete));
@@ -195,6 +202,7 @@ module.exports = (h) => {
           out.push(h.rect(x0 + W - t, y0 + t, t, H - 2 * t, h.a.hachure('bois')));
           // fosse et sa paroi de planches
           out.push(h.rect(fx, fy, fl, fh, h.a.contour));
+          out.push(h.rect(fx + 3, fy + 3, fl - 6, fh - 6, h.a.loin));   // le fond de la fosse, loin dessous
           out.push(h.rect(fx + 3, fy + 3, fl - 6, fh - 6, h.a.detail));
           // trou du siège au-dessus, et la colonne dans le coin
           out.push(h.cercle(fx + fl - 0.38 * s, fy + fh / 2, 13, h.a.cache));

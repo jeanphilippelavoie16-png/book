@@ -268,7 +268,8 @@ module.exports = (h) => {
       }
       // la cale se retire vers le bas à mi-séchage
       const [fx, fy] = T([0, CALE_B + 1.2]);
-      o.push(h.fleche(`M${fx.toFixed(1)},${fy.toFixed(1)} L${fx.toFixed(1)},${(fy + 5.2 * s).toFixed(1)}`));
+      // le geste : tirer la cale vers le bas, à mi-séchage
+      o.push(h.geste(`M${fx.toFixed(1)},${fy.toFixed(1)} L${fx.toFixed(1)},${(fy + 5.2 * s).toFixed(1)}`));
       // le trait de la coupe en travers, prolongé vers la vue suivante
       const [xa, ya] = T([-7.3, yB]), [xb] = T([7.3, yB]);
       o.push(h.ligne(xa, ya, z.l, ya, CHAINE));
@@ -355,6 +356,8 @@ module.exports = (h) => {
         const dech2 = lisse([[3.5, 50.5], [3.05, 47], [3.0, 43.2], [3.3, 39.5]], [3.4, 53], [3.4, 36], 6);
         const dd = dech.concat(dech2.slice(1));
         o.push(h.chemin(P(dd), h.a.blanc, true), h.chemin(P(dd), h.a.arete, true));
+        // là où ça casse : la déchirure
+        o.push(h.controle(...P([[3.6, 45]])[0], 5.2 * s));
       }
       o.push(...pc.bord);
       o.push(...manche(P, 1), ...manche(P, -1), ...yeux(P));
@@ -408,6 +411,8 @@ module.exports = (h) => {
       const cass = [];
       for (let i = 0; i <= 10; i++) cass.push([X0 + (i % 2 ? 0.12 : -0.05), -2.5 + i * 0.5]);
       o.push(h.chemin(P(cass), h.a.detail));
+      // là où ça casse : le coin vif qui marque le cuir
+      o.push(h.controle(...P([[W + 0.15, -t - 0.15]])[0], 0.75 * sD));
       return o.join('\n');
     },
     renvois: z => {

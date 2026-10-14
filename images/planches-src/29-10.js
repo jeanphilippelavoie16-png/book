@@ -9,6 +9,12 @@
 // Le chapitre ne donne aucune dimension (tissu, liens, paquet, boîte) : aucune cote.
 // Les ciseaux sont tout en métal, à anneaux minces : c'est ce qui passe au four.
 // Aucune main : les objets en place et la flèche du geste.
+//
+// La charte : la lumière vient d'en haut à gauche, la face +x de chaque pavé (le paquet, la boîte,
+// le couvercle, le flanc de la cuisinière) est à l'ombre ; l'intérieur du four et celui de la boîte,
+// vus par l'ouverture, reculent en gris loin. Le rouge : le couvercle qu'on referme, et le cercle
+// sur les anneaux des ciseaux, tout en métal (un manche de plastique fond au four). Les quatre
+// coins qu'on rabat restent noirs : une seule flèche rouge par vue.
 module.exports = (h) => {
   const A = h.a, F = h.formes;
   const blanc = at => at.replace('fill="none"', 'fill="#FFFFFF"');
@@ -28,9 +34,10 @@ module.exports = (h) => {
   const axo = (AX, AY) => (x, y, z) => [AX[0] * x + AY[0] * y, AX[1] * x + AY[1] * y - z];
 
   // un pavé plein : dessus, face +x, face +y (les trois qu'on voit), silhouette au trait fort
-  const pave = (P, x0, y0, z0, x1, y1, z1, silh = A.contour, ar = A.arete) => [
+  const OMBRE = at => at.replace('fill="none"', 'fill="#CFCFCF"');
+  const pave = (P, x0, y0, z0, x1, y1, z1, silh = A.contour, ar = A.arete, ombre = true) => [
     poly([P(x0, y0, z1), P(x1, y0, z1), P(x1, y1, z1), P(x0, y1, z1)], blanc(ar)),
-    poly([P(x1, y0, z0), P(x1, y1, z0), P(x1, y1, z1), P(x1, y0, z1)], blanc(ar)),
+    poly([P(x1, y0, z0), P(x1, y1, z0), P(x1, y1, z1), P(x1, y0, z1)], ombre ? OMBRE(ar) : blanc(ar)),   // la face +x, à l'ombre
     poly([P(x0, y1, z0), P(x1, y1, z0), P(x1, y1, z1), P(x0, y1, z1)], blanc(ar)),
     poly([P(x0, y0, z1), P(x1, y0, z1), P(x1, y0, z0), P(x1, y1, z0), P(x0, y1, z0), P(x0, y1, z1)], silh),
   ].join('\n');
@@ -110,6 +117,7 @@ module.exports = (h) => {
     });
     out.push(poly(lame.map(C), blanc(A.arete)));
     out.push(poly([[-2, 0.2], [44, 0]].map(C), A.detail, false));
+    { const c = C([-32.5, 0]); out.push(h.controle(c[0], c[1], 21 * tissu(z).s)); }   // tout en métal : rien qui fonde
     const piv = C([0, 0]);
     out.push(h.cercle(piv[0], piv[1], 2.4 * tissu(z).s, blanc(A.arete)), h.cercle(piv[0], piv[1], 0.7 * tissu(z).s, A.plein));
 
@@ -151,9 +159,10 @@ module.exports = (h) => {
     const { T } = cadre3(z), P = (x, y, zz) => T(P3(x, y, zz));
     const out = [];
     // l'intérieur : le fond, la paroi de gauche et ses glissières, la sole
-    out.push(poly([P(X0, YB, Z0), P(X1, YB, Z0), P(X1, YB, Z1), P(X0, YB, Z1)], blanc(A.detail)));
-    out.push(poly([P(X0, YB, Z0), P(X0, YF, Z0), P(X0, YF, Z1), P(X0, YB, Z1)], blanc(A.detail)));
-    out.push(poly([P(X0, YB, Z0), P(X1, YB, Z0), P(X1, YF, Z0), P(X0, YF, Z0)], blanc(A.detail)));
+    const LOIN = at => at.replace('fill="none"', 'fill="#E6E6E6"');   // vu par la bouche du four : recule
+    out.push(poly([P(X0, YB, Z0), P(X1, YB, Z0), P(X1, YB, Z1), P(X0, YB, Z1)], LOIN(A.detail)));
+    out.push(poly([P(X0, YB, Z0), P(X0, YF, Z0), P(X0, YF, Z1), P(X0, YB, Z1)], LOIN(A.detail)));
+    out.push(poly([P(X0, YB, Z0), P(X1, YB, Z0), P(X1, YF, Z0), P(X0, YF, Z0)], LOIN(A.detail)));
     [26, 38, 50].forEach(zr => {
       out.push(poly([P(X0, YB + 3, zr - 0.8), P(X0, YF - 1, zr - 0.8)], A.fin, false));
       out.push(poly([P(X0, YB + 3, zr + 0.8), P(X0, YF - 1, zr + 0.8)], A.fin, false));
@@ -173,7 +182,7 @@ module.exports = (h) => {
     out.push(poly([P(0, YF, 9), P(76, YF, 9)], A.detail, false));                          // le tiroir
     out.push(poly([P(28, YF, 5), P(48, YF, 5)], A.arete, false));
     // le flanc, le dessus et ses quatre ronds, le dosseret et ses boutons
-    out.push(poly([P(76, 0, 0), P(76, YF, 0), P(76, YF, 91), P(76, 0, 91)], blanc(A.arete)));
+    out.push(poly([P(76, 0, 0), P(76, YF, 0), P(76, YF, 91), P(76, 0, 91)], OMBRE(A.arete)));   // le flanc, à l'ombre
     out.push(poly([P(0, 0, 91), P(76, 0, 91), P(76, YF, 91), P(0, YF, 91)], blanc(A.arete)));
     [[20, 24], [56, 24], [20, 48], [56, 48]].forEach(([x, y]) => [10, 6.8, 3.6].forEach((r, i) =>
       out.push(poly(rond3(P, [x, y, 91], r, 'xy'), i ? A.fin : A.detail))));
@@ -197,11 +206,12 @@ module.exports = (h) => {
   const vueBoite = z => {
     const { T } = cadre4(z), P = (x, y, zz) => T(P4(x, y, zz));
     const out = [];
-    out.push(poly([P(0, 0, 0), P(W4, 0, 0), P(W4, 0, H4), P(0, 0, H4)], blanc(A.detail)));
-    out.push(poly([P(0, 0, 0), P(0, D4, 0), P(0, D4, H4), P(0, 0, H4)], blanc(A.detail)));
-    out.push(poly([P(0, 0, 0), P(W4, 0, 0), P(W4, D4, 0), P(0, D4, 0)], blanc(A.detail)));
+    const LOIN = at => at.replace('fill="none"', 'fill="#E6E6E6"');   // l'intérieur de la boîte : recule
+    out.push(poly([P(0, 0, 0), P(W4, 0, 0), P(W4, 0, H4), P(0, 0, H4)], LOIN(A.detail)));
+    out.push(poly([P(0, 0, 0), P(0, D4, 0), P(0, D4, H4), P(0, 0, H4)], LOIN(A.detail)));
+    out.push(poly([P(0, 0, 0), P(W4, 0, 0), P(W4, D4, 0), P(0, D4, 0)], LOIN(A.detail)));
     out.push(paquet(P, { x0: 4, y0: 3, z0: 0.2, W: 26, D: 18, H: 5, ep: 2.6, silh: A.arete }));
-    out.push(poly([P(W4, 0, 0), P(W4, D4, 0), P(W4, D4, H4), P(W4, 0, H4)], blanc(A.arete)));
+    out.push(poly([P(W4, 0, 0), P(W4, D4, 0), P(W4, D4, H4), P(W4, 0, H4)], OMBRE(A.arete)));
     out.push(poly([P(0, D4, 0), P(W4, D4, 0), P(W4, D4, H4), P(0, D4, H4)], blanc(A.arete)));
     out.push(poly([P(0, D4, H4 - 1.3), P(W4, D4, H4 - 1.3), P(W4, 0, H4 - 1.3)], A.fin, false));   // le bourrelet
     [3, 4.6].forEach(x => out.push(poly([P(x, D4, 1.5), P(x, D4, H4 - 3)], A.fin, false)));       // reflets
@@ -212,7 +222,7 @@ module.exports = (h) => {
     [3, 4.6].forEach(x => out.push(poly([P(x, D4 + 0.6, L0 + 0.6), P(x, D4 + 0.6, L0 + 2.2)], A.fin, false)));
     // il descend et ferme la boîte
     const a = P(W4 + 6, 0, L0 + 1), b = P(W4 + 6, 0, H4 + 2);
-    out.push(h.fleche(`M${pt(a)} L${pt(b)}`));
+    out.push(h.geste(`M${pt(a)} L${pt(b)}`));
     return out.join('\n');
   };
 

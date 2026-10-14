@@ -2,6 +2,11 @@
 // Trois vues : le poste monté sur sa planche (le circuit), la branche détecteur-écouteur de près,
 // l'antenne et le contrepoids dehors. Aucun chiffre : le chapitre n'en donne pas qui ne soit
 // [À VÉRIFIER] (spires, diamètre du support, longueur d'antenne).
+//
+// La charte : les deux épinettes, qui portent l'antenne sans être le sujet, en gris loin ; pas
+// de gris sur le poste ni sur le détecteur, vus à plat. Le rouge : la pointe qu'on promène sur
+// la lame (le geste) ; la résistance en travers des fils du piézo (sans elle, rien) et l'entrée
+// de la descente, qui ne doit frotter ni le mur ni un clou, cerclées.
 module.exports = (h) => {
   const blanc = (a) => a.replace('fill="none"', 'fill="#FFFFFF"');
   const noir = (a) => a.replace('fill="none"', 'fill="#1A1A1A"');
@@ -67,7 +72,7 @@ module.exports = (h) => {
       if (i < niv) gauche.unshift([x - w * 0.4, y - 2]);
     }
     pts.push([x + 4, pied - 16], [x + 4, pied], [x - 4, pied], [x - 4, pied - 16]);
-    return h.chemin(pts.concat(gauche), blanc(h.a.arete), true);
+    return h.chemin(pts.concat(gauche), h.a.arete.replace('fill="none"', h.a.loin.split(' ')[0]), true);
   };
 
   // Résistance récupérée, couchée en travers de deux fils verticaux (x1 à gauche, x2 à droite),
@@ -263,7 +268,7 @@ module.exports = (h) => {
           }
           o.push(vis(V[0], V[1], 7));
           // on promène la pointe
-          o.push(h.fleche(`M ${P[0] - 4} ${P[1] - 24} Q ${P[0] + 20} ${P[1] - 28} ${P[0] + 24} ${P[1] - 6}`, h.a.detail));
+          o.push(h.geste(`M ${P[0] - 4} ${P[1] - 24} Q ${P[0] + 20} ${P[1] - 28} ${P[0] + 24} ${P[1] - 6}`));
 
           // la pastille piézo, et ses deux fils
           const pz = [cx, z.h - 56];
@@ -278,6 +283,8 @@ module.exports = (h) => {
           o.push(h.cercle(xF1, pz[1] - 2, 4, noir(h.a.fin)));
           o.push(h.cercle(xF2, pz[1] - 26, 4, noir(h.a.fin)));
           o.push(resistance(xF2, xF1, pz[1] - 64, 26, 10, 6, 5.5, h.a.arete, true));
+          // la résistance en travers des deux fils : sans elle, le piézo ne rend rien
+          o.push(h.controle((xF1 + xF2) / 2, pz[1] - 64, 19));
           return o.join('\n');
         },
         renvois: (z) => {
@@ -329,6 +336,8 @@ module.exports = (h) => {
           const d0 = [iA[0] + 12, iA[1] + 1];
           const fenE = [fen[0] + fen[2] - 4, fen[1] + 4];
           o.push(h.path(`M ${d0[0]} ${d0[1]} Q ${d0[0] + 150} ${G - 40}, ${fen[0] + 2} ${fen[1] + 6}`, h.a.contour));
+          // l'entrée de la descente : elle ne frotte ni le mur ni un clou
+          o.push(h.controle(fen[0] + 2, fen[1] + 6, 11));
           // le contrepoids : sort par la fenêtre, se couche sur la neige, dans l'axe de l'antenne
           const fenB = [fen[0] + fen[2] - 4, fen[1] + fen[3] - 3];
           o.push(h.path(`M ${fen[0] + 2} ${fen[1] + fen[3] - 4} C ${c0 - 8} ${G - 20}, ${c0 - 14} ${G - 2}, ${c0 - 30} ${G - 2} C ${c0 - 120} ${G - 6}, ${iA[0] + 120} ${G + 1}, ${iA[0] + 6} ${G - 3}`, h.a.contour));

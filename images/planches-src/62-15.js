@@ -276,7 +276,9 @@ function dessinerCoupe(h, z) {
   });
   // 6. la couture qu'on ouvre, côté gauche, et la lame qui monte le long d'elle
   chemin(out, tr(miroir(S.couture.filter(p => p[1] <= BAS - 2))));
-  out.push(h.fleche(dP(tr(miroir(S.fleche)), false), h.a.arete));
+  // la charte : la lame qui monte, le geste de la vue, en rouge sur un liseré blanc
+  out.push(`<path d="${dP(tr(miroir(S.fleche)), false)}" fill="none" stroke="${BLANC}" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>`);
+  out.push(h.geste(dP(tr(miroir(S.fleche)), false)));
   // le contour repasse par-dessus le liseré de la couture, là où elle sort
   out.push(`<g clip-path="url(#${id}-bas)"><path d="${dP(tr(contour), false)}" ${trait(2.4)}/></g>`);
   return out.join('\n');
@@ -325,7 +327,7 @@ module.exports = (h) => {
         dessin: z => {
           const p = place1(z);
           const out = [C.dessiner(h, p, {
-            id: 'v1', fondOs: false, loin: 'fin',
+            id: 'v1', fondOs: false, loin: 'gris',
             os: ['vertebres', 'cotes', 'sternum', 'omoplate', 'cartilageOmoplate', 'humerus', 'radius', 'cubitus', 'carpe'],
             osForts: ['omoplate', 'cartilageOmoplate', 'humerus', 'cubitus'],
             valeur: { muscles: ['quartierAvant6215'], trame: 'gris' },

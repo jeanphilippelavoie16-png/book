@@ -2,6 +2,12 @@
 // maillet, le coton carbonisé en boîte puis bouché, et sans boîte le cornet d'écorce ficelé
 // d'une hart, sous les braises puis dans le sable.
 // Aucune cote : le chapitre ne donne aucune dimension pour ces gestes.
+//
+// La charte : à l'ombre, la face de droite du tronc et de la bûche, le dessous du cornet ; le
+// sabot coupé et tramé reste sans gris. Le rouge : le coup de maillet et le cornet qu'on sort
+// des braises pour l'enfouir (le geste, un par vue) ; le trou du couvercle, d'où sort le jet de
+// fumée qu'on surveille, et la déchirure du carré noir (souple, pas en poussière), cerclés. Les
+// flèches de fumée et celles des deux moitiés du carré restent noires.
 
 module.exports = (h) => {
   const f = v => Math.round(v * 10) / 10;
@@ -136,7 +142,11 @@ module.exports = (h) => {
   const dessinCornet = (c, graine) => {
     const { x0, x1, yc, R, r } = c, k = 0.3, out = [];
     // le cône, puis la bouche ouverte
-    out.push(h.path(`M ${x0} ${yc} L ${x1} ${yc - R} A ${f(k * R)} ${R} 0 0 1 ${x1} ${yc + R} Z`, blanc(h.a.contour)));
+    const cone = `M ${x0} ${yc} L ${x1} ${yc - R} A ${f(k * R)} ${R} 0 0 1 ${x1} ${yc + R} Z`;
+    out.push(h.path(cone, h.a.blanc));
+    // le dessous du cornet, à l'ombre
+    out.push(h.chemin([[x0, yc], [x1, yc + R], [x1, yc + 0.45 * R]], h.a.ombre, true));
+    out.push(h.path(cone, h.a.contour));
     // lenticelles de l'écorce de bouleau, en travers du cône
     const g = gen(graine);
     for (let i = 0; i < 26; i++) {
@@ -224,7 +234,11 @@ module.exports = (h) => {
           const { tx0, xR, W, s, yA, D, croute, bande, Dd } = g;
           // le tronc de bouleau mort, en élévation, cassé en haut et en bas
           const cass = y => `M ${tx0} ${y} Q ${f(tx0 + 14)} ${y - 5} ${f((tx0 + xR) / 2)} ${y} T ${xR} ${y}`;
-          out.push(h.path(`${cass(8)} L ${xR} ${z.h - 8} Q ${f(xR - 14)} ${z.h - 3} ${f((tx0 + xR) / 2)} ${z.h - 8} T ${tx0} ${z.h - 8} Z`, h.a.blanc));
+          const tronc = `${cass(8)} L ${xR} ${z.h - 8} Q ${f(xR - 14)} ${z.h - 3} ${f((tx0 + xR) / 2)} ${z.h - 8} T ${tx0} ${z.h - 8} Z`;
+          out.push(h.path(tronc, h.a.blanc));
+          // la face de droite du tronc, à l'ombre, arrêtée aux cassures
+          out.push(`<clipPath id="tronc-amadou"><path fill="none" d="${tronc}"/></clipPath>`);
+          out.push(`<g clip-path="url(#tronc-amadou)">${h.rect(xR - 13, 0, 13, z.h, h.a.ombre)}</g>`);
           out.push(h.ligne(tx0, 8, tx0, z.h - 8, h.a.arete));
           out.push(h.ligne(xR, 8, xR, z.h - 8, h.a.arete));
           out.push(h.path(cass(8), h.a.detail));
@@ -271,7 +285,13 @@ module.exports = (h) => {
           out.push(h.ligne(10, yG, z.l - 10, yG, h.a.arete));
           // la bûche debout : écorce sur le flanc, cernes sur le dessus
           const yB = yG - ry;
-          out.push(h.path(`M ${cx - rx} ${yT} L ${cx - rx} ${yB} A ${rx} ${ry} 0 0 0 ${cx + rx} ${yB} L ${cx + rx} ${yT} Z`, blanc(h.a.contour)));
+          const flanc = `M ${cx - rx} ${yT} L ${cx - rx} ${yB} A ${rx} ${ry} 0 0 0 ${cx + rx} ${yB} L ${cx + rx} ${yT} Z`;
+          out.push(h.path(flanc, h.a.blanc));
+          // la face de droite, à l'ombre : du bord avant du dessus jusqu'au pied
+          { const xs = [], av = x => ry * Math.sqrt(Math.max(0, 1 - ((x - cx) / rx) ** 2));
+            for (let x = cx + 0.5 * rx; x <= cx + rx + 0.01; x += rx / 40) xs.push(x);
+            out.push(h.chemin([...xs.map(x => [x, yT + av(x)]), ...xs.slice().reverse().map(x => [x, yB + av(x)])], h.a.ombre, true)); }
+          out.push(h.path(flanc, h.a.contour));
           const r = gen(13);
           for (let i = 0; i < 16; i++) {
             const x = cx - rx + 6 + r() * (2 * rx - 12), t = (x - cx) / rx;
@@ -311,7 +331,7 @@ module.exports = (h) => {
           out.push(h.path(poly(fin), h.a.arete));
           // le coup
           const a0 = M(20, 16), a1 = [fx - 28, fy - 12];
-          out.push(h.fleche(`M ${f(a0[0] - 14)} ${f(a0[1] - 6)} Q ${f(a1[0] - 22)} ${f((a0[1] + a1[1]) / 2)} ${f(a1[0] - 6)} ${f(a1[1] - 2)}`));
+          out.push(h.geste(`M ${f(a0[0] - 14)} ${f(a0[1] - 6)} Q ${f(a1[0] - 22)} ${f((a0[1] + a1[1]) / 2)} ${f(a1[0] - 6)} ${f(a1[1] - 2)}`));
           return out.join('\n');
         },
         renvois: z => {
@@ -336,6 +356,8 @@ module.exports = (h) => {
           // le jet de fumée qui sort du trou
           const y = b.yc - 5;
           out.push(h.fleche(`M ${v.cx} ${y} C ${v.cx - 9} ${y - 12} ${v.cx + 9} ${y - 22} ${v.cx} ${y - 34} S ${v.cx - 4} ${y - 50} ${v.cx + 5} ${f(Math.max(10, y - 62))}`, h.a.cache));
+          // le trou : on surveille le jet de fumée qui en sort
+          out.push(h.controle(v.cx, b.yc - 3, 9));
           return out.join('\n');
         },
         renvois: z => {
@@ -374,6 +396,8 @@ module.exports = (h) => {
           }
           out.push(h.fleche(`M ${xs - c - 4} ${ys} L ${xs - c - 16} ${ys}`));
           out.push(h.fleche(`M ${xs + c + dx + 4} ${ys + dy} L ${xs + c + dx + 16} ${ys + dy}`));
+          // la déchirure : souple et nette, pas de poussière
+          out.push(h.controle(xs + dx / 2, ys + dy / 2 - 6, 15));
           return out.join('\n');
         },
         renvois: z => {
@@ -421,7 +445,7 @@ module.exports = (h) => {
           out.push(h.path(lisse(mont) + ' Z', h.a.hachure('gravier', 'arete')));
           out.push(cacheCornet(v.c2));
           // on le sort des braises et on l'enfouit
-          out.push(h.fleche(`M ${v.xb - 16} ${v.yE - 16} Q ${f((v.xb + m0) / 2 + 10)} ${f(yG - mh - 42)} ${f((m0 + m1) / 2 - 20)} ${f(yG - mh - 8)}`));
+          out.push(h.geste(`M ${v.xb - 16} ${v.yE - 16} Q ${f((v.xb + m0) / 2 + 10)} ${f(yG - mh - 42)} ${f((m0 + m1) / 2 - 20)} ${f(yG - mh - 8)}`));
           return out.join('\n');
         },
         renvois: z => {

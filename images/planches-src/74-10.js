@@ -1,5 +1,8 @@
 // Planche 74-10 — recaler et regraduer le thermomètre à cadran (ch. 69, section 9 ;
 // le recalage à l'écrou vient des ch. 26, 40, 43, 61, 63, 64, 65, 72).
+// La charte : l'air de la chaudière au-dessus du bouillon en gris loin. Le rouge : la pince qui
+// tourne l'écrou (une double flèche à la place des deux tiretés noirs), et la pointe de la tige,
+// qui ne touche ni le fond ni la paroi, dans la glace comme dans l'eau qui bout.
 module.exports = (h) => {
   const r1 = v => Math.round(v * 10) / 10;
   const blanc = t => t.replace('fill="none"', 'fill="#ffffff"');
@@ -154,6 +157,8 @@ module.exports = (h) => {
           out.push(glace(q.int, 7));
           out.push(h.chemin(q.int, h.a.arete, true));
           out.push(thermometre(q.g));
+          // le point à vérifier : le bout de la tige ne touche ni le fond ni la paroi
+          out.push(h.controle(q.cx, q.g.yP, 11));
           return out.join('\n');
         },
         renvois: z => {
@@ -199,9 +204,8 @@ module.exports = (h) => {
           const rxA = r1(g.s + 62), ryA = r1(rxA * K);
           const A = a => [r1(x + rxA * Math.cos(rad(a))), r1(yj + ryA * Math.sin(rad(a)))];
           const arc = (a0, a1) => { let d = `M${A(a0).join(',')}`; const n = 12; for (let i = 1; i <= n; i++) d += ` L${A(a0 + (a1 - a0) * i / n).join(',')}`; return d; };
-          out.push(h.path(arc(178, 2), h.a.arete));
-          out.push(h.fleche(arc(180, 222), h.a.cache));
-          out.push(h.fleche(arc(0, -42), h.a.cache));
+          // le geste : la pince tourne l'écrou, dans un sens ou dans l'autre
+          { let dg = `M${A(222).join(',')}`; for (let i = 1; i <= 44; i++) dg += ` L${A(222 - 264 * i / 44).join(',')}`; out.push(h.geste(dg, { double: true })); }
           // la coupure du verre
           let d = `M${x - W - 4},${q.yc}`;
           for (let i = 1; i <= 8; i++) d += ` Q${r1(x - W - 4 + (i - 0.5) * (2 * W + 8) / 8)},${q.yc + (i % 2 ? -4 : 4)} ${r1(x - W - 4 + i * (2 * W + 8) / 8)},${q.yc}`;
@@ -235,6 +239,9 @@ module.exports = (h) => {
             const bosse = i % 3 !== 1 ? 6 + r() * 4 : 1.5;
             surf += ` Q${r1(xa + (i + 0.5) * w)},${r1(yE - bosse * 1.6)} ${r1(xa + (i + 1) * w)},${yE}`;
           }
+          // l'air au-dessus de l'eau, dans la chaudière : en gris loin ; l'eau repeinte en blanc dessous
+          out.push(h.rect(xa, yR, xb - xa, yE - yR, h.a.loin));
+          out.push(h.path(`${surf} L${xb},${plaque - t} L${xa},${plaque - t} Z`, h.a.blanc));
           out.push(h.path(`${surf} L${xb},${plaque - t} L${xa},${plaque - t} Z`, h.a.hachure('eau', 'fin')));
           // les bouillons : des colonnes de bulles qui grossissent en montant
           for (const fx of [0.1, 0.27, 0.45, 0.6, 0.76, 0.91]) {
@@ -257,6 +264,8 @@ module.exports = (h) => {
           out.push(h.chemin([[x0, yR], [x0, plaque], [x1, plaque], [x1, yR]], h.a.contour));
           // le thermomètre, appuyé sur le bord
           out.push(thermometre(q.g, { T: q.T }));
+          // le point à vérifier : la pointe au milieu de l'eau, pas sur le fond
+          { const [tx, ty] = q.T.p([q.g.x, q.g.yP]); out.push(h.controle(tx, ty, 11)); }
           return out.join('\n');
         },
         renvois: z => {

@@ -43,7 +43,9 @@
 //               l'auriculaire s'enroulent comme les autres au lieu de se dresser en piquet ; la phalange de base
 //               peut alors s'enfoncer de quelques mm dans le manche, et les deux suivantes serrent d'autant.
 //   poing, pointe  le pouce pose sa pulpe sur la moitié côté majeur de la P2 de l'index (pas de piquet) ; le
-//               majeur est hors d'atteinte avec cette anatomie (testé par une chaîne 3D libre).
+//               majeur est hors d'atteinte avec cette anatomie (testé par une chaîne 3D libre). pointe prend aussi
+//               un pouce donné (pouceQ) : celui des poses pointe et appui-index, couché dans le bloc des doigts.
+//               crochet : le pouce libre, allongé côté dos (un pouce vers la paume ferme un « OK » sur l'anse).
 //   pincer      l'index et le pouce cherchés ensemble (grille grossière puis recherche par motifs) : les deux
 //               pulpes face à face, à l'épaisseur de l'objet, rien ne s'interpénètre, et un JOUR de 3 mm entre le
 //               pouce et l'index vus de profil (vue pouce) hors des pulpes : le « O » se lit. Les autres doigts : le
@@ -75,6 +77,9 @@
 //   mainSurMain(mainSimple, { x, y, angle, echelle, cote, croise, decalage })
 //     deux mains à plat l'une sur l'autre, vues du dessus : celle du dessous en gris (loin), celle du dessus
 //     tournée de croise (défaut 24°) et avancée de decalage (mm).
+//   pincesSurLacet(mainSimple, { noeud, directions, pose, vue, echelle, objets, … })
+//     deux pinces qui tirent les deux bouts d'un lacet (24-16) : chaque main dans l'axe de son lacet, sa masse
+//     hors de l'angle des deux lacets, les points de pince reculés jusqu'à 12 mm de jeu (voir la fonction).
 //
 // ═══ LES POSES (CATALOGUE → poses.json) ═══════════════════════════════════════════════════════════════════
 //
@@ -635,10 +640,7 @@ function pouceVers(S, G, nG, obstacles, o = {}) {
 function pouceSurPhalanges(S, segsD, noms, o = {}) {
   const ss = noms.map(n => segsD.find(s => s.id === n));
   const mid = ss.map(s => I3(s.a, s.b, o.t || 0.5)).reduce((a, b) => A3(a, M3(b, 1 / ss.length)), [0, 0, 0]);
-  // o.flanc (0 à 1) : la pulpe vise le flanc radial de la phalange plutôt que sa face extérieure. Sur la face,
-  // le bout du pouce dépasse le dos du bloc des doigts de 10 à 12 mm et, de profil, sort comme un canon (pointe)
-  const out0 = orth(U3(S3(mid, [mid[0] - 30, mid[1], 0])), U3(S3(ss[0].b, ss[0].a)));
-  const out = o.flanc ? orth(U3(A3(M3(out0, 1 - o.flanc), M3(ss[0].c.r, o.flanc))), U3(S3(ss[0].b, ss[0].a))) : out0;
+  const out = orth(U3(S3(mid, [mid[0] - 30, mid[1], 0])), U3(S3(ss[0].b, ss[0].a)));
   const G = A3(A3(mid, M3(out, rayonVers(ss[0], 0.5, out) + 0.4)), M3(ss[0].c.r, -(o.decale || 0)));
   // l'IP du pouce au bord radial du premier doigt replié (le pouce longe ce doigt, puis sa dernière phalange
   // le croise vers la phalange visée) : c'est ce qui le couche au lieu de le dresser en piquet
@@ -652,7 +654,6 @@ function pouceSurPhalanges(S, segsD, noms, o = {}) {
     let pen = 0;
     for (const ob of obstD) for (let i = 1; i < 3; i++) pen += Math.max(0, -ecart(seg[i], ob).g - 0.3);
     pen += Math.max(0, -ecart(seg[2], S.paume).g);
-    if (o.boutMax !== undefined) pen += 0.1 * Math.max(0, pp.ch.P[3][2] - o.boutMax);   // le bout ne dépasse pas le bloc
     return err * err + (o.poidsIP !== undefined ? o.poidsIP : 0.35) * eip * eip + 60 * face * face + 400 * pen * pen +
       0.01 * (x[2] - 0.3 * x[0]) ** 2 + 0.01 * Math.max(0, x[4] - 60) ** 2;
   };
@@ -751,8 +752,9 @@ const PRISES = {
     for (const n of DOIGTS) doigts[n] = tendus.includes(n) ? Object.assign({ ecart: 0, mcp: 0, ipp: 4, ipd: 2 }, (o.tendu || {})[n] || {}) : fermerDoigt(S, n, []).q;
     const replies = DOIGTS.filter(n => !tendus.includes(n));
     const segsR = segsDoigts(S, doigts, replies);
-    if (o.pouce === 'ecarte') doigts.pouce = { opposition: 10, cmc: -18, rotation: 3, mcp: 6, ip: 6 };
-    else doigts.pouce = pouceSurPhalanges(S, segsR, [replies[0] + '.p2'], { t: 0.6, bord: replies[0] + '.p2', flanc: o.flanc !== undefined ? o.flanc : 0.6, boutMax: o.boutMax }).q;
+    if (o.pouceQ) doigts.pouce = o.pouceQ;
+    else if (o.pouce === 'ecarte') doigts.pouce = { opposition: 10, cmc: -18, rotation: 3, mcp: 6, ip: 6 };
+    else doigts.pouce = pouceSurPhalanges(S, segsR, [replies[0] + '.p2'], { t: 0.6, bord: replies[0] + '.p2' }).q;
     let contact = null;
     if (o.appui) {
       const pp = pulpe(S, tendus[0], doigts[tendus[0]], 0.8);
@@ -1000,10 +1002,12 @@ const CATALOGUE = [
   { id: 'poing', prise: 'poing', options: {},
     vues: { bonnes: ['paume', 'pouce', 'dos'], aEviter: [] },
     nom: 'le poing fermé à vide, le pouce couché sur l’index et le majeur' },
-  { id: 'pointe', prise: 'pointe', options: { appui: true },
+  // (P4, agent 2) le pouce de la pointe couché en travers du majeur replié, son bout dans le bloc des doigts : posé
+  // par le solveur sur la FACE de la P2 du majeur, il en dépasse de 12 mm et sort de profil comme un canon
+  { id: 'pointe', prise: 'pointe', options: { appui: true, pouceQ: { opposition: 30, cmc: -20, rotation: -32.5, mcp: 55, ip: 46 } },
     vues: { bonnes: ['pouce', 'dos'], aEviter: ['paume'] },
     nom: 'l’index tendu, les autres repliés, le pouce posé sur le majeur' },
-  { id: 'appui-index', prise: 'pointe', options: { appui: true, tendu: { index: { mcp: 24, ipp: 16, ipd: -10 } } },
+  { id: 'appui-index', prise: 'pointe', options: { appui: true, pouceQ: { opposition: 30, cmc: -20, rotation: -32.5, mcp: 55, ip: 46 }, tendu: { index: { mcp: 24, ipp: 16, ipd: -10 } } },
     vues: { bonnes: ['pouce'], aEviter: ['paume'] },
     nom: 'le bout de l’index appuie (la dernière phalange cède un peu en arrière), les autres repliés' },
   { id: 'deux-doigts', prise: 'pointe', options: { tendus: ['index', 'majeur'], pouce: 'ecarte' },

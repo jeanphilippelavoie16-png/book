@@ -7,6 +7,10 @@
 // même pour les trois ; le bout de l’arc, à une troisième. Ailleurs qu’au centre, épaisseurs et
 // largeurs sont des proportions (« à peine plus mince et plus étroit vers les bouts ») : aucune
 // n’est cotée.
+// La charte : le dessous de la bille, la face tournée vers le bas à droite, à l'ombre, et le flanc
+// de chaque coin. Pas de gris sur le quart vu en bout ni sur l'arc (des faces à plat), ni sur les
+// coupes hachurées. Le rouge : le dos, sur le quart, le point qui casse si on y touche (celui de
+// l'encadré danger).
 
 const r1 = v => Math.round(v * 10) / 10;
 const arc = (cx, cy, r, a0, a1, n = 60) =>
@@ -168,7 +172,15 @@ module.exports = (h) => {
           const ell = k => { const q = []; for (let a = 0; a <= 360; a += 4) q.push(p(0, k * Math.cos(a * Math.PI / 180), k * Math.sin(a * Math.PI / 180))); return q; };
           // la surface de la bille, brisée au bout
           const A = p(0, cs, sn), B = p(LG, cs, sn), Cc = p(LG, -cs, -sn), Dd = p(0, -cs, -sn);
-          o.push(h.path(`M${P(A)} L${P(B)} ${sAller(B, Cc, 7)} L${P(Dd)} Z`, BL));
+          const surf = `M${P(A)} L${P(B)} ${sAller(B, Cc, 7)} L${P(Dd)} Z`;
+          o.push(h.path(surf, BL));
+          // le dessous de la bille, tourné vers le bas à droite : à l'ombre (découpé par la surface)
+          const gen = (X, deg) => p(X, Math.cos(deg * Math.PI / 180), Math.sin(deg * Math.PI / 180));
+          const bande = [];
+          for (let dg = 228; dg >= 168; dg -= 4) bande.push(gen(0, dg));
+          for (let dg = 168; dg <= 228; dg += 4) bande.push(gen(LG + 0.3, dg));
+          o.push(`<defs><clipPath id="zone-bille-45"><path d="${surf}" fill="none"/></clipPath></defs>`);
+          o.push(`<g clip-path="url(#zone-bille-45)">${h.chemin(bande, h.a.ombre, true)}</g>`);
           o.push(h.ligne(...A, ...B, h.a.contour), h.ligne(...Dd, ...Cc, h.a.contour));
           // fentes de l’écorce : droites le long du tronc, le fil est droit
           for (const deg of [60, 72, 110, 128, 148, 170, 194, 214]) {
@@ -200,7 +212,7 @@ module.exports = (h) => {
           for (const sc of COINS) {
             const F = [p(sc, -ws / 2, 1), p(sc, ws / 2, 1), p(sc, wh / 2, Zt), p(sc, -wh / 2, Zt)];
             const K2 = [p(sc + e, -ws / 2, 1), p(sc + e, ws / 2, 1), p(sc + e, wh / 2, Zt), p(sc + e, -wh / 2, Zt)];
-            o.push(h.chemin([F[0], F[3], K2[3], K2[0]], BL, true), h.chemin([F[3], F[2], K2[2], K2[3]], BL, true), h.chemin(F, BL, true));
+            o.push(h.chemin([F[0], F[3], K2[3], K2[0]], h.a.arete.replace('fill="none"', 'fill="#CFCFCF"'), true), h.chemin([F[3], F[2], K2[2], K2[3]], BL, true), h.chemin(F, BL, true));
           }
           return o.join('\n');
         },
@@ -250,6 +262,8 @@ module.exports = (h) => {
           const yDos = H[1] - rb, xC25 = H[0] - 0.707 * Rq - 11;
           o.push(h.ligne(H[0] - 4, yDos, xC25 - 4, yDos, h.a.fin), h.ligne(H[0] - hw - 3, yV, xC25 - 4, yV, h.a.fin));
           o.push(h.cote(xC25, yDos, xC25, yV, '25', { cote: 'gauche' }));
+          // le point à contrôler : le dos, qu'on ne touche jamais (celui qui casse)
+          o.push(h.controle(H[0], yDos, 10));
           return o.join('\n');
         },
         renvois: z => {

@@ -278,8 +278,8 @@ module.exports = (h) => {
             // la tranche : la même feuille, descendue de son épaisseur
             const e = EP * b.k, bas = poly.map(q => [q[0], q[1] + e]);
             const xs = poly.map(q => q[0]), iG = xs.indexOf(Math.min(...xs)), iD = xs.indexOf(Math.max(...xs));
-            // la charte : la tranche, face de dessous de la feuille, en gris d'ombre
-            out.push(`<path d="${dD(bas, true)}" ${h.a.ombre}/>`);
+            // la tranche reste blanche : trop mince pour une ombre (elle aurait l'air d'un trait doublé)
+            out.push(`<path d="${dD(bas, true)}" fill="${BLANC}" stroke="none"/>`);
             out.push(`<path d="${dD(bas, true)}" ${trait(1.4)}/>`);
             out.push(`<path d="${dD(poly, true)}" fill="${BLANC}" stroke="none"/>`);
             out.push(`<path d="${dD(poly, true)}" ${trame('b', c.nom)}/>`);
