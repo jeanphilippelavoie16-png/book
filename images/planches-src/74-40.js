@@ -2,6 +2,10 @@
 // d'hiver de la section 9). Le chapitre ne donne aucune dimension du coffre, du bac, de la
 // table ni de la chaudière : aucune cote de longueur. Le seul chiffre dessiné est le trait de
 // 4 °C sur le cadran de la sonde, qui est ce qui sépare la pile B de la pile C.
+// La charte : la solive sous la galerie et l'air du gobelet au-dessus de la glace en gris loin ; le
+// flanc de la chaudière à l'ombre ; les trois paquets sondés au contour fort. Le rouge : la pièce
+// tombée au fond, la pointe qui bute sur le cœur dur, l'aiguille passée au-delà du 4 °C. Les flèches
+// des paquets qui descendent à leur pile restent noires.
 module.exports = (h) => {
   const A = h.a;
   const r1 = n => Math.round(n * 10) / 10;
@@ -31,7 +35,8 @@ module.exports = (h) => {
     out.push(h.chemin([[0, 12], [7, 7], [13, 15], [19, 6], [murX, 10], [murX, deckY + 9], [0, deckY + 9]], A.hachure('isolant', 'arete'), true));
     // plancher de galerie : planches en coupe sur une solive
     for (let x = murX + 2; x + 26 <= z.l - 4; x += 29) out.push(h.rect(x, deckY, 26, 8, A.hachure('bois', 'detail')));
-    out.push(h.rect(murX, deckY + 8, z.l - 4 - murX, 13, bA));
+    // la solive, vue au-delà des planches coupées : en gris loin
+    out.push(h.rect(murX, deckY + 8, z.l - 4 - murX, 13, A.loin), h.rect(murX, deckY + 8, z.l - 4 - murX, 13, A.arete));
 
     // pieds
     out.push(h.rect(x0 + 8, yb1, 12, pied, A.plein), h.rect(x0 + W - 20, yb1, 12, pied, A.plein));
@@ -87,17 +92,20 @@ module.exports = (h) => {
     const gob = (c, fond) => {
       const xa = y => lb + (lh - lb) * (base - y) / Hg;   // demi-largeur à la hauteur y
       const e = 3;
+      // au-dessus de la glace, la paroi d'en face du gobelet : en gris loin
+      out.push(h.chemin([[c - lh + e * 0.6, top], [c + lh - e * 0.6, top], [c + xa(surf) - e, surf], [c - xa(surf) + e, surf]], A.loin, true));
       // la glace
       out.push(h.chemin([[c - xa(surf) + e, surf], [c + xa(surf) - e, surf], [c + lb - e, base - e], [c - lb + e, base - e]], A.blanc, true));
-      // glace : quelques fissures fines et obliques
-      [[-14, 0.18, 10], [6, 0.32, 9], [-6, 0.55, 11], [12, 0.7, 8], [-16, 0.82, 7]].forEach(([dx, f, l]) => {
+      // glace : quelques fissures fines et obliques (un seul tracé : ce sont des fissures, pas une hachure)
+      out.push(h.path([[-14, 0.18, 10], [6, 0.32, 9], [-6, 0.55, 11], [12, 0.7, 8], [-16, 0.82, 7]].map(([dx, f, l]) => {
         const y = surf + (base - e - surf) * f;
-        out.push(h.ligne(c + dx, y, c + dx + l * 0.7, y - l * 0.6, A.fin));
-      });
+        return `M${r1(c + dx)} ${r1(y)} L${r1(c + dx + l * 0.7)} ${r1(y - l * 0.6)}`;
+      }).join(' '), A.fin));
       out.push(h.ligne(c - xa(surf) + e, surf, c + xa(surf) - e, surf, A.detail));
       // la pièce, vue sur la tranche
       const py = fond ? base - e - 3.5 : surf - 3.5;
       out.push(h.rect(c - 8, py, 16, 3.5, A.plein));
+      if (fond) out.push(h.controle(c, py + 1.75, 12));   // la pièce au fond : il y a eu dégel
       // le gobelet
       out.push(h.chemin([[c - lh, top], [c - lb, base], [c + lb, base], [c + lh, top]], A.contour));
       out.push(h.ligne(c - lh - 8, base + 1.2, c + lh + 8, base + 1.2, A.detail));
@@ -135,7 +143,7 @@ module.exports = (h) => {
     };
     // le paquet en coupe : papier, puis la viande dessous
     const paquet = (c, dur) => {
-      out.push(rr(c - pL / 2, pY, pL, pH, 8, bA));
+      out.push(rr(c - pL / 2, pY, pL, pH, 8, bC));
       out.push(rr(c - pL / 2 + 4, pY + 4, pL - 8, pH - 8, 6, A.fin));
       if (dur) {
         out.push(rr(c - pL / 2 + 20, pY + 14, pL - 40, pH - 28, 8, A.hachure('grillage', 'detail')));
@@ -144,6 +152,9 @@ module.exports = (h) => {
     paquet(cx[0], true); sonde(cx[0], pY + 14, null);
     paquet(cx[1], false); sonde(cx[1], pY + pH / 2, -60);
     paquet(cx[2], false); sonde(cx[2], pY + pH / 2, 60);
+    // ce qu'on vérifie : la pointe qui bute sur le cœur dur, et l'aiguille passée au-delà du 4 °C
+    out.push(h.controle(cx[0], pY + 14, 10));
+    { const a = 60 * Math.PI / 180; out.push(h.controle(cx[2] + Math.sin(a) * (R - 14), dialY - Math.cos(a) * (R - 14), 10)); }
 
     // chaque paquet descend à sa pile
     cx.forEach(c => out.push(h.fleche(`M${r1(c)} ${pY + pH + 4} L${r1(c)} ${pY + pH + 22}`)));
@@ -174,7 +185,10 @@ module.exports = (h) => {
     const ch = { c: cx[2], ht: 70, lh: 32, lb: 27 };
     {
       const c = ch.c, yt = sol - ch.ht;
-      out.push(h.chemin([[c - ch.lh, yt], [c + ch.lh, yt], [c + ch.lb, sol], [c - ch.lb, sol]], bC, true));
+      out.push(h.chemin([[c - ch.lh, yt], [c + ch.lh, yt], [c + ch.lb, sol], [c - ch.lb, sol]], A.blanc, true));
+      // le flanc de droite de la chaudière, à l'ombre
+      out.push(h.chemin([[c + ch.lh * 0.4, yt], [c + ch.lh, yt], [c + ch.lb, sol], [c + ch.lb * 0.4, sol]], A.ombre, true));
+      out.push(h.chemin([[c - ch.lh, yt], [c + ch.lh, yt], [c + ch.lb, sol], [c - ch.lb, sol]], A.contour, true));
       out.push(h.ligne(c - ch.lh + 1, yt + 9, c + ch.lh - 1, yt + 9, A.detail), h.ligne(c - ch.lh + 1.5, yt + 13, c + ch.lh - 1.5, yt + 13, A.detail));
       out.push(h.rect(c - ch.lh - 3, yt - 7, 2 * ch.lh + 6, 7, bA));
       out.push(h.path(`M${r1(c - ch.lh + 2)} ${r1(yt + 16)} C${r1(c - ch.lh - 6)} ${r1(yt - 18)} ${r1(c + ch.lh + 6)} ${r1(yt - 18)} ${r1(c + ch.lh - 2)} ${r1(yt + 16)}`, A.arete));

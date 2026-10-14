@@ -1036,12 +1036,13 @@ const CATALOGUE = [
     vues: { bonnes: ['dos', 'paume', 'pouce'], aEviter: [] },
     nom: 'la main ouverte, les doigts tendus un peu écartés' },
   { id: 'relachee', prise: 'fixe', options: { doigts: {
-      // (révisions R7, R12) une cascade douce : 4° d'un doigt au suivant, IPP ≤ 20°, IPD ≈ 0,5 × IPP ; le pouce
-      // près de l'index (opposition 10, cmc 10) : un pouce qui monte vers la paume dresse une griffe de profil
-      index: D0(14, 12, 6, 2), majeur: D0(18, 14, 7, 0), annulaire: D0(22, 16, 8, 1), auriculaire: D0(26, 18, 9, 3),
+      // (révisions R7, R12) les MCP presque égales (≈ 20°), IPP ≤ 13°, IPD ≈ 0,5 × IPP : l'arche du métacarpe
+      // descend déjà l'annulaire et l'auriculaire ; une cascade aux MCP en plus les fait sortir en marches de profil
+      // (la griffe). Le pouce près de l'index (opposition 10, cmc 10) : vers la paume, il dresse une griffe de plus
+      index: D0(20, 10, 5, 2), majeur: D0(20, 11, 5, 0), annulaire: D0(19, 12, 6, 1), auriculaire: D0(18, 13, 6, 3),
       pouce: { opposition: 10, cmc: 10, rotation: 4, mcp: 8, ip: 10 } } },
     vues: { bonnes: ['dos', 'paume', 'pouce'], aEviter: [] },
-    nom: 'la main détendue : les doigts mi-fléchis en cascade (l’auriculaire le plus plié), le pouce le long de l’index' },
+    nom: 'la main détendue : les doigts un peu fléchis, sans marches (la paume se creuse vers l’auriculaire), le pouce le long de l’index' },
   { id: 'coupe', prise: 'fixe', options: { doigts: {
       index: D0(22, 22, 10, -1), majeur: D0(24, 24, 12, 0), annulaire: D0(26, 26, 13, -1), auriculaire: D0(30, 28, 14, -2),
       pouce: { opposition: 22, cmc: 18, rotation: 7, mcp: 10, ip: 8 } } },

@@ -1,3 +1,10 @@
+// Planche 16-07 — le téléphone à deux haut-parleurs (chapitre 16, « Le fil entre deux bâtiments,
+// sans pile »).
+//
+// La charte : le dessous du cône de chaque haut-parleur à l'ombre ; les murs coupés et tramés,
+// sans gris. Le rouge : appuyer sur le bouton, tirer le couteau le long du fil (le geste, un par
+// vue). Pas de cercle : le relais, qu'on écoute au premier essai, est trop gros pour un point
+// à contrôler, et son renvoi le nomme déjà.
 module.exports = (h) => {
   const W = at => at.replace('fill="none"', 'fill="#ffffff"');
   const halo = 'fill="none" stroke="#ffffff" stroke-width="7" stroke-linecap="butt"';
@@ -8,6 +15,7 @@ module.exports = (h) => {
     const P = (px, py) => `${x + s * px},${y + py}`;
     const R = (rx, ry, w, ht, at) => h.rect(s > 0 ? x + rx : x - rx - w, y + ry, w, ht, at);
     return [
+      h.path(`M${P(0, 0)} L${P(58, 0)} L${P(58, 24)} L${P(0, 56)} Z`, h.a.ombre),
       h.path(`M${P(0, -56)} L${P(58, -24)} L${P(58, 24)} L${P(0, 56)}`, h.a.contour),
       h.path(`M${P(58, -26)} L${P(84, -26)} A6,26 0 0 ${s > 0 ? 1 : 0} ${P(84, 26)} L${P(58, 26)} Z`, W(h.a.contour)),
       h.ligne(x + s * 66, y - 26, x + s * 66, y + 26, h.a.detail),
@@ -111,7 +119,7 @@ module.exports = (h) => {
           o.push(h.path('M52,248.5 L76,248.5 L90,230 L150,230', h.a.contour));
           o.push(h.rect(51, 241, 14, 7, W(h.a.arete)));
           o.push(h.rect(129, 241, 14, 9, W(h.a.arete)));
-          o.push(h.fleche('M112,202 L112,222'));
+          o.push(h.geste('M112,202 L112,222'));
 
           // poste qui répond : le haut-parleur sur la paire de voix seulement
           o.push(hp(526, 110, -1));
@@ -166,7 +174,7 @@ module.exports = (h) => {
           h.path('M186,160 L236,160 L236,166 L186,166', h.a.contour),
           h.path('M214,177 q4,-4 8,-1 M226,187 q3,3 7,1 M208,192 q4,-3 7,1 M238,180 q3,3 6,0', h.a.detail),
           couteau(210, 158.8, 40),
-          h.fleche('M226,130 L266,130'),
+          h.geste('M226,130 L266,130'),
         ].join('\n'),
         renvois: z => [
           { n: 6, rond: [140, 205], cible: [205, 167.2], texte: 'vernis gratté au couteau, deux bouts' },

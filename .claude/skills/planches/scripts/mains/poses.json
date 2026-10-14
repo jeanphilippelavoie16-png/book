@@ -386,12 +386,12 @@
   },
   {
     "id": "relachee",
-    "nom": "la main détendue : les doigts mi-fléchis en cascade (l’auriculaire le plus plié), le pouce le long de l’index",
+    "nom": "la main détendue : les doigts un peu fléchis, sans marches (la paume se creuse vers l’auriculaire), le pouce le long de l’index",
     "doigts": {
-      "index": {"ecart":2,"mcp":14,"ipp":12,"ipd":6},
-      "majeur": {"ecart":0,"mcp":18,"ipp":14,"ipd":7},
-      "annulaire": {"ecart":1,"mcp":22,"ipp":16,"ipd":8},
-      "auriculaire": {"ecart":3,"mcp":26,"ipp":18,"ipd":9},
+      "index": {"ecart":2,"mcp":20,"ipp":10,"ipd":5},
+      "majeur": {"ecart":0,"mcp":20,"ipp":11,"ipd":5},
+      "annulaire": {"ecart":1,"mcp":19,"ipp":12,"ipd":6},
+      "auriculaire": {"ecart":3,"mcp":18,"ipp":13,"ipd":6},
       "pouce": {"opposition":10,"cmc":10,"rotation":4,"mcp":8,"ip":10}
     },
     "poignet": {"flexion":0,"deviation":0},
