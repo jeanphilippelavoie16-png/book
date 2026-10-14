@@ -31,7 +31,9 @@ module.exports = (h) => {
 
   // une perche vue de côté : de p0 (gros bout) à p1 (petit bout), en coordonnées d'écran ;
   // bouts arrondis (le rondin vu de biais) et deux traits d'écorce le long du fût
-  const perche = (p0, p1, d0 = D0 * K, d1 = D1 * K, ep = 1.4) => {
+  // La charte : les perches sont l'objet, leur contour pèse (2,4) ; celle du fond, derrière, recule
+  // en gris loin (fond = '#E6E6E6').
+  const perche = (p0, p1, d0 = D0 * K, d1 = D1 * K, ep = 2.4, fond = '#FFFFFF') => {
     const u = uni(sub(p1, p0)), n = [-u[1], u[0]];
     const a = add(p0, mul(n, d0 / 2)), b = add(p1, mul(n, d1 / 2)), c = add(p1, mul(n, -d1 / 2)), d = add(p0, mul(n, -d0 / 2));
     const pt = q => `${f1(q[0])} ${f1(q[1])}`;
@@ -42,7 +44,7 @@ module.exports = (h) => {
     // le rond du bout : on écrase l'arc dans le sens de la perche
     const ax = Math.atan2(n[1], n[0]) * 180 / Math.PI;
     const S2 = S.replace(/A(\S+) (\S+) 0 0 0/g, (m, rx, ry) => `A${rx} ${ry} ${f1(ax)} 0 0`);
-    return [h.path(S2, blanc(ep)), ec(0.12, 0.34, d0 * 0.18), ec(0.55, 0.8, -d0 * 0.14)].join('\n');
+    return [h.path(S2, blanc(ep).replace('fill="#FFFFFF"', `fill="${fond}"`)), ec(0.12, 0.34, d0 * 0.18), ec(0.55, 0.8, -d0 * 0.14)].join('\n');
   };
   // le lien : n tours de corde serrés autour du faisceau, centré en (x, y), largeur l, hauteur t
   // (écran) ; chaque tour est une bande aux bouts arrondis, un peu bombée vers le bas
@@ -99,7 +101,7 @@ module.exports = (h) => {
     return out.join('\n');
   };
   // une perche coupée par le cadre du détail : le bas se termine par une ligne de rupture
-  const percheRompue = (p0, p1, d0, d1) => {
+  const percheRompue = (p0, p1, d0, d1, fond = A.blanc) => {
     const u = uni(sub(p1, p0)), n = [-u[1], u[0]];
     const a = add(p0, mul(n, d0 / 2)), b = add(p1, mul(n, d1 / 2)), c = add(p1, mul(n, -d1 / 2)), d = add(p0, mul(n, -d0 / 2));
     const m1 = add(add(p0, mul(n, d0 / 4)), mul(u, d0 * 0.35)), m2 = add(add(p0, mul(n, -d0 / 4)), mul(u, -d0 * 0.35));
@@ -107,7 +109,7 @@ module.exports = (h) => {
     const arc = (q0, q1) => `A${f1(d1 / 2)} ${f1(d1 * 0.28)} ${f1(ax)} 0 ${SW} ${f1(q1[0])} ${f1(q1[1])}`;
     const S = `M${f1(a[0])} ${f1(a[1])} C${f1(m1[0])} ${f1(m1[1])} ${f1(m2[0])} ${f1(m2[1])} ${f1(d[0])} ${f1(d[1])}`;
     return [
-      h.path(`${S} L${f1(c[0])} ${f1(c[1])} ${arc(c, b)} Z`, A.blanc),
+      h.path(`${S} L${f1(c[0])} ${f1(c[1])} ${arc(c, b)} Z`, fond),
       h.path(`M${f1(d[0])} ${f1(d[1])} L${f1(c[0])} ${f1(c[1])} ${arc(c, b)} L${f1(a[0])} ${f1(a[1])}`, A.arete),
       h.path(poly([add(add(p0, mul(u, Lr * 0.15)), mul(n, d0 * 0.2)), add(add(p0, mul(u, Lr * 0.42)), mul(n, d0 * 0.17))]), A.detail),
       h.path(poly([add(add(p0, mul(u, Lr * 0.5)), mul(n, -d0 * 0.16)), add(add(p0, mul(u, Lr * 0.78)), mul(n, -d1 * 0.15))]), A.detail),
@@ -153,7 +155,7 @@ module.exports = (h) => {
       const pied = [PIEDS[i][0], 0], lienP = [DEC[i], H];
       const dir = uni(sub(lienP, pied));
       const bout = add(lienP, mul(dir, E * (lienP[1] - pied[1]) / (dir[1] * L3)));
-      out.push(perche(P(pied), P(bout)));
+      out.push(perche(P(pied), P(bout), D0 * K, D1 * K, 2.4, i === 2 ? '#E6E6E6' : '#FFFFFF'));
     }
     out.push(ligature(P, K, 0.8));
     return out.join('\n');
@@ -188,7 +190,7 @@ module.exports = (h) => {
     const r0 = D0 / 2;
     // la perche du fond, vue dans le creux, derrière le plan de coupe
     const tipF = [0, H + E * H / L3];
-    out.push(perche(P([0, 0]), P(tipF)));
+    out.push(perche(P([0, 0]), P(tipF), D0 * K, D1 * K, 1.4, '#E6E6E6'));   // la charte : derrière le plan de coupe
     // les deux perches du plan de coupe et leur foin
     const foins = [];
     for (const sgn of [-1, 1]) {
@@ -219,6 +221,9 @@ module.exports = (h) => {
       const a = P([sgn * (R + 10), 4]), b = P([sgn * (R - 8), 5]), c = P([sgn * 9, 14]), e = P([sgn * 6, 44]);
       out.push(h.fleche(`M${f1(a[0])} ${f1(a[1])} C${f1(b[0])} ${f1(b[1])} ${f1(c[0])} ${f1(c[1])} ${f1(e[0])} ${f1(e[1])}`, A.cache));
     }
+    // La charte : le point à contrôler, le jour entre le bas du foin et le sol, par où l'air entre
+    const jour = P([-51, 7]);
+    out.push(h.controle(jour[0], jour[1], 14));
     return out.join('\n');
   };
 
@@ -234,7 +239,7 @@ module.exports = (h) => {
       const tB = (bas - pied[1]) / dir[1];
       const p0 = add(pied, mul(dir, tB));
       const bout = add(lienP, mul(dir, E * (lienP[1] - pied[1]) / (dir[1] * L3)));
-      out.push(percheRompue(P(p0), P(bout), D0 * KD * 0.93, D1 * KD));
+      out.push(percheRompue(P(p0), P(bout), D0 * KD * 0.93, D1 * KD, i === 2 ? A.loin : A.blanc));   // la charte : celle du fond, en gris loin
     }
     out.push(ligature(P, KD, 1.4));
     return out.join('\n');

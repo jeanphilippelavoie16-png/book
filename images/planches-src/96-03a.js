@@ -13,6 +13,10 @@
 // de l'axe à dégager. Les proportions (chicot de 1,55 m, câble d'environ 5 m, barre de 1,5 m, axe du
 // tambour à 1,6 m comme sur 109-08) ne servent qu'au dessin.
 // Vue 1 : de côté, le sol coupé dans l'axe du câble. Vue 2 : de dessus, alignée sous la vue 1 (mêmes x).
+// La charte : de côté, la face de droite du chicot et de l'arbre à l'ombre, et la fosse, vue au-delà
+// de la coupe, en gris loin. Le rouge : la barre qu'on pousse (le geste) et, de dessus, les deux
+// bords de l'axe du câble en tireté rouge (la zone où personne ne se tient). Le chicot qui bascule
+// est une pièce qui bouge : sa flèche reste noire.
 module.exports = (h) => {
   const f = v => Math.round(v * 10) / 10;
   const blanc = (t = 'arete') => h.a[t].replace('fill="none"', 'fill="#FFFFFF"');
@@ -89,6 +93,8 @@ module.exports = (h) => {
     const pitE = 850, pitF = 640, pitP = -330;
     const sol = [[0, gy], [x(-pitE), gy], [x(-pitF), y(pitP)], [x(pitF), y(pitP)], [x(pitE), gy], [z.l, gy], [z.l, z.h], [0, z.h]];
     out.push(h.path(D(sol), h.a.hachure('terre', 'aucun')));
+    // la fosse, vue au-delà de la coupe : sa paroi du fond, en gris loin
+    out.push(h.path(D([[x(-pitE), gy], [x(-pitF), y(pitP)], [x(pitF), y(pitP)], [x(pitE), gy]]), h.a.loin));
     out.push(h.chemin([[0, gy], [x(-pitE), gy], [x(-pitF), y(pitP)], [x(pitF), y(pitP)], [x(pitE), gy], [z.l, gy]], h.a.contour));
     out.push(h.ligne(x(-pitE), gy, x(pitE), gy, h.a.fin));            // le bord de la fosse, derrière
 
@@ -113,7 +119,11 @@ module.exports = (h) => {
     out.push(h.path(D([[x(-150), y(-400)], [x(-230), y(-600)], [x(-200), y(-640)], [x(-90), y(-420)]]), blanc('detail')));
     out.push(h.path(D([[x(120), y(-410)], [x(170), y(-580)], [x(210), y(-575)], [x(200), y(-400)]]), blanc('detail')));
     out.push(racineCoupe(q, -1), racineCoupe(q, 1));
-    out.push(h.path(D([...gauche, [x(-r(HC) + 60), y(HC)], [x(-20), y(HC)], [x(-20), y(HC + 25)], [x(r(HC) - 10), y(HC + 25)], ...droiteEnt, ...fond]), blanc('contour')));
+    const dChicot = D([...gauche, [x(-r(HC) + 60), y(HC)], [x(-20), y(HC)], [x(-20), y(HC + 25)], [x(r(HC) - 10), y(HC + 25)], ...droiteEnt, ...fond]);
+    out.push(h.path(dChicot, h.a.blanc));
+    // la face de droite du chicot, à l'ombre, entaille comprise
+    out.push(h.path(D([...Ys.map(Y => [x(0.42 * r(Y)), y(Y)]), ...droiteEnt]), h.a.ombre));
+    out.push(h.path(dChicot, h.a.contour));
     // fil du bois
     [[-120, 300, 1350], [60, 150, 1250], [150, 500, 1100]].forEach(([X0, Y0, Y1]) =>
       out.push(h.ligne(x(X0), y(Y0), x(X0 * 0.85), y(Y1), h.a.fin)));
@@ -153,7 +163,11 @@ module.exports = (h) => {
     const tr = [[x(XT - RT * 1.5), gy], [x(XT - RT * 1.1), y(260)], [x(XT - RT), y(700)], [x(XT - RT), 8],
       [x(XT - RT * 0.4), 3], [x(XT), 9], [x(XT + RT * 0.45), 2], [x(XT + RT), 7],
       [x(XT + RT), y(700)], [x(XT + RT * 1.1), y(260)], [x(XT + RT * 1.5), gy]];
-    out.push(h.path(D(tr), blanc('contour')));
+    out.push(h.path(D(tr), h.a.blanc));
+    // la face de droite de l'arbre, à l'ombre
+    out.push(h.path(D([[x(XT + RT * 0.35), 5], [x(XT + RT * 0.45), 2], [x(XT + RT), 7], [x(XT + RT), y(700)], [x(XT + RT * 1.1), y(260)],
+      [x(XT + RT * 1.5), gy], [x(XT + RT * 0.52), gy], [x(XT + RT * 0.39), y(260)], [x(XT + RT * 0.35), y(700)]]), h.a.ombre));
+    out.push(h.path(D(tr), h.a.contour));
     [[-60, 400, 2600], [70, 900, 3300]].forEach(([dx, a, b]) =>
       out.push(h.ligne(x(XT + dx), y(a), x(XT + dx), Math.max(y(b), 16), h.a.fin)));
 
@@ -187,7 +201,7 @@ module.exports = (h) => {
       const p1 = [x(cx + R * Math.cos(rad(a1))), y(cy + R * Math.sin(rad(a1)))];
       return `M ${f(p0[0])} ${f(p0[1])} A ${f(R * s)} ${f(R * s)} 0 0 ${sweep} ${f(p1[0])} ${f(p1[1])}`;
     };
-    out.push(h.fleche(arc(XV, YV, LB * 0.78, 198, 222, 0)));
+    out.push(h.geste(arc(XV, YV, LB * 0.78, 198, 222, 0)));
     out.push(h.fleche(arc(-330, -150, 1950, 80, 101, 0)));
     return out.join('\n');
   };
@@ -212,7 +226,8 @@ module.exports = (h) => {
   const plan = z => {
     const q = P2(z), { x, p, s } = q, out = [];
     // L'axe à laisser vide, des deux bords, sur toute la longueur.
-    out.push(h.ligne(2, p(-AXE), z.l - 2, p(-AXE), h.a.cache), h.ligne(2, p(AXE), z.l - 2, p(AXE), h.a.cache));
+    // la zone où personne ne se tient : l'axe du câble, des deux bords
+    out.push(h.ligne(2, p(-AXE), z.l - 2, p(-AXE), h.a.zone), h.ligne(2, p(AXE), z.l - 2, p(AXE), h.a.zone));
 
     // La fosse et les racines tranchées.
     out.push(h.cercle(x(0), p(0), 850 * s, h.a.arete), h.cercle(x(0), p(0), 640 * s, h.a.fin));

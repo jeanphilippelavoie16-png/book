@@ -61,9 +61,10 @@ module.exports = (h) => {
     const p = t => [c[0] + rx * Math.cos(t * RAD), c[1] + ry * Math.sin(t * RAD)];
     const a = p(200), m = p(360), b = p(468);
     const dAv = `M${pt(m)} A${rx} ${ry} 0 0 1 ${pt(b)}`;
+    // la charte : brasser est le geste de la vue, en rouge, devant et derrière le manche
     return {
-      arriere: h.path(`M${pt(a)} A${rx} ${ry} 0 0 1 ${pt(m)}`, A.arete),
-      avant: [halo(dAv), h.fleche(dAv)].join('\n'),
+      arriere: h.path(`M${pt(a)} A${rx} ${ry} 0 0 1 ${pt(m)}`, A.geste),
+      avant: [halo(dAv), h.geste(dAv)].join('\n'),
       milieu: p(90), p,
     };
   };
@@ -148,6 +149,8 @@ module.exports = (h) => {
       [30, 40], [44, 16], [60, 34], [74, 14], [94, 34], [100, 46], [48, 52], [78, 56]]
       .forEach(([x, y]) => out.push(h.cercle(x, y, 1.5, A.plein)));
     out.push(h.fleche(`M54 74 Q47 50 36 26`), h.fleche(`M66 74 Q74 50 86 26`));
+    // la charte : le point qui rate, le contact de l'eau sur la soude sèche
+    out.push(h.controle(pic[0], pic[1] - 2, 13));
     // barrée
     out.push(h.ligne(6, 8, z.l - 6, z.h - 4, A.arete), h.ligne(z.l - 6, 8, 6, z.h - 4, A.arete));
     return {
@@ -195,15 +198,25 @@ module.exports = (h) => {
     const out = [];
     const clip = 'k112-41-surface';
     // le chaudron en perspective, vu d'un peu haut
-    out.push(h.path(`M${r1(cx - rx)} ${r1(yr)} L${r1(cx - rx)} ${r1(yb)} A${rx} ${ry} 0 0 0 ${r1(cx + rx)} ${r1(yb)} L${r1(cx + rx)} ${r1(yr)} Z`, bA));
+    const flanc = `M${r1(cx - rx)} ${r1(yr)} L${r1(cx - rx)} ${r1(yb)} A${rx} ${ry} 0 0 0 ${r1(cx + rx)} ${r1(yb)} L${r1(cx + rx)} ${r1(yr)} Z`;
+    out.push(h.path(flanc, bA));
+    // la charte : le flanc droit à l'ombre (lumière en haut à gauche)
+    {
+      const k = 0.45, us = Array.from({ length: 13 }, (_, i) => k + (1 - k) * i / 12), sq = u => ry * Math.sqrt(1 - u * u);
+      out.push(h.chemin([...us.map(u => [cx + u * rx, yr + sq(u)]), ...us.slice().reverse().map(u => [cx + u * rx, yb + sq(u)])], A.ombre, true));
+      out.push(h.path(flanc, A.contour));   // la charte : le chaudron, objet de la vue, au contour fort
+    }
     [-1, 1].forEach(s => out.push(h.path(`M${r1(cx + s * rx)} ${r1(yr + 6)} C${r1(cx + s * (rx + 11))} ${r1(yr + 4)} ${r1(cx + s * (rx + 11))} ${r1(yr + 20)} ${r1(cx + s * rx)} ${r1(yr + 20)}`, A.arete)));
-    out.push(h.ellipse(cx, yr, rx, ry, bA));
+    out.push(h.ellipse(cx, yr, rx, ry, blanc(A.contour)));
     out.push(`<defs><clipPath id="${clip}"><ellipse cx="${r1(cx)}" cy="${r1(yr)}" rx="${rx - 2.5}" ry="${ry - 1.5}"/></clipPath></defs>`);
+    // la charte : la paroi du fond, vue par l'ouverture au-dessus du mélange, au gris loin
+    out.push(h.ellipse(cx, yr, rx - 2.5, ry - 1.5, A.loin));
     out.push(h.ellipse(cx, yr, rx - 2.5, ry - 1.5, A.fin));
     // la surface du mélange épaissi, et le sillon en relief qu'a laissé la coulée
     const ys = yr + 7;
     const sillon = [[20, -3], [12, -8], [2, -8], [-6, -4], [-4, 2], [-12, 5], [-22, 3], [-28, -2]].map(([u, v]) => [cx + u, ys + v]);
     out.push(`<g clip-path="url(#${clip})">`,
+      h.ellipse(cx, ys, rx - 2.5, ry - 1.5, A.blanc),
       h.ellipse(cx, ys, rx - 2.5, ry - 1.5, A.hachure('neige', 'detail')),
       h.path(`M${sillon.map(p => pt([p[0] + 0.5, p[1] + 2.9])).join(' L')}`, A.fin),
       F.corde(sillon, { ep: 4.2, debut: 'ouvert', fin: 'ouvert', trait: 'detail' }),
@@ -213,6 +226,8 @@ module.exports = (h) => {
     const bo = cu.bout, fin = sillon[0];
     out.push(bande([bo[0], bo[1] - 1], [bo[0] - 1, bo[1] + 14], [fin[0], fin[1] - 20], [fin[0], fin[1] + 0.5], 4.6, 3), cu.svg);
     out.push(h.fleche(`M${r1(cx + 32)} ${r1(yr - 36)} V${r1(yr - 22)}`));
+    // la charte : le point à contrôler, le sillon qui tient à la surface
+    out.push(h.controle(cx - 4, ys - 2, 13));
     return {
       svg: out.join(NL),
       renvois: [

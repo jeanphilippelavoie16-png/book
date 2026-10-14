@@ -46,3 +46,7 @@ JP ensuite : « c'est bien mais pas encore parfait, les formes que tu as pas de 
 - **14 octobre : « toute est excellent »** (JP, après 13 paquets de la charte). Les 99 planches passées sont validées, avec
   34-01 et 28-02. 28-06 et 29-05 se refont avec la tête de profil. La règle des têtes vaut pour les têtes humaines : les
   têtes d'animaux vues de face restent quand la vue de face montre ce qui compte.
+- **14 octobre, choix de JP sur les têtes : le choix 2.** On construit une bibliothèque de têtes de profil (`scripts/tetes/`,
+  `teteSimple`, option `visage` du corps simple) dans le style des corps simples : homme, femme, enfants de 6 et 4 ans, bébé,
+  avec les expressions. Un agent la construit, puis le réviseur repasse (brief dans le scratch `tetes-lib/brief.md`).
+  « All good le reste » : les 78 planches des paquets 19 à 29 sont validées.
