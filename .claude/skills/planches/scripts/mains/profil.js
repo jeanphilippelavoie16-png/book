@@ -158,14 +158,17 @@ function paume() {
 //   - coupe le manche dans le trou du poing, au plan de l'axe du doigt le plus proche qui l'entoure : la moitié
 //     proche de ce doigt passe devant la face coupée et la cerne, on voit un rond dans le trou du poing, les
 //     doigts autour (au plan de leur face proche, la face coupée sortait mordue par les doigts : agent 5, P3) ;
-//   - arrête la partie loin à `objet.loin` mm (défaut 30) derrière la face loin des doigts qui l'entourent : un
-//     bout qui dépasse à peine, que la planche peut fermer d'une cassure ; objet.loin = false : toute sa longueur.
+//   - ne garde, par défaut, que la tranche coupée (8 mm) : le corps du manche derrière la main ne se dessine pas
+//     (il ressortait en boîte entre le pouce et la paume, ou longeait l'avant-bras : « une planchette attachée
+//     au bras », agent 5, P3) ; objet.loin = n (mm) : le manche va jusqu'à n mm derrière la face loin des doigts
+//     qui l'entourent ; objet.loin = false : toute sa longueur.
 //   objetDeVue(objet, sq, M, { demiAxes, F }) → null (l'objet est dans le plan de la vue : rien à couper) ou
 //     { objet: le cylindre raccourci (même axe ; bouts : la face coupée et le bout loin),
 //       coupe: { centre: [x, y, z] (repère de la main), axe, r } (la face coupée, à dessiner hachurée) }
 //   M : la matrice de la vue (3 × 3, la 3e ligne est la profondeur, l'œil du côté des petites).
-// Conseil aux planches : de profil, ne pas prolonger le manche au-delà de prise.bouts[1] ; s'il doit se lire
-// plus long (une hache), le faire sortir dans une autre vue, ou le couper d'une cassure.
+// Conseil aux planches : de profil, dessiner la face coupée (prise.coupe, hachurée) et ne pas prolonger le manche
+// au-delà de prise.bouts[1] : un manche qui doit se lire long (une hache) se montre dans une vue où il est dans
+// le plan (dos, paume), ou sort de la vue d'une cassure.
 const DOIGTS = ['index', 'majeur', 'annulaire', 'auriculaire'];
 function objetDeVue(objet, sq, M, outils = {}) {
   if (!objet || objet.type === 'plan' || objet.type === 'sphere' || !objet.centre || !objet.axe || !sq || !sq.segments) return null;
@@ -199,10 +202,10 @@ function objetDeVue(objet, sq, M, outils = {}) {
   const L = objet.longueur || 1200, s = d => (d - dep(C)) / dA;
   const sCut = s(dAxe), sBout = dA > 0 ? L / 2 : -L / 2;
   let sFar = sBout;
-  if (objet.loin !== false) {
-    const sL = s(dLoin + (typeof objet.loin === 'number' ? objet.loin : 30));
+  if (typeof objet.loin === 'number') {
+    const sL = s(dLoin + objet.loin);
     if (Math.abs(sL) < Math.abs(sBout)) sFar = sL;
-  }
+  } else if (objet.loin !== false) sFar = sCut + Math.sign(sBout) * 8;     // la coupe seule : un rond dans le poing
   if ((sFar - sCut) * Math.sign(sBout) <= 0) return null;
   const s0 = Math.min(sCut, sFar), s1 = Math.max(sCut, sFar);
   const P = t => [0, 1, 2].map(j => C[j] + A[j] * t);

@@ -35,6 +35,8 @@
 //     gant      true ou { epaisseur (mm, défaut 1,8 : chaque demi-largeur gonflée d'autant), manchette (mm de
 //               manchette sur l'avant-bras, défaut 45 ; false : sans) } : la main gantée
 //     masque    false : ne pas peindre le blanc de l'objet sous lui (voir « Les couches »)
+//     presentation  false : sans la petite rotation de présentation que profil.js donne à certaines poses de profil
+//               (le poing, la pointe : 26° pour montrer les doigts en marches)
 //
 // Le résultat se colle comme une chaîne SVG et porte la géométrie, en unités de vue :
 //   .prise     { x, y, angle, r, axe: [ux, uy], raccourci, bouts, coupe }  l'axe de l'objet tenu : son point au
@@ -141,8 +143,9 @@
 //      surfaces, point par point sur leur recouvrement ; si l'objet passe en partie devant, en partie derrière la
 //      même phalange (un fil entre deux doigts), elle est partagée par la droite qui sépare le mieux les deux
 //      (pose.devant[vue] surcharge le tout : ids de pièces ou de doigts) ;
-//   4. le gris, par doigt entier : un doigt dont aucune phalange ne passe devant l'objet et qui s'y cache ; un
-//      doigt caché pour plus de moitié par les doigts devant lui ; un doigt dont ce qu'on voit est plus loin que
+//   4. le gris, par doigt entier : un doigt dont aucune phalange ne passe devant l'objet et qui s'y cache ; vu de
+//      dos ou de paume, un doigt caché pour plus de moitié par les doigts devant lui (de profil, les doigts
+//      repliés restent blancs, en marches) ; un doigt dont ce qu'on voit est plus loin que
 //      la face loin de la paume (le pouce vu côté auriculaire, le pouce qui tient le manche vu du dos) ;
 //      pose.loin[vue] et profil.loin[vue]. Un filet gris de moins de 4 mm ou de 25 mm² ne se dessine pas.
 // L'ordre de peinture :
@@ -1004,7 +1007,14 @@ function preparer(o) {
   if (sansAngles) pose = enrouler(pose, pose.objet, { age, F });
   // l'avant-bras dirigé vers un point : le poignet suit, dans le plan de la vue
   const sq = squelette(pose, { age, F });
-  const M = matriceVue(o.vue || 'dos', o.rotation);
+  // la présentation (profil.js, agent 2) : de profil, un poing se tourne un peu (≈ 26°) pour montrer ses doigts
+  // en marches sous le pouce, au lieu d'une boîte ; une main qui tient un objet garde la vue franche
+  let rot = o.rotation;
+  if (o.presentation !== false && F.ext && typeof F.ext.presentation === 'function') {
+    try { const rp = F.ext.presentation(pose, o.vue || 'dos', sq); if (rp) rot = [0, 1, 2].map(i => (rp[i] || 0) + ((o.rotation || [])[i] || 0)); }
+    catch (e) { if (process.env.MAINS_DEBUG) console.error('presentation :', e.message); }
+  }
+  const M = matriceVue(o.vue || 'dos', rot);
   return { pose, sq, M, F, g0 };
 }
 function construire(o, prep = null) {
@@ -1372,7 +1382,10 @@ function dessiner(o, prep = null) {
     // le gris reste celui des doigts loin, cachés derrière les doigts proches
     let devantLui = [], devantPouce = [];
     for (const H of groupes.values()) if (H !== G && !H.base && seCroisent(G.boite, H.boite) && ordreG.get(H.nom + ',' + G.nom)) (H.nom === 'pouce' ? devantPouce : devantLui).push(...H.region);
-    if (!gris && devantLui.length && Math.abs(aireCL(inter(G.region, unionCL([devantLui])))) > 0.55 * G.aire) gris = true;
+    // (de profil, non : les doigts repliés derrière l'index restent blancs, en marches séparées par leurs traits,
+    // comme dans la référence 5.jpg ; agent 2, tour 2)
+    const profilV = vue === 'pouce' || vue === 'auriculaire';
+    if (!gris && !profilV && devantLui.length && Math.abs(aireCL(inter(G.region, unionCL([devantLui])))) > 0.55 * G.aire) gris = true;
     // de l'autre côté de la paume : ce qu'on en voit est plus loin que la face loin de la paume (le pouce vu côté
     // auriculaire, le pouce qui tient le manche vu du dos)
     if (!gris && loinPaume !== null) {
@@ -1654,7 +1667,7 @@ function mainSimple(o = {}) {
   // l'avant-bras vers un point de la vue : la direction, dans le repère local de la vue (avant le miroir,
   // l'angle et l'échelle) — calculée après le placement, d'où deux passes si ancre ≠ poignet
   const cleBase = { pose: o.pose, vue, rotation: o.rotation, doigts: o.doigts, poignet: o.poignet, diametre: o.diametre,
-    age: o.age, loin: !!o.loin, objetPose: o.objetPose, gant: o.gant || null };
+    age: o.age, loin: !!o.loin, objetPose: o.objetPose, gant: o.gant || null, presentation: o.presentation };
   const ab = o.avantbras === false ? false : Object.assign({}, o.avantbras || {});
   const m = o.cote === 'gauche' ? -1 : 1;
   const ang = o.angle || 0;
