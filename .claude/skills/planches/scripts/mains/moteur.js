@@ -997,7 +997,9 @@ function preparer(o) {
   return { pose, sq, M, F, g0 };
 }
 function construire(o, prep = null) {
-  const { pose, sq, M, F, g0 } = prep || preparer(o);
+  const P0 = prep || preparer(o);
+  const { pose, M, F, g0 } = P0;
+  const sq = Object.assign({}, P0.sq, { points: Object.assign({}, P0.sq.points) });   // le coude bouge selon l'avant-bras
   const kW = sq.age.kW, kL0 = sq.age.kL;
   const proj = p => matVec(M, p);
   const p2 = p => { const q = proj(p); return [q[0], q[1]]; };
