@@ -4,6 +4,11 @@
 //
 // Chaque vue a son repère de modèle (unités arbitraires, jamais imprimées), mis à l'échelle
 // par cadre() pour remplir la vue en gardant les proportions.
+//
+// La charte : les coupes hachurées restent sans gris ; de face, le tuyau et la buse ont leur face de
+// droite à l'ombre. Le rouge : la porte qu'on referme sur la pâte, la feuille qu'on tire, et, sur le
+// joint qui fuit, l'endroit où la pâte s'est retirée de la feuille. Les flèches de la feuille grossie
+// disent ce qu'elle fait (elle sort ou elle tient) : elles restent noires.
 
 module.exports = (h) => {
   const f = v => +v.toFixed(1);
@@ -48,7 +53,7 @@ module.exports = (h) => {
       if (ouvert) {
         o.push(g.P(g.D(['M', d + 7, 115], ['L', d, 115], ['L', d, 113], ['C', d - 10, 112, d - 15, 117, d - 15, 122.5],
           ['C', d - 15, 128, d - 10, 133, d, 132], ['L', d, 130], ['L', d + 7, 130], ['Z']), h.a.hachure('terre', 'arete')));
-        o.push(g.F(g.D(['M', ox + 176, 70], ['L', ox + 104, 70])));
+        o.push(h.geste(g.D(['M', ox + 176, 70], ['L', ox + 104, 70])));
       } else {
         o.push(g.P(g.D(['M', d + 7, 115], ['L', d, 115], ['L', d, 112.5], ['Q', d - 6, 110.5, ox + 70.5, 111.5],
           ['L', ox + 70.5, 133.5], ['Q', d - 6, 134.5, d, 132.5], ['L', d, 130], ['L', d + 7, 130], ['Z']),
@@ -65,7 +70,9 @@ module.exports = (h) => {
   const test = z => {
     const g = cadre(z, ...MT), o = [];
     o.push(g.R(0, 288, 260, 9, h.a.hachure('terre', 'aucun')), g.L(0, 288, 260, 288, h.a.arete));
-    o.push(g.R(163, 0, 30, 30, W('arete')), g.R(158, 30, 40, 32, W('arete')));
+    // le tuyau et la buse, leur face de droite à l'ombre
+    o.push(g.R(163, 0, 30, 30, h.a.blanc), g.R(183, 0, 10, 30, h.a.ombre), g.R(163, 0, 30, 30, h.a.arete));
+    o.push(g.R(158, 30, 40, 32, h.a.blanc), g.R(185, 30, 13, 32, h.a.ombre), g.R(158, 30, 40, 32, h.a.arete));
     [[38, 250], [208, 250]].forEach(([x, y]) => o.push(g.R(x, y, 14, 38, W('arete'))));
     o.push(g.R(30, 70, 200, 180, W('contour')), g.R(22, 62, 216, 8, W('arete')));
     // les autres places où la feuille s'essaie, au tireté
@@ -83,7 +90,7 @@ module.exports = (h) => {
     // la feuille pincée côté poignée, tirée ; sa partie cachée sous la porte au tireté
     o.push(g.R(190, 128, 24, 24, W('arete')), g.L(180, 128, 190, 128, h.a.cache), g.L(180, 152, 190, 152, h.a.cache),
       g.L(180, 128, 180, 152, h.a.cache));
-    o.push(g.F(g.D(['M', 220, 140], ['L', 252, 140])));
+    o.push(h.geste(g.D(['M', 220, 140], ['L', 252, 140])));
     return o.join('\n');
   };
 
@@ -108,6 +115,8 @@ module.exports = (h) => {
     };
     joint(0, false);
     joint(160, true);
+    // sur le raté : là où la pâte s'est retirée de la feuille
+    o.push(g.C(210, 108, 14, h.a.controle));
     return o.join('\n');
   };
 

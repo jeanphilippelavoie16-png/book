@@ -7,6 +7,10 @@
 // leurs clous (où la guirlande s'accroche), les clous au plafond, la boucle de cordelette qui pend
 // la botte au fil, et dehors l'avant-toit (contre la neige) et la moustiquaire nouée (contre les
 // oiseaux) : le chapitre dit « à l'abri », pas avec quoi.
+// La charte : sur le fil, les tranches au contour fort et les poteaux ramenés à l'arête ; le
+// poêle, qui n'est là que pour situer les bottes, recule en gris loin. Le rouge : le vide entre
+// deux tranches (le point à vérifier : elles ne se touchent pas) et, au-dessus du poêle, la zone
+// où la feuille cuit. Les flèches d'air restent noires.
 
 module.exports = (h) => {
   const f = v => Math.round(v * 10) / 10;
@@ -56,12 +60,12 @@ module.exports = (h) => {
   };
 
   // La guirlande complète : fil, tranches, entrée du fil dans chaque face.
-  const guirlande = (x0, y0, x1, y1, sag, n, s, k, t, marge) => {
+  const guirlande = (x0, y0, x1, y1, sag, n, s, k, t, marge, trait = h.a.arete) => {
     const Y = pend(x0, y0, x1, y1, sag), o = [], xs = [];
     o.push(h.chemin(trace(x0, x1, Y), h.a.arete));
     const a = x0 + marge, b = x1 - marge;
     for (let i = 0; i < n; i++) xs.push(a + (b - a) * i / (n - 1));
-    const tr = xs.map(x => tranche(x, Y(x), s, k, t));
+    const tr = xs.map(x => tranche(x, Y(x), s, k, t, trait));
     tr.forEach((q, i) => {
       o.push(q.svg);
       const xg = q.gauche;
@@ -138,11 +142,17 @@ module.exports = (h) => {
   const dessinG = z => {
     const g = G(z), o = [];
     // deux poteaux coupés par la vue, deux clous dans chacun
-    o.push(h.rect(0, 0, g.wp, z.h, h.a.hachure('bois', 'contour')));
-    o.push(h.rect(z.l - g.wp, 0, g.wp, z.h, h.a.hachure('bois', 'contour')));
+    o.push(h.rect(0, 0, g.wp, z.h, h.a.hachure('bois', 'arete')));
+    o.push(h.rect(z.l - g.wp, 0, g.wp, z.h, h.a.hachure('bois', 'arete')));
     [g.yG, g.yB].forEach(y => { o.push(clou(g.wp, y, 1)); o.push(clou(z.l - g.wp, y, -1)); });
     // la guirlande
-    o.push(guirlande(g.x0 - 2, g.yG, g.x1 + 2, g.yG, g.sagG, g.n, g.s, g.k, g.t, g.marge).svg);
+    o.push(guirlande(g.x0 - 2, g.yG, g.x1 + 2, g.yG, g.sagG, g.n, g.s, g.k, g.t, g.marge, h.a.contour).svg);
+    // le point à vérifier : le vide entre deux tranches, qui ne se touchent pas
+    {
+      const YG = pend(g.x0 - 2, g.yG, g.x1 + 2, g.yG, g.sagG);
+      const a = g.x0 + g.marge, b = g.x1 - g.marge, pas = (b - a) / (g.n - 1), xv = a + pas * 1.5 + g.t / 2;
+      o.push(h.controle(xv, YG(xv) + 0.22 * g.s, 9));
+    }
     // les bottes : chacune pendue au fil par sa boucle
     const Y = pend(g.x0 - 2, g.yB, g.x1 + 2, g.yB, g.sagB);
     o.push(h.chemin(trace(g.x0 - 2, g.x1 + 2, Y), h.a.arete));
@@ -180,12 +190,15 @@ module.exports = (h) => {
     o.push(h.ligne(0, p.yF, z.l, p.yF, h.a.contour));
     // poêle en élévation : pattes, caisse, dessus, porte, tuyau jusqu'au plafond
     const { xs0, ws, hs, ybB, ybT } = p;
-    o.push(h.rect(xs0 + 4, ybB, 5, p.pattes, blanc(h.a.arete)));
-    o.push(h.rect(xs0 + ws - 9, ybB, 5, p.pattes, blanc(h.a.arete)));
-    o.push(h.rect(f(p.xPipe - p.wPipe / 2), p.yC, p.wPipe, ybT - 4 - p.yC, blanc(h.a.arete)));
+    const gris = a => a.replace('fill="none"', `fill="#E6E6E6"`);
+    o.push(h.rect(xs0 + 4, ybB, 5, p.pattes, gris(h.a.arete)));
+    o.push(h.rect(xs0 + ws - 9, ybB, 5, p.pattes, gris(h.a.arete)));
+    o.push(h.rect(f(p.xPipe - p.wPipe / 2), p.yC, p.wPipe, ybT - 4 - p.yC, gris(h.a.arete)));
     o.push(h.ligne(f(p.xPipe - p.wPipe / 2), f(p.yC + (ybT - p.yC) * 0.55), f(p.xPipe + p.wPipe / 2), f(p.yC + (ybT - p.yC) * 0.55), h.a.detail));
-    o.push(h.rect(xs0, ybT, ws, hs, blanc(h.a.contour)));
-    o.push(h.rect(xs0 - 3, ybT - 4, ws + 6, 4, blanc(h.a.arete)));
+    o.push(h.rect(xs0, ybT, ws, hs, gris(h.a.arete)));
+    o.push(h.rect(xs0 - 3, ybT - 4, ws + 6, 4, gris(h.a.arete)));
+    // la zone où la feuille cuit : toute la colonne au-dessus du poêle
+    o.push(h.rect(xs0 - 6, p.yC + 5, ws + 12, ybT - 10 - p.yC - 5, h.a.zone));
     const px = xs0 + ws * 0.14, pw = ws * 0.62, py = ybT + hs * 0.24, ph = hs * 0.5;
     o.push(h.rect(f(px), f(py), f(pw), f(ph), h.a.detail));
     o.push(h.ligne(f(px + pw - 5), f(py + ph * 0.4), f(px + pw - 5), f(py + ph * 0.6), h.a.arete));

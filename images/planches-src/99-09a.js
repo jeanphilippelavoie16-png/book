@@ -51,7 +51,7 @@ const CENTRES = [29, 112, 195];          // milieu de chaque morceau, racines co
 function rhubarbe(h) {
   const A = h.a;
   const blanc = at => at.replace('fill="none"', 'fill="#FFFFFF"');
-  const bA = blanc(A.arete), bD = blanc(A.detail);
+  const bA = blanc(A.arete), bD = blanc(A.detail), bC = blanc(A.contour);   // bC : la couronne, objet de la planche (charte)
   const MIXTE = 'fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-dasharray="8 3 1.5 3" stroke-linecap="round"';
   const f = p => `${r1(p[0])} ${r1(p[1])}`;
   const dd = (pts, ferme) => pts.map((p, i) => `${i ? 'L' : 'M'}${f(p)}`).join(' ') + (ferme ? ' Z' : '');
@@ -170,7 +170,7 @@ function rhubarbe(h) {
     if (tiges) out.push(tiges);
     PETITS.filter(b => dans(b.x)).forEach(b => out.push(bourgeon(b, P)));
     GROS.filter(b => dans(b.x)).forEach(b => out.push(ouvert ? bourgeonOuvert(b, P) : bourgeon(b, P)));
-    const peau = [`<path d="${dd(corps.map(P), true)}" ${bA}/>`];
+    const peau = [`<path d="${dd(corps.map(P), true)}" ${bC}/>`];
     GRAIN.filter(([x]) => dans(x)).forEach(([x, y]) => { const q = P([x, y]); peau.push(`<circle cx="${r1(q[0])}" cy="${r1(q[1])}" r="0.55" ${A.plein}/>`); });
     if (seg === null) out.push(...peau);
     else {
@@ -178,7 +178,7 @@ function rhubarbe(h) {
       out.push(`<clipPath id="k9909-${id}"><rect x="${r1(a[0])}" y="${r1(a[1])}" width="${r1(b[0] - a[0])}" height="${r1(b[1] - a[1])}"/></clipPath>`,
         `<g clip-path="url(#k9909-${id})">`, ...peau, '</g>');
       // la face coupée : un trait droit, net, là où le couteau est passé
-      for (const x of COUPES) if (x === x0 || x === x1) { const [yt, yb] = bornesY(x); out.push(h.ligne(...P([x, yt]), ...P([x, yb]), A.arete)); }
+      for (const x of COUPES) if (x === x0 || x === x1) { const [yt, yb] = bornesY(x); out.push(h.ligne(...P([x, yt]), ...P([x, yb]), A.contour)); }
     }
     return out.join('\n');
   };
@@ -221,7 +221,10 @@ const fabrique = (h) => {
         titre: 'Tôt au printemps, soulever et couper',
         dessin: z => [
           R.couronne(T1),
-          ...[72, 152].map(x => h.path(`M${R.f(P1([x, -56]))} L${R.f(P1([x, 184]))}`, R.MIXTE)),
+          h.path(`M${R.f(P1([72, -56]))} L${R.f(P1([72, 184]))}`, R.MIXTE),
+          // le geste (charte) : la lame descend par le trait de coupe, entre les bourgeons
+          h.path(`M${R.f(P1([152, -2]))} L${R.f(P1([152, 184]))}`, R.MIXTE),
+          h.geste(`M${R.f(P1([152, -58]))} L${R.f(P1([152, -8]))}`),
         ].join('\n'),
         renvois: z => [
           { n: 1, rond: [P1([104, 0])[0] - 4, 14], cible: P1([100, -26]), texte: 'gros bourgeon vigoureux' },

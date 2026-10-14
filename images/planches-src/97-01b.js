@@ -72,7 +72,7 @@ module.exports = (h) => {
     const a = pt(-t, 0), b = pt(t, 0), m1 = pt(0, t * 0.55), m2 = pt(0, -t * 0.55);
     return [
       h.path(`M${a[0]} ${a[1]} Q${m1[0]} ${m1[1]} ${b[0]} ${b[1]} Q${m2[0]} ${m2[1]} ${a[0]} ${a[1]} Z`, blanc(A.detail)),
-      h.ligne(...a, ...b, A.fin),
+      h.chemin([a, b], A.fin),   // la nervure : un trait de détail, pas une hachure
     ].join('\n');
   };
 
