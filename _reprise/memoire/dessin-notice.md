@@ -68,3 +68,7 @@ JP ensuite : « c'est bien mais pas encore parfait, les formes que tu as pas de 
   une autre prise ; sinon l'objet seul et le renvoi dit la prise. Têtes : la patte devant l'oreille (B), la bouche au
   contour seul (A), pas d'oreille sur une tête couchée (A). La bibliothèque des têtes est figée ; on la passe dans
   28-06, 29-05, 27-03, 38-01, 89-07, 27-05, 13-40, 28-02, 29-06 et 34-01.
+- **14 octobre, fin des mains et des têtes : « garde l'ancienne pour 29-05, all good le reste ».** 29-05 garde sa version
+  validée d'avant les têtes simples (l'aide penchée et les bébés dessinés dans la planche) : la tête simple de l'aide,
+  écrasée à plat sur le bébé, se lisait moins bien. Les 73 autres planches (68 de mains avec les 13 reprises, 5 de
+  têtes) sont validées. `a-valider/` est vide ; 363 planches dans `validees/`.

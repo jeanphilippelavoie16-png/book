@@ -13,12 +13,13 @@
 // profil a un nez court et rond, les lèvres fermées, un menton et un œil fermé. Le renvoi
 // « l'air des joues, rien de plus » n'a plus de cible sans la tête de l'aide : l'encadré danger
 // le dit en entier. Le renvoi 5 aboutit sur le devant du cou étiré.
-// Têtes simples (14 octobre) : la tête du bébé est la tête simple de la bibliothèque (tetes/moteur.js,
-// âge « bebe », les yeux fermés, sans oreille), son cou raccordé aux épaules du corps dessiné ici ; le
-// raté la renverse sur le cou (penche) sans casser la nuque. La tête de l'aide est la tête simple de
-// l'adulte, entière, penchée vers le bébé : ses lèvres serrées en travers du nez et de la bouche du
-// bébé (une tricherie : voir plus bas). Le corps du bébé est dessiné à la main, en mm :
-// poitrine de 95 d'épaisseur.
+// Le bébé est dessiné à la main (la bibliothèque n'a pas de nouveau-né), en mm : 118 de l'occiput
+// au front, visage petit sous un gros crâne, cou court, poitrine de 95 d'épaisseur.
+//
+// Passe de profil (JP, 14 octobre) : « souffler, vu d'en haut » devient « bouche sur bouche et
+// nez », de profil : le bébé de la tête droite en gros plan, et la tête de l'aide (bibliothèque de
+// formes) penchée dessus, ses lèvres sur le nez et la bouche du bébé. Sur le raté, le contour de la
+// tête part maintenant du point où le dos s'attache : la nuque ne pend plus au milieu du cou.
 //
 // La charte : le bébé est un corps dessiné à la main, sans gris. Le linge roulé,
 // ce qu'on ajoute, pèse (contour fort). Pas de gris sur la planche, qui est en coupe. Le rouge :
@@ -29,7 +30,9 @@ module.exports = (h) => {
   const f = v => (Math.round(v * 10) / 10).toString();
   const blanc = at => at.replace('fill="none"', 'fill="#FFFFFF"');
   const RAD = Math.PI / 180;
+  const tourne = (p, deg) => { const c = Math.cos(deg * RAD), s = Math.sin(deg * RAD); return [p[0] * c - p[1] * s, p[0] * s + p[1] * c]; };
   const add = (a, b) => [a[0] + b[0], a[1] + b[1]];
+  const sub = (a, b) => [a[0] - b[0], a[1] - b[1]];
   const mil = (a, b) => [(a[0] + b[0]) / 2, (a[1] + b[1]) / 2];
   const pt = p => `${f(p[0])} ${f(p[1])}`;
   const miroir = pts => pts.map(p => [-p[0], p[1]]);
@@ -60,6 +63,20 @@ module.exports = (h) => {
   // une ellipse fermée, en chemin SVG, déjà dans la vue
   const ellipseD = (c, rx, ry) => `M${pt([c[0] + rx, c[1]])} A${f(rx)} ${f(ry)} 0 1 0 ${pt([c[0] - rx, c[1]])} A${f(rx)} ${f(ry)} 0 1 0 ${pt([c[0] + rx, c[1]])} Z`;
 
+  // ─── La tête du nouveau-né, de profil, debout, le visage vers la droite, repère à l'oreille.
+  // De la nuque, par-dessus le crâne, jusqu'à la gorge. Le visage : un nez court et rond, les
+  // lèvres fermées (deux bourrelets et la fente entre eux), un petit menton rond.
+  const TETE = [[-38, 46], [-52, 26], [-58, -2], [-50, -40], [-24, -67], [8, -74], [40, -62], [57, -34], [61, -14],
+    [59, -4], [61.5, 3], [68.5, 9.5], [71.5, 14.5], [69, 19.5], [62, 21.5],   // le nez, un bouton rond
+    [62.5, 25], [64.5, 29.5], [63, 33.5], [60, 36.5],                          // les lèvres, un seul bourrelet
+    [58.5, 38.5], [60, 43], [58.5, 48],                                        // le menton, petit et fuyant
+    [53, 51.5], [42, 54.5], [28, 57]];
+  const GORGE = TETE[TETE.length - 1], ATLAS = [-8, 30];
+  const NEZ = [71.5, 14.5];
+  const OEIL = [[41.5, -4.5], [46.5, -1.2], [51.5, -3.5]];  // l'œil fermé : la paupière seule (des cils faisaient une patte d'oiseau)
+  const FENTE = [[64.5, 29.5], [58, 30.4]];                  // la fente des lèvres
+  // Pas d'oreille : couchée sur le côté du crâne, elle se lisait comme un sourire.
+
   // ─── Le corps couché, en mm, repère : la surface (le dessus du linge) en y = 0, x vers les pieds.
   const ROULEAU = { c: [72, -13], r: 13 };
   const DOS = [[62, -25], [74, -26.5], [95, -25], [130, -19], [180, -8]];
@@ -68,58 +85,75 @@ module.exports = (h) => {
   const LEVE = 7;
   const leve = p => [p[0], p[1] - LEVE * Math.sin(Math.PI * (p[0] - 66) / 96)];
 
-  // La tête du bébé : la tête simple de la bibliothèque, âge « bebe », les yeux fermés, sans oreille (couchée
-  // sur le côté du crâne, elle se lisait comme un sourire). Le cou est posé sur les épaules : la coupe du cou
-  // est le haut du corps ; la tête et le cou pivotent ensemble jusqu'à ce que l'occiput repose sur la surface.
-  const XQ = 24, R_BON = -90;
-  // la tête simple, son cou raccordé aux épaules (raccord : le haut de la poitrine et le haut du dos) ; la
-  // nuque (le pivot de la tête) monte ou descend jusqu'à ce que l'occiput repose sur la surface
-  const teteBebe = (V, k, regard, extra = {}) => {
-    const o0 = V([0, 0]), mm = p => [(p[0] - o0[0]) / k, (p[1] - o0[1]) / k];
-    const fait = qy => h.formes.teteSimple(Object.assign({ age: 'bebe', yeux: 'fermes', oreille: false, ancre: 'nuque',
-      x: V([XQ, qy])[0], y: V([XQ, qy])[1], echelle: k, angle: regard, raccord: [V(FACE[0]), V(DOS[0])] }, extra));
-    let y0 = -120, y1 = 0;
-    for (let i = 0; i < 30; i++) { const ym = (y0 + y1) / 2; if (mm([0, fait(ym).boite.y1])[1] > 0) y1 = ym; else y0 = ym; }
-    return { t: fait((y0 + y1) / 2), mm };
+  // pose de la tête : angle (degrés, horaire) ; elle pivote à l'atlas puis repose sur la surface
+  const A0 = -92;
+  const poseTete = (a) => {
+    const bas0 = Math.max(...TETE.map(p => tourne(p, A0)[1]));
+    const atlasBon = add([0, -bas0], tourne(ATLAS, A0));
+    let o = sub(atlasBon, tourne(ATLAS, a));
+    const bas = Math.max(...TETE.map(p => add(o, tourne(p, a))[1]));
+    o = [o[0], o[1] - bas];
+    return p => add(o, tourne(p, a));
   };
-  function bebe(V, k, regard, { xFin = 380, coupe = false, poitrine = false } = {}) {
+
+  // le bébé : V (mm → vue), a (angle de la tête) ; coupe : le dessin s'arrête à xFin (brisure)
+  function bebe(V, k, a, { xFin = 380, coupe = false, poitrine = false } = {}) {
+    const Th = poseTete(a);
     const P = pts => pts.map(V);
     const out = [];
-    const { t } = teteBebe(V, k, regard);
-    const dos = DOS, face = FACE;
+    // le haut du dos part du point de la nuque le plus proche des épaules ; le contour de la tête
+    // part de ce même point (sur le raté, la tête renversée laissait un bout de nuque pendre en
+    // l'air, au milieu du cou)
+    const contourT = echant(TETE.map(Th), 8);
+    let kN = 0, dmin = Infinity;
+    for (let i = 0; i <= 16; i++) { const q = contourT[i], d = Math.hypot(q[0] - DOS[0][0], q[1] - DOS[0][1]); if (d < dmin) { dmin = d; kN = i; } }
+    const nuque = contourT[kN];
+    const gorge = Th(GORGE);
+    const dos = [nuque, ...DOS];
+    const face = [gorge, mil(gorge, FACE[0]), ...FACE];
     out.push(h.path(lisse(P(dos)) + ' L' + P(face.slice().reverse()).map(pt).join(' L') + ' Z', A.blanc));
     out.push(h.path(lisse(P(dos)), A.arete));
+    // la poitrine soulevée, en tireté
     if (poitrine) {
       const lev = FACE.filter(p => p[0] >= 76 && p[0] <= 150).map(leve);
       out.push(h.path(lisse(P([[68, -89], ...lev, [158, -113]])), A.cache));
     }
-    out.push(String(t));
+    // la tête, l'œil fermé, la fente des lèvres
+    const T = pts => pts.map(p => V(Th(p)));
+    out.push(h.path(lisse(T(TETE)) + ` L${pt(V(Th([10, 62])))} Z`, A.blanc));
+    out.push(h.path('M' + contourT.slice(kN).map(p => pt(V(p))).join(' L'), A.arete));
+    out.push(h.path(lisse(T(OEIL)), A.arete));
+    out.push(h.path(lisse(T(FENTE)), A.detail));
+    // le devant du cou, tracé après la tête : le fond blanc de la tête le coupait près de la gorge
     out.push(h.path(lisse(P(face)), A.arete));
+    // le rouleau, vu par le bout : il dépasse du corps vers l'œil
     {
       const { c, r } = ROULEAU;
       const sp = [];
-      for (let tt = 0; tt <= 2.4 * 360; tt += 15) {
-        const rr = 2.2 + (r - 3.4 - 2.2) * tt / (2.4 * 360);
-        sp.push(V(add(c, [rr * Math.cos(tt * RAD), rr * Math.sin(tt * RAD)])));
+      for (let t = 0; t <= 2.4 * 360; t += 15) {
+        const rr = 2.2 + (r - 3.4 - 2.2) * t / (2.4 * 360);
+        sp.push(V(add(c, [rr * Math.cos(t * RAD), rr * Math.sin(t * RAD)])));
       }
       out.push(h.cercle(...V(c), r * k, blanc(A.contour)));
       out.push(h.path(lisse(sp), A.detail));
     }
+    // la couverture : du bas de la poitrine aux pieds (les bras sont dessous)
     {
       const haut = [[157, -118], [172, -115], [205, -112], [240, -102], [262, -90], [282, -88], [302, -98], [322, -96],
         [343, -72], [362, -44], [376, -18], [384, 0]];
       const bord = [[150, 0], [152, -40], [154, -84], [157, -118]];
       let dessusC = haut;
       if (coupe) dessusC = [...haut.filter(p => p[0] < xFin - 6), [xFin, -108]];
-      const basC = coupe ? ` L${pt(V([xFin, 0]))} L${pt(V([150, 0]))}` : ` L${pt(V([150, 0]))}`;
-      out.push(h.path(lisse(P(dessusC)) + basC + lisse(P(bord), false, true) + ' Z', A.blanc));
+      const bas = coupe ? ` L${pt(V([xFin, 0]))} L${pt(V([150, 0]))}` : ` L${pt(V([150, 0]))}`;
+      out.push(h.path(lisse(P(dessusC)) + bas + lisse(P(bord), false, true) + ' Z', A.blanc));
       out.push(h.path(lisse(P(bord)), A.arete));
       out.push(h.path(lisse(P(dessusC)), A.arete));
+      // l'ourlet rabattu, et quelques plis
       out.push(h.path(lisse(P([[167, -115], [165, -80], [162, -40], [161, -2]])), A.detail));
       const plis = [[[228, -103], [236, -60], [232, -4]], [[292, -92], [286, -50], [290, -3]], [[340, -70], [336, -34], [340, -3]], [[196, -110], [202, -70]]];
       for (const pl of plis) if (!coupe || pl.every(p => p[0] < xFin - 4)) out.push(h.path(lisse(P(pl)), A.fin));
     }
-    return { svg: out.join('\n'), t };
+    return { svg: out.join('\n'), Th };
   }
 
   // la planche et le linge chaud dessus ; xG : bout gauche ; xD : bout droit (ou brisure)
@@ -165,14 +199,14 @@ module.exports = (h) => {
     const { k, V } = cadre(z, ...cad);
     const b = bebe(V, k, a, { xFin: xc, coupe: true, ...opts });
     const br = brisure(V, xc, -110, 31);
-    return { k, V, t: b.t, svg: [surface(V, k, -100, xc, true), b.svg, h.path(`M${pt(br.pts[0])}` + br.d, A.detail)].join('\n') };
+    return { k, V, svg: [surface(V, k, -100, xc, true), b.svg, h.path(`M${pt(br.pts[0])}` + br.d, A.detail)].join('\n') };
   };
 
   // les deux du haut, cadrées pareil : bon à gauche, raté à droite
   const XC = 196, CADRE = [-118, XC + 4, -150, 34];
   const posC = (z, p) => cadre(z, ...CADRE).V(p);
-  const A_RATE = -132;
-  const gorgeRate = v => { const c = v.t.cou[0], m = v.t.menton; return [c[0] * 0.55 + m[0] * 0.45, c[1] * 0.55 + m[1] * 0.45]; };
+  const pos = (z, a, p) => posC(z, poseTete(a)(p));
+  const A_RATE = -134;
 
   // ─── Souffler, de profil : la même pose que « la tête droite », la poitrine soulevée en tireté.
   const XP = 200, CADRE_P = [-118, XP + 4, -162, 34];
@@ -184,7 +218,7 @@ module.exports = (h) => {
     return best;
   };
   const souffler = z => {
-    const v = vignette(z, R_BON, CADRE_P, XP, { poitrine: true });
+    const v = vignette(z, A0, CADRE_P, XP, { poitrine: true });
     const y0 = surFace(X_FL)[1];
     const fl = [v.V([X_FL, y0 - 6]), v.V([X_FL, y0 - 30])];
     const pc = v.V([120, leve([120, -109])[1] + 2]);   // ce qu'on regarde à chaque bouffée
@@ -192,50 +226,27 @@ module.exports = (h) => {
   };
 
   // ─── Souffler, bouche sur bouche et nez, de profil (JP, 14 octobre : « passe-les de profil »).
-  // Le bébé de « la tête droite », coupé après les épaules ; au-dessus, la tête de l'aide (la tête
-  // simple de l'adulte), entière, de profil, penchée vers le bébé, le visage vers le bas : ses lèvres,
-  // serrées, se posent en travers du nez et de la bouche du bébé. C'est une tricherie assumée (la vraie
-  // bouche qui scelle est à plat sur le visage, et la tête de profil ne s'y lit plus) : le cou de l'aide
-  // monte vers ses épaules (angle −95°), la tête se relève dessus de 35°, le regard à 60° sous
-  // l'horizontale ; sa gorge s'écarte de la poitrine du bébé. La tête de l'aide est peinte après le
-  // bébé : son blanc cache le nez et la bouche qu'elle couvre. Le cadre prend toute la tête ; le cou
-  // sort de la vue. Le bébé est coupé à sa brisure (le reste de la couverture ne déborde pas).
-  const AIDE = { angle: -95, penche: -35, epaisseur: 18 };
-  const XS = 100;
-  // le cadre : le bébé (de l'occiput à la brisure) et la tête de l'aide entière, sans son cou
-  const CADRE0 = [-125, XS + 2, -300, 34];
-  let CADRE_D = null;
-  const cadreD = z => {
-    if (CADRE_D) return CADRE_D;
-    const v = vignette(z, R_BON, CADRE0, XS), a = aide0(v, 40), o = v.V([0, 0]), mm = p => [(p[0] - o[0]) / v.k, (p[1] - o[1]) / v.k];
-    const b0 = mm([a.t.boite.x0, a.t.boite.y0]), b1 = mm([a.t.boite.x1, a.t.boite.y1]);
-    return (CADRE_D = [Math.min(-125, b0[0] - 4), Math.max(XS + 2, b1[0] + 4), Math.min(-120, b0[1] - 4), 34]);
-  };
-  const CACHE_AIDE = new Map();
-  const aide = (v) => { const cle = v.k.toFixed(4) + v.V([0, 0]).join(); if (!CACHE_AIDE.has(cle)) CACHE_AIDE.set(cle, aide0(v)); return CACHE_AIDE.get(cle); };
-  const aide0 = (v, couCadre) => {
-    const t = v.t, u = [t.nez[0] - t.oeil[0], t.nez[1] - t.oeil[1]];
-    const pontNez = [t.oeil[0] + u[0] * 0.55, t.oeil[1] + u[1] * 0.55];
-    const sousLevre = [t.bouche[0] * 0.35 + t.menton[0] * 0.65, t.bouche[1] * 0.35 + t.menton[1] * 0.65];
-    // la cible : le milieu des lèvres de l'aide, entre le nez et la bouche du bébé, à la hauteur de son nez
-    const mc = [(pontNez[0] + sousLevre[0]) / 2, Math.min(pontNez[1], sousLevre[1])];
-    // (couCadre : un cou court pour cadrer la tête ; le dessin a un long cou, qui sort de la vue)
-    const base = { echelle: v.k, cote: 'gauche', ancre: 'nuque', angle: AIDE.angle, penche: AIDE.penche, cou: couCadre == null ? 400 : couCadre,
-      bouche: 'serre', epaisseur: AIDE.epaisseur };
-    const g0 = h.formes.teteSimple(Object.assign({ x: 0, y: 0 }, base));
-    const m0 = [(g0.levres.haut[0] + g0.levres.bas[0]) / 2, (g0.levres.haut[1] + g0.levres.bas[1]) / 2];
-    const t2 = h.formes.teteSimple(Object.assign({ x: mc[0] - m0[0], y: mc[1] - m0[1] }, base));
-    return { t: t2, contact: pontNez };
-  };
+  // Le bébé de « la tête droite », en gros plan, coupé après les épaules ; au-dessus, la tête de
+  // l'aide (bibliothèque de formes), le visage vers le bas, le front vers la tête du bébé : ses
+  // lèvres couvrent ensemble le nez et la bouche du bébé. La tête de l'aide est peinte après le
+  // bébé : son blanc cache le nez et la bouche qu'elle couvre.
+  const XS = 118, CADRE_D = [-150, XS + 2, -336, 34];
+  // La bouche de l'aide descend sur le nez et les lèvres du bébé ; la tête penche de 30° pour que son
+  // nez passe au-dessus de l'œil du bébé, et son menton au-dessus du cou.
+  const BOUCHE = [19, -121];                   // le point de la bouche de l'aide, en mm du bébé
+  const ANG_AIDE = -60;
+  const BOUCHE_TETE = (() => {                 // la bouche de la tête (en miroir, tournée), depuis son repère
+    const b = [-100.5, 35.5], c = Math.cos(ANG_AIDE * RAD), sn = Math.sin(ANG_AIDE * RAD);
+    return [b[0] * c - b[1] * sn, b[0] * sn + b[1] * c];
+  })();
   const dessus = z => {
-    const v = vignette(z, R_BON, cadreD(z), XS);
-    const a = aide(v);
-    const xb = v.V([XS + 3, 0])[0];
+    const v = vignette(z, A0, CADRE_D, XS);
+    const ancre = v.V([BOUCHE[0] - BOUCHE_TETE[0], BOUCHE[1] - BOUCHE_TETE[1]]);
+    const aide = h.formes.tete({ x: ancre[0], y: ancre[1], echelle: v.k, angle: ANG_AIDE, cote: 'gauche', age: 'adulte' });
     return `<clipPath id="vue-2905-souffler"><rect x="0" y="0" width="${f(z.l)}" height="${f(z.h)}" fill="#FFFFFF"/></clipPath>\n` +
-      `<clipPath id="vue-2905-bebe"><rect x="0" y="0" width="${f(xb)}" height="${f(z.h)}" fill="#FFFFFF"/></clipPath>\n` +
-      `<g clip-path="url(#vue-2905-souffler)">\n<g clip-path="url(#vue-2905-bebe)">\n${v.svg}\n</g>\n${a.t}\n</g>`;
+      `<g clip-path="url(#vue-2905-souffler)">\n${v.svg}\n${aide}\n</g>`;
   };
-  const posD = (z, p) => cadre(z, ...cadreD(z)).V(p);
+  const posD = (z, p) => cadre(z, ...CADRE_D).V(p);
 
   return {
     ref: '29-05',
@@ -248,23 +259,23 @@ module.exports = (h) => {
     vues: {
       bon: {
         titre: 'La tête droite',
-        dessin: z => vignette(z, R_BON, CADRE, XC).svg,
+        dessin: z => vignette(z, A0, CADRE, XC).svg,
         renvois: z => [
           { n: 1, rond: [z.l - 14, z.h - 12], cible: posC(z, [170, 22]), texte: 'surface ferme, linge chaud' },
           { n: 2, rond: posC(z, [30, 30]), cible: posC(z, [70, -8]), texte: 'linge roulé sous les épaules' },
-          { n: 3, rond: posC(z, [-40, -148]), cible: vignette(z, R_BON, CADRE, XC).t.nez, texte: 'le nez vers le plafond' },
+          { n: 3, rond: posC(z, [-40, -148]), cible: pos(z, A0, NEZ), texte: 'le nez vers le plafond' },
           { n: 4, rond: posC(z, [150, -146]), cible: posC(z, [118, -108]), texte: 'poitrine nue, le reste couvert' },
         ],
       },
       rate: {
         titre: 'Raté : la tête renversée',
         dessin: z => {
-          const v = vignette(z, A_RATE, CADRE, XC);
-          const g = gorgeRate(v);
-          return v.svg + '\n' + h.controle(g[0], g[1] + 2, 16);
+          const g = posC(z, mil(poseTete(A_RATE)(GORGE), FACE[0]));   // là où la gorge se referme
+          return vignette(z, A_RATE, CADRE, XC).svg + '\n' + h.controle(g[0], g[1] + 6, 16);
         },
         renvois: z => [
-          { n: 5, rond: posC(z, [120, -146]), cible: gorgeRate(vignette(z, A_RATE, CADRE, XC)), texte: 'la gorge se referme' },
+          // sur le devant du cou étiré, entre le menton et le haut de la poitrine
+          { n: 5, rond: posC(z, [120, -146]), cible: posC(z, mil(poseTete(A_RATE)(GORGE), FACE[0])), texte: 'la gorge se referme' },
         ],
       },
       dessus: {
@@ -273,7 +284,7 @@ module.exports = (h) => {
         renvois: z => [
           // la pastille dans le blanc entre le front de l'aide et le crâne du bébé ; la cible, là où
           // la lèvre du haut de l'aide se pose sur le nez du bébé
-          { n: 6, rond: (() => { const c = aide(vignette(z, R_BON, cadreD(z), XS)).contact; return [Math.max(14, c[0] - 60), c[1] - 8]; })(), cible: aide(vignette(z, R_BON, cadreD(z), XS)).contact, texte: 'bouche sur bouche et nez' },
+          { n: 6, rond: [86, 183], cible: [131, 196], texte: 'bouche sur bouche et nez' },
         ],
       },
       souffler: {
