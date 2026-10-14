@@ -99,18 +99,31 @@ module.exports = (h) => {
   };
 
   // ── Rangée 1, à gauche : la main tient l'alêne et perce les deux épaisseurs ─────────────
+  // La main simple (mains/moteur.js) : le poing sur le manche vu côté paume, la main droite, l'avant-bras
+  // qui part à gauche et sort de la vue ; le pouce en bas vers la lame, l'auriculaire en haut, le pommeau qui
+  // dépasse du poing. La main garde sa taille (0,92 unité par mm, le poing de l'ancien calque) : c'est la
+  // prise qui se ferme sur le manche.
+  const poser = (o, axe, vers) => {          // l'angle qui met l'axe de la prise sur axe, l'avant-bras vers vers
+    const base = Object.assign({}, o, { angle: 0, avantbras: { longueur: 100 } }); delete base.objet;
+    const e0 = F.mainSimple(base); let best = null;
+    for (const k of [0, 180]) {
+      const a = axe - e0.prise.angle + k, m = F.mainSimple(Object.assign({}, base, { angle: a }));
+      const d = [m.coude[0] - m.poignet[0], m.coude[1] - m.poignet[1]], v = [vers[0] - m.poignet[0], vers[1] - m.poignet[1]];
+      const c = (d[0] * v[0] + d[1] * v[1]) / ((Math.hypot(d[0], d[1]) * Math.hypot(v[0], v[1])) || 1);
+      if (!best || c > best.c) best = { a, c };
+    }
+    return best.a;
+  };
   const tenir = z => {
-    const e = 1.05, SM = 0.82, D = 25 * SM;          // manche de bois franc, plein dans le poing du modèle
-    const hx = z.l * 0.66, hy = z.h - 128;         // le centre du poing
-    const mT = hy - 64, mB = hy + 64 * e;            // bouts du manche : le pommeau dépasse du poing en haut
-    const manche = [
-      h.path(`M ${f1(hx - D / 2)} ${f1(mB)} L ${f1(hx - D / 2)} ${f1(mT + D / 2)} Q ${f1(hx - D / 2)} ${f1(mT)} ${f1(hx)} ${f1(mT)} Q ${f1(hx + D / 2)} ${f1(mT)} ${f1(hx + D / 2)} ${f1(mT + D / 2)} L ${f1(hx + D / 2)} ${f1(mB)} Z`, h.a.hachure('bois', 'arete')),
-    ].join('\n');
+    const eM = 0.92, D = 24;                         // la main (unités par mm) ; le manche de bois franc, ~26 mm
+    const hx = z.l * 0.66, hy = z.h - 127;           // l'axe du manche au creux du poing
+    const mT = hy - 50, mB = hy + 70;                // bouts du manche : le pommeau dépasse du poing en haut
+    const manche = h.path(`M ${f1(hx - D / 2)} ${f1(mB)} L ${f1(hx - D / 2)} ${f1(mT + D / 2)} Q ${f1(hx - D / 2)} ${f1(mT)} ${f1(hx)} ${f1(mT)} Q ${f1(hx + D / 2)} ${f1(mT)} ${f1(hx + D / 2)} ${f1(mT + D / 2)} L ${f1(hx + D / 2)} ${f1(mB)} Z`, h.a.hachure('bois', 'contour'));
     const out = [];
     // la lame : face large (la largeur est dans l'axe de la couture), arête du losange au milieu
-    const yL = mB + 34, ep = 6;                      // dessus du cuir, épaisseur d'une couche
+    const yL = mB + 30, ep = 6;                      // dessus du cuir, épaisseur d'une couche
     const w = 4, tip = yL + 2 * ep + 13;
-    out.push(h.path(`M ${f1(hx - w)} ${f1(mB)} L ${f1(hx - w)} ${f1(tip - 12)} L ${f1(hx)} ${f1(tip)} L ${f1(hx + w)} ${f1(tip - 12)} L ${f1(hx + w)} ${f1(mB)} Z`, `fill="#FFFFFF" ${h.a.arete.replace('fill="none" ', '')}`));
+    out.push(h.path(`M ${f1(hx - w)} ${f1(mB)} L ${f1(hx - w)} ${f1(tip - 12)} L ${f1(hx)} ${f1(tip)} L ${f1(hx + w)} ${f1(tip - 12)} L ${f1(hx + w)} ${f1(mB)} Z`, `fill="#FFFFFF" ${h.a.contour.replace('fill="none" ', '')}`));
     out.push(h.ligne(hx, (mB + tip) / 2, hx, tip - 1, h.a.detail));
     // les deux épaisseurs de cuir, vues par la tranche ; la lame passe dedans
     const x0 = 8, x1 = z.l - 8;
@@ -123,20 +136,19 @@ module.exports = (h) => {
     // la ligature de babiche au bas du manche
     const lig = [];
     for (let k = 0; k < 4; k++) { const y = mB - 3 - k * 3.2; lig.push(h.path(`M ${f1(hx - D / 2)} ${f1(y + 1)} Q ${f1(hx)} ${f1(y - 1.6)} ${f1(hx + D / 2)} ${f1(y + 1)}`, h.a.detail)); }
-    // le manche, puis la main qui le serre : l'auriculaire en haut, le pouce et l'index en bas, vers la lame
-    out.push(manche);
-    out.push(lig.join('\n'));
-    // modèle s11 (poing fermé, vu de la paume) tourné d'un quart : l'avant-bras part à gauche, les
-    // doigts devant, le pouce en bas vers la lame ; le manche passe dans le poing
-    out.push(F.modele('s11', { x: hx, y: hy, ancre: [68, 42], angle: 90, echelle: SM, masquer: [[0, 150, 140, 175]],
-      bras: { a: [21.8, 150], a0: [20.8, 135], b: [76.3, 150], b0: [76.2, 135], bord: z } }));
+    // le poing sur le manche : le manche entre par le haut du poing et ressort par le bas, derrière les doigts
+    const BORD = { x0: 0, y0: 0, x1: z.l, y1: z.h }, vM = [-60, hy + 6];
+    const oM = { x: hx, y: hy, pose: 'prise-manche', vue: 'paume', cote: 'droite', echelle: eM, diametre: D / eM, rotation: [-25, 0, 0] };   // penchée de 25° : les doigts à plat en travers du manche
+    const aM = poser(oM, 90, vM);
+    const M = F.mainSimple({ ...oM, angle: aM, objet: [manche, lig.join('\n')].join('\n'), avantbras: { vers: vM, bord: BORD, longueur: 'bord' } });
+    out.push(M.svg);
     // la coupe de la lame : un losange, relié à la lame par le trait de coupe
     const yc = mB + 7, xq = hx - 30;
     out.push(h.ligne(hx - w - 2, yc, xq + 9, yc, h.a.cache));
     out.push(h.chemin([[xq - 8, yc], [xq, yc - 4], [xq + 8, yc], [xq, yc + 4]], h.a.hachure('metal', 'arete'), true));
-    // le geste : on pousse droit dans le cuir
-    out.push(h.fleche(`M ${f1(hx)} ${f1(hy - 118)} L ${f1(hx)} ${f1(hy - 74)}`));
-    tenir.pts = { lame: [hx - w - 1, mB + 20] };
+    // le geste : on pousse droit dans le cuir, dans l'axe de l'alêne
+    out.push(h.geste(`M ${f1(hx)} ${f1(mT - 40)} L ${f1(hx)} ${f1(mT - 6)}`));
+    tenir.pts = { lame: [hx - w - 1, mB + 19] };
     return out.join('\n');
   };
 
@@ -145,10 +157,12 @@ module.exports = (h) => {
     const out = [];
     const x0 = 10, x1 = z.l - 10, yT = 40, yE = z.h * 0.66, yB = z.h - 30;
     const yS = yE - 26, sp = 25, xa = 28;
-    // pièce du dessous (sous le bord) puis pièce du dessus
-    out.push(h.chemin([].concat(rompu([x0, yE], [x0, yB], 1.6, 8), rompu([x0, yB], [x1, yB]).slice(1), rompu([x1, yB], [x1, yE], 1.6, 8).slice(1)), h.a.detail));
+    // pièce du dessous (sous le bord, en gris : elle est derrière) puis pièce du dessus
+    const dessous = [].concat(rompu([x0, yE], [x0, yB], 1.6, 8), rompu([x0, yB], [x1, yB]).slice(1), rompu([x1, yB], [x1, yE], 1.6, 8).slice(1));
+    out.push(h.chemin(dessous, h.a.loin, true));
+    out.push(h.chemin(dessous, h.a.detail));
     out.push(h.chemin([].concat(rompu([x0, yE], [x0, yT], 1.6, 8), rompu([x0, yT], [x1, yT]).slice(1), rompu([x1, yT], [x1, yE], 1.6, 8).slice(1)), h.a.detail));
-    out.push(h.ligne(x0, yE, x1, yE, h.a.arete));
+    out.push(h.ligne(x0, yE, x1, yE, h.a.contour));
     const X = i => xa + i * sp;
     const nFait = 7, nAvance = 2, iAlene = nFait + nAvance;
     // la ligne tracée à la pointe sèche, qui continue après la lame
@@ -164,6 +178,8 @@ module.exports = (h) => {
     // la lame en coupe à la surface : un losange plus mince que large, couché dans la ligne
     const xl = X(iAlene);
     out.push(h.chemin([[xl - 8, yS], [xl, yS - 3.2], [xl + 8, yS], [xl, yS + 3.2]], h.a.hachure('metal', 'arete'), true));
+    // le point à contrôler : le jeu entre deux fentes, qui ne se touchent jamais par leurs bords
+    out.push(h.controle(X(nFait) + sp / 2, yS, 9));
     dessus.pts = { ligne: [X(iAlene + 2.5), yS], avance: X(nFait), avance2: X(nFait + 1), lame: [xl, yS], yS, sp, X, nFait };
     return out.join('\n');
   };
@@ -180,7 +196,7 @@ module.exports = (h) => {
     out.push(fils([
       { pts: [[8, yS + 2], [(8 + xA) / 2, yS + 0.8], [xA, yS - 1.6]], ep: epF, debut: 'fixe', fin: 'coupe' },
       { pts: [[xA, yS + 2], [(xA + xB) / 2, yS + 0.6], [xB, yS - 1.6]], ep: epF, debut: 'coupe', fin: 'coupe' },
-    ]));
+    ], 'arete'));
     vignette.pts = vignette.pts || {};
     vignette.pts[type] = { xB, yS };
     return out.join('\n');
@@ -199,7 +215,7 @@ module.exports = (h) => {
   const envers = z => {
     const g = geoPiece(z, true), [x, y, l, ht] = g.piece, out = [];
     out.push(tissu(8, 8, z.l - 16, z.h - 16));
-    out.push(h.chemin(rr(x, y, l, ht, g.r), h.a.hachure('grillage', 'arete'), true));
+    out.push(h.chemin(rr(x, y, l, ht, g.r), h.a.hachure('grillage', 'contour'), true));
     // la déchirure, cachée sous la pièce
     out.push(h.chemin(g.L, h.a.cache.replace('stroke-width="0.7"', 'stroke-width="1.4"')));
     envers.pts = { piece: [x + 12, y + ht - 14], coin: [x + 5, y + 5] };
@@ -233,6 +249,8 @@ module.exports = (h) => {
     // la déchirure repart de la pointe, dans le vêtement, là où rien ne la soutient
     const t = [[px - 6, py + 6], [px + 2, py - 4], [px + 10, py - 8], [px + 14, py - 18], [px + 22, py - 22], [px + 27, py - 33], [px + 35, py - 38], [px + 38, py - 50]];
     out.push(dechirure(t, 2.2, h.a.plein));
+    // raté : le cercle rouge sur la pointe du coin, d'où la déchirure repart
+    out.push(h.controle(px - 2, py + 2, 11));
     coin.pts = { dechir: [px + 22, py - 22] };
     return out.join('\n');
   };

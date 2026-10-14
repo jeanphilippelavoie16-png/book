@@ -21,7 +21,15 @@ import os, re, io, base64, urllib.request
 from fontTools import subset
 from fontTools.ttLib import TTFont
 
-ROOT = r"C:\Users\jeanp\New folder"
+def _racine_livre():
+    # Windows (le PC de JP) : le dossier d'origine ; ailleurs (session dans le nuage) : le dépôt qui contient ce fichier
+    if os.name == "nt":
+        return r"C:\Users\jeanp\New folder"
+    d = os.path.dirname(os.path.abspath(__file__))
+    while d != os.path.dirname(d) and not os.path.exists(os.path.join(d, "CLAUDE.md")):
+        d = os.path.dirname(d)
+    return d
+ROOT = _racine_livre()
 POL = os.path.join(ROOT, "design", "polices")
 TPL = os.path.join(ROOT, "design", "directions", "1-manuel-de-terrain", "outils", "interieur.tpl.html")
 EXP, GREC, VIDE, AVERT = "ᵉʳ⁺", "Ωαμ", "∅", "⚠"

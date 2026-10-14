@@ -19,10 +19,19 @@ import re, sys, os, glob, json, html, subprocess, time, tempfile, shutil
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from md2blocks import inline, load_notes, notes_html, join_lines
 
-ROOT = r"C:\Users\jeanp\New folder"
+def _racine_livre():
+    # Windows (le PC de JP) : le dossier d'origine ; ailleurs (session dans le nuage) : le dépôt qui contient ce fichier
+    if os.name == "nt":
+        return r"C:\Users\jeanp\New folder"
+    d = os.path.dirname(os.path.abspath(__file__))
+    while d != os.path.dirname(d) and not os.path.exists(os.path.join(d, "CLAUDE.md")):
+        d = os.path.dirname(d)
+    return d
+ROOT = _racine_livre()
 TOOLS = os.path.dirname(os.path.abspath(__file__))
 OUTD = os.path.join(ROOT, "design", "epreuves-livre")
-EDGE = r"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe"
+EDGE = (r"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe" if os.name == "nt"
+        else (sorted(glob.glob("/opt/pw-browsers/chromium-*/chrome-linux/chrome")) or ["chromium"])[-1])
 REL_ROOT = "../../"          # depuis design/epreuves-livre/ vers la racine du livre
 
 # Six tomes (24 septembre 2026). Le tome se lit dans plan/renumerotation.json (tomeDuNouveau), jamais
@@ -482,7 +491,7 @@ def edge(args, target, timeout=120):
     prof = tempfile.mkdtemp(prefix="edgeprof")
     common = ["--headless=new", "--disable-gpu", "--no-first-run", "--no-default-browser-check",
               f"--user-data-dir={prof}", "--hide-scrollbars", "--run-all-compositor-stages-before-draw",
-              "--virtual-time-budget=20000"]
+              "--virtual-time-budget=20000"] + ([] if os.name == "nt" else ["--no-sandbox"])
     p = subprocess.Popen([EDGE] + common + args, stdout=subprocess.PIPE, stderr=subprocess.DEVNULL)
     return p, prof
 

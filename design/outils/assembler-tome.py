@@ -48,7 +48,15 @@ en pied et au bord extérieur ; nombre de pages pair, 20 à 440 en papier Standa
 """
 import sys, os, re, io, json, glob, time, shutil, html, base64, hashlib, contextlib, urllib.parse
 
-ROOT = r"C:\Users\jeanp\New folder"
+def _racine_livre():
+    # Windows (le PC de JP) : le dossier d'origine ; ailleurs (session dans le nuage) : le dépôt qui contient ce fichier
+    if os.name == "nt":
+        return r"C:\Users\jeanp\New folder"
+    d = os.path.dirname(os.path.abspath(__file__))
+    while d != os.path.dirname(d) and not os.path.exists(os.path.join(d, "CLAUDE.md")):
+        d = os.path.dirname(d)
+    return d
+ROOT = _racine_livre()
 VAR_TOOLS = os.path.join(ROOT, "design", "variantes-couleur", "outils")
 sys.path.insert(0, VAR_TOOLS)
 import variante as v          # noqa: E402  (variante C : couleur.css, pictogrammes, étapes marquées)
