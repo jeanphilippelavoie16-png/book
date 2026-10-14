@@ -258,7 +258,7 @@ module.exports = (h) => {
   const GD = z => ({ bx: z.l * 0.5, by: z.h * 0.5, r: R_B });
   const doigts = (z, id, ecart) => {
     const { bx, by } = GD(z);
-    return dansVue(z, id, [boutDoigt(false, 7, 1, bx, by - ecart).svg, boutDoigt(true, -7, 1.08, bx, by + ecart).svg].join('\n'));
+    return dansVue(z, id, [boutDoigt(false, 10, 1, bx, by - ecart).svg, boutDoigt(true, -10, 1.08, bx, by + ecart).svg].join('\n'));
   };
   // la pâte qui colle : une galette sur chaque pulpe, et des fils qui s'étirent de l'une à l'autre
   const filante = (x, yh, yb, r) => {
@@ -353,7 +353,7 @@ module.exports = (h) => {
         dessin: z => {
           const { bx, by, r } = GD(z), e = r * 2.2, xf = bx + r * 3.4;
           // un seul geste : l'index se lève, le pouce reste
-          return [doigts(z, 'doigts-colle', e), filante(bx, by - e, by + e, r), geste([[xf, by - r * 0.3], [xf, by - r * 2.6]])].join('\n');
+          return [doigts(z, 'doigts-colle', e), filante(bx, by - e, by + e, r), geste([[xf, by - r * 0.6], [xf, by - r * 2.8]])].join('\n');
         },
         renvois: z => {
           const { bx, by, r } = GD(z);

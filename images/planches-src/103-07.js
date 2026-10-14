@@ -184,7 +184,7 @@ module.exports = (h) => {
     ref: '103-07',
     titre: 'Le contre-toron',
     desc: 'Faire une corde à deux brins avec une poignée de fibres, vue comme le fabricant voit ses mains. '
-      + 'Une main pince la poignée pliée hors du milieu ; on tord le brin du dessus en l’éloignant du corps, '
+      + 'Une main tient la poignée pliée hors du milieu, le poing fermé sur le pli ; on tord le brin du dessus en l’éloignant du corps, '
       + 'puis on le passe par-dessus l’autre en le ramenant vers le corps : les deux rotations sont contraires. '
       + 'Pour rallonger, on couche une poignée neuve sur le brin qui faiblit, loin de la reprise de l’autre brin.',
     format: 'pleine',

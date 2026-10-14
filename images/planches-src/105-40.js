@@ -43,7 +43,7 @@ module.exports = (h) => {
     }
     return best.a;
   };
-  const MAIN_GALET = { vue: 'dos', rot: [-25, 35, 0], vers: [420, 330] };   // tourné : les jointures se lisent, pas une moufle
+  const MAIN_GALET = { vue: 'paume', cote: 'gauche', rot: [-25, 0, 0], vers: [420, 330] };
   const dans = (p, poly) => {
     let c = false;
     for (let i = 0, j = poly.length - 1; i < poly.length; j = i++) {
@@ -322,12 +322,13 @@ module.exports = (h) => {
     const boueIn = [];
     for (let i = 0; i <= 16; i++) { const t = i / 16; boueIn.push([xa + (xb - xa) * t, yF - 1.5 - 11 * Math.sin(Math.PI * t) ** 0.7 - 2 * Math.sin(9 * t)]); }
     for (let i = 16; i >= 0; i--) { const t = i / 16; boueIn.push([xa + (xb - xa) * t, yF + 3]); }
-    // la main droite : la main simple, le poing sur le manche (24 mm) vu du dos, comme on voit sa propre main
-    // d'en haut ; la lame sort du côté du pouce, à gauche, l'avant-bras descend à droite et sort du cadre. Posée
-    // hors du groupe tourné, à la place et à l'angle du manche ; le manche, tourné avec elle, est l'objet tenu.
+    // la main : la main simple, le poing sur le manche (24 mm) vu côté paume (14 oct. : le poing vu du dos faisait
+    // une moufle) ; la lame sort du côté du pouce, l'avant-bras descend et sort du cadre. Posée hors du groupe
+    // tourné, à la place et à l'angle du manche ; le manche, tourné avec elle, est l'objet tenu. La vue se dessine
+    // comme avant (la main gauche, l'avant-bras à droite), puis se retourne en miroir : c'est la main droite.
     const pm = R([xh, yh]);
     const kM = couteau({ x: xh - 50 * e, y: yh, k: e, miroir: true, manche: 135 });
-    const oM = { x: pm[0], y: pm[1], pose: 'prise-manche', vue: MAIN_GALET.vue, cote: 'droite', echelle: e, diametre: 24, ...(MAIN_GALET.rot ? { rotation: MAIN_GALET.rot } : {}) };
+    const oM = { x: pm[0], y: pm[1], pose: 'prise-manche', vue: MAIN_GALET.vue, cote: MAIN_GALET.cote, echelle: e, diametre: 24, ...(MAIN_GALET.rot ? { rotation: MAIN_GALET.rot } : {}) };
     const vM = MAIN_GALET.vers;
     const m = F.mainSimple({ ...oM, angle: poser(oM, ROT, vM), objet: `<g transform="rotate(${ROT} ${f1(cx)} ${f1(cy)})">${kM.svg}</g>`,
       avantbras: { vers: vM, bord: { x0: 0, y0: 0, x1: z.l, y1: z.h }, bras: { pli: 0 } } }).svg;
@@ -344,13 +345,14 @@ module.exports = (h) => {
       '</g>',
       m,
     ].join('\n');
+    const miroir = ([x, y]) => [z.l - x, y];
     return {
-      svg,
+      svg: `<g transform="matrix(-1 0 0 1 ${f1(z.l)} 0)">\n${svg}\n</g>`,
       renvois: [
         { n: 8, rond: [14, cy + 30], cible: R([cx - 55, cy + 18]), texte: 'grès : il raye l’acier' },
         { n: 9, rond: [14, yh - 30], cible: R([xa + 22, yF - 6]), texte: 'boue grise : ne pas la rincer' },
         { n: 10, rond: [cx - 20, 14], cible: R([xa + 100, yF - 10]), texte: 'du talon à la pointe' },
-      ],
+      ].map(r => ({ ...r, rond: miroir(r.rond), cible: miroir(r.cible) })),
     };
   }
 

@@ -1,6 +1,6 @@
 // Planche 23-02 — retourner et gratter un boyau (chapitre 42, section 4).
-// 14 octobre : les deux mains passent aux mains simples (pince-fine de côté pour vider, prise-manche vue de la
-// paume pour gratter) ; la charte : les gestes (glisser, pousser le bâton, racler) en rouge, la face de côté de la
+// 14 octobre : les deux mains passent aux mains simples (prise-manche vue de la paume pour gratter ; pour vider,
+// repris le même jour, le gros plan des deux bouts de doigts sur le boyau, la pince entière faisait boîte) ; la charte : les gestes (glisser, pousser le bâton, racler) en rouge, la face de côté de la
 // planche à l'ombre.
 module.exports = (h) => {
   // ── outils de géométrie ──────────────────────────────────────────────────────────────
@@ -53,33 +53,44 @@ module.exports = (h) => {
   const FOND = h.a.blanc.match(/fill="[^"]*"/)[0];
   const plein = attrs => attrs.replace('fill="none"', FOND);
 
-  // ── vue 1 : vider (600 × 118) ────────────────────────────────────────────────────────
-  const DY = 40;                                              // le boyau plus bas : la main pince par-dessus
-  const pince = [300, 40 + DY];
-  const plat = bez([22, 48 + DY], [110, 30 + DY], [215, 48 + DY], pince);
-  const gras = bez(pince, [370, 35 + DY], [450, 49 + DY], [520, 41 + DY], 60);
-  const rPlat = 1.3, rRuban = t => 3 - 1.7 * Math.pow(Math.max(0, (t - 0.8) / 0.2), 2);
-  const rGras = t => { const m = Math.min(1, t / 0.14), s = m * m * (3 - 2 * m); return rPlat + s * (10 + 2 * Math.sin(t * 23)); };
+  // ── vue 1 : vider, en gros plan (600 × 162) ───────────────────────────────────────────
+  // Le gros plan des deux bouts de doigts (mains simples, le doigt tendu vu de côté, à grande échelle, coupés
+  // par le bord de la vue) : l'index par-dessus, le pouce par-dessous, les pulpes qui écrasent le boyau. À
+  // gauche, la part vidée, plate ; à droite, la part encore pleine, que les doigts poussent vers le bout ouvert.
+  const EV = 2.6;                                             // gros plan : unités de vue par mm
+  const yG = 81, xPince = 280;
+  const rPlat = 1.2 * EV, rPlein = t => 12.5 * EV + 2.2 * EV * Math.sin(t * 19);
+  const plat = droite([0, yG], [xPince, yG]);
+  const gras = bez([xPince, yG], [xPince + 30, yG], [xPince + 40, yG], [xPince + 90, yG], 24)
+    .concat(droite([xPince + 90, yG], [520, yG], 60).slice(1));
+  const rGras = t => { const m = Math.min(1, t / 0.2), s = m * m * (3 - 2 * m); return rPlat + s * (rPlein(t) - rPlat); };
   const boyauVide = () => {
-    const hautP = decale(plat, t => -rRuban(t)), basP = decale(plat, rRuban);
+    const hautP = decale(plat, -rPlat), basP = decale(plat, rPlat);
     const hautG = decale(gras, t => -rGras(t)), basG = decale(gras, rGras);
     const contour = suite(hautP, hautG).concat(basG.slice().reverse(), basP.slice().reverse());
-    const rFin = rGras(1);
     return [
       h.path(D(contour, true), plein(h.a.contour)),
-      h.ellipse(520, 41 + DY, 4.5, f(rFin), plein(h.a.arete)),
+      h.ellipse(520, yG, 9, f(rGras(1)), plein(h.a.arete)),
     ].join('\n');
   };
-  // la main gauche pince le boyau entre la pulpe de l'index et celle du pouce, et glisse vers le bout (mains
-  // simples, pince-fine vue du côté du pouce) : le boyau, peint d'abord, passe entre les deux pulpes ; la main
-  // au-dessus de la partie déjà vidée, l'avant-bras qui part à gauche
-  const mainVide = z => boyauVide() + '\n' + h.formes.mainSimple({ pose: 'pince-fine', vue: 'pouce', cote: 'gauche', diametre: 3, angle: -24,
-    echelle: 1, x: pince[0], y: pince[1], avantbras: { bord: { x0: 0, y0: 0, x1: z.l, y1: z.h }, longueur: 'bord' } }).svg;
+  // les deux doigts : la pose « pointe » (l'index tendu), vue du côté du pouce, posée par son bout ; le doigt du
+  // dessous, en miroir et un peu plus large, fait le pouce. Seuls les bouts entrent dans la vue.
+  const doigt = (z, cote, angle, y, k) => h.formes.mainSimple({ pose: 'pointe', vue: 'pouce', cote, angle, echelle: EV * k, ancre: 'bout',
+    x: xPince + 6, y, avantbras: { longueur: 'bord', bord: { x0: 0, y0: 0, x1: z.l, y1: z.h } } }).svg;
+  const mainVide = z => [
+    `<clipPath id="p2302-vider"><rect x="0" y="0" width="${z.l}" height="${z.h}"/></clipPath>`,
+    `<g clip-path="url(#p2302-vider)">`,
+    boyauVide(),
+    doigt(z, 'droite', 35, yG - rPlat - 4 * EV, 1),
+    doigt(z, 'gauche', -35, yG + rPlat + 4 * EV, 1.1),
+    '</g>',
+  ].join('\n');
+  // ce qui sort par le bout ouvert
   const crottes = [
-    h.path('M 530 67 C 536 64 541 68 539 73 C 537 78 530 77 529 72 Z', h.a.arete),
-    h.path('M 540 85 C 545 83 548 87 546 91 C 543 94 538 92 538 88 Z', h.a.arete),
-    h.path('M 534 102 C 538 100 541 103 539 106 C 537 109 533 107 533 104 Z', h.a.arete),
-  ].join('\n').replace(/^/, `<g transform="translate(0 ${-22 + DY})">`) + '</g>';
+    h.path('M 534 70 C 546 64 556 72 552 82 C 548 92 534 90 532 80 Z', h.a.arete),
+    h.path('M 556 100 C 566 96 573 104 569 112 C 564 119 553 115 553 107 Z', h.a.arete),
+    h.path('M 548 132 C 556 129 562 135 559 141 C 555 147 546 144 546 138 Z', h.a.arete),
+  ].join('\n');
 
   // ── vue 2 : retourner, en coupe (600 × 237) ──────────────────────────────────────────
   const y0 = 92, xP = 110, rB = 10, xB = 320, rI = 16, rE = 27;
@@ -177,9 +188,9 @@ module.exports = (h) => {
     vues: {
       vider: {
         titre: 'Vider',
-        dessin: z => [mainVide(z), crottes, h.geste(`M 380 ${16 + DY / 2} L 460 ${16 + DY / 2}`)].join('\n'),
+        dessin: z => [mainVide(z), crottes, h.geste(`M 370 22 L 460 22`)].join('\n'),
         renvois: z => [
-          { n: 1, rond: [240, 112], cible: [292, 40 + DY + 8], texte: 'deux doigts serrés qu’on fait glisser' },
+          { n: 1, rond: [420, 146], cible: [xPince + 3, yG + rPlat + 1], texte: 'deux doigts serrés qu’on fait glisser' },
         ],
       },
       retourner: {
