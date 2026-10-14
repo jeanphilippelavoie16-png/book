@@ -4,6 +4,10 @@
 // entre les dents, poussé à la pointe mousse. Les deux vues sont à la même échelle et à la même
 // hauteur : le collet, la gencive et la cire tombent sur les mêmes lignes.
 // Aucune cote : le chapitre n'en donne pas (des boudins « minces », « cinq dents »).
+//
+// La charte : la cire garde son contour fort. Le gris loin : les deux dents hors de l'attelle, de
+// face, et la dent vue derrière le plan de coupe ; le dessous de la pointe mousse à l'ombre. Le
+// rouge : la poussée de la pointe mousse, et le cercle sur le pont de cire, ce qui tient la dent.
 module.exports = (h) => {
   const BL = h.a.blanc.split(' ')[0];                 // fill="#FFFFFF"
   const plein = t => t.replace('fill="none"', BL);   // trait + fond blanc
@@ -54,19 +58,20 @@ module.exports = (h) => {
   };
 
   const dent = (g, d) => {
+    const fond = (d.id === 'canD' || d.id === 'pm') ? h.a.arete.replace('fill="none"', 'fill="#E6E6E6"') : plein(h.a.arete);   // hors de l'attelle : recule
     const { Ps } = g, x0 = d.x0, x1 = d.x1, w = d.w, haut = d.ym - 1.2;
     if (d.type === 'can') {                         // canine : épaules, deux pentes droites, pointe mousse
       const tipX = x0 + w * (d.mes === 'g' ? 0.45 : 0.55), ys = d.yi - 3.2;
-      return h.path(`M${Ps(x0 + 0.15, haut)} L${Ps(x0 + 0.15, YP)} Q${Ps(x0 - 0.15, (YP + ys) / 2)} ${Ps(x0 + 0.1, ys)} L${Ps(tipX - 0.7, d.yi - 0.35)} Q${Ps(tipX, d.yi + 0.15)} ${Ps(tipX + 0.7, d.yi - 0.35)} L${Ps(x1 - 0.1, ys)} Q${Ps(x1 + 0.15, (YP + ys) / 2)} ${Ps(x1 - 0.15, YP)} L${Ps(x1 - 0.15, haut)} Z`, plein(h.a.arete));
+      return h.path(`M${Ps(x0 + 0.15, haut)} L${Ps(x0 + 0.15, YP)} Q${Ps(x0 - 0.15, (YP + ys) / 2)} ${Ps(x0 + 0.1, ys)} L${Ps(tipX - 0.7, d.yi - 0.35)} Q${Ps(tipX, d.yi + 0.15)} ${Ps(tipX + 0.7, d.yi - 0.35)} L${Ps(x1 - 0.1, ys)} Q${Ps(x1 + 0.15, (YP + ys) / 2)} ${Ps(x1 - 0.15, YP)} L${Ps(x1 - 0.15, haut)} Z`, fond);
     }
     if (d.type === 'pm') {                          // prémolaire : une cuspide basse et ronde, pentes douces
       const tipX = x0 + w * 0.5, ys = d.yi - 2.0;
-      return h.path(`M${Ps(x0 + 0.15, haut)} L${Ps(x0 + 0.15, YP)} Q${Ps(x0 - 0.1, (YP + ys) / 2)} ${Ps(x0 + 0.1, ys)} Q${Ps(x0 + 0.9, d.yi - 0.9)} ${Ps(tipX - 1.0, d.yi - 0.25)} Q${Ps(tipX, d.yi + 0.25)} ${Ps(tipX + 1.0, d.yi - 0.25)} Q${Ps(x1 - 0.9, d.yi - 0.9)} ${Ps(x1 - 0.1, ys)} Q${Ps(x1 + 0.1, (YP + ys) / 2)} ${Ps(x1 - 0.15, YP)} L${Ps(x1 - 0.15, haut)} Z`, plein(h.a.arete));
+      return h.path(`M${Ps(x0 + 0.15, haut)} L${Ps(x0 + 0.15, YP)} Q${Ps(x0 - 0.1, (YP + ys) / 2)} ${Ps(x0 + 0.1, ys)} Q${Ps(x0 + 0.9, d.yi - 0.9)} ${Ps(tipX - 1.0, d.yi - 0.25)} Q${Ps(tipX, d.yi + 0.25)} ${Ps(tipX + 1.0, d.yi - 0.25)} Q${Ps(x1 - 0.9, d.yi - 0.9)} ${Ps(x1 - 0.1, ys)} Q${Ps(x1 + 0.1, (YP + ys) / 2)} ${Ps(x1 - 0.15, YP)} L${Ps(x1 - 0.15, haut)} Z`, fond);
     }
     const rm = d.type === 'cen' ? 0.55 : 1.1, rd = d.type === 'cen' ? 1.4 : 2.0, monte = d.type === 'lat' ? 0.5 : 0.15;
     const rg = d.mes === 'g' ? rm : rd, rr = d.mes === 'g' ? rd : rm;
     const yg = d.yi - (d.mes === 'g' ? 0 : monte), yd = d.yi - (d.mes === 'g' ? monte : 0);
-    return h.path(`M${Ps(x0 + 0.15, haut)} L${Ps(x0 + 0.15, YP)} Q${Ps(x0 - 0.12, (YP + yg) / 2)} ${Ps(x0, yg - rg)} Q${Ps(x0, yg)} ${Ps(x0 + rg, yg)} L${Ps(x1 - rr, yd)} Q${Ps(x1, yd)} ${Ps(x1, yd - rr)} Q${Ps(x1 + 0.12, (YP + yd) / 2)} ${Ps(x1 - 0.15, YP)} L${Ps(x1 - 0.15, haut)} Z`, plein(h.a.arete));
+    return h.path(`M${Ps(x0 + 0.15, haut)} L${Ps(x0 + 0.15, YP)} Q${Ps(x0 - 0.12, (YP + yg) / 2)} ${Ps(x0, yg - rg)} Q${Ps(x0, yg)} ${Ps(x0 + rg, yg)} L${Ps(x1 - rr, yd)} Q${Ps(x1, yd)} ${Ps(x1, yd - rr)} Q${Ps(x1 + 0.12, (YP + yd) / 2)} ${Ps(x1 - 0.15, YP)} L${Ps(x1 - 0.15, haut)} Z`, fond);
   };
   // deux sillons légers au bas des incisives centrales : ce qui fait lire une dent de devant
   const sillons = (g, d) => [0.36, 0.64].map(k => {
@@ -208,7 +213,7 @@ module.exports = (h) => {
           const bout = cassure(T(o.u - o.r, o.v0), T(o.u + o.r, o.v0), 0.1 * S, 1);
           const fa = T(FL.u, FL.v0), fb = T(FL.u, FL.v1);
           return [
-            h.chemin(dentPts, plein(h.a.fin), true),
+            h.chemin(dentPts, h.a.fin.replace('fill="none"', 'fill="#E6E6E6"'), true),   // derrière le plan de coupe
             h.chemin(genc, h.a.blanc, true),
             h.chemin(genc, gencive, true),
             h.chemin(pts(LABIAL.filter(p => p[0] <= 1.4)), h.a.cache),
@@ -218,10 +223,17 @@ module.exports = (h) => {
             // la dent, derrière le pont : on voit que la cire l'enserre sans la traverser
             h.chemin(pts(LABIAL.filter(p => p[0] >= 1.6 && p[0] <= 5)), h.a.cache),
             h.chemin(pts(PALAT.filter(p => p[0] >= 1.6 && p[0] <= 6)), h.a.cache),
-            h.chemin(tip, plein(h.a.arete), false),
+            h.chemin(tip, h.a.blanc, true),
+            (() => {                                  // le dessous de la pointe, à l'ombre
+              const k = 0.35, a0 = 2 * Math.PI - Math.acos(k), arc = [];
+              for (let i = 0; i <= 8; i++) { const a = a0 + (2 * Math.PI - a0) * i / 8; arc.push(T(o.u + o.r * Math.cos(a), o.v1 - o.r - o.r * Math.sin(a))); }
+              return h.chemin([T(o.u + k * o.r, o.v0), ...arc, T(o.u + o.r, o.v0)], h.a.ombre, true);
+            })(),
+            h.chemin(tip, h.a.arete, false),
             h.chemin(bout, h.a.fin),
             ...fib,
-            h.fleche(`M${f(fa[0])},${f(fa[1])} L${f(fb[0])},${f(fb[1])}`),
+            h.geste(`M${f(fa[0])},${f(fa[1])} L${f(fb[0])},${f(fb[1])}`),
+            (() => { const c = T(4.3, 0); return h.controle(c[0], c[1], 15); })(),   // le pont qui tient la dent
           ].join('\n');
         },
         renvois: z => {

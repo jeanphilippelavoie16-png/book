@@ -1306,10 +1306,22 @@ function construire(o, prep = null) {
     P.boite = boiteCL(u);
   }
   // la coupe de l'avant-bras : tout ce qui dépasse la dernière section est retranché
-  if (coupe && !coupe.plein) {
+  if (coupe && !coupe.plein && coupe.fin) {
+    // (la droite de fin : tout le demi-plan au-delà)
+    const G = 3000, f = coupe.fin, u = [f.n[1], -f.n[0]], ex = mul(f.n, -f.garde * G);
+    const a = add(f.A, mul(u, -G)), b = add(f.A, mul(u, G));
+    coupe.region = [versCL(positif([a, b, add(b, ex), add(a, ex)]))];
+  } else if (coupe && !coupe.plein) {
     const G = 600, A = coupe.a, B = coupe.b, ax = coupe.ax;
     const dem = [add(A, mul(sub(A, B), 2)), add(B, mul(sub(B, A), 2))];
     coupe.region = [versCL(positif([dem[0], dem[1], add(dem[1], mul(ax, G)), add(dem[0], mul(ax, G))]))];
+  }
+  // le pli du coude replié : le bord de l'avant-bras là où il s'appuie sur le bras, loin de l'articulation
+  for (const P of pieces) if (P.plisCoude) {
+    const pc = P.plisCoude;
+    const ls = bordsDans(union(pc.fa), decale(union(pc.br), -0.55));
+    P.plis = lignesHors(ls, [versCL(positif(disque(pc.centre, pc.r, 40)))]).filter(l => longueur(l) > 6);
+    delete P.plisCoude;
   }
 
   // de profil, l'objet qui vient vers l'œil est coupé au ras de la main (profil.js, agent 2) : sa face coupée
@@ -1628,6 +1640,8 @@ function dessiner(o, prep = null) {
     const autres = unionCL(pieces.filter(Q => Q !== P).map(Q => Q.region));
     traits[i] = traits[i].concat(lignesDans(bordsDans(P.region, decale(autres, -E)), Uin));
   });
+  // le pli du coude (avantbras.bras replié)
+  pieces.forEach((P, i) => { if (P.plis && P.plis.length) traits[i] = traits[i].concat(lignesDans(P.plis, Uin)); });
   // une ligne courte qui ne part pas du contour est une saleté
   const rive = decale(U, -(E + 1.6));
   for (let i = 0; i < n; i++) traits[i] = traits[i].filter(l => longueur(l) > 12 || !dedans(rive, l[0]) || !dedans(rive, l[l.length - 1]));   // 9 → 12 : un tiret flottant de 9 à 12 mm sur les jointures du poing (agent 5, tour 2)

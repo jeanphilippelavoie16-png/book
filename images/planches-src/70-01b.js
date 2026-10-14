@@ -3,6 +3,9 @@
 // 150 à 500, chambre de 440 à 585 (parois de 9), plancher percé de 468 à 500, sortie du toit
 // de 518 à 552, registre de 480 à 538, bâton de 453 à 572, pièces centrées à 480, 512, 544.
 // Seule la longueur de la tranchée n'est pas cotée : elle est [À VÉRIFIER] au chapitre.
+// La charte : plans à plat sans gris ; en travers, le vide de la tranchée en gris loin (on la voit
+// filer). Le rouge : la fuite de fumée à reboucher, et le jeu entre la pièce et la paroi.
+// La fumée et le vent restent en noir.
 
 module.exports = (h) => {
   const f = (v) => Math.round(v * 10) / 10;
@@ -70,6 +73,8 @@ module.exports = (h) => {
 
           // fuite : un filet de fumée sort du talus
           o.push(h.fleche(`M${f(X(330))} ${f(Y(-44))} c7.5 -6 -5 -12.5 2.5 -20 c7.5 -6 -5 -12.5 2.5 -20`));
+          // le point à surveiller : là où la butte laisse fuir
+          o.push(h.controle(X(330) + 1, Y(-44) - 1, 10));
 
           // chambre, toit fermé : planches du toit, sortie, registre
           o.push(h.rect(X(440), Y(-72.5), 145 * s, 145 * s, h.a.blanc));
@@ -122,7 +127,8 @@ module.exports = (h) => {
           // la tôle, à plat sur les deux bords
           o.push(h.rect(T(-32, -3)[0], T(-32, -3)[1], 64 * s, 3 * s, h.a.blanc));
           o.push(h.rect(T(-32, -3)[0], T(-32, -3)[1], 64 * s, 3 * s, h.a.arete));
-          // le vide où passe la fumée
+          // le vide où passe la fumée : on voit la tranchée filer au loin, en gris loin
+          o.push(h.path(d(T, [[-22, 0], [-22, 44], [22, 44], [22, 0]], true), h.a.loin));
           o.push(h.path(d(T, [[-22, 0], [-22, 44], [22, 44], [22, 0]]), h.a.contour));
           // cotes : largeur sous le fond, profondeur du fond au dessous de la tôle
           o.push(h.ligne(T(-22, 46)[0], T(-22, 46)[1], T(-22, 58)[0], T(-22, 58)[1], h.a.fin));
@@ -182,6 +188,8 @@ module.exports = (h) => {
             }
             o.push(h.path(lig, h.a.detail));
           }
+          // le jeu à vérifier : la pièce ne touche ni sa voisine ni la paroi
+          { const [cx, cy] = C(561.5, 40); o.push(h.controle(cx, cy, 11)); }
           return o.join('\n');
         },
         renvois: (z) => {

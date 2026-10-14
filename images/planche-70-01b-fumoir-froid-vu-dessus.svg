@@ -35,6 +35,7 @@
 <path d="M254.3 29.9 L235.4 29.9" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl)"/>
 <path d="M254.3 202.1 L235.4 202.1" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl)"/>
 <path d="M296.3 69.8 c7.5 -6 -5 -12.5 2.5 -20 c7.5 -6 -5 -12.5 2.5 -20" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl)"/>
+<circle cx="297.3" cy="68.8" r="10" fill="none" stroke="#9B2C1E" stroke-width="1.6"/>
 <rect x="411.8" y="39.9" width="152.3" height="152.3" fill="#FFFFFF" stroke="none"/>
 <path d="M437.2 39.9 L437.2 192.1 M462.5 39.9 L462.5 90.8 M462.5 141.2 L462.5 192.1 M488 39.9 L488 90.8 M488 141.2 L488 192.1 M513.4 39.9 L513.4 90.8 M513.4 141.2 L513.4 192.1 M538.7 39.9 L538.7 192.1 " fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
 <rect x="514.7" y="98.2" width="14.7" height="35.7" fill="#1A1A1A" stroke="none"/>
@@ -53,6 +54,7 @@
 <path d="M5.5 128.5 L17.5 128.5 M257.5 128.5 L269.5 128.5" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <rect x="73.5" y="122.5" width="128" height="6" fill="#FFFFFF" stroke="none"/>
 <rect x="73.5" y="122.5" width="128" height="6" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M93.5 128.5 L93.5 216.5 L181.5 216.5 L181.5 128.5 Z" fill="#E6E6E6" stroke="none"/>
 <path d="M93.5 128.5 L93.5 216.5 L181.5 216.5 L181.5 128.5" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
 <line x1="93.5" y1="220.5" x2="93.5" y2="244.5" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
 <line x1="181.5" y1="220.5" x2="181.5" y2="244.5" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
@@ -100,6 +102,7 @@
 <rect x="67.6" y="214.6" width="196.8" height="4.8" fill="#FFFFFF" stroke="none"/>
 <rect x="67.6" y="214.6" width="196.8" height="4.8" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M65.4 211.9 L67.3 222.1 M68.4 211.9 L70.3 222.1 M71.4 211.9 L73.4 222.1 M259 211.9 L260.9 222.1 M262 211.9 L263.9 222.1 M265 211.9 L267 222.1 " fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="244.4" cy="217" r="11" fill="none" stroke="#9B2C1E" stroke-width="1.6"/>
 </g>
 <line x1="69.7" y1="218.2" x2="90.6" y2="205.5" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
 <line x1="69.7" y1="218.2" x2="90.6" y2="205.5" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>

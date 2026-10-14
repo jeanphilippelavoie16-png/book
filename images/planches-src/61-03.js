@@ -82,6 +82,8 @@ module.exports = (h) => {
 
   const tronc = [
     h.path('M34,0 L34,150 Q35,200 26,222 L70,222 Q61,200 60,150 L60,0 Z', h.a.blanc),
+    // la charte : la face à l'ombre du tronc, à droite, peinte avant le trait
+    h.path('M51,0 L60,0 L60,150 Q61,200 70,222 L60,222 Q55,200 51,150 Z', h.a.ombre),
     h.path('M34,0 L34,150 Q35,200 26,222', h.a.contour),
     h.path('M60,0 L60,150 Q61,200 70,222', h.a.contour),
     h.path('M44,30 Q45,52 43,70', h.a.fin), h.path('M51,96 Q50,118 52,136', h.a.fin),
@@ -124,6 +126,20 @@ module.exports = (h) => {
       { n: 4, rond: [292, 104], cible: sonde, texte: 'sonde : centre du cuissot, sans toucher l’os' },
     ].map(r => ({ ...r, rond: r.rond.map(v => f(v * z.h / 230)), cible: r.cible.map(v => f(v * z.h / 230)) })),
   };
+  // La charte, hors de l'échelle de la vue pour garder l'épaisseur du rouge : le geste (on tord le
+  // bâton autour de la corde) et le point à contrôler (la sonde au centre du cuissot).
+  const dessinGreement = vueGreement.dessin;
+  vueGreement.dessin = z => {
+    const k = z.h / 230;
+    const c = [G[0] - 16 * u[0], G[1] - 16 * u[1]];
+    const pts = [];
+    for (let t = -50; t <= 205; t += 5) {
+      const a = t * Math.PI / 180;
+      pts.push([(c[0] + 20 * Math.cos(a) * n[0] + 6 * Math.sin(a) * u[0]) * k, (c[1] + 20 * Math.cos(a) * n[1] + 6 * Math.sin(a) * u[1]) * k]);
+    }
+    const d = 'M' + pts.map(q => `${f(q[0])} ${f(q[1])}`).join(' L');
+    return [dessinGreement(z), h.geste(d), h.controle(sonde[0] * k, sonde[1] * k, 10)].join('\n');
+  };
 
   // ── Le jarret, de côté ────────────────────────────────────────────────────────────────
   // Jambe arrière pendue : moignon du canon en haut, jarret, puis la cuisse vers le bas.
@@ -163,6 +179,8 @@ module.exports = (h) => {
       h.path('M156,80 Q155,100 158.5,118 L171,150', h.a.fin),
       h.path(passage, h.a.plein),
       h.path(entree, h.a.blanc),
+      // la charte : la face à l'ombre du palonnier (en dessous, à gauche), peinte avant le trait
+      h.chemin([...bord(-1), pt(Lp, -2.5), pt(0, -2.5)], h.a.ombre, true),
       h.path(entree, h.a.arete),
       ...[-4, 0, 4].map(o => h.chemin([pt(6, o), pt(sg - 9, o * 0.9)], h.a.fin)),
       h.cercle(E[0], E[1], r, h.a.blanc),

@@ -16,7 +16,8 @@ module.exports = (h) => {
   const P = (p) => `${p[0].toFixed(1)} ${p[1].toFixed(1)}`;
 
   // Une perche vue de côté, du bout tenu S au bout fendu T, rayon r, fente de longueur lf.
-  const perche = (S, T, r, lf, trait, fente = true) => {
+  // ombre : la face de dessous (côté +n), à l'ombre, peinte avant le trait.
+  const perche = (S, T, r, lf, trait, fente = true, ombre = false) => {
     const L = Math.hypot(T[0] - S[0], T[1] - S[1]);
     const u = [(T[0] - S[0]) / L, (T[1] - S[1]) / L];
     const n = [-u[1], u[0]];
@@ -26,6 +27,7 @@ module.exports = (h) => {
     if (fente) {
       const o = r * 0.16;                  // les deux moitiés s'écartent un peu au bout
       out.push(h.chemin([at(S, 0, -r), at(F, 0, -r), at(T, 0, -r - o), at(T, 0, -o), F, at(T, 0, o), at(T, 0, r + o), at(F, 0, r), at(S, 0, r)], fond, true));
+      if (ombre) out.push(h.chemin([at(S, 0, r * 0.45), at(F, 0, r * 0.45), at(T, 0, r * 0.45 + o), at(T, 0, r + o), at(F, 0, r), at(S, 0, r)], h.a.ombre, true));
       out.push(h.chemin([at(S, 0, -r), at(F, 0, -r), at(T, 0, -r - o), at(T, 0, -o)], trait));
       out.push(h.chemin([at(T, 0, o), at(T, 0, r + o), at(F, 0, r), at(S, 0, r)], trait));
       out.push(h.chemin([at(T, 0, -o), F, at(T, 0, o)], h.a.detail));
@@ -164,7 +166,7 @@ module.exports = (h) => {
         dessin: (z) => {
           const { yc, r, lf, xt, R, E } = V1;
           const out = [];
-          const p = perche([14, yc], [xt, yc], r, lf, h.a.contour);
+          const p = perche([14, yc], [xt, yc], r, lf, h.a.contour, true, true);
           out.push(p.svg);
           // Le fil : couché à plat dans la fente, il sort au bout et descend à l'œil.
           out.push(h.ligne(xt - lf + 10, yc, xt, yc, h.a.arete));
@@ -195,7 +197,8 @@ module.exports = (h) => {
           const { x0, yb, k, R, rx, L, E, T, S } = V2;
           const out = [];
           const xtr = z.l - 24;            // le tronc, derrière
-          out.push(h.rect(xtr, 0, 18, z.h, blanc(h.a.arete)));
+          // le tronc est derrière l'oiseau : il recule en gris
+          out.push(h.rect(xtr, 0, 18, z.h, h.a.loin), h.rect(xtr, 0, 18, z.h, h.a.arete));
           out.push(h.path([[4, 20, 14], [11, 70, 18], [6, 128, 12], [12, 190, 16], [5, 262, 14], [10, 296, 12]].map(([dx, y, l]) => `M ${xtr + dx} ${y} l 0.8 ${l}`).join(' '), h.a.fin));
           out.push(rameau([xtr, 40], [150, 70], 7, 2));
           const o = tetrasProfil(x0, yb, k);
@@ -209,8 +212,8 @@ module.exports = (h) => {
           out.push(h.path(`M ${P(T)} L ${T[0] + 14} ${T[1] - 2} C ${E[0] - 4} ${T[1] - 3} ${E[0]} ${T[1] + 6} ${E[0]} ${E[1] - 2.5}`, h.a.arete));
           out.push(h.ellipse(L[0], L[1], rx, R, h.a.arete));
           out.push(h.cercle(E[0], E[1], 2.5, blanc(h.a.arete)));
-          // Tirer sec : vers l'arrière et vers le haut.
-          out.push(h.fleche(`M ${T[0] + 6} ${T[1] - 14} C ${T[0] + 2} ${T[1] - 26} ${T[0] - 6} ${T[1] - 40} ${T[0] - 16} ${T[1] - 56}`));
+          // Le geste : tirer sec, vers l'arrière et vers le haut.
+          out.push(h.geste(`M ${T[0] + 6} ${T[1] - 14} C ${T[0] + 2} ${T[1] - 26} ${T[0] - 6} ${T[1] - 40} ${T[0] - 16} ${T[1] - 56}`));
           return out.join('\n');
         },
         renvois: (z) => {
@@ -246,10 +249,10 @@ module.exports = (h) => {
           const Lp = (z.h - 4 - T[1]) / -u[1];
           const S = [T[0] - u[0] * Lp, T[1] - u[1] * Lp];
           const n = [-u[1] * 4.5, u[0] * 4.5];
-          out.push(h.chemin([[S[0] + n[0], S[1] + n[1]], [T[0] + n[0], T[1] + n[1]], [T[0] - n[0], T[1] - n[1]], [S[0] - n[0], S[1] - n[1]]], blanc(h.a.arete), true));
+          out.push(h.chemin([[S[0] + n[0], S[1] + n[1]], [T[0] + n[0], T[1] + n[1]], [T[0] - n[0], T[1] - n[1]], [S[0] - n[0], S[1] - n[1]]], blanc(h.a.contour), true));
           out.push(h.path(`M ${P([S[0] + n[0], S[1] + n[1]])} C ${P([S[0] + n[0] * 0.3 + 3, S[1]])} ${P([S[0] - n[0] * 0.3 - 3, S[1]])} ${P([S[0] - n[0], S[1] - n[1]])}`, h.a.detail));
-          // La perche glisse : la boucle passe par-dessus la tête jusqu'au cou.
-          out.push(h.fleche(`M ${C[0] + 2} ${C[1] - 16} Q ${xb - 52 * k} ${yb - 30} ${xb - 33 * k} ${yb - 20}`));
+          // Le geste : la perche glisse, la boucle passe par-dessus la tête jusqu'au cou.
+          out.push(h.geste(`M ${C[0] + 2} ${C[1] - 16} Q ${xb - 52 * k} ${yb - 30} ${xb - 33 * k} ${yb - 20}`));
           return out.join('\n');
         },
         renvois: () => {
