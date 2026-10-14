@@ -103,7 +103,7 @@ module.exports = (h) => {
     const L = (pts, a = h.a.arete, ferme = false) => h.path(cr(M(pts), ferme), a);
     const out = [];
     const dur = etat === 'dure';
-    out.push('<defs><pattern id="h-chair" width="12" height="6" patternUnits="userSpaceOnUse"><line x1="1" y1="2" x2="6" y2="2" stroke="#1A1A1A" stroke-width="0.35"/><line x1="7" y1="5" x2="11" y2="5" stroke="#1A1A1A" stroke-width="0.35"/></pattern></defs>');
+    out.push('<defs><pattern id="h-chair" width="12" height="6" patternUnits="userSpaceOnUse"><line x1="1" y1="2" x2="6" y2="2" stroke="#1A1A1A" stroke-width="0.5"/><line x1="7" y1="5" x2="11" y2="5" stroke="#1A1A1A" stroke-width="0.5"/></pattern></defs>');
     const suite = pts => cr(M(pts)).replace(/^M/, ' L');
     // la chair (joue, gencive, langue, plancher, menton) en tireté horizontal ; l'air en blanc
     out.push(h.path(cr(M(dur ? PEAU_DUR : PEAU)) + ` L${f(P([247, 38]))} L${f(P([24, 38]))} Z`, 'fill="url(#h-chair)" stroke="none"'));

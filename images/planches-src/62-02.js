@@ -26,7 +26,8 @@ module.exports = (h) => {
     disposition: [['regions'], ['os']],
     vues: {
       regions: {
-        dessin: z => C.dessiner(h, place(z), { id: 'a', regions: true, limites: 'plein' }),
+        // la charte : les pattes du côté loin en gris loin (option du module)
+        dessin: z => C.dessiner(h, place(z), { id: 'a', regions: true, limites: 'plein', loin: 'gris' }),
         renvois: z => {
           const p = place(z);
           return [
@@ -40,7 +41,7 @@ module.exports = (h) => {
       },
       os: {
         dessin: z => C.dessiner(h, place(z), {
-          id: 'b', limites: 'tirete', loin: 'fin',
+          id: 'b', limites: 'tirete', loin: 'gris',
           os: ['vertebres', 'sacrum', 'cotes', 'sternum', 'omoplate', 'cartilageOmoplate', 'humerus', 'radius', 'cubitus',
             'bassin', 'femur', 'rotule', 'tibia'],
           osForts: ['rotule', 'cubitus', 'bassin', 'cartilageOmoplate', 'C7', 'T1', 'cote13'],

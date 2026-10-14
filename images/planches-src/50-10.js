@@ -44,7 +44,7 @@ module.exports = (h) => {
     const q = (x, y) => [c[0] + x * a, c[1] + y * b];
     const contour = FORME_ROCHE.map(([x, y]) => q(x, y));
     const out = ombre
-      ? [h.chemin(contour, h.a.blanc, true), h.chemin([q(0.06, -0.3), q(0.92, -0.4), q(1, 0.04), q(0.94, 0.5), q(0.7, 0.84)], h.a.ombre, true), h.chemin(contour, attr, true)]
+      ? [h.chemin(contour, h.a.blanc, true), h.chemin([q(0.06, -0.3), q(0.92, -0.4), q(1, 0.04), q(0.94, 0.5), q(0.7, 0.84)], h.a.ombre, true), h.chemin(contour, attr.replace(/fill="[^"]*"/, 'fill="none"'), true)]
       : [h.chemin(contour, attr, true)];
     if (aretes) {
       const s = q(0.06, -0.3);

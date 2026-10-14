@@ -15,6 +15,10 @@
 // ce qui se voit de devant est le dessous ; le dessus ne se devine qu'entre les feuilles, dedans.
 // Les tours de saule : un brin rond suivi par son axe, les tours vus de devant (un peu d'en haut),
 // ce qui passe dessous en tireté. Aucune main : l'objet et la flèche du geste.
+//
+// La charte : la pousse de saule, objet du geste dans les trois vues du bas, a son contour à 2,4.
+// Pas de gris : la hachure du dessus des feuilles donne déjà le foncé. Le rouge : les gestes —
+// tordre (les deux sens, une seule torsion), enrouler, tirer le bout repassé.
 module.exports = (h) => {
   const N = '#1A1A1A', B = '#FFFFFF';
   const f = v => Math.round(v * 10) / 10;
@@ -346,7 +350,7 @@ module.exports = (h) => {
     const rotation = (yc, sens) => {
       const rx = 24, ry = 6, pt = th => [XS + sens * rx * Math.sin(th), yc + ry * Math.cos(th)];
       const pts = (a, b, n = 24) => Array.from({ length: n + 1 }, (_, i) => pt(a + (b - a) * i / n));
-      return { dos: poly(pts(0.72 * Math.PI, 1.5 * Math.PI), h.a.arete, false), face: h.fleche(`M${pts(1.5 * Math.PI, 2.42 * Math.PI).map(P).join(' L')}`) };
+      return { dos: poly(pts(0.72 * Math.PI, 1.5 * Math.PI), h.a.geste, false), face: h.geste(`M${pts(1.5 * Math.PI, 2.42 * Math.PI).map(P).join(' L')}`) };
     };
     const hautR = rotation(Y1 - 20, 1), basR = rotation(Y2 + 20, -1);
     out.push(hautR.dos, basR.dos);
@@ -358,7 +362,7 @@ module.exports = (h) => {
       g.push([XS - r - tw * Math.sin((y - Y1) / 9 * TAU), y]);
       d.push([XS + r + tw * Math.sin((y - Y1) / 9 * TAU + Math.PI), y]);
     }
-    out.push(poly([[XS - r0 + 0.5, 6], [XS + r0 - 0.5, 4.5], ...d, ...g.reverse()], tr(1.4, B)));
+    out.push(poly([[XS - r0 + 0.5, 6], [XS + r0 - 0.5, 4.5], ...d, ...g.reverse()], tr(2.4, B)));
     // les fibres tordues, qui s'ouvrent un peu
     for (let y = Y1 + 5; y < Y2 - 3; y += 8.5) {
       out.push(h.path(`M${f(XS - r0 + 0.8)} ${f(y + 3.4)} Q${f(XS)} ${f(y + 1.2)} ${f(XS + r0 - 0.8)} ${f(y - 3.4)}`, tr(0.5)));
@@ -387,17 +391,17 @@ module.exports = (h) => {
   const arcPts = (C, r, a1, a2, n = 10) => Array.from({ length: n + 1 }, (_, i) => { const a = a1 + (a2 - a1) * i / n; return add(C, [r * Math.cos(a), r * Math.sin(a)]); });
   const yDebutBas = yTour(2, XDB) + TT / 2 + 30;
   const lien = fini => {
-    const out = [], opt = { debut: 'rond', vDebut: [-1, 0], fin: 'rond', vFin: [1, 0] };
+    const out = [], opt = { debut: 'rond', vDebut: [-1, 0], fin: 'rond', vFin: [1, 0], ep: 2.4 };
     // le début : monte sous les tours, tourne et devient le tour du haut
     const y0s = yTour(0, XDB + RB);
     const deb = [[XDB, yDebutBas], [XDB, y0s + RB], ...arcPts([XDB + RB, y0s + RB], RB, Math.PI, 1.5 * Math.PI).slice(1), ...passe(0, XDB + RB, XD).slice(1)];
     // le bout repassé : la fin du dernier tour tourne vers le haut, passe sous les deux tours
     const yE = yTour(2, XT - RB), yHautBout = yTour(0, XT) - TT / 2 - 34;
-    if (fini) out.push(brin(mk([[XT, yTour(1, XT) + TT / 2 + 2], [XT, yHautBout]]), TT, { fin: 'biseau' }));
-    out.push(brin(mk(deb), TT, { debut: 'biseau', fin: 'rond', vFin: [1, 0] }));
+    if (fini) out.push(brin(mk([[XT, yTour(1, XT) + TT / 2 + 2], [XT, yHautBout]]), TT, { fin: 'biseau', ep: 2.4 }));
+    out.push(brin(mk(deb), TT, { debut: 'biseau', fin: 'rond', vFin: [1, 0], ep: 2.4 }));
     if (fini) {
       const der = [...passe(2, XG, XT - RB), ...arcPts([XT - RB, yE - RB], RB, Math.PI / 2, 0).slice(1), [XT, yTour(1, XT) + TT / 2 - 3]];
-      out.push(brin(mk(der), TT, { debut: 'rond', vDebut: [-1, 0] }));
+      out.push(brin(mk(der), TT, { debut: 'rond', vDebut: [-1, 0], ep: 2.4 }));
     }
     out.push(brin(mk(passe(1, XG, XD)), TT, opt));
     // ce qui passe dessous, en tireté
@@ -417,18 +421,18 @@ module.exports = (h) => {
     // la partie libre : la suite du tour du bas, tenue de côté, qui va passer derrière
     const y2 = yTour(2, XD);
     const libre = echant([...passe(2, XG, XD - 10, 6), [XD + 2, y2 + 1], [XD + 22, y2 + 8], [XD + 42, y2 + 26], [XD + 52, y2 + 58]], 2);
-    out.push(L.svg, brin(mk(libre), TT, { debut: 'rond', vDebut: [-1, 0], fin: 'biseau' }), L.caches);
+    out.push(L.svg, brin(mk(libre), TT, { debut: 'rond', vDebut: [-1, 0], fin: 'biseau', ep: 2.4 }), L.caches);
     // le tour qui vient : derrière de droite à gauche, puis devant de gauche à droite
     const ya = yDebutBas + 14, ra = RR + 14;
     const pts = Array.from({ length: 29 }, (_, i) => { const th = -Math.PI / 2 - 0.3 + (Math.PI + 0.45) * i / 28; return [CX + ra * Math.sin(th), ya + 0.22 * ra * Math.cos(th)]; });
-    out.push(h.fleche(`M${pts.map(P).join(' L')}`));
+    out.push(h.geste(`M${pts.map(P).join(' L')}`));
     return out.join('\n');
   };
   const repasser = () => {
     const out = [manche(CX, RR, 6, 202, 5)];
     ligF = lien(true);
     out.push(ligF.svg, ligF.caches);
-    out.push(h.fleche(`M${XT} ${f(ligF.yHautBout - 6)} L${XT} ${f(ligF.yHautBout - 30)}`));
+    out.push(h.geste(`M${XT} ${f(ligF.yHautBout - 6)} L${XT} ${f(ligF.yHautBout - 30)}`));
     return out.join('\n');
   };
 
