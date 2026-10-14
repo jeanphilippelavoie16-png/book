@@ -1,7 +1,7 @@
 # Tome 6 · L’atelier — rapport d'assemblage
 
-- **Produit le :** 2026-09-29 06:53, par `design/outils/assembler-tome.py 6`
-- **Fichier :** `livre/tome-6/interieur.pdf` — 200 pages, 33.5 Mo
+- **Produit le :** 2026-10-14 20:17, par `design/outils/assembler-tome.py 6 --hors-ligne`
+- **Fichier :** `livre/tome-6/interieur.pdf` — 200 pages, 31.2 Mo
 - **Ouvertures :** toujours au recto (page de droite), une page blanche devant au besoin
 - **Placements :** design/epreuves-livre/placements.json, design/epreuves-livre/placements-tome-6.json
 - **Exigences de Blurb :** `sources/blurb-specifications.md` (relevées le 27 septembre 2026)
@@ -38,39 +38,18 @@ Les chapitres seuls font 191 pages ; 5 blanche(s) servent à faire ouvrir chaque
 | Rognage (TrimBox) | 8 × 10 po, fond perdu au bord extérieur | recto : reliure à gauche ; verso : à droite | oui |
 | Nombre de pages | pair, de 20 à 440 (papier Standard) | 200 | oui |
 | Page 1 | à droite | page de titre | oui |
-| Polices incorporées | toutes | 49 police(s), 0 non incorporée(s) | oui |
-| Taille du fichier | 2 Go au plus | 33.5 Mo | oui |
+| Polices incorporées | toutes | 48 police(s), 0 non incorporée(s) | oui |
+| Taille du fichier | 2 Go au plus | 31.2 Mo | oui |
 | Marques d'imprimeur | aucune | aucune | oui |
 | Couleur | CMJN ou sRVB, sans ton direct | sRVB (Edge) | oui |
 | Noir du texte | 100 % K | noir sRVB (0, 0, 0) : la conversion est faite chez Blurb | à juger sur épreuve |
 | PDF/X | plus exigé en 2026 (le guide de 2010 le demandait) | PDF 1.4 d'Edge, pas PDF/X | à surveiller au téléversement |
 
-Polices du fichier : Georgia, Georgia-Italic, IBMPlexSansCond-Bold, IBMPlexSansCond-Medium, IBMPlexSansCond-SemiBold, IBMPlexSansCond-SemiBoldItalic, IBMPlexSerif-Bold, IBMPlexSerif-Italic, IBMPlexSerif-Regular, IBMPlexSerif-SemiBold, IBMPlexSerif-SemiBoldItalic, NotoSansSymbols2-Regular, NotoSerif-Regular, Type 3 sans nom (texte des planches)
+Polices du fichier : IBMPlexSansCond-Bold, IBMPlexSansCond-Medium, IBMPlexSansCond-SemiBold, IBMPlexSansCond-SemiBoldItalic, IBMPlexSerif-Bold, IBMPlexSerif-Italic, IBMPlexSerif-Regular, IBMPlexSerif-SemiBold, IBMPlexSerif-SemiBoldItalic, LiberationSerif, LiberationSerif-Italic, NotoSansSymbols2-Regular, NotoSerif-Regular, Type 3 sans nom (texte des planches)
 
 ## Tranche et couverture
 
-Calculateur de Blurb interrogé le 2026-09-29 06:53 pour **200 pages**, papier Standard, couverture **souple** (`softcover`), en pouces :
-
-**Tranche : 0.5 x 10.25 po. PDF de couverture : 16.75 x 10.25 po.**
-
-| Pages (ce PDF) | Pouces |
-| --- | --- |
-| Final, exported PDF should measure (w x h) | 8.125 x 10.25 |
-| Page size / trim line (w x h) | 8.0 x 10.0 |
-| Bleed (top, bottom, and outside edges) | 0.125 |
-| Inset for Margins / Safe boundary (Top, Bottom, Outside Edge) | 0.25 |
-| Inset for Margins / Safe boundary (Binding Edge) | 0.5 |
-
-| Couverture | Pouces |
-| --- | --- |
-| Final, exported PDF should measure (w x h) | 16.75 x 10.25 |
-| Total Page size / trim line (w x h) | 16.5 x 10.0 |
-| Bleed (all edges) | 0.125 |
-| Flaps (w x h, measured from trim edge to fold) | none |
-| Gutter / Spine (w x h) | 0.5 x 10.25 |
-| Inset for Margins / Safe boundary (from edge of trim) | 0.25 |
-
-La tranche change par paliers avec le nombre de pages : la couverture se fait **après** le dernier assemblage, avec la mesure du jour.
+Calculateur non interrogé (--hors-ligne). Relevé du 27 septembre 2026 dans `sources/blurb-specifications.md` §2 ; pour 200 pages, prendre la ligne du tableau dont le palier couvre ce nombre, et revérifier au calculateur. [À VÉRIFIER]
 
 ## Figures
 
@@ -78,17 +57,17 @@ Les planches de `images/a-valider/` sont posées comme les validées (JP les rel
 
 | Ch. | Posées (page du tome) | Mentionnées dans le texte sans planche dessinée | À valider, non posées | Photos demandées encore à acquérir (credits.md) |
 | --- | --- | --- | --- | ---: |
-| 102 | 102-02 (9, pleine), 102-40 (13, pleine, à valider), 102-07 (20, pleine), 102-cuir-chamoise-non-fume.jpg (10), 102-cuir-tanne-vegetal.jpg (10) | — | — | 8 (ancien 79) |
-| 103 | 103-40 (27, pleine, à valider), 103-05 (28, pleine), 103-10 (30, pleine), 103-07 (31, pleine), 103-11 (32, pleine) | — | — | 8 (ancien 80) |
-| 104 | 104-02 (44, pleine), 104-40 (45, pleine, à valider), 104-04 (47, pleine), 104-15a (49, pleine, à valider), 104-15b (50, pleine, à valider) | — | — | 8 (ancien 81) |
-| 105 | 105-40 (71, pleine, à valider), 105-01 (61), 105-07 (64), 105-03 (65) | — | — | 8 (ancien 82) |
-| 106 | 106-10a (87, pleine, à valider), 106-10b (88, pleine, à valider), 106-01 (78), 83-09-carburateur-membranes-monte.jpg (80) | — | — | 8 (ancien 83) |
-| 107 | 107-10 (106, pleine, à valider), 107-02 (94), 107-03 (97), 107-09 (103), 107-07 (104) | — | — | 7 (ancien 84) |
+| 102 | 102-02 (9, pleine), 102-40 (13, pleine), 102-07 (20, pleine), 102-cuir-chamoise-non-fume.jpg (10), 102-cuir-tanne-vegetal.jpg (10) | — | — | 8 (ancien 79) |
+| 103 | 103-40 (27, pleine), 103-05 (28, pleine), 103-10 (30, pleine), 103-07 (31, pleine), 103-11 (32, pleine) | — | — | 8 (ancien 80) |
+| 104 | 104-02 (44, pleine), 104-40 (45, pleine), 104-04 (47, pleine), 104-15a (49, pleine), 104-15b (50, pleine) | — | — | 8 (ancien 81) |
+| 105 | 105-40 (71, pleine), 105-01 (61), 105-07 (64), 105-03 (65) | — | — | 8 (ancien 82) |
+| 106 | 106-10a (87, pleine), 106-10b (88, pleine), 106-01 (78), 83-09-carburateur-membranes-monte.jpg (80) | — | — | 8 (ancien 83) |
+| 107 | 107-10 (106, pleine), 107-02 (94), 107-03 (97), 107-09 (103), 107-07 (104) | — | — | 7 (ancien 84) |
 | 108 | 108-pile-gonflee.jpg (122) | — | — | 6 (ancien 85) |
-| 109 | 109-40 (130, pleine, à valider), 109-02 (132, pleine), 109-08 (140, pleine), 109-12 (142, pleine), 109-01 (141), 109-cable-fils-casses.jpg (126), 109-cable-fils-casses-bout.jpg (126) | — | — | 7 (ancien 86) |
-| 110 | 110-40 (150, pleine, à valider), 110-01a (152, pleine), 110-03 (154, pleine), 110-01b (161, pleine), 87-07b-bouleau-pourriture-brune.jpg (162), 87-07c-bouleau-pourriture-blanche.jpg (162), 87-07a-pourritures-brune-blanche.jpg (162) | — | — | 7 (ancien 87) |
-| 111 | 111-40 (170, pleine, à valider), 111-11 (179, pleine), 88-06a-cassures-acier-1918.jpg (167), 111-revenu-bande.jpg (171), 111-revenu-etalons.jpg (171) | — | — | 9 (ancien 88) |
-| 112 | 112-40 (189, pleine, à valider), 112-10a (196, pleine, à valider), 112-10b (197, pleine, à valider), 112-41 (186, à valider), 112-07 (190) | — | — | 9 (ancien 89) |
+| 109 | 109-40 (130, pleine), 109-02 (132, pleine), 109-08 (140, pleine), 109-01 (142, pleine), 109-12 (143, pleine), 109-cable-fils-casses.jpg (126), 109-cable-fils-casses-bout.jpg (126) | — | — | 7 (ancien 86) |
+| 110 | 110-40 (150, pleine), 110-01a (152, pleine), 110-03 (154, pleine), 110-01b (161, pleine), 87-07b-bouleau-pourriture-brune.jpg (162), 87-07c-bouleau-pourriture-blanche.jpg (162), 87-07a-pourritures-brune-blanche.jpg (162) | — | — | 7 (ancien 87) |
+| 111 | 111-40 (170, pleine), 111-11 (179, pleine), 88-06a-cassures-acier-1918.jpg (167), 111-revenu-bande.jpg (171), 111-revenu-etalons.jpg (171) | — | — | 9 (ancien 88) |
+| 112 | 112-40 (189, pleine), 112-10a (196, pleine), 112-10b (197, pleine), 112-41 (186), 112-07 (190) | — | — | 9 (ancien 89) |
 
 **Photos sous 150 PPI à la taille imprimée :** 87-07b-bouleau-pourriture-brune.jpg : 147 PPI; 87-07c-bouleau-pourriture-blanche.jpg : 147 PPI
 

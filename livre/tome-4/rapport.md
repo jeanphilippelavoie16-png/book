@@ -1,7 +1,7 @@
 # Tome 4 · De la bête au garde-manger — rapport d'assemblage
 
-- **Produit le :** 2026-09-29 10:58, par `design/outils/assembler-tome.py 4`
-- **Fichier :** `livre/tome-4/interieur.pdf` — 298 pages, 72.3 Mo
+- **Produit le :** 2026-10-14 20:14, par `design/outils/assembler-tome.py 4 --hors-ligne`
+- **Fichier :** `livre/tome-4/interieur.pdf` — 298 pages, 72.7 Mo
 - **Ouvertures :** toujours au recto (page de droite), une page blanche devant au besoin
 - **Placements :** design/epreuves-livre/placements.json, design/epreuves-livre/placements-tome-4.json
 - **Exigences de Blurb :** `sources/blurb-specifications.md` (relevées le 27 septembre 2026)
@@ -19,10 +19,10 @@
 | 69–80 | ch. 65 — Le dos | 12 |
 | 81–89 | ch. 66 — Pourquoi la viande pourrit | 9 |
 | 91–106 | ch. 67 — Le sel | 16 |
-| 107–118 | ch. 68 — Salaison à sec | 12 |
+| 107–117 | ch. 68 — Salaison à sec | 11 |
 | 119–130 | ch. 69 — Saumure | 12 |
 | 131–146 | ch. 70 — Fumage à froid | 16 |
-| 147–160 | ch. 71 — Fumage à chaud et séchage | 14 |
+| 147–159 | ch. 71 — Fumage à chaud et séchage | 13 |
 | 161–172 | ch. 72 — Pemmican et graisses | 12 |
 | 173–186 | ch. 73 — Froid naturel | 14 |
 | 187–202 | ch. 74 — Un congélateur plein qui dégèle | 16 |
@@ -33,12 +33,12 @@
 | 261–276 | ch. 79 — Caveau à légumes | 16 |
 | 277–291 | ch. 80 — Fermentation | 15 |
 | 293–298 | ch. 81 — La table aliment → méthode | 6 |
-| | Pages blanches (verso de la page de titre, avant les ouvertures, fin du tome) | 5 |
+| | Pages blanches (verso de la page de titre, avant les ouvertures, fin du tome) | 7 |
 | | **Total** | **298** |
 
 Aucune page de crédits (JP, 28 septembre 2026) : copie hors du livre dans `livre/credits/tome-4-credits.md` et `livre/credits/tome-4-credits.pdf`.
 
-Les chapitres seuls font 291 pages ; 4 blanche(s) servent à faire ouvrir chaque chapitre à droite. Avec `--verso` (un chapitre peut ouvrir à gauche), le tome ferait 294 pages.
+Les chapitres seuls font 289 pages ; 6 blanche(s) servent à faire ouvrir chaque chapitre à droite. Avec `--verso` (un chapitre peut ouvrir à gauche), le tome ferait 292 pages.
 
 ## Contrôle Blurb
 
@@ -49,38 +49,17 @@ Les chapitres seuls font 291 pages ; 4 blanche(s) servent à faire ouvrir chaque
 | Nombre de pages | pair, de 20 à 440 (papier Standard) | 298 | oui |
 | Page 1 | à droite | page de titre | oui |
 | Polices incorporées | toutes | 62 police(s), 0 non incorporée(s) | oui |
-| Taille du fichier | 2 Go au plus | 72.3 Mo | oui |
+| Taille du fichier | 2 Go au plus | 72.7 Mo | oui |
 | Marques d'imprimeur | aucune | aucune | oui |
 | Couleur | CMJN ou sRVB, sans ton direct | sRVB (Edge) | oui |
 | Noir du texte | 100 % K | noir sRVB (0, 0, 0) : la conversion est faite chez Blurb | à juger sur épreuve |
 | PDF/X | plus exigé en 2026 (le guide de 2010 le demandait) | PDF 1.4 d'Edge, pas PDF/X | à surveiller au téléversement |
 
-Polices du fichier : Georgia, Georgia-Italic, IBMPlexSansCond-Bold, IBMPlexSansCond-Medium, IBMPlexSansCond-SemiBold, IBMPlexSansCond-SemiBoldItalic, IBMPlexSerif-Bold, IBMPlexSerif-Italic, IBMPlexSerif-Regular, IBMPlexSerif-SemiBold, IBMPlexSerif-SemiBoldItalic, NotoSansSymbols2-Regular, NotoSerif-Bold, NotoSerif-Regular, Type 3 sans nom (texte des planches)
+Polices du fichier : IBMPlexSansCond-Bold, IBMPlexSansCond-Medium, IBMPlexSansCond-SemiBold, IBMPlexSansCond-SemiBoldItalic, IBMPlexSerif-Bold, IBMPlexSerif-Italic, IBMPlexSerif-Regular, IBMPlexSerif-SemiBold, IBMPlexSerif-SemiBoldItalic, LiberationSerif, LiberationSerif-Italic, NotoSansSymbols2-Regular, NotoSerif-Bold, NotoSerif-Regular, Type 3 sans nom (texte des planches)
 
 ## Tranche et couverture
 
-Calculateur de Blurb interrogé le 2026-09-29 10:58 pour **298 pages**, papier Standard, couverture **souple** (`softcover`), en pouces :
-
-**Tranche : 0.681 x 10.25 po. PDF de couverture : 16.931 x 10.25 po.**
-
-| Pages (ce PDF) | Pouces |
-| --- | --- |
-| Final, exported PDF should measure (w x h) | 8.125 x 10.25 |
-| Page size / trim line (w x h) | 8.0 x 10.0 |
-| Bleed (top, bottom, and outside edges) | 0.125 |
-| Inset for Margins / Safe boundary (Top, Bottom, Outside Edge) | 0.25 |
-| Inset for Margins / Safe boundary (Binding Edge) | 0.5 |
-
-| Couverture | Pouces |
-| --- | --- |
-| Final, exported PDF should measure (w x h) | 16.931 x 10.25 |
-| Total Page size / trim line (w x h) | 16.681 x 10.0 |
-| Bleed (all edges) | 0.125 |
-| Flaps (w x h, measured from trim edge to fold) | none |
-| Gutter / Spine (w x h) | 0.681 x 10.25 |
-| Inset for Margins / Safe boundary (from edge of trim) | 0.25 |
-
-La tranche change par paliers avec le nombre de pages : la couverture se fait **après** le dernier assemblage, avec la mesure du jour.
+Calculateur non interrogé (--hors-ligne). Relevé du 27 septembre 2026 dans `sources/blurb-specifications.md` §2 ; pour 298 pages, prendre la ligne du tableau dont le palier couvre ce nombre, et revérifier au calculateur. [À VÉRIFIER]
 
 ## Figures
 
@@ -89,25 +68,25 @@ Les planches de `images/a-valider/` sont posées comme les validées (JP les rel
 | Ch. | Posées (page du tome) | Mentionnées dans le texte sans planche dessinée | À valider, non posées | Photos demandées encore à acquérir (credits.md) |
 | --- | --- | --- | --- | ---: |
 | 61 | 61-02 (8, pleine), 61-09 (15, pleine), 61-03 (16), 36-01-cerf-evisceration.jpg (9) | — | — | 6 (ancien 36) |
-| 62 | 62-02 (22, pleine, à valider), 62-04 (23, pleine, à valider), 62-05 (24, pleine, à valider), 62-06 (25, pleine, à valider), 62-07 (26, pleine, à valider), 62-11 (29, pleine, à valider), 62-13 (30, pleine, à valider), 62-14 (31, pleine, à valider), 62-15 (33, pleine, à valider), 62-16 (34, pleine, à valider), 62-17 (35, pleine, à valider), 62-08 (21, à valider), 62-09 (27, à valider), 62-10 (28, à valider), 62-12 (32, à valider), 62-18 (36, à valider), 62-19 (37, à valider), 37-14-bavette-crue-grain.jpg (20) | — | — | 12 (ancien 37) |
+| 62 | 62-02 (22, pleine), 62-04 (23, pleine), 62-05 (24, pleine), 62-06 (25, pleine), 62-07 (26, pleine), 62-11 (29, pleine), 62-13 (30, pleine), 62-14 (31, pleine), 62-15 (33, pleine), 62-16 (34, pleine), 62-17 (35, pleine), 62-08 (21), 62-09 (27), 62-10 (28), 62-12 (32), 62-18 (36), 62-19 (37), 37-14-bavette-crue-grain.jpg (20) | — | — | 12 (ancien 37) |
 | 63 | 38-09-brulure-congelation-boeuf.jpg (49) | — | — | 7 (ancien 38) |
-| 64 | 64-40 (59, pleine, à valider), 64-08 (66, pleine, à valider) | — | — | 6 (ancien 39) |
+| 64 | 64-40 (59, pleine), 64-08 (66, pleine) | — | — | 6 (ancien 39) |
 | 65 | 65-09 (78, pleine) | — | — | 5 (ancien 40) |
 | 66 | — | — | — | 7 (ancien 61) |
 | 67 | 67-09 (100, pleine), 67-10 (101, pleine), 67-12 (103, pleine), 67-13 (104, pleine) | — | — | 8 (ancien 62) |
 | 68 | 68-06 (116) | — | — | 7 (ancien 63) |
-| 69 | 69-40 (129, pleine, à valider), 69-03 (128) | — | — | 7 (ancien 64) |
+| 69 | 69-40 (129, pleine), 69-03 (128) | — | — | 7 (ancien 64) |
 | 70 | 70-01 (134, pleine), 70-01b (141, pleine), 70-09 (142, pleine), 70-12 (145, pleine) | — | — | 9 (ancien 65) |
-| 71 | 71-40 (151, pleine, à valider), 71-02 (157, pleine) | — | — | 8 (ancien 66) |
-| 72 | 72-40 (164, pleine, à valider), 72-41 (166, pleine, à valider) | — | — | 8 (ancien 67) |
-| 73 | 73-07 (178, pleine, à valider), 73-01 (183, pleine) | — | — | 6 (ancien 68) |
-| 74 | 74-40 (198, pleine, à valider), 74-10 (199, pleine), 74-11 (202, pleine) | — | — | 9 (ancien 69) |
-| 75 | 75-40 (206, pleine, à valider), 75-08 (216, pleine), 75-04 (207), 70-05a-branchies-brochet.jpg (205) | — | — | 6 (ancien 70) |
+| 71 | 71-40 (151, pleine), 71-02 (157, pleine) | — | — | 8 (ancien 66) |
+| 72 | 72-40 (164, pleine), 72-41 (166, pleine) | — | — | 8 (ancien 67) |
+| 73 | 73-07 (178, pleine), 73-01 (183, pleine) | — | — | 6 (ancien 68) |
+| 74 | 74-40 (198, pleine), 74-10 (199, pleine), 74-11 (201, pleine) | — | — | 9 (ancien 69) |
+| 75 | 75-40 (206, pleine), 75-08 (216, pleine), 75-04 (207), 70-05a-branchies-brochet.jpg (205) | — | — | 6 (ancien 70) |
 | 76 | 76-03 (222, pleine), 76-06 (225, pleine), 76-05 (224) | — | — | 8 (ancien 71) |
 | 77 | — | — | — | 8 (ancien 72) |
-| 78 | 78-40 (251, pleine, à valider) | — | — | 7 (ancien 73) |
-| 79 | 79-01a (265, pleine), 79-01b (271, pleine), 79-40 (273, pleine, à valider), 79-06 (275, pleine) | — | — | 6 (ancien 76) |
-| 80 | 80-40 (290, pleine, à valider), 80-choucroute-jour0-salage.jpg (279), 80-choucroute-en-fermentation.jpg (280), 80-choucroute-voile-levures.jpg (280) | — | — | 6 (ancien 77) |
+| 78 | 78-40 (251, pleine) | — | — | 7 (ancien 73) |
+| 79 | 79-01a (265, pleine), 79-01b (271, pleine), 79-40 (273, pleine), 79-06 (275, pleine) | — | — | 6 (ancien 76) |
+| 80 | 80-40 (290, pleine), 80-choucroute-jour0-salage.jpg (279), 80-choucroute-en-fermentation.jpg (280), 80-choucroute-voile-levures.jpg (280) | — | — | 6 (ancien 77) |
 | 81 | — | — | — | 0 (ancien 89b) |
 
 ## Crédits des images — hors du livre
@@ -136,7 +115,7 @@ Photos téléchargées pour ces chapitres et non posées (images de référence 
 ## Avertissements
 
 - ch. 63, paginateur : p63-7 : page à moitié vide
-- ch. 74, paginateur : p74-15 : page à moitié vide
+- ch. 71, paginateur : p71-7 : sort de la zone utile
 - ch. 75, paginateur : p75-10 : page à moitié vide
 - ch. 76, paginateur : p76-11 : page à moitié vide
 - ch. 80, paginateur : p80-8 : page à moitié vide

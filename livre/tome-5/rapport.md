@@ -1,7 +1,7 @@
 # Tome 5 · La forêt, le jardin et le chalet — rapport d'assemblage
 
-- **Produit le :** 2026-09-29 06:52, par `design/outils/assembler-tome.py 5`
-- **Fichier :** `livre/tome-5/interieur.pdf` — 438 pages, 287.4 Mo
+- **Produit le :** 2026-10-14 20:16, par `design/outils/assembler-tome.py 5 --hors-ligne`
+- **Fichier :** `livre/tome-5/interieur.pdf` — 438 pages, 289.8 Mo
 - **Ouvertures :** toujours au recto (page de droite), une page blanche devant au besoin
 - **Placements :** design/epreuves-livre/placements.json, design/epreuves-livre/placements-tome-5.json
 - **Exigences de Blurb :** `sources/blurb-specifications.md` (relevées le 27 septembre 2026)
@@ -48,38 +48,17 @@ Les chapitres seuls font 424 pages ; 10 blanche(s) servent à faire ouvrir chaqu
 | Nombre de pages | pair, de 20 à 440 (papier Standard) | 438 | oui |
 | Page 1 | à droite | page de titre | oui |
 | Polices incorporées | toutes | 51 police(s), 0 non incorporée(s) | oui |
-| Taille du fichier | 2 Go au plus | 287.4 Mo | oui |
+| Taille du fichier | 2 Go au plus | 289.8 Mo | oui |
 | Marques d'imprimeur | aucune | aucune | oui |
 | Couleur | CMJN ou sRVB, sans ton direct | sRVB (Edge) | oui |
 | Noir du texte | 100 % K | noir sRVB (0, 0, 0) : la conversion est faite chez Blurb | à juger sur épreuve |
 | PDF/X | plus exigé en 2026 (le guide de 2010 le demandait) | PDF 1.4 d'Edge, pas PDF/X | à surveiller au téléversement |
 
-Polices du fichier : Georgia, Georgia-Italic, IBMPlexSansCond-Bold, IBMPlexSansCond-Medium, IBMPlexSansCond-SemiBold, IBMPlexSansCond-SemiBoldItalic, IBMPlexSerif-Bold, IBMPlexSerif-Italic, IBMPlexSerif-Regular, IBMPlexSerif-SemiBold, IBMPlexSerif-SemiBoldItalic, NotoSerif-Regular, Type 3 sans nom (texte des planches)
+Polices du fichier : IBMPlexSansCond-Bold, IBMPlexSansCond-Medium, IBMPlexSansCond-SemiBold, IBMPlexSansCond-SemiBoldItalic, IBMPlexSerif-Bold, IBMPlexSerif-Italic, IBMPlexSerif-Regular, IBMPlexSerif-SemiBold, IBMPlexSerif-SemiBoldItalic, LiberationSerif, LiberationSerif-Italic, NotoSerif-Regular, Type 3 sans nom (texte des planches)
 
 ## Tranche et couverture
 
-Calculateur de Blurb interrogé le 2026-09-29 06:52 pour **438 pages**, papier Standard, couverture **souple** (`softcover`), en pouces :
-
-**Tranche : 1.0 x 10.25 po. PDF de couverture : 17.25 x 10.25 po.**
-
-| Pages (ce PDF) | Pouces |
-| --- | --- |
-| Final, exported PDF should measure (w x h) | 8.125 x 10.25 |
-| Page size / trim line (w x h) | 8.0 x 10.0 |
-| Bleed (top, bottom, and outside edges) | 0.125 |
-| Inset for Margins / Safe boundary (Top, Bottom, Outside Edge) | 0.25 |
-| Inset for Margins / Safe boundary (Binding Edge) | 0.5 |
-
-| Couverture | Pouces |
-| --- | --- |
-| Final, exported PDF should measure (w x h) | 17.25 x 10.25 |
-| Total Page size / trim line (w x h) | 17.0 x 10.0 |
-| Bleed (all edges) | 0.125 |
-| Flaps (w x h, measured from trim edge to fold) | none |
-| Gutter / Spine (w x h) | 1.0 x 10.25 |
-| Inset for Margins / Safe boundary (from edge of trim) | 0.25 |
-
-La tranche change par paliers avec le nombre de pages : la couverture se fait **après** le dernier assemblage, avec la mesure du jour.
+Calculateur non interrogé (--hors-ligne). Relevé du 27 septembre 2026 dans `sources/blurb-specifications.md` §2 ; pour 438 pages, prendre la ligne du tableau dont le palier couvre ce nombre, et revérifier au calculateur. [À VÉRIFIER]
 
 ## Figures
 
@@ -87,26 +66,26 @@ Les planches de `images/a-valider/` sont posées comme les validées (JP les rel
 
 | Ch. | Posées (page du tome) | Mentionnées dans le texte sans planche dessinée | À valider, non posées | Photos demandées encore à acquérir (credits.md) |
 | --- | --- | --- | --- | ---: |
-| 82 | 82-08a (16, pleine), 82-08b (17, pleine), 82-10a (18, pleine, à valider), 82-10b (19, pleine, à valider), 82-12a (21, pleine), 82-12b (22, pleine), 83-suie-poudreuse.jpg (6), 83-creosote-vitrifiee-conduit.jpg (7), 83-conduit-bouche-apres-feu.jpg (8) | — | — | 7 (ancien 16) |
-| 83 | 83-40 (26, pleine, à valider), 83-10 (36, pleine), 83-suie-poudreuse.jpg (27), 83-creosote-vitrifiee-conduit.jpg (28), 83-epinettes-mortes-sur-pied.jpg (32), 83-chicot-pourri-carpophores.jpg (33), 83-creosote-vitrifiee-morceau.jpg (35) | — | — | 9 (ancien 15) |
-| 84 | 84-01 (41, pleine, à valider), 84-05 (44, pleine, à valider), 84-02 (53, pleine, à valider), 84-03 (54, pleine, à valider), 84-04 (58, pleine, à valider) | — | — | 0 (ancien 15b) |
+| 82 | 82-08a (16, pleine), 82-08b (17, pleine), 82-10a (18, pleine), 82-10b (19, pleine), 82-12a (21, pleine), 82-12b (22, pleine), 83-suie-poudreuse.jpg (6), 83-creosote-vitrifiee-conduit.jpg (7), 83-conduit-bouche-apres-feu.jpg (8) | — | — | 7 (ancien 16) |
+| 83 | 83-40 (26, pleine), 83-10 (36, pleine), 83-suie-poudreuse.jpg (27), 83-creosote-vitrifiee-conduit.jpg (28), 83-epinettes-mortes-sur-pied.jpg (32), 83-chicot-pourri-carpophores.jpg (33), 83-creosote-vitrifiee-morceau.jpg (35) | — | — | 9 (ancien 15) |
+| 84 | 84-01 (41, pleine), 84-05 (44, pleine), 84-02 (53, pleine), 84-03 (54, pleine), 84-04 (58, pleine) | — | — | 0 (ancien 15b) |
 | 85 | — | — | — | 7 (ancien 18) |
-| 86 | 86-04 (86, pleine, à valider), 86-05 (87, pleine, à valider), 86-01a (89, pleine, à valider), 86-01b (90, pleine, à valider), 86-02 (92, pleine, à valider), 86-03a (93, pleine, à valider), 86-03b (95, pleine, à valider), 86-06 (96, pleine, à valider) | — | — | 0 (ancien 18b) |
-| 87 | 87-08a (108, pleine), 87-08b (109, pleine), 87-09 (111, pleine, à valider) | — | — | 7 (ancien 14) |
-| 88 | 88-06 (116, pleine, à valider), 88-03 (118, pleine, à valider), 88-02 (120, pleine, à valider), 88-01 (128, pleine, à valider), 88-04 (129, pleine, à valider), 88-07 (130, pleine, à valider), 88-05 (132, pleine, à valider), 88-ergot-dans-le-ble.jpg (119), 88-ble-traite-rose-melange.jpg (121), 88-grains-fusaries-temoin.png (122) | — | — | 0 (ancien 14b) |
-| 89 | 89-01a (138, pleine, à valider), 89-02 (139, pleine, à valider), 89-01b (141, pleine, à valider), 89-03 (143, pleine, à valider), 89-04 (145, pleine, à valider), 89-05a (146, pleine, à valider), 89-05b (148, pleine, à valider), 89-41 (154, pleine, à valider), 89-06 (156, pleine, à valider), 89-07 (158, à valider) | — | — | 0 (ancien 20b) |
-| 90 | 90-04 (164, pleine, à valider), 90-01 (166, pleine, à valider), 90-06 (167, pleine, à valider), 90-05 (169, pleine, à valider), 90-03 (170, pleine, à valider), 90-02a (177, pleine, à valider), 90-02b (179, pleine, à valider), 90-07a (180, pleine, à valider), 90-07b (181, pleine, à valider) | — | — | 0 (ancien 20c) |
-| 91 | 91-11 (198, pleine, à valider), 57-02a-bleuet.jpg (186), 57-02b-airelle.jpg (186), 57-02c-camarine.jpg (187), 57-02d-chicoute.jpg (187), 57-02e-framboise.jpg (187), 57-02f-atoca.jpg (187), 57-01b-actee-rouge-fruits.jpg (189), 57-01c-actee-blanche-plant.jpg (189), 57-01d-actee-blanche-fruits.jpg (190), 57-01e-if-plant.jpg (190), 57-03a-if-arille-graine-en-place.jpg (190), 57-01g-clintonie-plant.jpg (191), 57-07-pots-scelles.jpg (192) | — | — | 3 (ancien 57) |
+| 86 | 86-04 (86, pleine), 86-05 (87, pleine), 86-01a (89, pleine), 86-01b (90, pleine), 86-02 (92, pleine), 86-03a (93, pleine), 86-03b (95, pleine), 86-06 (96, pleine) | — | — | 0 (ancien 18b) |
+| 87 | 87-08a (108, pleine), 87-08b (109, pleine), 87-09 (111, pleine) | — | — | 7 (ancien 14) |
+| 88 | 88-06 (116, pleine), 88-03 (118, pleine), 88-02 (120, pleine), 88-01 (128, pleine), 88-04 (129, pleine), 88-07 (130, pleine), 88-05 (132, pleine), 88-ergot-dans-le-ble.jpg (119), 88-ble-traite-rose-melange.jpg (121), 88-grains-fusaries-temoin.png (122) | — | — | 0 (ancien 14b) |
+| 89 | 89-01a (138, pleine), 89-02 (139, pleine), 89-01b (141, pleine), 89-03 (143, pleine), 89-04 (145, pleine), 89-05a (146, pleine), 89-05b (148, pleine), 89-41 (154, pleine), 89-06 (156, pleine), 89-07 (158) | — | — | 0 (ancien 20b) |
+| 90 | 90-04 (164, pleine), 90-01 (166, pleine), 90-06 (167, pleine), 90-05 (169, pleine), 90-03 (170, pleine), 90-02a (177, pleine), 90-02b (179, pleine), 90-07a (180, pleine), 90-07b (181, pleine) | — | — | 0 (ancien 20c) |
+| 91 | 91-11 (198, pleine), 57-02a-bleuet.jpg (186), 57-02b-airelle.jpg (186), 57-02c-camarine.jpg (187), 57-02d-chicoute.jpg (187), 57-02e-framboise.jpg (187), 57-02f-atoca.jpg (187), 57-01b-actee-rouge-fruits.jpg (189), 57-01c-actee-blanche-plant.jpg (189), 57-01d-actee-blanche-fruits.jpg (190), 57-01e-if-plant.jpg (190), 57-03a-if-arille-graine-en-place.jpg (190), 57-01g-clintonie-plant.jpg (191), 57-07-pots-scelles.jpg (192) | — | — | 3 (ancien 57) |
 | 92 | 22-herbe-a-puce-folioles.jpg (203), 01-crosse-fougere-autruche.jpg (205), 92-crosse-sillon.jpg (205), 03-crosse-deroulee.jpg (205), 23b-fougere-aigle-crosse.jpg (206), 23c-osmonde-cannelle-crosse.jpg (206), 04-quenouille-station-epi.jpg (206), 92-quenouille-feuille-coupe.jpg (207), 92-iris-feuille-coupe.jpg (207), 24b-iris-versicolore-feuilles.jpg (207), 07-sapin-baumier-rameau.jpg (208), 26c-if-canada-feuillage.jpg (208), 26b-thuya-rameau-dessus.jpg (209), 18-if-canada-arille.jpg (209), 09-the-labrador-dessous-feuille.jpg (209), 21-apocyn-latex.jpg (210), 17-veratre-jeunes-feuilles.jpg (211), 11-pissenlit-racine-latex.jpg (212), 12-stellaire-ligne-poils.jpg (212), 27b-mouron-rouge.jpg (213), 13-salicorne.jpg (213), 14-laminaire-crampon.jpg (214), 33-cicutaire-rhizome-cloisonne.jpg (214), 15-cicutaire-plant-fleur.jpg (215), 06-quenouille-rhizome.jpg (223) | — | — | 10 (ancien 58) |
-| 93 | 93-41 (237, à valider), 93-amanite-deterree-volve.jpg (228), 93-amanite-cueillie-sans-volve.jpg (229) | — | — | 20 (ancien 59) |
-| 94 | 94-34 (249, pleine), 94-33a (250, pleine), 94-33b (251, pleine), 94-40 (258, pleine, à valider), 94-31 (259, pleine), 01a-bouleau-tronc.jpg (241), 05-bouleau-feuille-dessus-dessous.jpg (241), 09a-erable-rouge-feuille-dessus.jpg (241), 09b-erable-rouge-feuille-dessous.jpg (242), 10-erable-rouge-ecorce.jpg (242), 06a-thuya-ramule.jpg (242), 06b-epinette-noire-rameau.jpg (242), 07-thuya-ecorce.jpg (243), 04-cerisier-rameau.jpg (243), 08-if-canada-port.jpg (243), 02-bouleau-ecorce.jpg (244), 03-cerisier-ecorce-lenticelles.jpg (244), 28-sapin-baumier-vesicules.jpg (245), 94-seve-tournee.png (246), 23-refractometre.jpg (247), 24-filtration-sirop.jpg (247), 94-liber-bouleau.jpg (252), 94-liber-epinette-noire.jpg (252), 13-chaudiere-galvanisee.jpg (261) | — | — | 12 (ancien 60) |
-| 95 | 95-40a (267, pleine, à valider), 95-40b (268, pleine, à valider), 95-09 (277, pleine), 95-10 (278, pleine, à valider), 74-05b-patate-verdissement-leger.jpg (269), 74-05c-patate-verdissement-avance.jpg (269), 74-05d-patate-germes.jpg (269) | — | — | 7 (ancien 74) |
-| 96 | 96-02 (284, pleine, à valider), 96-07 (285, pleine, à valider), 96-03a (286, pleine, à valider), 96-03b (288, pleine, à valider), 96-05 (289, pleine, à valider), 96-06 (290, pleine, à valider), 96-08 (298, pleine, à valider), 96-09 (304, pleine, à valider), 96-01 (306, pleine, à valider), 96-11 (308, pleine, à valider), 96-04 (309, pleine, à valider), 96-12 (292, à valider), 95-podzol-profil.png (282) | — | — | 0 (ancien 96) |
-| 97 | 97-01a (315, pleine, à valider), 97-01b (316, pleine, à valider), 97-03 (320, pleine, à valider), 97-04 (321, pleine, à valider), 97-05a (323, pleine, à valider), 97-05b (324, pleine, à valider), 97-06 (332, pleine, à valider), 97-02 (333, pleine, à valider) | — | — | 0 (ancien 97) |
-| 98 | 98-02 (342, pleine, à valider), 98-03 (344, pleine, à valider), 98-05 (350, pleine, à valider), 98-06 (351, pleine, à valider), 98-08 (353, pleine, à valider), 98-04a (361, pleine, à valider), 98-04b (362, pleine, à valider), 98-01a (363, pleine, à valider), 98-01b (364, pleine, à valider), 98-07 (366, pleine, à valider), 98-10 (367, pleine, à valider), 98-09 (368, pleine, à valider), 98-mildiou-taches-du-bord.jpg (343), 98-mildiou-duvet-blanc.jpg (345), 98-alternariose-pomme-de-terre.jpg (345), 98-mildiou-tubercule-coupe.jpg (346), 88-ergot-epi-ble.jpg (349), 88-ergot-dans-le-ble.jpg (352), 98-baies-pomme-de-terre.jpg (358) | — | — | 0 (ancien 98) |
-| 99 | 99-01 (375, pleine, à valider), 99-12 (377, pleine, à valider), 99-11 (378, pleine, à valider), 99-08 (382, pleine, à valider), 99-06 (383, pleine, à valider), 99-07a (384, pleine, à valider), 99-07b (385, pleine, à valider), 99-09a (386, pleine, à valider), 99-10 (388, pleine, à valider), 99-05 (390, pleine, à valider), 99-02a (391, pleine, à valider), 99-02b (392, pleine, à valider), 99-03 (394, pleine, à valider), 99-04 (395, pleine, à valider), 99-09b (403, pleine, à valider) | — | — | 0 (ancien 99) |
-| 100 | 100-40 (411, pleine, à valider), 100-05 (418), 75-03d-courge-male-femelle.jpg (408), 75-02a-haricot-gousses-semence.jpg (409), 75-02c-concombre-trop-mur.jpg (409), 75-02d-laitue-fleur-aigrette.jpg (409), 75-03a-courge-fleur-femelle.jpg (418), 75-03b-courge-fleur-male.jpg (419), 75-03e-courge-pollinisation-main.jpg (419) | — | — | 6 (ancien 75) |
-| 101 | 101-01 (425, pleine), 101-40 (428, pleine, à valider), 101-07 (424) | — | — | 7 (ancien 78) |
+| 93 | 93-41 (237), 93-amanite-deterree-volve.jpg (228), 93-amanite-cueillie-sans-volve.jpg (229) | — | — | 20 (ancien 59) |
+| 94 | 94-34 (249, pleine), 94-33a (250, pleine), 94-33b (251, pleine), 94-40 (258, pleine), 94-31 (259, pleine), 01a-bouleau-tronc.jpg (241), 05-bouleau-feuille-dessus-dessous.jpg (241), 09a-erable-rouge-feuille-dessus.jpg (241), 09b-erable-rouge-feuille-dessous.jpg (242), 10-erable-rouge-ecorce.jpg (242), 06a-thuya-ramule.jpg (242), 06b-epinette-noire-rameau.jpg (242), 07-thuya-ecorce.jpg (243), 04-cerisier-rameau.jpg (243), 08-if-canada-port.jpg (243), 02-bouleau-ecorce.jpg (244), 03-cerisier-ecorce-lenticelles.jpg (244), 28-sapin-baumier-vesicules.jpg (245), 94-seve-tournee.png (246), 23-refractometre.jpg (247), 24-filtration-sirop.jpg (247), 94-liber-bouleau.jpg (252), 94-liber-epinette-noire.jpg (252), 13-chaudiere-galvanisee.jpg (261) | — | — | 12 (ancien 60) |
+| 95 | 95-40a (267, pleine), 95-40b (268, pleine), 95-09 (277, pleine), 95-10 (278, pleine), 74-05b-patate-verdissement-leger.jpg (269), 74-05c-patate-verdissement-avance.jpg (269), 74-05d-patate-germes.jpg (269) | — | — | 7 (ancien 74) |
+| 96 | 96-02 (284, pleine), 96-07 (285, pleine), 96-03a (286, pleine), 96-03b (288, pleine), 96-05 (289, pleine), 96-06 (290, pleine), 96-08 (298, pleine), 96-09 (304, pleine), 96-01 (306, pleine), 96-11 (308, pleine), 96-04 (309, pleine), 96-12 (292), 95-podzol-profil.png (282) | — | — | 0 (ancien 96) |
+| 97 | 97-01a (315, pleine), 97-01b (316, pleine), 97-03 (320, pleine), 97-04 (321, pleine), 97-05a (323, pleine), 97-05b (324, pleine), 97-06 (332, pleine), 97-02 (333, pleine) | — | — | 0 (ancien 97) |
+| 98 | 98-02 (342, pleine), 98-03 (344, pleine), 98-05 (350, pleine), 98-06 (351, pleine), 98-08 (353, pleine), 98-04a (361, pleine), 98-04b (362, pleine), 98-01a (363, pleine), 98-01b (364, pleine), 98-07 (366, pleine), 98-10 (367, pleine), 98-09 (368, pleine), 98-mildiou-taches-du-bord.jpg (343), 98-mildiou-duvet-blanc.jpg (345), 98-alternariose-pomme-de-terre.jpg (345), 98-mildiou-tubercule-coupe.jpg (346), 88-ergot-epi-ble.jpg (349), 88-ergot-dans-le-ble.jpg (352), 98-baies-pomme-de-terre.jpg (358) | — | — | 0 (ancien 98) |
+| 99 | 99-01 (375, pleine), 99-12 (377, pleine), 99-11 (378, pleine), 99-08 (382, pleine), 99-06 (383, pleine), 99-07a (384, pleine), 99-07b (385, pleine), 99-09a (386, pleine), 99-10 (388, pleine), 99-05 (390, pleine), 99-02a (391, pleine), 99-02b (392, pleine), 99-03 (393, pleine), 99-04 (395, pleine), 99-09b (403, pleine) | — | — | 0 (ancien 99) |
+| 100 | 100-40 (411, pleine), 100-05 (418), 75-03d-courge-male-femelle.jpg (408), 75-02a-haricot-gousses-semence.jpg (409), 75-02c-concombre-trop-mur.jpg (409), 75-02d-laitue-fleur-aigrette.jpg (409), 75-03a-courge-fleur-femelle.jpg (418), 75-03b-courge-fleur-male.jpg (419), 75-03e-courge-pollinisation-main.jpg (419) | — | — | 6 (ancien 75) |
+| 101 | 101-01 (425, pleine), 101-40 (428, pleine), 101-07 (424) | — | — | 7 (ancien 78) |
 
 **Photos sous 150 PPI à la taille imprimée :** 04-cerisier-rameau.jpg : 147 PPI
 

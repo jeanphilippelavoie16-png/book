@@ -3,7 +3,7 @@
 **Ne s'imprime pas.** JP, 28 septembre 2026 : « enlève les pages crédit photo, garde les backup quelque part mais pas dans le livre ». Aucune page de crédits dans `livre/tome-5/interieur.pdf`, rien au sommaire.
 
 - **Tiré de :** `images/credits.md` et `images/photos/registre-*.md` (les registres restent la référence)
-- **Par :** `design/outils/assembler-tome.py 5`, le 2026-09-29 06:51, tome de 438 pages
+- **Par :** `design/outils/assembler-tome.py 5`, le 2026-10-14 20:14, tome de 438 pages
 - **Même contenu, lisible à l'écran :** `livre/credits/tome-5-credits.pdf`
 - **Page :** celle du tome où l'image s'imprime ; elle change à chaque assemblage.
 

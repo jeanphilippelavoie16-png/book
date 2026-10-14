@@ -1,7 +1,7 @@
 # Tome 3 · Prélever — rapport d'assemblage
 
-- **Produit le :** 2026-09-29 06:54, par `design/outils/assembler-tome.py 3`
-- **Fichier :** `livre/tome-3/interieur.pdf` — 334 pages, 218.4 Mo
+- **Produit le :** 2026-10-14 20:12, par `design/outils/assembler-tome.py 3 --hors-ligne`
+- **Fichier :** `livre/tome-3/interieur.pdf` — 332 pages, 217.9 Mo
 - **Ouvertures :** toujours au recto (page de droite), une page blanche devant au besoin
 - **Placements :** design/epreuves-livre/placements.json, design/epreuves-livre/placements-tome-3.json
 - **Exigences de Blurb :** `sources/blurb-specifications.md` (relevées le 27 septembre 2026)
@@ -18,26 +18,26 @@
 | 75–93 | ch. 44 — Pister et retracer une bête | 19 |
 | 95–114 | ch. 45 — Les armes, les munitions et l’arc | 20 |
 | 115–124 | ch. 46 — Comment lire une fiche d’espèce | 10 |
-| 125–145 | ch. 47 — Chasser le petit gibier | 21 |
-| 147–160 | ch. 48 — Lièvre d’Amérique | 14 |
-| 161–172 | ch. 49 — Gélinotte huppée et tétras du Canada | 12 |
-| 173–185 | ch. 50 — Castor | 13 |
-| 187–198 | ch. 51 — Porc-épic | 12 |
-| 199–209 | ch. 52 — Ours noir | 11 |
-| 211–221 | ch. 53 — Rat musqué, écureuil roux, marmotte | 11 |
-| 223–237 | ch. 54 — Outarde, canards, oiseaux d’eau | 15 |
-| 239–254 | ch. 55 — Martre, vison, renard, lynx, loup | 16 |
-| 255–269 | ch. 56 — Phoque du Saint-Laurent | 15 |
-| 271–282 | ch. 57 — Truite et omble au lac | 12 |
-| 283–300 | ch. 58 — Pêche blanche | 18 |
-| 301–318 | ch. 59 — Éperlan et poisson du fleuve | 18 |
-| 319–334 | ch. 60 — Nasses, filets, verveux | 16 |
-| | Pages blanches (verso de la page de titre, avant les ouvertures, fin du tome) | 11 |
-| | **Total** | **334** |
+| 125–144 | ch. 47 — Chasser le petit gibier | 20 |
+| 145–158 | ch. 48 — Lièvre d’Amérique | 14 |
+| 159–170 | ch. 49 — Gélinotte huppée et tétras du Canada | 12 |
+| 171–183 | ch. 50 — Castor | 13 |
+| 185–196 | ch. 51 — Porc-épic | 12 |
+| 197–207 | ch. 52 — Ours noir | 11 |
+| 209–219 | ch. 53 — Rat musqué, écureuil roux, marmotte | 11 |
+| 221–235 | ch. 54 — Outarde, canards, oiseaux d’eau | 15 |
+| 237–252 | ch. 55 — Martre, vison, renard, lynx, loup | 16 |
+| 253–267 | ch. 56 — Phoque du Saint-Laurent | 15 |
+| 269–280 | ch. 57 — Truite et omble au lac | 12 |
+| 281–298 | ch. 58 — Pêche blanche | 18 |
+| 299–316 | ch. 59 — Éperlan et poisson du fleuve | 18 |
+| 317–332 | ch. 60 — Nasses, filets, verveux | 16 |
+| | Pages blanches (verso de la page de titre, avant les ouvertures, fin du tome) | 10 |
+| | **Total** | **332** |
 
 Aucune page de crédits (JP, 28 septembre 2026) : copie hors du livre dans `livre/credits/tome-3-credits.md` et `livre/credits/tome-3-credits.pdf`.
 
-Les chapitres seuls font 321 pages ; 10 blanche(s) servent à faire ouvrir chaque chapitre à droite. Avec `--verso` (un chapitre peut ouvrir à gauche), le tome ferait 324 pages.
+Les chapitres seuls font 320 pages ; 9 blanche(s) servent à faire ouvrir chaque chapitre à droite. Avec `--verso` (un chapitre peut ouvrir à gauche), le tome ferait 324 pages.
 
 ## Contrôle Blurb
 
@@ -45,41 +45,20 @@ Les chapitres seuls font 321 pages ; 10 blanche(s) servent à faire ouvrir chaqu
 | --- | --- | --- | --- |
 | Taille de chaque page | 585 × 738 pt (8,125 × 10,25 po) | 585.0 × 738.0 pt | oui |
 | Rognage (TrimBox) | 8 × 10 po, fond perdu au bord extérieur | recto : reliure à gauche ; verso : à droite | oui |
-| Nombre de pages | pair, de 20 à 440 (papier Standard) | 334 | oui |
+| Nombre de pages | pair, de 20 à 440 (papier Standard) | 332 | oui |
 | Page 1 | à droite | page de titre | oui |
 | Polices incorporées | toutes | 56 police(s), 0 non incorporée(s) | oui |
-| Taille du fichier | 2 Go au plus | 218.4 Mo | oui |
+| Taille du fichier | 2 Go au plus | 217.9 Mo | oui |
 | Marques d'imprimeur | aucune | aucune | oui |
 | Couleur | CMJN ou sRVB, sans ton direct | sRVB (Edge) | oui |
 | Noir du texte | 100 % K | noir sRVB (0, 0, 0) : la conversion est faite chez Blurb | à juger sur épreuve |
 | PDF/X | plus exigé en 2026 (le guide de 2010 le demandait) | PDF 1.4 d'Edge, pas PDF/X | à surveiller au téléversement |
 
-Polices du fichier : Georgia, Georgia-Italic, IBMPlexSansCond-Bold, IBMPlexSansCond-Medium, IBMPlexSansCond-SemiBold, IBMPlexSansCond-SemiBoldItalic, IBMPlexSerif-Bold, IBMPlexSerif-Italic, IBMPlexSerif-Regular, IBMPlexSerif-SemiBold, IBMPlexSerif-SemiBoldItalic, NotoSansMath-Regular, NotoSansSymbols2-Regular, NotoSerif-Bold, Type 3 sans nom (texte des planches)
+Polices du fichier : IBMPlexSansCond-Bold, IBMPlexSansCond-Medium, IBMPlexSansCond-SemiBold, IBMPlexSansCond-SemiBoldItalic, IBMPlexSerif-Bold, IBMPlexSerif-Italic, IBMPlexSerif-Regular, IBMPlexSerif-SemiBold, IBMPlexSerif-SemiBoldItalic, LiberationSerif, LiberationSerif-Italic, NotoSansMath-Regular, NotoSansSymbols2-Regular, NotoSerif-Bold, Type 3 sans nom (texte des planches)
 
 ## Tranche et couverture
 
-Calculateur de Blurb interrogé le 2026-09-29 06:54 pour **334 pages**, papier Standard, couverture **souple** (`softcover`), en pouces :
-
-**Tranche : 0.75 x 10.25 po. PDF de couverture : 17.0 x 10.25 po.**
-
-| Pages (ce PDF) | Pouces |
-| --- | --- |
-| Final, exported PDF should measure (w x h) | 8.125 x 10.25 |
-| Page size / trim line (w x h) | 8.0 x 10.0 |
-| Bleed (top, bottom, and outside edges) | 0.125 |
-| Inset for Margins / Safe boundary (Top, Bottom, Outside Edge) | 0.25 |
-| Inset for Margins / Safe boundary (Binding Edge) | 0.5 |
-
-| Couverture | Pouces |
-| --- | --- |
-| Final, exported PDF should measure (w x h) | 17.0 x 10.25 |
-| Total Page size / trim line (w x h) | 16.75 x 10.0 |
-| Bleed (all edges) | 0.125 |
-| Flaps (w x h, measured from trim edge to fold) | none |
-| Gutter / Spine (w x h) | 0.75 x 10.25 |
-| Inset for Margins / Safe boundary (from edge of trim) | 0.25 |
-
-La tranche change par paliers avec le nombre de pages : la couverture se fait **après** le dernier assemblage, avec la mesure du jour.
+Calculateur non interrogé (--hors-ligne). Relevé du 27 septembre 2026 dans `sources/blurb-specifications.md` §2 ; pour 332 pages, prendre la ligne du tableau dont le palier couvre ce nombre, et revérifier au calculateur. [À VÉRIFIER]
 
 ## Figures
 
@@ -89,24 +68,24 @@ Les planches de `images/a-valider/` sont posées comme les validées (JP les rel
 | --- | --- | --- | --- | ---: |
 | 41 | — | — | — | 5 (ancien 34) |
 | 42 | 35-08b-barrage-castor.jpg (23), 35-08a-arbre-abattu-castor.jpg (23), 35-05-glace-noire-lac.jpg (24) | — | — | 7 (ancien 35) |
-| 43 | 43-01b (36, pleine, à valider), 43-01a (37, pleine, à valider), 43-01e (40, pleine, à valider), 43-01d (41, pleine, à valider), 43-02a (43, pleine, à valider), 43-01c (44, pleine, à valider), 43-03 (53, pleine, à valider), 43-02b (54, pleine, à valider), 35c-08-caribou-crateres.jpg (38), 35c-07-caribou-empreinte.jpg (38), 35c-05-orignal-crottes.jpg (38), 35c-02-orignal-piste.jpg (38), 35c-01-orignal-empreinte.jpg (38), 35c-12-ours-crottes.jpg (39), 35c-09-ours-empreinte-avant.jpg (39), 35c-10-ours-empreinte-arriere.jpg (42), 35c-23-lynx-piste.jpg (45), 35c-22-lynx-empreinte.jpg (45), 35c-21-renard-plongeon.jpg (45), 35c-20-renard-piste.jpg (45), 35c-19-renard-empreinte.jpg (46), 35c-18-coyote-crottes.jpg (46), 35c-17-coyote-empreinte.jpg (46), 35c-16-loup-crottes.jpg (46), 35c-15-loup-piste.jpg (47), 35c-14-loup-empreinte.jpg (47), 35c-30-hermine-piste.jpg (49), 43-loutre-latrine-ecailles.jpg (49), 35c-29-loutre-latrine.jpg (49), 35c-28-loutre-glissade.jpg (49), 35c-27-loutre-empreinte.jpg (49), 35c-26-vison-empreinte.jpg (50), 35c-25-martre-piste.jpg (50), 35c-24-martre-empreinte.jpg (50), 43-pekan-piste-neige.jpg (51), 35c-52-canard-empreinte.jpg (52), 35c-51-outarde-empreinte.jpg (52), 35c-50-lagopede-empreinte.jpg (52), 35c-49-tetras-crottes.jpg (55), 35c-48-tetras-empreinte.jpg (55), 35c-47-gelinotte-crottes.jpg (55), 35c-46-gelinotte-trou-neige.jpg (55), 35c-45-gelinotte-empreinte.jpg (56), 35c-44-ecureuil-amas.jpg (56), 35c-43-ecureuil-piste.jpg (56), 35c-42-lievre-crottes.jpg (56), 35c-40-lievre-empreinte.jpg (57), 35c-39-porc-epic-crottes.jpg (57), 35c-37-porc-epic-piste.jpg (57), 35c-35-rat-musque-hutte.jpg (57), 35c-36-porc-epic-empreinte.jpg (58), 35c-34-rat-musque-empreinte.jpg (58), 43-castor-reserve-branches.jpg (58), 35c-33-castor-hutte.jpg (59), 35c-31-castor-empreinte.jpg (59), 43-pic-macule-puits-seve.jpg (61), 43-grand-pic-trous-rectangulaires.jpg (61), 35c-41-lievre-brout.jpg (61), 35c-38-porc-epic-ecorcage.jpg (62), 35c-32-castor-souche.jpg (62), 43-ours-poils-colles.jpg (63), 43-ours-arbre-frotte.jpg (63), 35c-13-ours-ecorcage.jpg (64), 35c-11-ours-griffades.jpg (64), 35c-06-orignal-frottis.jpg (65), 35c-04-orignal-ecorcage.jpg (65), 35c-03-orignal-brout.jpg (66) | — | — | 0 (ancien 35c) |
-| 44 | 44-02 (90, pleine, à valider), 44-01 (91, pleine, à valider) | — | — | 0 (ancien 35d) |
-| 45 | 45-01a (108, pleine, à valider), 45-01b (109, pleine, à valider), 45-02 (112, pleine, à valider) | — | — | 0 (ancien 35b) |
+| 43 | 43-01b (36, pleine), 43-01a (37, pleine), 43-01e (40, pleine), 43-01d (41, pleine), 43-02a (43, pleine), 43-01c (44, pleine), 43-03 (53, pleine), 43-02b (54, pleine), 35c-08-caribou-crateres.jpg (38), 35c-07-caribou-empreinte.jpg (38), 35c-05-orignal-crottes.jpg (38), 35c-02-orignal-piste.jpg (38), 35c-01-orignal-empreinte.jpg (38), 35c-12-ours-crottes.jpg (39), 35c-09-ours-empreinte-avant.jpg (39), 35c-10-ours-empreinte-arriere.jpg (42), 35c-23-lynx-piste.jpg (45), 35c-22-lynx-empreinte.jpg (45), 35c-21-renard-plongeon.jpg (45), 35c-20-renard-piste.jpg (45), 35c-19-renard-empreinte.jpg (46), 35c-18-coyote-crottes.jpg (46), 35c-17-coyote-empreinte.jpg (46), 35c-16-loup-crottes.jpg (46), 35c-15-loup-piste.jpg (47), 35c-14-loup-empreinte.jpg (47), 35c-30-hermine-piste.jpg (49), 43-loutre-latrine-ecailles.jpg (49), 35c-29-loutre-latrine.jpg (49), 35c-28-loutre-glissade.jpg (49), 35c-27-loutre-empreinte.jpg (49), 35c-26-vison-empreinte.jpg (50), 35c-25-martre-piste.jpg (50), 35c-24-martre-empreinte.jpg (50), 43-pekan-piste-neige.jpg (51), 35c-52-canard-empreinte.jpg (52), 35c-51-outarde-empreinte.jpg (52), 35c-50-lagopede-empreinte.jpg (52), 35c-49-tetras-crottes.jpg (55), 35c-48-tetras-empreinte.jpg (55), 35c-47-gelinotte-crottes.jpg (55), 35c-46-gelinotte-trou-neige.jpg (55), 35c-45-gelinotte-empreinte.jpg (56), 35c-44-ecureuil-amas.jpg (56), 35c-43-ecureuil-piste.jpg (56), 35c-42-lievre-crottes.jpg (56), 35c-40-lievre-empreinte.jpg (57), 35c-39-porc-epic-crottes.jpg (57), 35c-37-porc-epic-piste.jpg (57), 35c-35-rat-musque-hutte.jpg (57), 35c-36-porc-epic-empreinte.jpg (58), 35c-34-rat-musque-empreinte.jpg (58), 43-castor-reserve-branches.jpg (58), 35c-33-castor-hutte.jpg (59), 35c-31-castor-empreinte.jpg (59), 43-pic-macule-puits-seve.jpg (61), 43-grand-pic-trous-rectangulaires.jpg (61), 35c-41-lievre-brout.jpg (61), 35c-38-porc-epic-ecorcage.jpg (62), 35c-32-castor-souche.jpg (62), 43-ours-poils-colles.jpg (63), 43-ours-arbre-frotte.jpg (63), 35c-13-ours-ecorcage.jpg (64), 35c-11-ours-griffades.jpg (64), 35c-06-orignal-frottis.jpg (65), 35c-04-orignal-ecorcage.jpg (65), 35c-03-orignal-brout.jpg (66) | — | — | 0 (ancien 35c) |
+| 44 | 44-02 (90, pleine), 44-01 (91, pleine) | — | — | 0 (ancien 35d) |
+| 45 | 45-01a (108, pleine), 45-01b (109, pleine), 45-02 (112, pleine) | — | — | 0 (ancien 35b) |
 | 46 | — | — | — | 9 (ancien 43) |
-| 47 | 47-05 (129, pleine, à valider), 47-02 (133, pleine, à valider), 47-03 (134, pleine, à valider), 47-01 (141, pleine, à valider), 47-04 (143, pleine, à valider) | — | — | 0 (ancien 43b) |
-| 48 | 48-08 (158, pleine), 48-09 (157), 48-broutage-lievre-coupe.jpg (149), 48-broutage-lievre-neige.jpg (149), 44-01-rat-musque-rate-tularemie.png (151) | — | — | 6 (ancien 44) |
-| 49 | 49-17 (171, pleine, à valider), 45-04c-gelinotte-huppee-usfws.jpg (162), 45-04b-tetras-canada-schmierer.jpg (163), 45-04a-gelinotte-tetras-fuertes-pl41.jpg (163), 45-09-jabot-poule-kaupp.jpg (164) | — | — | 11 (ancien 45) |
-| 50 | 50-40 (177, pleine, à valider), 50-10 (183, pleine, à valider), 50-castor-entier.jpg (173), 46-02b-castor-glandes-femelle-morgan.jpg (175), 46-02a-castor-glandes-male-morgan.jpg (176) | — | — | 8 (ancien 46) |
-| 51 | 51-40 (190, pleine, à valider), 51-piquant-pointe-barbelures.jpg (196) | — | — | 7 (ancien 47) |
+| 47 | 47-05 (129, pleine), 47-02 (133, pleine), 47-03 (134, pleine), 47-01 (141, pleine), 47-04 (143, pleine) | — | — | 0 (ancien 43b) |
+| 48 | 48-08 (155, pleine), 48-09 (156), 48-broutage-lievre-coupe.jpg (147), 48-broutage-lievre-neige.jpg (147), 44-01-rat-musque-rate-tularemie.png (149) | — | — | 6 (ancien 44) |
+| 49 | 49-17 (169, pleine), 45-04c-gelinotte-huppee-usfws.jpg (160), 45-04b-tetras-canada-schmierer.jpg (161), 45-04a-gelinotte-tetras-fuertes-pl41.jpg (161), 45-09-jabot-poule-kaupp.jpg (162) | — | — | 11 (ancien 45) |
+| 50 | 50-40 (175, pleine), 50-10 (181, pleine), 50-castor-entier.jpg (171), 46-02b-castor-glandes-femelle-morgan.jpg (173), 46-02a-castor-glandes-male-morgan.jpg (174) | — | — | 8 (ancien 46) |
+| 51 | 51-40 (188, pleine), 51-piquant-pointe-barbelures.jpg (194) | — | — | 7 (ancien 47) |
 | 52 | — | — | — | 7 (ancien 48) |
-| 53 | 49-01-rat-musque-glande-musc-zhang.jpg (213), 44-01-rat-musque-rate-tularemie.png (214) | — | — | 5 (ancien 49) |
-| 54 | 54-08 (235, pleine), 50-01h-grand-harle-fuertes-pl10.jpg (224), 50-01i-garrot-islande-hines.jpg (224), 50-01g-garrot-oeil-or-fuertes-pl18.jpg (225), 50-01f-macreuses-harelde-fuertes-pl20.jpg (225), 50-01e-eider-fuertes-pl19.jpg (225), 50-01d-sarcelle-fuertes-pl13.jpg (226), 50-01c-canard-noir-colvert-fuertes-pl12.jpg (226), 50-01b-oie-des-neiges-fuertes-pl21.jpg (226), 50-01a-outarde-fuertes-pl22.jpg (226) | — | — | 6 (ancien 50) |
-| 55 | 55-03 (244, pleine), 55-40 (246, pleine, à valider), 55-08 (251, pleine), 55-loup-profil.jpg (241), 55-lynx-profil.jpg (241), 55-renard-profil.jpg (241), 55-vison-profil.jpg (241), 55-martre-profil.jpg (241) | — | — | 7 (ancien 51) |
-| 56 | 56-09 (267, pleine), 56-02 (260), 52-01c-phoque-gris-tete-noaa.jpg (258), 52-01a-phoques-gris-commun-forillon.jpg (258) | — | — | 5 (ancien 52) |
-| 57 | 57-08 (279, pleine), 53-01c-truite-arc-en-ciel-knepp.jpg (273), 53-01d-omble-chevalier-copeland.jpg (273), 53-01b-touladi-knepp.jpg (274), 53-01a-omble-fontaine-knepp.jpg (274) | — | — | 6 (ancien 53) |
-| 58 | 58-10a (294, pleine, à valider), 58-10b (295, pleine, à valider), 58-09 (297, pleine), 58-07 (298) | — | — | 8 (ancien 54) |
-| 59 | 59-03 (306, pleine), 59-08 (315, pleine), 59-09 (316, pleine, à valider), 59-batture-maree-basse.jpg (303), 55-01c-poulamon.jpg (304), 55-01b-eperlan.jpg (304), 55-01a-capelan.jpg (304) | — | — | 7 (ancien 55) |
-| 60 | 60-01 (322, pleine), 60-40 (323, pleine, à valider), 60-08a (329, pleine), 60-08b (330, pleine), 60-10a (332, pleine, à valider), 60-10b (333, pleine, à valider) | — | — | 7 (ancien 56) |
+| 53 | 49-01-rat-musque-glande-musc-zhang.jpg (211), 44-01-rat-musque-rate-tularemie.png (212) | — | — | 5 (ancien 49) |
+| 54 | 54-08 (233, pleine), 50-01h-grand-harle-fuertes-pl10.jpg (222), 50-01i-garrot-islande-hines.jpg (222), 50-01g-garrot-oeil-or-fuertes-pl18.jpg (223), 50-01f-macreuses-harelde-fuertes-pl20.jpg (223), 50-01e-eider-fuertes-pl19.jpg (223), 50-01d-sarcelle-fuertes-pl13.jpg (224), 50-01c-canard-noir-colvert-fuertes-pl12.jpg (224), 50-01b-oie-des-neiges-fuertes-pl21.jpg (224), 50-01a-outarde-fuertes-pl22.jpg (224) | — | — | 6 (ancien 50) |
+| 55 | 55-03 (242, pleine), 55-40 (244, pleine), 55-08 (249, pleine), 55-loup-profil.jpg (239), 55-lynx-profil.jpg (239), 55-renard-profil.jpg (239), 55-vison-profil.jpg (239), 55-martre-profil.jpg (239) | — | — | 7 (ancien 51) |
+| 56 | 56-09 (265, pleine), 56-02 (258), 52-01c-phoque-gris-tete-noaa.jpg (256), 52-01a-phoques-gris-commun-forillon.jpg (256) | — | — | 5 (ancien 52) |
+| 57 | 57-08 (277, pleine), 53-01c-truite-arc-en-ciel-knepp.jpg (271), 53-01d-omble-chevalier-copeland.jpg (271), 53-01b-touladi-knepp.jpg (272), 53-01a-omble-fontaine-knepp.jpg (272) | — | — | 6 (ancien 53) |
+| 58 | 58-10a (292, pleine), 58-10b (293, pleine), 58-09 (295, pleine), 58-07 (296) | — | — | 8 (ancien 54) |
+| 59 | 59-03 (304, pleine), 59-08 (313, pleine), 59-09 (314, pleine), 59-batture-maree-basse.jpg (301), 55-01c-poulamon.jpg (302), 55-01b-eperlan.jpg (302), 55-01a-capelan.jpg (302) | — | — | 7 (ancien 55) |
+| 60 | 60-01 (320, pleine), 60-40 (321, pleine), 60-08a (327, pleine), 60-08b (328, pleine), 60-10a (330, pleine), 60-10b (331, pleine) | — | — | 7 (ancien 56) |
 
 **Photos sous 150 PPI à la taille imprimée :** 50-01i-garrot-islande-hines.jpg : 115 PPI
 
@@ -178,43 +157,43 @@ Rien ne s'imprime (JP, 28 septembre 2026). Copie de sauvegarde : `livre/credits/
 | 65 | 43 | 35c-06-orignal-frottis.jpg | Rob Routledge (rroutledge) | CC BY-NC [NC] |
 | 65 | 43 | 35c-04-orignal-ecorcage.jpg | Cephas | CC BY-SA 3.0 |
 | 66 | 43 | 35c-03-orignal-brout.jpg | jozien | CC BY-NC [NC] |
-| 149 | 48 | 48-broutage-lievre-coupe.jpg | (c) Ryan Sealy, some rights reserved (CC BY-NC) | CC BY-NC |
-| 149 | 48 | 48-broutage-lievre-neige.jpg | (c) birdguykai, some rights reserved (CC BY-NC) | CC BY-NC |
-| 151 | 48 | 44-01-rat-musque-rate-tularemie.png | CDC / Dr. J.M. Clinton | Domaine public (crédit CDC demandé) |
-| 162 | 49 | 45-04c-gelinotte-huppee-usfws.jpg | Courtney Celley, USFWS | Domaine public (œuvre fédérale) |
-| 163 | 49 | 45-04b-tetras-canada-schmierer.jpg | Alan Schmierer | CC0 |
-| 163 | 49 | 45-04a-gelinotte-tetras-fuertes-pl41.jpg | Louis Agassiz Fuertes, pour E. H. Eaton, 1910 (Commons : « Eaton, Elon Howard ») | Domaine public |
-| 164 | 49 | 45-09-jabot-poule-kaupp.jpg | B. F. Kaupp | Domaine public (Internet Archive : NOT_IN_COPYRIGHT ; Commons : Public domain) |
-| 173 | 50 | 50-castor-entier.jpg | Vlad Podvorny | CC BY 2.0 — Creative Commons Attribution 2.0 |
-| 175 | 50 | 46-02b-castor-glandes-femelle-morgan.jpg | Lewis H. Morgan ; dessin de W. W. Ely | Domaine public (Internet Archive : NOT_IN_COPYRIGHT ; Commons : Public domain) |
-| 176 | 50 | 46-02a-castor-glandes-male-morgan.jpg | Lewis H. Morgan ; dessin de W. W. Ely | Domaine public (Internet Archive : NOT_IN_COPYRIGHT ; Commons : Public domain) |
-| 196 | 51 | 51-piquant-pointe-barbelures.jpg | (c) Scott Wagner, some rights reserved (CC BY-NC) | CC BY-NC |
-| 213 | 53 | 49-01-rat-musque-glande-musc-zhang.jpg | Zhang F., Liu Q., Wang Z., Xie W., Sheng X., Zhang H., Yuan Z., Han Y., Weng Q. | CC BY 4.0 (figure de revue) |
-| 214 | 53 | 44-01-rat-musque-rate-tularemie.png | CDC / Dr. J.M. Clinton | Domaine public (crédit CDC demandé) |
-| 224 | 54 | 50-01h-grand-harle-fuertes-pl10.jpg | Fuertes, pour Eaton, 1910 | Domaine public |
-| 224 | 54 | 50-01i-garrot-islande-hines.jpg | Bob Hines, USFWS, 1978 | Domaine public (Gutenberg : « Public domain in the USA ») |
-| 225 | 54 | 50-01g-garrot-oeil-or-fuertes-pl18.jpg | Fuertes, pour Eaton, 1910 | Domaine public |
-| 225 | 54 | 50-01f-macreuses-harelde-fuertes-pl20.jpg | Fuertes, pour Eaton, 1910 | Domaine public |
-| 225 | 54 | 50-01e-eider-fuertes-pl19.jpg | Fuertes, pour Eaton, 1910 | Domaine public |
-| 226 | 54 | 50-01d-sarcelle-fuertes-pl13.jpg | Fuertes, pour Eaton, 1910 | Domaine public |
-| 226 | 54 | 50-01c-canard-noir-colvert-fuertes-pl12.jpg | Fuertes, pour Eaton, 1910 | Domaine public |
-| 226 | 54 | 50-01b-oie-des-neiges-fuertes-pl21.jpg | Fuertes, pour Eaton, 1910 | Domaine public |
-| 226 | 54 | 50-01a-outarde-fuertes-pl22.jpg | Fuertes, pour Eaton, 1910 | Domaine public |
-| 241 | 55 | 55-loup-profil.jpg | Mariofan13 | CC BY-SA 3.0 — Creative Commons Attribution-Share Alike 3.0 |
-| 241 | 55 | 55-lynx-profil.jpg | Keith Williams | CC BY 2.0 — Creative Commons Attribution 2.0 |
-| 241 | 55 | 55-renard-profil.jpg | JannettevanderBoon | CC BY-SA 4.0 — Creative Commons Attribution-Share Alike 4.0 |
-| 241 | 55 | 55-vison-profil.jpg | Brendan Lally | CC BY 2.0 — Creative Commons Attribution 2.0 |
-| 241 | 55 | 55-martre-profil.jpg | USFWS Midwest Region | Public domain |
-| 258 | 56 | 52-01c-phoque-gris-tete-noaa.jpg | Anne Smrcina, NOAA | Domaine public (œuvre fédérale) |
-| 258 | 56 | 52-01a-phoques-gris-commun-forillon.jpg | Nanosanchez | CC BY-SA 4.0 |
-| 273 | 57 | 53-01c-truite-arc-en-ciel-knepp.jpg | Timothy Knepp, USFWS | Domaine public (œuvre fédérale) |
-| 273 | 57 | 53-01d-omble-chevalier-copeland.jpg | Alison Copeland | CC BY 4.0 |
-| 274 | 57 | 53-01b-touladi-knepp.jpg | Timothy Knepp, USFWS | Domaine public (œuvre fédérale) |
-| 274 | 57 | 53-01a-omble-fontaine-knepp.jpg | Timothy Knepp, USFWS | Domaine public (œuvre fédérale) |
-| 303 | 59 | 59-batture-maree-basse.jpg | LeonardoDog | CC BY-SA 4.0 — Creative Commons Attribution-Share Alike 4.0 |
-| 304 | 59 | 55-01c-poulamon.jpg | H. L. Todd | Public domain |
-| 304 | 59 | 55-01b-eperlan.jpg | H. L. Todd | Public domain |
-| 304 | 59 | 55-01a-capelan.jpg | H. L. Todd | Public domain |
+| 147 | 48 | 48-broutage-lievre-coupe.jpg | (c) Ryan Sealy, some rights reserved (CC BY-NC) | CC BY-NC |
+| 147 | 48 | 48-broutage-lievre-neige.jpg | (c) birdguykai, some rights reserved (CC BY-NC) | CC BY-NC |
+| 149 | 48 | 44-01-rat-musque-rate-tularemie.png | CDC / Dr. J.M. Clinton | Domaine public (crédit CDC demandé) |
+| 160 | 49 | 45-04c-gelinotte-huppee-usfws.jpg | Courtney Celley, USFWS | Domaine public (œuvre fédérale) |
+| 161 | 49 | 45-04b-tetras-canada-schmierer.jpg | Alan Schmierer | CC0 |
+| 161 | 49 | 45-04a-gelinotte-tetras-fuertes-pl41.jpg | Louis Agassiz Fuertes, pour E. H. Eaton, 1910 (Commons : « Eaton, Elon Howard ») | Domaine public |
+| 162 | 49 | 45-09-jabot-poule-kaupp.jpg | B. F. Kaupp | Domaine public (Internet Archive : NOT_IN_COPYRIGHT ; Commons : Public domain) |
+| 171 | 50 | 50-castor-entier.jpg | Vlad Podvorny | CC BY 2.0 — Creative Commons Attribution 2.0 |
+| 173 | 50 | 46-02b-castor-glandes-femelle-morgan.jpg | Lewis H. Morgan ; dessin de W. W. Ely | Domaine public (Internet Archive : NOT_IN_COPYRIGHT ; Commons : Public domain) |
+| 174 | 50 | 46-02a-castor-glandes-male-morgan.jpg | Lewis H. Morgan ; dessin de W. W. Ely | Domaine public (Internet Archive : NOT_IN_COPYRIGHT ; Commons : Public domain) |
+| 194 | 51 | 51-piquant-pointe-barbelures.jpg | (c) Scott Wagner, some rights reserved (CC BY-NC) | CC BY-NC |
+| 211 | 53 | 49-01-rat-musque-glande-musc-zhang.jpg | Zhang F., Liu Q., Wang Z., Xie W., Sheng X., Zhang H., Yuan Z., Han Y., Weng Q. | CC BY 4.0 (figure de revue) |
+| 212 | 53 | 44-01-rat-musque-rate-tularemie.png | CDC / Dr. J.M. Clinton | Domaine public (crédit CDC demandé) |
+| 222 | 54 | 50-01h-grand-harle-fuertes-pl10.jpg | Fuertes, pour Eaton, 1910 | Domaine public |
+| 222 | 54 | 50-01i-garrot-islande-hines.jpg | Bob Hines, USFWS, 1978 | Domaine public (Gutenberg : « Public domain in the USA ») |
+| 223 | 54 | 50-01g-garrot-oeil-or-fuertes-pl18.jpg | Fuertes, pour Eaton, 1910 | Domaine public |
+| 223 | 54 | 50-01f-macreuses-harelde-fuertes-pl20.jpg | Fuertes, pour Eaton, 1910 | Domaine public |
+| 223 | 54 | 50-01e-eider-fuertes-pl19.jpg | Fuertes, pour Eaton, 1910 | Domaine public |
+| 224 | 54 | 50-01d-sarcelle-fuertes-pl13.jpg | Fuertes, pour Eaton, 1910 | Domaine public |
+| 224 | 54 | 50-01c-canard-noir-colvert-fuertes-pl12.jpg | Fuertes, pour Eaton, 1910 | Domaine public |
+| 224 | 54 | 50-01b-oie-des-neiges-fuertes-pl21.jpg | Fuertes, pour Eaton, 1910 | Domaine public |
+| 224 | 54 | 50-01a-outarde-fuertes-pl22.jpg | Fuertes, pour Eaton, 1910 | Domaine public |
+| 239 | 55 | 55-loup-profil.jpg | Mariofan13 | CC BY-SA 3.0 — Creative Commons Attribution-Share Alike 3.0 |
+| 239 | 55 | 55-lynx-profil.jpg | Keith Williams | CC BY 2.0 — Creative Commons Attribution 2.0 |
+| 239 | 55 | 55-renard-profil.jpg | JannettevanderBoon | CC BY-SA 4.0 — Creative Commons Attribution-Share Alike 4.0 |
+| 239 | 55 | 55-vison-profil.jpg | Brendan Lally | CC BY 2.0 — Creative Commons Attribution 2.0 |
+| 239 | 55 | 55-martre-profil.jpg | USFWS Midwest Region | Public domain |
+| 256 | 56 | 52-01c-phoque-gris-tete-noaa.jpg | Anne Smrcina, NOAA | Domaine public (œuvre fédérale) |
+| 256 | 56 | 52-01a-phoques-gris-commun-forillon.jpg | Nanosanchez | CC BY-SA 4.0 |
+| 271 | 57 | 53-01c-truite-arc-en-ciel-knepp.jpg | Timothy Knepp, USFWS | Domaine public (œuvre fédérale) |
+| 271 | 57 | 53-01d-omble-chevalier-copeland.jpg | Alison Copeland | CC BY 4.0 |
+| 272 | 57 | 53-01b-touladi-knepp.jpg | Timothy Knepp, USFWS | Domaine public (œuvre fédérale) |
+| 272 | 57 | 53-01a-omble-fontaine-knepp.jpg | Timothy Knepp, USFWS | Domaine public (œuvre fédérale) |
+| 301 | 59 | 59-batture-maree-basse.jpg | LeonardoDog | CC BY-SA 4.0 — Creative Commons Attribution-Share Alike 4.0 |
+| 302 | 59 | 55-01c-poulamon.jpg | H. L. Todd | Public domain |
+| 302 | 59 | 55-01b-eperlan.jpg | H. L. Todd | Public domain |
+| 302 | 59 | 55-01a-capelan.jpg | H. L. Todd | Public domain |
 
 Photos téléchargées pour ces chapitres et non posées (images de référence ou photos à placer) :
 
@@ -228,7 +207,6 @@ Photos téléchargées pour ces chapitres et non posées (images de référence 
 
 ## Avertissements
 
-- ch. 44, paginateur : p44-11 : page à moitié vide
 - ch. 48, paginateur : p48-8 : page à moitié vide
 - ch. 55, paginateur : p55-10 : page à moitié vide
 - ch. 58, paginateur : p58-8 : page à moitié vide

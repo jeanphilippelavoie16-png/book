@@ -8,16 +8,27 @@ retenues (mousse, rouille) sont dans archives/ (couvertures-nordique-6-variantes
   couvertures-nordique-6.html     six avants et six couvertures complètes (quatrième | tranche | avant)
   trait-NN-NN-<couleur>.svg       le dessin de chaque quatrième, tiré d'une planche validée, sans renvois, recoloré
 
-  python build_couvertures_6.py              le HTML et les dessins
+  python build_couvertures_6.py              le HTML et les dessins (python3 hors de Windows)
   python build_couvertures_6.py --decouper   après l'impression par Edge de couvertures-nordique-6.pdf : un PDF
                                              par tome, aux mesures exactes de Blurb -> livre/tome-N/couverture.pdf
+  python build_couvertures_6.py --sortie DIR le HTML et les dessins dans DIR, pour un aperçu : rien n'est écrit dans
+                                             design/ ni dans livre/
 
 Tout le rendu (HTML, PDF, découpe, aperçus) : outils/rendre_couvertures_6.sh
 """
 import re, os, sys, math
 
-D1 = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-ROOT = os.path.abspath(os.path.join(D1, '..', '..', '..'))
+def _racine_livre():
+    # Windows (le PC de JP) : le dossier d'origine ; ailleurs (session dans le nuage) : le dépôt qui contient ce fichier
+    if os.name == 'nt':
+        return r'C:\Users\jeanp\New folder'
+    d = os.path.dirname(os.path.abspath(__file__))
+    while d != os.path.dirname(d) and not os.path.exists(os.path.join(d, 'CLAUDE.md')):
+        d = os.path.dirname(d)
+    return d
+
+ROOT = _racine_livre()
+D1 = os.path.join(ROOT, 'design', 'directions', '1-manuel-de-terrain')
 IMG = os.path.join(ROOT, 'images')
 
 # ------------------------------------------------------------------ tomes
@@ -158,17 +169,20 @@ def verifier():
 
 # ------------------------------------------------------------------ dessins des quatrièmes
 # Une vue d'une planche VALIDÉE (images/validees/), sans ses renvois ni sa légende : le groupe data-vue de la planche
-# (les renvois sont hors des groupes), ses motifs de hachure, recolorés à l'encre et au fond du tome.
-# vb : boîte de la vue en unités de la planche (getBBox dans Edge, plus 2,5 de marge pour le trait).
+# (les renvois sont hors des groupes), ses motifs de hachure, recolorés à l'encre et au fond du tome. Une planche sans
+# groupe data-vue (107-09) donne sa vue par deux repères du fichier : « entre » (début compris, fin exclue).
+# vb : boîte de la vue en unités de la planche, mesurée le 14 octobre 2026 sur les planches de la charte du
+# 12 octobre (getBBox dans Chromium, plus 2,5 de marge pour le trait ; contrôlée au pixel près sur le rendu, flèches
+# et bouts de trait compris).
 # Échelle : celle du tome 4 d'avant (612 unités sur 7 po), réduite si la vue dépasse 7 × 2,66 po.
 ECH = 7.0 / 612
 LMAX, HMAX = 7.0, 2.66
 TRAIT = {
-    1: dict(planche='planche-13-01-arc-feu.svg', vue='monte', vb=(53.5, 49.5, 573, 354), fic='trait-13-01',
+    1: dict(planche='planche-13-01-arc-feu.svg', vue='monte', vb=(53.5, 38.5, 573, 365), fic='trait-13-01',
             cap='Ch. 13 · L’arc à feu'),
     # le repère de coupe A–A (trait mixte, flèches, deux « A » en Georgia), ajouté à la planche le 28 septembre après
     # les couvertures, sort (29 septembre) : il renvoie à la vue « Coupe A–A », absente de la couverture
-    2: dict(planche='planche-26-08-attelle-ecorce-moulee-echarpe.svg', vue='mouler', vb=(300.2, 45.5, 302, 270.5),
+    2: dict(planche='planche-26-08-attelle-ecorce-moulee-echarpe.svg', vue='mouler', vb=(294.7, 45.5, 328.5, 270.5),
             fic='trait-26-08', cap='Ch. 26 · L’attelle d’écorce moulée',
             sans=[r'x1="114" y1="186" x2="114" y2="272"', r'x1="114" y1="186" x2="114" y2="193"',
                   r'x1="114" y1="186" x2="110" y2="186"', r'd="M110\.5,183 L104,186 L110\.5,189 Z"',
@@ -184,9 +198,11 @@ TRAIT = {
                   r'x1="447" y1="106" x2="447" y2="118"', r'>2 ou 3 pas<', r'x1="140" y1="118" x2="140" y2="136.5"']),
     5: dict(planche='planche-95-09-chassis-froid.svg', vue='monte', vb=(165.3, 65.6, 352.1, 182.9), fic='trait-95-09',
             cap='Ch. 95 · Le châssis froid'),
-    # le trait du tome 4 d'avant (planche 84-09, devenue 107-09), déjà nettoyé de ses renvois, à l'encre du fleuve
-    6: dict(source='trait-84-09-clair.svg', encre_source='#EDF2F5', taille=(612, 208), fic='trait-107-09',
-            cap='Ch. 107 · Souder avec deux batteries'),
+    # la vue de côté de la planche 107-09 (12 octobre 2026), sans les deux loupes, les lignes de rappel ni les renvois ;
+    # elle remplace le trait de l'ancienne planche 84-09 (trait-84-09-clair.svg, gardé pour mémoire)
+    6: dict(planche='planche-107-09-soudage-batteries.svg', vue='de côté',
+            entre=('<!-- contours extérieurs -->', '<!-- loupe du serre-joint'), vb=(37.5, 39.9, 605, 190.6),
+            fic='trait-107-09', cap='Ch. 107 · Souder avec deux batteries'),
 }
 
 def _sans_commentaires(s):
@@ -194,8 +210,10 @@ def _sans_commentaires(s):
 
 def _groupe(s, vue):
     """Le <g data-vue="vue"> complet, groupes imbriqués compris."""
-    i = s.index('data-vue="%s"' % vue)
-    a = s.rindex('<g', 0, i)
+    m = re.search(r'<g\b[^>]*\bdata-vue="%s"' % re.escape(vue), s)
+    if not m:
+        raise ValueError('pas de groupe <g data-vue="%s"> dans la planche' % vue)
+    a = m.start()
     d = 0
     for m in re.finditer(r'<(/?)g\b[^>]*?(/?)>', s[a:]):
         if m.group(1):
@@ -206,38 +224,68 @@ def _groupe(s, vue):
             return s[a:a + m.end()]
     raise ValueError('groupe %s non fermé' % vue)
 
-def _recolorer(s, fond, encre):
-    s = re.sub(r'#1A1A1A\b|#000000\b|#000\b', encre, s, flags=re.I)
-    s = re.sub(r'#FFFFFF\b|#FFF\b', fond, s, flags=re.I)
-    reste = set(c.upper() for c in re.findall(r'#[0-9A-Fa-f]{6}\b|#[0-9A-Fa-f]{3}\b', s)) - {fond.upper(), encre.upper()}
-    if reste:
-        raise ValueError('couleurs non prévues dans le dessin : %s' % sorted(reste))
+def _entre(s, debut, fin):
+    """Le morceau de la planche entre deux repères (une planche sans groupes data-vue)."""
+    if s.count(debut) != 1 or s.count(fin) != 1:
+        raise ValueError('repères « %s » / « %s » trouvés %d et %d fois' % (debut, fin, s.count(debut), s.count(fin)))
+    a, b = s.index(debut), s.index(fin)
+    if b <= a:
+        raise ValueError('repère de fin avant le repère de début')
+    return '<g>\n%s\n</g>' % s[a:b].strip()
+
+# La charte des planches (12 octobre 2026) sur le fond du tome. Le noir est l'encre, le blanc est le fond ; les deux
+# gris sont l'encre posée sur le fond à 12 % (#E6E6E6, ce qui est derrière) et à 25 % (#CFCFCF, la face à l'ombre) ;
+# le rouge #9B2C1E prend l'encre : sur une couverture, il ne désigne rien. Toute autre couleur arrête l'outil.
+GRIS = (0.12, 0.25)
+
+def _melange(fond, encre, t):
+    f, e = ([int(c[i:i + 2], 16) for i in (1, 3, 5)] for c in (fond, encre))
+    return '#%02X%02X%02X' % tuple(round(a + (b - a) * t) for a, b in zip(f, e))
+
+def palette(fond, encre, gris=GRIS):
+    return {'#1A1A1A': encre, '#000000': encre, '#000': encre, '#9B2C1E': encre,
+            '#FFFFFF': fond, '#FFF': fond,
+            '#E6E6E6': _melange(fond, encre, gris[0]), '#CFCFCF': _melange(fond, encre, gris[1])}
+
+def _recolorer(s, fond, encre, gris=GRIS):
+    table, inconnues = palette(fond, encre, gris), set()
+    def couleur(m):
+        c = m.group(0).upper()
+        if c not in table:
+            inconnues.add(c)
+            return m.group(0)
+        return table[c]
+    # les couleurs seulement : pas les renvois url(#…) ni href="#…"
+    s = re.sub(r'(?<!url\()(?<!href=")#(?:[0-9A-Fa-f]{6}|[0-9A-Fa-f]{3})\b', couleur, s)
+    if inconnues:
+        raise ValueError('couleurs non prévues dans le dessin : %s' % sorted(inconnues))
     return s
 
-def traits():
+def trait_svg(k, vb=None):
+    """Le SVG du dessin de la quatrième du tome k, recoloré (vb : une autre boîte, pour la mesure)."""
+    t = TRAIT[k]
+    fond, encre = COUL[k][:2]
+    s = open(os.path.join(IMG, t['planche']), encoding='utf-8').read()
+    titre = re.search(r'<title>(.*?)</title>', s).group(1)
+    defs = re.search(r'<defs>.*?</defs>', s, re.S)
+    corps = _sans_commentaires(_entre(s, *t['entre']) if 'entre' in t else _groupe(s, t['vue']))
+    for motif in t.get('sans', []):
+        corps, n = re.subn(r'^.*%s.*\n?' % motif, '', corps, flags=re.M)
+        if n != 1:
+            raise ValueError('%s : « %s » trouvé %d fois' % (t['planche'], motif, n))
+    out = ('<svg xmlns="http://www.w3.org/2000/svg" viewBox="%g %g %g %g" role="img">\n'
+           '<title>Trait tiré de la %s — vue « %s », sans renvois</title>\n%s\n%s\n</svg>\n') % (
+        tuple(vb or t['vb']) + (esc(titre[0].lower() + titre[1:]), t['vue'],
+                                _sans_commentaires(defs.group(0)) if defs else '', corps))
+    return _recolorer(out, fond, encre, t.get('gris', GRIS))
+
+def traits(dest=None):
+    dest = dest or D1
     tailles = {}
     for k, t in TRAIT.items():
-        fond, encre, nom, slug = COUL[k]
-        sortie = os.path.join(D1, '%s-%s.svg' % (t['fic'], slug))
-        if 'source' in t:
-            s = open(os.path.join(D1, t['source']), encoding='utf-8').read()
-            s = s.replace('Trait tiré de la planche 84-09', 'Trait tiré de la planche 107-09')
-            open(sortie, 'w', encoding='utf-8').write(s.replace(t['encre_source'], encre))
-            w, h = t['taille']
-        else:
-            s = open(os.path.join(IMG, t['planche']), encoding='utf-8').read()
-            titre = re.search(r'<title>(.*?)</title>', s).group(1)
-            defs = re.search(r'<defs>.*?</defs>', s, re.S)
-            corps = _sans_commentaires(_groupe(s, t['vue']))
-            for motif in t.get('sans', []):
-                corps, n = re.subn(r'^.*%s.*\n?' % motif, '', corps, flags=re.M)
-                if n != 1:
-                    raise ValueError('%s : « %s » trouvé %d fois' % (t['planche'], motif, n))
-            out = ('<svg xmlns="http://www.w3.org/2000/svg" viewBox="%g %g %g %g" role="img">\n'
-                   '<title>Trait tiré de la %s — vue « %s », sans renvois</title>\n%s\n%s\n</svg>\n') % (
-                t['vb'] + (esc(titre[0].lower() + titre[1:]), t['vue'], _sans_commentaires(defs.group(0)) if defs else '', corps))
-            open(sortie, 'w', encoding='utf-8').write(_recolorer(out, fond, encre))
-            w, h = t['vb'][2], t['vb'][3]
+        slug = COUL[k][3]
+        open(os.path.join(dest, '%s-%s.svg' % (t['fic'], slug)), 'w', encoding='utf-8').write(trait_svg(k))
+        w, h = t['vb'][2], t['vb'][3]
         e = min(ECH, LMAX / w, HMAX / h)
         tailles[k] = (w * e, h * e)
     return tailles
@@ -448,15 +496,20 @@ def page_edge(pouces):
     couverture ne perd rien (la bande en trop est à droite, hors du fond perdu), et --decouper la retire."""
     return math.ceil(pouces * 72 + 0.75 + 0.5)       # le fond déborde d'un pixel (0,75 pt), voir .sheet.full
 
-def main():
+def main(dest=None):
+    """Le HTML et les dessins dans D1 ; avec dest (--sortie), dans dest, pour un aperçu : les écarts avec les
+    rapports d'assemblage y sont signalés sans arrêter (le fichier pour Blurb, lui, s'arrête)."""
     notes, erreurs = verifier()
     for n in notes:
         print('  note :', n)
     if erreurs:
         for e in erreurs:
-            print('  ERREUR :', e)
-        sys.exit(1)
-    tailles = traits()
+            print('  ERREUR :' if not dest else '  ATTENTION (aperçu seulement) :', e)
+        if not dest:
+            sys.exit(1)
+    dest = dest or D1
+    os.makedirs(dest, exist_ok=True)
+    tailles = traits(dest)
     couleurs = '\n'.join('.t%d{--c:%s;--ink:%s;--fil:%s} /* %s */' % (
         k, f, i, 'rgba(%d,%d,%d,.45)' % tuple(int(i[j:j + 2], 16) for j in (1, 3, 5)), n) for k, (f, i, n, s) in COUL.items())
     pages_full = '\n'.join('@page full%d { size: %dpt 738pt; margin: 0; }  /* tome %d : %d p. -> tranche %s po (%s) ; PDF %.3f po */' % (
@@ -476,8 +529,8 @@ def main():
             '<!-- Généré par outils/build_couvertures_6.py : ne pas modifier à la main. -->\n'
             '<style>' + css + '\n</style>\n</head>\n<body>\n\n'
             + ''.join(corps) + SCRIPT.replace('%NOMS%', noms).replace('%HEX%', hexes).replace('%INFO%', info) + '</body>\n</html>\n')
-    open(os.path.join(D1, 'couvertures-nordique-6.html'), 'w', encoding='utf-8').write(html)
-    print('couvertures-nordique-6.html', len(html), 'octets')
+    open(os.path.join(dest, 'couvertures-nordique-6.html'), 'w', encoding='utf-8').write(html)
+    print(os.path.join(dest, 'couvertures-nordique-6.html'), len(html), 'octets')
     for k in sorted(SPINE):
         print('tome %d : %d p. -> tranche %s po (%s), PDF %.3f x 10.25 po ; dessin %.2f x %.2f po' % (
             k, PAGES[k], SPINE[k], PROV[k], 16.25 + SPINE[k], tailles[k][0], tailles[k][1]))
@@ -562,5 +615,7 @@ def decouper():
 if __name__ == '__main__':
     if '--decouper' in sys.argv:
         decouper()
+    elif '--sortie' in sys.argv:
+        main(os.path.abspath(sys.argv[sys.argv.index('--sortie') + 1]))
     else:
         main()
