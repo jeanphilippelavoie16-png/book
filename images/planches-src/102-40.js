@@ -77,7 +77,8 @@ module.exports = (h) => {
   const peau = at => W(at);             // la peau : blanche, contour franc
   // ─── les corps simples ─────────────────────────────────────────────────────────────────
   // Les bras d'un corps simple, calculés pour que chaque poing tombe sur sa cible (unités de vue),
-  // l'axe de la prise donné en degrés écran. Le corps regarde vers +x ; pour un corps tourné vers la
+  // l'axe de la prise donné en degrés écran (null : la prise vue par le bout, le poignet droit).
+  // Le corps regarde vers +x ; pour un corps tourné vers la
   // gauche, poserBras le calcule en miroir autour de o.x et rend les mêmes angles.
   const RAD = Math.PI / 180;
   const poserBras = (o, cibles, axes, coudes = {}) => {
@@ -88,13 +89,12 @@ module.exports = (h) => {
     for (const k of ['P', 'L']) {
       let C = cibles[k]; if (!C) continue;
       let ax = axes[k];
-      if (g) { C = [2 * X0 - C[0], C[1]]; ax = 180 - ax; }
+      if (g) { C = [2 * X0 - C[0], C[1]]; if (ax != null) ax = 180 - ax; }
       const S = c.articulations['epaule' + k], E_ = c.articulations['coude' + k], Wr = c.articulations['poignet' + k], Mn = c['main' + k];
       const lb = Math.hypot(E_[0] - S[0], E_[1] - S[1]), la = Math.hypot(Wr[0] - E_[0], Wr[1] - E_[1]);
       const hv = [Mn.x - Wr[0], Mn.y - Wr[1]], lm = Math.hypot(...hv);
       const off = angDe(hv) - angDe([Math.cos(Mn.axe * RAD), Math.sin(Mn.axe * RAD)]);
-      let best = null;
-      for (const main of [180 - ax, -ax, 360 - ax]) {
+      const resoudre = main => {
         const h2 = dirDe(main + off).map(v => v * lm), W_ = [C[0] - h2[0], C[1] - h2[1]];
         const d = [W_[0] - S[0], W_[1] - S[1]], D = Math.min(Math.hypot(...d), lb + la - 0.01);
         const a0 = angDe(d), B = Math.acos(Math.max(-1, Math.min(1, (lb * lb + D * D - la * la) / (2 * lb * D)))) / RAD;
@@ -102,8 +102,14 @@ module.exports = (h) => {
         const e = [S[0] + lb * Math.sin(bras * RAD), S[1] + lb * Math.cos(bras * RAD)];
         const ab = angDe([W_[0] - e[0], W_[1] - e[1]]);
         const pli = Math.abs(((main - ab) % 360 + 540) % 360 - 180);
-        if (!best || pli < best.pli) best = { pli, bras, ab, main };
-      }
+        return { pli, bras, ab, main };
+      };
+      let best = null;
+      if (ax == null) {                 // la prise vue par le bout : le poignet droit, la main dans l'axe de l'avant-bras
+        let main = angDe([Math.cos(Mn.axe * RAD), Math.sin(Mn.axe * RAD)]);
+        for (let i = 0; i < 5; i++) { best = resoudre(main); main = best.ab; }
+        best = resoudre(main);
+      } else for (const main of [180 - ax, -ax, 360 - ax]) { const r = resoudre(main); if (!best || r.pli < best.pli) best = r; }
       ang['bras' + k] = best.bras; ang['avantbras' + k] = best.ab; ang['main' + k] = best.main;
     }
     return ang;

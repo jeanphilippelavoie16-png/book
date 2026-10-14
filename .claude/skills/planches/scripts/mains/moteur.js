@@ -100,9 +100,11 @@
 //   ecart : l'abduction au MCP, positive en s'éloignant du majeur (le majeur : positive vers le pouce) ; 0 : les
 //     doigts serrés, qui se touchent sur toute leur longueur.
 //   mcp, ipp, ipd : la flexion, positive vers la paume (négative : en extension).
-//   pouce : opposition (0 : le pouce dans le plan de la paume, à côté de l'index ; 90 : devant la paume, la
-//     pulpe tournée vers les doigts) ; cmc (la flexion du métacarpien vers la paume et l'auriculaire) ; mcp, ip
-//     (flexion) ; rotation (la pronation propre du pouce, défaut 0,6 × opposition).
+//   pouce : le métacarpien part du cmc à 28° de l'axe (côté radial), plongé de 14° vers la paume, au repos.
+//     opposition : il monte vers la paume de 0,75 × opposition degrés (90 : à 81°, devant la paume) ;
+//     cmc : il se rapproche de l'index de cmc degrés dans le plan de la paume (négatif : il s'écarte) ;
+//     rotation : la pronation propre du pouce autour de son axe (défaut 0,3 × opposition ; l'ongle au repos
+//     regarde côté radial et dorsal) ; mcp, ip : la flexion, vers la pulpe.
 //   poignet : flexion (positive : la main vers la paume) ; deviation (positive : vers le pouce).
 //   objet : type 'cylindre' (manche, bouteille, corde : diametre), 'fil' (cylindre fin : aiguille, ficelle),
 //     'sphere' (diametre), 'plan' (une surface : centre = un point du plan, axe = sa normale vers la main).
@@ -1029,7 +1031,7 @@ function relations(pieces, vue) {
     let s = 0;
     for (const p of ech) s += profondeur(A, p).devant - profondeur(B, p).devant;
     s /= ech.length;
-    rel.push({ A: i, B: j, fondu: fondu(A, B), avant: s, I });
+    rel.push({ A: i, B: j, fondu: fondu(A, B), joint: A.groupe === B.groupe && A.groupe !== 'base' && Math.abs(A.rang - B.rang) === 1, avant: s, I });
   }
   return rel;
 }
@@ -1144,6 +1146,7 @@ function dessiner(o) {
         }
         continue;
       }
+      if (R.joint) continue;                       // deux phalanges voisines : l'articulation est lisse, sans trait
       const cand = bordsDans(A.region, B.retrait);
       if (!cand.length) continue;
       // fondues : seulement là où A passe nettement devant B
@@ -1166,7 +1169,7 @@ function dessiner(o) {
     if (caches.length) ls = lignesHors(ls, unionCL([caches]));
     // fondues devant : point par point
     const fondDev = [];
-    for (let j = 0; j < n; j++) { const R = relDe.get(i + ',' + j); if (R && R.fondu && i !== j) fondDev.push(j); }
+    for (let j = 0; j < n; j++) { const R = relDe.get(i + ',' + j); if (R && R.fondu && !R.joint && i !== j) fondDev.push(j); }
     if (fondDev.length) {
       const out = [];
       for (const l of densifier(ls, 1.2)) {

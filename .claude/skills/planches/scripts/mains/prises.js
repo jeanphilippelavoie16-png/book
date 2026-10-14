@@ -131,21 +131,33 @@ function chaineDoigt(S, d, q) {
   }
   return { P, cadres };
 }
-// le pouce : par le moteur (mémoïsé au dixième de degré)
+// le pouce : le métacarpien par le moteur (sa cinématique est la sienne : opposition, cmc, rotation), mémoïsé ;
+// les deux phalanges par la même formule que les doigts (contrôlée contre le moteur, voir verifier)
 function chainePouce(S, q) {
   const Q = Object.assign({ opposition: 0, cmc: 0, mcp: 0, ip: 0 }, q || {});
-  const cle = ['opposition', 'cmc', 'mcp', 'ip', 'rotation'].map(k => Q[k] === undefined ? '' : Math.round(Q[k] * 10)).join(',');
-  let c = S.cachePouce.get(cle);
-  if (c) return c;
-  const sq = S.sqf({ doigts: { pouce: Q } });
-  const ids = ['pouce.meta', 'pouce.p1', 'pouce.p2'];
-  const P = [sq.points['pouce.cmc'], sq.points['pouce.mcp'], sq.points['pouce.ip'], sq.points['pouce.bout']];
-  const cadres = ids.map(id => { const g = sq.segments[id]; return { u: g.u, n: g.n, r: g.r }; });
-  c = { P, cadres };
-  if (S.cachePouce.size > 20000) S.cachePouce.clear();
-  S.cachePouce.set(cle, c);
-  return c;
+  const cle = ['opposition', 'cmc', 'rotation'].map(k => Q[k] === undefined ? '' : Math.round(Q[k] * 20)).join(',');
+  let m = S.cachePouce.get(cle);
+  if (!m) {
+    const base = { opposition: Q.opposition, cmc: Q.cmc, mcp: 0, ip: 0 };
+    if (Q.rotation !== undefined) base.rotation = Q.rotation;
+    const sq = S.sqf({ doigts: { pouce: base } });
+    const g = sq.segments['pouce.meta'];
+    m = { cmc: sq.points['pouce.cmc'], mcp: sq.points['pouce.mcp'], u: g.u, n: g.n, r: g.r, L: [l3(sq.segments['pouce.p1']), l3(sq.segments['pouce.p2'])] };
+    if (S.cachePouce.size > 50000) S.cachePouce.clear();
+    S.cachePouce.set(cle, m);
+  }
+  const P = [m.cmc, m.mcp], cadres = [{ u: m.u, n: m.n, r: m.r }];
+  let u = m.u, n = m.n;
+  const fl = [Q.mcp, Q.ip];
+  for (let k = 0; k < 2; k++) {
+    const a = U3(X3(n, u));
+    u = rot3(u, a, fl[k]); n = rot3(n, a, fl[k]);
+    P.push(A3(P[k + 1], M3(u, m.L[k])));
+    cadres.push({ u, n: orth(n, u), r: X3(orth(n, u), u) });
+  }
+  return { P, cadres };
 }
+const l3 = g => g.L !== undefined ? g.L : L3(S3(g.a, g.de));
 // les segments (capsules à section elliptique) d'une chaîne
 function segments(S, d, ch) {
   const ids = d === 'pouce' ? ['meta', 'p1', 'p2'] : ['p1', 'p2', 'p3'];
@@ -341,7 +353,7 @@ function cherche(f, x0, pas, bornes, { min = 0.4, iter = 250 } = {}) {
 const pli = (mcp, ipp, ipd, ecart = 0) => ({ ecart, mcp, ipp, ipd });
 const segsDoigts = (S, doigts, noms = DOIGTS) => noms.flatMap(d => segments(S, d, chaineDoigt(S, d, doigts[d])));
 const qPouce = x => ({ opposition: x[0], cmc: x[1], rotation: x[2], mcp: x[3], ip: x[4] });
-const BORNES_POUCE = [[-10, 100], [-30, 45], [-20, 80], [-20, 70], [-25, 85]];
+const BORNES_POUCE = [[-10, 100], [-30, 45], [-40, 170], [-20, 70], [-25, 85]];
 
 // le pouce qui s'enroule autour d'un cylindre : grille grossière d'opposition et d'écart (cmc), fermeture de
 // mcp et ip, puis affinage ; on garde le plus grand tour de l'objet, le bout posé

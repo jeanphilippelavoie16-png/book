@@ -36,7 +36,7 @@ La dernière colonne dit à quelle pose de départ de l’agent 3 chacune répon
 | 2 | `pince-fine` | la pulpe du pouce contre la pulpe de l’index ; le majeur, l’annulaire et l’auriculaire repliés derrière, en cascade | 15 | 14 | 23-02, 24-16, 27-04, 30-40, 50-40, 75-40, 90-04, 103-07, 103-40, 111-40 | pouce 13, dos 2 | pince fine |
 | 3 | `ouverte` | la main ouverte, les doigts tendus un peu écartés ; posée, montrée ou qui pousse | 12 | 12 | 24-10, 24-11, 24-12, 28-05, 29-06, 30-40 | dos 6, paume 5, pouce 1 | ouverte |
 | 4 | `plat` | la main à plat, les doigts tendus serrés, le pouce le long de l’index ; contact par la paume, par le bout des doigts ou par le dos | 12 | 12 | 23-40, 24-02, 24-12, 26-40, 29-04, 50-40, 98-05, 98-10, 99-04, 100-40 | pouce 12 | à plat |
-| 5 | `coupe-c` | la main en C : le pouce d’un côté, les doigts de l’autre, autour d’un rond de 60 à 110 mm (sein, mollet, nid) ; ou le creux qui porte du grain | 6 | 6 | 13-40, 29-07, 98-05 | pouce 5, dos 1 | main en C ou en coupe |
+| 5 | `coupe-c` | la main en C : le pouce d’un côté, les doigts de l’autre, autour d’un rond de 60 à 110 mm (sein, mollet, nid) ; ou le creux qui porte du grain | 7 | 7 | 13-40, 24-11, 29-07, 98-05 | pouce 5, auriculaire 1, dos 1 | main en C ou en coupe |
 | 6 | `porte` | la paume en l’air, les doigts tendus en léger creux : porter, recevoir, offrir le poignet | 5 | 5 | 28-04, 30-01, 38-04, 79-40 | paume 3, pouce 2 | porte |
 | 7 | `relachee` | la main détendue : les doigts mi-fléchis en cascade (l’auriculaire le plus plié), le pouce le long de l’index | 5 | 5 | 25-40, 26-08, 34-04 | paume 2, dos 2, pouce 1 | — (nouvelle) |
 | 8 | `crochet` | les doigts repliés en crochet aux deux dernières phalanges, la paume ouverte, le pouce libre : une anse, un bord, un talon | 4 | 4 | 24-11, 30-40, 98-08, 99-11 | dos 2, pouce 1, paume 1 | crochet |
@@ -86,7 +86,7 @@ n’a pas sa cote ; une prise de 25 à 35 mm couvre les manches d’outil.
 | 24-10 | La même, vue du côté du pouce | main appui/profil | idem de profil, la main sur l’attelle | attelle plane | — | pouce | G |  | `ouverte` | 243 |  |
 | 24-11 | Au quatrième ou cinquième jour : le tiroir | s01 | la main ouverte tient le devant du tibia, la paume contre | tibia | ~60 | paume | D | oui | `ouverte` | 176 |  |
 | 24-11 | Au quatrième ou cinquième jour : le tiroir | s05 | les doigts enroulés autour du talon le tirent vers l’avant | talon | ~70 | dos | G | oui | `crochet` | 196 |  |
-| 24-11 | L’entorse haute : serrer le mollet | dessin libre | la main serre le mollet, le pouce d’un côté, les doigts de l’autre | mollet | ~110 | auriculaire | D |  | `pince-large` | 60 | seuls le pouce et le bout des doigts dépassent |
+| 24-11 | L’entorse haute : serrer le mollet | dessin libre | la main serre le mollet, le pouce d’un côté, les doigts de l’autre | mollet | ~110 | auriculaire | D |  | `coupe-c` | 60 | seuls le pouce et le bout des doigts dépassent |
 | 24-12 | Paume vers le bas : monter en 2 temps | s05 | tient la petite boîte de conserve vue par le bout, l’avant-bras appuyé, le poignet monte | boîte de conserve | 54 | bout | G |  | `prise-grosse` | 177 | l’objet vu par le bout, la main de côté |
 | 24-12 | Redescendre en 4 temps | s05 | idem, le poignet redescend | boîte de conserve | 54 | bout | G |  | `prise-grosse` | 177 |  |
 | 24-12 | Côté intérieur : paume vers le haut | s05 | idem, paume vers le haut | boîte de conserve | 54 | bout | G |  | `prise-grosse` | 177 |  |
@@ -216,7 +216,7 @@ corps et ses mains en moufle, `corps/extremites.js`) ou dans une vignette, pas e
 
 ## Les vues : ce dont les planches ont besoin, et ce dont elles se passent
 
-Relevé sur les 146 mains : `paume` 49, `dos` 46, `pouce` 46, `bout` 3 (l’objet par le bout, main de profil),
+Relevé sur les 146 mains : `paume` 50, `dos` 46, `pouce` 45, `bout` 3 (l’objet par le bout, main de profil),
 `auriculaire` 2. Aucune planche ne montre une main en trois-quarts franc, par le bout des doigts ou par le poignet.
 
 | Pose | Vues nécessaires (relevées) | Vues interdites ou inutiles, et pourquoi |
@@ -261,6 +261,26 @@ Les rotations `rotation: [rx, ry, rz]` relevées restent petites : la main pench
 5. **Des gros plans trop grands pour leur vue** : 13-09 « Au point de frappe » (la main fait ~660 px, coupée) ; et
    des médaillons trop petits (98-05 : ~40 px) qui relèvent plutôt du moteur des corps.
 
+## Ce que deviennent les appels actuels
+
+| Appel actuel | Mains | Pose(s) qui le remplacent |
+| --- | --- | --- |
+| `modele('s11')` (poing vu de la paume) | 58 | `prise-manche` 53, `prise-corde` 2, `prise-grosse` 1, `poing` 1, `crochet` 1 |
+| `modele('s09')` (pince de côté) | 14 | `pince-fine` 13, `pince-ouverte` 1 |
+| `modele('s10-plat')` | 13 | `plat` 12, `ouverte` 1 (la main étirée de 24-12) |
+| `modele('s05')` (doigts repliés, pouce dessus) | 8 | `prise-grosse` 3, `pince-laterale` 2, `coiffe` 1, `crochet` 1, `coupe-c` 1 |
+| `modele('s03…')` (main relâchée) | 10 | `main-sur-main` 4, `ouverte` 4, `relachee` 2 |
+| `modele('s10')`, `s08-l5` | 3 | `porte` 3 |
+| `modele('s01')`, `s19-poing-l5`, `s11-gant-l5` | 3 | `ouverte`, `prise-pouce-dos`, `prise-manche` + gant |
+| `main('prise', …)` (dos, profil, par un buste) | 6 | `prise-manche` 5, `crochet` 1 |
+| `main('boule', …)` | 5 | `coupe-c` 5 |
+| `main('appui', …)` | 4 | `ouverte` 3, `relachee` 1 |
+| dessin libre (9 planches) | 22 | `ouverte` 3, `pince-ouverte` 2, `pointe` 2, `pince-fine` 2, `porte` 2, `deux-doigts-v` 2, `pince-laterale` 2, `relachee` 2, `coupe-c` 1, `prise-manche` 1, `crochet` 1, `pince-pointe` 1, `deux-doigts` 1 |
+
+Le s05 est le calque le plus mal employé : un seul dessin sert à cinq gestes différents (tenir une boîte, une
+pierre, coiffer un foret, crocheter un talon, porter du grain). Les 22 mains dessinées à la main sont des gros plans
+(100 à 380 px) : ce sont elles qui gagneront le plus à `mainSimple`.
+
 ## Les vues qui se passent de main (à ne pas « réparer »)
 
 99-11 « Le grain roulé » (la pince cacherait le grain), 27-03 vue 2 (le bout des doigts cacherait la couronne),
@@ -300,7 +320,15 @@ une main gantée quand l’option existera.
   données passés par GitHub ont pu être téléchargés (scratch `agent4/telecharge/`). Aucune page n’est enregistrée
   dans `/sources`. Ces chiffres servent au dessin : rien ne s’imprime.
 
-Les chiffres que le moteur prendra d’abord (homme ; femme × 0,931 ; enfant de 6 ans × 0,647 ; de 4 ans × 0,571) :
+**Ce que lit le moteur.** `ages.<âge>.main.longueur`, `.main.largeur` et `.avantbras.longueur` sont au repère du
+dessin (l’homme à 190 × 88,5, avant-bras 255,5 comme le corps ; femme 176,9 × 77,8 ; enfant de 6 ans 122,9 × 57,3 ;
+de 4 ans 108,5 × 50,5) ; toutes les autres cotes sont les moyennes mesurées (× `vers_dessin` = 0,979 pour passer au
+repère). `dessin_homme` donne la main de l’homme déjà ramenée à 190, prête pour `ANATOMIE`. Écart avec l’`ANATOMIE`
+provisoire du moteur : ses MCP sont 8 à 15 mm trop loin du poignet (majeur 89 contre 81), ses P1 4 à 7 mm trop courtes
+(majeur 47 contre 52), ses P2 3 à 4 mm trop longues (29 contre 26) et ses doigts plus serrés (MCP de l’index à l’auriculaire :
+53 mm d’écart contre 69, ce dernier chiffre étant un choix de modèle `[À VÉRIFIER]`) ; sa largeur 86 contre 88,5.
+
+Les cotes mesurées de l’homme (femme × 0,931 ; enfant de 6 ans × 0,647 ; de 4 ans × 0,571) :
 
 | | Métacarpe | P1 | P2 | P3 | Largeur IPP | Épaisseur IPP | Largeur IPD |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -313,5 +341,6 @@ Les chiffres que le moteur prendra d’abord (homme ; femme × 0,931 ; enfant de
 Main de l’homme : 194,1 de long (le moteur la dessine à 190), 90,4 de large aux MCP, paume 110,5, palmures à 69,1
 (pouce-index), 110,4, 109,9 et 96,6 du pli du poignet ; poignet 65,8 de large, 37 à 44 d’épaisseur ; le centre d’un
 manche tenu à 76,0 du poignet et 349,0 du coude ; avant-bras 267,9 (radiale-stylion), Ø moyen 98,7 près du coude.
-Amplitudes et couplages (IPD ≈ 0,67 × IPP, l’écart qui tombe à 0 à 90° de MCP, l’arche de l’annulaire et de
+Contrôle : `agent4/squelettes-mains.png` (les liens sourcés, à 190, contre ceux d’`ANATOMIE` du moteur, et les trois
+autres âges). Amplitudes et couplages (IPD ≈ 0,67 × IPP, l’écart qui tombe à 0 à 90° de MCP, l’arche de l’annulaire et de
 l’auriculaire) : `proportions.json`, `articulations`.
