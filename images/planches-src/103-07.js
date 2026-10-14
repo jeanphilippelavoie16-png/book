@@ -1,5 +1,6 @@
 // 80-07 — Le contre-toron. Séquence : plier et tordre, passer par-dessus, rallonger.
 // Vue de face, comme le fabricant voit ses mains : le corps est du côté du lecteur.
+// La charte : les brins au contour, le rouge sur les deux gestes (tordre, passer par-dessus).
 
 const K = 1.25;            // échelle des deux premières vues (la main donne la grandeur)
 const W = 11 * K;          // largeur d'un brin
@@ -104,24 +105,43 @@ const bord = (pts, x, cote, w = W) => {
   return [c[i][0] + n[0] * (w / 2 + 0.6), c[i][1] + n[1] * (w / 2 + 0.6)];
 };
 
-// La main gauche qui pince le pli entre la pulpe du pouce et celle de l'index, vue de profil :
-// modèle s09 (le pouce et l'index qui pincent, de côté) en miroir, l'avant-bras à gauche jusqu'au
-// bord de la vue ; le point pincé (12, 66) sur le pli. Les brins, peints d'abord, passent entre
-// les deux pulpes, la boucle du pli cachée sous les doigts.
-const PINCE = { x: -19, y: 3, echelle: 0.83, angle: 0 };
-const main = (h, P, z) => {
+// La main gauche qui pince le pli entre la pulpe du pouce et celle de l'index : la main simple (mains/moteur.js),
+// pince fine vue du côté du pouce. Le fabricant voit ses mains : l'avant-bras vient de lui, sort par le bas de la
+// vue. Les brins sortent de la pince à droite ; la boucle du pli est cachée sous les doigts. L'objet tenu est le
+// faisceau des deux brins, découpé au cylindre de la prise : le pouce passe devant, l'index derrière.
+const poser = (h, o, axe, vers) => {
+  const base = Object.assign({}, o, { angle: 0, avantbras: { longueur: 100 } }); delete base.objet;
+  const e0 = h.formes.mainSimple(base); let best = null;
+  for (const k of [0, 180]) {
+    const a = axe - e0.prise.angle + k, m = h.formes.mainSimple(Object.assign({}, base, { angle: a }));
+    const d = [m.coude[0] - m.poignet[0], m.coude[1] - m.poignet[1]], v = [vers[0] - m.poignet[0], vers[1] - m.poignet[1]];
+    const c = (d[0] * v[0] + d[1] * v[1]) / ((Math.hypot(d[0], d[1]) * Math.hypot(v[0], v[1])) || 1);
+    if (!best || c > best.c) best = { a, c };
+  }
+  return best.a;
+};
+const PINCE = { x: -14, y: 0, pose: 'pince-fine', vue: 'pouce', ech: 1.2, d: 10, vers: [-40, 300], rot: null, objet: true };
+let nPince = 0;
+const main = (h, P, z, brins) => {
   const [x, y] = P([PINCE.x, PINCE.y]);
-  return h.formes.modele('s09', { x, y, ancre: [12, 66], angle: PINCE.angle, miroir: true, echelle: PINCE.echelle * K,
-    masquer: [[200, 0, 230, 125]],
-    bras: { a: [200, 64.1], a0: [185, 63.9], b: [200, 112.1], b0: [185, 108.4], bord: z } });
+  const o = { x, y, pose: PINCE.pose, vue: PINCE.vue, cote: 'gauche', echelle: PINCE.ech, diametre: PINCE.d, ...(PINCE.rot ? { rotation: PINCE.rot } : {}) };
+  const vers = P(PINCE.vers);
+  const id = `pince-103-07-${++nPince}`;
+  const bande = g => {
+    const u = [Math.cos(g.angle * Math.PI / 180), Math.sin(g.angle * Math.PI / 180)], v = [-u[1], u[0]], L = 400, r = g.r;
+    const c = (s, t) => `${(g.x + u[0] * s + v[0] * t).toFixed(1)},${(g.y + u[1] * s + v[1] * t).toFixed(1)}`;
+    return `<clipPath id="${id}"><path d="M${c(-L, -r)} L${c(L, -r)} L${c(L, r)} L${c(-L, r)} Z"/></clipPath>\n<g clip-path="url(#${id})">\n${brins}\n</g>`;
+  };
+  return h.formes.mainSimple({ ...o, angle: poser(h, o, 0, vers), ...(PINCE.objet ? { objet: bande, masque: false } : {}),
+    avantbras: { vers, bord: { x0: 0, y0: 0, x1: z.l, y1: z.h }, bras: { pli: 0 } } }).svg;
 };
 
-// Anneau de rotation autour d'un brin : moitié arrière en caché, moitié avant fléchée.
+// Anneau de rotation autour d'un brin : moitié arrière en caché, moitié avant fléchée en rouge (le geste).
 const anneau = (h, cx, cy, rx, ry, sens) => ({
   derriere: h.path(`M${cx},${cy - ry} A${rx} ${ry} 0 0 0 ${cx},${cy + ry}`, h.a.cache),
   devant: sens === 'monte'
-    ? h.fleche(`M${cx},${cy + ry} A${rx} ${ry} 0 0 0 ${cx},${cy - ry}`)
-    : h.fleche(`M${cx},${cy - ry} A${rx} ${ry} 0 0 1 ${cx},${cy + ry}`),
+    ? h.geste(`M${cx},${cy + ry} A${rx} ${ry} 0 0 0 ${cx},${cy - ry}`)
+    : h.geste(`M${cx},${cy - ry} A${rx} ${ry} 0 0 1 ${cx},${cy + ry}`),
 });
 
 // Corde commise : suite de tronçons en « \ », bosses au contour, pli arrondi à gauche.
@@ -174,15 +194,11 @@ module.exports = (h) => {
         titre: 'Plier, puis tordre',
         dessin: z => {
           const r = anneau(h, ...P([110, A1y(110)]), 8 * K, 19 * K, 'monte');
-          return [
-            r.derriere,
-            [
-              brin(h, Ps(B1), { fibres: [[0.02, 0.92]] }),
-              brin(h, Ps(A1), { fibres: [[0, 0.1], [0.46, 0.94]], torsade: [0.11, 0.46] }),
-            ].join('\n'),
-            main(h, P, z),
-            r.devant,
+          const brins = [
+            brin(h, Ps(B1), { fibres: [[0.02, 0.92]] }),
+            brin(h, Ps(A1), { fibres: [[0, 0.1], [0.46, 0.94]], torsade: [0.11, 0.46] }),
           ].join('\n');
+          return [r.derriere, brins, main(h, P, z, brins), r.devant].join('\n');
         },
         renvois: z => [
           { n: 1, rond: P([214, 62]), cible: bord(Ps(B1), P([232, 0])[0], 1), texte: 'plier hors du milieu : bouts décalés' },
@@ -194,15 +210,11 @@ module.exports = (h) => {
         titre: 'Passer par-dessus',
         dessin: z => {
           const r = anneau(h, ...P([105, 0]), 11 * K, 34 * K, 'descend');
-          return [
-            r.derriere,
-            [
-              brin(h, Ps(B2), { fibres: [[0.02, 0.92]] }),
-              brin(h, Ps(A2), { fibres: [[0, 0.1], [0.5, 0.94]], torsade: [0.11, 0.5] }),
-            ].join('\n'),
-            main(h, P, z),
-            r.devant,
+          const brins = [
+            brin(h, Ps(B2), { fibres: [[0.02, 0.92]] }),
+            brin(h, Ps(A2), { fibres: [[0, 0.1], [0.5, 0.94]], torsade: [0.11, 0.5] }),
           ].join('\n');
+          return [r.derriere, brins, main(h, P, z, brins), r.devant].join('\n');
         },
         renvois: z => [
           { n: 4, rond: P([150, 62]), cible: P([105 + 11 * Math.cos(1.15), 34 * Math.sin(1.15)]), texte: 'le passer par-dessus, vers le corps' },

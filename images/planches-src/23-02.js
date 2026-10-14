@@ -51,10 +51,10 @@ module.exports = (h) => {
   const plein = attrs => attrs.replace('fill="none"', FOND);
 
   // ── vue 1 : vider (600 × 118) ────────────────────────────────────────────────────────
-  const MC_COTE = 'gauche', MC_ANGLE = -90;
-  const pince = [300, 40], MAIN_ANGLE = -30;
-  const plat = bez([22, 48], [110, 30], [215, 48], pince);
-  const gras = bez(pince, [370, 35], [450, 49], [520, 41], 60);
+  const DY = 40;                                              // le boyau plus bas : la main pince par-dessus
+  const pince = [300, 40 + DY];
+  const plat = bez([22, 48 + DY], [110, 30 + DY], [215, 48 + DY], pince);
+  const gras = bez(pince, [370, 35 + DY], [450, 49 + DY], [520, 41 + DY], 60);
   const rPlat = 1.3, rRuban = t => 3 - 1.7 * Math.pow(Math.max(0, (t - 0.8) / 0.2), 2);
   const rGras = t => { const m = Math.min(1, t / 0.14), s = m * m * (3 - 2 * m); return rPlat + s * (10 + 2 * Math.sin(t * 23)); };
   const boyauVide = () => {
@@ -64,19 +64,19 @@ module.exports = (h) => {
     const rFin = rGras(1);
     return [
       h.path(D(contour, true), plein(h.a.contour)),
-      h.ellipse(520, 41, 4.5, f(rFin), plein(h.a.arete)),
+      h.ellipse(520, 41 + DY, 4.5, f(rFin), plein(h.a.arete)),
     ].join('\n');
   };
-  // la main pince le boyau entre la pulpe de l'index et celle du pouce, et glisse vers le bout
-  // modèle s09 (le pouce et l'index qui pincent, de côté) en miroir : le boyau passe entre les deux
-  // pulpes, la main derrière la partie déjà vidée, l'avant-bras qui descend à gauche
-  const mainVide = z => boyauVide() + '\n' + h.formes.modele('s09', { x: pince[0], y: pince[1], ancre: [17, 66], miroir: true, angle: MAIN_ANGLE,
-    echelle: 1.1, masquer: [[200, 0, 230, 125]], bras: { a: [200, 64.1], a0: [185, 63.9], b: [200, 112.1], b0: [185, 108.4], bord: z } });
+  // la main gauche pince le boyau entre la pulpe de l'index et celle du pouce, et glisse vers le bout (mains
+  // simples, pince-fine vue du côté du pouce) : le boyau, peint d'abord, passe entre les deux pulpes ; la main
+  // au-dessus de la partie déjà vidée, l'avant-bras qui part à gauche
+  const mainVide = z => boyauVide() + '\n' + h.formes.mainSimple({ pose: 'pince-fine', vue: 'pouce', cote: 'gauche', diametre: 3, angle: -24,
+    echelle: 1, x: pince[0], y: pince[1], avantbras: { bord: { x0: 0, y0: 0, x1: z.l, y1: z.h }, longueur: 'bord' } }).svg;
   const crottes = [
     h.path('M 530 67 C 536 64 541 68 539 73 C 537 78 530 77 529 72 Z', h.a.arete),
     h.path('M 540 85 C 545 83 548 87 546 91 C 543 94 538 92 538 88 Z', h.a.arete),
     h.path('M 534 102 C 538 100 541 103 539 106 C 537 109 533 107 533 104 Z', h.a.arete),
-  ].join('\n').replace(/^/, '<g transform="translate(0 -22)">') + '</g>';
+  ].join('\n').replace(/^/, `<g transform="translate(0 ${-22 + DY})">`) + '</g>';
 
   // ── vue 2 : retourner, en coupe (600 × 237) ──────────────────────────────────────────
   const y0 = 92, xP = 110, rB = 10, xB = 320, rI = 16, rE = 27;
@@ -138,11 +138,13 @@ module.exports = (h) => {
     h.ligne(f(xPointe), f(yk), f(xTalon), f(yk), h.a.contour),
   ].join('\n');
 
-  // la main tient le manche par-dessus, le poing fermé, le pouce couché vers la lame
-  // modèle s11 (poing fermé, vu de la paume) retourné : le manche passe dans le poing, le pouce du
-  // côté de la lame, l'avant-bras qui monte et sort du cadre
-  const mainCouteau = z => h.formes.modele('s11', { x: xTalon + 41, y: yk - 9.5, ancre: [68, 42], angle: 180, echelle: 0.56, masquer: [[0, 150, 140, 175]],
-    bras: { a: [21.8, 150], a0: [20.8, 135], b: [76.3, 150], b0: [76.2, 135], bord: z } });
+  // la main droite tient le manche par-dessus, le poing fermé, le pouce vers la lame (mains simples, prise-manche,
+  // vue de la paume) : le manche passe dans le poing, l'avant-bras qui monte et sort du cadre
+  const mainCouteau = z => {
+    const o = { pose: 'prise-manche', vue: 'paume', cote: 'droite', diametre: 17, echelle: 0.62, x: xTalon + 41, y: yk - 9.5 };
+    const a = 0 - h.formes.mainSimple({ ...o, angle: 0, avantbras: false }).prise.angle;   // l'axe du moteur (du pouce à l'auriculaire) vers la droite
+    return h.formes.mainSimple({ ...o, angle: a, objet: couteau, avantbras: { bord: { x0: 0, y0: 0, x1: z.l, y1: z.h }, longueur: 'bord' } }).svg;
+  };
   // ── vue 4 : saler (231 × 194) ───────────────────────────────────────────────────────
   const pot = [
     h.path('M 53 72 Q 115 62 177 72 L 177 174 L 53 174 Z', h.a.hachure('gravier', 'aucun')),
@@ -171,9 +173,9 @@ module.exports = (h) => {
     vues: {
       vider: {
         titre: 'Vider',
-        dessin: z => [mainVide(z), crottes, h.fleche('M 380 85 L 460 85')].join('\n'),
+        dessin: z => [mainVide(z), crottes, h.geste(`M 380 ${16 + DY / 2} L 460 ${16 + DY / 2}`)].join('\n'),
         renvois: z => [
-          { n: 1, rond: [400, 118], cible: [300, 54], texte: 'deux doigts serrés qu’on fait glisser' },
+          { n: 1, rond: [240, 112], cible: [292, 40 + DY + 8], texte: 'deux doigts serrés qu’on fait glisser' },
         ],
       },
       retourner: {
@@ -200,7 +202,7 @@ module.exports = (h) => {
       },
       gratter: {
         titre: 'Gratter',
-        dessin: z => [planche, boyauPlat, tas, couteau, mainCouteau(z), h.fleche(`M ${f(c(0.26)[0] - 48)} ${f(c(0.26)[1])} L ${f(c(0.1)[0] - 48)} ${f(c(0.1)[1])}`)].join('\n'),
+        dessin: z => [planche, boyauPlat, tas, mainCouteau(z), h.geste(`M ${f(c(0.26)[0] - 48)} ${f(c(0.26)[1])} L ${f(c(0.1)[0] - 48)} ${f(c(0.1)[1])}`)].join('\n'),
         renvois: z => [
           { n: 6, rond: [240, 168], cible: [+f(xs + 30), +f(yk + 1.2)], texte: 'dos du couteau qui racle' },
           { n: 7, rond: [40, 70], cible: [130.2, 107], texte: 'planche mouillée' },

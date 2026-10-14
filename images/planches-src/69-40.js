@@ -12,6 +12,22 @@ module.exports = (h) => {
   const Tr = (ox, oy, s) => p => [ox + p[0] * s, oy + p[1] * s];
   const lisseD = (pts, tr, ferme = true) => I.ser(I.lisse(pts, ferme), tr);
 
+  // ─── mains simples : la boîte d'une vue, et l'angle qui met l'axe de la prise sur `axe` (degrés à l'écran)
+  // avec l'avant-bras du côté de `vers`
+  const BORD = z => ({ x0: 0, y0: 0, x1: z.l, y1: z.h });
+  const poser = (o, axe, vers) => {
+    const base = Object.assign({}, o, { angle: 0, avantbras: { longueur: 100 } });
+    delete base.objet;
+    const e0 = F.mainSimple(base);
+    let best = null;
+    for (const k of [0, 180]) {
+      const a = axe - e0.prise.angle + k, e = F.mainSimple(Object.assign({}, base, { angle: a }));
+      const d = [e.coude[0] - e.poignet[0], e.coude[1] - e.poignet[1]], w = [vers[0] - e.poignet[0], vers[1] - e.poignet[1]];
+      const c = (d[0] * w[0] + d[1] * w[1]) / ((Math.hypot(d[0], d[1]) * Math.hypot(w[0], w[1])) || 1);
+      if (!best || c > best.c) best = { a, c };
+    }
+    return best.a;
+  };
   // ─── géométrie commune ────────────────────────────────────────────────────────────────
   // points d'une courbe lissée, pour trouver les bords et tester l'intérieur
   const echant = (pts, ferme = true, n = 10) => {
@@ -155,9 +171,9 @@ module.exports = (h) => {
 
     // les deux mouvements : le piston entre, l'aiguille sort
     const f1 = P([612, 96]), f2 = P([694, 96]);
-    out.push(h.fleche(`M${r1(f1[0])} ${r1(f1[1])} L${r1(f2[0])} ${r1(f2[1])}`));
+    out.push(h.geste(`M${r1(f1[0])} ${r1(f1[1])} L${r1(f2[0])} ${r1(f2[1])}`));
     const g1 = P([834, 150]), g2 = P([786, 150]);
-    out.push(h.fleche(`M${r1(g1[0])} ${r1(g1[1])} L${r1(g2[0])} ${r1(g2[1])}`));
+    out.push(h.geste(`M${r1(g1[0])} ${r1(g1[1])} L${r1(g2[0])} ${r1(g2[1])}`));
 
     const Q = p => P(p).map(r1);
     return {
@@ -220,16 +236,21 @@ module.exports = (h) => {
     out.push(h.path(lisseD(CUI, tr), A.contour));
     // le manche et la main qui le tient
     const cm = at(Lb + Lm / 2, lb / 2 - 1);
-    out.push(h.chemin([at(Lb, -3), at(Lb + Lm, -3), at(Lb + Lm + 4, lb / 2 - 1), at(Lb + Lm, lb + 1), at(Lb, lb + 1)].map(P), bA, true));
+    const manche = h.chemin([at(Lb, -3), at(Lb + Lm, -3), at(Lb + Lm + 4, lb / 2 - 1), at(Lb + Lm, lb + 1), at(Lb, lb + 1)].map(P), bA, true);
     const C = P(cm);
-    // modèle s11 (poing fermé) en miroir, tourné comme le manche : la lame sort côté index, vers la
-    // pointe ; le manche (16) passe dans le poing (25 px), l'avant-bras tourne vers la droite, au-dessus de la pièce
-    out.push(F.modele('s11', { x: C[0], y: C[1], ancre: [68, 42], miroir: true, angle: 215 + 90, echelle: (lm + 4) * s / 25,
-      masquer: [[0, 150, 140, 175]], bras: { a: [21.8, 150], a0: [20.8, 135], b: [76.3, 150], b0: [76.2, 135], vers: [0.92, -0.38], bord: z } }));
+    // la main (mains simples), côté paume, serre le manche (18 mm) : la lame sort côté pouce et index, vers la
+    // pointe ; le manche entre d'un côté du poing et son bout ressort de l'autre ; l'avant-bras part vers la droite,
+    // au-dessus de la pièce, et sort du cadre
+    const vers = [C[0] + 0.92 * 400, C[1] - 0.38 * 400], axe = Math.atan2(u[1], u[0]) * 180 / Math.PI;
+    const faire = cote => { const o = { x: C[0], y: C[1], pose: 'prise-manche', vue: 'paume', cote, echelle: s, diametre: 18 };
+      return F.mainSimple({ ...o, angle: poser(o, axe, vers), avantbras: { vers, bord: BORD(z), longueur: 'bord' } }); };
+    let mK = faire('gauche');
+    if ((mK.pouce[0] - C[0]) * -u[0] + (mK.pouce[1] - C[1]) * -u[1] < 0) mK = faire('droite');
+    out.push(mK.couches.main, mK.couches.masque, manche, mK.couches.devant);
 
     // le couteau avance le long du fût
     const f1 = P([292, 76]), f2 = P([392, 86]);
-    out.push(h.fleche(`M${r1(f1[0])} ${r1(f1[1])} L${r1(f2[0])} ${r1(f2[1])}`));
+    out.push(h.geste(`M${r1(f1[0])} ${r1(f1[1])} L${r1(f2[0])} ${r1(f2[1])}`));
 
     const Q = p => P(p).map(r1);
     return {
@@ -328,7 +349,7 @@ module.exports = (h) => {
     out.push(h.chemin([[-20, -150], [20, -150], [20, -157], [-20, -157]].map(P), bA, true));
     // le poussoir descend
     const g1 = P([34, -176]), g2 = P([34, -136]);
-    out.push(h.fleche(`M${r1(g1[0])} ${r1(g1[1])} L${r1(g2[0])} ${r1(g2[1])}`));
+    out.push(h.geste(`M${r1(g1[0])} ${r1(g1[1])} L${r1(g2[0])} ${r1(g2[1])}`));
 
     const Q = p => P(p).map(r1);
     return {

@@ -303,7 +303,7 @@ module.exports = (h) => {
     const p = V(PAUME);
     // la main droite de la mère (main simple, ouverte, vue du dos) : à plat sur le dos du bébé, les doigts vers la
     // nuque, le pouce à gauche, l'avant-bras qui descend et sort du cadre ; l'ancre, le creux de la paume
-    out.push(F.mainSimple({ x: p[0], y: p[1], pose: 'ouverte', vue: 'dos', cote: 'droite', angle: ang(D_DOIGTS), echelle: k * +(process.env.KM || 1),
+    out.push(F.mainSimple({ x: p[0], y: p[1], pose: 'ouverte', vue: 'dos', cote: 'droite', angle: ang(D_DOIGTS), echelle: k,
       avantbras: { bord: { x0: 0, y0: 0, x1: z.l, y1: z.h }, bras: { pli: 0 } } }).svg);
     if (fleche) out.push(h.geste(`M${pt(V(FL0))} L${pt(V(FL1))}`));
     return decoupe(z, out.join('\n'));
@@ -381,8 +381,8 @@ module.exports = (h) => {
         renvois: z => {
           const S = ratee.S, b = ratee.b;
           return [
-            { n: 11, rond: posP(z, [-52, -30]), cible: posP(z, M([-1.2, -2.5])), texte: 'le bout du sein seulement' },
-            { n: 12, rond: posP(z, [-64, -80]), cible: posP(z, M([-17, -6])), texte: 'l’aréole reste dehors' },
+            { n: 11, rond: posP(z, [-64, -80]), cible: posP(z, M([-1.2, -2.5])), texte: 'le bout du sein seulement' },
+            { n: 12, rond: posP(z, [-52, -30]), cible: posP(z, M([-17, -6])), texte: 'l’aréole reste dehors' },
             { n: 13, rond: posP(z, [-60, 62]), cible: posP(z, S(b.bas[5])), texte: 'le menton loin du sein' },
           ];
         },
