@@ -85,3 +85,7 @@ JP ensuite : « c'est bien mais pas encore parfait, les formes que tu as pas de 
   nuque recollée dans le raté, 60-10a, 60-10b, 62-16 sans le renvoi « chef latéral », 67-10, 80-40, 86-01b, 86-03a,
   89-03, 89-04, 89-05a, 89-06, 95-40a, 96-01). `a-valider/` est vide. Nouveaux modules : `images/planches-src/_animaux.js`
   (lièvre, canard, lagopède, chien) et `_pieds.js` (pied nu à orteils, mukluk souple).
+- **14 octobre, 47-03 : « c'est hot le nouveau du canard, même de face c'est hot ».** La tête de l'appelant passe de
+  profil en gros plan (calque Fuertes pl. 12, fonction `canard` de `_animaux.js`), la branche loin de la fourche en
+  gris et en tireté. Les petites retouches (83-10, 45-01a, 80-40, 12-05a, 89-03) sont validées ; 24-08 garde son blanc
+  (aucune vue à ajouter). Plus rien dans `a-valider/`.
