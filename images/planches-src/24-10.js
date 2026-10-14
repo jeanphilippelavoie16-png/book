@@ -9,10 +9,12 @@
 //   · jamais de peau crue mouillée autour d'un membre qui enfle (encadré).
 // Aucune cote : le chapitre ne donne aucune mesure.
 //
-// Une seule main pour toute la planche, la main gauche : vue du dos, doigts à droite, pouce en bas
-// (formes.main appui/dos, cote gauche, tournée d'un demi-tour) ; vue du côté du pouce, doigts à
-// droite (appui/profil). Les deux vues de l'attelle de poignet sont donc de vraies projections
-// l'une de l'autre : le dos au-dessus, le côté du pouce en dessous, alignés à la même échelle.
+// Une seule main pour toute la planche, la main gauche de la bibliothèque des mains simples
+// (mainSimple, pose ouverte, le pouce écarté dans le plan de la paume) : vue du dos, doigts à droite,
+// pouce en bas ; vue du côté du pouce, doigts à droite, la même pose. Les deux vues de l'attelle de
+// poignet sont donc de vraies projections l'une de l'autre : le dos au-dessus, le côté du pouce en
+// dessous, alignés à la même échelle. L'écorce, les bandes et la latte se posent sur le contour même
+// de la main (relevé sur son tracé) : les largeurs de l'avant-bras, du pouce, la commissure.
 // Les coupes sont vues du bout des doigts, à la même échelle que la vue qu'elles coupent.
 module.exports = (h) => {
   const N = '#1A1A1A', B = '#FFFFFF';
@@ -54,37 +56,106 @@ module.exports = (h) => {
     return c;
   };
 
-  // ─── le pouce de formes.js (main appui/dos), recalculé dans le même repère (mm) ──────────────
-  const WP = [[13.5, 11.5], [11, 10.5], [10.5, 8.4]];
-  const P0 = [-82, -21], P1 = add(P0, mul(dirA(-38), 44)), P2 = add(P1, mul(dirA(-24), 32)), P3 = add(P2, mul(dirA(-17), 26));
-  const PT = [P0, P1, P2, P3];
+  // ─── la main de la bibliothèque, et ce qu'on relève sur son contour ─────────────────────────
+  const F = h.formes.mainSimple;
+  const MAIN = { pose: 'ouverte', cote: 'gauche', doigts: { pouce: { opposition: -16, cmc: -12, mcp: 6, ip: 6 } } };
+  const BRAS = 110;                          // l'avant-bras, du poignet à la coupe (mm)
+  const ANG_P = 2.2;                         // la vue du côté du pouce, tournée : l'avant-bras et la paume à plat
+  const pts = d => [...d.matchAll(/(-?\d+\.?\d*)[ ,](-?\d+\.?\d*)/g)].map(a => [+a[1], +a[2]]);
+  const pieces = m => [...m.couches.main.matchAll(/<path d="([^"]+)"/g)].map(a => pts(a[1]));
+  // la droite p + t·n coupe le contour : le plus proche des deux côtés, [t < 0, t > 0]
+  const travers = (P, n, poly) => {
+    let tp = Infinity, tm = -Infinity;
+    for (let i = 0; i < poly.length; i++) {
+      const a = poly[i], b = poly[(i + 1) % poly.length], d = sub(b, a);
+      const den = -n[0] * d[1] + n[1] * d[0];
+      if (Math.abs(den) < 1e-9) continue;
+      const r = sub(a, P), t = (-r[0] * d[1] + r[1] * d[0]) / den, u = (n[0] * r[1] - n[1] * r[0]) / den;
+      if (u < 0 || u > 1) continue;
+      if (t > 0 && t < tp) tp = t;
+      if (t < 0 && t > tm) tm = t;
+    }
+    return [tm, tp];
+  };
+
+  // Vue du dos, à l'échelle 1, le poignet en (0, 0). Repère de la vue du dos : x mm vers les doigts
+  // (0 aux jointures, WX au poignet), y mm vers le petit doigt ; à l'écran le pouce est en bas (main
+  // gauche vue du dos), d'où le -y.
+  const M_DOS = F({ ...MAIN, vue: 'dos', angle: 0, x: 0, y: 0, echelle: 1, ancre: 'poignet', avantbras: { longueur: BRAS } });
+  const WX = -M_DOS.articulations['majeur.mcp'][0];
+  const versDos = p => [WX + p[0], -p[1]];
+  const SIL = pieces(M_DOS)[0].map(versDos);                // le contour de la main et de l'avant-bras
+  const yPouce = x => travers([x, 0], [0, 1], SIL)[0];      // le bord de l'avant-bras côté pouce (y < 0)
+  const yPetit = x => travers([x, 0], [0, 1], SIL)[1];      // côté petit doigt
+  // la commissure : le contour sous le point (x, y0), en descendant vers le pouce
+  const yCreux = (x, y0 = -25) => y0 - travers([x, y0], [0, -1], SIL)[1];
+
+  // le pouce : sa chaîne d'articulations, et ses deux bords relevés en travers
+  const PT = ['pouce.cmc', 'pouce.mcp', 'pouce.ip', 'pouce.bout'].map(k => versDos(M_DOS.articulations[k]));
+  const LP = [0, 1, 2].map(i => lon(sub(PT[i + 1], PT[i])));
+  const S_TOT = LP[0] + LP[1] + LP[2];
+  const P0 = PT[0];
   const surPouce = (s) => {
     let i = 0, acc = 0;
-    while (i < 2 && acc + lon(sub(PT[i + 1], PT[i])) < s) { acc += lon(sub(PT[i + 1], PT[i])); i++; }
-    const L = lon(sub(PT[i + 1], PT[i])), t = Math.max(0, Math.min(1, (s - acc) / L));
-    const u = uni(sub(PT[i + 1], PT[i]));
-    return { p: lerp(PT[i], PT[i + 1], t), u, w: WP[i][0] + (WP[i][1] - WP[i][0]) * t };
+    while (i < 2 && acc + LP[i] < s) { acc += LP[i]; i++; }
+    const t = Math.max(0, Math.min(1, (s - acc) / LP[i]));
+    return { p: lerp(PT[i], PT[i + 1], t), u: uni(sub(PT[i + 1], PT[i])) };
   };
-  // cote +1 : le bord extérieur du pouce (côté pouce de l'avant-bras) ; -1 : le bord côté index
-  const bordP = (s, cote, off = 0) => { const q = surPouce(s); return add(q.p, mul(gau(q.u), cote * (q.w + off))); };
+  // cote +1 : le bord extérieur du pouce (côté pouce de l'avant-bras) ; -1 : le bord côté index. Avant
+  // la commissure, le côté de l'index se fond dans le dos de la main : on y reprend la demi-largeur de
+  // l'extérieur.
+  const demi = (s, cote) => {
+    const q = surPouce(s), w = c => travers(q.p, mul(gau(q.u), c), SIL)[1];
+    const d = w(cote);
+    if (d < 16) return d;
+    const e = w(-cote);
+    return e < 16 ? e : 11;
+  };
+  const bordP = (s, cote, off = 0) => { const q = surPouce(s); return add(q.p, mul(gau(q.u), cote * (demi(s, cote) + off))); };
 
   // ─── repères ─────────────────────────────────────────────────────────────────────────────
-  // Vue du dos : x mm vers les doigts (0 aux jointures, -92 au poignet), y mm vers le petit
-  // doigt ; à l'écran le pouce est en bas (la main est retournée), d'où le -y.
   // une seule échelle pour toute la planche : celle des vues de gauche (les coupes la reprennent)
   let E0 = null;
   const ECH = z => (z.l > 300 || E0 == null) ? (E0 = z.l / 330) : E0;
   const geoDos = z => {
-    const e = ECH(z), ox = z.l - 115 * e, oy = z.h / 2 - 17 * e;
+    const e = ECH(z), ox = z.l - 115 * e, oy = z.h / 2 - 22 * e;
     return { e, ox, oy, V: p => [ox + e * p[0], oy - e * p[1]] };
   };
-  // Vue du côté du pouce : x mm (0 sous la paume, -50 au poignet), y mm vers le bas, 0 = dessus
-  // de la latte. Le poignet tombe à la même abscisse que dans la vue du dos (x dos = x + -42).
+  // Vue du côté du pouce : x mm (x profil = x dos + 42), y mm vers le bas, 0 = dessus de la latte. Le
+  // poignet tombe à la même abscisse que dans la vue du dos.
+  const DX = 42;
   const geoProfil = z => {
-    const e = ECH(z), ox = z.l - 115 * e, X0 = ox - 42 * e, y0 = z.h / 2 + 18 * e;
+    const e = ECH(z), ox = z.l - 115 * e, X0 = ox - DX * e, y0 = z.h / 2 + 18 * e;
     return { e, X0, y0, V: p => [X0 + e * p[0], y0 + e * p[1]] };
   };
-  const BRAS = 110, WX = -92, CUT = WX - BRAS;
+  const CUT = WX - BRAS;
+
+  // Vue du côté du pouce, à l'échelle 1, le poignet en (0, 0), tournée de ANG_P ; on la pose sur la
+  // latte par ce qui touche : le dessous de l'avant-bras et de la paume (le pouce, plus épais, déborde
+  // un peu sur la tranche de la latte).
+  const M_PRO = F({ ...MAIN, vue: 'pouce', angle: ANG_P, x: 0, y: 0, echelle: 1, ancre: 'poignet', avantbras: { longueur: BRAS } });
+  const SIL_P0 = pieces(M_PRO)[0];
+  const sousP = x => travers([x, 0], [0, 1], SIL_P0)[1];
+  const Y_POI = -Math.max(sousP(-BRAS + 6), sousP(-40), sousP(40));     // le poignet, au-dessus de la latte
+  const versPro = p => [WX + DX + p[0], Y_POI + p[1]];
+  const SIL_P = SIL_P0.map(versPro);
+  // les y où la verticale x coupe un contour, du plus haut au plus bas
+  const ysV = (x, poly) => {
+    const r = [];
+    for (let i = 0; i < poly.length; i++) {
+      const a = poly[i], b = poly[(i + 1) % poly.length];
+      if ((a[0] - x) * (b[0] - x) <= 0 && a[0] !== b[0]) r.push(a[1] + (b[1] - a[1]) * (x - a[0]) / (b[0] - a[0]));
+    }
+    return r.sort((u, v) => u - v);
+  };
+  const dessusP = x => ysV(x, SIL_P)[0];                                   // le dessus du membre, en y
+  // les pièces du pouce (ses deux phalanges), pour faire passer la bande derrière lui
+  const PT_P = ['pouce.mcp', 'pouce.ip', 'pouce.bout'].map(k => versPro(M_PRO.articulations[k]));
+  const POUCE_P = pieces(M_PRO).slice(1).map(q => q.map(versPro)).filter(q => {
+    const xs = q.map(p => p[0]);
+    return Math.max(...xs) - Math.min(...xs) < 60 && [lerp(PT_P[0], PT_P[1], 0.5), lerp(PT_P[1], PT_P[2], 0.5)].some(t => dedans(t, q));
+  });
+  const pouceP = x => { const ys = POUCE_P.flatMap(q => ysV(x, q)); return ys.length ? [Math.min(...ys), Math.max(...ys)] : null; };
 
   // ─── les pièces communes ─────────────────────────────────────────────────────────────────
   const chaine = (pts, g) => pts.map(g.V);
@@ -138,16 +209,16 @@ module.exports = (h) => {
   // ─── l'écorce de l'attelle de pouce, dans le repère de la vue du dos (mm) ───────────────────
   const X_ECORCE = -174;                    // où la gouttière s'arrête sur l'avant-bras
   const Y_ECORCE = -10;                     // jusqu'où elle monte sur le dos du poignet
-  const S_FIN = 70;                         // où elle s'arrête sur le pouce (avant la jointure)
+  const S_FIN = LP[0] + LP[1] - 6;          // où elle s'arrête sur le pouce (avant la jointure)
   const OFF = 2.2;                          // l'épaisseur de l'écorce vue par la tranche
   const ecorcePouce = (() => {
-    const haut = [[X_ECORCE, -30.5 - OFF], [-130, -30.2 - OFF], [-100, -29.5 - OFF], bordP(0, 1, OFF)];
+    const haut = [[X_ECORCE, yPouce(X_ECORCE) - OFF], [-130, yPouce(-130) - OFF], [WX - 8, yPouce(WX - 8) - OFF], bordP(0, 1, OFF)];
     for (let s = 11; s <= S_FIN; s += 11.8) haut.push(bordP(s, 1, OFF));
     haut.push(bordP(S_FIN, 1, OFF));
     const q = surPouce(S_FIN + 1.8);
     const bout = [bordP(S_FIN, 1, OFF), add(q.p, mul(gau(q.u), 4)), q.p, add(q.p, mul(gau(q.u), -4)), bordP(S_FIN, -1, OFF)];
-    const bas = [bordP(S_FIN, -1, OFF), bordP(62, -1, OFF), bordP(54, -1, 1.2), bordP(44, -1, -0.5), bordP(30, -1, -1.5),
-      bordP(12, -1, -1.5), [-96, Y_ECORCE - 0.5], [-130, Y_ECORCE], [X_ECORCE, Y_ECORCE]];
+    const bas = [bordP(S_FIN, -1, OFF), bordP(S_FIN - 8, -1, OFF), bordP(S_FIN - 16, -1, 1.2), bordP(44, -1, -0.5), bordP(30, -1, -1.5),
+      bordP(12, -1, -1.5), [WX - 4, Y_ECORCE - 0.5], [-130, Y_ECORCE], [X_ECORCE, Y_ECORCE]];
     return { troncons: [haut, bout, bas], contour: [...haut, ...bout, ...bas] };
   })();
 
@@ -216,40 +287,11 @@ module.exports = (h) => {
   // ─── les tours de bande de l'attelle de poignet (repère de la vue du dos, mm) ─────────────────
   const TOURS = [-176, -144, -110];          // milieux des tours sur l'avant-bras
   const LARG = 15;
-  const LATTE = { x0: CUT, x1: -8, demi: 36, ep: 8 };   // la latte : jusque sous les jointures
+  const LATTE = { x0: CUT, x1: -8, demi: 47, ep: 8 };   // la latte : jusque sous les jointures, plus large que l'avant-bras
   const XC = -144;                           // la coupe C passe dans le tour du milieu
   const XB = -116;                           // la coupe B, dans le second tour de l'attelle de pouce
   const TOURS_POUCE = [-148, -116];
 
-
-  // ─── retouche des doigts vus du dos : les fentes s'arrêtent à la ligne des jointures ─────────
-  // Dans formes.main (appui/dos), deux doigts voisins se touchent presque : leurs bords
-  // convergent en une longue épine. On blanchit ces bords sur la première phalange et on les
-  // redessine : une petite commissure arrondie juste au-delà des jointures, puis les deux bords
-  // qui rejoignent le dessin d'origine.
-  const DGD = [['index', [0, -27.5], -2.5, 43, 19, 16.2], ['majeur', [4.5, -8.8], -0.3, 46, 19.5, 16.8],
-    ['annulaire', [1, 9.6], 2.2, 43, 18, 15.6], ['auriculaire', [-9, 26.8], 5.5, 34, 16, 13.6]];
-  const bordD = (i, side, x) => {
-    const [, P, a, L, e0, e1] = DGD[i], u = dirA(a), s = (x - P[0]) / u[0];
-    const w = 1.07 * (e0 + (e1 - e0) * s / L) / 2;
-    return add(add(P, mul(u, s)), mul([u[1], -u[0]], side * w));
-  };
-  const commissures = (g) => {
-    const out = [], e = g.e;
-    for (let i = 0; i < 3; i++) {
-      const xC = i === 2 ? 14 : 20, xJ = i === 2 ? 40 : 48, xM0 = xC - 9, xM1 = xC + 4;
-      const pas = (j, x0, x1) => Array.from({ length: 9 }, (_, k) => bordD(j, 0, x0 + (x1 - x0) * k / 8));
-      out.push(poly([...pas(i, xM0, xJ), ...pas(i + 1, xJ, xM0)].map(g.V), `fill="${B}" stroke="none"`));
-      const ym = (bordD(i, -1, xC)[1] + bordD(i + 1, 1, xC)[1]) / 2, gp = 1.1;
-      const A = [xC, ym - gp], Bp = [xC, ym + gp];
-      const aJ = bordD(i, -1, xJ), bJ = bordD(i + 1, 1, xJ);
-      const VA = g.V(A), VB = g.V(Bp), r = f(gp * e);
-      const ca = courbe([aJ, lerp(aJ, A, 0.5), A].map(g.V));
-      const cb = courbe([Bp, lerp(Bp, bJ, 0.5), bJ].map(g.V), false);
-      out.push(`<path d="${ca} A${r} ${r} 0 0 ${g.V([0, 1])[1] < g.V([0, 0])[1] ? 0 : 1} ${f(VB[0])} ${f(VB[1])} ${cb.replace(/^L[^C]*/, '')}" fill="none" stroke="${N}" stroke-width="1.4" stroke-linecap="round"/>`);
-    }
-    return out.join('\n');
-  };
 
   return {
     ref: '24-10',

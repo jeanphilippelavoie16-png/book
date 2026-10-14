@@ -4,9 +4,10 @@
 // marche sur le tas sur des planches, parce qu'un foin brûlé en dedans laisse une cavité sous une
 // croûte qui cède ; le tas monté sur un lit de pierres qui laisse passer l'air (étape 60).
 // Aucune autre mesure : le tas, la planche et le diamètre de la tige ne sont pas cotés.
-// 13 oct. : l'homme est le corps simple (pose « sonde ») ; les deux vues du bas sont des gros plans
-// de mains calquées, laissés tels quels pour la nouvelle bibliothèque. Rouge : le geste d'enfoncer,
-// la zone de la croûte qui cède.
+// 13 oct. : l'homme est le corps simple (pose « sonde »). Rouge : le geste d'enfoncer, la zone de la
+// croûte qui cède. 14 oct. : les deux vues du bas passent aux mains simples (mains/moteur.js), la même
+// main droite : détendue (relachee, de profil), le dos contre la tige, puis le poing (prise-manche vue
+// côté paume) ; toucher-retirer devient la flèche rouge du geste.
 module.exports = (h) => {
   const A = h.a, F = h.formes;
 
@@ -34,6 +35,31 @@ module.exports = (h) => {
     const ycoeur = yb - 1.25 * s;             // le cœur
     const ysom = ycoeur - 2.7 * s;            // le haut de la tige
     return { s, yg, yb, yt, ypl, ycoeur, ysom };
+  };
+
+  // Les mains simples (mains/moteur.js) des deux vues du bas, à une même échelle (0,716 par mm : la main de
+  // l'essai validé, 136 de long). poser : l'angle qui met l'axe de la prise sur `axe` (degrés à l'écran)
+  // et l'avant-bras du côté de `vers`.
+  const EM = 136 / 190;
+  const poser = (o, axe, vers) => {
+    const base = Object.assign({}, o, { angle: 0, avantbras: { longueur: 100 } }); delete base.objet;
+    const e0 = F.mainSimple(base); let best = null;
+    for (const k of [0, 180]) {
+      const a = axe - e0.prise.angle + k, m = F.mainSimple(Object.assign({}, base, { angle: a }));
+      const d = [m.coude[0] - m.poignet[0], m.coude[1] - m.poignet[1]], v = [vers[0] - m.poignet[0], vers[1] - m.poignet[1]];
+      const c = (d[0] * v[0] + d[1] * v[1]) / ((Math.hypot(d[0], d[1]) * Math.hypot(v[0], v[1])) || 1);
+      if (!best || c > best.c) best = { a, c };
+    }
+    return best.a;
+  };
+  // le dos de la main contre la tige : la main détendue (relachee), de profil côté pouce, les doigts en
+  // haut, repliés en cascade vers soi ; le dos de la main, droit, posé contre la tige
+  const mainDos = (z, xL, yh) => {
+    const o = { x: xL - 40, y: yh + 60, ancre: 'poignet', pose: 'relachee', vue: 'pouce', cote: 'droite', echelle: EM, angle: -90,
+      avantbras: { vers: [xL - 40, z.h + 400], bord: { x0: 0, y0: 0, x1: z.l, y1: z.h }, longueur: 'bord' } };
+    const m0 = F.mainSimple(o);
+    const a = m0.articulations['majeur.mcp'];
+    return F.mainSimple({ ...o, x: o.x + (xL - 0.6 - m0.boite.x1), y: o.y + (yh - a[1]) });
   };
 
   const TIGE = 4;                             // largeur dessinée de la tige dans la coupe
@@ -134,13 +160,9 @@ module.exports = (h) => {
           const bas = z.h - 18;
           return [
             h.path(`M${xr - D / 2} 2 L${xr - D / 2} ${bas - 3} Q${xr - D / 2} ${bas} ${xr - D / 2 + 3} ${bas} L${xr + D / 2 - 3} ${bas} Q${xr + D / 2} ${bas} ${xr + D / 2} ${bas - 3} L${xr + D / 2} 2`, A.hachure('metal', 'contour')),
-            // modèle s10-plat (la main à plat de côté), en miroir, les doigts en haut : le dos de la
-            // main, à la hauteur des jointures (110, 98,5), contre la tige ; l'avant-bras descend hors du cadre
-            F.modele('s10-plat', { x: xL - 0.8, y: yh - 12, ancre: [110, 98.5], angle: -90, miroir: true, echelle: 0.6 * 190 / 214,
-              masquer: [[228, 0, 245, 125]], bras: { a: [228, 57.6], a0: [210, 58.4], b: [228, 110.8], b0: [210, 108.8], bord: z } }),
-            // toucher, retirer : perpendiculaire à la tige
-            h.fleche(`M${xL - 92} ${yh + 6} L${xL - 64} ${yh + 6}`, A.arete),
-            h.fleche(`M${xL - 68} ${yh + 22} L${xL - 96} ${yh + 22}`, A.arete),
+            mainDos(z, xL, yh - 12).svg,
+            // toucher, retirer : perpendiculaire à la tige (le geste, charte : le rouge)
+            h.geste(`M${xL - 100} ${yh + 14} L${xL - 62} ${yh + 14}`, { double: true }),
           ].join('\n');
         },
         renvois: z => {
@@ -156,10 +178,11 @@ module.exports = (h) => {
           const xr = z.l * 0.58, yh = z.h * 0.46, D = 20;
           const bas = z.h - 18;
           const tige = h.path(`M${xr - D / 2} 2 L${xr - D / 2} ${bas - 3} Q${xr - D / 2} ${bas} ${xr - D / 2 + 3} ${bas} L${xr + D / 2 - 3} ${bas} Q${xr + D / 2} ${bas} ${xr + D / 2} ${bas - 3} L${xr + D / 2} 2`, A.hachure('metal', 'contour'));
-          // modèle s11 (poing fermé vu de la paume), main droite (miroir) tournée d'un quart : la tige
-          // verticale passe dans le poing (bâton du modèle ≈ 25 px = D), l'avant-bras sort à gauche
-          return [tige, F.modele('s11', { x: xr, y: yh, ancre: [68, 42], angle: 90, miroir: true, echelle: D / 25,
-            masquer: [[0, 150, 140, 175]], bras: { a: [21.8, 150], a0: [20.8, 135], b: [76.3, 150], b0: [76.2, 135], bord: z } })].join('\n');
+          // le poing (prise-manche vue côté paume) fermé sur la tige : elle entre par le haut du poing et
+          // ressort par le bas, derrière les doigts ; l'avant-bras sort à gauche
+          const o = { x: xr, y: yh, pose: 'prise-manche', vue: 'paume', cote: 'droite', echelle: EM, diametre: D / EM };
+          const vers = [-60, yh + 6];
+          return F.mainSimple({ ...o, angle: poser(o, 90, vers), objet: tige, avantbras: { vers, bord: { x0: 0, y0: 0, x1: z.l, y1: z.h }, longueur: 'bord' } }).svg;
         },
         renvois: z => {
           const xr = z.l * 0.58, yh = z.h * 0.46;
