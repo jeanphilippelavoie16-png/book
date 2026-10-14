@@ -265,7 +265,7 @@ CANDIDATS = {
         dict(planche='planche-109-12-tourniquet-espagnol.svg', vue='montage', vb=(45.7, 43.5, 588.6, 166.4), fic='trait-109-12',
              cap='Ch. 109 · Le tourniquet espagnol')],
 }
-CHOIX = {1: 1, 2: 1, 3: 1, 4: 1, 5: 1, 6: 1}
+CHOIX = {1: 2, 2: 1, 3: 1, 4: 1, 5: 1, 6: 1}   # tome 1 : le chalet (JP, 14 oct. : « non, une autre » pour la maison de blocs)
 
 def choisir(choix=None):
     """TRAIT : le candidat retenu pour chaque tome (CHOIX, ou les choix donnés)."""
