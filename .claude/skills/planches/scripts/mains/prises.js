@@ -635,7 +635,10 @@ function pouceVers(S, G, nG, obstacles, o = {}) {
 function pouceSurPhalanges(S, segsD, noms, o = {}) {
   const ss = noms.map(n => segsD.find(s => s.id === n));
   const mid = ss.map(s => I3(s.a, s.b, o.t || 0.5)).reduce((a, b) => A3(a, M3(b, 1 / ss.length)), [0, 0, 0]);
-  const out = orth(U3(S3(mid, [mid[0] - 30, mid[1], 0])), U3(S3(ss[0].b, ss[0].a)));
+  // o.flanc (0 à 1) : la pulpe vise le flanc radial de la phalange plutôt que sa face extérieure. Sur la face,
+  // le bout du pouce dépasse le dos du bloc des doigts de 10 à 12 mm et, de profil, sort comme un canon (pointe)
+  const out0 = orth(U3(S3(mid, [mid[0] - 30, mid[1], 0])), U3(S3(ss[0].b, ss[0].a)));
+  const out = o.flanc ? orth(U3(A3(M3(out0, 1 - o.flanc), M3(ss[0].c.r, o.flanc))), U3(S3(ss[0].b, ss[0].a))) : out0;
   const G = A3(A3(mid, M3(out, rayonVers(ss[0], 0.5, out) + 0.4)), M3(ss[0].c.r, -(o.decale || 0)));
   // l'IP du pouce au bord radial du premier doigt replié (le pouce longe ce doigt, puis sa dernière phalange
   // le croise vers la phalange visée) : c'est ce qui le couche au lieu de le dresser en piquet
@@ -748,7 +751,7 @@ const PRISES = {
     const replies = DOIGTS.filter(n => !tendus.includes(n));
     const segsR = segsDoigts(S, doigts, replies);
     if (o.pouce === 'ecarte') doigts.pouce = { opposition: 10, cmc: -18, rotation: 3, mcp: 6, ip: 6 };
-    else doigts.pouce = pouceSurPhalanges(S, segsR, [replies[0] + '.p2'], { t: 0.6, bord: replies[0] + '.p2' }).q;
+    else doigts.pouce = pouceSurPhalanges(S, segsR, [replies[0] + '.p2'], { t: 0.6, bord: replies[0] + '.p2', flanc: o.flanc !== undefined ? o.flanc : 0.6 }).q;
     let contact = null;
     if (o.appui) {
       const pp = pulpe(S, tendus[0], doigts[tendus[0]], 0.8);

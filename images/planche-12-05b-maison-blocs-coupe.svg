@@ -8,6 +8,7 @@
 <rect x="0" y="0" width="680" height="826" fill="#FFFFFF"/>
 <text x="40" y="38" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#1A1A1A">Dans l’axe du passage</text>
 <g transform="translate(40 46)" data-vue="coupe">
+<path d="M67.5 172.9 L69 169.7 L70.5 166.2 L72.4 161.4 L74.3 156.7 L76.2 151.9 L78.2 147.2 L80.2 142.5 L82.3 137.8 L84.4 133.1 L86.6 128.5 L88.8 123.9 L91.1 119.4 L93.5 114.9 L95.9 110.4 L98.4 106 L101 101.6 L103.6 97.3 L106.3 93.1 L109.1 88.9 L112 84.8 L115 80.8 L118.1 76.8 L121.2 73 L124.5 69.2 L127.8 65.6 L131.3 62.1 L134.9 58.8 L138.6 55.6 L142.3 52.6 L146.2 49.8 L150.2 47.1 L154.3 44.7 L158.5 42.5 L162.8 40.6 L167.2 38.9 L171.6 37.5 L176.1 36.4 L180.7 35.6 L185.3 35.2 L189.9 35 L189.9 35 L194.5 35.2 L199 35.6 L203.6 36.4 L208.1 37.5 L212.5 38.9 L216.9 40.6 L221.2 42.5 L225.4 44.7 L229.5 47.1 L233.5 49.8 L237.4 52.6 L241.2 55.6 L244.9 58.8 L248.4 62.1 L251.9 65.6 L255.3 69.2 L258.5 73 L261.7 76.8 L264.7 80.8 L267.7 84.8 L270.6 88.9 L273.4 93.1 L276.1 97.3 L278.8 101.6 L281.3 106 L283.8 110.4 L286.2 114.9 L288.6 119.4 L290.9 123.9 L293.1 128.5 L295.3 133.1 L297.5 137.8 L299.5 142.5 L301.6 147.2 L303.5 151.9 L305.5 156.7 L307.4 161.4 L309.2 166.2 L310.7 169.7 L312.2 172.9 L312.2 189.2 L330.2 189.2 L330.2 172.9 L328.4 167.3 L326.6 161.6 L324.9 157.2 L323.3 152.9 L321.6 148.7 L319.9 144.6 L318.2 140.4 L316.4 136.2 L314.6 132.1 L312.7 128 L310.8 123.8 L308.8 119.7 L306.8 115.7 L304.8 111.6 L302.7 107.5 L300.5 103.5 L459.1 103.5 L459.1 172.9 L540.7 172.9 L491.7 250.4 L312.2 250.4 L312.2 217.7 L157.2 217.7 L157.2 172.9 Z" fill="#E6E6E6" stroke="none"/>
 <path d="M26.7 172.9 L157.2 172.9 L157.2 217.7 L312.2 217.7 L312.2 250.4 L491.7 250.4 L540.7 172.9 L573.3 172.9 L573.3 283 L26.7 283 Z" fill="url(#h-neige)" stroke="none"/>
 <path d="M312.2 172.9 L330.2 172.9 L330.2 189.2 L312.2 189.2 Z" fill="url(#h-neige)" stroke="none"/>
 <path d="M26.7 172.9 L157.2 172.9 L157.2 217.7 L312.2 217.7 L312.2 250.4 L491.7 250.4 L540.7 172.9 L573.3 172.9" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
@@ -50,9 +51,12 @@
 <line x1="49.6" y1="176.7" x2="49.6" y2="188.7" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
 <line x1="67.5" y1="176.7" x2="67.5" y2="188.7" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
 <text x="58.5" y="197.7" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="3" stroke-linejoin="round" paint-order="stroke">200–250</text>
+<circle cx="231.1" cy="37.6" r="13" fill="none" stroke="#9B2C1E" stroke-width="1.6"/>
+<circle cx="530.9" cy="177.8" r="14" fill="none" stroke="#9B2C1E" stroke-width="1.6"/>
 </g>
 <text x="40" y="369.1" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#1A1A1A">Le passage, en travers</text>
 <g transform="translate(40 377.1)" data-vue="passage">
+<path d="M267.8 108.1 L267.8 195.6 L332.2 195.6 L332.2 108.1 L332.2 52.8 L332.1 50.6 L331.6 48.3 L330.9 46.1 L329.8 44 L328.4 42 L326.8 40 L324.9 38.2 L322.8 36.5 L320.5 35 L317.9 33.7 L315.2 32.5 L312.3 31.5 L309.4 30.8 L306.3 30.2 L303.2 29.9 L300 29.8 L300 29.8 L296.8 29.9 L293.7 30.2 L290.6 30.8 L287.7 31.5 L284.8 32.5 L282.1 33.7 L279.5 35 L277.2 36.5 L275.1 38.2 L273.2 40 L271.6 42 L270.2 44 L269.1 46.1 L268.4 48.3 L267.9 50.6 L267.8 52.8 Z" fill="#E6E6E6" stroke="none"/>
 <path d="M189.5 108.1 L267.8 108.1 L267.8 195.6 L332.2 195.6 L332.2 108.1 L410.5 108.1 L410.5 226 L189.5 226 Z" fill="url(#h-neige)" stroke="none"/>
 <path d="M189.5 108.1 L267.8 108.1 L267.8 195.6 L332.2 195.6 L332.2 108.1 L410.5 108.1" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M267.8 108.1 L247.5 108.1 L247.5 52.8 L267.8 52.8 Z" fill="url(#h-neige)" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round"/>

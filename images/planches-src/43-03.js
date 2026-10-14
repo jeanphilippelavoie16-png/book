@@ -19,6 +19,8 @@
 // Laissés de côté : l'écureuil roux et le rat musqué (le chapitre ne donne que des longueurs, ni
 // le nombre de doigts ni la forme), le canard et le tétras (aucune mesure dans le chapitre).
 // Toutes les empreintes ont les doigts vers le haut : la bête allait vers le haut de la page.
+// La charte (empreinte grandeur nature : pas de gris, pas de rouge) : le bord des pieds poilus du
+// lièvre et de la martre passe à 2,4, comme le contour des grands gabarits de la 43-01.
 module.exports = (h) => {
   const S = 680 / 167.2;                       // unités de vue par mm, à l'impression
   const f = (n) => (Math.round(n * 10) / 10).toFixed(1);
@@ -76,7 +78,7 @@ module.exports = (h) => {
   const LIEVRE_AV = miroir([[0, 31.25], [11, 29.8], [18.5, 24], [22.5, 13], [22, 1], [18.5, -12], [13, -23],
     [6.5, -29.8], [0, -31.25]]);
   // le creux du pied poilu est pointillé : c'est la surface que le pied a tassée
-  const pied = (ox, oy, contour, graine) => h.path(lisse(poilu(contour, 0.45, 2.2, graine).map(rep(ox, oy))), h.a.hachure('neige', 'arete'));
+  const pied = (ox, oy, contour, graine) => h.path(lisse(poilu(contour, 0.45, 2.2, graine).map(rep(ox, oy))), h.a.hachure('neige', 'contour'));
 
   // ─── Les mustélidés : cinq doigts un-trois-un, coussinet en chevron, griffes ───────────────────
   // En fraction de la largeur (u) et de la longueur (v) ; pied avant droit, petit doigt à gauche.
@@ -106,7 +108,7 @@ module.exports = (h) => {
   const MARTRE_POIL = miroir([[0, 0.5], [0.2, 0.48], [0.37, 0.39], [0.47, 0.22], [0.5, 0.02], [0.47, -0.18],
     [0.39, -0.36], [0.24, -0.47], [0, -0.5]]);
   const martre = (ox, oy) => [
-    h.path(lisse(poilu(MARTRE_POIL.map(([u, v]) => [u * 50, v * 55]), 0.4, 2, 5).map(rep(ox, oy))), h.a.hachure('neige', 'arete')),
+    h.path(lisse(poilu(MARTRE_POIL.map(([u, v]) => [u * 50, v * 55]), 0.4, 2, 5).map(rep(ox, oy))), h.a.hachure('neige', 'contour')),
     mustelide(ox, oy, 40, 44, true),
   ].join('\n');
 

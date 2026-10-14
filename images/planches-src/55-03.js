@@ -190,6 +190,11 @@ module.exports = (h) => {
             h.chemin(P([[0, 78], [0, 214]]), h.a.detail),
             h.chemin(P(lisse([[4, 84], [14, 120], [12, 180]])), h.a.detail),
             h.chemin(P(lisse([[-4, 84], [-14, 120], [-12, 180]])), h.a.detail),
+            // le fourreau est un tube : son côté droit, à l'ombre (sous le repli, au-dessus des rabats)
+            (() => {
+              const bord = lisse([[27, 220], [32, 232], [34, 280], [34, 330], [32, 368]]).filter(([, y]) => y >= 233 && y <= 356);
+              return h.chemin(P([...bord, ...bord.slice().reverse().map(([x, y]) => [x * 0.6, y])]), h.a.ombre, true);
+            })(),
             // le repli : la peau tourne sur elle-même
             h.ellipse(...T([0, 226]), 30 * s, 5 * s, h.a.arete),
             // cuir
@@ -198,7 +203,8 @@ module.exports = (h) => {
               [[-8, 326], [0, 334], [7, 330]], [[-20, 350], [-12, 356]], [[14, 348], [22, 354]]]
               .map(l => h.chemin(P(lisse(l)), h.a.detail)),
             h.path(baton, h.a.blanc), h.path(baton, h.a.arete),
-            h.fleche(fleche(1)), h.fleche(fleche(-1)),
+            // le geste : tirer à deux mains, vers la tête
+            h.geste(fleche(1)), h.geste(fleche(-1)),
           ].join('\n');
         },
         renvois: z => {

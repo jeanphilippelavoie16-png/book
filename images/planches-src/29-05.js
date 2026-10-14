@@ -15,6 +15,11 @@
 // le dit en entier. Le renvoi 5 aboutit sur le devant du cou étiré.
 // Le bébé est dessiné à la main (la bibliothèque n'a pas de nouveau-né), en mm : 118 de l'occiput
 // au front, visage petit sous un gros crâne, cou court, poitrine de 95 d'épaisseur.
+//
+// La charte : le bébé est un corps dessiné à la main, laissé tel quel, sans gris. Le linge roulé,
+// ce qu'on ajoute, pèse (contour fort). Pas de gris sur la planche, qui est en coupe. Le rouge :
+// sur le raté, le cercle sur la gorge qui se referme ; en soufflant, le cercle sur la poitrine qui
+// doit se soulever. La flèche de la poitrine reste noire : c'est le corps qui bouge, pas un geste.
 module.exports = (h) => {
   const A = h.a;
   const f = v => (Math.round(v * 10) / 10).toString();
@@ -121,7 +126,7 @@ module.exports = (h) => {
         const rr = 2.2 + (r - 3.4 - 2.2) * t / (2.4 * 360);
         sp.push(V(add(c, [rr * Math.cos(t * RAD), rr * Math.sin(t * RAD)])));
       }
-      out.push(h.cercle(...V(c), r * k, blanc(A.arete)));
+      out.push(h.cercle(...V(c), r * k, blanc(A.contour)));
       out.push(h.path(lisse(sp), A.detail));
     }
     // la couverture : du bas de la poitrine aux pieds (les bras sont dessous)
@@ -208,7 +213,8 @@ module.exports = (h) => {
     const v = vignette(z, A0, CADRE_P, XP, { poitrine: true });
     const y0 = surFace(X_FL)[1];
     const fl = [v.V([X_FL, y0 - 6]), v.V([X_FL, y0 - 30])];
-    return [v.svg, h.fleche(`M${pt(fl[0])} L${pt(fl[1])}`, A.arete)].join('\n');
+    const pc = v.V([120, leve([120, -109])[1] + 2]);   // ce qu'on regarde à chaque bouffée
+    return [v.svg, h.fleche(`M${pt(fl[0])} L${pt(fl[1])}`, A.arete), h.controle(pc[0], pc[1], 15)].join('\n');
   };
 
   // ─── Souffler, vu d'en haut : le visage du bébé couché, de face, et l'anneau des lèvres de
@@ -283,7 +289,10 @@ module.exports = (h) => {
       },
       rate: {
         titre: 'Raté : la tête renversée',
-        dessin: z => vignette(z, A_RATE, CADRE, XC).svg,
+        dessin: z => {
+          const g = posC(z, mil(poseTete(A_RATE)(GORGE), FACE[0]));   // là où la gorge se referme
+          return vignette(z, A_RATE, CADRE, XC).svg + '\n' + h.controle(g[0], g[1] + 6, 16);
+        },
         renvois: z => [
           // sur le devant du cou étiré, entre le menton et le haut de la poitrine
           { n: 5, rond: posC(z, [120, -146]), cible: posC(z, mil(poseTete(A_RATE)(GORGE), FACE[0])), texte: 'la gorge se referme' },

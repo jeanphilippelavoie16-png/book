@@ -3,6 +3,7 @@
 <desc>Trois vues. Une martre sur le dos, avec le tracé du dépouillement en fourreau : chaque talon arrière cerné, un trait de chaque talon à l’anus par la face interne de la patte, l’anus et ses deux glandes à musc cernés large, le ventre fermé. La même bête pendue la tête en bas par un bâton passé dans les jarrets, la peau retournée vers la tête comme un bas, cuir dehors. Un loup sur le dos, avec le tracé à plat : du menton à l’anus, et le long de la face interne des quatre membres. Encadré danger : les œufs d’Echinococcus autour de l’anus.</desc>
 <defs>
 <marker id="fl" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#1A1A1A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker>
+<marker id="fl-r" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9 Z" fill="#9B2C1E" stroke="#9B2C1E" stroke-width="1" stroke-linejoin="round"/></marker>
 </defs>
 <rect x="0" y="0" width="680" height="826" fill="#FFFFFF"/>
 <text x="40" y="38" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#1A1A1A">En fourreau</text>
@@ -82,6 +83,7 @@
 <path d="M79 148.7 L79 281.8" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M82.9 154.6 L83.7 157.2 L84.9 160.4 L86.4 164.2 L87.9 168.5 L89.5 173.4 L90.8 178.5 L92 184.1 L92.7 189.8 L93 196.4 L93 204.2 L92.7 212.7 L92.3 221.4 L91.8 229.8 L91.4 237.4 L91 243.8 L90.7 248.5" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M75.1 154.6 L74.3 157.2 L73.1 160.4 L71.6 164.2 L70.1 168.5 L68.5 173.4 L67.2 178.5 L66 184.1 L65.3 189.8 L65 196.4 L65 204.2 L65.3 212.7 L65.7 221.4 L66.2 229.8 L66.6 237.4 L67 243.8 L67.3 248.5" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M110.7 303.6 L111.1 308.6 L111.3 314.4 L111.6 320.6 L111.8 327.1 L112 333.7 L112.1 340.2 L112.3 346.4 L112.4 352.5 L112.5 358.8 L112.5 365.1 L112.5 371.5 L112.5 377.7 L112.5 383.9 L112.4 389.7 L112.3 395.3 L112.1 400.8 L111.9 406.3 L111.6 411.7 L111.3 417 L98.4 417 L98.6 411.7 L98.7 406.3 L98.9 400.8 L99 395.3 L99 389.7 L99.1 383.9 L99.1 377.7 L99.1 371.5 L99.1 365.1 L99.1 358.8 L99 352.5 L99 346.4 L98.9 340.2 L98.8 333.7 L98.7 327.1 L98.6 320.6 L98.4 314.4 L98.2 308.6 L98 303.6 Z" fill="#CFCFCF" stroke="none"/>
 <ellipse cx="79" cy="293.5" rx="29.4" ry="4.9" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M55.5 309.2 L56.4 309.6 L57.5 310.3 L58.9 311.1 L60.3 311.9 L61.9 312.7 L63.5 313.4 L65 313.9 L66.3 314.1 L67.5 314 L68.8 313.6 L70.1 313.1 L71.4 312.4 L72.5 311.8 L73.5 311.1 L74.4 310.5 L75.1 310.2" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M84.9 312.1 L85.6 312.5 L86.7 313 L87.9 313.7 L89.2 314.4 L90.6 315.1 L92 315.6 L93.4 316 L94.7 316.1 L95.9 315.8 L97.1 315.3 L98.4 314.6 L99.7 313.9 L100.8 313 L101.9 312.2 L102.8 311.6 L103.5 311.2" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
@@ -92,8 +94,8 @@
 <path d="M92.7 412.9 L93.4 413.4 L94.3 414.1 L95.4 415 L96.6 415.9 L97.8 416.8 L98.9 417.6 L99.9 418.3 L100.5 418.8" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M14.4,67.5 L143.6,67.5 A4.9,4.9 0 0 1 143.6,77.3 L14.4,77.3 A4.9,4.9 0 0 1 14.4,67.5 Z" fill="#FFFFFF" stroke="none"/>
 <path d="M14.4,67.5 L143.6,67.5 A4.9,4.9 0 0 1 143.6,77.3 L14.4,77.3 A4.9,4.9 0 0 1 14.4,67.5 Z" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M126.0,317.0 L126.0,401.2" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl)"/>
-<path d="M32.0,317.0 L32.0,401.2" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl)"/>
+<path d="M126.0,317.0 L126.0,401.2" fill="none" stroke="#9B2C1E" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl-r)"/>
+<path d="M32.0,317.0 L32.0,401.2" fill="none" stroke="#9B2C1E" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl-r)"/>
 </g>
 <text x="419.4" y="38" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#1A1A1A">À plat</text>
 <g transform="translate(419.4 46)" data-vue="aplat">
