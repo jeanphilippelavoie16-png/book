@@ -6,9 +6,9 @@
 // on ne souffle que l'air des joues gonflées, jamais celui de la poitrine (trop d'air déchire
 // les poumons) ; la poitrine se soulève à chaque bouffée.
 // Rien ne se construit : aucune cote. Le chapitre ne donne pas l'épaisseur du rouleau.
-// Passe qualité (lot 07) : la tête de l'aide de profil ne se lisait pas. Le geste se montre
-// maintenant par le visage du bébé vu d'en haut, avec l'anneau des lèvres de l'aide qui enferme
-// ensemble le nez et la bouche ; la poitrine qui monte se montre à côté, de profil. Le bras (un
+// Passe qualité (lot 07) : la tête de l'aide de profil, dessinée à la main, ne se lisait pas ; le
+// geste était passé au visage du bébé vu d'en haut. Le 14 octobre, JP l'a remis de profil, avec la
+// tête de la bibliothèque (plus bas). La poitrine qui monte se montre à côté, de profil. Le bras (un
 // boudin qui se confondait avec le rouleau) est retiré : il est sous la couverture. Le visage de
 // profil a un nez court et rond, les lèvres fermées, un menton et un œil fermé. Le renvoi
 // « l'air des joues, rien de plus » n'a plus de cible sans la tête de l'aide : l'encadré danger
@@ -16,7 +16,12 @@
 // Le bébé est dessiné à la main (la bibliothèque n'a pas de nouveau-né), en mm : 118 de l'occiput
 // au front, visage petit sous un gros crâne, cou court, poitrine de 95 d'épaisseur.
 //
-// La charte : le bébé est un corps dessiné à la main, laissé tel quel, sans gris. Le linge roulé,
+// Passe de profil (JP, 14 octobre) : « souffler, vu d'en haut » devient « bouche sur bouche et
+// nez », de profil : le bébé de la tête droite en gros plan, et la tête de l'aide (bibliothèque de
+// formes) penchée dessus, ses lèvres sur le nez et la bouche du bébé. Sur le raté, le contour de la
+// tête part maintenant du point où le dos s'attache : la nuque ne pend plus au milieu du cou.
+//
+// La charte : le bébé est un corps dessiné à la main, sans gris. Le linge roulé,
 // ce qu'on ajoute, pèse (contour fort). Pas de gris sur la planche, qui est en coupe. Le rouge :
 // sur le raté, le cercle sur la gorge qui se referme ; en soufflant, le cercle sur la poitrine qui
 // doit se soulever. La flèche de la poitrine reste noire : c'est le corps qui bouge, pas un geste.
@@ -226,12 +231,18 @@ module.exports = (h) => {
   // lèvres couvrent ensemble le nez et la bouche du bébé. La tête de l'aide est peinte après le
   // bébé : son blanc cache le nez et la bouche qu'elle couvre.
   const XS = 118, CADRE_D = [-150, XS + 2, -336, 34];
-  const BOUCHE = [20, -133];                   // le point de la bouche de l'aide, entre le nez et les lèvres du bébé
-  const BOUCHE_TETE = [35.5, 100.5];           // la bouche de la tête, tournée de -90° en miroir, depuis son repère
+  // La bouche de l'aide descend sur le nez et les lèvres du bébé ; la tête penche de 30° pour que son
+  // nez passe au-dessus de l'œil du bébé, et son menton au-dessus du cou.
+  const BOUCHE = [19, -121];                   // le point de la bouche de l'aide, en mm du bébé
+  const ANG_AIDE = -60;
+  const BOUCHE_TETE = (() => {                 // la bouche de la tête (en miroir, tournée), depuis son repère
+    const b = [-100.5, 35.5], c = Math.cos(ANG_AIDE * RAD), sn = Math.sin(ANG_AIDE * RAD);
+    return [b[0] * c - b[1] * sn, b[0] * sn + b[1] * c];
+  })();
   const dessus = z => {
     const v = vignette(z, A0, CADRE_D, XS);
     const ancre = v.V([BOUCHE[0] - BOUCHE_TETE[0], BOUCHE[1] - BOUCHE_TETE[1]]);
-    const aide = h.formes.tete({ x: ancre[0], y: ancre[1], echelle: v.k, angle: -90, cote: 'gauche', age: 'adulte' });
+    const aide = h.formes.tete({ x: ancre[0], y: ancre[1], echelle: v.k, angle: ANG_AIDE, cote: 'gauche', age: 'adulte' });
     return `<clipPath id="vue-2905-souffler"><rect x="0" y="0" width="${f(z.l)}" height="${f(z.h)}" fill="#FFFFFF"/></clipPath>\n` +
       `<g clip-path="url(#vue-2905-souffler)">\n${v.svg}\n${aide}\n</g>`;
   };
@@ -240,7 +251,7 @@ module.exports = (h) => {
   return {
     ref: '29-05',
     titre: 'Ventiler un nouveau-né',
-    desc: 'Quatre vues d’un nouveau-né couché sur le dos sur une planche couverte d’un linge chaud, le ventre et les jambes sous une couverture, la poitrine découverte. En haut à gauche, de profil, le bon placement : une serviette roulée, vue par le bout, sous les épaules ; la tête posée droite, le nez vers le plafond. En haut à droite, le même bébé, la tête renversée loin en arrière, le menton pointé vers le haut et le devant du cou étiré : le raté, qui referme la gorge. En bas à gauche, le visage du bébé vu d’en haut, les yeux fermés : un anneau épais, les lèvres de l’aide, enferme ensemble son nez et sa bouche. En bas à droite, le bébé de profil, la tête droite : un tireté et une flèche montrent la poitrine qui se soulève à chaque bouffée. Encadré danger : jamais l’air de la poitrine.',
+    desc: 'Quatre vues d’un nouveau-né couché sur le dos sur une planche couverte d’un linge chaud, le ventre et les jambes sous une couverture, la poitrine découverte. En haut à gauche, de profil, le bon placement : une serviette roulée, vue par le bout, sous les épaules ; la tête posée droite, le nez vers le plafond. En haut à droite, le même bébé, la tête renversée loin en arrière, le menton pointé vers le haut et le devant du cou étiré : le raté, qui referme la gorge. En bas à gauche, de profil et de plus près, la tête de l’aide penchée sur le bébé : ses lèvres couvrent ensemble le nez et la bouche du bébé. En bas à droite, le bébé de profil, la tête droite : un tireté et une flèche montrent la poitrine qui se soulève à chaque bouffée. Encadré danger : jamais l’air de la poitrine.',
     format: 'pleine',
     disposition: [['bon', 'rate'], ['dessus', 'souffler']],
     hauteurs: [37, 63],
@@ -271,7 +282,9 @@ module.exports = (h) => {
         titre: 'Bouche sur bouche et nez',
         dessin: dessus,
         renvois: z => [
-          { n: 6, rond: posD(z, [96, -128]), cible: posD(z, [30, -131]), texte: 'bouche sur bouche et nez' },
+          // la pastille dans le blanc entre le front de l'aide et le crâne du bébé ; la cible, là où
+          // la lèvre du haut de l'aide se pose sur le nez du bébé
+          { n: 6, rond: [86, 183], cible: [131, 196], texte: 'bouche sur bouche et nez' },
         ],
       },
       souffler: {

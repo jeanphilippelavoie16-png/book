@@ -11,6 +11,11 @@
 // couvercle bombé est à sa place sur le rebord, sa lèvre entre dans le chaudron ; la tôle plate
 // repose sur le sommet du dôme et porte la braise, qui glisserait sur le dôme nu. Le couvercle
 // se soulève à plat, tôle et braise dessus : rien ne tombe dans le chaudron.
+//
+// La charte : le creux du chaudron, vu par la coupe, en gris loin (la miche s'y détache) ; de
+// trois quarts, l'intérieur du chaudron ouvert en gris loin et son flanc droit à l'ombre. Pas de
+// gris sur les vues d'en haut. Le rouge : les deux quarts de tour, en sens contraire (c'est le
+// geste, et l'opposition est ce qu'il faut voir) ; les flèches qui soulèvent restent noires.
 
 module.exports = (h) => {
   const f = v => Math.round(v * 10) / 10;
@@ -91,6 +96,14 @@ module.exports = (h) => {
     // la couronne de braise, coupée : une braise de chaque côté, sous le bord ; rien au centre
     [-1, 1].forEach(s => out.push(braise(cx + s * rCouronne * R, yG - g.ry * 0.9, g.rx, g.ry, s * 0.08)));
 
+    // le creux du chaudron, vu par la coupe : gris loin, peint avant la fonte et le couvercle
+    {
+      const lx0 = R - t - 5, ep0 = Math.max(5, Math.round(t * 0.8));
+      out.push(h.path([
+        `M ${f(cx - R + t)} ${f(yB - t)} L ${f(cx - R + t)} ${f(yR + 7)} L ${f(cx - lx0)} ${f(yR + 7)} L ${f(cx - lx0)} ${f(yR)}`,
+        `C ${f(cx - lx0 * 0.72)} ${f(yR - (dh - ep0) * 4 / 3)} ${f(cx + lx0 * 0.72)} ${f(yR - (dh - ep0) * 4 / 3)} ${f(cx + lx0)} ${f(yR)}`,
+        `L ${f(cx + lx0)} ${f(yR + 7)} L ${f(cx + R - t)} ${f(yR + 7)} L ${f(cx + R - t)} ${f(yB - t)} Z`].join(' '), h.a.loin));
+    }
     // le chaudron, coupé : un U de fonte épaisse
     const rc = Math.round(R * 0.12), ri = rc - t * 0.6;
     const pot = [
@@ -194,9 +207,15 @@ module.exports = (h) => {
 
     // le chaudron : le corps, les oreilles, le rebord et l'épaisseur de sa paroi
     const corps = `M ${f(cx - Rr)} ${f(yR)} L ${f(cx - Rr)} ${f(yBot)} A ${f(Rr)} ${f(Rr * k)} 0 0 0 ${f(cx + Rr)} ${f(yBot)} L ${f(cx + Rr)} ${f(yR)} Z`;
-    out.push(h.path(corps, blancContour));
+    // le flanc droit à l'ombre : de x = cx + 0,55 R au bord, jusqu'au bas arrondi
+    const xo = cx + Rr * 0.55, yo = yBot + Rr * k * Math.sqrt(1 - 0.55 * 0.55);
+    out.push(h.path(corps, h.a.blanc));
+    out.push(h.path(`M ${f(xo)} ${f(yR)} L ${f(xo)} ${f(yo)} A ${f(Rr)} ${f(Rr * k)} 0 0 0 ${f(cx + Rr)} ${f(yBot)} L ${f(cx + Rr)} ${f(yR)} Z`, h.a.ombre));
+    out.push(h.path(corps, h.a.contour));
     [-1, 1].forEach(sg => out.push(h.path(`M ${f(cx + sg * Rr)} ${f(yR + 3)} L ${f(cx + sg * (Rr + 7))} ${f(yR + 5)} Q ${f(cx + sg * (Rr + 10))} ${f(yR + 8)} ${f(cx + sg * (Rr + 7))} ${f(yR + 11)} L ${f(cx + sg * Rr)} ${f(yR + 13)} Z`, blancArete)));
     out.push(h.ellipse(cx, yR, Rr, Rr * k, blancArete));
+    // l'intérieur, vu par l'ouverture : gris loin
+    out.push(h.ellipse(cx, yR, Rr - 5, (Rr - 5) * k, h.a.loin));
     out.push(h.ellipse(cx, yR, Rr - 5, (Rr - 5) * k, h.a.detail));
 
     // le couvercle, soulevé à plat : sa tranche, son dôme (silhouette calculée, h = dh·(1 − r²))
@@ -237,17 +256,18 @@ module.exports = (h) => {
     couronne.filter(([, v]) => v >= 0).forEach(p => out.push(braiseSol(p)));
 
     const fl = d => [h.path(d, halo), h.fleche(d, h.a.arete)].join('\n');
+    const geste = d => h.geste(d);
     // on soulève : le chaudron au-dessus de sa couronne, le couvercle à plat
     const xs = cx + Rr + 18;
     out.push(fl(`M ${f(xs)} ${f(yBot + 2)} L ${f(xs)} ${f(yBot - 22)}`));
     out.push(fl(`M ${f(xs)} ${f(yLr + 6)} L ${f(xs)} ${f(yLr - 16)}`));
     // le chaudron : un quart de tour, l'avant va de gauche à droite
     const yM = yR + Hb * 0.62, aC = Rr + 10;
-    out.push(fl(arcEllipse(cx, yM, aC, aC * k, 135, 45)));
+    out.push(geste(arcEllipse(cx, yM, aC, aC * k, 135, 45)));
     // le couvercle : un quart de tour dans l'autre sens, l'avant va de droite à gauche ; la
     // flèche passe dans le jour entre le couvercle soulevé et le chaudron
     const yL = yLr + 2, aL = Rr + 8;
-    out.push(fl(arcEllipse(cx, yL, aL, aL * k, 60, 125)));
+    out.push(geste(arcEllipse(cx, yL, aL, aL * k, 60, 125)));
     return out.join('\n');
   };
 

@@ -3,6 +3,9 @@
 // Chaque vue a son repère en unités de modèle, mis à l'échelle de la vue par rep().
 // Aucune cote : le chapitre ne donne aucune mesure de ces outils, seulement « au diamètre du
 // tuyau » et « un peu plus large que le conduit », que le dessin montre au tireté.
+// La charte : les perches du manche et le manchon, vus en élévation, ont leur dessous à l'ombre.
+// Le rouge : les deux flèches du pli, les deux moitiés des brins rabattues d'un même geste (deux
+// marques, une vue). Pas de point à contrôler : le chapitre n'en nomme pas.
 
 const f = v => Math.round(v * 10) / 10;
 const blanc = at => at.replace('fill="none"', 'fill="#FFFFFF"');
@@ -95,7 +98,14 @@ module.exports = (h) => {
       const w = Math.sin(i * 1.7 + graine) * 0.7;
       haut.push(P(x, yc - r + w)); bas.push(P(x, yc + r + w * 0.6));
     }
-    const o = [h.chemin(haut.concat(bas.reverse()), blanc(h.a.contour), true)];
+    // le dessous de la perche, à l'ombre : du tiers bas jusqu'au contour
+    const mi = [];
+    for (let i = 0; i <= n; i++) {
+      const x = x0 + (x1 - x0) * i / n, r = r0 + (r1 - r0) * i / n;
+      mi.push(P(x, yc + r * 0.38 + Math.sin(i * 1.7 + graine) * 0.4));
+    }
+    const sil = haut.concat(bas.slice().reverse());
+    const o = [h.chemin(sil, h.a.blanc, true), h.chemin(mi.concat(bas.slice().reverse()), h.a.ombre, true), h.chemin(sil, h.a.contour, true)];
     o.push(h.path(trace(P, [['M', x0 + 12, yc - 4], ['Q', (x0 + x1) / 2, yc - 7, x1 - 14, yc - 3]]), h.a.fin));
     o.push(h.path(trace(P, [['M', x0 + 30, yc + 6], ['Q', (x0 + x1) / 2, yc + 4, x1 - 30, yc + 7]]), h.a.fin));
     return o.join('\n');
@@ -122,8 +132,8 @@ module.exports = (h) => {
             const y = 94 + i * 2.8;
             o.push(h.chemin([P(C1 - 46, y + (i - 2.5) * 0.9), P(C1 + 46, y - (i - 2.5) * 0.6)], h.a.detail));
           }
-          o.push(h.fleche(trace(P, [['M', C1 - 50, 116], ['Q', C1 - 50, 150, C1 - 22, 160]])));
-          o.push(h.fleche(trace(P, [['M', C1 + 50, 116], ['Q', C1 + 50, 150, C1 + 22, 160]])));
+          o.push(h.geste(trace(P, [['M', C1 - 50, 116], ['Q', C1 - 50, 150, C1 - 22, 160]])));
+          o.push(h.geste(trace(P, [['M', C1 + 50, 116], ['Q', C1 + 50, 150, C1 + 22, 160]])));
           // 2. pliés en deux autour de la tige, serrés sur le pli
           o.push(tige(P, C2), plie(P, C2, 139), broche(P, C2));
           // 3. ouverts en goupillon, un peu plus large que le conduit (tireté)
@@ -254,7 +264,9 @@ module.exports = (h) => {
             o.push(perche(P, 8, 176, yc, 15, 14, yc), perche(P, 176, 352, yc, 14, 12.5, yc + 2));
             o.push(bout(P, 8, yc, 15), bout(P, 352, yc + 0.5, 12.5));
             o.push(noeud(P, 62, yc - 3), noeud(P, 300, yc + 4));
-            o.push(h.rect(...P(128, yc - 18), 94 * P.s, 36 * P.s, blanc(h.a.contour)));
+            o.push(h.rect(...P(128, yc - 18), 94 * P.s, 36 * P.s, h.a.blanc));
+            o.push(h.rect(...P(128, yc + 6), 94 * P.s, 12 * P.s, h.a.ombre));   // le dessous du manchon, à l'ombre
+            o.push(h.rect(...P(128, yc - 18), 94 * P.s, 36 * P.s, h.a.contour));
             o.push(h.ligne(...P(128, yc - 14.5), ...P(222, yc - 14.5), h.a.cache));
             o.push(h.ligne(...P(128, yc + 14), ...P(222, yc + 14), h.a.cache));
             o.push(h.ligne(...P(176, yc - 14.5), ...P(176, yc + 14), h.a.cache));

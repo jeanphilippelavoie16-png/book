@@ -9,6 +9,9 @@
 // jeunes arbres fendus ; le tout lié à la racine.
 // Le sens des plis (tous rabattus vers la droite) n'est pas dans le chapitre : un pli doit bien
 // se rabattre d'un côté ou de l'autre, le dessin en choisit un.
+// La charte : la coque garde son contour fort de côté et de dessus ; de côté, le dessous de la
+// coque à l'ombre. Pas de gris sur le plan de dessus ni sur la demi-coupe hachurée. Pas de rouge :
+// c'est un montage, sans geste ni point que le chapitre dit de vérifier.
 
 module.exports = (h) => {
   const f = n => Math.round(n * 10) / 10;
@@ -105,6 +108,11 @@ module.exports = (h) => {
     const quille = samp(u => [X(u), yK(u)], uk, -uk, 100);
     const coque = haut.concat(ed.slice(1), quille.slice(1), eg.slice().reverse().slice(1, -1));
     o.push(h.path(D(coque, true), h.a.blanc));
+    // La charte : le dessous de la coque, qui tourne vers le fond, à l'ombre (lumière en haut à
+    // gauche). Une bande qui s'amincit jusqu'au pied de chaque étrave.
+    const tO = u => 1 - 0.22 * Math.sqrt(Math.max(0, 1 - (u / uk) * (u / uk)));
+    const ombre = samp(u => P(u, tO(u)), -uk, uk, 80).concat(samp(u => [X(u), yK(u)], uk, -uk, 80).slice(1, -1));
+    o.push(h.path(D(ombre, true), h.a.ombre));
     // Le fil de l'écorce, dans la longueur.
     [0.27, 0.5, 0.73].forEach((t, k) => {
       let u = -0.8 + rnd() * 0.05;
@@ -246,7 +254,7 @@ module.exports = (h) => {
   }
   function contenu(g, det) {
     const { cx, yT, yB, eb, R, rg, tt, xb, xg, yc, rr, xe } = g, o = [];
-    const bois = det ? 'fill="url(#h90-bois3)" stroke="#000" stroke-width="1.4" stroke-linejoin="round"' : h.a.hachure('bois');
+    const bois = h.a.hachure('bois');
     // La membrure, forcée contre l'écorce, sa tête sous le plat-bord.
     const yM = yc + rr + tt / 2 + 1.5;
     const ligne = R.filter(p => p[1] >= yM || p[0] < xg - rg);
@@ -279,6 +287,15 @@ module.exports = (h) => {
     if (det) o.push(racine);
     return o.join('\n');
   }
+  // Grossit un fragment SVG : coordonnées des chemins, cercles, rectangles et lignes.
+  function grossir(svg, T, K) {
+    const P = (a, b) => T([+a, +b]).map(f);
+    return svg
+      .replace(/ d="([^"]*)"/g, (m, d) => ` d="${d.replace(/(-?\d*\.?\d+)\s+(-?\d*\.?\d+)/g, (q, a, b) => P(a, b).join(' '))}"`)
+      .replace(/cx="([^"]*)" cy="([^"]*)" r="([^"]*)"/g, (m, a, b, r) => { const [x, y] = P(a, b); return `cx="${x}" cy="${y}" r="${f(r * K)}"`; })
+      .replace(/x="([^"]*)" y="([^"]*)" width="([^"]*)" height="([^"]*)"/g, (m, a, b, w, hh) => { const [x, y] = P(a, b); return `x="${x}" y="${y}" width="${f(w * K)}" height="${f(hh * K)}"`; })
+      .replace(/x1="([^"]*)" y1="([^"]*)" x2="([^"]*)" y2="([^"]*)"/g, (m, a, b, c, d) => { const [x1, y1] = P(a, b), [x2, y2] = P(c, d); return `x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}"`; });
+  }
   function coupe(z) {
     const g = gK(z), { cx, yT, yB, K, rD, sx, sy, xD, yD } = g, o = [];
     // L'axe du canot.
@@ -290,12 +307,12 @@ module.exports = (h) => {
     const ang = Math.atan2(yD - sy, xD - sx);
     o.push(h.ligne(f(sx + Math.cos(ang) * rs), f(sy + Math.sin(ang) * rs), f(xD - Math.cos(ang) * rD), f(yD - Math.sin(ang) * rD), h.a.fin));
     // Le détail grossi : traits ramenés à leur épaisseur, hachure à son pas.
-    const dedans = contenu(g, true).replace(/stroke-width="([\d.]+)"/g, (m, v) => `stroke-width="${f(v / K)}"`)
-      .replace(/stroke-dasharray="[^"]*"/g, m => m);
-    o.push(`<defs><pattern id="h90-bois3" width="2" height="2" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="2" stroke="#000" stroke-width="${f(0.7 / K * 100) / 100}"/></pattern>`
-      + `<clipPath id="c90-07a-det"><circle cx="${f(xD)}" cy="${f(yD)}" r="${rD}"/></clipPath></defs>`);
+    // Les coordonnées sont grossies, pas le trait : chaque trait garde son épaisseur, la hachure
+    // son pas (un scale() aurait mis des traits de 0,2 dans le fichier).
+    const dedans = grossir(contenu(g, true), g.T, K);
+    o.push(`<defs><clipPath id="k90-07a-det"><circle cx="${f(xD)}" cy="${f(yD)}" r="${rD}"/></clipPath></defs>`);
     o.push(h.cercle(f(xD), f(yD), rD, h.a.blanc));
-    o.push(`<g clip-path="url(#c90-07a-det)"><g transform="translate(${f(xD)} ${f(yD)}) scale(${K}) translate(${f(-sx)} ${f(-sy)})">${dedans}</g></g>`);
+    o.push(`<g clip-path="url(#k90-07a-det)">${dedans}</g>`);
     o.push(h.cercle(f(xD), f(yD), rD, h.a.arete));
     return o.join('\n');
   }

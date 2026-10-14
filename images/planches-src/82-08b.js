@@ -2,6 +2,10 @@
 // au miroir ; ch. 15, « Le ramonage sans brosse »). Page a : les écouvillons et le manche.
 // Le poêle, la buse et le tuyau sont les mêmes dans les deux vues du haut, à la même échelle.
 // Aucune cote : le chapitre ne donne que « la buse et le premier mètre », dit dans la légende.
+// La charte : le poêle, la buse et le tuyau sont en coupe, leur intérieur en gris loin ; la section
+// démontée, ouverte en long, montre l'intérieur de sa moitié arrière, en gris loin aussi. Le rouge :
+// le va-et-vient de l'écouvillon (les deux flèches noires deviennent une seule flèche double), la
+// barre qu'on tire, et le miroir, où l'on doit voir le ciel. Le jour qui descend reste noir.
 
 const f = v => Math.round(v * 10) / 10;
 const blanc = at => at.replace('fill="none"', 'fill="#FFFFFF"');
@@ -69,17 +73,18 @@ module.exports = (h) => {
   // x0 : devant du poêle (la porte), X : axe de la buse, sol : dessus du plancher
   const poele = (P, x0, X, haut, sol, porte, largeur = 110, corps = 72) => {
     const o = [];
-    o.push(h.rect(...P(x0, haut), largeur * P.s, corps * P.s, blanc(h.a.contour)));
+    o.push(h.rect(...P(x0, haut), largeur * P.s, corps * P.s, h.a.loin));     // l'intérieur, vu par la coupe
+    o.push(h.rect(...P(x0, haut), largeur * P.s, corps * P.s, h.a.contour));
     o.push(h.rect(...P(x0 - 2, porte[0]), 4 * P.s, (porte[1] - porte[0]) * P.s, h.a.blanc));
     o.push(h.ligne(...P(x0 - 5, porte[0]), ...P(x0 + 2, porte[0]), h.a.arete), h.ligne(...P(x0 - 5, porte[1]), ...P(x0 + 2, porte[1]), h.a.arete));
     for (const lx of [x0 + 6, x0 + largeur - 12])
       o.push(h.rect(...P(lx, haut + corps), 6 * P.s, (sol - haut - corps) * P.s, blanc(h.a.arete)));
-    o.push(h.rect(...P(X - 14, haut - 12), 28 * P.s, 12 * P.s, blanc(h.a.arete)));
+    o.push(h.rect(...P(X - 14, haut - 12), 28 * P.s, 12 * P.s, h.a.loin), h.rect(...P(X - 14, haut - 12), 28 * P.s, 12 * P.s, h.a.arete));
     return o.join('\n');
   };
   const plancher = (P, x0, x1, sol) => h.rect(...P(x0, sol), (x1 - x0) * P.s, 9 * P.s, h.a.hachure('bois', 'arete'));
   const tuyau = (P, X, y0, y1) => [
-    h.rect(...P(X - 12, y0), 24 * P.s, (y1 - y0) * P.s, h.a.blanc),
+    h.rect(...P(X - 12, y0), 24 * P.s, (y1 - y0) * P.s, h.a.loin),
     h.ligne(...P(X - 12, y0), ...P(X - 12, y1), h.a.contour),
     h.ligne(...P(X + 12, y0), ...P(X + 12, y1), h.a.contour),
   ].join('\n');
@@ -134,7 +139,7 @@ module.exports = (h) => {
           // l'écouvillon, et la corde du haut jusqu'au toit
           o.push(corde(h, P, [[X, 0], [X, 178.5]]));
           o.push(goupillon(P, X, 208));
-          o.push(h.fleche(trace(P, [['M', X - 26, 218], ['L', X - 26, 180]])), h.fleche(trace(P, [['M', X - 34, 180], ['L', X - 34, 218]])));
+          o.push(h.geste(trace(P, [['M', X - 30, 220], ['L', X - 30, 178]]), { double: true }));
           return o.join('\n');
         },
         renvois: z => {
@@ -190,7 +195,7 @@ module.exports = (h) => {
               `<line x1="${f(sx)}" y1="${f(sy)}" x2="${f(bx8)}" y2="${f(by8)}" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>`,
               `<circle cx="${f(bx8)}" cy="${f(by8)}" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>`); }
           // on pousse, on tire
-          o.push(h.fleche(trace(P, [['M', X - 26, 214], ['L', X - 26, 176]])), h.fleche(trace(P, [['M', X - 34, 176], ['L', X - 34, 214]])));
+          o.push(h.geste(trace(P, [['M', X - 30, 216], ['L', X - 30, 174]]), { double: true }));
           return o.join('\n');
         },
         renvois: z => {
@@ -214,7 +219,7 @@ module.exports = (h) => {
           o.push(h.rect(...P(14, 136), 262 * P.s, 4 * P.s, blanc(h.a.arete)));
           // la section, coupée en long ; le bout serti à gauche
           // moitié avant enlevée : on voit l'intérieur de la moitié arrière, les deux bords coupés en trait fort
-          o.push(h.rect(...P(xg + 12, C - R), (xd - xg - 12) * P.s, 2 * R * P.s, h.a.blanc));
+          o.push(h.rect(...P(xg + 12, C - R), (xd - xg - 12) * P.s, 2 * R * P.s, h.a.loin));   // l'intérieur de la moitié arrière
           for (const dy of [-0.8, -0.55, 0.55, 0.8]) o.push(h.ligne(...P(xg + 14, C + dy * R), ...P(xd - 2, C + dy * R), h.a.fin));
           o.push(h.path(trace(P, [['M', xd, C - R], ['Q', xd + 8, C, xd, C + R]]), h.a.arete));
           o.push(h.path(trace(P, [['M', xg, C - R + 3], ['Q', xg - 5, C, xg, C + R - 3]]), h.a.detail));
@@ -227,7 +232,7 @@ module.exports = (h) => {
           o.push(h.path(trace(P, [['M', 101, C + R], ['Q', 104, C + R - 7, 111, C + R - 6], ['Q', 117, C + R - 5, 119, C + R], ['Z']]), h.a.plein));
           // la barre plate, le bout replié d'équerre : tirée vers soi, l'arête mord en avant
           o.push(bande(h, P, [[296, 96], [xd, 104], [97, 121], [99.5, C + R - 2]], 1.6, blanc(h.a.arete)));
-          o.push(h.fleche(trace(P, [['M', 262, 86], ['L', 300, 81]])));
+          o.push(h.geste(trace(P, [['M', 262, 86], ['L', 300, 81]])));
           // ce qui tombe se ramasse sur la tôle
           for (const [x, y, r, a] of [[242, 124, 1.6, 0.4], [247, 131, 1.4, 1.5]]) o.push(eclat(h, P, x, y, r, a));
           o.push(h.path(trace(P, [['M', 238, 136], ['Q', 246, 129, 256, 131], ['Q', 264, 132, 268, 136], ['Z']]), h.a.plein));
@@ -264,6 +269,8 @@ module.exports = (h) => {
           o.push(bande(h, P, [[118, 131], [141, 113.5]], 1.4, blanc(h.a.arete)));
           // le jour qui descend du tuyau et revient à l'œil
           o.push(h.fleche(trace(P, [['M', X, 2], ['L', X, 121.7], ['L', 10, 90.6]]), h.a.cache));
+          // le point à contrôler : dans le miroir, on doit voir le ciel
+          o.push(h.controle(...P(129.5, 122.3), 15 * P.s));
           return o.join('\n');
         },
         renvois: z => {

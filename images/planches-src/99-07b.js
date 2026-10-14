@@ -49,6 +49,8 @@ const planche = (h) => {
     // sevrer : le trait de coupe entre le plant et la marcotte
     const c = O.aX([[20, -10.5], [28, -8], [35, -4], [41, -1.3]], X_SEVRE);
     out.push(O.traitCoupe(P, c.p, c.u, 8));
+    // déterrer : le geste, en rouge, entre les deux pousses (charte)
+    out.push(h.geste(`M ${pt(P(74.5, -14))} L ${pt(P(74.5, -36))}`));
     return out.join('\n');
   };
 
@@ -65,7 +67,7 @@ const planche = (h) => {
     MORCEAUX(O.RB).forEach((m, i) => {
       const Pi = P(i);
       for (const [x, t, g] of TOUFFES) if (x > m.x[0] && x < m.x[1]) out.push(O.racines(Pi, x, 0, g, t, false));
-      out.push(O.tube(Pi, m.pts, m.w[0], m.w[1]));
+      out.push(O.tube(Pi, m.pts, m.w[0], m.w[1], 2.4));       // l'objet de la vue : contour à 2,4
       if (i < 2) out.push(tige(Pi, O.POUSSES.longues[i], { ep: 1.4, debut: 12, pas: 7, L: 5, feuillesDes: 12 }));
       else out.push(tige(Pi, BOUT, { ep: 1.4, debut: 4, pas: 7, L: 5, impair: true }));
     });
@@ -100,7 +102,7 @@ const planche = (h) => {
           const a = P(0)(77, -O.RB);
           return [
             { n: 4, rond: [a[0] + 20, z.h - 14], cible: [a[0] - 1, a[1] + 1], texte: 'couper entre deux paquets de racines' },
-            { n: 5, rond: [z.l - 16, P(1)(0, -30)[1]], cible: P(1)(87.5, -24), texte: 'chaque morceau : des racines et une pousse' },
+            { n: 5, rond: [z.l - 16, P(1)(0, -36)[1]], cible: P(1)(87.5, -24), texte: 'chaque morceau : des racines et une pousse' },
           ];
         },
       },
