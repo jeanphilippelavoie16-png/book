@@ -9,6 +9,10 @@
 // Le canot est retourné (étape 11) : la pièce est dessus, côté extérieur de la coque.
 // Géométrie du plan, en diamètres de rivet d : fissure de 12 d (L), pièce de 24 d (2 L) sur
 // 8,4 d, rangs à 2,1 d de la fissure et du bord, six rivets par côté au pas de 3 d.
+// La charte : la pièce garde son contour fort sur le plan ; le rivet de fil, objet de la
+// dernière vue, passe au contour fort, la hache et le marteau restent à l'arête. Pas de gris :
+// le plan et le bout de fissure sont à plat, la coupe est hachurée. Le rouge : les deux coups de
+// marteau (le geste), et le trou d'arrêt au vrai bout (le point à vérifier).
 
 module.exports = (h) => {
   const f = (v) => Math.round(v * 10) / 10;
@@ -85,7 +89,7 @@ module.exports = (h) => {
     return o;
   }
   // Rivet de fil : fût de diamètre d ; haut et bas 'tete' (matté) ou longueur qui dépasse.
-  function rivet(P, s, xr, haut, bas) {
+  function rivet(P, s, xr, haut, bas, tr = h.a.arete) {
     const L = (x, y) => P(xr + x, y).map(f).join(' ');
     let d = `M ${L(-0.5, -0.6)}`;
     if (haut === 'tete') d += ` L ${L(-0.85, -0.6)} C ${L(-0.95, -0.75)} ${L(-0.9, -1.05)} ${L(-0.55, -1.05)} L ${L(0.55, -1.05)} C ${L(0.9, -1.05)} ${L(0.95, -0.75)} ${L(0.85, -0.6)} L ${L(0.5, -0.6)}`;
@@ -94,7 +98,7 @@ module.exports = (h) => {
     if (bas === 'tete') d += ` L ${L(0.85, 0.3)} C ${L(0.95, 0.45)} ${L(0.9, 0.75)} ${L(0.55, 0.75)} L ${L(-0.55, 0.75)} C ${L(-0.9, 0.75)} ${L(-0.95, 0.45)} ${L(-0.85, 0.3)} L ${L(-0.5, 0.3)}`;
     else d += ` L ${L(0.5, 0.3 + bas)} L ${L(-0.5, 0.3 + bas)} L ${L(-0.5, 0.3)}`;
     d += ' Z';
-    return [h.path(d, h.a.blanc), h.path(d, h.a.arete)];
+    return [h.path(d, h.a.blanc), h.path(d, tr)];
   }
 
   // ─── Vue 1 : vu de dessus ──────────────────────────────────────────────────────────
@@ -186,6 +190,8 @@ module.exports = (h) => {
     o.push(h.ligne(xl - 7, yb, xl - 30, yc - 30, h.a.cache), h.ligne(xl + 7, yb, xl + 30, yc - 30, h.a.cache));
     // trou d'arrêt percé au vrai bout
     o.push(h.cercle(xt, yj(xt), 5, h.a.plein));
+    // le point à vérifier : le trou percé au vrai bout, pas sur la dernière trace visible
+    o.push(h.controle(xt, yj(xt), 11));
     // lampe, couchée bas sur la tôle
     const Lm = z.h - 8 - yh;
     const lampe = `M ${f(xl - 10)} ${f(yh)} L ${f(xl + 10)} ${f(yh)} L ${f(xl + 10)} ${f(yh + 4)} L ${f(xl + 6)} ${f(yh + 11)} L ${f(xl + 6)} ${f(yh + Lm - 4)} Q ${f(xl + 6)} ${f(yh + Lm)} ${f(xl + 2)} ${f(yh + Lm)} L ${f(xl - 2)} ${f(yh + Lm)} Q ${f(xl - 6)} ${f(yh + Lm)} ${f(xl - 6)} ${f(yh + Lm - 4)} L ${f(xl - 6)} ${f(yh + 11)} L ${f(xl - 10)} ${f(yh + 4)} Z`;
@@ -218,7 +224,7 @@ module.exports = (h) => {
     const manche = `M ${L(0.5, Math.min(ya, yb))} L ${L(4.4, Math.min(ya, yb) + 0.03)} Q ${L(4.62, (ya + yb) / 2)} ${L(4.4, Math.max(ya, yb) - 0.03)} L ${L(0.5, Math.max(ya, yb))}`;
     const fl = [P(-1.25, Y(1.9)), P(-1.25, Y(0.15))];
     return [h.path(manche, h.a.blanc), h.path(manche, h.a.arete), h.path(tete, h.a.blanc), h.path(tete, h.a.arete),
-      h.fleche(`M ${fl[0].map(f).join(' ')} L ${fl[1].map(f).join(' ')}`)];
+      h.geste(`M ${fl[0].map(f).join(' ')} L ${fl[1].map(f).join(' ')}`)];
   }
   function fil(z) {
     const { s, P } = geomFil(z), o = [];
@@ -226,19 +232,19 @@ module.exports = (h) => {
     // 1 : le bout de fil coupé à longueur, dans le trou
     const P1 = P(0);
     o.push(...empilement(P1, s, { ...pile }).map(t => t));
-    o.push(...rivet(P1, s, 0, 1.3, 1.3));
+    o.push(...rivet(P1, s, 0, 1.3, 1.3, h.a.contour));
     const yd = P1(0, -1.9)[1] - 12;
     [-0.5, 0.5].forEach(x => o.push(h.ligne(P1(x, 0)[0], P1(0, -1.9)[1] - 3, P1(x, 0)[0], yd - 5, h.a.fin)));
     o.push(h.cote(P1(-0.5, 0)[0], yd, P1(0.5, 0)[0], yd, 'd'));
     // 2 : la hache dessous, le marteau dessus
     const P2 = P(1);
     o.push(...empilement(P2, s, { ...pile }));
-    o.push(...rivet(P2, s, 0, 'tete', 1.3));
+    o.push(...rivet(P2, s, 0, 'tete', 1.3, h.a.contour));
     o.push(...hache(P2, 1), ...marteau(P2, 1));
     // 3 : on inverse, la seconde tête
     const P3 = P(2);
     o.push(...empilement(P3, s, { ...pile }));
-    o.push(...rivet(P3, s, 0, 'tete', 'tete'));
+    o.push(...rivet(P3, s, 0, 'tete', 'tete', h.a.contour));
     o.push(...hache(P3, -1), ...marteau(P3, -1));
     return o.join('\n');
   }

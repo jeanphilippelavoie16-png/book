@@ -1,11 +1,11 @@
 // Planche 28-06 — Laver un œil qui colle (ch. 28, étape 45, et « Laver un œil et une peau sans
-// produit »). Le bol d'eau bouillie refroidie et les cotons ; puis le haut du visage vu de face,
-// les deux yeux fermés et collés : un coton sur chaque œil, chacun passé du coin du nez vers le
-// coin extérieur. Pas de main : le coton en place et la flèche du geste.
+// produit »). Le bol d'eau bouillie refroidie et les cotons ; puis la tête de profil, un coton
+// sur l'œil, passé du coin du nez vers le coin extérieur. Pas de main : le coton en place et la flèche du geste.
 //
-// La charte : le bol pèse (contour fort) et sa face de droite est à l'ombre. Rien de gris sur le
-// visage, qui est un corps (dessiné à la main, laissé tel quel). Le rouge : le passage du coton,
-// du coin du nez vers le coin extérieur, une flèche sous chaque œil.
+// La charte : le bol pèse (contour fort) et sa face de droite est à l'ombre. Rien de gris sur la
+// tête, qui est un corps. Le rouge : le passage du coton, du coin du nez vers le coin extérieur.
+// Le visage de face est passé de profil (JP, 14 octobre) : la tête de la bibliothèque, un seul
+// œil ; « l'autre œil, un autre coton » pointe le second coton du bol.
 module.exports = (h) => {
   const f = (v) => Math.round(v * 10) / 10;
 
@@ -55,7 +55,7 @@ module.exports = (h) => {
   // extérieur (vers l'oreille). L'autre œil passe par le renvoi 5, sur le second coton du bol.
   // La tête entière, du sommet au menton ; le bas de la vue coupe le cou, que la tête de la
   // bibliothèque laisse de toute façon ouvert.
-  const R_COTON = 11;                      // mm : une boule de coton d'un peu plus de 2 cm
+  const R_COTON = 12.5;                    // mm : une boule de coton de 2,5 cm
   const FEN = [-96, -140, 124, 108];        // la fenêtre, en mm de tête
   const geoV = (z) => {
     const e = Math.min(z.l / (FEN[2] - FEN[0]), z.h / (FEN[3] - FEN[1]));
@@ -105,7 +105,7 @@ module.exports = (h) => {
   return {
     ref: '28-06',
     titre: 'Laver un œil qui colle',
-    desc: 'À gauche, un bol d’eau bouillie refroidie et deux boules de coton neuves, une par œil. À droite, le haut d’un visage vu de face, les deux yeux fermés. Sur l’œil de gauche, un premier coton a fait la moitié du chemin depuis le coin du nez ; sur l’œil de droite, un autre coton part du coin du nez. Sous chaque œil, une flèche va du coin du nez vers le coin extérieur.',
+    desc: 'À gauche, un bol d’eau bouillie refroidie et deux boules de coton neuves, une par œil. À droite, une tête de profil : un coton posé sur l’œil, et sous l’œil une flèche qui va du coin du nez vers le coin extérieur, vers l’oreille. Le second coton du bol est pour l’autre œil.',
     fichier: 'planche-28-06-laver-un-oeil-qui-colle.svg',
     format: 'demi',
     disposition: [['bol', 'visage']],

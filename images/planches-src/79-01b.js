@@ -1,4 +1,8 @@
 // Planche 79-01b — la cave de talus : les assemblages (toit, pied de paroi, conduit, porte).
+// La charte : les coupes hachurées restent sans gris ; l'argile, qui était un gris hors palette,
+// prend la trame serrée de l'argile du livre (la même qu'à la 96-07). Le billot du conduit, vu en
+// élévation, a sa face de droite à l'ombre. Le rouge : le bout de l'écorce, qui doit égoutter
+// au-delà de l'isolant (un isolant mouillé conduit). Pas de geste.
 module.exports = (h) => {
   const A = h.a;
   const zone = (pts, nom, t = 'arete') => h.chemin(pts, A.blanc, true) + '\n' + h.chemin(pts, A.hachure(nom, t), true);
@@ -46,12 +50,16 @@ module.exports = (h) => {
     o.push(h.fleche('M254 166 L254 184', A.cache));
     // argile compactée en pente, sous la neige
     // gris plein clair, sans trame : ne se confond ni avec la terre (tirets) ni avec la neige (points)
-    o.push(h.chemin([[0, argT(0)], [346, argT(346)], [346, argB(346)], [0, argB(0)]], 'fill="#D4D4D4" stroke="none"', true));
+    o.push(`<defs><pattern id="p7901b-argile" width="3" height="3" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)"><line x1="0" y1="0" x2="0" y2="3" stroke="#1A1A1A" stroke-width="0.5"/></pattern></defs>`);
+    o.push(h.chemin([[0, argT(0)], [346, argT(346)], [346, argB(346)], [0, argB(0)]], A.blanc, true));
+    o.push(h.chemin([[0, argT(0)], [346, argT(346)], [346, argB(346)], [0, argB(0)]], 'fill="url(#p7901b-argile)" stroke="none"', true));
     o.push(h.ligne(0, argB(0), 346, argB(346), A.arete));
     // neige
     o.push(h.chemin([...neige, [346, argT(346)], [0, argT(0)]], A.hachure('neige', 'aucun'), true));
     o.push(h.ligne(0, argT(0), 346, argT(346), A.arete));
     o.push(h.chemin(neige, A.arete));
+    // le point qui décide : l'écorce égoutte au-delà de l'isolant
+    o.push(h.controle(240, 167, 16));
     return o.join('\n');
   };
 
@@ -93,6 +101,8 @@ module.exports = (h) => {
   const conduit = () => {
     const o = [];
     o.push(h.rect(50, 24, 46, 202, A.blanc));
+    // la face de droite du billot, à l'ombre
+    o.push(h.path('M84 24 L96 24 L96 226 A23 7 0 0 1 84 232.1 Z', A.ombre));
     o.push(h.ligne(61, 31, 61, 226, A.cache), h.ligne(85, 31, 85, 226, A.cache));
     o.push(h.ligne(73, 31, 73, 233, A.detail));
     for (const y of [70, 128, 186]) for (const d of [-3, 0, 3]) o.push(h.path(`M50 ${y + d} Q73 ${y + d + 5} 96 ${y + d}`, A.detail));
@@ -155,7 +165,7 @@ module.exports = (h) => {
         renvois: z => [
           { n: 3, rond: [292, 244], cible: [226.6, 244], texte: 'isolant sec en couches croisées' },
           { n: 4, rond: [298, 176], cible: [255, 158], texte: 'écorce en bardeaux, qui égoutte' },
-          { n: 5, rond: [326, 138], cible: [322, 118], texte: 'argile compactée en pente' },
+          { n: 5, rond: [326, 150], cible: [322, 118], texte: 'argile compactée en pente' },
           { n: 6, rond: [150, 22], cible: [150, 70], texte: 'neige pelletée sur le toit' },
         ],
       },

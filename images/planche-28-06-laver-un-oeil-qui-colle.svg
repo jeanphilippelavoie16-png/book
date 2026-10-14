@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="680" height="413" viewBox="0 0 680 413" role="img">
 <title>Planche 28-06 — Laver un œil qui colle</title>
-<desc>À gauche, un bol d’eau bouillie refroidie et deux boules de coton neuves, une par œil. À droite, le haut d’un visage vu de face, les deux yeux fermés. Sur l’œil de gauche, un premier coton a fait la moitié du chemin depuis le coin du nez ; sur l’œil de droite, un autre coton part du coin du nez. Sous chaque œil, une flèche va du coin du nez vers le coin extérieur.</desc>
+<desc>À gauche, un bol d’eau bouillie refroidie et deux boules de coton neuves, une par œil. À droite, une tête de profil : un coton posé sur l’œil, et sous l’œil une flèche qui va du coin du nez vers le coin extérieur, vers l’oreille. Le second coton du bol est pour l’autre œil.</desc>
 <defs>
 <pattern id="h-eau" width="16" height="7" patternUnits="userSpaceOnUse"><line x1="1" y1="2" x2="8" y2="2" stroke="#1A1A1A" stroke-width="0.5"/><line x1="9" y1="5.5" x2="15" y2="5.5" stroke="#1A1A1A" stroke-width="0.5"/></pattern>
 <marker id="fl-r" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9 Z" fill="#9B2C1E" stroke="#9B2C1E" stroke-width="1" stroke-linejoin="round"/></marker>
@@ -46,9 +46,9 @@
 <path d="M195 109.6 C190.1 110 183.8 108.3 180.1 111 C175.8 114.2 173 123.2 172.2 129.8 C171.3 136.6 173.1 145 175.6 151.4 C177.9 157.4 182.3 166.4 186.1 167.3 C188.9 168 192.1 163.9 195 162.1" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M192.1 122.6 C188.3 126.9 181.5 130.8 180.8 135.6 C180.1 140.4 185.7 146.1 188.1 151.4" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
 </g></g>
-<path d="M 280.2 113.6 Q 283.4 117.2 279.2 120.1 Q 280.1 125.2 275.4 125.6 Q 272.3 129.1 268.7 125.7 Q 263.9 127.2 262.7 122.6 Q 258.6 120.3 261.9 116.1 Q 259 111.6 263.1 109.5 Q 264.9 105.2 269.6 107.1 Q 273.6 104.1 276.1 108.2 Q 280.9 108.8 280.2 113.6 Z" fill="#fff" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M 265.3 117.6 q 2.2 -4.4 5.5 -2.2" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M 271.3 121.5 q 3.3 -1.1 4.9 -4.4" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 281.4 113.2 Q 285.2 117.2 280.3 120.6 Q 281.3 126.3 276.1 126.9 Q 272.5 130.9 268.4 126.9 Q 262.9 128.7 261.6 123.4 Q 256.9 120.8 260.7 116 Q 257.4 110.9 262.1 108.5 Q 264.1 103.7 269.4 105.9 Q 273.9 102.4 276.8 107.1 Q 282.2 107.8 281.4 113.2 Z" fill="#fff" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 264.5 117.8 q 2.5 -5 6.2 -2.5" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 271.4 122.1 q 3.7 -1.2 5.6 -5" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M 291.7 130.5 C 289.7 131.6 284.3 136.2 279.7 137.4 C 275.1 138.7 269.4 138.9 263.8 137.9 C 258.1 137 248.8 133 245.8 132" fill="none" stroke="#9B2C1E" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl-r)"/>
 </g>
 <line x1="90.6" y1="66.8" x2="108" y2="100.8" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
@@ -66,9 +66,9 @@
 <circle cx="151.5" cy="215" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
 <circle cx="158.5" cy="245" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="bol"/>
 <text x="158.5" y="249" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">5</text>
-<line x1="557.9" y1="83.8" x2="504.4" y2="132.3" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
-<line x1="557.9" y1="83.8" x2="504.4" y2="132.3" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
-<circle cx="504.4" cy="132.3" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
+<line x1="557.9" y1="83.8" x2="505.3" y2="131.2" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+<line x1="557.9" y1="83.8" x2="505.3" y2="131.2" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
+<circle cx="505.3" cy="131.2" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
 <circle cx="564.6" cy="77.8" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="visage"/>
 <text x="564.6" y="81.8" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">3</text>
 <line x1="557.3" y1="198" x2="506.8" y2="161.4" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>

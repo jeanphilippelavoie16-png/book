@@ -16,6 +16,11 @@
 // façon ordinaire de lier : le chapitre dit « liée », il ne dit pas comment.
 // Repère de la béquille : u le long de la perche, du bout (0) vers le haut (L) ; v en travers,
 // dans le plan de la fourche. Sur la planche, le pied est à gauche et le haut à droite.
+//
+// La charte : la perche, sa fourche et la traverse au trait fort ; dans la vue sur la neige, la face de droite de la perche à l'ombre ; ailleurs, la
+// perche et les branches sont trop minces ou couvertes de ligatures, et les vues de dessus
+// restent à plat. Pas de rouge : aucun geste à flécher, et la seule mesure à vérifier, la
+// longueur, est déjà cotée.
 module.exports = (h) => {
   const A = h.a, F = h.formes;
   const f = v => Math.round(v * 10) / 10;
@@ -89,7 +94,7 @@ module.exports = (h) => {
         out.push(h.path(dP(Mp(lisse([[u - 4, v0 + dv], [u + 1.5, v0 + dv + s * 2.2], [u + 7, v0 + dv], [u + 1.5, v0 + dv - s * 2.2], [u - 4, v0 + dv]], 4)), true), A.fin));
       }
     }
-    out.push(h.path(dP(Mp(silhouette), true), blanc(at)));
+    out.push(h.path(dP(Mp(silhouette), true), blanc(A.contour)));   // la perche et sa fourche : le trait fort
     out.push(h.path(dP(Mp([[0, -16], [0, 16]])), at));
     out.push(h.path(dP(Mp([[L - 27, -20], [L - 27, 20]])), at));
     if (o.ecorce) {   // les rides d'écorce sous la fourche
@@ -101,7 +106,7 @@ module.exports = (h) => {
       for (const du of [-12, -9, 9, 12]) out.push(h.path(dP(Mp([[uR + du, -16], [uR + du + 1.5, 16]])), det));
     }
     if (o.traverse !== false) {
-      out.push(h.path(dP(Mp([[uC - 11, -100], [uC + 11, -100], [uC + 11, 100], [uC - 11, 100]]), true), blanc(at)));
+      out.push(h.path(dP(Mp([[uC - 11, -100], [uC + 11, -100], [uC + 11, 100], [uC - 11, 100]]), true), blanc(A.contour)));
       if (o.ligatures !== false) for (const s of [1, -1]) {
         const vm = s * VM;
         for (const dir of [1, -1]) for (const k of [-4.5, 0, 4.5])
@@ -337,7 +342,10 @@ module.exports = (h) => {
             out.push(h.path(dP([Q(-16, uR - 6), Q(-16, 0), Q(16, 0), Q(16, uR - 6)]), A.cache));
             // la perche, cassée en haut
             const haut = uR + 95;
-            out.push(h.path(dP([Q(-16, uR - 6), Q(-15.7, haut - 4), Q(15.7, haut + 4), Q(16, uR - 6)], true), blanc(A.arete)));
+            const perche = [Q(-16, uR - 6), Q(-15.7, haut - 4), Q(15.7, haut + 4), Q(16, uR - 6)];
+            out.push(h.path(dP(perche, true), A.blanc));
+            out.push(decoupe(h.path(dP([Q(6, uR - 6), Q(6, haut + 10), Q(20, haut + 10), Q(20, uR - 6)], true), A.ombre), [perche]));
+            out.push(h.path(dP(perche, true), A.arete));
             out.push(h.path(dP(lisse([Q(-15.7, haut - 4), Q(-6, haut + 3), Q(5, haut - 3), Q(15.7, haut + 4)], 5)), A.detail));
             // les tours du laçage sur la perche, et l'anneau par la tranche
             for (const du of [9, 13, 17]) out.push(tour(Q(-18, uR + du - 1), Q(18, uR + du + 1), 3 * s));

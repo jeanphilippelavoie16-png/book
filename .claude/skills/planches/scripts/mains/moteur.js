@@ -1183,9 +1183,13 @@ function construire(o, prep = null) {
       cGarde = Math.sign(dot(sub(p2(sq.points['majeur.mcp']), finL[0]), nFin)) || 1;
     }
     const auDela = q => nFin !== null && dot(sub(q, finL[0]), nFin) * cGarde < 0;
+    // toute la section au-delà de la droite (ses deux bords, vus) : une droite en biais coupe un bord plus loin que
+    // l'axe, et le membre arrêté trop tôt y laissait un chanfrein
+    const sectionAuDela = (c, d, w) => { const q = p2(c), t = p2(d), lt = lon(t), nn = lt > 1e-6 ? [-t[1] / lt, t[0] / lt] : [0, 0]; return auDela(add(q, mul(nn, w))) && auDela(add(q, mul(nn, -w))); };
     if (nFin && !bras) {
-      const A = axe.find(A => auDela(p2(A.c)));
-      if (A && A.s < LA - 1) { Ldes = Math.max(10, Math.min(LA, A.s + 20 * kL0)); parFin = true; }
+      const A = axe.find(A => sectionAuDela(A.c, A.d, 52 * kW));
+      if (A && A.s < LA - 1) { Ldes = Math.max(10, Math.min(LA, A.s + 4)); parFin = true; }
+      else if (!A && axe.some(A => auDela(p2(A.c)))) { Ldes = LA; parFin = true; }
     }
     const entier = !bras && !parFin && Ldes >= LA - 0.5;
     // les demi-axes le long du membre (s : mm depuis le poignet ; au-delà de LA, le bras) ; avec le bras, le coude
@@ -1251,7 +1255,7 @@ function construire(o, prep = null) {
         if (t !== null) LBd = t / kB + 15 * kL0;
       }
       if (nFin) {
-        for (let s_ = 0; s_ <= 1.6 * LB; s_ += 2) if (auDela(add(e2, mul(dBv, s_ * kB)))) { LBd = s_ + 20 * kL0; parFin = true; break; }
+        for (let s_ = 0; s_ <= 1.6 * LB; s_ += 2) if (sectionAuDela(a3(cE, m3(dB3, s_)), dB3, 56 * kW)) { LBd = s_ + 4; parFin = true; break; }
       }
       LBd = Math.max(10, Math.min(LBd, 1.6 * LB));
       const nE = qE.fr.n, frEn = d => { const n = orth(transporte(nE, dA3, d), d); return { r: x3(n, m3(d, -1)), n }; };
@@ -1947,7 +1951,9 @@ function rendre(R, o, { Tloc, s, m, ang, ab }) {
   // une main loin (grise) ferme sa coupe : un aplat gris sans bord se lit comme une tache (agent 5, M8)
   // (sauf sur une droite de fin : elle est le bord commun des deux mains, ouvert pour l'une comme pour l'autre)
   const franche = (ab && ab.coupe === 'franche') || (o.loin && !(ab && (ab.coupe === 'ouverte' || ab.fin)));
-  if (coupe && coupe.region && !coupe.plein && !franche) silh = lignesHors(silh, decale(coupe.region, 0.4));
+  // (les bords s'arrêtent à un demi-trait de la coupe : leur bout rond ne dépasse pas l'aplat ; deux mains coupées à
+  // la même droite de fin, celui de la main du dessous pointait sous la coupe de celle du dessus)
+  if (coupe && coupe.region && !coupe.plein && !franche) silh = lignesHors(silh, decale(coupe.region, 0.4 + tr.sil / 2 / s));
   const coupeTrait = coupe && coupe.region && franche ? lignesDans(contourDe(U), decale(coupe.region, 0.4)) : [];
   if (coupeTrait.length) silh = lignesHors(silh, decale(coupe.region, 0.4));
 

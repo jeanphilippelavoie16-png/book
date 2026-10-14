@@ -96,10 +96,13 @@ module.exports = (h) => {
     const Th = poseTete(a);
     const P = pts => pts.map(V);
     const out = [];
-    // le haut du dos part du point de la nuque le plus proche des épaules
-    const arriere = echant(TETE.slice(0, 3).map(Th), 8);
-    let nuque = arriere[0], dmin = Infinity;
-    for (const q of arriere) { const d = Math.hypot(q[0] - DOS[0][0], q[1] - DOS[0][1]); if (d < dmin) { dmin = d; nuque = q; } }
+    // le haut du dos part du point de la nuque le plus proche des épaules ; le contour de la tête
+    // part de ce même point (sur le raté, la tête renversée laissait un bout de nuque pendre en
+    // l'air, au milieu du cou)
+    const contourT = echant(TETE.map(Th), 8);
+    let kN = 0, dmin = Infinity;
+    for (let i = 0; i <= 16; i++) { const q = contourT[i], d = Math.hypot(q[0] - DOS[0][0], q[1] - DOS[0][1]); if (d < dmin) { dmin = d; kN = i; } }
+    const nuque = contourT[kN];
     const gorge = Th(GORGE);
     const dos = [nuque, ...DOS];
     const face = [gorge, mil(gorge, FACE[0]), ...FACE];
@@ -113,7 +116,7 @@ module.exports = (h) => {
     // la tête, l'œil fermé, la fente des lèvres
     const T = pts => pts.map(p => V(Th(p)));
     out.push(h.path(lisse(T(TETE)) + ` L${pt(V(Th([10, 62])))} Z`, A.blanc));
-    out.push(h.path(lisse(T(TETE)), A.arete));
+    out.push(h.path('M' + contourT.slice(kN).map(p => pt(V(p))).join(' L'), A.arete));
     out.push(h.path(lisse(T(OEIL)), A.arete));
     out.push(h.path(lisse(T(FENTE)), A.detail));
     // le devant du cou, tracé après la tête : le fond blanc de la tête le coupait près de la gorge

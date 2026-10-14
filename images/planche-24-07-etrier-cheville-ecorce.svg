@@ -13,7 +13,7 @@
 <path d="M109.4 12.5 C134.4 4.5 149.4 20.5 139.4 12.5 S154.5 4.5 169.5 12.5" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M237 273.9 Q246.8 270.8 251.7 277.6 Q253.6 282.5 249.9 285.2" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M265.8 272.7 Q270.1 274.5 270.8 278.8" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
-<rect x="121.6" y="38.8" width="31.9" height="249.2" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round" rx="4.9"/>
+<rect x="121.6" y="38.8" width="31.9" height="249.2" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" rx="4.9"/>
 <path d="M121.6 284.3 Q121.6 288 124.1 288 L151.1 288 Q153.5 288 153.5 284.3" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
 <line x1="124.7" y1="278.2" x2="124.7" y2="275.1" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
 <line x1="142.5" y1="218.7" x2="142.5" y2="215" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
@@ -126,6 +126,7 @@
 <line x1="143.5" y1="233.4" x2="134.5" y2="233.4" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
 <line x1="139.5" y1="233.4" x2="139.5" y2="242.4" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M136 240.4 L143 240.4 L139.5 246.4 Z" fill="#1A1A1A" stroke="none"/>
+<circle cx="105.5" cy="277" r="22" fill="none" stroke="#9B2C1E" stroke-width="1.6"/>
 </g>
 <text x="40" y="380.9" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#1A1A1A">Coupe aux chevilles, vue d’en haut, orteils en bas</text>
 <g transform="translate(40 388.9)" data-vue="coupe">
@@ -145,7 +146,7 @@
 </g>
 <text x="388.7" y="380.9" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#1A1A1A">Faute d’écorce : deux bardeaux</text>
 <g transform="translate(388.7 388.9)" data-vue="bardeaux">
-<path d="M79.3 174.2 L113.8 154.2 L113.8 23.2 L79.3 43.2 Z" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M79.3 174.2 L113.8 154.2 L113.8 23.2 L79.3 43.2 Z" fill="#CFCFCF" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M84.6 167 L84.3 151.8 L83.7 136.8 L83.7 121.5 L84.3 105.8 L84.6 90.3 L84.2 75.2 L83.6 60.1 L83.8 44.7" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M90.6 163.5 L90.8 148.1 L90.3 133 L89.8 117.9 L90.1 102.5 L90.7 86.7 L90.8 71.4 L90.2 56.3 L89.8 41.2" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M97.7 159.4 L97.3 144.3 L96.7 129.3 L96.9 113.8 L97.5 98.1 L97.7 82.7 L97.2 67.6 L96.7 52.6 L97 37" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
@@ -159,7 +160,7 @@
 <path d="M154.2 20.8 L153.6 25.6 L153 30.1 L152.4 34.6" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M98.3 20.8 C112.3 14.8 120.3 26.8 126.3 20.8 S145.2 14.8 154.2 20.8" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M137.2 174.2 L142.7 174.2 L142.7 43.2 L137.2 43.2 Z" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M142.7 174.2 L177.2 154.2 L177.2 23.2 L142.7 43.2 Z" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M142.7 174.2 L177.2 154.2 L177.2 23.2 L142.7 43.2 Z" fill="#CFCFCF" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M148.1 167 L147.7 151.9 L148.1 136.3 L148.7 120.6 L148.6 105.3 L148 90.3 L147.8 75.1 L148.2 59.5 L148.8 43.8" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M154.6 163.2 L155 147.7 L155.6 132 L155.6 116.6 L155 101.6 L154.6 86.5 L155.1 70.9 L155.6 55.2 L155.5 39.9" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M161.8 159.1 L162.4 143.3 L162.5 127.9 L162 112.9 L161.5 97.8 L161.9 82.3 L162.5 66.6 L162.5 51.2 L161.8 36.2" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>

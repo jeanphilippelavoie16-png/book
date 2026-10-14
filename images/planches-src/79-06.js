@@ -1,5 +1,8 @@
 // Planche 79-06 — Le silo de terre (chapitre 76, § Le silo de terre).
 // Le chapitre ne donne aucune dimension pour le silo : aucune cote, l'échelle vient de la pelle.
+// La charte : coupes hachurées et plan, donc pas de gris ; les poids étaient déjà justes (la terre
+// du silo au trait fort). Le rouge : un seul point à contrôler, le bouchon de paille qui sort de la
+// terre au sommet (un silo hermétique cuit son contenu). Pas de geste.
 module.exports = (h) => {
   const f = n => (+n).toFixed(1);
   const pl = (pts, ferme) => pts.map((p, i) => (i ? 'L' : 'M') + f(p[0]) + ',' + f(p[1])).join(' ') + (ferme ? ' Z' : '');
@@ -118,6 +121,8 @@ module.exports = (h) => {
     out.push(traits([[cx - g.cl, g.cb, cx - g.cl, g.ct], [cx + g.cl, g.cb, cx + g.cl, g.ct],
       ...[-3, -2, -1, 0, 1, 2, 3].map(i => [cx + i * K(2.2), g.ct + K(1), cx + i * K(3.1), g.ct - K(7)])]));
     out.push(h.path(pl(g.pl1.pts, true), rempli('arete')));
+    // le point qui décide : le bouchon de paille traverse la terre et respire
+    out.push(h.controle(cx, g.ct + K(8), K(15)));
     return out.join('\n');
   };
 
