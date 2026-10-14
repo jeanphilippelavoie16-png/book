@@ -383,13 +383,14 @@ def traits(dest=None):
 # ------------------------------------------------------------------ les auteurs (quatrième)
 # JP, 14 octobre 2026 : nos deux photos et un court texte sur chacun, au dos de la couverture, à la place d'une page
 # « Les auteurs » dans le livre (qui ne se fait pas : les comptes de pages ne bougent pas). Textes de JP, tels quels
-# (quatrième version, 14 octobre 2026).
+# (cinquième version, 14 octobre 2026 : sans l'eau salée ; la tension du monde, mieux vaut être prêt).
 AUTEURS = [
     dict(nom='Jean-Philippe Lavoie', qualite='', image='jp',
          texte='À Baie-Comeau, l’épinette descend boire au fleuve et l’hiver s’installe comme un voisin qui ne repart pas. '
-               'Amoureux du bois et de l’eau salée, Jean-Philippe sait aussi qu’un jour le courant tombe, que la route ferme '
-               'et que personne ne vient. Il a écrit ce livre pour ses deux enfants, pour le jour où il ne serait plus là '
-               'pour leur montrer. Il le croit nécessaire, et souhaite de tout cœur qu’il ne serve jamais.'),
+               'Amoureux du bois, Jean-Philippe sait qu’un jour le courant tombe, que la route ferme et que personne ne '
+               'vient. Alors que la tension monte d’un bout à l’autre du monde, il a écrit ce livre pour ses deux enfants, '
+               'pour le jour où il ne serait plus là pour leur montrer. Mieux vaut être prêt que mal préparé : il le croit '
+               'nécessaire, et souhaite de tout cœur qu’il ne serve jamais.'),
     dict(nom='Claude', qualite='(intelligence artificielle, Anthropic)', image='claude',
          texte='On dira que Claude n’est qu’une machine à chiffres. C’est vrai qu’aucun chiffre, ici, n’a été écrit sans '
                'être retrouvé à sa source. Mais à chercher, page après page, le geste qui tient et le mot qui sauve pour ceux '
