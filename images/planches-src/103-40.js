@@ -82,6 +82,48 @@ const repereDet = z => {
 module.exports = (h) => {
   const A = h.a, F = h.formes;
   const blanc = at => at.replace('fill="none"', 'fill="#FFFFFF"');
+  // ─── les corps simples ─────────────────────────────────────────────────────────────────
+  // Les bras d'un corps simple, calculés pour que chaque poing tombe sur sa cible (unités de vue),
+  // l'axe de la prise donné en degrés écran (null : la prise vue par le bout, le poignet droit).
+  // Le corps regarde vers +x ; pour un corps tourné vers la
+  // gauche, poserBras le calcule en miroir autour de o.x et rend les mêmes angles.
+  const RAD = Math.PI / 180;
+  const poserBras = (o, cibles, axes, coudes = {}) => {
+    const g = o.cote === 'gauche', X0 = o.x;
+    const oo = Object.assign({}, o, { cote: 'droite' });
+    const c = F.corps(oo), ang = Object.assign({}, o.angles || {});
+    const angDe = v => Math.atan2(v[0], v[1]) / RAD, dirDe = a => [Math.sin(a * RAD), Math.cos(a * RAD)];
+    for (const k of ['P', 'L']) {
+      let C = cibles[k]; if (!C) continue;
+      let ax = axes[k];
+      if (g) { C = [2 * X0 - C[0], C[1]]; if (ax != null) ax = 180 - ax; }
+      const S = c.articulations['epaule' + k], E_ = c.articulations['coude' + k], Wr = c.articulations['poignet' + k], Mn = c['main' + k];
+      const lb = Math.hypot(E_[0] - S[0], E_[1] - S[1]), la = Math.hypot(Wr[0] - E_[0], Wr[1] - E_[1]);
+      const hv = [Mn.x - Wr[0], Mn.y - Wr[1]], lm = Math.hypot(...hv);
+      const off = angDe(hv) - angDe([Math.cos(Mn.axe * RAD), Math.sin(Mn.axe * RAD)]);
+      const resoudre = main => {
+        const h2 = dirDe(main + off).map(v => v * lm), W_ = [C[0] - h2[0], C[1] - h2[1]];
+        const d = [W_[0] - S[0], W_[1] - S[1]], D = Math.min(Math.hypot(...d), lb + la - 0.01);
+        const a0 = angDe(d), B = Math.acos(Math.max(-1, Math.min(1, (lb * lb + D * D - la * la) / (2 * lb * D)))) / RAD;
+        const bras = a0 + (coudes[k] === 'avant' ? 1 : -1) * B;
+        const e = [S[0] + lb * Math.sin(bras * RAD), S[1] + lb * Math.cos(bras * RAD)];
+        const ab = angDe([W_[0] - e[0], W_[1] - e[1]]);
+        const pli = Math.abs(((main - ab) % 360 + 540) % 360 - 180);
+        return { pli, bras, ab, main };
+      };
+      let best = null;
+      if (ax == null) {                 // la prise vue par le bout : le poignet droit, la main dans l'axe de l'avant-bras
+        let main = angDe([Math.cos(Mn.axe * RAD), Math.sin(Mn.axe * RAD)]);
+        for (let i = 0; i < 5; i++) { best = resoudre(main); main = best.ab; }
+        best = resoudre(main);
+      } else for (const main of [180 - ax, -ax, 360 - ax]) { const r = resoudre(main); if (!best || r.pli < best.pli) best = r; }
+      ang['bras' + k] = best.bras; ang['avantbras' + k] = best.ab; ang['main' + k] = best.main;
+    }
+    return ang;
+  };
+  // le poing d'un corps simple, sous la forme qu'attend poignee() : sa place et l'axe de la prise
+  const poingDe = (c, k) => { const m = c['main' + k]; return { trou: { x: m.x, y: m.y, axe: [Math.cos(m.angle * RAD), Math.sin(m.angle * RAD)] } }; };
+  const versDeg = (a, b) => Math.atan2(b[1] - a[1], b[0] - a[0]) / RAD;
 
   return {
     ref: '103-40',
@@ -178,24 +220,22 @@ module.exports = (h) => {
             const p = V(haut(u)), q = V(bille(u + 45, BR + EPP + 24));
             out.push(brin(p, q, 0.1, A.fin));
           }
-          // l'homme : penché, le ventre sur le bout de la bille, les deux mains sur le racloir
+          // l'homme : le corps simple (pose « penche-pousse », le tronc à 44°), le devant du ventre
+          // contre le bout de la bille ; les bras recalculés pour que les deux poings serrent les bouts
+          // de la poignée, vue par le bout (le poing loin derrière le proche)
           const tR = haut(UR);                          // où le fil de la lame touche la peau
           const pg = V([tR[0] - 32, tR[1] + 50]);       // la poignée proche, derrière et au-dessus du fil
-          // la main proche serre le bout de la poignée, vue par le bout (le manche dans le poing) ;
-          // la main loin tient l'autre bout, cachée derrière
-          const rP = 3.8;
-          const pers = F.personnage({ x: ox, y: gy, pose: 'debout', echelle: s, penche: 44, regard: 30,
-            prises: { proche: { x: pg[0], y: pg[1], pose: 'prise', vue: 'profil', diametre: 2 * rP, echelle: s * 1.5, trait: 'fort' },
-              loin: { x: pg[0] - 0.8, y: pg[1] - 0.8, pose: 'prise', vue: 'profil', diametre: 2 * rP, echelle: s * 1.5, trait: 'fort' } },
-            });
-          // la lame du racloir, vue par le bout : le haut vers l'homme, le fil devant
-          const tRv = V(tR);
-          out.push(h.chemin([pg, tRv], A.contour));
-          out.push(pers);
-          out.push(h.cercle(pg[0], pg[1], rP, A.hachure('bois', 'arete')));
-          // le sens de la poussée, le long de la bille
+          const rP = 3.8, tRv = V(tR);
+          const oH = { x: V([BA[0] - 10 - 195, 0])[0], y: gy, pose: 'penche-pousse', echelle: s, angles: { tronc: 44 } };
+          oH.angles = poserBras(oH, { P: pg, L: [pg[0] - 0.8, pg[1] - 0.8] }, { P: null, L: null });
+          // la lame du racloir, vue par le bout : le haut vers l'homme, le fil devant ; elle passe
+          // devant le poing loin, derrière le poing proche, et le bout de la poignée se voit dans le poing
+          const pers = F.corps(Object.assign(oH, { objetP: h.chemin([pg, tRv], A.contour),
+            objet: c => h.cercle(c.mainP.x, c.mainP.y, rP, A.hachure('bois', 'arete')) }));
+          out.push(String(pers));
+          // le geste : la poussée, le long de la bille, dans le sens du poil
           const f0 = V(bille(UR + 90, BR + EPP + 95)), f2 = V(bille(UR + 430, BR + EPP + 95));
-          out.push(h.fleche(`M${f1(f0[0])} ${f1(f0[1])} L${f1(f2[0])} ${f1(f2[1])}`, A.arete));
+          out.push(h.geste(`M${f1(f0[0])} ${f1(f0[1])} L${f1(f2[0])} ${f1(f2[1])}`));
           return out.join('\n');
         },
         renvois: z => {

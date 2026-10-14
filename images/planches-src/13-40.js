@@ -3,7 +3,7 @@
 // la tige, tige tirée vers soi, gerbe dans le creux) ; la boule refermée, tenue par le bas à une
 // longueur d'avant-bras du visage et soufflée ; le nid en flammes glissé sous le tipi.
 // Mains et tête : bibliothèque h.formes (prise/dos pour la tige et le couteau, boule/profil pour
-// le nid, buste de profil dont le bras va à la main qui tient la boule). Seuls les objets sont dessinés ici.
+// le nid) ; le buste qui souffle est le corps simple de profil (13 oct.). Seuls les objets sont dessinés ici.
 // Aucune cote : les calibres (sous 2 cm, 2 à 5 cm, moins de 15 cm) sont des bornes de tri, pas
 // des mesures de construction ; ils vont dans la légende, tels que le chapitre les donne.
 
@@ -224,19 +224,24 @@ module.exports = (h) => {
   };
 
   // ── Vue 3 : souffler ───────────────────────────────────────────────────────────────────
-  // La personne en buste, de profil : la tête, les épaules, le bras proche qui va de l'épaule à la
-  // main qui tient la boule par le bas, à une longueur d'avant-bras devant la bouche.
+  // La personne en buste, de profil : le corps simple (13 oct.), coupé par le bas de la vue. La main
+  // proche, paume en l'air (« porte »), tient la boule par le bas, à une longueur d'avant-bras devant
+  // la bouche, à sa hauteur : bras à 55,6°, avant-bras à 172°, main à plat (90°), posés par le calcul
+  // (épaule-coude 325 mm, coude-poignet 255 mm).
   const R_BOULE = 48, AVANT_BRAS = 255, COUPE = 520;
   const souffler = z => {
     const e = Math.min(0.5, (z.h - 8) / (COUPE + 150), (z.l - 30) / (126 + 104 + AVANT_BRAS + 2 * R_BOULE + 60));
     const oreille = [12 + 130 * e, z.h - 4 - COUPE * e];
-    const t0 = FM.tete({ x: oreille[0], y: oreille[1], echelle: e });
-    const B = [t0.bouche[0] + (AVANT_BRAS + R_BOULE) * e, t0.bouche[1] + 6 * e];
-    const R = R_BOULE * e, y0 = B[1] - R * 0.8;
+    const o = { pose: 'buste-main-bouche', echelle: e, x: oreille[0] - 19 * e, y: oreille[1] + 1666 * e, mains: { P: 'porte' },
+      angles: { brasP: 55.6, avantbrasP: 172, mainP: 90 } };
+    const c = FM.corps(o);
+    const bouche = [c.tete.x + 92 * e, c.tete.y + 56 * e];
+    const R = R_BOULE * e, B = [c.mainP.x, c.mainP.y - R * 0.92];
+    const y0 = B[1] - R * 0.8;
     const axe = y => B[0] + R * 0.35 + (y0 - y) * 0.18 + 5 * Math.sin((y0 - y) / 14);
     const larg = y => 1.5 + (y0 - y) * 0.16;
-    const t = { bouche: t0.bouche };
-    return { e, t, B, R, y0, axe, larg, oreille };
+    const t = { bouche };
+    return { e, t, B, R, y0, axe, larg, oreille, o };
   };
 
   // ── Vue 4 : le nid sous le tipi ────────────────────────────────────────────────────────
@@ -359,12 +364,11 @@ module.exports = (h) => {
             return lisse(pts, false);
           });
           out.push(h.path(filets[0] + ' ' + filets[2], A.detail), h.path(filets[1], A.fin));
-          // la boule de fibres, refermée sans serrer, dans la main qui la tient par le bas ; le bras
-          // part de l'épaule de la personne, de profil, en buste
+          // la boule de fibres, refermée sans serrer, posée dans la paume ; le corps coupé par le bas de
+          // la vue, la boule devant tout (objet)
           const boule = touffe(B[0], B[1], R, R * 0.94, 8);
-          const b = FM.buste({ x: s.oreille[0] - 4 * e, y: s.oreille[1] + COUPE * e, echelle: e, coupe: COUPE,
-            main: { x: B[0], y: B[1], pose: 'boule', vue: 'profil', diametre: 2 * R, serre: 0.6, objet: boule } });
-          out.push(b.toString());
+          out.push(`<clipPath id="buste-1340"><rect x="0" y="0" width="${f(z.l)}" height="${f(z.h - 4)}"/></clipPath>`);
+          out.push(`<g clip-path="url(#buste-1340)">`, String(FM.corps(Object.assign({}, s.o, { objet: boule }))), '</g>');
           // le souffle, en continu, de la bouche à la boule
           const L0 = t.bouche;
           out.push(h.fleche(`M ${f(L0[0] + 10)} ${f(L0[1] - 4)} L ${f(B[0] - R * 0.42 - 5)} ${f(B[1] - R * 0.91 - 4)}`, A.cache));
@@ -406,7 +410,7 @@ module.exports = (h) => {
           batons.filter(b => b.avant).forEach(b => out.push(b.svg));
           // le geste : le nid est poussé sous le bois, par l'ouverture
           const go = [cx + Math.cos(deg(150)) * rx, yB + Math.sin(deg(150)) * ry];
-          out.push(h.fleche(`M ${f(go[0] - 46)} ${f(yB + 12)} L ${f(nx - 30)} ${f(yB + 10)}`, A.arete));
+          out.push(h.geste(`M ${f(go[0] - 46)} ${f(yB + 12)} L ${f(nx - 30)} ${f(yB + 10)}`));
           // le vent, qui entre par l'ouverture
           out.push(h.fleche(`M 6 ${f(go[1] - 34)} L ${f(go[0] - 14)} ${f(go[1] - 18)}`, A.cache));
           out.push(h.fleche(`M 6 ${f(go[1] - 12)} L ${f(go[0] - 14)} ${f(go[1] - 6)}`, A.cache));

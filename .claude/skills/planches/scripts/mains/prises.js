@@ -360,27 +360,31 @@ const BORNES_POUCE = [[-10, 100], [-30, 45], [-40, 170], [-20, 70], [-25, 85]];
 function pouceEnroule(S, cyl, segsD, o = {}) {
   const u = cyl.u, e1 = orth([0, 0, -1], u), e2 = X3(u, e1);
   const ang = p => { const v = S3(p, cyl.C); return Math.atan2(D3(v, e2), D3(v, e1)) / RAD; };
-  const obst = [cyl, ...obstSegments(segsD.filter(s => ['index', 'majeur', 'annulaire'].includes(s.doigt)))];
+  const tour = (a, b) => { let w = ang(b) - ang(a); while (w < -180) w += 360; while (w > 180) w -= 360; return w; };
+  // le sens des doigts autour de l'objet : le pouce tourne dans l'autre sens
+  const ix = segsD.filter(s => s.doigt === 'majeur');
+  const sensDoigts = ix.length ? Math.sign(tour(ix[0].a, ix[2].b)) || 1 : 1;
+  const obst = [cyl, ...obstSegments(segsD.filter(s => ['index', 'majeur', 'annulaire'].includes(s.doigt))), S.paume];
   const meta = q => segments(S, 'pouce', chainePouce(S, q))[0];
   const note = (opp, cmc, rot) => {
     const base = { opposition: opp, cmc, rotation: rot };
-    if (ecart(meta(base), cyl).g < -2) return { score: -1e9 };           // le métacarpien dans l'objet
+    if (ecart(meta(base), cyl).g < -2.5) return { score: -1e9 };           // le métacarpien dans l'objet
     const r = fermerPouce(S, obst, base);
     const ch = chainePouce(S, r.q);
-    let w = ang(ch.P[3]) - ang(ch.P[1]); while (w < -180) w += 360; while (w > 180) w -= 360;
+    const w = -sensDoigts * tour(ch.P[1], ch.P[3]);
     const bout = r.contacts.some(c => c.segment === 1);
-    const score = w * (o.sens || 1) + (bout ? 35 : 0) - 2 * Math.max(0, r.q.ip - 70) - 1.5 * Math.max(0, -r.q.mcp - 5) - 0.15 * Math.abs(rot - 0.3 * opp);
+    const g = ecart(segments(S, 'pouce', ch)[2], cyl).g;
+    const score = w + (bout ? 30 : 0) - 1.5 * Math.max(0, g - 2) - 2 * Math.max(0, r.q.ip - 70) - 1.5 * Math.max(0, -r.q.mcp - 5) - 0.05 * Math.abs(rot - 0.3 * opp);
     return { score, q: r.q, w, bout };
   };
   let best = { score: -Infinity };
-  for (let opp = 20; opp <= 100; opp += 16) for (let cmc = -20; cmc <= 40; cmc += 15) {
-    const r = note(opp, cmc, 0.3 * opp);
+  for (let opp = 10; opp <= 100; opp += 15) for (let cmc = -20; cmc <= 40; cmc += 15) for (const rot of [0, 35, 70, 105, 140]) {
+    const r = note(opp, cmc, rot);
     if (r.score > best.score) best = r;
   }
   if (!best.q) return { opposition: 40, cmc: 10, mcp: 20, ip: 20 };
-  // affinage autour du meilleur
   const f = x => -note(x[0], x[1], x[2]).score;
-  const r = cherche(f, [best.q.opposition, best.q.cmc, best.q.rotation], [8, 8, 10], [[0, 100], [-30, 45], [-20, 80]], { min: 1.5, iter: 30 });
+  const r = cherche(f, [best.q.opposition, best.q.cmc, best.q.rotation], [8, 8, 16], [[0, 100], [-30, 45], [-40, 170]], { min: 1.5, iter: 30 });
   const fin = note(r.x[0], r.x[1], r.x[2]);
   return fin.score >= best.score ? fin.q : best.q;
 }
