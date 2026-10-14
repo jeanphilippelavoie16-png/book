@@ -1300,7 +1300,9 @@ function dessiner(o, prep = null) {
         }
         const nT = F_.length + B_.length;
         dev = nT ? F_.length / nT > 0.5 : true;
-        if (nT >= 6 && F_.length / nT > 0.1 && F_.length / nT < 0.9) {
+        // pas quand l'objet est coupé de profil : sa face coupée est au plan de la face proche des doigts qui
+        // l'entourent, ils sont à sa profondeur et la droite la mordait en dents de scie (agent 5, tour 2)
+        if (!ob.coupe && nT >= 6 && F_.length / nT > 0.1 && F_.length / nT < 0.9) {
           const moy = L => L.reduce((m, q) => [m[0] + q[0] / L.length, m[1] + q[1] / L.length], [0, 0]);
           const nrm = uni(sub(moy(F_), moy(B_)));
           const T = F_.map(q => [dot(q, nrm), 1]).concat(B_.map(q => [dot(q, nrm), 0])).sort((u, v) => u[0] - v[0]);
@@ -1370,7 +1372,9 @@ function dessiner(o, prep = null) {
       // latérale : l'index restait gris derrière une ficelle de 3 mm) ; agent 5, révision. Derrière un manche,
       // la règle d'avant : une phalange qui s'y cache.
       let derriere;
-      if ((ob.r || 16) < 4) {
+      // (de même derrière la face coupée d'un manche de profil : elle est au plan de la face proche des doigts qui
+      // l'entourent, elle les recouvre un peu sans les cacher ; agent 5, tour 2)
+      if ((ob.r || 16) < 4 || ob.coupe) {
         let cache = 0;
         for (const i of G.ids) if (pieces[i].surObjet && !devantObjet.has(i)) cache += pieces[i].partObjet * Math.abs(aireCL(pieces[i].region));
         derriere = cache > 0.25 * G.aire;
@@ -1530,7 +1534,7 @@ function dessiner(o, prep = null) {
   });
   // une ligne courte qui ne part pas du contour est une saleté
   const rive = decale(U, -(E + 1.6));
-  for (let i = 0; i < n; i++) traits[i] = traits[i].filter(l => longueur(l) > 9 || !dedans(rive, l[0]) || !dedans(rive, l[l.length - 1]));
+  for (let i = 0; i < n; i++) traits[i] = traits[i].filter(l => longueur(l) > 12 || !dedans(rive, l[0]) || !dedans(rive, l[l.length - 1]));   // 9 → 12 : un tiret flottant de 9 à 12 mm sur les jointures du poing (agent 5, tour 2)
   // une fourche : un bout de contour de la paume (la jointure qui passe devant la racine d'un doigt plié),
   // court, qui part du trait entre deux doigts ou y arrive ; il fait un crochet ou un Y au pied du trait (vues
   // dos et paume des prises). On le laisse tomber. (agent 5, révision)
@@ -1543,7 +1547,10 @@ function dessiner(o, prep = null) {
       const dSeg = (p, a, b) => { const ab = sub(b, a), l2 = dot(ab, ab) || 1e-9, t = Math.max(0, Math.min(1, dot(sub(p, a), ab) / l2)); return lon(sub(p, add(a, mul(ab, t)))); };
       const pres = (p, l, d) => { for (let k = 1; k < l.length; k++) if (dSeg(p, l[k - 1], l[k]) < d) return true; return false; };
       const touche = l => tDoigts.some(m => pres(l[0], m, 2.5) || pres(l[l.length - 1], m, 2.5) || pres(m[0], l, 2.5) || pres(m[m.length - 1], l, 2.5));
-      traits[iB] = traits[iB].filter(l => longueur(l) > 22 || !touche(l));
+      // (ou une épingle : un aller-retour plus long, dont les deux bouts sont proches, doublé sur le trait du doigt ;
+      // agent 5, tour 2)
+      const epingle = l => lon(sub(l[0], l[l.length - 1])) < 0.35 * longueur(l);
+      traits[iB] = traits[iB].filter(l => (longueur(l) > 22 && !(epingle(l) && longueur(l) < 40)) || !touche(l));
     }
   }
 
@@ -1764,13 +1771,21 @@ function rendre(R, o, { Tloc, s, m, ang, ab }) {
   const couches = { main: out.filter(Boolean).join('\n'), masque: '', devant: '' };
   const pa = R.patch;
   if (pa) {
-    if (o.masque !== false && pa.dansMain.length) couches.masque = plein(pa.dansMain, loin ? GRIS : BLANC);
+    // le masque déborde la silhouette d'un demi-trait : sinon la moitié extérieure du contour de la main (le bord
+    // de l'avant-bras, du talon) restait visible sous l'objet, à travers sa hachure (agent 5, tour 2 : 99-04)
+    if (o.masque !== false && pa.dansMain.length) {
+      const dm = R.ob && R.ob.region && R.ob.region.length ? inter(R.ob.region, decale(U, (tr.sil / 2 + 0.3) / s)) : pa.dansMain;
+      couches.masque = plein(dm.length ? dm : pa.dansMain, loin ? GRIS : BLANC);
+    }
     // les pièces devant l'objet, repeintes là où il passe : leur blanc, leur bord contre l'objet, leurs traits
     // la marge : la moitié du trait de contour de l'objet (1,2 de vue) et un peu d'anticrénelage ; plus large, elle
     // posait un liseré blanc sur l'objet le long des doigts de devant (des encoches entre les doigts, la face
     // coupée du manche « mordue ») — agent 5, révision ; c'était max(1,6 mm, 2,6 de vue)
     const pv = pa.pour(Math.max(1.0, 2.0 / s));
-    if (pv.fond.length) couches.devant = [plein(pv.fond, loin ? GRIS : BLANC), ligne(pv.bord, tr.sil), ligne(pv.traits, tr.int)].filter(Boolean).join('\n');
+    // la coupe ouverte de l'avant-bras ne se redessine pas non plus là où l'objet passe derrière elle (un manche
+    // qui file derrière le bout coupé du bras y laissait un tiret : agent 5, tour 2)
+    const bordDev = coupe && coupe.region && !coupe.plein && !franche ? lignesHors(pv.bord, decale(coupe.region, 0.4)) : pv.bord;
+    if (pv.fond.length) couches.devant = [plein(pv.fond, loin ? GRIS : BLANC), ligne(bordDev, tr.sil), ligne(pv.traits, tr.int)].filter(Boolean).join('\n');
   }
   if (o.objet !== undefined && o.objet !== null) {
     const g = Object.assign({}, geo.prise, { prise: geo.prise, poignet: geo.poignet, bout: geo.bout, pouce: geo.pouce, echelle: s, vue, geo });
