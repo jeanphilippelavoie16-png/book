@@ -174,7 +174,7 @@ module.exports = (h) => {
           osForts: ['femur', 'rotule'],
           muscles: ['pointeSurlonge'],
           valeur: { muscles: ['pointeSurlonge'], trame: 'gris' },
-          loin: 'fin',
+          loin: 'gris',
           fondOs: false,
         }),
         renvois: z => {
@@ -209,10 +209,11 @@ module.exports = (h) => {
               os: ['bassin', 'femur', 'rotule', 'tibia'],
               osForts: ['femur', 'rotule'],
               muscles: ['pointeSurlonge'],
-              loin: 'fin',
+              loin: 'gris',
             }),
             `<path d="${dPts([...entaille, ...long.slice(1)], false)}" ${COUTEAU}/>`,
-            h.fleche(dPts(fl, false), h.a.arete),
+            // la charte : la flèche du geste en rouge
+            h.geste(dPts(fl, false)),
           ].join('\n');
         },
         renvois: z => {

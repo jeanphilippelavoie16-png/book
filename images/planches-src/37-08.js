@@ -16,6 +16,11 @@
 //
 // Aucune cote : le chapitre ne donne aucune mesure de la cage, du poêle ni des pieux. Les
 // proportions sont celles d'un poêle de tente, au même rapport dans les trois vues alignées.
+//
+// La charte : de côté, la face de droite du tuyau à l'ombre ; par le bout, le tuyau, au fond du
+// poêle derrière la cage, en gris loin. Pas de gris sur la neige ni sur le pieu coupés, ni sur le
+// plan. Le rouge : le jour d'air entre la cage et la tôle (le point à contrôler) et le bord du rond
+// de neige nue, où le sapinage prendrait feu (la zone).
 
 module.exports = (h) => {
   const f = v => Math.round(v * 10) / 10;
@@ -94,8 +99,11 @@ module.exports = (h) => {
   ].join('\n');
 
   // Le tuyau montant, coupé en haut par un trait brisé.
-  const tuyauMontant = (xc, r, yBas, yHaut) => [
+  // teinte : 'ombre' (la face de droite à l'ombre) ou 'loin' (le tuyau entier recule).
+  const tuyauMontant = (xc, r, yBas, yHaut, teinte) => [
     h.rect(xc - r, yHaut, 2 * r, yBas - yHaut, h.a.blanc),
+    teinte === 'ombre' ? h.chemin([[xc + 0.3 * r, yHaut - 1], [xc + r / 2, yHaut - 3], [xc + r, yHaut], [xc + r, yBas], [xc + 0.3 * r, yBas]], h.a.ombre, true) : '',
+    teinte === 'loin' ? h.chemin([[xc - r, yHaut], [xc - r / 2, yHaut - 3], [xc, yHaut + 2], [xc + r / 2, yHaut - 3], [xc + r, yHaut], [xc + r, yBas], [xc - r, yBas]], h.a.loin, true) : '',
     h.ligne(xc - r, yBas, xc - r, yHaut, h.a.arete),
     h.ligne(xc + r, yBas, xc + r, yHaut, h.a.arete),
     h.path(`M ${f(xc - r)} ${f(yHaut)} L ${f(xc - r / 2)} ${f(yHaut - 3)} L ${f(xc)} ${f(yHaut + 2)} L ${f(xc + r / 2)} ${f(yHaut - 3)} L ${f(xc + r)} ${f(yHaut)}`, h.a.detail),
@@ -190,7 +198,7 @@ module.exports = (h) => {
           out.push(h.ligne(X(0), Y(0.47), X(-0.03), Y(0.47), h.a.arete));
           out.push(h.ligne(X(-0.03), Y(0.44), X(-0.03), Y(0.50), h.a.arete));
           const T = G.tuyau;
-          out.push(tuyauMontant(X(T.x), T.r * K, Y(G.zt), Y(T.haut)));
+          out.push(tuyauMontant(X(T.x), T.r * K, Y(G.zt), Y(T.haut), 'ombre'));
           out.push(h.rect(X(T.x - T.r - 0.008), Y(G.zt + 0.035), (2 * T.r + 0.016) * K, 0.035 * K, blanc(h.a.arete)));
           out.push(h.ligne(X(T.x - T.r - 0.004), Y(0.93), X(T.x + T.r + 0.004), Y(0.93), h.a.detail));
           // La traverse du côté qu'on voit, couchée sur la tête des pieux, et ses ligatures.
@@ -232,7 +240,7 @@ module.exports = (h) => {
           out.push(h.path(surf, h.a.arete));
           // Le tuyau, derrière la cage.
           const T = G.tuyau;
-          out.push(tuyauMontant(X(0), T.r * K, Y(G.cage.z1), Y(T.haut)));
+          out.push(tuyauMontant(X(0), T.r * K, Y(G.cage.z1), Y(T.haut), 'loin'));
           // Les pieux.
           for (const s of [-1, 1]) {
             out.push(h.rect(X(s * G.B - G.rs), Y(G.zb), 2 * G.rs * K, (G.zb + G.D) * K, h.a.blanc));
@@ -253,6 +261,8 @@ module.exports = (h) => {
           // La cage.
           const C = G.cage;
           out.push(cage(X(-C.y), X(C.y), Y(C.z1), Y(C.z0)));
+          // le point à contrôler : le jour d'air entre le fond de la cage et la tôle du dessus
+          out.push(h.controle(X(0.05), Y((G.zt + C.z0) / 2), 13));
           return out.join('\n');
         },
         renvois: z => {
@@ -276,6 +286,7 @@ module.exports = (h) => {
           out.push(tapis(z.l + 30, -30, -10, z.h + 10, -1));
           out.push('</g>');
           out.push(h.ellipse(X(G.rond.x), Y(0), G.rond.rx * K, G.rond.ry * K, h.a.blanc));
+          out.push(h.ellipse(X(G.rond.x), Y(0), G.rond.rx * K - 3, G.rond.ry * K - 3, h.a.zone));   // la zone : le sapinage n'y entre pas
           // Les pieux, sous les coins du poêle.
           for (const xs of G.xs) for (const s of [-1, 1]) {
             out.push(h.cercle(X(xs), Y(s * G.B), G.rs * K, h.a.blanc));

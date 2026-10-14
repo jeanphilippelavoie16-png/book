@@ -1321,8 +1321,9 @@ function mainSurMain(mainSimple, o) {
 // ─── deux pinces sur un lacet ───────────────────────────────────────────────────────────────────────────────
 // Deux mains qui tirent les deux bouts d'un lacet pour serrer un nœud (24-16). Posées à la main, deux pinces à
 // 60 mm l'une de l'autre se mêlent : une main de profil fait 60 à 80 mm d'épaisseur. Ici :
-//   1. chaque main pince son bout : l'axe du fil dans la pince (.prise.axe) suit le lacet, le poignet du côté
-//      opposé au nœud, l'avant-bras qui tourne vers la direction du lacet (on tire dans l'axe de l'avant-bras) ;
+//   1. chaque main pince son bout, le poignet du côté opposé au nœud : la droite du poignet au point de pince suit
+//      le lacet et l'avant-bras la prolonge (on tire dans l'axe de l'avant-bras ; o.aligne: 'fil' aligne plutôt
+//      l'axe du fil de la pose, .prise.axe, pour une aiguille) ;
 //   2. le côté de chaque main (cote 'droite' ou 'gauche', le miroir par l'axe de la main) est choisi pour que sa
 //      masse (la paume, les doigts repliés) tombe HORS de l'angle des deux lacets ;
 //   3. les deux points de pince reculent ensemble le long de leur lacet, depuis o.distance, jusqu'à ce que les deux
@@ -1364,7 +1365,7 @@ function pincesSurLacet(mainSimple, o) {
   const s = o.echelle || 1, N = o.noeud;
   const V = o.directions.map(v => { const l = Math.hypot(v[0], v[1]); return [v[0] / l, v[1] / l]; });
   const reste = Object.assign({}, o);
-  for (const k of ['noeud', 'directions', 'distance', 'pas', 'max', 'marge', 'cotes', 'objets', 'x', 'y', 'angle']) delete reste[k];
+  for (const k of ['noeud', 'directions', 'distance', 'pas', 'max', 'marge', 'cotes', 'objets', 'aligne', 'x', 'y', 'angle']) delete reste[k];
   const base = Object.assign({ pose: 'pince-fine', vue: 'pouce', ancre: 'prise' }, reste, { echelle: s });
   const rot = (p, a) => { const c = Math.cos(a), sn = Math.sin(a); return [p[0] * c - p[1] * sn, p[0] * sn + p[1] * c]; };
   const croix = (a, b) => a[0] * b[1] - a[1] * b[0];
@@ -1376,9 +1377,11 @@ function pincesSurLacet(mainSimple, o) {
       const g0 = mainSimple(Object.assign({}, base, { cote, x: 0, y: 0, angle: 0, avantbras: false, objet: '' }));
       const ax = g0.prise.axe, w0 = g0.poignet, sil = silhouetteDe(g0);
       const c0 = sil.reduce((a, p) => [a[0] + p[0] / sil.length, a[1] + p[1] / sil.length], [0, 0]);
-      for (const sens of [1, -1]) {
-        const t = [-v[0] * sens, -v[1] * sens];                       // l'axe du fil, aligné sur le lacet
-        const a = Math.atan2(t[1], t[0]) - Math.atan2(ax[1], ax[0]);
+      for (const sens of (o.aligne === 'fil' ? [1, -1] : [0])) {
+        // 'poignet' (défaut) : la droite du poignet au point de pince suit le lacet, on tire dans l'axe de
+        // l'avant-bras ; 'fil' : l'axe du fil de la pose (.prise.axe) suit le lacet (pour une aiguille, une épingle)
+        const t = [-v[0] * (sens || 1), -v[1] * (sens || 1)];
+        const a = Math.atan2(t[1], t[0]) - (sens ? Math.atan2(ax[1], ax[0]) : Math.atan2(-w0[1], -w0[0]));
         const w = rot(w0, a), c = rot(c0, a);
         if (w[0] * v[0] + w[1] * v[1] <= 0) continue;                  // le poignet du côté du nœud : non
         const dehors = Math.sign(croix(v, c)) !== Math.sign(croix(v, autre));
