@@ -62,3 +62,9 @@ JP ensuite : « c'est bien mais pas encore parfait, les formes que tu as pas de 
   mince), le poing vu de dos (moufle).
 - **14 octobre, les têtes de profil (premier tour) : « les têtes sont belles, enlève l'iris pi la commissure ».** L'œil
   est une amande vide, la bouche fermée n'a pas de trait au coin. Le réviseur repasse sans changer le style.
+- **14 octobre, après les 10 paquets des mains : « oui go pour les 12, pi tes choix pour les têtes ».** Les 68 planches
+  de mains sont migrées. On reprend les mains faibles (13-01, 23-02, 24-16, 27-04, 29-07, 34-01, 38-04, 75-40, 96-07,
+  98-08, 103-07, 103-10, 105-40) : pour une pince, gros plan des bouts de doigts coupés par le bord de la vue ; sinon
+  une autre prise ; sinon l'objet seul et le renvoi dit la prise. Têtes : la patte devant l'oreille (B), la bouche au
+  contour seul (A), pas d'oreille sur une tête couchée (A). La bibliothèque des têtes est figée ; on la passe dans
+  28-06, 29-05, 27-03, 38-01, 89-07, 27-05, 13-40, 28-02, 29-06 et 34-01.
