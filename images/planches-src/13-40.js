@@ -335,7 +335,7 @@ module.exports = (h) => {
           const BORD = { x0: 0, y0: 0, x1: z.l, y1: z.h };
           const mancheTige = tronc(T, u, L_METAL * e, (L_METAL + L_MANCHE) * e, R_MANCHE * e, A.hachure('bois', 'arete'));
           const oT = { x: g.pT[0], y: g.pT[1], pose: 'prise-manche', vue: 'paume', cote: 'droite', diametre: 2 * R_MANCHE, echelle: e };
-          out.push(FM.mainSimple({ ...oT, angle: poser(oT, mul(u, -1)), objet: mancheTige, avantbras: { bord: BORD, longueur: 'bord' } }).svg);
+          out.push(FM.mainSimple({ ...oT, angle: poser(oT, mul(u, -1)), objet: mancheTige, avantbras: { bord: BORD, longueur: 'bord', fin: [[0, g.G - 3], [z.l, g.G - 3]] } }).svg);
           const oK = { x: g.pK[0], y: g.pK[1], pose: 'prise-manche', vue: 'paume', cote: 'gauche', diametre: 26, echelle: e };
           out.push(FM.mainSimple({ ...oK, angle: poser(oK, mul(n, -1)), objet: couteau((s, t) => Q(s - K0, t)), avantbras: { bord: BORD, longueur: 'bord' } }).svg);
           return out.join('\n');
