@@ -74,7 +74,7 @@ function verifier(chemin) {
   // --- hiérarchie des traits ---
   // Un trait blanc n'est pas un trait : c'est le liseré qui garde une cote ou une ligne de
   // rappel lisible sur une hachure. On ne le compte pas dans la hiérarchie.
-  const sansLiseres = s.replace(/<[a-z]+\b[^>]*stroke="#(?:FFFFFF|fff)"[^>]*>/gi, '');
+  const sansLiseres = s.replace(/<marker[\s\S]*?<\/marker>/g, '').replace(/<[a-z]+\b[^>]*stroke="#(?:FFFFFF|fff)"[^>]*>/gi, '');
   const ep = [...new Set((sansLiseres.match(/stroke-width\s*:\s*([\d.]+)|stroke-width\s*=\s*"([\d.]+)"/g) || [])
     .map(m => Number(m.replace(/[^\d.]/g, ''))))].sort((a, b) => b - a);
   if (ep.length === 0) dur.push('aucune épaisseur de trait déclarée');
