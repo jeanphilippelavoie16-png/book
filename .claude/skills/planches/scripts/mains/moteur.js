@@ -236,6 +236,18 @@ function decale(paths, mm) {
 }
 const ferme = (p, r) => decale(decale(p, r), -r);          // arrondit les coins rentrants
 const ouvre = (p, r) => decale(decale(p, -r), r);          // arrondit les coins saillants
+// les morceaux séparés d'une forme, chacun avec ses trous
+function composantes(paths) {
+  if (!paths.length) return [];
+  const c = new CL.Clipper();
+  c.AddPaths(paths, CL.PolyType.ptSubject, true);
+  const arbre = new CL.PolyTree();
+  c.Execute(CL.ClipType.ctUnion, arbre, CL.PolyFillType.pftNonZero, CL.PolyFillType.pftNonZero);
+  const out = [];
+  const visite = n => { for (const e of n.Childs()) { if (!e.IsHole()) { out.push([e.Contour()].concat(e.Childs().map(t => t.Contour()))); for (const t of e.Childs()) visite(t); } } };
+  visite(arbre);
+  return out;
+}
 const aireCL = paths => paths.reduce((a, P) => a + CL.Clipper.Area(P), 0) / (SC * SC);
 function dedans(paths, p) {
   const q = { X: Math.round(p[0] * SC), Y: Math.round(p[1] * SC) };
@@ -867,20 +879,25 @@ function objetVue(ob, M) {
   for (const E of [e1, e2]) for (let k = 0; k < 36; k++) { const th = 2 * Math.PI * k / 36; const p = a3(E, a3(m3(b1, r * Math.cos(th)), m3(b2, r * Math.sin(th)))); pts.push([p[0], p[1]]); }
   const region = [versCL(positif(enveloppe(pts)))];
   // la surface devant : le rayon de vue (x, y, z) percé par le cylindre
+  // la surface la plus proche de l'œil le long du rayon de vue (x, y) : le flanc, ou une face des bouts
   const devant = p => {
-    // P(z) = (p, z) ; w = P − C ; |w − (w·A)A|² = r²
+    let best = Infinity;
     const w0 = [p[0] - C[0], p[1] - C[1], -C[2]];
     const ez = [0, 0, 1];
     const a0 = s3(w0, m3(A, d3(w0, A))), a1 = s3(ez, m3(A, d3(ez, A)));
     const qa = d3(a1, a1), qb = 2 * d3(a0, a1), qc = d3(a0, a0) - r * r;
-    if (qa < 1e-9) return qc <= 0 ? -Infinity : Infinity;          // l'axe vers l'œil : dedans, il est devant tout
-    const disc = qb * qb - 4 * qa * qc;
-    if (disc < 0) return Infinity;
-    const z = (-qb - Math.sqrt(disc)) / (2 * qa);
-    // borné à la longueur
-    const P = [p[0], p[1], z], s = d3(s3(P, C), A);
-    if (Math.abs(s) > Lg / 2) return Infinity;
-    return z;
+    if (qa > 1e-9) {
+      const disc = qb * qb - 4 * qa * qc;
+      if (disc >= 0) for (const sg of [-1, 1]) {
+        const z = (-qb + sg * Math.sqrt(disc)) / (2 * qa), s = d3(s3([p[0], p[1], z], C), A);
+        if (Math.abs(s) <= Lg / 2 + 1e-6 && z < best) best = z;
+      }
+    }
+    if (Math.abs(A[2]) > 1e-6) for (const E of [e1, e2]) {
+      const z = (d3(E, A) - p[0] * A[0] - p[1] * A[1]) / A[2], P = [p[0], p[1], z], w = s3(P, E);
+      if (l3(s3(w, m3(A, d3(w, A)))) <= r && z < best) best = z;
+    }
+    return best;
   };
   return { type: 'cylindre', C, A, r, region, devant, bouts: [[e1[0], e1[1]], [e2[0], e2[1]]], raccourci: Math.hypot(A[0], A[1]) };
 }
@@ -1041,7 +1058,15 @@ function construire(o) {
     coupe.region = [versCL(positif([dem[0], dem[1], add(dem[1], mul(ax, G)), add(dem[0], mul(ax, G))]))];
   }
 
-  const ob = pose.objet ? objetVue(pose.objet, M) : null;
+  // de profil, l'objet qui vient vers l'œil est coupé au ras de la main (profil.js, agent 2) : sa face coupée
+  // se dessine (g.coupe), la partie proche ne couvre plus le poing
+  let obVue = pose.objet, coupeObjet = null;
+  if (obVue && F.ext && typeof F.ext.objetDeVue === 'function' && obVue.coupe !== false) {
+    try { const r = F.ext.objetDeVue(obVue, sq, M, { demiAxes, F }); if (r && r.objet) { obVue = r.objet; coupeObjet = r.coupe || null; } }
+    catch (e) { if (process.env.MAINS_DEBUG) console.error('objetDeVue :', e.message); }
+  }
+  const ob = obVue ? objetVue(obVue, M) : null;
+  if (ob) ob.coupe = coupeObjet;
   for (const P of pieces) P.M = M;
   return { pose, sq, M, pieces, coupe, ob, F };
 }
@@ -1179,6 +1204,21 @@ function dessiner(o) {
       }
     }
     if (gris) for (const i of G.ids) pieces[i].gris = true;
+  }
+  // un doigt gris qui ne dépasse de ce qui est devant lui que d'un filet (moins de 2 mm de large, ou moins de
+  // 25 mm²) : ce filet ne se dessine pas (il doublerait la silhouette)
+  {
+    const blancs = pieces.filter(P => !P.gris).map(P => P.region);
+    const devantTout = blancs.length ? unionCL(blancs) : [];
+    for (const G of groupes.values()) {
+      if (G.base || !pieces[G.ids[0]].gris || o.loin) continue;
+      const vis = moins(G.region, devantTout), jette = [];
+      for (const cp of composantes(vis)) if (Math.abs(aireCL(cp)) < 25 || !ouvre(cp, 2.0).length) jette.push(...cp);
+      if (!jette.length) continue;
+      const J = decale(jette, 0.2);
+      for (const i of G.ids) { pieces[i].region = moins(pieces[i].region, J); pieces[i].boite = boiteCL(pieces[i].region); }
+      G.region = unionCL(G.ids.map(i => pieces[i].region)); G.boite = boiteCL(G.region);
+    }
   }
   T_('objet+teintes');
   // ── l'ordre de peinture : tri topologique sur « devant » ──
@@ -1436,6 +1476,12 @@ function geometrie(R, Tloc, s, m, ang) {
     const a = angEcran([A[0], A[1]]);
     geo.prise = { x: r1(c[0]), y: r1(c[1]), angle: r1(a), r: r1((C.pose.objet.diametre || 32) / 2 * s), axe: [r1(Math.cos(a * RAD)), r1(Math.sin(a * RAD))],
       raccourci: r1(ob.raccourci !== undefined ? ob.raccourci : 1), bouts: ob.bouts ? ob.bouts.map(b => pt(Tloc(b))) : null, type: C.pose.objet.type };
+    // la face coupée de l'objet (de profil) : une ellipse, centre, demi-axes et angle à l'écran
+    if (ob.coupe) {
+      const cc = p2(ob.coupe.centre), Av = u3(matVec(M, ob.coupe.axe)), rr = ob.coupe.r * s;
+      const aa = angEcran([-Av[1], Av[0]]);
+      geo.prise.coupe = { x: r1(cc[0]), y: r1(cc[1]), rx: r1(rr), ry: r1(rr * Math.abs(Av[2])), angle: r1(aa) };
+    }
   } else {
     const c = ancreDe(R, 'paume');
     const q = Tloc(c);

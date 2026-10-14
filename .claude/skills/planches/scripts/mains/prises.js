@@ -450,6 +450,31 @@ function pouceAutour(S, cyl, segsD, o = {}) {
   }
   return meilleur;
 }
+// le pouce de la prise de force : ses deux phalanges épousent le manche (elles le touchent sans y entrer), son
+// bout vient vers la phalange du milieu de l'index, posé dessus s'il l'atteint
+function pouceManche(S, cyl, segsD, o = {}) {
+  const obstD = obstSegments(segsD.filter(s => ['index', 'majeur', 'annulaire'].includes(s.doigt)));
+  const ip2 = segsD.find(s => s.id === 'index.p2'), ip3 = segsD.find(s => s.id === 'index.p3');
+  const cible = I3(ip2.a, ip2.b, 0.6);
+  const f = x => {
+    const q = qPouce(x), ch = chainePouce(S, q), ss = segments(S, 'pouce', ch);
+    const g0 = ecart(ss[0], cyl).g, g1 = ecart(ss[1], cyl).g, g2 = ecart(ss[2], cyl).g;
+    let pen = Math.max(0, -g0 - 1.5) + Math.max(0, -g1) + Math.max(0, -g2);
+    let gd = Infinity;
+    for (const ob of obstD) for (let i = 1; i < 3; i++) { const g = ecart(ss[i], ob).g; pen += Math.max(0, -g - 0.5); if (i === 2) gd = Math.min(gd, g); }
+    const pp = pulpe(S, 'pouce', q, 0.75);
+    const dt = L3(S3(pp.p, cible));
+    return 400 * pen * pen + 1 * Math.max(0, g1) ** 2 + 1.5 * Math.max(0, g2) ** 2 + 0.8 * dt * dt + 2 * Math.max(0, gd) ** 2 * (dt < 25 ? 1 : 0) +
+      0.01 * (x[2] - 0.3 * x[0]) ** 2 + 0.02 * Math.max(0, x[4] - 60) ** 2 + 0.02 * Math.max(0, x[3] - 50) ** 2;
+  };
+  let best = null;
+  for (const x0 of [[30, 0, 9, 20, 20], [50, 10, 15, 30, 30], [20, -15, 6, 10, 40], [65, 20, 20, 25, 25], [40, -10, 40, 30, 20]]) {
+    const r = cherche(f, x0, [12, 10, 15, 12, 12], BORNES_POUCE);
+    if (!best || r.f < best.f) best = r;
+  }
+  const q = qPouce(best.x);
+  return { q, f: best.f, erreur: L3(S3(pulpe(S, 'pouce', q, 0.75).p, cible)) };
+}
 // le pouce dont la pulpe vient en G, tournée vers nG (la normale de la pulpe pointe vers la surface touchée)
 function pouceVers(S, G, nG, obstacles, o = {}) {
   const t = o.t || 0.7, pref = o.pref || { mcp: 20, ip: 15 };
@@ -498,7 +523,7 @@ const PRISES = {
   // loin, la main en C) ; sa place le long de la paume est CHERCHÉE : celle où le plus de phalanges touchent.
   entourer(S, o) {
     const d = o.diametre || 32, R = d / 2, dec = o.decollement || 0;
-    const be = (o.inclinaison !== undefined ? o.inclinaison : 15) * RAD;
+    const be = (o.inclinaison !== undefined ? o.inclinaison : 25) * RAD;
     const u = U3([-Math.sin(be), Math.cos(be), o.pente || 0]);
     const xm = S.an.doigts.majeur.mcp[0];
     const essai = x => {
@@ -524,7 +549,8 @@ const PRISES = {
     if (o.pouce === 'long') doigts.pouce = pouceLong(S, cyl, segsD);
     else if (o.pouce === 'libre') doigts.pouce = { opposition: 15, cmc: -5, rotation: 4, mcp: 10, ip: 10 };
     else if (o.pouce === 'tour') doigts.pouce = pouceEnroule(S, cyl, segsD);
-    else doigts.pouce = pouceAutour(S, cyl, segsD, o).q;
+    else if (o.pouce === 'cible') doigts.pouce = pouceAutour(S, cyl, segsD, o).q;
+    else doigts.pouce = pouceManche(S, cyl, segsD, o).q;
     const objet = { type: d <= 4 ? 'fil' : 'cylindre', diametre: d, centre: H, axe: u, longueur: o.longueur || 1200 };
     return { doigts, objet };
   },
@@ -690,5 +716,5 @@ module.exports = {
   // la géométrie, pour les essais et le moteur
   A3, S3, M3, D3, X3, L3, U3, I3, rot3, orth, RAD, DOIGTS,
   preparer, chaineDoigt, chainePouce, segments, rayonVers, OBST, paumeObstacle, ecart, ecartMin, obstSegments,
-  fermer, fermerDoigt, fermerPouce, peauEn, pulpe, cherche, pouceEnroule, pouceAutour, pouceVers, pouceSurPhalanges, pouceLong, PRISES, peau,
+  fermer, fermerDoigt, fermerPouce, peauEn, pulpe, cherche, pouceEnroule, pouceAutour, pouceManche, pouceVers, pouceSurPhalanges, pouceLong, PRISES, peau,
 };

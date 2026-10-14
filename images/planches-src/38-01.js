@@ -9,6 +9,10 @@
 // Les enfants : le personnage de la bibliothèque à la taille d'un enfant, la tête agrandie autour
 // de la gorge (un enfant de 6 ans a la tête d'un sixième de sa hauteur, un adulte d'un septième
 // et demi). Aucune cote : rien ne se construit.
+// Lot 3 (13 octobre) : les enfants qui sortent, l'enfant qui réveille et l'adulte couché passent au
+// corps simple de profil (marche-brassee enfant4 et enfant6, debout-penche-lit, couche-dos). Les
+// enfants dans leurs sacs (l'abri, dedans) restent : le contour visible est celui du sac, la tête
+// celle de formes.js. Rouge : ouvrir la porte, la fermer derrière soi, sortir vers l'abri, secouer.
 module.exports = (h) => {
   const A = h.a, F = h.formes;
   const W = at => at.replace('fill="none"', 'fill="#FFFFFF"');
@@ -71,16 +75,21 @@ module.exports = (h) => {
     return [L[i0 - 1], ...L.slice(iF, L.length - 1)].join('\n');
   };
 
-  // Un enfant qui marche vers la droite, le sac de couchage en boule dans les bras.
-  const enfantSac = (x, G, E, taille, k) => {
-    const sc = taille / 1150, R = p => [x + p[0] * E * sc, G - p[1] * E * sc];
-    const kid = enfant({ x, y: G, E, taille, k, mains: { proche: R([160, 640]), loin: R([176, 656]) } });
-    const boule = [[65, 520], [55, 650], [75, 770], [165, 806], [285, 792], [332, 712], [326, 586], [296, 506], [186, 486]].map(R);
-    const plis = [[[140, 492], [128, 650], [140, 802]], [[236, 490], [226, 650], [238, 800]]];
-    return [kid.pers,
-      h.path(lisse(boule, true), W(A.arete)),
-      ...plis.map(l => h.path(lisse(l.map(R)), A.fin)),
-      brasProche(kid.pers), kid.tete].join('\n');
+  // Un enfant qui marche vers la droite, le sac de couchage en boule dans les bras : le corps simple
+  // de profil (marche-brassee, enfant de 4 ou de 6 ans), le sac posé sur les avant-bras, contre la
+  // poitrine, peint devant le tronc et derrière le bras proche (objetP).
+  const BOULE = [[65, 520], [55, 650], [75, 770], [165, 806], [285, 792], [332, 712], [326, 586], [296, 506], [186, 486]];
+  const PLIS_SAC = [[[140, 492], [128, 650], [140, 802]], [[236, 490], [226, 650], [238, 800]]];
+  const enfantSac = (x, G, E, age) => {
+    const o = { x, y: G, pose: 'marche-brassee', age, echelle: E };
+    const c0 = F.corps(o), C = c0.articulations.coudeP, M = [c0.mainP.x, c0.mainP.y];
+    // le sac : le bas sur l'avant-bras, à mi-chemin du coude à la main ; la vieille boule (mm d'un
+    // enfant de 6 ans, centre 190, 646) remise à la taille de l'avant-bras
+    const L = Math.hypot(M[0] - C[0], M[1] - C[1]), k = L / 210;
+    const bas = [(C[0] + M[0]) / 2 + 0.1 * L, (C[1] + M[1]) / 2 - 0.06 * L];
+    const R = p => [bas[0] + (p[0] - 190) * k, bas[1] - (p[1] - 486) * k];
+    const sac = [h.path(lisse(BOULE.map(R), true), W(A.arete)), ...PLIS_SAC.map(l => h.path(lisse(l.map(R)), A.fin))].join('\n');
+    return String(F.corps(Object.assign({ objetP: sac }, o)));
   };
 
   // ─── les enfants assis dans leur sac ─────────────────────────────────────────────────
@@ -153,12 +162,12 @@ module.exports = (h) => {
       out.push(h.rect(x, yb - ht, w, ht, A.hachure('metal', 'arete')));
       out.push(h.chemin([[x + w, yb - ht], [x + w * 1.6, yb - ht * 1.1], [x + w * 1.6, yb + ht * 0.07], [x + w, yb]], W(A.arete), true));
       out.push(h.cercle(x + w * 1.5, yb - ht * 0.48, 1.6, A.plein));
-      out.push(h.fleche(`M${pt([x + w * 0.1, yb - ht - 9])} Q${pt([x + w * 0.9, yb - ht - 26])} ${pt([x + w * 1.55, yb - ht * 1.1 - 8])}`, A.arete));
+      out.push(h.geste(`M${pt([x + w * 0.1, yb - ht - 9])} Q${pt([x + w * 0.9, yb - ht - 26])} ${pt([x + w * 1.55, yb - ht * 1.1 - 8])}`));
     } else {
       out.push(h.rect(x, yb - ht, w, ht, W(A.arete)));
       out.push(h.rect(x + w * 0.18, yb - ht * 0.9, w * 0.64, ht * 0.34, A.fin), h.rect(x + w * 0.18, yb - ht * 0.46, w * 0.64, ht * 0.36, A.fin));
       out.push(h.cercle(x + w * 0.1, yb - ht * 0.5, 1.6, A.plein));
-      out.push(h.fleche(`M${pt([x + w * 1.6, yb - ht * 1.1 - 8])} Q${pt([x + w * 0.95, yb - ht - 26])} ${pt([x + w * 0.2, yb - ht - 9])}`, A.arete));
+      out.push(h.geste(`M${pt([x + w * 1.6, yb - ht * 1.1 - 8])} Q${pt([x + w * 0.95, yb - ht - 26])} ${pt([x + w * 0.2, yb - ht - 9])}`));
     }
     out.push(h.ligne(x - 12, yb, x + w + 12, yb, A.arete));
     return out.join('\n');
@@ -229,9 +238,9 @@ module.exports = (h) => {
     out.push(h.rect(po[0][0], po[0][1], po[1][0] - po[0][0], po[1][1] - po[0][1], A.hachure('metal', 'arete')));
     out.push(h.chemin([[4150, 20], [4150, 1630], [4340, 1560], [4340, 90]].map(S), W(A.arete), true));
     // les deux enfants, les sacs dans les bras, et le chemin
-    out.push(enfantSac(R([1650, 0])[0], G, E, 1030, 1.38));
-    out.push(enfantSac(R([2250, 0])[0], G, E, 1150, 1.3));
-    out.push(h.fleche(`M${pt(R([2720, 330]))} L${pt(R([3440, 330]))}`, A.arete));
+    out.push(enfantSac(R([1650, 0])[0], G, E, 'enfant4'));
+    out.push(enfantSac(R([2250, 0])[0], G, E, 'enfant6'));
+    out.push(h.geste(`M${pt(R([2720, 330]))} L${pt(R([3440, 330]))}`));
     out.push(h.ligne(0, G, z.l, G, A.arete));
     return { svg: out.join('\n'), R, E };
   };
@@ -273,6 +282,12 @@ module.exports = (h) => {
   };
 
   // ─── la vue « réveiller » ────────────────────────────────────────────────────────────
+  const BRAS_KID = { tronc: 15, cou: 11, tete: 21, brasP: 62.1, avantbrasP: 74.1, mainP: 112.1, brasL: 58.1, avantbrasL: 70.1, mainL: 108.1 };
+  const adulte = (E, R) => {
+    const o = { y: R([0, 560])[1], pose: 'couche-dos', echelle: E, angles: { cou: -78, tete: -72 } };
+    const c0 = F.corps(Object.assign({ x: 0 }, o));
+    return { svg: String(F.corps(Object.assign({ x: R([230, 0])[0] - c0.boite.x0 }, o))) };
+  };
   const reveil = z => {
     const E = Math.min((z.h - 4) / 1300, z.l / 2250);
     const R = repere((z.l - 2250 * E) / 2 + 150 * E, z.h - 4, E);
@@ -281,26 +296,25 @@ module.exports = (h) => {
     const r = (x0, y0, x1, y1, at) => { const a = R([x0, y1]), b = R([x1, y0]); return h.rect(a[0], a[1], b[0] - a[0], b[1] - a[1], at); };
     out.push(r(-100, 0, -30, 980, W(A.contour)), r(1960, 0, 2030, 360, W(A.arete)), r(-30, 280, 2040, 380, W(A.arete)));
     out.push(r(-30, 380, 2040, 560, W(A.arete)));
-    out.push(h.path(lisse([[20, 575], [60, 690], [260, 705], [470, 690], [505, 590], [470, 565], [60, 565]].map(R), true), W(A.arete)));
-    // l'adulte couché sur le dos, la tête à gauche
-    const xF = 1900, o = R([xF, 675]);
-    out.push(F.personnage({ x: o[0], y: o[1], pose: 'debout', echelle: E, angle: -90, penche: 0, regard: 0 }));
-    // le profil, en courbe lisse : front, nez, bouche fermée, menton
-    const prof = [[222, 744], [240, 764], [278, 792], [322, 804], [348, 810], [358, 818], [364, 806], [376, 799], [390, 792], [400, 782], [420, 774], [448, 780], [478, 792], [500, 796]];
-    out.push(h.path(lisse([...prof, [500, 760], [445, 728], [222, 728]].map(R), true), 'fill="#FFFFFF" stroke="none"'));
-    out.push(h.path(lisse(prof.map(R)), A.arete));
+    out.push(h.path(lisse([[20, 568], [60, 630], [260, 642], [470, 630], [505, 585], [470, 563], [60, 563]].map(R), true), W(A.arete)));
+    // l'adulte couché sur le dos, la tête à gauche sur l'oreiller (corps simple couche-dos, la tête
+    // un peu relevée), le sommet du crâne à 230 mm du bout du lit
+    const ad0 = adulte(E, R);
+    out.push(ad0.svg);
     // la couverture, repliée sur la poitrine
     const couv = [[640, 560], [650, 810], [760, 838], [1000, 822], [1300, 796], [1600, 786], [1760, 800], [1860, 900], [1960, 896], [2030, 810], [2065, 620], [2060, 560], [1500, 556], [1000, 560]];
     out.push(h.path(lisse(couv.map(R), true), W(A.arete)));
-    // l'enfant, penché, les deux mains sur l'épaule
-    const kid = enfant({ x: R([980, 0])[0], y: R([0, 0])[1], E, taille: 1150, k: 1.3, cote: 'gauche', penche: 30, regard: 16,
-      mains: { proche: R([620, 790]), loin: R([590, 800]) } });
-    out.push(kid.pers, kid.tete);
-    const bouche = kid.Hv([104, 46]);
+    // l'enfant, debout contre le lit, les deux mains à plat sur l'épaule (corps simple
+    // debout-penche-lit, enfant de 6 ans, tourné vers la tête du lit ; les bras recalés une fois par
+    // Nelder-Mead sur corps(), lot 3, pour que la paume tombe sur le dessus de l'épaule)
+    const kid = F.corps({ x: R([1080, 0])[0], y: R([0, 0])[1], pose: 'debout-penche-lit', age: 'enfant6', echelle: E, cote: 'gauche', angles: BRAS_KID });
+    out.push(String(kid));
+    // il crie son nom
+    const t = kid.tete, bouche = [t.x - 72 * E, t.y + 48 * E];
     out.push(ondes([bouche[0] - 3, bouche[1] - 2], 166, [7, 12, 17], 24));
     // secouer : la flèche aller-retour au-dessus des mains
-    const m = R([560, 890]);
-    out.push(h.fleche(`M${pt(m)} L${pt(add(m, [-9, 0]))}`, A.arete), h.fleche(`M${pt(m)} L${pt(add(m, [9, 0]))}`, A.arete));
+    const m = [kid.mainP.x - 2, kid.mainP.y - 14];
+    out.push(h.geste(`M${pt(add(m, [-10, 0]))} L${pt(add(m, [10, 0]))}`, { double: true }));
     return { svg: out.join('\n'), R, E };
   };
 
