@@ -3,6 +3,8 @@
 // (44 à 46), variante d'urgence « Contenir, et refaire le joint ».
 // Le chapitre ne donne aucune dimension du pot, du tamis, du cadre, de la guenille ni de la
 // caisse : aucune cote. Les seuls nombres sont dans la légende (20 graines, ou 100 ; × 5).
+// La charte : les pots, le cadre et la tomate au contour ; la face à l'ombre du rouleau ; le rouge sur le
+// geste (rouler) et sur le joint qui fuit. La main du joint est la main simple (mains/moteur.js), à plat.
 module.exports = (h) => {
   const A = h.a, F = h.formes;
   const r1 = v => Math.round(v * 10) / 10;
@@ -57,7 +59,7 @@ module.exports = (h) => {
     const Wn = W * 0.8, yn = -H * 0.87;
     const inter = ser(profil(W - 2 * G_VERRE, H - G_VERRE, -G_VERRE), T) + ' Z';
     const trait = [];
-    trait.push(h.path(ser(profil(W, H), T), A.arete));
+    trait.push(h.path(ser(profil(W, H), T), A.contour));
     // filets du goulot
     for (const k of [0.35, 0.7]) {
       const yy = -H + (H + yn) * k;
@@ -272,7 +274,7 @@ module.exports = (h) => {
     const c = [[xa, yb], [xa + Lf, yb], [xa + Lf + ox, yb - oy], [xa + ox, yb - oy]];
     const k = e / oy;
     const ci = [[xa + e + ox * k, yb - e], [xa + Lf - e + ox * k, yb - e], [xa + Lf + ox - e - ox * k, yb - oy + e], [xa + ox + e - ox * k, yb - oy + e]];
-    o.push(h.chemin(c, A.hachure('bois', 'arete'), true));
+    o.push(h.chemin(c, A.hachure('bois', 'contour'), true));
     o.push(h.chemin(ci, A.blanc, true), h.chemin(ci, A.hachure('grillage', 'detail'), true));
     const rg = alea(19);
     for (let i = 0; i < 5; i++) for (let j = 0; j < 3; j++) {
@@ -342,7 +344,11 @@ module.exports = (h) => {
       const rr = 3 + pas * t / 360, a = t * RAD;
       sp.push([xa + rr * Math.cos(a) * 0.55, cy + rr * Math.sin(a)]);
     }
-    o.push(h.path(`M${r1(xa)} ${r1(cy - R)} L${r1(xb)} ${r1(cy - R)} A${r1(R * 0.55)} ${r1(R)} 0 0 1 ${r1(xb)} ${r1(cy + R)} L${r1(xa)} ${r1(cy + R)} Z`, bA));
+    const corpsR = `M${r1(xa)} ${r1(cy - R)} L${r1(xb)} ${r1(cy - R)} A${r1(R * 0.55)} ${r1(R)} 0 0 1 ${r1(xb)} ${r1(cy + R)} L${r1(xa)} ${r1(cy + R)} Z`;
+    // le rouleau : le blanc, la face du dessous à l'ombre, puis le trait
+    o.push(h.path(corpsR, A.blanc));
+    o.push(h.path(`M${r1(xa)} ${r1(cy + R * 0.35)} L${r1(xb + R * 0.515)} ${r1(cy + R * 0.35)} A${r1(R * 0.55)} ${r1(R)} 0 0 1 ${r1(xb)} ${r1(cy + R)} L${r1(xa)} ${r1(cy + R)} Z`, A.ombre));
+    o.push(h.path(corpsR, A.arete));
     o.push(h.ellipse(xa, cy, R * 0.55, R, bA));
     o.push(h.chemin(sp, A.detail));
     // le bord libre de la guenille, qui court le long du rouleau
@@ -352,7 +358,7 @@ module.exports = (h) => {
       o.push(h.cercle(xa + rr * Math.cos(a) * 0.55, cy + rr * Math.sin(a), 1.1, A.plein));
     }
     // le geste : on roule
-    o.push(h.fleche(`M${r1(xa - R * 0.9)} ${r1(cy + R * 0.9)} A${r1(R * 0.9)} ${r1(R * 1.35)} 0 0 1 ${r1(xa + R * 0.2)} ${r1(cy - R * 1.4)}`, A.arete));
+    o.push(h.geste(`M${r1(xa - R * 0.9)} ${r1(cy + R * 0.9)} A${r1(R * 0.9)} ${r1(R * 1.35)} 0 0 1 ${r1(xa + R * 0.2)} ${r1(cy - R * 1.4)}`));
     // le pot fermé, le rouleau debout dedans
     const W = Math.min(50, z.l * 0.24), H = Math.min(z.h - 16, 96);
     const px = z.l - W / 2 - 12, py = z.h - 4;
@@ -420,7 +426,7 @@ module.exports = (h) => {
     const ext = profil(Wp, Hp), int = profil(Wp - 2 * g, Hp - g, -g);
     // la paroi de verre en coupe : l'extérieur, puis l'intérieur en blanc par-dessus
     const dExt = ser(ext, T) + ' Z', dInt = ser(int, T) + ' Z';
-    o.push(h.path(dExt, bA));
+    o.push(h.path(dExt, bC));
     o.push(h.path(dInt, bD));
     // les petits traits du verre coupé
     const Wn = Wp * 0.8, yn = -Hp * 0.87;
@@ -531,6 +537,18 @@ module.exports = (h) => {
   };
 
   // ─── Rangée 3 : le joint vérifié sous l'eau ────────────────────────────────────────────
+  // la silhouette d'une main simple (le chemin à 1,5 de son SVG : le moteur n'expose pas son contour) : le bas
+  // de la main au-dessus d'une abscisse, pour la poser à plat sur le fond du pot
+  const silhouette = svg => {
+    const segs = [];
+    for (const mm of String(svg).matchAll(/<path d="([^"]+)"[^>]*stroke-width="1\.5"/g)) for (const sp of mm[1].split('M').filter(Boolean)) {
+      const n = sp.match(/-?\d+(\.\d+)?/g).map(Number), Q = [];
+      for (let i = 0; i + 1 < n.length; i += 2) Q.push([n[i], n[i + 1]]);
+      for (let i = 1; i < Q.length; i++) segs.push([Q[i - 1], Q[i]]);
+    }
+    const coupe = x => segs.filter(([a, b]) => (a[0] - x) * (b[0] - x) <= 0 && a[0] !== b[0]).map(([a, b]) => a[1] + (b[1] - a[1]) * (x - a[0]) / (b[0] - a[0]));
+    return { bas: x => Math.max(...coupe(x)) };
+  };
   const test = z => {
     const o = [];
     const yb = z.h - 4, t = 4;
@@ -553,17 +571,22 @@ module.exports = (h) => {
     const chaine = [[j[0] + 2, j[1] - 3, 1.6], [j[0] + 6, j[1] - 11, 2], [xw - 1, j[1] - 22, 2.4]];
     for (let y = j[1] - 36, i = 0; y > cyFond + 10; y -= 15, i++) chaine.push([xw + (i % 2 ? 1 : -0.5), y, 2.8 + Math.min(i, 3) * 0.2]);
     for (const [x, y, rr] of chaine) o.push(h.cercle(x, y, rr, bD));
+    // le point à contrôler : le joint, d'où sortent les bulles
+    o.push(h.controle(j[0] + 1, j[1] - 2, 8));
     o.push(h.path(`M${r1(xw - 7)} ${r1(ys - 1.5)} Q${r1(xw)} ${r1(ys - 6)} ${r1(xw + 7)} ${r1(ys - 1.5)}`, A.detail));
     // la chaudière par-dessus
     o.push(h.path(`M${r1(xb)} ${r1(yt)} L${r1(xb)} ${r1(yb)} L${r1(xb + Wb)} ${r1(yb)} L${r1(xb + Wb)} ${r1(yt)} L${r1(xb + Wb - t)} ${r1(yt)} L${r1(xb + Wb - t)} ${r1(yb - t)} L${r1(xb + t)} ${r1(yb - t)} L${r1(xb + t)} ${r1(yt)} Z`, A.plein));
-    // la main qui appuie sur le fond du pot et le tient sous l'eau
-    // modèle s10-plat retourné et en miroir : paume en bas sur le fond du pot, les doigts vers la
-    // gauche, le pouce dessous ; penché de 10,7° pour que doigts et pouce portent, le talon levé ;
-    // l'avant-bras remonte à droite et sort par le haut (214 px = 190 mm)
-    const m = F.modele('s10-plat', { x: cx - Wp / 2 + 3, y: cyFond - 1, ancre: [14, 47], angle: 180 - 10.7, miroir: true, echelle: 0.44 * 190 / 214,
-      masquer: [[228, 0, 245, 125]],
-      bras: { a: [228, 57.6], a0: [210, 58.4], b: [228, 110.8], b0: [210, 108.8], vers: [Math.cos(-55 * Math.PI / 180), Math.sin(-55 * Math.PI / 180)], bord: z } });
-    o.push(m.toString());
+    // la main gauche qui appuie sur le fond du pot et le tient sous l'eau : la main simple à plat, de profil
+    // côté pouce, un peu vue d'en haut ; la paume posée sur le fond, les doigts vers la droite, l'avant-bras
+    // qui remonte à gauche, passe par-dessus le bord et sort de la vue (les bulles, à droite, restent libres)
+    const MAIN = { ech: 0.5, dx: 30, rot: [-25, 0, 0], vers: [-50, -120] };
+    const oM = { x: cx - MAIN.dx, y: cyFond - 30, ancre: 'poignet', pose: 'plat', vue: 'pouce', cote: 'gauche', echelle: MAIN.ech, angle: 0,
+      ...(MAIN.rot ? { rotation: MAIN.rot } : {}), avantbras: { vers: MAIN.vers, bord: { x0: 0, y0: 0, x1: z.l, y1: z.h }, bras: { pli: 0 } } };
+    // la paume posée : le bas de la main touche le fond au milieu du pot
+    const m0 = F.mainSimple(oM), sil = silhouette(m0.svg);
+    const xs = [cx - Wp * 0.3, cx, cx + Wp * 0.3].map(x => sil.bas(x)).filter(Number.isFinite);
+    const m = F.mainSimple({ ...oM, y: oM.y + (cyFond - Math.max(...xs)) - 0.6 });
+    o.push(m.svg);
     return {
       svg: o.join('\n'),
       renvois: [

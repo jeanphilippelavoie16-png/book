@@ -12,12 +12,27 @@
 // l'oiseau entre tête première et où la tête sort sous le fond (la chaudière se rétrécit vers
 // le fond, elle fait déjà cône). Le chapitre ne dit pas où couper sur le cou : la lame est
 // posée en travers du haut du cou, sous la tête, sans autre précision anatomique.
-// La main du couteau vient de h.formes.
+// La main du couteau est la main simple (mains/moteur.js) : le poing côté paume sur le manche.
+// La charte : le couteau au contour, la face à l'ombre du seau renversé, des poteaux et des entonnoirs ; le
+// rouge sur le geste (tirer la lame) et sur les épaules qui butent sur le fond.
 module.exports = (h) => {
   const A = h.a, F = h.formes;
   const r1 = n => Math.round(n * 10) / 10;
   const blanc = at => at.replace('fill="none"', 'fill="#FFFFFF"');
   const bA = blanc(A.arete), bC = blanc(A.contour), bD = blanc(A.detail);
+  const oA = A.arete.replace('fill="none"', 'fill="#CFCFCF"');   // une face à l'ombre, avec son arête
+  // l'angle d'une main simple qui met l'axe de sa prise sur axe (degrés écran) et son avant-bras vers vers [x, y]
+  const poser = (o, axe, vers) => {
+    const base = Object.assign({}, o, { angle: 0, avantbras: { longueur: 100 } }); delete base.objet;
+    const e0 = F.mainSimple(base); let best = null;
+    for (const k of [0, 180]) {
+      const a = axe - e0.prise.angle + k, m = F.mainSimple(Object.assign({}, base, { angle: a }));
+      const d = [m.coude[0] - m.poignet[0], m.coude[1] - m.poignet[1]], v = [vers[0] - m.poignet[0], vers[1] - m.poignet[1]];
+      const c = (d[0] * v[0] + d[1] * v[1]) / ((Math.hypot(d[0], d[1]) * Math.hypot(v[0], v[1])) || 1);
+      if (!best || c > best.c) best = { a, c };
+    }
+    return best.a;
+  };
 
   // courbe lisse (Catmull-Rom) par des points
   const lisse = (pts, ferme = false) => {
@@ -206,20 +221,23 @@ module.exports = (h) => {
     const Tm = [132, 64];
     const K = (d, e) => P(Tm[0] + d * ax[0] + e * nx[0], Tm[1] + d * ax[1] + e * nx[1]);
     const lame = h.path(`M${K(48, 9).map(r1).join(' ')}` + suite([K(48, 9), K(100, 9.5), K(140, 8.5), K(164, 1)]) +
-      suite([K(164, 1), K(150, -6), K(125, -9), K(48, -9)]) + ' Z', bA);
+      suite([K(164, 1), K(150, -6), K(125, -9), K(48, -9)]) + ' Z', bC);
     const fil = h.path(lisse([K(50, -4.5), K(124, -4.5), K(150, -2), K(162, 0.5)]), A.fin);
     const mitre = h.chemin([K(42, 12), K(49, 12), K(49, -12), K(42, -12)], A.plein, true);
-    const manche = h.chemin([K(42, 11), K(-58, 11), K(-64, 7), K(-64, -7), K(-58, -11), K(42, -11)], A.hachure('bois', 'arete'), true);
+    const manche = h.chemin([K(42, 11), K(-58, 11), K(-64, 7), K(-64, -7), K(-58, -11), K(42, -11)], A.hachure('bois', 'contour'), true);
     const mp = P(...Tm);
-    // le couteau d'abord : le blanc de la main le cache dans le poing
-    out.push(manche, mitre, lame, fil);
-    // modèle s11 (poing fermé, vu de la paume) en miroir : la lame sort du côté de l'index, à
-    // gauche ; tourné comme la lame, l'avant-bras descend et sort de la loupe. Le manche (22) passe
-    // dans le poing du modèle (25 px).
-    out.push(F.modele('s11', { x: mp[0], y: mp[1], ancre: [68, 42], miroir: true, angle: ang + 90, echelle: 22 * s / 25,
-      masquer: [[0, 150, 140, 175]], bras: { a: [21.8, 150], a0: [20.8, 135], b: [76.3, 150], b0: [76.2, 135], bord: z } }));
+    // la lame d'abord ; le manche et la mitre sont l'objet tenu
+    out.push(lame, fil);
+    // la main gauche : la main simple, le poing côté paume refermé sur le manche (22 mm), la lame qui sort du côté
+    // du pouce, à gauche ; l'avant-bras descend à droite et sort de la loupe. La main est à l'échelle de la vue.
+    const MAIN = { rot: [0, -30, 0], vers: P(260, 330) };   // tournée de 30° : les quatre doigts sur le manche
+    const oM = { x: mp[0], y: mp[1], pose: 'prise-manche', vue: 'paume', cote: 'gauche', echelle: s, diametre: 22, ...(MAIN.rot ? { rotation: MAIN.rot } : {}) };
+    const aM = poser(oM, Math.atan2(ax[1], ax[0]) * 180 / Math.PI, MAIN.vers);
+    out.push(F.mainSimple({ ...oM, angle: aM, objet: [manche, mitre].join('\n'), avantbras: { vers: MAIN.vers, bord: { x0: 0, y0: 0, x1: z.l, y1: z.h }, bras: { pli: 0 } } }).svg);
     // le geste : tirer la lame d'un trait
-    out.push(h.fleche(`M${r1(P(10, 38)[0])} ${r1(P(10, 38)[1])} L${r1(P(80, 38)[0])} ${r1(P(80, 38)[1])}`));
+    out.push(h.geste(`M${r1(P(0, 30)[0])} ${r1(P(0, 30)[1])} L${r1(P(68, 30)[0])} ${r1(P(68, 30)[1])}`));
+    // le point à contrôler : les épaules qui butent sur le fond
+    out.push(h.controle(...P(-62, -14), 13));
     // le sang : de la coupe, le long de la tête, puis goutte à goutte
     const b = P(...BEC);
     out.push(h.path(lisse([P(19, 78), P(24, 96), P(27, 118), P(BEC[0] + 1, BEC[1] - 4)]), A.cache));
@@ -248,8 +266,14 @@ module.exports = (h) => {
     out.push(h.ligne(cx - 185 * s, by + 156 * sf * s + 1, cx + 185 * s, by + 156 * sf * s + 1, A.arete));
     // la chaudière renversée, posée sur son ouverture
     const e0 = E(12, 152), e1 = E(360, 130);
-    out.push(h.path(`M${r1(e0.x - e0.rx)} ${r1(e0.y)} L${r1(e1.x - e1.rx)} ${r1(e1.y)} A${r1(e1.rx)} ${r1(e1.ry)} 0 0 0 ${r1(e1.x + e1.rx)} ${r1(e1.y)} ` +
-      `L${r1(e0.x + e0.rx)} ${r1(e0.y)} A${r1(e0.rx)} ${r1(e0.ry)} 0 0 1 ${r1(e0.x - e0.rx)} ${r1(e0.y)} Z`, bC));
+    const flanc = `M${r1(e0.x - e0.rx)} ${r1(e0.y)} L${r1(e1.x - e1.rx)} ${r1(e1.y)} A${r1(e1.rx)} ${r1(e1.ry)} 0 0 0 ${r1(e1.x + e1.rx)} ${r1(e1.y)} ` +
+      `L${r1(e0.x + e0.rx)} ${r1(e0.y)} A${r1(e0.rx)} ${r1(e0.ry)} 0 0 1 ${r1(e0.x - e0.rx)} ${r1(e0.y)} Z`;
+    // le flanc : le blanc, la face de droite à l'ombre, puis le contour
+    const avant = (e, t) => [e.x + e.rx * Math.cos(t), e.y + e.ry * Math.sin(t)];
+    const ombre = [];
+    for (let k = 0; k <= 12; k++) ombre.push(avant(e0, k / 12 * 1.15));
+    for (let k = 12; k >= 0; k--) ombre.push(avant(e1, k / 12 * 1.15));
+    out.push(h.path(flanc, A.blanc), h.chemin(ombre, A.ombre, true), h.path(flanc, A.contour));
     {
       const a = E(0, 156), b = E(12, 156);
       out.push(h.path(`M${r1(a.x - a.rx)} ${r1(b.y)} L${r1(a.x - a.rx)} ${r1(a.y)} A${r1(a.rx)} ${r1(a.ry)} 0 0 0 ${r1(a.x + a.rx)} ${r1(a.y)} L${r1(a.x + a.rx)} ${r1(b.y)} ` +
@@ -285,7 +309,7 @@ module.exports = (h) => {
     };
   };
   const poteau = (p, y0, y1, x0, x1, z0, z1) => [
-    h.chemin([p(x0, y0, z1), p(x1, y0, z1), p(x1, y1, z1), p(x0, y1, z1)], bA, true),
+    h.chemin([p(x0, y0, z1), p(x1, y0, z1), p(x1, y1, z1), p(x0, y1, z1)], oA, true),   // la face de droite, à l'ombre
     h.chemin([p(x0, y0, z0), p(x0, y0, z1), p(x0, y1, z1), p(x0, y1, z0)], bA, true),
     h.chemin([p(x0, y1, z0), p(x1, y1, z0), p(x1, y1, z1), p(x0, y1, z1)], bA, true),
   ].join('\n');
@@ -308,7 +332,8 @@ module.exports = (h) => {
     ['dos', 'droite'].forEach(k => out.push(h.chemin(pan[k], bA, true)));
     // les clous du dos dans le poteau, vus par l'ouverture
     [310, 280].forEach(y => { const q = p(0, y, zb + 1); out.push(h.cercle(q[0], q[1], 1.7, A.plein)); });
-    ['devant', 'gauche'].forEach(k => out.push(h.chemin(pan[k], bA, true)));
+    // le devant (la face de droite) à l'ombre, le côté gauche au jour
+    out.push(h.chemin(pan.devant, oA, true), h.chemin(pan.gauche, bA, true));
     // la tranche du contreplaqué, sur le haut
     const t = 14;
     out.push(h.chemin([p(H.xl + t, 360, zb), p(H.xl + t, 360, H.zf - t), p(H.xr, 360, H.zf - t)], A.detail));
@@ -353,7 +378,13 @@ module.exports = (h) => {
       return lo.slice(0, -1).concat(hi.slice(0, -1));
     };
     const haut = cercle(cH, 150);
-    out.push(h.chemin(env([...haut, ...cercle(cB, 45)]), bA, true));
+    const enveloppe = env([...haut, ...cercle(cB, 45)]);
+    out.push(h.chemin(enveloppe, A.blanc, true));
+    // la face de droite du cône, à l'ombre : de la génératrice du bord (35°) à 80°
+    const ombre = [];
+    for (let k = 0; k <= 10; k++) ombre.push(pt(cH, 150, (35 + 45 * k / 10) * Math.PI / 180));
+    for (let k = 10; k >= 0; k--) ombre.push(pt(cB, 45, (35 + 45 * k / 10) * Math.PI / 180));
+    out.push(h.chemin(ombre, A.ombre, true), h.chemin(enveloppe, A.arete, true));
     // le dedans, vu par l'ouverture : le recouvrement de la tôle au dos, et ses deux vis
     out.push(h.chemin(haut, bA, true));
     const aR = 283 * Math.PI / 180;              // le bord de la tôle qui recouvre, au dos

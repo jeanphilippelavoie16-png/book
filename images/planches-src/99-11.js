@@ -4,7 +4,9 @@
 // et le grain sorti à la cuillère, passé à l'eau froide ; le grain roulé entre les doigts, grossi ;
 // le panier secoué dans le ruisseau ; le second bouillon dans une eau neuve.
 // Le chaudron, le seau et le bol sont en coupe ; le poêle et le panier, en élévation.
-// Les mains viennent de h.formes.main (la pince de profil, la prise vue du dos).
+// La main du panier est la main simple (mains/moteur.js) : le poing refermé sur l'anse. Le grain roulé se
+// passe de main : la pince cacherait le grain. La charte : le rouge sur les gestes à faire (secouer le tamis,
+// rouler le grain, secouer le panier) ; pas de gris, les coupes sont hachurées.
 module.exports = (h) => {
   const F = h.formes, A = h.a;
   const RAD = Math.PI / 180, f1 = v => Math.round(v * 10) / 10;
@@ -14,6 +16,18 @@ module.exports = (h) => {
   const Tr = (cx, cy, k, ang = 0) => {
     const c = Math.cos(ang * RAD), s = Math.sin(ang * RAD);
     return p => [cx + k * (p[0] * c - p[1] * s), cy + k * (p[0] * s + p[1] * c)];
+  };
+  // l'angle d'une main simple qui met l'axe de sa prise sur axe (degrés écran) et son avant-bras vers vers [x, y]
+  const poser = (o, axe, vers) => {
+    const base = Object.assign({}, o, { angle: 0, avantbras: { longueur: 100 } }); delete base.objet;
+    const e0 = F.mainSimple(base); let best = null;
+    for (const k of [0, 180]) {
+      const a = axe - e0.prise.angle + k, m = F.mainSimple(Object.assign({}, base, { angle: a }));
+      const d = [m.coude[0] - m.poignet[0], m.coude[1] - m.poignet[1]], v = [vers[0] - m.poignet[0], vers[1] - m.poignet[1]];
+      const c = (d[0] * v[0] + d[1] * v[1]) / ((Math.hypot(d[0], d[1]) * Math.hypot(v[0], v[1])) || 1);
+      if (!best || c > best.c) best = { a, c };
+    }
+    return best.a;
   };
   const dP = (segs, T) => segs.map(([c, ...ps]) => c + ps.map(p => P(T(p))).join(' ')).join(' ');
   const dedans = (p, poly) => {
@@ -204,7 +218,7 @@ module.exports = (h) => {
     out.push(h.rect(sx + Ws / 2, my - 17, 6, 21, A.hachure('bois', 'arete')));
     // secouer
     const yF = my - 30;
-    out.push(`<path d="M${P([sx - 34, yF])} L${P([sx + 34, yF])}" ${A.arete} marker-start="url(#fl)" marker-end="url(#fl)"/>`);
+    out.push(h.geste(`M${P([sx - 34, yF])} L${P([sx + 34, yF])}`, { double: true }));
     return { svg: out.join('\n'), sx, my, Ws, yS, Hs, ySommet };
   });
 
@@ -289,8 +303,8 @@ module.exports = (h) => {
     const out = [grain(A1[0], A1[1], k, 0, { germe: true, trait: A.arete })];
     // le pouce pousse d'un côté, l'index de l'autre : le grain roule sur lui-même
     const yH = A1[1] - 5.2 * k - 9, yB = A1[1] + 5.9 * k + 9, dx = 4.6 * k;
-    out.push(h.fleche(`M${P([A1[0] - dx, yH])} L${P([A1[0] + dx, yH])}`, A.arete));
-    out.push(h.fleche(`M${P([A1[0] + dx, yB])} L${P([A1[0] - dx, yB])}`, A.arete));
+    out.push(h.geste(`M${P([A1[0] - dx, yH])} L${P([A1[0] + dx, yH])}`));
+    out.push(h.geste(`M${P([A1[0] + dx, yB])} L${P([A1[0] - dx, yB])}`));
     // prêt : le grain nu, la pelure lâche qui glisse vers le haut, la pointe tombée
     const T = Tr(B1[0], B1[1], k, 0);
     out.push(grain(B1[0], B1[1], k, 0, { pointe: false, germe: true, trait: A.arete }));
@@ -352,17 +366,16 @@ module.exports = (h) => {
     const yA = yR - 36;
     const anse = (d) => { const p = []; for (let i = 0; i <= 30; i++) { const a = Math.PI * i / 30; p.push([bx - (Wt / 2 - 8 - d) * Math.cos(a), yR - (yR - yA - d) * Math.sin(a)]); } return p; };
     const bandeAnse = [...anse(0), ...anse(5).reverse()];
-    out.push(h.chemin(bandeAnse, blanc(A.arete), true));
-    // la main : modèle s11 (poing fermé, vu de la paume) retourné, l'avant-bras qui monte et sort
-    // du cadre ; l'anse passe dans le poing
-    const m = F.modele('s11', { x: bx, y: yA + 2.5, ancre: [68, 42], angle: 180, echelle: 0.34, masquer: [[0, 150, 140, 175]],
-      bras: { a: [21.8, 150], a0: [20.8, 135], b: [76.3, 150], b0: [76.2, 135], bord: z } });
-    // le bord de l'anse appuyé là où les doigts passent dessous
-    [anse(0), anse(5)].forEach(a => { const s = a.filter(q => Math.abs(q[0] - bx) < 24); if (s.length > 1) out.push(h.chemin(s, A.contour)); });
-    out.push(m.toString());
-    // secouer, brasser
+    const anseSvg = h.chemin(bandeAnse, blanc(A.arete), true);
+    // la main : la main simple, le poing refermé sur le haut de l'anse, vu côté paume ; l'avant-bras monte et
+    // sort du cadre. L'anse entre d'un côté du poing et ressort de l'autre, derrière les doigts.
+    const MAIN = { pose: 'prise-manche', vue: 'paume', cote: 'droite', ech: 0.34, rot: [-25, 0, 0], vers: [bx + 20, -200] };
+    const oM = { x: bx, y: yA + 2.5, pose: MAIN.pose, vue: MAIN.vue, cote: MAIN.cote, echelle: MAIN.ech, diametre: 5 / MAIN.ech, ...(MAIN.rot ? { rotation: MAIN.rot } : {}) };
+    const m = F.mainSimple({ ...oM, angle: poser(oM, 0, MAIN.vers), objet: anseSvg, avantbras: { vers: MAIN.vers, bord: { x0: 0, y0: 0, x1: z.l, y1: z.h }, bras: { pli: 0 } } });
+    out.push(m.svg);
+    // secouer, brasser : le geste
     const yS = yR - 14;
-    out.push(`<path d="M${P([bx - Wt / 2 - 58, yS])} L${P([bx - Wt / 2 - 8, yS])}" ${A.arete} marker-start="url(#fl)" marker-end="url(#fl)"/>`);
+    out.push(h.geste(`M${P([bx - Wt / 2 - 58, yS])} L${P([bx - Wt / 2 - 8, yS])}`, { double: true }));
     // le courant, et ce qu'il emporte
     [[yE + 16, 8, bx - Wt / 2 - 14], [yF - 18, 8, bx - Wb / 2 - 14]].forEach(([y, x0, x1]) => out.push(h.fleche(`M${P([x0, y])} L${P([x1, y])}`, A.cache)));
     [[yE + 16, bx + Wt / 2 + 8, z.l - 8], [yF - 18, bx + Wb / 2 + 8, z.l - 8]].forEach(([y, x0, x1]) => out.push(h.fleche(`M${P([x0, y])} L${P([x1, y])}`, A.cache)));

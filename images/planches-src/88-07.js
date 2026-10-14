@@ -13,12 +13,16 @@
 // en mm) : chaque tour est une bande vue de face, entre deux rainures en demi-cosinus (l'hélice
 // projetée), fermée en haut et en bas par la section ronde du boudin. Les tours se touchent : le
 // pas vaut la grosseur du boudin.
+// 14 oct. : les deux mains sont des mains simples (mains/moteur.js, prise-manche vue côté paume) au lieu
+// des calques s11 ; la charte : le pain et la baguette au contour 2,4, la flèche de rotation (on
+// tourne la baguette) en rouge.
 
 module.exports = (h) => {
   const A = h.a, F = h.formes;
   const f = v => Math.round(v * 10) / 10;
   const RAD = Math.PI / 180;
   const blancArete = A.arete.replace('fill="none"', 'fill="#ffffff"');
+  const blancContour = A.contour.replace('fill="none"', 'fill="#ffffff"');   // la charte : l'objet du geste pèse
   const blancTrait = 'fill="none" stroke="#ffffff" stroke-width="1.1" stroke-linecap="round"';
   const halo = 'fill="none" stroke="#ffffff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"';
   const hasard = g => { let s = g; return () => { s = (s * 16807) % 2147483647; return (s - 1) / 2147483646; }; };
@@ -68,7 +72,7 @@ module.exports = (h) => {
     const contour = [...haut, ...pointe, ...bas.slice().reverse()];
     out.push(h.chemin(contour.map(T), A.blanc, true));
     if (bout === 'coupe') {
-      out.push(h.chemin(contour.map(T), A.arete, true));
+      out.push(h.chemin(contour.map(T), A.contour, true));
       // le gros bout coupé : la section vue un peu de biais, avec son cœur
       const sec = [], coeur = [];
       for (let i = 0; i < 24; i++) {
@@ -78,7 +82,7 @@ module.exports = (h) => {
       }
       out.push(h.chemin(sec.map(T), blancArete, true), h.chemin(coeur.map(T), A.fin, true));
     } else {
-      out.push(h.chemin(haut.concat(pointe).concat(bas.slice().reverse()).map(T), A.arete, false));
+      out.push(h.chemin(haut.concat(pointe).concat(bas.slice().reverse()).map(T), A.contour, false));
     }
     // le rebord de l'écorce, déchiré à uB
     if (uB > u0) {
@@ -132,7 +136,7 @@ module.exports = (h) => {
     for (let k = 0; k < n; k++) {
       const cx = uD - k * P_, lib = libre && k === n - 1;
       const b = bande(cx, Rs, lib);
-      out.push(h.path(dPts(b.pts.map(T)) + (b.ferme ? ' Z' : ''), blancArete));
+      out.push(h.path(dPts(b.pts.map(T)) + (b.ferme ? ' Z' : ''), blancContour));
       // les bulles de la pâte, et sur le pain cuit, les cloques de la croûte
       const nb = lib ? 1 : 2;
       for (let j = 0; j < nb; j++) {
@@ -172,14 +176,15 @@ module.exports = (h) => {
       const q = T([ctr[i][0] + (R() - 0.5) * AB, ctr[i][1] + (R() - 0.5) * AB]);
       bulles.push(h.ellipse(q[0], q[1], 1.3 + R(), 0.9 + R() * 0.4, A.fin));
     }
-    return [h.chemin(tour, A.blanc, true), h.chemin(tour, A.arete, false), ...bulles].join('\n');
+    return [h.chemin(tour, A.blanc, true), h.chemin(tour, A.contour, false), ...bulles].join('\n');
   };
-  // La flèche de rotation autour de la baguette, à u = ur : la face avant monte.
+  // La flèche de rotation autour de la baguette, à u = ur : la face avant monte. C'est le geste
+  // (on tourne la baguette) : la flèche rouge de la charte.
   const rotation = (T, ur, Rs) => {
     const ru = 8, rv = Rs + 13, pts = [];
     for (let t = 138; t >= -62; t -= 5) pts.push([ur + ru * Math.cos(t * RAD), rv * Math.sin(t * RAD)]);
     const d = dPts(pts.map(T));
-    return [h.path(d, halo), h.fleche(d, A.arete)].join('\n');
+    return [h.path(d, halo), h.geste(d)].join('\n');
   };
 
   // ─── Le feu ───────────────────────────────────────────────────────────────────────────
@@ -212,6 +217,27 @@ module.exports = (h) => {
   const flamme = (x, yb, ht, w) => h.path(`M ${f(x - w)} ${f(yb)} C ${f(x - w - 3)} ${f(yb - ht * 0.45)} ${f(x - 3)} ${f(yb - ht * 0.7)} ${f(x + 2)} ${f(yb - ht)} C ${f(x + 5)} ${f(yb - ht * 0.62)} ${f(x + w + 3)} ${f(yb - ht * 0.42)} ${f(x + w)} ${f(yb)} Z`, blancArete);
   const chaleur = d => [h.path(d, halo), h.fleche(d, A.cache)].join('\n');
 
+  // ─── La main (main simple, mains/moteur.js) ─────────────────────────────────────────────
+  // l'angle qui met l'axe de la prise sur `axe` (degrés à l'écran) et l'avant-bras du côté de `vers`
+  const poser = (o, axe, vers) => {
+    const base = Object.assign({}, o, { angle: 0, avantbras: { longueur: 100 } }); delete base.objet;
+    const e0 = F.mainSimple(base); let best = null;
+    for (const k of [0, 180]) {
+      const a = axe - e0.prise.angle + k, m = F.mainSimple(Object.assign({}, base, { angle: a }));
+      const d = [m.coude[0] - m.poignet[0], m.coude[1] - m.poignet[1]], v = [vers[0] - m.poignet[0], vers[1] - m.poignet[1]];
+      const c = (d[0] * v[0] + d[1] * v[1]) / ((Math.hypot(d[0], d[1]) * Math.hypot(v[0], v[1])) || 1);
+      if (!best || c > best.c) best = { a, c };
+    }
+    return best.a;
+  };
+  // le poing fermé sur la baguette (25 mm sur l'écorce), vu côté paume et penché de 25° (les doigts à
+  // plat en travers, comme 104-40) : la baguette entre d'un côté du poing et ressort de l'autre, derrière
+  // les doigts ; elle est peinte par le moteur entre les couches. L'avant-bras court, coupé (gros plan).
+  const poing = (T, u, cote, vers, baguetteSvg, e) => {
+    const p = T([u, 0]), o = { x: p[0], y: p[1], pose: 'prise-manche', vue: 'paume', cote, echelle: e, diametre: 2 * RS, rotation: [-25, 0, 0] };
+    return F.mainSimple({ ...o, angle: poser(o, T.ang, vers), objet: baguetteSvg, avantbras: { vers } }).svg;
+  };
+
   // ─── Vue 1 : l'enroulement ────────────────────────────────────────────────────────────
   const gEnr = z => {
     const e = Math.min((z.l - 30) / 640, (z.h - 20) / 250);
@@ -220,16 +246,12 @@ module.exports = (h) => {
   };
   const enroule = z => {
     const g = gEnr(z), T = g.T, out = [];
-    out.push(baguette(T, g.u0, g.uB, g.u1, { graine: 3 }));
+    const pM = T([g.uM, 0]);
+    out.push(poing(T, g.uM, 'droite', [pM[0], pM[1] + 600], baguette(T, g.u0, g.uB, g.u1, { graine: 3 }), g.e));
     out.push(rotation(T, g.ur, rBois(g.ur)));
     out.push(spirale(T, g.uD, g.n, rBois(g.uD), { libre: true, graine: 5 }));
     const cxL = g.uD - (g.n - 1) * P_;
     out.push(boudin(T, cxL, [[cxL - 7, 44], [cxL + 22, 80], [cxL + 90, 96], [cxL + 170, 98], [cxL + 205, 94]]));
-    // modèle s11 (poing fermé, vu de la paume) : la baguette passe dans le poing (son trou fait
-    // 25 px, la baguette 25 mm), le pouce du côté du pain, l'avant-bras qui descend et sort du cadre
-    const m = F.modele('s11', { x: T([g.uM, 0])[0], y: T([g.uM, 0])[1], ancre: [68, 42], echelle: g.e, masquer: [[0, 150, 140, 175]],
-      bras: { a: [21.8, 150], a0: [20.8, 135], b: [76.3, 150], b0: [76.2, 135], bord: z } });
-    out.push(m.toString());
     return out.join('\n');
   };
 
@@ -261,14 +283,10 @@ module.exports = (h) => {
       out.push(chaleur(`M ${f(p[0])} ${f(g.yG - 20)} L ${f(p[0])} ${f(p[1] + 10)}`));
     });
     // la baguette, le pain, la main
-    out.push(baguette(T, g.u0, g.uB, g.u1, { graine: 9 }));
+    const pm = T([g.uM, 0]);
+    out.push(poing(T, g.uM, 'gauche', [pm[0] + 250, pm[1] + 600], baguette(T, g.u0, g.uB, g.u1, { graine: 9 }), g.e));
     out.push(spirale(T, g.uD, g.n, rBois(g.uD), { graine: 7 }));
     out.push(rotation(T, g.ur, rBois(g.ur)));
-    const pm = T([g.uM, 0]);
-    // modèle s11 en miroir, tourné avec la baguette : le pouce du côté du pain, l'avant-bras qui
-    // descend à droite et sort du cadre ; le bout de la baguette dépasse du poing
-    out.push(F.modele('s11', { x: pm[0], y: pm[1], ancre: [68, 42], miroir: true, angle: g.T.ang - 180, echelle: 0.9 * g.e, masquer: [[0, 150, 140, 175]],
-      bras: { a: [21.8, 150], a0: [20.8, 135], b: [76.3, 150], b0: [76.2, 135], bord: z } }).toString());
     return out.join('\n');
   };
 

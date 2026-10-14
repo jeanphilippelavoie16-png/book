@@ -1,5 +1,10 @@
 // Planche 13-01 — l'arc à feu : monté, la planchette vue de dessus, le palier en coupe.
 // Aucune cote : les dimensions du chapitre portent [À VÉRIFIER]. L'échelle est la main.
+// La main du palier (refaite le 14 octobre avec mainSimple) : la main gauche à plat, vue du côté du pouce, la
+// paume posée sur le palier, qui appuie ; l'avant-bras monte vers la gauche jusqu'au bord. La main qui coiffe
+// le palier (pose coiffe) sortait en griffe, le pouce en crochet : la paume à plat dit l'appui aussi bien.
+// La charte : le va-et-vient de l'arc et la poussée sur le palier en rouge (le geste), la pointe de l'encoche
+// au centre de la cavité cerclée de rouge (le point à contrôler).
 
 module.exports = (h) => {
   const blanc = a => a.replace('fill="none"', 'fill="#ffffff"');
@@ -20,7 +25,6 @@ module.exports = (h) => {
     }
     return ferme ? d + ' Z' : d;
   };
-  const MAIN_E = 0.66, MAIN_A = -82, MAIN_ANCRE = [30, 52];   // la main du palier : modèle s05
   const dep = (x, y, pts) => pts.map(([u, v]) => [x + u, y + v]);
 
   // Graine fixe pour la poussière : le dessin est le même à chaque composition.
@@ -60,7 +64,7 @@ module.exports = (h) => {
   return {
     ref: '13-01',
     titre: 'L’arc à feu',
-    desc: 'L’arc à feu monté : la planchette au sol, le foret debout dans la cavité, la corde de l’arc enroulée d’un tour autour du foret, le palier tenu sous la main. La planchette vue de dessus : la cavité, et l’encoche taillée en pointe jusqu’au centre de la cavité, où s’amasse la poussière noire. Le palier en coupe : un nœud de bois dur creusé, le creux graissé où tourne le haut du foret.',
+    desc: 'L’arc à feu monté : la planchette au sol, le foret debout dans la cavité, la corde de l’arc enroulée d’un tour autour du foret, le palier sous la paume de la main gauche, posée à plat, qui appuie ; une double flèche rouge, le va-et-vient de l’arc. La planchette vue de dessus : la cavité, et l’encoche taillée en pointe jusqu’au centre de la cavité, où s’amasse la poussière noire ; la pointe de l’encoche, au centre de la cavité, est cerclée de rouge. Le palier en coupe : un nœud de bois dur creusé, le creux graissé où tourne le haut du foret ; une flèche rouge, la poussée de la main.',
     format: 'pleine',
     disposition: [['monte'], ['dessus', 'palier']],
     hauteurs: [3.3, 2],
@@ -119,18 +123,16 @@ module.exports = (h) => {
           // le haut du foret, caché dans le creux
           const cacheSvg = h.path(`M ${F - 9} ${P + 21} L ${F - 9} ${P + 8} Q ${F - 9} ${P - 1} ${F} ${P - 1} Q ${F + 9} ${P - 1} ${F + 9} ${P + 8} L ${F + 9} ${P + 21}`, h.a.cache);
 
-          // La main gauche referme le palier : la paume dessus, le pouce d'un côté, l'index et le
-          // majeur de l'autre, le dessous libre pour le foret ; l'avant-bras monte.
-          // modèle s05 (doigts repliés, le pouce dessus) tourné : l'avant-bras monte, le bout des doigts
-          // et du pouce referment le haut du palier, peint d'abord (le blanc de la main le cache)
+          // La main gauche à plat sur le palier (mains simples, plat, vue du côté du pouce, penchée de 25° pour
+          // qu'on voie les doigts) : le creux de la paume sur le haut du palier, qui appuie ; l'avant-bras monte
+          // vers la gauche jusqu'au bord. Le palier se peint d'abord : la paume le recouvre par le haut.
           out.push(palierSvg, cacheSvg);
-          out.push(String(h.formes.modele('s05', { x: F, y: P, ancre: MAIN_ANCRE, angle: MAIN_A, echelle: MAIN_E,
-            masquer: [[222, 0, 240, 120]], bras: { a: [222, 39.1], a0: [200, 38.1], b: [222, 104.3], b0: [200, 100.8], bord: z } })));
+          out.push(h.formes.mainSimple({ pose: 'plat', vue: 'pouce', cote: 'gauche', angle: 15, rotation: [-25, 0, 0], echelle: 0.9,
+            ancre: 'paume', x: F + 4, y: P - 34, avantbras: { bord: { x0: 0, y0: 0, x1: z.l, y1: z.h } } }).svg);
 
           // Le va-et-vient de l'arc.
           const ya = yb - 55;
-          out.push(h.fleche(`M ${F + 240} ${ya} L ${F + 175} ${ya}`));
-          out.push(h.fleche(`M ${F + 240} ${ya} L ${F + 305} ${ya}`));
+          out.push(h.geste(`M ${F + 175} ${ya} L ${F + 305} ${ya}`, { double: true }));
 
           return out.join('\n');
         },
@@ -195,6 +197,8 @@ module.exports = (h) => {
           // axes de la cavité : la pointe de l'encoche tombe à leur croisement
           out.push(h.ligne(cx - r - 16, cy, cx + r + 16, cy, axe));
           out.push(h.ligne(cx, cy - r - 16, cx, cy + 4, axe));
+          // le point à contrôler : la pointe de l'encoche au centre de la cavité
+          out.push(h.controle(cx, cy, 7));
 
           // la poussière noire, dans l'encoche et à sa bouche
           const pts = [];
@@ -230,7 +234,7 @@ module.exports = (h) => {
           const out = [];
 
           // la poussée de la main
-          out.push(h.fleche(`M ${px} 6 L ${px} ${pc - 42}`));
+          out.push(h.geste(`M ${px} 6 L ${px} ${pc - 42}`));
 
           // le nœud de bois dur, en coupe
           out.push(h.path(lisse(dep(px, pc, [[-75, 6], [-70, -16], [-50, -32], [-18, -36], [16, -35], [48, -30], [70, -16], [76, 4], [66, 24], [40, 31], [rc, 32], [-rc, 32], [-40, 31], [-64, 24]]), true), h.a.hachure('bois', 'contour')));

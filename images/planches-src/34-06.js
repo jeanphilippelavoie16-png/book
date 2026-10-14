@@ -147,6 +147,22 @@ module.exports = (h) => {
     return flancP(-1).concat(coin(-1), coin(1).reverse(), flancP(1).reverse());
   };
   // le bâton et la main
+  // ─── mains simples : la boîte d'une vue, et l'angle qui met l'axe de la prise sur `axe` (degrés à l'écran)
+  // avec l'avant-bras du côté de `vers`
+  const BORD = z => ({ x0: 0, y0: 0, x1: z.l, y1: z.h });
+  const poser = (o, axe, vers) => {
+    const base = Object.assign({}, o, { angle: 0, avantbras: { longueur: 100 } });
+    delete base.objet;
+    const e0 = h.formes.mainSimple(base);
+    let best = null;
+    for (const k of [0, 180]) {
+      const a = axe - e0.prise.angle + k, e = h.formes.mainSimple(Object.assign({}, base, { angle: a }));
+      const d = [e.coude[0] - e.poignet[0], e.coude[1] - e.poignet[1]], w = [vers[0] - e.poignet[0], vers[1] - e.poignet[1]];
+      const c = (d[0] * w[0] + d[1] * w[1]) / ((Math.hypot(d[0], d[1]) * Math.hypot(w[0], w[1])) || 1);
+      if (!best || c > best.c) best = { a, c };
+    }
+    return best.a;
+  };
   const HM = [300, 50], ANG = -10;
   const HAUT = [Math.sin(ANG * RAD), -Math.cos(ANG * RAD)], DR = [Math.cos(ANG * RAD), Math.sin(ANG * RAD)];
   const surBaton = (t, o = 0) => add(add(HM, mul(HAUT, t)), mul(DR, o));
@@ -165,7 +181,7 @@ module.exports = (h) => {
     // le sol
     out.push(h.ligne(0, SOL, W1, SOL, h.a.contour));
     // le tuyau du poêle, qui monte derrière le chaudron ; coupé en haut par un trait de brisure
-    out.push(h.path('M214 196 L214 18 Q219 12 224 16 Q229 20 234 14 L234 196 Z', blanc(1.4)));
+    out.push(h.path('M214 196 L214 18 Q219 12 224 16 Q229 20 234 14 L234 196 Z', `fill="#E6E6E6" stroke="${N}" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"`));
     [40, 72].forEach(y => out.push(h.ligne(214, y, 234, y, h.a.detail)));
     // le poêle
     out.push(poele(192, 196, 192, 104, 42));
@@ -242,13 +258,14 @@ module.exports = (h) => {
     out.push(h.fleche('M100 232 Q108 96 198 74'));
     out.push(h.fleche('M382 110 Q500 104 508 250'));
     // le geste : enfoncer la charge
-    out.push(h.fleche(`M${P(surBaton(-22, 14))} L${P(surBaton(-52, 14))}`));
-    // la main sur le bâton
-    // modèle s11 (poing fermé), main gauche, tourné pour que le bâton (12 de diamètre, 25 px dans le
-    // modèle) suive HAUT : le pouce en haut, l'avant-bras à droite, qui finit ouvert
-    out.push(baton());
-    out.push(String(h.formes.modele('s11', { x: HM[0], y: HM[1], ancre: [68, 42], angle: ANG - 90, echelle: 12 / 25,
-      masquer: [[0, 150, 140, 175]], bras: { a: [21.8, 150], a0: [20.8, 135], b: [76.3, 150], b0: [76.2, 135], long: 90, fin: 'ouvert' } })));
+    out.push(h.geste(`M${P(surBaton(-34, 14))} L${P(surBaton(-62, 14))}`));
+    // la main droite (mains simples), côté paume, serre le bâton (12 de large à l'écran, 24 mm à cette
+    // échelle) : le pouce en haut, le bâton entre par le haut du poing et ressort en bas ; l'avant-bras
+    // arrive de droite, court, coupé net
+    const oM = { x: HM[0], y: HM[1], pose: 'prise-manche', vue: 'paume', cote: 'droite', echelle: 0.5, diametre: 24 };
+    const vM = [HM[0] + 400, HM[1]];
+    const mM = h.formes.mainSimple({ ...oM, angle: poser(oM, ANG + 90, vM), avantbras: { vers: vM, longueur: 160 } });
+    out.push(mM.couches.main, mM.couches.masque, baton(), mM.couches.devant);
     return out.join('\n');
   };
 
@@ -383,7 +400,7 @@ module.exports = (h) => {
           return [
             { n: 1, rond: p([30, 214]), cible: p([72, 252]), texte: 'draps, pyjamas, sous-vêtements' },
             { n: 2, rond: p([430, 176]), cible: p([cx + 70, 152]), texte: 'bouillir 10 minutes par charge' },
-            { n: 3, rond: p([254, 30]), cible: surBaton(34).map((v, i) => v + o[i]), texte: 'le bâton enfonce la charge' },
+            { n: 3, rond: p([254, 30]), cible: surBaton(-44).map((v, i) => v + o[i]), texte: 'le bâton enfonce la charge' },
             { n: 4, rond: p([590, 232]), cible: p([552, 266]), texte: 'le linge bouilli, pour la semaine' },
           ];
         },

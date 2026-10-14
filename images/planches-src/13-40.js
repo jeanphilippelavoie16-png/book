@@ -146,18 +146,20 @@ module.exports = (h) => {
   // n lui est perpendiculaire, vers le bas à droite. Le couteau est couché le long de n, en
   // travers de la tige ; son dos (arête vers la pointe de la tige) appuie sur le métal.
   // Tout se mesure en mm, e = unités de vue par mm.
+  // MX = −1 met la vue en miroir (le nid à droite) ; essayé, les deux avant-bras s'y croisent : on garde le sens d'origine.
+  const MX = 1;
   const TH = deg(52);
-  const u = [Math.cos(TH), -Math.sin(TH)];
-  const n = [Math.sin(TH), Math.cos(TH)];
+  const u = [MX * Math.cos(TH), -Math.sin(TH)];
+  const n = [MX * Math.sin(TH), Math.cos(TH)];
   const cap = v => Math.atan2(v[0], -v[1]) * 180 / Math.PI;   // angle compté depuis le haut, sens horaire
   const L_METAL = 125, L_MANCHE = 58, R_TIGE = 5.5, R_MANCHE = 9, D_C = 62, K0 = 16;
   const geste = z => {
     const G = z.h - 16;
     const e = Math.min(1, (G - 62) / 282);
     const nid = { w: 150 * e, H: 60 * e };
-    const xT = Math.round(46 + 128 * e);
-    // la pointe : au-dessus du bord droit du creux, à un doigt de la matière
-    nid.cx = xT - 0.30 * nid.w - 8 * e;
+    const xT = MX > 0 ? Math.round(46 + 128 * e) : Math.round(z.l - 46 - 128 * e);
+    // la pointe : au-dessus du bord du creux (le bord gauche, en miroir), à un doigt de la matière
+    nid.cx = xT - MX * (0.30 * nid.w + 8 * e);
     const T = [xT, G - nid.H - 18 * e];
     const C = add(T, mul(u, D_C * e));                           // le dos du couteau sur la tige
     const Q = (s, t) => add(C, add(mul(n, s * e), mul(u, t * e)));   // repère du couteau (mm)
@@ -318,33 +320,36 @@ module.exports = (h) => {
             eclat += `M ${f(S[0] + dir[0] * r1)} ${f(S[1] + dir[1] * r1)} L ${f(S[0] + dir[0] * r2)} ${f(S[1] + dir[1] * r2)} `;
           }
           out.push(h.path(eclat, A.detail));
-          // la tige tirée vers soi : la flèche prolonge le manche
+          // la tige tirée vers soi : la flèche (le geste, en rouge) prolonge le manche
           const f0 = add(T, mul(u, (L_METAL + L_MANCHE + 22) * e)), f1 = add(T, mul(u, (L_METAL + L_MANCHE + 78) * e));
-          out.push(h.fleche(`M ${f(f0[0])} ${f(f0[1])} L ${f(f1[0])} ${f(f1[1])}`, A.contour));
-          // le poing sur le manche de la tige, le pouce sur le bout ; l'avant-bras descend vers le genou
+          out.push(h.geste(`M ${f(f0[0])} ${f(f0[1])} L ${f(f1[0])} ${f(f1[1])}`));
+          // Les deux poings (mains simples, prise-manche), vus de la paume, les doigts repliés sur les manches : la
+          // main droite sur le manche de la tige, le pouce sur le bout, la tige qui sort du côté de l'auriculaire vers
+          // le nid, l'avant-bras qui descend vers le genou ; la main gauche sur le manche du couteau, la lame qui sort
+          // du côté du pouce, l'avant-bras qui monte. (Vus du dos, comme dans la première version, les deux poings
+          // faisaient des moufles, JP 14 octobre ; de la paume, les mains changent de côté : la gauche tient le couteau
+          // immobile, la droite tire la tige — le chapitre ne dit pas laquelle.) L'axe de la prise suit le manche :
+          // poser donne l'angle qui met l'axe du moteur (du pouce vers l'auriculaire) sur la direction voulue.
+          const ax = v => Math.atan2(v[1], v[0]) * 180 / Math.PI;
+          const poser = (o, dir) => ax(dir) - FM.mainSimple({ ...o, x: 0, y: 0, angle: 0, avantbras: false }).prise.angle;
+          const BORD = { x0: 0, y0: 0, x1: z.l, y1: z.h };
           const mancheTige = tronc(T, u, L_METAL * e, (L_METAL + L_MANCHE) * e, R_MANCHE * e, A.hachure('bois', 'arete'));
-          const oT = { x: g.pT[0], y: g.pT[1], pose: 'prise', vue: 'dos', cote: 'gauche', angle: cap(u), diametre: 2 * R_MANCHE * e, echelle: e, objet: mancheTige };
-          const wT = FM.main({ ...oT, bras: 0 }).poignet;
-          const brasT = Math.max(30, Math.min(110, (z.l - 6 - wT[0]) / n[0] / e, (g.G - 24 - wT[1]) / n[1] / e));
-          const mT = FM.main({ ...oT, bras: brasT });
-          out.push(mT);
-          // le poing sur le couteau : l'avant-bras monte, parallèle à la tige, jusqu'au bord de la vue
-          const oK = { x: g.pK[0], y: g.pK[1], pose: 'prise', vue: 'dos', angle: cap(n), diametre: 26 * e, echelle: e, objet: couteau((s, t) => Q(s - K0, t)) };
-          const wK = FM.main({ ...oK, bras: 0 }).poignet;
-          const mK = FM.main({ ...oK, bras: Math.max(10, (wK[1] - 34) / Math.abs(u[1]) / e) });
-          out.push(mK);
+          const oT = { x: g.pT[0], y: g.pT[1], pose: 'prise-manche', vue: 'paume', cote: 'droite', diametre: 2 * R_MANCHE, echelle: e };
+          out.push(FM.mainSimple({ ...oT, angle: poser(oT, mul(u, -1)), objet: mancheTige, avantbras: { bord: BORD, longueur: 'bord' } }).svg);
+          const oK = { x: g.pK[0], y: g.pK[1], pose: 'prise-manche', vue: 'paume', cote: 'gauche', diametre: 26, echelle: e };
+          out.push(FM.mainSimple({ ...oK, angle: poser(oK, mul(n, -1)), objet: couteau((s, t) => Q(s - K0, t)), avantbras: { bord: BORD, longueur: 'bord' } }).svg);
           return out.join('\n');
         },
         renvois: z => {
           const g = geste(z), { e, T, C, Q } = g;
           const fl = add(T, mul(u, (L_METAL + L_MANCHE + 60) * e));
           return [
-            { n: 5, rond: [16, g.G - 36], cible: [g.nid.cx - g.nid.w / 2 + 26, g.G - 20], texte: 'nid écharpé : le jour passe' },
-            { n: 6, rond: [16, g.G - 92], cible: [g.nid.cx - 10, g.G - g.nid.H + 9], texte: 'poudre fine au fond du creux' },
-            { n: 7, rond: [T[0] + 24, g.G - 10], cible: [T[0] + 3, T[1] + 5], texte: 'pointe à un doigt du nid' },
-            { n: 8, rond: [Q(22 - K0, 0)[0] + 34, Q(22 - K0, 0)[1] + 52], cible: Q(22 - K0, -0.5), texte: 'dos du couteau, immobile' },
-            { n: 9, rond: [fl[0] + 34, fl[1] + 14], cible: [fl[0] + 5, fl[1] + 4], texte: 'tirer la tige vers soi' },
-            { n: 10, rond: [16, g.G - 142], cible: add(add(C, mul(u, -44 * e)), mul(n, -12 * e)), texte: 'la gerbe tombe dans le creux' },
+            { n: 5, rond: [MX > 0 ? 16 : z.l - 16, g.G - 36], cible: [g.nid.cx + MX * (26 - g.nid.w / 2), g.G - 20], texte: 'nid écharpé : le jour passe' },
+            { n: 6, rond: [MX > 0 ? 16 : z.l - 16, g.G - 92], cible: [g.nid.cx - 10 * MX, g.G - g.nid.H + 9], texte: 'poudre fine au fond du creux' },
+            { n: 7, rond: [T[0] + 24 * MX, g.G - 10], cible: [T[0] + 3 * MX, T[1] + 5], texte: 'pointe à un doigt du nid' },
+            { n: 8, rond: [Q(22 - K0, 0)[0] + 34 * MX, Q(22 - K0, 0)[1] + 52], cible: Q(22 - K0, -0.5), texte: 'dos du couteau, immobile' },
+            { n: 9, rond: [fl[0] + 34 * MX, fl[1] + 14], cible: [fl[0] + 5 * MX, fl[1] + 4], texte: 'tirer la tige vers soi' },
+            { n: 10, rond: [MX > 0 ? 16 : z.l - 16, g.G - 142], cible: add(add(C, mul(u, -44 * e)), mul(n, -12 * e)), texte: 'la gerbe tombe dans le creux' },
           ];
         },
       },

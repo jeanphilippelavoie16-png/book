@@ -18,8 +18,10 @@
 // Refaite le 13 octobre 2026 avec les corps simples (poses debout, lance-bas, lance-haut, de profil)
 // et la charte. Le soir, JP : plus de corps vus de face ni de dessus. La vue de dessus du lancer de
 // côté garde ce qu'elle montre de l'objet (le bâton qui tourne à plat, la bande balayée, le lièvre)
-// et perd le lanceur : il n'en reste que le bâton dans la main au départ du geste (la main, grossie
-// dans le rond, est un gros plan laissé tel quel) et l'arc que le bras balaie.
+// et perd le lanceur : il n'en reste que le bâton au départ du geste et l'arc que le bras balaie.
+// Le 14 octobre, les deux loupes (la main grossie sur le bout du bâton, calquée) sont retirées : la
+// main simple ne se lit pas fermée sur un bâton plat de cette largeur (elle disparaît derrière lui), et
+// JP élimine les prises laides. Le chapitre ne dit rien de la prise : le geste se lit sur le corps.
 // Les deux lanceurs sont droitiers : le bras proche (le droit) lance, le pied gauche avance (les
 // jambes de lance-bas et lance-haut sont échangées dans la planche).
 // Le rouge : la flèche du geste, une par lancer (le bras qui balaie, le bras qui passe au-dessus de
@@ -149,18 +151,8 @@ module.exports = (h) => {
       h.cercle(...t([-140, -266]), Math.max(0.9, 10 * s), A.plein),
     ].join('\n');
   };
-  // Le poing calqué (modèle s11, poing fermé vu de la paume) sur un bout du bâton. C : le centre du
-  // bâton dans le poing ; angM : l'avant-bras part vers -(cos angM, sin angM) ; dB : où file le
-  // bâton, du côté du pouce et de l'index (le petit doigt sur le bout mousse) ; d : son épaisseur
-  // ech : l'échelle du modèle (le bâton, plat et large, déborde un peu le trou du poing). bras : l'avant-bras du modèle, à la longueur voulue.
-  const poingS11 = (C, angM, dB, ech, long) => {
-    const th = angM + 90, pouce = [Math.cos(th * RAD), Math.sin(th * RAD)];
-    return h.formes.modele('s11', { x: C[0], y: C[1], ancre: [68, 42], angle: th, miroir: pouce[0] * dB[0] + pouce[1] * dB[1] < 0,
-      echelle: ech, masquer: [[0, 150, 140, 175]],
-      bras: long ? { a: [21.8, 150], a0: [20.8, 135], b: [76.3, 150], b0: [76.2, 135], long } : undefined });
-  };
   // La main au départ du geste, vue de dessus : derrière le lanceur, au bout de l'arc que le bras
-  // balaie ; le bâton à plat qui traîne derrière le poing (le poing lui-même est dans la loupe).
+  // balaie ; le bâton à plat, tenu par un bout.
   const mainDessus = g => {
     const a = 100 * RAD, M = add(g.S, [RB * 0.85 * Math.cos(a), RB * 0.85 * Math.sin(a)]);
     const u = uni(sub(M, g.S));
@@ -206,7 +198,7 @@ module.exports = (h) => {
     const hs = [250, 195, 190].map(v => yG - v * E);
     const ang = [20, -45, -105];
     const xH = mp[0] + LB * 2.2;
-    return { yG, pers, mp, xs, hs, ang, xH, yRel, yCorps, S: [Sx, Sy], aLache: aLache / RAD, yLievre: yRel - 0.2 * LB, loupe: [52, 184] };
+    return { yG, pers, mp, xs, hs, ang, xH, yRel, yCorps, S: [Sx, Sy], aLache: aLache / RAD, yLievre: yRel - 0.2 * LB };
   };
   const geoEpaule = z => {
     const yG = z.h - 16;
@@ -219,17 +211,13 @@ module.exports = (h) => {
     const dB = ax[1] > 0 ? ax : mul(ax, -1);                               // le bâton pend dans le dos
     const cB = add(mp, mul(dB, LB * 0.5 - 75 * E)), angB = Math.atan2(dB[1], dB[0]) / RAD;
     const pers = corpsA({ ...o, objetP: baton(cB, LB, angB) }, 40);
-    // la loupe garde la main de l'ancienne planche (gros plan laissé tel quel) : son angle et son bâton
-    const angM = -150;
-    const axeL = [Math.sin(angM * RAD), -Math.cos(angM * RAD)];
-    const dLoupe = axeL[1] > 0 ? axeL : mul(axeL, -1);
     const R = [S[0] + 150 * E, S[1] - 560 * E];                         // le lâcher, au-dessus de la tête
     const xs = [0, 1, 2].map(i => R[0] + LB * (0.42 + 0.68 * i));
     const hs = [1965, 1930, 1900].map(v => yG - v * E);
     const ang = [-60, 15, 90];
     const xG = R[0] + LB * 2.25, yBr = yG - 1700 * E;
     const xT = xG + LB * 0.42;
-    return { yG, pers, mp, R, S, xs, hs, ang, xG, yBr, xT, yBande: yG - 1900 * E, angM, dB: dLoupe };
+    return { yG, pers, mp, R, S, xs, hs, ang, xG, yBr, xT, yBande: yG - 1900 * E };
   };
 
   // Une épinette : le tronc effilé, des branches qui tombent un peu et relèvent le bout,
@@ -262,28 +250,6 @@ module.exports = (h) => {
       out.push(branche([xT + 3, y - 2], [xT + 3 + ld, y - 2 + ld * 0.12], A.detail));
     });
     return out.join('\n');
-  };
-
-  // ─── la loupe : la main grossie, dans un rond, reliée à la main du dessin ─────────────────
-  // À l'échelle des lanceurs, la main ne fait que 16 unités : on la redessine en grand, dans la
-  // même position, fermée sur le bout du bâton. C : le centre du rond ; cible : la main du dessin.
-  const loupe = (id, C, r, cible, rc, contenu) => {
-    const u = uni(sub(C, cible));
-    return [
-      h.cercle(...cible, rc, A.detail),
-      h.ligne(...add(cible, mul(u, rc)), ...sub(C, mul(u, r)), A.detail),
-      `<clipPath id="${id}"><circle cx="${f1(C[0])}" cy="${f1(C[1])}" r="${f1(r - 0.7)}"/></clipPath>`,
-      h.cercle(...C, r, A.blanc),
-      `<g clip-path="url(#${id})">\n${contenu}\n</g>`,
-      h.cercle(...C, r, A.arete),
-    ].join('\n');
-  };
-  const SL = 0.24;                        // l'échelle des loupes : la main fait 44 unités
-  // la main de la loupe, fermée sur un bout du bâton ; angM : l'angle de main() ; dB : où part le bâton
-  const mainLoupe = (C, angM, dB, vue = 'dos') => {
-    const L = 740 * SL;
-    const eM = 0.4, cB = add(C, mul(dB, L * 0.5 - (53 * eM + 6)));      // le bout mousse dépasse du petit doigt
-    return [baton(cB, L, Math.atan2(dB[1], dB[0]) / RAD), poingS11(C, angM, dB, eM, 80).toString()].join('\n');
   };
 
   // ─── la vue du bâton : par la tranche, de face, en coupe ──────────────────────────────
@@ -410,9 +376,6 @@ module.exports = (h) => {
             out.push(h.ligne(x, Math.max(bas, g.yRel + LB / 2) + 4, x, g.hs[i] - 6, rappel));
           });
           out.push(h.ligne(g.xH, g.yLievre + 16, g.xH, g.yG - 250 * E, rappel));
-          // la loupe : la main vue de dessus, au départ du geste, le bâton à plat derrière elle
-          const md = mainDessus(g);
-          out.push(loupe('loupe-47-01-cote', g.loupe, 40, md.M, 9, mainLoupe(g.loupe, md.angM, md.tr)));
           return out.join('\n');
         },
         renvois: z => {
@@ -441,8 +404,6 @@ module.exports = (h) => {
           out.push(h.fleche(cr(pts), trajet));
           g.xs.forEach((x, i) => out.push(baton([x, g.hs[i]], LB, g.ang[i])));
           out.push(h.fleche(arc([g.xs[1], g.hs[1]], LB / 2 + 6, -145, -35, 1), A.detail));
-          // la loupe : la main armée derrière la tête, le bâton qui pend dans le dos
-          out.push(loupe('loupe-47-01-epaule', [64, 62], 52, g.mp, 9, mainLoupe([64 + 14, 62 - 14], g.angM, g.dB)));
           return out.join('\n');
         },
         renvois: z => {

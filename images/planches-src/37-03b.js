@@ -50,6 +50,23 @@ module.exports = (h) => {
   const neige = (z, G, ep = 12) => [h.rect(0, G, z.l, ep, A.hachure('neige', 'aucun')), h.ligne(0, G, z.l, G, A.arete)].join('\n');
   const sol = (z, G) => [h.rect(0, G, z.l, 12, A.hachure('terre', 'aucun')), h.ligne(0, G, z.l, G, A.arete)].join('\n');
 
+  // ─── mains simples : la boîte d'une vue, et l'angle qui met l'axe de la prise sur `axe` (degrés à l'écran)
+  // avec l'avant-bras du côté de `vers`
+  const BORD = z => ({ x0: 0, y0: 0, x1: z.l, y1: z.h });
+  const poser = (o, axe, vers) => {
+    const base = Object.assign({}, o, { angle: 0, avantbras: { longueur: 100 } });
+    delete base.objet;
+    const e0 = h.formes.mainSimple(base);
+    let best = null;
+    for (const k of [0, 180]) {
+      const a = axe - e0.prise.angle + k, e = h.formes.mainSimple(Object.assign({}, base, { angle: a }));
+      const d = [e.coude[0] - e.poignet[0], e.coude[1] - e.poignet[1]], w = [vers[0] - e.poignet[0], vers[1] - e.poignet[1]];
+      const c = (d[0] * w[0] + d[1] * w[1]) / ((Math.hypot(d[0], d[1]) * Math.hypot(w[0], w[1])) || 1);
+      if (!best || c > best.c) best = { a, c };
+    }
+    return best.a;
+  };
+
   // ── 1. chauffer : le feu en coupe ──────────────────────────────────────────────────
   const geoFeu = z => {
     const G = z.h - 24, cx = z.l / 2, rb = 11;
@@ -95,10 +112,13 @@ module.exports = (h) => {
     const out = [sol(z, G)];
     out.push(braises(cx - 120, cx + 120, G, 2));
     out.push(pierre(cx - 70, G - 11, 17, 11, 7, 0.3), pierre(cx + 74, G - 10, 15, 10, 8, 1.2));
-    // la pierre prise entre les deux bouts
-    out.push(pierre(S[0], S[1], rs[0], rs[1], 3, 0.4));
-    // les bâtons : écorce au trait, le bout taillé à plat du côté de la pierre
+    // la pierre prise entre les deux bouts : l'objet du geste
+    out.push(h.path(caillou(S[0], S[1], rs[0], rs[1], 3, 0.4), A.blanc), h.path(caillou(S[0], S[1], rs[0], rs[1], 3, 0.4), A.hachure('pierre', 'contour')));
+    // les bâtons : écorce au trait, le bout taillé à plat du côté de la pierre ; chacun dans sa main (mains
+    // simples, côté paume : le bâton entre d'un côté du poing et ressort de l'autre), l'avant-bras qui remonte
+    // vers le corps et sort de la vue
     for (const { s, u, bout, haut } of lon) {
+      const tige = [];
       const r = 4.2, n = [-u[1], u[0]];               // n : la normale ; côté pierre = -s
       const ext = k => [bout[0] + n[0] * k, bout[1] + n[1] * k];
       const cote = s > 0 ? 1 : -1;
@@ -110,20 +130,18 @@ module.exports = (h) => {
       const pInt = [bout[0] - n[0] * r * cote + u[0] * 22, bout[1] - n[1] * r * cote + u[1] * 22];
       const pPlat = [bout[0] - n[0] * 0.6 * cote, bout[1] - n[1] * 0.6 * cote];
       const hExt = [haut[0] + n[0] * r * cote, haut[1] + n[1] * r * cote], hInt = [haut[0] - n[0] * r * cote, haut[1] - n[1] * r * cote];
-      out.push(h.chemin([hExt, pExt, pPlat, pInt, hInt], blanc(A.arete), true));
-      out.push(h.path(`M${f([haut[0] + n[0] * r * 0.3 * cote - u[0] * 4, haut[1] + n[1] * r * 0.3 * cote - u[1] * 4])} L${f([bout[0] + n[0] * r * 0.3 * cote + u[0] * 30, bout[1] + n[1] * r * 0.3 * cote + u[1] * 30])}`, A.fin));
-      out.push(h.ligne(...pInt, ...[pInt[0] + n[0] * 0.8 * cote, pInt[1] + n[1] * 0.8 * cote], A.fin));
-    }
-    // les mains, une sur chaque bâton, aux deux tiers : le poing fermé en travers du bâton, les
-    // doigts qui s'enroulent vers l'extérieur, l'avant-bras qui remonte vers le corps, hors de la vue
-    for (const { s, u, bout } of lon) {
-      const g = [bout[0] + u[0] * L * 0.7, bout[1] + u[1] * L * 0.7];
-      // modèle s11 (poing fermé) : le bâton (8,4) dans le poing (25 px), l'avant-bras qui sort du cadre
-      out.push(String(h.formes.modele('s11', { x: g[0], y: g[1], ancre: [68, 42], miroir: s > 0, angle: s * ang + (s < 0 ? -90 : 90), echelle: 0.36,
-        masquer: [[0, 150, 140, 175]], bras: { a: [21.8, 150], a0: [20.8, 135], b: [76.3, 150], b0: [76.2, 135], bord: z } })));
+      tige.push(h.chemin([hExt, pExt, pPlat, pInt, hInt], blanc(A.arete), true));
+      tige.push(h.path(`M${f([haut[0] + n[0] * r * 0.3 * cote - u[0] * 4, haut[1] + n[1] * r * 0.3 * cote - u[1] * 4])} L${f([bout[0] + n[0] * r * 0.3 * cote + u[0] * 30, bout[1] + n[1] * r * 0.3 * cote + u[1] * 30])}`, A.fin));
+      tige.push(h.ligne(...pInt, ...[pInt[0] + n[0] * 0.8 * cote, pInt[1] + n[1] * 0.8 * cote], A.fin));
+      // la main, aux deux tiers du bâton : la droite sur le bâton de gauche, la gauche sur celui de droite
+      const g = [bout[0] + u[0] * L * 0.7, bout[1] + u[1] * L * 0.7], E = 0.4;
+      const o = { x: g[0], y: g[1], pose: 'prise-manche', vue: 'paume', cote: s < 0 ? 'droite' : 'gauche', echelle: E, diametre: 2 * r / E };
+      const vers = [g[0] - s * 110, g[1] - 250];
+      const m = h.formes.mainSimple({ ...o, angle: poser(o, Math.atan2(u[1], u[0]) / RAD, vers), avantbras: { vers, bord: BORD(z), longueur: 'bord' } });
+      out.push(m.couches.main, m.couches.masque, tige.join('\n'), m.couches.devant);
     }
     // on serre, on lève
-    out.push(h.fleche(`M${f([S[0], S[1] - rs[1] - 8])} L${f([S[0], S[1] - rs[1] - 44])}`, A.arete));
+    out.push(h.geste(`M${f([S[0], S[1] - rs[1] - 8])} L${f([S[0], S[1] - rs[1] - 44])}`));
     return out.join('\n');
   };
   const pinceRenvois = z => {
@@ -163,9 +181,23 @@ module.exports = (h) => {
       out.push(h.path(`M${f([x + 1, y - 5])} l0,-7`, A.fin));
     }
     out.push(braises(pointe[0] - 34, pointe[0] + 4, G, 5));
-    // la branche de sapin : la tige dans la main, les rameaux qui balaient la pierre
+    // la branche de sapin : la tige dans la main, les rameaux qui balaient la pierre ; la tige a son
+    // épaisseur (5 au poing, 2 au bout), pour que le poing la serre
     const tige = [[main[0] - 3, main[1] - 26], main, [spray[0] - 8, spray[1] - 30], [spray[0] - 14, spray[1] - 4]];
-    out.push(h.path(lisse(tige), A.arete));
+    const crT = [];
+    for (let i = 0; i < 3; i++) for (let k = 0; k < 16; k++) {
+      const p0 = tige[Math.max(0, i - 1)], p1 = tige[i], p2 = tige[i + 1], p3 = tige[Math.min(3, i + 2)], t = k / 16, t2 = t * t, t3 = t2 * t;
+      crT.push([0, 1].map(j => 0.5 * (2 * p1[j] + (-p0[j] + p2[j]) * t + (2 * p0[j] - 5 * p1[j] + 4 * p2[j] - p3[j]) * t2 + (-p0[j] + 3 * p1[j] - 3 * p2[j] + p3[j]) * t3)));
+    }
+    crT.push(tige[3]);
+    const demiT = i => 2.6 - 1.6 * Math.max(0, (i - 16) / (crT.length - 17));
+    const gT = [], dT = [];
+    crT.forEach((p, i) => {
+      const a = crT[Math.max(0, i - 1)], b = crT[Math.min(crT.length - 1, i + 1)], l = Math.hypot(b[0] - a[0], b[1] - a[1]) || 1;
+      const nn = [-(b[1] - a[1]) / l, (b[0] - a[0]) / l], w = demiT(i);
+      gT.push([p[0] + nn[0] * w, p[1] + nn[1] * w]); dT.push([p[0] - nn[0] * w, p[1] - nn[1] * w]);
+    });
+    const tigeSvg = h.chemin(gT.concat(dT.reverse()), blanc(A.arete), true);
     const rameaux = [];
     const tg = (t) => { // un point sur la tige, de la main (0) au bout (1)
       const a = [main[0], main[1]], b = [spray[0] - 14, spray[1] - 4];
@@ -186,11 +218,16 @@ module.exports = (h) => {
       rameaux.push(h.path(ai, A.fin));
     }
     out.push(...rameaux);
-    // modèle s11 (poing fermé) en miroir : la branche (6) debout dans le poing, l'avant-bras vers la gauche
-    out.push(String(h.formes.modele('s11', { x: main[0], y: main[1], ancre: [68, 42], miroir: true, angle: 82, echelle: 0.3,
-      masquer: [[0, 150, 140, 175]], bras: { a: [21.8, 150], a0: [20.8, 135], b: [76.3, 150], b0: [76.2, 135], bord: z } })));
+    // la main gauche (mains simples), côté paume : la tige debout dans le poing, l'avant-bras vers la gauche
+    {
+      const E = 0.33, t0 = crT[14], t1 = crT[18];
+      const o = { x: main[0], y: main[1], pose: 'prise-manche', vue: 'paume', cote: 'gauche', echelle: E, diametre: 2 * 2.6 / E };
+      const vers = [-200, main[1] + 6];
+      const m = h.formes.mainSimple({ ...o, angle: poser(o, Math.atan2(t1[1] - t0[1], t1[0] - t0[0]) / RAD, vers), avantbras: { vers, bord: BORD(z), longueur: 'bord' } });
+      out.push(m.couches.main, m.couches.masque, tigeSvg, m.couches.devant);
+    }
     // deux ou trois coups, vers la pointe
-    for (const dy of [-34, -20]) out.push(h.fleche(`M${f([spray[0] + 62, spray[1] + dy])} L${f([spray[0] + 34, spray[1] + dy + 4])}`, A.arete));
+    for (const dy of [-34, -20]) out.push(h.geste(`M${f([spray[0] + 62, spray[1] + dy])} L${f([spray[0] + 34, spray[1] + dy + 4])}`));
     return out.join('\n');
   };
   const brosserRenvois = z => {

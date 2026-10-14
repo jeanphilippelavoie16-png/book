@@ -2,6 +2,10 @@
 // chaude qui garde sa chaleur). Une séquence : la compresse en couches, la bosse tenue entre le
 // pouce et l'index, le trait unique de la lame droite, le doigt qui défait les cloisons, le
 // rinçage à la bouteille percée. Aucune cote : rien ne s'y construit.
+// Mains simples et charte (14 octobre) : les deux mains dessinées à la main deviennent des mains simples. Tenir la
+// bosse : pince-ouverte-dessus vue du dos, la main droite qui vient d'en bas à droite. Le doigt défait les cloisons :
+// pointe de profil, la main entière (le poing replié se voit). Rouge : le trait, la lame, le doigt qui balaie, la
+// bouteille qu'on presse. Les flèches de la compresse (l'ordre des couches) restent noires.
 module.exports = (h) => {
   const A = h.a, F = h.formes, I = F._interne;
   const G = {};
@@ -78,22 +82,6 @@ module.exports = (h) => {
     out.push(h.rect(xh + 0.8 * k, yh - bo, wh - 1.6 * k, bo, blanc(A.arete)));
     out.push(`<path d="M ${f(xh)} ${f(yh - bo)} L ${f(xh)} ${f(yh - bo - Lh + wh / 2)} A ${f(wh / 2)} ${f(wh / 2)} 0 0 1 ${f(xh + wh)} ${f(yh - bo - Lh + wh / 2)} L ${f(xh + wh)} ${f(yh - bo)} Z" ${h.a.hachure('bois')}/>`);
     return out.join('\n');
-  }
-
-  // ─── le doigt, de profil, qui descend dans la poche (le dos, l'ongle, à droite) ───────
-  function doigt(pts, k) {
-    const ep = [19, 16.2, 14.2, 12.2].map(v => v * k);
-    const dos = [[ep[0] * 0.44, ep[1] * 0.44], [ep[1] * 0.44, ep[2] * 0.44], [ep[2] * 0.44, ep[3] * 0.44]];
-    const ventre = [[ep[0] * 0.56, ep[1] * 0.54], [ep[1] * 0.54, ep[2] * 0.54], [ep[2] * 0.54, ep[3] * 0.52]];
-    const t = I.tube({ pts, sens: -1, dos, ventre, coussin: [0.9 * k, 0.8 * k, 0.9 * k], bout: 'doigt', ongle: 'cote', base: 0, plis: true });
-    // l'ongle, sur le dos de la dernière phalange (le côté droit) : une lame posée sur le dos
-    const P = pts[2], Q = pts[3], Lg = Math.hypot(Q[0] - P[0], Q[1] - P[1]);
-    const u = [(Q[0] - P[0]) / Lg, (Q[1] - P[1]) / Lg];
-    let nn = [-u[1], u[0]]; if (nn[0] < 0) nn = [-nn[0], -nn[1]];
-    const w = s => (ep[2] + (ep[3] - ep[2]) * s) * 0.44;
-    const at = (s, d) => [P[0] + u[0] * s * Lg + nn[0] * (w(s) - d), P[1] + u[1] * s * Lg + nn[1] * (w(s) - d)];
-    const ong = `M ${f(at(0.3, 0)[0])} ${f(at(0.3, 0)[1])} Q ${f(at(0.32, 2.4 * k)[0])} ${f(at(0.32, 2.4 * k)[1])} ${f(at(0.42, 2.4 * k)[0])} ${f(at(0.42, 2.4 * k)[1])} L ${f(at(0.86, 2 * k)[0])} ${f(at(0.86, 2 * k)[1])} Q ${f(at(0.93, 1.6 * k)[0])} ${f(at(0.93, 1.6 * k)[1])} ${f(at(0.95, 0.3 * k)[0])} ${f(at(0.95, 0.3 * k)[1])}`;
-    return I.peindre([{ ...t, det: (t.det || []).filter((d, i) => i < t.det.length - 1) }], p => p) + `\n<path d="${ong}" ${A.detail}/>`;
   }
 
   // ─── la bouteille de plastique, bouchon percé : repère au trou, l'axe vers le haut ────
@@ -183,22 +171,16 @@ module.exports = (h) => {
           o.push(h.ellipse(bx, by, 30 * k, 22 * k, A.arete));
           o.push(h.ellipse(bx, by, 36 * k, 27 * k, A.fin + ' stroke-dasharray="1.5 3"'));
           o.push(h.ellipse(bx, by, 11 * k, 7.5 * k, A.cache));
-          // la main droite à plat sur la peau, vue du dos, qui vient de la droite :
-          // l'index au-dessus de la bosse, le pouce dessous, les autres doigts repliés sous l'index
-          const W = (a, b, c, d) => [[a, b], [b, c], [c, d]];
-          const wI = W(9.5, 8.2, 7.2, 6.2), wP = W(12.5, 11.5, 10.5, 9);
-          const ptsI = [[80, -46], [18, -40], [-4, -37], [-22, -33]];
-          const ptsP = [[96, 4], [56, 34], [30, 40], [8, 38]];
-          const repl = [[[66, -28], [46, -25]], [[68, -14], [50, -12]], [[66, 0], [54, 1]]];
-          const paume = I.lisse([[58, -50], [110, -50], [150, -40], [(x1 - bx) / k, -36], [(x1 - bx) / k, 34], [140, 28], [110, 16], [96, 16], [74, 14], [56, 8], [40, -10], [42, -30]], true);
-          const pieces = [{ remp: paume, trait: [I.lisse([[80, -55], [110, -50], [150, -40], [(x1 - bx) / k, -36]]), I.lisse([[(x1 - bx) / k, 34], [140, 28], [110, 16], [96, 16], [74, 14]])], det: [] }];
-          for (const [i, r] of repl.entries()) pieces.push(I.tube({ pts: r, sens: 1, dos: [[8.2 - i * 0.5, 7.6 - i * 0.5]], ventre: [[8.2 - i * 0.5, 7.6 - i * 0.5]], bout: 'phalange', base: 14 }));
-          pieces.push(I.tube({ pts: ptsI, sens: 1, dos: wI, ventre: wI, coussin: [-0.15, -0.1, 0.15], bout: 'rond', ongle: 'dessus', base: 16, rides: [{ j: 1, n: 2, l: 0.5 }, { j: 2, n: 1, l: 0.45 }] }));
-          pieces.push(I.tube({ pts: ptsP, sens: 1, dos: wP, ventre: wP, coussin: [0, -0.3, 0.3], bout: 'rond', ongle: 'dessus', base: 16, rides: [{ j: 2, n: 2, l: 0.5 }] }));
-          pieces.push({ remp: null, trait: [I.lisse([[28, -49.2], [80, -55.4]])], det: [], silhouette: false });
-          o.push(I.peindre(pieces, T));
+          // la main droite à plat sur la peau, vue du dos, qui vient de la droite (main simple, pince-ouverte-dessus) :
+          // l'index au-dessus de la bosse, le pouce dessous, écartés de 70 mm de part et d'autre ; l'avant-bras sort à
+          // droite de la vue
+          const m = F.mainSimple({ x: bx + 8 * k, y: by, pose: 'pince-ouverte-dessus', vue: 'dos', cote: 'droite', echelle: k, diametre: 70,
+            angle: 225, avantbras: { bord: { x0: 0, y0: 0, x1: z.l, y1: z.h }, bras: { pli: 0 } } });
+          o.push(m.svg);
+          const bI = m.doigts.index, bP = m.doigts.pouce;
           // la peau tendue : de petits plis devant les bouts des doigts, qui tirent vers l'extérieur
-          for (const [cx0, cy0, sy] of [[-30, -40, -1], [0, 46, 1]]) {
+          for (const [B, sy] of [[bI, -1], [bP, 1]]) {
+            const cx0 = (B[0] - bx) / k, cy0 = (B[1] - by) / k + sy * 9;
             for (const [dx, dy, l] of [[-6, 0, 7], [0, 2, 9], [6, 0, 7]]) {
               const p0 = T([cx0 + dx, cy0 + sy * dy]), p1 = T([cx0 + dx * 1.3, cy0 + sy * (dy + l)]);
               o.push(`<path d="M ${f(p0[0])} ${f(p0[1])} L ${f(p1[0])} ${f(p1[1])}" ${A.fin}/>`);
@@ -206,7 +188,7 @@ module.exports = (h) => {
           }
           // le grand axe, et le trait : sur la peau entre le pouce et l'index
           o.push(`<path d="M ${f(bx + 26 * k)} ${f(by)} L ${f(bx - 42 * k)} ${f(by)}" ${A.fin} stroke-dasharray="8 3 2 3"/>`);
-          o.push(h.fleche(`M ${f(bx + 11 * k)} ${f(by)} L ${f(bx - 11 * k)} ${f(by)}`, A.contour));
+          o.push(h.geste(`M ${f(bx + 11 * k)} ${f(by)} L ${f(bx - 11 * k)} ${f(by)}`));
           G.tenir = { bx, by, k };
           return o.join('\n');
         },
@@ -236,7 +218,7 @@ module.exports = (h) => {
           o.push(`<path d="${D([[tx - e, yp], [tx - e, yp - e], [tx, yp - e]])}" ${A.detail}/>`);
           // le trait, d'un seul coup
           const yf = yp - 15 * k;
-          o.push(h.fleche(`M ${f(tx + 7 * k + 4)} ${f(yf)} L ${f(tx + 2 * s - 4)} ${f(yf)}`));
+          o.push(h.geste(`M ${f(tx + 7 * k + 4)} ${f(yf)} L ${f(tx + 2 * s - 4)} ${f(yf)}`));
           G.lame = { c, tx, ty, s, k, cx, ys, yp };
           return o.join('\n');
         },
@@ -257,26 +239,24 @@ module.exports = (h) => {
           const k = 2.3, cx = z.l / 2, ys = z.h - 44;
           const c = coupe({ cx, ys, k, x0: 6, x1: z.l - 6, yb: z.h - 4, ouvert: 11 * k, cloisons: 'rompues' });
           const T3 = [cx - 6 * k, c.cy + 1 * k];
-          const dir = a => [-Math.sin(a * RAD), Math.cos(a * RAD)];
-          const d3 = dir(20), d2 = dir(38), d1 = dir(50);
-          const P2 = [T3[0] - 21 * k * d3[0], T3[1] - 21 * k * d3[1]];
-          const P1 = [P2[0] - 25 * k * d2[0], P2[1] - 25 * k * d2[1]];
-          const lp = Math.min((z.l - P1[0]) / -d1[0], P1[1] / d1[1]);
-          const P0 = [P1[0] - lp * d1[0], P1[1] - lp * d1[1]];
-          const o = [c.svg, doigt([P0, P1, P2, T3], k)];
-          // le doigt continue hors de la vue : un trait de coupure en travers
-          const nb = [d1[1], -d1[0]], e0 = 19 * k;
-          o.push(coupure(P0[0] - nb[0] * e0 * 0.44, P0[1] - nb[1] * e0 * 0.44, P0[0] + nb[0] * e0 * 0.56, P0[1] + nb[1] * e0 * 0.56));
+          // la main droite, l'index tendu dans la poche, les autres doigts repliés (main simple, pointe de profil côté
+          // pouce). Elle est à 1/1,8 de l'échelle de la coupe : à 2,3 px/mm, seul l'index entrait dans la vue ; ainsi
+          // le poing replié se voit, coupé au bord droit, et l'avant-bras sort par le haut
+          const m = F.mainSimple({ x: T3[0], y: T3[1], ancre: 'bout', pose: 'pointe', vue: 'pouce', cote: 'droite', echelle: k / 1.8,
+            angle: 98, avantbras: { bord: { x0: 0, y0: 0, x1: z.l, y1: z.h }, bras: { pli: 0 } } });
+          const a1 = m.articulations['index.mcp'], a2 = m.articulations['index.ipp'];
+          const P1 = [(a1[0] + a2[0]) / 2, (a1[1] + a2[1]) / 2], P2 = m.articulations['index.ipd'];
+          const o = [c.svg, m.svg];
           // le bout du doigt balaie la poche d'un bord à l'autre
           const yA = c.cy + 6.6 * k;
-          o.push(h.fleche(`M ${f(cx + 1 * k)} ${f(yA)} Q ${f(cx + 10 * k)} ${f(yA + 0.4 * k)} ${f(cx + 16.5 * k)} ${f(c.cy + 2.5 * k)}`));
+          o.push(h.geste(`M ${f(cx + 1 * k)} ${f(yA)} Q ${f(cx + 10 * k)} ${f(yA + 0.4 * k)} ${f(cx + 16.5 * k)} ${f(c.cy + 2.5 * k)}`));
           G.doigt = { c, k, cx, P1, P2 };
           return o.join('\n');
         },
         renvois: z => {
           const { c, k, cx, P1 } = (V.doigt.dessin(z), G.doigt);
           return [
-            { n: 11, rond: [z.l - 14, 20], cible: [P1[0] + 5 * k, P1[1] - 20 * k], texte: 'doigt ganté ou lavé au savon' },
+            { n: 11, rond: [z.l - 14, 20], cible: P1, texte: 'doigt ganté ou lavé au savon' },
             { n: 12, rond: [16, c.cy + 6 * k], cible: [cx - 16 * k, c.cy + 3 * k], texte: 'une seule poche' },
           ];
         },
@@ -299,8 +279,8 @@ module.exports = (h) => {
           o.push(h.fleche(`M ${f(cx - 10 * k)} ${f(yl - 2)} Q ${f(cx - 17 * k)} ${f(yl - 5 * k)} ${f(cx - 24 * k)} ${f(c.yS(cx - 24 * k) - 2 * k)}`, A.cache));
           // la main serre : deux flèches sur les flancs
           const pA = b.T([-31, -88]), pB = b.T([31, -88]), nA = b.T([-44, -88]), nB = b.T([44, -88]);
-          o.push(h.fleche(`M ${f(nA[0])} ${f(nA[1])} L ${f(pA[0] + (nA[0] - pA[0]) * 0.25)} ${f(pA[1] + (nA[1] - pA[1]) * 0.25)}`));
-          o.push(h.fleche(`M ${f(nB[0])} ${f(nB[1])} L ${f(pB[0] + (nB[0] - pB[0]) * 0.25)} ${f(pB[1] + (nB[1] - pB[1]) * 0.25)}`));
+          o.push(h.geste(`M ${f(nA[0])} ${f(nA[1])} L ${f(pA[0] + (nA[0] - pA[0]) * 0.25)} ${f(pA[1] + (nA[1] - pA[1]) * 0.25)}`));
+          o.push(h.geste(`M ${f(nB[0])} ${f(nB[1])} L ${f(pB[0] + (nB[0] - pB[0]) * 0.25)} ${f(pB[1] + (nB[1] - pB[1]) * 0.25)}`));
           G.rincer = { c, k, cx, q, b };
           return o.join('\n');
         },

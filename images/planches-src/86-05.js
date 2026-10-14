@@ -17,8 +17,10 @@
 //    du bas fermé par le manomètre : l'eau ne coule pas, la jauge lit la hauteur d'eau H.
 // Refaite le 13 octobre 2026 : la personne du bas est le corps simple de profil (bras-leve), le bras
 // posé par le calcul sur le boyau. Le rouge : la flèche du geste (on lève le bout) et le cercle du
-// bout du boyau au niveau de la prise, là où l'eau cesse de couler. La main d'en haut (au bout dans
-// l'eau) et « Le bout levé » sont des gros plans de main calquée, laissés tels quels.
+// bout du boyau au niveau de la prise, là où l'eau cesse de couler.
+// 14 oct. : « Le bout levé » passe à la main simple (mains/moteur.js, prise-manche vue côté paume), et sa
+// flèche (on lève) devient la flèche rouge du geste. La petite main calquée d'en haut, au bout dans
+// l'eau, est enlevée : à l'échelle du corps, un poing ne se lit pas ; le renvoi 5 dit que le bout est tenu.
 
 module.exports = (h) => {
   const A = h.a, F = h.formes, W = A.blanc;
@@ -170,6 +172,20 @@ module.exports = (h) => {
     return o.join('\n');
   }
 
+  // l'angle de la main simple qui met l'axe de sa prise sur `axe` (degrés à l'écran) et son avant-bras du
+  // côté de `vers` (le même outil que 104-40 et 50-40)
+  const poser = (o, axe, vers) => {
+    const base = Object.assign({}, o, { angle: 0, avantbras: { longueur: 100 } }); delete base.objet;
+    const e0 = F.mainSimple(base); let best = null;
+    for (const k of [0, 180]) {
+      const a = axe - e0.prise.angle + k, m = F.mainSimple(Object.assign({}, base, { angle: a }));
+      const d = [m.coude[0] - m.poignet[0], m.coude[1] - m.poignet[1]], v = [vers[0] - m.poignet[0], vers[1] - m.poignet[1]];
+      const c = (d[0] * v[0] + d[1] * v[1]) / ((Math.hypot(d[0], d[1]) * Math.hypot(v[0], v[1])) || 1);
+      if (!best || c > best.c) best = { a, c };
+    }
+    return best.a;
+  };
+
   // ═══════════════════ Au boyau : un tronçon ═══════════════════
   // Unités : mm. L'eau de la prise à 1000 ; l'eau en bas du tronçon à 2600 : la chute h1 = 1600.
   const SURF_T = [[150, 1000], [1000, 1000], [1120, 1070], [1500, 1250], [1900, 1380], [2010, 1560], [2500, 1760], [2900, 1900], [3040, 2150], [3500, 2330], [4000, 2480], [4280, 2600], [5500, 2600]];
@@ -229,10 +245,8 @@ module.exports = (h) => {
     const yS = P(0, 1000)[1];
     o.push(h.ligne(boyau[0][0] - 6, yS, boyau[0][0] + 6, yS, A.arete));
     o.push(bas.toString());
-    // la main d'en haut : modèle s11 (poing fermé, vu de la paume) tourné d'un quart vers la gauche,
-    // le pouce en haut, l'avant-bras vers la droite ; le bout du boyau, vertical, traverse le poing
-    o.push(F.modele('s11', { x: poing[0], y: poing[1], ancre: [68, 42], angle: -112, echelle: 0.8 * s * 2.2, masquer: [[0, 150, 140, 175]],
-      bras: { a: [21.8, 150], a0: [20.8, 135], b: [76.3, 150], b0: [76.2, 135], long: 34 * s * 2.2, fin: 'ouvert' } }).toString());
+    // la main d'en haut : à cette échelle (celle du corps du bas), un poing ne se lit plus ; le bout du
+    // boyau est monté seul, tel qu'il est tenu, et le renvoi 5 dit qu'il est tenu à la surface
     // L'eau du bas repasse sur les bottes.
     o.push(eau(Q, [[5060, 2600], [5420, 2600]], 2720), terre(Q, LIT_T, BHT + Y0T, 200));
     // Du poing au sol puis le long de la berge : le boyau passe du côté proche, devant les pieds.
@@ -251,7 +265,7 @@ module.exports = (h) => {
     const e = Math.min(z.l / 290, z.h / 330);        // unités de vue par mm
     const cx = z.l * 0.30, yEnd = z.h * 0.24;
     const R = 10 * e, ri = 7.5 * e;                   // boyau de 20, dedans 15
-    const yMain = yEnd + 70 * e, bas = z.h - 2;
+    const yMain = yEnd + 95 * e, bas = z.h - 2;
     // Le boyau, l'eau dedans jusqu'au bord, le ménisque qui affleure.
     const tuyau = [
       h.rect(cx - R, yEnd, 2 * R, bas - yEnd, W),
@@ -261,15 +275,18 @@ module.exports = (h) => {
       h.ligne(cx - ri, yEnd, cx - ri, bas, A.fin), h.ligne(cx + ri, yEnd, cx + ri, bas, A.fin),
       h.ligne(cx - R, yEnd, cx - ri, yEnd, A.arete), h.ligne(cx + ri, yEnd, cx + R, yEnd, A.arete),
     ].join('\n');
-    // le boyau, puis la main : modèle s11 (poing fermé, vu de la paume) tourné d'un quart vers la
-    // gauche, le pouce en haut, l'avant-bras vers la droite qui sort du cadre ; le boyau traverse le poing
-    o.push(tuyau);
-    o.push(F.modele('s11', { x: cx, y: yMain, ancre: [68, 42], angle: -90, echelle: 0.8 * e, masquer: [[0, 150, 140, 175]],
-      bras: { a: [21.8, 150], a0: [20.8, 135], b: [76.3, 150], b0: [76.2, 135], bord: z } }).toString());
+    // la main : une main simple (prise-manche, vue côté paume, tournée de 35° pour que les doigts
+    // s'enroulent à l'œil) fermée sur le boyau, qui entre par le haut du poing et ressort par le bas,
+    // derrière les doigts ; le bras vers la droite, qui sort de la vue
+    {
+      const BORD = { x0: 0, y0: 0, x1: z.l, y1: z.h }, vM = [z.l + 400, yMain];
+      const oM = { x: cx, y: yMain, pose: 'prise-manche', vue: 'paume', cote: 'droite', echelle: e, diametre: 20, rotation: [0, 35, 0] };
+      o.push(F.mainSimple({ ...oM, angle: poser(oM, 90, vM), objet: tuyau, avantbras: { vers: vM, bord: BORD, bras: { pli: 0 } } }).svg);
+    }
     // Le niveau de l'eau de la prise, et le geste : on lève.
     o.push(h.ligne(4, yEnd, cx - R - 3, yEnd, A.cache));
-    const xf = cx - R - 16 * e;
-    o.push(h.fleche(`M ${r1(xf)} ${r1(yMain + 90 * e)} L ${r1(xf)} ${r1(yEnd + 14 * e)}`, A.arete));
+    const xf = cx - R - 12 * e;                          // sous le poing, le long du boyau
+    o.push(h.geste(`M ${r1(xf)} ${r1(yMain + 120 * e)} L ${r1(xf)} ${r1(yMain + 48 * e)}`));
     return o.join('\n');
   }
 

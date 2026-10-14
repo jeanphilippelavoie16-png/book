@@ -4,6 +4,11 @@
 // parois, puis le centre, l'excédent le long de la gencive) ; la morsure, comme avant ou trop
 // haute. Les dents sont en coupe : l'os en trame de gravier, la gencive au trait, la dent en
 // blanc avec la ligne de l'émail et la pulpe, le ciment en trame de terre (la même que la pâte).
+// Mains simples et charte (14 octobre) : les deux bouts de doigts calqués (s09) deviennent une main entière qui
+// pince (mainSimple, pince-fine de profil côté pouce), la boulette et la pâte peintes entre les pulpes. Rouge : le
+// geste de rouler, le ciment pressé contre les parois (un éventail de trois flèches : un seul geste), puis au centre.
+// La poudre tirée vers le liquide reste en noir (c'est la poudre qui se déplace). Pas de gris : la tranche de la
+// vitre est trop mince pour une ombre.
 module.exports = (h) => {
   const A = h.a, F = h.formes;
   const BL = A.blanc.split(' ')[0];
@@ -13,6 +18,7 @@ module.exports = (h) => {
   const ferme = (pts, at) => h.path(d(pts) + ' Z', at);
   const ouvert = (pts, at) => h.path(d(pts), at);
   const fl = (pts) => h.fleche(d(pts));
+  const geste = (pts) => h.geste(d(pts));                     // la charte : la flèche du geste, en rouge
 
   // Catmull-Rom → polyligne lisse
   const lisse = (P, boucle = false, n = 10) => {
@@ -227,8 +233,10 @@ module.exports = (h) => {
   // la morsure : la molaire du bas réparée, celle du haut qui se referme ; jeu : de combien le
   // ciment trop haut tient la mâchoire du haut ouverte
   const YC = 96;
+  // les deux morsures au même cadrage, assez haut pour la dent relevée de 30 du « Trop haut » (sans quoi elle
+  // sortait de sa vue et cachait son titre)
   const geoMorsure = z => {
-    const haut = 24 - YC - 8, bas = YC + 3;
+    const haut = 24 - YC - 8 - 30, bas = YC + 3;
     const s = Math.min((z.h - 2) / (bas - haut), (z.l - 6) / 110);
     return { s, W: z.l / 2 / s - 0.3, T: ([x, y]) => [z.l / 2 + s * x, z.h - 1 - s * (bas - y)] };
   };
@@ -278,11 +286,18 @@ module.exports = (h) => {
       [poseDoigt(D, false, 9, bx + 2, by - ecart), poseDoigt(D, true, -9, bx + 2, by + ecart)].join('\n') + '\n</g>';
   };
 
-  // La main calquée (modèle s09 : le pouce et l'index qui pincent, de côté), retournée pour que les
-  // bouts des doigts soient à droite ; le point où se touchent les deux pulpes tombe en (bx, by).
-  // r : le rayon d'une boulette à la taille de ces doigts.
-  const GM = z => { const { bx, by } = geoDoigts(z); const s = Math.min(z.l * 0.66 / 210, z.h * 0.9 / 123); return { s, bx, by, r: 7.5 * s }; };
-  const mainS09 = z => { const { s, bx, by } = GM(z); return String(F.modele('s09', { x: bx, y: by, ancre: [12, 66], echelle: s, miroir: true, masquer: [[200, 0, 230, 125]] })); };
+  // La main qui pince (main simple, pince-fine de profil côté pouce, main droite) : l'index dessus, le pouce dessous,
+  // les trois autres doigts repliés derrière ; la pince tombe en (bx, by), l'avant-bras sort de la vue. Les pulpes
+  // sont écartées de la largeur de la boulette (10 mm, le haut de la table de pince-fine). La boulette et la pâte
+  // se peignent par-dessus la main, entre les deux bouts de doigts : de profil, le pouce la cacherait.
+  // r : le rayon de la boulette, à l'échelle de la main.
+  const EMAIN = 1.2, D_BOUL = 10;
+  const GM = z => { const bx = z.l * 0.62, by = z.h * 0.42; return { s: EMAIN, bx, by, r: 6 * EMAIN }; };
+  const mainPince = z => {
+    const { bx, by } = GM(z);
+    return F.mainSimple({ x: bx, y: by, pose: 'pince-fine', vue: 'pouce', cote: 'droite', echelle: EMAIN, diametre: D_BOUL, angle: 25,
+      avantbras: { bord: { x0: 0, y0: 0, x1: z.l, y1: z.h }, bras: { pli: 0 } } });
+  };
   const dansVue = (z, id, contenu) => `<clipPath id="${id}"><rect x="0" y="0" width="${r1(z.l)}" height="${r1(z.h)}"/></clipPath>\n<g clip-path="url(#${id})">\n${contenu}\n</g>`;
 
   return {
@@ -336,24 +351,26 @@ module.exports = (h) => {
       bonne: {
         titre: 'Rouler une boulette',
         dessin: z => {
-          const { bx, by, r } = GM(z), k = r * 3.2, c = [bx + r * 0.35, by];
+          const { bx, by, r } = GM(z), k = r * 3.2;
+          const m = mainPince(z), c = [m.prise.x, m.prise.y];
           const arc = [];
           for (let a = -45; a <= 45; a += 5) arc.push([c[0] + k * Math.cos(a * Math.PI / 180), c[1] + k * Math.sin(a * Math.PI / 180)]);
-          return [dansVue(z, 'doigts-bonne', mainS09(z)), boulette(c[0], c[1], r), fl(arc)].join('\n');
+          return [m.svg, boulette(c[0], c[1], r), geste(arc)].join('\n');
         },
         renvois: z => {
-          const { bx, by, r } = GM(z);
+          const { r } = GM(z), m = mainPince(z), [bx, by] = [m.prise.x, m.prise.y];
           return [{ n: 6, rond: [z.l - 14, by - r - 44], cible: [bx + r * 0.6, by - r * 0.4], texte: 'roule sans coller : prête' }];
         },
       },
       colle: {
         titre: 'Elle colle',
         dessin: z => {
-          const { bx, by, r } = GM(z);
-          return [dansVue(z, 'doigts-colle', mainS09(z)), collante(bx + r * 0.4, by, r)].join('\n');
+          const { r } = GM(z);
+          const m = mainPince(z);
+          return [m.svg, collante(m.prise.x, m.prise.y, r)].join('\n');
         },
         renvois: z => {
-          const { bx, by, r } = GM(z);
+          const { r } = GM(z), m = mainPince(z), [bx, by] = [m.prise.x, m.prise.y];
           return [{ n: 7, rond: [z.l - 14, by + 4], cible: [bx + r * 1.4, by], texte: 'colle : ajouter de la poudre' }];
         },
       },
@@ -363,7 +380,7 @@ module.exports = (h) => {
           const { T, W } = geoPose(z);
           return dentPose(T, W, 'pose-parois', [
             ferme(doublure(8).map(T), A.hachure('terre', 'arete')),
-            fl([[5, 16], [-7, 19]].map(T)), fl([[12, 12], [12, 22]].map(T)), fl([[19, 15], [25, 26]].map(T)),
+            geste([[5, 16], [-7, 19]].map(T)), geste([[12, 12], [12, 22]].map(T)), geste([[19, 15], [25, 26]].map(T)),
           ].join('\n'));
         },
         renvois: z => {
@@ -380,7 +397,7 @@ module.exports = (h) => {
             ferme(ciment(0).map(T), A.hachure('terre', 'arete')),
             ferme([...molPts.slice(8 * NS, E2 * NS + 1), ...exces.slice().reverse()].map(T), A.blanc),
             ferme([...molPts.slice(8 * NS, E2 * NS + 1), ...exces.slice().reverse()].map(T), A.hachure('terre', 'arete')),
-            fl([[10, -12], [10, 12]].map(T)),
+            geste([[10, -12], [10, 12]].map(T)),
           ].join('\n'));
         },
         renvois: z => {

@@ -27,6 +27,22 @@ module.exports = (h) => {
   };
   const courbe = (P) => `M${f(P[0])}${cr(P)}`;
   const boucle = (P) => `M${f(P[0])}${cr(P, true)} Z`;
+  // ─── mains simples : la boîte d'une vue, et l'angle qui met l'axe de la prise sur `axe` (degrés à l'écran)
+  // avec l'avant-bras du côté de `vers`
+  const BORD = z => ({ x0: 0, y0: 0, x1: z.l, y1: z.h });
+  const poser = (o, axe, vers) => {
+    const base = Object.assign({}, o, { angle: 0, avantbras: { longueur: 100 } });
+    delete base.objet;
+    const e0 = h.formes.mainSimple(base);
+    let best = null;
+    for (const k of [0, 180]) {
+      const a = axe - e0.prise.angle + k, e = h.formes.mainSimple(Object.assign({}, base, { angle: a }));
+      const d = [e.coude[0] - e.poignet[0], e.coude[1] - e.poignet[1]], w = [vers[0] - e.poignet[0], vers[1] - e.poignet[1]];
+      const c = (d[0] * w[0] + d[1] * w[1]) / ((Math.hypot(d[0], d[1]) * Math.hypot(w[0], w[1])) || 1);
+      if (!best || c > best.c) best = { a, c };
+    }
+    return best.a;
+  };
   // un repère : origine (ox, oy) au sol, s unités de vue par mm
   const rep = (ox, oy, s) => (p) => [ox + s * p[0], oy + s * p[1]];
   const decale = (P, d) => (p) => P([p[0] + d[0], p[1] + d[1]]);
@@ -54,7 +70,7 @@ module.exports = (h) => {
     return null;
   };
   // coupe : null pour la patte entière (coupée au genou) ; une hauteur en mm pour la couper plus bas
-  const patteProfil = (P, { coupe = null, ergot = true, graine = 3 } = {}) => {
+  const patteProfil = (P, { coupe = null, ergot = true, graine = 3, loin = false } = {}) => {
     const out = [];
     let d;
     if (coupe == null) {
@@ -64,7 +80,7 @@ module.exports = (h) => {
       const dev = [bord(PROFIL.devant, coupe), ...PROFIL.devant.filter(p => p[1] > coupe + 0.1)];
       d = `M${f(P([78, 0]))} L${f(P([-44, 0]))}${cr(dos.map(P))} L${f(P(dev[0]))}${cr(dev.map(P))}${cr(PROFIL.paroi.map(P))} Z`;
     }
-    out.push(h.path(d, blanc(A.arete)));
+    out.push(h.path(d, loin ? A.arete.replace('fill="none"', 'fill="#E6E6E6"') : blanc(A.arete)));
     if (coupe == null) out.push(h.path(courbe(PROFIL.tendon.map(P)), A.fin));
     if (ergot) out.push(h.path(boucle(PROFIL.ergot.map(P)), A.plein));
     // le sabot, noir, bordé de blanc pour se détacher de celui d'à côté
@@ -93,13 +109,13 @@ module.exports = (h) => {
   // ─── Le montage (mm) ─────────────────────────────────────────────────────────────────────
   const LOIN = [36, 0];           // la patte du côté loin, vue tournée : un peu en avant
   const MIL = [18, 0];            // le bâton, entre les deux
-  const XB = -68, RB = 18;        // l'axe du bâton dans le repère de la patte proche, son rayon
+  const XB = -68, RB = 16;        // l'axe du bâton dans le repère de la patte proche, son rayon (32 mm : la prise de manche s'y lit)
   const Y_BOUT = -182;            // le bout du bâton : au-dessus du boulet
   const LIGATURES = [-452, -262];
   const montage = (P, s, { yHaut, cache = true, ep = 4, pas = 4.4, graine = 1 }) => {
     const out = [];
     const Pl = decale(P, LOIN), Pm = decale(P, MIL);
-    out.push(patteProfil(Pl, { graine: graine + 4 }));
+    out.push(patteProfil(Pl, { graine: graine + 4, loin: true }));         // la patte du côté loin, en gris
     const g = Pm([XB - RB, 0])[0], d = Pm([XB + RB, 0])[0], yb = Pm([0, Y_BOUT])[1];
     out.push(h.rect(g, yHaut, d - g, yb - yHaut, blanc(A.arete)));
     out.push(h.path(brisure(g, d, yHaut), A.detail));
@@ -167,13 +183,17 @@ module.exports = (h) => {
           const { s, P, xB, yMain, yG } = gEmploi(z), out = [];
           out.push(sol(8, z.l - 8, yG));
           out.push(montage(P, s, { yHaut: 12, cache: false, ep: 2, pas: 2.4, graine: 20 }));
-          // la main, qui tient le bâton comme pour marcher
-          // modèle s11 (poing fermé, vu de la paume) en miroir et tourné d'un quart : l'avant-bras part
-          // à gauche et sort du cadre, le pouce en haut ; le bâton traverse le poing
-          out.push(h.formes.modele('s11', { x: xB, y: yMain, ancre: [68, 42], angle: 90, miroir: true, echelle: 1.2 * s, masquer: [[0, 150, 140, 175]],
-            bras: { a: [21.8, 150], a0: [20.8, 135], b: [76.3, 150], b0: [76.2, 135], bord: z } }));
+          // la main gauche (mains simples), côté paume, qui tient le bâton comme pour marcher : le pouce en
+          // haut, le bâton (32 mm) entre par le haut du poing et ressort en bas ; l'avant-bras part à gauche
+          // et sort du cadre. Le bout de bâton qui passe dans le poing est repeint entre les couches.
+          const o = { x: xB, y: yMain, pose: 'prise-manche', vue: 'paume', cote: 'gauche', echelle: s, diametre: 2 * RB, rotation: [0, 30, 0] };
+          const vers = [-200, yMain + 4];
+          const m = h.formes.mainSimple({ ...o, angle: poser(o, 90, vers), avantbras: { vers, bord: BORD(z), bras: { pli: 0 } } });
+          const xg = xB - RB * s, xd = xB + RB * s, ya = yMain - 40, yb = yMain + 40;
+          const troncon = [h.rect(xg, ya, xd - xg, yb - ya, A.blanc), h.ligne(xg, ya, xg, yb, A.arete), h.ligne(xd, ya, xd, yb, A.arete)].join('\n');
+          out.push(m.couches.main, m.couches.masque, troncon, m.couches.devant);
           // on appuie le bâton à chaque pas ; on avance dans le sens des pointes
-          out.push(h.fleche(`M${f([xB + 28, yMain + 30])} L${f([xB + 28, yMain + 88])}`, A.arete));
+          out.push(h.geste(`M${f([xB + 28, yMain + 30])} L${f([xB + 28, yMain + 88])}`));
           const xt = decale(P, LOIN)([78, 0])[0];
           out.push(h.fleche(`M${f([xt + 8, yG - 14])} L${f([xt + 52, yG - 14])}`, A.arete));
           return out.join('\n');
@@ -192,6 +212,8 @@ module.exports = (h) => {
           const { s, P, yG } = gMontage(z), out = [];
           out.push(sol(10, z.l - 10, yG));
           out.push(montage(P, s, { yHaut: 10, cache: true, ep: 4.2, pas: 4.6, graine: 50 }));
+          // le point à vérifier : le bout du bâton s'arrête au-dessus des sabots
+          { const c = decale(P, MIL)([XB, Y_BOUT]); out.push(h.controle(c[0], c[1], 14)); }
           return out.join('\n');
         },
         renvois: z => {

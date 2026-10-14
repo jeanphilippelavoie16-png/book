@@ -11,14 +11,15 @@
 // chaudière de 250 à la gueule, 270 de haut, penchée de 105° ; le rebord bas de la gueule à la
 // hauteur de l'épaule, à 620 devant les pieds. Une vue en gros (« Les deux mains ») reprend la
 // chaudière dans la même orientation : le poing proche sur la poignée de bois de l'anse, la main loin
-// à plat sous le fond, qui le lève.
+// accrochée au coin bas du fond, qui le lève.
 // Reprise du 12 octobre (JP : « corps et main ») : le pictogramme remplace l'ancienne silhouette,
 // les bras vont chercher les mains de la bibliothèque, et la vue en gros montre la prise.
 // 13 oct. : le vanneur est le corps simple (pose « vanner », bras recalculés sur l'anse et le fond).
 // La charte : la chaudière pèse, son flanc du dessous et la face droite des lattes à l'ombre, la toile
 // sous les tamis en gris loin ; le rouge sur le fond qu'on lève pour verser.
 // 14 oct. : « Les deux mains » passe aux mains simples (mains/moteur.js, mainSimple) et à la charte ;
-// la chaudière du gros plan, qui débordait de sa vue à droite, y est centrée.
+// la chaudière du gros plan, qui débordait de sa vue à droite, y tient. La main loin, d'abord à plat
+// sous le fond, faisait une lame mince (JP) : elle est en crochet sur le coin du fond.
 module.exports = (h) => {
   const A = h.a, F = h.formes;
   const BLANC = '#FFFFFF';
@@ -188,17 +189,18 @@ module.exports = (h) => {
   //   La main proche (droite) : le poing par-dessus la poignée de bois de l'anse, vue par le bout ;
   // du côté de l'auriculaire, c'est ce qu'on voit d'un poing droit fermé paume en bas, par la droite
   // du vanneur. Tourné de 20° (rotation) pour que le bout de la poignée tombe dans le poing.
-  //   La main loin (gauche) : à plat sous le fond, la paume en l'air contre le flanc du dessous, le
-  // poignet juste passé le coin du fond, les doigts vers la gueule ; vue elle aussi du côté de
-  // l'auriculaire (une main gauche paume en l'air, vue par la droite). Elle lève le fond : la flèche.
+  //   La main loin (gauche) : en crochet sur le coin bas du fond, la paume contre le fond, les doigts
+  // repliés par-dessus le jonc ; vue du côté du pouce, l'avant-bras qui descend vers le coude du
+  // vanneur. Elle lève le fond : la flèche, sous le flanc. La chaudière est un peu plus petite que la
+  // vue ne le permettrait (0,39 au lieu de 0,42), pour laisser au crochet la place à gauche du coin.
   const VANZ = { l: 429, h: 303 };
   const mainsGeo = z => {
-    const ech = Math.min(z.l / 352, (z.h - 30) / 420);
+    const ech = Math.min(z.l / 380, (z.h - 30) / 420);
     const rt = 125, rb = 105, hb = 270, th = 105;
-    // la chaudière centrée en largeur : sa gueule ne sort plus de la vue
+    // la chaudière dans la vue, poussée de 6 vers la droite (la place du crochet) : sa gueule n'en sort plus
     const bx = [[-rt, 0], [rt, 0], [rb, hb], [-rb, hb], ...[0, 1, 2, 3, 4, 5, 6, 7].map(i => [rt * Math.cos(i * Math.PI / 4), 30 * Math.sin(i * Math.PI / 4)])]
       .map(p => rot([p[0] * ech, (p[1] - hb / 2) * ech], th)[0]);
-    const c = [(z.l - Math.max(...bx) - Math.min(...bx)) / 2, z.h * 0.42];   // le milieu de la chaudière
+    const c = [(z.l - Math.max(...bx) - Math.min(...bx)) / 2 + 6, z.h * 0.42];   // le milieu de la chaudière
     const Mm = add(c, rot([0, -hb / 2 * ech], th));          // centre de la gueule
     const Q = p => add(Mm, rot([p[0] * ech, p[1] * ech], th));
     return { ech, rt, rb, hb, th, Q };
@@ -221,16 +223,14 @@ module.exports = (h) => {
       o.push(grain([x, y], 9, 4.2, 75 + 30 * r(), { plein: true }));
     }
     o.push(chaudiere(Q, m.rt, m.rb, m.hb, r, true, true));
-    // la main loin, la paume posée sur le flanc du dessous (la paume de la pose plat est à 24,5 mm de
-    // l'axe de la main ; 1,2 de plus pour ne pas manger le contour de la chaudière)
+    // la main loin, en crochet sur le coin bas du fond (le jonc : 14 mm, dessin)
     const B1 = Q([rb, hb]), G1 = Q([rt, 0]);                      // le coin bas du fond, le rebord bas de la gueule
     const lF = Math.hypot(G1[0] - B1[0], G1[1] - B1[1]), uF = [(G1[0] - B1[0]) / lF, (G1[1] - B1[1]) / lF];
     const nF = [-uF[1], uF[0]];                                   // la normale du flanc, vers le dessous
-    const ePaume = 24.5 * ech + 1.2;
     const surFlanc = (mm, dessous) => [B1[0] + uF[0] * mm * ech + nF[0] * dessous, B1[1] + uF[1] * mm * ech + nF[1] * dessous];
-    const PL = surFlanc(20, ePaume);                              // le poignet, 20 mm passé le coin du fond
-    o.push(String(F.mainSimple({ x: PL[0], y: PL[1], ancre: 'poignet', pose: 'plat', vue: 'auriculaire', cote: 'gauche', echelle: ech,
-      angle: Math.atan2(uF[1], uF[0]) / RAD, avantbras: { vers: loinDe(PL, 140), bord: BORD, longueur: 'bord' } })));
+    const coin = Q([rb - 3, hb - 3]);
+    o.push(String(F.mainSimple({ x: coin[0], y: coin[1], pose: 'crochet', vue: 'pouce', cote: 'gauche', echelle: ech, diametre: 14,
+      angle: -100, avantbras: { vers: loinDe(coin, 125), bord: BORD, longueur: 'bord' } })));
     // la main proche, le poing sur la poignée ; la face coupée de la poignée, hachurée
     const pa = Q(ANSE);
     o.push(String(F.mainSimple({ x: pa[0], y: pa[1], pose: 'prise-manche', vue: 'auriculaire', cote: 'droite', echelle: ech, diametre: D_POIGNEE,
@@ -240,7 +240,7 @@ module.exports = (h) => {
         : h.cercle(g.x, g.y, g.r, A.hachure('bois', 'arete')),
       avantbras: { vers: loinDe(pa, dir.P), bord: BORD, longueur: 'bord' } })));
     // le geste : la main loin lève le fond
-    const a0 = surFlanc(120, ePaume + 34), a1 = surFlanc(120, ePaume + 14);
+    const a0 = surFlanc(75, 30), a1 = surFlanc(75, 9);
     o.push(h.geste(`M${f(a0[0])} ${f(a0[1])} L${f(a1[0])} ${f(a1[1])}`));
     return o.join('\n');
   };
@@ -444,7 +444,7 @@ module.exports = (h) => {
   return {
     ref: '98-08',
     titre: 'Vanner et tamiser le grain',
-    desc: 'Vanner au vent : la chaudière tenue à bout de bras, le poing proche sur la poignée de l’anse, le poing loin qui lève le fond (flèche rouge) ; le grain versé de la hauteur de l’épaule sur une toile, le vent dans le dos emporte la balle loin, le grain tombe en tas. En gros, les deux mains sur la chaudière : le poing par-dessus la poignée de l’anse, la main loin à plat sous le fond, qui le lève (flèche rouge). Puis les deux tamis, écartés : le grillage de poulailler cloué sur un cadre de lattes retient tiges et épis, la tôle percée au clou retient le bon grain, et dessous tombent poussière, petites graines et grain cassé. En détail, la tôle en coupe et vue de dessus : le trou fait au clou, le grain entier qui le couvre et reste, le grain cassé qui passe.',
+    desc: 'Vanner au vent : la chaudière tenue à bout de bras, le poing proche sur la poignée de l’anse, le poing loin qui lève le fond (flèche rouge) ; le grain versé de la hauteur de l’épaule sur une toile, le vent dans le dos emporte la balle loin, le grain tombe en tas. En gros, les deux mains sur la chaudière : le poing par-dessus la poignée de l’anse, la main loin accrochée au coin du fond, qui le lève (flèche rouge). Puis les deux tamis, écartés : le grillage de poulailler cloué sur un cadre de lattes retient tiges et épis, la tôle percée au clou retient le bon grain, et dessous tombent poussière, petites graines et grain cassé. En détail, la tôle en coupe et vue de dessus : le trou fait au clou, le grain entier qui le couvre et reste, le grain cassé qui passe.',
     format: 'pleine',
     disposition: [['vanner', 'mains'], ['tamis', 'trou']],
     hauteurs: [1.1, 1],

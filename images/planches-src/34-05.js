@@ -30,6 +30,23 @@ module.exports = (h) => {
   const blanc = (ep = 1.4) => `fill="${B}" stroke="${N}" stroke-width="${ep}" stroke-linejoin="round" stroke-linecap="round"`;
   const noir = (ep = 0.7) => `fill="${N}" stroke="${N}" stroke-width="${ep}" stroke-linejoin="round"`;
 
+  // ─── mains simples : la boîte d'une vue, et l'angle qui met l'axe de la prise sur `axe` (degrés à l'écran)
+  // avec l'avant-bras du côté de `vers`
+  const BORD = z => ({ x0: 0, y0: 0, x1: z.l, y1: z.h });
+  const poser = (o, axe, vers) => {
+    const base = Object.assign({}, o, { angle: 0, avantbras: { longueur: 100 } });
+    delete base.objet;
+    const e0 = h.formes.mainSimple(base);
+    let best = null;
+    for (const k of [0, 180]) {
+      const a = axe - e0.prise.angle + k, e = h.formes.mainSimple(Object.assign({}, base, { angle: a }));
+      const d = [e.coude[0] - e.poignet[0], e.coude[1] - e.poignet[1]], w = [vers[0] - e.poignet[0], vers[1] - e.poignet[1]];
+      const c = (d[0] * w[0] + d[1] * w[1]) / ((Math.hypot(d[0], d[1]) * Math.hypot(w[0], w[1])) || 1);
+      if (!best || c > best.c) best = { a, c };
+    }
+    return best.a;
+  };
+
   // Un hasard qui redonne toujours le même dessin.
   const hasard = graine => { let s = graine; return () => (s = (s * 16807) % 2147483647) / 2147483647; };
 
@@ -127,7 +144,7 @@ module.exports = (h) => {
     // le bourgeon du bout, détaché, et le geste : on le plie vers le bas jusqu'à ce qu'il casse
     out.push(bourgeon(terminal.base, terminal.angle, 50, 6.6, { courbe: 0.6 }));
     const Cc = A1, r = 36, a0 = terminal.angle + 22, a1 = terminal.angle + 50;
-    out.push(h.fleche(`M${P(add(Cc, mul(dir(a0), r)))} A${r} ${r} 0 0 1 ${P(add(Cc, mul(dir(a1), r)))}`));
+    out.push(h.geste(`M${P(add(Cc, mul(dir(a0), r)))} A${r} ${r} 0 0 1 ${P(add(Cc, mul(dir(a1), r)))}`));
     return out.join('\n');
   };
 
@@ -196,15 +213,17 @@ module.exports = (h) => {
     out.push(debris(cx - rx, y - ry, cx + rx, y + ry, dans, 34, 5, 2.4));
     // le pilon : un bout de branche, plus gros du bas
     const haut = 12, bas = y + 3;
-    out.push(h.path(`M${pilonX - 6} ${haut + 4} Q${pilonX - 6} ${haut} ${pilonX} ${haut} Q${pilonX + 6} ${haut} ${pilonX + 6} ${haut + 4} L${pilonX + 8.5} ${bas - 6} Q${pilonX + 8.5} ${bas} ${pilonX} ${bas} Q${pilonX - 8.5} ${bas} ${pilonX - 8.5} ${bas - 6} Z`, blanc(1.4)));
-    out.push(h.ligne(pilonX - 2, haut + 10, pilonX - 3, 40, h.a.fin), h.ligne(pilonX + 3, 70, pilonX + 4, 88, h.a.fin));
-    // la main, du dos, qui serre le pilon
-    // modèle s11 (poing fermé, vu de la paume) en miroir, tourné d'un quart : le pilon passe dans le
-    // poing, le pouce en haut, l'avant-bras qui part à gauche et sort du cadre
-    out.push(h.formes.modele('s11', { x: pilonX, y: 50, ancre: [68, 42], angle: 90, miroir: true, echelle: 0.42, masquer: [[0, 150, 140, 175]],
-      bras: { a: [21.8, 150], a0: [20.8, 135], b: [76.3, 150], b0: [76.2, 135], bord: z } }));
+    const pilon = [h.path(`M${pilonX - 6} ${haut + 4} Q${pilonX - 6} ${haut} ${pilonX} ${haut} Q${pilonX + 6} ${haut} ${pilonX + 6} ${haut + 4} L${pilonX + 8.5} ${bas - 6} Q${pilonX + 8.5} ${bas} ${pilonX} ${bas} Q${pilonX - 8.5} ${bas} ${pilonX - 8.5} ${bas - 6} Z`, blanc(1.4)),
+      h.ligne(pilonX - 2, haut + 10, pilonX - 3, 40, h.a.fin), h.ligne(pilonX + 3, 70, pilonX + 4, 88, h.a.fin)].join('\n');
+    // la main gauche (mains simples), côté paume, serre le pilon : il entre par le haut du poing et ressort
+    // en bas ; l'avant-bras part à gauche et sort du cadre
+    const yP = 50, dP = 2 * (6 + 2.5 * (yP - haut - 4) / (bas - haut - 10));    // le diamètre du pilon au poing
+    const oP = { x: pilonX, y: yP, pose: 'prise-manche', vue: 'paume', cote: 'gauche', echelle: 0.5, diametre: dP / 0.5 };
+    const vP = [-200, yP + 8];
+    const mP = h.formes.mainSimple({ ...oP, angle: poser(oP, 90, vP), avantbras: { vers: vP, bord: BORD(z), longueur: 'bord' } });
+    out.push(mP.couches.main, mP.couches.masque, pilon, mP.couches.devant);
     // le coup, vers le bas
-    out.push(h.fleche(`M${pilonX + 40} 24 L${pilonX + 40} 66`));
+    out.push(h.geste(`M${pilonX + 40} 24 L${pilonX + 40} 66`));
     return out.join('\n');
   };
 
@@ -227,7 +246,7 @@ module.exports = (h) => {
       out.push(h.ligne(x, YB + 2, x + plateau.rx - 2, plateau.y, h.a.detail));
     }
     // la baguette, horizontale : à l'équilibre
-    out.push(h.path(`M${XG - 16} ${YB - 3.5} L${XD + 16} ${YB - 3.5} Q${XD + 19} ${YB} ${XD + 16} ${YB + 3.5} L${XG - 16} ${YB + 3.5} Q${XG - 19} ${YB} ${XG - 16} ${YB - 3.5} Z`, blanc(1.4)));
+    out.push(h.path(`M${XG - 16} ${YB - 3.5} L${XD + 16} ${YB - 3.5} Q${XD + 19} ${YB} ${XD + 16} ${YB + 3.5} L${XG - 16} ${YB + 3.5} Q${XG - 19} ${YB} ${XG - 16} ${YB - 3.5} Z`, blanc(2.4)));
     out.push(h.ligne(XG + 20, YB - 0.5, CX - 30, YB + 0.5, h.a.fin), h.ligne(CX + 34, YB, XD - 24, YB - 0.5, h.a.fin));
     // les encoches, et les nœuds qui y serrent la corde
     for (const x of [XG, CX, XD]) {
@@ -253,6 +272,8 @@ module.exports = (h) => {
     out.push(h.path(`M${x0 - 28} ${sol} L${x0 + 142} ${sol} L${x0 + 142} ${sol + 6} L${x0 - 28} ${sol + 6} Z`, h.a.hachure('bois', 'arete')));
     out.push(gras(x0, sol, 36, 20), gras(x0 + 50, sol, 36, 20), gras(x0 + 100, sol, 36, 20, true));
     out.push(h.fleche(`M${XD + 36} ${plateau.y - 12} C${XD + 80} ${plateau.y - 40} ${x0 + 90} ${plateau.y - 36} ${x0 + 99} ${sol - 26}`));
+    // le point à vérifier : la corde au milieu exact de la baguette
+    out.push(h.controle(CX, YB - 3, 9));
     return out.join('\n');
   };
 
@@ -276,7 +297,12 @@ module.exports = (h) => {
     for (const x of [112, 131, 150]) out.push(h.fleche(`M${x} ${sol - 18} q-3 -3 0 -6 q3 -3 0 -6`, h.a.cache));
     // le chaudron posé sur les pierres, et son anse
     const cx = 131, yh = 62, yb = sol - 34, rx = 58;
-    out.push(h.path(`M${cx - rx} ${yh} C${cx - rx - 4} ${yh + 30} ${cx - rx + 2} ${yb} ${cx - rx + 18} ${yb} L${cx + rx - 18} ${yb} C${cx + rx - 2} ${yb} ${cx + rx + 4} ${yh + 30} ${cx + rx} ${yh} Z`, blanc(2.4)));
+    const corpsC = `M${cx - rx} ${yh} C${cx - rx - 4} ${yh + 30} ${cx - rx + 2} ${yb} ${cx - rx + 18} ${yb} L${cx + rx - 18} ${yb} C${cx + rx - 2} ${yb} ${cx + rx + 4} ${yh + 30} ${cx + rx} ${yh} Z`;
+    out.push(h.path(corpsC, h.a.blanc));
+    // la face de droite du chaudron, à l'ombre
+    out.push(`<clipPath id="ombre-p3405"><rect x="${cx + rx * 0.42}" y="${yh}" width="${rx}" height="${yb - yh + 2}"/></clipPath>`);
+    out.push(`<g clip-path="url(#ombre-p3405)">${h.path(corpsC, h.a.ombre)}</g>`);
+    out.push(h.path(corpsC, h.a.contour));
     out.push(h.ellipse(cx, yh, rx, 9, blanc(1.4)));
     // le gras fondu, les bourgeons dedans
     out.push(h.ellipse(cx, yh + 3, rx - 6, 5.5, h.a.detail));
@@ -329,14 +355,13 @@ module.exports = (h) => {
     const prise = C([l + 32, -hc + 7]);
     const manche = [C([l, -hc + 4]), C([l + 58, -hc + 5]), C([l + 60, -hc + 7]), C([l + 58, -hc + 9]), C([l, -hc + 10])];
     const objet = h.path(`M${P(manche[0])} L${P(manche[1])} Q${P(manche[2])} ${P(manche[3])} L${P(manche[4])} Z`, blanc(1.4));
-    // modèle s11 (poing fermé, vu de la paume) en miroir : le manche passe dans le poing, le pouce
-    // du côté de la casserole, l'avant-bras perpendiculaire au manche, qui descend à droite ; le
-    // manche se dessine d'abord, son bout dépasse du poing
-    const d = uni(sub(m1, m0)), perp = [-d[1], d[0]];
-    const angle = Math.atan2(perp[1], perp[0]) / RAD - 90;
-    out.push(objet);
-    out.push(h.formes.modele('s11', { x: prise[0], y: prise[1], ancre: [68, 42], angle, miroir: true, echelle: 0.38, masquer: [[0, 150, 140, 175]],
-      bras: { a: [21.8, 150], a0: [20.8, 135], b: [76.3, 150], b0: [76.2, 135], bord: z } }));
+    // la main gauche (mains simples) serre le manche : il entre d'un côté du poing et son bout ressort de
+    // l'autre ; l'avant-bras descend à droite et sort du cadre
+    const d = uni(sub(m1, m0));
+    const oF = { x: prise[0], y: prise[1], pose: 'prise-manche', vue: 'paume', cote: 'gauche', echelle: 0.5, diametre: 6 / 0.5 };
+    const vF = [prise[0] + 120, z.h + 200];
+    const mF = h.formes.mainSimple({ ...oF, angle: poser(oF, Math.atan2(d[1], d[0]) / RAD, vF), avantbras: { vers: vF, bord: BORD(z), longueur: 'bord' } });
+    out.push(mF.couches.main, mF.couches.masque, objet, mF.couches.devant);
     return out.join('\n');
   };
 

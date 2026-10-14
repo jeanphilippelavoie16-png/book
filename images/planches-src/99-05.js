@@ -4,8 +4,8 @@
 // Le faucheur est le corps simple de la bibliothèque (pose « faucher »). La charte : la faux pèse
 // (contour 2,4) ; le fauché en gris loin ; la face à l'ombre du manche, de l'anneau et du biseau ;
 // le rouge (quatre marques) sur le coup (dessus), la pointe de la lame qui touche le sol (profil), la
-// pierre qui descend du dos au fil et la zone du fil, là où la pierre dérape (debout, étape 55). La
-// vue « La pierre, debout » est un gros plan de main : elle attend la nouvelle bibliothèque de mains.
+// pierre qui descend du dos au fil et la zone du fil, là où la pierre dérape (debout, étape 55). Dans
+// « La pierre, debout », la main gauche est la main simple (mains/moteur.js), en crochet sur le dos de la lame.
 module.exports = (h) => {
   const F = h.formes;
   const f = v => (+v).toFixed(1);
@@ -133,11 +133,34 @@ module.exports = (h) => {
   // mm : origine au bout du manche (où la lame s'attache), x vers la pointe, y vers le haut
   const geoA = z => {
     const e = Math.min((z.l - 10) / 870, (z.h - 8) / 418);
-    const ox = 6 + 75 * e, oy = 4 + 140 * e;
+    const ox = 6 + 75 * e, oy = z.h - 4 - 278 * e;   // la lame en bas de la vue : la place au-dessus est pour la main
     const A = (x, y) => [ox + x * e, oy - y * e];
     const dos = [[24, 70], [120, 84], [260, 92], [420, 90], [580, 76], [700, 50], [776, 12]];
     const fil = [[40, 10], [120, 20], [260, 30], [420, 34], [580, 30], [700, 20], [776, 12]];
     return { e, A, dos, fil, sol: -272 };
+  };
+  // l'angle d'une main simple qui met l'axe de sa prise sur axe (degrés écran) et son avant-bras vers vers [x, y]
+  const poser = (o, axe, vers) => {
+    const base = Object.assign({}, o, { angle: 0, avantbras: { longueur: 100 } }); delete base.objet;
+    const e0 = F.mainSimple(base); let best = null;
+    for (const k of [0, 180]) {
+      const a = axe - e0.prise.angle + k, m = F.mainSimple(Object.assign({}, base, { angle: a }));
+      const d = [m.coude[0] - m.poignet[0], m.coude[1] - m.poignet[1]], v = [vers[0] - m.poignet[0], vers[1] - m.poignet[1]];
+      const c = (d[0] * v[0] + d[1] * v[1]) / ((Math.hypot(d[0], d[1]) * Math.hypot(v[0], v[1])) || 1);
+      if (!best || c > best.c) best = { a, c };
+    }
+    return best.a;
+  };
+  // la main gauche qui tient la lame par le dos, juste derrière la pierre : la main simple en crochet, vue du
+  // dos de la main, qui vient d'en haut. Les doigts passent par-dessus le dos et s'y referment, le pouce libre ;
+  // toute la main reste au-dessus de la lame, loin du fil. L'avant-bras monte et sort par le haut de la vue.
+  // La main est à l'échelle de la vue (en mm).
+  const mainPierre = z => {
+    const { e, A } = geoA(z);
+    const PM = A(240, 84), aD = Math.atan2(A(300, 90)[1] - A(180, 86)[1], A(300, 90)[0] - A(180, 86)[0]) / RAD;
+    const oM = { x: PM[0], y: PM[1], pose: 'crochet', vue: 'dos', cote: 'gauche', echelle: e, diametre: 12 };
+    const vM = A(100, 400), aM = poser(oM, aD, vM);
+    return F.mainSimple({ ...oM, angle: aM, avantbras: { vers: vM, bord: { x0: 0, y0: 0, x1: z.l, y1: z.h }, bras: { pli: 0 } } });
   };
 
   // ─── En coupe : la lame tranchée, le dos en haut, le fil en bas, deux temps ─────────
@@ -156,7 +179,7 @@ module.exports = (h) => {
     desc: 'De profil, en début de coup, le faucheur réglé sur sa faux : bras tendus, chaque poing sur sa poignée, les deux mains à peu près à la même hauteur ; le long manche descend jusqu’au talon et la lame part de là, couchée à plat sur le sol, la pointe qui touche cerclée de rouge. Vu de dessus : les pieds, la lame en milieu de coup, le demi-cercle rouge de droite à gauche vers l’herbe déjà fauchée (en gris), la marche en ligne droite et l’andain laissé derrière. Debout, le manche posé par terre et la pointe à droite : la main gauche tient la lame par le dos, derrière la pierre, qui descend du dos vers le fil (flèche rouge) à petits coups du talon vers la pointe ; un tireté rouge longe le fil, là où la pierre dérape. En coupe : la pierre sur le dessus, puis sur le dessous.',
     format: 'pleine',
     disposition: [['profil', 'dessus'], ['pierre', 'coupe']],
-    hauteurs: [1.45, 1],
+    hauteurs: [1.3, 1.15],
     largeurs: [[1.15, 1], [2.05, 1]],
     vues: {
       profil: {
@@ -297,18 +320,15 @@ module.exports = (h) => {
           out.push(h.geste(`M${pt(A(556, 96))} L${pt(A(560, 14))}`));
           // la main et la pierre avancent ensemble, du talon vers la pointe
           out.push(h.fleche(`M${pt(A(330, 128))} L${pt(A(640, 104))}`, h.a.arete));
-          // la main gauche, par le dos, juste derrière la pierre
-          // modèle s11 (poing fermé) : les doigts referment le dos de la lame, l'avant-bras descend à gauche,
-          // arrêté avant le manche
-          out.push(String(F.modele('s11', { x: A(240, 74)[0], y: A(240, 74)[1], ancre: [68, 42], angle: 35, echelle: 26 * e / 25,
-            masquer: [[0, 150, 140, 175]], bras: { a: [21.8, 150], a0: [20.8, 135], b: [76.3, 150], b0: [76.2, 135], long: 150 * e } })));
+          // la main gauche, par le dos, juste derrière la pierre : peinte devant la lame
+          out.push(mainPierre(z).svg);
           return out.join('\n');
         },
         renvois: z => {
           const G = geoA(z), { A } = G;
           return [
             { n: 7, rond: A(-52, -150), cible: A(-4, G.sol + 16), texte: 'le bout du manche posé par terre' },
-            { n: 8, rond: A(330, -120), cible: A(262, 40), texte: 'main gauche au dos, juste derrière la pierre' },
+            { n: 8, rond: A(330, -120), cible: mainPierre(z).doigts.annulaire, texte: 'main gauche au dos, juste derrière la pierre' },
             { n: 9, rond: A(468, -52), cible: A(500, 61), texte: 'pierre mouillée, du dos au fil, en travers' },
             { n: 10, rond: A(745, 118), cible: A(650, 104), texte: 'petits coups, du talon vers la pointe' },
           ];

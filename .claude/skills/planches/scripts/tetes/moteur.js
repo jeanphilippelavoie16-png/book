@@ -3,8 +3,9 @@
 // La même tête que le corps simple de profil (corps/moteur.js) : le même crâne, la même nuque, le même cou,
 // raccordés de la même façon (union Clipper, l'arrondi de 20 mm à la nuque et sous le menton). Le visage
 // s'ajoute par le contour : le front, le nez, les lèvres, le menton, la mâchoire, d'un seul trait lisse et
-// continu jusqu'au cou. Dedans, au trait de 0,7 : l'œil (fermé, un petit trait ; ouvert, une amande et son
-// iris plein), l'oreille (un C), un sourcil au plus, la commissure de la bouche fermée, la limite des cheveux.
+// continu jusqu'au cou. Dedans, au trait de 0,7 : l'œil (fermé, un petit trait ; ouvert, une amande vide),
+// l'oreille (un C), un sourcil au plus, la limite des cheveux. L'iris plein et la commissure de la bouche
+// fermée existent sur demande seulement (JP, 14 octobre : « enlève l'iris pi la commissure »).
 // Pas de narine, de cil, de ride, de dent ni de pupille détaillée. Les cheveux sont une ligne de contour autour
 // du crâne, jamais un aplat gris ni des mèches. Une tête de moins de 45 de haut dans la vue perd le sourcil,
 // la commissure et la limite des cheveux : à cette taille, ce n'est plus que du bruit.
@@ -29,9 +30,11 @@
 //     epaisseur  bouche 'serre' : l'épaisseur de l'objet entre les lèvres, en mm réels (défaut 8)
 //     cheveux    'court' (défaut, homme et enfants) · 'long' (défaut, femme) · 'queue' · 'aucun' (défaut, bébé)
 //     sourcil    true : un trait de sourcil au-dessus de l'œil (défaut : adultes oui, enfants et bébé non)
-//     iris       false : l'œil ouvert sans son iris plein (l'amande seule)
-//     oreille    false : pas d'oreille (une tête couchée sur le dos : le C couché se lit comme un sourire)
-//     commissure false : pas de trait de commissure à la bouche fermée
+//     iris       true : l'œil ouvert avec son iris plein (défaut : false, l'amande vide ; JP, 14 octobre)
+//     oreille    false : pas d'oreille · true : l'oreille toujours · défaut : l'oreille, sauf sur une tête
+//                couchée sur le dos (le visage vers le haut, à 40° près) qui n'a pas de limite des cheveux (petite,
+//                ou sans cheveux) : seul au milieu du crâne, le C couché se lit comme un sourire
+//     commissure true : un trait de commissure à la bouche fermée (défaut : false ; JP, 14 octobre)
 //     cou        true (défaut : 95 mm sous la nuque × la largeur du cou de l'âge ; 18 mm pour le bébé, dont le
 //                cou ne se voit pas) · false (coupé juste sous le menton) · un nombre : la longueur, en mm réels
 //     raccord    [[x, y], [x, y]] (unités de vue) : le cou va de la nuque à ces deux points, le devant puis le
@@ -154,10 +157,10 @@ const TETES = {
       ep: 7, tri: [80, -147],
       // la ligne d'implantation : du front, par la tempe et la patte, jusque dans l'oreille ; elle ressort derrière
       // l'oreille et descend à la nuque (ou le long du cou). Elle se coupe autour de l'oreille, qui passe devant.
-      court: [[80, -147], [65, -141], [51, -128], [40, -112], [30, -98], [18, -88], [4, -80], [-8, -72], [-30, -44], [-40, -32], [-56, -21], [-74, -17]],
-      long: { ligne: [[79.5, -148], [64, -141], [50, -127], [40, -110], [32, -96], [22, -86], [8, -82], [-6, -72], [-30, -46], [-37, -28], [-39, 0], [-43, 30], [-52, 60], [-70, 86]],
+      court: [[80, -147], [68, -142], [57, -133], [48, -121], [41, -108], [33, -98], [22, -92], [12, -87], [7, -79], [5.5, -70], [5, -62], [2, -58.5], [-4, -58], [-12, -58], [-24, -52], [-34, -42], [-42, -33], [-56, -22], [-74, -17]],
+      long: { ligne: [[79.5, -148], [67, -142], [56, -133], [47, -121], [40, -108], [32, -98], [22, -91], [13, -86], [8, -79], [6.5, -72], [4, -67.5], [-2, -66.5], [-10, -66], [-22, -58], [-30, -46], [-37, -28], [-39, 0], [-43, 30], [-52, 60], [-70, 86]],
         occiput: [-101, -80], chute: [[-112, -58], [-115, -20], [-112, 20], [-104, 54], [-90, 78]] },
-      queue: { ligne: [[79.5, -148], [64, -141], [50, -127], [40, -110], [32, -96], [22, -86], [8, -82], [-6, -72], [-30, -46], [-40, -32], [-56, -21], [-74, -17]],
+      queue: { ligne: [[79.5, -148], [67, -142], [56, -133], [47, -121], [40, -108], [32, -98], [22, -91], [13, -86], [8, -79], [6.5, -72], [4, -67.5], [-2, -66.5], [-10, -66], [-22, -58], [-30, -46], [-40, -32], [-56, -21], [-74, -17]],
         queue: [[-99, -106], [-114, -106], [-126, -94], [-133, -70], [-134, -40], [-131, -10], [-126, 16], [-120, 34], [-115, 12], [-112, -16], [-108, -44], [-103, -66], [-98, -88]],
         lien: [[[-100, -104], [-104, -88]], [[-105, -107], [-109, -90]]] },
     },
@@ -192,10 +195,10 @@ TETES.enfant6 = {
   zone: 66,
   cheveux: {
     ep: 7, tri: [101, -126],
-    court: [[101.5, -125], [91, -123], [77, -118], [63, -108], [51, -94], [38, -80], [22, -72], [6, -68], [-6, -62], [-32, -28], [-42, -20], [-60, -12], [-90, -9]],
-    long: { ligne: [[101.5, -125], [91, -123], [77, -118], [63, -108], [51, -94], [38, -80], [22, -72], [6, -68], [-6, -62], [-32, -30], [-38, -12], [-41, 14], [-45, 38], [-55, 62], [-72, 82]],
+    court: [[101.5, -125], [91, -123], [78, -117], [66, -108], [56, -97], [46, -86], [34, -79], [22, -75], [12, -71], [7, -64], [5.5, -56], [3, -51.5], [-3, -50.5], [-10, -50.5], [-22, -42], [-32, -28], [-42, -20], [-60, -12], [-90, -9]],
+    long: { ligne: [[101.5, -125], [91, -123], [78, -117], [66, -108], [56, -97], [46, -86], [34, -79], [22, -75], [12, -71], [7, -64], [5.5, -56], [3, -51.5], [-3, -50.5], [-10, -50.5], [-22, -42], [-32, -30], [-38, -12], [-41, 14], [-45, 38], [-55, 62], [-72, 82]],
       occiput: [-118, -78], chute: [[-128, -54], [-130, -18], [-125, 20], [-113, 54], [-94, 76]] },
-    queue: { ligne: [[101.5, -125], [91, -123], [77, -118], [63, -108], [51, -94], [38, -80], [22, -72], [6, -68], [-6, -62], [-32, -28], [-42, -20], [-60, -12], [-90, -9]],
+    queue: { ligne: [[101.5, -125], [91, -123], [78, -117], [66, -108], [56, -97], [46, -86], [34, -79], [22, -75], [12, -71], [7, -64], [5.5, -56], [3, -51.5], [-3, -50.5], [-10, -50.5], [-22, -42], [-32, -28], [-42, -20], [-60, -12], [-90, -9]],
       queue: [[-114, -112], [-129, -112], [-141, -100], [-148, -76], [-149, -46], [-146, -16], [-141, 10], [-135, 28], [-130, 6], [-127, -22], [-123, -50], [-118, -72], [-113, -94]],
       lien: [[[-115, -110], [-119, -94]], [[-120, -113], [-124, -96]]] },
   },
@@ -343,27 +346,33 @@ function pieces(ageDemande, o = {}) {
   if ((o.yeux || 'ouverts') === 'fermes') {
     details.push(lisseOuvert([e([5, 0.1]), e([0, 2]), e([-5.5, 0.4])], 8).map(K));
   } else {
-    // l'amande : la paupière du haut et celle du bas, qui se rejoignent au coin de l'œil (derrière) ; devant,
-    // l'iris plein (iris: false : l'amande seule)
+    // l'amande : la paupière du haut et celle du bas, qui se rejoignent au coin de l'œil (derrière) ; l'iris
+    // plein, devant, sur demande seulement (iris: true)
     details.push(lisseOuvert([e([4, -2.4]), e([-0.5, -2.2]), e([-5, 0.3])], 8).map(K));
     details.push(lisseOuvert([e([4.3, 2.2]), e([-0.5, 1.8]), e([-5, 0.3])], 8).map(K));
-    if (o.iris !== false) pleins.push(lisseFerme([e([3.6, -2.1]), e([2.2, -2.3]), e([1.2, 0]), e([2.2, 1.9]), e([3.8, 1.9]), e([4.1, 0])], 6).map(K));
+    if (o.iris === true) pleins.push(lisseFerme([e([3.6, -2.1]), e([2.2, -2.3]), e([1.2, 0]), e([2.2, 1.9]), e([3.8, 1.9]), e([4.1, 0])], 6).map(K));
   }
   // le sourcil
   const sourcil = o.sourcil == null ? (age === 'homme' || age === 'femme') && !petit : !!o.sourcil;
   if (sourcil && R.sourcil) details.push(lisseOuvert(R.sourcil, 8).map(K));
   // l'oreille : un C ouvert vers l'avant
   const Oc = R.oreille.c, oh = R.oreille.h / 2, ol = R.oreille.l;
-  const oreille = o.oreille === false ? [] : lisseOuvert([add(Oc, [6, -oh * 0.86]), add(Oc, [-ol * 0.35, -oh]), add(Oc, [-ol * 0.62, -oh * 0.55]),
+  // (o._regard : l'angle à l'écran où regarde le visage, en degrés, y vers le bas ; vers le haut à 40° près et sans
+  // limite des cheveux autour, le C couché fait un sourire : pas d'oreille, sauf oreille: true)
+  const Cor = lisseOuvert([add(Oc, [6, -oh * 0.86]), add(Oc, [-ol * 0.35, -oh]), add(Oc, [-ol * 0.62, -oh * 0.55]),
     add(Oc, [-ol * 0.6, oh * 0.15]), add(Oc, [-ol * 0.35, oh * 0.82]), add(Oc, [0, oh]), add(Oc, [5, oh * 0.8])], 8).map(K);
-  if (oreille.length) details.push(oreille);
-  // la commissure : la bouche fermée, un trait court qui part des lèvres
-  if ((o.bouche || 'fermee') === 'fermee' && (o.commissure == null ? !petit : o.commissure)) {
+  const versHaut = o._regard != null && Math.abs((((o._regard + 90) % 360) + 540) % 360 - 180) <= 40;
+  const sorte0 = o.cheveux == null ? (age === 'femme' ? 'long' : age === 'bebe' ? 'aucun' : 'court') : o.cheveux;
+  const oreilleVue = o.oreille === false ? false : o.oreille === true ? true : !(versHaut && (petit || sorte0 === 'aucun'));
+  const oreille = oreilleVue ? Cor : [];
+  if (oreilleVue) details.push(oreille);
+  // la commissure : la bouche fermée, un trait court qui part des lèvres (sur demande seulement)
+  if ((o.bouche || 'fermee') === 'fermee' && o.commissure === true) {
     const O = D.visage.stomion;
     details.push(lisseOuvert([add(O, [0.5, 0]), add(O, [-4, 0.6]), add(O, [-8.5, 1.1])], 4).map(K));
   }
   // les cheveux
-  const sorte = o.cheveux == null ? (age === 'femme' ? 'long' : age === 'bebe' ? 'aucun' : 'court') : o.cheveux;
+  const sorte = sorte0;
   const ch = cheveuxDe(D, C, sorte);
   // la zone du visage : devant x = zone, du sommet au menton
   // (serrée sur le visage : du sommet jusque sous le creux de la lèvre, 20 devant le bout du nez)
@@ -396,7 +405,8 @@ function bandeCou(L, kT, incl = 12) {
 // ─── teteSimple ───────────────────────────────────────────────────────────────────────────
 function teteSimple(o = {}) {
   const age = ALIAS[o.age] || 'homme';
-  const T0 = pieces(age, Object.assign({}, o, { _echelle: o.echelle || 1 }));
+  const regard0 = (o.cote === 'gauche' ? 180 - (o.penche || 0) : (o.penche || 0)) + (o.angle || 0);
+  const T0 = pieces(age, Object.assign({}, o, { _echelle: o.echelle || 1, _regard: regard0 }));
   const { k, kT } = T0;
   const penche = o.penche || 0;
   const PT = p => tourne(p, penche);                 // la tête sur le cou, autour de la nuque
@@ -414,7 +424,14 @@ function teteSimple(o = {}) {
   // le cou : sa longueur sous la nuque, en mm réels ; avec raccord, il va de la nuque aux deux points donnés
   // (le devant, le derrière : le haut d'un corps dessiné par la planche), et la coupe est ce segment
   const pj = propTetes(), couBebe = (pj && pj.ages && pj.ages.bebe && pj.ages.bebe.cou && pj.ages.bebe.cou.longueur) || 18;
-  const Lcou = typeof o.cou === 'number' ? o.cou : o.cou === false ? (age === 'bebe' ? 0.6 * couBebe : 62 * k) : (age === 'bebe' ? couBebe : 95 * kT);
+  let Lcou = typeof o.cou === 'number' ? o.cou : o.cou === false ? (age === 'bebe' ? 0.6 * couBebe : 62 * k) : (age === 'bebe' ? couBebe : 95 * kT);
+  // la bouche ouverte ou serrée : le menton descend avec la mâchoire, la coupe du cou descend d'autant (sans quoi le
+  // cou court du bébé coupe le menton et laisse un crochet)
+  if (typeof o.cou !== 'number' && !raccord && (o.bouche || 'fermee') !== 'fermee') {
+    const uC = haut(12), prof = C => Math.max(...C.map(p => -(p[0] * uC[0] + p[1] * uC[1])));
+    const ferme = pieces(age, Object.assign({}, o, { bouche: 'fermee', _echelle: o.echelle || 1 })).contour.map(PT);
+    Lcou += Math.max(0, prof(tete) - prof(ferme));
+  }
   let couPoly, u, n, P0, coupeA, coupeB;
   if (raccord) {
     const Ti = deVue(ancreDe(ancreQ));
@@ -433,7 +450,14 @@ function teteSimple(o = {}) {
   const zone = [I.versCL(T0.zone.map(PT))];
   // la peau (la tête et le cou) s'arrondit à la nuque et sous le menton, hors du visage ; les cheveux
   // s'ajoutent ensuite tels quels (l'arrondi boucherait le jour entre la queue et la nuque)
-  const peau0 = I.unionCL([I.union([tete]), I.union([couPoly])]);
+  // la tête penchée vers l'avant (penche > 0) : la peau de la nuque se tend de l'occiput au dos du cou. Le creux que
+  // laisse l'occiput qui remonte se comble d'un grand arrondi (60 mm), derrière l'axe du cou seulement : la gorge et
+  // le menton, devant, gardent leur dessin.
+  let peau0 = I.unionCL([I.union([tete]), I.union([couPoly])]);
+  if (penche > 0 && !raccord) {
+    const derriere = [I.versCL([add(mul(n, -2), mul(u, 400)), add(mul(n, -2), mul(u, -400)), add(mul(n, -600), mul(u, -400)), add(mul(n, -600), mul(u, 400))])];
+    peau0 = I.unionCL([peau0, I.inter(I.ferme(peau0, 60 * k), derriere)]);
+  }
   const peau = I.unionCL([peau0, I.moins(I.ferme(peau0, 20), zone)]);
   const chCL = cheveux.length ? I.union(cheveux) : [];
   let S = I.unionCL([peau, chCL]);
@@ -526,7 +550,7 @@ function coinsCoupe(S, P0, n) {
 // bassin), posées comme sa tête par défaut : tournées de angleTete (degrés, + vers l'avant) autour de la
 // nuque (le haut du cou). opts : les options de visage de teteSimple (yeux, bouche, cheveux, sourcil…).
 function pourCorps(age, angleTete, nuque, opts = {}) {
-  const T0 = pieces(age, opts);
+  const T0 = pieces(age, Object.assign({ _regard: angleTete }, opts));
   const P = p => add(nuque, tourne(p, angleTete));
   const rep = {};
   for (const [cle, v] of Object.entries(T0.rep)) rep[cle] = Array.isArray(v) ? P(v) : (v ? { haut: P(v.haut), bas: P(v.bas) } : null);

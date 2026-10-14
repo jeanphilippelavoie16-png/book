@@ -19,8 +19,28 @@
 // ombre : la face droite du cou tordu. Rouge : la poussée le long des bras tendus, la paume sur la
 // plaie, les doigts qui tassent la gaze, le poing qui serre la bouteille, le cou qu'on tord. La
 // seconde compresse est posée de travers sur la première : droites, les mains les cachaient toutes deux.
+// Mains simples (14 octobre) : les calques s03, s10 et s11 sont remplacés par mainSimple. Appuyer et le sang qui
+// traverse : prises.mainSurMain (la main du dessous en gris), croisées de 44°, les deux avant-bras jusqu'au bord.
+// Plaie profonde : plat de profil côté pouce, penchée de 25°, gantée par le moteur (la manchette remplace les deux
+// traits de revers). Laver : prise-grosse vue du dos (80 mm), le bras enchaîné au coude. Sans bouteille :
+// prise-manche vue de la paume, penchée de 25°, sur le cou tordu de 22 mm.
 module.exports = (h) => {
   const F = h.formes;
+  const PR = require(require('path').join(__dirname, '../../.claude/skills/planches/scripts/mains/prises.js'));
+  // l'angle de la main qui met l'axe de sa prise sur `axe` (degrés à l'écran) et son avant-bras du côté de `vers`
+  const poser = (o, axe, vers) => {
+    const base = Object.assign({}, o, { angle: 0, avantbras: { longueur: 100 } });
+    delete base.objet;
+    const e0 = F.mainSimple(base);
+    let best = null;
+    for (const k of [0, 180]) {
+      const a = axe - e0.prise.angle + k, e = F.mainSimple(Object.assign({}, base, { angle: a }));
+      const d = [e.coude[0] - e.poignet[0], e.coude[1] - e.poignet[1]], w = [vers[0] - e.poignet[0], vers[1] - e.poignet[1]];
+      const c = (d[0] * w[0] + d[1] * w[1]) / ((Math.hypot(d[0], d[1]) * Math.hypot(w[0], w[1])) || 1);
+      if (!best || c > best.c) best = { a, c };
+    }
+    return best.a;
+  };
   const BL = h.a.blanc.split(' ')[0];
   const plein = t => t.replace('fill="none"', BL);
   const f = v => (+v).toFixed(1);
@@ -133,29 +153,20 @@ module.exports = (h) => {
     if (pli) out.push(h.ligne(x0 + 3, y0 + ht * 0.36, x1 - 3, y0 + ht * 0.36, h.a.fin));
     return out.join('\n');
   };
-  // Les deux mains à plat l'une sur l'autre, vues de dessus : la droite dessous, la paume sur la
-  // plaie (P), la gauche par-dessus, reculée vers le poignet pour que les doigts du dessous se voient.
-  // d0 : la direction des doigts (degrés) ; les avant-bras descendent vers celui qui appuie.
+  // Les deux mains à plat l'une sur l'autre, vues de dessus (mains simples, prises.mainSurMain) : la gauche
+  // dessous, en gris, la paume sur la plaie (P) ; la droite par-dessus, sa paume sur le dos de la première, tournée
+  // de 44° (à 24°, les deux avant-bras se confondaient), avancée de 12 mm : les doigts gris du dessous dépassent. Les doigts vont vers le genou ; les deux avant-bras partent vers la gauche, vers celui qui appuie (la
+  // vignette), et s'arrêtent au bord de la vue.
   const deuxMains = (P, s, z) => {
     const em = s / 10, dir = a => [Math.cos(a * RAD), Math.sin(a * RAD)];
-    // celui qui appuie est à genoux du côté de la hanche, tourné vers le pied (la vignette) : les
-    // doigts vont vers le genou. La droite dessous, son bras venu d'en bas à gauche ; la gauche
-    // par-dessus, son bras venu d'en haut à gauche : les deux mains se croisent sur la plaie
-    const d1 = -15, d2 = 17, u1 = dir(d1), u2 = dir(d2);
-    const O1 = [P[0] + u1[0] * 40 * em, P[1] + u1[1] * 40 * em];
-    const O2 = [P[0] + u2[0] * 30 * em, P[1] + u2[1] * 30 * em];
-    // modèle s03-dessus-l1 (construit sur s03 : la main relâchée sans ses plis, lue comme le dos
-    // d'une main à plat) tourné les doigts vers le genou ; la rangée des jointures (72, 112) sur O.
-    // La droite dessous en miroir (le pouce vers le haut de la vue), la gauche par-dessus telle quelle
-    // (le pouce vers le bas) ; 190 mm du poignet au bout du majeur = 171 px. Les avant-bras partent
-    // vers la gauche, l'un vers le bas, l'autre vers le haut, et sortent du cadre.
-    const SD = 190 * em / 171, BRAS = { a: [59.1, 14], a0: [57.9, 26], b: [112.7, 14], b0: [110.7, 26] };
-    const bas = F.modele('s03-dessus-l1', { x: O1[0], y: O1[1], ancre: [72, 112], angle: d1 - 90, miroir: true, echelle: SD,
-      masquer: [[0, 0, 125, 14]], bras: { ...BRAS, vers: dir(162), bord: z } });
-    const haut = F.modele('s03-dessus-l1', { x: O2[0], y: O2[1], ancre: [72, 112], angle: d2 - 90, echelle: SD,
-      masquer: [[0, 0, 125, 14]], bras: { ...BRAS, vers: dir(196), bord: z } });
-    const ici = (O, u, a, b) => [O[0] + (u[0] * a - u[1] * b) * em, O[1] + (u[1] * a + u[0] * b) * em];
-    return { bas, haut, O1, O2, u1, u2, em, ici, svg: [loin(bas), haut].join('\n') };
+    const d1 = -18, u1 = dir(d1);
+    const o = { angle: d1, echelle: em, cote: 'gauche', croise: 44, decalage: [12, 10], fin: [[-3, -1000], [-3, 1000]] };
+    // la paume du dessous (le creux de la main) sur la plaie : une première passe donne son écart au poignet
+    const m0 = PR.mainSurMain(F.mainSimple, { ...o, x: 0, y: 0 });
+    const W = [P[0] - m0.dessous.prise.x, P[1] - m0.dessous.prise.y];
+    const M = PR.mainSurMain(F.mainSimple, { ...o, x: W[0], y: W[1] });
+    const paume = P;
+    return { M, em, u1, paume, dessus: M.dessus, dessous: M.dessous, svg: M.svg };
   };
   // Les y où une verticale x coupe les contours d'un SVG fait de polylignes (les corps simples) :
   // le dessus de la cuisse du blessé, là où les mains se posent.
@@ -282,17 +293,15 @@ module.exports = (h) => {
     // le blessé entier en petit (corps simple couche-dos, trait 1,25 : à cette taille le 1,5 empâte ;
     // ses traits intérieurs restent à 0,5), le trait de coupe à mi-cuisse
     vg.e = (vg.l - 9) / 1820; vg.h = 300 * vg.e + 15; vg.yg = vg.y + vg.h - 5;
-    // la main gantée, doigts serrés et tendus, le poignet droit : la paume de profil de la
-    // bibliothèque, tournée les doigts en bas ; le bout de l'index et du majeur pousse la gaze
+    // la main gantée, doigts serrés et tendus, le poignet droit (main simple, pose plat, de profil côté pouce, un peu
+    // vue d'en haut comme en 50-40) : le bout des doigts dans la plaie, l'avant-bras qui monte hors du cadre ; le gant
+    // et sa manchette viennent du moteur (gant: true)
     const em = s / 10, yTip = ay(0.5);
-    // modèle s10-plat (la main à plat de côté, le pouce le long de l'index) tourné les doigts en bas,
-    // un peu penché : le bout des doigts dans la plaie, l'avant-bras qui monte hors du cadre
-    // (190 mm du poignet au bout du majeur = 214 px)
-    const main = F.modele('s10-plat', { x: xf, y: yTip, ancre: [10, 54], angle: -84, echelle: 190 * em / 214,
-      masquer: [[228, 0, 245, 125]],
-      bras: { a: [228, 57.6], a0: [210, 58.4], b: [228, 110.8], b0: [210, 108.8], bord: z } });
-    main.poignet = main.P([228, 84.2]); main.bras = main.P([246, 84.2]); main.demi = 53.2 / 2 * 190 * em / 214;
-    const geste = [[xf - 2.3 * s, yM - 8.4 * s], [xf - 2.3 * s, yM - 2.7 * s]];
+    const oM = { x: xf, y: yTip, ancre: 'bout', pose: 'plat', vue: 'pouce', cote: 'droite', echelle: em, rotation: [-25, 0, 0], gant: true };
+    const vM = [xf + 0.32 * z.h, -z.h];
+    const main = F.mainSimple({ ...oM, angle: 104,
+      avantbras: { vers: vM, bord: { x0: 0, y0: 0, x1: z.l, y1: z.h }, bras: { pli: 0 } } });
+    const geste = [[xf - 3.4 * s, yM - 8.4 * s], [xf - 3.4 * s, yM - 2.7 * s]];
     return { s, em, yg, cx, cy, rx, ry, ytop, xm, yM, ax, ay, w, xf, K: [xf, yM - 3 * s], main, femur: [cx + 1 * s, cy + 2 * s], vg, geste };
   };
   const petitBlesse = vg => {
@@ -347,14 +356,9 @@ module.exports = (h) => {
     const b0 = bd[bd.length - 1], x1 = b0[0] - 1.6 * s, xq = b0[0] - 3.4 * s;
     out.push(h.path(`M${bd.map(pt).join(' L')} Q${f(b0[0])},${f(g.ytop(b0[0]) - 0.9 * s)} ${f(x1)},${f(g.ytop(x1) - 0.3 * s)} Q${f((x1 + xq) / 2)},${f(g.ytop((x1 + xq) / 2) - 0.35 * s)} ${f(xq)},${f(g.ytop(xq) - 0.3 * s)}`, h.a.arete));
     out.push(h.path(`M${f(xq - 0.2 * s)},${f(g.ytop(xq) - 0.9 * s)} L${f(xq + 0.2 * s)},${f(g.ytop(xq) + 0.3 * s)}`, h.a.fin));
-    // la main gantée qui pousse : le revers du gant sur l'avant-bras
-    const r = 0.9 * s, mn = g.main;
-    out.push(String(mn));
-    const ub = [mn.bras[0] - mn.poignet[0], mn.bras[1] - mn.poignet[1]], lb = Math.hypot(ub[0], ub[1]), uu = [ub[0] / lb, ub[1] / lb], nb = [-uu[1], uu[0]];
-    for (const dd of [18, 26]) {
-      const c = [mn.poignet[0] + uu[0] * dd * g.em, mn.poignet[1] + uu[1] * dd * g.em], w = mn.demi;
-      out.push(h.ligne(c[0] - nb[0] * w, c[1] - nb[1] * w, c[0] + nb[0] * w, c[1] + nb[1] * w, h.a.detail));
-    }
+    // la main gantée qui pousse
+    const r = 0.9 * s;
+    out.push(String(g.main));
     const xf = g.xf;
     out.push(h.path(`M${f(xf - r * 0.8)},${f(g.yM - 1.4 * s)} Q${f(xf)},${f(g.yM - 1.05 * s)} ${f(xf + r * 0.8)},${f(g.yM - 1.4 * s)}`, h.a.fin));
     // le geste : les doigts poussent la gaze jusqu'au fond
@@ -373,37 +377,19 @@ module.exports = (h) => {
     const uG = 17.5, rG = 4.15;                                                                // la main, et la taille pincée
     const P = W(uG, 0);
     const eH = 1.15 * s / 10;                                                                 // la main un peu grossie, pour se lire
-    // modèle s11 (poing fermé), main gauche, tourné pour que le corps de la bouteille passe dans le
-    // poing dans l'axe : le pouce en haut, l'avant-bras à droite. Un pixel du modèle pour un mm de la
-    // main d'avant (le poignet de 54,5 px rejoint l'avant-bras) ; la bouteille, plus grosse que le trou
-    // du poing, passe derrière les doigts.
-    const main = F.modele('s11', { x: P[0], y: P[1], ancre: [68, 42], angle: aF - 90, echelle: eH, masquer: [[0, 150, 140, 175]] });
+    // la main gauche (main simple, prise-grosse : une bouteille de 80 mm se tient en vue du dos), le corps de la
+    // bouteille en travers du poing, le bouchon en bas ; l'avant-bras part à droite, le bras remonte du coude hors du
+    // cadre (avantbras.bras, plié de 58°)
+    const oM = { x: P[0], y: P[1], pose: 'prise-grosse', vue: 'dos', cote: 'gauche', echelle: eH, diametre: 2 * rG * s / eH };
+    const vM = [z.l + 40, P[1] - 90];
+    const aM = poser(oM, Math.atan2(axe[1], axe[0]) * 180 / Math.PI, vM);
+    const main = { o: { ...oM, angle: aM, avantbras: { vers: vM, bord: { x0: 0, y0: 0, x1: z.l, y1: z.h }, bras: { pli: -58 } } } };
+    main.geo = F.mainSimple(main.o);
     const R = 0;
-    const pouce = main.P([80, 50]);                                                            // le bout du pouce
+    const pouce = main.geo.pouce;                                                              // le bout du pouce
     const jet = { a: W(-0.1, 0), c: W(-3.6, 0.5), b: [xw + 0.5, yw - 1.5] };
     const qj = t => { const m = 1 - t; return [0, 1].map(i => m * m * jet.a[i] + 2 * m * t * jet.c[i] + t * t * jet.b[i]); };
     return { yg, s, J, xw, yw, W, jet, qj, main, pouce, axe, nrm, uG, rG, R, eH };
-  };
-  // L'avant-bras qui prolonge celui de la main « prise vue du dos » (coupé à 60 mm du poignet), le
-  // coude, et le bras qui remonte vers l'épaule hors du cadre. rot : de combien le bras tourne au coude.
-  // m : le modèle posé ; le bras part des bords de son poignet (y = 150)
-  const brasCoude = (m, R, eH, rot) => {
-    const add = (a, b) => [a[0] + b[0], a[1] + b[1]], mul = (a, k) => [a[0] * k, a[1] * k];
-    const uni = a => { const l = Math.hypot(a[0], a[1]); return [a[0] / l, a[1] / l]; };
-    const inter = (p, u, q, v) => { const d = u[0] * v[1] - u[1] * v[0], t = ((q[0] - p[0]) * v[1] - (q[1] - p[1]) * v[0]) / d; return [p[0] + u[0] * t, p[1] + u[1] * t]; };
-    const A = m.P([76.3, 150]), B = m.P([21.8, 150]), c0 = [(A[0] + B[0]) / 2, (A[1] + B[1]) / 2];
-    const dF = uni([c0[0] - m.P([48.5, 135])[0], c0[1] - m.P([48.5, 135])[1]]), E = add(c0, mul(dF, 182 * eH));
-    const dU = tourne(dF, rot), nA = uni([A[0] - c0[0], A[1] - c0[1]]);
-    let nU = [dU[1], -dU[0]]; if (nU[0] * nA[0] + nU[1] * nA[1] < 0) nU = [-nU[0], -nU[1]];
-    const wU = 40 * eH, rC = 30 * eH, loin = 900;
-    const Ci = inter(A, dF, add(E, mul(nU, wU)), dU), Co = inter(B, dF, add(E, mul(nU, -wU)), dU);
-    const o1 = add(Co, mul(dF, -rC)), o2 = add(Co, mul(dU, rC)), Ti = add(Ci, mul(dU, loin)), To = add(Co, mul(dU, loin));
-    return [
-      h.path(`M${pt(A)} L${pt(Ci)} L${pt(Ti)} L${pt(To)} L${pt(o2)} Q${pt(Co)} ${pt(o1)} L${pt(B)} Z`, h.a.blanc),
-      h.path(`M${pt(A)} L${pt(Ci)} L${pt(Ti)}`, h.a.arete),
-      h.path(`M${pt(B)} L${pt(o1)} Q${pt(Co)} ${pt(o2)} L${pt(To)}`, h.a.arete),
-      h.path(`M${pt(add(Ci, mul(dF, -12 * eH)))} Q${pt(add(Ci, mul(nU, -6 * eH)))} ${pt(add(Ci, add(mul(dU, 8 * eH), mul(nU, -9 * eH))))}`, h.a.detail),
-    ].join('\n');
   };
   const sousNiveau = (poly, y0) => {
     const out = [];
@@ -430,6 +416,7 @@ module.exports = (h) => {
     // la plaie et la saleté
     out.push(h.path(`M${f(x - 2.2 * s)},${f(y + 0.9 * s)} Q${f(x)},${f(y - 0.7 * s)} ${f(x + 2.2 * s)},${f(y - 0.3 * s)} Q${f(x)},${f(y + 0.9 * s)} ${f(x - 2.2 * s)},${f(y + 0.9 * s)} Z`, h.a.plein));
     for (const [dx, dy] of [[-3.4, 1.8], [3.3, 1.2], [-1.2, 2.6], [1.8, 2.4], [4.4, 3]]) out.push(h.cercle(x + dx * s, y + dy * s, 0.28 * s, h.a.plein));
+    const i0B = out.length;
     // la bouteille : le corps pincé sous la main, l'épaule, le goulot, le bouchon
     const cote = sg => { const p = []; for (let u = 0.4; u <= 28.4 + 1e-6; u += 0.4) p.push(W(u, sg * lisse(BOUT, u))); return p; };
     const coin = sg => { const p = []; for (let i = 0; i <= 6; i++) { const a = Math.PI / 2 * i / 6; p.push(W(28.4 + 1.6 * Math.sin(a), sg * (3.2 + 1.6 * Math.cos(a)))); } return p; };
@@ -445,8 +432,9 @@ module.exports = (h) => {
     out.push(h.path(`M${pt(W(3.05, -1.95))} L${pt(W(3.05, 1.95))}`, h.a.detail));
     out.push(h.path(`M${pt(W(2.5, -1.9))} L${pt(W(2.5, 1.9))}`, h.a.fin));
     out.push(h.cercle(...W(0, 0), 0.35 * s, h.a.plein));
-    // la main qui serre : les doigts repliés autour du corps, le pouce qui creuse la paroi
-    out.push(brasCoude(g.main, g.R, g.eH, -58), String(g.main));
+    // la main qui serre : la bouteille passe dans la main, peinte entre ses couches (les doigts devant)
+    const bouteille = out.splice(i0B).join('\n');
+    out.push(F.mainSimple({ ...g.main.o, objet: bouteille }).svg);
     // le geste : serrer le poing sur la bouteille souple
     out.push(h.geste(`M${pt(W(20.2, -10.6))} L${pt(W(20.2, -6.3))}`));
     // (le poing du modèle ne creuse pas la paroi : plus de plis de plastique sous le pouce)
@@ -465,7 +453,10 @@ module.exports = (h) => {
     const xw = X(22), yw = top(xw);
     const Wd = 10 * s, cx = xw + 4.8 * s + 0.78 * Wd, yb = yw - 7.6 * s;
     const yn = yb - 19.5 * s, yt = yn - 4.4 * s, yF = yt - 5.6 * s;
-    return { s, yg, X, Y, top, xw, yw, cx, yn, yb, Wd, yt, yF, trou: [cx - Wd * 0.8, yb - 0.3 * s] };
+    const oS0 = { x: cx, y: yF - 0.6 * s, pose: 'prise-manche', vue: 'paume', cote: 'gauche', echelle: 1.15 * s / 10, diametre: 22, rotation: [-25, 0, 0] };
+    const vS = [z.l + 60, yF - 50], bord = { x0: 0, y0: 0, x1: z.l, y1: z.h };
+    const oS = { ...oS0, angle: poser(oS0, 90, vS), avantbras: { vers: vS, bord, bras: { pli: 0 } } };
+    return { s, yg, X, Y, top, xw, yw, cx, yn, yb, Wd, yt, yF, oS, trou: [cx - Wd * 0.8, yb - 0.3 * s] };
   };
   const dessinE = z => {
     const g = geoE(z), s = g.s, cx = g.cx, yn = g.yn, yb = g.yb, Wd = g.Wd, yt = g.yt, out = [sol(z, g.yg)];
@@ -485,7 +476,8 @@ module.exports = (h) => {
     out.push(h.path(sac, h.a.hachure('eau', 'contour')));
     out.push(h.path(`M${f(cx - 0.8 * s)},${f(yn + 1 * s)} Q${f(cx - 3 * s)},${f(yn + 6 * s)} ${f(cx - 6 * s)},${f(yn + 10.5 * s)}`, h.a.detail));
     out.push(h.path(`M${f(cx + 0.8 * s)},${f(yn + 1 * s)} Q${f(cx + 2.5 * s)},${f(yn + 5 * s)} ${f(cx + 4.6 * s)},${f(yn + 8.6 * s)}`, h.a.detail));
-    // le cou tordu, du sac jusqu'au poing, et la touffe de plastique qui dépasse au-dessus
+    // le cou tordu, du sac jusqu'au poing, et la touffe de plastique qui dépasse au-dessus : l'objet que la main tient
+    const i0 = out.length;
     const yH = g.yF - 6.8 * s;
     const cou = `M${f(cx - 1.5 * s)},${f(yn + 0.3 * s)} L${f(cx - 1.1 * s)},${f(g.yF)} L${f(cx + 1.1 * s)},${f(g.yF)} L${f(cx + 1.5 * s)},${f(yn + 0.3 * s)} Z`;
     // la face à l'ombre du cou tordu (lumière d'en haut à gauche) : l'aplat d'abord, le trait par-dessus
@@ -493,11 +485,11 @@ module.exports = (h) => {
     for (let i = 0; i < 5; i++) { const yy = yn - 0.2 * s - i * 1 * s; out.push(h.path(`M${f(cx - 1.3 * s)},${f(yy)} Q${f(cx)},${f(yy - 0.1 * s)} ${f(cx + 1.3 * s)},${f(yy - 0.9 * s)}`, h.a.detail)); }
     out.push(h.path(`M${f(cx - 1 * s)},${f(g.yF)} L${f(cx - 1 * s)},${f(yH)} Q${f(cx - 2.6 * s)},${f(yH - 1 * s)} ${f(cx - 1.8 * s)},${f(yH - 2.3 * s)} Q${f(cx - 0.8 * s)},${f(yH - 1.5 * s)} ${f(cx - 0.2 * s)},${f(yH - 2.6 * s)} Q${f(cx + 1.3 * s)},${f(yH - 2.1 * s)} ${f(cx + 1.5 * s)},${f(yH - 0.9 * s)} L${f(cx + 1 * s)},${f(yH)} L${f(cx + 1 * s)},${f(g.yF)} Z`, plein(h.a.arete)));
     out.push(h.path(`M${f(cx - 1.2 * s)},${f(yH - 1.6 * s)} Q${f(cx - 0.4 * s)},${f(yH - 0.8 * s)} ${f(cx + 0.2 * s)},${f(yH + 0.2 * s)}`, h.a.fin));
-    // le poing fermé sur le cou tordu, vu du dos, dans l'axe de l'avant-bras : le pouce refermé sur l'index
-    // modèle s11, main gauche, le cou dans le poing (bâton du modèle ≈ 25 px = 2,3 s), le pouce en
-    // haut, l'avant-bras qui remonte à droite hors du cadre ; la touffe dépasse au-dessus du poing
-    out.push(F.modele('s11', { x: cx, y: g.yF - 0.5 * s, ancre: [68, 42], angle: -102, echelle: 2.3 * s / 25,
-      masquer: [[0, 150, 140, 175]], bras: { a: [21.8, 150], a0: [20.8, 135], b: [76.3, 150], b0: [76.2, 135], bord: z } }));
+    const objet = out.splice(i0).join('\n');
+    // le poing fermé sur le cou tordu (main simple, prise-manche vue de la paume, penchée de 25° comme en 104-40 :
+    // les doigts en travers du cou), main gauche ; l'avant-bras remonte à droite hors du cadre ; la touffe dépasse
+    // au-dessus du poing
+    out.push(F.mainSimple({ ...g.oS, objet }).svg);
     // tordre : la flèche passe devant le cou
     const ya = (yn + yt) / 2 + 0.3 * s;
     out.push(h.geste(`M${f(cx - 4.4 * s)},${f(ya - 0.5 * s)} A${f(4.4 * s)} ${f(1.5 * s)} 0 0 0 ${f(cx + 4.2 * s)},${f(ya - 0.9 * s)}`));
@@ -522,7 +514,7 @@ module.exports = (h) => {
         dessin: dessinA,
         renvois: z => {
           const g = geoA(z), v = posture(g.vg.x, g.vg.y, g.vg.l, g.vg.h);
-          const paume = g.M.ici(g.M.O2, g.M.u2, -40, 0);
+          const paume = g.M.paume;
           return [
             { n: 1, rond: [12, g.cy + 13 * g.s], cible: paume, texte: 'la paume sur la plaie même' },
             { n: 2, rond: [z.l - 12, g.vg.y + g.vg.h + 12], cible: v.bras, texte: 'bras tendus : tout son poids' },
@@ -535,9 +527,9 @@ module.exports = (h) => {
         renvois: z => {
           const g = geoB(z), s = g.s, [px, py] = g.P;
           return [
-            { n: 3, rond: [z.l - 12, py + 15 * s], cible: [px + 10.2 * s, py + 6.6 * s], texte: 'la première reste en place' },
+            { n: 3, rond: [14, py + 15 * s], cible: [px - 6.6 * s, py + 6.4 * s], texte: 'la première reste en place' },
             { n: 4, rond: [z.l - 12, py - 9 * s], cible: [px + 12.3 * s, py + 0.6 * s], texte: 'une seule autre par-dessus' },
-            { n: 5, rond: [12, py - 14 * s], cible: g.M.ici(g.M.O2, g.M.u2, -45, 0), texte: 'appuyer plus fort' },
+            { n: 5, rond: [12, py - 14 * s], cible: [g.M.dessus.prise.x, g.M.dessus.prise.y], texte: 'appuyer plus fort' },
           ];
         },
       },
@@ -574,7 +566,7 @@ module.exports = (h) => {
         renvois: z => {
           const g = geoE(z), s = g.s;
           return [
-            { n: 14, rond: [z.l - 12, g.yn - 5.4 * s], cible: [g.cx + 1.2 * s, g.yn - 4.6 * s], texte: 'le cou tordu pousse l’eau' },
+            { n: 14, rond: [z.l - 12, g.yn - 5.4 * s], cible: [g.cx + 1.2 * s, g.yn - 2.9 * s], texte: 'le cou tordu pousse l’eau' },
             { n: 15, rond: [z.l - 12, g.yn + 15 * s], cible: [g.cx + g.Wd, g.yn + 13 * s], texte: 'sac de plastique épais' },
             { n: 16, rond: [14, g.yb - 8 * s], cible: g.trou, texte: 'trou d’épingle' },
           ];
