@@ -108,7 +108,10 @@ BLURB_SOUPLE = [(20, .056), (24, .056), (40, .125), (60, .181), (80, .181), (100
 # sur les noms et le grain, ch. 62 à 64 et 81, réassemblé le même jour : 298, inchangé).
 # Un tome réassemblé qui change de nombre de pages arrête l'outil (verifier) : on remet le compte ici, et la
 # couverture se refait avec sa nouvelle tranche.
-PAGES = {1: 332, 2: 416, 3: 334, 4: 298, 5: 438, 6: 200}
+# Réassemblés le 14 octobre 2026 (hors ligne, calculateur non interrogé) : tome 2, 416 -> 414 (entre les lignes 400 et
+# 420, toutes deux 0,931 : tranche inchangée) ; tome 3, 334 -> 332 (palier de la ligne 320, 0,75 : inchangée) ; les
+# quatre autres ne bougent pas.
+PAGES = {1: 332, 2: 414, 3: 332, 4: 298, 5: 438, 6: 200}
 
 def palier(pages):
     """Paliers du tableau : 1/16 po (4,5 pt) toutes les 28 pages, arrondi au point inférieur. Les 23 lignes du
@@ -144,6 +147,8 @@ def rapport_tome(k):
         return None
     s = open(f, encoding='utf-8').read()
     p = re.search(r'Calculateur de Blurb interrogé .*? pour \*\*(\d+) pages\*\*.*?couverture \*\*souple\*\*', s)
+    # un tome assemblé --hors-ligne n'a pas de réponse du calculateur : le compte se lit à la ligne du fichier
+    p = p or re.search(r'^- \*\*Fichier :\*\* `[^`]*interieur\.pdf` — (\d+) pages', s, re.M)
     t = re.search(r'\*\*Tranche\s*:\s*([\d.]+)\s*x\s*10\.25 po', s)
     ch = re.findall(r'^\|\s*[\d–]+\s*\|\s*ch\.\s*(\w+)\s*—\s*(.+?)\s*\|', s, re.M)
     return (int(p.group(1)) if p else None, float(t.group(1)) if t else None, ch)
@@ -174,7 +179,9 @@ def verifier():
 # vb : boîte de la vue en unités de la planche, mesurée le 14 octobre 2026 sur les planches de la charte du
 # 12 octobre (getBBox dans Chromium, plus 2,5 de marge pour le trait ; contrôlée au pixel près sur le rendu, flèches
 # et bouts de trait compris).
-# Échelle : celle du tome 4 d'avant (612 unités sur 7 po), réduite si la vue dépasse 7 × 2,66 po.
+# Échelle : celle du tome 4 d'avant (612 unités sur 7 po), réduite si la vue dépasse 7 × 2,66 po (tomes 1 et 2) ;
+# une vue réduite garde le trait des autres : ses épaisseurs sont multipliées d'autant (_epaissir), sinon l'arc à
+# feu sortait à 1,3 pt au contour contre 2 pt sur les tomes 3 à 6.
 ECH = 7.0 / 612
 LMAX, HMAX = 7.0, 2.66
 TRAIT = {
@@ -234,9 +241,11 @@ def _entre(s, debut, fin):
     return '<g>\n%s\n</g>' % s[a:b].strip()
 
 # La charte des planches (12 octobre 2026) sur le fond du tome. Le noir est l'encre, le blanc est le fond ; les deux
-# gris sont l'encre posée sur le fond à 12 % (#E6E6E6, ce qui est derrière) et à 25 % (#CFCFCF, la face à l'ombre) ;
-# le rouge #9B2C1E prend l'encre : sur une couverture, il ne désigne rien. Toute autre couleur arrête l'outil.
-GRIS = (0.12, 0.25)
+# gris sont l'encre posée sur le fond à 10 % (#E6E6E6, ce qui est derrière) et à 20 % (#CFCFCF, la face à l'ombre) :
+# essayés à 6/12, 8/16, 10/20 et 12/25 % sur l'épinette, le fleuve et l'écorce (14 octobre 2026), 12/25 faisait une
+# tache claire sur les fonds foncés (la face du châssis froid), 10/20 se lit comme une ombre douce. Le rouge #9B2C1E
+# prend l'encre : sur une couverture, il ne désigne rien. Toute autre couleur arrête l'outil.
+GRIS = (0.10, 0.20)
 
 def _melange(fond, encre, t):
     f, e = ([int(c[i:i + 2], 16) for i in (1, 3, 5)] for c in (fond, encre))
@@ -261,6 +270,21 @@ def _recolorer(s, fond, encre, gris=GRIS):
         raise ValueError('couleurs non prévues dans le dessin : %s' % sorted(inconnues))
     return s
 
+def echelle(k):
+    """Pouces par unité de planche pour le dessin du tome k : ECH, ou moins si la vue dépasse la place."""
+    w, h = TRAIT[k]['vb'][2], TRAIT[k]['vb'][3]
+    return min(ECH, LMAX / w, HMAX / h)
+
+def _epaissir(s, f):
+    """Traits (et tiretés) multipliés par f, hors des <marker> (leur dessin suit déjà l'épaisseur du trait qui les
+    porte) : une vue réduite pour tenir dans la place garde ainsi le trait des quatre autres quatrièmes."""
+    def mul(m):
+        v = ' '.join('%g' % round(float(x) * f, 2) for x in re.split(r'[\s,]+', m.group(2).strip()))
+        return '%s="%s"' % (m.group(1), v)
+    morceaux = re.split(r'(<marker\b.*?</marker>)', s, flags=re.S)
+    return ''.join(m if m.startswith('<marker') else re.sub(r'(stroke-width|stroke-dasharray)="([^"]*)"', mul, m)
+                   for m in morceaux)
+
 def trait_svg(k, vb=None):
     """Le SVG du dessin de la quatrième du tome k, recoloré (vb : une autre boîte, pour la mesure)."""
     t = TRAIT[k]
@@ -277,6 +301,9 @@ def trait_svg(k, vb=None):
            '<title>Trait tiré de la %s — vue « %s », sans renvois</title>\n%s\n%s\n</svg>\n') % (
         tuple(vb or t['vb']) + (esc(titre[0].lower() + titre[1:]), t['vue'],
                                 _sans_commentaires(defs.group(0)) if defs else '', corps))
+    f = ECH / echelle(k)
+    if f > 1.001:
+        out = _epaissir(out, f)
     return _recolorer(out, fond, encre, t.get('gris', GRIS))
 
 def traits(dest=None):
@@ -285,9 +312,8 @@ def traits(dest=None):
     for k, t in TRAIT.items():
         slug = COUL[k][3]
         open(os.path.join(dest, '%s-%s.svg' % (t['fic'], slug)), 'w', encoding='utf-8').write(trait_svg(k))
-        w, h = t['vb'][2], t['vb'][3]
-        e = min(ECH, LMAX / w, HMAX / h)
-        tailles[k] = (w * e, h * e)
+        e = echelle(k)
+        tailles[k] = (t['vb'][2] * e, t['vb'][3] * e)
     return tailles
 
 # ------------------------------------------------------------------ gabarits HTML

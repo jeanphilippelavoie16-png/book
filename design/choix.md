@@ -54,8 +54,8 @@ la direction 3, Nordique contemporain.**
     | Tome | Pages | Tranche | Ligne du tableau | PDF de couverture |
     | --- | ---: | ---: | --- | --- |
     | 1 Tenir | 332 | 0,75 po | entre 320 (0,75) et 340 (0,806) : palier de 320 | 17,0 × 10,25 po |
-    | 2 Le corps | 416 | 0,931 po | 400 et 420 : 0,931 | 17,181 × 10,25 po |
-    | 3 Prélever | 334 | 0,75 po | palier de 320 | 17,0 × 10,25 po |
+    | 2 Le corps | 414 | 0,931 po | 400 et 420 : 0,931 | 17,181 × 10,25 po |
+    | 3 Prélever | 332 | 0,75 po | palier de 320 | 17,0 × 10,25 po |
     | 4 De la bête au garde-manger | 284 | 0,681 po | entre 280 (0,625) et 300 (0,681) : palier de 300 | 16,931 × 10,25 po |
     | 5 La forêt, le jardin et le chalet | 438 | 1,0 po | entre 420 (0,931) et 440 (1,0) : palier de 440 | 17,25 × 10,25 po |
     | 6 L'atelier | 200 | 0,5 po | ligne 200 | 16,75 × 10,25 po |

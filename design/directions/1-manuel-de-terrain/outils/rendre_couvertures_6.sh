@@ -30,10 +30,30 @@ edge(){ local prof; prof="$(mktemp -d)/p"
     --hide-scrollbars --run-all-compositor-stages-before-draw --virtual-time-budget=25000 "${BAC[@]}" "$@" 2>/dev/null
   rm -rf "$prof" 2>/dev/null; }
 attend(){ for i in $(seq 1 ${2:-60}); do [ -s "$1" ] && return 0; sleep 1; done; return 1; }
+# Hors de Windows, Chromium sans fenêtre (nouveau mode headless) prend sur la hauteur de --window-size la place d'une
+# barre de fenêtre (87 px CSS sur Chromium 141) : la page est plus basse que la capture, dont le bas sort blanc. On
+# mesure cette marge une fois (une page rouge de 100vh), on demande la fenêtre d'autant plus haute, puis on rogne.
+MARGE=
+marge(){ [ -n "$WIN" ] && { MARGE=0; return; }; local d; d="$(mktemp -d)"
+  printf '<!doctype html><html style="background:#fff"><body style="margin:0;background:#f00;min-height:100vh"></body></html>' > "$d/m.html"
+  edge --window-size=400,300 --screenshot="$d/m.png" "$(url "$d/m.html")"
+  MARGE=$("$PY" -c 'import sys
+from PIL import Image
+im = Image.open(sys.argv[1]).convert("RGB"); w, h = im.size; n = 0
+while n < h and im.getpixel((w // 2, h - 1 - n))[1] > 128: n += 1
+print(n)' "$d/m.png" 2>/dev/null) || MARGE=0
+  rm -rf "$d"; echo "  (marge de fenêtre de Chromium : ${MARGE:-0} px)"; }
 shot(){ # hash sortie "w,h" échelle
+  [ -n "$MARGE" ] || marge
+  local w="${3%,*}" h="${3#*,}"
   # Edge sans fenêtre rate parfois une capture quand d'autres tournent en même temps : trois essais
-  for essai in 1 2 3; do rm -f "$2"; edge --force-device-scale-factor=$4 --window-size=$3 --screenshot="$2" "$(url "$HTML" "$1")"
-    attend "$2" 20 && { echo "  $(basename "$2")"; return 0; }; done; echo "  ÉCHEC $(basename "$2")"; }
+  for essai in 1 2 3; do rm -f "$2"; edge --force-device-scale-factor=$4 --window-size=$w,$((h + ${MARGE:-0})) --screenshot="$2" "$(url "$HTML" "$1")"
+    attend "$2" 20 && {
+      [ "${MARGE:-0}" -gt 0 ] && "$PY" -c 'import sys
+from PIL import Image
+f, w, h, s = sys.argv[1], int(sys.argv[2]), int(sys.argv[3]), float(sys.argv[4])
+Image.open(f).crop((0, 0, round(w * s), round(h * s))).save(f)' "$2" "$w" "$h" "$4"
+      echo "  $(basename "$2")"; return 0; }; done; echo "  ÉCHEC $(basename "$2")"; }
 
 html(){ "$PY" "$D1/outils/build_couvertures_6.py" || exit 1; }
 pdf(){ local out="$D1/couvertures-nordique-6.pdf"
