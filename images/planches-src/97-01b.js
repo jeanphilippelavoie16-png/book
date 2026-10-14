@@ -34,12 +34,23 @@ module.exports = (h) => {
     return o.join('\n');
   };
   const glace = (x) => FT + (BK - FT) * (x - CX0) / (CX1 - CX0);   // dessus des côtés du coffre
+  // La charte : une face en aplat gris (loin ou ombre), puis son trait par-dessus
+  const aplat = (P, pts, gris, trame = null, trait = 'detail') => {
+    const q = pts.map(v => P(...v));
+    const o = [h.chemin(q, gris, true)];
+    o.push(h.chemin(q, trame ? A.hachure(trame, trait) : A[trait], true));
+    return o.join('\n');
+  };
+  // La charte : le contour de la couche elle-même (la fosse, et le fumier monté au-dessus du sol)
+  // pèse 2,4, comme sur la 97-01a ; le bloc de terre autour reste à 1,4.
+  const fosse = (P) => h.chemin([P(0, 0, 0), P(0, 0, -PD), P(PW, 0, -PD), P(PW, 0, 0)], A.contour);
 
   // le bloc de terre, la fosse ouverte dedans ; fond = niveau de ce qui remplit la fosse
   const terrain = (P, fond, trame) => {
     const o = [];
-    o.push(face(P, [[0, H, fond], [PW, H, fond], [PW, H, 0], [0, H, 0]], null));           // paroi du fond
-    o.push(face(P, [[0, 0, fond], [0, H, fond], [0, H, 0], [0, 0, 0]], null));             // paroi sud
+    // La charte : les parois de la fosse, vues par l'ouverture, en gris loin
+    o.push(aplat(P, [[0, H, fond], [PW, H, fond], [PW, H, 0], [0, H, 0]], A.loin));         // paroi du fond
+    o.push(aplat(P, [[0, 0, fond], [0, H, fond], [0, H, 0], [0, 0, 0]], A.loin));           // paroi sud
     if (trame) o.push(face(P, [[0, 0, fond], [PW, 0, fond], [PW, H, fond], [0, H, fond]], trame));
     o.push(face(P, [[XL, 0, 0], [0, 0, 0], [0, H, 0], [PW, H, 0], [PW, 0, 0], [XR, 0, 0], [XR, YD, 0], [XL, YD, 0]], null, 'arete'));
     o.push(face(P, [[XR, 0, 0], [XR, YD, 0], [XR, YD, ZB], [XR, 0, ZB]], 'terre', 'arete'));
@@ -92,7 +103,8 @@ module.exports = (h) => {
     o.push(face(P, [[X1, 0, 0], [X1, Y1, 0], [X1, Y1, e], [X1, 0, e]], null));
     // les feuilles par-dessus, étendues de l'arrière vers l'avant : les planches restent à voir devant
     const F = 11, fx0 = X0 + 3, fx1 = X1 - 3, LY0 = 36, Y2 = Y1 - 3;
-    o.push(face(P, [[fx1, LY0, e], [fx1, Y2, e], [fx1, Y2, F], [fx1, LY0, F]], null));
+    // La charte : le flanc droit de la couche de feuilles, à l'ombre
+    o.push(aplat(P, [[fx1, LY0, e], [fx1, Y2, e], [fx1, Y2, F], [fx1, LY0, F]], A.ombre));
     o.push(face(P, [[fx0, LY0, F], [fx1, LY0, F], [fx1, Y2, F], [fx0, Y2, F]], null));
     for (let i = 0; i < 30; i++) {
       const x = fx0 + 9 + ((i * 37) % 97) / 97 * (fx1 - fx0 - 18), y = LY0 + 8 + ((i * 53) % 89) / 89 * (Y2 - LY0 - 14);
@@ -110,6 +122,7 @@ module.exports = (h) => {
       const a = X0 + i * lp;
       o.push(face(P, [[a, 0, 0], [a + lp, 0, 0], [a + lp, 0, e], [a, 0, e]], 'bois', 'arete'));
     }
+    o.push(fosse(P));
     return o.join('\n');
   };
 
@@ -129,10 +142,12 @@ module.exports = (h) => {
     o.push(terreCoupee(P), gravierCoupe(P));
     o.push(face(P, [[0, 0, -PD + GR], [PW, 0, -PD + GR], [PW, 0, fond], [0, 0, fond]], 'isolant'));
     o.push(lit(P, 1, PW - 1, -21));
+    o.push(fosse(P));
     // la botte qui foule le lit, de bout en bout, avant le suivant
     o.push(botte(S, P(196, 44, fond + 5)));
     const bf = P(196, 44, fond + 5);
-    o.push(h.fleche(`M${bf[0] + 40 * S} ${bf[1] - 30 * S} L${bf[0] + 40 * S} ${bf[1] + 2 * S}`, A.arete));
+    // La charte : le geste, tasser le lit
+    o.push(h.geste(`M${bf[0] + 40 * S} ${bf[1] - 30 * S} L${bf[0] + 40 * S} ${bf[1] + 2 * S}`));
     // la fourche, vue d'en haut : le manche monte vers la droite, les dents chargées au-dessus du lit
     const F = P(104, 40, 34);
     const ang = -22 * Math.PI / 180, dm = [Math.cos(ang), Math.sin(ang)], nm = [-dm[1], dm[0]];
@@ -173,17 +188,19 @@ module.exports = (h) => {
     const o = [];
     o.push(terrain(P, 0));
     // le talus nord, puis le dessus du rechaussage tout autour
-    o.push(face(P, [[RB, 0, BK], [RB, HR, BK], [PW, H, 0], [PW, 0, 0]], 'isolant'));
+    // La charte : le talus nord du rechaussage fait face à droite, à l'ombre
+    o.push(aplat(P, [[RB, 0, BK], [RB, HR, BK], [PW, H, 0], [PW, 0, 0]], A.ombre, 'isolant'));
     o.push(face(P, [[RF, 0, FT], [RF, HR, FT], [CX0, HR, FT], [CX1, HR, BK], [RB, HR, BK], [RB, 0, BK]], 'isolant'));
     // le coffre : l'intérieur du côté est, du devant, le fumier remis dedans
     const I0 = CX0 + EP, I1 = CX1 - EP, YI = HC - EP;
-    o.push(face(P, [[I0, YI, FI], [I1, YI, FI], [I1, YI, glace(I1)], [I0, YI, glace(I0)]], null, 'arete'));
+    // La charte : l'intérieur du coffre, vu par l'ouverture, en gris loin
+    o.push(aplat(P, [[I0, YI, FI], [I1, YI, FI], [I1, YI, glace(I1)], [I0, YI, glace(I0)]], A.loin, null, 'arete'));
     // les joints des madriers sur la face intérieure du côté ouest
     for (const zj of [52, 60, 68]) {
       const xs = Math.max(I0, CX0 + (zj - FT) * (CX1 - CX0) / (BK - FT) + 2);
       o.push(h.chemin([P(xs, YI, zj), P(I1, YI, zj)], A.detail));
     }
-    o.push(face(P, [[I0, 0, FI], [I0, YI, FI], [I0, YI, glace(I0)], [I0, 0, FT]], null, 'arete'));
+    o.push(aplat(P, [[I0, 0, FI], [I0, YI, FI], [I0, YI, glace(I0)], [I0, 0, FT]], A.loin, null, 'arete'));
     o.push(face(P, [[I0, 0, FI], [I1, 0, FI], [I1, YI, FI], [I0, YI, FI]], 'isolant'));
     // les poteaux de coin, côté est
     const PP = 7;
@@ -206,6 +223,10 @@ module.exports = (h) => {
     o.push(face(P, [[I0, 0, BT], [I1, 0, BT], [I1, 0, FI], [I0, 0, FI]], 'isolant'));
     o.push(face(P, [[CX0, 0, BT], [I0, 0, BT], [I0, 0, FT], [CX0, 0, FT]], 'bois', 'contour'));
     o.push(face(P, [[I1, 0, BT], [CX1, 0, BT], [CX1, 0, BK], [I1, 0, BK]], 'bois', 'contour'));
+    o.push(fosse(P));
+    o.push(h.chemin([P(0, 0, 0), P(RF, 0, FT), P(CX0, 0, FT)], A.contour), h.chemin([P(CX1, 0, BK), P(RB, 0, BK), P(PW, 0, 0)], A.contour));
+    // La charte : le point à contrôler, le rechaussage monté jusqu'en haut du coffre
+    o.push(h.controle(...P(CX0, 0, FT), 10));
     return o.join('\n');
   };
 

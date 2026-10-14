@@ -146,7 +146,7 @@ module.exports = (h) => {
     // ouvert : le même disque tourné sur la tige, de chant
     o.push(g.R(cx + 1, yd - 4 - (R - jeu), 3, 2 * (R - jeu), h.a.cache));
     // le point qui décide : le jour entre le disque et la paroi
-    o.push(g.C(cx - R + jeu / 2, yd + 1.5, 10, h.a.controle));
+    o.push(g.C(cx - R + jeu / 2, yd + 1.5, 15, h.a.controle));
     return o.join('\n');
   };
 

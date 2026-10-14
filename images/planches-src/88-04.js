@@ -6,6 +6,9 @@
 // la ficelle tient le couvercle. Deux plans vus de dessus : les trois écrous, ou le rond de
 // broche, sous la place de la boîte.
 // Aucune cote : le chapitre ne donne aucune dimension (boîte, chaudron, trépied).
+// La charte : l'air du chaudron, au-dessus de l'eau, et le tiers vide de la boîte, vus par la
+// coupe, en gris loin ; de trois quarts, le flanc droit de la boîte à l'ombre. Pas de gris sur
+// les vues de dessus. Le rouge : la pâte aux deux tiers (le point à vérifier). Pas de geste.
 
 module.exports = (h) => {
   const f = v => Math.round(v * 10) / 10;
@@ -93,7 +96,8 @@ module.exports = (h) => {
   const chaleur = d => [h.path(d, halo), h.fleche(d, h.a.cache)].join('\n');
 
   // Un filet de vapeur : tireté, qui monte et se recourbe.
-  const vapeur = d => [h.path(d, halo), h.fleche(d, h.a.cache)].join('\n');
+  // (elle passe dans l'air gris du chaudron : son liseré prend le gris)
+  const vapeur = d => [h.path(d, halo.replace('#ffffff', '#E6E6E6')), h.fleche(d, h.a.cache)].join('\n');
 
   // ─── Le détail de trois quarts ─────────────────────────────────────────────────────
   const gF = z => {
@@ -149,6 +153,18 @@ module.exports = (h) => {
           out.push(h.rect(px1 - 12, g.yP + ep, 8, yFond - g.yP - ep, h.a.hachure('metal', 'arete')));
           out.push(h.ligne(px0 + 12, yFond, px1 - 12, yFond, h.a.arete));
 
+          // l'air du chaudron fermé, au-dessus de l'eau, vu par la coupe : gris loin, jusque sous
+          // le couvercle (son dessous suit la même courbe que celui du couvercle, plus bas)
+          {
+            const xo0 = g.xl - g.t, xo1 = g.xr + g.t, lx0 = xo0 - 3, lx1 = xo1 + 3, bomb = Math.round(g.dB * 0.09);
+            const air = [[g.xl, g.yW]];
+            for (let i = 0; i <= 60; i++) {
+              const s = i / 60, x = (1 - s) * (1 - s) * lx0 + 2 * s * (1 - s) * g.cx + s * s * lx1;
+              if (x >= g.xl && x <= g.xr) air.push([x, g.yR - 4 * bomb * s * (1 - s)]);
+            }
+            air.push([g.xr, g.yW]);
+            out.push(h.chemin(air, h.a.loin, true));
+          }
           // l'eau, du fond du chaudron à mi-hauteur de la boîte (la boîte et les écrous la masquent)
           out.push(h.rect(g.xl, g.yW, g.Wi, g.yBi - g.yW, h.a.hachure('eau', 'aucun')));
           // les bouillons : des bulles qui montent du fond
@@ -182,12 +198,16 @@ module.exports = (h) => {
           out.push(h.rect(g.bL, g.yCt, g.dB, g.hB, h.a.blanc));
           const bosse = Math.max(4, Math.round(g.dB * 0.05));
           const pate = `M ${f(g.bL)} ${f(g.yCb)} L ${f(g.bL)} ${f(g.yD + bosse)} Q ${f(g.cx)} ${f(g.yD - bosse)} ${f(g.bR)} ${f(g.yD + bosse)} L ${f(g.bR)} ${f(g.yCb)} Z`;
+          // le tiers vide, laissé pour la levée : gris loin
+          out.push(h.path(`M ${f(g.bL)} ${f(g.yCt)} L ${f(g.bR)} ${f(g.yCt)} L ${f(g.bR)} ${f(g.yD + bosse)} Q ${f(g.cx)} ${f(g.yD - bosse)} ${f(g.bL)} ${f(g.yD + bosse)} Z`, h.a.loin));
           out.push(h.path(pate, h.a.detail));
           out.push(mie(g.bL + 4, g.bR - 4, g.yD + bosse + 6, g.yCb - 6));
           out.push(h.chemin([[g.bL, g.yCt + 2], [g.bL, g.yCb], [g.bR, g.yCb], [g.bR, g.yCt + 2]], h.a.contour));
           out.push(h.cercle(g.bL - 1.8, g.yCt, 2.6, h.a.arete), h.cercle(g.bR + 1.8, g.yCt, 2.6, h.a.arete));
           // le couvercle de la boîte et sa ficelle
           out.push(soucoupeCoupe(g), ficelleCoupe(g));
+          // le point à vérifier : la pâte aux deux tiers, pas plus
+          out.push(h.controle(g.bR, g.yD + Math.max(4, Math.round(g.dB * 0.05)), 10));
 
           // la vapeur : elle monte de l'eau autour de la boîte et remplit le chaudron fermé
           const gap = (g.bL - g.xl);
@@ -218,7 +238,11 @@ module.exports = (h) => {
           const yBas = g.yT + g.hB;
           // le corps de la boîte, avec ses nervures
           const corps = `M ${f(g.cx - g.rx)} ${f(g.yT)} L ${f(g.cx - g.rx)} ${f(yBas)} A ${g.rx} ${g.ry} 0 0 0 ${f(g.cx + g.rx)} ${f(yBas)} L ${f(g.cx + g.rx)} ${f(g.yT)}`;
-          out.push(h.path(corps + ' Z', h.a.blanc), h.path(corps, h.a.contour));
+          // le flanc droit à l'ombre, de x = cx + 0,55 rx au bord, jusqu'au bas arrondi
+          const xo = g.cx + g.rx * 0.55, yo = yBas + g.ry * Math.sqrt(1 - 0.55 * 0.55);
+          out.push(h.path(corps + ' Z', h.a.blanc));
+          out.push(h.path(`M ${f(xo)} ${f(g.yT)} L ${f(xo)} ${f(yo)} A ${g.rx} ${g.ry} 0 0 0 ${f(g.cx + g.rx)} ${f(yBas)} L ${f(g.cx + g.rx)} ${f(g.yT)} Z`, h.a.ombre));
+          out.push(h.path(corps, h.a.contour));
           [0.42, 0.52, 0.62, 0.72].forEach(k => {
             const y = g.yT + g.hB * k;
             out.push(h.path(`M ${f(g.cx - g.rx)} ${f(y)} A ${g.rx} ${g.ry} 0 0 0 ${f(g.cx + g.rx)} ${f(y)}`, h.a.fin));
