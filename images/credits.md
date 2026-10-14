@@ -1013,3 +1013,15 @@ hors de la famille.**
   iStock (aperçu à filigrane, image 948543248). Calque : `mains-shoo.svg` ; modèles s01 à s20 dans
   `images/modeles/`. C'est la planche de mains que JP a choisie le 13 octobre (« prends celle-là »).
 
+
+## Modèles calqués pour les animaux des planches (14 octobre 2026)
+
+Les fonctions de `images/planches-src/_animaux.js` disent d'où vient chaque forme dans leur commentaire de tête.
+
+- **Canard** (planche 47-03) : la cane colvert qui nage, en bas à droite de la planche 12 de Louis Agassiz
+  Fuertes, pour E. H. Eaton, *Birds of New York*, 1910. Domaine public. Fichier déjà au dépôt :
+  `photos/lot5/50-01c-canard-noir-colvert-fuertes-pl12.jpg`. La partie sous l'eau est dessinée sans modèle.
+- **Lagopède** (planche 47-04) : la silhouette du tétras du Canada mâle de la planche 41 de Fuertes, même ouvrage,
+  1910, domaine public, en plumage blanc ; pattes et branche retirées. Fichier : `photos/lot5/45-04a-gelinotte-tetras-fuertes-pl41.jpg`.
+- **Lièvre** (48-09), **chien** (59-08) et **castor** (50-10) : construits sans modèle (masses puis contour). Le
+  réseau de la session bloquait Wikimedia et la BHL le 14 octobre.

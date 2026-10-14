@@ -377,19 +377,19 @@ function chien(h, o = {}) {
   // la patte de devant : bras, avant-bras, la main posée sur la perche
   const patte = (dx, dy) => U(capsule([224 + dx, 872 + dy], [250 + dx, 772 + dy], 58, 42),
     capsule([250 + dx, 772 + dy], A([366 + dx, 990 + dy]), 36, 29), capsule(A([362 + dx, 996 + dy]), A([400 + dx, 1032 + dy]), 29, 27));
-  // la queue en panache, relevée et roulée vers le dos
-  const queue = U(capsule([-60, 520], [-132, 600], 40, 44), capsule([-132, 600], [-150, 690], 44, 40), capsule([-150, 690], [-104, 742], 40, 30), capsule([-104, 742], [-64, 712], 30, 18));
+  // la queue en panache, relevée en faucille, la pointe vers le dos sans le toucher
+  const queue = U(capsule([-50, 520], [-122, 590], 40, 44), capsule([-122, 590], [-146, 676], 44, 36), capsule([-146, 676], [-126, 744], 36, 16));
   const OREILLE = [[210, 1196], [204, 1240], [212, 1282, 'c'], [244, 1246], [262, 1206]];
   const OREILLE_L = [[234, 1202], [232, 1246], [244, 1288, 'c'], [270, 1252], [284, 1212]];
-  const corps = M.ferme(U(...masses), 30);
-  const proche = lisser(M.ferme(U(corps, patte(0, 0), cl(trace(OREILLE)), queue), 10), 3);
+  const corps = lisser(M.ferme(U(...masses), 60), 8);
+  const proche = lisser(M.ferme(U(corps, patte(0, 0), cl(trace(OREILLE)), queue), 14), 3);
   const loin = lisser(M.moins(U(patte(26, 30), cl(trace(OREILLE_L))), M.decale(proche, -0.4)), 1.5);
   // traits intérieurs : le devant de la cuisse, le coude sur la poitrine, le creux de l'oreille,
   // la queue sur la croupe
   const cuisse = trace([[106, 468], [82, 384], [72, 306]], false);
   const coude = trace([[216, 800], [240, 742], [276, 780]], false);
   const oreilleI = trace([[218, 1214], [214, 1240], [214, 1262]], false);
-  const queueI = trace([[-66, 560], [-100, 640], [-96, 700]], false);
+  const queueI = trace([[-70, 556], [-110, 616], [-124, 676]], false);
   const truffe = cl(trace([[404, 1160], [414, 1174], [408, 1188], [394, 1186], [390, 1170]]));
   const bouche = trace([[400, 1124], [374, 1118], [342, 1112]], false);
   const oeil = ellipse([314, 1178], 9, 6.5, 14, 24);
@@ -400,7 +400,7 @@ function chien(h, o = {}) {
   } else {
     out.push(R.plein(loin, GRIS), R.bord(loin, ep), R.plein(proche, BLANC));
   }
-  out.push(R.ligne([cuisse, coude, oreilleI, bouche, queueI], epI));
+  out.push(R.ligne([cuisse, oreilleI, bouche, queueI], epI));
   out.push(R.plein(truffe, NOIR), R.plein(cl(oeil), NOIR));
   out.push(R.bord(proche, ep));
   out.push('</g>');

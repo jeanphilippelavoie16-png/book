@@ -1,6 +1,9 @@
 // 55-08 — Le séchoir à poisson, à l'air libre (ch. 55, section D, points 16, 19 et 21)
 // Aucune cote chiffrée : le chapitre ne donne qu'une hauteur, « hors d'atteinte d'un chien
-// debout ». Le chien sert donc d'échelle.
+// debout ». Le chien sert donc d'échelle : il vient de _animaux.js (chien), dressé, les pattes de
+// devant sur la perche avant, en gris loin.
+
+const A_ = require('./_animaux');
 
 module.exports = (h) => {
   // ── le séchoir, en unités de dessin (repère X long, Y profondeur, Z haut) ──
@@ -96,17 +99,11 @@ module.exports = (h) => {
             out.push(h.chemin([P(X, c, Zt(c)), P(X + 3, (c + d) / 2, Zt((c + d) / 2)), P(X - 1, d, Zt(d))], h.a.detail));
           }
           out.push(h.chemin([P(a, c, Zb(c)), P(a, c, Zt(c)), P(a, d, Zt(d)), P(b, d, Zt(d)), P(b, d, Zb(d)), P(b, c, Zb(c))], h.a.contour, true));
-          // le chien debout, pattes sur la perche : l'échelle
-          const k = 0.8 * g, bx = ox - 5 - 54 * k, by = oy + g * 12 * ky;
-          const chien = [[14, 0], [12, 5], [6, 8], [8, 24], [14, 40], [16, 52], [20, 72], [26, 90], [30, 98],
-            [44, 106], [52, 110], [54, 116], [48, 118], [34, 112], [32, 118], [36, 128], [44, 134], [56, 138],
-            [57, 142], [46, 146], [38, 150], [32, 153], [30, 162], [24, 152], [20, 146], [14, 128], [6, 104],
-            [-2, 78], [-6, 58], [-10, 50], [-26, 34], [-30, 24], [-22, 30], [-10, 42], [-12, 32], [-10, 18],
-            [-8, 6], [-8, 0]];
-          // le chien ne sert que d'échelle : il recule en gris loin
-          out.push(forme(chien.map(([u, v]) => [f(bx + u * k), f(by - v * k)]), h.a.arete, h.a.loin));
-          out.push(h.cercle(f(bx + 42 * k), f(by - 145 * k), 1.4, h.a.plein));
-          out.push(h.ligne(f(bx - 24), f(by), f(bx + 24), f(by), h.a.detail));
+          // le chien dressé, les pattes de devant sur la perche : l'échelle (_animaux.js, chien). Il ne
+          // sert que d'échelle : il recule en gris loin.
+          const sc = 0.0884, by = oy + g * 12 * ky, bx = ox - rP - 428 * sc;
+          out.push(A_.chien(h, { x: bx, y: by, echelle: sc, loin: true }).svg);
+          out.push(h.ligne(f(bx - 24), f(by), f(bx + 40), f(by), h.a.detail));
           return out.join('\n');
         },
         renvois: z => {

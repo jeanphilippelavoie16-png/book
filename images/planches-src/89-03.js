@@ -112,8 +112,8 @@ module.exports = (h) => ({
       renvois: z => {
         const R = repereC(z), C = cabestan();
         return [
-          { n: 17, rond: R.T([-26, 8.5]), cible: R.T(C.croisement), texte: 'nœud de cabestan sur le fût' },
-          { n: 18, rond: R.T([35.5, 6]), cible: R.T([27.4, -5.5]), texte: 'fût sans trou au centre' },
+          { n: 17, rond: R.T([-12.0, 12.0]), cible: R.T(C.croisement), texte: 'nœud de cabestan sur le fût' },
+          { n: 18, rond: R.T([38.0, 9.0]), cible: R.T([38.0, 1.0]), texte: 'fût sans trou au centre' },
         ];
       },
     },
@@ -392,7 +392,8 @@ function repS(z, W) {
 }
 const FEN1 = [0, 28, -19, 15], FEN2 = [0, 20, -3.8, 22], FEN3 = [0, 26, -3.8, 26], FEN4 = [2, 30, 3, 39];
 // Le fût en biais, de x0 à x1, cassé aux deux bouts : le dessus blanc, le chant gris.
-function futObl(h, R, x0, x1) {
+function futObl(h, R, x0, x1, ep = EPF) {
+  const YD = pr(0, -ep, HTF)[1];
   const onde = (x, y) => x + 0.7 * Math.sin(2 * PI * (y - YD) / (YB - YD));
   const cote = (x, ya, yb) => Array.from({ length: 7 }, (_, i) => { const y = ya + (yb - ya) * i / 6; return [onde(x, y), y]; });
   const face = (ya, yb) => [...cote(x0, yb, ya), ...cote(x1, ya, yb)].map(R.T);
@@ -646,75 +647,48 @@ function vueOrteils(h, z) {
   return out.join('\n');
 }
 
-// ─── Vue : le centre, autour du fût (millimètres, vue de dessus) ────────────────────────
-// x le long du fût, y vers l'intérieur de la raquette. Le dessus du fût va de y = -12 (face
-// extérieure) à y = 0 (chant intérieur). On voit un nœud de cabestan en train de se faire (lâche)
-// et, à 20 mm, le nœud voisin déjà serré : ses deux tours sur le dessus, ses deux brins dessous.
-const WC = 3.2;                                          // babiche forte, étirée
-function repereC(z) {
-  const X0 = -30, X1 = 40, Ya = -14.5, Yb = 41.5;
-  const K = Math.min((z.l - 8) / (X1 - X0), (z.h - 4) / (Yb - Ya));
-  const ox = (z.l - K * (X1 - X0)) / 2 - K * X0, oy = (z.h - K * (Yb - Ya)) / 2 - K * Ya;
-  return { K, X0, X1, Ya, Yb, T: ([x, y]) => [r1(ox + K * x), r1(oy + K * y)], P: p => [ox + K * p[0], oy + K * p[1], p[2]] };
-}
+// ─── Vue : le centre, autour du fût (millimètres, le fût en biais comme à la pointe) ─────
+// Redessin du 14 octobre 2026 : le fût en biais (dessus blanc, chant gris) au lieu d'un
+// rectangle ; chaque tour passe par-dessus le fût et disparaît derrière, et ressort de sous le
+// chant. Un nœud de cabestan lâche : le brin monte du laçage, passe par-dessus le fût, en fait le
+// tour, ressort dessous, croise par-dessus lui-même, fait un second tour, ressort dessous et passe
+// sous le croisement, vers le laçage. À 20 mm, le nœud voisin, serré : ses deux tours sur le
+// dessus, ses deux brins dessous. Le fût du centre est un peu plus épais qu'à la pointe.
+const WC = 3.2, EPC = 12.5;                              // babiche forte ; épaisseur du fût au centre
+const FENC = [-24, 43, -16.5, 25.5];
+function repereC(z) { return repS(z, FENC); }
 let CAB = null;
 function cabestan() {
   if (CAB) return CAB;
-  const dg = unit([-0.62, 0.785]);                      // les brins en biais, vers le bas à gauche
-  const xS = 2, xV = 22, yb = 33;                       // le brin qui monte ; le brin droit du voisin
-  // la passe en biais du nœud voisin : le brin l'a croisée en montant et en a fait le tour
-  const D2a = [xV - 4.2, 0];
-  const X2 = plus(D2a, dg, (xS - D2a[0]) / dg[0]);
-  const uP = [-dg[0], -dg[1]], vS = [-dg[1], dg[0]][1] < 0 ? [-dg[1], dg[0]] : [dg[1], -dg[0]];
-  // le tour serré : dessus (A1-B1), dessous (en tireté, B1-A2), dessus (A2-B2)
-  const nD = [-vS[0], -vS[1]];                          // vers le côté d'où monte le brin
-  const Q = (s, t) => [X2[0] + s * uP[0] + t * nD[0], X2[1] + s * uP[1] + t * nD[1]];
-  const A1 = Q(-2.3, 2.0), B1 = Q(-0.9, -WC / 2), A2 = Q(2.1, WC / 2), B2 = Q(3.5, -2.0);
-  // le cabestan lâche : le brin monte (x = 2), passe par-dessus le fût, en fait le tour, ressort
-  // dessous en x = 6,8, croise par-dessus lui-même, second tour en x = -7,6, ressort dessous en
-  // x = -2,8 et passe sous le croisement, vers le laçage
-  const monte1 = [[xS, yb, 0], [xS, A1[1] + 4, 0], [A1[0], A1[1] + 1.2, 0], [...A1, 1], [...B1, 1]];
-  const monte2 = [[...A2, 1], [...B2, 1], [B2[0] - 0.3, B2[1] - 2.5, 0], [xS + 0.2, 6, 0], [xS, 2.5, 0], [xS, 0.6, 0]];
-  const dessus1 = [[xS, 2.2], [xS, 0], [xS + 2.4, -12]];
-  const sort1 = [[6.8, 0, 0], [7, 2, 0.3], [5.6, 5, 1], [xS, 6.3, 1], [-3, 5.9, 1], [-6.4, 3.4, 0.4], [-7.6, 0.6, 0]];
-  const dessus2 = [[-7.6, 2.2], [-7.6, 0], [-5.2, -12]];
-  const sort2 = [[-2.8, 0, 0], [-2.8, 2.6, 0], [-3.2, 5.9, -1], [-4.6, 9, 0], plus([-4.6, 9], dg, (yb - 9) / dg[1]).concat(0)];
-  CAB = { dg, xS, xV, yb, D2a, X2, uP, nD, A1, B1, A2, B2, monte1, monte2, dessus1, sort1, dessus2, sort2, croisement: [-3.2, 5.9] };
+  const yD = pr(0, -EPC, HTF)[1], yM = (YA + yD) / 2;
+  const xS = 2, xV = 22, yb = 21.5;                      // le brin qui monte ; le brin droit du voisin ; bas des brins
+  const monte = [[xS, yb, 0], [xS, 12, 0], [xS, 3, 0], [xS + 0.1, 0, 0], [xS + 0.2, YA, 0], [xS + 1.3, yM, 0], [xS + 2.4, yD, 0]];
+  const tour1 = [[6.8, YB, 0], [7.1, 4.2, 0.3], [5.6, 6.9, 1], [xS, 7.8, 1], [-2.6, 7.1, 1], [-6.2, 4.6, 0.4], [-7.6, 1.5, 0], [-7.6, YA, 0], [-6.4, yM, 0], [-5.2, yD, 0]];
+  const sortie = [[-2.8, YB, 0], [-2.8, 4.4, -0.5], [-3.1, 7.2, -1], [-4.3, 10.4, 0], [-6.6, 15.6, 0], [-9.4, yb + 0.6, 0]];
+  const voisin = [[xV, yb, 0], [xV, 3, 0], [xV + 0.1, 0, 0], [xV + 0.2, YA, 0], [xV + 1.3, yM, 0], [xV + 2.4, yD, 0]];
+  const voisin2 = [[30.6, yb - 2, 0], [27.4, 8, 0], [25.9, 3, 0], [25.7, 0, 0], [25.8, YA, 0], [26.9, yM, 0], [28.0, yD, 0]];
+  CAB = { yD, xS, xV, yb, monte, tour1, sortie, voisin, voisin2, croisement: [xS + 0.4, 7.8], sous: [[6.8, YB], [-2.8, YB]],
+    caches: [[[xS + 2.4, yD], [6.8, YB]], [[-5.2, yD], [-2.8, YB]]] };
   return CAB;
 }
 function vueCentre(h, z) {
   const R = repereC(z), F = h.formes, C = cabestan(), out = [];
   const w = WC * R.K;
-  const brins = [
-    { pts: C.monte1.map(R.P), ep: w, debut: 'fixe', fin: 'ouvert' },
-    { pts: C.monte2.map(R.P), ep: w, debut: 'ouvert', fin: 'ouvert' },
-    { pts: C.sort1.map(R.P), ep: w, debut: 'ouvert', fin: 'ouvert' },
-    { pts: C.sort2.map(R.P), ep: w, debut: 'ouvert', fin: 'fixe', fleche: { de: 0.7, a: 0.92, cote: 'droite' } },
-    // le nœud voisin, serré : un brin droit, un brin en biais
-    { pts: [[C.xV, 0, 0], [C.xV, C.yb, 0]].map(R.P), ep: w, debut: 'ouvert', fin: 'fixe' },
-    { pts: [[...C.D2a, 0], plus(C.D2a, C.dg, (C.yb - C.D2a[1]) / C.dg[1]).concat(0)].map(R.P), ep: w, debut: 'ouvert', fin: 'fixe' },
-  ];
-  out.push(F.cordes(brins));
-  // le tour serré sur la passe voisine : le premier passage replonge sous le bord du haut, le
-  // second ressort de sous le bord du bas ; entre les deux, le brin passe dessous
-  out.push(h.ligne(...R.T(plus(plus(C.X2, C.nD, -WC / 2), C.uP, -3.2)), ...R.T(plus(plus(C.X2, C.nD, -WC / 2), C.uP, 0.6)), h.a.arete));
-  out.push(h.ligne(...R.T(plus(plus(C.X2, C.nD, WC / 2), C.uP, 0.4)), ...R.T(plus(plus(C.X2, C.nD, WC / 2), C.uP, 4.5)), h.a.arete));
-  out.push(cache(h, R, C.B1, C.A2, WC));
-  // le tronçon de fût ; la babiche qui en sort passe dessous
-  const xa = -17.5, xb = 30.5;
-  const [a, b] = [R.T([xa, -12]), R.T([xb, 0])];
-  out.push(h.rect(a[0], a[1], b[0] - a[0], b[1] - a[1], h.a.blanc));
-  out.push(h.ligne(a[0], b[1], b[0], b[1], h.a.arete), h.ligne(a[0], a[1], a[0], b[1], h.a.detail), h.ligne(b[0], a[1], b[0], b[1], h.a.detail));
-  // les tours par-dessus le fût, et leur dessous en tireté
-  const dessus = pts => F.corde(pts.map(p => R.P([p[0], p[1], 0])), { ep: w, debut: 'ouvert', fin: 'ouvert' });
-  out.push(dessus(C.dessus1), dessus(C.dessus2));
-  out.push(cache(h, R, [C.xS + 2.4, -12], [6.8, 0], WC), cache(h, R, [-5.2, -12], [-2.8, 0], WC));
-  // le nœud voisin : ses deux brins passent chacun par-dessus le fût, côte à côte
-  out.push(dessus([[C.D2a[0], 0.5], [C.D2a[0], 0], [C.D2a[0] + 2.1, -12]]), dessus([[C.xV, 0.5], [C.xV, 0], [C.xV + 2.1, -12]]));
-  // la face extérieure du fût, par-dessus les bouts des tours
-  out.push(h.ligne(a[0], a[1], b[0], a[1], h.a.contour));
+  out.push(futObl(h, R, -23.6, 42.6, EPC));
+  // ce qui passe derrière et dessous le fût, en tireté : chaque tour, du bord arrière du dessus au pied du chant
+  for (const [a, b_] of C.caches) out.push(cache(h, R, a, b_, WC));
+  const b = (pts, o = {}) => ({ pts: pts.map(p => R.P(p)), ep: w, debut: 'ouvert', fin: 'ouvert', ...o });
+  out.push(F.cordes([
+    b(C.monte, { debut: 'fixe' }),
+    b(C.tour1),
+    b(C.sortie, { fin: 'fixe', fleche: { de: 0.55, a: 0.85, cote: 'gauche' } }),
+    b(C.voisin, { debut: 'fixe' }),
+    b(C.voisin2, { debut: 'fixe' }),
+  ], { trait: 'contour' }));
+  // là où la babiche ressort de sous le fût, l'arête du pied du chant passe devant elle
+  for (const [x, y] of C.sous) out.push(h.ligne(...R.T([x - WC / 2 - 0.4, y]), ...R.T([x + WC / 2 + 0.4, y]), h.a.arete));
   // cote : 20 mm entre les axes de deux brins parallèles
-  out.push(h.ligne(...R.T([C.xS, C.yb + 1.6]), ...R.T([C.xS, C.yb + 8.2]), h.a.fin), h.ligne(...R.T([C.xV, C.yb + 1.6]), ...R.T([C.xV, C.yb + 8.2]), h.a.fin));
-  out.push(h.cote(...R.T([C.xS, C.yb + 6.8]), ...R.T([C.xV, C.yb + 6.8]), '20 mm'));
+  out.push(h.ligne(...R.T([C.xS, C.yb + 0.8]), ...R.T([C.xS, C.yb + 3.6]), h.a.fin), h.ligne(...R.T([C.xV, C.yb + 0.8]), ...R.T([C.xV, C.yb + 3.6]), h.a.fin));
+  out.push(h.cote(...R.T([C.xS, C.yb + 3.0]), ...R.T([C.xV, C.yb + 3.0]), '20 mm'));
   return out.join('\n');
 }

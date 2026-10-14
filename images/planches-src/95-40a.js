@@ -340,8 +340,12 @@ module.exports = (h) => {
           out.push(feuille(m[0], m[1], 22, 3.6 * s, 1.1 * s), feuille(m[0], m[1], 158, 3.6 * s, 1.1 * s));
           // Les cotes, à droite.
           const xr = q(LC, 0)[0] + 12;
-          out.push(h.cote(xr, q(0, 2)[1], xr, q(0, 0)[1], '20 mm'));
-          out.push(h.cote(xr, q(0, 5)[1], xr, q(0, 2)[1], '20 à 40 mm'));
+          // les deux paillis sont minces : leurs deux cotes se touchaient. Le texte de chacune s'écarte
+          // de l'autre, vers le haut pour le lit du dessus, vers le bas pour celui du dessous.
+          const coteV = (y1, y2, texte, dy) => [h.ligne(xr, y1, xr, y2, h.a.detail), h.ligne(xr - 6, y1, xr + 6, y1, h.a.detail),
+            h.ligne(xr - 6, y2, xr + 6, y2, h.a.detail), h.texte(xr + 8, (y1 + y2) / 2 + 4 + dy, texte, { ancre: 'start', lisere: true })].join('\n');
+          out.push(coteV(q(0, 2)[1], q(0, 0)[1], '20 mm', 3));
+          out.push(coteV(q(0, 5)[1], q(0, 2)[1], '20 à 40 mm', -4));
           out.push(h.cote(xr, q(0, 0)[1], xr, q(0, bord(LC))[1], '50 à 100 mm'));
           out.push(h.ligne(q(LC, bord(LC))[0] + 2, q(0, bord(LC))[1], xr + 5, q(0, bord(LC))[1], h.a.fin));
           return out.join('\n');

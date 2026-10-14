@@ -1,8 +1,14 @@
 // Planche 27-02 — L'attelle de cire. De face : le boudin avant pressé sur cinq dents du haut, au
 // ras de la gencive, la dent replantée au milieu, la cire poussée entre les dents. En coupe entre
 // la dent replantée et sa voisine : les deux boudins et le pont de cire qui les joint en passant
-// entre les dents, poussé à la pointe mousse. Les deux vues sont à la même échelle et à la même
-// hauteur : le collet, la gencive et la cire tombent sur les mêmes lignes.
+// entre les dents, poussé à la pointe mousse. La coupe est agrandie, aussi grande que sa vue le
+// permet ; elle n'est plus à l'échelle de la vue de face.
+//
+// La coupe a été redessinée le 14 octobre 2026 : elle était petite, la cire s'y lisait comme une
+// seule saucisse et la dent comme un croc. Elle prend maintenant la moitié de la largeur (la vue de
+// face passe de 7,55 à 6,6 px par mm), la pointe mousse est plus courte ; les deux boudins sont
+// ronds et plus gros, leur rond se lit en trait fin à travers la cire, le pont est plus mince ; le
+// contour entier de l'incisive, derrière la gencive et la cire, est en tireté sur un liseré blanc.
 // Aucune cote : le chapitre n'en donne pas (des boudins « minces », « cinq dents »).
 //
 // La charte : la cire garde son contour fort. Le gris loin : les deux dents hors de l'attelle, de
@@ -15,7 +21,7 @@ module.exports = (h) => {
   const mixte = 'fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linecap="round" stroke-dasharray="14 3 2 3"';
   const cire = h.a.hachure('neige', 'contour');       // la cire : pointillé, trait fort (c'est ce qu'on fait)
   const gencive = h.a.hachure('metal', 'arete');      // la gencive coupée : hachure à 45°
-  const S = 7.55;                                     // px par mm, les deux vues
+  const S = 6.6;                                      // px par mm, la vue de face
 
   // Une ligne de cassure ondulée, de p à q (points écran).
   const cassure = (p, q, amp, n) => {
@@ -146,20 +152,20 @@ module.exports = (h) => {
     for (let i = 0; i <= n; i++) { const a = a0 + (a1 - a0) * i / n; out.push([c[0] + ru * Math.cos(a), c[1] + rv * Math.sin(a)]); }
     return out;
   };
-  const C1 = [3.0, -5.7], C2 = [3.0, 5.4];           // le boudin avant, le boudin arrière
+  const C1 = [3.0, -5.9], C2 = [3.0, 5.5], RB = 2.6;  // le boudin avant, le boudin arrière, leur rayon
   const CIRE = [
     [1.25, -4.4],
-    ...ell(C1, 2.2, 2.3, 0.93 * Math.PI, 2 * Math.PI + 0.62, 36),
-    [4.4, -2.8], [4.3, -1.4], [4.25, 0], [4.3, 1.4], [4.4, 2.6],      // le pont, mince
-    ...ell(C2, 2.2, 2.3, -0.62, 1.12 * Math.PI, 36),
+    ...ell(C1, RB, RB, 0.93 * Math.PI, 2 * Math.PI + 0.42, 36),
+    [4.15, -2.8], [4.05, -1.4], [4.0, 0], [4.05, 1.4], [4.15, 2.6],   // le pont, mince
+    ...ell(C2, RB, RB, -0.42, 1.1 * Math.PI, 36),
     ...PAPILLE.slice().reverse(),
   ];
-  const OUTIL = { u: 4.0, r: 1.0, v0: -16.6, v1: -7.9 }; // la pointe mousse, dans l'axe de la poussée
-  const FL = { u: 6.6, v0: -13.6, v1: -9.8 };
-  const V0 = -17.6, V1 = 10.4;                          // étendue en largeur, pastilles comprises
+  const OUTIL = { u: 3.6, r: 1.0, v0: -13.6, v1: -8.4 }; // la pointe mousse, dans l'axe de la poussée
+  const FL = { u: 6.2, v0: -11.6, v1: -8.0 };
+  const V0 = -14.2, V1 = 9.4, U0 = -4.4, U1 = 11.4;     // étendue de la coupe, pastilles comprises
   const repCoupe = z => {
-    const SC = Math.min(S * 1.5, z.l / (V1 - V0));   // la coupe, agrandie
-    const ox = (z.l - (V1 - V0) * SC) / 2 - V0 * SC, oy = z.h / 2 - 2.6 * SC;
+    const SC = Math.min(z.l / (V1 - V0), z.h / (U1 - U0));   // la coupe, aussi grande que sa vue le permet
+    const ox = (z.l - (V1 - V0) * SC) / 2 - V0 * SC, oy = (z.h - (U1 - U0) * SC) / 2 - U0 * SC;
     return (u, v) => [ox + v * SC, oy + u * SC];
   };
 
@@ -169,7 +175,7 @@ module.exports = (h) => {
     desc: 'De face : un boudin de cire d’abeille pressé contre la face avant de cinq dents du haut, au ras de la gencive, la dent replantée au milieu, et la cire poussée entre chaque paire de dents ; un trait de coupe passe entre la dent replantée et sa voisine. En coupe à cet endroit : la dent vue de côté, le boudin avant côté lèvre, le boudin arrière côté palais au même niveau, et le pont de cire qui les joint en passant entre les dents, poussé avec une pointe mousse.',
     format: 'demi',
     disposition: [['face', 'coupe']],
-    largeurs: [[4, 3]],
+    largeurs: [[1, 1]],
     vues: {
       face: {
         titre: 'De face',
@@ -206,7 +212,7 @@ module.exports = (h) => {
           const o = OUTIL, tip = [T(o.u - o.r, o.v0), T(o.u - o.r, o.v1 - o.r)];
           for (let i = 1; i < 12; i++) { const a = Math.PI + Math.PI * i / 12; tip.push(T(o.u + o.r * Math.cos(a), o.v1 - o.r - o.r * Math.sin(a))); }
           tip.push(T(o.u + o.r, o.v1 - o.r), T(o.u + o.r, o.v0));
-          const fib = [[o.u - 0.35, o.v0 + 1.0, o.v0 + 4.2], [o.u + 0.4, o.v0 + 3.0, o.v0 + 6.4]].map(([u, a, c]) => {
+          const fib = [[o.u - 0.35, o.v0 + 0.8, o.v0 + 3.0], [o.u + 0.4, o.v0 + 1.8, o.v0 + 3.9]].map(([u, a, c]) => {
             const p = T(u, a), q = T(u, c);
             return h.ligne(f(p[0]), f(p[1]), f(q[0]), f(q[1]), h.a.fin);
           });
@@ -216,13 +222,21 @@ module.exports = (h) => {
             h.chemin(dentPts, h.a.fin.replace('fill="none"', 'fill="#E6E6E6"'), true),   // derrière le plan de coupe
             h.chemin(genc, h.a.blanc, true),
             h.chemin(genc, gencive, true),
-            h.chemin(pts(LABIAL.filter(p => p[0] <= 1.4)), h.a.cache),
-            h.chemin(pts(PALAT.filter(p => p[0] <= 1.7)), h.a.cache),
             h.chemin(ciré, h.a.blanc, true),
             h.chemin(ciré, cire, true),
-            // la dent, derrière le pont : on voit que la cire l'enserre sans la traverser
-            h.chemin(pts(LABIAL.filter(p => p[0] >= 1.6 && p[0] <= 5)), h.a.cache),
-            h.chemin(pts(PALAT.filter(p => p[0] >= 1.6 && p[0] <= 6)), h.a.cache),
+            // le rond de chaque boudin, en trait fin à travers la cire : deux boudins et un pont
+            `<clipPath id="pont-cire"><path d="M${ciré.map(p => `${f(p[0])},${f(p[1])}`).join(' L')} Z" fill="none"/></clipPath>`,
+            `<g clip-path="url(#pont-cire)">`,
+            h.chemin(pts(ell(C1, RB, RB, 0.42, 0.93 * Math.PI, 16)), h.a.detail),
+            h.chemin(pts(ell(C2, RB, RB, 1.1 * Math.PI, 2 * Math.PI - 0.42, 16)), h.a.detail),
+            `</g>`,
+            // la dent, derrière la gencive et la cire : tout son contour en tireté, sur un liseré
+            // blanc, pour qu'on lise une incisive entière que les deux boudins enserrent
+            `<clipPath id="dent-cachee"><path d="M${ciré.map(p => `${f(p[0])},${f(p[1])}`).join(' L')} Z" fill="none"/><path d="M${genc.map(p => `${f(p[0])},${f(p[1])}`).join(' L')} Z" fill="none"/></clipPath>`,
+            `<g clip-path="url(#dent-cachee)">`,
+            h.chemin(pts([...LABIAL, ...BORD, ...PALAT]), 'fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linejoin="round"'),
+            h.chemin(pts([...LABIAL, ...BORD, ...PALAT]), h.a.cache),
+            `</g>`,
             h.chemin(tip, h.a.blanc, true),
             (() => {                                  // le dessous de la pointe, à l'ombre
               const k = 0.35, a0 = 2 * Math.PI - Math.acos(k), arc = [];
@@ -239,10 +253,10 @@ module.exports = (h) => {
         renvois: z => {
           const T = repCoupe(z);
           return [
-            { n: 4, rond: T(-2.6, -11.2), cible: T(2.4, -6.8), texte: 'boudin avant, côté lèvre' },
-            { n: 5, rond: T(5.8, 8.6), cible: T(3.6, 6.4), texte: 'boudin arrière, côté palais, au même niveau' },
-            { n: 6, rond: T(9.4, 4.6), cible: T(3.85, 1.0), texte: 'le pont de cire tient la dent' },
-            { n: 7, rond: T(8.8, -16.2), cible: T(4.3, -14.8), texte: 'pointe mousse : pousser jusqu’au boudin arrière' },
+            { n: 4, rond: T(-2.4, -10.6), cible: T(2.2, -7.0), texte: 'boudin avant, côté lèvre' },
+            { n: 5, rond: T(8.6, 7.4), cible: T(4.2, 6.6), texte: 'boudin arrière, côté palais, au même niveau' },
+            { n: 6, rond: T(9.6, 3.6), cible: T(3.7, 1.0), texte: 'le pont de cire tient la dent' },
+            { n: 7, rond: T(8.8, -13.3), cible: T(4.2, -12.6), texte: 'pointe mousse : pousser jusqu’au boudin arrière' },
           ];
         },
       },
