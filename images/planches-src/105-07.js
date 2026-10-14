@@ -10,7 +10,8 @@ module.exports = (h) => ({
     limer: {
       titre: 'À la lime bâtarde',
       dessin: z => [
-        // manche, rompu en bas, qui traverse l'œil
+        // manche, rompu en bas, qui traverse l'œil ; charte : objet secondaire, en gris loin
+        h.path(R('M99,41 L-50,41 C-54,47 -46,53 -50,57 C-53,60 -49,62 -50,63 L98,63 Z'), h.a.loin),
         h.path(R('M-50,41 L99,41 M-50,63 L98,63'), h.a.arete),
         h.path(R('M-50,41 C-54,47 -46,53 -50,57 C-53,60 -49,62 -50,63'), h.a.detail),
         h.path(R('M-44,50 C0,48 40,53 96,51'), h.a.detail),
@@ -27,7 +28,7 @@ module.exports = (h) => ({
         h.chemin(MANCHE_LIME.map(Rp), h.a.blanc, true),
         h.chemin(MANCHE_LIME.map(Rp), h.a.arete, true),
         h.chemin([Rp(P(126, -9)), Rp(P(126, 9))], h.a.detail),
-        h.fleche(R(`M${P(150, 26).join(',')} L${P(95, 26).join(',')}`)),
+        h.geste(R(`M${P(150, 26).join(',')} L${P(95, 26).join(',')}`)),   // charte : le geste, la lime poussée
       ].join('\n'),
       renvois: z => [
         { n: 1, rond: [200, 110], cible: Rp(P(85, -7.2)), texte: 'lime poussée, sans pression au retour' },
@@ -66,6 +67,7 @@ module.exports = (h) => ({
         h.path(CREUX, h.a.contour),
         h.path(RUPTURE, h.a.blanc),
         h.path(VAGUE, h.a.arete),
+        h.controle(93.5, 96, 11),                  // charte : là où ça rate, l'épaule qui coince
       ].join('\n'),
       renvois: z => [
         { n: 5, rond: [138, 50], cible: [93.5, 96], texte: 'épaule : la hache se coince' },

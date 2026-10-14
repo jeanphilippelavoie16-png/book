@@ -56,7 +56,7 @@ module.exports = (h) => {
 
   // butte vue de dessus : pied, haut plat, hachures de talus
   const buttePlan = (cx, cy, rP, rT, n) => {
-    const o = [h.cercle(cx, cy, rP, BL(h.a.arete)), h.cercle(cx, cy, rT, h.a.fin)];
+    const o = [h.cercle(cx, cy, rP, BL(h.a.contour)), h.cercle(cx, cy, rT, h.a.fin)];   // la charte : la butte pèse
     for (let i = 0; i < n; i++) {
       const a = 2 * Math.PI * i / n, c = Math.cos(a), s = Math.sin(a);
       const r2 = i % 2 ? rT + (rP - rT) * 0.5 : rP - 2.5;
@@ -89,7 +89,7 @@ module.exports = (h) => {
   // terre en coupe sous un profil, bord du bas en onde
   const terre = (dProfil, x0, x1, yB) => [
     h.path(`${dProfil} L${r1(x1)} ${r1(yB)}${onde(x0, x1, yB)} Z`, h.a.hachure('terre', 'aucun')),
-    h.path(dProfil, h.a.arete),
+    h.path(dProfil, h.a.contour),   // la charte : le profil de la butte pèse (2,4)
     h.path(`M${r1(x1)} ${r1(yB + 2.5 * Math.sin(x1 / 7))}${onde(x0, x1, yB).replace(/^ L/, ' L')}`, h.a.detail),
   ].join('\n');
 
@@ -307,9 +307,11 @@ module.exports = (h) => {
           for (const a of ANG_HAR) o.push(haricot(cx + RH * Math.cos(rad(a)), planY + RH * Math.sin(rad(a)), a + 90, 1.3));
           for (const a of ANG_MAIS) o.push(maisDessus(cx + RM * Math.cos(rad(a)), planY + RM * Math.sin(rad(a)), a + 20));
           o.push(percheDessus(cx, planY));
-          for (const a of [45, 135, 225, 315]) {
+          // La charte : une seule flèche du geste par vue, en rouge, celle que vise le renvoi 7 ; la
+          // terre se ramène de même tout autour
+          for (const a of [45]) {
             const c = Math.cos(rad(a)), s = Math.sin(rad(a));
-            o.push(h.fleche(`M${r1(cx + (R + 12) * c)} ${r1(planY + (R + 12) * s)} L${r1(cx + (R - 12) * c)} ${r1(planY + (R - 12) * s)}`));
+            o.push(h.geste(`M${r1(cx + (R + 12) * c)} ${r1(planY + (R + 12) * s)} L${r1(cx + (R - 12) * c)} ${r1(planY + (R - 12) * s)}`));
           }
           o.push(traitCoupe(cx - R - 10, cx + R + 10, planY));
           // coupe : la terre ramenée, l'ancien profil en tireté
@@ -338,7 +340,8 @@ module.exports = (h) => {
           // haricot semé dans le plan de coupe (à 180°)
           o.push(haricot(cx - RH, yG - hM + 11, 0, 1.1));
           // terre ramenée des deux côtés
-          for (const s of [-1, 1]) o.push(h.fleche(`M${r1(cx + s * (R + 14))} ${r1(yG - 5)} Q${r1(cx + s * (R - 6))} ${r1(yG - 30)} ${r1(cx + s * (rT + 8))} ${r1(yG - hM - 7)}`));
+          // (la charte : en coupe aussi, une seule flèche du geste, en rouge, du même côté que dans le plan)
+          for (const s of [1]) o.push(h.geste(`M${r1(cx + s * (R + 14))} ${r1(yG - 5)} Q${r1(cx + s * (R - 6))} ${r1(yG - 30)} ${r1(cx + s * (rT + 8))} ${r1(yG - hM - 7)}`));
           // rappels
           for (const x of [cx - R, cx + R]) o.push(seg(x, planY + 4, x, yG - 3, RAPPEL));
           return o.join('\n');
@@ -395,7 +398,11 @@ module.exports = (h) => {
           o.push(h.path(`M${r1(base[0])} ${r1(base[1])} C${r1(cx + 10)} ${r1(yG - 6)} ${r1(cx - 40)} ${r1(yG + 1)} ${r1(2)} ${r1(yG - 2)}`, h.a.arete));
           o.push(h.path(`M${r1(cx + 86)} ${r1(yG - 3)} q4 -6 0 -9 q-4 -3 -1 -7`, h.a.detail));
           const fr = [cx + 78, yG - 13];
-          o.push(h.ellipse(fr[0], fr[1], 19, 13, BL(h.a.arete)));
+          // La charte : la courge est un volume, son flanc d'en bas à droite est à l'ombre (croissant)
+          o.push(h.ellipse(fr[0], fr[1], 19, 13, h.a.blanc));
+          o.push(`<clipPath id="om-9901-courge"><ellipse cx="${fr[0]}" cy="${fr[1]}" rx="19" ry="13"/></clipPath>`);
+          o.push(`<g clip-path="url(#om-9901-courge)">${h.ellipse(fr[0], fr[1], 19, 13, h.a.ombre)}${h.ellipse(fr[0] - 5, fr[1] - 4, 19, 13, h.a.blanc)}</g>`);
+          o.push(h.ellipse(fr[0], fr[1], 19, 13, h.a.arete));
           for (const dx of [-11, -4, 4, 11]) o.push(h.path(`M${r1(fr[0] + dx * 0.6)} ${r1(fr[1] - 12.6)} Q${r1(fr[0] + dx * 1.35)} ${r1(fr[1])} ${r1(fr[0] + dx * 0.6)} ${r1(fr[1] + 12.6)}`, h.a.fin));
           o.push(h.rect(fr[0] - 1.5, fr[1] - 17, 3, 5, h.a.plein));
           for (const [x, y, Rf, rot] of [[14, yG - 22, 20, -8], [cx - 30, yG - 20, 21, 6], [cx + 40, yG - 36, 20, -4], [z.l - 18, yG - 26, 19, 10]]) {

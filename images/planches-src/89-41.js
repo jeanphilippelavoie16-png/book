@@ -9,6 +9,11 @@
 // d'épinette noire pliée en boucle et ligaturée sous la botte.
 // Les trois seules cotes sont celles du chapitre. Le reste (longueur des bouts réunis, grosseur
 // des traverses, place des croisillons) est à l'échelle du dessin, jamais écrit.
+//
+// La charte : la perche au contour fort partout où elle est l'objet (droite, montée, de face, de
+// côté, la branche d'épinette) ; pas de gris (vues de dessus, botte sans corps à ombrer, perche
+// de 12 px). Le rouge : les deux bouts qu'on ramène pour plier (le geste, deux flèches pour un
+// seul pli) et le sens des tours de la ligature (le geste).
 
 const PI = Math.PI, DEG = PI / 180;
 const RP = 12.5;               // rayon de la perche : ≈ 25 mm (coté)
@@ -99,11 +104,11 @@ function repPlan(z) {
   const Y = v => yc + v * S;
   return { X, Y, yc, P: p => [X(p[0]), Y(p[1])] };
 }
-function perche(h, T, axe, r) {        // la perche en bande, vue de dessus, r en mm (nombre ou fonction de i)
+function perche(h, T, axe, r, tr = h.a.contour) {   // la perche en bande, vue de dessus, r en mm (nombre ou fonction de i)
   const N = normales(axe), R = typeof r === 'function' ? r : () => r;
   const dedans = axe.map((p, i) => add(p, mul(N[i], R(i)))), dehors = axe.map((p, i) => sub(p, mul(N[i], R(i))));
   const poly = [...dedans, ...dehors.slice().reverse()].map(T);
-  return { svg: h.chemin(poly, h.a.blanc, true) + '\n' + h.chemin(poly, h.a.arete, true), dedans, dehors };
+  return { svg: h.chemin(poly, h.a.blanc, true) + '\n' + h.chemin(poly, tr, true), dedans, dehors };
 }
 // croisillons : des points également espacés le long de chaque flanc, reliés en zigzag
 function croisillons() {
@@ -163,7 +168,7 @@ function repCote(z) {
 function vueCote(h, z) {
   const R = repCote(z), out = [];
   const x1 = R.X(0), x2 = R.X(G.NEZ + RP), yh = R.yb - 2 * RP * S;
-  out.push(h.rect(x1, yh, x2 - x1, R.yb - yh, h.a.blanc), h.rect(x1, yh, x2 - x1, R.yb - yh, h.a.arete));
+  out.push(h.rect(x1, yh, x2 - x1, R.yb - yh, h.a.blanc), h.rect(x1, yh, x2 - x1, R.yb - yh, h.a.contour));
   for (let u = 16; u <= 80; u += 5) out.push(h.ligne(R.X(u), yh - 1, R.X(u + 2), R.yb + 1, h.a.detail));
   // la botte
   const pts = BOTTE_COTE.map(([x, y]) => R.B(x, y));
@@ -188,7 +193,7 @@ function vueFace(h, z) {
   const { yb, ys } = repCote({ l: 0, h: z.h }), xc = z.l / 2 + 6, out = [];
   const V = v => xc + v * S, B = (v, y) => [V(v), ys - y * S];
   const yh = yb - 2 * RP * S;
-  out.push(h.rect(V(-LARGE / 2), yh, LARGE * S, yb - yh, h.a.blanc), h.rect(V(-LARGE / 2), yh, LARGE * S, yb - yh, h.a.arete));
+  out.push(h.rect(V(-LARGE / 2), yh, LARGE * S, yb - yh, h.a.blanc), h.rect(V(-LARGE / 2), yh, LARGE * S, yb - yh, h.a.contour));
   const wf = G.larg(UF) + RP + 24, cf = G.larg(UF);
   out.push(h.rect(V(-wf), ys, 2 * wf * S, 2 * RT * S, h.a.blanc), h.rect(V(-wf), ys, 2 * wf * S, 2 * RT * S, h.a.arete));
   for (const sg of [-1, 1]) {
@@ -215,11 +220,11 @@ function vueFace(h, z) {
 function repPerche(z) { const sp = (z.l - 30) / LONG, x0 = 15, yp = 31; return { sp, x0, yp, X: u => x0 + u * sp }; }
 function vuePerche(h, z) {
   const R = repPerche(z), e = RP * R.sp, out = [];
-  out.push(h.rect(R.X(0), R.yp - e, LONG * R.sp, 2 * e, h.a.blanc), h.rect(R.X(0), R.yp - e, LONG * R.sp, 2 * e, h.a.arete));
-  // les deux bouts ramenés vers l'arrière
+  out.push(h.rect(R.X(0), R.yp - e, LONG * R.sp, 2 * e, h.a.blanc), h.rect(R.X(0), R.yp - e, LONG * R.sp, 2 * e, h.a.contour));
+  // le geste : les deux bouts ramenés vers l'arrière
   const xg = R.X(0), xd = R.X(LONG), yt = R.yp - e - 4;
-  out.push(h.fleche(`M${xg + 6} ${yt} Q${xg + 6} ${yt - 18} ${xg + 52} ${yt - 20}`, h.a.arete));
-  out.push(h.fleche(`M${xd - 6} ${yt} Q${xd - 6} ${yt - 18} ${xd - 52} ${yt - 20}`, h.a.arete));
+  out.push(h.geste(`M${xg + 6} ${yt} Q${xg + 6} ${yt - 18} ${xg + 52} ${yt - 20}`));
+  out.push(h.geste(`M${xd - 6} ${yt} Q${xd - 6} ${yt - 18} ${xd - 52} ${yt - 20}`));
   const yc = R.yp + e + 8;
   out.push(h.cote(R.X(0), yc, R.X(LONG), yc, '≈ 1500 mm', { cote: 'dessous' }));
   return out.join('\n');
@@ -260,7 +265,7 @@ function vueLigature(h, z) {
   out.push(h.formes.corde([P([uF1 - 0.2 * c, 0]), P([uF1 - 1.9 * c, 0])], { ep: c * sd, debut: 'libre', fin: 'coupe', trait: 'detail' }));
   // le sens des tours : du départ (droite) vers la fin (gauche)
   const yf = R.Y(-2 * RP - 1.4) - 8;
-  out.push(h.fleche(`M${R.X(uD - 2)} ${yf} Q${R.X((uD + uF1) / 2)} ${yf - 14} ${R.X(uF1 + 2)} ${yf}`, h.a.arete));
+  out.push(h.geste(`M${R.X(uD - 2)} ${yf} Q${R.X((uD + uF1) / 2)} ${yf - 14} ${R.X(uF1 + 2)} ${yf}`));
   // en bout : les deux perches coupées, les tours autour des deux
   const xe = R.xe, r = RP * sd, ro = (RP + c) * sd, y1 = R.Y(-RP), y2 = R.Y(RP);
   const stade = rr => `M${xe - rr} ${y1} A${rr} ${rr} 0 0 1 ${xe + rr} ${y1} L${xe + rr} ${y2} A${rr} ${rr} 0 0 1 ${xe - rr} ${y2} Z`;

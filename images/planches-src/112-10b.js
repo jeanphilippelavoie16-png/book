@@ -98,6 +98,8 @@ module.exports = (h) => {
           // à droite : il flotte, penché, un bout de coquille hors de l'eau
           out.push(h.chemin(oeuf((g.b0 + g.b1) / 2, g.yL + 5, 17, 12, -35), blanc('arete'), true));
           out.push(h.ligne(f(g.b0 + 4), f(g.yL), f((g.b0 + g.b1) / 2 - 14), f(g.yL), h.a.detail));
+          // la charte : le point à contrôler, la coquille qui sort de la lessive
+          out.push(h.controle((g.b0 + g.b1) / 2 + 4, g.yL - 4, 15));
           return out.join('\n');
         },
         renvois: z => {
@@ -122,7 +124,7 @@ module.exports = (h) => {
           out.push(pot(g.b0, g.b1, g.bH, g.yP, g.yM, 'isolant'));
           // le bâton qui brasse
           out.push(h.chemin(P([[g.b0 + 6, g.yP - 8], [g.b0 + 2, g.yP - 11], [g.b0 - 26, 14], [g.b0 - 22, 12], [g.b0 + 9, g.yP - 9]]), blanc('arete'), true));
-          out.push(h.fleche(`M ${f(g.b0 + 8)} ${f(g.yM + 6)} A 18 5 0 1 0 ${f(g.b1 - 8)} ${f(g.yM + 6)}`, h.a.detail));
+          out.push(h.geste(`M ${f(g.b0 + 8)} ${f(g.yM + 6)} A 18 5 0 1 0 ${f(g.b1 - 8)} ${f(g.yM + 6)}`));   // la charte : brasser, le geste en rouge
           // les gouttes de lessive, d'une cuillère
           const sx = g.b1 + 6, sy = g.bH - 26;
           out.push(h.path(`M ${sx - 14} ${sy - 3} C ${sx - 14} ${sy + 7} ${sx + 2} ${sy + 7} ${sx + 4} ${sy} Z`, blanc('arete')));
@@ -150,7 +152,7 @@ module.exports = (h) => {
           const sx = g.b1 + 6, sy = g.bH - 26;
           return [
             { n: 3, rond: [g.b1 + 30, g.yP + 34], cible: [g.b1 - 1, g.yP - 8], texte: 'une boîte, au coin du poêle' },
-            { n: 4, rond: [g.b1 + 30, g.yP - 12], cible: [g.b1 - 8, g.yM + 8], texte: 'une cuillerée de gras fondu' },
+            { n: 4, rond: [g.b1 + 30, g.yP - 12], cible: [g.b1 - 12, g.yM + 18], texte: 'une cuillerée de gras fondu' },
             { n: 5, rond: [sx + 18, sy + 20], cible: [sx - 13, sy + 22], texte: 'quelques gouttes de lessive' },
             { n: 6, rond: [22, 30], cible: [g.b0 - 20, 22], texte: 'brassé au bâton' },
             { n: 7, rond: [g.r1x0 + 6, g.rH - 22], cible: [g.r1x0 + g.rw / 2, g.rL + 4], texte: 'en pâte : la lessive travaille' },
@@ -183,7 +185,7 @@ module.exports = (h) => {
           // le bâton qui brasse, et son mouvement
           const bx = c0 + 60;
           out.push(h.chemin(P([[bx, yP - 22], [bx - 5, yP - 22], [bx - 44, 10], [bx - 39, 8]]), blanc('arete'), true));
-          out.push(h.fleche(`M ${f(bx - 24)} ${f(g.yPate + 12)} A 30 7 0 1 0 ${f(bx + 22)} ${f(g.yPate + 10)}`, h.a.detail));
+          out.push(h.geste(`M ${f(bx - 24)} ${f(g.yPate + 12)} A 30 7 0 1 0 ${f(bx + 22)} ${f(g.yPate + 10)}`));   // la charte : brasser, le geste en rouge
           // la louche qui verse la lessive en filet
           const lx = c1 - 58, ly = cH - 40;
           out.push(h.path(`M ${lx - 22} ${ly - 8} C ${lx - 22} ${ly + 16} ${lx + 12} ${ly + 16} ${lx + 14} ${ly - 4} Z`, blanc('arete')));
@@ -221,7 +223,7 @@ module.exports = (h) => {
           out.push(h.chemin(P([[g.c0, g.yR], [g.c0, yF - 16], [g.c0 + 16, yF], [g.c1 - 16, yF], [g.c1, yF - 16], [g.c1, g.yR], [g.c1 - e, g.yR], [g.c1 - e, yF - e - 19], [g.c1 - 19, yF - e], [g.c0 + 19, yF - e], [g.c0 + e, yF - e - 19], [g.c0 + e, g.yR]]), h.a.hachure('metal', 'contour'), true));
           // le bâton, le bout dans le creux qu'il laisse derrière lui
           out.push(h.chemin(P([[cx - 96, 28], [cx - 90, 26], [cx - 22, yp + 10], [cx - 28, yp + 12]]), blanc('arete'), true));
-          out.push(h.fleche(`M ${cx - 6} ${yp - 70} L ${cx + 44} ${yp - 70}`));
+          out.push(h.geste(`M ${cx - 6} ${yp - 70} L ${cx + 44} ${yp - 70}`));   // la charte : pousser la pâte, le geste en rouge
           return out.join('\n');
         },
         renvois: z => {

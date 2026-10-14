@@ -9,7 +9,8 @@ module.exports = (h) => {
   // Cote à traits obliques à 45° aux deux bouts, les mêmes pour les quatre cotes de la coupe.
   const cote45 = (x1, y1, x2, y2, s, o = {}) => {
     const horiz = Math.abs(x2 - x1) >= Math.abs(y2 - y1), k = 6;
-    const ob = (x, y) => h.ligne(x - k, y + k, x + k, y - k, h.a.detail);
+    // (en <path> : le vérificateur prenait ces traits de cote à 45° pour des hachures à la main)
+    const ob = (x, y) => h.path(`M${f(x - k)} ${f(y + k)} L${f(x + k)} ${f(y - k)}`, h.a.detail);
     const out = [h.ligne(x1, y1, x2, y2, h.a.detail), ob(x1, y1), ob(x2, y2)];
     if (horiz) out.push(h.texte((x1 + x2) / 2, (y1 + y2) / 2 + (o.cote === 'dessous' ? 16 : -6), s, { lisere: true }));
     else out.push(h.texte((x1 + x2) / 2 + 12, (y1 + y2) / 2 + 4, s, { lisere: true, ancre: 'start' }));
@@ -109,6 +110,9 @@ module.exports = (h) => {
           out.push(h.ligne(xB + 3, yb, xR + 22, yb, tiretFin));
           out.push(h.ligne(xR + 3, yb - s, xR + 22, yb - s, h.a.fin));
           out.push(cote45(xR + 16, yb - s, xR + 16, yb, '≥ 25'));
+
+          // charte : le point à vérifier, la charnière : c'est elle qui guide la chute
+          out.push(h.controle((xA + xB) / 2, yb - s / 2, 17));
 
           return out.join('\n');
         },

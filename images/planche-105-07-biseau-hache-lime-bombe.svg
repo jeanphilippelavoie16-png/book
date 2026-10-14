@@ -4,10 +4,12 @@
 <defs>
 <pattern id="h-metal" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="10" stroke="#1A1A1A" stroke-width="0.7"/></pattern>
 <marker id="fl" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#1A1A1A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker>
+<marker id="fl-r" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9 Z" fill="#9B2C1E" stroke="#9B2C1E" stroke-width="1" stroke-linejoin="round"/></marker>
 </defs>
 <rect x="0" y="0" width="680" height="413" fill="#FFFFFF"/>
 <text x="40" y="38" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#1A1A1A">À la lime bâtarde</text>
 <g transform="translate(40 46)" data-vue="limer">
+<path d="M27.8,91.3 L27.8,203 C32.3,206 36.8,200 39.8,203 C42,205.3 43.5,202.3 44.3,203 L44.3,92 Z" fill="#E6E6E6" stroke="none"/>
 <path d="M27.8,203 L27.8,91.3 M44.3,203 L44.3,92" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M27.8,203 C32.3,206 36.8,200 39.8,203 C42,205.3 43.5,202.3 44.3,203" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M34.5,198.5 C33,165.5 36.8,135.5 35.3,93.5" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
@@ -21,7 +23,7 @@
 <path d="M200.1 56.6 L198.3 44.7 L227.1 39.2 L230.4 41.4 L231.8 50.2 L229.2 53.3 Z" fill="#FFFFFF" stroke="none"/>
 <path d="M200.1 56.6 L198.3 44.7 L227.1 39.2 L230.4 41.4 L231.8 50.2 L229.2 53.3 Z" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M203.9 56.8 L201.9 43.4" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M217.8,28.1 L177,34.3" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl)"/>
+<path d="M217.8,28.1 L177,34.3" fill="none" stroke="#9B2C1E" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl-r)"/>
 </g>
 <text x="300.3" y="38" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#1A1A1A">Bombé</text>
 <g transform="translate(300.3 46)" data-vue="bombe">
@@ -48,6 +50,7 @@
 <path d="M58,4 L100,4 L100,14 L93,96 Q84,110 83,150 L81,154.5 L79.5,152 L77.5,155 L76,150 Q75,110 65,96 L58,14 Z" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M53,14 C62,8 70,20 79,14 C88,8 96,20 105,14 L105,0 L53,0 Z" fill="#FFFFFF" stroke="none"/>
 <path d="M55,14 C62,8 70,20 79,14 C88,8 96,20 103,14" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="93.5" cy="96" r="11" fill="none" stroke="#9B2C1E" stroke-width="1.6"/>
 </g>
 <line x1="235.8" y1="148.1" x2="213.3" y2="106.1" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
 <line x1="235.8" y1="148.1" x2="213.3" y2="106.1" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>

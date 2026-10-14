@@ -10,6 +10,10 @@
 // profondeur des rigoles ne sont pas dans le chapitre : dessinés en proportion, jamais cotés. La
 // rigole est dessinée large de la moitié de la planche, pour que ses mottes, d'une épaisseur,
 // couvrent la moitié de la planche : le volume se tient. Au buttage, elle est creusée plus bas.
+// La charte : pas de gris (coupes en trame, vue de dessus à plat). Le rouge : le tubercule le plus
+// haut, sous sa terre (le point à vérifier : pas un à la lumière), et l'herbe de la motte posée,
+// en dessous (le sens qui compte). Les flèches des mottes et de la terre disent ce qui bouge, elles
+// restent noires, comme sur les 95-40.
 module.exports = (h) => {
   const A = h.a;
 
@@ -205,6 +209,8 @@ module.exports = (h) => {
         };
         o.push(feuille(xt, Y(0.53), -150, 0.13 * s), feuille(xt, Y(0.57), -30, 0.13 * s), feuille(xtop, yhaut, -90, 0.07 * s));
       });
+      // le point à vérifier : le tubercule le plus haut, encore sous la terre
+      o.push(h.controle(X(0.37), Y(0.385), 0.085 * s));
     }
 
     if (etat === 1) {
@@ -345,6 +351,8 @@ module.exports = (h) => {
     };
     const yPose = Y(Y_M + EP_M / 2);
     o.push(bloc(X(-0.45), yPose, 0, 'posee'));          // déjà posée au bord, l'herbe sur le varech
+    // le sens qui compte : l'herbe en dessous, contre le varech
+    o.push(h.controle(X(-0.45), Y(Y_M - 0.005), 0.065 * s));
     o.push(bloc(X(-0.15), yPose, 0, 'arrivee'));        // la place de celle qui vole
     o.push(bloc(X(-1.1), Y(-EP_M / 2), 0, 'depart'));   // d'où elle vient, dans la rigole
     // le trajet : du creux de la rigole, par-dessus, jusqu'à sa place

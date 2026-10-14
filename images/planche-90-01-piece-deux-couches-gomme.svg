@@ -3,7 +3,7 @@
 <desc>Une déchirure de canot d’écorce refermée. Vu de dessus, sur le canot retourné : la pièce d’écorce dépasse la déchirure de tous les côtés, et la seconde couche de gomme fait tout le tour de son bord. En coupe : la gomme chaude borde la pièce, pressée à la palette ; une fois refroidie, la seconde couche est posée chaude sur le pourtour, par-dessus la ligne où la pièce rencontre la coque, puis lissée à la palette chauffée. Sans chaudron, la gomme mâchée s’étend sur le bord et se lisse au tison.</desc>
 <defs>
 <pattern id="h-bois" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" stroke="#1A1A1A" stroke-width="0.7"/></pattern>
-<marker id="fl" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#1A1A1A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker>
+<marker id="fl-r" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9 Z" fill="#9B2C1E" stroke="#9B2C1E" stroke-width="1" stroke-linejoin="round"/></marker>
 </defs>
 <rect x="0" y="0" width="680" height="826" fill="#FFFFFF"/>
 <text x="40" y="38" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#1A1A1A">Le canot retourné, vu de dessus : la pièce finie</text>
@@ -68,7 +68,7 @@
 <path d="M 165.35257787676375 72.20976336228703 L 103.60530151659734 19.49302616979497" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M 173 83.8 L 221 83.8 Q 227 83.8 223 78.8 L 173 78.8 Z" fill="#FFFFFF" stroke="none"/>
 <path d="M 173 83.8 L 221 83.8 Q 227 83.8 223 78.8 L 173 78.8 Z" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M 208.5 21 V 71" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl)"/>
+<path d="M 208.5 21 V 71" fill="none" stroke="#9B2C1E" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl-r)"/>
 </g>
 <text x="351" y="266.2" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#1A1A1A">Refroidie : seconde couche chaude sur le pourtour</text>
 <g transform="translate(351 274.2)" data-vue="c2">
@@ -89,6 +89,7 @@
 <line x1="231" y1="94.5" x2="231" y2="98.5" fill="none" stroke="#FFFFFF" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M 74 85 C 69 78 56 76 50 81 C 42 90 36 96 30 99 L 58 99 L 58 85 Z" fill="#1A1A1A" stroke="none"/>
 <line x1="58" y1="94.5" x2="58" y2="98.5" fill="none" stroke="#FFFFFF" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="231" cy="97" r="11" fill="none" stroke="#9B2C1E" stroke-width="1.6"/>
 </g>
 <text x="40" y="465" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#1A1A1A">Le bord, lissé à la palette chauffée</text>
 <g transform="translate(40 473)" data-vue="c3">
@@ -118,15 +119,16 @@
 <line x1="14" y1="112" x2="127" y2="112" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M 75 112 Q 80.6 108.2 86.2 110.4 Q 91.80000000000001 98.6 97.4 108.8 Q 103 101 108.6 107.2 Q 114.19999999999999 97.4 119.8 105.6 Q 125.4 93.8 131 104 Q 136.71428571428572 99.28571428571428 142.42857142857142 108.57142857142857 Q 148.14285714285714 101.85714285714286 153.85714285714286 113.14285714285714 Q 159.57142857142856 104.42857142857142 165.28571428571428 117.71428571428571 Q 171 113 176.71428571428572 122.28571428571428 Q 182.42857142857144 115.57142857142857 188.14285714285714 126.85714285714286 Q 193.85714285714283 118.14285714285714 199.57142857142856 131.42857142857142 Q 205.28571428571428 130.71428571428572 211 136 L 127 136 L 127 112 Z" fill="#1A1A1A" stroke="none"/>
 <line x1="127" y1="128.5" x2="127" y2="135.5" fill="none" stroke="#FFFFFF" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M148.5 112.8 L260.5 5.8 L249.5 -5.8 L137.5 101.2 Z" fill="#FFFFFF" stroke="none"/>
-<path d="M148.5 112.8 L260.5 5.8 L249.5 -5.8 L137.5 101.2 Z" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M 260.52626221260164 5.784498764592396 A 3 8 -43.69210439833622 1 0 249.47373778739833 -5.784498764592396 A 3 8 -43.69210439833622 1 0 260.52626221260164 5.784498764592396 Z" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M 168.92765167027437 78.08081296327785 L 230.5276516702744 19.23081296327784" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M 195.47234832972563 61.01918703672215 L 251.4723483297256 7.5191870367221565" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M 148.52626221260167 112.7844987645924 L 170.21813257982316 92.06101546733616 L 162.45812419250166 91.1765552767679 L 164.788709074218 82.03498133629598 L 159.16560815461983 80.49201793815136 L 137.47373778739833 101.2155012354076 Q 138.6616259265557 111.14469665945124 148.52626221260167 112.7844987645924 Z" fill="#1A1A1A" stroke="none"/>
-<path d="M 146.02136765829158 98.58148840510214 L 153.02603413104018 101.57057649439486" fill="none" stroke="#FFFFFF" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M 155.22750073676116 98.08438304251997 L 160.15981887978415 98.90428409509056" fill="none" stroke="#FFFFFF" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M 155.45345771975306 88.18746718747518 L 160.38577586277603 89.00736824004575" fill="none" stroke="#FFFFFF" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M148.3 113 L254.3 20 L243.7 8 L137.7 101 Z" fill="#FFFFFF" stroke="none"/>
+<path d="M143.5 107.6 L249.5 14.6 L254.3 20 L148.3 113 Z" fill="#CFCFCF" stroke="none"/>
+<path d="M148.3 113 L254.3 20 L243.7 8 L137.7 101 Z" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 254.2760650068255 20.013579470145178 A 3 8 -41.2623704565899 1 0 243.7239349931745 7.986420529854821 A 3 8 -41.2623704565899 1 0 254.2760650068255 20.013579470145178 Z" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 167.52147562244045 81.49490769869556 L 225.82147562244046 30.34490769869555" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 192.67852437755954 67.40509230130445 L 245.67852437755954 20.90509230130445" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 148.2760650068255 113.01357947014517 L 170.8269880198699 93.2283356945496 L 163.11145209591004 92.01569172120665 L 165.8274909367893 82.98113954554043 L 160.27485800621892 81.20117675425925 L 137.7239349931745 100.98642052985483 Q 138.4898153973911 110.95704875511912 148.2760650068255 113.01357947014517 Z" fill="#1A1A1A" stroke="none"/>
+<path d="M 146.37554696673243 98.71714525810192 L 153.24719614900917 102.0005029169194" fill="none" stroke="#FFFFFF" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 155.59447775822858 98.61077297973851 L 160.48760256294577 99.63903833725155" fill="none" stroke="#FFFFFF" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 156.2398029136333 88.73233406238919 L 161.1329277183505 89.7605994199022" fill="none" stroke="#FFFFFF" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
 </g>
 <line x1="158.6" y1="179.3" x2="256" y2="148" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
 <line x1="158.6" y1="179.3" x2="256" y2="148" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
@@ -178,9 +180,9 @@
 <circle cx="538" cy="602" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
 <circle cx="574" cy="651" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="c4"/>
 <text x="574" y="655" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">10</text>
-<line x1="447" y1="515.5" x2="555.6" y2="521.2" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
-<line x1="447" y1="515.5" x2="555.6" y2="521.2" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
-<circle cx="555.6" cy="521.2" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
+<line x1="446.9" y1="516.1" x2="552.3" y2="528.9" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+<line x1="446.9" y1="516.1" x2="552.3" y2="528.9" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
+<circle cx="552.3" cy="528.9" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
 <circle cx="438" cy="515" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="c4"/>
 <text x="438" y="519" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">11</text>
 <text x="40" y="698" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">Planche 90-01 — La pièce en deux couches de gomme.</text>

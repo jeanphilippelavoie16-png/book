@@ -76,15 +76,26 @@ module.exports = (h) => {
     const a = 2 * Math.PI * k / n, u = r * Math.cos(a), v = r * Math.sin(a);
     return axe === 'Y' ? P(C[0] + u, C[1], C[2] + v) : P(C[0], C[1] + u, C[2] + v);
   });
-  const rondin = (P, A, B, r, axe, ecorce = []) => {
+  // La charte : les rondins sont l'objet de la vue, leur contour pèse (2,4). Une traverse, assez
+  // grosse pour ça, a son dessous à l'ombre : une bande sous l'axe, découpée par la silhouette ; son
+  // bout, une autre face, reste blanc.
+  let nOm = 0;
+  const rondin = (P, A, B, r, axe, ecorce = [], ombre = false) => {
     const pres = axe === 'Y' ? A : B;
-    const out = [h.chemin(enveloppe(cercleM(P, A, r, axe).concat(cercleM(P, B, r, axe))), blanc('arete'), true)];
+    const sil = enveloppe(cercleM(P, A, r, axe).concat(cercleM(P, B, r, axe)));
+    const out = [h.chemin(sil, h.a.blanc, true)];
+    if (ombre) {
+      const id = `om-9807-${nOm++}`, a = P(...A), b = P(...B), k = Math.abs(P(A[0], A[1], A[2] + r)[1] - a[1]);
+      out.push(`<clipPath id="${id}">${h.chemin(sil, 'fill="none"', true)}</clipPath>`,
+        `<g clip-path="url(#${id})">${h.chemin([[a[0], a[1] + 0.3 * k], [b[0], b[1] + 0.3 * k], [b[0], b[1] + 3 * k], [a[0], a[1] + 3 * k]], h.a.ombre, true)}</g>`);
+    }
+    out.push(h.chemin(sil, h.a.contour, true));
     for (const [t0, t1, ang] of ecorce) {
       const a = rad(ang), u = r * Math.cos(a), v = r * Math.sin(a);
       const Q = t => axe === 'Y' ? P(A[0] + u, A[1] + (B[1] - A[1]) * t, A[2] + v) : P(A[0] + (B[0] - A[0]) * t, A[1] + u, A[2] + v);
       out.push(h.chemin([Q(t0), Q(t1)], h.a.fin));
     }
-    out.push(h.chemin(cercleM(P, pres, r, axe), h.a.detail, true));
+    out.push(h.chemin(cercleM(P, pres, r, axe), ombre ? blanc('detail') : h.a.detail, true));
     out.push(h.chemin(cercleM(P, pres, r * 0.55, axe, 24), h.a.fin, true));
     const c = P(...pres);
     out.push(h.cercle(c[0], c[1], 0.9, h.a.plein));
@@ -101,7 +112,7 @@ module.exports = (h) => {
     [[[-250, -200], [-40, -120]], [[PW + 60, -210], [PW + 240, -150]], [[-270, 300], [-200, 700]], [[PW + 250, 900], [PW + 200, 1300]], [[200, -230], [420, -170]]]
       .forEach(([a, b]) => out.push(h.chemin([P(a[0], a[1], 0), P((a[0] + b[0]) / 2 + 12, (a[1] + b[1]) / 2 + 20, 0), P(b[0], b[1], 0)], h.a.fin)));
     // les deux traverses, couchées sur la toile en travers des perches : celle du fond d’abord
-    for (const ty of [TY[1], TY[0]]) out.push(rondin(P, [TX[0], ty, Td / 2], [TX[1], ty, Td / 2], Td / 2, 'X', [[0.02, 0.1, 130], [0.9, 0.97, 150]]));
+    for (const ty of [TY[1], TY[0]]) out.push(rondin(P, [TX[0], ty, Td / 2], [TX[1], ty, Td / 2], Td / 2, 'X', [[0.02, 0.1, 130], [0.9, 0.97, 150]], true));
     // les perches, de la gauche vers la droite (la droite est plus près de l’œil)
     for (let i = 0; i < Pn; i++) out.push(rondin(P, [PX(i), PY0, PZ], [PX(i), PL, PZ], Pd / 2, 'Y', [[0.08, 0.3, 70]]));
     // la paille jetée sur la moitié du fond : une couche basse de tiges couchées à travers les perches,
@@ -164,7 +175,9 @@ module.exports = (h) => {
     out.push(h.chemin([P(-100, 0), P(-88, 5), P(PW + 88, 5), P(PW + 100, 0)], h.a.arete));
     // la traverse du fond, derrière le plan de coupe, en trait fin : un rondin couché sur la toile
     { const a = P(-118, Td), b = P(PW + 118, 5), rr = (a[1] - b[1]) / 2 * -1;
-      out.push(h.path(`M${f(a[0] + 8)} ${f(a[1])} L${f(b[0] - 8)} ${f(a[1])} Q${f(b[0])} ${f(a[1])} ${f(b[0])} ${f(a[1] + 8)} L${f(b[0])} ${f(b[1])} L${f(a[0])} ${f(b[1])} L${f(a[0])} ${f(a[1] + 8)} Q${f(a[0])} ${f(a[1])} ${f(a[0] + 8)} ${f(a[1])} Z`, blanc('detail'))); void rr; }
+      // La charte : derrière le plan de coupe, elle recule en gris loin
+      const dT = `M${f(a[0] + 8)} ${f(a[1])} L${f(b[0] - 8)} ${f(a[1])} Q${f(b[0])} ${f(a[1])} ${f(b[0])} ${f(a[1] + 8)} L${f(b[0])} ${f(b[1])} L${f(a[0])} ${f(b[1])} L${f(a[0])} ${f(a[1] + 8)} Q${f(a[0])} ${f(a[1])} ${f(a[0] + 8)} ${f(a[1])} Z`;
+      out.push(h.path(dT, h.a.loin), h.path(dT, h.a.detail)); void rr; }
     // la paille couchée sur les perches (avant les perches : elles passent devant son bas)
     const haut = [];
     for (let x = -20; x <= PAILLE_X[1] - 25; x += 55) haut.push(P(x, 283 + (r() - 0.5) * 22));
@@ -173,7 +186,7 @@ module.exports = (h) => {
     const d = courbe(contour, true);
     out.push(h.path(d, h.a.blanc), h.path(d, h.a.hachure('paille', 'detail')));
     // les perches, coupées : le bois en hachure
-    for (let i = 0; i < Pn; i++) { const c = P(PX(i), PZ); out.push(h.cercle(c[0], c[1], Pd / 2 * s, h.a.blanc), h.cercle(c[0], c[1], Pd / 2 * s, h.a.hachure('bois', 'arete'))); }
+    for (let i = 0; i < Pn; i++) { const c = P(PX(i), PZ); out.push(h.cercle(c[0], c[1], Pd / 2 * s, h.a.blanc), h.cercle(c[0], c[1], Pd / 2 * s, h.a.hachure('bois', 'contour'))); }
     // des épis sur le dessus de la paille, et qui pendent au bout
     const Le = 85 * s;
     [[40, 280, -12], [210, 288, 170], [330, 280, 8], [470, 286, 186], [600, 276, -6], [130, 272, 196]]
@@ -195,7 +208,7 @@ module.exports = (h) => {
     out.push(h.chemin([[a0[0] + u[0] * 30 + n[0] * R * 0.35, a0[1] + u[1] * 30 + n[1] * R * 0.35], [a1[0] - u[0] * 60 + n[0] * R * 0.35, a1[1] - u[1] * 60 + n[1] * R * 0.35]], h.a.fin));
     // le coup : le bout du bâton descend
     const f0 = P(650, 448), fc = P(672, 390), f1 = P(626, 340);
-    out.push(h.fleche(`M${f(f0[0])} ${f(f0[1])} Q${f(fc[0])} ${f(fc[1])} ${f(f1[0])} ${f(f1[1])}`));
+    out.push(h.geste(`M${f(f0[0])} ${f(f0[1])} Q${f(fc[0])} ${f(fc[1])} ${f(f1[0])} ${f(f1[1])}`));   // la charte : le geste
     // l’écart entre deux perches, là où la paille n’est pas encore jetée
     const x1 = PX(8) + Pd / 2, x2 = PX(9) - Pd / 2;
     for (const x of [x1, x2]) out.push(h.chemin([P(x, PZ - 6), P(x, 88)], h.a.fin));
@@ -227,7 +240,7 @@ module.exports = (h) => {
     for (let x = -40; x < 940; x += 150) { const a = P(x, 0), b = P(Math.min(x + 150, 940), -28); out.push(h.rect(a[0], a[1], b[0] - a[0], b[1] - a[1], h.a.hachure('bois', 'detail'))); }
     // le sac, couché : le corps, puis le collet noué et sa fraise
     const corps = [[114, 96], [150, 128], [215, 164], [330, 180], [480, 182], [630, 178], [760, 168], [835, 142], [864, 94], [855, 38], [820, 5], [760, 1], [520, 0], [300, 1], [190, 5], [140, 30], [118, 64]].map(p => P(...p));
-    out.push(h.path(courbe(corps, true), blanc('arete')));
+    out.push(h.path(courbe(corps, true), blanc('contour')));   // la charte : le sac pèse
     // les tiges, couchées de l’épi vers la bouche
     for (let k = 0; k < 11; k++) {
       const zb = 14 + k * 14.5, xa = 150 + r() * 25, za = 72 + (k - 5) * 4.5;
@@ -246,7 +259,8 @@ module.exports = (h) => {
     [72, 81, 90].forEach(zz => out.push(h.chemin([P(102, zz), P(118, zz + 4)], h.a.fin)));
     out.push(h.path(courbe([P(108, 62), P(98, 40), P(86, 22)]), h.a.detail), h.path(courbe([P(114, 62), P(126, 42), P(122, 22)]), h.a.detail));
     // les pieds appuient sur le bout des épis
-    for (const x of [690, 790]) { const a = P(x, 300), b = P(x, 200); out.push(h.fleche(`M${f(a[0])} ${f(a[1])} L${f(b[0])} ${f(b[1])}`)); }
+    // La charte : une seule flèche du geste par vue, en rouge, au milieu des deux pieds
+    for (const x of [740]) { const a = P(x, 300), b = P(x, 200); out.push(h.geste(`M${f(a[0])} ${f(a[1])} L${f(b[0])} ${f(b[1])}`)); }
     return out.join('\n');
   };
   const renvoisSacC = z => {
@@ -283,7 +297,7 @@ module.exports = (h) => {
     for (const [x, y0, y1] of [[330, -225, -75], [760, -75, 75], [180, 75, 225], [610, -245, -225], [930, 225, 245]]) out.push(h.chemin([P(x, y0), P(x, y1)], h.a.detail));
     // le sac, couché
     const corps = [[112, -22], [150, -70], [205, -150], [290, -196], [450, -207], [650, -204], [800, -200], [846, -206], [862, -170], [866, 0], [862, 170], [846, 206], [800, 200], [650, 204], [450, 207], [290, 196], [205, 150], [150, 70], [112, 22]].map(p => P(...p));
-    out.push(h.path(courbe(corps, true), blanc('arete')));
+    out.push(h.path(courbe(corps, true), blanc('contour')));   // la charte : le sac pèse
     out.push(h.path(courbe([P(846, -188), P(852, 0), P(846, 188)]), h.a.fin));
     [[[130, -14], [240, -110]], [[130, 14], [250, 120]], [[150, 0], [300, -20]]].forEach(([a, b]) => out.push(h.chemin([P(...a), P(...b)], h.a.fin)));
     const fraise = [[108, -24], [70, -58], [34, -66], [14, -30], [10, 8], [26, 48], [62, 62], [106, 26]].map(p => P(...p));

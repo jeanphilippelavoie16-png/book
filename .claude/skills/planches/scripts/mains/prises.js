@@ -1322,10 +1322,19 @@ function mainSurMain(mainSimple, o) {
   const P = (pj.find(p => p.id === 'main-sur-main') || {}).paire || { dessous: 'plat', angle: 24, decalage: [26, 6] };
   const s = o.echelle || 1, a0 = o.angle || 0, m = o.cote === 'gauche' ? -1 : 1;
   const croise = o.croise !== undefined ? o.croise : P.angle, dec = o.decalage || P.decalage;
-  const dessous = mainSimple(Object.assign({ avantbras: { longueur: 90 } }, o.dessous || {}, { x: o.x, y: o.y, pose: P.dessous, vue: 'dos', cote: o.cote, angle: a0, echelle: s, ancre: 'poignet', loin: true }));
   const c = Math.cos(a0 * RAD), sn = Math.sin(a0 * RAD), dx = dec[0] * s, dy = m * dec[1] * s;
+  // les deux avant-bras coupés à une même droite (avantbras.fin du moteur), perpendiculaire à la main du dessous, à
+  // o.coupe mm (défaut 80) en arrière de son poignet : sans elle, l'avant-bras gris du dessous finissait en carte à
+  // côté de celui du dessus (agent 5, tour 3). o.fin : une autre droite [[x, y], [x, y]] ; o.fin = false : sans.
+  let fin = o.fin;
+  if (fin === undefined) {
+    const Lc = (o.coupe !== undefined ? o.coupe : 80) * s, C = [o.x - c * Lc, o.y - sn * Lc], W = 400 * s;
+    fin = [[C[0] + sn * W, C[1] - c * W], [C[0] - sn * W, C[1] + c * W]];
+  }
+  const ab = q => { const a = Object.assign({ longueur: fin ? 200 : 90 }, (q || {}).avantbras || {}); if (fin && !a.fin) a.fin = fin; return a; };
+  const dessous = mainSimple(Object.assign({}, o.dessous || {}, { avantbras: ab(o.dessous), x: o.x, y: o.y, pose: P.dessous, vue: 'dos', cote: o.cote, angle: a0, echelle: s, ancre: 'poignet', loin: true }));
   const x2 = o.x + dx * c - dy * sn, y2 = o.y + dx * sn + dy * c;
-  const dessus = mainSimple(Object.assign({ avantbras: { longueur: 90 } }, o.dessus || {}, { x: x2, y: y2, pose: 'main-sur-main', vue: 'dos', cote: o.cote === 'gauche' ? 'droite' : 'gauche', angle: a0 - m * croise, echelle: s, ancre: 'poignet' }));
+  const dessus = mainSimple(Object.assign({}, o.dessus || {}, { avantbras: ab(o.dessus), x: x2, y: y2, pose: 'main-sur-main', vue: 'dos', cote: o.cote === 'gauche' ? 'droite' : 'gauche', angle: a0 - m * croise, echelle: s, ancre: 'poignet' }));
   const svg = `${dessous}\n${dessus}`;
   return { svg, toString() { return svg; }, dessous, dessus };
 }
