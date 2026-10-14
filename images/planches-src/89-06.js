@@ -6,6 +6,12 @@
 // plancher seulement. Six bâtons d'environ 25 cm : seule cote de la planche.
 // Le dessin est fait à l'échelle d'une perche de 170 cm, mais la longueur n'est pas cotée : le
 // chapitre dit « aussi longue que la personne est grande », pas un chiffre.
+//
+// La charte : de côté, la raquette au contour fort ; vue de dessus, les perches restent au trait
+// moyen (trois bandes de 3 à 7 px qui se rejoignent : un contour fort boucherait la pointe) ; pas de gris (vue de dessus, neige hachurée, la botte est un corps).
+// Le rouge, sur le raté : l'attache derrière le milieu (l'endroit où ça casse) et la flèche qui
+// l'avance (le geste). L'arc de la pointe qui se lève et la flèche du nez qui plonge restent
+// noirs : c'est la raquette qui bouge, pas un geste.
 
 const LONG = 170;                           // longueur de dessin (cm), jamais écrite
 const r = u => 1.25 - 0.62 * u / LONG;      // rayon de la perche : pouce au gros bout, petit doigt à la pointe
@@ -74,7 +80,8 @@ function profil(z, { t, ub, phi, pose }) {
 function raquetteProfil(h, G) {
   const us = []; for (let u = 0; u <= LONG; u += 5) us.push(u);
   const pts = [...us.map(u => G.Pt(u, r(u))), ...us.slice().reverse().map(u => G.Pt(u, -r(u)))];
-  const out = [h.chemin(pts, h.a.blanc, true), h.chemin(pts, h.a.arete, true)];
+  // de côté, la raquette est l'objet : contour fort
+  const out = [h.chemin(pts, h.a.blanc, true), h.chemin(pts, h.a.contour, true)];
   // pointes nouées
   for (const u of [157, 159.5, 162, 164.5]) {
     const p1 = G.Pt(u, -r(u) - 0.4), p2 = G.Pt(u + 1.2, r(u) + 0.4);
@@ -153,7 +160,9 @@ function vueProfil(h, z, cfg) {
     out.push(h.chemin([[xe - 22, G.ys], [xe - 12, G.ys - 4], [xe - 2, G.ys - 6], [xe + 8, G.ys - 4], [xe + 18, G.ys]], h.a.arete));
     out.push(h.fleche(`M${xe.toFixed(1)} ${(G.ys - 70).toFixed(1)} L${xe.toFixed(1)} ${(G.ys - 14).toFixed(1)}`, h.a.detail));
     const f1 = G.Pt(68, 6), f2 = G.Pt(96, 6);
-    out.push(h.fleche(`M${f1[0].toFixed(1)} ${f1[1].toFixed(1)} L${f2[0].toFixed(1)} ${f2[1].toFixed(1)}`, h.a.arete));
+    // le geste : avancer l'attache ; l'endroit où ça casse : l'attache, derrière le milieu
+    out.push(h.geste(`M${f1[0].toFixed(1)} ${f1[1].toFixed(1)} L${f2[0].toFixed(1)} ${f2[1].toFixed(1)}`));
+    out.push(h.controle(...G.Pt(cfg.pivots[1], r(cfg.pivots[1]) + RB), 14));
   }
   return { svg: out.join('\n'), G, K, T, Rt };
 }

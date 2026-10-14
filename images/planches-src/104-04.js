@@ -273,6 +273,8 @@ module.exports = (h) => ({
         // le petit cercle du gros plan, relié à la loupe
         out.push(h.cercle(g.zc[0], g.zc[1], g.zr, h.a.detail));
         out.push(loupe(h, g));
+        // charte : le point à vérifier, un pli pris à chaque point (un pli sauté fait une bosse)
+        { const e = g.L.r * 0.34; out.push(h.controle(g.L.x + e * 0.55, g.L.y - e * 0.95, 17)); }
         // trait de rupture en bas
         const yb = g.oy + 82;
         out.push(h.path(`M${g.ox - 76},${yb} q8,-4 16.9,0 t16.9,0 t16.9,0 t16.9,0 t16.9,0 t16.9,0 t16.9,0 t16.9,0 t16.9,0`, h.a.detail));

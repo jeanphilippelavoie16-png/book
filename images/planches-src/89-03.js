@@ -9,6 +9,11 @@
 // repère. Les gros plans de la pointe et le cabestan ont leur repère propre, en millimètres.
 // La babiche se dessine en ruban à deux bords (h.formes.cordes) : à chaque croisement, le brin du
 // dessous est coupé de part et d'autre de celui du dessus.
+//
+// La charte : rien à ajouter. Les vues sont de dessus ou coupées dans le fût, donc sans gris ; la
+// babiche et le contour de la raquette portent déjà le trait fort. Pas de rouge : les flèches
+// disent le trajet de la babiche (elles restent noires, comme le trajet du fil à la 27-01), et le
+// chapitre ne donne pas de point à vérifier qui se montre sur le dessin.
 module.exports = (h) => ({
   ref: '89-03',
   fichier: 'planche-89-03-lacage-trois-zones.svg',

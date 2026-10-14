@@ -71,7 +71,8 @@ ${contenu}
     const pts = ligneSol(V, p, z), fond = [...pts, [z.l, z.h], [0, z.h]];
     return [poly(fond, h.a.blanc), poly(fond, h.a.hachure('terre', 'aucun'))].join('\n');
   };
-  const dessusSol = (V, p, z) => ouvert(ligneSol(V, p, z), h.a.arete);
+  // La charte : le dessus de la butte est l'objet du geste, son contour pèse (2,4)
+  const dessusSol = (V, p, z) => ouvert(ligneSol(V, p, z), h.a.contour);
   const ancien = (V, p, z) => { const pts = ligneSol(V, p, z); return ouvert(pts, HALO) + ouvert(pts, TIRET); };
 
   // ─── La plante ───
@@ -200,18 +201,13 @@ ${contenu}
     });
     return { sous: sous.join('\n'), dessus: dessus.join('\n') };
   };
-  // Une flèche de mouvement en trait fin, pointe ouverte : elle ne double pas la surface du sol.
-  const flecheFine = (a, q, b) => {
-    const pts = bez(a, q, b, 16), [x1, y1] = pts[pts.length - 1], [x0, y0] = pts[pts.length - 3];
-    const L = Math.hypot(x1 - x0, y1 - y0) || 1, ux = (x1 - x0) / L, uy = (y1 - y0) / L, e = 6.5, w = 3.6;
-    const g = [x1 - ux * e - uy * w, y1 - uy * e + ux * w], d = [x1 - ux * e + uy * w, y1 - uy * e - ux * w];
-    return ouvert(pts, HALO.replace('3.4', '2.6')) + ouvert(pts, h.a.fin) + ouvert([g, [x1, y1], d], h.a.fin);
-  };
   // La terre de l'entre-rang qui monte sur le rang, des deux côtés, bien au-dessus du sol.
   const ptsFleche = (p, c) => [[c * (p.tx + 35), p.fd - 60], [c * p.tx * 0.6, p.cy - 95], [c * (p.hw + 40), surf(p, p.hw + 40) - 55]];
-  const fleches = (V, p) => [-1, 1].map((c) => {
+  // La charte : une seule flèche du geste par vue, en rouge, du côté du renvoi ; la butte est
+  // symétrique, l'autre côté se fait de même.
+  const fleches = (V, p) => [1].map((c) => {
     const [a, q, b] = ptsFleche(p, c).map(([x, y]) => [X(V, x), Y(V, y)]);
-    return flecheFine(a, q, b);
+    return h.geste(`M ${f(a[0])} ${f(a[1])} Q ${f(q[0])} ${f(q[1])} ${f(b[0])} ${f(b[1])}`);
   }).join('\n');
   const milieuFleche = (V, p, c) => {
     const [a, q, b] = ptsFleche(p, c);
@@ -365,18 +361,21 @@ ${contenu}
           out.push(tubercule(cx, cy, RT.rx * k, RT.ry * k, RT.rot, h.a.blanc, false));
           out.push(`<g clip-path="url(#cl-9803-air)">${tubercule(cx, cy, RT.rx * k, RT.ry * k, RT.rot, 'fill="url(#p9803-vert)" stroke="none"', false)}</g>`);
           out.push(tubercule(cx, cy, RT.rx * k, RT.ry * k, RT.rot, h.a.arete, true));
-          out.push(ouvert(pts, h.a.arete));
+          out.push(ouvert(pts, h.a.contour));
           out.push(pl.dessus);
-          // Rebutter : la terre de l'entre-rang par-dessus.
+          // Rebutter : la terre de l'entre-rang par-dessus (la charte : le geste, en rouge).
           const [a, q, b] = [RF.a, RF.q, RF.b].map(([x, y]) => [X(V, x), Y(V, y)]);
-          out.push(flecheFine(a, q, b));
+          out.push(h.geste(`M ${f(a[0])} ${f(a[1])} Q ${f(q[0])} ${f(q[1])} ${f(b[0])} ${f(b[1])}`));
+          // La charte : sur le raté, le cercle rouge marque l'endroit où ça casse : le tubercule au jour
+          out.push(h.controle(cx, cy, RT.rx * k + 4));
           return cadre('rate', z, out.join('\n'));
         },
         renvois: (z) => {
           const V = rateV(z), m = [0.25 * RF.a[0] + 0.5 * RF.q[0] + 0.25 * RF.b[0], 0.25 * RF.a[1] + 0.5 * RF.q[1] + 0.25 * RF.b[1]];
           return [
-            { n: 10, rond: [z.l - 14, 58], cible: [X(V, 158), Y(V, -24)], texte: 'au jour, il verdit et fait son poison' },
-            { n: 11, rond: [z.l - 16, z.h - 16], cible: [X(V, m[0]), Y(V, m[1])], texte: 'rebutter tout de suite' },
+            // les deux pastilles échangées : leurs lignes de rappel se croisaient
+            { n: 10, rond: [z.l - 16, z.h - 16], cible: [X(V, 158), Y(V, -24)], texte: 'au jour, il verdit et fait son poison' },
+            { n: 11, rond: [z.l - 14, 14], cible: [X(V, m[0]), Y(V, m[1])], texte: 'rebutter tout de suite' },
           ];
         },
       },

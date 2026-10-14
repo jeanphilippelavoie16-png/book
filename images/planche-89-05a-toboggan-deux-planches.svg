@@ -176,6 +176,7 @@
 <circle cx="117.8" cy="61.7" r="2.3" fill="#1A1A1A" stroke="none"/>
 <circle cx="126.6" cy="103" r="2.3" fill="#1A1A1A" stroke="none"/>
 <circle cx="126.6" cy="124.7" r="2.3" fill="#1A1A1A" stroke="none"/>
+<circle cx="87" cy="124.2" r="13" fill="none" stroke="#9B2C1E" stroke-width="1.6"/>
 <line x1="58.2" y1="61.2" x2="58.2" y2="44.1" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
 <line x1="115.8" y1="61.2" x2="115.8" y2="44.1" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
 <line x1="58.2" y1="49.5" x2="115.8" y2="49.5" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>

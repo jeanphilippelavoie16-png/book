@@ -268,11 +268,12 @@ module.exports = (h) => {
           const { G, x1, x2, ec } = gBr(z), out = [];
           out.push(h.ligne(0, G, z.l, G, h.a.arete));
           // le feu, repoussé loin de la pierre, coupé au bord de la vue
-          const fx = -16;
+          // dessiné à partir de 0, puis décalé de 16 vers la gauche : la découpe le coupe au bord
+          const fx = 0;
           const feu = [flamme(fx + 1, G - 14, 16, 36), flamme(fx + 21, G - 16, 14, 30), flamme(fx + 11, G - 28, 18, 46)];
           [[fx, G - 9], [fx + 20, G - 9], [fx + 10, G - 25]].forEach(([x, y]) =>
             feu.push(h.cercle(x, y, 8.6, h.a.blanc), h.cercle(x, y, 8.6, h.a.arete), h.cercle(x, y, 4, h.a.fin)));
-          out.push(`<defs><clipPath id="coupe-feu-94-34"><rect x="0" y="-60" width="${R(z.l)}" height="${R(z.h + 60)}"/></clipPath></defs><g clip-path="url(#coupe-feu-94-34)">\n${feu.join('\n')}\n</g>`);
+          out.push(`<defs><clipPath id="coupe-feu-94-34"><rect x="0" y="0" width="${R(z.l)}" height="${R(z.h)}"/></clipPath></defs><g clip-path="url(#coupe-feu-94-34)"><g transform="translate(-16 0)">\n${feu.join('\n')}\n</g></g>`);
           // la pierre plate
           const pierre = [[x1, G], [x1 - 3, G - 10], [x1 + 2, G - 19], [x1 + 12, G - 22], [x2 - 10, G - 23], [x2 + 2, G - 21], [x2 + 4, G - 12], [x2 + 1, G]];
           out.push(h.chemin(pierre, h.a.blanc, true), h.chemin(pierre, h.a.hachure('pierre', 'aucun'), true), h.chemin(pierre, h.a.contour, true));

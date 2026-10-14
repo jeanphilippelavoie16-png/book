@@ -235,7 +235,7 @@ module.exports = (h) => {
           const P = cadre(z, ...BAR);
           return [
             { n: 9, rond: P(140, 30), cible: P(104, 36), texte: 'ampoules de phare, verre dans l’eau' },
-            { n: 10, rond: P(70, 101), cible: P(46, 94), texte: 'branchée côté roue, avant la diode' },
+            { n: 10, rond: P(82, 103), cible: P(46, 94), texte: 'branchée côté roue, avant la diode' },
             { n: 11, rond: P(157, 74), cible: P(155, 90), texte: 'diode dans le fil positif' },
             { n: 12, rond: P(214, 76), cible: P(198, 91), texte: 'fusible' },
           ];

@@ -4,6 +4,10 @@
 // mesure : aucune cote. Le dessin compte en largeurs de planche : deux au sud, trois au nord,
 // le haut de chaque côté scié en biais. Charnière de cuir, poteaux de coin et cale : ce qui
 // traîne partout, pour que la fenêtre tienne et s'ouvre.
+// La charte : de trois quarts, la face est du cadre et le bout est de la fenêtre (les faces de
+// droite) à l'ombre ; le dedans, vu par l'ouverture sous le bord levé, en gris loin (il remplace les
+// traits fins qui le faisaient). En coupe, le côté ouest vu au fond, en gris loin. Pas de rouge :
+// un montage, sans geste dessiné ni point que le chapitre dit de vérifier.
 module.exports = (h) => {
   const blanc = (a) => a.replace('fill="none"', 'fill="#FFFFFF"');
   const E = 0.14, P = 0.36, W = 7, D = 4.2, HS = 2, HN = 3, T = 0.3, F = 0.5, M = 0.16;
@@ -82,7 +86,7 @@ module.exports = (h) => {
           const { s, p, fen } = repP(z);
           const out = [];
           // Face est du cadre, puis face sud.
-          out.push(poly([p(W, 0, 0), p(W, D, 0), p(W, D, HN), p(W, 0, HS)], blanc(h.a.contour)));
+          out.push(poly([p(W, 0, 0), p(W, D, 0), p(W, D, HN), p(W, 0, HS)], h.a.ombre), poly([p(W, 0, 0), p(W, D, 0), p(W, D, HN), p(W, 0, HS)], h.a.contour));
           out.push(poly([p(0, 0, 0), p(W, 0, 0), p(W, 0, HS), p(0, 0, HS)], blanc(h.a.contour)));
           // Joints de planches.
           out.push(h.chemin([p(0, 0, 1), p(W, 0, 1), p(W, D, 1)], h.a.detail));
@@ -95,14 +99,9 @@ module.exports = (h) => {
           [E + P / 2, W - E - P / 2].forEach((x) => [0.3, 0.7, 1.3, 1.7].forEach((zz) => out.push(clou(p(x, 0, zz)))));
           [E + P / 2, D - E - P / 2].forEach((y) => [0.3, 0.7, 1.3, 1.7].forEach((zz) => out.push(clou(p(W, y, zz)))));
           [2.3, 2.6].forEach((zz) => out.push(clou(p(W, D - E - P / 2, zz))));
-          // L'ouverture : le dedans, dans l'ombre, sous le bord levé.
-          const ombre = [];
-          for (let zz = HS + 0.07; zz < HS + C - 0.05; zz += 0.075) ombre.push(`M ${p(1.2, 0, zz).join(' ')} L ${p(W - 1.2, 0, zz).join(' ')}`);
-          for (let zz = HS + 0.07; zz < HN - 0.03; zz += 0.075) {
-            const ya = (zz - HS) * D / (HN - HS), yb = Math.max(0.33, D - (HN - zz) / Math.tan(th1));
-            if (ya - yb > 0.05) ombre.push(`M ${p(W, yb, zz).join(' ')} L ${p(W, ya, zz).join(' ')}`);
-          }
-          out.push(h.path(ombre.join(' '), h.a.fin));
+          // L'ouverture : le dedans, vu sous le bord levé, en gris loin.
+          out.push(poly([p(0, 0, HS), p(W, 0, HS), fen(W, 0, 0), fen(0, 0, 0)], h.a.loin));
+          out.push(poly([p(W, 0, HS), p(W, D, HN), fen(W, 0, 0)], h.a.loin));
           // Les deux cales, sur le chant, sur les coins sud.
           [[0.1, 1.2], [W - 1.2, W - 0.1]].forEach(([x0, x1]) => {
             out.push(poly([p(x1, 0.02, HS), p(x1, 0.32, HS), p(x1, 0.32, HS + C), p(x1, 0.02, HS + C)], blanc(h.a.arete)));
@@ -111,7 +110,7 @@ module.exports = (h) => {
             out.push(h.path(fil, h.a.fin));
           });
           // La fenêtre : bout est, rive sud, dessus.
-          out.push(poly([fen(W, 0, 0), fen(W, L, 0), fen(W, L, 1), fen(W, 0, 1)], blanc(h.a.contour)));
+          out.push(poly([fen(W, 0, 0), fen(W, L, 0), fen(W, L, 1), fen(W, 0, 1)], h.a.ombre), poly([fen(W, 0, 0), fen(W, L, 0), fen(W, L, 1), fen(W, 0, 1)], h.a.contour));
           out.push(poly([fen(0, 0, 0), fen(W, 0, 0), fen(W, 0, 1), fen(0, 0, 1)], blanc(h.a.contour)));
           out.push(poly([fen(0, 0, 1), fen(W, 0, 1), fen(W, L, 1), fen(0, L, 1)], blanc(h.a.contour)));
           // Les carreaux, trois sur deux.
@@ -150,7 +149,8 @@ module.exports = (h) => {
           // La terre.
           out.push(h.rect(q(-1.2, 0)[0], q(0, 0)[1], s * (D + 1.55), s * 0.5, h.a.hachure('terre', 'aucun')));
           out.push(h.chemin(Q([[-1.2, 0], [D + 0.35, 0]]), h.a.arete));
-          // Le côté ouest, vu au fond : ses planches et ses deux poteaux.
+          // Le côté ouest, vu au fond : ses planches et ses deux poteaux. Il recule en gris loin.
+          out.push(poly(Q([[E, 0], [E, haut(E)], [D - E, haut(D - E)], [D - E, 0]]), h.a.loin));
           out.push(h.chemin(Q([[E, 0], [E, haut(E)], [D - E, haut(D - E)], [D - E, 0]]), h.a.arete));
           out.push(h.chemin(Q([[E, 1], [D - E, 1]]), h.a.detail));
           out.push(h.chemin(Q([[E, 2], [D - E, 2]]), h.a.detail));

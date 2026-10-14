@@ -14,6 +14,11 @@
 // ligne du pivot, sous l'avant du pied : quand le talon monte, toute la lanière tourne avec
 // le pied autour de ce point, rien ne se tend, et la pointe du pied descend dans le trou
 // entre le cordon et la traverse avant, sans toucher la traverse.
+//
+// La charte : la lanière, sujet de la planche, au contour fort. Pas de gris : les vues du haut
+// sont de dessus, et le pied n'en prend pas (on ne touche pas aux corps). Le rouge : le pied
+// qui entre par l'avant et le talon qui se lève (les gestes) ; le tour du talon, sur le tendon,
+// le serrage à vérifier à chaque halte (étape 37).
 
 module.exports = (h) => ({
   ref: '89-04',
@@ -59,7 +64,7 @@ module.exports = (h) => ({
           ligatures(h, P),
           pied(h, P),
           bande(h, P.lisse(BRIDE).slice(8, -8), LARG * S, { debut: false, fin: false }),
-          h.fleche(`M${P.pt([0, 27.2]).join(' ')} L${P.pt([0, 23.4]).join(' ')}`),
+          h.geste(`M${P.pt([0, 27.2]).join(' ')} L${P.pt([0, 23.4]).join(' ')}`),
         ].join('\n');
       },
       renvois: z => {
@@ -195,7 +200,7 @@ function plan(z) {
 
 // Une bande (la lanière) autour d'une ligne médiane déjà en unités de dessin.
 function bande(h, c, w, { debut = true, fin = true, trait } = {}) {
-  trait = trait || h.a.arete;
+  trait = trait || h.a.contour;
   const n = c.length, G = [], D = [];
   for (let i = 0; i < n; i++) {
     const a = c[Math.max(0, i - 1)], b = c[Math.min(n - 1, i + 1)];
@@ -314,7 +319,10 @@ function cote(h, z, theta) {
   if (theta) {
     const Ra = 24.5, a1 = 174 * Math.PI / 180, a2 = 151 * Math.PI / 180;
     const p1 = C.pt([Ra * Math.cos(a1), Ra * Math.sin(a1)]), p2 = C.pt([Ra * Math.cos(a2), Ra * Math.sin(a2)]);
-    out.push(h.fleche(`M${p1[0].toFixed(1)} ${p1[1].toFixed(1)} A${(Ra * SP).toFixed(1)} ${(Ra * SP).toFixed(1)} 0 0 0 ${p2[0].toFixed(1)} ${p2[1].toFixed(1)}`));
+    out.push(h.geste(`M${p1[0].toFixed(1)} ${p1[1].toFixed(1)} A${(Ra * SP).toFixed(1)} ${(Ra * SP).toFixed(1)} 0 0 0 ${p2[0].toFixed(1)} ${p2[1].toFixed(1)}`));
+  } else {
+    // le serrage à vérifier : le tour du talon, sur le tendon
+    out.push(h.controle(...C.pt([-19.6, 6.0]), 13));
   }
   return out.join(NL);
 }

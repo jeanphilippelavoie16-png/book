@@ -70,6 +70,8 @@ module.exports = (h) => {
           for (let x = wx + 10; x <= fin; x += 9) out.push(h.cercle(x, my, 1.7, h.a.plein));
           // trois crampes, la dernière au bas de la planche : aucun jour entre le mur et le grillage
           [36, 76, g - 13].forEach(y => out.push(h.rect(wx - 5, y - 1, 11, 2.4, h.a.plein)));
+          // charte : le point à vérifier, le joint du bas entre le mur et le grillage
+          out.push(h.controle(wx + 1, g - 8, 11));
           // les cotes : largeur du tablier depuis le nu du mur, terre par-dessus
           const yc = my + 24, xc = fin - 26;
           out.push(h.ligne(wx, my + 4, wx, yc - 6, h.a.fin), h.ligne(fin, my + 4, fin, yc - 6, h.a.fin));

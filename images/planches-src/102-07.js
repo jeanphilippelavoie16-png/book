@@ -97,6 +97,11 @@ module.exports = (h) => {
             gauche.push([cx - d, y]); droite.push([cx + d, y]);
           }
           o.push(h.chemin([...gauche, ...droite.slice().reverse()], h.a.blanc, true));
+          // charte : le dedans du sac, vu en coupe, en gris loin ; le haut du conduit reste blanc
+          {
+            const sac = [...gauche, ...droite.slice().reverse()].map((p, i) => `${i ? 'L' : 'M'}${Math.round(p[0] * 10) / 10} ${Math.round(p[1] * 10) / 10}`).join(' ') + ' Z';
+            o.push(`<path d="${sac} M${cx - tR} ${ty} L${cx + tR} ${ty} L${cx + tR} ${sb} L${cx - tR} ${sb} Z" ${h.a.loin} fill-rule="evenodd"/>`);
+          }
           // Conduit : bûche creusée, deux parois en coupe
           o.push(h.rect(cx - tR, ty, tR - tr, gy - ty, h.a.hachure('bois')));
           o.push(h.rect(cx + tr, ty, tR - tr, gy - ty, h.a.hachure('bois')));

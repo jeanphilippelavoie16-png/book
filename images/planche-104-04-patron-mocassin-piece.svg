@@ -66,6 +66,7 @@
 <line x1="269.2" y1="141" x2="231.8" y2="154.5" fill="none" stroke="#1A1A1A" stroke-width="2.6" stroke-linecap="round"/>
 <path d="M269.2374,140.985216 q4.996640000000001,14.989920000000001 -2.4983200000000005,73.48" fill="none" stroke="#1A1A1A" stroke-width="2.6"/></g>
 <circle cx="250.5" cy="119" r="73.5" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="264.2" cy="95.3" r="17" fill="none" stroke="#9B2C1E" stroke-width="1.6"/>
 <path d="M14.180000000000007,207 q8,-4 16.9,0 t16.9,0 t16.9,0 t16.9,0 t16.9,0 t16.9,0 t16.9,0 t16.9,0 t16.9,0" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
 </g>
 <text x="396.6" y="405" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#1A1A1A">Monté</text>

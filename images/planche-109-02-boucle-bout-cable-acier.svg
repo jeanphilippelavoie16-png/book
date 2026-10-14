@@ -92,7 +92,7 @@
 <circle cx="79.3" cy="192.6" r="11.1" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
 <circle cx="99.5" cy="180.9" r="11.1" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
 <circle cx="119.7" cy="192.6" r="11.1" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
-<circle cx="99.5" cy="134.3" r="45.6" fill="none" stroke="#9B2C1E" stroke-width="1.6"/>
+<circle cx="99.5" cy="99.4" r="31.9" fill="none" stroke="#9B2C1E" stroke-width="1.6"/>
 </g>
 <text x="293.2" y="283.6" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#1A1A1A">Cosses de fortune</text>
 <g transform="translate(293.2 291.6)" data-vue="cosses">

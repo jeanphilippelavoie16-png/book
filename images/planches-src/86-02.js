@@ -6,6 +6,10 @@
 // prise sous la glace dans un trou d'eau qui ne gèle pas au fond, roue et dynamo dans un petit abri),
 // étape 3 (on ne détourne jamais le ruisseau au complet).
 // Aucune cote : le chapitre ne donne aucune dimension de la roue, de la buse ni de la tranchée.
+// La charte : en coupe d'hiver, l'intérieur de l'abri en gris loin, la roue blanche devant ; la
+// roue de face et la cuiller restent sans gris (des disques vus à plat). Le rouge : la zone
+// dangereuse, la glace mangée par en dessous au-dessus du trou d'eau. Les flèches d'eau et de
+// rotation restent noires.
 
 module.exports = (h) => {
   const f = v => Math.round(v * 10) / 10;
@@ -232,7 +236,7 @@ module.exports = (h) => {
       // l'abri
       h.chemin(P([[426, 56], [530, 66], [530, 74], [426, 64]]), h.a.hachure('neige', 'aucun'), true),
       h.ligne(426, Y(56), 530, Y(66), h.a.fin),
-      h.chemin(P([[438, 70.6], [518, 78.3], [518, 156], [438, 156]]), h.a.blanc, true),
+      h.chemin(P([[438, 70.6], [518, 78.3], [518, 156], [438, 156]]), h.a.loin, true),   // l'intérieur de l'abri, vu par la coupe
       h.chemin(P([[426, 64], [530, 74], [530, 80], [426, 70]]), h.a.hachure('bois'), true),
       R(432, 70, 6, 156, h.a.hachure('bois')),
       R(518, 78, 6, 156, h.a.hachure('bois')),
@@ -255,6 +259,8 @@ module.exports = (h) => {
       h.fleche(`M98 ${Y(66)} Q110 ${Y(50)} 126 ${Y(47)} L151 ${Y(47)} L184 ${Y(80)}`),
       h.fleche(`M${cw[0] - 2} ${yjw + 4} Q${cw[0] - 8} ${yjw + 20} ${cw[0] - 6} ${Y(181)}`),
       h.fleche(`M558 ${Y(200)} L584 ${Y(201)}`),
+      // la zone dangereuse : la glace au-dessus du trou d'eau, mangée par en dessous
+      h.rect(2, Y(ys - 13), 112, Y(ys + 9) - Y(ys - 13), h.a.zone),
     ];
     return {
       dessin: out.join('\n'),

@@ -108,8 +108,8 @@ module.exports = (h) => {
             // la lanière libre
             h.path(d(lan.int), h.a.contour),
             h.path(d(lan.ext), h.a.contour),
-            // sens de coupe
-            h.fleche(d(arc), h.a.arete),
+            // sens de coupe : le geste, en rouge (charte)
+            h.geste(d(arc)),
             couteau(K, 0.52 * PI),
           ].join('\n');
         },

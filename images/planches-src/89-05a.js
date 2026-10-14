@@ -1,5 +1,9 @@
 // Planche 89-05a — Le toboggan de deux planches (ch. 89, étapes 43 à 56)
 // Page a : l'objet monté. Page b (89-05b) : cintrer la tête.
+// La charte : le contour des planches et des pièces coupées est déjà au trait fort. Pas de gris :
+// vue de dessus, coupes hachurées, et de côté une planche de 13 mm qui n'a pas de face à ombrer.
+// Le rouge : la ficelle couchée dans sa rainure, à fleur du dessous (le point à vérifier : elle
+// ne doit pas toucher la neige). Pas de geste : c'est l'objet monté.
 module.exports = (h) => {
   const G = geom();
   return {
@@ -155,6 +159,8 @@ module.exports = (h) => {
           // la ficelle : monte par un trou, passe sur la traverse, redescend, revient dans la rainure
           const f = [[-22, -11.75], [-22, 0.3], [-17.1, 23.25], [17.1, 23.25], [22, 0.3], [22, -11.75]];
           o.push(bande(h, f.map(L.pt), 2.5 * L.k, true));
+          // le point à vérifier : la ficelle dans sa rainure, à fleur du dessous
+          o.push(h.controle(...L.pt([0, -11.5]), 13));
           // cotes : traverse 32 × 22, planche 13
           o.push(h.ligne(...L.pt([-16, 23.5]), ...L.pt([-16, 33]), h.a.fin), h.ligne(...L.pt([16, 23.5]), ...L.pt([16, 33]), h.a.fin));
           o.push(h.cote(...L.pt([-16, 30]), ...L.pt([16, 30]), '32 mm', { cote: 'dessus' }));

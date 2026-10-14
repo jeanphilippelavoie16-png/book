@@ -1,6 +1,10 @@
 // 86-03b — L'éolienne de fortune : lever le mât, freiner le rotor (chapitre 86, section D)
 // Repères en unités de dessin, y vers le haut ; proportions seulement, aucune cote tirée de là.
 // Mêmes proportions qu'en 86-03a : mât 10, collier des haubans à 8,1, bras de levage 3,6.
+// La charte : à la charnière, la face de droite du mât et le dessous du bras à l'ombre. Le rouge :
+// la zone où le mât tombe (le quart de cercle de sa hauteur, du côté où il penche), l'ancrage des
+// haubans de côté sur l'axe de la charnière (le point qui les garde tendus), et le geste de la lame
+// de l'interrupteur. La flèche du mât qui se lève reste noire : c'est la pièce qui bouge.
 
 const cadre = (z, bb, m = [16, 10, 16, 10]) => {
   const [x0, x1, y0, y1] = bb;
@@ -104,6 +108,8 @@ module.exports = (h) => {
           o.push(h.cercle(...T(...hb), 0.12 * T.s, BLANCD));
           // le mouvement
           o.push(h.fleche(d(T, arc(HC, 9.3, Math.PI - 0.2, Math.PI / 2 + 0.2)), h.a.arete));
+          // la zone dangereuse : là où le mât tombe, sur toute sa hauteur, du côté où il penche
+          o.push(h.path(d(T, arc(HC, 10.6, Math.PI / 2, Math.PI - 0.05)), h.a.zone));
           void tp;
           return o.join('\n');
         },
@@ -134,6 +140,8 @@ module.exports = (h) => {
           o.push(rct(P, -10.6, -0.3, -9.7, 0.3, BLANCD));
           o.push(rct(P, -0.2, -0.3, 0.45, 0.3, BLANCD));
           for (const q of [[0, 5], [0, -5], [AX, 0], [GP, 0], [WX, 0]]) o.push(h.cercle(...P(...q), 3, h.a.plein));
+          // le point à contrôler : l'ancrage de côté pris sur l'axe de la charnière
+          o.push(h.controle(...P(0, 5), 11));
           return o.join('\n');
         },
         renvois: z => {
@@ -154,10 +162,10 @@ module.exports = (h) => {
           o.push(rct(P, -2.3, -1.05, 3.2, 0, BLANC));
           for (const y of [-0.3, -0.7]) o.push(h.path(d(P, [[-2.1, y], [-0.9, y + 0.06], [1.2, y - 0.05], [3.0, y + 0.03]]), h.a.fin));
           // mât
-          o.push(rct(P, -0.5, 0.6, 0.5, 6.4, BLANC));
+          o.push(rct(P, -0.5, 0.6, 0.5, 6.4, h.a.blanc), rct(P, 0.2, 0.6, 0.5, 6.4, h.a.ombre), rct(P, -0.5, 0.6, 0.5, 6.4, h.a.arete));   // la face de droite du mât, à l'ombre
           o.push(brisure(P, [-0.7, 6.4], [0.7, 6.4], 0.08));
           // bras de levage et gousset
-          o.push(rct(P, 0.5, 2.6, 5.2, 3.4, BLANC));
+          o.push(rct(P, 0.5, 2.6, 5.2, 3.4, h.a.blanc), rct(P, 0.5, 2.6, 5.2, 2.85, h.a.ombre), rct(P, 0.5, 2.6, 5.2, 3.4, h.a.arete));   // le dessous du bras, à l'ombre
           o.push(brisure(P, [5.2, 2.4], [5.2, 3.6], 0.08));
           o.push(poly(P, [[0.5, 3.4], [0.5, 4.9], [2.0, 3.4]], BLANC));
           // oreille de devant : plat boulonné contre la semelle, arrondi autour du boulon
@@ -209,7 +217,7 @@ module.exports = (h) => {
           o.push(rct(F, 1.0, 4.72, L[0] - 0.3, 5.28, h.a.hachure('bois', 'detail')));
           o.push(h.cercle(...F(...PV), 0.3 * F.s, BLANC), h.cercle(...F(...PV), 0.1 * F.s, h.a.plein));
           // le mouvement : par le bas, d'un plot à l'autre
-          o.push(h.fleche(d(F, arc(PV, 2.2, Math.PI + 0.35, 2 * Math.PI - 0.35)), h.a.arete));
+          o.push(h.geste(d(F, arc(PV, 2.2, Math.PI + 0.35, 2 * Math.PI - 0.35))));
           // second rappel du renvoi 16, vers l'autre fil
           { const k = F(1.6, -0.8), q = F(10.6, -0.8), r0 = [k[0] + 36, k[1] + 4];
             o.push(`<line x1="${f(r0[0])}" y1="${f(r0[1])}" x2="${f(q[0])}" y2="${f(q[1])}" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>`);

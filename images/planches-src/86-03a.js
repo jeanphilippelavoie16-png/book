@@ -1,6 +1,10 @@
 // 86-03a — L'éolienne de fortune, montée (chapitre 86, section D, « Bâtir », « Le mât »)
 // Repères en unités de dessin, y vers le haut ; proportions seulement, aucune cote tirée de là.
 // Le vent vient de la gauche : le rotor est devant le mât, la queue derrière.
+// La charte : le moteur de la tête au trait fort, son dessous à l'ombre ; le tuyau à fendre, son
+// dessous à l'ombre ; les pales du rotor de face au trait fort. Le rouge : la portée des pales, la
+// zone où une pale frappe (le tireté de l'ensemble), et la boucle du câble, le point qu'on vérifie
+// et qu'on détord à chaque visite. Le vent reste noir.
 
 const cadre = (z, bb, m = [16, 10, 16, 10]) => {
   const [x0, x1, y0, y1] = bb;
@@ -62,7 +66,7 @@ module.exports = (h) => {
           o.push(seg(E, [-0.08, HG], [-5, 0.1], h.a.detail));
           o.push(seg(E, [0.08, HG], [GP, 0.5], h.a.detail));
           // portée des pales (disque vu par la tranche)
-          o.push(seg(E, [XR - 0.2, HUB - R], [XR - 0.2, HUB + R], h.a.cache));
+          o.push(seg(E, [XR - 0.2, HUB - R], [XR - 0.2, HUB + R], h.a.zone));   // là où une pale frappe
           o.push(seg(E, [XR - 0.2, HUB - R], [-0.08, HUB - R], h.a.fin + ' stroke-dasharray="3 2"'));
           // mât
           o.push(rct(E, -0.08, 0.42, 0.08, H, BLANC));
@@ -123,7 +127,8 @@ module.exports = (h) => {
           o.push(rct(T, 0.4, 0.34, 6.4, 0.62, BLANC));
           for (const x of [4.9, 5.9]) o.push(h.cercle(...T(x, 0.48), 2.2, h.a.plein));
           // moteur bridé
-          o.push(rct(T, -1.8, 0.34, 0.1, 1.74, BLANC));
+          o.push(rct(T, -1.8, 0.34, 0.1, 1.74, h.a.blanc), rct(T, -1.8, 0.34, 0.1, 0.8, h.a.ombre));   // le dessous du moteur, à l'ombre
+          o.push(rct(T, -1.8, 0.34, 0.1, 1.74, h.a.contour));
           o.push(rct(T, -2.0, 0.46, -1.8, 1.62, BLANC), rct(T, 0.1, 0.46, 0.3, 1.62, BLANC));
           for (const x of [-1.5, -0.25]) o.push(rct(T, x, 0.34, x + 0.2, 1.8, BLANCD));
           for (const x of [-1.4, -0.15]) o.push(seg(T, [x, 0.14], [x, 0.04], h.a.contour));
@@ -143,6 +148,8 @@ module.exports = (h) => {
           // câble : du moteur, derrière la plaque, le long du manchon, une boucle lâche, pris au mât
           o.push(h.path(`M ${T(0.3, 1.1).map(f).join(' ')} Q ${T(1.0, 1.1).map(f).join(' ')} ${T(1.0, 0.5).map(f).join(' ')} L ${T(0.95, -2.9).map(f).join(' ')}`, h.a.arete));
           o.push(courbe(T, boucle(0.95, -2.9, 1.8, 0.6), 80, h.a.arete));
+          // le point qu'on vérifie à chaque visite : la boucle, qu'on détord à la main
+          o.push(h.controle(...T(1.55, -3.8), 0.95 * T.s));
           o.push(h.path(`M ${T(0.95, -4.7).map(f).join(' ')} Q ${T(0.95, -5.3).map(f).join(' ')} ${T(0.58, -5.5).map(f).join(' ')} L ${T(0.58, -6.3).map(f).join(' ')}`, h.a.arete));
           o.push(rct(T, 0.5, -5.72, 0.74, -5.52, h.a.plein));
           return o.join('\n');
@@ -167,7 +174,12 @@ module.exports = (h) => {
           const P = repP(z), s = P.s, o = [];
           // 1. le tuyau, en bout et de biais, fendu en quatre
           const cx = 1.8, cy = 0.4, r = 1.9, rx = 0.62 * r, L = 5.4;
-          o.push(h.path(`M ${P(cx, cy + r).map(f).join(' ')} L ${P(cx + L, cy + r).map(f).join(' ')} A ${f(rx * s)} ${f(r * s)} 0 0 1 ${P(cx + L, cy - r).map(f).join(' ')} L ${P(cx, cy - r).map(f).join(' ')}`, BLANC));
+          const dTuyau = `M ${P(cx, cy + r).map(f).join(' ')} L ${P(cx + L, cy + r).map(f).join(' ')} A ${f(rx * s)} ${f(r * s)} 0 0 1 ${P(cx + L, cy - r).map(f).join(' ')} L ${P(cx, cy - r).map(f).join(' ')}`;
+          o.push(h.path(dTuyau, h.a.blanc));
+          // le dessous du tuyau, à l'ombre, jusqu'au bord du bout arrondi
+          { const bord = []; for (let i = 0; i <= 8; i++) { const t = -0.55 - 0.45 * i / 8; bord.push([cx + L + rx * Math.sqrt(1 - t * t), cy + t * r]); }
+            o.push(poly(P, [[cx, cy - 0.55 * r], ...bord, [cx, cy - r]], h.a.ombre)); }
+          o.push(h.path(dTuyau, h.a.arete));
           o.push(h.ellipse(...P(cx, cy), rx * s, r * s, BLANC));
           o.push(h.ellipse(...P(cx, cy), rx * s * 0.86, r * s * 0.86, h.a.detail));
           for (const t of [0, Math.PI / 2, Math.PI, 1.5 * Math.PI]) {
@@ -189,7 +201,7 @@ module.exports = (h) => {
           for (let k = 0; k < 3; k++) {
             const th = Math.PI / 2 + k * 2 * Math.PI / 3, u = [Math.cos(th), Math.sin(th)], v = [-Math.sin(th), Math.cos(th)];
             const Q = (a, b) => [rcx + a * u[0] + b * v[0], rcy + a * u[1] + b * v[1]];
-            o.push(poly(P, [Q(0.3, 0), Q(RR, 0), Q(RR, 0.3 * w), Q(0.3 + rac, w), Q(0.3, w)], BLANC));
+            o.push(poly(P, [Q(0.3, 0), Q(RR, 0), Q(RR, 0.3 * w), Q(0.3 + rac, w), Q(0.3, w)], h.a.contour.replace('fill="none"', 'fill="#FFFFFF"')));
             o.push(seg(P, Q(0.3 + rac + 0.2, w / 2), Q(RR - 0.2, 0.15 * w), h.a.fin));
           }
           o.push(h.cercle(...P(rcx, rcy), rho * s, BLANC));

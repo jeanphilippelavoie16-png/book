@@ -6,6 +6,10 @@
 // entre deux plants, qui prennent le soleil le jour et le rendent la nuit ; un drap, une toile ou
 // des branches de conifère qui bloquent la vue du ciel les nuits claires. Aucune mesure : aucune
 // cote. Le lest est dessiné en pierres, le pied des perches piqué en terre.
+// La charte : la pellicule garde son contour fort ; les pierres du lest qui sont derrière le
+// tunnel reculent en gris loin. Pas d'ombre : la pellicule et la cloche sont claires, on voit au
+// travers. Le rouge : le bord de la pellicule à plat sous les pierres et le goulot débouché le jour
+// (les deux points que le chapitre dit de tenir). Les flèches de chaleur et de soleil restent noires.
 module.exports = (h) => {
   const f = (n) => Math.round(n * 10) / 10;
   const blanc = (a) => a.replace('fill="none"', 'fill="#FFFFFF"');
@@ -192,8 +196,9 @@ module.exports = (h) => {
           out.push(h.chemin(bord.map(([x, y]) => p(x, y, 0)), blanc(h.a.detail), true));
           const pierres = pierresLest();
           const derriere = (q) => q[0] < -0.6 || q[1] > LY + 0.3;
-          const peint = (q, i) => { const [cx, cy] = p(q[0], q[1], 0); return pierre(cx, cy - s * 0.06, s * 0.2, s * 0.12, i + 1); };
-          pierres.forEach((q, i) => { if (derriere(q)) out.push(peint(q, i)); });
+          const gris = (a) => a.replace('fill="none"', 'fill="#E6E6E6"');
+          const peint = (q, i, at) => { const [cx, cy] = p(q[0], q[1], 0); return pierre(cx, cy - s * 0.06, s * 0.2, s * 0.12, i + 1, at); };
+          pierres.forEach((q, i) => { if (derriere(q)) out.push(peint(q, i, gris(h.a.arete))); });
           // Le corps du tunnel : l'enveloppe des arceaux et des deux bouts, pellicule claire.
           const env = enveloppe([...arc(p, 0), ...arc(p, LY), p(...A), p(...B)]);
           out.push(h.chemin(env, h.a.blanc, true));
@@ -256,6 +261,8 @@ module.exports = (h) => {
           out.push(h.chemin(film, h.a.arete));
           // Les pierres sur le bord à plat.
           [[-1.25, 3], [1.25, 7]].forEach(([x, g]) => { const [cx, cy] = q(x, 0.02); out.push(pierre(cx, cy - s * 0.08, s * 0.18, s * 0.145, g)); });
+          // le point à tenir : le bord de la pellicule, à plat sous la pierre, sur tout le pourtour
+          { const [cx, cy] = q(1.31, 0.05); out.push(h.controle(cx, cy, s * 0.165)); }
           return out.join('\n');
         },
         renvois: (z) => {
@@ -296,6 +303,8 @@ module.exports = (h) => {
             else {
               const [mx, my] = Tc([0, 0.97]);
               out.push(h.ellipse(mx, my, u * 0.09, u * 0.025, blanc(h.a.detail)));
+              // le point à tenir : le goulot débouché le jour
+              out.push(h.controle(mx, my, u * 0.14));
               // le bouchon posé à côté, sur le flanc
               const [bx, by] = k(cx + 0.64, 0);
               out.push(h.rect(bx - u * 0.1, by - u * 0.09, u * 0.2, u * 0.09, blanc(h.a.arete)));

@@ -96,6 +96,8 @@ module.exports = (h) => {
           out.push(aiguille(...eX, ...tX));
           out.push(aiguille(...eY, ...tY));
           out.push(creux(qQ), plein(qP));
+          // charte : le point à vérifier, les deux brins croisés dans le trou
+          out.push(h.controle(x2, y0 + t, 15));
           return out.join('\n');
         },
         renvois: (z) => {
@@ -128,7 +130,7 @@ module.exports = (h) => {
             const nx = s * -uy, ny = s * ux, o = 15;
             const a = [ax + ux * L * 0.45 + nx * o, ay + uy * L * 0.45 + ny * o];
             const b = [ax + ux * L * 0.82 + nx * o, ay + uy * L * 0.82 + ny * o];
-            return h.fleche(`M ${a[0].toFixed(1)} ${a[1].toFixed(1)} L ${b[0].toFixed(1)} ${b[1].toFixed(1)}`);
+            return h.geste(`M ${a[0].toFixed(1)} ${a[1].toFixed(1)} L ${b[0].toFixed(1)} ${b[1].toFixed(1)}`);   // charte : le geste, les deux brins ensemble
           };
           out.push(fl(xh + d, hy, z.l - 14, hy - fin, -1));
           out.push(fl(xh + d, by, z.l - 14, by + fin, 1));
@@ -151,8 +153,9 @@ module.exports = (h) => {
           return [
             h.path(Bd, fil(5.5, N, 'butt')), h.path(Bd, fil(2.3, B, 'butt')),
             h.path(A, fil(4.5, N, 'butt')),
-            h.fleche(`M ${cx - 10} ${cy - 84} L ${cx - 10} ${cy - 44}`),
-            h.fleche(`M ${cx - 10} ${cy + 84} L ${cx - 10} ${cy + 44}`),
+            // charte : le geste, aplatir les deux crochets l'un contre l'autre
+            h.geste(`M ${cx - 10} ${cy - 84} L ${cx - 10} ${cy - 44}`),
+            h.geste(`M ${cx - 10} ${cy + 84} L ${cx - 10} ${cy + 44}`),
           ].join('\n');
         },
         renvois: (z) => {

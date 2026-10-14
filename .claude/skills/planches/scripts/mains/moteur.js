@@ -1289,7 +1289,7 @@ function construire(o, prep = null) {
         for (let j = 0; j < K; j++) polysBR.push(enveloppe(ev[j].concat(ev[j + 1])));
       }
       const frB = frEn(dB3), secB = [];
-      const nB = Math.max(3, Math.ceil(LBd / 6));
+      const nB = Math.max(3, Math.ceil(LBd / 12));          // (un cylindre presque droit : une section tous les 12 mm)
       for (let k = 0; k <= nB; k++) {
         const s_ = LBd * k / nB, c = a3(cE, m3(dB3, s_)), w = largeurs(LA + s_);
         secB.push(section(c, frB, w).map(p2));
@@ -1482,7 +1482,6 @@ function dessiner(o, prep = null) {
       });
       for (const [i, dev] of bascule) { if (dev) devantObjet.add(i); else pieces[i].pasRepeinte = true; }
     }
-    if (process.env.MAINS_DBG_OBJ) pieces.forEach((P, i) => { if (P.surObjet) console.error(P.id, 'part', P.partObjet.toFixed(3), devantObjet.has(i) ? 'DEVANT' : 'derriere', P.pasRepeinte ? '(pas repeinte)' : ''); });
   }
   // ── les doigts entiers (groupes) : leur contour, leurs sphères, l'ordre entre eux ──
   const groupes = new Map();

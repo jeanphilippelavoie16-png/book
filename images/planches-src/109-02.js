@@ -240,7 +240,7 @@ module.exports = (h) => {
     out.push(sectionCable(cx, q.yd, D));
     out.push(sectionCable(cx, q.yl, D));
     // la charte : le point à contrôler, l'étrier qui chevauche le brin mort
-    out.push(h.controle(cx, q.yd, D / 2 + 7 * q.s));
+    out.push(h.controle(cx, q.yb - e + R / 2, R / 2 + 12 * q.s));
     return out.join('\n');
   };
   const renvoisCoupe = z => {

@@ -242,7 +242,6 @@ module.exports = (h) => {
   const vueRate = z => {
     const { P, s } = cadre1(z);
     const out = [];
-    let nOm = 0; void nOm;
     // la toile posée à même le plant : elle suit le dessus des feuilles et retombe au sol
     const xg = -XR + 115, xd = XR - 115;
     const coque = coqueHaute([...pts1, [xg, 0], [xd, 0]]);
@@ -254,6 +253,14 @@ module.exports = (h) => {
     out.push(sol(P, -XR, XR, FOND));
     out.push(h.chemin(toile.map(p => P(...p)), h.a.contour));
     out.push(pierre(P, -XR + 62, 92, 58, 5), pierre(P, XR - 62, 92, 58, 9));
+    // La charte : sur le raté, le cercle rouge marque l'endroit où ça casse, la foliole gelée sous
+    // la toile (la même que vise le renvoi 5)
+    let best = null;
+    for (const f of plant1.feuilles) for (const o of f.fols) if (gele(o.poly)) {
+      const c = o.poly.reduce((a, p) => [a[0] + p[0] / o.poly.length, a[1] + p[1] / o.poly.length], [0, 0]);
+      if (!best || c[0] > best[0]) best = c;
+    }
+    if (best) out.push(h.controle(...P(...best), 13));
     return { svg: out.join('\n'), P, s, coque, gele };
   };
 
@@ -464,7 +471,7 @@ module.exports = (h) => {
       },
       rate: {
         titre: 'Raté : la toile sur les feuilles',
-        dessin: z => une('rate', vueRate)(z).svg + '\n' + vues.rate.controle(z),
+        dessin: z => une('rate', vueRate)(z).svg,
         renvois: z => {
           const v = une('rate', vueRate)(z), P = v.P;
           // la foliole gelée la plus haute
@@ -476,16 +483,7 @@ module.exports = (h) => {
           return [
             { n: 5, rond: P(XR - 28, best[1] + 20), cible: P(...best), texte: 'feuilles gelées là où elle appuie' },
           ];
-        },
-        // La charte : sur le raté, le cercle rouge marque l'endroit où ça casse
-        controle: z => {
-          const v = une('rate', vueRate)(z), P = v.P;
-          let best = null;
-          for (const f of plant1.feuilles) for (const o of f.fols) if (v.gele(o.poly)) {
-            const c = o.poly.reduce((a, p) => [a[0] + p[0] / o.poly.length, a[1] + p[1] / o.poly.length], [0, 0]);
-            if (!best || c[0] > best[0]) best = c;
-          }
-          return h.controle(...P(...best), 14);
+
         },
       },
       anneau: {

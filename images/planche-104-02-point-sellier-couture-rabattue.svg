@@ -3,7 +3,7 @@
 <desc>Coupe le long d’une couture au point sellier : un seul fil, une aiguille à chaque bout, les deux aiguilles passent dans le même trou en sens inverse et leurs brins se croisent dans chaque trou. À côté, le serrage des deux brins ensemble. En bas, la couture rabattue en coupe : les deux bords repliés en crochet et emboîtés, puis aplatis et piqués, aucun bord coupé à l’air.</desc>
 <defs>
 <pattern id="h-metal" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="10" stroke="#1A1A1A" stroke-width="0.7"/></pattern>
-<marker id="fl" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#1A1A1A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker>
+<marker id="fl-r" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9 Z" fill="#9B2C1E" stroke="#9B2C1E" stroke-width="1" stroke-linejoin="round"/></marker>
 </defs>
 <rect x="0" y="0" width="680" height="826" fill="#FFFFFF"/>
 <text x="40" y="38" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#1A1A1A">Le point sellier, coupé le long de la couture</text>
@@ -39,6 +39,7 @@
 <path d="M 286.9 287.2 L 279.5 299.6" fill="none" stroke="#1A1A1A" stroke-width="4.8" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M 286.9 287.2 L 279.5 299.6" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M 249.1 287.7 L 262.3 293.6" fill="none" stroke="#1A1A1A" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="154" cy="191" r="15" fill="none" stroke="#9B2C1E" stroke-width="1.6"/>
 </g>
 <text x="495.5" y="38" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#1A1A1A">Serrer</text>
 <g transform="translate(495.5 46)" data-vue="serrage">
@@ -50,16 +51,16 @@
 <path d="M 12.0 163.0 L 53.0 163.0 L 63.0 219.0 L 130.0 359.0" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
 <line x1="55.8" y1="203.3" x2="60.2" y2="178.7" fill="none" stroke="#FFFFFF" stroke-width="9" stroke-linejoin="round" stroke-linecap="butt"/>
 <path d="M 12.0 219.0 L 53.0 219.0 L 63.0 163.0 L 130.0 23.0" fill="none" stroke="#1A1A1A" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M 79.6 93.5 L 104.4 41.7" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl)"/>
-<path d="M 79.6 288.5 L 104.4 340.3" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl)"/>
+<path d="M 79.6 93.5 L 104.4 41.7" fill="none" stroke="#9B2C1E" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl-r)"/>
+<path d="M 79.6 288.5 L 104.4 340.3" fill="none" stroke="#9B2C1E" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl-r)"/>
 </g>
 <text x="40" y="458.8" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#1A1A1A">La couture rabattue, en coupe</text>
 <g transform="translate(40 466.8)" data-vue="pli">
 <path d="M 275 136 L 75 136 A 18 18 0 0 1 75 100 L 175 100" fill="none" stroke="#1A1A1A" stroke-width="5.5" stroke-linejoin="round" stroke-linecap="butt"/>
 <path d="M 275 136 L 75 136 A 18 18 0 0 1 75 100 L 175 100" fill="none" stroke="#FFFFFF" stroke-width="2.3" stroke-linejoin="round" stroke-linecap="butt"/>
 <path d="M 14 82 L 197 82 A 18 18 0 0 1 197 118 L 97 118" fill="none" stroke="#1A1A1A" stroke-width="4.5" stroke-linejoin="round" stroke-linecap="butt"/>
-<path d="M 135 25 L 135 65" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl)"/>
-<path d="M 135 193 L 135 153" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl)"/>
+<path d="M 135 25 L 135 65" fill="none" stroke="#9B2C1E" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl-r)"/>
+<path d="M 135 193 L 135 153" fill="none" stroke="#9B2C1E" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl-r)"/>
 </g>
 <text x="351" y="458.8" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#1A1A1A">Aplatie et piquée</text>
 <g transform="translate(351 466.8)" data-vue="finie">
