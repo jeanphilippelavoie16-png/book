@@ -87,8 +87,15 @@ module.exports = (h) => {
   const SIL = pieces(M_DOS)[0].map(versDos);                // le contour de la main et de l'avant-bras
   const yPouce = x => travers([x, 0], [0, 1], SIL)[0];      // le bord de l'avant-bras côté pouce (y < 0)
   const yPetit = x => travers([x, 0], [0, 1], SIL)[1];      // côté petit doigt
-  // la commissure : le contour sous le point (x, y0), en descendant vers le pouce
-  const yCreux = (x, y0 = -25) => y0 - travers([x, y0], [0, -1], SIL)[1];
+  // la commissure entre le pouce et l'index : le point du contour le plus près du poignet, entre le
+  // bout du pouce et le bout de l'index (par le chemin court du contour)
+  const APEX = (() => {
+    const pres = q => SIL.reduce((b, p, i) => lon(sub(p, q)) < lon(sub(SIL[b], q)) ? i : b, 0);
+    const i1 = pres(versDos(M_DOS.articulations['pouce.bout'])), i2 = pres(versDos(M_DOS.articulations['index.bout']));
+    const a = Math.min(i1, i2), b = Math.max(i1, i2);
+    const c1 = SIL.slice(a, b + 1), c2 = SIL.slice(b).concat(SIL.slice(0, a + 1));
+    return (c1.length < c2.length ? c1 : c2).reduce((m, p) => p[0] < m[0] ? p : m);
+  })();
 
   // le pouce : sa chaîne d'articulations, et ses deux bords relevés en travers
   const PT = ['pouce.cmc', 'pouce.mcp', 'pouce.ip', 'pouce.bout'].map(k => versDos(M_DOS.articulations[k]));
@@ -116,16 +123,17 @@ module.exports = (h) => {
   // ─── repères ─────────────────────────────────────────────────────────────────────────────
   // une seule échelle pour toute la planche : celle des vues de gauche (les coupes la reprennent)
   let E0 = null;
-  const ECH = z => (z.l > 300 || E0 == null) ? (E0 = z.l / 330) : E0;
-  const geoDos = z => {
-    const e = ECH(z), ox = z.l - 115 * e, oy = z.h / 2 - 22 * e;
+  const ECH = z => (z.l > 300 || E0 == null) ? (E0 = z.l / 355) : E0;
+  // yc : le y (mm) qui tombe au milieu de la hauteur de la vue
+  const geoDos = (z, yc = -15) => {
+    const e = ECH(z), ox = z.l - 120 * e, oy = z.h / 2 + yc * e;
     return { e, ox, oy, V: p => [ox + e * p[0], oy - e * p[1]] };
   };
   // Vue du côté du pouce : x mm (x profil = x dos + 42), y mm vers le bas, 0 = dessus de la latte. Le
   // poignet tombe à la même abscisse que dans la vue du dos.
   const DX = 42;
   const geoProfil = z => {
-    const e = ECH(z), ox = z.l - 115 * e, X0 = ox - DX * e, y0 = z.h / 2 + 18 * e;
+    const e = ECH(z), ox = z.l - 120 * e, X0 = ox - DX * e, y0 = z.h / 2 + 26 * e;
     return { e, X0, y0, V: p => [X0 + e * p[0], y0 + e * p[1]] };
   };
   const CUT = WX - BRAS;
@@ -291,6 +299,14 @@ module.exports = (h) => {
   const XC = -144;                           // la coupe C passe dans le tour du milieu
   const XB = -116;                           // la coupe B, dans le second tour de l'attelle de pouce
   const TOURS_POUCE = [-148, -116];
+  // le tour de la paume, vu du dos : un bout dans la commissure, l'autre sur le bord du petit doigt
+  const TP = [[APEX[0] - 9, APEX[1] - 1.6], [APEX[0] + 6, APEX[1] - 1.6], [-25, yPetit(-25) + 1.6], [-40, yPetit(-40) + 1.6]];
+  // les deux mains de la planche, posées par leur poignet
+  const mainDos = g => { const w = g.V([WX, 0]); return F({ ...MAIN, vue: 'dos', angle: 0, x: w[0], y: w[1], echelle: g.e, ancre: 'poignet', avantbras: { longueur: BRAS } }); };
+  const mainPro = g => { const w = g.V([WX + DX, Y_POI]); return F({ ...MAIN, vue: 'pouce', angle: ANG_P, x: w[0], y: w[1], echelle: g.e, ancre: 'poignet', avantbras: { longueur: BRAS } }); };
+  // les coupes : la demi-largeur de l'avant-bras (vue du dos) et son épaisseur (vue du côté du pouce)
+  const aB = (yPetit(XB) - yPouce(XB)) / 2, eB = -dessusP(XB + DX) / 2;
+  const aC = (yPetit(XC) - yPouce(XC)) / 2, eC = -dessusP(XC + DX);
 
 
   return {
@@ -300,30 +316,29 @@ module.exports = (h) => {
     format: 'pleine',
     disposition: [['pouce', 'coupesAB'], ['dessus', 'coupeD'], ['profil', 'coupeC']],
     largeurs: [[3, 1.1], [3, 1.1], [3, 1.1]],
-    hauteurs: [1.18, 1.18, 0.78],
+    hauteurs: [1.15, 1.15, 0.95],
     vues: {
       // ═══ L'attelle de pouce, vue du dos ═══════════════════════════════════════════════════
       pouce: {
         titre: 'L’attelle de pouce, vue du dos de la main',
         dessin: z => {
           const g = geoDos(z), e = g.e, out = [];
-          out.push(h.formes.main({ x: g.ox, y: g.oy, pose: 'appui', vue: 'dos', cote: 'gauche', angle: 180, echelle: e, bras: BRAS }));
-          out.push(commissures(g));
+          out.push(mainDos(g));
           const tr = ecorcePouce.troncons.map(t => t.map(g.V));
-          out.push(`<path d="${forme(tr)}" ${blancTrait('arete')}/>`);
+          out.push(`<path d="${forme(tr)}" ${blancTrait('contour')}/>`);
           // le sens des lenticelles : en travers du membre qu'elle entoure
           out.push(lenticelles(g, ecorcePouce.contour, p => {
-            if (p[0] < -96) return [0, 1];
+            if (p[0] < WX - 4) return [0, 1];
             const s = Math.max(0, Math.min(S_FIN, lon(sub(p, P0))));
             return gau(surPouce(s).u);
           }, 2410, 70));
-          TOURS_POUCE.forEach(xm => out.push(tourBande(g, xm - LARG / 2, LARG, -30.5 - OFF - 1.6, 33, 2.5)));
+          TOURS_POUCE.forEach(xm => out.push(tourBande(g, xm - LARG / 2, LARG, yPouce(xm) - OFF - 1.6, yPetit(xm) + 1.6, 2.5)));
           // coupes A (au pouce) et B (au poignet)
           const qa = surPouce(63), na = gau(qa.u);
-          const pa = g.V(add(qa.p, mul(na, 22))), pb = g.V(add(qa.p, mul(na, -22)));
+          const pa = g.V(add(qa.p, mul(na, 18))), pb = g.V(add(qa.p, mul(na, -18)));
           const va = uni(sub(g.V(sub(qa.p, qa.u)), g.V(qa.p)));
           out.push(traitCoupe(pb, pa, va, 'A', 'q'));
-          out.push(traitCoupe(g.V([XB, 44]), g.V([XB, -44]), [-1, 0], 'B', 'q'));
+          out.push(traitCoupe(g.V([XB, yPetit(XB) + 11]), g.V([XB, yPouce(XB) - 11]), [-1, 0], 'B', 'q'));
           return out.join('\n');
         },
         renvois: z => {
@@ -332,7 +347,7 @@ module.exports = (h) => {
           return [
             { n: 1, rond: g.V([-80, -72]), cible: g.V(surPouce(55).p), texte: 'écorce trempée chaude, moulée sur le pouce' },
             { n: 2, rond: g.V([-178, -52]), cible: g.V([-132, -24]), texte: 'et sur le bord du poignet, côté pouce' },
-            { n: 3, rond: g.V([42, -60]), cible: g.V(surPouce(92).p), texte: 'pouce écarté comme pour tenir un verre' },
+            { n: 3, rond: g.V([46, -72]), cible: g.V(surPouce(S_TOT - 4).p), texte: 'pouce écarté comme pour tenir un verre' },
             { n: 4, rond: g.V([-196, 24]), cible: g.V([-148, 10]), texte: 'bande : l’écorce sèche en place' },
           ];
         },
@@ -347,7 +362,7 @@ module.exports = (h) => {
           // (le côté du petit doigt en haut, le côté du pouce en bas), le dos de la main à gauche.
           const cxB = z.l * 0.3, cyB = g.oy - e * 0.5;
           // l'ovale est construit large ; on le veut haut : échange des axes
-          const contB = ovale(0, 0, 31 * e, 20.5 * e, 20.5 * e, 2.3, 5).map(([x, y]) => [cxB + y, cyB - x]);
+          const contB = ovale(0, 0, aB * e, eB * e, eB * e, 2.3, 5).map(([x, y]) => [cxB + y, cyB - x]);
           const yEc = cyB + (-Y_ECORCE) * e;       // la gouttière couvre le bord côté pouce
           const garde = p => p[1] > yEc;
           const ec = coucheCollee(contB, garde, 2.8, e);
@@ -367,7 +382,7 @@ module.exports = (h) => {
           out.push(`<path d="${fermeLisse(contA)}" fill="${B}" stroke="${N}" stroke-width="1.4"/>`);
           out.push(os(cxA - 1 * s2, cyA - 1 * s2, 5 * s2, 4.2 * s2, 0));
           out.push(h.texte(cxA - 17 * s2, cyA + 4, 'A'));
-          out.push(h.texte(cxB - 31 * e, cyB + 4, 'B'));
+          out.push(h.texte(cxB - (eB + 10) * e, cyB + 4, 'B'));
           return out.join('\n');
         },
       },
@@ -376,26 +391,25 @@ module.exports = (h) => {
       dessus: {
         titre: 'L’attelle de poignet de la nuit, vue du dos de la main',
         dessin: z => {
-          const g = geoDos(z), e = g.e, out = [];
+          const g = geoDos(z, -19), e = g.e, out = [];
           const L = LATTE;
           const coins = [[L.x0, -L.demi], [L.x1, -L.demi], [L.x1, L.demi], [L.x0, L.demi]];
           const ouvert = (at) => h.chemin(chaine(coins, g), at);
-          out.push(poly(chaine(coins, g), h.a.blanc), ouvert(h.a.arete));
-          out.push(h.formes.main({ x: g.ox, y: g.oy, pose: 'appui', vue: 'dos', cote: 'gauche', angle: 180, echelle: e, bras: BRAS }));
-          out.push(commissures(g));
+          out.push(poly(chaine(coins, g), h.a.blanc), ouvert(h.a.contour));
+          out.push(mainDos(g));
           out.push(ouvert(h.a.cache));
           TOURS.forEach(xm => out.push(tourBande(g, xm - LARG / 2, LARG, -L.demi - 1.6, L.demi + 1.6, 2.5)));
           // le tour de la paume : il passe entre le pouce et l'index
-          out.push(poly(chaine([[-26, -45.2], [-11, -45.6], [-35, 38.5], [-50, 37.5]], g), blancTrait('arete')));
-          out.push(h.ligne(...g.V(lerp([-26, -45.2], [-11, -45.6], 0.22)), ...g.V(lerp([-50, 37.5], [-35, 38.5], 0.22)), h.a.fin));
+          out.push(poly(chaine(TP, g), blancTrait('arete')));
+          out.push(h.ligne(...g.V(lerp(TP[0], TP[1], 0.22)), ...g.V(lerp(TP[3], TP[2], 0.22)), h.a.fin));
           return out.join('\n');
         },
         renvois: z => {
-          const g = geoDos(z);
+          const g = geoDos(z, -19);
           return [
-            { n: 5, rond: g.V([-196, -52]), cible: g.V([-196, -35]), texte: 'latte mince sous l’avant-bras et la paume' },
-            { n: 6, rond: g.V([-134, -52]), cible: g.V([-133, -20]), texte: 'bande en tours sur l’avant-bras' },
-            { n: 7, rond: g.V([40, -56]), cible: g.V([-22, -30]), texte: 'un tour de la paume, entre pouce et index' },
+            { n: 5, rond: g.V([CUT + 3, -LATTE.demi - 15]), cible: g.V([CUT + 3, -LATTE.demi + 1.6]), texte: 'latte mince sous l’avant-bras et la paume' },
+            { n: 6, rond: g.V([-130, -LATTE.demi - 15]), cible: g.V([-143, -22]), texte: 'bande en tours sur l’avant-bras' },
+            { n: 7, rond: g.V([46, -72]), cible: g.V(lerp(lerp(TP[0], TP[3], 0.2), lerp(TP[1], TP[2], 0.2), 0.5)), texte: 'un tour de la paume, entre pouce et index' },
           ];
         },
       },
@@ -406,7 +420,7 @@ module.exports = (h) => {
         dessin: z => {
           const e = ECH(z), out = [];
           const cx = z.l * 0.5, cy = z.h * 0.46;
-          const cont = ovale(cx, cy, 31 * e, 22 * e, 20 * e, 2.4, 5);
+          const cont = ovale(cx, cy, aC * e, 0.52 * eC * e, 0.48 * eC * e, 2.4, 5);
           const garde = p => p[1] > cy - 4 * e;
           const ec = coucheCollee(cont, garde, 2.8, e);
           out.push(bandeAutour(ec.dehors.concat(cont), e, 0.3, 1.9));
@@ -429,44 +443,39 @@ module.exports = (h) => {
         titre: 'La même, vue du côté du pouce',
         dessin: z => {
           const g = geoProfil(z), e = g.e, out = [];
-          const L = LATTE, dx = 42;                // x profil = x dos + 42
+          const L = LATTE, dx = DX;                // x profil = x dos + 42
           const x0 = L.x0 + dx, x1 = L.x1 + dx;
           // la latte, vue par la tranche : le fil du bois en long
           const latte = chaine([[x0, 0], [x1, 0], [x1, L.ep], [x0, L.ep]], g);
-          out.push(poly(latte, h.a.blanc), h.chemin(latte, h.a.arete));
+          out.push(poly(latte, h.a.blanc), h.chemin(latte, h.a.contour));
           [2.6, 5.4].forEach((y, i) => out.push(h.path(courbe(chaine([[x0 + 4, y], [x0 + 60, y + 0.4 * (i ? -1 : 1)], [x0 + 120, y], [x1 - 6 - 20 * i, y + 0.3]], g)), h.a.fin)));
-          out.push(h.formes.main({ x: g.X0, y: g.y0, pose: 'appui', vue: 'profil', echelle: e, bras: BRAS, inclinaison: -2 }));
-          // retouches de lecture : le bout de l'index arrondi, les deux plis de flexion du pouce
-          // (sous la jointure du bout et à la base), le trait des jointures à la base des doigts
-          out.push(`<path d="${courbe([[118, -12.5], [125, -12.3], [129.6, -8.4], [128.6, -3.4], [122, -0.9], [118, -1]].map(g.V))}" fill="${B}" stroke="${N}" stroke-width="1.4" stroke-linejoin="round"/>`);
-          out.push(h.path(courbe([[36.5, -0.8], [35.6, -3], [35.2, -5]].map(g.V)), h.a.detail));
-          out.push(h.path(courbe([[10, -0.6], [8.6, -3.2], [8.2, -5.6]].map(g.V)), h.a.detail));
-          out.push(h.path(courbe([[39, -21.6], [41, -19.4], [41.6, -16.8]].map(g.V)), h.a.detail));
-          // le dessus de l'avant-bras (même tube que formes.js) : pour faire passer la bande dessus
-          const dessus = x => {
-            if (x >= -50) { const t = Math.min(1, (x + 50) / 90); return -43 + 19.8 * t; }
-            const t = Math.min(1, (-50 - x) / 110); return -26 + 3.84 * t - (17 + 5 * t);
+          out.push(mainPro(g));
+          TOURS.forEach(xm => { const xa = xm + dx - LARG / 2; out.push(tourBande(g, xa, LARG, dessusP(xa + LARG / 2) - 1.6, L.ep + 1.6, 0)); });
+          // le tour de la paume : visible sur le dos, puis caché derrière le pouce, puis sur la latte ;
+          // il descend en biais, du dos de la main (là où la vue du dos le montre sur l'axe) à la commissure
+          const tA = -TP[0][1] / (TP[3][1] - TP[0][1]);
+          const yT = L.ep + 1.6, XT = TP[0][0] + tA * (TP[3][0] - TP[0][0]) + dx, XB0 = TP[0][0] + dx;
+          const yTop = Math.min(dessusP(XT), dessusP(XT + 15)) - 1.6;
+          const xg = y => XT + (XB0 - XT) * (y - yTop) / (yT - yTop), xd = y => xg(y) + 15;
+          const tP = (x, k) => { const q = pouceP(x); return q ? q[k] : 0; };     // le dessus (0), le dessous (1) du pouce
+          let y1 = -20;
+          for (let k = 0; k < 3; k++) y1 = tP((xg(y1) + xd(y1)) / 2, 0) || y1;
+          const y2 = Math.max(0, tP((xg(0) + xd(0)) / 2, 1));
+          const tH = x => { const q = pouceP(x); return q ? q[0] : y1; };
+          const piece = (q, ferme) => {
+            const v = chaine(q, g);
+            out.push(poly(v, h.a.blanc), h.ligne(...v[0], ...v[3], h.a.arete), h.ligne(...v[1], ...v[2], h.a.arete));
+            out.push(ferme === 'haut' ? h.ligne(...v[0], ...v[1], h.a.arete) : h.ligne(...v[2], ...v[3], h.a.arete));
           };
-          TOURS.forEach(xm => { const xa = xm + dx - LARG / 2; out.push(tourBande(g, xa, LARG, dessus(xa + LARG / 2) - 1.6, L.ep + 1.6, 0)); });
-          // le tour de la paume : visible sur le dos, puis caché derrière le pouce, puis sur la latte
-          const yT = L.ep + 1.6, xg = y => 12 + 4 * (y - (dessus(12) - 1.6)) / (yT - dessus(12) + 1.6), xd = y => xg(y) + 15;
-          const hautP = -21.6, basP = 0.9;            // le dessus et le dessous du pouce, là où la bande passe
-          const morceau = (ya, yb, ferme) => {
-            const [ya1, ya2] = ferme === 'haut' ? [dessus(xg(ya)) - 1.6, dessus(xd(ya)) - 1.6] : [ya, ya];
-            const q = chaine([[xg(ya), ya1], [xd(ya), ya2], [xd(yb), yb], [xg(yb), yb]], g);
-            out.push(poly(q, h.a.blanc), h.ligne(...q[0], ...q[3], h.a.arete), h.ligne(...q[1], ...q[2], h.a.arete));
-            if (ferme === 'haut') out.push(h.ligne(...q[0], ...q[1], h.a.arete));
-            if (ferme === 'bas') out.push(h.ligne(...q[2], ...q[3], h.a.arete));
-          };
-          morceau(Math.min(dessus(12), dessus(27)) - 1.6, hautP, 'haut');
-          morceau(basP, yT, 'bas');
-          out.push(traitCoupe(g.V([XC + dx, dessus(XC + dx) - 9]), g.V([XC + dx, L.ep + 7]), [-1, 0], 'C', 'p'));
+          piece([[xg(yTop), dessusP(xg(yTop)) - 1.6], [xd(yTop), dessusP(xd(yTop)) - 1.6], [xd(y1), tH(xd(y1))], [xg(y1), tH(xg(y1))]], 'haut');
+          piece([[xg(y2), Math.max(0, tP(xg(y2), 1))], [xd(y2), Math.max(0, tP(xd(y2), 1))], [xd(yT), yT], [xg(yT), yT]], 'bas');
+          out.push(traitCoupe(g.V([XC + dx, dessusP(XC + dx) - 9]), g.V([XC + dx, L.ep + 7]), [-1, 0], 'C', 'p'));
           return out.join('\n');
         },
         renvois: z => {
           const g = geoProfil(z);
           return [
-            { n: 9, rond: g.V([-8, -52]), cible: g.V([-50, -36]), texte: 'poignet droit, paume à plat sur la latte' },
+            { n: 9, rond: g.V([-8, dessusP(-8) - 13]), cible: g.V([WX + DX, dessusP(WX + DX) + 6]), texte: 'poignet droit, paume à plat sur la latte' },
           ];
         },
       },
@@ -478,8 +487,8 @@ module.exports = (h) => {
           const g = geoProfil(z), e = g.e, out = [];
           // alignée sur la vue du côté du pouce : le dessus de la latte à la même hauteur
           const cx = z.l * 0.5, yL = g.y0;
-          const hH = 22, hB = 20, cy = yL - hB * e;
-          const cont = ovale(cx, cy, 31 * e, hH * e, hB * e, 2.4, 5);
+          const hH = 0.52 * eC, hB = 0.48 * eC, cy = yL - hB * e;
+          const cont = ovale(cx, cy, aC * e, hH * e, hB * e, 2.4, 5);
           const L = LATTE;
           const latte = [[cx - L.demi * e, yL], [cx + L.demi * e, yL], [cx + L.demi * e, yL + L.ep * e], [cx - L.demi * e, yL + L.ep * e]];
           out.push(bandeAutour(cont.concat(latte), e, 0.3, 1.9));

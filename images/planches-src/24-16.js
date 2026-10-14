@@ -6,8 +6,9 @@
 // face (le côté qui va au sol) ; la coupe A–A au lacet du haut, à plus grande échelle, pour lire
 // les trois épaisseurs et le lacet qui les traverse ; la genouillère nouée sur la jambe debout
 // et en usage, un genou au sol (le corps simple, de profil) ; ce genou à la loupe, deux mains qui
-// serrent le nœud du haut (gros plan de mains calquées : laissé tel quel, la bibliothèque de mains
-// simples le refera). Rouge : les deux bouts qui se rabattent, le geste du pliage.
+// serrent le nœud du haut (les mains simples de la bibliothèque, mainSimple : la pince fine, de
+// côté). Rouge : les deux bouts qui se rabattent, le geste du pliage ; à la loupe, les deux mains
+// qui tirent chacune son bout.
 //
 // Aucune cote : le chapitre ne donne aucune mesure. La peau est dessinée carrée une fois pliée
 // (une bande trois fois plus longue que large), comme le dit le chapitre.
@@ -170,11 +171,12 @@ module.exports = (h) => {
   const N1 = [-94, -250], N2 = [-120, -180];
   const LAC1 = [[46, -130], [0, -180], [-52, -222], N1];
   const LAC2 = [[-56, -48], [-80, -110], [-104, -155], N2];
-  // les deux mains : le point pincé, l'angle du modèle s09 en miroir (les pulpes vers le nœud,
-  // l'avant-bras qui part à l'opposé)
+  // les deux mains : le point pincé, la main (droite, gauche) ; elles pincent le bout de lacet entre
+  // les pulpes du pouce et de l'index, les doigts tournés vers le nœud, l'avant-bras qui part à
+  // l'opposé, dans le sens où elles tirent
   const MAINS = [
-    { P: [-166, -338], angle: 76, sort: [-3, -6], mi: [-130, -296] },
-    { P: [-192, -276], angle: -8, sort: [-8, -2], mi: [-142, -262] },
+    { P: [-140, -392], cote: 'droite', tire: -105, sort: [-3, -6], mi: [-118, -322] },
+    { P: [-238, -262], cote: 'gauche', tire: 182, sort: [-8, -2], mi: [-168, -256] },
   ];
   const LCENTRE = [-120, -210], LRAYON = 290, LACET = 5;
   // Le genou au sol est la jambe « loin » de la posture 'genou' du personnage : genou (−58, −58),
@@ -249,15 +251,17 @@ module.exports = (h) => {
     o.push(h.ellipse(...V(...N1), 9 * e, 7.5 * e, bl(h.a.detail)));
     for (const M of MAINS) {
       const [px, py] = V(...M.P);
-      // modèle s09 (le pouce et l'index qui pincent, de côté) en miroir : le bout du lacet entre les
-      // deux pulpes ; le lacet s'est dessiné avant, la main le cache
-      o.push(F.modele('s09', { x: px, y: py, ancre: [17, 66], miroir: true, angle: M.angle, echelle: e, masquer: [[200, 0, 230, 125]],
-        bras: { a: [200, 64.1], a0: [185, 63.9], b: [200, 112.1], b0: [185, 108.4], bord: z } }));
+      // la pince fine, vue du côté du pouce : le bout du lacet entre les deux pulpes (la prise en P),
+      // la main tournée pour que l'avant-bras parte dans le sens où elle tire (M.tire, degrés à l'écran)
+      const o0 = { pose: 'pince-fine', vue: 'pouce', cote: M.cote, diametre: LACET };
+      const m0 = F.mainSimple({ ...o0, x: 0, y: 0, angle: 0, echelle: 1, avantbras: { longueur: 100 } });
+      const d0 = Math.atan2(m0.coude[1] - m0.poignet[1], m0.coude[0] - m0.poignet[0]) / Math.PI * 180;
+      o.push(F.mainSimple({ ...o0, angle: M.tire - d0, x: px, y: py, echelle: e,
+        avantbras: { longueur: 'bord', bord: { x0: 0, y0: 0, x1: z.l, y1: z.h } } }).toString());
     }
     // les flèches : chaque main tire son bout, loin du nœud
-    // (à côté des mains calquées : l'une le long de l'avant-bras qui monte, l'autre au-dessus de celui qui part à gauche)
-    o.push(h.fleche(`M${V(-116, -420).map(f1).join(' ')} L${V(-128, -462).map(f1).join(' ')}`));
-    o.push(h.fleche(`M${V(-300, -332).map(f1).join(' ')} L${V(-356, -332).map(f1).join(' ')}`));
+    o.push(h.geste(`M${V(-262, -418).map(f1).join(" ")} L${V(-274, -466).map(f1).join(" ")}`));
+    o.push(h.geste(`M${V(-300, -322).map(f1).join(' ')} L${V(-356, -322).map(f1).join(' ')}`));
     o.push('</g>');
     o.push(h.cercle(C[0], C[1], R, h.a.detail));
     return o.join('\n');

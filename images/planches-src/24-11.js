@@ -14,6 +14,10 @@
 //     cheville, côté extérieur.
 // Aucune cote : on ne construit rien. Les 6 cm vivent dans la légende.
 //
+// Les mains viennent de la bibliothèque des mains simples (mainSimple), posées contre la jambe :
+// au tiroir, la main du tibia à plat sur le devant de la jambe, les doigts vers le haut, et la main
+// du talon en C, qui le prend par derrière ; au mollet, deux mains à plat, une de chaque côté.
+//
 // Pas d'anatomie dessinée : une silhouette de jambe et de pied, les deux bosses des chevilles
 // (ce qu'on voit et qu'on tâte de l'extérieur), et les endroits où appuyer en noir plein. La
 // douleur qui se réveille sans qu'on appuie là est cerclée d'un tireté.
@@ -22,6 +26,7 @@
 // x vers les orteils.
 module.exports = (h) => {
   const N = '#1A1A1A', B = '#FFFFFF';
+  const F = h.formes;
   const f = v => Math.round(v * 10) / 10;
   const RAD = Math.PI / 180;
   const add = (p, q) => [p[0] + q[0], p[1] + q[1]];
@@ -153,6 +158,22 @@ module.exports = (h) => {
     const V = repere(z.l * 0.52, 10 + 300 * s, s);
     return { s, V, a };
   };
+  // Les mains du tiroir. Le tibia : la paume contre le devant de la jambe (x = 31), à mi-hauteur
+  // du bas du tibia. Le talon : la main en C autour du rond du talon (centre et rayon relevés sur
+  // le contour du talon, en arrière et dessous), ouverte vers l'avant du pied.
+  const Y_TIB = 172, X_TIB = 52;              // la paume contre le devant de la jambe
+  const TAL = [-34, 29], D_TAL = 58;
+  const bordV = z => ({ x0: 0, y0: 0, x1: z.l, y1: z.h });
+  const mainTibia = z => {
+    const { s, V } = geoTiroir(z), p = V([X_TIB, Y_TIB]);
+    return F.mainSimple({ pose: 'plat', vue: 'pouce', cote: 'gauche', angle: -90, poignet: { flexion: -80 }, rotation: [-20, 0, 0],
+      x: p[0], y: p[1], echelle: s, avantbras: { bord: bordV(z), longueur: 'bord' } });
+  };
+  const mainTalon = z => {
+    const { s, V, a } = geoTiroir(z), p = V(piedPoint(TAL, a));
+    return F.mainSimple({ pose: 'coupe-c', vue: 'pouce', cote: 'gauche', diametre: D_TAL, angle: -80,
+      x: p[0], y: p[1], echelle: s, avantbras: { bord: bordV(z), longueur: 'bord' } });
+  };
   // La jambe de face : du genou au sol.
   const Y_SERRE = 330;
   const geoFace = z => {
@@ -175,7 +196,7 @@ module.exports = (h) => {
   return {
     ref: '24-11',
     titre: 'L’examen de la cheville tordue',
-    desc: 'En haut, la cheville droite vue de l’extérieur et de l’intérieur : les quatre endroits où l’on appuie du bout du doigt sur place, marqués en noir — le bord arrière des 6 derniers centimètres du péroné et du tibia jusqu’à la pointe de chaque cheville, la bosse du bord extérieur du pied à mi-longueur, la bosse du bord intérieur en avant et sous la cheville. En bas à gauche, le test du tiroir au quatrième ou cinquième jour : assis, pied pendant légèrement pointé, une main à plat sur le devant du bas du tibia, les doigts passés derrière, l’autre empoigne le talon et le tire vers l’avant ; le point noir marque le creux du ligament devant la pointe de la cheville extérieure. En bas à droite, l’entorse haute : la jambe vue de face, une main, passée derrière la jambe, empoigne le mollet un peu au-dessus de son milieu (on ne voit que le bout du pouce et des doigts) et serre le tibia et le péroné l’un contre l’autre ; la douleur se réveille en bas, devant et au-dessus de la cheville, côté extérieur.',
+    desc: 'En haut, la cheville droite vue de l’extérieur et de l’intérieur : les quatre endroits où l’on appuie du bout du doigt sur place, marqués en noir — le bord arrière des 6 derniers centimètres du péroné et du tibia jusqu’à la pointe de chaque cheville, la bosse du bord extérieur du pied à mi-longueur, la bosse du bord intérieur en avant et sous la cheville. En bas à gauche, le test du tiroir au quatrième ou cinquième jour : assis, pied pendant légèrement pointé, une main à plat sur le devant du bas du tibia, les doigts vers le haut, l’autre empoigne le talon par derrière, les doigts par-dessus et le pouce dessous, et le tire vers l’avant ; le point noir marque le creux du ligament devant la pointe de la cheville extérieure. En bas à droite, l’entorse haute : la jambe vue de face, les deux mains à plat de chaque côté du mollet, un peu au-dessus de son milieu, serrent le tibia et le péroné l’un contre l’autre ; la douleur se réveille en bas, devant et au-dessus de la cheville, côté extérieur.',
     format: 'pleine',
     disposition: [['exterieur', 'interieur'], ['tiroir', 'serrer']],
     largeurs: [[1, 1], [1.55, 1]],
@@ -240,27 +261,19 @@ module.exports = (h) => {
         dessin: z => {
           const { s, V, a } = geoTiroir(z);
           const out = [];
-          // la main qui tient le bas du tibia, par devant : modèle s01 (la main ouverte, le pouce
-          // écarté), l'avant-bras vers la droite ; peinte SOUS la jambe, les quatre doigts passent
-          // derrière et s'y perdent ; puis le pouce seul, repeint PAR-DESSUS la jambe, couché sur
-          // la face extérieure du bas du tibia (le reste du modèle masqué : il est déjà dessous)
-          const tib = { x: 0, y: 0, ancre: [82, 18], angle: -10, echelle: 0.8 * s };
-          { const p = V([-14, 175]); tib.x = p[0]; tib.y = p[1]; }
-          out.push(h.formes.modele('s01', tib));
+          // Les deux mains de la bibliothèque (mainSimple), posées contre la jambe, par-dessus elle.
+          // Le tibia : la main gauche à plat sur le devant du bas de la jambe, les doigts vers le haut,
+          // le poignet cassé, l'avant-bras à droite (vue du côté du pouce) : elle le retient.
+          // Le talon : la main en C le prend par derrière, l'avant-bras en bas à gauche, les doigts
+          // par-dessus, le pouce dessous (vue du côté du pouce).
           out.push(silhouette(V, pointe(profil(300), a)), orteil(V, a));
-          out.push(h.formes.modele('s01', { ...tib, masquer: [[0, 37, 262, 126], [170, 0, 262, 37]] }));
+          out.push(mainTibia(z), mainTalon(z));
           out.push(bosse(V, [-15, 73], 11, 17, s));
           // le creux du ligament, juste devant la pointe de la cheville extérieure
           out.push(pointNoir(V(piedPoint([3, 58], a * 0.4)), 4.5));
-          // la main qui empoigne le talon par derrière : la paume au talon, les doigts sur son côté
-          const talon = V(piedPoint(TALON, a));
-          // modèle s05 (les doigts repliés en coupe, le pouce dessus) retourné : l'avant-bras part en
-          // bas à gauche, les doigts enroulés autour du talon
-          out.push(h.formes.modele('s05', { x: talon[0], y: talon[1], ancre: [45, 45], angle: -24, miroir: true, echelle: 1.0 * s,
-            masquer: [[222, 0, 240, 120]], bras: { a: [222, 39.1], a0: [200, 38.1], b: [222, 104.3], b0: [200, 100.8], bord: z } }));
           // le geste : le talon tiré vers l'avant (vers les orteils), contre la main du talon
           const f0 = V(piedPoint([-175, 92], a)), f1 = V(piedPoint([-105, 92], a));
-          out.push(h.fleche(`M${f(f0[0])} ${f(f0[1])} L${f(f1[0])} ${f(f1[1])}`, h.a.contour));
+          out.push(h.geste(`M${f(f0[0])} ${f(f0[1])} L${f(f1[0])} ${f(f1[1])}`));
           return out.join('\n');
         },
         renvois: z => {
@@ -277,29 +290,19 @@ module.exports = (h) => {
         dessin: z => {
           const { s, V } = geoFace(z);
           const out = [];
-          // la main derrière la jambe, un peu au-dessus du milieu du mollet : la paume sur le mollet,
-          // cachée par la jambe ; on ne voit que le bout du pouce côté extérieur et le bout des
-          // quatre doigts côté intérieur
-          const tip = (pts, ep) => {
-            const c = courbe(pts.map(V));
-            return `<path d="${c}" fill="none" stroke="${N}" stroke-width="${f(2 * ep * s + 3.2)}" stroke-linecap="round"/>` +
-              `<path d="${c}" fill="none" stroke="${B}" stroke-width="${f(2 * ep * s)}" stroke-linecap="round"/>`;
-          };
-          out.push(tip([[-20, Y_SERRE + 12], [-58, Y_SERRE + 8], [-70, Y_SERRE + 2]], 11));
-          [[42, 10], [24, 10.5], [6, 10], [-12, 8.5]].forEach(([dy, ep]) =>
-            out.push(tip([[30, Y_SERRE + dy], [62, Y_SERRE + dy - 2], [72, Y_SERRE + dy - 6]], ep)));
+          // les deux mains à plat, une de chaque côté du mollet, un peu au-dessus de son milieu : les
+          // paumes contre la jambe, les doigts vers le haut, les avant-bras vers l'extérieur
           out.push(jambeFace(V));
-          // les ongles des doigts, du côté intérieur
-          [[42], [24], [6], [-12]].forEach(([dy]) => {
-            const q = [V([68, Y_SERRE + dy + 1]), V([73, Y_SERRE + dy - 8])];
-            out.push(`<path d="M${f(q[0][0])} ${f(q[0][1])} L${f(q[1][0])} ${f(q[1][1])}" ${trait(0.5)}/>`);
-          });
+          const bordF = { x0: 0, y0: 0, x1: z.l, y1: z.h };
+          const pousse = (cote, x) => { const q = V([x, Y_SERRE + 30]); return F.mainSimple({ pose: 'plat', vue: 'pouce', cote, angle: -90,
+            poignet: { flexion: -80 }, rotation: [-20, 0, 0], x: q[0], y: q[1], echelle: s, avantbras: { bord: bordF, longueur: 'bord' } }); };
+          out.push(pousse('droite', -49 - 19), pousse('gauche', 58 + 19));
           // le geste : serrer, les deux côtés l'un vers l'autre
           const yF = Y_SERRE + 15;
           const fg0 = V([-160, yF]), fg1 = V([-90, yF]);
           const fd0 = V([170, yF]), fd1 = V([95, yF]);
-          out.push(h.fleche(`M${f(fg0[0])} ${f(fg0[1])} L${f(fg1[0])} ${f(fg1[1])}`, h.a.contour));
-          out.push(h.fleche(`M${f(fd0[0])} ${f(fd0[1])} L${f(fd1[0])} ${f(fd1[1])}`, h.a.contour));
+          out.push(h.geste(`M${f(fg0[0])} ${f(fg0[1])} L${f(fg1[0])} ${f(fg1[1])}`));
+          out.push(h.geste(`M${f(fd0[0])} ${f(fd0[1])} L${f(fd1[0])} ${f(fd1[1])}`));
           // où la douleur se réveille : devant, un peu au-dessus de la cheville, côté extérieur
           const p = V([-12, 120]);
           out.push(douleur(p, 10 * s, 20 * s));
@@ -308,7 +311,7 @@ module.exports = (h) => {
         renvois: z => {
           const { V } = geoFace(z);
           return [
-            R(8, V([110, 520]), V([70, Y_SERRE + 40])),
+            R(8, V([100, 225]), V([60, Y_SERRE - 4])),
             R(9, V([-110, 190]), V([-20, 128])),
           ];
         },

@@ -1,4 +1,6 @@
 // Planche 25-40 — le bain de gelure (ch. 25, étapes 16 à 20 et variante d'urgence).
+// Les mains viennent de la bibliothèque des mains simples (mainSimple, la main relâchée vue de la
+// paume) : la main gelée qui pend dans le bain, la main saine qui entre de biais dans l'eau.
 module.exports = (h) => {
   const f = (n) => Math.round(n * 10) / 10;
   const blancA = h.a.arete.replace('fill="none"', 'fill="#FFFFFF"');
@@ -80,11 +82,6 @@ module.exports = (h) => {
     return Q.concat([[-r, u1 - r], [-r, u0]]);
   };
   const courbeMain = () => bande(UH, 136, 22);
-  // La main (formes.js, pend/dos) : MAIN_C, le milieu du dos de la main ; mainAxe(u, v), un point à
-  // u mm vers le bout des doigts et v mm vers le pouce, en coordonnées du cadre.
-  const SB = 0.9, MAIN_C = [238, 200];
-  const AX = [Math.cos(-80 * Math.PI / 180), -Math.sin(-80 * Math.PI / 180)];
-  const mainAxe = (u, v = 0) => [MAIN_C[0] + SB * (u * AX[0] + v * AX[1]), MAIN_C[1] + SB * (u * AX[1] - v * AX[0])];
 
   // La bouilloire, penchée, bec au-dessus du bord droit.
   const t = -50 * Math.PI / 180, ct = Math.cos(t), st = Math.sin(t);
@@ -95,6 +92,11 @@ module.exports = (h) => {
   const BEC_F = [[-40, -36], [-60, -52], [-78, -66], [-86, -58], [-64, -30], [-43, -8]];
   const ANSE = cr([[-30, -62], [-28, -90], [0, -104], [28, -90], [30, -62]], false)
     .concat(cr([[22, -66], [20, -85], [0, -96], [-20, -85], [-22, -66]], false));
+  // la main gelée : relâchée, vue de la paume, doigts en bas ; le poignet sous la surface, l'avant-bras
+  // qui monte et sort du cadre (la main tient dans le chaudron sans toucher ni fond ni parois)
+  const mainBain = (M, z) => { const W0 = M([XW, YW + 4]);
+    return h.formes.mainSimple({ pose: 'relachee', vue: 'paume', cote: 'droite', angle: 94, x: W0[0], y: W0[1], ancre: 'poignet',
+      echelle: 0.78 * M.k, avantbras: { longueur: 'bord', bord: { x0: 0, y0: 0, x1: z.l, y1: z.h } } }); };
   const vueBain = {
     titre: 'Le bain',
     dessin: (z) => {
@@ -116,21 +118,17 @@ module.exports = (h) => {
       // le thermomètre pincé au bord gauche, bulbe à hauteur de la main
       out.push(th.svg);
       out.push(h.path(`M${P(154, 116)} L${P(146, 116)} L${P(146, 134)}`, h.a.arete));
-      // la main et l'avant-bras : la main relâchée qui pend, doigts serrés, vue du dos
-      // modèle s03 (la main relâchée qui pend, paume vers l'œil, doigts en bas) : l'avant-bras monte
-      // et sort du cadre
-      { const W0 = M([XW, YW + 4]);
-        out.push(h.formes.modele('s03', { x: W0[0], y: W0[1], ancre: [85, 30], angle: 4, echelle: 0.95 * M.k, masquer: [[0, 0, 125, 14]],
-          bras: { a: [59.1, 14], a0: [57.9, 26], b: [112.7, 14], b0: [110.7, 26], bord: z } })); }
+      // la main et l'avant-bras : la main relâchée qui pend, paume vers l'œil, doigts en bas
+      out.push(mainBain(M, z).toString());
       return out.join('\n');
     },
     renvois: (z) => {
-      const M = cadre(z, 600, 370);
+      const M = cadre(z, 600, 370), mb = mainBain(M, z);
       return [
         { n: 1, rond: M([96, 196]), cible: M([154, 196]), texte: 'thermomètre : 37 à 39 °C' },
-        { n: 2, rond: M([96, 230]), cible: M([XW - 22, YW + 152]), texte: 'ne touche ni fond ni parois' },
+        { n: 2, rond: M([96, 230]), cible: mb.doigts.annulaire, texte: 'ne touche ni fond ni parois' },
         { n: 3, rond: M([96, 300]), cible: M([150, 300]), texte: 'chaudron ou glacière de camp' },
-        { n: 4, rond: M([292, 64]), cible: M(mainAxe(12, -8)), texte: 'souple, rouge-violacé, 30 min' },
+        { n: 4, rond: M([292, 64]), cible: mb.articulations['majeur.mcp'], texte: 'souple, rouge-violacé, 30 min' },
         { n: 5, rond: M([408, 186]), cible: M([319, 138]), texte: 'versée à côté, jamais dessus' },
         { n: 6, rond: M([408, 250]), cible: M([344, 240]), texte: 'brasser en versant' },
       ];
@@ -202,14 +200,14 @@ module.exports = (h) => {
 
   // ─── Sans thermomètre : la main saine du secouriste dans l'eau ─────────────
   const Cp = { g: 60, d: 220, r: 70, b: 185, s: 95, t0: 40, t1: 262 };
-  const d = [-Math.cos(35 * Math.PI / 180), Math.sin(35 * Math.PI / 180)];
-  const nrm = [d[1], -d[0]];
-  const WP = [172, 102];
-  const brasS = ([u, v]) => [WP[0] + u * d[0] + v * nrm[0], WP[1] + u * d[1] + v * nrm[1]];
+  const WP = [172, 102];                          // le poignet de la main saine, dans l'eau
   const UP = -125;
   // la bande arrondie du pictogramme, bout dans l'eau
   const courbeProfil = () => bande(UP, 90, 12).map(([v, u]) => [u, v]);
 
+  const mainSaine = (M, z) => { const W0 = M(WP);
+    return h.formes.mainSimple({ pose: 'relachee', vue: 'paume', cote: 'droite', angle: 145, x: W0[0], y: W0[1], ancre: 'poignet',
+      echelle: 0.42 * M.k, avantbras: { longueur: 'entier', bras: { pli: -25, longueur: 'bord' }, bord: { x0: 0, y0: 0, x1: z.l, y1: z.h } } }); };
   const vuePoignet = {
     titre: 'Sans thermomètre',
     dessin: (z) => {
@@ -217,17 +215,16 @@ module.exports = (h) => {
       const Mp = (Q) => Q.map(M);
       return [
         chaudron(M, Cp),
-        // le même modèle s03, la main saine qui entre de biais, doigts devant ; l'avant-bras remonte à droite
-        (() => { const W0 = M(WP);
-          return h.formes.modele('s03', { x: W0[0], y: W0[1], ancre: [85, 30], angle: 55, echelle: 0.5 * M.k, masquer: [[0, 0, 125, 14]],
-            bras: { a: [59.1, 14], a0: [57.9, 26], b: [112.7, 14], b0: [110.7, 26], bord: z } }); })(),
+        // la même main relâchée, la main saine qui entre de biais, doigts devant, l'intérieur du
+        // poignet dans l'eau ; l'avant-bras remonte à droite
+        mainSaine(M, z).toString(),
       ].join('\n');
     },
     renvois: (z) => {
-      const M = cadre(z, 300, 200);
+      const M = cadre(z, 300, 200), ms = mainSaine(M, z);
       return [
-        { n: 9, rond: M([262, 136]), cible: M(brasS([0, 11])), texte: 'poignet : tiède et neutre' },
-        { n: 10, rond: M([28, 130]), cible: M(brasS([74, 0])), texte: 'main saine 30 s sans effort' },
+        { n: 9, rond: M([262, 136]), cible: ms.poignet, texte: 'poignet : tiède et neutre' },
+        { n: 10, rond: M([28, 130]), cible: ms.articulations['majeur.mcp'], texte: 'main saine 30 s sans effort' },
       ];
     },
   };
