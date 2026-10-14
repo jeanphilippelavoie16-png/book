@@ -1963,5 +1963,6 @@ module.exports = function formes(h) {
   }
 
   return { main, personnage, tete, buste, corde, cordes, aiguilleFilet, moule, maille, modele, corps: (...a) => require('./corps/moteur').corps(...a),
+    mainSimple: (...a) => require('./mains/moteur').mainSimple(...a),   // la main simple des gros plans : mains/moteur.js (tête du fichier)
     _interne: { tube, peindre, repere, lisse, ser, forme, enroule, plie, ik2, tangente, pointBord, suite, cubPts, arcPts, mainProfil, personnageAncien, brasVersMain, capsule } };
 };

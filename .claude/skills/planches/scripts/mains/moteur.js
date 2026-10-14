@@ -460,8 +460,9 @@ const FORMES = {
     'pouce.meta': [[0, 13, 14], [0.35, 15, 15.5], [0.7, 13.5, 13.5], [1, 11.6, 11.6]],
     'pouce.p1': [[0, 12, 12], [1, 11.3, 11.3]],
     'pouce.p2': [[0, 11.3, 11.3], [0.5, 11.0, 11.0], [1, 10, 10]],
-    // le poignet : 64 de large (proportions.json) ; l'avant-bras s'élargit vers le coude
-    'avantbras': [[0, 32, 32], [0.12, 33.3, 33.1], [0.3, 37, 36.4], [0.55, 41.5, 40], [0.75, 43, 41.5], [1, 40, 38.5]],
+    // le poignet : 64 de large (proportions.json) ; les tendons restent minces sur 3 cm, puis le ventre des
+    // muscles s'élargit, plus du côté radial (le long supinateur), jusqu'aux deux tiers ; un peu moins au coude
+    'avantbras': [[0, 32, 32], [0.1, 32.3, 32.2], [0.22, 34.5, 33.6], [0.4, 40, 37.2], [0.58, 44.5, 39.8], [0.75, 45, 40.2], [0.9, 42.5, 39], [1, 39.5, 37.5]],
   },
   // provisoire, en attendant profil.js (agent 2)
   profil: {
@@ -968,7 +969,8 @@ function echantillons(region, n = 7) {
 }
 
 // ─── la construction, dans le repère de la vue (mm, avant le miroir, l'angle et l'échelle) ─────────────────
-function construire(o) {
+// la pose résolue, le squelette et la vue : ce qu'il faut pour placer la main (l'ancre), sans la dessiner
+function preparer(o) {
   const g0 = o.gant ? (typeof o.gant === 'object' ? o.gant : {}) : null;
   const F = g0 ? formesGant(formes(), g0.epaisseur !== undefined ? g0.epaisseur : 1.8) : formes();
   let pose = JSON.parse(JSON.stringify(trouverPose(o.pose || 'ouverte')));
@@ -991,8 +993,12 @@ function construire(o) {
   if (sansAngles) pose = enrouler(pose, pose.objet, { age, F });
   // l'avant-bras dirigé vers un point : le poignet suit, dans le plan de la vue
   const sq = squelette(pose, { age, F });
-  const kW = sq.age.kW, kL0 = sq.age.kL;
   const M = matriceVue(o.vue || 'dos', o.rotation);
+  return { pose, sq, M, F, g0 };
+}
+function construire(o, prep = null) {
+  const { pose, sq, M, F, g0 } = prep || preparer(o);
+  const kW = sq.age.kW, kL0 = sq.age.kL;
   const proj = p => matVec(M, p);
   const p2 = p => { const q = proj(p); return [q[0], q[1]]; };
 
@@ -1165,9 +1171,9 @@ const PRIORITE = { dos: ['majeur', 'annulaire', 'index', 'auriculaire', 'pouce']
   pouce: ['pouce', 'index', 'majeur', 'annulaire', 'auriculaire'], auriculaire: ['auriculaire', 'annulaire', 'majeur', 'index', 'pouce'] };
 
 // ─── la construction du dessin (repère de la vue, mm) ─────────────────────────────────────────────────────
-function dessiner(o) {
+function dessiner(o, prep = null) {
   const _t = [Date.now()]; const T_ = n => { if (process.env.MAINS_T) { const t = Date.now(); console.error(n, t - _t[_t.length - 1]); _t.push(t); } };
-  const C = construire(o); T_('construire');
+  const C = construire(o, prep); T_('construire');
   const { pieces, ob, coupe, pose } = C;
   const vue = o.vue || 'dos';
   const E = 0.55;                                   // un trait intérieur s'arrête avant le contour
@@ -1431,7 +1437,7 @@ function densifier(ls, pas) {
 }
 
 // ─── le rendu ────────────────────────────────────────────────────────────────────────────────────────────
-const CACHE = new Map();
+const CACHE = new Map(), CACHE_PREP = new Map();
 let N_CLIP = 0;
 function mainSimple(o = {}) {
   const vue = o.vue || 'dos';
@@ -1447,33 +1453,36 @@ function mainSimple(o = {}) {
   const Tloc = (p, X, Y) => { const q = tourne([p[0], m * p[1]], ang); return [X + s * q[0], Y + s * q[1]]; };
   const Tinv = (P, X, Y) => { const q = tourne([(P[0] - X) / s, (P[1] - Y) / s], -ang); return [q[0], m * q[1]]; };
   // première passe : la géométrie (pour l'ancre)
+  const clePrep = JSON.stringify(cleBase);
+  let prep = CACHE_PREP.get(clePrep);
+  if (!prep) { prep = preparer(o); CACHE_PREP.set(clePrep, prep); if (CACHE_PREP.size > 400) CACHE_PREP.delete(CACHE_PREP.keys().next().value); }
   const obtenir = abOpt => {
     const cle = JSON.stringify([cleBase, abOpt]);
     let R = CACHE.get(cle);
-    if (!R) { R = dessiner(Object.assign({}, o, { avantbras: abOpt })); CACHE.set(cle, R); if (CACHE.size > 400) CACHE.delete(CACHE.keys().next().value); }
+    if (!R) { R = dessiner(Object.assign({}, o, { avantbras: abOpt }), prep); CACHE.set(cle, R); if (CACHE.size > 400) CACHE.delete(CACHE.keys().next().value); }
     return R;
   };
   const abBase = ab === false ? false : { longueur: ab.longueur, coupe: ab.coupe };
-  let R = obtenir(ab && ab.vers ? false : abBase);
-  const ancreLoc = ancreDe(R, o.ancre || 'prise');
+  const ancreLoc = ancreDe({ C: prep }, o.ancre || 'prise');
   const X = (o.x || 0) - 0, Y = (o.y || 0) - 0;
   // (x, y) est l'ancre : on cherche l'origine qui l'y amène
   const a0 = Tloc(ancreLoc, 0, 0);
   const OX = X - a0[0], OY = Y - a0[1];
+  let R;
   if (ab && (ab.vers || ab.bord)) {
     const abO = { longueur: ab.longueur, coupe: ab.coupe };
     let cible = ab.vers;
     if (!cible && ab.bord) cible = null;
     if (cible) {
       const loc = Tinv(cible, OX, OY);
-      const pw = R.C.sq.points.poignet;
+      const pw = prep.sq.points.poignet;
       const v = sub(loc, [pw[0], pw[1]]);
       abO.versLocal = [Math.round(v[0] * 100) / 100, Math.round(v[1] * 100) / 100];
       abO.versDist = Math.round(lon(v) * 10) / 10;
     }
     if (ab.bord) abO.longueur = ab.longueur !== undefined ? ab.longueur : Math.max(abO.versDist || 0, 400);
     R = obtenir(abO);
-  }
+  } else R = obtenir(abBase);
   return rendre(R, o, { Tloc: p => Tloc(p, OX, OY), s, m, ang, ab });
 }
 

@@ -542,6 +542,11 @@ function pouceManche(S, cyl, segsD, o = {}) {
   const obstD = obstSegments(segsD.filter(s => ['index', 'majeur', 'annulaire'].includes(s.doigt)));
   const ip2 = segsD.find(s => s.id === 'index.p2'), ip3 = segsD.find(s => s.id === 'index.p3');
   const cible = I3(ip2.a, ip2.b, 0.6);
+  // la pulpe peut se poser n'importe où sur la face de l'index entre le milieu de P2 et le milieu de P3 (le pouce
+  // en travers de la P2, ou de l'articulation, selon ce qu'il atteint)
+  const chemin = [I3(ip2.a, ip2.b, 0.35), ip2.b, I3(ip3.a, ip3.b, 0.6)];
+  const rI = rayonVers(ip2, 0.8, ip2.c.n);
+  const surIndex = p => { let m = Infinity; for (let i = 0; i < 2; i++) m = Math.min(m, L3(S3(p, procheSeg(p, chemin[i], chemin[i + 1]).q))); return Math.abs(m - rI - 0.3); };
   const f = x => {
     const q = qPouce(x), ch = chainePouce(S, q), ss = segments(S, 'pouce', ch);
     const g0 = ecart(ss[0], cyl).g, g1 = ecart(ss[1], cyl).g, g2 = ecart(ss[2], cyl).g;
@@ -549,7 +554,7 @@ function pouceManche(S, cyl, segsD, o = {}) {
     let gd = Infinity;
     for (const ob of obstD) for (let i = 1; i < 3; i++) { const g = ecart(ss[i], ob).g; pen += Math.max(0, -g - 0.5); if (i === 2) gd = Math.min(gd, g); }
     const pp = pulpe(S, 'pouce', q, 0.75);
-    const dt = L3(S3(pp.p, cible));
+    const dt = surIndex(pp.p) + 0.12 * L3(S3(pp.p, cible));
     return 400 * pen * pen + 1 * Math.max(0, g1) ** 2 + 1.5 * Math.max(0, g2) ** 2 + 0.8 * dt * dt + 2 * Math.max(0, gd) ** 2 * (dt < 25 ? 1 : 0) +
       0.01 * (x[2] - 0.3 * x[0]) ** 2 + 0.02 * Math.max(0, x[4] - 60) ** 2 + 0.02 * Math.max(0, x[3] - 50) ** 2;
   };
@@ -565,7 +570,7 @@ function pouceManche(S, cyl, segsD, o = {}) {
     if (!best || g.f < 0.6 * best.f) best = g;
   }
   const q = qPouce(best.x);
-  return { q, f: best.f, erreur: L3(S3(pulpe(S, 'pouce', q, 0.75).p, cible)) };
+  return { q, f: best.f, erreur: surIndex(pulpe(S, 'pouce', q, 0.75).p) };
 }
 // le pouce en face des doigts, de l'autre côté de l'objet (la main en C, la grosse prise) : sa pulpe sur
 // l'objet, côté poignet, tournée vers les doigts ; le plus haut qu'il atteint sans rien traverser

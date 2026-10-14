@@ -29,3 +29,7 @@ JP ensuite : « c'est bien mais pas encore parfait, les formes que tu as pas de 
   agents pis révision, parce que c'est pas acceptable. » Les mains calquées (shoo, Kibbitzer) sont donc refusées elles
   aussi. Une bibliothèque de mains simples est en construction : `planches/scripts/mains/`, `mainSimple()`, quatre
   agents puis un réviseur, brief dans le scratch `mains-lib/brief.md`.
+- **14 octobre 2026 : JP valide les 54 planches des cinq lots** de corps simples de profil avec la charte : « toutes
+  excellentes » (sans compter les mains). Elles sont passées dans `images/validees/`. Leurs gros plans de mains seront
+  refaits avec la bibliothèque `mains/` : chaque planche touchée par ce travail repassera alors « à valider ». En attente
+  de JP : 34-01 (la carte du corps), 26-08 (l'écharpe enlevée) et 28-02 (les vues d'en haut de la tête de l'enfant).
