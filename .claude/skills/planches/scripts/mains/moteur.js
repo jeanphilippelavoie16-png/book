@@ -1945,7 +1945,8 @@ function rendre(R, o, { Tloc, s, m, ang, ab }) {
   // la silhouette, sans la coupe de l'avant-bras (ouverte) ni ce qui file au bord
   let silh = contourDe(U);
   // une main loin (grise) ferme sa coupe : un aplat gris sans bord se lit comme une tache (agent 5, M8)
-  const franche = (ab && ab.coupe === 'franche') || (o.loin && !(ab && ab.coupe === 'ouverte'));
+  // (sauf sur une droite de fin : elle est le bord commun des deux mains, ouvert pour l'une comme pour l'autre)
+  const franche = (ab && ab.coupe === 'franche') || (o.loin && !(ab && (ab.coupe === 'ouverte' || ab.fin)));
   if (coupe && coupe.region && !coupe.plein && !franche) silh = lignesHors(silh, decale(coupe.region, 0.4));
   const coupeTrait = coupe && coupe.region && franche ? lignesDans(contourDe(U), decale(coupe.region, 0.4)) : [];
   if (coupeTrait.length) silh = lignesHors(silh, decale(coupe.region, 0.4));

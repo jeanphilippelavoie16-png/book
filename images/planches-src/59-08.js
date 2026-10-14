@@ -18,7 +18,7 @@ module.exports = (h) => {
   const poisson = [[0, 0], [3, -7], [11, -12.5], [24, -14], [35, -11], [42, -5.5], [44, -2.5], [52, -9], [49, 0],
     [52, 9], [44, 2.5], [42, 5.5], [35, 11], [24, 14], [11, 12.5], [3, 7]];
   const f = (n) => Math.round(n * 10) / 10;
-  const forme = (pts, trait) => h.chemin(pts, h.a.blanc, true) + '\n' + h.chemin(pts, trait, true);
+  const forme = (pts, trait, fond = h.a.blanc) => h.chemin(pts, fond, true) + '\n' + h.chemin(pts, trait, true);
 
   const G = (z) => {
     const ox = 176, oy = z.h - 12;
@@ -58,17 +58,18 @@ module.exports = (h) => {
             out.push(h.ligne(x - 11, y, x - 14, y - 5, h.a.detail));
             out.push(h.ligne(x + 10, y, x + 13, y - 6, h.a.detail));
           }
-          const traverse = (Y) => {
+          // ce qui est derrière (la traverse et les perches du fond) recule en gris loin
+          const traverse = (Y, fond = h.a.blanc) => {
             const [xa, ya] = P(-22, Y, Hc + 4.5), [xb, yb] = P(L + 22, Y, Hc - 4.5);
-            return forme([[xa, ya], [xb, ya], [xb, yb], [xa, yb]], h.a.arete) + '\n' +
+            return forme([[xa, ya], [xb, ya], [xb, yb], [xa, yb]], h.a.arete, fond) + '\n' +
               h.ellipse(xb, f((ya + yb) / 2), 2.2, 4.5, h.a.detail);
           };
-          const perche = (X, Y, top) => {
+          const perche = (X, Y, top, loin = false) => {
             const [x, yb] = P(X, Y, 0), [, yt] = P(X, Y, top);
-            return forme([[x - rP, yb], [x + rP, yb], [x + rP, yt], [x - rP, yt]], h.a.contour);
+            return forme([[x - rP, yb], [x + rP, yb], [x + rP, yt], [x - rP, yt]], loin ? h.a.arete : h.a.contour, loin ? h.a.loin : h.a.blanc);
           };
-          out.push(traverse(D + yTr));
-          out.push(perche(0, D, Hb + 6), perche(L, D, Hb + 6));
+          out.push(traverse(D + yTr, h.a.loin));
+          out.push(perche(0, D, Hb + 6, true), perche(L, D, Hb + 6, true));
           // les perches à claire-voie, en travers des deux traverses
           for (let X = 14; X <= L - 14; X += 21) {
             out.push(forme([P(X, -16, Zp1), P(X, D + 16, Zp1), P(X, D + 16, Zp0), P(X, -16, Zp0)], h.a.arete));
@@ -102,7 +103,8 @@ module.exports = (h) => {
             [57, 142], [46, 146], [38, 150], [32, 153], [30, 162], [24, 152], [20, 146], [14, 128], [6, 104],
             [-2, 78], [-6, 58], [-10, 50], [-26, 34], [-30, 24], [-22, 30], [-10, 42], [-12, 32], [-10, 18],
             [-8, 6], [-8, 0]];
-          out.push(forme(chien.map(([u, v]) => [f(bx + u * k), f(by - v * k)]), h.a.arete));
+          // le chien ne sert que d'échelle : il recule en gris loin
+          out.push(forme(chien.map(([u, v]) => [f(bx + u * k), f(by - v * k)]), h.a.arete, h.a.loin));
           out.push(h.cercle(f(bx + 42 * k), f(by - 145 * k), 1.4, h.a.plein));
           out.push(h.ligne(f(bx - 24), f(by), f(bx + 24), f(by), h.a.detail));
           return out.join('\n');

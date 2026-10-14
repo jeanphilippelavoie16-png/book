@@ -1,6 +1,12 @@
 // Planche 19-09 — La graisse d'os : casser, lire la moelle, bouillir, lever la galette.
 // Chapitre 24, « Ouvrir les os, et dans le bon ordre », « Casser, ne pas couper » et
 // « Faire de la graisse d'os, en entier ».
+//
+// La charte : à l'ombre, la face de droite de la bille et le flanc de la galette levée ; le
+// creux du chaudron au-dessus du bouillon, vu par la coupe, en gris loin ; l'os coupé et tramé
+// reste sans gris. Le rouge : le coup de hache, le bâton qui remue, la galette qu'on lève (un
+// geste par vue) ; le point d'impact, au milieu du fût, sous le dos plat, cerclé. La flèche du
+// fémur vers les morceaux courts n'est pas un geste : elle reste noire.
 module.exports = (h) => {
   const f = n => n.toFixed(1);
   const blanc = at => at.replace('fill="none"', 'fill="#fff"');
@@ -75,6 +81,11 @@ module.exports = (h) => {
     return {
       paroi: [h.path(paroi, h.a.plein), h.rect(cx - a - 7, yr - 3, 9, 4, h.a.plein), h.rect(cx + a - 2, yr - 3, 9, 4, h.a.plein)].join('\n'),
       eau, bordX,
+      // le creux au-dessus du liquide, vu par la coupe
+      vide: yw => {
+        const g = echant(iL, 40).filter(p => p[1] < yw);
+        return [...g, [bordX(yw), yw], [2 * cx - bordX(yw), yw], ...g.map(mir).reverse()];
+      },
     };
   };
 
@@ -177,9 +188,13 @@ module.exports = (h) => {
             return h.path(`M${f(x)},${f(yt + dy + 5)} Q${f(x + 3)},${f((yt + G) / 2 + dy)} ${f(x)},${f(G + dy - 5)}`, h.a.fin);
           });
           const xa = cx - rx * 0.86, xb = cx + rx * 0.86;
+          const av = x => ry * Math.sqrt(Math.max(0, 1 - ((x - cx) / rx) ** 2)), xs = [];
+          for (let x = cx + 0.45 * rx; x <= cx + rx + 0.01; x += rx / 40) xs.push(x);
           return [
             h.ligne(cx - rx - 40, G + ry, cx + rx + 40, G + ry, h.a.arete),
-            h.path(corps, blanc(h.a.arete)),
+            h.path(corps, h.a.blanc),
+            h.chemin([...xs.map(x => [x, yt + av(x)]), ...xs.slice().reverse().map(x => [x, G + av(x)])], h.a.ombre, true),
+            h.path(corps, h.a.arete),
             ...ecorce,
             h.ellipse(cx, yt, rx, ry, blanc(h.a.arete)),
             h.ellipse(cx, yt, rx * 0.66, ry * 0.66, h.a.detail),
@@ -194,7 +209,9 @@ module.exports = (h) => {
             h.path(tete, blanc(h.a.contour)),
             h.path(biseau, h.a.detail),
             h.path(oeil, h.a.detail),
-            h.fleche(`M${f(px - 42 * c)},${f(py - 94 * c)} Q${f(px - 58 * c)},${f(py - 60 * c)} ${f(px - 36 * c)},${f(py - 30 * c)}`, h.a.arete),
+            h.geste(`M${f(px - 42 * c)},${f(py - 94 * c)} Q${f(px - 58 * c)},${f(py - 60 * c)} ${f(px - 36 * c)},${f(py - 30 * c)}`),
+            // le point d'impact : au milieu du fût, sous le dos plat
+            h.controle(px, py + 2, 12),
           ].join('\n');
         },
         renvois: z => {
@@ -324,6 +341,7 @@ module.exports = (h) => {
             flamme(cx - 20, G - 14, 16, 26, 3), flamme(cx + 3, G - 15, 18, 31, -2), flamme(cx + 24, G - 14, 14, 22, -3),
             pierre(cx - a * 0.8, G - 24, 26, 24, [1, 0.94, 0.9, 1, 0.96, 0.92, 0.97], 0.3),
             pierre(cx + a * 0.8, G - 24, 25, 24, [0.96, 1, 0.92, 0.95, 1, 0.9, 0.94], 1.1),
+            h.chemin(ch.vide(yw), h.a.loin, true),
             h.chemin(ch.eau(yw), h.a.hachure('eau', 'aucun'), true),
             troncon(cx - a * 0.42, yb - 22, 34, 8, 0.2),
             spongieux(cx + a * 0.12, yb - 21, 15, 10, undefined, 0.5),
@@ -340,7 +358,7 @@ module.exports = (h) => {
               return h.path(`M${f(x)},${f(yr - 8)} C${f(x - 8)},${f(yr - 20)} ${f(x + 8)},${f(yr - 30)} ${f(x)},${f(yr - 42 - i * 6)}`, h.a.cache);
             }),
             h.chemin(baton, blanc(h.a.arete), true),
-            h.fleche(`M${f(sx - 16)},${f(ys - 2)} A16,5 0 0 0 ${f(sx + 16)},${f(ys - 2)}`, h.a.arete),
+            h.geste(`M${f(sx - 16)},${f(ys - 2)} A16,5 0 0 0 ${f(sx + 16)},${f(ys - 2)}`),
           ].join('\n');
         },
         renvois: z => {
@@ -369,6 +387,7 @@ module.exports = (h) => {
           return [
             h.path(neige, h.a.hachure('neige', 'aucun')),
             h.path(`M4,${f(G)} Q${f(W * 0.25)},${f(G - 3)} ${f(W * 0.5)},${f(G)} T${f(W - 4)},${f(G)}`, h.a.arete),
+            h.chemin(ch.vide(surf), h.a.loin, true),
             h.chemin(ch.eau(surf), h.a.hachure('eau', 'aucun'), true),
             h.ligne(ch.bordX(surf), surf, 2 * cx - ch.bordX(surf), surf, h.a.arete),
             ch.paroi,
@@ -377,10 +396,10 @@ module.exports = (h) => {
             spongieux(62, G - 7, 11, 7, undefined, 0.6),
             troncon(30, G - 21, 28, 6, -0.22),
             // la galette, levée d'une pièce
-            h.chemin(flanc, blanc(h.a.arete), true),
+            h.chemin(flanc, h.a.arete.replace('fill="none"', h.a.ombre.split(' ')[0]), true),
             h.chemin(ell(0.15, Math.PI - 0.15, th * 0.55, 24), h.a.fin, false),
             h.chemin(dessus, blanc(h.a.contour), true),
-            (() => { const m = G2(rx * 0.72, -ry); return h.fleche(`M${f(m[0])},${f(m[1] - 4)} L${f(m[0])},${f(m[1] - 30)}`, h.a.arete); })(),
+            (() => { const m = G2(rx * 0.72, -ry); return h.geste(`M${f(m[0])},${f(m[1] - 4)} L${f(m[0])},${f(m[1] - 30)}`); })(),
           ].join('\n');
         },
         renvois: z => {

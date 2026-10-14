@@ -67,7 +67,7 @@
 <path d="M116 248 L116 146.9 L452 133.1 L452 175 L438 175 L438 147.7 L130 160.3 L130 248 Z" fill="url(#h-isolant)" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round"/>
 <path d="M130 232 L130 160.3 L438 147.7 L438 175 L430 175 L430 156 L138 168 L138 232 Z" fill="#FFFFFF" stroke="none"/>
 <path d="M130 232 L130 160.3 L438 147.7 L438 175 L430 175 L430 156 L138 168 L138 232 Z" fill="url(#h-bois)" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round"/>
-<path d="M138 232 L138 168 L430 156 L430 232 Z" fill="#FFFFFF" stroke="none"/>
+<path d="M138 232 L138 168 L430 156 L430 232 Z" fill="#E6E6E6" stroke="none"/>
 <path d="M138 232 L138 168 L430 156 L430 176" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
 <line x1="138" y1="232" x2="452" y2="232" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
 <rect x="431" y="176" width="20" height="56" fill="#FFFFFF" stroke="none"/>
@@ -86,6 +86,8 @@
 <path d="M164 225 C 236 229, 300 226, 350 206 S 398 178, 405 164" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="5 3.5" marker-end="url(#fl)"/>
 <path d="M406 34 L406 12" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="5 3.5" marker-end="url(#fl)"/>
 <path d="M580 268 L597 272" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="5 3.5" marker-end="url(#fl)"/>
+<circle cx="150" cy="222" r="11" fill="none" stroke="#9B2C1E" stroke-width="1.6"/>
+<circle cx="406" cy="156" r="11" fill="none" stroke="#9B2C1E" stroke-width="1.6"/>
 </g>
 <line x1="297.1" y1="63.8" x2="286" y2="73.3" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
 <line x1="297.1" y1="63.8" x2="286" y2="73.3" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>

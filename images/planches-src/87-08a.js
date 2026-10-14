@@ -2,8 +2,13 @@
 // et ce qui remplace le bouton » : feu long et bas, cuire sur les braises, mur de bûches vertes
 // ou de neige tassée côté vent, crémaillère taillée dans une branche fourchue, écorcée, crans sur
 // la face intérieure, pendue à une perche posée dans deux fourches plantées, bois vert seulement.
+// La charte : la perche et la crémaillère au contour fort (le chaudron l'avait déjà) ; le mur de
+// bûches derrière le feu et la fourche du fond en gris loin ; le flanc droit de chaque chaudron à
+// l'ombre. Le rouge : soulever pour changer de cran (le geste), le dessus du cran qui porte sur la
+// perche (le point à vérifier), les braises qu'on tire du bout (le geste, vu de dessus).
 module.exports = (h) => {
   const W = t => t.replace('fill="none"', 'fill="#ffffff"');
+  const GL = t => t.replace('fill="none"', 'fill="#E6E6E6"');
   // un bâton de (x1, y1) à (x2, y2), largeur w1 puis w2
   const baton = (x1, y1, x2, y2, w1, w2 = w1, tr = h.a.arete) => {
     const L = Math.hypot(x2 - x1, y2 - y1), nx = -(y2 - y1) / L, ny = (x2 - x1) / L;
@@ -11,9 +16,9 @@ module.exports = (h) => {
       [x2 - nx * w2 / 2, y2 - ny * w2 / 2], [x1 - nx * w1 / 2, y1 - ny * w1 / 2]], W(tr), true);
   };
   // une fourche plantée : pieu, deux bras, enfourchure en cy
-  const fourche = (x, yb, yj, cy, yt, ecart, tr = h.a.arete) => h.chemin([
+  const fourche = (x, yb, yj, cy, yt, ecart, tr = h.a.arete, fond = W) => h.chemin([
     [x - 5.5, yb], [x - 5, yj], [x - ecart - 3.2, yt], [x - ecart + 3.2, yt], [x, cy],
-    [x + ecart - 3.2, yt], [x + ecart + 3.2, yt], [x + 5, yj], [x + 5.5, yb]], W(tr), true);
+    [x + ecart - 3.2, yt], [x + ecart + 3.2, yt], [x + 5, yj], [x + 5.5, yb]], fond(tr), true);
   // la crémaillère de profil : face droite en fx, crans (dessus à plat, dessous en biais)
   const cremaillere = (fx, w, yh, yb, crans, d, hb, fd, tr = h.a.arete) => {
     const pts = [[fx - w, yh], [fx, yh]];
@@ -39,7 +44,10 @@ module.exports = (h) => {
   // (champ = true), une seule oreille devant et l'anse droite jusqu'au creux du crochet.
   const chaudron = (cx, yb, w, ht, hx, hy, champ = false) => {
     const yr = yb - ht, a = w / 2;
-    const corps = h.path(`M ${cx - a} ${yr} C ${cx - a - w * 0.06} ${yr + ht * 0.55} ${cx - w * 0.36} ${yb} ${cx} ${yb} C ${cx + w * 0.36} ${yb} ${cx + a + w * 0.06} ${yr + ht * 0.55} ${cx + a} ${yr} Z`, W(h.a.contour));
+    const d = `M ${cx - a} ${yr} C ${cx - a - w * 0.06} ${yr + ht * 0.55} ${cx - w * 0.36} ${yb} ${cx} ${yb} C ${cx + w * 0.36} ${yb} ${cx + a + w * 0.06} ${yr + ht * 0.55} ${cx + a} ${yr} Z`;
+    // le fond blanc, le flanc droit à l'ombre (lumière en haut à gauche), puis le contour par-dessus
+    const ombre = h.path(`M ${cx + a} ${yr} C ${cx + a + w * 0.06} ${yr + ht * 0.55} ${cx + w * 0.36} ${yb} ${cx} ${yb} C ${cx + w * 0.24} ${yb - ht * 0.14} ${cx + a - w * 0.1} ${yr + ht * 0.5} ${cx + a - w * 0.1} ${yr} Z`, h.a.ombre);
+    const corps = [h.path(d, h.a.blanc), ombre, h.path(d, h.a.contour)].join('\n');
     if (champ) return [corps, h.rect(cx - a - 3, yr - 4, w + 6, 4, W(h.a.arete)),
       h.ligne(cx, yr + 4, hx, hy, h.a.arete), h.cercle(cx, yr + 4, 2.2, W(h.a.detail))].join('\n');
     return [
@@ -79,15 +87,15 @@ module.exports = (h) => {
           const out = [sol(z, g)];
           // le mur de bûches, derrière le feu
           const m0 = 66, m1 = z.l - 66;
-          for (let i = 0; i < 3; i++) out.push(h.rect(m0 + (i % 2) * 6, g - 10 * (i + 1), m1 - m0 - 6, 10, W(h.a.fin)));
-          for (const x of [m0 + 10, (m0 + m1) / 2, m1 - 10]) out.push(h.rect(x - 2, g - 38, 4, 38, W(h.a.fin)));
+          for (let i = 0; i < 3; i++) out.push(h.rect(m0 + (i % 2) * 6, g - 10 * (i + 1), m1 - m0 - 6, 10, GL(h.a.fin)));
+          for (const x of [m0 + 10, (m0 + m1) / 2, m1 - 10]) out.push(h.rect(x - 2, g - 38, 4, 38, GL(h.a.fin)));
           // les fourches plantées
           for (const x of [xa, xb]) {
             out.push(pieuEnTerre(x, g));
             out.push(fourche(x, g, yp + 17, yp + 5, yp - 12, 7));
           }
           // la perche, et le bras avant de chaque fourche par-dessus
-          out.push(h.rect(12, yp - 5, z.l - 24, 10, W(h.a.arete)));
+          out.push(h.rect(12, yp - 5, z.l - 24, 10, W(h.a.contour)));
           for (const x of [xa, xb]) out.push(baton(x, yp + 5, x + 7, yp - 12, 6));
           // le feu long et bas : braises, et le bout qui brûle encore
           out.push(braises(88, z.l - 124, g, 2));
@@ -97,7 +105,7 @@ module.exports = (h) => {
           // la crémaillère, devant la perche ; ses crans et son crochet sont sur l'autre face,
           // tournés vers la perche : l'anse passe dans le creux du crochet, derrière la tige
           out.push(chaudron(xc, g - FOND, POT, POTH, xc, hy - 1));
-          out.push(h.chemin([[xc - 4.5, yp - 58], [xc + 4.5, yp - 58], [xc + 4.5, hy + 10], [xc - 4.5, hy + 10]], W(h.a.arete), true));
+          out.push(h.chemin([[xc - 4.5, yp - 58], [xc + 4.5, yp - 58], [xc + 4.5, hy + 10], [xc - 4.5, hy + 10]], W(h.a.contour), true));
           for (let y = yp - 28; y <= yp + 60; y += 22) out.push(h.ligne(xc - 4.5, y, xc + 4.5, y, h.a.cache));
           // le crochet fixe, plus court : un seul cran, sur l'autre face, pris sur la perche
           // (un ergot de branche en haut ouvrirait vers le haut, comme celui du bas : il ne pend à rien)
@@ -125,8 +133,9 @@ module.exports = (h) => {
           const fx = px + 0.5, cr0 = py - r;
           const out = [sol(z, g)];
           // la fourche du fond, vue de face
-          out.push(pieuEnTerre(px, g).replace(h.a.arete.split(' ')[2], 'stroke-width="0.7"'));
-          out.push(fourche(px, g, py + 26, py + 14, py - 18, 20, h.a.detail));
+          // la fourche du fond, derrière : gris loin
+          out.push(pieuEnTerre(px, g).replace(h.a.arete.split(' ')[2], 'stroke-width="0.7"').replace('fill="#ffffff"', 'fill="#E6E6E6"'));
+          out.push(fourche(px, g, py + 26, py + 14, py - 18, 20, h.a.detail, GL));
           // le mur de bûches côté vent, en coupe, tenu par deux piquets
           const wx = z.l - 42;
           for (const x of [wx - 9, wx + 9]) out.push(h.rect(x - 2, g - 38, 4, 46, W(h.a.arete)));
@@ -137,7 +146,7 @@ module.exports = (h) => {
           // la crémaillère, de profil, la perche dans un cran
           const crans = [cr0 - 44, cr0 - 22, cr0, cr0 + 26, cr0 + 48, cr0 + 70];
           out.push(baton(fx - 3, hy + 8, fx + 9, hy - 8, 7));
-          out.push(cremaillere(fx, 11, py - 58, hy + 12, crans, 6.5, 12, 5));
+          out.push(cremaillere(fx, 11, py - 58, hy + 12, crans, 6.5, 12, 5, h.a.contour));
           out.push(h.cercle(px, py, r, h.a.hachure('bois')));
           // l'anse, vue par la tranche, monte droit au creux du crochet, sous la perche
           out.push(chaudron(fx + 1.5, g - FOND, POT, POTH, fx + 1.5, hy - 1, true));
@@ -174,7 +183,7 @@ module.exports = (h) => {
           // la crémaillère finie : écorcée, crans du côté du crochet
           const X = z.l - 58, fx = X + 5;
           out.push(baton(X, yJ - 2, X + ux * 20, yJ - 2 + uy * 20, 8, 7));
-          out.push(cremaillere(fx, 10, yT, yB, [42, 64, 86, 108], 4.5, 8, 4));
+          out.push(cremaillere(fx, 10, yT, yB, [42, 64, 86, 108], 4.5, 8, 4, h.a.contour));
           for (const dx of [-7, -3]) out.push(h.ligne(fx + dx, yT + 4, fx + dx, yB - 4, h.a.fin));
           out.push(h.fleche(`M ${x + 22} ${z.h / 2 - 20} L ${X - 22} ${z.h / 2 - 20}`, h.a.detail));
           return out.join('\n');
@@ -197,10 +206,13 @@ module.exports = (h) => {
           const out = [];
           const fx = 70, w = 34, d = 16, r = 15, hb = 30, fd = 12;
           const yr = Math.round(z.h * 0.42), cx = fx - d + r, cy = yr + r;
-          out.push(cremaillere(fx, w, 6, z.h - 6, [yr - 70, yr, yr + 72], d, hb, fd));
+          out.push(cremaillere(fx, w, 6, z.h - 6, [yr - 70, yr, yr + 72], d, hb, fd, h.a.contour));
           for (const dx of [-26, -17, -8]) out.push(h.ligne(fx + dx, 12, fx + dx, z.h - 12, h.a.fin));
           out.push(h.cercle(cx, cy, r, h.a.hachure('bois')));
-          out.push(h.fleche(`M 16 ${yr + 40} L 16 ${yr - 14}`));
+          // le geste : soulever la crémaillère pour changer de cran
+          out.push(h.geste(`M 16 ${yr + 40} L 16 ${yr - 14}`));
+          // le point à vérifier : le dessus à plat qui porte sur la perche
+          out.push(h.controle(fx - 8, yr, 12));
           return out.join('\n');
         },
         renvois: z => {
@@ -226,7 +238,7 @@ module.exports = (h) => {
           // le feu long : braises, et le bout qui brûle
           out.push(braises(46, z.l - 66, yc + 16, 5, 0.9));
           out.push(h.rect(z.l - 78, yc - 7, 36, 6, W(h.a.arete)), h.rect(z.l - 74, yc + 1, 34, 6, W(h.a.arete)));
-          out.push(h.fleche(`M ${z.l - 46} ${yc + 28} L ${xk - 12} ${yc + 28}`));
+          out.push(h.geste(`M ${z.l - 46} ${yc + 28} L ${xk - 12} ${yc + 28}`));
           // les chaudrons, sous la perche
           out.push(h.cercle(xc, yc, POT / 2 * 0.52, W(h.a.contour)), h.cercle(xc, yc, POT / 2 * 0.52 - 3, h.a.fin));
           out.push(h.cercle(xk, yc, 14, W(h.a.contour)), h.cercle(xk, yc, 11, h.a.fin));
