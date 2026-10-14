@@ -1261,10 +1261,13 @@ function construire(o, prep = null) {
       // arrondie de l'olécrane (l'éventail seul en faisait un tuyau coudé)
       if (flex > 0.5) {
         const kE = u3(x3(dA3, dB3)), K = Math.max(4, Math.ceil(flex / 6)), ev = [];
-        const rw = (wA[0] + wA[1] + wA[2] + wA[3]) / 4, bis = u3(s3(dA3, dB3)), kO = 0.3 * rw * (t0 => t0 * t0 * (3 - 2 * t0))(Math.max(0, Math.min(1, (flex - 30) / 60)));
+        const lisse = t0 => { const v = Math.max(0, Math.min(1, t0)); return v * v * (3 - 2 * v); };
+        const rw = (wA[0] + wA[1] + wA[2] + wA[3]) / 4, bis = u3(s3(dA3, dB3));
+        // (replié serré, la pointe s'affine : sinon un talon de chaussette)
+        const kO = rw * (0.3 * lisse((flex - 30) / 60) + 0.12 * lisse((flex - 90) / 45)), kF = 0.2 * lisse((flex - 80) / 50);
         for (let j = 0; j <= K; j++) {
           const t = j / K, d = u3(rot3(dA3, kE, flex * t)), b = Math.sin(Math.PI * t) ** 2;
-          ev.push(section(a3(cE, m3(bis, kO * b)), frEn(d), wA).map(p2));
+          ev.push(section(a3(cE, m3(bis, kO * b)), frEn(d), wA.map(v => v * (1 - kF * b))).map(p2));
         }
         for (let j = 0; j < K; j++) polysBR.push(enveloppe(ev[j].concat(ev[j + 1])));
       }

@@ -2,7 +2,7 @@
 <title>Planche 29-03 — Nouer et couper le cordon</title>
 <desc>En haut, le cordon qui sort du ventre du bébé : deux liens, à 2 et à 5 travers de doigt de la peau ; la coupe entre les deux, à la lame ; un troisième lien entre le premier et la peau si le bout suinte. En bas, le nœud plat en gros, vu de face, les bouts tenus vers le haut, en deux temps : le bout de droite passe devant celui de gauche puis derrière, on serre ; le bout de gauche passe devant celui de droite puis derrière, on serre.</desc>
 <defs>
-<marker id="fl" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#1A1A1A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker>
+<marker id="fl-r" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9 Z" fill="#9B2C1E" stroke="#9B2C1E" stroke-width="1" stroke-linejoin="round"/></marker>
 </defs>
 <rect x="0" y="0" width="680" height="826" fill="#FFFFFF"/>
 <text x="40" y="38" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#1A1A1A">Deux liens</text>
@@ -171,6 +171,7 @@
 <ellipse cx="92.5" cy="217.1" rx="3.6" ry="4.4" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M90.9 213.9 Q94.1 217.1 90.9 220.3" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M88.3 160.7 C88.3 166.9 90.1 170.9 89.9 173.9 C89.7 177.4 93.9 177.4 93.6 173.9 C93.4 169.9 93.9 165.9 93.5 160.3 Z" fill="#1A1A1A" stroke="none"/>
+<circle cx="92.5" cy="160.2" r="15" fill="none" stroke="#9B2C1E" stroke-width="1.6"/>
 </g>
 <text x="40" y="362.9" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#1A1A1A">Nœud plat, premier temps : droite sur gauche</text>
 <g transform="translate(40 370.9)" data-vue="temps1">
@@ -207,8 +208,8 @@
 <path d="M241.4 88.2 L243.6 93.8" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M47.2 89.3 L42.8 86.5 M46.5 91 L41.8 89 M45.8 92.6 L40.8 91.5" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M243.2 92.7 L248.2 91.5 M242.5 91 L247.2 89 M241.8 89.3 L246.2 86.5" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M37.3 87.1 L13.3 77.1" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl)"/>
-<path d="M251.7 87.1 L275.7 77.1" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl)"/>
+<path d="M37.3 87.1 L13.3 77.1" fill="none" stroke="#9B2C1E" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl-r)"/>
+<path d="M251.7 87.1 L275.7 77.1" fill="none" stroke="#9B2C1E" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl-r)"/>
 </g>
 <text x="351" y="362.9" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#1A1A1A">Second temps : gauche sur droite</text>
 <g transform="translate(351 370.9)" data-vue="temps2">
@@ -252,8 +253,8 @@
 <path d="M239.7 69.9 L241.3 75.7" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M49 71.1 L44.3 68.8 M48.5 72.8 L43.6 71.4 M48 74.5 L42.9 74" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M241 74.5 L246.1 74 M240.5 72.8 L245.4 71.4 M240 71.1 L244.7 68.8" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M38.9 70.1 L13.9 62.9" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl)"/>
-<path d="M250.1 70.1 L275.1 62.9" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl)"/>
+<path d="M38.9 70.1 L13.9 62.9" fill="none" stroke="#9B2C1E" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl-r)"/>
+<path d="M250.1 70.1 L275.1 62.9" fill="none" stroke="#9B2C1E" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl-r)"/>
 </g>
 <line x1="70.6" y1="251.4" x2="117.5" y2="236.1" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
 <line x1="70.6" y1="251.4" x2="117.5" y2="236.1" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>

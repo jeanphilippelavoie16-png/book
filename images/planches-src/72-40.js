@@ -2,6 +2,10 @@
 // couler en deux temps ; en vignettes, les deux ratés (eau au fond, cratère de retrait).
 // Convention de la planche : gras liquide = blanc sous un trait de surface ; gras figé =
 // pointillé (motif neige) ; eau = tirets (motif eau).
+// La charte : au-dessus du contenu, l'air du contenant en gris loin (le gras liquide reste blanc et
+// se distingue enfin de l'air) ; le dedans du poêle en gris loin ; la face droite des cubes à
+// l'ombre. Le rouge : le chaudron qu'on écarte du centre, les cretons qui descendent (le signe), et
+// l'endroit de chaque raté. La fumée et les cretons qui tombent restent en noir.
 module.exports = (h) => {
   const blanc = t => t.replace('fill="none"', 'fill="#FFFFFF"');
 
@@ -44,6 +48,8 @@ module.exports = (h) => {
   // remplissage d'un contenant jusqu'à une surface (liste de points de gauche à droite)
   const remplir = (c, surface, at) => h.chemin([[c.xi0, c.yf], ...surface, [c.xi1, c.yf]], at, true);
   const plat = (c, y) => [[c.xi0, y], [c.xi1, y]];
+  // l'air au-dessus du contenu : on voit la paroi d'en face, en gris loin (le gras liquide reste blanc)
+  const air = (c, surface) => h.chemin([[c.xi0, c.yt], [c.xi1, c.yt], ...surface.slice().reverse()], h.a.loin, true);
 
   // louche : bol incliné de theta (radians, sens horaire), manche vers (mx, my)
   const louche = (bx, by, r, theta, mx, my) => {
@@ -85,7 +91,9 @@ module.exports = (h) => {
   const boite = (x, y, lx, hy, dx, dy) => [
     h.rect(x, y - hy, lx, hy, blanc(h.a.arete)),
     h.chemin([[x, y - hy], [x + lx, y - hy], [x + lx + dx, y - hy + dy], [x + dx, y - hy + dy]], blanc(h.a.arete), true),
-    h.chemin([[x + lx, y], [x + lx, y - hy], [x + lx + dx, y - hy + dy], [x + lx + dx, y + dy]], blanc(h.a.arete), true),
+    // la face de droite, à l'ombre
+    h.chemin([[x + lx, y], [x + lx, y - hy], [x + lx + dx, y - hy + dy], [x + lx + dx, y + dy]], h.a.ombre, true),
+    h.chemin([[x + lx, y], [x + lx, y - hy], [x + lx + dx, y - hy + dy], [x + lx + dx, y + dy]], h.a.arete, true),
   ];
 
   // géométries partagées entre dessin et renvois
@@ -189,8 +197,9 @@ module.exports = (h) => {
           const out = [];
           // le poêle en coupe : caisse, pattes, tuyau à gauche
           out.push(h.rect(xs0, ytop, xs1 - xs0, ybot - ytop, h.a.plein));
-          out.push(h.rect(xs0 + 3, ytop + 5, xs1 - xs0 - 6, ybot - ytop - 8, h.a.blanc));
-          out.push(h.rect(px0, ytop - 1, px1 - px0, 7, h.a.blanc));
+          // le dedans du poêle et du tuyau, vu par la coupe : en gris loin
+          out.push(h.rect(xs0 + 3, ytop + 5, xs1 - xs0 - 6, ybot - ytop - 8, h.a.loin));
+          out.push(h.rect(px0, 0, px1 - px0, ytop + 6, h.a.loin));
           out.push(h.rect(px0 - 2.5, 0, 2.5, ytop, h.a.plein), h.rect(px1, 0, 2.5, ytop, h.a.plein));
           out.push(h.rect(xs0 + 6, ybot, 6, 12, h.a.plein), h.rect(xs1 - 12, ybot, 6, 12, h.a.plein));
           // le feu, sous le centre
@@ -209,13 +218,14 @@ module.exports = (h) => {
           out.push(...f.murs);
           // le chaudron écarté, avec son fond d'eau et les cubes
           const c = chaudron(cxA, ytop, w, ht);
+          out.push(air(c, plat(c, g.yeau)));
           out.push(remplir(c, plat(c, g.yeau), h.a.hachure('eau', 'aucun')));
           out.push(h.ligne(c.xi0, g.yeau, c.xi1, g.yeau, h.a.detail));
           const cubes = [[-22, 0, 0.1], [-11, 1, -0.2], [0, 0, 0.3], [11, 1, 0], [22, 0, -0.3], [-16, -9, 0.4], [-5, -10, 0], [6, -9, -0.25], [17, -10, 0.2], [-10, -19, 0.1], [3, -19, -0.35], [14, -19, 0.3]];
           for (const [dx, dy, a] of cubes) if (Math.abs(dx) < (c.xi1 - c.xi0) / 2 - 5) out.push(cube(cxA + dx, g.yeau - 1 + dy, 9, a));
           out.push(...c.murs);
           // on le glisse hors du centre
-          out.push(h.fleche(`M ${xc} ${ytop - ht - 14} L ${c.x0 - 6} ${ytop - ht - 14}`, h.a.arete));
+          out.push(h.geste(`M ${xc} ${ytop - ht - 14} L ${c.x0 - 6} ${ytop - ht - 14}`));
           return out.join('\n');
         },
         renvois: z => {
@@ -233,6 +243,7 @@ module.exports = (h) => {
           const g = gFin(z);
           const c = chaudron(g.cx, g.yb, g.w, g.ht, { anse: false });
           const out = [];
+          out.push(air(c, plat(c, g.ys)));
           out.push(h.ligne(c.xi0, g.ys, c.xi1, g.ys, h.a.arete));
           // cretons au fond, et deux qui descendent
           const fond = [[-40, 0], [-31, -1], [-22, 0], [-13, -1], [-4, 0], [5, -1], [14, 0], [23, -1], [32, 0], [41, -1], [-26, -7], [-8, -7], [10, -7], [28, -7]];
@@ -241,6 +252,8 @@ module.exports = (h) => {
           out.push(creton(g.cx - 16, yd - 4, 1, 9), creton(g.cx + 20, yd + 2, 1, 9));
           out.push(h.fleche(`M ${g.cx - 16} ${yd + 1} L ${g.cx - 16} ${yd + 9}`, h.a.detail));
           out.push(h.fleche(`M ${g.cx + 20} ${yd + 7} L ${g.cx + 20} ${yd + 15}`, h.a.detail));
+          // le signe à guetter : les cretons dorés qui descendent
+          out.push(h.controle(g.cx - 16, yd + 1, 11));
           // un léger frémissement
           for (const dx of [-20, 6, 26]) out.push(h.cercle(g.cx + dx, g.ys + 3, 1.4, blanc(h.a.fin)));
           out.push(...c.murs);
@@ -261,6 +274,7 @@ module.exports = (h) => {
           const { cx, yR, rp, dp, ys } = g;
           const out = [];
           const c = chaudron(cx, g.yb, g.w, g.ht, { anse: false });
+          out.push(air(c, plat(c, ys)));
           out.push(h.ligne(c.xi0, ys, c.xi1, ys, h.a.arete));
           // la passoire : manche sur le bord gauche, oreille accrochée au bord droit
           const yp = yR - 3;
@@ -297,11 +311,15 @@ module.exports = (h) => {
           const { cx, yt, ys, creux } = g;
           const p = pot(cx, g.yb, g.w, g.ht);
           const out = [];
+          out.push(air(p, plat(p, ys)));
           out.push(remplir(p, plat(p, ys), h.a.blanc));
           out.push(h.ligne(p.xi0, ys, p.xi1, ys, h.a.arete));
           // le cerceau posé sur le bord, le coton replié dessus, le sac qui pend dedans
           const rw = 2.6;
           const xg = p.x0 + p.t / 2, xd = p.x1 - p.t / 2, yw = yt - rw - 1.5;
+          // le sac, plein de gras liquide : blanc sur le gris
+          out.push(h.path(`M ${xg + rw + 1} ${yw} C ${xg + 10} ${yt + creux * 0.7} ${cx - 22} ${yt + creux} ${cx} ${yt + creux}` +
+            ` C ${cx + 22} ${yt + creux} ${xd - 10} ${yt + creux * 0.7} ${xd - rw - 1} ${yw} Z`, h.a.blanc));
           for (let k = 0; k < 3; k++) {
             const e = k * 1.6;
             // de l'extérieur du pot, par-dessus le fil, jusqu'au fond du sac
@@ -342,12 +360,14 @@ module.exports = (h) => {
           const A = pot(g.cA, g.yb, g.w, g.ht);
           const yA = A.yf - (A.yf - A.yt) * 0.75;
           const crA = quad([A.xi0, yA], [g.cA, yA + 22], [A.xi1, yA]);
+          out.push(air(A, crA));
           out.push(remplir(A, crA, h.a.hachure('neige', 'aucun')));
           out.push(h.chemin(crA, h.a.arete));
           out.push(...A.murs);
           // second temps : la dernière louche comble le creux
           const B = pot(g.cB, g.yb, g.w, g.ht);
           const yB = B.yt + 7;
+          out.push(air(B, plat(B, yB)));
           out.push(remplir(B, crA.map(([x, y]) => [x - g.cA + g.cB, y]), h.a.hachure('neige', 'aucun')));
           out.push(h.chemin(crA.map(([x, y]) => [x - g.cA + g.cB, y]), h.a.cache));
           out.push(h.ligne(B.xi0, yB, B.xi1, yB, h.a.arete));
@@ -376,6 +396,7 @@ module.exports = (h) => {
           const ysurf = P.yt + 7;
           const yEau = P.yf - 12;
           // gras figé jusqu'en haut
+          out.push(air(P, plat(P, ysurf)));
           out.push(remplir(P, plat(P, ysurf), h.a.hachure('neige', 'aucun')));
           out.push(h.ligne(P.xi0, ysurf, P.xi1, ysurf, h.a.arete));
           // bande marbrée au-dessus de l'eau
@@ -393,6 +414,8 @@ module.exports = (h) => {
           out.push(h.rect(P.xi0, yEau, lm, P.yf - yEau, h.a.hachure('eau', 'aucun')));
           out.push(h.ligne(P.xi0, yEau, P.xi1, yEau, h.a.detail));
           out.push(...P.murs);
+          // le raté : la couche restée liquide au fond
+          out.push(h.controle(g.cx + 10, (yEau + P.yf) / 2, 11));
           // seconde ligne de rappel du renvoi 11, vers la bande marbrée (même trait que le compositeur)
           {
             const [rx, ry] = [14, g.yb - 14], [tx, ty] = [P.xi0 + lm * 0.3, yEau - 8];
@@ -419,9 +442,11 @@ module.exports = (h) => {
           const ybord = P.yt + 5;
           const cr = [[P.xi0, ybord], ...quad([P.xi0 + 6, ybord + 1], [g.cx, ybord + 58], [P.xi1 - 6, ybord + 1]), [P.xi1, ybord]];
           return [
+            air(P, cr),
             remplir(P, cr, h.a.hachure('neige', 'aucun')),
             h.chemin(cr, h.a.arete),
             ...P.murs,
+            h.controle(g.cx - 5, ybord + 25, 12),   // le raté : le creux du retrait
           ].join('\n');
         },
         renvois: z => {

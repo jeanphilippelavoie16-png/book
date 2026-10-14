@@ -19,6 +19,10 @@
 // bas, derrière en haut. Les deux torsades tournent en sens contraire : c'est un nœud plat, pas un
 // nœud de vache. Le dessus / dessous de chaque croisement vient de la profondeur (z de
 // h.formes.cordes), pas d'un choix à l'œil.
+//
+// La charte : pas de gris (le cordon et le ventre sont un corps ; le lien est une corde). Le rouge :
+// les deux bouts qu'on tire, à chaque temps du nœud, et le cercle sur le bout coupé qui suinte, ce
+// qu'on regarde après la coupe.
 module.exports = (h) => {
   const RAD = Math.PI / 180;
   const f1 = v => Math.round(v * 10) / 10;
@@ -186,6 +190,7 @@ module.exports = (h) => {
     // le sang qui perle sur la coupe, coule sur le devant, une goutte qui tombe
     const c = P(0, YC, 0), yF = c[1] + Ro * Math.sin(Eo * RAD), x = c[0];
     o.push(h.path(`M${f1(x - 4.2)} ${f1(yF - 1.2)} C${f1(x - 4.2)} ${f1(yF + 5)} ${f1(x - 2.4)} ${f1(yF + 9)} ${f1(x - 2.6)} ${f1(yF + 12)} C${f1(x - 2.8)} ${f1(yF + 15.5)} ${f1(x + 1.4)} ${f1(yF + 15.5)} ${f1(x + 1.1)} ${f1(yF + 12)} C${f1(x + 0.9)} ${f1(yF + 8)} ${f1(x + 1.4)} ${f1(yF + 4)} ${f1(x + 1)} ${f1(yF - 1.6)} Z`, h.a.plein));
+    o.push(h.controle(x, c[1] + 3, 15));          // le bout coupé : s'il suinte, un troisième lien
     return o.join('\n');
   };
 
@@ -216,7 +221,7 @@ module.exports = (h) => {
     fin();
     o.push(h.formes.cordes([brin(As.slice(kA), 'ouvert'), brin(Bs.slice(kB), 'ouvert')]).toString());
   };
-  const fleche = (o, a, b) => o.push(h.fleche(`M${f1(a[0])} ${f1(a[1])} L${f1(b[0])} ${f1(b[1])}`, h.a.arete));
+  const fleche = (o, a, b) => o.push(h.geste(`M${f1(a[0])} ${f1(a[1])} L${f1(b[0])} ${f1(b[1])}`));
   // la flèche de tirage, dans le prolongement du bout
   const tirer = (o, P, pts) => {
     const a = P(...pts[pts.length - 2]), b = P(...pts[pts.length - 1]);
