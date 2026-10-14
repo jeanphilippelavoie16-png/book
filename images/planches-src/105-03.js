@@ -44,6 +44,8 @@ module.exports = (h) => ({
           h.path(D([[XG, hu], [XD, hu]]), h.a.arete),
           chaine(h, P, D, G0, XU),
           h.path(D(fantome), h.a.cache),
+          // charte : là où ça rate, le limiteur resté à sa hauteur d'origine
+          h.controle(...P([7, G0 - 3]), 9 * S(z)),
         ].join('\n');
       },
       renvois: z => {
@@ -78,7 +80,7 @@ module.exports = (h) => ({
           h.path(L.D([L.lime], true), h.a.hachure('metal', 'aucun')),
           h.path(L.D(L.limeBord), h.a.arete),
           h.cercle(...L.c, L.r, h.a.detail),
-          h.fleche(L.roule),
+          h.geste(L.roule),                         // charte : le geste, rouler la lime vers l'avant
         ].join('\n');
       },
       renvois: z => {
@@ -190,7 +192,7 @@ function chaine(h, P, D, g, x, rond = true) {
   const voisinArriere = [[XD, 0], [XD, 12], [59, 12], [56, 9], [56, 0]];
   const m = maillon(g, x, rond);
   return [
-    h.path(D([[XG, 0], [XD, 0], [XD, -13], [XG, -13]], true), h.a.blanc),
+    h.path(D([[XG, 0], [XD, 0], [XD, -13], [XG, -13]], true), h.a.loin),   // charte : le guide-chaîne, derrière la chaîne
     h.path(D([[XG, 0], [XD, 0]]), h.a.contour),
     h.path(D([[XG, -13], [XD, -13]]), h.a.arete),
     h.path(D(voisinAvant, true), h.a.blanc),

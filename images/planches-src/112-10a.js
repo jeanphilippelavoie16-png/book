@@ -209,6 +209,9 @@ module.exports = (h) => {
           // blocs : billots debout
           for (const x0 of [g.xL - 8, g.xR - g.bw]) {
             out.push(h.rect(x0, g.yB, g.bw + 8, g.hb, blanc('arete')));
+            // la charte : le flanc droit du billot à l'ombre (lumière en haut à gauche)
+            out.push(h.rect(f(x0 + (g.bw + 8) * 0.64), g.yB, f((g.bw + 8) * 0.36), g.hb, h.a.ombre));
+            out.push(h.rect(x0, g.yB, g.bw + 8, g.hb, h.a.arete));
             for (const u of [0.25, 0.55, 0.8]) out.push(h.path(`M ${f(x0 + (g.bw + 8) * u)} ${g.yB + 4} q 2 ${f(g.hb / 3)} -1 ${f(g.hb * 0.6)}`, h.a.fin));
           }
           // contenant entre les blocs
@@ -219,6 +222,18 @@ module.exports = (h) => {
           const flancD = [...pas(g.yB, g.yT, 16).map(y => [g.cx + rs(y), y])];
           const corps = `M ${P(flanc).map(p => p.join(' ')).join(' L ')} A ${f(r0)} ${ry} 0 0 0 ${P(flancD).map(p => p.join(' ')).join(' L ')} A ${f(r0)} ${ry} 0 0 0 ${f(g.cx - r0)} ${g.yT} Z`;
           out.push(h.path(corps, blanc('contour')));
+          // la charte : le flanc droit du baril à l'ombre, en suivant le bouge
+          {
+            const k = 0.45, sk = Math.sqrt(1 - k * k), us = Array.from({ length: 13 }, (_, i) => k + (1 - k) * i / 12);
+            const ombre = [
+              ...us.map(u => [g.cx + u * r0, g.yT + ry * Math.sqrt(1 - u * u)]),
+              ...pas(g.yT, g.yB, 16).map(y => [g.cx + rs(y), y]),
+              ...us.slice().reverse().map(u => [g.cx + u * r0, g.yB + ry * Math.sqrt(1 - u * u)]),
+              ...pas(g.yB, g.yT, 16).map(y => [g.cx + k * rs(y), y + ry * sk]),
+            ];
+            out.push(h.chemin(P(ombre), h.a.ombre, true));
+            out.push(h.path(corps, h.a.contour));
+          }
           // douves
           for (const c of [-0.82, -0.5, -0.17, 0.17, 0.5, 0.82]) {
             const pts = P(pas(g.yT + ry * Math.sqrt(1 - c * c), g.yB + ry * Math.sqrt(1 - c * c), 16).map(y => [g.cx + rs(y) * c, y]));
@@ -353,7 +368,7 @@ module.exports = (h) => {
           out.push(h.ligne(f(xInG(g, T.yC1)), T.yC1, f(xd), T.yC1, h.a.fin + ' stroke-dasharray="6 4"'));
           // le pilon : un rondin debout, posé sur la couche
           out.push(h.rect(f(T.px - T.pw / 2), 4, T.pw, f(T.yC2 - 4), h.a.hachure('bois', 'arete')));
-          out.push(h.fleche(`M ${f(T.px - T.pw / 2 - 10)} 10 L ${f(T.px - T.pw / 2 - 10)} ${f(T.yC2 - 6)}`));
+          out.push(h.geste(`M ${f(T.px - T.pw / 2 - 10)} 10 L ${f(T.px - T.pw / 2 - 10)} ${f(T.yC2 - 6)}`));   // la charte : tasser, le geste en rouge
           return out.join('\n');
         },
         renvois: z => {
@@ -390,6 +405,8 @@ module.exports = (h) => {
           out.push(h.chemin(chem, blanc('detail'), true));
           out.push(h.fleche(`M ${f(xc)} ${f(T.yAr - 22)} L ${f(xc + 1)} ${f(r.yPa - 2)}`, h.a.cache));
           for (const x of r.trous) out.push(goutte(x, r.yB + 6, 0.7));
+          // la charte : le point qui rate, le chemin creusé où l'eau passe sans rien tirer
+          out.push(h.controle(xc, T.yAr + 34, 13));
           return out.join('\n');
         },
         renvois: z => {

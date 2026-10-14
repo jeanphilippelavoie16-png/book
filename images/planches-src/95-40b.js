@@ -12,6 +12,10 @@
 // Les perches sont croisées aux coins comme le bac de la 95-40a. Aucune mesure de bac dans le
 // chapitre : aucune cote. Les couches de la coupe sont dessinées à deux épaisseurs de brun pour
 // une de vert, ce qui est la proportion du chapitre, pas une consigne de couches.
+// La charte : comme la 95-40a, le dessous de chaque perche couchée du composteur à l'ombre ; en
+// coupe, les bouts du mur du fond, derrière, en gris loin. Le rouge : le tubercule qui affleure dans
+// le raté (l'endroit où ça casse). Les flèches de la terre tirée vers la tige disent où va la
+// terre, elles restent noires, comme celles du billon de la 95-40a.
 module.exports = (h) => {
   const NOIR = '#1A1A1A';
   const blanc = (a) => a.replace('fill="none"', 'fill="#FFFFFF"');
@@ -82,6 +86,8 @@ module.exports = (h) => {
       const vert = id === 'rate' && i === 1;
       out.push(h.ellipse(c[0], c[1], rx * s, ry * s, h.a.blanc));
       out.push(h.ellipse(c[0], c[1], rx * s, ry * s, vert ? h.a.hachure('metal', 'arete') : blanc(h.a.arete)));
+      // l'endroit où ça casse : le tubercule qui sort à la lumière
+      if (vert) out.push(h.controle(c[0], c[1], Math.max(rx, ry) * s + 6));
     });
     // La surface, trait fort, et la surface d'avant en tireté.
     out.push(h.chemin(prof.map(([x, zz]) => q(x, zz)), h.a.contour));
@@ -148,12 +154,22 @@ module.exports = (h) => {
     const vis = axe === 'x' ? u1 : u0, cache = axe === 'x' ? u0 : u1;
     const A = cerclePerche(p, axe, vis, c, zc, r, demi), B = cerclePerche(p, axe, cache, c, zc, r, demi);
     const out = [];
+    // le dessous de la perche, à l'ombre : l'enveloppe des deux arcs du bas (sous 0,55 r)
+    const bas = (u) => Array.from({ length: 13 }, (_, i) => {
+      const t = Math.PI + 0.582 + (Math.PI - 1.164) * i / 12, dc = r * Math.cos(t), dz = r * Math.sin(t);
+      return axe === 'x' ? p(u, c + dc, zc + dz) : p(c + dc, u, zc + dz);
+    });
+    const ombre = demi ? '' : poly(hull(bas(vis).concat(bas(cache))), h.a.ombre);
     if (!morceau) {
-      out.push(poly(hull(A.concat(B)), blanc(h.a.arete)));
+      const hl = hull(A.concat(B));
+      out.push(poly(hl, h.a.blanc));
+      if (ombre) out.push(ombre);
+      out.push(poly(hl, h.a.arete));
     } else {
       const tag = new Map(); A.forEach((q) => tag.set(q.join(), 'A')); B.forEach((q) => tag.set(q.join(), 'B'));
       const hl = hull(A.concat(B));
       out.push(poly(hl, 'fill="#FFFFFF" stroke="none"'));
+      if (ombre) out.push(ombre);
       hl.forEach((q, i) => {
         const n = hl[(i + 1) % hl.length];
         if (tag.get(q.join()) !== tag.get(n.join())) out.push(h.ligne(q[0], q[1], n[0], n[1], h.a.arete));
@@ -328,7 +344,7 @@ module.exports = (h) => {
             [[0, -OP], [WC, WC + OP]].forEach(([xi, xe]) => {
               const sg = Math.sign(xe - xi), a = q(xi, zb), b = q(xe - sg * RP * 0.5, zb), c = q(xe - sg * RP * 0.5, zh), d = q(xi, zh);
               const m = q(xe + sg * RP * 0.35, (zb + zh) / 2);
-              out.push(h.path(`M${pt(d)} L${pt(c)} Q${pt([m[0], c[1]])} ${pt(m)} Q${pt([m[0], b[1]])} ${pt(b)} L${pt(a)}`, blanc(h.a.arete)));
+              out.push(h.path(`M${pt(d)} L${pt(c)} Q${pt([m[0], c[1]])} ${pt(m)} Q${pt([m[0], b[1]])} ${pt(b)} L${pt(a)}`, h.a.arete.replace('fill="none"', 'fill="#E6E6E6"')));
             });
           }
           // Les couches : brun, vert enfoui, brun, vert enfoui, brun par-dessus.
