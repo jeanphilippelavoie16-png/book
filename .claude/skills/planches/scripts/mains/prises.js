@@ -12,9 +12,12 @@
 //     Une pose de poses.json qui porte "solveur" et une "table" de diamètres est relue au diamètre demandé
 //     (option diametre de mainSimple) : angles et objet interpolés, < 1 ms. Les tables des poses résolues pareil
 //     se mettent bout à bout (prise-manche 8–45 mm + prise-grosse 50–90 mm : une table de 8 à 90). L'âge passe
-//     par le diamètre équivalent (d / kW) et l'objet mis à l'échelle. Hors de toute table : la prise est résolue
-//     sur le squelette du moteur (1 à 3 s) et gardée en cache. Les angles passés par l'option doigts (ceux qui
-//     diffèrent de poses.json) sont gardés tels quels.
+//     par le diamètre équivalent (d / kW) et l'objet mis à l'échelle. Hors de la table, on la borne (pas de
+//     résolution en direct) : une femme, un enfant ne coûtent rien. Seule une pose sans table (des options de
+//     solveur sur mesure) est résolue en direct (1 à 3 s, puis en cache). La clé d'une ligne de table est le
+//     diamètre DEMANDÉ (pour une pince : l'écart entre les pulpes). Les angles passés par l'option doigts (ceux
+//     qui diffèrent de poses.json) sont gardés tels quels. Une pose peut conseiller une rotation de vue
+//     (vues.rotation, ex. prise-grosse en vue paume : [0, 45, 0]) : c'est à la planche de la passer.
 //
 // ═══ LE SOLVEUR ════════════════════════════════════════════════════════════════════════════════════════════
 //
@@ -36,10 +39,18 @@
 //               phalanges épousent le manche, sa pulpe se pose sur la face de l'index entre P2 et P3 : le
 //               marteau) ; s'il n'y arrive pas (gros objet), pouceEnFace (sa pulpe sur l'objet côté poignet,
 //               tournée vers les doigts : le C). Options pouce : 'long' (couché le long du manche), 'libre', 'face'.
-//   poing, pointe  le pouce longe le bord radial du doigt replié et pose sa pulpe sur sa P2 (pas de piquet).
+//               Les MCP voisines restent à 12° au plus l'une de l'autre (proportions.json : 25 à 30°) : l'index et
+//               l'auriculaire s'enroulent comme les autres au lieu de se dresser en piquet ; la phalange de base
+//               peut alors s'enfoncer de quelques mm dans le manche, et les deux suivantes serrent d'autant.
+//   poing, pointe  le pouce pose sa pulpe sur la moitié côté majeur de la P2 de l'index (pas de piquet) ; le
+//               majeur est hors d'atteinte avec cette anatomie (testé par une chaîne 3D libre).
 //   pincer      l'index et le pouce cherchés ensemble (grille grossière puis recherche par motifs) : les deux
-//               pulpes face à face, à l'épaisseur de l'objet, rien ne s'interpénètre. sortes : fine · pointe ·
-//               ouverte · laterale (le pouce contre le côté de l'index).
+//               pulpes face à face, à l'épaisseur de l'objet, rien ne s'interpénètre, et un JOUR de 3 mm entre le
+//               pouce et l'index vus de profil (vue pouce) hors des pulpes : le « O » se lit. Les autres doigts : le
+//               majeur suit l'index (caché derrière lui), l'annulaire et l'auriculaire presque tendus, hors du O.
+//               sortes : fine · pointe · ouverte · laterale (le pouce contre le côté de l'index).
+//   pinceDessus la pince ouverte vue de dessus : l'index plié vers la peau, le pouce écarté à côté de lui, les deux
+//               bouts à d l'un de l'autre en travers de la main ; la bosse est une sphère entre eux.
 //   crochet · coiffe · plat (chaque doigt plie au MCP jusqu'à poser sa pulpe sur le plan : la ligne de contact
 //               est droite ; contact.plan permet au moteur d'y aplatir la silhouette) · fixe (angles donnés).
 // Une table de diamètres se résout de proche en proche depuis le diamètre par défaut (le pouce part du voisin) :
@@ -65,10 +76,11 @@
 //
 // ═══ LES POSES (CATALOGUE → poses.json) ═══════════════════════════════════════════════════════════════════
 //
-//   prise-manche (table 8–45) · prise-grosse (50–90) · prise-corde (3–14) · prise-pouce-dos (18–36) · coupe-c
-//   (60–110) · pince-fine · pince-pointe · pince-ouverte (15–70) · pince-laterale · poing · pointe · appui-index ·
-//   deux-doigts · deux-doigts-v · crochet (8–28) · coiffe (18–34) · plat · porte · ouverte · relachee · coupe ·
-//   main-sur-main. Chaque pose porte "vues" : { bonnes, aEviter } (inventaire.md).
+//   prise-manche (table 8–45, axe à 20°) · prise-grosse (50–90) · prise-corde (3–14) · prise-pouce-dos (18–36, en
+//   sabre : axe à 58°, le pouce couché sur le dos du manche) · coupe-c (60–110) · pince-fine (0,5–10) · pince-pointe
+//   (0,5–2) · pince-ouverte (15–70, de profil) · pince-ouverte-dessus (15–40, vue de dessus) · pince-laterale (1–8)
+//   · poing · pointe · appui-index · deux-doigts · deux-doigts-v · crochet (8–28) · coiffe (18–34) · plat · porte ·
+//   ouverte · relachee · coupe · main-sur-main. Chaque pose porte "vues" : { bonnes, aEviter, rotation?, note? }.
 //
 // Ligne de commande : node prises.js --ecrire [id…]   recalcule poses.json sur le squelette du moteur (≈ 1 min) ;
 //                     à refaire après tout changement d'anatomie de moteur.js
@@ -818,19 +830,21 @@ const PRISES = {
   // diamètre d, les pulpes face à face en travers de la main (le jour selon y), les bouts vers la surface ; les
   // trois autres repliés en poing, hors du chemin. Vue de dos, les deux bouts dépassent de part et d'autre.
   pinceDessus(S, o) {
+    // vue de dessus : l'index plié vers la peau (son bout revient à portée du pouce), le pouce écarté à côté de lui,
+    // les deux bouts à d l'un de l'autre en travers de la main (selon y), les pulpes face à face ; les trois autres
+    // repliés en poing. Vue de dos, les deux bouts sortent de part et d'autre de la bosse.
     const d = o.diametre || 30;
     const doigts = {};
     for (const n of ['majeur', 'annulaire', 'auriculaire']) doigts[n] = fermerDoigt(S, n, []).q;
-    doigts.index = pli(34, 40, 22, o.ecartIndex !== undefined ? o.ecartIndex : 4);
+    doigts.index = pli(44, 46, 28, o.ecartIndex !== undefined ? o.ecartIndex : 4);
     const pi = pulpe(S, 'index', doigts.index, 0.85);
-    const sgI = pi.seg, cote = M3(sgI.c.r, 1);                       // le côté radial de l'index (vers le pouce)
-    const I = A3(pi.c, M3(cote, rayonVers(sgI, 0.85, cote)));
+    const cote = [0, -1, 0];
+    const I = A3(pi.c, M3(cote, rayonVers(pi.seg, 0.85, pi.seg.c.r)));
     const G = A3(I, M3(cote, d));
-    const obst = obstSegments(segsDoigts(S, doigts));
-    const r = pouceVers(S, G, M3(cote, 1), obst, { pref: { mcp: 10, ip: 10 }, t: 0.8 });
+    const r = pouceVers(S, G, [0, 1, 0], obstSegments(segsDoigts(S, doigts)), { pref: { mcp: 10, ip: 10 }, t: 0.8 });
     doigts.pouce = r.q;
     const P = pulpe(S, 'pouce', r.q, 0.8).p, M = I3(I, P, 0.5);
-    return { doigts, objet: { type: 'cylindre', diametre: d, centre: A3(M, [0, 0, 6]), axe: [0, 0, 1], longueur: 30 },
+    return { doigts, objet: { type: 'sphere', diametre: Math.max(6, L3(S3(P, I)) - 4), centre: A3(M, [0, 0, 4]), axe: [0, 0, 1] },
       contact: { type: 'pince', points: [I, P], normale: cote }, erreur: r.erreur };
   },
   // le crochet : la paume ouverte, les deux dernières phalanges refermées sur une anse
@@ -902,21 +916,22 @@ const PRISES = {
 };
 // le pouce couché le long du manche, vers son bout côté pouce, la pulpe dessus (prise-pouce-dos)
 function pouceLong(S, cyl, segsD) {
-  const vise = M3(cyl.u, -1);
-  const obstI = obstSegments(segsD.filter(s => s.doigt === 'index'));
+  // (révision R5) le pouce couché SUR le dos du manche : sa pulpe sur la génératrice loin de la paume (+z), tournée
+  // vers le manche, son axe le long du manche vers le bout côté pouce ; vu de profil, il longe le bord du manche
+  const vise = M3(cyl.u, -1), dessus = orth([0, 0, 1], cyl.u);
+  const obstI = obstSegments(segsD.filter(s => s.doigt === 'index' || s.doigt === 'majeur'));
   const f = x => {
     const q = qPouce(x), ss = segments(S, 'pouce', chainePouce(S, q));
     const dir = U3(S3(ss[2].b, ss[1].a));
     const g1 = ecart(ss[1], cyl).g, g2 = ecart(ss[2], cyl).g, g0 = ecart(ss[0], cyl).g;
+    const pp = pulpe(S, 'pouce', q, 0.7), w = S3(pp.p, cyl.C), rad = S3(w, M3(cyl.u, D3(w, cyl.u)));
+    const surDos = 1 - D3(U3(rad), dessus);                              // 0 : la pulpe sur le dos du manche
     let pen = 0;
     for (const ob of obstI) for (const s of ss.slice(1)) pen += Math.max(0, -ecart(s, ob).g);
-    return 30 * (1 - D3(dir, vise)) + g2 * g2 + 0.3 * g1 * g1 + 40 * Math.max(0, -g0) + 40 * Math.max(0, -g1) + 20 * pen + 0.002 * (x[3] ** 2 + x[4] ** 2);
+    return 30 * (1 - D3(dir, vise)) + 2 * g2 * g2 + 0.3 * g1 * g1 + 40 * Math.max(0, -g0) + 40 * Math.max(0, -g1) + 40 * Math.max(0, -g2) +
+      60 * surDos * surDos + 20 * pen + 0.002 * (x[3] ** 2 + x[4] ** 2);
   };
-  let best = null;
-  for (const x0 of [[30, -10, 9, 0, 0], [50, 0, 15, 5, 0], [20, -25, 6, 0, -5]]) {
-    const r = cherche(f, x0, [10, 10, 10, 10, 10], BORNES_POUCE);
-    if (!best || r.f < best.f) best = r;
-  }
+  const best = chercheGlobal(f, GRILLE_POUCE, [10, 8, 12, 10, 10], BORNES_POUCE, { garder: 3 });
   return qPouce(best.x);
 }
 
@@ -985,7 +1000,9 @@ const CATALOGUE = [
     vues: { bonnes: ['paume', 'pouce'], aEviter: ['dos'] },
     nom: 'la paume en l’air, les doigts tendus en léger creux : porter, recevoir' },
   { id: 'ouverte', prise: 'fixe', options: { doigts: {
-      index: D0(5, 7, 4, 7), majeur: D0(5, 8, 5, 2), annulaire: D0(6, 9, 5, 6), auriculaire: D0(8, 11, 6, 12),
+      // (moteur, M7) 10° au moins entre voisins : « écart 0 » colle les doigts jusqu'à la dernière jointure, et
+      // des écarts trop proches font des palmures inégales
+      index: D0(5, 7, 4, 10), majeur: D0(5, 8, 5, 0), annulaire: D0(6, 9, 5, 9), auriculaire: D0(8, 11, 6, 20),
       pouce: { opposition: 8, cmc: -10, rotation: 2, mcp: 6, ip: 8 } } },
     vues: { bonnes: ['dos', 'paume', 'pouce'], aEviter: [] },
     nom: 'la main ouverte, les doigts tendus un peu écartés' },

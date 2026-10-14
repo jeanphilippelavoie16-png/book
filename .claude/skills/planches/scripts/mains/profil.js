@@ -13,11 +13,12 @@
 //   paume   (lu par le moteur à chaque appel) les bosses de la paume du moteur (FORMES.paume), dont les
 //           demi-axes DORSAL et PALMAIRE suivent les lignes DOS_PAUME et FACE_PAUME d'ici (les demi-axes radial
 //           et ulnaire, qui font la vue de dos, restent ceux du moteur), plus le TALON de la main, le PONT du
-//           pli du poignet (pas de cran entre l'avant-bras et le carpe) et les
-//           COUSSINETS sous les têtes des métacarpiens. Format du moteur : { nom, c: [x, y, z], h: [le long de x,
+//           pli du poignet (pas de cran entre l'avant-bras et le carpe), la CARÈNE (une rangée de bosses qui
+//           porte FACE_PAUME de 8 en 8 mm : le bord palmaire en une seule courbe) et les COUSSINETS sous les têtes
+//           des métacarpiens. Format du moteur : { nom, c: [x, y, z], h: [le long de x,
 //           radial, ulnaire, dorsal, palmaire] }, repère de la main droite, mm d'homme (le moteur met à l'âge).
 //           Si le moteur n'exporte plus FORMES.paume, paume vaut undefined et il garde la sienne.
-//   bosses()  les ajouts seuls (talon, pont, coussinets), pour qui veut les poser sur sa propre paume.
+//   bosses()  les ajouts seuls (talon, pont, carène, coussinets), pour qui veut les poser sur sa propre paume.
 //   objetDeVue(objet, sq, M, outils)  l'objet tenu coupé dans le trou du poing, de profil (voir plus bas).
 //   presentation(pose, vue, sq)  la petite rotation qui montre les doigts repliés d'un poing de profil.
 //   loin    { vue: [pièces] } : ce qui est gris de profil quelle que soit la pose (à fusionner avec pose.loin) :
@@ -41,8 +42,9 @@
 // lui qui dit « main » de profil.
 //
 // L'avant-bras : le poignet un peu plus épais que la paume aux jointures, et l'avant-bras qui s'épaissit vers le
-// coude par le côté paume (les fléchisseurs) plus que par le dos ; le plus épais au tiers sous le coude ; juste
-// au-dessus du pli du poignet, un rien plus mince que le poignet (les tendons). De profil : 40 au poignet, 55 à
+// coude par le côté paume (les fléchisseurs) plus que par le dos ; le plus épais au tiers sous le coude. Côté
+// paume, le pli du poignet est le creux d'une seule courbe qui va de l'avant-bras au talon puis au thénar, sans
+// bosse ni cran (agent 5, P2 : trois petites bosses en chapelet). De profil : 39 au poignet, 55 à
 // 9 cm, 76 au tiers sous le coude (proportions.json : poignet 37 à 44 d'épaisseur, tour d'avant-bras fléchi 310 ;
 // on dessine un avant-bras d'homme ordinaire, un peu plus mince que celui d'un soldat fléchi).
 //
@@ -58,12 +60,14 @@
 // les doigts : une table par phalange, l'index en référence ; les autres à proportion de leur épaisseur
 // relevée (proportions.json, agent 4 : épaisseur à l'IPP de 20,5 / 21,8 / 20,3 / 18,1 mm, à l'IPD de 17,2 /
 // 18,1 / 17,0 / 15,1). Ces épaisseurs sont celles des jointures ; le doigt dessiné n'a pas de bosse aux
-// jointures : il passe un peu sous elles (18,4 à l'IPP, 15,7 à l'IPD pour l'index), et garde le rapport
-// épaisseur / largeur relevé (≈ 0,9) avec les largeurs du moteur.
+// jointures : il passe un peu sous elles (19,3 à l'IPP, 16,2 à l'IPD pour l'index), et garde le rapport
+// épaisseur / largeur relevé (≈ 0,9) avec les largeurs du moteur. Le dos se renfle à peine aux jointures (IPP,
+// IPD) : doigt tendu, on ne le voit pas ; doigt replié, c'est l'arrondi du nez de la phalange repliée (un poing
+// de profil montre ces nez en marches ; avec un dos plat, ils sortaient en rectangles : agent 5, P1).
 const INDEX = {
-  p1: [[0, 10.7, 10.6], [0.22, 9.7, 11.2], [0.55, 8.9, 10.7], [0.8, 8.5, 10.2], [1, 8.3, 10.1]],
-  p2: [[0, 8.3, 10.1], [0.5, 7.7, 9.5], [1, 7.1, 8.6]],
-  p3: [[0, 7.0, 8.6], [0.55, 6.5, 8.9], [1, 6.0, 8.2]],
+  p1: [[0, 10.7, 10.6], [0.22, 9.7, 11.2], [0.55, 8.9, 10.7], [0.85, 8.9, 10.2], [1, 9.2, 10.1]],
+  p2: [[0, 9.2, 10.1], [0.3, 8.4, 9.7], [0.7, 7.7, 9.2], [1, 7.6, 8.6]],
+  p3: [[0, 7.6, 8.6], [0.55, 6.6, 8.9], [1, 6.0, 8.2]],
 };
 const K = { index: 1, majeur: 1.06, annulaire: 0.99, auriculaire: 0.88 };
 const POUCE = {
@@ -200,10 +204,10 @@ function objetDeVue(objet, sq, M, outils = {}) {
   }
   if (!isFinite(dAxe)) return null;
   const L = objet.longueur || 1200, s = d => (d - dep(C)) / dA;
-  // la face coupée est perpendiculaire à l'axe : penché, son bord s'enfonce de r·sin(penchant) ; on la pose
-  // tout entière au ras de la face proche des doigts qui l'entourent (aucun doigt ne la mord ; le pouce, s'il
-  // passe devant, la couvre : c'est vrai)
-  const sCut = s(dProche - R * Math.sqrt(Math.max(0, 1 - dA * dA)) - 0.5), sBout = dA > 0 ? L / 2 : -L / 2;
+  // la face coupée au plan de la face proche des doigts qui l'entourent : le pouce, s'il passe devant, la couvre
+  // (c'est vrai) ; plus près de l'œil, son bord penché passait devant l'index et le moteur grisait toute la main ;
+  // plus loin (au plan de leur axe), les doigts la mordaient
+  const sCut = s(dProche), sBout = dA > 0 ? L / 2 : -L / 2;
   let sFar = sBout;
   if (typeof objet.loin === 'number') {
     const sL = s(dLoin + objet.loin);

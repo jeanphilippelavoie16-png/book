@@ -81,17 +81,17 @@
       "majeur": {"ecart":0,"mcp":36.5,"ipp":79.3,"ipd":57.6},
       "annulaire": {"ecart":0,"mcp":60.8,"ipp":80.7,"ipd":54},
       "auriculaire": {"ecart":0,"mcp":89.9,"ipp":72.6,"ipd":48.6},
-      "pouce": {"opposition":18.8,"cmc":10,"rotation":16.3,"mcp":-17.5,"ip":-8.1}
+      "pouce": {"opposition":20,"cmc":10,"rotation":9,"mcp":-10,"ip":1.9}
     },
     "poignet": {"flexion":0,"deviation":0},
     "objet": {"type":"cylindre","diametre":26,"centre":[57.3,0,34],"axe":[-0.848,0.53,0],"longueur":1200},
     "solveur": {"prise":"entourer","diametre":26,"inclinaison":58,"pouce":"long"},
     "table": [
-      {"diametre":18,"doigts":{"index":{"ecart":0,"mcp":25.2,"ipp":-1.5,"ipd":14},"majeur":{"ecart":0,"mcp":37.2,"ipp":88.6,"ipd":59.3},"annulaire":{"ecart":0,"mcp":65.3,"ipp":86.3,"ipd":57.8},"auriculaire":{"ecart":0,"mcp":90,"ipp":84.5,"ipd":56.6},"pouce":{"opposition":5.6,"cmc":10,"rotation":35.9,"mcp":-10,"ip":-16.2}},"objet":{"centre":[61.3,0,30.5],"axe":[-0.848,0.53,0]}},
-      {"diametre":22,"doigts":{"index":{"ecart":0,"mcp":23.3,"ipp":-2.3,"ipd":13.5},"majeur":{"ecart":0,"mcp":35.3,"ipp":84.2,"ipd":56.9},"annulaire":{"ecart":0,"mcp":59.7,"ipp":84.2,"ipd":56.4},"auriculaire":{"ecart":0,"mcp":90,"ipp":76.8,"ipd":51.5},"pouce":{"opposition":8.1,"cmc":10,"rotation":24.6,"mcp":-10.6,"ip":-13.1}},"objet":{"centre":[61.3,0,32.5],"axe":[-0.848,0.53,0]}},
-      {"diametre":26,"doigts":{"index":{"ecart":0,"mcp":24.5,"ipp":0.4,"ipd":15.2},"majeur":{"ecart":0,"mcp":36.5,"ipp":79.3,"ipd":57.6},"annulaire":{"ecart":0,"mcp":60.8,"ipp":80.7,"ipd":54},"auriculaire":{"ecart":0,"mcp":89.9,"ipp":72.6,"ipd":48.6},"pouce":{"opposition":18.8,"cmc":10,"rotation":16.3,"mcp":-17.5,"ip":-8.1}},"objet":{"centre":[57.3,0,34],"axe":[-0.848,0.53,0]}},
-      {"diametre":30,"doigts":{"index":{"ecart":0,"mcp":22.9,"ipp":-0.4,"ipd":14.7},"majeur":{"ecart":0,"mcp":34.9,"ipp":61.1,"ipd":55.9},"annulaire":{"ecart":0,"mcp":56.8,"ipp":78,"ipd":52.3},"auriculaire":{"ecart":0,"mcp":79.2,"ipp":73.3,"ipd":49.1},"pouce":{"opposition":-5,"cmc":0,"rotation":-39.7,"mcp":15,"ip":-20}},"objet":{"centre":[57.3,0,36],"axe":[-0.848,0.53,0]}},
-      {"diametre":36,"doigts":{"index":{"ecart":0,"mcp":20.2,"ipp":-2.2,"ipd":13.5},"majeur":{"ecart":0,"mcp":32.2,"ipp":30.6,"ipd":35.5},"annulaire":{"ecart":0,"mcp":49.3,"ipp":73.3,"ipd":49.1},"auriculaire":{"ecart":0,"mcp":63.7,"ipp":71,"ipd":47.6},"pouce":{"opposition":0,"cmc":0,"rotation":-40,"mcp":10,"ip":-16.2}},"objet":{"centre":[59.3,0,39.5],"axe":[-0.848,0.53,0]}}
+      {"diametre":18,"doigts":{"index":{"ecart":0,"mcp":25.2,"ipp":-1.5,"ipd":14},"majeur":{"ecart":0,"mcp":37.2,"ipp":88.6,"ipd":59.3},"annulaire":{"ecart":0,"mcp":65.3,"ipp":86.3,"ipd":57.8},"auriculaire":{"ecart":0,"mcp":90,"ipp":84.5,"ipd":56.6},"pouce":{"opposition":20,"cmc":10,"rotation":-40,"mcp":17.5,"ip":-20}},"objet":{"centre":[61.3,0,30.5],"axe":[-0.848,0.53,0]}},
+      {"diametre":22,"doigts":{"index":{"ecart":0,"mcp":23.3,"ipp":-2.3,"ipd":13.5},"majeur":{"ecart":0,"mcp":35.3,"ipp":84.2,"ipd":56.9},"annulaire":{"ecart":0,"mcp":59.7,"ipp":84.2,"ipd":56.4},"auriculaire":{"ecart":0,"mcp":90,"ipp":76.8,"ipd":51.5},"pouce":{"opposition":20,"cmc":10,"rotation":48.3,"mcp":-10,"ip":-10}},"objet":{"centre":[61.3,0,32.5],"axe":[-0.848,0.53,0]}},
+      {"diametre":26,"doigts":{"index":{"ecart":0,"mcp":24.5,"ipp":0.4,"ipd":15.2},"majeur":{"ecart":0,"mcp":36.5,"ipp":79.3,"ipd":57.6},"annulaire":{"ecart":0,"mcp":60.8,"ipp":80.7,"ipd":54},"auriculaire":{"ecart":0,"mcp":89.9,"ipp":72.6,"ipd":48.6},"pouce":{"opposition":20,"cmc":10,"rotation":9,"mcp":-10,"ip":1.9}},"objet":{"centre":[57.3,0,34],"axe":[-0.848,0.53,0]}},
+      {"diametre":30,"doigts":{"index":{"ecart":0,"mcp":22.9,"ipp":-0.4,"ipd":14.7},"majeur":{"ecart":0,"mcp":34.9,"ipp":61.1,"ipd":55.9},"annulaire":{"ecart":0,"mcp":56.8,"ipp":78,"ipd":52.3},"auriculaire":{"ecart":0,"mcp":79.2,"ipp":73.3,"ipd":49.1},"pouce":{"opposition":20,"cmc":10,"rotation":-27.2,"mcp":-10,"ip":13.1}},"objet":{"centre":[57.3,0,36],"axe":[-0.848,0.53,0]}},
+      {"diametre":36,"doigts":{"index":{"ecart":0,"mcp":20.2,"ipp":-2.2,"ipd":13.5},"majeur":{"ecart":0,"mcp":32.2,"ipp":30.6,"ipd":35.5},"annulaire":{"ecart":0,"mcp":49.3,"ipp":73.3,"ipd":49.1},"auriculaire":{"ecart":0,"mcp":63.7,"ipp":71,"ipd":47.6},"pouce":{"opposition":36.3,"cmc":-10,"rotation":-40,"mcp":40,"ip":-18.1}},"objet":{"centre":[59.3,0,39.5],"axe":[-0.848,0.53,0]}}
     ],
     "vues": {"bonnes":["pouce"],"aEviter":["dos","paume"]}
   },
@@ -187,21 +187,21 @@
     "id": "pince-ouverte-dessus",
     "nom": "vue de dessus : l’index et le pouce écartés de part et d’autre d’une bosse, les bouts vers la peau",
     "doigts": {
-      "index": {"ecart":4,"mcp":34,"ipp":40,"ipd":22},
+      "index": {"ecart":4,"mcp":44,"ipp":46,"ipd":28},
       "majeur": {"ecart":0,"mcp":90,"ipp":86.4,"ipd":57.9},
       "annulaire": {"ecart":0,"mcp":90,"ipp":94.3,"ipd":63.2},
       "auriculaire": {"ecart":0,"mcp":90,"ipp":108,"ipd":80},
-      "pouce": {"opposition":15.6,"cmc":0.5,"rotation":99.1,"mcp":-4.4,"ip":-25}
+      "pouce": {"opposition":22.8,"cmc":-6.2,"rotation":-22.2,"mcp":-1.2,"ip":-25}
     },
     "poignet": {"flexion":0,"deviation":0},
-    "objet": {"type":"cylindre","diametre":30,"centre":[107.5,-50.7,61.4],"axe":[0,0,1],"longueur":30},
-    "contact": {"type":"pince","points":[[118.8,-41.9,61.9],[96.3,-59.5,49]],"normale":[0.035,-0.999,0]},
+    "objet": {"type":"sphere","diametre":22.5,"centre":[95.1,-52.7,66.5],"axe":[0,0,1]},
+    "contact": {"type":"pince","points":[[101.6,-42.3,67.4],[88.7,-63.2,57.6]],"normale":[0,-1,0]},
     "solveur": {"prise":"pinceDessus","diametre":30},
     "table": [
-      {"diametre":15,"doigts":{"index":{"ecart":4,"mcp":34,"ipp":40,"ipd":22},"majeur":{"ecart":0,"mcp":90,"ipp":86.4,"ipd":57.9},"annulaire":{"ecart":0,"mcp":90,"ipp":94.3,"ipd":63.2},"auriculaire":{"ecart":0,"mcp":90,"ipp":108,"ipd":80},"pouce":{"opposition":20,"cmc":2,"rotation":106.1,"mcp":-10,"ip":-25}},"objet":{"centre":[108.2,-47.5,62.8],"axe":[0,0,1]}},
-      {"diametre":22,"doigts":{"index":{"ecart":4,"mcp":34,"ipp":40,"ipd":22},"majeur":{"ecart":0,"mcp":90,"ipp":86.4,"ipd":57.9},"annulaire":{"ecart":0,"mcp":90,"ipp":94.3,"ipd":63.2},"auriculaire":{"ecart":0,"mcp":90,"ipp":108,"ipd":80},"pouce":{"opposition":16.3,"cmc":4.8,"rotation":100.2,"mcp":-3.4,"ip":-25}},"objet":{"centre":[108.5,-48.1,61.9],"axe":[0,0,1]}},
-      {"diametre":30,"doigts":{"index":{"ecart":4,"mcp":34,"ipp":40,"ipd":22},"majeur":{"ecart":0,"mcp":90,"ipp":86.4,"ipd":57.9},"annulaire":{"ecart":0,"mcp":90,"ipp":94.3,"ipd":63.2},"auriculaire":{"ecart":0,"mcp":90,"ipp":108,"ipd":80},"pouce":{"opposition":15.6,"cmc":0.5,"rotation":99.1,"mcp":-4.4,"ip":-25}},"objet":{"centre":[107.5,-50.7,61.4],"axe":[0,0,1]}},
-      {"diametre":40,"doigts":{"index":{"ecart":4,"mcp":34,"ipp":40,"ipd":22},"majeur":{"ecart":0,"mcp":90,"ipp":86.4,"ipd":57.9},"annulaire":{"ecart":0,"mcp":90,"ipp":94.3,"ipd":63.2},"auriculaire":{"ecart":0,"mcp":90,"ipp":108,"ipd":80},"pouce":{"opposition":14.4,"cmc":-4,"rotation":98.1,"mcp":-4.7,"ip":-25}},"objet":{"centre":[106.3,-53.6,60.7],"axe":[0,0,1]}}
+      {"diametre":15,"doigts":{"index":{"ecart":4,"mcp":44,"ipp":46,"ipd":28},"majeur":{"ecart":0,"mcp":90,"ipp":86.4,"ipd":57.9},"annulaire":{"ecart":0,"mcp":90,"ipp":94.3,"ipd":63.2},"auriculaire":{"ecart":0,"mcp":90,"ipp":108,"ipd":80},"pouce":{"opposition":25,"cmc":0.5,"rotation":-21.6,"mcp":0.9,"ip":-25}},"objet":{"centre":[96.9,-47.5,67.8],"axe":[0,0,1]}},
+      {"diametre":22,"doigts":{"index":{"ecart":4,"mcp":44,"ipp":46,"ipd":28},"majeur":{"ecart":0,"mcp":90,"ipp":86.4,"ipd":57.9},"annulaire":{"ecart":0,"mcp":90,"ipp":94.3,"ipd":63.2},"auriculaire":{"ecart":0,"mcp":90,"ipp":108,"ipd":80},"pouce":{"opposition":23.8,"cmc":-3.2,"rotation":-21.6,"mcp":0.6,"ip":-25}},"objet":{"centre":[96.1,-50.1,67.2],"axe":[0,0,1]}},
+      {"diametre":30,"doigts":{"index":{"ecart":4,"mcp":44,"ipp":46,"ipd":28},"majeur":{"ecart":0,"mcp":90,"ipp":86.4,"ipd":57.9},"annulaire":{"ecart":0,"mcp":90,"ipp":94.3,"ipd":63.2},"auriculaire":{"ecart":0,"mcp":90,"ipp":108,"ipd":80},"pouce":{"opposition":22.8,"cmc":-6.2,"rotation":-22.2,"mcp":-1.2,"ip":-25}},"objet":{"centre":[95.1,-52.7,66.5],"axe":[0,0,1]}},
+      {"diametre":40,"doigts":{"index":{"ecart":4,"mcp":44,"ipp":46,"ipd":28},"majeur":{"ecart":0,"mcp":90,"ipp":86.4,"ipd":57.9},"annulaire":{"ecart":0,"mcp":90,"ipp":94.3,"ipd":63.2},"auriculaire":{"ecart":0,"mcp":90,"ipp":108,"ipd":80},"pouce":{"opposition":20.9,"cmc":-11,"rotation":-22.8,"mcp":-1.2,"ip":-25}},"objet":{"centre":[93.7,-55.8,65.5],"axe":[0,0,1]}}
     ],
     "vues": {"bonnes":["dos"],"aEviter":["paume","pouce"]}
   },
@@ -374,10 +374,10 @@
     "id": "ouverte",
     "nom": "la main ouverte, les doigts tendus un peu écartés",
     "doigts": {
-      "index": {"ecart":7,"mcp":5,"ipp":7,"ipd":4},
-      "majeur": {"ecart":2,"mcp":5,"ipp":8,"ipd":5},
-      "annulaire": {"ecart":6,"mcp":6,"ipp":9,"ipd":5},
-      "auriculaire": {"ecart":12,"mcp":8,"ipp":11,"ipd":6},
+      "index": {"ecart":10,"mcp":5,"ipp":7,"ipd":4},
+      "majeur": {"ecart":0,"mcp":5,"ipp":8,"ipd":5},
+      "annulaire": {"ecart":9,"mcp":6,"ipp":9,"ipd":5},
+      "auriculaire": {"ecart":20,"mcp":8,"ipp":11,"ipd":6},
       "pouce": {"opposition":8,"cmc":-10,"rotation":2,"mcp":6,"ip":8}
     },
     "poignet": {"flexion":0,"deviation":0},
