@@ -3,7 +3,8 @@
 // les poids restent : le fût est une bande de 5 à 7 px, un contour fort le boucherait. Le rouge :
 // ramener le côté au trait (le geste, sur le gabarit), écarter les bouts (le geste, aux
 // traverses), la bande aussi large que le bois (le point à vérifier, étape 14) et, sur le raté,
-// l'écharde qui lève (l'endroit où ça casse).
+// l'écharde qui lève (l'endroit où ça casse). En passant : la ligne de rappel 10 courait le long
+// de la flèche et la hachait ; la pastille passe en bas à gauche.
 module.exports = (h) => ({
   ref: '89-01b',
   titre: 'Le fût de la raquette, cintrer et fermer',
@@ -112,7 +113,7 @@ module.exports = (h) => ({
       renvois: z => {
         const R = traverses(z);
         return [
-          { n: 10, rond: [z.l - 12, z.h - 44], cible: R.pFl, texte: 'corde ôtée, bouts écartés' },
+          { n: 10, rond: [R.pFl[0] - 34, z.h - 14], cible: [R.pFl[0] - 1.5, R.pFl[1] + 6], texte: 'corde ôtée, bouts écartés' },
           { n: 11, rond: [R.xT[0] - 26, 16], cible: R.pTrav, texte: 'traverse d’épinette sèche' },
         ];
       },

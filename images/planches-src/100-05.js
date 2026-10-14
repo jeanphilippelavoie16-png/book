@@ -122,7 +122,7 @@ module.exports = (h) => {
     // pas de mains : une flèche courbe dit qu'on bascule lentement
     // charte : le geste en rouge dans la vue où c'est lui qu'on montre
     // (hors du chaudron, à gauche : le fond remonte quand on bascule)
-    const dB = `M ${f(rx - 34)} ${f(ry + 30)} Q ${f(rx - 46)} ${f(ry + 6)} ${f(rx - 33)} ${f(ry - 2)}`;
+    const dB = `M ${f(rx - 30)} ${f(ry + 30)} Q ${f(rx - 41)} ${f(ry + 8)} ${f(rx - 31)} ${f(ry - 3)}`;
     o.push(rouge ? h.geste(dB) : h.fleche(dB, h.a.detail));
     return { o, traj, px, py, xC };
   };
@@ -183,7 +183,7 @@ module.exports = (h) => {
           const T3 = [(1 - t) ** 2 * xs + 2 * t * (1 - t) * cx + t * t * xe, (1 - t) ** 2 * ys + 2 * t * (1 - t) * cy + t * t * ye];
           return [
             { n: 1, rond: [f(wx + ep + 26), f(yL - 60)], cible: [f(px - 12), f(py - 14)], texte: 'chaudron qu’on verse, tenu haut' },
-            { n: 2, rond: [f(wx + ep + 22), f(yL - 16)], cible: [f(wx + ep + 22), f(yA[0] - 1.5)], texte: 'courant d’air par la porte' },
+            { n: 2, rond: [f(wx + ep + 12), f(yL - 16)], cible: [f(wx + ep + 12), f(yA[0] - 1.5)], texte: 'courant d’air par la porte' },
             { n: 3, rond: [f(z.l - 26), f(yL - 10)], cible: [f(T3[0]), f(T3[1])], texte: 'débris légers, emportés plus loin' },
             { n: 4, rond: [f(xL - 42), f((yA[1] + yA[2]) / 2)], cible: [f(xL - 3), f((yA[1] + yA[2]) / 2)], texte: 'graine, plus dense, tombe court' },
             { n: 5, rond: [f(xL - 42), f(G - 16)], cible: [f(xL + 3 - W / 2 - 1), f(G - 12)], texte: 'chaudron qui reçoit la graine' },

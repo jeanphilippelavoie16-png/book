@@ -8,6 +8,10 @@
 // du bassin : pas de siphon, l'eau coule seule. Le jet tombe juste passé le sommet, côté aval :
 // les augets de droite se remplissent, la roue tourne dans le sens horaire (vue de la berge),
 // les augets se vident en bas à droite, le bas de la roue (0,14) reste hors de l'eau de fuite (0).
+//
+// La charte : dans la roue disque avant enlevé, le disque arrière, derrière les augets, en gris
+// loin ; les cruches restent blanches devant. Coupes et plan sans gris. Pas de rouge : la roue
+// tourne et l'eau coule (flèches noires), et le chapitre ne nomme pas de point à contrôler ici.
 
 const X0 = -0.15, XL = 7.4;                 // étendue en x de la coupe et du plan
 const WS = 1.55, BED = 0.95;                // surface et fond du bassin
@@ -221,12 +225,13 @@ module.exports = (h) => {
           // eau de fuite
           o.push(poly(P, [[-0.8, -0.64], [0.74, -0.64], [0.74, -0.74], [-0.8, -0.74]], EAU));
           o.push(trait(P, [[-0.8, -0.64], [0.74, -0.64]], h.a.detail));
-          // disque arrière
-          o.push(h.cercle(...P(0, 0), R * s, BL));
+          // disque arrière, derrière les augets : en gris loin
+          o.push(h.cercle(...P(0, 0), R * s, h.a.loin), h.cercle(...P(0, 0), R * s, h.a.contour));
           o.push(h.cercle(...P(0, 0), 0.08 * s, h.a.arete), h.cercle(...P(0, 0), 0.025 * s, h.a.plein));
           // augets : eau du côté qui descend, vides en bas et du côté qui monte
           for (const th of ANGLES) {
             const a = auget(th), ferme = a.pts;
+            o.push(poly(P, ferme, h.a.blanc));
             if (th >= 20 && th <= 140) {
               const ymin = Math.min(...ferme.map(p => p[1])), lip = Math.min(a.levres[0][1], a.levres[1][1]);
               if (lip - ymin > 0.01) {
