@@ -50,3 +50,6 @@ JP ensuite : « c'est bien mais pas encore parfait, les formes que tu as pas de 
   `teteSimple`, option `visage` du corps simple) dans le style des corps simples : homme, femme, enfants de 6 et 4 ans, bébé,
   avec les expressions. Un agent la construit, puis le réviseur repasse (brief dans le scratch `tetes-lib/brief.md`).
   « All good le reste » : les 78 planches des paquets 19 à 29 sont validées.
+- **14 octobre : la charte est passée sur toutes les planches.** JP a dit « all good » sur les derniers paquets ; tout est
+  dans `images/validees/`. Les planches à redessiner plus tard (au-delà de la charte) sont listées dans le scratch
+  `suivi-charte.md`, section « À redessiner plus tard ».
