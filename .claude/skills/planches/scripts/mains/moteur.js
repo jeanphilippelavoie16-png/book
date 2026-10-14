@@ -1568,7 +1568,14 @@ function dessiner(o, prep = null) {
   const kL = C.sq.age.kL;
   const zoneP = [versCL(positif(disque([0, 0], 38 * kL, 48)))];
   const poignetRond = inter(ferme(inter(tout, [versCL(positif(disque([0, 0], 70 * kL, 48)))]), 16 * kL), zoneP);
-  let U = lisserCL(ferme(unionCL([tout, poignetRond]), 1.2), 0.7, 5, { c: [0, 0], r: 42 * kL });
+  // les raccords de profil (profil.js, agent 2, P4) : le coin rentrant entre la pulpe du doigt tendu et le dos de
+  // la P1 repliée voisine, arrondi (sans lui, un coin net à la racine de l'index : la pointe, deux-doigts)
+  const rac = [];
+  if (C.F.ext && typeof C.F.ext.raccords === 'function') {
+    try { for (const r of C.F.ext.raccords(C.sq, vue, C.M) || []) rac.push(inter(ferme(inter(tout, [versCL(positif(disque(r.c, r.zone * 2, 48)))]), r.r), [versCL(positif(disque(r.c, r.zone, 48)))])); }
+    catch (e) { if (process.env.MAINS_DEBUG) console.error('raccords :', e.message); }
+  }
+  let U = lisserCL(ferme(unionCL([tout, poignetRond, ...rac]), 1.2), 0.7, 5, { c: [0, 0], r: 42 * kL });
   if (coupe && coupe.region) U = moins(U, coupe.region);
   // un trou mince dans la silhouette (moins de 6 mm de large, ou moins de 60 mm²) : une fente entre le pouce et
   // l'index, entre deux doigts qui se touchent presque ; dessiné, il se lit comme une faute (une boutonnière).
@@ -1587,6 +1594,8 @@ function dessiner(o, prep = null) {
   for (const G of groupes.values()) { G.retrait = decale(G.region, -E); G.gonfle = decale(G.region, 1.3); G.bord = contourDe(G.region); }
   for (const P of pieces) Object.defineProperty(P, 'retrait', { configurable: true, get() { const v = decale(P.region, -E); Object.defineProperty(P, 'retrait', { value: v }); return v; } });
   const Uin = decale(U, -E);
+  // (dans l'arrondi d'un raccord, un bout de contour de doigt restait en ergot : on l'y retire)
+  const UinR = rac.length ? moins(Uin, decale(moins(unionCL(rac), tout), 1.2)) : Uin;
   const dansBoite = (B, p) => p[0] >= B.x0 && p[0] <= B.x1 && p[1] >= B.y0 && p[1] <= B.y1;
   const parPoints = (ls, garder) => {
     const out = [];
@@ -1651,7 +1660,7 @@ function dessiner(o, prep = null) {
       }
       return true;
     });
-    ls = lignesDans(ls, Uin);
+    ls = lignesDans(ls, UinR);
     traits[A.ids[0]] = recoller(ls).filter(l => longueur(l) > 2.5);
   }
   // la manchette du gant : son bord dans la main (le cuir qui finit sur le poignet)

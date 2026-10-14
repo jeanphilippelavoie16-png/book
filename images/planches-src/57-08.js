@@ -4,8 +4,9 @@ module.exports = (h) => {
   const pieces = a => a.join('\n');
   const NOIR = '#1A1A1A';
   // Un fil d'acier vu de côté : un trait noir large, un trait blanc par-dessus.
-  const fil = (d, w = 3) => [
-    h.path(d, `fill="none" stroke="${NOIR}" stroke-width="${w + 2.8}" stroke-linecap="round" stroke-linejoin="round"`),
+  // e : l'épaisseur du bord ; 2,4 quand le fil est l'objet principal, en gros (limer)
+  const fil = (d, w = 3, e = 1.4) => [
+    h.path(d, `fill="none" stroke="${NOIR}" stroke-width="${w + 2 * e}" stroke-linecap="round" stroke-linejoin="round"`),
     h.path(d, `fill="none" stroke="#FFFFFF" stroke-width="${w}" stroke-linecap="round" stroke-linejoin="round"`),
   ].join('\n');
   const blancArete = h.a.arete.replace('fill="none"', 'fill="#FFFFFF"');
@@ -147,7 +148,11 @@ module.exports = (h) => {
           // billot
           out.push(h.rect(z.l * 0.06, S, z.l * 0.88, z.h - S, h.a.hachure('bois', 'arete')));
           // marteau, face sur le billot, panne ronde en haut, manche à gauche tenu à la main
-          out.push(h.chemin([[hx - 11, S], [hx - 9, S - 8], [hx - 9, S - corpsH], [hx + 9, S - corpsH], [hx + 9, S - 8], [hx + 11, S]], blancArete.replace('stroke-width="1.4"', 'stroke-width="2.4"'), true));
+          const tete = [[hx - 11, S], [hx - 9, S - 8], [hx - 9, S - corpsH], [hx + 9, S - corpsH], [hx + 9, S - 8], [hx + 11, S]];
+          out.push(h.chemin(tete, h.a.blanc, true));
+          // la face de droite de la tête du marteau, à l'ombre
+          out.push(h.chemin([[hx + 3, S - corpsH], [hx + 9, S - corpsH], [hx + 9, S - 8], [hx + 11, S], [hx + 3.5, S]], h.a.ombre, true));
+          out.push(h.chemin(tete, h.a.contour, true));
           out.push(h.chemin([[hx - 5, S - corpsH], [hx - 5, S - corpsH - cou], [hx + 5, S - corpsH - cou], [hx + 5, S - corpsH]], blancArete, true));
           out.push(h.cercle(hx, cy, rb, blancArete.replace('stroke-width="1.4"', 'stroke-width="2.4"')));
           out.push(h.rect(8, S - 40, hx - 9 - 8, 13, h.a.hachure('bois', 'arete')));
@@ -157,7 +162,7 @@ module.exports = (h) => {
           out.push(fil(`M${P(hx - 78, cy - rw)} L ${P(hx, cy - rw)} A ${f(rw)} ${f(rw)} 0 0 1 ${P(E[0], E[1])}`, 3));
           // le geste : le bout continue de s'enrouler
           const rf = rw + 11, b0 = 12 * Math.PI / 180, b1 = 70 * Math.PI / 180;
-          out.push(h.fleche(`M${P(hx + rf * Math.cos(b0), cy + rf * Math.sin(b0))} A ${f(rf)} ${f(rf)} 0 0 1 ${P(hx + rf * Math.cos(b1), cy + rf * Math.sin(b1))}`));
+          out.push(h.geste(`M${P(hx + rf * Math.cos(b0), cy + rf * Math.sin(b0))} A ${f(rf)} ${f(rf)} 0 0 1 ${P(hx + rf * Math.cos(b1), cy + rf * Math.sin(b1))}`));
           // clou planté, œillet roulé autour
           out.push(fil(`M${P(nx - 10, ey)} A 10 4 0 0 1 ${P(nx + 10, ey)}`, 2.6));
           out.push(h.chemin([[nx - 2.2, S], [nx - 2.2, S - 52], [nx + 2.2, S - 52], [nx + 2.2, S]], blancArete, true));
@@ -165,7 +170,8 @@ module.exports = (h) => {
           out.push(fil(`M${P(nx + 10, ey)} A 10 4 0 0 1 ${P(nx - 10, ey)} Q ${P(nx - 12, ey - 2)} ${P(nx - 12, ey - 6)}`, 2.6));
           out.push(fil(`M${P(nx + 10, ey)} L ${P(z.l * 0.97, ey)}`, 2.6));
           const ro = 15;
-          out.push(h.fleche(`M${P(nx + ro, ey + 11)} A ${ro} 5 0 0 1 ${P(nx - ro, ey + 11)}`));
+          // le geste : rouler l'œillet autour du clou
+          out.push(h.geste(`M${P(nx + ro, ey + 11)} A ${ro} 5 0 0 1 ${P(nx - ro, ey + 11)}`));
           return pieces(out);
         },
         renvois: z => {
@@ -186,8 +192,8 @@ module.exports = (h) => {
           const out = [];
           // œillet et hampe, coude
           const xo = 27, re = 11;
-          out.push(fil(`M${P(xo - re, y0)} a ${re} ${re} 0 1 0 0.1 0`, w));
-          out.push(fil(`M${P(xo + re, y0)} L ${P(xb, y0)} A ${R} ${R} 0 0 1 ${P(xb, yL)} L ${P(xb - 2, yL)}`, w));
+          out.push(fil(`M${P(xo - re, y0)} a ${re} ${re} 0 1 0 0.1 0`, w, 2.4));
+          out.push(fil(`M${P(xo + re, y0)} L ${P(xb, y0)} A ${R} ${R} 0 0 1 ${P(xb, yL)} L ${P(xb - 2, yL)}`, w, 2.4));
           // la pointe, avec sa barbe : profil en (s, t)
           // face intérieure : pleine jusqu'à 60, l’entaille du copeau de 58 à 88, puis effilée
           const tIn = s => hw - (s - 62) * (hw - 0.4) / (106 - 62);
@@ -195,8 +201,8 @@ module.exports = (h) => {
           const extr = [[106, 0.4], [54, -hw], [0, -hw]];
           const pts = [...intr, ...extr].map(([s, t]) => [X(s), Y(t)]);
           out.push(h.chemin([[X(-1), Y(hw)], ...pts.slice(1, -1), [X(-1), Y(-hw)]], 'fill="#FFFFFF" stroke="none"', true));
-          out.push(h.chemin(intr.map(([s, t]) => [X(s), Y(t)]), h.a.arete));
-          out.push(h.chemin(extr.map(([s, t]) => [X(s), Y(t)]), h.a.arete));
+          out.push(h.chemin(intr.map(([s, t]) => [X(s), Y(t)]), h.a.contour));
+          out.push(h.chemin(extr.map(([s, t]) => [X(s), Y(t)]), h.a.contour));
           // la barbe : un copeau poussé vers le coude, encore attaché côté pointe, relevé
           out.push(h.chemin([[88, tIn(88)], [60, hw + 0.6], [57.4, hw + 5.4]].map(([s, t]) => [X(s), Y(t)]), blancArete, true));
           out.push(h.ligne(X(88), Y(1.2), X(102), Y(0.4), h.a.detail));        // arête entre deux facettes
@@ -212,8 +218,8 @@ module.exports = (h) => {
           const am = s => top(s) + ep(s) / 2;
           out.push(h.chemin([[X(sH), am(sH) - 3], [X(sQ), am(sH) - 1.5], [X(sQ), am(sH) + 1.5], [X(sH), am(sH) + 3]], blancArete, true));
           out.push(h.path(`M${P(X(sQ), am(sH) - 8)} L ${P(X(sM + 4), am(sH) - 8)} Q ${P(X(sM), am(sH) - 8)} ${P(X(sM), am(sH) - 4)} L ${P(X(sM), am(sH) + 4)} Q ${P(X(sM), am(sH) + 8)} ${P(X(sM + 4), am(sH) + 8)} L ${P(X(sQ), am(sH) + 8)} Z`, h.a.hachure('bois', 'arete')));
-          // le coup de lime, vers la pointe
-          out.push(h.fleche(`M${P(X(-24), top(-24) + 24)} L ${P(X(64), top(64) + 24)}`));
+          // le geste : le coup de lime, poussé vers la pointe
+          out.push(h.geste(`M${P(X(-24), top(-24) + 24)} L ${P(X(64), top(64) + 24)}`));
           return pieces(out);
         },
         renvois: z => {
@@ -281,6 +287,8 @@ module.exports = (h) => {
           // la traction du poisson
           out.push(h.fleche(`M${P(x + 52, yb + 38)} L ${P(x + 70, yb + 56)}`));
           out.push(h.fleche(`M${P(x + 14, y + 20)} L ${P(x + 14, y - 6)}`));
+          // là où ça casse : le coude ouvert
+          out.push(h.controle(x + 9, yb + 18, 19));
           return pieces(out);
         },
         renvois: z => {

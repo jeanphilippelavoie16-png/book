@@ -217,7 +217,7 @@ module.exports = (h) => {
           const [ax, ay] = pointFace(g, A0, R * 0.84 * 0.7);
           return [
             { n: 4, rond: [r1(x + R + 26), 18], cible: [r1(x + R - 3), r1(y + g.d * 0.6)], texte: 'cadran tenu d’une main' },
-            { n: 5, rond: [14, r1(g.yNb + 16)], cible: [r1(x - g.s * 0.78), r1(g.yNb - 3)], texte: 'écrou à six pans' },
+            { n: 5, rond: [14, r1(g.yNb + 30)], cible: [r1(x - g.s * 0.78), r1(g.yNb - 3)], texte: 'écrou à six pans' },
             { n: 6, rond: [r1(q.xe - 30), r1(q.yeF + 34)], cible: [r1(q.xe - 40), r1(q.yeF + 2)], texte: 'écrou tourné à la pince' },
             { n: 7, rond: [14, r1(y + 2)], cible: [r1(ax - 1), r1(ay)], texte: 'l’aiguille amenée sur le 0' },
             { n: 8, rond: [r1(x + q.W + 30), r1(q.yg + 24)], cible: [r1(x + g.rs + 1), r1(q.yg + 24)], texte: 'tige laissée dans la glace' },

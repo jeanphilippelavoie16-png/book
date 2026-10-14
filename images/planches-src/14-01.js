@@ -284,7 +284,7 @@ module.exports = (h) => {
           o.push(h.cercle(xF2, pz[1] - 26, 4, noir(h.a.fin)));
           o.push(resistance(xF2, xF1, pz[1] - 64, 26, 10, 6, 5.5, h.a.arete, true));
           // la résistance en travers des deux fils : sans elle, le piézo ne rend rien
-          o.push(h.controle((xF1 + xF2) / 2, pz[1] - 64, 19));
+          o.push(h.controle((xF1 + xF2) / 2, pz[1] - 64, 15));
           return o.join('\n');
         },
         renvois: (z) => {
