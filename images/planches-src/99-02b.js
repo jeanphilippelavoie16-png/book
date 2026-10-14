@@ -38,7 +38,9 @@ module.exports = (h) => {
   const K = 1.75;                         // bout et côté
 
   // une perche vue de côté, en coordonnées d'écran
-  const perche = (p0, p1, d0, d1, ep = 1.4) => {
+  // La charte : les perches sont l'objet, leur contour pèse (2,4) ; ce qui est derrière (la pente du
+  // fond, le chevalet derrière le plan de coupe) recule en gris loin (fond = '#E6E6E6').
+  const perche = (p0, p1, d0, d1, ep = 2.4, fond = '#FFFFFF') => {
     const u = uni(sub(p1, p0)), n = [-u[1], u[0]];
     const a = add(p0, mul(n, d0 / 2)), b = add(p1, mul(n, d1 / 2)), c = add(p1, mul(n, -d1 / 2)), d = add(p0, mul(n, -d0 / 2));
     const pt = q => `${f1(q[0])} ${f1(q[1])}`;
@@ -49,7 +51,7 @@ module.exports = (h) => {
     // le rond du bout : on écrase l'arc dans le sens de la perche
     const ax = Math.atan2(n[1], n[0]) * 180 / Math.PI;
     const S2 = S.replace(/A(\S+) (\S+) 0 0 0/g, (m, rx, ry) => `A${rx} ${ry} ${f1(ax)} 0 0`);
-    return [h.path(S2, blanc(ep)), ec(0.12, 0.34, d0 * 0.18), ec(0.55, 0.8, -d0 * 0.14)].join('\n');
+    return [h.path(S2, blanc(ep).replace('fill="#FFFFFF"', `fill="${fond}"`)), ec(0.12, 0.34, d0 * 0.18), ec(0.55, 0.8, -d0 * 0.14)].join('\n');
   };
   // un bout de perche vu en bout (coupé ou scié)
   // (le bout d'une perche : un rond, un cerne, le cœur)
@@ -94,9 +96,9 @@ module.exports = (h) => {
     for (const sgn of [-1, 1]) {
       const pied = [sgn * W, 0], cr = [-sgn * DL1 * 0.4, HC];
       const dir = uni(sub(cr, pied));
-      out.push(perche(P(pied), P(add(cr, mul(dir, EXT))), DL0 * K, DL1 * K));
+      out.push(perche(P(pied), P(add(cr, mul(dir, EXT))), DL0 * K, DL1 * K, 1.4, '#E6E6E6'));
     }
-    out.push(perche(P([-XX, HX]), P([XX, HX]), DX * K, DX * K));
+    out.push(perche(P([-XX, HX]), P([XX, HX]), DX * K, DX * K, 1.4, '#E6E6E6'));
     for (const sgn of [-1, 1]) {
       const [lx, ly] = P([sgn * xPatte(HX), HX]);
       out.push(lien(lx, ly, (DX + 1.2) * K, (DL0 + 1) * K, 3, sgn * (90 - BETA * 180 / Math.PI)));
@@ -128,6 +130,9 @@ module.exports = (h) => {
       const a = P([sgn * (W + 11), 5]), b = P([sgn * (W - 4), 5]), c = P([sgn * 16, 12]), e = P([sgn * 10, 50]);
       out.push(h.fleche(`M${f1(a[0])} ${f1(a[1])} C${f1(b[0])} ${f1(b[1])} ${f1(c[0])} ${f1(c[1])} ${f1(e[0])} ${f1(e[1])}`, A.cache));
     }
+    // La charte : le point à contrôler, le jour entre le bas du foin et le sol, par où l'air entre
+    const jour = P([-54, 7]);
+    out.push(h.controle(jour[0], jour[1], 13));
     return out.join('\n');
   };
 
@@ -201,18 +206,19 @@ module.exports = (h) => {
       const dir = n3(d3(pied, cr));
       return { pied, cr, tip: plus(cr, dir, EXT) };
     };
-    const seg = (a, b, d0, d1) => perche(P(a), P(b), d0 * k, d1 * k);
-    const lowerSeg = p => seg(p.pied, p.cr, DL0, (DL0 + DL1) / 2);
-    const tipSeg = p => seg(plus(p.cr, n3(d3(p.pied, p.cr)), -1.5), p.tip, (DL0 + DL1) / 2, DL1);
+    const LOIN = '#E6E6E6';
+    const seg = (a, b, d0, d1, fond) => perche(P(a), P(b), d0 * k, d1 * k, 2.4, fond);
+    const lowerSeg = (p, fond) => seg(p.pied, p.cr, DL0, (DL0 + DL1) / 2, fond);
+    const tipSeg = (p, fond) => seg(plus(p.cr, n3(d3(p.pied, p.cr)), -1.5), p.tip, (DL0 + DL1) / 2, DL1, fond);
     const angDe = (a, b) => { const [ax, ay] = P(a), [bx, by] = P(b); return Math.atan2(by - ay, bx - ax) * 180 / Math.PI; };
     const fr = { R: { X: LH }, L: { X: -LH } };
     for (const f of Object.values(fr)) { f.near = patte(f.X, 1); f.far = patte(f.X, -1); f.xb = f.X + (f.X > 0 ? DL0 : -DL0); }
     const x0 = -LH - OR, x1 = LH + OR;
     // pieds au sol : un petit trait
     for (const f of Object.values(fr)) for (const p of [f.near, f.far]) { const [px, py] = P(p.pied); out.push(h.ligne(px - 7, py + 1, px + 7, py + 1, A.fin)); }
-    out.push(seg([x0, -XS, HS], [x1 + 5, -XS, HS], 2 * RS, 2 * RS * 0.85));             // perche de côté du fond, qui dépasse la patte arrière de droite
-    out.push(seg([fr.R.xb, -XX, HX], [fr.R.xb, XX, HX], DX, DX));                        // traverse, chevalet du fond
-    out.push(lowerSeg(fr.R.far), tipSeg(fr.R.near), lowerSeg(fr.L.far), tipSeg(fr.L.near));
+    out.push(seg([x0, -XS, HS], [x1 + 5, -XS, HS], 2 * RS, 2 * RS * 0.85, LOIN));       // perche de côté du fond, qui dépasse la patte arrière de droite
+    out.push(seg([fr.R.xb, -XX, HX], [fr.R.xb, XX, HX], DX, DX, LOIN));                  // traverse, chevalet du fond
+    out.push(lowerSeg(fr.R.far, LOIN), tipSeg(fr.R.near, LOIN), lowerSeg(fr.L.far, LOIN), tipSeg(fr.L.near, LOIN));
     // la perche de côté du fond, liée aux deux pattes arrière : trois tours, comme devant
     for (const f of Object.values(fr)) {
       const [sx, sy] = P([f.far.pied[0], -XS, HS]);

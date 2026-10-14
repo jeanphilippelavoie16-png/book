@@ -11,6 +11,11 @@
 // anneau couché où prend le câble. Le chapitre ne donne aucune mesure : ni hauteur de chicot, ni
 // profondeur d'entaille, ni largeur de fosse. Aucune cote ; les proportions (chicot de 1,55 m, 420 mm
 // de diamètre à la hauteur de l'élingue, entaille de 100 mm, fosse de 1,7 m) ne servent qu'au dessin.
+// La charte : de côté, la face de droite du chicot à l'ombre (lumière en haut à gauche), entaille
+// comprise, et de même quand il bascule. Pas de gris sur le plan de la fosse ni sur la coupe
+// hachurée. Le rouge : l'élingue sous l'épaulement (le point à vérifier) et, sur le raté, l'élingue
+// qui remonte au sommet (là où ça casse). La traction, la bascule et l'élingue qui glisse sont des
+// pièces qui bougent : leurs flèches restent noires.
 module.exports = (h) => {
   const F = h.formes;
   const f = v => Math.round(v * 10) / 10;
@@ -72,6 +77,20 @@ module.exports = (h) => {
     return h.path(d, blanc('arete'));
   };
 
+  // La face de droite du chicot, à l'ombre : une bande découpée par le contour lui-même.
+  // M : du repère du chicot (mm) à l'écran ; id : l'identifiant de la découpe.
+  const ombreDroite = (Y0, entaille, M, id) => {
+    const cont = D(contour(Y0, entaille).map(M));
+    const Ys = [];
+    for (let Y = Y0 - 80; Y <= HC + 60; Y += 30) Ys.push(Y);
+    const band = [...Ys.map(Y => [0.42 * r(Math.min(Y, HC)), Y]), [700, HC + 60], [700, Y0 - 80]].map(M);
+    return `<defs><clipPath id="${id}"><path d="${cont}" fill="#FFFFFF" stroke="none"/></clipPath></defs><g clip-path="url(#${id})">${h.path(D(band), h.a.ombre)}</g>`;
+  };
+  const chicot = (Y0, entaille, M, id) => {
+    const d = D(contour(Y0, entaille).map(M));
+    return [h.path(d, h.a.blanc), ombreDroite(Y0, entaille, M, id), h.path(d, h.a.contour)].join('\n');
+  };
+
   // ─── Vue 1 : le haut du chicot, de côté ─────────────────────────────────────────────
   const Y0 = 820;
   const V1 = z => {
@@ -86,11 +105,13 @@ module.exports = (h) => {
     // l'anneau, couché : vu de côté, il se voit par la tranche
     out.push(h.ellipse(x(XE), y(YS), RA * s, 16 * s, blanc('contour')));
     // le chicot, l'entaille à droite
-    out.push(h.path(D(contour(Y0, true).map(([X, Y]) => [x(X), y(Y)])), blanc('contour')));
+    out.push(chicot(Y0, true, ([X, Y]) => [x(X), y(Y)], 'k9603b-om1'));
     [[-120, 900, 1500], [-10, 1000, 1420], [95, 880, 1300], [150, 950, 1200]].forEach(([X0, Ya, Yb]) =>
       out.push(h.ligne(x(X0), y(Ya), x(X0 * 0.85), y(Yb), h.a.fin)));
     // l'élingue : de l'anneau au fût, en travers de la face, puis au fond de l'entaille où elle passe derrière
     out.push(bande([[x(XE + 30), y(YS)], [x(-r(YS)), y(YS)], [x(XS), y(YS)]], ES * s, true));
+    // le point à vérifier : l'élingue couchée sous l'épaulement, au fond de l'entaille
+    out.push(h.controle(x(XS), y(YS), 14));
     // le sens de la traction et la bascule
     out.push(h.fleche(`M ${f(x(-520))} ${f(y(yc(-520) + 120))} L ${f(x(-680))} ${f(y(yc(-680) + 120))}`));
     const Rb = 1890, a0 = 84, a1 = 97, cx = -330, cy = -150;
@@ -177,12 +198,14 @@ module.exports = (h) => {
     const [Xg, Yg] = rot([-r(Yl), Yl]), XA = Xg - 250;
     out.push(F.corde([[x(XA - RA + 3), y(Yg)], [x(-1120), y(Yg + pente * (XA - -1120))]], { ep: 20 * s + 0.5, torons: true, debut: 'ouvert', fin: 'fixe' }));
     out.push(h.ellipse(x(XA), y(Yg), RA * s, 16 * s + 0.5, blanc('arete')));
-    out.push(h.path(D(contour(850, entaille).map(V)), blanc('contour')));
+    out.push(chicot(850, entaille, V, `k9603b-om${2 + k}`));
     if (!entaille) out.push(bande([V([-r(YS), YS]), V([r(YS), YS])], ES * s, false).replace(h.a.arete.replace('fill="none"', 'fill="#FFFFFF"'), h.a.cache));
     out.push(bande([[x(XA + 30), y(Yg)], V([-r(Yl), Yl]), V([xs, Yl])], ES * s, true));
     if (!entaille) {
       const [a0, a1] = [V([r(1250) + 90, 1250]), V([r(1530) + 90, 1530])];
       out.push(h.fleche(`M ${f(a0[0])} ${f(a0[1])} L ${f(a1[0])} ${f(a1[1])}`));
+      // là où ça casse : l'élingue remontée au sommet, d'où elle saute
+      out.push(h.controle(...V([r(HC - 30), HC - 30]), 12));
     }
     return out.join('\n');
   };
