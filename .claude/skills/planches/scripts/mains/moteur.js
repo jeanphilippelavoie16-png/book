@@ -1256,20 +1256,17 @@ function construire(o, prep = null) {
       LBd = Math.max(10, Math.min(LBd, 1.6 * LB));
       const nE = qE.fr.n, frEn = d => { const n = orth(transporte(nE, dA3, d), d); return { r: x3(n, m3(d, -1)), n }; };
       const polysBR = [];
-      // l'éventail du coude : la section tourne autour du centre de l'articulation, de l'avant-bras au bras ; et
-      // l'olécrane : l'avant-bras dépasse le centre de la moitié de sa largeur, le bras d'un tiers, et leur enveloppe
-      // fait la pointe arrondie du coude plié (l'éventail seul en faisait un tuyau coudé)
+      // l'éventail du coude : la section tourne autour du centre de l'articulation, de l'avant-bras au bras ; son
+      // centre glisse vers l'extérieur du pli au milieu (sin², nul aux deux bouts : sans coin), ce qui fait la pointe
+      // arrondie de l'olécrane (l'éventail seul en faisait un tuyau coudé)
       if (flex > 0.5) {
-        const kE = u3(x3(dA3, dB3)), K = Math.max(2, Math.ceil(flex / 8)), ev = [];
+        const kE = u3(x3(dA3, dB3)), K = Math.max(4, Math.ceil(flex / 6)), ev = [];
+        const rw = (wA[0] + wA[1] + wA[2] + wA[3]) / 4, bis = u3(s3(dA3, dB3)), kO = 0.3 * rw * (t0 => t0 * t0 * (3 - 2 * t0))(Math.max(0, Math.min(1, (flex - 30) / 60)));
         for (let j = 0; j <= K; j++) {
-          const t = j / K, d = u3(rot3(dA3, kE, flex * t));
-          ev.push(section(cE, frEn(d), wA).map(p2));
+          const t = j / K, d = u3(rot3(dA3, kE, flex * t)), b = Math.sin(Math.PI * t) ** 2;
+          ev.push(section(a3(cE, m3(bis, kO * b)), frEn(d), wA).map(p2));
         }
         for (let j = 0; j < K; j++) polysBR.push(enveloppe(ev[j].concat(ev[j + 1])));
-        const rw = (wA[0] + wA[1] + wA[2] + wA[3]) / 4, kO = Math.min(1, flex / 60);
-        const oA = section(a3(cE, m3(dA3, 0.5 * rw * kO)), qE.fr, wA.map(v => v * 0.92)).map(p2);
-        const oB = section(a3(cE, m3(dB3, -0.33 * rw * kO)), frEn(dB3), wA.map(v => v * 0.92)).map(p2);
-        polysBR.push(enveloppe(oA.concat(oB, ev[Math.round(K / 2)])));
       }
       const frB = frEn(dB3), secB = [];
       const nB = Math.max(3, Math.ceil(LBd / 6));
@@ -1279,7 +1276,7 @@ function construire(o, prep = null) {
         const pc = matVec(M, c); sph.push({ x: pc[0], y: pc[1], z: pc[2], r: (w[0] + w[1] + w[2] + w[3]) / 4 });
       }
       for (let k = 0; k < secB.length - 1; k++) polysBR.push(enveloppe(secB[k].concat(secB[k + 1])));
-      if (flex > 100) plisCoude = { fa: polysAB.slice(), br: polysBR.slice(Math.max(0, polysBR.length - nB)), centre: e2, r: 1.1 * (wA[0] + wA[1]) / 2 };
+      if (flex > 100) plisCoude = { fa: polysAB.slice(), br: polysBR.slice(Math.max(0, polysBR.length - nB)), centre: e2, r: 1.25 * (wA[0] + wA[1]) / 2 };
       polysAB.push(...polysBR);
       sq.points.epaule = a3(cE, m3(dB3, LB));
       bout = { c: a3(cE, m3(dB3, LBd)), fr: frB, w: largeurs(LA + LBd), d: dB3 };
@@ -1329,14 +1326,17 @@ function construire(o, prep = null) {
     const a = add(f.A, mul(u, -G)), b = add(f.A, mul(u, G));
     coupe.region = [versCL(positif([a, b, add(b, ex), add(a, ex)]))];
   } else if (coupe && !coupe.plein) {
-    const G = 600, A = coupe.a, B = coupe.b, ax = coupe.ax;
-    const dem = [add(A, mul(sub(A, B), 2)), add(B, mul(sub(B, A), 2))];
+    // juste ce qui déborde la dernière section : une bande à peine plus large que le membre (le bras replié
+    // revient le long de l'avant-bras : une coupe large et profonde mordait la main)
+    const A = coupe.a, B = coupe.b, ax = coupe.ax, lAB = Math.max(1, lon(sub(B, A))), G = 1.5 * lAB;
+    const dem = [add(A, mul(sub(A, B), 0.18)), add(B, mul(sub(B, A), 0.18))];
     coupe.region = [versCL(positif([dem[0], dem[1], add(dem[1], mul(ax, G)), add(dem[0], mul(ax, G))]))];
   }
   // le pli du coude replié : le bord de l'avant-bras là où il s'appuie sur le bras, loin de l'articulation
   for (const P of pieces) if (P.plisCoude) {
     const pc = P.plisCoude;
-    const ls = bordsDans(union(pc.fa), decale(union(pc.br), -0.55));
+    // (le bras un peu gonflé : replié serré, les deux bords se longent, et le trait sortait en tirets)
+    const ls = bordsDans(union(pc.fa), decale(union(pc.br), 0.8));
     P.plis = lignesHors(ls, [versCL(positif(disque(pc.centre, pc.r, 40)))]).filter(l => longueur(l) > 6);
     delete P.plisCoude;
   }

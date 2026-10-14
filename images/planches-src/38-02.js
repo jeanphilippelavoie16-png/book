@@ -1,6 +1,10 @@
 // Planche 38-02 — la marque de tombe (chapitre 38, section 4 et étape 22).
 // Le chapitre dit : bois dur ou pierre, plus haute que la neige de mars, le nom et les dates
 // gravés sur la marque même. Aucune cote : le chapitre n'en donne pas.
+// La charte : la paroi à l'ombre de chaque trait taillé en V, en gris d'ombre (elle était en
+// hachure, qui dit une coupe). Pas d'autre gris : le pieu et la pierre sont vus de face, et les
+// coupes du trait sont hachurées. Le rouge : la lame tirée le long du trait, et la poussée de la
+// lame à chacun des trois temps de la coupe (les gestes).
 const BR = String.fromCharCode(10);
 module.exports = (h) => {
   const blancArete = h.a.arete.replace('fill="none"', 'fill="#ffffff"');
@@ -32,11 +36,12 @@ module.exports = (h) => {
     const s = (nx + ny) < 0 ? 1 : -1;               // côté de la paroi à l'ombre
     const pt = (t, o) => [x1 + dx * t + nx * o, y1 + dy * t + ny * o];
     const hex = [pt(0, m), pt(L0, m), pt(L0 + m, 0), pt(L0, -m), pt(0, -m), pt(-m, 0)];
-    const ombre = h.chemin([pt(-m, 0), pt(0, s * m), pt(L0, s * m), pt(L0 + m, 0)], h.a.hachure('bois', 'aucun'), true);
+    const ombre = h.chemin([pt(-m, 0), pt(0, s * m), pt(L0, s * m), pt(L0 + m, 0)], h.a.ombre, true);
     const f0 = pt(-m, 0), f1 = pt(L0 + m, 0);
     return [
-      h.chemin(hex, blancArete, true),
+      h.chemin(hex, h.a.blanc, true),
       ombre,
+      h.chemin(hex, h.a.arete, true),
       h.ligne(f0[0], f0[1], f1[0], f1[1], h.a.detail),
     ].join('\n');
   };
@@ -163,7 +168,7 @@ module.exports = (h) => {
             traitV(165, y0, 165, 92, w),
             
             couteau(165, 92, 0.8, -0.6, -0.6, -0.8),
-            h.fleche('M165,97 L165,122', h.a.arete),
+            h.geste('M165,97 L165,122'),
           ].join(BR);
         },
         renvois: z => [
@@ -184,19 +189,19 @@ module.exports = (h) => {
               out.push(h.ligne(x0, YB, x0 + W, YB, h.a.contour));
               out.push(h.ligne(cx, YB, cx, YB + D, h.a.arete));
               out.push(lame(cx, YB + D, 0, -1, 66));
-              out.push(h.fleche(`M${cx + 12},76 L${cx + 12},118`, h.a.arete));
+              out.push(h.geste(`M${cx + 12},76 L${cx + 12},118`));
             } else if (i === 1) {
               out.push(bloc(x0, [[x0, YB], [cx - M, YB], [cx, YB + D], [cx, YB], [x0 + W, YB], [x0 + W, bas], [x0, bas]]));
               out.push(h.chemin([[x0, YB], [cx - M, YB], [cx, YB + D], [cx, YB], [x0 + W, YB]], h.a.contour));
               out.push(h.chemin([[cx - M + 5, YB - 30], [cx + 5, YB - 30 + D], [cx + 5, YB - 30]], h.a.hachure('bois', 'arete'), true));
               out.push(lame(cx, YB + D, ul[0], ul[1], 66));
-              out.push(h.fleche(`M${P(cx - 42.7, 112.3)} L${P(cx - 29.1, 131.9)}`, h.a.arete));
+              out.push(h.geste(`M${P(cx - 42.7, 112.3)} L${P(cx - 29.1, 131.9)}`));
             } else {
               out.push(bloc(x0, [[x0, YB], [cx - M, YB], [cx, YB + D], [cx + M, YB], [x0 + W, YB], [x0 + W, bas], [x0, bas]]));
               out.push(h.chemin([[x0, YB], [cx - M, YB], [cx, YB + D], [cx + M, YB], [x0 + W, YB]], h.a.contour));
               out.push(h.chemin([[cx - 5, YB - 30], [cx + M - 5, YB - 30], [cx - 5, YB - 30 + D]], h.a.hachure('bois', 'arete'), true));
               out.push(lame(cx, YB + D, ur[0], ur[1], 66));
-              out.push(h.fleche(`M${P(cx + 42.7, 112.3)} L${P(cx + 29.1, 131.9)}`, h.a.arete));
+              out.push(h.geste(`M${P(cx + 42.7, 112.3)} L${P(cx + 29.1, 131.9)}`));
             }
           });
           return out.join(BR);

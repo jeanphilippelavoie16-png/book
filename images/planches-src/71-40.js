@@ -1,6 +1,8 @@
 // Planche 71-40 — les lanières : trancher, étendre, éprouver (ch. 71, étapes 3, 14 à 20,
 // section 9 « Sécher quand il n'y a ni vent ni soleil », note de la lanière témoin, tableau des défauts).
 // Seule cote portée : « 6 mm ou moins » (étape 16). Aucun sens du grain : le chapitre n'en dit rien.
+// La charte : la moitié de derrière de chaque lanière pliée en gris loin ; le flanc des lanières
+// fendues à l'ombre. Le rouge : la tranche en escalier, le dos du pli, le centre humide. L'air reste noir.
 module.exports = (h) => {
   const A = h.a;
   const BL = (A.blanc.match(/fill="([^"]+)"/) || [])[1] || '#FFFFFF';
@@ -61,7 +63,9 @@ module.exports = (h) => {
   const echB = z => Math.min(1, (z.h - W - 10) / 122);
   const lanierePendue = (x, l1, l2, k, e) => {
     const w = 18, a = x - w / 2, b = x + w / 2, y1 = W + l1 * e, y2 = W + (l1 + Math.max(l2, l1 * 0.28 + l2 * 0.4)) * e, s = j(k, 1) * 3;
-    const derriere = h.chemin([[a, y1 - 4], [b, y1 - 4], [b + j(k, 2) * 0.6, y2 + s * 0.5], [a + j(k, 3) * 0.6, y2 - s * 0.5]], bA, true);
+    // la moitié de derrière, qui dépasse sous celle de devant : en gris loin
+    const pd = [[a, y1 - 4], [b, y1 - 4], [b + j(k, 2) * 0.6, y2 + s * 0.5], [a + j(k, 3) * 0.6, y2 - s * 0.5]];
+    const derriere = [h.chemin(pd, A.loin, true), h.chemin(pd, A.arete, true)].join('\n');
     const devant = h.path(`M${r1(a)} ${W + 4} Q${r1(a)} ${W - 5} ${r1(x)} ${W - 5} Q${r1(b)} ${W - 5} ${r1(b)} ${W + 4}`
       + ` L${r1(b + j(k, 4) * 0.8)} ${r1(y1 + s)} L${r1(a + j(k, 5) * 0.8)} ${r1(y1 - s)} Z`, bA);
     const fibre = h.ligne(x - 3 + j(k, 6), W + 8, x - 2 + j(k, 7), y1 - 10, A.fin);
@@ -84,7 +88,8 @@ module.exports = (h) => {
     const g = bord(x1, 1), d = bord(x2, 2);
     o.push(h.chemin([[x1, Y0], ...g, ...fond, ...d.slice().reverse(), [x2, Y0]], bA, true));      // dessus
     const dBas = d.map(([x, y]) => [x, y + ST]);
-    o.push(h.chemin([[x2, Y0], ...d, [x2 + DX, Y0 + DY], [x2 + DX + 0.6, Y0 + DY + ST * 0.6], ...dBas.slice().reverse().map(([x, y], i) => [x, y + (i % 2) * 0.8]), [x2, Y0 + ST]], bA, true)); // flanc
+    const flanc = [[x2, Y0], ...d, [x2 + DX, Y0 + DY], [x2 + DX + 0.6, Y0 + DY + ST * 0.6], ...dBas.slice().reverse().map(([x, y], i) => [x, y + (i % 2) * 0.8]), [x2, Y0 + ST]];
+    o.push(h.chemin(flanc, A.ombre, true), h.chemin(flanc, A.arete, true));   // flanc de droite, à l'ombre
     o.push(h.rect(x1, Y0, SW, ST, bC));                                                         // la tranche fendue
     const m = scellee ? 2.6 : 0;
     // fibres fines d'un bord à l'autre
@@ -100,6 +105,8 @@ module.exports = (h) => {
         const f = 1 - Math.pow((yy - cy) / ry, 2), half = rx * Math.max(0, f) * 0.92;
         for (let xx = cx - half + 1; xx <= cx + half - 1; xx += 2.2) o.push(h.cercle(r1(xx + ((Math.round(yy * 10)) % 2) * 0.5), r1(yy), 0.55, A.plein));
       }
+      // le raté : le centre encore humide
+      o.push(h.controle(cx, cy, 16));
     }
     return { svg: o.join('\n'), x1, x2, Y0 };
   };
@@ -130,7 +137,11 @@ module.exports = (h) => {
       },
       molle: {
         titre: 'Pièce molle',
-        dessin: z => trancher(z, optMolle).svg,
+        dessin: z => {
+          const r = trancher(z, optMolle), [x, , R] = trMolle[1];
+          // le raté : une tranche épaisse d'un bout, mince de l'autre
+          return [r.svg, h.controle(x + 7, r.yb(2), 15)].join('\n');
+        },
         renvois: z => {
           const B = z.h - 24, T = B - optGelee.haut;
           const hb = (B - (B - optMolle.haut + 6)) / 4, y = B - optMolle.haut + 6 + hb * 1.5;
@@ -179,6 +190,8 @@ module.exports = (h) => {
             o.push(h.chemin([m1, q, m2], A.detail));
           });
           o.push(h.ligne(g + 10, cy - R + t / 2, cx - 20, cy - R + t / 2 + 0.6, A.fin), h.ligne(g + 14, cy + R - t / 2, cx - 26, cy + R - t / 2 - 0.5, A.fin));
+          // ce qu'on regarde : le dos du pli, qui craque sans se casser
+          { const p = pointArc(cx, cy, R - 2, -14); o.push(h.controle(p[0], p[1], 16)); }
           return o.join('\n');
         },
         renvois: z => {

@@ -1,5 +1,8 @@
 // Planche 71-02 — le fumoir de baril sur conduit enterré (ch. 66, section 9, variante d'urgence).
 // Seules cotes portées : « 2 ou 3 pas » (foyer–chambre) et « une pelle » (largeur de la tranchée).
+// La charte : l'intérieur du baril et le vide du conduit en travers en gris loin ; le conduit en
+// travers au contour fort. Le rouge : la pierre d'entrée d'air qu'on glisse (le réglage) et le
+// thermomètre qu'on lit. L'air et la fumée restent en noir.
 module.exports = (h) => {
   const A = h.a;
   const BL = (A.blanc.match(/fill="([^"]+)"/) || [])[1] || '#FFFFFF';
@@ -98,7 +101,8 @@ module.exports = (h) => {
             o.push(dalleSol(a, a + 36, 7, gy, bA, i + 3));
             if (i < 6) o.push(motte(a + 36, a + 43, 7, gy));
           }
-          // le baril
+          // le baril : l'intérieur, vu par la coupe, en gris loin
+          o.push(h.rect(447, 25, 66, 101, A.loin));
           o.push(paroi(447, 25, 126, 58, -3), paroi(447, 25, 126, 92, -3), paroi(513, 25, 126, 58, 3), paroi(513, 25, 126, 92, 3));
           o.push(h.ligne(447, 25, 513, 25, A.arete), h.cercle(447, 25, 2.2, A.plein), h.cercle(513, 25, 2.2, A.plein));
           // crochets, viande, thermomètre
@@ -153,8 +157,8 @@ module.exports = (h) => {
         titre: 'Le conduit, en travers',
         dessin: z => [
           h.rect(4, 30, 152, 48, A.hachure('terre', 'aucun')),
-          h.chemin([[48, 30], [48, 64], [52, 70], [108, 70], [112, 64], [112, 30]], A.blanc, true),
-          h.chemin([[48, 30], [48, 64], [52, 70], [108, 70], [112, 64], [112, 30]], A.arete),
+          h.chemin([[48, 30], [48, 64], [52, 70], [108, 70], [112, 64], [112, 30]], A.loin, true),
+          h.chemin([[48, 30], [48, 64], [52, 70], [108, 70], [112, 64], [112, 30]], A.contour),
           h.ligne(4, 30, 19, 30, A.contour), h.ligne(141, 30, 156, 30, A.contour),
           h.chemin([[19, 30.3], [141, 30.3], [142.5, 24], [139, 18.5], [92, 17.4], [42, 18.2], [21, 19.6], [18, 25]], A.hachure('pierre'), true),
           h.ligne(48, 71, 48, 89, A.fin), h.ligne(112, 71, 112, 89, A.fin),
@@ -186,7 +190,7 @@ module.exports = (h) => {
           o.push(motte(204, 213, 13, gy));
           o.push(dalleSol(213, 288, 13, gy, A.hachure('pierre'), 2));
           o.push(dalleSol(70, 140, 10, x => gy(x) - 13, A.hachure('pierre'), 3));
-          o.push(h.fleche('M105 24 L86 24'), h.fleche('M105 24 L124 24'));
+          o.push(h.geste('M86 24 L124 24', { double: true }));   // la pierre qu'on glisse : le seul réglage
           // air, fumée
           o.push(h.fleche('M14 30 Q52 26 58 66', A.detail));
           o.push(h.fleche('M128 118 Q165 95 200 78 L282 72', A.cache));
@@ -205,6 +209,7 @@ module.exports = (h) => {
         titre: 'Le haut du baril, en coupe',
         dessin: z => {
           const o = [];
+          o.push(h.rect(50, 52, 190, 132, A.loin));   // l'intérieur du baril, en gris loin
           o.push(paroi(50, 52, 184, 153, -5), paroi(240, 52, 184, 153, 5));
           o.push(h.ligne(50, 52, 240, 52, A.arete), h.cercle(50, 52, 3.2, A.plein), h.cercle(240, 52, 3.2, A.plein));
           // crochets taillés dans des fourches, sur les bâtons 2 et 3
@@ -223,6 +228,7 @@ module.exports = (h) => {
             o.push(h.path(`M${r1(88 + Math.cos(a) * 8.5)} ${r1(110 + Math.sin(a) * 8.5)} L${r1(88 + Math.cos(a) * 11)} ${r1(110 + Math.sin(a) * 11)}`, A.fin));
           }
           o.push(h.ligne(88, 110, 95, 106, A.detail), h.cercle(88, 110, 1.4, A.plein));
+          o.push(h.controle(88, 110, 17));   // ce qu'on lit : au-dessus de 60 °C ou au froid
           // bâtons de feuillu écorcés, vus en bout
           [88, 140, 192].forEach(x => o.push(h.cercle(x, 44, 8, bA), h.cercle(x, 44, 4.5, A.fin), h.cercle(x, 44, 1, A.plein)));
           o.push(crochet(140), crochet(192));

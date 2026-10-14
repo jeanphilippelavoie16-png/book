@@ -253,8 +253,8 @@ function presentation(pose, vue, sq) {
 // l'index et le dos du majeur replié se rencontrent à angle droit, un coin net (agent 5, P4). La peau de la
 // palmure y fait un arrondi. raccords(sq, vue, M) → [{ c: [x, y] (mm, repère de la vue), zone, r }] : le moteur
 // ferme la silhouette de r mm (un arrondi rentrant) dans le disque de rayon zone autour de c, comme il le fait
-// au poignet. Une entrée par paire de doigts voisins dont l'un est tendu (mcp + ipp < 40°) et l'autre replié
-// (mcp + ipp ≥ 140°) ; rien hors des vues de profil.
+// au poignet. Une entrée par paire de doigts voisins dont l'un est tendu (mcp + ipp ≤ 45°, l'appui de l'index
+// compris) et l'autre replié (mcp + ipp ≥ 140°) ; rien hors des vues de profil.
 function raccords(sq, vue, M) {
   if ((vue !== 'pouce' && vue !== 'auriculaire') || !sq || !sq.segments) return [];
   const k = (sq.age && sq.age.kW) || 1;
@@ -263,7 +263,7 @@ function raccords(sq, vue, M) {
   const out = [];
   for (let i = 0; i < DOIGTS.length - 1; i++) for (const [t, r] of [[DOIGTS[i], DOIGTS[i + 1]], [DOIGTS[i + 1], DOIGTS[i]]]) {
     const ft = pl(t), fr = pl(r);
-    if (ft === null || fr === null || ft >= 40 || fr < 140) continue;
+    if (ft === null || fr === null || ft > 45 || fr < 140) continue;
     const S = sq.segments[t + '.p1'];
     // le coin : sous la racine du doigt tendu, côté paume, un peu en avant de la jointure
     const c = [0, 1, 2].map(j => S.de[j] - S.n[j] * 10 * k + S.u[j] * 6 * k);

@@ -8,6 +8,9 @@
 //     d'enfant ; l'enfant défait celui de la journée, il sent dans sa main la longueur qui reste.
 // Aucune mesure dans le chapitre : aucune cote. Le « nœud double » est dessiné comme deux nœuds
 // simples serrés l'un contre l'autre.
+// La charte : le versant de la rainure à l'ombre, en gris d'ombre (il était en traits fins) ; la
+// porte, en retrait derrière le montant, en gris loin. Les encoches gardent leur versant noir : à
+// cette taille, un gris s'y perdrait. Le rouge : la poussée du caillou du moment (le geste).
 module.exports = (h) => {
   const A = h.a, F = h.formes, I = F._interne;
   const courbe = (pts, attrs, ferme = true) => h.path(I.ser(I.lisse(pts, ferme), p => p), attrs);
@@ -51,7 +54,7 @@ module.exports = (h) => {
       out.push(courbe(pts, A.fin, false));
     });
     // la rainure : bords, fond, et le versant dans l'ombre
-    for (let x = xs + g + 3; x < xe - g - 1; x += 4.5) out.push(h.ligne(x, cy - g + 1.5, x, cy - 1, A.fin));
+    out.push(h.rect(xs + g, cy - g, xe - xs - 2 * g, g, A.ombre));
     out.push(h.path(`M${xs + g} ${cy - g} L${xe - g} ${cy - g} A${g} ${g} 0 0 1 ${xe - g} ${cy + g} L${xs + g} ${cy + g} A${g} ${g} 0 0 1 ${xs + g} ${cy - g} Z`, A.arete));
     out.push(h.ligne(xs + g, cy, xe - g, cy, A.detail));
     // les cailloux
@@ -59,7 +62,7 @@ module.exports = (h) => {
     P.droite.forEach(([n, x]) => out.push(caillou(n, x, cy)));
     out.push(caillou('rond', xm, cy));
     // le geste : le caillou du moment glisse vers les moments passés
-    out.push(h.fleche(`M${xm + 18} ${cy} L${xm + 50} ${cy}`, A.arete));
+    out.push(h.geste(`M${xm + 18} ${cy} L${xm + 50} ${cy}`));
     // le trait de coupe
     const t = 12;
     out.push(h.ligne(xm, cy - bw - 3, xm, cy - bw - 3 - t, A.contour), h.ligne(xm, cy + bw + 3, xm, cy + bw + 3 + t, A.contour));
@@ -98,7 +101,8 @@ module.exports = (h) => {
     const xr = jx + jw;
     // le mur de planches, à gauche
     for (let y = 26; y < yF; y += 26) out.push(h.ligne(4, y, jx, y, A.detail));
-    // la porte, en retrait à droite : planches verticales, poignée
+    // la porte, en retrait à droite : planches verticales, poignée ; elle recule, en gris loin
+    out.push(h.rect(xr + 6, 4, z.l - 4 - xr - 6, yF - 3 - 4, A.loin));
     out.push(h.ligne(xr + 6, 4, xr + 6, yF, A.arete));
     for (let x = xr + 6 + 26; x < z.l - 4; x += 26) out.push(h.ligne(x, 4, x, yF - 3, A.detail));
     out.push(h.ligne(xr + 6, yF - 3, z.l - 4, yF - 3, A.detail));

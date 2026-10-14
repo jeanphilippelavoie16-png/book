@@ -1249,6 +1249,9 @@ function resoudre(pose, outils) {
   }
   const doigts = JSON.parse(JSON.stringify(r.doigts));
   for (const k of Object.keys(surcharges)) doigts[k] = Object.assign({}, doigts[k], surcharges[k]);
+  // un axe d'objet demandé à part (option objetPose de mainSimple : un lacet qui sort de la pince dans une autre
+  // direction que le fil de la pose) : on le garde, la table ne donne que les angles et le centre
+  if (base && base.objet && base.objet.axe && pose.objet.axe && pose.objet.axe.some((v, j) => Math.abs(v - base.objet.axe[j]) > 1e-3)) r = Object.assign({}, r, { objet: Object.assign({}, r.objet, { axe: pose.objet.axe }) });
   // une sphère de pince (la bosse, la pâte) garde son rapport au jour demandé (pinceDessus : 0,6 × d)
   const kS = pose.objet.type === 'sphere' && base && base.objet && base.solveur && base.solveur.diametre ? base.objet.diametre / base.solveur.diametre : 1;
   return Object.assign({}, pose, { doigts, objet: Object.assign({}, pose.objet, { centre: r.objet.centre, axe: r.objet.axe, diametre: d * kS }) });
@@ -1331,7 +1334,8 @@ function mainSurMain(mainSimple, o) {
 // Conseil de mise en vue : écarter les deux lacets d'au moins 90° (chaque main tire dans sa direction : l'une
 // monte, l'autre part de côté). À 36° d'écart, il faut ~2,5 longueurs de main entre le nœud et les pinces.
 //   o = { noeud: [x, y], directions: [[ux, uy], [ux, uy]] (du nœud vers chaque main), distance (départ, en unités
-//         de vue ; défaut 40 mm), pas (défaut 4 mm), max (défaut 400 mm), marge (défaut 12 mm), pose ('pince-fine'),
+//         de vue ; défaut 40 mm), pas (défaut 4 mm), max (défaut 400 mm), marge (défaut 12 mm), lacet (son diamètre,
+//         mm, défaut 5 : la pince s'ouvre d'autant), pose ('pince-fine'),
 //         vue ('pouce'), echelle, cotes (forcer ['droite', 'gauche']), et le reste pour mainSimple (age, trait,
 //         avantbras : { longueur }, …) ; objets: [P => objet, P => objet] (l'objet de chaque main, selon son point de
 //         pince : le lacet du nœud à P, que le moteur peint à sa profondeur entre les doigts) }
@@ -1365,7 +1369,7 @@ function pincesSurLacet(mainSimple, o) {
   const s = o.echelle || 1, N = o.noeud;
   const V = o.directions.map(v => { const l = Math.hypot(v[0], v[1]); return [v[0] / l, v[1] / l]; });
   const reste = Object.assign({}, o);
-  for (const k of ['noeud', 'directions', 'distance', 'pas', 'max', 'marge', 'cotes', 'objets', 'aligne', 'x', 'y', 'angle']) delete reste[k];
+  for (const k of ['noeud', 'directions', 'distance', 'pas', 'max', 'marge', 'cotes', 'objets', 'aligne', 'lacet', 'x', 'y', 'angle']) delete reste[k];
   const base = Object.assign({ pose: 'pince-fine', vue: 'pouce', ancre: 'prise' }, reste, { echelle: s });
   const rot = (p, a) => { const c = Math.cos(a), sn = Math.sin(a); return [p[0] * c - p[1] * sn, p[0] * sn + p[1] * c]; };
   const croix = (a, b) => a[0] * b[1] - a[1] * b[0];
@@ -1394,7 +1398,15 @@ function pincesSurLacet(mainSimple, o) {
   const opts = L => V.map((v, k) => {
     const P = [N[0] + v[0] * L, N[1] + v[1] * L];
     const ab = o.avantbras === false ? false : Object.assign({ longueur: 85, vers: [P[0] + v[0] * 2000, P[1] + v[1] * 2000] }, o.avantbras || {});
-    return Object.assign({}, base, { cote: regl[k].cote, angle: regl[k].angle, x: P[0], y: P[1], avantbras: ab }, o.objets ? { objet: o.objets[k](P) } : {});
+    // l'axe du fil de la pose, remis dans la direction du lacet (dans le plan de la vue) : le moteur décide alors
+    // juste ce qui passe devant le lacet (le pouce le couvre à la pince) ; sans ça, son fil de 120 mm en travers
+    // de la main repeint des pièces et découpe le contour là où le lacet ne passe pas
+    const a = regl[k].angle * RAD, d0 = rot([-v[0], -v[1]], -a);
+    if (regl[k].cote === 'gauche') d0[1] = -d0[1];
+    const vue = base.vue || 'dos';
+    const axe = vue === 'pouce' ? [d0[0], 0, -d0[1]] : vue === 'auriculaire' ? [d0[0], 0, d0[1]] : vue === 'paume' ? [d0[0], -d0[1], 0] : [d0[0], d0[1], 0];
+    return Object.assign({ masque: false }, base, { cote: regl[k].cote, angle: regl[k].angle, x: P[0], y: P[1], avantbras: ab,
+      objetPose: Object.assign({ axe, longueur: 2 * L / s, diametre: o.lacet || 5 }, base.objetPose || {}) }, o.objets ? { objet: o.objets[k](P) } : {});
   });
   const marge = (o.marge !== undefined ? o.marge : 12) * s, pas = (o.pas || 4) * s, max = (o.max || 400) * s;
   let L = (o.distance !== undefined ? o.distance : 40 * s), jeu = -1, mains = null;

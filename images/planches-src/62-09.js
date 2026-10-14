@@ -136,7 +136,7 @@ module.exports = (h) => {
   function vue1(z) {
     const p = p1(z), T = p.T;
     const L = (pts, ferme = true) => C.dense(pts, 3, ferme).map(T);
-    const out = [C.dessiner(h, p, { id: 'v1', loin: 'fin', os: ['bassin', 'femur', 'metatarse', 'phalangesArriere', 'onglonArriere'] })];
+    const out = [C.dessiner(h, p, { id: 'v1', loin: 'gris', os: ['bassin', 'femur', 'metatarse', 'phalangesArriere', 'onglonArriere'] })];
     // le jarret, du joint du grasset au bas du tarse, en trame de points découpée par la silhouette
     const jarret = [[1236, 697], [1268, 699], [1300, 701], [1340, 710], [1380, 716], [1416, 722], [1520, 730], [1520, 1012],
       [1446, 1014], [1400, 1016], [1380, 975], [1225, 720]];
@@ -192,7 +192,8 @@ module.exports = (h) => {
     out.push(`<path d="${D(corps, true)}" ${trait(2.4)}/>`);
     out.push('</g>');
     const a0 = T([1186, 752]), a1 = T([1233, 703]);
-    out.push(h.fleche(`M${f1(a0[0])} ${f1(a0[1])} L${f1(a1[0])} ${f1(a1[1])}`, h.a.arete));
+    // la charte : la flèche du geste (la lame entre dans le joint) en rouge
+    out.push(h.geste(`M${f1(a0[0])} ${f1(a0[1])} L${f1(a1[0])} ${f1(a1[1])}`));
     return out.join('\n');
   }
 

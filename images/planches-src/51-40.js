@@ -434,7 +434,7 @@ module.exports = (h) => {
         { n: 8, rond: add(Q(-18, 0), mul(nq, 30)), cible: Q(-10, w + 8), texte: 'pince au ras de la peau' },
         { n: 9, rond: [xb - bw - 26, ys - 18], cible: [xb - 8, ys - 14], texte: 'bois qui retient la peau' },
         { n: 10, rond: add(pointe, [-30, 2]), cible: Q(Lin - 12, w + 1), texte: 'aiguillons, dans la chair' },
-        { n: 11, rond: add(f1, add(mul(nq, -14), mul(dIn, -2))), cible: lerp(f0, f1, 0.8), texte: 'coup sec, dans l’axe' },
+        { n: 11, rond: add(f1, add(mul(nq, -24), mul(dIn, 4))), cible: lerp(f0, f1, 0.8), texte: 'coup sec, dans l’axe' },
       ],
     };
   };

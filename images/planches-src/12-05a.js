@@ -8,6 +8,12 @@
 // La coupe de la maison finie est sur 12-05b. Cotes : seulement celles du chapitre (bloc de 20 à
 // 25 cm d'épaisseur, environ 60 cm de haut une fois debout). La voûte est une chaînette ; ses
 // proportions ne sont pas cotées, le chapitre n'en donne pas. Même géométrie que 12-05b.
+//
+// La charte : la paroi de la fosse, derrière le bloc qu'on taille, en gris loin ; dans la
+// spirale, les faces intérieures des blocs (vues par-dessus le rang) en gris loin et les faces
+// extérieures du côté droit à l'ombre, la silhouette de l'anneau au trait fort. Le rouge : le
+// sens de la pose de la spirale ; le joint du deuxième rang qui tombe au milieu d'un bloc du
+// premier, cerclé ; la clé qu'on descend de dehors (une flèche ; la deuxième, symétrique, ôtée).
 
 module.exports = (h) => {
   // ─── La voûte : chaînette, en cm. Surface moyenne du mur, demi-largeur a au pied, hauteur hm.
@@ -43,6 +49,7 @@ module.exports = (h) => {
   const neige = h.a.hachure('neige', 'aucun');
   const neigeB = h.a.hachure('neige', 'arete');
   const blanc = at => at.replace('fill="none"', 'fill="#ffffff"');
+  const gris = (at, g) => at.replace('fill="none"', g.split(' ')[0]);
 
   // ─── Vue 1 : tailler les blocs. Perspective cavalière : X épaisseur, Y fuyant vers le haut à gauche.
   const tG = z => {
@@ -84,13 +91,13 @@ module.exports = (h) => {
       .concat(pas(b.st(b.pa), b.sb(b.pa), 4).map(s => g.P3(b.pa, s, c)));
     const th = TH0 - pm, sm = (b.sb(pm) + b.st(pm)) / 2;
     const faces = [
-      { d: vis(th, sm, 'ext'), p: face(1) },
-      { d: vis(th, sm, 'int'), p: face(-1) },
-      { d: vis(th, b.st(pm), 'dessus'), p: ph.map(p => g.P3(p, b.st(p), 1)).concat(inv.map(p => g.P3(p, b.st(p), -1))) },
+      { d: vis(th, sm, 'ext'), p: face(1), sorte: Math.cos(th) > 0.3 ? 'ombre' : 'blanc' },
+      { d: vis(th, sm, 'int'), p: face(-1), sorte: 'loin' },
+      { d: vis(th, b.st(pm), 'dessus'), p: ph.map(p => g.P3(p, b.st(p), 1)).concat(inv.map(p => g.P3(p, b.st(p), -1))), sorte: 'blanc' },
     ];
     if (b.couvert) faces.pop();
     if (b.fin) faces.push({ d: vis(TH0 - b.pb, 0, 'bout'),
-      p: pas(b.sb(b.pb), b.st(b.pb), 4).map(s => g.P3(b.pb, s, 1)).concat(pas(b.st(b.pb), b.sb(b.pb), 4).map(s => g.P3(b.pb, s, -1))) });
+      p: pas(b.sb(b.pb), b.st(b.pb), 4).map(s => g.P3(b.pb, s, 1)).concat(pas(b.st(b.pb), b.sb(b.pb), 4).map(s => g.P3(b.pb, s, -1))), sorte: 'blanc' });
     return faces;
   };
 
@@ -118,6 +125,8 @@ module.exports = (h) => {
           const { P, L, DY } = tG(z), out = [];
           // le manteau coupé au premier plan
           out.push(h.chemin([P(0, 0, 0), P(100, 0, 0), P(100, 0, -95), P(-45, 0, -95), P(-45, 0, -60), P(0, 0, -60)], neige, true));
+          // la paroi de la fosse, au-delà du bloc : derrière
+          out.push(h.chemin([P(0, L, 0), P(0, DY, 0), P(0, DY, -60), P(0, L, -60)], h.a.loin, true));
           // le dessus de la neige, la paroi de la fosse, le plancher de la fosse (en fuyante)
           out.push(h.chemin([P(100, 0, 0), P(100, DY, 0), P(0, DY, 0)], h.a.fin));
           out.push(h.chemin([P(0, 0, 0), P(0, DY, 0)], h.a.detail));
@@ -175,10 +184,23 @@ module.exports = (h) => {
             for (const fc of dessinBloc(g, b)) faces.push({ ...fc, key });
           }
           faces.sort((u, v) => ((u.d > 0) - (v.d > 0)) || (u.key - v.key) || (u.d - v.d));
-          for (const fc of faces) out.push(h.chemin(fc.p, blanc(h.a.arete), true));
+          // La silhouette de l'anneau au trait fort : le pied devant, les flancs là où la face
+          // extérieure tourne, le dessus du premier rang derrière. Tracée sous les faces : leur
+          // blanc en couvre le dedans, il n'en reste que le bord, et rien ne passe sur un bloc.
+          const bascule = s => { const m = mid(Math.max(s, 1)); return Math.asin(Math.min(1, E * m.nz / m.nx)); };
+          const P3s = (th, s) => { const [r, zz] = surf(s, 1); return g.Pr(r, th, zz); };
+          const sil = pas(-bascule(0), Math.PI + bascule(0), 64).map(th => P3s(th, 0))
+            .concat(pas(0, 60, 12).map(s => P3s(Math.PI + bascule(s), s)))
+            .concat(pas(Math.PI + bascule(60), 2 * Math.PI - bascule(60), 64).map(th => P3s(th, 60)))
+            .concat(pas(60, 0, 12).map(s => P3s(-bascule(s), s)));
+          out.push(h.chemin(sil, h.a.contour, true));
+          const remplir = { blanc: blanc(h.a.arete), loin: gris(h.a.arete, h.a.loin), ombre: gris(h.a.arete, h.a.ombre) };
+          for (const fc of faces) out.push(h.chemin(fc.p, remplir[fc.sorte], true));
+          // le joint du deuxième rang tombe au milieu d'un bloc du premier
+          out.push(h.controle(...g.P3(2.5 * D, 60, 1), 13));
           // la suite de la spirale : les blocs suivants se posent par là, sur le premier rang
           const suite = pas(3.75 * D, 5.6 * D, 16).map(p => { const [r, zz] = surf(60, 1); return g.Pr(r - 4, TH0 - p, zz + 16); });
-          out.push(h.fleche(suite.map((p, i) => (i ? 'L' : 'M') + ' ' + p[0].toFixed(1) + ' ' + p[1].toFixed(1)).join(' ')));
+          out.push(h.geste(suite.map((p, i) => (i ? 'L' : 'M') + ' ' + p[0].toFixed(1) + ' ' + p[1].toFixed(1)).join(' ')));
           return out.join('\n');
         },
         renvois: z => {
@@ -210,10 +232,8 @@ module.exports = (h) => {
           out.push(h.chemin(Pp(courbe(SK, ST, -1, 1, 8).concat(courbe(ST, SK, 1, 1, 8)).map(([x, zz]) => [x, zz + LEVE])), h.a.contour));
           // elle descend dans le trou
           const e = surf(SK, 1);
-          for (const sg of [-1, 1]) {
-            const x = sg * (e[0] + 14);
-            out.push(h.fleche(`M ${P([x, e[1] + LEVE + 4]).join(' ')} L ${P([x, e[1] + 8]).join(' ')}`));
-          }
+          const x = e[0] + 14;
+          out.push(h.geste(`M ${P([x, e[1] + LEVE + 4]).join(' ')} L ${P([x, e[1] + 8]).join(' ')}`));
           return out.join('\n');
         },
         renvois: z => {

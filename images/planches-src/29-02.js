@@ -7,6 +7,10 @@
 // laiton) et avance d'une marque chaque matin ; un fil noué à la marque 1 qui porte un nœud
 // d'arrêt par cycle hors plage. Aucune dimension dans le chapitre : aucune cote.
 // En noir et blanc : brun = hachure, blanc = blanc, plus foncé = noir ; le cuivre = un bout de tube.
+//
+// La charte : les couleurs des perles gardent leur code (hachure, blanc, noir) : pas de gris dessus.
+// En grand, le bout de cuivre et la rondelle pèsent (contour fort) et le dessous du tube est à
+// l'ombre. Le rouge : la rondelle ou l'anneau qu'on avance d'une marque chaque matin.
 module.exports = (h) => {
   const F = h.formes;
   const NOIR = '#1A1A1A', BL = '#FFFFFF';
@@ -57,22 +61,24 @@ module.exports = (h) => {
   const foncee = (x, y, r) => [h.cercle(x, y, r, noir(h.a.arete)),
     h.ellipse(x - r * 0.35, y - r * 0.4, r * 0.22, r * 0.14, `fill="${BL}" stroke="none"`)].join('\n');
   // le bout de cuivre : un tube vu de trois quarts, le bout droit en face ; la cordelette sort du trou
-  const tube = (x, y, ang, L, D) => {
+  const tube = (x, y, ang, L, D, fort = false) => {
     const a = L / 2, b = D / 2, e = D * 0.22;
+    const corps = `M${f(-a)} ${f(-b)} L${f(a)} ${f(-b)} L${f(a)} ${f(b)} L${f(-a)} ${f(b)} A${f(e)} ${f(b)} 0 0 1 ${f(-a)} ${f(-b)} Z`;
     return g(x, y, ang, [
-      `<path d="M${f(-a)} ${f(-b)} L${f(a)} ${f(-b)} L${f(a)} ${f(b)} L${f(-a)} ${f(b)} A${f(e)} ${f(b)} 0 0 1 ${f(-a)} ${f(-b)} Z" ${blanc(h.a.arete)}/>`,
+      ...(fort ? [`<path d="${corps}" ${h.a.blanc}/>`, `<path d="M${f(-a)} ${f(b * 0.35)} L${f(a)} ${f(b * 0.35)} L${f(a)} ${f(b)} L${f(-a)} ${f(b)} Z" ${h.a.ombre}/>`,   // le dessous, à l'ombre
+        `<path d="${corps}" ${h.a.contour}/>`] : [`<path d="${corps}" ${blanc(h.a.arete)}/>`]),
       seg(-a + 1, -b * 0.5, a - 2, -b * 0.5, h.a.fin),
-      seg(-a + 1, b * 0.62, a - 2, b * 0.62, h.a.fin),
+      fort ? '' : seg(-a + 1, b * 0.62, a - 2, b * 0.62, h.a.fin),   // à l'ombre, le reflet du bas se perd
       `<path d="${ell(a, 0, e, b)}" ${blanc(h.a.arete)}/>`,
       `<path d="${ell(a, 0, e * 0.4, b * 0.34)}" ${noir(h.a.detail)}/>`,
     ].join(''));
   };
   // la rondelle : vue presque de chant, le trou plus grand que le tube ; ep = son épaisseur
-  const rondelle = (x, y, ang, R, r, ep) => {
+  const rondelle = (x, y, ang, R, r, ep, fort = false) => {
     const ex = 0.3;
     return g(x, y, ang, [
-      `<path d="M${f(-ep)} ${f(-R)} A${f(R * ex)} ${f(R)} 0 0 0 ${f(-ep)} ${f(R)} L0 ${f(R)} A${f(R * ex)} ${f(R)} 0 0 1 0 ${f(-R)} Z" ${blanc(h.a.arete)}/>`,
-      `<path d="${ell(0, 0, R * ex, R)} ${ell(0, 0, r * ex, r)}" fill="${BL}" fill-rule="evenodd" stroke="${NOIR}" stroke-width="1.4" stroke-linejoin="round"/>`,
+      `<path d="M${f(-ep)} ${f(-R)} A${f(R * ex)} ${f(R)} 0 0 0 ${f(-ep)} ${f(R)} L0 ${f(R)} A${f(R * ex)} ${f(R)} 0 0 1 0 ${f(-R)} Z" ${blanc(fort ? h.a.contour : h.a.arete)}/>`,
+      `<path d="${ell(0, 0, R * ex, R)} ${ell(0, 0, r * ex, r)}" fill="${BL}" fill-rule="evenodd" stroke="${NOIR}" stroke-width="${fort ? 2.4 : 1.4}" stroke-linejoin="round"/>`,
     ].join(''));
   };
 
@@ -188,9 +194,9 @@ module.exports = (h) => {
           out.push(noeud(xt - 1.6, yt + 70, Math.PI / 2, 1, 0.95), noeud(xt - 0.4, yt + 103, Math.PI / 2, 1, 0.95));
           // les marques 31, 32, 1, 2, 3
           [[-2, 15], [-1, 15], [1, 10], [2, 15]].forEach(([k, r]) => out.push(brune(xc + k * pas, Y(xc + k * pas), r)));
-          out.push(tube(xc, yc, 0, 34, 17), rondelle(xr, yc, 0, 19, 12, 3.4));
+          out.push(tube(xc, yc, 0, 34, 17, true), rondelle(xr, yc, 0, 19, 12, 3.4, true));
           // l'anneau avance d'une marque chaque matin : de la 1 vers la 2
-          out.push(h.fleche(`M${f(xr + 8)} ${f(yc - 30)} Q${f(xc + pas / 2)} ${f(yc - 40)} ${f(xc + pas - 4)} ${f(Y(xc + pas) - 24)}`));
+          out.push(h.geste(`M${f(xr + 8)} ${f(yc - 30)} Q${f(xc + pas / 2)} ${f(yc - 40)} ${f(xc + pas - 4)} ${f(Y(xc + pas) - 24)}`));
           return out.join('\n');
         },
         renvois: z => {
@@ -226,7 +232,7 @@ module.exports = (h) => {
             `<path d="M0 -8.5 L1.8 -11 L-0.6 -12.6 L1.2 -15" ${h.a.detail}/>`,
           ].join('')));
           const [a1x, a1y] = dehors(m[4], 21), [a2x, a2y] = dehors(m[5], 21), [qx, qy] = dehors(m[4], 25);
-          out.push(h.fleche(`M${f(a1x)} ${f(a1y)} Q${f((qx + a2x) / 2 + 2)} ${f((qy + a2y) / 2)} ${f(a2x)} ${f(a2y)}`));
+          out.push(h.geste(`M${f(a1x)} ${f(a1y)} Q${f((qx + a2x) / 2 + 2)} ${f((qy + a2y) / 2)} ${f(a2x)} ${f(a2y)}`));
           return out.join('\n');
         },
         renvois: z => {
