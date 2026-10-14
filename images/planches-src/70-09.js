@@ -2,8 +2,9 @@
 // Cotes : seulement celles que le chapitre donne pour bâtir — trou « large comme une chaudière,
 // profond jusqu'au genou » ; tranchée « large et profonde comme un avant-bras ». La longueur
 // de 3 à 4 m est [À VÉRIFIER] dans le chapitre : elle ne va pas sur la planche.
-// La charte : la toile du fond du tipi et le vide de la tranchée en travers en gris loin ; la
-// perche et le bâton du détail ont leur face à l'ombre. Un rouge : la fuite de fumée à reboucher.
+// La charte : la toile du fond du tipi et le vide de la tranchée en travers en gris loin ; pas
+// d'ombre sur la perche ni le bâton du détail, trop minces (elle y a l'air d'un trait doublé).
+// Un rouge : la fuite de fumée à reboucher.
 // La fumée reste en noir.
 
 module.exports = (h) => {
@@ -194,8 +195,6 @@ module.exports = (h) => {
           const off = (p, s) => [p[0] + nrm[0] * s, p[1] + nrm[1] * s];
           // la perche
           o.push(h.chemin([off(Pb, -r), off(Pt, -r), off(Pt, r), off(Pb, r)], h.a.blanc, true));
-          // la face de droite de la perche, à l'ombre
-          { const sd = nrm[0] > 0 ? 1 : -1; o.push(h.chemin([off(Pb, sd * r * 0.35), off(Pt, sd * r * 0.35), off(Pt, sd * r), off(Pb, sd * r)], h.a.ombre, true)); }
           o.push(h.chemin([off(Pb, -r), off(Pt, -r)], h.a.contour), h.chemin([off(Pb, r), off(Pt, r)], h.a.contour));
           const lg = (a, b, s) => h.chemin([off([Pb[0] + (Pt[0] - Pb[0]) * a, Pb[1] + (Pt[1] - Pb[1]) * a], s),
             off([Pb[0] + (Pt[0] - Pb[0]) * b, Pb[1] + (Pt[1] - Pb[1]) * b], s)], h.a.detail);
@@ -205,7 +204,6 @@ module.exports = (h) => {
           // le bâton écorcé, devant la perche
           const x0 = 22, x1 = xc + 26, rb = 6.5;
           o.push(h.rect(x0, yb - rb, x1 - x0, 2 * rb, h.a.blanc));
-          o.push(h.rect(x0, yb + rb * 0.3, x1 - x0, rb * 0.7, h.a.ombre));   // le dessous, à l'ombre
           o.push(h.ligne(x0, yb - rb, x1, yb - rb, h.a.contour), h.ligne(x0, yb + rb, x1, yb + rb, h.a.contour));
           o.push(h.ellipse(x0, yb, 3.2, rb, blanc(h.a.contour)), h.ellipse(x0, yb, 1.3, 2.6, h.a.detail));
           o.push(h.path(`M${P(x1, yb - rb)} Q${P(x1 + 4, yb)} ${P(x1, yb + rb)}`, h.a.contour));

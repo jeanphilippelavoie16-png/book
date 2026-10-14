@@ -39,9 +39,13 @@ module.exports = (h) => {
   // Une roche : polygone irrégulier (demi-axes a, b) et trois arêtes de face qui partent d'un sommet.
   const FORME_ROCHE = [[-1, 0.3], [-0.97, -0.14], [-0.8, -0.56], [-0.5, -0.86], [-0.08, -1], [0.3, -0.94], [0.66, -0.74], [0.92, -0.4],
     [1, 0.04], [0.94, 0.5], [0.7, 0.84], [0.28, 1], [-0.24, 1], [-0.64, 0.9], [-0.9, 0.66]];
-  const roche = (c, a, b, attr = blanc(h.a.contour), aretes = true) => {
+  // ombre : la face de droite, à l'ombre (lumière en haut à gauche), peinte avant le trait.
+  const roche = (c, a, b, attr = blanc(h.a.contour), aretes = true, ombre = aretes) => {
     const q = (x, y) => [c[0] + x * a, c[1] + y * b];
-    const out = [h.chemin(FORME_ROCHE.map(([x, y]) => q(x, y)), attr, true)];
+    const contour = FORME_ROCHE.map(([x, y]) => q(x, y));
+    const out = ombre
+      ? [h.chemin(contour, h.a.blanc, true), h.chemin([q(0.06, -0.3), q(0.92, -0.4), q(1, 0.04), q(0.94, 0.5), q(0.7, 0.84)], h.a.ombre, true), h.chemin(contour, attr, true)]
+      : [h.chemin(contour, attr, true)];
     if (aretes) {
       const s = q(0.06, -0.3);
       out.push(h.path(`M ${pt(q(-0.5, -0.86))} L ${pt(s)} L ${pt(q(0.7, 0.84))} M ${pt(s)} L ${pt(q(0.92, -0.4))} M ${pt(s)} L ${pt(q(-0.64, 0.9))}`, h.a.detail));
@@ -301,7 +305,7 @@ module.exports = (h) => {
 
           // La perche, de la rive au creux ; la roche sous la perche, au bord ; le câble ; la boucle debout
           // en travers de la coulée, vue de dessus : de chant.
-          out.push(roche([52, yp + 1], 11, 8));
+          out.push(roche([52, yp + 1], 11, 8, blanc(h.a.contour), true, false));
           out.push(h.rect(12, yp - 3, 180, 6, blanc(h.a.arete)));
           out.push(h.path(`M 58 ${yp + 5} Q 84 ${yp + 13} ${xB - 12} ${yp + 11}`, h.a.arete));
           out.push(h.ellipse(xB, yp + 11, 12, 2.6, blanc(h.a.contour)));
@@ -343,7 +347,11 @@ module.exports = (h) => {
             return q;
           };
           const t0 = 4, t1 = (z.l + 8) / u[0];
-          out.push(h.chemin([...casse(t0, 1), ...casse(t1, -1).reverse()], blanc(h.a.arete), true));
+          out.push(h.chemin([...casse(t0, 1), ...casse(t1, -1).reverse()], h.a.blanc, true));
+          // le dessous de la perche, à l'ombre
+          const lisiere = (t, sg) => add(lerp(bordP(t, -1), bordP(t, 1), 0.725), mul(u, 2.4 * sg));
+          out.push(h.chemin([lisiere(t0, 1), casse(t0, 1)[3], casse(t0, 1)[4], casse(t1, -1)[4], casse(t1, -1)[3], lisiere(t1, -1)], h.a.ombre, true));
+          out.push(h.chemin([...casse(t0, 1), ...casse(t1, -1).reverse()], h.a.arete, true));
           [-6, 0, 5].forEach((k, i) => out.push(h.path(poly([add(C(t0 + 10 + i * 7), mul(nb, k)), add(C(t1 - 12 - i * 6), mul(nb, k))]), h.a.fin)));
           out.push(h.path(poly(cache), h.a.cache));
           // Le brin de devant, par-dessus la perche.
@@ -358,7 +366,7 @@ module.exports = (h) => {
           const pierre = [[-1, 0.28], [-0.86, -0.4], [-0.42, -0.88], [0.16, -1], [0.7, -0.74], [1, -0.08], [0.9, 0.58], [0.36, 0.98], [-0.48, 0.92]].map(([x, y]) => q(x, y));
           const s1 = q(0.08, -0.22), s2 = q(-0.3, 0.3);
           out.push(h.chemin(pierre, blanc(h.a.contour), true));
-          out.push(h.chemin([s1, pierre[5], pierre[6], pierre[7], s2], sans(h.a.hachure('bois', 'fin')), true));
+          out.push(h.chemin([s1, pierre[5], pierre[6], pierre[7], s2], h.a.ombre, true));
           out.push(h.path(`M ${pt(pierre[2])} L ${pt(s1)} L ${pt(pierre[5])} M ${pt(s1)} L ${pt(s2)} L ${pt(pierre[0])} M ${pt(s2)} L ${pt(pierre[7])}`, h.a.detail));
           out.push(h.chemin(pierre, h.a.contour, true));
           const ceinture = (dy) => [[rc[0] - ra * 0.9, rc[1] + dy - 8], [rc[0] - ra * 0.6, rc[1] + dy + 5], [rc[0] - 4, rc[1] + dy + 10], [rc[0] + ra * 0.58, rc[1] + dy + 2], [rc[0] + ra * 0.9, rc[1] + dy - 10]];
@@ -418,7 +426,8 @@ module.exports = (h) => {
           out.push(h.formes.corde(boucle, { ep: 4.6, debut: 'ouvert', fin: 'ouvert', torons: true }));
           // Les trois faces : pli du haut, âme percée (tramée : elle est de biais), pli du bas.
           out.push(h.chemin(face(-a, a), blanc(h.a.arete), true));
-          out.push(h.chemin(face(-a, a), h.a.hachure('metal', 'arete'), true));
+          out.push(h.chemin(face(-a, a), h.a.ombre, true));
+          out.push(h.chemin(face(-a, a), h.a.arete, true));
           out.push(h.chemin(face(a, 1), blanc(h.a.arete), true));
           out.push(h.chemin(face(ul, -a), blanc(h.a.arete), true));
           // L'épaisseur de la tôle, le long du bord avant.
@@ -437,6 +446,8 @@ module.exports = (h) => {
           out.push(h.formes.corde([r0, [r0[0] - 1, r0[1] + 10], [r0[0] - 3, r0[1] + 22]], { ep: 4.6, debut: 'ouvert', fin: 'ouvert', torons: true }));
           // Le sens où le câble file quand la bête tire.
           out.push(h.fleche(`M ${f(sortie[0] + 10)} ${f(sortie[1] - 16)} L ${f(z.l - 8)} ${f(sortie[1] - 16)}`));
+          // le point qui décide : le câble de biais dans le trou, l'angle qui mord
+          out.push(h.controle(trou[0], trou[1], 19));
           return out.join('\n');
         },
         renvois: (z) => [

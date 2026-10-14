@@ -1332,7 +1332,8 @@ function mainSurMain(mainSimple, o) {
 //   o = { noeud: [x, y], directions: [[ux, uy], [ux, uy]] (du nœud vers chaque main), distance (départ, en unités
 //         de vue ; défaut 40 mm), pas (défaut 4 mm), max (défaut 400 mm), marge (défaut 6 mm), pose ('pince-fine'),
 //         vue ('pouce'), echelle, cotes (forcer ['droite', 'gauche']), et le reste pour mainSimple (age, trait,
-//         objet, avantbras : { longueur }, …) }
+//         avantbras : { longueur }, …) ; objets: [P => objet, P => objet] (l'objet de chaque main, selon son point de
+//         pince : le lacet du nœud à P, que le moteur peint à sa profondeur entre les doigts) }
 //   → { points: [P1, P2], distance (unités de vue), ecart (le jeu entre les mains), options: [o1, o2] (prêtes pour
 //       mainSimple), mains: [m1, m2], svg }
 // La planche tire chaque lacet du nœud jusqu'à son point de pince, puis peint les deux mains (svg).
@@ -1363,7 +1364,7 @@ function pincesSurLacet(mainSimple, o) {
   const s = o.echelle || 1, N = o.noeud;
   const V = o.directions.map(v => { const l = Math.hypot(v[0], v[1]); return [v[0] / l, v[1] / l]; });
   const reste = Object.assign({}, o);
-  for (const k of ['noeud', 'directions', 'distance', 'pas', 'max', 'marge', 'cotes', 'x', 'y', 'angle']) delete reste[k];
+  for (const k of ['noeud', 'directions', 'distance', 'pas', 'max', 'marge', 'cotes', 'objets', 'x', 'y', 'angle']) delete reste[k];
   const base = Object.assign({ pose: 'pince-fine', vue: 'pouce', ancre: 'prise' }, reste, { echelle: s });
   const rot = (p, a) => { const c = Math.cos(a), sn = Math.sin(a); return [p[0] * c - p[1] * sn, p[0] * sn + p[1] * c]; };
   const croix = (a, b) => a[0] * b[1] - a[1] * b[0];
@@ -1390,7 +1391,7 @@ function pincesSurLacet(mainSimple, o) {
   const opts = L => V.map((v, k) => {
     const P = [N[0] + v[0] * L, N[1] + v[1] * L];
     const ab = o.avantbras === false ? false : Object.assign({ longueur: 85, vers: [P[0] + v[0] * 2000, P[1] + v[1] * 2000] }, o.avantbras || {});
-    return Object.assign({}, base, { cote: regl[k].cote, angle: regl[k].angle, x: P[0], y: P[1], avantbras: ab });
+    return Object.assign({}, base, { cote: regl[k].cote, angle: regl[k].angle, x: P[0], y: P[1], avantbras: ab }, o.objets ? { objet: o.objets[k](P) } : {});
   });
   const marge = (o.marge !== undefined ? o.marge : 6) * s, pas = (o.pas || 4) * s, max = (o.max || 400) * s;
   let L = (o.distance !== undefined ? o.distance : 40 * s), jeu = -1, mains = null;

@@ -17,6 +17,9 @@
 // langue à droite), à la même échelle, les hauteurs alignées sur la première rangée.
 // Trames : os en hachure à 45° ; pus en pointillé ; enflure dure en quadrillage ; chair (joue,
 // gencive, langue, plancher, menton) en tireté horizontal ; dent et air en blanc.
+//
+// La charte : pas de gris, les trois coupes ont chacune leurs trames. Le rouge : le cercle sur le
+// sommet de la bulle, là où la pointe se pose. La flèche du pus qui coule reste noire.
 
 module.exports = (h) => {
   const BL = h.a.blanc.split(' ')[0];
@@ -141,7 +144,11 @@ module.exports = (h) => {
     out.push(L(dur ? PEAU_DUR : PEAU));
     out.push(brisure(P([24, 38]), P([46, 38])));
     out.push(brisure(P([247, dur ? 39 : 46]), P([247, dur ? 281 : 266])));
-    if (etat === 'bulle') out.push(lame(P));
+    if (etat === 'bulle') {
+      out.push(lame(P));
+      const [cx, cy] = P(LAME.T);                  // le sommet, là où la pointe se pose
+      out.push(h.controle(cx, cy, 13));
+    }
     return out.join('\n');
   };
 

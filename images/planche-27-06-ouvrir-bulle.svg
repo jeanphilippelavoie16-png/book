@@ -68,6 +68,7 @@
 <path d="M108.5 127.1 L105.3 124.7 L102.2 122.3 L99 120 L95.9 117.6 L92.4 115.8 L89 114 L85.6 112.1 L82.1 110.3 L78.7 108.5 L75.3 106.6 L71.8 104.8 L68.4 103 L66.7 102.1 L64.4 106.4 L66.1 107.3 L69.5 109.1 L73 110.9 L76.4 112.8 L79.8 114.6 L83.3 116.4 L86.7 118.2 L90.2 120.1 L93.6 121.9 L97.3 123.2 L101 124.5 L104.8 125.8 L108.5 127.1 Z" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M105.1 125.2 L65.5 104.2" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M63.9 107.2 L63.2 108.6 L69 108.3 L62 100.1 L67.9 99.8 L67.1 101.2" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="108.5" cy="127.1" r="13" fill="none" stroke="#9B2C1E" stroke-width="1.6"/>
 </g>
 <text x="40" y="341.5" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#1A1A1A">Laisser couler</text>
 <g transform="translate(40 349.5)" data-vue="couler">
