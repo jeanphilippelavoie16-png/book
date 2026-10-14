@@ -8,13 +8,14 @@
 //   const A = require('./_animaux');
 //   const l = A.lievre(h, { x, y, echelle, cote, trait });
 //   out.push(l.svg);                       // ou `${l}`
-//   l.cou -> [x, y]  le milieu du cou, là où se ferme la boucle ; l.boite, l.oeil, l.museau, l.sol
+//   l.cou -> [x, y]  le milieu du cou, là où se ferme la boucle ; l.nuque, l.gorge, l.boite, l.oeil, l.museau, l.sol
 //
 //   x, y      le point au sol sous le cou (vue) ; y est le dessus de la neige
 //   echelle   unités de vue par mm (le lièvre fait ~ 360 mm du derrière au museau, accroupi)
 //   cote      'droite' (défaut : il regarde vers +x) · 'gauche'
 //   trait     1,5 par défaut (le corps simple) · 2,4 quand l'animal est le sujet de la vue
 //   oreilles  rotation des oreilles autour de leur base, en degrés (+ vers l'avant ; 0 : couchées en arrière)
+//   cou       la tête tendue en avant de tant de mm (0 : au repos ; 25 : elle passe dans une ouverture)
 //
 // Unités internes : mm, x vers l'avant de la bête, y vers le HAUT, origine au sol sous le cou.
 // L'union passe par Clipper, celui du moteur des corps simples (corps/moteur.js, _interne).
@@ -134,48 +135,52 @@ function lievre(h, o = {}) {
   // cou ; la bête regarde vers +x). Les masses qui l'ont réglé : la tête, une ellipse de 92 × 62
   // inclinée nez en bas ; le corps, un œuf de 300 de long, haut de 175 sur la cuisse ; la cuisse,
   // un disque de 125 ; le pied de derrière, 190 du talon aux doigts, à plat sous la cuisse.
+  // o.cou : la tête tendue en avant de tant de mm (le cou s'allonge : la bête qui passe la tête
+  // dans une ouverture) ; o.oreilles : leur rotation autour de la base, en degrés (+ vers l'avant).
+  const dc = o.cou || 0;
+  const T_ = ([x, y, c]) => (c ? [x + dc, y, c] : [x + dc, y]);
   const CORPS = [
-    [112, 104], [105, 124], [84, 143], [56, 154], [28, 156], [4, 150],                  // museau, front, crâne, nuque
-    [-28, 152], [-70, 162], [-115, 172], [-160, 174], [-198, 164], [-225, 144],          // le dos, la croupe
+    ...[[113, 110], [106, 130], [85, 149], [57, 159], [31, 158], [12, 149]].map(T_),    // museau, front, crâne
+    [-4, 143],                                                                            // la nuque
+    [-30, 148], [-70, 162], [-115, 172], [-160, 174], [-198, 164], [-225, 144],          // le dos, la croupe
     [-236, 126], [-243, 118], [-245, 108], [-242, 98],                                    // la queue, une petite touffe
     [-244, 76], [-240, 46], [-232, 20], [-222, 4, 'c'],                                  // l'arrière de la cuisse, le talon
     [-170, 0], [-100, 0], [-52, 0, 'c'], [-40, 5], [-44, 13], [-64, 17], [-92, 21], [-112, 26, 'c'],   // la semelle, les doigts, le dessus du pied
     [-102, 33], [-84, 38], [-62, 41], [-47, 38],                                          // le ventre, jusqu'au coude
     [-38, 27], [-33, 12], [-35, 1, 'c'], [-10, 0], [8, 3], [6, 10], [-10, 14],           // la patte de devant et sa main
-    [-13, 32], [-8, 50], [4, 64], [22, 74], [46, 80], [70, 84], [92, 88], [105, 95],     // le poitrail, la gorge, le menton
+    [-13, 32], [-10, 50], [-4, 62], [5, 74],                                              // le poitrail
+    ...[[16, 82], [34, 88], [54, 91], [74, 93], [94, 96], [107, 102]].map(T_),           // la gorge, le menton
   ];
   const corpsCL = cl(trace(CORPS));
-  // l'oreille : posée sur l'arrière du crâne, couchée vers l'arrière, plus courte que la tête
-  const OREILLE = [[52, 150], [50, 170], [40, 196], [24, 220], [8, 234], [0, 231], [-1, 220], [6, 196], [14, 172], [20, 150]];
-  const OREILLE_L = [[62, 150], [62, 172], [56, 200], [44, 226], [32, 238], [24, 235], [24, 224], [28, 198], [32, 172], [32, 150]];
-  const PATTE_L = [[10, 50], [18, 30], [24, 12], [25, 5], [40, 2], [42, 0, 'c'], [16, 0, 'c'], [12, 10], [4, 30], [-2, 50]];
-  // o.oreilles : la rotation des oreilles autour de leur base, en degrés (+ vers l'avant)
+  // l'oreille : posée sur l'arrière du crâne, plus courte que la tête
+  const baseO = T_([36, 155]), baseOL = T_([46, 155]);
   const rotO = (pts, c) => pts.map(p => { const a = (o.oreilles || 0) * RAD, dx = p[0] - c[0], dy = p[1] - c[1];
     return [c[0] + dx * Math.cos(-a) - dy * Math.sin(-a), c[1] + dx * Math.sin(-a) + dy * Math.cos(-a)].concat(p.slice(2)); });
-  OREILLE.splice(0, OREILLE.length, ...rotO(OREILLE, [36, 150]));
-  OREILLE_L.splice(0, OREILLE_L.length, ...rotO(OREILLE_L, [46, 150]));
+  const OREILLE = rotO([[52, 155], [50, 175], [40, 201], [24, 225], [8, 239], [0, 236], [-1, 225], [6, 201], [14, 177], [20, 155]].map(T_), baseO);
+  const OREILLE_L = rotO([[62, 155], [62, 177], [56, 205], [44, 231], [32, 243], [24, 240], [24, 229], [28, 203], [32, 177], [32, 155]].map(T_), baseOL);
+  const PATTE_L = [[10, 50], [18, 30], [24, 12], [25, 5], [40, 2], [42, 0, 'c'], [16, 0, 'c'], [12, 10], [4, 30], [-2, 50]];
   const oreilleP = cl(trace(OREILLE));
   const proche = lisser(M.ferme(U(corpsCL, oreilleP), 4), 1.2);
   const loin = lisser(M.moins(U(cl(trace(OREILLE_L)), cl(trace(PATTE_L))), M.decale(proche, -0.5)), 0.8);
 
   // Les traits intérieurs (0,7) : le devant de la cuisse, le creux de l'oreille.
   const cuisseL = trace([[-166, 164], [-122, 140], [-104, 100], [-110, 62], [-124, 34]], false);
-  const axeO = trace(rotO([[28, 166], [20, 190], [10, 212]], [36, 150]), false);
+  const axeO = trace(rotO([[28, 171], [20, 195], [10, 217]].map(T_), baseO), false);
   // le bout noir de l'oreille : ce qui est au-delà d'une ligne en travers, du côté de la pointe
   const coupe = (a, b, pointe) => {
     const d = [b[0] - a[0], b[1] - a[1]]; let n = [-d[1], d[0]];
     if (n[0] * (pointe[0] - a[0]) + n[1] * (pointe[1] - a[1]) < 0) n = [-n[0], -n[1]];
     return cl([a, b, [b[0] + n[0] * 3, b[1] + n[1] * 3], [a[0] + n[0] * 3, a[1] + n[1] * 3]]);
   };
-  const [ca, cb, cp] = rotO([[34, 218], [-12, 208], [4, 234]], [36, 150]);
+  const [ca, cb, cp] = rotO([[30, 229], [-10, 221], [4, 239]].map(T_), baseO);
   const boutP = M.inter(M.inter(proche, oreilleP), coupe(ca, cb, cp));
-  const [la, lb, lp] = rotO([[54, 226], [14, 216], [28, 238]], [46, 150]);
+  const [la, lb, lp] = rotO([[48, 235], [14, 227], [28, 243]].map(T_), baseOL);
   const boutL = M.inter(loin, coupe(la, lb, lp));
 
-  // L'œil : grand, en amande, haut sur le côté de la tête ; la narine.
-  const oeilC = [72, 128];
+  // L'œil : grand, en amande, haut sur le côté de la tête.
+  const oeilC = T_([72, 134]);
   const oeil = ellipse(oeilC, 9.5, 7, -10, 36);
-  
+
   const R = rendu({ echelle: s }, Tm);
   const out = [`<g data-animal="lievre">`];
   out.push(R.plein(loin, GRIS), R.bord(loin, ep));
@@ -190,8 +195,9 @@ function lievre(h, o = {}) {
   const svg = out.filter(Boolean).join('\n');
 
   const geo = {
-    cou: Tm([6, 112]), menton: Tm([70, 84]), museau: Tm([112, 104]), oeil: Tm(oeilC), sol: Y,
-    nuque: Tm([0, 147]), gorge: Tm([8, 72]), echelle: s, miroir: m < 0,
+    // le milieu du cou, la nuque et la gorge au même x : là où se pose une boucle, un collier
+    cou: Tm([6 + dc / 2, 112]), nuque: Tm([6 + dc / 2, 146]), gorge: Tm([6 + dc / 2, 78 + dc / 8]),
+    menton: Tm(T_([70, 92])), museau: Tm(T_([113, 108])), oeil: Tm(oeilC), sol: Y, echelle: s, miroir: m < 0,
   };
   const pts = M.deCL(proche[0] || []).map(Tm);
   if (pts.length) geo.boite = { x0: Math.min(...pts.map(p => p[0])), x1: Math.max(...pts.map(p => p[0])), y0: Math.min(...pts.map(p => p[1])), y1: Math.max(...pts.map(p => p[1])) };

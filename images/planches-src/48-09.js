@@ -1,7 +1,11 @@
-// Planche 48-09 — Le collet à ressort et son déclencheur (chapitre 44, § « Le collet à ressort »).
-// Vue 1 : le montage vu dans l'axe de la piste, un lièvre de face pour l'échelle (la boucle laisse
-// passer la tête, son bas à hauteur du menton : § 4 du chapitre, sans chiffre — les 10 à 13 cm
-// sont [À VÉRIFIER]). Vue 2 : le crochet et le bâtonnet agrandis, là où tout se décide.
+// Planche 48-09 — Le collet à ressort et son déclencheur (chapitre 48, § « Le collet à ressort »).
+// Vue 1 : le montage vu du bord de la piste, en vue oblique : le lièvre d'Amérique de profil au fond
+// de sa piste, la tête passée dans la boucle (§ 4 : la boucle laisse passer la tête ; on la voit
+// autour du cou, sans chiffre) ; le bouleau plié et le piquet de notre côté, le bâtonnet en travers
+// de la piste. Le lièvre vient de _animaux.js (lievre). Vue 2 : le crochet et le bâtonnet
+// agrandis, là où tout se décide.
+const A_ = require('./_animaux');
+
 module.exports = (h) => {
   const blanc = (a) => a.replace('fill="none"', 'fill="#FFFFFF"');
   const neige = h.a.hachure('neige').replace(/stroke="[^"]*" stroke-width="[^"]*"/, 'stroke="none"');
@@ -18,109 +22,138 @@ module.exports = (h) => {
     return [d[0] / n, d[1] / n];
   };
 
+  // Le repère de la vue oblique (mm) : X le long de la piste, Y en profondeur (vers le fond), Z vers
+  // le haut ; l'origine au fond de la piste, au milieu, sous la boucle. On regarde du bord où le
+  // collet est monté : le piquet et le bouleau sont de notre côté (Y < 0), plus bas sur la vue.
+  const geo = (z) => {
+    const s = 0.41, kx = -0.56, ky = 0.205, ox = 226, oy = z.h - 56;
+    return {
+      // YB le plan du bouleau, YP l'axe du piquet, ZB la hauteur du bâtonnet ; BORD : la neige de
+      // part et d'autre de la piste, au-dessus du fond tassé ; YN le bord de la piste de notre côté,
+      // YA la coupe de la neige devant. La boucle autour du cou : une goutte pendue par l'œillet
+      // sur la nuque (ZH), large de 2 RY, haute de 2 RZ.
+      s, oy, YB: -200, YP: -320, ZB: 272, ZH: 172, RY: 42, RZ: 50, BORD: 22, YN: -110, YA: -430,
+      // t = 0 à l'œillet ; sin t < 0 : la moitié de notre côté, devant le cou
+      goutte: (t, RY, RZ, ZH) => [RY * Math.sin(t) * (1 - 0.15 * Math.pow((1 + Math.cos(t)) / 2, 2)), ZH - RZ * (1 - Math.cos(t))],
+      ARC: [[-560, 0], [-572, 300], [-280, 425], [0, 345]],
+      P: (X, Y, Z) => [ox + s * (X + kx * Y), oy - s * (Z + ky * Y)],
+    };
+  };
+
   return {
     ref: '48-09',
     titre: 'Le collet à ressort et son déclencheur',
-    desc: 'Un jeune bouleau plié au-dessus d’une piste de lièvre, retenu par un bâtonnet coincé sous le crochet taillé dans un piquet planté au bord de la piste ; la boucle du collet pend du bâtonnet, son bas à la hauteur du menton du lièvre. À droite, le crochet et le bâtonnet agrandis : le dessus du bâtonnet bute sous l’épaulement, son bout repose sur le pan incliné.',
+    desc: 'Vu du bord de la piste : un jeune bouleau plié au-dessus d’une piste de lièvre, retenu par un bâtonnet en travers de la piste, coincé sous le crochet taillé dans un piquet planté au bord ; la boucle du collet pend du bâtonnet et le lièvre, de profil, y a passé la tête : la boucle est autour de son cou. À droite, le crochet et le bâtonnet agrandis : le dessus du bâtonnet bute sous l’épaulement, son bout repose sur le pan incliné.',
     format: 'demi',
     disposition: [['monte', 'declencheur']],
     largeurs: [[3, 2]],
     vues: {
       monte: {
-        titre: 'Monté, vu dans l’axe de la piste',
+        titre: 'Monté, vu du bord de la piste',
         dessin: (z) => {
-          const sy = z.h - 30;          // surface de la neige
-          const by = sy - 114;          // axe du bâtonnet
-          const tc = 172;               // milieu de la piste
-          const sx0 = 252, sx1 = 264;   // piquet
+          // Vue oblique : la piste file de gauche à droite, la profondeur monte vers la gauche. Le
+          // lièvre est de profil au fond de la piste ; la boucle, en travers de la piste, se voit de
+          // biais autour de son cou ; le piquet et le bouleau sont plantés de notre côté.
           const out = [];
+          const { P, s, oy, YB, YP, ZB, ZH, RY, RZ, ARC, BORD, YN, YA, goutte } = geo(z);
 
-          // La neige, et la piste tassée en creux.
-          const surf = `M 8 ${sy} L ${tc - 58} ${sy} C ${tc - 44} ${sy} ${tc - 42} ${sy + 9} ${tc - 30} ${sy + 9} L ${tc + 30} ${sy + 9} C ${tc + 42} ${sy + 9} ${tc + 44} ${sy} ${tc + 58} ${sy} L ${z.l - 8} ${sy}`;
-          out.push(h.path(`${surf} L ${z.l - 8} ${z.h - 6} L 8 ${z.h - 6} Z`, neige));
-          out.push(h.path(surf, h.a.arete));
+          // le pied d'un bois planté : la neige remonte un peu autour et le cache
+          // le pied d'un bois planté : deux traits de neige qui partent de ses flancs
+          const pied = (p, r) => h.path(`M ${p[0] - r} ${p[1]} Q ${p[0] - r - 5} ${p[1] + 1} ${p[0] - r - 11} ${p[1] + 3} M ${p[0] + r} ${p[1]} Q ${p[0] + r + 5} ${p[1] + 1} ${p[0] + r + 11} ${p[1] + 3}`, h.a.detail);
 
-          // L'arbre plié : tronc effilé le long d'une courbe.
-          const P = [[45, sy], [40, by - 40], [150, by - 85], [241, by - 34]];
-          const larg = (t) => 14 * (1 - t) + 3 * t;
+          // La neige : le bord de la piste au fond, le bord de notre côté, la coupe devant.
+          const yFond = P(0, -YN, BORD)[1], yBord = P(0, YN, BORD)[1], yCoupe = P(0, YA, BORD)[1];
+          out.push(h.ligne(4, yFond, z.l - 4, yFond, h.a.detail));
+          out.push(h.rect(4, yCoupe, z.l - 8, z.h - 6 - yCoupe, neige));
+          out.push(h.ligne(4, yCoupe, z.l - 4, yCoupe, h.a.arete));
+
+          // La boucle, en travers de la piste, la tête passée : le cou est dedans, la gorge sur le bas
+          // de la boucle, le haut tenu par le fil au-dessus de la nuque. La moitié derrière le cou d'abord.
+          const boucle = (t0, t1) => {
+            const l = [];
+            for (let i = 0; i <= 40; i++) { const [Y, Z] = goutte(t0 + (t1 - t0) * i / 40, RY, RZ, ZH); l.push(P(0, Y, Z)); }
+            return l;
+          };
+          out.push(h.chemin(boucle(0, Math.PI), h.a.arete));
+
+          // Le lièvre d'Amérique, de profil, la tête passée dans la boucle.
+          out.push(A_.lievre(h, { x: P(-18, 0, 0)[0], y: oy, echelle: s, oreilles: 18, cou: 24 }).svg);
+          // le bord de la piste de notre côté passe devant ses pieds
+          out.push(h.ligne(4, yBord, z.l - 4, yBord, h.a.arete));
+
+          // La boucle de notre côté du cou, l'œillet en haut, le fil qui monte au bâtonnet.
+          const devant = boucle(Math.PI, 2 * Math.PI);
+          out.push(h.chemin(devant, 'fill="none" stroke="#FFFFFF" stroke-width="3.2" stroke-linecap="round"'), h.chemin(devant, h.a.arete));
+          const oe = P(0, 0, ZH + 2);
+          out.push(h.cercle(oe[0], oe[1], 1.8, h.a.detail));
+          out.push(h.ligne(oe[0], oe[1] - 1.8, oe[0], P(0, 0, ZB)[1] + 2.6, h.a.arete));
+
+          // Le bâtonnet en travers de la piste, du crochet (derrière le piquet) jusqu'au-dessus de la piste.
+          const b0 = P(0, 22, ZB), b1 = P(0, YP + 10, ZB);
+          const u = [b1[0] - b0[0], b1[1] - b0[1]], L = Math.hypot(u[0], u[1]), n = [-u[1] / L * 2.6, u[0] / L * 2.6];
+          out.push(h.chemin([[b0[0] + n[0], b0[1] + n[1]], [b1[0] + n[0], b1[1] + n[1]], [b1[0] - n[0], b1[1] - n[1]], [b0[0] - n[0], b0[1] - n[1]]], blanc(h.a.arete), true));
+          out.push(h.ellipse(b0[0], b0[1], 2.2, 2.8, blanc(h.a.detail)));
+          // les ligatures : le fil du collet au-dessus de la piste, la corde du bouleau
+          const pc = P(ARC[3][0], YB, ZB);
+          const lig = (p) => [-2, 0, 2].map((k) => `M ${p[0] + k - 1.5} ${p[1] - 4} L ${p[0] + k + 1.5} ${p[1] + 4}`).join(' ');
+          out.push(h.path(lig(pc) + ' ' + lig(P(0, 0, ZB)), h.a.detail));
+
+          // Le bouleau plié, de notre côté de la piste : tronc effilé le long d'une courbe.
+          const A = ARC.map(([X, Z], i) => P(X, YB, Z + (i === 0 ? BORD : 0)));
+          // la corde, du bout de l'arbre au bâtonnet
+          out.push(h.ligne(A[3][0], A[3][1], pc[0], pc[1] - 2, h.a.arete));
+          const larg = (t) => 13 * (1 - t) + 3 * t;
           const g = [], d = [];
           for (let i = 0; i <= 40; i++) {
-            const t = i / 40, p = bez(P, t), T = tan(P, t), w = larg(t) / 2;
+            const t = i / 40, p = bez(A, t), T = tan(A, t), w = larg(t) / 2;
             g.push([p[0] + T[1] * w, p[1] - T[0] * w]);
             d.push([p[0] - T[1] * w, p[1] + T[0] * w]);
           }
           out.push(h.chemin([...g, ...d.reverse()], blanc(h.a.contour), true));
-          // Lenticelles du bouleau.
-          // Rameaux : deux sur l'arc, et la cime qui dépasse la corde.
+          out.push(pied(A[0], 6.5));
+          // Rameaux : sur l'arc, et la cime qui dépasse la corde.
           const rameau = (b, T, ang, L) => {
             const dir = [T[0] * Math.cos(ang) - T[1] * Math.sin(ang), T[0] * Math.sin(ang) + T[1] * Math.cos(ang)];
             const m = [b[0] + dir[0] * L * 0.55, b[1] + dir[1] * L * 0.55];
             return `M ${b[0]} ${b[1]} Q ${m[0] + dir[1] * 2} ${m[1] - dir[0] * 2} ${b[0] + dir[0] * L} ${b[1] + dir[1] * L}`;
           };
-          const ram = [[0.4, -0.9, 20], [0.58, -0.75, 22], [0.76, -0.7, 17]].map(([t, ang, L]) => {
-            const p = bez(P, t), T = tan(P, t), w = larg(t) / 2;
+          const ram = [[0.4, -0.9, 18], [0.58, -0.75, 20], [0.76, -0.7, 15]].map(([t, ang, L]) => {
+            const p = bez(A, t), T = tan(A, t), w = larg(t) / 2;
             const b = [p[0] + T[1] * w, p[1] - T[0] * w];
             const f = [b[0] + (T[0] * Math.cos(ang) - T[1] * Math.sin(ang)) * L * 0.5, b[1] + (T[0] * Math.sin(ang) + T[1] * Math.cos(ang)) * L * 0.5];
             return rameau(b, T, ang, L) + ' ' + rameau(f, T, ang * 0.3, L * 0.4);
           });
-          const T1 = tan(P, 1);
-          [-1.1, -0.7, -0.35, 0].forEach((ang, i) => ram.push(rameau(P[3], T1, ang, [12, 16, 15, 9][i])));
+          const T1 = tan(A, 1);
+          [-1.1, -0.7, -0.35, 0].forEach((ang, i) => ram.push(rameau(A[3], T1, ang, [11, 15, 14, 8][i])));
           out.push(h.path(ram.join(' '), h.a.detail));
           // Le redressement, au déclenchement.
-          out.push(h.fleche(`M 272 ${by - 36} C 276 ${by - 50} 270 ${by - 60} 256 ${by - 64}`));
+          out.push(h.fleche(`M ${A[3][0] - 6} ${A[3][1] - 12} C ${A[3][0] - 10} ${A[3][1] - 26} ${A[3][0] - 22} ${A[3][1] - 34} ${A[3][0] - 36} ${A[3][1] - 36}`));
 
-          // La corde du bout de l'arbre au bâtonnet.
-          out.push(h.ligne(241, by - 34, 241, by - 3, h.a.arete));
-
-          // Le lièvre d'Amérique, de face, accroupi sur la piste, pour l'échelle.
-          const L = (pts) => pts.map(([x, y]) => [tc + x, sy + y]);
-          const sym = (f) => [-1, 1].forEach(f);
-          // Gros pieds de derrière, à plat sur la neige tassée.
-          sym((s) => out.push(h.path(`M ${tc + s * 6} ${sy + 9} C ${tc + s * 8} ${sy + 3} ${tc + s * 22} ${sy + 2} ${tc + s * 36} ${sy + 4} C ${tc + s * 40} ${sy + 5} ${tc + s * 40} ${sy + 9} ${tc + s * 36} ${sy + 9} Z`, blanc(h.a.detail))));
-          // Le corps ramassé : cuisses larges en bas, épaules étroites sous la tête.
-          out.push(h.path(`M ${tc - 12} ${sy - 36} C ${tc - 24} ${sy - 30} ${tc - 32} ${sy - 12} ${tc - 30} ${sy + 4} L ${tc + 30} ${sy + 4} C ${tc + 32} ${sy - 12} ${tc + 24} ${sy - 30} ${tc + 12} ${sy - 36} Z`, blanc(h.a.detail)));
-          // Le pli des cuisses.
-          sym((s) => out.push(h.path(`M ${tc + s * 26} ${sy - 14} C ${tc + s * 19} ${sy - 10} ${tc + s * 16} ${sy - 3} ${tc + s * 16} ${sy + 4}`, h.a.fin)));
-          // Pattes de devant, droites, posées entre les pieds.
-          sym((s) => out.push(h.path(`M ${tc + s * 2} ${sy - 18} C ${tc + s * 1} ${sy - 8} ${tc + s * 2} ${sy - 1} ${tc + s * 2} ${sy + 3} C ${tc + s * 2} ${sy + 7} ${tc + s * 10} ${sy + 7} ${tc + s * 10} ${sy + 3} C ${tc + s * 10} ${sy - 3} ${tc + s * 11} ${sy - 10} ${tc + s * 12} ${sy - 16}`, blanc(h.a.detail))));
-          // Oreilles : plus courtes que la tête, le bout noir.
-          sym((s) => {
-            out.push(h.path(`M ${tc + s * 4} ${sy - 58} C ${tc + s * 3} ${sy - 70} ${tc + s * 7} ${sy - 80} ${tc + s * 12} ${sy - 83} C ${tc + s * 17} ${sy - 79} ${tc + s * 16} ${sy - 68} ${tc + s * 12} ${sy - 57} Z`, blanc(h.a.detail)));
-            out.push(h.path(`M ${tc + s * 6.6} ${sy - 77} C ${tc + s * 8.5} ${sy - 80.5} ${tc + s * 10} ${sy - 82} ${tc + s * 12} ${sy - 83} C ${tc + s * 14.5} ${sy - 81} ${tc + s * 15.6} ${sy - 79} ${tc + s * 15.8} ${sy - 77} Z`, h.a.plein));
-          });
-          // La tête : front étroit, joues larges et touffues, menton.
-          out.push(h.path(`M ${tc} ${sy - 62} C ${tc + 9} ${sy - 62} ${tc + 14} ${sy - 56} ${tc + 15} ${sy - 49} L ${tc + 18} ${sy - 45} L ${tc + 15} ${sy - 43} L ${tc + 17} ${sy - 40} C ${tc + 13} ${sy - 35} ${tc + 6} ${sy - 33} ${tc} ${sy - 33} C ${tc - 6} ${sy - 33} ${tc - 13} ${sy - 35} ${tc - 17} ${sy - 40} L ${tc - 15} ${sy - 43} L ${tc - 18} ${sy - 45} L ${tc - 15} ${sy - 49} C ${tc - 14} ${sy - 56} ${tc - 9} ${sy - 62} ${tc} ${sy - 62} Z`, blanc(h.a.detail)));
-          // Yeux sur les côtés de la tête, en amande.
-          sym((s) => out.push(h.path(`M ${tc + s * 10} ${sy - 50} C ${tc + s * 11} ${sy - 53.5} ${tc + s * 13.5} ${sy - 54} ${tc + s * 14.5} ${sy - 51.5} C ${tc + s * 14} ${sy - 49} ${tc + s * 11.5} ${sy - 48.5} ${tc + s * 10} ${sy - 50} Z`, h.a.plein)));
-          // Nez et bouche fendue.
-          out.push(h.path(`M ${tc - 2.2} ${sy - 42} L ${tc + 2.2} ${sy - 42} L ${tc} ${sy - 39.5} Z`, h.a.plein));
-          out.push(h.path(`M ${tc} ${sy - 39.5} L ${tc} ${sy - 37.5} M ${tc} ${sy - 37.5} C ${tc - 1.5} ${sy - 36} ${tc - 3.5} ${sy - 36} ${tc - 4.5} ${sy - 37} M ${tc} ${sy - 37.5} C ${tc + 1.5} ${sy - 36} ${tc + 3.5} ${sy - 36} ${tc + 4.5} ${sy - 37}`, h.a.fin));
-
-          // La boucle : juste plus grande que la tête, son bas au menton, le fil monte au bâtonnet.
-          out.push(h.cercle(tc, sy - 53, 21, h.a.arete));
-          out.push(h.cercle(tc, sy - 76.5, 2.5, h.a.arete));
-          out.push(h.ligne(tc, sy - 79, tc, by + 3, h.a.arete));
-
-          // Le bâtonnet, son bout dans le crochet du piquet.
-          out.push(h.rect(tc - 16, by - 3, sx0 + 4 - (tc - 16), 6, blanc(h.a.arete)));
-          out.push(h.path([tc - 2, tc + 2, 239, 243].map((x) => `M ${x} ${by - 4.5} L ${x + 1.5} ${by + 4.5}`).join(' '), h.a.detail));
-
-          // Le piquet, et sa partie plantée.
-          out.push(h.chemin([[sx0, by - 22], [sx1, by - 22], [sx1, sy], [sx0, sy], [sx0, by + 12], [sx0 + 6.5, by - 3], [sx0, by - 3]], blanc(h.a.contour), true));
-          out.push(h.chemin([[sx0, sy], [sx0, z.h - 22], [(sx0 + sx1) / 2, z.h - 12], [sx1, z.h - 22], [sx1, sy]], h.a.cache));
+          // Le piquet, de notre côté de la piste : un rondin, la face de droite à l'ombre. Le crochet
+          // est taillé dans la face qui regarde la piste, derrière : le détail est à droite.
+          const rP = 24, haut = 345;
+          const c0 = P(0, YP, BORD), c1 = P(0, YP, haut);
+          const xg = c0[0] - rP * s, xd = c0[0] + rP * s, ey = rP * s * 0.45;
+          const piquet = `M ${xg} ${c1[1]} L ${xg} ${c0[1]} A ${rP * s} ${ey} 0 0 0 ${xd} ${c0[1]} L ${xd} ${c1[1]} A ${rP * s} ${ey} 0 0 0 ${xg} ${c1[1]} Z`;
+          out.push(h.path(piquet, h.a.blanc));
+          out.push(h.path(`M ${c0[0] + rP * s * 0.35} ${c1[1] + ey * 0.9} L ${c0[0] + rP * s * 0.35} ${c0[1] + ey * 0.95} A ${rP * s} ${ey} 0 0 0 ${xd} ${c0[1]} L ${xd} ${c1[1]} Z`, h.a.ombre));
+          out.push(h.path(piquet, h.a.contour));
+          out.push(h.ellipse(c1[0], c1[1], rP * s, ey, h.a.detail));
+          out.push(pied([c0[0], c0[1] + ey * 0.6], rP * s - 0.4));
 
           return out.join('\n');
         },
         renvois: (z) => {
-          const sy = z.h - 30, by = sy - 114, tc = 172;
-          const P = [[45, sy], [40, by - 40], [150, by - 85], [241, by - 34]];
-          const t = 0.2, p = bez(P, t), T = tan(P, t), w = (12 * (1 - t) + 3.5 * t) / 2;
+          const { P, YB, YP, ZH, RY, RZ, ARC, BORD, goutte } = geo(z);
+          const A = ARC.map(([X, Z], i) => P(X, YB, Z + (i === 0 ? BORD : 0)));
+          const t = 0.18, p = bez(A, t), T = tan(A, t), w = (13 * (1 - t) + 3 * t) / 2;
           const cible = [p[0] + T[1] * w, p[1] - T[0] * w];
+          const piq = P(24, YP, 190), bo = P(0, ...goutte(1.6 * Math.PI, RY, RZ, ZH));
           return [
-            { n: 1, rond: [20, cible[1] - 30], cible },
-            { n: 2, rond: [z.l - 22, sy - 48], cible: [264, sy - 48] },
-            { n: 5, rond: [tc - 62, sy - 70], cible: [tc - 21, sy - 53] },
-          ].map((r, i) => ({ ...r, texte: ['jeune bouleau plié vers la piste', 'piquet fiché à côté de la piste', 'boucle du collet sur la piste'][i] }));
+            { n: 1, rond: [16, cible[1] - 26], cible },
+            { n: 2, rond: [z.l - 18, piq[1] - 10], cible: [piq[0] + 1, piq[1]] },
+            { n: 5, rond: [bo[0] - 36, bo[1] - 40], cible: bo },
+          ].map((r, i) => ({ ...r, texte: ['jeune bouleau plié vers la piste', 'piquet fiché à côté de la piste', 'boucle du collet, autour du cou'][i] }));
         },
       },
       declencheur: {
