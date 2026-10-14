@@ -245,7 +245,7 @@ module.exports = (h) => {
             ombre(faceX(150, 0, 44, 0, 40)),
           ], h.chemin(marque.map(q => E(...q)), h.a.detail) + '\n' +
             // le point à contrôler : le fond de l'entaille, plat, pas bombé
-            h.controle(...E(75, 22, 20), 12)]]);
+            h.controle(...E(68, 30, 20), 10)]]);
           const g = GM;
           const haut = piece(E, [[[
             [[77, 0, g], [97, 0, g], [97, 0, g + 20]],
