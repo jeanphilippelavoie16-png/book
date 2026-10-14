@@ -11,6 +11,22 @@ module.exports = (h) => {
   const r1 = v => Math.round(v * 10) / 10;
   const blanc = (t = h.a.arete) => t.replace('fill="none"', 'fill="#fff"');
 
+  // ─── mains simples : la boîte d'une vue, et l'angle qui met l'axe de la prise sur `axe` (degrés à l'écran)
+  // avec l'avant-bras du côté de `vers`
+  const BORD = z => ({ x0: 0, y0: 0, x1: z.l, y1: z.h });
+  const poser = (o, axe, vers) => {
+    const base = Object.assign({}, o, { angle: 0, avantbras: { longueur: 100 } });
+    delete base.objet;
+    const e0 = F.mainSimple(base);
+    let best = null;
+    for (const k of [0, 180]) {
+      const a = axe - e0.prise.angle + k, e = F.mainSimple(Object.assign({}, base, { angle: a }));
+      const d = [e.coude[0] - e.poignet[0], e.coude[1] - e.poignet[1]], w = [vers[0] - e.poignet[0], vers[1] - e.poignet[1]];
+      const c = (d[0] * w[0] + d[1] * w[1]) / ((Math.hypot(d[0], d[1]) * Math.hypot(w[0], w[1])) || 1);
+      if (!best || c > best.c) best = { a, c };
+    }
+    return best.a;
+  };
   // Catmull-Rom : une suite de points devient une courbe qui passe par chacun.
   const lisse = (pts, ferme = false) => {
     const n = pts.length, get = i => (ferme ? pts[(i + n) % n] : pts[Math.max(0, Math.min(n - 1, i))]);
@@ -63,19 +79,17 @@ module.exports = (h) => {
     const out = [];
     // la main sur le bâtonnet, entre les deux pattes
     const bat = baton(P, [-145, 0], [145, 0], 6, 30);
-    // la main gantée : modèle s11-gant-l5 (le poing fermé de s11 sans ongles ni plis : un gant)
-    // retourné, l'avant-bras qui monte et sort du cadre, le bâtonnet qui passe dans le poing ; le
-    // bâtonnet se dessine d'abord ; le revers du gant remonte au-dessus du poignet
-    const sm = 0.85 * s;
-    out.push(bat);
-    const m = F.modele('s11-gant-l5', { x: ox, y: oy, ancre: [68, 42], angle: 180, echelle: sm, masquer: [[0, 150, 140, 175]],
-      bras: { a: [21.8, 150], a0: [20.8, 135], b: [76.3, 150], b0: [76.2, 135], bord: z } });
-    out.push(String(m));
-    out.push(h.chemin([[13, 146], [86, 146], [90, 198], [9, 198]].map(m.P), blanc(h.a.contour), true));
-    out.push(h.path(`M ${m.P([13.5, 154]).map(r1).join(' ')} L ${m.P([86.6, 154]).map(r1).join(' ')}`, h.a.fin));
-    // les pattes de devant, derrière la tête
-    out.push(h.path(lisse(Pl(pattesAvD), true), blanc(h.a.arete)));
-    out.push(h.path(lisse(Pl(miroir(pattesAvD)), true), blanc(h.a.arete)));
+    // la main droite gantée (mains simples, gant : true), côté paume : le poing fermé sur le bâtonnet
+    // (12 mm), qui entre d'un côté du poing et ressort de l'autre ; l'avant-bras monte et sort du cadre,
+    // la manchette du gant au poignet
+    const o = { x: ox, y: oy, pose: 'prise-manche', vue: 'paume', cote: 'droite', echelle: s, diametre: 12, gant: true };
+    const vers = [ox, -400];
+    const m = F.mainSimple({ ...o, angle: poser(o, 0, vers), avantbras: { vers, bord: BORD(z), longueur: 'bord' } });
+    out.push(m.couches.main, m.couches.masque, bat, m.couches.devant);
+    // les pattes de devant, derrière la tête : en gris
+    const loin = h.a.arete.replace('fill="none"', 'fill="#E6E6E6"');
+    out.push(h.path(lisse(Pl(pattesAvD), true), loin));
+    out.push(h.path(lisse(Pl(miroir(pattesAvD)), true), loin));
     // le corps, par-dessus le bâtonnet : le bâtonnet traverse chaque jarret
     out.push(h.path(lisse(Pl(lievre), true), blanc(h.a.contour)));
     for (const sg of [1, -1]) {
@@ -138,7 +152,7 @@ module.exports = (h) => {
     // le geste : pousser le bâtonnet dans le creux, vers la pointe qui ressort derrière
     const n = [-U[1], U[0]], off = 13;
     const f0 = [E[0] + U[0] * 70 + n[0] * off, E[1] + U[1] * 70 + n[1] * off], f1 = [E[0] + U[0] * 38 + n[0] * off, E[1] + U[1] * 38 + n[1] * off];
-    out.push(h.fleche(`M ${P(...f0).join(' ')} L ${P(...f1).join(' ')}`));
+    out.push(h.geste(`M ${P(...f0).join(' ')} L ${P(...f1).join(' ')}`));
     return { svg: out.join('\n'), P };
   };
 
@@ -197,8 +211,10 @@ module.exports = (h) => {
     out.push(h.path(lisse(Pl([[-104, -76], [30, -90], [165, -93], [300, -90], [434, -76]])), h.a.contour));
     out.push(h.path(lisse(Pl([[-104, -76], [30, -66], [165, -63], [300, -66], [434, -76]])), h.a.contour));
     for (const x of [-70, 82, 248, 400]) out.push(h.path(lisse(Pl([[x, -40], [x + 6, 60], [x - 4, 160]])), h.a.fin));
-    // le dedans du sac, dans l'ombre entre les deux bords
-    for (let x = -76; x <= 410; x += 16) { const q = 1 - ((x - 165) / 269) ** 2, yb = -76 - 17 * q, yf = -76 + 13 * q; out.push(h.ligne(...P(x, yb + 1.5), ...P(x + 3, yb + 0.55 * (yf - yb)), h.a.fin)); }
+    // le dedans du sac, entre les deux bords : le plan d'arrière, en gris
+    out.push(h.path(lisse(Pl([[-104, -76], [30, -90], [165, -93], [300, -90], [434, -76]])) + ' ' + lisse(Pl([[434, -76], [300, -66], [165, -63], [30, -66], [-104, -76]])).replace(/^M/, 'L') + ' Z', h.a.loin));
+    out.push(h.path(lisse(Pl([[-104, -76], [30, -90], [165, -93], [300, -90], [434, -76]])), h.a.contour));
+    out.push(h.path(lisse(Pl([[-104, -76], [30, -66], [165, -63], [300, -66], [434, -76]])), h.a.contour));
     // la corde en travers du devant du sac, nouée aux deux coins
     out.push(F.corde(Pl([[-100, -58], [30, -50], [165, -48], [300, -50], [430, -58]]), { ep: 4.2 * s, debut: 'fixe', fin: 'fixe' }));
     X3.forEach((dx, i) => {
@@ -210,6 +226,8 @@ module.exports = (h) => {
       out.push(F.corde(Pl([[dx - 24, DY - 6], [dx - 12, DY + 1], [dx + 4, DY + 3], [dx + 16, DY - 1]]), { ep: 3.6 * s, debut: 'fixe', fin: 'fixe' }));
       out.push(h.cercle(...P(dx - 34, -51), r1(4.2 * s), blanc(h.a.arete)));
     });
+    // le point à vérifier : un vide entre deux oiseaux
+    out.push(h.controle(...P(250, 180 + DY), r1(Math.max(9, 30 * s))));
     return { svg: out.join('\n'), P };
   };
 
@@ -254,7 +272,7 @@ module.exports = (h) => {
           const P = vueOiseaux(z).P;
           return [
             { n: 8, rond: [P(-160, 0)[0], P(0, 40)[1]], cible: P(-14, 52), texte: 'pendu par le cou, à son brin' },
-            { n: 9, rond: [P(247, 0)[0], P(0, 330)[1]], cible: P(247, 280), texte: 'un vide entre deux oiseaux' },
+            { n: 9, rond: [P(247, 0)[0], P(0, 330)[1]], cible: P(250, 200 + DY), texte: 'un vide entre deux oiseaux' },
             { n: 10, rond: [P(495, 0)[0], P(0, -40)[1]], cible: P(437, -40), texte: 'le sac reste ouvert' },
           ];
         },

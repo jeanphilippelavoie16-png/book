@@ -3,11 +3,14 @@
 // l'intérieur du poignet ; la bouteille de métal d'eau chaude roulée dans un linge sec ; le malade
 // couché, la compresse sur la cuisse ; la même, coupée par le milieu, couche par couche ; le linge
 // qui a servi part à la casserole. Aucune cote : le chapitre ne donne aucune mesure de la compresse.
-// Lot 3 (13 octobre) : le malade couché passe au corps simple de profil (couche-dos). Les deux vues
-// de mains (tordre le linge, le poignet) restent telles quelles : la bibliothèque de mains les
-// refera. Rouge : le geste de rouler la bouteille dans le linge.
+// Lot 3 (13 octobre) : le malade couché passe au corps simple de profil (couche-dos). Rouge : le geste
+// de rouler la bouteille dans le linge.
+// Mains simples (14 octobre) : tordre le linge à deux mains (prises.deuxMains : la droite en haut vue du dos, tournée
+// de 35°, la gauche en bas vue des doigts, le linge qui passe dans les deux poings) ; le poignet, paume en l'air
+// (porte, de profil côté pouce, penchée de 25°). Rouge : les deux sens de la torsion.
 module.exports = (h) => {
   const A = h.a, A_ = h.a, F = h.formes;
+  const PR = require(require('path').join(__dirname, '../../.claude/skills/planches/scripts/mains/prises.js'));
   const f = v => Math.round(v * 10) / 10;
   const pt = p => `${f(p[0])} ${f(p[1])}`;
   const trace = (Q, ferme = false) => 'M' + Q.map(pt).join(' L') + (ferme ? ' Z' : '');
@@ -76,7 +79,7 @@ module.exports = (h) => {
   // Vu du côté droit de celui qui tord : la main droite en haut, vue du dos, le pouce par-dessus ;
   // la main gauche en bas, vue du côté des doigts qui passent devant le linge. Les deux avant-bras
   // viennent de la gauche, les deux pouces vers le haut, les poignets qui tournent en sens contraires.
-  const tord = z => ({ xT: z.l * 0.64, y1: 42, y2: 98, e: 0.48, d: 15 });
+  const tord = z => ({ xT: z.l * 0.64, y1: 40, y2: 106, e: 0.48, d: 15 });
   const SM_TORD = 0.46;                         // les poings du modèle s11 : 51 de large, l'un sur l'autre
   const essorer = z => {
     const { xT, y1, y2, e, d } = tord(z);
@@ -93,18 +96,22 @@ module.exports = (h) => {
     const bas = courbe([[xT - 6, y2 + 8], [xT - 8, y2 + 18], [xT - 10, y2 + 27], [xT - 5, y2 + 24], [xT - 1, y2 + 30], [xT + 3, y2 + 25], [xT + 8, y2 + 29], [xT + 9, y2 + 18], [xT + 6, y2 + 8]], true, 6);
     out.push(h.path(trace(bas, true), blanc(A.arete)), h.path(trace(bas, true), sansTrait(A.hachure('eau', 'detail'))));
     out.push(goutte(xT - 1, y2 + 39, 0.8), goutte(xT + 2, y2 + 50, 0.7));
-    // le linge tordu entre les deux poings : plus mince au milieu, les plis en spirale
+    // le linge tordu entre les deux poings : plus mince au milieu, les plis en spirale (l'objet que les mains tiennent)
+    const iL = out.length;
     const ym = (y1 + y2) / 2, hw = y => d / 2 - 1.2 + 2.5 * Math.pow(Math.abs((y - ym) / (y2 - ym)), 1.5);
     const ys = []; for (let y = y1 - 10; y <= y2 + 10.01; y += 2) ys.push(y);
     out.push(h.path(trace([...ys.map(y => [xT - hw(y), y]), ...ys.slice().reverse().map(y => [xT + hw(y), y])], true), blanc(A.arete)));
     for (let y = y1 + 10; y < y2 - 12; y += 6) out.push(h.path(`M${f(xT - hw(y))} ${f(y)} Q${f(xT)} ${f(y + 1)} ${f(xT + hw(y + 5))} ${f(y + 5)}`, A.detail));
-    // les deux mains : le linge passe derrière les doigts
-    // modèle s11 (poing fermé) en miroir, tourné d'un quart : l'avant-bras vient de la gauche et sort
-    // du cadre, le pouce en haut, le linge debout dans le poing
-    for (const y of [y1, y2]) out.push(F.modele('s11', { x: xT, y, ancre: [68, 42], miroir: true, angle: 90, echelle: SM_TORD,
-      masquer: [[0, 150, 140, 175]], bras: { a: [21.8, 150], a0: [20.8, 135], b: [76.3, 150], b0: [76.2, 135], bord: z } }));
+    // les deux mains (mains simples, prises.deuxMains) : le linge tordu passe DANS les deux poings, derrière les
+    // doigts. La droite en haut, vue du dos ; la gauche en bas, vue du côté des doigts ; les deux avant-bras viennent
+    // de la gauche et sortent du cadre. Le linge roulé fait 31 mm (d / e).
+    const linge = out.splice(iL).join('\n');
+    const bord = { x0: 0, y0: 0, x1: z.l, y1: z.h };
+    out.push(String(PR.deuxMains(F.mainSimple, { echelle: e, manche: { x0: xT, y0: y1 - 40, x1: xT, y1: y2 + 40, r: d / 2 }, objet: linge,
+      mains: [{ t: (y1 - (y1 - 40)) / (y2 - y1 + 80), vue: 'dos', cote: 'droite', diametre: d / e, rotation: [0, 35, 0], sens: 1, avantbras: { vers: [-200, y1], bord, bras: { pli: 0 } } },
+        { t: (y2 - (y1 - 40)) / (y2 - y1 + 80), vue: 'paume', cote: 'gauche', diametre: d / e, sens: 1, avantbras: { vers: [-200, y2], bord, bras: { pli: 0 } } }] })));
     // le sens de la torsion : le poing du haut tourne vers soi, celui du bas vers l'autre côté
-    const tour = (y, s) => h.fleche(`M${f(xT + 30)} ${f(y - 11 * s)} C${f(xT + 42)} ${f(y - 6 * s)}, ${f(xT + 42)} ${f(y + 7 * s)}, ${f(xT + 30)} ${f(y + 12 * s)}`, A.arete);
+    const tour = (y, s) => h.geste(`M${f(xT + 30)} ${f(y - 11 * s)} C${f(xT + 42)} ${f(y - 6 * s)}, ${f(xT + 42)} ${f(y + 7 * s)}, ${f(xT + 30)} ${f(y + 12 * s)}`);
     out.push(tour(y1, 1), tour(y2, -1));
     return out.join('\n');
   };
@@ -112,14 +119,17 @@ module.exports = (h) => {
   // ─── 2. Tester : le linge plié posé sur l'intérieur du poignet, la paume vers le haut ────
   // L'avant-bras couché, vu du côté du pouce, la main relâchée, paume en l'air.
   const mainTest = z => {
-    const e = 0.64, x = z.l - 62, y = z.h * 0.5;
-    // modèle s10 (la main tendue, paume en l'air, vue de côté) en miroir : les doigts à droite,
-    // l'avant-bras couché qui sort du cadre à gauche ; (x, y) au milieu de la main
-    const m = F.modele('s10', { x, y, ancre: [105, 62], miroir: true, echelle: e, masquer: [[228, 0, 245, 125]],
-      bras: { a: [228, 57.6], a0: [210, 58.4], b: [228, 110.8], b0: [210, 108.8], bord: z } });
-    const P = m.P([214, 84]), B = m.P([228, 84]), u = norm([B[0] - P[0], B[1] - P[1]]);   // le poignet, et le sens de l'avant-bras
-    let n = [-u[1], u[0]]; if (n[1] > 0) n = mul(n, -1);         // n : vers le haut, côté paume
-    return { m, u, n, P, c: add(add(P, mul(u, -6)), mul(n, 17.5)) };
+    const e = 0.64, x = z.l - 120, y = z.h * 0.52;
+    // la main gauche, paume en l'air, vue du côté du pouce, un peu d'en haut (main simple, porte, penchée de 25°) :
+    // les doigts à droite, l'avant-bras couché qui sort du cadre à gauche ; (x, y) au poignet
+    const m = F.mainSimple({ x, y, ancre: 'poignet', pose: 'porte', vue: 'pouce', cote: 'droite', angle: 0, rotation: [-25, 0, 0], echelle: e,
+      avantbras: { bord: { x0: 0, y0: 0, x1: z.l, y1: z.h }, bras: { pli: 0 } } });
+    // le dessus de l'avant-bras (l'intérieur du poignet, la paume en l'air), lu sur le contour de la main
+    const d0 = (String(m.svg).match(/<path d="([^"]+)" fill="#FFFFFF"/) || [])[1] || '';
+    const pts = d0.split(/[MLZ]/).map(t => t.trim()).filter(Boolean).map(t => t.split(/\s+/).map(Number));
+    const dessus = X => { let best = Infinity; for (let i = 0; i < pts.length; i++) { const a = pts[i], b = pts[(i + 1) % pts.length]; if ((a[0] - X) * (b[0] - X) < 0) best = Math.min(best, a[1] + (X - a[0]) / (b[0] - a[0]) * (b[1] - a[1])); } return best; };
+    const u = [1, 0], n = [0, -1], xc = x - 14;
+    return { m, u, n, P: [x, y], c: [xc, dessus(xc) - 0.5] };
   };
   const tester = z => {
     const { m, u, n, c } = mainTest(z);

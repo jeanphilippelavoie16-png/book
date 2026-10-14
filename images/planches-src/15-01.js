@@ -242,17 +242,17 @@ module.exports = (h) => {
       prise: {
         titre: 'Tenu en poignard',
         dessin: z => {
-          // la main, l'avant-bras à plat vers la droite comme dans les coupes : modèle s11 (poing
-          // fermé, vu de la paume) tourné d'un quart vers la gauche, le pouce en haut ; le manche
-          // traverse le poing, le clou sort sous le petit doigt et entre dans la glace
-          const e = Math.min(0.5, (z.h - 14) / 270), SM = 0.84 * e, cx = z.l * 0.34, cy = 12 + 66 * e;
-          const haut = cy - 80 * SM, bas = cy + 76 * SM, yG = bas + 34 * e;
-          const manche = h.path(cap([cx, haut], [cx, bas], 12.5 * SM, 12.5 * SM), AR);
-          const m = manche + '\n' + F.modele('s11', { x: cx, y: cy, ancre: [68, 42], angle: -90, echelle: SM, masquer: [[0, 150, 140, 175]],
-            bras: { a: [21.8, 150], a0: [20.8, 135], b: [76.3, 150], b0: [76.2, 135], bord: z } });
+          // la main droite en poing sur le manche (mains simples, prise-manche, vue de la paume), l'avant-bras à
+          // plat vers la droite comme dans les coupes, le pouce en haut ; le manche traverse le poing, le clou sort
+          // sous le petit doigt et entre dans la glace
+          const e = Math.min(0.5, (z.h - 14) / 270), cx = z.l * 0.34, cy = 12 + 66 * e;
+          const haut = cy - 66 * e, bas = cy + 62 * e, yG = bas + 34 * e, RM = 12 * e;
+          const manche = h.path(cap([cx, haut], [cx, bas], RM, RM), AR);
+          const m = F.mainSimple({ pose: 'prise-manche', vue: 'paume', cote: 'droite', diametre: 24, echelle: e, angle: 200, x: cx, y: cy,
+            objet: manche, avantbras: { vers: [z.l + 300, cy - 20], bord: { x0: 0, y0: 0, x1: z.l, y1: z.h }, longueur: 'bord' } }).svg;
           return [
             h.rect(0, yG, z.l, z.h - yG, h.a.blanc), h.ligne(0, yG, z.l, yG, h.a.contour),
-            h.ligne(cx, bas + 12.5 * SM, cx, yG, `stroke="${INK}" stroke-width="2.4" stroke-linecap="round" fill="none"`),
+            h.ligne(cx, bas + RM, cx, yG, `stroke="${INK}" stroke-width="2.4" stroke-linecap="round" fill="none"`),
             h.ligne(cx, yG, cx, yG + 22 * e, h.a.cache),
             String(m),
           ].join('\n');

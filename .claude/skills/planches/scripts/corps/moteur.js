@@ -801,7 +801,9 @@ function corps(o = {}) {
   // fermer (les coins rentrants) puis ouvrir un peu (les petites arêtes saillantes : pas de coin)
   const R_ARETE = o._rArete !== undefined ? o._rArete : 3.5;
   // (la pièce exacte déborde la zone d'un demi-millimètre : la couture se referme à l'union)
-  const exact = !TV ? (x => x) : (x => unionCL([moins(x, [versCL(TV.zone)]), inter(unionCL([tete, cheveuxV, avecObjet ? [] : bP]), decale([versCL(TV.zone)], 0.5))]));
+  // (et la couture au bord de la zone peut laisser un éclat de quelques centièmes de mm, qui s'imprimerait en point : il saute)
+  const exact = !TV ? (x => x) : (x => unionCL([moins(x, [versCL(TV.zone)]), inter(unionCL([tete, cheveuxV, avecObjet ? [] : bP]), decale([versCL(TV.zone)], 0.5))])
+    .filter(P => Math.abs(CL.Clipper.Area(P)) / (SC * SC) >= 4));
   const proche = exact(sansTrous(ouvre(ferme(unionCL(avecObjet ? [hancheRonde] : [hancheRonde, bP]), R_UNION), R_ARETE)));
   const brasSeul = avecObjet ? bP : null;
 

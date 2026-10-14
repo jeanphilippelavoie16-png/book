@@ -28,7 +28,10 @@
 //                serrées sur un objet : un linge mordu, un sifflet, un bout de rameau)
 //     ouverture  bouche 'ouverte' : de 0 à 1 (défaut 0,35 : entrouverte ; 1 : la grande bouche du bébé au sein)
 //     epaisseur  bouche 'serre' : l'épaisseur de l'objet entre les lèvres, en mm réels (défaut 8)
-//     cheveux    'court' (défaut, homme et enfants) · 'long' (défaut, femme) · 'queue' · 'aucun' (défaut, bébé)
+//     cheveux    'court' (défaut, homme et enfants) · 'long' (défaut, femme) · 'queue' · 'attache' · 'aucun' (défaut, bébé)
+//                Ce qui pend (les cheveux longs, la queue) pend de la tête droite : dès que la tête penche de plus de
+//                30° (couchée, à quatre pattes, penchée sur un bol), il pointerait en l'air ou à l'horizontale, et
+//                les cheveux deviennent 'attache' (la même limite au front, la masse sur le crâne, rien qui pende).
 //     sourcil    true : un trait de sourcil au-dessus de l'œil (défaut : adultes oui, enfants et bébé non)
 //     iris       true : l'œil ouvert avec son iris plein (défaut : false, l'amande vide ; JP, 14 octobre)
 //     oreille    false : pas d'oreille · true : l'oreille toujours · défaut : l'oreille, sauf sur une tête
@@ -303,12 +306,13 @@ function cheveuxDe(D, C, sorte) {
   const lisse = t => t * t * (3 - 2 * t);
   const monte = (d, l) => lisse(Math.min(1, d / l));
   const polys = [], liens = [];
-  if (sorte === 'court' || sorte === 'queue') {
+  if (sorte === 'court' || sorte === 'queue' || sorte === 'attache') {
     const ligne = sorte === 'court' ? H.court : H.queue.ligne;
     const i0 = proche(ligne[0]), i1 = proche(ligne[ligne.length - 1]);
     const bord = bordCrane(i0, i1);
-    const ep = sorte === 'queue' ? H.ep * 0.8 : H.ep;
-    const dessus = decaleBord(bord, (t, d) => ep * monte(d, 26) * (1 - 0.85 * lisse(Math.max(0, (t - 0.82) / 0.18))));
+    const ep = sorte !== 'court' ? H.ep * 0.8 : H.ep;
+    // (l'épaisseur retombe à zéro à la nuque : la masse rejoint le cou sans marche)
+    const dessus = decaleBord(bord, (t, d) => ep * monte(d, 26) * (1 - lisse(Math.max(0, (t - 0.8) / 0.2))));
     polys.push(dessus.concat(lisseOuvert(ligne, 6).reverse()));
     if (sorte === 'queue') {
       polys.push(lisseFerme(H.queue.queue, 8));
@@ -362,7 +366,10 @@ function pieces(ageDemande, o = {}) {
   const Cor = lisseOuvert([add(Oc, [6, -oh * 0.86]), add(Oc, [-ol * 0.35, -oh]), add(Oc, [-ol * 0.62, -oh * 0.55]),
     add(Oc, [-ol * 0.6, oh * 0.15]), add(Oc, [-ol * 0.35, oh * 0.82]), add(Oc, [0, oh]), add(Oc, [5, oh * 0.8])], 8).map(K);
   const versHaut = o._regard != null && Math.abs((((o._regard + 90) % 360) + 540) % 360 - 180) <= 40;
-  const sorte0 = o.cheveux == null ? (age === 'femme' ? 'long' : age === 'bebe' ? 'aucun' : 'court') : o.cheveux;
+  let sorte0 = o.cheveux == null ? (age === 'femme' ? 'long' : age === 'bebe' ? 'aucun' : 'court') : o.cheveux;
+  // (o._aplomb : la composante verticale, à l'écran, du bas de la tête ; 1 : la tête droite) : ce qui pend ne pend
+  // plus au-delà de 30°, les cheveux s'attachent
+  if ((sorte0 === 'long' || sorte0 === 'queue') && o._aplomb != null && o._aplomb < Math.cos(30 * RAD)) sorte0 = 'attache';
   const oreilleVue = o.oreille === false ? false : o.oreille === true ? true : !(versHaut && (petit || sorte0 === 'aucun'));
   const oreille = oreilleVue ? Cor : [];
   if (oreilleVue) details.push(oreille);
@@ -406,7 +413,8 @@ function bandeCou(L, kT, incl = 12) {
 function teteSimple(o = {}) {
   const age = ALIAS[o.age] || 'homme';
   const regard0 = (o.cote === 'gauche' ? 180 - (o.penche || 0) : (o.penche || 0)) + (o.angle || 0);
-  const T0 = pieces(age, Object.assign({}, o, { _echelle: o.echelle || 1, _regard: regard0 }));
+  const aplomb0 = Math.cos(((o.cote === 'gauche' ? -1 : 1) * (o.penche || 0) + (o.angle || 0)) * RAD);
+  const T0 = pieces(age, Object.assign({}, o, { _echelle: o.echelle || 1, _regard: regard0, _aplomb: aplomb0 }));
   const { k, kT } = T0;
   const penche = o.penche || 0;
   const PT = p => tourne(p, penche);                 // la tête sur le cou, autour de la nuque
@@ -550,7 +558,7 @@ function coinsCoupe(S, P0, n) {
 // bassin), posées comme sa tête par défaut : tournées de angleTete (degrés, + vers l'avant) autour de la
 // nuque (le haut du cou). opts : les options de visage de teteSimple (yeux, bouche, cheveux, sourcil…).
 function pourCorps(age, angleTete, nuque, opts = {}) {
-  const T0 = pieces(age, Object.assign({ _regard: angleTete }, opts));
+  const T0 = pieces(age, Object.assign({ _regard: angleTete, _aplomb: Math.cos(angleTete * RAD) }, opts));
   const P = p => add(nuque, tourne(p, angleTete));
   const rep = {};
   for (const [cle, v] of Object.entries(T0.rep)) rep[cle] = Array.isArray(v) ? P(v) : (v ? { haut: P(v.haut), bas: P(v.bas) } : null);

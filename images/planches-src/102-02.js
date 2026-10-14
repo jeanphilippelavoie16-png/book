@@ -1,7 +1,7 @@
 // Planche 102-02 — La poutre à écharner et l'angle du couteau.
-// 13 oct. : l'homme est le corps simple (pose « penche-pousse ») ; « En travers de la poutre » est un
-// gros plan de mains calquées, laissé tel quel pour la nouvelle bibliothèque. La charte : le dessous
-// de la bille à l'ombre, la flèche de la poussée en rouge.
+// 13 oct. : l'homme est le corps simple (pose « penche-pousse »). 14 oct. : « En travers de la poutre »
+// prend les mains simples (mains/moteur.js), un poing côté paume sur chaque poignée. La charte : le dessous
+// de la bille à l'ombre, la flèche de la poussée en rouge, et les deux mains qui appuient en rouge.
 module.exports = (h) => {
   // ─── petits outils de tracé ──────────────────────────────────────────────
   const f = p => `${p[0].toFixed(1)},${p[1].toFixed(1)}`;
@@ -32,6 +32,18 @@ module.exports = (h) => {
   };
   const blanc = h.a.blanc.match(/fill="[^"]*"/)[0];
   const W = a => a.replace('fill="none"', blanc);
+  // l'angle d'une main simple qui met l'axe de sa prise sur axe (degrés écran) et son avant-bras vers vers [x, y]
+  const poser = (o, axe, vers) => {
+    const base = Object.assign({}, o, { angle: 0, avantbras: { longueur: 100 } }); delete base.objet;
+    const e0 = h.formes.mainSimple(base); let best = null;
+    for (const k of [0, 180]) {
+      const a = axe - e0.prise.angle + k, m = h.formes.mainSimple(Object.assign({}, base, { angle: a }));
+      const d = [m.coude[0] - m.poignet[0], m.coude[1] - m.poignet[1]], v = [vers[0] - m.poignet[0], vers[1] - m.poignet[1]];
+      const c = (d[0] * v[0] + d[1] * v[1]) / ((Math.hypot(d[0], d[1]) * Math.hypot(v[0], v[1])) || 1);
+      if (!best || c > best.c) best = { a, c };
+    }
+    return best.a;
+  };
 
   // ─── vue 1 : le poste, de côté ───────────────────────────────────────────
   // Poutre : axe depuis le bout haut A, pente vers le sol à droite.
@@ -103,15 +115,19 @@ module.exports = (h) => {
     // la lame, droite, qui ne touche la peau qu'au sommet
     h.rect(64, 86, 160, 12, W(h.a.contour)),
     h.ligne(66, 94.5, 222, 94.5, h.a.detail),
-    // les poignées aux deux bouts, au diamètre du poing du modèle
-    h.path(membre([[12, 92], [64, 92]], [11, 11], 'rond', 'plat'), W(h.a.arete)),
-    h.path(membre([[276, 92], [224, 92]], [11, 11], 'rond', 'plat'), W(h.a.arete)),
-    // un poing fermé sur chaque poignée, qui appuie vers le bas : modèle s11 (poing fermé, vu de la
-    // paume) retourné, l'avant-bras qui monte et sort du cadre, le pouce du côté de la lame
-    ...[[46, true], [242, false]].map(([x, mir]) => String(h.formes.modele('s11', { x, y: 92, ancre: [68, 42], angle: 180, echelle: 0.42, miroir: mir,
-      masquer: [[0, 150, 140, 175]], bras: { a: [21.8, 150], a0: [20.8, 135], b: [76.3, 150], b0: [76.2, 135], bord: z } }))),
-    h.fleche('M84,30 L84,54', h.a.arete),
-    h.fleche('M204,30 L204,54', h.a.arete),
+    // un poing fermé sur chaque poignée, qui appuie vers le bas : la main simple, le poing côté paume (on
+    // regarde l'homme de face), l'avant-bras qui monte et sort du cadre, le pouce du côté de la lame ; la
+    // poignée entre d'un côté du poing et ressort de l'autre. La main est à l'échelle de la vue (0,45 par mm).
+    ...[[46, 'gauche', [[12, 92], [64, 92]]], [242, 'droite', [[276, 92], [224, 92]]]].map(([x, cote, axe]) => {
+      const MAIN = { ech: 0.45, rot: [-25, 0, 0] };
+      const poignee = h.path(membre(axe, [11, 11], 'rond', 'plat'), W(h.a.arete));
+      const o = { x, y: 92, pose: 'prise-manche', vue: 'paume', cote, echelle: MAIN.ech, diametre: 11 / MAIN.ech, ...(MAIN.rot ? { rotation: MAIN.rot } : {}) };
+      const vers = [x, -200];
+      return h.formes.mainSimple({ ...o, angle: poser(o, 0, vers), objet: poignee, avantbras: { vers, bord: { x0: 0, y0: 0, x1: z.l, y1: z.h }, bras: { pli: 0 } } }).svg;
+    }),
+    // le geste : les deux mains appuient vers le bas
+    h.geste('M84,30 L84,54'),
+    h.geste('M204,30 L204,54'),
   ].join('\n');
 
   // ─── vue 3 : la lame, en coupe le long de la poutre ─────────────────────

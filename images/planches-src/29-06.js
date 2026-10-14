@@ -11,7 +11,8 @@
 // est penchée de 15° vers l'arrière). Le bébé est dessiné à la main (la bibliothèque n'a pas de
 // nouveau-né), sur la tête de la planche 29-05 retournée : 124 de l'occiput au nez, 131 du sommet
 // au menton, en mm ; le corps est emmailloté dans une couverture jusqu'au cou. La main de la mère
-// est le modèle calqué s03-dos-l5 (s03 sans les plis de paume, vue du dos), à la même taille.
+// est une main simple (mainSimple, ouverte, vue du dos), à la même échelle (14 octobre). Rouge : le
+// geste d'amener le bébé au sein.
 // Ce qui est dans la bouche (le sein étiré, le bout du mamelon) est en tireté.
 module.exports = (h) => {
   const A = h.a, F = h.formes;
@@ -300,12 +301,11 @@ module.exports = (h) => {
     const { k, V } = cadre(z, ...CADRE_A);
     const out = [bebe(V, S_APP, b, { sFin: 330 }).svg, mere(V), teteDessin(V, S_APP, b, { ouverte: true })];
     const p = V(PAUME);
-    // modèle s03-dos-l5 (la main relâchée de s03, sans les plis de paume : vue du dos) retourné et en
-    // miroir : à plat sur le dos du bébé, les doigts vers la nuque, le pouce à gauche, l'avant-bras
-    // qui descend et sort du cadre ; l'ancre, le milieu de la paume (106 mm du bout du majeur)
-    out.push(F.modele('s03-dos-l5', { x: p[0], y: p[1], ancre: [84, 101], angle: ang(D_DOIGTS) - 90, miroir: true, echelle: 1.19 * k,
-      masquer: [[0, 0, 125, 14]], bras: { a: [59.1, 14], a0: [57.9, 26], b: [112.7, 14], b0: [110.7, 26], bord: z } }));
-    if (fleche) out.push(h.fleche(`M${pt(V(FL0))} L${pt(V(FL1))}`, A.arete));
+    // la main droite de la mère (main simple, ouverte, vue du dos) : à plat sur le dos du bébé, les doigts vers la
+    // nuque, le pouce à gauche, l'avant-bras qui descend et sort du cadre ; l'ancre, le creux de la paume
+    out.push(F.mainSimple({ x: p[0], y: p[1], pose: 'ouverte', vue: 'dos', cote: 'droite', angle: ang(D_DOIGTS), echelle: k * +(process.env.KM || 1),
+      avantbras: { bord: { x0: 0, y0: 0, x1: z.l, y1: z.h }, bras: { pli: 0 } } }).svg);
+    if (fleche) out.push(h.geste(`M${pt(V(FL0))} L${pt(V(FL1))}`));
     return decoupe(z, out.join('\n'));
   };
   const posA = (z, p) => cadre(z, ...CADRE_A).V(p);

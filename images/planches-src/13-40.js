@@ -2,8 +2,9 @@
 // au plus gros ; le geste (pointe de la tige au bord du nid, dos du couteau immobile en travers de
 // la tige, tige tirée vers soi, gerbe dans le creux) ; la boule refermée, tenue par le bas à une
 // longueur d'avant-bras du visage et soufflée ; le nid en flammes glissé sous le tipi.
-// Mains et tête : bibliothèque h.formes (prise/dos pour la tige et le couteau, boule/profil pour
-// le nid) ; le buste qui souffle est le corps simple de profil (13 oct.). Seuls les objets sont dessinés ici.
+// Mains : les mains simples (prise-manche, vues de la paume, 14 oct.) pour la tige et le couteau ; le buste qui
+// souffle est le corps simple de profil (13 oct.), avec sa main. Seuls les objets sont dessinés ici. La flèche de
+// la tige tirée est le geste, en rouge (la charte).
 // Aucune cote : les calibres (sous 2 cm, 2 à 5 cm, moins de 15 cm) sont des bornes de tri, pas
 // des mesures de construction ; ils vont dans la légende, tels que le chapitre les donne.
 

@@ -11,6 +11,8 @@
 // Aucune cote : ce n'est pas une construction. Les proportions du pot sont celles d'un pot Mason
 // d'un litre, la main vient de la bibliothèque de formes (prise vue du dos, tournée d'un quart de
 // tour : le pot couché, la main posée dessus, les doigts qui passent par-dessus).
+// Mains simples et charte (14 octobre) : la main sur le pot et la paume montrée passent par mainSimple (ouverte, vue du
+// dos, puis vue de la paume). Rouge : presser fort, et la paupière tirée vers le bas.
 module.exports = (h) => {
   const N = '#1A1A1A';
   const f = v => Math.round(v * 10) / 10;
@@ -121,10 +123,10 @@ module.exports = (h) => {
     out.push(pot.svg);
     // la main droite, paume à plat sur le fond du pot, doigts vers le haut, pouce à gauche ; le col et le couvercle restent à découvert, la bande se lit entre la main et l'épaule
     out.push(`<clipPath id="z2805-vueA"><rect x="0" y="0" width="${z.l}" height="${z.h}"/></clipPath>`);
-    // modèle s03-dos-l3 (la main relâchée de s03 sans les plis de la paume, vue du dos), retournée
-    // doigts en haut et en miroir : le pouce à gauche ; l'avant-bras descend et sort du cadre
-    out.push(`<g clip-path="url(#z2805-vueA)">${h.formes.modele('s03-dos-l3', { x: XA + 46 * EA, y: YA - POT.R * EA + 4, ancre: [70, 90], angle: 180, miroir: true,
-      echelle: 1.0 * EA, masquer: [[0, 0, 125, 14]], bras: { a: [59.1, 14], a0: [57.9, 26], b: [112.7, 14], b0: [110.7, 26], bord: z } })}</g>`);
+    // la main droite (main simple, ouverte, vue du dos), doigts en haut, pouce à gauche : le creux de la paume sur le
+    // fond du pot ; l'avant-bras descend et sort du cadre
+    out.push(h.formes.mainSimple({ x: XA + 46 * EA - 12, y: YA + 6, pose: 'ouverte', vue: 'dos', cote: 'droite', angle: -90, echelle: EA,
+      avantbras: { bord: { x0: 0, y0: 0, x1: z.l, y1: z.h }, bras: { pli: 0 } } }).svg);
     return out.join('\n');
   };
 
@@ -146,7 +148,7 @@ module.exports = (h) => {
     out.push(h.cercle(cx, cy, Rv, h.a.arete));
     out.push(h.cercle(cx, cy, Rv - POT.verre * EA, h.a.fin));
     // presser
-    out.push(h.fleche(`M${cx} 14 L${cx} ${f(cy - Rv - 6)}`, h.a.contour));
+    out.push(h.geste(`M${cx} 14 L${cx} ${f(cy - Rv - 6)}`));
     // l'œil et la ligne de vue, à travers les deux parois jusqu'à la peau
     const oe = [180, 30];
     out.push(h.path(`M${oe[0] - 15} ${oe[1]} Q${oe[0]} ${oe[1] - 11} ${oe[0] + 15} ${oe[1]} Q${oe[0]} ${oe[1] + 10} ${oe[0] - 15} ${oe[1]} Z`, h.a.arete));
@@ -218,9 +220,9 @@ module.exports = (h) => {
   // la paume d'une main droite, doigts en haut, à la même échelle que le pied ; le liseré foncé
   // au bord, des points dans le creux de la paume
   const paume = (x, y, e) => {
-    // modèle s03 (la main relâchée, paume vers l'œil) retourné, doigts en haut : les jointures en
-    // (x, y), le poignet ouvert en bas
-    const m = h.formes.modele('s03', { x, y, ancre: [68, 115], angle: 180, echelle: 1.12 * e });
+    // la main droite ouverte, paume vers l'œil, doigts en haut (main simple, ouverte, vue de la paume) : les
+    // jointures vers (x, y), le poignet à 94 mm plus bas, l'avant-bras coupé court
+    const m = h.formes.mainSimple({ x, y: y + 94 * e, ancre: 'poignet', pose: 'ouverte', vue: 'paume', cote: 'droite', angle: -90, echelle: e, avantbras: { longueur: 30 } }).svg;
     const sang = [[-40, -8, 1.4], [-58, 4, 1.2], [-30, 14, 1.5], [-70, -14, 1.3], [-50, 22, 1.2], [-22, -4, 1.2]];
     // repère de la main : jointures en (x, y), poignet à 94 mm plus bas ; les points dans la paume
     return [m, points(sang.map(([dy, dx, r]) => [x - dx * e, y - dy * e, r]))].join('\n');
@@ -252,7 +254,7 @@ module.exports = (h) => {
     out.push(`</g>`);
     // tirer la paupière vers le bas
     out.push(h.rect(cx - 4, cy + 40, 8, 18, h.a.blanc));
-    out.push(h.fleche(`M${cx} ${cy + 40} L${cx} ${cy + 56}`, h.a.arete));
+    out.push(h.geste(`M${cx} ${cy + 40} L${cx} ${cy + 56}`));
     out.push(h.cercle(cx, cy, rc, h.a.detail));
     return out.join('\n');
   };
@@ -309,7 +311,7 @@ module.exports = (h) => {
         dessin: geste,
         renvois: z => [
           { n: 1, rond: [330, YA - 80], cible: [XA + 120 * EA, YA - POT.R * EA + 1.5], texte: 'pot Mason couché, paroi lisse' },
-          { n: 2, rond: [330, YA + 46], cible: [XA + 96 * EA, YA + 2], texte: 'la bande aplatie : on lit là' },
+          { n: 2, rond: [330, YA + 46], cible: [XA + 104 * EA, YA + 2], texte: 'la bande aplatie : on lit là' },
         ],
       },
       bout: {

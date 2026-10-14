@@ -5,7 +5,8 @@
 // contre de l'eau sur une balance d'égalité.
 // Cotes : le diamètre du chalumeau (8 ou 11 mm, celui de la mèche) et la profondeur du trou (4 cm
 // environ), les seules que le chapitre donne. La longueur du chalumeau n'est pas cotée.
-// La main du maillet vient de h.formes.
+// La main du maillet est une main simple (mains/moteur.js, 14 oct.), au lieu du calque s11. La charte :
+// le chalumeau planté pèse (contour 2,4), le coup de maillet est la flèche rouge du geste.
 
 module.exports = (h) => {
   const F = h.formes;
@@ -86,7 +87,8 @@ module.exports = (h) => {
   const KV = K * 1.5, DV = 11 * KV, RV = DV / 2, LV = 70 * KV, GWV = 4 * KV, GDV = 4 * KV;   // vues de côté et du bout, une fois et demie             // enfoncé : dessin seulement ; profondeur du trou : 4 cm environ
   const TA = (z) => {
     const x0 = 12, x1 = x0 + LV, ye = 22, yc = ye + RV, xb = x1 + 22 + RV;
-    const xs = x0 + ENF, yA = z.h - 46, Q = repere([xs, yA]);
+    // l'écorce assez loin du bord pour que le fond du trou (40 mm) et sa cote restent dans la vue
+    const xs = Math.max(x0 + ENF, PROF + 22), yA = z.h - 46, Q = repere([xs, yA]);
     return { x0, x1, ye, yc, xb, xs, yA, Q };
   };
   const vueTaille = (z) => {
@@ -127,6 +129,20 @@ module.exports = (h) => {
     ].join('\n');
   };
 
+  // l'angle de la main simple qui met l'axe de sa prise sur `axe` (degrés à l'écran) et son avant-bras du
+  // côté de `vers` (le même outil que 104-40 et 50-40)
+  const poser = (o, axe, vers) => {
+    const base = Object.assign({}, o, { angle: 0, avantbras: { longueur: 100 } }); delete base.objet;
+    const e0 = F.mainSimple(base); let best = null;
+    for (const k of [0, 180]) {
+      const a = axe - e0.prise.angle + k, m = F.mainSimple(Object.assign({}, base, { angle: a }));
+      const d = [m.coude[0] - m.poignet[0], m.coude[1] - m.poignet[1]], v = [vers[0] - m.poignet[0], vers[1] - m.poignet[1]];
+      const c = (d[0] * v[0] + d[1] * v[1]) / ((Math.hypot(d[0], d[1]) * Math.hypot(v[0], v[1])) || 1);
+      if (!best || c > best.c) best = { a, c };
+    }
+    return best.a;
+  };
+
   // ─── Vue 2 : au maillet de bois (le tronc de côté, 0,85 px par mm) ───
   const S = 0.85;
   const GB = (z) => {
@@ -146,10 +162,12 @@ module.exports = (h) => {
     for (let y = yT + 10; y < yB - 6; y += 11) { let x = xL + 6 + 8 * R(); while (x < X0 - 10) { const l = 5 + 9 * R(), dy = 3 * R(); lent.push(h.ligne(r1(x), r1(y + dy), r1(Math.min(x + l, X0 - 4)), r1(y + dy), h.a.detail)); x += l + 6 + 10 * R(); } }
     const manche = h.chemin([Q(aHc - rM, RH - 2), Q(aHc - rM, bFin - 3), Q(aHc - rM + 3, bFin), Q(aHc + rM - 3, bFin), Q(aHc + rM, bFin - 3), Q(aHc + rM, RH - 2)].map(R1), B(h.a.contour), true);
     const mG = Q(aHc, bGrip);
-    // modèle s11 (poing fermé) tourné d'un quart : le pouce vers la tête, l'avant-bras vers la droite
-    // qui sort du cadre ; le manche se peint d'abord et passe dans le poing, son bout dépasse dessous
-    const m = [manche, F.modele('s11', { x: mG[0], y: mG[1], ancre: [60, 42], angle: TH - 90, echelle: 0.75,
-      masquer: [[0, 150, 140, 175]], bras: { a: [21.8, 150], a0: [20.8, 135], b: [76.3, 150], b0: [76.2, 135], bord: z } })].join('\n');
+    // la main simple (prise-manche, vue côté paume, penchée de 25° : les doigts à plat en travers) fermée
+    // sur le manche de 26 mm : le manche entre par le haut du poing et ressort par le bas, derrière les
+    // doigts ; l'avant-bras vers la droite, qui sort de la vue. La main garde la taille de la vue (0,85 par mm).
+    const vM = [mG[0] + 600, mG[1]], axeM = 90 + TH;
+    const oM = { x: mG[0], y: mG[1], pose: 'prise-manche', vue: 'paume', cote: 'droite', echelle: S, diametre: 2 * rM / S, rotation: [-25, 0, 0] };
+    const m = F.mainSimple({ ...oM, angle: poser(oM, axeM, vM), objet: manche, avantbras: { vers: vM, bord: { x0: 0, y0: 0, x1: z.l, y1: z.h }, bras: { pli: 0 } } }).svg;
     const tete = [Q(aH0, -RH + 5), Q(aH0 + 5, -RH), Q(aH0 + LH - 5, -RH), Q(aH0 + LH, -RH + 5), Q(aH0 + LH, RH - 5), Q(aH0 + LH - 5, RH), Q(aH0 + 5, RH), Q(aH0, RH - 5)].map(R1);
     return [
       h.chemin(tour, h.a.blanc, true), ...lent,
@@ -157,7 +175,7 @@ module.exports = (h) => {
       h.chemin(serie(xL, X0, 4, x => [x, haut(x)]), h.a.detail), h.chemin(serie(xL, X0, 4, x => [x, bas(x)]), h.a.detail),
       h.chemin(serie(yT, yB, 4, y => [gch(y), y]), h.a.detail),
       // le chalumeau qui dépasse, la gouttière dessus
-      h.chemin([Q(-1, -rh), Q(aOut, -rh), Q(aOut, rh), Q(-1, rh)].map(R1), B(h.a.arete), true),
+      h.chemin([Q(-1, -rh), Q(aOut, -rh), Q(aOut, rh), Q(-1, rh)].map(R1), B(h.a.contour), true),   // la charte : l'objet du geste pèse
       h.chemin([Q(0, -rh + gd), Q(aOut, -rh + gd)].map(R1), h.a.cache),
       // la main tient le manche ; la tête passe par-dessus
       m,
@@ -166,8 +184,8 @@ module.exports = (h) => {
       h.chemin([Q(aH0 + 26, RH * 0.5), Q(aH0 + LH - 9, RH * 0.5)].map(R1), h.a.fin),
       h.chemin([Q(aHc - rM, -RH), Q(aHc - rM, -RH - 5), Q(aHc + rM, -RH - 5), Q(aHc + rM, -RH)].map(R1), B(h.a.arete)),
       h.chemin([Q(aHc, -RH - 5), Q(aHc, -RH - 1)].map(R1), h.a.detail),
-      // le coup, dans l'axe du chalumeau
-      h.fleche(`M${R1(Q(aH0 + LH * 0.7, -RH - 11)).join(',')} L${R1(Q(aH0 - 2, -RH - 11)).join(',')}`, h.a.arete),
+      // le coup, dans l'axe du chalumeau : le geste (charte : le rouge)
+      h.geste(`M${R1(Q(aH0 + LH * 0.7, -RH - 11)).join(',')} L${R1(Q(aH0 - 2, -RH - 11)).join(',')}`),
     ].join('\n');
   };
 

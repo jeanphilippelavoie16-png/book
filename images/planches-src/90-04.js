@@ -2,8 +2,10 @@
 // §5-B, étapes 6, 8 et 9).
 // Aucune cote : le chapitre ne donne ni la taille de la languette ni la durée des trempes.
 // La gomme, au charbon, est noire : elle est en aplat noir partout.
-// Les mains viennent de la bibliothèque h.formes (prise vue du dos, pince de profil) :
-// les doigts se replient autour de la languette, le pouce en face (JP : « mains »).
+// Les mains sont des mains simples (mains/moteur.js, 14 oct.) : le poing (prise-manche vue côté paume,
+// penchée de 25°) fermé sur la languette, qui entre par le haut du poing et ressort par le bas, derrière
+// les doigts ; pour frotter, l'index de l'autre main (appui-index, de profil) au lieu de la pince calquée.
+// La charte : la languette pliée au contour 2,4, le va-et-vient du frottement (le geste) en rouge.
 
 module.exports = (h) => {
   const BL = h.a.blanc.match(/fill="([^"]+)"/)[1];
@@ -23,15 +25,31 @@ module.exports = (h) => {
     return `${op} ${o.join(' ')}`;
   }).join(' ');
 
-  // Le poing qui serre la languette : x, y au milieu de la prise. gauche : l'avant-bras part vers
-  // la droite (main gauche) ; angle : -90 pour une languette couchée, l'avant-bras en bas.
-  // Modèle s11 (poing fermé vu de la paume) : la languette passe dans le poing, le pouce en haut ;
-  // main droite en miroir (avant-bras à gauche), main gauche telle quelle (avant-bras à droite).
-  // L'avant-bras du modèle s'arrête court, ouvert.
-  const poing = (x, y, e, { gauche = false, angle = 0, bras = 30 } = {}) => h.formes.modele('s11', {
-    x, y, ancre: [68, 42], angle: (gauche ? -90 : 90) + angle, miroir: !gauche, echelle: e,
-    masquer: [[0, 150, 140, 175]],
-    bras: { a: [21.8, 150], a0: [20.8, 135], b: [76.3, 150], b0: [76.2, 135], long: bras * e + 10 } }).toString();
+  // Les mains simples (mains/moteur.js). poser : l'angle qui met l'axe de la prise sur `axe` (degrés à
+  // l'écran) et l'avant-bras du côté de `vers`.
+  const F = h.formes;
+  const poser = (o, axe, vers) => {
+    const base = Object.assign({}, o, { angle: 0, avantbras: { longueur: 100 } }); delete base.objet;
+    const e0 = F.mainSimple(base); let best = null;
+    for (const k of [0, 180]) {
+      const a = axe - e0.prise.angle + k, m = F.mainSimple(Object.assign({}, base, { angle: a }));
+      const d = [m.coude[0] - m.poignet[0], m.coude[1] - m.poignet[1]], v = [vers[0] - m.poignet[0], vers[1] - m.poignet[1]];
+      const c = (d[0] * v[0] + d[1] * v[1]) / ((Math.hypot(d[0], d[1]) * Math.hypot(v[0], v[1])) || 1);
+      if (!best || c > best.c) best = { a, c };
+    }
+    return best.a;
+  };
+  // Le poing qui serre la languette (prise-manche, vue côté paume) : x, y au milieu de la prise ; e : la
+  // main en unités par mm ; larg : la largeur vue de la languette dans le poing (unités) ; axe : la
+  // languette à l'écran (90 : debout) ; vers : où part l'avant-bras (court, coupé) ; objet : la languette
+  // repeinte par le moteur entre les couches (les doigts devant, la paume derrière).
+  const poing = (x, y, e, { cote = 'droite', axe = 90, vers, larg = 12, objet } = {}) => {
+    const o = { x, y, pose: 'prise-manche', vue: 'paume', cote, echelle: e, diametre: larg / e, rotation: [-25, 0, 0] };
+    return F.mainSimple({ ...o, angle: poser(o, axe, vers), objet, avantbras: { vers } }).svg;
+  };
+  // un morceau du dessin, découpé à un rectangle (pour qu'une main ne repeigne que sa part de la languette)
+  let nClip = 0;
+  const decoupe = (svg, x0, y0, x1, y1) => { const id = `lang-9004-${++nClip}`; return `<clipPath id="${id}"><rect x="${f(x0)}" y="${f(y0)}" width="${f(x1 - x0)}" height="${f(y1 - y0)}"/></clipPath><g clip-path="url(#${id})">${svg}</g>`; };
 
   // Languette vue de face, verticale : bout déchiré en haut, gomme noire de yG au bout.
   // yG = null : pas de gomme. w : demi-largeur.
@@ -95,8 +113,8 @@ module.exports = (h) => {
     o.push(h.chemin([[cx - cw, yt - 3], [cx - cw, yb], [cx + cw, yb], [cx + cw, yt - 3]], h.a.contour));
     o.push(h.ligne(cx - cw - 3, yt - 3, cx - cw, yt - 3, h.a.contour));
     o.push(h.ligne(cx + cw, yt - 3, cx + cw + 3, yt - 3, h.a.contour));
-    // La main.
-    o.push(poing(sx, Yf, 0.6, { gauche: true, bras: 50 }));
+    // La main, sur le bout sec de la languette.
+    o.push(poing(sx, Yf, 0.54, { vers: [sx + 600, Yf], objet: languetteFace(sx, yTop, yg, null, 6) }));
     return o.join('\n');
   }
 
@@ -121,7 +139,7 @@ module.exports = (h) => {
     // Rides à la surface.
     [[-1, 12], [1, 12], [-1, 22], [1, 22]].forEach(([s, r]) => o.push(h.path(
       `M ${f(sx + s * 9)} ${wl - 1} Q ${f(sx + s * (9 + r / 2))} ${wl - 4} ${f(sx + s * (9 + r))} ${wl - 1}`, h.a.detail)));
-    o.push(poing(sx, Yf, 0.6, { gauche: true, bras: 50 }));
+    o.push(poing(sx, Yf, 0.54, { vers: [sx + 600, Yf], objet: decoupe(languetteFace(sx, yTop, yTip, yCoat, 6, true), sx - 20, 0, sx + 20, wl - 2) }));
     return o.join('\n');
   }
 
@@ -161,7 +179,7 @@ module.exports = (h) => {
     const N = pts.length - 1;
     const o = [];
     const ec = bande(pts, -EB, EB, 0, N);
-    o.push(h.chemin(ec, h.a.blanc, true), h.chemin(ec, h.a.arete, true));
+    o.push(h.chemin(ec, h.a.blanc, true), h.chemin(ec, h.a.contour, true));
     o.push(h.chemin(bande(pts, EB, EB + EG, i0, N), h.a.plein, true));
     o.push(h.chemin(bande(pts, -EB - EG, -EB, i0, N), h.a.plein, true));
     o.push(h.rect(G.xr - EB - EG, G.bas - 1, 2 * (EB + EG), 4, h.a.plein));
@@ -174,8 +192,11 @@ module.exports = (h) => {
           [f(p.x + p.nx * out - tx * w), f(p.y + p.ny * out - ty * w)]], h.a.blanc, true));
       });
     }
-    o.push(poing(G.xl, G.y0, 0.5, { bras: 20 }));
-    o.push(poing(G.xr, G.y0, 0.5, { gauche: true, bras: 20 }));
+    // les deux poings sur les deux bouts, les avant-bras qui partent chacun de son côté ; chaque main ne
+    // repeint que son bout de languette
+    const lang = o.join('\n'), yC = G.yv + 4;
+    o.push(poing(G.xl, G.y0, 0.45, { cote: 'gauche', vers: [G.xl - 600, G.y0], larg: 2 * (EB + EG), objet: decoupe(lang, G.xl - 20, yC, G.xl + 20, G.bas + 20) }));
+    o.push(poing(G.xr, G.y0, 0.45, { cote: 'droite', vers: [G.xr + 600, G.y0], larg: 2 * (EB + EG), objet: decoupe(lang, G.xr - 20, yC, G.xr + 20, G.bas + 20) }));
     return o.join('\n');
   }
 
@@ -186,7 +207,7 @@ module.exports = (h) => {
     // Le poing serre la partie gommée ; seul le bout d'écorce nue dépasse au-dessus du pouce.
     const yP = Yf - Math.round(40 * s), yH = yP - 18, yF = Yf + Math.round(44 * s);
     o.push(languetteFace(sx, yH, yF, yP + 2, 6, true));
-    o.push(poing(sx, Yf, s, { gauche: true, bras: 30 }));
+    o.push(poing(sx, Yf, 0.55, { vers: [sx + 600, Yf], objet: languetteFace(sx, yH, yF, yP + 2, 6, true) }));
     return o.join('\n');
   }
 
@@ -218,7 +239,7 @@ module.exports = (h) => {
       o.push(h.rect(xc, ys - EB - EG, xe - xc, EG, h.a.plein));
     }
     // Le poing tient le bout sec, l'avant-bras vers le bas.
-    o.push(poing(xp + 14, ys, 0.48, { angle: -90, bras: 30 }));
+    o.push(poing(xp + 14, ys, 0.43, { axe: 0, vers: [xp + 14, ys + 600], larg: 2 * EB, objet: h.rect(xp, ys - EB, xc - xp, 2 * EB, h.a.blanc) + h.rect(xp, ys - EB, xc - xp, 2 * EB, h.a.arete) }));
     // L'autre main, de profil, le bout du pouce contre le bout de l'index : c'est la pulpe du
     // pouce qui frotte la gomme, puis se lève.
     if (colle) {
@@ -228,15 +249,19 @@ module.exports = (h) => {
         o.push(h.path(`M ${f(px - 1.2)} ${f(py)} Q ${f(mx - 0.4)} ${f(my)} ${f(X - 2)} ${f(qy)} L ${f(X + 2)} ${f(qy)} Q ${f(mx + 0.4)} ${f(my)} ${f(px + 1.2)} ${f(py)} Z`, h.a.plein));
       });
     }
-    // modèle s09 (le pouce et l'index qui pincent, de côté) : le point pincé sur la gomme,
-    // l'avant-bras qui remonte à droite
-    o.push(h.formes.modele('s09', { x: tx, y: ty, ancre: [12, 66], angle: -45, echelle: 0.475, masquer: [[200, 0, 230, 125]],
-      bras: { a: [200, 64.1], a0: [185, 63.9], b: [200, 112.1], b0: [185, 108.4], long: 22 } }).toString());
+    // l'autre main, de profil (main simple, appui-index vue du pouce) : le bout de l'index frotte la
+    // gomme, puis se lève (le bas de sa pulpe à ty + 1, où partent les fils de gomme) ; l'avant-bras qui
+    // remonte à droite, coupé au bord
+    {
+      const eI = 0.45, aI = 120, rP = 8 * eI;   // la pulpe de l'index, ~8 mm de rayon
+      const bx = tx - Math.cos(aI * Math.PI / 180) * rP, by = ty + 1 - Math.sin(aI * Math.PI / 180) * rP;   // le bas de la pulpe à ty + 1
+      o.push(F.mainSimple({ x: bx, y: by, ancre: 'bout', pose: 'appui-index', vue: 'pouce', cote: 'droite', echelle: eI,
+        angle: aI, avantbras: { vers: [tx + 400, ty - 500], bord: { x0: 0, y0: 0, x1: z.l, y1: z.h } } }).svg);
+    }
     if (colle) o.push(h.ellipse(tx, ty + 1.5, 4, 1.8, h.a.plein));   // la gomme restée sur la pulpe
     // Le va-et-vient du frottement, à gauche des doigts, parallèle à la languette.
     const ya = ty + 2, xa = tx - 44, xb = tx - 12;
-    o.push(h.fleche(`M ${xa + 14} ${ya} H ${xb}`, h.a.detail));
-    o.push(h.fleche(`M ${xb - 14} ${ya} H ${xa}`, h.a.detail));
+    o.push(h.geste(`M ${xa} ${ya} H ${xb}`, { double: true }));          // le geste (charte : le rouge)
     return o.join('\n');
   }
 

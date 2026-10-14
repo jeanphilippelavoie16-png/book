@@ -8,9 +8,9 @@
 // l'utérus, le vagin, le poing, sans aucune anatomie détaillée.
 // Repère de chaque vue : M(x, h) en mm, x vers les pieds depuis la hanche, h au-dessus du sol.
 // Lot 3 (13 octobre) : la mère et l'aide passent au corps simple de profil (couche-genoux femme,
-// genoux-poing) ; l'aide n'est plus un aplat noir, elle est derrière la mère, au trait fort. Les
-// mains calquées des deux vues du haut et leurs manches noires restent telles quelles (la
-// bibliothèque de mains les refera). Rouge : le geste de chaque vue (frotter en tournant, ramener
+// genoux-poing) ; l'aide n'est plus un aplat noir, elle est derrière la mère, au trait fort. Mains
+// simples (14 octobre) : les mains calquées des deux vues du haut passent par mainSimple (plat de profil,
+// penchée de 25° ; le poing vu des doigts), leurs manches noires gardées sur la coupe de l'avant-bras. Rouge : le geste de chaque vue (frotter en tournant, ramener
 // l'utérus vers le poing, pousser vers le dos) et le pouls à l'aine, à faire disparaître.
 module.exports = (h) => {
   const A = h.a, F = h.formes;
@@ -88,20 +88,26 @@ module.exports = (h) => {
     return h.chemin([a2, b2, [b[0] + d[0], b[1] + d[1]], [a[0] + d[0], a[1] + d[1]]], 'fill="#1A1A1A" stroke="#FFFFFF" stroke-width="1.2" stroke-linejoin="round"', true);
   };
 
-  // Les mains calquées (images/modeles), avec la manche noire d'avBras sur leur poignet.
-  // plat : s10-plat (la main tendue de s10, le pouce le long de l'index) retourné, la paume à plat
-  // sur le ventre, les doigts vers la droite ; (x, y) sous le gras du pouce, le bout des doigts au
-  // même niveau ; incl : l'angle de l'avant-bras sur la surface, vers le haut à gauche.
-  // poingS : s11 (poing fermé), l'avant-bras vers la droite, le pouce en haut ; (x, y) au creux du poing.
+  // Les mains simples (mains/moteur.js), avec la manche noire d'avBras sur la coupe de leur avant-bras (court).
+  // plat : la main à plat de profil côté pouce, un peu vue d'en haut (penchée de 25°), la paume posée sur le ventre,
+  // les doigts vers la droite ; (x, y) sous le gras de la paume ; incl : l'angle de l'avant-bras sur la surface, vers
+  // le haut à gauche (le poignet tourne vers lui).
+  // poingS : le poing fermé vu des doigts, l'avant-bras vers la droite, le pouce en haut ; (x, y) au creux du poing.
   const manche = (A, B, d) => { const M = [(A[0] + B[0]) / 2, (A[1] + B[1]) / 2]; return { coupe: [A, B], poignet: M, bras: [M[0] + d[0], M[1] + d[1]] }; };
+  const versCoupe = m => { const M = [(m.coupe[0][0] + m.coupe[1][0]) / 2, (m.coupe[0][1] + m.coupe[1][1]) / 2]; return [M[0] - m.poignet[0], M[1] - m.poignet[1]]; };
+  const fond = m => ((String(m.svg).match(/<path d="([^"]+)" fill="#FFFFFF"/) || [])[1] || '').split(/[MLZ]/).map(t => t.trim()).filter(Boolean).map(t => t.split(/\s+/).map(Number));
   const plat = (x, y, s, incl) => {
-    const m = F.modele('s10-plat', { x, y, ancre: [115, 28], angle: 180 + 10.7, echelle: 0.89 * s, masquer: [[228, 0, 245, 125]] });
     const r = incl * Math.PI / 180;
-    return { svg: String(m), m: manche(m.P([228, 57.6]), m.P([228, 110.8]), [-Math.cos(r), -Math.sin(r)]) };
+    const o = { x, y, ancre: 'prise', pose: 'plat', vue: 'pouce', cote: 'droite', angle: 4, rotation: [-25, 0, 0], echelle: s,
+      avantbras: { longueur: 40, vers: [x - 400 * Math.cos(r), y - 400 * Math.sin(r)] } };
+    // la paume posée : le point le plus bas du contour, sous la paume, tombe sur (x, y)
+    const m0 = F.mainSimple(o), bas = Math.max(...fond(m0).filter(p => Math.abs(p[0] - x) < 30 * s).map(p => p[1]));
+    const m = F.mainSimple({ ...o, y: y + (y - bas) });
+    return { svg: m.svg, m: manche(m.coupe[0], m.coupe[1], versCoupe(m)) };
   };
   const poingS = (x, y, s) => {
-    const m = F.modele('s11', { x, y, ancre: [68, 42], angle: -90, echelle: 0.82 * s, masquer: [[0, 125, 140, 175]] });
-    return { svg: String(m), m: manche(m.P([20.1, 125]), m.P([76.7, 125]), [1, 0]) };
+    const m = F.mainSimple({ x, y, ancre: 'prise', pose: 'poing', vue: 'paume', cote: 'droite', angle: 180, echelle: s, avantbras: { longueur: 40 } });
+    return { svg: m.svg, m: manche(m.coupe[0], m.coupe[1], versCoupe(m)) };
   };
 
   // L'aide : le corps simple à genoux (genoux-poing), de l'autre côté de la mère (son côté gauche),
