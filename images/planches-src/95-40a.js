@@ -11,6 +11,10 @@
 // Aucune mesure de billon ni de bac dans le chapitre : aucune cote sur eux. Le coin croisé à
 // encoche est l'entaille simple du ch. 110 posée en rangs alternés ; la première perche est à
 // demi enterrée pour que le rang suivant porte au sol sans jour dessous.
+// La charte : dans le bac en oblique, le dessous de chaque perche couchée à l'ombre (lumière en haut
+// à gauche), pour que l'empilement se lise. Pas de gris sur les coupes (la trame dit la matière).
+// Pas de rouge : un montage, sans geste dessiné ni point que le chapitre dit de vérifier ; les
+// flèches de la terre remontée et de la perche qu'on pose disent ce qui bouge, elles restent noires.
 module.exports = (h) => {
   const NOIR = '#1A1A1A';
   const blanc = (a) => a.replace('fill="none"', 'fill="#FFFFFF"');
@@ -65,13 +69,23 @@ module.exports = (h) => {
     const vis = axe === 'x' ? u1 : u0, cache = axe === 'x' ? u0 : u1;
     const A = cerclePerche(p, axe, vis, c, zc, r, demi), B = cerclePerche(p, axe, cache, c, zc, r, demi);
     const out = [];
+    // le dessous de la perche, à l'ombre : l'enveloppe des deux arcs du bas (sous 0,3 r)
+    const bas = (u) => Array.from({ length: 13 }, (_, i) => {
+      const t = Math.PI + 0.305 + (Math.PI - 0.61) * i / 12, dc = r * Math.cos(t), dz = r * Math.sin(t);
+      return axe === 'x' ? p(u, c + dc, zc + dz) : p(c + dc, u, zc + dz);
+    });
+    const ombre = demi ? '' : poly(hull(bas(vis).concat(bas(cache))), h.a.ombre);
     if (!morceau) {
-      out.push(poly(hull(A.concat(B)), blanc(h.a.arete)));
+      const hl = hull(A.concat(B));
+      out.push(poly(hl, h.a.blanc));
+      if (ombre) out.push(ombre);
+      out.push(poly(hl, h.a.arete));
     } else {
       // Morceau redessiné par-dessus : on ne trace que les deux côtés, pas le joint caché.
       const tag = new Map(); A.forEach((q) => tag.set(q.join(), 'A')); B.forEach((q) => tag.set(q.join(), 'B'));
       const hl = hull(A.concat(B));
       out.push(poly(hl, 'fill="#FFFFFF" stroke="none"'));
+      if (ombre) out.push(ombre);
       hl.forEach((q, i) => {
         const n = hl[(i + 1) % hl.length];
         if (tag.get(q.join()) !== tag.get(n.join())) out.push(h.ligne(q[0], q[1], n[0], n[1], h.a.arete));

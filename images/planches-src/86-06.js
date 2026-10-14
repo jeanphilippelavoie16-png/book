@@ -15,6 +15,9 @@
 // Vue 2 : le même terrain vu de dessus à 13 h, tourné comme la vue 1 (nord à droite, ouest en
 // haut), toutes les pierres posées ; traits fins : les ombres passées ; en noir : celle de 13 h.
 // Aucune heure n'est écrite sur la planche : le chapitre n'en donne pas.
+// La charte : pas de gris (un sol plat, un bâton mince, des pierres vues de dessus). Le rouge : un
+// seul point à contrôler, la pierre la plus proche du bâton, celle du midi solaire. Le rayon du
+// soleil reste noir ; poser la pierre n'a pas de flèche.
 
 module.exports = (h) => {
   const r1 = v => Math.round(v * 10) / 10;
@@ -177,6 +180,8 @@ module.exports = (h) => {
       const p = P(b[0], b[1]);
       out.push(pierre(p[0], p[1], rx, rx * 0.82, 11 + i));
     });
+    // Le point à contrôler : la pierre la plus proche du bâton, celle du midi solaire.
+    { const pm = P(midi[0], midi[1]); out.push(h.controle(pm[0], pm[1], rx * 2)); }
     // Le bâton vu d'en haut : le bout coupé, la terre remuée autour.
     const lb = 0.022 * s;
     out.push(h.cercle(b0[0], b0[1], lb * 2.8, h.a.fin));

@@ -94,7 +94,7 @@
 <path d="M 102 52 H 118 L 120 54 V 119 C 120 126 125 126 125 133 V 179 C 125 186 120 186 120 193 V 251 L 110 268 L 100 251 V 193 C 100 186 105 186 105 179 V 133 C 105 126 100 126 100 119 V 54 Z" fill="#FFFFFF" stroke="none"/>
 <path d="M 102 52 H 118 L 120 54 V 119 C 120 126 125 126 125 133 V 179 C 125 186 120 186 120 193 V 251 L 110 268 L 100 251 V 193 C 100 186 105 186 105 179 V 133 C 105 126 100 126 100 119 V 54 Z" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M 112 58 V 119 C 112 126 117 126 117 133 V 179 C 117 186 112 186 112 193 V 249" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
-<circle cx="150" cy="80" r="11" fill="none" stroke="#9B2C1E" stroke-width="1.6"/>
+<circle cx="150" cy="100" r="13" fill="none" stroke="#9B2C1E" stroke-width="1.6"/>
 </g>
 <line x1="62.6" y1="82.7" x2="89.7" y2="108.2" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
 <line x1="62.6" y1="82.7" x2="89.7" y2="108.2" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>

@@ -58,7 +58,7 @@ module.exports = (h) => {
       out.push(h.path(peg, h.a.contour));
       out.push(h.path(`M ${xm + 2} ${top + 6} V ${TT - 7} C ${xm + 2} ${TT} ${xm + 2 + b} ${TT} ${xm + 2 + b} ${TT + 7} V ${TB - 7} C ${xm + 2 + b} ${TB} ${xm + 2} ${TB} ${xm + 2} ${TB + 7} V ${bot - 2}`, h.a.detail));
       // la charte : le point à contrôler, l'épaulement au contact du poteau, sans jour
-      out.push(h.controle(PR, cy - 76, 11));
+      out.push(h.controle(PR, cy - 56, 13));
     }
     return out.join('\n');
   }
