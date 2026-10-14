@@ -9,6 +9,8 @@
 //
 // La charte : de côté, la raquette au contour fort ; vue de dessus, les perches restent au trait
 // moyen (trois bandes de 3 à 7 px qui se rejoignent : un contour fort boucherait la pointe) ; pas de gris (vue de dessus, neige hachurée, la botte est un corps).
+// Redessin du 14 octobre : de côté, la jambe est le corps simple, coupée par le haut de la vue, et la
+// botte le mukluk souple de _pieds.js ; la botte dessinée à la main et sa jambe de pantalon sont parties.
 // Le rouge, sur le raté : l'attache derrière le milieu (l'endroit où ça casse) et la flèche qui
 // l'avance (le geste). L'arc de la pointe qui se lève et la flèche du nez qui plonge restent
 // noirs : c'est la raquette qui bouge, pas un geste.
@@ -95,24 +97,27 @@ function raquetteProfil(h, G) {
   return out.join('\n');
 }
 
-function botteProfil(h, G) {
-  const avant = [[0, 0], [8.5, 0], [10.3, 1.2], [10.8, 3.5], [9.5, 5.8], [6.5, 7.6], [1.5, 8.5]].map(p => G.loc(...p));
-  const arriere = [[-3, 11], [-6.5, 15], [-7.5, 24], [-19.5, 24], [-20, 13], [-21.8, 5], [-21.3, 1.2], [-19.8, 0], [-10, 0]]
-    .map(p => G.rot(...p));
-  const botte = [...avant, ...arriere];
-  const out = [h.chemin(botte, h.a.blanc, true), h.chemin(botte, h.a.arete, true)];
-  // semelle
-  out.push(h.chemin([G.loc(9.6, 1.6), G.loc(0, 1.6), G.rot(-21.5, 1.6)], h.a.detail));
-  // jambe de pantalon par-dessus la tige
-  let Lg = 26;
-  while (G.rot(-4.5, Lg)[1] > 8 && Lg < 200) Lg += 1;
-  const jambe = [G.rot(-6.8, 19), G.rot(-4.5, Lg), G.rot(-18.8, Lg), G.rot(-20.6, 19)];
-  out.push(h.chemin(jambe, h.a.blanc, true));
-  out.push(h.chemin([jambe[1], jambe[0], jambe[3], jambe[2]], h.a.arete));
+// La jambe est le corps simple (h.formes.corps, debout), coupée par le haut de la vue ; la botte, le
+// mukluk souple de _pieds.js (le chapitre veut un chaussage mou), repris sur la jambe à la tige. Sa
+// plante pose sur le plancher de pivot : le point PLANTE du pied tombe sur G.loc(0, 0). La semelle fait
+// à l'écran l'angle de la raquette moins celui du talon levé, et le tibia reste d'équerre au pied.
+const { jambeEtPied } = require('./_pieds');
+const PLANTE = [150, 74.5];                 // sous la plante, dans le repère du pied (mm)
+const DESSUS = [184, 35];                   // le dessus du pied, devant la plante : la corde y passe
+function botteC(h, G, cfg, id) {
+  const beta = cfg.t - cfg.phi;             // l'angle de la semelle à l'écran, pointe en haut positive
+  const opt = { pose: 'debout', appui: 'aucun', echelle: G.s / 10, angles: { jambeP: beta, cuisseP: beta + 8 }, masquer: ['brasP', 'brasL', 'jambeL'] };
+  const pied = { pied: 'mukluk', H: 150 };
+  const r0 = jambeEtPied(h, Object.assign({ x: 0, y: 0 }, opt), Object.assign({ id: id + '-0' }, pied));
+  const v0 = r0.versVue(PLANTE), cible = G.loc(0, 0);
+  return jambeEtPied(h, Object.assign({ x: cible[0] - v0[0], y: cible[1] - v0[1] }, opt), Object.assign({ id }, pied));
+}
+function botteProfil(h, G, z, cfg, id) {
+  const J = botteC(h, G, cfg, id);
+  const out = [`<clipPath id="${id}-vue"><rect x="0" y="0" width="${z.l}" height="${z.h}"/></clipPath>`, `<g clip-path="url(#${id}-vue)">`, J.svg, '</g>'];
   // l'attache : par-dessus l'avant du pied, autour du plancher de pivot, rien au talon
   const [p0, , p2] = G.pivots.map(u => G.Pt(u, r(u) + RB));
-  const dessus = G.loc(3.2, 8.2);
-  out.push(h.chemin([p0, dessus, p2], h.a.detail));
+  out.push(h.chemin([p0, J.versVue(DESSUS), p2], h.a.detail));
   return out.join('\n');
 }
 
@@ -141,7 +146,7 @@ function vueProfil(h, z, cfg) {
   const G = Object.assign(profil(z, cfg), { pivots: cfg.pivots, talons: cfg.talons });
   const out = [];
   if (cfg.pose === 'queue') out.push(neige(h, z, G, false));
-  out.push(raquetteProfil(h, G), botteProfil(h, G));
+  out.push(raquetteProfil(h, G), botteProfil(h, G, z, cfg, cfg.pose === 'queue' ? 'botte-pas' : 'botte-rate'));
   // milieu de la raquette : trait mixte court, perpendiculaire
   const m1 = G.Pt(MIL, -6), m2 = G.Pt(MIL, 6);
   out.push(h.ligne(m1[0], m1[1], m2[0], m2[1], h.a.fin + ' stroke-dasharray="12 3 2 3"'));
@@ -206,10 +211,11 @@ module.exports = (h) => ({
       dessin: z => vueProfil(h, z, BON).svg,
       renvois: z => {
         const { G, T } = vueProfil(h, z, BON);
-        const talon = G.rot(-20.5, 0), bt = G.Pt(TAL[1], r(TAL[1]) + 2 * RB);
+        const J = botteC(h, G, BON, 'botte-pas');
+        const talon = J.versVue([-48, 74.5]), bt = G.Pt(TAL[1], r(TAL[1]) + 2 * RB);
         const gap = [(talon[0] + bt[0]) / 2, (talon[1] + bt[1]) / 2];
         const queue = G.Pt(3, -r(3));
-        const corde = G.loc(3.2, 8.2);
+        const corde = J.versVue(DESSUS);
         return [
           { n: 7, rond: [corde[0] + 26, corde[1] - 40], cible: corde, texte: 'attache au plancher seulement' },
           { n: 8, rond: [gap[0] - 60, gap[1] - 24], cible: gap, texte: 'talon libre' },

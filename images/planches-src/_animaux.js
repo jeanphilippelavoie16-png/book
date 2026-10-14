@@ -360,32 +360,36 @@ function chien(h, o = {}) {
   const Tm = p => [X + m * s * p[0], Y - s * p[1]];
   const ap = o.appui || [400, 1050], dA = [ap[0] - 400, ap[1] - 1050];
   const A = ([x, y, c]) => (c ? [x + dA[0], y + dA[1], c] : [x + dA[0], y + dA[1]]);   // ce qui suit l'appui
-  const CORPS = [
-    [48, 0, 'c'], [44, 16], [22, 34], [14, 60], [28, 150], [54, 250], [70, 300],          // le pied, le devant de la jambe, le grasset
-    [76, 350], [92, 420], [138, 520], [196, 640], [246, 740], [288, 812],                 // le ventre, la poitrine
-    [292, 880], [304, 970], [322, 1065], [344, 1140], [372, 1170],                        // le poitrail, la gorge, la mâchoire
-    [404, 1196, 'c'], [404, 1214], [394, 1226], [345, 1236], [300, 1250], [262, 1266],   // la truffe, le chanfrein, le front
-    [215, 1268], [176, 1240], [150, 1185], [118, 1090], [90, 995],                        // le crâne, la nuque, le cou
-    [64, 905], [26, 790], [-14, 660], [-50, 548], [-76, 468],                              // le dos, la croupe
-    [-92, 405], [-86, 330], [-66, 255], [-44, 175], [-36, 132, 'c'],                       // l'arrière de la cuisse, le jarret
-    [-36, 90], [-30, 36], [-30, 10], [-20, 0, 'c'],                                       // le canon, le talon
+  // Les masses (mm) : pied, canon, jambe, cuisse, croupe, cage, poitrail, cou, tête, museau.
+  const E = (c, rx, ry, a = 0) => cl(ellipse(c, rx, ry, a));
+  const masses = [
+    capsule([-6, 18], [70, 14], 21, 16),                      // le pied de derrière
+    capsule([4, 26], [-40, 128], 22, 27),                     // le canon, jusqu'au jarret
+    capsule([-40, 128], [66, 300], 30, 52),                   // la jambe, jusqu'au grasset
+    E([10, 385], 150, 104, 70),                               // la cuisse
+    E([-8, 478], 128, 116),                                   // la croupe
+    E([128, 690], 285, 150, 66),                              // la cage
+    E([228, 805], 112, 122),                                  // le poitrail
+    capsule([168, 900], [244, 1080], 96, 74),                 // le cou
+    E([258, 1150], 96, 74, 18),                               // le crâne
+    capsule([300, 1158], [392, 1190], 46, 32),                // le museau
   ];
   // la patte de devant : bras, avant-bras, la main posée sur la perche
-  const patte = (dx, dy) => U(capsule([200 + dx, 900 + dy], [238 + dx, 806 + dy], 40, 30),
-    capsule([238 + dx, 806 + dy], A([368 + dx, 1012 + dy]), 26, 21), capsule(A([362 + dx, 1012 + dy]), A([402 + dx, 1052 + dy]), 22, 20));
-  const queue = cl(trace([[-70, 470], [-104, 430], [-140, 340], [-162, 240], [-170, 170], [-152, 150], [-128, 210], [-102, 300], [-72, 380], [-60, 440]]));
-  const OREILLE = [[214, 1258], [206, 1300], [204, 1345, 'c'], [232, 1310], [254, 1262]];
-  const OREILLE_L = [[236, 1262], [234, 1306], [238, 1350, 'c'], [262, 1312], [276, 1266]];
-  const corps = cl(trace(CORPS));
-  const proche = lisser(M.ferme(U(corps, patte(0, 0), cl(trace(OREILLE)), queue), 6), 1.5);
-  const loin = M.moins(U(patte(22, 26), cl(trace(OREILLE_L))), M.decale(proche, -0.4));
+  const patte = (dx, dy) => U(capsule([222 + dx, 880 + dy], [252 + dx, 762 + dy], 56, 40),
+    capsule([252 + dx, 762 + dy], A([368 + dx, 992 + dy]), 33, 26), capsule(A([364 + dx, 996 + dy]), A([404 + dx, 1036 + dy]), 25, 22));
+  const queue = U(capsule([-62, 470], [-128, 330], 40, 33), capsule([-128, 330], [-150, 196], 33, 26));
+  const OREILLE = [[212, 1200], [206, 1262], [210, 1316, 'c'], [242, 1270], [262, 1214]];
+  const OREILLE_L = [[236, 1206], [236, 1268], [246, 1322, 'c'], [270, 1274], [284, 1220]];
+  const corps = M.ferme(U(...masses), 30);
+  const proche = lisser(M.ferme(U(corps, patte(0, 0), cl(trace(OREILLE)), queue), 8), 3);
+  const loin = lisser(M.moins(U(patte(24, 30), cl(trace(OREILLE_L))), M.decale(proche, -0.4)), 1.5);
   // traits intérieurs : le devant de la cuisse, le bras sur la poitrine, le creux de l'oreille
-  const cuisse = trace([[60, 430], [44, 360], [52, 300]], false);
+  const cuisse = trace([[96, 470], [70, 380], [62, 300]], false);
   const bras = M.bordsDans(patte(0, 0), M.decale(corps, -4));
-  const oreilleI = trace([[220, 1272], [216, 1300], [214, 1326]], false);
-  const truffe = cl(trace([[404, 1196], [406, 1214], [394, 1222], [386, 1210]]));
-  const bouche = trace([[392, 1192], [370, 1186], [350, 1180]], false);
-  const oeil = ellipse([306, 1236], 8, 5.5, 18, 24);
+  const oreilleI = trace([[220, 1222], [216, 1258], [214, 1292]], false);
+  const truffe = cl(trace([[414, 1186], [422, 1200], [416, 1214], [402, 1212], [398, 1196]]));
+  const bouche = trace([[404, 1168], [378, 1160], [346, 1152]], false);
+  const oeil = ellipse([312, 1192], 9, 6, 18, 24);
   const R = rendu({ echelle: s }, Tm);
   const out = [`<g data-animal="chien">`];
   if (o.loin) {
@@ -398,7 +402,7 @@ function chien(h, o = {}) {
   out.push(R.bord(proche, ep));
   out.push('</g>');
   const svg = out.filter(Boolean).join('\n');
-  const geo = { appui: Tm(ap), tete: Tm([300, 1268]), sol: Y, echelle: s, miroir: m < 0 };
+  const geo = { appui: Tm(ap), tete: Tm([260, 1230]), sol: Y, echelle: s, miroir: m < 0 };
   return Object.assign({ svg, toString() { return svg; } }, geo);
 }
 
