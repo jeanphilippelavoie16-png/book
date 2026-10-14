@@ -112,7 +112,7 @@ module.exports = (h) => ({
       renvois: z => {
         const R = repereC(z), C = cabestan();
         return [
-          { n: 17, rond: R.T([-12.0, 12.0]), cible: R.T(C.croisement), texte: 'nœud de cabestan sur le fût' },
+          { n: 17, rond: R.T([9.0, 15.6]), cible: R.T(C.croisement), texte: 'nœud de cabestan sur le fût' },
           { n: 18, rond: R.T([38.0, 9.0]), cible: R.T([38.0, 1.0]), texte: 'fût sans trou au centre' },
         ];
       },
@@ -662,13 +662,13 @@ function cabestan() {
   if (CAB) return CAB;
   const yD = pr(0, -EPC, HTF)[1], yM = (YA + yD) / 2;
   const xS = 2, xV = 22, yb = 21.5;                      // le brin qui monte ; le brin droit du voisin ; bas des brins
-  const monte = [[xS, yb, 0], [xS, 12, 0], [xS, 3, 0], [xS + 0.1, 0, 0], [xS + 0.2, YA, 0], [xS + 1.3, yM, 0], [xS + 2.4, yD, 0]];
-  const tour1 = [[6.8, YB, 0], [7.1, 4.2, 0.3], [5.6, 6.9, 1], [xS, 7.8, 1], [-2.6, 7.1, 1], [-6.2, 4.6, 0.4], [-7.6, 1.5, 0], [-7.6, YA, 0], [-6.4, yM, 0], [-5.2, yD, 0]];
-  const sortie = [[-2.8, YB, 0], [-2.8, 4.4, -0.5], [-3.1, 7.2, -1], [-4.3, 10.4, 0], [-6.6, 15.6, 0], [-9.4, yb + 0.6, 0]];
-  const voisin = [[xV, yb, 0], [xV, 3, 0], [xV + 0.1, 0, 0], [xV + 0.2, YA, 0], [xV + 1.3, yM, 0], [xV + 2.4, yD, 0]];
-  const voisin2 = [[30.6, yb - 2, 0], [27.4, 8, 0], [25.9, 3, 0], [25.7, 0, 0], [25.8, YA, 0], [26.9, yM, 0], [28.0, yD, 0]];
-  CAB = { yD, xS, xV, yb, monte, tour1, sortie, voisin, voisin2, croisement: [xS + 0.4, 7.8], sous: [[6.8, YB], [-2.8, YB]],
-    caches: [[[xS + 2.4, yD], [6.8, YB]], [[-5.2, yD], [-2.8, YB]]] };
+  const monte = [[xS, yb, 0], [xS, 12, 0], [xS, 3, 0], [xS + 0.1, 0, 0], [xS + 0.2, YA, 0], [xS + 2.0, yM, 0], [xS + 3.8, yD, 0]];
+  const tour1 = [[9.2, YB, 0], [9.7, 4.6, 0.3], [7.8, 8.2, 1], [xS, 9.5, 1], [-4.4, 8.6, 1], [-8.8, 5.4, 0.4], [-10, 1.6, 0], [-10, YA, 0], [-8.2, yM, 0], [-6.4, yD, 0]];
+  const sortie = [[-3.2, YB, 0], [-3.2, 4.6, -0.5], [-3.6, 8.4, -1], [-5.2, 12, 0], [-7.6, 16.4, 0], [-10.6, yb + 0.6, 0]];
+  const voisin = [[xV, yb, 0], [xV, 3, 0], [xV + 0.1, 0, 0], [xV + 0.2, YA, 0], [xV + 2.0, yM, 0], [xV + 3.8, yD, 0]];
+  const voisin2 = [[31.6, yb - 1.5, 0], [28.0, 8, 0], [26.2, 3, 0], [25.9, 0, 0], [26.0, YA, 0], [27.8, yM, 0], [29.6, yD, 0]];
+  CAB = { yD, xS, xV, yb, monte, tour1, sortie, voisin, voisin2, croisement: [xS + 0.4, 9.5], sous: [[9.2, YB], [-3.2, YB]],
+    caches: [[[xS + 3.8, yD], [9.2, YB]], [[-6.4, yD], [-3.2, YB]]] };
   return CAB;
 }
 function vueCentre(h, z) {

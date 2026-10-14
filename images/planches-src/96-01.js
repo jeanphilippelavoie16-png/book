@@ -79,10 +79,14 @@ module.exports = (h) => {
 
   // ─── Les quatre coupes : même échelle, même axe, même sol ───────────────────────────────
   const LARG = 2 * BORD, BAS = 0.36, HAUT = 0.76;
-  const geoC = z => {
+  // Les deux premières coupes n'ont rien au-dessus du varech : leur rangée est plus basse (sinon un
+  // vide sous le titre), même échelle et même axe que les deux suivantes.
+  const HAUT_BAS = 0.42;
+  const geoC = (z, etat = 3) => {
+    const haut = etat <= 2 ? HAUT_BAS : HAUT;
     const s = (z.l - 6) / LARG;
-    if ((BAS + HAUT) * s > z.h - 2) throw new Error(`coupe trop basse : ${z.h} < ${(BAS + HAUT) * s}`);
-    const xc = z.l / 2, y0 = z.h - 3 - BAS * s - ((z.h - 5) - (BAS + HAUT) * s) * 0.35;
+    if ((BAS + haut) * s > z.h - 2) throw new Error(`coupe trop basse : ${z.h} < ${(BAS + haut) * s}`);
+    const xc = z.l / 2, y0 = z.h - 3 - BAS * s - ((z.h - 5) - (BAS + haut) * s) * 0.35;
     return { s, X: m => xc + m * s, Y: m => y0 - m * s };
   };
 
@@ -102,7 +106,7 @@ module.exports = (h) => {
   };
 
   const coupe = (z, etat) => {
-    const { s, X, Y } = geoC(z);
+    const { s, X, Y } = geoC(z, etat);
     const o = [];
     const d = etat >= 4 ? P_BUT : etat >= 3 ? EP_M : 0;
     const Lh = 0.04 * s;
@@ -368,13 +372,13 @@ module.exports = (h) => {
     desc: 'Quatre coupes à la même échelle, en travers d’une planche d’environ 1,2 m : les pommes de terre de semence posées en rangs sur la mousse, sans labour ; couvertes d’une couche épaisse de varech ; une rigole creusée de chaque côté, ses mottes posées à l’envers sur le varech ; puis la terre des rigoles montée autour des tiges, les jeunes tubercules sous la terre, l’eau qui s’égoutte vers les rigoles. Dessous, la planche vue de dessus, en trois bandes (semences, varech, mottes et rigoles creusées à mesure), et une motte grossie qui passe de la rigole à la planche en se retournant.',
     format: 'pleine',
     disposition: [['poser', 'couvrir'], ['retourner', 'butter'], ['plan', 'motte']],
-    hauteurs: [1, 1, 1.5],
+    hauteurs: [0.62, 0.84, 1.9],
     vues: {
       poser: {
         titre: 'Poser les semences sur le sol non retourné',
         dessin: z => coupe(z, 1),
         renvois: z => {
-          const { X, Y } = geoC(z);
+          const { X, Y } = geoC(z, 1);
           return [
             { n: 1, rond: [12, Y(0.34)], cible: [X(-1.0), Y(0.015)], texte: 'le sol non retourné : mousse, herbe ou gazon' },
             { n: 2, rond: [z.l - 12, Y(0.34)], cible: [X(0.3) + 2, Y(0.03)], texte: 'les semences, en rangs, sur la surface' },
@@ -385,7 +389,7 @@ module.exports = (h) => {
         titre: 'Couvrir d’une couche épaisse de varech',
         dessin: z => coupe(z, 2),
         renvois: z => {
-          const { X, Y } = geoC(z);
+          const { X, Y } = geoC(z, 2);
           return [
             { n: 3, rond: [z.l - 12, Y(0.36)], cible: [X(0.44), Y(0.08)], texte: 'varech rincé, et fumier composté s’il y en a' },
           ];
