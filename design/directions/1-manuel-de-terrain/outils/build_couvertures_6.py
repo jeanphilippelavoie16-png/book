@@ -179,12 +179,15 @@ def verifier():
 # vb : boîte de la vue en unités de la planche, mesurée le 14 octobre 2026 sur les planches de la charte du
 # 12 octobre (getBBox dans Chromium, plus 2,5 de marge pour le trait ; contrôlée au pixel près sur le rendu, flèches
 # et bouts de trait compris).
-# Échelle : celle du tome 4 d'avant (612 unités sur 7 po), réduite si la vue dépasse 7 × 2,66 po (tomes 1 et 2) ;
-# une vue réduite garde le trait des autres : ses épaisseurs sont multipliées d'autant (_epaissir), sinon l'arc à
+# Échelle : celle du tome 4 d'avant (612 unités sur 7 po), réduite si la vue dépasse 7 × HMAX po. Depuis le bloc
+# « Les auteurs » (14 octobre 2026, soir), le dessin n'a plus que 1,85 po de haut au plus (JP : pas sous 1,8 po environ).
+# Une vue réduite garde le trait des autres : ses épaisseurs sont multipliées d'autant (_epaissir), sinon l'arc à
 # feu sortait à 1,3 pt au contour contre 2 pt sur les tomes 3 à 6.
 ECH = 7.0 / 612
-LMAX, HMAX = 7.0, 2.66
-TRAIT = {
+LMAX, HMAX = 7.0, 1.85
+# Les six vues de la première reprise sur les planches de la charte (14 octobre 2026 : arc à feu, attelle, verveux,
+# fumoir, châssis froid, soudure). JP a trouvé bizarre la main de l'arc à feu et demandé d'autres images : gardées ici pour mémoire.
+PREMIERS = {
     1: dict(planche='planche-13-01-arc-feu.svg', vue='monte', vb=(53.5, 38.5, 573, 365), fic='trait-13-01',
             cap='Ch. 13 · L’arc à feu'),
     # le repère de coupe A–A (trait mixte, flèches, deux « A » en Georgia), ajouté à la planche le 28 septembre après
@@ -211,6 +214,62 @@ TRAIT = {
             entre=('<!-- contours extérieurs -->', '<!-- loupe du serre-joint'), vb=(37.5, 39.9, 605, 190.6),
             fic='trait-107-09', cap='Ch. 107 · Souder avec deux batteries'),
 }
+
+# Trois candidats par tome (14 octobre 2026, soir) : un objet, une construction ou un montage, en profondeur (perspective ou
+# élévation), typique du tome, sans main, ni corps, ni tête. Le premier est celui que je recommande ; CHOIX (ou
+# --dessin K:N) en prend un autre. Les marques rouges de contrôle sortent (un cercle sur une couverture ne désigne rien),
+# comme les cotes.
+CANDIDATS = {
+    1: [dict(planche='planche-12-05a-maison-blocs-tailler-monter.svg', vue='spirale', vb=None, fic='trait-12-05a',
+             cap='Ch. 12 · La maison de blocs : le premier rang et la spirale',
+             sans=[r'<circle cx="235" cy="207\.3" r="13" fill="none" stroke="#9B2C1E"']),
+        dict(planche='planche-11-03-chalet-pare-aux-braises.svg', vue='chalet', vb=None, fic='trait-11-03',
+             cap='Ch. 11 · Le chalet paré aux braises'),
+        dict(planche='planche-10-03-alambic-fortune.svg', vue='serpentin', vb=None, fic='trait-10-03',
+             cap='Ch. 10 · L’alambic de fortune')],
+    2: [dict(planche='planche-37-03a-bain-vapeur-sous-bache.svg', vue='armature', vb=None, fic='trait-37-03a',
+             cap='Ch. 37 · Le bain de vapeur : l’armature'),
+        dict(planche='planche-24-03-chevalet-sciage.svg', vue='axo', vb=None, fic='trait-24-03',
+             cap='Ch. 24 · Le chevalet de sciage'),
+        dict(planche='planche-34-03-sirop-pese-fleau-bras.svg', vue='vide', vb=None, fic='trait-34-03',
+             cap='Ch. 34 · Le fléau à bras égaux')],
+    3: [dict(planche='planche-55-08-assommoir-sa-gachette-trois.svg', vue='arme', vb=None, fic='trait-55-08',
+             cap='Ch. 55 · L’assommoir armé'),
+        dict(planche='planche-58-07-brimbale-bois.svg', vue='elevation', vb=None, fic='trait-58-07',
+             cap='Ch. 58 · La brimbale de bois',
+             sans=[r'<circle cx="259\.8" cy="52\.8" r="12" fill="none" stroke="#9B2C1E"']),
+        dict(planche='planche-54-08-glaciere-evaporation.svg', vue='cadre', vb=None, fic='trait-54-08',
+             cap='Ch. 54 · La glacière à évaporation')],
+    4: [dict(planche='planche-70-12-cage-viande-grillagee.svg', vue='ens', vb=None, fic='trait-70-12',
+             cap='Ch. 70 · La cage à viande grillagée'),
+        dict(planche='planche-75-08-glaciere-deux-caisses.svg', vue='eclate', vb=None, fic='trait-75-08',
+             cap='Ch. 75 · La glacière de deux caisses'),
+        dict(planche='planche-67-09-fleau-ses-etalons-eau.svg', vue='monte', vb=None, fic='trait-67-09',
+             cap='Ch. 67 · Le fléau et ses étalons d’eau')],
+    5: [dict(planche='planche-90-07a-canot-ecorce-epinette-seule.svg', vue='cote', vb=None, fic='trait-90-07a',
+             cap='Ch. 90 · Le canot d’écorce d’épinette'),
+        dict(planche='planche-97-04-tunnel-perches.svg', vue='ensemble', vb=None, fic='trait-97-04',
+             cap='Ch. 97 · Le tunnel de perches'),
+        dict(planche='planche-94-33b-casseau-ecorce-plie-cousu.svg', vue='monte', vb=None, fic='trait-94-33b',
+             cap='Ch. 94 · Le casseau d’écorce')],
+    6: [dict(planche='planche-110-01a-mortaise-tenon-mi-bois.svg', vue='mt', vb=None, fic='trait-110-01a',
+             cap='Ch. 110 · La mortaise et le tenon'),
+        dict(planche='planche-110-01b-tenon-passant-cle-enture.svg', vue='enture', vb=None, fic='trait-110-01b',
+             cap='Ch. 110 · L’enture à mi-bois',
+             sans=[r'<line x1="207" y1="176\.4" x2="221"', r'<line x1="207" y1="192\.4" x2="221"',
+                   r'<line x1="216" y1="176\.4" x2="216" y2="192\.4"', r'<line x1="210" y1="176\.4" x2="222"',
+                   r'<line x1="210" y1="192\.4" x2="222"', r'>½ ép\.<']),
+        dict(planche='planche-109-12-tourniquet-espagnol.svg', vue='montage', vb=None, fic='trait-109-12',
+             cap='Ch. 109 · Le tourniquet espagnol')],
+}
+CHOIX = {1: 1, 2: 1, 3: 1, 4: 1, 5: 1, 6: 1}
+
+def choisir(choix=None):
+    """TRAIT : le candidat retenu pour chaque tome (CHOIX, ou les choix donnés)."""
+    c = dict(CHOIX, **(choix or {}))
+    return {k: CANDIDATS[k][c[k] - 1] for k in CANDIDATS}
+
+TRAIT = choisir()
 
 def _sans_commentaires(s):
     return re.sub(r'<!--.*?-->', '', s, flags=re.S)
@@ -270,9 +329,10 @@ def _recolorer(s, fond, encre, gris=GRIS):
         raise ValueError('couleurs non prévues dans le dessin : %s' % sorted(inconnues))
     return s
 
-def echelle(k):
+def echelle(k, t=None):
     """Pouces par unité de planche pour le dessin du tome k : ECH, ou moins si la vue dépasse la place."""
-    w, h = TRAIT[k]['vb'][2], TRAIT[k]['vb'][3]
+    t = t or TRAIT[k]
+    w, h = t['vb'][2], t['vb'][3]
     return min(ECH, LMAX / w, HMAX / h)
 
 def _epaissir(s, f):
@@ -285,9 +345,10 @@ def _epaissir(s, f):
     return ''.join(m if m.startswith('<marker') else re.sub(r'(stroke-width|stroke-dasharray)="([^"]*)"', mul, m)
                    for m in morceaux)
 
-def trait_svg(k, vb=None):
-    """Le SVG du dessin de la quatrième du tome k, recoloré (vb : une autre boîte, pour la mesure)."""
-    t = TRAIT[k]
+def trait_svg(k, vb=None, t=None):
+    """Le SVG du dessin de la quatrième du tome k, recoloré (vb : une autre boîte, pour la mesure ; t : un autre
+    candidat que celui retenu)."""
+    t = t or TRAIT[k]
     fond, encre = COUL[k][:2]
     s = open(os.path.join(IMG, t['planche']), encoding='utf-8').read()
     titre = re.search(r'<title>(.*?)</title>', s).group(1)
@@ -301,7 +362,7 @@ def trait_svg(k, vb=None):
            '<title>Trait tiré de la %s — vue « %s », sans renvois</title>\n%s\n%s\n</svg>\n') % (
         tuple(vb or t['vb']) + (esc(titre[0].lower() + titre[1:]), t['vue'],
                                 _sans_commentaires(defs.group(0)) if defs else '', corps))
-    f = ECH / echelle(k)
+    f = ECH / echelle(k, t) if t.get('vb') else 1
     if f > 1.001:
         out = _epaissir(out, f)
     return _recolorer(out, fond, encre, t.get('gris', GRIS))
