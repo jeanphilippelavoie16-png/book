@@ -43,3 +43,6 @@ JP ensuite : « c'est bien mais pas encore parfait, les formes que tu as pas de 
   - la charte sur les 247 autres planches : go, en 12 lots, 6 agents à la fois (`scratch/charte-lots.json`) ;
   - les 6 pilotes de la charte : validés ;
   - 110-01a : la flèche du chevillage à tire pointe vers le fond de la mortaise, confirmé.
+- **14 octobre : « toute est excellent »** (JP, après 13 paquets de la charte). Les 99 planches passées sont validées, avec
+  34-01 et 28-02. 28-06 et 29-05 se refont avec la tête de profil. La règle des têtes vaut pour les têtes humaines : les
+  têtes d'animaux vues de face restent quand la vue de face montre ce qui compte.

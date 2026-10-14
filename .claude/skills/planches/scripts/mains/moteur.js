@@ -1446,6 +1446,7 @@ function dessiner(o, prep = null) {
       }
       if (dev) devantObjet.add(i);
     });
+    if (process.env.MAINS_DBG_OBJ) pieces.forEach((P, i) => { if (P.surObjet) console.error(P.id, 'part', P.partObjet.toFixed(3), devantObjet.has(i) ? 'DEVANT' : 'derriere'); });
   }
   // ── les doigts entiers (groupes) : leur contour, leurs sphères, l'ordre entre eux ──
   const groupes = new Map();
