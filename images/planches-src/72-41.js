@@ -11,6 +11,10 @@
 //  - la planche entre dans le moule avec du jeu contre la chemise : elle descend sur la masse
 //    sous la pierre, et l'air chassé sort par ce jeu ; la chemise déborde des rives pour
 //    sortir le bloc froid.
+// La charte : l'objet de chaque vue au contour fort ; le flanc du billot, la face droite des blocs et
+// le dessous de la pierre à l'ombre ; l'air au-dessus de la poudre et de la masse en gris loin.
+// Le rouge : le marteau qui frappe, le pilon qui monte et descend, le bâton qui brasse ; et deux
+// ratés, la masse qui fend et la poche d'air. Le gras qui coule reste en noir.
 
 module.exports = (h) => {
   const r1 = v => Math.round(v * 10) / 10;
@@ -120,7 +124,13 @@ module.exports = (h) => {
     for (let i = 0; i <= 16; i++) { const t = Math.PI - i / 16 * Math.PI; corps.push([140 + 48 * Math.cos(t), 193 + 6 * Math.sin(t)]); }
     corps.push([188, 112]);
     for (let i = 0; i <= 16; i++) { const t = i / 16 * Math.PI; corps.push([140 + 48 * Math.cos(t), 112 + 8 * Math.sin(t)]); }
-    o.push(forme(corps, P));
+    o.push(h.chemin(M(corps, P), h.a.blanc, true));
+    // le flanc de droite du billot, à l'ombre
+    { const tc = Math.acos(0.45), bande = [];
+      for (let i = 0; i <= 8; i++) { const t = tc * i / 8; bande.push([140 + 48 * Math.cos(t), 112 + 8 * Math.sin(t)]); }
+      for (let i = 8; i >= 0; i--) { const t = tc * i / 8; bande.push([140 + 48 * Math.cos(t), 193 + 6 * Math.sin(t)]); }
+      o.push(h.chemin(M(bande, P), h.a.ombre, true)); }
+    o.push(h.chemin(M(corps, P), h.a.arete, true));
     o.push(h.ellipse(...P(140, 112), 48 * fit(z, ...BOITE_SAC).s, 8 * fit(z, ...BOITE_SAC).s, h.a.arete));
     const rb = rng(5);
     [-70, -44, -16, 14, 42, 68].forEach(d => {
@@ -133,7 +143,7 @@ module.exports = (h) => {
     // le sac, posé à plat sur le bout du billot, col noué
     const sac = lisse(SAC, true, 6);
     o.push(h.chemin(M(sac, P), h.a.blanc, true));
-    o.push(h.chemin(M(sac, P), h.a.arete, true));
+    o.push(h.chemin(M(sac, P), h.a.contour, true));
     [[[100, 96], [109, 105], [106, 117]], [[148, 88], [155, 97]], [[174, 93], [183, 106], [179, 118]],
       [[126, 94], [131, 104], [128, 112]]].forEach(f => o.push(h.chemin(M(lisse(f, false, 5), P), h.a.fin)));
     o.push(h.ligne(...P(201, 100), ...P(203, 112), h.a.arete));
@@ -144,7 +154,7 @@ module.exports = (h) => {
     o.push(forme(tete, P));
     const b1 = [Cm[0] + Um[0] * 13 + Vm[0] * 8, Cm[1] + Um[1] * 13 + Vm[1] * 8], b2 = [Cm[0] + Um[0] * 13 - Vm[0] * 8, Cm[1] + Um[1] * 13 - Vm[1] * 8];
     o.push(h.ligne(...P(...b1), ...P(...b2), h.a.detail));
-    o.push(h.fleche(`M${xy(P(104, 32))} Q${xy(P(98, 60))} ${xy(P(116, 80))}`));
+    o.push(h.geste(`M${xy(P(104, 32))} Q${xy(P(98, 60))} ${xy(P(116, 80))}`));
     return o.join('\n');
   }
 
@@ -162,12 +172,19 @@ module.exports = (h) => {
     const coupe = [[40, 96], [68, 96]];
     for (let i = 1; i < 32; i++) coupe.push(creux(i / 32 * Math.PI));
     coupe.push([132, 96], [160, 96], [160, 196], [40, 196]);
-    o.push(h.chemin(M(coupe, P), h.a.hachure('bois'), true));
+    o.push(h.chemin(M(coupe, P), h.a.hachure('bois', 'contour'), true));
     o.push(h.ligne(...P(44, 99), ...P(44, 193), h.a.fin));
     o.push(h.ligne(...P(156, 99), ...P(156, 193), h.a.fin));
     // la poudre au fond du creux
     const poudre = [[75, 131], [82, 128], [90, 131], [98, 128], [106, 131], [114, 128], [122, 131]];
     const tA = Math.asin(34 / 54), tB = Math.PI - tA;
+    // l'air du creux, au-dessus de la poudre : on voit la paroi d'en face, en gris loin
+    const vide = [[68, 96]];
+    for (let i = 1; i <= 10; i++) vide.push(creux(tA * i / 10));
+    vide.push(...poudre.slice(0, 7));
+    for (let i = 0; i < 10; i++) vide.push(creux(tB + (Math.PI - tB) * i / 10));
+    vide.push([132, 96]);
+    o.push(h.chemin(M(vide, P), h.a.loin, true));
     for (let i = 0; i <= 20; i++) poudre.push(creux(tB - (tB - tA) * i / 20));
     o.push(h.chemin(M(poudre, P), h.a.blanc, true));
     o.push(fibres(P, poudre, 45, 21, { lmin: 3, lmax: 6 }));
@@ -178,8 +195,7 @@ module.exports = (h) => {
     o.push(forme(noeud, P));
     [0.66, 0.36].forEach(k => o.push(h.chemin(M(noeud.map(p => [101 + (p[0] - 101) * k, 123 + (p[1] - 123) * k]), P), h.a.fin, true)));
     o.push(h.ellipse(...P(101, 123), 2.2 * fit(z, ...BOITE_BIL).s, 1.6 * fit(z, ...BOITE_BIL).s, h.a.plein));
-    o.push(h.fleche(`M${xy(P(124, 56))} L${xy(P(124, 30))}`));
-    o.push(h.fleche(`M${xy(P(124, 56))} L${xy(P(124, 84))}`));
+    o.push(h.geste(`M${xy(P(124, 30))} L${xy(P(124, 84))}`, { double: true }));
     return o.join('\n');
   }
 
@@ -200,7 +216,7 @@ module.exports = (h) => {
     o.push(h.ligne(...P(40, 195), ...P(240, 195), h.a.detail));
     // le bol en coupe
     const ext = lisse(EXT, false, 8), int = lisse(INT, false, 8);
-    o.push(h.chemin(M(ext.concat(int.slice().reverse()), P), h.a.hachure('bois'), true));
+    o.push(h.chemin(M(ext.concat(int.slice().reverse()), P), h.a.hachure('bois', 'contour'), true));
     // la masse : ce qui est sous la surface, dans le bol
     const iA = int.findIndex(p => p[1] >= surf(p[0]));
     const iB = int.length - 1 - int.slice().reverse().findIndex(p => p[1] >= surf(p[0]));
@@ -208,6 +224,8 @@ module.exports = (h) => {
     for (let x = int[iA][0]; x <= int[iB][0]; x += 4) dessus.push([x, surf(x)]);
     dessus.push([int[iB][0], surf(int[iB][0])]);
     const masse = dessus.concat(int.slice(iA, iB + 1).reverse());
+    // au-dessus de la masse, la paroi d'en face du bol : en gris loin
+    o.push(h.chemin(M(int.slice(0, iA + 1).concat(dessus, int.slice(iB)), P), h.a.loin, true));
     o.push(h.chemin(M(masse, P), h.a.blanc, true));
     o.push(fibres(P, masse, 230, 31, { lmin: 3, lmax: 5.5 }));
     o.push(h.chemin(M(dessus, P), h.a.detail));
@@ -226,7 +244,7 @@ module.exports = (h) => {
     const bc = barre(BS, BB, 6);
     o.push(h.chemin(M([bc[0], bc[1], bc[2], bc[3]], P), h.a.cache));
     // le brassage
-    o.push(h.fleche(`M${xy(P(204, 135))} A${r1(26 * s)} ${r1(8 * s)} 0 0 0 ${xy(P(152, 135))}`));
+    o.push(h.geste(`M${xy(P(204, 135))} A${r1(26 * s)} ${r1(8 * s)} 0 0 0 ${xy(P(152, 135))}`));
     return o.join('\n');
   }
 
@@ -244,15 +262,17 @@ module.exports = (h) => {
     const b = lisse(BOULE, true, 6);
     o.push(h.chemin(M(b, P), h.a.blanc, true));
     o.push(fibres(P, b, 190, 41, { lmin: 3, lmax: 5 }));
-    o.push(h.chemin(M(b, P), h.a.arete, true));
+    o.push(h.chemin(M(b, P), h.a.contour, true));
     [[[46, 130], [49, 146], [47, 163]], [[64, 127], [67, 145], [65, 165]], [[83, 129], [86, 146], [84, 164]]]
       .forEach(f => o.push(h.chemin(M(lisse(f, false, 5), P), h.a.detail)));
     // pas assez de gras : elle fend et s'égrène
     const fentes = [[[176, 128], [181, 139], [175, 149], [183, 161], [180, 170]], [[154, 146], [164, 151], [168, 163]]];
     o.push(h.chemin(M(EFFRITE, P), h.a.blanc, true));
     o.push(fibres(P, EFFRITE, 110, 43, { lmin: 3, lmax: 6 }));
-    o.push(h.chemin(M(EFFRITE, P), h.a.arete, true));
+    o.push(h.chemin(M(EFFRITE, P), h.a.contour, true));
     fentes.forEach(f => o.push(h.chemin(M(f, P), h.a.arete)));
+    // le raté : la masse fend, il manque du gras
+    { const { s: k } = fit(z, ...BOITE_POING); o.push(h.controle(...P(179, 146), 15 * k)); }
     [[228, 166, 5, 4, 1], [131, 167, 4, 3.5, 2], [221, 168.5, 3, 2.2, 3], [224, 159, 3.5, 3, 4]].forEach(([x, y, rx, ry, sd]) =>
       o.push(forme(tache(x, y, rx, ry, sd, 7), P, h.a.detail)));
     const r = rng(47);
@@ -276,7 +296,7 @@ module.exports = (h) => {
     const masse = [[40, 136], [280, 136], [280, 168], [40, 168]];
     o.push(fibres(P, masse, 420, 51, { lmin: 3, lmax: 5 }));
     // le moule de bois en coupe
-    o.push(h.chemin(M([[24, 116], [38, 116], [38, 170], [282, 170], [282, 116], [296, 116], [296, 184], [24, 184]], P), h.a.hachure('bois'), true));
+    o.push(h.chemin(M([[24, 116], [38, 116], [38, 170], [282, 170], [282, 116], [296, 116], [296, 184], [24, 184]], P), h.a.hachure('bois', 'contour'), true));
     // la chemise de toile graissée, qui déborde des rives
     o.push(h.chemin(M([[19, 136], [20, 118], [23, 114], [38, 114], [40, 117], [40, 168], [280, 168], [280, 117], [282, 114],
       [297, 114], [300, 118], [301, 136]], P), h.a.arete));
@@ -284,7 +304,11 @@ module.exports = (h) => {
     o.push(h.rect(...P(45, 124), 230 * fit(z, ...BOITE_MOULE).s, 12 * fit(z, ...BOITE_MOULE).s, h.a.hachure('bois')));
     // la pierre
     const pr = lisse(PIERRE, true, 2);
-    o.push(forme(pr, P));
+    // la pierre : sa face de droite et de dessous à l'ombre (la pierre moins elle-même décalée)
+    o.push(h.chemin(M(pr, P), h.a.blanc, true));
+    o.push(`<clipPath id="om-72-41-pierre">${h.chemin(M(pr, P), h.a.blanc, true)}</clipPath>`);
+    o.push(`<g clip-path="url(#om-72-41-pierre)">${h.chemin(M(pr, P), h.a.ombre, true)}${h.chemin(M(pr.map(([x, y]) => [x - 13, y - 9]), P), h.a.blanc, true)}</g>`);
+    o.push(h.chemin(M(pr, P), h.a.arete, true));
     [[[136, 88], [150, 82], [166, 83]], [[184, 96], [192, 106], [190, 116]], [[130, 108], [138, 114]]]
       .forEach(f => o.push(h.chemin(M(lisse(f, false, 5), P), h.a.fin)));
     return o.join('\n');
@@ -300,7 +324,9 @@ module.exports = (h) => {
     const { P } = fit(z, ...BOITE_BLOC);
     const o = [];
     o.push(forme([[14, 62], [54, 36], [174, 36], [134, 62]], P));
-    o.push(forme([[134, 62], [174, 36], [174, 90], [134, 116]], P));
+    // la face de droite, à l'ombre
+    o.push(h.chemin(M([[134, 62], [174, 36], [174, 90], [134, 116]], P), h.a.ombre, true));
+    o.push(h.chemin(M([[134, 62], [174, 36], [174, 90], [134, 116]], P), h.a.arete, true));
     o.push(h.chemin(M(FACE, P), h.a.blanc, true));
     const hors = rate ? TROUS.concat(GRUMEAUX) : [];
     o.push(fibres(P, FACE, rate ? 300 : 330, rate ? 81 : 82, { lmin: 3, lmax: 5, hors }));
@@ -327,6 +353,10 @@ module.exports = (h) => {
       });
     }
     o.push(h.chemin(M(FACE, P), h.a.arete, true));
+    // la silhouette du bloc, au trait fort
+    o.push(h.chemin(M([[14, 62], [54, 36], [174, 36], [174, 90], [134, 116], [14, 116]], P), h.a.contour, true));
+    // le raté : la poche d'air
+    if (rate) { const { s: k } = fit(z, ...BOITE_BLOC); o.push(h.controle(...P(94, 100), 16 * k)); }
     return o.join('\n');
   }
 

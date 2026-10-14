@@ -752,7 +752,7 @@ const PRISES = {
     const replies = DOIGTS.filter(n => !tendus.includes(n));
     const segsR = segsDoigts(S, doigts, replies);
     if (o.pouce === 'ecarte') doigts.pouce = { opposition: 10, cmc: -18, rotation: 3, mcp: 6, ip: 6 };
-    else doigts.pouce = pouceSurPhalanges(S, segsR, [replies[0] + '.p2'], { t: 0.6, bord: replies[0] + '.p2', flanc: o.flanc !== undefined ? o.flanc : 0.6 }).q;
+    else doigts.pouce = pouceSurPhalanges(S, segsR, [replies[0] + '.p2'], { t: 0.6, bord: replies[0] + '.p2', flanc: o.flanc !== undefined ? o.flanc : 0.6, boutMax: o.boutMax }).q;
     let contact = null;
     if (o.appui) {
       const pp = pulpe(S, tendus[0], doigts[tendus[0]], 0.8);

@@ -204,7 +204,7 @@ module.exports = (h) => {
           const p = place1(z), T = q => q.map(p.T);
           const lev = T(lisse(LEVEE, true)), dro = T(lisse(DROIT, true));
           let base = C.dessiner(h, p, {
-            id: 'a', loin: 'fin',
+            id: 'a', loin: 'gris',
             os: ['vertebres', 'cotes', 'sternum', 'bassin'],
             osForts: ['cote13', 'sternum', 'bassin'],
           });
@@ -278,7 +278,8 @@ module.exports = (h) => {
             // la tranche : la même feuille, descendue de son épaisseur
             const e = EP * b.k, bas = poly.map(q => [q[0], q[1] + e]);
             const xs = poly.map(q => q[0]), iG = xs.indexOf(Math.min(...xs)), iD = xs.indexOf(Math.max(...xs));
-            out.push(`<path d="${dD(bas, true)}" fill="${BLANC}" stroke="none"/>`);
+            // la charte : la tranche, face de dessous de la feuille, en gris d'ombre
+            out.push(`<path d="${dD(bas, true)}" ${h.a.ombre}/>`);
             out.push(`<path d="${dD(bas, true)}" ${trait(1.4)}/>`);
             out.push(`<path d="${dD(poly, true)}" fill="${BLANC}" stroke="none"/>`);
             out.push(`<path d="${dD(poly, true)}" ${trame('b', c.nom)}/>`);
@@ -318,8 +319,8 @@ module.exports = (h) => {
           const dessus = T(DESSUS), bas = dessus.map(q => [q[0], q[1] + e]);
           const xs = dessus.map(q => q[0]), iG = xs.indexOf(Math.min(...xs)), iD = xs.indexOf(Math.max(...xs));
           const out = [`<defs>${motifs('v')}<clipPath id="v-decoupe"><path d="${dD(dessus, true)}" fill="${BLANC}"/></clipPath></defs>`];
-          // la tranche, puis le dessus
-          out.push(`<path d="${dD(bas, true)}" fill="${BLANC}" stroke="none"/>`);
+          // la tranche, puis le dessus. La charte : la tranche (face de dessous) en gris d'ombre
+          out.push(`<path d="${dD(bas, true)}" ${h.a.ombre}/>`);
           // la membrane du dessous : un pointillé au bas de la tranche, sur la moitié de devant
           const dessous = [];
           for (let i = 4; i <= 76; i++) { const x = LB * i / 80; dessous.push(bb.T([x, demi(x) + EPB - 2.8])); }
