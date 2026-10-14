@@ -145,9 +145,9 @@ function face(z) {
 // devant l'œil et s'amincit vers la tempe, comme de face.
 const BANDE_P = [[110, -47], [96, -46.5], [80, -43], [66, -37], [55, -31], [49, -27.5], [47.5, -24.5], [49, -21.5],
   [56, -19.5], [70, -15], [88, -9.5], [107, -6], [109, -26]];
-const FENTE_P = [[109.5, -26.8], [92, -26.2], [74, -25.2], [61, -24.6], [61, -23.2], [74, -23.4], [92, -23.4], [109.5, -22.6]];
-const VISIERE_P = [[109, -29.5], [92, -29.4], [76, -28.4], [64, -27.6]];
-const VISIERE_BOUT = [[109.5, -34], [119, -30.5], [119, -28.5], [109.5, -27.2]];
+const FENTE_P = [[109.5, -27.8], [92, -27.4], [74, -26.4], [60, -25.4], [58, -24.2], [60, -22.8], [74, -22.4], [92, -21.8], [109.5, -21.2]];
+const VISIERE_P = [[109, -31.5], [92, -31.2], [76, -30], [64, -28.8]];
+const VISIERE_BOUT = [[109.5, -35], [119, -31.5], [119, -29.5], [109.5, -28.2]];
 const LANIERE_P = [[52, -25], [30, -30], [4, -36], [-26, -36], [-56, -31], [-86, -24], [-94, -22]];
 const NOEUD_P = [-95, -22];
 const BOUT_1 = [[-96, -19], [-102, -8], [-106, 4]];
@@ -155,31 +155,6 @@ const BOUT_2 = [[-93, -19], [-95, -6], [-94, 6]];
 function porte(z) {
   const e = 0.7, x0 = r1(z.l / 2 - 8 * e + 2), y0 = r1(30 + 129 * e);
   return { e, x0, y0, T: ([u, v]) => [r1(x0 + e * u), r1(y0 + e * v)] };
-}
-
-// ─── Vu de dessus (l'ancienne vue, gardée pour mémoire, plus dessinée) ──────────────────
-// Le visage regarde vers le haut de la page. La pièce suit un arc de centre (cx, 150).
-function dessus(z) {
-  const cx = r1(z.l / 2), cyA = 150, cyT = 142, yN = 214;
-  const pol = (r, deg) => { const a = deg * Math.PI / 180; return [r1(cx + r * Math.sin(a)), r1(cyA - r * Math.cos(a))]; };
-  const pas = (a0, a1, n = 24) => Array.from({ length: n + 1 }, (_, i) => a0 + (a1 - a0) * i / n);
-  const ligne = (r, a0, a1) => 'M' + pas(a0, a1).map(a => pol(r, a).join(',')).join(' L');
-  const arc = (ri, re, a0, a1) => {
-    const ext = pas(a0, a1).map(a => pol(re, a));
-    const int = pas(a0, a1).reverse().map(a => pol(ri, a));
-    // bouts arrondis
-    const b1 = pol((ri + re) / 2 + 0, a1 + 2.2), b0 = pol((ri + re) / 2, a0 - 2.2);
-    return 'M' + ext.map(p => p.join(',')).join(' L') + ` Q${b1.join(',')} ${int[0].join(',')} L` + int.map(p => p.join(',')).join(' L') + ` Q${b0.join(',')} ${ext[0].join(',')} Z`;
-  };
-  // lanière : du bout de la pièce, le long de la tête, jusqu'au nœud derrière
-  const ell = phi => { const a = phi * Math.PI / 180; return [r1(cx + 62 * Math.sin(a)), r1(cyT - 72 * Math.cos(a))]; };
-  const lan = s => {
-    const e = pol(79, s * 38);
-    const tour = pas(52, 172, 30).map(p => ell(s * p));
-    return { pts: [e, ...tour, [r1(cx + s * 4), yN - 1]] };
-  };
-  const bout = s => ({ pts: bez([cx + s * 3, yN + 2], [cx + s * 6, yN + 8], [cx + s * 9, yN + 12], [cx + s * 12, yN + 20], 12).map(p => p.map(r1)) });
-  return { cx, cyT, yN, yF: r1(cyA - 74), pol, ligne, arc, lan, bout };
 }
 
 // ─── En coupe ────────────────────────────────────────────────────────────────────────────

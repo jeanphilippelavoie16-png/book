@@ -57,10 +57,10 @@
 <ellipse cx="19.4" cy="104.9" rx="5" ry="4.2" fill="#FFFFFF" stroke="none"/>
 <ellipse cx="19.4" cy="104.9" rx="5" ry="4.2" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M162.9 87.4 L153.1 87.8 L141.9 90.2 L132.1 94.4 L124.4 98.6 L120.2 101 L119.2 103.2 L120.2 105.3 L125.1 106.7 L134.9 109.8 L147.5 113.6 L160.8 116.1 L162.2 102.1 Z" fill="#FFFFFF" stroke="none"/>
-<path d="M162.6 101.5 L150.3 102 L137.7 102.7 L128.6 103.1 L128.6 104.1 L137.7 103.9 L150.3 103.9 L162.6 104.5 Z" fill="#1A1A1A" stroke="none"/>
-<path d="M162.2 99.7 L150.3 99.7 L139.1 100.4 L130.7 101" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M162.6 96.5 L169.2 99 L169.2 100.3 L162.6 101.3 Z" fill="#FFFFFF" stroke="none"/>
-<path d="M162.6 96.5 L169.2 99 L169.2 100.3 L162.6 101.3 Z" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M162.6 100.8 L150.3 101.1 L137.7 101.8 L127.9 102.5 L126.5 103.4 L127.9 104.3 L137.7 104.6 L150.3 105 L162.6 105.5 Z" fill="#1A1A1A" stroke="none"/>
+<path d="M162.2 98.3 L150.3 98.5 L139.1 99.3 L130.7 100.1" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M162.6 95.8 L169.2 98.3 L169.2 99.7 L162.6 100.6 Z" fill="#FFFFFF" stroke="none"/>
+<path d="M162.6 95.8 L169.2 98.3 L169.2 99.7 L162.6 100.6 Z" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M162.9 87.4 L153.1 87.8 L141.9 90.2 L132.1 94.4 L124.4 98.6 L120.2 101 L119.2 103.2 L120.2 105.3 L125.1 106.7 L134.9 109.8 L147.5 113.6 L160.8 116.1 L162.2 102.1 Z" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
 </g>
 <text x="496.5" y="38" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#1A1A1A">En coupe, à l’œil</text>
