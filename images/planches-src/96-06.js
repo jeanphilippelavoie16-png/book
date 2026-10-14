@@ -8,6 +8,10 @@
 // traverse clouée à l'arrière (elle tient l'ouverture du V et retient la roche) et le trou percé à la
 // pointe où passe la corde. Aucune cote : le chapitre ne donne aucune mesure de la charrue. Les
 // proportions (planches de 1100 × 180 × 25, demi-angle 14°) ne servent qu'au dessin.
+// La charte : de côté, la face de droite de la roche à l'ombre (un croissant, lumière en haut à
+// gauche) ; en coupe A–A, le dedans du V, vu vers la pointe, en gris loin. Le rouge : tirer la corde
+// (le geste, de côté) et le chant du bas qui mord dans la terre (le point à vérifier, en coupe). De
+// dessus, la flèche dit le sens où la charrue avance : elle reste noire.
 module.exports = (h) => {
   const F = h.formes;
   const r1 = v => Math.round(v * 10) / 10;
@@ -66,7 +70,16 @@ module.exports = (h) => {
     const out = [];
     // la roche, posée sur le chant ; sa partie basse, entre les planches, est cachée
     const roche = [[-944, -112], [-952, -178], [-926, -250], [-872, -304], [-800, -322], [-752, -300], [-724, -236], [-716, -170], [-724, -112]];
-    out.push(h.path(arrondi(Pl(roche)), blanc(h.a.contour)));
+    {
+      // la roche : fond blanc, croissant d'ombre à droite (le même contour décalé vers le haut à
+      // gauche le découpe), puis le contour
+      const dR = arrondi(Pl(roche)), dx = -48 * s, dy = -14 * s;
+      const dRd = arrondi(Pl(roche).map(([u, v]) => [u + dx, v + dy]));
+      out.push(h.path(dR, h.a.blanc));
+      out.push(`<defs><clipPath id="k9606-roche"><path d="${dR}" fill="#FFFFFF" stroke="none"/></clipPath></defs>`
+        + `<g clip-path="url(#k9606-roche)">${h.path(dR, h.a.ombre)}${h.path(dRd, h.a.blanc)}</g>`);
+      out.push(h.path(dR, h.a.contour));
+    }
     out.push(h.chemin(Pl([[-872, -304], [-850, -240], [-860, -170]]), h.a.fin));
     out.push(h.chemin(Pl([[-850, -240], [-752, -236]]), h.a.fin));
     // la planche proche (la lointaine est juste derrière, de même contour)
@@ -98,7 +111,7 @@ module.exports = (h) => {
     const n = [Math.sin(pente), -Math.cos(pente)];
     const a0 = [180, TROU[1] - 180 * Math.tan(pente)], a1 = [440, TROU[1] - 440 * Math.tan(pente)];
     const d = 70;
-    out.push(h.fleche(`M ${P(a0[0] + n[0] * d, a0[1] + n[1] * d).join(' ')} L ${P(a1[0] + n[0] * d, a1[1] + n[1] * d).join(' ')}`, h.a.arete));
+    out.push(h.geste(`M ${P(a0[0] + n[0] * d, a0[1] + n[1] * d).join(' ')} L ${P(a1[0] + n[0] * d, a1[1] + n[1] * d).join(' ')}`));
     return { svg: out.join('\n'), P };
   };
 
@@ -171,6 +184,8 @@ module.exports = (h) => {
     // le fond raclé : légèrement irrégulier, comme le sol en place
     const fondR = [[-YI, BAS], [-YI * 0.55, BAS + 3], [-YI * 0.1, BAS - 2], [YI * 0.35, BAS + 2], [YI * 0.75, BAS - 1.5], [YI, BAS]];
     const sol = [[-bord, 0], [-YO, 0], [-YO, BAS], ...fondR, [YO, BAS], [YO, 0], [bord, 0], [bord, 108], [-bord, 108]];
+    // le dedans du V, vu vers la pointe : les faces intérieures des planches, en gris loin
+    out.push(h.chemin(Pl([[-YI, HAUT], [YI, HAUT], ...fondR.slice().reverse()]), h.a.loin, true));
     out.push(h.chemin(Pl(sol), h.a.hachure('terre', 'aucun'), true));
     out.push(h.chemin(Pl([[-bord, 0], [-YO, 0]]), h.a.arete), h.chemin(Pl([[YO, 0], [bord, 0]]), h.a.arete));
     // la terre repoussée contre chaque planche
@@ -196,6 +211,8 @@ module.exports = (h) => {
     out.push(h.chemin(Pl([[120, -180], [100, -110]]), h.a.fin));
     // le fond de la rigole, après les planches pour qu'il passe dessous du même trait que le sol
     out.push(h.path(lisse(Pl(fondR)), h.a.arete));
+    // le point à vérifier : le chant du bas, qui mord dans la terre
+    out.push(h.controle(...P(YO - TI / 2, BAS), 10));
     return { svg: out.join('\n'), P, YO, YI };
   };
 
