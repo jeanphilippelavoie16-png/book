@@ -31,5 +31,10 @@ JP ensuite : « c'est bien mais pas encore parfait, les formes que tu as pas de 
   agents puis un réviseur, brief dans le scratch `mains-lib/brief.md`.
 - **14 octobre 2026 : JP valide les 54 planches des cinq lots** de corps simples de profil avec la charte : « toutes
   excellentes » (sans compter les mains). Elles sont passées dans `images/validees/`. Leurs gros plans de mains seront
-  refaits avec la bibliothèque `mains/` : chaque planche touchée par ce travail repassera alors « à valider ». En attente
-  de JP : 34-01 (la carte du corps), 26-08 (l'écharpe enlevée) et 28-02 (les vues d'en haut de la tête de l'enfant).
+  refaits avec la bibliothèque `mains/` : chaque planche touchée par ce travail repassera alors « à valider ». Ce que JP a
+  tranché : 34-01 passe les zones sur un profil ; 26-08 aura l'écharpe en gros plan, à faire avec les mains ; 28-02
+  perd ses vues d'en haut.
+- **14 octobre : la charte sur toutes les autres planches** (« oui pour la charte de couleur sur les autres planches »).
+  - 253 planches n'ont ni corps ni main : elles passent la charte seule. Le brief est dans le scratch
+    `brief-charte.md`, et 6 pilotes sont montrés à JP d'abord.
+  - 50 planches ont des gros plans de mains : elles auront la charte en même temps que leurs mains refaites.

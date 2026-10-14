@@ -2,64 +2,77 @@
 //
 // Le moteur (moteur.js) dessine une main à partir d'une pose : des angles et un objet. Ce fichier calcule ces
 // angles pour que la main TIENNE quelque chose : chaque phalange qui peut toucher l'objet le touche, le pouce
-// s'enroule ou vient pincer, la paume se pose à plat sur sa surface. Il écrit aussi mains/poses.json, la liste
-// des poses que les planches appellent par leur id (inventaire.md, agent 4).
+// se referme sur l'index ou vient en face des doigts, la paume se pose à plat sur sa surface. Il écrit aussi
+// mains/poses.json, les poses que les planches appellent par leur id (les id de inventaire.md, agent 4).
 //
 // ═══ CE QUE LE MOTEUR APPELLE ══════════════════════════════════════════════════════════════════════════════
 //
 //   resoudre(pose, outils) → la pose complétée, ou null (la pose telle quelle)
-//     Appelé par moteur.js avant tout le reste, avec outils = { squelette, anatomie, formes, demiAxes,
-//     enrouler }. Une pose de poses.json qui porte "solveur" et "table" est relue au diamètre demandé (option
-//     diametre de mainSimple) : les angles et l'objet sont interpolés entre les diamètres de la table, en
-//     quelques microsecondes. Hors de la table (ou pour un âge, une inclinaison qui la font sortir), la prise
-//     est recalculée sur le squelette du moteur et gardée en cache. Les surcharges de l'appel (option doigts)
-//     sont respectées : un angle qui diffère de poses.json n'est pas touché.
+//     Appelé par moteur.js avant tout le reste (outils = { squelette, anatomie, formes, demiAxes, enrouler }).
+//     Une pose de poses.json qui porte "solveur" et une "table" de diamètres est relue au diamètre demandé
+//     (option diametre de mainSimple) : angles et objet interpolés, < 1 ms. Les tables des poses résolues pareil
+//     se mettent bout à bout (prise-manche 8–45 mm + prise-grosse 50–90 mm : une table de 8 à 90). L'âge passe
+//     par le diamètre équivalent (d / kW) et l'objet mis à l'échelle. Hors de toute table : la prise est résolue
+//     sur le squelette du moteur (1 à 3 s) et gardée en cache. Les angles passés par l'option doigts (ceux qui
+//     diffèrent de poses.json) sont gardés tels quels.
 //
 // ═══ LE SOLVEUR ════════════════════════════════════════════════════════════════════════════════════════════
 //
-// Les obstacles sont des fonctions de distance signée (sdf) dans le repère de la main (celui du moteur : x vers
-// les doigts, y vers l'auriculaire, z vers la paume, mm d'homme) : le cylindre (manche, corde, fil, bouteille),
-// le plan (la surface où la main se pose), la paume (les bosses du moteur), les autres doigts (capsules). Une
-// phalange touche quand la distance de son axe à l'obstacle égale sa demi-épaisseur DANS LA DIRECTION de
-// l'obstacle (les quatre demi-axes du moteur : radial, ulnaire, dorsal, palmaire).
+// Repère du moteur : x vers les doigts, y vers l'auriculaire, z vers la paume, mm d'homme. Les obstacles sont des
+// distances signées : le cylindre (manche, corde, fil, bouteille), le plan (la surface où la main se pose), la
+// paume (les bosses du moteur et leur enveloppe), les autres doigts (capsules). Une phalange touche quand la
+// distance de son axe à l'obstacle égale sa demi-épaisseur DANS LA DIRECTION de l'obstacle (les quatre demi-axes
+// du moteur). Les doigts sont calculés par la formule du moteur (couplages compris : l'écart qui s'efface avec la
+// MCP, l'arche de l'annulaire et de l'auriculaire), contrôlée contre lui à chaque chargement (preparer) ; si elle
+// diverge de plus de 0,05 mm, le solveur passe par squelette() lui-même. Même chose pour le pouce.
 //
-//   fermer        la main se referme articulation par articulation, de la base vers le bout : chacune plie
-//                 jusqu'à ce que SA phalange touche, ou jusqu'à sa butée. Si seul le bout de la phalange touche,
-//                 elle s'arrête là où la phalange prolongée tout droit touche : la suivante continue dans son
-//                 alignement et touche à son tour. Un doigt entoure ainsi un manche au lieu de le piquer.
-//   le pouce      on essaie des oppositions et des écarts (cmc), on referme mcp et ip, on garde celui qui fait le
-//                 plus grand tour de l'objet en finissant posé (sur l'objet, ou sur l'index et le majeur).
-//   la pince      l'index et le pouce sont cherchés ensemble : la pulpe du pouce à l'épaisseur de l'objet de
-//                 celle de l'index, les deux pulpes face à face, sans que rien ne s'interpénètre.
-//   le plat       chaque doigt plie au MCP jusqu'à poser sa pulpe sur le plan de la paume : la ligne de contact
-//                 est droite (contact.plan : le moteur peut y aplatir la silhouette).
-//
-// ═══ LES PRISES (PRISES, et les poses de poses.json qui les appellent) ════════════════════════════════════
-//
-//   entourer   { diametre, inclinaison (° : l'axe en biais dans la paume), decollement (mm : l'objet tenu loin
-//              de la paume, la main en C), pouce: 'enroule' | 'long' | 'libre' }
-//   poing · pointe { tendus: ['index'…], appui } · pincer { sorte: fine | pointe | ouverte | laterale, diametre }
-//   crochet { diametre, mcp } · coiffe { diametre } · plat { } · fixe (des angles donnés, rien à résoudre)
+//   fermer      la main se referme articulation par articulation, de la base vers le bout : chacune plie jusqu'à
+//               ce que SA phalange touche, ou jusqu'à sa butée (proportions.json) ; l'IPD suit l'IPP (0,67 × IPP
+//               ± 15°). Si seul le bout de la phalange touche, elle s'arrête là où la phalange prolongée tout droit
+//               touche. Un doigt entoure ainsi un manche au lieu de le piquer. ensemble : toutes les articulations
+//               ensemble jusqu'au premier contact (la main en C).
+//   entourer    la place du manche le long de la paume est CHERCHÉE (celle où le plus de phalanges touchent),
+//               l'axe en biais à 25° (de l'hypothénar vers la base de l'index). Le pouce : pouceManche (ses deux
+//               phalanges épousent le manche, sa pulpe se pose sur la face de l'index entre P2 et P3 : le
+//               marteau) ; s'il n'y arrive pas (gros objet), pouceEnFace (sa pulpe sur l'objet côté poignet,
+//               tournée vers les doigts : le C). Options pouce : 'long' (couché le long du manche), 'libre', 'face'.
+//   poing, pointe  le pouce longe le bord radial du doigt replié et pose sa pulpe sur sa P2 (pas de piquet).
+//   pincer      l'index et le pouce cherchés ensemble (grille grossière puis recherche par motifs) : les deux
+//               pulpes face à face, à l'épaisseur de l'objet, rien ne s'interpénètre. sortes : fine · pointe ·
+//               ouverte · laterale (le pouce contre le côté de l'index).
+//   crochet · coiffe · plat (chaque doigt plie au MCP jusqu'à poser sa pulpe sur le plan : la ligne de contact
+//               est droite ; contact.plan permet au moteur d'y aplatir la silhouette) · fixe (angles donnés).
+// Une table de diamètres se résout de proche en proche depuis le diamètre par défaut (le pouce part du voisin) :
+// pas de saut d'un diamètre à l'autre, l'interpolation reste une vraie main.
 //
 // ═══ LES COUCHES ══════════════════════════════════════════════════════════════════════════════════════════
 //
-// Le moteur décide lui-même, par la profondeur, ce qui passe devant l'objet. couches(pose, vue, outils) refait
-// ce calcul de façon indépendante (par phalange, sur les axes 3D) : il sert à vérifier le moteur, et à écrire
-// "devant" dans poses.json là où une vue est piégeuse. Règle de vérification qui ne doit jamais tomber : dans
-// une prise, l'objet n'est jamais derrière TOUTE la main dans une vue où des doigts l'entourent (vue paume :
-// les phalanges du milieu et du bout devant, la paume derrière ; vue dos : la main devant, l'objet sort des
-// deux côtés du poing).
+// Le moteur décide lui-même, par la profondeur, ce qui passe devant l'objet. couches(S, pose, vue) refait ce
+// calcul indépendamment (par phalange, sur les axes 3D) et controle(S, pose) vérifie, à l'écriture de poses.json,
+// la règle qui ne doit jamais tomber, dans les vues dont la pose a besoin : vue paume, l'objet n'est pas derrière
+// TOUTE la main (les P2 et P3 devant, la paume derrière) ; vue dos d'une prise, la paume devant l'objet. Les
+// fautes s'écrivent dans la pose ("fautes"). Accord vérifié avec le .devant du moteur sur prise-manche.
 //
 // ═══ DEUX MAINS ═══════════════════════════════════════════════════════════════════════════════════════════
 //
-//   deuxMains(mainSimple, { manche: { x0, y0, x1, y1, r }, mains: [{ t, vue, cote, pose, … }, …], objet })
-//     deux mains sur un même manche : chacune posée à sa fraction t du manche, l'axe de sa prise sur l'axe du
-//     manche ; l'objet peint une fois, entre les pièces de derrière et celles de devant des deux mains.
-//   mainSurMain(mainSimple, { x, y, angle, echelle, cote, croise, decalage }) : deux mains à plat l'une sur
-//     l'autre, vues du dessus ; celle du dessous en gris (loin), celle du dessus devant.
+//   deuxMains(mainSimple, { manche: { x0, y0, x1, y1, r }, mains: [{ t, vue, cote, pose, diametre, sens, … }],
+//             objet, echelle })
+//     chaque main posée à la fraction t du manche, l'axe de sa prise sur l'axe du manche ; peint avec les couches
+//     du moteur : les deux mains, les deux masques, le manche UNE fois, les deux devants.
+//   mainSurMain(mainSimple, { x, y, angle, echelle, cote, croise, decalage })
+//     deux mains à plat l'une sur l'autre, vues du dessus : celle du dessous en gris (loin), celle du dessus
+//     tournée de croise (défaut 24°) et avancée de decalage (mm).
 //
-// Ligne de commande : node prises.js --ecrire  (recalcule mains/poses.json sur le squelette du moteur)
-//                     node prises.js --voir id (la pose résolue, en JSON)
+// ═══ LES POSES (CATALOGUE → poses.json) ═══════════════════════════════════════════════════════════════════
+//
+//   prise-manche (table 8–45) · prise-grosse (50–90) · prise-corde (3–14) · prise-pouce-dos (18–36) · coupe-c
+//   (60–110) · pince-fine · pince-pointe · pince-ouverte (15–70) · pince-laterale · poing · pointe · appui-index ·
+//   deux-doigts · deux-doigts-v · crochet (8–28) · coiffe (18–34) · plat · porte · ouverte · relachee · coupe ·
+//   main-sur-main. Chaque pose porte "vues" : { bonnes, aEviter } (inventaire.md).
+//
+// Ligne de commande : node prises.js --ecrire [id…]   recalcule poses.json sur le squelette du moteur (≈ 1 min) ;
+//                     à refaire après tout changement d'anatomie de moteur.js
+//                     node prises.js --voir id         la pose résolue, en JSON
 
 'use strict';
 
@@ -1068,6 +1081,22 @@ function interpoler(table, d) {
   return { diametre: d, doigts, objet: { centre: A.objet.centre.map((v, j) => mix(v, B.objet.centre[j])), axe: U3(A.objet.axe.map((v, j) => mix(v, B.objet.axe[j]))) } };
 }
 
+// les tables de toutes les poses résolues pareil (même prise, mêmes options hors diamètre), mises bout à bout :
+// prise-manche (8 à 45 mm) et prise-grosse (50 à 90 mm) font une seule table de 8 à 90
+const CACHE_TABLES = new Map();
+function tableCommune(pose, base) {
+  const pj = posesJSON();
+  if (!pj || !pose.solveur) return null;
+  const sans = so => JSON.stringify(Object.keys(so).filter(k => k !== 'diametre' && k !== 'prec').sort().map(k => [k, so[k]]));
+  const cle = sans(pose.solveur) + ':' + (CACHE_POSES && CACHE_POSES.t);
+  if (CACHE_TABLES.has(cle)) return CACHE_TABLES.get(cle);
+  const lignes = [];
+  for (const p of pj.poses || []) if (p.table && p.solveur && sans(p.solveur) === sans(pose.solveur)) lignes.push(...p.table);
+  const vus = new Set(), T = lignes.sort((a, b) => a.diametre - b.diametre).filter(l => !vus.has(l.diametre) && vus.add(l.diametre));
+  const res = T.length > 1 ? T : null;
+  CACHE_TABLES.set(cle, res);
+  return res;
+}
 // l'appel du moteur (voir l'en-tête)
 function resoudre(pose, outils) {
   if (!pose || !pose.solveur || !pose.objet || pose.solveur.prise === 'fixe') return null;
@@ -1084,7 +1113,7 @@ function resoudre(pose, outils) {
     if (base.doigts[k] && base.doigts[k][j] !== pose.doigts[k][j]) (surcharges[k] = surcharges[k] || {})[j] = pose.doigts[k][j];
   const dEq = d / age.kW;                                              // le diamètre vu par une main d'homme
   let r = null;
-  const table = (base && base.table) || pose.table;
+  const table = tableCommune(pose, base) || (base && base.table) || pose.table;
   if (table && table.length > 1) {
     const T = table.slice().sort((a, b) => a.diametre - b.diametre);
     if (dEq >= T[0].diametre - 2 && dEq <= T[T.length - 1].diametre + 2) {

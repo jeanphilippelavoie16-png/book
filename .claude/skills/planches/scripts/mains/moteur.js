@@ -1259,11 +1259,12 @@ function dessiner(o, prep = null) {
   for (const G of groupes.values()) {
     if (G.base) continue;
     let gris = loinImp.includes(G.nom) || G.ids.some(i => loinImp.includes(pieces[i].id));
-    // derrière l'objet : aucune de ses phalanges ne passe devant, et il s'y cache
+    // derrière l'objet : à partir de la première phalange qui passe derrière lui, jusqu'au bout, si aucune ne
+    // revient devant (le doigt qui fait le tour d'un manche reste blanc ; le crochet a le bout gris)
     if (!gris && ob && ob.region.length) {
-      let derr = 0, devant = false;
-      for (const i of G.ids) { const P = pieces[i]; if (devantObjet.has(i)) devant = true; else if (P.surObjet) derr += P.partObjet * Math.abs(aireCL(P.region)); }
-      if (!devant && derr > 0.2 * G.aire) gris = true;
+      const ids = G.ids.slice().sort((a, b) => pieces[a].rang - pieces[b].rang);
+      const k0 = ids.findIndex(i => pieces[i].surObjet && !devantObjet.has(i) && pieces[i].partObjet > 0.15);
+      if (k0 >= 0 && !ids.slice(k0).some(i => devantObjet.has(i))) for (const i of ids.slice(k0)) pieces[i].gris = true;
     }
     // caché pour plus de moitié par les doigts devant lui
     let devantLui = [];
@@ -1289,12 +1290,13 @@ function dessiner(o, prep = null) {
     const blancs = pieces.filter(P => !P.gris).map(P => P.region);
     const devantTout = blancs.length ? unionCL(blancs) : [];
     for (const G of groupes.values()) {
-      if (G.base || !pieces[G.ids[0]].gris || o.loin) continue;
-      const vis = moins(G.region, devantTout), jette = [];
+      const gr = G.ids.filter(i => pieces[i].gris);
+      if (G.base || !gr.length || o.loin) continue;
+      const vis = moins(unionCL(gr.map(i => pieces[i].region)), devantTout), jette = [];
       for (const cp of composantes(vis)) if (Math.abs(aireCL(cp)) < 25 || !ouvre(cp, 2.0).length) jette.push(...cp);
       if (!jette.length) continue;
       const J = decale(jette, 0.2);
-      for (const i of G.ids) { pieces[i].region = moins(pieces[i].region, J); pieces[i].boite = boiteCL(pieces[i].region); }
+      for (const i of gr) { pieces[i].region = moins(pieces[i].region, J); pieces[i].boite = boiteCL(pieces[i].region); }
       G.region = unionCL(G.ids.map(i => pieces[i].region)); G.boite = boiteCL(G.region);
     }
   }
