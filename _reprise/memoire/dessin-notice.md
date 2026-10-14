@@ -89,3 +89,8 @@ JP ensuite : « c'est bien mais pas encore parfait, les formes que tu as pas de 
   profil en gros plan (calque Fuertes pl. 12, fonction `canard` de `_animaux.js`), la branche loin de la fourche en
   gris et en tireté. Les petites retouches (83-10, 45-01a, 80-40, 12-05a, 89-03) sont validées ; 24-08 garde son blanc
   (aucune vue à ajouter). Plus rien dans `a-valider/`.
+- **14 octobre, les couvertures : « la main est bizarre, celle qui tient l'arc pour le feu, prends d'autres images pour
+  les tomes », et nos photos et notre texte sur le dos.** Les six quatrièmes changent de dessin (sans main ni corps, un
+  objet ou une construction du tome) et reçoivent un bloc « Les auteurs » : la photo de JP (`images/auteurs/jp.jpg`),
+  l'étincelle de Claude (`images/auteurs/claude.svg`) et deux textes courts. Pas de page des auteurs dans le livre : les
+  comptes de pages ne bougent pas (le tome 5 reste à 438). Pilote sur le tome 1 d'abord, montré à JP.
