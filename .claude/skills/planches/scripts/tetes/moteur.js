@@ -254,7 +254,12 @@ function contourTete(D, o) {
   const pts = [];
   pts.push(...V.front, V.nasion, ...V.nez, ...V.bout, V.sous, V.levreH);
   const levres = {};
-  if (bouche === 'fermee') {
+  // petite tête (o._petit), bouche fermée : les deux lèvres et le creux sous la lèvre font, à 40 de haut, trois
+  // dents de scie ; une seule courbe va de la lèvre du haut au menton
+  const simple = bouche === 'fermee' && o._petit;
+  if (simple) {
+    pts.push(lerp(V.stomion, V.levreB, 0.5));
+  } else if (bouche === 'fermee') {
     pts.push(V.stomion, V.levreB);
   } else if (bouche === 'ouverte') {
     // les lèvres s'écartent et s'arrondissent ; entre elles, le creux de la bouche, qui rentre jusqu'aux
@@ -275,7 +280,8 @@ function contourTete(D, o) {
     pts.push(add(h0, [-dedans, 0.3]), add(b0, [-dedans, -0.3]), lb);
     levres.haut = h0; levres.bas = b0;
   }
-  pts.push(J(V.sillon), ...V.menton.map((p, i) => J(p, 1 - 0.25 * i / Math.max(1, V.menton.length - 1))));
+  if (!simple) pts.push(J(V.sillon));
+  pts.push(...V.menton.map((p, i) => J(p, 1 - 0.25 * i / Math.max(1, V.menton.length - 1))));
   pts.push(...D.gorge.map((p, i) => J(p, 0.35 - 0.3 * i)));
   // le crâne est donné du front vers la nuque : on le parcourt de la nuque vers le front
   pts.push(...D.crane.slice().reverse());
@@ -336,15 +342,15 @@ function pieces(ageDemande, o = {}) {
   const age = ALIAS[ageDemande] || 'homme';
   const D = TETES[age] || TETES.homme;
   const { k, kT } = echelleAge(age);
-  const c = contourTete(D, Object.assign({}, o, { k }));
+  // petite (moins de 45 de haut dans la vue) : ni sourcil, ni commissure, ni limite des cheveux ; l'œil,
+  // l'oreille et la silhouette suffisent, et la bouche fermée n'est plus qu'une courbe
+  const petit = o._echelle ? 234 * k * o._echelle < 45 : false;
+  const c = contourTete(D, Object.assign({}, o, { k, _petit: petit }));
   const K = p => mul(p, k);
   const C = lisseFerme(c.pts, 8);
   const contour = C.map(K);
   const details = [], pleins = [];
   const R = D.rep;
-  // petite (moins de 45 de haut dans la vue) : ni sourcil, ni commissure, ni limite des cheveux ; l'œil,
-  // l'oreille et la silhouette suffisent
-  const petit = o._echelle ? 234 * k * o._echelle < 45 : false;
   // l'œil : un petit trait (fermé) ou une amande ouverte vers l'avant
   const E = R.oeil, ke = R.kOeil || 1, e = v => add(E, mul(v, ke));
   if ((o.yeux || 'ouverts') === 'fermes') {

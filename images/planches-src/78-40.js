@@ -14,6 +14,22 @@ module.exports = (h) => {
   const sans = nom => A.hachure(nom, 'aucun');
   const d = (pts, ferme) => pts.map((p, i) => `${i ? 'L' : 'M'}${f(p[0])} ${f(p[1])}`).join(' ') + (ferme ? ' Z' : '');
   const rot = (p, deg) => { const c = Math.cos(deg * PI / 180), s = Math.sin(deg * PI / 180); return [p[0] * c - p[1] * s, p[0] * s + p[1] * c]; };
+  // ─── mains simples : la boîte d'une vue, et l'angle qui met l'axe de la prise sur `axe` (degrés à l'écran)
+  // avec l'avant-bras du côté de `vers`
+  const BORD = z => ({ x0: 0, y0: 0, x1: z.l, y1: z.h });
+  const poser = (o, axe, vers) => {
+    const base = Object.assign({}, o, { angle: 0, avantbras: { longueur: 100 } });
+    delete base.objet;
+    const e0 = h.formes.mainSimple(base);
+    let best = null;
+    for (const k of [0, 180]) {
+      const a = axe - e0.prise.angle + k, e = h.formes.mainSimple(Object.assign({}, base, { angle: a }));
+      const d = [e.coude[0] - e.poignet[0], e.coude[1] - e.poignet[1]], w = [vers[0] - e.poignet[0], vers[1] - e.poignet[1]];
+      const c = (d[0] * w[0] + d[1] * w[1]) / ((Math.hypot(d[0], d[1]) * Math.hypot(w[0], w[1])) || 1);
+      if (!best || c > best.c) best = { a, c };
+    }
+    return best.a;
+  };
   const bez = (a, b, c, n = 16) => Array.from({ length: n + 1 }, (_, i) => {
     const t = i / n, m = 1 - t;
     return [m * m * a[0] + 2 * m * t * b[0] + t * t * c[0], m * m * a[1] + 2 * m * t * b[1] + t * t * c[1]];
@@ -120,7 +136,7 @@ module.exports = (h) => {
     const manche = t => [52 + dirM[0] * t, -9 + dirM[1] * t];
     const dirE = rot(dirM, TILT);
     const angle = Math.atan2(dirE[0], -dirE[1]) * 180 / PI;
-    return { s, R, Tl, manche, prise: Tl(manche(PRISE_T)), angle };
+    return { s, R, Tl, manche, prise: Tl(manche(PRISE_T)), angle, axeE: Math.atan2(dirE[1], dirE[0]) * 180 / PI };
   };
 
   const vueRemplir = z => {
@@ -173,11 +189,15 @@ module.exports = (h) => {
     const ed = bm.dr[bm.dr.length - 1];
     const retour = bm.dr.slice().reverse().slice(1).map(p => `L${f(p[0])} ${f(p[1])}`).join(' ');
     const manche = h.path(`${d(bm.g)} A${f(5 * s)} ${f(5 * s)} 0 0 1 ${f(ed[0])} ${f(ed[1])} ${retour} Z`, blanc(A.arete));
-    // modèle s11 (poing fermé, vu de la paume) en miroir : l'avant-bras part à droite, le pouce en bas
-    // du côté du bol ; le manche, peint d'abord, passe dans le poing
-    out.push(manche);
-    out.push(h.formes.modele('s11', { x: g.prise[0], y: g.prise[1], ancre: [68, 42], angle: g.angle - 90, miroir: true, echelle: 0.75 * s, masquer: [[0, 150, 140, 175]],
-      bras: { a: [21.8, 150], a0: [20.8, 135], b: [76.3, 150], b0: [76.2, 135], vers: [1, -0.35], bord: z } }));
+    // la main gauche (mains simples), côté paume : le pouce en bas, du côté du bol ; le manche (9 mm à la
+    // prise) entre d'un côté du poing et ressort de l'autre ; l'avant-bras part à droite et sort du cadre
+    { const vers = [g.prise[0] + 400, g.prise[1] - 140];
+      const faire = cote => { const o = { x: g.prise[0], y: g.prise[1], pose: 'prise-manche', vue: 'paume', cote, echelle: s, diametre: 9 };
+        return h.formes.mainSimple({ ...o, angle: poser(o, g.axeE, vers), avantbras: { vers, bord: BORD(z), longueur: 'bord' } }); };
+      const vb = [-Math.cos(g.axeE * PI / 180), -Math.sin(g.axeE * PI / 180)];   // vers le bol
+      let m = faire('gauche');
+      if ((m.pouce[0] - g.prise[0]) * vb[0] + (m.pouce[1] - g.prise[1]) * vb[1] < 0) m = faire('droite');
+      out.push(m.couches.main, m.couches.masque, manche, m.couches.devant); }
     return out.join('\n');
   };
 
@@ -217,13 +237,16 @@ module.exports = (h) => {
     out.push(p.verre);
     // le haut de la spatule, que la main tient
     const haut = [h.path(d([P(sx0, 140), P(sx0, 262), P(sx1, 262), P(sx1, 140)], true), A.blanc), h.path(d([P(sx0, 140), P(sx0, 262), P(sx1, 262), P(sx1, 140)]), A.arete), fil(144, 256)].join(' ');
-    // modèle s11 tourné d'un quart : l'avant-bras part à gauche, le pouce en bas vers le pot ; le haut
-    // de la spatule, peint d'abord, passe dans le poing
-    out.push(haut);
-    out.push(h.formes.modele('s11', { x: P(SPX, 215)[0], y: P(SPX, 215)[1], ancre: [68, 42], angle: 90, echelle: 0.75 * s, masquer: [[0, 150, 140, 175]],
-      bras: { a: [21.8, 150], a0: [20.8, 135], b: [76.3, 150], b0: [76.2, 135], vers: [-1, 0.35], bord: z } }));
+    // la main droite (mains simples), côté paume : le haut de la spatule (13 mm) debout dans le poing, le pouce
+    // en bas vers le pot ; l'avant-bras part à gauche et sort du cadre
+    { const C = P(SPX, 215), vers = [C[0] - 400, C[1] + 140];
+      const faire = cote => { const o = { x: C[0], y: C[1], pose: 'prise-manche', vue: 'paume', cote, echelle: s, diametre: SPL };
+        return h.formes.mainSimple({ ...o, angle: poser(o, 90, vers), avantbras: { vers, bord: BORD(z), longueur: 'bord' } }); };
+      let m = faire('droite');
+      if (m.pouce[1] < C[1]) m = faire('gauche');
+      out.push(m.couches.main, m.couches.masque, haut, m.couches.devant); }
     // le geste : la spatule descend le long de la paroi
-    out.push(h.fleche(`M${f(P(52, 118)[0])} ${f(P(52, 118)[1])} L${f(P(52, 40)[0])} ${f(P(52, 40)[1])}`, A.arete));
+    out.push(h.geste(`M${f(P(52, 118)[0])} ${f(P(52, 118)[1])} L${f(P(52, 40)[0])} ${f(P(52, 40)[1])}`));
     return out.join('\n');
   };
 

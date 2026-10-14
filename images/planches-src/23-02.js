@@ -1,4 +1,7 @@
 // Planche 23-02 — retourner et gratter un boyau (chapitre 42, section 4).
+// 14 octobre : les deux mains passent aux mains simples (pince-fine de côté pour vider, prise-manche vue de la
+// paume pour gratter) ; la charte : les gestes (glisser, pousser le bâton, racler) en rouge, la face de côté de la
+// planche à l'ombre.
 module.exports = (h) => {
   // ── outils de géométrie ──────────────────────────────────────────────────────────────
   const f = n => (+n).toFixed(1);
@@ -108,7 +111,8 @@ module.exports = (h) => {
     fil,
     h.path('M 15 172 L 135 172 L 135 188 L 15 188 Z', plein(h.a.arete)),
     h.path('M 32 188 Q 75 168 118 188 M 46 188 Q 75 175 104 188 M 60 188 Q 75 181 90 188', h.a.detail),
-    h.path('M 135 172 L 330 62 L 330 78 L 135 188 Z', plein(h.a.arete)),
+    h.path('M 135 172 L 330 62 L 330 78 L 135 188 Z', h.a.ombre),          // la face de côté, à l'ombre (la charte)
+    h.path('M 135 172 L 330 62 L 330 78 L 135 188 Z', h.a.arete),
     h.path('M 140 180 L 326 75', h.a.detail),
     h.path('M 15 188 L 15 172 L 210 62 L 330 62 L 330 78 L 135 188 Z', h.a.contour),
   ].join('\n');
@@ -190,7 +194,7 @@ module.exports = (h) => {
           h.path(D(pliHaut), h.a.contour),
           h.path(D(pliBas), h.a.contour),
           h.path(D(arc(xB, y0, 12.8, -55, 55, 12)), h.a.detail),
-          h.fleche(`M 22 ${y0 - 33} L 82 ${y0 - 33}`),
+          h.geste(`M 22 ${y0 - 33} L 82 ${y0 - 33}`),                       // le geste : pousser le bâton
           h.fleche(`M 300 ${y0 - 49} L 205 ${y0 - 49}`),
         ].join('\n'),
         renvois: z => [

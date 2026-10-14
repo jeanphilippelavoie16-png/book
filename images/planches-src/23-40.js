@@ -2,6 +2,8 @@
 // neige, à demi couverts (chapitre 23, section 8 « Le bouillon, et son refroidissement » ;
 // section 9 « Le froid dehors est le réfrigérateur » ; tableau du matériel, ligne des
 // contenants larges et peu profonds).
+// 14 octobre : les deux mains passent aux mains simples (prise-manche vue de la paume sur la louche ; plat de côté
+// qui tasse la neige) ; la charte : le geste de tasser en rouge.
 //
 // Le chapitre ne donne aucune mesure de contenant ni de trou : aucune cote. Les proportions
 // suivent ce qu'il dit : un chaudron profond contre des plats larges et bas, un trou « gros
@@ -124,12 +126,14 @@ module.exports = (h) => {
       ].join('\n');
       // la main tient le manche vers son bout
       const pm = [c1[0] + u[0] * Lm * 0.64, c1[1] + u[1] * Lm * 0.64];
-      // modèle s11 (poing fermé) en miroir, le manche dans le poing (bâton du modèle ≈ 25 px, plus
-      // gros que le manche : il passe derrière les doigts), le pouce vers le bol ; l'avant-bras monte
-      // à droite et sort du cadre
-      out.push(louche);
-      out.push(F.modele('s11', { x: pm[0], y: pm[1], ancre: [68, 42], angle: Math.atan2(u[1], u[0]) * 180 / Math.PI, miroir: true, echelle: 0.45,
-        masquer: [[0, 150, 140, 175]], bras: { a: [21.8, 150], a0: [20.8, 135], b: [76.3, 150], b0: [76.2, 135], bord: z } }));
+      // la main gauche en poing sur le manche (mains simples, prise-manche, vue de la paume), le pouce vers le
+      // bol, le manche (7 de large : 17,5 mm) qui entre d'un côté du poing et ressort de l'autre ; l'avant-bras
+      // monte à droite et sort du cadre. L'axe du moteur (du pouce vers l'auriculaire) suit le manche, vers son bout.
+      {
+        const o = { pose: 'prise-manche', vue: 'paume', cote: 'gauche', diametre: wm / e1, echelle: e1, x: pm[0], y: pm[1] };
+        const a = Math.atan2(u[1], u[0]) * 180 / Math.PI - F.mainSimple({ ...o, angle: 0, avantbras: false }).prise.angle;
+        out.push(F.mainSimple({ ...o, angle: a, objet: louche, avantbras: { bord: { x0: 0, y0: 0, x1: z.l, y1: z.h }, longueur: 'bord' } }).svg);
+      }
 
       // le filet de bouillon, de la lèvre au plat
       const yS = plat.gL[1];
@@ -208,14 +212,12 @@ module.exports = (h) => {
       out.push(couvercle(moule.TL[0] - 6, moule.cx, ys));
       // la main qui tasse la neige entre le moule et le bord du trou
       const xg = moule.TR[0] + (g.cx + mm(310) - moule.TR[0]) / 2;
-      // modèle s10-plat (la main à plat, construite sur s10) retourné et en miroir : paume en bas, les
-      // doigts vers la gauche, le pouce dessous ; penché de 10,7° pour que le bout des doigts et le
-      // pouce portent sur la neige, le talon levé ; l'avant-bras remonte à droite
-      { const SP = 0.89 * E;                               // 190 mm du poignet au bout du majeur = 214 px
-        out.push(F.modele('s10-plat', { x: xg + 8, y: ys - 1, ancre: [14, 47], angle: 180 - 10.7, miroir: true, echelle: SP,
-          masquer: [[228, 0, 245, 125]],
-          bras: { a: [228, 57.6], a0: [210, 58.4], b: [228, 110.8], b0: [210, 108.8], vers: [Math.cos(-55 * Math.PI / 180), Math.sin(-55 * Math.PI / 180)], long: 40, bord: z } })); }
-      out.push(h.fleche(`M ${f(xg + 30)} ${f(ys - 46)} L ${f(xg + 30)} ${f(ys - 24)}`, h.a.arete));
+      // la main droite à plat (mains simples, plat, vue du côté du pouce, penchée de 25° pour qu'on voie les
+      // doigts), paume en bas, les doigts vers la gauche ; inclinée de 10,7° pour que le bout des doigts porte
+      // sur la neige, le talon levé ; l'avant-bras remonte à droite jusqu'au bord
+      out.push(F.mainSimple({ pose: 'plat', vue: 'pouce', cote: 'droite', angle: 180 - 10.7, rotation: [-25, 0, 0], echelle: E, ancre: 'bout',
+        x: xg - 2, y: ys - 3, avantbras: { bord: { x0: 0, y0: 0, x1: z.l, y1: z.h }, longueur: 'bord' } }).svg);
+      out.push(h.geste(`M ${f(xg + 30)} ${f(ys - 74)} L ${f(xg + 30)} ${f(ys - 42)}`));      // le geste : tasser, sur le dos de la main
       // tasser aussi dans les deux autres joints
       const xa = (g.cx - mm(310) + plat.TL[0]) / 2, xb = (plat.TR[0] + moule.TL[0]) / 2;
       for (const x of [xa, xb]) out.push(h.fleche(`M ${f(x)} ${f(ys - 30)} L ${f(x)} ${f(ys - 6)}`, h.a.arete));

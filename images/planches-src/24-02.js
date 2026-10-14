@@ -1,5 +1,7 @@
 'use strict';
 // Planche 24-02 — Fendre sur le billot. Chapitre 24, étape 11.
+// 14 octobre : la main du coup de paume passe aux mains simples (plat, vue du côté du pouce) ; la flèche du coup
+// de paume est le geste, en rouge.
 //
 // Tout ce qui est dessiné vient de l'étape 11 : la bûche debout sur un billot, les pieds écartés
 // (les jambes hors de la trajectoire), le premier coup dans une fente de séchage déjà ouverte, le
@@ -279,7 +281,7 @@ module.exports = (h) => {
   const LEVE = 100;                            // la main, avant le coup
   const vueCoince = (apres) => z => {
     const { s, P } = cadre(z, ...BOITE_COINCE);
-    const bu = rondin(P, s, 0, 0, 110, BUCHE.r, { ep: 2.4, coupe: true, ombre: false });   // gros plan de main : laissé tel quel (bibliothèque de mains à venir)
+    const bu = rondin(P, s, 0, 0, 110, BUCHE.r, { ep: 2.4, coupe: true, ombre: false });
     const out = [bu.fond];
     const u = tourne([1, 0], apres ? BASCULE : 0), v = tourne([0, 1], apres ? BASCULE : 0);
     const K0 = apres ? plus(PIVOT, tourne(moins(K_COINCE, PIVOT), BASCULE)) : K_COINCE;
@@ -290,15 +292,16 @@ module.exports = (h) => {
     const surf = ptHache(K0, u, v, DEC + 55, -23);
     const lev = apres ? 0 : LEVE;
     const pm = plus(surf, fois(v, -lev));
-    // modèle s10-plat (la main à plat de côté) retourné : paume en bas, pouce dessous, doigts vers le
-    // fer ; la ligne du bout des doigts au pouce posée sur le manche ; l'avant-bras remonte à gauche
-    { const q = P(...pm), b = (apres ? BASCULE : 0) * RAD;
-      out.push(F.modele('s10-plat', { x: q[0], y: q[1], ancre: [90, 33], angle: 180 + 14 + (apres ? BASCULE : 0), echelle: 1.2 * s,
-        masquer: [[228, 0, 245, 125]],
-        bras: { a: [228, 57.6], a0: [210, 58.4], b: [228, 110.8], b0: [210, 108.8], vers: [-Math.cos(50 * RAD - b), -Math.sin(50 * RAD - b)], bord: z } })); }
+    // la main gauche à plat (mains simples, plat, vue du côté du pouce), paume en bas, les doigts vers le fer :
+    // le creux de la paume sur le bout du manche (la paume est à 24,5 mm sous l'axe de la main, poses.json) ;
+    // l'avant-bras remonte à gauche jusqu'au bord
+    // (penchée de 25° vers l'œil pour que les doigts se lisent ; la paume, vue ainsi, tombe à 26 mm sous l'axe)
+    { const w = P(...plus(pm, plus(fois(u, -62), fois(v, -26))));
+      out.push(F.mainSimple({ pose: 'plat', vue: 'pouce', cote: 'gauche', angle: Math.atan2(u[1], u[0]) / RAD, rotation: [-25, 0, 0],
+        echelle: s, ancre: 'poignet', x: w[0], y: w[1], avantbras: { vers: P(...plus(pm, [-400, -300])), bord: { x0: 0, y0: 0, x1: z.l, y1: z.h }, longueur: 'bord' } }).svg); }
     if (!apres) {
       const f0 = ptHache(K0, u, v, DEC + 100, -23 - lev + 22), f1_ = ptHache(K0, u, v, DEC + 100, -23 - 8);
-      out.push(h.fleche(`M${XY(P(...f0))} L${XY(P(...f1_))}`, A.arete));
+      out.push(h.geste(`M${XY(P(...f0))} L${XY(P(...f1_))}`));            // le geste : frapper de la paume
     } else {
       // le fer bascule sur son talon et sort du bois
       const a = [];

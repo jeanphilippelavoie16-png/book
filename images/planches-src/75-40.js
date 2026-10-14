@@ -16,6 +16,22 @@ module.exports = (h) => {
   const lerp = (a, b, t) => [a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t];
   const dir = deg => [Math.cos(deg * Math.PI / 180), Math.sin(deg * Math.PI / 180)];
 
+  // ─── mains simples : la boîte d'une vue, et l'angle qui met l'axe de la prise sur `axe` (degrés à l'écran)
+  // avec l'avant-bras du côté de `vers`
+  const BORD = z => ({ x0: 0, y0: 0, x1: z.l, y1: z.h });
+  const poser = (o, axe, vers) => {
+    const base = Object.assign({}, o, { angle: 0, avantbras: { longueur: 100 } });
+    delete base.objet;
+    const e0 = F.mainSimple(base);
+    let best = null;
+    for (const k of [0, 180]) {
+      const a = axe - e0.prise.angle + k, e = F.mainSimple(Object.assign({}, base, { angle: a }));
+      const d = [e.coude[0] - e.poignet[0], e.coude[1] - e.poignet[1]], w = [vers[0] - e.poignet[0], vers[1] - e.poignet[1]];
+      const c = (d[0] * w[0] + d[1] * w[1]) / ((Math.hypot(d[0], d[1]) * Math.hypot(w[0], w[1])) || 1);
+      if (!best || c > best.c) best = { a, c };
+    }
+    return best.a;
+  };
   // Catmull-Rom : la courbe passe par chaque point
   const lisse = (pts, ferme = false) => {
     const n = pts.length, get = i => ferme ? pts[(i + n) % n] : pts[Math.max(0, Math.min(n - 1, i))];
@@ -172,6 +188,8 @@ module.exports = (h) => {
     const c = couteau(g.pointe, 172, e, { dos: 1 });
     out.push(h.path(`M${f(c.K(0.02 * c.lb, 0))} L${f(c.K(c.lb, 0))}`, `fill="none" stroke="#FFFFFF" stroke-width="${r1(c.hb + 7)}" stroke-linecap="round"`));
     out.push(c.lame, c.mitre, c.manche);
+    // le point à frapper pour assommer : le dessus du crâne, derrière l'œil
+    { const crane = P(0.098, dos(0.098) + 0.012); out.push(h.controle(crane[0], crane[1], 9)); }
     return out.join('\n');
   };
 
@@ -206,11 +224,14 @@ module.exports = (h) => {
     out.push(c.mitre);
     const grip = c.s0 + 0.5 * c.lm;
     const cen = c.K(grip, 0);
-    // le manche, puis la main paume en haut : modèle s11 (poing fermé, vu de la paume), le manche
-    // couché dans le poing, le pouce du côté de la lame ; l'avant-bras descend et sort du cadre
-    out.push(c.manche);
-    out.push(F.modele('s11', { x: r1(cen[0]), y: r1(cen[1]), ancre: [68, 42], angle: -PENTE, echelle: 0.8 * e, masquer: [[0, 150, 140, 175]],
-      bras: { a: [21.8, 150], a0: [20.8, 135], b: [76.3, 150], b0: [76.2, 135], bord: z } }));
+    // la main droite paume en haut (mains simples, vue côté paume) : le manche (18 mm) couché dans le poing, le
+    // pouce du côté de la lame ; l'avant-bras descend et sort du cadre
+    const vers = [cen[0] + 20, z.h + 300], axe = Math.atan2(c.d[1], c.d[0]) * 180 / Math.PI;
+    const faire = cote => { const o = { x: r1(cen[0]), y: r1(cen[1]), pose: 'prise-manche', vue: 'paume', cote, echelle: e, diametre: 18 };
+      return F.mainSimple({ ...o, angle: poser(o, axe, vers), avantbras: { vers, bord: BORD(z), longueur: 'bord' } }); };
+    let mK = faire('droite');
+    if ((mK.pouce[0] - cen[0]) * -c.d[0] + (mK.pouce[1] - cen[1]) * -c.d[1] < 0) mK = faire('gauche');
+    out.push(mK.couches.main, mK.couches.masque, c.manche, mK.couches.devant);
     return out.join('\n');
   };
 
@@ -332,12 +353,12 @@ module.exports = (h) => {
       bra.push(h.path(lisse(Q(arc)), A.arete));
     });
     out.push(bra.join('\n'));
-    // la main qui tire vers l'arrière, et le sens
-    // modèle s09 (le pouce et l'index qui pincent, de côté) en miroir : la pince sur les branchies,
-    // l'avant-bras qui repart vers la gauche
-    out.push(F.modele('s09', { x: r1(g.pince[0]), y: r1(g.pince[1]), ancre: [12, 66], angle: 12, miroir: true, echelle: 0.85 * e, masquer: [[200, 0, 230, 125]],
-      bras: { a: [200, 64.1], a0: [185, 63.9], b: [200, 112.1], b0: [185, 108.4], long: 120 * e, fin: 'ouvert' } }));
-    out.push(h.fleche(`M${f(P(1.05, 0.085))} L${f(P(1.26, 0.085))}`, A.arete));
+    // la main gauche qui tire vers l'arrière (mains simples, pince fine de profil côté pouce) : les pulpes du pouce
+    // et de l'index serrent les branchies, les autres doigts au-dessus ; l'avant-bras repart vers la gauche
+    { const o = { x: r1(g.pince[0]), y: r1(g.pince[1]), ancre: 'bout', pose: 'pince-fine', vue: 'pouce', cote: 'gauche', echelle: e, diametre: 4, angle: 14,
+        avantbras: { vers: [-300, g.pince[1] - 60], bord: BORD(z), bras: { pli: 0 } } };
+      out.push(F.mainSimple(o).svg); }
+    out.push(h.geste(`M${f(P(1.05, -0.07))} L${f(P(1.26, -0.07))}`));
     return out.join('\n');
   };
 
@@ -359,7 +380,7 @@ module.exports = (h) => {
           const oper = P(...g.lev[Math.round(0.3 * (g.lev.length - 1))]);
           const arc = P(...g.arcs[2][Math.round(0.82 * (g.lev.length - 1))]);
           return [
-            { n: 1, rond: [crane[0] + 34, 14], cible: crane, texte: 'assommer : un coup sec ici' },
+            { n: 1, rond: [crane[0] + 34, 14], cible: [crane[0] + 5, crane[1] - 5], texte: 'assommer : un coup sec ici' },
             { n: 2, rond: [oper[0] - 44, 14], cible: add(oper, [2, 0]), texte: 'l’opercule soulevé' },
             { n: 3, rond: [Math.min(z.l - 14, g.xs + 40), z.h - 16], cible: arc, texte: 'les arcs coupés, puis l’autre côté' },
           ];
@@ -398,7 +419,7 @@ module.exports = (h) => {
           const rein = P(0.44, g.haut(0.44) + 0.008);
           return [
             { n: 9, rond: [isth[0] + 16, z.h - 14], cible: isth, texte: 'l’isthme coupé : les branchies suivent' },
-            { n: 10, rond: [P(1.16, 0)[0] - 26, 14], cible: P(1.16, 0.085), texte: 'tirer d’un bloc vers l’arrière' },
+            { n: 10, rond: [P(1.16, 0)[0] - 26, 14], cible: P(1.16, -0.07), texte: 'tirer d’un bloc vers l’arrière' },
             { n: 11, rond: [rein[0] - 20, 14], cible: rein, texte: 'le rein, à racler le long de l’arête' },
           ];
         },

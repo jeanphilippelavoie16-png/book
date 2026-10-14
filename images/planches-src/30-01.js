@@ -2,6 +2,8 @@
 // Échelle interne : 4,8 px/cm. Le bidon pend par une corde qui le traverse haut dans les
 // flancs (pivot) ; la poignée est à l'avant, près du goulot : tirée vers le bas, elle fait
 // basculer le goulot vers l'avant.
+// Mains simples (14 octobre) : la main sous le filet passe par mainSimple (porte, de profil côté pouce, penchée de 25°).
+// Rouge : le pied qui appuie (la bascule du bidon reste en noir : c'est la pièce qui bouge).
 module.exports = (h) => {
   const s = 4.8;
   const blanc = a => a.replace('fill="none"', h.a.blanc.split(' ')[0]);
@@ -54,10 +56,9 @@ module.exports = (h) => {
     out.push(h.path('M 191,105 Q 194.5,112 195.2,122 L 195.2,199', h.a.detail));
     out.push(h.path('M 193.2,104.2 Q 197,111.5 197.6,122 L 197.6,199.5', h.a.detail));
     // la main sous le filet : de profil, côté pouce, paume vers le haut en creux, l'avant-bras vers la personne
-    // modèle s10 (la main tendue, paume en l'air, vue de côté) : le filet tombe dans le creux de la
-    // paume, l'avant-bras vers la personne
-    out.push(String(h.formes.modele('s10', { x: 196.4, y: 199, ancre: [100, 47], angle: -6, echelle: 0.42, masquer: [[228, 0, 245, 125]],
-      bras: { a: [228, 57.6], a0: [210, 58.4], b: [228, 110.8], b0: [210, 108.8], bord: z, fin: 'ouvert' } })));
+    // (main simple, porte, un peu vue d'en haut : penchée de 25°) ; le filet tombe dans le creux de la paume
+    out.push(h.formes.mainSimple({ x: 196.4, y: 199, pose: 'porte', vue: 'pouce', cote: 'gauche', angle: 180, rotation: [-25, 0, 0], echelle: 0.48,
+      avantbras: { bord: { x0: 0, y0: 0, x1: z.l, y1: z.h }, bras: { pli: 0 } } }).svg);
     // la branche en bout, sous l'avant de la botte
     out.push(h.cercle(br[0], br[1], 9, h.a.hachure('bois')));
     // la botte
@@ -71,7 +72,7 @@ module.exports = (h) => {
     out.push(h.ligne(294, 526, z.l - 1, ry, h.a.arete));
     out.push(h.ligne(237, 510, 295, 526, h.a.arete));
     // mouvements : le pied appuie, le bidon bascule
-    out.push(h.fleche('M 205,492 L 205,540'));
+    out.push(h.geste('M 205,492 L 205,540'));   // la charte : le geste, le pied qui appuie, en rouge
     out.push(h.fleche(`M ${arc(112)} A 135 135 0 0 1 ${arc(148)}`));
     return out.join('\n');
   };

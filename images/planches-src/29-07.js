@@ -11,6 +11,8 @@
 // La main est entière et vient de la bibliothèque (h.formes.main, pose « boule » : le « C »,
 // le pouce dessus, les doigts dessous), l'avant-bras qui passe devant le torse. Elle reste à
 // la même place sur le sein d'une vue à l'autre : on ne glisse pas. Un geste : aucune cote.
+// Mains simples et charte (14 octobre) : la main en « C » passe par mainSimple (coupe-c de profil côté pouce, 82 mm ;
+// 66 mm quand on pince), l'avant-bras qui sort à gauche. Rouge : enfoncer, pincer, tourner.
 module.exports = (h) => {
   const A = h.a, F = h.formes, RAD = Math.PI / 180;
   const E = 0.92;                                 // unités de vue par mm
@@ -26,8 +28,10 @@ module.exports = (h) => {
       h.cercle(N[0], N[1], RA, A.arete), h.cercle(N[0], N[1], RM, blanc('arete'))].join('\n');
   }
   // la main de face : le « C » autour de l'aréole, le pouce dessus, l'index dessous, à 4 cm
-  const mainFace = (N, angle = 0) => F.main({ x: N[0], y: N[1], pose: 'boule', vue: 'profil',
-    diametre: 80 * E, echelle: E, bras: 28, serre: 0.7, angle });
+  // (main simple, coupe-c de profil côté pouce : le pouce d'un côté, les doigts de l'autre, l'avant-bras vers la gauche)
+  const mainC = (x, y, diametre, angle, z) => F.mainSimple({ x, y, pose: 'coupe-c', vue: 'pouce', cote: 'droite', echelle: E, diametre, angle,
+    avantbras: { vers: [x - 400 * Math.cos((angle - 60) * RAD), y - 400 * Math.sin((angle - 60) * RAD)], longueur: 'bord', bord: { x0: 0, y0: 0, x1: z.l, y1: z.h } } }).svg;
+  const mainFace = (N, z, angle = 0) => mainC(N[0], N[1], 82, 60 + angle, z);
 
   // ─── le sein de profil : la femme regarde à droite ─────────────────────────────────────
   // O : la paroi à hauteur du mamelon. Un dôme : la pente du dessus, l'arrondi du dessous qui
@@ -48,8 +52,7 @@ module.exports = (h) => {
   }
   // la main de profil : le même « C », le pouce sur le dessus du sein, l'index dessous
   const CP = [56, 2];
-  const mainProfil = (O, dx = 0) => F.main({ x: O[0] + (CP[0] + dx) * E, y: O[1] + CP[1] * E, pose: 'boule', vue: 'profil',
-    diametre: 82 * E, echelle: E, bras: 28, serre: 0.6 });
+  const mainProfil = (O, z, diametre = 82) => mainC(O[0] + CP[0] * E, O[1] + CP[1] * E, diametre, 60, z);
 
   function empreinte(C, rx, ry, rot, tiret) {
     const ov = (k) => { const pts = []; for (let t = 0; t < 360; t += 12) { const x = rx * k * Math.cos(t * RAD), y = ry * k * Math.sin(t * RAD); pts.push([C[0] + x * Math.cos(rot * RAD) - y * Math.sin(rot * RAD), C[1] + x * Math.sin(rot * RAD) + y * Math.cos(rot * RAD)]); } return pts; };
@@ -74,7 +77,7 @@ module.exports = (h) => {
     vues: {
       placer: {
         titre: '1. Placer',
-        dessin: z => { const N = faceN(z); return [seinFace(N), mainFace(N)].join('\n'); },
+        dessin: z => { const N = faceN(z); return [seinFace(N), mainFace(N, z)].join('\n'); },
         renvois: z => {
           const N = faceN(z);
           return [
@@ -88,9 +91,9 @@ module.exports = (h) => {
         dessin: z => {
           const O = O2(z), s = seinProfil(O, z.h);
           const ax = O[0] + 78, ay = O[1] - 74;
-          return [s.svg, mainProfil(O),
-            h.fleche(`M ${P([ax, ay])} L ${P([ax - 40, ay])}`, A.contour),
-            h.fleche(`M ${P([ax + 50, O[1] + 70])} L ${P([ax + 10, O[1] + 70])}`, A.contour),
+          return [s.svg, mainProfil(O, z),
+            h.geste(`M ${P([ax, ay])} L ${P([ax - 40, ay])}`),
+            h.geste(`M ${P([ax + 50, O[1] + 70])} L ${P([ax + 10, O[1] + 70])}`),
           ].join('\n');
         },
         renvois: z => {
@@ -111,9 +114,9 @@ module.exports = (h) => {
             `M ${P([b[0] + 1, b[1] + 2])} Q ${P([b[0] + 28, b[1] + 8])} ${P([b[0] + 36, by - 6])}`,
           ];
           const mx = O[0] + 28;
-          return [s.svg, mainProfil(O),
-            h.fleche(`M ${P([mx, O[1] - 100])} L ${P([mx, O[1] - 70])}`, A.contour),
-            h.fleche(`M ${P([mx + 50, O[1] + 100])} L ${P([mx + 50, O[1] + 70])}`, A.contour),
+          return [s.svg, mainProfil(O, z, 66),
+            h.geste(`M ${P([mx, O[1] - 100])} L ${P([mx, O[1] - 70])}`),
+            h.geste(`M ${P([mx + 50, O[1] + 100])} L ${P([mx + 50, O[1] + 70])}`),
             ...jets.map(d => h.path(d, A.cache)),
             goutte(b[0] + 8, b[1] + 26, 3.2), goutte(b[0] + 14, b[1] + 52, 3.2), goutte(b[0] + 18, by - 14, 3.2),
             h.path(lait, A.hachure('eau', 'aucun')), h.path(bol, A.contour),
@@ -137,10 +140,10 @@ module.exports = (h) => {
           const N = faceN(z);
           const out = [seinFace(N)];
           out.push(empreinte(pol(N, rP, -120), 10.5 * E, 8 * E, -30, false), empreinte(pol(N, rP, 50), 9.5 * E, 7 * E, -30, false));
-          out.push(mainFace(N, -45));
+          out.push(mainFace(N, z, -45));
           const ra = rP + 40 * E;
           const arc = (t0, t1) => `M ${P(pol(N, ra, t0))} A ${f(ra)} ${f(ra)} 0 0 1 ${P(pol(N, ra, t1))}`;
-          out.push(h.fleche(arc(-100, -62), A.contour));
+          out.push(h.geste(arc(-100, -62)));
           return out.join('\n');
         },
         renvois: z => {
