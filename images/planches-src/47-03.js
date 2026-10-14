@@ -11,8 +11,8 @@
 // Le canard de côté est calqué sur la cane colvert de Fuertes (pl. 12, Birds of New York, 1910 ;
 // images/photos/lot5/50-01c-canard-noir-colvert-fuertes-pl12.jpg : même silhouette que le canard
 // noir, qui n'y est montré qu'au repos), par _animaux.js (canard). Repère en mm, celui du canard,
-// la ligne d'eau à y = 0. La tête de face est vue de près : le bec par-dessus, sans yeux (ils sont
-// sur les côtés).
+// la ligne d'eau à y = 0. La tête est reprise de profil, de près (JP : mieux que de face), le même
+// calque à plus grande échelle ; la fourche enjambe le cou, la branche loin en tireté derrière.
 const A_ = require('./_animaux');
 
 module.exports = (h) => {
@@ -109,37 +109,34 @@ module.exports = (h) => {
     return out.join('\n');
   };
 
-  // ── De face : la tête posée dans la fourche, de près ─────────────────────────────────────
-  // Même repère en mm, x en travers. La tête de face : un oignon, la calotte étroite, les joues
-  // larges, qui se resserre dans le cou ; les yeux sont sur les côtés et ne se voient pas ; le bec
-  // pointe vers nous en descendant : on voit sa face du dessus, une spatule qui part du front et
-  // s'élargit jusqu'à l'onglet, devant la gorge. Le cou est plus étroit que les joues : les deux
-  // branches le serrent, la tête repose dessus par les joues.
+  // ── De profil, de près : la tête posée sur la fourche ───────────────────────────────────
+  // Le même canard calqué (_animaux.js, canard), plus grand, cadré sur la tête et le cou ; la nuque
+  // sort du cadre. Même repère en mm. La branche proche passe devant le cou, au trait plein ; la
+  // branche loin passe derrière : en gris loin là où elle se voit, en tireté sur le cou. De près,
+  // les deux branches sont un peu plus longues et plus écartées que dans la vue de côté, pour qu'on
+  // voie la fourche enjamber le cou.
+  const LOIN_PRES = [FK, [-22, 261], [-52, 285]];
+  const AXE_PRES = AXE.slice(0, 6).concat([[-28, 249], [-62, 266]]);
   const geoFace = z => {
-    const s = Math.min((z.l - 40) / 74, (z.h - 20) / 250);
-    return { s, P: (x, y) => [z.l / 2 + s * x, 16 + s * (368 - y)] };
+    const s = (z.l - 12) / 206;
+    const ox = 6 + 96 * s, oy = 40 + 358 * s;
+    return { s, P: (x, y) => [ox - s * x, oy - s * y] };
   };
   const dessinFace = z => {
     const { s, P } = geoFace(z), out = [];
-    const sym = l => l.concat(l.slice(1, -1).reverse().map(([x, y]) => [-x, y]));
-    // le poitrail, en gris derrière, d'où sort le cou
-    out.push(decoupe(0, 0, z.l, z.h, [h.ellipse(...P(0, 0), 115 * s, 150 * s, h.a.loin), h.ellipse(...P(0, 0), 115 * s, 150 * s, h.a.arete)]));
-    const cou = 17;
-    out.push(h.path(`M ${pt(P(-cou, 148))} L ${pt(P(-cou, 290))} L ${pt(P(cou, 290))} L ${pt(P(cou, 148))}`, blanc(h.a.contour)));
-    // le bâton, devant le poitrail, et ses deux branches qui serrent le cou : un seul contour
-    const rb = 5.5 * s, yF = 222;
-    const bras = [-1, 1].map(c => [P(0, yF - 6), P(c * (cou + 5.5), yF + 20), P(c * (cou + 5.5), 276)]);
-    const Y = A_._outils.unir([branche([P(0, 60), P(0, 150), P(0, yF)], [rb * 1.15, rb * 1.15, rb * 1.1]),
-      ...bras.map(ax => branche(ax, [rb, rb * 0.95, rb * 0.85]))]);
+    const [ox, oy] = P(0, 0);
+    const r = 8 * s;
+    // la branche loin, derrière le cou : gris loin, puis le canard par-dessus
+    const loin = branche(LOIN_PRES.map(q => P(...q)), [r * 0.95, r * 0.75, r * 0.6]);
+    out.push(h.chemin(loin, sansBord(h.a.loin), true), h.chemin(loin, h.a.arete, true));
+    out.push(A_.canard(h, { x: ox, y: oy, echelle: s, cote: 'gauche' }).svg);
+    // … et son contour en tireté là où le cou la cache
+    out.push(h.chemin(loin, h.a.cache, true));
+    // le bâton et la branche proche, devant le cou : un seul contour
+    const axe = AXE_PRES.map(q => P(...q));
+    const Y = A_._outils.unir([branche(axe, [r, r, r, r, r, r * 0.95, r * 0.75, r * 0.6], true)]);
     Y.forEach(q => out.push(h.chemin(q, blanc(h.a.arete), true)));
-    bras.forEach(ax => out.push(coupe(ax[1], ax[2], rb * 0.85)));
-    // la tête
-    const tete = sym([[0, 351], [12, 348.5], [21, 341], [27, 330], [29.5, 317], [29, 304], [26.5, 293], [22, 284], [18.5, 278], [cou, 272], [0, 268]]);
-    out.push(h.path(lisse(tete.map(q => P(...q)), true), blanc(h.a.contour)));
-    // le bec, vu par-dessus : il part sous le front, large, et s'évase jusqu'au bout arrondi, qui
-    // descend devant la gorge ; les yeux, sur les côtés de la tête, ne se voient pas de face
-    const bec = sym([[0, 313], [11, 313], [13, 305], [15.5, 294], [18, 283], [17.5, 276], [12, 271.5], [0, 270.5]]);
-    out.push(h.path(lisse(bec.map(q => P(...q)), true), blanc(h.a.arete)));
+    out.push(coupe(axe[6], axe[7], r * 0.6));
     return decoupe(0, 0, z.l, z.h, out);
   };
 
@@ -178,7 +175,7 @@ module.exports = (h) => {
   return {
     ref: '47-03',
     titre: 'L’appelant de fortune',
-    desc: 'De côté : le premier canard pris flotte sur l’eau peu profonde ; un bâton fourchu, planté dans la vase devant le poitrail et un peu penché vers l’oiseau, prend le haut du cou dans sa fourche, une branche de chaque côté, juste sous la tête, qui repose dessus et tient droite. De face : la tête, plus large que le cou, repose sur les deux branches. En bas : une motte de neige avec un bout de chiffon noir à un bout, pour l’oie des neiges.',
+    desc: 'De côté : le premier canard pris flotte sur l’eau peu profonde ; un bâton fourchu, planté dans la vase devant le poitrail et un peu penché vers l’oiseau, prend le haut du cou dans sa fourche, une branche de chaque côté, juste sous la tête, qui repose dessus et tient droite. De près, de profil : la tête repose sur la fourche, une branche devant le cou, l’autre derrière. En bas : une motte de neige avec un bout de chiffon noir à un bout, pour l’oie des neiges.',
     format: 'pleine',
     disposition: [['cote', 'face'], ['neige']],
     largeurs: [[2.4, 1], [1]],
@@ -196,13 +193,13 @@ module.exports = (h) => {
         },
       },
       face: {
-        titre: 'La tête, de face, de près',
+        titre: 'La tête, de profil, de près',
         dessin: dessinFace,
         renvois: z => {
           const { P } = geoFace(z);
           return [
-            { n: 3, rond: [14, P(0, 368)[1] + 6], cible: P(-24, 341), texte: 'la tête, plus large, posée sur la fourche' },
-            { n: 4, rond: [14, P(0, 200)[1]], cible: P(-27.5, 240), texte: 'une branche de chaque côté du cou' },
+            { n: 3, rond: [14, P(0, 368)[1] - 4], cible: P(-30, 330), texte: 'la tête, plus large, posée sur la fourche' },
+            { n: 4, rond: [14, P(0, 190)[1]], cible: P(-9, 249), texte: 'une branche de chaque côté du cou' },
           ];
         },
       },
