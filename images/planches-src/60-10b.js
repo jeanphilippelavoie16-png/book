@@ -185,7 +185,7 @@ module.exports = (h) => {
     const fait = b => Math.min(b.p[1], b.q[1]) <= 3 || (Math.min(b.p[1], b.q[1]) === 4 && Math.max(b.P[0], b.Q[0]) <= X(0) + 0.1);
     for (const b of L) {
       const s = couper(b.P, b.Q, z.l, z.h);
-      if (!s) continue;
+      if (!s || Math.hypot(s[1][0] - s[0][0], s[1][1] - s[0][1]) < 8) continue;   // pas de bout de brin dans un coin
       if (!b.trou) { out.push(F.corde(s, VIEUX)); continue; }
       if (etat === 'dechire') {
         if (!b.dechire) { out.push(F.corde(s, VIEUX)); continue; }
@@ -214,7 +214,7 @@ module.exports = (h) => {
       // le fil part du dernier nœud fait, descend vers la maille suivante, remonte à l'aiguille
       const A = [X(0), Y(4)], B = [X(1), Y(5)], C = [X(2) - 2, Y(4) + 4];
       out.push(F.corde([A, [A[0] + (B[0] - A[0]) * 0.5, A[1] + (B[1] - A[1]) * 0.5], B, [B[0] + 4, B[1] - 6], C], NEUF));
-      out.push(aiguilleTalon(C[0], C[1], -58, gT(z).a * 1.7));
+      out.push(aiguilleTalon(C[0], C[1], -58, gT(z).a * 1.3));
       // le chemin du fil : rang 2-3 de gauche à droite, rang 3-4 de droite à gauche, rang 4-5 de gauche à droite
       const fl = [];
       for (const b of L) {
