@@ -97,6 +97,6 @@ JP ensuite : « c'est bien mais pas encore parfait, les formes que tu as pas de 
 - **14 octobre, la dédicace (JP) : « À Pierre-Alexis et à Louis-Charles, / pour qu'il y ait toujours quelqu'un qui
   sait. »** Page recto après la page de titre, dans les six tomes (`DEDICACE` dans `design/outils/assembler-tome.py`).
   Chaque tome prend 2 pages ; le tome 5 arrive à 440, la limite de Blurb.
-- **14 octobre : « c'est parfait le reste, nos bios ».** Tome 1 : la maison de blocs refusée (« non, une autre ») ; le chalet paré aux braises (11-03) à la place ; bloc
+- **14 octobre : « c'est parfait le reste, nos bios » ; tomes remontés avec la dédicace : 334, 416, 334, 300, 440, 202 pages ; couvertures finales rendues.** Tome 1 : la maison de blocs refusée (« non, une autre ») ; le chalet paré aux braises (11-03) à la place ; bloc
   des auteurs, photo en bichromie). Les dessins recommandés pour les autres dos sont pris : 37-03a, 55-08, 70-12, 90-07a,
   110-01a (`CHOIX` dans `build_couvertures_6.py`). Textes des auteurs : la 4ᵉ version. 13-01 : le palier seul (B).

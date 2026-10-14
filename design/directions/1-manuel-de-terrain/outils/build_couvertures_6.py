@@ -113,7 +113,7 @@ BLURB_SOUPLE = [(20, .056), (24, .056), (40, .125), (60, .181), (80, .181), (100
 # Réassemblés le 14 octobre 2026 (hors ligne, calculateur non interrogé) : tome 2, 416 -> 414 (entre les lignes 400 et
 # 420, toutes deux 0,931 : tranche inchangée) ; tome 3, 334 -> 332 (palier de la ligne 320, 0,75 : inchangée) ; les
 # quatre autres ne bougent pas.
-PAGES = {1: 332, 2: 414, 3: 332, 4: 298, 5: 438, 6: 200}
+PAGES = {1: 334, 2: 416, 3: 334, 4: 300, 5: 440, 6: 202}
 
 def palier(pages):
     """Paliers du tableau : 1/16 po (4,5 pt) toutes les 28 pages, arrondi au point inférieur. Les 23 lignes du

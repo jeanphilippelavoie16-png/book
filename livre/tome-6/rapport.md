@@ -1,7 +1,7 @@
 # Tome 6 · L’atelier — rapport d'assemblage
 
-- **Produit le :** 2026-10-14 20:17, par `design/outils/assembler-tome.py 6 --hors-ligne`
-- **Fichier :** `livre/tome-6/interieur.pdf` — 200 pages, 31.2 Mo
+- **Produit le :** 2026-10-14 21:43, par `design/outils/assembler-tome.py 6 --hors-ligne`
+- **Fichier :** `livre/tome-6/interieur.pdf` — 202 pages, 31.2 Mo
 - **Ouvertures :** toujours au recto (page de droite), une page blanche devant au besoin
 - **Placements :** design/epreuves-livre/placements.json, design/epreuves-livre/placements-tome-6.json
 - **Exigences de Blurb :** `sources/blurb-specifications.md` (relevées le 27 septembre 2026)
@@ -11,20 +11,21 @@
 | Pages du tome | Contenu | Pages |
 | --- | --- | ---: |
 | 1 | Page de titre | 1 |
-| 3 | Sommaire | 1 |
-| 5–21 | ch. 102 — De la peau au cuir | 17 |
-| 23–40 | ch. 103 — Babiche, tendons, cordage | 18 |
-| 41–58 | ch. 104 — Coudre et chausser | 18 |
-| 59–74 | ch. 105 — Affûter, limer, aiguiser | 16 |
-| 75–90 | ch. 106 — Scie à chaîne et petits moteurs | 16 |
-| 91–107 | ch. 107 — Souder, braser, réparer le métal | 17 |
-| 109–122 | ch. 108 — Le stock de pièces et de consommables | 14 |
-| 123–145 | ch. 109 — Leviers, poulies, treuils | 23 |
-| 147–163 | ch. 110 — Assemblages bois-bois | 17 |
-| 165–182 | ch. 111 — Trempe et travail du métal à chaud | 18 |
-| 183–199 | ch. 112 — Savon et chandelles | 17 |
-| | Pages blanches (verso de la page de titre, avant les ouvertures, fin du tome) | 7 |
-| | **Total** | **200** |
+| 3 | Dédicace | 1 |
+| 5 | Sommaire | 1 |
+| 7–23 | ch. 102 — De la peau au cuir | 17 |
+| 25–42 | ch. 103 — Babiche, tendons, cordage | 18 |
+| 43–60 | ch. 104 — Coudre et chausser | 18 |
+| 61–76 | ch. 105 — Affûter, limer, aiguiser | 16 |
+| 77–92 | ch. 106 — Scie à chaîne et petits moteurs | 16 |
+| 93–109 | ch. 107 — Souder, braser, réparer le métal | 17 |
+| 111–124 | ch. 108 — Le stock de pièces et de consommables | 14 |
+| 125–147 | ch. 109 — Leviers, poulies, treuils | 23 |
+| 149–165 | ch. 110 — Assemblages bois-bois | 17 |
+| 167–184 | ch. 111 — Trempe et travail du métal à chaud | 18 |
+| 185–201 | ch. 112 — Savon et chandelles | 17 |
+| | Pages blanches (verso de la page de titre, avant les ouvertures, fin du tome) | 8 |
+| | **Total** | **202** |
 
 Aucune page de crédits (JP, 28 septembre 2026) : copie hors du livre dans `livre/credits/tome-6-credits.md` et `livre/credits/tome-6-credits.pdf`.
 
@@ -36,9 +37,9 @@ Les chapitres seuls font 191 pages ; 5 blanche(s) servent à faire ouvrir chaque
 | --- | --- | --- | --- |
 | Taille de chaque page | 585 × 738 pt (8,125 × 10,25 po) | 585.0 × 738.0 pt | oui |
 | Rognage (TrimBox) | 8 × 10 po, fond perdu au bord extérieur | recto : reliure à gauche ; verso : à droite | oui |
-| Nombre de pages | pair, de 20 à 440 (papier Standard) | 200 | oui |
+| Nombre de pages | pair, de 20 à 440 (papier Standard) | 202 | oui |
 | Page 1 | à droite | page de titre | oui |
-| Polices incorporées | toutes | 48 police(s), 0 non incorporée(s) | oui |
+| Polices incorporées | toutes | 50 police(s), 0 non incorporée(s) | oui |
 | Taille du fichier | 2 Go au plus | 31.2 Mo | oui |
 | Marques d'imprimeur | aucune | aucune | oui |
 | Couleur | CMJN ou sRVB, sans ton direct | sRVB (Edge) | oui |
@@ -49,7 +50,7 @@ Polices du fichier : IBMPlexSansCond-Bold, IBMPlexSansCond-Medium, IBMPlexSansCo
 
 ## Tranche et couverture
 
-Calculateur non interrogé (--hors-ligne). Relevé du 27 septembre 2026 dans `sources/blurb-specifications.md` §2 ; pour 200 pages, prendre la ligne du tableau dont le palier couvre ce nombre, et revérifier au calculateur. [À VÉRIFIER]
+Calculateur non interrogé (--hors-ligne). Relevé du 27 septembre 2026 dans `sources/blurb-specifications.md` §2 ; pour 202 pages, prendre la ligne du tableau dont le palier couvre ce nombre, et revérifier au calculateur. [À VÉRIFIER]
 
 ## Figures
 
@@ -57,17 +58,17 @@ Les planches de `images/a-valider/` sont posées comme les validées (JP les rel
 
 | Ch. | Posées (page du tome) | Mentionnées dans le texte sans planche dessinée | À valider, non posées | Photos demandées encore à acquérir (credits.md) |
 | --- | --- | --- | --- | ---: |
-| 102 | 102-02 (9, pleine), 102-40 (13, pleine), 102-07 (20, pleine), 102-cuir-chamoise-non-fume.jpg (10), 102-cuir-tanne-vegetal.jpg (10) | — | — | 8 (ancien 79) |
-| 103 | 103-40 (27, pleine), 103-05 (28, pleine), 103-10 (30, pleine), 103-07 (31, pleine), 103-11 (32, pleine) | — | — | 8 (ancien 80) |
-| 104 | 104-02 (44, pleine), 104-40 (45, pleine), 104-04 (47, pleine), 104-15a (49, pleine), 104-15b (50, pleine) | — | — | 8 (ancien 81) |
-| 105 | 105-40 (71, pleine), 105-01 (61), 105-07 (64), 105-03 (65) | — | — | 8 (ancien 82) |
-| 106 | 106-10a (87, pleine), 106-10b (88, pleine), 106-01 (78), 83-09-carburateur-membranes-monte.jpg (80) | — | — | 8 (ancien 83) |
-| 107 | 107-10 (106, pleine), 107-02 (94), 107-03 (97), 107-09 (103), 107-07 (104) | — | — | 7 (ancien 84) |
-| 108 | 108-pile-gonflee.jpg (122) | — | — | 6 (ancien 85) |
-| 109 | 109-40 (130, pleine), 109-02 (132, pleine), 109-08 (140, pleine), 109-01 (142, pleine), 109-12 (143, pleine), 109-cable-fils-casses.jpg (126), 109-cable-fils-casses-bout.jpg (126) | — | — | 7 (ancien 86) |
-| 110 | 110-40 (150, pleine), 110-01a (152, pleine), 110-03 (154, pleine), 110-01b (161, pleine), 87-07b-bouleau-pourriture-brune.jpg (162), 87-07c-bouleau-pourriture-blanche.jpg (162), 87-07a-pourritures-brune-blanche.jpg (162) | — | — | 7 (ancien 87) |
-| 111 | 111-40 (170, pleine), 111-11 (179, pleine), 88-06a-cassures-acier-1918.jpg (167), 111-revenu-bande.jpg (171), 111-revenu-etalons.jpg (171) | — | — | 9 (ancien 88) |
-| 112 | 112-40 (189, pleine), 112-10a (196, pleine), 112-10b (197, pleine), 112-41 (186), 112-07 (190) | — | — | 9 (ancien 89) |
+| 102 | 102-02 (11, pleine), 102-40 (15, pleine), 102-07 (22, pleine), 102-cuir-chamoise-non-fume.jpg (12), 102-cuir-tanne-vegetal.jpg (12) | — | — | 8 (ancien 79) |
+| 103 | 103-40 (29, pleine), 103-05 (30, pleine), 103-10 (32, pleine), 103-07 (33, pleine), 103-11 (34, pleine) | — | — | 8 (ancien 80) |
+| 104 | 104-02 (46, pleine), 104-40 (47, pleine), 104-04 (49, pleine), 104-15a (51, pleine), 104-15b (52, pleine) | — | — | 8 (ancien 81) |
+| 105 | 105-40 (73, pleine), 105-01 (63), 105-07 (66), 105-03 (67) | — | — | 8 (ancien 82) |
+| 106 | 106-10a (89, pleine), 106-10b (90, pleine), 106-01 (80), 83-09-carburateur-membranes-monte.jpg (82) | — | — | 8 (ancien 83) |
+| 107 | 107-10 (108, pleine), 107-02 (96), 107-03 (99), 107-09 (105), 107-07 (106) | — | — | 7 (ancien 84) |
+| 108 | 108-pile-gonflee.jpg (124) | — | — | 6 (ancien 85) |
+| 109 | 109-40 (132, pleine), 109-02 (134, pleine), 109-08 (142, pleine), 109-01 (144, pleine), 109-12 (145, pleine), 109-cable-fils-casses.jpg (128), 109-cable-fils-casses-bout.jpg (128) | — | — | 7 (ancien 86) |
+| 110 | 110-40 (152, pleine), 110-01a (154, pleine), 110-03 (156, pleine), 110-01b (163, pleine), 87-07b-bouleau-pourriture-brune.jpg (164), 87-07c-bouleau-pourriture-blanche.jpg (164), 87-07a-pourritures-brune-blanche.jpg (164) | — | — | 7 (ancien 87) |
+| 111 | 111-40 (172, pleine), 111-11 (181, pleine), 88-06a-cassures-acier-1918.jpg (169), 111-revenu-bande.jpg (173), 111-revenu-etalons.jpg (173) | — | — | 9 (ancien 88) |
+| 112 | 112-40 (191, pleine), 112-10a (198, pleine), 112-10b (199, pleine), 112-41 (188), 112-07 (192) | — | — | 9 (ancien 89) |
 
 **Photos sous 150 PPI à la taille imprimée :** 87-07b-bouleau-pourriture-brune.jpg : 147 PPI; 87-07c-bouleau-pourriture-blanche.jpg : 147 PPI
 
@@ -77,18 +78,18 @@ Rien ne s'imprime (JP, 28 septembre 2026). Copie de sauvegarde : `livre/credits/
 
 | Page | Ch. | Fichier | Auteur | Licence |
 | ---: | --- | --- | --- | --- |
-| 10 | 102 | 102-cuir-chamoise-non-fume.jpg | Johan | CC BY-SA 3.0 — Creative Commons Attribution-Share Alike 3.0 |
-| 10 | 102 | 102-cuir-tanne-vegetal.jpg | Fujisun | CC BY-SA 4.0 — Creative Commons Attribution-Share Alike 4.0 |
-| 80 | 106 | 83-09-carburateur-membranes-monte.jpg | Markus Säynevirta | CC BY-SA 3.0 |
-| 122 | 108 | 108-pile-gonflee.jpg | Encik Tekateki | CC0 — Creative Commons Zero, Public Domain Dedication |
-| 126 | 109 | 109-cable-fils-casses.jpg | Nationaal Archief | CC0 — Creative Commons Zero, Public Domain Dedication |
-| 126 | 109 | 109-cable-fils-casses-bout.jpg | Flickr.com user "tanakawho" | CC BY 2.0 — Creative Commons Attribution 2.0 |
-| 162 | 110 | 87-07b-bouleau-pourriture-brune.jpg | Sten Porse | CC BY-SA 3.0 |
-| 162 | 110 | 87-07c-bouleau-pourriture-blanche.jpg | Sten Porse | CC BY-SA 3.0 |
-| 162 | 110 | 87-07a-pourritures-brune-blanche.jpg | Mätes | CC BY-SA 3.0 |
-| 167 | 111 | 88-06a-cassures-acier-1918.jpg | Carnegie Steel Company | No restrictions (1918) |
-| 171 | 111 | 111-revenu-bande.jpg | Zaereth | CC0 — Creative Commons Zero, Public Domain Dedication |
-| 171 | 111 | 111-revenu-etalons.jpg | Zaereth | CC0 — Creative Commons Zero, Public Domain Dedication |
+| 12 | 102 | 102-cuir-chamoise-non-fume.jpg | Johan | CC BY-SA 3.0 — Creative Commons Attribution-Share Alike 3.0 |
+| 12 | 102 | 102-cuir-tanne-vegetal.jpg | Fujisun | CC BY-SA 4.0 — Creative Commons Attribution-Share Alike 4.0 |
+| 82 | 106 | 83-09-carburateur-membranes-monte.jpg | Markus Säynevirta | CC BY-SA 3.0 |
+| 124 | 108 | 108-pile-gonflee.jpg | Encik Tekateki | CC0 — Creative Commons Zero, Public Domain Dedication |
+| 128 | 109 | 109-cable-fils-casses.jpg | Nationaal Archief | CC0 — Creative Commons Zero, Public Domain Dedication |
+| 128 | 109 | 109-cable-fils-casses-bout.jpg | Flickr.com user "tanakawho" | CC BY 2.0 — Creative Commons Attribution 2.0 |
+| 164 | 110 | 87-07b-bouleau-pourriture-brune.jpg | Sten Porse | CC BY-SA 3.0 |
+| 164 | 110 | 87-07c-bouleau-pourriture-blanche.jpg | Sten Porse | CC BY-SA 3.0 |
+| 164 | 110 | 87-07a-pourritures-brune-blanche.jpg | Mätes | CC BY-SA 3.0 |
+| 169 | 111 | 88-06a-cassures-acier-1918.jpg | Carnegie Steel Company | No restrictions (1918) |
+| 173 | 111 | 111-revenu-bande.jpg | Zaereth | CC0 — Creative Commons Zero, Public Domain Dedication |
+| 173 | 111 | 111-revenu-etalons.jpg | Zaereth | CC0 — Creative Commons Zero, Public Domain Dedication |
 
 Photos téléchargées pour ces chapitres et non posées (images de référence ou photos à placer) :
 
