@@ -38,3 +38,8 @@ JP ensuite : « c'est bien mais pas encore parfait, les formes que tu as pas de 
   - 253 planches n'ont ni corps ni main : elles passent la charte seule. Le brief est dans le scratch
     `brief-charte.md`, et 6 pilotes sont montrés à JP d'abord.
   - 50 planches ont des gros plans de mains : elles auront la charte en même temps que leurs mains refaites.
+- **14 octobre, ce que JP a tranché :**
+  - les mains simples : « oui go 3e tour » ;
+  - la charte sur les 247 autres planches : go, en 12 lots, 6 agents à la fois (`scratch/charte-lots.json`) ;
+  - les 6 pilotes de la charte : validés ;
+  - 110-01a : la flèche du chevillage à tire pointe vers le fond de la mortaise, confirmé.
