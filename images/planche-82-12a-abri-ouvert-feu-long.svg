@@ -12,6 +12,7 @@
 <rect x="30.5" y="165.9" width="539" height="19.8" fill="url(#h-terre)" stroke="none"/>
 <rect x="30.5" y="55.9" width="55" height="110" fill="url(#h-neige)" stroke="none"/>
 <path d="M503.5 165.9 L569.5 165.9 L569.5 55.9 L518.9 55.9 Z" fill="url(#h-neige)" stroke="none"/>
+<path d="M85.5 165.9 L503.5 165.9 L518.9 55.9 L85.5 55.9 Z" fill="#E6E6E6" stroke="none"/>
 <path d="M294.5 164.8Q314.8 139.5 340.7 162.6Q314.8 150.5 294.5 164.8Z" fill="#ffffff" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M294.5 164.8Q314.8 145 340.7 162.6" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M299.1 160.8l2.2 0.8M299.1 160.8l-0.2 -2.3M303.8 157.8l2 1.1M303.8 157.8l0.2 -2.3M308.7 155.7l1.8 1.5M308.7 155.7l0.6 -2.3M313.7 154.5l1.5 1.8M313.7 154.5l1 -2.1M318.8 154.3l1.2 2M318.8 154.3l1.4 -1.9M324.1 155l0.8 2.2M324.1 155l1.7 -1.7M329.5 156.6l0.5 2.3M329.5 156.6l1.9 -1.4M335 159.1l0.2 2.3M335 159.1l2 -1.1" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>

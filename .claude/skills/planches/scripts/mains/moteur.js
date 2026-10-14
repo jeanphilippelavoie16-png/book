@@ -1469,7 +1469,8 @@ function dessiner(o, prep = null) {
     // profil, qui passe derrière le manche après une P1 peinte devant ; M13 : la P1 derrière la face coupée de
     // prise-grosse, sous une P2 devant, une encoche dans le bord de la face). Devant → derrière : la phalange
     // n'est plus repeinte sur l'objet, mais le doigt reste « devant » pour le gris (il fait le tour, il reste blanc).
-    if (!imposes && !process.env.MAINS_SANS_BASCULE) {
+    // (pas pour un fil : il ne couvre de chaque phalange qu'un filet, et la découpe M1 y fait déjà le partage)
+    if (!imposes && (ob.r || 16) >= 4) {
       const parId = new Map(pieces.map((P, i) => [P.id, i]));
       const voisins = id => { const m = /^(\w+)\.p(\d)$/.exec(id); if (!m) return []; const k = +m[2]; return [k - 1, k + 1].map(j => parId.get(`${m[1]}.p${j}`)).filter(j => j !== undefined); };
       const bascule = [];
@@ -1777,16 +1778,23 @@ function patchPour(patch, regionObjet) {
   // mm : la marge le long des bords de l'objet (elle couvre son trait, jusqu'à 2,4 de vue, et son
   // anticrénelage) ; le long des pièces de devant, le blanc ne déborde que de 0,25 mm (plus, il posait un liseré
   // blanc sur l'objet entre les doigts : agent 5, C8)
-  // les traits (le bord des pièces de devant, leurs traits intérieurs) ne débordent l'objet que de mmT : la moitié
-  // de son trait. Plus loin, la couche du dessous les dessine déjà ; un bout de contour de doigt qui longeait le
-  // bord de l'objet dans la marge du blanc y faisait un ergot (agent 5, M13 : la face coupée de prise-grosse)
+  // le bord des pièces de devant ne déborde l'objet que de mmT (la moitié de son trait), sauf là où il est la
+  // silhouette : le blanc de la marge l'y cache dans la couche du dessous. Ailleurs dans la marge, c'est un bord
+  // entre deux pièces fondues, sans trait dessous : un bout de contour de doigt qui longeait le bord de l'objet y
+  // faisait un ergot (agent 5, M13 : la face coupée de prise-grosse). Les traits intérieurs, eux, existent dessous :
+  // ils vont jusqu'au bout de la marge.
   patch.pour = (mm, mmT = mm) => {
     const k = Math.round(mm * 5) / 5, kT = Math.min(k, Math.round(mmT * 10) / 10), cle = k + ',' + kT;
     if (patch.parMarge.has(cle)) return patch.parMarge.get(cle);
     let v = { fond: [], bord: [], traits: [] };
     if (patch.regDev) {
-      const ext = decale(regionObjet, k), extT = kT < k ? decale(regionObjet, kT) : ext;
-      v = { fond: inter(ext, inter(decale(patch.regDev, 0.25), patch.Ug)), bord: lignesDans(patch.bordDev, extT), traits: lignesDans(patch.tDev, extT) };
+      const ext = decale(regionObjet, k);
+      let bord = lignesDans(patch.bordDev, ext);
+      if (kT < k) {
+        const extT = decale(regionObjet, kT), bande = moins(decale(patch.Ug, 0.15), decale(patch.Ug, -0.6));
+        bord = lignesDans(patch.bordDev, extT).concat(lignesDans(lignesDans(bord, moins(ext, extT)), bande));
+      }
+      v = { fond: inter(ext, inter(decale(patch.regDev, 0.25), patch.Ug)), bord, traits: lignesDans(patch.tDev, ext) };
     }
     patch.parMarge.set(cle, v);
     return v;
