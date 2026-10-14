@@ -311,7 +311,7 @@ module.exports = (h) => {
           out.push(poly(ell, blanc(h.a.arete)));
           out.push(h.fleche(`M ${f(u.a[0])} ${f(u.a[1])} L ${f(u.b[0])} ${f(u.b[1])}`));
           // le point à vérifier : la terre autour de la racine, où rien n'est posé
-          out.push(h.controle(rz.cx, rz.cy, rz.ry * 0.85));
+          out.push(h.controle(rz.cx, g.ys + 0.36 * g.D, 0.32 * g.D));
           return out.join('\n');
         },
         renvois: (z) => {
