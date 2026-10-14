@@ -142,6 +142,7 @@ const CL = require('../corps/clipper');
 const NOIR = '#1A1A1A', BLANC = '#FFFFFF', GRIS = '#E6E6E6';
 const RAD = Math.PI / 180;
 const DOIGTS = ['index', 'majeur', 'annulaire', 'auriculaire'];
+const ARCHE = { annulaire: 10, auriculaire: 20 };              // degrés, à MCP pliée de 90°
 
 // ─── vecteurs 3D ────────────────────────────────────────────────────────────────────────────────────────
 const a3 = (a, b) => [a[0] + b[0], a[1] + b[1], a[2] + b[2]];
@@ -318,7 +319,7 @@ function allege(P, tol, ferme_ = false) {
 
 // lissage de Taubin d'un contour fermé (mm) : rééchantillonné au pas, puis lissé sans rétrécir ; enlève les
 // facettes des enveloppes sans toucher aux formes de plus de quelques mm
-function lisserBoucle(P, pas = 0.8, iter = 6, lam = 0.5, mu = -0.53) {
+function lisserBoucle(P, pas = 0.8, iter = 6, lam = 0.5, mu = -0.53, poids = null) {
   const n0 = P.length; if (n0 < 4) return P;
   let Q = [];
   for (let i = 0; i < n0; i++) {
@@ -326,16 +327,20 @@ function lisserBoucle(P, pas = 0.8, iter = 6, lam = 0.5, mu = -0.53) {
     for (let j = 0; j < k; j++) Q.push(add(a, mul(sub(b, a), j / k)));
   }
   const n = Q.length; if (n < 6) return P;
-  const pasF = f => { const R = new Array(n); for (let i = 0; i < n; i++) { const a = Q[(i - 1 + n) % n], b = Q[(i + 1) % n], q = Q[i]; R[i] = [q[0] + f * ((a[0] + b[0]) / 2 - q[0]), q[1] + f * ((a[1] + b[1]) / 2 - q[1])]; } Q = R; };
+  const W = poids ? Q.map(poids) : null;
+  const pasF = f => { const R = new Array(n); for (let i = 0; i < n; i++) { const a = Q[(i - 1 + n) % n], b = Q[(i + 1) % n], q = Q[i], g = W ? f * W[i] : f; R[i] = [q[0] + g * ((a[0] + b[0]) / 2 - q[0]), q[1] + g * ((a[1] + b[1]) / 2 - q[1])]; } Q = R; };
   for (let k = 0; k < iter; k++) { pasF(lam); pasF(mu); }
   return Q;
 }
-function lisserCL(paths, pas = 0.8, iter = 6) {
+function lisserCL(paths, pas = 0.8, iter = 6, zone = null) {
   const out = [];
   for (const P of paths) {
     const pts = deCL(P), trou = !CL.Clipper.Orientation(P);
     if (Math.abs(aire(pts)) < 1) continue;
-    let Q = allege(lisserBoucle(pts, pas, iter), 0.025, true);
+    let Q = lisserBoucle(pts, pas, iter);
+    // une zone (le poignet) lissée plus fort : { c, r } ; le poids tombe à 0 au bord de la zone
+    if (zone) Q = lisserBoucle(Q, pas, 40, 0.5, -0.53, p => { const d = Math.hypot(p[0] - zone.c[0], p[1] - zone.c[1]) / zone.r; return d >= 1 ? 0 : (1 - d * d); });
+    Q = allege(Q, 0.025, true);
     const q = versCL(Q);
     if (CL.Clipper.Orientation(q) === trou) q.reverse();
     out.push(q);
@@ -597,12 +602,23 @@ function squelette(pose, o = {}) {
     let n = [0, 0, -1];
     let u = rot3(X, n, -dirs[d]);                                        // la direction de base, dans le plan de la main
     // dirs : angle vers +y (sin) ; rot3 autour de n = −z de +θ va vers −y : d'où le signe
-    u = rot3(u, n, s * q.ecart);
+    // l'écart s'efface quand la MCP plie (proportions.json, couplages : écart × (1 − flexion MCP / 90))
+    u = rot3(u, n, s * q.ecart * Math.max(0, Math.min(1, 1 - Math.max(0, q.mcp) / 90)));
+    // l'arche : dans une prise, la tête du métacarpien de l'annulaire descend vers la paume (jusqu'à 10°), celle
+    // de l'auriculaire jusqu'à 20° (couplages : 0 à 15°, 0 à 25°), autour de l'axe du majeur ; la paume se creuse
+    let mcp = A.mcp.slice();
+    const kArche = q.arche !== undefined ? q.arche : (ARCHE[d] || 0) * Math.max(0, Math.min(1, q.mcp / 90));
+    if (kArche) {
+      const ym = an.doigts.majeur.mcp[1], zm = an.doigts.majeur.mcp[2], c = Math.cos(kArche * RAD), sn = Math.sin(kArche * RAD);
+      const dy = mcp[1] - ym, dz = mcp[2] - zm;
+      mcp = [mcp[0], ym + dy * c - dz * sn, zm + dy * sn + dz * c];
+      u = rot3(u, X, kArche); n = rot3(n, X, kArche);
+    }
     pts[d + '.cmc'] = A.cmc.slice();
-    pts[d + '.mcp'] = A.mcp.slice();
-    seg[d + '.meta'] = cadre(A.cmc, A.mcp, u3(s3(A.mcp, A.cmc)), n);
+    pts[d + '.mcp'] = mcp;
+    seg[d + '.meta'] = cadre(A.cmc, mcp, u3(s3(mcp, A.cmc)), n);
     const flex = [q.mcp, q.ipp, q.ipd], noms = ['mcp', 'ipp', 'ipd', 'bout'], ids = ['p1', 'p2', 'p3'];
-    let P = A.mcp;
+    let P = mcp;
     for (let k = 0; k < 3; k++) {
       const a = u3(x3(n, u));                                             // l'axe de flexion
       u = rot3(u, a, flex[k]); n = rot3(n, a, flex[k]);
@@ -986,17 +1002,19 @@ function construire(o) {
     for (let i = 0; i < 3; i++) {
       const d1 = DOIGTS[i], d2 = DOIGTS[i + 1];
       const S1 = sq.segments[d1 + '.p1'], S2 = sq.segments[d2 + '.p1'];
-      // le fond de la palmure : au tiers de la phalange, ou plus loin si les doigts se touchent encore
-      let tSep = 0;
-      for (let k = 0; k <= 20; k++) {
-        const t = k / 20, a = a3(S1.de, m3(S1.u, S1.L * t)), b = a3(S2.de, m3(S2.u, S2.L * t));
+      // le fond de la palmure : là où la fente entre les deux doigts s'ouvre (plus de 2,4 mm : le contour s'y
+      // referme sinon), si elle s'ouvre avant les trois quarts de la phalange ; des doigts serrés : aux 4/10
+      let tOuv = 0;
+      for (let k = 0; k <= 24; k++) {
+        const t = k / 24, a = a3(S1.de, m3(S1.u, S1.L * t)), b = a3(S2.de, m3(S2.u, S2.L * t));
         const w1 = demiAxes(F, d1 + '.p1', t, kW)[1], w2 = demiAxes(F, d2 + '.p1', t, kW)[0];
-        if (l3(s3(a, b)) < w1 + w2 - 0.2) tSep = t; else break;
+        if (l3(s3(a, b)) < w1 + w2 + 2.4) tOuv = t;
       }
-      const tw = Math.min(0.62, Math.max(0.34, tSep + 0.1));
+      const tw = tOuv < 0.75 ? Math.max(0.34, tOuv + 0.04) : 0.4;
+      const creux = tOuv < 0.75 && tOuv > 0.3 ? 0.12 : 0.3;
       const A1 = [S1.de, cote(d1 + '.p1', tw * 0.5, -1), cote(d1 + '.p1', tw, -1)];
       const A2 = [S2.de, cote(d2 + '.p1', tw * 0.5, 1), cote(d2 + '.p1', tw, 1)];
-      polys.push(palmure(A1, A2, i3(S1.de, S2.de, 0.5), 0.3, M));
+      polys.push(palmure(A1, A2, i3(S1.de, S2.de, 0.5), creux, M));
     }
     {
       const P1 = sq.segments['pouce.p1'], I1 = sq.segments['index.p1'], IM = sq.segments['index.meta'];
@@ -1241,7 +1259,7 @@ function dessiner(o) {
   const kL = C.sq.age.kL;
   const zoneP = [versCL(positif(disque([0, 0], 38 * kL, 48)))];
   const poignetRond = inter(ferme(inter(tout, [versCL(positif(disque([0, 0], 70 * kL, 48)))]), 16 * kL), zoneP);
-  let U = lisserCL(ferme(unionCL([tout, poignetRond]), 1.2), 0.7, 5);
+  let U = lisserCL(ferme(unionCL([tout, poignetRond]), 1.2), 0.7, 5, { c: [0, 0], r: 42 * kL });
   if (coupe && coupe.region) U = moins(U, coupe.region);
   T_('U');
   // ── les traits intérieurs : le bord d'un doigt (ou de la paume) qui passe devant autre chose ──
@@ -1440,17 +1458,19 @@ function rendre(R, o, { Tloc, s, m, ang, ab }) {
   out.push(ligne(coupeTrait, tr.int));
   // b, c, d. l'objet
   const geo = geometrie(R, Tloc, s, m, ang);
+  // les couches séparées (deux mains sur un même outil : les deux corps, l'objet une fois, puis les deux devants)
+  const couches = { main: out.filter(Boolean).join('\n'), masque: '', devant: '' };
+  const pa = R.patch;
+  if (pa) {
+    if (o.masque !== false && pa.dansMain.length) couches.masque = plein(pa.dansMain, loin ? GRIS : BLANC);
+    // les pièces devant l'objet, repeintes là où il passe : leur blanc, leur bord contre l'objet, leurs traits
+    const pv = pa.pour(Math.max(1.6, 2.6 / s));
+    if (pv.fond.length) couches.devant = [plein(pv.fond, loin ? GRIS : BLANC), ligne(pv.bord, tr.sil), ligne(pv.traits, tr.int)].filter(Boolean).join('\n');
+  }
   if (o.objet !== undefined && o.objet !== null) {
     const g = Object.assign({}, geo.prise, { prise: geo.prise, poignet: geo.poignet, bout: geo.bout, pouce: geo.pouce, echelle: s, vue, geo });
     const svgObjet = typeof o.objet === 'function' ? o.objet(g) : String(o.objet);
-    const pa = R.patch;
-    if (pa) {
-      if (o.masque !== false && pa.dansMain.length) out.push(plein(pa.dansMain, loin ? GRIS : BLANC));
-      out.push(svgObjet);
-      // les pièces devant l'objet, repeintes là où il passe : leur blanc, leur bord contre l'objet, leurs traits
-      const pv = pa.pour(Math.max(1.6, 2.6 / s));
-      if (pv.fond.length) out.push(plein(pv.fond, loin ? GRIS : BLANC), ligne(pv.bord, tr.sil), ligne(pv.traits, tr.int));
-    } else out.push(svgObjet);
+    out.push(couches.masque, svgObjet, couches.devant);
   }
   if (o._debug) { const cols = ['#e33', '#3a3', '#33e', '#e9e', '#e93', '#3cc']; pieces.forEach((P, i) => out.push(`<path d="${dF(P.region)}" fill="none" stroke="${cols[i % 6]}" stroke-width="0.6" stroke-dasharray="2 1.5"/>`)); }
   let svg = out.filter(Boolean).join('\n');
@@ -1462,7 +1482,13 @@ function rendre(R, o, { Tloc, s, m, ang, ab }) {
     svg = `<clipPath id="${id}"><rect x="${f1(x0)}" y="${f1(y0)}" width="${f1(x1 - x0)}" height="${f1(y1 - y0)}"/></clipPath>\n<g clip-path="url(#${id})">\n${svg}\n</g>`;
   }
   svg = `<g data-main="${typeof o.pose === 'string' ? o.pose : 'pose'}-${vue}">\n${svg}\n</g>`;
-  return Object.assign({ svg, toString() { return svg; } }, geo);
+  // avec un bord, chaque couche porte la même découpe
+  if (ab && ab.bord) {
+    const b = ab.bord, x0 = b.x0 !== undefined ? b.x0 : 0, y0 = b.y0 !== undefined ? b.y0 : 0;
+    const x1 = b.x1 !== undefined ? b.x1 : x0 + b.l, y1 = b.y1 !== undefined ? b.y1 : y0 + b.h;
+    for (const k of Object.keys(couches)) if (couches[k]) { const id = `mainS-${++N_CLIP}`; couches[k] = `<clipPath id="${id}"><rect x="${f1(x0)}" y="${f1(y0)}" width="${f1(x1 - x0)}" height="${f1(y1 - y0)}"/></clipPath>\n<g clip-path="url(#${id})">\n${couches[k]}\n</g>`; }
+  }
+  return Object.assign({ svg, toString() { return svg; }, couches }, geo);
 }
 
 function geometrie(R, Tloc, s, m, ang) {

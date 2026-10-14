@@ -335,6 +335,17 @@ const LIM = { mcp: [-30, 90], ipp: [-5, 108], ipd: [-10, 80] };      // proporti
 const LIM_POUCE = { mcp: [-20, 70], ip: [-25, 85] };
 function fermerDoigt(S, d, obstacles, o = {}) {
   const q0 = Object.assign({ ecart: 0, mcp: 0, ipp: 0, ipd: 0 }, o.depart || {});
+  if (o.ensemble) {
+    // la main en C : toutes les articulations plient ensemble jusqu'au premier contact (le bout, souvent)
+    const k = Object.assign({ mcp: 0.75, ipp: 1, ipd: 0.67 }, o.ensemble === true ? {} : o.ensemble);
+    const qDe = t => Object.assign({}, q0, { mcp: q0.mcp + k.mcp * t, ipp: q0.ipp + k.ipp * t, ipd: q0.ipd + k.ipd * t });
+    const touche = t => segments(S, d, chaineDoigt(S, d, qDe(t))).some((sg, i) => [...obstacles, ...(i ? [S.paume] : [])].some(ob => ecart(sg, ob).g < -0.05));
+    let lo = 0, hi = 0;
+    while (hi < 100 && !touche(hi + 2)) hi += 2;
+    lo = hi; hi = Math.min(100, hi + 2);
+    for (let b = 0; b < 12; b++) { const m = (lo + hi) / 2; if (touche(m)) hi = m; else lo = m; }
+    return { q: qDe(lo), contacts: [] };
+  }
   return fermer({
     segs: q => segments(S, d, chaineDoigt(S, d, q)),
     q0, cles: ['mcp', 'ipp', 'ipd'], limites: Object.assign({}, LIM, o.limites || {}), actives: o.actives,
@@ -484,9 +495,35 @@ function pouceManche(S, cyl, segsD, o = {}) {
     return 400 * pen * pen + 1 * Math.max(0, g1) ** 2 + 1.5 * Math.max(0, g2) ** 2 + 0.8 * dt * dt + 2 * Math.max(0, gd) ** 2 * (dt < 25 ? 1 : 0) +
       0.01 * (x[2] - 0.3 * x[0]) ** 2 + 0.02 * Math.max(0, x[4] - 60) ** 2 + 0.02 * Math.max(0, x[3] - 50) ** 2;
   };
-  const best = chercheGlobal(f, GRILLE_POUCE, [12, 10, 15, 12, 12], BORNES_POUCE);
+  // une table se construit de proche en proche : on part du pouce du diamètre voisin, et on ne prend la
+  // recherche globale que si elle est nettement meilleure (sinon le pouce sauterait d'un diamètre à l'autre)
+  let best = null;
+  if (o.depart) {
+    const d = o.depart, x0 = [d.opposition, d.cmc, d.rotation !== undefined ? d.rotation : 0.3 * d.opposition, d.mcp, d.ip];
+    best = cherche(f, x0, [6, 5, 8, 6, 6], BORNES_POUCE);
+  }
+  if (!best || best.f > 25) {
+    const g = chercheGlobal(f, GRILLE_POUCE, [12, 10, 15, 12, 12], BORNES_POUCE);
+    if (!best || g.f < 0.6 * best.f) best = g;
+  }
   const q = qPouce(best.x);
   return { q, f: best.f, erreur: L3(S3(pulpe(S, 'pouce', q, 0.75).p, cible)) };
+}
+// le pouce en face des doigts, de l'autre côté de l'objet (la main en C, la grosse prise) : sa pulpe sur
+// l'objet, côté poignet, tournée vers les doigts ; le plus haut qu'il atteint sans rien traverser
+function pouceEnFace(S, cyl, segsD, o = {}) {
+  const yP = -40, t = (yP - cyl.C[1]) / (cyl.u[1] || 1), C = A3(cyl.C, M3(cyl.u, t));
+  const ex = orth([-1, 0, 0], cyl.u), ez = orth([0, 0, -1], cyl.u);          // côté poignet, côté paume
+  const obst = [cyl, ...obstSegments(segsD.filter(s => ['index', 'majeur'].includes(s.doigt)))];
+  let best = null;
+  for (const phi of [0, 20, 40, 60]) {                                       // de l'équateur vers la paume
+    const n = U3(A3(M3(ex, Math.cos(phi * RAD)), M3(ez, Math.sin(phi * RAD))));
+    const G = A3(C, M3(n, cyl.R + 9.5));
+    const r = pouceVers(S, G, M3(n, -1), obst, { pref: { mcp: 15, ip: 15 } });
+    const sc = r.erreur + phi * 0.06;
+    if (!best || sc < best.sc) best = Object.assign(r, { sc, phi });
+  }
+  return best;
 }
 // le pouce dont la pulpe vient en G, tournée vers nG (la normale de la pulpe pointe vers la surface touchée)
 function pouceVers(S, G, nG, obstacles, o = {}) {
@@ -557,7 +594,7 @@ const PRISES = {
       const doigts = {};
       let touche = 0, bouts = 0;
       for (const n of DOIGTS) {
-        const r = fermerDoigt(S, n, [cyl], { depart: { ecart: (o.ecarts || {})[n] || 0 } });
+        const r = fermerDoigt(S, n, [cyl], { depart: { ecart: (o.ecarts || {})[n] || 0 }, ensemble: o.ensemble });
         doigts[n] = r.q;
         const ss = segments(S, n, chaineDoigt(S, n, r.q));
         for (const sg of ss) if (ecart(sg, cyl).g < 0.8) touche++;
@@ -568,16 +605,22 @@ const PRISES = {
     };
     let best = null;
     if (o.position !== undefined) best = essai(o.position);
-    else for (let x = xm - 36; x <= xm + 4; x += 4) { const r = essai(x); if (!best || r.score > best.score) best = r; }
+    else if (o.prec && o.prec.position !== undefined) {               // de proche en proche : près du voisin
+      for (let x = o.prec.position - 6; x <= o.prec.position + 6; x += 2) { const r = essai(x); r.score -= 0.15 * Math.abs(x - o.prec.position); if (!best || r.score > best.score) best = r; }
+    } else for (let x = xm - 36; x <= xm + 4; x += 4) { const r = essai(x); if (!best || r.score > best.score) best = r; }
     const { H, cyl, doigts } = best;
     const segsD = segsDoigts(S, doigts);
     if (o.pouce === 'long') doigts.pouce = pouceLong(S, cyl, segsD);
     else if (o.pouce === 'libre') doigts.pouce = { opposition: 15, cmc: -5, rotation: 4, mcp: 10, ip: 10 };
     else if (o.pouce === 'tour') doigts.pouce = pouceEnroule(S, cyl, segsD);
     else if (o.pouce === 'cible') doigts.pouce = pouceAutour(S, cyl, segsD, o).q;
-    else doigts.pouce = pouceManche(S, cyl, segsD, o).q;
+    else {
+      // le marteau si le pouce atteint l'index par-dessus l'objet ; sinon le pouce en face des doigts (le C)
+      const m = o.pouce === 'face' ? null : pouceManche(S, cyl, segsD, { depart: o.prec && o.prec.pouce });
+      doigts.pouce = m && m.erreur < 9 ? m.q : pouceEnFace(S, cyl, segsD, { depart: o.prec && o.prec.pouce }).q;
+    }
     const objet = { type: d <= 4 ? 'fil' : 'cylindre', diametre: d, centre: H, axe: u, longueur: o.longueur || 1200 };
-    return { doigts, objet };
+    return { doigts, objet, prec: { position: H[0], pouce: doigts.pouce } };
   },
   // le poing fermé à vide : les doigts jusqu'à la paume, le pouce sur l'index et le majeur
   poing(S, o) {
@@ -606,7 +649,7 @@ const PRISES = {
   // la pince (voir l'en-tête) : l'index et le pouce cherchés ensemble
   pincer(S, o) {
     const sorte = o.sorte || 'fine';
-    const POSTURE = { fine: [55, 50, 0.4], pointe: [50, 60, 0.85], ouverte: [30, 26, 0.4], laterale: [55, 72, 0.6] };
+    const POSTURE = { fine: [46, 64, 0.55], pointe: [46, 66, 0.85], ouverte: [30, 26, 0.4], laterale: [55, 72, 0.6] };
     const CASCADE = {
       replies: { majeur: [50, 62, 32], annulaire: [60, 72, 38], auriculaire: [68, 80, 44] },
       ouverts: { majeur: [30, 34, 14], annulaire: [38, 42, 18], auriculaire: [46, 50, 22] },
@@ -644,13 +687,10 @@ const PRISES = {
       for (const ob of obstA) for (const s of sI) { const g = ecart(s, ob).g; if (g < -0.3) pen += -g; }
       const hyp = Math.max(0, -5 - x[3]) + Math.max(0, -8 - x[4]);
       return err * err + 250 * face * face + 40 * pen + 0.01 * ((x[5] - m0) ** 2 + (x[6] - p0) ** 2) +
-        0.003 * ((x[3] - 10) ** 2 + (x[4] - 12) ** 2) + 2 * hyp * hyp + 0.004 * (x[2] - 0.3 * x[0]) ** 2;
+        0.004 * ((x[3] - 15) ** 2 + (x[4] - (sorte === 'ouverte' ? 10 : 24)) ** 2) + 2 * hyp * hyp + 0.004 * (x[2] - 0.3 * x[0]) ** 2;
     };
-    let best = null;
-    for (const x0 of [[60, 10, 18, 10, 15, m0, p0], [80, 20, 24, 20, 10, m0, p0], [45, 0, 14, 5, 25, m0, p0], [70, 25, 21, 30, 30, m0, p0]]) {
-      const r = cherche(f, x0, [12, 10, 10, 10, 10, 8, 8], [...BORNES_POUCE, [-10, 90], [0, 105]]);
-      if (!best || r.f < best.f) best = r;
-    }
+    const g = chercheGlobal(x => f([...x, m0, p0]), GRILLE_POUCE, [10, 8, 15, 10, 10], BORNES_POUCE, { garder: 3, iter: 60 });
+    const best = cherche(f, [...g.x, m0, p0], [6, 6, 8, 6, 6, 6, 6], [...BORNES_POUCE, [-10, 90], [0, 105]]);
     const x = best.x;
     const doigts = Object.assign({ index: pli(x[5], x[6], x[6] * kd) }, autres, { pouce: qPouce(x) });
     const ci = cibleIndex(doigts.index), ct = pulpeT(doigts.pouce);
@@ -677,14 +717,18 @@ const PRISES = {
     return { doigts, objet: { type: 'cylindre', diametre: d, centre: a, axe: u, longueur: o.longueur || 600 } };
   },
   // la paume coiffe le bout d'un bâton debout (l'axe sort de la paume), les doigts autour
+  // L'objet du moteur est centré sur son centre : on le garde court (60 mm, le bout dans la paume), pour que
+  // l'ancre 'prise' tombe sur la main ; la planche prolonge le bâton par g.bouts.
   coiffe(S, o) {
-    const d = o.diametre || 26, R = d / 2, L = o.longueur || 400;
-    const C0 = [o.position || 56, o.y || 0, peau(S)];
+    const d = o.diametre || 26, R = d / 2, L = o.longueur || 60;
+    const C0 = [o.position || 52, o.y || 0, peauEn(S, o.position || 52, 0)];
     const centre = A3(C0, [0, 0, L / 2]);
-    const cyl = OBST.cylindre(centre, [0, 0, 1], R, L / 2);
+    const cyl = OBST.cylindre(A3(C0, [0, 0, 200]), [0, 0, 1], R, 200);
     const doigts = {};
-    for (const n of DOIGTS) doigts[n] = fermerDoigt(S, n, [cyl]).q;
-    doigts.pouce = pouceEnroule(S, cyl, segsDoigts(S, doigts));
+    const ec = o.ecarts || { index: -8, majeur: 0, annulaire: -4, auriculaire: -10 };
+    for (const n of DOIGTS) doigts[n] = fermerDoigt(S, n, [cyl], { depart: { ecart: ec[n] } }).q;
+    const segsD = segsDoigts(S, doigts);
+    doigts.pouce = pouceEnFace(S, cyl, segsD).q;
     return { doigts, objet: { type: 'cylindre', diametre: d, centre, axe: [0, 0, 1], longueur: L },
       contact: { type: 'point', points: [C0], normale: [0, 0, 1] } };
   },
@@ -756,7 +800,7 @@ const CATALOGUE = [
   { id: 'prise-pouce-dos', prise: 'entourer', options: { diametre: 26, inclinaison: 40, pouce: 'long' }, table: [18, 22, 26, 30, 36],
     vues: { bonnes: ['pouce'], aEviter: ['dos', 'paume'] },
     nom: 'le poing sur un manche, le pouce allongé sur le dos du manche ou de la lame' },
-  { id: 'coupe-c', prise: 'entourer', options: { diametre: 80, decollement: 16, inclinaison: 10 }, table: [60, 70, 80, 90, 100, 110],
+  { id: 'coupe-c', prise: 'entourer', options: { diametre: 80, decollement: 16, inclinaison: 10, ensemble: true, pouce: 'face' }, table: [60, 70, 80, 90, 100, 110],
     vues: { bonnes: ['pouce', 'dos'], aEviter: ['paume'] },
     nom: 'la main en C autour d’un rond de 60 à 110 mm : le pouce d’un côté, les doigts de l’autre, la paume décollée' },
   { id: 'pince-fine', prise: 'pincer', options: { sorte: 'fine', diametre: 2 },
@@ -896,10 +940,19 @@ function construirePose(S, spec, journal = () => {}) {
   if (r.contact) pose.contact = { type: r.contact.type, points: (r.contact.points || []).map(r1v), normale: r.contact.normale ? r.contact.normale.map(v => Math.round(v * 1000) / 1000) : undefined };
   pose.solveur = Object.assign({ prise: spec.prise }, spec.options && spec.prise !== 'fixe' ? spec.options : {});
   if (spec.table && r.objet) {
-    pose.table = spec.table.map(d => {
-      const t = resoudreSpec(S, spec, d);
-      return { diametre: d, doigts: arrondirDoigts(t.doigts), objet: { centre: r1v(t.objet.centre), axe: t.objet.axe.map(v => Math.round(v * 1000) / 1000) } };
-    });
+    // de proche en proche, du diamètre par défaut vers les deux bouts de la table
+    const d0 = r.objet.diametre, lignes = new Map();
+    const ligne = t => ({ diametre: t.objet.diametre, doigts: arrondirDoigts(t.doigts), objet: { centre: r1v(t.objet.centre), axe: t.objet.axe.map(v => Math.round(v * 1000) / 1000) } });
+    for (const sens of [1, -1]) {
+      let prec = r.prec;
+      const ds = spec.table.filter(d => sens > 0 ? d >= d0 : d < d0).sort((a, b) => sens * (a - b));
+      for (const d of ds) {
+        if (Math.abs(d - d0) < 1e-6) { lignes.set(d, ligne(r)); continue; }
+        const t = resoudreSpec(S, Object.assign({}, spec, { options: Object.assign({}, spec.options, { prec }) }), d);
+        lignes.set(d, ligne(t)); prec = t.prec || prec;
+      }
+    }
+    pose.table = spec.table.slice().sort((a, b) => a - b).map(d => lignes.get(d));
   }
   if (spec.paire) pose.paire = spec.paire;
   pose.vues = spec.vues;
@@ -1048,7 +1101,7 @@ module.exports = {
   // la géométrie, pour les essais et le moteur
   A3, S3, M3, D3, X3, L3, U3, I3, rot3, orth, RAD, DOIGTS,
   preparer, chaineDoigt, chainePouce, segments, rayonVers, OBST, paumeObstacle, ecart, ecartMin, obstSegments,
-  fermer, fermerDoigt, fermerPouce, peauEn, pulpe, cherche, chercheGlobal, pouceEnroule, pouceAutour, pouceManche, pouceVers, pouceSurPhalanges, pouceLong, PRISES, peau,
+  fermer, fermerDoigt, fermerPouce, peauEn, pulpe, cherche, chercheGlobal, pouceEnroule, pouceAutour, pouceManche, pouceEnFace, pouceVers, pouceSurPhalanges, pouceLong, PRISES, peau,
 };
 
 // ─── la ligne de commande ─────────────────────────────────────────────────────────────────────────────────
