@@ -99,6 +99,7 @@
 <path d="M141.6 183.5 L141.1 177.8 L140.6 172.1 L140.1 166.3 L139.6 160.5 L139.1 154.6 L138.6 148.7 L138.1 142.7 L137.6 136.7 L137.1 130.6 L136.6 124.4 L136.1 118.2 L135.6 112 L135.1 105.7 L134.6 99.3 L134.1 92.9 L133.6 86.5" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="5 3.5" marker-end="url(#fl)"/>
 <path d="M144.6 187.5 L147.9 186.1 L150.9 184.5 L153.8 182.7 L156.4 180.6 L158.8 178.3 L161.1 175.8 L163.1 173 L164.9 170 L166.4 166.7 L167.8 163.3 L169 159.5 L169.9 155.6 L170.7 151.4 L171.2 147 L171.5 142.3 L171.6 137.4" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="5 3.5" marker-end="url(#fl)"/>
 <path d="M147.7 142.2 L247.8 69.4 L243.5 63.6 L143.5 136.3 Z" fill="#fff" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="135.6" cy="191.5" r="14.5" fill="none" stroke="#9B2C1E" stroke-width="1.6"/>
 </g>
 <text x="351" y="38" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#1A1A1A">Raté : l’air par-dessus</text>
 <g transform="translate(351 46)" data-vue="rate">
@@ -203,6 +204,7 @@
 <path d="M143.4 91.7 C142 62.9 172 45.3 176.2 32.1" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M6 99.5 L74.6 99.5 L86 96.7 L91.4 94.6 L96.9 92.7 L102.4 90.9 L108 89.2 L113.6 87.7 L119.2 86.3 L124.9 85.1 L130.6 84 L136.3 83.1 L142.1 82.3 L147.9 81.6 L153.8 81.1 L159.7 80.8 L165.6 80.6 L171.6 80.5" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="5 3.5" marker-end="url(#fl)"/>
 <path d="M147.7 142.2 L247.8 69.4 L243.5 63.6 L143.5 136.3 Z" fill="#fff" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="74.6" cy="99.5" r="14.5" fill="none" stroke="#9B2C1E" stroke-width="1.6"/>
 </g>
 <text x="40" y="324" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#1A1A1A">Vu de dessus</text>
 <g transform="translate(40 332)" data-vue="plan">

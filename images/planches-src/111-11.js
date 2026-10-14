@@ -159,6 +159,8 @@ module.exports = (h) => {
             ...airs.map(a => lisere(dOf(a))),
             ...airs.map(a => h.fleche(dOf(a), h.a.cache)),
             dessinBarre(g),
+            // la charte : le point à contrôler, la bouche du tuyau au fond, sous le charbon
+            h.controle(M[0], M[1], rt + 8),
           ].join('\n');
         },
         renvois: z => {
@@ -191,6 +193,8 @@ module.exports = (h) => {
             flamme(g, cx + 6, 28, 88, 30),
             h.fleche(dOf(air), h.a.cache),
             dessinBarre(g),
+            // la charte : le point qui rate, l'air qui arrive par-dessus le charbon
+            h.controle(xr - 2, yG - rt - 0.5, rt + 8),
           ].join('\n');
         },
         renvois: z => {

@@ -60,7 +60,9 @@ module.exports = (h) => {
     const face = [[x0, y0], [x0 + L, y0], [x0 + L, y0 + H], [x0, y0 + H]];
     const dessus = [[x0, y0], [x0 + L, y0], [x0 + L + dx, y0 + dy], [x0 + dx, y0 + dy]];
     const bout = [[x0 + L, y0], [x0 + L + dx, y0 + dy], [x0 + L + dx, y0 + H + dy], [x0 + L, y0 + H]];
-    [face, dessus, bout].forEach(p => o.push(h.chemin(p, h.a.blanc, true)));
+    // la charte : le bout, face de droite, est à l'ombre (lumière en haut à gauche)
+    [face, dessus].forEach(p => o.push(h.chemin(p, h.a.blanc, true)));
+    o.push(h.chemin(bout, h.a.ombre, true));
     o.push(...cernes(x0 + L, y0, [dx, dy], [0, H], 0.42, 0.62, 0.62, [0.12, 0.3, 0.5, 0.72, 0.95]));
     if (!biais) {
       [0.2, 0.41, 0.6, 0.8].forEach((v, i) => o.push(fil(x0, y0 + v * H, x0 + L, y0 + v * H, i % 2 ? 1.4 : -1.2)));
@@ -146,6 +148,8 @@ module.exports = (h) => {
       lisse = `M ${XL} ${ys} H ${ml} V ${ys + MD} H ${mr} V ${ys} H ${XR} ${cassV(XR, 1)} H ${XL} ${cassV(XL, -1)} Z`;
     }
     o.push(h.path(lisse, h.a.blanc));
+    // la charte : le vide de la mortaise, où l'on voit la joue du fond, au gris loin
+    o.push(h.rect(ml, ys, mr - ml, perce ? HS : ys + TL - 7 - ys, h.a.loin));
     [[ys + 13, 1], [ys + 28, -1], [ys + 45, 1], [ys + 60, -1]].forEach(([y, s]) => {
       if (y < ys + MD + 4) {
         o.push(fil(XL + 10, y, ml - 8, y, s));
@@ -216,7 +220,13 @@ module.exports = (h) => {
       },
       chant: {
         titre: 'La pièce au chauffage',
-        dessin: z => { const g = pc(z); return piece(g.x0, g.y0, g.L, g.H, g.dx, g.dy, RUN); },
+        dessin: z => {
+          const g = pc(z);
+          const s = fibresBiais(g.x0, g.y0, g.L, g.H, RUN).filter(q => q.sort)
+            .sort((p, q) => Math.abs(p.xb - g.x0 - 0.5 * g.L) - Math.abs(q.xb - g.x0 - 0.5 * g.L))[0];
+          // la charte : le point à contrôler, la fibre qui sort par le chant
+          return piece(g.x0, g.y0, g.L, g.H, g.dx, g.dy, RUN) + '\n' + h.controle(s.xb, g.y0, 11);
+        },
         renvois: z => {
           const g = pc(z);
           const s = fibresBiais(g.x0, g.y0, g.L, g.H, RUN).filter(q => q.sort)
@@ -261,7 +271,8 @@ module.exports = (h) => {
           const face = [[x0, y0], [x0 + W, y0], [x0 + W, y0 + H0], [x0, y0 + H0]];
           const dessus = [[x0, y0], [x0 + W, y0], [x0 + W + dx, y0 + dy], [x0 + dx, y0 + dy]];
           const bout = [[x0 + W, y0], [x0 + W + dx, y0 + dy], [x0 + W + dx, y0 + H0 + dy], [x0 + W, y0 + H0]];
-          [face, dessus, bout].forEach(p => o.push(h.chemin(p, h.a.blanc, true)));
+          [face, dessus].forEach(p => o.push(h.chemin(p, h.a.blanc, true)));
+          o.push(h.chemin(bout, h.a.ombre, true));   // la charte : le bout à l'ombre
           fibresBiais(x0, y0, W, H0, H0 / K).forEach(({ xa, ya, xb, yb }, i) => o.push(fil(xa, ya, xb, yb, i % 2 ? 1.6 : -1.3)));
           [g.by - T, g.by + T].forEach(y => o.push(h.ligne(x0 - 6, y, x0 + W + 6, y, h.a.cache)));
           [dessus, bout].forEach(p => o.push(h.chemin(p, h.a.arete, true)));
@@ -285,6 +296,8 @@ module.exports = (h) => {
           g2.push(h.chemin(B, h.a.contour, true));
           g2.push('</g>');
           o.push(g2.join('\n'));
+          // la charte : le point qui casse, la cassure le long du fil
+          o.push(h.controle(xf + run2 / 2 + 6, y + 1.5, T + 9));
           return o.join('\n');
         },
         renvois: z => {
@@ -299,7 +312,11 @@ module.exports = (h) => {
       },
       godet: {
         titre: 'Mortaise borgne ouverte vers le haut',
-        dessin: z => joint(z, false),
+        dessin: z => {
+          const cx = z.l / 2, ys = Math.round(z.h * 0.5);
+          // la charte : le point qui pourrit, l'eau restée sous le tenon (TL 32, MD 50 dans joint)
+          return joint(z, false) + '\n' + h.controle(cx, ys + 41, 17);
+        },
         renvois: z => {
           const cx = z.l / 2, ys = Math.round(z.h * 0.5);
           return [

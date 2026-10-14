@@ -69,9 +69,9 @@ module.exports = (h) => {
     const vis = axe === 'x' ? u1 : u0, cache = axe === 'x' ? u0 : u1;
     const A = cerclePerche(p, axe, vis, c, zc, r, demi), B = cerclePerche(p, axe, cache, c, zc, r, demi);
     const out = [];
-    // le dessous de la perche, à l'ombre : l'enveloppe des deux arcs du bas (sous 0,3 r)
+    // le dessous de la perche, à l'ombre : l'enveloppe des deux arcs du bas (sous 0,55 r)
     const bas = (u) => Array.from({ length: 13 }, (_, i) => {
-      const t = Math.PI + 0.305 + (Math.PI - 0.61) * i / 12, dc = r * Math.cos(t), dz = r * Math.sin(t);
+      const t = Math.PI + 0.582 + (Math.PI - 1.164) * i / 12, dc = r * Math.cos(t), dz = r * Math.sin(t);
       return axe === 'x' ? p(u, c + dc, zc + dz) : p(c + dc, u, zc + dz);
     });
     const ombre = demi ? '' : poly(hull(bas(vis).concat(bas(cache))), h.a.ombre);

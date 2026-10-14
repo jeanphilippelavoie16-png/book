@@ -40,7 +40,10 @@ module.exports = (h) => {
   }
 
   // ─── une gerbe : pied B (milieu, sur le sol), sommet des tiges S ; demi-largeurs en unités de vue ───
-  function gerbe({ B, S, lPied, lLien, lHaut, tL = 0.42, n = 9, graine = 7, epiL, epiW, lien = null }) {
+  // La charte : le contour de la gerbe pèse (2,4) ; fond : '#FFFFFF', ou le gris loin pour une gerbe
+  // de derrière ; ombre : le flanc droit à l'ombre, sur la gerbe vue en grand.
+  let nOm = 0;
+  function gerbe({ B, S, lPied, lLien, lHaut, tL = 0.42, n = 9, graine = 7, epiL, epiW, lien = null, fond = '#FFFFFF', ombre = false }) {
     const r = alea(graine);
     const ax = [S[0] - B[0], S[1] - B[1]], Lg = Math.hypot(ax[0], ax[1]), u = [ax[0] / Lg, ax[1] / Lg], nn = [-u[1], u[0]];
     const Q = (t, k) => [B[0] + u[0] * Lg * t + nn[0] * k, B[1] + u[1] * Lg * t + nn[1] * k];
@@ -54,10 +57,18 @@ module.exports = (h) => {
     }
     const g = tiges[0].pts, dr = tiges[n - 1].pts;
     const out = [];
-    out.push(`<path d="${lisse(g)} L${pt(dr[4])} ${lisse(dr.slice().reverse()).replace(/^M/, 'L')} Z" fill="#FFFFFF" stroke="none"/>`);
+    const dCorps = `${lisse(g)} L${pt(dr[4])} ${lisse(dr.slice().reverse()).replace(/^M/, 'L')} Z`;
+    out.push(`<path d="${dCorps}" fill="${fond}" stroke="none"/>`);
+    if (ombre) {
+      // du milieu de la gerbe (s = 0,45) à son bord droit, découpé par le corps
+      const k = 0.45, mi = [[B[0] + k * lPied, B[1]], Q(tL * 0.5, k * (lPied + lLien) / 2), Q(tL, k * lLien), Q((1 + tL) / 2, k * (lLien + lHaut) / 2), Q(1, k * lHaut)];
+      const id = `om-9806-${nOm++}`;
+      out.push(`<clipPath id="${id}"><path d="${dCorps}" fill="none"/></clipPath>`,
+        `<g clip-path="url(#${id})"><path d="${lisse(mi)} L${pt(add(dr[4], [6, -6]))} ${lisse(dr.slice().reverse()).replace(/^M/, 'L')} L${pt(add(dr[0], [6, 6]))} Z" ${h.a.ombre}/></g>`);
+    }
     tiges.slice(1, -1).forEach(t => out.push(`<path d="${lisse(t.pts)}" ${TR(0.5)}/>`));
-    out.push(`<path d="${lisse(g)}" ${TR(1.4)}/>`, `<path d="${lisse(dr)}" ${TR(1.4)}/>`);
-    out.push(`<path d="M${pt(g[0])} L${pt(dr[0])}" ${TR(1.4)}/>`);
+    out.push(`<path d="${lisse(g)}" ${TR(2.4)}/>`, `<path d="${lisse(dr)}" ${TR(2.4)}/>`);
+    out.push(`<path d="M${pt(g[0])} L${pt(dr[0])}" ${TR(2.4)}/>`);
     // les épis, en éventail
     const ordre = tiges.map((t, i) => i).sort((a, b) => Math.abs(tiges[b].s) - Math.abs(tiges[a].s));
     for (const i of ordre) {
@@ -141,7 +152,7 @@ module.exports = (h) => {
       const d = [...bande(xd, cx + 14), [cx + 7, yJ + 3], [cx + ep / 2, yJ + 14], [cx + ep / 2, yJ + 48]];
       out.push(corde(g, ep), corde(d, ep));
       out.push(pinceau([cx - ep / 2, yJ + 48], [0, 1], ep, 14), pinceau([cx + ep / 2, yJ + 48], [0, 1], ep, 14));
-      out.push(h.fleche(`M${cx + ep + 12} ${yJ + 20} L${cx + ep + 12} ${yJ + 52}`));
+      out.push(h.geste(`M${cx + ep + 12} ${yJ + 20} L${cx + ep + 12} ${yJ + 52}`));   // la charte : le geste
     } else {
       // la torsade part du milieu du lien
       let chemin = [];
@@ -164,10 +175,10 @@ module.exports = (h) => {
       out.push(torsade(chemin, WT, PT, 13));
       if (etape === 2) {
         const ym = yJ + 27;
-        out.push(h.fleche(`M${cx - 19} ${ym} A 19 7 0 0 0 ${cx + 19} ${ym}`));
+        out.push(h.geste(`M${cx - 19} ${ym} A 19 7 0 0 0 ${cx + 19} ${ym}`));   // la charte : le geste
       } else {
         const xf = cx + 26 + 19;
-        out.push(h.fleche(`M${xf} ${yJ + 38} L${xf} ${yJ + 10}`));
+        out.push(h.geste(`M${xf} ${yJ + 38} L${xf} ${yJ + 10}`));   // la charte : le geste
       }
     }
     return out.join('\n');
@@ -200,7 +211,9 @@ module.exports = (h) => {
   const gerbe3D = (P, s, Bw, Sw, graine, yPied = null) => {
     const b = P(Bw), t = P(Sw);
     if (yPied !== null) b.p = [b.p[0], yPied];
-    return { D: b.D, svg: gerbe({ B: b.p, S: t.p, lPied: G.pied * s, lLien: G.lien * s, lHaut: G.haut * s, epiL: G.epi * s, epiW: G.epiW * s, n: 8, graine, lien: lienPetit(s, false) }) };
+    // La charte : les gerbes du côté loin du cône reculent en gris loin
+    const fond = b.D > 0 ? '#E6E6E6' : '#FFFFFF';
+    return { D: b.D, svg: gerbe({ B: b.p, S: t.p, lPied: G.pied * s, lLien: G.lien * s, lHaut: G.haut * s, epiL: G.epi * s, epiW: G.epiW * s, n: 8, graine, lien: lienPetit(s, false), fond }) };
   };
   const sol = (z, y) => [h.rect(0, y, z.l, 9, h.a.hachure('terre', 'aucun')), h.ligne(0, y, z.l, y, h.a.arete)].join('\n');
 
@@ -284,7 +297,7 @@ module.exports = (h) => {
       masquer: [[0, 150, 140, 175]], bras: { a: [21.8, 150], a0: [20.8, 135], b: [76.3, 150], b0: [76.2, 135], bord: z, fin: 'ouvert' } })));
     // la faucille se tire vers soi
     const f0 = P([Xh + 250, Yh + 40, 175]), f1_ = P([Xh + 420, Yh + 40, 175]);
-    out.push(h.fleche(`M${pt(f0)} L${pt(f1_)}`));
+    out.push(h.geste(`M${pt(f0)} L${pt(f1_)}`));   // la charte : le geste, tirer vers soi
     // la hauteur de coupe
     const c0 = P([Xh + 610, 5, 0]), c1 = P([Xh + 610, 5, 90]), tf = P([Xh + 581, 5, 90]);
     out.push(h.ligne(tf[0] + 2, c1[1], c1[0] + 5, c1[1], h.a.fin));
@@ -299,7 +312,7 @@ module.exports = (h) => {
   }
   function vueGerbe(z) {
     const { s, yG, cx, S, tL } = geoGerbe(z);
-    return [sol(z, yG), gerbe({ B: [cx, yG], S, lPied: G.pied * s, lLien: G.lien * s, lHaut: G.haut * s, tL, epiL: G.epi * s, epiW: G.epiW * s, n: 11, graine: 3, lien: lienPetit(s, true) })].join('\n');
+    return [sol(z, yG), gerbe({ B: [cx, yG], S, lPied: G.pied * s, lLien: G.lien * s, lHaut: G.haut * s, tL, epiL: G.epi * s, epiW: G.epiW * s, n: 11, graine: 3, lien: lienPetit(s, true), ombre: true })].join('\n');
   }
 
   // ─── les moyettes ───
@@ -339,11 +352,11 @@ module.exports = (h) => {
     const s = sR(z), yG = z.h - 11, cx = z.l / 2;
     return { s, yG, cx, yTop: yG - Ht * s, yAir: yG - Z_AIR * s };
   }
-  const gerbe2D = (s, B, S, graine, n = 8) => gerbe({ B, S, lPied: G.pied * s, lLien: G.lien * s, lHaut: G.haut * s, epiL: G.epi * s, epiW: G.epiW * s, n, graine, lien: lienPetit(s, false) });
+  const gerbe2D = (s, B, S, graine, n = 8, fond = '#FFFFFF') => gerbe({ B, S, lPied: G.pied * s, lLien: G.lien * s, lHaut: G.haut * s, epiL: G.epi * s, epiW: G.epiW * s, n, graine, lien: lienPetit(s, false), fond });
   function vueBout(z) {
     const { s, yG, cx, yTop, yAir } = geoBout(z);
     const out = [sol(z, yG)];
-    out.push(gerbe2D(s, [cx - PIED_R * s, yG], [cx + HAUT_R * s, yTop], 41));
+    out.push(gerbe2D(s, [cx - PIED_R * s, yG], [cx + HAUT_R * s, yTop], 41, 8, '#E6E6E6'));   // la charte : celle de derrière
     out.push(gerbe2D(s, [cx + PIED_R * s, yG], [cx - HAUT_R * s, yTop], 44));
     out.push(h.fleche(`M6 ${f1(yAir)} L${f1(z.l - 6)} ${f1(yAir)}`, h.a.cache));
     return out.join('\n');
@@ -358,7 +371,7 @@ module.exports = (h) => {
     for (let i = 0; i < NP_C; i++) {
       const x = x0 + i * PAS_C * s, d = 14 * s;
       // la gerbe de derrière, un peu décalée, puis celle de devant : tous les pieds sur le sol
-      out.push(gerbe2D(s, [x + d, yG], [x + d, yG - Ht * s], 60 + i * 5, 6));
+      out.push(gerbe2D(s, [x + d, yG], [x + d, yG - Ht * s], 60 + i * 5, 6, '#E6E6E6'));   // la charte : gris loin
       out.push(gerbe2D(s, [x - d, yG], [x - d, yG - Ht * s], 62 + i * 5, 6));
     }
     return out.join('\n');
