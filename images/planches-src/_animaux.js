@@ -1,12 +1,14 @@
 // _animaux.js — les animaux des planches, de profil, au trait du livre.
 //
-// Une fonction par animal. Chacune construit la bête par masses simples (ellipses, disques,
-// capsules), en fait l'union, arrondit les raccords, et rend un seul contour blanc au poids du corps
-// simple (1,5), les traits intérieurs à 0,7 (la cuisse, l'oreille, la patte), le côté loin en gris
-// loin. Pas de poil ni de plume : la silhouette, l'œil, et ce qui identifie l'espèce.
+// Une fonction par animal. Les masses simples d'abord (tête, corps, cuisse, pied), puis le contour
+// tracé par points clés par-dessus (trace : Catmull-Rom, les angles marqués 'c'), l'union des
+// pièces par Clipper, un lissage léger, et un seul contour blanc au poids du corps simple (1,5) ;
+// les traits intérieurs à 0,7 (la cuisse, l'oreille), le côté loin en gris loin. Pas de poil ni de
+// plume : la silhouette, l'œil, et ce qui identifie l'espèce. Un animal calqué sur une planche (les
+// oiseaux de Fuertes) dit d'où vient son contour, au-dessus de sa fonction.
 //
 //   const A = require('./_animaux');
-//   const l = A.lievre(h, { x, y, echelle, cote, trait });
+//   const l = A.lievre(h, { x, y, echelle, cote, trait, oreilles, cou });
 //   out.push(l.svg);                       // ou `${l}`
 //   l.cou -> [x, y]  le milieu du cou, là où se ferme la boucle ; l.nuque, l.gorge, l.boite, l.oeil, l.museau, l.sol
 //
@@ -121,6 +123,7 @@ function rendu(o, Tm) {
 }
 
 // ─── le lièvre d'Amérique ─────────────────────────────────────────────────────────────────
+// Construit sans modèle (aucune planche de lièvre dans le dépôt), d'après les traits de l'espèce.
 // Accroupi, la tête tendue vers l'avant comme sur sa piste : le dos rond, la cuisse haute, le grand
 // pied de derrière à plat sous la cuisse, la patte de devant mince et droite, la tête ronde au
 // museau court et carré, l'œil grand, haut, sur le côté ; l'oreille plus courte que la tête, le bout
