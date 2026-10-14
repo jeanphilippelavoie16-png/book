@@ -16,9 +16,8 @@
 // Têtes simples (14 octobre) : la tête du bébé est la tête simple de la bibliothèque (tetes/moteur.js,
 // âge « bebe », les yeux fermés, sans oreille), son cou raccordé aux épaules du corps dessiné ici ; le
 // raté la renverse sur le cou (penche) sans casser la nuque. La tête de l'aide est la tête simple de
-// l'adulte, de profil : ses lèvres se posent l'une sur l'arête du nez du bébé, l'autre sous sa lèvre, et
-// se serrent ; la tête relevée sur un cou qui monte vers les épaules (l'aide penché au-dessus), pour que
-// sa gorge ne se confonde pas avec la poitrine du bébé. Le corps du bébé est dessiné à la main, en mm :
+// l'adulte, entière, penchée vers le bébé : ses lèvres serrées en travers du nez et de la bouche du
+// bébé (une tricherie : voir plus bas). Le corps du bébé est dessiné à la main, en mm :
 // poitrine de 95 d'épaisseur.
 //
 // La charte : le bébé est un corps dessiné à la main, sans gris. Le linge roulé,
@@ -193,46 +192,50 @@ module.exports = (h) => {
   };
 
   // ─── Souffler, bouche sur bouche et nez, de profil (JP, 14 octobre : « passe-les de profil »).
-  // Le bébé de « la tête droite », en gros plan, coupé après les épaules ; au-dessus, la tête de
-  // l'aide (la tête simple de l'adulte), le visage vers le bas, le front vers la tête du bébé : ses
-  // lèvres, serrées, couvrent ensemble le nez et la bouche du bébé. La tête de l'aide est peinte après
-  // le bébé : son blanc cache le nez et la bouche qu'elle couvre. Le cadre coupe le haut de son crâne :
-  // les deux visages en grand. Sa tête est relevée de 35° sur un cou qui monte vers ses épaules (penché
-  // au-dessus du bébé, le visage vers le sol) : la gorge de l'aide s'écarte de la poitrine du bébé.
-  const XS = 100, CADRE_D = [-125, XS + 2, -300, 34];
-  const OPT = { cote: 'gauche', penche: -35, cou: 150 };
+  // Le bébé de « la tête droite », coupé après les épaules ; au-dessus, la tête de l'aide (la tête
+  // simple de l'adulte), entière, de profil, penchée vers le bébé, le visage vers le bas : ses lèvres,
+  // serrées, se posent en travers du nez et de la bouche du bébé. C'est une tricherie assumée (la vraie
+  // bouche qui scelle est à plat sur le visage, et la tête de profil ne s'y lit plus) : le cou de l'aide
+  // monte vers ses épaules (angle −95°), la tête se relève dessus de 35°, le regard à 60° sous
+  // l'horizontale ; sa gorge s'écarte de la poitrine du bébé. La tête de l'aide est peinte après le
+  // bébé : son blanc cache le nez et la bouche qu'elle couvre. Le cadre prend toute la tête ; le cou
+  // sort de la vue. Le bébé est coupé à sa brisure (le reste de la couverture ne déborde pas).
+  const AIDE = { angle: -95, penche: -35, epaisseur: 18 };
+  const XS = 100;
+  // le cadre : le bébé (de l'occiput à la brisure) et la tête de l'aide entière, sans son cou
+  const CADRE0 = [-125, XS + 2, -300, 34];
+  let CADRE_D = null;
+  const cadreD = z => {
+    if (CADRE_D) return CADRE_D;
+    const v = vignette(z, R_BON, CADRE0, XS), a = aide0(v, 40), o = v.V([0, 0]), mm = p => [(p[0] - o[0]) / v.k, (p[1] - o[1]) / v.k];
+    const b0 = mm([a.t.boite.x0, a.t.boite.y0]), b1 = mm([a.t.boite.x1, a.t.boite.y1]);
+    return (CADRE_D = [Math.min(-125, b0[0] - 4), Math.max(XS + 2, b1[0] + 4), Math.min(-120, b0[1] - 4), 34]);
+  };
   const CACHE_AIDE = new Map();
   const aide = (v) => { const cle = v.k.toFixed(4) + v.V([0, 0]).join(); if (!CACHE_AIDE.has(cle)) CACHE_AIDE.set(cle, aide0(v)); return CACHE_AIDE.get(cle); };
-  const aide0 = (v) => {
+  const aide0 = (v, couCadre) => {
     const t = v.t, u = [t.nez[0] - t.oeil[0], t.nez[1] - t.oeil[1]];
     const pontNez = [t.oeil[0] + u[0] * 0.55, t.oeil[1] + u[1] * 0.55];
     const sousLevre = [t.bouche[0] * 0.35 + t.menton[0] * 0.65, t.bouche[1] * 0.35 + t.menton[1] * 0.65];
-    const cote = OPT.cote;
-    // la lèvre du haut de l'aide va du côté de son front : vers la tête du bébé (gauche) ou vers sa poitrine (droite)
-    const [H, B] = cote === 'gauche' ? [pontNez, sousLevre] : [sousLevre, pontNez];
-    const ep = Math.hypot(B[0] - H[0], B[1] - H[1]) / v.k;
-    const dir = Math.atan2(B[1] - H[1], B[0] - H[0]) * 180 / Math.PI;
-    const base = { x: 0, y: 0, echelle: v.k, cote, ancre: 'nuque', bouche: 'serre', epaisseur: ep, penche: OPT.penche, cou: OPT.cou };
-    // l'angle qui met les deux lèvres dans l'axe arête du nez → sous la lèvre, le visage vers le bas
-    const fait = (ang, x = 0, y = 0) => h.formes.teteSimple(Object.assign({}, base, { angle: ang, x, y }));
-    let best = 0, err = 1e9;
-    const ecart = a => { const g = fait(a), d = Math.atan2(g.levres.bas[1] - g.levres.haut[1], g.levres.bas[0] - g.levres.haut[0]) * 180 / Math.PI;
-      return Math.abs(((d - dir) % 360 + 540) % 360 - 180) + (Math.sin(g.regard * RAD) < 0.2 ? 1000 : 0); };
-    for (let a = -180; a < 180; a += 5) { const e = ecart(a); if (e < err) { err = e; best = a; } }
-    for (let a = best - 5; a <= best + 5; a += 0.25) { const e = ecart(a); if (e < err) { err = e; best = a; } }
-    const g0 = fait(best);
+    // la cible : le milieu des lèvres de l'aide, entre le nez et la bouche du bébé, à la hauteur de son nez
+    const mc = [(pontNez[0] + sousLevre[0]) / 2, Math.min(pontNez[1], sousLevre[1])];
+    // (couCadre : un cou court pour cadrer la tête ; le dessin a un long cou, qui sort de la vue)
+    const base = { echelle: v.k, cote: 'gauche', ancre: 'nuque', angle: AIDE.angle, penche: AIDE.penche, cou: couCadre == null ? 400 : couCadre,
+      bouche: 'serre', epaisseur: AIDE.epaisseur };
+    const g0 = h.formes.teteSimple(Object.assign({ x: 0, y: 0 }, base));
     const m0 = [(g0.levres.haut[0] + g0.levres.bas[0]) / 2, (g0.levres.haut[1] + g0.levres.bas[1]) / 2];
-    const mc = [(H[0] + B[0]) / 2, (H[1] + B[1]) / 2];
-    const t2 = fait(best, mc[0] - m0[0], mc[1] - m0[1]);
-    return { t: t2, contact: pontNez, angle: best };
+    const t2 = h.formes.teteSimple(Object.assign({ x: mc[0] - m0[0], y: mc[1] - m0[1] }, base));
+    return { t: t2, contact: pontNez };
   };
   const dessus = z => {
-    const v = vignette(z, R_BON, CADRE_D, XS);
+    const v = vignette(z, R_BON, cadreD(z), XS);
     const a = aide(v);
+    const xb = v.V([XS + 3, 0])[0];
     return `<clipPath id="vue-2905-souffler"><rect x="0" y="0" width="${f(z.l)}" height="${f(z.h)}" fill="#FFFFFF"/></clipPath>\n` +
-      `<g clip-path="url(#vue-2905-souffler)">\n${v.svg}\n${a.t}\n</g>`;
+      `<clipPath id="vue-2905-bebe"><rect x="0" y="0" width="${f(xb)}" height="${f(z.h)}" fill="#FFFFFF"/></clipPath>\n` +
+      `<g clip-path="url(#vue-2905-souffler)">\n<g clip-path="url(#vue-2905-bebe)">\n${v.svg}\n</g>\n${a.t}\n</g>`;
   };
-  const posD = (z, p) => cadre(z, ...CADRE_D).V(p);
+  const posD = (z, p) => cadre(z, ...cadreD(z)).V(p);
 
   return {
     ref: '29-05',
@@ -270,7 +273,7 @@ module.exports = (h) => {
         renvois: z => [
           // la pastille dans le blanc entre le front de l'aide et le crâne du bébé ; la cible, là où
           // la lèvre du haut de l'aide se pose sur le nez du bébé
-          { n: 6, rond: (() => { const c = aide(vignette(z, R_BON, CADRE_D, XS)).contact; return [Math.max(14, c[0] - 60), c[1] - 8]; })(), cible: aide(vignette(z, R_BON, CADRE_D, XS)).contact, texte: 'bouche sur bouche et nez' },
+          { n: 6, rond: (() => { const c = aide(vignette(z, R_BON, cadreD(z), XS)).contact; return [Math.max(14, c[0] - 60), c[1] - 8]; })(), cible: aide(vignette(z, R_BON, cadreD(z), XS)).contact, texte: 'bouche sur bouche et nez' },
         ],
       },
       souffler: {

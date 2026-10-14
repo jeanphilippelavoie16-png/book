@@ -235,10 +235,11 @@ module.exports = (h) => {
   const souffler = z => {
     const e = Math.min(0.5, (z.h - 8) / (COUPE + 150), (z.l - 30) / (126 + 104 + AVANT_BRAS + 2 * R_BOULE + 60));
     const oreille = [12 + 130 * e, z.h - 4 - COUPE * e];
+    // le visage : la tête simple (corps({ visage }), 14 oct.), la bouche entrouverte qui souffle
     const o = { pose: 'buste-main-bouche', echelle: e, x: oreille[0] - 19 * e, y: oreille[1] + 1666 * e, mains: { P: 'porte' },
-      angles: { brasP: 55.6, avantbrasP: 172, mainP: 90 } };
+      angles: { brasP: 55.6, avantbrasP: 172, mainP: 90 }, visage: { bouche: 'ouverte', ouverture: 0.2 } };
     const c = FM.corps(o);
-    const bouche = [c.tete.x + 92 * e, c.tete.y + 56 * e];
+    const bouche = c.visage.bouche;
     const R = R_BOULE * e, B = [c.mainP.x, c.mainP.y - R * 0.92];
     const y0 = B[1] - R * 0.8;
     const axe = y => B[0] + R * 0.35 + (y0 - y) * 0.18 + 5 * Math.sin((y0 - y) / 14);

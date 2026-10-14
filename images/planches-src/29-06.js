@@ -9,7 +9,10 @@
 // Rien ne se construit : aucune cote. Le chapitre ne donne aucune mesure du sein ni du bébé.
 // Tout est de profil, le bébé tourné vers la gauche, la mère à gauche (son sein ; adossée, elle
 // est penchée de 15° vers l'arrière). Le bébé est dessiné à la main (la bibliothèque n'a pas de
-// nouveau-né), sur la tête de la planche 29-05 retournée : 124 de l'occiput au nez, 131 du sommet
+// nouveau-né qui puisse ouvrir une grande bouche noire ou retourner les lèvres : la tête simple du
+// nouveau-né a le visage minuscule et le nez à peine marqué, et les bouches de cette planche n'y
+// tiennent pas — essayé le 14 octobre ; sa tête garde la paupière seule et une oreille en C, comme les
+// têtes simples), sur la tête de l'ancienne planche 29-05 retournée : 124 de l'occiput au nez, 131 du sommet
 // au menton, en mm ; le corps est emmailloté dans une couverture jusqu'au cou. La main de la mère
 // est une main simple (mainSimple, ouverte, vue du dos), à la même échelle (14 octobre). Rouge : le
 // geste d'amener le bébé au sein.
@@ -213,11 +216,10 @@ module.exports = (h) => {
     out.push(h.path(lisse(T(CRANE)), A.arete));
     out.push(h.path(lisse(T(b.haut)), A.arete));
     out.push(h.path(lisse(T(b.bas)), A.arete));
-    // l'oreille, l'œil fermé, l'aile du nez
+    // l'oreille (un C, comme les têtes simples), l'œil fermé (la paupière seule : les cils faisaient
+    // une patte d'oiseau, et la bibliothèque n'en met pas), l'aile du nez
     out.push(h.path(lisse(T([[-3, -15], [8, -19.5], [17, -8], [16, 5], [8, 15.5], [0, 18.5], [-3, 15]])), A.detail));
-    out.push(h.path(lisse(T([[1, -9], [8, -8], [9.5, 1], [4, 8]])), A.fin));
     out.push(h.path(lisse(T([[-52.5, -12], [-46.5, -8.4], [-40, -10.8]])), A.detail));
-    for (const [a, c] of [[[-50.5, -10.2], [-52, -7.6]], [[-46.8, -8.5], [-47.8, -5.8]], [[-43, -9], [-43.6, -6.4]]]) out.push(h.path(`M${pt(V(S(a)))} L${pt(V(S(c)))}`, A.fin));
     out.push(h.path(lisse(T([[-61, 19.2], [-56, 19], [-55, 14], [-59, 12.2]])), A.fin));
     return out.join('\n');
   }

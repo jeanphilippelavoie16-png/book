@@ -97,18 +97,26 @@ module.exports = (h) => {
     return ys;
   };
   const AXE_S = 38;                                  // la seringue, penchée de 38° vers les pieds
+  // couché sur le dos, la tête simple sans la ligne des cheveux : sur une tête couchée, l'oreille et la patte
+  // au milieu du crâne se lisaient comme un visage de face qui sourit (sans cheveux, l'oreille s'en va aussi)
+  const VISAGE_C = { cheveux: 'aucun' };
   const memoK = {};
   const geoCouche = z => {
     const cle = [z.l, z.h].join(',');
     if (memoK[cle]) return memoK[cle];
     const e = Math.min(0.62, (z.h - 40) / 330), mat = z.h - 26;
-    const c0 = F.corps({ x: 0, y: mat, pose: 'couche-dos', age: 'enfant4', echelle: e });
-    const c = F.corps({ x: 44 - c0.boite.x0, y: mat, pose: 'couche-dos', age: 'enfant4', echelle: e });
+    // le visage : la tête simple (corps({ visage }), 14 oct.), les yeux ouverts, la bouche fermée. Couché à
+    // plat, le crâne de la tête simple descend plus bas que la tête du corps : le moteur pose
+    // alors l'enfant sur l'arrière de sa tête, le dos en l'air. On le redescend de cet écart : le dos repose
+    // sur le matelas et la tête s'y enfonce un peu.
+    const cD = F.corps({ x: 0, y: mat, pose: 'couche-dos', age: 'enfant4', echelle: e });
+    const c0 = F.corps({ x: 0, y: mat, pose: 'couche-dos', age: 'enfant4', echelle: e, visage: VISAGE_C });
+    const enfonce = cD.articulations.bassin[1] - c0.articulations.bassin[1];
+    const c = F.corps({ x: 44 - c0.boite.x0, y: mat + enfonce, pose: 'couche-dos', age: 'enfant4', echelle: e, visage: VISAGE_C });
     const T = c.tete;
-    // le bout du nez : le point le plus haut du visage ; la narine, juste dessous, côté bouche
-    let nez = null;
-    for (let x = T.x - 50 * e; x <= T.x + 80 * e; x += 0.5) { const ys = coupesXc(c, x); if (!ys.length) continue; const y = Math.min(...ys); if (!nez || y < nez[1]) nez = [x, y]; }
-    const P = [nez[0] + 9 * e, nez[1] + 5 * e];
+    // la narine : sous le bout du nez, côté bouche
+    const nez = c.visage.nez, bo = c.visage.bouche;
+    const P = [nez[0] + (bo[0] - nez[0]) * 0.3, nez[1] + (bo[1] - nez[1]) * 0.3];
     const u = [Math.sin(AXE_S * RAD), -Math.cos(AXE_S * RAD)];
     const sg = seringue(P, u, e * 0.95);
     return (memoK[cle] = { e, mat, c, T, P, sg });
@@ -131,12 +139,13 @@ module.exports = (h) => {
     return ys;
   };
   const ANGLES = { avantbrasP: 90, mainP: 90, avantbrasL: 90, mainL: 90 };
+  const VISAGE_B = { bouche: 'ouverte', ouverture: 0.45 };    // la tête simple : il crache, la bouche ouverte
   const memoC = {};
   const crache = z => {
     const cle = [z.l, z.h].join(',');
     if (memoC[cle]) return memoC[cle];
     const E = Math.min(0.3, (z.h - 22) / 770), solY = z.h - 14, hx = 98 * E / 0.3;
-    const c = F.corps({ x: hx, y: solY, pose: 'assis-penche-bol', age: 'enfant4', echelle: E, angles: ANGLES });
+    const c = F.corps({ x: hx, y: solY, pose: 'assis-penche-bol', age: 'enfant4', echelle: E, angles: ANGLES, visage: VISAGE_B });
     const A = c.articulations, W = A.poignetP, K = A.coudeP;
     // le dessus de la table : le dessous de l'avant-bras proche, à mi-chemin du coude au poignet
     const xm = (K[0] + W[0]) / 2, ym = (K[1] + W[1]) / 2;
@@ -144,7 +153,7 @@ module.exports = (h) => {
     const tx0 = K[0] - 26 * E * 3;                       // le bord de la table, sous le coude
     // le bol : sous le menton, posé sur la table
     const T = c.tete, bx = T.x + 50 * E, rx = 62 * E, prof = 72 * E, bord = tableY - prof;
-    const m = [T.x + 52 * E, T.y + 70 * E];               // le bas du visage, d'où ça tombe
+    const m = c.visage.bouche;                            // la bouche ouverte, d'où ça tombe
     return (memoC[cle] = { E, solY, hx, tableY, tx0, bx, rx, prof, bord, m, siege: c.siege });
   };
   return {
@@ -208,7 +217,7 @@ module.exports = (h) => {
             h.ellipse(bx, bord, rx, 4.5, BT(1.4)),
           ].join('\n');
           // l'enfant, le bol tenu entre ses bras
-          out.push(F.corps({ x: hx, y: solY, pose: 'assis-penche-bol', age: 'enfant4', echelle: E, angles: ANGLES, objetP: bol }));
+          out.push(F.corps({ x: hx, y: solY, pose: 'assis-penche-bol', age: 'enfant4', echelle: E, angles: ANGLES, objetP: bol, visage: VISAGE_B }));
           // ce qu'il crache tombe dans le bol
           const goutte = (x, y, r) => h.path(`M${f(x)} ${f(y - 2.4 * r)} C${f(x + 0.4 * r)} ${f(y - 1.2 * r)} ${f(x + r)} ${f(y - 0.6 * r)} ${f(x + r)} ${f(y)} A${f(r)} ${f(r)} 0 0 1 ${f(x - r)} ${f(y)} C${f(x - r)} ${f(y - 0.6 * r)} ${f(x - 0.4 * r)} ${f(y - 1.2 * r)} ${f(x)} ${f(y - 2.4 * r)} Z`, BT(0.7));
           const y0 = m[1] + 7, y1 = bord - 2;

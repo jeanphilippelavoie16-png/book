@@ -51,16 +51,20 @@ module.exports = (h) => {
   // vue sous la taille. Les angles du bras viennent d'une recherche faite une fois (Nelder-Mead sur
   // corps(), lot 3, 13 oct.) : le poing devant le menton, l'axe du rameau qui passe sous la narine
   // (sentir) ou entre les lèvres (mâcher), penché vers l'avant de 20° ou 24°. Le rameau se pose
-  // ensuite sur la géométrie rendue : du point du visage au centre du poing.
+  // ensuite sur la géométrie rendue : du point du visage au centre du poing. Avec la tête simple (14 oct.),
+  // le point du visage descend ; la recherche refaite garde le poing au même endroit par rapport à lui.
   const EB = 0.43;
   const BRAS = {
-    sentir: { brasP: 66.2, avantbrasP: -147.7, mainP: -200 },
-    macher: { brasP: 54.8, avantbrasP: -156.4, mainP: -204 },
+    sentir: { brasP: 58.2, avantbrasP: -154.7, mainP: -200 },
+    macher: { brasP: 46.5, avantbrasP: -166.1, mainP: -204 },
   };
-  // le point du visage, en mm depuis le centre de la tête (le corps simple n'a pas de visage :
-  // relevé sur son contour, le nez au plus avancé à +24 mm, le creux sous la narine à +34, les
-  // lèvres à +58)
-  const VISAGE = { sentir: [99, 34], macher: [83, 58] };
+  // le visage : la tête simple de la bibliothèque (corps({ visage }), 14 octobre). Sentir : la bouche
+  // fermée, la cassure sous la narine, entre le bout du nez et la bouche ; mâcher : les lèvres serrées
+  // sur la pousse (8 mm), le bout coupé entre elles.
+  const VISAGE = { sentir: true, macher: { bouche: 'serre', epaisseur: 8 } };
+  const pointVisage = (cle, v) => cle === 'sentir'
+    ? [v.nez[0] + (v.bouche[0] - v.nez[0]) * 0.4 + 1.5, v.nez[1] + (v.bouche[1] - v.nez[1]) * 0.4]
+    : v.bouche;
   const plus = (p, u, k) => [p[0] + u[0] * k, p[1] + u[1] * k];
   // le rameau tenu : droit, d'un bout B à l'autre bout Q, un peu cambré
   const rameauDroit = (Q, B, r0, r1, n = 14) => {
@@ -74,14 +78,14 @@ module.exports = (h) => {
   const Y_SOL = 8 + 1773 * EB;                           // le sommet du crâne à 8 du haut de la vue
   const buste = (cle, X, z) => {
     const k = [cle, X, z.l, z.h].join(',');
-    if (!memo[k]) memo[k] = F.corps({ x: X, y: Y_SOL, pose: 'buste-main-bouche', echelle: EB, angles: BRAS[cle] });
+    if (!memo[k]) memo[k] = F.corps({ x: X, y: Y_SOL, pose: 'buste-main-bouche', echelle: EB, angles: BRAS[cle], visage: VISAGE[cle] });
     return memo[k];
   };
   // la géométrie d'une vue : le point du visage A, le poing M, la direction u du visage vers l'avant
   const geoBuste = (cle, z) => {
     const X = z.l * 0.27;
     const c = buste(cle, X, z);
-    const A = [c.tete.x + VISAGE[cle][0] * EB, c.tete.y + VISAGE[cle][1] * EB], M = [c.mainP.x, c.mainP.y];
+    const A = pointVisage(cle, c.visage), M = [c.mainP.x, c.mainP.y];
     const L = Math.hypot(M[0] - A[0], M[1] - A[1]), u = [(M[0] - A[0]) / L, (M[1] - A[1]) / L];
     return { X, c, A, M, u, k: L };
   };
@@ -89,7 +93,7 @@ module.exports = (h) => {
   // bord de la vue : un buste
   const rendre = (cle, X, z, objet) => {
     const id = `rogne-27-05-${cle}`;
-    const c = F.corps({ x: X, y: Y_SOL, pose: 'buste-main-bouche', echelle: EB, angles: BRAS[cle], objetP: objet });
+    const c = F.corps({ x: X, y: Y_SOL, pose: 'buste-main-bouche', echelle: EB, angles: BRAS[cle], objetP: objet, visage: VISAGE[cle] });
     return `<clipPath id="${id}"><rect x="0" y="0" width="${f1(z.l)}" height="${f1(z.h)}"/></clipPath>\n<g clip-path="url(#${id})">\n${c}\n</g>`;
   };
   // la vue « sentir » : la cassure sous la narine, le rameau tenu au poing devant le menton
