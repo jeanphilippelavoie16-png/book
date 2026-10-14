@@ -448,6 +448,8 @@ table.cred td{padding-top:4pt;padding-bottom:4pt}
 table.cred td.pg{font:700 9pt/10.4pt var(--sans);white-space:nowrap}
 table.cred td.ln{font:500 7.2pt/9.4pt var(--sans);word-break:break-all;color:var(--k70)}
 .page.ax::after,.page.tp::after{content:none;display:none}
+.dd .block{justify-content:flex-start}
+.dd-txt{margin:2.6in 0 0;text-align:center;text-indent:0;font:italic 400 21pt/1.3 var(--serif);color:var(--k)}
 .ax-vide{margin-top:18pt;padding:10pt 12pt;background:var(--tp);border-left:3pt solid var(--ta);font:500 10pt/13.5pt var(--sans)}
 """
 
@@ -516,6 +518,9 @@ def annexe_html(tome, chaps, plan, work):
 <h1 class="tp-title">{e(titre_t)}</h1><div class="tp-num">{tome}</div>
 <div class="tp-chap"><span>Chapitres <b>{aff(premier)}</b> à <b>{aff(dernier)}</b></span><span>{nb} chapitres</span></div>
 <div class="tp-serie">{serie}</div></div></section>''')
+    # --- dédicace (recto, après la page de titre ; JP, 14 octobre 2026 : « la première page, comme dans les livres »)
+    pages.append(f'''<section class="page recto ax dd" id="a-dedicace"><div class="block">
+<p class="dd-txt">{il(DEDICACE)}</p></div></section>''')
     # --- sommaire
     icone = {"Maison": "m", "Chalet": "c"}
     rangs = []
@@ -545,7 +550,9 @@ def annexe_html(tome, chaps, plan, work):
            + "\n".join(pages) + "\n</div>\n" + ANNEXE_JS + "</body>\n</html>\n")
     dst = os.path.join(work, "html", f"annexes-tome-{tome}.html")
     open(dst, "w", encoding="utf-8").write(out)
-    return dst, ["a-titre", "a-sommaire"]
+    return dst, ["a-titre", "a-dedicace", "a-sommaire"]
+
+DEDICACE = "À Pierre-Alexis et à Louis-Charles"
 
 CREDITS_PAR_PAGE = 16
 
@@ -728,7 +735,7 @@ def main():
             if f["id"] == "photo":
                 photos.append((c, f))
     en_tete = [c for c in chaps if tome == 1 and c["num"] == "00"]
-    ordre = ([("chap", c) for c in en_tete] + [("annexe", "a-titre"), ("blanche", "titre"), ("annexe", "a-sommaire")]
+    ordre = ([("chap", c) for c in en_tete] + [("annexe", "a-titre"), ("blanche", "titre"), ("annexe", "a-dedicace"), ("blanche", "dedicace"), ("annexe", "a-sommaire")]
              + [("chap", c) for c in chaps if c not in en_tete])
     plan, seq, lignes_plan = {}, [], []
     blanches, blanches_ouv = 0, 0
@@ -747,11 +754,11 @@ def main():
         elif kind == "blanche":
             seq.append(("blanche", None)); blanches += 1
         else:
-            if x == "a-titre" and prochaine % 2 == 0:     # la page de titre est toujours à droite
+            if x in ("a-titre", "a-dedicace") and prochaine % 2 == 0:     # titre et dédicace toujours à droite
                 seq.append(("blanche", None)); blanches += 1; prochaine += 1
-            plan["titre" if x == "a-titre" else "sommaire"] = prochaine
+            plan[x[2:]] = prochaine
             seq.append(("annexe", x))
-            lignes_plan.append((str(prochaine), "Page de titre" if x == "a-titre" else "Sommaire", 1))
+            lignes_plan.append((str(prochaine), {"a-titre": "Page de titre", "a-dedicace": "Dédicace", "a-sommaire": "Sommaire"}[x], 1))
     while len(seq) % MULTIPLE or len(seq) < PAGES_MIN:
         seq.append(("blanche", None)); blanches += 1
     total = len(seq)

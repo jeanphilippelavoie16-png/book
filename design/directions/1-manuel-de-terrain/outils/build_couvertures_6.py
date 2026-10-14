@@ -13,6 +13,8 @@ retenues (mousse, rouille) sont dans archives/ (couvertures-nordique-6-variantes
                                              par tome, aux mesures exactes de Blurb -> livre/tome-N/couverture.pdf
   python build_couvertures_6.py --sortie DIR le HTML et les dessins dans DIR, pour un aperçu : rien n'est écrit dans
                                              design/ ni dans livre/
+  --photo bichromie|couleur                  la photo de JP au bloc des auteurs (PHOTO par défaut)
+  --dessin K:N                               le N-ième candidat (1 à 3, CANDIDATS) pour le tome K, au lieu de CHOIX
 
 Tout le rendu (HTML, PDF, découpe, aperçus) : outils/rendre_couvertures_6.sh
 """
@@ -378,6 +380,68 @@ def traits(dest=None):
         tailles[k] = (t['vb'][2] * e, t['vb'][3] * e)
     return tailles
 
+# ------------------------------------------------------------------ les auteurs (quatrième)
+# JP, 14 octobre 2026 : nos deux photos et un court texte sur chacun, au dos de la couverture, à la place d'une page
+# « Les auteurs » dans le livre (qui ne se fait pas : les comptes de pages ne bougent pas). Textes de JP, tels quels.
+AUTEURS = [
+    dict(nom='Jean-Philippe Lavoie', qualite='', image='jp',
+         texte='De Baie-Comeau, sur la Côte-Nord du Québec, là où la forêt boréale descend jusqu’au fleuve. Adepte de '
+               'nature, il dédie ce livre à ses deux enfants. Il le croit nécessaire — et souhaite de tout cœur ne jamais '
+               'avoir à s’en servir.'),
+    dict(nom='Claude', qualite='(intelligence artificielle, Anthropic)', image='claude',
+         texte='Claude n’a jamais senti le froid de janvier ni l’odeur d’un feu de bouleau. Claude a cherché chaque '
+               'chiffre à la source, mis les mots en ordre et tracé les planches ; Jean-Philippe a gardé ce qui méritait '
+               'de rester.'),
+]
+# La photo de JP (images/auteurs/jp.jpg, fond blanc) : « bichromie » (l'ombre à la couleur sombre du tome, la lumière
+# à la claire ; sur la neige, le fond blanc de la photo devient exactement le fond de la couverture) ou « couleur ».
+# L'étincelle de Claude (images/auteurs/claude.svg) passe à l'encre du tome. Les deux dans un cercle filé à l'encre.
+PHOTO = 'bichromie'
+
+def _rgb(c):
+    return tuple(int(c[i:i + 2], 16) for i in (1, 3, 5))
+
+def _clair(c):
+    r, g, b = _rgb(c)
+    return 0.2126 * r + 0.7152 * g + 0.0722 * b
+
+def auteurs_fichiers(k, dest, photo=None):
+    """Les images du bloc des auteurs pour le tome k, écrites dans dest ; rend {image: nom de fichier}."""
+    import shutil
+    fond, encre, nom, slug = COUL[k]
+    photo = photo or PHOTO
+    src = os.path.join(IMG, 'auteurs', 'jp.jpg')
+    if photo == 'couleur':
+        jp = 'auteur-jp.jpg'
+        shutil.copyfile(src, os.path.join(dest, jp))
+    elif photo == 'bichromie':
+        from PIL import Image
+        im = Image.open(src).convert('L')
+        im = im.point([min(255, round(v * 255 / 245)) for v in range(256)])   # le fond de la photo (≥ 245) au blanc franc
+        sombre, clair = sorted((_rgb(fond), _rgb(encre)), key=lambda c: 0.2126 * c[0] + 0.7152 * c[1] + 0.0722 * c[2])
+        jp = 'auteur-jp-%s.png' % slug
+        Image.merge('RGB', [im.point([round(a + (b - a) * v / 255) for v in range(256)]) for a, b in zip(sombre, clair)]
+                    ).save(os.path.join(dest, jp), optimize=True)
+    else:
+        raise ValueError('photo : « bichromie » ou « couleur », pas « %s »' % photo)
+    s = open(os.path.join(IMG, 'auteurs', 'claude.svg'), encoding='utf-8').read()
+    reste = set(c.upper() for c in re.findall(r'#[0-9A-Fa-f]{6}\b', s)) - {'#D97757'}
+    if reste:
+        raise ValueError('claude.svg : couleurs non prévues %s' % sorted(reste))
+    claude = 'auteur-claude-%s.svg' % slug
+    open(os.path.join(dest, claude), 'w', encoding='utf-8').write(re.sub(r'#D97757', encre, s, flags=re.I))
+    return {'jp': jp, 'claude': claude}
+
+def auteurs_html(fichiers):
+    blocs = []
+    for a in AUTEURS:
+        img = '<img src="%s" alt="">' % fichiers[a['image']]
+        tete = '<b>%s</b>%s' % (esc(a['nom']), ' ' + esc(a['qualite']) if a['qualite'] else '')
+        # insécable devant les tirets : jamais un tiret en début de ligne
+        texte = esc(a['texte']).replace(' — ', '&nbsp;— ')
+        blocs.append('<div class="a"><span class="ph %s">%s</span><p>%s&nbsp;— %s</p></div>' % (a['image'], img, tete, texte))
+    return '<div class="auteurs"><h2>Les auteurs</h2><div class="aut">%s</div></div>' % ''.join(blocs)
+
 # ------------------------------------------------------------------ gabarits HTML
 esc = lambda s: s.replace('&', '&amp;').replace('<', '&lt;')
 
@@ -401,11 +465,11 @@ def avant(k):
     return ('<section class="sheet front t%d" id="f%d" data-tome="%d"><div class="panel"><div class="in">\n  %s\n</div></div></section>\n'
             % (k, k, k, avant_in(k)))
 
-def complete(k, tailles):
+def complete(k, tailles, fichiers):
     d = TOMES[k]
     t = TRAIT[k]
     w, h = tailles[k]
-    img = '<img src="%s-%s.svg" alt="" style="width:%.3fin;height:%.3fin;margin-top:auto">' % (t['fic'], COUL[k][3], w, h)
+    img = '<img src="%s-%s.svg" alt="" style="width:%.3fin;height:%.3fin">' % (t['fic'], COUL[k][3], w, h)
     lis = ''.join('<li><b>%s</b>%s</li>' % (n, esc(x)) for n, x in SOMMAIRE[k])
     return f'''<section class="sheet full t{k}" id="full{k}" data-tome="{k}" style="--spine:{SPINE[k]}in;page:full{k}">
   <div class="panel back"><div class="in">
@@ -417,7 +481,8 @@ def complete(k, tailles):
     <div class="toc"><h2>Dans ce tome · chapitres {d['ch'][0]} à {d['ch'][1]}</h2>
       <ol>{lis}</ol>
     </div>
-    <div class="trait">{img}<div class="cap">{t['cap']}</div></div>
+    <div class="bas"><div class="trait">{img}<div class="cap">{t['cap']}</div></div>
+      {auteurs_html(fichiers)}</div>
     {serie(k)}
   </div></div>
   <div class="panel spine"><div class="sp"><div class="sn">{k}</div><div class="rule"></div><div class="vt"><b>{esc(d['titre'])}</b><span>Le Grand Livre du Chalet</span></div></div></div>
@@ -507,9 +572,21 @@ body{font-family:var(--sans);color:var(--ink);-webkit-print-color-adjust:exact;p
 .back .toc ol{margin:0;padding:0;list-style:none;columns:2;column-gap:0.3in;font:500 10pt/13.2pt var(--sans)}
 .back .toc li{display:flex;gap:6pt;break-inside:avoid;border-bottom:0.5pt solid var(--fil)}
 .back .toc li b{width:22pt;flex:none;font-weight:700}
-.back .trait{position:absolute;left:0;right:0;top:5.05in;height:2.9in;display:flex;flex-direction:column}
+/* le dessin et les auteurs (14 octobre 2026) : posés depuis le bas, au-dessus de la barre de série ; le dessin
+   (1,85 po de haut au plus) prend ce qui reste sous le sommaire, le blanc en trop va au-dessus de lui */
+.back .bas{position:absolute;left:0;right:0;top:4.82in;bottom:0.62in;display:flex;flex-direction:column;justify-content:flex-end}
+.back .trait{display:flex;flex-direction:column;flex:none}
 .back .trait img{display:block;flex:none}
 .back .trait .cap{font:600 8pt/1 var(--sans);letter-spacing:.06em;margin-top:4pt}
+.back .auteurs{flex:none;margin-top:0.2in}
+.back .auteurs h2{margin:0 0 7pt;font:700 10pt/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;padding-bottom:4pt;border-bottom:1.25pt solid var(--ink)}
+.back .aut{display:grid;grid-template-columns:1fr 1fr;column-gap:0.3in}
+.back .a{display:flex;gap:0.12in;align-items:flex-start}
+.back .ph{flex:none;width:0.66in;height:0.66in;border-radius:50%;border:0.75pt solid var(--ink);overflow:hidden;box-sizing:border-box;display:flex;align-items:center;justify-content:center}
+.back .ph img{display:block;width:100%;height:100%;object-fit:cover}
+.back .ph.claude img{width:64%;height:64%}
+.back .a p{margin:0;font:400 8.5pt/11pt var(--serif)}
+.back .a p b{font-weight:700}
 
 /* ---------- aperçus écran ---------- */
 @media screen{
@@ -584,7 +661,7 @@ def page_edge(pouces):
     couverture ne perd rien (la bande en trop est à droite, hors du fond perdu), et --decouper la retire."""
     return math.ceil(pouces * 72 + 0.75 + 0.5)       # le fond déborde d'un pixel (0,75 pt), voir .sheet.full
 
-def main(dest=None):
+def main(dest=None, photo=None, choix=None):
     """Le HTML et les dessins dans D1 ; avec dest (--sortie), dans dest, pour un aperçu : les écarts avec les
     rapports d'assemblage y sont signalés sans arrêter (le fichier pour Blurb, lui, s'arrête)."""
     notes, erreurs = verifier()
@@ -597,7 +674,10 @@ def main(dest=None):
             sys.exit(1)
     dest = dest or D1
     os.makedirs(dest, exist_ok=True)
+    if choix:
+        TRAIT.update(choisir(choix))
     tailles = traits(dest)
+    fichiers = {k: auteurs_fichiers(k, dest, photo) for k in COUL}
     couleurs = '\n'.join('.t%d{--c:%s;--ink:%s;--fil:%s} /* %s */' % (
         k, f, i, 'rgba(%d,%d,%d,.45)' % tuple(int(i[j:j + 2], 16) for j in (1, 3, 5)), n) for k, (f, i, n, s) in COUL.items())
     pages_full = '\n'.join('@page full%d { size: %dpt 738pt; margin: 0; }  /* tome %d : %d p. -> tranche %s po (%s) ; PDF %.3f po */' % (
@@ -606,7 +686,7 @@ def main(dest=None):
     corps = ['<!-- ============ LES SIX AVANTS ============ -->\n']
     corps += [avant(k) for k in range(1, 7)]
     corps.append('<!-- ============ COUVERTURES COMPLÈTES : quatrième | tranche | avant ============ -->\n')
-    corps += [complete(k, tailles) for k in range(1, 7)]
+    corps += [complete(k, tailles, fichiers[k]) for k in range(1, 7)]
     noms = '{' + ','.join("%d:'%s'" % (k, n.capitalize()) for k, (f, i, n, s) in COUL.items()) + '}'
     hexes = '{' + ','.join("%d:'%s'" % (k, f) for k, (f, i, n, s) in COUL.items()) + '}'
     info = '{' + ','.join("%d:'%d p., tranche %s po'" % (k, PAGES[k], str(SPINE[k]).replace('.', ',')) for k in sorted(SPINE)) + '}'
@@ -703,7 +783,7 @@ def decouper():
 if __name__ == '__main__':
     if '--decouper' in sys.argv:
         decouper()
-    elif '--sortie' in sys.argv:
-        main(os.path.abspath(sys.argv[sys.argv.index('--sortie') + 1]))
     else:
-        main()
+        arg = lambda o: sys.argv[sys.argv.index(o) + 1] if o in sys.argv else None
+        choix = dict(map(int, a.split(':')) for i, a in enumerate(sys.argv) if i and sys.argv[i - 1] == '--dessin')
+        main(os.path.abspath(arg('--sortie')) if arg('--sortie') else None, arg('--photo'), choix)
