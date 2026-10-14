@@ -3,7 +3,7 @@
 //
 // Le chapitre ne donne aucune mesure (ni largeur de bande, ni épaisseur de cuir ou de corde, ni
 // longueur de prise) : aucune cote. Les proportions sont celles d'un bras d'adulte (bibliothèque
-// de formes) et d'une hache ordinaire ; la corde, le cuir et le bois gardent entre la vue en
+// des mains simples) et d'une hache ordinaire ; la corde, le cuir et le bois gardent entre la vue en
 // écorché et la coupe les mêmes épaisseurs et la même échelle.
 module.exports = (h) => {
   const N = '#1A1A1A', B = '#FFFFFF';
@@ -276,7 +276,7 @@ module.exports = (h) => {
   return {
     ref: '24-09',
     titre: 'Le bracelet de contre-appui et le manche grossi',
-    desc: "Un bras plié au coude, vu du côté extérieur, la main serrée sur un manche : une bande de cuir bouclée serre le gras de l'avant-bras juste sous le coude. Une hache debout : le bout du manche est grossi là où la main serre, le reste du manche est nu là où l'autre main glisse. La prise grossie, en écorché : la corde enroulée serrée tour contre tour sur le bois, puis le cuir enroulé par-dessus ; et sa coupe à la même échelle : le bois au centre, l'anneau de corde, l'anneau de cuir.",
+    desc: "Un bras plié au coude, la main droite serrée sur un manche debout, vue du côté de la paume : une bande de cuir bouclée serre le gras de l'avant-bras juste sous le coude. Une hache debout : le bout du manche est grossi là où la main serre, le reste du manche est nu là où l'autre main glisse. La prise grossie, en écorché : la corde enroulée serrée tour contre tour sur le bois, puis le cuir enroulé par-dessus ; et sa coupe à la même échelle : le bois au centre, l'anneau de corde, l'anneau de cuir.",
     format: 'pleine',
     disposition: [['bras', 'hache'], ['prise', 'coupe']],
     hauteurs: [1.75, 1],
@@ -289,7 +289,7 @@ module.exports = (h) => {
           const { V } = bras(z);
           return [
             { n: 1, rond: V([30, 95]), cible: V([66, 30]), texte: 'bande de cuir ou de chambre à air' },
-            { n: 2, rond: V([150, -110]), cible: V([46, interp(geo.dessus, 46) + 7]), texte: 'sur le gras, juste sous le coude' },
+            { n: 2, rond: V([42, -128]), cible: V([46, interp(geo.dessus, 46) + 7]), texte: 'sur le gras, juste sous le coude' },
             { n: 3, rond: V([145, 92]), cible: V([104.8, 10]), texte: 'bouclée ou nouée, serrée' },
           ];
         },
