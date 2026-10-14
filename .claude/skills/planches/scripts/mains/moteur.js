@@ -22,10 +22,13 @@
 //     doigts    surcharge des angles de la pose : { index: { mcp: 80 }, pouce: { ip: 10 } }
 //     poignet   { flexion, deviation } (degrés) : surcharge la pose
 //     objet     g => SVG (ou du SVG) : l'objet tenu, peint à sa profondeur (voir « Les couches »)
-//     avantbras { longueur (mm, défaut 70), vers: [x, y] (le point de vue vers lequel il part ; la longueur
-//               par défaut l'atteint), bord: { x0, y0, x1, y1 } ou { l, h } (la boîte de la vue : l'avant-bras
-//               y file et s'y coupe net, par clipPath), coupe: 'ouverte' (défaut : les deux bords s'arrêtent)
-//               · 'franche' (un trait de coupe, 0,7) } ; avantbras: false : pas d'avant-bras (le poignet coupé)
+//     avantbras { longueur : en mm (défaut 85 × l'âge : un gros plan coupe l'avant-bras court, JP : « au pire, le
+//               couper ») · 'entier' (jusqu'au coude, qui finit arrondi : .coude pour enchaîner le bras) · 'bord'
+//               (jusqu'à sortir de la boîte bord) ; vers: [x, y] (la direction : un point de la vue vers lequel il
+//               part ; le poignet y tourne en courbe sur 45 mm) ; bord: { x0, y0, x1, y1 } ou { l, h } (la boîte
+//               de la vue : ce qui en sort est coupé net, par clipPath) ; coupe: 'ouverte' (défaut : les deux
+//               bords s'arrêtent ; une main loin, grise, la ferme d'un trait) · 'franche' (un trait de coupe, 0,7) }
+//               avantbras: false : pas d'avant-bras (le poignet coupé)
 //     trait     'normal' (1,5 / 0,7) · 'fort' (1,9 / 0,9) · ou un nombre (la silhouette)
 //     age       'homme' (défaut) · 'femme' · 'enfant6' · 'enfant4' : mains/proportions.json (agent 4)
 //     loin      true : toute la main en gris (la main du dessous, la deuxième main derrière la première)
@@ -135,7 +138,9 @@
 //      là où l'un passe devant l'autre de plus de 2,6 mm (à la racine, ils se fondent) ; entre deux phalanges
 //      d'un même doigt, jamais. Un trait court qui ne part pas du contour tombe ;
 //   3. pour chaque pièce qui chevauche l'objet, si elle est devant ou derrière lui, par la profondeur des deux
-//      surfaces sur leur recouvrement (pose.devant[vue] le surcharge : ids de pièces ou de doigts) ;
+//      surfaces, point par point sur leur recouvrement ; si l'objet passe en partie devant, en partie derrière la
+//      même phalange (un fil entre deux doigts), elle est partagée par la droite qui sépare le mieux les deux
+//      (pose.devant[vue] surcharge le tout : ids de pièces ou de doigts) ;
 //   4. le gris, par doigt entier : un doigt dont aucune phalange ne passe devant l'objet et qui s'y cache ; un
 //      doigt caché pour plus de moitié par les doigts devant lui ; un doigt dont ce qu'on voit est plus loin que
 //      la face loin de la paume (le pouce vu côté auriculaire, le pouce qui tient le manche vu du dos) ;
@@ -169,7 +174,8 @@ const CL = require('../corps/clipper');
 const NOIR = '#1A1A1A', BLANC = '#FFFFFF', GRIS = '#E6E6E6';
 const RAD = Math.PI / 180;
 const DOIGTS = ['index', 'majeur', 'annulaire', 'auriculaire'];
-const ARCHE = { annulaire: 10, auriculaire: 20 };              // degrés, à MCP pliée de 90°
+const ARCHE = { annulaire: 10, auriculaire: 20 };
+const AVANTBRAS_COURT = 85;                                   // mm : l'avant-bras d'un gros plan, coupé              // degrés, à MCP pliée de 90°
 
 // ─── vecteurs 3D ────────────────────────────────────────────────────────────────────────────────────────
 const a3 = (a, b) => [a[0] + b[0], a[1] + b[1], a[2] + b[2]];
@@ -464,8 +470,9 @@ const FORMES = {
     'pouce.p1': [[0, 12, 12], [1, 11.3, 11.3]],
     'pouce.p2': [[0, 11.3, 11.3], [0.5, 11.0, 11.0], [1, 10, 10]],
     // le poignet : 64 de large (proportions.json) ; les tendons restent minces sur 3 cm, puis le ventre des
-    // muscles s'élargit, plus du côté radial (le long supinateur), jusqu'aux deux tiers ; un peu moins au coude
-    'avantbras': [[0, 32, 32], [0.1, 32.3, 32.2], [0.22, 34.5, 33.6], [0.4, 40, 37.2], [0.58, 44.5, 39.8], [0.75, 45, 40.2], [0.9, 42.5, 39], [1, 39.5, 37.5]],
+    // muscles s'élargit, plus du côté radial (le long supinateur), jusqu'aux trois quarts (≈ 93 de large : le tour
+    // relevé est de 310 mm près du coude) ; un peu moins au coude
+    'avantbras': [[0, 32, 32], [0.1, 32.4, 32.2], [0.22, 35.5, 34], [0.4, 42.5, 38.5], [0.58, 47.5, 42], [0.75, 48.5, 44], [0.9, 46, 42.5], [1, 42.5, 40]],
   },
   // provisoire, en attendant profil.js (agent 2)
   profil: {
@@ -828,8 +835,9 @@ function section(c, fr, w) {
 }
 // un segment : ses sections le long de l'os (et au-delà au bout), projetées ; les enveloppes de deux sections
 // voisines s'unissent en la forme du segment. Les sphères de profondeur suivent l'os.
-function formeSegment(S, id, F, kW, M, { bout = false, debut = null, pas = 7, tMax = 1 } = {}) {
+function formeSegment(S, id, F, kW, M, { bout = false, debut = null, pas = 7, tMax = 1, largeur = null } = {}) {
   const polys = [], spheres = [];
+  const LG = largeur || (t => demiAxes(F, id, t, kW));
   const L = S.L, n = Math.max(2, Math.ceil(L * tMax / pas));
   const proj = p => matVec(M, p);
   const secs = [];
@@ -840,17 +848,17 @@ function formeSegment(S, id, F, kW, M, { bout = false, debut = null, pas = 7, tM
     for (let i = 0; i < k; i++) {
       const t = i / k, ang = -debut.angle * (1 - t);
       const fr2 = { r: rot3(S.r, debut.axe, ang), n: rot3(S.n, debut.axe, ang) };
-      secs.push(section(S.de, fr2, demiAxes(F, id, 0, kW)));
+      secs.push(section(S.de, fr2, LG(0)));
     }
   }
   for (let i = 0; i <= n; i++) {
-    const t = tMax * i / n, c = a3(S.de, m3(S.u, L * t)), w = demiAxes(F, id, t, kW);
+    const t = tMax * i / n, c = a3(S.de, m3(S.u, L * t)), w = LG(t);
     secs.push(section(c, fr, w));
     const pc = proj(c);
     spheres.push({ x: pc[0], y: pc[1], z: pc[2], r: (w[0] + w[1] + w[2] + w[3]) / 4, w });
   }
   if (bout) {
-    const w = demiAxes(F, id, 1, kW), rb = (w[0] + w[1]) / 2;
+    const w = LG(1), rb = (w[0] + w[1]) / 2;
     for (const s of [0.35, 0.62, 0.82, 0.94, 1]) {
       const k = Math.sqrt(Math.max(0, 1 - s * s)), c = a3(S.a, m3(S.u, rb * s * 1.02));
       secs.push(section(c, fr, w.map(v => Math.max(0.15, v * k))));
@@ -1010,24 +1018,44 @@ function construire(o, prep = null) {
   // ── les pièces ──
   const pieces = [];
   const piece = (id, groupe, polys, spheres, rang = 0) => pieces.push({ id, groupe, rang, polys, spheres });
+  // les largeurs d'un doigt : ses trois tables bout à bout, une seule courbe le long du doigt (pas de cassure de
+  // pente aux articulations d'un doigt tendu : agent 5, M6)
+  const chaine = ids => {
+    const L = ids.map(id => sq.segments[id].L), offs = [], cles = [[], []];
+    let off = 0;
+    ids.forEach((id, i) => {
+      offs.push(off);
+      [F.dos[id] || [[0, 10, 10], [1, 10, 10]], F.profil[id] || [[0, 9, 10], [1, 9, 10]]].forEach((tab, j) => {
+        for (const [t, a, b] of tab) {
+          const x = off + t * L[i], arr = cles[j], der = arr[arr.length - 1];
+          if (der && Math.abs(der[0] - x) < 1e-6) { der[1] = (der[1] + a) / 2; der[2] = (der[2] + b) / 2; } else arr.push([x, a, b]);
+        }
+      });
+      off += L[i];
+    });
+    const D = interp(cles[0]), P_ = interp(cles[1]);
+    return i => t => { const x = offs[i] + t * L[i]; return [D.a(x) * kW, D.b(x) * kW, P_.a(x) * kW, P_.b(x) * kW]; };
+  };
   // les doigts
   for (const d of DOIGTS) {
+    const lg = chaine([1, 2, 3].map(k => `${d}.p${k}`));
     for (let k = 1; k <= 3; k++) {
       const id = `${d}.p${k}`, S = sq.segments[id];
       const prec = k === 1 ? sq.segments[d + '.meta'] : sq.segments[`${d}.p${k - 1}`];
       // la jointure : du cadre précédent au cadre de ce segment, autour de l'axe de flexion
       const axe = u3(x3(S.n, S.u));
       const ang = k === 1 ? Math.max(0, S.flex) : S.flex;
-      const f = formeSegment(S, id, F, kW, M, { bout: k === 3, debut: Math.abs(ang) > 4 ? { axe, angle: ang } : null });
+      const f = formeSegment(S, id, F, kW, M, { bout: k === 3, debut: Math.abs(ang) > 4 ? { axe, angle: ang } : null, largeur: lg(k - 1) });
       piece(id, d, f.polys, f.spheres, k);
       void prec;
     }
   }
   // le pouce
+  const lgP = chaine(['pouce.p1', 'pouce.p2']);
   for (const k of [1, 2]) {
     const id = `pouce.p${k}`, S = sq.segments[id];
     const axe = u3(x3(S.n, S.u));
-    const f = formeSegment(S, id, F, kW, M, { bout: k === 2, debut: Math.abs(S.flex) > 4 ? { axe, angle: S.flex } : null });
+    const f = formeSegment(S, id, F, kW, M, { bout: k === 2, debut: Math.abs(S.flex) > 4 ? { axe, angle: S.flex } : null, largeur: lgP(k - 1) });
     piece(id, 'pouce', f.polys, f.spheres, k);
   }
   // la paume : l'enveloppe des bosses, des têtes et des fûts ; le métacarpien du pouce (le thénar) ; les palmures
@@ -1060,8 +1088,11 @@ function construire(o, prep = null) {
         const w1 = demiAxes(F, d1 + '.p1', t, kW)[1], w2 = demiAxes(F, d2 + '.p1', t, kW)[0];
         if (l3(s3(a, b)) < w1 + w2 + 2.4) tOuv = t;
       }
-      const tw = tOuv < 0.75 ? Math.max(0.34, tOuv + 0.04) : 0.4;
-      const creux = tOuv < 0.75 && tOuv > 0.3 ? 0.12 : 0.3;
+      // là où la fente s'ouvre, mais borné à 60 % de la phalange : les palmures restent proches en hauteur d'un doigt à
+      // l'autre (agent 5, M7) ; deux doigts qui se touchent plus loin ont leur trait de séparation au-delà. (Deux
+      // doigts dont les écarts de la pose diffèrent de moins de ~8° se touchent sur toute la phalange : écart 0, ce
+      // sont des doigts serrés jusqu'à l'IPD.)
+      const tw = Math.min(0.6, Math.max(0.34, tOuv + 0.04)), creux = tOuv > 0.3 ? 0.12 : 0.3;
       const A1 = [S1.de, cote(d1 + '.p1', tw * 0.5, -1), cote(d1 + '.p1', tw, -1)];
       const A2 = [S2.de, cote(d2 + '.p1', tw * 0.5, 1), cote(d2 + '.p1', tw, 1)];
       polys.push(palmure(A1, A2, i3(S1.de, S2.de, 0.5), creux, M));
@@ -1076,51 +1107,82 @@ function construire(o, prep = null) {
     piece('paume', 'base', polys, sph, 0);
     pieces[pieces.length - 1].plan = M[2][2] > 0 ? -13 * kW : 15 * kW;
   }
-  // l'avant-bras
+  // l'avant-bras. Son axe part du poignet dans le prolongement de la pose ; si la planche impose une direction
+  // (vers), il y tourne sur les 45 premiers mm, en courbe : le poignet plie sans coin ni bosse. Il s'élargit
+  // vers le coude par le ventre des muscles ; entier, il finit sur l'arrondi du coude (l'olécrane).
   let coupe = null;
   if (o.avantbras !== false) {
     const ab = o.avantbras || {};
-    const S = sq.segments.avantbras;
-    let longueurAB = ab.longueur !== undefined ? ab.longueur : (ab.vers || ab.versLocal ? null : 70);
-    let SA = S;
+    const S = sq.segments.avantbras, LA = S.L;
+    const d0 = m3(S.u, -1);                                   // du poignet vers le coude, selon la pose
+    let d1 = d0;
     if (ab.versLocal) {
-      // une direction imposée dans le plan de la vue (repère de la vue, mm) : l'avant-bras s'y couche
       const v2 = uni(ab.versLocal);
       const Mi = [[M[0][0], M[1][0], M[2][0]], [M[0][1], M[1][1], M[2][1]], [M[0][2], M[1][2], M[2][2]]];
-      const dir = u3(matVec(Mi, [v2[0], v2[1], 0]));
-      // la normale dorsale : celle de la main, transportée
-      const nA = orth(S.n, dir);
-      SA = cadre(m3(dir, S.L), [0, 0, 0], m3(dir, -1), nA, S.L, 0);
-      sq.points.coude = m3(dir, S.L);
-      if (longueurAB === null) longueurAB = ab.versDist;
+      d1 = u3(matVec(Mi, [v2[0], v2[1], 0]));
+      // le poignet ne plie pas au-delà de ce qu'il peut (proportions.json, articulations) : la déviation dans le
+      // plan de la paume jusqu'à 40°, la flexion ou l'extension jusqu'à 75° ; au-delà, l'avant-bras s'arrête à la
+      // butée, et le moteur le dit (la planche tourne la main avec angle)
+      const nP = [0, 0, 1], devie = Math.abs(d3(d1, nP)) < Math.abs(d3(d1, [0, 1, 0]));   // dans le plan de la paume ?
+      const lim = (devie ? 40 : 75) * RAD;
+      const a01 = Math.acos(Math.max(-1, Math.min(1, d3(d0, d1))));
+      if (a01 > lim + 1e-3) {
+        const k = u3(x3(d0, d1));
+        d1 = u3(rot3(d0, k, lim / RAD));
+        const cle = `poignet:${Math.round(a01 / RAD)}:${devie}`;
+        if (!DEJA_DIT.has(cle)) { DEJA_DIT.add(cle); console.warn(`mainSimple : l'avant-bras demandé fait ${Math.round(a01 / RAD)}° avec la main (le poignet plie de ${devie ? 40 : 75}° au plus) : il s'arrête à la butée ; tourner la main (angle) vers l'avant-bras`); }
+      }
     }
-    if (longueurAB === null || longueurAB === undefined) longueurAB = 70;
-    const tMax = Math.min(1, longueurAB / SA.L);
-    // l'avant-bras va du coude au poignet : on le dessine du poignet en remontant, donc on retourne le segment
-    const Sinv = cadre([0, 0, 0], SA.de, m3(SA.u, -1), SA.n, SA.L, 0);
-    Sinv.r = SA.r;   // le côté radial reste le même
+    // la longueur dessinée : courte par défaut (un gros plan coupe l'avant-bras), 'entier' jusqu'au coude, ou
+    // celle qui sort de la boîte de la vue ('bord', calculée par mainSimple)
+    let Ldes = typeof ab.longueur === 'number' ? ab.longueur : (ab.longueur === 'entier' ? LA : (ab.longueur === 'bord' && ab.versDist ? ab.versDist : AVANTBRAS_COURT * kL0));
+    Ldes = Math.max(10, Math.min(Ldes, LA));
+    const entier = Ldes >= LA - 0.5;
     const Fab = { dos: { 'avantbras': F.dos.avantbras }, profil: { 'avantbras': F.profil.avantbras } };
-    const f = formeSegment(Sinv, 'avantbras', Fab, kW, M, { pas: 8, tMax });
-    piece('avantbras', 'base', f.polys, f.spheres, -1);
+    // l'axe : échantillonné tous les 2 mm ; la direction glisse de d0 à d1 sur Lb
+    const Lb = Math.min(LA, 45 * kL0), ang01 = Math.acos(Math.max(-1, Math.min(1, d3(d0, d1)))) / RAD;
+    const kRot = ang01 > 0.1 ? u3(x3(d0, d1)) : null;
+    const dirA = s_ => { if (!kRot) return d0; const t = Math.min(1, s_ / Lb), w = t * t * (3 - 2 * t); return u3(rot3(d0, kRot, ang01 * w)); };
+    const axe = [{ s: 0, c: [0, 0, 0], d: dirA(0) }];
+    for (let s_ = 2; s_ <= LA + 1e-6; s_ += 2) { const pr = axe[axe.length - 1], dm = dirA(s_ - 1); axe.push({ s: s_, c: a3(pr.c, m3(dm, 2)), d: dirA(s_) }); }
+    const surAxe = s_ => { const k = Math.max(0, Math.min(axe.length - 2, Math.floor(s_ / 2))), A = axe[k], B = axe[k + 1], t = (s_ - A.s) / 2; return { c: i3(A.c, B.c, t), d: u3(i3(A.d, B.d, t)) }; };
+    const cadreEn = s_ => { const q = surAxe(s_), n = orth(transporte(S.n, d0, q.d), q.d), uD = m3(q.d, -1); return { c: q.c, d: q.d, fr: { r: x3(n, uD), n } }; };
+    const secs = [], sph = [];
+    const nS = Math.max(3, Math.ceil(Ldes / 6));
+    for (let k = 0; k <= nS; k++) {
+      const s_ = Ldes * k / nS, q = cadreEn(s_), w = demiAxes(Fab, 'avantbras', s_ / LA, kW);
+      secs.push(section(q.c, q.fr, w).map(p2));
+      const pc = matVec(M, q.c); sph.push({ x: pc[0], y: pc[1], z: pc[2], r: (w[0] + w[1] + w[2] + w[3]) / 4 });
+    }
+    // le coude : un arrondi au-delà du bout, plus plein côté dos (l'olécrane)
+    if (entier) {
+      const q = cadreEn(LA), w = demiAxes(Fab, 'avantbras', 1, kW), rb = (w[0] + w[1]) / 2 * 0.62;
+      for (const k of [0.35, 0.6, 0.8, 0.93, 1]) {
+        const f = Math.sqrt(Math.max(0, 1 - k * k)), c = a3(a3(q.c, m3(q.d, rb * k)), m3(q.fr.n, w[2] * 0.25 * k));
+        secs.push(section(c, q.fr, [w[0] * f, w[1] * f, w[2] * Math.max(f, 0.35), w[3] * f].map(v => Math.max(0.3, v))).map(p2));
+      }
+    }
+    const polysAB = [];
+    for (let k = 0; k < secs.length - 1; k++) polysAB.push(enveloppe(secs[k].concat(secs[k + 1])));
+    piece('avantbras', 'base', polysAB, sph, -1);
+    const qF = cadreEn(Ldes);
+    sq.points.coude = entier ? cadreEn(LA).c : a3(qF.c, m3(qF.d, LA - Ldes));
     // la coupe : les deux coins de la dernière section, vue
-    const cFin = a3([0, 0, 0], m3(Sinv.u, SA.L * tMax));
-    const w = demiAxes(Fab, 'avantbras', tMax, kW);
-    const sec = section(cFin, Sinv, w).map(p2);
-    // les deux points extrêmes perpendiculairement à l'axe vu
-    const ax2 = uni(sub(p2(cFin), p2([0, 0, 0]))), nrm = [-ax2[1], ax2[0]];
+    const wF = demiAxes(Fab, 'avantbras', Ldes / LA, kW);
+    const sec = section(qF.c, qF.fr, wF).map(p2);
+    const ax2 = uni(sub(p2(a3(qF.c, qF.d)), p2(qF.c))), nrm = [-ax2[1], ax2[0]];
     let iMin = 0, iMax = 0;
     sec.forEach((p, i) => { if (dot(p, nrm) < dot(sec[iMin], nrm)) iMin = i; if (dot(p, nrm) > dot(sec[iMax], nrm)) iMax = i; });
-    coupe = { a: sec[iMin], b: sec[iMax], c: p2(cFin), ax: ax2, region: null, plein: tMax >= 1 };
+    coupe = { a: sec[iMin], b: sec[iMax], c: p2(qF.c), ax: ax2, region: null, plein: entier };
     // la manchette du gant : une bande plus large autour du poignet, son bord côté main en trait intérieur
     if (g0 && g0.manchette !== false) {
-      const Lm = (g0.manchette || 45) * kL0, t0 = 4 / SA.L, t1 = Math.min(tMax, t0 + Lm / SA.L), mp = [];
-      const secs = [];
+      const Lm = (g0.manchette || 45) * kL0, s0 = 4, s1 = Math.min(Ldes, s0 + Lm), mp = [], sm = [];
       for (let k = 0; k <= 6; k++) {
-        const t = t0 + (t1 - t0) * k / 6, c = a3([0, 0, 0], m3(Sinv.u, SA.L * t)), w = demiAxes(Fab, 'avantbras', t, kW).map(v => v + 3.5);
-        secs.push(section(c, Sinv, w).map(p2));
+        const s_ = s0 + (s1 - s0) * k / 6, q = cadreEn(s_), w = demiAxes(Fab, 'avantbras', s_ / LA, kW).map(v => v + 3.5);
+        sm.push(section(q.c, q.fr, w).map(p2));
       }
-      for (let k = 0; k < secs.length - 1; k++) mp.push(enveloppe(secs[k].concat(secs[k + 1])));
-      piece('manchette', 'base', mp, f.spheres.map(q => Object.assign({}, q, { r: q.r + 3.5 })), -2);
+      for (let k = 0; k < sm.length - 1; k++) mp.push(enveloppe(sm[k].concat(sm[k + 1])));
+      piece('manchette', 'base', mp, sph.map(q => Object.assign({}, q, { r: q.r + 3.5 })), -2);
       pieces[pieces.length - 1].bordTrait = true;
     }
   }
@@ -1138,7 +1200,7 @@ function construire(o, prep = null) {
     P.boite = boiteCL(u);
   }
   // la coupe de l'avant-bras : tout ce qui dépasse la dernière section est retranché
-  if (coupe) {
+  if (coupe && !coupe.plein) {
     const G = 600, A = coupe.a, B = coupe.b, ax = coupe.ax;
     const dem = [add(A, mul(sub(A, B), 2)), add(B, mul(sub(B, A), 2))];
     coupe.region = [versCL(positif([dem[0], dem[1], add(dem[1], mul(ax, G)), add(dem[0], mul(ax, G))]))];
@@ -1215,10 +1277,32 @@ function dessiner(o, prep = null) {
       let dev;
       if (imposes) dev = imposes.includes(P.id) || imposes.includes(P.groupe);
       else {
-        const ech = echantillons(I, 7);
-        let nDev = 0, nTot = 0;
-        for (const p of ech) { const zo = ob.devant(p); if (!isFinite(zo)) continue; nTot++; if (profondeur(P, p).devant < zo) nDev++; }
-        dev = nTot ? nDev / nTot > 0.5 : true;
+        // la profondeur, point par point sur le recouvrement (une grille de ~1,2 mm) : si l'objet passe en partie
+        // devant, en partie derrière la même phalange (un fil entre deux doigts), la phalange est partagée par la
+        // droite qui sépare le mieux les deux (agent 5, M1) ; sinon elle est devant ou derrière d'un bloc
+        const b = boiteCL(I), nx = Math.max(4, Math.min(22, Math.ceil((b.x1 - b.x0) / 1.2))), ny = Math.max(4, Math.min(22, Math.ceil((b.y1 - b.y0) / 1.2)));
+        const F_ = [], B_ = [];
+        for (let a = 0; a < nx; a++) for (let c = 0; c < ny; c++) {
+          const pt = [b.x0 + (b.x1 - b.x0) * (a + 0.5) / nx, b.y0 + (b.y1 - b.y0) * (c + 0.5) / ny];
+          if (!dedans(I, pt)) continue;
+          const zo = ob.devant(pt); if (!isFinite(zo)) continue;
+          (profondeur(P, pt).devant < zo ? F_ : B_).push(pt);
+        }
+        const nT = F_.length + B_.length;
+        dev = nT ? F_.length / nT > 0.5 : true;
+        if (nT >= 6 && F_.length / nT > 0.1 && F_.length / nT < 0.9) {
+          const moy = L => L.reduce((m, q) => [m[0] + q[0] / L.length, m[1] + q[1] / L.length], [0, 0]);
+          const nrm = uni(sub(moy(F_), moy(B_)));
+          const T = F_.map(q => [dot(q, nrm), 1]).concat(B_.map(q => [dot(q, nrm), 0])).sort((u, v) => u[0] - v[0]);
+          // le seuil qui classe le mieux : à gauche les « derrière », à droite les « devant »
+          let err = F_.length, best = err, tau = T[0][0] - 1;
+          for (let k = 0; k < T.length; k++) { err += T[k][1] ? -1 : 1; if (err < best) { best = err; tau = k + 1 < T.length ? (T[k][0] + T[k + 1][0]) / 2 : T[k][0] + 1; } }
+          const G_ = 400, c0 = mul(nrm, tau), tg = [-nrm[1], nrm[0]];
+          const demi = [versCL(positif([add(c0, mul(tg, -G_)), add(c0, mul(tg, G_)), add(add(c0, mul(tg, G_)), mul(nrm, G_)), add(add(c0, mul(tg, -G_)), mul(nrm, G_))]))];
+          P.partDevant = inter(P.region, demi);
+          P.coupeObjet = decale([versCL(positif([add(c0, mul(tg, -G_)), add(c0, mul(tg, G_)), add(c0, add(mul(tg, G_), mul(nrm, 0.01))), add(c0, add(mul(tg, -G_), mul(nrm, 0.01)))]))], 0.4);
+          dev = true;
+        }
       }
       if (dev) devantObjet.add(i);
     });
@@ -1369,6 +1453,9 @@ function dessiner(o, prep = null) {
     return out;
   };
   const listeG = [...groupes.values()];
+  // la racine de chaque doigt, vue : là où il sort de la paume
+  const racines = new Map();
+  for (const d of DOIGTS.concat(['pouce'])) { const q = matVec(C.M, C.sq.points[d + '.mcp']); racines.set(d, [q[0], q[1]]); }
   for (const A of listeG) {
     // les bords candidats : le contour de A dans ce qu'il recouvre
     const bordsA = A.base ? null : A.bord;
@@ -1381,10 +1468,16 @@ function dessiner(o, prep = null) {
       }
       if (A.base && B.base) continue;
       if (!A.base) {
-        // un doigt sur la paume ou l'avant-bras
+        // un doigt sur la paume ou l'avant-bras : à sa racine, l'écart de profondeur décide (ils se fondent) ; plus
+        // loin, le doigt qui passe devant a son bord, même posé sur la paume (le bout d'un doigt replié : sans ça,
+        // son contour restait ouvert en « J », agent 5, M5)
+        const rac = racines.get(A.nom), rR = 28 * C.sq.age.kL;
         for (const j of B.ids) {
           const Bp = pieces[j];
-          ls.push(...parPoints(lignesDans(bordsA, Bp.retrait), p => profondeur(Bp, p).devant - rim(A, p) > SEUIL));
+          ls.push(...parPoints(lignesDans(bordsA, Bp.retrait), p => {
+            const gap = profondeur(Bp, p).devant - rim(A, p);
+            return gap > SEUIL || (rac && Math.hypot(p[0] - rac[0], p[1] - rac[1]) > rR && gap > -0.5);
+          }));
         }
       } else {
         // la paume (ou l'avant-bras) devant un doigt
@@ -1448,9 +1541,11 @@ function dessiner(o, prep = null) {
     patch = { dansMain: inter(ob.region, U), parMarge: new Map(), regDev: null };
     const dev = [...devantObjet];
     if (dev.length) {
-      patch.regDev = unionCL(dev.map(i => pieces[i].region));
+      patch.regDev = unionCL(dev.map(i => pieces[i].partDevant || pieces[i].region));
       patch.tDev = lignesDans(traits.flat(), decale(patch.regDev, -0.2));
-      patch.bordDev = contourDe(patch.regDev);
+      // le bord des pièces de devant, sans la droite qui partage une phalange (là, le doigt et l'objet se touchent)
+      const coupesObj = dev.filter(i => pieces[i].coupeObjet).map(i => pieces[i].coupeObjet);
+      patch.bordDev = coupesObj.length ? lignesHors(contourDe(patch.regDev), unionCL(coupesObj)) : contourDe(patch.regDev);
       patch.Ug = decale(U, 0.2);
     }
     patchPour(patch, ob.region);
@@ -1469,13 +1564,16 @@ function dessiner(o, prep = null) {
 // livre, dont la moitié déborde de la région de l'objet) ; calculée au rendu, selon l'échelle
 function patchPour(patch, regionObjet) {
   patch.parMarge = new Map();
+  // mm : la marge le long des bords de l'objet (elle couvre son trait, jusqu'à 2,4 de vue, et son
+  // anticrénelage) ; le long des pièces de devant, le blanc ne déborde que de 0,25 mm (plus, il posait un liseré
+  // blanc sur l'objet entre les doigts : agent 5, C8)
   patch.pour = mm => {
     const k = Math.round(mm * 5) / 5;
     if (patch.parMarge.has(k)) return patch.parMarge.get(k);
     let v = { fond: [], bord: [], traits: [] };
     if (patch.regDev) {
       const ext = decale(regionObjet, k);
-      v = { fond: inter(ext, inter(decale(patch.regDev, k), patch.Ug)), bord: lignesDans(patch.bordDev, ext), traits: lignesDans(patch.tDev, ext) };
+      v = { fond: inter(ext, inter(decale(patch.regDev, 0.25), patch.Ug)), bord: lignesDans(patch.bordDev, ext), traits: lignesDans(patch.tDev, ext) };
     }
     patch.parMarge.set(k, v);
     return v;
@@ -1578,27 +1676,33 @@ function mainSimple(o = {}) {
     }
     return R;
   };
-  const abBase = ab === false ? false : { longueur: ab.longueur, coupe: ab.coupe };
   const ancreLoc = ancreDe({ C: prep }, o.ancre || 'prise');
   const X = (o.x || 0) - 0, Y = (o.y || 0) - 0;
   // (x, y) est l'ancre : on cherche l'origine qui l'y amène
   const a0 = Tloc(ancreLoc, 0, 0);
   const OX = X - a0[0], OY = Y - a0[1];
   let R;
-  if (ab && (ab.vers || ab.bord)) {
+  if (ab) {
     const abO = { longueur: ab.longueur, coupe: ab.coupe };
-    let cible = ab.vers;
-    if (!cible && ab.bord) cible = null;
-    if (cible) {
-      const loc = Tinv(cible, OX, OY);
-      const pw = prep.sq.points.poignet;
-      const v = sub(loc, [pw[0], pw[1]]);
+    let dirL = null;                                          // la direction de l'avant-bras, repère local de la vue
+    if (ab.vers) {
+      const v = Tinv(ab.vers, OX, OY);                        // le poignet est à l'origine locale
       abO.versLocal = [Math.round(v[0] * 100) / 100, Math.round(v[1] * 100) / 100];
-      abO.versDist = Math.round(lon(v) * 10) / 10;
+      dirL = uni(v);
     }
-    if (ab.bord) abO.longueur = ab.longueur !== undefined ? ab.longueur : Math.max(abO.versDist || 0, 400);
+    // 'bord' : la longueur qui fait sortir l'avant-bras de la boîte de la vue (plus 15 mm), le long de sa direction
+    if (ab.longueur === 'bord' && ab.bord) {
+      if (!dirL) { const S = prep.sq.segments.avantbras, q = matVec(prep.M, m3(S.u, -1)); dirL = uni([q[0], q[1]]); }
+      const b = ab.bord, x0 = b.x0 !== undefined ? b.x0 : 0, y0 = b.y0 !== undefined ? b.y0 : 0;
+      const x1 = b.x1 !== undefined ? b.x1 : x0 + b.l, y1 = b.y1 !== undefined ? b.y1 : y0 + b.h;
+      const W = Tloc([0, 0], OX, OY), D = sub(Tloc(dirL, OX, OY), W);
+      let t = Infinity;
+      if (D[0] > 1e-9) t = Math.min(t, (x1 - W[0]) / D[0]); if (D[0] < -1e-9) t = Math.min(t, (x0 - W[0]) / D[0]);
+      if (D[1] > 1e-9) t = Math.min(t, (y1 - W[1]) / D[1]); if (D[1] < -1e-9) t = Math.min(t, (y0 - W[1]) / D[1]);
+      abO.versDist = Math.round(Math.max(20, (isFinite(t) ? t : 300) + 15));
+    }
     R = obtenir(abO);
-  } else R = obtenir(abBase);
+  } else R = obtenir(false);
   return rendre(R, o, { Tloc: p => Tloc(p, OX, OY), s, m, ang, ab });
 }
 
@@ -1627,8 +1731,11 @@ function rendre(R, o, { Tloc, s, m, ang, ab }) {
 
   // la silhouette, sans la coupe de l'avant-bras (ouverte) ni ce qui file au bord
   let silh = contourDe(U);
-  if (coupe && coupe.region && !coupe.plein && (!ab || ab.coupe !== 'franche')) silh = lignesHors(silh, decale(coupe.region, 0.4));
-  const coupeTrait = coupe && coupe.region && ab && ab.coupe === 'franche' ? lignesDans(contourDe(U), decale(coupe.region, 0.4)) : [];
+  // une main loin (grise) ferme sa coupe : un aplat gris sans bord se lit comme une tache (agent 5, M8)
+  const franche = (ab && ab.coupe === 'franche') || (o.loin && !(ab && ab.coupe === 'ouverte'));
+  if (coupe && coupe.region && !coupe.plein && !franche) silh = lignesHors(silh, decale(coupe.region, 0.4));
+  const coupeTrait = coupe && coupe.region && franche ? lignesDans(contourDe(U), decale(coupe.region, 0.4)) : [];
+  if (coupeTrait.length) silh = lignesHors(silh, decale(coupe.region, 0.4));
 
   const out = [];
   // a. la main entière
@@ -1649,7 +1756,7 @@ function rendre(R, o, { Tloc, s, m, ang, ab }) {
     // la marge : la moitié du trait de contour de l'objet (1,2 de vue) et un peu d'anticrénelage ; plus large, elle
     // posait un liseré blanc sur l'objet le long des doigts de devant (des encoches entre les doigts, la face
     // coupée du manche « mordue ») — agent 5, révision ; c'était max(1,6 mm, 2,6 de vue)
-    const pv = pa.pour(Math.max(0.6, 1.5 / s));
+    const pv = pa.pour(Math.max(1.0, 2.0 / s));
     if (pv.fond.length) couches.devant = [plein(pv.fond, loin ? GRIS : BLANC), ligne(pv.bord, tr.sil), ligne(pv.traits, tr.int)].filter(Boolean).join('\n');
   }
   if (o.objet !== undefined && o.objet !== null) {
