@@ -4,6 +4,55 @@
 // chiffrées au couteau.
 // La charte : la perche et les masses au contour fort ; le quartier et le gros caillou ont leur face
 // à l'ombre en bas à droite. Un seul rouge : le caillou qu'on fait coulisser.
+// Redessin du 14 octobre 2026 (le quartier pendu avait l'air d'une poire) : le quartier arrière est
+// celui de la 62-04, découpé dans la carcasse commune (_carcasse-orignal.js) de la même façon,
+// tourné pour pendre par le jarret au crochet : le centre de la pièce tombe sous le crochet. La vue
+// du haut a pris un peu de hauteur à la graduation pour que le quartier se lise.
+const C = require('./_carcasse-orignal');
+const QUARTIER = (() => {
+  const S = C.SILHOUETTE, rev = a => a.slice().reverse();
+  const interpY = (a, b, y) => a[0] + (b[0] - a[0]) * (y - a[1]) / (b[1] - a[1]);
+  const Y_CANON = 1035;                                   // sous le tarse : le bas de patte est parti
+  const HAUT = [1190, S[21][1] + (S[22][1] - S[21][1]) * (1190 - S[21][0]) / (S[22][0] - S[21][0]), 'c'];
+  const Q = [
+    ...S.slice(30, 44),
+    [interpY(S[43], S[44], Y_CANON), Y_CANON, 'c'], [interpY(S[62], S[61], Y_CANON), Y_CANON, 'c'],
+    ...S.slice(62, 74), ...rev(C.LIMITES.hanche.slice(1, -1)), HAUT, ...S.slice(22, 30),
+  ];
+  // lissé comme à la 62-04 : les points marqués 'c' sont des angles
+  const nu = pts => pts.map(p => [p[0], p[1]]);
+  const i0 = Q.findIndex(p => p[2] === 'c');
+  const r = Q.slice(i0).concat(Q.slice(0, i0), [Q[i0]]);
+  const out = []; let cur = [r[0]];
+  for (let i = 1; i < r.length; i++) {
+    cur.push(r[i]);
+    if (r[i][2] === 'c' || i === r.length - 1) { const s = C.dense(nu(cur), 2.5, false); out.push(...(out.length ? s.slice(1) : s)); cur = [r[i]]; }
+  }
+  out.pop();
+  // le jarret, où passe le crochet (entre le tendon et l'os, au-dessus de la pointe du jarret) ;
+  // la coupe du canon, et l'os au milieu
+  const jarret = [1440, 880], canon = [[interpY(S[43], S[44], Y_CANON), Y_CANON], [interpY(S[62], S[61], Y_CANON), Y_CANON]];
+  let A = 0, cx = 0, cy = 0;
+  for (let i = 0; i < out.length; i++) { const a = out[i], b = out[(i + 1) % out.length], c = a[0] * b[1] - b[0] * a[1]; A += c; cx += (a[0] + b[0]) * c; cy += (a[1] + b[1]) * c; }
+  A /= 2;
+  return { pts: out, jarret, canon, centre: [cx / (6 * A), cy / (6 * A)] };
+})();
+// Le quartier pendu : le jarret en (hx, hy), la pièce qui descend jusqu'à yBas. Rend le contour et les
+// points utiles dans la vue.
+function quartierPendu(hx, hy, yBas) {
+  const Q = QUARTIER, [jx, jy] = Q.jarret;
+  const ang = Math.PI / 2 - Math.atan2(Q.centre[1] - jy, Q.centre[0] - jx);   // le centre sous le crochet
+  const co = Math.cos(ang), si = Math.sin(ang);
+  const rot = ([x, y]) => [(x - jx) * co - (y - jy) * si, (x - jx) * si + (y - jy) * co];
+  const bas = Math.max(...Q.pts.map(p => rot(p)[1]));
+  const s = (yBas - hy) / bas;
+  const T = p => { const [u, v] = rot(p); return [hx + u * s, hy + v * s]; };
+  // les grandes masses du quartier, celles de la 62-04 (module de la carcasse), au trait fin
+  const masses = ['bicepsFemoral', 'semitendineux', 'pointeSurlonge', 'gastrocnemien']
+    .map(k => C.dense(C.MUSCLES[k].pts.map(p => [p[0], p[1]]), 3, true).map(T));
+  return { pts: Q.pts.map(T), canon: Q.canon.map(T), masses, s, T };
+}
+
 module.exports = (h) => {
   // Courbe fermée lissée passant par des points (Catmull-Rom)
   const lisse = (p, k = 0.35) => {
@@ -106,7 +155,7 @@ module.exports = (h) => {
     desc: 'Une perche pendue par une corde près d’un bout. Le quartier est accroché au bras court par un crochet de branche ; un caillou lié dans une boucle coulisse sur le bras long et tombe dans des entailles. De près : le bras court avec son lest lié dessous, la boucle de charge assise dans une entaille et l’entaille en V sous la corde du pivot ; le caillou lié en croix, sa boucle dans une entaille marquée au couteau. En bas, la graduation : la perche à vide tient de niveau, puis un, deux et trois bidons de 4 L au crochet, le caillou reculé d’une entaille chaque fois, à intervalles égaux de 4 kg.',
     format: 'pleine',
     disposition: [['usage'], ['pivot', 'caillou'], ['graduer']],
-    hauteurs: [4, 3, 6],
+    hauteurs: [4.6, 3, 5.4],
     largeurs: [[1], [1, 1], [1]],
     vues: {
       usage: {
@@ -133,19 +182,20 @@ module.exports = (h) => {
           [37, 51].forEach(x => o.push(h.ligne(x, g.y, x, lb + 19.5, h.a.detail)));
           // boucle de charge et crochet de branche
           o.push(h.ligne(g.lx, g.y + 3, g.lx, 66, h.a.arete));
-          // quartier pendu par le jarret
-          const top = 84, bas = z.h - 3, hq = bas - top;
-          const Q = [[-7, 0], [5, -4], [10, 4], [10, 0.2 * hq], [20, 0.36 * hq], [32, 0.55 * hq], [36, 0.72 * hq],
-            [30, 0.9 * hq], [12, hq], [-10, 0.98 * hq], [-26, 0.86 * hq], [-30, 0.66 * hq], [-20, 0.44 * hq], [-8, 0.26 * hq]];
-          const qx = g.lx + 6;
-          o.push(forme(lisse(Q.map(([u, v]) => [qx + u, top + v]), 0.3), h.a.contour, lisse(Q.map(([u, v]) => [qx + u - 9, top + v - 6]), 0.3)));
-          // os du jarret, sillons entre les muscles, face de coupe
-          o.push(h.ellipse(qx + 1, top + 9, 3, 2, h.a.detail));
-          o.push(h.path(`M ${qx + 4} ${top + 0.3 * hq} Q ${qx + 2} ${top + 0.55 * hq} ${qx + 14} ${top + 0.85 * hq}`, h.a.detail));
-          o.push(h.path(`M ${qx - 6} ${top + 0.34 * hq} Q ${qx - 16} ${top + 0.6 * hq} ${qx - 8} ${top + 0.9 * hq}`, h.a.detail));
-          o.push(h.ellipse(qx + 4, top + 0.93 * hq, 5, 2.5, h.a.detail));
-          // le chicot du crochet passe dans le jarret
-          o.push(crochet(g.lx, 64, 93, 1.1));
+          // le crochet d'abord : son chicot entre dans le jarret, le quartier le cache
+          o.push(crochet(g.lx, 64, 99, 1.6));
+          // quartier arrière pendu par le jarret : le canon coupé en haut, la coupe de la hanche en bas
+          const q = quartierPendu(g.lx + 9, 87.5, z.h - 4);
+          const dq = 'M' + q.pts.map(p => `${p[0].toFixed(1)} ${p[1].toFixed(1)}`).join(' L') + ' Z';
+          const dqo = 'M' + q.pts.map(p => `${(p[0] - 6).toFixed(1)} ${(p[1] - 7).toFixed(1)}`).join(' L') + ' Z';
+          o.push(forme(dq, h.a.contour, dqo));
+          // les coutures entre les grandes masses, découpées par le contour du quartier
+          o.push(`<clipPath id="q-67-10">${h.path(dq, h.a.blanc)}</clipPath>`, '<g clip-path="url(#q-67-10)">',
+            ...q.masses.map(m => h.path('M' + m.map(p => `${p[0].toFixed(1)} ${p[1].toFixed(1)}`).join(' L') + ' Z', h.a.detail)), '</g>');
+          o.push(h.path(dq, h.a.contour));
+          // la coupe du canon : l'os au milieu
+          const [c1, c2] = q.canon, cm = [(c1[0] + c2[0]) / 2, (c1[1] + c2[1]) / 2], lc = Math.hypot(c2[0] - c1[0], c2[1] - c1[1]);
+          o.push(h.ellipse(cm[0], cm[1], lc * 0.2, lc * 0.17, h.a.detail));
           // contrepoids : caillou dans sa boucle
           o.push(h.ligne(g.cx, g.y + 2.5, g.cx, g.y + 24, h.a.arete));
           o.push(caillou(g.cx, g.y + 38, 17, 14, h.a.contour));
@@ -157,9 +207,12 @@ module.exports = (h) => {
         },
         renvois: (z) => {
           const g = U(z);
+          // le bord droit du quartier, aux deux tiers de sa hauteur
+          const q = quartierPendu(g.lx + 9, 87.5, z.h - 4), yq = 87.5 + (z.h - 4 - 87.5) * 0.62;
+          const qd = q.pts.filter(p => Math.abs(p[1] - yq) < 4).reduce((m, p) => (p[0] > m[0] ? p : m), [0, yq]);
           return [
             { n: 1, rond: [g.px + 30, 26], cible: [g.px + 1, 26], texte: 'corde du pivot, près du bout' },
-            { n: 2, rond: [g.lx + 80, z.h - 40], cible: [g.lx + 43, z.h - 44], texte: 'quartier au bras court' },
+            { n: 2, rond: [qd[0] + 34, qd[1] + 6], cible: qd, texte: 'quartier au bras court' },
             { n: 3, rond: [270, g.y + 30], cible: [270, g.y + 10], texte: 'perche droite et raide' },
             { n: 4, rond: [g.cx + 50, g.y + 40], cible: [g.cx + 18, g.y + 38], texte: 'caillou qui coulisse' },
           ];
@@ -280,7 +333,7 @@ module.exports = (h) => {
           const g = G(z);
           return [
             { n: 12, rond: [330, g.yb(0) + 28], cible: [330, g.yb(0) + 4], texte: 'à vide : perche de niveau' },
-            { n: 13, rond: [150, g.yb(1) + 34], cible: [g.lx + 11, g.yb(1) + 34], texte: 'bidon plein de 4 L : 4 kg' },
+            { n: 13, rond: [150, g.yb(1) + 28], cible: [g.lx + 11, g.yb(1) + 28], texte: 'bidon plein de 4 L : 4 kg' },
             { n: 14, rond: [g.xs[1] + 44, g.yb(2) - 14], cible: [g.xs[1] + 2, g.yb(2) + 1], texte: 'entaille à chaque équilibre' },
           ];
         },

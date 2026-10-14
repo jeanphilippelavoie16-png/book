@@ -106,7 +106,9 @@ module.exports = (h) => {
     // l'air, au milieu du cou)
     const contourT = echant(TETE.map(Th), 8);
     let kN = 0, dmin = Infinity;
-    for (let i = 0; i <= 16; i++) { const q = contourT[i], d = Math.hypot(q[0] - DOS[0][0], q[1] - DOS[0][1]); if (d < dmin) { dmin = d; kN = i; } }
+    // (le point de la nuque est pris au niveau du dos ou plus bas : sur le raté, le plus proche était plus
+    // haut que le dos, et la nuque faisait une pointe avant de redescendre au rouleau — 14 octobre)
+    for (let i = 0; i <= 16; i++) { const q = contourT[i], d = Math.hypot(q[0] - DOS[0][0], q[1] - DOS[0][1]); if (q[1] < DOS[0][1] - 0.5) continue; if (d < dmin) { dmin = d; kN = i; } }
     const nuque = contourT[kN];
     const gorge = Th(GORGE);
     const dos = [nuque, ...DOS];

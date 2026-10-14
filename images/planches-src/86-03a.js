@@ -18,6 +18,9 @@ const cadre = (z, bb, m = [16, 10, 16, 10]) => {
 
 // ── ensemble : mât H, collier des haubans sous la portée des pales ──
 const H = 10, R = 1.4, HUB = H + 0.27, XR = -1.0, HG = H - 1.9, GP = 3.6;
+// le mât, un peu plus gros qu'à l'échelle (redessin du 14 octobre : à 0,08 de demi-largeur, il ne se
+// lisait plus qu'en fil) ; son côté droit à l'ombre, comme un tuyau
+const MW = 0.15;
 const repE = z => cadre(z, [-5.6, 5.2, -0.5, H + 1.85], [14, 8, 14, 6]);
 // ── tête : unité = diamètre du mât ──
 const repT = z => cadre(z, [-3.4, 6.8, -6.5, 4.3], [18, 6, 10, 6]);
@@ -45,7 +48,7 @@ module.exports = (h) => {
     format: 'pleine',
     disposition: [['ensemble', 'tete'], ['pales']],
     hauteurs: [3, 2],
-    largeurs: [[5, 6], [1]],
+    largeurs: [[5.6, 5.4], [1]],
     vues: {
       ensemble: {
         titre: 'L’ensemble, de profil',
@@ -56,29 +59,29 @@ module.exports = (h) => {
           o.push(seg(E, [-5.6, 0], [5.2, 0], h.a.arete));
           // semelle et charnière
           o.push(rct(E, -0.45, 0, 0.45, 0.2, BLANCD));
-          o.push(poly(E, [[-0.16, 0.2], [0.16, 0.2], [0.12, 0.62], [-0.12, 0.62]], BLANCD));
+          o.push(poly(E, [[-MW - 0.08, 0.2], [MW + 0.08, 0.2], [MW + 0.04, 0.62], [-MW - 0.04, 0.62]], BLANCD));
           // bras de levage couché, lié à l'ancrage
-          o.push(rct(E, 0.08, 0.36, GP, 0.5, BLANCD));
+          o.push(rct(E, MW, 0.36, GP, 0.5, BLANCD));
           o.push(seg(E, [GP, 0.43], [GP + 0.5, 0], h.a.detail));
           o.push(seg(E, [GP + 0.5, 0.12], [GP + 0.5, -0.4], h.a.arete));
           o.push(seg(E, [-5, 0.12], [-5, -0.4], h.a.arete));
           // haubans
-          o.push(seg(E, [-0.08, HG], [-5, 0.1], h.a.detail));
-          o.push(seg(E, [0.08, HG], [GP, 0.5], h.a.detail));
+          o.push(seg(E, [-MW, HG], [-5, 0.1], h.a.detail));
+          o.push(seg(E, [MW, HG], [GP, 0.5], h.a.detail));
           // portée des pales (disque vu par la tranche)
           o.push(seg(E, [XR - 0.2, HUB - R], [XR - 0.2, HUB + R], h.a.zone));   // là où une pale frappe
-          o.push(seg(E, [XR - 0.2, HUB - R], [-0.08, HUB - R], h.a.fin + ' stroke-dasharray="3 2"'));
+          o.push(seg(E, [XR - 0.2, HUB - R], [-MW, HUB - R], h.a.fin + ' stroke-dasharray="3 2"'));
           // mât
-          o.push(rct(E, -0.08, 0.42, 0.08, H, BLANC));
+          o.push(rct(E, -MW, 0.42, MW, H, h.a.blanc), rct(E, MW * 0.15, 0.42, MW, H - 0.5, h.a.ombre), rct(E, -MW, 0.42, MW, H, h.a.arete));
           o.push(h.cercle(...E(0, 0.45), 1.6, h.a.plein));
           // collier des haubans
-          o.push(rct(E, -0.14, HG - 0.08, 0.14, HG + 0.08, h.a.plein));
+          o.push(rct(E, -MW - 0.06, HG - 0.08, MW + 0.06, HG + 0.08, h.a.plein));
           // câble le long du mât jusqu'à l'interrupteur, puis vers le chalet
-          o.push(h.chemin(pts(E, [[0.16, H - 1.25], [0.13, H - 1.5], [0.13, 1.7], [-0.2, 1.62]]), h.a.fin));
-          o.push(rct(E, -0.5, 1.0, -0.08, 1.55, BLANCD));
+          o.push(h.chemin(pts(E, [[MW + 0.08, H - 1.25], [MW + 0.05, H - 1.5], [MW + 0.05, 1.7], [-MW - 0.12, 1.62]]), h.a.fin));
+          o.push(rct(E, -MW - 0.42, 1.0, -MW, 1.55, BLANCD));
           o.push(h.chemin(pts(E, [[-0.36, 1.0], [-0.36, 0.72], [-0.7, 0.62], [-1.2, 0.02], [-5.6, 0.02]]), h.a.fin));
           // tête
-          o.push(rct(E, -0.13, H - 0.5, 0.13, H + 0.08, BLANCD));
+          o.push(rct(E, -MW - 0.05, H - 0.5, MW + 0.05, H + 0.08, BLANCD));
           o.push(rct(E, -0.9, H + 0.08, 0.35, H + 0.14, BLANCD));
           o.push(rct(E, -0.8, H + 0.14, 0.05, H + 0.42, BLANCD));
           o.push(seg(E, [-0.8, HUB], [XR, HUB], h.a.arete));
@@ -90,7 +93,7 @@ module.exports = (h) => {
           // câble : sort du moteur, boucle lâche, pris au mât
           o.push(h.chemin(pts(E, [[0.05, H + 0.3], [0.3, H + 0.25], [0.3, H - 0.55]]), h.a.fin));
           o.push(courbe(E, boucle(0.3, H - 0.55, 0.6, 0.22), 40, h.a.fin));
-          o.push(h.chemin(pts(E, [[0.3, H - 1.15], [0.16, H - 1.25]]), h.a.fin));
+          o.push(h.chemin(pts(E, [[0.3, H - 1.15], [MW + 0.08, H - 1.25]]), h.a.fin));
           // le vent
           o.push(h.fleche(`M ${E(-5.4, HUB + 0.9).map(f).join(' ')} L ${E(-3.6, HUB + 0.9).map(f).join(' ')}`));
           o.push(h.fleche(`M ${E(-5.4, HUB).map(f).join(' ')} L ${E(-3.6, HUB).map(f).join(' ')}`));
@@ -98,7 +101,7 @@ module.exports = (h) => {
         },
         renvois: z => {
           const E = repE(z);
-          const a = E(0.1, HG), b = E(2.2, 0.43), c = E(0, 0.45), d = E(-0.5, 1.28), e = E(XR - 0.2, HUB - R);
+          const a = E(MW + 0.02, HG), b = E(2.2, 0.43), c = E(0, 0.45), d = E(-MW - 0.42, 1.28), e = E(XR - 0.2, HUB - R);
           return [
             { n: 1, rond: [e[0] - 30, e[1] + 6], cible: e, texte: 'portée des pales' },
             { n: 2, rond: [a[0] + 34, a[1] - 10], cible: a, texte: 'haubans pris sous les pales' },

@@ -316,12 +316,19 @@ module.exports = (h) => {
       // le manche rond, qui entre dans le flanc à mi-hauteur
       const x0 = xm - s * rx, x1 = xm - s * (rx + 50);
       o.push(h.path(`M${r1(x0)} ${r1(ym - 4)} L${r1(x1)} ${r1(ym - 4)} A4 4 0 0 ${s > 0 ? 0 : 1} ${r1(x1)} ${r1(ym + 4)} L${r1(x0)} ${r1(ym + 4)}`, at));
-      o.push(h.path(`M${r1(xm - rx)} ${r1(yH)} L${r1(xm - rx)} ${r1(yB)} A${rx} ${rye} 0 0 0 ${r1(xm + rx)} ${r1(yB)} L${r1(xm + rx)} ${r1(yH)} Z`, atH));
+      const tete = `M${r1(xm - rx)} ${r1(yH)} L${r1(xm - rx)} ${r1(yB)} A${rx} ${rye} 0 0 0 ${r1(xm + rx)} ${r1(yB)} L${r1(xm + rx)} ${r1(yH)} Z`;
+      if (atH === 'plein') {
+        // la tête vue de dehors, pas en coupe : blanche, sa face de droite à l'ombre, le contour par-dessus
+        const xo = xm + rx * 0.35;
+        o.push(h.path(tete, A.blanc));
+        o.push(h.path(`M${r1(xo)} ${r1(yH)} L${r1(xo)} ${r1(yB + rye * 0.94)} A${rx} ${rye} 0 0 0 ${r1(xm + rx)} ${r1(yB)} L${r1(xm + rx)} ${r1(yH)} Z`, A.ombre));
+        o.push(h.path(tete, A.contour));
+      } else o.push(h.path(tete, atH));
       o.push(h.ellipse(xm, yH, rx, rye, at));
       return o.join('\n');
     };
     const xm = cx - R(yq) + 8;
-    out.push(maillet(xm, 1, bD, blanc(A.hachure('bois', 'contour'))));
+    out.push(maillet(xm, 1, bD, 'plein'));   // (redessin du 14 octobre : la tête n'est plus hachurée comme une coupe)
     out.push(h.geste(`M${r1(xm - 34)} ${r1(yq - th - 30)} Q${r1(xm - 4)} ${r1(yq - th - 34)} ${r1(xm)} ${r1(yq - th - 10)}`));
     // son coup suivant, de l'autre côté
     const xm2 = cx + R(yq) - 8;

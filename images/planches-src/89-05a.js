@@ -12,7 +12,7 @@ module.exports = (h) => {
     desc: 'En haut, le toboggan vu de dessus, la tête à gauche : deux planches jointes au milieu, qui s’élargissent du talon vers le milieu et se resserrent à la tête ; quatre traverses sur le plat, chacune liée en quatre points ; la traverse de tête posée au bout des planches relevées, la tête marquée de traits qui se serrent là où elle se redresse ; la corde de côté, une seule boucle qui longe les deux bords sous le bout des traverses et passe derrière la dernière. Dessous, le même toboggan de côté : le fond plat, la tête qui monte et revient un peu, la traverse de tête au bout, les liens tendus jusqu’à la traverse où commence la courbe. Au milieu, une coupe en travers à une traverse : les deux planches, le joint, la traverse sur le dessus, la ficelle qui passe sur la traverse aux quatre points et qui se couche dans une rainure sous les planches, et la corde de côté dans l’encoche sous chaque bout. En bas à droite, une coupe en long à un point de ligature : un trou de chaque côté de la traverse, la ficelle qui monte par l’un, passe sur la traverse, redescend par l’autre et revient dans la rainure, à fleur du dessous, sans toucher la neige.',
     format: 'pleine',
     disposition: [['dessus'], ['cote'], ['travers', 'long']],
-    hauteurs: [0.9, 0.85, 1.35],   // la vue de côté serrée sur le toboggan : une planche de 13 mm de côté, sinon c'est une page vide
+    hauteurs: [1, 0.85, 1.25],   // la vue de côté serrée sur le toboggan : une planche de 13 mm de côté, sinon c'est une page vide
     largeurs: [[1], [1], [1.55, 1]],
     vues: {
       // ─── Vu de dessus ──────────────────────────────────────────────────────────────────
