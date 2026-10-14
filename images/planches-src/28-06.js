@@ -53,11 +53,13 @@ module.exports = (h) => {
   // La tête de la bibliothèque, regard vers la droite, repère à l'oreille, en mm. Un seul œil :
   // le coton posé dessus, la flèche du geste sous l'œil, du coin du nez (devant) vers le coin
   // extérieur (vers l'oreille). L'autre œil passe par le renvoi 5, sur le second coton du bol.
-  // Le cou est coupé par le bas de la vue, comme la tête de la bibliothèque le laisse ouvert.
+  // Un gros plan : la vue coupe la tête au front, derrière l'oreille et sous la bouche, comme
+  // l'ancienne vue de face coupait le visage.
   const R_COTON = 9;                       // mm
+  const FEN = [-62, -112, 178, 36];         // la fenêtre, en mm de tête : de l'oreille au nez, du front à la bouche
   const geoV = (z) => {
-    const e = Math.min(1.05, (z.h - 14) / 229);   // du sommet du crâne (-129) au menton (+100)
-    const x = z.l / 2 - 12 * e, y = 6 + 129 * e;
+    const e = Math.min(z.l / (FEN[2] - FEN[0]), z.h / (FEN[3] - FEN[1]));
+    const x = (z.l - e * (FEN[2] - FEN[0])) / 2 - FEN[0] * e, y = (z.h - e * (FEN[3] - FEN[1])) / 2 - FEN[1] * e;
     return { e, x, y, V: ([u, v]) => [x + u * e, y + v * e] };
   };
   const COTON = [79, -23];                 // sur l'œil (l'œil de la tête est en [80, -24])

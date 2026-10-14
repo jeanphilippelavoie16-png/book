@@ -163,6 +163,8 @@ module.exports = (h) => {
           }
           out.push(h.chemin(bord, h.a.arete, true));
           out.push(h.chemin(sol, h.a.arete));
+          // le niveau qu'on vérifie : au bout de la pointe, le dessus de la haie passe la pleine mer
+          out.push(h.controle(e.xp, (e.yTop + e.yPM) / 2, 16));
           return out.join('\n');
         },
         renvois: z => {
@@ -189,11 +191,11 @@ module.exports = (h) => {
             const xs = [...Array(n + 1)].map((_, j) => x0 + (x1 - x0) * j / n);
             return { haut: xs.map(x => [x, cy(x) - ep(x) / 2]), bas: xs.map(x => [x, cy(x) + ep(x) / 2]), cy, ep };
           };
-          // les branchages, derrière
+          // les branchages, derrière : ils reculent en gris loin, ce qui passe devant reste blanc
           k.rangs.forEach((y, i) => {
             const b = branche(i, y, k.xa, k.xb);
             const pol = [...b.haut, ...b.bas.slice().reverse()];
-            out.push(h.chemin(pol, h.a.blanc, true), h.chemin(pol, h.a.detail, true));
+            out.push(h.chemin(pol, h.a.loin, true), h.chemin(pol, h.a.detail, true));
             // le petit bout de la branche, fourchu
             const xe = i % 2 ? k.xb : k.xa, dx = i % 2 ? 1 : -1, ye = b.cy(xe);
             out.push(h.ligne(xe, ye, xe + 8 * dx, ye - 2, h.a.fin), h.ligne(xe - 3 * dx, ye, xe + 5 * dx, ye + 3, h.a.fin));
