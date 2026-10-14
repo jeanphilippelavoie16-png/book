@@ -141,7 +141,7 @@ module.exports = (h) => {
     const out = [];
     const bord = (s, k) => add(S.P(s), mul(S.nb, S.demi * k));
     const s0 = -30, s1 = S.sV, s2 = S.sV + 22;
-    out.push(h.chemin([bord(s0, -1), bord(s1, -1), bord(s1, 1), bord(s0, 1)], blanc(h.a.arete), true));
+    out.push(h.chemin([bord(s0, -1), bord(s1, -1), bord(s1, 1), bord(s0, 1)], blanc(h.a.contour), true));
     out.push(h.chemin([bord(s1, -1), bord(s2, -1), bord(s2, 1), bord(s1, 1)], h.a.cache));
     out.push(h.path(poly([S.P(s0 + 6), S.P(s1 - 8)]), h.a.fin));
     return out.join('\n');

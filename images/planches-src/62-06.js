@@ -104,7 +104,7 @@ module.exports = (h) => {
     const noix = lisse(p, ST, true), bic = lisse(p, BIC, true);
     return [
       C.dessiner(h, p, {
-        id: 'v1', loin: 'fin', fondOs: false,
+        id: 'v1', loin: 'gris', fondOs: false,
         os: ['bassin', 'femur', 'rotule', 'tibia', 'calcaneum'],
         osForts: ['bassin', 'rotule', 'calcaneum'],
         muscles: ['fessierMoyen', 'pointeSurlonge', 'gastrocnemien', 'tendonAchille'],
@@ -124,7 +124,7 @@ module.exports = (h) => {
     const fl = aGauche(cPointe, 12, 0.44, 0.9);
     return [
       C.dessiner(h, p, {
-        id: 'v2', loin: 'fin', fondOs: false,
+        id: 'v2', loin: 'gris', fondOs: false,
         os: ['bassin', 'femur', 'rotule'],
         muscles: ['fessierMoyen', 'pointeSurlonge', 'gastrocnemien', 'tendonAchille'],
       }),
@@ -132,7 +132,9 @@ module.exports = (h) => {
       `<path d="${dd(noix, true)}" fill="none" stroke="${NOIR}" stroke-width="0.7" stroke-linejoin="round"/>`,
       couture(cPointe),
       couture(cNoix),
-      h.fleche(dd(fl), h.a.arete),
+      // la charte : le chemin du couteau, le geste de la vue, en rouge sur un liseré blanc
+      `<path d="${dd(fl)}" fill="none" stroke="${BLANC}" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>`,
+      h.geste(dd(fl)),
     ].join('\n');
   };
 

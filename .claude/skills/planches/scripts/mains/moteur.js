@@ -491,7 +491,7 @@ const FORMES = {
     'avantbras': [[0, 32, 32], [0.1, 32.4, 32.2], [0.22, 35.5, 34], [0.4, 42.5, 38.5], [0.58, 47.5, 42], [0.75, 48.5, 44], [0.9, 46, 42.5], [1, 42.5, 40]],
     // le bras (avantbras.bras), du coude (t = 0) à l'épaule (t = 1) : un peu moins large que l'avant-bras au coude,
     // puis le biceps et le deltoïde (≈ 100 de large à l'épaule : corps/moteur.js, mis à cette main)
-    'bras': [[0, 40, 40], [0.15, 41.5, 41.5], [0.45, 45, 45], [0.75, 48, 48], [1, 51, 51]],
+    'bras': [[0, 41, 41], [0.15, 43, 43], [0.45, 46.5, 46.5], [0.75, 49, 49], [1, 51, 51]],
   },
   // provisoire, en attendant profil.js (agent 2)
   profil: {
@@ -1188,10 +1188,23 @@ function construire(o, prep = null) {
       if (A && A.s < LA - 1) { Ldes = Math.max(10, Math.min(LA, A.s + 20 * kL0)); parFin = true; }
     }
     const entier = !bras && !parFin && Ldes >= LA - 0.5;
+    // les demi-axes le long du membre (s : mm depuis le poignet ; au-delà de LA, le bras) ; avec le bras, le coude
+    // se raccorde en douceur (une cubique d'Hermite de 0,8 LA à LA + 0,25 LB : sans elle, la taille du coude
+    // faisait un coin, bras tendu)
+    const Fbr = { dos: { bras: FORMES.dos.bras }, profil: { bras: FORMES.profil.bras } }, LB = LA * BRAS_SUR_AVANTBRAS;
+    const wBrut = s_ => (s_ <= LA ? demiAxes(Fab, 'avantbras', Math.max(0, s_) / LA, kW) : demiAxes(Fbr, 'bras', Math.min(1, (s_ - LA) / LB), kW));
+    const sH0 = 0.8 * LA, sH1 = LA + 0.25 * LB;
+    const pente = s_ => { const a = wBrut(s_ - 1), b = wBrut(s_ + 1); return a.map((v, i) => (b[i] - v) / 2); };
+    const wH0 = wBrut(sH0), wH1 = wBrut(sH1), mH0 = pente(sH0), mH1 = pente(sH1);
+    const largeurs = s_ => {
+      if (!bras || s_ <= sH0 || s_ >= sH1) return wBrut(s_);
+      const h = sH1 - sH0, t = (s_ - sH0) / h, t2 = t * t, t3 = t2 * t;
+      return wH0.map((v, i) => (2 * t3 - 3 * t2 + 1) * v + (t3 - 2 * t2 + t) * h * mH0[i] + (-2 * t3 + 3 * t2) * wH1[i] + (t3 - t2) * h * mH1[i]);
+    };
     const secs = [], sph = [];
     const nS = Math.max(3, Math.ceil(Ldes / 6));
     for (let k = 0; k <= nS; k++) {
-      const s_ = Ldes * k / nS, q = cadreEn(s_), w = demiAxes(Fab, 'avantbras', s_ / LA, kW);
+      const s_ = Ldes * k / nS, q = cadreEn(s_), w = largeurs(s_);
       secs.push(section(q.c, q.fr, w).map(p2));
       const pc = matVec(M, q.c); sph.push({ x: pc[0], y: pc[1], z: pc[2], r: (w[0] + w[1] + w[2] + w[3]) / 4 });
     }
@@ -1215,8 +1228,8 @@ function construire(o, prep = null) {
     // replié de plus de 100°, l'avant-bras appuyé sur le biceps y laisse un trait (le pli du coude, comme
     // corps/moteur.js). Le bout du bras est une coupe, comme celle de l'avant-bras.
     if (bras) {
-      const qE = cadreEn(LA), cE = qE.c, dA3 = qE.d, wA = demiAxes(Fab, 'avantbras', 1, kW);
-      const e2 = p2(cE), LB = LA * BRAS_SUR_AVANTBRAS;
+      const qE = cadreEn(LA), cE = qE.c, dA3 = qE.d, wA = largeurs(LA);
+      const e2 = p2(cE);
       const pA = p2(dA3), dA2 = lon(pA) > 1e-6 ? uni(pA) : [1, 0];
       let dB2 = dA2;
       if (bras.versLocal) { const v = sub(bras.versLocal, e2); if (lon(v) > 1) dB2 = uni(v); }
@@ -1242,22 +1255,26 @@ function construire(o, prep = null) {
       }
       LBd = Math.max(10, Math.min(LBd, 1.6 * LB));
       const nE = qE.fr.n, frEn = d => { const n = orth(transporte(nE, dA3, d), d); return { r: x3(n, m3(d, -1)), n }; };
-      const Fbr = { dos: { bras: FORMES.dos.bras }, profil: { bras: FORMES.profil.bras } };
-      const wB0 = demiAxes(Fbr, 'bras', 0, kW);
       const polysBR = [];
-      // l'éventail du coude : la section tourne autour du centre de l'articulation, de l'avant-bras au bras
+      // l'éventail du coude : la section tourne autour du centre de l'articulation, de l'avant-bras au bras ; et
+      // l'olécrane : l'avant-bras dépasse le centre de la moitié de sa largeur, le bras d'un tiers, et leur enveloppe
+      // fait la pointe arrondie du coude plié (l'éventail seul en faisait un tuyau coudé)
       if (flex > 0.5) {
         const kE = u3(x3(dA3, dB3)), K = Math.max(2, Math.ceil(flex / 8)), ev = [];
         for (let j = 0; j <= K; j++) {
           const t = j / K, d = u3(rot3(dA3, kE, flex * t));
-          ev.push(section(cE, frEn(d), wA.map((v, i) => v + (wB0[i] - v) * t)).map(p2));
+          ev.push(section(cE, frEn(d), wA).map(p2));
         }
         for (let j = 0; j < K; j++) polysBR.push(enveloppe(ev[j].concat(ev[j + 1])));
+        const rw = (wA[0] + wA[1] + wA[2] + wA[3]) / 4, kO = Math.min(1, flex / 60);
+        const oA = section(a3(cE, m3(dA3, 0.5 * rw * kO)), qE.fr, wA.map(v => v * 0.92)).map(p2);
+        const oB = section(a3(cE, m3(dB3, -0.33 * rw * kO)), frEn(dB3), wA.map(v => v * 0.92)).map(p2);
+        polysBR.push(enveloppe(oA.concat(oB, ev[Math.round(K / 2)])));
       }
       const frB = frEn(dB3), secB = [];
       const nB = Math.max(3, Math.ceil(LBd / 6));
       for (let k = 0; k <= nB; k++) {
-        const s_ = LBd * k / nB, c = a3(cE, m3(dB3, s_)), w = demiAxes(Fbr, 'bras', Math.min(1, s_ / LB), kW);
+        const s_ = LBd * k / nB, c = a3(cE, m3(dB3, s_)), w = largeurs(LA + s_);
         secB.push(section(c, frB, w).map(p2));
         const pc = matVec(M, c); sph.push({ x: pc[0], y: pc[1], z: pc[2], r: (w[0] + w[1] + w[2] + w[3]) / 4 });
       }
@@ -1265,7 +1282,7 @@ function construire(o, prep = null) {
       if (flex > 100) plisCoude = { fa: polysAB.slice(), br: polysBR.slice(Math.max(0, polysBR.length - nB)), centre: e2, r: 1.1 * (wA[0] + wA[1]) / 2 };
       polysAB.push(...polysBR);
       sq.points.epaule = a3(cE, m3(dB3, LB));
-      bout = { c: a3(cE, m3(dB3, LBd)), fr: frB, w: demiAxes(Fbr, 'bras', Math.min(1, LBd / LB), kW), d: dB3 };
+      bout = { c: a3(cE, m3(dB3, LBd)), fr: frB, w: largeurs(LA + LBd), d: dB3 };
     }
     piece('avantbras', 'base', polysAB, sph, -1);
     if (plisCoude) pieces[pieces.length - 1].plisCoude = plisCoude;
