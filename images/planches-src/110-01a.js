@@ -27,7 +27,10 @@ const coins = (x0, x1, y0, y1, z0, z1) => {
 const dessus = (x0, x1, y0, y1, z) => [[x0, y0, z], [x1, y0, z], [x1, y1, z], [x0, y1, z]];
 const faceX = (x, y0, y1, z0, z1) => [[x, y0, z0], [x, y1, z0], [x, y1, z1], [x, y0, z1]];
 const faceY = (y, x0, x1, z0, z1) => [[x0, y, z0], [x1, y, z0], [x1, y, z1], [x0, y, z1]];
-const boite = (x0, x1, y0, y1, z0, z1) => [dessus(x0, x1, y0, y1, z1), faceX(x1, y0, y1, z0, z1), faceY(y1, x0, x1, z0, z1)];
+// La charte : la lumière vient d'en haut à gauche, donc les faces +x (tournées vers la droite)
+// sont à l'ombre. ombre(f) marque une face pour qu'elle se peigne en gris #CFCFCF.
+const ombre = f => Object.assign(f, { ombre: true });
+const boite = (x0, x1, y0, y1, z0, z1) => [dessus(x0, x1, y0, y1, z1), ombre(faceX(x1, y0, y1, z0, z1)), faceY(y1, x0, x1, z0, z1)];
 const rond3 = (c, r, plan, n = 32) => {
   const o = [];
   for (let i = 0; i < n; i++) {
@@ -76,13 +79,14 @@ const repMi = z => {
 
 module.exports = (h) => {
   const BLANC = h.a.arete.replace('fill="none"', 'fill="#FFFFFF"');
+  const OMBRE = h.a.arete.replace('fill="none"', 'fill="#CFCFCF"');   // h.a.ombre, avec son arête
   const SOUS = h.a.contour.replace('fill="none"', 'fill="#FFFFFF"').replace('stroke-width="2.4"', 'stroke-width="3.4"');
   const AXE = h.a.fin + ' stroke-dasharray="8 3 1.5 3"';
   const poly = (P, f, a) => h.chemin(f.map(q => P(...q)), a, true);
   const t3 = (P, a, b, at = h.a.detail) => h.ligne(...P(...a), ...P(...b), at);
   const piece = (P, groupes) =>
     groupes.flatMap(g => g[0]).map(f => poly(P, f, SOUS)).join('\n') + '\n' +
-    groupes.map(([faces, extra]) => faces.map(f => poly(P, f, BLANC)).join('\n') + '\n' + (extra || '')).join('\n');
+    groupes.map(([faces, extra]) => faces.map(f => poly(P, f, f.ombre ? OMBRE : BLANC)).join('\n') + '\n' + (extra || '')).join('\n');
   const trou = (P, c, r, plan) => poly(P, rond3(c, r, plan), h.a.plein);
   const cheville = (P, anneaux, plan, extra) => {
     const env = enveloppe(anneaux.flatMap(([c, r]) => rond3(c, r, plan).map(q => P(...q))));
@@ -186,9 +190,12 @@ module.exports = (h) => {
           o.push(h.chemin([C(90, 15), C(180, 15), C(180, 75), C(90, 75)], h.a.contour));
           o.push(h.rect(...C(60, 0), 10 * s, 90 * s, BLANC));
           for (const x of [63, 67]) o.push(h.ligne(...C(x, 3), ...C(x, 87), h.a.detail));
-          o.push(h.fleche(`M${C(36, 45)} L${C(54, 45)}`, h.a.arete));
+          // la cheville tire le tenon vers le fond : c'est ce qui serre l'épaulement contre le montant
+          o.push(h.fleche(`M${C(54, 45)} L${C(36, 45)}`, h.a.arete));
           o.push(h.ligne(...C(0, 31), ...C(-12, 31), h.a.fin), h.ligne(...C(0, 59), ...C(-12, 59), h.a.fin));
           o.push(h.cote(...C(-8, 31), ...C(-8, 59), '⅓ ép.', { cote: 'gauche' }));
+          // le point à contrôler : l'épaulement en contact continu, pas de jour
+          o.push(h.controle(...C(90, 23), 11));
           return o.join('\n');
         },
         renvois: z => {
@@ -218,7 +225,7 @@ module.exports = (h) => {
           for (const [ya, yb, xc] of [[0, 31, 65], [31, 59, 65 + d], [59, 90, 65]])
             o.push(h.ligne(...T(xc - r, ya), ...T(xc - r, yb), h.a.contour), h.ligne(...T(xc + r, ya), ...T(xc + r, yb), h.a.contour));
           o.push(h.ligne(...T(65, -4), ...T(65, 94), AXE), h.ligne(...T(65 + d, 27), ...T(65 + d, 63), AXE));
-          o.push(h.fleche(`M${T(48, 45)} L${T(58, 45)}`, h.a.arete));
+          o.push(h.fleche(`M${T(58, 45)} L${T(48, 45)}`, h.a.arete));   // sens où la cheville tirera le tenon
           o.push(h.cote(...T(65, 94), ...T(65 + d, 94), '1,5 à 3 mm', { cote: 'dessous' }));
           return o.join('\n');
         },
@@ -233,22 +240,24 @@ module.exports = (h) => {
           for (let i = 0; i <= 28; i++) { const t = Math.PI * (0.5 + 2 * i / 28); marque.push([122 + 6 * Math.cos(t), 18 + 5 * Math.sin(t), 40]); }
           marque.push([117, 42, 40]);
           const bas = piece(E, [[[
-            dessus(53, 97, 0, 44, 20), faceX(53, 0, 44, 20, 40), dessus(0, 53, 0, 44, 40), dessus(97, 150, 0, 44, 40),
+            dessus(53, 97, 0, 44, 20), ombre(faceX(53, 0, 44, 20, 40)), dessus(0, 53, 0, 44, 40), dessus(97, 150, 0, 44, 40),
             [[0, 44, 0], [150, 44, 0], [150, 44, 40], [97, 44, 40], [97, 44, 20], [53, 44, 20], [53, 44, 40], [0, 44, 40]],
-            faceX(150, 0, 44, 0, 40),
-          ], h.chemin(marque.map(q => E(...q)), h.a.detail)]]);
+            ombre(faceX(150, 0, 44, 0, 40)),
+          ], h.chemin(marque.map(q => E(...q)), h.a.detail) + '\n' +
+            // le point à contrôler : le fond de l'entaille, plat, pas bombé
+            h.controle(...E(75, 22, 20), 12)]]);
           const g = GM;
           const haut = piece(E, [[[
             [[77, 0, g], [97, 0, g], [97, 0, g + 20]],
             dessus(53, 97, -53, 97, g + 40),
-            [[97, -53, g], [97, 0, g], [97, 0, g + 20], [97, 44, g + 20], [97, 44, g], [97, 97, g], [97, 97, g + 40], [97, -53, g + 40]],
+            ombre([[97, -53, g], [97, 0, g], [97, 0, g + 20], [97, 44, g + 20], [97, 44, g], [97, 97, g], [97, 97, g + 40], [97, -53, g + 40]]),
             faceY(97, 53, 97, g, g + 40),
           ]]]);
           const c1 = E(58, 44, 20), c2 = E(58, 44, 40);
           const monte = piece(M, [[[
-            faceX(97, -53, 0, 0, 40),
-            dessus(0, 150, 0, 44, 40), faceY(44, 0, 150, 0, 40), faceX(150, 0, 44, 0, 40),
-            dessus(53, 97, -53, 97, 40), faceX(97, 44, 97, 0, 40), faceY(97, 53, 97, 0, 40),
+            ombre(faceX(97, -53, 0, 0, 40)),
+            dessus(0, 150, 0, 44, 40), faceY(44, 0, 150, 0, 40), ombre(faceX(150, 0, 44, 0, 40)),
+            dessus(53, 97, -53, 97, 40), ombre(faceX(97, 44, 97, 0, 40)), faceY(97, 53, 97, 0, 40),
           ]]]);
           return [bas, haut, h.cote(c1[0], c1[1], c2[0], c2[1], '½ ép.', { cote: 'gauche' }), monte].join('\n');
         },
