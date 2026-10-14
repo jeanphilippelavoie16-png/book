@@ -53,3 +53,12 @@ JP ensuite : « c'est bien mais pas encore parfait, les formes que tu as pas de 
 - **14 octobre : la charte est passée sur toutes les planches.** JP a dit « all good » sur les derniers paquets ; tout est
   dans `images/validees/`. Les planches à redessiner plus tard (au-delà de la charte) sont listées dans le scratch
   `suivi-charte.md`, section « À redessiner plus tard ».
+- **14 octobre, les cinq pilotes des mains (104-40, 50-40, 98-08, 26-08, 13-09) : « 1 go ».** Les mains simples passent
+  sur les 68 planches. Et : « les prises que c'est laid, on élimine. Genre quand on tient la roche pour faire du feu,
+  trouve une autre façon de le faire. » Une main laide ne s'imprime pas, ni la nouvelle ni l'ancienne calquée : on change
+  la prise (la pierre dans le poing plutôt qu'en pince), la vue ou le cadrage, ou on montre l'objet seul avec un renvoi qui
+  dit la prise. Ce qui marche : la prise de manche, le poing sur une anse, la pince fine sur un objet mince. Ce qui sort
+  laid : la pince latérale épaisse, la main relâchée vue de dos (palette), la main à plat vue par l'auriculaire (lame
+  mince), le poing vu de dos (moufle).
+- **14 octobre, les têtes de profil (premier tour) : « les têtes sont belles, enlève l'iris pi la commissure ».** L'œil
+  est une amande vide, la bouche fermée n'a pas de trait au coin. Le réviseur repasse sans changer le style.

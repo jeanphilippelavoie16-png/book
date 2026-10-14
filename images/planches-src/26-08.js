@@ -6,8 +6,8 @@
 // par-dessus l'avant-bras et épinglé au devant de la chemise.
 // L'écharpe était un buste de face en chemise, sorti le 13 octobre (JP : plus de corps de face). Elle revient le
 // 14 octobre en gros plan (JP) : le bras attelé seul, vu du devant, l'avant-bras à l'horizontale dans le pan relevé,
-// sans corps. Les mains sont des mains simples (mainSimple, pose relachee), le bras de l'écharpe enchaîné au coude
-// (avantbras.bras).
+// sans corps. Les mains sont des mains simples (mainSimple, pose ouverte : la pose relachee vue du dos faisait
+// palette), le bras de l'écharpe enchaîné au coude (avantbras.bras).
 // Aucun chiffre sur le dessin : le chapitre n'en donne aucun pour l'attelle improvisée.
 module.exports = (h) => {
   const BL = h.a.blanc.split(' ')[0];
@@ -74,12 +74,13 @@ module.exports = (h) => {
 
   // ─── Mouler et attacher ───────────────────────────────────────────────────────────────
   const M = { L: 322, y0: 0, y1: 294 };   // 322 : le dessin décalé de 12 à droite, la main entière dans la vue
-  // la main gauche, vue du dos, détendue (mainSimple, pose relachee) : le poignet en x 94, à la hauteur de
-  // l'avant-bras, les doigts qui dépassent le bout de l'écorce. Son avant-bras s'arrête sous le lien du poignet
-  // (x 104 à 124), où il rejoint l'avant-bras dessiné de la planche.
+  // la main gauche, vue du dos, ouverte (mainSimple, pose ouverte) : le poignet en x 94, à la hauteur de
+  // l'avant-bras, les cinq doigts libres au-delà du bout de l'écorce, là où on les vérifie. La pose relachee vue du
+  // dos faisait palette (doigts collés, pouce caché : JP, 14 octobre). Son avant-bras s'arrête sous le lien du
+  // poignet (x 104 à 124), où il rejoint l'avant-bras dessiné de la planche.
   const EM = 0.6, XW = 94, YW = 227;
-  const MAIN_M = h.formes.mainSimple({ x: XW, y: YW, ancre: 'poignet', pose: 'relachee', vue: 'dos', cote: 'gauche', angle: 177,
-    rotation: [-20, 0, 0], echelle: EM, avantbras: { fin: [[114, 150], [114, 300]] } });
+  const MAIN_M = h.formes.mainSimple({ x: XW, y: YW, ancre: 'poignet', pose: 'ouverte', vue: 'dos', cote: 'gauche', angle: 180,
+    echelle: EM, avantbras: { fin: [[114, 150], [114, 300]] } });
   // le trait de coupe A–A : en travers du lien de l'avant-bras près du poignet, regardé vers la main
   const XA = 114, YA = [186, 272];
   const traitCoupe = () => {
@@ -126,7 +127,7 @@ module.exports = (h) => {
       // l'avant-bras, jusqu'au poignet
       h.path(`M232,196 C200,186 160,196 120,206 L${haut.join(',')}`, h.a.contour),
       h.path(`M290,256 C250,262 180,252 120,246 L${bas.join(',')}`, h.a.contour),
-      // la main gauche, vue du dos, détendue, le pouce le long de l'index
+      // la main gauche, vue du dos, ouverte
       MAIN_M.svg,
       // le foyer de la fracture, entre les deux articulations
       h.path('M160,197 L165,203 L158,209 L164,215 L159,221 L163,227', h.a.arete),
@@ -179,7 +180,7 @@ module.exports = (h) => {
 
   // ─── L'écharpe ────────────────────────────────────────────────────────────────────────
   // Gros plan sur le bras attelé, porté dans le pan de la chemise : le même bras gauche que « Mouler et attacher »,
-  // vu du devant du blessé. L'avant-bras à l'horizontale, la main détendue qui sort à gauche, le coude à droite et le
+  // vu du devant du blessé. L'avant-bras à l'horizontale, le pouce en haut, la main ouverte qui sort à gauche, le coude à droite et le
   // haut du bras qui monte vers l'épaule (mainSimple, avantbras.bras), coupé au bord. Derrière, au trait seulement
   // (un aplat gris faisait un bloc ; la ceinture et le flanc, du décor) : la patte de la chemise et ses boutons. Le pan relevé passe devant
   // l'avant-bras, son ourlet épinglé au devant.
@@ -208,7 +209,7 @@ module.exports = (h) => {
   const echarpe = z => {
     const o = boite(z, S.L, S.y0, S.y1);
     const bord = { x0: -o.ox, y0: -o.oy, x1: z.l - o.ox, y1: z.h - o.oy };
-    const base = { x: XS, y: YS, ancre: 'poignet', pose: 'relachee', vue: 'dos', cote: 'gauche', angle: 180, rotation: [-20, 0, 0], echelle: ES };
+    const base = { x: XS, y: YS, ancre: 'poignet', pose: 'ouverte', vue: 'dos', cote: 'gauche', angle: 180, echelle: ES };
     const c0 = h.formes.mainSimple({ ...base, avantbras: { longueur: 'entier' } }).coude;
     const bras = h.formes.mainSimple({ ...base, avantbras: { bord, bras: { vers: [c0[0] + 3, -400] } } });
     const C = bras.coude, pts = contourDe(bras);
@@ -249,7 +250,7 @@ module.exports = (h) => {
       // l'écorce, derrière le bras
       h.chemin(ecorce, plein(h.a.arete), true),
       lent(lentE), lent(lentD, true),
-      // le bras gauche, la main détendue
+      // le bras gauche, la main ouverte
       bras.svg,
       // le lien du haut du bras
       h.path(`M${xg},${yL} L${xd},${yL} Q${xd + 3},${yL + wL / 2} ${xd2},${yL + wL} L${xg2},${yL + wL} Q${xg2 - 3},${yL + wL / 2} ${xg},${yL} Z`, plein(h.a.arete)),
@@ -271,7 +272,7 @@ module.exports = (h) => {
   return {
     ref: '26-08',
     titre: 'L’attelle d’écorce moulée, et l’écharpe au pan de chemise',
-    desc: 'Quatre vues. Une plaque d’écorce de bouleau trempe dans une marmite d’eau chaude. Un bras plié, vu de côté : l’écorce moulée en gouttière sous l’avant-bras et derrière le haut du bras prend le coude et le poignet, le rembourrage dépasse au coude et au poignet, trois liens la tiennent hors de la cassure, marquée en zigzag sur le dessus de l’avant-bras ; la main, vue du dos, détendue, dépasse le bout de l’écorce. Un trait de coupe A–A traverse le lien près du poignet. La coupe A–A : le bras, le rembourrage, la gouttière d’écorce durcie et le lien, qu’on desserre au premier blanchiment des doigts. L’écharpe, en gros plan, vue du devant : le même bras attelé, l’avant-bras à l’horizontale dans le pan de la chemise relevé par-dessus et épinglé au devant de la chemise en deux points ; la main détendue sort à gauche, le coude et l’écorce à droite, le haut du bras monte vers l’épaule.',
+    desc: 'Quatre vues. Une plaque d’écorce de bouleau trempe dans une marmite d’eau chaude. Un bras plié, vu de côté : l’écorce moulée en gouttière sous l’avant-bras et derrière le haut du bras prend le coude et le poignet, le rembourrage dépasse au coude et au poignet, trois liens la tiennent hors de la cassure, marquée en zigzag sur le dessus de l’avant-bras ; la main, vue du dos, ouverte, les cinq doigts au-delà du bout de l’écorce. Un trait de coupe A–A traverse le lien près du poignet. La coupe A–A : le bras, le rembourrage, la gouttière d’écorce durcie et le lien, qu’on desserre au premier blanchiment des doigts. L’écharpe, en gros plan, vue du devant : le même bras attelé, l’avant-bras à l’horizontale dans le pan de la chemise relevé par-dessus et épinglé au devant de la chemise en deux points ; la main ouverte sort à gauche, le pouce en haut, le coude et l’écorce à droite, le haut du bras monte vers l’épaule.',
     format: 'pleine',
     disposition: [['tremper', 'mouler'], ['coupe', 'echarpe']],
     largeurs: [[2, 3], [2, 3]],
