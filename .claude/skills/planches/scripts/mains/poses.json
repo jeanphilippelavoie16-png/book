@@ -197,7 +197,7 @@
       "majeur": {"ecart":0,"mcp":90,"ipp":88.3,"ipd":59.1},
       "annulaire": {"ecart":0,"mcp":90,"ipp":87.3,"ipd":58.5},
       "auriculaire": {"ecart":0,"mcp":90,"ipp":89,"ipd":59.6},
-      "pouce": {"opposition":70,"cmc":-30,"rotation":-40,"mcp":28.8,"ip":71.9}
+      "pouce": {"opposition":8.8,"cmc":-30,"rotation":-10.3,"mcp":53.1,"ip":24.7}
     },
     "poignet": {"flexion":0,"deviation":0},
     "solveur": {"prise":"poing"},
@@ -211,7 +211,7 @@
       "majeur": {"ecart":0,"mcp":90,"ipp":88.3,"ipd":59.1},
       "annulaire": {"ecart":0,"mcp":90,"ipp":87.3,"ipd":58.5},
       "auriculaire": {"ecart":0,"mcp":90,"ipp":89,"ipd":59.6},
-      "pouce": {"opposition":41.3,"cmc":5,"rotation":-24,"mcp":20,"ip":66.3}
+      "pouce": {"opposition":49.4,"cmc":-10,"rotation":-40,"mcp":40,"ip":45}
     },
     "poignet": {"flexion":0,"deviation":0},
     "contact": {"type":"point","points":[[157.4,-28,10.5]],"normale":[-0.104,-0.008,0.995]},
@@ -226,7 +226,7 @@
       "majeur": {"ecart":0,"mcp":90,"ipp":88.3,"ipd":59.1},
       "annulaire": {"ecart":0,"mcp":90,"ipp":87.3,"ipd":58.5},
       "auriculaire": {"ecart":0,"mcp":90,"ipp":89,"ipd":59.6},
-      "pouce": {"opposition":41.3,"cmc":5,"rotation":-24,"mcp":20,"ip":66.3}
+      "pouce": {"opposition":49.4,"cmc":-10,"rotation":-40,"mcp":40,"ip":45}
     },
     "poignet": {"flexion":0,"deviation":0},
     "contact": {"type":"point","points":[[143,-29.2,46.9]],"normale":[-0.498,-0.039,0.866]},
@@ -255,7 +255,7 @@
       "majeur": {"ecart":-14,"mcp":0,"ipp":4,"ipd":2},
       "annulaire": {"ecart":0,"mcp":90,"ipp":87.3,"ipd":58.5},
       "auriculaire": {"ecart":0,"mcp":90,"ipp":89,"ipd":59.6},
-      "pouce": {"opposition":41.3,"cmc":27,"rotation":-12,"mcp":32.5,"ip":43.1}
+      "pouce": {"opposition":60,"cmc":26,"rotation":-40,"mcp":40,"ip":23.1}
     },
     "poignet": {"flexion":0,"deviation":0},
     "solveur": {"prise":"pointe","tendus":["index","majeur"],"tendu":{"index":{"ecart":14},"majeur":{"ecart":-14}}},

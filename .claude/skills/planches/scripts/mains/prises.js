@@ -509,7 +509,7 @@ function pouceSurPhalanges(S, segsD, noms, o = {}) {
   const ss = noms.map(n => segsD.find(s => s.id === n));
   const mid = ss.map(s => I3(s.a, s.b, o.t || 0.5)).reduce((a, b) => A3(a, M3(b, 1 / ss.length)), [0, 0, 0]);
   const out = orth(U3(S3(mid, [mid[0] - 30, mid[1], 0])), U3(S3(ss[0].b, ss[0].a)));
-  const G = A3(mid, M3(out, rayonVers(ss[0], 0.5, out) + 0.4));
+  const G = A3(A3(mid, M3(out, rayonVers(ss[0], 0.5, out) + 0.4)), M3(ss[0].c.r, -(o.decale || 0)));
   // l'IP du pouce au bord radial du premier doigt replié (le pouce longe ce doigt, puis sa dernière phalange
   // le croise vers la phalange visée) : c'est ce qui le couche au lieu de le dresser en piquet
   const bord = segsD.find(s => s.id === (o.bord || 'index.p2'));
@@ -583,7 +583,8 @@ const PRISES = {
   poing(S, o) {
     const doigts = {};
     for (const n of DOIGTS) doigts[n] = fermerDoigt(S, n, []).q;
-    doigts.pouce = pouceSurPhalanges(S, segsDoigts(S, doigts), ['index.p2', 'majeur.p2'], { t: 0.45 }).q;
+    // le pouce n'atteint que la phalange du milieu de l'index (il en fait le tour) : sa pulpe dessus, côté majeur
+    doigts.pouce = pouceSurPhalanges(S, segsDoigts(S, doigts), ['index.p2'], { t: 0.45, decale: 4 }).q;
     return { doigts, objet: null };
   },
   // des doigts tendus (l'index ; l'index et le majeur), les autres repliés ; le pouce sur le premier replié
