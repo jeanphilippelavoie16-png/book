@@ -26,12 +26,12 @@ module.exports = (h) => {
 
   // ── Vue 1 : un rang sur le moule, et le moule en coupe ────────────────────────────────────
   const gR = z => {
-    const gw = Math.min(40, z.h * 0.18), a = gw * 1.3;
+    const gw = Math.min(56, z.h * 0.22), a = gw * 1.3;     // redessin du 14 octobre 2026 : de grandes mailles, deux rangs
     const tm = 10, xs = z.l - 34;                     // la coupe du moule, à droite
     const xf = xs - 44;                               // bout droit du moule vu de face
     const yg = z.h - gw - 28;
     const xL = 8, xR = xf - 8;
-    const kc = 5;                                     // dernier nœud fait
+    const kc = 4;                                     // dernier nœud fait
     return { gw, a, tm, xs, xf, yg, kc, xL, xR, X: k => xL + a * 0.5 + k * a };
   };
   const vueRang = z => {
@@ -119,7 +119,7 @@ module.exports = (h) => {
     out.push(noeud(cx, yg - 3.5, 3));
     // la charte : le sens du travail, le geste, en rouge ; le point à contrôler, le nœud assis sur
     // le bord du haut du moule (c'est le moule qui fait la maille)
-    out.push(h.geste(`M ${P(X(kc + 1.6), yg + gw * 0.5)} L ${P(X(kc + 2.8), yg + gw * 0.5)}`));
+    out.push(h.geste(`M ${P(X(kc + 1.5), yg + gw * 0.5)} L ${P(X(kc + 2.4), yg + gw * 0.5)}`));
     out.push(h.controle(X(kc - 1), yg, 10));
     return out.join('\n');
   };
@@ -141,7 +141,7 @@ module.exports = (h) => {
   // déchirés au départ (le reste des mailles de K tient encore, entamé)
   const DECHIRES = new Set(['-1,3|0,4', '1,3|0,4', '-1,5|0,4', '1,5|0,4', '1,3|2,4', '-1,5|-2,6', '1,5|2,4', '1,5|0,6', '-1,3|-2,4']);
   const gT = z => {
-    const a = Math.min(40, z.l / 5.2), v = a * 0.8;
+    const a = Math.min(56, z.l / 3.6), v = a * 0.8;   // redessin : de grandes mailles, le trou au milieu de la vue
     const cx = z.l / 2, cy = z.h / 2;
     return { a, v, X: i => cx + i * a / 2, Y: j => cy + (j - 4.5) * v };
   };
@@ -231,50 +231,21 @@ module.exports = (h) => {
       fl.push(h.fleche(`M ${P(X(3) - 2, Y(2.6))} Q ${P(X(3) + a2 * 0.45, Y(3))} ${P(X(3) - 2, Y(3.4))}`, h.a.fin));
       fl.push(h.fleche(`M ${P(X(-3) + 2, Y(3.6))} Q ${P(X(-3) - a2 * 0.45, Y(4))} ${P(X(-3) + 2, Y(4.4))}`, h.a.fin));
       out.push(...fl);
-      // détail grossi trois fois : le fil neuf noué sur un nœud du contour
-      const J = [X(-3), Y(3)], R0 = 8;
-      const D = [z.l - 58, Y(8.7)], R = 52, k3 = 0.8;
-      const T = (x, y, zz) => zz == null ? [D[0] + x * k3, D[1] + y * k3] : [D[0] + x * k3, D[1] + y * k3, zz];
-      out.push(h.cercle(J[0], J[1], R0, h.a.fin));
-      const dv = [D[0] - J[0], D[1] - J[1]], dl = Math.hypot(...dv);
-      out.push(h.ligne(J[0] + dv[0] / dl * R0, J[1] + dv[1] / dl * R0, D[0] - dv[0] / dl * R, D[1] - dv[1] / dl * R, h.a.fin));
-      out.push(h.cercle(D[0], D[1], R, h.a.blanc));
-      const cordesD = F.cordes([
-        { pts: [T(-42, -44), T(-4, 8)], ep: 6, debut: 'ouvert', fin: 'ouvert' },
-        { pts: [T(42, -44), T(4, 8)], ep: 6, debut: 'ouvert', fin: 'ouvert' },
-        { pts: [T(-2, 12), T(-22, 48)], ep: 6, debut: 'ouvert', fin: 'ouvert' },
-        { pts: [T(28, 48, -1), T(10, 22, -1), T(0, 2, -1), T(0, -12, 1), T(20, -20, 1), T(38, -24, 0), T(16, -35, -1), T(-16, -35, -1),
-          T(-38, -24, 0), T(-18, -17, 1), T(6, -15, -1), T(14, -4, 1), T(36, 40, 1)], ep: 6, debut: 'ouvert', fin: 'ouvert' },
-      ]);
-      // le fil neuf en gris : ses fonds sont les derniers peints
-      const nNeuf = (cordesD.croisements || []).filter(c => c.dessus !== 3).length + 1;
-      let svgD = String(cordesD);
-      const FONDB = 'fill="#FFFFFF" stroke="none"';
-      const idx = []; let q = -1; while ((q = svgD.indexOf(FONDB, q + 1)) >= 0) idx.push(q);
-      // gris = fond blanc et pointillé serré par-dessus
-      const GRIS = h.a.hachure('grillage', 'aucun');
-      for (const i of idx.slice(-nNeuf).reverse()) {
-        const deb = svgD.lastIndexOf('<path d="', i), dd = svgD.slice(deb + 9, i - 2), fin = svgD.indexOf('/>', i) + 2;
-        svgD = svgD.slice(0, fin) + `<path d="${dd}" ${GRIS}/>` + svgD.slice(fin);
-      }
-      out.push(svgD);
-      out.push(noeud(D[0], D[1] + 10 * k3, 4.5));
-      out.push(h.cercle(D[0], D[1], R, h.a.detail));
     }
     return out.join('\n');
   };
   const vueTrouR = etat => z => {
-    const { a, v, X, Y } = gT(z);
+    const { X, Y } = gT(z);
     if (etat === 'dechire') return [
-      { n: 5, rond: [X(-3.5), Y(8.4)], cible: [X(0.6), Y(4.7)], texte: 'mailles déchirées' },
+      { n: 5, rond: [14, Y(8)], cible: [X(0.6), Y(4.7)], texte: 'mailles déchirées' },
     ];
     if (etat === 'recoupe') return [
-      { n: 6, rond: [X(-3.5), Y(1.2)], cible: [X(-2), Y(2)], texte: 'recoupé : mailles entières' },
-      { n: 7, rond: [X(-3.5), Y(8.4)], cible: [X(-0.5), Y(5.5)], texte: 'les mailles enlevées, à compter' },
+      { n: 6, rond: [14, Y(1.5)], cible: [X(-2), Y(2)], texte: 'recoupé : mailles entières' },
+      { n: 7, rond: [14, Y(8)], cible: [X(-0.5), Y(5.5)], texte: 'les mailles enlevées, à compter' },
     ];
     return [
-      { n: 8, rond: [X(-3.5), Y(1.2)], cible: [X(-1.5), Y(2.5)], texte: 'renoué rang par rang' },
-      { n: 9, rond: [X(-3.5), Y(8.4)], cible: [X(-0.5), Y(5.5)], texte: 'autant de mailles qu’on en a enlevé' },
+      { n: 8, rond: [14, Y(1.5)], cible: [X(-1.5), Y(2.5)], texte: 'renoué rang par rang' },
+      { n: 9, rond: [14, Y(8)], cible: [X(-0.5), Y(5.5)], texte: 'autant de mailles qu’on en a enlevé' },
     ];
   };
 

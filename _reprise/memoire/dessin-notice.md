@@ -77,3 +77,7 @@ JP ensuite : « c'est bien mais pas encore parfait, les formes que tu as pas de 
   dessus hiérarchisée, 24-08 la jambe en corps simple). Le lièvre reçoit un cercle rouge sur le cou. Les animaux vivent
   dans `images/planches-src/_animaux.js`. Le réseau de la session bloque Wikimedia : les animaux se calquent sur les
   planches Fuertes du dépôt, ou se construisent. Suivi dans le scratch `suivi-charte.md`.
+- **14 octobre, le redessin : « toute est sur la coche a date wow », et « 26-04 on garde avant ».** Les 18 planches
+  redessinées montrées sont validées. 26-04 (le garrot) garde sa vue de face validée : de profil, la bande vue sur la
+  tranche se lisait comme un piquet planté dans la cuisse. Un gros plan sur un membre peut rester de face quand la face
+  montre le geste ; c'est le corps entier qui se montre de profil.
