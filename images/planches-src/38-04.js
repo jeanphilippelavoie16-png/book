@@ -37,6 +37,7 @@ module.exports = (h) => {
   const mesurant = (z, y0) => {
     const M = mesuree(z, y0), P = M.sur(-14, 21);
     const o = { x: P[0], y: P[1], ancre: 'bout', pose: 'deux-doigts', vue: 'dos', cote: 'droite', echelle: S, angle: -100, rotation: [0, 20, 0],
+      doigts: { index: { ecart: 6 }, majeur: { ecart: -6 } },          // un jour entre les deux : on lit deux doigts
       avantbras: { vers: [P[0] + 150, z.h + 400], bord: BORD(z), longueur: 'bord' } };
     const m0 = F.mainSimple(o);
     const bI = m0.doigts.index, bM = m0.doigts.majeur, mil = [(bI[0] + bM[0]) / 2, (bI[1] + bM[1]) / 2];
@@ -70,7 +71,7 @@ module.exports = (h) => {
         titre: 'Deux doigts à plat, compter 15 secondes, multiplier par 4',
         dessin: z => [mesuree(z, Y2(z)).m.svg, mesurant(z, Y2(z)).svg].join('\n'),
         renvois: z => {
-          const m = mesurant(z, Y2(z)), a = m.articulations['index.ipp'], b = m.articulations['majeur.ipp'];
+          const m = mesurant(z, Y2(z)), a = m.articulations['index.ipp'], b = m.articulations['index.ipd'];
           return [
             { n: 3, rond: pt(z, Y2(z), [-165, -52]), cible: [r1((a[0] + b[0]) / 2), r1((a[1] + b[1]) / 2)], texte: 'l’index et le majeur, à plat' },
           ];

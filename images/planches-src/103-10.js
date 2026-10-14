@@ -116,12 +116,13 @@ const poser = (h, o, axe, vers) => {
   }
   return best.a;
 };
-// Les deux mains d'« Écorcer » (mains simples, mains/moteur.js) : la droite tient le couteau, le pouce couché sur
-// le dos de la lame ; la gauche tire le bout écorcé de la racine vers le bas, au travers du pincement. La vue se
-// dessine la pointe à droite, puis se retourne en miroir : la lame pointe à gauche, et la main du couteau, dessinée
-// gauche (vue du côté du pouce, le pouce couché sur le dos), devient la droite.
+// Les deux mains d'« Écorcer » (mains simples, mains/moteur.js) : la droite tient le couteau, le poing fermé sur
+// le manche contre la garde, vu côté paume, le pouce qui serre la racine contre le dos de la lame ; la gauche tire
+// le bout écorcé de la racine vers le bas, au travers du pincement. (14 oct. : la prise pouce couché sur le dos,
+// vue de côté, faisait une moufle grise sous le manche ; on passe au poing.) La vue se dessine la pointe à droite,
+// puis se retourne en miroir : la lame pointe à gauche, et la main du couteau, dessinée gauche, devient la droite.
 const MAINS_ECORCER = {
-  couteau: { pose: 'prise-pouce-dos', vue: 'pouce', cote: 'gauche', ech: 0.69, x: 72, rot: null, vers: [-200, 120] },
+  couteau: { pose: 'prise-manche', vue: 'paume', cote: 'gauche', ech: 0.69, x: 60, rot: [-25, 0, 0], vers: [-150, -200] },
   racine: { pose: 'prise-corde', vue: 'paume', cote: 'droite', ech: 0.69, y: 186, rot: null, vers: [320, 330] },
 };
 const BORD_V = z => ({ x0: 0, y0: 0, x1: z.l, y1: z.h });
@@ -248,8 +249,8 @@ module.exports = (h) => {
           // l'écorce qui s'accumule et tombe
           out.push(h.path('M110,103 Q119,102 123,95 Q125,89 120,89 Q118,92 120,94', h.a.detail));
           out.push(copeau(h, 168, 110, 6), copeau(h, 186, 108, 5, -1), copeau(h, 146, 88, 4.5, -1));
-          // la main du couteau : le poing sur le manche, le pouce couché vers la pointe sur le dos de la lame, juste
-          // devant la garde, qui y pince la racine ; l'avant-bras part du côté du manche
+          // la main du couteau : le poing sur le manche, contre la garde, le pouce qui y pince la racine contre le dos
+          // de la lame ; l'avant-bras monte du côté du manche
           const Mc = MAINS_ECORCER.couteau;
           const oC = { x: Mc.x, y: 130, pose: Mc.pose, vue: Mc.vue, cote: Mc.cote, echelle: Mc.ech, diametre: 18 / Mc.ech, ...(Mc.rot ? { rotation: Mc.rot } : {}) };
           out.push(h.formes.mainSimple({ ...oC, angle: poser(h, oC, 0, Mc.vers), objet: mancheC, avantbras: { vers: Mc.vers, bord: BORD_V(z), bras: { pli: 0 } } }).svg);

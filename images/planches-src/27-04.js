@@ -4,9 +4,11 @@
 // parois, puis le centre, l'excédent le long de la gencive) ; la morsure, comme avant ou trop
 // haute. Les dents sont en coupe : l'os en trame de gravier, la gencive au trait, la dent en
 // blanc avec la ligne de l'émail et la pulpe, le ciment en trame de terre (la même que la pâte).
-// Mains simples et charte (14 octobre) : les deux bouts de doigts calqués (s09) deviennent une main entière qui
-// pince (mainSimple, pince-fine de profil côté pouce), la boulette et la pâte peintes entre les pulpes. Rouge : le
-// geste de rouler, le ciment pressé contre les parois (un éventail de trois flèches : un seul geste), puis au centre.
+// Mains simples et charte (14 octobre) : les deux bouts de doigts calqués (s09) deviennent deux bouts de doigts de
+// la main simple, en gros plan, coupés par le bord de la vue ; la main entière qui pince, essayée d'abord, faisait la
+// boulette minuscule et les doigts du fond en pince d'oiseau. Rouge : le geste de rouler, les doigts qui s'écartent
+// sur la pâte qui colle, le ciment pressé contre les parois (un éventail de trois flèches : un seul geste), puis au
+// centre.
 // La poudre tirée vers le liquide reste en noir (c'est la poudre qui se déplace). Pas de gris : la tranche de la
 // vitre est trop mince pour une ombre.
 module.exports = (h) => {
@@ -122,27 +124,6 @@ module.exports = (h) => {
     h.cercle(x, y, r, blanc(A.arete)),
     ouvert(lisse([[x - r * 0.6, y + r * 0.05], [x - r * 0.45, y - r * 0.45], [x - r * 0.05, y - r * 0.62]], false, 4), A.fin),
   ].join('\n');
-  // la pâte qui colle : une galette écrasée sur le bout des doigts, qui file en dessous
-  const collante = (x, y, r) => {
-    const P = [];
-    for (let i = 0; i < 12; i++) {
-      const t = i / 12 * 2 * Math.PI, k = 1 + 0.09 * Math.sin(3 * t + 0.5) + 0.05 * Math.cos(5 * t);
-      P.push([x + r * 1.45 * k * Math.cos(t), y + r * 0.95 * k * Math.sin(t)]);
-    }
-    // un filet de pâte qui pend : une bande qui s'amincit, une goutte au bout
-    const fil = (x0, x1, y1) => {
-      const w0 = r * 0.22, w1 = r * 0.07, ym = (y + y1) / 2;
-      const g = lisse([[x0 - w0, y + r * 0.5], [(x0 + x1) / 2 - w1 + 1, ym], [x1 - w1, y1]], false, 5);
-      const dr = lisse([[x1 + w1, y1], [(x0 + x1) / 2 + w1 + 1, ym], [x0 + w0, y + r * 0.5]], false, 5);
-      return [ferme([...g, ...dr], blanc(A.detail)), h.cercle(x1, y1 + r * 0.2, r * 0.24, blanc(A.detail))].join('\n');
-    };
-    return [
-      fil(x - r * 0.5, x - r * 0.75, y + r * 2.5), fil(x + r * 0.55, x + r * 0.7, y + r * 1.9),
-      ferme(lisse(P, true, 5), blanc(A.arete)),
-      ouvert(lisse([[x - r * 0.7, y - r * 0.1], [x - r * 0.3, y - r * 0.45], [x + r * 0.3, y - r * 0.5]], false, 4), A.fin),
-    ].join('\n');
-  };
-
   // ═══ les dents ══════════════════════════════════════════════════════════════════════════
   // La molaire du bas, repère local : les pointes des cuspides à y = 0, le collet à y = 72,
   // les racines jusqu'à 170. E1 (indice 2) et E2 (indice 9) : les bords du trou.
@@ -253,51 +234,57 @@ module.exports = (h) => {
     return `${clip}\n<g clip-path="url(#${id})">\n${contenu}\n</g>`;
   };
 
-  // ═══ les bouts de doigts ═══════════════════════════════════════════════════════════════
-  // Gros plan de côté : l'index dessus (l'ongle en haut), le pouce dessous (l'ongle en bas),
-  // les pulpes face à face. Doigt local : le bout à (0, 0), le doigt vers -x, le dos à -w/2,
-  // la pulpe à +w/2 ; son point le plus bombé de pulpe : PB.
-  const doigt = (w, L) => {
-    const C = lisse([[-L, -w * 0.5], [-w * 1.6, -w * 0.52], [-w * 0.7, -w * 0.46], [-w * 0.18, -w * 0.26], [0, w * 0.06],
-      [-w * 0.2, w * 0.42], [-w * 0.75, w * 0.58], [-w * 1.5, w * 0.52], [-L, w * 0.5]], false, 8);
-    const ongle = lisse([[-w * 1.15, -w * 0.5], [-w * 1.05, -w * 0.34], [-w * 0.55, -w * 0.3], [-w * 0.2, -w * 0.24]], false, 6);
-    const lunule = lisse([[-w * 1.06, -w * 0.47], [-w * 0.93, -w * 0.38], [-w * 0.86, -w * 0.48]], false, 4);
-    const pliP = lisse([[-w * 1.95, w * 0.52], [-w * 1.85, w * 0.3], [-w * 1.88, w * 0.12]], false, 4);
-    const pliP2 = lisse([[-w * 2.1, w * 0.51], [-w * 2.02, w * 0.36]], false, 2);
-    const pliD = lisse([[-w * 2.0, -w * 0.5], [-w * 1.9, -w * 0.4], [-w * 1.8, -w * 0.5]], false, 4);
-    const pliD2 = lisse([[-w * 2.15, -w * 0.5], [-w * 2.05, -w * 0.42], [-w * 1.95, -w * 0.49]], false, 4);
-    return { C, traits: [[ongle, A.arete], [lunule, A.fin], [pliP, A.detail], [pliP2, A.fin], [pliD, A.fin], [pliD2, A.fin]], PB: [-w * 0.45, w * 0.53] };
+  // ═══ les deux bouts de doigts, en gros plan ═══════════════════════════════════════════════
+  // L'index dessus, le pouce dessous, vus de côté, les pulpes face à face ; le reste de la main sort de la vue
+  // par la gauche. Chaque bout est le bout d'un doigt tendu de la main simple (pose pointe, vue du pouce), le pouce
+  // retourné (côté gauche) et un peu plus gros. La pince-fine grossie ne se lit pas : le creux entre le pouce et
+  // l'index y fait une boîte, et ses bouts, des bosses.
+  const E_D = 2.6, R_B = 5 * E_D;                                // px/mm ; la boulette de 10 mm
+  const contour = m => {
+    const n = ((String(m.svg).match(/<path d="([^"]+)" fill="#FFFFFF"/) || [])[1] || '').match(/-?\d+(?:\.\d+)?/g) || [];
+    const P = [];
+    for (let i = 0; i + 1 < n.length; i += 2) P.push([+n[i], +n[i + 1]]);
+    return P;
   };
-  // pose un doigt : dessous = pouce (retourné), ang en degrés, son point de pulpe PB en (px, py)
-  const poseDoigt = (D, dessous, ang, px, py) => {
-    const fy = dessous ? ([x, y]) => [x, -y] : (p => p);
-    const [qx, qy] = pose([fy(D.PB)], ang, 1, 0, 0)[0];
-    const T = pts => pose(pts.map(fy), ang, 1, px - qx, py - qy);
-    return [ferme(T(D.C), A.blanc), ouvert(T(D.C), A.contour), ...D.traits.map(([t, st]) => ouvert(T(t), st))].join('\n');
+  // un bout de doigt dont la pulpe (le point le plus bas pour l'index, le plus haut pour le pouce, dans les
+  // 20 mm du bout) tombe en (px, py)
+  const boutDoigt = (dessous, ang, k, px, py) => {
+    const o = { pose: 'pointe', vue: 'pouce', cote: dessous ? 'gauche' : 'droite', echelle: E_D * k, angle: ang, ancre: 'bout' };
+    const pulpe = m => contour(m).filter(q => Math.hypot(q[0] - m.bout[0], q[1] - m.bout[1]) < 20 * E_D * k)
+      .reduce((a, q) => ((dessous ? q[1] < a[1] : q[1] > a[1]) ? q : a));
+    const m0 = F.mainSimple({ ...o, x: px, y: py }), q = pulpe(m0);
+    return F.mainSimple({ ...o, x: 2 * px - q[0], y: 2 * py - q[1] });
   };
-  const geoDoigts = z => {
-    const w = Math.min(z.h * 0.24, z.l * 0.2), R = w * 0.36;
-    return { w, R, L: z.l * 0.7, bx: z.l * 0.66, by: z.h * 0.52 };
+  const GD = z => ({ bx: z.l * 0.5, by: z.h * 0.5, r: R_B });
+  const doigts = (z, id, ecart) => {
+    const { bx, by } = GD(z);
+    return dansVue(z, id, [boutDoigt(false, 7, 1, bx, by - ecart).svg, boutDoigt(true, -7, 1.08, bx, by + ecart).svg].join('\n'));
   };
-  const paire = (z, ecart) => {
-    const { w, L, bx, by } = geoDoigts(z), D = doigt(w, L);
-    const id = 'doigts-' + Math.round(ecart * 10);
-    return `<clipPath id="${id}"><rect x="0" y="0" width="${r1(z.l)}" height="${r1(z.h)}"/></clipPath>\n<g clip-path="url(#${id})">\n` +
-      [poseDoigt(D, false, 9, bx + 2, by - ecart), poseDoigt(D, true, -9, bx + 2, by + ecart)].join('\n') + '\n</g>';
+  // la pâte qui colle : une galette sur chaque pulpe, et des fils qui s'étirent de l'une à l'autre
+  const filante = (x, yh, yb, r) => {
+    const fil = (dx, l0, l1, w) => {
+      const xm = x + (l0 + l1) / 2, ym = (yh + yb) / 2, w0 = r * 0.24 * w, w1 = r * 0.06 * w;
+      const g = lisse([[x + l0 - w0, yh + r * 0.2], [xm + dx - w1, ym], [x + l1 - w0, yb - r * 0.2]], false, 6);
+      const dr = lisse([[x + l1 + w0, yb - r * 0.2], [xm + dx + w1, ym], [x + l0 + w0, yh + r * 0.2]], false, 6);
+      return ferme([...g, ...dr], blanc(A.detail));
+    };
+    // la galette : son bord contre la pulpe remonte avec elle aux deux bouts (elle s'y colle), l'autre bord pend
+    const galette = (y, sens) => {
+      const P = [];
+      for (let i = 0; i <= 12; i++) {
+        const t = Math.PI * i / 12, k = 1 + 0.06 * Math.sin(5 * t + (sens > 0 ? 0 : 1));
+        P.push([x + r * 1.15 * k * Math.cos(t), y - sens * r * 0.5 * k * Math.sin(t)]);
+      }
+      for (let i = 11; i >= 1; i--) {
+        const c = Math.cos(Math.PI * i / 12);
+        P.push([x + r * 1.15 * c, y + sens * r * 0.3 * c * c]);
+      }
+      return ferme(lisse(P, true, 4), blanc(A.arete));
+    };
+    return [fil(-1, -r * 0.7, -r * 0.55, 1), fil(1.5, 0, r * 0.1, 0.8), fil(0, r * 0.62, r * 0.7, 1),
+      galette(yh, -1), galette(yb, 1)].join('\n');
   };
 
-  // La main qui pince (main simple, pince-fine de profil côté pouce, main droite) : l'index dessus, le pouce dessous,
-  // les trois autres doigts repliés derrière ; la pince tombe en (bx, by), l'avant-bras sort de la vue. Les pulpes
-  // sont écartées de la largeur de la boulette (10 mm, le haut de la table de pince-fine). La boulette et la pâte
-  // se peignent par-dessus la main, entre les deux bouts de doigts : de profil, le pouce la cacherait.
-  // r : le rayon de la boulette, à l'échelle de la main.
-  const EMAIN = 1.2, D_BOUL = 10;
-  const GM = z => { const bx = z.l * 0.62, by = z.h * 0.42; return { s: EMAIN, bx, by, r: 6 * EMAIN }; };
-  const mainPince = z => {
-    const { bx, by } = GM(z);
-    return F.mainSimple({ x: bx, y: by, pose: 'pince-fine', vue: 'pouce', cote: 'droite', echelle: EMAIN, diametre: D_BOUL, angle: 25,
-      avantbras: { bord: { x0: 0, y0: 0, x1: z.l, y1: z.h }, bras: { pli: 0 } } });
-  };
   const dansVue = (z, id, contenu) => `<clipPath id="${id}"><rect x="0" y="0" width="${r1(z.l)}" height="${r1(z.h)}"/></clipPath>\n<g clip-path="url(#${id})">\n${contenu}\n</g>`;
 
   return {
@@ -351,27 +338,26 @@ module.exports = (h) => {
       bonne: {
         titre: 'Rouler une boulette',
         dessin: z => {
-          const { bx, by, r } = GM(z), k = r * 3.2;
-          const m = mainPince(z), c = [m.prise.x, m.prise.y];
+          const { bx, by, r } = GD(z), k = r * 3.7;
           const arc = [];
-          for (let a = -45; a <= 45; a += 5) arc.push([c[0] + k * Math.cos(a * Math.PI / 180), c[1] + k * Math.sin(a * Math.PI / 180)]);
-          return [m.svg, boulette(c[0], c[1], r), geste(arc)].join('\n');
+          for (let a = -32; a <= 32; a += 4) arc.push([bx + k * Math.cos(a * Math.PI / 180), by + k * Math.sin(a * Math.PI / 180)]);
+          return [doigts(z, 'doigts-bonne', r), boulette(bx, by, r), geste(arc)].join('\n');
         },
         renvois: z => {
-          const { r } = GM(z), m = mainPince(z), [bx, by] = [m.prise.x, m.prise.y];
+          const { bx, by, r } = GD(z);
           return [{ n: 6, rond: [z.l - 14, by - r - 44], cible: [bx + r * 0.6, by - r * 0.4], texte: 'roule sans coller : prête' }];
         },
       },
       colle: {
         titre: 'Elle colle',
         dessin: z => {
-          const { r } = GM(z);
-          const m = mainPince(z);
-          return [m.svg, collante(m.prise.x, m.prise.y, r)].join('\n');
+          const { bx, by, r } = GD(z), e = r * 2.2, xf = bx + r * 3.4;
+          return [doigts(z, 'doigts-colle', e), filante(bx, by - e, by + e, r),
+            geste([[xf, by - r * 0.9], [xf, by - r * 2.7]]), geste([[xf, by + r * 0.9], [xf, by + r * 2.7]])].join('\n');
         },
         renvois: z => {
-          const { r } = GM(z), m = mainPince(z), [bx, by] = [m.prise.x, m.prise.y];
-          return [{ n: 7, rond: [z.l - 14, by + 4], cible: [bx + r * 1.4, by], texte: 'colle : ajouter de la poudre' }];
+          const { bx, by, r } = GD(z);
+          return [{ n: 7, rond: [z.l - 14, by + 4], cible: [bx + r * 0.55, by + r * 0.2], texte: 'colle : ajouter de la poudre' }];
         },
       },
       parois: {

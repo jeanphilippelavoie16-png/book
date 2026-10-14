@@ -1,8 +1,9 @@
 // Planche 13-01 — l'arc à feu : monté, la planchette vue de dessus, le palier en coupe.
 // Aucune cote : les dimensions du chapitre portent [À VÉRIFIER]. L'échelle est la main.
-// La main du palier (refaite le 14 octobre avec mainSimple) : la main gauche à plat, vue du côté du pouce, la
-// paume posée sur le palier, qui appuie ; l'avant-bras monte vers la gauche jusqu'au bord. La main qui coiffe
-// le palier (pose coiffe) sortait en griffe, le pouce en crochet : la paume à plat dit l'appui aussi bien.
+// La main du palier (refaite le 14 octobre avec mainSimple, reprise le même jour) : la main gauche en creux, vue du
+// côté du pouce, le poignet cassé ; la paume coiffe le haut du palier, les doigts se referment sur son flanc et
+// l'avant-bras monte presque droit au-dessus : elle pèse. La pose coiffe sortait en griffe, le pouce en crochet ;
+// la main à plat de la migration avait l'air posée.
 // La charte : le va-et-vient de l'arc et la poussée sur le palier en rouge (le geste), la pointe de l'encoche
 // au centre de la cavité cerclée de rouge (le point à contrôler).
 
@@ -64,7 +65,7 @@ module.exports = (h) => {
   return {
     ref: '13-01',
     titre: 'L’arc à feu',
-    desc: 'L’arc à feu monté : la planchette au sol, le foret debout dans la cavité, la corde de l’arc enroulée d’un tour autour du foret, le palier sous la paume de la main gauche, posée à plat, qui appuie ; une double flèche rouge, le va-et-vient de l’arc. La planchette vue de dessus : la cavité, et l’encoche taillée en pointe jusqu’au centre de la cavité, où s’amasse la poussière noire ; la pointe de l’encoche, au centre de la cavité, est cerclée de rouge. Le palier en coupe : un nœud de bois dur creusé, le creux graissé où tourne le haut du foret ; une flèche rouge, la poussée de la main.',
+    desc: 'L’arc à feu monté : la planchette au sol, le foret debout dans la cavité, la corde de l’arc enroulée d’un tour autour du foret, le palier coiffé par le creux de la main gauche, les doigts refermés sur son flanc, l’avant-bras au-dessus, qui pèse ; une flèche rouge vers le bas, la poussée ; une double flèche rouge, le va-et-vient de l’arc. La planchette vue de dessus : la cavité, et l’encoche taillée en pointe jusqu’au centre de la cavité, où s’amasse la poussière noire ; la pointe de l’encoche, au centre de la cavité, est cerclée de rouge. Le palier en coupe : un nœud de bois dur creusé, le creux graissé où tourne le haut du foret ; une flèche rouge, la poussée de la main.',
     format: 'pleine',
     disposition: [['monte'], ['dessus', 'palier']],
     hauteurs: [3.3, 2],
@@ -123,12 +124,14 @@ module.exports = (h) => {
           // le haut du foret, caché dans le creux
           const cacheSvg = h.path(`M ${F - 9} ${P + 21} L ${F - 9} ${P + 8} Q ${F - 9} ${P - 1} ${F} ${P - 1} Q ${F + 9} ${P - 1} ${F + 9} ${P + 8} L ${F + 9} ${P + 21}`, h.a.cache);
 
-          // La main gauche à plat sur le palier (mains simples, plat, vue du côté du pouce, penchée de 25° pour
-          // qu'on voie les doigts) : le creux de la paume sur le haut du palier, qui appuie ; l'avant-bras monte
-          // vers la gauche jusqu'au bord. Le palier se peint d'abord : la paume le recouvre par le haut.
+          // La main gauche qui pèse sur le palier (mains simples, la main en creux, vue du côté du pouce) : le
+          // creux de la paume coiffe le haut du palier, les doigts se referment sur son flanc, le poignet cassé
+          // et l'avant-bras qui monte presque droit au-dessus : le poids passe par le bras dans le foret. Le
+          // palier se peint d'abord : la main le recouvre par le haut. La flèche rouge : la poussée.
           out.push(palierSvg, cacheSvg);
-          out.push(h.formes.mainSimple({ pose: 'plat', vue: 'pouce', cote: 'gauche', angle: 15, rotation: [-25, 0, 0], echelle: 0.9,
-            ancre: 'paume', x: F + 4, y: P - 34, avantbras: { bord: { x0: 0, y0: 0, x1: z.l, y1: z.h } } }).svg);
+          out.push(h.formes.mainSimple({ pose: 'coupe', vue: 'pouce', cote: 'gauche', angle: 0, poignet: { flexion: 70 }, echelle: 0.9,
+            ancre: 'prise', x: F - 36, y: P - 50, avantbras: { bord: { x0: 0, y0: 0, x1: z.l, y1: z.h } } }).svg);
+          out.push(h.geste(`M ${F + 12} ${P - 106} L ${F + 12} ${P - 64}`));
 
           // Le va-et-vient de l'arc.
           const ya = yb - 55;

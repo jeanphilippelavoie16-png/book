@@ -50,28 +50,30 @@ module.exports = (h) => {
   };
 
   // ─── Le visage, de profil (JP, 14 octobre : « passe-les de profil ») ────────────────────
-  // La tête de la bibliothèque, regard vers la droite, repère à l'oreille, en mm. Un seul œil :
+  // La tête simple (tetes/moteur.js), l’œil fermé sous le coton, regard vers la droite, repère à l'oreille, en mm. Un seul œil :
   // le coton posé dessus, la flèche du geste sous l'œil, du coin du nez (devant) vers le coin
   // extérieur (vers l'oreille). L'autre œil passe par le renvoi 5, sur le second coton du bol.
   // La tête entière, du sommet au menton ; le bas de la vue coupe le cou, que la tête de la
   // bibliothèque laisse de toute façon ouvert.
   const R_COTON = 12.5;                    // mm : une boule de coton de 2,5 cm
-  const FEN = [-96, -140, 124, 108];        // la fenêtre, en mm de tête
+  const FEN = [-96, -142, 128, 122];        // la fenêtre, en mm de tête : le haut du cou sous le menton
   const geoV = (z) => {
     const e = Math.min(z.l / (FEN[2] - FEN[0]), z.h / (FEN[3] - FEN[1]));
     const x = (z.l - e * (FEN[2] - FEN[0])) / 2 - FEN[0] * e, y = (z.h - e * (FEN[3] - FEN[1])) / 2 - FEN[1] * e;
-    return { e, x, y, V: ([u, v]) => [x + u * e, y + v * e] };
+    const tete = h.formes.teteSimple({ x, y, echelle: e, yeux: 'fermes', sourcil: false, cou: 130 });
+    const V = ([u, v]) => [x + u * e, y + v * e];
+    // le coton sur l'œil ; le geste sous l'œil, du coin du nez (devant) vers le coin extérieur
+    const [ox, oy] = tete.oeil, M = p => [ox + p[0] * e, oy + p[1] * e];
+    return { e, x, y, V, tete, coton: M([-1, 1]), geste: [[20, 17], [9, 22], [-7, 22.5], [-24, 16.5]].map(M) };
   };
-  const COTON = [79, -23];                 // sur l'œil (l'œil de la tête est en [80, -24])
-  const GESTE = [[100, -9], [88, -2], [72, -1.5], [54, -7.5]];   // sous l'œil, du devant vers l'oreille
 
   const visage = (z) => {
-    const { e, x, y, V } = geoV(z);
+    const { e, tete, coton: c, geste } = geoV(z);
     const out = [];
     out.push(`<clipPath id="vue-2806-visage"><rect x="0" y="0" width="${f(z.l)}" height="${f(z.h)}" fill="#FFFFFF"/></clipPath>`);
-    out.push(`<g clip-path="url(#vue-2806-visage)">${h.formes.tete({ x, y, echelle: e, age: 'adulte' })}</g>`);
-    out.push(coton(...V(COTON), R_COTON * e));
-    out.push(h.geste(lisse(GESTE.map(V))));
+    out.push(`<g clip-path="url(#vue-2806-visage)">${tete}</g>`);
+    out.push(coton(c[0], c[1], R_COTON * e));
+    out.push(h.geste(lisse(geste)));
     return out.join('\n');
   };
   // ─── Le bol et les cotons ─────────────────────────────────────────────────────────────
@@ -126,11 +128,10 @@ module.exports = (h) => {
       visage: {
         dessin: visage,
         renvois: z => {
-          const { V, e } = geoV(z);
-          const c = V(COTON);
+          const { V, e, coton: c, geste } = geoV(z);
           return [
-            { n: 3, rond: V([146, -86]), cible: [c[0] + R_COTON * e * 0.6, c[1] - R_COTON * e * 0.75], texte: 'trempé, passé du coin du nez vers le coin extérieur' },
-            { n: 4, rond: V([146, 40]), cible: V(GESTE[1]), texte: 'toujours dans le même sens, sans frotter' },
+            { n: 3, rond: V([150, -86]), cible: [c[0] + R_COTON * e * 0.6, c[1] - R_COTON * e * 0.75], texte: 'trempé, passé du coin du nez vers le coin extérieur' },
+            { n: 4, rond: V([150, 40]), cible: geste[1], texte: 'toujours dans le même sens, sans frotter' },
           ];
         },
       },

@@ -105,10 +105,11 @@ const bord = (pts, x, cote, w = W) => {
   return [c[i][0] + n[0] * (w / 2 + 0.6), c[i][1] + n[1] * (w / 2 + 0.6)];
 };
 
-// La main gauche qui pince le pli entre la pulpe du pouce et celle de l'index : la main simple (mains/moteur.js),
-// pince fine vue du côté du pouce. Le fabricant voit ses mains : l'avant-bras vient de lui, sort par le bas de la
-// vue. Les brins sortent de la pince à droite ; la boucle du pli est cachée sous les doigts. L'objet tenu est le
-// faisceau des deux brins, découpé au cylindre de la prise : le pouce passe devant, l'index derrière.
+// La main gauche qui tient le pli (le chapitre dit seulement « tenir le pli ») : la main simple (mains/moteur.js),
+// le poing fermé sur le pli, vu côté paume, penché de 25°. Le fabricant voit ses mains : l'avant-bras vient de lui,
+// sort par le bas de la vue. Les brins sortent du poing à droite ; la boucle du pli est dans le poing. L'objet
+// tenu est le faisceau des deux brins, découpé au cylindre de la prise : les doigts passent devant, la paume
+// derrière. (14 oct. : la pince fine faisait une tête de canard grise, on passe au poing.)
 const poser = (h, o, axe, vers) => {
   const base = Object.assign({}, o, { angle: 0, avantbras: { longueur: 100 } }); delete base.objet;
   const e0 = h.formes.mainSimple(base); let best = null;
@@ -120,7 +121,7 @@ const poser = (h, o, axe, vers) => {
   }
   return best.a;
 };
-const PINCE = { x: -14, y: 0, pose: 'pince-fine', vue: 'pouce', ech: 1.2, d: 10, vers: [-40, 300], rot: null, objet: true };
+const PINCE = { x: -6, y: 0, pose: 'prise-manche', vue: 'paume', ech: 1.0, d: 28, vers: [-30, 300], rot: [-25, 0, 0], objet: true };
 let nPince = 0;
 const main = (h, P, z, brins) => {
   const [x, y] = P([PINCE.x, PINCE.y]);

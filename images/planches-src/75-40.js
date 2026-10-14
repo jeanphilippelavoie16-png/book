@@ -291,7 +291,7 @@ module.exports = (h) => {
 
   // ─── vue 4 : sortir le bloc ──────────────────────────────────────────────────────────
   const geoBloc = z => {
-    const L = Math.min(z.l * 0.62, (z.h - 10) / 0.5), e = L / LMM;
+    const L = Math.min(z.l * 0.62, (z.h - 8) / 0.7), e = L / LMM;     // de la place sous le poisson pour le poing
     const xs = z.l - 14, yc = 6 + 0.21 * L;
     const P = (u, v) => [xs - u * L, yc + v * L];
     const haut = u => 0.006 + 0.012 * Math.pow((u - 0.4) / 0.2, 2);     // le haut de la cavité, sous l'arête
@@ -343,7 +343,7 @@ module.exports = (h) => {
     out.push(h.path(lisse(Q([[0.83, 0.224], [0.842, 0.252], [0.832, 0.284]])), A.detail));
     // le cœur
     out.push(h.path(lisse(Q([[0.9, 0.242], [0.925, 0.23], [0.945, 0.242], [0.938, 0.264], [0.912, 0.268]]), true), bA));
-    // les branchies : quatre arcs et leurs lamelles, tenus dans la pince
+    // les branchies : quatre arcs et leurs lamelles, serrées dans le poing
     const bra = [];
     [0, 1, 2, 3].forEach(k => {
       const x0 = 0.95 + k * 0.018;
@@ -352,12 +352,14 @@ module.exports = (h) => {
       pts.forEach((p, i) => { if (i % 1 === 0 && i > 0 && i < pts.length - 1) { const a = P(...p); bra.push(seg(a, [a[0] - 0.012 * L, a[1] + 0.002 * L], A.fin)); } });
       bra.push(h.path(lisse(Q(arc)), A.arete));
     });
-    out.push(bra.join('\n'));
-    // la main gauche qui tire vers l'arrière (mains simples, pince fine de profil côté pouce) : les pulpes du pouce
-    // et de l'index serrent les branchies, les autres doigts au-dessus ; l'avant-bras repart vers la gauche
-    { const o = { x: r1(g.pince[0]), y: r1(g.pince[1]), ancre: 'bout', pose: 'pince-fine', vue: 'pouce', cote: 'gauche', echelle: e, diametre: 4, angle: 14,
-        avantbras: { vers: [-300, g.pince[1] - 60], bord: BORD(z), bras: { pli: 0 } } };
-      out.push(F.mainSimple(o).svg); }
+    // la main gauche qui tire vers l'arrière (mains simples, poing vu de la paume) : le poing serre le paquet des
+    // branchies (30 mm), qui passe derrière les doigts ; l'avant-bras repart vers la gauche et sort du cadre.
+    // (La pince fine, à cette échelle, faisait crochet : JP, 14 octobre.)
+    { const C = P(0.975, 0.285), vers = [C[0] - 300, C[1]];
+      const o = { x: r1(C[0]), y: r1(C[1]), pose: 'prise-manche', vue: 'paume', cote: 'gauche', echelle: e, diametre: 30 };
+      const m = F.mainSimple({ ...o, angle: poser(o, 90, vers), avantbras: { vers, bord: BORD(z), bras: { pli: 0 } } });
+      // sans le masque : le cylindre du moteur, plus long que le paquet dessiné, effaçait le bord bas de la main
+      out.push(m.couches.main, bra.join('\n'), m.couches.devant); }
     out.push(h.geste(`M${f(P(1.05, -0.07))} L${f(P(1.26, -0.07))}`));
     return out.join('\n');
   };
@@ -368,7 +370,7 @@ module.exports = (h) => {
     desc: 'Le poisson couché sur le flanc, ventre vers soi. Saigner : l’opercule soulevé, la pointe coupe les arcs branchiaux où ils se rejoignent, des deux côtés. Ouvrir : la pointe entre à l’anus, peu profond, tranchant vers le haut, et remonte jusqu’à l’isthme ; en coupe, la lame reste sous la paroi du ventre et l’intestin n’est pas touché. Sortir le bloc : les branchies pincées, tout vient d’un morceau en tirant vers l’arrière, et il reste le rein à racler le long de l’arête.',
     format: 'pleine',
     disposition: [['saigner'], ['ouvrir', 'coupe'], ['bloc']],
-    hauteurs: [0.93, 1.07, 1],
+    hauteurs: [0.84, 0.98, 1.24],
     largeurs: [[1], [3, 2], [1]],
     vues: {
       saigner: {
