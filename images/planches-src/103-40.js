@@ -3,6 +3,9 @@
 // Tout vient du chapitre 103 : étapes 5, 14, 19, 20, le tableau des défauts, et « Fabriquer les
 // outils » (chevalet, racloir émoussé, cadre d'étirage et garrot). Aucune cote : le chapitre n'en
 // donne aucune sur ces objets.
+// 13 oct. : l'homme du poste est le corps simple (pose « penche-pousse », tronc 44), ses bras calculés
+// par poserBras ; « Défibrer au maillet » est un gros plan de mains calquées, laissé tel quel pour la
+// nouvelle bibliothèque. Rouge : la poussée du racloir.
 
 // ─── géométrie ───────────────────────────────────────────────────────────────────────
 const f1 = v => Math.round(v * 10) / 10;
@@ -240,10 +243,10 @@ module.exports = (h) => {
         },
         renvois: z => {
           const { gy, V } = reperePoste(z);
-          const cb = V(bille(1850, -20)), ventre = V([BA[0] + 5, BA[1] + BR + 60]), ch = V([XCH, 170]);
+          const cb = V(bille(1850, -20)), ventre = V([BA[0] - 8, BA[1] - 10]), ch = V([XCH, 170]);
           return [
             { n: 1, rond: [z.l - 16, gy - 86], cible: cb, texte: 'bille écorcée, le bout haut dans une fourche' },
-            { n: 2, rond: [ventre[0] - 4, 14], cible: ventre, texte: 'le ventre sur le bout bloque la peau' },
+            { n: 2, rond: V([BA[0] + 150, 560]), cible: ventre, texte: 'le ventre sur le bout bloque la peau' },
             { n: 3, rond: [ch[0] + 6, gy - 118], cible: ch, texte: 'chaudière d’eau pleine avant d’ouvrir le sac' },
           ];
         },

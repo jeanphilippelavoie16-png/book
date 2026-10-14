@@ -17,6 +17,9 @@
 //           radial, ulnaire, dorsal, palmaire] }, repère de la main droite, mm d'homme (le moteur met à l'âge).
 //           Si le moteur n'exporte plus FORMES.paume, paume vaut undefined et il garde la sienne.
 //   bosses()  les ajouts seuls (talon, coussinets), pour qui veut les poser sur sa propre paume.
+//   loin    { vue: [pièces] } : ce qui est gris de profil quelle que soit la pose (à fusionner avec pose.loin) :
+//           vu côté auriculaire, le pouce est de l'autre côté de la paume ; ce qui en dépasse est le côté loin,
+//           comme le bras loin des corps.
 //   tables  les tables de travail (INDEX, K, POUCE, AVANTBRAS, DOS_PAUME, FACE_PAUME…), pour les feuilles.
 //
 // ─── Ce que les nombres veulent dessiner (de profil) ──────────────────────────────────────────────────────────
@@ -129,5 +132,5 @@ function paume() {
   return cache;
 }
 
-module.exports = { profil, bosses: () => bosses((() => { try { return require('./moteur'); } catch (e) { return null; } })()), tables: { INDEX, K, POUCE, AVANTBRAS, DOS_PAUME, FACE_PAUME, TALON, COUSSINET } };
+module.exports = { profil, loin: { auriculaire: ['pouce'] }, bosses: () => bosses((() => { try { return require('./moteur'); } catch (e) { return null; } })()), tables: { INDEX, K, POUCE, AVANTBRAS, DOS_PAUME, FACE_PAUME, TALON, COUSSINET } };
 Object.defineProperty(module.exports, 'paume', { enumerable: true, get: paume });
