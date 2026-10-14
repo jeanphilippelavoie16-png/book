@@ -141,7 +141,7 @@ module.exports = (h) => {
   // la main droite tient le manche par-dessus, le poing fermé, le pouce vers la lame (mains simples, prise-manche,
   // vue de la paume) : le manche passe dans le poing, l'avant-bras qui monte et sort du cadre
   const mainCouteau = z => {
-    const o = { pose: 'prise-manche', vue: 'paume', cote: 'droite', diametre: 17, echelle: 0.62, x: xTalon + 41, y: yk - 9.5 };
+    const o = { pose: 'prise-manche', vue: 'paume', cote: 'droite', diametre: 27, echelle: 0.62, x: xTalon + 41, y: yk - 9.5 };   // le manche dessiné fait 17 de haut : 27 mm à cette échelle
     const a = 0 - h.formes.mainSimple({ ...o, angle: 0, avantbras: false }).prise.angle;   // l'axe du moteur (du pouce à l'auriculaire) vers la droite
     return h.formes.mainSimple({ ...o, angle: a, objet: couteau, avantbras: { bord: { x0: 0, y0: 0, x1: z.l, y1: z.h }, longueur: 'bord' } }).svg;
   };
