@@ -7,3 +7,4 @@
 - [Matériel et pourquoi compressés](materiel-et-pourquoi-compresses.md) — §4 seulement l'indispensable, une ligne expliquée par item ; §3 en 3 à 5 phrases
 - [Planches sans relecture](planches-sans-relecture.md) — dessin seul, JP relit lui-même ; workflow .claude/planches-dessin-seul.workflow.js
 - [Dessin notice](dessin-notice.md) — mains, têtes, corps : sept essais rejetés ; on calque fidèlement les références de JP (vectoriser.py), usage personnel autorisé le 13 oct.
+- [Lecteur de relecture](lecteur-relecture.md) — l'Artifact iPad où JP annote les six tomes au crayon ; « applique mes notes » → design/outils/relecture/LISEZMOI.md

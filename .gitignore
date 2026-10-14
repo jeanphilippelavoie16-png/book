@@ -13,3 +13,6 @@ design/epreuves-livre/*.html
 
 __pycache__/
 node_modules/
+
+# Lecteur de relecture : pages rendues, notes téléchargées (design/outils/relecture/)
+livre/relecture/
