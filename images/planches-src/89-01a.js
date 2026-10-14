@@ -1,4 +1,11 @@
 // Planche 89-01a — Le fût de la raquette, fendre et assouplir (ch. 89, étapes 2 à 6 et 9 à 11)
+// La charte : le bâton qu'on assouplit et les deux bouts de l'enture au contour fort ; le flanc
+// droit du chaudron à l'ombre. Pas de gris sur le bout de la bille ni sur la coupe (les cernes
+// disent déjà la matière). Le rouge : le cœur, à laisser hors du fût (le point qui casse), et le
+// va-et-vient (le geste). La flèche de l'éclaté reste noire : c'est la pièce qui se déplace.
+// En passant : le manche de la petite brosse sortait de sa vue et entrait dans celle de la coupe ;
+// il est raccourci. La flèche du va-et-vient touchait le titre de la vue : elle passe sous le bâton.
+// La pastille 11 était assise sur le bâton : elle descend dessous.
 module.exports = (h) => ({
   ref: '89-01a',
   titre: 'Le fût de la raquette, fendre et assouplir',
@@ -30,6 +37,8 @@ module.exports = (h) => ({
         // le coin, dans la fente du haut
         out.push(h.chemin(B.coin, h.a.blanc, true));
         out.push(h.chemin(B.coin, h.a.hachure('bois', 'arete'), true));
+        // le point qui casse : le cœur, qui ne va jamais dans un fût
+        out.push(h.controle(B.cx, B.cy, 13));
         return out.join('\n');
       },
       renvois: z => {
@@ -85,6 +94,7 @@ module.exports = (h) => ({
           ...E.flammes.map(f => h.path(f, h.a.fin)),
           h.rect(E.poele.x0, E.poele.y, E.poele.x1 - E.poele.x0, 10, h.a.hachure('metal', 'arete')),
           h.path(E.chaudron, h.a.blanc),
+          h.path(E.ombre, h.a.ombre),
           h.path(E.chaudron, h.a.contour),
           h.ligne(E.cx - 62, E.yBord + 5, E.cx + 62, E.yBord + 5, h.a.detail),
           ...E.vapeur.map(v => h.path(v, h.a.fin)),
@@ -92,12 +102,11 @@ module.exports = (h) => ({
           h.path(E.baton, h.a.blanc),
           ...E.fil.map(f => h.ligne(f[0], f[1], f[2], f[1], h.a.fin)),
           h.rect(E.zone[0], E.yB, E.zone[1] - E.zone[0], E.hB, h.a.hachure('eau', 'aucun')),
-          h.path(E.baton, h.a.arete),
+          h.path(E.baton, h.a.contour),
           // la brosse sur le bâton
           ...E.petite,
-          // le va-et-vient
-          h.fleche(`M${E.fl[0]},${E.fl[2]} L${E.fl[1]},${E.fl[2]}`),
-          h.fleche(`M${E.fl[1]},${E.fl[2]} L${E.fl[0]},${E.fl[2]}`),
+          // le va-et-vient : le geste
+          h.geste(`M${E.fl[0]},${E.fl[2]} L${E.fl[1]},${E.fl[2]}`, { double: true }),
           // la brosse, en grand
           ...E.brosse.map(b => b),
         ].join('\n');
@@ -107,7 +116,7 @@ module.exports = (h) => ({
         return [
           { n: 9, rond: [E.bx - 62, 18], cible: [E.bx - 20, E.yb - 6], texte: 'bâton fendu, chiffon coincé' },
           { n: 10, rond: [E.poele.x0 - 24, E.yBord + 24], cible: [E.cx - 58, E.yBord + 26], texte: 'eau qui bout, sur le poêle' },
-          { n: 11, rond: [E.cx - 70, 18], cible: [E.cx - 38, E.yB + 4], texte: 'milieu du bâton : la pointe' },
+          { n: 11, rond: [E.cx - 78, E.yB + E.hB + 22], cible: [E.cx - 38, E.yB + 6], texte: 'milieu du bâton : la pointe' },
           { n: 12, rond: [E.cx + 112, E.yB + E.hB + 22], cible: [E.cx + 36, E.yB + E.hB + 3], texte: 'les deux faces, sans arrêt' },
         ];
       },
@@ -120,15 +129,15 @@ module.exports = (h) => ({
         const N = enture(z);
         return [
           // éclaté : le bout de droite au-dessus, le bout de gauche en dessous
-          h.path(N.hautEc, h.a.blanc), ...N.filHautEc.map(f => h.path(f, h.a.fin)), h.path(N.hautEc, h.a.arete),
-          h.path(N.basEc, h.a.blanc), ...N.filBasEc.map(f => h.path(f, h.a.fin)), h.path(N.basEc, h.a.arete),
+          h.path(N.hautEc, h.a.blanc), ...N.filHautEc.map(f => h.path(f, h.a.fin)), h.path(N.hautEc, h.a.contour),
+          h.path(N.basEc, h.a.blanc), ...N.filBasEc.map(f => h.path(f, h.a.fin)), h.path(N.basEc, h.a.contour),
           h.fleche(N.flEc),
           // réuni et ligaturé
           h.path(N.ass, h.a.blanc), ...N.filAss.map(f => h.path(f, h.a.fin)),
           h.path(N.joint, h.a.cache),
           h.path(N.epaulements, h.a.arete),
           ...N.tours.map(t => h.chemin(t, h.a.blanc, true) + '\n' + h.chemin(t, h.a.detail, true)),
-          h.path(N.ass, h.a.arete),
+          h.path(N.ass, h.a.contour),
           // où va l'enture
           h.path(N.mini, h.a.arete),
           ...N.miniTrav.map(t => h.ligne(t[0], t[1], t[2], t[3], h.a.arete)),
@@ -246,6 +255,8 @@ function eponger(z, h) {
   const chaudron = `M${cx - 64},${yBord} L${cx + 64},${yBord} L${cx + 64},${yBord + 6} L${cx + 60},${yBord + 8} `
     + `L${cx + 58},${yFond - 10} Q${cx + 58},${yFond} ${cx + 48},${yFond} L${cx - 48},${yFond} Q${cx - 58},${yFond} ${cx - 58},${yFond - 10} `
     + `L${cx - 60},${yBord + 8} L${cx - 64},${yBord + 6} Z`;
+  // le flanc droit du chaudron, à l'ombre (lumière en haut à gauche)
+  const ombre = `M${cx + 24},${yBord + 8} L${cx + 60},${yBord + 8} L${cx + 58},${yFond - 10} Q${cx + 58},${yFond} ${cx + 48},${yFond} L${cx + 24},${yFond} Z`;
 
   // le bâton, 27 mm de haut, vu de côté ; ses deux bouts continuent hors du dessin
   const yB = yBord - 44, hB = 15, xB0 = 22, xB1 = 452;
@@ -258,12 +269,12 @@ function eponger(z, h) {
   });
   // la petite brosse : même forme, la tête contre la face du bâton, le manche vers le haut à droite
   const px = cx + 30, py = yB + hB / 2;
-  const petite = brosseDessin(h, px, py - 2, -128, 0.42, 130);
-  const fl = [xB0 + 40, xB0 + 130, yB - 12];
+  const petite = brosseDessin(h, px, py - 2, -128, 0.42, 90);   // le manche reste hors de la vue voisine
+  const fl = [xB0 + 40, xB0 + 130, yB + hB + 12];   // sous le bâton : au-dessus, elle touchait le titre de la vue
   // la brosse en grand, à droite
   const bx = z.l - 60, yb = 36;
   const brosse = brosseDessin(h, bx, yb, 0, 1, z.h - 4 - yb);
-  return { cx, poele, porte, flammes, yBord, chaudron, baton: batonD, yB, hB, fil, zone, vapeur, petite, fl, bx, yb, brosse };
+  return { cx, poele, porte, flammes, yBord, chaudron, ombre, baton: batonD, yB, hB, fil, zone, vapeur, petite, fl, bx, yb, brosse };
 }
 
 // La brosse : un bâton fendu dont les deux mâchoires montent de part et d'autre du chiffon

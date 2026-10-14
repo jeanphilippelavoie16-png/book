@@ -90,6 +90,8 @@ module.exports = (h) => {
       h.path(congeD, h.a.plein),
       h.chemin([[x0, yb], [xR, yb], [xR, yb + tp], [x0, yb + tp]], h.a.contour),
       h.chemin([[x1, yt], [xL, yt], [xL, yt + tp], [x1, yt + tp]], h.a.contour),
+      // la charte : le point à contrôler, le jeu du joint (serré et régulier, §5.3 point 18)
+      h.controle(xL + 0.24 * Lo, yb - e / 2, e / 2 + 9),
     ].join('\n');
   };
 

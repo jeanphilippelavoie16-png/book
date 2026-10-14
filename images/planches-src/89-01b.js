@@ -1,4 +1,9 @@
 // Planche 89-01b — Le fût de la raquette, cintrer et fermer (ch. 89, étapes 7, 13 à 16, 19 à 22, §9)
+// La charte : pas de gris (vues de dessus, coupes hachurées, bâton trop mince pour une ombre) ;
+// les poids restent : le fût est une bande de 5 à 7 px, un contour fort le boucherait. Le rouge :
+// ramener le côté au trait (le geste, sur le gabarit), écarter les bouts (le geste, aux
+// traverses), la bande aussi large que le bois (le point à vérifier, étape 14) et, sur le raté,
+// l'écharde qui lève (l'endroit où ça casse).
 module.exports = (h) => ({
   ref: '89-01b',
   titre: 'Le fût de la raquette, cintrer et fermer',
@@ -21,7 +26,7 @@ module.exports = (h) => ({
           ...G.taquets.map(t => h.chemin(t.pts, h.a.hachure('bois', 'arete'), true) + '\n' + h.cercle(t.c[0], t.c[1], 1.3, h.a.plein)),
           h.path(G.futH, h.a.blanc), h.path(G.futH, h.a.arete),
           h.path(G.futB, h.a.blanc), h.path(G.futB, h.a.arete),
-          h.fleche(G.flB),
+          h.geste(G.flB),
           h.cote(G.T([0, -3])[0], G.T([0, -3])[1], G.T([107, -3])[0], G.T([107, -3])[1], '107 cm'),
           h.cote(G.T([38, -15])[0], G.T([38, -15])[1], G.T([38, 15])[0], G.T([38, 15])[1], '30 cm'),
         ].join('\n');
@@ -54,6 +59,8 @@ module.exports = (h) => ({
           h.rect(S.cp.xF + S.cp.lF, S.cp.yP - S.cp.hF, S.cp.lB, S.cp.hF, h.a.plein),
           h.rect(S.cp.xTe, S.cp.yP - S.cp.hT, S.cp.lT, S.cp.hT, h.a.hachure('bois', 'arete')),
           h.cote(S.cp.x0 - 18, S.cp.yP - S.cp.hF, S.cp.x0 - 18, S.cp.yP, '27 mm', { cote: 'gauche' }),
+          // le point à vérifier : la bande arrive au ras du bois
+          h.controle(S.cp.xF + S.cp.lF + S.cp.lB / 2, S.cp.yP - S.cp.hF, 10),
         ].join('\n');
       },
       renvois: z => {
@@ -77,6 +84,8 @@ module.exports = (h) => ({
           ...X.plis.map(p => h.chemin(p, h.a.fin)),
           h.path(X.fut, h.a.contour),
           ...X.echardes.map(e => h.chemin(e, h.a.blanc, true) + '\n' + h.chemin(e, h.a.arete, true)),
+          // l'endroit où ça casse : l'écharde qui lève de la face extérieure
+          h.controle((X.echardes[1][0][0] + X.echardes[1][3][0]) / 2, (X.echardes[1][0][1] + X.echardes[1][3][1]) / 2, 13),
         ].join('\n');
       },
       renvois: z => {
@@ -96,7 +105,7 @@ module.exports = (h) => ({
         return [
           h.path(R.fut, h.a.blanc), h.path(R.fut, h.a.arete),
           ...R.trav.map(t => h.chemin(t, h.a.blanc, true) + '\n' + h.chemin(t, h.a.arete, true)),
-          ...R.fleches.map(f => h.fleche(f)),
+          ...R.fleches.map(f => h.geste(f)),
           h.cote(R.xT[0], R.yCote, R.xT[1], R.yCote, '38 à 41 cm', { cote: 'dessous' }),
         ].join('\n');
       },

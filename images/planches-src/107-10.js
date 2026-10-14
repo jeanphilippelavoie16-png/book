@@ -160,8 +160,8 @@ module.exports = (h) => {
             // Le marteau, face en bas, manche vers la droite.
             h.path(`M ${hx} ${fy - 3} L ${hx} ${hy + 6} Q ${hx} ${hy} ${hx + 6} ${hy} L ${hx + lt - 6} ${hy} Q ${hx + lt} ${hy} ${hx + lt} ${hy + 6} L ${hx + lt} ${fy - 3} L ${hx + lt - 2} ${fy} L ${hx + 2} ${fy} Z`, blanc(h.a.contour)),
             h.path(`M ${hx + lt} ${hy + 10} L ${hx + lt + 84} ${hy + 12} L ${hx + lt + 84} ${hy + 18} L ${hx + lt} ${hy + 19} Z`, blanc(h.a.arete)),
-            // Le coup : dans l'axe de la vis, pointe contre le dos de la tête.
-            h.fleche(`M ${g.cx} ${hy - 26} L ${g.cx} ${hy - 2}`),
+            // Le coup : dans l'axe de la vis, pointe contre le dos de la tête. La charte : le geste en rouge.
+            h.geste(`M ${g.cx} ${hy - 26} L ${g.cx} ${hy - 2}`),
           ].join('\n');
         },
         renvois: z => {
@@ -184,6 +184,8 @@ module.exports = (h) => {
             vis(L.c[1], g.yc, L.r),
             trou(L.c[2], g.yc, L.r),
             filet(L.c[2], g.yc, L.r * 1.2),
+            // la charte : le point à contrôler, le trou qui mord à moitié dans la vis d'avant
+            h.controle(L.c[2] - L.r, g.yc, L.r * 0.95),
           ].join('\n');
         },
         renvois: z => {

@@ -50,6 +50,8 @@ module.exports = (h) => {
             h.chemin(f, h.a.arete),
             h.cercle(f[0][0], f[0][1], 4, plein(h.a.arete)),
             h.cercle(f[6][0], f[6][1], 4, plein(h.a.arete)),
+            // la charte : le point à contrôler, le trou qui enlève la pointe de la fissure
+            h.controle(f[6][0], f[6][1], 11),
           ].join('\n');
         },
         renvois: z => {
@@ -95,7 +97,7 @@ module.exports = (h) => {
             })(),
             // Second trait du renvoi 3, vers l'autre boulon de droite.
             (() => {
-              const b = e.boulons[2], r3 = [e.boulons[3][0] + 26, g.y0 + g.W + 16];
+              const b = e.boulons[2], r3 = [(e.boulons[2][0] + e.boulons[3][0]) / 2, g.y0 + g.W + 17];
               const [cx, cy] = contact(b[0], b[1], 8.5, r3);
               const dx = cx - r3[0], dy = cy - r3[1], d = Math.hypot(dx, dy);
               const sx = r3[0] + 9 * dx / d, sy = r3[1] + 9 * dy / d;
@@ -112,7 +114,7 @@ module.exports = (h) => {
           const e = eclisse(g);
           const r2 = [e.ex0 - 4, g.y0 - 20];
           const b = e.boulons[3];
-          const r3 = [b[0] + 26, g.y0 + g.W + 16];
+          const r3 = [(e.boulons[2][0] + b[0]) / 2, g.y0 + g.W + 17];   // entre les deux boulons : ses deux traits font un V
           return [
             { n: 2, rond: r2, cible: [e.ex0 + 14, g.y0 + g.W / 2], texte: 'éclisse à cheval sur la cassure' },
             { n: 3, rond: r3, cible: contact(b[0], b[1], 8.5, r3), texte: 'deux boulons décalés par côté' },

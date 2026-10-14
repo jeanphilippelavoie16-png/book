@@ -67,9 +67,9 @@ module.exports = (h) => {
     out.push(h.ligne(...P(0, 0), ...P(LARG, 0), h.a.cache));
     // le profil fini
     out.push(h.chemin(Pl([[-300, 0], [0, 0], [0, BAS], [LARG, HAUT], [LARG, 0], [1760, 0]]), h.a.contour));
-    // le geste : la terre passe du sud au nord, par-dessus
+    // le geste : la terre passe du sud au nord, par-dessus (la charte : en rouge)
     const a = P(210, -45), c = P(640, 470), b = P(1090, 75);
-    out.push(h.fleche(`M ${a.join(' ')} Q ${c.join(' ')} ${b.join(' ')}`, h.a.arete));
+    out.push(h.geste(`M ${a.join(' ')} Q ${c.join(' ')} ${b.join(' ')}`));
     // les cotes : 160 au sud, 160 et 320 au nord, 1280 dessous
     out.push(h.ligne(...P(-10, BAS), ...P(-150, BAS), h.a.fin));
     out.push(h.cote(...P(-120, 0), ...P(-120, BAS), '160 mm', { cote: 'gauche' }));
@@ -165,7 +165,9 @@ module.exports = (h) => {
     out.push(h.chemin(Ql([[0, YS, surf(YS)], [XE, YS, surf(YS)], [XE, LARG, HAUT], [0, LARG, HAUT]]), blanc(h.a.arete), true));
     out.push(h.chemin(Ql([[0, YS, surf(YS)], [0, YS, 0], [0, LARG, 0]]), h.a.arete));
     const xTalus = tranche ? XE : XB;
-    out.push(h.chemin(Ql([[0, LARG, HAUT], [xTalus, LARG, HAUT], [xTalus, LARG, 0], [0, LARG, 0]]), blanc(h.a.arete), true));
+    // La charte : le talus fait face au nord, comme la face de droite du bloc : à l'ombre
+    const talus = Ql([[0, LARG, HAUT], [xTalus, LARG, HAUT], [xTalus, LARG, 0], [0, LARG, 0]]);
+    out.push(h.chemin(talus, h.a.ombre, true), h.chemin(talus, h.a.arete, true));
     // des traits de bêche sur la pente, dans le sens de la pente
     for (const X of [70, 230, 390, 520]) out.push(h.chemin(Ql([[X, YS + 50, surf(YS + 50)], [X - 10, LARG - 60, surf(LARG - 60)]]), h.a.fin));
     // le piquet, et le cordeau tendu au ras de la crête
@@ -234,16 +236,17 @@ module.exports = (h) => {
       out.push(b.svg, bourre());
       out.push(h.chemin(Ql([[b.x0, yl, HAUT - 4], [b.x0, yl, 18], [b.x0 + 18, yl, 0], [b.x1 - 18, yl, 0], [b.x1, yl, 18], [b.x1, yl, HAUT - 2]]), h.a.cache));
       const f0 = Q(b.x0 - 70, yl, 560), f1 = Q(b.x0 - 70, yl, 380);
-      out.push(h.fleche(`M ${f0.join(' ')} L ${f1.join(' ')}`, h.a.arete));
+      out.push(h.geste(`M ${f0.join(' ')} L ${f1.join(' ')}`));   // la charte : le geste, enfoncer
       geste = { lame: Q(xm + 30, yl, 225), bourre: Q(470, 1470, 60), talus: Q(90, LARG, 80), cordeau: Q(-90, LARG, ZC) };
     } else {
       // battre : la lame à plat contre le talus, le dos au talus ; avant le coup, en tireté
       const xm = 300, recul = 170;
       const b = beche(xm, LARG + 8, 0);
       out.push(b.svg);
-      for (const [dx, dz] of [[-30, 70], [30, 190]]) {
-        const f0 = Q(xm + dx, LARG + recul + 150, dz), f1 = Q(xm + dx, LARG + 30, dz);
-        out.push(h.fleche(`M ${f0.join(' ')} L ${f1.join(' ')}`, h.a.arete));
+      // La charte : une seule flèche du geste par vue, en rouge : le coup, à plat, au milieu de la lame
+      {
+        const f0 = Q(xm, LARG + recul + 150, 130), f1 = Q(xm, LARG + 30, 130);
+        out.push(h.geste(`M ${f0.join(' ')} L ${f1.join(' ')}`));
       }
       geste = { lame: Q(xm + 60, LARG + 8, 245), talus: Q(470, LARG, 60) };
     }

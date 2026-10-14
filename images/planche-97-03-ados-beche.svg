@@ -4,6 +4,7 @@
 <defs>
 <pattern id="h-terre" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="5.5" stroke="#1A1A1A" stroke-width="0.7"/><line x1="4.5" y1="4.5" x2="4.5" y2="9" stroke="#1A1A1A" stroke-width="0.5"/></pattern>
 <marker id="fl" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#1A1A1A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker>
+<marker id="fl-r" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9 Z" fill="#9B2C1E" stroke="#9B2C1E" stroke-width="1" stroke-linejoin="round"/></marker>
 </defs>
 <rect x="0" y="0" width="680" height="826" fill="#FFFFFF"/>
 <text x="40" y="38" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#1A1A1A">Bêcher, en coupe : le sud à gauche, le nord à droite</text>
@@ -14,7 +15,7 @@
 <line x1="117.8" y1="69.1" x2="395.4" y2="69.1" stroke="#fff" stroke-width="3.2" fill="none"/>
 <line x1="117.8" y1="69.1" x2="395.4" y2="69.1" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="5 3.5"/>
 <path d="M52.7 69.1 L117.8 69.1 L117.8 103.8 L395.4 34.4 L395.4 69.1 L499.6 69.1" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M 163.3 78.8 Q 256.6 -32.9 354.2 52.8" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl)"/>
+<path d="M 163.3 78.8 Q 256.6 -32.9 354.2 52.8" fill="none" stroke="#9B2C1E" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl-r)"/>
 <line x1="115.6" y1="103.8" x2="85.2" y2="103.8" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
 <line x1="91.8" y1="69.1" x2="91.8" y2="103.8" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
 <line x1="85.8" y1="69.1" x2="97.8" y2="69.1" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
@@ -47,7 +48,8 @@
 <path d="M281 149.5 L170.8 90.6 L110.5 106.4" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M110.5 97.1 L8 124 L66.9 131.7 L169.4 104.8 Z" fill="#fff" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M110.5 97.1 L110.5 106.4 L169.4 138" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M169.4 104.8 L134.6 113.9 L134.6 147.1 L169.4 138 Z" fill="#fff" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M169.4 104.8 L134.6 113.9 L134.6 147.1 L169.4 138 Z" fill="#CFCFCF" stroke="none"/>
+<path d="M169.4 104.8 L134.6 113.9 L134.6 147.1 L169.4 138 Z" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M104.1 101.3 L150.7 106.7" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M74.8 109 L121.4 114.4" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M45.5 116.7 L92.2 122.1" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
@@ -74,7 +76,7 @@
 <path d="M 186.5 169.5 C 186 169.1 184.6 168.3 184.7 168 C 184.9 167.6 186.5 167.6 187.3 167.3 C 188.1 167 189.3 166.2 189.7 166.4 C 190.2 166.5 189.9 167.7 190.1 168.3 C 190.2 169 191.1 169.9 190.7 170.2 C 190.4 170.5 188.7 170.2 188 170.1 C 187.3 170 187.1 169.8 186.5 169.5 Z" fill="#fff" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M 165.7 179.2 C 165.1 179.4 164.2 178.8 163.4 178.7 C 162.7 178.6 161.3 178.7 161.1 178.4 C 160.9 178.1 161.9 177.5 162.3 177 C 162.6 176.5 162.7 175.5 163.1 175.4 C 163.6 175.3 164.3 176.2 164.9 176.5 C 165.5 176.9 166.6 177.1 166.7 177.5 C 166.8 177.9 166.2 179 165.7 179.2 Z" fill="#fff" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M136.2 115.6 L136.2 144.2 L132.9 148.8 L106.5 155.7 L103.2 152.8 L103.2 123.8" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="5 3.5"/>
-<path d="M 149 28.6 L 149 65.9" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl)"/>
+<path d="M 149 28.6 L 149 65.9" fill="none" stroke="#9B2C1E" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl-r)"/>
 </g>
 <text x="351" y="231.1" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#1A1A1A">Battre au dos de la bêche</text>
 <g transform="translate(351 239.1)" data-vue="battre">
@@ -85,7 +87,8 @@
 <path d="M281 149.5 L170.8 90.6 L110.5 106.4" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M110.5 97.1 L8 124 L66.9 131.7 L169.4 104.8 Z" fill="#fff" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M110.5 97.1 L110.5 106.4 L169.4 138" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M169.4 104.8 L66.9 131.7 L66.9 164.8 L169.4 138 Z" fill="#fff" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M169.4 104.8 L66.9 131.7 L66.9 164.8 L169.4 138 Z" fill="#CFCFCF" stroke="none"/>
+<path d="M169.4 104.8 L66.9 131.7 L66.9 164.8 L169.4 138 Z" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M104.1 101.3 L150.7 106.7" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M74.8 109 L121.4 114.4" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M45.5 116.7 L92.2 122.1" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
@@ -99,8 +102,7 @@
 <circle cx="115.5" cy="84.6" r="1.4" fill="#1A1A1A" stroke="none"/>
 <circle cx="115.5" cy="73.2" r="1.4" fill="#1A1A1A" stroke="none"/>
 <path d="M 112.2 64.7 L 112.2 29.5 Q 111.2 33.9 115.5 30.9 T 118.8 32.3 L 118.8 63" fill="#fff" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M 161 158.4 L 123.8 138.5" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl)"/>
-<path d="M 150 136.4 L 112.9 116.5" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl)"/>
+<path d="M 155.5 147.4 L 118.3 127.5" fill="none" stroke="#9B2C1E" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl-r)"/>
 </g>
 <text x="40" y="518.3" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#1A1A1A">À midi, aux équinoxes</text>
 <g transform="translate(40 526.3)" data-vue="soleil">

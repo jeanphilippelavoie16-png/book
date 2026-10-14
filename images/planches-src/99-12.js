@@ -39,7 +39,7 @@ const plein = (h, t = 'arete') => h.a[t].replace('fill="none"', `fill="${blanc(h
 // ─── l'épi ─────────────────────────────────────────────────────────────────────────────
 // Base (le bout de la queue) en (x, y), pointe dans la direction ang (degrés, 90 = vers le bas).
 // Grain dur à huit rangs : on en voit trois de face, celui du milieu le plus large.
-function epi(h, { x, y, ang, L, R }) {
+function epi(h, { x, y, ang, L, R, trait = 'arete' }) {
   const a = ang * DEG, c = Math.cos(a), s = Math.sin(a);
   const P = ([u, v]) => [x + u * c - v * s, y + u * s + v * c];
   const r = t => {
@@ -54,7 +54,7 @@ function epi(h, { x, y, ang, L, R }) {
   const r0 = r(0);
   const cul = spline([Dr[0], P([-0.05 * R, 0.5 * r0]), P([-0.09 * R, 0]), P([-0.05 * R, -0.5 * r0]), G[0]], 1);
   const contour = [...G, ...Dr.slice().reverse().slice(1), ...cul.slice(1)];
-  const out = [`<path d="${D(contour, true)}" ${plein(h)}/>`];
+  const out = [`<path d="${D(contour, true)}" ${plein(h, trait)}/>`];
   // les grains
   const p = 0.62 * R, g = 0.07 * R, grains = [];
   const cols = [[-0.92, -0.38, 0], [-0.38, 0.38, 0.5], [0.38, 0.92, 0]];
@@ -176,10 +176,11 @@ function pointes(h, E, t, ep, long) {
   return out.join('\n');
 }
 
-// flèche de geste, avec un liseré blanc quand elle passe sur un brin
-function geste(h, pts) {
+// flèche de geste, avec un liseré blanc quand elle passe sur un brin ; rouge (charte) pour le
+// geste de la vue, noire pour une pièce qui s'en va
+function geste(h, pts, { rouge = true } = {}) {
   const d = D(spline(pts, 2));
-  return `<path d="${d}" fill="none" stroke="${blanc(h)}" stroke-width="5" stroke-linecap="round"/>\n` + h.fleche(d, h.a.arete);
+  return `<path d="${d}" fill="none" stroke="${blanc(h)}" stroke-width="5" stroke-linecap="round"/>\n` + (rouge ? h.geste(d) : h.fleche(d, h.a.arete));
 }
 
 // ─── vue 1 : rabattre les spathes, en garder quelques-unes ─────────────────────────────
@@ -194,7 +195,7 @@ function vueRabattre(h, z) {
     [[0.3 * R, -4], [0.35 * R + 5, 45], [0.35 * R + 11, 102]],
   ].map(c => c.map(q => [xa + q[0], ya + q[1]]));
   out.push(feuille(h, pendA[0], 0.95 * R), feuille(h, pendA[1], 0.95 * R));
-  const eA = epi(h, { x: xa, y: ya, ang: -90, L, R });
+  const eA = epi(h, { x: xa, y: ya, ang: -90, L, R, trait: 'contour' });
   out.push(eA.svg);
   out.push(feuille(h, pendA[2], 1.0 * R), feuille(h, pendA[3], 1.0 * R));
   // la dernière spathe, décollée de l'épi, qu'on rabat
@@ -210,14 +211,14 @@ function vueRabattre(h, z) {
     [[0, -4], [2, 50], [5, 108]],
   ].map(c => c.map(q => [xb + q[0], yb + q[1]]));
   out.push(feuille(h, garde[0], 0.95 * R), feuille(h, garde[1], 0.95 * R));
-  const eB = epi(h, { x: xb, y: yb, ang: -90, L, R });
+  const eB = epi(h, { x: xb, y: yb, ang: -90, L, R, trait: 'contour' });
   out.push(eB.svg, feuille(h, garde[2], 1.0 * R));
   const arr = [
     [[xb + 30, yb - 8], [xb + 42, yb + 36], [xb + 64, yb + 88]],
     [[xb + 44, yb + 2], [xb + 55, yb + 44], [xb + 75, yb + 92]],
   ];
   out.push(feuille(h, arr[0], 0.95 * R, { dechiree: true }), feuille(h, arr[1], 0.95 * R, { dechiree: true }));
-  out.push(geste(h, [[xb + 12, yb - 22], [xb + 26, yb - 26], [xb + 42, yb - 20]]));
+  out.push(geste(h, [[xb + 12, yb - 22], [xb + 26, yb - 26], [xb + 42, yb - 20]], { rouge: false }));
   return { svg: out.join('\n'), xa, ya, xb, yb, R, pendA, garde, arr };
 }
 

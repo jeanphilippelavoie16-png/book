@@ -15,6 +15,7 @@
 <path d="M145.5 47.4 L141.5 54.2 L146.5 60.4 L142.5 66.6 L147.5 72.9 L143.5 78.5 L145.5 83.6" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <circle cx="145.5" cy="47.4" r="4" fill="#fff" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <circle cx="145.5" cy="83.6" r="4" fill="#fff" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="145.5" cy="83.6" r="11" fill="none" stroke="#9B2C1E" stroke-width="1.6"/>
 </g>
 <text x="351" y="38" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#1A1A1A">L’éclisse posée</text>
 <g transform="translate(351 46)" data-vue="pose">
@@ -45,9 +46,9 @@
 <path d="M255 76.816 L255 90.816" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl)"/>
 <text x="25" y="68.2" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="11" fill="#1A1A1A">A</text>
 <text x="264" y="90.8" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="11" fill="#1A1A1A">A</text>
-<line x1="221.28889951198323" y1="103.64271675176397" x2="174.6093060164603" y2="59.989767512222905" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
-<line x1="221.28889951198323" y1="103.64271675176397" x2="174.6093060164603" y2="59.989767512222905" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
-<circle cx="174.6093060164603" cy="59.989767512222905" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
+<line x1="182.58071530565016" y1="102.1590975507081" x2="170.81026332244153" y2="62.335407868775675" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+<line x1="182.58071530565016" y1="102.1590975507081" x2="170.81026332244153" y2="62.335407868775675" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
+<circle cx="170.81026332244153" cy="62.335407868775675" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
 </g>
 <g transform="translate(40 191.2)" data-vue="vide">
 
@@ -120,11 +121,11 @@
 <circle cx="429.8" cy="111.5" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
 <circle cx="411.8" cy="63.2" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="pose"/>
 <text x="411.8" y="67.2" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">2</text>
-<line x1="573.3" y1="148.7" x2="558.1" y2="129.5" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
-<line x1="573.3" y1="148.7" x2="558.1" y2="129.5" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
-<circle cx="558.1" cy="129.5" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
-<circle cx="578.9" cy="155.8" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="pose"/>
-<text x="578.9" y="159.8" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">3</text>
+<line x1="540.1" y1="148.7" x2="549.1" y2="130.4" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+<line x1="540.1" y1="148.7" x2="549.1" y2="130.4" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
+<circle cx="549.1" cy="130.4" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
+<circle cx="536.1" cy="156.8" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="pose"/>
+<text x="536.1" y="160.8" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">3</text>
 <line x1="394.6" y1="271.3" x2="427.8" y2="264.2" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
 <line x1="394.6" y1="271.3" x2="427.8" y2="264.2" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
 <circle cx="427.8" cy="264.2" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>

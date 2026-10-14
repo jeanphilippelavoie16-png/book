@@ -3,6 +3,10 @@
 // donne » (percer au poinçon), étape 10 (racine d'épinette refendue), §5-F (la poix).
 // Première page en 60-33a : lever l'écorce, l'aplatir, le gabarit de plis.
 // Aucune cote : le chapitre ne donne aucune dimension de casseau.
+// La charte : le casseau monté garde sa silhouette au contour fort ; la paroi de bout (la face de
+// droite, lumière en haut à gauche) et le bout de la baguette à l'ombre ; l'intérieur, vu par-dessus
+// le bord, en gris loin. Le rouge : le poinçon qu'on enfonce et la palette qu'on presse (les
+// gestes, un par vue). La racine qu'on tire et le sens de la couture restent en noir.
 
 module.exports = (h) => {
   const r1 = (n) => Math.round(n * 10) / 10;
@@ -22,11 +26,11 @@ module.exports = (h) => {
     const { w, d, s, ky, e, rb, P } = gM(z), o = [], rnd = hasard(41);
     const T = s + 1;                                         // dessus de la baguette
     // l'intérieur, vu par-dessus le bord
-    o.push(h.chemin([P(0, 0, s), P(w, 0, s), P(w, d, s), P(0, d, s)], h.a.blanc, true));
+    o.push(h.chemin([P(0, 0, s), P(w, 0, s), P(w, d, s), P(0, d, s)], h.a.loin, true));
     o.push(h.ligne(...P(0, d, s), ...P(0, d, s - d * ky + 3), h.a.detail));
     // les deux faces vues de dehors
     o.push(h.chemin([P(0, 0, 0), P(w, 0, 0), P(w, 0, s), P(0, 0, s)], h.a.blanc, true));
-    o.push(h.chemin([P(w, 0, 0), P(w, d, 0), P(w, d, s), P(w, 0, s)], h.a.blanc, true));
+    o.push(h.chemin([P(w, 0, 0), P(w, d, 0), P(w, d, s), P(w, 0, s)], h.a.ombre, true));
     // lenticelles
     for (let i = 0; i < 40; i++) {
       const zz = 6 + rnd() * (s - rb - 14), x = zz + 6 + rnd() * (w - 2 * zz - 20);
@@ -53,7 +57,8 @@ module.exports = (h) => {
     o.push(h.chemin([P(-e, -e, T), P(w + e, -e, T), P(w + e, d + e, T), P(-e, d + e, T)], h.a.contour, true));
     o.push(h.chemin([P(0, 0, T), P(w, 0, T), P(w, d, T), P(0, d, T)], h.a.arete, true));
     o.push(h.chemin([P(-e, -e, T), P(w + e, -e, T), P(w + e, -e, T - rb), P(-e, -e, T - rb)], B(h.a.arete), true));
-    o.push(h.chemin([P(w + e, -e, T), P(w + e, d + e, T), P(w + e, d + e, T - rb), P(w + e, -e, T - rb)], B(h.a.arete), true));
+    o.push(h.chemin([P(w + e, -e, T), P(w + e, d + e, T), P(w + e, d + e, T - rb), P(w + e, -e, T - rb)], h.a.ombre, true));
+    o.push(h.chemin([P(w + e, -e, T), P(w + e, d + e, T), P(w + e, d + e, T - rb), P(w + e, -e, T - rb)], h.a.arete, true));
     o.push(h.chemin([P(-e, -e, T - rb), P(-e, -e, T), P(-e, d + e, T), P(w + e, d + e, T), P(w + e, d + e, T - rb)], h.a.contour));
     // la racine enroulée sur la baguette, par les trous sous le cerceau
     for (let x = 7; x < w - 4; x += 12) {
@@ -88,7 +93,7 @@ module.exports = (h) => {
     o.push(couches(12, z.l - 12, yA, [nx]));
     o.push(h.chemin(pl([[nx - 2.3, yA - 50], [nx + 2.3, yA - 50], [nx + 2.3, yA + 6], [nx, yA + 15], [nx - 2.3, yA + 6]]), B(h.a.arete), true));
     o.push(h.rect(r1(nx - 8), r1(yA - 54), 16, 4, h.a.plein));
-    o.push(h.fleche(`M${r1(nx + 20)},${r1(yA - 48)} L${r1(nx + 20)},${r1(yA - 16)}`));
+    o.push(h.geste(`M${r1(nx + 20)},${r1(yA - 48)} L${r1(nx + 20)},${r1(yA - 16)}`));
     // coudre : la racine passe dans les trous
     o.push(couches(12, z.l - 12, yB, [hx1, hx2]));
     o.push(point(20, hx1, hx2, z.l - 58, yB));
@@ -169,7 +174,8 @@ module.exports = (h) => {
     const yq = yP - ep - 2;
     o.push(h.rect(r1(xa + 18), r1(yq - 8), r1(xb - xa - 36), 8, B(h.a.contour)));
     o.push(h.ligne(r1(xa + 30), r1(yq - 4), r1(xb - 40), r1(yq - 4.6), h.a.fin));
-    [0.36, 0.64].forEach(k => { const x = xa + (xb - xa) * k; o.push(h.fleche(`M${r1(x)},${r1(yq - 44)} L${r1(x)},${r1(yq - 12)}`)); });
+    // le geste : presser la palette, une flèche
+    { const x = xa + (xb - xa) * 0.5; o.push(h.geste(`M${r1(x)},${r1(yq - 44)} L${r1(x)},${r1(yq - 12)}`)); }
     return o.join('\n');
   };
 

@@ -114,7 +114,8 @@ module.exports = (h) => {
       },
       froid: {
         titre: 'Manque de fusion',
-        dessin: z => { const G = G0(z); return [...plats(G, false), ...boudin(G)].join('\n'); },
+        // la charte : le point qui casse, le pied du boudin posé sans fusion
+        dessin: z => { const G = G0(z); return [...plats(G, false), ...boudin(G), h.controle(G.c + 37, G.ys - 2, 11)].join('\n'); },
         renvois: z => {
           const G = G0(z);
           return [{ n: 2, rond: [G.c - 72, G.ys - 40], cible: [G.c - 28 - 12, G.ys - 10], texte: 'bords nets, posé sur la surface' }];
@@ -122,7 +123,8 @@ module.exports = (h) => {
       },
       caniveau: {
         titre: 'Caniveau',
-        dessin: z => { const G = G0(z); return [...plats(G, true), ...fondu(G, DT), loupe(z, G).svg].join('\n'); },
+        // la charte : le point qui casse, le sillon de droite (le gauche est sous la loupe)
+        dessin: z => { const G = G0(z), q = sillon(G, 1)[10]; return [...plats(G, true), ...fondu(G, DT), loupe(z, G).svg, h.controle(q[0] + 2, q[1] - 2, 13)].join('\n'); },
         renvois: z => {
           const G = G0(z);
           const { src, L } = loupe(z, G), s = sillon(G, -1);

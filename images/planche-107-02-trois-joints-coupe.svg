@@ -27,6 +27,7 @@
 <path d="M142.2,116.5 Q134.82,118.12 133.2,129.5 L133.2,116.5 Z" fill="#1A1A1A" stroke="none"/>
 <path d="M12 120.5 L133.2 120.5 L133.2 181.3 L12 181.3" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M173 55.7 L51.8 55.7 L51.8 116.5 L173 116.5" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="71.3" cy="118.5" r="11" fill="none" stroke="#9B2C1E" stroke-width="1.6"/>
 </g>
 <text x="454.7" y="38" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#1A1A1A">Brasage à gros jeu : raté</text>
 <g transform="translate(454.7 46)" data-vue="gros">
@@ -37,6 +38,7 @@
 <path d="M146.2,111.5 Q135.54,113.84 133.2,138.5 L133.2,111.5 Z" fill="#1A1A1A" stroke="none"/>
 <path d="M12 125.5 L133.2 125.5 L133.2 186.3 L12 186.3" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M173 50.8 L51.8 50.8 L51.8 111.5 L173 111.5" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="71.3" cy="118.5" r="16" fill="none" stroke="#9B2C1E" stroke-width="1.6"/>
 </g>
 <line x1="60" y1="164.5" x2="110.8" y2="164.5" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
 <line x1="60" y1="164.5" x2="110.8" y2="164.5" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>

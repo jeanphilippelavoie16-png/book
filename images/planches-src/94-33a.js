@@ -2,6 +2,10 @@
 // ch. 60, §5-G (étapes 38 à 42), §9 « Le contenant », « Écorce : ce que la saison donne ».
 // Suite en 60-33b : plier, coudre à la racine, cercler, étancher à la poix.
 // Aucune cote : le chapitre ne donne aucune dimension de casseau.
+// La charte : le tronc couché garde son contour fort, le dessous à l'ombre. Le rouge : le feuillet
+// qu'on lève (le geste) et la pointe de la lame qui s'arrête au bois (le point à vérifier). Le
+// gabarit à recopier reste sans gris, ses flèches de pliage en noir : elles disent comment les
+// parties de la feuille bougent.
 
 module.exports = (h) => {
   const r1 = (n) => Math.round(n * 10) / 10;
@@ -38,7 +42,16 @@ module.exports = (h) => {
     // sol
     o.push(h.ligne(8, yb + 1, z.l - 8, yb + 1, h.a.arete));
     // corps du tronc et bout droit
-    o.push(h.path(`M${r1(x0)},${r1(yt)} L${r1(x1)},${r1(yt)} A${r1(rx)},${r1(R)} 0 0 1 ${r1(x1)},${r1(yb)} L${r1(x0)},${r1(yb)} Z`, B(h.a.contour)));
+    const dT = `M${r1(x0)},${r1(yt)} L${r1(x1)},${r1(yt)} A${r1(rx)},${r1(R)} 0 0 1 ${r1(x1)},${r1(yb)} L${r1(x0)},${r1(yb)} Z`;
+    o.push(h.path(dT, h.a.blanc));
+    // le dessous du tronc, à l'ombre : une bande du bas, jusqu'au bout droit
+    {
+      const k0 = 0.55, bd = [[x0, cy + k0 * R]];
+      for (let i = 0; i <= 12; i++) { const k = k0 + (1 - k0) * i / 12; bd.push([x1 + rx * Math.sqrt(Math.max(0, 1 - k * k)), cy + k * R]); }
+      bd.push([x0, yb]);
+      o.push(h.chemin(pl(bd), h.a.ombre, true));
+    }
+    o.push(h.path(dT, h.a.contour));
     // bois mis à nu, entre l'entaille et le bord soulevé
     const bord = []; for (let x = xp; x <= xc; x += 2) bord.push([x, yF(x)]);
     o.push(h.chemin(pl([[xp, ys], [x1, ys], [x1 + rx * 0.62, yt + (ys - yt) * 0.45], [x1, yt], [xc, yt], ...bord.reverse()]), B(h.a.detail), true));
@@ -84,6 +97,10 @@ module.exports = (h) => {
       px += Math.cos(th) * 1.5; py += Math.sin(th) * 1.5;
     }
     o.push(h.chemin(pl([...gch, ...dr.reverse()]), B(h.a.arete), true));
+    // le geste : le feuillet se lève à la main
+    {
+      o.push(h.geste(`M${r1(xf + 17)},${r1(yt - 4)} Q${r1(xf + 21)},${r1(yt - hf * 0.65)} ${r1(xf + 9)},${r1(yt - hf - 8)}`));
+    }
     return o.join('\n');
   };
 
@@ -105,6 +122,8 @@ module.exports = (h) => {
     o.push(h.chemin(pl([[cx, yp], [cx - 2.4, ym], [cx + 2.4, ym]]), B(h.a.arete), true));
     o.push(h.path(`M${r1(cx - 6)},${r1(ym)} L${r1(cx - 6)},12 Q${r1(cx)},5 ${r1(cx + 6)},12 L${r1(cx + 6)},${r1(ym)} Z`, B(h.a.contour)));
     [4, 8].forEach(k => o.push(h.ligne(r1(cx - 6), r1(ym - k), r1(cx + 6), r1(ym - k), h.a.detail)));
+    // le point à vérifier : la pointe s'arrête sur le bois, sans y entrer
+    o.push(h.controle(cx, r1(yp), 9));
     return o.join('\n');
   };
 

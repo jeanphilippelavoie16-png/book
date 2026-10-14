@@ -8,6 +8,9 @@
 // À côté du poêle : la boîte de métal d'allumage, couvercle levé pour montrer ce qu'elle garde
 // (papier journal plié, écorce de bouleau roulée, éclisses debout), la flèche qui la referme ; le pot
 // de verre à couvercle, les allumettes et le briquet dedans.
+// La charte : l'intérieur du foyer et du tuyau, vu par la coupe, en gris loin ; l'intérieur de la
+// boîte, vu par son ouverture, en gris loin aussi, et son flanc droit à l'ombre. Le rouge : la clé
+// du tuyau, le point à contrôler (ouverte), et la flèche qui referme le couvercle (le geste).
 module.exports = (h) => {
   const A = h.a;
   const W = at => at.replace('fill="none"', 'fill="#FFFFFF"');
@@ -52,6 +55,9 @@ module.exports = (h) => {
     const o = [];
     const R = (x1, y1, x2, y2, at) => { const a = T(x1, y2), b = T(x2, y1); return h.rect(a[0], a[1], b[0] - a[0], b[1] - a[1], at); };
 
+    // l'intérieur du foyer et du tuyau, vu par la coupe
+    o.push(R(-XI, 0, XI, YI, A.loin));
+    { const a = T(-70, 0), b = T(70, 0); o.push(h.rect(a[0], 4, b[0] - a[0], T(0, YI)[1] - 4, A.loin)); }
     // le plancher, les pattes
     o.push(h.ligne(2, T(0, -130)[1], z.l - 2, T(0, -130)[1], A.detail));
     o.push(R(-XI + 10, -130, -XI + 40, -EP, W(A.arete)), R(XI - 40, -130, XI - 10, -EP, W(A.arete)));
@@ -214,6 +220,8 @@ module.exports = (h) => {
       const a = T(-5, Y_CLE + 64), b = T(5, Y_CLE - 64), c = T(0, Y_CLE);
       o.push(`<rect x="${f(a[0])}" y="${f(a[1])}" width="${f(b[0] - a[0])}" height="${f(b[1] - a[1])}" rx="${f(4 * s)}" ${A.plein}/>`);
       o.push(h.cercle(c[0], c[1], 6, W(A.arete)), h.cercle(c[0], c[1], 1.6, A.plein));
+      // le point à contrôler : la clé, ouverte, dans l'axe du tuyau
+      o.push(h.controle(c[0], c[1], 74 * s));
     }
     return o.join('\n');
   };
@@ -251,7 +259,8 @@ module.exports = (h) => {
       { const a = C(BX / 2 - 14, 1, 16), b = C(BX / 2 + 14, 1, 16), c = C(BX / 2 + 14, 1, 34), d = C(BX / 2 - 14, 1, 34); o.push(poly([a, b, c, d], W(A.arete))); }
 
       // l'ouverture : le rebord, la paroi du fond et celle de gauche vues par-dedans
-      o.push(poly([Q(0, BY, 0), Q(BX, BY, 0), Q(BX, BY, BZ), Q(0, BY, BZ)], W(A.arete)));
+      o.push(poly([Q(0, BY, 0), Q(BX, BY, 0), Q(BX, BY, BZ), Q(0, BY, BZ)], A.loin));   // l'intérieur, vu par l'ouverture
+      o.push(poly([Q(0, BY, 0), Q(BX, BY, 0), Q(BX, BY, BZ), Q(0, BY, BZ)], A.arete));
       o.push(poly([Q(4, BY, 4), Q(BX - 4, BY, 4), Q(BX - 4, BY, BZ - 4), Q(4, BY, BZ - 4)], A.fin));
       // les charnières, sur l'arête du fond
       for (const x of [50, BX - 80]) { const a = Q(x, BY, BZ), b = Q(x + 30, BY, BZ); o.push(h.rect(a[0], a[1] - 3, b[0] - a[0], 6, W(A.detail))); }
@@ -326,12 +335,13 @@ module.exports = (h) => {
         .forEach(([x, zz, lx, lz, top, p]) => o.push(eclisse(x, zz, lx, lz, top, p)));
 
       // la caisse : le flanc droit, puis la façade, qui cachent le bas de ce qu'elle contient
-      o.push(poly([Q(BX, 0, 0), Q(BX, 0, BZ), Q(BX, BY, BZ), Q(BX, BY, 0)], W(A.contour)));
+      o.push(poly([Q(BX, 0, 0), Q(BX, 0, BZ), Q(BX, BY, BZ), Q(BX, BY, 0)], A.ombre));   // le flanc droit, à l'ombre
+      o.push(poly([Q(BX, 0, 0), Q(BX, 0, BZ), Q(BX, BY, BZ), Q(BX, BY, 0)], A.contour));
       o.push(poly([Q(0, 0, 0), Q(BX, 0, 0), Q(BX, BY, 0), Q(0, BY, 0)], W(A.contour)));
       o.push(h.chemin([Q(0, BY - 12, 0), Q(BX, BY - 12, 0), Q(BX, BY - 12, BZ)], A.fin));   // le bourrelet du bord
       // la flèche qui rabat le couvercle vers l'avant
       { const a = Q(BX + 46, BY + 160, BZ), c = Q(BX + 56, BY + 210, -50), b = Q(BX + 46, BY + 24, -10);
-        o.push(h.fleche(`M ${pt(a)} Q ${pt(c)} ${pt(b)}`)); }
+        o.push(h.geste(`M ${pt(a)} Q ${pt(c)} ${pt(b)}`)); }
       // le moraillon de la façade
       { const a = Q(BX / 2 - 10, BY - 4, 0), b = Q(BX / 2 + 10, BY - 40, 0); o.push(h.rect(a[0], a[1], b[0] - a[0], b[1] - a[1], W(A.arete))); const c = Q(BX / 2, BY - 30, 0); o.push(h.cercle(c[0], c[1], 1.6, A.plein)); }
 

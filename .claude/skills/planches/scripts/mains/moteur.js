@@ -1588,17 +1588,22 @@ function dessiner(o, prep = null) {
   // de même, une pièce cachée derrière l'objet qui n'en dépasse que d'un ergot (moins de 3 mm de large, ou moins de
   // 20 mm²), là où rien d'autre de la main ne la prolonge : ce bout ne se dessine pas, il bosselait le bord de
   // l'objet (agent 5, M12 : le bout de l'index au haut du manche de prise-pouce-dos, de profil)
-  if (ob && ob.region.length) {
-    pieces.forEach((P, i) => {
-      if (!P.surObjet || (devantObjet.has(i) && !P.pasRepeinte) || P.groupe === 'base') return;
-      const autres = pieces.filter((Q, j) => j !== i).map(Q => Q.region);
-      const vis = moins(P.region, unionCL([ob.region, ...autres]));
+  // (pas derrière un fil : ce qui en dépasse de part et d'autre n'est pas un ergot). Par doigt entier : une
+  // phalange seule a des filets partout où la voisine la recouvre, et les ôter mordait la silhouette.
+  if (ob && ob.region.length && (ob.r || 16) >= 4) {
+    for (const G of groupes.values()) {
+      if (G.base) continue;
+      const der = G.ids.filter(i => pieces[i].surObjet && (!devantObjet.has(i) || pieces[i].pasRepeinte));
+      if (!der.length) continue;
+      const autres = pieces.filter((Q, j) => !der.includes(j)).map(Q => Q.region);
+      const vis = moins(unionCL(der.map(i => pieces[i].region)), unionCL([ob.region, ...autres]));
       const jette = [];
       for (const cp of composantes(vis)) if (Math.abs(aireCL(cp)) < 20 || !ouvre(cp, 1.5).length) jette.push(...cp);
-      if (!jette.length) return;
-      P.region = moins(P.region, decale(jette, 0.2)); P.boite = boiteCL(P.region);
-      const G = groupes.get(P.groupe); G.region = unionCL(G.ids.map(k => pieces[k].region)); G.boite = boiteCL(G.region);
-    });
+      if (!jette.length) continue;
+      const J = decale(jette, 0.2);
+      for (const i of der) { pieces[i].region = moins(pieces[i].region, J); pieces[i].boite = boiteCL(pieces[i].region); }
+      G.region = unionCL(G.ids.map(k => pieces[k].region)); G.boite = boiteCL(G.region);
+    }
   }
   T_('objet+teintes');
   // ── l'ordre de peinture : tri topologique sur « devant » ──

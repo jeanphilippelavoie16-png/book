@@ -29,6 +29,7 @@
 <defs><pattern id="p-fondu-10703b" width="6" height="6" patternUnits="userSpaceOnUse"><circle cx="3" cy="3" r="0.5" fill="#000"/></pattern></defs>
 <path d="M 56.5 74 C 40.5 72 43.5 35 92.5 35 C 141.5 35 144.5 72 128.5 74 Z" fill="url(#p-fondu-10703b)" stroke="none"/>
 <path d="M 56.5 74 C 40.5 72 43.5 35 92.5 35 C 141.5 35 144.5 72 128.5 74 Z" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="129.5" cy="72" r="11" fill="none" stroke="#9B2C1E" stroke-width="1.6"/>
 </g>
 <text x="454.7" y="38" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#1A1A1A">Caniveau</text>
 <g transform="translate(454.7 46)" data-vue="caniveau">
@@ -59,6 +60,7 @@
 <circle cx="92.5" cy="210" r="42" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
 <circle cx="29.5" cy="83" r="14" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="5 3.5"/>
 <path d="M35.7 95.5 L73.8 172.4" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="5 3.5"/>
+<circle cx="152.6" cy="88.7" r="13" fill="none" stroke="#9B2C1E" stroke-width="1.6"/>
 </g>
 <line x1="193.9" y1="225.4" x2="173.8" y2="159.2" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
 <line x1="193.9" y1="225.4" x2="173.8" y2="159.2" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
