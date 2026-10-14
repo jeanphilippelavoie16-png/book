@@ -1,6 +1,11 @@
 // Planche 26-11 — Les pansements qu'on fabrique (aussi ch. 29).
 // Quatre vues : le coton plié en séchant ; le sachet de sphaigne ; la bouteille au bouchon
 // percé au clou chauffé ; l'objet planté calé entre deux bourrelets (perspective et coupe).
+//
+// La charte : les contours forts y étaient. Le gris : la face de droite de la chandelle et du
+// bouchon, à l'ombre ; rien sur les épaisseurs de linge (trop minces), ni sur la cuisse (un corps).
+// Le rouge : le linge qu'on replie pendant qu'il sèche, et la bouteille qu'on presse. Les quatre
+// coins du sachet de sphaigne restent noirs : quatre flèches rouges passeraient le compte.
 module.exports = (h) => {
   const BL = h.a.blanc.split(' ')[0];
   const plein = t => t.replace('fill="none"', BL);
@@ -62,7 +67,7 @@ module.exports = (h) => {
     ferme([...q([147, 99], [192, 107], [237, 99]), ...onde(241, 143, 60, 1.5, 2)], plein(h.a.contour)),
     ouvert(q([170, 62], [166, 80], [171, 98]), h.a.fin),
     ouvert(q([214, 62], [219, 82], [214, 98]), h.a.fin),
-    h.fleche('M246,146 Q276,104 249,66'),
+    h.geste('M246,146 Q276,104 249,66'),
     // plié en quatre, un coin soulevé : la face du dedans n'a pas été touchée
     ferme([padA, padB, [122, 268], [26, 268]], plein(h.a.arete)),
     ferme([padB, padC, [138, 220], [122, 268]], plein(h.a.arete)),
@@ -157,7 +162,9 @@ module.exports = (h) => {
 
   const bouteille = () => [
     // la chandelle et le clou dans la flamme
-    h.rect(20, 80, 24, 64, plein(h.a.contour)),
+    h.rect(20, 80, 24, 64, h.a.blanc),
+    h.rect(36, 80, 8, 64, h.a.ombre),                     // la face de droite, à l'ombre
+    h.rect(20, 80, 24, 64, h.a.contour),
     h.ellipse(32, 80, 12, 3, plein(h.a.arete)),
     h.path('M40,82 Q42,90 40,98 Q38,102 39,106', h.a.detail),
     h.path('M32,78 Q31,74 32,70', h.a.arete),
@@ -172,7 +179,12 @@ module.exports = (h) => {
     h.cercle(110, 53, 7.5, plein(h.a.arete)),
     h.cercle(110, 53, 2.5, h.a.detail),
     // le bouchon percé
-    h.path('M216,48 L216,64 A22,8 0 0 0 260,64 L260,48 Z', plein(h.a.contour)),
+    h.path('M216,48 L216,64 A22,8 0 0 0 260,64 L260,48 Z', h.a.blanc),
+    (() => {                                              // le tiers de droite du flanc, à l'ombre
+      const e = x => Math.sqrt(Math.max(0, 1 - Math.pow((x - 238) / 22, 2))) * 8, xs = Array.from({ length: 9 }, (_, i) => 246 + i * 14 / 8);
+      return ferme([...xs.map(x => [x, 48 + e(x)]), ...xs.slice().reverse().map(x => [x, 64 + e(x)])], h.a.ombre);
+    })(),
+    h.path('M216,48 L216,64 A22,8 0 0 0 260,64 L260,48 Z', h.a.contour),
     ...Array.from({ length: 9 }, (_, i) => {
       const x = 220 + i * 4.5, e = Math.sqrt(Math.max(0, 1 - Math.pow((x - 238) / 22, 2))) * 8;
       return h.ligne(r1(x), r1(48 + e + 1.5), r1(x), r1(64 + e - 1), h.a.fin);
@@ -188,8 +200,8 @@ module.exports = (h) => {
     ferme([T(-11, 10), T(11, 10), T(11, 13.5), T(-11, 13.5)], plein(h.a.arete)),
     ferme([T(-9, 0), T(9, 0), T(9, 10), T(-9, 10)], plein(h.a.arete)),
     ...[-6, -3, 0, 3, 6].map(x => ouvert([T(x, 1.5), T(x, 8.5)], h.a.fin)),
-    h.fleche(`M${f(T(48, 90))} L${f(T(27, 90))}`),
-    h.fleche(`M${f(T(-48, 90))} L${f(T(-27, 90))}`),
+    h.geste(`M${f(T(48, 90))} L${f(T(27, 90))}`),
+    h.geste(`M${f(T(-48, 90))} L${f(T(-27, 90))}`),
     h.path(`M${f(J0)} Q${f(JC)} ${f(J1)}`, h.a.arete),
     h.ellipse(33, 287, 1.8, 2.4, h.a.plein),
     h.ellipse(45, 290, 1.5, 2, h.a.plein),

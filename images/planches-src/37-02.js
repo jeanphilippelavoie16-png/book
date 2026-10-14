@@ -2,6 +2,9 @@
 // Cotes : une seule, « une main » (le jeu entre la tôle et le dessous des barres, étape 6). Le chapitre
 // ne donne aucune mesure de la cage : les proportions suivent un baril de 205 L (ch. 83) et des pierres
 // de 10 à 15 cm (étape 13), sans rien imprimer d'autre.
+// La charte : de côté, la pile du fond, derrière le baril, en gris loin ; la face de droite du tuyau
+// à l'ombre. Le rouge : le dessus du baril sous la cage, le point à
+// regarder à chaque saison (celui de l'encadré danger).
 module.exports = (h) => {
   const A = h.a;
   const W = at => at.replace('fill="none"', 'fill="#FFFFFF"');
@@ -153,7 +156,7 @@ module.exports = (h) => {
       const cells = k % 2 === 0 ? [120, 130, 130, 120] : [170, 160, 170];
       let al = pileL[0];
       cells.forEach((w, i) => {
-        o.push(pierre(X(al + w / 2), Y(hb + ht / 2), (w / 2 - 5) * s, (ht / 2 - 4) * s, 300 + k * 10 + i, 5, 0.05, W(A.fin)));   // arrière-plan : trait fin
+        o.push(pierre(X(al + w / 2), Y(hb + ht / 2), (w / 2 - 5) * s, (ht / 2 - 4) * s, 300 + k * 10 + i, 5, 0.05, A.fin.replace('fill="none"', 'fill="#E6E6E6"')));   // arrière-plan : gris loin, trait fin
         al += w;
       });
       hb += ht;
@@ -161,6 +164,7 @@ module.exports = (h) => {
     // les pattes
     for (const al of [-390, 390]) o.push(h.rect(X(al) - 3.5, Y(hBas + 20), 7, (hBas + 20 - hSable) * s + 1, W(A.arete)), h.ligne(X(al), Y(hBas + 20), X(al), Y(hSable), A.fin));
     // le baril : coque, cerceaux de roulement, bourrelets
+    // (pas d'ombre sur le dessous : une bande grise dans ce rectangle se lit comme un niveau d'eau)
     o.push(h.rect(X(-L2), Y(hHaut), 2 * L2 * s, 2 * R * s, W(A.contour)));
     for (const al of [-150, 150]) {
       o.push(h.path(`M${f(X(al) - 5)} ${f(Y(hHaut))} Q${f(X(al))} ${f(Y(hHaut) - 4)} ${f(X(al) + 5)} ${f(Y(hHaut))}`, A.arete));
@@ -174,6 +178,8 @@ module.exports = (h) => {
     o.push(h.rect(X(-L2) - 6, Y(hC + 30) - 1.5, 6, 3, A.plein));
     // le tuyau, en haut au bout opposé, avec son collet
     const t1 = X(tuyau.al - tuyau.r), t2 = X(tuyau.al + tuyau.r);
+    const tm = t1 + (t2 - t1) * 0.65;                    // la face de droite du tuyau, à l'ombre
+    o.push(h.chemin([[tm, 10], [t2, 5.4], [t2, Y(hHaut) - 3], [tm, Y(hHaut) - 3]], A.ombre, true));
     o.push(h.ligne(t1, 3, t1, Y(hHaut) - 3, A.contour), h.ligne(t2, 3, t2, Y(hHaut) - 3, A.contour));
     o.push(h.ligne(t1 - 2, Y(hHaut), t1 - 2, Y(hHaut) - 4, A.arete), h.ligne(t2 + 2, Y(hHaut), t2 + 2, Y(hHaut) - 4, A.arete));
     o.push(casse(t1, t2, 5));
@@ -190,6 +196,8 @@ module.exports = (h) => {
     const xc = X(-L2 - 45);
     o.push(h.ligne(X(-L2) - 2, Y(hHaut), xc - 4, Y(hHaut), A.fin), h.ligne(X(barres[0]) - 3, Y(hPile), xc - 4, Y(hPile), A.fin));
     o.push(h.cote(xc, Y(hPile), xc, Y(hHaut), 'une main', { cote: 'gauche' }));
+    // le point à contrôler : le dessus du baril, sous la cage, là où l'eau des pierres le ronge
+    o.push(h.controle(X(-170), Y((hHaut + hPile) / 2), 14));
     return o.join('\n');
   };
 

@@ -1,4 +1,8 @@
 // Planche 10-03 — l'alambic de fortune (chapitre 13, « L'alambic de fortune »).
+//
+// La charte : le dedans de la marmite, au-dessus de l'eau, vu par la coupe, en gris loin ; le
+// bol reste blanc, c'est lui qu'on regarde. Le rouge : un seul point à contrôler, le point bas
+// du couvercle à l'aplomb du bol. Pas de geste : les flèches de vapeur restent noires.
 module.exports = (h) => {
   const blancArete = h.a.arete.replace('fill="none"', 'fill="#ffffff"');
   const halo = 'fill="none" stroke="#ffffff" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"';
@@ -35,6 +39,8 @@ module.exports = (h) => {
         dessin: z => [
           ...sol(40, 306),
           ...feu(173, 1),
+          // le dedans de la marmite, sous le couvercle et au-dessus de l'eau
+          h.path('M95,62 L96,62 Q173,98 250,62 L251,62 L251,148 L95,148 Z', h.a.loin),
           // l'eau qui bout doucement
           h.rect(96.2, 148, 153.6, 32.8, h.a.hachure('eau', 'aucun')),
           h.ligne(95, 148, 251, 148, h.a.arete),
@@ -44,6 +50,7 @@ module.exports = (h) => {
           h.ligne(173, 128, 173, 181, h.a.detail),
           h.ligne(158, 128, 146, 181, h.a.arete), h.ligne(188, 128, 200, 181, h.a.arete),
           h.ligne(152, 128, 194, 128, h.a.arete),
+          h.path('M146,106 Q148,126 162,126 L184,126 Q198,126 200,106 Z', h.a.blanc),
           h.path('M148.5,117 L197.5,117 Q196.5,126 184,126 L162,126 Q149.5,126 148.5,117 Z', h.a.hachure('eau', 'aucun')),
           h.ligne(148.5, 117, 197.5, 117, h.a.detail),
           h.path('M146,106 Q148,126 162,126 L184,126 Q198,126 200,106', h.a.arete),
@@ -63,6 +70,8 @@ module.exports = (h) => {
           // le trajet de la vapeur
           h.fleche('M118,142 C112,130 124,118 118,106 C112,94 114,80 126,77 L150,83', h.a.cache),
           h.fleche('M228,142 C234,130 222,118 228,106 C234,94 232,80 220,77 L196,83', h.a.cache),
+          // le point bas, à l'aplomb du bol
+          h.controle(173, 95, 13),
         ].join('\n'),
         renvois: z => [
           { n: 1, rond: [312, 126], cible: [198.5, 114], texte: 'bol sur trépied, au-dessus de l’eau' },
@@ -86,7 +95,8 @@ module.exports = (h) => {
           return [
             ...sol(4, 227),
             ...feu(56, 0.51),
-            // la marmite, couvercle à l'endroit
+            // la marmite, couvercle à l'endroit ; le dedans, au-dessus de l'eau
+            h.path('M16,118 L17,118 Q56,96 95,118 L96,118 L96,152 L16,152 Z', h.a.loin),
             h.rect(17, 152, 78, 29, h.a.hachure('eau', 'aucun')),
             h.ligne(16, 152, 96, 152, h.a.arete),
             h.chemin([[16, 118], [16, 182], [96, 182], [96, 118]], h.a.contour),

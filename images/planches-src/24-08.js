@@ -10,6 +10,10 @@
 // Unités : millimètres de jambe d'adulte. x le long de la jambe (0 au milieu de la rotule, vers le
 // pied positif) ; h la hauteur au-dessus du sol ; v vers le dehors (vue de dessus) ; u vers le
 // dedans (coupes). Aucune cote : le chapitre ne donne aucune mesure.
+//
+// La charte : les perches sont l'objet, contour fort et face du dessous à l'ombre (lumière en haut
+// à gauche) dans les deux vues ; rien de gris sur la jambe, ni sur les coupes hachurées. Deux
+// cercles de contrôle dans la vue de côté : la rotule libre, et les orteils qu'on surveille.
 module.exports = (h) => {
   const f = v => Math.round(v * 10) / 10;
   const blanc = at => at.replace('fill="none"', 'fill="#FFFFFF"');
@@ -89,7 +93,10 @@ module.exports = (h) => {
       out.push(h.chemin(lisse([[404, 50], [410, 62], [421, 66], [431, 59]]).map(([x, y]) => P(x, y)), h.a.detail));
       out.push(h.chemin(lisse([[533, 238], [546, 228], [560, 229]]).map(([x, y]) => P(x, y)), h.a.fin));
       // la perche du dehors (celle du dedans est cachée derrière la jambe), son écorce
-      out.push(h.chemin([P(X0, PC(X0) + R), P(X1, PC(X1) + R), P(X1, PC(X1) - R), P(X0, PC(X0) - R)], blanc(h.a.contour), true));
+      const perche = [P(X0, PC(X0) + R), P(X1, PC(X1) + R), P(X1, PC(X1) - R), P(X0, PC(X0) - R)];
+      out.push(h.chemin(perche, h.a.blanc, true));
+      out.push(h.chemin([P(X0, PC(X0) - 0.3 * R), P(X1, PC(X1) - 0.3 * R), P(X1, PC(X1) - R), P(X0, PC(X0) - R)], h.a.ombre, true));   // le dessous, à l'ombre
+      out.push(h.chemin(perche, h.a.contour, true));
       [[-200, -80, 0.4], [80, 240, -0.35], [-60, 20, 0.3]].forEach(([a, b, k]) =>
         out.push(h.chemin([P(a, PC(a) + k * R), P((a + b) / 2, PC((a + b) / 2) + k * R - 1.2), P(b, PC(b) + k * R)], h.a.fin)));
       out.push(h.ellipse(X(-120), Y(PC(-120) + 5), 6, 4, h.a.detail), h.ellipse(X(200), Y(PC(200) - 6), 6, 4, h.a.detail));
@@ -115,6 +122,8 @@ module.exports = (h) => {
         const bout = (dx, lg) => `<path d="M${f(kx - 3 * s)} ${f(ky + 5 * s)} Q${f(kx + dx * 0.4 * s)} ${f(ky + lg * 0.5 * s)} ${f(kx + dx * s)} ${f(ky + lg * s)} L${f(kx + (dx + 6) * s)} ${f(ky + (lg - 1) * s)} Q${f(kx + (dx * 0.4 + 6) * s)} ${f(ky + lg * 0.5 * s)} ${f(kx + 3 * s)} ${f(ky + 5 * s)} Z" fill="#1A1A1A" stroke="none"/>`;
         out.push(bout(-14, 30), bout(-2, 34));
       });
+      // ce qu'on vérifie : la rotule, libre de tout lien ; les orteils, à découvert
+      out.push(h.controle(X(0), Y(124), 15), h.controle(X(552), Y(236), 15));
       return out.join('\n');
     },
     renvois: z => {
@@ -160,7 +169,10 @@ module.exports = (h) => {
       // les deux perches et leur écorce
       [[EL, 1], [EM, -1]].forEach(([E, sg]) => {
         const c = x => sg * (E(x) + R);
-        out.push(h.chemin([P(X0, c(X0) + R), P(X1, c(X1) + R), P(X1, c(X1) - R), P(X0, c(X0) - R)], blanc(h.a.contour), true));
+        const perche = [P(X0, c(X0) + R), P(X1, c(X1) + R), P(X1, c(X1) - R), P(X0, c(X0) - R)];
+        out.push(h.chemin(perche, h.a.blanc, true));
+        out.push(h.chemin([P(X0, c(X0) - 0.3 * R), P(X1, c(X1) - 0.3 * R), P(X1, c(X1) - R), P(X0, c(X0) - R)], h.a.ombre, true));   // le dessous, à l'ombre
+        out.push(h.chemin(perche, h.a.contour, true));
         [[-200, -90, 0.4], [80, 240, -0.3]].forEach(([a, b, k]) =>
           out.push(h.chemin([P(a, c(a) + k * R), P((a + b) / 2, c((a + b) / 2) + k * R + 1), P(b, c(b) + k * R)], h.a.fin)));
         out.push(h.ellipse(X(sg > 0 ? -120 : 180), V(c(sg > 0 ? -120 : 180) - 5), 6, 4, h.a.detail));

@@ -21,6 +21,7 @@
 //   bosses()  les ajouts seuls (talon, pont, carène, coussinets), pour qui veut les poser sur sa propre paume.
 //   objetDeVue(objet, sq, M, outils)  l'objet tenu coupé dans le trou du poing, de profil (voir plus bas).
 //   presentation(pose, vue, sq)  la petite rotation qui montre les doigts repliés d'un poing de profil.
+//   raccords(sq, vue, M)  les arrondis rentrants à la racine d'un doigt tendu devant des doigts repliés.
 //   loin    { vue: [pièces] } : ce qui est gris de profil quelle que soit la pose (à fusionner avec pose.loin) :
 //           vu côté auriculaire, le pouce est de l'autre côté de la paume ; ce qui en dépasse est le côté loin,
 //           comme le bras loin des corps.
@@ -176,6 +177,9 @@ function paume() {
 const DOIGTS = ['index', 'majeur', 'annulaire', 'auriculaire'];
 function objetDeVue(objet, sq, M, outils = {}) {
   if (!objet || objet.type === 'plan' || objet.type === 'sphere' || !objet.centre || !objet.axe || !sq || !sq.segments) return null;
+  // un fil, une aiguille, une ficelle (moins de 8 mm) ne se coupe pas : vu par le bout, il reste un point net,
+  // et coupé il sortait en petit rectangle (agent 5, P5)
+  if (objet.type === 'fil' || (objet.diametre || 32) < 8) return null;
   const dep = p => M[2][0] * p[0] + M[2][1] * p[1] + M[2][2] * p[2];
   const A = objet.axe, dA = dep(A);
   // l'objet ne se coupe que s'il vient vraiment vers l'œil (à moins de 45° de l'axe de vue) : à 0,35 (70°), une
@@ -244,5 +248,29 @@ function presentation(pose, vue, sq) {
   return [vue === 'pouce' ? rx : -rx, 0, 0];
 }
 
-module.exports = { profil, objetDeVue, presentation, loin: { auriculaire: ['pouce'] }, bosses: () => bosses((() => { try { return require('./moteur'); } catch (e) { return null; } })()), tables: { INDEX, K, POUCE, AVANTBRAS, DOS_PAUME, FACE_PAUME, TALON, PONT, COUSSINET } };
+// ─── les raccords de profil : le coin à la racine d'un doigt tendu ──────────────────────────────────────────
+// L'index tendu devant les doigts repliés (pointe, deux-doigts, appui de l'index) : vu de côté, le dessous de
+// l'index et le dos du majeur replié se rencontrent à angle droit, un coin net (agent 5, P4). La peau de la
+// palmure y fait un arrondi. raccords(sq, vue, M) → [{ c: [x, y] (mm, repère de la vue), zone, r }] : le moteur
+// ferme la silhouette de r mm (un arrondi rentrant) dans le disque de rayon zone autour de c, comme il le fait
+// au poignet. Une entrée par paire de doigts voisins dont l'un est tendu (mcp + ipp < 40°) et l'autre replié
+// (mcp + ipp ≥ 140°) ; rien hors des vues de profil.
+function raccords(sq, vue, M) {
+  if ((vue !== 'pouce' && vue !== 'auriculaire') || !sq || !sq.segments) return [];
+  const k = (sq.age && sq.age.kW) || 1;
+  const pl = d => { const a = sq.segments[d + '.p1'], b = sq.segments[d + '.p2']; return a && b ? (a.flex || 0) + (b.flex || 0) : null; };
+  const pr = p => [M[0][0] * p[0] + M[0][1] * p[1] + M[0][2] * p[2], M[1][0] * p[0] + M[1][1] * p[1] + M[1][2] * p[2]];
+  const out = [];
+  for (let i = 0; i < DOIGTS.length - 1; i++) for (const [t, r] of [[DOIGTS[i], DOIGTS[i + 1]], [DOIGTS[i + 1], DOIGTS[i]]]) {
+    const ft = pl(t), fr = pl(r);
+    if (ft === null || fr === null || ft >= 40 || fr < 140) continue;
+    const S = sq.segments[t + '.p1'];
+    // le coin : sous la racine du doigt tendu, côté paume, un peu en avant de la jointure
+    const c = [0, 1, 2].map(j => S.de[j] - S.n[j] * 10 * k + S.u[j] * 6 * k);
+    out.push({ c: pr(c), zone: 22 * k, r: 7 * k });
+  }
+  return out;
+}
+
+module.exports = { profil, objetDeVue, presentation, raccords, loin: { auriculaire: ['pouce'] }, bosses: () => bosses((() => { try { return require('./moteur'); } catch (e) { return null; } })()), tables: { INDEX, K, POUCE, AVANTBRAS, DOS_PAUME, FACE_PAUME, TALON, PONT, COUSSINET } };
 Object.defineProperty(module.exports, 'paume', { enumerable: true, get: paume });

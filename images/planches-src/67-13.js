@@ -1,5 +1,9 @@
 // Planche 67-13 — tirer le sel du fleuve (chapitre 62, « Tirer du sel du fleuve » et
 // « Récupérer et réparer au lieu de racheter »).
+// La charte : les contenants au contour fort ; la chaudière qui verse a son flanc du dessous à
+// l'ombre et son intérieur en gris loin ; en coupe, les poteaux et les piquets au-delà en gris loin.
+// Le rouge : la croûte qu'on sort, la saumure qu'on reverse au sommet, les cristaux qu'on cueille.
+// Le vent, l'eau et le morceau qu'on porte aux bûches restent en noir.
 module.exports = (h) => {
   const blanc = a => a.replace('fill="none"', 'fill="#ffffff"');
   const arBlanc = blanc(h.a.arete);
@@ -35,9 +39,14 @@ module.exports = (h) => {
     const cul = tourne([[-b / 2 + 0.4, H - 4], [b / 2 - 0.4, H - 4]], cx, cy, a);
     const oreilles = tourne([[-w / 2 + 3, 7], [w / 2 - 3, 7]], cx, cy, a);
     const gueule = tourne(Array.from({ length: 24 }, (_, i) => [w / 2 * Math.cos(i * Math.PI / 12), 3.2 * Math.sin(i * Math.PI / 12)]), cx, cy, a);
+    // le flanc du dessous, à l'ombre (le côté +x local, tourné vers le bas)
+    const flanc = tourne([[w * 0.16, 0], [w / 2, 0], [b / 2, H], [b * 0.16, H]], cx, cy, a);
     return [
-      h.chemin(corps, coBlanc, true),
-      h.chemin(gueule, arBlanc, true),
+      h.chemin(corps, h.a.blanc, true),
+      h.chemin(flanc, h.a.ombre, true),
+      h.chemin(corps, h.a.contour, true),
+      // l'intérieur, vu par la gueule
+      h.chemin(gueule, h.a.loin, true), h.chemin(gueule, h.a.arete, true),
       h.chemin(bord, h.a.detail), h.chemin(cul, h.a.detail),
       ...oreilles.map(([x, y]) => h.cercle(x, y, 1.6, h.a.detail)),
     ];
@@ -152,7 +161,7 @@ module.exports = (h) => {
             h.ligne(46, 81.5, 50, 85.5, h.a.fin), h.ligne(64, 81, 67, 86, h.a.fin),
             h.ligne(172, 81.5, 176, 85.5, h.a.fin), h.ligne(203, 81, 206, 86, h.a.fin),
             // le morceau sorti
-            h.fleche('M124,76 L124,52', h.a.arete),
+            h.geste('M124,76 L124,52'),
             ...dalle(116, 38, -10, 58, 9),
             goutte(96, 50), goutte(99, 58, 0.85),
             h.fleche('M152,24 C196,6 250,14 276,62', h.a.arete),
@@ -178,10 +187,8 @@ module.exports = (h) => {
           graine = 11;
           return [
             ...sol(8, 223, SOL2, 8),
-            // les poteaux du toit, au-delà de la coupe
-            h.rect(33, 48, 6, SOL2 - 48, arBlanc), h.rect(193, 48, 6, SOL2 - 48, arBlanc),
-            // les piquets du mur, au-delà
-            h.rect(90, 62, 6, SOL2 - 62, arBlanc), h.rect(136, 62, 6, SOL2 - 62, arBlanc),
+            // les poteaux du toit, au-delà de la coupe : en gris loin
+            ...[[33, 48], [193, 48], [90, 62], [136, 62]].flatMap(([x, y]) => [h.rect(x, y, 6, SOL2 - y, h.a.loin), h.rect(x, y, 6, SOL2 - y, h.a.arete)]),
             // le toit à deux versants
             h.chemin([[22, 52], [116, 4], [210, 52], [210, 57], [116, 9], [22, 57]], h.a.hachure('bois', 'contour'), true),
             // le mur de branches coupé en travers
@@ -239,7 +246,7 @@ module.exports = (h) => {
           return [
             ...sol(2, 344, SOL2, 8),
             // le toit : le versant de devant, et sa rive
-            h.rect(4, 4, 338, 48, arBlanc), ...planches,
+            h.rect(4, 4, 338, 48, coBlanc), ...planches,
             h.rect(4, 52, 338, 5, arBlanc),
             // les poteaux du toit
             h.rect(8, 57, 6, SOL2 - 57, arBlanc), h.rect(332, 57, 6, SOL2 - 57, arBlanc),
@@ -259,7 +266,7 @@ module.exports = (h) => {
               h.path(`M46,${y - 1} L52,${y + 9} M52,${y - 1} L46,${y + 9} M294,${y - 1} L300,${y + 9} M300,${y - 1} L294,${y + 9}`, h.a.detail),
             ]),
             // on reprend l'auge et on reverse au sommet
-            h.fleche('M304,160 C318,142 318,86 300,68', h.a.cache),
+            h.geste('M304,160 C318,142 318,86 300,68'),
           ].join('\n');
         },
         renvois: z => [
@@ -292,7 +299,7 @@ module.exports = (h) => {
             h.path('M182,62 L210,62 Q196,72 182,62 Z', arBlanc),
             h.cercle(190, 65, 0.6, h.a.plein), h.cercle(196, 66.5, 0.6, h.a.plein), h.cercle(202, 65, 0.6, h.a.plein),
             cristal(187, 58.5), cristal(191, 58), cristal(195, 58.5), cristal(199, 58), cristal(203, 58.5), cristal(193, 54.5), cristal(197.5, 54.5),
-            h.fleche('M214,54 C236,34 262,32 282,46', h.a.arete),
+            h.geste('M214,54 C236,34 262,32 282,46'),
             // la toile tendue sur son chevalet, au-dessus d'un bol
             h.ligne(266, 56, 260, G, h.a.arete), h.ligne(330, 56, 336, G, h.a.arete),
             h.ligne(262, 56, 334, 56, h.a.arete),

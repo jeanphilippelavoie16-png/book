@@ -7,6 +7,7 @@
 <pattern id="h-eau" width="16" height="7" patternUnits="userSpaceOnUse"><line x1="1" y1="2" x2="8" y2="2" stroke="#1A1A1A" stroke-width="0.5"/><line x1="9" y1="5.5" x2="15" y2="5.5" stroke="#1A1A1A" stroke-width="0.5"/></pattern>
 <pattern id="h-neige" width="8" height="8" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="0.7" fill="#1A1A1A" stroke="none"/><circle cx="6" cy="6" r="0.7" fill="#1A1A1A" stroke="none"/></pattern>
 <marker id="fl" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#1A1A1A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker>
+<marker id="fl-r" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9 Z" fill="#9B2C1E" stroke="#9B2C1E" stroke-width="1" stroke-linejoin="round"/></marker>
 </defs>
 <rect x="0" y="0" width="680" height="826" fill="#FFFFFF"/>
 <text x="40" y="38" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#1A1A1A">Le milieu, puis les deux encoches</text>
@@ -26,7 +27,8 @@
 <line x1="300" y1="78" x2="550" y2="78" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="5 3"/>
 <line x1="50" y1="34" x2="50" y2="78" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="2 2.5"/>
 <line x1="550" y1="34" x2="550" y2="78" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="2 2.5"/>
-<path d="M 180.0 71.0 Q 300.0 59.0 420.0 71.0" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl)"/>
+<path d="M 180.0 71.0 Q 300.0 59.0 420.0 71.0" fill="none" stroke="#9B2C1E" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl-r)"/>
+<circle cx="300" cy="29" r="13" fill="none" stroke="#9B2C1E" stroke-width="1.6"/>
 </g>
 <text x="40" y="171.3" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#1A1A1A">Le fléau taré à vide</text>
 <g transform="translate(40 179.3)" data-vue="vide">
@@ -53,7 +55,7 @@
 <line x1="45" y1="45" x2="44.2" y2="49" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
 <line x1="173" y1="45" x2="172.2" y2="49" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
 <line x1="301" y1="45" x2="300.2" y2="49" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
-<ellipse cx="45" cy="138" rx="38" ry="11.4" fill="#FFFFFF" stroke="none"/>
+<ellipse cx="45" cy="138" rx="38" ry="11.4" fill="#E6E6E6" stroke="none"/>
 <ellipse cx="45" cy="138" rx="38" ry="11.4" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 
 <path d="M 7.0 138.0 A 38.0 11.4 0 0 0 83.0 138.0 L 75.4 153.0 A 30.4 9.1 0 0 1 14.6 153.0 Z" fill="#FFFFFF" stroke="none"/>
@@ -74,7 +76,7 @@
 <line x1="67.6" y1="144.9" x2="70.2" y2="149.3" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
 <line x1="75.6" y1="142.2" x2="78.2" y2="146.6" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M 7.0 138.0 A 38.0 11.4 0 0 0 83.0 138.0 L 75.4 153.0 A 30.4 9.1 0 0 1 14.6 153.0 Z" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
-<ellipse cx="301" cy="138" rx="31" ry="9.3" fill="#FFFFFF" stroke="none"/>
+<ellipse cx="301" cy="138" rx="31" ry="9.3" fill="#E6E6E6" stroke="none"/>
 <ellipse cx="301" cy="138" rx="31" ry="9.3" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M305.4 146.4 L306.4 140.4 L309.3 136.4 L315.1 137.2 L318.4 141.9 L317.9 146.4 Z" fill="#FFFFFF" stroke="none"/>
 <path d="M305.4 146.4 L306.4 140.4 L309.3 136.4 L315.1 137.2 L318.4 141.9 L317.9 146.4 Z" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
@@ -122,7 +124,7 @@
 <line x1="35.5" y1="44.4" x2="34.7" y2="48" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
 <line x1="115.5" y1="44.4" x2="114.7" y2="48" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
 <line x1="195.5" y1="44.4" x2="194.7" y2="48" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
-<ellipse cx="35.5" cy="116" rx="29" ry="8.7" fill="#FFFFFF" stroke="none"/>
+<ellipse cx="35.5" cy="116" rx="29" ry="8.7" fill="#E6E6E6" stroke="none"/>
 <ellipse cx="35.5" cy="116" rx="29" ry="8.7" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M24.5 123.8 L23.5 116.2 L29.3 108.2 L36.6 106.8 L43.4 110.2 L47.5 117.9 L46.5 123.8 Z" fill="#FFFFFF" stroke="none"/>
 <path d="M 36.6 106.8 L 34.4 116.2 L 30.7 122.1" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
@@ -146,7 +148,7 @@
 <line x1="52.5" y1="120.8" x2="55.1" y2="125.2" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
 <line x1="58.6" y1="118.7" x2="61.2" y2="123.1" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M 6.5 116.0 A 29.0 8.7 0 0 0 64.5 116.0 L 58.7 128.0 A 23.2 7.0 0 0 1 12.3 128.0 Z" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
-<ellipse cx="195.5" cy="116" rx="24" ry="7.2" fill="#FFFFFF" stroke="none"/>
+<ellipse cx="195.5" cy="116" rx="24" ry="7.2" fill="#E6E6E6" stroke="none"/>
 <ellipse cx="195.5" cy="116" rx="24" ry="7.2" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M 204.5 110.5 L 178.5 110.5 A 3.6 6.0 0 0 0 178.5 122.5 L 204.5 122.5 Z" fill="#FFFFFF" stroke="none"/>
 <path d="M 204.5 110.5 L 178.5 110.5 A 3.6 6.0 0 0 0 178.5 122.5 L 204.5 122.5" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
@@ -177,6 +179,7 @@
 <path d="M 171.5 116.0 A 24.0 7.2 0 0 0 219.5 116.0 L 214.7 126.0 A 19.2 5.8 0 0 1 176.3 126.0 Z" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M 37.5 152.0 Q 115.5 136.0 193.5 152.0" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl)"/>
 <path d="M 193.5 164.0 Q 115.5 180.0 37.5 164.0" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl)"/>
+<circle cx="115.5" cy="43" r="12" fill="none" stroke="#9B2C1E" stroke-width="1.6"/>
 </g>
 <text x="40" y="405.4" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#1A1A1A">La deuxième part de sucre</text>
 <g transform="translate(40 413.4)" data-vue="part">
@@ -203,7 +206,7 @@
 <line x1="44" y1="41" x2="43.2" y2="45" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
 <line x1="148" y1="41" x2="147.2" y2="45" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
 <line x1="252" y1="41" x2="251.2" y2="45" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
-<ellipse cx="44" cy="180" rx="36" ry="10.8" fill="#FFFFFF" stroke="none"/>
+<ellipse cx="44" cy="180" rx="36" ry="10.8" fill="#E6E6E6" stroke="none"/>
 <ellipse cx="44" cy="180" rx="36" ry="10.8" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M 33.2 136.5 L 33.2 143.0 Q 29.0 143.0 29.0 149.0 L 29.0 182.3 A 15.0 4.2 0 0 0 59.0 182.3 L 59.0 149.0 Q 59.0 143.0 54.8 143.0 L 54.8 136.5 Z" fill="#FFFFFF" stroke="none"/>
 <path d="M 30.6 162.3 A 13.4 4.2 0 0 1 57.4 162.3 L 57.4 182.3 A 13.4 4.2 0 0 1 30.6 182.3 Z" fill="url(#h-eau)" stroke="none"/>
@@ -233,7 +236,7 @@
 <line x1="65.4" y1="186.4" x2="68" y2="190.8" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
 <line x1="72.9" y1="183.9" x2="75.5" y2="188.3" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M 8.0 180.0 A 36.0 10.8 0 0 0 80.0 180.0 L 72.8 191.0 A 28.8 8.6 0 0 1 15.2 191.0 Z" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
-<ellipse cx="252" cy="180" rx="31" ry="9.3" fill="#FFFFFF" stroke="none"/>
+<ellipse cx="252" cy="180" rx="31" ry="9.3" fill="#E6E6E6" stroke="none"/>
 <ellipse cx="252" cy="180" rx="31" ry="9.3" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M 238.2 135.6 L 238.2 142.1 Q 234.0 142.1 234.0 148.1 L 234.0 181.4 A 15.0 4.2 0 0 0 264.0 181.4 L 264.0 148.1 Q 264.0 142.1 259.8 142.1 L 259.8 135.6 Z" fill="#FFFFFF" stroke="none"/>
 <path d="M 235.6 159.6 Q 249.0 153.1 262.4 159.6 L 262.4 181.4 A 13.4 4.2 0 0 1 235.6 181.4 Z" fill="url(#h-neige)" stroke="none"/>
@@ -300,7 +303,7 @@
 </g>
 <text x="408.8" y="405.4" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#1A1A1A">Les deux parts dans l’infusion</text>
 <g transform="translate(408.8 413.4)" data-vue="suite">
-<rect x="14" y="213" width="203" height="40" fill="#FFFFFF" stroke="none"/>
+<rect x="14" y="213" width="203" height="40" fill="#E6E6E6" stroke="none"/>
 <path d="M 14.0 253.0 L 14.0 213.0 L 217.0 213.0 L 217.0 253.0" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <rect x="58" y="223" width="104" height="30" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
 <rect x="64" y="229" width="92" height="24" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
@@ -313,6 +316,7 @@
 <ellipse cx="98" cy="163" rx="50" ry="13" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <ellipse cx="98" cy="171" rx="48" ry="12" fill="url(#h-eau)" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round"/>
 <path d="M 48.0 163.0 A 50.0 13.0 0 0 0 148.0 163.0 L 148.0 190.0 A 50.0 13.0 0 0 1 48.0 190.0 Z" fill="#FFFFFF" stroke="none"/>
+<path d="M 125.5 173.9 A 50.0 13.0 0 0 0 148.0 163.0 L 148.0 190.0 A 50.0 13.0 0 0 1 125.5 200.9 Z" fill="#CFCFCF" stroke="none"/>
 <path d="M 48.0 163.0 A 50.0 13.0 0 0 0 148.0 163.0 L 148.0 190.0 A 50.0 13.0 0 0 1 48.0 190.0 Z" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M 48.0 163.0 A 50.0 13.0 0 0 0 148.0 163.0" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <circle cx="134.5" cy="133.5" r="1" fill="#1A1A1A" stroke="none"/>

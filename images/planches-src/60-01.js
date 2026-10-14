@@ -11,7 +11,7 @@ module.exports = (h) => {
     const d = `M ${p(0.5, 0)} Q ${p(0.12, -0.24)} ${p(-0.3, -0.07)} L ${p(-0.5, -0.2)} L ${p(-0.41, 0)} ` +
       `L ${p(-0.5, 0.2)} L ${p(-0.3, 0.07)} Q ${p(0.12, 0.24)} ${p(0.5, 0)} Z`;
     const [ox, oy] = p(0.3, -0.03).split(' ').map(Number);
-    return h.path(d, 'fill="#fff" stroke="#000" stroke-width="1.4" stroke-linejoin="round"') + '\n' +
+    return h.path(d, 'fill="#fff" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round"') + '\n' +
       h.cercle(ox, oy, 1.3, h.a.plein);
   };
 
@@ -36,6 +36,8 @@ module.exports = (h) => {
     const out = [];
     const haut = [0, 1, 2, 3, 4, 5, 6].map(i => [X(i), y0 - R(i)]).concat([[xp, y0 - rp]]);
     const bas = haut.map(([x, y]) => [x, 2 * y0 - y]);
+    // la charte : l'intérieur de la nappe, vu par la coupe, en gris loin (peint d'abord)
+    out.push(h.chemin([...haut, ...bas.slice().reverse()], h.a.loin, true));
     // cerceaux : l'arrière vu par la coupe, puis la section du bois
     for (let i = 0; i <= 6; i++) out.push(h.ligne(X(i), y0 - R(i), X(i), y0 + R(i), h.a.detail));
     // entonnoirs, leur pointe, et les brins qui tiennent la pointe au cerceau suivant
@@ -108,6 +110,8 @@ module.exports = (h) => {
       const a = k * Math.PI / 8;
       rad += `M ${f(cx + (R - 4) * Math.cos(a))} ${f(cy + (R - 4) * Math.sin(a))} L ${f(cx + rt * Math.cos(a))} ${f(cy + rt * Math.sin(a))} `;
     }
+    // la charte : par le bout de l'entonnoir, la chambre d'avant, en gris loin
+    out.push(h.cercle(cx, cy, rt, h.a.loin));
     out.push(h.path(rad.trim(), h.a.detail));
     out.push(h.cercle(cx, cy, rt, h.a.arete));
     out.push(h.cercle(cx, cy, R - 4, h.a.arete));
@@ -164,7 +168,7 @@ module.exports = (h) => {
     // les pierres qui ferment les creux de la roche sous le pied
     for (const [cx, w] of [[r0 + rw * 0.21, 0.16], [r0 + rw * 0.6, 0.18], [r0 + rw * 0.4, 0.1], [r0 + rw * 0.77, 0.1]]) {
       const yb = yFond(cx), yh = hb - 14;
-      out.push(h.ellipse(cx, (yb + yh) / 2, rw * w / 2 + 3, (yb - yh) / 2 + 1, 'fill="#fff" stroke="#000" stroke-width="1.4"'));
+      out.push(h.ellipse(cx, (yb + yh) / 2, rw * w / 2 + 3, (yb - yh) / 2 + 1, 'fill="#fff" stroke="#1A1A1A" stroke-width="1.4"'));
     }
     // lest sur le pied meuble
     for (let x = x1 + 22; x < x2 + 10; x += 30) out.push(h.ellipse(x, yFond(x) - 3, 4.5, 3, h.a.plein));
@@ -179,6 +183,8 @@ module.exports = (h) => {
     let d = `M 0 ${ys}`;
     for (let x = 0; x < z.l; x += 16) d += ` q 4 -2.5 8 0 t 8 0`;
     out.push(h.path(d, h.a.detail));
+    // la charte : le point à contrôler, le pied collé au fond (sinon le poisson passe dessous)
+    out.push(h.controle(x2 * 0.5, hb - 3.5, 12));
     return out.join('\n');
   };
   const aileRenvois = z => {
@@ -230,7 +236,7 @@ module.exports = (h) => {
     out.push(h.chemin([[xan - 10, ya - 5], [xan - 2, ya - 9], [xan + 9, ya - 6], [xan + 11, ya + 3], [xan + 3, ya + 9], [xan - 8, ya + 6]], h.a.hachure('pierre', 'arete'), true));
     const bx = xan - 4, by = ya - 38;
     out.push(h.ligne(xan, ya - 8, bx, by + 7, h.a.detail));
-    out.push(h.cercle(bx, by, 7, 'fill="#fff" stroke="#000" stroke-width="2.4"'));
+    out.push(h.cercle(bx, by, 7, 'fill="#fff" stroke="#1A1A1A" stroke-width="2.4"'));
     out.push(h.cercle(bx, by, 2.5, h.a.plein));
     // le chemin du poisson : il longe la rive, bute sur l'aile, la suit jusqu'à l'entrée
     const along = t => [w1[0] + t * (pA[0] - w1[0]), w1[1] + t * (pA[1] - w1[1]) + 9];

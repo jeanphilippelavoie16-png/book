@@ -1,4 +1,9 @@
 // Planche 10-07 — le filtre à sable en baril (chapitre 13, « Le filtre à sable »).
+//
+// La charte : le haut vide du baril et de la chaudière, au-dessus de l'eau, vus par la coupe,
+// en gris loin ; les couches restent en trame, sans gris. Le rouge : la bouche du boyau, plus
+// haute que le sable, cerclée (plus bas, le lit s'assèche et le film meurt) ; le sens de la
+// gratte. Les flèches d'eau et le « on recommence » restent noirs.
 module.exports = (h) => {
   const blancArete = h.a.arete.replace('fill="none"', 'fill="#ffffff"');
   const halo = 'fill="none" stroke="#ffffff" stroke-width="5" stroke-linecap="round"';
@@ -116,6 +121,8 @@ module.exports = (h) => {
   const coupe = z => [
     ...sol(8, 338, 294),
     ...baton(102, 134, 276.5, 17.5), ...baton(190, 222, 276.5, 17.5),
+    // le haut vide du baril, vu par la coupe
+    h.rect(X0, 72, X1 - X0, 26, h.a.loin),
     // l'eau au-dessus du sable
     h.rect(X0, 98, X1 - X0, 42, h.a.hachure('eau', 'aucun')),
     h.ligne(92, 98, 232, 98, h.a.arete),
@@ -145,6 +152,8 @@ module.exports = (h) => {
     // le boyau : il sort au bas, remonte plus haut que le sable, puis redescend au seau
     ...boyau('M230,266 L240,266 Q246,266 246,259 L246,124 Q246,116 254,116 L292,116 Q300,116 300,124 L300,128'),
     goutte(300, 137), goutte(300, 149),
+    // la bouche du boyau, plus haute que le sable
+    h.controle(300, 126, 11),
     h.fleche('M300,158 L300,202', h.a.cache),
     // le seau de charbon, sur deux bâtons en travers de la chaudière
     h.rect(273.5, 268, 61, 24, h.a.hachure('eau', 'aucun')),
@@ -169,7 +178,8 @@ module.exports = (h) => {
   const seauC = [[55, 90], [175, 90], [163, 197], [67, 197]];
   const charbonVue = z => [
     ...sol(8, 223, 294),
-    // la chaudière, et l'eau clarifiée qui s'y ramasse
+    // la chaudière, et l'eau clarifiée qui s'y ramasse ; le dedans, au-dessus de l'eau
+    h.chemin([[48, 206], [182, 206], [177.8, 252], [52.2, 252]], h.a.loin, true),
     h.rect(52.8, 252, 124.4, 40, h.a.hachure('eau', 'aucun')),
     h.ligne(52.6, 252, 177.4, 252, h.a.detail),
     h.chemin([[48, 206], [56, 293.5], [174, 293.5], [182, 206]], h.a.contour),
@@ -233,7 +243,7 @@ module.exports = (h) => {
     h.path('M75,93 Q82,88 92,86 L96,88 Q86,90 77,96 Z', h.a.plein),
     h.path('M70,102 L112,102 Q120,102 120,94 L120,78 L154,44', h.a.contour),
     h.path('M70,102 L75.5,98.5 L112,98.5 Q116.5,98.5 116.5,94 L116.5,80', h.a.contour),
-    h.fleche('M62,62 L24,62', h.a.arete),
+    h.geste('M62,62 L24,62'),
     // coupures du dessin
     h.path('M16,180 L60,180 L64,175 L70,185 L74,180 L204,180', h.a.fin),
     h.path('M204,102 L204,136 L199,140 L209,146 L204,150 L204,180', h.a.fin),

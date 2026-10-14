@@ -81,7 +81,8 @@ module.exports = (h) => {
     out.push(F.corde(fil, { ep: Math.max(3, 0.017 * L), debut: 'ouvert', fin: 'ouvert', trait: 'detail', torons: true }));
     // retourner l'aiguille sur son long, puis refaire le tour sur l'autre face
     const tx = cx - L / 2 - 9;
-    out.push(h.fleche(`M ${P(tx + 3, cy - 0.085 * L)} C ${P(tx - 12, cy - 0.06 * L)} ${P(tx - 12, cy + 0.06 * L)} ${P(tx + 3, cy + 0.085 * L)}`, h.a.arete));
+    // la charte : le geste (retourner l'aiguille) en rouge
+    out.push(h.geste(`M ${P(tx + 3, cy - 0.085 * L)} C ${P(tx - 12, cy - 0.06 * L)} ${P(tx - 12, cy + 0.06 * L)} ${P(tx + 3, cy + 0.085 * L)}`));
     return out.join('\n');
   };
   const vueChargerR = z => {
@@ -152,7 +153,9 @@ module.exports = (h) => {
       fl = [[70, -26], [100, -50]];
     }
     const Fp = fil.map(T);
-    const aiguille = aig ? aiguilleTalon(...g.V(...aig.t), aig.deg, aig.L * e) : '';
+    let aiguille = aig ? String(aiguilleTalon(...g.V(...aig.t), aig.deg, aig.L * e)) : '';
+    // la charte : l'aiguille qui passe derrière les deux brins recule, en gris loin
+    if (aig && aig.derriere) aiguille = aiguille.split('fill="#FFFFFF"').join('fill="#E6E6E6"');
     if (aig && aig.derriere) out.push(aiguille, halo(U, ep + 5));
     out.push(F.cordes([
       { pts: U, ep, debut: 'ouvert', fin: 'ouvert' },
@@ -160,7 +163,10 @@ module.exports = (h) => {
     ]));
     out.push(moule(z, g));
     if (aig && !aig.derriere) out.push(aiguille);
-    if (fl) out.push(h.fleche(`M ${P(...g.V(...fl[0]))} L ${P(...g.V(...fl[1]))}`, h.a.arete));
+    // la charte : le geste de l'aiguille en rouge ; en 3, le point qui casse sur un raté (sous son
+    // propre fil, sinon pas de nœud)
+    if (fl) out.push(h.geste(`M ${P(...g.V(...fl[0]))} L ${P(...g.V(...fl[1]))}`));
+    if (etape === 3) out.push(h.controle(...g.V(-3, -24), 13));
     return out.join('\n');
   };
   const noeudR = etape => z => {

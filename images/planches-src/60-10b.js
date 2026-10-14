@@ -117,8 +117,10 @@ module.exports = (h) => {
       [xs - 3.4, yg + 3], [cx - 1.5, yg - 3.5]], VIEUX));
     out.push(h.rect(xs, yg, tm, gw, h.a.hachure('bois', 'contour')));
     out.push(noeud(cx, yg - 3.5, 3));
-    // le sens du travail
-    out.push(h.fleche(`M ${P(X(kc + 1.6), yg + gw * 0.5)} L ${P(X(kc + 2.8), yg + gw * 0.5)}`, h.a.arete));
+    // la charte : le sens du travail, le geste, en rouge ; le point à contrôler, le nœud assis sur
+    // le bord du haut du moule (c'est le moule qui fait la maille)
+    out.push(h.geste(`M ${P(X(kc + 1.6), yg + gw * 0.5)} L ${P(X(kc + 2.8), yg + gw * 0.5)}`));
+    out.push(h.controle(X(kc - 1), yg, 10));
     return out.join('\n');
   };
   const vueRangR = z => {

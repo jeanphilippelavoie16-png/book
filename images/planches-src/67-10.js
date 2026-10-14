@@ -2,6 +2,8 @@
 // une barre pendue près d'un bout, la pièce au bout court, un contrepoids qui coulisse sur
 // le bout long ; graduée une fois avec des bidons d'eau pleins (4 L = 4 kg), entailles
 // chiffrées au couteau.
+// La charte : la perche et les masses au contour fort ; le quartier et le gros caillou ont leur face
+// à l'ombre en bas à droite. Un seul rouge : le caillou qu'on fait coulisser.
 module.exports = (h) => {
   // Courbe fermée lissée passant par des points (Catmull-Rom)
   const lisse = (p, k = 0.35) => {
@@ -15,10 +17,19 @@ module.exports = (h) => {
     }
     return d + ' Z';
   };
-  const forme = (d, trait = h.a.arete) => h.path(d, h.a.blanc) + '\n' + h.path(d, trait);
+  // La charte : une forme ronde a sa face à l'ombre en bas à droite (lumière en haut à gauche) :
+  // l'aplat gris est la forme, moins la même forme décalée vers le haut à gauche.
+  let nOmbre = 0;
+  const forme = (d, trait = h.a.arete, dDecale = null) => {
+    if (!dDecale) return h.path(d, h.a.blanc) + '\n' + h.path(d, trait);
+    const id = `om-67-10-${++nOmbre}`;
+    return [h.path(d, h.a.blanc), `<clipPath id="${id}">${h.path(d, h.a.blanc)}</clipPath>`,
+      `<g clip-path="url(#${id})">`, h.path(d, h.a.ombre), h.path(dDecale, h.a.blanc), '</g>', h.path(d, trait)].join('\n');
+  };
   // un caillou irrégulier centré en (cx, cy), demi-largeurs rx, ry
   const CAILLOU = [[-1, -0.1], [-0.82, -0.72], [-0.3, -1], [0.35, -0.94], [0.9, -0.55], [1, 0.12], [0.7, 0.82], [0, 1], [-0.72, 0.8]];
-  const caillou = (cx, cy, rx, ry, trait) => forme(lisse(CAILLOU.map(([u, v]) => [cx + u * rx, cy + v * ry]), 0.4), trait);
+  const caillou = (cx, cy, rx, ry, trait, ombre = false) => forme(lisse(CAILLOU.map(([u, v]) => [cx + u * rx, cy + v * ry]), 0.4), trait,
+    ombre ? lisse(CAILLOU.map(([u, v]) => [cx - rx * 0.16 + u * rx, cy - ry * 0.2 + v * ry]), 0.4) : null);
 
   // La perche vue de côté : dessus de niveau, entailles en V sur le dessus, dessous qui s'effile.
   // encoches : [[x, demi-ouverture, profondeur], …]
@@ -127,7 +138,7 @@ module.exports = (h) => {
           const Q = [[-7, 0], [5, -4], [10, 4], [10, 0.2 * hq], [20, 0.36 * hq], [32, 0.55 * hq], [36, 0.72 * hq],
             [30, 0.9 * hq], [12, hq], [-10, 0.98 * hq], [-26, 0.86 * hq], [-30, 0.66 * hq], [-20, 0.44 * hq], [-8, 0.26 * hq]];
           const qx = g.lx + 6;
-          o.push(forme(lisse(Q.map(([u, v]) => [qx + u, top + v]), 0.3), h.a.contour));
+          o.push(forme(lisse(Q.map(([u, v]) => [qx + u, top + v]), 0.3), h.a.contour, lisse(Q.map(([u, v]) => [qx + u - 9, top + v - 6]), 0.3)));
           // os du jarret, sillons entre les muscles, face de coupe
           o.push(h.ellipse(qx + 1, top + 9, 3, 2, h.a.detail));
           o.push(h.path(`M ${qx + 4} ${top + 0.3 * hq} Q ${qx + 2} ${top + 0.55 * hq} ${qx + 14} ${top + 0.85 * hq}`, h.a.detail));
@@ -140,9 +151,8 @@ module.exports = (h) => {
           o.push(caillou(g.cx, g.y + 38, 17, 14, h.a.contour));
           o.push(h.path(`M ${g.cx - 1} ${g.y + 24} Q ${g.cx + 5} ${g.y + 38} ${g.cx} ${g.y + 52}`, h.a.detail));
           o.push(h.path(`M ${g.cx - 17} ${g.y + 36} Q ${g.cx} ${g.y + 41} ${g.cx + 17} ${g.y + 36}`, h.a.detail));
-          // il coulisse
-          o.push(h.fleche(`M ${g.cx + 12} ${g.y - 10} L ${g.cx + 52} ${g.y - 10}`));
-          o.push(h.fleche(`M ${g.cx - 12} ${g.y - 10} L ${g.cx - 52} ${g.y - 10}`));
+          // le geste : on fait coulisser le caillou jusqu'à l'équilibre
+          o.push(h.geste(`M ${g.cx - 52} ${g.y - 10} L ${g.cx + 52} ${g.y - 10}`, { double: true }));
           return o.join('\n');
         },
         renvois: (z) => {
@@ -210,7 +220,7 @@ module.exports = (h) => {
           o.push(bande(cx, y + 7, 72, 5));
           // caillou lié en croix
           const cy = 98, rx = 42, ry = 25;
-          o.push(caillou(cx, cy, rx, ry, h.a.contour));
+          o.push(caillou(cx, cy, rx, ry, h.a.contour, true));
           o.push(h.path(`M ${cx - 2} ${cy - ry + 1} Q ${cx + 9} ${cy} ${cx - 1} ${cy + ry - 0.5}`, h.a.arete));
           o.push(h.path(`M ${cx + 2} ${cy - ry + 1} Q ${cx + 13} ${cy} ${cx + 3} ${cy + ry - 0.5}`, h.a.arete));
           o.push(h.path(`M ${cx - rx + 1} ${cy - 3} Q ${cx} ${cy + 5} ${cx + rx - 1} ${cy - 2}`, h.a.arete));

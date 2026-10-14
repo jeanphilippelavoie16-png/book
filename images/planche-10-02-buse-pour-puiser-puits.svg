@@ -6,6 +6,7 @@
 <pattern id="h-terre" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="5.5" stroke="#1A1A1A" stroke-width="0.7"/><line x1="4.5" y1="4.5" x2="4.5" y2="9" stroke="#1A1A1A" stroke-width="0.5"/></pattern>
 <pattern id="h-eau" width="16" height="7" patternUnits="userSpaceOnUse"><line x1="1" y1="2" x2="8" y2="2" stroke="#1A1A1A" stroke-width="0.5"/><line x1="9" y1="5.5" x2="15" y2="5.5" stroke="#1A1A1A" stroke-width="0.5"/></pattern>
 <marker id="fl" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#1A1A1A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker>
+<marker id="fl-r" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9 Z" fill="#9B2C1E" stroke="#9B2C1E" stroke-width="1" stroke-linejoin="round"/></marker>
 </defs>
 <rect x="0" y="0" width="680" height="826" fill="#FFFFFF"/>
 <text x="40" y="38" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#1A1A1A">Dans le puits, en coupe</text>
@@ -17,6 +18,8 @@
 <path d="M208 94 L346 120" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M0 156.8 L3 157.8 L6 158.7 L9 159.3 L12 159.7 L15 159.8 L18 159.5 L21 159 L24 158.2 L27 157.2 L30 156.2 L33 155.3 L36 154.5 L39 154 L42 153.8 L45 153.9 L48 154.4 L51 155.1 L54 156 L57 157 L60 157.9 L63 158.8 L66 159.4 L69 159.7 L72 159.8 L75 159.5 L78 158.9 L81 158 L84 157.1 L87 156.1 L90 155.2 L93 154.4 L96 154 L99 153.8 L102 154 L105 154.5 L108 155.2 L111 156.1 L114 157.1 L117 158.1 L120 158.9 L123 159.5 L126 159.8 L129 159.7 L132 159.4 L135 158.8 L138 157.9 L141 156.9 L144 155.9 L147 155 L150 154.3 L153 153.9 L156 153.8 L159 154 L162 154.5 L165 155.3 L168 156.3 L171 157.2 L174 158.2 L177 159 L180 159.5 L183 159.8 L186 159.7 L189 159.3 L192 158.6 L195 157.8 L198 156.8 L201 155.8 L204 154.9 L207 154.3 L210 153.9 L213 153.8 L216 154.1 L219 154.6 L222 155.5 L225 156.4 L228 157.4 L231 158.3 L234 159.1 L237 159.6 L240 159.8 L243 159.7 L246 159.2 L249 158.5 L252 157.6 L255 156.6 L258 155.7 L261 154.8 L264 154.2 L267 153.8 L270 153.8 L273 154.2 L276 154.8 L279 155.6 L282 156.6 L285 157.5 L288 158.5 L291 159.2 L294 159.6 L297 159.8 L300 159.6 L303 159.1 L306 158.4 L309 157.5 L312 156.5 L315 155.5 L318 154.7 L321 154.1 L324 153.8 L327 153.9 L330 154.2 L333 154.9 L336 155.7 L339 156.7 L342 157.7 L345 158.6" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M0 172.8 L3 173.8 L6 174.7 L9 175.3 L12 175.7 L15 175.8 L18 175.5 L21 175 L24 174.2 L27 173.2 L30 172.2 L33 171.3 L36 170.5 L39 170 L42 169.8 L45 169.9 L48 170.4 L51 171.1 L54 172 L57 173 L60 173.9 L63 174.8 L66 175.4 L69 175.7 L72 175.8 L75 175.5 L78 174.9 L81 174 L84 173.1 L87 172.1 L90 171.2 L93 170.4 L96 170 L99 169.8 L102 170 L105 170.5 L108 171.2 L111 172.1 L114 173.1 L117 174.1 L120 174.9 L123 175.5 L126 175.8 L129 175.7 L132 175.4 L135 174.8 L138 173.9 L141 172.9 L144 171.9 L147 171 L150 170.3 L153 169.9 L156 169.8 L159 170 L162 170.5 L165 171.3 L168 172.3 L171 173.2 L174 174.2 L177 175 L180 175.5 L183 175.8 L186 175.7 L189 175.3 L192 174.6 L195 173.8 L198 172.8 L201 171.8 L204 170.9 L207 170.3 L210 169.9 L213 169.8 L216 170.1 L219 170.6 L222 171.5 L225 172.4 L228 173.4 L231 174.3 L234 175.1 L237 175.6 L240 175.8 L243 175.7 L246 175.2 L249 174.5 L252 173.6 L255 172.6 L258 171.7 L261 170.8 L264 170.2 L267 169.8 L270 169.8 L273 170.2 L276 170.8 L279 171.6 L282 172.6 L285 173.5 L288 174.5 L291 175.2 L294 175.6 L297 175.8 L300 175.6 L303 175.1 L306 174.4 L309 173.5 L312 172.5 L315 171.5 L318 170.7 L321 170.1 L324 169.8 L327 169.9 L330 170.2 L333 170.9 L336 171.7 L339 172.7 L342 173.7 L345 174.6" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="143" y="64" width="60" height="92.8" fill="#E6E6E6" stroke="none"/>
+<rect x="143" y="172.8" width="60" height="74.2" fill="#E6E6E6" stroke="none"/>
 <rect x="143" y="247" width="60" height="133" fill="url(#h-eau)" stroke="none"/>
 <line x1="143" y1="247" x2="165" y2="247" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <line x1="181" y1="247" x2="203" y2="247" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
@@ -51,6 +54,8 @@
 <g transform="translate(408.8 46)" data-vue="buse">
 <rect x="82" y="66" width="30" height="106.5" fill="#FFFFFF" stroke="none"/>
 <rect x="82" y="188.5" width="30" height="155.5" fill="#FFFFFF" stroke="none"/>
+<path d="M104 66 L112 66 L112 172.5 L111.3 173.1 L110.6 173.6 L109.9 174.1 L109.2 174.4 L108.5 174.7 L107.8 174.9 L107.1 175 L106.3 175.1 L105.6 175.1 L104.8 175 L104 174.9 Z" fill="#CFCFCF" stroke="none"/>
+<path d="M104 190.9 L104.8 191 L105.6 191.1 L106.3 191.1 L107.1 191 L107.8 190.9 L108.5 190.7 L109.2 190.4 L109.9 190.1 L110.6 189.6 L111.3 189.1 L112 188.5 L112 344 L104 344 Z" fill="#CFCFCF" stroke="none"/>
 <line x1="85" y1="66" x2="85" y2="172.5" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="5 3.5"/>
 <line x1="109" y1="66" x2="109" y2="172.5" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="5 3.5"/>
 <line x1="85" y1="188.5" x2="85" y2="322" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="5 3.5"/>
@@ -65,6 +70,7 @@
 <line x1="97" y1="8" x2="97" y2="40" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M91 78 L97 40 L103 94" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <circle cx="97" cy="40" r="3.2" fill="#1A1A1A" stroke="none"/>
+<circle cx="97" cy="86" r="16" fill="none" stroke="#9B2C1E" stroke-width="1.6"/>
 <line x1="82" y1="348" x2="82" y2="370" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
 <line x1="112" y1="348" x2="112" y2="370" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
 <line x1="82" y1="364" x2="112" y2="364" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
@@ -88,7 +94,7 @@
 <rect x="72.8" y="98.5" width="10" height="3" fill="#1A1A1A" stroke="none"/>
 <path d="M71.8 105.5 L89.8 105.5 L112.7 86.2 L110.2 83.2 L88.3 101.5 L71.8 101.5 Z" fill="#1A1A1A" stroke="none"/>
 <path d="M101.75000000000001,159.5 L101.75000000000001,113.5 Q101.75000000000001,101.5 115.75000000000001,99.5 Q129.75,97.5 129.75,61.5" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl)"/>
-<path d="M36.750000000000014,24 L36.750000000000014,84" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl)"/>
+<path d="M36.750000000000014,24 L36.750000000000014,84" fill="none" stroke="#9B2C1E" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl-r)"/>
 </g>
 <text x="247.3" y="474" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#1A1A1A">Clapet à la remontée</text>
 <g transform="translate(247.3 482)" data-vue="remontee">
@@ -100,7 +106,7 @@
 <rect x="76.3" y="101.5" width="3" height="17" fill="#1A1A1A" stroke="none"/>
 <rect x="72.8" y="98.5" width="10" height="3" fill="#1A1A1A" stroke="none"/>
 <rect x="71.8" y="101.5" width="48" height="4" fill="#1A1A1A" stroke="none"/>
-<path d="M36.750000000000014,84 L36.750000000000014,24" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl)"/>
+<path d="M36.750000000000014,84 L36.750000000000014,24" fill="none" stroke="#9B2C1E" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl-r)"/>
 </g>
 <text x="454.7" y="474" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#1A1A1A">Clapet vu de dessus</text>
 <g transform="translate(454.7 482)" data-vue="dessus">

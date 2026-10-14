@@ -3,6 +3,11 @@
 // tuyau rigide de 1,5 à 2 m, clapet au bas, corde en haut ; clapet = carré de chambre à air
 // vissé d'un seul côté au-dessus d'un trou percé dans un bouchon ; tubage de 150 mm ;
 // tuyau de 40 mm ; corde enroulée sur un bâton ; tout ce qui descend attaché deux fois.
+//
+// La charte : le dedans du tubage, au-dessus de l'eau, vu par la coupe, en gris loin ; la face
+// de droite de la buse à l'ombre. Le rouge : descendre et remonter la buse (le geste, un par
+// vue) ; la corde attachée deux fois, cerclée — ce qui tombe au fond y reste. La flèche de
+// l'eau qui entre reste noire.
 module.exports = (h) => {
   const BLANC_ARETE = h.a.arete.replace('fill="none"', 'fill="#FFFFFF"');
   const BLANC_CONTOUR = h.a.contour.replace('fill="none"', 'fill="#FFFFFF"');
@@ -40,11 +45,11 @@ module.exports = (h) => {
       // l'eau entre par le trou et passe sous le carré
       out.push(h.fleche(`M${cx},${yP + 30} L${cx},${yb + 8} Q${cx},${yb - 4} ${cx + 14},${yb - 6} Q${cx + 28},${yb - 8} ${cx + 28},${yb - 44}`));
       // la buse descend
-      out.push(h.fleche(`M${xoL - 20},${24} L${xoL - 20},${84}`));
+      out.push(h.geste(`M${xoL - 20},${24} L${xoL - 20},${84}`));
     } else {
       out.push(h.rect(cx - 30, yb - 4, 48, 4, h.a.plein));
       // la buse remonte
-      out.push(h.fleche(`M${xoL - 20},${84} L${xoL - 20},${24}`));
+      out.push(h.geste(`M${xoL - 20},${84} L${xoL - 20},${24}`));
     }
     return { out, cx, xiL, xiR, yP, yb };
   };
@@ -79,6 +84,9 @@ module.exports = (h) => {
           // lignes de coupure
           o.push(h.chemin(onde(0, L, yB1), h.a.detail));
           o.push(h.chemin(onde(0, L, yB2), h.a.detail));
+          // le dedans du tubage, au-dessus de l'eau
+          o.push(h.rect(xiL, yT, 2 * ri, yB1 - yT, h.a.loin));
+          o.push(h.rect(xiL, yB2, 2 * ri, yW - yB2, h.a.loin));
           // eau dans le tubage
           o.push(h.rect(xiL, yW, 2 * ri, yF - yW, h.a.hachure('eau', 'aucun')));
           o.push(h.ligne(xiL, yW, bxL, yW, h.a.arete));
@@ -128,6 +136,20 @@ module.exports = (h) => {
           const o = [];
           o.push(h.rect(xL, yTop, 30, yB1 - yTop, h.a.blanc));
           o.push(h.rect(xL, yB2, 30, yBot - yB2, h.a.blanc));
+          // la face de droite, à l'ombre, arrêtée sur la coupure
+          const coupure = y0 => {
+            const p = [];
+            for (let i = 0; i <= 40; i++) {
+              const t = i / 40, u = 1 - t;
+              const x = u * u * u * xL + 3 * u * u * t * (bx - 6) + 3 * u * t * t * (bx + 6) + t * t * t * xR;
+              const y = u * u * u * y0 + 3 * u * u * t * (y0 - 9) + 3 * u * t * t * (y0 + 9) + t * t * t * y0;
+              if (x >= xR - 8) p.push([x, y]);
+            }
+            return p;
+          };
+          const c1 = coupure(yB1), c2 = coupure(yB2);
+          o.push(h.chemin([[xR - 8, yTop], [xR, yTop], ...c1.slice().reverse()], h.a.ombre, true));
+          o.push(h.chemin([...c2, [xR, yBot], [xR - 8, yBot]], h.a.ombre, true));
           // parois vues, parois intérieures cachées
           o.push(h.ligne(xL + 3, yTop, xL + 3, yB1, h.a.cache));
           o.push(h.ligne(xR - 3, yTop, xR - 3, yB1, h.a.cache));
@@ -146,6 +168,8 @@ module.exports = (h) => {
           o.push(h.ligne(bx, 8, bx, yTop - 26, h.a.arete));
           o.push(h.chemin([[bx - 6, yTop + 12], [bx, yTop - 26], [bx + 6, yTop + 28]], h.a.arete));
           o.push(h.cercle(bx, yTop - 26, 3.2, h.a.plein));
+          // attachée deux fois : ce qui tombe au fond y reste
+          o.push(h.controle(bx, yTop + 20, 16));
           // cotes
           o.push(h.ligne(xL, yBot + 4, xL, yBot + 26, h.a.fin));
           o.push(h.ligne(xR, yBot + 4, xR, yBot + 26, h.a.fin));

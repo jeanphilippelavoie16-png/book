@@ -60,6 +60,8 @@
 <path d="M497 178 L509 178 L509 45" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
 <rect x="106" y="57" width="388" height="10" fill="url(#h-bois)" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round"/>
 <path d="M 246.0 57.0 C 226.5 54.9 239.4 47.5 240.0 43.0 C 240.6 38.5 244.6 30.9 250.0 27.0 C 255.4 23.1 267.9 19.4 276.0 17.0 C 284.1 14.6 294.4 11.2 304.0 11.0 C 313.6 10.8 330.7 13.6 340.0 16.0 C 349.3 18.4 360.6 22.6 366.0 27.0 C 371.4 31.4 375.4 40.5 376.0 45.0 C 376.6 49.5 389.5 55.2 370.0 57.0 C 350.5 58.8 265.5 59.1 246.0 57.0 Z" fill="#FFFFFF" stroke="none"/>
+<clipPath id="om-68-06-pierre"><path d="M 246.0 57.0 C 226.5 54.9 239.4 47.5 240.0 43.0 C 240.6 38.5 244.6 30.9 250.0 27.0 C 255.4 23.1 267.9 19.4 276.0 17.0 C 284.1 14.6 294.4 11.2 304.0 11.0 C 313.6 10.8 330.7 13.6 340.0 16.0 C 349.3 18.4 360.6 22.6 366.0 27.0 C 371.4 31.4 375.4 40.5 376.0 45.0 C 376.6 49.5 389.5 55.2 370.0 57.0 C 350.5 58.8 265.5 59.1 246.0 57.0 Z" fill="#FFFFFF" stroke="none"/></clipPath>
+<g clip-path="url(#om-68-06-pierre)"><path d="M332 37 L366 27 L400 15 L400 59 L340 59 L340 57 Z" fill="#CFCFCF" stroke="none"/></g>
 <path d="M 246.0 57.0 C 226.5 54.9 239.4 47.5 240.0 43.0 C 240.6 38.5 244.6 30.9 250.0 27.0 C 255.4 23.1 267.9 19.4 276.0 17.0 C 284.1 14.6 294.4 11.2 304.0 11.0 C 313.6 10.8 330.7 13.6 340.0 16.0 C 349.3 18.4 360.6 22.6 366.0 27.0 C 371.4 31.4 375.4 40.5 376.0 45.0 C 376.6 49.5 389.5 55.2 370.0 57.0 C 350.5 58.8 265.5 59.1 246.0 57.0 Z" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M 250 27 L 280 33 L 304 11" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M 280 33 L 332 37 L 366 27" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
@@ -72,6 +74,7 @@
 <circle cx="318" cy="23" r="0.8" fill="#1A1A1A" stroke="none"/>
 <circle cx="346" cy="25" r="0.8" fill="#1A1A1A" stroke="none"/>
 <circle cx="298" cy="25" r="0.8" fill="#1A1A1A" stroke="none"/>
+<circle cx="237" cy="95" r="13" fill="none" stroke="#9B2C1E" stroke-width="1.6"/>
 </g>
 <line x1="94" y1="87" x2="130" y2="87" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
 <line x1="94" y1="87" x2="130" y2="87" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>

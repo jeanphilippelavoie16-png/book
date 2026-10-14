@@ -5,6 +5,9 @@
 // coupé) et étape 6 (le jarret avant au coude : ouvrir la face arrière, plier pour faire bâiller
 // le joint). Aucun chiffre : le chapitre n'en donne pas pour ce geste. La hanche n'est pas dans
 // ce chapitre (quartier arrière, ch. 63) : elle n'est pas dessinée.
+// La charte : la cage vidée en gris loin (pas de gris sur les os hachurés) ; le rouge sur la patte
+// qu'on écarte, la lame qui descend le long de l'humérus, la patte qu'on plie, et le cercle du point
+// où la coupe s'arrête, sous la bosse du garrot.
 module.exports = (h) => {
   const B = h.a.blanc.match(/fill="([^"]+)"/)[1];
   const blanc = t => h.a[t].replace('fill="none"', `fill="${B}"`);
@@ -132,6 +135,9 @@ module.exports = (h) => {
 
     // le gril costal (un U d'os coupé) et le sternum
     const riboL = ribO.map(p => [-p[0], p[1]]), ribiL = ribI.map(p => [-p[0], p[1]]);
+    // la cage vidée, vue par la coupe : en gris loin, peinte avant les os (elle s'arrête sous la vertèbre)
+    const sousVert = [[-16, 172], [-12, 181], [-5, 186], [5, 186], [12, 181], [16, 172]];
+    out.push(h.path(trace([...ribI, ...ribiL.slice().reverse(), ...sousVert].map(V), true), h.a.loin));
     const bande = [...ribO, ...riboL.slice(0, -1).reverse(), ...ribiL, ...ribI.slice(0, -1).reverse()];
     out.push(h.path(trace(bande.map(V), true), h.a.hachure('bois')));
     // la vertèbre et son épine, qui fait la bosse
@@ -192,7 +198,10 @@ module.exports = (h) => {
     // la patte écartée : la flèche suit la rotation autour de la pointe de l'omoplate
     const pj = rot([136, 440], PIV, ECART), rr = Math.hypot(pj[0] - PIV[0], pj[1] - PIV[1]) + 18;
     const th = Math.atan2(pj[1] - PIV[1], pj[0] - PIV[0]) * 180 / Math.PI;
-    out.push(h.fleche(trace(arcPts(PIV, rr, th + 3, th - 9, 16).map(V)), h.a.arete));
+    out.push(h.geste(trace(arcPts(PIV, rr, th + 3, th - 9, 16).map(V))));
+    // le point qui arrête la coupe : au-dessus de la pointe de l'omoplate, sous la bosse
+    const fc = Dt([36, 106]);
+    out.push(h.controle(fc[0], fc[1], 11));
 
     vueA.geo = { V, G, Dq, Dt, s, tip, dir, fin: [37, 106] };
     return out.join('\n');
@@ -265,7 +274,7 @@ module.exports = (h) => {
     // la lame entre à la pointe du coude, au-dessus de l'olécrâne ; la flèche : on descend jusqu'au joint
     const tipL = [16, -126];
     out.push(couteau({ pointe: M(tipL), dir: unit(tipL, [68, -114]), lame: 64 * k, larg: 13 * k, manche: 46 * k, epM: 15 * k, e: 1 }));
-    out.push(h.fleche(trace(dense([[13, -114], [10, -98], [8, -76], [7, -56], [8, -40]], 4).map(M)), h.a.cache));
+    out.push(h.geste(trace(dense([[13, -114], [10, -98], [8, -76], [7, -56], [8, -40]], 4).map(M))));
     vueB.geo = { M, k };
     return out.join('\n');
   };
@@ -306,7 +315,7 @@ module.exports = (h) => {
     // la flèche du pli
     const bout = [0, 190], rr = Math.hypot(bout[0] - FP[0], bout[1] - FP[1]) + 26;
     const a0 = Math.atan2(bout[1] - FP[1], bout[0] - FP[0]) * 180 / Math.PI;
-    out.push(h.fleche(trace(arcPts(FP, rr, a0 + 4, a0 + PLI - 4, 18).map(M)), h.a.arete));
+    out.push(h.geste(trace(arcPts(FP, rr, a0 + 4, a0 + PLI - 4, 18).map(M))));
     vueC.geo = { M, k };
     return out.join('\n');
   };

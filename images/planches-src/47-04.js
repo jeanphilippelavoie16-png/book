@@ -178,7 +178,7 @@ module.exports = (h) => {
       const t = -Math.PI / 2 + 0.12 + i / 36 * (2 * Math.PI - 0.24);
       boucle.push([r(cx + BR * Math.cos(t)), r(BY + BR * Math.sin(t))]);
     }
-    o.push(h.chemin(boucle, h.a.arete));
+    o.push(h.chemin(boucle, h.a.contour));
     o.push(fil([[cx - 1, top - 1], [cx - 12, top - 6], [g + 2, wy + 3]]));
     o.push(h.cercle(cx, top - 1, 3.4, blanc(h.a.arete)));
     o.push(h.cercle(cx, top - 1, 1.2, h.a.plein));
@@ -204,7 +204,7 @@ module.exports = (h) => {
     o.push(h.path(`M ${nuque[0]} ${nuque[1]} C 170 120 156 110 134 111 C 110 112 92 118 82 128 `
       + `L 64 135 C 60 138 60 148 63 151 L 80 156 `
       + `C 88 180 108 191 133 190 C 158 189 174 176 176 160 C 177 152 173 146 ${gorge[0]} ${gorge[1]} `
-      + `A ${HR} ${HR} 0 1 0 ${nuque[0]} ${nuque[1]} Z`, blanc(h.a.arete)));
+      + `A ${HR} ${HR} 0 1 0 ${nuque[0]} ${nuque[1]} Z`, blanc(h.a.contour)));
     // la queue noire au bout, sous les couvertures blanches
     o.push(h.path('M 70 134 L 64 135 C 60 138 60 148 63 151 L 70 153 Q 67 144 70 134 Z', h.a.plein));
     // l'aile repliée
@@ -228,7 +228,7 @@ module.exports = (h) => {
     o.push(h.chemin(demi(-1), h.a.arete));
     o.push(oiseau());
     // … puis celle d'avant, par-dessus le cou.
-    o.push(h.chemin(demi(1), h.a.arete));
+    o.push(h.chemin(demi(1), h.a.contour));
     o.push(fil([[xb, BY - BR], [xb + 1, BY - BR - 12]]));
     o.push(h.cercle(xb, BY - BR - 1, 2.6, blanc(h.a.arete)));
     o.push(tours(xb + 2, BY - BR - 18));

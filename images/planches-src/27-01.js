@@ -18,6 +18,11 @@
 //
 // Aucune mesure de tige, de dent ni de hauteur dans le chapitre : aucune cote. Le 0,4 à 0,5 mm du
 // fil est dans la légende.
+//
+// La charte : la tige est l'objet, contour fort partout où on la voit en long. Les dents du fond
+// de l'arcade (les prémolaires, de face) reculent en gris loin. Pas de gris sur la vue coupée. Le
+// rouge : la torsion en sens horaire, la torsade qu'on rabat, et le cercle sur la hauteur de la
+// tige, entre la gencive et le renflement. Le trajet du fil derrière la dent reste noir.
 
 'use strict';
 
@@ -27,6 +32,7 @@ module.exports = (h) => {
   const NOIR = '#1A1A1A';
   const BT = ep => `fill="#FFFFFF" stroke="${NOIR}" stroke-width="${ep}" stroke-linejoin="round" stroke-linecap="round"`;
   const BLANC = 'fill="#FFFFFF" stroke="none"';
+  const LOIN = ep => `fill="#E6E6E6" stroke="${NOIR}" stroke-width="${ep}" stroke-linejoin="round" stroke-linecap="round"`;
   const RAD = Math.PI / 180;
 
   // Catmull-Rom → Bézier : la courbe passe par chaque point
@@ -114,7 +120,7 @@ module.exports = (h) => {
   const faceScene = (M, S) => {
     const out = [];
     // les couronnes, du fond vers l'avant
-    for (let i = 3; i >= 0; i--) for (const d of DENTS.filter(e => e.i === i)) out.push(h.path(cr(couronne(d).map(M), true), BT(d.i === 3 ? 0.7 : 1.4)));
+    for (let i = 3; i >= 0; i--) for (const d of DENTS.filter(e => e.i === i)) out.push(h.path(cr(couronne(d).map(M), true), d.i === 3 ? LOIN(0.7) : BT(1.4)));
     // la gencive, par-dessus les collets
     const mg = marge(), g0 = mg[0], g1 = mg[mg.length - 1];
     const haut = vague(g0[0] - 0.4, g1[0] + 0.4, V_HAUT, M);
@@ -132,7 +138,7 @@ module.exports = (h) => {
     out.push(h.path(rac.join(' '), h.a.fin));
     // la tige, bouts arrondis, un reflet
     const A = M([-X_BOUT, V - R]), B = M([X_BOUT, V + R]), r = R * S;
-    out.push(h.path(`M${f(A[0] + r)} ${f(A[1])} L${f(B[0] - r)} ${f(A[1])} A${f(r)} ${f(r)} 0 0 1 ${f(B[0] - r)} ${f(B[1])} L${f(A[0] + r)} ${f(B[1])} A${f(r)} ${f(r)} 0 0 1 ${f(A[0] + r)} ${f(A[1])} Z`, BT(1.4)));
+    out.push(h.path(`M${f(A[0] + r)} ${f(A[1])} L${f(B[0] - r)} ${f(A[1])} A${f(r)} ${f(r)} 0 0 1 ${f(B[0] - r)} ${f(B[1])} L${f(A[0] + r)} ${f(B[1])} A${f(r)} ${f(r)} 0 0 1 ${f(A[0] + r)} ${f(A[1])} Z`, BT(2.4)));
     out.push(h.path(`M${f(A[0] + r)} ${f(A[1] + 0.3 * r)} L${f(B[0] - r)} ${f(A[1] + 0.3 * r)}`, h.a.fin));
     return out.join('\n');
   };
@@ -215,7 +221,7 @@ module.exports = (h) => {
     }
     // la tige, bouts arrondis
     const bordL = tigeDessus(-S_BOUT, S_BOUT, -1).map(M), bordP = tigeDessus(-S_BOUT, S_BOUT, 1).map(M), r = R * S;
-    out.push(h.path(ligneD(bordL) + ` A${f(r)} ${f(r)} 0 0 0 ${bordP[bordP.length - 1].map(f).join(' ')} ` + bordP.slice().reverse().map(p => `L${f(p[0])} ${f(p[1])}`).join(' ') + ` A${f(r)} ${f(r)} 0 0 0 ${bordL[0].map(f).join(' ')} Z`, BT(1.4)));
+    out.push(h.path(ligneD(bordL) + ` A${f(r)} ${f(r)} 0 0 0 ${bordP[bordP.length - 1].map(f).join(' ')} ` + bordP.slice().reverse().map(p => `L${f(p[0])} ${f(p[1])}`).join(' ') + ` A${f(r)} ${f(r)} 0 0 0 ${bordL[0].map(f).join(' ')} Z`, BT(2.4)));
     // les ligatures
     const brins = [], sous = [], tors = [];
     for (const d of ATT) {
@@ -232,7 +238,7 @@ module.exports = (h) => {
     for (const [s0, s1] of sous) {
       const L = tigeDessus(s0, s1, -1).map(M), P = tigeDessus(s0, s1, 1).map(M);
       out.push(h.path(ligneD([...L, ...P.slice().reverse()]) + ' Z', `fill="#FFFFFF" stroke="#FFFFFF" stroke-width="2.4" stroke-linejoin="round"`));
-      out.push(h.path(ligneD(L), h.a.arete), h.path(ligneD(P), h.a.arete));
+      out.push(h.path(ligneD(L), h.a.contour), h.path(ligneD(P), h.a.contour));
     }
     for (const t of tors) out.push(h.cercle(t[0], t[1], 0.62 * S, BT(1.4)));
     // la pointe mousse qui retient le fil derrière la centrale de droite pendant qu'on tord
@@ -331,6 +337,9 @@ module.exports = (h) => {
             out.push(h.ligne(a[0], a[1], b[0], b[1], `fill="none" stroke="${NOIR}" stroke-width="1.4" stroke-dasharray="9 2.5 1.5 2.5"`));
             out.push(h.fleche(`M${f(b[0] - k * 5)} ${f(b[1])} L${f(b[0] - k * 5)} ${f(b[1] + 16)}`, h.a.detail));
           }
+          // ce qu'on vérifie : la hauteur de la tige, entre la gencive et le renflement de la dent
+          const lc = DENTS.find(d => d.sg < 0 && d.i === 2), ct = M([lc.xc - 0.3 * lc.W, V]);
+          out.push(h.controle(ct[0], ct[1], 15));
           return out.join('\n');
         },
         renvois: z => {
@@ -414,7 +423,7 @@ module.exports = (h) => {
           // le sens : celui des aiguilles d'une montre
           const rr = 2.3 * S, a0 = 200 * RAD, a1 = 470 * RAD;
           const p0 = [c[0] + rr * Math.cos(a0), c[1] + rr * Math.sin(a0)], p1 = [c[0] + rr * Math.cos(a1), c[1] + rr * Math.sin(a1)];
-          out.push(h.fleche(`M${f(p0[0])} ${f(p0[1])} A${f(rr)} ${f(rr)} 0 1 1 ${f(p1[0])} ${f(p1[1])}`, h.a.arete));
+          out.push(h.geste(`M${f(p0[0])} ${f(p0[1])} A${f(rr)} ${f(rr)} 0 1 1 ${f(p1[0])} ${f(p1[1])}`));
           return clip('gros-plan-b', z, out.join('\n'));
         },
         renvois: z => {
@@ -453,7 +462,7 @@ module.exports = (h) => {
           // le geste : on la rabat
           const rr = 3.6, a0 = 172 * RAD, a1 = 98 * RAD;
           const q0 = M([O_P[0] + rr * Math.cos(a0), O_P[1] + rr * Math.sin(a0)]), q1 = M([O_P[0] + rr * Math.cos(a1), O_P[1] + rr * Math.sin(a1)]);
-          out.push(h.fleche(`M${f(q0[0])} ${f(q0[1])} A${f(rr * S)} ${f(rr * S)} 0 0 0 ${f(q1[0])} ${f(q1[1])}`, h.a.arete));
+          out.push(h.geste(`M${f(q0[0])} ${f(q0[1])} A${f(rr * S)} ${f(rr * S)} 0 0 0 ${f(q1[0])} ${f(q1[1])}`));
           return out.join('\n');
         },
         renvois: z => {

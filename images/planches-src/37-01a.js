@@ -10,6 +10,10 @@
 // porte de la pièce chaude.
 // Cotes : ≈ 1000 (carré libre) et ≥ 2000 (avertisseur). Aucune autre : le chapitre ne donne pas les
 // dimensions du bâtiment. Les proportions sont celles d'un petit sauna et d'un baril de 205 L.
+// La charte : l'intérieur du baril, vu par la coupe, et la vitre de la petite fenêtre (la lampe
+// est dehors, derrière) en gris loin. Pas d'autre gris : le reste est coupé et hachuré, et la vue
+// en plan est à plat. Le rouge : le carré libre devant la porte du foyer, là où tombe la braise
+// quand on charge (la zone).
 // Unités du dessin : le millimètre, ramené à l'échelle S (px par mm), la même pour les deux vues.
 module.exports = (h) => {
   const A = h.a;
@@ -51,7 +55,7 @@ module.exports = (h) => {
     // entrée d'air basse, trappe de bois poussée à moitié
     o.push(R(3480, 480, 3780, 640, A.arete), R(3640, 470, 3800, 650, W(A.detail)), R(3640, 470, 3800, 650, A.hachure('bois', 'detail')));
     // petite fenêtre, et la lampe dehors, vue à travers la vitre
-    o.push(R(3800, 1150, 4200, 1650, W(A.arete)), R(3835, 1185, 4165, 1615, A.detail));
+    o.push(R(3800, 1150, 4200, 1650, W(A.arete)), R(3835, 1185, 4165, 1615, A.loin), R(3835, 1185, 4165, 1615, A.detail));
     const lx = 4000;
     o.push(R(lx - 55, 1225, lx + 55, 1280, W(A.detail)));                                      // réservoir
     o.push(h.ellipse(X(lx), Y(1375), 40 * S, 95 * S, W(A.detail)));                             // verre
@@ -79,6 +83,8 @@ module.exports = (h) => {
       return r.join('\n');
     };
     o.push(bande(600, tB, 80), bande(tT, tP, 90));
+    // l'intérieur du baril, vu par la coupe : gris loin, sous les arêtes cachées de la pile du fond
+    o.push(R(xa, tB + 90, xb, tT, A.loin));
     o.push(L(2660, tB, 2660, tT, A.cache), L(3130, tB, 3130, tT, A.cache));
     // pattes
     for (const x of [2430, 3150]) o.push(R(x - 25, 600, x + 25, tB, W(A.arete)));
@@ -107,6 +113,8 @@ module.exports = (h) => {
     pierres.forEach(([x, t, rx, ry], i) => o.push(caillou(X(x), Y(t), rx * S, ry * S, i + 3)));
 
     // le tuyau : collet, traversée du toit, pare-étincelles
+    // le tuyau passe devant l'écran : ses traits ne se voient pas au travers
+    o.push(R(2375, tT, 2525, 2550, A.blanc));
     o.push(L(2375, tT, 2375, 3300, A.contour), L(2525, tT, 2525, 3300, A.contour));
 
     // ── ce que la coupe tranche
@@ -194,7 +202,7 @@ module.exports = (h) => {
     // le tuyau, coupé au-dessus du baril, au bout opposé à la porte
     o.push(h.cercle(X(2450), Y(695), 75 * S, W(A.contour)));
     // carré libre devant la porte du foyer, et sa cote
-    o.push(R(3260, 195, 4240, 1195, pointille));
+    o.push(R(3260, 195, 4240, 1195, A.zone));
     o.push(L(3260, 1195, 3260, 1270, A.fin), L(4240, 1195, 4240, 1270, A.fin));
     o.push(coteF(X(3260), X(4240), Y(1195), '≈ 1000', true));
     // rampe de fer entre la truie et le passage

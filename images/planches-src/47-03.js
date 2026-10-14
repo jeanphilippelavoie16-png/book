@@ -151,8 +151,9 @@ module.exports = (h) => {
     out.push(h.ligne(0, yVase, z.l, yVase, h.a.arete));
     out.push(h.ligne(0, ySurf, z.l, ySurf, h.a.arete));
     const yF = z.h * 0.42, yT = z.h * 0.30, rb = 0.016 * s, cou = 0.045 * s;
-    // le corps, de face, derrière : le poitrail qui sort de l'eau, la coque dessous
-    out.push(decoupe(0, 0, z.l, ySurf, [h.ellipse(cx, ySurf, 0.40 * s, 0.17 * s, blanc(h.a.contour))]));
+    // le corps, de face, derrière : le poitrail qui sort de l'eau, la coque dessous ; il recule
+    // en gris pour que la tête et la fourche se lisent devant
+    out.push(decoupe(0, 0, z.l, ySurf, [h.ellipse(cx, ySurf, 0.40 * s, 0.17 * s, h.a.loin), h.ellipse(cx, ySurf, 0.40 * s, 0.17 * s, h.a.arete)]));
     out.push(decoupe(0, ySurf, z.l, z.h, [h.ellipse(cx, ySurf, 0.40 * s, 0.17 * s, h.a.cache)]));
     // le cou, vertical, entre les branches, qui rentre dans le poitrail
     const yC = ySurf - 0.155 * s;

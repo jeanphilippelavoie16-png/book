@@ -1,5 +1,10 @@
 // Planche 03-10 — vidanger la maison dans le bon ordre (chapitre 4, étapes 22-23 et
 // « La plomberie » de la variante d'urgence ; « Le chauffe-eau est une réserve d'eau »).
+//
+// La charte : la face de droite du chauffe-eau à l'ombre ; le réservoir vide de la toilette,
+// vu par la coupe, en gris loin. Le rouge : deux points à contrôler, ceux qui cassent sur un
+// raté — le disjoncteur du chauffe-eau (un élément à sec se détruit) et le robinet chaud de
+// l'étage (sans lui, le réservoir ne se vide pas). La flèche d'air reste noire.
 module.exports = (h) => {
   const blancArete = h.a.arete.replace('fill="none"', 'fill="#ffffff"');
   const blancContour = h.a.contour.replace('fill="none"', 'fill="#ffffff"');
@@ -162,7 +167,9 @@ module.exports = (h) => {
           h.rect(186, 325, 8, 4, h.a.plein),
 
           // le chauffe-eau
-          h.path('M296,306 Q322,294 348,306 L348,362 L296,362 Z', blancContour),
+          h.path('M296,306 Q322,294 348,306 L348,362 L296,362 Z', h.a.blanc),
+          h.path('M336,301.7 Q342,303.2 348,306 L348,362 L336,362 Z', h.a.ombre),
+          h.path('M296,306 Q322,294 348,306 L348,362 L296,362 Z', h.a.contour),
           h.rect(316, 294, 12, 6, blancArete),
           h.rect(300, 362, 6, 6, h.a.arete), h.rect(338, 362, 6, 6, h.a.arete),
           h.rect(292, 368, 58, 20, h.a.hachure('pierre')),
@@ -193,6 +200,9 @@ module.exports = (h) => {
           h.rect(402, 111, 36, 3, blancArete),
           h.rect(404, 114, 32, 16, blancArete),
           h.path('M400,132 L440,132 L440,136 Q438,146 430,146 L428,150 L412,150 L410,146 Q402,146 400,136 Z', blancArete),
+          // les deux points qui cassent sur un raté
+          h.controle(190, 327, 8),
+          h.controle(505, 105, 13),
         ].join('\n'),
         renvois: z => [
           { n: 1, rond: [126, 334], cible: [147, 306], texte: 'entrée d’eau fermée' },
@@ -226,6 +236,7 @@ module.exports = (h) => {
             // le réservoir, vide
             h.rect(76, 50, 38, 62, blancContour),
             h.rect(74, 46, 42, 4, blancArete),
+            h.rect(79, 53, 32, 56, h.a.loin),
             h.rect(79, 53, 32, 56, h.a.detail),
             h.path('M88,109 L88,68 M92,109 L92,68', h.a.detail),
             h.path('M84,109 Q90,103 96,109', h.a.detail),

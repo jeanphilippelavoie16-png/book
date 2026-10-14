@@ -2,6 +2,9 @@
 // Quatre vues à la même échelle : l'armature (vue plongeante), la coupe par la porte et
 // l'ouverture haute, la paroi au pied (agrandie) et le plan coupé au ras du sol.
 // Aucune cote : le chapitre ne donne aucune mesure de l'abri (« assez haut pour s'asseoir »).
+// La charte : l'intérieur de l'abri, vu par la coupe, en gris loin (pas de gris sur la paroi
+// hachurée, ni sur le plan). Le rouge : la poussée sur le rabat, de l'intérieur (le geste), et le
+// rond de sol nu autour du bac, là où le sapinage prendrait feu (la zone).
 module.exports = (h) => {
   const A = h.a, RAD = Math.PI / 180;
   const blanc = at => at.replace('fill="none"', 'fill="#ffffff"');
@@ -121,6 +124,8 @@ module.exports = (h) => {
     const out = [];
     // le sol
     out.push(h.rect(0, G, z.l, 14, A.hachure('terre', 'aucun')));
+    // l'intérieur de l'abri, vu par la coupe : gris loin, jusqu'au rabat de la porte
+    out.push(h.chemin([...arc(0, 0, tP), [E(0, tP)[0], G]], A.loin, true));
     // au fond, derrière le plan de coupe : les demi-arches et le cerceau, vus de l'intérieur
     for (const phi of AZ) {
       const pts = Array.from({ length: 25 }, (_, i) => {
@@ -152,7 +157,7 @@ module.exports = (h) => {
     out.push(h.path(lisse(fl), A.arete), h.path(lisse(fl.map(p => [p[0] + 2.4, p[1]])), A.detail));
     out.push(h.cercle(C[0], C[1], 4.4, A.blanc), h.cercle(C[0], C[1], 4.4, A.hachure('bois', 'arete')));
     // il se pousse de l'intérieur
-    out.push(h.fleche(`M${f([C[0] + 16, G - 30])} Q${f([C[0] + 2, G - 38])} ${f([C[0] - 14, G - 30])}`, A.detail));
+    out.push(h.geste(`M${f([C[0] + 16, G - 30])} Q${f([C[0] + 2, G - 38])} ${f([C[0] - 14, G - 30])}`));
     // le sapinage, de la bille à la paroi, et le rond de sol nu au milieu
     out.push(sapinCote(cx + xB + rB + 3, cx + R - 2, G, 1));
     out.push(sapinCote(cx - xB - rB - 3, C[0] + 6, G, -1));
@@ -276,7 +281,7 @@ module.exports = (h) => {
     out.push(h.path(lisse(Array.from({ length: 61 }, (_, i) => Q(R + EP + 34, d2 + 8 + (d1 + 352 - d2 - 8) * i / 60))), A.detail));
     // le sapinage en écailles : des rangées de branches, entre le rond de sol nu et la paroi
     const xB = 0.47 * R, rB = 0.075 * R, rNu = 0.34 * R;
-    out.push(h.cercle(cx, cy, rNu, A.fin));
+    out.push(h.cercle(cx, cy, rNu, A.zone));           // la zone : le sapinage n'y entre pas
     for (let row = 0, y = cy - R + 8; y < cy + R - 4; y += 9, row++) {
       for (let x = cx - R + (row % 2 ? 6 : 0); x < cx + R; x += 15) {
         const dx = x - cx, dy = y - cy, r = Math.hypot(dx, dy);

@@ -55,7 +55,9 @@
 <rect x="186" y="311" width="8" height="4" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
 <rect x="186" y="318" width="8" height="4" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
 <rect x="186" y="325" width="8" height="4" fill="#1A1A1A" stroke="none"/>
-<path d="M296,306 Q322,294 348,306 L348,362 L296,362 Z" fill="#ffffff" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M296,306 Q322,294 348,306 L348,362 L296,362 Z" fill="#FFFFFF" stroke="none"/>
+<path d="M336,301.7 Q342,303.2 348,306 L348,362 L336,362 Z" fill="#CFCFCF" stroke="none"/>
+<path d="M296,306 Q322,294 348,306 L348,362 L296,362 Z" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
 <rect x="316" y="294" width="12" height="6" fill="#ffffff" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <rect x="300" y="362" width="6" height="6" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <rect x="338" y="362" width="6" height="6" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
@@ -89,6 +91,8 @@
 <rect x="402" y="111" width="36" height="3" fill="#ffffff" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <rect x="404" y="114" width="32" height="16" fill="#ffffff" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M400,132 L440,132 L440,136 Q438,146 430,146 L428,150 L412,150 L410,146 Q402,146 400,136 Z" fill="#ffffff" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="190" cy="327" r="8" fill="none" stroke="#9B2C1E" stroke-width="1.6"/>
+<circle cx="505" cy="105" r="13" fill="none" stroke="#9B2C1E" stroke-width="1.6"/>
 </g>
 <text x="40" y="498" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#1A1A1A">La toilette</text>
 <g transform="translate(40 506)" data-vue="toilette">
@@ -100,6 +104,7 @@
 <path d="M6,112 L6,108 Q6,105 10,105 L76,105 L76,112" fill="#ffffff" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <rect x="76" y="50" width="38" height="62" fill="#ffffff" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
 <rect x="74" y="46" width="42" height="4" fill="#ffffff" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="79" y="53" width="32" height="56" fill="#E6E6E6" stroke="none"/>
 <rect x="79" y="53" width="32" height="56" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M88,109 L88,68 M92,109 L92,68" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M84,109 Q90,103 96,109" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>

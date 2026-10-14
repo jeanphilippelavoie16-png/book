@@ -50,8 +50,9 @@
 //               majeur suit l'index (caché derrière lui), l'annulaire et l'auriculaire presque tendus, hors du O.
 //               sortes : fine · pointe · ouverte · laterale (le pouce contre le côté de l'index). L'objet est un
 //               fil, sauf pour ouverte : une sphère qui remplit le jour (peau, pâte, bosse), comme pinceDessus.
-//   pinceDessus la pince ouverte vue de dessus : l'index plié vers la peau, le pouce écarté à côté de lui, les deux
-//               bouts à d l'un de l'autre en travers de la main ; la bosse est une sphère entre eux.
+//   pinceDessus la pince ouverte vue de dessus : l'index un peu plié vers la peau, le pouce écarté, les deux bouts
+//               à d l'un de l'autre (la direction du jour tourne de 0 à 60° vers le poignet tant que le pouce
+//               n'atteint pas) ; les trois autres à demi repliés ; la bosse, une sphère de 0,6 × d entre eux.
 //   crochet · coiffe · plat (chaque doigt plie au MCP jusqu'à poser sa pulpe sur le plan : la ligne de contact
 //               est droite ; contact.plan permet au moteur d'y aplatir la silhouette) · fixe (angles donnés).
 // Une table de diamètres se résout de proche en proche depuis le diamètre par défaut (le pouce part du voisin) :
@@ -79,7 +80,7 @@
 //
 //   prise-manche (table 8–45, axe à 20°) · prise-grosse (50–90) · prise-corde (3–14) · prise-pouce-dos (18–36, en
 //   sabre : axe à 58°, le pouce couché sur le dos du manche) · coupe-c (60–110) · pince-fine (0,5–10) · pince-pointe
-//   (0,5–2) · pince-ouverte (15–70, de profil) · pince-ouverte-dessus (15–40, vue de dessus) · pince-laterale (1–8)
+//   (0,5–2) · pince-ouverte (15–70, de profil) · pince-ouverte-dessus (30–70, vue de dessus) · pince-laterale (1–8)
 //   · poing · pointe · appui-index · deux-doigts · deux-doigts-v · crochet (8–28) · coiffe (18–34) · plat · porte ·
 //   ouverte · relachee · coupe · main-sur-main. Chaque pose porte "vues" : { bonnes, aEviter, rotation?, note? }.
 //
@@ -835,21 +836,35 @@ const PRISES = {
   // trois autres repliés en poing, hors du chemin. Vue de dos, les deux bouts dépassent de part et d'autre.
   pinceDessus(S, o) {
     // vue de dessus : l'index plié vers la peau (son bout revient à portée du pouce), le pouce écarté à côté de lui,
-    // les deux bouts à d l'un de l'autre en travers de la main (selon y), les pulpes face à face ; les trois autres
-    // repliés en poing. Vue de dos, les deux bouts sortent de part et d'autre de la bosse.
-    const d = o.diametre || 30;
+    // les deux bouts à d l'un de l'autre en travers de la main, les pulpes face à face ; les trois autres à demi
+    // repliés. Vue de dos, les deux bouts sortent de part et d'autre de la bosse.
+    const d = o.diametre || 55;
     const doigts = {};
-    for (const n of ['majeur', 'annulaire', 'auriculaire']) doigts[n] = fermerDoigt(S, n, []).q;
-    doigts.index = pli(44, 46, 28, o.ecartIndex !== undefined ? o.ecartIndex : 4);
+    // (révision R13) les trois autres à demi repliés (pas en poing : vu de dessus, un poing et un index levé ne se
+    // lisent pas comme une pince) ; l'index moins plié, qui va vers la peau en avant de la main
+    const A = o.autres === 'poing' ? null : (o.autres || { majeur: [40, 45, 22], annulaire: [48, 48, 24], auriculaire: [56, 50, 25] });
+    for (const n of ['majeur', 'annulaire', 'auriculaire']) doigts[n] = A && A[n] ? pli(...A[n]) : fermerDoigt(S, n, []).q;
+    doigts.index = pli(...(o.index || [30, 36, 20]), o.ecartIndex !== undefined ? o.ecartIndex : 4);
     const pi = pulpe(S, 'index', doigts.index, 0.85);
     const cote = [0, -1, 0];
     const I = A3(pi.c, M3(cote, rayonVers(pi.seg, 0.85, pi.seg.c.r)));
-    const G = A3(I, M3(cote, d));
-    const r = pouceVers(S, G, [0, 1, 0], obstSegments(segsDoigts(S, doigts)), { pref: { mcp: 10, ip: 10 }, t: 0.8 });
+    // (révision R13) le pouce ne va pas loin devant : au-delà de ~35 mm en travers, la cible sort de sa portée. On
+    // tourne la direction du jour de 0 à 60° vers le poignet (le bout du pouce un peu en retrait de celui de
+    // l'index, comme sur une peau tendue) et on garde celle que le pouce atteint, la plus en travers à erreur égale
+    const obst = obstSegments(segsDoigts(S, doigts));
+    let r = null, u = cote;
+    for (const th of (o.angles || [0, 15, 30, 45, 60])) {
+      const a = th * RAD, v = [-Math.sin(a), -Math.cos(a), 0];
+      const ri = pouceVers(S, A3(I, M3(v, d)), M3(v, -1), obst, { pref: { mcp: 10, ip: 10 }, t: 0.8 });
+      ri.cout = ri.erreur + 0.03 * th;
+      if (!r || ri.cout < r.cout) { r = ri; u = v; }
+    }
     doigts.pouce = r.q;
     const P = pulpe(S, 'pouce', r.q, 0.8).p, M = I3(I, P, 0.5);
-    return { doigts, objet: { type: 'sphere', diametre: Math.max(6, L3(S3(P, I)) - 4), centre: A3(M, [0, 0, 4]), axe: [0, 0, 1] },
-      contact: { type: 'pince', points: [I, P], normale: cote }, erreur: r.erreur };
+    // la bosse : 0,6 × le jour, pour que les deux bouts se voient de part et d'autre (une boule qui touche les deux
+    // pulpes, vue de dessus, recouvre les deux bouts de doigts)
+    return { doigts, objet: { type: 'sphere', diametre: Math.max(6, 0.6 * L3(S3(P, I))), centre: A3(M, [0, 0, 4]), axe: [0, 0, 1] },
+      contact: { type: 'pince', points: [I, P], normale: u }, erreur: r.erreur };
   },
   // le crochet : la paume ouverte, les deux dernières phalanges refermées sur une anse
   crochet(S, o) {
@@ -863,7 +878,9 @@ const PRISES = {
     const cyl = OBST.cylindre(a, u, R);
     const doigts = {};
     for (const n of DOIGTS) doigts[n] = fermerDoigt(S, n, [cyl], { depart: { mcp }, actives: ['ipp', 'ipd'] }).q;
-    doigts.pouce = o.pouceQ || { opposition: 12, cmc: -4, rotation: 4, mcp: 10, ip: 12 };
+    // (révision R11) le pouce LIBRE : allongé, un peu écarté, côté dos de la main. Un pouce qui monte vers la paume
+    // vient fermer devant l'anse, et de profil le crochet se lit comme un « OK » autour d'une boule
+    doigts.pouce = o.pouceQ || { opposition: -30, cmc: -10, rotation: 0, mcp: -5, ip: 0 };
     return { doigts, objet: { type: 'cylindre', diametre: d, centre: a, axe: u, longueur: o.longueur || 600 } };
   },
   // la paume coiffe le bout d'un bâton debout (l'axe sort de la paume), les doigts autour
@@ -949,8 +966,8 @@ const CATALOGUE = [
     nom: 'le poing fermé sur un manche de 8 à 45 mm : le manche entre d’un côté du poing et ressort de l’autre',
     note: 'paume : le manche derrière les doigts repliés, devant la paume, le pouce devant ; dos : le manche sort des deux côtés du poing ; pouce : le rond du manche dans le trou du poing (couper l’objet au ras de la main)' },
   { id: 'prise-grosse', prise: 'entourer', options: { diametre: 70 }, table: [50, 60, 70, 80, 90],
-    vues: { bonnes: ['pouce', 'paume'], aEviter: ['dos'], rotation: { paume: [0, 45, 0] },
-      note: 'vue paume droite : la bouteille couvre la main (les doigts ne font que 140° du tour) ; tourner de rotation: [0, 45, 0] pour voir les doigts passer devant' },
+    vues: { bonnes: ['pouce', 'paume', 'dos'], aEviter: [], rotation: { paume: [0, 45, 0] },
+      note: 'au-delà de ~65 mm (une bouteille), vue dos : la main devant la bouteille se lit ; côté paume, même tournée de 35 à 60°, la bouteille cache la main (les doigts ne font que 140° du tour). Jusqu’à ~65 mm (une boîte de 50 à 60), vue paume tournée de rotation: [0, 45, 0] pour voir les doigts passer devant' },
     nom: 'la main autour d’un cylindre de 50 à 90 mm : les doigts et le pouce ne se rejoignent pas' },
   { id: 'prise-corde', prise: 'entourer', options: { diametre: 10, inclinaison: 20 }, table: [3, 6, 8, 10, 12, 14],
     vues: { bonnes: ['paume', 'dos'], aEviter: ['pouce'] },
@@ -970,7 +987,7 @@ const CATALOGUE = [
   { id: 'pince-ouverte', prise: 'pincer', options: { sorte: 'ouverte', diametre: 40 }, table: [15, 25, 40, 55, 70],
     vues: { bonnes: ['pouce'], aEviter: ['paume', 'dos'], note: 'vue de dessus : pince-ouverte-dessus' },
     nom: 'le pouce et l’index écartés, les pulpes posées de part et d’autre (de profil)' },
-  { id: 'pince-ouverte-dessus', prise: 'pinceDessus', options: { diametre: 30 }, table: [15, 22, 30, 40],
+  { id: 'pince-ouverte-dessus', prise: 'pinceDessus', options: { diametre: 55 }, table: [30, 40, 55, 70],
     vues: { bonnes: ['dos'], aEviter: ['paume', 'pouce'] },
     nom: 'vue de dessus : l’index et le pouce écartés de part et d’autre d’une bosse, les bouts vers la peau' },
   { id: 'pince-laterale', prise: 'pincer', options: { sorte: 'laterale', diametre: 3 }, table: [1, 3, 8],
@@ -1011,9 +1028,10 @@ const CATALOGUE = [
     vues: { bonnes: ['dos', 'paume', 'pouce'], aEviter: [] },
     nom: 'la main ouverte, les doigts tendus un peu écartés' },
   { id: 'relachee', prise: 'fixe', options: { doigts: {
-      // (révision R7) une cascade douce : les MCP portent la courbe, les IPP peu pliées, IPD ≈ 0,67 × IPP
-      index: D0(20, 18, 12, 2), majeur: D0(26, 22, 15, 0), annulaire: D0(32, 26, 17, 1), auriculaire: D0(38, 30, 20, 3),
-      pouce: { opposition: 22, cmc: 5, rotation: 7, mcp: 10, ip: 10 } } },
+      // (révisions R7, R12) une cascade douce : 4° d'un doigt au suivant, IPP ≤ 20°, IPD ≈ 0,5 × IPP ; le pouce
+      // près de l'index (opposition 10, cmc 10) : un pouce qui monte vers la paume dresse une griffe de profil
+      index: D0(14, 12, 6, 2), majeur: D0(18, 14, 7, 0), annulaire: D0(22, 16, 8, 1), auriculaire: D0(26, 18, 9, 3),
+      pouce: { opposition: 10, cmc: 10, rotation: 4, mcp: 8, ip: 10 } } },
     vues: { bonnes: ['dos', 'paume', 'pouce'], aEviter: [] },
     nom: 'la main détendue : les doigts mi-fléchis en cascade (l’auriculaire le plus plié), le pouce le long de l’index' },
   { id: 'coupe', prise: 'fixe', options: { doigts: {
@@ -1231,7 +1249,9 @@ function resoudre(pose, outils) {
   }
   const doigts = JSON.parse(JSON.stringify(r.doigts));
   for (const k of Object.keys(surcharges)) doigts[k] = Object.assign({}, doigts[k], surcharges[k]);
-  return Object.assign({}, pose, { doigts, objet: Object.assign({}, pose.objet, { centre: r.objet.centre, axe: r.objet.axe, diametre: d }) });
+  // une sphère de pince (la bosse, la pâte) garde son rapport au jour demandé (pinceDessus : 0,6 × d)
+  const kS = pose.objet.type === 'sphere' && base && base.objet && base.solveur && base.solveur.diametre ? base.objet.diametre / base.solveur.diametre : 1;
+  return Object.assign({}, pose, { doigts, objet: Object.assign({}, pose.objet, { centre: r.objet.centre, axe: r.objet.axe, diametre: d * kS }) });
 }
 
 // ─── deux mains ────────────────────────────────────────────────────────────────────────────────────────────

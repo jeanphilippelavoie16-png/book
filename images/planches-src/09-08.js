@@ -1,5 +1,9 @@
 // Planche 09-08 — le joint de cuir gras et son emporte-pièce de tuyau (chapitre 12,
 // « Les joints, dans le cuir gras »).
+//
+// La charte : l'intérieur des tuyaux et de la boîte de suif, vu par la coupe, en gris loin ;
+// la face de droite de la bille et du six-pans du bouchon à l'ombre. Le rouge : les trois
+// gestes, un par vue — tourner le tuyau sous la lime, frapper, serrer le bouchon.
 module.exports = (h) => {
   const blanc = a => a.replace('fill="none"', 'fill="#ffffff"');
   const halo = 'fill="none" stroke="#ffffff" stroke-width="6" stroke-linecap="round"';
@@ -33,6 +37,13 @@ module.exports = (h) => {
     return h.path(`M${x},${y0.toFixed(1)} Q${x + w},${((y0 + y1) / 2).toFixed(1)} ${x},${y1.toFixed(1)}`, h.a.detail);
   });
   const cernes = [12, 24, 38, 52, 64].map(r => h.ellipse(150, 148, r, +(r * 0.31).toFixed(1), h.a.fin));
+  // la face de droite de la bille, à l'ombre : entre le bord avant du dessus et le pied
+  const flanc = (() => {
+    const xs = [];
+    for (let x = 196; x <= 228; x += 2) xs.push(x);
+    const haut = xs.map(x => [x, avant(x)]), bas = xs.slice().reverse().map(x => [x, avant(x) - by + bp]);
+    return h.chemin([...haut, ...bas], h.a.ombre, true);
+  })();
   const cuir = 'M124,150 Q126,142 144,141 Q168,139 188,143 Q198,148 192,155 Q178,162 150,162 Q126,161 124,150 Z';
 
   return {
@@ -46,6 +57,7 @@ module.exports = (h) => {
       tuyau: {
         titre: 'Le tuyau limé en biseau',
         dessin: z => [
+          h.rect(65, 25, 60, 175, h.a.loin),
           h.path('M57,26 Q61,20 65,24 L65,200 L57,172 Z', h.a.hachure('metal', 'aucun')),
           h.path('M125,26 Q129,20 133,24 L133,172 L125,200 Z', h.a.hachure('metal', 'aucun')),
           h.chemin([[57, 26], [57, 172], [65, 200]], h.a.contour),
@@ -55,7 +67,7 @@ module.exports = (h) => {
           h.ligne(65, 200, 125, 200, h.a.arete),
           // on tourne le tuyau à mesure qu'on lime
           h.path('M46,50 Q95,76 144,50', halo),
-          h.fleche('M46,50 Q95,76 144,50', h.a.arete),
+          h.geste('M46,50 Q95,76 144,50'),
           ...lime(),
         ].join('\n'),
         renvois: z => [
@@ -68,6 +80,7 @@ module.exports = (h) => {
         titre: 'La frappe, sur du bois de bout',
         dessin: z => [
           // la bille debout
+          flanc,
           h.path(`M${bx - brx},${by} L${bx - brx},${bp} A${brx},${bry} 0 0 0 ${bx + brx},${bp} L${bx + brx},${by}`, h.a.contour),
           h.ellipse(bx, by, brx, bry, h.a.contour),
           h.ellipse(bx, by, 73, 22.5, h.a.fin),
@@ -78,6 +91,7 @@ module.exports = (h) => {
           `<g transform="translate(0,3)">${h.path(cuir, blanc(h.a.arete))}</g>`,
           h.path(cuir, blanc(h.a.arete)),
           // le tuyau, en coupe, et les pastilles déjà coupées
+          h.rect(146, 64, 24, 73.2, h.a.loin),
           h.path('M141,64 L146,64 L146,152 L141,145 Z', h.a.hachure('metal', 'aucun')),
           h.path('M170,64 L175,64 L175,145 L170,152 Z', h.a.hachure('metal', 'aucun')),
           h.chemin([[141, 64], [141, 145], [146, 152]], h.a.contour),
@@ -90,7 +104,7 @@ module.exports = (h) => {
           h.ligne(200, 28, 250, 27.6, h.a.fin), h.ligne(230, 31.4, 285, 31, h.a.fin),
           h.path('M144,12 L172,12 L172,44 L170,48 L146,48 L144,44 Z', blanc(h.a.contour)),
           h.ligne(172, 20, 184, 22, h.a.arete), h.ligne(172, 38, 184, 36, h.a.arete),
-          h.fleche('M126,14 L126,54', h.a.arete),
+          h.geste('M126,14 L126,54'),
         ].join('\n'),
         renvois: z => [
           { n: 4, rond: [292, 176], cible: [212, 150], texte: 'bille de bois debout, bois de bout dessus' },
@@ -116,7 +130,8 @@ module.exports = (h) => {
         dessin: z => [
           // le dessus du poêle, en coupe
           h.rect(8, 212, 157, 10, h.a.hachure('metal')),
-          // la boîte et le suif fondu
+          // la boîte et le suif fondu ; le dedans, au-dessus du suif, vu par la coupe
+          h.rect(47.2, 100, 79.6, 50, h.a.loin),
           h.rect(47.2, 150, 79.6, 61, h.a.hachure('eau', 'aucun')),
           h.ligne(47, 150, 127, 150, h.a.arete),
           h.chemin([[46, 100], [46, 212], [128, 212], [128, 100]], h.a.contour),
@@ -144,12 +159,14 @@ module.exports = (h) => {
           // le bouchon, en vue
           h.path('M90,156 L90,115 L93,112 L115,112 L118,115 L118,156', blanc(h.a.arete)),
           ...[116, 120, 124, 128, 132, 136, 140, 144].map(y => h.ligne(90, y, 118, y, h.a.fin)),
-          h.rect(78, 156, 52, 24, blanc(h.a.contour)),
+          h.rect(78, 156, 52, 24, h.a.blanc),
+          h.rect(117, 156, 13, 24, h.a.ombre),
+          h.rect(78, 156, 52, 24, h.a.contour),
           h.ligne(91, 156, 91, 180, h.a.detail), h.ligne(117, 156, 117, 180, h.a.detail),
           // la rondelle de cuir, serrée
           h.path('M80,148 L90,148 L90,156 L80,156 Q76,152 80,148 Z', h.a.plein),
           h.path('M118,148 L128,148 Q132,152 128,156 L118,156 Z', h.a.plein),
-          h.fleche('M82,196 Q104,208 126,196', h.a.arete),
+          h.geste('M82,196 Q104,208 126,196'),
         ].join('\n'),
         renvois: z => [
           { n: 12, rond: [30, 194], cible: [79, 153], texte: 'cuir gras serré, que l’eau fait gonfler' },

@@ -2,8 +2,14 @@
 // Une boîte, une glacière ou un tiroir bourré de laine, de foin, de journal froissé ou de
 // linge d'hiver ; la marmite y descend pleine, à plein bouillon, couvercle mis, entourée de
 // tous les côtés, y compris dessous. Aucun chiffre : le chapitre n'en donne aucun sur l'objet.
+//
+// La charte : le vide de la marmite au-dessus du bouillon, et le nid creusé dans le bourrage, en
+// gris loin (on voit le fond par la coupe) ; la face de droite des boîtes en perspective à
+// l'ombre. Le rouge : la marmite qu'on descend dans le nid, la couverture qu'on tire (une flèche
+// par vue) ; le lit sous la marmite et le niveau du raté, cerclés.
 module.exports = (h) => {
   const blanc = a => a.replace('fill="none"', h.a.blanc.split(' ')[0]);
+  const ombre = a => a.replace('fill="none"', h.a.ombre.split(' ')[0]);
   const r1 = v => Math.round(v * 10) / 10;
   const pts = p => p.map(q => q.map(r1).join(',')).join(' ');
 
@@ -20,6 +26,7 @@ module.exports = (h) => {
       out.push(h.path(`M ${r1(x)},${r1(yT + 5 * s)} C ${r1(x + d * 12 * s)},${r1(yT + 5 * s)} ${r1(x + d * 12 * s)},${r1(yT + 17 * s)} ${r1(x)},${r1(yT + 17 * s)}`, h.a.arete));
     }
     out.push(h.path(`M ${r1(xl)},${r1(yT)} ${fond} L ${r1(xr)},${r1(yT)} L ${r1(xr + 3 * s)},${r1(yT)} Q ${r1(cx)},${r1(yT - 2 * dome)} ${r1(xl - 3 * s)},${r1(yT)} Z`, h.a.blanc));
+    out.push(h.rect(xl, yT, xr - xl, niveau - yT, h.a.loin));
     out.push(h.path(`M ${r1(xl)},${r1(niveau)} ${fond} L ${r1(xr)},${r1(niveau)} Z`, h.a.hachure('eau', 'aucun')));
     out.push(h.ligne(xl, niveau, xr, niveau, h.a.detail));
     out.push(h.path(`M ${r1(xl)},${r1(yT)} ${fond} L ${r1(xr)},${r1(yT)}`, h.a.contour));
@@ -103,7 +110,7 @@ module.exports = (h) => {
     const face = coin
       ? h.rect(x0, yH, W, H, blanc(h.a.contour).replace('/>', '') + ` rx="${coin}"`)
       : h.rect(x0, yH, W, H, blanc(h.a.contour));
-    out.push(h.path(`M ${pts([[x0 + W, yH], O(x0 + W, yH, D), O(x0 + W, G, D), [x0 + W, G]])} Z`, blanc(h.a.contour)));
+    out.push(h.path(`M ${pts([[x0 + W, yH], O(x0 + W, yH, D), O(x0 + W, G, D), [x0 + W, G]])} Z`, ombre(h.a.contour)));
     out.push(h.path(`M ${pts([[x0, yH], O(x0, yH, D), O(x0 + W, yH, D), [x0 + W, yH]])} Z`, blanc(h.a.contour)));
     out.push(face);
     const ouv = [O(x0 + ep, yH, ep), O(x0 + ep, yH, D - ep), O(x0 + W - ep, yH, D - ep), O(x0 + W - ep, yH, ep)];
@@ -141,7 +148,7 @@ module.exports = (h) => {
     const xa = x0 + W / 2 - rx * 0.6, [ax1, ay1] = O(xa, yH - 2, pr - rr - 2), [ax2, ay2] = O(xa, yH, -24);
     const df = `M ${r1(ax1)},${r1(ay1)} L ${r1(ax2)},${r1(ay2)}`;
     out.push(`<path d="${df}" fill="none" stroke="#fff" stroke-width="5"/>`);
-    out.push(h.fleche(df));
+    out.push(h.geste(df));
     return { svg: out.join('\n'), yH, cx, cy: yc, rouleau };
   };
 
@@ -158,7 +165,8 @@ module.exports = (h) => {
         titre: 'En coupe, dans une boîte',
         dessin: z => {
           const G = z.h - 10, b = boiteCoupe(30, G, 1, 0.09);
-          return [plancher(0, z.l, G), b.svg].join('\n');
+          // le lit sous la marmite : le point qui manque le plus souvent
+          return [plancher(0, z.l, G), b.svg, h.controle(b.cx + 40, (b.potB + b.yiB) / 2, 23)].join('\n');
         },
         renvois: z => {
           const G = z.h - 10, b = boiteCoupe(30, G, 1, 0.09);
@@ -175,7 +183,8 @@ module.exports = (h) => {
         titre: 'Raté : à moitié pleine',
         dessin: z => {
           const s = Math.min(1, (z.l - 44) / B.W), G = z.h - 10, b = boiteCoupe(10, G, s, 0.5);
-          return [plancher(0, z.l, G), b.svg].join('\n');
+          // le niveau : là où le raté se joue
+          return [plancher(0, z.l, G), b.svg, h.controle(b.m.xl + 26, b.niveau, 13)].join('\n');
         },
         renvois: z => {
           const s = Math.min(1, (z.l - 44) / B.W), G = z.h - 10, b = boiteCoupe(10, G, s, 0.5);
@@ -207,13 +216,13 @@ module.exports = (h) => {
           const W = B.W * s, t = B.t * s, cx = x0 + W / 2, pw = B.pw * s;
           const out = [plancher(0, z.l, G)];
           out.push(h.rect(x0 + t, b.yT, W - 2 * t, b.yiB - b.yT, h.a.hachure('isolant', 'aucun')));
-          out.push(h.rect(cx - pw / 2 - 2, b.yT, pw + 4, b.potB - b.yT, h.a.blanc));
+          out.push(h.rect(cx - pw / 2 - 2, b.yT, pw + 4, b.potB - b.yT, h.a.loin));
           out.push(h.path(`M ${r1(cx - pw / 2 - 2)},${r1(b.yT)} L ${r1(cx - pw / 2 - 2)},${r1(b.potB)} L ${r1(cx + pw / 2 + 2)},${r1(b.potB)} L ${r1(cx + pw / 2 + 2)},${r1(b.yT)}`, h.a.detail));
           out.push(h.path(`M ${r1(x0)},${r1(b.yT)} L ${r1(x0)},${r1(G)} L ${r1(x0 + W)},${r1(G)} L ${r1(x0 + W)},${r1(b.yT)} L ${r1(x0 + W - t)},${r1(b.yT)} L ${r1(x0 + W - t)},${r1(b.yiB)} L ${r1(x0 + t)},${r1(b.yiB)} L ${r1(x0 + t)},${r1(b.yT)} Z`, h.a.hachure('bois', 'contour')));
           const m = marmiteVue(cx, b.yT + 14, s);
           out.push(m.svg);
           const xf = x0 + W + 14;
-          out.push(h.fleche(`M ${r1(xf)},${r1(m.kt + 4)} L ${r1(xf)},${r1(b.potB)}`));
+          out.push(h.geste(`M ${r1(xf)},${r1(m.kt + 4)} L ${r1(xf)},${r1(b.potB)}`));
           return out.join('\n');
         },
       },
@@ -222,7 +231,7 @@ module.exports = (h) => {
         dessin: z => {
           const G = z.h - 6, x0 = 4, W = 70, H = 56, D = 36, out = [plancher(0, z.l, G)];
           const yH = G - H;
-          out.push(h.path(`M ${pts([[x0 + W, yH], O(x0 + W, yH, D), O(x0 + W, G, D), [x0 + W, G]])} Z`, blanc(h.a.contour)));
+          out.push(h.path(`M ${pts([[x0 + W, yH], O(x0 + W, yH, D), O(x0 + W, G, D), [x0 + W, G]])} Z`, ombre(h.a.contour)));
           out.push(h.rect(x0, yH, W, H, blanc(h.a.contour)));
           for (const f of [1 / 3, 2 / 3]) {
             out.push(h.ligne(x0, yH + H * f, x0 + W, yH + H * f, h.a.detail));
@@ -232,7 +241,7 @@ module.exports = (h) => {
           out.push(h.path(`M ${x0 + 18},${yH} q 2,6 7,5 q 5,4 9,-1 q 4,5 9,0 q 3,4 7,-4 Z`, blanc(h.a.detail)));
           // le couvercle, une planche épaisse
           const c = 7, a = x0 - 3, bb = x0 + W + 3, pc = D + 3;
-          out.push(h.path(`M ${pts([[bb, yH - c], O(bb, yH - c, pc), O(bb, yH, pc), [bb, yH]])} Z`, blanc(h.a.contour)));
+          out.push(h.path(`M ${pts([[bb, yH - c], O(bb, yH - c, pc), O(bb, yH, pc), [bb, yH]])} Z`, ombre(h.a.contour)));
           out.push(h.path(`M ${pts([[a, yH - c], O(a, yH - c, pc), O(bb, yH - c, pc), [bb, yH - c]])} Z`, blanc(h.a.contour)));
           out.push(h.rect(a, yH - c, bb - a, c, blanc(h.a.contour)));
           // le poêle sert à autre chose : la bouilloire

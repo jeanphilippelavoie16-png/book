@@ -1,4 +1,7 @@
-// Planche 67-09 — Le fléau et ses étalons d'eau (ch. 62, §9 « Peser sans balance »)
+// Planche 67-09 — Le fléau et ses étalons d'eau (ch. 67, « Peser sans balance »)
+// La charte : la latte, les boîtes et la bouteille au contour fort ; le flanc droit du billot et
+// des boîtes à l'ombre ; au pivot, la face des piquets au-delà de la coupe en gris loin. Un seul
+// rouge : le trou du milieu, plus haut que les entailles, que le chapitre dit de vérifier.
 module.exports = (h) => {
   const f = (v) => (+v).toFixed(1);
 
@@ -28,6 +31,8 @@ module.exports = (h) => {
   const billot = (cx, yt, yb, r) => {
     const o = [
       h.path(`M ${f(cx - r)} ${f(yt)} L ${f(cx - r)} ${f(yb)} L ${f(cx + r)} ${f(yb)} L ${f(cx + r)} ${f(yt)} Z`, h.a.blanc),
+      // le flanc de droite, à l'ombre
+      h.path(`M ${f(cx + 0.45 * r)} ${f(yt)} L ${f(cx + r)} ${f(yt)} L ${f(cx + r)} ${f(yb)} L ${f(cx + 0.45 * r)} ${f(yb)} Z`, h.a.ombre),
       h.path(`M ${f(cx - r)} ${f(yt)} L ${f(cx - r)} ${f(yb)} M ${f(cx + r)} ${f(yb)} L ${f(cx + r)} ${f(yt)}`, h.a.arete),
       h.ellipse(cx, yt, r, 5, h.a.blanc),
       h.ellipse(cx, yt, r, 5, h.a.arete),
@@ -43,6 +48,8 @@ module.exports = (h) => {
     const rx = w / 2, ry = 5, o = [];
     const corps = `M ${f(cx - rx)} ${f(yr)} L ${f(cx - rx)} ${f(yr + ht)} A ${rx} ${ry} 0 0 0 ${f(cx + rx)} ${f(yr + ht)} L ${f(cx + rx)} ${f(yr)}`;
     o.push(h.path(corps + ' Z', h.a.blanc));
+    // le flanc de droite, à l'ombre
+    o.push(h.path(`M ${f(cx + 0.45 * rx)} ${f(yr)} L ${f(cx + rx)} ${f(yr)} L ${f(cx + rx)} ${f(yr + ht)} A ${rx} ${ry} 0 0 1 ${f(cx + 0.45 * rx)} ${f(yr + ht + ry * Math.sqrt(1 - 0.45 * 0.45))} Z`, h.a.ombre));
     o.push(h.path(corps, h.a.contour));
     o.push(h.ellipse(cx, yr, rx, ry, h.a.blanc));
     o.push(h.ellipse(cx, yr, rx, ry, h.a.arete));
@@ -178,7 +185,7 @@ module.exports = (h) => {
           const g = B(z), o = [];
           // piquets : la face de l'encoche au-delà, puis la coupe au fond de l'encoche
           [g.mL, g.mR].forEach(x => {
-            o.push(h.rect(x, g.ys, g.mw, g.yg - g.ys, h.a.blanc));
+            o.push(h.rect(x, g.ys, g.mw, g.yg - g.ys, h.a.loin));
             o.push(h.rect(x, g.ys, g.mw, g.yg - g.ys, h.a.detail));
             o.push(h.rect(x, g.yg, g.mw, g.bas - g.yg, h.a.hachure('bois', 'arete')));
             // arrachement
@@ -218,6 +225,8 @@ module.exports = (h) => {
           o.push(h.path(`M ${f(ax)} ${f(ay)} A ${f(g.R)} ${f(g.R)} 0 0 1 ${f(bx)} ${f(by)}`, h.a.cache));
           // la même ficelle, pivotée autour du trou jusqu'à l'entaille de droite
           o.push(h.path(`M ${f(g.cx + g.hr)} ${f(g.hy + 0.2)} L ${f(g.xr)} ${f(g.bt + g.p)}`, h.a.cache));
+          // le point à vérifier : le trou, au milieu et plus haut que le fond des entailles
+          o.push(h.controle(g.cx, g.hy, g.hr + 7));
           return o.join('\n');
         },
         renvois: (z) => {

@@ -18,6 +18,11 @@
 // avant d'être enfilée. Le ruban porte une trame de toile, partout la même.
 //
 // Géométrie en millimètres d'orteil, repère propre à chaque vue, converti par T(s, ox, oy).
+//
+// La charte : pas de gris sur l'orteil (un corps) ni sur les coupes. La gaine fendue est un volume :
+// contour fort, dessous à l'ombre, l'intérieur vu par le bout en gris loin. Le rouge : le cercle sur
+// le coin qui doit dépasser la peau ; la traction du ruban (détail et vue de côté), la lame poussée
+// le long de la gaine, la gaine qu'on enfile. Le bord qui repousse reste noir : ce n'est pas un geste.
 
 module.exports = (h) => {
   const A = h.a;
@@ -93,7 +98,7 @@ module.exports = (h) => {
 
   // Vue 1 — bien coupé : droit, coins carrés, le coin dépasse le bout du bourrelet
   const ONGLE_BON = [[-7.6, 3.0], [8.9, 3.0], [8.8, 12], ...ARC, [-9.3, 12], [-8.9, 7.0]];
-  const vueBon = z => pied(cadreDessus(z).V, { ongle: ONGLE_BON });
+  const vueBon = z => { const V = cadreDessus(z).V, [cx, cy] = V([-8.3, 3.6]); return pied(V, { ongle: ONGLE_BON }) + '\n' + h.controle(cx, cy, 12); };
 
   // Vue 2 — mal coupé : coins en arrondi, court ; la chair bombe dans le coin ; le bord repousse dedans
   const ONGLE_COURT = [...cr([[-9.3, 16.0], [-8.9, 13.2], [-7.0, 11.2], [-3.4, 10.3], [0, 10.2], [3.4, 10.3], [6.6, 11.2], [8.4, 13.2], [8.8, 16.0]]),
@@ -160,7 +165,7 @@ module.exports = (h) => {
       C.peau.forEach((p, i) => { if (Math.hypot(p[0] + 10.0, p[1] - 3.8) < Math.hypot(C.peau[i0][0] + 10.0, C.peau[i0][1] - 3.8)) i0 = i; });
       const brin = C.peau.slice(0, i0 + 1).filter(p => !(p[0] > 6.5 && p[1] < 18.9)).reverse();
       out.push(chemin([...brin, ...decale(brin, -0.9).reverse()], V, TOILE, true));
-      out.push(fleche([[-15.3, 2.6], [-15.3, 8.6]], V));        // la traction, vers le bas, le long du flanc
+      out.push(h.geste(dFleche(map([[-15.3, 2.6], [-15.3, 8.6]], V))));   // la traction, vers le bas, le long du flanc
     }
     out.push(chemin(C.peau, V, A.arete));
     if (etat === 'coton') {
@@ -198,7 +203,7 @@ module.exports = (h) => {
   const cadreDetail = z => { const s = (Math.min(z.l, z.h) / 2 - 14) / RB; return { s, V: T(s, z.l / 2 - s * DB[0], z.h / 2 - s * DB[1]) }; };
   function vueDetail(z, etat) {
     const { s, V } = cadreDetail(z);
-    const [cx, cy] = V(DB), id = `b2415-${etat}`;
+    const [cx, cy] = V(DB), id = `pl-detail-${etat}`;
     return `<clipPath id="${id}"><circle cx="${r1(cx)}" cy="${r1(cy)}" r="${r1(RB * s)}"/></clipPath>\n<g clip-path="url(#${id})">\n${contenuCoupe(V, etat)}\n</g>\n` +
       h.cercle(cx, cy, RB * s, A.detail);
   }
@@ -222,7 +227,7 @@ module.exports = (h) => {
     out.push(chemin(PROFIL, V, A.contour));
     out.push(chemin(PLI_COTE, V, A.detail));
     out.push(chemin(ONGLE_COTE, V, blancArete, true));
-    out.push(fleche([[-13.0, 9.6], [-21.0, 13.8]], V));         // tirer dans l'axe de la bande, vers la base
+    out.push(h.geste(dFleche(map([[-13.0, 9.6], [-21.0, 13.8]], V))));   // tirer dans l'axe de la bande, vers la base
     return out.join('\n');
   }
 
@@ -248,15 +253,19 @@ module.exports = (h) => {
     out.push(chemin([...cr([P(1.3, 0.9), P(4, 2.2), P(8, 3.2), P(12, 3.55)]), P(40, 3.55)], V, A.fin));
     // le tube : fond blanc, silhouettes, bout gauche (la moitié vue), bout droit (l'anneau, ouvert à la fente)
     out.push(chemin([[L1, -R], [L0, -R], ...arc(L0, 0, Math.PI, R, rx), [L1, R]], V, A.blanc, true));
-    out.push(chemin([[L0, -R], [L1, -R]], V), chemin([[L0, R], [L1, R]], V), chemin(arc(L0, 0, Math.PI, R, rx), V));
+    const a35 = Math.acos(-0.35);                               // le dessous du tube, à l'ombre
+    out.push(chemin([...arc(L0, a35, Math.PI, R, rx), [L1, R], [L1, 0.35 * R]], V, A.ombre, true));
+    out.push(chemin([[L0, -R], [L1, -R]], V, A.contour), chemin([[L0, R], [L1, R]], V, A.contour), chemin(arc(L0, 0, Math.PI, R, rx), V, A.contour));
     const g = 13 * Math.PI / 180;
     const bout = [...arc(L1, phi + g, phi + 2 * Math.PI - g, R, rx), ...arc(L1, phi + 2 * Math.PI - g, phi + g, r, rx * r / R)];
     out.push(chemin(bout, V, blancArete, true));
+    out.push(chemin(arc(L1, Math.PI, 2 * Math.PI, R, rx), V, A.contour));
+    out.push(chemin(arc(L1, 0, 2 * Math.PI, r * 0.97, rx * r / R * 0.97), V, A.loin, true));   // l'intérieur, vu par le bout
     // la fente, un peu ouverte derrière la lame
     out.push(chemin([[xk + xF, yF], [L1 + xF - 0.1, yF - 0.2]], V, A.detail), chemin([[xk + xF, yF], [L1 + xF + 0.1, yF + 0.2]], V, A.detail));
     // la pointe, cachée dans le trou
     out.push(chemin([P(2.3, 0), P(0, 0), P(0.9, 0.85)], V, A.cache));
-    out.push(fleche([[-2.6, -5.4], [-9.4, -5.4]], V));           // le sens de la coupe
+    out.push(h.geste(dFleche(map([[-2.6, -5.4], [-9.4, -5.4]], V))));   // le sens de la coupe
     return `<clipPath id="g2415-cadre"><rect x="0" y="0" width="${z.l}" height="${z.h}"/></clipPath>\n<g clip-path="url(#g2415-cadre)">\n${out.join('\n')}\n</g>`;
   }
 
@@ -269,7 +278,7 @@ module.exports = (h) => {
     out.push(chemin([[x0 - lg, y0], [x0 - lg, y1], [x0 + lg, y1], [x0 + lg, y0]], V, blancArete, true));
     out.push(chemin([[x0 - lg * 0.45, y0 + 1.2], [x0 - lg * 0.45, y1 - 0.6]], V, A.fin));
     out.push(chemin(ovale(x0, y0, lg, 0.55, 36), V, blancArete, true), chemin(ovale(x0, y0, 0.85, 0.3, 36), V, A.detail, true));
-    out.push(fleche([[x0, -4.8], [x0, 1.4]], V));
+    out.push(h.geste(dFleche(map([[x0, -4.8], [x0, 1.4]], V))));
     return out.join('\n');
   }
 

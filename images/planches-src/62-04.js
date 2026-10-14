@@ -375,10 +375,8 @@ module.exports = (h) => {
         titre: 'Sur la carcasse',
         dessin: z => {
           const id = 'qd', p = C.placer(z, { echelle: 0.125 }), tr = TR(p);
-          // La charte : les pattes du côté loin en gris loin (le module les peint en blanc à 0,7 ; ce
-          // sont les seuls tracés blancs à 0,7 de cette vue, sans os ni muscles).
-          const carcasse = C.dessiner(h, p, { id, loin: 'fin' })
-            .split(`fill="${BLANC}" stroke="${NOIR}" stroke-width="0.7"`).join(h.a.loin.replace('stroke="none"', `stroke="${NOIR}" stroke-width="0.7"`));
+          // La charte : les pattes du côté loin en gris loin (option du module).
+          const carcasse = C.dessiner(h, p, { id, loin: 'gris' });
           return [
             `<defs>${trames(id)}</defs>`,
             carcasse,
