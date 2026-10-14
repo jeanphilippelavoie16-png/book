@@ -279,14 +279,15 @@ module.exports = (h) => {
     const t0 = [xa - 4 * s, sol - 4], dirB = uni([-1, -0.3]);
     const t1 = add(t0, mul(dirB, (t0[0] - 8) / Math.abs(dirB[0])));
     const n = [-dirB[1], dirB[0]], e = 4.2;
-    out.push(h.chemin([add(t0, mul(n, e)), add(t1, mul(n, e)), add(t1, mul(n, -e)), add(t0, mul(n, -e))], blanc(A.arete), true));
+    out.push(h.chemin([add(t0, mul(n, e)), add(t1, mul(n, e)), add(t1, mul(n, -e)), add(t0, mul(n, -e))], blanc(A.contour), true));
     out.push(a.svg);
     // on soulève le bâton : la bête roule sur le dos (flèche par-dessus, de gauche à droite)
     const c = [xa, ya], R = 108 * s;
     const pol = (deg) => add(c, [R * Math.cos(deg * Math.PI / 180), R * Math.sin(deg * Math.PI / 180)]);
     out.push(h.fleche(`M${f(pol(-158))} A${R.toFixed(1)} ${R.toFixed(1)} 0 0 1 ${f(pol(-40))}`));
     const lv = lerp(t0, t1, 0.88);
-    out.push(h.fleche(`M${f(add(lv, [-2, 12]))} L${f(add(lv, [-2, -18]))}`));
+    // le geste : soulever le bâton
+    out.push(h.geste(`M${f(add(lv, [-2, 12]))} L${f(add(lv, [-2, -18]))}`));
     return {
       svg: out.join('\n'),
       renvois: [
@@ -414,12 +415,14 @@ module.exports = (h) => {
     const a = (sg, s) => Q(-s, sg * (w + 0.3 + s * 0.02));
     const b = (sg, s) => Q(-s, sg * (w + 0.3 + s * 0.02 + 11));
     [1, -1].forEach((sg) => {
-      out.push(h.chemin([a(sg, smax), a(sg, 3), b(sg, 3), b(sg, smax)], blanc(A.arete)));
+      out.push(h.chemin([a(sg, smax), a(sg, 3), b(sg, 3), b(sg, smax)], blanc(A.contour)));
       out.push(h.chemin([a(sg, smax), add(lerp(a(sg, smax), b(sg, smax), 0.35), mul(dIn, 3)), add(lerp(a(sg, smax), b(sg, smax), 0.65), mul(dIn, -3)), b(sg, smax)], A.detail));
     });
     // tirer d'un coup sec, dans l'axe
     const f0 = add(Q(-40, 0), mul(nq, -30)), f1 = add(Q(-100, 0), mul(nq, -30));
-    out.push(h.fleche(`M${f(f0)} L${f(f1)}`));
+    out.push(h.geste(`M${f(f0)} L${f(f1)}`));
+    // le point qui décide : la pince serre au ras de la peau, pas plus haut
+    out.push(h.controle(...Q(-4, 0), 17));
     // le bout de bois qui retient la peau, à gauche
     const bw = 7;
     out.push(h.chemin([[xb - bw - 10, 8], [xb - bw, surf(xb) - 0.5], [xb + bw, surf(xb) - 0.5], [xb + bw - 10, 8]], blanc(A.arete)));
@@ -447,14 +450,21 @@ module.exports = (h) => {
     const gC = 3.4, ouv = 6;               // demi-écart au coin, demi-écart de plus aux mâchoires
     const ecart = (y) => (y <= yF ? 0 : y <= yC ? gC * (y - yF) / (yC - yF) : gC + ouv * (y - yC) / (yb - yC));
     // le bout non fendu, en haut, arrondi
-    out.push(h.path(`M${f([cx - r, yF + 1])} L${f([cx - r, yh + 5])} Q${f([cx, yh - 4])} ${f([cx + r, yh + 5])} L${f([cx + r, yF + 1])}`, blanc(A.arete)));
+    const dHaut = `M${f([cx - r, yF + 1])} L${f([cx - r, yh + 5])} Q${f([cx, yh - 4])} ${f([cx + r, yh + 5])} L${f([cx + r, yF + 1])}`;
+    out.push(h.path(dHaut, A.blanc));
+    // la face de droite du bâton, à l'ombre
+    out.push(h.chemin([[cx + r * 0.45, yh + 2], [cx + r, yh + 5], [cx + r, yF + 1], [cx + r * 0.45, yF + 1]], A.ombre, true));
+    out.push(h.path(dHaut, A.contour));
     // les deux moitiés, de la fente aux mâchoires
     const moitie = (sg) => {
       const pts = [];
       for (let y = yF; y < yb; y += 4) pts.push([cx + sg * ecart(y), y]);
       pts.push([cx + sg * ecart(yb), yb]);
       const ext = pts.map(([x, y]) => [x + sg * r, y]).reverse();
-      return h.chemin([...pts, ...ext], blanc(A.arete), true);
+      const o = [h.chemin([...pts, ...ext], A.blanc, true)];
+      if (sg > 0) o.push(h.chemin([...pts.map(([x, y]) => [x + r * 0.45, y]), ...ext], A.ombre, true));
+      o.push(h.chemin([...pts, ...ext], A.contour, true));
+      return o.join('\n');
     };
     out.push(moitie(-1), moitie(1));
     // le fil du bois, le long des moitiés

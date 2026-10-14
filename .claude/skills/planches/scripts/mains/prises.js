@@ -1331,7 +1331,7 @@ function mainSurMain(mainSimple, o) {
 // Conseil de mise en vue : écarter les deux lacets d'au moins 90° (chaque main tire dans sa direction : l'une
 // monte, l'autre part de côté). À 36° d'écart, il faut ~2,5 longueurs de main entre le nœud et les pinces.
 //   o = { noeud: [x, y], directions: [[ux, uy], [ux, uy]] (du nœud vers chaque main), distance (départ, en unités
-//         de vue ; défaut 40 mm), pas (défaut 4 mm), max (défaut 400 mm), marge (défaut 6 mm), pose ('pince-fine'),
+//         de vue ; défaut 40 mm), pas (défaut 4 mm), max (défaut 400 mm), marge (défaut 12 mm), pose ('pince-fine'),
 //         vue ('pouce'), echelle, cotes (forcer ['droite', 'gauche']), et le reste pour mainSimple (age, trait,
 //         avantbras : { longueur }, …) ; objets: [P => objet, P => objet] (l'objet de chaque main, selon son point de
 //         pince : le lacet du nœud à P, que le moteur peint à sa profondeur entre les doigts) }
@@ -1396,7 +1396,7 @@ function pincesSurLacet(mainSimple, o) {
     const ab = o.avantbras === false ? false : Object.assign({ longueur: 85, vers: [P[0] + v[0] * 2000, P[1] + v[1] * 2000] }, o.avantbras || {});
     return Object.assign({}, base, { cote: regl[k].cote, angle: regl[k].angle, x: P[0], y: P[1], avantbras: ab }, o.objets ? { objet: o.objets[k](P) } : {});
   });
-  const marge = (o.marge !== undefined ? o.marge : 6) * s, pas = (o.pas || 4) * s, max = (o.max || 400) * s;
+  const marge = (o.marge !== undefined ? o.marge : 12) * s, pas = (o.pas || 4) * s, max = (o.max || 400) * s;
   let L = (o.distance !== undefined ? o.distance : 40 * s), jeu = -1, mains = null;
   for (; L <= max; L += pas) {
     const op = opts(L);

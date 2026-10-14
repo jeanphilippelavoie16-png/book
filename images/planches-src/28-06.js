@@ -2,6 +2,10 @@
 // produit »). Le bol d'eau bouillie refroidie et les cotons ; puis le haut du visage vu de face,
 // les deux yeux fermés et collés : un coton sur chaque œil, chacun passé du coin du nez vers le
 // coin extérieur. Pas de main : le coton en place et la flèche du geste.
+//
+// La charte : le bol pèse (contour fort) et sa face de droite est à l'ombre. Rien de gris sur le
+// visage, qui est un corps (dessiné à la main, laissé tel quel). Le rouge : le passage du coton,
+// du coin du nez vers le coin extérieur, une flèche sous chaque œil.
 module.exports = (h) => {
   const f = (v) => Math.round(v * 10) / 10;
 
@@ -112,7 +116,7 @@ module.exports = (h) => {
     // le passage de chaque coton : la flèche, du coin du nez vers le coin extérieur
     const flecheSous = (sg) => {
       const pts = miroir([[15, 14.5], [24, 16.8], [34, 16.4], [43, 13.2], [50.5, 8.5]], sg);
-      return h.fleche(lisse(W(pts)), h.a.arete);
+      return h.geste(lisse(W(pts)));
     };
     out.push(flecheSous(-1), flecheSous(1));
     out.push(coton(...V(cotonG), R_COTON * s));
@@ -136,6 +140,10 @@ module.exports = (h) => {
     return [
       h.ellipse(bx, by + ry * 0.55, rx * 0.85, ry * 0.78, h.a.hachure('eau', 'detail')),
       h.path(corps, blanc(h.a.arete)),
+      // la face de droite du bol, à l'ombre, découpée par le bol lui-même
+      `<clipPath id="ombre-bol-2806"><path d="${corps}" fill="#FFFFFF"/></clipPath>`,
+      `<g clip-path="url(#ombre-bol-2806)">${h.rect(bx + rx * 0.4, by, rx * 0.7, haut * 1.1, h.a.ombre)}</g>`,
+      h.path(corps, h.a.contour),
       h.ligne(bx - pied, by + haut * 0.94, bx + pied, by + haut * 0.94, h.a.detail),
       h.ellipse(bx, by, rx, ry, h.a.arete),
       h.ellipse(bx, by - ry * 0.02, rx * 0.93, ry * 0.86, h.a.fin),

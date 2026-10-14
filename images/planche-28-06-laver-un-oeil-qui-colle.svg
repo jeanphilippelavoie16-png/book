@@ -3,12 +3,15 @@
 <desc>À gauche, un bol d’eau bouillie refroidie et deux boules de coton neuves, une par œil. À droite, le haut d’un visage vu de face, les deux yeux fermés. Sur l’œil de gauche, un premier coton a fait la moitié du chemin depuis le coin du nez ; sur l’œil de droite, un autre coton part du coin du nez. Sous chaque œil, une flèche va du coin du nez vers le coin extérieur.</desc>
 <defs>
 <pattern id="h-eau" width="16" height="7" patternUnits="userSpaceOnUse"><line x1="1" y1="2" x2="8" y2="2" stroke="#1A1A1A" stroke-width="0.5"/><line x1="9" y1="5.5" x2="15" y2="5.5" stroke="#1A1A1A" stroke-width="0.5"/></pattern>
-<marker id="fl" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#1A1A1A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker>
+<marker id="fl-r" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9 Z" fill="#9B2C1E" stroke="#9B2C1E" stroke-width="1" stroke-linejoin="round"/></marker>
 </defs>
 <rect x="0" y="0" width="680" height="413" fill="#FFFFFF"/>
 <g transform="translate(40 24)" data-vue="bol">
 <ellipse cx="82.5" cy="81.4" rx="49.3" ry="10.4" fill="url(#h-eau)" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round"/>
 <path d="M 24.5 74.1 C 24.5 106 44.2 126.3 60.5 128.6 L 62.2 135 L 102.8 135 L 104.5 128.6 C 120.8 126.3 140.5 106 140.5 74.1 A 58 13.3 0 0 1 24.5 74.1 Z" fill="#fff" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<clipPath id="ombre-bol-2806"><path d="M 24.5 74.1 C 24.5 106 44.2 126.3 60.5 128.6 L 62.2 135 L 102.8 135 L 104.5 128.6 C 120.8 126.3 140.5 106 140.5 74.1 A 58 13.3 0 0 1 24.5 74.1 Z" fill="#FFFFFF"/></clipPath>
+<g clip-path="url(#ombre-bol-2806)"><rect x="105.7" y="74.1" width="40.6" height="63.8" fill="#CFCFCF" stroke="none"/></g>
+<path d="M 24.5 74.1 C 24.5 106 44.2 126.3 60.5 128.6 L 62.2 135 L 102.8 135 L 104.5 128.6 C 120.8 126.3 140.5 106 140.5 74.1 A 58 13.3 0 0 1 24.5 74.1 Z" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
 <line x1="60.5" y1="128.6" x2="104.5" y2="128.6" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
 <ellipse cx="82.5" cy="74.1" rx="58" ry="13.3" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <ellipse cx="82.5" cy="73.8" rx="53.9" ry="11.5" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
@@ -58,8 +61,8 @@
 <ellipse cx="217.5" cy="204.4" rx="5.3" ry="2.2" fill="#1A1A1A" stroke="none"/>
 <path d="M 220.8 134.1 C 221.1 137.5 222.1 148.1 222.8 154.6 C 223.6 161.1 224.9 170 225.3 173" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M 187.6 207.1 C 189.3 207.4 194.7 208.5 197.8 208.9 C 200.9 209.3 203.3 209.5 206 209.5 C 208.7 209.5 211.1 209.3 214.2 208.9 C 217.3 208.5 222.7 207.4 224.5 207.1" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M 175.3 139.2 C 172.2 140 163.3 143.3 156.8 143.9 C 150.3 144.6 142.8 144.3 136.3 143.1 C 129.8 141.9 123.5 139.3 117.9 136.6 C 112.2 133.9 105 128.5 102.5 126.9" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl)"/>
-<path d="M 236.8 139.2 C 239.8 140 248.7 143.3 255.2 143.9 C 261.7 144.6 269.2 144.3 275.7 143.1 C 282.2 141.9 288.5 139.3 294.2 136.6 C 299.8 133.9 307 128.5 309.5 126.9" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl)"/>
+<path d="M 175.3 139.2 C 172.2 140 163.3 143.3 156.8 143.9 C 150.3 144.6 142.8 144.3 136.3 143.1 C 129.8 141.9 123.5 139.3 117.9 136.6 C 112.2 133.9 105 128.5 102.5 126.9" fill="none" stroke="#9B2C1E" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl-r)"/>
+<path d="M 236.8 139.2 C 239.8 140 248.7 143.3 255.2 143.9 C 261.7 144.6 269.2 144.3 275.7 143.1 C 282.2 141.9 288.5 139.3 294.2 136.6 C 299.8 133.9 307 128.5 309.5 126.9" fill="none" stroke="#9B2C1E" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl-r)"/>
 <path d="M 159.5 107.9 Q 164.7 113.6 157.9 118.2 Q 159.3 126.3 152 127.1 Q 147 132.6 141.2 127.1 Q 133.5 129.6 131.8 122.2 Q 125.2 118.5 130.4 111.9 Q 125.9 104.7 132.4 101.4 Q 135.3 94.6 142.6 97.6 Q 149 92.9 153 99.4 Q 160.6 100.4 159.5 107.9 Z" fill="#fff" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M 135.8 114.3 q 3.5 -7 8.7 -3.5" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M 145.4 120.4 q 5.2 -1.7 7.8 -7" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
