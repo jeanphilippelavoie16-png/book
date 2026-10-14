@@ -68,8 +68,8 @@ module.exports = (h) => ({
       renvois: z => {
         const R = repS(z, FEN2), D = depart();
         return [
-          { n: 10, rond: R.T([3.6, 13.6]), cible: R.T(D.surBoucle), texte: 'le bout passe dans la boucle' },
-          { n: 11, rond: R.T([3.6, 21.6]), cible: R.T(D.dansOeil), texte: 'le brin passe dans son œil' },
+          { n: 10, rond: R.T([10.0, 13.2]), cible: R.T(D.surBoucle), texte: 'le bout passe dans la boucle' },
+          { n: 11, rond: R.T([22.4, 18.4]), cible: R.T(D.dansOeil), texte: 'le brin passe dans son œil' },
         ];
       },
     },
@@ -390,7 +390,7 @@ function repS(z, W) {
   const ox = (z.l - K * (W[1] - W[0])) / 2 - K * W[0], oy = (z.h - K * (W[3] - W[2])) / 2 - K * W[2];
   return { K, T: ([x, y]) => [r1(ox + K * x), r1(oy + K * y)], P: p => [ox + K * p[0], oy + K * p[1], p[2]] };
 }
-const FEN1 = [0, 28, -19, 15], FEN2 = [0, 32, -18, 25], FEN3 = [0, 32, -18, 25], FEN4 = [0, 32, 0, 41];
+const FEN1 = [0, 28, -19, 15], FEN2 = [8, 25, -4.5, 21], FEN3 = [0, 32, -18, 25], FEN4 = [0, 32, 0, 41];
 // Le fût en biais, de x0 à x1, cassé aux deux bouts : le dessus blanc, le chant gris.
 function futObl(h, R, x0, x1) {
   const onde = (x, y) => x + 0.7 * Math.sin(2 * PI * (y - YD) / (YB - YD));
@@ -447,7 +447,7 @@ function vueLisiere(h, z) {
   return out.join('\n');
 }
 
-// 2. Le départ, au coin : la traverse à droite, entrée dans le chant du fût.
+// 2. Le départ, au coin : gros plan sur le nœud ; la traverse à droite, entrée dans le chant du fût.
 // La boucle du coin va du dernier trou du fût au flanc de la traverse. Le bout du brin est fendu
 // en œil. Le bout fait le tour de la boucle (dessus, puis dessous), et le brin revient passer
 // dans son œil : par-dessus la lèvre du haut, par la fente, sous la lèvre du bas. On tire le brin
@@ -456,24 +456,23 @@ let DEP = null;
 function depart() {
   if (DEP) return DEP;
   const XT = 20.5, ZT = 21;                                // flanc de la traverse ; son dessus
-  const pq = paire(8);
+  const E = pr(12.5, 0), Qd = pr(10.7, -3.4, HTF);         // le dernier trou du fût, sur le chant ; son trou du dessus
   const Tf = pr(XT, 6.2);                                  // entrée de la boucle dans le flanc de la traverse
-  const coin = [pq.E, [pq.E[0] - 0.5, 4.6], [pq.E[0] + 0.6, 9.4], [14.6, 11.1], [17.6, 10.2], [19.4, 8.2], Tf];
-  const B = [13.7, 10.5];                                  // où le brin prend la boucle
+  const coin = [E, [12.1, 3.8], [12.6, 7.4], [14.6, 9.1], [17.4, 8.7], [19.4, 7.2], Tf];
+  const B = [13.35, 8.5];                                  // où le brin prend la boucle
   const v = unit([-0.42, 0.91]), u = [v[1], -v[0]];       // v : on tire, vers le bas à gauche ; u : en travers, vers la traverse
   const L = (a, b, zz = 0) => [B[0] + a * u[0] + b * v[0], B[1] + a * u[1] + b * v[1], zz];
   const aS = 1.9, aB = -1.9, bE = 6.6;                     // le brin ; le bout ; l'axe de l'œil
   const brin = [L(-1.2, -3.0, 0), L(0.4, -3.4, 0), L(aS, -2.5, -0.4), L(aS, -0.2, -1), L(aS, 2.2, 0), L(aS, bE - 2.6, 0),
-    L(aS, bE, 0), L(aS, bE + 3.2, 0), L(aS + 0.3, 13, 0), L(aS + 1.2, 17, 0)];
+    L(aS, bE, 0), L(aS, bE + 2.8, 0), L(aS + 0.3, 11.6, 0)];
   const bout = [L(-1.2, -3.0, 0), L(-2.6, -2.4, 0.4), L(aB, -0.2, 1), L(aB, 2.0, 0.5), L(aB, 3.6, 0), L(aB + 0.25, 5.3, 0), L(-1.05, bE - 0.15, 0), L(-0.4, bE, 0)];
   // un seul ruban, du col de l'œil au loin : le bout, le tour de la boucle, le brin
   const babiche = [...bout.slice().reverse(), ...brin.slice(1)];
-  DEP = { XT, ZT, pq, Tf, coin, B, u, v, L, aS, aB, bE, babiche, gauche: [[0.9, 7.4, 0], [pq.F[0] - 1.8, 7.2, 0], [pq.F[0] - 0.4, 3.8, 0], [...pq.F, 0]],
-    surBoucle: L(aB, -0.2), dansOeil: L(aS, bE) };
+  DEP = { XT, ZT, E, Qd, Tf, coin, B, u, v, L, aS, aB, bE, babiche, surBoucle: L(aB - 1.0, -0.2), dansOeil: L(aS, bE) };
   return DEP;
 }
 // L'œil : le bout de la babiche fendu, ouvert en lentille, la fente au milieu. Il continue le bout
-// (qui finit en N, son col) le long de u. Rend le blanc de l'œil (avec la fente en trou) et son trait.
+// (qui finit à son col) le long de u. Rend le blanc de l'œil (la fente en trou) et ses traits.
 function oeil(h, R, D) {
   const { L, bE } = D, a0 = -0.4, a1 = 4.6, wM = 2.15;
   const larg = a => { const t = (a - a0) / (a1 - a0); return WF / 2 + (wM - WF / 2) * Math.sin(Math.min(1, t * 1.25) * PI / 2); };
@@ -494,31 +493,32 @@ function oeil(h, R, D) {
 }
 function vueDepart(h, z) {
   const R = repS(z, FEN2), F = h.formes, D = depart(), out = [];
-  // le fût, puis la traverse devant son chant : son dessus seul se voit, cassé en bas
-  out.push(futObl(h, R, 0.4, 31.6));
-  const yT0 = pr(0, 0, D.ZT)[1], yT1 = 23.2;
-  const trav = [[D.XT, yT0], [31.6, yT0], [31.6, yT1], ...Array.from({ length: 9 }, (_, i) => { const x = 31.6 - (31.6 - D.XT) * i / 8; return [x, yT1 + 0.6 * Math.sin(2 * PI * i / 8)]; })];
+  // le fût, cassé à gauche, coupé par le bord de la vue ailleurs ; puis la traverse devant son chant
+  out.push(futObl(h, R, 8.4, 30));
+  const yT0 = pr(0, 0, D.ZT)[1], yT1 = 13.6;
+  const trav = [[D.XT, yT0], [30, yT0], [30, yT1], ...Array.from({ length: 9 }, (_, i) => { const x = 30 - (30 - D.XT) * i / 8; return [x, yT1 + 0.6 * Math.sin(2 * PI * i / 8)]; })];
   out.push(h.chemin(trav.map(R.T), h.a.blanc, true));
-  out.push(h.chemin([[D.XT, yT1], [D.XT, yT0], [31.6, yT0]].map(R.T), h.a.arete));
+  out.push(h.chemin([[D.XT, yT1], [D.XT, yT0], [30, yT0]].map(R.T), h.a.arete));
   out.push(h.chemin(trav.slice(3).map(R.T), h.a.detail));
-  for (const x of [23.5, 28]) out.push(h.path('M' + Array.from({ length: 7 }, (_, i) => { const y = yT0 + 3 + (yT1 - yT0 - 7) * i / 6; return R.T([x + 0.25 * Math.sin(y * 0.6), y]).join(' '); }).join(' L'), h.a.fin));
-  out.push(dessusPaire(h, R, D.pq));
+  for (const x of [22.8, 25.6]) out.push(h.path('M' + Array.from({ length: 7 }, (_, i) => { const y = yT0 + 2 + (yT1 - yT0 - 4) * i / 6; return R.T([x + 0.2 * Math.sin(y * 0.7), y]).join(' '); }).join(' L'), h.a.fin));
+  // le dernier trou du fût : la babiche y entre et remonte dans le bois
+  out.push(cache(h, R, D.Qd, D.E, WF));
   // la boucle du coin entre dans le flanc de la traverse et remonte dans le bois jusqu'au dessus
-  const Ht = pr(D.XT + 3.2, 3.2, D.ZT);
+  const Ht = pr(D.XT + 3.0, 3.0, D.ZT);
   out.push(cache(h, R, D.Tf, Ht, WF), trou(h, R, Ht));
-  // la boucle, le bout qui en fait le tour, le brin
+  // la boucle, et la babiche : le bout qui en fait le tour, le brin qui revient
   out.push(F.cordes([
     ruban(R, D.coin),
-    ruban(R, D.gauche, { debut: 'fixe' }),
-    ruban(R, D.babiche, { fin: 'fixe', fleche: { de: 0.84, a: 0.98, cote: 'droite' } }),
+    ruban(R, D.babiche, { fin: 'fixe', fleche: { de: 0.8, a: 0.97, cote: 'droite' } }),
   ], { trait: 'contour' }));
-  out.push(trou(h, R, D.pq.F, true), trou(h, R, D.pq.E, true));
+  out.push(trou(h, R, D.E, true));
   // l'œil, par-dessus le brin ; puis le brin qui passe sur la lèvre du haut et plonge dans la fente
   const O = oeil(h, R, D);
   out.push(O.blanc, O.trait, O.fente);
   out.push(F.corde([R.P(D.L(D.aS, D.bE - 3.4)), R.P(D.L(D.aS, D.bE - 1.2)), R.P(D.L(D.aS, D.bE))], { ep: WF * R.K, debut: 'ouvert', fin: 'ouvert', trait: 'contour' }));
   out.push(O.basFente);
-  return out.join('\n');
+  // le gros plan est découpé par le bord de sa vue
+  return `<clipPath id="decoupe-89-03-s2"><rect x="0" y="0" width="${z.l}" height="${z.h}"/></clipPath>\n<g clip-path="url(#decoupe-89-03-s2)">\n${out.join('\n')}\n</g>`;
 }
 
 // 3. La boucle suivante, prise d'un tour tordu : le brin fait le tour de la boucle de lisière,

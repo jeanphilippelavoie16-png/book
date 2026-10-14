@@ -8,9 +8,11 @@
 // rouler de côté ; le cou repart vers le corps derrière le bâton. L'oiseau flotte, retenu par le
 // cou : le bâton sert aussi d'ancre.
 //
-// Unités : le canard fait environ 1,45 du bout du bec au bout de la queue ; la ligne d'eau est à
-// y = 0, y vers le bas. La loupe redessine la même scène, grossie autour du menton.
-
+// Le canard de côté est calqué sur la cane colvert de Fuertes (pl. 12, Birds of New York, 1910 ;
+// images/photos/lot5/50-01c-canard-noir-colvert-fuertes-pl12.jpg : même silhouette que le canard
+// noir, qui n'y est montré qu'au repos), par _animaux.js (canard). Repère en mm, celui du canard,
+// la ligne d'eau à y = 0. La tête de face est vue de près : le bec par-dessus, sans yeux (ils sont
+// sur les côtés).
 const A_ = require('./_animaux');
 
 module.exports = (h) => {
