@@ -3,12 +3,27 @@
 // Le chapitre ne donne aucune dimension du bâton, des mèches, du chaudron, des chaises ni des
 // moules : aucune cote. Le réflecteur de fer-blanc demandé par la fiche n'est pas dans le
 // chapitre : il n'est pas dessiné.
+// La main du bâton est la main simple (mains/moteur.js), le poing côté paume ; mains nues (le chapitre ne
+// demande les gants que pour la soude). La charte : le rouge sur le trempage, la broche et le vide au cœur.
 module.exports = (h) => {
   const A = h.a, F = h.formes;
   const r1 = n => Math.round(n * 10) / 10;
   const blanc = at => at.replace('fill="none"', 'fill="#FFFFFF"');
   const bA = blanc(A.arete), bC = blanc(A.contour), bD = blanc(A.detail);
   const P = pts => pts.map(p => `${r1(p[0])} ${r1(p[1])}`).join(' L');
+  // l'angle d'une main simple qui met l'axe de sa prise sur axe (degrés écran) et son avant-bras vers vers [x, y]
+  const poser = (o, axe, vers) => {
+    const base = Object.assign({}, o, { angle: 0, avantbras: { longueur: 100 } }); delete base.objet;
+    const e0 = F.mainSimple(base); let best = null;
+    for (const k of [0, 180]) {
+      const a = axe - e0.prise.angle + k, m = F.mainSimple(Object.assign({}, base, { angle: a }));
+      const d = [m.coude[0] - m.poignet[0], m.coude[1] - m.poignet[1]], v = [vers[0] - m.poignet[0], vers[1] - m.poignet[1]];
+      const c = (d[0] * v[0] + d[1] * v[1]) / ((Math.hypot(d[0], d[1]) * Math.hypot(v[0], v[1])) || 1);
+      if (!best || c > best.c) best = { a, c };
+    }
+    return best.a;
+  };
+  const MAIN = { ech: 0.6, rot: [-40, 0, 0], cote: 'droite' };   // penché de 40° : les doigts à plat autour du bâton
 
   // ─── pièces communes ─────────────────────────────────────────────────────────────────
   // un bâton rond vu de côté, de x0 à x1, axe en y, rayon r
@@ -41,13 +56,16 @@ module.exports = (h) => {
     xs.forEach(x => out.push(F.corde([[x, yc0 + 4], [x, ys]], { ep: 2.2, debut: 'ouvert', fin: 'ouvert' })));
     // le bâton, tenu par la main
     const bt = baton(cx - o.demi, cx + o.demi, ys, rb);
-    // modèle s11 (poing fermé vu de la paume) tourné d'un demi-tour : l'avant-bras monte hors du
-    // cadre, le bâton passe dans le poing (bâton du modèle ≈ 25 px : echelle = 2 rb / 25)
-    const m = o.sansMain ? null : F.modele('s11', { x: cx, y: ys, ancre: [68, 42], angle: 180, echelle: 2 * rb / 25,
-      masquer: [[0, 150, 140, 175]], bras: { a: [21.8, 150], a0: [20.8, 135], b: [76.3, 150], b0: [76.2, 135], bord: o.z } });
+    // la main droite : la main simple, le poing côté paume refermé sur le bâton par-dessus, l'avant-bras qui
+    // monte hors du cadre ; le bâton entre d'un côté du poing et ressort de l'autre, derrière les doigts
+    let m = null;
+    if (!o.sansMain) {
+      const oM = { x: cx, y: ys, pose: 'prise-manche', vue: 'paume', cote: MAIN.cote, echelle: MAIN.ech, diametre: 2 * rb / MAIN.ech, ...(MAIN.rot ? { rotation: MAIN.rot } : {}) };
+      const vM = [cx, -300];
+      m = F.mainSimple({ ...oM, angle: poser(oM, 0, vM), objet: bt, avantbras: { vers: vM, bord: { x0: 0, y0: 0, x1: o.z.l, y1: o.z.h }, bras: { pli: 0 } } }).svg;
+    }
     if (o.dessous) out.push(o.dessous);
-    out.push(bt);
-    if (m) out.push(m);
+    out.push(m || bt);
     // le tour de mèche par-devant et le bout qui pend
     xs.forEach(x => out.push(F.corde([[x - 2.5, ys - rb - 0.8], [x + 2.5, ys + rb + 0.8], [x + 4, ys + rb + 7]], { ep: 2.2, debut: 'ouvert', fin: 'libre' })));
     // les chandelles
@@ -64,8 +82,8 @@ module.exports = (h) => {
   // la flèche en U : descendre, remonter, sans s'arrêter
   const flecheU = (x, y0, y1, l) => {
     const ym = (y0 + y1) / 2;
-    return [h.fleche(`M${r1(x)} ${r1(y0)} V${r1(ym)}`),
-      h.fleche(`M${r1(x)} ${r1(ym)} V${r1(y1 - l / 2)} Q${r1(x)} ${r1(y1)} ${r1(x + l / 2)} ${r1(y1)} Q${r1(x + l)} ${r1(y1)} ${r1(x + l)} ${r1(y1 - l / 2)} V${r1(y0 + 4)}`)].join('\n');
+    return [h.geste(`M${r1(x)} ${r1(y0)} V${r1(ym)}`),
+      h.geste(`M${r1(x)} ${r1(ym)} V${r1(y1 - l / 2)} Q${r1(x)} ${r1(y1)} ${r1(x + l / 2)} ${r1(y1)} Q${r1(x + l)} ${r1(y1)} ${r1(x + l)} ${r1(y1 - l / 2)} V${r1(y0 + 4)}`)].join('\n');
   };
 
   // ─── Vue 1 : tremper dans le suif ────────────────────────────────────────────────────
@@ -282,7 +300,7 @@ module.exports = (h) => {
       const xb = cx + 4.5, yb = yF + 44;
       pointe = [xb, yb];
       out.push(h.path(`M${r1(xb)} ${r1(yb)} L${r1(xb + 1.8)} ${r1(yb - 12)} L${r1(xb + 5)} ${r1(yt - 30)} L${r1(xb + 1)} ${r1(yt - 30)} L${r1(xb - 1.2)} ${r1(yb - 12)} Z`, bA));
-      out.push(h.fleche(`M${r1(xb + 15)} ${r1(yt - 28)} L${r1(xb + 12)} ${r1(yt - 12)}`));
+      out.push(h.geste(`M${r1(xb + 15)} ${r1(yt - 28)} L${r1(xb + 12)} ${r1(yt - 12)}`));
     }
     // 4. remplir de nouveau
     {
@@ -312,6 +330,8 @@ module.exports = (h) => {
       out.push(h.path(`M${r1(cx)} ${r1(yf - 34)} C${r1(cx + 3)} ${r1(yf - 22)} ${r1(cx + 9)} ${r1(yf - 10)} ${r1(cx + 7)} ${r1(yf - 3)} C${r1(cx + 5)} ${r1(yf + 3)} ${r1(cx - 5)} ${r1(yf + 3)} ${r1(cx - 7)} ${r1(yf - 3)} C${r1(cx - 9)} ${r1(yf - 10)} ${r1(cx - 3)} ${r1(yf - 22)} ${r1(cx)} ${r1(yf - 34)} Z`, bA));
       out.push(h.path(`M${r1(cx)} ${r1(yf - 18)} C${r1(cx + 2)} ${r1(yf - 12)} ${r1(cx + 4)} ${r1(yf - 7)} ${r1(cx + 3)} ${r1(yf - 4)} C${r1(cx + 2)} ${r1(yf - 1)} ${r1(cx - 2)} ${r1(yf - 1)} ${r1(cx - 3)} ${r1(yf - 4)} C${r1(cx - 4)} ${r1(yf - 7)} ${r1(cx - 2)} ${r1(yf - 12)} ${r1(cx)} ${r1(yf - 18)} Z`, A.fin));
       vide5 = [cx + 4, yF + 50];
+      // le point qui casse : le vide au cœur, sous la flamme
+      out.push(h.controle(cx, yF + 50, 13));
     }
     out.push(h.ligne(rate ? 30 : 0, sol, rate ? z.l : z.l - 30, sol, A.arete));
     if (rate) return { svg: out.join('\n'), renvois: [{ n: 14, rond: [cxs[4] + 40, yF + 50], cible: vide5, texte: 'non regarnie : vide au cœur' }] };

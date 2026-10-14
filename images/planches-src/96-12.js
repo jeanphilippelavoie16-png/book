@@ -13,6 +13,8 @@
 //
 // Trois matières, trois trames qui ne se ressemblent pas : le tas en débris (feuilles, brindilles,
 // grumeaux), la paille en brins couchés le long de la surface, la terre du sol en hachure oblique.
+// 14 oct. : la main qui tient la tige retirée est une main simple (mains/moteur.js, prise-manche vue côté
+// paume), à la taille de la vue, au lieu du calque s11 grossi avec la tige ; la tige y pèse (contour 2,4).
 
 // Un hasard reproductible : la planche sort pareille à chaque composition.
 const hasard = (graine) => {
@@ -159,12 +161,12 @@ module.exports = (h) => ({
         // le haut est rompu : la tige continue plus haut que la vue (elle traverse tout le tas)
         const tige = [[x - ec, yh + 4], [x - ec / 3, yh - 1], [x + ec / 3, yh + 6], [x + ec, yh + 1],
           [x + ec, yp - 13], [x, yp], [x - ec, yp - 13]];
-        const objet = h.chemin(tige, h.a.blanc, true) + '\n' + h.chemin(tige, h.a.arete, true);
-        // modèle s11 (poing fermé, vu de la paume) tourné d'un quart : l'avant-bras part à gauche, le
-        // pouce en bas ; la tige, peinte d'abord, passe dans le poing (25 px de bâton = la tige)
-        const m = h.formes.modele('s11', { x, y: ym, ancre: [68, 42], angle: 90, echelle: 2 * ec / 25, masquer: [[0, 150, 140, 175]],
-          bras: { a: [21.8, 150], a0: [20.8, 135], b: [76.3, 150], b0: [76.2, 135], bord: z } });
-        return objet + '\n' + String(m);
+        const objet = h.chemin(tige, h.a.blanc, true) + '\n' + h.chemin(tige, h.a.contour, true);   // la charte : l'objet pèse
+        // la main simple (main gauche, prise-manche vue côté paume, penchée de 25°) fermée sur la tige : la
+        // tige entre par le haut du poing et ressort par le bas, derrière les doigts ; l'avant-bras part à
+        // gauche et sort de la vue. La main garde la taille de la vue (e), la prise se ferme sur la tige.
+        const vers = [x - 600, ym], o = { x, y: ym, pose: 'prise-manche', vue: 'paume', cote: 'gauche', echelle: g.e, diametre: 2 * ec / g.e, rotation: [-25, 0, 0] };
+        return h.formes.mainSimple({ ...o, angle: poser(h, o, 90, vers), objet, avantbras: { vers, bord: { x0: 0, y0: 0, x1: z.l, y1: z.h }, bras: { pli: 0 } } }).svg;
       },
       renvois: z => {
         const g = geoTige(z);
@@ -186,6 +188,20 @@ function geo(z) {
   const yCoeur = yg - H * 0.44;
   const ec = 2.6;                               // demi-épaisseur de la tige
   return { yg, W, H, t, cx, yCoeur, ec, xTige: cx, yPointe: yCoeur + 4, yTete: yg - H - t - 38 };
+}
+
+// l'angle de la main simple qui met l'axe de sa prise sur `axe` (degrés à l'écran) et son avant-bras du
+// côté de `vers` (le même outil que 104-40 et 50-40)
+function poser(h, o, axe, vers) {
+  const F = h.formes, base = Object.assign({}, o, { angle: 0, avantbras: { longueur: 100 } }); delete base.objet;
+  const e0 = F.mainSimple(base); let best = null;
+  for (const k of [0, 180]) {
+    const a = axe - e0.prise.angle + k, m = F.mainSimple(Object.assign({}, base, { angle: a }));
+    const d = [m.coude[0] - m.poignet[0], m.coude[1] - m.poignet[1]], v = [vers[0] - m.poignet[0], vers[1] - m.poignet[1]];
+    const c = (d[0] * v[0] + d[1] * v[1]) / ((Math.hypot(d[0], d[1]) * Math.hypot(v[0], v[1])) || 1);
+    if (!best || c > best.c) best = { a, c };
+  }
+  return best.a;
 }
 
 // La géométrie de la tige retirée.

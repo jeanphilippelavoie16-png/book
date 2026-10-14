@@ -7,8 +7,10 @@
 // l'oreille (un C), un sourcil au plus, la limite des cheveux. L'iris plein et la commissure de la bouche
 // fermée existent sur demande seulement (JP, 14 octobre : « enlève l'iris pi la commissure »).
 // Pas de narine, de cil, de ride, de dent ni de pupille détaillée. Les cheveux sont une ligne de contour autour
-// du crâne, jamais un aplat gris ni des mèches. Une tête de moins de 45 de haut dans la vue perd le sourcil,
-// la commissure et la limite des cheveux : à cette taille, ce n'est plus que du bruit.
+// du crâne, jamais un aplat gris ni des mèches ; devant l'oreille, la patte dit « cheveux » (sans elle, la ligne du
+// front à la nuque se lisait comme une sangle de casque). Une tête de moins de 45 de haut dans la vue perd le
+// sourcil, la commissure et la limite des cheveux, et sa bouche fermée n'est plus qu'une courbe : à cette taille,
+// ce n'est plus que du bruit (les deux lèvres et le menton y faisaient trois dents de scie).
 //
 // ═══ L'API ══════════════════════════════════════════════════════════════════════════════════════════
 //
@@ -19,7 +21,8 @@
 //     angle      la tête ET le cou tournent ensemble, en degrés à l'écran (+ : sens horaire), après le miroir
 //                (comme l'ancienne tete() : cote 'droite', + penche le visage vers le bas)
 //     penche     la tête seule sur le cou, en degrés (+ : le menton vers la poitrine, − : la tête renversée),
-//                le cou garde son axe ; la nuque reste d'un seul trait (union et arrondi, comme le corps)
+//                le cou garde son axe ; la nuque reste d'un seul trait (union et arrondi, comme le corps ; penchée
+//                vers l'avant, un arrondi de 60 mm, derrière l'axe du cou, comble le creux sous l'occiput)
 //     cote       'droite' (défaut : le visage regarde vers +x) · 'gauche' (miroir)
 //     age        'homme' (défaut ; 'adulte') · 'femme' · 'enfant6' ('enfant') · 'enfant4' · 'bebe' (nouveau-né)
 //                (la hauteur de tête et le raccord au cou : corps/proportions.json ; le visage : tetes/proportions.json)
@@ -39,7 +42,8 @@
 //                ou sans cheveux) : seul au milieu du crâne, le C couché se lit comme un sourire
 //     commissure true : un trait de commissure à la bouche fermée (défaut : false ; JP, 14 octobre)
 //     cou        true (défaut : 95 mm sous la nuque × la largeur du cou de l'âge ; 18 mm pour le bébé, dont le
-//                cou ne se voit pas) · false (coupé juste sous le menton) · un nombre : la longueur, en mm réels
+//                cou ne se voit pas) · false (coupé juste sous le menton) · un nombre : la longueur, en mm réels ;
+//                la bouche ouverte ou serrée descend la coupe d'autant que le menton (true et false seulement)
 //     raccord    [[x, y], [x, y]] (unités de vue) : le cou va de la nuque à ces deux points, le devant puis le
 //                derrière, et la coupe est ce segment : le haut d'un corps que la planche dessine elle-même
 //                (le bébé couché de 29-05). La tête se pose par x, y, ancre ('oreille' ou 'nuque'), angle.

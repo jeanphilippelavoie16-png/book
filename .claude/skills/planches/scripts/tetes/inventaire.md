@@ -69,10 +69,15 @@ Les autres corps simples (120 appels environ) ont une tête de moins de 45 px : 
 - **Âges** : homme (8 planches), bébé (29-05, 29-06), enfant de 6 et de 4 ans (38-01, 28-02), femme (29-04, 29-08 : des
   corps ; 34-02 à repasser). Aucune tête de femme seule aujourd'hui : la femme sert surtout au corps simple.
 - **Yeux** : ouverts presque partout ; fermés pour l'œil qu'on lave (28-06), le bébé (29-05, 29-06), l'adulte
-  inconscient (38-01) et les couchés.
+  inconscient (38-01) et les couchés. L'œil ouvert est l'amande vide : l'iris plein ne se dessine plus que sur
+  demande (`iris: true`), et la bouche fermée n'a plus de commissure (`commissure: true` sur demande) : JP, 14 octobre.
 - **Bouche** : fermée ; entrouverte pour souffler (13-40) et crier (38-01) ; grande ouverte pour la bouche sur bouche
   et nez (29-05) et le bébé qui prend le sein (29-06) ; lèvres serrées sur un linge (27-03, ~17 mm), un rameau
   (27-05, ~8 mm), un sifflet (38-01, ~6 mm).
 - **Tête penchée** : 29-05 (renversée de ~42° sur le cou : la nuque cassait), 60-40, 38-01 (l'adulte couché, la tête
   relevée sur l'oreiller : `angles: { cou: -78, tete: -72 }`), 26-09a.
 - **Cheveux** : courts pour l'homme et les enfants ; longs pour la femme (34-02) ; la queue de cheval, pour une fille.
+  Les cheveux qui pendent (longs, queue) s'attachent d'eux-mêmes quand la tête penche de plus de 30° : la femme en
+  travail à quatre pattes (29-08), couchée (29-04).
+- **Couchés sur le dos** : 38-01 (l'adulte), 29-05 (le bébé), 28-04, 26-09b. Une tête couchée sans limite des cheveux
+  (petite ou sans cheveux) perd son oreille d'elle-même : seul au milieu du crâne, le C couché fait un sourire.

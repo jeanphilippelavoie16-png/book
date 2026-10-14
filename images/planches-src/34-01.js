@@ -13,6 +13,9 @@
 // Lot 3 (JP, 13 octobre au soir : les corps de profil seulement) : le corps de face et de dos et le
 // visage de face sortent. Un seul corps simple de profil porte les zones du chapitre ; le triangle du
 // visage et le cou passent sur la tête du même corps, en grand. Rouge : le geste du trait à faire.
+// Mains simples (14 octobre) : vu de dessus, la main entière (pince-ouverte-dessus, vue du dos) tient la bosse
+// entre le pouce et l'index ; la vue est au tiers de l'ancienne échelle pour qu'elle entre. Le doigt dans la poche :
+// pointe de profil à l'échelle de la coupe, la main sort par le haut. Rouge : le doigt qui balaie la poche.
 module.exports = (h) => {
   const F = h.formes._interne;
   const f = v => (+v).toFixed(1);
@@ -138,8 +141,9 @@ module.exports = (h) => {
   const echelle = z => Math.min((z.h - 8) / 42, (z.l - 20) / 70);
 
   // ─── Vu de dessus : la bosse, le trait dans le grand axe, le pouce et l'index de l'autre main
+  // l'échelle : la main entière doit entrer dans la vue (JP : plus de bouts de doigts seuls), la bosse rapetisse d'autant
   const geoDessus = z => {
-    const s = Math.min(z.h / 58, z.l / 118), cx = z.l - 42 * s, cy = z.h / 2;
+    const s = Math.min(z.h / 160, z.l / 300), cx = z.l * 0.6, cy = z.h / 2 - 4;
     const P = (u, v) => [cx + u * s, cy + v * s];
     return { s, cx, cy, P };
   };
@@ -152,21 +156,10 @@ module.exports = (h) => {
     // le trait de lame : une fente noire en fuseau
     const fente = [...range(-G, G, 16).map(u => [u, -0.9 * Math.sqrt(1 - (u / G) ** 2)]), ...range(G, -G, 16).map(u => [u, 0.9 * Math.sqrt(1 - (u / G) ** 2)])];
     out.push(h.chemin(fente.map(p => P(...p)), h.a.plein, true));
-    // la main, vue du dos : l'index au-dessus de la bosse, le pouce en dessous, la palmure entre
-    const T = F.repere({ x: g.cx, y: g.cy, echelle: s });
-    const dir = a => [Math.cos(a * Math.PI / 180), Math.sin(a * Math.PI / 180)];
-    const chaine = (bout, angles, L) => {      // du bout vers la base, puis renversée
-      const pts = [bout];
-      for (let i = 0; i < L.length; i++) { const d = dir(angles[i]); const p = pts[pts.length - 1]; pts.push([p[0] - d[0] * L[i], p[1] - d[1] * L[i]]); }
-      return pts.reverse();
-    };
-    const ptsI = chaine([-3, -21], [14, 17, 20], [19, 25, 43]);
-    const ptsP = chaine([-3, 21], [-28, -32, -36], [23, 30, 44]);
-    const fw = e => [[e[0] / 2, e[1] / 2], [e[1] / 2, e[2] / 2], [e[2] / 2, e[3] / 2]];
-    const index = F.tube({ pts: ptsI, dos: fw([19, 16.2, 14.2, 12.2]), ventre: fw([19, 16.2, 14.2, 12.2]), coussin: [-0.15, -0.1, 0.15], bosseDos: [-0.15, -0.1, 0.15], bout: 'rond', ongle: 'dessus' });
-    const pw = [[12.5, 11], [11, 10.5], [10.5, 8.2]];
-    const pouce = F.tube({ pts: ptsP, sens: 1, dos: pw, ventre: pw, coussin: [0, -0.3, 0.3], bosseDos: [0, -0.3, 0.3], bout: 'rond', ongle: 'dessus' });
-    out.push(F.peindre([pouce, index], T));
+    // la main gauche, vue du dos (main simple, pince-ouverte-dessus) : l'index au-dessus de la bosse, le pouce en
+    // dessous, écartés de 60 mm de part et d'autre ; la main vient d'en bas à gauche, l'avant-bras sort de la vue
+    out.push(h.formes.mainSimple({ x: g.cx, y: g.cy, pose: 'pince-ouverte-dessus', vue: 'dos', cote: 'gauche', echelle: s, diametre: 60, angle: -30,
+      avantbras: { bord: { x0: 0, y0: 0, x1: z.l, y1: z.h }, bras: { pli: 0 } } }).svg);
     return cadre('dessus', z, out.join('\n'));
   };
 
@@ -211,24 +204,18 @@ module.exports = (h) => {
     const s = echelle(z), ox = z.l / 2 - 6 * s, oy = z.h - 20 * s;
     return { s, ox, oy };
   };
+  const doigtMain = (z, P, s) => h.formes.mainSimple({ x: P(6, 8.5)[0], y: P(6, 8.5)[1], ancre: 'bout', pose: 'pointe', vue: 'pouce', cote: 'gauche', echelle: s, angle: 66,
+    avantbras: { bord: { x0: 0, y0: 0, x1: z.l, y1: z.h }, bras: { pli: 0 } } });
   const dessinDoigt = z => {
     const g = geoDoigt(z), s = g.s;
     const c = coupe({ s, ox: g.ox, oy: g.oy, uL: -(g.ox - 2) / s, uR: (z.l - g.ox - 2) / s, vB: 17.5, ouvert: true, contenu: 'vide', cloisons: 'cassees' });
     const P = c.P, out = [c.svg];
     // le balayage : la pulpe va d'un bout de la poche à l'autre
-    out.push(h.fleche(cr([[3, 13.4], [-6, 13.6], [-14, 11.6], [-18, 8.4]].map(p => P(...p))), h.a.arete));
-    out.push(h.fleche(cr([[12, 3.6], [15.5, 4.6], [18.5, 7]].map(p => P(...p))), h.a.arete));
-    // le doigt, de profil, entré en biais par le trait : l'ongle en haut à gauche, la pulpe vers le fond
-    const T = F.repere({ x: g.ox, y: g.oy, echelle: s });
-    const dirD = a => [Math.cos(a * Math.PI / 180), Math.sin(a * Math.PI / 180)];
-    const P3 = [6, 8.5], P2 = [P3[0] - 21 * dirD(62)[0], P3[1] - 21 * dirD(62)[1]];
-    const P1 = [P2[0] - 25 * dirD(70)[0], P2[1] - 25 * dirD(70)[1]], P0 = [P1[0] - 43 * dirD(72)[0], P1[1] - 43 * dirD(72)[1]];
-    const ptsD = [P0, P1, P2, P3];
-    const e = [19, 16.2, 14.2, 12.2];
-    const dos = [[e[0] * 0.44, e[1] * 0.44], [e[1] * 0.44, e[2] * 0.44], [e[2] * 0.44, e[3] * 0.44]];
-    const ventre = [[e[0] * 0.56, e[1] * 0.54], [e[1] * 0.54, e[2] * 0.54], [e[2] * 0.54, e[3] * 0.52]];
-    const doigt = F.tube({ pts: ptsD, dos, ventre, coussin: [0.9, 0.8, 0.9], sens: -1, bout: 'doigt', ongle: 'cote', plis: true });
-    out.push(F.peindre([doigt], T));
+    out.push(h.geste(cr([[3, 13.4], [-6, 13.6], [-14, 11.6], [-18, 8.4]].map(p => P(...p)))));
+    out.push(h.geste(cr([[12, 3.6], [15.5, 4.6], [18.5, 7]].map(p => P(...p)))));
+    // le doigt, de profil, entré en biais par le trait (main simple, pointe de profil côté pouce, à l'échelle de la
+    // coupe) : la pulpe au fond de la poche ; le reste de la main sort de la vue par le haut
+    out.push(doigtMain(z, P, s).svg);
     return cadre('doigt', z, out.join('\n'));
   };
 
@@ -415,7 +402,7 @@ module.exports = (h) => {
         renvois: z => {
           const g = geoDoigt(z), s = g.s, P = (u, v) => [g.ox + u * s, g.oy + v * s];
           return [
-            { n: 7, rond: [12, 16], cible: P(-12, -26), texte: 'doigt ganté, ou lavé' },
+            { n: 7, rond: [12, 16], cible: doigtMain(z, P, s).articulations['index.ipd'], texte: 'doigt ganté, ou lavé' },
             { n: 8, rond: [z.l - 12, 16], cible: P(18, PK.c - 2), texte: 'une seule poche' },
             { n: 9, rond: [z.l - 12, z.h - 12], cible: P(8, pBot(8) - 0.3), texte: 'bat ou touche l’os : ressortir' },
           ];

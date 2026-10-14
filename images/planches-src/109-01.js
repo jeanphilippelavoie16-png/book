@@ -2,10 +2,25 @@
 // Chapitre 109, § 9 (poulie de bois : joues de bois franc, réa de merisier ou de bouleau jaune,
 // axe d'acier plein, gorge ≥ 6 × le diamètre du cordage) et tableau des contrôles (≥ 6 × d).
 // Description reconstruite le 12 octobre 2026 (la source d'origine manquait), dessin repris du rendu validé.
+// 14 oct. : la main du brin menant est la main simple (mains/moteur.js), le poing sur la corde vu côté paume.
+// La charte : la face du dessous de la perche et de la bille à l'ombre ; le rouge sur le geste (on tire).
 module.exports = (h) => {
   const B = h.a.blanc.match(/fill="([^"]+)"/)[1];
   const blanc = t => h.a[t].replace('fill="none"', `fill="${B}"`);
   const mixte = h.a.detail + ' stroke-dasharray="14 3 2 3"';
+  // l'angle d'une main simple qui met l'axe de sa prise sur axe (degrés écran) et son avant-bras vers vers [x, y]
+  const poser = (o, axe, vers) => {
+    const base = Object.assign({}, o, { angle: 0, avantbras: { longueur: 100 } }); delete base.objet;
+    const e0 = h.formes.mainSimple(base); let best = null;
+    for (const k of [0, 180]) {
+      const a = axe - e0.prise.angle + k, m = h.formes.mainSimple(Object.assign({}, base, { angle: a }));
+      const d = [m.coude[0] - m.poignet[0], m.coude[1] - m.poignet[1]], v = [vers[0] - m.poignet[0], vers[1] - m.poignet[1]];
+      const c = (d[0] * v[0] + d[1] * v[1]) / ((Math.hypot(d[0], d[1]) * Math.hypot(v[0], v[1])) || 1);
+      if (!best || c > best.c) best = { a, c };
+    }
+    return best.a;
+  };
+  const MAIN = { ech: 0.5, rot: [-25, 0, 0], vers: [560, 270], ab: 95 };
 
   // ─── le palan ───
   // Deux moufles de bois (joues de bois franc, réas sur leur axe), la corde en bande, la main qui
@@ -36,7 +51,9 @@ module.exports = (h) => {
   const palan = z => {
     const out = [];
     // perche : un rondin vu de côté, le bout coupé à droite
-    out.push(h.path(`M -6 10 H 282 A 6 12 0 0 1 282 34 H -6 A 6 12 0 0 1 -6 10 Z`, blanc('contour')));
+    out.push(h.path(`M -6 10 H 282 A 6 12 0 0 1 282 34 H -6 A 6 12 0 0 1 -6 10 Z`, h.a.blanc));
+    out.push(h.path(`M -6 27 H 282 A 6 12 0 0 1 282 34 H -6 A 6 12 0 0 0 -6 27 Z`, h.a.ombre));   // le dessous, à l'ombre
+    out.push(h.path(`M -6 10 H 282 A 6 12 0 0 1 282 34 H -6 A 6 12 0 0 1 -6 10 Z`, h.a.contour));
     out.push(h.ellipse(282, 22, 6, 12, h.a.arete), h.path('M 20 17 h 60 M 150 27 h 70 M 230 16 h 30', h.a.fin));
     // moufles et réas
     out.push(moufle(8, 234, yU, { x: 148, y: yU - 58 }));
@@ -48,7 +65,9 @@ module.exports = (h) => {
     out.push(h.cercle(BECKET[0], BECKET[1], 6, h.a.plein));
     for (const c of [U1, U2, L1, L2]) out.push(rea(c[0], c[1]));
     // la bille et son élingue
-    out.push(h.path(`M 0 ${yB} H 182 A 9 22 0 0 1 182 ${yB + 44} H 0 A 9 22 0 0 1 0 ${yB} Z`, blanc('contour')));
+    out.push(h.path(`M 0 ${yB} H 182 A 9 22 0 0 1 182 ${yB + 44} H 0 A 9 22 0 0 1 0 ${yB} Z`, h.a.blanc));
+    out.push(h.path(`M 0 ${yB + 30} H 182 A 9 22 0 0 1 182 ${yB + 44} H 0 A 9 22 0 0 0 0 ${yB + 30} Z`, h.a.ombre));   // le dessous, à l'ombre
+    out.push(h.path(`M 0 ${yB} H 182 A 9 22 0 0 1 182 ${yB + 44} H 0 A 9 22 0 0 1 0 ${yB} Z`, h.a.contour));
     out.push(h.ellipse(182, yB + 22, 9, 22, h.a.arete), h.ellipse(182, yB + 22, 4, 11, h.a.detail));
     out.push(h.path(`M 18 ${yB + 12} h 30 M 136 ${yB + 31} h 30 M 140 ${yB + 11} h 22`, h.a.fin));
     out.push(h.formes.cordes([
@@ -68,12 +87,13 @@ module.exports = (h) => {
     out.push(h.path(`M ${BECKET[0] - 6} ${BECKET[1] - 4} Q ${BECKET[0] - 9} ${BECKET[1] - 18} ${BECKET[0]} ${BECKET[1] - 19} Q ${BECKET[0] + 9} ${BECKET[1] - 18} ${BECKET[0] + 6} ${BECKET[1] - 4} Z`, blanc('arete')));
     out.push(h.path(`M ${BECKET[0] - 5} ${BECKET[1] - 12} Q ${BECKET[0]} ${BECKET[1] - 8} ${BECKET[0] + 5} ${BECKET[1] - 13}`, h.a.detail));
     out.push(h.rect(BECKET[0] - EP / 2, BECKET[1] - 4, EP, 12, blanc('arete')));
-    // la main qui tient le brin menant : modèle s11 (poing fermé, vu de la paume) tourné d'un quart
-    // vers la gauche, l'avant-bras vers la droite, le pouce en haut ; la corde passe dans le poing
-    out.push(h.formes.modele('s11', { x: xMen, y: yMain, ancre: [68, 42], angle: -90, echelle: 0.36, masquer: [[0, 150, 140, 175]],
-      bras: { a: [21.8, 150], a0: [20.8, 135], b: [76.3, 150], b0: [76.2, 135], long: 42, fin: 'ouvert' } }));
-    // flèches du geste : on tire vers le bas, la charge monte
-    out.push(h.fleche(`M ${xMen + 22} ${yU + 50} L ${xMen + 22} ${yU + 96}`, h.a.contour));
+    // la main droite qui tient le brin menant : la main simple, le poing sur la corde vu côté paume, le pouce en
+    // haut, l'avant-bras vers la droite ; la corde entre par le haut du poing et ressort par le bas
+    const brin = h.formes.corde([[xMen, yMain - 46], [xMen, yMain], [xMen, yMain + 40]], { ep: EP, debut: 'ouvert', fin: 'ouvert', trait: 'arete' });
+    const oM = { x: xMen, y: yMain, pose: 'prise-corde', vue: 'paume', cote: 'droite', echelle: MAIN.ech, diametre: EP / MAIN.ech, ...(MAIN.rot ? { rotation: MAIN.rot } : {}) };
+    out.push(h.formes.mainSimple({ ...oM, angle: poser(oM, 90, MAIN.vers), objet: brin, avantbras: { vers: MAIN.vers, longueur: MAIN.ab } }).svg);
+    // flèches : on tire vers le bas (le geste), la charge monte
+    out.push(h.geste(`M ${xMen + 22} ${yU + 50} L ${xMen + 22} ${yU + 96}`));
     out.push(h.fleche(`M -18 ${yB + 40} L -18 ${yB + 4}`, h.a.contour));
     return out.join('\n');
   };

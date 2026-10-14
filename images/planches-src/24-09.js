@@ -43,53 +43,80 @@ module.exports = (h) => {
 </defs>`;
 
   // ═══ A. Le bracelet sur l'avant-bras ═══════════════════════════════════════════════════
-  // Repère du bras (mm) : p le long de l'avant-bras, du coude (p = 0) vers le poignet (p = 255) ;
-  // q en travers, négatif du côté du pouce (le dessus), positif du côté du petit doigt.
-  const LAB = 255, BRAS_M = 25, D_MANCHE = 36;
+  // Le bras entier vient de la bibliothèque des mains simples, d'un seul contour : la main droite
+  // serrée sur le manche, vue de la paume (prise-manche, Ø 36), le pouce en haut ; l'avant-bras part
+  // à droite, presque à plat (le poignet un peu dévié), le bras remonte du coude et sort par le haut.
+  // Repère du bras (mm) : p le long de l'avant-bras, du coude (p = 0) vers le poignet (p = LAB) ;
+  // q en travers, négatif du côté du pouce (le dessus), positif de l'autre.
+  const D_MANCHE = 36, MANCHE = 108;
+  const MAIN = { pose: 'prise-manche', vue: 'paume', cote: 'droite', diametre: D_MANCHE, poignet: { deviation: -15 } };
+  const PLI = -72;                                          // le bras, du coude vers l'épaule, à l'écran
+
+  // la géométrie, à l'échelle 1, l'axe du manche en (0, 0)
+  const geo = (() => {
+    const F = h.formes.mainSimple;
+    const angle = 90 - F({ ...MAIN, x: 0, y: 0, echelle: 1, angle: 0, avantbras: false }).prise.angle;   // le manche debout
+    const m = F({ ...MAIN, x: 0, y: 0, echelle: 1, angle, avantbras: { longueur: 'entier' } });
+    const C = m.coude, LAB = Math.hypot(m.poignet[0] - C[0], m.poignet[1] - C[1]);
+    const u = norm(sub(m.poignet, C));                      // du coude vers le poignet
+    let n = [-u[1], u[0]];
+    if ((m.pouce[0] - C[0]) * n[0] + (m.pouce[1] - C[1]) * n[1] > 0) n = mul(n, -1);   // q < 0 : le pouce
+    const pq = c => { const d = sub(c, C); return [d[0] * u[0] + d[1] * u[1], d[0] * n[0] + d[1] * n[1]]; };
+    // la silhouette de l'avant-bras, relevée sur le contour même de la main (le premier tracé de sa
+    // couche, une ligne brisée) : ses deux bords coupés en travers, tous les 5 mm de p
+    const dUA = [Math.cos((Math.atan2(-u[1], -u[0]) / RAD + PLI) * RAD), Math.sin((Math.atan2(-u[1], -u[0]) / RAD + PLI) * RAD)];
+    const mb = F({ ...MAIN, x: 0, y: 0, echelle: 1, angle, avantbras: { longueur: 'entier', bras: { pli: PLI, longueur: 200 } } });
+    const sil = [...mb.couches.main.match(/<path d="([^"]+)"/)[1].matchAll(/(-?\d+\.?\d*)[ ,](-?\d+\.?\d*)/g)].map(a => pq([+a[1], +a[2]]));
+    const dessus = [], bas = [];
+    for (let p = 30; p <= 200; p += 5) {
+      const qs = [];
+      for (let i = 0; i < sil.length; i++) {
+        const A = sil[i], B = sil[(i + 1) % sil.length];
+        if ((A[0] - p) * (B[0] - p) <= 0 && A[0] !== B[0]) {
+          const q = A[1] + (B[1] - A[1]) * (p - A[0]) / (B[0] - A[0]);
+          if (Math.abs(q) < 75) qs.push(q);
+        }
+      }
+      if (qs.length >= 2) { dessus.push([p, Math.min(...qs)]); bas.push([p, Math.max(...qs)]); }
+    }
+    // le cadrage prend tout le contour, le bras compris sur 200 mm ; le bras est coupé net à la hauteur
+    // de son coin le plus haut (le bord de sa coupe le plus haut), son bord extérieur prolongé jusque-là
+    const brasHaut = [...mb.couches.main.match(/<path d="([^"]+)"/)[1].matchAll(/(-?\d+\.?\d*)[ ,](-?\d+\.?\d*)/g)].map(a => [+a[1], +a[2]]);
+    const [cA, cB] = mb.coupe.slice().sort((A, B) => A[1] - B[1]);
+    brasHaut.push(add(cB, mul(dUA, (cA[1] - cB[1]) / dUA[1])));
+    return { angle, C, LAB, u, n, dessus, bas, boite: m.boite, dUA, brasHaut };
+  })();
+  const S = ([p, q]) => add(add(geo.C, mul(geo.u, p)), mul(geo.n, q));
 
   const bras = (z) => {
-    const m0 = h.formes.main({ x: 0, y: 0, pose: 'prise', vue: 'dos', echelle: 1, diametre: D_MANCHE, bras: BRAS_M });
-    const u = norm(sub(m0.bras, m0.poignet));          // du poignet vers le coude
-    const nt = [-u[1], u[0]];                            // vers le dessus
-    const J = add(m0.poignet, mul(u, LAB));
-    const S = ([p, q]) => add(add(J, mul(u, -p)), mul(nt, -q));
-    const dUA = [Math.cos(110 * RAD), -Math.sin(110 * RAD)];     // le bras, du coude vers l'épaule
-    const fUA = [-dUA[1], dUA[0]];                                // son devant (le biceps)
-    const UA = (t, w) => add(mul(dUA, t), mul(fUA, w));
-
-    // la silhouette, en (p, q)
-    const dessus = [[230, -33], [212, -37.9], [170, -43.5], [130, -47.5], [95, -50.5], [62, -53], [40, -54.5], [29, -55]];
-    const devant = [[29, -55], UA(70, 47), UA(130, 48), UA(215, 45)];
-    const rupture = [UA(215, 45), UA(221, 20), UA(209, -18), UA(215, -44)];
-    const dos = [UA(215, -44), UA(130, -46), UA(60, -44), [-59, -12], [-53, 11], [-39, 27], [-15, 35], [20, 39], [70, 40.5], [130, 40.5], [175, 39], [212, 37.6], [230, 34]];
-    const bas = dos.slice(dos.findIndex(p => p[0] === 20));
-
-    // cadrage : le bras, la main et le manche
-    const MANCHE = 108;
-    const boite = [...dessus, ...devant, ...rupture, ...dos].map(S)
-      .concat([[-20, -MANCHE], [20, -MANCHE], [-20, MANCHE], [20, MANCHE], [58, -48], [58, 48]]);
+    // cadrage : la main, le manche, l'avant-bras, le coude et le départ du bras (le reste sort par le haut)
+    const boite = [[0, -MANCHE], [0, MANCHE], [geo.boite.x0, 0], add(geo.C, [0, 52]), add(geo.C, [48, 0]),
+      ...geo.dessus.map(S), ...geo.bas.map(S), ...geo.brasHaut];
     const xs = boite.map(p => p[0]), ys = boite.map(p => p[1]);
     const [x0, x1, y0, y1] = [Math.min(...xs), Math.max(...xs), Math.min(...ys), Math.max(...ys)];
     const s = Math.min((z.l - 16) / (x1 - x0), (z.h - 10) / (y1 - y0));
     const O = [(z.l - (x1 - x0) * s) / 2 - x0 * s, (z.h - (y1 - y0) * s) / 2 - y0 * s];
     const Vs = p => [O[0] + p[0] * s, O[1] + p[1] * s];      // scène → vue
     const V = pq => Vs(S(pq));                                // bras → vue
-    const Lv = pts => pts.map(V);
 
     const out = [DEFS];
-    // chair : fond blanc, puis les contours ouverts (le bout coupé par la main reste ouvert)
-    const fond = lisse(Lv(dessus)) + lisse(Lv(devant), false, false) + lisse(Lv(rupture), false, false) + lisse(Lv(dos), false, false) + ' Z';
-    // comme les mains de la bibliothèque : le trait de 2,4 d'abord, le fond blanc en recouvre la
-    // moitié intérieure ; la silhouette sort au même poids que celle de la main et s'y raccorde
-    out.push(h.path(lisse(Lv(dessus)), h.a.contour), h.path(lisse(Lv(devant)), h.a.contour), h.path(lisse(Lv(dos)), h.a.contour));
-    out.push(h.path(fond, BLANC));
-    out.push(h.path(lisse(Lv(rupture)), h.a.detail));
-    // le pli du coude, et le sillon entre le gras du dessus et le reste de l'avant-bras
-    out.push(h.path(lisse(Lv([[29, -55], [25, -48], [21, -41]])), h.a.fin));
+    // le manche, debout dans le poing : bois blanc, sa face de droite à l'ombre, quelques traits de fil
+    const t = Vs([0, 0]);
+    const manche = g => {
+      const r = g.r, my = g.y - MANCHE * s, mh = 2 * MANCHE * s;
+      const filM = [[-9, 0.05, 0.42], [-2, 0.58, 0.95], [6, 0.08, 0.35], [2, 0.2, 0.3]]
+        .map(([dx, a, b]) => h.ligne(g.x + dx * s, my + a * mh, g.x + dx * s, my + b * mh, h.a.fin)).join('\n');
+      return h.rect(g.x - r, my, 2 * r, mh, `fill="${B}" stroke="none"`) + '\n'
+        + h.rect(g.x + 0.45 * r, my, 0.55 * r, mh, h.a.ombre) + '\n' + filM + '\n'
+        + h.rect(g.x - r, my, 2 * r, mh, `fill="none" ${h.a.arete.replace(/fill="[^"]*"/, '')}`);
+    };
+    out.push(h.formes.mainSimple({ ...MAIN, angle: geo.angle, echelle: s, x: t[0], y: t[1], objet: manche,
+      avantbras: { longueur: 'entier', bras: { pli: PLI, longueur: 'bord' }, bord: { x0: 0, y0: O[1] + y0 * s, x1: z.l, y1: z.h } } }));
 
-    // la bande : sur le gras de l'avant-bras, juste sous le coude
+    // la bande : sur le gras de l'avant-bras, juste sous le coude ; elle dépasse un peu la silhouette
+    // (son épaisseur) et ses bouts s'arrondissent : elle fait le tour
     const b0 = 58, b1 = 103, e = 2.5, bm = (b0 + b1) / 2;
-    const qH = p => interp(dessus, p) - e, qB = p => interp(bas, p) + e;
+    const qH = p => interp(geo.dessus, p) - e, qB = p => interp(geo.bas, p) + e;
     const bord = (p) => `Q${P2(V([p + 5, (qH(p) + qB(p)) / 2]))} `;
     const bande = `M${P2(V([b0, qH(b0)]))} L${P2(V([bm, qH(bm) - 0.4]))} L${P2(V([b1, qH(b1)]))} `
       + `${bord(b1)}${P2(V([b1, qB(b1)]))} L${P2(V([bm, qB(bm) + 0.3]))} L${P2(V([b0, qB(b0)]))} ${bord(b0)}${P2(V([b0, qH(b0)]))} Z`;
@@ -109,27 +136,6 @@ module.exports = (h) => {
     out.push(h.path(cad(0), h.a.arete), h.path(cad(3), h.a.detail));
     out.push(h.ellipse(...V([bm, 9]), 2.2 * s, 1.6 * s, `fill="${N}" stroke="none"`));
     out.push(h.path(`M${P2(V([bm, 9]))} L${P2(V([bm, -6.5]))}`, h.a.contour));
-
-    // la main serrée sur le manche : elle peint le manche derrière ses doigts
-    const t = Vs([0, 0]);
-    // bois non coupé : blanc, quelques traits fins de fil parallèles au manche
-    const mx = t[0] - D_MANCHE * s / 2, my = t[1] - MANCHE * s, mh = 2 * MANCHE * s;
-    const filM = [[-9, 0.05, 0.42], [-2, 0.58, 0.95], [6, 0.08, 0.35], [10, 0.62, 0.9], [2, 0.2, 0.3]]
-      .map(([dx, a, b]) => h.ligne(t[0] + dx * s, my + a * mh, t[0] + dx * s, my + b * mh, h.a.fin)).join('\n');
-    const manche = h.rect(mx, my, D_MANCHE * s, mh, `fill="${B}" ${h.a.arete.replace(/fill="[^"]*"/, '')}`) + '\n' + filM;
-    out.push(manche);
-    // modèle s11 (poing fermé vu de la paume), en main droite (miroir) tourné d'un quart : le pouce
-    // en haut, l'avant-bras à gauche, le manche vertical passe dans le poing (il dépasse en haut et en
-    // bas). Son poignet (y = 150, bords à 21,8 et 76,3) se pose sur le bout de l'avant-bras dessiné
-    // (p = 230) : même largeur, même milieu ; le manche, vertical, reste dans le poing.
-    {
-      const A1 = V([230, -33]), A2 = V([230, 34]);
-      const em = (Math.hypot(A2[0] - A1[0], A2[1] - A1[1]) - 1.2) / 54.5;   // le trait de l'avant-bras sort 0,6 en dedans de son bord
-      const M = mul(add(A1, A2), 0.5);
-      // l'ancre (68, 42) est à 108 px du poignet le long du bras, 19 px en travers (vers le petit doigt)
-      out.push(h.formes.modele('s11', { x: t[0], y: M[1] - 19 * em, ancre: [68, 42], angle: 90, miroir: true, echelle: em,
-        masquer: [[0, 150, 140, 175]] }));
-    }
 
     return { svg: out.join('\n'), V };
   };
@@ -173,7 +179,7 @@ module.exports = (h) => {
     out.push(h.path(lisse([[-117, 57], [-134, 36], [-140, 8], [-134, -21], [-119, -44]].map(Hv)), h.a.detail));
     out.push(h.path(`M${P2(Hv([18, -30]))} L${P2(Hv([18, 30]))}`, h.a.fin));
     // la main du haut glisse vers la prise
-    out.push(h.fleche(`M${P2(V([44, -520]))} L${P2(V([44, -180]))}`, h.a.arete));
+    out.push(h.geste(`M${P2(V([44, -520]))} L${P2(V([44, -180]))}`));
     return { svg: out.join('\n'), V };
   };
 
@@ -283,7 +289,7 @@ module.exports = (h) => {
           const { V } = bras(z);
           return [
             { n: 1, rond: V([30, 95]), cible: V([66, 30]), texte: 'bande de cuir ou de chambre à air' },
-            { n: 2, rond: V([150, -110]), cible: V([140, -38]), texte: 'sur le gras, juste sous le coude' },
+            { n: 2, rond: V([150, -110]), cible: V([46, interp(geo.dessus, 46) + 7]), texte: 'sur le gras, juste sous le coude' },
             { n: 3, rond: V([145, 92]), cible: V([104.8, 10]), texte: 'bouclée ou nouée, serrée' },
           ];
         },

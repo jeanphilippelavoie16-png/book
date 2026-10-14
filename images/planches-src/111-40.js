@@ -2,6 +2,8 @@
 // Rangée 1 : l'aimant qui colle, l'aimant qui décroche, la plongée dans le bac d'huile (même lame,
 // même échelle, la pince par le haut). Rangée 2 : la lime qui glisse, la lime qui mord.
 // Rangée 3 : le revenu différentiel au chalumeau, le fil dans un fond d'eau.
+// La main de l'aimant est la main simple (mains/moteur.js), pince fine vue du côté du pouce. La charte : le
+// rouge sur les gestes (remuer dans l'axe, pousser la lime, promener le chalumeau).
 module.exports = (h) => {
   const A = h.a, F = h.formes;
   const f = v => Math.round(v * 10) / 10;
@@ -13,7 +15,19 @@ module.exports = (h) => {
   });
   const add = (p, q, k = 1) => [p[0] + q[0] * k, p[1] + q[1] * k];
   const unit = v => { const n = Math.hypot(v[0], v[1]); return [v[0] / n, v[1] / n]; };
-  const double = (d, at = A.arete) => `<path d="${d}" ${at} marker-start="url(#fl)" marker-end="url(#fl)"/>`;
+  // l'angle d'une main simple qui met l'axe de sa prise sur axe (degrés écran) et son avant-bras vers vers [x, y]
+  const poser = (o, axe, vers) => {
+    const base = Object.assign({}, o, { angle: 0, avantbras: { longueur: 100 } }); delete base.objet;
+    const e0 = F.mainSimple(base); let best = null;
+    for (const k of [0, 180]) {
+      const a = axe - e0.prise.angle + k, m = F.mainSimple(Object.assign({}, base, { angle: a }));
+      const d = [m.coude[0] - m.poignet[0], m.coude[1] - m.poignet[1]], v = [vers[0] - m.poignet[0], vers[1] - m.poignet[1]];
+      const c = (d[0] * v[0] + d[1] * v[1]) / ((Math.hypot(d[0], d[1]) * Math.hypot(v[0], v[1])) || 1);
+      if (!best || c > best.c) best = { a, c };
+    }
+    return best.a;
+  };
+  const MAIN_AIMANT = { ech: 0.5, rot: null, vers: [-200, -40] };
   const decoupe = (id, z, contenu) =>
     `<clipPath id="${id}"><rect x="0" y="0" width="${z.l}" height="${z.h}"/></clipPath>\n<g clip-path="url(#${id})">\n${contenu}\n</g>`;
 
@@ -73,13 +87,15 @@ module.exports = (h) => {
     const yHaut = hy + 4;                                  // le haut de l'aimant collé : le dos, près du talon
     const px = bx - 4.5 - Math.sqrt(ell * ell - (yHaut - py) ** 2);
     const bas = colle ? [bx - 4.5, yHaut] : [px, py + ell];
-    const fil = F.corde([[px, py - 6], bas], { ep: 2, debut: 'coupe', fin: 'coupe' }).toString();
+    // le fil sort de la pince à la verticale, puis va à l'aimant : la main ne bouge pas d'une vue à l'autre
+    const fil = F.corde(colle ? [[px, py - 6], [px, py + 6], bas] : [[px, py - 6], bas], { ep: 2, debut: 'coupe', fin: 'coupe' }).toString();
     const out = [dessinLame(lm), pince({ ...lm.prise, a: [0, 1] }), aimantRect(bas[0], bas[1])];
-    // modèle s09 (le pouce et l'index qui pincent, de côté) en miroir : le fil pincé entre les deux
-    // pulpes, l'avant-bras qui part à gauche ; le fil se dessine d'abord, la main le cache
+    // la main gauche : la main simple, pince fine vue du côté du pouce, le fil de fer entre les deux pulpes ;
+    // l'avant-bras part à gauche et sort de la vue. Le fil est l'objet tenu : il passe entre le pouce et l'index.
     out.push(fil);
-    out.push(F.modele('s09', { x: px, y: py, ancre: [17, 66], miroir: true, echelle: 0.34, masquer: [[200, 0, 230, 125]],
-      bras: { a: [200, 64.1], a0: [185, 63.9], b: [200, 112.1], b0: [185, 108.4], bord: z } }).toString());
+    const oM = { x: px, y: py, pose: 'pince-fine', vue: 'pouce', cote: 'gauche', echelle: MAIN_AIMANT.ech, diametre: 1.5, ...(MAIN_AIMANT.rot ? { rotation: MAIN_AIMANT.rot } : {}) };
+    const vM = [px + MAIN_AIMANT.vers[0], py + MAIN_AIMANT.vers[1]];
+    out.push(F.mainSimple({ ...oM, angle: poser(oM, 90, vM), objet: fil, avantbras: { vers: vM, bord: { x0: 0, y0: 0, x1: z.l, y1: z.h }, bras: { pli: 0 } } }).svg);
     if (!colle) out.push(h.fleche(`M${f(bx - 7)} ${f(yHaut + 5)} Q${f((bx + px) / 2 + 2)} ${f(yHaut + 26)} ${f(px + 7)} ${f(py + ell + 11)}`));
     return { svg: decoupe(id, z, out.join('\n')), bx, hy, px, py, bas, lm };
   };
@@ -115,7 +131,7 @@ module.exports = (h) => {
     out.push(h.path(dOf(corpsLime, true), 'fill="url(#p111-lime)" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round"'));
     out.push(h.path(dOf(manche, true), A.hachure('bois', 'arete')), h.path(dOf(virole, true), blanc(A.arete)));
     const fl0 = add(add(C, d, Lf - 8), n, 17), fl1 = add(add(C, d, mord ? 30 : -30), n, 17);
-    out.push(h.fleche(`M${f(fl0[0])} ${f(fl0[1])} L${f(fl1[0])} ${f(fl1[1])}`));
+    out.push(h.geste(`M${f(fl0[0])} ${f(fl0[1])} L${f(fl1[0])} ${f(fl1[1])}`));
     return { svg: decoupe(id, z, out.join('\n')), C, lm, d, n, Lf, bx, sy };
   };
 
@@ -179,7 +195,7 @@ module.exports = (h) => {
           [[5, 34, 1.6], [9, 46, 2.4], [5, 60, 1.8], [10, 74, 2.6], [6, 90, 2], [9, 104, 1.6], [4, 20, 2]].forEach(([dx, dy, r]) =>
             out.push(h.cercle(cx + H1 / 2 + dx, hyT + dy, r, blanc(A.detail))));
           // remuer dans l'axe
-          out.push(double(`M${f(cx - H1 / 2 - 8)} ${f(hyT + 30)} L${f(cx - H1 / 2 - 8)} ${f(hyT + 92)}`));
+          out.push(h.geste(`M${f(cx - H1 / 2 - 8)} ${f(hyT + 30)} L${f(cx - H1 / 2 - 8)} ${f(hyT + 92)}`, { double: true }));
           // le couvercle, à plat à côté
           const lx = cx + ro + 18, lr = z.l - 4;
           out.push(h.rect(lx, g - 5, lr - lx, 5, A.hachure('metal', 'arete')));
@@ -254,7 +270,7 @@ module.exports = (h) => {
           // le raccord vers la bonbonne, coupé net (la bonbonne continue hors de la vue)
           out.push(h.path(dOf([Qn(136, 6.5), Qn(162, 6.5), Qn(165, 3), Qn(160, 0), Qn(164, -3), Qn(161, -6.5), Qn(136, -6.5)], true), blanc(A.arete)));
           // promener le chalumeau le long du dos
-          out.push(double(`M${f(N[0] - 58)} ${f(g.yFl)} L${f(N[0] + 34)} ${f(g.yFl)}`));
+          out.push(h.geste(`M${f(N[0] - 58)} ${f(g.yFl)} L${f(N[0] + 34)} ${f(g.yFl)}`, { double: true }));
           return decoupe('vue111-revenu', z, out.join('\n'));
         },
         renvois: z => {
