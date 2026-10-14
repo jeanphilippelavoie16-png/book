@@ -21,6 +21,9 @@
 //     objetL    SVG (ou fonction g => SVG) peint devant le bras loin et derrière le corps
 //     objet     SVG (ou fonction g => SVG) peint devant tout (le bout d'un manche dans le poing)
 //     cheveux   ignoré de profil : pas de masse de cheveux (elle faisait une tuque)
+//     visage    true, ou les options du visage de tetes/moteur.js ({ yeux, bouche, ouverture, epaisseur, cheveux,
+//               sourcil, iris }) : la tête reçoit la tête simple de la bibliothèque de têtes (le visage, l'oreille,
+//               les cheveux), au même pivot et au même angle ; .visage porte ses repères (oeil, nez, bouche…)
 //     teteDevant  true : la tête par-dessus le bras proche (à plat ventre, bras tendus devant : d'office)
 //     appui     surcharge celui de la pose : pieds · genouP · genoux · fesses · dos · ventre · cote
 //               (le point le plus bas pose au sol en y) · avantbras (pendu par les avant-bras : (x, y) sous
@@ -43,6 +46,7 @@
 //                                pieds le rejoignent s'ils peuvent (l'enfant sur la chaise : ils pendent)
 //   .mainP.r                     le rayon du manche : prise de poses.json (diamètre, mm), sinon 32
 //   .sol                         le y du sol
+//   .visage                      (avec visage) { oeil, nez, bouche, menton, sommet, oreille, levres } en unités de vue
 //
 // Unités internes : mm, repère du corps x vers l'avant, y vers le bas, origine au bassin.
 // L'union des pièces se fait avec Clipper (clipper.js, Angus Johnson, licence Boost, copié ici
@@ -763,6 +767,9 @@ function corps(o = {}) {
   if ((appui0 === 'genouP' || appui0 === 'genoux') && o.ancrer !== false) ancrerGenoux(A, Pr, piedsO, appui0 === 'genoux' ? ['P', 'L'] : ['P']);
   const prises = Object.assign({}, poseDef.prise || {}, o.prise || {});           // diamètre du manche, mm
   const { P, info } = pieces(A, Pr, { mains, pieds: piedsO, segments: o.segments, prises });
+  // le visage (tetes/moteur.js) : la tête simple de la bibliothèque de têtes, au pivot et à l'angle de la tête
+  const TV = o.visage ? require('../tetes/moteur').pourCorps(age, A.tete, info.j.nuque, Object.assign({ _echelle: o.echelle || 0.2 }, o.visage === true ? {} : o.visage)) : null;
+  if (TV) P.tete.morceaux = [TV.contour];
 
   // les pièces en Clipper ; chaque membre est d'abord unifié et ses plis arrondis
   const R_PLI = 12, R_UNION = 6;
@@ -775,7 +782,9 @@ function corps(o = {}) {
   };
   const tronc = ferme(union(P.tronc.morceaux.concat(P.cou.morceaux)), 4);
   const tete = union(P.tete.morceaux);
-  const corpsHaut = ferme(unionCL([tronc, tete]), 20);          // sous le menton, la nuque : arrondis
+  const cheveuxV = TV && TV.cheveux.length ? union(TV.cheveux) : [];
+  const corpsHaut = TV ? unionCL([unionCL([tronc, tete]), moins(ferme(unionCL([tronc, tete]), 20), [versCL(TV.zone)]), cheveuxV])
+    : ferme(unionCL([tronc, tete]), 20);          // sous le menton, la nuque : arrondis
   const cache = new Set(o.masquer || []);                            // masquer : ['brasL', 'jambeP', …]
   const M_ = (k, f) => (cache.has(k) ? [] : f());
   const bP = M_('brasP', () => membre(P.brasP)), jP = M_('jambeP', () => membre(P.jambeP, info.j.chevilleP));
@@ -791,7 +800,9 @@ function corps(o = {}) {
   const hancheRonde = unionCL([tj, inter(ferme(tj, R_HANCHE), [versCL(disque(info.j.hancheP, 230 * Pr.largeurs.tronc))])]);
   // fermer (les coins rentrants) puis ouvrir un peu (les petites arêtes saillantes : pas de coin)
   const R_ARETE = o._rArete !== undefined ? o._rArete : 3.5;
-  const proche = sansTrous(ouvre(ferme(unionCL(avecObjet ? [hancheRonde] : [hancheRonde, bP]), R_UNION), R_ARETE));
+  // (la pièce exacte déborde la zone d'un demi-millimètre : la couture se referme à l'union)
+  const exact = !TV ? (x => x) : (x => unionCL([moins(x, [versCL(TV.zone)]), inter(unionCL([tete, cheveuxV, avecObjet ? [] : bP]), decale([versCL(TV.zone)], 0.5))]));
+  const proche = exact(sansTrous(ouvre(ferme(unionCL(avecObjet ? [hancheRonde] : [hancheRonde, bP]), R_UNION), R_ARETE)));
   const brasSeul = avecObjet ? bP : null;
 
   // les contours intérieurs : le bord d'un membre proche qui tombe dans ce qu'il y a derrière lui
@@ -901,6 +912,7 @@ function corps(o = {}) {
   geo.siege = T(basFesse(P, j));
   if (siegeH) geo.siegeHauteur = siegeH * s;
   geo.echelle = s; geo.miroir = m < 0;
+  if (TV) { geo.visage = {}; for (const [cle, v] of Object.entries(TV.rep)) geo.visage[cle] = Array.isArray(v) ? T(v) : (v ? { haut: T(v.haut), bas: T(v.bas) } : null); }
 
   // ── l'ordre de peinture : loin (gris), objet loin, corps proche, objet proche, bras proche ──
   const quoi = v => (typeof v === 'function' ? v(geo) : (v || ''));
@@ -943,6 +955,20 @@ function corps(o = {}) {
   // de dos garde la sienne (vues.js). CHEVEUX_PROFIL reste pour mémoire.
   out.push(`<path d="${dFerme(proche)}" fill="none" stroke="${NOIR}" stroke-width="${tr.sil}" stroke-linejoin="round"/>`);
   out.push(ligne(lignes, tr.int), ligne(plisJ, tr.int), det(P.jambeP.details, tr.det), ligne(bordsTete, tr.int));
+  if (TV) {
+    const devant = !teteDevant && !avecObjet && bP.length ? decale(bP, 1) : [];
+    const surTete = moins(decale(tete, -E), devant);
+    const dL = ls => ls.filter(l => l.length > 1).map(l => { const q = allege(l, tol).map(T); return 'M' + q.map(p => `${f1(p[0])} ${f1(p[1])}`).join(' L'); }).join(' ');
+    const traits = lignesDans(TV.details, surTete);
+    if (cheveuxV.length && !TV.petit) {
+      const oreilleV = TV.oreille.length ? decale([versCL(TV.oreille)], 3 * TV.k) : [];
+      traits.push(...bordsDans(cheveuxV, moins(inter(decale(unionCL([tronc, tete, jP]), -E), decale(proche, -E)), unionCL([oreilleV, devant]))));
+    }
+    const dT = dL(traits);
+    if (dT) out.push(`<path d="${dT}" fill="none" stroke="${NOIR}" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"/>`);
+    const iris = TV.pleins.length ? inter(union(TV.pleins), surTete) : [];
+    if (iris.length) out.push(`<path d="${dFerme(iris)}" fill="${NOIR}" stroke="none"/>`);
+  }
   if (!avecObjet) out.push(ligne(bordsBras, tr.int), ligne(plisB, tr.int), det(P.brasP.details, tr.det));
   else {
     out.push(quoi(objetP));

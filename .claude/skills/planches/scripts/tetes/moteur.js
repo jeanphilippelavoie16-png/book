@@ -3,14 +3,16 @@
 // La même tête que le corps simple de profil (corps/moteur.js) : le même crâne, la même nuque, le même cou,
 // raccordés de la même façon (union Clipper, l'arrondi de 20 mm à la nuque et sous le menton). Le visage
 // s'ajoute par le contour : le front, le nez, les lèvres, le menton, la mâchoire, d'un seul trait lisse et
-// continu jusqu'au cou. Dedans, au trait de 0,7 : l'œil (un petit trait ou une amande), l'oreille (un C),
-// un sourcil au plus, la limite des cheveux. Pas de narine, de cil, de ride, de dent ni de pupille.
-// Les cheveux sont une ligne de contour autour du crâne, jamais un aplat gris ni des mèches.
+// continu jusqu'au cou. Dedans, au trait de 0,7 : l'œil (fermé, un petit trait ; ouvert, une amande et son
+// iris plein), l'oreille (un C), un sourcil au plus, la commissure de la bouche fermée, la limite des cheveux.
+// Pas de narine, de cil, de ride, de dent ni de pupille détaillée. Les cheveux sont une ligne de contour autour
+// du crâne, jamais un aplat gris ni des mèches. Une tête de moins de 45 de haut dans la vue perd le sourcil,
+// la commissure et la limite des cheveux : à cette taille, ce n'est plus que du bruit.
 //
 // ═══ L'API ══════════════════════════════════════════════════════════════════════════════════════════
 //
 //   teteSimple({ x, y, echelle, angle, penche, cote, age, yeux, bouche, ouverture, epaisseur, cheveux,
-//                sourcil, cou, trait, ancre, objet })
+//                sourcil, iris, oreille, commissure, cou, raccord, trait, ancre, objet })
 //     x, y       le point d'ancre, en unités de vue (voir ancre)
 //     echelle    unités de vue par mm (défaut 1 : l'homme fait 227,5 du sommet au menton)
 //     angle      la tête ET le cou tournent ensemble, en degrés à l'écran (+ : sens horaire), après le miroir
@@ -27,8 +29,14 @@
 //     epaisseur  bouche 'serre' : l'épaisseur de l'objet entre les lèvres, en mm réels (défaut 8)
 //     cheveux    'court' (défaut, homme et enfants) · 'long' (défaut, femme) · 'queue' · 'aucun' (défaut, bébé)
 //     sourcil    true : un trait de sourcil au-dessus de l'œil (défaut : adultes oui, enfants et bébé non)
-//     cou        true (défaut : le cou jusque sous la base, coupé net) · false (coupé juste sous le menton)
-//                · un nombre : la longueur du cou sous la nuque, en mm réels
+//     iris       false : l'œil ouvert sans son iris plein (l'amande seule)
+//     oreille    false : pas d'oreille (une tête couchée sur le dos : le C couché se lit comme un sourire)
+//     commissure false : pas de trait de commissure à la bouche fermée
+//     cou        true (défaut : 95 mm sous la nuque × la largeur du cou de l'âge ; 18 mm pour le bébé, dont le
+//                cou ne se voit pas) · false (coupé juste sous le menton) · un nombre : la longueur, en mm réels
+//     raccord    [[x, y], [x, y]] (unités de vue) : le cou va de la nuque à ces deux points, le devant puis le
+//                derrière, et la coupe est ce segment : le haut d'un corps que la planche dessine elle-même
+//                (le bébé couché de 29-05). La tête se pose par x, y, ancre ('oreille' ou 'nuque'), angle.
 //     trait      'normal' (silhouette 1,5) · 'fort' (1,9) ; les traits intérieurs restent à 0,7
 //     ancre      'oreille' (défaut : le centre de l'oreille) · 'cou' (le milieu de la coupe du cou)
 //                · 'nuque' (le haut du cou, le pivot de la tête : le point .nuque du corps simple)
@@ -38,13 +46,17 @@
 // Le résultat se colle comme une chaîne SVG et porte la géométrie, en unités de vue :
 //   .oeil .nez (le bout) .menton .sommet .nuque (le pivot, haut du cou) .oreille (le centre)   [x, y]
 //   .bouche    [x, y] : le devant des lèvres, entre les deux (bouche serre : le milieu de l'objet, au ras des lèvres)
-//   .levres    { haut: [x, y], bas: [x, y] } : là où chaque lèvre touche l'objet (serre) ou s'arrête (ouverte)
+//   .levres    { haut: [x, y], bas: [x, y] } : là où chaque lèvre touche l'objet (serre) ou s'arrête (ouverte) ; null
+//              la bouche fermée
 //   .regard    l'angle à l'écran (degrés) de la direction où regarde le visage ; .axe [ux, uy] le même, unitaire
-//   .cou       [[x, y], [x, y]] : les deux coins de la coupe du cou (devant, derrière) ; null sans cou
+//   .cou       [[x, y], [x, y]] : les deux coins de la coupe du cou (devant, derrière)
 //   .boite     { x0, y0, x1, y1 }       .echelle      .age
 //
 // Pour le corps simple : corps({ …, visage: true }) (ou visage: { yeux, bouche, cheveux, … }) reçoit cette
-// tête, par pieces() ci-dessous, au même pivot (la nuque) et au même angle que sa tête par défaut.
+// tête, par pourCorps() ci-dessous, au même pivot (la nuque) et au même angle que sa tête par défaut ; le
+// résultat du corps porte alors .visage { oeil, nez, bouche, menton, sommet, oreille, levres }.
+//
+// Les proportions et leurs sources : tetes/proportions.json. Les têtes des planches : tetes/inventaire.md.
 //
 // Unités internes : la tête est dessinée en « unités de tête » (celles de TETE_PROFIL du corps simple : 234
 // du sommet au menton, origine au haut du cou, x vers l'avant, y vers le bas), puis mise à sa hauteur réelle
@@ -73,7 +85,6 @@ const tourne = (a, deg) => { const c = Math.cos(deg * RAD), s = Math.sin(deg * R
 const autour = (p, c, deg) => add(c, tourne(sub(p, c), deg));
 const haut = a => [Math.sin(a * RAD), -Math.cos(a * RAD)];
 const f1 = v => (Math.round(v * 100) / 100).toString();
-const longueur = l => { let s = 0; for (let i = 1; i < l.length; i++) s += lon(sub(l[i], l[i - 1])); return s; };
 
 // une courbe ouverte lisse par des points (Catmull-Rom), échantillonnée
 function lisseOuvert(pts, n = 8) {
@@ -119,7 +130,6 @@ function echelleAge(age) {
 // ─── les têtes, en unités de tête ─────────────────────────────────────────────────────────
 // TETE_PROFIL du corps simple (le crâne et la nuque de l'adulte, gardés tels quels) :
 //   [-4,-190] sommet … [91,-116] front … [44,44] dessous du menton, [18,33], [-6,14], [-40,6] nuque …
-const TP = CORPS.tete.profil;
 // crane : du haut du front, par le sommet et l'occiput, jusqu'à la nuque (sens inverse du contour : on le
 // renverse au montage). visage : du haut du front jusqu'à la gorge. Le contour = visage + gorge + crâne.
 //   rep : les repères (œil, oreille…) ; zone : x au-delà duquel c'est le visage (l'arrondi de la nuque ne
@@ -217,14 +227,14 @@ TETES.bebe = {
     sillon: [96.8, 11],
     menton: [[95, 21], [89, 33], [74, 42], [52, 45.5]],
   },
-  rep: { oeil: [85, -47], kOeil: 1.15, sourcil: null, oreille: { c: [-12, -30], h: 64, l: 31 }, mach: [-8, -28] },
+  rep: { oeil: [85, -47], kOeil: 1.3, sourcil: null, oreille: { c: [-12, -30], h: 64, l: 31 }, mach: [-8, -28] },
   zone: 62,
   cheveux: TETES.enfant6.cheveux,
 };
 
 // ─── le contour d'une tête ────────────────────────────────────────────────────────────────
-// Rend { pts (le contour fermé, unités de tête, non lissé), lissage (les indices des coins), rep (les repères
-// placés), levres } selon la bouche.
+// Rend { pts (le contour fermé, unités de tête, avant lissage), levres, bouche (le point de la bouche), mach
+// (l'angle d'ouverture de la mâchoire), zoneBas, zoneCoin (le bas de la zone du visage) } selon la bouche.
 function contourTete(D, o) {
   const V = D.visage;
   const bouche = o.bouche || 'fermee';
@@ -325,10 +335,13 @@ function pieces(ageDemande, o = {}) {
   const contour = C.map(K);
   const details = [], pleins = [];
   const R = D.rep;
+  // petite (moins de 45 de haut dans la vue) : ni sourcil, ni commissure, ni limite des cheveux ; l'œil,
+  // l'oreille et la silhouette suffisent
+  const petit = o._echelle ? 234 * k * o._echelle < 45 : false;
   // l'œil : un petit trait (fermé) ou une amande ouverte vers l'avant
   const E = R.oeil, ke = R.kOeil || 1, e = v => add(E, mul(v, ke));
   if ((o.yeux || 'ouverts') === 'fermes') {
-    details.push(lisseOuvert([e([4.5, 0.2]), e([0, 1.7]), e([-5, 0.5])], 8).map(K));
+    details.push(lisseOuvert([e([5, 0.1]), e([0, 2]), e([-5.5, 0.4])], 8).map(K));
   } else {
     // l'amande : la paupière du haut et celle du bas, qui se rejoignent au coin de l'œil (derrière) ; devant,
     // l'iris plein (iris: false : l'amande seule)
@@ -337,15 +350,15 @@ function pieces(ageDemande, o = {}) {
     if (o.iris !== false) pleins.push(lisseFerme([e([3.6, -2.1]), e([2.2, -2.3]), e([1.2, 0]), e([2.2, 1.9]), e([3.8, 1.9]), e([4.1, 0])], 6).map(K));
   }
   // le sourcil
-  const sourcil = o.sourcil == null ? (age === 'homme' || age === 'femme') : !!o.sourcil;
+  const sourcil = o.sourcil == null ? (age === 'homme' || age === 'femme') && !petit : !!o.sourcil;
   if (sourcil && R.sourcil) details.push(lisseOuvert(R.sourcil, 8).map(K));
   // l'oreille : un C ouvert vers l'avant
   const Oc = R.oreille.c, oh = R.oreille.h / 2, ol = R.oreille.l;
-  const oreille = lisseOuvert([add(Oc, [6, -oh * 0.86]), add(Oc, [-ol * 0.35, -oh]), add(Oc, [-ol * 0.62, -oh * 0.55]),
+  const oreille = o.oreille === false ? [] : lisseOuvert([add(Oc, [6, -oh * 0.86]), add(Oc, [-ol * 0.35, -oh]), add(Oc, [-ol * 0.62, -oh * 0.55]),
     add(Oc, [-ol * 0.6, oh * 0.15]), add(Oc, [-ol * 0.35, oh * 0.82]), add(Oc, [0, oh]), add(Oc, [5, oh * 0.8])], 8).map(K);
-  details.push(oreille);
+  if (oreille.length) details.push(oreille);
   // la commissure : la bouche fermée, un trait court qui part des lèvres
-  if ((o.bouche || 'fermee') === 'fermee' && o.commissure !== false) {
+  if ((o.bouche || 'fermee') === 'fermee' && (o.commissure == null ? !petit : o.commissure)) {
     const O = D.visage.stomion;
     details.push(lisseOuvert([add(O, [0.5, 0]), add(O, [-4, 0.6]), add(O, [-8.5, 1.1])], 4).map(K));
   }
@@ -361,7 +374,7 @@ function pieces(ageDemande, o = {}) {
     menton: K(D.visage.menton[1]), sommet: K(C.reduce((m, p) => (p[1] < m[1] ? p : m))), oreille: K(Oc),
     levres: c.levres.haut ? { haut: K(c.levres.haut), bas: K(c.levres.bas) } : null,
   };
-  return { contour, cheveux: ch.polys.map(P => P.map(K)), liens: ch.liens.map(l => l.map(K)), details, pleins, zone, rep, k, kT, age, sorte, oreille };
+  return { contour, cheveux: ch.polys.map(P => P.map(K)), liens: petit ? [] : ch.liens.map(l => l.map(K)), details, pleins, zone, rep, k, kT, age, sorte, oreille, petit };
 }
 
 // ─── le cou, comme le corps simple ────────────────────────────────────────────────────────
@@ -383,46 +396,63 @@ function bandeCou(L, kT, incl = 12) {
 // ─── teteSimple ───────────────────────────────────────────────────────────────────────────
 function teteSimple(o = {}) {
   const age = ALIAS[o.age] || 'homme';
-  const T0 = pieces(age, o);
+  const T0 = pieces(age, Object.assign({}, o, { _echelle: o.echelle || 1 }));
   const { k, kT } = T0;
   const penche = o.penche || 0;
   const PT = p => tourne(p, penche);                 // la tête sur le cou, autour de la nuque
   const tete = T0.contour.map(PT);
   const cheveux = T0.cheveux.map(P => P.map(PT));
-  // le cou : sa longueur sous la nuque, en mm réels
-  const Lcou = o.cou === false ? 62 * k : (typeof o.cou === 'number' ? o.cou : 95 * kT);
-  const cou = bandeCou(Lcou + 60, kT);
+  // ── le repère de la vue (l'ancre 'cou' sans raccord attend la coupe, plus bas) ──
+  const s = o.echelle || 1, m = o.cote === 'gauche' ? -1 : 1, ang = o.angle || 0;
+  const X0 = o.x || 0, Y0 = o.y || 0;
+  const raccord = Array.isArray(o.raccord) && o.raccord.length === 2 ? o.raccord : null;
+  const ancreQ = o.ancre === 'cou' && raccord ? 'oreille' : (o.ancre || 'oreille');
+  const ancreDe = q => (q === 'nuque' ? [0, 0] : PT(T0.rep.oreille));   // (oreille: false : le même point)
+  const versVue = a => p => { const q = tourne([m * s * (p[0] - a[0]), s * (p[1] - a[1])], ang); return [X0 + q[0], Y0 + q[1]]; };
+  const deVue = a => v => { const q = tourne([v[0] - X0, v[1] - Y0], -ang); return [a[0] + q[0] / (m * s), a[1] + q[1] / s]; };
+
+  // le cou : sa longueur sous la nuque, en mm réels ; avec raccord, il va de la nuque aux deux points donnés
+  // (le devant, le derrière : le haut d'un corps dessiné par la planche), et la coupe est ce segment
+  const pj = propTetes(), couBebe = (pj && pj.ages && pj.ages.bebe && pj.ages.bebe.cou && pj.ages.bebe.cou.longueur) || 18;
+  const Lcou = typeof o.cou === 'number' ? o.cou : o.cou === false ? (age === 'bebe' ? 0.6 * couBebe : 62 * k) : (age === 'bebe' ? couBebe : 95 * kT);
+  let couPoly, u, n, P0, coupeA, coupeB;
+  if (raccord) {
+    const Ti = deVue(ancreDe(ancreQ));
+    coupeA = Ti(raccord[0]); coupeB = Ti(raccord[1]);
+    const M = lerp(coupeA, coupeB, 0.5);
+    u = uni(sub([0, 0], M)); n = mul(gau(u), -1);
+    if ((coupeA[0] - M[0]) * n[0] + (coupeA[1] - M[1]) * n[1] < 0) n = mul(n, -1);
+    const Qf = mul(n, COU[2][1] * kT), Qb = mul(n, -COU[2][2] * kT), haut = mul(u, 15);
+    couPoly = [add(coupeA, mul(u, -3)), Qf, add(Qf, haut), add(Qb, haut), Qb, add(coupeB, mul(u, -3))];
+    P0 = M;
+  } else {
+    const cou = bandeCou(Lcou + 60, kT);
+    couPoly = cou.poly; u = cou.u; n = cou.nAv; P0 = mul(u, -Lcou);
+  }
   // l'union, l'arrondi hors du visage (la nuque, la gorge), puis la coupe
   const zone = [I.versCL(T0.zone.map(PT))];
   // la peau (la tête et le cou) s'arrondit à la nuque et sous le menton, hors du visage ; les cheveux
   // s'ajoutent ensuite tels quels (l'arrondi boucherait le jour entre la queue et la nuque)
-  const peau0 = I.unionCL([I.union([tete]), I.union([cou.poly])]);
+  const peau0 = I.unionCL([I.union([tete]), I.union([couPoly])]);
   const peau = I.unionCL([peau0, I.moins(I.ferme(peau0, 20), zone)]);
   const chCL = cheveux.length ? I.union(cheveux) : [];
   let S = I.unionCL([peau, chCL]);
-  // la coupe : perpendiculaire à l'axe du cou, à Lcou sous la nuque
-  const u = cou.u, n = cou.nAv, P0 = mul(u, -Lcou);
-  const demi = [I.versCL([add(P0, mul(n, -400)), add(P0, mul(n, 400)), add(add(P0, mul(n, 400)), mul(u, 900)), add(add(P0, mul(n, -400)), mul(u, 900))])];
+  // la coupe : on garde le côté de la nuque (la droite perpendiculaire à l'axe du cou, ou celle du raccord)
+  const dirC = raccord ? uni(sub(coupeA, coupeB)) : n;
+  const nC = raccord ? (u[0] * -dirC[1] + u[1] * dirC[0] > 0 ? [-dirC[1], dirC[0]] : [dirC[1], -dirC[0]]) : u;
+  const demi = [I.versCL([add(P0, mul(dirC, -400)), add(P0, mul(dirC, 400)), add(add(P0, mul(dirC, 400)), mul(nC, 900)), add(add(P0, mul(dirC, -400)), mul(nC, 900))])];
   S = I.inter(S, demi);
   // les bords de la coupe (devant, derrière) : où la coupe rencontre la silhouette
-  const coins = coinsCoupe(S, P0, n);
-
-  // ── le repère de la vue ──
-  const s = o.echelle || 1, m = o.cote === 'gauche' ? -1 : 1, ang = o.angle || 0;
-  let ancre;
-  const ancreQ = o.ancre || 'oreille';
-  if (ancreQ === 'cou') ancre = coins ? lerp(coins[0], coins[1], 0.5) : P0;
-  else if (ancreQ === 'nuque') ancre = [0, 0];
-  else ancre = PT(T0.rep.oreille);
-  const X0 = o.x || 0, Y0 = o.y || 0;
-  const T = p => { const q = tourne([m * s * (p[0] - ancre[0]), s * (p[1] - ancre[1])], ang); return [X0 + q[0], Y0 + q[1]]; };
+  const coins = raccord ? [coupeA, coupeB] : coinsCoupe(S, P0, n);
+  const ancre = ancreQ === 'cou' ? (coins ? lerp(coins[0], coins[1], 0.5) : P0) : ancreDe(ancreQ);
+  const T = versVue(ancre);
 
   const tr = o.trait === 'fort' ? 1.9 : (typeof o.trait === 'number' ? o.trait : 1.5), ti = 0.7;
   const tol = 0.05 / s;
   const dFerme = paths => paths.map(Pp => { const q = I.allege(I.deCL(Pp), tol, true).map(T); return 'M' + q.map(p => `${f1(p[0])} ${f1(p[1])}`).join(' L') + ' Z'; }).join(' ');
   const dOuvert = ls => ls.filter(l => l.length > 1).map(l => { const q = I.allege(l, tol).map(T); return 'M' + q.map(p => `${f1(p[0])} ${f1(p[1])}`).join(' L'); }).join(' ');
   // le trait de la silhouette : tout le bord, sauf la coupe du cou
-  const bandeCoupe = [I.versCL([add(add(P0, mul(n, -400)), mul(u, -0.6)), add(add(P0, mul(n, 400)), mul(u, -0.6)), add(add(P0, mul(n, 400)), mul(u, 0.6)), add(add(P0, mul(n, -400)), mul(u, 0.6))])];
+  const bandeCoupe = [I.versCL([add(add(P0, mul(dirC, -400)), mul(nC, -0.6)), add(add(P0, mul(dirC, 400)), mul(nC, -0.6)), add(add(P0, mul(dirC, 400)), mul(nC, 0.6)), add(add(P0, mul(dirC, -400)), mul(nC, 0.6))])];
   const bord = I.bordsDans(S, I.moins([I.versCL([[-2000, -2000], [2000, -2000], [2000, 2000], [-2000, 2000]])], bandeCoupe));
   // les traits intérieurs, coupés au contour
   const E = 1.0;
@@ -431,8 +461,8 @@ function teteSimple(o = {}) {
   const intLignes = lignesDans(lignes, dedans);
   // la limite des cheveux : le bord de la masse qui tombe sur la peau (le front, la tempe, la nuque, le cou)
   // (coupée autour de l'oreille, qui passe devant)
-  if (chCL.length) {
-    const zOr = I.decale([I.versCL(T0.oreille.map(PT))], 3 * k);
+  if (chCL.length && !T0.petit) {
+    const zOr = T0.oreille.length ? I.decale([I.versCL(T0.oreille.map(PT))], 3 * k) : [];
     intLignes.push(...I.bordsDans(chCL, I.moins(I.inter(I.decale(peau, -E), dedans), zOr)));
   }
 
@@ -458,8 +488,6 @@ function teteSimple(o = {}) {
   const di = dOuvert(intLignes);
   if (di) out.push(`<path d="${di}" fill="none" stroke="${NOIR}" stroke-width="${ti}" stroke-linecap="round" stroke-linejoin="round"/>`);
   if (T0.pleins.length) out.push(`<path d="${T0.pleins.map(P => 'M' + P.map(PT).map(T).map(p => `${f1(p[0])} ${f1(p[1])}`).join(' L') + ' Z').join(' ')}" fill="${NOIR}" stroke="none"/>`);
-  if (o._zone) out.push(`<path d="${dFerme(zone)}" fill="none" stroke="#C00" stroke-width="0.6"/>`);
-  if (o._reperes) for (const p of o._reperes(T0, PT)) out.push(`<circle cx="${f1(T(p)[0])}" cy="${f1(T(p)[1])}" r="1.2" fill="#C00"/>`);
   out.push('</g>');
   const svg = out.join('\n');
   return Object.assign({ svg, toString() { return svg; } }, geo);
@@ -503,7 +531,7 @@ function pourCorps(age, angleTete, nuque, opts = {}) {
   const rep = {};
   for (const [cle, v] of Object.entries(T0.rep)) rep[cle] = Array.isArray(v) ? P(v) : (v ? { haut: P(v.haut), bas: P(v.bas) } : null);
   return { contour: T0.contour.map(P), cheveux: T0.cheveux.map(Q => Q.map(P)), zone: T0.zone.map(P), oreille: T0.oreille.map(P),
-    details: T0.details.concat(T0.liens).map(l => l.map(P)), pleins: T0.pleins.map(Q => Q.map(P)), rep, k: T0.k, age: T0.age, sorte: T0.sorte };
+    details: T0.details.concat(T0.liens).map(l => l.map(P)), pleins: T0.pleins.map(Q => Q.map(P)), rep, k: T0.k, age: T0.age, sorte: T0.sorte, petit: T0.petit };
 }
 
 module.exports = { teteSimple, pieces, pourCorps, TETES, _interne: { contourTete, bandeCou, echelleAge, lisseOuvert, lignesDans } };
