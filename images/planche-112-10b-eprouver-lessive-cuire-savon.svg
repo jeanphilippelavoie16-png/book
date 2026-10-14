@@ -90,14 +90,14 @@
 <circle cx="96.5" cy="216" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
 <circle cx="54" cy="189" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="oeuf"/>
 <text x="54" y="193" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">2</text>
-<line x1="448.9" y1="215.8" x2="423.2" y2="181" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
-<line x1="448.9" y1="215.8" x2="423.2" y2="181" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
-<circle cx="423.2" cy="181" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
+<line x1="448.4" y1="216.1" x2="422.7" y2="186" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+<line x1="448.4" y1="216.1" x2="422.7" y2="186" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
+<circle cx="422.7" cy="186" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
 <circle cx="454.2" cy="223" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="essai"/>
 <text x="454.2" y="227" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">3</text>
-<line x1="445.3" y1="175.6" x2="416.2" y2="171" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
-<line x1="445.3" y1="175.6" x2="416.2" y2="171" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
-<circle cx="416.2" cy="171" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
+<line x1="445.2" y1="177" x2="418.2" y2="177" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+<line x1="445.2" y1="177" x2="418.2" y2="177" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
+<circle cx="418.2" cy="177" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
 <circle cx="454.2" cy="177" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="essai"/>
 <text x="454.2" y="181" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">4</text>
 <line x1="439.2" y1="123.6" x2="417.2" y2="125" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>

@@ -151,8 +151,8 @@ module.exports = (h) => {
           const g = geoE(z);
           const sx = g.b1 + 6, sy = g.bH - 26;
           return [
-            { n: 3, rond: [g.b1 + 30, g.yP + 34], cible: [g.b1 - 1, g.yP - 8], texte: 'une boîte, au coin du poêle' },
-            { n: 4, rond: [g.b1 + 30, g.yP - 12], cible: [g.b1 - 8, g.yM + 8], texte: 'une cuillerée de gras fondu' },
+            { n: 3, rond: [g.b1 + 30, g.yP + 34], cible: [g.b1 - 1.5, g.yP - 3], texte: 'une boîte, au coin du poêle' },
+            { n: 4, rond: [g.b1 + 30, g.yP - 12], cible: [g.b1 - 6, g.yM + 14], texte: 'une cuillerée de gras fondu' },
             { n: 5, rond: [sx + 18, sy + 20], cible: [sx - 13, sy + 22], texte: 'quelques gouttes de lessive' },
             { n: 6, rond: [22, 30], cible: [g.b0 - 20, 22], texte: 'brassé au bâton' },
             { n: 7, rond: [g.r1x0 + 6, g.rH - 22], cible: [g.r1x0 + g.rw / 2, g.rL + 4], texte: 'en pâte : la lessive travaille' },

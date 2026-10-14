@@ -283,8 +283,10 @@ module.exports = (h) => {
           o.push(h.cercle(cx + RM, yg - 3, 12, h.a.fin));
           o.push(seg(cx + RM, yg - 15, kx + 3, ky + 7, h.a.fin));
           o.push(grain(kx, ky, 0, 1.6));
-          o.push(seg(kx - 7, ky, cx - mR - 10, ky, h.a.fin), seg(cx - hc - 2, ys, cx - mR - 10, ys, h.a.fin));
-          o.push(h.cote(cx - mR - 6, ys, cx - mR - 6, ky, '25 à 40 mm', { cote: 'gauche' }));
+          // la cote rapprochée du médaillon : à gauche de lui, son chiffre sortait du cadre de la vue
+          const xq = cx - mR + 6;
+          o.push(seg(kx - 7, ky, xq - 5, ky, h.a.fin), seg(cx - hc - 2, ys, xq - 5, ys, h.a.fin));
+          o.push(h.cote(xq, ys, xq, ky, '25 à 40 mm', { cote: 'gauche' }));
           return o.join('\n');
         },
         renvois: z => {

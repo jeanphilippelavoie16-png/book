@@ -664,12 +664,12 @@
 <circle cx="112.5" cy="323.4" r="12" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M112.5 311.4 L101.5 202.3" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M93.7 191.5 Q98.5 189.5 103.3 191.5 Q103.9 195.3 101.5 199.5 Q98.5 201.4 95.5 199.5 Q93.1 195.3 93.7 191.5 Z" fill="#1A1A1A" stroke="none"/>
-<path d="M91.5 195.3 L32.5 195.3" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M47.6 170 L32.5 170" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
-<line x1="36.5" y1="170" x2="36.5" y2="195.3" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
-<line x1="30.5" y1="170" x2="42.5" y2="170" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
-<line x1="30.5" y1="195.3" x2="42.5" y2="195.3" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
-<text x="-2.6" y="186.6" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="3" stroke-linejoin="round" paint-order="stroke">25 à 40 mm</text>
+<path d="M91.5 195.3 L43.5 195.3" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M47.6 170 L43.5 170" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="48.5" y1="170" x2="48.5" y2="195.3" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="42.5" y1="170" x2="54.5" y2="170" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="42.5" y1="195.3" x2="54.5" y2="195.3" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="9.4" y="186.6" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="3" stroke-linejoin="round" paint-order="stroke">25 à 40 mm</text>
 </g>
 <text x="235.8" y="283.4" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#1A1A1A">Le maïs à environ 15 cm</text>
 <g transform="translate(235.8 291.4)" data-vue="quinze">
