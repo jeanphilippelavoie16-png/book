@@ -375,6 +375,23 @@ function cherche(f, x0, pas, bornes, { min = 0.4, iter = 250 } = {}) {
   }
   return { x, f: fx };
 }
+// une grille grossière (le produit des listes), puis la recherche par motifs depuis les meilleurs points
+function chercheGlobal(f, grilles, pas, bornes, { garder = 4, min = 0.4, iter = 250 } = {}) {
+  const pts = [];
+  const rec = (i, x) => {
+    if (i === grilles.length) { pts.push({ x: x.slice(), f: f(x) }); return; }
+    for (const v of grilles[i]) { x[i] = v; rec(i + 1, x); }
+  };
+  rec(0, []);
+  pts.sort((a, b) => a.f - b.f);
+  let best = null;
+  for (const p0 of pts.slice(0, garder)) {
+    const r = cherche(f, p0.x, pas, bornes, { min, iter });
+    if (!best || r.f < best.f) best = r;
+  }
+  return best;
+}
+const GRILLE_POUCE = [[0, 20, 40, 60, 80, 100], [-30, -10, 10, 30, 45], [-40, 0, 40, 80, 120, 160], [-10, 15, 40, 65], [-10, 20, 50, 80]];
 const pli = (mcp, ipp, ipd, ecart = 0) => ({ ecart, mcp, ipp, ipd });
 const segsDoigts = (S, doigts, noms = DOIGTS) => noms.flatMap(d => segments(S, d, chaineDoigt(S, d, doigts[d])));
 const qPouce = x => ({ opposition: x[0], cmc: x[1], rotation: x[2], mcp: x[3], ip: x[4] });
@@ -467,11 +484,7 @@ function pouceManche(S, cyl, segsD, o = {}) {
     return 400 * pen * pen + 1 * Math.max(0, g1) ** 2 + 1.5 * Math.max(0, g2) ** 2 + 0.8 * dt * dt + 2 * Math.max(0, gd) ** 2 * (dt < 25 ? 1 : 0) +
       0.01 * (x[2] - 0.3 * x[0]) ** 2 + 0.02 * Math.max(0, x[4] - 60) ** 2 + 0.02 * Math.max(0, x[3] - 50) ** 2;
   };
-  let best = null;
-  for (const x0 of [[30, 0, 9, 20, 20], [50, 10, 15, 30, 30], [20, -15, 6, 10, 40], [65, 20, 20, 25, 25], [40, -10, 40, 30, 20]]) {
-    const r = cherche(f, x0, [12, 10, 15, 12, 12], BORNES_POUCE);
-    if (!best || r.f < best.f) best = r;
-  }
+  const best = chercheGlobal(f, GRILLE_POUCE, [12, 10, 15, 12, 12], BORNES_POUCE);
   const q = qPouce(best.x);
   return { q, f: best.f, erreur: L3(S3(pulpe(S, 'pouce', q, 0.75).p, cible)) };
 }
@@ -486,23 +499,35 @@ function pouceVers(S, G, nG, obstacles, o = {}) {
     for (const ob of obstacles) for (let i = (ob.type === 'cylindre' ? 0 : 1); i < 3; i++) { const g = ecart(ss[i], ob).g; if (g < -0.3) pen += -g; }
     return err * err + 150 * face * face + 40 * pen + 0.004 * ((x[3] - pref.mcp) ** 2 + (x[4] - pref.ip) ** 2) + 0.004 * (x[2] - 0.3 * x[0]) ** 2;
   };
-  let best = null;
-  for (const x0 of o.departs || [[40, 10, 12, 20, 20], [70, 20, 21, 25, 25], [55, 0, 16, 10, 35], [85, 30, 25, 30, 20]]) {
-    const r = cherche(f, x0, [10, 8, 10, 10, 10], BORNES_POUCE);
-    if (!best || r.f < best.f) best = r;
-  }
+  const best = chercheGlobal(f, GRILLE_POUCE, [10, 8, 15, 10, 10], BORNES_POUCE);
   const q = qPouce(best.x);
   return { q, erreur: L3(S3(pulpe(S, 'pouce', q, t).p, G)) };
 }
-// le pouce posé sur la face extérieure de phalanges repliées (le poing, la pointe)
+// le pouce posé sur la face extérieure de phalanges repliées (le poing, la pointe) : sa pulpe sur la phalange
+// du milieu visée, sa première phalange couchée le long de l'index replié (pas dressée en piquet)
 function pouceSurPhalanges(S, segsD, noms, o = {}) {
   const ss = noms.map(n => segsD.find(s => s.id === n));
   const mid = ss.map(s => I3(s.a, s.b, o.t || 0.5)).reduce((a, b) => A3(a, M3(b, 1 / ss.length)), [0, 0, 0]);
-  const centre = [50, mid[1], 0];
-  const out = orth(U3(S3(mid, centre)), U3(S3(ss[0].b, ss[0].a)));
-  const r = rayonVers(ss[0], 0.5, out);
-  const G = A3(mid, M3(out, r + 0.4));
-  return pouceVers(S, G, M3(out, -1), obstSegments(segsD), { pref: { mcp: 35, ip: 25 } });
+  const out = orth(U3(S3(mid, [mid[0] - 30, mid[1], 0])), U3(S3(ss[0].b, ss[0].a)));
+  const G = A3(mid, M3(out, rayonVers(ss[0], 0.5, out) + 0.4));
+  // l'IP du pouce au bord radial du premier doigt replié (le pouce longe ce doigt, puis sa dernière phalange
+  // le croise vers la phalange visée) : c'est ce qui le couche au lieu de le dresser en piquet
+  const bord = segsD.find(s => s.id === (o.bord || 'index.p2'));
+  const radial = bord.c.r, outB = orth(U3(S3(I3(bord.a, bord.b, 0.3), [bord.a[0] - 30, bord.a[1], 0])), U3(S3(bord.b, bord.a)));
+  const Gip = A3(A3(I3(bord.a, bord.b, 0.3), M3(radial, rayonVers(bord, 0.3, radial) + 8)), M3(outB, 5));
+  const obstD = obstSegments(segsD);
+  const f = x => {
+    const q = qPouce(x), pp = pulpe(S, 'pouce', q, 0.72), seg = segments(S, 'pouce', pp.ch);
+    const err = L3(S3(pp.p, G)), face = 1 - D3(pp.n, M3(out, -1)), eip = L3(S3(pp.ch.P[2], Gip));
+    let pen = 0;
+    for (const ob of obstD) for (let i = 1; i < 3; i++) pen += Math.max(0, -ecart(seg[i], ob).g - 0.3);
+    pen += Math.max(0, -ecart(seg[2], S.paume).g);
+    return err * err + 0.35 * eip * eip + 60 * face * face + 400 * pen * pen +
+      0.01 * (x[2] - 0.3 * x[0]) ** 2 + 0.01 * Math.max(0, x[4] - 60) ** 2;
+  };
+  const best = chercheGlobal(f, GRILLE_POUCE, [10, 8, 15, 10, 10], BORNES_POUCE);
+  const q = qPouce(best.x);
+  return { q, erreur: L3(S3(pulpe(S, 'pouce', q, 0.72).p, G)) };
 }
 
 // ─── les prises ─────────────────────────────────────────────────────────────────────────────────────────
@@ -569,7 +594,7 @@ const PRISES = {
     const replies = DOIGTS.filter(n => !tendus.includes(n));
     const segsR = segsDoigts(S, doigts, replies);
     if (o.pouce === 'ecarte') doigts.pouce = { opposition: 10, cmc: -18, rotation: 3, mcp: 6, ip: 6 };
-    else doigts.pouce = pouceSurPhalanges(S, segsR, [replies[0] + '.p2'], { t: 0.5 }).q;
+    else doigts.pouce = pouceSurPhalanges(S, segsR, [replies[0] + '.p2'], { t: 0.6, bord: replies[0] + '.p2' }).q;
     let contact = null;
     if (o.appui) {
       const pp = pulpe(S, tendus[0], doigts[tendus[0]], 0.8);
@@ -712,9 +737,325 @@ function pouceLong(S, cyl, segsD) {
   return qPouce(best.x);
 }
 
+// ─── le catalogue : les poses de poses.json (les id de inventaire.md, agent 4) ──────────────────────────────
+// prise : la fonction de PRISES ; options : ses options ; table : les diamètres où la prise est résolue d'avance
+// (le moteur interpole entre eux) ; vues : celles dont les planches ont besoin, et celles à éviter (inventaire).
+const D0 = (mcp, ipp, ipd, ecart = 0) => ({ ecart, mcp, ipp, ipd });
+const CATALOGUE = [
+  { id: 'prise-manche', prise: 'entourer', options: { diametre: 32 }, table: [8, 12, 16, 20, 25, 28, 32, 36, 40, 45],
+    vues: { bonnes: ['paume', 'dos', 'pouce'], aEviter: ['auriculaire'] },
+    nom: 'le poing fermé sur un manche de 8 à 45 mm : le manche entre d’un côté du poing et ressort de l’autre',
+    note: 'paume : le manche derrière les doigts repliés, devant la paume, le pouce devant ; dos : le manche sort des deux côtés du poing ; pouce : le rond du manche dans le trou du poing (couper l’objet au ras de la main)' },
+  { id: 'prise-grosse', prise: 'entourer', options: { diametre: 70 }, table: [50, 60, 70, 80, 90],
+    vues: { bonnes: ['pouce', 'paume'], aEviter: ['dos'] },
+    nom: 'la main autour d’un cylindre de 50 à 90 mm : les doigts et le pouce ne se rejoignent pas' },
+  { id: 'prise-corde', prise: 'entourer', options: { diametre: 10, inclinaison: 20 }, table: [3, 6, 8, 10, 12, 14],
+    vues: { bonnes: ['paume', 'dos'], aEviter: ['pouce'] },
+    nom: 'le poing serré sur une corde, une racine, un fil de 3 à 14 mm qui le traverse' },
+  { id: 'prise-pouce-dos', prise: 'entourer', options: { diametre: 26, inclinaison: 40, pouce: 'long' }, table: [18, 22, 26, 30, 36],
+    vues: { bonnes: ['pouce'], aEviter: ['dos', 'paume'] },
+    nom: 'le poing sur un manche, le pouce allongé sur le dos du manche ou de la lame' },
+  { id: 'coupe-c', prise: 'entourer', options: { diametre: 80, decollement: 16, inclinaison: 10 }, table: [60, 70, 80, 90, 100, 110],
+    vues: { bonnes: ['pouce', 'dos'], aEviter: ['paume'] },
+    nom: 'la main en C autour d’un rond de 60 à 110 mm : le pouce d’un côté, les doigts de l’autre, la paume décollée' },
+  { id: 'pince-fine', prise: 'pincer', options: { sorte: 'fine', diametre: 2 },
+    vues: { bonnes: ['pouce'], aEviter: ['paume'] },
+    nom: 'la pulpe du pouce contre la pulpe de l’index ; les trois autres doigts repliés derrière, en cascade' },
+  { id: 'pince-pointe', prise: 'pincer', options: { sorte: 'pointe', diametre: 0.5 },
+    vues: { bonnes: ['pouce'], aEviter: ['paume', 'dos'] },
+    nom: 'le bout du pouce contre le bout de l’index, pour l’objet très fin' },
+  { id: 'pince-ouverte', prise: 'pincer', options: { sorte: 'ouverte', diametre: 40 }, table: [15, 25, 40, 55, 70],
+    vues: { bonnes: ['dos', 'pouce'], aEviter: ['paume'] },
+    nom: 'le pouce et l’index écartés, les pulpes posées de part et d’autre' },
+  { id: 'pince-laterale', prise: 'pincer', options: { sorte: 'laterale', diametre: 3 },
+    vues: { bonnes: ['pouce'], aEviter: ['dos', 'paume'] },
+    nom: 'la pulpe du pouce contre le côté de l’index plié (la prise d’une clé)' },
+  { id: 'poing', prise: 'poing', options: {},
+    vues: { bonnes: ['paume', 'pouce', 'dos'], aEviter: [] },
+    nom: 'le poing fermé à vide, le pouce couché sur l’index et le majeur' },
+  { id: 'pointe', prise: 'pointe', options: { appui: true },
+    vues: { bonnes: ['pouce', 'dos'], aEviter: ['paume'] },
+    nom: 'l’index tendu, les autres repliés, le pouce posé sur le majeur' },
+  { id: 'appui-index', prise: 'pointe', options: { appui: true, tendu: { index: { mcp: 24, ipp: 16, ipd: -10 } } },
+    vues: { bonnes: ['pouce'], aEviter: ['paume'] },
+    nom: 'le bout de l’index appuie (la dernière phalange cède un peu en arrière), les autres repliés' },
+  { id: 'deux-doigts', prise: 'pointe', options: { tendus: ['index', 'majeur'], pouce: 'ecarte' },
+    vues: { bonnes: ['dos', 'pouce'], aEviter: ['paume'] },
+    nom: 'l’index et le majeur tendus serrés, l’annulaire et l’auriculaire repliés, le pouce écarté' },
+  { id: 'deux-doigts-v', prise: 'pointe', options: { tendus: ['index', 'majeur'], tendu: { index: { ecart: 14 }, majeur: { ecart: -14 } } },
+    vues: { bonnes: ['paume', 'auriculaire'], aEviter: [] },
+    nom: 'l’index et le majeur tendus, écartés en V ; l’annulaire et l’auriculaire repliés' },
+  { id: 'crochet', prise: 'crochet', options: { diametre: 20 }, table: [8, 14, 20, 28],
+    vues: { bonnes: ['pouce', 'auriculaire', 'dos'], aEviter: ['paume'] },
+    nom: 'les doigts repliés en crochet aux deux dernières phalanges, la paume ouverte, le pouce libre' },
+  { id: 'coiffe', prise: 'coiffe', options: { diametre: 26 }, table: [18, 26, 34],
+    vues: { bonnes: ['dos', 'pouce'], aEviter: ['paume'] },
+    nom: 'la paume coiffe le bout d’un bâton debout, les doigts repliés autour' },
+  { id: 'plat', prise: 'plat', options: {},
+    vues: { bonnes: ['pouce', 'dos'], aEviter: ['paume'] },
+    nom: 'la main à plat, les doigts tendus serrés, le pouce le long de l’index ; la ligne de contact droite' },
+  { id: 'porte', prise: 'plat', options: { creux: 14, pouceCmc: -8, ecarts: { index: 2, majeur: 0, annulaire: 2, auriculaire: 4 } },
+    vues: { bonnes: ['paume', 'pouce'], aEviter: ['dos'] },
+    nom: 'la paume en l’air, les doigts tendus en léger creux : porter, recevoir' },
+  { id: 'ouverte', prise: 'fixe', options: { doigts: {
+      index: D0(5, 7, 4, 7), majeur: D0(5, 8, 5, 2), annulaire: D0(6, 9, 5, 6), auriculaire: D0(8, 11, 6, 12),
+      pouce: { opposition: 8, cmc: -10, rotation: 2, mcp: 6, ip: 8 } } },
+    vues: { bonnes: ['dos', 'paume', 'pouce'], aEviter: [] },
+    nom: 'la main ouverte, les doigts tendus un peu écartés' },
+  { id: 'relachee', prise: 'fixe', options: { doigts: {
+      index: D0(18, 26, 16, 2), majeur: D0(24, 34, 22, 0), annulaire: D0(30, 42, 28, 1), auriculaire: D0(38, 50, 33, 3),
+      pouce: { opposition: 25, cmc: 5, rotation: 8, mcp: 12, ip: 14 } } },
+    vues: { bonnes: ['dos', 'paume', 'pouce'], aEviter: [] },
+    nom: 'la main détendue : les doigts mi-fléchis en cascade (l’auriculaire le plus plié), le pouce le long de l’index' },
+  { id: 'coupe', prise: 'fixe', options: { doigts: {
+      index: D0(22, 22, 10, -1), majeur: D0(24, 24, 12, 0), annulaire: D0(26, 26, 13, -1), auriculaire: D0(30, 28, 14, -2),
+      pouce: { opposition: 22, cmc: 18, rotation: 7, mcp: 10, ip: 8 } } },
+    vues: { bonnes: ['pouce', 'dos'], aEviter: [] },
+    nom: 'le creux de la main, les doigts serrés : il porte du grain, de l’eau' },
+  { id: 'main-sur-main', prise: 'plat', options: { creux: 6, depart: { index: { mcp: 6 }, majeur: { mcp: 6 }, annulaire: { mcp: 6 }, auriculaire: { mcp: 6 } } },
+    paire: { dessous: 'plat', angle: 24, decalage: [26, 6] },
+    vues: { bonnes: ['dos'], aEviter: ['paume', 'pouce', 'auriculaire'] },
+    nom: 'deux mains à plat l’une sur l’autre, vues du dessus : celle du dessous en gris (mainSurMain)' },
+];
+
+// ─── les couches, recalculées ici (contrôle du moteur) ───────────────────────────────────────────────────
+const VUES = {
+  dos: [[1, 0, 0], [0, 1, 0], [0, 0, 1]], paume: [[1, 0, 0], [0, -1, 0], [0, 0, -1]],
+  pouce: [[1, 0, 0], [0, 0, -1], [0, 1, 0]], auriculaire: [[1, 0, 0], [0, 0, 1], [0, -1, 0]],
+};
+const vueDe = nom => { const M = VUES[nom]; return p => [D3(M[0], p), D3(M[1], p), D3(M[2], p)]; };
+function proche2(p, a, b) {
+  const ab = [b[0] - a[0], b[1] - a[1]], l2 = ab[0] * ab[0] + ab[1] * ab[1] || 1e-9;
+  const t = borne(((p[0] - a[0]) * ab[0] + (p[1] - a[1]) * ab[1]) / l2, 0, 1);
+  return { t, d: Math.hypot(p[0] - a[0] - ab[0] * t, p[1] - a[1] - ab[1] * t) };
+}
+// pour chaque pièce : devant (true), derrière (false) ou sans recouvrement (null), dans la vue
+function couches(S, pose, vue) {
+  const ob = pose.objet;
+  if (!ob || ob.type === 'plan') return null;
+  const V = vueDe(vue), R = ob.diametre / 2, L = (ob.longueur || 1200) / 2;
+  const a = V(A3(ob.centre, M3(U3(ob.axe), -L))), b = V(A3(ob.centre, M3(U3(ob.axe), L)));
+  const pieces = [];
+  for (const d of DOIGTS) pieces.push(...segments(S, d, chaineDoigt(S, d, pose.doigts[d])));
+  const sp = segments(S, 'pouce', chainePouce(S, pose.doigts.pouce));
+  pieces.push(sp[1], sp[2]);
+  pieces.push({ id: 'paume', a: [12, -2, 4], b: [Math.max(...DOIGTS.map(d => S.an.doigts[d].mcp[0])) - 6, -2, 4], ray: [[[30, 30, 12, 15]], [[30, 30, 12, 15]], [[30, 30, 12, 15]]].map(x => x[0]) });
+  const res = {};
+  for (const P of pieces) {
+    let vote = 0, poids = 0;
+    const rm = (P.ray[1][0] + P.ray[1][1]) / 2;
+    for (let i = 0; i <= 10; i++) {
+      const p = V(I3(P.a, P.b, i / 10)), pr = proche2(p, a, b), rec = R + rm - pr.d;
+      if (rec <= 0) continue;
+      const zObj = a[2] + (b[2] - a[2]) * pr.t, w = Math.min(rec, 2 * Math.min(rm, R));
+      vote += w * Math.sign(zObj - p[2]); poids += w;
+    }
+    res[P.id] = poids > 0.5 ? vote > 0 : null;
+  }
+  return res;
+}
+// la règle qui ne tombe jamais : dans une prise, vue paume, l'objet n'est pas derrière toute la main
+function controle(S, pose) {
+  const fautes = [];
+  if (!pose.objet || pose.objet.type === 'plan') return fautes;
+  const bonnes = (pose.vues && pose.vues.bonnes) || ['paume', 'dos'];
+  if (bonnes.includes('paume')) {
+    const c = couches(S, pose, 'paume');
+    const chev = Object.entries(c).filter(([k, v]) => v !== null && k !== 'paume');
+    if (chev.length && chev.every(([, v]) => v === false)) fautes.push('vue paume : l’objet derrière toute la main');
+    if (c.paume === true) fautes.push('vue paume : la paume devant l’objet');
+  }
+  if (bonnes.includes('dos')) {
+    const cd = couches(S, pose, 'dos');
+    if (cd.paume === false && pose.solveur && pose.solveur.prise === 'entourer') fautes.push('vue dos : l’objet devant la paume');
+  }
+  return fautes;
+}
+
+// ─── poses.json : écrire, relire, interpoler ─────────────────────────────────────────────────────────────
+const r1d = q => { const o = {}; for (const k of Object.keys(q)) o[k] = typeof q[k] === 'number' ? r1(q[k]) : q[k]; return o; };
+const ORDRE_POUCE = ['opposition', 'cmc', 'rotation', 'mcp', 'ip'];
+function arrondirDoigts(doigts) {
+  const o = {};
+  for (const d of DOIGTS) o[d] = r1d({ ecart: doigts[d].ecart || 0, mcp: doigts[d].mcp, ipp: doigts[d].ipp, ipd: doigts[d].ipd });
+  o.pouce = {}; for (const k of ORDRE_POUCE) if (doigts.pouce[k] !== undefined) o.pouce[k] = r1(doigts.pouce[k]);
+  return o;
+}
+const objetJSON = ob => ob ? Object.assign({ type: ob.type, diametre: r1(ob.diametre) }, ob.centre ? { centre: r1v(ob.centre) } : {}, ob.axe ? { axe: ob.axe.map(v => Math.round(v * 1000) / 1000) } : {}, ob.longueur ? { longueur: ob.longueur } : {}) : undefined;
+function resoudreSpec(S, spec, diametre) {
+  const opts = Object.assign({}, spec.options || {});
+  if (diametre !== undefined) opts.diametre = diametre;
+  return PRISES[spec.prise](S, opts);
+}
+function construirePose(S, spec, journal = () => {}) {
+  const t0 = Date.now();
+  const r = resoudreSpec(S, spec);
+  const pose = { id: spec.id, nom: spec.nom, doigts: arrondirDoigts(r.doigts), poignet: { flexion: 0, deviation: 0 } };
+  if (r.objet) pose.objet = objetJSON(r.objet);
+  if (r.contact) pose.contact = { type: r.contact.type, points: (r.contact.points || []).map(r1v), normale: r.contact.normale ? r.contact.normale.map(v => Math.round(v * 1000) / 1000) : undefined };
+  pose.solveur = Object.assign({ prise: spec.prise }, spec.options && spec.prise !== 'fixe' ? spec.options : {});
+  if (spec.table && r.objet) {
+    pose.table = spec.table.map(d => {
+      const t = resoudreSpec(S, spec, d);
+      return { diametre: d, doigts: arrondirDoigts(t.doigts), objet: { centre: r1v(t.objet.centre), axe: t.objet.axe.map(v => Math.round(v * 1000) / 1000) } };
+    });
+  }
+  if (spec.paire) pose.paire = spec.paire;
+  pose.vues = spec.vues;
+  const fautes = controle(S, pose);
+  if (fautes.length) pose.fautes = fautes;
+  journal(`${spec.id} : ${Date.now() - t0} ms${fautes.length ? ' — ' + fautes.join(' ; ') : ''}`);
+  return pose;
+}
+function ecrirePoses(outils, fichier = path.join(__dirname, 'poses.json'), ids = null, journal = console.log) {
+  const S = preparer(outils);
+  let anciennes = [];
+  try { anciennes = JSON.parse(fs.readFileSync(fichier, 'utf8')).poses || []; } catch (e) { /* premier passage */ }
+  const poses = CATALOGUE.map(spec => (!ids || ids.includes(spec.id)) ? construirePose(S, spec, journal) : anciennes.find(p => p.id === spec.id) || construirePose(S, spec, journal));
+  const doc = {
+    note: 'Poses des mains simples, écrites par prises.js (node mains/prises.js --ecrire) sur le squelette de moteur.js. ' +
+      'Angles en degrés (flexion positive vers la paume) ; objet dans le repère de la main (mm d’homme). table : la prise résolue ' +
+      'à d’autres diamètres, que prises.resoudre interpole quand une planche passe diametre.',
+    poses,
+  };
+  // une pose par bloc, une clé par ligne, chaque valeur sur une ligne (lisible, comparable)
+  const bloc = P => '  {\n' + Object.keys(P).map(k => {
+    if (k === 'table') return `    "table": [\n${P.table.map(t => '      ' + JSON.stringify(t)).join(',\n')}\n    ]`;
+    if (k === 'doigts') return `    "doigts": {\n${Object.keys(P.doigts).map(d => `      "${d}": ${JSON.stringify(P.doigts[d])}`).join(',\n')}\n    }`;
+    return `    ${JSON.stringify(k)}: ${JSON.stringify(P[k])}`;
+  }).join(',\n') + '\n  }';
+  fs.writeFileSync(fichier, `{\n "note": ${JSON.stringify(doc.note)},\n "poses": [\n${poses.map(bloc).join(',\n')}\n ]\n}\n`);
+  return doc;
+}
+
+let CACHE_POSES = null;
+function posesJSON() {
+  const f = path.join(__dirname, 'poses.json');
+  try {
+    const t = fs.statSync(f).mtimeMs;
+    if (!CACHE_POSES || CACHE_POSES.t !== t) CACHE_POSES = { t, v: JSON.parse(fs.readFileSync(f, 'utf8')) };
+    return CACHE_POSES.v;
+  } catch (e) { return null; }
+}
+const CACHE_RES = new Map();
+// interpolation linéaire des angles et de l'objet entre deux lignes de la table
+function interpoler(table, d) {
+  const T = table.slice().sort((a, b) => a.diametre - b.diametre);
+  if (d <= T[0].diametre) return T[0];
+  if (d >= T[T.length - 1].diametre) return T[T.length - 1];
+  let i = 0; while (T[i + 1].diametre < d) i++;
+  const A = T[i], B = T[i + 1], t = (d - A.diametre) / (B.diametre - A.diametre);
+  const mix = (a, b) => typeof a === 'number' ? a + (b - a) * t : a;
+  const doigts = {};
+  for (const k of Object.keys(A.doigts)) { doigts[k] = {}; for (const j of Object.keys(A.doigts[k])) doigts[k][j] = mix(A.doigts[k][j], B.doigts[k][j]); }
+  return { diametre: d, doigts, objet: { centre: A.objet.centre.map((v, j) => mix(v, B.objet.centre[j])), axe: U3(A.objet.axe.map((v, j) => mix(v, B.objet.axe[j]))) } };
+}
+
+// l'appel du moteur (voir l'en-tête)
+function resoudre(pose, outils) {
+  if (!pose || !pose.solveur || !pose.objet || pose.solveur.prise === 'fixe') return null;
+  const base = pose.id ? ((posesJSON() || {}).poses || []).find(p => p.id === pose.id) : null;
+  const d = pose.objet.diametre;
+  let age = { kL: 1, kW: 1, cle: 'homme' };
+  try { age = outils.squelette({ doigts: {} }).age || age; } catch (e) { /* défaut */ }
+  const enfant = Math.abs(age.kW - 1) > 1e-6 || Math.abs(age.kL - 1) > 1e-6;
+  const d0 = base && base.objet ? base.objet.diametre : (pose.solveur.diametre || d);
+  if (!enfant && Math.abs(d - d0) < 1e-6) return null;              // la pose telle qu'écrite
+  // les angles demandés à part (option doigts de mainSimple) : ceux qui diffèrent de poses.json
+  const surcharges = {};
+  if (base) for (const k of Object.keys(pose.doigts || {})) for (const j of Object.keys(pose.doigts[k] || {}))
+    if (base.doigts[k] && base.doigts[k][j] !== pose.doigts[k][j]) (surcharges[k] = surcharges[k] || {})[j] = pose.doigts[k][j];
+  const dEq = d / age.kW;                                              // le diamètre vu par une main d'homme
+  let r = null;
+  const table = (base && base.table) || pose.table;
+  if (table && table.length > 1) {
+    const T = table.slice().sort((a, b) => a.diametre - b.diametre);
+    if (dEq >= T[0].diametre - 2 && dEq <= T[T.length - 1].diametre + 2) {
+      const t = interpoler(T, dEq);
+      r = { doigts: t.doigts, objet: { centre: [t.objet.centre[0] * age.kL, t.objet.centre[1] * age.kW, t.objet.centre[2] * age.kW], axe: t.objet.axe } };
+    }
+  }
+  if (!r) {                                                            // hors table : on résout, et on garde
+    const cle = JSON.stringify([pose.id, pose.solveur, r1(d), age.cle]);
+    r = CACHE_RES.get(cle);
+    if (!r) {
+      const S = preparer(outils);
+      const spec = { prise: pose.solveur.prise, options: Object.assign({}, pose.solveur) };
+      delete spec.options.prise;
+      const t = resoudreSpec(S, spec, d);
+      r = { doigts: t.doigts, objet: t.objet };
+      CACHE_RES.set(cle, r);
+      if (CACHE_RES.size > 200) CACHE_RES.delete(CACHE_RES.keys().next().value);
+    }
+  }
+  const doigts = JSON.parse(JSON.stringify(r.doigts));
+  for (const k of Object.keys(surcharges)) doigts[k] = Object.assign({}, doigts[k], surcharges[k]);
+  return Object.assign({}, pose, { doigts, objet: Object.assign({}, pose.objet, { centre: r.objet.centre, axe: r.objet.axe, diametre: d }) });
+}
+
+// ─── deux mains ────────────────────────────────────────────────────────────────────────────────────────────
+// Deux mains sur un même manche (la hache, la pelle, la plane). Chaque main est posée par mainSimple sur l'axe du
+// manche : son ancre 'prise' à la fraction t du manche, son angle tel que l'axe de sa prise suive le manche. Le
+// manche est peint par la PREMIÈRE main (sa couche d'objet, entre ses pièces de derrière et de devant) ; la
+// seconde le repeint seulement près d'elle (un clipPath autour de sa boîte), pour que son poing le recouvre
+// et qu'il passe à travers lui sans repasser sur la première main.
+//   manche  { x0, y0, x1, y1, r } (unités de vue) ; mains [{ t, vue, cote, pose, diametre, … }] ; objet g => SVG
+function deuxMains(mainSimple, o) {
+  const { manche } = o;
+  const ang = Math.atan2(manche.y1 - manche.y0, manche.x1 - manche.x0) / RAD;
+  const out = [], geos = [];
+  o.mains.forEach((m, i) => {
+    const x = manche.x0 + (manche.x1 - manche.x0) * m.t, y = manche.y0 + (manche.y1 - manche.y0) * m.t;
+    const base = Object.assign({ pose: 'prise-manche', echelle: o.echelle || 1 }, m, { x, y, ancre: 'prise' });
+    delete base.t;
+    // l'angle de la main tel que l'axe de sa prise tombe sur le manche
+    const essai = mainSimple(Object.assign({}, base, { angle: 0, objet: undefined }));
+    let a = ang - essai.prise.angle;
+    if (m.sens === -1) a += 180;
+    const g = mainSimple(Object.assign({}, base, { angle: a, objet: undefined }));
+    geos.push(g);
+    const dessinObjet = gg => (typeof o.objet === 'function' ? o.objet(Object.assign({}, gg, { manche })) : String(o.objet || ''));
+    if (i === 0) out.push(String(mainSimple(Object.assign({}, base, { angle: a, objet: dessinObjet }))));
+    else {
+      const b = g.boite, id = `deuxMains-${Math.random().toString(36).slice(2, 8)}`;
+      const clip = `<clipPath id="${id}"><rect x="${r1(b.x0 - 2)}" y="${r1(b.y0 - 2)}" width="${r1(b.x1 - b.x0 + 4)}" height="${r1(b.y1 - b.y0 + 4)}"/></clipPath>`;
+      out.push(clip, String(mainSimple(Object.assign({}, base, { angle: a, objet: gg => `<g clip-path="url(#${id})">${dessinObjet(gg)}</g>` }))));
+    }
+  });
+  const svg = out.join('\n');
+  return { svg, toString() { return svg; }, mains: geos };
+}
+// Deux mains à plat l'une sur l'autre, vues du dessus (vue dos) : celle du dessous en gris (loin), celle du
+// dessus par-dessus, tournée de `angle` et décalée de `decalage` (mm, dans le repère de la main du dessous).
+//   { x, y, angle (degrés : l'axe de la main du dessous à l'écran), echelle, cote ('droite' : la droite dessous),
+//     croise (degrés, défaut de poses.json), decalage [dx, dy] }
+function mainSurMain(mainSimple, o) {
+  const pj = (posesJSON() || {}).poses || [];
+  const P = (pj.find(p => p.id === 'main-sur-main') || {}).paire || { dessous: 'plat', angle: 24, decalage: [26, 6] };
+  const s = o.echelle || 1, a0 = o.angle || 0, m = o.cote === 'gauche' ? -1 : 1;
+  const croise = o.croise !== undefined ? o.croise : P.angle, dec = o.decalage || P.decalage;
+  const dessous = mainSimple(Object.assign({ avantbras: { longueur: 90 } }, o.dessous || {}, { x: o.x, y: o.y, pose: P.dessous, vue: 'dos', cote: o.cote, angle: a0, echelle: s, ancre: 'poignet', loin: true }));
+  const c = Math.cos(a0 * RAD), sn = Math.sin(a0 * RAD), dx = dec[0] * s, dy = m * dec[1] * s;
+  const x2 = o.x + dx * c - dy * sn, y2 = o.y + dx * sn + dy * c;
+  const dessus = mainSimple(Object.assign({ avantbras: { longueur: 90 } }, o.dessus || {}, { x: x2, y: y2, pose: 'main-sur-main', vue: 'dos', cote: o.cote === 'gauche' ? 'droite' : 'gauche', angle: a0 - m * croise, echelle: s, ancre: 'poignet' }));
+  const svg = `${dessous}\n${dessus}`;
+  return { svg, toString() { return svg; }, dessous, dessus };
+}
+
 module.exports = {
+  resoudre, CATALOGUE, ecrirePoses, construirePose, couches, controle, deuxMains, mainSurMain, interpoler,
   // la géométrie, pour les essais et le moteur
   A3, S3, M3, D3, X3, L3, U3, I3, rot3, orth, RAD, DOIGTS,
   preparer, chaineDoigt, chainePouce, segments, rayonVers, OBST, paumeObstacle, ecart, ecartMin, obstSegments,
-  fermer, fermerDoigt, fermerPouce, peauEn, pulpe, cherche, pouceEnroule, pouceAutour, pouceManche, pouceVers, pouceSurPhalanges, pouceLong, PRISES, peau,
+  fermer, fermerDoigt, fermerPouce, peauEn, pulpe, cherche, chercheGlobal, pouceEnroule, pouceAutour, pouceManche, pouceVers, pouceSurPhalanges, pouceLong, PRISES, peau,
 };
+
+// ─── la ligne de commande ─────────────────────────────────────────────────────────────────────────────────
+if (require.main === module) {
+  const M = require('./moteur');
+  const outils = { squelette: (p, oo) => M.squelette(p, oo || {}), anatomie: M.ANATOMIE, formes: M.formes(), demiAxes: M.demiAxes, enrouler: M.enrouler };
+  const arg = process.argv.slice(2);
+  if (arg[0] === '--ecrire') { const ids = arg.slice(1); ecrirePoses(outils, undefined, ids.length ? ids : null); }
+  else if (arg[0] === '--voir') { const S = preparer(outils); const spec = CATALOGUE.find(c => c.id === arg[1]); console.log(JSON.stringify(construirePose(S, spec), null, 1)); }
+  else console.log('node prises.js --ecrire [id…] | --voir id');
+}

@@ -12,11 +12,12 @@
 //
 //   paume   (lu par le moteur à chaque appel) les bosses de la paume du moteur (FORMES.paume), dont les
 //           demi-axes DORSAL et PALMAIRE suivent les lignes DOS_PAUME et FACE_PAUME d'ici (les demi-axes radial
-//           et ulnaire, qui font la vue de dos, restent ceux du moteur), plus le TALON de la main et les
+//           et ulnaire, qui font la vue de dos, restent ceux du moteur), plus le TALON de la main, le PONT du
+//           pli du poignet (pas de cran entre l'avant-bras et le carpe) et les
 //           COUSSINETS sous les têtes des métacarpiens. Format du moteur : { nom, c: [x, y, z], h: [le long de x,
 //           radial, ulnaire, dorsal, palmaire] }, repère de la main droite, mm d'homme (le moteur met à l'âge).
 //           Si le moteur n'exporte plus FORMES.paume, paume vaut undefined et il garde la sienne.
-//   bosses()  les ajouts seuls (talon, coussinets), pour qui veut les poser sur sa propre paume.
+//   bosses()  les ajouts seuls (talon, pont, coussinets), pour qui veut les poser sur sa propre paume.
 //   objetDeVue(objet, sq, M, outils)  l'objet tenu coupé au ras de la main, de profil (voir plus bas).
 //   loin    { vue: [pièces] } : ce qui est gris de profil quelle que soit la pose (à fusionner avec pose.loin) :
 //           vu côté auriculaire, le pouce est de l'autre côté de la paume ; ce qui en dépasse est le côté loin,
@@ -105,9 +106,13 @@ const lin = (T, x) => {
 // quand le doigt plie : ces bosses sont fixes dans la main. Leurs demi-axes radial et ulnaire restent dans la
 // paume : ils ne changent rien à la vue de dos.
 const TALON = { nom: 'talon', c: [17, 1, 6], h: [12, 22, 22, 8, 17.5] };
+// Le pli du poignet : l'avant-bras s'arrête au pli, et le carpe, une bosse arrondie au bout, y laissait un cran
+// dans le dos de la main. Une bosse longue et plate, à cheval sur le pli, fait le pont (dans la largeur du
+// poignet : rien ne change de dos).
+const PONT = { nom: 'pont-poignet', c: [2, 0, 0], h: [26, 25, 25, 18.7, 18.5] };
 const COUSSINET = { index: 12.5, majeur: 13, annulaire: 12.5, auriculaire: 11.5 };
 function bosses(M) {
-  const out = [TALON];
+  const out = [TALON, PONT];
   const an = M && M.ANATOMIE && M.ANATOMIE.doigts;
   if (an) for (const d of Object.keys(COUSSINET)) {
     const m = an[d] && an[d].mcp;
@@ -170,5 +175,5 @@ function objetDeVue(objet, sq, M, outils = {}) {
   return { objet: Object.assign({}, objet, { centre: P((s0 + s1) / 2), longueur: s1 - s0 }), coupe: { centre: P(sCut), axe: A, r: (objet.diametre || 32) / 2 } };
 }
 
-module.exports = { profil, objetDeVue, loin: { auriculaire: ['pouce'] }, bosses: () => bosses((() => { try { return require('./moteur'); } catch (e) { return null; } })()), tables: { INDEX, K, POUCE, AVANTBRAS, DOS_PAUME, FACE_PAUME, TALON, COUSSINET } };
+module.exports = { profil, objetDeVue, loin: { auriculaire: ['pouce'] }, bosses: () => bosses((() => { try { return require('./moteur'); } catch (e) { return null; } })()), tables: { INDEX, K, POUCE, AVANTBRAS, DOS_PAUME, FACE_PAUME, TALON, PONT, COUSSINET } };
 Object.defineProperty(module.exports, 'paume', { enumerable: true, get: paume });

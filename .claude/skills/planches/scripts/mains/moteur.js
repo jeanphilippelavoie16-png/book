@@ -225,10 +225,11 @@ function operation(type, a, b) {
 }
 const moins = (a, b) => (b.length && a.length ? operation(CL.ClipType.ctDifference, a, b) : a);
 const inter = (a, b) => (a.length && b.length ? operation(CL.ClipType.ctIntersection, a, b) : []);
-function decale(paths, mm) {
+// propre : la forme sort d'une union (simple, sans point double) : pas de nettoyage
+function decale(paths, mm, propre = true) {
   if (!paths.length || !mm) return paths;
-  const propres = CL.Clipper.SimplifyPolygons(CL.Clipper.CleanPolygons(paths, 2), CL.PolyFillType.pftNonZero);
-  const co = new CL.ClipperOffset(2, 0.03 * SC);
+  const propres = propre ? paths : CL.Clipper.SimplifyPolygons(CL.Clipper.CleanPolygons(paths, 2), CL.PolyFillType.pftNonZero);
+  const co = new CL.ClipperOffset(2, 0.05 * SC);
   co.AddPaths(propres, CL.JoinType.jtRound, CL.EndType.etClosedPolygon);
   const sol = new CL.Paths();
   co.Execute(sol, mm * SC);
@@ -1012,7 +1013,7 @@ function construire(o) {
   if (o.avantbras !== false) {
     const ab = o.avantbras || {};
     const S = sq.segments.avantbras;
-    let longueurAB = ab.longueur !== undefined ? ab.longueur : (ab.vers ? null : 70);
+    let longueurAB = ab.longueur !== undefined ? ab.longueur : (ab.vers || ab.versLocal ? null : 70);
     let SA = S;
     if (ab.versLocal) {
       // une direction imposée dans le plan de la vue (repère de la vue, mm) : l'avant-bras s'y couche
@@ -1248,8 +1249,8 @@ function dessiner(o) {
   // seule ligne entre deux doigts serrés). Un doigt et la paume : seulement là où l'un passe nettement devant
   // l'autre (le doigt replié sur la paume) ; à la racine, ils se fondent. Deux phalanges d'un même doigt : rien.
   const traits = pieces.map(() => []);                   // rangés par pièce : la première du groupe
-  for (const G of groupes.values()) { G.retrait = decale(G.region, -E); G.gonfle = decale(G.region, 0.6); G.bord = contourDe(G.region); }
-  for (const P of pieces) P.retrait = decale(P.region, -E);
+  for (const G of groupes.values()) { G.retrait = decale(G.region, -E); G.gonfle = decale(G.region, 1.3); G.bord = contourDe(G.region); }
+  for (const P of pieces) Object.defineProperty(P, 'retrait', { configurable: true, get() { const v = decale(P.region, -E); Object.defineProperty(P, 'retrait', { value: v }); return v; } });
   const Uin = decale(U, -E);
   const dansBoite = (B, p) => p[0] >= B.x0 && p[0] <= B.x1 && p[1] >= B.y0 && p[1] <= B.y1;
   const parPoints = (ls, garder) => {
@@ -1317,18 +1318,27 @@ function dessiner(o) {
   // l'objet : le blanc sous lui dans la main, et les pièces de devant à repeindre là où il passe
   let patch = null;
   if (ob && ob.region.length) {
-    patch = { dansMain: inter(ob.region, U), fond: [], bord: [], traits: [] };
+    patch = { dansMain: inter(ob.region, U), parMarge: new Map(), regDev: null };
     const dev = [...devantObjet];
     if (dev.length) {
-      const regDev = unionCL(dev.map(i => pieces[i].region));
-      const Ud = regDev;
-      // la marge couvre le trait de l'objet (2,4 de vue au plus, la moitié déborde de sa région)
-      const ext = decale(ob.region, 1.6);
-      patch.fond = inter(ext, decale(regDev, 0.15));
-      patch.bord = lignesDans(contourDe(Ud), ext);
-      const tDev = lignesDans(traits.flat(), decale(regDev, -0.2));
-      patch.traits = lignesDans(tDev, ext);
+      patch.regDev = unionCL(dev.map(i => pieces[i].region));
+      patch.tDev = lignesDans(traits.flat(), decale(patch.regDev, -0.2));
+      patch.bordDev = contourDe(patch.regDev);
+      patch.Ug = decale(U, 0.2);
     }
+    // la marge (mm) couvre le trait de l'objet et son anticrénelage : 2,4 de vue au moins (le trait de contour du
+    // livre, dont la moitié déborde de la région de l'objet) ; calculée au rendu, selon l'échelle
+    patch.pour = mm => {
+      const k = Math.round(mm * 5) / 5;
+      if (patch.parMarge.has(k)) return patch.parMarge.get(k);
+      let v = { fond: [], bord: [], traits: [] };
+      if (patch.regDev) {
+        const ext = decale(ob.region, k);
+        v = { fond: inter(ext, inter(decale(patch.regDev, k), patch.Ug)), bord: lignesDans(patch.bordDev, ext), traits: lignesDans(patch.tDev, ext) };
+      }
+      patch.parMarge.set(k, v);
+      return v;
+    };
   }
   T_('patch');
   return { C, pieces, U, traits, peint, devantObjet, rel, ordre, ob, coupe, vue, patch };
@@ -1438,7 +1448,8 @@ function rendre(R, o, { Tloc, s, m, ang, ab }) {
       if (o.masque !== false && pa.dansMain.length) out.push(plein(pa.dansMain, loin ? GRIS : BLANC));
       out.push(svgObjet);
       // les pièces devant l'objet, repeintes là où il passe : leur blanc, leur bord contre l'objet, leurs traits
-      if (pa.fond.length) out.push(plein(pa.fond, loin ? GRIS : BLANC), ligne(pa.bord, tr.sil), ligne(pa.traits, tr.int));
+      const pv = pa.pour(Math.max(1.6, 2.6 / s));
+      if (pv.fond.length) out.push(plein(pv.fond, loin ? GRIS : BLANC), ligne(pv.bord, tr.sil), ligne(pv.traits, tr.int));
     } else out.push(svgObjet);
   }
   if (o._debug) { const cols = ['#e33', '#3a3', '#33e', '#e9e', '#e93', '#3cc']; pieces.forEach((P, i) => out.push(`<path d="${dF(P.region)}" fill="none" stroke="${cols[i % 6]}" stroke-width="0.6" stroke-dasharray="2 1.5"/>`)); }
