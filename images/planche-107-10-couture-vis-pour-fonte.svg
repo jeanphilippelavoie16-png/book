@@ -78,7 +78,7 @@
 <circle cx="69.5" cy="69" r="15" fill="#fff" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <circle cx="84.5" cy="69" r="15" fill="#1A1A1A" stroke="none"/>
 <path d="M 102.5 69 A 18 18 0 1 1 84.5 51" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
-<circle cx="77" cy="69" r="18" fill="none" stroke="#9B2C1E" stroke-width="1.6"/>
+<circle cx="77" cy="69" r="26.3" fill="none" stroke="#9B2C1E" stroke-width="1.6"/>
 </g>
 <text x="40" y="403.6" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#1A1A1A">La fente cousue, vue de dessus</text>
 <g transform="translate(40 411.6)" data-vue="plan">

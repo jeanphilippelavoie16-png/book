@@ -185,7 +185,7 @@ module.exports = (h) => {
             trou(L.c[2], g.yc, L.r),
             filet(L.c[2], g.yc, L.r * 1.2),
             // la charte : le point à contrôler, le trou qui mord à moitié dans la vis d'avant
-            h.controle(L.c[2] - L.r / 2, g.yc, L.r + 3),
+            h.controle(L.c[2] - L.r / 2, g.yc, L.r * 1.75),
           ].join('\n');
         },
         renvois: z => {

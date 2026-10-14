@@ -3,6 +3,8 @@
 // dépannage, la queue de castor (seule cotée : 300 × 1070 mm, traverses à 380 à 410 mm), et la
 // raquette de planche, taillée au même contour que la queue de castor.
 // Toutes les mesures du dessin sont en cm, converties en px par K, le même pour les trois vues.
+// La charte : c'est un gabarit à recopier, donc ni gris ni rouge (pas de geste, pas de point à
+// vérifier) ; les contours à recopier sont déjà au trait fort, le reste au trait fin.
 
 const r1 = v => Math.round(v * 10) / 10;
 const Y0 = 36;                                   // haut du nez, en px dans la vue
