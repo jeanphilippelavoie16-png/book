@@ -1,6 +1,9 @@
 // Planche 44-02 — la ligne de dressage du chien de sang (chapitre 44, « Faire un chien de sang
 // avec le chien du chalet », étapes 1 à 4). En plan : la traîne de foie, les gouttes, le prix au
 // bout, le virage à angle droit, les rubans aux arbres. Aucun chiffre qui ne soit pas au chapitre.
+// La charte : pas de gris (deux vues sont des plans à plat, et le foie est trop petit pour une face
+// à l'ombre). Le rouge : le foie qu'on traîne (le geste). La flèche du sens de la ligne et le trajet
+// du chien restent noirs : ce ne sont pas des gestes.
 module.exports = (h) => {
   const f = v => +v.toFixed(1);
   const blanc = a => a.replace('fill="none"', 'fill="#ffffff"');
@@ -205,7 +208,7 @@ module.exports = (h) => {
           out.push(h.path(`M${X(19)},${Y(11.5)} L${f(z.l - 6)},${f(z.h * 0.06)}`, h.a.arete));
           // le sens de la traîne
           out.push(h.path(`M${f(x - 30)},${f(g - 40)} L${f(x + 8)},${f(g - 40)}`, halo));
-          out.push(h.fleche(`M${f(x - 32)},${f(g - 40)} L${f(x + 10)},${f(g - 40)}`, h.a.arete));
+          out.push(h.geste(`M${f(x - 32)},${f(g - 40)} L${f(x + 10)},${f(g - 40)}`));
           return out.join('\n');
         },
         renvois: z => [

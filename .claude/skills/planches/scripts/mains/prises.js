@@ -652,6 +652,7 @@ function pouceSurPhalanges(S, segsD, noms, o = {}) {
     let pen = 0;
     for (const ob of obstD) for (let i = 1; i < 3; i++) pen += Math.max(0, -ecart(seg[i], ob).g - 0.3);
     pen += Math.max(0, -ecart(seg[2], S.paume).g);
+    if (o.boutMax !== undefined) pen += 0.1 * Math.max(0, pp.ch.P[3][2] - o.boutMax);   // le bout ne dépasse pas le bloc
     return err * err + (o.poidsIP !== undefined ? o.poidsIP : 0.35) * eip * eip + 60 * face * face + 400 * pen * pen +
       0.01 * (x[2] - 0.3 * x[0]) ** 2 + 0.01 * Math.max(0, x[4] - 60) ** 2;
   };

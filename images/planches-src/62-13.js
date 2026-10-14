@@ -229,7 +229,7 @@ module.exports = (h) => {
           const p = placeA(z), T = q => q.map(p.T);
           return [
             C.dessiner(h, p, {
-              id: 'a', loin: 'fin', fondOs: false,
+              id: 'a', loin: 'gris', fondOs: false,
               os: ['T8', 'T9', 'T10', 'T11', 'T12', 'T13', 'L1', 'L2', 'L3', 'L4', 'L5', 'L6', 'sacrum',
                 'cote8', 'cote9', 'cote10', 'cote11', 'cote12', 'cote13', 'sternum', 'bassin', 'femur', 'rotule'],
               osForts: ['cote13', 'bassin'],
@@ -239,7 +239,8 @@ module.exports = (h) => {
             `<path d="${dD(T(ATTACHE_A), false)}" ${halo(3.4)}/>`,
             `<path d="${dD(T(ATTACHE_A), false)}" ${trait(1.4, POINTILLE)}/>`,
             `<path d="${dD(T(COUTURE_FILET), false)}" ${halo(3.4)}/>`,
-            h.fleche(dD(T(COUTURE_FILET), false), trait(1.4, POINTILLE)),   // la couture, fléchée des côtes vers la hanche
+            // la charte : le trait du couteau, des côtes vers la hanche, est le geste de la vue, en rouge
+            h.geste(dD(T(COUTURE_FILET), false)),
           ].join('\n');
         },
         renvois: z => {
@@ -261,8 +262,8 @@ module.exports = (h) => {
           const dbl = (f, poly) => [f(poly), f(miroir(poly))];
           const out = [];
           out.push(`<defs>${motifs('b')}<clipPath id="b-diaph"><path d="${dD(T(DIAPH_L), true)}" fill="${BLANC}"/></clipPath></defs>`);
-          // le fond
-          out.push(`<path d="${dD(T(POURTOUR), true)}" fill="${BLANC}" stroke="none"/>`);
+          // le fond. La charte : le fond de la cavité, derrière le diaphragme, en gris loin
+          out.push(`<path d="${dD(T(POURTOUR), true)}" fill="#E6E6E6" stroke="none"/>`);
           // le plafond : corps des lombaires, petits psoas, filets
           CORPS_L.forEach(c => out.push(`<path d="${dD(T(c), true)}" ${plein(BLANC, 0.7)}/>`));
           dbl(q => out.push(`<path d="${dD(T(q), true)}" ${plein(BLANC, 0.7)}/>`), MINEUR_R);
@@ -350,7 +351,7 @@ module.exports = (h) => {
           out.push(`<path d="${dD(T(TRAIT_ONGLET), false)}" ${halo(3.4)}/>`);
           out.push(`<path d="${dD(T(TRAIT_ONGLET), false)}" ${trait(1.4, POINTILLE)}/>`);
           out.push(`<path d="${dD(T(LAME_ONGLET), false)}" ${halo(4)}/>`);
-          out.push(h.fleche(dD(T(LAME_ONGLET), false), trait(1.4)));
+          out.push(h.geste(dD(T(LAME_ONGLET), false)));   // la charte : le geste en rouge
           // l'onglet ouvert, le tissu du centre
           out.push(`<path d="${dD(T(ONGLET_OUVERT), true)}" fill="${BLANC}" stroke="none"/>`);
           out.push(`<path d="${dD(T(ONGLET_OUVERT), true)}" ${trameOnglet('d')}/>`);

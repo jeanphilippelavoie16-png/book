@@ -264,10 +264,16 @@ function raccords(sq, vue, M) {
   for (let i = 0; i < DOIGTS.length - 1; i++) for (const [t, r] of [[DOIGTS[i], DOIGTS[i + 1]], [DOIGTS[i + 1], DOIGTS[i]]]) {
     const ft = pl(t), fr = pl(r);
     if (ft === null || fr === null || ft > 45 || fr < 140) continue;
-    const S = sq.segments[t + '.p1'];
-    // le coin : sous la racine du doigt tendu, côté paume, un peu en avant de la jointure
-    const c = [0, 1, 2].map(j => S.de[j] - S.n[j] * 10 * k + S.u[j] * 6 * k);
-    out.push({ c: pr(c), zone: 22 * k, r: 7 * k });
+    // le coin : là où la ligne de la pulpe du doigt tendu (P1) croise la ligne du dos de la P1 repliée, dans le
+    // plan de la vue ; l'index qui s'abaisse (appui) le fait glisser le long du dos du replié
+    const S = sq.segments[t + '.p1'], R = sq.segments[r + '.p1'];
+    const a = pr([0, 1, 2].map(j => S.de[j] - S.n[j] * INDEX.p1[0][2] * K[t] * k)), da = pr(S.u);
+    const b = pr([0, 1, 2].map(j => R.de[j] + R.n[j] * INDEX.p1[1][1] * K[r] * k)), db = pr(R.u);
+    const det = da[0] * db[1] - da[1] * db[0];
+    if (Math.abs(det) < 0.2 * Math.hypot(...da) * Math.hypot(...db)) continue;   // presque parallèles : pas de coin
+    const s = ((b[0] - a[0]) * db[1] - (b[1] - a[1]) * db[0]) / det;
+    if (s < -5 * k || s > 40 * k) continue;                                      // le coin hors de la racine
+    out.push({ c: [a[0] + da[0] * s, a[1] + da[1] * s], zone: 22 * k, r: 7 * k });
   }
   return out;
 }
