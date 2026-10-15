@@ -2,6 +2,8 @@
 // Quatre temps au même cadrage, puis où va chacun sur un chevalet. Deux perches croisées en X
 // (la jambe de force devant, l'autre derrière) : les diagonales du croisement sont alors
 // l'horizontale et la verticale, et les tours se lisent en croix.
+// La corde se peint par couches, de l'arrière vers l'avant (les tronçons qui passent derrière
+// d'abord) : chaque croisement est franc, sans calcul de croisement.
 // Le trajet : Scouting Resources, « Diagonal Lashing », et ScoutPioneering, « Traditional
 // Diagonal Lashing » (sources/110-brelages-droit-diagonal-trepied.md) : un nœud de bûcheron autour
 // des deux perches, sur une diagonale, qui les serre l'une contre l'autre ; trois tours sur l'autre
@@ -143,90 +145,107 @@ module.exports = (h) => {
     return k + ' ' + pts.join(' ');
   }).join(' ');
 
-  const F = h.formes, S2 = Math.SQRT2;
-  const R = 30, E = 8.5, PAS = E * 1.5;            // demi-épaisseur des perches, corde
-  const RX = R * S2;                                // demi-largeur d'une perche à 45°, mesurée à l'horizontale
-  const geo = z => ({ cx: Math.round(z.l * 0.5), cy: Math.round(z.h * 0.5), L: (z.h * 0.5 - R / S2 - 10) * S2 });
+  const S2 = Math.SQRT2;
+  const R = 26, E = 8, S = E * 1.06;                  // demi-épaisseur des perches, corde, pas entre deux tours
+  const RX = R * S2;                                  // de la croisée à la pointe d'une fourche
+  const geo = z => ({ cx: Math.round(z.l * 0.5), cy: Math.round(z.h * 0.5), L: (z.h * 0.5 - R / S2 - 4) * S2 });
   const uF = [1 / S2, -1 / S2], uB = [1 / S2, 1 / S2];  // F devant : bas-gauche → haut-droite ; B derrière
   const perches = (z, quoi) => {
     const { cx, cy, L } = geo(z), u = quoi === 'F' ? uF : uB;
-    return perche([cx - u[0] * L, cy - u[1] * L], [cx + u[0] * L, cy + u[1] * L], 2 * R, 2 * R, ['rompu', 'rompu']);
+    return perche([cx - u[0] * L, cy - u[1] * L], [cx + u[0] * L, cy + u[1] * L], 2 * R, 2 * R, ['coupe', 'coupe']);
   };
-  // la silhouette de F, pour cacher les frappes qui passent derrière elle
   let nClip = 0;
   const horsDeF = (z, contenu) => {
     const { cx, cy, L } = geo(z), n = [-uF[1], uF[0]], id = `horsF-110-42-${++nClip}`;
-    const c = [[-L, -R], [L, -R], [L, R], [-L, R]].map(([s, t]) => [cx + uF[0] * s + n[0] * t, cy + uF[1] * s + n[1] * t]);
+    const c = [[-L - 5, -R], [L + 5, -R], [L + 5, R], [-L - 5, R]].map(([s, t]) => [cx + uF[0] * s + n[0] * t, cy + uF[1] * s + n[1] * t]);
     return `<clipPath id="${id}"><path fill="none" clip-rule="evenodd" d="M -50 -50 H ${z.l + 50} V ${z.h + 50} H -50 Z ${trace(c)} Z"/></clipPath>\n<g clip-path="url(#${id})">\n${contenu}\n</g>`;
   };
-  const ouv = { ep: E, debut: 'ouvert', fin: 'ouvert' };
-  const ligneH = (cx, y, X, zz) => { const o = []; for (let i = 0; i <= 8; i++) o.push([cx - X + 2 * X * i / 8, y, zz]); return o; };
-  const ligneV = (x, cy, X, zz) => { const o = []; for (let i = 0; i <= 8; i++) o.push([x, cy - X + 2 * X * i / 8, zz]); return o; };
-
-  // Un tour sur une diagonale : parallèle aux autres devant le croisement, il se resserre dans les
-  // deux fourches où il passe derrière (les tours d'un même jeu s'y rejoignent).
-  const tourDiag = (cx, cy, d, vertical, zz) => {
-    const P = (a, b) => (vertical ? [cx + b, cy + a, zz] : [cx + a, cy + b, zz]);
-    const A = RX + 0.25 * E;
-    return [P(-A, 0.45 * d), P(-0.7 * RX, 0.85 * d), P(-0.3 * RX, d), P(0.3 * RX, d), P(0.7 * RX, 0.85 * d), P(A, 0.45 * d)];
+  // un tronçon de corde, bouts ouverts : il se raccorde au suivant sans couture
+  const tube = (pts, e = E) => bande(pts, e, 'arete', false).svg;
+  const cap = (q, d) => { const L = Math.hypot(d[0], d[1]); return tourne(q, [d[0] / L, d[1] / L], E); };
+  // le bout libre : une coupe en travers et trois brins défaits
+  const libre = (a, b, e = E) => {
+    const L = Math.hypot(b[0] - a[0], b[1] - a[1]), u = [(b[0] - a[0]) / L, (b[1] - a[1]) / L], n = [-u[1], u[0]];
+    const o = [h.ligne(b[0] + n[0] * e / 2, b[1] + n[1] * e / 2, b[0] - n[0] * e / 2, b[1] - n[1] * e / 2, h.a.arete)];
+    for (const k of [-0.28, 0, 0.28]) o.push(h.ligne(b[0] + n[0] * e * k, b[1] + n[1] * e * k, b[0] + n[0] * e * k * 1.5 + u[0] * e * 0.9, b[1] + n[1] * e * k * 1.5 + u[1] * e * 0.9, h.a.detail));
+    return o.join('\n');
   };
-  const capsDiag = (cx, cy, d, vertical) => {
-    const A = RX + 0.25 * E;
-    return vertical ? [[[cx + 0.45 * d, cy - A], [0, -1]], [[cx + 0.45 * d, cy + A], [0, 1]]] : [[[cx - A, cy + 0.45 * d], [-1, 0]], [[cx + A, cy + 0.45 * d], [1, 0]]];
+  const bez = (p0, p1, p2, p3, n = 16) => Array.from({ length: n + 1 }, (_, i) => {
+    const t = i / n, u = 1 - t;
+    return [u * u * u * p0[0] + 3 * u * u * t * p1[0] + 3 * u * t * t * p2[0] + t * t * t * p3[0], u * u * u * p0[1] + 3 * u * u * t * p1[1] + 3 * u * t * t * p2[1] + t * t * t * p3[1]];
+  });
+  const droite = (a, b, n = 6) => Array.from({ length: n + 1 }, (_, i) => [a[0] + (b[0] - a[0]) * i / n, a[1] + (b[1] - a[1]) * i / n]);
+
+  // ─── un tour sur une diagonale ───
+  // Avant les frappes, les tours sont parallèles et se touchent ; chacun finit au bord de la perche
+  // où il passe derrière, sur le bord de la fourche. Les frappes les serrent dans la fourche.
+  const tourDiag = (cx, cy, d, vertical, serre) => {
+    const P = (a, b) => (vertical ? [cx + b, cy + a] : [cx + a, cy + b]);
+    const A = serre ? RX + 0.15 * E : RX + Math.abs(d);
+    const pts = serre
+      ? [...bez(P(-A, 0.45 * d), P(-0.88 * RX, 0.8 * d), P(-0.68 * RX, d), P(-0.5 * RX, d), 8), ...droite(P(-0.5 * RX, d), P(0.5 * RX, d)).slice(1),
+        ...bez(P(0.5 * RX, d), P(0.68 * RX, d), P(0.88 * RX, 0.8 * d), P(A, 0.45 * d), 8).slice(1)]
+      : droite(P(-A, d), P(A, d), 10);
+    const e0 = pts[0], e1 = pts[pts.length - 1];
+    const dir = vertical ? [0, 1] : [1, 0];
+    return { svg: tube(pts), caps: cap(e0, [-dir[0], -dir[1]]) + '\n' + cap(e1, dir) };
+  };
+  const jeu = (cx, cy, vertical, serre) => {
+    // le tour du milieu d'abord, les deux autres par-dessus : serrés, ils se recouvrent dans la fourche
+    const t = [0, -S, S].map(d => tourDiag(cx, cy, d, vertical, serre));
+    return t.map(x => x.svg + '\n' + x.caps).join('\n');
   };
 
-  // ─── le nœud de bûcheron : sur la diagonale verticale ───
-  // Le dormant arrive d'en bas à gauche, entre dans la fourche du bas, monte devant (le brin
-  // vertical), passe derrière par la fourche du haut, redescend derrière et ressort dans la fourche
-  // du bas : le bout fait le tour du dormant, puis se tord trois fois autour du brin, en montant.
+  // ─── le nœud de bûcheron, sur la diagonale verticale ───
+  // Le dormant arrive d'en bas à gauche par-dessus F, entre dans la fourche du bas, monte devant
+  // (le brin vertical) et passe derrière les deux perches par la fourche du haut. Le bout ressort de
+  // la fourche du bas, à droite, et se tord trois fois autour du brin vertical en montant.
   const bucheron = (cx, cy) => {
-    const yb = cy + RX, brins = [], caps = [];
-    brins.push({ pts: [[cx - 4.2 * E, yb + 4.6 * E, 0], [cx - 1.9 * E, yb + 2.4 * E, 0], [cx - 0.35 * E, yb + 0.5 * E, 0], ...tourDiag(cx, cy, 0, true, 0).reverse().slice(1)],
-      ep: E, debut: 'fixe', fin: 'ouvert' });
-    caps.push(...capsDiag(cx, cy, 0, true).slice(0, 1));
-    // le bout : il ressort de la fourche du bas, à droite, passe derrière le dormant, puis se tord
-    // autour du brin vertical : devant, derrière, devant, et il sort libre en haut à gauche
-    const k = 1.25 * E, a = 0.8 * E;
-    const y0 = cy + 1.3 * k;
-    const hel = [[cx + 1.1 * E, yb + 0.45 * E, -1], [cx + 1.3 * E, y0 + 0.9 * k, -1], [cx + a, y0, -1],
-      [cx, y0 - 0.5 * k, 1], [cx - a, y0 - k, 1], [cx - 1.05 * a, y0 - 1.25 * k, -1],
-      [cx, y0 - 1.5 * k, -1], [cx + a, y0 - 2 * k, -1], [cx + 1.05 * a, y0 - 2.25 * k, -1],
-      [cx, y0 - 2.5 * k, 1], [cx - a, y0 - 3 * k, 1], [cx - 1.05 * a, y0 - 3.25 * k, -1],
-      [cx, y0 - 3.5 * k, -1], [cx + a, y0 - 4 * k, -1], [cx + 1.6 * E, y0 - 4.4 * k, -1], [cx + 2.6 * E, y0 - 4.6 * k, -1]];
-    brins.push({ pts: hel, ep: E, debut: 'ouvert', fin: 'libre' });
-    caps.push([[cx + 1.1 * E, yb + 0.45 * E], [0.3, 1]]);
-    return { brins, caps, tire: [[cx - 1.9 * E, yb + 2.4 * E], [cx - 4.2 * E, yb + 4.6 * E]], tors: [cx, y0 - 2 * k] };
+    const yb = cy + RX, a = 0.78 * E, k = 1.7 * E;
+    const dormant = [...bez([cx - 5.6 * E, yb + 5.2 * E], [cx - 3 * E, yb + 2.6 * E], [cx, yb + 1.6 * E], [cx, yb - 0.6 * E], 14),
+      ...droite([cx, yb - 0.6 * E], [cx, cy - RX], 12).slice(1)];
+    // la torsade : x = cx + a cos t ; devant quand sin t > 0
+    const y0 = yb - 0.2 * E, t0 = -0.25, t1 = 4 * Math.PI + Math.PI * 0.92;
+    const hel = [];
+    for (let i = 0; i <= 120; i++) { const t = t0 + (t1 - t0) * i / 120; hel.push({ p: [cx + a * Math.cos(t), y0 - k * (t - t0) / (2 * Math.PI)], av: Math.sin(t) > 0 }); }
+    const runs = [];
+    hel.forEach((q, i) => { if (!i || q.av !== hel[i - 1].av) runs.push({ av: q.av, pts: i ? [hel[i - 1].p] : [] }); runs[runs.length - 1].pts.push(q.p); });
+    const fin = hel[hel.length - 1].p;
+    const queue = bez(fin, [fin[0] - 0.8 * E, fin[1] - 0.35 * E], [fin[0] - 1.8 * E, fin[1] - 0.4 * E], [fin[0] - 2.6 * E, fin[1] - 0.2 * E], 8);
+    // l'entrée du bout : il sort de derrière, dans la fourche du bas, à droite du dormant
+    const entree = bez([cx + 1.15 * E, yb + 1.1 * E], [cx + 1.2 * E, yb + 0.5 * E], [cx + a + 0.2 * E, y0 + 0.4 * E], hel[0].p, 6);
+    const derriere = runs.filter(r => !r.av).map(r => tube(r.pts)).join('\n');
+    const devant = runs.filter(r => r.av).map(r => tube(r.pts)).join('\n');
+    const svg = [tube(entree), derriere, tube(dormant), cap([cx, cy - RX], [0, -1]), devant, tube(queue), libre(queue[queue.length - 2], queue[queue.length - 1]),
+      cap([cx + 1.15 * E, yb + 1.1 * E], [0.15, 1])].join('\n');
+    return { svg, tire: [[cx - 2.6 * E, yb + 2.6 * E], [cx - 5.6 * E, yb + 5.2 * E]], torsade: [cx, y0 - k * 1.2], dormant: [cx - 4 * E, yb + 3.8 * E] };
   };
-  const D = [-PAS, 0, PAS];
-  const toursH = (cx, cy) => ({ brins: D.map(d => ({ pts: tourDiag(cx, cy, d, false, 2), ...ouv })), caps: D.flatMap(d => capsDiag(cx, cy, d, false)) });
-  const toursV = (cx, cy) => ({ brins: D.map(d => ({ pts: tourDiag(cx, cy, d, true, 3), ...ouv })), caps: D.flatMap(d => capsDiag(cx, cy, d, true)) });
 
-  // ─── les frappes : deux tours entre les perches, autour du paquet ; puis l'arrêt ───
-  // Un cercle autour du croisement : il passe devant B, derrière F, et par-dessus les coudes
-  // des tours dans les quatre fourches.
-  const RHO = RX + 0.55 * E;
-  const cercle = (cx, cy, rho, a0, a1, zz) => { const o = []; const n = Math.ceil(Math.abs(a1 - a0) / 8);
-    for (let i = 0; i <= n; i++) { const a = (a0 + (a1 - a0) * i / n) * Math.PI / 180; o.push([cx + rho * Math.cos(a), cy + rho * Math.sin(a), zz]); } return o; };
-  // l'arrêt : un cabestan sur le bras haut-gauche de B, en coordonnées du bras (x le long, y en travers)
+  // ─── les frappes, puis l'arrêt ───
+  // Deux tours entre les perches, autour du paquet : devant B, derrière F, et par-dessus les coudes
+  // des tours au fond de chaque fourche. Le bout file sur le bras haut-gauche de B et l'arrête d'un
+  // nœud de cabestan.
+  const RHO = RX + 0.35 * E;
+  const arc = (cx, cy, rho, a0, a1) => { const o = [], n = Math.ceil(Math.abs(a1 - a0) / 5);
+    for (let i = 0; i <= n; i++) { const a = (a0 + (a1 - a0) * i / n) * Math.PI / 180; o.push([cx + rho * Math.cos(a), cy + rho * Math.sin(a)]); } return o; };
   const dB = [-1 / S2, -1 / S2], vB = [1 / S2, -1 / S2];
   const arret = (cx, cy) => {
-    const G = ([x, y, zz]) => [cx + dB[0] * x + vB[0] * y, cy + dB[1] * x + vB[1] * y, zz];
+    const G = ([x, y]) => [cx + dB[0] * x + vB[0] * y, cy + dB[1] * x + vB[1] * y];
     const V = ([x, y]) => [dB[0] * x + vB[0] * y, dB[1] * x + vB[1] * y];
-    const e = E, q = 0.7 * e, dH = 0.2 * 2 * R, yT = -R, yB = R;
-    const xs = RHO + PAS + 0.6 * e, xa = xs + 1.7 * e, xb = xa + 2.3 * e, dd = xb - xa;
-    const pts1 = [[RHO + PAS, yT - 0.2 * e, 0], [xs - 0.6 * e, yT - 0.9 * e, 0], [xs, yT + 2, 0], [xs, dH - q, 0], [xs + 0.3 * q, dH - 0.3 * q, 0], [xs + q, dH, 0],
-      [xb - q, dH, 0], [xb - 0.3 * q, dH + 0.3 * q, 0], [xb, dH + q, 0], [xb, yB, 0]];
-    const pts2 = [[xb, yT, 1], [xb - 0.06 * dd, yT + 0.14 * 2 * R, 1], [(xa + xb) / 2, 0, 1], [xa + 0.06 * dd, yB - 0.14 * 2 * R, 1], [xa, yB, 1]];
-    const pts3 = [[xa, yT, 0], [xa, -dH - q, 0], [xa + 0.3 * q, -dH - 0.3 * q, 0], [xa + q, -dH, 0], [xb + 3 * e, -dH + 0.6, 0]];
-    return {
-      brins: [{ pts: pts1.map(G), ...ouv }, { pts: pts2.map(G), ...ouv }, { pts: pts3.map(G), ep: e, debut: 'ouvert', fin: 'libre' }],
-      caps: [[[xb, yB], [0, 1]], [[xb, yT], [0, -1]], [[xa, yB], [0, 1]], [[xa, yT], [0, -1]]].map(([q0, d]) => [G([...q0, 0]).slice(0, 2), V(d)]),
-      centre: G([(xa + xb) / 2, 0, 0]).slice(0, 2),
-      entree: G([RHO + PAS, yT - 0.2 * e, 0]).slice(0, 2),
-    };
+    const e = E, q = 0.7 * e, dH = 0.4 * R, yT = -R, yB = R;
+    const xs = RHO + 1.3 * S, xa = xs + 1.6 * e, xb = xa + 2.2 * e;
+    const lisse = pts => { const o = [pts[0]]; for (let i = 1; i < pts.length; i++) o.push(...droite(pts[i - 1], pts[i], 4).slice(1)); return o; };
+    // la fin de la deuxième frappe arrive sur le bras (y négatif : le bord du dessus)
+    const p1 = [[RHO + 0.3 * S, yT - 0.55 * e], [xs - 0.5 * e, yT - 0.5 * e], [xs, yT + 1], [xs, dH - q], [xs + q, dH], [xb - q, dH], [xb, dH + q], [xb, yB]];
+    const p2 = [[xb, yT], [(xa + xb) / 2, 0], [xa, yB]];
+    const p3 = [[xa, yT], [xa, -dH - q], [xa + q, -dH], [xb + 2.6 * e, -dH + 0.5]];
+    const dessous = [tube(lisse(p1).map(G)), tube(lisse(p3).map(G))].join('\n');
+    const dessus = tube(lisse(p2).map(G));
+    const caps = [[[xb, yB], [0, 1]], [[xb, yT], [0, -1]], [[xa, yB], [0, 1]], [[xa, yT], [0, -1]]].map(([q0, d]) => cap(G(q0), V(d))).join('\n');
+    const fin = lisse(p3).map(G);
+    return { svg: [dessous, dessus, caps, libre(fin[fin.length - 2], fin[fin.length - 1])].join('\n'), centre: G([(xa + xb) / 2, 0]), entree: G([RHO + 0.3 * S, yT - 0.55 * e]) };
   };
 
-  const capsSvg = caps => caps.map(([q, d]) => { const L = Math.hypot(d[0], d[1]); return tourne(q, [d[0] / L, d[1] / L], E); }).join('\n');
   const tireGeste = (a, c, k = 1) => {
     const L = Math.hypot(c[0] - a[0], c[1] - a[1]), u = [(c[0] - a[0]) / L, (c[1] - a[1]) / L], n = [-u[1], u[0]];
     const o0 = [a[0] + u[0] * L * 0.1 + n[0] * 15 * k, a[1] + u[1] * L * 0.1 + n[1] * 15 * k];
@@ -234,31 +253,29 @@ module.exports = (h) => {
   };
 
   const temps = (z, etape) => {
-    const { cx, cy } = geo(z), out = [], g = {};
-    const nt = { bucheron: 1, tours: 2, travers: 3, arret: 4 }[etape];
+    const { cx, cy } = geo(z), out = [], g = { cx, cy };
+    const nt = { bucheron: 1, tours: 2, travers: 3, arret: 4 }[etape], serre = nt >= 4;
     out.push(perches(z, 'B'));
-    // les frappes : un premier passage complet (F le cachera), puis ce qui passe hors de F
     let frap = '';
-    if (nt >= 4) {
+    if (serre) {
       const a = arret(cx, cy);
-      const f1 = cercle(cx, cy, RHO, -45, 315, 0.5), f2 = cercle(cx, cy, RHO + PAS, -45, 225, 0.5);
-      f2.push([a.entree[0], a.entree[1], 0.5]);
-      frap = F.cordes([{ pts: f1, ...ouv }, { pts: f2, ...ouv }], { trait: 'arete' });
+      const f1 = arc(cx, cy, RHO, -45, 315), f2 = [...arc(cx, cy, RHO + S, -45, 223), a.entree];
+      frap = tube(f1) + '\n' + tube(f2);
       out.push(frap);
       g.arret = a;
     }
     out.push(perches(z, 'F'));
-    const b = bucheron(cx, cy), brins = [...b.brins], caps = [...b.caps];
-    if (nt >= 2) { const t = toursH(cx, cy); brins.push(...t.brins); caps.push(...t.caps); }
-    if (nt >= 3) { const t = toursV(cx, cy); brins.push(...t.brins); caps.push(...t.caps); }
-    out.push(F.cordes(brins, { trait: 'arete' }), capsSvg(caps));
-    if (nt >= 4) {
+    const b = bucheron(cx, cy);
+    out.push(b.svg);
+    if (nt >= 2) out.push(jeu(cx, cy, false, serre));
+    if (nt >= 3) out.push(jeu(cx, cy, true, serre));
+    if (serre) {
       out.push(horsDeF(z, frap));
-      out.push(F.cordes(g.arret.brins, { trait: 'arete' }), capsSvg(g.arret.caps));
-      out.push(h.controle(g.arret.centre[0], g.arret.centre[1], 2.4 * E));
+      out.push(g.arret.svg);
+      out.push(h.controle(g.arret.centre[0], g.arret.centre[1], 2.3 * E));
     }
     if (nt === 1) out.push(tireGeste(b.tire[0], b.tire[1], -1));
-    g.b = b; g.cx = cx; g.cy = cy;
+    g.b = b;
     return { svg: out.join('\n'), g };
   };
 

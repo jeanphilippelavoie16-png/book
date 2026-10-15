@@ -104,7 +104,6 @@ module.exports = (h) => {
   const fente = z => {
     const g = F(z), o = [];
     const { y, r, xa, xb } = g;
-    // le tuyau, vu de côté
     // le tuyau, vu de côté, cassé aux deux bouts (il continue)
     const xL = 6, xD = z.l - 6;
     o.push(h.path(`M${xL} ${y - r} L${xD} ${y - r} Q${xD + 4} ${y - r / 2} ${xD} ${y} Q${xD - 4} ${y + r / 2} ${xD} ${y + r} L${xL} ${y + r} Q${xL - 4} ${y + r / 2} ${xL} ${y} Q${xL + 4} ${y - r / 2} ${xL} ${y - r} Z`, W(A.contour)));
@@ -130,20 +129,22 @@ module.exports = (h) => {
 
   // ─── La branche condamnée : écrasée, repliée, un collier sur le pli ─────────────────────────────
   const branche = z => {
-    const o = [], y = 108, r = 14;
-    const x1 = 70, x2 = 92, xp = z.l - 30, e = 4;
-    // le tuyau rond qui s'aplatit : vu de côté, il s'amincit jusqu'à l'écrasé
-    o.push(h.path(`M0 ${y - r} L${x1} ${y - r} C${x1 + 12} ${y - r} ${x2 - 8} ${y - e} ${x2} ${y - e} L${xp} ${y - e} A${e + 5} ${e + 5} 0 0 1 ${xp} ${y + e + 10}`
-      + ` L${x2 + 6} ${y + e + 10}`, A.contour));
-    o.push(h.path(`M0 ${y + r} L${x1} ${y + r} C${x1 + 12} ${y + r} ${x2 - 8} ${y + e} ${x2} ${y + e} L${xp} ${y + e} A${1} ${1} 0 0 1 ${xp} ${y + e + 2}`
-      + ` L${x2 + 6} ${y + e + 2}`, A.arete));
-    o.push(h.ligne(x2 + 6, y + e + 2, x2 + 6, y + e + 10, A.arete));
-    o.push(h.ligne(0, y - r + 5, x1, y - r + 5, A.fin));
-    // le collier serré sur le pli : sur les deux épaisseurs
-    const xc = xp - 26, C = 12;
-    o.push(h.rect(xc - 9, y - C, 18, 2 * C + 10, W(A.arete)));
-    o.push(h.rect(xc - 6, y - C - 9, 12, 9, W(A.arete)), h.ligne(xc - 3, y - C - 9, xc - 3, y - C, A.fin), h.ligne(xc + 3, y - C - 9, xc + 3, y - C, A.fin));
-    return { svg: o.join('\n'), P: { ecrase: [x2 + 30, y - e], pli: [xp + 9, y + 8], collier: [xc + 9, y + 4] } };
+    // vu de côté : le tuyau rond (cassé à gauche) s'aplatit en une bande, qui se replie par-dessus elle-même ;
+    // un collier serre les deux épaisseurs près du pli
+    const o = [], y = z.h / 2 + 4, r = 15, e = 4.5;
+    const x1 = 46, x2 = 70, xp = z.l - 26, R = 7;
+    const yb = y + 2;                                   // l'axe de la bande du bas ; celle du haut, à yb - 2R
+    const yh = yb - 2 * R;
+    // la bande repliée : le dessus, le pli arrondi, puis la bande du bas qui rejoint le tuyau
+    o.push(h.path(`M${x2 + 14} ${yh - e} L${xp} ${yh - e} A${R + e} ${R + e} 0 0 1 ${xp} ${yb + e} L${x2} ${yb + e}`
+      + ` C${x2 - 10} ${yb + e} ${x1 + 10} ${y + r} ${x1} ${y + r} L6 ${y + r} Q2 ${y + r / 2} 6 ${y} Q10 ${y - r / 2} 6 ${y - r} L${x1} ${y - r}`
+      + ` C${x1 + 10} ${y - r} ${x2 - 10} ${yb - e} ${x2} ${yb - e} L${xp} ${yb - e} A${R - e} ${R - e} 0 0 0 ${xp} ${yh + e} L${x2 + 14} ${yh + e} Z`, W(A.contour)));
+    o.push(h.ligne(10, y - r + 5, x1, y - r + 5, A.fin));
+    // le collier, autour des deux épaisseurs, près du pli ; sa vis dessus
+    const xc = xp - 22, C1 = yh - e - 4, C2 = yb + e + 4;
+    o.push(h.rect(xc - 8, C1, 16, C2 - C1, W(A.arete)));
+    o.push(h.rect(xc - 6, C1 - 9, 12, 9, W(A.arete)), h.ligne(xc - 2.5, C1 - 9, xc - 2.5, C1, A.fin), h.ligne(xc + 2.5, C1 - 9, xc + 2.5, C1, A.fin));
+    return { svg: o.join('\n'), P: { ecrase: [x2 + 30, yb + e], pli: [xp + R + e, (yh + yb) / 2], collier: [xc + 8, C2 - 4] } };
   };
 
   return {
@@ -191,8 +192,8 @@ module.exports = (h) => {
         renvois: z => {
           const { P } = branche(z);
           return [
-            { n: 8, rond: [P.ecrase[0] - 10, 50], cible: P.ecrase, texte: 'bout écrasé au marteau, replié' },
-            { n: 9, rond: [z.l - 30, 178], cible: P.collier, texte: 'collier serré sur le pli' },
+            { n: 8, rond: [P.ecrase[0] - 20, z.h - 40], cible: P.ecrase, texte: 'bout écrasé au marteau, replié' },
+            { n: 9, rond: [z.l - 40, 40], cible: [P.collier[0], P.collier[1] - 30], texte: 'collier serré sur le pli' },
           ];
         },
       },

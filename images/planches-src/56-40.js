@@ -238,7 +238,7 @@ module.exports = (h) => {
       for (let y = a + 3.4; y < b - 1; y += 3.4) o.push(h.chemin(map(T, [[-11, y], [11, y + 1.2]]), A.detail));
     }
     // l'œil en haut, pour la ligne : le bout d'une tige recourbé
-    o.push(h.path(lisse(tige(map(T, [[4, -150], [6, -160], [0, -170], [-7, -162], [-4, -150]]), 2.2 * s)), W(A.arete)));
+    o.push(h.path(lisse(tige(map(T, [[4, -150], [6, -160], [0, -170], [-7, -162], [-4, -150]]), 2.2 * s), true), W(A.arete)));
     if (pierre) {
       o.push(h.chemin(map(T, [[0, 0], [0, 24]]), A.arete));
       const P = [[-26, 34], [-14, 24], [8, 22], [24, 30], [28, 46], [16, 58], [-8, 60], [-24, 52]];
@@ -270,53 +270,56 @@ module.exports = (h) => {
   };
 
   // ─── Vue 6 : lancer au-delà, draguer en revenant ─────────────────────────────────────────────
-  // Le phoque coulé, de profil, couché sur le fond (mm) : 1500 de long, la tête à gauche.
-  const PHOQUE = [[-760, -40], [-730, -96], [-660, -130], [-560, -150], [-400, -190], [-200, -220], [0, -224], [200, -200],
-    [400, -150], [560, -100], [640, -70], [700, -60], [760, -110], [790, -100], [770, -40], [790, 10], [760, 20],
-    [700, -10], [600, -10], [400, 0], [200, 4], [0, 4], [-200, 0], [-400, -4], [-560, -10], [-680, -14], [-740, -20]];
-  const NAGEOIRE = [[-380, -60], [-330, 0], [-300, 30], [-280, 18], [-300, -30], [-320, -70]];
+  // Le phoque coulé, de profil, couché sur le ventre au fond (mm) : 1500 de long, la tête à gauche.
+  const PHOQUE = [[-752, -58], [-738, -92], [-700, -124], [-646, -146], [-580, -156], [-470, -196], [-280, -232],
+    [-60, -240], [150, -222], [350, -172], [520, -112], [640, -66], [700, -56], [790, -100], [826, -92], [790, -44],
+    [830, -6], [800, 8], [720, -14], [620, -6], [400, 0], [100, 4], [-200, 2], [-460, -4], [-610, -16], [-690, -30],
+    [-736, -44]];
+  const NAGEOIRE = [[-470, -70], [-430, -22], [-390, -2], [-370, -12], [-404, -46], [-440, -84]];
   const geomDrague = z => {
-    const s = (z.l - 30) / 3400;
-    const yF = z.h - 22, yS = z.h * 0.24;
-    return { s, yF, yS, P: p => [z.l * 0.52 + s * p[0], yF - 6 + s * p[1]] };
+    const s = (z.l - 40) / 3600;
+    const yF = z.h - 20, yS = z.h * 0.28, xB = 96;
+    return { s, yF, yS, xB, P: p => [z.l * 0.47 + s * p[0], yF + s * p[1]] };
   };
   const vueDrague = {
     titre: 'Lancé au-delà, dragué en revenant',
     dessin: z => {
-      const { s, yF, yS, P } = geomDrague(z);
+      const { s, yF, yS, xB, P } = geomDrague(z);
       const o = [];
-      // l'eau, la glace du bord à gauche, le fond
-      o.push(h.chemin([[100, yS], [z.l - 4, yS]], A.arete));
-      o.push(h.chemin([[4, yS - 10], [100, yS - 10], [104, yS + 6], [4, yS + 6]], A.hachure('neige', 'contour'), true));
-      o.push(h.rect(100, yS, z.l - 104, yF - yS, A.hachure('eau', 'aucun')));
-      o.push(h.chemin([[100, yF], [z.l - 4, yF]], A.contour));
-      o.push(h.rect(100, yF, z.l - 104, 10, A.hachure('gravier', 'aucun')));
+      // l'eau, le bord de glace à gauche, le fond de gravier
+      o.push(h.rect(xB, yS, z.l - xB - 4, yF - yS, A.hachure('eau', 'aucun')));
+      o.push(h.chemin([[xB, yS], [z.l - 4, yS]], A.arete));
+      o.push(h.chemin([[4, yS - 8], [xB, yS - 8], [xB + 4, yS + 8], [4, yS + 8]], W(A.contour), true));
       // le phoque, couché sur le fond
       o.push(h.path(lisse(map(P, PHOQUE), true), W(A.contour)));
       o.push(h.path(lisse(map(P, NAGEOIRE)), A.arete));
-      o.push(h.cercle(...P([-690, -96]), 1.8, A.plein));
-      // le lancer : la trajectoire au-dessus de la bête, jusqu'au-delà
-      const g0 = [70, yS - 16], gT = P([1250, -40]);
-      o.push(h.path(`M${f1(g0[0])} ${f1(g0[1])} Q${f1((g0[0] + gT[0]) / 2)} ${f1(yS - 70)} ${f1(gT[0])} ${f1(yS - 6)}`, A.cache));
-      o.push(h.chemin([[gT[0], yS + 4], [gT[0] + 4, yF - 30]], A.cache));
-      // le grappin au fond, au-delà, et la ligne qui revient au bord
-      const Tg = p => { const q = [p[1], -p[0]]; return [gT[0] + 10 + s * 2.4 * q[0] * 1, yF - 14 + s * 2.4 * q[1] * -1]; };
-      const Tg2 = p => [gT[0] + s * 2.6 * p[1] * -1 + 6, yF - 8 - s * 2.6 * p[0] * 1 - 10];
-      const G = p => [gT[0] + s * 2.4 * (-p[1]) , yF - 8 + s * 2.4 * (p[0]) - 16];
-      o.push(grappin(p => [gT[0] + 10 + s * 2.2 * (-p[1] - 80), yF - 16 + s * 2.2 * (p[0])], { pierre: true, crochetMilieu: false }));
-      const oeil = [gT[0] + 10 + s * 2.2 * (172 - 80), yF - 16];
-      o.push(h.path(lisse([oeil, [oeil[0] - 60, yF - 30], P([0, -260]), [140, yS + 40], [104, yS + 2], [60, yS - 12]]), LIGNE));
-      // le geste : on tire la ligne vers soi, le grappin racle le fond sous la bête
-      o.push(h.geste(`M${f1(gT[0] - 10)} ${f1(yF - 40)} L${f1(P([300, 0])[0])} ${f1(yF - 40)}`));
+      o.push(h.cercle(...P([-676, -112]), 1.8, A.plein));
+      // le grappin au fond, au-delà de la bête, l'œil vers soi ; un crochet mord le gravier
+      const gx = P([1240, 0])[0], sg = s * 2.6;
+      const G = p => [gx + sg * p[1], yF - 4 - sg * (p[0] + 6) * 0 + sg * p[0] * 0.98 - 0];
+      o.push(grappin(p => [gx + sg * p[1], yF - 6 + sg * p[0]], sg, { pierre: true }));
+      o.push(h.rect(xB, yF, z.l - xB - 4, 12, A.blanc));
+      o.push(h.rect(xB, yF, z.l - xB - 4, 12, A.hachure('gravier', 'aucun')));
+      o.push(h.chemin([[xB, yF], [z.l - 4, yF]], A.contour));
+      // la trajectoire du lancer, au-dessus de la bête, puis le grappin qui coule
+      const g0 = [xB - 10, yS - 18], gT = [gx, yS - 2];
+      o.push(h.path(`M${f1(g0[0])} ${f1(g0[1])} Q${f1((g0[0] + gT[0]) / 2)} ${f1(yS - 78)} ${f1(gT[0])} ${f1(gT[1])}`, A.cache));
+      o.push(h.chemin([[gx, yS + 6], [gx, yF - 30]], A.cache));
+      // la ligne : de l'œil du grappin, le long du fond, puis jusqu'au bord
+      const oeil = [gx + sg * -170, yF - 6];
+      o.push(h.path(lisse([oeil, [oeil[0] - 40, yF - 12], P([300, -270]), P([-200, -330]), [xB + 40, yS + 30], [xB + 4, yS + 2], [xB - 30, yS - 12]]), LIGNE));
+      // le geste : on tire vers soi, le grappin racle le fond jusqu'à la bête
+      const ya = yF - 26;
+      o.push(h.geste(`M${f1(oeil[0] - 6)} ${f1(ya - 30)} L${f1(P([700, 0])[0])} ${f1(ya - 30)}`));
       return o.join('\n');
     },
     renvois: z => {
-      const { s, yF, yS, P } = geomDrague(z);
-      const gT = P([1250, -40]);
+      const { s, yF, yS, xB, P } = geomDrague(z);
+      const gx = P([1240, 0])[0];
       return [
-        { n: 10, rond: [gT[0] - 70, 14], cible: [gT[0] - 40, yS - 34], texte: 'lancé au-delà de la bête' },
-        { n: 11, rond: [z.l - 16, yF - 70], cible: [gT[0] + 8, yF - 20], texte: 'il coule, on drague en revenant' },
-        { n: 12, rond: [P([-330, 0])[0] - 30, yF - 70], cible: P([-310, -20]), texte: 'il prend la peau ou une nageoire' },
+        { n: 10, rond: [gx - 70, 12], cible: [gx - 52, yS - 27], texte: 'lancé au-delà de la bête' },
+        { n: 11, rond: [z.l - 14, yS + 26], cible: [gx + 2, yS + 40], texte: 'il coule, on drague en revenant' },
+        { n: 12, rond: [P([-420, 0])[0] - 40, yS + 30], cible: P([-410, -40]), texte: 'il prend la peau ou une nageoire' },
       ];
     },
   };
