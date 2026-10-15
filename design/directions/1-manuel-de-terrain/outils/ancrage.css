@@ -11,7 +11,7 @@
 /* ---------- pictogrammes (variante C : --i-maison, --i-chalet, --i-deux) ---------- */
 /* image de fond déjà teinte, pas de masque (variante.py, icon_vars) : noir par défaut, une autre couleur = une
    autre variable (-ta, -w), plus bas, là où elle s'imprime */
-.ak{display:inline-block;flex:none;vertical-align:middle;background:center/contain no-repeat;
+.ak{display:inline-block;flex:none;vertical-align:middle;background:center/100% 100% no-repeat;
   height:var(--h,12pt);width:calc(var(--h,12pt) * var(--r,1))}
 /* proportions des pictogrammes de l'option A (15 octobre 2026 ; viewBox 20, 32,8 et 56 × 24) */
 .ak-m{--r:0.8333;background-image:var(--i-maison-k)}
@@ -30,7 +30,12 @@
 /* pied : le lieu de la page porte son pictogramme (00 : celui du bloc, pas celui du chapitre) */
 .page.anc .ft .lieu-ft::before{content:none;display:none}
 .page.anc .lieu-ft{display:flex;align-items:center;gap:4pt;white-space:nowrap}
-.page.anc .lieu-ft .ak{--h:8.5pt}   /* 3 mm, noir plein (-k) : en gris --k70, le trait se trame */
+/* 11 px (2,9 mm), noir plein (-k) : en gris --k70, le trait se trame. Largeurs en px entiers : Edge cale l'image de
+   fond sur le pixel CSS à l'impression, une taille fractionnaire fait varier le picto d'un pixel d'une page à l'autre */
+.page.anc .lieu-ft .ak{--h:11px}
+.page.anc .lieu-ft .ak-m{width:9px}
+.page.anc .lieu-ft .ak-c{width:15px}
+.page.anc .lieu-ft .ak-2,.page.anc .lieu-ft .ak-mc{width:26px}
 .page.anc .lad li{width:13pt}
 
 /* ================================================================ 00 */
@@ -189,12 +194,11 @@ table.achat caption.tsuite{font-size:7.5pt}
 .lcell{display:flex;flex-direction:column;gap:3.5pt}
 .lx{display:flex;align-items:center;gap:3pt;font:700 6.9pt/1 var(--sans);text-transform:uppercase;letter-spacing:.05em;white-space:nowrap}
 .lx .bx{flex:none;width:9.5pt;height:9.5pt;border:1pt solid var(--k);background:#fff}
-.lx .ak{--h:9.5pt}
-.lx .ak-m{background-image:var(--i-maison-ta,var(--i-maison-k))}
-.lx .ak-c{background-image:var(--i-chalet-ta,var(--i-chalet-k))}
-/* la maison, plus étroite que le chalet, prend la différence en marge : Maison et Chalet commencent au même endroit
-   (une boîte de masque plus large que le dessin laisse un filet dans le PDF d'Edge) */
-.lx .ak-m{margin-right:calc(var(--h) * 0.5334)}
+/* 13 px (9,75 pt), dans la couleur du tome ; la maison, plus étroite que le chalet, prend la différence en marge :
+   Maison et Chalet commencent au même endroit */
+.lx .ak{--h:13px}
+.lx .ak-m{width:11px;margin-right:7px;background-image:var(--i-maison-ta,var(--i-maison-k))}
+.lx .ak-c{width:18px;background-image:var(--i-chalet-ta,var(--i-chalet-k))}
 .lx.fl .ar{flex:none;width:9.5pt;text-align:center;font:700 9pt/1 var(--sans);color:var(--ta,#000)}
 .lq{display:block;font:italic 500 6.9pt/8.4pt var(--sans);white-space:normal;margin-top:0.5pt}
 
