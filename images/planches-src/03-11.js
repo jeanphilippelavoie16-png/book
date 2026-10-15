@@ -50,16 +50,19 @@ module.exports = (h) => {
     o.push(h.path(`M${xG} ${yT - r + 2} Q${xG + 6} ${yT - 2} ${xG - 2} ${yT + r - 2}`, A.detail));
     o.push(h.rect(xG + 1, yT + 1, xR - xG - 1, r - 3, A.hachure('eau', 'aucun')));
     o.push(tuyau(xM, xR, yT, r));
-    // le robinet ouvert grand : le corps, le bec vers le bas, la poignée tournée
-    o.push(h.rect(xR, yT - 14, 32, 28, W(A.contour)));
-    o.push(h.chemin([[xR + 10, yT + 14], [xR + 10, yT + 34], [xR + 22, yT + 34], [xR + 22, yT + 14]], W(A.contour)));
-    o.push(h.ligne(xR + 16, yT - 14, xR + 16, yT - 26, A.arete), h.ligne(xR + 4, yT - 30, xR + 30, yT - 22, A.contour));
+    // le robinet ouvert grand : l'écrou sur le tuyau, le corps, le bec qui descend, la manette
+    o.push(h.rect(xR - 2, yT - r - 3, 10, 2 * r + 6, W(A.arete)));
+    o.push(h.path(`M${xR + 8} ${yT - 15} L${xR + 34} ${yT - 15} Q${xR + 42} ${yT - 15} ${xR + 42} ${yT - 6} L${xR + 42} ${yT + 4} Q${xR + 42} ${yT + 14} ${xR + 34} ${yT + 16}`
+      + ` L${xR + 28} ${yT + 18} L${xR + 28} ${yT + 34} L${xR + 14} ${yT + 34} L${xR + 14} ${yT + 16} L${xR + 8} ${yT + 15} Z`, W(A.contour)));
+    o.push(h.ligne(xR + 14, yT + 30, xR + 28, yT + 30, A.detail));
+    o.push(h.rect(xR + 19, yT - 27, 8, 12, W(A.arete)));
+    o.push(h.path(`M${xR + 4} ${yT - 33} L${xR + 42} ${yT - 25} L${xR + 41} ${yT - 21} L${xR + 3} ${yT - 29} Z`, W(A.arete)));
     // l'eau qui sort, en gouttes et en filet, dans une chaudière
-    o.push(h.ligne(xR + 16, yT + 36, xR + 16, yT + 70, A.arete));
-    for (const dy of [82, 96]) o.push(h.path(`M${xR + 16} ${yT + dy - 4} Q${xR + 19} ${yT + dy + 2} ${xR + 16} ${yT + dy + 3} Q${xR + 13} ${yT + dy + 2} ${xR + 16} ${yT + dy - 4} Z`, A.plein));
+    o.push(h.ligne(xR + 21, yT + 36, xR + 21, yT + 70, A.arete));
+    for (const dy of [82, 96]) o.push(h.path(`M${xR + 21} ${yT + dy - 4} Q${xR + 24} ${yT + dy + 2} ${xR + 21} ${yT + dy + 3} Q${xR + 18} ${yT + dy + 2} ${xR + 21} ${yT + dy - 4} Z`, A.plein));
     const yS = yT + 110;
-    o.push(h.chemin([[xR - 14, yS], [xR - 8, z.h - 8], [xR + 40, z.h - 8], [xR + 46, yS]], W(A.contour)));
-    o.push(h.ligne(xR - 18, yS, xR + 50, yS, A.arete));
+    o.push(h.chemin([[xR - 9, yS], [xR - 3, z.h - 8], [xR + 45, z.h - 8], [xR + 51, yS]], W(A.contour)));
+    o.push(h.ligne(xR - 13, yS, xR + 55, yS, A.arete));
     // les guenilles : en place contre la glace ; en tireté, les places d'avant
     const [[a0, b0], [a1, b1], [a2, b2]] = g.xs;
     o.push(guenilles(a2, b2, yT, r + 9, true), guenilles(a1, b1, yT, r + 9, true));
@@ -78,31 +81,34 @@ module.exports = (h) => {
 
   // ─── Le raté : chauffé au milieu du bouchon ─────────────────────────────────────────────────────
   const rate = z => {
-    const o = [], y = 92, r = 13, x0 = 4, x1 = z.l - 4, xm = z.l / 2;
-    o.push(h.rect(x0, y - r + 2, xm - 30 - x0, 2 * r - 4, A.hachure('neige', 'aucun')));
-    o.push(h.rect(xm + 30, y - r + 2, x1 - xm - 30, 2 * r - 4, A.hachure('neige', 'aucun')));
-    o.push(h.rect(xm - 30, y - r + 2, 60, 2 * r - 4, A.hachure('eau', 'aucun')));
-    for (const [dx, dy, rr] of [[-14, -4, 3], [2, -6, 2.4], [16, -3, 3.2], [-4, 3, 2]]) o.push(h.cercle(xm + dx, y + dy, rr, W(A.fin)));
-    // le cuivre fendu en haut, au milieu
-    o.push(h.rect(x0, y + r - 2.6, x1 - x0, 2.6, A.plein));
-    o.push(h.rect(x0, y - r, xm - 6 - x0, 2.6, A.plein), h.rect(xm + 6, y - r, x1 - xm - 6, 2.6, A.plein));
-    o.push(h.chemin([[xm - 6, y - r], [xm - 3, y - r - 6], [xm, y - r - 2], [xm + 3, y - r - 7], [xm + 6, y - r]], A.arete));
+    const o = [], y = z.h / 2 - 10, r = 20, x0 = 4, x1 = z.l - 4, xm = z.l / 2, ep = 3;
+    o.push(h.rect(x0, y - r + ep, xm - 30 - x0, 2 * r - 2 * ep, A.hachure('neige', 'aucun')));
+    o.push(h.rect(xm + 30, y - r + ep, x1 - xm - 30, 2 * r - 2 * ep, A.hachure('neige', 'aucun')));
+    o.push(h.path(`M${xm - 30} ${y - r + ep} Q${xm - 25} ${y} ${xm - 30} ${y + r - ep}`, A.detail), h.path(`M${xm + 30} ${y - r + ep} Q${xm + 25} ${y} ${xm + 30} ${y + r - ep}`, A.detail));
+    o.push(h.rect(xm - 27, y + 2, 54, r - ep - 2, A.hachure('eau', 'aucun')));
+    for (const [dx, dy, rr] of [[-15, -8, 3.4], [3, -11, 2.6], [16, -6, 3.6], [-3, -2, 2.2]]) o.push(h.cercle(xm + dx, y + dy, rr, W(A.fin)));
+    // le cuivre : en bas, entier ; en haut, fendu au milieu, les lèvres ouvertes
+    o.push(h.rect(x0, y + r - ep, x1 - x0, ep, A.plein));
+    o.push(h.rect(x0, y - r, xm - 7 - x0, ep, A.plein), h.rect(xm + 7, y - r, x1 - xm - 7, ep, A.plein));
+    o.push(h.chemin([[xm - 7, y - r], [xm - 5, y - r - 7], [xm - 2, y - r - 3]], A.arete), h.chemin([[xm + 7, y - r], [xm + 5, y - r - 8], [xm + 2, y - r - 4]], A.arete));
     // la chaleur, dessous, au milieu
-    for (const dx of [-14, 0, 14]) o.push(h.path(`M${xm + dx} ${y + r + 40} q-4 -6 0 -12 q4 -6 0 -12`, A.detail));
-    o.push(h.controle(xm, y - r - 2, 12));
+    for (const dx of [-14, 0, 14]) o.push(h.path(`M${xm + dx} ${y + r + 46} q-4 -6 0 -12 q4 -6 0 -12`, A.detail));
+    o.push(h.controle(xm, y - r - 3, 13));
     // la pression qui pousse sur les deux glaces
-    o.push(h.fleche(`M${xm - 8} ${y + 1} L${xm - 26} ${y + 1}`, A.detail), h.fleche(`M${xm + 8} ${y + 1} L${xm + 26} ${y + 1}`, A.detail));
+    o.push(h.fleche(`M${xm - 8} ${y + 9} L${xm - 25} ${y + 9}`, A.detail), h.fleche(`M${xm + 8} ${y + 9} L${xm + 25} ${y + 9}`, A.detail));
     return o.join('\n');
   };
 
   // ─── La fente fermée : chambre à air et colliers ────────────────────────────────────────────────
-  const F = z => ({ y: 108, r: 14, xa: 52, xb: z.l - 52 });
+  const F = z => ({ y: z.h / 2 - 6, r: 15, xa: 50, xb: z.l - 50 });
   const fente = z => {
     const g = F(z), o = [];
     const { y, r, xa, xb } = g;
     // le tuyau, vu de côté
-    o.push(h.rect(0, y - r, z.l, 2 * r, W(A.contour)));
-    o.push(h.ligne(0, y - r + 5, z.l, y - r + 5, A.fin));
+    // le tuyau, vu de côté, cassé aux deux bouts (il continue)
+    const xL = 6, xD = z.l - 6;
+    o.push(h.path(`M${xL} ${y - r} L${xD} ${y - r} Q${xD + 4} ${y - r / 2} ${xD} ${y} Q${xD - 4} ${y + r / 2} ${xD} ${y + r} L${xL} ${y + r} Q${xL - 4} ${y + r / 2} ${xL} ${y} Q${xL + 4} ${y - r / 2} ${xL} ${y - r} Z`, W(A.contour)));
+    o.push(h.ligne(8, y - r + 5, z.l - 8, y - r + 5, A.fin));
     // la chambre à air enroulée (gris : la face à l'ombre du caoutchouc noir), les spires
     const R = r + 5;
     o.push(h.rect(xa, y - R, xb - xa, 2 * R, A.ombre + ' rx="4"'));
@@ -156,7 +162,7 @@ module.exports = (h) => {
           const { g } = degel(z);
           const { yT, r, xM, xG, xR, xs, yF, xb } = g;
           return [
-            { n: 1, rond: [z.l - 22, yT - 52], cible: [xR + 32, yT - 8], texte: 'ouvrir le robinet grand, d’abord' },
+            { n: 1, rond: [z.l - 18, yT - 64], cible: [xR + 40, yT - 24], texte: 'ouvrir le robinet grand, d’abord' },
             { n: 2, rond: [xs[0][0] - 12, yT + 60], cible: [xs[0][0] + 10, yT + r + 8], texte: 'guenilles autour du tuyau' },
             { n: 3, rond: [xb - 70, 40], cible: [xb + 1, 70], texte: 'eau chaude versée, à répétition' },
             { n: 4, rond: [xs[1][1] + 6, yF + 30], cible: [xs[1][1], yF + 1], texte: 'avancer d’une main vers la glace' },
