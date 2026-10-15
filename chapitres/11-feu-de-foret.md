@@ -102,7 +102,7 @@ qui la fait partir (étape 47), la feuille sur la porte s'ajoute à ces deux rai
 **L'eau et le pourtour (étapes 7 à 9).** On remplit pendant que le puits ou l'aqueduc donne encore de
 l'eau. Au chalet, on monte aussi un baril en hauteur, avec un boyau piqué au fond (section 9). On ramasse
 ce qui traîne dans les 1,5 m autour des murs, et la bouteille de propane va à un endroit sans végétation
-sur 3 m autour. Les évents et les fenêtres se ferment avec ce qu'on a (section 9).
+sur 3 m autour. Les évents et les fenêtres se ferment avec ce qu'on a (section 9, planche 11-03).
 
 **Le contact (étape 10).** On fixe l'heure avant de raccrocher (ch. 14). Si on ne donne pas de nouvelles à
 cette heure-là, cette personne saura qu'il se passe quelque chose.
@@ -235,7 +235,7 @@ jusqu'à l'hypothermie (ch. 25, ch. 39) : on ne reste pas dans l'eau.
  l'air chaud. Si on ne peut ni rafraîchir la pièce ni ouvrir, on part vers un air plus frais et plus
  propre.
 35. **Au chalet, l'été, faire une pièce d'air propre pour les enfants** avec un ventilateur et un filtre
- (section 9). Au printemps et à l'automne, quand le poêle chauffe, on ne peut pas fermer le chalet et le
+ (section 9, planche 11-04). Au printemps et à l'automne, quand le poêle chauffe, on ne peut pas fermer le chalet et le
  chauffer en même temps (ch. 2) : la fumée qui se sent dans le chalet devient une raison de partir
  (étape 6).
 36. **Sans capteur, juger la fumée à la distance qu'on voit**, sur un repère sombre dont on connaît la

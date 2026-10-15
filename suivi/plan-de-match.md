@@ -83,7 +83,11 @@ les analyses et que tu les appliques à ta logique de refonte ») :
 Le **ch. 11 (feu de forêt)** est **le chapitre modèle de la refonte, approuvé par JP** (15 octobre au soir :
 « c'est parfait, on se garde ça pour samedi ») : texte, trois séries orange à la longueur de leur temps (1 h,
 15 min, 1 min) suivies de leur détail hors de l'orange, section 2 sans « mauvaise procédure », logigramme,
-planches 11-03 à 11-05, deux photos. Aperçus en double page et PDF : `livre/apercus-ch11/`. Samedi, chaque
+planches 11-03 à 11-05, deux photos. Aperçus en double page et PDF : `livre/apercus-ch11/`. Les figures du ch. 11 tombent
+chacune sur la page qui suit leur appel (11-03 p. 11 → 12, 11-04 p. 14 → 15, photos p. 21 → 22, 11-05
+p. 23 → 24) : chaque planche est appelée là où son geste arrive, et les deux photos de colonnes sont montées
+en une image. Après chaque montage de la refonte, vérifier la page de chaque appel et de chaque figure.
+Samedi, chaque
 chapitre de la refonte se compare à lui, et le brief des agents le donne comme modèle à la place des ch. 4
 et 10.
 

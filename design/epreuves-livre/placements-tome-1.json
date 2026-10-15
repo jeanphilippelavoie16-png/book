@@ -138,11 +138,11 @@
     "planches": [
       {
         "id": "11-03",
-        "apres": "**Les vitres cassent sous la chaleur du feu avant que la flamme arrive**"
+        "apres": "**L'eau et le pourtour (étapes 7 à 9).**"
       },
       {
         "id": "11-04",
-        "apres": "**Un ventilateur et un filtre.**"
+        "apres": "35. **Au chalet, l'été, faire une pièce d'air propre"
       },
       {
         "id": "11-05",
@@ -151,16 +151,10 @@
     ],
     "photos": [
       {
-        "fichier": "images/photos/manquantes/11-colonne-couchee-par-le-vent.jpg",
-        "apres": "**Une colonne couchée par le vent**",
-        "taille": "demi",
-        "legende": "Une colonne couchée par le vent, vue d'un lac : la fumée part en biais vers la gauche, et le feu avance de ce côté. Elle est sombre parce que des résineux brûlent à plein."
-      },
-      {
-        "fichier": "images/photos/manquantes/11-colonne-chou-fleur.jpg",
+        "fichier": "images/photos/manquantes/11-colonnes-de-fumee.jpg",
         "apres": "**Une colonne qui monte droit et s'élargit en chou-fleur**",
-        "taille": "quart",
-        "legende": "Une colonne qui monte droit et finit en chou-fleur blanc, au-dessus de la couche de fumée. Le lac est calme : il n'y a pas de vent au sol, le feu fait son propre tirage."
+        "taille": "demi",
+        "legende": "À gauche, une colonne couchée par le vent : la fumée part en biais, et le feu avance de ce côté. Elle est sombre parce que des résineux brûlent à plein. À droite, une colonne qui monte droit et finit en chou-fleur blanc : il n'y a pas de vent au sol, et le feu fait son propre tirage."
       }
     ],
     "logigramme": {
