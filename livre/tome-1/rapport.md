@@ -1,6 +1,6 @@
 # Tome 1 · Tenir — rapport d'assemblage
 
-- **Produit le :** 2026-10-15 11:32, par `design/outils/assembler-tome.py 1 --hors-ligne`
+- **Produit le :** 2026-10-15 12:37, par `design/outils/assembler-tome.py 1 --hors-ligne`
 - **Fichier :** `livre/tome-1/interieur.pdf` — 306 pages, 67.2 Mo
 - **Ouvertures :** toujours au recto (page de droite), une page blanche devant au besoin
 - **Placements :** design/epreuves-livre/placements.json, design/epreuves-livre/placements-tome-1.json
@@ -17,7 +17,7 @@
 | 41–52 | ch. 01 — Les quatre horloges | 12 |
 | 53–64 | ch. 02 — Rester ou partir | 12 |
 | 65–81 | ch. 03 — Panne majeure d’Hydro en janvier | 17 |
-| 83–97 | ch. 04 — Retombées radioactives | 15 |
+| 83–98 | ch. 04 — Retombées radioactives | 16 |
 | 99–114 | ch. 05 — Le stock permanent du chalet | 16 |
 | 115–128 | ch. 06 — La liste de 72 heures | 14 |
 | 129–143 | ch. 07 — Quand on a un préavis | 15 |
@@ -32,12 +32,12 @@
 | 269–281 | ch. 16 — Le voisinage et le groupe de chasse | 13 |
 | 283–294 | ch. 17 — Qui cogne à la porte | 12 |
 | 295–305 | ch. 18 — S’organiser à plusieurs familles | 11 |
-| | Pages blanches (verso de la page de titre, avant les ouvertures, fin du tome) | 10 |
+| | Pages blanches (verso de la page de titre, avant les ouvertures, fin du tome) | 9 |
 | | **Total** | **306** |
 
 Aucune page de crédits (JP, 28 septembre 2026) : copie hors du livre dans `livre/credits/tome-1-credits.md` et `livre/credits/tome-1-credits.pdf`.
 
-Les chapitres seuls font 293 pages ; 7 blanche(s) servent à faire ouvrir chaque chapitre à droite. Avec `--verso` (un chapitre peut ouvrir à gauche), le tome ferait 296 pages.
+Les chapitres seuls font 294 pages ; 6 blanche(s) servent à faire ouvrir chaque chapitre à droite. Avec `--verso` (un chapitre peut ouvrir à gauche), le tome ferait 298 pages.
 
 ## Premières minutes (série orange)
 
@@ -47,6 +47,7 @@ Marqueur `{.orange}` sur l'intertitre ### de la série, dans le Markdown (CLAUDE
 | --- | --- |
 | 01 | 43, 44, 45 |
 | 03 | 66, 67 |
+| 04 | 86, 87, 88 |
 
 ## Contrôle Blurb
 
@@ -56,7 +57,7 @@ Marqueur `{.orange}` sur l'intertitre ### de la série, dans le Markdown (CLAUDE
 | Rognage (TrimBox) | 8 × 10 po, fond perdu au bord extérieur | recto : reliure à gauche ; verso : à droite | oui |
 | Nombre de pages | pair, de 20 à 440 (papier Standard) | 306 | oui |
 | Page 1 | à droite | ouverture du chapitre 00 | oui |
-| Polices incorporées | toutes | 58 police(s), 0 non incorporée(s) | oui |
+| Polices incorporées | toutes | 57 police(s), 0 non incorporée(s) | oui |
 | Taille du fichier | 2 Go au plus | 67.2 Mo | oui |
 | Marques d'imprimeur | aucune | aucune | oui |
 | Couleur | CMJN ou sRVB, sans ton direct | sRVB (Edge) | oui |
@@ -79,7 +80,7 @@ Les planches de `images/a-valider/` sont posées comme les validées (JP les rel
 | 01 | — | — | — | 6 (ancien 01) |
 | 02 | — | — | — | 6 (ancien 02) |
 | 03 | 03-09 (74, pleine), 03-08 (76, pleine), 03-10 (78, pleine) | — | — | 7 (ancien 04) |
-| 04 | 04-01a (93, pleine), 04-01b (94, pleine), 04-40 (97, pleine), 04-lichen-caribous-tapis.jpg (87) | — | — | 6 (ancien 06) |
+| 04 | 04-01a (95, pleine), 04-01b (96, pleine), 04-40 (98, pleine), 04-retombees-livre (84, double page), 04-lichen-caribous-tapis.jpg (89) | — | — | 6 (ancien 06) |
 | 05 | 05-boite-bombee.jpg (111) | — | — | 5 (ancien 08) |
 | 06 | — | — | — | 5 (ancien 09) |
 | 07 | — | — | — | 5 (ancien 10) |
@@ -101,7 +102,7 @@ Rien ne s'imprime (JP, 28 septembre 2026). Copie de sauvegarde : `livre/credits/
 
 | Page | Ch. | Fichier | Auteur | Licence |
 | ---: | --- | --- | --- | --- |
-| 87 | 04 | 04-lichen-caribous-tapis.jpg | (c) mbrenner131, some rights reserved (CC BY-NC) | CC BY-NC |
+| 89 | 04 | 04-lichen-caribous-tapis.jpg | (c) mbrenner131, some rights reserved (CC BY-NC) | CC BY-NC |
 | 111 | 05 | 05-boite-bombee.jpg | Kat1100 | CC BY 4.0 — Creative Commons Attribution 4.0 |
 | 175 | 10 | 10-hutte-castor.jpg | U.S. Fish and Wildlife Service - Midwest Region | Public domain |
 | 239 | 13 | 13-bouleau-ecorce-rubans.jpg | usfs_Eastern_Region | Public domain |
@@ -116,11 +117,9 @@ Photos téléchargées pour ces chapitres et non posées (images de référence 
 
 ## Avertissements
 
-- ch. 04, paginateur : p04-7 : page à moitié vide
 - ch. 05, paginateur : p05-11 : page à moitié vide
 - ch. 09, paginateur : p09-8 : page à moitié vide
 - ch. 10, paginateur : p10-9 : page à moitié vide
-- ch. 10, constructeur : exergue sans ancrage E — Désinfecter
 - ch. 13, paginateur : p13-7 : page à moitié vide
 - ch. 14, paginateur : p14-6 : page à moitié vide
 

@@ -31,7 +31,9 @@ les planches de images/a-valider/ (build_chapitre.DOSSIERS_PLANCHES : JP les rel
     les pages ne sortent pas de chapitre.js (le 00 d'ancrage.py), un script de secours le pose ;
   - le côté de la première page (?par=0 : recto ; ?par=1 : verso), pour --verso ; un chapitre à
     pages fixes ouvre toujours au recto ;
-  - un rapport (#tome-rapport) : pages, avertissements du paginateur, figures posées, sections, et les pages de la
+  - un rapport (#tome-rapport) : pages, avertissements du paginateur, figures posées (un logigramme en double page,
+    clé « logigramme » des placements, compte comme une figure « double page » ; l'assembleur vérifie qu'il commence
+    sur une page de gauche, ce que chapitre.js garantit), sections, et les pages de la
     série des premières minutes (encadré orange, marqueur {.orange} : CLAUDE.md), qui donnent la colonne orange du
     sommaire, la section « Premières minutes » du rapport et l'aperçu 05.
 L'onglet de tranche à 12 pt des chapitres à trois chiffres est dans couleur.css depuis le 28 septembre 2026
@@ -170,6 +172,9 @@ RAPPORT_JS = r"""<script>
     document.querySelectorAll('#book > .page').forEach(p => out.cotes += p.classList.contains('recto') ? 'r' : 'v');
     document.querySelectorAll('.page img.planche').forEach(i => out.figs.push({id: (i.alt || '').replace(/^Planche\s*/, ''), page: num(i), taille: 'pleine', src: i.getAttribute('src')}));
     document.querySelectorAll('.page figure.fig.pl').forEach(f => { const i = f.querySelector('img'); out.figs.push({id: f.dataset.id, page: num(f), taille: 'demi', src: i ? i.getAttribute('src') : ''}); });
+    // logigramme en double page : sa première page seulement (la seconde suit)
+    document.querySelectorAll('.page.spread.verso, .page.spread.recto').forEach(pg => { if(pg.previousElementSibling && pg.previousElementSibling.classList.contains('spread')) return;
+      out.figs.push({id: pg.dataset.spread, page: +pg.id.slice(pg.id.lastIndexOf('-') + 1), taille: 'double', src: '', cote: pg.classList.contains('verso') ? 'v' : 'r'}); });
     document.querySelectorAll('.page figure.fig.ph img').forEach(i => { const r = i.getBoundingClientRect();
       out.figs.push({id: 'photo', src: i.getAttribute('src'), page: num(i), taille: i.closest('figure').classList.contains('demi') ? 'demi' : 'quart',
                      w: r.width / 96, h: r.height / 96, nw: i.naturalWidth, nh: i.naturalHeight}); });
@@ -856,6 +861,11 @@ def main():
         n = len(lecteurs[c["num"]].pages)
         if n != c["rapport"]["pages"]:
             avert.append(f"ch. {c['num']} : {n} pages imprimées, {c['rapport']['pages']} au rapport de pagination")
+        # une double page (logigramme) commence sur une page de gauche, paire dans le tome
+        for f in c["rapport"]["figs"]:
+            if f.get("taille") == "double" and (c["debut"] + f["page"] - 1) % 2:
+                avert.append(f"ch. {c['num']} : la double page {f['id']} commence à la page {c['debut'] + f['page'] - 1}, "
+                             f"une page de droite")
     w = pypdf.PdfWriter()
     for i, (kind, ref) in enumerate(seq):
         if kind == "blanche":
@@ -1011,7 +1021,8 @@ def main():
         figs = c["rapport"]["figs"]
         a_val = set(planches_a_valider(c["num"])) - set(planches_validees(c["num"]))
         poses = ", ".join(f"{f['id'] if f['id'] != 'photo' else os.path.basename(f['src'])} ({c['debut'] + f['page'] - 1}"
-                          f"{', pleine' if f['taille'] == 'pleine' else ''}{', à valider' if f['id'] in a_val else ''})" for f in figs) or "—"
+                          f"{', pleine' if f['taille'] == 'pleine' else ', double page' if f['taille'] == 'double' else ''}"
+                          f"{', à valider' if f['id'] in a_val else ''})" for f in figs) or "—"
         valides = {f["id"] for f in figs}
         attente = [i for i in sorted(a_val) if i not in valides]     # à valider mais pas dans les pages : à regarder
         sans = [i for i in planches_mentionnees(c["num"]) if i not in valides and i not in a_val]

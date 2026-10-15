@@ -35,6 +35,11 @@
     "photos": []
   },
   "04": {
+    "logigramme": {
+      "fichier": "images/logigrammes/04-retombees-livre.svg",
+      "apres": "Se mettre à couvert à l'éclair",
+      "orange": true
+    },
     "planches": [
       {
         "id": "04-01a",
@@ -46,13 +51,13 @@
       },
       {
         "id": "04-40",
-        "apres": "Le sas se monte avec deux bâches ou deux couvertures accrochées en chicane"
+        "apres": "L'entrée se monte avec deux bâches ou deux couvertures accrochées en chicane"
       }
     ],
     "photos": [
       {
         "fichier": "images/photos/tri/04-lichen-caribous-tapis.jpg",
-        "apres": "20. **Traiter le gibier par ordre décroissant de risque :**",
+        "apres": "**Trier le gibier du plus exposé au moins exposé :**",
         "taille": "quart",
         "legende": "Lichen des caribous en tapis. Il prend le césium du sol, et le caribou qui s'en nourrit l'hiver passe en tête du tri."
       }

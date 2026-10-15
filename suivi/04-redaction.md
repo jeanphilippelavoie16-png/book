@@ -192,3 +192,70 @@ Verdicts : `suivi/verifications/06-verifications.md`. Sept drapeaux, sept appliq
 - §9, filtre de terre — **valeur ajoutée** : ~99 % de la radioactivité de l'eau retenue ; terre prise à au moins 10 cm sous la surface, colonne de 15 à 18 cm tassée, ni argile pure ni sable, changée après une cinquantaine de litres (6 à 7 po = 15 à 18 cm ; 4 po = 10 cm ; 50 pintes US = 47 L, arrondi à « une cinquantaine »). `sources/06-ornl-kearny-nwss-abri-filtre-kfm.md`.
 - §8, rappels (mal de caribou) — décision de la passe : « au bout de 2 à 3 semaines » devient « il tue en quelques semaines ».
 - Compression §3 et §4 — 27 septembre 2026 : 963 mots → 219 mots (§3 : 457 → 118 ; §4 : 506 → 101) ; matériel coupé : aliments en contenants scellés, ruban adhésif, polythène, bacs et sacs à déchets, serviettes et savon, shampooing sans revitalisant (déjà à l'étape 8), papier-crayon-montre, paragraphe de fin (dosimètre, renvoi ch. 00b). §9 « Sans comprimés d'iode » : renvoi à la ligne « non négociable » de la section 4 corrigé.
+
+## Passe d'écriture et premières minutes d'une détonation — 15 octobre 2026
+
+Numéros de chapitre **nouveaux** dans cette section (ch. 4 = ancien 06). Passe du skill `ecriture` sur tout le
+chapitre ; série des premières minutes marquée `{.orange}` en tête de la procédure ; contenu des gestes repris
+des procédures établies (Ready.gov, CDC, FEMA, LLNL, Canada.ca), écrit pour une famille qui n'a rien préparé
+(JP : « il existe déjà des procédures à faire en cas de bombe ou de retombées » ; « TOUT EST NOUVEAU »).
+
+**Mots :** 7 409 avant, 6 543 après. **Tirets :** 48 avant, 2 après (titre et ligne de tome, comme au ch. 10).
+
+### Les faits ajoutés et leur source
+
+| Fait au chapitre | Où | Source (fichier dans `sources/`) |
+| --- | --- | --- |
+| L'éclair aveugle même sans le regarder ; quelques secondes le jour, 5 à 10 min la nuit, puis une image sombre plusieurs minutes ; accidents de la route | §5 étape 3 ; §7 | FEMA 2022, §1.3 (`06-fema-2022-detonation-nucleaire.md`) ; LLNL 2009, p. 2 |
+| Brûlure de la rétine si la boule de feu est dans l'œil à l'instant ; tache aveugle qui reste | §7 | FEMA 2022, §1.3 |
+| Brûlure de la peau tournée vers l'éclair | §7 | FEMA 2022, « Flash Burns » |
+| Le souffle : environ 1 mille toutes les 5 s au-delà de quelques milles, soit environ 3 s par km ; de quelques secondes à plusieurs dizaines de secondes, jusqu'à 30 s ou plus | §5 étape 1 | FEMA 2022, §1.1 ; LLNL 2009, p. 3 (conversion 5 s ÷ 1,609 km = 3,1 s/km) |
+| Ne pas aller à la fenêtre voir ; les vitres cassent à des kilomètres et blessent ceux qui sont derrière | §5 étape 1 | LLNL 2009, p. 2 et 3 ; FEMA 2022, zones de dommages |
+| Dehors : à plat ventre, peau découverte protégée, derrière ce qui fait écran, jusqu'au passage du souffle | §5 étape 2 | Ready.gov 2025 (`06-ready-gov-urgences-radiologiques-2025.md`). « Mains sous le corps » : application du même geste, pas une citation |
+| En auto : s'arrêter, se baisser sous les vitres, ne pas repartir aveuglé | §5 étape 3 | FEMA 2022 (éblouissement, accidents ; s'éloigner des vitres) ; « se baisser sous les vitres » : application, pas une citation |
+| Les retombées mettent 10 minutes ou plus à arriver | §5 étape 4 | Ready.gov 2025 ; FEMA 2022, p. 53 |
+| Ordre des abris : sous-sol, centre d'un gros bâtiment de béton ou de brique, stationnement souterrain ; à défaut, n'importe quel bâtiment | §5 étape 4 | Ready.gov 2025 ; CDC Get Inside (`06-cdc-entrer-et-se-decontaminer.md`) ; LLNL 2009, p. ii |
+| Les retombées se voient : sable fin, sel de table, cendre, pluie ; s'abriter tout de suite | §2 ; §5 étape 4 | FEMA 2022, p. 28 ; LLNL 2009, p. iv et 4 |
+| Un linge sur le nez et la bouche dehors | §5 étape 4 | CDC Get Inside ; LLNL 2009, p. ii |
+| Couche du dessus et chaussures enlevées avant d'entrer ou à l'entrée ; jusqu'à 90 % | §5 étape 5 | CDC Get Inside et Self-Decontaminate ; LLNL 2009, p. ii ; Ready.gov 2025 |
+| Ne pas aller chercher les proches ; l'école les garde | §5 étape 6 | CDC Get Inside ; mécanisme déjà au chapitre (masse d'une école de béton) |
+| Fermer, couper fournaise à air pulsé, climatiseur, ventilateurs ; fermer la clé des foyers | §5 étape 7 | CDC Get Inside ; Ready.gov 2025 ; Canada.ca |
+| Sous-sol contre un mur enterré ; centre, loin du toit et des murs extérieurs | §5 étape 8 | LLNL 2009, p. ii ; CDC Get Inside ; Canada.ca |
+| L'abri n'a pas besoin d'être étanche ; fenêtres cassées : il protège encore | §3 ; §5 étapes 8 et 15 | FEMA 2022, §3.2 ; LLNL 2009, p. ii |
+| Maison de bois ÷ 2 à 3, sous-sol ÷ 10 à 20, auto ÷ moins de 2 | §3 | LLNL 2009, tableau 1 (facteurs de protection 2–3, 10–20, 1,7–2) |
+| Plus de la moitié du rayonnement du dépôt dans la première heure | §3 | FEMA 2022, p. 32 ; LLNL 2009, p. 3 (~55 % en 1 h, ~80 % en 1 jour) |
+| Abri faible et meilleur abri à moins de 15 min : y être au plus tard 30 min après la détonation | §5 étape 9 ; §6 | FEMA 2022, §3.3, p. 67 (abri de facteur 2 ; une maison de bois est à 2 ou 3) |
+| Se laver : eau et savon, sans frotter, coupures couvertes, pas de revitalisant ; sans eau, linge mouillé, serviette de papier humide, lingette ; se moucher, essuyer paupières, cils, oreilles ; pas de lingettes ménagères ; le désinfectant à mains n'enlève rien ; l'eau du robinet sert au lavage ; vêtements d'un tiroir fermé, ou secouer les siens | §5 étape 10 | CDC Self-Decontaminate et infographie (`06-cdc-entrer-et-se-decontaminer.md`) ; Ready.gov 2025 |
+| Animaux brossés et lavés au savon, mains lavées après | §5 étape 10 | CDC Get Inside ; Ready.gov 2025 |
+| Radio à piles ou à manivelle, ouverte une fois à l'abri | §5 étape 11 | Ready.gov 2025 ; Canada.ca |
+| Rester 24 h sauf feu, fuite de gaz, effondrement, blessure grave | §5 étape 20 | Ready.gov 2025 ; FEMA 2022 (12 à 24 h) |
+
+### Ce qui a été retiré ou déplacé
+
+- **Jargon et préparation dans les premières minutes** (JP) : « sas » et « sceller » ne sont plus nulle part. Le
+  bouchage de la pièce d'abri passe aux heures d'abri (étape 15), après l'abri et le lavage ; l'entrée en chicane
+  reste en §9. La radio vient après l'abri et le lavage (étape 11), et c'est celle qu'on a dans l'abri ; le poste
+  d'auto reste en §9, avec la condition qu'il se démonte dans un garage attenant pendant les 24 h.
+- **Les poules** (JP : « personne a des poules ») : « les animaux ». La chèvre de l'étape du lait et les œufs du
+  §9 sont coupés aussi.
+- **L'âge des enfants de JP** : l. 142 et 253 de l'ancien texte ; le tableau de posologie par âge reste.
+- **« village »** : deux fois, remplacé par « la ville ».
+- **Statistiques qui ne changent pas le geste** : zones de planification de 10, 20 et 50 km ; entreposage à sec
+  depuis 2020 ; 134 cas d'irradiation aiguë dont 28 morts (remplacé par « la vie est en jeu ») ; « que le nuage
+  soit passé à 200 km ».
+- **« Avant, une fois »** passe à la fin de la procédure : elle s'ouvre sur la série orange.
+- **§9, trempage sans sel** : « valeurs à confirmer » retiré, les valeurs sont confirmées (levée du 24 septembre).
+- **Ancres de planches** (`design/epreuves-livre/placements-tome-1.json`) : 04-40 s'ancre sur « L'entrée se monte
+  avec deux bâches… » ; la photo du lichen sur « **Trier le gibier du plus exposé au moins exposé :** ».
+
+### Ce qui reste ouvert
+
+- La planche 04-40 porte encore le mot « sas » dans ses légendes (« Dans le sas : ôter sans secouer »).
+- Étape 14 : « passé 40 ans, généralement pas indiqué » contre la ligne « Adultes de plus de 40 ans : 130 mg » du
+  tableau ; les deux viennent des sources (CDC et FDA pour le tableau). Le texte dit « les comprimés vont d'abord
+  aux enfants ».
+- Étape 20 : la sortie à 24 h dépend de « nouvelles à la radio » sans dire ce qu'elles doivent annoncer ; aucune
+  source ne le chiffre pour le public.
+- Étape 9 : la règle de la FEMA vaut pour un abri de facteur 2 et un bon abri à moins de 15 minutes ; pour un
+  abri de facteur 4, la FEMA dit d'attendre une heure ou deux avant de changer. Le chapitre ne garde que le cas
+  de la maison de bois.

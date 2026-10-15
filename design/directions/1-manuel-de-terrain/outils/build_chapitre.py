@@ -14,6 +14,8 @@ Hauteur du SVG : 826 = pleine page, 413 = demi-page. Placement : design/epreuves
 placements.json (« apres » : début du paragraphe qui en parle), sinon la première mention
 « planche NN-0K » du texte, sinon fin de la section 5 (avec un avertissement).
 Photos : même fichier, clé « photos » (fichier, apres, taille quart|demi, legende).
+Logigramme en double page : même fichier, clé « logigramme » (fichier : le SVG de design/outils/logigramme.py
+--sans-entete ; apres ; orange) ; chapitre.js le pose sur la première page de gauche qui suit l'ancre.
 """
 import re, sys, os, glob, json, html, subprocess, time, tempfile, shutil
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -507,6 +509,25 @@ def build(num):
     items = [(fig_html(f), anchors.get(f["id"]), f["id"]) for f in figs]
     photos = [dict(p, fichier=chemin_photo(p, num)) for p in cfg.get("photos", [])]
     items += [(photo_html(p), p.get("apres"), p["fichier"]) for p in photos]
+    # logigramme en double page (15 octobre 2026) : « logigramme »: {"fichier": SVG de design/outils/logigramme.py
+    # --sans-entete, "apres": ancre, "orange": true}. Le SVG va dans un gabarit, en ligne (en <img>, il perdrait ses
+    # polices) ; chapitre.js le pose sur deux pages « spread », un verso puis un recto
+    spreads = []
+    lg = cfg.get("logigramme")
+    for k, g in enumerate([lg] if isinstance(lg, dict) else (lg or [])):
+        chemin = os.path.join(ROOT, g["fichier"])
+        if not os.path.exists(chemin):
+            WARN.append(f"logigramme introuvable : {g['fichier']}")
+            continue
+        svg = open(chemin, encoding="utf-8").read()
+        svg = re.sub(r"<style>@import[^<]*</style>\s*", "", svg)          # le gabarit charge déjà IBM Plex
+        svg = re.sub(r'\sid="[^"]*"', "", svg)                             # le dessin sert deux fois
+        tid = f"spread-{num}-{k + 1}"
+        nom = os.path.splitext(os.path.basename(g["fichier"]))[0]
+        spreads.append(f'<template id="{tid}">{svg}</template>')
+        dor = ' data-or="1"' if g.get("orange") else ""
+        items.append((f'<figure class="fig spread" data-plate="spread" data-tpl="{tid}" data-id="{html.escape(nom)}"{dor}>'
+                      '</figure>', g.get("apres"), "logigramme " + nom))
     place(stories, items, num, en_ordre=cfg.get("en_ordre") is True)
     dispo = photos_du_chapitre(num)
     if dispo:
@@ -561,6 +582,7 @@ def build(num):
     out = (head + eng + "</style>\n</head>\n<body>\n<div id=\"book\"></div>\n"
            + f'<template id="open">{opening}</template>\n'
            + "".join(f'<template id="story-{sid}">\n{st(sid)}\n</template>\n' for sid, _, _ in flux)
+           + "".join(t + "\n" for t in spreads)
            + f'<template id="notes">\n{notes_html()}\n</template>\n'
            + '<script type="application/json" id="meta">' + json.dumps(meta, ensure_ascii=False) + "</script>\n"
            + '<pre id="stats"></pre>\n<script>\n(function(){\n' + helpers + engine + "\n})();\n</script>\n</body>\n</html>\n")

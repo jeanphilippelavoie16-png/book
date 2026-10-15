@@ -8,9 +8,10 @@ livre, en page simple ou en double page (deux pages face à face : verso à gauc
     python design/outils/logigramme.py FICHIER.json --sortie DOSSIER     ailleurs qu'à côté du JSON
     python design/outils/logigramme.py FICHIER.json --svg                le SVG et le contrôle, sans navigateur
     python design/outils/logigramme.py FICHIER.json --svg --plan         plus la place de chaque boîte, en pouces
-    python design/outils/logigramme.py FICHIER.json --sans-entete        sans titre courant ni onglet : la version que
-                                                                         l'assembleur recouvre du titre courant et du folio
-                                                                         de chapitre.js
+    python design/outils/logigramme.py FICHIER.json --sans-entete --svg  NOM-livre.svg, sans titre courant ni onglet :
+                                                                         la version que chapitre.js pose dans le livre (clé
+                                                                         « logigramme » des placements), sous son titre
+                                                                         courant, son onglet et son pied de page
 
 Sorties, sous le nom du JSON :
   NOM.svg  le dessin, fond perdu compris (double : 16,25 × 10,25 po ; simple : 8,125 × 10,25 po) ; polices par
@@ -483,7 +484,7 @@ def dessiner_noeud(k, X, J):
         titre = typo(n.get("titre", "Danger")).upper()
         place = w - iw - 22
         corps = 10.0                   # le bandeau du livre est à 12 pt ; ici 10, ramené à ce qui tient (8,5 au moins)
-        while corps > 8.5 and largeur(titre, "sans", 700, corps, ls=0.05 * corps) > place:
+        while corps > 8.5 and largeur(titre, "sans", 700, corps, ls=0.05 * corps) > place * 0.96:   # marge : le rendu crène autrement
             corps -= 0.25
         out.append(f'<text x="{b.x0 + 7 + iw + 6:.2f}" y="{b.y0 + 9.5 + 0.35 * corps:.2f}" font-family="{FAM["sans"]}" font-weight="700" '
                    f'font-size="{corps}" letter-spacing="{0.05 * corps:.3f}" fill="#fff" xml:space="preserve" '
@@ -870,7 +871,7 @@ def main():
     src = a[0]
     sortie = a[a.index("--sortie") + 1] if "--sortie" in a else os.path.dirname(os.path.abspath(src))
     os.makedirs(sortie, exist_ok=True)
-    nom = os.path.splitext(os.path.basename(src))[0]
+    nom = os.path.splitext(os.path.basename(src))[0] + ("-livre" if "--sans-entete" in a else "")
     D = json.load(open(src, encoding="utf-8"))
     R = construire(D, sans_entete="--sans-entete" in a)
     svg = os.path.join(sortie, nom + ".svg")

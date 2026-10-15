@@ -5,7 +5,8 @@
    interieur.tpl.html, recopiées à la construction. Ici : les pages se
    créent à la volée, trois histoires se suivent (texte courant, encadré
    danger, variante d'urgence), les planches pleine page prennent la page
-   qui suit leur mention, les demi-planches et les photos flottent au
+   qui suit leur mention, la double page d'un logigramme la première page de
+   gauche qui suit son ancre, les demi-planches et les photos flottent au
    premier endroit où elles tiennent, jamais au milieu d'un paragraphe.
    La série des premières minutes (marqueur {.orange}, build_chapitre.py) est
    une histoire de plus (genre « o ») coulée entre deux morceaux du texte
@@ -17,6 +18,7 @@ const WARN = [];
 const PAGES = [];
 let P = null;                 // page courante
 let pendingPlates = [];       // planches pleine page qui attendent la fin de la page courante
+let pendingSpreads = [];      // doubles pages (logigramme) qui attendent la prochaine page de gauche
 const DSVG = '<svg viewBox="0 0 34 30" aria-hidden="true"><path d="M17 1.5 L32.5 28.5 H1.5 Z" fill="#fff"/><path d="M15.2 10 H18.8 L18.1 20.5 H15.9 Z" fill="#9B2C1E"/><rect x="15.4" y="22.3" width="3.2" height="3.2" fill="#9B2C1E"/></svg>';
 const PT = 96/72;
 
@@ -37,7 +39,27 @@ function mkPage(kind, plate){
 function nextPage(){
   const pl = pendingPlates; pendingPlates = [];
   pl.forEach(b => { const pp = mkPage('plate', b); pp.story = P.story; });
-  P = mkPage('text'); return P;
+  const avant = P ? P.story : 'main';
+  P = mkPage('text');
+  // une double page commence toujours sur une page de gauche : posée dès que la page qui vient est un verso ;
+  // sur un recto, le texte continue et la double page attend la page suivante (jamais de page blanche au milieu)
+  if(pendingSpreads.length && P.el.classList.contains('verso')){
+    BOOK.removeChild(P.el); PAGES.pop();
+    mkSpread(pendingSpreads.shift(), avant);
+    P = mkPage('text');
+  }
+  return P;
+}
+function mkSpread(b, story){   // le SVG du logigramme (build_chapitre.py, gabarit en ligne), une moitié par page
+  const svg = document.getElementById(b.dataset.tpl).content.querySelector('svg');
+  [0, 585].forEach(x => {
+    const p = mkPage('spread'); p.story = story; p.spread = b.dataset.id; p.or = b.dataset.or === '1';
+    p.el.classList.add('spread'); p.el.dataset.spread = b.dataset.id;
+    const s = svg.cloneNode(true);
+    s.setAttribute('viewBox', x + ' 0 585 738'); s.setAttribute('width', '8.125in'); s.setAttribute('height', '10.25in');
+    s.style.cssText = 'position:absolute;left:0;top:0';
+    p.el.insertBefore(s, p.el.firstChild);     // sous le titre courant, l'onglet et le pied
+  });
 }
 function free(p){       // hauteur libre sous le dernier élément du bloc, en px
   const br = p.bl.getBoundingClientRect(); const last = p.bl.lastElementChild;
@@ -75,6 +97,7 @@ function pour(f, q, p){
   while(q.length){
     const b = q.shift();
     if(b.dataset && b.dataset.plate === 'full'){ pendingPlates.push(b); continue; }
+    if(b.dataset && b.dataset.plate === 'spread'){ pendingSpreads.push(b); continue; }
     f.appendChild(b); syncNotes(f);
     if(!OVER(f)) continue;
     f.removeChild(b); syncNotes(f);
@@ -120,7 +143,7 @@ function story(id, kind, suite){   // kind : main, o, d, e ; suite : histoire re
     if(first && !fresh && ((kind === 'd' && fr < 2.2 * 96) || (kind === 'e' && fr < 1.8 * 96) || (kind === 'main' && fr < 1.2 * 96) || (kind === 'o' && fr < 2.0 * 96))){ nextPage(); continue; }
     if(suite && guard === 1 && !fresh && fr < 1.2 * 96){ nextPage(); continue; }
     P.story = kind;
-    const snapQ = q.slice(), snapPl = pendingPlates.slice();
+    const snapQ = q.slice(), snapPl = pendingPlates.slice(), snapSp = pendingSpreads.slice();
     const R = region(P, kind, first);
     const r = pour(R.frame, q, P);
     if(!R.frame.children.length){
@@ -131,12 +154,12 @@ function story(id, kind, suite){   // kind : main, o, d, e ; suite : histoire re
         nextPage(); continue;
       }
       R.box.remove(); const z = R.frame.nextElementSibling; if(z && z.classList.contains('fnz')) z.remove();
-      q.splice(0, q.length, ...snapQ); pendingPlates = snapPl;
+      q.splice(0, q.length, ...snapQ); pendingPlates = snapPl; pendingSpreads = snapSp;
       nextPage(); continue;
     }
     // l'encadré danger ne se coupe pas s'il tiendrait entier sur la page suivante
     if(kind === 'd' && first && r === 'full' && !fresh && fr < 0.62 * H){
-      R.box.remove(); q.splice(0, q.length, ...snapQ); pendingPlates = snapPl; nextPage(); continue;
+      R.box.remove(); q.splice(0, q.length, ...snapQ); pendingPlates = snapPl; pendingSpreads = snapSp; nextPage(); continue;
     }
     first = false;
     if(r === 'done'){ finish(R, kind); break; }
@@ -162,6 +185,7 @@ function finishPages(){
     const mx = Math.max(...on);
     let label = (on.has(8) && on.has(9)) ? C.secs['8'] + ' · ' + C.secs['9'] : (C.secs[String(mx)] || '');
     if(p.plate) label += ' · Planche ' + p.plate;
+    if(p.spread) label = 'Logigramme';
     p.el.insertAdjacentHTML('beforeend', ladder(on, label, p.kind === 'open' ? C.num + '-' + p.n : null));
     if(p.plate && p.story === 'e') p.bl.querySelector('img').dataset.edge = 'k';
     if(p.plate && p.story === 'd') p.bl.querySelector('img').dataset.edge = 'd';
@@ -188,7 +212,7 @@ function edges(){
   });
   // page qui porte la série des premières minutes : l'onglet de tranche passe à l'orange (couleur.css, .page.or),
   // et la série se voit en haut de la gouttière, livre fermé, à la même hauteur dans tout le tome
-  PAGES.forEach(p => { if(p.el.querySelector('.block .orange') || (p.plate && p.story === 'o')) p.el.classList.add('or'); });
+  PAGES.forEach(p => { if(p.el.querySelector('.block .orange') || (p.plate && p.story === 'o') || p.or) p.el.classList.add('or'); });
 }
 function checks(){
   // texte qui sort de la zone utile, page presque vide
@@ -222,6 +246,11 @@ Promise.all(faces.map(f => document.fonts.load(f, 'aéÀ§«»—'))).then(() =>
   P = mkPage('open'); fitTitle();
   (C.flux || [['main'], ['d'], ['e']]).forEach(f => story(f[0], f[1], f[2]));
   if(pendingPlates.length){ const pl = pendingPlates; pendingPlates = []; pl.forEach(b => { const pp = mkPage('plate', b); pp.story = 'e'; }); }
+  while(pendingSpreads.length){   // fin du chapitre : une page blanche au recto au besoin, puis la double page
+    const t = mkPage('text'); t.story = 'e';
+    if(t.el.classList.contains('verso')){ BOOK.removeChild(t.el); PAGES.pop(); }
+    mkSpread(pendingSpreads.shift(), 'e');
+  }
   finishPages(); edges(); checks();
   const st = {pages: PAGES.length, reste: 0, warn: WARN, mots: {}};
   PAGES.forEach(p => st.mots[p.n] = words(p.bl.innerText));
