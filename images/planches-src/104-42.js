@@ -13,16 +13,17 @@
 // d'un bras », qui reste en mots. Les proportions du dessin (lattes de 700 mm, 16 mm d'épaisseur aux
 // bouts et 9 au milieu, coin de 110 mm) sont un dessin, pas une donnée.
 //
-// Trois vues : de côté, couché (le serre-couture entier, le pied à gauche) ; en usage, de profil (assis, le
-// pied au sol, serré entre les genoux, une main de chaque côté de l'ouvrage) ; le pied en gros, debout comme
-// en usage (le coin, la ligature).
+// Deux vues, l'outil seul (pas de corps : le coordonnateur, 15 octobre, « par l'outil, pas par la main ») :
+// debout comme en usage (le pied au sol, deux flèches rouges à hauteur des genoux qui serrent les lattes
+// l'une contre l'autre, l'ouvrage pris en haut) ; le pied en gros (le coin, la ligature, le bout passé
+// sous les derniers tours, comme au ch. 103, étape 31).
 'use strict';
 
 const f1 = v => Math.round(v * 10) / 10;
 const RAD = Math.PI / 180;
 
 module.exports = (h) => {
-  const A = h.a, F = h.formes;
+  const A = h.a;
 
   // ─── Le serre-couture en mm, repère local : x vers la droite, y vers le haut depuis le sol ─────────
   const LONG = 700;           // la longueur d'un bras (dessin)
@@ -83,7 +84,8 @@ module.exports = (h) => {
       out.push(h.chemin(L.int.map(P), A.contour), h.chemin(L.ext.map(P), A.contour));
       const bout = (i, casse) => {
         const a = P(L.int[i]), b = P(L.ext[i]);
-        out.push(casse ? h.chemin(cassure(a, b, 1.8), A.detail) : h.ligne(a[0], a[1], b[0], b[1], A.contour));
+        if (casse) { out.push(h.chemin(cassure(a, b, 1.8), A.detail)); return; }
+        out.push(h.ligne(a[0], a[1], b[0], b[1], A.contour));
       };
       bout(0, casseBas); bout(L.int.length - 1, casseHaut);
     }
@@ -138,54 +140,31 @@ module.exports = (h) => {
     return out.join('\n');
   };
 
-  // ─── En gros : les mâchoires en haut, le pied en bas ───────────────────────────────────────────────
-  const geoGros = z => {
-    // les mâchoires : de 600 à 770 mm ; le pied : de 0 à 170 mm
-    const sM = Math.min(1.9, (z.h * 0.45) / 170), sP = Math.min(1.9, (z.h * 0.47) / 170);
-    const Xm = z.l * 0.5, Xp = z.l * 0.5;
-    const PM = ([x, y]) => [Xm + x * sM, 10 + (LONG + 66 - y) * sM];
-    const PP = ([x, y]) => [Xp + x * sP, z.h - 6 - y * sP];
-    return { sM, sP, PM, PP };
+  // ─── Le pied, en gros ──────────────────────────────────────────────────────────────────────────────
+  const HP = 250;             // la hauteur montrée
+  const geoPied = z => {
+    const s = Math.min((z.h - 20) / HP, (z.l - 80) / 90);
+    const P = ([x, y]) => [z.l / 2 + x * s, z.h - 6 - y * s];
+    return { s, P };
   };
-  const aiguille = (a, b, L, ep2) => {
-    // une aiguille de a (le chas) vers b (la pointe) ; L la longueur, ep2 la demi-épaisseur
-    const u = [(b[0] - a[0]) / L, (b[1] - a[1]) / L], n = [-u[1], u[0]];
-    const Q = (t, w) => [a[0] + u[0] * t + n[0] * w, a[1] + u[1] * t + n[1] * w];
-    const corps = [Q(0, ep2 * 0.8), Q(L * 0.82, ep2), Q(L, 0), Q(L * 0.82, -ep2), Q(0, -ep2 * 0.8)];
-    return [h.chemin(corps, A.blanc, true), h.chemin(corps, A.arete, true), h.ellipse(...Q(ep2 * 2.2, 0), ep2 * 1.2, ep2 * 0.35, A.detail)].join('\n');
-  };
-  const dessinGros = z => {
-    const g = geoGros(z), { PM, PP, sM, sP } = g, out = [];
-    // les mâchoires
-    const c1 = LONG + 62, yT = LONG + 30;
-    const cuir = [[-CUIR / 2, LONG - MAC + 10], [-CUIR / 2, c1], [CUIR / 2, c1], [CUIR / 2, LONG - MAC + 10]].map(PM);
-    out.push(h.chemin(cuir, A.blanc, true), h.chemin(cuir, A.arete, true), h.ligne(...PM([0, LONG - MAC + 10]), ...PM([0, c1]), A.detail));
-    out.push(lattes(PM, 610, LONG, { casseBas: true }));
-    // le fil : deux brins qui sortent du même trou, un de chaque côté, jusqu'au chas de chaque aiguille
-    const trou = PM([0, yT]);
-    const chasG = [trou[0] - 132, trou[1] + 34], chasD = [trou[0] + 132, trou[1] + 22];
-    out.push(h.path(`M${f1(trou[0] - CUIR / 2 * sM)} ${f1(trou[1])} Q${f1(trou[0] - 40)} ${f1(trou[1] + 34)} ${f1(chasG[0] + 4)} ${f1(chasG[1])}`, A.arete));
-    out.push(h.path(`M${f1(trou[0] + CUIR / 2 * sM)} ${f1(trou[1] + 1)} Q${f1(trou[0] + 46)} ${f1(trou[1] + 30)} ${f1(chasD[0] - 4)} ${f1(chasD[1])}`, A.arete));
-    // les deux aiguilles : celle de gauche entre par la gauche, celle de droite par la droite, dans le même trou
-    out.push(aiguille([trou[0] - 120, trou[1] - 22], [trou[0] + 34, trou[1] - 4], 155, 2.6));
-    out.push(aiguille([trou[0] + 120, trou[1] - 40], [trou[0] - 36, trou[1] - 10], 158, 2.6));
-    // le pied
-    out.push(h.ligne(8, PP([0, 0])[1], z.l - 8, PP([0, 0])[1], A.arete));
-    const coin = coinDe(PP);
+  const dessinPied = z => {
+    const g = geoPied(z), { P, s } = g, out = [];
+    out.push(h.ligne(8, P([0, 0])[1], z.l - 8, P([0, 0])[1], A.arete));
+    const coin = coinDe(P);
     out.push(h.chemin(coin, A.blanc, true), h.chemin(coin, A.contour, true));
-    [-5, 4].forEach(dx => out.push(h.path(`M${f1(PP([dx, 6])[0])} ${f1(PP([dx, 6])[1])} Q${f1(PP([dx + 2, 55])[0])} ${f1(PP([dx + 2, 55])[1])} ${f1(PP([dx * 0.8, COIN - 6])[0])} ${f1(PP([dx * 0.8, COIN - 6])[1])}`, A.detail)));
-    out.push(lattes(PP, 0, 168, { casseHaut: true }));
-    out.push(ligature(PP, sP));
+    [-5, 4].forEach(dx => out.push(h.path(`M${f1(P([dx, 6])[0])} ${f1(P([dx, 6])[1])} Q${f1(P([dx + 2, 55])[0])} ${f1(P([dx + 2, 55])[1])} ${f1(P([dx * 0.8, COIN - 6])[0])} ${f1(P([dx * 0.8, COIN - 6])[1])}`, A.detail)));
+    out.push(lattes(P, 0, HP - 4, { casseHaut: true }));
+    out.push(ligature(P, s));
     return out.join('\n');
   };
 
   return {
     ref: '104-42',
     titre: 'Le serre-couture',
-    desc: 'Le serre-couture debout, comme en usage : deux lattes plus minces au milieu, un coin de bois entre leurs pieds et une ligature de babiche autour du paquet ; elles se rejoignent en haut et pincent deux épaisseurs de cuir ; deux flèches à hauteur des genoux serrent les lattes l’une contre l’autre. En gros, en haut : les mâchoires, le cuir, et les deux aiguilles du point sellier qui passent dans le même trou, une de chaque côté. En gros, en bas : le coin, gros bout en bas, et les tours jointifs de la ligature.',
+    desc: 'Le serre-couture debout, comme en usage : deux lattes plus minces au milieu, un coin de bois entre leurs pieds et une ligature de babiche autour du paquet ; elles se rejoignent en haut et pincent deux épaisseurs de cuir ; deux flèches à hauteur des genoux serrent les lattes l’une contre l’autre. Le pied en gros : le coin, gros bout en bas, et les tours jointifs de la ligature, le bout passé sous les derniers tours.',
     format: 'pleine',
-    disposition: [['pos', 'gros']],
-    largeurs: [[1, 1.75]],
+    disposition: [['pos', 'pied']],
+    largeurs: [[1, 1.3]],
     vues: {
       pos: {
         titre: 'Debout, comme en usage',
@@ -194,22 +173,21 @@ module.exports = (h) => {
           const g = geoPos(z), P = g.P;
           const d = y => demiEcart(y) + ep(y);
           return [
-            { n: 1, rond: [z.l - 14, P([0, 610])[1]], cible: P([d(610), 610]), texte: 'deux lattes de la longueur d’un bras' },
+            { n: 1, rond: [z.l - 14, P([0, 600])[1]], cible: P([d(600), 600]), texte: 'deux lattes de la longueur d’un bras' },
             { n: 2, rond: [z.l - 14, P([0, 330])[1]], cible: P([d(330), 330]), texte: 'amincies au milieu : elles font ressort' },
             { n: 3, rond: [16, P([0, GENOU + 70])[1]], cible: [P([-d(GENOU), 0])[0] - 26, P([0, GENOU])[1] - 2], texte: 'serré entre les genoux' },
+            { n: 4, rond: [16, P([0, LONG + 40])[1]], cible: P([-CUIR / 2, LONG + 40]), texte: 'l’ouvrage pris en haut, les mains libres' },
           ];
         },
       },
-      gros: {
-        titre: 'En gros',
-        dessin: dessinGros,
+      pied: {
+        titre: 'Le pied',
+        dessin: dessinPied,
         renvois: z => {
-          const g = geoGros(z), PM = g.PM, PP = g.PP;
+          const g = geoPied(z), P = g.P;
           return [
-            { n: 4, rond: [z.l - 16, 24], cible: PM([CUIR / 2, LONG + 52]), texte: 'l’ouvrage pris dans les mâchoires' },
-            { n: 5, rond: [18, 24], cible: [PM([0, LONG + 30])[0] - 92, PM([0, LONG + 30])[1] - 15], texte: 'une aiguille de chaque côté, même trou' },
-            { n: 6, rond: [18, PP([0, COIN + 40])[1]], cible: PP([-C_HAUT / 2 + 2, COIN - 4]), texte: 'coin de bois, gros bout en bas' },
-            { n: 7, rond: [z.l - 16, PP([0, LIG[1] + 50])[1]], cible: PP([demiEcart(60) + ep(60) + 2, 60]), texte: 'ligature de babiche posée mouillée' },
+            { n: 5, rond: [24, P([0, COIN + 40])[1]], cible: P([-C_HAUT / 2 + 2, COIN - 4]), texte: 'coin de bois, gros bout en bas' },
+            { n: 6, rond: [z.l - 24, P([0, LIG[1] + 50])[1]], cible: P([demiEcart(60) + ep(60) + 2, 60]), texte: 'ligature de babiche posée mouillée' },
           ];
         },
       },

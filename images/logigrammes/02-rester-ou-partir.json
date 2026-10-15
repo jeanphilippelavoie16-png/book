@@ -1,5 +1,5 @@
 {
- "_note": "Logigramme du chapitre 2 (rester ou partir), double page, fait le 15 octobre 2026 sur le chapitre réécrit, sur le modèle du 04-retombees. Page de gauche : l'alarme de CO (étape 1, en orange), puis la décision (étapes 2 à 4). Page de droite : la route, la destination, la première heure (étapes 8 et 9, en orange) et la reprise à heure fixe (étape 10). Rendu : python3 design/outils/logigramme.py images/logigrammes/02-rester-ou-partir.json. « source » : les étapes du chapitre d'où vient chaque geste (ignoré au rendu).",
+ "_note": "Logigramme du chapitre 2 (rester ou partir), double page, fait le 15 octobre 2026 sur le chapitre réécrit, sur le modèle du 04-retombees. Page de gauche : l'alarme de CO (étape 1, en orange), puis la décision (étapes 2 à 4). Page de droite : la route, la destination, la première heure (étapes 8 et 9, en orange), la reprise à heure fixe (étape 10). Rendu : python3 design/outils/logigramme.py images/logigrammes/02-rester-ou-partir.json ; version du livre : --sans-entete --svg. « source » : les étapes du chapitre d'où vient chaque geste (ignoré au rendu).",
  "format": "double",
  "tome": 1,
  "urgent": true,
@@ -15,14 +15,10 @@
  "colonnes": {
   "co": [
    0.5,
-   3.55
+   3.6
   ],
   "mn": [
-   3.95,
-   7.375
-  ],
-  "large": [
-   0.5,
+   4.0,
    7.375
   ],
   "qd": [
@@ -43,7 +39,7 @@
   ],
   "r": [
    9.05,
-   11.95
+   11.75
   ],
   "p": [
    12.35,
@@ -60,27 +56,39 @@
   "bas": [
    9.05,
    15.5
+  ],
+  "mnc": [
+   4.65,
+   7.375
+  ],
+  "rc": [
+   9.6,
+   11.75
   ]
  },
  "rangs": {
   "g1": 1.11,
-  "c1": 1.75,
-  "c2": 2.7,
-  "c3": 3.55,
-  "c4": 4.6,
-  "c5": 5.55,
-  "c6": 6.5,
+  "c1": 1.72,
+  "c2": 2.57,
+  "c3": 3.42,
+  "c4": 4.27,
+  "c5": 5.12,
+  "c6": 5.97,
   "m1": 1.75,
-  "m2": 2.75,
-  "qd": 7.25,
-  "br": 7.95,
-  "d1": 0.95,
-  "d2": 2.0,
-  "d3": 3.05,
-  "d4": 3.95,
-  "d5": 5.0,
-  "d6": 6.85,
-  "d7": 8.35
+  "m2": 2.72,
+  "qd": 7.15,
+  "br": 7.98,
+  "r1": 0.95,
+  "r2": 2.6,
+  "q1": 0.95,
+  "q2": 2.2,
+  "pv": 3.95,
+  "pp": 4.95,
+  "pd": 6.45,
+  "bas": 8.15,
+  "m3": 3.75,
+  "m4": 5.35,
+  "r3": 4.3
  },
  "noeuds": [
   {
@@ -88,9 +96,9 @@
    "type": "depart",
    "col": "co",
    "rang": "g1",
-   "taille": 15,
-   "texte": "L'avertisseur de CO sonne",
-   "source": "étape 1"
+   "taille": 13.5,
+   "texte": "L'avertisseur de CO sonne, ou plusieurs ont mal à la tête",
+   "source": "étape 1 ; §7"
   },
   {
    "id": "depB",
@@ -107,7 +115,7 @@
    "col": "co",
    "rang": "c1",
    "ancre": "haut",
-   "texte": "**Tout le monde dehors, tout de suite**, sans chercher la source ; la porte reste ouverte. Compter les têtes.",
+   "texte": "**Tout le monde dehors, tout de suite** ; la porte reste ouverte. Compter les têtes.",
    "renvoi": "ch. 2, étape 1, points 1 et 2",
    "source": "étape 1, points 1 et 2"
   },
@@ -127,7 +135,7 @@
    "col": "co",
    "rang": "c3",
    "ancre": "haut",
-   "texte": "**Les malades restent à l'air**, au chaud. Confus ou inconscient : sur le côté, SOS satellite ou balise.",
+   "texte": "**Les malades restent à l'air**, au chaud. Confus ou inconscient : sur le côté, SOS.",
    "renvoi": "ch. 2, étape 1, point 4",
    "source": "étape 1, point 4"
   },
@@ -137,7 +145,7 @@
    "col": "co",
    "rang": "c4",
    "ancre": "haut",
-   "texte": "**Couper la source** si on sait laquelle, par un adulte sans mal de tête. Ouvrir les portes.",
+   "texte": "**Couper la source** si on sait laquelle, par un adulte sans symptômes. Ouvrir les portes.",
    "renvoi": "ch. 2, étape 1, points 5 et 6",
    "source": "étape 1, points 5 et 6"
   },
@@ -147,7 +155,7 @@
    "col": "co",
    "rang": "c5",
    "ancre": "haut",
-   "texte": "**Rentrer quand l'avertisseur, resté dedans, est revenu à la normale.** Resonne dans les 6 min après le bouton : le CO est encore fort.",
+   "texte": "**Rentrer quand l'avertisseur, resté dedans, est revenu à la normale.**",
    "renvoi": "ch. 2, étape 1, point 7",
    "source": "étape 1, point 7"
   },
@@ -157,7 +165,7 @@
    "col": "co",
    "rang": "c6",
    "ancre": "haut",
-   "texte": "**Ne rien rallumer** avant d'avoir réglé la cause, puis reprendre la décision.",
+   "texte": "**Ne rien rallumer** avant d'avoir réglé la cause. Reprendre à l'étape 2.",
    "renvoi": "ch. 2, étape 1, point 8",
    "source": "étape 1, point 8"
   },
@@ -184,22 +192,44 @@
    "source": "étape 3"
   },
   {
+   "id": "hypo",
+   "type": "danger",
+   "col": "mnc",
+   "rang": "m3",
+   "ancre": "haut",
+   "titre": "Confus, maladroit, parle mal",
+   "texte": "**Abri chauffé tout de suite** : c'est l'hypothermie modérée. Cette personne ne voyage plus et ne décide plus.",
+   "renvoi": "ch. 2, §2 ; ch. 25",
+   "source": "§2 ; §8, point 2 ; étape 6"
+  },
+  {
+   "id": "nuit",
+   "type": "geste",
+   "col": "mnc",
+   "rang": "m4",
+   "ancre": "haut",
+   "texte": "**Moins de clarté que le trajet** : tenir la nuit sur place, sauf si un feu approche.",
+   "renvoi": "ch. 2, §2",
+   "source": "§2"
+  },
+  {
    "id": "qd",
    "type": "question",
    "col": "qd",
    "rang": "qd",
    "texte": "La plus courte des quatre horloges ?",
+   "precision": "Comparée à 72 h et à la durée du trajet",
    "source": "étape 4"
   },
   {
-   "id": "b1",
+   "id": "b3",
    "type": "geste",
    "col": "b1",
    "rang": "br",
    "ancre": "haut",
-   "texte": "**Rester**, et continuer à mesurer.",
-   "renvoi": "ch. 2, étape 4",
-   "source": "étape 4"
+   "texte": "**Partir maintenant**, ou rester pour de bon. Un feu approche : partir tôt.",
+   "renvoi": "ch. 2, étapes 4 et 5",
+   "source": "étape 4 ; étape 5, feu de forêt"
   },
   {
    "id": "b2",
@@ -212,12 +242,12 @@
    "source": "étape 4"
   },
   {
-   "id": "b3",
+   "id": "b1",
    "type": "geste",
    "col": "b3",
    "rang": "br",
    "ancre": "haut",
-   "texte": "**Partir maintenant**, ou rester pour de bon.",
+   "texte": "**Rester**, et continuer à mesurer.",
    "renvoi": "ch. 2, étape 4",
    "source": "étape 4"
   },
@@ -225,7 +255,7 @@
    "id": "reste",
    "type": "urgent",
    "col": "r",
-   "rang": "d1",
+   "rang": "r1",
    "ancre": "haut",
    "temps": "1 h",
    "texte": "**Si on reste** : génératrice dehors, à 6 m au moins ; rien qui brûle dedans ; avertisseur testé ; une seule pièce chauffée ; l'eau remplie ; prévenir, et fixer l'heure du prochain contact.",
@@ -236,18 +266,28 @@
    "id": "gen",
    "type": "danger",
    "col": "r",
-   "rang": "d4",
+   "rang": "r2",
    "ancre": "haut",
    "titre": "La génératrice",
-   "texte": "**Jamais dans un bâtiment, un garage ou sous un auvent.** Interrupteur principal à OFF avant de brancher : le courant remonte dans la ligne.",
+   "texte": "**Jamais dans un bâtiment, un garage ou sous un auvent.** Interrupteur principal à OFF avant de brancher : sinon le courant remonte dans la ligne.",
    "renvoi": "ch. 2, §8",
    "source": "étape 8, point 1 ; §8"
+  },
+  {
+   "id": "fumee",
+   "type": "geste",
+   "col": "rc",
+   "rang": "r3",
+   "ancre": "haut",
+   "texte": "**Fumée dense au chalet chauffé au bois** : il ne se ferme pas et ne se chauffe pas en même temps ; partir vers la maison.",
+   "renvoi": "ch. 2, étape 5",
+   "source": "étape 5, fumée sans feu visible"
   },
   {
    "id": "qroute",
    "type": "question",
    "col": "p",
-   "rang": "d1",
+   "rang": "q1",
    "ancre": "haut",
    "texte": "Route ouverte, plein fait, arrivée avant la nuit ?",
    "precision": "Et personne de confus ni de maladroit à bord",
@@ -257,7 +297,7 @@
    "id": "qou",
    "type": "question",
    "col": "p",
-   "rang": "d3",
+   "rang": "q2",
    "ancre": "haut",
    "texte": "La situation s'étire ?",
    "precision": "Aqueduc sans pression, rétablissement repoussé deux fois, voisins partis",
@@ -267,7 +307,7 @@
    "id": "ville",
    "type": "geste",
    "col": "p1",
-   "rang": "d5",
+   "rang": "pv",
    "ancre": "haut",
    "texte": "**En ville** : la maison ou un proche.",
    "source": "étape 4, où aller"
@@ -276,7 +316,7 @@
    "id": "chalet",
    "type": "geste",
    "col": "p2",
-   "rang": "d5",
+   "rang": "pv",
    "ancre": "haut",
    "texte": "**Au chalet**, de jour, le plein fait.",
    "source": "étape 4, où aller ; étape 5"
@@ -285,7 +325,7 @@
    "id": "part",
    "type": "urgent",
    "col": "p",
-   "rang": "d6",
+   "rang": "pp",
    "ancre": "haut",
    "temps": "1 h",
    "texte": "**Si on part** : les enfants habillés, un change à part ; la trousse et les papiers ; prévenir des proches ; deux itinéraires ; la maison vidangée l'hiver ; PARTIS sur la porte ; le plein.",
@@ -293,14 +333,25 @@
    "source": "étape 9"
   },
   {
+   "id": "panne",
+   "type": "danger",
+   "col": "p",
+   "rang": "pd",
+   "ancre": "haut",
+   "titre": "En panne sur la route",
+   "texte": "**Rester dans l'auto.** Échappement dégagé à chaque redémarrage, fenêtre entrouverte sous le vent, moteur une dizaine de minutes par demi-heure.",
+   "renvoi": "ch. 2, §8",
+   "source": "§8, points 1 et 2 ; §6"
+  },
+  {
    "id": "reprendre",
    "type": "geste",
    "col": "bas",
-   "rang": "d7",
+   "rang": "bas",
    "ancre": "haut",
-   "texte": "**Reprendre la décision à heure fixe** : au réveil, et assez tôt pour partir de jour ; et chaque fois qu'une horloge change.",
-   "renvoi": "ch. 2, étape 10",
-   "source": "étape 10"
+   "texte": "**Reprendre la décision à heure fixe** : au réveil, et assez tôt pour partir de jour ; et chaque fois qu'une horloge change. Un seul adulte tranche.",
+   "renvoi": "ch. 2, étapes 7 et 10",
+   "source": "étapes 7 et 10"
   }
  ],
  "liens": [
@@ -329,22 +380,6 @@
    "vers": "co6"
   },
   {
-   "de": "co6",
-   "vers": "radio",
-   "sortie": "droite",
-   "entree": "gauche",
-   "via": [
-    [
-     3.75,
-     6.85
-    ],
-    [
-     3.75,
-     2.1
-    ]
-   ]
-  },
-  {
    "de": "depB",
    "vers": "radio"
   },
@@ -355,73 +390,50 @@
   {
    "de": "horloges",
    "vers": "qd",
-   "sx": 5.6,
-   "ex": 5.6
+   "sx": 4.3,
+   "ex": 4.3
   },
   {
    "de": "qd",
-   "vers": "b1",
-   "etiquette": "Plus de 72 h",
-   "coude": 7.72,
+   "vers": "b3",
+   "etiquette": "Moins que le trajet",
+   "coude": 7.62,
    "pos": "palier"
   },
   {
    "de": "qd",
    "vers": "b2",
    "etiquette": "Moins de 72 h",
-   "coude": 7.72,
+   "coude": 7.62,
    "pos": "palier"
   },
   {
    "de": "qd",
-   "vers": "b3",
-   "etiquette": "Moins que le trajet",
-   "coude": 7.72,
+   "vers": "b1",
+   "etiquette": "Plus de 72 h",
+   "coude": 7.62,
    "pos": "palier"
   },
   {
-   "de": "b1",
-   "vers": "reste",
+   "de": "b3",
+   "vers": "qroute",
    "sortie": "bas",
-   "entree": "gauche",
+   "entree": "droite",
+   "sx": 1.55,
    "via": [
     [
      1.55,
-     9.05
+     9.18
     ],
     [
-     8.8,
-     9.05
+     15.65,
+     9.18
     ],
     [
-     8.8,
+     15.65,
      1.3
     ]
-   ],
-   "sx": 1.55
-  },
-  {
-   "de": "b2",
-   "vers": "reste",
-   "etiquette": "Plan écrit",
-   "sortie": "bas",
-   "entree": "gauche",
-   "via": [
-    [
-     3.4,
-     9.05
-    ],
-    [
-     8.8,
-     9.05
-    ],
-    [
-     8.8,
-     1.3
-    ]
-   ],
-   "sx": 3.4,
-   "pos": "debut"
+   ]
   },
   {
    "de": "b2",
@@ -429,47 +441,72 @@
    "etiquette": "Sans plan",
    "sortie": "bas",
    "entree": "droite",
+   "sx": 3.3,
+   "pos": "debut",
    "via": [
     [
-     4.5,
-     9.25
+     3.3,
+     9.18
     ],
     [
      15.65,
-     9.25
+     9.18
     ],
     [
      15.65,
      1.3
     ]
-   ],
-   "sx": 4.5,
-   "pos": "debut"
+   ]
   },
   {
-   "de": "b3",
-   "vers": "qroute",
+   "de": "b2",
+   "vers": "reste",
+   "etiquette": "Plan écrit",
    "sortie": "bas",
-   "entree": "droite",
+   "entree": "gauche",
+   "sx": 4.6,
+   "pos": "debut",
+   "via": [
+    [
+     4.6,
+     9.0
+    ],
+    [
+     8.8,
+     9.0
+    ],
+    [
+     8.8,
+     1.3
+    ]
+   ]
+  },
+  {
+   "de": "b1",
+   "vers": "reste",
+   "sortie": "bas",
+   "entree": "gauche",
+   "sx": 6.3,
    "via": [
     [
      6.3,
-     9.25
+     9.0
     ],
     [
-     15.65,
-     9.25
+     8.8,
+     9.0
     ],
     [
-     15.65,
+     8.8,
      1.3
     ]
-   ],
-   "sx": 6.3
+   ]
   },
   {
    "de": "reste",
-   "vers": "gen"
+   "vers": "gen",
+   "ex": 10.4,
+   "sx": 10.4
   },
   {
    "de": "qroute",
@@ -487,14 +524,14 @@
    "de": "qou",
    "vers": "ville",
    "etiquette": "Non",
-   "coude": 4.75,
+   "coude": 3.6,
    "pos": "palier"
   },
   {
    "de": "qou",
    "vers": "chalet",
    "etiquette": "Oui",
-   "coude": 4.75,
+   "coude": 3.6,
    "pos": "palier"
   },
   {
@@ -508,14 +545,20 @@
    "ex": 14.75
   },
   {
-   "de": "gen",
-   "vers": "reprendre",
-   "ex": 10.5
+   "de": "part",
+   "vers": "panne"
   },
   {
-   "de": "part",
+   "de": "gen",
    "vers": "reprendre",
-   "ex": 13.9
+   "sx": 9.3,
+   "ex": 9.3
+  },
+  {
+   "de": "panne",
+   "vers": "reprendre",
+   "sx": 13.925,
+   "ex": 13.925
   }
  ]
 }

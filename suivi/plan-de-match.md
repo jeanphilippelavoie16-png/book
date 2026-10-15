@@ -16,6 +16,43 @@ Coût indicatif en tokens : un chapitre neuf complet ≈ 1 M ; une planche dessi
 - Plus de loi, de municipalité, de relecteur, de numéro de téléphone ni de service qui répond
   (exceptions dans CLAUDE.md).
 
+## ⏸ PAUSE du 15 octobre (JP : « à 96 % d'utilisation, pause ; on reprend samedi ») : COMMENT REPRENDRE
+
+Deux chantiers tournaient, lancés le 15 octobre. Les briefs sont copiés dans `_reprise/scratchpad/` (le
+scratchpad de la session ne survit pas au conteneur). Tout ce qui était sur le disque est poussé.
+
+1. **Planches manquantes (priorités haute et moyenne, et les 14 à refaire)** : la liste est dans
+   `images/audit-planches/` (LISEZMOI.md pour le résumé, `tomes-*.md` pour le détail). Neuf lots par
+   chapitres : t1 tome 1, t2 tome 2, t3a et t3b tome 3, t4 tome 4, t5 tome 5, t6a tome 6 sauf 109 à 112,
+   t6b ch. 109 et 112, t6c ch. 110 et 111. Brief commun : `_reprise/scratchpad/planches-lot/brief.md`, avec
+   en fin **« Le niveau de qualité »** (JP sur la 04-42 : « c'est butcher, ça. Faisons les choses comme il
+   faut »). Ce qui reste = les lignes de l'inventaire qui n'ont pas de PNG dans `images/a-valider/`.
+   Chaque lot range ses ancrages dans `ancrages-<lot>.json` du scratchpad, copiés à la pause dans
+   `_reprise/scratchpad/planches-lot/` (à fusionner dans `design/epreuves-livre/placements-tome-N.json`). **Corrections demandées et pas encore faites au moment de la pause** (à
+   vérifier dans le PNG) :
+   - 04-42 : le test du boudin sans les mains (le boudin d'argile seul, plié ; le sable qui s'émiette) ;
+   - 05-01 : souris propres décalquées ou pas de souris ; l'ombre du flanc qui déborde sous le fond ;
+   - 07-01 : un vrai marteau ; le chiffon visible en coupe entre le bouchon et le drain ;
+   - 43-04 : vraies empreintes de cervidé au trait ; les trois ovales sans renvoi ; la dernière empreinte ;
+   - 77-01 : le poisson dans son papier (paquet) ; une ligne d'eau nette au-dessus ;
+   - 70-13 : vrais crochets (pas des cercles barrés) ; des pièces qui se reconnaissent.
+2. **Passe d'écriture du tome 1** (skill `ecriture`, modèles ch. 10 et ch. 4) : brief
+   `_reprise/scratchpad/passe-t1/brief.md`. Texte d'avant la passe : commit `ef62be7`
+   (`git show ef62be7:chapitres/NN-….md`, pour `controle.py --avant`). Lots : p1 (00b, 01, 02), p2 (08, 09,
+   10 à vérifier, 16), p3 (17, 18), lancés ; p4 (03, 05, 06), p5 (07, 11, 12), p6 (13, 14, 15) à lancer.
+   Les ancrages proposés par la passe : `_reprise/scratchpad/passe-t1/ancrages-<lot>.json`. Un chapitre est fait quand `controle.py` passe sans tiret ni mot banni et sans invariant disparu, que
+   sa série orange est en place si l'inventaire `plan/premieres-minutes-inventaire.md` en demande une, que
+   son logigramme est rendu si l'urgence se décide en branches, et que chaque planche est appelée.
+3. **Ensuite** : fusionner les ancrages, remonter le tome 1 (`design/outils/assembler-tome.py 1 --hors-ligne`),
+   republier le tome 1 dans le lecteur (`_reprise/memoire/lecteur-relecture.md`) pour la relecture de
+   validation de JP, et marquer ses anciennes notes. Puis : recomposer toutes les planches avec la légende
+   sans tiret ; l'incohérence du fil de l'électroscope (ch. 4) ; la contradiction sur l'iode après 40 ans
+   (ch. 4).
+
+État au moment de la pause : voir la ligne « Arrêté » ci-dessous, mise à jour en arrêtant.
+
+**Arrêté** : pas encore (en cours le 15 octobre, 14 h 30).
+
 ## ⏸ PAUSE du 28 septembre (JP : « met ça sur pause, token manquant ») — COMMENT REPRENDRE
 
 1. **Corrections des planches : 19 sur 50 faites.** Les 31 restantes : `scratchpad/args-corrections-reste.json`.

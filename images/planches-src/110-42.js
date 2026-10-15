@@ -170,10 +170,6 @@ module.exports = (h) => {
     for (const k of [-0.28, 0, 0.28]) o.push(h.ligne(b[0] + n[0] * e * k, b[1] + n[1] * e * k, b[0] + n[0] * e * k * 1.5 + u[0] * e * 0.9, b[1] + n[1] * e * k * 1.5 + u[1] * e * 0.9, h.a.detail));
     return o.join('\n');
   };
-  const bez = (p0, p1, p2, p3, n = 16) => Array.from({ length: n + 1 }, (_, i) => {
-    const t = i / n, u = 1 - t;
-    return [u * u * u * p0[0] + 3 * u * u * t * p1[0] + 3 * u * t * t * p2[0] + t * t * t * p3[0], u * u * u * p0[1] + 3 * u * u * t * p1[1] + 3 * u * t * t * p2[1] + t * t * t * p3[1]];
-  });
   const droite = (a, b, n = 6) => Array.from({ length: n + 1 }, (_, i) => [a[0] + (b[0] - a[0]) * i / n, a[1] + (b[1] - a[1]) * i / n]);
 
   // ─── un tour sur une diagonale ───
@@ -226,7 +222,7 @@ module.exports = (h) => {
   // des tours au fond de chaque fourche. Le bout file sur le bras haut-gauche de B et l'arrête d'un
   // nœud de cabestan.
   const RHO = RX + 0.35 * E;
-  const arc = (cx, cy, rho, a0, a1) => { const o = [], n = Math.ceil(Math.abs(a1 - a0) / 5);
+  const anneau = (cx, cy, rho, a0, a1) => { const o = [], n = Math.ceil(Math.abs(a1 - a0) / 5);
     for (let i = 0; i <= n; i++) { const a = (a0 + (a1 - a0) * i / n) * Math.PI / 180; o.push([cx + rho * Math.cos(a), cy + rho * Math.sin(a)]); } return o; };
   const dB = [-1 / S2, -1 / S2], vB = [1 / S2, -1 / S2];
   const arret = (cx, cy) => {
@@ -259,7 +255,7 @@ module.exports = (h) => {
     let frap = '';
     if (serre) {
       const a = arret(cx, cy);
-      const f1 = arc(cx, cy, RHO, -45, 315), f2 = [...arc(cx, cy, RHO + S, -45, 223), a.entree];
+      const f1 = anneau(cx, cy, RHO, -45, 315), f2 = [...anneau(cx, cy, RHO + S, -45, 223), a.entree];
       frap = tube(f1) + '\n' + tube(f2);
       out.push(frap);
       g.arret = a;

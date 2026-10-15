@@ -64,9 +64,9 @@
     "g3": 2.7,
     "g4": 3.55,
     "g5": 4.6,
-    "g6": 5.55,
-    "g7": 6.68,
-    "g8": 7.42,
+    "g6": 5.62,
+    "g7": 6.75,
+    "g8": 7.5,
     "d1": 1.15,
     "d2": 2.1,
     "d3": 3.95,
@@ -319,7 +319,8 @@
     {
       "de": "compter",
       "vers": "parler",
-      "sx": 2.175
+      "sx": 2.175,
+      "ex": 2.175
     },
     {
       "de": "parler",
@@ -340,7 +341,7 @@
       "via": [
         [
           8.8,
-          6.68
+          6.75
         ],
         [
           8.8,
@@ -358,14 +359,14 @@
     {
       "de": "qrep",
       "vers": "refuser",
-      "etiquette": "Il a où aller",
+      "etiquette": "Refus, il a où aller",
       "coude": 1.62,
       "pos": "palier"
     },
     {
       "de": "qrep",
       "vers": "pasrefus",
-      "etiquette": "Nulle part où aller",
+      "etiquette": "Refus, nulle part où aller",
       "coude": 1.62,
       "pos": "palier"
     },

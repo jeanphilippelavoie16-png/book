@@ -90,10 +90,12 @@ module.exports = (h) => {
     // le cuivre : en bas, entier ; en haut, fendu au milieu, les lèvres ouvertes
     o.push(h.rect(x0, y + r - ep, x1 - x0, ep, A.plein));
     o.push(h.rect(x0, y - r, xm - 7 - x0, ep, A.plein), h.rect(xm + 7, y - r, x1 - xm - 7, ep, A.plein));
-    o.push(h.chemin([[xm - 7, y - r], [xm - 5, y - r - 7], [xm - 2, y - r - 3]], A.arete), h.chemin([[xm + 7, y - r], [xm + 5, y - r - 8], [xm + 2, y - r - 4]], A.arete));
+    // les lèvres de la fente, ouvertes vers le dehors, et ce qui en jaillit
+    o.push(h.path(`M${xm - 7} ${y - r} L${xm - 5} ${y - r - 5} L${xm - 3} ${y - r - 4}`, A.arete), h.path(`M${xm + 7} ${y - r} L${xm + 5} ${y - r - 6} L${xm + 3} ${y - r - 5}`, A.arete));
+    for (const [dx, a] of [[-4, -16], [0, 0], [4, 16]]) { const t = a * Math.PI / 180; o.push(h.ligne(xm + dx * 0.5, y - r - 8, xm + dx * 0.5 + 12 * Math.sin(t), y - r - 8 - 12 * Math.cos(t), A.detail)); }
     // la chaleur, dessous, au milieu
     for (const dx of [-14, 0, 14]) o.push(h.path(`M${xm + dx} ${y + r + 46} q-4 -6 0 -12 q4 -6 0 -12`, A.detail));
-    o.push(h.controle(xm, y - r - 3, 13));
+    o.push(h.controle(xm, y - r - 6, 16));
     // la pression qui pousse sur les deux glaces
     o.push(h.fleche(`M${xm - 8} ${y + 9} L${xm - 25} ${y + 9}`, A.detail), h.fleche(`M${xm + 8} ${y + 9} L${xm + 25} ${y + 9}`, A.detail));
     return o.join('\n');
