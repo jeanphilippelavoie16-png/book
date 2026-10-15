@@ -298,3 +298,71 @@ Renvois seulement, aucun chiffre ajouté.
   sert le jour où personne ne vient. Aucun chiffre.
 
 Compression §3 et §4 — 27 septembre 2026 : 2 357 mots → 227 mots (§3 : 1 399 → 116, note [^1] gardée et hors compte ; §4 : 958 → 111, tableau devenu liste de six items) ; matériel coupé : sifflet (signal des trois : ch. 16 et 35), pelle, boyau à carburant (amorçage sans bouche : §9), raquettes et traîneau (§9 ; brancards : ch. 16 et 89), stabilisateur, entonnoir et filtre au chamois, extincteur ou seau de sable (l'eau qui étale l'essence : §8), crayon gras, fabrication détaillée des pics et du ciseau à glace, paragraphe de fin. Déplacé : la glace de marée du fleuve sans seuil publié → §5, étape 22 ; le passager du traîneau qui gèle avant le conducteur → §5, étape 25. Chiffres qui ne vivaient qu'au §3 et sortent du livre : CO à 175 et 3 200 ppm, exemple -20 °C et 50 km/h = -35, batterie à moitié vers -18 °C, diesel trouble vers -10 °C.
+
+## Conduite dans la neige : mordance et dégonflage — 15 octobre 2026
+
+**Origine.** JP a mis un « ? » à côté de deux conseils de la page « La route, sans déneigeuse » du
+chapitre 00, coupé le 15 octobre (`chapitres-retires/00-le-chapitre-principal.md`, lignes 406 à
+418) : « Redonner de la mordance sous les roues motrices » et « Dégonfler pour flotter ».
+
+**Ces conseils ne sont pas au chapitre 15.** Ni « cendre », ni « litière », ni « dégonfl… », ni
+« déjant… » dans `chapitres/15-se-deplacer-et-le-carburant.md`, ni ailleurs dans `chapitres/` ; et
+`git log -S` montre qu'ils n'y ont jamais été. Ils ne vivaient qu'au 00. **Le chapitre 15 n'a pas
+été modifié.** Le troisième conseil de la même liste, « Chaînes de fortune », renvoyait au ch. 15
+mais n'y est pas non plus ; il n'a pas été vérifié ici.
+
+**Réseau.** Le proxy de la session a refusé toutes les pages (canada.ca, getprepared.gc.ca,
+tc.canada.ca, quebec.ca, nhtsa.gov, apps.dtic.mil, archive.org, weather.gov…) ; seul l'outil de
+recherche répondait. Les fiches de `sources/` ci-dessous enregistrent donc les **extraits rendus par
+la recherche**, chacune avec son URL et la mention « page non ouverte ». **À réenregistrer depuis
+les pages** avant de lever quoi que ce soit dans le livre.
+
+### Verdicts, affirmation par affirmation
+
+| Affirmation (ch. 00) | Verdict | Source |
+| --- | --- | --- |
+| Sable sous les roues motrices | Vrai | `sources/15-securite-publique-canada-trousse-auto-litiere.md` |
+| Litière | Vrai, **non agglomérante** seulement (l'agglomérante est faite pour prendre en mottes) | idem |
+| Branches de sapin cassées court | Vrai : pelleter un chemin devant chaque roue, puis y coucher planches ou branches | `sources/15-us-army-tc21-305-4-vehicule-pris-neige.md` |
+| Cendre de poêle | Introuvable dans une source officielle ; seulement des blogues (qui la disent sans effet une fois mouillée) | — (recherche négative) |
+| « Ce qui compte est l'arête à mordre » | Nuancé : le grain doit s'enchâsser dans la neige ou la glace ; la forme anguleuse est recherchée | `sources/15-cerema-abrasifs-viabilite-hivernale.md` |
+| « … pas l'épaisseur » | Faux tel quel : le gain dépend fortement de la dose. Mais une couche lâche sur glace nue bien froide peut faire pire que la glace seule (les grains roulent) ; le sable gelé dedans fait mieux que le sable lâche | `sources/15-crrel-sable-sur-glace-friction.md` |
+| « La cendre est la meilleure des quatre par grand froid » | Introuvable, et rien ne va dans ce sens : l'abrasif routier se prend sans fraction fine ; les études du CRREL divergent sur fin ou grossier et ne testent pas la cendre | `sources/15-cerema-abrasifs-viabilite-hivernale.md`, `sources/15-crrel-sable-sur-glace-friction.md` |
+| « Le sable humide prend en bloc » | Vrai : les abrasifs routiers reçoivent du sel pour ne pas geler en mottes, et s'entreposent au sec | `sources/15-mtq-abrasif-sel-anti-gel.md` |
+| Dégonflé, le pneu s'écrase et allonge son empreinte | Vrai (elle s'élargit aussi, moins) | `sources/15-empreinte-pneu-longueur-pression.md` |
+| … il flotte sur la neige au lieu de creuser | Nuancé : vrai en neige **profonde et molle** (pression au sol plus basse, moins d'enfoncement) ; **faux sur neige tassée et glace**, où le fabricant dit de ne jamais dégonfler | `sources/15-crrel-tr-20-2-pression-pneus-neige.md`, `sources/15-bfgoodrich-bridgestone-degonfler-neige.md` |
+| On repompe dès le retour sur le dur | Vrai : il faut avoir de quoi regonfler | `sources/15-bfgoodrich-bridgestone-degonfler-neige.md`, `sources/15-nhtsa-transports-canada-sous-gonflage-dejantage.md` |
+| … sinon le pneu se déjante en virage | Nuancé : le talon sort avec moins de poussée de côté quand le pneu est mou (virage serré, ornière, bordure), dans la neige comme sur le dur. Sur le dur, à la vitesse, le danger documenté est la chaleur : flexion, échauffement, bande de roulement qui se décolle | `sources/15-nhtsa-transports-canada-sous-gonflage-dejantage.md` |
+| Aucune pression ne vaut pour tous les pneus | Vrai | `sources/15-bfgoodrich-bridgestone-degonfler-neige.md` |
+| On dégonfle par étapes, on s'arrête dès que le véhicule avance | Introuvable chez un fabricant ou une agence ; seulement des guides commerciaux hors route | idem |
+| Chiffre de pression | Aucun dans le 00 ; aucun à donner : les valeurs publiées (18 psi, 15 psi) sont propres à des pneus et des véhicules d'essai | `sources/15-crrel-tr-20-2-pression-pneus-neige.md` |
+
+### Proposition, non insérée
+
+Si JP veut ces conseils dans le livre, la place est au §9 du chapitre 15, juste avant
+« **Réparer sur le chemin.** ». Texte prêt, sans chiffre :
+
+> **Sortir le véhicule de la neige.**
+>
+> - **Garnir sous les roues motrices.** Pelleter d'abord un chemin devant chaque roue, puis y
+>   coucher ce qui donne prise : planches, branches, sable, litière à chat **non agglomérante** —
+>   l'agglomérante est faite pour prendre en mottes à l'humidité. Le grain tient quand il
+>   s'enfonce dans la neige ou gèle dans la glace ; sur de la glace nue bien froide, une couche
+>   lâche peut donner moins de prise que la glace seule, parce que les grains roulent sous le
+>   caoutchouc. Le sable se garde au sec, ou mêlé d'un peu de sel : humide, il gèle en bloc dans le
+>   coffre. La cendre du poêle se lance faute de mieux [À VÉRIFIER] ; rien ne montre qu'elle
+>   vaille mieux que le sable.
+> - **Dégonfler, dans la neige molle seulement.** Moins gonflé, le pneu s'écrase, son empreinte
+>   s'allonge et la charge s'étale : il enfonce moins dans la neige profonde. Sur la neige tassée
+>   et la glace, ça ne donne rien : on garde la pression. Aucune pression ne vaut pour tous les
+>   pneus ; on dégonfle un peu, on essaie, on recommence [À VÉRIFIER]. Plus le pneu est mou, moins
+>   il faut de poussée de côté pour sortir son talon de la jante : virage serré, ornière, roche. On
+>   ne dégonfle que si on a de quoi regonfler, et on regonfle avant de reprendre de la vitesse : un
+>   pneu mou fléchit, chauffe, et sa bande de roulement se décolle.
+
+### Encore `[À VÉRIFIER]` (dans la proposition seulement)
+
+- **La cendre comme abrasif** : plausible (c'est le grain toujours à portée au chalet) ; aucune
+  source officielle ni étude ne la teste. À lever par une source, sinon couper la phrase.
+- **Le dégonflage par étapes** : c'est la seule façon d'appliquer le conseil sans chiffre, mais aucun
+  fabricant ni aucune agence trouvés ne publient de méthode de dégonflage. À lever par une source, sinon couper.
