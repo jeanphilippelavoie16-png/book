@@ -8,8 +8,8 @@
 // Montage vérifié contre leatherworker.net (fil « Cutting String (Rawhide) », 2010 : lame dans une fente,
 // clou guide à côté, la peau appuyée contre le guide, on fait le tour du disque) : sources/103-gabarit-laniere.md.
 //
-// Trois vues : de côté (la lame plantée, son fil tourné vers la peau qui arrive, la lanière tirée par la
-// main) ; dans l'axe de la lanière, en gros (la cale, l'écart, la lanière en coupe, la lame) ; la peau
+// Trois vues : de côté (la lame plantée, son fil tourné vers la peau qui arrive, la lanière tirée ; pas de
+// main : l'outil seul, la flèche dit le geste) ; dans l'axe de la lanière, en gros (la cale, l'écart, la lanière en coupe, la lame) ; la peau
 // entière vue de dessus (le départ au bord, la suite de la coupe en spirale jusqu'au centre).
 // Aucune cote chiffrée : la largeur se règle à l'essai (étape 18), l'écart est montré sans nombre.
 'use strict';
@@ -65,64 +65,55 @@ module.exports = (h) => {
 
   // ─── Vue de côté : la bûche debout, la lame plantée, la lanière tirée ─────────────────────
   const cote = z => {
-    const Yt = Math.round(z.h * 0.52);    // le dessus de la bûche
-    const bx0 = 64, bx1 = 304;            // les flancs de la bûche
-    const ep = 3.6;                       // l'épaisseur de la peau
+    const Yt = Math.round(z.h * 0.5);     // le dessus de la bûche
+    const bx0 = 40, bx1 = 330;            // les flancs de la bûche
+    const ep = 4;                         // l'épaisseur de la peau
     // la lame : le fil monte en biais vers la droite, tourné vers la peau qui arrive de la gauche
-    const L0 = 172, L1 = 240, Lh = 36;
-    const lame = [[L0 - 4, Yt], [L0 + 26, Yt - Lh], [L1, Yt - Lh], [L1, Yt]];
-    // la lanière : sort derrière la lame, au ras de la peau, et monte vers la main
-    const prise = [470, 92];
-    const mil = bez([L0 + 10, Yt - ep / 2], [L1 + 70, Yt - ep / 2], [prise[0] - 90, prise[1] + 62], prise, 40);
-    // le bout de la lanière entre sous la pulpe du pouce
-    const u = [prise[0] - mil[mil.length - 2][0], prise[1] - mil[mil.length - 2][1]], lu = Math.hypot(u[0], u[1]);
-    mil.push([prise[0] + 3 * u[0] / lu, prise[1] + 3 * u[1] / lu]);
+    const L0 = 150, L1 = 234, Lh = 44;
+    const lame = [[L0 - 5, Yt], [L0 + 32, Yt - Lh], [L1, Yt - Lh], [L1, Yt]];
+    // la lanière : sort derrière la lame, au ras de la peau, et monte vers la droite ; son bout est libre
+    const bout = [z.l - 40, 46];
+    const mil = bez([L0 + 12, Yt - ep / 2], [L1 + 90, Yt - ep / 2], [bout[0] - 120, bout[1] + 70], bout, 40);
     const lan = bande(mil, ep);
-    return { Yt, bx0, bx1, ep, L0, L1, Lh, lame, mil, lan, prise };
+    return { Yt, bx0, bx1, ep, L0, L1, Lh, lame, mil, lan, bout };
   };
 
   const dessinCote = z => {
     const g = cote(z), { Yt, bx0, bx1, ep } = g, out = [];
-    const bas = Math.min(z.h - 4, Yt + 118);
+    const bas = z.h - 6;
     // la bûche : flancs d'écorce un peu irréguliers, cassure en bas (elle continue jusqu'au sol)
-    const flancG = [[bx0, Yt], [bx0 - 3, Yt + 45], [bx0 + 1, Yt + 90], [bx0 - 2, bas]];
-    const flancD = [[bx1, Yt], [bx1 + 2, Yt + 55], [bx1 - 2, Yt + 100], [bx1 + 1, bas]];
-    const corps = flancG.concat(cassure([bx0 - 2, bas], [bx1 + 1, bas], 2.2, 3).slice(1), flancD.slice().reverse().slice(1), [[bx0, Yt]]);
+    // les flancs : une courbe douce, l'écorce un peu renflée
+    const flanc = (x, b) => { const o = []; for (let i = 0; i <= 16; i++) { const t = i / 16; o.push([x + b * Math.sin(t * Math.PI) - 1.5 * t, Yt + (bas - Yt) * t]); } return o; };
+    const flancG = flanc(bx0, -4), flancD = flanc(bx1, 4);
+    const casB = cassure([bx0 - 1.5, bas], [bx1 - 1.5, bas], 2.2, 4);
+    const corps = flancG.concat(casB.slice(1), flancD.slice().reverse().slice(1), [[bx0, Yt]]);
     out.push(h.chemin(corps, A.blanc, true));
     out.push(h.chemin(flancG, A.contour), h.chemin(flancD, A.contour), h.ligne(bx0, Yt, bx1, Yt, A.contour));
-    out.push(h.chemin(cassure([bx0 - 2, bas], [bx1 + 1, bas], 2.2, 3), A.detail));
+    out.push(h.chemin(casB, A.detail));
     // l'écorce : traits verticaux courts et rompus
-    const ecorce = [[80, 18, 56], [98, 40, 104], [122, 14, 44], [138, 66, 122], [166, 52, 92], [188, 92, 134],
-      [214, 26, 54], [236, 56, 114], [258, 30, 52], [274, 44, 100], [292, 72, 128], [110, 96, 134], [250, 124, 140]];
-    ecorce.forEach(([x, a, b]) => { const y0 = Yt + a, y1 = Math.min(Yt + b, bas - 6); if (y1 > y0 + 8) out.push(h.path(`M${x} ${y0} Q${x + 3} ${(y0 + y1) / 2} ${x - 1} ${y1}`, A.detail)); });
+    const ecorce = [[58, 16, 60], [80, 44, 112], [104, 12, 44], [124, 70, 132], [150, 50, 96], [176, 96, 150],
+      [200, 24, 56], [222, 60, 124], [248, 30, 58], [268, 46, 104], [292, 76, 140], [312, 18, 50], [96, 104, 150], [246, 126, 160]];
+    ecorce.forEach(([x, a, b]) => { const y0 = Yt + a, y1 = Math.min(Yt + b, bas - 8); if (y1 > y0 + 8) out.push(h.path(`M${x} ${y0} Q${x + 3} ${(y0 + y1) / 2} ${x - 1} ${y1}`, A.detail)); });
     // la partie plantée de la lame, dans la fente : en caché
-    out.push(h.chemin([[g.L0 - 4, Yt], [g.L0 - 4, Yt + 28], [g.L1, Yt + 28], [g.L1, Yt]], A.cache));
+    out.push(h.chemin([[g.L0 - 5, Yt], [g.L0 - 5, Yt + 34], [g.L1, Yt + 34], [g.L1, Yt]], A.cache));
     // la cale, derrière la lame (plan loin) : vissée sur le dessus, deux vis en caché
-    const c0 = 124, c1 = 290, ch = 18;
+    const c0 = 92, c1 = 296, ch = 22;
     out.push(h.rect(c0, Yt - ch, c1 - c0, ch, A.loin), h.rect(c0, Yt - ch, c1 - c0, ch, A.arete));
-    [140, 274].forEach(x => out.push(h.chemin([[x - 2.4, Yt - ch], [x - 2.4, Yt + 22], [x, Yt + 26], [x + 2.4, Yt + 22], [x + 2.4, Yt - ch]], A.cache)));
-    // la lanière, derrière la lame : peinte avec la main (objet de la prise, entre le pouce et l'index)
-    const lanSvg = [h.chemin(g.lan.poly, A.blanc, true), h.chemin(g.lan.g, A.arete), h.chemin(g.lan.d, A.arete),
-      h.ligne(g.lan.g[g.lan.g.length - 1][0], g.lan.g[g.lan.g.length - 1][1], g.lan.d[g.lan.d.length - 1][0], g.lan.d[g.lan.d.length - 1][1], A.arete)].join('\n');
-    const BORD = { x0: 0, y0: 0, x1: z.l, y1: z.h };
-    const t = g.mil.length - 2, a = g.mil[t - 3], b = g.mil[t];
-    const axe = Math.atan2(b[1] - a[1], b[0] - a[0]) * 180 / Math.PI;
-    // la main gauche du modèle (cote 'gauche') vue côté pouce : le pouce par-dessus la lanière, l'index dessous
-    const oM = { x: g.prise[0], y: g.prise[1], pose: 'pince-laterale', vue: 'pouce', cote: 'gauche', echelle: 0.95, diametre: 4 };
-    const M = h.formes.mainSimple({ ...oM, angle: 180 + axe + 12, objet: lanSvg, avantbras: { vers: [z.l + 60, g.prise[1] - 30], bord: BORD, longueur: 'bord' } });
-    out.push(M.svg || String(M));
+    [110, 278].forEach(x => out.push(h.chemin([[x - 3, Yt - ch], [x - 3, Yt + 26], [x, Yt + 31], [x + 3, Yt + 26], [x + 3, Yt - ch]], A.cache)));
+    // la lanière, derrière la lame, jusqu'à son bout libre
+    const fin = [g.lan.g[g.lan.g.length - 1], g.lan.d[g.lan.d.length - 1]];
+    out.push(h.chemin(g.lan.poly, A.blanc, true), h.chemin(g.lan.g, A.arete), h.chemin(g.lan.d, A.arete), h.ligne(...fin[0], ...fin[1], A.arete));
     // la lame, devant la lanière : fil en biais, biseau
     out.push(h.chemin(g.lame, A.blanc, true), h.chemin(g.lame, A.contour, true));
-    out.push(h.ligne(g.L0 + 4, Yt - 1, g.L0 + 30, Yt - g.Lh + 5, A.arete));
+    out.push(h.ligne(g.L0 + 3, Yt - 1, g.L0 + 36, Yt - g.Lh + 6, A.arete));
     // la peau qui arrive, posée sur la bûche, devant la lame : bande mince, cassure à gauche et à droite
-    const px0 = 10, px1 = 372;
-    const peau = [[px0, Yt - ep], [px1, Yt - ep], [px1, Yt], [px0, Yt]];
-    out.push(h.chemin(peau, A.blanc, true));
+    const px0 = 8, px1 = 400;
+    out.push(h.chemin([[px0, Yt - ep], [px1, Yt - ep], [px1, Yt], [px0, Yt]], A.blanc, true));
     out.push(h.ligne(px0, Yt - ep, px1, Yt - ep, A.arete), h.ligne(px0, Yt, bx0, Yt, A.arete), h.ligne(bx1, Yt, px1, Yt, A.arete));
     out.push(h.chemin(cassure([px0, Yt - ep - 2], [px0, Yt + 2], 1.4, 1), A.detail));
     out.push(h.chemin(cassure([px1, Yt - ep - 2], [px1, Yt + 2], 1.4, 1), A.detail));
     // le geste : on tire la lanière (rouge), le long de son trajet, au-dessus
-    const fl = bez([g.L1 + 62, Yt - 34], [g.L1 + 110, Yt - 38], [g.prise[0] - 96, g.prise[1] + 42], [g.prise[0] - 52, g.prise[1] + 8], 20);
+    const fl = bez([g.L1 + 70, Yt - 30], [g.L1 + 128, Yt - 34], [g.bout[0] - 128, g.bout[1] + 44], [g.bout[0] - 62, g.bout[1] + 8], 20);
     out.push(h.geste(D(fl)));
     return out.join('\n');
   };
@@ -144,9 +135,6 @@ module.exports = (h) => {
     out.push(h.chemin(gauche.concat(basC.slice(1), droite.slice(1)), A.blanc, true));
     out.push(h.ligne(8, Yt, z.l - 8, Yt, A.contour));
     [gauche, droite, basC].forEach(c => out.push(h.chemin(c, A.detail)));
-    // la fente : elle s'ouvre au dos de la lame et se referme vers le bas
-    const xm = (l0 + l1) / 2;
-    out.push(h.chemin([[l0 - 1, Yt], [xm - 0.6, Yt + 62]], A.detail), h.chemin([[l1 + 1, Yt], [xm + 0.6, Yt + 62]], A.detail));
     // la partie plantée de la lame, cachée
     out.push(h.chemin([[l0, Yt], [l0, Yt + 44], [l1, Yt + 44], [l1, Yt]], A.cache));
     // fil du bois
@@ -193,7 +181,7 @@ module.exports = (h) => {
     const lan = bande(mil, w);
     const peauPoly = bord.concat([[K[0] - 2, K[1]], [K[0] - 2, K[1] + w]]);
     out.push(h.chemin(peauPoly, A.blanc, true), h.chemin(lan.poly, A.blanc, true));
-    out.push(h.chemin(bord, A.contour), h.chemin(lan.g, A.contour), h.chemin(lan.d.slice(2), A.contour));
+    out.push(h.chemin(bord, A.contour), h.chemin(lan.g.slice(2), A.contour), h.chemin(lan.d, A.contour));
     // la suite de la coupe, en tireté : même pas à chaque tour, jusqu'au centre
     const suite = [];
     for (let th = 0; th <= 2 * Math.PI * ((R - w - 8) / w); th += 0.04) suite.push(P(th, R - w - w * th / (2 * Math.PI)));
@@ -209,7 +197,7 @@ module.exports = (h) => {
   return {
     ref: '103-05',
     titre: 'La coupe en spirale au gabarit',
-    desc: 'Trois vues du gabarit à lanière. De côté : une lame plantée dans une fente du dessus d’une bûche, le fil tourné vers la peau qui arrive, une cale de bois vissée derrière elle ; la main tire la lanière qui sort derrière la lame. Dans l’axe de la lanière : la cale, l’écart entre la cale et le fil, la lanière en coupe dans cet écart, la lame debout dans la fente. La peau vue de dessus : la coupe part du bord, contre la cale, et tourne vers le centre à pas constant.',
+    desc: 'Trois vues du gabarit à lanière. De côté : une lame plantée dans une fente du dessus d’une bûche, le fil tourné vers la peau qui arrive, une cale de bois vissée derrière elle ; la lanière sort derrière la lame et se tire vers le haut. Dans l’axe de la lanière : la cale, l’écart entre la cale et le fil, la lanière en coupe dans cet écart, la lame debout dans la fente. La peau vue de dessus : la coupe part du bord, contre la cale, et tourne vers le centre à pas constant.',
     format: 'pleine',
     disposition: [['cote'], ['axe', 'peau']],
     hauteurs: [4, 4],
@@ -220,11 +208,11 @@ module.exports = (h) => {
         dessin: dessinCote,
         renvois: z => {
           const g = cote(z);
-          const m = g.mil[22];
+          const m = g.mil[24];
           return [
-            { n: 1, rond: [372, g.Yt + 78], cible: [g.L1 - 6, g.Yt + 18], texte: 'lame plantée dans une fente de la bûche' },
-            { n: 2, rond: [110, g.Yt - 84], cible: [g.L0 + 11, g.Yt - g.Lh / 2 - 3], texte: 'le fil face à la peau qui arrive' },
-            { n: 3, rond: [m[0] - 30, m[1] - 52], cible: [m[0] - 3, m[1] - 3], texte: 'tirer la lanière d’un mouvement régulier' },
+            { n: 1, rond: [400, g.Yt + 92], cible: [g.L1 - 8, g.Yt + 20], texte: 'lame plantée dans une fente de la bûche' },
+            { n: 2, rond: [70, g.Yt - 96], cible: [g.L0 + 14, g.Yt - g.Lh / 2 - 3], texte: 'le fil face à la peau qui arrive' },
+            { n: 3, rond: [m[0] + 34, m[1] + 44], cible: [m[0] + 2, m[1] + 4], texte: 'tirer la lanière d’un mouvement régulier' },
           ];
         },
       },
@@ -246,7 +234,7 @@ module.exports = (h) => {
           const g = peau(z);
           const s = g.P(2.3, g.R - g.w - g.w * 2.3 / (2 * Math.PI));
           return [
-            { n: 6, rond: [26, 30], cible: [g.K[0] - 34, g.K[1] + 1], texte: 'attaquer au bord, contre la cale' },
+            { n: 6, rond: [26, 30], cible: [g.K[0] - 32, g.K[1] - 5], texte: 'attaquer au bord, contre la cale' },
             { n: 7, rond: [z.l - 22, z.h - 30], cible: s, texte: 'tourner vers le centre, d’un seul tenant' },
           ];
         },

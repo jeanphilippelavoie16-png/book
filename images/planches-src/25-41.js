@@ -93,7 +93,7 @@ module.exports = (h) => {
     const bc = [xL + 62, yG + 4];
     const pts = [[ks[0] - 34, yG - 3], [ks[0], ks[1]], [me[0], me[1]], [xL + 6, yG + 1], [bc[0] - 16, bc[1] - 1]];
     // les nœuds juste devant chaque main : la main tient derrière le nœud, qui l'empêche de glisser
-    const knots = [[ks[0] + 9, yG - 3.6], [me[0] - 9, yG - 3.6]];
+    const knots = [[ks[0] + 16, yG - 3.6], [me[0] - 12, yG - 3.6]];
     const objet = [corde(pts), ...knots.map(noeud)].join('\n');
     const o = { pose: 'ventre-hisse', x: dx, y: yG, echelle: S, appui: 'ventre', angles: ANG_S, mains: { P: 'prise', L: 'prise' }, objetP: objet };
     const sv = F.corps(o);

@@ -97,12 +97,12 @@ commencer à l'étape 2.
  on aère.
 6. **Aérer.** Ouvrir de dehors toutes les portes. Laisser l'avertisseur dedans : il ne mesure
  que l'air où il est, et emporté dehors il se tait sans rien prouver.
-7. **Rentrer quand la source est coupée, la maison aérée et l'avertisseur revenu à la normale
- :** voyant qui clignote seul, sans son. S'il sonne encore, appuyer sur son bouton en passant et
- ressortir : s'il se remet à sonner dans les 6 minutes, le CO est encore fort. Un afficheur qui
- montre un chiffre, quel qu'il soit, dit qu'il reste du CO. L'appareil fonctionne entre 4,4 et
- 37,8 °C : dans une maison aérée descendue plus bas, son silence ne prouve rien ; on referme et
- on laisse la pièce remonter avant de s'y fier.
+7. **Rentrer quand la source est coupée, la maison aérée et l'avertisseur revenu à la
+ normale :** voyant qui clignote seul, sans son. S'il sonne encore, appuyer sur son bouton en
+ passant et ressortir : s'il se remet à sonner dans les 6 minutes, le CO est encore fort. Un
+ afficheur qui montre un chiffre, quel qu'il soit, dit qu'il reste du CO. L'appareil fonctionne
+ entre 4,4 et 37,8 °C : dans une maison aérée descendue plus bas, son silence ne prouve rien ;
+ on referme et on laisse la pièce remonter avant de s'y fier.
 8. **Ne pas rallumer la source avant d'avoir réglé ce qui a fait le CO** : génératrice trop près
  d'une ouverture, conduit bouché par la neige ou le givre (ch. 84), appareil d'extérieur ou de
  camping allumé dedans. Si la source était le chauffage, l'horloge de la chaleur vient de
@@ -136,10 +136,10 @@ bouillir à gros bouillons au moins 1 minute pour boire, faire les breuvages et 
 brosser les dents et laver ce qui se mange cru.
 
 **Nourriture.** On ne compte que ce qui se garde sans courant. Le réfrigérateur reste froid
-environ 4 à 6 heures ; un congélateur plein, en bon état et fermé, tient jusqu'à 48 heures (ch.
-74). Le congélateur plein d'orignal est donc une horloge de 48 heures qui tourne, pas du stock.
-Ce qui a passé plus de 2 heures au-dessus de 4 °C se jette ; ce qui est dégelé mais resté à 4 °C
-ou moins se cuit tout de suite (ch. 1). Dans les deux cas, ça sort du calcul d'autonomie.
+environ 4 à 6 heures ; un congélateur plein, en bon état et fermé, tient jusqu'à 48 heures
+(ch. 74). Le congélateur plein d'orignal est donc une horloge de 48 heures qui tourne, pas du
+stock. Ce qui a passé plus de 2 heures au-dessus de 4 °C se jette ; ce qui est dégelé mais resté
+à 4 °C ou moins se cuit tout de suite (ch. 1). Dans les deux cas, ça sort du calcul d'autonomie.
 
 **Lien.** Trois questions : peut-on joindre quelqu'un, quelqu'un sait-il où on est, à quelle
 heure s'inquiétera-t-il ? Trois non font du lien l'horloge la plus courte, même si tout le reste
@@ -175,9 +175,9 @@ Vérifier l'état de la route 138, le refroidissement éolien annoncé, le carbu
 restante et le poids de la charge.
 
 Le refroidissement éolien chiffre le temps qu'on aurait dehors en cas de panne. La peau exposée
-peut geler en 10 à 30 minutes entre −28 et −39, en 5 à 10 minutes entre −40 et −47, en 2 à 5
-minutes entre −48 et −54, et en moins de 2 minutes à −55 et moins. Un pneu se change au bord de
-la route dans ce temps-là, compté à partir du moment où les mitaines sortent.
+peut geler en 10 à 30 minutes entre −28 et −39, en 5 à 10 minutes entre −40 et −47, en 2 à
+5 minutes entre −48 et −54, et en moins de 2 minutes à −55 et moins. Un pneu se change au bord
+de la route dans ce temps-là, compté à partir du moment où les mitaines sortent.
 
 Chiffrer le trajet avec la fiche : la durée mesurée en janvier ; le carburant de l'aller, et du
 retour tant qu'on ignore si la route est ouverte jusqu'au bout ; l'heure d'arrivée, comparée au
@@ -212,8 +212,8 @@ fixe (étape 10).
 Un jeune enfant ne marche pas plusieurs kilomètres dans la neige, ne dit pas de façon fiable
 s'il a froid, et perd sa chaleur plus vite qu'un adulte. Les nouveau-nés et les nourrissons sont
 parmi les plus à risque d'hypothermie. Chez un enfant, on surveille quatre signes plutôt que sa
-réponse : manque de coordination, difficulté à parler, confusion, comportement inhabituel (ch.
-39, ch. 40).
+réponse : manque de coordination, difficulté à parler, confusion, comportement inhabituel
+(ch. 39, ch. 40).
 
 ### Étape 7 : trancher avec la règle du pire scénario
 
@@ -341,8 +341,8 @@ neuves, même quand elle ne change pas. Après douze heures sans mesure, elle es
 > première heure et a jusqu'à quatre heures pour sonner ; à 30 ppm, il ne sonne pas avant trente
 > jours. Il est réglé pour éviter les décès, pas toute exposition.
 >
-> - **Génératrice : jamais dans un bâtiment, un garage ou sous un auvent.** Dehors, à au moins 6
->  m du bâtiment, loin des portes et des fenêtres.
+> - **Génératrice : jamais dans un bâtiment, un garage ou sous un auvent.** Dehors, à au moins
+>  6 m du bâtiment, loin des portes et des fenêtres.
 > - **Aucun appareil à combustible à l'intérieur.** Dans une tente, un abri de motoneige ou une
 >  auto, il tue plus vite : le volume est plus petit.
 > - **Auto immobilisée dans la neige** : la neige s'accumule sous le vent et bouche

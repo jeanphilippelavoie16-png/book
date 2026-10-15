@@ -38,11 +38,11 @@ module.exports = (h) => {
 
   // ─── Vue 1 : la bille enterrée, en coupe ────────────────────────────────────────────────
   const B = z => {
-    const yS = 30, xT0 = 150, prof = Math.min(104, z.h - yS - 22), yB = yS + prof, xT1 = 238;
+    const yS = 54, xT0 = 150, prof = Math.min(104, z.h - yS - 22), yB = yS + prof, xT1 = 238;
     const dep = Math.tan(14 * RAD) * prof;          // la face avant en contre-dépouille
-    const R = 25, C = [xT1 + dep - 8 - R - 4, yB - R];
+    const R = 25, C = [xT1 + dep - 11 - R - 3, yB - R];
     const sortie = [C[0] + 4, yB - 3];              // le câble part du dessous de la bille
-    const pente = Math.tan(17 * RAD), xSurf = sortie[0] + (sortie[1] - yS) / pente;
+    const pente = Math.tan(24 * RAD), xSurf = sortie[0] + (sortie[1] - yS) / pente;
     return { yS, xT0, xT1, yB, prof, dep, R, C, sortie, pente, xSurf };
   };
   const vueBille = z => {
@@ -56,26 +56,28 @@ module.exports = (h) => {
     const sg = [[av(yB - 2 * ys - 2), yB - 2 * ys - 2], [av(yB), yB], [xSurf + ys / pente, yS], [xSurf - ys / pente, yS],
       [sortie[0] + 30, yB - 2 * ys - 2 - 30 * pente]];
     out.push(h.path(poly([[0, yS], [xT0, yS], [xT0, yB], [av(yB), yB], [xSurf + ys / pente, yS], [z.l, yS], [z.l, z.h - 1], [0, z.h - 1]]), A.hachure('terre', 'aucun')));
+    out.push(h.path(poly([[xT1, yS], [av(yB - 2 * ys - 4), yB - 2 * ys - 4], [xSurf - ys / pente - 2, yS]]), A.hachure('terre', 'aucun')));
     // le remblai, tassé par-dessus la bille
-    out.push(h.path(poly([[xT0, yS], [xT1, yS], [av(C[1] - R - 2), C[1] - R - 2], [xT0, C[1] - R - 2]]), A.hachure('gravier', 'aucun')));
+    out.push(h.path(poly([[xT0, yS], [xT1, yS], [av(yB), yB], [xT0, yB]]), A.hachure('gravier', 'aucun')));
     // la saignée, vide
     out.push(h.path(poly([[av(yB - 2 * ys - 4), yB - 2 * ys - 4], [av(yB), yB], [xSurf + ys / pente, yS], [xSurf - ys / pente - 2, yS]]), A.blanc));
     // les parois : la tranchée et la saignée
     out.push(h.path(poly([[0, yS], [xT0, yS], [xT0, yB], [av(yB), yB], [xSurf + ys / pente, yS], [z.l, yS]], false), A.arete));
     out.push(h.path(poly([[xT1, yS], [av(yB - 2 * ys - 4), yB - 2 * ys - 4], [xSurf - ys / pente - 2, yS]], false), A.arete));
-    out.push(h.ligne(xT0, C[1] - R - 2, av(C[1] - R - 2), C[1] - R - 2, A.detail));
+    out.push(h.ligne(xT0, yS, xSurf - ys / pente - 2, yS, A.arete));
     // la bille, coupée, et la planche debout contre sa face avant
-    const pl = [C[0] + R + 1, C[1] - R - 6];
-    const plH = 2 * R - 2, plW = 7;
-    out.push(h.path(poly([[av(pl[1]) - plW, pl[1]], [av(pl[1]), pl[1]], [av(pl[1] + plH), pl[1] + plH], [av(pl[1] + plH) - plW, pl[1] + plH]]), A.hachure('bois', 'contour')));
-    out.push(h.cercle(C[0], C[1], R, A.hachure('bois', 'contour')));
+    const pl = [C[0] + R + 1, C[1] - R - 14];
+    const plH = 2 * R + 8, plW = 10;
+    const plP = [[av(pl[1]) - plW, pl[1]], [av(pl[1]), pl[1]], [av(pl[1] + plH), pl[1] + plH], [av(pl[1] + plH) - plW, pl[1] + plH]];
+    out.push(h.path(poly(plP), A.blanc), h.path(poly(plP), A.hachure('bois', 'contour')));
+    out.push(h.cercle(C[0], C[1], R, A.blanc), h.cercle(C[0], C[1], R, A.hachure('bois', 'contour')));
     out.push(h.cercle(C[0], C[1], R * 0.45, A.fin));
     // le câble : deux tours autour de la bille, puis il part du dessous dans la saignée
     out.push(h.path(`M ${pt([C[0] - R - 2.5, C[1]])} A ${R + 2.5} ${R + 2.5} 0 1 1 ${pt([C[0] + 2, C[1] + R + 2.5])}`, CABLE));
-    out.push(h.path(`M ${pt([C[0] + 2, C[1] + R + 2.5])} L ${pt([av(yB) - 2, yB - ys])} L ${pt([xSurf + 6 / pente, yS - 6])} L ${pt([z.l - 6, yS - 6 - (z.l - 6 - xSurf - 6 / pente) * pente])}`, CABLE));
+    out.push(h.path(`M ${pt([C[0] + 2, C[1] + R + 2.5])} L ${pt([av(yB) - 2, yB - ys])} L ${pt([xSurf + 6 / pente, yS - 6])} L ${pt([xSurf + 6 / pente + (yS - 12) / pente, 6])}`, CABLE));
     // le sens de la traction, vers la charge
-    const fx = z.l - 70, fy = yS - 6 - (fx - xSurf - 6 / pente) * pente;
-    out.push(h.fleche(`M ${pt([fx, fy - 14])} L ${pt([fx + 40, fy - 14 - 40 * pente])}`, A.arete));
+    const fx = xSurf + 6 / pente + (yS - 12) / pente - 20, fy = 22;
+    out.push(h.fleche(`M ${pt([fx + 6, fy + 20])} L ${pt([fx + 44, fy + 20 - 38 * pente])}`, A.arete));
     return out.join('\n');
   };
   const renvoisBille = z => {
@@ -95,8 +97,8 @@ module.exports = (h) => {
   // Trois pieux de 1,5 m, enfoncés aux trois cinquièmes, à environ 15° de la verticale, la tête
   // vers l'arrière ; espacés de 1,3 m. Le premier, du côté de la charge, est à droite.
   const P = z => {
-    const k = 0.075, yg = 58, inc = 15 * RAD;
-    const xs = [z.l * 0.72, z.l * 0.72 - 1300 * k, z.l * 0.72 - 2600 * k];
+    const k = 0.098, yg = 66, inc = 15 * RAD;
+    const xs = [z.l * 0.74, z.l * 0.74 - 1300 * k, z.l * 0.74 - 2600 * k];
     const pieux = xs.map(x => {
       const pied = [x + Math.sin(inc) * 900 * k, yg + Math.cos(inc) * 900 * k];   // la pointe, dans le sol
       const tete = [x - Math.sin(inc) * 600 * k, yg - Math.cos(inc) * 600 * k];
@@ -160,7 +162,7 @@ module.exports = (h) => {
     // la sangle passe derrière le tronc et ses deux bouts reviennent devant, côté charge
     const u = uni(sub(vers, c)), n = nor(u), e = r + 3.5;
     const g = add(c, n, e), d = add(c, n, -e), dev = add(c, u, r + 14);
-    return `M ${pt(dev)} L ${pt(add(g, u, 2))} A ${e} ${e} 0 1 0 ${pt(add(d, u, 2))} L ${pt(dev)}`;
+    return `M ${pt(dev)} L ${pt(add(g, u, 2))} A ${e} ${e} 0 1 1 ${pt(add(d, u, 2))} L ${pt(dev)}`;
   };
   const vueBride = z => {
     const q = V(z), { r, xT, y1, y2, M: M_ } = q, out = [];
@@ -179,7 +181,7 @@ module.exports = (h) => {
     const q = V(z), { r, xT, y1, y2, M: M_ } = q;
     const m1 = lerp([xT, y1], M_, 0.62);
     return [
-      { n: 10, rond: [xT + 60, (y1 + y2) / 2], cible: [xT + r + 2, (y1 + y2) / 2 - 2], texte: 'deux arbres vivants, sains' },
+      { n: 10, rond: [xT + 34, (y1 + y2) / 2], cible: [xT + 8, y2 - r - 1], texte: 'deux arbres vivants, sains' },
       { n: 11, rond: [m1[0] + 10, m1[1] - 30], cible: [m1[0], m1[1] - 1], texte: 'deux brins égaux, tendus pareil' },
     ];
   };

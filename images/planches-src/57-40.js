@@ -45,8 +45,8 @@ module.exports = (h) => {
   const MACHOIRE = [
     [RM, YB], [RM + 9, YB], [RM + 9, 4], [28, -20], [35, -50], [40, -80], [39.5, -110], [34, -140], [26, -164],
     [21, -184], [19, -191], [13, -193], [8, -190],                                       // le bout évasé
-    [6, -183], [2.5, -170],                                                              // la dent : crochet en dedans, vers le manche
-    [10, -174], [13, -165], [17, -150], [24, -128], [30, -100], [31, -80], [27.5, -54], [21, -28], [RM, -8], [RM, 0],
+    [6, -183], [2, -168],                                                              // la dent : crochet en dedans, vers le manche
+    [12.5, -177], [14, -165], [17, -150], [24, -128], [30, -100], [31, -80], [27.5, -54], [21, -28], [RM, -8], [RM, 0],
   ];
   // la pointe : une tige de fer ; la partie logée dans la fente (y = 0 à 56) se dessine cachée
   const POINTE = [[-3, 0], [-3, -120], [-2.5, -160], [-1.2, -186], [0, -197], [1.2, -186], [2.5, -160], [3, -120], [3, 0]];
@@ -125,19 +125,19 @@ module.exports = (h) => {
         { n: 2, rond: [xd, T([0, 112])[1]], cible: T([3, 34]), texte: 'pointe au fond de la fente' },
         { n: 3, rond: [xd, T([0, 74])[1]], cible: T([RM + 9.5, 50]), texte: 'babiche mouillée, deux ligatures' },
         { n: 4, rond: [xd, T([0, -40])[1]], cible: T([36.5, -40]), texte: 'mâchoire courbe, liée au manche' },
-        { n: 5, rond: [xd, T([0, -150])[1]], cible: T([3.2, -171]), texte: 'la dent, en dedans, vers le manche' },
+        { n: 5, rond: [xd, T([0, -150])[1]], cible: T([3, -169]), texte: 'la dent, en dedans, vers le manche' },
         { n: 6, rond: [16, T([0, -150])[1]], cible: T([-0.6, -195]), texte: 'les bouts presque à la pointe' },
       ];
     },
   };
 
   // ─── Vue 2 : la dent, de près (deux façons) ─────────────────────────────────────────────────
-  // le haut de la mâchoire de droite, grossi ; à gauche la pointe (en partie) pour situer le dedans
+  // le bout de la mâchoire de droite, grossi (de y = -198 à -140) ; à gauche, le bout de la pointe
   const geomDent = z => {
-    const s = Math.min((z.l - 20) / 44, (z.h - 30) / 2 / 66);
-    const ox = z.l / 2 - 20 * s;
-    const Ta = p => [ox + s * p[0], 10 + s * (p[1] + 198)];
-    const Tb = p => [ox + s * p[0], z.h / 2 + 12 + s * (p[1] + 198)];
+    const s = Math.min((z.l - 34) / 40, (z.h - 40) / 2 / 62);
+    const ox = 14 - 0 * s;
+    const Ta = p => [ox + s * p[0], 8 + s * (p[1] + 198)];
+    const Tb = p => [ox + s * p[0], z.h / 2 + 14 + s * (p[1] + 198)];
     return { s, Ta, Tb };
   };
   const vueDent = {
@@ -145,27 +145,28 @@ module.exports = (h) => {
     dessin: z => {
       const { s, Ta, Tb } = geomDent(z);
       const o = [];
-      const haut = MACHOIRE.slice(6, 19);                            // du bord extérieur au bord intérieur, par le bout
-      const coupe = (T) => h.chemin(map(T, [[haut[haut.length - 1][0], haut[haut.length - 1][1]], [haut[0][0], haut[0][1]]]), A.detail);
-      // a) l'encoche taillée
-      o.push(h.path(lisse(map(Ta, haut)), W(A.contour)), coupe(Ta));
-      o.push(h.path(lisse(map(Ta, [[33, -136], [27, -158], [21, -178]])), A.detail));
-      o.push(h.path(lisse(map(Ta, POINTE.slice(2, 7))), W(A.arete)));
-      // b) le clou à finir : le bout de mâchoire sans encoche, le clou planté au travers, ressorti en dedans et recourbé
-      const lisseBout = [[39.5, -110], [34, -140], [26, -164], [21, -184], [19, -191], [13, -193], [8, -190], [7, -182], [10, -170], [13, -160], [17, -150], [24, -128], [30, -100], [31, -96]];
-      o.push(h.path(lisse(map(Tb, lisseBout)), W(A.contour)), h.chemin(map(Tb, [[31, -96], [39.5, -110]]), A.detail));
-      o.push(h.path(lisse(map(Tb, [[33, -136], [27, -158], [21, -178]])), A.detail));
-      o.push(h.path(lisse(map(Tb, POINTE.slice(2, 7))), W(A.arete)));
-      o.push(h.chemin(map(Tb, [[25.5, -172], [9.2, -172]]), A.cache));                  // la tige dans le bois
+      const cassure = (T, a, b) => h.chemin(map(T, [a, [(a[0] + b[0]) / 2 - 2, (a[1] + b[1]) / 2 + 2], [(a[0] + b[0]) / 2 + 2, (a[1] + b[1]) / 2 - 2], b]), A.detail);
+      const pointe = T => h.path(lisse(map(T, [[-2.6, -140], [-2.5, -160], [-1.2, -186], [0, -197], [1.2, -186], [2.5, -160], [2.6, -140]])), W(A.arete));
+      // a) l'encoche taillée : le contour du bout, de [34, -140] à [17, -150]
+      const bout = MACHOIRE.slice(7, 19);
+      o.push(h.path(lisse(map(Ta, bout)), W(A.contour)), cassure(Ta, bout[bout.length - 1], bout[0]));
+      o.push(h.path(lisse(map(Ta, [[29, -144], [24, -162], [20, -180]])), A.detail));
+      o.push(pointe(Ta));
+      // b) le clou à finir : le bout sans encoche, le clou planté au travers, ressorti en dedans et recourbé
+      const lisseBout = [[34, -140], [26, -164], [21, -184], [19, -191], [13, -193], [8, -190], [7, -182], [10, -170], [13, -160], [17, -150]];
+      o.push(h.path(lisse(map(Tb, lisseBout)), W(A.contour)), cassure(Tb, [17, -150], [34, -140]));
+      o.push(h.path(lisse(map(Tb, [[29, -144], [24, -162], [20, -180]])), A.detail));
+      o.push(pointe(Tb));
+      o.push(h.chemin(map(Tb, [[25.5, -172], [8.6, -172]]), A.cache));                  // la tige dans le bois
       o.push(h.chemin(map(Tb, [[25.8, -175.5], [25.8, -168.5]]), A.contour));           // la tête du clou, dehors
-      o.push(h.path(lisse(map(Tb, [[9.2, -172], [5.5, -171.5], [3.6, -168.5], [3.8, -163]])), 'fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linecap="round"'));
+      o.push(h.path(lisse(map(Tb, [[8.6, -172], [5.5, -171.5], [3.8, -168.5], [4, -162]])), 'fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linecap="round"'));
       return o.join('\n');
     },
     renvois: z => {
       const { s, Ta, Tb } = geomDent(z);
       return [
-        { n: 7, rond: [z.l - 12, Ta([0, -120])[1]], cible: Ta([8.5, -173.5]), texte: 'encoche qui laisse un crochet' },
-        { n: 8, rond: [z.l - 12, Tb([0, -120])[1]], cible: Tb([4.2, -164]), texte: 'ou clou à finir recourbé' },
+        { n: 7, rond: [z.l - 12, Ta([0, -135])[1]], cible: Ta([10, -174]), texte: 'encoche qui laisse un crochet' },
+        { n: 8, rond: [z.l - 12, Math.min(z.h - 12, Tb([0, -135])[1])], cible: Tb([4, -163]), texte: 'ou clou à finir recourbé' },
       ];
     },
   };
@@ -201,7 +202,7 @@ module.exports = (h) => {
   const POS = { 1: -262, 2: -224, 3: -118, 4: -112 };               // le centre du corps, repère de la tête
   const ECART = { 1: 0, 2: 9, 3: 0, 4: 0 };
   const coup = (temps) => ({
-    titre: { 1: 'Le coup', 2: 'Elles s’écartent', 3: 'Elles se referment', 4: 'L’essai à terre' }[temps],
+    titre: { 1: 'Poisson vu de bout', 2: 'Elles s’écartent', 3: 'Elles se referment', 4: 'L’essai à terre' }[temps],
     dessin: z => {
       const { s, cx, T } = geomCoup(z, temps);
       const o = [];
@@ -229,7 +230,7 @@ module.exports = (h) => {
         o.push(tete(T, { ...opt, parties: 'machoires' }));
         if (temps === 3) o.push(h.controle(...T([0, -176]), 8 + 10 * s));
         if (temps === 4) {
-          const yS = T([0, pos - 30])[1] + 30;
+          const yS = T([0, -197])[1] + 24;
           o.push(h.chemin([[cx - 50, yS], [cx + 50, yS]], A.arete));
           const [gx, gy] = T([RM + 42, -60]);
           o.push(h.geste(`M${f1(gx)} ${f1(gy)} L${f1(gx)} ${f1(gy - 56 * s)}`));
@@ -253,43 +254,42 @@ module.exports = (h) => {
   const poissonProfil = (T, attrs) => h.path(lisse(map(T, PROFIL), true), attrs);
   const geomViser = z => {
     const s = (z.l - 30) / 330;
-    return { s, yS: z.h * 0.42, yF: z.h * 0.82, cx: z.l / 2 };
+    return { s, yS: z.h * 0.42, yF: z.h * 0.8, cx: z.l / 2, k: s * 0.62 };
   };
   const viser = (bon) => ({
     titre: bon ? 'Viser : d’au-dessus' : 'Raté : en biais',
     dessin: z => {
-      const { s, yS, yF, cx } = geomViser(z);
+      const { s, yS, yF, cx, k } = geomViser(z);
       const o = [];
       o.push(h.rect(4, yS, z.l - 8, z.h - yS - 4, A.hachure('eau', 'aucun')));
       o.push(h.chemin([[4, yS], [z.l - 4, yS]], A.arete));
       const Tf = (dx, dy) => p => [cx + dx + s * p[0], dy + s * p[1]];
-      const k = s * 0.62;
       if (bon) {
-        // le poisson, son image juste au-dessus ; la foène droite, qui descend sur lui
-        const yi = yS + (yF - yS) * 0.6;
-        o.push(poissonProfil(Tf(0, yi), A.cache));
+        // l'image (en gris), juste au-dessus du poisson ; la foène droite, qui descend sur lui
+        o.push(poissonProfil(Tf(0, yS + (yF - yS) * 0.62), A.loin));
         o.push(poissonProfil(Tf(0, yF), W(A.contour)));
-        const T = place([cx + 20 * s, yF - 28 * s], [0, -1], k);
-        o.push(tete(T, { manche: ((yF - 28 * s) - 6) / k - 197, cassure: false, interieur: false, fente: false }));
-        o.push(h.geste(`M${f1(cx + 20 * s + 44 * k)} ${f1(yS - 46)} L${f1(cx + 20 * s + 44 * k)} ${f1(yS - 6)}`));
+        const bout = [cx + 16 * s, yF - 30 * s];
+        o.push(tete(place(bout, [0, -1], k), { manche: (bout[1] - 4) / k - 197, cassure: false, interieur: false, fente: false }));
+        const xg = bout[0] + 50 * k;
+        o.push(h.geste(`M${f1(xg)} ${f1(yS - 50)} L${f1(xg)} ${f1(yS - 8)}`));
       } else {
         // en biais : l'image paraît plus haut et plus près ; la foène visée sur l'image passe au-dessus
-        const xi = -60 * s, yi = yS + (yF - yS) * 0.42;
-        o.push(poissonProfil(Tf(xi, yi), A.cache));
+        const xi = -64 * s, yi = yS + (yF - yS) * 0.4;
+        o.push(poissonProfil(Tf(xi, yi), A.loin));
         o.push(poissonProfil(Tf(0, yF), W(A.contour)));
-        const ang = 34 * RAD, d = [-Math.sin(ang), -Math.cos(ang)];
-        const bout = [cx + xi + 40 * s, yi + 4 * s];
-        const T = place(bout, d, k);
-        const longueur = (bout[1] - 6) / Math.cos(ang) / k - 197;
-        o.push(tete(T, { manche: longueur, cassure: false, interieur: false, fente: false }));
-        o.push(h.controle(cx + 30 * s, yF - 52 * s, 12));
+        const ang = 32 * RAD, d = [-Math.sin(ang), -Math.cos(ang)];
+        const bout = [cx + xi + 34 * s, yi + 2 * s];
+        // le manche jusqu'au bord de la vue (haut ou gauche), pas au-delà
+        const t = Math.min((bout[1] - 4) / Math.cos(ang), (bout[0] - 4) / Math.sin(ang)) - 20 * k;
+        o.push(tete(place(bout, d, k), { manche: t / k - 197, cassure: false, interieur: false, fente: false }));
+        o.push(h.controle(cx + 26 * s, yF - 50 * s, 12));
       }
       return o.join('\n');
     },
     renvois: z => {
       const { s, yS, yF, cx } = geomViser(z);
       if (bon) return [];
-      return [{ n: 12, rond: [z.l - 16, z.h - 14], cible: [cx + 60 * s, yF + 28 * s], texte: 'le poisson, plus creux que son image' }];
+      return [{ n: 12, rond: [z.l - 16, z.h - 14], cible: [cx + 70 * s, yF + 25 * s], texte: 'le poisson, plus creux que son image' }];
     },
   });
 
@@ -300,7 +300,7 @@ module.exports = (h) => {
     format: 'pleine',
     disposition: [['montee', 'dent', 'bon', 'rate'], ['c1', 'c2', 'c3', 'essai']],
     hauteurs: [1.75, 1],
-    largeurs: [[1.15, 0.7, 1, 1], [1, 1, 1, 1]],
+    largeurs: [[1.25, 0.85, 0.9, 0.9], [1, 1, 1, 1]],
     vues: { montee: vueMontee, dent: vueDent, bon: viser(true), rate: viser(false), c1: coup(1), c2: coup(2), c3: coup(3), essai: coup(4) },
   };
 };

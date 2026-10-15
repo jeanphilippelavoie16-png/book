@@ -144,9 +144,9 @@ module.exports = (h) => {
   }).join(' ');
 
   const F = h.formes, S2 = Math.SQRT2;
-  const R = 21, E = 7.6, PAS = E * 1.12;            // demi-épaisseur des perches, corde
+  const R = 30, E = 8.5, PAS = E * 1.5;            // demi-épaisseur des perches, corde
   const RX = R * S2;                                // demi-largeur d'une perche à 45°, mesurée à l'horizontale
-  const geo = z => ({ cx: Math.round(z.l * 0.5), cy: Math.round(z.h * 0.5), L: (z.h * 0.5 - 6) * S2 });
+  const geo = z => ({ cx: Math.round(z.l * 0.5), cy: Math.round(z.h * 0.5), L: (z.h * 0.5 - R / S2 - 10) * S2 });
   const uF = [1 / S2, -1 / S2], uB = [1 / S2, 1 / S2];  // F devant : bas-gauche → haut-droite ; B derrière
   const perches = (z, quoi) => {
     const { cx, cy, L } = geo(z), u = quoi === 'F' ? uF : uB;
@@ -163,39 +163,48 @@ module.exports = (h) => {
   const ligneH = (cx, y, X, zz) => { const o = []; for (let i = 0; i <= 8; i++) o.push([cx - X + 2 * X * i / 8, y, zz]); return o; };
   const ligneV = (x, cy, X, zz) => { const o = []; for (let i = 0; i <= 8; i++) o.push([x, cy - X + 2 * X * i / 8, zz]); return o; };
 
+  // Un tour sur une diagonale : parallèle aux autres devant le croisement, il se resserre dans les
+  // deux fourches où il passe derrière (les tours d'un même jeu s'y rejoignent).
+  const tourDiag = (cx, cy, d, vertical, zz) => {
+    const P = (a, b) => (vertical ? [cx + b, cy + a, zz] : [cx + a, cy + b, zz]);
+    const A = RX + 0.25 * E;
+    return [P(-A, 0.45 * d), P(-0.7 * RX, 0.85 * d), P(-0.3 * RX, d), P(0.3 * RX, d), P(0.7 * RX, 0.85 * d), P(A, 0.45 * d)];
+  };
+  const capsDiag = (cx, cy, d, vertical) => {
+    const A = RX + 0.25 * E;
+    return vertical ? [[[cx + 0.45 * d, cy - A], [0, -1]], [[cx + 0.45 * d, cy + A], [0, 1]]] : [[[cx - A, cy + 0.45 * d], [-1, 0]], [[cx + A, cy + 0.45 * d], [1, 0]]];
+  };
+
   // ─── le nœud de bûcheron : sur la diagonale verticale ───
-  // Le dormant arrive d'en bas à gauche, monte devant (le brin vertical), passe derrière les deux
-  // perches par la fourche du haut, redescend derrière et ressort dans la fourche du bas, à droite :
-  // le bout fait le tour du dormant puis se tord trois fois autour du brin, en montant.
+  // Le dormant arrive d'en bas à gauche, entre dans la fourche du bas, monte devant (le brin
+  // vertical), passe derrière par la fourche du haut, redescend derrière et ressort dans la fourche
+  // du bas : le bout fait le tour du dormant, puis se tord trois fois autour du brin, en montant.
   const bucheron = (cx, cy) => {
     const yb = cy + RX, brins = [], caps = [];
-    brins.push({ pts: [[cx - 5.2 * E, yb + 4.4 * E, 0], [cx - 2.4 * E, yb + 2.2 * E, 0], [cx - 0.5 * E, yb + 0.6 * E, 0], [cx, yb - 0.6 * E, 0], [cx, cy, 0], [cx, cy - RX, 0]],
+    brins.push({ pts: [[cx - 4.2 * E, yb + 4.6 * E, 0], [cx - 1.9 * E, yb + 2.4 * E, 0], [cx - 0.35 * E, yb + 0.5 * E, 0], ...tourDiag(cx, cy, 0, true, 0).reverse().slice(1)],
       ep: E, debut: 'fixe', fin: 'ouvert' });
-    caps.push([[cx, cy - RX], [0, -1]]);
-    const hel = [[cx + 1.6 * E, yb + 0.9 * E, -1], [cx + 0.9 * E, yb + 1.25 * E, -1], [cx - 0.1 * E, yb + 1.15 * E, 1], [cx - 1.4 * E, yb + 0.35 * E, 1]];
-    let y = yb - 0.15 * E;
-    for (let i = 0; i < 4; i++) {
-      const avant = i % 2 === 1;                  // de gauche à droite derrière, de droite à gauche devant
-      const xa = avant ? cx + 1.4 * E : cx - 1.4 * E, za = avant ? -1 : 1;
-      hel.push([cx, y - 0.45 * E, avant ? -1 : 1]);
-      hel.push([avant ? cx - 1.4 * E : cx + 1.4 * E, y - 0.9 * E, avant ? -1 : 1]);
-      y -= 0.9 * E;
-    }
-    hel.push([cx, y - 0.45 * E, 1], [cx - 1.5 * E, y - 0.95 * E, 1], [cx - 2.6 * E, y - 1.4 * E, 1]);
+    caps.push(...capsDiag(cx, cy, 0, true).slice(0, 1));
+    // le bout : il ressort de la fourche du bas, à droite, passe derrière le dormant, puis se tord
+    // autour du brin vertical : devant, derrière, devant, et il sort libre en haut à gauche
+    const k = 1.25 * E, a = 0.8 * E;
+    const y0 = cy + 1.3 * k;
+    const hel = [[cx + 1.1 * E, yb + 0.45 * E, -1], [cx + 1.3 * E, y0 + 0.9 * k, -1], [cx + a, y0, -1],
+      [cx, y0 - 0.5 * k, 1], [cx - a, y0 - k, 1], [cx - 1.05 * a, y0 - 1.25 * k, -1],
+      [cx, y0 - 1.5 * k, -1], [cx + a, y0 - 2 * k, -1], [cx + 1.05 * a, y0 - 2.25 * k, -1],
+      [cx, y0 - 2.5 * k, 1], [cx - a, y0 - 3 * k, 1], [cx - 1.05 * a, y0 - 3.25 * k, -1],
+      [cx, y0 - 3.5 * k, -1], [cx + a, y0 - 4 * k, -1], [cx + 1.6 * E, y0 - 4.4 * k, -1], [cx + 2.6 * E, y0 - 4.6 * k, -1]];
     brins.push({ pts: hel, ep: E, debut: 'ouvert', fin: 'libre' });
-    caps.push([[cx + 1.6 * E, yb + 0.9 * E], [0.6, 0.8]]);
-    return { brins, caps, tire: [[cx - 2.4 * E, yb + 2.2 * E], [cx - 5.2 * E, yb + 4.4 * E]] };
+    caps.push([[cx + 1.1 * E, yb + 0.45 * E], [0.3, 1]]);
+    return { brins, caps, tire: [[cx - 1.9 * E, yb + 2.4 * E], [cx - 4.2 * E, yb + 4.6 * E]], tors: [cx, y0 - 2 * k] };
   };
   const D = [-PAS, 0, PAS];
-  const toursH = (cx, cy) => ({ brins: D.map(d => ({ pts: ligneH(cx, cy + d, Math.abs(d) + RX, 2), ...ouv })),
-    caps: D.flatMap(d => [[[cx - Math.abs(d) - RX, cy + d], [-1, 0]], [[cx + Math.abs(d) + RX, cy + d], [1, 0]]]) });
-  const toursV = (cx, cy) => ({ brins: D.map(d => ({ pts: ligneV(cx + d, cy, Math.abs(d) + RX, 3), ...ouv })),
-    caps: D.flatMap(d => [[[cx + d, cy - Math.abs(d) - RX], [0, -1]], [[cx + d, cy + Math.abs(d) + RX], [0, 1]]]) });
+  const toursH = (cx, cy) => ({ brins: D.map(d => ({ pts: tourDiag(cx, cy, d, false, 2), ...ouv })), caps: D.flatMap(d => capsDiag(cx, cy, d, false)) });
+  const toursV = (cx, cy) => ({ brins: D.map(d => ({ pts: tourDiag(cx, cy, d, true, 3), ...ouv })), caps: D.flatMap(d => capsDiag(cx, cy, d, true)) });
 
   // ─── les frappes : deux tours entre les perches, autour du paquet ; puis l'arrêt ───
   // Un cercle autour du croisement : il passe devant B, derrière F, et par-dessus les coudes
   // des tours dans les quatre fourches.
-  const RHO = RX + PAS + 0.35 * E;
+  const RHO = RX + 0.55 * E;
   const cercle = (cx, cy, rho, a0, a1, zz) => { const o = []; const n = Math.ceil(Math.abs(a1 - a0) / 8);
     for (let i = 0; i <= n; i++) { const a = (a0 + (a1 - a0) * i / n) * Math.PI / 180; o.push([cx + rho * Math.cos(a), cy + rho * Math.sin(a), zz]); } return o; };
   // l'arrêt : un cabestan sur le bras haut-gauche de B, en coordonnées du bras (x le long, y en travers)
@@ -204,7 +213,7 @@ module.exports = (h) => {
     const G = ([x, y, zz]) => [cx + dB[0] * x + vB[0] * y, cy + dB[1] * x + vB[1] * y, zz];
     const V = ([x, y]) => [dB[0] * x + vB[0] * y, dB[1] * x + vB[1] * y];
     const e = E, q = 0.7 * e, dH = 0.2 * 2 * R, yT = -R, yB = R;
-    const xs = RHO + PAS + 1.2 * e, xa = xs + 1.7 * e, xb = xa + 2.3 * e, dd = xb - xa;
+    const xs = RHO + PAS + 0.6 * e, xa = xs + 1.7 * e, xb = xa + 2.3 * e, dd = xb - xa;
     const pts1 = [[RHO + PAS, yT - 0.2 * e, 0], [xs - 0.6 * e, yT - 0.9 * e, 0], [xs, yT + 2, 0], [xs, dH - q, 0], [xs + 0.3 * q, dH - 0.3 * q, 0], [xs + q, dH, 0],
       [xb - q, dH, 0], [xb - 0.3 * q, dH + 0.3 * q, 0], [xb, dH + q, 0], [xb, yB, 0]];
     const pts2 = [[xb, yT, 1], [xb - 0.06 * dd, yT + 0.14 * 2 * R, 1], [(xa + xb) / 2, 0, 1], [xa + 0.06 * dd, yB - 0.14 * 2 * R, 1], [xa, yB, 1]];

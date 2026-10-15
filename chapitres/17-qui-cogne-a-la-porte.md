@@ -19,8 +19,7 @@ donne sans montrer ce qu'on a, et on ne refuse qu'avec une destination.
 **C'est le bon choix quand :**
 
 - La crise dure depuis plus de quelques jours et les voisins manquent de ce que la maison a encore.
-- Au chalet, le chemin est fermé et le bâtiment se voit d'une route, d'un chemin forestier ou d'un sentier de
- motoneige.
+- Au chalet, le bâtiment se voit d'une route, d'un chemin forestier ou d'un sentier de motoneige.
 - Un véhicule, une motoneige ou des traces apparaissent sans avoir été annoncés.
 - Quelqu'un arrive à pied au chalet l'hiver. Loin de la ville, personne n'y marche par choix : on cherche d'abord
  les signes du froid (étape 8).
@@ -50,7 +49,7 @@ quantité.
 ## 4. Matériel
 
 - **Fenêtre ou judas côté entrée** : compter et lire le visiteur sans ouvrir, lampe de la pièce éteinte (→ §9).
-- **Lampe puissante** : tenue à bout de bras ou accrochée à l'écart, elle éclaire l'arrivée sans désigner celui qui la tient (→ §9).
+- **Lampe puissante** : tenue loin du corps ou accrochée à l'écart, elle éclaire l'arrivée sans désigner celui qui la tient (→ §9).
 - **Thermomètre extérieur, lu du dedans** : donne le temps qu'on peut laisser quelqu'un dehors. Sans lui, on décide tout de suite, par la fenêtre.
 - **Trousse de seuil** : couverture de laine, sac de couchage, thermos chaud et sucré, pour réchauffer sans faire entrer (→ §9).
 - **Barre de porte** : bois franc, supports ancrés dans les montants ; une porte cède au chambranle, pas au pêne (→ §9).
@@ -63,8 +62,7 @@ quantité.
  pour savoir si la maison est vide, et entrent quand personne ne répond.
 2. **Éteindre la lampe de la pièce avant d'approcher de la vitre, puis éclairer dehors.** Une vitre éclairée du
  dedans montre la pièce à celui qui est dehors et ne renvoie que son reflet à celui qui est dedans. Lumière
- extérieure, ou lampe tenue à bout de bras ou posée à l'écart de la porte, faisceau sur la neige devant la
- personne, pas au visage (§9).
+ extérieure, ou une lampe tenue loin du corps, dirigée sur la neige devant la personne, pas au visage (§9).
 3. **Envoyer les enfants dans la pièce du fond. Un seul adulte parle ;** l'autre reste avec les enfants et
  regarde par une autre fenêtre. Deux voix qui répondent ensemble finissent par se contredire devant le visiteur.
  Seul adulte avec les enfants : on ne sort pas, on parle à travers la porte et on donne par une fenêtre
@@ -75,7 +73,7 @@ quantité.
 4. **Compter à voix haute : personnes, véhicules, traces.** Si les traces ou les véhicules annoncent plus de monde
  qu'on n'en voit, ne pas ouvrir, et demander à travers la porte : « Vous êtes combien ? »
 5. **Lire le thermomètre et le vent.** Le refroidissement éolien donne le temps avant que la peau exposée gèle,
- donc la durée d'une conversation dehors. Toute la suite se joue dans ce temps-là.
+ donc la durée d'une conversation dehors.
 
  | Refroidissement éolien | La peau exposée peut geler en | Conversation dehors |
  | --- | --- | --- |
@@ -87,8 +85,7 @@ quantité.
 6. **Parler à travers la porte ou par une fenêtre entrouverte, en deux phrases :** « Restez au poteau. »
  « Qu'est-ce qu'il vous faut ? » Le repère se voit et se nomme : le poteau, le baril, le bas de l'escalier ;
  « reculez » ne dit pas jusqu'où. Ne pas se présenter, ne pas expliquer, une question à la fois.
-7. **Trier, dans cet ordre : le froid ou une blessure, puis un besoin matériel, puis autre chose.** Le froid passe
- avant tout le reste.
+7. **Trier, dans cet ordre : le froid ou une blessure, puis un besoin matériel, puis autre chose.**
 8. **Chercher les signes du froid,** même chez quelqu'un qui a l'air ivre (§3) : difficulté à parler, manque de
  coordination, confusion, jugement affaibli (hypothermie modérée, 28 à 32,2 °C) ; ou plus de frissons, regard
  vide, somnolence (grave, sous 28 °C). Avec un seul de ces signes, la personne entre, ou va à l'abri dehors
@@ -136,8 +133,9 @@ quantité.
  tourne d'abord sur le travail, avant la nourriture (ch. 18, ch. 36).
 21. **Sonder la viande des repas partagés.** Gibier sauvage, orignal (*Alces americanus*) compris, **74 °C** à
  cœur ; viande hachée qui n'est pas du gibier, **71 °C** ; poisson, **70 °C**.
-22. **Nourriture reçue en échange :** les règles du §8 passent avant la politesse. Un pot de conserve se refuse,
- poliment.
+22. **Nourriture reçue en échange :** les règles du §8 passent avant la politesse. Se refusent, poliment : une
+ conserve maison faite selon une méthode qu'on ne connaît pas, et un poisson fumé dont on ne sait pas s'il est
+ resté à **4 °C ou moins** depuis le fumage (botulisme de type E, actif dès **3 °C**).
 
 ### Avant, une fois
 
@@ -174,7 +172,6 @@ quantité.
 | Toute la visite | Durée à la porte | Celle du tableau de l'étape 5 ; à moins de 2 m, moins de 15 minutes | Conclure : on héberge, ou on donne et la visite se termine |
 | À l'entrée | Lavage des mains au savon | **20 s**, toutes les surfaces | Recommencer. Sur des mains sales, la solution hydroalcoolique à 60 % ne remplace pas le savon |
 | Repas partagé | Gibier à cœur, au thermomètre à sonde | **74 °C** | Remettre au feu. Aucune évaluation à l'œil |
-| Poisson fumé reçu | Température de conservation depuis le fumage | **4 °C ou moins** | Chaîne de froid inconnue : refuser (§8) |
 | Après le départ | Surfaces touchées désinfectées | Javel **0,1 %**, **1 min** de contact | Refaire avec une solution fraîche : une dilution vieillie n'a plus sa concentration |
 
 ## 7. Signes d'échec
@@ -199,17 +196,17 @@ quantité.
 > ## ⚠ DANGER
 >
 > **1. Une arme montrée ou braquée à la porte, chargée ou non, fait d'une visite un affrontement.** Celui qui
-> est dehors ne sait pas si elle est chargée : il réagit comme si elle l'était, et sa réaction ne se prévoit pas. Il apprend du même coup qu'il y
-> a une arme dans la maison et jusqu'où va la maisonnée. Celui qu'on fait reculer ainsi peut revenir à une autre
-> heure, et pas forcément seul. Le retenir sur place, chemin fermé, oblige à le nourrir, à le surveiller pendant
-> qu'on dort et à le faire dormir près des enfants. L'arme reste hors de la pièce où l'on reçoit (étape 25).
+> est dehors ne sait pas si elle est chargée : il réagit comme si elle l'était, et sa réaction ne se prévoit pas.
+> Il apprend du même coup qu'il y a une arme dans la maison et jusqu'où va la maisonnée. Celui qu'on fait reculer
+> avec une arme peut revenir à une autre heure, et pas forcément seul. Le retenir sur place, chemin fermé, oblige
+> à le nourrir, à le surveiller pendant qu'on dort et à le faire dormir près des enfants. L'arme reste hors de la
+> pièce où l'on reçoit (étape 25).
 >
 > **2. Une personne renvoyée dans le froid peut geler en route.** La peau exposée gèle en 2 à 30 minutes selon le
 > refroidissement éolien (étape 5). L'hypothermie commence sous **35 °C** de température buccale ; entre **28 et
 > 32,2 °C** viennent la confusion et le jugement affaibli ; sous **28 °C**, les frissons cessent. En chemin, la
 > personne perd la capacité de juger sa propre situation : elle ne fait pas demi-tour, ne cherche pas d'abri, et
-> s'assoit. Un refus se dit donc avec une destination, une distance et un moyen d'y arriver ; sans destination
-> réelle, la réponse est l'aide à distance ou l'hébergement (étape 11).
+> s'assoit. D'où la règle de l'étape 11 : pas de refus sans destination réelle.
 >
 > **3. Le réchaud ou la génératrice du visiteur tue dans le hangar comme dans la maison.** Le monoxyde de carbone
 > ne se voit pas, ne se sent pas, et n'irrite ni les yeux ni la gorge. Ses premiers signes, maux de tête, fatigue,
@@ -221,14 +218,13 @@ quantité.
 > moindre doute, tout le monde dehors, et on ne rentre qu'après avoir trouvé la source (ch. 87).
 >
 > **4. La nourriture reçue en troc ne s'évalue pas au nez.** Le botulisme ne change ni la couleur, ni l'odeur, ni
-> le goût : ouvrir, sentir, goûter, chauffer un peu, rien de tout ça ne donne l'information. Une conserve maison
-> dont on ne connaît pas la méthode se refuse, poliment et sans exception. Le fumage ne rend pas un poisson sûr,
-> omble de fontaine (*Salvelinus fontinalis*) comme un autre : le botulisme de type E produit sa toxine dès
-> **3 °C**, donc au frigo, et un poisson fumé dont on ne connaît pas la chaîne de froid se refuse. Pour la viande
-> sauvage reçue, ni le sel, ni le séchage, ni le fumage, ni le four à micro-ondes ne tuent toujours les larves de
-> *Trichinella*, et la plupart des espèces trouvées dans la nature résistent à la congélation. Il reste la
-> cuisson à cœur, au thermomètre : **74 °C** pour tout gibier sauvage, ce qui couvre les 71 °C qui suffisent
-> contre *Trichinella*. Ours noir (*Ursus americanus*) : ch. 52.
+> le goût : ouvrir, sentir, goûter ou chauffer un peu ne disent rien, d'où le refus sans exception de l'étape 22.
+> Le fumage ne rend pas un poisson sûr, omble de fontaine (*Salvelinus fontinalis*) comme un autre : le botulisme
+> de type E produit sa toxine dès **3 °C**, donc au frigo. Pour la viande sauvage reçue, ni le sel, ni le séchage,
+> ni le fumage, ni le four à micro-ondes ne tuent toujours les larves de *Trichinella*, et la plupart des espèces
+> trouvées dans la nature résistent à la congélation. Il reste la cuisson à cœur, au thermomètre : **74 °C** pour
+> tout gibier sauvage, ce qui couvre les 71 °C qui suffisent contre *Trichinella*. Ours noir (*Ursus
+> americanus*) : ch. 52.
 
 ## 9. Variante d'urgence
 
@@ -248,10 +244,10 @@ suffit.
 
 ### Éclairer sans se désigner
 
-La lampe accrochée à l'écart vaut mieux que la lampe tenue à bout de bras. Clouée au poteau de coin, pendue à une
-branche, posée sur une souche loin de la porte, elle éclaire l'arrivée depuis un endroit où personne ne se tient,
-et celui qui parle à une lumière regarde la lumière. Le faisceau sur la neige devant la personne : la neige
-renvoie la lumière et l'éclaire par en dessous, mains comprises. Celui qui éclaire ne regarde pas sa propre
+La lampe accrochée à l'écart de la porte vaut mieux que la lampe tenue à la main. Clouée au poteau de coin,
+pendue à une branche, posée sur une souche, elle éclaire l'arrivée depuis un endroit où personne ne se tient, et
+celui qui parle à une lumière regarde la lumière. Dirigée sur la neige, elle éclaire la personne par en dessous,
+mains comprises. Celui qui éclaire ne regarde pas sa propre
 lampe : l'œil qui a regardé la source ne voit plus rien dans le noir pendant un bon moment.
 
 Un réflecteur double ce qui sort : un couvercle de conserve, une feuille d'aluminium collée sur un carton, une
@@ -275,7 +271,7 @@ entaillés. Faute de tire-fonds, des clous de charpente qui traversent et sont *
 pointe recourbée à plat sur le bois, tiennent mieux que des vis courtes. La barre s'installe à hauteur d'adulte,
 hors de portée des enfants (ch. 110).
 
-Le contrefort est encore plus fort et ne demande qu'une perche, coupée à la bonne longueur, appuyée en biais sous
+Le contrefort tient plus que la barre et ne demande qu'une perche, coupée à la bonne longueur, appuyée en biais sous
 la poignée, le pied calé dans une encoche taillée dans le plancher ou contre un bloc vissé au plancher. Un coup
 d'épaule se change en compression dans la perche, et une perche d'épinette en prend beaucoup. Même chose pour un
 châssis coulissant : un bâton coupé à la longueur du rail.

@@ -46,9 +46,10 @@ const CONTOUR = [
 // l'oreille loin, couchée sur le dos : seul le bord qui dépasse du dos se voit
 const OREILLE_LOIN = [[478, 462], [505, 441], [545, 423], [582, 409], [604, 403], [614, 408], [606, 418], [580, 432], [545, 448], [510, 462]];
 // l'oreille proche, couchée le long du cou (trait intérieur), étroite à la base, et son bout noir
-const OREILLE = [[484, 522], [494, 508], [522, 494], [560, 486], [596, 490], [618, 501], [624, 512], [612, 520], [586, 527], [550, 537], [516, 543], [494, 536]];
-const BOUT_OREILLE = [[606, 494], [618, 501], [624, 512], [612, 520], [602, 520], [608, 507]];
-const PLI_OREILLE = [[500, 526], [540, 515], [580, 508], [604, 507]];
+const OREILLE = [[482, 524], [490, 511], [516, 497], [556, 487], [594, 487], [620, 497], [630, 508], [622, 517], [592, 524], [552, 534], [514, 542], [492, 538]];
+const PLI_OREILLE = [[502, 527], [540, 516], [580, 507], [612, 504]];
+// les doigts : un trait entre chaque, au bout de la patte de devant et du grand pied de derrière
+const DOIGTS = [[[402, 788], [424, 790]], [[408, 774], [430, 778]], [[836, 712], [826, 690]], [[808, 716], [800, 694]], [[780, 712], [776, 692]]];
 // la joue (le cou caché sous la tête), la cuisse et le dessus du grand pied : traits intérieurs
 const JOUE = [[476, 534], [482, 564], [474, 598], [456, 628]];
 const CUISSE = [[792, 408], [766, 470], [767, 540], [798, 584], [858, 602]];
@@ -86,8 +87,8 @@ module.exports.lievre = function lievre(h, o = {}) {
   if (o.derriere) out.push(String(o.derriere));
   out.push(`<path d="${courbe(CONTOUR, true)}" ${at(ep, BLANC)}/>`);
   out.push(`<path d="${courbe(OREILLE, true)}" ${at(0.7, BLANC)}/>`);
-  out.push(`<path d="${courbe(BOUT_OREILLE, true)}" fill="${NOIR}" stroke="none"/>`);
   out.push(`<path d="${courbe(PLI_OREILLE, false)}" ${at(0.5, 'none')}/>`);
+  DOIGTS.forEach((d) => out.push(`<path d="${courbe(d, false)}" ${at(0.7, 'none')}/>`));
   out.push(`<path d="${courbe(JOUE, false)}" ${at(0.7, 'none')}/>`);
   out.push(`<path d="${courbe(BOUCHE, false)}" ${at(0.7, 'none')}/>`);
   out.push(`<path d="${courbe(CUISSE, false)}" ${at(0.7, 'none')}/>`);

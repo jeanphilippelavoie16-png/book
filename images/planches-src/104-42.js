@@ -13,8 +13,9 @@
 // d'un bras », qui reste en mots. Les proportions du dessin (lattes de 700 mm, 16 mm d'épaisseur aux
 // bouts et 9 au milieu, coin de 110 mm) sont un dessin, pas une donnée.
 //
-// Trois vues : de côté (le serre-couture entier) ; le pied en gros (le coin, la ligature) ; en usage, de
-// profil (assis, le pied au sol, serré entre les genoux, une main de chaque côté de l'ouvrage).
+// Trois vues : de côté, couché (le serre-couture entier, le pied à gauche) ; en usage, de profil (assis, le
+// pied au sol, serré entre les genoux, une main de chaque côté de l'ouvrage) ; le pied en gros, debout comme
+// en usage (le coin, la ligature).
 'use strict';
 
 const f1 = v => Math.round(v * 10) / 10;
@@ -56,200 +57,159 @@ module.exports = (h) => {
     return { int, ext };
   };
 
-  // ─── De côté : le serre-couture entier ─────────────────────────────────────────────────────────────
-  const geoCote = z => {
-    const s = (z.h - 30) / (LONG + 30);
+  // une ligne de cassure entre deux points (la pièce continue)
+  const cassure = (a, b, amp = 2, n = 1) => {
+    const pts = [];
+    for (let i = 0; i <= 12 * n; i++) { const t = i / (12 * n); pts.push([a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t + Math.sin(t * n * 2 * Math.PI) * amp]); }
+    return pts;
+  };
+  // une bande fermée le long d'une ligne médiane (le bout de babiche)
+  const bande = (m, e) => {
+    const g = [], d = [];
+    for (let i = 0; i < m.length; i++) {
+      const a = m[Math.max(0, i - 1)], b = m[Math.min(m.length - 1, i + 1)];
+      const dx = b[0] - a[0], dy = b[1] - a[1], n = Math.hypot(dx, dy) || 1, nx = -dy / n, ny = dx / n;
+      g.push([m[i][0] + nx * e / 2, m[i][1] + ny * e / 2]); d.push([m[i][0] - nx * e / 2, m[i][1] - ny * e / 2]);
+    }
+    return g.concat(d.reverse());
+  };
+  // les deux lattes entre y0 et y1 (mm), dans le repère P ; cassure en haut et/ou en bas
+  const lattes = (P, y0, y1, { casseBas = false, casseHaut = false, pas = 2 } = {}) => {
+    const out = [];
+    for (const c of [-1, 1]) {
+      const L = latte(c, y0, y1, pas);
+      const poly = L.int.concat(L.ext.slice().reverse()).map(P);
+      out.push(h.chemin(poly, A.blanc, true));
+      out.push(h.chemin(L.int.map(P), A.contour), h.chemin(L.ext.map(P), A.contour));
+      const bout = (i, casse) => {
+        const a = P(L.int[i]), b = P(L.ext[i]);
+        out.push(casse ? h.chemin(cassure(a, b, 1.8), A.detail) : h.ligne(a[0], a[1], b[0], b[1], A.contour));
+      };
+      bout(0, casseBas); bout(L.int.length - 1, casseHaut);
+    }
+    return out.join('\n');
+  };
+  // la ligature : des tours jointifs, un peu en biais, et le bout passé sous les deux derniers tours
+  const ligature = (P, s) => {
+    const out = [], [l0, l1] = LIG, n = 11, hb = (l1 - l0) / n;
+    for (let i = 0; i < n; i++) {
+      const y = l0 + (l1 - l0) * (i + 0.5) / n, d = demiEcart(y) + ep(y) + 1;
+      const q = [[-d, y - hb / 2 + 0.7], [d, y - hb / 2 + 2.1], [d, y + hb / 2 + 0.7], [-d, y + hb / 2 - 0.7]].map(P);
+      const r = 0.9 * s;
+      out.push(h.path(`M${f1(q[0][0])} ${f1(q[0][1])} L${f1(q[1][0])} ${f1(q[1][1])} Q${f1(q[1][0] + r)} ${f1((q[1][1] + q[2][1]) / 2)} ${f1(q[2][0])} ${f1(q[2][1])} L${f1(q[3][0])} ${f1(q[3][1])} Q${f1(q[3][0] - r)} ${f1((q[3][1] + q[0][1]) / 2)} ${f1(q[0][0])} ${f1(q[0][1])} Z`, `fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round"`));
+    }
+    const d1 = demiEcart(l1) + ep(l1) + 1;
+    const e0 = P([d1 - 2, l1 - hb * 1.6]), e1 = P([d1 + 6, l1 + 2]), e2 = P([d1 + 9, l1 + 14]);
+    const m = [];
+    for (let i = 0; i <= 10; i++) { const t = i / 10, u = 1 - t; m.push([0, 1].map(j => u * u * e0[j] + 2 * u * t * e1[j] + t * t * e2[j])); }
+    out.push(h.chemin(bande(m, hb * s * 0.8), `fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round"`, true));
+    return out.join('\n');
+  };
+  const coinDe = P => [[-C_BAS / 2, 0], [-C_HAUT / 2, COIN], [C_HAUT / 2, COIN], [C_BAS / 2, 0]].map(P);
+
+  // ─── En position : debout, le pied au sol, serré entre les genoux ──────────────────────────────────
+  const GENOU = 470;          // la hauteur des genoux, assis (dessin)
+  const geoPos = z => {
+    const s = (z.h - 26) / (LONG + 70);
     const X = z.l / 2, Y = z.h - 8;
     const P = ([x, y]) => [X + x * s, Y - y * s];
     return { s, X, Y, P };
   };
-  const dessinCote = z => {
-    const g = geoCote(z), { P, s } = g, out = [];
-    // le sol
-    out.push(h.ligne(6, g.Y, z.l - 6, g.Y, A.arete));
-    // le cuir pris dans les mâchoires : deux épaisseurs qui dépassent du haut
-    const cy0 = LONG - MAC + 8, cy1 = LONG + 50;
-    out.push(h.chemin([P([-CUIR / 2, cy0]), P([-CUIR / 2, cy1]), P([CUIR / 2, cy1]), P([CUIR / 2, cy0])], A.blanc, true));
-    out.push(h.chemin([P([-CUIR / 2, LONG]), P([-CUIR / 2, cy1]), P([CUIR / 2, cy1]), P([CUIR / 2, LONG])], A.arete));
-    out.push(h.ligne(...P([0, LONG]), ...P([0, cy1]), A.detail));
-    // le coin, entre les pieds
-    const coin = [[-C_BAS / 2, 0], [-C_HAUT / 2, COIN], [C_HAUT / 2, COIN], [C_BAS / 2, 0]].map(P);
+  const dessinPos = z => {
+    const g = geoPos(z), { P, s } = g, out = [];
+    out.push(h.ligne(8, g.Y, z.l - 8, g.Y, A.arete));
+    // l'ouvrage pris dans les mâchoires : deux épaisseurs qui dépassent
+    const c1 = LONG + 62;
+    const cuir = [[-CUIR / 2, LONG - MAC + 10], [-CUIR / 2, c1], [CUIR / 2, c1], [CUIR / 2, LONG - MAC + 10]].map(P);
+    out.push(h.chemin(cuir, A.blanc, true), h.chemin(cuir, A.arete, true), h.ligne(...P([0, LONG]), ...P([0, c1]), A.detail));
+    const coin = coinDe(P);
     out.push(h.chemin(coin, A.blanc, true), h.chemin(coin, A.arete, true));
-    // les deux lattes
-    for (const c of [-1, 1]) {
-      const L = latte(c);
-      const poly = L.int.concat(L.ext.slice().reverse()).map(P);
-      out.push(h.chemin(poly, A.blanc, true), h.chemin(poly, A.contour, true));
+    out.push(lattes(P, 0, LONG, { pas: 4 }));
+    // la ligature, simplifiée à cette échelle
+    for (let i = 0; i <= 7; i++) {
+      const y = LIG[0] + (LIG[1] - LIG[0]) * i / 7, d = demiEcart(y) + ep(y) + 1;
+      out.push(h.ligne(...P([-d, y - 2]), ...P([d, y + 2]), A.arete));
     }
-    // la ligature : des tours serrés autour du paquet
-    const [l0, l1] = LIG, n = 9;
-    for (let i = 0; i <= n; i++) {
-      const y = l0 + (l1 - l0) * i / n, d = demiEcart(y) + ep(y);
-      out.push(h.ligne(...P([-d - 1.5, y - 2]), ...P([d + 1.5, y + 2]), A.arete));
-    }
+    // les genoux serrent les deux lattes l'une contre l'autre
+    const d = demiEcart(GENOU) + ep(GENOU);
+    const yG = P([0, GENOU])[1];
+    out.push(h.geste(`M${f1(P([-d, 0])[0] - 46)} ${f1(yG)} L${f1(P([-d, 0])[0] - 6)} ${f1(yG)}`));
+    out.push(h.geste(`M${f1(P([d, 0])[0] + 46)} ${f1(yG)} L${f1(P([d, 0])[0] + 6)} ${f1(yG)}`));
     return out.join('\n');
   };
 
-  // ─── Le pied, en gros ──────────────────────────────────────────────────────────────────────────────
-  const geoPied = z => {
-    const s = (z.l - 34) / 80;
-    const X = z.l / 2, Y = z.h - 20;
-    const P = ([x, y]) => [X + x * s, Y - y * s];
-    return { s, X, Y, P, haut: Math.min(320, (z.h - 30) / s) };
+  // ─── En gros : les mâchoires en haut, le pied en bas ───────────────────────────────────────────────
+  const geoGros = z => {
+    // les mâchoires : de 600 à 770 mm ; le pied : de 0 à 170 mm
+    const sM = Math.min(1.9, (z.h * 0.45) / 170), sP = Math.min(1.9, (z.h * 0.47) / 170);
+    const Xm = z.l * 0.5, Xp = z.l * 0.5;
+    const PM = ([x, y]) => [Xm + x * sM, 10 + (LONG + 66 - y) * sM];
+    const PP = ([x, y]) => [Xp + x * sP, z.h - 6 - y * sP];
+    return { sM, sP, PM, PP };
   };
-  const dessinPied = z => {
-    const g = geoPied(z), { P, s } = g, out = [];
-    out.push(h.ligne(4, g.Y, z.l - 4, g.Y, A.arete));
-    // le coin : bois de fil, gros bout en bas, il dépasse un peu sous la ligature
-    const coin = [[-C_BAS / 2, 0], [-C_HAUT / 2, COIN], [C_HAUT / 2, COIN], [C_BAS / 2, 0]].map(P);
+  const aiguille = (a, b, L, ep2) => {
+    // une aiguille de a (le chas) vers b (la pointe) ; L la longueur, ep2 la demi-épaisseur
+    const u = [(b[0] - a[0]) / L, (b[1] - a[1]) / L], n = [-u[1], u[0]];
+    const Q = (t, w) => [a[0] + u[0] * t + n[0] * w, a[1] + u[1] * t + n[1] * w];
+    const corps = [Q(0, ep2 * 0.8), Q(L * 0.82, ep2), Q(L, 0), Q(L * 0.82, -ep2), Q(0, -ep2 * 0.8)];
+    return [h.chemin(corps, A.blanc, true), h.chemin(corps, A.arete, true), h.ellipse(...Q(ep2 * 2.2, 0), ep2 * 1.2, ep2 * 0.35, A.detail)].join('\n');
+  };
+  const dessinGros = z => {
+    const g = geoGros(z), { PM, PP, sM, sP } = g, out = [];
+    // les mâchoires
+    const c1 = LONG + 62, yT = LONG + 30;
+    const cuir = [[-CUIR / 2, LONG - MAC + 10], [-CUIR / 2, c1], [CUIR / 2, c1], [CUIR / 2, LONG - MAC + 10]].map(PM);
+    out.push(h.chemin(cuir, A.blanc, true), h.chemin(cuir, A.arete, true), h.ligne(...PM([0, LONG - MAC + 10]), ...PM([0, c1]), A.detail));
+    out.push(lattes(PM, 610, LONG, { casseBas: true }));
+    // le fil : deux brins qui sortent du même trou, un de chaque côté, jusqu'au chas de chaque aiguille
+    const trou = PM([0, yT]);
+    const chasG = [trou[0] - 132, trou[1] + 34], chasD = [trou[0] + 132, trou[1] + 22];
+    out.push(h.path(`M${f1(trou[0] - CUIR / 2 * sM)} ${f1(trou[1])} Q${f1(trou[0] - 40)} ${f1(trou[1] + 34)} ${f1(chasG[0] + 4)} ${f1(chasG[1])}`, A.arete));
+    out.push(h.path(`M${f1(trou[0] + CUIR / 2 * sM)} ${f1(trou[1] + 1)} Q${f1(trou[0] + 46)} ${f1(trou[1] + 30)} ${f1(chasD[0] - 4)} ${f1(chasD[1])}`, A.arete));
+    // les deux aiguilles : celle de gauche entre par la gauche, celle de droite par la droite, dans le même trou
+    out.push(aiguille([trou[0] - 120, trou[1] - 22], [trou[0] + 34, trou[1] - 4], 155, 2.6));
+    out.push(aiguille([trou[0] + 120, trou[1] - 40], [trou[0] - 36, trou[1] - 10], 158, 2.6));
+    // le pied
+    out.push(h.ligne(8, PP([0, 0])[1], z.l - 8, PP([0, 0])[1], A.arete));
+    const coin = coinDe(PP);
     out.push(h.chemin(coin, A.blanc, true), h.chemin(coin, A.contour, true));
-    [-5, 4].forEach(dx => out.push(h.path(`M${f1(P([dx, 6])[0])} ${f1(P([dx, 6])[1])} Q${f1(P([dx + 2, 55])[0])} ${f1(P([dx + 2, 55])[1])} ${f1(P([dx * 0.8, COIN - 6])[0])} ${f1(P([dx * 0.8, COIN - 6])[1])}`, A.detail)));
-    // les lattes, coupées en haut par une cassure
-    for (const c of [-1, 1]) {
-      const L = latte(c, 0, g.haut, 2);
-      const poly = L.int.concat(L.ext.slice().reverse()).map(P);
-      out.push(h.chemin(poly, A.blanc, true));
-      out.push(h.chemin(L.int.map(P), A.contour), h.chemin(L.ext.map(P), A.contour), h.ligne(...P(L.int[0]), ...P(L.ext[0]), A.contour));
-      const a = P(L.int[L.int.length - 1]), b = P(L.ext[L.ext.length - 1]);
-      const pts = [];
-      for (let i = 0; i <= 12; i++) { const t = i / 12; pts.push([a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t + Math.sin(t * 2 * Math.PI) * 2]); }
-      out.push(h.chemin(pts, A.detail));
-    }
-    // la ligature de babiche : des tours jointifs, légèrement en biais, le bout de départ pris dessous
-    const [l0, l1] = LIG, n = 11;
-    const tours = [];
-    for (let i = 0; i < n; i++) {
-      const y = l0 + (l1 - l0) * (i + 0.5) / n, d = demiEcart(y) + ep(y) + 1.2, hb = (l1 - l0) / n;
-      const q = [[-d, y - hb / 2 + 1.2], [d, y - hb / 2 + 2.6], [d, y + hb / 2 + 1.2], [-d, y + hb / 2 - 0.2]].map(P);
-      tours.push(h.path(`M${f1(q[0][0])} ${f1(q[0][1])} L${f1(q[1][0])} ${f1(q[1][1])} Q${f1(q[1][0] + 3)} ${f1((q[1][1] + q[2][1]) / 2)} ${f1(q[2][0])} ${f1(q[2][1])} L${f1(q[3][0])} ${f1(q[3][1])} Q${f1(q[3][0] - 3)} ${f1((q[3][1] + q[0][1]) / 2)} ${f1(q[0][0])} ${f1(q[0][1])} Z`, `fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round"`));
-    }
-    out.push(...tours);
-    // le bout final passé sous les deux derniers tours
-    const e = P([demiEcart(l1) + ep(l1) + 1, l1 - 2]);
-    out.push(h.path(`M${f1(e[0])} ${f1(e[1])} Q${f1(e[0] + 16)} ${f1(e[1] - 6)} ${f1(e[0] + 22)} ${f1(e[1] - 22)}`, `fill="none" stroke="#1A1A1A" stroke-width="5" stroke-linecap="round"`));
-    out.push(h.path(`M${f1(e[0])} ${f1(e[1])} Q${f1(e[0] + 16)} ${f1(e[1] - 6)} ${f1(e[0] + 22)} ${f1(e[1] - 22)}`, `fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round"`));
-    return out.join('\n');
-  };
-
-  // ─── En usage, de profil ───────────────────────────────────────────────────────────────────────────
-  const poserBras = (o, cibles, axes) => {
-    const oo = Object.assign({}, o, { cote: 'droite' });
-    const c = F.corps(oo), ang = Object.assign({}, o.angles || {});
-    const angDe = v => Math.atan2(v[0], v[1]) / RAD, dirDe = a => [Math.sin(a * RAD), Math.cos(a * RAD)];
-    for (const k of ['P', 'L']) {
-      const C = cibles[k]; if (!C) continue;
-      const ax = axes[k];
-      const S = c.articulations['epaule' + k], E_ = c.articulations['coude' + k], Wr = c.articulations['poignet' + k], Mn = c['main' + k];
-      const lb = Math.hypot(E_[0] - S[0], E_[1] - S[1]), la = Math.hypot(Wr[0] - E_[0], Wr[1] - E_[1]);
-      const hv = [Mn.x - Wr[0], Mn.y - Wr[1]], lm = Math.hypot(...hv);
-      const off = angDe(hv) - angDe([Math.cos(Mn.axe * RAD), Math.sin(Mn.axe * RAD)]);
-      const resoudre = main => {
-        const h2 = dirDe(main + off).map(v => v * lm), W_ = [C[0] - h2[0], C[1] - h2[1]];
-        const d = [W_[0] - S[0], W_[1] - S[1]], D = Math.min(Math.hypot(...d), lb + la - 0.01);
-        const a0 = angDe(d), B = Math.acos(Math.max(-1, Math.min(1, (lb * lb + D * D - la * la) / (2 * lb * D)))) / RAD;
-        const bras = a0 - B;
-        const e = [S[0] + lb * Math.sin(bras * RAD), S[1] + lb * Math.cos(bras * RAD)];
-        const ab = angDe([W_[0] - e[0], W_[1] - e[1]]);
-        const pli = Math.abs(((main - ab) % 360 + 540) % 360 - 180);
-        return { pli, bras, ab, main };
-      };
-      let best = null;
-      for (const main of [180 - ax, -ax, 360 - ax]) { const r = resoudre(main); if (!best || r.pli < best.pli) best = r; }
-      ang['bras' + k] = best.bras; ang['avantbras' + k] = best.ab; ang['main' + k] = best.main;
-    }
-    return ang;
-  };
-
-  const geoUsage = z => {
-    const E = 0.3, sol = z.h - 10, x0 = z.l * 0.5;
-    // assis bas (une bûche de 330 mm), les genoux plus hauts que les hanches, les pieds ramenés sous les genoux
-    const base = { x: x0, y: sol, pose: 'assis', siege: 330, echelle: E, cote: 'droite', mains: { P: 'pince', L: 'pince' },
-      angles: { tronc: 16, cou: 18, tete: 26, cuisseP: 72, cuisseL: 76, jambeP: -16, jambeL: -20 } };
-    const c0 = F.corps(base);
-    const K = c0.articulations.genouP;
-    // le serre-couture : son pied au sol devant les pieds, penché vers le corps, il passe entre les genoux
-    const incl = 16 * RAD, u = [-Math.sin(incl), -Math.cos(incl)];
-    const Kp = [K[0] - 4, K[1] + 2];
-    const Fp = [Kp[0] + (sol - Kp[1]) * Math.tan(incl), sol];
-    const T = [Fp[0] + u[0] * LONG * E, Fp[1] + u[1] * LONG * E];
-    // les mains de part et d'autre de l'ouvrage : la proche tire son aiguille vers l'avant, la loin vers l'arrière
-    const cibles = { P: [T[0] + 30, T[1] - 4], L: [T[0] - 26, T[1] + 2] };
-    const angles = poserBras(base, cibles, { P: 70, L: 80 });
-    return { E, sol, base, K, u, Fp, T, cibles, angles: Object.assign({}, base.angles, angles), incl };
-  };
-  const dessinUsage = z => {
-    const g = geoUsage(z), out = [];
-    const { E, Fp, u, incl } = g;
-    const n = [Math.cos(incl), -Math.sin(incl)];        // perpendiculaire à l'axe, vers l'avant
-    const Q = ([x, y]) => [Fp[0] + u[0] * y * E + n[0] * x * E, Fp[1] + u[1] * y * E + n[1] * x * E];
-    const serre = () => {
-      const o = [];
-      const cuir = [[-CUIR / 2, LONG - 20], [-CUIR / 2, LONG + 70], [CUIR / 2, LONG + 70], [CUIR / 2, LONG - 20]].map(Q);
-      o.push(h.chemin(cuir, A.blanc, true), h.chemin(cuir, A.arete, true));
-      // les deux fils du point sellier, du trou vers chaque main
-      const trou = Q([0, LONG + 30]);
-      o.push(h.ligne(trou[0], trou[1], g.cibles.L[0], g.cibles.L[1], A.detail));
-      const coin = [[-C_BAS / 2, 0], [-C_HAUT / 2, COIN], [C_HAUT / 2, COIN], [C_BAS / 2, 0]].map(Q);
-      o.push(h.chemin(coin, A.blanc, true), h.chemin(coin, A.arete, true));
-      for (const c of [-1, 1]) {
-        const L = latte(c, 0, LONG, 10);
-        const poly = L.int.concat(L.ext.slice().reverse()).map(Q);
-        o.push(h.chemin(poly, A.blanc, true), h.chemin(poly, A.arete, true));
-      }
-      for (let i = 0; i <= 3; i++) {
-        const y = LIG[0] + 6 + (LIG[1] - LIG[0] - 12) * i / 3, d = demiEcart(y) + ep(y);
-        o.push(h.ligne(...Q([-d, y]), ...Q([d, y + 5]), A.detail));
-      }
-      return o.join('\n');
-    };
-    const filP = () => { const n2 = [Math.cos(incl), -Math.sin(incl)]; const t = [Fp[0] + u[0] * (LONG + 30) * E, Fp[1] + u[1] * (LONG + 30) * E]; return h.ligne(t[0], t[1], g.cibles.P[0], g.cibles.P[1], A.detail); };
-    // le siège : une bûche debout sous la fesse
-    const c = F.corps(Object.assign({}, g.base, { angles: g.angles, objetL: serre(), objetP: filP() }));
-    const sx = c.siege[0], sy = c.siege[1];
-    out.push(h.rect(sx - 40, sy, 74, g.sol - sy, A.loin), h.rect(sx - 40, sy, 74, g.sol - sy, A.arete));
-    out.push(h.ligne(6, g.sol, z.l - 6, g.sol, A.arete));
-    out.push(c.svg || String(c));
+    [-5, 4].forEach(dx => out.push(h.path(`M${f1(PP([dx, 6])[0])} ${f1(PP([dx, 6])[1])} Q${f1(PP([dx + 2, 55])[0])} ${f1(PP([dx + 2, 55])[1])} ${f1(PP([dx * 0.8, COIN - 6])[0])} ${f1(PP([dx * 0.8, COIN - 6])[1])}`, A.detail)));
+    out.push(lattes(PP, 0, 168, { casseHaut: true }));
+    out.push(ligature(PP, sP));
     return out.join('\n');
   };
 
   return {
     ref: '104-42',
     titre: 'Le serre-couture',
-    desc: 'Le serre-couture de côté : deux lattes debout, plus minces au milieu, un coin de bois entre leurs pieds et une ligature de babiche autour du paquet ; elles se rejoignent en haut et pincent deux épaisseurs de cuir. Le pied en gros : le coin, gros bout en bas, et les tours jointifs de la ligature. En usage, de profil : assis sur une bûche, le pied du serre-couture au sol, les lattes serrées entre les genoux, l’ouvrage à hauteur des mains, une main de chaque côté.',
+    desc: 'Le serre-couture debout, comme en usage : deux lattes plus minces au milieu, un coin de bois entre leurs pieds et une ligature de babiche autour du paquet ; elles se rejoignent en haut et pincent deux épaisseurs de cuir ; deux flèches à hauteur des genoux serrent les lattes l’une contre l’autre. En gros, en haut : les mâchoires, le cuir, et les deux aiguilles du point sellier qui passent dans le même trou, une de chaque côté. En gros, en bas : le coin, gros bout en bas, et les tours jointifs de la ligature.',
     format: 'pleine',
-    disposition: [['cote', 'pied', 'usage']],
-    largeurs: [[0.78, 1, 2.1]],
+    disposition: [['pos', 'gros']],
+    largeurs: [[1, 1.75]],
     vues: {
-      cote: {
-        titre: 'De côté',
-        dessin: dessinCote,
+      pos: {
+        titre: 'Debout, comme en usage',
+        dessin: dessinPos,
         renvois: z => {
-          const g = geoCote(z), P = g.P;
+          const g = geoPos(z), P = g.P;
+          const d = y => demiEcart(y) + ep(y);
           return [
-            { n: 1, rond: [z.l - 14, 30], cible: P([CUIR / 2 + 1, LONG + 20]), texte: 'l’ouvrage pris dans les mâchoires' },
-            { n: 2, rond: [z.l - 14, z.h * 0.42], cible: P([demiEcart(360) + ep(360), 360]), texte: 'lattes amincies au milieu : le ressort' },
+            { n: 1, rond: [z.l - 14, P([0, 610])[1]], cible: P([d(610), 610]), texte: 'deux lattes de la longueur d’un bras' },
+            { n: 2, rond: [z.l - 14, P([0, 330])[1]], cible: P([d(330), 330]), texte: 'amincies au milieu : elles font ressort' },
+            { n: 3, rond: [16, P([0, GENOU + 70])[1]], cible: [P([-d(GENOU), 0])[0] - 26, P([0, GENOU])[1] - 2], texte: 'serré entre les genoux' },
           ];
         },
       },
-      pied: {
-        titre: 'Le pied',
-        dessin: dessinPied,
+      gros: {
+        titre: 'En gros',
+        dessin: dessinGros,
         renvois: z => {
-          const g = geoPied(z), P = g.P;
+          const g = geoGros(z), PM = g.PM, PP = g.PP;
           return [
-            { n: 3, rond: [16, g.Y - 6 * g.s - 40], cible: P([-C_BAS / 2 + 3, 8]), texte: 'coin de bois, gros bout en bas' },
-            { n: 4, rond: [z.l - 14, P([0, 62])[1] - 70], cible: P([demiEcart(60) + ep(60) + 1, 66]), texte: 'ligature de babiche posée mouillée' },
-          ];
-        },
-      },
-      usage: {
-        titre: 'En usage',
-        dessin: dessinUsage,
-        renvois: z => {
-          const g = geoUsage(z);
-          return [
-            { n: 5, rond: [z.l - 18, g.K[1] - 60], cible: [g.K[0] + 6, g.K[1]], texte: 'serré entre les genoux' },
-            { n: 6, rond: [z.l - 18, g.T[1] - 50], cible: [g.cibles.P[0] + 6, g.cibles.P[1]], texte: 'les deux mains libres, une aiguille chacune' },
+            { n: 4, rond: [z.l - 16, 24], cible: PM([CUIR / 2, LONG + 52]), texte: 'l’ouvrage pris dans les mâchoires' },
+            { n: 5, rond: [18, 24], cible: [PM([0, LONG + 30])[0] - 92, PM([0, LONG + 30])[1] - 15], texte: 'une aiguille de chaque côté, même trou' },
+            { n: 6, rond: [18, PP([0, COIN + 40])[1]], cible: PP([-C_HAUT / 2 + 2, COIN - 4]), texte: 'coin de bois, gros bout en bas' },
+            { n: 7, rond: [z.l - 16, PP([0, LIG[1] + 50])[1]], cible: PP([demiEcart(60) + ep(60) + 2, 60]), texte: 'ligature de babiche posée mouillée' },
           ];
         },
       },

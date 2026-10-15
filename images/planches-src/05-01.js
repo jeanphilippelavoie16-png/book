@@ -89,14 +89,11 @@ module.exports = (h) => {
     o.push(h.chemin([[p0[0], p0[1]], [p1[0], p1[1]], [p1[0] - la * 0.5, p1[1] - la * 0.6], [p0[0] - la * 0.5, p0[1] - la * 0.6]], W(A.arete), true));
     o.push(h.chemin([[p0[0], p0[1]], [p1[0], p1[1]], [p1[0] + n[0] * -ep, p1[1] + n[1] * -ep], [p0[0] + n[0] * -ep, p0[1] + n[1] * -ep]], A.ombre, true));
     o.push(h.chemin([[p0[0], p0[1]], [p1[0], p1[1]], [p1[0] + n[0] * -ep, p1[1] + n[1] * -ep], [p0[0] + n[0] * -ep, p0[1] + n[1] * -ep]], A.arete, true));
-    // la souris qui monte la planche
-    const t = 0.42, ang = Math.atan2(u[1], u[0]) / RAD;
-    o.push(souris(p0[0] + u[0] * 0.5 - 2, p0[1] + u[1] * 0.5 - 7, 0.62, ang));
     return { svg: o.join('\n'), g, P: { planche: [p0[0] + u[0] * 0.72 + 3, p0[1] + u[1] * 0.72 - 5] } };
   };
 
   // ─── Avant, après : la chaudière en coupe, vue dans l'axe de la broche ───────────────────────────
-  const C = z => ({ cx: z.l / 2, yR: 46, yB: z.h - 8, rT: 76, rB: 64, rc: 22 });
+  const C = z => ({ cx: z.l / 2, yR: 50, yB: z.h - 8, rT: 76, rB: 64, rc: 26 });
   const coupe = (z, apres) => {
     const g = C(z), o = [];
     const { cx, yR, yB, rT, rB, rc } = g;
@@ -118,14 +115,13 @@ module.exports = (h) => {
     o.push(h.ellipse(gx, gy, 7, 4, A.hachure('terre', 'arete')).replace('/>', ` transform="rotate(${ag + 90} ${f1(gx)} ${f1(gy)})"/>`));
     if (!apres) {
       // la souris debout sur le dessus de la canette, le museau au gras ; la canette commence à tourner
-      const ang = 14;
-      const nx = cx + 17, ny = yC - rc - 7;
-      o.push(souris(nx, ny, 0.5, ang, false));
-      o.push(h.fleche(`M${f1(cx - rc - 9)} ${f1(yC + 10)} A${rc + 10} ${rc + 10} 0 0 1 ${f1(cx - rc + 2)} ${f1(yC - rc + 4)}`, A.detail));
+      // tournée vers la gauche, le museau au gras, le poids sur le côté droit : la canette tourne à droite
+      o.push(souris(cx - 4, yC - rc - 4, 0.42, 25, true));
+      o.push(h.fleche(`M${f1(cx + rc + 10)} ${f1(yC - 4)} A${rc + 10} ${rc + 10} 0 0 1 ${f1(cx + 12)} ${f1(yC + rc + 8)}`, A.detail));
     } else {
       o.push(h.fleche(`M${f1(cx + rc + 10)} ${f1(yC - 8)} A${rc + 10} ${rc + 10} 0 0 1 ${f1(cx + 10)} ${f1(yC + rc + 9)}`, A.detail));
-      o.push(h.fleche(`M${f1(cx - 26)} ${f1(yC + rc + 12)} L${f1(cx - 26)} ${f1(yB - 30)}`, A.arete));
-      o.push(souris(cx - 10, yB - 5, 0.5, 0, false));
+      o.push(h.fleche(`M${f1(cx + 40)} ${f1(yC + 14)} L${f1(cx + 40)} ${f1(yB - 30)}`, A.arete));
+      o.push(souris(cx + 6, yB - 5, 0.42, 0, true));
     }
     return { svg: o.join('\n'), g: { ...g, yC } };
   };

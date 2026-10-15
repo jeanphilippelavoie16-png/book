@@ -4,9 +4,12 @@
 // sous la surface. Aucune autre mesure : ni l'épaisseur du gravier, ni la taille des trous, ni la chaudière (une
 // chaudière de 20 L dessinée à ses proportions ordinaires, sans cote).
 // Ce que le texte ne dit pas et que la planche dessine en principe : la chaudière posée sur deux bâtons en
-// travers d'un récipient plus large, qui recueille l'eau ; la casserole qui verse.
-// La charte : la flèche rouge, verser lentement sur le linge du dessus. Les deux vignettes du bas : la même main
-// ouverte, paume en l'air ; le titre de chaque vignette dit le verdict.
+// travers d'un récipient plus large, qui recueille l'eau ; la casserole qui verse ; le talus de chemin coupé,
+// l'entaille creusée dans la couche grise (la pelle dessinée d'abord se lisait mal, coupée).
+// La charte : la flèche rouge, verser lentement sur le linge du dessus.
+// Le test du boudin (refait le 15 octobre, JP sur les mains qui tenaient la terre : « c'est butcher ») : sans main,
+// le boudin roulé posé seul sur une planche, vu de dessus ; entier pour l'argile, en bouts et en miettes pour le
+// sable. Le titre de chaque vignette dit le verdict.
 module.exports = (h) => {
   const A = h.a;
   const F = h.formes;
@@ -19,7 +22,7 @@ module.exports = (h) => {
     + `<line x1="1" y1="1.5" x2="7" y2="1.5" stroke="#1A1A1A" stroke-width="0.7"/>`
     + `<line x1="8" y1="4.5" x2="13" y2="4.5" stroke="#1A1A1A" stroke-width="0.7"/></pattern></defs>`;
   const argile = (t = 'arete') => t === 'aucun' ? 'fill="url(#vue-argile)" stroke="none"'
-    : `fill="url(#vue-argile)" stroke="#1A1A1A" stroke-width="${{ arete: 1.4, detail: 0.7 }[t]}" stroke-linejoin="round"`;
+    : `fill="url(#vue-argile)" stroke="#1A1A1A" stroke-width="${{ contour: 2.4, arete: 1.4, detail: 0.7 }[t]}" stroke-linejoin="round"`;
   // L'eau : sa surface et quelques rides, sans trame (la trame des tirets est celle de l'argile).
   const rides = (xa, xb, y) => {
     const o = [h.ligne(xa, y, xb, y, A.detail)];
@@ -113,56 +116,93 @@ module.exports = (h) => {
     const o = [ARGILE];
     const ys = 92, xf = 112, yb = z.h - 60, yN = ys + 44;
     // le talus coupé : terre noire dessus, couche grise dessous
-    const bloc = [[0, ys], [xf, ys], [xf, yb], [0, yb]];
     o.push(h.chemin([[0, ys], [xf, ys], [xf, yN], [0, yN]], A.hachure('terre', 'aucun'), true));
     o.push(h.chemin([[0, yN], [xf, yN], [xf, yb], [0, yb]], argile('aucun'), true));
     o.push(h.ligne(0, yN, xf, yN, A.detail));
-    o.push(h.chemin([[0, ys], [xf, ys], [xf, yb], [z.l, yb]], A.contour));
+    const yP = yN + 70;
+    o.push(h.chemin([[0, ys], [xf, ys], [xf, yP - 22]], A.contour), h.chemin([[xf, yP + 22], [xf, yb], [z.l, yb]], A.contour));
     // des touffes d'herbe sur le dessus
     for (const x of [14, 46, 74, 100]) o.push(h.path(`M${x - 5} ${ys} Q${x - 4} ${ys - 9} ${x - 7} ${ys - 13} M${x} ${ys} Q${x + 1} ${ys - 11} ${x} ${ys - 16} M${x + 4} ${ys} Q${x + 6} ${ys - 8} ${x + 9} ${ys - 11}`, A.detail));
     // le fond du fossé, à droite
     o.push(h.rect(xf, yb, z.l - xf, 10, A.hachure('terre', 'aucun')));
-    // la pelle enfoncée dans la couche grise ; le manche monte vers la droite
-    const yP = yN + 70;
-    // la lame vue à plat, la pointe dans la couche grise ; la douille et le manche sortent vers la droite
-    o.push(h.path(`M${xf + 8} ${yP - 15} C${xf - 14} ${yP - 18} ${xf - 34} ${yP - 14} ${xf - 50} ${yP} C${xf - 34} ${yP + 14} ${xf - 14} ${yP + 18} ${xf + 8} ${yP + 15} Z`, W(A.arete)));
-    o.push(h.ligne(xf - 40, yP, xf - 4, yP, A.fin));
-    o.push(h.chemin([[xf + 8, yP - 7], [xf + 22, yP - 5], [xf + 22, yP + 5], [xf + 8, yP + 7]], W(A.arete), true));
-    o.push(h.chemin([[xf + 22, yP - 4], [z.l - 6, yP - 44], [z.l - 1, yP - 36], [xf + 22, yP + 4]], W(A.arete), true));
+    // l'entaille où l'on a pris la terre : un creux dans la face, sous la terre noire, à 10 cm au moins
+    o.push(h.path(`M${xf} ${yP - 22} C${xf - 30} ${yP - 24} ${xf - 40} ${yP - 6} ${xf - 38} ${yP + 6} C${xf - 36} ${yP + 18} ${xf - 22} ${yP + 24} ${xf} ${yP + 22} Z`, A.blanc));
+    o.push(h.path(`M${xf} ${yP - 22} C${xf - 30} ${yP - 24} ${xf - 40} ${yP - 6} ${xf - 38} ${yP + 6} C${xf - 36} ${yP + 18} ${xf - 22} ${yP + 24} ${xf} ${yP + 22}`, A.contour));
     // la cote : 10 cm au moins sous la surface
     o.push(h.ligne(xf + 4, ys, xf + 28, ys, A.fin));
-    o.push(h.ligne(xf - 2, yP - 22, xf + 28, yP - 22, A.fin));
+    o.push(h.ligne(xf + 4, yP - 22, xf + 28, yP - 22, A.fin));
     o.push(h.cote(xf + 22, ys, xf + 22, yP - 22, '10 cm au moins', { cote: 'droite' }));
-    return { svg: o.join('\n'), P: { noire: [70, ys + 22], grise: [60, yN + 110], ys, yN, xf } };
+    return { svg: o.join('\n'), P: { noire: [70, ys + 22], grise: [xf - 37, yP + 4], ys, yN, xf } };
   };
 
-  // ─── Le test du boudin, dans la main ──────────────────────────────────────────────────────────
-  const MAIN = { pose: 'porte', vue: 'pouce', cote: 'droite', angle: 0, echelle: 0.92, avantbras: { longueur: 60 } };
+  // ─── Le test du boudin, posé sur une planche ───────────────────────────────────────────────────
+  // Le chapitre : « une poignée mouillée qui se roule en boudin sans casser est de l'argile, une poignée qui
+  // s'effrite est du sable ». Le boudin roulé, posé seul sur une planche, vu de dessus ; pas de main.
+  const planche = z => {
+    const o = [], y0 = 20, y1 = z.h - 14;
+    o.push(h.rect(6, y0, z.l - 12, y1 - y0, W(A.arete)));
+    for (const [y, xa, xb] of [[y0 + 14, 22, 120], [y0 + 14, 150, z.l - 30], [y1 - 16, 40, 170], [y1 - 16, 196, z.l - 22]]) o.push(h.ligne(xa, y, xb, y, A.fin));
+    return { svg: o.join('\n'), y0, y1 };
+  };
+  // le boudin : un axe légèrement courbe, une demi-épaisseur r ; rend le contour fermé, bouts arrondis
+  const axe = (z, ym) => { const xa = 34, xb = z.l - 34; return t => [xa + (xb - xa) * t, ym + 10 * Math.sin(Math.PI * t) - 5]; };
+  const boudin = (A_, t0, t1, r, bout0 = 'rond', bout1 = 'rond', graine = 1) => {
+    const R = hasard(graine), n = 24, haut = [], bas = [];
+    for (let i = 0; i <= n; i++) {
+      const t = t0 + (t1 - t0) * i / n, p = A_(t), q = A_(Math.min(1, t + 0.001)), pm = A_(Math.max(0, t - 0.001));
+      const dx = q[0] - pm[0], dy = q[1] - pm[1], L = Math.hypot(dx, dy), nx = -dy / L, ny = dx / L;
+      haut.push([p[0] + nx * r, p[1] + ny * r]); bas.push([p[0] - nx * r, p[1] - ny * r]);
+    }
+    const bout = (pa, pb, type, sens) => {
+      if (type === 'rond') return [];
+      // une cassure : quatre ou cinq dents irrégulières entre les deux bords
+      const pts = [];
+      for (let k = 1; k < 5; k++) { const t = k / 5; pts.push([pa[0] + (pb[0] - pa[0]) * t + sens * (R() * 5 - 1), pa[1] + (pb[1] - pa[1]) * t]); }
+      return pts;
+    };
+    const cont = haut.slice();
+    const fin = bout(haut[n], bas[n], bout1, 1);
+    cont.push(...fin, ...bas.slice().reverse(), ...bout(bas[0], haut[0], bout0, -1));
+    let d = lisseOuvert(haut);
+    if (bout1 === 'rond') d += ` A${f1(r)} ${f1(r)} 0 0 0 ${f1(bas[n][0])} ${f1(bas[n][1])}`;
+    else d += fin.map(p => ` L${f1(p[0])} ${f1(p[1])}`).join('') + ` L${f1(bas[n][0])} ${f1(bas[n][1])}`;
+    d += lisseOuvert(bas.slice().reverse(), true);
+    if (bout0 === 'rond') d += ` A${f1(r)} ${f1(r)} 0 0 0 ${f1(haut[0][0])} ${f1(haut[0][1])}`;
+    else d += bout(bas[0], haut[0], bout0, -1).map(p => ` L${f1(p[0])} ${f1(p[1])}`).join('') + ` L${f1(haut[0][0])} ${f1(haut[0][1])}`;
+    return d + ' Z';
+  };
+  // courbe lisse ouverte par des points (suite = sans le M de départ, enchaînée par un L)
+  const lisseOuvert = (pts, suite = false) => {
+    const n = pts.length, P = i => pts[Math.max(0, Math.min(n - 1, i))];
+    let d = suite ? ` L${f1(pts[0][0])} ${f1(pts[0][1])}` : `M${f1(pts[0][0])} ${f1(pts[0][1])}`;
+    for (let i = 0; i < n - 1; i++) {
+      const p0 = P(i - 1), p1 = P(i), p2 = P(i + 1), p3 = P(i + 2);
+      d += ` C${f1(p1[0] + (p2[0] - p0[0]) / 6)} ${f1(p1[1] + (p2[1] - p0[1]) / 6)} ${f1(p2[0] - (p3[0] - p1[0]) / 6)} ${f1(p2[1] - (p3[1] - p1[1]) / 6)} ${f1(p2[0])} ${f1(p2[1])}`;
+    }
+    return d;
+  };
   const test = (z, bon) => {
-    const o = [];
-    const m = F.mainSimple({ ...MAIN, x: z.l * 0.4, y: z.h * 0.6 });
-    o.push(m.svg);
-    // le dessus de la paume, sous l'objet : entre le pli du poignet et la base des doigts
-    const xA = m.prise.x - 30, xB = m.prise.x + 58, yH = m.prise.y - 9;
+    const pl = planche(z), o = [pl.svg];
+    const ym = (pl.y0 + pl.y1) / 2, A_ = axe(z, ym), r = 11;
     if (bon) {
-      // le boudin entier, posé en travers de la paume et des doigts
-      const r = 6.5;
-      o.push(h.path(`M${f1(xA + r)} ${f1(yH - 2 * r)} L${f1(xB - r)} ${f1(yH - 2 * r - 3)} A${r} ${r} 0 0 1 ${f1(xB - r)} ${f1(yH - 3)} L${f1(xA + r)} ${f1(yH)} A${r} ${r} 0 0 1 ${f1(xA + r)} ${f1(yH - 2 * r)} Z`, argile('arete')));
-      return { svg: o.join('\n'), c: [(xA + xB) / 2, yH - r - 1.5] };
+      o.push(h.path(boudin(A_, 0, 1, r), argile('contour')));
+      return { svg: o.join('\n'), P: A_(0.62) };
     }
-    // la poignée qui s'effrite : trois bouts cassés et des miettes
-    const R = hasard(5);
-    const bouts = [[xA + 4, 18], [xA + 34, 14], [xA + 62, 16]];
-    for (const [x, L] of bouts) {
-      const t = (R() - 0.5) * 0.5, y = yH - 6 - (x - xA) * 0.035;
-      const p = [[x, y - 6], [x + L, y - 6 + t * 8], [x + L + 2, y + 1], [x + L - 1, y + 6], [x, y + 6], [x - 2, y]];
-      o.push(h.chemin(p, A.hachure('gravier', 'arete'), true));
+    // le sable : le boudin n'a pas tenu, il est en bouts cassés, écartés, et en miettes
+    const morceaux = [[0, 0.2, 'rond', 'casse', 0], [0.26, 0.47, 'casse', 'casse', 3], [0.55, 0.7, 'casse', 'casse', 2], [0.8, 1, 'casse', 'rond', -2]];
+    for (const [t0, t1, b0, b1, dy] of morceaux) {
+      const Ad = t => { const p = A_(t); return [p[0], p[1] + dy]; };
+      o.push(h.path(boudin(Ad, t0, t1, r - 0.5, b0, b1, Math.round(t0 * 10) + 3), A.hachure('gravier', 'contour')));
     }
-    for (let i = 0; i < 26; i++) {
-      const x = xA - 6 + R() * (xB - xA + 12), y = yH - 1.5 - R() * 3 - (x - xA) * 0.035;
-      o.push(h.cercle(x, y, 1 + R() * 1.1, W(A.detail)));
+    const R = hasard(11);
+    for (let i = 0; i < 34; i++) {
+      const t = R(), p = A_(t), gap = [[0.2, 0.26], [0.47, 0.55], [0.7, 0.8]].some(([a, b]) => t > a - 0.02 && t < b + 0.02);
+      const dx = (R() - 0.5) * 22, dy = (R() < 0.5 ? -1 : 1) * (r + 3 + R() * (gap ? 6 : 12)) * (gap ? R() : 1);
+      const cx = p[0] + dx, cy = p[1] + dy, s = 1.6 + R() * 2.2, pts = [];
+      for (let k = 0; k < 5; k++) { const a = k / 5 * 2 * Math.PI + R() * 0.6; pts.push([cx + s * Math.cos(a), cy + s * 0.85 * Math.sin(a)]); }
+      o.push(h.chemin(pts, W(A.detail), true));
     }
-    return { svg: o.join('\n') };
+    return { svg: o.join('\n'), P: A_(0.6) };
   };
 
   return {
@@ -171,7 +211,7 @@ module.exports = (h) => {
     desc: 'À gauche, en coupe : une chaudière au fond percé de trous fins, posée sur deux bâtons en travers d’un récipient plus large. Du fond vers le haut : un lit de gravier, un linge, une colonne de terre argileuse tassée en quatre couches, cotée 15 à 18 cm, un autre linge, un peu d’eau. Une casserole verse un filet au milieu du linge du dessus (flèche rouge) ; l’eau goutte des trous dans le récipient du dessous. À droite, un talus coupé : la terre noire dessus, la couche grise et collante dessous ; une pelle enfoncée dans la couche grise, à 10 cm au moins sous la surface. En bas, le test dans la main : à gauche, la poignée mouillée roulée en boudin entier posée sur la paume, cerclée de rouge (de l’argile) ; à droite, la poignée qui s’effrite en bouts et en miettes (du sable).',
     format: 'pleine',
     disposition: [['coupe', 'sol'], ['boudin', 'miette']],
-    hauteurs: [3, 1.05],
+    hauteurs: [3, 0.95],
     largeurs: [[3, 2], [1, 1]],
     vues: {
       coupe: {
@@ -198,13 +238,14 @@ module.exports = (h) => {
           const { P } = sol(z);
           return [
             { n: 7, rond: [24, 24], cible: P.noire, texte: 'terre noire de surface' },
-            { n: 8, rond: [24, P.yN + 60], cible: P.grise, texte: 'couche grise et collante : celle-là' },
+            { n: 8, rond: [24, P.yN + 130], cible: P.grise, texte: 'couche grise et collante : celle-là' },
           ];
         },
       },
       boudin: {
         titre: 'Argile : le boudin tient',
         dessin: z => test(z, true).svg,
+        renvois: z => [{ n: 9, rond: [z.l - 40, z.h - 22], cible: (p => [p[0] + 6, p[1] + 12])(test(z, true).P), texte: 'poignée mouillée roulée en boudin' }],
       },
       miette: {
         titre: 'Sable : il s’effrite',
