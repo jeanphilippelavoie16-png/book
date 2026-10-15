@@ -47,10 +47,9 @@ lâche ; seules les parties sur le froid, la plomberie et les aliments s'appliqu
 
 Une maison perd sa chaleur en proportion de l'écart avec le dehors et de la surface
 exposée : replier la famille dans une pièce réduit la perte. Un tuyau fend parce que l'eau
-prend du volume en gelant : un tuyau vide ne fend pas. L'eau et l'égout de la maison
-dépendent de pompes électriques qui ne lui appartiennent pas : la maison tient trois
-jours, pas trois semaines. Le danger est presque toujours ce qu'on brûle pour se chauffer,
-pas le froid, et son monoxyde n'alerte aucun sens.
+prend du volume en gelant. L'eau et l'égout de la maison dépendent des pompes électriques
+de la ville : la maison tient trois jours. Le danger vient presque toujours de ce qu'on
+brûle pour se chauffer, et le monoxyde n'a ni odeur ni couleur.
 
 ## 4. Matériel
 

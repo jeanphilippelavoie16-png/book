@@ -21,6 +21,8 @@ mains. Chaque phrase doit lui donner un fait, un geste, une mesure ou un signe �
 - Sur « …les aliments s'appliquent : il n'y a ni entrée électrique, ni aqueduc, ni égout » : « ni
   aqueduc, ni égout, ni blablabla, inutile, on le sait. La phrase peut s'arrêter à "les aliments
   s'appliquent". »
+- Sur « un tuyau vide ne fend pas », dans le « Pourquoi ça marche » : « no shit, man ». La conséquence
+  évidente d'un mécanisme qu'on vient de dire ne s'écrit pas.
 
 Ses pages annotées sont dans `livre/relecture/notes/` (à régénérer, voir
 `design/outils/relecture/LISEZMOI.md`). Le jaune et le rouge, c'est ce qu'il ne veut plus voir.
@@ -65,6 +67,7 @@ dans le garage.
 | Le superlatif qui ne se mesure pas | « …au ch. 77, le chapitre le plus dangereux de l'ouvrage. » | « …au ch. 77. » |
 | La révélation en deux temps | « Le réglage est tout, et il tient en une phrase : la mèche ne dépasse presque pas. » | « La mèche ne dépasse presque pas. » |
 | La justification que le lecteur connaît déjà, après les deux-points | « …seules les parties sur le froid, la plomberie et les aliments s'appliquent : il n'y a ni entrée électrique, ni aqueduc, ni égout. » (JP : « inutile, on le sait ») | « …seules les parties sur le froid, la plomberie et les aliments s'appliquent. » |
+| La conséquence évidente d'un fait qu'on vient de dire | « Un tuyau fend parce que l'eau prend du volume en gelant : un tuyau vide ne fend pas. » (JP : « no shit ») | « Un tuyau fend parce que l'eau prend du volume en gelant. » |
 | L'annonce et le résumé | « Voici ce qu'il faut savoir. » ; « En somme… » | *(rien)* |
 | La question rhétorique | « Pourquoi ? Parce que… » | Le fait |
 

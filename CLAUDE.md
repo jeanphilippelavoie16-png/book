@@ -220,6 +220,8 @@ doit être informatif, partout.** Ce qui saute :
   chaîne, la hache, l'arme… » ;
 - la justification que le lecteur connaît déjà, souvent après deux-points : « …les aliments
   s'appliquent : il n'y a ni entrée électrique, ni aqueduc, ni égout » (JP : « inutile, on le sait ») ;
+- la conséquence évidente d'un fait qu'on vient de dire : « un tuyau fend parce que l'eau prend du
+  volume en gelant : un tuyau vide ne fend pas » (JP : « no shit ») ;
 - la chute en formule au bout d'un paragraphe : « juste une impression », « La plus courte commande »,
   « pas quand le tuyau siffle », « C'est un motif de partir que rien de visible ne signale » ;
 - l'opposition fabriquée (« pas X, mais Y », « au village, c'est… ; au chalet, c'est… ») quand elle
