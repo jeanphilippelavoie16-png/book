@@ -99,7 +99,7 @@
       "rang": "g3",
       "ancre": "haut",
       "taille": 10,
-      "texte": "**Faire le plein et charger l'auto tout de suite** : les médicaments, les papiers, un change par personne, de l'eau et de quoi manger pour trois jours, et une couverture de laine par personne.",
+      "texte": "**Faire le plein et charger l'auto tout de suite** : les médicaments, les papiers, des vêtements de rechange pour chacun, de l'eau et de quoi manger pour trois jours, et une couverture de laine par personne.",
       "renvoi": "ch. 11, étapes 2 et 3",
       "source": "étapes 2 et 3"
     },
@@ -110,7 +110,7 @@
       "rang": "g4",
       "ancre": "haut",
       "taille": 10,
-      "texte": "**Au chalet, mettre le canot à l'eau.** Décider quel adulte prend quel enfant, et écrire sur la porte ce qui fera partir.",
+      "texte": "**Au chalet, mettre le canot à l'eau.** Décider quel adulte prend quel enfant.",
       "renvoi": "ch. 11, étapes 4 à 6",
       "source": "étapes 4 à 6"
     },
@@ -119,8 +119,8 @@
       "type": "question",
       "col": "tronc",
       "rang": "g6",
-      "texte": "Une des raisons de partir est là ?",
-      "precision": "Il ne reste qu'un chemin ; la fumée se sent dans la maison et les enfants n'ont pas de pièce d'air propre ; ou ce que la famille a écrit avant la saison est arrivé",
+      "texte": "Il ne reste qu'un chemin pour sortir, ou la fumée entre dans la maison ?",
+      "precision": "La fumée compte si les enfants n'ont pas de pièce d'air propre",
       "source": "étape 9"
     },
     {

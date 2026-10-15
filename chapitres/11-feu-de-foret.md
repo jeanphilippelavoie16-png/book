@@ -19,20 +19,12 @@ jusqu'au passage du front.
 
 ## 2. Quand l'utiliser
 
-### C'est la bonne procédure quand
-
-- **Un feu est déclaré dans le secteur et il n'y a qu'un chemin pour sortir.** Le nombre de chemins décide
- de l'urgence, plus que la distance du feu.
+- **Un feu est déclaré dans le secteur.**
 - **De la cendre ou des aiguilles roussies tombent sur la galerie, ou le soleil est rouge à midi**, même
- sans feu visible et sans odeur de fumée.
+ sans feu en vue et sans odeur de fumée.
 - **Un orage est passé sans pluie.** La foudre peut allumer un feu qui couve dans l'humus avant de se
- déclarer : on continue de regarder l'horizon les jours suivants (étape 58).
-- **Le combustible est sec sous le pied** (section 9, étape 57).
-
-### C'est la mauvaise procédure quand
-
-- **Le feu est dans le bâtiment, dans le tuyau ou dans un chaudron** : c'est le ch. 82. Un départ de feu
- plus petit qu'une poubelle s'y éteint à l'extincteur ; un feu de forêt ne se combat pas.
+ déclarer : on surveille l'horizon les jours suivants (étape 58).
+- **Le combustible est sec sous le pied** (étape 57).
 
 ---
 
@@ -73,24 +65,24 @@ suite au départ, étape 11.
 2. **Faire le plein tout de suite** : à la station en ville, avec les bidons au chalet. Il faut au moins
  deux fois ce que prend l'aller (ch. 15). Refaire le plein chaque fois que le réservoir descend à la
  moitié. Stationner l'auto le devant tourné vers le chemin.
-3. **Charger l'auto maintenant, sans attendre de sentir la fumée** : les médicaments, les papiers, un
- change complet par personne dans un sac à part, de l'eau et de quoi manger pour trois jours, une
+3. **Charger l'auto maintenant, sans attendre de sentir la fumée** : les médicaments, les papiers, des vêtements de rechange
+ pour chacun dans un sac à part, de l'eau et de quoi manger pour trois jours, une
  couverture de laine par personne et les bidons d'essence. La réserve du chalet reste au chalet (ch. 5) :
  une heure passée à charger des conserves est une heure de moins pour sortir.
 4. **Au chalet, mettre le canot ou la chaloupe à l'eau**, avec les gilets et une pagaie de rechange :
  c'est le deuxième chemin si la route ferme (section 9).
 5. **Décider quel adulte prend quel enfant**, le dire aux enfants, et ne plus en changer jusqu'à l'arrivée
  (ch. 82).
-6. **Écrire sur la porte ce qui fera partir.** Une seule de ces raisons suffit :
+6. **Partir dès qu'une de ces deux choses arrive :**
  - **il ne reste qu'un chemin pour sortir**, parce que l'autre est dans la fumée, bloqué par un arbre ou
  fermé. On part sur celui qui reste. Un chalet qui n'a qu'un chemin et pas de canot à l'eau est déjà dans
  ce cas ;
  - **la fumée se sent dans la maison, portes et fenêtres fermées**, et les enfants n'ont pas de pièce
- d'air propre (étapes 32 et 35) ;
- - **ce que la famille a écrit avant la saison** (étape 47), s'il y a lieu.
+ d'air propre (étapes 32 et 35).
 
- Une fois que c'est écrit, personne ne le discute plus. Un seul adulte décide (ch. 2). Si une de ces raisons
- est déjà là, passer au départ, étape 11 ; sinon, faire les étapes 7 à 10 en restant prêt à partir.
+ Un seul adulte décide (ch. 2). Si une des deux est déjà là, passer au départ, étape 11 ; sinon, faire les
+ étapes 7 à 10 en restant prêt à partir. Si la famille a écrit en mai ce qui la fait partir (étape 47), la
+ feuille sur la porte s'ajoute à ces deux raisons.
 7. **Remplir tout ce qui tient l'eau pendant que le puits ou l'aqueduc en donne** : le bain, les barils,
  les chaudières. Au chalet, monter un baril en hauteur avec un boyau piqué au fond (section 9).
 8. **Dégager autour du bâtiment ce qui peut prendre feu** : vider les gouttières ; tirer le bois de

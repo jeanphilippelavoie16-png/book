@@ -249,7 +249,7 @@ Les deux adultes mesurent, un seul décide, et la décision tient jusqu'à l'heu
 Dans l'ordre : les personnes, les papiers, la chaleur, le bâtiment. Si on doit partir plus tôt
 que prévu, l'essentiel est fait.
 
-1. **Habiller les enfants en premier**, en couches, avec un change complet par personne dans un
+1. **Habiller les enfants en premier**, en couches, avec des vêtements de rechange pour chacun dans un
  sac à part : un enfant mouillé dans une auto en panne n'a plus de marge.
 2. **Prendre la trousse d'urgence, les médicaments, les papiers d'identité et les cartes
  d'assurance maladie.**

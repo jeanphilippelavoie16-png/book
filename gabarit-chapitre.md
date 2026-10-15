@@ -17,16 +17,16 @@ Une phrase. Pas deux.
 
 ## 2. Quand l'utiliser
 
-La situation où c'est le bon choix, et celle où c'en est un mauvais. Les deux listes,
-toujours. Un chapitre qui ne dit pas quand ne pas l'utiliser est incomplet.
+**Seulement quand l'utiliser** : une courte liste des situations où on ouvre ce chapitre, sans
+sous-titre. Une ligne par situation, dite comme on la voit (« Un feu est déclaré dans le secteur »,
+« De la cendre tombe sur la galerie »), sans justification.
 
-**Aucune évidence dans ces listes.** « Sortir si le bâtiment brûle », « obéir aux
-autorités qui ordonnent l'évacuation », « ne pas rester si une vie est en jeu » :
-personne n'apprend rien et ça vole la place du contenu. Une entrée reste seulement si
-elle dit quelque chose qu'un adulte sensé ne devinerait pas tout seul — par exemple que
-devant une source radiologique perdue on s'éloigne au lieu de se confiner, ce qui est
-l'inverse du réflexe. Si la liste tombe à deux entrées vraies, elle fait deux entrées.
-Si elle tombe à zéro, elle saute.
+**Pas de liste « quand ne pas l'utiliser »** (JP, 15 octobre 2026, sur « C'est la mauvaise procédure quand :
+le feu est dans le bâtiment, dans un chaudron » au chapitre du feu de forêt : « no shit qu'une procédure de
+feu de forêt couvre pas un feu de chaudron ; quand l'utiliser, c'est juste quand l'utiliser, pas besoin de
+donner des exemples bidon »). Le contre-exemple évident ne s'écrit pas. Le rare fait qui retourne un
+réflexe (devant une source radiologique perdue, on s'éloigne au lieu de se confiner) va dans l'étape
+où il sert ou dans l'encadré danger, pas ici.
 
 ## 3. Pourquoi ça marche
 

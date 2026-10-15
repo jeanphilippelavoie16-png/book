@@ -28,7 +28,7 @@
 <path d="M1002.60,226.90 L1002.60,253.20 Q1002.60,259.20 1008.60,259.20 L1056.00,259.20 Q1062.00,259.20 1062.00,265.20 L1062.00,277.40" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
 <path d="M943.20,335.80 L943.20,349.40" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
 <path d="M1062.00,335.80 L1062.00,349.40" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
-<path d="M1002.60,444.40 L1002.60,457.40" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M1002.60,448.70 L1002.60,457.40" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
 <path d="M1002.60,557.10 L1002.60,579.80" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
 <path d="M669.60,181.00 L669.60,579.80" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
 </g>
@@ -160,14 +160,15 @@
 <text data-max="91.50" x="1017.00" y="301.05" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">Aller au chalet</tspan><tspan font-weight="500">, de</tspan></text>
 <text data-max="91.50" x="1017.00" y="313.35" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">jour, avec le plein</tspan></text>
 <text data-max="91.50" x="1017.00" y="325.65" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">fait.</tspan></text>
-<rect x="889.20" y="356.40" width="226.80" height="88.00" rx="0" fill="#FDE8D8" stroke="#EE7219" stroke-width="1.5"/>
-<text data-max="210.30" x="898.20" y="377.05" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">Avant de partir</tspan><tspan font-weight="500"> : habiller les enfants et garder un</tspan></text>
-<text data-max="210.30" x="898.20" y="389.35" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">change par personne à portée de main. Prendre la</tspan></text>
-<text data-max="210.30" x="898.20" y="401.65" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">trousse et les papiers. Prévenir des proches et</tspan></text>
-<text data-max="210.30" x="898.20" y="413.95" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">prévoir deux chemins. L’hiver, vidanger la maison.</tspan></text>
-<text data-max="210.30" x="898.20" y="426.25" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">Écrire « PARTIS » sur la porte et faire le plein.</tspan></text>
-<rect x="1058.16" y="432.15" width="58.59" height="13.00" fill="#EE7219"/>
-<text x="1063.16" y="441.70" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="8.5" fill="#000" xml:space="preserve" data-max="50.09">ch. 2, étape 9</text>
+<rect x="889.20" y="356.40" width="226.80" height="92.30" rx="0" fill="#FDE8D8" stroke="#EE7219" stroke-width="1.5"/>
+<text data-max="210.30" x="898.20" y="377.05" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">Avant de partir</tspan><tspan font-weight="500"> : habiller les enfants et garder des</tspan></text>
+<text data-max="210.30" x="898.20" y="389.35" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">vêtements de rechange pour chacun à portée de</tspan></text>
+<text data-max="210.30" x="898.20" y="401.65" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">main. Prendre la trousse et les papiers. Prévenir</tspan></text>
+<text data-max="210.30" x="898.20" y="413.95" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">des proches et prévoir deux chemins. L’hiver,</tspan></text>
+<text data-max="210.30" x="898.20" y="426.25" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">vidanger la maison. Écrire « PARTIS » sur la porte</tspan></text>
+<text data-max="210.30" x="898.20" y="438.55" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">et faire le plein.</tspan></text>
+<rect x="1058.16" y="436.45" width="58.59" height="13.00" fill="#EE7219"/>
+<text x="1063.16" y="446.00" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="8.5" fill="#000" xml:space="preserve" data-max="50.09">ch. 2, étape 9</text>
 <rect x="897.20" y="349.40" width="21.63" height="14.00" fill="#EE7219"/>
 <text x="902.20" y="359.60" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="9" fill="#000" xml:space="preserve" data-max="13.13">1 h</text>
 <rect x="889.20" y="464.40" width="226.80" height="92.70" rx="0" fill="#fff" stroke="#9B2C1E" stroke-width="1.5"/>

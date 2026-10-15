@@ -72,6 +72,17 @@ les analyses et que tu les appliques à ta logique de refonte ») :
    préparé expliqué là où il sert, la saison et le moment, « section » et pas « § »). Elle s'applique à tous les
    chapitres du tome 1, ceux déjà passés compris, et à leurs logigrammes.
 
+4. **Dans les 56 chapitres qui l'ont, la liste « C'est la mauvaise procédure quand » de la section 2 sort**
+   (JP, 15 octobre : « quand l'utiliser, c'est juste quand l'utiliser, pas besoin de donner des exemples
+   bidon »). La section 2 ne garde que quand on ouvre le chapitre, sans sous-titre. Un fait qui retourne un
+   réflexe va dans l'étape ou dans l'encadré danger. Le gabarit est corrigé. Le ch. 11 est fait.
+5. **Les mots que personne n'emploie** : « un change » devient « des vêtements de rechange » (fait aux ch. 2
+   et 11) ; « seuil » devient « une raison de partir » (fait au ch. 11). En urgence, ne pas s'appuyer sur une
+   préparation que la famille n'a peut-être pas faite (JP, sur « ce que la famille a écrit avant la saison »).
+
+Le **ch. 11 (feu de forêt)** est le chapitre modèle de la refonte : texte, séries orange, logigramme,
+planches 11-03 à 11-05, deux photos. Aperçus en double page : `livre/apercus-ch11/`.
+
 **Arrêté le 15 octobre vers 15 h** (JP : « mets en pause le reste, on règle les points qu'on est en train de
 parler »). Tous les agents arrêtés, leurs fichiers et leurs ancrages poussés.
 

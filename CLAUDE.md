@@ -204,8 +204,10 @@ tome dans `livre/credits/`, hors du livre ; aucune page de crédits ne s'imprime
 « obéir aux autorités qui ordonnent l'évacuation » n'apprend rien à personne et vole la
 place de ce qui compte. Un chapitre qui se remplit d'évidences est un chapitre qui n'a
 pas assez de contenu réel : la réponse est d'écrire le contenu, pas de garder le
-remplissage. Ça vaut pour toutes les listes, en particulier « quand c'est un mauvais
-choix ».
+remplissage. Ça vaut pour toutes les listes. **« Quand l'utiliser », c'est juste quand l'utiliser**
+(JP, 15 octobre 2026 : « no shit qu'une procédure de feu de forêt couvre pas un feu de chaudron ») : la
+section 2 n'a plus de liste « c'est la mauvaise procédure quand » ; le contre-exemple évident ne s'écrit
+pas (gabarit, section 2).
 
 **On écrit comme on l'expliquerait à quelqu'un, à voix haute** (JP, 15 octobre 2026 : « personne parle
 comme ça, c'est fucking pas clair » ; « c'est pas juste les logigrammes, c'est la façon de dire les
