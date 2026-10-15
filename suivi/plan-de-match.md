@@ -74,8 +74,9 @@ parler »). Tous les agents arrêtés, leurs fichiers et leurs ancrages poussés
   logigrammes (02, 04, 16, 17) sont refaits selon cette règle ; les chapitres, non. Points précis de JP :
   - ch. 17, étape 5 : lire le thermomètre et le vent dans les dix premières minutes ne tient pas (« on est en
     pleine nuit, on se fait réveiller, oublie ça le thermomètre ») : sort de la série orange ;
-  - ch. 17, étapes 6 et 26 : « Restez au poteau » et le poteau planté (« c'est quoi cette phrase là ») :
-    on dit « Restez au bas de l'escalier », un repère qui existe ;
+  - ch. 17, étapes 6 et 26 : le poteau reste (JP : « je comprends le poteau, c'est en préparation, ça fait
+    du sens »), mais il s'explique là où il apparaît : planté d'avance à quelques pas de la porte, pour dire
+    au visiteur où s'arrêter. « Restez au poteau » tout seul ne se comprend pas ;
   - ch. 4, étape 9 : « Couche du dessus enlevée en arrivant » (participe en chaîne) ;
   - le logigramme ne redit pas les avertissements (JP, sur l'encadré du réchaud du ch. 17 : « on l'a dit 1000
     fois »).

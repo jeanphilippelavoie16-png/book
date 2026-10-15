@@ -148,7 +148,7 @@
       "col": "large",
       "rang": "g6",
       "ancre": "haut",
-      "texte": "**Lui parler à travers la porte** : « Restez au bas de l'escalier. Qu'est-ce qu'il vous faut ? » Poser une seule question à la fois.",
+      "texte": "**Lui parler à travers la porte** : lui dire où s'arrêter, à un repère qu'il voit, comme le poteau ou le bas de l'escalier, puis lui demander ce qu'il lui faut. Une seule question à la fois.",
       "renvoi": "ch. 17, étape 6",
       "source": "étape 6"
     },
@@ -277,7 +277,7 @@
       "type": "geste",
       "rang": "d5",
       "ancre": "haut",
-      "texte": "**Le lendemain, se préparer pour la prochaine fois** : décider ensemble ce qu'on répond, choisir la pièce du fond et poser une barre sur la porte.",
+      "texte": "**Le lendemain, se préparer pour la prochaine fois** : décider ensemble ce qu'on répond, planter un poteau à quelques pas de la porte pour dire au visiteur où s'arrêter, choisir la pièce du fond et poser une barre sur la porte.",
       "renvoi": "ch. 17, étapes 23 à 29 ; §9",
       "source": "étapes 23 à 29 ; §7 ; §9, la porte",
       "col": "large2"
