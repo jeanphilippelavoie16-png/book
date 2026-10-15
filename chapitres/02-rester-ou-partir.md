@@ -38,8 +38,8 @@ se tranche avec la même procédure.
 - **Il reste moins de clarté que le trajet n'en demande.** On tient la nuit sur place, sauf si
  un feu approche.
 - **Quelqu'un est confus, maladroit ou parle avec difficulté.** Ce sont les signes de
- l'hypothermie modérée, entre 28 et 32,2 °C de température buccale. Cette personne ne voyage
- plus sans abri chauffé, et elle ne participe plus à la décision.
+ l'hypothermie modérée (§8). Cette personne ne voyage plus sans abri chauffé, et elle ne
+ participe plus à la décision.
 
 ---
 
@@ -48,9 +48,9 @@ se tranche avec la même procédure.
 On retient l'option dont le pire scénario est le moins grave. Le chalet est autonome et loin de
 tout ; la maison a les voisins et l'hôpital, et dépend de réseaux qui viennent de lâcher. Rester
 à la maison, c'est parier sur un délai de réparation : court, le pari tient ; inconnu, il ne
-tient plus. Le trajet est le seul moment sans aucune des deux protections, et c'est lui qu'on
-chiffre contre le prix de rester. Chaque heure d'hésitation retire des options : le froid, la
-noirceur et la neige ferment la route.
+tient plus. Le trajet est le seul moment sans aucune des deux protections, et on le chiffre
+contre le prix de rester. Chaque heure d'hésitation retire des options : le froid, la noirceur
+et la neige ferment la route.
 
 ---
 
@@ -80,8 +80,7 @@ commencer à l'étape 2.
 2. **Compter les têtes dehors, à voix haute.** S'il manque quelqu'un, un adulte qui n'a ni mal
  de tête ni nausée va le chercher, droit à lui, et ressort.
 3. **Mettre les enfants à l'abri du froid avec un adulte.** À la maison, chez un voisin. Au
- chalet, dans l'auto : échappement dégagé à la pelle avant de démarrer, fenêtre entrouverte du
- côté opposé au vent, moteur une dizaine de minutes par période de 30 minutes (§8).
+ chalet, dans l'auto, l'échappement dégagé à la pelle avant de démarrer (§8).
 4. **Garder à l'air ceux qui ont des symptômes, au chaud, hors de la maison.** À l'air libre, la
  moitié du CO est encore dans le sang 3 à 5 heures plus tard : celui qui se sent mieux au bout
  de quelques minutes n'est pas remis. Chez un enfant, les signes ressemblent à de la fatigue ou
@@ -93,9 +92,9 @@ commencer à l'étape 2.
  vient de ce qui brûle : génératrice, chaufferette, réchaud, gril, poêle qui refoule, moteur
  dans le garage. Celui qui y va n'est jamais celui qui avait mal à la tête, et il marche :
  l'effort fait respirer plus vite et absorber plus de CO. Génératrice dehors : l'arrêter, puis
- l'éloigner à au moins 6 m du bâtiment. Appareil dedans : fermer la valve ou l'éteindre, ouvrir
- les fenêtres en ressortant. Poêle à bois : ne plus le charger. Source inconnue : on ne la
- cherche pas dedans, on aère.
+ l'éloigner (étape 8). Appareil dedans : fermer la valve ou l'éteindre, ouvrir les fenêtres en
+ ressortant. Poêle à bois : ne plus le charger. Source inconnue : on ne la cherche pas dedans,
+ on aère.
 6. **Aérer.** Ouvrir de dehors toutes les portes. Laisser l'avertisseur dedans : il ne mesure
  que l'air où il est, et emporté dehors il se tait sans rien prouver.
 7. **Rentrer quand la source est coupée, la maison aérée et l'avertisseur revenu à la normale**
@@ -123,8 +122,8 @@ qu'on a envie de faire.
 **Chaleur.** Mesurer la température intérieure, puis la remesurer deux heures plus tard :
 l'écart donne la pente, en °C par heure. Une maison qui perd 1 °C à l'heure et une qui en perd 4
 ne posent pas la même question, même au même chiffre. À la maison chauffée à l'électricité,
-l'horloge de la chaleur est cette pente. Au chalet, c'est le bois sec qu'on atteint sans
-machine, compté en jours à ce rythme (ch. 83). Entre 18 et 24 °C, le risque est minimal pour une
+l'horloge de la chaleur est cette pente. Au chalet, elle se compte en jours de bois sec qu'on
+atteint sans machine, à ce rythme (ch. 83). Entre 18 et 24 °C, le risque est minimal pour une
 personne sédentaire. Aucune température reconnue ne dit quand quitter une maison : on applique
 le seuil que la famille a écrit d'avance sur la fiche, en pensant au plus jeune.
 
@@ -177,8 +176,8 @@ restante et le poids de la charge.
 
 Le refroidissement éolien chiffre le temps qu'on aurait dehors en cas de panne. La peau exposée
 peut geler en 10 à 30 minutes entre −28 et −39, en 5 à 10 minutes entre −40 et −47, en 2 à 5
-minutes entre −48 et −54, et en moins de 2 minutes à −55 et moins. C'est le temps qu'on a pour
-changer un pneu au bord de la route, compté à partir du moment où les mitaines sortent.
+minutes entre −48 et −54, et en moins de 2 minutes à −55 et moins. Un pneu se change au bord de
+la route dans ce temps-là, compté à partir du moment où les mitaines sortent.
 
 Chiffrer le trajet avec la fiche : la durée mesurée en janvier ; le carburant de l'aller, et du
 retour tant qu'on ignore si la route est ouverte jusqu'au bout ; l'heure d'arrivée, comparée au
@@ -195,7 +194,7 @@ n'y passe.
 trois zones : de 0 à 1,5 m, rien qui brûle ; de 1,5 à 10 m, aucune corde de bois ; de 10 à 30 m,
 les conifères espacés d'au moins 3 m et élagués jusqu'à 2 m du sol (ch. 82). Un chalet dans une
 pessière noire serrée, sans ces trois zones, ne se défend pas : on part tôt, pendant que la
-route existe. À la maison, c'est l'avance du feu vers la ville qui décide (ch. 11).
+route existe. À la maison, l'avance du feu vers la ville décide (ch. 11).
 
 **Fumée sans feu visible.** Contre la fumée, on reste dedans, portes et fenêtres fermées, l'air
 recirculé ou filtré ; la radio donne la Cote air santé[^2]. Un chalet chauffé au bois tire son
@@ -344,9 +343,8 @@ neuves, même quand elle ne change pas. Après douze heures sans mesure, elle es
 >
 > - **Génératrice : jamais dans un bâtiment, un garage ou sous un auvent.** Dehors, à au moins 6
 >  m du bâtiment, loin des portes et des fenêtres.
-> - **Aucun appareil à combustible à l'intérieur** : chauffage d'appoint, barbecue au charbon ou
->  au propane, réchaud de camping. Dans une tente, un abri de motoneige ou une auto, le même
->  appareil tue plus vite : le volume est plus petit.
+> - **Aucun appareil à combustible à l'intérieur.** Dans une tente, un abri de motoneige ou une
+>  auto, il tue plus vite : le volume est plus petit.
 > - **Auto immobilisée dans la neige** : la neige s'accumule sous le vent et bouche
 >  l'échappement pendant qu'on est assis dedans, et le CO remonte par le plancher. Dégager
 >  l'échappement avant **chaque** redémarrage, entrouvrir la fenêtre du côté opposé au vent,
@@ -374,8 +372,8 @@ Sans information, la route est peut-être coupée et personne ne sait qu'on est 
 - Le thermomètre d'intérieur → un thermomètre à viande à cadran posé sur la table, loin du poêle
  et d'un mur extérieur. Sans thermomètre du tout → un verre d'eau posé au plancher, là où
  dorment les enfants : la pellicule de glace qui s'y forme dit que le plancher est à 0 °C, et
- l'épaisseur de la glace d'un relevé au suivant donne la pente. L'air chaud monte : au plancher,
- il fait plus froid qu'à hauteur d'adulte, et c'est là qu'on mesure.
+ l'épaisseur de la glace d'un relevé au suivant donne la pente. L'air chaud monte : on mesure au
+ plancher, plus froid qu'à hauteur d'adulte.
 - La montre arrêtée → l'ombre. On reprend la décision au lever, puis quand l'ombre recommence à
  s'allonger, ce qui laisse le trajet dans la clarté.
 - Le thermomètre médical → les quatre signes de l'étape 6, vérifiés par une tâche plutôt que par
@@ -418,7 +416,7 @@ Sans information, la route est peut-être coupée et personne ne sait qu'on est 
 **Décider tôt et une seule fois.** Sans information neuve, on choisit l'option qui se défait le
 moins mal : l'hiver, avec de jeunes enfants et une auto dont on ne peut pas garantir le trajet,
 c'est presque toujours rester là où on est. Sans information, la bascule vers le chalet ne se
-fait pas : c'est le trajet qu'on ne peut plus chiffrer.
+fait pas : le trajet ne se chiffre plus.
 
 **Si on reste : vider le congélateur dans la neige.** Ce qui est encore gelé sort dehors avant
 la fin de l'horloge du congélateur (étape 3) : une caisse fermée, posée sur deux bûches pour que
@@ -447,9 +445,8 @@ les jours suivants, sans feu (ch. 74).
  de l'alcool : l'alcool à brûler du réchaud ou l'alcool isopropylique de la pharmacie font le
  même travail, ils se mêlent à l'eau au fond du réservoir et l'empêchent de prendre en glace. La
  dose est d'environ **350 mL pour un plein de 75 L**, un demi pour cent, à chaque plein l'hiver.
- L'isopropylique se prend **à 99 %** : celui à 70 % contient 30 % d'eau, ce qu'on veut justement
- sortir. Sans alcool, réchauffer la conduite sans approcher de flamme : il faut savoir où elle
- passe.
+ L'isopropylique se prend **à 99 %** : celui à 70 % contient 30 % d'eau, ce qu'on veut sortir.
+ Sans alcool, réchauffer la conduite sans approcher de flamme : il faut savoir où elle passe.
 - Sur la neige, le cric s'enfonce : une planche courte et large dans le coffre lui sert d'appui.
 
 **Si on part quand même : le trajet avec rien.**

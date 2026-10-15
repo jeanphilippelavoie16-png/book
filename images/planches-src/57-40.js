@@ -173,12 +173,10 @@ module.exports = (h) => {
   // ─── Le poisson en travers (coupe du corps) et le paquet de mousse ───────────────────────────
   // section : le dos en haut (vers le manche), le ventre en bas ; 44 mm de large, 72 de haut.
   const SECTION = [[0, -36], [9, -32], [17, -20], [21, -4], [20, 14], [14, 28], [0, 36], [-14, 28], [-20, 14], [-21, -4], [-17, -20], [-9, -32]];
-  // vu de dos : la queue derrière, la nageoire du dos en haut, les deux nageoires du ventre
+  // vu de bout : la nageoire du dos en haut, les deux nageoires du ventre en bas
   const poissonCoupe = (Tp) => [
-    h.path(lisse(map(Tp, [[0, -30], [3, -40], [4, -54], [0, -62], [-4, -54], [-3, -40]]), true), W(A.arete)),   // la queue, derrière
-    h.path(lisse(map(Tp, [[0, 30], [3, 42], [3, 54], [0, 60], [-3, 54], [-3, 42]]), true), W(A.arete)),
-    h.path(lisse(map(Tp, [[-2, -34], [0, -46], [2, -34]])), W(A.arete)),                                       // nageoire du dos
-    ...[-1, 1].map(k => h.path(lisse(map(Tp, [[k * 14, 24], [k * 24, 33], [k * 18, 26]])), W(A.arete))),       // nageoires du ventre
+    h.chemin(map(Tp, [[-3, -33], [0, -52], [3, -33]]), W(A.arete), true),                                       // nageoire du dos
+    ...[-1, 1].map(k => h.chemin(map(Tp, [[k * 10, 30], [k * 26, 40], [k * 17, 25]]), W(A.arete), true)),     // nageoires du ventre
     h.path(lisse(map(Tp, SECTION), true), W(A.contour)),
   ].join('\n');
   const mousse = (Tp) => {

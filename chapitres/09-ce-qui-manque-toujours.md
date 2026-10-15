@@ -73,7 +73,7 @@ Une liste d'achat écrit des quantités, pas des dates : la famille 4 lui échap
 | **Le double bac : un en service, un plein.** On recommande au moment où on entame le plein | Commander à zéro, c'est rester à zéro pendant tout le délai de livraison : une heure en ville, un hiver au chalet |
 | **Faire tourner par l'usage**, en cuisinant avec le stock dans l'année ordinaire | Le stock qu'on oublie, et l'urgence où on découvre qu'on ne sait pas s'en servir |
 
-**Deux pièges d'étiquette.** « Meilleur avant » est une date de qualité et non de salubrité : la date échue ne rend pas l'aliment dangereux. La **date limite d'utilisation** ne se dépasse pas, mais elle ne figure que sur quelques produits : préparations pour nourrissons, substituts de repas, suppléments nutritifs.
+**Deux pièges d'étiquette.** « Meilleur avant » est une date de qualité et non de salubrité : la date échue ne rend pas l'aliment dangereux. La **date limite d'utilisation** ne se dépasse pas ; elle ne figure que sur quelques produits : préparations pour nourrissons, substituts de repas, suppléments nutritifs.
 
 Le deuxième va contre le réflexe : **un aliment qui se conserve plus de 90 jours peut n'avoir aucune date** (conserves, aliments secs, congelés). Sans date, une boîte n'est pas plus stable : son âge est inconnu, et c'est le contenu habituel d'un stock de chalet. La date que l'emballage ne donne pas s'écrit au marqueur à l'achat.
 
@@ -187,7 +187,7 @@ Ce sont des solutions de chalet : elles demandent le bois, l'eau et le territoir
 
 Pour les gros poids, le même bâton devient une romaine : on déplace le pivot vers un bout, la charge pend du côté court, l'étalon du côté long, et le rapport des bras multiplie l'étalon. Pivot à 20 cm d'un bout et 60 cm de l'autre, une bouteille de 1 L en pèse 3.
 
-**Ce qu'on perd :** le bas de l'échelle. Un fléau de fortune pèse honnêtement un kilo de viande contre un kilo d'eau ; il ne pèse pas quelques grammes de sel de salaison nitrité (nitrite de sodium). **Le nitrite ne se dose jamais sur une balance improvisée** : c'est le seul dosage où l'erreur se paie en toxicité et non en goût. Sans balance juste, on renonce aux salaisons longues, emballées serré ou enterrées, et on fait court, au sel seul, ouvert à l'air et séché (ch. 67, 68, 69).
+**Ce qu'on perd :** le bas de l'échelle. Un fléau de fortune pèse honnêtement un kilo de viande contre un kilo d'eau ; il ne pèse pas quelques grammes de sel nitrité. **Le nitrite ne se dose jamais sur une balance improvisée** : c'est le seul dosage où l'erreur se paie en toxicité et non en goût. Sans balance juste, on renonce aux salaisons longues, emballées serré ou enterrées, et on fait court, au sel seul, ouvert à l'air et séché (ch. 67, 68, 69).
 
 **Le thermomètre : le vérifier avant de le déclarer mort.** Une sonde qui donne des lectures suspectes est plus souvent déréglée que finie, et deux points fixes le disent sans rien coûter. Dans un verre bourré de glace pilée et d'eau, brassé, elle doit lire **0 °C** ; dans l'eau à gros bouillons, **100 °C** (au niveau de la mer, où est la Côte-Nord). L'écart constant se reporte : une sonde qui lit 2 °C de trop aux deux points lit 2 °C de trop à 74 °C, et on cuit à 76 °C indiqués. Une sonde dont les deux points s'écartent dans des sens contraires ne se corrige pas, elle se jette.
 
@@ -199,7 +199,7 @@ Pour les gros poids, le même bâton devient une romaine : on déplace le pivot 
 
 **L'enregistreur : un pot d'eau gelée et une pièce de monnaie.** Un pot d'eau qu'on laisse geler, une pièce de monnaie posée sur la glace, le pot au congélateur ou dans le caveau. Au retour : pièce en surface, rien n'a dégelé ; pièce au fond, tout a dégelé et regelé pendant l'absence. Un pot par appareil et un dans la cave.
 
-**Ce qu'on perd :** la durée et la température du dégel. Le témoin dit qu'il y a eu un dégel, et c'est la durée qui tranche si la viande se garde ou se cuisine tout de suite (ch. 74).
+**Ce qu'on perd :** la durée et la température du dégel. Le témoin dit qu'il y a eu un dégel, sans dire combien de temps ; la durée décide si la viande se garde ou se cuisine tout de suite (ch. 74).
 
 ### 9.2 Fabriquer le consommable
 
@@ -217,7 +217,7 @@ Pour les gros poids, le même bâton devient une romaine : on déplace le pivot 
 
 **Le levain, dans l'air.** Farine et eau, une semaine. **Ce qu'on perd :** la vitesse et la constance. Les levées sont longues, irrégulières, et froides au chalet en janvier.
 
-**Les joints, dans le cuir gras.** Un joint torique durci, un joint plat fendu, une rondelle d'étanchéité se retaillent dans du cuir de botte, dans une vieille chambre à air ou dans une semelle, à l'emporte-pièce improvisé : un bout de tuyau limé en biseau, frappé au marteau sur une bille de bois de bout (planche 09-08). Le cuir se graisse au suif avant d'être serré : il gonfle légèrement à l'eau et scelle d'autant mieux qu'il est comprimé. C'est ce qui fait tenir une pompe à eau, un presse-étoupe, un bouchon de vidange, une pompe de puits à piston.
+**Les joints, dans le cuir gras.** Un joint torique durci, un joint plat fendu, une rondelle d'étanchéité se retaillent dans du cuir de botte, dans une vieille chambre à air ou dans une semelle, à l'emporte-pièce improvisé : un bout de tuyau limé en biseau, frappé au marteau sur une bille de bois de bout (planche 09-08). Le cuir se graisse au suif avant d'être serré : il gonfle légèrement à l'eau et scelle d'autant mieux qu'il est comprimé. Ce joint fait tenir une pompe à eau, un presse-étoupe, un bouchon de vidange, une pompe de puits à piston.
 
 **Ce qu'on perd :** le cuir durcit au froid, flue sous pression et se fend ; l'essence et le propane le dessèchent. **Une ligne de gaz ou de carburant ne reçoit aucun joint improvisé.** Le propane est plus lourd que l'air : il coule au plancher, s'accumule dans le creux, la cave ou la fosse au lieu de se disperser, et il attend l'étincelle. Une ligne de gaz se répare avec la pièce faite pour ça, ou se ferme au robinet de la bouteille (ch. 87).
 

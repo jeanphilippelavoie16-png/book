@@ -160,7 +160,7 @@ module.exports = (h) => {
         renvois: z => {
           const P = G(vCorde, z).P;
           return [
-            { n: 3, rond: [P.noeud[0] + 30, P.noeud[1] - 40], cible: [P.noeud[0] + 2, P.noeud[1] - 3], texte: 'un nœud à chaque brassée' },
+            { n: 3, rond: [P.noeud[0] - 30, P.noeud[1] - 46], cible: [P.noeud[0] - 1, P.noeud[1] - 3], texte: 'un nœud à chaque brassée' },
             { n: 4, rond: [P.bidon[0] + 40, P.bidon[1] - 30], cible: [P.bidon[0] + 6, P.bidon[1] + 2], texte: 'un bidon bouché : elle flotte' },
           ];
         },
