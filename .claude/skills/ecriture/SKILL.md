@@ -148,7 +148,9 @@ voix haute ou qu'on lit sur une étiquette.
 JP : « Il faut mentionner les planches pour les retrouver. » Chaque planche est appelée dans le texte, à
 l'endroit où elle sert, par son numéro entre parenthèses : « …deux bâches en chicane (planche 04-40). »
 L'appel va dans la phrase d'ancrage de la planche (`design/epreuves-livre/placements-tome-N.json`) ou
-juste avant. Une planche que le texte n'appelle pas se perd dans le livre.
+juste avant. Une planche que le texte n'appelle pas se perd dans le livre. L'ancrage et l'appel sont le
+même paragraphe, pour que la planche s'imprime sur la même page que son appel, ou la suivante (JP :
+« faut qu'elle soit intégrée proche de où elle est mentionnée »).
 
 ## Ce qui ne sort jamais
 

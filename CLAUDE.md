@@ -272,7 +272,9 @@ sauve dans les secondes et les minutes, ensuite ce qui organise (JP, sur la radi
 chiffre sans source notée dans `/sources` et `suivi/`, `[À VÉRIFIER]` sinon.
 
 **Chaque planche est appelée dans le texte** (JP, 15 octobre 2026 : « il faut mentionner les planches pour
-les retrouver ») : « (planche 04-40) », là où elle sert.
+les retrouver ») : « (planche 04-40) », là où elle sert. La planche s'imprime près de son appel (JP : « faut
+qu'elle soit intégrée proche de où elle est mentionnée ») : son ancrage est le paragraphe qui l'appelle,
+et elle tombe sur la même page ou la suivante.
 
 **Pas de municipalité, pas de code légal.** Aucune phrase sur un règlement municipal, une loi,
 un code, une norme de construction, un permis ou une obligation légale. Le livre sert le jour
