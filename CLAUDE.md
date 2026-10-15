@@ -222,6 +222,10 @@ doit être informatif, partout.** Ce qui saute :
   « pas quand le tuyau siffle », « C'est un motif de partir que rien de visible ne signale » ;
 - l'opposition fabriquée (« pas X, mais Y », « au village, c'est… ; au chalet, c'est… ») quand elle
   n'ajoute pas un fait.
+- l'image poétique, la petite scène, la personnification qui dramatise au lieu d'informer : « une famille
+  dans le noir trois jours après le retour du courant, à attendre un camion qui ne viendra pas » (JP :
+  « c'est poétique mais dégueulasse »). On écrit le fait : « tant que le mât n'est pas réparé, la maison
+  reste sans courant, même quand la rue est rebranchée ».
 
 Ça vaut **jusqu'au mot** (JP, 15 octobre 2026) : « sans perdre la viande de l'automne » — « de
 l'automne » n'apprend rien, il saute. Le complément qui décore, l'adjectif qui redit le nom, le « déjà »,
