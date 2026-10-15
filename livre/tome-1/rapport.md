@@ -1,7 +1,7 @@
 # Tome 1 · Tenir — rapport d'assemblage
 
-- **Produit le :** 2026-10-15 10:10, par `design/outils/assembler-tome.py 1 --hors-ligne`
-- **Fichier :** `livre/tome-1/interieur.pdf` — 308 pages, 68.7 Mo
+- **Produit le :** 2026-10-15 10:21, par `design/outils/assembler-tome.py 1 --hors-ligne`
+- **Fichier :** `livre/tome-1/interieur.pdf` — 308 pages, 67.3 Mo
 - **Ouvertures :** toujours au recto (page de droite), une page blanche devant au besoin
 - **Placements :** design/epreuves-livre/placements.json, design/epreuves-livre/placements-tome-1.json
 - **Exigences de Blurb :** `sources/blurb-specifications.md` (relevées le 27 septembre 2026)
@@ -48,7 +48,7 @@ Les chapitres seuls font 295 pages ; 7 blanche(s) servent à faire ouvrir chaque
 | Nombre de pages | pair, de 20 à 440 (papier Standard) | 308 | oui |
 | Page 1 | à droite | ouverture du chapitre 00 | oui |
 | Polices incorporées | toutes | 58 police(s), 0 non incorporée(s) | oui |
-| Taille du fichier | 2 Go au plus | 68.7 Mo | oui |
+| Taille du fichier | 2 Go au plus | 67.3 Mo | oui |
 | Marques d'imprimeur | aucune | aucune | oui |
 | Couleur | CMJN ou sRVB, sans ton direct | sRVB (Edge) | oui |
 | Noir du texte | 100 % K | noir sRVB (0, 0, 0) : la conversion est faite chez Blurb | à juger sur épreuve |

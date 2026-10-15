@@ -98,38 +98,45 @@ body.t6{--tf:#363432;--tfi:#EEEBE6;--tfn:#EEEBE6;--ta:#363432;--tsq:#363432;--t9
 .vC h2.sec.s9{background:repeating-linear-gradient(135deg,var(--tx9) 0 1.1px,transparent 1.1px 5px),var(--t9)}
 .vC .page::after{background:repeating-linear-gradient(135deg,var(--tx9) 0 1.1px,transparent 1.1px 5px),var(--ta)}
 
-/* pictogrammes : SVG au trait (variante.py fournit --i-…), teints par la couleur du texte */
-.vC .pk{display:inline-block;background:currentColor;-webkit-mask:center/contain no-repeat;mask:center/contain no-repeat}
+/* pictogrammes : SVG au trait posés en image de fond, déjà dans leur couleur d'impression (variante.py, icon_vars :
+   --i-NOM-k noir, -g gris --k70, -w blanc, -ta et -tsq couleur du tome, -red). Plus de masque CSS (15 octobre 2026) :
+   le PDF d'Edge en faisait des masques de transparence, avec un filet gris au bord et un rectangle noir dans
+   certains lecteurs. Changer la couleur d'un picto, c'est choisir une autre variable, pas changer color. */
+.vC .pk{display:inline-block;background:center/contain no-repeat}
 /* ligne de lieu : pictogramme au-dessus du mot */
 .vC .lieu .opts span{display:flex;flex-direction:column;align-items:center;gap:2pt;padding:5pt 0 3pt;line-height:1}
 /* (option A du 15 octobre 2026 : le dessin remplit sa boîte, la largeur suit la proportion de chaque pictogramme,
    maison 0,833, chalet 1,367, Les deux 2,333 ; voir ICONES dans variante.py) */
-.vC .lieu .opts span::before{content:"";height:15pt;width:26pt;background:currentColor;-webkit-mask:center/contain no-repeat;mask:center/contain no-repeat}
-.vC .lieu .opts span:nth-child(1)::before{width:12.5pt;-webkit-mask-image:var(--i-maison);mask-image:var(--i-maison)}
-.vC .lieu .opts span:nth-child(2)::before{width:20.5pt;-webkit-mask-image:var(--i-chalet);mask-image:var(--i-chalet)}
-.vC .lieu .opts span:nth-child(3)::before{width:35pt;-webkit-mask-image:var(--i-deux);mask-image:var(--i-deux)}
+.vC .lieu .opts span::before{content:"";height:15pt;width:26pt;background:center/contain no-repeat}
+/* case non cochée : le gris du mot (--k70) ; case cochée : le blanc du mot */
+.vC .lieu .opts span:nth-child(1)::before{width:12.5pt;background-image:var(--i-maison-g)}
+.vC .lieu .opts span:nth-child(2)::before{width:20.5pt;background-image:var(--i-chalet-g)}
+.vC .lieu .opts span:nth-child(3)::before{width:35pt;background-image:var(--i-deux-g)}
+.vC .lieu .opts span.on:nth-child(1)::before{background-image:var(--i-maison-w)}
+.vC .lieu .opts span.on:nth-child(2)::before{background-image:var(--i-chalet-w)}
+.vC .lieu .opts span.on:nth-child(3)::before{background-image:var(--i-deux-w)}
 /* pied : lieu avec son pictogramme, 8,5 pt (3 mm imprimés), en noir plein : en gris --k70, le trait de 0,26 mm se trame */
 .vC .lieu-ft{display:flex;align-items:center;gap:4pt}
-.vC .lieu-ft::before{content:"";width:17pt;height:8.5pt;background:var(--k);-webkit-mask:center/contain no-repeat;mask:center/contain no-repeat}
-.vC.lieu-m .lieu-ft::before{width:7.08pt;-webkit-mask-image:var(--i-maison);mask-image:var(--i-maison)}
-.vC.lieu-c .lieu-ft::before{width:11.62pt;-webkit-mask-image:var(--i-chalet);mask-image:var(--i-chalet)}
-.vC.lieu-2 .lieu-ft::before{width:19.83pt;-webkit-mask-image:var(--i-deux);mask-image:var(--i-deux)}
+.vC .lieu-ft::before{content:"";width:17pt;height:8.5pt;background:center/contain no-repeat}
+.vC.lieu-m .lieu-ft::before{width:7.08pt;background-image:var(--i-maison-k)}
+.vC.lieu-c .lieu-ft::before{width:11.62pt;background-image:var(--i-chalet-k)}
+.vC.lieu-2 .lieu-ft::before{width:19.83pt;background-image:var(--i-deux-k)}
 /* sommaire : le 8 porte le triangle */
-.vC .toc li.d .t::after{content:"";display:inline-block;width:8pt;height:7.5pt;margin-left:3pt;vertical-align:-0.5pt;background:var(--red);
-  -webkit-mask:var(--i-danger) center/contain no-repeat;mask:var(--i-danger) center/contain no-repeat}
+.vC .toc li.d .t::after{content:"";display:inline-block;width:8pt;height:7.5pt;margin-left:3pt;vertical-align:-0.5pt;
+  background:var(--i-danger-red) center/contain no-repeat}
 /* étapes clés : sous le numéro, minuteur (durée en gras), thermomètre (température en gras),
    triangle (renvoi au danger) */
 .vC p.step.pk-t::after,.vC p.step.pk-c::after,.vC p.step.pk-d::after{content:"";position:absolute;left:2.5pt;top:14.5pt;width:13pt;height:13pt;
-  background:var(--tsq);-webkit-mask:center/contain no-repeat;mask:center/contain no-repeat}
-.vC p.step.pk-t::after{-webkit-mask-image:var(--i-minuteur);mask-image:var(--i-minuteur)}
-.vC p.step.pk-c::after{-webkit-mask-image:var(--i-thermo);mask-image:var(--i-thermo)}
-.vC p.step.pk-d::after{-webkit-mask-image:var(--i-danger);mask-image:var(--i-danger);background:var(--red)}
+  background:center/contain no-repeat}
+.vC p.step.pk-t::after{background-image:var(--i-minuteur-tsq)}
+.vC p.step.pk-c::after{background-image:var(--i-thermo-tsq)}
+.vC p.step.pk-d::after{background-image:var(--i-danger-red)}
 .vC p.step.pk-t,.vC p.step.pk-c,.vC p.step.pk-d{min-height:28pt}
 
 /* chiffres clés en exergue */
 .exergue{break-inside:avoid;margin:3pt 0 9pt;background:var(--tp);border-top:2.5pt solid var(--ta);padding:6pt 8pt 6pt;font-family:var(--sans)}
 .exergue .ex-h{display:flex;align-items:center;gap:5pt;font:700 8pt/1.1 var(--sans);text-transform:uppercase;letter-spacing:.07em;margin-bottom:4pt}
-.exergue .ex-h .pk{width:13pt;height:13pt;color:var(--tsq);-webkit-mask-image:var(--i-minuteur);mask-image:var(--i-minuteur)}
+.exergue .ex-h .pk{width:13pt;height:13pt;background-image:var(--i-minuteur-tsq)}
 .exergue .ex-r{display:grid;grid-template-columns:auto 1fr;align-items:center;gap:0 8pt;padding:3pt 0;border-top:0.5pt solid var(--k40)}
 .exergue .ex-h + .ex-r{border-top:none}
 .exergue .ex-n{font:700 34pt/0.9 var(--sans);color:var(--tsq);letter-spacing:-.01em;white-space:nowrap}

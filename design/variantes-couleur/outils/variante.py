@@ -56,9 +56,43 @@ ICONES = {
     "danger": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 22'><path d='M12 1 23.5 21H.5z' fill='#000'/><path d='M10.7 7.5h2.6l-.5 7.5h-1.6z' fill='#fff'/><rect x='10.8' y='16.4' width='2.4' height='2.4' fill='#fff'/></svg>",
 }
 
+def _uri(s):
+    return f'url("data:image/svg+xml,{urllib.parse.quote(s, safe=" =:/,.-")}")'
+
+def _teinte(s, c):
+    """Le SVG dans sa couleur d'impression : tout le noir (#000) devient c. Le blanc reste blanc, sauf pour le
+    triangle de danger, qui s'imprimait plein sous le masque et s'imprime plein ici aussi."""
+    return re.sub(r"#000(?![0-9A-Fa-f])", c, s)
+
+def _jetons(texte, sel):
+    m = re.search(re.escape(sel) + r"\{([^}]*)\}", texte)
+    return dict(re.findall(r"(--[\w-]+):\s*([^;]+?)\s*(?:;|$)", m.group(1))) if m else {}
+
+# Pictogrammes posés en image de fond, déjà teints (15 octobre 2026). Le masque CSS (mask-image teint par
+# currentColor) sortait du PDF d'Edge en masques de transparence imbriqués : filet gris au bord des pictos,
+# rectangle noir dans certains lecteurs. Une variante par couleur réellement imprimée, les couleurs lues dans les
+# jetons du livre (interieur.tpl.html :root, couleur.css body.tN), jamais recopiées ici :
+#   --i-NOM-k  noir --k (pieds de page, sommaire, pied du 00b)    --i-NOM-g  gris --k70 (bloc Lieu, case non cochée)
+#   --i-NOM-w  blanc (bloc Lieu, case cochée)                      --i-NOM-ta / -tsq  couleur du tome (body.tN)
+#   --i-danger-red  rouge --red
+# --i-NOM (noir, sans suffixe) reste pour les études qui posent encore un masque.
+LIEUX = ("maison", "chalet", "deux")
 def icon_vars():
-    v = ";".join(f'--i-{k}:url("data:image/svg+xml,{urllib.parse.quote(s, safe=" =:/,.-")}")' for k, s in ICONES.items())
-    return "body{" + v + "}"
+    base = ";".join(f"--i-{k}:{_uri(s)}" for k, s in ICONES.items())
+    tpl = open(os.path.join(ENGINE, "interieur.tpl.html"), encoding="utf-8").read()
+    rac = _jetons(tpl, ":root")
+    fixes = {"k": rac["--k"], "g": rac["--k70"], "w": "#fff"}
+    v = [f"--i-{k}-{suf}:{_uri(_teinte(ICONES[k], c))}" for k in LIEUX for suf, c in fixes.items()]
+    rouge = _teinte(ICONES["danger"], rac["--red"]).replace("#fff", rac["--red"])
+    v.append(f"--i-danger-red:{_uri(rouge)}")
+    css = "body{" + base + ";" + ";".join(v) + "}"
+    coul = open(os.path.join(HERE, "couleur.css"), encoding="utf-8").read()
+    for t in sorted(set(re.findall(r"body\.(t\d+)\{", coul))):
+        j = _jetons(coul, f"body.{t}")
+        tv = [f"--i-{k}-ta:{_uri(_teinte(ICONES[k], j['--ta']))}" for k in LIEUX]
+        tv += [f"--i-{k}-tsq:{_uri(_teinte(ICONES[k], j['--tsq']))}" for k in ("minuteur", "thermo")]
+        css += f"\nbody.{t}{{" + ";".join(tv) + "}"
+    return css
 
 DUR = re.compile(r"\d[\d\s\u202f,]*\s*(min|minute|heure|h\b|jour)", re.I)
 def mark_steps(h):

@@ -9,13 +9,14 @@
    ===================================================================== */
 
 /* ---------- pictogrammes (variante C : --i-maison, --i-chalet, --i-deux) ---------- */
-.ak{display:inline-block;flex:none;vertical-align:middle;background:currentColor;
-  -webkit-mask:center/contain no-repeat;mask:center/contain no-repeat;
+/* image de fond déjà teinte, pas de masque (variante.py, icon_vars) : noir par défaut, une autre couleur = une
+   autre variable (-ta, -w), plus bas, là où elle s'imprime */
+.ak{display:inline-block;flex:none;vertical-align:middle;background:center/contain no-repeat;
   height:var(--h,12pt);width:calc(var(--h,12pt) * var(--r,1))}
 /* proportions des pictogrammes de l'option A (15 octobre 2026 ; viewBox 20, 32,8 et 56 × 24) */
-.ak-m{--r:0.8333;-webkit-mask-image:var(--i-maison);mask-image:var(--i-maison)}
-.ak-c{--r:1.3667;-webkit-mask-image:var(--i-chalet);mask-image:var(--i-chalet)}
-.ak-2,.ak-mc{--r:2.3333;-webkit-mask-image:var(--i-deux);mask-image:var(--i-deux)}
+.ak-m{--r:0.8333;background-image:var(--i-maison-k)}
+.ak-c{--r:1.3667;background-image:var(--i-chalet-k)}
+.ak-2,.ak-mc{--r:2.3333;background-image:var(--i-deux-k)}
 .lieu-b{display:inline-flex;align-items:center;gap:4pt;font:700 8pt/1 var(--sans);text-transform:uppercase;letter-spacing:.06em;white-space:nowrap}
 .lieu-b .ak{--h:12pt}
 
@@ -29,7 +30,7 @@
 /* pied : le lieu de la page porte son pictogramme (00 : celui du bloc, pas celui du chapitre) */
 .page.anc .ft .lieu-ft::before{content:none;display:none}
 .page.anc .lieu-ft{display:flex;align-items:center;gap:4pt;white-space:nowrap}
-.page.anc .lieu-ft .ak{--h:8.5pt;color:var(--k)}   /* 3 mm, noir plein : en gris --k70, le trait se trame */
+.page.anc .lieu-ft .ak{--h:8.5pt}   /* 3 mm, noir plein (-k) : en gris --k70, le trait se trame */
 .page.anc .lad li{width:13pt}
 
 /* ================================================================ 00 */
@@ -66,6 +67,9 @@ table.ak-index th:last-child{text-align:right}
 .bk-tt h1{margin:0;font:700 calc(35pt*var(--kt))/1.05 var(--sans);text-transform:uppercase;letter-spacing:.005em;hyphens:manual}
 .bk-lieu .lieu-b{flex-direction:column;gap:4pt;padding:6pt 8pt 5pt;background:var(--ta,#000);color:#fff;font-size:9pt;letter-spacing:.07em}
 .bk-lieu .ak{--h:24pt}
+.bk-lieu .ak-m{background-image:var(--i-maison-w)}
+.bk-lieu .ak-c{background-image:var(--i-chalet-w)}
+.bk-lieu .ak-2,.bk-lieu .ak-mc{background-image:var(--i-deux-w)}
 .bk-intro{flex:none;columns:2;column-gap:0.22in;column-rule:0.5pt solid var(--k40);padding-top:8pt;
   font-size:calc(9.7pt*var(--ks));line-height:calc(12.7pt*var(--ks))}
 .bk-intro.one{columns:1}
@@ -185,7 +189,9 @@ table.achat caption.tsuite{font-size:7.5pt}
 .lcell{display:flex;flex-direction:column;gap:3.5pt}
 .lx{display:flex;align-items:center;gap:3pt;font:700 6.9pt/1 var(--sans);text-transform:uppercase;letter-spacing:.05em;white-space:nowrap}
 .lx .bx{flex:none;width:9.5pt;height:9.5pt;border:1pt solid var(--k);background:#fff}
-.lx .ak{--h:9.5pt;color:var(--ta,#000)}
+.lx .ak{--h:9.5pt}
+.lx .ak-m{background-image:var(--i-maison-ta,var(--i-maison-k))}
+.lx .ak-c{background-image:var(--i-chalet-ta,var(--i-chalet-k))}
 /* la maison, plus étroite que le chalet, prend la différence en marge : Maison et Chalet commencent au même endroit
    (une boîte de masque plus large que le dessin laisse un filet dans le PDF d'Edge) */
 .lx .ak-m{margin-right:calc(var(--h) * 0.5334)}

@@ -430,13 +430,13 @@ table.som td.no{width:0.62in}
 table.som td.no span{display:inline-block;min-width:25pt;padding:0 3pt;height:21pt;background:var(--tsq);color:#fff;text-align:center;font:700 13pt/21pt var(--sans)}
 table.som td.ti{font-weight:700;font-size:12pt}
 table.som td.li{white-space:nowrap;color:var(--k70);font-size:8.6pt;letter-spacing:.06em;text-transform:uppercase}
-/* pictogramme de lieu (option A, 15 octobre 2026) : 9,5 pt, en noir plein (le gris --k70 trame le trait). La boîte a
-   la largeur exacte du dessin (le PDF d'Edge laisse un filet au bord d'un masque plus large que lui) ; la marge
-   complète jusqu'à la largeur de « Les deux » (22,17 pt) pour que les mots restent alignés */
-table.som td.li i{display:inline-block;width:22.17pt;height:9.5pt;margin-right:4pt;vertical-align:-1.6pt;background:var(--k);-webkit-mask:center/contain no-repeat;mask:center/contain no-repeat}
-table.som td.li i.m{width:7.92pt;margin-right:18.25pt;-webkit-mask-image:var(--i-maison);mask-image:var(--i-maison)}
-table.som td.li i.c{width:12.98pt;margin-right:13.19pt;-webkit-mask-image:var(--i-chalet);mask-image:var(--i-chalet)}
-table.som td.li i.d{-webkit-mask-image:var(--i-deux);mask-image:var(--i-deux)}
+/* pictogramme de lieu (option A, 15 octobre 2026) : 9,5 pt, image de fond déjà en noir --k (variante.py, icon_vars ;
+   pas de masque : le PDF d'Edge en faisait un masque de transparence à filet gris). La boîte a la largeur du dessin ;
+   la marge complète jusqu'à la largeur de « Les deux » (22,17 pt) pour que les mots restent alignés */
+table.som td.li i{display:inline-block;width:22.17pt;height:9.5pt;margin-right:4pt;vertical-align:-1.6pt;background:center/contain no-repeat}
+table.som td.li i.m{width:7.92pt;margin-right:18.25pt;background-image:var(--i-maison-k)}
+table.som td.li i.c{width:12.98pt;margin-right:13.19pt;background-image:var(--i-chalet-k)}
+table.som td.li i.d{background-image:var(--i-deux-k)}
 table.som td.pg{text-align:right;font:700 13pt/1 var(--sans);width:0.55in}
 table.som td.s8,table.som td.s9{text-align:right;width:0.95in;font:600 10pt/1 var(--sans)}
 table.som th{white-space:nowrap}
