@@ -129,16 +129,16 @@ def repere_heure(titre, donne=""):
     m = re.match(r"^[Hh]eure\s+(\d+)\s+à\s+heure\s+(\d+)\s*(?:[—–:]\s*(.*))?$", titre)
     if m:
         return f"{m.group(1)}–{m.group(2)}", "h", m.group(3) or titre
-    m = re.search(r"\b(?:[Ll]es|[Ll]a)\s+(?:([\w-]+)\s+)?premi[eè]res?\s+(demi-heure|minutes?|heures?)\b", titre)
+    m = re.search(r"\b(?:[Ll]es|[Ll]a)\s+(?:([\w-]+)\s+)?premi[eè]res?\s+(demi-heure|minutes?|heures?|secondes?)\b", titre)
     if m:
         mot, unite = (m.group(1) or "").lower(), m.group(2)
         n = int(mot) if mot.isdigit() else NOMBRES.get(mot)
         if unite == "demi-heure":
             return "30", "min", titre
-        if n is None and unite == "heure":          # « La première heure »
+        if n is None and unite in ("heure", "minute", "seconde"):   # « La première heure »
             n = 1
         if n is not None:
-            return str(n), "min" if unite.startswith("minute") else "h", titre
+            return str(n), {"m": "min", "h": "h", "s": "s"}[unite[0]], titre
     return "", "", titre
 
 def h3_orange(t, donne):

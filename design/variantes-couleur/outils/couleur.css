@@ -90,6 +90,9 @@ body.t6{--tf:#363432;--tfi:#EEEBE6;--tfn:#EEEBE6;--ta:#363432;--tsq:#363432;--t9
 /* chapitres à trois chiffres (100 à 112 ; variante.py pose .chn3 sur le body) : à 15 pt, « 102 » dépasse le
    rognage ; 12 pt, comme dans les tomes assemblés (28 septembre 2026) */
 .vB.chn3 .page::after{font-size:12pt;letter-spacing:-.01em}
+/* page qui porte la série des premières minutes (chapitre.js pose .or) : onglet orange plein, chiffre noir, sans la
+   trame de la variante C (rgba) ; livre fermé, la série fait une encoche orange dans la bande de tête de la gouttière */
+.vB .page.or::after,.vC .page.or::after{background:var(--or);color:#000}
 .vB.chn3 .recto::after{padding-left:2pt}
 .vB.chn3 .verso::after{padding-right:2pt}
 

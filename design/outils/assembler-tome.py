@@ -31,7 +31,9 @@ les planches de images/a-valider/ (build_chapitre.DOSSIERS_PLANCHES : JP les rel
     les pages ne sortent pas de chapitre.js (le 00 d'ancrage.py), un script de secours le pose ;
   - le côté de la première page (?par=0 : recto ; ?par=1 : verso), pour --verso ; un chapitre à
     pages fixes ouvre toujours au recto ;
-  - un rapport (#tome-rapport) : pages, avertissements du paginateur, figures posées, sections.
+  - un rapport (#tome-rapport) : pages, avertissements du paginateur, figures posées, sections, et les pages de la
+    série des premières minutes (encadré orange, marqueur {.orange} : CLAUDE.md), qui donnent la colonne orange du
+    sommaire, la section « Premières minutes » du rapport et l'aperçu 05.
 L'onglet de tranche à 12 pt des chapitres à trois chiffres est dans couleur.css depuis le 28 septembre 2026
 (variante.py pose .chn3). Le folio de chapitre « 102-7 » du design reste tel quel.
 

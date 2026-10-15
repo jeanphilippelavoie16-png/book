@@ -7,6 +7,9 @@
    danger, variante d'urgence), les planches pleine page prennent la page
    qui suit leur mention, les demi-planches et les photos flottent au
    premier endroit où elles tiennent, jamais au milieu d'un paragraphe.
+   La série des premières minutes (marqueur {.orange}, build_chapitre.py) est
+   une histoire de plus (genre « o ») coulée entre deux morceaux du texte
+   courant ou de la variante d'urgence, dans l'ordre de C.flux.
    ===================================================================== */
 const C = JSON.parse(document.getElementById('meta').textContent);
 const BOOK = document.getElementById('book');
@@ -183,6 +186,9 @@ function edges(){
     const e = document.createElement('div'); e.className = 'edge' + (el.dataset.edge === 'd' ? ' d' : el.dataset.edge === 'o' ? ' o' : '');
     e.style.top = (r.top - pr.top) + 'px'; e.style.height = r.height + 'px'; pg.appendChild(e);
   });
+  // page qui porte la série des premières minutes : l'onglet de tranche passe à l'orange (couleur.css, .page.or),
+  // et la série se voit en haut de la gouttière, livre fermé, à la même hauteur dans tout le tome
+  PAGES.forEach(p => { if(p.el.querySelector('.block .orange') || (p.plate && p.story === 'o')) p.el.classList.add('or'); });
 }
 function checks(){
   // texte qui sort de la zone utile, page presque vide
