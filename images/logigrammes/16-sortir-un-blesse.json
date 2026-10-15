@@ -173,8 +173,8 @@
       "rang": "g7",
       "ancre": "haut",
       "taille": 11,
-      "texte": "On peut arriver avant la noirceur, avec assez de monde pour le porter ?",
-      "precision": "Couché, il sort en 4 à 6 fois le temps de marche. Le porter à bras demande 18 à 24 personnes.",
+      "texte": "En le tirant en traîneau, on peut arriver avant la noirceur ?",
+      "precision": "Couché, il sort en 4 à 6 fois le temps de marche",
       "source": "étape 4"
     },
     {
@@ -184,7 +184,7 @@
       "rang": "g7",
       "ancre": "haut",
       "taille": 10.5,
-      "texte": "**L'abriter sur place**, avec un feu et le sol isolé sous lui. Deux personnes vont chercher une machine ou du monde.",
+      "texte": "**L'abriter sur place**, avec un feu et le sol isolé sous lui. Deux personnes vont chercher une machine ou de l'aide.",
       "renvoi": "ch. 16, étape 12",
       "source": "étapes 4 et 12 ; ch. 12"
     },
@@ -257,7 +257,7 @@
       "col": "tronc2",
       "rang": "d6",
       "ancre": "haut",
-      "texte": "La nuit tombe, ou les porteurs n'en peuvent plus ?",
+      "texte": "La nuit tombe, ou ceux qui tirent n'en peuvent plus ?",
       "source": "étape 12"
     },
     {
@@ -266,7 +266,7 @@
       "col": "cote2",
       "rang": "d6",
       "ancre": "haut",
-      "texte": "**S'arrêter**, faire un abri et un feu, et garder le blessé emballé sur un sol isolé. Deux personnes vont chercher une machine ou du monde.",
+      "texte": "**S'arrêter**, faire un abri et un feu, et garder le blessé emballé sur un sol isolé. Deux personnes vont chercher une machine ou de l'aide.",
       "renvoi": "ch. 16, étape 12 ; ch. 12",
       "source": "étape 12"
     },
@@ -382,7 +382,7 @@
     {
       "de": "q4",
       "vers": "emballer",
-      "etiquette": "Oui, on le sort en traîneau",
+      "etiquette": "Oui",
       "pos": "debut",
       "sortie": "bas",
       "entree": "gauche",

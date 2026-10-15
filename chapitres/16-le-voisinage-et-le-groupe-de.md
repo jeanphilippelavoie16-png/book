@@ -86,10 +86,9 @@ Quelqu'un est blessé dans le bois, au bûchage, à la chasse, sur le sentier.
 4. **Décider comment il sort.** S'il marche sans aggraver sa blessure, il marche : soutenu, sans
  charge, quelqu'un à côté de lui. S'il ne marche pas et qu'une machine se rend jusqu'à lui
  (motoneige ou VTT avec traîneau), deux personnes vont la chercher pendant que les autres
- l'emballent. Sinon, il sort couché sur un traîneau tiré sur la neige : porter une civière à bras
- sur une distance demande de 18 à 24 personnes, en équipes de six qui se relaient. Un blessé
+ l'emballent. Sinon, il sort couché sur un traîneau tiré sur la neige. Un blessé
  couché sort en quatre à six fois le temps de marche du même trajet, et plus en terrain difficile.
- Si ce temps mène après la noirceur, ou si les bras manquent, on l'abrite sur place (étape 12).
+ S'il ne peut pas arriver avant la noirceur, ou si les tireurs n'en peuvent plus, on l'abrite sur place (étape 12).
 
 [^1]: On appuie du bout des doigts, une à une, sur les bosses des vertèbres, sur la ligne du milieu
     de la nuque, de la base du crâne jusqu'au bas du cou. Une douleur sur cette ligne compte ; une
