@@ -295,19 +295,94 @@ module.exports = (h) => {
     return { svg: out.join('\n'), g };
   };
 
+  // ─── Où va chacun : un cadre de perches, le brêlage droit aux coins, le diagonal au croisement ───
+  const geoOu = z => {
+    const x0 = z.l * 0.24, x1 = z.l * 0.62, yH = 26, yB = z.h - 34, w = 12;
+    const bh = yH + 26, bb = yB - 22;                              // les bouts des jambes de force sur les montants
+    const X = [(x0 + x1) / 2, (bh + bb) / 2];
+    return { x0, x1, yH, yB, w, bh, bb, X };
+  };
+  const ou = z => {
+    const { x0, x1, yH, yB, w, bh, bb, X } = geoOu(z), out = [], e = 3.6;
+    const tb = (pts) => bande(pts, e, 'detail', false).svg;
+    out.push(perche([x0, 6], [x0, z.h - 6], 2 * w, 2 * w, ['coupe', 'coupe'], false), perche([x1, 6], [x1, z.h - 6], 2 * w, 2 * w, ['coupe', 'coupe'], false));
+    out.push(perche([x0 - 34, yH], [x1 + 34, yH], 2 * w, 2 * w, ['coupe', 'coupe'], false), perche([x0 - 34, yB], [x1 + 34, yB], 2 * w, 2 * w, ['coupe', 'coupe'], false));
+    // les jambes de force, en X : l'une derrière, l'autre devant
+    out.push(perche([x0 - 6, bh - 8], [x1 + 6, bb + 8], 1.6 * w, 1.6 * w, ['coupe', 'coupe'], false));
+    out.push(perche([x1 + 6, bh - 8], [x0 - 6, bb + 8], 1.6 * w, 1.6 * w, ['coupe', 'coupe'], false));
+    // le brêlage droit, en petit, aux quatre coins : trois tours de chaque côté du montant
+    for (const x of [x0, x1]) for (const y of [yH, yB]) {
+      for (const sgn of [-1, 1]) for (let k = 0; k < 3; k++) {
+        const xx = x + sgn * (w + 2.2 + k * e * 1.05);
+        out.push(tb([[xx, y - w - 1], [xx, y + w + 1]]));
+      }
+    }
+    // le brêlage diagonal, en petit, au croisement : trois tours sur chaque bissectrice
+    const ang = Math.atan2(bb - bh, x1 - x0), b1 = [Math.cos(ang / 2 + Math.PI / 4 - Math.PI / 4), 0];
+    const bis = [[1, 0], [0, 1]];
+    for (const [bx, by] of bis) for (let k = -1; k <= 1; k++) {
+      const nx = -by, ny = bx, L = bx ? 20 : 14;
+      out.push(tb([[X[0] - bx * L + nx * k * e * 1.05, X[1] - by * L + ny * k * e * 1.05], [X[0] + bx * L + nx * k * e * 1.05, X[1] + by * L + ny * k * e * 1.05]]));
+    }
+    // la charge descend sur la traverse ; la poussée de côté couche le cadre : les jambes de force la tiennent
+    out.push(h.fleche(`M ${f(x0 + 70)} ${f(yH - 22)} L ${f(x0 + 70)} ${f(yH - w - 3)}`));
+    out.push(h.fleche(`M ${f(x0 - 54)} ${f(yH)} L ${f(x0 - 38)} ${f(yH)}`));
+    return out.join('\n');
+  };
+
   return {
     ref: '110-42',
     titre: 'Le brêlage diagonal',
-    desc: '',
+    desc: 'Le brêlage diagonal lie deux perches croisées au même cadrage que le brêlage droit : le montant derrière, la traverse devant. Quatre temps : un nœud de bûcheron autour des deux perches, sur une diagonale du croisement, le bout tordu trois fois sur le brin, qu’on tire pour serrer les perches l’une contre l’autre ; trois tours sur l’autre diagonale, serrés l’un contre l’autre ; trois tours en travers des premiers, qui forment un X sur le croisement ; deux frappes entre les perches, devant le montant et derrière la traverse, par-dessus les tours au fond des fourches, et un nœud de cabestan d’arrêt sur la traverse. Dessous, un cadre de perches : le brêlage droit aux quatre coins, où la traverse porte la charge qui descend ; le brêlage diagonal au croisement des deux jambes de force en X, qui empêchent le cadre de se coucher en losange sous une poussée de côté.',
     format: 'pleine',
     disposition: [['bucheron', 'tours'], ['travers', 'arret'], ['ou']],
     hauteurs: [1, 1, 0.8],
     vues: {
-      bucheron: { titre: '1. Le nœud de bûcheron serre les perches', dessin: z => temps(z, 'bucheron').svg, renvois: z => [] },
-      tours: { titre: '2. Trois tours sur l’autre diagonale', dessin: z => temps(z, 'tours').svg, renvois: z => [] },
-      travers: { titre: '3. Trois tours en travers des premiers', dessin: z => temps(z, 'travers').svg, renvois: z => [] },
-      arret: { titre: '4. Les frappes, puis l’arrêt', dessin: z => temps(z, 'arret').svg, renvois: z => [] },
-      ou: { titre: 'Où va chacun', dessin: z => '', renvois: z => [] },
+      bucheron: {
+        titre: '1. Le nœud de bûcheron serre les perches', dessin: z => temps(z, 'bucheron').svg,
+        renvois: z => {
+          const { g } = temps(z, 'bucheron');
+          return [
+            { n: 1, rond: [z.l - 20, 24], cible: [g.b.A[0] + 22, g.b.A[1] + 20], texte: 'autour des deux perches, en diagonale' },
+            { n: 2, rond: [26, z.h - 30], cible: [g.b.torsade[0] - 6, g.b.torsade[1] + 4], texte: 'le bout tordu trois fois sur le brin' },
+          ];
+        },
+      },
+      tours: {
+        titre: '2. Trois tours sur l’autre diagonale', dessin: z => temps(z, 'tours').svg,
+        renvois: z => {
+          const { g } = temps(z, 'tours'), t = g.j2[2];
+          return [{ n: 3, rond: [z.l - 20, 24], cible: [t.B[0] - 14, t.B[1] + 14], texte: 'chaque tour serré contre le précédent' }];
+        },
+      },
+      travers: {
+        titre: '3. Trois tours en travers des premiers', dessin: z => temps(z, 'travers').svg,
+        renvois: z => {
+          const { g } = temps(z, 'travers'), t = g.j1[1];
+          return [{ n: 4, rond: [z.l - 20, 24], cible: [t.A[0] + 22, t.A[1] + 22], texte: 'par-dessus les premiers, en X' }];
+        },
+      },
+      arret: {
+        titre: '4. Les frappes, puis l’arrêt', dessin: z => temps(z, 'arret').svg,
+        renvois: z => {
+          const { g } = temps(z, 'arret'), { cx, cy } = g;
+          return [
+            { n: 5, rond: [26, 24], cible: [cx - (RHO + S / 2) * 0.62, cy - (RHO + S / 2) * 0.78], texte: 'deux frappes entre les perches' },
+            { n: 6, rond: [z.l - 20, z.h - 26], cible: [g.ar.centre[0] + 6, g.ar.centre[1] + 16], texte: 'cabestan d’arrêt sur la traverse' },
+          ];
+        },
+      },
+      ou: {
+        titre: 'Où va chacun, sur un cadre', dessin: ou,
+        renvois: z => {
+          const { x0, x1, yH, yB, w, X } = geoOu(z);
+          return [
+            { n: 7, rond: [x1 + 120, yH + 6], cible: [x1 + w + 6, yH + 6], texte: 'droit : la charge descend sur la traverse' },
+            { n: 8, rond: [x1 + 120, X[1] + 4], cible: [X[0] + 16, X[1] + 4], texte: 'diagonal : au croisement des jambes de force' },
+            { n: 9, rond: [x1 + 120, yB + 8], cible: [x1 - 30, yB - 34], texte: 'les jambes de force : le cadre ne se couche pas' },
+          ];
+        },
+      },
     },
   };
 };

@@ -17,7 +17,7 @@ rechange et un moyen de sortir un blessé.
 **C'est le bon choix quand :**
 
 - **L'événement est court et on reste à la maison.** Trois jours de panne en janvier se vivent en
- ville, et c'est là que le voisinage rend le plus : la maison d'à côté est à trente mètres, et elle
+ ville, où le voisinage rend le plus : la maison d'à côté est à trente mètres, et elle
  n'a pas les mêmes manques que la nôtre (ch. 2, ch. 3).
 - L'événement dure plus de trois jours. Passé ce cap, un ménage seul entame son stock pendant que le
  voisin gaspille le sien, et personne ne le sait. C'est aussi le cap où le voisinage utile cesse
@@ -156,12 +156,10 @@ Quelqu'un est blessé dans le bois, au bûchage, à la chasse, sur le sentier.
  par semaine hors crise pour vérifier que le matériel fonctionne (ch. 14).
 17. **Convenir d'un signal de détresse audible**, utilisable sans électronique, le même pour
  tous les foyers. Un coup de feu s'entend comme de la chasse, hors période comme du braconnage, et
- il se compte en munitions : on prend un sifflet, une corne, un drapeau de couleur au mât, une
- lumière fixe à une fenêtre convenue. Pour ce qui s'entend, la convention que les chercheurs
+ il se compte en munitions : on prend un sifflet ou une corne. La convention que les chercheurs
  connaissent : **trois coups, une pause, trois coups**, et on recommence, en se taisant de temps
- en temps pour entendre la réponse. Pour ce qui se voit de loin, trois feux en triangle. Le
- drapeau et la lumière à la fenêtre se conviennent entre voisins. La fabrication de ces signaux
- avec rien est au §9.
+ en temps pour entendre la réponse. Pour ce qui se voit de loin, trois feux en triangle. Les
+ signaux visuels entre voisins et la fabrication des signaux avec rien sont au §9.
 18. **Nommer qui tranche** : un arbitre, désigné d'avance, pour les décisions où le groupe se
  divise et où attendre coûte cher, et une règle de remplacement si l'arbitre est le blessé.
 19. **Convenir des trois règles d'échange** avant toute crise : ce qui se donne, ce qui se
@@ -187,8 +185,8 @@ Quelqu'un est blessé dans le bois, au bûchage, à la chasse, sur le sentier.
  fluorescente d'au moins **2 580 cm²**, répartie sur le dos, les épaules et la poitrine, visible
  de tout angle, sac à dos compris. Dans le bois, l'œil reconnaît le mouvement avant la forme, et
  l'orange fluo est la seule couleur qui n'existe pas là : elle seule arrête un geste déjà
- commencé. L'adolescent qui suit sans arme le porte comme les autres : c'est lui qu'on voit le
- moins, et le seul à ne pas savoir où tout le monde est rendu.
+ commencé. L'adolescent qui suit sans arme le porte comme les autres : on le voit moins que les
+ autres, et il est le seul à ne pas savoir où tout le monde est rendu.
 24. **Éviscérer tout de suite**, sans perforer ni déchirer les intestins, retirer les saletés
  sans rincer la carcasse à l'eau, et viser un refroidissement à **7 °C dans les 24 premières
  heures**. Les gestes sont au ch. 61 ; la responsabilité est collective, et la bête qui se perd
@@ -228,8 +226,7 @@ Quelqu'un est blessé dans le bois, au bûchage, à la chasse, sur le sentier.
  décisions, qui fait quoi d'ici quand. Les décisions se répètent à voix haute avant de se
  séparer : ce qui n'a pas été répété n'a pas été décidé.
 34. **Dégager un arbre chez le voisin après un verglas : la ligne avant l'arbre.** Un fil de
- service tombé dans la neige ne fait ni bruit, ni étincelle, ni mouvement, et le sol autour du
- point de contact est sous tension (§8). Rester à **au moins 10 m** d'un fil au sol et ne pas
+ service tombé peut être sous tension sans aucun signe, et le sol autour de lui aussi (§8). Rester à **au moins 10 m** d'un fil au sol et ne pas
  tenter de le déplacer ; pour travailler près de fils intacts, **3 m** en tout temps, perche,
  échelle et branche comprises. Marquer le secteur pour le prochain qui passe. Un fil ne se teste
  pas, et personne ne viendra le couper sur demande.
@@ -329,8 +326,7 @@ Quelqu'un est blessé dans le bois, au bûchage, à la chasse, sur le sentier.
 > l'électrocuter. On branche les appareils sur la génératrice, un par un, sans rallonge mâle-mâle
 > ni prise de la maison (ch. 3).
 >
-> **4. Le fil au sol, pendant qu'on s'entraide.** Dégager un arbre chez le voisin après un
-> verglas est un geste d'entraide courant. **Le mécanisme :** un fil tombé reste alimenté sans
+> **4. Le fil au sol, après un verglas.** **Le mécanisme :** un fil tombé reste alimenté sans
 > bruit, sans étincelle et sans bouger, et le courant se répand dans le sol autour du point de
 > contact. La tension baisse avec la distance : un pas assez long met les deux pieds à deux
 > potentiels différents et fait passer le courant par le corps. On est électrocuté en marchant
@@ -408,8 +404,7 @@ qu'il fait chaud.
 quelque chose ne sonne pas, parce que le contact étouffe la vibration. Une jante de roue, une
 bonbonne vide, un bout de rail, une lame de godendard pendue à une corde et frappée avec un
 morceau de fer portent plus loin qu'une voix, sans fatiguer personne : crier dans une poudrerie
-épuise et refroidit. Une convention par signal, la même pour tous les foyers : un coup, deux coups
-espacés, une volée.
+épuise et refroidit. Une convention par signal : un coup, deux coups espacés, une volée.
 
 **Le miroir et la fumée.** De jour, un éclat de miroir, le fond d'une boîte de conserve poli à la
 cendre ou un disque compact renvoient le soleil à une distance où une personne n'est plus qu'une
@@ -437,7 +432,7 @@ Quand le papier est fini, l'écorce de bouleau fait la feuille et un tison étei
 
 **Les signaux visuels.** Un drapeau de couleur au mât, une bâche sur un toit, une lampe fixe à
 une fenêtre convenue, la fumée du poêle vue du chemin. Chaque signal veut dire une seule chose, la
-même pour tous les foyers.
+même pour tous les foyers (étape 17).
 
 **Le traîneau qu'on fabrique**, pour sortir un blessé sans machine (étapes 4 à 8).
 
@@ -477,10 +472,8 @@ accidenté, il n'y a pas de substitut à la radio (ch. 14).
 
 *L'urgence de nuit.* Entre le moment où quelqu'un tombe et celui où l'autre foyer l'apprend, il
 y a l'intervalle du rendez-vous fixe, et rien d'autre. Personne ne peut appeler d'aide médicale
-extérieure : une évacuation redevient une affaire de traîneau, de bras et d'heures (étapes 1 à 12 ;
-ch. 26).
+extérieure : une évacuation redevient une affaire de traîneau, de bras et d'heures (étapes 4 à 12).
 
-*La convention.* Elle se règle d'avance et gratuitement, et c'est elle qui fait échouer le plus de
-systèmes : un signal inventé pendant la crise ne sert pas, parce que chaque foyer en invente un
-autre. Le nombre de coups, la couleur du drapeau, le sens de la marque sur la porte se conviennent
+*La convention.* Elle se règle d'avance et gratuitement. Un signal inventé pendant la crise ne
+sert pas : chaque foyer en invente un autre. Le nombre de coups, la couleur du drapeau, le sens de la marque sur la porte se conviennent
 en septembre avec chaque foyer.

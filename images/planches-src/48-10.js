@@ -9,7 +9,7 @@
 // n'est pas net ne s'imprime pas (JP, 15 octobre 2026). Le bas « au menton » est dit par le renvoi.
 // Vue de dessus : le sentier tassé, le passage entre deux troncs, la boucle en travers, le fil tenu par la
 // brindille et tourné sur le tronc vivant. Dans l'axe du sentier : la neige coupée en travers, la gouttière,
-// la boucle ronde et sa cote. Le renard : la même boucle, ses deux cotes. De côté : le lièvre la tête passée,
+// la boucle ronde et sa cote. Le renard : la même boucle, ses deux cotes.
 // Cotes : celles des chapitres seulement (10 cm ; 15 à 20 cm deux fois). La profondeur de la gouttière, la
 // largeur du sentier et la hauteur du bas de la boucle ne sont pas chiffrées : proportions de dessin.
 
@@ -121,7 +121,7 @@ module.exports = (h) => {
     desc: 'En haut, vu de dessus : un sentier de lièvre tassé dans la neige profonde, avec deux groupes d’empreintes ; au passage le plus étroit, entre un arbre et un tronc vivant gros comme le poignet, la boucle vue de chant en travers du sentier ; son fil passe dans une brindille plantée au bord et va se tourner sur le tronc vivant. Au milieu à gauche, dans l’axe du sentier : la neige coupée en travers, la gouttière du sentier, la boucle ronde d’environ 10 cm qui pend au fil, l’œillet en haut, la brindille fendue qui pince le fil, le tronc vivant où le fil est tourné ; le bas de la boucle est au-dessus du fond de la gouttière. À droite, pour le renard : une boucle de 15 à 20 cm, le bas à 15 à 20 cm de la piste.',
     format: 'pleine',
     disposition: [['plan'], ['face', 'renard']],
-    hauteurs: [2.2, 3],
+    hauteurs: [1.75, 3],
     largeurs: [[1], [1.3, 1]],
     vues: {
       plan: {
