@@ -146,9 +146,9 @@ module.exports = (h) => {
   }).join(' ');
 
   const S2 = Math.SQRT2;
-  const WV = 44, WT = 40, E = 8, S = E * 1.06;        // perches (montant, traverse), corde, pas entre deux tours
+  const WV = 60, WT = 54, E = 10, S = E * 1.06;        // perches (montant, traverse), corde, pas entre deux tours
   const wv = WV / 2, wt = WT / 2;
-  const geo = z => ({ cx: Math.round(z.l * 0.44), cy: Math.round(z.h * 0.46) });
+  const geo = z => ({ cx: Math.round(z.l * 0.4), cy: Math.round(z.h * 0.47) });
   const u1 = [1 / S2, 1 / S2], u2 = [1 / S2, -1 / S2];        // u1 : haut-gauche → bas-droite ; u2 : bas-gauche → haut-droite
   const nrm = u => [-u[1], u[0]];
   const dansCroix = (q, cx, cy) => Math.abs(q[0] - cx) <= wv || Math.abs(q[1] - cy) <= wt;
@@ -158,7 +158,9 @@ module.exports = (h) => {
   const libre = (a, b, e = E) => {
     const L = Math.hypot(b[0] - a[0], b[1] - a[1]), u = [(b[0] - a[0]) / L, (b[1] - a[1]) / L], n = [-u[1], u[0]];
     const o = [h.ligne(b[0] + n[0] * e / 2, b[1] + n[1] * e / 2, b[0] - n[0] * e / 2, b[1] - n[1] * e / 2, h.a.arete)];
-    for (const k of [-0.28, 0, 0.28]) o.push(h.ligne(b[0] + n[0] * e * k, b[1] + n[1] * e * k, b[0] + n[0] * e * k * 1.5 + u[0] * e * 0.9, b[1] + n[1] * e * k * 1.5 + u[1] * e * 0.9, h.a.detail));
+    let d = '';
+    for (const k of [-0.28, 0, 0.28]) d += `M ${pt([b[0] + n[0] * e * k, b[1] + n[1] * e * k])} L ${pt([b[0] + n[0] * e * k * 1.5 + u[0] * e * 0.9, b[1] + n[1] * e * k * 1.5 + u[1] * e * 0.9])} `;
+    o.push(h.path(d.trim(), h.a.detail));
     return o.join('\n');
   };
   const droite = (a, b, n = 6) => Array.from({ length: n + 1 }, (_, i) => [a[0] + (b[0] - a[0]) * i / n, a[1] + (b[1] - a[1]) * i / n]);
@@ -238,9 +240,10 @@ module.exports = (h) => {
     const p1 = [...depart, ...arrondi([d0, [xs - 0.6 * E, yT - 0.9 * E], [xs, yT + 1], [xs, cy + dH], [xb, cy + dH], [xb, yB]], 0.9 * E).slice(1)];
     const p2 = droite([xb, yT], [xa, yB], 8);
     const p3 = arrondi([[xa, yT], [xa, cy - dH], [xb + 2.8 * E, cy - dH]], 0.9 * E);
-    const svg = [tube(p3), libre(p3[p3.length - 2], p3[p3.length - 1]), tube(p2),
+    const p1c = p1.slice(depart.length - 1);
+    const svg = [tube(p1c), tube(p3), libre(p3[p3.length - 2], p3[p3.length - 1]), tube(p2),
       cap([xb, yB], [0, 1]), cap([xb, yT], [0, -1]), cap([xa, yB], [0, 1]), cap([xa, yT], [0, -1])].join('\n');
-    return { avant: tube(p1), svg, centre: [(xa + xb) / 2, cy], xa, xb };
+    return { avant: tube(depart), svg, centre: [(xa + xb) / 2, cy], xa, xb };
   };
 
   const tireGeste = (a, c, k = 1) => {
@@ -249,7 +252,8 @@ module.exports = (h) => {
     return h.geste(`M${f(o0[0])} ${f(o0[1])} L${f(o0[0] + u[0] * L * 0.85)} ${f(o0[1] + u[1] * L * 0.85)}`);
   };
   // le bout qui continue : un tronçon qui ressort de derrière, et sa flèche
-  const bout = (pts) => [tube(pts), h.fleche(`M${f(pts[Math.floor(pts.length * 0.35)][0])} ${f(pts[Math.floor(pts.length * 0.35)][1])} L${f(pts[pts.length - 1][0])} ${f(pts[pts.length - 1][1])}`)].join('\n');
+  // l'amorce du tour suivant : un tronçon qui finit en cassure (la corde continue), et le sens de marche
+  const amorce = pts => h.formes.cordes([{ pts: pts.map(p => [p[0], p[1], 5]), ep: E, debut: 'ouvert', fin: 'fixe', fleche: { de: 0.2, a: 0.95, cote: 'gauche' } }], { trait: 'arete' });
 
   const temps = (z, etape) => {
     const { cx, cy } = geo(z), out = [], g = { cx, cy };
@@ -268,13 +272,14 @@ module.exports = (h) => {
     if (nt >= 2) { j2 = jeu(cx, cy, u2); out.push(j2.map(t => t.svg + '\n' + t.caps).join('\n')); }
     if (nt >= 3) { j1 = jeu(cx, cy, u1); out.push(j1.map(t => t.svg + '\n' + t.caps).join('\n')); }
     if (nt === 2) {
-      // le bout ressort derrière le montant, dans la fourche du haut à gauche : il va faire les tours en travers
-      const A = j1 ? j1[0].A : tourDiag(cx, cy, u1, -S).A;
-      out.push(bout(bez([A[0] - 1.6 * E, A[1] + 0.2 * E], [A[0] - 3 * E, A[1] - 0.6 * E], [A[0] - 3.4 * E, A[1] - 2.4 * E], [A[0] - 2.4 * E, A[1] - 4 * E], 10)));
+      // le bout ressort de derrière le montant, dans la fourche du haut à gauche, et part en travers
+      const t = tourDiag(cx, cy, u1, -S), A = t.A;
+      out.push(cap(A, [-u1[0], -u1[1]]), amorce(droite(A, [A[0] + u1[0] * 3.2 * E, A[1] + u1[1] * 3.2 * E], 8)));
     }
     if (nt === 3) {
-      const yb = cy + wt, xg = cx - wv;
-      out.push(bout(bez([xg - 0.6 * E, yb + 0.4 * E], [xg - 2.2 * E, yb + 1.2 * E], [xg - 3.8 * E, yb + 1.4 * E], [xg - 5.2 * E, yb + 0.6 * E], 10)));
+      // le bout ressort dans la fourche du bas à gauche et commence les frappes, devant le montant
+      const r0 = RHO, pts = anneau(cx, cy, r0, 160, 112);
+      out.push(cap(pts[0], [-Math.sin(160 * Math.PI / 180), Math.cos(160 * Math.PI / 180)].map(v => -v)), amorce(pts));
     }
     if (nt >= 4) {
       out.push(horsDeT(z, cy, frap));
