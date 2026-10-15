@@ -51,28 +51,18 @@ feu de passer de l'un à l'autre, et les élaguer l'empêche de monter aux cimes
 
 ## 5. Procédure
 
-### La première heure : un feu est déclaré dans le secteur {.orange}
+### Un feu est déclaré dans le secteur {.orange 1 h}
 
 Si le feu est déjà en vue (on voit les flammes, des braises tombent ou on sent sa chaleur), passer tout de
-suite au départ, étape 11.
+suite à l'étape 11.
 
-1. **Sortir regarder la fumée : d'où elle vient, et de quel côté elle penche.** Elle montre où est le feu
- et vers où le vent le pousse (section 9). La nuit, on voit la lueur du feu plutôt que sa fumée. Un feu
- à 15 km, quand le vent souffle de lui vers nous, est plus proche qu'un feu à 5 km sur le côté. Un feu de
- cimes dans l'épinette avance de 1 à 4 km à l'heure : à 10 km, il peut arriver en moins de trois heures,
- et ses braises avant lui. Quand le vent tourne, le côté du feu devient son front, et ce front est plus
- large.
-2. **Faire le plein tout de suite** : à la station en ville, avec les bidons au chalet. Il faut au moins
- deux fois ce que prend l'aller (ch. 15). Refaire le plein chaque fois que le réservoir descend à la
- moitié. Stationner l'auto le devant tourné vers le chemin.
-3. **Charger l'auto maintenant, sans attendre de sentir la fumée** : les médicaments, les papiers, des vêtements de rechange
- pour chacun dans un sac à part, de l'eau et de quoi manger pour trois jours, une
- couverture de laine par personne et les bidons d'essence. La réserve du chalet reste au chalet (ch. 5) :
- une heure passée à charger des conserves est une heure de moins pour sortir.
-4. **Au chalet, mettre le canot ou la chaloupe à l'eau**, avec les gilets et une pagaie de rechange :
- c'est le deuxième chemin si la route ferme (section 9).
-5. **Décider quel adulte prend quel enfant**, le dire aux enfants, et ne plus en changer jusqu'à l'arrivée
- (ch. 82).
+1. **Sortir regarder d'où vient la fumée et de quel côté elle penche.** Si le vent souffle du feu vers
+ nous, un feu à 10 km peut arriver en moins de trois heures.
+2. **Faire le plein tout de suite**, et stationner l'auto le devant tourné vers le chemin.
+3. **Charger l'auto maintenant** : les médicaments, les papiers, des vêtements de rechange pour chacun, de
+ l'eau et de quoi manger pour trois jours, une couverture de laine par personne, les bidons d'essence.
+4. **Au chalet, mettre le canot ou la chaloupe à l'eau**, avec les gilets et une pagaie de rechange.
+5. **Décider quel adulte prend quel enfant**, et le dire aux enfants.
 6. **Partir dès qu'une de ces deux choses arrive :**
  - **il ne reste qu'un chemin pour sortir**, parce que l'autre est dans la fumée, bloqué par un arbre ou
  fermé. On part sur celui qui reste. Un chalet qui n'a qu'un chemin et pas de canot à l'eau est déjà dans
@@ -80,92 +70,140 @@ suite au départ, étape 11.
  - **la fumée se sent dans la maison, portes et fenêtres fermées**, et les enfants n'ont pas de pièce
  d'air propre (étapes 32 et 35).
 
- Un seul adulte décide (ch. 2). Si une des deux est déjà là, passer au départ, étape 11 ; sinon, faire les
- étapes 7 à 10 en restant prêt à partir. Si la famille a écrit en mai ce qui la fait partir (étape 47), la
- feuille sur la porte s'ajoute à ces deux raisons.
-7. **Remplir tout ce qui tient l'eau pendant que le puits ou l'aqueduc en donne** : le bain, les barils,
- les chaudières. Au chalet, monter un baril en hauteur avec un boyau piqué au fond (section 9).
-8. **Dégager autour du bâtiment ce qui peut prendre feu** : vider les gouttières ; tirer le bois de
- chauffage à plus de 10 m ; ramasser ce qui traîne dans les 1,5 m autour des murs ; rentrer les chaises de
- galerie, les coussins et les bâches. Porter la bouteille de propane à plus de 10 m, à un endroit sans
- végétation sur 3 m autour.
-9. **Fermer les entrées des braises, si on a le matériel** : une maille de métal sur les évents, de la
- tôle ou du contreplaqué vissé sur les fenêtres qui font face au feu (section 9).
-10. **Fixer l'heure du prochain contact avec quelqu'un à l'extérieur, avant de raccrocher** (ch. 14). Si
- on ne donne pas de nouvelles à cette heure-là, cette personne saura qu'il se passe quelque chose.
+ Si une des deux est déjà là, passer à l'étape 11. Sinon, faire les étapes 7 à 10 en restant prêt à
+ partir.
+7. **Remplir tout ce qui tient l'eau** : le bain, les barils, les chaudières.
+8. **Dégager autour du bâtiment** : vider les gouttières, tirer le bois de chauffage et la bouteille de
+ propane à plus de 10 m, rentrer les chaises de galerie, les coussins et les bâches.
+9. **Si on a le matériel, fermer les évents avec une maille de métal**, et visser de la tôle ou du
+ contreplaqué sur les fenêtres qui font face au feu.
+10. **Fixer l'heure du prochain contact avec quelqu'un à l'extérieur.**
 
-### Le départ {.orange 15 min}
+### Un feu est déclaré : le détail
 
-Dès qu'une raison de partir de l'étape 6 est là. Un feu de cimes peut faire un kilomètre en un quart d'heure : le
-départ se fait dans ce temps-là. Quand le feu est en vue, on monte dans l'auto et on part, sans faire les
-étapes 13 à 15. Si la fumée cache déjà le chemin, on reste au bâtiment (étape 21).
+**La fumée (étape 1).** Elle montre où est le feu et vers où le vent le pousse (section 9). La nuit, on
+voit la lueur du feu plutôt que sa fumée. Un feu à 15 km, quand le vent souffle de lui vers nous, est plus
+proche qu'un feu à 5 km sur le côté. Un feu de cimes dans l'épinette avance de 1 à 4 km à l'heure, et ses
+braises arrivent avant lui. Quand le vent tourne, le côté du feu devient son front, et ce front est plus
+large.
 
-11. **La nuit, si l'odeur de la fumée réveille quelqu'un, sortir voir avant de partir.** S'il y a une
- lueur, des braises ou de la chaleur, partir tout de suite si le chemin n'est pas dans la fumée ; sinon,
- rester au bâtiment (étape 21). S'il n'y a rien de ça, habiller les enfants, finir de charger l'auto et
- partir à la première clarté. La nuit, la fumée descend dans les creux et s'y accumule, puis elle se lève
- le jour : son odeur ne dit pas à elle seule que le feu approche. Les enfants finissent la nuit dans la
- pièce la mieux fermée.
-12. **Habiller les enfants et les attacher dans l'auto** : pantalons et manches longues de coton ou de
- laine, bottes ou souliers fermés. Un adulte reste avec eux, les vitres fermées.
-13. **Pendant ce temps, l'autre adulte ferme le bâtiment.** Fermer les portes et les fenêtres. Décrocher
- les rideaux et les stores, enlever les rideaux légers, et tirer ce qui brûle bien au milieu des pièces,
- loin des vitres : la chaleur du feu traverse la vitre et allume ce qui est derrière, et personne ne sera
- là pour l'éteindre. Fermer le propane à la bouteille. Au chalet, fermer la clé d'air du poêle, vider le
- cendrier dans son contenant de métal et sortir le contenant loin du bâtiment. Un adulte seul installe
- d'abord les enfants, puis ferme le bâtiment.
-14. **S'il reste du temps, arroser le toit, le pourtour et le bas des murs, puis fermer l'eau.** Au
- chalet, mouiller aussi la mousse, l'humus et la cladonie autour du bâtiment : les braises y prennent, et
- ce tapis garde l'eau moins longtemps qu'un bardeau. Un boyau laissé ouvert vide la pression de
- l'aqueduc ; le baril en hauteur, lui, peut couler pendant qu'on est parti (section 9).
-15. **En sortant, une fois l'arrosage fini, couper le courant au disjoncteur principal** : un panneau sous
- tension dans une maison brûlée et mouillée blesse la personne qui revient. Afficher sur la porte que le
- bâtiment est vide : une feuille sous plastique, écrite au marqueur, PARTIS, les noms, le nombre de
- personnes, la date, l'heure, la destination et le chemin pris (ch. 2, étape 9). Au chalet, en laisser une
- deuxième à l'intérieur de la porte.
-16. **Prévenir par écrit** : un message texte ou un courriel qui dit où on va. Un texte passe sur un
- signal faible et réessaie tout seul ; un appel a besoin que la ligne tienne aux deux bouts, et il ne
- passe pas quand la tour est saturée.
-17. **Fermer les vitres, mettre l'air en recirculation, allumer les phares, et rouler loin du feu, jamais
- vers lui.** Rouler lentement : sur un chemin forestier, le danger vient de ce qui est tombé dessus depuis
- le dernier passage (section 9 : l'arbre en travers, le ponceau). Si la fumée cache la route près du feu,
- faire demi-tour ; si le chemin est fermé derrière aussi, passer à l'étape 18.
+**L'auto (étapes 2 et 3).** On fait le plein à la station en ville, avec les bidons au chalet. Il faut au
+moins deux fois ce que prend l'aller (ch. 15), et on refait le plein chaque fois que le réservoir descend
+à la moitié. On charge sans attendre de sentir la fumée, et les vêtements de rechange vont dans un sac à
+part. La réserve du chalet reste au chalet (ch. 5) : une heure passée à charger des conserves est une
+heure de moins pour sortir.
 
-### Pris par le feu {.orange 1 min}
+**Le canot et les enfants (étapes 4 et 5).** Le canot à l'eau est le deuxième chemin si la route ferme
+(section 9). L'adulte qui prend un enfant le garde jusqu'à l'arrivée (ch. 82).
 
-Le chemin est fermé ou la fumée le cache, et le feu arrive.
+**Les deux raisons de partir (étape 6).** Un seul adulte décide (ch. 2). Si la famille a écrit en mai ce
+qui la fait partir (étape 47), la feuille sur la porte s'ajoute à ces deux raisons.
 
-18. **En auto, s'arrêter là où rien ne brûle autour** : une gravière, un champ, un brûlis, un grand
- stationnement, ou derrière un gros rocher, loin des arbres, des broussailles et des autres autos. Garer
- l'auto le devant tourné vers le feu. Laisser les phares et les feux d'urgence allumés, fermer les vitres
- et les entrées d'air, et couper le moteur quand le feu est proche.
-19. **Rester dans l'auto, tout le monde couché au plancher, sous le niveau des vitres et sous une
- couverture de laine sèche.** Mettre un linge sur le nez et la bouche. Boire de l'eau, même sans soif.
-20. **Quand le front est passé, rester sous la couverture jusqu'à ce que l'air refroidisse.** Sortir la
- main : si l'air chauffe la peau comme un gros coup de soleil, c'est trop tôt. Ensuite, sortir de l'auto,
- toujours sous la laine, et marcher vers le terrain déjà brûlé.
-21. **Au bâtiment, rester à l'intérieur pendant le passage du front.** Avant qu'il arrive : remplir les
- éviers, le bain et les chaudières d'eau froide ; arrêter le climatiseur et l'échangeur d'air, qui
- aspirent les braises ; fermer les rideaux, parce que la chaleur traverse les vitres ; habiller tout le
- monde de coton ou de laine, avec des bottes ; boire.
-22. **Se tenir dans une pièce qui a deux sorties vers l'extérieur** (deux portes, ou une porte et une
- fenêtre), loin des vitres, et regarder dehors souvent. Pas au sous-sol, ni dans une pièce sans sortie. La
- pièce d'air propre de l'étape 35 sert contre la fumée, pas pendant le passage du front.
-23. **Éteindre les braises qui entrent ou qui prennent** : au grenier, sous la galerie, au pied des murs,
- avec l'eau mise de côté. Si le bâtiment prend feu, fermer la porte de la pièce qui brûle, s'en éloigner
- en fermant les portes derrière soi et rester bas. Sortir sous la laine vers le terrain brûlé dès que le
- dehors est moins dangereux que le dedans.
-24. **À pied, s'éloigner des arbres vers un endroit où rien ne brûle** : une gravière, un banc de sable,
- une grève, un lit de rivière large, un brûlis refroidi, un lac. Il faut pouvoir se tenir à 100 m au moins
- de tout arbre debout : la chaleur du front brûle la peau à cette distance. Sinon, se mettre derrière un
- gros rocher. Se coucher face contre terre, la peau couverte de laine ou de coton.
-25. **Au lac, rester au bord et se remouiller souvent, les enfants dans les bras, plutôt que de rester
- dans l'eau.** L'eau protège de la chaleur, mais elle refroidit un enfant plus vite qu'un adulte, jusqu'à
- l'hypothermie (ch. 25, ch. 39).
-26. **Après le passage du front, éteindre ce qui reste.** Les braises continuent de tomber et d'allumer
- des départs de feu pendant des heures. Les 200 L d'eau, le râteau et la pelle servent maintenant :
- gratter jusqu'au sol minéral, retourner, noyer ou couvrir de terre. Chercher les points chauds[^1] du dos
- de la main (section 9).
+**L'eau et le pourtour (étapes 7 à 9).** On remplit pendant que le puits ou l'aqueduc donne encore de
+l'eau. Au chalet, on monte aussi un baril en hauteur, avec un boyau piqué au fond (section 9). On ramasse
+ce qui traîne dans les 1,5 m autour des murs, et la bouteille de propane va à un endroit sans végétation
+sur 3 m autour. Les évents et les fenêtres se ferment avec ce qu'on a (section 9).
+
+**Le contact (étape 10).** On fixe l'heure avant de raccrocher (ch. 14). Si on ne donne pas de nouvelles à
+cette heure-là, cette personne saura qu'il se passe quelque chose.
+
+### Il faut partir {.orange 15 min}
+
+Quand le feu est en vue, monter dans l'auto et partir sans faire les étapes 13 à 15. Si la fumée cache
+déjà le chemin, rester au bâtiment (étape 21).
+
+11. **La nuit, si l'odeur de la fumée réveille quelqu'un, sortir voir.** S'il y a une lueur, des braises
+ ou de la chaleur, partir si le chemin n'est pas dans la fumée, sinon rester au bâtiment (étape 21). S'il
+ n'y a rien de ça, partir à la première clarté.
+12. **Habiller les enfants de coton ou de laine, et les attacher dans l'auto.** Un adulte reste avec eux.
+13. **L'autre adulte ferme le bâtiment** : il ferme les portes, les fenêtres et le propane, décroche les
+ rideaux et tire ce qui brûle au milieu des pièces. Au chalet, il ferme la clé d'air du poêle et sort les
+ cendres dans leur contenant de métal.
+14. **S'il reste du temps, arroser le toit, le pourtour et le bas des murs, puis fermer l'eau.**
+15. **En sortant, couper le courant au disjoncteur principal et afficher PARTIS sur la porte.**
+16. **Envoyer un message texte qui dit où on va.**
+17. **Fermer les vitres, mettre l'air en recirculation, allumer les phares, et rouler lentement, loin du
+ feu.** Si la fumée cache la route, faire demi-tour ; si le chemin est fermé derrière aussi, passer à
+ l'étape 18.
+
+### Il faut partir : le détail
+
+**Le quart d'heure (étapes 11 à 17).** Un feu de cimes peut faire un kilomètre en un quart d'heure : le
+départ se fait dans ce temps-là.
+
+**La nuit (étape 11).** La fumée de la nuit descend dans les creux et s'y accumule, puis elle se lève le
+jour : son odeur ne dit pas à elle seule que le feu approche. Les enfants finissent la nuit habillés, dans
+la pièce la mieux fermée, et l'auto est chargée.
+
+**Les enfants (étape 12).** Ils portent des pantalons et des manches longues, et des bottes ou des
+souliers fermés. Un adulte seul installe d'abord les enfants, puis ferme le bâtiment.
+
+**Le bâtiment (étape 13).** On enlève aussi les stores et les rideaux légers, et on tire ce qui brûle bien
+loin des vitres : la chaleur du feu traverse la vitre et allume ce qui est derrière, et personne ne sera
+là pour l'éteindre.
+
+**L'eau (étape 14).** Au chalet, on mouille aussi la mousse, l'humus et la cladonie autour du bâtiment :
+les braises y prennent, et ce tapis garde l'eau moins longtemps qu'un bardeau. Un boyau laissé ouvert vide
+la pression de l'aqueduc ; le baril en hauteur, lui, peut couler pendant qu'on est parti (section 9).
+
+**Le courant et la porte (étape 15).** On coupe le courant en dernier, une fois l'arrosage fini, parce que
+la pompe du puits en a besoin. Un panneau sous tension dans une maison brûlée et mouillée blesse la
+personne qui revient. La feuille va sous plastique, écrite au marqueur : PARTIS, les noms, le nombre de
+personnes, la date, l'heure, la destination et le chemin pris (ch. 2, étape 9). Au chalet, on en laisse
+une deuxième à l'intérieur de la porte.
+
+**Le message (étape 16).** Un message texte ou un courriel passe sur un signal faible et réessaie tout
+seul ; un appel a besoin que la ligne tienne aux deux bouts, et il ne passe pas quand la tour est saturée.
+
+**La route (étape 17).** On ne roule jamais vers le feu. Sur un chemin forestier, le danger vient de ce
+qui est tombé dessus depuis le dernier passage (section 9 : l'arbre en travers, le ponceau).
+
+### Le feu arrive et on ne peut plus partir {.orange 1 min}
+
+18. **En auto, s'arrêter là où rien ne brûle, le devant tourné vers le feu.**
+19. **Fermer les vitres et les entrées d'air, couper le moteur, et se coucher au plancher sous une
+ couverture de laine sèche.**
+20. **Rester couvert jusqu'à ce que l'air refroidisse, puis marcher vers le terrain brûlé.**
+21. **Au bâtiment, rester dedans : remplir les éviers et le bain, arrêter le climatiseur.**
+22. **Se tenir dans une pièce qui a deux sorties, loin des vitres.**
+23. **Éteindre les braises qui entrent. Si le bâtiment brûle, sortir vers le terrain brûlé.**
+24. **À pied, aller là où rien ne brûle et se coucher face contre terre.**
+25. **Au lac, rester au bord et se remouiller, les enfants dans les bras.**
+
+### Le feu arrive : le détail
+
+**Où arrêter l'auto (étapes 18 et 19).** Une gravière, un champ, un brûlis, un grand stationnement, ou
+derrière un gros rocher, loin des arbres, des broussailles et des autres autos. On laisse les phares et
+les feux d'urgence allumés. On coupe le moteur quand le feu est proche, et tout le monde se couche sous le
+niveau des vitres. On met un linge sur le nez et la bouche, et on boit de l'eau, même sans soif. On reste
+dans l'auto (section 8, point 6).
+
+**Quand sortir de l'auto (étape 20).** On sort la main de sous la couverture : si l'air chauffe la peau
+comme un gros coup de soleil, c'est trop tôt. On sort de l'auto toujours sous la laine.
+
+**Au bâtiment (étapes 21 à 23).** L'eau froide des éviers, du bain et des chaudières sert à éteindre les
+braises. On arrête aussi l'échangeur d'air : avec le climatiseur, il aspire les braises. On ferme les
+rideaux, qui arrêtent la chaleur du feu à travers les vitres. Tout le monde s'habille de coton ou de
+laine, avec des bottes, et boit. La pièce a deux sorties vers l'extérieur, deux portes ou une porte et une
+fenêtre, et on regarde dehors souvent. On ne va ni au sous-sol, ni dans une pièce sans sortie : la pièce
+d'air propre de l'étape 35 sert contre la fumée, pas pendant le passage du front. On cherche les braises
+au grenier, sous la galerie et au pied des murs. Si le bâtiment prend feu, on ferme la porte de la pièce
+qui brûle, on s'en éloigne en fermant les portes derrière soi et on reste bas. On sort sous la laine quand
+le dehors est moins dangereux que le dedans.
+
+**À pied (étape 24).** Les endroits où rien ne brûle : une gravière, un banc de sable, une grève, un lit
+de rivière large, un brûlis refroidi, un lac, loin des arbres. Il faut pouvoir se tenir à 100 m au moins
+de tout arbre debout : la chaleur du front brûle la peau à cette distance. Sinon, on se met derrière un
+gros rocher. La peau se couvre de laine ou de coton.
+
+**Au lac (étape 25).** L'eau protège de la chaleur, mais elle refroidit un enfant plus vite qu'un adulte,
+jusqu'à l'hypothermie (ch. 25, ch. 39) : on ne reste pas dans l'eau.
+
+### Après le passage du front
+
+26. **Éteindre ce qui reste.** Les braises continuent de tomber et d'allumer des départs de feu pendant
+ des heures. Les 200 L d'eau, le râteau et la pelle servent maintenant : gratter jusqu'au sol minéral,
+ retourner, noyer ou couvrir de terre. Chercher les points chauds[^1] du dos de la main (section 9).
 
 ### Tant que le feu est dans le secteur
 
@@ -243,19 +281,19 @@ Le chemin est fermé ou la fumée le cache, et le feu arrive.
 
 ### Avant la saison : écrire ce qui fera partir
 
-47. **En mai, avant la saison, écrire ce qui fera partir, sur la porte du chalet et sur celle du
- frigo.** Aucune distance ni aucun délai ne vaut pour tous les feux : le vent, la pente et le chemin
- décident. On l'écrit donc en mesures qu'on vérifie sans débattre : une distance, un temps de
- trajet, une heure de la journée. La famille remplit les blancs :
+47. **En mai, avant la saison, écrire ce qui fera partir, sur la porte du chalet et sur celle du frigo.**
+ Aucune distance ni aucun délai ne vaut pour tous les feux : le vent, la pente et le chemin décident. On
+ l'écrit donc en mesures qu'on vérifie sans débattre : une distance, un temps de trajet, une heure de la
+ journée. La famille remplit les blancs :
 
  > Nous partons du chalet si le feu le plus proche est à moins de ___ km et que le vent souffle de lui
  > vers nous, **ou** si la sortie prend ___ minutes de plus que d'habitude, **ou** s'il reste moins de ___
  > heures de clarté et que le feu a grossi depuis la veille. Personne ne change ces chiffres une fois le
  > feu déclaré.
 
- Au chalet, on part plus tôt qu'à la maison : la sortie est plus longue, plus fragile, et elle n'a
- pas de rechange. Ça se décide en mai parce que, le jour du feu, on a envie de rester. Partir trop tôt
- coûte quelques jours ailleurs et du carburant ; partir trop tard peut piéger la famille sur le chemin
+ Au chalet, on part plus tôt qu'à la maison : la sortie est plus longue, plus fragile, et elle n'a pas de
+ rechange. Ça se décide en mai parce que, le jour du feu, on a envie de rester. Partir trop tôt coûte
+ quelques jours ailleurs et du carburant ; partir trop tard peut piéger la famille sur le chemin
  (section 8, point 2).
 48. **Rouler les deux chemins de sortie chaque année, montre en main**, et élargir le tournant où une auto
  avec une remorque doit faire demi-tour.
@@ -406,8 +444,8 @@ la surface, prudemment, puisqu'on cherche ce qu'on ne voit pas (section 9).
 Sans pompe, sans purificateur et sans nouvelles du feu, ce qui est l'ordinaire d'un chalet hors réseau.
 
 **Sans nouvelles, on part plus tôt.** On ne peut pas savoir si le feu grossit ou s'éloigne, et on ne peut
-donc pas prendre une décision qu'on pourrait défaire. On part au premier signe : un départ pour
-rien coûte du carburant et deux jours (étape 47).
+donc pas prendre une décision qu'on pourrait défaire. On part au premier signe : un départ pour rien coûte
+du carburant et deux jours (étape 47).
 
 ### Lire le danger et le feu sur le terrain
 
@@ -435,7 +473,8 @@ fumée se lit de loin.
  chalet au bas d'une pente a plus de marge que le même chalet à mi-pente.
 - **Le temps qui reste avant la noirceur, sans montre** : tendre le bras, la main à plat entre le soleil
  et l'horizon. Il faut avoir chronométré une fois, un soir clair au chalet, combien de minutes le soleil
- met à descendre d'une largeur de sa main. Ça suffit pour appliquer la troisième raison de partir (étape 47).
+ met à descendre d'une largeur de sa main. Ça suffit pour appliquer la troisième raison de partir
+ (étape 47).
 
 ### Sortir quand le chemin n'est plus un chemin
 
@@ -521,8 +560,8 @@ valent beaucoup mieux que rien, et ils se montent avec du ruban gommé.
 - **Un ventilateur et un filtre.** Tenir au ruban gommé un filtre de fournaise fin contre la grille d'un
  ventilateur-boîte, la flèche du filtre tournée vers le ventilateur (planche 11-04). Un seul filtre traite
  une pièce d'environ 10 m² ; un carton autour du ventilateur ajoute 40 % ; quatre filtres montés en cube,
- le ventilateur posé dessus, traitent environ 37 m². Changer le filtre dès qu'il est brun ou gris, ou qu'il sent
- la fumée.
+ le ventilateur posé dessus, traitent environ 37 m². Changer le filtre dès qu'il est brun ou gris, ou
+ qu'il sent la fumée.
 - **Le ventilateur chauffe.** Avec un filtre chargé de poussière, l'intérieur du moteur a monté de près de
  60 °C pendant les essais. Un ventilateur fabriqué depuis 2012 a une fiche à fusible et une coupure
  thermique. Un ventilateur plus vieux ne tourne pas la nuit, ni sans un adulte éveillé à côté.

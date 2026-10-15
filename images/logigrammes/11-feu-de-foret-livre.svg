@@ -25,7 +25,7 @@
 <path d="M867.60,330.80 L867.60,343.20 Q867.60,349.20 873.60,349.20 L877.80,349.20 Q883.80,349.20 883.80,355.20 L883.80,374.60" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
 <path d="M867.60,330.80 L867.60,343.20 Q867.60,349.20 873.60,349.20 L1036.20,349.20 Q1042.20,349.20 1042.20,355.20 L1042.20,374.60" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
 <path d="M725.40,481.90 L725.40,497.00" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
-<path d="M883.80,473.90 L883.80,497.00" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M883.80,481.90 L883.80,497.00" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
 <path d="M1042.20,469.60 L1042.20,497.00" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
 </g>
 <g id="noeuds">
@@ -45,8 +45,8 @@
 <text x="454.29" y="209.20" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="8.5" fill="#000" xml:space="preserve" data-max="73.96">ch. 11, étapes 2 et 3</text>
 <rect x="36.00" y="226.08" width="495.00" height="26.80" rx="0" fill="#FDE8D8" stroke="#EE7219" stroke-width="1.5"/>
 <text data-max="478.50" x="45.00" y="242.73" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">Au chalet, mettre le canot à l’eau.</tspan><tspan font-weight="500"> Décider quel adulte prend quel enfant.</tspan></text>
-<rect x="452.13" y="240.63" width="79.62" height="13.00" fill="#EE7219"/>
-<text x="457.13" y="250.18" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="8.5" fill="#000" xml:space="preserve" data-max="71.12">ch. 11, étapes 4 à 6</text>
+<rect x="449.29" y="240.63" width="82.46" height="13.00" fill="#EE7219"/>
+<text x="454.29" y="250.18" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="8.5" fill="#000" xml:space="preserve" data-max="73.96">ch. 11, étapes 4 et 5</text>
 <rect x="36.00" y="294.40" width="219.60" height="88.00" rx="10" fill="#fff" stroke="#2B5876" stroke-width="1.75"/>
 <text data-max="197.10" x="145.80" y="314.70" font-family="IBM Plex Sans Condensed" font-size="13" fill="#000" text-anchor="middle" xml:space="preserve"><tspan font-weight="700">Il ne reste qu’un chemin</tspan></text>
 <text data-max="197.10" x="145.80" y="330.20" font-family="IBM Plex Sans Condensed" font-size="13" fill="#000" text-anchor="middle" xml:space="preserve"><tspan font-weight="700">pour sortir, ou la fumée</tspan></text>
@@ -97,42 +97,42 @@
 <rect x="651.60" y="298.80" width="464.40" height="32.00" rx="10" fill="#fff" stroke="#2B5876" stroke-width="1.75"/>
 <text data-max="441.90" x="883.80" y="319.10" font-family="IBM Plex Sans Condensed" font-size="13" fill="#000" text-anchor="middle" xml:space="preserve"><tspan font-weight="700">Où est-on quand le feu arrive ?</tspan></text>
 <rect x="651.60" y="381.60" width="147.60" height="100.30" rx="0" fill="#FDE8D8" stroke="#EE7219" stroke-width="1.5"/>
-<text data-max="131.10" x="660.60" y="402.25" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">S’arrêter là où rien ne brûle.</tspan></text>
-<text data-max="131.10" x="660.60" y="414.55" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">Laisser les phares allumés,</tspan></text>
-<text data-max="131.10" x="660.60" y="426.85" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">fermer les vitres et les entrées</tspan></text>
-<text data-max="131.10" x="660.60" y="439.15" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">d’air, couper le moteur. Se</tspan></text>
-<text data-max="131.10" x="660.60" y="451.45" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">coucher au plancher, sous une</tspan></text>
+<text data-max="131.10" x="660.60" y="402.25" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">S’arrêter là où rien ne brûle</tspan><tspan font-weight="500">, le</tspan></text>
+<text data-max="131.10" x="660.60" y="414.55" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">devant tourné vers le feu.</tspan></text>
+<text data-max="131.10" x="660.60" y="426.85" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">Fermer les vitres et les entrées</tspan></text>
+<text data-max="131.10" x="660.60" y="439.15" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">d’air, couper le moteur, et se</tspan></text>
+<text data-max="131.10" x="660.60" y="451.45" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">coucher au plancher sous une</tspan></text>
 <text data-max="131.10" x="660.60" y="463.75" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">couverture de laine sèche.</tspan></text>
 <rect x="708.31" y="469.65" width="91.64" height="13.00" fill="#EE7219"/>
 <text x="713.31" y="479.20" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="8.5" fill="#000" xml:space="preserve" data-max="83.14">ch. 11, étapes 18 et 19</text>
 <rect x="659.60" y="374.60" width="31.26" height="14.00" fill="#EE7219"/>
 <text x="664.60" y="384.80" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="9" fill="#000" xml:space="preserve" data-max="22.76">1 min</text>
-<rect x="810.00" y="381.60" width="147.60" height="92.30" rx="0" fill="#FDE8D8" stroke="#EE7219" stroke-width="1.5"/>
-<text data-max="131.10" x="819.00" y="402.25" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">Rester dedans</tspan><tspan font-weight="500">, dans une pièce</tspan></text>
-<text data-max="131.10" x="819.00" y="414.55" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">qui a deux sorties, loin des</tspan></text>
-<text data-max="131.10" x="819.00" y="426.85" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">vitres. Remplir les éviers et le</tspan></text>
-<text data-max="131.10" x="819.00" y="439.15" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">bain, arrêter le climatiseur et</tspan></text>
-<text data-max="131.10" x="819.00" y="451.45" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">éteindre les braises qui</tspan></text>
-<text data-max="131.10" x="819.00" y="463.75" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">entrent.</tspan></text>
-<rect x="869.55" y="461.65" width="88.80" height="13.00" fill="#EE7219"/>
-<text x="874.55" y="471.20" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="8.5" fill="#000" xml:space="preserve" data-max="80.30">ch. 11, étapes 21 à 23</text>
+<rect x="810.00" y="381.60" width="147.60" height="100.30" rx="0" fill="#FDE8D8" stroke="#EE7219" stroke-width="1.5"/>
+<text data-max="131.10" x="819.00" y="402.25" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">Rester dedans</tspan><tspan font-weight="500"> : remplir les</tspan></text>
+<text data-max="131.10" x="819.00" y="414.55" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">éviers et le bain, arrêter le</tspan></text>
+<text data-max="131.10" x="819.00" y="426.85" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">climatiseur. Se tenir dans une</tspan></text>
+<text data-max="131.10" x="819.00" y="439.15" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">pièce qui a deux sorties, loin</tspan></text>
+<text data-max="131.10" x="819.00" y="451.45" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">des vitres, et éteindre les</tspan></text>
+<text data-max="131.10" x="819.00" y="463.75" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">braises qui entrent.</tspan></text>
+<rect x="869.55" y="469.65" width="88.80" height="13.00" fill="#EE7219"/>
+<text x="874.55" y="479.20" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="8.5" fill="#000" xml:space="preserve" data-max="80.30">ch. 11, étapes 21 à 23</text>
 <rect x="818.00" y="374.60" width="31.26" height="14.00" fill="#EE7219"/>
 <text x="823.00" y="384.80" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="9" fill="#000" xml:space="preserve" data-max="22.76">1 min</text>
 <rect x="968.40" y="381.60" width="147.60" height="88.00" rx="0" fill="#FDE8D8" stroke="#EE7219" stroke-width="1.5"/>
 <text data-max="131.10" x="977.40" y="402.25" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">Aller là où rien ne brûle</tspan><tspan font-weight="500">, à</tspan></text>
 <text data-max="131.10" x="977.40" y="414.55" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">100 m au moins de tout arbre</tspan></text>
-<text data-max="131.10" x="977.40" y="426.85" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">debout. Se coucher face contre</tspan></text>
-<text data-max="131.10" x="977.40" y="439.15" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">terre, la peau couverte de laine</tspan></text>
-<text data-max="131.10" x="977.40" y="451.45" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">ou de coton.</tspan></text>
+<text data-max="131.10" x="977.40" y="426.85" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">debout, et se coucher face</tspan></text>
+<text data-max="131.10" x="977.40" y="439.15" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">contre terre. Au lac, rester au</tspan></text>
+<text data-max="131.10" x="977.40" y="451.45" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">bord et se remouiller.</tspan></text>
 <rect x="1025.11" y="457.35" width="91.64" height="13.00" fill="#EE7219"/>
 <text x="1030.11" y="466.90" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="8.5" fill="#000" xml:space="preserve" data-max="83.14">ch. 11, étapes 24 et 25</text>
 <rect x="976.40" y="374.60" width="31.26" height="14.00" fill="#EE7219"/>
 <text x="981.40" y="384.80" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="9" fill="#000" xml:space="preserve" data-max="22.76">1 min</text>
-<rect x="651.60" y="504.00" width="464.40" height="39.10" rx="0" fill="#FDE8D8" stroke="#EE7219" stroke-width="1.5"/>
+<rect x="651.60" y="504.00" width="464.40" height="39.10" rx="0" fill="#E8EDF0" stroke="#2B5876" stroke-width="1.5"/>
 <text data-max="447.90" x="660.60" y="520.65" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">Quand le front est passé, rester sous la laine jusqu’à ce que l’air refroidisse.</tspan><tspan font-weight="500"> Ensuite, aller sur le terrain</tspan></text>
 <text data-max="447.90" x="660.60" y="532.95" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">brûlé et éteindre ce qui brûle encore : gratter jusqu’à la terre, retourner et noyer.</tspan></text>
-<rect x="1025.11" y="530.85" width="91.64" height="13.00" fill="#EE7219"/>
-<text x="1030.11" y="540.40" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="8.5" fill="#000" xml:space="preserve" data-max="83.14">ch. 11, étapes 20 et 26</text>
+<rect x="1025.11" y="530.85" width="91.64" height="13.00" fill="#2B5876"/>
+<text x="1030.11" y="540.40" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="8.5" fill="#fff" xml:space="preserve" data-max="83.14">ch. 11, étapes 20 et 26</text>
 </g>
 <g id="pointes">
 <path d="M283.50,115.20 L279.70,107.20 L287.30,107.20 Z" fill="#000"/>

@@ -1,5 +1,5 @@
 {
-  "_note": "Logigramme du chapitre 11 (le feu de forêt), double page, fait le 15 octobre 2026 sur le chapitre réécrit. Page de gauche : le feu est déclaré dans le secteur, la première heure (étapes 1 à 6, en orange), le seuil de départ, ce qu'on fait en restant prêt (étapes 7 à 10 et 27 à 29), la nuit (étape 11) et le départ (étapes 12 à 15). Page de droite : le feu est en vue, la route (étapes 16 et 17) et les gestes de qui est pris par le feu (étapes 18 à 26). Le premier geste arrive sans question pour un feu déclaré, et en deux questions au plus pour un feu en vue. Aucun avertissement redit : la génératrice, le propane et le synthétique restent dans l'étape et l'encadré danger. Phrases complètes, comme on le dirait à voix haute. Rendu : python3 design/outils/logigramme.py images/logigrammes/11-feu-de-foret.json ; version du livre : --sans-entete --svg. « source » : les étapes du chapitre d'où vient chaque geste (ignoré au rendu).",
+  "_note": "Logigramme du chapitre 11 (le feu de forêt), double page, fait le 15 octobre 2026 sur le chapitre réécrit, repris le même jour quand les séries orange ont pris leur temps (JP : « sois plus logique dans la gestion des temps »). Les pastilles suivent celles du chapitre : 1 h pour « Un feu est déclaré dans le secteur » (étapes 1 à 10), 15 min pour « Il faut partir » (étapes 11 à 17), 1 min pour « Le feu arrive et on ne peut plus partir » (étapes 18 à 25). L'étape 26 (après le passage du front) n'est plus orange : la boîte du bas est un geste. Page de gauche : le feu déclaré, le seuil, la nuit et le départ. Page de droite : le feu en vue, la route et les gestes de qui est pris par le feu. Le premier geste arrive sans question pour un feu déclaré, et en deux questions au plus pour un feu en vue. Aucun avertissement redit. Rendu : env -u TMPDIR python3 design/outils/logigramme.py images/logigrammes/11-feu-de-foret.json ; version du livre : --sans-entete --svg. « source » : les étapes du chapitre d'où vient chaque geste (ignoré au rendu).",
   "format": "double",
   "tome": 1,
   "urgent": true,
@@ -111,8 +111,8 @@
       "ancre": "haut",
       "taille": 10,
       "texte": "**Au chalet, mettre le canot à l'eau.** Décider quel adulte prend quel enfant.",
-      "renvoi": "ch. 11, étapes 4 à 6",
-      "source": "étapes 4 à 6"
+      "renvoi": "ch. 11, étapes 4 et 5",
+      "source": "étapes 4 et 5"
     },
     {
       "id": "q3",
@@ -211,7 +211,7 @@
       "ancre": "haut",
       "temps": "1 min",
       "taille": 10,
-      "texte": "**S'arrêter là où rien ne brûle.** Laisser les phares allumés, fermer les vitres et les entrées d'air, couper le moteur. Se coucher au plancher, sous une couverture de laine sèche.",
+      "texte": "**S'arrêter là où rien ne brûle**, le devant tourné vers le feu. Fermer les vitres et les entrées d'air, couper le moteur, et se coucher au plancher sous une couverture de laine sèche.",
       "renvoi": "ch. 11, étapes 18 et 19",
       "source": "étapes 18 et 19"
     },
@@ -223,7 +223,7 @@
       "ancre": "haut",
       "temps": "1 min",
       "taille": 10,
-      "texte": "**Rester dedans**, dans une pièce qui a deux sorties, loin des vitres. Remplir les éviers et le bain, arrêter le climatiseur et éteindre les braises qui entrent.",
+      "texte": "**Rester dedans** : remplir les éviers et le bain, arrêter le climatiseur. Se tenir dans une pièce qui a deux sorties, loin des vitres, et éteindre les braises qui entrent.",
       "renvoi": "ch. 11, étapes 21 à 23",
       "source": "étapes 21 à 23"
     },
@@ -235,13 +235,13 @@
       "ancre": "haut",
       "temps": "1 min",
       "taille": 10,
-      "texte": "**Aller là où rien ne brûle**, à 100 m au moins de tout arbre debout. Se coucher face contre terre, la peau couverte de laine ou de coton.",
+      "texte": "**Aller là où rien ne brûle**, à 100 m au moins de tout arbre debout, et se coucher face contre terre. Au lac, rester au bord et se remouiller.",
       "renvoi": "ch. 11, étapes 24 et 25",
       "source": "étapes 24 et 25"
     },
     {
       "id": "apres",
-      "type": "urgent",
+      "type": "geste",
       "col": "large2",
       "rang": "d6",
       "ancre": "haut",

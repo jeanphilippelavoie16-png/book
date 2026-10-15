@@ -242,3 +242,27 @@ Passe « niveau notice » (brief des planches, JP : « Faisons les choses comme 
   servent la section 9, « Lire le danger et le feu sur le terrain » : la colonne couchée et sombre, la
   colonne droite en chou-fleur au-dessus d'un lac sans vent. Inscrites dans
   `images/photos/registre-manquantes.md` et `images/credits.md`.
+
+## Retouche du 15 octobre 2026 (soir) : le temps des séries orange
+
+JP : « Je comprends pas l'ordre chronologique : 1 h, 15 min, 1 min, mais y a genre 600 mots pour quand le feu
+passe. » Original de cette retouche : `scratchpad/demo-11/11-avant-temps.md`. Mots : 8 198 → 8 375 (le détail
+redit en phrases complètes ce que les séries disaient en bloc).
+
+| Série (pastille = temps pour la faire) | Avant | Après | Détail hors orange, juste après |
+| --- | ---: | ---: | ---: |
+| « Un feu est déclaré dans le secteur » `{.orange 1 h}`, étapes 1 à 10 | 603 | 323 | 359 (« Un feu est déclaré : le détail ») |
+| « Il faut partir » `{.orange 15 min}`, étapes 11 à 17 | 550 | 223 | 358 (« Il faut partir : le détail ») |
+| « Le feu arrive et on ne peut plus partir » `{.orange 1 min}`, étapes 18 à 25 | 511 | 122 | 388 (« Le feu arrive : le détail ») |
+
+Mêmes numéros d'étapes. Chaque étape de la série garde le geste ; le pourquoi, les listes d'endroits, les
+chiffres qui expliquent (1 à 4 km/h, 100 m, l'air qui chauffe comme un coup de soleil, la fumée de nuit dans les
+creux, le texte qui passe mieux qu'un appel, la feuille PARTIS en détail) passent dans le détail, en paragraphes
+qui renvoient aux étapes. L'étape 26 sort de l'orange : « Après le passage du front », avant « Tant que le feu
+est dans le secteur ». Gardé tel quel : l'étape 6 et ses deux raisons de partir, les « vêtements de rechange pour
+chacun », la section 2 sans liste « mauvaise procédure ». Le contrôle `--avant` ne signale qu'un « 10 m » de
+moins : le bois et le propane sont tirés à 10 m dans la même phrase (étape 8).
+
+Logigramme : renvois vérifiés (« étapes 4 et 5 » pour le canot et les enfants, l'étape 6 étant la question) ;
+les trois boîtes « 1 min » reprennent les lignes de la série ; la boîte « Quand le front est passé » (étapes 20
+et 26) devient un geste, hors orange. Contrôle : 0 erreur, 0 avis.
