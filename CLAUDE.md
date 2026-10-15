@@ -223,7 +223,11 @@ doit être informatif, partout.** Ce qui saute :
 - l'opposition fabriquée (« pas X, mais Y », « au village, c'est… ; au chalet, c'est… ») quand elle
   n'ajoute pas un fait.
 
-Le test : sans la phrase, le lecteur sait-il moins quoi faire ? Si non, elle saute.
+Ça vaut **jusqu'au mot** (JP, 15 octobre 2026) : « sans perdre la viande de l'automne » — « de
+l'automne » n'apprend rien, il saute. Le complément qui décore, l'adjectif qui redit le nom, le « déjà »,
+le « encore », le « tout », la précision de moment ou de lieu que le lecteur a déjà : dehors.
+
+Le test : sans la phrase — ou sans le mot —, le lecteur sait-il moins quoi faire ? Si non, ça saute.
 
 **Les mots.** Jamais « village » : la maison est en ville, à Baie-Comeau. « Auto », jamais « char ».
 
