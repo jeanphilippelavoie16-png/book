@@ -239,7 +239,7 @@ Après une alerte sans éclair, commencer à l'étape 4.
 | Nausées, vomissements ou diarrhée chez plusieurs personnes dans les heures qui suivent, sans cause alimentaire | Irradiation aiguë à dose élevée : la vie est en jeu | Rester à l'abri, faire boire. Ça ne se soigne ni à la maison ni au chalet (ch. 35) |
 | Rougeur ou brûlure de la peau sans source de chaleur, quelques heures à quelques jours après | Dépôt resté sur la peau | Laver à l'eau et au savon, sans frotter jusqu'au sang. Pas de corps gras, qui fixe la matière |
 | Cheveux qui tombent par plaques, 2 à 3 semaines après | Dose élevée reçue | Il reste à couper l'ingestion (étapes 17 à 19, 24 à 28) |
-| Alarme de CO, mal de tête, somnolence ou confusion chez plusieurs à la fois | Monoxyde de carbone dans un abri fermé | Ouvrir et sortir tout le monde (§8). Ce risque passe avant celui du dépôt |
+| Alarme de CO, mal de tête, somnolence ou confusion chez plusieurs à la fois | Monoxyde de carbone dans un abri fermé | Arrêter ce qui brûle, ouvrir la pièce d'abri sur le reste de la maison et y emmener tout le monde, sans sortir dehors. Aérer au battant (§9) |
 | Poêle qui tire mal, fumée qui reflue dans l'abri | Le bouchage a coupé l'air de combustion | Ouvrir une entrée d'air à l'opposé du vent |
 | Un enfant a reçu deux doses d'iode en moins de 24 heures | Surdosage | Ne pas faire vomir, sauter la dose du lendemain, écrire l'heure et la quantité sur le cadre de porte. Une dose protège environ 24 h : sauter la suivante ne coûte presque rien |
 | Comprimés d'iode friables, décolorés ou périmés | Gardés hors de 15 à 30 °C, ou trop vieux | Ne pas se fier au reste de la plaquette : un comprimé dégradé n'a plus une dose connue |
@@ -272,7 +272,7 @@ Après une alerte sans éclair, commencer à l'étape 4.
 > entrée, même porte ouverte.** Le monoxyde de carbone n'a ni odeur ni couleur, il se fixe à
 > l'hémoglobine 200 à 250 fois plus que l'oxygène, et une pièce qu'on vient de calfeutrer ne se
 > vide plus. Ses premiers signes, mal de tête, nausée, somnolence, ressemblent à ceux d'une
-> irradiation : on reste couché au lieu de sortir. Avertisseur de CO à pile dans la pièce d'abri,
+> irradiation : on reste couché au lieu d'arrêter la source et d'aérer. Avertisseur de CO à pile dans la pièce d'abri,
 > essayé avant de boucher. Un poêle à bois à évacuation intacte reste utilisable s'il garde son air
 > de combustion : on ne bouche jamais la pièce où il brûle.
 

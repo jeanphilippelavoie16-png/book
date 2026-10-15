@@ -284,3 +284,12 @@ des procédures établies (Ready.gov, CDC, FEMA, LLNL, Canada.ca), écrit pour u
   04-01b p. 96 et 04-41 p. 97 (appels tous deux p. 95), 04-40 p. 99 (appel p. 98). Le §9 tient sur trois pages de
   texte pour quatre planches pleine page : la 04-41 tombe deux pages après son appel, en vis-à-vis de la 04-01b.
 
+
+## 15 octobre 2026 : le CO pendant l'abri
+
+JP, sur l'encadré du logigramme « sortir tout le monde » : « on sort même si c'est une bombe nucléaire ? ». Le
+§7 disait « Ouvrir et sortir tout le monde (§8). Ce risque passe avant celui du dépôt », sans source. Corrigé :
+arrêter ce qui brûle, ouvrir la pièce d'abri sur le reste de la maison et y emmener tout le monde, sans sortir
+dehors, et aérer au battant (§9). Le §8, point 3, dit « on reste couché au lieu d'arrêter la source et
+d'aérer ». Source : `sources/04-cdc-abri-ventiler-en-quelques-heures.md` (le CDC fait ventiler la pièce d'abri au
+bout de quelques heures ; aucune source ne fait sortir dehors pendant les retombées).

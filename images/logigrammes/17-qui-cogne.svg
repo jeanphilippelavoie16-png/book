@@ -42,10 +42,10 @@
 </g>
 <g id="noeuds">
 <rect x="36.00" y="61.20" width="495.00" height="39.40" rx="0" fill="#2B5876"/>
-<text data-max="468.50" x="50.00" y="85.65" font-family="IBM Plex Sans Condensed" font-size="15" fill="#fff" text-anchor="start" xml:space="preserve"><tspan font-weight="700">On cogne à la porte, la nuit, l’hiver</tspan></text>
+<text data-max="468.50" x="50.00" y="85.65" font-family="IBM Plex Sans Condensed" font-size="15" fill="#fff" text-anchor="start" xml:space="preserve"><tspan font-weight="700">Quelqu’un cogne à la porte</tspan></text>
 <rect x="36.00" y="115.20" width="495.00" height="45.50" rx="0" fill="#FDE8D8" stroke="#EE7219" stroke-width="1.5"/>
-<text data-max="478.50" x="45.00" y="136.80" font-family="IBM Plex Sans Condensed" font-size="11" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">Ne pas ouvrir</tspan><tspan font-weight="500">, mais faire savoir à travers la porte qu’il y a quelqu’un.</tspan><tspan font-weight="700"> Éteindre la lampe de la pièce</tspan><tspan font-weight="500"> avant</tspan></text>
-<text data-max="478.50" x="45.00" y="150.30" font-family="IBM Plex Sans Condensed" font-size="11" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">de s’approcher de la fenêtre, puis éclairer la neige devant la personne.</tspan></text>
+<text data-max="478.50" x="45.00" y="136.80" font-family="IBM Plex Sans Condensed" font-size="11" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">Ne pas ouvrir</tspan><tspan font-weight="500">, mais faire savoir à travers la porte qu’il y a quelqu’un.</tspan><tspan font-weight="700"> La nuit, éteindre la lampe de la</tspan></text>
+<text data-max="478.50" x="45.00" y="150.30" font-family="IBM Plex Sans Condensed" font-size="11" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">pièce</tspan><tspan font-weight="500"> avant de s’approcher de la fenêtre, puis éclairer le sol devant la personne.</tspan></text>
 <rect x="449.29" y="148.45" width="82.46" height="13.00" fill="#EE7219"/>
 <text x="454.29" y="158.00" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="8.5" fill="#000" xml:space="preserve" data-max="73.96">ch. 17, étapes 1 et 2</text>
 <rect x="44.00" y="108.20" width="31.26" height="14.00" fill="#EE7219"/>
@@ -77,9 +77,9 @@
 <rect x="468.57" y="427.41" width="63.18" height="13.00" fill="#EE7219"/>
 <text x="473.57" y="436.96" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="8.5" fill="#000" xml:space="preserve" data-max="54.68">ch. 17, étape 6</text>
 <rect x="36.00" y="451.74" width="241.20" height="57.00" rx="10" fill="#fff" stroke="#2B5876" stroke-width="1.75"/>
-<text data-max="218.70" x="156.60" y="472.04" font-family="IBM Plex Sans Condensed" font-size="13" fill="#000" text-anchor="middle" xml:space="preserve"><tspan font-weight="700">Il gèle ou il est blessé ?</tspan></text>
-<text data-max="218.70" x="156.60" y="486.31" font-family="IBM Plex Serif" font-size="9.5" font-style="italic" fill="#000" text-anchor="middle" xml:space="preserve"><tspan font-weight="400">Il parle mal, il est maladroit ou</tspan></text>
-<text data-max="218.70" x="156.60" y="497.81" font-family="IBM Plex Serif" font-size="9.5" font-style="italic" fill="#000" text-anchor="middle" xml:space="preserve"><tspan font-weight="400">confus, ou il ne frissonne plus</tspan></text>
+<text data-max="218.70" x="156.60" y="472.04" font-family="IBM Plex Sans Condensed" font-size="13" fill="#000" text-anchor="middle" xml:space="preserve"><tspan font-weight="700">Il est blessé, ou il gèle ?</tspan></text>
+<text data-max="218.70" x="156.60" y="486.31" font-family="IBM Plex Serif" font-size="9.5" font-style="italic" fill="#000" text-anchor="middle" xml:space="preserve"><tspan font-weight="400">L’hiver : il parle mal, il est maladroit</tspan></text>
+<text data-max="218.70" x="156.60" y="497.81" font-family="IBM Plex Serif" font-size="9.5" font-style="italic" fill="#000" text-anchor="middle" xml:space="preserve"><tspan font-weight="400">ou confus, ou il ne frissonne plus</tspan></text>
 <rect x="36.00" y="534.96" width="241.20" height="76.50" rx="0" fill="#FDE8D8" stroke="#EE7219" stroke-width="1.5"/>
 <text data-max="224.70" x="45.00" y="552.56" font-family="IBM Plex Sans Condensed" font-size="11" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">Le faire entrer</tspan><tspan font-weight="500">, ou le mettre à l’abri dehors. Le</tspan></text>
 <text data-max="224.70" x="45.00" y="566.06" font-family="IBM Plex Sans Condensed" font-size="11" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">coucher, lui enlever ses vêtements mouillés et</tspan></text>

@@ -88,7 +88,7 @@
       "rang": "g1",
       "ancre": "haut",
       "taille": 15,
-      "texte": "On cogne à la porte, la nuit, l'hiver",
+      "texte": "Quelqu'un cogne à la porte",
       "source": "§2"
     },
     {
@@ -98,7 +98,7 @@
       "rang": "g2",
       "ancre": "haut",
       "temps": "1 min",
-      "texte": "**Ne pas ouvrir**, mais faire savoir à travers la porte qu'il y a quelqu'un. **Éteindre la lampe de la pièce** avant de s'approcher de la fenêtre, puis éclairer la neige devant la personne.",
+      "texte": "**Ne pas ouvrir**, mais faire savoir à travers la porte qu'il y a quelqu'un. **La nuit, éteindre la lampe de la pièce** avant de s'approcher de la fenêtre, puis éclairer le sol devant la personne.",
       "renvoi": "ch. 17, étapes 1 et 2",
       "source": "étapes 1 et 2"
     },
@@ -157,8 +157,8 @@
       "type": "question",
       "col": "tronc",
       "rang": "g7",
-      "texte": "Il gèle ou il est blessé ?",
-      "precision": "Il parle mal, il est maladroit ou confus, ou il ne frissonne plus",
+      "texte": "Il est blessé, ou il gèle ?",
+      "precision": "L'hiver : il parle mal, il est maladroit ou confus, ou il ne frissonne plus",
       "source": "étapes 7 et 8"
     },
     {
