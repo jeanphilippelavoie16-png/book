@@ -570,8 +570,8 @@ l'automne et gardée au sec. Un baril de 200 L rempli en septembre couvre l'hive
 
 **Les pics à glace** se fabriquent en une demi-heure : deux gros clous ou deux tournevis, ou deux
 chevilles de bois franc ferrées d'un clou taillé en pointe, reliés par un cordon d'environ un
-mètre passé dans les manches des manteaux et derrière le cou (ch. 58). Ils se portent **par-dessus
-le manteau**, avant le premier pas sur la glace. Des pics dans un sac à dos sont des pics
+mètre (ch. 58). Ils se portent **au cou, par-dessus le manteau**, avant le premier pas sur la
+glace (planche 15-01). Des pics dans un sac à dos sont des pics
 inutilisables : les mains ne fonctionnent plus après quelques minutes dans l'eau.
 
 **L'écumoire** se remplace par une louche percée ou une boîte de conserve clouée sur un manche.
