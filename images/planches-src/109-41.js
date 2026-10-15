@@ -204,11 +204,14 @@ module.exports = (h) => {
     const oH = { x: q.xH, y: pA[1], pose: 'tire-arriere', echelle: k };
     const axR = versDeg(mP, piedPoulie);
     oH.angles = poserBras(oH, { P: mP, L: [mP[0] - 8, mP[1] - 1] }, { P: axR, L: axR });
-    const dirR = uni(sub(mP, piedPoulie)), nR = nor(dirR);
-    out.push(h.ligne(piedPoulie[0] - 4, piedPoulie[1] - 1, mP[0], mP[1], A.arete));
-    out.push(h.path(`M ${pt([mP[0] - 10, mP[1]])} C ${pt([mP[0] - 18, mP[1] + 8])} ${pt([mP[0] - 14, mP[1] + 22])} ${pt([mP[0] - 18, mP[1] + 34])}`, A.arete));
-    out.push(String(F.corps(oH)));
-    const g0 = add(add(mP, dirR, -26), nR, 9), g1 = add(add(mP, dirR, -4), nR, 9);
+    const homme = F.corps(oH);
+    // la corde va aux poings réels du corps : du poing proche à la poulie, le bout qui pend du poing loin
+    const fP = [homme.mainP.x, homme.mainP.y], fL = [homme.mainL.x, homme.mainL.y];
+    const dirR = uni(sub(fP, piedPoulie)), nR = nor(dirR);
+    out.push(h.ligne(piedPoulie[0] - 4, piedPoulie[1] - 1, fL[0], fL[1], A.arete));
+    out.push(h.path(`M ${pt(fL)} C ${pt([fL[0] - 6, fL[1] + 8])} ${pt([fL[0] - 2, fL[1] + 22])} ${pt([fL[0] - 6, fL[1] + 34])}`, A.arete));
+    out.push(String(homme));
+    const g0 = add(add(fP, dirR, -34), nR, 10), g1 = add(add(fP, dirR, -10), nR, 10);
     out.push(h.geste(`M ${pt(g0)} L ${pt(g1)}`));
     // la cote : l'écartement, de A à B
     out.push(h.cote(pA[0], pA[1] + 16, pB[0], pB[1] + 16, 'écartement : ½ à ⅔ de la patte', { cote: 'dessous' }));
