@@ -304,3 +304,20 @@ Numéros **actuels** dans cette section (ch. 10 = ancien 13). Texte d'avant la p
 
 - §2 : « le CT requis (concentration de chlore × temps de contact) » : définition du terme.
 - §8 : « les poumons se remplissent **d'air** » : précision, pour qu'on ne lise pas un œdème.
+
+## Appels de planches — 15 octobre 2026 (passe du tome 1, lot p2)
+
+Le chapitre n'est pas repassé : c'est le modèle approuvé par JP. Deux vérifications seulement.
+
+- **Planches appelées dans le texte** : les quatre n'avaient pas d'appel. Posés dans le paragraphe
+  d'ancrage de chacune, au §9 : « (planche 10-01) » (« La chaîne complète, version dégradée. », après
+  « on laisse refroidir couvert ») ; « (planche 10-02) » (« Puiser un puits… », après le clapet) ;
+  « (planche 10-07) » (« Le filtre à sable. », après l'assiette percée) ; « (planche 10-03) »
+  (« L'alambic de fortune. », après « tombe dans le bol »). Les ancres de `placements-tome-1.json` ne
+  bougent pas.
+- **La photo de la hutte de castor** (`images/photos/manquantes/10-hutte-castor.jpg`) est ancrée sur
+  l'étape 1, qui nomme la « hutte de castor ». Les photos n'ont pas de numéro d'appel dans le livre (la
+  photo du lichen du ch. 4 non plus) : l'appel est le mot de l'étape. Rien à changer.
+- **`controle.py --avant`** : rien de nouveau. 7 574 → 7 582 mots (les quatre appels), 2 tirets (titre et
+  ligne de tome), la même redite qu'à l'approbation (la génératrice à l'étape 5 et au §8, rappel de
+  `CLAUDE.md`), aucun invariant disparu.

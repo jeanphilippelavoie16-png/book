@@ -23,6 +23,9 @@ mains. Chaque phrase doit lui donner un fait, un geste, une mesure ou un signe �
   s'appliquent". »
 - Sur « un tuyau vide ne fend pas », dans le « Pourquoi ça marche » : « no shit, man ». La conséquence
   évidente d'un mécanisme qu'on vient de dire ne s'écrit pas.
+- Sur « Ceux qui étaient dehors laissent à la porte la couche du dessus et les chaussures » : « c'est
+  fucking bizarre. Faut plus dire quelque chose comme "Les gens qui étaient à l'extérieur doivent…".
+  Je veux plus voir ça nulle part. » Voir la règle 11.
 
 Ses pages annotées sont dans `livre/relecture/notes/` (à régénérer, voir
 `design/outils/relecture/LISEZMOI.md`). Le jaune et le rouge, c'est ce qu'il ne veut plus voir.
@@ -55,6 +58,19 @@ dans le garage.
 9. **Un avertissement = le mécanisme + ce qui arrive + quoi faire.** Jamais « attention » tout seul.
 10. **Du français québécois clair, pas du télégraphe.** La phrase garde ses articles et ses liaisons.
     Couper n'est pas compresser.
+11. **La phrase se dit comme on la dirait à quelqu'un.** JP, sur « Ceux qui étaient dehors laissent à la
+    porte la couche du dessus et les chaussures » : « c'est fucking bizarre ». Trois fautes dans une phrase,
+    et aucune ne se garde :
+    - **Le sujet se nomme.** Pas « ceux qui », « celui qui », « celle qui » en tête de phrase : « les gens
+      qui », « la personne qui », « les enfants », « on ».
+    - **L'ordre naturel : le verbe, ce qu'on fait, puis où et quand.** Pas « laisser à la porte la couche du
+      dessus », mais « laisser ses vêtements du dessus à la porte ». Le complément de lieu ou de temps ne se
+      glisse pas entre le verbe et son objet.
+    - **Une consigne se dit comme une consigne.** Dans la prose : « doivent laisser », « on laisse ». Dans une
+      étape numérotée : l'infinitif, « Laisser… ». Pas le présent qui décrit (« ceux qui étaient dehors
+      laissent »), qui se lit comme un constat.
+    Avec le possessif et le mot de tous les jours : « Les gens qui étaient à l'extérieur doivent laisser
+    leurs vêtements du dessus et leurs chaussures à la porte. »
 
 ## Ce qui sort
 
@@ -75,6 +91,7 @@ dans le garage.
 | La conséquence évidente d'un fait qu'on vient de dire | « Un tuyau fend parce que l'eau prend du volume en gelant : un tuyau vide ne fend pas. » (JP : « no shit ») | « Un tuyau fend parce que l'eau prend du volume en gelant. » |
 | L'annonce et le résumé | « Voici ce qu'il faut savoir. » ; « En somme… » | *(rien)* |
 | La question rhétorique | « Pourquoi ? Parce que… » | Le fait |
+| La tournure bizarre : sujet en « ceux qui », ordre renversé, consigne au présent de constat | « Ceux qui étaient dehors laissent à la porte la couche du dessus et les chaussures. » (JP : « fucking bizarre ») | « Les gens qui étaient à l'extérieur doivent laisser leurs vêtements du dessus et leurs chaussures à la porte. » |
 
 ### Les mots
 

@@ -181,3 +181,75 @@ seuils de température. Les deux partent ensemble ou aucun.
   `sources/01-fourier-analytical-theory-of-heat-1878-texte.txt`). Drapeau retiré.
 
 Compression §3 et §4 — 27 septembre 2026 : 939 mots → 176 mots (§3 : 257 → 97 ; §4 : 682 → 79) ; matériel coupé : thermomètre min/max d'ambiance (témoin du verre d'eau à l'étape 11, points fixes en §9), eau en contenants fermés (plancher 6 L en §5 et §6, stock au ch. 00b, sources d'eau en §9), lampe frontale, glacières et bacs, ruban à masquer et marqueur, gants jetables (tularémie et substitut déplacés à l'étape 23), paragraphe de fin du tableau ; substituts perdus : chandelle graduée, crayon de plomb, thermomètres de cuisson de rechange. §3 : exemples du bois rentré dans le noir, du froid gratuit (ch. 73) et de la neige fondue au chalet coupés (redits en §5 et §9).
+
+## Passe d'écriture — 15 octobre 2026
+
+Numéros de chapitre **nouveaux** dans cette section. Passe du skill `ecriture` sur tout le chapitre (brief
+`passe-t1`, lot p1). Série orange vérifiée selon `plan/premieres-minutes-inventaire.md` (« complète, marquée »).
+
+**Mots :** 6 972 avant, 5 580 après environ (`controle.py`). **Tirets :** 33 avant, 2 après (titre et ligne de tome).
+
+### La série orange
+
+- Gardée en deux intertitres marqués, « Heure 0 à heure 1 » et « Heure 1 à heure 6 », qui font un seul encadré. Les
+  sous-titres « ce qui se fait avant de réfléchir » et « la fenêtre où tout se décide » (formules) deviennent ce
+  que la série contient : « le monoxyde, la génératrice, la pièce chauffée » ; « l'eau, le froid, le contact ».
+  Le moteur lit toujours l'heure (essayé avec `repere_heure()` : « 0–1 h », « 1–6 h »). « Heure 6 à heure 48 »
+  reste hors de l'orange, comme l'inventaire le recommande.
+- **Ordre réel** : les étapes 1 et 2 sont inversées. On compte les têtes d'abord (un jeune enfant dans le noir),
+  on écrit l'heure ensuite. Le §7 (« L'étape 2 a été sautée ») suit. L'étape 3 dit « avant d'allumer quoi que ce
+  soit » au lieu de « avant tout le reste », qu'elle n'était pas.
+- Note de `design/epreuves-livre/placements-tome-1.json` (« 01-01 non posée ; si JP la garde : après « 1. **Écrire
+  l'heure sur la porte du congélateur.** » ») : l'ancre deviendrait « 2. **Écrire l'heure sur la porte du
+  congélateur.** ». La planche n'est pas posée ; rien d'autre ne change.
+- Chiffres de la série recoupés : 30 ppm pendant 30 jours et 84 mois, `01-avertisseurs-co-et-chauffage-appoint.md` ;
+  1 h d'arrêt toutes les 8 h, `01-quebec-panne-courant.md` ; 18 à 24 °C, `01-inspq-temperature-interieure.md` ;
+  5 minutes de rinçage des conduites, `01-quebec-panne-courant.md` ; 2 m d'un appareil à combustion,
+  `01-avertisseurs-co-et-chauffage-appoint.md`.
+- Pas de logigramme : la série est une suite dans le temps, sans branche à trancher (la seule question, « une
+  génératrice tourne-t-elle ? », tient dans les étapes 3, 6 et 15). La décision en branches est au ch. 2, qui a le
+  sien.
+
+### Ajouté ou corrigé, avec la source
+
+| Fait | Où | Source |
+| --- | --- | --- |
+| Génératrice à au moins 6 m du bâtiment | Étape 3 ; §6 | `20-sante-canada-monoxyde-generatrice.md` (« au moins 6 mètres (20 pieds) ») ; même chiffre qu'aux ch. 2, 3 et 7 |
+| **Corrigé** : la réserve de trousse est 6 L pour boire **plus** 6 L pour la cuisine et l'hygiène, pour au moins 3 jours, soit 4 L par personne et par jour. Le texte disait « 6 L par personne pour au moins 3 jours, tous usages » | §5 (note des horloges) ; §6 | `23-quebec-reserve-eau-trois-jours.md` ; `13-canada-trousse-urgence.md` (« environ quatre litres, par personne et par jour ») ; le ch. 00b dit déjà 4 L |
+| Mal de caribou, mortel en quelques semaines (rappel du tableau de CLAUDE.md, qui manquait à l'étape 27 : seul le §7 le nommait) | Étape 27 | CLAUDE.md, tableau des rappels ; ch. 19 |
+| Botulisme : « se multiplient et produisent leur toxine dès 3 °C » (le texte disait « croissent ») | §8, point 3 | `01-sante-canada-botulisme-poisson-fume.md` (« croissent à partir de 3 °C ») ; formulation du tableau de CLAUDE.md |
+| Le CO chez l'enfant ressemble à de la fatigue ou à du mauvais caractère | §8, point 1 | Renvoi au ch. 40 (§8), qui porte le recoupement |
+| Ne pas frictionner, pas d'alcool, pas de bain chaud (déplacé du §7 dans l'encadré : erreur de réflexe qui tue) | §8, point 5 | Déjà au chapitre |
+
+### Ce qui a été retiré ou déplacé
+
+- « 4 et 6 ans », « Quatre sur quatre » (la famille de JP) : « un jeune enfant », ou la phrase sort. « Au village » :
+  « En ville ». Le « village entier » de l'étape 29 : « la ville entière ».
+- Phrases sur le livre ou la page : « Ouvrir le livre là use l'habitude de l'ouvrir quand ça compte », « Ce chapitre-ci
+  ne tranche pas cette décision », « Au chalet, ce paragraphe n'a pas d'équivalent », « Aucune cuisson de rattrapage
+  n'est proposée dans ce livre », le paragraphe sous l'encadré (« Le foie et les reins de cervidés n'ont pas
+  d'encadré ici… ») : la règle reste à l'étape 22.
+- Formules : « Ce n'est pas une recommandation de confort », « Le silence n'est pas du confort », « C'est le prix, et
+  c'est le bon prix », « Ce n'est pas une statistique, c'est une consigne », « c'est un verdict sur la nuit
+  suivante » (réécrit en fait), « Une pièce de moins coûte moins qu'une corde de plus », « Ce qui change, ce n'est
+  pas la procédure, c'est la monnaie… ».
+- La scène « quatre personnes assises dans une auto qui tourne, vitres fermées, chauffage au maximum ».
+- Redites : la glace faite d'eau suspecte n'est plus qu'à l'étape 21 (le paragraphe du §5 sort) ; le froid du dehors
+  n'est plus qu'à l'étape 24 (le §9 renvoie) ; 48 h et 24 h du congélateur restent au §5 et au §6 (le §9 renvoie au
+  §5) ; la pièce unique est à l'étape 8 (le §9 renvoie) ; 1 minute d'ébullition est au §5 et au §6 (étape 28 et §9
+  renvoient) ; l'eau de neige au chalet est dite une fois, au §9 (« L'eau quand la pression tombe ») ; le 30 ppm du
+  §7 renvoie à l'étape 5 ; la trichinellose sort de « Ce qu'on perd » (elle est au §8 et au « 74 °C sans sonde »).
+- Les noms latins (orignal, ours noir) : décor dans ce chapitre.
+- Le rôle du « chaufferette au propane » dans la liste « dehors » de l'étape 3 : elle contredisait l'étape 4 (une
+  chaufferette conçue pour l'intérieur reste dedans). L'étape 3 dit « tout appareil d'extérieur ou de camping ».
+- L'étape 14 disait « rentrer le combustible à couvert : bois, bonbonnes, bidons » puis « le bidon reste dehors » :
+  réécrite (le bois à portée de la porte, les bonbonnes et les bidons dehors, sous un abri), comme la règle du
+  ch. 00b (« le carburant ne dort pas dans le bâtiment où on dort »).
+
+### Doutes
+
+- Étape 11, le témoin de dégel : un « verre d'eau gelée » suppose de la glace déjà prise ; le texte ne dit pas
+  comment l'obtenir en pleine panne (un verre d'eau mis au congélateur qui ne tourne plus ne gèle pas forcément).
+  Laissé tel quel ; à préciser si JP le veut.
+- §2, « une maison chauffée ne perd pas un degré en vingt minutes » : sans source notée, gardé (c'est un ordre de
+  grandeur, pas une consigne).

@@ -1,0 +1,14 @@
+{
+  "09": {
+    "planches": [
+      {"id": "09-08", "apres": "**Les joints, dans le cuir gras.**"}
+    ]
+  },
+  "16": {
+    "logigramme": {
+      "fichier": "images/logigrammes/16-sortir-un-blesse-livre.svg",
+      "apres": "Quelqu'un est blessé dans le bois",
+      "orange": true
+    }
+  }
+}

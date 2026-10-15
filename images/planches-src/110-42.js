@@ -238,10 +238,11 @@ module.exports = (h) => {
   const RHO = Math.hypot(wv, wt) + S + 0.5 * E;
   const arret = (cx, cy) => {
     const q = 0.7 * E, dH = 0.2 * WT, yT = cy - wt, yB = cy + wt;
-    const xs = cx + RHO + S + 1.4 * E, xa = xs + 1.8 * E, xb = xa + 2.4 * E;
-    const depart = anneau(cx, cy, RHO + S, 180, 360 - 32);
-    const d0 = depart[depart.length - 1];
-    const p1 = [...depart, ...arrondi([d0, [xs - 0.6 * E, yT - 0.9 * E], [xs, yT + 1], [xs, cy + dH], [xb, cy + dH], [xb, yB]], 0.9 * E).slice(1)];
+    const aS = 27 * Math.PI / 180, xs = cx + (RHO + S) * Math.cos(aS) + 1.5 * E, xa = xs + 1.8 * E, xb = xa + 2.4 * E;
+    const depart = anneau(cx, cy, RHO + S, 180, 360 - 27);
+    const d0 = depart[depart.length - 1], tg = [Math.sin(aS), Math.cos(aS)];
+    const glisse = bez(d0, [d0[0] + tg[0] * 0.8 * E, d0[1] + tg[1] * 0.8 * E], [xs, yT - 1.0 * E], [xs, yT + 2], 8);
+    const p1 = [...depart, ...glisse.slice(1), ...arrondi([[xs, yT + 2], [xs, cy + dH], [xb, cy + dH], [xb, yB]], 0.9 * E).slice(1)];
     const p2 = droite([xb, yT], [xa, yB], 8);
     const p3 = arrondi([[xa, yT], [xa, cy - dH], [xb + 2.8 * E, cy - dH]], 0.9 * E);
     const p1c = p1.slice(depart.length - 1);
@@ -297,36 +298,36 @@ module.exports = (h) => {
 
   // ─── Où va chacun : un cadre de perches, le brêlage droit aux coins, le diagonal au croisement ───
   const geoOu = z => {
-    const x0 = z.l * 0.24, x1 = z.l * 0.62, yH = 26, yB = z.h - 34, w = 12;
-    const bh = yH + 26, bb = yB - 22;                              // les bouts des jambes de force sur les montants
-    const X = [(x0 + x1) / 2, (bh + bb) / 2];
-    return { x0, x1, yH, yB, w, bh, bb, X };
+    const c = 20, yH = c, yB = z.h - c, x0 = z.l * 0.24, x1 = x0 + 1.35 * (yB - yH), w = 7.5;
+    return { x0, x1, yH, yB, w, X: [(x0 + x1) / 2, (yH + yB) / 2] };
   };
   const ou = z => {
-    const { x0, x1, yH, yB, w, bh, bb, X } = geoOu(z), out = [], e = 3.6;
-    const tb = (pts) => bande(pts, e, 'detail', false).svg;
-    out.push(perche([x0, 6], [x0, z.h - 6], 2 * w, 2 * w, ['coupe', 'coupe'], false), perche([x1, 6], [x1, z.h - 6], 2 * w, 2 * w, ['coupe', 'coupe'], false));
-    out.push(perche([x0 - 34, yH], [x1 + 34, yH], 2 * w, 2 * w, ['coupe', 'coupe'], false), perche([x0 - 34, yB], [x1 + 34, yB], 2 * w, 2 * w, ['coupe', 'coupe'], false));
-    // les jambes de force, en X : l'une derrière, l'autre devant
-    out.push(perche([x0 - 6, bh - 8], [x1 + 6, bb + 8], 1.6 * w, 1.6 * w, ['coupe', 'coupe'], false));
-    out.push(perche([x1 + 6, bh - 8], [x0 - 6, bb + 8], 1.6 * w, 1.6 * w, ['coupe', 'coupe'], false));
+    const { x0, x1, yH, yB, w, X } = geoOu(z), out = [], e = 3.2;
+    const tb = pts => bande(pts, e, 'detail', false).svg;
+    for (const x of [x0, x1]) out.push(perche([x, 3], [x, z.h - 3], 2 * w, 2 * w, ['rompu', 'rompu'], false));
+    // les jambes de force en X, d'un montant à l'autre, derrière les traverses
+    const ya = yH + w + 4, yb = yB - w - 4;
+    out.push(perche([x0 - w - 6, ya - 5], [x1 + w + 6, yb + 5], 1.6 * w, 1.6 * w, ['coupe', 'coupe'], false));
+    out.push(perche([x1 + w + 6, ya - 5], [x0 - w - 6, yb + 5], 1.6 * w, 1.6 * w, ['coupe', 'coupe'], false));
+    for (const y of [yH, yB]) out.push(perche([x0 - 34, y], [x1 + 34, y], 2 * w, 2 * w, ['rompu', 'rompu'], false));
     // le brêlage droit, en petit, aux quatre coins : trois tours de chaque côté du montant
-    for (const x of [x0, x1]) for (const y of [yH, yB]) {
-      for (const sgn of [-1, 1]) for (let k = 0; k < 3; k++) {
-        const xx = x + sgn * (w + 2.2 + k * e * 1.05);
-        out.push(tb([[xx, y - w - 1], [xx, y + w + 1]]));
+    for (const x of [x0, x1]) for (const y of [yH, yB]) for (const sgn of [-1, 1]) for (let i = 0; i < 3; i++) {
+      const xx = x + sgn * (w + 1.8 + i * e * 1.05);
+      out.push(tb([[xx, y - w - 1.2], [xx, y + w + 1.2]]));
+    }
+    // le brêlage diagonal, en petit, au croisement des jambes de force : en X sur le croisement
+    const ang = Math.atan2(yb - ya + 10, x1 - x0 + 2 * w + 12), b1 = [Math.cos(ang), Math.sin(ang)], b2 = [Math.cos(ang), -Math.sin(ang)];
+    const d1 = [(b1[0] + b2[0]) / 2, (b1[1] + b2[1]) / 2], d2 = [(b1[0] - b2[0]) / 2, (b1[1] - b2[1]) / 2];
+    for (const d of [d1, d2]) {
+      const L = Math.hypot(d[0], d[1]), u = [d[0] / L, d[1] / L], n = [-u[1], u[0]];
+      for (let i = -1; i <= 1; i++) {
+        const l = 1.9 * w + Math.abs(i) * e * 0.6, o = i * e * 1.05;
+        out.push(tb([[X[0] - u[0] * l + n[0] * o, X[1] - u[1] * l + n[1] * o], [X[0] + u[0] * l + n[0] * o, X[1] + u[1] * l + n[1] * o]]));
       }
     }
-    // le brêlage diagonal, en petit, au croisement : trois tours sur chaque bissectrice
-    const ang = Math.atan2(bb - bh, x1 - x0), b1 = [Math.cos(ang / 2 + Math.PI / 4 - Math.PI / 4), 0];
-    const bis = [[1, 0], [0, 1]];
-    for (const [bx, by] of bis) for (let k = -1; k <= 1; k++) {
-      const nx = -by, ny = bx, L = bx ? 20 : 14;
-      out.push(tb([[X[0] - bx * L + nx * k * e * 1.05, X[1] - by * L + ny * k * e * 1.05], [X[0] + bx * L + nx * k * e * 1.05, X[1] + by * L + ny * k * e * 1.05]]));
-    }
-    // la charge descend sur la traverse ; la poussée de côté couche le cadre : les jambes de force la tiennent
-    out.push(h.fleche(`M ${f(x0 + 70)} ${f(yH - 22)} L ${f(x0 + 70)} ${f(yH - w - 3)}`));
-    out.push(h.fleche(`M ${f(x0 - 54)} ${f(yH)} L ${f(x0 - 38)} ${f(yH)}`));
+    // la charge qui descend sur la traverse ; la poussée de côté que les jambes de force reprennent
+    out.push(h.fleche(`M ${f(x0 + (x1 - x0) * 0.3)} ${f(0)} L ${f(x0 + (x1 - x0) * 0.3)} ${f(yH - w - 3)}`));
+    out.push(h.fleche(`M ${f(x0 - 62)} ${f(yH)} L ${f(x0 - 38)} ${f(yH)}`));
     return out.join('\n');
   };
 
@@ -377,9 +378,9 @@ module.exports = (h) => {
         renvois: z => {
           const { x0, x1, yH, yB, w, X } = geoOu(z);
           return [
-            { n: 7, rond: [x1 + 120, yH + 6], cible: [x1 + w + 6, yH + 6], texte: 'droit : la charge descend sur la traverse' },
-            { n: 8, rond: [x1 + 120, X[1] + 4], cible: [X[0] + 16, X[1] + 4], texte: 'diagonal : au croisement des jambes de force' },
-            { n: 9, rond: [x1 + 120, yB + 8], cible: [x1 - 30, yB - 34], texte: 'jambes de force : le cadre reste droit' },
+            { n: 7, rond: [x1 + 130, yH], cible: [x1 + w + 6, yH - w - 1], texte: 'droit : la charge descend sur la traverse' },
+            { n: 8, rond: [x1 + 130, X[1]], cible: [X[0] + 2.2 * w, X[1]], texte: 'diagonal : au croisement des jambes de force' },
+            { n: 9, rond: [x1 + 130, yB - 6], cible: [x1 - 3.5 * w, yB - 2.8 * w], texte: 'jambes de force : le cadre reste droit' },
           ];
         },
       },

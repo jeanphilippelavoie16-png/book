@@ -1,0 +1,440 @@
+{
+  "_note": "Logigramme du chapitre 16 (le voisinage et le groupe de chasse) : sortir un blessé du bois. Double page, 15 octobre 2026, sur la série orange du chapitre réécrit (étapes 1 à 12). Rendu : python design/outils/logigramme.py images/logigrammes/16-sortir-un-blesse.json ; version du livre : --sans-entete --svg. « source » : les étapes du chapitre d'où vient chaque geste (ignoré au rendu).",
+  "format": "double",
+  "tome": 1,
+  "urgent": true,
+  "entete": {
+    "chapitre": "16 · Le voisinage et le groupe de chasse",
+    "tome": "Tome 1 · Tenir",
+    "onglet": "16",
+    "folios": [
+      null,
+      null
+    ]
+  },
+  "colonnes": {
+    "plein": [
+      0.5,
+      7.375
+    ],
+    "q1": [
+      0.5,
+      7.375
+    ],
+    "c1": [
+      0.5,
+      2.6
+    ],
+    "c3": [
+      5.1,
+      7.375
+    ],
+    "c12": [
+      0.5,
+      4.95
+    ],
+    "tronc2": [
+      9.05,
+      12.25
+    ],
+    "cote2": [
+      12.8,
+      15.5
+    ],
+    "couche": [
+      0.5,
+      3.6
+    ],
+    "q4": [
+      2.75,
+      4.7
+    ],
+    "abri": [
+      5.25,
+      7.375
+    ]
+  },
+  "rangs": {
+    "g1": 1.11,
+    "g2": 1.6,
+    "g3": 2.45,
+    "g4": 3.28,
+    "g5": 4.68,
+    "g6": 5.85,
+    "g7": 7.07,
+    "d1": 0.85,
+    "d2": 1.85,
+    "d3": 2.85,
+    "d4": 3.85,
+    "d5": 4.95,
+    "d6": 6.15,
+    "d7": 7.2,
+    "d8": 8.2,
+    "dd": 1.85
+  },
+  "noeuds": [
+    {
+      "id": "dep",
+      "type": "depart",
+      "col": "plein",
+      "rang": "g1",
+      "taille": 15,
+      "texte": "Un blessé dans le bois, loin du camp",
+      "source": "§5, en tête de la série"
+    },
+    {
+      "id": "soigner",
+      "type": "urgent",
+      "col": "plein",
+      "rang": "g2",
+      "ancre": "haut",
+      "temps": "15 min",
+      "texte": "**Soigner sur place, avant de bouger qui que ce soit** : regarder la scène, arrêter ce qui gicle, isoler du sol, noter l'heure.",
+      "renvoi": "ch. 16, étape 1 ; ch. 26",
+      "source": "étape 1 ; ch. 26, étapes 8 à 14"
+    },
+    {
+      "id": "alerter",
+      "type": "urgent",
+      "col": "plein",
+      "rang": "g3",
+      "ancre": "haut",
+      "texte": "**Alerter tôt** : où, qui, quoi, ce qu'on fait, l'heure du prochain message. Sans radio, deux personnes partent avec le message écrit.",
+      "renvoi": "ch. 16, étape 3",
+      "source": "étape 3 ; ch. 14, étapes 14 et 15 ; ch. 35, 9-B"
+    },
+    {
+      "id": "q1",
+      "type": "question",
+      "col": "q1",
+      "rang": "g4",
+      "ancre": "haut",
+      "texte": "Un signe qui le fait sortir couché ?",
+      "precision": "Mal au milieu de la nuque ; bras ou jambe engourdi ou faible ; inconscient, confus ou ivre ; autre douleur qui masque celle du cou",
+      "source": "étape 2"
+    },
+    {
+      "id": "couche",
+      "type": "urgent",
+      "col": "couche",
+      "rang": "g5",
+      "ancre": "haut",
+      "taille": 10.5,
+      "texte": "**Couché**, tête calée entre deux rouleaux de vêtements, sur une surface ferme. Pas de collet rigide.",
+      "renvoi": "ch. 16, étape 2",
+      "source": "étape 2 ; ch. 26, §9"
+    },
+    {
+      "id": "q2",
+      "type": "question",
+      "col": "c3",
+      "rang": "g5",
+      "ancre": "haut",
+      "taille": 11.5,
+      "texte": "Il marche sans aggraver sa blessure ?",
+      "source": "étape 4"
+    },
+    {
+      "id": "marche",
+      "type": "geste",
+      "col": "c3",
+      "rang": "g6",
+      "ancre": "haut",
+      "taille": 10.5,
+      "texte": "**Il marche**, soutenu, sans charge, quelqu'un à côté de lui.",
+      "renvoi": "ch. 16, étape 4",
+      "source": "étape 4"
+    },
+    {
+      "id": "q3",
+      "type": "question",
+      "col": "c12",
+      "rang": "g6",
+      "ancre": "haut",
+      "taille": 11.5,
+      "texte": "Une machine peut-elle venir jusqu'à lui ?",
+      "precision": "Motoneige ou VTT avec traîneau",
+      "source": "étape 4"
+    },
+    {
+      "id": "machine",
+      "type": "urgent",
+      "col": "c1",
+      "rang": "g7",
+      "ancre": "haut",
+      "taille": 10.5,
+      "texte": "**Deux personnes vont la chercher** ; les autres l'emballent.",
+      "renvoi": "ch. 16, étape 4",
+      "source": "étape 4"
+    },
+    {
+      "id": "q4",
+      "type": "question",
+      "col": "q4",
+      "rang": "g7",
+      "ancre": "haut",
+      "taille": 11,
+      "texte": "Arrivée avant la noirceur, avec assez de bras ?",
+      "precision": "Couché, il sort en 4 à 6 fois le temps de marche ; à bras, il faudrait 18 à 24 porteurs",
+      "source": "étape 4"
+    },
+    {
+      "id": "abriter",
+      "type": "urgent",
+      "col": "abri",
+      "rang": "g7",
+      "ancre": "haut",
+      "taille": 10.5,
+      "texte": "**L'abriter sur place** : feu, sol isolé. Deux personnes vont chercher la machine ou des bras.",
+      "renvoi": "ch. 16, étape 12",
+      "source": "étapes 4 et 12 ; ch. 12"
+    },
+    {
+      "id": "emballer",
+      "type": "urgent",
+      "col": "tronc2",
+      "rang": "d1",
+      "ancre": "haut",
+      "temps": "1 h",
+      "texte": "**Emballer** : sapin ou matelas dessous, sac de couchage fermé, tuque, pare-vapeur.",
+      "renvoi": "ch. 16, étape 5 ; ch. 25",
+      "source": "étape 5 ; ch. 25, étape 8"
+    },
+    {
+      "id": "sangler",
+      "type": "urgent",
+      "col": "tronc2",
+      "rang": "d2",
+      "ancre": "haut",
+      "texte": "**Sangler** poitrine, bassin, cuisses, tête calée. Deux personnes doivent pouvoir le rouler d'un bloc sur le côté.",
+      "renvoi": "ch. 16, étape 6",
+      "source": "étape 6 ; ch. 26, §9"
+    },
+    {
+      "id": "porteurs",
+      "type": "geste",
+      "col": "tronc2",
+      "rang": "d3",
+      "ancre": "haut",
+      "texte": "**Deux devant** aux brancards, **un derrière** à la corde dans les descentes, un qui ouvre la piste en raquettes.",
+      "renvoi": "ch. 16, étape 7",
+      "source": "étape 7 ; §9, planche 16-08"
+    },
+    {
+      "id": "chemin",
+      "type": "geste",
+      "col": "tronc2",
+      "rang": "d4",
+      "ancre": "haut",
+      "texte": "**Sentier tapé, hors de la glace**, de jour. Un adulte reste avec les enfants ; une note sur la porte.",
+      "renvoi": "ch. 16, étapes 8 et 9",
+      "source": "étapes 8 et 9"
+    },
+    {
+      "id": "releve",
+      "type": "danger",
+      "col": "cote2",
+      "rang": "dd",
+      "ancre": "haut",
+      "titre": "À chaque relève",
+      "texte": "**Regarder le visage et la réponse.** Plaque blanche ou cireuse : couvrir, réchauffer contre une peau saine. Confus ou sans frissons : stade grave, à l'horizontale, sans le secouer.",
+      "renvoi": "ch. 16, étape 11 ; ch. 25",
+      "source": "étapes 7 et 11 ; §6 ; ch. 25"
+    },
+    {
+      "id": "heure",
+      "type": "urgent",
+      "col": "tronc2",
+      "rang": "d5",
+      "ancre": "haut",
+      "temps": "1 h",
+      "texte": "**Chaque heure** : le message à l'heure dite, puis une halte : sangles, sac fermé, il répond.",
+      "renvoi": "ch. 16, étapes 10 et 11",
+      "source": "étapes 10 et 11 ; ch. 14, étapes 13 et 15"
+    },
+    {
+      "id": "q5",
+      "type": "question",
+      "col": "tronc2",
+      "rang": "d6",
+      "ancre": "haut",
+      "texte": "La nuit tombe, ou les porteurs lâchent ?",
+      "source": "étape 12"
+    },
+    {
+      "id": "arret",
+      "type": "urgent",
+      "col": "cote2",
+      "rang": "d6",
+      "ancre": "haut",
+      "texte": "**S'arrêter** : abri, feu, blessé emballé sur un sol isolé. Deux personnes vont chercher la machine ou des bras.",
+      "renvoi": "ch. 16, étape 12 ; ch. 12",
+      "source": "étape 12"
+    },
+    {
+      "id": "continuer",
+      "type": "geste",
+      "col": "tronc2",
+      "rang": "d7",
+      "ancre": "haut",
+      "texte": "**Continuer**, et refaire le message et la halte à chaque heure.",
+      "renvoi": "ch. 16, étapes 10 à 12",
+      "source": "étapes 10 à 12"
+    },
+    {
+      "id": "arrivee",
+      "type": "geste",
+      "col": "tronc2",
+      "rang": "d8",
+      "ancre": "haut",
+      "texte": "**À l'arrivée** : soigner, puis décider de la suite.",
+      "renvoi": "ch. 26 ; ch. 35",
+      "source": "ch. 26 ; ch. 35, 5-C"
+    }
+  ],
+  "liens": [
+    {
+      "de": "dep",
+      "vers": "soigner"
+    },
+    {
+      "de": "soigner",
+      "vers": "alerter"
+    },
+    {
+      "de": "alerter",
+      "vers": "q1"
+    },
+    {
+      "de": "q1",
+      "vers": "couche",
+      "etiquette": "Oui",
+      "coude": 4.2,
+      "pos": "palier"
+    },
+    {
+      "de": "q1",
+      "vers": "q2",
+      "etiquette": "Non",
+      "coude": 4.2,
+      "pos": "palier"
+    },
+    {
+      "de": "q2",
+      "vers": "marche",
+      "etiquette": "Oui"
+    },
+    {
+      "de": "q2",
+      "vers": "q3",
+      "etiquette": "Non",
+      "sortie": "gauche",
+      "entree": "haut",
+      "ex": 4.3
+    },
+    {
+      "de": "couche",
+      "vers": "q3",
+      "ex": 2.05
+    },
+    {
+      "de": "q3",
+      "vers": "machine",
+      "etiquette": "Oui",
+      "coude": 6.59,
+      "pos": "palier"
+    },
+    {
+      "de": "q3",
+      "vers": "q4",
+      "etiquette": "Non",
+      "coude": 6.59,
+      "pos": "palier"
+    },
+    {
+      "de": "q4",
+      "vers": "abriter",
+      "etiquette": "Non",
+      "sortie": "droite",
+      "entree": "gauche",
+      "sy": 7.45,
+      "ey": 7.45
+    },
+    {
+      "de": "machine",
+      "vers": "emballer",
+      "sortie": "bas",
+      "entree": "gauche",
+      "via": [
+        [
+          1.55,
+          9.05
+        ],
+        [
+          8.8,
+          9.05
+        ],
+        [
+          8.8,
+          1.2
+        ]
+      ]
+    },
+    {
+      "de": "q4",
+      "vers": "emballer",
+      "etiquette": "Oui : au traîneau",
+      "pos": "debut",
+      "sortie": "bas",
+      "entree": "gauche",
+      "via": [
+        [
+          3.725,
+          9.05
+        ],
+        [
+          8.8,
+          9.05
+        ],
+        [
+          8.8,
+          1.2
+        ]
+      ]
+    },
+    {
+      "de": "emballer",
+      "vers": "sangler"
+    },
+    {
+      "de": "sangler",
+      "vers": "porteurs"
+    },
+    {
+      "de": "porteurs",
+      "vers": "chemin"
+    },
+    {
+      "de": "chemin",
+      "vers": "heure"
+    },
+    {
+      "de": "heure",
+      "vers": "q5"
+    },
+    {
+      "de": "q5",
+      "vers": "arret",
+      "etiquette": "Oui"
+    },
+    {
+      "de": "q5",
+      "vers": "continuer",
+      "etiquette": "Non"
+    },
+    {
+      "de": "continuer",
+      "vers": "arrivee"
+    }
+  ]
+}

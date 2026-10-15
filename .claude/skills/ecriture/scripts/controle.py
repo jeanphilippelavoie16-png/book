@@ -26,6 +26,11 @@ BANNIS = [r"\bvillages?\b", r"\bchars?\b", r"\bBaie-Comeau\b", r"\bJP\b", r"\b4 
 AGES = [r"\b(?:de|ont|a) [46] ans\b"]   # l'âge des enfants de JP, ou un âge qui est un fait : à juger
 RELIEF = [r"\b[Cc]'est (?:le|la|les|l'|ce|cela|lui|elle|eux|là)\b[^.;:]{0,80}?\b(?:qui|que|qu')\b",
           r"\bn'est pas\b[^.;]{0,80}\bmais\b", r"\bpas\b[^.;]{0,40}\bmais\b"]
+# la tournure bizarre (JP : « Ceux qui étaient dehors laissent à la porte la couche du dessus ») : le sujet
+# en pronom en tête de phrase, et le complément de lieu glissé entre le verbe et son objet
+TOURNURE = [r"\b(?:Ceux|Celui|Celle|Celles) qui\b",
+            r"\b\w+(?:ent|er|e|ez|ons)\s+(?:à|au|aux|dans|sur|sous|devant|derrière|contre|vers)\s+(?:la|le|les|l'|un|une)\s?"
+            r"[\wÀ-ÿ'-]+\s+(?:la|le|les|l'|un|une)\s?(?!plus\b|moins\b|même\b|long\b|temps\b)(?!quel)[\wÀ-ÿ'-]+"]
 SECURITE = {"74 °C": r"74" + ESP + "°C", "cadmium": r"cadmium", "trichinellose": r"trichin",
             "tularémie": r"tularémie", "thuyone": r"thuyone", "3 °C (botulisme E)": r"\b3" + ESP + "°C",
             "botulisme": r"botulisme", "mal de caribou": r"caribou", "génératrice": r"génératrice"}
@@ -60,6 +65,11 @@ def tics(L):
         for w in MOTS_VIDES:
             if mot(w).search(l):
                 out.append((i, "vide", w, l))
+        if not l.lstrip().startswith("|"):
+            for r in TOURNURE:
+                for m in re.finditer(r, l):
+                    if not re.search(r"\b(?:lequel|laquelle|lesquels|lesquelles)\b", m.group(0)):
+                        out.append((i, "tournure", m.group(0)[:50], l))
         for r in RELIEF:
             m = re.search(r, l)
             if m:
@@ -156,6 +166,7 @@ def main():
     print(f"{len(texte.split())} mots, {texte.count('—') + texte.count('–')} tirets\n")
     for cat, titre in [("tiret", "Tirets"), ("banni", "Mots bannis"), ("IA", "Vocabulaire d'IA"),
                        ("age", "Âges de 4 ou 6 ans (à juger : l'âge des enfants de JP sort, un âge qui est un fait reste)"),
+                       ("tournure", "Tournures bizarres : sujet en « ceux qui », ordre renversé (à juger, règle 11)"),
                        ("relief", "Mises en relief et oppositions (à juger)"), ("vide", "Mots vides (à juger)")]:
         x = [r for r in t if r[1] == cat]
         if not x:

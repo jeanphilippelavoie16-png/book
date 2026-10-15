@@ -6,7 +6,7 @@
 // La fabrication du manche vient d'Adney et Chapelle (Smithsonian, 1964), déjà au dossier
 // (sources/89-adney-chapelle-couteau-croche-fabrication.md) : manche d'une branche fourchue, la soie
 // attachée à un bras, l'autre bras qui s'écarte du dos de la lame ; la soie pliée en petit crochet au bout,
-// entrée dans le bois et ligaturée au tendon, puis à la broche ; tenu doigts en dessous du manche, le
+// entrée dans le bois et ligaturée au tendon, puis à la broche ; tenu la paume vers le haut, le
 // pouce couché le long du bras qui s'écarte ; la courbe « sur le plat ».
 // Sans main (brief du 15 octobre : une main qui n'est pas nette ne s'imprime pas) : le couteau seul,
 // dans la position où on le tient, le cercle rouge sur le bras où se couche le pouce.

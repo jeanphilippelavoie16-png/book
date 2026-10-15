@@ -77,7 +77,7 @@ Après une alerte sans éclair, commencer à l'étape 4.
  béton ou de brique, un stationnement souterrain ; à défaut, le bâtiment le plus proche. Si les
  retombées se mettent à tomber (§2), entrer dans le plus proche, tout de suite. Dehors, un linge
  sur le nez et la bouche.
-5. **Enlever la couche du dessus et les chaussures avant d'entrer, ou juste passé la porte,**
+5. **Enlever les vêtements du dessus et les chaussures avant d'entrer, ou juste passé la porte,**
  lentement, sans les secouer, sans toucher au visage. Les laisser dehors ou dans un sac fermé, loin
  de l'abri. Ça enlève jusqu'à 90 % de ce qui s'est posé sur soi.
 6. **Rentrer les animaux, et ne ressortir chercher personne.** Un enfant à l'école ou à la garderie

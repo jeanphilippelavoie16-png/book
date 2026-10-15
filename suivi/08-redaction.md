@@ -149,3 +149,52 @@ Verdicts : `suivi/verifications/11-verifications.md` (2 drapeaux : 1 levé, 1 in
 - **Scénario 2 (semaine 2+) et encadré DANGER (§8), mal de caribou** — « 2 à 3 semaines » → « quelques semaines » (décision prise pour tout le livre ; aucun chiffre).
 
 Compression §3 et §4 — 27 septembre 2026 : 1359 mots → 230 mots (§3 : 325 → 119 ; §4 : 1034 → 111) ; matériel coupé : lampes, piles, radio à piles, trousse de premiers soins, ouvre-boîte, thermomètres de frigo et de congélateur (avec le truc de la pièce de monnaie sur l'eau gelée), argent comptant, papiers ; aussi le test d'entrée en trois questions, le tableau des substitutions, le paragraphe des trois tablettes et celui de l'eau en un seul chiffre. Déplacé : « jamais les piles de l'avertisseur de CO » → §8, paragraphe CO. Renvoi corrigé en §7 (« les trois questions du point 4 » → « ce qu'énumère le point 4 »).
+
+## Passe d'écriture du tome 1 — 15 octobre 2026
+
+Numéros de chapitre **nouveaux** dans cette section (ch. 8 = ancien 11). Passe du skill `ecriture` sur
+tout le chapitre (lot p2 de la passe du tome 1). Chapitre de référence : pas de série orange (l'inventaire
+`plan/premieres-minutes-inventaire.md` le classe parmi les urgences couvertes par les chapitres de
+scénario), pas de logigramme, pas de planche.
+
+**Mots :** 7 500 avant, 6 349 après. **Tirets :** 97 avant, 2 après (titre et ligne de tome). Les cellules
+vides des tableaux, qui portaient un tiret, sont laissées vides. Les intervalles « 0-15 min » s'écrivent
+« 0 à 15 min ».
+
+### Ce qui change sur le fond (aucun chiffre nouveau)
+
+| Où | Avant | Après | Pourquoi, et d'où vient le chiffre |
+| --- | --- | --- | --- |
+| Scénario 2 (jour 2) et §9 (« La neige et le lac ») | Eau du lac bouillie 1 minute | Lac et neige : 5 min ; robinet et puits : 1 min | Alignement sur le ch. 10, étape 12 (tularémie ; sources du ch. 10, ancien 13) |
+| Scénario 6 | « Douche si l'eau est sûre » ; « pas dans un véhicule » | Se laver à l'eau du robinet et au savon ; descendre au sous-sol, contre un mur enterré ; 24 à 48 h | Alignement sur le ch. 4 réécrit (étapes 5, 8, 10, 20) : l'eau du robinet sert au lavage même quand on ne la boit plus |
+| Scénario 6, l'iode | Distribué d'avance près des sites ; la Côte-Nord hors zone | Personne n'en distribue d'avance ; la boîte s'achète (ch. 00b) ; doses au ch. 4 | Formulation du ch. 4 |
+| Scénario 1 | Repère de la vidange : « en évacuation hivernale… » (redite du scénario 3) | « Vidange à 5 °C dans la pièce la plus froide (ch. 3, étapes 20 à 23) » | Chiffre du ch. 3, sourcé à sa fiche |
+| Scénario 1 | « Ce qu'on ne sort pas : la génératrice… le barbecue » | Ligne « Génératrice, s'il y en a une : dehors, loin des portes et des fenêtres » | Rappel de `CLAUDE.md` dit dans l'étape et au §8 ; le barbecue est au §8 |
+| Scénario 4 | Extincteur à « 1-5 min », après la sortie | « 0 à 3 s : décider » (ch. 82, étapes 2 à 4) ; point de rassemblement passé au §6 | Ordre du ch. 82 ; la préparation sort des premières minutes |
+| Scénario 7 | « Préparer l'accès » | « Si quelqu'un répond à l'alerte : préparer l'accès. Sinon, sortir le blessé soi-même (ch. 16) » | Il n'y a personne à appeler |
+| Scénario 9, trousse du véhicule | « bouteilles de plastique, qui ne cassent pas en gelant » | « avec un vide d'air pour le gel (ch. 10, étape 22) » | Le ch. 10 dit qu'un contenant plein fend en gelant |
+| §8 | « Le monoxyde de carbone tue pendant les pannes, pas pendant les incendies » | « La génératrice, le réchaud, le barbecue… brûlent dehors » ; « habitacle » ajouté à la liste | Opposition fausse ; le réchaud dans l'habitacle (ancien « ce qu'on ne sort pas » du scénario 9) passe dans l'encadré |
+
+### Ce qui a été retiré
+
+- Les « Ce qu'on ne sort pas » qui redisaient l'encadré (génératrice, barbecue, réchaud) ou une évidence
+  (« personne, pour aller voir ») ; ceux qui portent un fait restent, dits par ce qui marche : les
+  semences restent au stock, du congélateur on ne prend que la glacière, personne ne rentre chercher un
+  objet (fumées), pas d'alcool au blessé, les antibiotiques sur les signes du ch. 32.
+- « Le chien attrape ce que l'humain attrape » (scénario 8) : aucune source enregistrée, et la
+  généralisation est douteuse (sensibilité du chien au botulisme non vérifiée). Coupé.
+- Le paragraphe « Rappels… même si le livre les répète ailleurs » : 74 °C et trichinellose restent dans
+  la ligne de cuisson et au §8 ; le cadmium reste au scénario 8, une fois.
+- Les âges (« un enfant de 4 ans »), « 4 personnes » comptées au point de rassemblement, « village »
+  (cinq fois), les superlatifs (« le plus probable des neuf », « la perte la plus probable de tout le
+  livre »), les chutes (« une trousse au mauvais endroit ne compte pas »,
+  « un regel ne défait pas… », « une décision prise à 3 h du matin… »), la ligne « la liste a été lue
+  pour la première fois pendant l'événement » (son fait passe au §2).
+
+### Contrôle (`controle.py --avant`)
+
+Il signale encore, et c'est voulu : « 1 minute » ×2 (lac à 5 min, robinet en « 1 min ») ; « 2 heures »,
+« 24 h », « 48 h », « 3 semaines », « 60 s » (redites coupées et intervalles réécrits « 24 à 48 h »,
+« 2 à 3 semaines ») ; « 3 h » (la chute de 3 h du matin) ; « 4 ans » (âge des enfants) ; « 74 °C » 6 → 4,
+« cadmium » 2 → 1, « trichinellose » 2 → 1 (paragraphe de rappels coupé : étape et encadré). « Au niveau
+de la mer » est une vraie mesure.

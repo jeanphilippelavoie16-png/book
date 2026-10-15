@@ -1,7 +1,10 @@
 // Planche 61-03 — le gréement de la carcasse (chapitre 36, §17 et « Les outils qu’on n’a pas »).
 // Vue du ventre : arbre d'amarrage, corde doublée par-dessus la branche, guindeau au pied du
 // tronc, palonnier dans les jarrets, écarteur dans la cavité, croix de sonde sur le cuissot.
-// Détail : le jarret de côté, le palonnier qui sort du passage derrière l'os, sa gorge.
+// Détail : le jarret de côté, le palonnier qui sort du passage derrière l'os, sa gorge ; et le tour
+// de secours du ch. 63 (« Fabriquer le palonnier ») : sur une bête qui a pendu plusieurs jours, un tour
+// mort autour du jarret entier, os compris, du côté de la cuisse (le jarret est au-dessus de
+// l'articulation quand la bête est debout), amarré en haut. Refait le 15 octobre 2026.
 module.exports = (h) => {
   const f = v => Math.round(v * 10) / 10;
   // Courbe lisse (Catmull-Rom) par une suite de points ; renvoie les segments « C … ».
@@ -166,6 +169,20 @@ module.exports = (h) => {
   };
   const sortie = pt(sg + 2.2, -(r - 2.5));
 
+  // Le bord de la jambe à la hauteur y, devant (avant) et derrière (arriere) : interpolation
+  const bordA = y => { for (let i = 1; i < avant.length; i++) if (y <= avant[i][1]) { const [x0, y0] = avant[i - 1], [x1, y1] = avant[i]; return x0 + (x1 - x0) * (y - y0) / (y1 - y0); } return avant[avant.length - 1][0]; };
+  const bordR = y => { const a = arriere.slice().reverse(); for (let i = 1; i < a.length; i++) if (y <= a[i][1]) { const [x0, y0] = a[i - 1], [x1, y1] = a[i]; return x0 + (x1 - x0) * (y - y0) / (y1 - y0); } return a[a.length - 1][0]; };
+  const yT1 = 126, yT2 = 137, pente = 4;          // les deux tours, un peu en biais
+  // le devant d'un tour : du bord de devant (à gauche) au bord de derrière (à droite), bombé vers le bas
+  const tourDevant = (y) => [[bordA(y + pente) - 1.5, y + pente], [(bordA(y) + bordR(y)) / 2, y + pente + 5], [bordR(y) + 1.5, y]];
+  // La corde descend de la traverse par le côté loin de la jambe (cachée sous le moignon), fait deux
+  // tours par devant, et le brin remonte par derrière, à droite, jusqu'à la traverse.
+  const secours = h.formes.cordes([
+    { pts: [[150, 0], [150, 31]], ep: 4.2, debut: 'coupe', fin: 'ouvert' },
+    { pts: tourDevant(yT1), ep: 4.2, debut: 'ouvert', fin: 'ouvert' },
+    { pts: [...tourDevant(yT2), [bordR(yT2) + 7, yT2 - 12], [bordR(yT1 - 20) + 9, yT1 - 30], [186, 60], [186, 0]], ep: 4.2, debut: 'ouvert', fin: 'coupe' },
+  ], { trait: 'arete' });
+
   const vueJarret = {
     titre: 'Le jarret, de côté',
     dessin: z => [
@@ -188,17 +205,23 @@ module.exports = (h) => {
       h.cercle(E[0], E[1], 5, h.a.fin), h.cercle(E[0], E[1], 1.6, h.a.fin),
       tour(sg - 2.2), tour(sg), tour(sg + 2.2),
       h.path(`M${sortie[0]},${sortie[1]} Q${f(sortie[0] + 8)},${f(sortie[1] - 40)} 118,0`, h.a.contour),
+      // le tour de secours (ch. 63, « Fabriquer le palonnier ») : sur une bête qui a pendu des jours,
+      // deux tours de corde autour du jarret entier, os et tendon compris, du côté de la cuisse
+      // sous le palonnier ; le brin remonte et s'amarre en haut. Si le tendon lâche, le tour bute
+      // contre l'articulation et rien ne tombe.
+      secours,
     ].join('\n'),
     renvois: z => [
-      { n: 5, rond: [22, 112], cible: [Gg[0], f(Gg[1] + 6)], texte: 'palonnier : bois vert gros comme un poignet, gorge aux bouts' },
-      { n: 6, rond: [212, 118], cible: [148, 113], texte: 'passage entre le tendon d’Achille et l’os' },
+      { n: 5, rond: [22, 112], cible: [Gg[0], f(Gg[1] + 6)], texte: 'palonnier de bois vert, gorge aux bouts' },
+      { n: 6, rond: [212, 108], cible: [148, 110], texte: 'passage entre le tendon d’Achille et l’os' },
+      { n: 7, rond: [214, 160], cible: [(bordA(yT2) + bordR(yT2)) / 2 + 12, yT2 + pente + 7], texte: 'bête pendue des jours : tour de secours' },
     ],
   };
 
   return {
     ref: '61-03',
     titre: 'Le gréement de la carcasse',
-    desc: 'À gauche, la carcasse vue du ventre, pendue tête en bas sous une branche : une corde doublée part de deux tours au pied du tronc, monte par-dessus la branche et ses deux brins s’écartent jusqu’aux gorges d’un palonnier passé dans les jarrets ; au pied du tronc, un bâton tordu entre les deux brins, calé contre l’écorce, fait guindeau. Un bâton écarteur tient la cavité ouverte en travers des côtes ; une croix marque le point de sonde au centre du cuissot. À droite, le jarret de côté : le palonnier sort du passage entre le tendon et l’os, et la corde fait trois tours dans sa gorge.',
+    desc: 'À gauche, la carcasse vue du ventre, pendue tête en bas sous une branche : une corde doublée part de deux tours au pied du tronc, monte par-dessus la branche et ses deux brins s’écartent jusqu’aux gorges d’un palonnier passé dans les jarrets ; au pied du tronc, un bâton tordu entre les deux brins, calé contre l’écorce, fait guindeau. Un bâton écarteur tient la cavité ouverte en travers des côtes ; une croix marque le point de sonde au centre du cuissot. À droite, le jarret de côté : le palonnier sort du passage entre le tendon et l’os, et la corde fait trois tours dans sa gorge. Sous le palonnier, deux tours d’une corde de secours serrent le jarret entier, os et tendon compris ; le brin remonte s’amarrer en haut : si le tendon lâche, rien ne tombe.',
     format: 'demi',
     disposition: [['greement', 'jarret']],
     largeurs: [[3, 2]],

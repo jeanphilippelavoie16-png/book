@@ -40,98 +40,128 @@ module.exports = (h) => {
     return o.join('\n');
   };
 
-  // ─── Vue 1 : de face, l'ouverture vers soi ───────────────────────────────────────────────────
-  const geomFace = z => {
-    const yG = z.h - 12, cx = z.l * 0.5, rT = 30, hC = Math.min(96, z.h * 0.42);
-    return { yG, cx, rT, hC };
+  // ─── Les mesures du poste (mm, en proportion seulement : rien n'est coté sur la planche) ────────
+  const RT = 150, ZT = 560;                 // le chicot : rayon, centre (profondeur depuis l'entrée)
+  const ZF = ZT - RT;                        // la face du chicot, au fond du poste
+  const XM = 108, DM = 36;                   // les deux murs : axe des piquets, diamètre des piquets
+  const HM = Z => 300 + Z * 0.1;             // hauteur des piquets, qui monte vers le chicot
+  const ZP = [20, 68, 116, 164, 212, 260, 308, 356, 400];
+  const PLAQUES = [[-40, 170], [140, 320], [290, ZF + 30]];
+  const yToit = Z => HM(Z) + 18;             // le dessous des plaques
+  const HT = 660;                            // hauteur dessinée du chicot
+  const geom = z => {
+    const s = Math.min((z.h - 14) / (HT + 30), z.l / 780);
+    return { s, yG: z.h - 10 };
   };
-  const vueFace = {
-    titre: 'De face',
+
+  // le chicot de côté ou de face : x0, x1 en unités de vue
+  const chicot = (x0, x1, yG, s) => {
+    const yH = yG - s * HT;
+    const haut = [[x0, yG], [x0, yH + 14], [x0 + (x1 - x0) * 0.25, yH], [x0 + (x1 - x0) * 0.42, yH + 18], [x0 + (x1 - x0) * 0.7, yH + 4], [x1, yH + 16], [x1, yG]];
+    const o = [h.chemin(haut, W(A.contour), true)];
+    o.push(h.chemin([[x1 - (x1 - x0) * 0.2, yH + 10], [x1, yH + 16], [x1, yG], [x1 - (x1 - x0) * 0.2, yG]], A.ombre, true));
+    o.push(h.chemin(haut, A.contour));
+    for (const [f, a, b] of [[0.18, 0.12, 0.45], [0.36, 0.3, 0.7], [0.55, 0.08, 0.35], [0.62, 0.5, 0.85]]) {
+      o.push(h.chemin([[x0 + f * (x1 - x0), yH + 30 + a * (yG - yH - 40)], [x0 + f * (x1 - x0) + 1, yH + 30 + b * (yG - yH - 40)]], A.detail));
+    }
+    return o.join('\n');
+  };
+  const appat = (x, yG, s) => h.path(lisse([[x - 40 * s, yG], [x - 30 * s, yG - 24 * s], [x + 12 * s, yG - 30 * s], [x + 40 * s, yG - 12 * s], [x + 32 * s, yG]], true), W(A.arete));
+
+  // ─── Vue 1 : de côté, le mur de devant enlevé ────────────────────────────────────────────────
+  const vueCote = {
+    titre: 'De côté, sans le mur de devant',
     dessin: z => {
-      const { yG, cx, rT, hC } = geomFace(z);
+      const { s, yG } = geom(z);
+      const ox = 30 + 40 * s;
+      const P = ([Z, Y]) => [ox + s * Z, yG - s * Y];
       const o = [];
       o.push(h.chemin([[6, yG], [z.l - 6, yG]], A.arete));
-      // le chicot : tronc mort, écorce en lanières, cassé en haut ; un moignon de branche
-      const yH = 4;
-      o.push(h.chemin([[cx - rT, yG], [cx - rT + 2, yH + 10], [cx - 12, yH], [cx - 2, yH + 12], [cx + 9, yH + 2], [cx + rT - 1, yH + 14], [cx + rT, yG]], W(A.contour), true));
-      for (const [x, a, b] of [[-18, 30, 120], [-6, 50, 170], [8, 24, 90], [18, 70, 160], [-12, 140, 200]]) if (b < yG - hC) o.push(h.chemin([[cx + x, a], [cx + x + 1, b]], A.detail));
-      // le moignon de branche, à droite, d'où pend l'appât visuel
-      o.push(baton([cx + rT - 2, 64], [cx + rT + 46, 50], 4.5, 3, W(A.contour)));
-      const xf = cx + rT + 40, yf = 52;
-      o.push(h.chemin([[xf, yf], [xf + 1, yf + 58]], FIL));
-      o.push(plume(xf + 1, yf + 58, 0.9));
-      // la cabane : des bouts de bois plantés serrés en demi-cercle devant le chicot, appuyés dessus
-      const yTop = yG - hC;
-      const pos = [-88, -76, -64, -52, -40, -30, 30, 40, 52, 64, 76, 88];
-      for (const x of pos) {
-        const xt = cx + x * 0.42, yt = yTop + Math.abs(x) * 0.18;
-        o.push(baton([cx + x, yG], [xt, yt], 3.8, 2.8));
+      o.push(chicot(P([ZF, 0])[0], P([ZF + 2 * RT, 0])[0], yG, s));
+      // les piquets du mur du fond, en gris derrière
+      for (const Z of ZP) {
+        const a = P([Z - DM / 2, 0]), b = P([Z + DM / 2, HM(Z)]);
+        o.push(h.rect(a[0], b[1], b[0] - a[0], a[1] - b[1], A.loin), h.rect(a[0], b[1], b[0] - a[0], a[1] - b[1], A.fin));
       }
-      // l'ouverture : basse, au milieu ; le dedans dans l'ombre
-      const porte = [[cx - 24, yG], [cx - 24, yG - 40], [cx - 16, yG - 54], [cx, yG - 58], [cx + 16, yG - 54], [cx + 24, yG - 40], [cx + 24, yG]];
-      o.push(h.path(lisse(porte) + ' Z', A.ombre));
-      for (const x of [-26, 26]) o.push(baton([cx + x, yG], [cx + x * 0.5, yG - 64], 4.2, 3.2, W(A.contour)));
-      o.push(baton([cx - 32, yG - 60], [cx + 32, yG - 60], 3.6, 3.6, W(A.contour)));            // le linteau
-      // le toit : des plaques d'écorce, du haut des bâtons jusque sur le chicot
-      const plaque = (x0, x1, y0, cour) => {
-        const pts = [[x0, y0], [(x0 + x1) / 2, y0 - cour], [x1, y0], [x1 - 4, y0 + 13], [(x0 + x1) / 2, y0 + 13 - cour], [x0 + 4, y0 + 13]];
-        return [h.path(lisse(pts.slice(0, 3)) + ` L${f1(pts[3][0])} ${f1(pts[3][1])} ` + lisse(pts.slice(3)).replace(/^M[^C]*/, '') + ' Z', W(A.arete)),
-          h.path(lisse([[x0 + 10, y0 + 5], [(x0 + x1) / 2, y0 + 5 - cour], [x1 - 12, y0 + 6]]), A.fin)].join('\n');
-      };
-      o.push(plaque(cx - 92, cx - 4, yTop + 18, 10), plaque(cx + 4, cx + 92, yTop + 18, 10), plaque(cx - 48, cx + 50, yTop + 2, 12));
-      // le collet dans l'ouverture : la boucle tenue ouverte, le fil ancré au bâton de droite
-      const rB = 15, cyB = yG - 26;
-      o.push(h.cercle(cx, cyB, rB, 'fill="none" stroke="#1A1A1A" stroke-width="1.4"'));
-      o.push(h.path(`M${f1(cx + 3)} ${f1(cyB - rB)} Q${f1(cx + 18)} ${f1(cyB - rB - 16)} ${f1(cx + 27)} ${f1(yG - 50)}`, 'fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linecap="round"'));
+      // l'appât, au fond, contre le chicot
+      o.push(appat(P([ZF - 40, 0])[0], yG, s));
+      // le collet à l'entrée : la boucle debout, vue de chant
+      const c = P([10, 120]);
+      o.push(h.ellipse(c[0], c[1], 3.5, 55 * s, 'fill="none" stroke="#1A1A1A" stroke-width="1.4"'));
+      // le toit : trois plaques d'écorce en bardeaux, de l'avant vers le chicot
+      for (const [z0, z1] of PLAQUES) {
+        const q = [[z0, yToit(z0)], [z1, yToit(z1)], [z1, yToit(z1) + 16], [z0, yToit(z0) + 16]].map(P);
+        o.push(h.path(`M${f1(q[0][0])} ${f1(q[0][1])} L${f1(q[1][0])} ${f1(q[1][1])} L${f1(q[2][0])} ${f1(q[2][1])} L${f1(q[3][0])} ${f1(q[3][1])} Z`, W(A.contour)));
+        o.push(h.chemin([P([z0 + 20, yToit(z0) + 10]), P([z1 - 20, yToit(z1) + 10])], A.fin));
+      }
+      // le moignon de branche au-dessus du poste, la plume pendue au fil
+      const m0 = P([ZF + 30, 590]), m1 = P([240, 600]);
+      o.push(baton(m0, m1, 5, 3.4, W(A.contour)));
+      const xf = m1[0] + 8, yf = m1[1] + 1;
+      o.push(h.chemin([[xf, yf], [xf, P([0, 450])[1]]], FIL));
+      o.push(plume(xf, P([0, 450])[1], 0.95));
       return o.join('\n');
     },
     renvois: z => {
-      const { yG, cx, rT, hC } = geomFace(z);
-      const yTop = yG - hC;
+      const { s, yG } = geom(z);
+      const ox = 30 + 40 * s;
+      const P = ([Z, Y]) => [ox + s * Z, yG - s * Y];
       return [
-        { n: 1, rond: [cx - rT - 40, 22], cible: [cx - rT + 1, 60], texte: 'un chicot' },
-        { n: 2, rond: [18, yG - 40], cible: [cx - 85, yG - 22], texte: 'bouts de bois plantés serrés' },
-        { n: 3, rond: [20, yTop - 4], cible: [cx - 74, yTop + 22], texte: 'écorce par-dessus' },
-        { n: 4, rond: [cx - 60, yG - 16 + 0], cible: [cx - 14, yG - 10], texte: 'une seule ouverture' },
-        { n: 5, rond: [z.l - 16, 60], cible: [cx + rT + 46, 124], texte: 'plume, métal clair, au fil' },
+        { n: 1, rond: [z.l - 14, P([0, 520])[1]], cible: P([ZF + 2 * RT, 500]), texte: 'un chicot' },
+        { n: 2, rond: [16, P([0, 420])[1]], cible: P([-40, yToit(-40) + 16]), texte: 'écorce par-dessus, en bardeaux' },
+        { n: 3, rond: [P([186, 0])[0], Math.min(z.h - 12, P([0, -30])[1])], cible: P([164, 60]), texte: 'bouts de bois plantés serrés' },
+        { n: 4, rond: [P([ZF - 120, 0])[0], P([0, 190])[1]], cible: P([ZF - 50, 20]), texte: 'l’appât au fond' },
+        { n: 5, rond: [P([90, 0])[0], 14], cible: [P([240, 0])[0] + 8, P([0, 470])[1]], texte: 'plume ou métal clair, au fil' },
       ];
     },
   };
 
-  // ─── Vue 2 : vue de dessus, le toit enlevé ───────────────────────────────────────────────────
-  const vuePlan = {
-    titre: 'De dessus, sans le toit',
+  // ─── Vue 2 : de face, l'ouverture ────────────────────────────────────────────────────────────
+  const vueFace = {
+    titre: 'De face',
     dessin: z => {
+      const { s, yG } = geom(z);
+      const ox = z.l / 2;
+      const P = ([X, Y]) => [ox + s * X, yG - s * Y];
       const o = [];
-      const cx = z.l / 2, cy = 58, rT = 30;
-      // le chicot, coupé : l'écorce et le bois
-      o.push(h.cercle(cx, cy, rT, A.hachure('bois', 'contour')));
-      // les bouts de bois : un fer à cheval de piquets, ouvert devant (en bas)
-      const R = 84;
-      for (let a = -12; a <= 192; a += 12.5) {
-        const r = a * Math.PI / 180;
-        const x = cx + R * Math.cos(r), y = cy + 18 + R * Math.sin(r) * 1.05;
-        if (Math.abs(a - 90) < 16) continue;                                  // l'ouverture
-        o.push(h.cercle(x, y, 4.2, W(A.arete)));
+      o.push(h.chemin([[6, yG], [z.l - 6, yG]], A.arete));
+      o.push(chicot(P([-RT, 0])[0], P([RT, 0])[0], yG, s));
+      // le dedans du poste, dans l'ombre : la face du chicot au fond
+      const yT = yToit(0);
+      const dedans = [P([-XM + DM / 2, 0]), P([-XM + DM / 2, yT]), P([XM - DM / 2, yT]), P([XM - DM / 2, 0])];
+      o.push(h.chemin(dedans, A.ombre, true));
+      o.push(appat(P([0, 0])[0], yG, s * 0.8));
+      // les deux murs vus du bout : le premier piquet, et ceux de derrière qui débordent un peu
+      for (const k of [-1, 1]) {
+        for (const [dx, Z] of [[16, 260], [-8, 116], [0, 20]]) {
+          const X = k * (XM + dx), a = P([X - DM / 2, 0]), b = P([X + DM / 2, HM(Z)]);
+          o.push(h.rect(a[0], b[1], b[0] - a[0], a[1] - b[1], W(Z === 20 ? A.contour : A.arete)));
+        }
       }
-      // les deux piquets de l'ouverture, plus gros
-      for (const k of [-1, 1]) o.push(h.cercle(cx + k * 24, cy + 18 + R * 1.03, 5, W(A.contour)));
-      // l'appât, au fond, contre le chicot
-      o.push(h.path(lisse([[cx - 16, cy + 36], [cx - 4, cy + 32], [cx + 14, cy + 36], [cx + 16, cy + 46], [cx + 2, cy + 50], [cx - 14, cy + 46]], true), W(A.contour)));
-      o.push(h.path(lisse([[cx - 8, cy + 40], [cx + 2, cy + 43], [cx + 9, cy + 40]]), A.detail));
-      // le collet à l'entrée, vu de dessus : la boucle debout, de chant
-      const yE = cy + 18 + R * 1.03;
-      o.push(h.ellipse(cx, yE - 6, 15, 2.6, 'fill="none" stroke="#1A1A1A" stroke-width="1.4"'));
-      // le chemin de la bête : elle n'entre que par là
-      o.push(h.fleche(`M${f1(cx)} ${f1(z.h - 4)} L${f1(cx)} ${f1(yE + 8)}`, A.arete));
+      // le bout des plaques d'écorce : un arc, l'écorce qui roule un peu sur les bords
+      const arc = [[-190, yT + 4], [-150, yT + 22], [0, yT + 30], [150, yT + 22], [190, yT + 4], [184, yT - 6], [150, yT + 10], [0, yT + 16], [-150, yT + 10], [-184, yT - 6]].map(P);
+      o.push(h.path(lisse(arc, true), W(A.contour)));
+      // le collet : la boucle debout dans l'ouverture, le fil ancré au piquet de droite,
+      // une brindille fendue plantée à gauche qui la tient ouverte
+      const c = P([0, 120]), r = 55 * s;
+      o.push(baton(P([-62, 0]), P([-48, 108]), 1.6, 1.1));
+      o.push(h.cercle(c[0], c[1], r, 'fill="none" stroke="#1A1A1A" stroke-width="1.4"'));
+      const pq = P([XM - DM / 2, 230]);
+      o.push(h.path(`M${f1(c[0] + r * 0.35)} ${f1(c[1] - r * 0.94)} Q${f1(c[0] + r * 0.9)} ${f1(pq[1] - 4)} ${f1(pq[0])} ${f1(pq[1])}`, 'fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linecap="round"'));
+      // le moignon de branche, vu du bout, et la plume pendue devant le chicot
+      const m = P([0, 596]);
+      o.push(h.ellipse(m[0], m[1], 6, 5, W(A.contour)));
+      o.push(h.chemin([[m[0], m[1] + 5], [m[0], P([0, 450])[1]]], FIL));
+      o.push(plume(m[0], P([0, 450])[1], 0.95));
       return o.join('\n');
     },
     renvois: z => {
-      const cx = z.l / 2, cy = 58, R = 84;
-      const yE = cy + 18 + R * 1.03;
+      const { s, yG } = geom(z);
+      const ox = z.l / 2;
+      const P = ([X, Y]) => [ox + s * X, yG - s * Y];
       return [
-        { n: 6, rond: [z.l - 16, cy + 40], cible: [cx + 16, cy + 42], texte: 'l’appât au fond' },
-        { n: 7, rond: [z.l - 16, yE + 12], cible: [cx + 15, yE - 6], texte: 'l’engin à l’entrée' },
+        { n: 6, rond: [z.l - 14, P([0, 250])[1]], cible: P([XM - DM / 2 - 16, 262]), texte: 'une seule ouverture' },
+        { n: 7, rond: [z.l - 14, P([0, 60])[1]], cible: P([55 * 0.7, 120 - 55 * 0.7]), texte: 'le collet, tenu ouvert' },
       ];
     },
   };
@@ -141,8 +171,8 @@ module.exports = (h) => {
     titre: 'Le poste couvert contre un chicot',
     desc: 'Deux vues. De face : un chicot cassé en haut ; devant lui, une petite cabane de bouts de bois plantés serrés en demi-cercle, appuyés contre le tronc, couverte de plaques d’écorce jusque sur le chicot ; une seule ouverture basse au milieu, encadrée de deux bâtons et d’un linteau, l’intérieur dans l’ombre ; un collet tenu ouvert dans l’ouverture ; une plume pendue à un fil sous un moignon de branche du chicot. De dessus, le toit enlevé : le chicot, un fer à cheval de piquets qui part du tronc et s’ouvre devant, l’appât au fond contre le tronc, le collet à l’entrée, et la flèche du seul chemin par où la bête entre.',
     format: 'demi',
-    disposition: [['face', 'plan']],
-    largeurs: [[1.45, 1]],
-    vues: { face: vueFace, plan: vuePlan },
+    disposition: [['cote', 'face']],
+    largeurs: [[1.5, 1]],
+    vues: { cote: vueCote, face: vueFace },
   };
 };

@@ -1,214 +1,226 @@
-// Planche 48-09 — Le collet à ressort et son déclencheur (chapitre 48, § « Le collet à ressort »).
-// Vue 1 : le montage vu du bord de la piste, en vue oblique : le lièvre d'Amérique de profil au fond
-// de sa piste, la tête passée dans la boucle (§ 4 : la boucle laisse passer la tête ; on la voit
-// autour du cou, sans chiffre) ; le bouleau plié et le piquet de notre côté, le bâtonnet en travers
-// de la piste. Le lièvre vient de _animaux.js (lievre). Vue 2 : le crochet et le bâtonnet
-// agrandis, là où tout se décide.
-const A_ = require('./_animaux');
-
+// Planche 48-09. Le collet à ressort et son déclencheur (chapitre 48, §9 « Le collet à ressort, quand la
+// ligne ne se relève pas tous les jours »).
+// Le chapitre : un jeune bouleau ou une épinette souple, plié vers le sentier et retenu par un déclencheur :
+// un crochet taillé dans un piquet fiché à côté de la piste, et un bâtonnet en travers qui porte la tension.
+// La bête entre dans la boucle, tire, le bâtonnet lâche, l'arbre se redresse et lève l'animal de terre.
+// Le déclencheur gèle : il se retaille à sec et se remonte à chaque tournée.
+// Refaite le 15 octobre 2026 (inventaire des planches : aucune vue « déclenché », trajet arbre, bâtonnet,
+// boucle illisible, lièvre de livre d'enfant). Armé et déclenché côte à côte, même cadrage, vus dans l'axe
+// du sentier (la neige coupée en travers, comme à la 48-10) : l'arbre, la corde, le bâtonnet sous le crochet
+// du piquet, le fil, la boucle, tout dans un même plan. Déclenché : l'arbre droit, le bâtonnet pendu à la
+// corde, la boucle serrée en l'air, le crochet vide. Pas d'animal : la boucle serrée dit la prise. En bas, le
+// crochet et le bâtonnet de près (le dessin de la planche d'avant, repris tel quel).
+// Le chapitre ne donne aucune mesure du montage. Proportions de dessin : sentier de 25 cm,
+// bâtonnet gros comme un doigt. La boucle porte ses 10 cm (ch. 48, étape 4) : c'est l'échelle.
 module.exports = (h) => {
+  const r1 = (v) => Math.round(v * 10) / 10;
+  const pf = (p) => `${r1(p[0])} ${r1(p[1])}`;
   const blanc = (a) => a.replace('fill="none"', 'fill="#FFFFFF"');
-  const neige = h.a.hachure('neige').replace(/stroke="[^"]*" stroke-width="[^"]*"/, 'stroke="none"');
-
-  // Courbe de Bézier cubique, point et tangente.
-  const bez = (P, t) => {
-    const u = 1 - t;
-    return [0, 1].map((k) => u * u * u * P[0][k] + 3 * u * u * t * P[1][k] + 3 * u * t * t * P[2][k] + t * t * t * P[3][k]);
+  const neige = h.a.hachure('neige', 'aucun');
+  const lisse = (P, ferme = false) => {
+    const n = P.length, g = (i) => (ferme ? P[(i + n) % n] : P[Math.max(0, Math.min(n - 1, i))]);
+    let d = `M${pf(P[0])}`;
+    for (let i = 0; i < (ferme ? n : n - 1); i++) {
+      const p0 = g(i - 1), p1 = g(i), p2 = g(i + 1), p3 = g(i + 2);
+      d += ` C${pf([p1[0] + (p2[0] - p0[0]) / 6, p1[1] + (p2[1] - p0[1]) / 6])} ${pf([p2[0] - (p3[0] - p1[0]) / 6, p2[1] - (p3[1] - p1[1]) / 6])} ${pf(p2)}`;
+    }
+    return d + (ferme ? ' Z' : '');
   };
-  const tan = (P, t) => {
+  const bez = (P, t) => { const u = 1 - t; return [0, 1].map((k) => u * u * u * P[0][k] + 3 * u * u * t * P[1][k] + 3 * u * t * t * P[2][k] + t * t * t * P[3][k]); };
+  const tanB = (P, t) => {
     const u = 1 - t;
     const d = [0, 1].map((k) => 3 * u * u * (P[1][k] - P[0][k]) + 6 * u * t * (P[2][k] - P[1][k]) + 3 * t * t * (P[3][k] - P[2][k]));
-    const n = Math.hypot(d[0], d[1]);
-    return [d[0] / n, d[1] / n];
+    const n = Math.hypot(d[0], d[1]); return [d[0] / n, d[1] / n];
   };
 
-  // Le repère de la vue oblique (mm) : X le long de la piste, Y en profondeur (vers le fond), Z vers
-  // le haut ; l'origine au fond de la piste, au milieu, sous la boucle. On regarde du bord où le
-  // collet est monté : le piquet et le bouleau sont de notre côté (Y < 0), plus bas sur la vue.
+  // ─── La scène, dans l'axe du sentier ──────────────────────────────────────────────────────
+  const K = 4.2;                                     // px par cm
   const geo = (z) => {
-    const s = 0.41, kx = -0.56, ky = 0.205, ox = 226, oy = z.h - 56;
-    return {
-      // YB le plan du bouleau, YP l'axe du piquet, ZB la hauteur du bâtonnet ; BORD : la neige de
-      // part et d'autre de la piste, au-dessus du fond tassé ; YN le bord de la piste de notre côté,
-      // YA la coupe de la neige devant. La boucle autour du cou : une goutte pendue par l'œillet
-      // sur la nuque (ZH), large de 2 RY, haute de 2 RZ.
-      s, oy, YB: -200, YP: -320, ZB: 272, ZH: 172, RY: 42, RZ: 50, BORD: 22, YN: -110, YA: -430,
-      // t = 0 à l'œillet ; sin t < 0 : la moitié de notre côté, devant le cou
-      goutte: (t, RY, RZ, ZH) => [RY * Math.sin(t) * (1 - 0.15 * Math.pow((1 + Math.cos(t)) / 2, 2)), ZH - RZ * (1 - Math.cos(t))],
-      ARC: [[-560, 0], [-572, 300], [-280, 425], [0, 345]],
-      P: (X, Y, Z) => [ox + s * (X + kx * Y), oy - s * (Z + ky * Y)],
-    };
+    const c = 118, w = 12.5 * K, yS = z.h - 64, yT = yS + 8 * K;
+    const xP = c + w + 18, rP = 2.3 * K;             // le piquet, sur le bord droit du sentier
+    const yH = yT - 23 * K;                          // la hauteur du bâtonnet, sous le crochet
+    const xC = (c + xP) / 2 + 4;                     // la corde, sur le bâtonnet
+    const R = 5 * K, yBoucle = yH + 6 * K + R;       // la boucle, sous le bout gauche du bâtonnet
+    const xA = 22;                                   // le pied du bouleau, sur le bord gauche
+    return { c, w, yS, yT, xP, rP, yH, xC, R, yBoucle, xA };
+  };
+  const coupe = (z, g) => {
+    const { c, w, yS, yT } = g;
+    const bord = [[0, yS], [c - w - 16, yS], [c - w - 5, yS + 7], [c - w, yT - 9], [c - w + 9, yT], [c + w - 9, yT], [c + w, yT - 9], [c + w + 5, yS + 7], [c + w + 16, yS], [z.l, yS]];
+    return [h.path(`${lisse(bord)} L ${z.l} ${z.h - 2} L 0 ${z.h - 2} Z`, neige), h.path(lisse(bord), h.a.contour)].join('\n');
+  };
+  // le piquet, fiché dans le bord, le crochet taillé dans la face qui regarde le sentier
+  const piquet = (g) => {
+    const { xP, rP, yS, yH } = g, top = yH - 9 * K, e = 4;
+    const xg = xP - rP, xd = xP + rP;
+    const forme = [[xg, top], [xd, top], [xd, yS + 3], [xg, yS + 3], [xg, yH + 15], [xg + 6, yH - e + 1], [xg + 6, yH - e], [xg, yH - e]];
+    return [
+      h.chemin(forme, h.a.blanc, true),
+      h.chemin([[xP + rP * 0.35, top + 1], [xd - 0.8, top + 1], [xd - 0.8, yS + 2], [xP + rP * 0.35, yS + 2]], h.a.ombre, true),
+      h.chemin(forme, h.a.contour, true),
+      h.ellipse(xP, top, rP, 2.6, h.a.detail),
+    ].join('\n');
+  };
+  // un bâtonnet de a à b (centres), épais de e
+  const baton = (a, b, e = 2 * K) => {
+    const L = Math.hypot(b[0] - a[0], b[1] - a[1]), u = [(b[0] - a[0]) / L, (b[1] - a[1]) / L], n = [-u[1] * e / 2, u[0] * e / 2];
+    return h.chemin([[a[0] + n[0], a[1] + n[1]], [b[0] + n[0], b[1] + n[1]], [b[0] - n[0], b[1] - n[1]], [a[0] - n[0], a[1] - n[1]]], blanc(h.a.contour), true);
+  };
+  // un arbre souple, effilé le long d'une courbe de Bézier ; des rameaux courts
+  const arbre = (A) => {
+    const larg = (t) => 11 * (1 - t) + 2.5 * t;
+    const gch = [], drt = [];
+    for (let i = 0; i <= 48; i++) {
+      const t = i / 48, p = bez(A, t), T = tanB(A, t), wv = larg(t) / 2;
+      gch.push([p[0] + T[1] * wv, p[1] - T[0] * wv]); drt.push([p[0] - T[1] * wv, p[1] + T[0] * wv]);
+    }
+    const o = [h.chemin([...gch, ...drt.reverse()], blanc(h.a.contour), true)];
+    const ram = [];
+    [[0.45, 1, 16], [0.62, -1, 14], [0.78, 1, 12], [0.9, -1, 9]].forEach(([t, s, L]) => {
+      const p = bez(A, t), T = tanB(A, t), wv = larg(t) / 2;
+      const b = [p[0] + s * T[1] * wv, p[1] - s * T[0] * wv];
+      const d = [T[0] * 0.6 + s * T[1] * 0.8, T[1] * 0.6 - s * T[0] * 0.8];
+      ram.push(`M ${pf(b)} Q ${pf([b[0] + d[0] * L * 0.5 + T[0] * 3, b[1] + d[1] * L * 0.5 + T[1] * 3])} ${pf([b[0] + d[0] * L, b[1] + d[1] * L])}`);
+    });
+    o.push(h.path(ram.join(' '), h.a.detail));
+    return o.join('\n');
+  };
+  const corde = (a, b) => h.formes.corde([a, b], { ep: 2.6, torons: true, debut: 'coupe', fin: 'coupe' });
+
+  // le bouleau plié, du bord gauche, par-dessus le sentier ; son bout au-dessus de la corde
+  const courbeArme = (z) => {
+    const { xC, yH, xA, yS } = geo(z);
+    const tip = [xC + 10, yH - 20 * K];
+    return { tip, A: [[xA, yS + 2], [xA - 6, 40], [tip[0] + 70, 6], tip] };
+  };
+  // un point sur le bord gauche de l'arbre armé, à t de sa longueur
+  const bordArbre = (z, t) => {
+    const { A } = courbeArme(z), p = bez(A, t), T = tanB(A, t), wv = (11 * (1 - t) + 2.5 * t) / 2;
+    return [r1(p[0] + T[1] * wv), r1(p[1] - T[0] * wv)];
+  };
+  const arme = (z) => {
+    const g = geo(z), o = [coupe(z, g), piquet(g)];
+    const { c, xP, rP, yH, xC, R, yBoucle } = g;
+    const { tip, A } = courbeArme(z);
+    o.push(corde(tip, [xC, yH - 1]));
+    o.push(arbre(A));
+    // le bâtonnet : son bout droit sous le crochet, son bout gauche au-dessus du sentier
+    o.push(baton([xP - rP + 4, yH], [c - 12, yH]));
+    // les ligatures : la corde et le fil, sur le bâtonnet
+    o.push(h.path([-2, 0, 2].map((k) => `M ${r1(xC + k - 1.4)} ${r1(yH - 5)} L ${r1(xC + k + 1.4)} ${r1(yH + 5)}`).join(' '), h.a.detail));
+    // le fil et la boucle, au-dessus du milieu du sentier
+    o.push(h.ligne(c - 6, yH + 4, c, yBoucle - R, h.a.arete));
+    o.push(h.cercle(c, yBoucle, R, h.a.contour), h.cercle(c, yBoucle - R, 2.6, blanc(h.a.arete)));
+    o.push(h.ligne(c - R - 4, yBoucle - R, c - R - 20, yBoucle - R, h.a.fin), h.ligne(c - R - 4, yBoucle + R, c - R - 20, yBoucle + R, h.a.fin));
+    o.push(h.cote(c - R - 16, yBoucle - R, c - R - 16, yBoucle + R, '10 cm', { cote: 'gauche' }));
+    o.push(h.controle(xP - rP + 2, yH, 11));
+    return o.join('\n');
+  };
+
+  const courbeDecl = (z) => { const { xA, yS } = geo(z); return [[xA, yS + 2], [xA - 2, yS - 150], [xA + 40, 60], [118, 10]]; };
+  const bordArbreDe = (A, t, s = 1) => {
+    const p = bez(A, t), T = tanB(A, t), wv = (11 * (1 - t) + 2.5 * t) / 2;
+    return [r1(p[0] + s * T[1] * wv), r1(p[1] - s * T[0] * wv)];
+  };
+  const declenche = (z) => {
+    const g = geo(z), o = [coupe(z, g), piquet(g)];
+    const { c, xP, rP, yH, R, xA, yS } = g;
+    // l'arbre redressé, le bout penché vers le sentier ; la corde pend d'aplomb, le bâtonnet au bout
+    const A = courbeDecl(z), tip = A[3];
+    o.push(arbre(A));
+    const att = [tip[0] + 1, tip[1] + 22 * K];
+    o.push(corde([tip[0], tip[1] + 3], att));
+    const bg = [att[0] - 22, att[1] + 24], bd = [att[0] + 32, att[1] - 12];
+    o.push(baton(bg, bd));
+    o.push(h.path([-2, 0, 2].map((k) => `M ${r1(att[0] + k - 1.4)} ${r1(att[1] - 5)} L ${r1(att[0] + k + 1.4)} ${r1(att[1] + 5)}`).join(' '), h.a.detail));
+    // le fil et la boucle serrée, en l'air
+    const yb = bg[1] + 6 * K + 12;
+    o.push(h.ligne(bg[0] + 1, bg[1] + 5, bg[0] + 1, yb - 8, h.a.arete));
+    o.push(h.ellipse(bg[0] + 1, yb, 5, 8, h.a.contour), h.cercle(bg[0] + 1, yb - 8, 2.4, blanc(h.a.arete)));
+    // le mouvement de l'arbre : son bout, d'où il était armé jusqu'en haut
+    const g0 = geo(z);
+    o.push(h.fleche(`M ${r1(g0.xC + 16)} ${r1(g0.yH - 20 * K - 8)} C ${r1(g0.xC + 40)} ${r1(g0.yH - 160)} ${r1(tip[0] + 90)} 40 ${r1(tip[0] + 22)} 14`));
+    o.push(h.controle(xP - rP + 2, yH, 11));
+    return o.join('\n');
+  };
+
+  // ─── Le déclencheur, de près (dessin de la planche d'avant) ───────────────────────────────
+  const detail = (z) => {
+    const ox = Math.round(z.l / 2 - 140), oy = Math.round((z.h - 210) / 2);
+    const byd = 110, e = 12, D = 62, x0 = 135, x1 = 185, xs = 162;   // épaulement : de x0 à xs, à byd - e
+    const pente = (y) => xs - (xs - x0) * (y - (byd - e)) / D;
+    const bout = pente(byd + e);
+    const bas = 206;
+    const out = [];
+    out.push(h.ligne(57.5, 6, 57.5, byd - e, h.a.detail));
+    out.push(h.ligne(62.5, 6, 62.5, byd - e, h.a.detail));
+    const tors = [];
+    for (let y = 10; y < byd - e - 4; y += 8) tors.push(`M 57.5 ${y + 5} C 59 ${y + 3} 61 ${y + 1.5} 62.5 ${y}`);
+    out.push(h.path(tors.join(' '), h.a.detail));
+    out.push(h.fleche(`M 36 ${byd - 40} L 36 ${byd - 95}`));
+    const bat = [[bout, byd - e], [14, byd - e], [8, byd - 6], [16, byd], [8, byd + 6], [14, byd + e], [bout, byd + e]];
+    out.push(h.chemin(bat, h.a.blanc, true));
+    out.push(h.chemin([[10, byd + 4.5], [bout, byd + 4.5], [bout, byd + e], [14, byd + e], [8, byd + 6]], h.a.ombre, true));
+    out.push(h.chemin(bat, h.a.contour, true));
+    out.push(h.ligne(26, byd - 3, bout - 8, byd - 3, h.a.detail));
+    out.push(h.ligne(20, byd + 6, bout - 30, byd + 6, h.a.detail));
+    out.push(h.path([0, 1, 2].map((i) => `M ${52 + i * 7} ${byd - e - 2} L ${57 + i * 7} ${byd + e + 2}`).join(' '), h.a.arete));
+    const pq = [[x0, 26], [x0 + 5, 20], [x1 - 5, 20], [x1, 26], [x1, bas], [172, bas - 5], [160, bas + 4], [147, bas - 4], [x0, bas + 1],
+      [x0, byd - e + D], [xs, byd - e], [x0, byd - e]];
+    out.push(h.chemin(pq, h.a.blanc, true));
+    out.push(h.chemin([[171, 20], [x1 - 5, 20], [x1, 26], [x1, bas], [172, bas - 5]], h.a.ombre, true));
+    out.push(h.chemin(pq, h.a.contour, true));
+    const sous = (x) => byd - e + (xs - x) / (xs - x0) * D;
+    [[148, 30, byd - e - 6], [148, sous(148) + 6, bas - 10], [160, 30, byd - e - 6], [160, sous(160) + 6, bas - 10], [174, 30, bas - 10]].forEach(([x, y1, y2]) => {
+      out.push(h.path(`M ${x} ${y1} C ${x - 2} ${(2 * y1 + y2) / 3} ${x + 2} ${(y1 + 2 * y2) / 3} ${x} ${y2}`, h.a.detail));
+    });
+    out.push(h.controle((xs + bout) / 2, byd, 19));
+    return `<g transform="translate(${ox} ${oy})">\n${out.join('\n')}\n</g>`;
   };
 
   return {
     ref: '48-09',
     titre: 'Le collet à ressort et son déclencheur',
-    desc: 'Vu du bord de la piste : un jeune bouleau plié au-dessus d’une piste de lièvre, retenu par un bâtonnet en travers de la piste, coincé sous le crochet taillé dans un piquet planté au bord ; la boucle du collet pend du bâtonnet et le lièvre, de profil, y a passé la tête : la boucle est autour de son cou. À droite, le crochet et le bâtonnet agrandis : le dessus du bâtonnet bute sous l’épaulement, son bout repose sur le pan incliné.',
-    format: 'demi',
-    disposition: [['monte', 'declencheur']],
-    largeurs: [[3, 2]],
+    desc: 'Deux vues côte à côte, même cadrage, dans l’axe du sentier, la neige coupée en travers. Armé : un jeune bouleau planté au bord gauche du sentier est plié par-dessus ; de son bout, une corde descend à un bâtonnet posé en travers au-dessus du sentier, dont le bout droit est coincé sous le crochet taillé dans un piquet fiché au bord droit ; du bout gauche du bâtonnet pend le fil, et la boucle ouverte au-dessus du milieu du sentier. Déclenché : la bête a tiré, le bâtonnet a lâché le crochet, le bouleau s’est redressé ; le bâtonnet pend à la corde au bout de l’arbre, et la boucle serrée est montée en l’air ; le crochet du piquet est vide. En bas, le crochet et le bâtonnet de près : le dessus du bâtonnet bute sous l’épaulement, son bout repose sur le pan incliné ; c’est là que tout se décide, et là que ça gèle.',
+    format: 'pleine',
+    disposition: [['arme', 'declenche'], ['detail']],
+    hauteurs: [3.1, 1.6],
     vues: {
-      monte: {
-        titre: 'Monté, vu du bord de la piste',
-        dessin: (z) => {
-          // Vue oblique : la piste file de gauche à droite, la profondeur monte vers la gauche. Le
-          // lièvre est de profil au fond de la piste ; la boucle, en travers de la piste, se voit de
-          // biais autour de son cou ; le piquet et le bouleau sont plantés de notre côté.
-          const out = [];
-          const { P, s, oy, YB, YP, ZB, ZH, RY, RZ, ARC, BORD, YN, YA, goutte } = geo(z);
-
-          // le pied d'un bois planté : la neige remonte un peu autour et le cache
-          // le pied d'un bois planté : deux traits de neige qui partent de ses flancs
-          const pied = (p, r) => h.path(`M ${p[0] - r} ${p[1]} Q ${p[0] - r - 5} ${p[1] + 1} ${p[0] - r - 11} ${p[1] + 3} M ${p[0] + r} ${p[1]} Q ${p[0] + r + 5} ${p[1] + 1} ${p[0] + r + 11} ${p[1] + 3}`, h.a.detail);
-
-          // La neige : le bord de la piste au fond, le bord de notre côté, la coupe devant.
-          const yFond = P(0, -YN, BORD)[1], yBord = P(0, YN, BORD)[1], yCoupe = P(0, YA, BORD)[1];
-          out.push(h.ligne(4, yFond, z.l - 4, yFond, h.a.detail));
-          out.push(h.rect(4, yCoupe, z.l - 8, z.h - 6 - yCoupe, neige));
-          out.push(h.ligne(4, yCoupe, z.l - 4, yCoupe, h.a.arete));
-
-          // La boucle, en travers de la piste, la tête passée : le cou est dedans, la gorge sur le bas
-          // de la boucle, le haut tenu par le fil au-dessus de la nuque. La moitié derrière le cou d'abord.
-          const boucle = (t0, t1) => {
-            const l = [];
-            for (let i = 0; i <= 40; i++) { const [Y, Z] = goutte(t0 + (t1 - t0) * i / 40, RY, RZ, ZH); l.push(P(0, Y, Z)); }
-            return l;
-          };
-          out.push(h.chemin(boucle(0, Math.PI), h.a.arete));
-
-          // Le lièvre d'Amérique, de profil, la tête passée dans la boucle.
-          out.push(A_.lievre(h, { x: P(-18, 0, 0)[0], y: oy, echelle: s, oreilles: 18, cou: 24 }).svg);
-          // le bord de la piste de notre côté passe devant ses pieds
-          out.push(h.ligne(4, yBord, z.l - 4, yBord, h.a.arete));
-
-          // La boucle de notre côté du cou, l'œillet en haut, le fil qui monte au bâtonnet.
-          const devant = boucle(Math.PI, 2 * Math.PI);
-          out.push(h.chemin(devant, 'fill="none" stroke="#FFFFFF" stroke-width="3.2" stroke-linecap="round"'), h.chemin(devant, h.a.arete));
-          const oe = P(0, 0, ZH + 2);
-          out.push(h.cercle(oe[0], oe[1], 1.8, h.a.detail));
-          out.push(h.ligne(oe[0], oe[1] - 1.8, oe[0], P(0, 0, ZB)[1] + 2.6, h.a.arete));
-          // le point à vérifier : la boucle autour du cou, la tête passée
-          const cc = P(-2, 0, ZH - RZ);
-          out.push(h.controle(cc[0], cc[1], RZ * s + 3));
-
-          // Le bâtonnet en travers de la piste, du crochet (derrière le piquet) jusqu'au-dessus de la piste.
-          const b0 = P(0, 22, ZB), b1 = P(0, YP + 10, ZB);
-          const u = [b1[0] - b0[0], b1[1] - b0[1]], L = Math.hypot(u[0], u[1]), n = [-u[1] / L * 2.6, u[0] / L * 2.6];
-          out.push(h.chemin([[b0[0] + n[0], b0[1] + n[1]], [b1[0] + n[0], b1[1] + n[1]], [b1[0] - n[0], b1[1] - n[1]], [b0[0] - n[0], b0[1] - n[1]]], blanc(h.a.arete), true));
-          out.push(h.ellipse(b0[0], b0[1], 2.2, 2.8, blanc(h.a.detail)));
-          // les ligatures : le fil du collet au-dessus de la piste, la corde du bouleau
-          const pc = P(ARC[3][0], YB, ZB);
-          const lig = (p) => [-2, 0, 2].map((k) => `M ${p[0] + k - 1.5} ${p[1] - 4} L ${p[0] + k + 1.5} ${p[1] + 4}`).join(' ');
-          out.push(h.path(lig(pc) + ' ' + lig(P(0, 0, ZB)), h.a.detail));
-
-          // Le bouleau plié, de notre côté de la piste : tronc effilé le long d'une courbe.
-          const A = ARC.map(([X, Z], i) => P(X, YB, Z + (i === 0 ? BORD : 0)));
-          // la corde, du bout de l'arbre au bâtonnet
-          out.push(h.ligne(A[3][0], A[3][1], pc[0], pc[1] - 2, h.a.arete));
-          const larg = (t) => 13 * (1 - t) + 3 * t;
-          const g = [], d = [];
-          for (let i = 0; i <= 40; i++) {
-            const t = i / 40, p = bez(A, t), T = tan(A, t), w = larg(t) / 2;
-            g.push([p[0] + T[1] * w, p[1] - T[0] * w]);
-            d.push([p[0] - T[1] * w, p[1] + T[0] * w]);
-          }
-          out.push(h.chemin([...g, ...d.reverse()], blanc(h.a.contour), true));
-          out.push(pied(A[0], 6.5));
-          // Rameaux : sur l'arc, et la cime qui dépasse la corde.
-          const rameau = (b, T, ang, L) => {
-            const dir = [T[0] * Math.cos(ang) - T[1] * Math.sin(ang), T[0] * Math.sin(ang) + T[1] * Math.cos(ang)];
-            const m = [b[0] + dir[0] * L * 0.55, b[1] + dir[1] * L * 0.55];
-            return `M ${b[0]} ${b[1]} Q ${m[0] + dir[1] * 2} ${m[1] - dir[0] * 2} ${b[0] + dir[0] * L} ${b[1] + dir[1] * L}`;
-          };
-          const ram = [[0.4, -0.9, 18], [0.58, -0.75, 20], [0.76, -0.7, 15]].map(([t, ang, L]) => {
-            const p = bez(A, t), T = tan(A, t), w = larg(t) / 2;
-            const b = [p[0] + T[1] * w, p[1] - T[0] * w];
-            const f = [b[0] + (T[0] * Math.cos(ang) - T[1] * Math.sin(ang)) * L * 0.5, b[1] + (T[0] * Math.sin(ang) + T[1] * Math.cos(ang)) * L * 0.5];
-            return rameau(b, T, ang, L) + ' ' + rameau(f, T, ang * 0.3, L * 0.4);
-          });
-          const T1 = tan(A, 1);
-          [-1.1, -0.7, -0.35, 0].forEach((ang, i) => ram.push(rameau(A[3], T1, ang, [11, 15, 14, 8][i])));
-          out.push(h.path(ram.join(' '), h.a.detail));
-          // Le redressement, au déclenchement.
-          out.push(h.fleche(`M ${A[3][0] - 6} ${A[3][1] - 12} C ${A[3][0] - 10} ${A[3][1] - 26} ${A[3][0] - 22} ${A[3][1] - 34} ${A[3][0] - 36} ${A[3][1] - 36}`));
-
-          // Le piquet, de notre côté de la piste : un rondin, la face de droite à l'ombre. Le crochet
-          // est taillé dans la face qui regarde la piste, derrière : le détail est à droite.
-          const rP = 24, haut = 345;
-          const c0 = P(0, YP, BORD), c1 = P(0, YP, haut);
-          const xg = c0[0] - rP * s, xd = c0[0] + rP * s, ey = rP * s * 0.45;
-          const piquet = `M ${xg} ${c1[1]} L ${xg} ${c0[1]} A ${rP * s} ${ey} 0 0 0 ${xd} ${c0[1]} L ${xd} ${c1[1]} A ${rP * s} ${ey} 0 0 0 ${xg} ${c1[1]} Z`;
-          out.push(h.path(piquet, h.a.blanc));
-          out.push(h.path(`M ${c0[0] + rP * s * 0.35} ${c1[1] + ey * 0.9} L ${c0[0] + rP * s * 0.35} ${c0[1] + ey * 0.95} A ${rP * s} ${ey} 0 0 0 ${xd} ${c0[1]} L ${xd} ${c1[1]} Z`, h.a.ombre));
-          out.push(h.path(piquet, h.a.contour));
-          out.push(h.ellipse(c1[0], c1[1], rP * s, ey, h.a.detail));
-          out.push(pied([c0[0], c0[1] + ey * 0.6], rP * s - 0.4));
-
-          return out.join('\n');
-        },
+      arme: {
+        titre: 'Armé',
+        dessin: arme,
         renvois: (z) => {
-          const { P, YB, YP, ZH, RY, RZ, ARC, BORD, goutte } = geo(z);
-          const A = ARC.map(([X, Z], i) => P(X, YB, Z + (i === 0 ? BORD : 0)));
-          const t = 0.18, p = bez(A, t), T = tan(A, t), w = (13 * (1 - t) + 3 * t) / 2;
-          const cible = [p[0] + T[1] * w, p[1] - T[0] * w];
-          const piq = P(24, YP, 190), bo = P(0, ...goutte(1.6 * Math.PI, RY, RZ, ZH));
+          const g = geo(z);
           return [
-            { n: 1, rond: [16, cible[1] - 26], cible },
-            { n: 2, rond: [z.l - 18, piq[1] - 10], cible: [piq[0] + 1, piq[1]] },
-            { n: 5, rond: [bo[0] - 36, bo[1] - 40], cible: bo },
-          ].map((r, i) => ({ ...r, texte: ['jeune bouleau plié vers la piste', 'piquet fiché à côté de la piste', 'boucle du collet, autour du cou'][i] }));
+            { n: 1, rond: [16, 60], cible: bordArbre(z, 0.3), texte: 'jeune bouleau plié vers le sentier' },
+            { n: 2, rond: [g.xC + 40, g.yH - 52], cible: [g.xC + 6, g.yH - 40], texte: 'corde du bout de l’arbre au bâtonnet' },
+            { n: 3, rond: [z.l - 14, g.yH - 52], cible: [g.xP + g.rP - 1, g.yH - 30], texte: 'piquet fiché au bord du sentier' },
+            { n: 4, rond: [g.c - 34, g.yH - 30], cible: [g.c - 6, g.yH - 4], texte: 'bâtonnet coincé sous le crochet' },
+            { n: 5, rond: [g.c + 46, g.yBoucle + 6], cible: [g.c + g.R, g.yBoucle + 2], texte: 'la boucle, pendue au bâtonnet' },
+          ];
         },
       },
-      declencheur: {
-        titre: 'Le déclencheur, de près',
-        dessin: (z) => {
-          const byd = 110, e = 12, D = 62, x0 = 135, x1 = 185, xs = 162;   // épaulement : de x0 à xs, à byd - e
-          const pente = (y) => xs - (xs - x0) * (y - (byd - e)) / D;
-          const bout = pente(byd + e);
-          const bas = z.h - 12;
-          const out = [];
-
-          // La corde, torse, qui tire vers le haut.
-          out.push(h.ligne(57.5, 6, 57.5, byd - e, h.a.detail));
-          out.push(h.ligne(62.5, 6, 62.5, byd - e, h.a.detail));
-          const tors = [];
-          for (let y = 10; y < byd - e - 4; y += 8) tors.push(`M 57.5 ${y + 5} C 59 ${y + 3} 61 ${y + 1.5} 62.5 ${y}`);
-          out.push(h.path(tors.join(' '), h.a.detail));
-          out.push(h.fleche(`M 36 ${byd - 40} L 36 ${byd - 95}`));
-
-          // Le bâtonnet, cassé à gauche : il continue au-dessus de la piste.
-          const baton = [[bout, byd - e], [14, byd - e], [8, byd - 6], [16, byd], [8, byd + 6], [14, byd + e], [bout, byd + e]];
-          out.push(h.chemin(baton, h.a.blanc, true));
-          // le dessous du bâtonnet, à l'ombre
-          out.push(h.chemin([[10, byd + 4.5], [bout, byd + 4.5], [bout, byd + e], [14, byd + e], [8, byd + 6]], h.a.ombre, true));
-          out.push(h.chemin(baton, h.a.contour, true));
-          out.push(h.ligne(26, byd - 3, bout - 8, byd - 3, h.a.detail));
-          out.push(h.ligne(20, byd + 6, bout - 30, byd + 6, h.a.detail));
-          // La ligature de la corde.
-          out.push(h.path([0, 1, 2].map((i) => `M ${52 + i * 7} ${byd - e - 2} L ${57 + i * 7} ${byd + e + 2}`).join(' '), h.a.arete));
-
-          // Le piquet et son crochet : épaulement à plat, pan incliné dessous.
-          const piquet = [[x0, 26], [x0 + 5, 20], [x1 - 5, 20], [x1, 26], [x1, bas], [172, bas - 5], [160, bas + 4], [147, bas - 4], [x0, bas + 1],
-            [x0, byd - e + D], [xs, byd - e], [x0, byd - e]];
-          out.push(h.chemin(piquet, h.a.blanc, true));
-          // la face de droite du piquet, à l'ombre
-          out.push(h.chemin([[171, 20], [x1 - 5, 20], [x1, 26], [x1, bas], [172, bas - 5]], h.a.ombre, true));
-          out.push(h.chemin(piquet, h.a.contour, true));
-          // Fil du bois.
-          const sous = (x) => byd - e + (xs - x) / (xs - x0) * D;
-          [[148, 30, byd - e - 6], [148, sous(148) + 6, bas - 10], [160, 30, byd - e - 6], [160, sous(160) + 6, bas - 10], [174, 30, bas - 10]].forEach(([x, y1, y2]) => {
-            out.push(h.path(`M ${x} ${y1} C ${x - 2} ${(2 * y1 + y2) / 3} ${x + 2} ${(y1 + 2 * y2) / 3} ${x} ${y2}`, h.a.detail));
-          });
-
-          // le point qui décide, et qui gèle : le bâtonnet sous l'épaulement, son bout sur le pan
-          out.push(h.controle((xs + bout) / 2, byd, 19));
-
-          return out.join('\n');
+      declenche: {
+        titre: 'Déclenché',
+        dessin: declenche,
+        renvois: (z) => {
+          const g = geo(z);
+          return [
+            { n: 6, rond: [g.xP - 40, g.yH + 34], cible: [g.xP - g.rP + 3, g.yH + 4], texte: 'le bâtonnet a lâché le crochet' },
+            { n: 7, rond: [bordArbreDe(courbeDecl(z), 0.42, -1)[0] + 42, bordArbreDe(courbeDecl(z), 0.42, -1)[1] + 80], cible: bordArbreDe(courbeDecl(z), 0.42, -1), texte: 'l’arbre redressé lève la bête' },
+          ];
         },
-        renvois: (z) => [
-          { n: 3, rond: [104, 186], cible: [143, 142], texte: "crochet taillé dans le piquet" },
-          { n: 4, rond: [36, 170], cible: [42, 122], texte: "bâtonnet en travers, porte la tension" },
-        ],
+      },
+      detail: {
+        titre: 'Le crochet, de près',
+        dessin: detail,
+        renvois: (z) => {
+          const ox = Math.round(z.l / 2 - 140), oy = Math.round((z.h - 210) / 2);
+          return [
+            { n: 8, rond: [ox + 250, oy + 60], cible: [ox + 186, oy + 70], texte: 'crochet taillé dans le piquet' },
+            { n: 9, rond: [ox + 250, oy + 120], cible: [ox + 170, oy + 112], texte: 'le point qui gèle : retailler à sec' },
+          ];
+        },
       },
     },
   };

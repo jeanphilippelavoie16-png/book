@@ -259,9 +259,9 @@ module.exports = (h) => {
         const [px, py] = T([x, y]);
         o.push(h.cercle(px, py, 2.6, h.a.blanc), h.cercle(px, py, 2.6, h.a.detail), h.cercle(px, py, 1.1, h.a.plein));
       }
-      // second rappel du renvoi 7, vers une broquette du bas (sous la pastille, même trait)
+      // second rappel du renvoi 6, vers une broquette du bas (sous la pastille, même trait)
       {
-        const [ax, ay] = [cx - 9 * s - 6, oy + s * 72], [bx, by] = T([-4.7, 86.6]);
+        const [ax, ay] = [cx - 9 * s - 16, oy + s * 72], [bx, by] = T([-4.7, 86.6]);
         o.push(`<line x1="${ax.toFixed(1)}" y1="${ay.toFixed(1)}" x2="${bx.toFixed(1)}" y2="${by.toFixed(1)}" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"/>`,
           `<line x1="${ax.toFixed(1)}" y1="${ay.toFixed(1)}" x2="${bx.toFixed(1)}" y2="${by.toFixed(1)}" fill="none" stroke="#000" stroke-width="0.5" stroke-dasharray="3 2.5"/>`,
           `<circle cx="${bx.toFixed(1)}" cy="${by.toFixed(1)}" r="1.8" fill="#000" stroke="#fff" stroke-width="0.7"/>`);
@@ -280,11 +280,10 @@ module.exports = (h) => {
       const s = echelle1(z), oy = HAUT, cx = z.l / 2 - 8;
       const { T } = cadre(s, cx, oy);
       return [
-        { n: 5, rond: [cx - 9 * s - 6, oy + 6], cible: T([-1.2, -0.3]), texte: 'le nez sur la pointe' },
-        { n: 6, rond: [cx + 9 * s + 10, oy + s * 26], cible: T([2.1, 30]), texte: 'cuir dehors, sans étirer' },
-        { n: 7, rond: [cx - 9 * s - 6, oy + s * 72], cible: T([-5.75, 73.5]), texte: 'broquettes de chaque côté' },
-        { n: 8, rond: [cx + 9 * s + 10, oy + s * 82], cible: T([1.3, 88]), texte: 'tirée à mi-séchage' },
-        { n: 9, rond: [cx - 9 * s - 14, oy + s * 97], cible: T([-5.9, 95]), texte: 'plus longue que la peau' },
+        { n: 5, rond: [cx + 9 * s + 10, oy + s * 26], cible: T([2.1, 30]), texte: 'cuir dehors, sans étirer' },
+        { n: 6, rond: [cx - 9 * s - 16, oy + s * 72], cible: T([-5.75, 73.5]), texte: 'broquettes de chaque côté' },
+        { n: 7, rond: [cx + 9 * s + 10, oy + s * 82], cible: T([1.3, 88]), texte: 'tirée à mi-séchage' },
+        { n: 8, rond: [cx - 9 * s - 14, oy + s * 97], cible: T([-5.9, 95]), texte: 'plus longue que la peau' },
       ];
     },
   };
@@ -321,10 +320,8 @@ module.exports = (h) => {
       const { sC, yc, cx } = geomCoupe(z);
       const { T } = cadre(sC, cx, yc);
       return [
-        { n: 10, rond: [cx + 3 * sC, yc - 5.4 * sC], cible: T([2.4, -2.3]), texte: 'le cuir, dehors' },
-        { n: 11, rond: [cx - 3.2 * sC, yc - 5.4 * sC], cible: T([-3.6, -1.6]), texte: 'le poil, contre le bois' },
-        { n: 12, rond: [cx + 1.6 * sC, yc + 5.2 * sC], cible: T([0.6, 1.4]), texte: 'la cale donne le jeu' },
-        { n: 13, rond: [cx - 3.8 * sC, yc + 5.2 * sC], cible: T([-3.2, 0.3]), texte: 'la planche' },
+        { n: 9, rond: [cx - 3.2 * sC, yc - 5.4 * sC], cible: T([-3.6, -1.6]), texte: 'le poil, contre le bois' },
+        { n: 10, rond: [cx + 1.6 * sC, yc + 5.2 * sC], cible: T([0.6, 1.4]), texte: 'la cale donne le jeu' },
       ];
     },
   };
@@ -376,9 +373,9 @@ module.exports = (h) => {
     renvois: z => {
       const { s, cx, oy } = geom2(z);
       const { T } = cadre(s, cx, oy);
-      if (etat === 'lache') return [{ n: 14, rond: [cx + 8 * s + 6, oy + s * 30], cible: T([wAt(38) * 0.5, 40.2]), texte: 'elle sèche fripée' }];
-      if (etat === 'juste') return [{ n: 15, rond: [cx + 8 * s + 6, oy + s * 30], cible: T([wAt(34) + 0.9, 34]), texte: 'sans pli, sans transparence' }];
-      return [{ n: 16, rond: [cx + 8 * s + 6, oy + s * 30], cible: T([3.95, 45]), texte: 'zone translucide, déchirure' }];
+      if (etat === 'lache') return [{ n: 11, rond: [cx + 8 * s + 18, oy + s * 30], cible: T([wAt(38) * 0.5, 40.2]), texte: 'elle sèche fripée' }];
+      if (etat === 'juste') return [{ n: 12, rond: [cx + 8 * s + 18, oy + s * 30], cible: T([wAt(34) + 0.9, 34]), texte: 'sans pli, sans transparence' }];
+      return [{ n: 13, rond: [cx + 8 * s + 18, oy + s * 30], cible: T([3.95, 45]), texte: 'zone translucide, déchirure' }];
     },
   });
 
@@ -418,7 +415,124 @@ module.exports = (h) => {
     renvois: z => {
       const { sD, ox, cy } = geomArete(z);
       const { T } = cadre(sD, ox, cy);
-      return [{ n: 17, rond: [z.l - 14, cy - 3.3 * sD], cible: T([W + 0.42, -1.42]), texte: 'le coin marque le cuir' }];
+      return [{ n: 14, rond: [z.l - 14, cy - 3.3 * sD], cible: T([W + 0.42, -1.42]), texte: 'le coin marque le cuir' }];
+    },
+  };
+
+
+  // ─── Rangée 3 (15 octobre 2026) : le tendeur en fer à cheval (ch. 53, §9) et le cerceau (§9) ───
+  const AA = h.a, WB = at => at.replace('fill="none"', 'fill="#FFFFFF"');
+  const r1 = v => Math.round(v * 10) / 10;
+  // un chemin lisse (Catmull-Rom) qui passe par les points
+  const lisseP = (pts, ferme = false) => {
+    const n = pts.length, P = i => ferme ? pts[(i + n) % n] : pts[Math.max(0, Math.min(n - 1, i))];
+    let d = `M${r1(pts[0][0])} ${r1(pts[0][1])}`;
+    for (let i = 0; i < (ferme ? n : n - 1); i++) {
+      const p0 = P(i - 1), p1 = P(i), p2 = P(i + 1), p3 = P(i + 2);
+      d += ` C${r1(p1[0] + (p2[0] - p0[0]) / 6)} ${r1(p1[1] + (p2[1] - p0[1]) / 6)} ${r1(p2[0] - (p3[0] - p1[0]) / 6)} ${r1(p2[1] - (p3[1] - p1[1]) / 6)} ${r1(p2[0])} ${r1(p2[1])}`;
+    }
+    return ferme ? d + ' Z' : d;
+  };
+  // Une baguette pliée en U, vue de face : une tige ronde le long d'une courbe (unités de vue).
+  const tigeU = (pts, r) => {
+    const n = pts.length, P = i => pts[Math.max(0, Math.min(n - 1, i))], ech = [];
+    for (let i = 0; i < n - 1; i++) for (let j = 0; j < 8; j++) ech.push(cr(P(i - 1), P(i), P(i + 1), P(i + 2), j / 8));
+    ech.push(pts[n - 1]);
+    const g = [], d = [];
+    ech.forEach((p, i) => {
+      const a = ech[Math.max(0, i - 1)], b = ech[Math.min(ech.length - 1, i + 1)];
+      const dx = b[0] - a[0], dy = b[1] - a[1], L = Math.hypot(dx, dy) || 1;
+      g.push([p[0] - r * dy / L, p[1] + r * dx / L]); d.push([p[0] + r * dy / L, p[1] - r * dx / L]);
+    });
+    return { g, d, ferme: [...g, ...d.reverse()] };
+  };
+  // le U, en mm : la courbe en haut (y = 0), les deux branches jusqu'à y = 400, 130 d'écart
+  const U = [[-65, 400], [-66, 200], [-62, 70], [-46, 18], [0, 0], [46, 18], [62, 70], [66, 200], [65, 400]];
+  // le fourreau de rat musqué, chair dehors, tendu sur le U : demi-contour droit, nez en haut
+  const RAT = [[0, -14], [14, -11], [26, 0], [44, 30], [66, 80], [76, 140], [78, 220], [76, 290], [70, 330]];
+  const vueTendeur = {
+    titre: 'Le tendeur en fer à cheval',
+    dessin: z => {
+      const s = Math.min((z.h - 16) / 430, (z.l - 40) / 360);
+      const yo = 10 + 14 * s;
+      const T1 = ([x, y]) => [z.l * 0.24 + s * x, yo + s * y];
+      const T2 = ([x, y]) => [z.l * 0.68 + s * x, yo + s * y];
+      const o = [];
+      // la baguette seule
+      const b1 = tigeU(U.map(T1), 6 * s);
+      o.push(h.chemin(b1.ferme, WB(AA.contour), true));
+      // la baguette dans le fourreau : la peau par-dessus, la baguette cachée dedans, ses bouts qui dépassent
+      const peau = RAT.concat(RAT.slice().reverse().map(([x, y]) => [-x, y]).slice(1));
+      const b2 = tigeU(U.map(T2), 6 * s);
+      o.push(h.chemin(b2.ferme, WB(AA.contour), true));
+      o.push(h.path(lisseP(peau.map(T2)) + ' Z', WB(AA.contour)));
+      o.push(h.chemin(b2.g.filter((p, i) => p[1] < T2([0, 326])[1]), AA.cache), h.chemin(b2.d.filter((p, i) => p[1] < T2([0, 326])[1]), AA.cache));
+      // les yeux et les trous des pattes de devant, fendus dans le cuir
+      for (const k of [-1, 1]) {
+        o.push(h.ellipse(...T2([k * 13, 26]), 2.4, 4.5 * s * 1.3, AA.plein));
+        o.push(h.path(lisseP([T2([k * 50, 118]), T2([k * 45, 134]), T2([k * 50, 150])]), AA.arete));
+      }
+      return o.join('\n');
+    },
+    renvois: z => {
+      const s = Math.min((z.h - 16) / 430, (z.l - 40) / 360);
+      const yo = 10 + 14 * s;
+      const T1 = ([x, y]) => [z.l * 0.24 + s * x, yo + s * y];
+      const T2 = ([x, y]) => [z.l * 0.68 + s * x, yo + s * y];
+      return [
+        { n: 15, rond: [14, T1([0, 250])[1]], cible: T1([-71, 250]), texte: 'aulne plié en fer à cheval' },
+        { n: 16, rond: [z.l - 14, T2([0, 200])[1]], cible: T2([77, 200]), texte: 'chair dehors, le U dedans' },
+      ];
+    },
+  };
+
+  // le cerceau : une peau ouverte (loup, à plat) lacée dedans ; repère : rayon du cerceau = 100
+  const PEAU_OUVERTE = [[0, -74], [8, -73], [14, -82], [17, -70], [15, -60], [20, -50], [42, -54], [60, -60], [63, -52],
+    [46, -42], [30, -32], [31, -8], [29, 16], [42, 22], [60, 28], [62, 37], [44, 40], [26, 44], [12, 50], [8, 68], [4, 82], [0, 86]];
+  const vueCerceau = {
+    titre: 'Le cerceau, pour une peau ouverte',
+    dessin: z => {
+      const s = (Math.min(z.l, z.h) - 24) / 2 / 104;
+      const cx = z.l / 2, cy = z.h / 2;
+      const T = ([x, y]) => [cx + s * x, cy + s * y];
+      const o = [];
+      // le cerceau : une baguette verte pliée en rond, les bouts croisés et ligaturés en haut à droite
+      o.push(h.cercle(cx, cy, 100 * s + 2.4, WB(AA.contour)), h.cercle(cx, cy, 100 * s - 2.4, AA.arete));
+      const la = -55 * Math.PI / 180;
+      for (let k = -3; k <= 3; k++) {
+        const a = la + k * 0.022, c = Math.cos(a), sn = Math.sin(a);
+        o.push(h.ligne(cx + (100 * s - 4.5) * c, cy + (100 * s - 4.5) * sn, cx + (100 * s + 4.5) * c, cy + (100 * s + 4.5) * sn, AA.arete));
+      }
+      // la peau, cuir vers soi ; les fentes à un doigt du bord ; une lanière de chaque fente au cerceau
+      const demi = PEAU_OUVERTE, tour = demi.concat(demi.slice().reverse().map(([x, y]) => [-x, y]).slice(1, -1));
+      o.push(h.path(lisseP(tour.map(T), true), WB(AA.contour)));
+      // des points le long du bord, rentrés d'un doigt vers le centre de la peau
+      const pts = [];
+      const L = tour.length;
+      for (let i = 0; i < L; i += 1) {
+        const p = tour[i], q = tour[(i + 1) % L];
+        for (const t of [0, 0.5]) pts.push([p[0] + (q[0] - p[0]) * t, p[1] + (q[1] - p[1]) * t]);
+      }
+      const choisis = pts.filter((p, i) => i % 3 === 0);
+      for (const p of choisis) {
+        const g = [p[0] * 0.9, p[1] * 0.9 + 2];                       // la fente, rentrée vers le centre
+        const a = Math.atan2(g[1], g[0]);
+        const hz = [100 * Math.cos(a), 100 * Math.sin(a)];
+        const [x1, y1] = T(g), [x2, y2] = T(hz);
+        o.push(h.ligne(x1, y1, x2, y2, AA.detail));
+        o.push(h.ligne(x1 - 1.6 * Math.sin(a), y1 + 1.6 * Math.cos(a), x1 + 1.6 * Math.sin(a), y1 - 1.6 * Math.cos(a), AA.arete));
+      }
+      return o.join('\n');
+    },
+    renvois: z => {
+      const s = (Math.min(z.l, z.h) - 24) / 2 / 104;
+      const cx = z.l / 2, cy = z.h / 2;
+      const T = ([x, y]) => [cx + s * x, cy + s * y];
+      const a = -55 * Math.PI / 180;
+      return [
+        { n: 17, rond: [z.l - 14, 14], cible: [cx + (100 * s + 4) * Math.cos(a), cy + (100 * s + 4) * Math.sin(a)], texte: 'saule vert en rond, ligaturé' },
+        { n: 18, rond: [14, T([0, 46])[1] + 30], cible: T([-0.9 * 26, 0.9 * 44 + 2]), texte: 'lacée par des fentes' },
+      ];
     },
   };
 
@@ -427,9 +541,9 @@ module.exports = (h) => {
     titre: 'La planche à tendre une peau en fourreau',
     desc: 'Sept vues. La planche vue de face et sur la rive, alignées : longue, étroite, en pointe arrondie, le fil du bois droit sur toute la longueur, et sa coupe rabattue aux arêtes arrondies ; à côté, la cale mince, à la hauteur où elle se pose. La peau de martre enfilée cuir dehors, à la même échelle : le nez sur la pointe, les pattes avant couchées, les pattes arrière rabattues à la base et fixées de quatre broquettes de part et d’autre de la cale, la cale cachée sous la peau et qui dépasse par le bas pour se tirer à mi-séchage, la planche plus longue que la peau. La coupe en travers de la peau montée : le cuir dehors, le poil en dedans contre le bois, la cale sous une face, la planche. Trois peaux côte à côte : trop lâche et plissée, juste, trop tendue avec le bois qu’on voit au travers et une déchirure. Et le bout d’une planche à arêtes vives, coupé en travers et grossi : le poil écrasé sur la rive, le cuir cassé net au coin, là où il garde la ligne.',
     format: 'pleine',
-    disposition: [['planche', 'montee', 'coupe'], ['lache', 'juste', 'tendue', 'arete']],
-    hauteurs: [3, 2],
-    largeurs: [[5, 4, 4], [1, 1, 1, 1.15]],
+    disposition: [['planche', 'montee', 'coupe'], ['lache', 'juste', 'tendue', 'arete'], ['tendeur', 'cerceau']],
+    hauteurs: [3, 1.6, 1.7],
+    largeurs: [[5, 4, 4], [1, 1, 1, 1.15], [1.3, 1]],
     vues: {
       planche: vuePlanche,
       montee: vueMontee,
@@ -438,6 +552,8 @@ module.exports = (h) => {
       juste: vuePartielle('juste'),
       tendue: vuePartielle('tendue'),
       arete: vueArete,
+      tendeur: vueTendeur,
+      cerceau: vueCerceau,
     },
   };
 };

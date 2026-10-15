@@ -311,3 +311,96 @@ Verdicts de `suivi/verifications/21-verifications.md`, appliqués au chapitre. 3
 - Décision de la chaîne appliquée : mal de caribou « mortel en quelques semaines » (§ 8, encadré DANGER), au lieu de « deux à trois semaines ». La note [^1] (symptômes, diarrhée après une semaine à dix jours) n'est pas touchée.
 - Essai de la gomme d'épinette : sans objet, le chapitre n'en parle pas.
 - Compression §3 et §4 — 27 septembre 2026 : 759 mots → 176 mots ; matériel coupé : étiquettes et crayon indélébile (étape 14 suffit), carte topographique plastifiée (négociable ; le croquis coté en heures de marche l'hiver sort avec elle), quantités, colonnes de substitution et paragraphe de renvoi au ch. 00b ; gardés : moyen de contact, thermomètre à sonde, dossard orange (substitut bâche gardé).
+
+## Passe d'écriture et série « sortir un blessé du bois » — 15 octobre 2026
+
+Numéros de chapitre **nouveaux** dans cette section (ch. 16 = ancien 21). Passe du skill `ecriture` sur tout
+le chapitre (lot p2 de la passe du tome 1) ; série des premières minutes écrite et marquée `{.orange}` en
+tête de la procédure ; logigramme en double page. Les nouvelles sources portent le préfixe de l'ancien
+numéro (`21-`), comme les autres sources du chapitre.
+
+**Mots :** 6 732 avant, 6 806 après (environ 800 mots de série ajoutés). **Tirets :** 33 avant, 2 après
+(titre et ligne de tome). Fins de ligne CRLF gardées.
+
+### La série orange (étapes 1 à 12)
+
+L'inventaire (`plan/premieres-minutes-inventaire.md`) notait : les étapes 23-24 étaient des décisions
+d'avance ; la sortie elle-même manquait. Trois intertitres marqués : « Les quinze premières minutes »,
+« La première heure », « Chaque heure de la sortie » (`{.orange 1 h}`). Les soins eux-mêmes renvoient aux
+ch. 25 et 26 ; la série porte ce que le groupe fait pour sortir le blessé.
+
+| Fait au chapitre | Où | Source |
+| --- | --- | --- |
+| Conscient, clair et fiable : il se déplace seul, en évitant les mouvements du cou qui font mal ; sinon il sort couché, cou calé pour limiter les mouvements passifs ; pas de collet rigide improvisé (gêne la respiration, aucun bénéfice démontré) ; surface ferme pour le transport | Étape 2 ; logigramme | `sources/21-wms-protection-moelle-2019.md` (+ .html) |
+| Les signes qui font sortir couché : douleur au milieu de la nuque à la pression, engourdissement ou faiblesse d'un membre, conscience altérée, intoxication, autre blessure douloureuse | Étape 2 et note [^1] | `sources/21-mdcalc-criteres-nexus.md` (+ .html MDCalc et WikEM) ; la WMS renvoie à ces critères |
+| Porter une civière à bras sur une distance : 18 à 24 personnes, en équipes de six qui se relaient | Étape 4 ; logigramme | `sources/21-amc-portage-civiere-equipes.md` (+ .html) |
+| Un blessé couché sort en quatre à six fois le temps de marche, plus en terrain difficile | Étape 4 ; logigramme | `sources/21-longleaf-portage-quatre-a-six-fois.md` (+ .html) |
+| Le passager du traîneau, immobile, gèle avant ceux qui tirent ; regarder les visages plus souvent que le délai de gelure | Étapes 5 et 7 | ch. 15, étape 25 (sourcé à sa fiche) |
+| Sur la glace, le passager ne s'attache pas | Étape 8 | ch. 15, étape 24 ; le livre en tire qu'un blessé sanglé ne passe pas sur la glace (déduction, pas une citation) |
+| Emballer : isolant dessous, sac fermé, pare-vapeur ; hypothermie grave : horizontale, sans secouer | Étapes 5 et 11 ; §6 | ch. 25, étapes 5, 8 et 10 |
+| Sangler poitrine, bassin, cuisses ; tête calée ; rouler d'un bloc sur le côté | Étape 6 | ch. 26, §9 |
+| Message à l'heure dite, gabarit, heure du suivant | Étapes 3 et 10 | ch. 14, étapes 13 à 15 |
+| Deux personnes ou personne ; note sur la porte ; ce qui reste au camp ; ce qui accroche renverse le traîneau ; un trajet de nuit fabrique un deuxième patient | Étapes 3, 8, 9, 12 | ch. 35, 5-C, 9-B, 9-C |
+| Plaque blanche ou cireuse : réchauffer contre une peau saine | §6 | ch. 25, §6 |
+
+**Sans chiffre, sans source citée :** « quelqu'un ouvre la piste en raquettes », « le sentier tapé plutôt
+que le plus court », « la relève se fait souvent, avant que les bras lâchent ». Aucune source trouvée ne
+donne un intervalle de relève ni la vitesse d'un traîneau tiré à la raquette : l'inventaire demandait
+« vitesse de portage à la raquette » et « perte de chaleur d'un blessé immobile sur toboggan à -30 °C » ;
+ni l'une ni l'autre n'est chiffrée au chapitre. Le seul ordre de grandeur est celui de la civière
+(4 à 6 fois le temps de marche ; AMC : 2,7 km en 4 h).
+
+### Logigramme
+
+`images/logigrammes/16-sortir-un-blesse.json` (double page), rendu `.svg`, `.pdf`, `.png`, et
+`16-sortir-un-blesse-livre.svg` (`--sans-entete --svg`) ; contrôle : 0 erreur, 0 avis. Premier geste sans
+question (soigner sur place) ; puis : un signe qui le fait sortir couché ? il marche ? une machine vient ?
+arrivée avant la noirceur avec assez de bras ? La page de droite : emballer, sangler, porteurs, chemin, la
+boucle de chaque heure, l'arrêt avant la nuit. Chaque boîte renvoie à une étape du chapitre. Ancrage
+proposé (`passe-t1/ancrages-p2.json`) : la phrase qui ouvre la série, « Quelqu'un est blessé dans le bois ».
+
+### Renumérotation des étapes
+
+La série prend les étapes 1 à 12 ; les anciennes étapes 1 à 23 deviennent 13 à 35 (n + 12) ; l'ancienne 24
+(le papier épinglé) est fondue dans l'étape 9. **Renvois à corriger ailleurs** (hors de ce lot) :
+ch. 38, « ch. 16, étape 5 » ×5 → étape 17, « étape 18 » → étape 30 ; ch. 44, « ch. 16, étape 19 » →
+étape 31.
+
+### Ce qui a été retiré ou déplacé
+
+- « Village » (une douzaine de fois) : « la rue », « en ville ».
+- « Deux enfants », « quatre enfants » : « les enfants ».
+- Le « mauvais choix » « ce qu'on attend du voisinage, c'est que le courant revienne plus vite » : son fait
+  (l'appareil de maintien de la vie ne fait pas rétablir la maison plus tôt) reste à l'étape 20.
+- §8, génératrice branchée au mur : la citation entre guillemets sort ; le fait reste.
+- Redites : le mécanisme de l'arme (étape 29, §7, §8 : gardé au §8), du fil au sol (étape 34 et §8 :
+  mécanisme au §8), « le facteur limitant, ce sont les porteurs » (ancienne étape 23 et §9 : l'étape 7
+  porte la relève), « l'isolant va sous le blessé » (§9 et étape 5), le signal visuel (étape 17 et §9).
+- Chutes et images : « c'est une boîte », « L'arbre, lui, attendra », « un doute tu est un doute
+  transféré », « La dette accepte toutes les monnaies sauf une », « n'est plus un cadeau », « Aucun montage
+  ne fabrique un médecin », « qui est à peu près tout ce qu'un rang a à se dire un soir de tempête », « Le
+  klaxon réveille, le haut-parleur parle », « Deux significations… valent zéro signal », « Trois choses, et
+  il vaut mieux le savoir d'avance », « le seul travail de ce chapitre qui ne se remet pas au lendemain ».
+- « Jamais de ruban : il durcit au froid et pète » devient « le ruban durcit au froid et casse » ; « un
+  stylo à bille, non » coupé (le crayon de plomb dit ce qui marche).
+
+### Planches
+
+- **16-07** : appel « (planche 16-07) » posé dans « Où se prend le fil. », sur les épissures ; ancre
+  inchangée.
+- **16-08** : appel « (planche 16-08) » dans « *Deux brancards rigides valent mieux qu'une corde.* » ; ancre
+  inchangée. Les étapes 6 et 7 de la série renvoient au §9.
+
+### Contrôle (`controle.py --avant`)
+
+Rien n'a disparu ; il reste des mots vides jugés un à un (« tout le monde », « déjà commencé », « encore
+trempé »…).
+
+### Doutes
+
+- Les critères NEXUS visent le cou ; le chapitre ne les étend pas au reste du dos, alors qu'une chute
+  d'arbre touche souvent le dos. Une règle pour la colonne dorsale et lombaire hors de l'hôpital reste à
+  trouver.
+- La WMS a mis ses lignes directrices à jour en 2024 ; seul le résumé de 2019 a pu être lu.
+- « L'arme qui tue dans un camp de groupe est presque toujours celle… » (§8) : affirmation d'origine, non
+  sourcée à cette fiche.

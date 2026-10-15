@@ -236,6 +236,13 @@ doit être informatif, partout.** Ce qui saute :
   dans le noir trois jours après le retour du courant, à attendre un camion qui ne viendra pas » (JP :
   « c'est poétique mais dégueulasse »). On écrit le fait : « tant que le mât n'est pas réparé, la maison
   reste sans courant, même quand la rue est rebranchée ».
+- la tournure bizarre (JP, sur « Ceux qui étaient dehors laissent à la porte la couche du dessus et les
+  chaussures » : « c'est fucking bizarre, je veux plus voir ça nulle part ») : le sujet se nomme (« les gens
+  qui », « la personne qui », pas « ceux qui » en tête de phrase), l'ordre est naturel (le verbe, ce qu'on
+  fait, puis où : « laisser ses chaussures à la porte », pas « laisser à la porte ses chaussures »), et une
+  consigne se dit comme une consigne (« doivent laisser », ou l'infinitif dans une étape), pas au présent
+  qui décrit. On écrit : « Les gens qui étaient à l'extérieur doivent laisser leurs vêtements du dessus et
+  leurs chaussures à la porte. »
 - le tiret (— ou –) dans une phrase (JP : « y a juste les AI qui mettent ça dans des phrases »). Il
   devient une virgule, deux-points, des parenthèses ou un point. Les lignes de matériel aussi :
   « **Thermomètre à sonde** : porte les 74 °C à cœur. »

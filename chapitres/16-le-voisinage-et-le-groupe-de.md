@@ -79,7 +79,7 @@ Quelqu'un est blessé dans le bois, au bûchage, à la chasse, sur le sentier.
  il a mal quand on appuie sur le milieu de la nuque[^1] ; un bras ou une jambe est engourdi, picote
  ou faiblit ; il est inconscient, confus ou ivre ; une autre blessure lui fait assez mal pour
  masquer celle du cou. Couché, il a la tête calée entre deux rouleaux de vêtements, sur une surface
- ferme (ch. 26, §9). Pas de collet rigide improvisé : il ne protège rien et gêne la respiration.
+ ferme (ch. 26, §9). Pas de collet rigide improvisé : rien ne montre qu'il protège, et il gêne la respiration.
 3. **Alerter tôt.** Par radio ou par satellite, un message court : où, qui, quoi, ce qu'on fait, et
  l'heure du prochain message (ch. 14, étapes 14 et 15). Sans radio, deux personnes partent avec le
  message écrit, jamais une seule (ch. 35, 9-B).

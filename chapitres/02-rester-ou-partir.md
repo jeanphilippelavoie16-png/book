@@ -331,7 +331,7 @@ neuves, même quand elle ne change pas. Après douze heures sans mesure, elle es
 
 ## 8. Danger
 
-> ### ⚠ DANGER : le monoxyde et le trajet
+> ### ⚠ DANGER
 >
 > **1. Le monoxyde de carbone.** Le CO n'a ni couleur, ni odeur, ni goût. Il se fixe sur
 > l'hémoglobine à la place de l'oxygène : le sang circule, mais il ne transporte plus d'oxygène.

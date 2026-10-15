@@ -171,3 +171,56 @@ Plus aucun `[À VÉRIFIER]` dans le chapitre.
   (essai sur acier doux à intervalles). Aucune source.
 
 Compression §3 et §4 — 27 septembre 2026 : 701 mots → 138 mots ; matériel coupé : marqueur indélébile, ruban de masquage, balance à ressort 0-50 kg, thermomètre enregistreur, bacs opaques, bocaux témoins, multimètre, papier et assiettes de germination (substituts d'instruments toujours en §9.1 ; §9.1 corrigée : « la section 4 ne garde que deux instruments », « la section 4 en demande deux »).
+
+## Passe d'écriture du tome 1 — 15 octobre 2026
+
+Numéros de chapitre **nouveaux** dans cette section (ch. 9 = ancien 12). Passe du skill `ecriture` sur
+tout le chapitre (lot p2). Aucun geste urgent : pas de série orange, pas de logigramme.
+
+**Mots :** 7 802 avant, 6 683 après. **Tirets :** 47 avant, 2 après (titre et ligne de tome).
+
+### Ce qui change sur le fond
+
+- **Avertisseur de CO, 5.4 :** « Remplacer selon les recommandations du fabricant. Le livre ne donne pas
+  de nombre d'années » contredisait les ch. 1 et 3, qui donnent 84 mois. Devient « à la date que donne le
+  fabricant : 84 mois (7 ans) après l'installation pour plusieurs modèles (ch. 1) ». Source :
+  `sources/09-avertisseurs-co-duree-de-vie.md` (INSPQ : « date de remplacement, suggérée par le
+  fabricant, de 84 mois (7 ans) après installation »).
+- **§8, cadmium :** la citation entre guillemets et le nom de l'Organisation mondiale de la santé sortent
+  du texte (pas d'attribution) ; le chiffre (100 fois la quantité tolérée) reste.
+- **§6 :** la consigne citée entre guillemets sur le bouton d'essai devient « Bouton d'essai tenu
+  quelques secondes : le signal sonne » ; le gras d'automne devient une action (« Rendre le gras de la
+  chasse d'automne, 9.2 ; ch. 72 ») au lieu de « Voir l'encadré DANGER » ; le témoin du congélateur
+  renvoie au 9.1 (pièce de monnaie) au lieu de décrire un second montage (cube de glace).
+
+### Ce qui a été retiré
+
+- Les phrases sur le chapitre et le livre (« Chapitre de référence : les tableaux remplacent… », « ce
+  chapitre corrige une liste, il n'en crée pas », « une des rares lignes du livre où c'est vrai »,
+  « Voici comment on mesure… », « Chaque ligne dit ce qu'on perd… »).
+- Les redites : la date de 10 ans de l'avertisseur de fumée (5.4, §6, §7 : une fois au 5.4, une au §7) ;
+  les 90 jours sans date (5.3 seulement) ; le multiplicateur de germination (§6 seulement) ; « Voir le
+  chapitre 19 » doublé de « Chapitres 19 et 72 » dans le même point.
+- « Village » (quatre fois), « la maison a l'aqueduc, l'égout et un magasin » (JP : on le sait), les
+  chutes (« le bloc n'est pas un signe d'échec, c'est un signe de contenant », « une scie à chaîne sans
+  essence est un objet lourd », « ce n'est pas une substitution, c'est un changement de méthode »,
+  « deux significations… valent zéro signal »).
+
+### Planche
+
+- **09-08** : l'appel « (planche 09-08) » est posé dans « Les joints, dans le cuir gras. », à l'emporte-pièce
+  qu'elle dessine. L'ancre de `placements-tome-1.json` (« **Ce qu'on perd :** tout le reste. Le cuir durcit
+  au froid ») n'existe plus : « tout le reste » était une formule. Nouvel ancrage proposé dans
+  `passe-t1/ancrages-p2.json` : « **Les joints, dans le cuir gras.** ».
+
+### Contrôle (`controle.py --avant`)
+
+Signale encore, voulu : « 10 ans » ×5 et « 90 jours » (redites coupées) ; renvoi « ch. 19 » (doublon dans
+le même point du §8) ; l'ancre 09-08 (remplacée, voir plus haut). « Au niveau de la mer » est une mesure.
+
+### Doute
+
+- §9.1 : l'eau bout à 100 °C « au niveau de la mer, où est la Côte-Nord ». Vrai sur la côte ; un chalet
+  dans l'arrière-pays, en altitude, bout plus bas. Déjà relevé au ch. 8 (ancien 11) ; non chiffré ici.
+- §8 : « l'enfant de mauvais caractère » (le CO chez l'enfant) vient de `CLAUDE.md` ; aucune page
+  officielle enregistrée ne nomme l'irritabilité (`sources/18b-reprises-sources-deja-enregistrees.md`).

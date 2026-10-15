@@ -46,7 +46,7 @@ module.exports = (h) => {
   };
   // une pierre ronde et lisse posée au sol, centre x, largeur l, hauteur ht
   const pierre = (P, x, l, ht) => {
-    const q = [[-0.5, 0], [-0.47, 0.5], [-0.3, 0.9], [0, 1], [0.32, 0.88], [0.5, 0.45], [0.5, 0]].map(([a, b]) => P(x + a * l, b * ht));
+    const q = [[-0.5, 0], [-0.49, 0.38], [-0.38, 0.78], [-0.08, 1], [0.2, 0.9], [0.42, 0.66], [0.5, 0.3], [0.5, 0]].map(([a, b]) => P(x + a * l, b * ht));
     let d = `M${q[0].join(' ')}`;
     for (let i = 1; i < q.length; i++) {
       const p0 = q[Math.max(0, i - 2)], p1 = q[i - 1], p2 = q[i], p3 = q[Math.min(q.length - 1, i + 1)];
