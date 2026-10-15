@@ -48,10 +48,12 @@ p.step + table.tcol, p.stepc + table.tcol{margin-top:1pt}
    masque ; texte noir sur l’orange (le blanc y est trop pâle). Pictogramme : image de fond déjà en noir. */
 .rg .orange.full{flex:1 1 0}
 .orange{border:1.5pt solid var(--or);background:var(--orp);display:flex;flex-direction:column;min-height:0}
-.ohead{flex:none;background:var(--or);color:#000;display:flex;align-items:center;gap:7pt;padding:4pt 8pt 4pt 7pt;
+/* le bandeau et la pastille couvrent le filet orange qu’ils touchent (marge négative) : deux aplats de même couleur
+   bord à bord laissent une couture claire à l’anticrénelage (vu au rendu cairo, 15 octobre 2026) */
+.ohead{flex:none;margin:-1.5pt -1.5pt 0;background:var(--or);color:#000;display:flex;align-items:center;gap:7pt;padding:5.5pt 9.5pt 4pt 8.5pt;
   font:700 12pt/14pt var(--sans);text-transform:uppercase;letter-spacing:.05em}
 .ohead i{flex:none;width:19px;height:19px;background:var(--i-minuteur-k) center/100% 100% no-repeat}
-.ohead.small{padding:2pt 8pt 2pt 7pt}
+.ohead.small{padding:3.5pt 9.5pt 2pt 8.5pt}
 .ohead.small i{width:15px;height:15px}
 .ohead .sj{font-weight:600;letter-spacing:.03em}
 .orange .frame{padding:7pt 9pt 2pt;column-gap:0.24in;column-rule:0.75pt solid var(--or)}
@@ -60,7 +62,7 @@ p.step + table.tcol, p.stepc + table.tcol{margin-top:1pt}
 .block > .rg + .frame{margin-top:10pt}
 /* intertitre de la série : l’heure en gros sur une pastille orange, accrochée au filet */
 .block h3.sub.or{display:flex;align-items:flex-start;gap:6pt;border-top:1.5pt solid var(--or);padding-top:0;margin:9pt 0 5pt;break-inside:avoid}
-.block h3.sub.or .otag{flex:none;display:inline-flex;align-items:baseline;gap:2pt;background:var(--or);color:#000;padding:2pt 5pt 3pt;
+.block h3.sub.or .otag{flex:none;display:inline-flex;align-items:baseline;gap:2pt;margin-top:-1.5pt;background:var(--or);color:#000;padding:3.5pt 5pt 3pt;
   font:700 19pt/1 var(--sans);letter-spacing:-.01em;font-variant-numeric:lining-nums tabular-nums}
 .block h3.sub.or .otag small{font:700 9pt/1 var(--sans);letter-spacing:.05em;text-transform:uppercase}
 .block h3.sub.or .ot{padding-top:4pt}
