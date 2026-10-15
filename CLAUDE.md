@@ -251,10 +251,12 @@ Le test : sans la phrase — ou sans le mot —, le lecteur sait-il moins quoi f
 **Les premières minutes, en orange** (JP, 15 octobre 2026). Un chapitre qui a des gestes urgents
 (retombées, feu, monoxyde, blessure, eau froide…) ouvre sa procédure sur la série des premières minutes,
 dans l'ordre où on les fait, et cette série s'imprime en orange pour qu'on tombe dessus en feuilletant.
-Elle se bâtit sur ce que le chapitre dit déjà et sur ce qu'on trouve (JP, 15 octobre 2026 : « monte-les
-en fonction de ce qu'on sait et ce que tu trouves ») : les guides d'urgence (pour une détonation : se
-mettre à l'abri, descendre au sous-sol…), notés dans `/sources` et `suivi/`. La règle 1 tient : aucun
-chiffre sans source, `[À VÉRIFIER]` sinon.
+Elle se bâtit sur ce que le chapitre dit déjà et sur ce qu'on sait et trouve (JP, 15 octobre 2026 :
+« monte-les en fonction de ce qu'on sait et ce que tu trouves »). **Pas sur le modèle d'un guide du
+gouvernement** (JP : « c'est mal fait, toi t'es meilleur ») : pas de liste de consignes génériques, mais les
+gestes de cette famille-là, dans leur ordre réel, avec le moment de chacun et le pourquoi en quelques mots.
+Les guides et les études servent à vérifier un fait, pas à copier une forme. La règle 1 tient : aucun
+chiffre sans source notée dans `/sources` et `suivi/`, `[À VÉRIFIER]` sinon.
 
 **Pas de municipalité, pas de code légal.** Aucune phrase sur un règlement municipal, une loi,
 un code, une norme de construction, un permis ou une obligation légale. Le livre sert le jour
