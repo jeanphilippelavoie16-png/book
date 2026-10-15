@@ -69,7 +69,7 @@ dans le garage.
    « Vidanger avant que la maison descende sous 5 °C : un tuyau plein fend en gelant. »
 3. **La condition avant le geste.** « Si l'eau est trouble, la filtrer avant de la désinfecter. »
 4. **Les étapes à l'infinitif**, comme le reste du livre : « Couper le disjoncteur principal. » La prose
-   (§2, §3, §9 hors étapes numérotées) dit « on » : « On coupe le disjoncteur avant de brancher. »
+   (section 2, section 3, section 9 hors étapes numérotées) dit « on » : « On coupe le disjoncteur avant de brancher. »
 5. **Le chiffre avec son unité**, en chiffres : 74 °C, 2 gouttes par litre, 48 h. Un chiffre se
    cherche à la source avant d'être écrit (règle 1 de `CLAUDE.md`). À défaut de chiffre, le **repère
    observable** : la couleur, le son, la consistance, ce que ça fait sous le doigt.
@@ -153,19 +153,19 @@ une bombe nucléaire pète. » ; « La bombe vient de tomber, on n'a pas encore 
 JP : « Dans les textes, y a beaucoup de répétition aussi, faut slaquer la répétition. »
 
 - **Un fait se dit une fois par chapitre**, à l'endroit où il sert. Ailleurs, un renvoi court
-  (« étape 12 », « §8 ») ou rien.
+  (« étape 12 », « section 8 ») ou rien.
 - **Chaque section apporte du neuf.** « En une ligne », « Quand l'utiliser », « Pourquoi ça marche »,
   la procédure, les points de contrôle, le danger et la variante d'urgence ne redisent pas ce qu'une
-  autre section a dit. Le §3 donne le mécanisme ; la procédure ne le réexplique pas, elle s'en sert.
+  autre section a dit. Le section 3 donne le mécanisme ; la procédure ne le réexplique pas, elle s'en sert.
 - **Les rappels de sécurité** du tableau de `CLAUDE.md` se disent dans l'étape où ils s'appliquent et
-  dans l'encadré du §8. Pas une troisième fois.
+  dans l'encadré du section 8. Pas une troisième fois.
 - **Un avertissement se dit une fois.** JP, sur « le barbecue ne rentre pas dans la maison » redit en
-  §9 après le §8 : « ON LE SAIT, ON L'A DÉJÀ DIT. » Une fois dans l'encadré danger ; ailleurs, rien, pas
+  section 9 après le section 8 : « ON LE SAIT, ON L'A DÉJÀ DIT. » Une fois dans l'encadré danger ; ailleurs, rien, pas
   même « (section 8) » au bout d'une phrase qui le redit.
 - **Le logigramme et la série orange ne redisent pas les avertissements.** JP, sur l'encadré « le réchaud
   du visiteur : génératrice, réchaud, chaufferette dehors » du logigramme du ch. 17 : « on l'a dit 1000
   fois, ça ». Le logigramme porte les décisions et les gestes ; le danger reste dans l'étape et dans
-  l'encadré du §8. Un encadré danger n'entre dans un logigramme que s'il change la décision (« S'il montre
+  l'encadré du section 8. Un encadré danger n'entre dans un logigramme que s'il change la décision (« S'il montre
   une arme ou s'il menace »).
 - **Pas de redite d'une phrase à l'autre** : la deuxième phrase qui reformule la première sort.
 - **Le même mot pour la même chose** reste (règle 6 plus haut) : on chasse l'idée répétée, pas le terme
@@ -215,6 +215,27 @@ même paragraphe, pour que la planche s'imprime sur la même page que son appel,
   `design/epreuves-livre/placements-tome-N.json`. Avant de couper une phrase, cherche-la dans ce
   fichier ; si elle y est, garde-la ou déplace l'ancre dans le même mouvement.
 
+## Ce que la relecture du 15 octobre change à la passe
+
+Le 15 octobre après-midi, JP a relu les premiers chapitres et logigrammes sortis de la passe (02, 04, 16, 17).
+Ses remarques ne sont pas des cas isolés : chacune montre un défaut de méthode, et la passe le corrige
+maintenant partout, chapitre et logigramme.
+
+| Ce que JP a vu | Le défaut de méthode | Ce que la passe fait maintenant |
+| --- | --- | --- |
+| « Régler dehors : un bol qui revient… » : « personne parle comme ça » ; « Refus, il a où aller » : « wtf » | La passe a mesuré le nombre de mots. À force de couper, le texte est devenu un code. | Elle mesure la clarté (règle 0). Chaque phrase se lit à voix haute ; le nombre de mots peut monter. Une branche de logigramme répond à une question par oui ou non. |
+| « Ceux qui étaient dehors laissent à la porte la couche du dessus… » : « fucking bizarre » | Sujet en pronom, ordre renversé, consigne au présent qui décrit. | Règle 11, et le script les signale. |
+| Lire le thermomètre et le vent quand on cogne la nuit : « on se fait réveiller, oublie ça le thermomètre » | La série orange a été bâtie depuis les faits du chapitre, pas depuis la scène. | **Jouer la scène** avant d'écrire chaque geste urgent : qui, où, à quelle heure, avec quoi sous la main, réveillé ou pas. Un geste que cette personne ne fera pas à ce moment-là sort de la série orange et va là où il se fait (« Avant, une fois », ou après). |
+| « Le porter à bras demande 18 à 24 personnes » : « c'est beaucoup de monde » | Un chiffre sourcé qui ne s'applique pas à une famille. Il ne servait qu'à dire que ça ne marche pas. | Un chiffre reste s'il change ce que **cette famille-là** fait. Sinon on dit ce qui marche (« on le tire en traîneau »). |
+| « Sortir tout le monde » devant le CO, pendant les retombées : « on sort même si c'est une bombe nucléaire ? » | Une consigne de sécurité écrite sans source, qui contredisait le danger principal du chapitre. | Chaque consigne de sécurité d'un chapitre d'urgence se confronte aux autres dangers du **même** scénario. Si deux dangers tirent en sens contraire, une source dit lequel gagne et quoi faire ; sinon `[À VÉRIFIER]`. Vérifier aussi que le chapitre n'a pas déjà la solution (le battant du section 9 pour aérer). |
+| L'encadré du réchaud du visiteur : « on l'a dit 1000 fois » | Le logigramme redisait un avertissement déjà dans l'étape et dans l'encadré danger. | Le logigramme porte les décisions et les gestes. Un avertissement n'y entre que s'il change une décision. |
+| « Restez au poteau ? » puis « je comprends le poteau, c'est en préparation » | Un objet préparé d'avance est utilisé dans l'urgence sans être expliqué. | Quand un geste urgent se sert d'une chose préparée, il la nomme en quelques mots là où il s'en sert (« le poteau planté d'avance à quelques pas de la porte »), ou il nomme un repère qui existe toujours. |
+| « Est-ce qu'on a une version de jour, l'été ? » | Un logigramme écrit pour la nuit d'hiver alors que le chapitre vaut à l'année ; une procédure (ch. 16) écrite pour la neige seulement. | Chaque procédure d'urgence vaut à l'année, ou dit pour quand elle est écrite. Ce qui ne vaut que l'hiver ou la nuit se marque « l'hiver », « la nuit ». Il manque la saison ? On l'écrit avec ses sources, d'abord dans le chapitre, ensuite dans le logigramme. |
+| « §8, c'est quoi l'affaire avant le 8 ? » | Une notation que le lecteur n'emploie pas. | « section 8 », jamais « § ». Les abréviations s'écrivent en entier la première fois. |
+
+Ces neuf points s'ajoutent aux règles de ce skill ; ils se vérifient à l'étape 6 de la passe, en plus de la
+lecture à voix haute.
+
 ## La passe sur un chapitre
 
 1. **Lis** `CLAUDE.md`, `gabarit-chapitre.md` et le chapitre en entier. Repère ses ancres de planches.
@@ -234,7 +255,13 @@ même paragraphe, pour que la planche s'imprime sur la même page que son appel,
    Il dit ce qui a disparu : chiffres avec unité, renvois de chapitre, notes, figures, étapes
    numérotées, rappels de sécurité, ancres de planches. **Tout ce qu'il signale se justifie ou se remet.**
 6. **Relis à voix haute**, une section à la fois. Une phrase qui accroche à l'oral se réécrit.
-7. **Le rapport** : mots avant et après, tirets avant et après, et les coupes dont tu doutes.
+   Puis repasse le tableau « Ce que la relecture du 15 octobre change à la passe », ligne par ligne. Dans
+   un chapitre d'urgence : joue la scène de chaque geste orange, confronte chaque consigne de sécurité
+   aux autres dangers du scénario, et vérifie la saison et le moment.
+7. **Le logigramme**, s'il y en a un, se relit avec les mêmes règles que le chapitre. Il ne dit rien que le
+   chapitre ne dit pas, il ne redit pas les avertissements, et ses branches répondent à des questions par
+   oui ou non.
+8. **Le rapport** : mots avant et après, tirets avant et après, et les coupes dont tu doutes.
 
 ## Avant de rendre
 

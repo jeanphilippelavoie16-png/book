@@ -55,6 +55,23 @@ scratchpad de la session ne survit pas au conteneur). Tout ce qui était sur le 
 
 État au moment de la pause : voir la ligne « Arrêté » ci-dessous, mise à jour en arrêtant.
 
+**Samedi, dans cet ordre** (JP, 15 octobre : « samedi pour les deux, pis les recommandations, je veux que tu
+les analyses et que tu les appliques à ta logique de refonte ») :
+
+1. **« § » devient « section »** partout : 1 599 signes dans 109 chapitres, 43 dans les logigrammes, plus les
+   légendes de planches s'il y en a (JP : « §8, c'est quoi l'affaire avant le 8 ? »). Par script, avant toute
+   passe, puisque les passes touchent le même texte. `controle.py` les liste.
+2. **Ch. 16 à l'année** : la sortie d'un blessé est écrite pour la neige seulement (traîneau). Chercher et
+   sourcer l'été (canot, VTT, toile ou travois dans le sentier, l'abriter sur place et aller chercher de l'aide ;
+   une première recherche n'a rien donné de solide), l'écrire dans le chapitre, puis refaire le logigramme du 16.
+   ≈ 0,3 à 0,5 M.
+3. **La refonte du tome 1 avec la méthode corrigée** : la section « Ce que la relecture du 15 octobre change à
+   la passe » du skill `ecriture` analyse les remarques de JP et en fait des vérifications de la passe (règle 0
+   à voix haute, jouer la scène des gestes orange, un chiffre qui s'applique à cette famille, chaque consigne de
+   sécurité confrontée aux autres dangers du scénario, pas d'avertissement redit dans le logigramme, l'objet
+   préparé expliqué là où il sert, la saison et le moment, « section » et pas « § »). Elle s'applique à tous les
+   chapitres du tome 1, ceux déjà passés compris, et à leurs logigrammes.
+
 **Arrêté le 15 octobre vers 15 h** (JP : « mets en pause le reste, on règle les points qu'on est en train de
 parler »). Tous les agents arrêtés, leurs fichiers et leurs ancrages poussés.
 

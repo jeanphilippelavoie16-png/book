@@ -65,6 +65,8 @@ def tics(L):
         for w in MOTS_VIDES:
             if mot(w).search(l):
                 out.append((i, "vide", w, l))
+        for m in re.finditer(r"§\s?\d+", l):
+            out.append((i, "section", m.group(0), l))
         if not l.lstrip().startswith("|"):
             for r in TOURNURE:
                 for m in re.finditer(r, l):
@@ -166,6 +168,7 @@ def main():
     print(f"{len(texte.split())} mots, {texte.count('—') + texte.count('–')} tirets\n")
     for cat, titre in [("tiret", "Tirets"), ("banni", "Mots bannis"), ("IA", "Vocabulaire d'IA"),
                        ("age", "Âges de 4 ou 6 ans (à juger : l'âge des enfants de JP sort, un âge qui est un fait reste)"),
+                       ("section", "Signes § à écrire « section N » (JP : « c'est quoi l'affaire avant le 8 »)"),
                        ("tournure", "Tournures bizarres : sujet en « ceux qui », ordre renversé (à juger, règle 11)"),
                        ("relief", "Mises en relief et oppositions (à juger)"), ("vide", "Mots vides (à juger)")]:
         x = [r for r in t if r[1] == cat]

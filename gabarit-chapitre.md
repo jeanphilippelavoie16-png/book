@@ -38,7 +38,7 @@ Sans cette section, le lecteur applique une recette ; avec elle, il comprend et 
 
 **Seulement l'indispensable** — ce sans quoi la procédure échoue ou devient dangereuse —
 en liste, **une ligne par item, 15 à 20 mots** : le nom en gras, puis ce qu'il fait ou ce
-que c'est. Un substitut seulement s'il est vital, sinon « (→ §9) ». Pas de tableau, pas de
+que c'est. Un substitut seulement s'il est vital, sinon « (→ section 9) ». Pas de tableau, pas de
 gants, d'étiquettes ni de ce que tout le monde a déjà. JP, 27 septembre 2026 : « c'est long
 pour rien ». Le format validé :
 
@@ -53,7 +53,7 @@ ASTM, ni ULC, ni ANSI. Si un détail mérite de survivre, c'est celui qui dit ce
 chose **fait** : le pantalon de coupe bourre la chaîne et l'arrête. Ça change un
 comportement ; un numéro, non.
 
-Le jour où l'item n'est pas là, c'est la variante d'urgence (§9) qui sert : c'est elle qui
+Le jour où l'item n'est pas là, c'est la variante d'urgence (section 9) qui sert : c'est elle qui
 fabrique ou remplace, pas la liste.
 
 ## 5. Procédure
