@@ -68,7 +68,7 @@ module.exports = (h) => {
     // le sol
     out.push(h.ligne(6, g.Y, z.l - 6, g.Y, A.arete));
     // le cuir pris dans les mâchoires : deux épaisseurs qui dépassent du haut
-    const cy0 = LONG - MAC + 8, cy1 = LONG + 34;
+    const cy0 = LONG - MAC + 8, cy1 = LONG + 50;
     out.push(h.chemin([P([-CUIR / 2, cy0]), P([-CUIR / 2, cy1]), P([CUIR / 2, cy1]), P([CUIR / 2, cy0])], A.blanc, true));
     out.push(h.chemin([P([-CUIR / 2, LONG]), P([-CUIR / 2, cy1]), P([CUIR / 2, cy1]), P([CUIR / 2, LONG])], A.arete));
     out.push(h.ligne(...P([0, LONG]), ...P([0, cy1]), A.detail));
@@ -92,10 +92,10 @@ module.exports = (h) => {
 
   // ─── Le pied, en gros ──────────────────────────────────────────────────────────────────────────────
   const geoPied = z => {
-    const s = Math.min((z.l - 30) / 80, (z.h - 40) / 230);
+    const s = (z.l - 34) / 80;
     const X = z.l / 2, Y = z.h - 20;
     const P = ([x, y]) => [X + x * s, Y - y * s];
-    return { s, X, Y, P, haut: 215 };
+    return { s, X, Y, P, haut: Math.min(320, (z.h - 30) / s) };
   };
   const dessinPied = z => {
     const g = geoPied(z), { P, s } = g, out = [];
@@ -172,7 +172,8 @@ module.exports = (h) => {
     const Kp = [K[0] - 4, K[1] + 2];
     const Fp = [Kp[0] + (sol - Kp[1]) * Math.tan(incl), sol];
     const T = [Fp[0] + u[0] * LONG * E, Fp[1] + u[1] * LONG * E];
-    const cibles = { P: [T[0] + 10, T[1] + 8], L: [T[0] - 8, T[1] + 4] };
+    // les mains de part et d'autre de l'ouvrage : la proche tire son aiguille vers l'avant, la loin vers l'arrière
+    const cibles = { P: [T[0] + 30, T[1] - 4], L: [T[0] - 26, T[1] + 2] };
     const angles = poserBras(base, cibles, { P: 70, L: 80 });
     return { E, sol, base, K, u, Fp, T, cibles, angles: Object.assign({}, base.angles, angles), incl };
   };
@@ -183,8 +184,11 @@ module.exports = (h) => {
     const Q = ([x, y]) => [Fp[0] + u[0] * y * E + n[0] * x * E, Fp[1] + u[1] * y * E + n[1] * x * E];
     const serre = () => {
       const o = [];
-      const cuir = [[-CUIR / 2, LONG - 20], [-CUIR / 2, LONG + 46], [CUIR / 2, LONG + 46], [CUIR / 2, LONG - 20]].map(Q);
+      const cuir = [[-CUIR / 2, LONG - 20], [-CUIR / 2, LONG + 70], [CUIR / 2, LONG + 70], [CUIR / 2, LONG - 20]].map(Q);
       o.push(h.chemin(cuir, A.blanc, true), h.chemin(cuir, A.arete, true));
+      // les deux fils du point sellier, du trou vers chaque main
+      const trou = Q([0, LONG + 30]);
+      o.push(h.ligne(trou[0], trou[1], g.cibles.L[0], g.cibles.L[1], A.detail));
       const coin = [[-C_BAS / 2, 0], [-C_HAUT / 2, COIN], [C_HAUT / 2, COIN], [C_BAS / 2, 0]].map(Q);
       o.push(h.chemin(coin, A.blanc, true), h.chemin(coin, A.arete, true));
       for (const c of [-1, 1]) {
@@ -192,14 +196,15 @@ module.exports = (h) => {
         const poly = L.int.concat(L.ext.slice().reverse()).map(Q);
         o.push(h.chemin(poly, A.blanc, true), h.chemin(poly, A.arete, true));
       }
-      for (let i = 0; i <= 4; i++) {
-        const y = LIG[0] + (LIG[1] - LIG[0]) * i / 4, d = demiEcart(y) + ep(y);
-        o.push(h.ligne(...Q([-d, y]), ...Q([d, y + 4]), A.detail));
+      for (let i = 0; i <= 3; i++) {
+        const y = LIG[0] + 6 + (LIG[1] - LIG[0] - 12) * i / 3, d = demiEcart(y) + ep(y);
+        o.push(h.ligne(...Q([-d, y]), ...Q([d, y + 5]), A.detail));
       }
       return o.join('\n');
     };
+    const filP = () => { const n2 = [Math.cos(incl), -Math.sin(incl)]; const t = [Fp[0] + u[0] * (LONG + 30) * E, Fp[1] + u[1] * (LONG + 30) * E]; return h.ligne(t[0], t[1], g.cibles.P[0], g.cibles.P[1], A.detail); };
     // le siège : une bûche debout sous la fesse
-    const c = F.corps(Object.assign({}, g.base, { angles: g.angles, objetL: serre() }));
+    const c = F.corps(Object.assign({}, g.base, { angles: g.angles, objetL: serre(), objetP: filP() }));
     const sx = c.siege[0], sy = c.siege[1];
     out.push(h.rect(sx - 40, sy, 74, g.sol - sy, A.loin), h.rect(sx - 40, sy, 74, g.sol - sy, A.arete));
     out.push(h.ligne(6, g.sol, z.l - 6, g.sol, A.arete));

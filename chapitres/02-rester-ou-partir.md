@@ -97,8 +97,8 @@ commencer à l'étape 2.
  on aère.
 6. **Aérer.** Ouvrir de dehors toutes les portes. Laisser l'avertisseur dedans : il ne mesure
  que l'air où il est, et emporté dehors il se tait sans rien prouver.
-7. **Rentrer quand la source est coupée, la maison aérée et l'avertisseur revenu à la normale**
- : voyant qui clignote seul, sans son. S'il sonne encore, appuyer sur son bouton en passant et
+7. **Rentrer quand la source est coupée, la maison aérée et l'avertisseur revenu à la normale
+ :** voyant qui clignote seul, sans son. S'il sonne encore, appuyer sur son bouton en passant et
  ressortir : s'il se remet à sonner dans les 6 minutes, le CO est encore fort. Un afficheur qui
  montre un chiffre, quel qu'il soit, dit qu'il reste du CO. L'appareil fonctionne entre 4,4 et
  37,8 °C : dans une maison aérée descendue plus bas, son silence ne prouve rien ; on referme et
