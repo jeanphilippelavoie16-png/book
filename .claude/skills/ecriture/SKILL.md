@@ -83,6 +83,23 @@ dans le garage.
 | La précision que le lecteur a déjà | « dans la maison, à l'intérieur » | « dans la maison » |
 | « C'est… qui / que » de mise en relief | « C'est la cendre qui tient le mieux. » | « La cendre tient le mieux. » |
 
+### La répétition
+
+JP : « Dans les textes, y a beaucoup de répétition aussi, faut slaquer la répétition. »
+
+- **Un fait se dit une fois par chapitre**, à l'endroit où il sert. Ailleurs, un renvoi court
+  (« étape 12 », « §8 ») ou rien.
+- **Chaque section apporte du neuf.** « En une ligne », « Quand l'utiliser », « Pourquoi ça marche »,
+  la procédure, les points de contrôle, le danger et la variante d'urgence ne redisent pas ce qu'une
+  autre section a dit. Le §3 donne le mécanisme ; la procédure ne le réexplique pas, elle s'en sert.
+- **Les rappels de sécurité** du tableau de `CLAUDE.md` se disent dans l'étape où ils s'appliquent et
+  dans l'encadré du §8. Pas une troisième fois.
+- **Pas de redite d'une phrase à l'autre** : la deuxième phrase qui reformule la première sort.
+- **Le même mot pour la même chose** reste (règle 6 plus haut) : on chasse l'idée répétée, pas le terme
+  technique.
+
+Le script de contrôle liste les suites de mots qui reviennent dans le chapitre ; chacune se juge.
+
 ### Le tiret
 
 **Aucun tiret (— ou –) comme ponctuation dans une phrase.** Le livre en avait 5 665. Selon le cas :
@@ -142,6 +159,7 @@ voix haute ou qu'on lit sur une étiquette.
 - [ ] Plus une seule phrase qui parle du livre, du chapitre ou de la page.
 - [ ] Plus d'image, de scène, de personnification, de chute en formule.
 - [ ] Zéro tiret de ponctuation.
+- [ ] Chaque fait dit une seule fois ; les redites signalées par le script sont réglées.
 - [ ] Zéro « village », zéro « char » (on écrit « auto »).
 - [ ] Le contrôle des invariants ne signale rien d'inexpliqué.
 - [ ] Les ancres de planches sont intactes.

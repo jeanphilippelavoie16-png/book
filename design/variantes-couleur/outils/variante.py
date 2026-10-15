@@ -60,8 +60,8 @@ def _uri(s):
     return f'url("data:image/svg+xml,{urllib.parse.quote(s, safe=" =:/,.-")}")'
 
 def _teinte(s, c):
-    """Le SVG dans sa couleur d'impression : tout le noir (#000) devient c. Le blanc reste blanc, sauf pour le
-    triangle de danger, qui s'imprimait plein sous le masque et s'imprime plein ici aussi."""
+    """Le SVG dans sa couleur d'impression : tout le noir (#000) devient c. Le blanc reste blanc : le « ! » du
+    triangle de danger se voit (JP, 15 octobre 2026 ; sous l'ancien masque, le triangle sortait plein)."""
     return re.sub(r"#000(?![0-9A-Fa-f])", c, s)
 
 def _jetons(texte, sel):
@@ -83,7 +83,7 @@ def icon_vars():
     rac = _jetons(tpl, ":root")
     fixes = {"k": rac["--k"], "g": rac["--k70"], "w": "#fff"}
     v = [f"--i-{k}-{suf}:{_uri(_teinte(ICONES[k], c))}" for k in LIEUX for suf, c in fixes.items()]
-    rouge = _teinte(ICONES["danger"], rac["--red"]).replace("#fff", rac["--red"])
+    rouge = _teinte(ICONES["danger"], rac["--red"])
     v.append(f"--i-danger-red:{_uri(rouge)}")
     css = "body{" + base + ";" + ";".join(v) + "}"
     coul = open(os.path.join(HERE, "couleur.css"), encoding="utf-8").read()

@@ -63,6 +63,34 @@ def tics(L):
     return out
 
 
+VIDES_NGRAM = set("le la les l un une des de du d à au aux et ou en on ne pas que qui qu ce c est se s sur dans par pour avec il elle y a".split())
+
+
+def redites(L, n=6, ecart=3):
+    """Suites de n mots qui reviennent dans le chapitre, à plus de `ecart` lignes l'une de l'autre."""
+    vus, out = {}, []
+    mots = []
+    for i, l in enumerate(L, 1):
+        if l.lstrip().startswith("|") or l.startswith("#") or l.startswith("[^"):
+            continue
+        for w in re.findall(r"[\wÀ-ÿ'’]+", l.lower()):
+            mots.append((w.replace("’", "'"), i))
+    for k in range(len(mots) - n + 1):
+        fen = tuple(w for w, _ in mots[k:k + n])
+        if sum(w not in VIDES_NGRAM for w in fen) < 3:
+            continue
+        ligne = mots[k][1]
+        if fen in vus and ligne - vus[fen] > ecart:
+            out.append((vus[fen], ligne, " ".join(fen)))
+        vus.setdefault(fen, ligne)
+    # une redite longue donne plusieurs fenêtres : on garde la première de chaque paire de lignes
+    vu, res = set(), []
+    for a, b, t in out:
+        if (a, b) not in vu:
+            vu.add((a, b)); res.append((a, b, t))
+    return res
+
+
 def norme(t):
     return re.sub(r"[\s  ]+", " ", t).strip()
 
@@ -126,6 +154,12 @@ def main():
         print(f"## {titre} ({len(x)})")
         for i, _, m, l in x[:400]:
             print(f"  l.{i} [{m.strip()}] {l.strip()[:110]}")
+        print()
+    r = redites(L)
+    if r:
+        print(f"## Redites (à juger : un renvoi, ou on coupe) ({len(r)})")
+        for a, b, t in r[:60]:
+            print(f"  l.{a} et l.{b} : « {t} »")
         print()
     perdues = ancres(chemin, texte)
     if perdues:

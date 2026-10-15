@@ -222,6 +222,9 @@ doit être informatif, partout.** Ce qui saute :
   s'appliquent : il n'y a ni entrée électrique, ni aqueduc, ni égout » (JP : « inutile, on le sait ») ;
 - la conséquence évidente d'un fait qu'on vient de dire : « un tuyau fend parce que l'eau prend du
   volume en gelant : un tuyau vide ne fend pas » (JP : « no shit ») ;
+- la répétition (JP : « faut slaquer la répétition ») : un fait se dit une fois par chapitre, là où il
+  sert ; ailleurs, un renvoi court. Les rappels de sécurité se disent dans l'étape qui les concerne et
+  dans l'encadré danger, pas une troisième fois ;
 - la chute en formule au bout d'un paragraphe : « juste une impression », « La plus courte commande »,
   « pas quand le tuyau siffle », « C'est un motif de partir que rien de visible ne signale » ;
 - l'opposition fabriquée (« pas X, mais Y », « au village, c'est… ; au chalet, c'est… ») quand elle
