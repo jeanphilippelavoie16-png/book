@@ -8,11 +8,12 @@
 // pot ». Pour qu'un pot plein ne bascule pas, le crochet fait plus d'un demi-tour autour du col : un
 // anneau ouvert d'un côté, qu'on glisse de côté sous la bague, le manche qui monte de l'autre côté.
 // C'est la forme dessinée ; le chapitre ne la détaille pas plus.
-// La pince : « deux baguettes de bois franc entaillées en pince et serrées d'une main » : les deux
-// entailles se font face et prennent la bague par-dessous. Sans main : le renvoi dit la prise.
+// La pince de deux baguettes entaillées n'est pas dessinée : le chapitre n'en dit pas la forme, et deux
+// baguettes droites qui se rejoignent dans la main ne passent pas sous la bague sans des mâchoires
+// courbées qu'il faudrait inventer.
 // La charte : en coupe, la marmite en tôle mince (aplat noir), l'eau en trait, la paroi d'en face en
 // gris loin au-dessus de l'eau. Le rouge : la sortie du pot à la verticale (le geste) ; le dessous
-// du pot, posé sur la grille et pas sur le fond (point à contrôler) ; les deux baguettes qu'on serre.
+// du pot, posé sur la grille et pas sur le fond (point à contrôler).
 module.exports = (h) => {
   const A = h.a;
   const r1 = v => Math.round(v * 10) / 10;
@@ -113,7 +114,7 @@ module.exports = (h) => {
       if (Math.abs(Math.hypot(a[0] - b[0], a[1] - b[1]) - pas) < 1) liens.push([(a[0] + b[0]) / 2, (a[1] + b[1]) / 2, Math.atan2(b[1] - a[1], b[0] - a[0])]);
     }));
     liens.forEach(([x, y, t]) => {
-      const ux = Math.cos(t), uy = Math.sin(t), nx = -uy, ny = ux, L = (ra - ri) * 2 + 3, w = 1.6;
+      const ux = Math.cos(t), uy = Math.sin(t), nx = -uy, ny = ux, L = (ra - ri) * 2 + 9, w = 2.2;
       out.push(h.path(poly([[x - ux * w - nx * L / 2, y - uy * w - ny * L / 2], [x + ux * w - nx * L / 2, y + uy * w - ny * L / 2], [x + ux * w + nx * L / 2, y + uy * w + ny * L / 2], [x - ux * w + nx * L / 2, y - uy * w + ny * L / 2]]), A.plein));
     });
     return { svg: out.join('\n'), cx, cy, Rm, ra, centres, liens };
@@ -171,11 +172,11 @@ module.exports = (h) => {
   const leve = z => {
     const out = [];
     const s = Math.min((z.h - 84) / 128, (z.l - 40) / 90);
-    const cx = z.l * 0.34, yb = z.h - 6;
+    const cx = z.l * 0.46, yb = z.h - 6;
     const p = pot(cx, yb, s);
     out.push(p.svg);
     const fil = 4;                                     // le gros fil de fer, dessiné
-    const ry = 5, rx = (RN + 3) * s, yA = p.yCol + 1;
+    const ry = 8, rx = (RN + 3) * s, yA = p.yCol + 1;
     // l'arrière de l'anneau, caché par le col
     out.push(h.path(`M${r1(cx - rx)} ${r1(yA)} A${r1(rx)} ${ry} 0 0 1 ${r1(cx + rx)} ${r1(yA)}`, A.cache));
     // le manche, de la gauche de l'anneau jusqu'à la boucle du haut, et le devant de l'anneau
@@ -188,8 +189,12 @@ module.exports = (h) => {
     // le geste : sortir le pot à la verticale
     out.push(h.geste(`M${r1(cx + rx + 30)} ${r1(p.yBague + 40)} L${r1(cx + rx + 30)} ${r1(p.yBague - 34)}`));
 
+    return { svg: out.join('\n'), p, cx, rx, yA, xm, yM, s };
+  };
+  const leveDessus = z => {
+    const out = [], fil = 4;
     // l'anneau vu de dessus, autour du col
-    const ox = z.l - 52, oy = 70, Rc = 26, Ra = Rc + 5;
+    const ox = z.l * 0.5, oy = z.h * 0.42, Rc = 40, Ra = Rc + 6;
     out.push(h.cercle(ox, oy, Rc + 7, A.cache));       // la bague, plus large, au-dessus (cachée)
     out.push(h.cercle(ox, oy, Rc, blanc(A.arete)));    // le col
     const a0 = Math.PI * 0.28;                           // demi-ouverture, vers la droite
@@ -197,52 +202,19 @@ module.exports = (h) => {
     for (let i = 0; i <= 40; i++) { const t = a0 + (2 * Math.PI - 2 * a0) * i / 40; arc.push([ox + Ra * Math.cos(t), oy + Ra * Math.sin(t)]); }
     out.push(h.formes.corde(arc, { ep: fil, debut: 'coupe', fin: 'coupe', trait: 'arete' }));
     out.push(h.cercle(ox - Ra, oy, fil / 2 + 0.8, A.plein));   // le manche qui monte, vu par le bout
-    return { svg: out.join('\n'), p, cx, rx, yA, xm, yM, ox, oy, Ra, Rc, s };
+    return { svg: out.join('\n'), ox, oy, Ra, Rc };
   };
   const leveRenvois = z => {
     const l = leve(z);
     return [
       { n: 6, rond: [l.xm + 58, l.yM + 6], cible: [l.xm + 28, l.yM + 12], texte: 'gros fil de fer plié' },
       { n: 7, rond: [l.cx - l.rx - 30, l.yA + 34], cible: [l.cx - l.rx * 0.45, l.yA + 6], texte: 'l’anneau prend sous le col' },
-      { n: 8, rond: [l.ox, l.oy + l.Ra + 30], cible: [l.ox, l.oy + l.Ra + 3], texte: 'ouvert d’un côté, plus d’un demi-tour' },
     ];
   };
-
-  // ─── Vue 5 : la pince de deux baguettes ──────────────────────────────────────────────────────
-  const pince = z => {
-    const out = [];
-    const s = Math.min((z.h - 40) / 150, (z.l - 30) / 100);
-    const cx = z.l / 2, yb = z.h + 40 * s;            // le pot coupé par le bas de la vue
-    const p = pot(cx, yb, s);
-    const clip = 'vue-78-41-pince';
-    out.push(`<clipPath id="${clip}"><rect x="0" y="0" width="${r1(z.l)}" height="${r1(z.h - 2)}"/></clipPath>`);
-    out.push(`<g clip-path="url(#${clip})">${p.svg}</g>`);
-    // les deux baguettes, de part et d'autre de la bague, chacune entaillée en face du col
-    const d = 9 * s, top = 10, yE = p.yCol;            // épaisseur des baguettes ; l'entaille, au col
-    [-1, 1].forEach(sg => {
-      const xi = cx + sg * (RN + 0.5) * s;            // la face intérieure, au fond de l'entaille
-      const xf = cx + sg * (RBague + 1) * s;          // la face intérieure, hors de l'entaille
-      const xe = xf + sg * d;                          // la face extérieure
-      const ye0 = yE + 2.5 * s, ye1 = yE - 4 * s;      // l'entaille : son bas, son haut (contre la bague)
-      const ybas = yE + 22 * s;
-      const pts = [[xe, top], [xe, ybas], [xi, ybas - 4 * s], [xi, ye0], [xf, ye1], [xf, top]];
-      out.push(h.path(poly(pts), blanc(A.contour)));
-      out.push(h.path(`M${r1(xe - sg * d * 0.45)} ${r1(top + 6)} L${r1(xe - sg * d * 0.5)} ${r1(ye1 - 10)}`, A.fin));
-    });
-    // le geste : serrer les deux baguettes l'une contre l'autre
-    const yG = top + 34;
-    [-1, 1].forEach(sg => {
-      const x0 = cx + sg * ((RBague + 1) * s + d + 30), x1 = cx + sg * ((RBague + 1) * s + d + 5);
-      out.push(h.geste(`M${r1(x0)} ${r1(yG)} L${r1(x1)} ${r1(yG)}`));
-    });
-    return { svg: out.join('\n'), p, cx, d, yE, s, top, yG };
-  };
-  const pinceRenvois = z => {
-    const q = pince(z);
-    const xg = q.cx - (RBague + 1) * q.s - q.d;
+  const leveDessusRenvois = z => {
+    const l = leveDessus(z);
     return [
-      { n: 9, rond: [16, q.yE + 46], cible: [q.cx - (RN + 0.5) * q.s - 1, q.yE + 2], texte: 'deux baguettes entaillées' },
-      { n: 10, rond: [16, q.top + 8], cible: [xg - 1, q.top + 14], texte: 'serrées d’une main' },
+      { n: 8, rond: [l.ox, l.oy + l.Ra + 34], cible: [l.ox, l.oy + l.Ra + 3], texte: 'ouvert d’un côté, plus d’un demi-tour' },
     ];
   };
 
@@ -252,18 +224,18 @@ module.exports = (h) => {
     desc: 'En coupe, une marmite de bain d’eau bouillante : au fond, une grille d’anneaux de pots ; les pots posés dessus sans se toucher ; l’eau passe sous les pots '
       + 'et couvre les couvercles d’au moins une hauteur de main ; la marmite est couverte. À côté, la grille vue de dessus : des anneaux de pots en nid d’abeilles, '
       + 'liés au fil de fer à chaque contact ; puis l’autre grille : des baguettes croisées sur deux rangs, ligaturées à chaque croisement. '
-      + 'En bas, le lève-pots plié dans du gros fil de fer : un anneau ouvert d’un côté, glissé sous la bague du pot, et un manche qui finit en boucle ; on sort le pot à la verticale. '
-      + 'Enfin, la pince de deux baguettes de bois franc, entaillées en face l’une de l’autre, qui prennent la bague par-dessous et qu’on serre d’une main.',
+      + 'En bas, le lève-pots plié dans du gros fil de fer : un anneau ouvert d’un côté, glissé sous la bague du pot, et un manche qui finit en crochet pour la main ; on sort le pot à la verticale. '
+      + 'À côté, l’anneau vu de dessus autour du col : il en fait plus d’un demi-tour.',
     format: 'pleine',
-    disposition: [['marmite'], ['anneaux', 'claie'], ['leve', 'pince']],
+    disposition: [['marmite'], ['anneaux', 'claie'], ['leve', 'leveDessus']],
     hauteurs: [1.1, 0.75, 1.25],
-    largeurs: [[1], [1, 1], [1.25, 1]],
+    largeurs: [[1], [1, 1], [1.2, 1]],
     vues: {
       marmite: { titre: 'Le bain, en coupe', dessin: z => marmite(z).svg, renvois: marmiteRenvois },
       anneaux: { titre: 'La grille d’anneaux, vue de dessus', dessin: z => anneaux(z).svg, renvois: anneauxRenvois },
       claie: { titre: 'Sans anneaux : la claie', dessin: z => claie(z).svg, renvois: claieRenvois },
       leve: { titre: 'Le lève-pots de fil de fer', dessin: z => leve(z).svg, renvois: leveRenvois },
-      pince: { titre: 'La pince de baguettes', dessin: z => pince(z).svg, renvois: pinceRenvois },
+      leveDessus: { titre: 'L’anneau, vu de dessus', dessin: z => leveDessus(z).svg, renvois: leveDessusRenvois },
     },
   };
 };

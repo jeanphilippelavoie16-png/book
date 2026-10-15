@@ -14,6 +14,9 @@ module.exports = (h) => {
   const f1 = v => Math.round(v * 10) / 10;
   const W = at => at.replace('fill="none"', 'fill="#FFFFFF"');
   const RAD = Math.PI / 180;
+  // Le chiffon en coupe : une trame tissée (des chevrons), distincte du bois hachuré à côté.
+  const TISSU = `<defs><pattern id="vue-tissu" width="6" height="4.5" patternUnits="userSpaceOnUse"><path d="M0 1 L3 3.5 L6 1" fill="none" stroke="#1A1A1A" stroke-width="0.5"/></pattern></defs>`;
+  const tissu = 'fill="url(#vue-tissu)" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round"';
 
   // ─── Le détail : le bouchon dans le renvoi, le pied de l'étai dessus (1 unité par mm) ─────────
   const D = z => {
@@ -45,23 +48,21 @@ module.exports = (h) => {
     o.push(h.fleche(`M${cx} ${yB + 200} L${cx} ${yB + 132}`, A.arete));
     o.push(h.fleche(`M${cx - 20} ${yB + 196} L${cx - 20} ${yB + 140}`, A.detail));
     o.push(h.fleche(`M${cx + 20} ${yB + 196} L${cx + 20} ${yB + 140}`, A.detail));
-    // le bouchon de bois, effilé, enveloppé du chiffon (les plis), enfoncé dans la gorge
-    const yBb = yB + 116, rBh = rT + 10, rBb = rT - 12;
-    const chiffon = [[cx - rBh - 4, yB + 6], [cx - rT + 1, yC + 4], [cx - rT + 1, yBb - 8], [cx - rBb - 6, yBb + 4], [cx + rBb + 6, yBb + 4], [cx + rT - 1, yBb - 8], [cx + rT - 1, yC + 4], [cx + rBh + 4, yB + 6]];
-    o.push(h.chemin(chiffon, W(A.arete), true));
-    for (const [a, b] of [[0.25, 0.42], [0.5, 0.66], [0.74, 0.86]]) {
-      const y0 = yB + 6 + a * (yBb - yB), y1 = yB + 6 + b * (yBb - yB);
-      o.push(h.path(`M${f1(cx - rT + 2)} ${f1(y0)} Q${f1(cx - rT + 8)} ${f1((y0 + y1) / 2)} ${f1(cx - rT + 3)} ${f1(y1)}`, A.fin));
-      o.push(h.path(`M${f1(cx + rT - 2)} ${f1(y0 + 6)} Q${f1(cx + rT - 8)} ${f1((y0 + y1) / 2 + 6)} ${f1(cx + rT - 3)} ${f1(y1 + 6)}`, A.fin));
-    }
-    o.push(h.chemin([[cx - rBh, yB], [cx + rBh, yB], [cx + rBb, yBb - 6], [cx - rBb, yBb - 6]], A.hachure('bois', 'contour'), true));
+    // le bouchon de bois, effilé, enveloppé du chiffon, enfoncé dans la gorge : en coupe, le chiffon est la bande
+    // tissée entre le bois et la fonte ; il serre à l'entrée de la gorge
+    const yBb = yB + 110, wT = rT + 4, wB = rT - 20, c = 6;
+    const w = y => wT + (wB - wT) * (y - yB) / (yBb - yB);
+    const yc0 = yB + 7;
+    o.push(TISSU);
+    o.push(h.path(`M${f1(cx - w(yc0) - c)} ${f1(yc0)} L${f1(cx - wB - c)} ${f1(yBb)} Q${f1(cx - wB - c)} ${f1(yBb + c)} ${f1(cx - wB)} ${f1(yBb + c)} L${f1(cx + wB)} ${f1(yBb + c)} Q${f1(cx + wB + c)} ${f1(yBb + c)} ${f1(cx + wB + c)} ${f1(yBb)} L${f1(cx + w(yc0) + c)} ${f1(yc0)} L${f1(cx + w(yc0))} ${f1(yc0 - 3)} L${f1(cx - w(yc0))} ${f1(yc0 - 3)} Z`, tissu));
+    o.push(h.chemin([[cx - wT, yB], [cx + wT, yB], [cx + wB, yBb], [cx - wB, yBb]], A.hachure('bois', 'contour'), true));
     // le pied de l'étai, posé sur le bouchon ; il monte et sort de la vue (cassure en haut)
     const rE = 44;
     const yH = 28;
     o.push(h.path(`M${f1(cx - rE)} ${yB} L${f1(cx - rE)} ${yH} L${f1(cx - rE / 3)} ${yH - 8} L${f1(cx + rE / 3)} ${yH + 6} L${f1(cx + rE)} ${yH - 4} L${f1(cx + rE)} ${yB}`, W(A.contour)));
     for (const dx of [-24, -6, 14, 30]) o.push(h.ligne(cx + dx, yH + 22, cx + dx + 1, yB - 18, A.detail));
     o.push(h.controle(cx, yB, 10));
-    return { svg: o.join('\n'), g: { ...g, yBb, yC } };
+    return { svg: o.join('\n'), g: { ...g, yBb, yC, wB, c } };
   };
 
   // ─── La scène : le sous-sol, la solive vue de côté (0,24 unité par mm) ─────────────────────────
@@ -127,7 +128,7 @@ module.exports = (h) => {
           const { cx, yB, rT, yF, yBb } = g;
           return [
             { n: 1, rond: [z.l - 14, yF - 60], cible: [cx + rT + 8, yB + 4], texte: 'grille ôtée, bouchon de bois enfoncé' },
-            { n: 2, rond: [14, yF + 150], cible: [cx - rT + 2, yBb - 30], texte: 'chiffon autour du bouchon' },
+            { n: 2, rond: [14, yF + 150], cible: [cx - g.wB - g.c / 2 - 6, yBb - 22], texte: 'chiffon autour du bouchon' },
             { n: 3, rond: [14, yB + 240], cible: [cx - 20, yB + 196], texte: 'le refoulement pousse par en dessous' },
           ];
         },

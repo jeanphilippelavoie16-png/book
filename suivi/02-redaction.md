@@ -206,3 +206,101 @@ Verdicts de `suivi/verifications/02-verifications.md`, appliqués au chapitre. 6
 - Décisions de la chaîne (mal de caribou, essai de la gomme d'épinette) : sans objet, le chapitre n'en parle pas.
 
 Compression §3 et §4 — 27 septembre 2026 : 1094 mots → 238 mots ; matériel coupé : carburant du véhicule (le plein reste aux étapes 5 et 9 et en §6, sa raison, l'eau gelée dans la conduite, en §9), antigel de plomberie non toxique (dosage à l'étape 9 ; « jamais d'antigel à moteur » déplacé à l'étape 9, point 5), tableau à remplir de la fiche de décision, paragraphe des trousses de 72 h et du véhicule (ch. 00b, 6, 15), substituts du tableau (déjà en §9) ; note [^1] supprimée avec son appel (les quatre signes restent à l'étape 6) ; renvoi de l'étape 1 au « tableau du matériel » corrigé.
+
+## Passe d'écriture, premières minutes et logigramme — 15 octobre 2026
+
+Numéros de chapitre **nouveaux** dans cette section. Passe du skill `ecriture` sur tout le chapitre (brief
+`passe-t1`, lot p1) ; série orange complétée selon `plan/premieres-minutes-inventaire.md` ; logigramme en double page
+sur le modèle du ch. 4.
+
+**Mots :** 7 334 avant, 6 056 après (`controle.py`). **Tirets :** 48 avant, 2 après (titre et ligne de tome).
+
+### La structure
+
+- Les étapes 1 et 2 sont **inversées** : l'alarme de CO ouvre la procédure (étape 1, `{.orange 10 min}`), la radio
+  passe à l'étape 2. Les étapes 3 à 10 gardent leur numéro, pour que les renvois du ch. 84 (« ch. 2, étape 9 » et
+  « étape 9, point 3 ») restent justes : l'étape 9 est toujours « si on part », son point 3 toujours « prévenir des
+  proches ».
+- Étapes 8 et 9 marquées `{.orange}` (« la première heure » se lit dans le titre) : elles se suivent et font un seul
+  encadré. L'étape 1 fait un deuxième encadré, en tête de la procédure. Entre les deux, la décision (étapes 2 à 7)
+  reste en noir : on a le temps de la lire.
+- Étape 8 remise dans l'ordre réel : la génératrice et ce qui brûle d'abord, la pièce chauffée ensuite.
+- Titres « Étape N — … » : le tiret devient deux-points.
+
+### L'étape 1 étoffée : les faits ajoutés et leur source
+
+| Fait au chapitre | Où | Source (fichier dans `sources/`) |
+| --- | --- | --- |
+| L'alarme de CO : quatre bips rapides et une pause, aux 5 s chez Kidde ; la fumée : trois bips longs ; un bip seul aux 30 s ou à la minute = pile faible ; un groupe de 2 à 5 bips = fin de vie | Note [^1] | `02-kidde-alarme-co-sortir-rentrer.md` (guide P3010L-CO-CA, PDF `15b-kidde-canada-guide-avertisseur-p3010l-co-ca.pdf`) ; `02-first-alert-bips-avertisseur-co.md` (+ `.html`) |
+| Plusieurs personnes avec maux de tête, nausée, étourdissements en même temps : CO jusqu'à preuve du contraire | Étape 1, intro ; §7 | Déjà au chapitre (§7) ; symptômes : `02-quebec-monoxyde-de-carbone.md` |
+| Sortir à l'air ; la porte reste ouverte ; ne pas s'arrêter pour ouvrir les fenêtres | Point 1 | Kidde (« outdoors or by an open door/window ») ; même consigne qu'aux ch. 3 et 7 |
+| Compter les têtes dehors | Point 2 | Kidde (« Do a head count ») |
+| Auto comme abri des enfants : échappement dégagé, fenêtre entrouverte, moteur une dizaine de minutes par 30 min | Point 3 ; §8 | Déjà sourcé au chapitre (Québec.ca, véhicule immobilisé) |
+| À l'air libre, la moitié du CO est encore dans le sang 3 à 5 h plus tard | Point 4 | `10-msss-monoxyde-demi-vie-cohb.md` (demi-vie de la COHb : 3 à 5 h à l'air ambiant) |
+| Chez un enfant, les signes ressemblent à de la fatigue ou à du mauvais caractère | Point 4 | Renvoi au ch. 40 (§8), qui porte le recoupement (symptômes du CO, Québec.ca ; anxiété de l'enfant, SCP) |
+| Inconscient qui respire : sur le côté, surveiller la respiration | Point 4 | `27-anzcor-surveillance-personne-gravement-malade.md` (ANZCOR 9.2.3 : « place the person on their side (Recovery Position) […] frequently check breathing ») |
+| SOS de la messagerie satellite ou balise | Point 4 | CLAUDE.md, exception du 24 septembre (les appareils pour être trouvé restent) ; ch. 14 |
+| Celui qui va couper la source n'est pas celui qui avait mal à la tête, et il marche : l'effort fait respirer plus vite et absorber plus de CO | Point 5 | `10-msss-monoxyde-demi-vie-cohb.md` (la quantité absorbée dépend du degré d'activité) ; même règle au ch. 7 |
+| Génératrice : au moins 6 m du bâtiment | Étape 8, point 1 ; §8 ; logigramme | `20-sante-canada-monoxyde-generatrice.md` (« au moins 6 mètres (20 pieds) »), ancien ch. 20 = ch. 15 |
+| L'avertisseur reste dedans : il ne mesure que l'air où il est | Point 6 | Déjà au chapitre (§8 d'avant : « cesse de renseigner dès qu'il est sorti avec nous ») |
+| Rentrer quand la maison est aérée et l'avertisseur revenu à la normale (voyant seul, sans son) ; bouton : resonne dans les 6 min = CO encore fort ; un chiffre affiché = du CO | Point 7 | Kidde (guide, conditions de retour, « within six minutes », mode normal) ; `15-kidde-reentree-et-affichage-co.md` (affichage) |
+| L'appareil fonctionne entre 4,4 et 37,8 °C | Point 7 | Kidde (« Operating Range ») ; recoupé par `15b-quebec-avertisseurs-monoxyde-plage-temperature.md` (ne pas poser sous 4,4 °C) |
+| Ne pas rallumer la source avant d'avoir réglé ce qui a fait le CO | Point 8 | Kidde (« Never restart the source of a CO problem until it has been corrected ») |
+
+Vérifiés pour l'inventaire : antigel par appareil (0,5 L, 1 L, 2 L) et 18 °C de remise en service,
+`02-quebec-fiche-technique-panne-plomberie.md` ; congélateur plein 48 h, réfrigérateur 4 à 6 h,
+`01-quebec-panne-courant-aliments.md` ; ébullition 1 min, `02-inspq-avis-ebullition.md` ; l'avertisseur muet (70 ppm,
+30 ppm, fonction première), `02-inspq-avertisseurs-co-delais.md`.
+
+### Corrigé
+
+- **Étape 3 et §9, aliment monté au-dessus de 4 °C plus de 2 h** : le texte disait « ça se cuisine tout de suite ou
+  ça se jette » (étape 3) et « ça se cuit tout de suite » (§9). La source du chapitre dit rejet
+  (`02-quebec-fiche-technique-panne-plomberie.md`), et le ch. 1 aussi (cuire seulement ce qui est resté à 4 °C ou
+  moins, `01-quebec-panne-courant-aliments.md`). Le chapitre dit maintenant : plus de 2 h au-dessus de 4 °C, on
+  jette ; dégelé mais resté à 4 °C ou moins, on cuit tout de suite (ch. 1). Le §9 renvoie à l'étape 3.
+
+### Ce qui a été retiré ou déplacé
+
+- « village » (×6) : « la ville », ou la phrase sort. « 4 et 6 ans » (×2) et « un enfant de 4 ans » (×2) : « de jeunes
+  enfants », « le plus jeune », ou la phrase sort.
+- Les citations de Québec.ca entre guillemets (réfrigérateur, congélateur, « au moins 18 °C », moteur « une dizaine
+  de minutes… », symptômes « dans les minutes suivant l'exposition », « Seul un avertisseur… ») : le fait reste, les
+  guillemets sortent (skill `ecriture`, les guillemets). La note du §6 de cette fiche (« ne pas paraphraser ») est
+  donc levée.
+- Formules et phrases sur le livre : « C'est le chapitre de la bascule », « La plus courte commande » (CLAUDE.md),
+  « c'est un motif de partir que rien de visible ne signale » (CLAUDE.md), « la possibilité de rester est décidée
+  des années d'avance par l'aménagement, pas le jour même par le courage », « Une décision collective reprise toutes
+  les vingt minutes est une décision qui n'existe pas », « Quelqu'un qui passe sans voir revient rarement »,
+  « C'est le coût le plus lourd de la variante, et le moins visible », « le pire bon conseil qui existe », « Le reste
+  du chapitre donne un substitut à tout ».
+- Redites : le budget de peau (étape 5) n'est plus recopié au §8 ni au §9 (renvoi « étape 5 ») ; les quatre signes
+  d'hypothermie ne sont plus qu'à l'étape 6 (renvois depuis le §2, le §6 et le §9) ; 28 à 32,2 °C reste au §8 seul ;
+  le congélateur de 48 h n'est plus redit aux étapes 5 et 9 ni au §9 ; « rien qui brûle ne rentre » est à l'étape 8
+  et au §8, plus au §9 ; la ligne « durée du chargement » du §6 (doublon du §7) et la ligne « l'eau coule encore »
+  du §7 (doublon du §6) sortent ; « ce qui ne se remplace pas, 2. la mesure de la température corporelle » sort
+  (c'est le §4 et le §9, « le thermomètre médical → »).
+- La chandelle dans l'habitacle passe du §9 à l'encadré du §8, avec le véhicule immobilisé : c'est le fait qui
+  surprend (la chandelle est dans toutes les trousses d'auto), il va une fois, dans l'encadré.
+- « *Alces americanus* » et « *Picea mariana* » sortent : décor dans un chapitre de décision.
+
+### Le logigramme
+
+`images/logigrammes/02-rester-ou-partir.json` → `.svg`, `.pdf`, `.png` ; version du livre
+`02-rester-ou-partir-livre.svg` (`--sans-entete --svg`). Contrôle : 0 erreur, 6 avis (pointes de flèche à
+l'étroit, 10 à 12 pt). Page de gauche : l'alarme de CO (étape 1, en orange) et la décision (étapes 2 à 4), avec deux
+encadrés à côté (hypothermie, §2 ; moins de clarté que le trajet, §2). Page de droite : la route (étape 5), où aller
+(étape 4), la première heure (étapes 8 et 9, en orange), la génératrice et la panne sur la route (§8), la fumée au
+chalet (étape 5), la reprise (étapes 7 et 10). Premier geste : zéro question depuis chacun des deux départs. Ancre
+proposée (`passe-t1/ancrages-p1.json`) : « Décider en moins d'une heure » (§1), comme le ch. 4.
+
+### Ce qui reste ouvert
+
+- §9, « une trace de motoneige se remplit en une heure de poudrerie » : le chiffre n'avait pas de source notée ; il
+  sort, la phrase dit « se remplit dans la poudrerie ».
+- §9, « l'écart [plancher, hauteur d'adulte] est plus grand dans un bâtiment qui refroidit que dans un bâtiment
+  chauffé » : sans source, et la physique n'est pas évidente (un poêle qui chauffe fait aussi des couches) ; coupé.
+- §9, jauge d'essence morte : « le repère de la fiche vaut ce que vaut l'odomètre » était obscur ; réécrit en « la
+  distance comptée aux repères du chemin plutôt qu'au compteur ». À relire par JP.
+- Ch. 84 renvoie trois fois à « ch. 2, §9 » pour l'échappement dégagé à chaque redémarrage : ce détail est maintenant
+  au §8 (le §9 garde « et l'échappement (§8) »). Les renvois tombent encore juste ; « ch. 2, §8 » serait plus précis.

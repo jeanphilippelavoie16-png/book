@@ -27,7 +27,7 @@ module.exports = (h) => {
   const at = (t, r, n) => [C[0] + U[0] * t + n[0] * r, C[1] + U[1] * t + n[1] * r];
   const L1 = at(80, 9, N1), R1 = at(80, 9, N2), R0 = at(0, 12, N2), E = at(80, 0, [0, 0]);
   const vueManche = z => {
-    const s = 1.72, ox = (z.l - 320 * s) / 2 + 5 * s, oy = 68 * s + 8;
+    const s = 1.8, ox = (z.l - 318 * s) / 2 + 2 * s, oy = (z.h - 126 * s) / 2 + 66 * s;
     const P = (x, y) => [f(ox + x * s), f(oy + y * s)];
     const o = [];
     // le manche : le bras de la soie, la fourche, le bras du pouce, le bout de tige coupé
@@ -35,7 +35,7 @@ module.exports = (h) => {
       + ` A${f(9 * s)} ${f(9 * s)} 0 0 1 ${M(P, ...R1)} L${M(P, ...R0)} Q${M(P, 266, 22)} ${M(P, 252, 23)} L${M(P, 141, 23)} Q${M(P, 132, 8)} ${M(P, 141, -7)} Z`;
     o.push(h.path(contour, h.a.blanc));
     // le dessous à l'ombre : bas du bras de la soie, flanc du bras du pouce
-    o.push(h.path(`M${M(P, 141, 15)} L${M(P, 254, 15)} L${M(P, ...at(70, 4, N2))} L${M(P, ...at(80, 7, N2))} A${f(9 * s)} ${f(9 * s)} 0 0 1 ${M(P, ...R1)} L${M(P, ...R0)} Q${M(P, 266, 22)} ${M(P, 252, 23)} L${M(P, 141, 23)} Q${M(P, 137.5, 19)} ${M(P, 141, 15)} Z`, h.a.ombre));
+    o.push(h.path(`M${M(P, 141, 15)} L${M(P, 247, 15)} L${M(P, ...at(4, 5, N2))} L${M(P, ...at(80, 3.5, N2))} L${M(P, ...R1)} L${M(P, ...R0)} Q${M(P, 266, 22)} ${M(P, 252, 23)} L${M(P, 141, 23)} Q${M(P, 137.5, 19)} ${M(P, 141, 15)} Z`, h.a.ombre));
     // le fil du bois
     o.push(h.path(`M${M(P, 210, 3)} L${M(P, 246, 3)} M${M(P, 214, 11)} L${M(P, 244, 11)} M${M(P, ...at(18, 2, N1))} L${M(P, ...at(66, 2, N1))}`, h.a.fin));
     o.push(h.path(contour, h.a.contour));
@@ -59,7 +59,7 @@ module.exports = (h) => {
     return o.join('\n');
   };
   const renvoisManche = z => {
-    const s = 1.72, ox = (z.l - 320 * s) / 2 + 5 * s, oy = 68 * s + 8;
+    const s = 1.8, ox = (z.l - 318 * s) / 2 + 2 * s, oy = (z.h - 126 * s) / 2 + 66 * s;
     const P = (x, y) => [f(ox + x * s), f(oy + y * s)];
     const [kx, ky] = P(262, 19), [px, py] = P(...at(44, 12.5, N1)), [tx, ty] = P(105, 16);
     return [
@@ -88,19 +88,21 @@ module.exports = (h) => {
   // ─── la lame courbée, vue de chant, le manche coupé ───
   // deux lames : courbée sur toute la longueur, ou par le bout seulement
   const profil = (P, s, y0, courbe) => {
-    const n = 40, ep = 3, haut = [], bas = [];
+    const n = 48, ep = 3, haut = [], bas = [];
     for (let i = 0; i <= n; i++) {
-      const x = 140 * i / n, yc = courbe(x);
+      const x = 169 * i / n, yc = courbe(Math.min(x, 140));
       haut.push(P(x, y0 - yc - ep)); bas.push(P(x, y0 - yc));
     }
     const lame = `M${haut.map(p => p.join(' ')).join(' L')} L${bas.slice().reverse().map(p => p.join(' ')).join(' L')} Z`;
-    const o = [h.path(lame, blanc(h.a.contour))];
-    // le bras du manche, coupé net d'un trait de cassure
-    const xa = 140, ya = y0 - 1.5;
-    o.push(h.path(`M${M(P, xa - 2, ya - 15)} L${M(P, xa + 28, ya - 15)} L${M(P, xa + 25, ya - 6)} L${M(P, xa + 31, ya + 2)} L${M(P, xa + 27, ya + 15)} L${M(P, xa - 2, ya + 15)} Q${M(P, xa - 7, ya)} ${M(P, xa - 2, ya - 15)} Z`, blanc(h.a.arete)));
-    o.push(h.path(`M${M(P, xa - 2, ya + 6)} L${M(P, xa + 29, ya + 6)} L${M(P, xa + 27, ya + 15)} L${M(P, xa - 2, ya + 15)} Q${M(P, xa - 5, ya + 11)} ${M(P, xa - 2, ya + 6)} Z`, h.a.ombre));
-    o.push(h.path(`M${M(P, xa - 2, ya - 15)} L${M(P, xa + 28, ya - 15)} M${M(P, xa + 27, ya + 15)} L${M(P, xa - 2, ya + 15)} Q${M(P, xa - 7, ya)} ${M(P, xa - 2, ya - 15)}`, h.a.arete));
-    o.push(h.path(`M${M(P, xa + 28, ya - 15)} L${M(P, xa + 25, ya - 6)} L${M(P, xa + 31, ya + 2)} L${M(P, xa + 27, ya + 15)}`, h.a.detail));
+    const o = [];
+    // le bras du manche, sous la lame, coupé net d'un trait de cassure
+    const xa = 140, yt = y0 - ep, yb = y0 + 27;
+    const coupe = `L${M(P, xa + 30, yt)} L${M(P, xa + 27, yt + 9)} L${M(P, xa + 33, yt + 17)} L${M(P, xa + 29, yb)}`;
+    o.push(h.path(`M${M(P, xa - 4, yt)} ${coupe} L${M(P, xa - 4, yb)} Q${M(P, xa - 11, (yt + yb) / 2)} ${M(P, xa - 4, yt)} Z`, h.a.blanc));
+    o.push(h.path(`M${M(P, xa - 4, yb - 9)} L${M(P, xa + 31.5, yb - 9)} L${M(P, xa + 29, yb)} L${M(P, xa - 4, yb)} Q${M(P, xa - 8, yb - 4)} ${M(P, xa - 4, yb - 9)} Z`, h.a.ombre));
+    o.push(h.path(`M${M(P, xa + 29, yb)} L${M(P, xa - 4, yb)} Q${M(P, xa - 11, (yt + yb) / 2)} ${M(P, xa - 4, yt)} L${M(P, xa + 30, yt)}`, h.a.arete));
+    o.push(h.path(`M${M(P, xa + 30, yt)} L${M(P, xa + 27, yt + 9)} L${M(P, xa + 33, yt + 17)} L${M(P, xa + 29, yb)}`, h.a.detail));
+    o.push(h.path(lame, blanc(h.a.contour)));
     return o.join('\n');
   };
   const gCourbe = z => {
@@ -109,17 +111,17 @@ module.exports = (h) => {
     const P2 = (x, y) => [f(ox + x * s), f(y * s)];
     return { s, ox, P2 };
   };
-  const enEntier = x => 12 * (1 - Math.pow((x - 140) / 140, 2)) * 0 + 14 * Math.pow(1 - x / 140, 1.6);
+  const enEntier = x => 14 * Math.pow(1 - x / 140, 1.6);
   const parLeBout = x => (x < 45 ? 15 * Math.pow(1 - x / 45, 2.2) : 0);
   const vueCourbe = z => {
     const { s, ox } = gCourbe(z);
-    const y1 = z.h * 0.36 / s, y2 = z.h * 0.84 / s;
+    const y1 = z.h * 0.3 / s, y2 = z.h * 0.76 / s;
     const P = (x, y) => [f(ox + x * s), f(y * s)];
     return [profil(P, s, y1, enEntier), profil(P, s, y2, parLeBout)].join('\n');
   };
   const renvoisCourbe = z => {
     const { s, ox } = gCourbe(z);
-    const y1 = z.h * 0.36 / s, y2 = z.h * 0.84 / s;
+    const y1 = z.h * 0.3 / s, y2 = z.h * 0.76 / s;
     const P = (x, y) => [f(ox + x * s), f(y * s)];
     const [ax, ay] = P(30, y1 - enEntier(30) - 3), [bx, by] = P(10, y2 - parLeBout(10) - 3);
     return [
@@ -171,6 +173,6 @@ module.exports = (h) => {
       courbe: { titre: 'Courbée, vue de chant', dessin: vueCourbe, renvois: renvoisCourbe },
       soie: { titre: 'La soie, en coupe', dessin: vueSoie, renvois: renvoisSoie },
     },
-    danger: 'La lame vient vers le ventre : la pièce se serre au chevalet à planer, jamais dans la main ni contre soi.',
+    danger: 'La lame vient vers le ventre, et c’est là qu’elle blesse : la pièce ne se tient ni dans la main ni contre soi, elle se serre au chevalet à planer.',
   };
 };

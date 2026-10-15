@@ -51,67 +51,67 @@ module.exports = (h) => {
   // Même cadrage : le cylindre en coupe (parois d'acier), le piston qui descend du haut, l'huile
   // sous pression en bas (on pompe sous le piston).
   const C = z => {
-    const cx = z.l / 2, Rc = 44, t = 13, Rp = Rc - 2, yP = 92, e = 4.5, hl = 30;
-    return { cx, Rc, t, Rp, yP, e, hl };
+    const cx = z.l / 2, Rc = 50, t = 11, Rp = Rc - 3, yP = 70, e = 7, hl = 46, jeu = 7;
+    return { cx, Rc, t, Rp, yP, e, hl, jeu };
   };
   const cylindre = (z, q, out) => {
     const { cx, Rc, t } = q, yb = z.h - 4;
-    // l'huile, dans tout le cylindre ; le piston et le godet se peignent par-dessus
-    out.push(h.rect(cx - Rc, 4, 2 * Rc, yb - 4, A.hachure('eau', 'aucun')));
     for (const s of [-1, 1]) out.push(h.path(poly([[cx + s * Rc, 4], [cx + s * (Rc + t), 4], [cx + s * (Rc + t), yb], [cx + s * Rc, yb]]), A.hachure('metal', 'contour')));
   };
-  const piston = (q, out, yBas) => {
-    const { cx, Rp } = q;
-    out.push(h.path(poly([[cx - Rp, 4], [cx + Rp, 4], [cx + Rp, yBas], [cx - Rp, yBas]]), A.blanc));
-    out.push(h.path(poly([[cx - Rp, 4], [cx + Rp, 4], [cx + Rp, yBas], [cx - Rp, yBas]]), A.hachure('metal', 'contour')));
+  const huile = (q, out, y0, y1, x0, x1) => out.push(h.rect(x0, y0, x1 - x0, y1 - y0, A.hachure('eau', 'aucun')));
+  // un godet en coupe, noir plein : fond d'épaisseur e, lèvres de hauteur hl qui s'amincissent ;
+  // sens = -1 : la lèvre descend (ouvert vers le bas) ; +1 : elle monte. ext : demi-largeur extérieure
+  const godet = (cx, yFond, ext, e, hl, sens) => {
+    const yL = yFond - sens * hl, yI = yFond - sens * e;
+    return h.path(poly([[cx - ext, yFond], [cx + ext, yFond], [cx + ext, yL], [cx + ext - e * 0.45, yL], [cx + ext - e, yI],
+      [cx - ext + e, yI], [cx - ext + e * 0.45, yL], [cx - ext, yL]]), A.plein);
   };
   const vueBon = z => {
-    const q = C(z), { cx, Rc, Rp, yP, e, hl } = q, out = [];
+    const q = C(z), { cx, Rc, Rp, yP, e, hl } = q, out = [], yb = z.h - 4;
+    // l'huile sous pression : sous le piston, et dans le godet
+    huile(q, out, yP + e, yb, cx - Rc, cx + Rc);
     cylindre(z, q, out);
-    // l'espace au-dessus du godet, entre piston et paroi : sec (blanc)
-    out.push(h.rect(cx - Rc, 4, 2 * Rc, yP - 4, A.blanc));
-    for (const s of [-1, 1]) out.push(h.ligne(cx + s * Rc, 4, cx + s * Rc, yP, A.arete));
-    piston(q, out, yP);
-    // le godet : le fond sous le piston, la lèvre qui descend contre la paroi, amincie au bout
-    const lev = s => [[cx + s * (Rc - e), yP + e], [cx + s * (Rc - e * 0.4), yP + e + hl], [cx + s * Rc, yP + e + hl], [cx + s * Rc, yP]];
-    out.push(h.path(poly([[cx - Rc, yP], [cx + Rc, yP], [cx + Rc, yP + e + hl], [cx + Rc - e * 0.6, yP + e + hl], [cx + Rc - e, yP + e], [cx - Rc + e, yP + e], [cx - Rc + e * 0.6, yP + e + hl], [cx - Rc, yP + e + hl]]), A.plein));
-    // la rondelle et la vis qui tiennent le godet sous le piston
-    out.push(h.rect(cx - Rc * 0.55, yP + e, Rc * 1.1, 6, blanc('arete')));
+    // le piston, en coupe
+    out.push(h.path(poly([[cx - Rp, 4], [cx + Rp, 4], [cx + Rp, yP], [cx - Rp, yP]]), A.hachure('metal', 'contour')));
+    // le godet sous le piston, ouvert vers le bas : la lèvre descend contre la paroi
+    out.push(godet(cx, yP, Rc, e, hl, -1));
+    // la rondelle et la vis qui le tiennent
+    out.push(h.rect(cx - Rc * 0.5, yP + e, Rc, 6, blanc('arete')));
     out.push(h.rect(cx - 6, yP + e + 6, 12, 5, blanc('arete')));
-    out.push(h.ligne(cx - 3.5, yP - 18, cx - 3.5, yP + e, A.cache), h.ligne(cx + 3.5, yP - 18, cx + 3.5, yP + e, A.cache));
-    // la pression : elle pousse le fond vers le haut et plaque la lèvre contre la paroi
-    for (const s of [-1, 1]) out.push(h.fleche(`M ${pt([cx + s * (Rc - 26), yP + e + hl * 0.62])} L ${pt([cx + s * (Rc - e - 3), yP + e + hl * 0.62])}`, A.arete));
-    out.push(h.fleche(`M ${pt([cx, yP + e + hl + 40])} L ${pt([cx, yP + e + 18])}`, A.arete));
+    out.push(h.ligne(cx - 3.5, yP - 20, cx - 3.5, yP, A.cache), h.ligne(cx + 3.5, yP - 20, cx + 3.5, yP, A.cache));
+    // la pression : elle plaque la lèvre contre la paroi
+    for (const s of [-1, 1]) out.push(h.fleche(`M ${pt([cx + s * (Rc - 30), yP + e + hl * 0.6])} L ${pt([cx + s * (Rc - e - 3), yP + e + hl * 0.6])}`, A.arete));
+    out.push(h.fleche(`M ${pt([cx, yP + hl + 46])} L ${pt([cx, yP + e + 16])}`, A.arete));
     return out.join('\n');
   };
   const vueRate = z => {
-    const q = C(z), { cx, Rc, Rp, yP, e, hl } = q, out = [];
+    const q = C(z), { cx, Rc, Rp, yP, e, hl, jeu } = q, out = [], yb = z.h - 4;
+    // le godet monté à l'envers : le fond face à l'huile, la lèvre qui monte vers le piston ;
+    // l'huile la décolle de la paroi et passe
+    const yF = yP + hl, ext = Rc - jeu;
+    huile(q, out, yP - 30, yb, cx - Rc, cx + Rc);
     cylindre(z, q, out);
-    // l'huile passe : elle monte entre le godet et la paroi ; au-dessus, il y en a aussi
-    // le piston, dont le bout est pris dans le godet
-    const yB = yP + e + hl;          // le fond du godet, plus bas : le piston est dedans
-    const rp2 = Rc - e - 1.2;
-    out.push(h.path(poly([[cx - Rp, 4], [cx + Rp, 4], [cx + Rp, yP], [cx + rp2, yP + 4], [cx + rp2, yB - e], [cx - rp2, yB - e], [cx - rp2, yP + 4], [cx - Rp, yP]]), A.blanc));
-    out.push(h.path(poly([[cx - Rp, 4], [cx + Rp, 4], [cx + Rp, yP], [cx + rp2, yP + 4], [cx + rp2, yB - e], [cx - rp2, yB - e], [cx - rp2, yP + 4], [cx - Rp, yP]]), A.hachure('metal', 'contour')));
-    // le godet monté à l'envers : le fond en bas, face à l'huile, la lèvre qui remonte vers le piston,
-    // écartée de la paroi par l'huile qui passe
-    out.push(h.path(poly([[cx - Rc + 3, yB], [cx + Rc - 3, yB], [cx + Rc - 3, yB - e - hl + 4], [cx + Rc - 3 - e * 0.6, yB - e - hl + 4], [cx + Rc - 3 - e, yB - e], [cx - Rc + 3 + e, yB - e], [cx - Rc + 3 + e * 0.6, yB - e - hl + 4], [cx - Rc + 3, yB - e - hl + 4]]), A.plein));
-    // l'huile qui fuit le long de la paroi, au-delà de la lèvre
-    for (const s of [-1, 1]) out.push(h.fleche(`M ${pt([cx + s * (Rc - 1.6), yB + 26])} L ${pt([cx + s * (Rc - 1.6), yP - 30])}`, A.detail));
-    out.push(h.controle(cx + Rc - 2, yP + 6, 11));
+    // le piston : son bout, plus mince, est pris dans le godet
+    const rn = ext - e - 0.5;
+    out.push(h.path(poly([[cx - Rp, 4], [cx + Rp, 4], [cx + Rp, yP - 30], [cx + rn, yP - 26], [cx + rn, yF - e], [cx - rn, yF - e], [cx - rn, yP - 26], [cx - Rp, yP - 30]]), A.blanc));
+    out.push(h.path(poly([[cx - Rp, 4], [cx + Rp, 4], [cx + Rp, yP - 30], [cx + rn, yP - 26], [cx + rn, yF - e], [cx - rn, yF - e], [cx - rn, yP - 26], [cx - Rp, yP - 30]]), A.hachure('metal', 'contour')));
+    out.push(godet(cx, yF, ext, e, hl - 4, 1));
+    // l'huile qui passe entre la lèvre et la paroi
+    for (const s of [-1, 1]) out.push(h.fleche(`M ${pt([cx + s * (Rc - jeu / 2), yF + 30])} L ${pt([cx + s * (Rc - jeu / 2), yP - 22])}`, A.arete));
+    out.push(h.controle(cx + Rc - jeu / 2, yP + 8, 12));
     return out.join('\n');
   };
   const renvoisBon = z => {
     const q = C(z), { cx, Rc, yP, e, hl } = q;
     return [
-      { n: 4, rond: [cx + Rc + 30, yP + 66], cible: [cx + Rc - 2, yP + e + hl - 4], texte: 'la lèvre tournée vers la pression' },
-      { n: 5, rond: [cx - Rc - 30, yP + 76], cible: [cx - Rc + 20, yP + e + hl * 0.62], texte: 'la pression plaque la lèvre' },
+      { n: 4, rond: [cx + Rc + 26, yP + hl + 30], cible: [cx + Rc - 2, yP + hl - 3], texte: 'la lèvre tournée vers la pression' },
+      { n: 5, rond: [cx - Rc - 26, yP + hl + 50], cible: [cx - Rc + 20, yP + e + hl * 0.6 + 2], texte: 'la pression plaque la lèvre' },
     ];
   };
   const renvoisRate = z => {
     const q = C(z), { cx, Rc, yP, e, hl } = q;
     return [
-      { n: 6, rond: [cx + Rc + 30, yP - 34], cible: [cx + Rc - 2, yP - 18], texte: 'à l’envers, l’huile passe' },
+      { n: 6, rond: [cx + Rc + 26, yP + hl + 40], cible: [cx + Rc - 4, yP + hl + 20], texte: 'à l’envers, l’huile passe' },
     ];
   };
 

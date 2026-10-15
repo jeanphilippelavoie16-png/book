@@ -7,7 +7,9 @@
 // aplati cloué dessus. Aucune cote : le chapitre ne donne que les 20 L.
 // Ce que la planche dessine en principe : la broche passée dans deux trous percés sous le rebord et tortillée
 // dehors ; la broche par le milieu des deux bouts de la canette.
-// La souris : une silhouette au trait, sans anatomie (le cas limite permis par le skill planches).
+// La souris (refaite le 15 octobre : les premières, construites, étaient des gribouillis) : la silhouette de
+// Peromyscus leucopus d'Edwin Price, PhyloPic, CC BY 4.0 (images/modeles/souris-peromyscus-phylopic.svg), posée
+// au trait par _souris.js ; la même dans les deux vignettes. Le gras n'est dessiné que sur la vue montée.
 // La charte : le cercle rouge, la canette qui doit tourner libre sur la broche (le point à contrôler).
 module.exports = (h) => {
   const A = h.a;
@@ -24,21 +26,8 @@ module.exports = (h) => {
     return ferme ? d + ' Z' : d;
   };
 
-  // La souris de profil, le museau en (x, y), tournée de angle ; k : unités par mm ; miroir : vers la gauche.
-  const souris = (x, y, k, angle = 0, miroir = false) => {
-    const T = ([u, v]) => { const uu = miroir ? -u : u; const c = Math.cos(angle * RAD), s = Math.sin(angle * RAD); return [x + (uu * c - v * s) * k, y + (uu * s + v * c) * k]; };
-    const corps = [[0, 0], [-6, -6], [-15, -10], [-28, -16], [-44, -19], [-60, -17], [-74, -11], [-80, -3], [-74, 3], [-58, 5], [-36, 6], [-18, 5], [-6, 3]].map(T);
-    const queue = [[-79, -4], [-96, -6], [-112, 0], [-128, 2]].map(T);
-    const o = [];
-    o.push(h.path(lisse(queue), A.arete));
-    o.push(h.path(lisse(corps, true), W(A.arete)));
-    const [ex, ey] = T([-21, -16]);
-    o.push(h.ellipse(ex, ey, 5.5 * k, 6.5 * k, W(A.arete)));
-    const [ox, oy] = T([-9, -4]);
-    o.push(h.cercle(ox, oy, Math.max(1, 1.4 * k), A.plein));
-    for (const [a, b] of [[[-66, 4], [-60, 8]], [[-24, 5], [-18, 8]]]) { const p = T(a), q = T(b); o.push(h.path(`M${f1(p[0])} ${f1(p[1])} L${f1(q[0])} ${f1(q[1])}`, A.detail)); }
-    return o.join('\n');
-  };
+  // La souris : la silhouette de Peromyscus leucopus (Edwin Price, PhyloPic, CC BY 4.0), au trait (_souris.js).
+  const souris = require('./_souris')(h);
 
   // ─── Monté : la chaudière, la broche, la canette, la planche ─────────────────────────────────────
   const M = z => {
@@ -74,7 +63,9 @@ module.exports = (h) => {
     // la chaudière : la paroi d'avant passe devant le bas de la canette
     const corps = `M${cx - rx} ${yR} A${rx} ${ry} 0 0 0 ${cx + rx} ${yR} L${cx + rbx} ${yB - rby} A${rbx} ${rby} 0 0 1 ${cx - rbx} ${yB - rby} Z`;
     o.push(h.path(corps, W(A.contour)));
-    o.push(h.path(`M${cx + rx - 26} ${yR + 16} L${cx + rbx - 20} ${yB - 6} A${rbx} ${rby} 0 0 1 ${cx + rbx} ${yB - rby} L${cx + rx} ${yR} A${rx} ${ry} 0 0 1 ${cx + rx - 26} ${yR + 16} Z`, A.ombre));
+    // la face à l'ombre, à droite : entre deux génératrices, fermée en haut et en bas sur les deux ellipses
+    const xo = 24, yoH = yR + ry * Math.sqrt(1 - ((rx - xo) / rx) ** 2), yoB = yB - rby + rby * Math.sqrt(1 - ((rbx - xo * rbx / rx) / rbx) ** 2);
+    o.push(h.path(`M${f1(cx + rx - xo)} ${f1(yoH)} L${f1(cx + rbx - xo * rbx / rx)} ${f1(yoB)} A${rbx} ${rby} 0 0 0 ${cx + rbx} ${yB - rby} L${cx + rx} ${yR} A${rx} ${ry} 0 0 1 ${f1(cx + rx - xo)} ${f1(yoH)} Z`, A.ombre));
     o.push(h.path(corps, A.contour));
     // le rebord roulé, devant
     o.push(h.path(`M${cx - rx + 1} ${yR + 7} A${rx - 1} ${ry} 0 0 0 ${cx + rx - 1} ${yR + 7}`, A.detail));
@@ -93,7 +84,7 @@ module.exports = (h) => {
   };
 
   // ─── Avant, après : la chaudière en coupe, vue dans l'axe de la broche ───────────────────────────
-  const C = z => ({ cx: z.l / 2, yR: 50, yB: z.h - 8, rT: 76, rB: 64, rc: 26 });
+  const C = z => ({ cx: z.l / 2, yR: 86, yB: z.h - 8, rT: 76, rB: 64, rc: 26 });
   const coupe = (z, apres) => {
     const g = C(z), o = [];
     const { cx, yR, yB, rT, rB, rc } = g;
@@ -109,19 +100,14 @@ module.exports = (h) => {
     o.push(h.cercle(cx, yC, rc, W(A.contour)));
     o.push(h.cercle(cx, yC, rc - 4, A.fin));
     o.push(h.cercle(cx, yC, 2.2, A.plein));
-    // le gras : au sommet avant, tourné de côté après
-    const ag = apres ? 70 : -90;
-    const gx = cx + (rc + 2) * Math.cos(ag * RAD), gy = yC + (rc + 2) * Math.sin(ag * RAD);
-    o.push(h.ellipse(gx, gy, 7, 4, A.hachure('terre', 'arete')).replace('/>', ` transform="rotate(${ag + 90} ${f1(gx)} ${f1(gy)})"/>`));
     if (!apres) {
-      // la souris debout sur le dessus de la canette, le museau au gras ; la canette commence à tourner
-      // tournée vers la gauche, le museau au gras, le poids sur le côté droit : la canette tourne à droite
-      o.push(souris(cx - 4, yC - rc - 4, 0.42, 25, true));
-      o.push(h.fleche(`M${f1(cx + rc + 10)} ${f1(yC - 4)} A${rc + 10} ${rc + 10} 0 0 1 ${f1(cx + 12)} ${f1(yC + rc + 8)}`, A.detail));
+      // tournée vers la gauche, les pattes sur le dessus de la canette ; la canette commence à tourner à droite
+      o.push(souris({ x: cx + 2, y: yC - rc + 2, largeur: 62, angle: 12, miroir: true }));
+      o.push(h.fleche(`M${f1(cx + rc + 10)} ${f1(yC + 2)} A${rc + 10} ${rc + 10} 0 0 1 ${f1(cx + 12)} ${f1(yC + rc + 8)}`, A.detail));
     } else {
-      o.push(h.fleche(`M${f1(cx + rc + 10)} ${f1(yC - 8)} A${rc + 10} ${rc + 10} 0 0 1 ${f1(cx + 10)} ${f1(yC + rc + 9)}`, A.detail));
-      o.push(h.fleche(`M${f1(cx + 40)} ${f1(yC + 14)} L${f1(cx + 40)} ${f1(yB - 30)}`, A.arete));
-      o.push(souris(cx + 6, yB - 5, 0.42, 0, true));
+      o.push(h.fleche(`M${f1(cx + rc + 10)} ${f1(yC + 2)} A${rc + 10} ${rc + 10} 0 0 1 ${f1(cx + 12)} ${f1(yC + rc + 8)}`, A.detail));
+      o.push(h.fleche(`M${f1(cx + 46)} ${f1(yC + 20)} L${f1(cx + 46)} ${f1(yB - 56)}`, A.arete));
+      o.push(souris({ x: cx - 4, y: yB - 9, largeur: 62, miroir: true }));
     }
     return { svg: o.join('\n'), g: { ...g, yC } };
   };
