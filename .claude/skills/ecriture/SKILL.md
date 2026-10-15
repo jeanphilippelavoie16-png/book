@@ -26,6 +26,10 @@ mains. Chaque phrase doit lui donner un fait, un geste, une mesure ou un signe �
 - Sur « Ceux qui étaient dehors laissent à la porte la couche du dessus et les chaussures » : « c'est
   fucking bizarre. Faut plus dire quelque chose comme "Les gens qui étaient à l'extérieur doivent…".
   Je veux plus voir ça nulle part. » Voir la règle 11.
+- Sur « Régler dehors : un bol qui revient, du bois de la corde qui se voit. Jamais un contenant
+  d'origine » : « personne parle comme ça, c'est fucking pas clair ». Sur l'étiquette « Refus, il a où
+  aller » : « wtf ». Et : « c'est pas juste les logigrammes, **c'est la façon de dire les choses**. »
+  Voir la règle 0, qui passe avant toutes les autres.
 
 Ses pages annotées sont dans `livre/relecture/notes/` (à régénérer, voir
 `design/outils/relecture/LISEZMOI.md`). Le jaune et le rouge, c'est ce qu'il ne veut plus voir.
@@ -37,6 +41,28 @@ il saute. Si oui mais qu'il est mal dit, on le redit simplement, comme on l'expl
 dans le garage.
 
 ## Comment s'écrit une phrase du livre
+
+0. **On écrit comme on l'expliquerait à quelqu'un, à voix haute.** C'est la règle qui passe avant les
+   autres, et c'est la plus souvent ratée : à force de couper, le texte devient un code que le lecteur
+   doit déchiffrer. Couper un mot qui n'apprend rien, oui ; couper ce qui fait une phrase française, non.
+   Une phrase du livre a :
+   - **un verbe qui dit le geste**, et on sait qui le fait. Pas une liste de noms qui tient lieu d'actions
+     (« mains lavées 20 s, couchage des enfants à part, travail partagé ») : « Il se lave les mains 20 s,
+     il dort à l'écart des enfants et il aide aux corvées. »
+   - **des mots de tous les jours**, avec leurs articles et leurs possessifs. Pas « un contenant
+     d'origine », « la couche du dessus », « du bois de la corde qui se voit » : « l'emballage du
+     magasin », « ses vêtements du dessus », « du bois fendu ».
+   - **le but dit en clair** quand il n'est pas évident. « Un bol qui revient » oblige à deviner ;
+     « un de nos bols, qu'on reprend ensuite » se comprend tout de suite. « Jamais un contenant
+     d'origine » ne dit pas pourquoi ; « Jamais dans l'emballage du magasin : ça montre qu'on en a
+     d'autres » le dit.
+   - **pas de participe en chaîne** (« Couché, vêtements mouillés retirés, chaleur sur le tronc ») :
+     « Le coucher, lui enlever ses vêtements mouillés et mettre de la chaleur sur son tronc. »
+   - **pas d'étiquette en raccourci**, même dans un logigramme ou un tableau. Une branche se lit comme une
+     réponse : « Oui », « Non », ou une vraie phrase courte. Pas « Refus, il a où aller » : on pose
+     plutôt la question qui se répond par oui ou non (« Il a un endroit où aller ? »).
+   Le test : **lis la phrase à voix haute à quelqu'un qui n'a pas lu le chapitre.** S'il doit demander
+   « ça veut dire quoi ? », elle se réécrit, même si elle devient plus longue.
 
 1. **Une phrase, une information.** Deux faits, deux phrases.
 2. **Le fait d'abord, la raison ensuite**, et seulement si la raison change ce qu'on fait.
@@ -91,6 +117,8 @@ dans le garage.
 | La conséquence évidente d'un fait qu'on vient de dire | « Un tuyau fend parce que l'eau prend du volume en gelant : un tuyau vide ne fend pas. » (JP : « no shit ») | « Un tuyau fend parce que l'eau prend du volume en gelant. » |
 | L'annonce et le résumé | « Voici ce qu'il faut savoir. » ; « En somme… » | *(rien)* |
 | La question rhétorique | « Pourquoi ? Parce que… » | Le fait |
+| Le code à déchiffrer : noms sans verbe, mots d'institution, but sous-entendu | « Régler dehors : un bol qui revient, du bois de la corde qui se voit. Jamais un contenant d'origine. » (JP : « personne parle comme ça ») | « Lui donner dehors, sans le faire entrer : un repas chaud dans un de nos bols, qu'on reprend ensuite, de l'eau, du bois fendu. Jamais dans l'emballage du magasin : ça montre qu'on en a d'autres. » |
+| L'étiquette en raccourci | « Refus, il a où aller » ; « Pas de refus : abri, feu et boisson chaude dehors, ou hébergement. » | La question « Il a un endroit où aller ? », puis « Oui » et « Non » ; « On ne le renvoie pas. Lui faire un abri, un feu et lui donner à boire chaud dehors, ou le loger. » |
 | La tournure bizarre : sujet en « ceux qui », ordre renversé, consigne au présent de constat | « Ceux qui étaient dehors laissent à la porte la couche du dessus et les chaussures. » (JP : « fucking bizarre ») | « Les gens qui étaient à l'extérieur doivent laisser leurs vêtements du dessus et leurs chaussures à la porte. » |
 
 ### Les mots
@@ -134,6 +162,11 @@ JP : « Dans les textes, y a beaucoup de répétition aussi, faut slaquer la ré
 - **Un avertissement se dit une fois.** JP, sur « le barbecue ne rentre pas dans la maison » redit en
   §9 après le §8 : « ON LE SAIT, ON L'A DÉJÀ DIT. » Une fois dans l'encadré danger ; ailleurs, rien, pas
   même « (section 8) » au bout d'une phrase qui le redit.
+- **Le logigramme et la série orange ne redisent pas les avertissements.** JP, sur l'encadré « le réchaud
+  du visiteur : génératrice, réchaud, chaufferette dehors » du logigramme du ch. 17 : « on l'a dit 1000
+  fois, ça ». Le logigramme porte les décisions et les gestes ; le danger reste dans l'étape et dans
+  l'encadré du §8. Un encadré danger n'entre dans un logigramme que s'il change la décision (« S'il montre
+  une arme ou s'il menace »).
 - **Pas de redite d'une phrase à l'autre** : la deuxième phrase qui reformule la première sort.
 - **Le même mot pour la même chose** reste (règle 6 plus haut) : on chasse l'idée répétée, pas le terme
   technique.

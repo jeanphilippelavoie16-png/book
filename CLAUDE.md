@@ -207,6 +207,18 @@ pas assez de contenu réel : la réponse est d'écrire le contenu, pas de garder
 remplissage. Ça vaut pour toutes les listes, en particulier « quand c'est un mauvais
 choix ».
 
+**On écrit comme on l'expliquerait à quelqu'un, à voix haute** (JP, 15 octobre 2026 : « personne parle
+comme ça, c'est fucking pas clair » ; « c'est pas juste les logigrammes, c'est la façon de dire les
+choses »). À force de couper, le texte était devenu un code : « Régler dehors : un bol qui revient, du
+bois de la corde qui se voit. Jamais un contenant d'origine. » Ça se dit : « Lui donner dehors, sans le
+faire entrer : un repas chaud dans un de nos bols, qu'on reprend ensuite, de l'eau, du bois fendu. Jamais
+dans l'emballage du magasin : ça montre qu'on en a d'autres. » Chaque phrase a un verbe qui dit le geste,
+on sait qui le fait, les mots sont ceux de tous les jours avec leurs articles, et le but est dit quand il
+n'est pas évident. Pas de liste de noms à la place des actions, pas d'étiquette en raccourci (« Refus, il
+a où aller »), même dans un logigramme. Couper un mot qui n'apprend rien, oui ; couper ce qui fait une
+phrase française, non. Le test : lue à voix haute à quelqu'un qui n'a pas lu le chapitre, la phrase se
+comprend du premier coup. Règle 0 du skill `ecriture`.
+
 **Pas de « fils d'la AI ».** JP a relu le tome 1 au crayon le 15 octobre 2026. Ce qu'il surligne comme
 inutile, c'est toujours la même famille de phrases : elles sonnent bien et n'apprennent rien. **Le texte
 doit être informatif, partout.** Ce qui saute :

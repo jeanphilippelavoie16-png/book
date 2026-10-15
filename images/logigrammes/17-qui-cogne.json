@@ -1,5 +1,5 @@
 {
-  "_note": "Logigramme du chapitre 17 (qui cogne à la porte), double page, fait le 15 octobre 2026 sur le chapitre réécrit. Page de gauche : la première minute et les dix premières minutes (étapes 1 à 9), et ce qui vaut à tout moment (étape 13). Page de droite : la réponse (étapes 10 à 12), l'après (14 et 15), l'hébergement (16 à 21) et le monoxyde du §8. Aucune branche ne mène à l'arme de la maison (§8, point 1). Rendu : python3 design/outils/logigramme.py images/logigrammes/17-qui-cogne.json. « source » : les étapes du chapitre d'où vient chaque geste (ignoré au rendu).",
+  "_note": "Logigramme du chapitre 17 (qui cogne à la porte), double page, fait le 15 octobre 2026 sur le chapitre réécrit. Page de gauche : la première minute et les dix premières minutes (étapes 1 à 9), et ce qui vaut à tout moment (étape 13). Page de droite : la réponse (étapes 10 à 12), l'après (14 et 15), l'hébergement (16 à 21). Le monoxyde n'y est pas : il est dit à l'étape 19 et dans l'encadré danger (JP : « on l'a dit 1000 fois »). Réécrit le 15 octobre en phrases complètes (JP : « personne parle comme ça »). Aucune branche ne mène à l'arme de la maison (§8, point 1). Rendu : python3 design/outils/logigramme.py images/logigrammes/17-qui-cogne.json. « source » : les étapes du chapitre d'où vient chaque geste (ignoré au rendu).",
   "format": "double",
   "tome": 1,
   "urgent": true,
@@ -56,6 +56,10 @@
     "large2": [
       9.05,
       15.5
+    ],
+    "q2": [
+      11.25,
+      15.5
     ]
   },
   "rangs": {
@@ -64,16 +68,17 @@
     "g3": 2.7,
     "g4": 3.55,
     "g5": 4.6,
-    "g6": 5.62,
-    "g7": 6.75,
-    "g8": 7.5,
+    "g6": 5.78,
+    "g7": 6.92,
+    "g8": 7.68,
     "d1": 1.15,
     "d2": 2.1,
-    "d3": 3.95,
-    "d3b": 3.4,
-    "d4": 4.95,
-    "d5": 6.35,
-    "dco": 7.55
+    "d3": 3.2,
+    "d3b": 4.5,
+    "d4": 5.85,
+    "d5": 7.3,
+    "dco": 7.55,
+    "d3q": 4.85
   },
   "noeuds": [
     {
@@ -93,7 +98,7 @@
       "rang": "g2",
       "ancre": "haut",
       "temps": "1 min",
-      "texte": "**Ne pas ouvrir**, mais faire savoir à travers la porte qu'il y a quelqu'un. **Éteindre la lampe de la pièce** avant d'approcher de la vitre, puis éclairer la neige devant la personne.",
+      "texte": "**Ne pas ouvrir**, mais faire savoir à travers la porte qu'il y a quelqu'un. **Éteindre la lampe de la pièce** avant de s'approcher de la fenêtre, puis éclairer la neige devant la personne.",
       "renvoi": "ch. 17, étapes 1 et 2",
       "source": "étapes 1 et 2"
     },
@@ -102,7 +107,7 @@
       "type": "question",
       "col": "q1",
       "rang": "g3",
-      "texte": "Deux adultes dans la maison ?"
+      "texte": "Il y a deux adultes dans la maison ?"
     },
     {
       "id": "deux",
@@ -111,7 +116,7 @@
       "rang": "g4",
       "ancre": "haut",
       "taille": 10.5,
-      "texte": "**Un seul parle.** L'autre, avec les enfants dans la pièce du fond, regarde et compte.",
+      "texte": "**Un seul adulte parle.** L'autre va dans la pièce du fond avec les enfants et regarde par une autre fenêtre.",
       "renvoi": "ch. 17, étape 3",
       "source": "étape 3"
     },
@@ -122,7 +127,7 @@
       "rang": "g4",
       "ancre": "haut",
       "taille": 10.5,
-      "texte": "**Les enfants au fond. On ne sort pas** : parler à travers la porte, donner par une fenêtre entrouverte.",
+      "texte": "**Envoyer les enfants dans la pièce du fond, et ne pas sortir.** Parler à travers la porte et donner par une fenêtre entrouverte.",
       "renvoi": "ch. 17, étape 3",
       "source": "étape 3 ; §9, le deuxième adulte"
     },
@@ -133,7 +138,7 @@
       "rang": "g5",
       "ancre": "haut",
       "temps": "10 min",
-      "texte": "**Compter** personnes, véhicules et traces : s'ils ne concordent pas, ne pas ouvrir. **Lire le thermomètre et le vent** : dehors, la conversation dure 10 min au plus à -28, 5 min à -40, et rien sous -48.",
+      "texte": "**Compter à voix haute les personnes, les véhicules et les traces.** S'il y a plus de traces ou de véhicules que de monde en vue, ne pas ouvrir. **Lire le thermomètre et le vent.** Quand le refroidissement éolien est à -28, on peut parler dehors 10 min au plus ; à -40, 5 min ; sous -48, on se parle par la fenêtre.",
       "renvoi": "ch. 17, étapes 4 et 5",
       "source": "étapes 4 et 5"
     },
@@ -143,7 +148,7 @@
       "col": "large",
       "rang": "g6",
       "ancre": "haut",
-      "texte": "**« Restez au poteau. » « Qu'est-ce qu'il vous faut ? »** Deux phrases, à travers la porte, une question à la fois.",
+      "texte": "**Dire deux phrases à travers la porte** : « Restez au poteau » et « Qu'est-ce qu'il vous faut ? ». Poser une seule question à la fois.",
       "renvoi": "ch. 17, étape 6",
       "source": "étape 6"
     },
@@ -153,7 +158,7 @@
       "col": "tronc",
       "rang": "g7",
       "texte": "Il gèle ou il est blessé ?",
-      "precision": "Parle mal, maladroit, confus, ou ne frissonne plus",
+      "precision": "Il parle mal, il est maladroit ou confus, ou il ne frissonne plus",
       "source": "étapes 7 et 8"
     },
     {
@@ -162,7 +167,7 @@
       "col": "tronc",
       "rang": "g8",
       "ancre": "haut",
-      "texte": "**Il entre**, ou va à l'abri dehors. Couché, vêtements mouillés retirés, chaleur sur le tronc ; à boire seulement s'il avale bien.",
+      "texte": "**Le faire entrer**, ou le mettre à l'abri dehors. Le coucher, lui enlever ses vêtements mouillés et mettre de la chaleur sur son tronc. Lui donner à boire seulement s'il avale bien.",
       "renvoi": "ch. 17, étapes 8 et 9 ; ch. 25",
       "source": "étapes 8 et 9"
     },
@@ -172,8 +177,8 @@
       "col": "cote",
       "rang": "g8",
       "ancre": "haut",
-      "titre": "À tout moment : une arme, une menace",
-      "texte": "**Tout le monde dans la pièce du fond**, calée de l'intérieur, et on y reste. S'il entre et exige quelque chose : le lui donner, sans argumenter ni résister.",
+      "titre": "S'il montre une arme ou s'il menace",
+      "texte": "**Tout le monde va dans la pièce du fond**, on bloque la porte de l'intérieur et on y reste. S'il entre et exige quelque chose, le lui donner sans discuter ni résister.",
       "renvoi": "ch. 17, étape 13 ; §8",
       "source": "étape 13 ; §8, point 1"
     },
@@ -182,7 +187,7 @@
       "type": "question",
       "col": "qr",
       "rang": "d1",
-      "texte": "Que répondre ?",
+      "texte": "On peut lui donner ce qu'il demande ?",
       "source": "étapes 10 et 11"
     },
     {
@@ -192,29 +197,38 @@
       "rang": "d2",
       "ancre": "haut",
       "taille": 10.5,
-      "texte": "**Régler dehors** : un bol qui revient, du bois de la corde qui se voit. Jamais un contenant d'origine.",
+      "texte": "**Lui donner dehors**, sans le faire entrer : un repas chaud dans un de nos bols, qu'on reprend ensuite, de l'eau, du bois fendu. Jamais dans l'emballage du magasin : ça montre qu'on en a d'autres.",
       "renvoi": "ch. 17, étape 10",
       "source": "étape 10 ; §9"
+    },
+    {
+      "id": "q2",
+      "type": "question",
+      "col": "q2",
+      "rang": "d2",
+      "ancre": "haut",
+      "texte": "Il a un endroit où aller ?",
+      "source": "étape 11"
     },
     {
       "id": "refuser",
       "type": "geste",
       "col": "c2",
-      "rang": "d2",
+      "rang": "d3",
       "ancre": "haut",
       "taille": 10.5,
-      "texte": "**Refuser une fois**, sans mentir : la destination, la distance, le moyen d'y aller.",
+      "texte": "**Refuser une seule fois**, sans mentir. Lui dire où aller, à quelle distance, et comment s'y rendre.",
       "renvoi": "ch. 17, étape 11",
       "source": "étape 11"
     },
     {
-      "id": "pasrefus",
+      "id": "accueil",
       "type": "geste",
       "col": "c3",
-      "rang": "d2",
+      "rang": "d3",
       "ancre": "haut",
       "taille": 10.5,
-      "texte": "**Pas de refus** : abri, feu et boisson chaude dehors, ou hébergement.",
+      "texte": "**On ne le renvoie pas.** Lui faire un abri, un feu et lui donner à boire chaud dehors, ou le loger.",
       "renvoi": "ch. 17, étape 11 ; §9",
       "source": "étape 11 ; §9, réchauffer sans faire entrer"
     },
@@ -222,8 +236,8 @@
       "id": "qpart",
       "type": "question",
       "col": "qr",
-      "rang": "d3",
-      "texte": "Il part ?"
+      "rang": "d3q",
+      "texte": "Il s'en va ?"
     },
     {
       "id": "reste",
@@ -232,7 +246,7 @@
       "rang": "d3b",
       "ancre": "haut",
       "taille": 10.5,
-      "texte": "**S'il reste** : dire la durée, mains lavées 20 s, couchage des enfants à part, travail partagé.",
+      "texte": "**Si on le loge**, lui dire d'avance combien de temps il peut rester. Il se lave les mains 20 s en entrant, il dort à l'écart des enfants et il aide aux corvées.",
       "renvoi": "ch. 17, étapes 16 à 21",
       "source": "étapes 16 à 20"
     },
@@ -243,7 +257,7 @@
       "rang": "d4",
       "ancre": "haut",
       "taille": 10.5,
-      "texte": "**Rentrer, fermer, barrer.** Noter l'heure, prévenir les voisins par radio.",
+      "texte": "**Rentrer, fermer et barrer la porte**, et rester dedans. Noter l'heure et prévenir les voisins par radio.",
       "renvoi": "ch. 17, étape 12",
       "source": "étape 12"
     },
@@ -254,33 +268,19 @@
       "rang": "d4",
       "ancre": "haut",
       "taille": 10.5,
-      "texte": "**Dire aux autres adultes** ce qui a été donné et promis. Désinfecter ce qui a été touché.",
+      "texte": "**Dire aux autres adultes** ce qu'on lui a donné et ce qu'on lui a promis. Désinfecter ce qu'il a touché.",
       "renvoi": "ch. 17, étapes 14 et 15",
       "source": "étapes 14 et 15"
     },
     {
       "id": "lendemain",
       "type": "geste",
-      "x": [
-        9.05,
-        13.3
-      ],
       "rang": "d5",
       "ancre": "haut",
-      "texte": "**Le lendemain** : écrire les trois réponses, marquer le point d'arrêt, choisir la pièce du fond, poser la barre de porte.",
+      "texte": "**Le lendemain, se préparer pour la prochaine fois** : décider ensemble ce qu'on répond, planter un poteau où le visiteur doit s'arrêter, choisir la pièce du fond et poser une barre sur la porte.",
       "renvoi": "ch. 17, étapes 23 à 29 ; §9",
-      "source": "étapes 23 à 29 ; §7 ; §9, la porte"
-    },
-    {
-      "id": "co",
-      "type": "danger",
-      "col": "large2",
-      "rang": "dco",
-      "ancre": "haut",
-      "titre": "S'il reste : le réchaud du visiteur",
-      "texte": "**Génératrice, réchaud, chaufferette : dehors, à l'air libre.** Jamais dans un bâtiment, un hangar, un garage, un véhicule ou sous un auvent. Maux de tête, nausées ou somnolence chez plusieurs : tout le monde dehors.",
-      "renvoi": "ch. 17, §8 ; ch. 87",
-      "source": "étape 19 ; §7 ; §8, point 3"
+      "source": "étapes 23 à 29 ; §7 ; §9, la porte",
+      "col": "large2"
     }
   ],
   "liens": [
@@ -341,7 +341,7 @@
       "via": [
         [
           8.8,
-          6.75
+          6.92
         ],
         [
           8.8,
@@ -352,22 +352,30 @@
     {
       "de": "qrep",
       "vers": "donner",
-      "etiquette": "On donne",
+      "etiquette": "Oui",
       "coude": 1.62,
       "pos": "palier"
     },
     {
       "de": "qrep",
+      "vers": "q2",
+      "etiquette": "Non",
+      "coude": 1.62,
+      "pos": "palier",
+      "ex": 13.375
+    },
+    {
+      "de": "q2",
       "vers": "refuser",
-      "etiquette": "Refus, il a où aller",
-      "coude": 1.62,
+      "etiquette": "Oui",
+      "coude": 2.9,
       "pos": "palier"
     },
     {
-      "de": "qrep",
-      "vers": "pasrefus",
-      "etiquette": "Refus, nulle part où aller",
-      "coude": 1.62,
+      "de": "q2",
+      "vers": "accueil",
+      "etiquette": "Non",
+      "coude": 2.9,
       "pos": "palier"
     },
     {
@@ -381,27 +389,22 @@
       "ex": 12.275
     },
     {
-      "de": "pasrefus",
+      "de": "accueil",
       "vers": "reste"
     },
     {
       "de": "qpart",
       "vers": "barrer",
       "etiquette": "Non",
-      "coude": 4.45,
+      "coude": 5.4,
       "pos": "palier"
     },
     {
       "de": "qpart",
       "vers": "apres",
       "etiquette": "Oui",
-      "coude": 4.45,
+      "coude": 5.4,
       "pos": "palier"
-    },
-    {
-      "de": "reste",
-      "vers": "co",
-      "ex": 14.475
     },
     {
       "de": "barrer",
@@ -412,6 +415,11 @@
       "de": "apres",
       "vers": "lendemain",
       "ex": 12.275
+    },
+    {
+      "de": "reste",
+      "vers": "lendemain",
+      "ex": 14.475
     }
   ]
 }
