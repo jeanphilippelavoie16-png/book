@@ -15,10 +15,10 @@ Traverser une panne d'Hydro sans intoxication au monoxyde de carbone, sans plomb
 
 ## 2. Quand l'utiliser
 
-Le chalet n'est pas sur le réseau, et c'est là qu'on va quand la panne s'étire (la
-bascule se décide au ch. 2). Au chalet, la panne, c'est la génératrice ou le banc de
-batteries qui lâche ; seules les parties sur le froid, la plomberie et les aliments
-s'appliquent : il n'y a ni entrée électrique, ni aqueduc, ni égout.
+Le chalet n'est pas sur le réseau, et c'est là qu'on va quand la panne s'étire (la bascule
+se décide au ch. 2). Au chalet, la panne, c'est la génératrice ou le banc de batteries qui
+lâche ; seules les parties sur le froid, la plomberie et les aliments s'appliquent : il
+n'y a ni entrée électrique, ni aqueduc, ni égout.
 
 **La panne se tient à la maison quand :**
 
@@ -41,17 +41,17 @@ s'appliquent : il n'y a ni entrée électrique, ni aqueduc, ni égout.
 - la maison descend sous 5 °C malgré le feu : la plomberie commence à geler, et une fois
  vidangée, la maison n'a plus rien à protéger ;
 - **la panne est régionale, la tempête n'est pas finie et le chemin se ferme dans les
- heures qui viennent.** On part pendant que la maison est encore confortable : la
- route ferme avant que la maison devienne invivable.
+ heures qui viennent.** On part pendant que la maison est encore confortable : la route
+ ferme avant qu'elle devienne invivable.
 
 ## 3. Pourquoi ça marche
 
 Une maison perd sa chaleur en proportion de l'écart avec le dehors et de la surface
 exposée : replier la famille dans une pièce réduit la perte. Un tuyau fend parce que l'eau
 prend du volume en gelant : un tuyau vide ne fend pas. L'eau et l'égout de la maison
-dépendent de pompes électriques qui ne lui appartiennent pas : elle tient trois jours, pas
-trois semaines. Le danger est presque toujours ce qu'on brûle pour se chauffer, pas le
-froid, et son monoxyde n'alerte aucun sens.
+dépendent de pompes électriques qui ne lui appartiennent pas : la maison tient trois
+jours, pas trois semaines. Le danger est presque toujours ce qu'on brûle pour se chauffer,
+pas le froid, et son monoxyde n'alerte aucun sens.
 
 ## 4. Matériel
 
@@ -65,24 +65,25 @@ froid, et son monoxyde n'alerte aucun sens.
 
 ### Les quinze premières minutes
 
-1. Distinguer la panne du réseau d'une panne d'installation : regarder si les voisins
- sont éclairés, vérifier le disjoncteur principal et les disjoncteurs de branche. Un fil
- au sol, un poteau brisé, un arbre sur la ligne : personne ne s'approche. Un fil tombé
- met le sol autour sous tension, sans bruit ni signe visible.
+1. Distinguer la panne du réseau d'une panne d'installation : regarder si les voisins sont
+ éclairés, vérifier le disjoncteur principal et les disjoncteurs de branche. Un fil au
+ sol, un poteau brisé, un arbre sur la ligne : personne ne s'approche. Un fil tombé met le
+ sol autour sous tension, sans bruit ni signe visible.
 2. **Si la rue est éclairée et pas la maison**, le problème est à l'entrée électrique.
  Hydro-Québec ne répare ni le mât de branchement, ni le col-de-cygne, ni le support
- d'isolateurs, et ne rebranche pas avant la réparation. Tant que le mât n'est pas
- réparé, la maison reste sans courant, même quand la rue est rebranchée. Un mât arraché par la glace se voit du chemin : il penche, ou le fil
- qui y entre pend. Dès la première heure, on traite cette maison comme une maison sans
- électricité pour longtemps : on vidange et on bascule.
+ d'isolateurs, et ne rebranche pas avant la réparation. Tant que le mât n'est pas réparé,
+ la maison reste sans courant, même quand la rue est rebranchée. Un mât arraché par la
+ glace se voit du chemin : il penche, ou le fil qui y entre pend. Dès la première heure,
+ on traite cette maison comme une maison sans électricité pour longtemps : on vidange et
+ on bascule.
 3. Arrêter les appareils qui fonctionnaient au moment de la panne : cuisinière,
  lave-vaisselle, bouilloire, laveuse, sécheuse. Débrancher l'électronique : au retour du
  courant, la surtension arrive par la prise. Laisser **une lumière allumée par étage**
  comme témoin.
 4. Noter l'heure exacte de la panne au crayon sur la porte du congélateur. N'ouvrir ni le
  congélateur ni le réfrigérateur.
-5. Sortir l'avertisseur de CO, appuyer sur le bouton d'essai, le poser dans la pièce où
- la famille va dormir. S'il ne répond pas, rien d'autre ne brûle cette nuit que le poêle
+5. Sortir l'avertisseur de CO, appuyer sur le bouton d'essai, le poser dans la pièce où la
+ famille va dormir. S'il ne répond pas, rien d'autre ne brûle cette nuit que le poêle
  raccordé à sa cheminée.
 
 ### Les six premières heures
@@ -93,99 +94,98 @@ froid, et son monoxyde n'alerte aucun sens.
  protéger la plomberie : on vidange les tuyaux, ce qui coûte moins cher que de chauffer
  une pièce de plus.
 7. Monter le feu avec du bois sec et de petites bûches, avec assez d'air pour que les
- flammes restent vives : la combustion complète fume moins et encrasse moins la
- cheminée. Planches de démolition et palettes brûlent aussi, jamais le bois traité ni
- peint : les sels de cuivre, et l'arsenic du vieux bois traité, partent dans la fumée et
- restent dans les cendres.
+ flammes restent vives : la combustion complète fume moins et encrasse moins la cheminée.
+ Planches de démolition et palettes brûlent aussi, jamais le bois traité ni peint : les
+ sels de cuivre, et l'arsenic du vieux bois traité, partent dans la fumée et restent dans
+ les cendres.
 8. Vider les cendres à la pelle de métal dans un contenant de métal à couvercle de métal
  et à fond surélevé, posé **dehors**, sur une surface non combustible, à au moins 1 m de
  tout objet. Attendre au moins 7 jours avant de les transvider. Des cendres qu'on croit
  éteintes, laissées dans une chaudière sur la galerie de bois, sont un des départs de feu
  les plus fréquents de l'hiver (ch. 82).
 9. Placer l'avertisseur à au moins 2 m du poêle et de tout appareil de cuisson : trop
- près, il déclenche sur les bouffées normales d'allumage et on finit par le débrancher.
- En installer un dans chaque chambre où l'on dort porte fermée, et un près de la porte
- du garage attenant : c'est par là qu'entre le gaz d'un moteur qui tourne dans le
- garage, même peu de temps.
+ près, il déclenche sur les bouffées normales d'allumage et on finit par le débrancher. En
+ installer un dans chaque chambre où l'on dort porte fermée, et un près de la porte du
+ garage attenant : le gaz d'un moteur qui y tourne, même peu de temps, entre par cette
+ porte.
 10. Habiller tout le monde en couches, avec une couche extérieure coupe-vent, laine ou
- synthétique, bas chauds, tuque à l'intérieur. Les nourrissons et les enfants perdent
- leur chaleur plus vite que les adultes ; pour des enfants de 4 et 6 ans, la routine et
- le jeu comptent autant que les couches (ch. 39 et ch. 40).
+ synthétique, bas chauds, tuque à l'intérieur. Les nourrissons et les enfants perdent leur
+ chaleur plus vite que les adultes ; pour des enfants de 4 et 6 ans, la routine et le jeu
+ comptent autant que les couches (ch. 39 et ch. 40).
 11. Remplir d'eau chaudières, baignoire et bidons pendant qu'il reste de la pression. Sur
- l'aqueduc, la pression tient tant que la station de pompage de la ville tient, et elle
- ne tient que si la ville y a mis une génératrice. Rien n'annonce la chute : on remplit
+ l'aqueduc, la pression tient tant que la station de pompage de la ville tient, et elle ne
+ tient que si la ville y a mis une génératrice. Rien n'annonce la chute : on remplit
  d'abord. Au chalet, la pompe du puits s'arrête avec le courant, et il reste quelques
  minutes de pression.
-12. Le sous-sol. Une pompe de puisard est électrique, et la pompe dite «de secours » aussi :
- les deux ne peuvent pas utiliser la pression de l'aqueduc comme source d'énergie et
+12. Le sous-sol. Une pompe de puisard est électrique, et la pompe dite «de secours » aussi
+ : les deux ne peuvent pas utiliser la pression de l'aqueduc comme source d'énergie et
  doivent être alimentées par une génératrice ou une batterie de secours. Elles tombent
  donc ensemble. Tant que rien ne dégèle, le puisard reste calme ; le risque revient au
  redoux, et surtout à la fin de la panne, quand le chauffage repart et que la neige des
  toits fond sur un puisard dont la pompe est encore arrêtée. Le clapet antiretour et la
  batterie s'achètent avant la panne (chapitre d'achat 00b).
-13. Faire un repas chaud tôt, avant que la fatigue s'installe. Un corps qui digère
- produit de la chaleur.
+13. Faire un repas chaud tôt, avant que la fatigue s'installe. Un corps qui digère produit
+ de la chaleur.
 
 ### La génératrice, s'il y en a une
 
 14. La génératrice va **dehors**, à au moins 6 mètres (20 pieds) du bâtiment, échappement
  à l'opposé de toute porte, fenêtre ou prise d'air. Jamais dans la maison, le garage, la
- remise ou le tambour d'entrée, jamais sous un auvent ni sous la galerie. Le mécanisme
- est à la section 8.
+ remise ou le tambour d'entrée, jamais sous un auvent ni sous la galerie. Le mécanisme est
+ à la section 8.
 15. Mettre le disjoncteur principal à OFF avant de démarrer. **Rien ne se raccorde au
- panneau** sans commutateur de transfert déjà installé. Le commutateur coupe
- physiquement le lien avec la ligne d'Hydro avant d'établir celui de la génératrice :
- les deux ne peuvent jamais être fermés en même temps, même par erreur, même dans le
- noir. Sans commutateur, les appareils se branchent dans les prises de la génératrice,
- et aucun adaptateur à deux fiches mâles ne va dans une prise murale ni dans celle de la
- sécheuse. Le mécanisme est à la section 8.
+ panneau** sans commutateur de transfert installé. Le commutateur coupe physiquement le
+ lien avec la ligne d'Hydro avant d'établir celui de la génératrice : les deux ne peuvent
+ jamais être fermés en même temps, même par erreur, même dans le noir. Sans commutateur,
+ les appareils se branchent dans les prises de la génératrice, et aucun adaptateur à deux
+ fiches mâles ne va dans une prise murale ni dans celle de la sécheuse. Le mécanisme est à
+ la section 8.
 16. Arrêter la génératrice environ 1 h par 8 h de marche, et la laisser refroidir avant
- chaque plein. Le plein se fait dehors, loin de toute flamme. Le bidon ne rentre pas
- dans la maison.
+ chaque plein. Le plein se fait dehors, loin de toute flamme. Le bidon ne rentre pas dans
+ la maison.
 17. Ordre de branchement quand la puissance est limitée : congélateur d'abord, puis pompe
- à eau, puis réfrigérateur, en rotation. Le congélateur passe en tête parce qu'il
- contient la viande. **Un seul appareil démarre à la fois.** Un moteur à compresseur
- demande nettement plus au démarrage qu'une fois lancé, et c'est ce pic, pas la charge
- continue, qui fait caler la génératrice ou déclencher son disjoncteur : on branche, on
- attend que le moteur tourne régulier, puis on branche le suivant. La puissance se lit
- sur la plaque signalétique.
+ à eau, puis réfrigérateur, en rotation. Le congélateur passe en tête parce qu'il contient
+ la viande. **Un seul appareil démarre à la fois.** Un moteur à compresseur demande
+ nettement plus au démarrage qu'une fois lancé, et c'est ce pic, pas la charge continue,
+ qui fait caler la génératrice ou déclencher son disjoncteur : on branche, on attend que
+ le moteur tourne rond, puis on branche le suivant. La puissance se lit sur la plaque
+ signalétique.
 18. La rotation se règle sur le thermomètre du congélateur, pas sur la montre. On fait
  tourner jusqu'à ce que le congélateur soit redescendu à sa température normale, on
  débranche, et on rebranche quand le thermomètre remonte. Un congélateur plein garde le
- froid longtemps porte fermée : chaque heure de génératrice économisée garde de
- l'essence pour la fin de la panne, quand elle manque.
+ froid longtemps porte fermée : chaque heure de génératrice économisée garde de l'essence
+ pour la fin de la panne, quand elle manque.
 19. Chaque sortie (plein d'essence, corde de bois, cendres) se planifie sur l'indice de
- refroidissement éolien, pas sur le thermomètre. Entre les indices **−28 et −39**, la
- peau exposée peut geler en 10 à 30 minutes ; entre **−40 et −47**, en 5 à 10 minutes ;
- entre **−48 et −54**, en 2 à 5 minutes. À −35 °C au thermomètre avec du vent, on est
- dans la deuxième tranche : la sortie se prépare à l'intérieur, gants et cagoule mis
- avant d'ouvrir la porte, et elle se fait en un seul voyage plutôt qu'en quatre
- allers-retours. Personne ne sort seul la nuit sans que quelqu'un sache combien de temps
- ça doit durer.
+ refroidissement éolien, pas sur le thermomètre. Entre les indices **−28 et −39**, la peau
+ exposée peut geler en 10 à 30 minutes ; entre **−40 et −47**, en 5 à 10 minutes ; entre
+ **−48 et −54**, en 2 à 5 minutes. À −35 °C au thermomètre avec du vent, on est dans la
+ deuxième tranche : la sortie se prépare à l'intérieur, gants et cagoule mis avant
+ d'ouvrir la porte, et elle se fait en un seul voyage plutôt qu'en quatre allers-retours.
+ Personne ne sort seul la nuit sans que quelqu'un sache combien de temps ça doit durer.
 
 ### La plomberie
 
 20. Fixer d'avance (ch. 2) la température qui déclenche la vidange : **5 °C dans la pièce
  la plus froide**. Les tuyaux dans les murs extérieurs sont plus froids que l'air de la
  pièce, et il ne reste plus de marge quand le thermomètre du salon affiche 2 °C.
-21. Prévoir l'heure du seuil : deux relevés du même thermomètre à deux heures
- d'intervalle donnent la pente, et la pente donne l'heure d'arrivée à 5 °C. Une maison
- qui perd 1 °C à l'heure et qui affiche 14 °C laisse neuf heures. La vidange se décide
- sur cette projection, en plein jour, à deux et les mains chaudes.
+21. Prévoir l'heure du seuil : deux relevés du même thermomètre à deux heures d'intervalle
+ donnent la pente, et la pente donne l'heure d'arrivée à 5 °C. Une maison qui perd 1 °C à
+ l'heure et qui affiche 14 °C laisse neuf heures. La vidange se décide sur cette
+ projection, en plein jour, à deux et les mains chaudes.
 22. Vidanger : fermer l'entrée d'eau, purger les robinets et les tuyaux, vider le
  chauffe-eau et les circuits de chauffage. Le chauffe-eau se vide par son robinet de
- vidange, boyau au drain ; il faut ouvrir un robinet d'eau chaude à l'étage pour casser
- le vide, sinon le réservoir ne se vide pas et on croit le robinet bouché. Un chauffe-eau
- électrique se met hors tension à son disjoncteur avant d'être vidé et n'y revient
- qu'une fois rempli : un élément qui chauffe à sec se détruit en quelques minutes.
+ vidange, boyau au drain ; il faut ouvrir un robinet d'eau chaude à l'étage pour casser le
+ vide, sinon le réservoir ne se vide pas et on croit le robinet bouché. Un chauffe-eau
+ électrique se met hors tension à son disjoncteur avant d'être vidé et n'y revient qu'une
+ fois rempli : un élément qui chauffe à sec se détruit en quelques minutes.
 23. Verser de l'antigel à plomberie **non toxique** : 0,5 à 1 L dans la cuvette et le
  réservoir de la toilette, 2 L dans la laveuse, 1 L dans le lave-vaisselle, et dans les
- siphons d'évier et de baignoire. L'antigel de moteur ne va nulle part : il est toxique
- et reste dans le circuit d'eau potable.
-24. Vidangée, la maison ne risque plus de geler : on la ferme à clé jusqu'au dégel. Tant
- qu'elle est pleine d'eau, il faut rester et brûler du bois pour protéger la tuyauterie.
- La vidange rend le départ possible : la bascule du ch. 2 se prend mieux après
- l'étape 23.
+ siphons d'évier et de baignoire. L'antigel de moteur ne va nulle part : il est toxique et
+ reste dans le circuit d'eau potable.
+24. Une fois vidangée, la maison ne risque plus de dégâts de gel : on la ferme à clé
+ jusqu'au dégel. Tant qu'elle est pleine d'eau, il faut rester et brûler du bois pour
+ protéger la tuyauterie. La vidange rend le départ possible : la bascule du ch. 2 se prend
+ mieux après l'étape 23.
 
 ### Les aliments, de la sixième heure au troisième jour
 
@@ -193,32 +193,31 @@ froid, et son monoxyde n'alerte aucun sens.
  un appareil tenu entre 0 °C et 4 °C. Après **6 h**, on trie.
  - **À jeter :** lait, fromages mous, yogourt entamé, légumes cuits, toute viande,
  volaille et poisson, desserts à la crème, mayonnaise maison.
- - **À garder** s'il n'y a aucun signe de détérioration : fromages fermes, beurre,
- fruits et légumes frais entiers, confitures, condiments du commerce (moutarde,
- ketchup).
+ - **À garder** s'il n'y a aucun signe de détérioration : fromages fermes, beurre, fruits
+ et légumes frais entiers, confitures, condiments du commerce (moutarde, ketchup).
 26. Congélateur : **48 h** s'il est plein et fermé, **24 h** s'il est à moitié plein.
  Avant la première ouverture, combler les vides : bidons d'eau gelée, sacs de neige
  tassée.
 27. À l'ouverture, ne rien juger au toucher de surface : la sonde entre au centre du
  paquet.
  - Cœur encore dur : recongeler.
- - Décongelé mais à **4 °C ou moins** : cuire tout de suite et manger vite, ou cuire
- puis recongeler.
+ - Décongelé mais à **4 °C ou moins** : cuire tout de suite et manger vite, ou cuire puis
+ recongeler.
  - Décongelé et passé **au-dessus de 4 °C** : jeter.
-28. Ce qui sort en premier se cuit et ne retourne pas au froid. Le rôti d'orignal
- (*Alces americanus*) se cuit à **74 °C à cœur**, mesuré à la sonde au centre de la
- pièce : c'est la valeur de tout le gibier sauvage, gros ou petit. **71 °C est la valeur
- du bœuf haché, pas celle du gibier**, et on confond souvent les deux.
-29. Une mijoteuse dont la cuisson a été interrompue par une panne prolongée se jette,
- même si le plat a l'air correct.
+28. Ce qui sort en premier se cuit et ne retourne pas au froid. Le rôti d'orignal (*Alces
+ americanus*) se cuit à **74 °C à cœur**, mesuré à la sonde au centre de la pièce : c'est
+ la valeur de tout le gibier sauvage, gros ou petit. **71 °C est la valeur du bœuf haché,
+ pas celle du gibier**, et on confond souvent les deux.
+29. Une mijoteuse dont la cuisson a été interrompue par une panne prolongée se jette, même
+ si le plat a l'air correct.
 30. Les médicaments qui exigent le froid suivent la même horloge que les aliments : on
  évite d'en prendre un qui n'a pas pu rester au froid. Éviter ne veut pas dire jeter :
  pour une insuline ou un médicament qu'on ne peut pas interrompre, s'en passer est aussi
  un danger. Un médicament sorti du froid ne change ni de couleur ni d'odeur, comme la
  viande : on se fie à l'heure écrite sur la porte.
 31. Utiliser le dehors comme froid d'appoint : glacière ou coffre à l'ombre du côté nord,
- hors de portée des chiens, des renards et des corneilles, avec un thermomètre dedans.
- Le froid naturel est au ch. 73, le congélateur qui dégèle pour de bon au ch. 74.
+ hors de portée des chiens, des renards et des corneilles, avec un thermomètre dedans. Le
+ froid naturel est au ch. 73, le congélateur qui dégèle pour de bon au ch. 74.
 32. Si la panne s'étire et que le congélateur est perdu, la viande se transforme au lieu
  de se jeter : salaison à sec (ch. 68), saumure (ch. 69), fumage (ch. 70, 71). Cette
  décision se prend **avant** que la température à cœur monte.
@@ -232,11 +231,11 @@ froid, et son monoxyde n'alerte aucun sens.
 35. Remettre le chauffage progressivement, l'électronique en dernier, une fois les
  températures normalisées.
 36. L'eau, au retour. Sur l'aqueduc, une panne assez longue au poste de traitement
- compromet l'eau distribuée, même si elle a l'air parfaite : l'eau de boisson et celle
- des biberons se font bouillir au moins **1 minute**. Sur un puits (au chalet ou dans
- les rangs), s'il a été inondé ou si la potabilité est douteuse, on purge les tuyaux au
- moins 5 minutes et on fait bouillir au moins 1 minute, jusqu'à ce que la cause du doute
- soit trouvée et réglée. Le détail est au ch. 10.
+ compromet l'eau distribuée, même si elle a l'air parfaite : l'eau de boisson et celle des
+ biberons se font bouillir au moins **1 minute**. Sur un puits (au chalet ou dans les
+ rangs), s'il a été inondé ou si la potabilité est douteuse, on purge les tuyaux au moins
+ 5 minutes et on fait bouillir au moins 1 minute, jusqu'à ce que la cause du doute soit
+ trouvée et réglée. Le détail est au ch. 10.
 37. Refaire le stock entamé (ch. 5).
 
 ## 6. Points de contrôle
@@ -288,17 +287,17 @@ froid, et son monoxyde n'alerte aucun sens.
 >
 > **Le monoxyde de carbone.** Tout appareil à combustion produit du CO : génératrice,
 > poêle au propane, réchaud de camping, barbecue au charbon ou au propane, lanterne à
-> flamme, moteur. Le gaz ne se voit pas, ne se sent pas et n'irrite ni les yeux
-> ni les voies respiratoires. Respiré, il entre dans le sang et y prend la place de
-> l'oxygène : le cœur bat, le sang circule, mais il ne transporte plus d'oxygène. La
-> victime ne s'étouffe pas et ne tousse pas. Elle a mal à la tête, elle est fatiguée,
-> elle se couche, et une fois inconsciente elle ne peut plus sortir. C'est pour ça que
-> les intoxications tuent la nuit, des familles complètes.
+> flamme, moteur. Le gaz ne se voit pas, ne se sent pas et n'irrite ni les yeux ni les
+> voies respiratoires. Respiré, il entre dans le sang et y prend la place de l'oxygène :
+> le cœur bat, le sang circule, mais il ne transporte plus d'oxygène. La victime ne
+> s'étouffe pas et ne tousse pas. Elle a mal à la tête, elle est fatiguée, elle se couche,
+> et une fois inconsciente elle ne peut plus sortir. C'est pour ça que les intoxications
+> tuent la nuit, des familles complètes.
 >
 > **Un avertisseur silencieux ne prouve pas que l'air est bon** : à 30 ppm, il n'a pas à
 > sonner avant 30 jours, et cette exposition basse et continue donne le mal de tête, la
-> nausée et la fatigue qu'on met sur le compte du froid. Seul le chiffre de l'affichage
-> la montre, quand il ne redescend pas de la journée.
+> nausée et la fatigue qu'on met sur le compte du froid. Seul le chiffre de l'affichage la
+> montre, quand il ne redescend pas de la journée.
 >
 > **La génératrice va dehors, à au moins 6 mètres (20 pieds) du bâtiment**, échappement
 > dos aux portes, aux fenêtres et aux prises d'air. Elle ne tourne jamais à l'intérieur :
@@ -307,10 +306,10 @@ froid, et son monoxyde n'alerte aucun sens.
 >
 > **Aucun appareil conçu pour l'extérieur ou le camping ne rentre dans la maison**, même
 > pour peu de temps, même avec une fenêtre entrouverte. Compter sur la fenêtre ne marche
-> pas : le CO pèse à peu près le poids de l'air, il ne monte pas au
-> plafond, ne coule pas au plancher et se mêle à tout le volume. Il n'y a pas de couche
-> propre où se pencher, et une maison fermée à −35 °C n'a aucun échange d'air à opposer
-> à une source qui produit sans arrêt.
+> pas : le CO pèse à peu près le poids de l'air, il ne monte pas au plafond, ne coule pas
+> au plancher et se mêle à tout le volume. Il n'y a pas de couche propre où se pencher, et
+> une maison fermée à −35 °C n'a aucun échange d'air à opposer à une source qui produit
+> sans arrêt.
 >
 > **La rétroalimentation.** Une génératrice raccordée au panneau sans commutateur de
 > transfert, ou par un câble à deux fiches mâles branché dans la prise de la sécheuse,
@@ -322,19 +321,20 @@ froid, et son monoxyde n'alerte aucun sens.
 >
 > ### ⚠ CE QUI SE MANGE
 >
-> **Le botulisme de type E.** *Clostridium botulinum* de type E est associé au poisson
-> des eaux froides. Contrairement aux autres types, il produit sa toxine à la
-> température du réfrigérateur : les souches non protéolytiques, dont le type E, ne sont
-> inhibées qu'en dessous de **3 °C**. Un réfrigérateur en panne monté à 6 ou 8 °C est
-> donc en pleine plage de croissance, et un poisson gardé cru, fumé à froid ou sous vide
-> est le cas le plus à risque.
+> **Le botulisme de type E.** *Clostridium botulinum* de type E est associé au poisson des
+> eaux froides. Contrairement aux autres types, il produit sa toxine à la température du
+> réfrigérateur : les souches non protéolytiques, dont le type E, ne sont inhibées qu'en
+> dessous de **3 °C**. Un réfrigérateur en panne monté à 6 ou 8 °C est donc en pleine
+> plage de croissance, et un poisson gardé cru, fumé à froid ou sous vide est le cas le
+> plus à risque.
+>
 > **La toxine ne change ni l'odeur, ni le goût, ni l'apparence de l'aliment.** Le poisson
-> fumé peut être dangereux même conservé au réfrigérateur et sans signe de
-> détérioration, et aucun test de cuisine ne la détecte. Sous un emballage perméable à
-> l'air, la pourriture ordinaire se déclare d'habitude avant la toxine et sert
-> d'avertissement ; sous vide, cet avertissement disparaît, et le poisson de congélateur
-> est emballé sous vide. Un omble de fontaine (*Salvelinus fontinalis*) resté plusieurs
-> jours au frigo tiède se jette. Le traitement complet est au ch. 77.
+> fumé peut être dangereux même conservé au réfrigérateur et sans signe de détérioration,
+> et aucun test de cuisine ne la détecte. Sous un emballage perméable à l'air, la
+> pourriture ordinaire se déclare d'habitude avant la toxine et sert d'avertissement ;
+> sous vide, cet avertissement disparaît, et le poisson de congélateur est emballé sous
+> vide. Un omble de fontaine (*Salvelinus fontinalis*) resté plusieurs jours au frigo
+> tiède se jette. Le traitement complet est au ch. 77.
 >
 > **La cuisson du gibier sauvage : 74 °C à cœur**, mesurés à la sonde au centre de la
 > pièce la plus épaisse. Cette valeur vaut pour le gros comme pour le petit gibier. Elle
@@ -345,8 +345,8 @@ froid, et son monoxyde n'alerte aucun sens.
 
 ## 9. Variante d'urgence
 
-Sans génératrice, sans propane, sans avertisseur de CO, sans thermomètre et sans antigel
-à plomberie, la panne se tient, mais plus mal.
+Sans génératrice, sans propane, sans avertisseur de CO, sans thermomètre et sans antigel à
+plomberie, la panne se tient, mais plus mal.
 
 **Le chauffage.** Une seule pièce, le poêle, et un abri dans la pièce : une tente de
 camping, ou des couvertures tendues au-dessus du lit, pour que la chaleur des corps
@@ -359,12 +359,12 @@ cartons aplatis ou tapis roulé, puis matelas, coussins de divan ou branches de 
 la literie. Quatre couvertures à même un plancher froid réchauffent moins que deux cartons
 et une couverture.
 
-Aux fenêtres, l'isolant est la lame d'air emprisonnée. Une couverture clouée à plat sur
-la vitre ne fait pas grand-chose ; tendue à quelques centimètres et **scellée sur ses
-quatre côtés**, elle fait beaucoup. Scellée sur trois côtés, elle fait pire que rien :
-l'air tourne en boucle derrière : il descend le long de la vitre froide, ressort par le
-bas et refroidit la pièce. Les rideaux suivent la même règle : bordés au sol et sur les
-côtés, ils isolent ; flottants, ils font la même boucle.
+Aux fenêtres, l'isolant est la lame d'air emprisonnée. Une couverture clouée à plat sur la
+vitre ne fait pas grand-chose ; tendue à quelques centimètres et **scellée sur ses quatre
+côtés**, elle fait beaucoup. Scellée sur trois côtés, elle fait pire que rien. L'air
+tourne en boucle derrière : il descend le long de la vitre froide, ressort par le bas et
+refroidit la pièce. Les rideaux suivent la même règle : bordés au sol et sur les côtés,
+ils isolent ; flottants, ils font la même boucle.
 
 *Ce qu'on perd :* sans avertisseur de CO qui fonctionne, la règle est absolue : **rien
 d'autre ne brûle à l'intérieur que le poêle raccordé à sa cheminée**. Pas de réchaud de
@@ -382,15 +382,15 @@ flamme. Alors seulement on allume le petit bois. Le geste se refait à chaque ra
 tant que la cheminée est froide, et en grand après une nuit d'arrêt.
 
 La fumée qui entre dans la maison porte les produits d'une combustion incomplète, et on
-les respire toute la nuit. La fumée visible est un des rares signes de CO dans
-la pièce, mais une pièce sans fumée peut aussi en être pleine.
+les respire toute la nuit. La fumée visible est un des rares signes de CO dans la pièce,
+mais une pièce sans fumée peut aussi en être pleine.
 
 **Les pierres chaudes.** Le poêle arrête de chauffer quand il s'éteint ; de la masse posée
 dessus continue après lui. Des briques, un morceau de fonte, un vieux fer à repasser, une
-plaque d'acier, des pierres de champ : ça chauffe toute la soirée et ça redonne la
-chaleur une partie de la nuit, quand le feu tombe et que la pièce refroidit. Une pierre
-chaude enveloppée dans une serviette et glissée au pied du lit le garde chaud jusqu'à ce
-que les corps le réchauffent.
+plaque d'acier, des pierres de champ : ça chauffe toute la soirée et ça redonne la chaleur
+une partie de la nuit, quand le feu tombe et que la pièce refroidit. Une pierre chaude
+enveloppée dans une serviette et glissée au pied du lit le garde chaud jusqu'à ce que les
+corps le réchauffent.
 
 La pierre à proscrire est celle qu'on ramasse en premier : **la pierre qui vient de
 l'eau.** Une pierre prise dans le lit d'un ruisseau ou au bord du lac est saturée d'eau.
@@ -400,23 +400,21 @@ hauteur et loin de l'eau, et on ne se penche pas au-dessus d'une pierre qui chau
 la première fois.
 
 **Le poêle qui fuit.** Un joint de porte mangé, une fissure dans la fonte, un joint de
-tuyau qui fume : ça ne se remplace pas, ça se colmate. La pâte se fait avec de la cendre de
-bois tamisée fine et de l'argile (la glaise grise des berges et des fonds de fossé),
+tuyau qui fume : ça ne se remplace pas, ça se colmate. La pâte se fait avec de la cendre
+de bois tamisée fine et de l'argile (la glaise grise des berges et des fonds de fossé),
 mouillées jusqu'à la consistance d'un mastic. Ça se pousse dans la fissure au pouce et à
-la lame, et ça sèche et durcit au premier feu. Pour un joint de tuyau, une bande
-découpée dans une boîte de conserve, enroulée par-dessus le joint et serrée au fil de
-fer, tient le temps de la panne. Dans les deux cas, on refait le tour du poêle le
-lendemain matin : une fissure colmatée se rouvre, et la fuite se fait dans la pièce où
-on dort.
+la lame, et ça sèche et durcit au premier feu. Pour un joint de tuyau, une bande découpée
+dans une boîte de conserve, enroulée par-dessus le joint et serrée au fil de fer, tient le
+temps de la panne. Dans les deux cas, on refait le tour du poêle le lendemain matin : une
+fissure colmatée se rouvre, et la fuite se fait dans la pièce où on dort.
 
 **La marmite norvégienne.** Elle se fabrique en dix minutes et économise le bois, qui
 manque plus que la nourriture. Un ragoût, un bouilli de gibier, une fève au lard, un
 bouillon d'os n'ont pas besoin de feu pendant des heures, seulement de rester chauds. On
 amène la marmite à plein bouillon sur le poêle, couvercle mis, puis on l'enfonce aussitôt
 dans une boîte, une glacière ou un tiroir bourré de couvertures de laine, de foin, de
-papier journal froissé ou de linge d'hiver, entourée de tous les côtés, y compris
-dessous, et on referme. Elle finit de cuire toute seule pendant que le poêle sert à autre
-chose.
+papier journal froissé ou de linge d'hiver, entourée de tous les côtés, y compris dessous,
+et on referme. Elle finit de cuire toute seule pendant que le poêle sert à autre chose.
 
 Trois conditions, et elles ne se négocient pas. La marmite part **pleine** : c'est la
 masse d'eau chaude qui fait la réserve, et à moitié pleine elle refroidit beaucoup plus
@@ -432,8 +430,8 @@ au feu et à la sonde ; la marmite sert au mijoté, au bouilli et au bouillon.
 
 **Sans poêle du tout.** Une maison tout électrique n'a rien à allumer. Il reste à mesurer
 la pente (étape 21), à vidanger (étapes 22 à 24) et à partir pendant que la route est
-ouverte. L'ordre compte : sans vidange, la plomberie fend partout, et une vidange
-faite à 2 °C se fait dans le noir, les doigts engourdis.
+ouverte. L'ordre compte : sans vidange, la plomberie fend partout, et à 2 °C, on vidange
+dans le noir, les doigts engourdis.
 
 *Ce qu'on perd :* la maison comme abri, pour la durée de la panne. Le bâtiment, vidangé,
 reste vide et froid mais intact pendant que la famille est au chalet.
@@ -443,17 +441,16 @@ a été rempli à l'étape 11, puis le chauffe-eau, puis la neige.
 
 **Le chauffe-eau est une réserve d'eau potable.** Sa capacité est écrite sur sa plaque.
 L'eau se tire au robinet de vidange du bas, boyau ou chaudière dessous, un robinet d'eau
-chaude ouvert à l'étage pour casser le vide (étape 22). La vidange de la plomberie, à
-l'étape 22, envoie ce réservoir au drain : on tire d'abord ce qu'on veut boire, dans des
-contenants propres et couverts, **ensuite** on vidange le reste. Dans l'autre ordre,
-plusieurs dizaines de litres d'eau potable partent à l'égout au moment où le robinet ne
-coule plus.
+chaude ouvert à l'étage pour casser le vide (étape 22). La vidange de la plomberie envoie
+ce réservoir au drain : on tire d'abord ce qu'on veut boire, dans des contenants propres
+et couverts, **ensuite** on vidange le reste. Dans l'autre ordre, plusieurs dizaines de
+litres d'eau potable partent à l'égout au moment où le robinet ne coule plus.
 
 **Le sac à fonte.** Faire fondre la neige dans une marmite occupe le dessus du poêle toute
 la journée. Une taie d'oreiller, un sac de toile ou un bas de laine rempli de neige
-tassée, suspendu à côté du poêle (assez près pour recevoir le rayonnement, assez loin
-pour que le tissu ne roussisse pas), fond seul et goutte dans une chaudière dessous. Ça
-ne prend pas de place sur la plaque et ça se remplit en allant chercher du bois. Cette eau
+tassée, suspendu à côté du poêle (assez près pour recevoir le rayonnement, assez loin pour
+que le tissu ne roussisse pas), fond seul et goutte dans une chaudière dessous. Ça ne
+prend pas de place sur la plaque et ça se remplit en allant chercher du bois. Cette eau
 n'est pas désinfectée (ch. 10).
 
 Sur la plaque, la neige se fond dans une marmite qu'on garde toujours en partie pleine,
@@ -478,9 +475,9 @@ circuit qui reverra l'eau de boisson.
 
 **Dégeler un tuyau sans chalumeau, et dans le bon sens.** Un tuyau gelé se dégèle en
 partant du robinet et en reculant vers le bouchon de glace ; presque tout le monde fait
-l'inverse. Chauffé au milieu du bouchon, le tuyau se retrouve avec de l'eau fondue et de la
-vapeur coincées entre deux glaces : la pression n'a nulle part où aller, et c'est là que
-le cuivre fend, au dégel et non au gel. On ouvre d'abord le robinet grand, pour que la
+l'inverse. Chauffé au milieu du bouchon, le tuyau se retrouve avec de l'eau fondue et de
+la vapeur coincées entre deux glaces : la pression n'a nulle part où aller, et c'est là
+que le cuivre fend, au dégel et non au gel. On ouvre d'abord le robinet grand, pour que la
 fonte sorte et pour voir quand ça recoule. Puis on enroule des guenilles autour du tuyau
 et on verse de l'eau chaude dessus, à répétition, en avançant d'une largeur de main à la
 fois vers le bouchon. Aucune flamme : un chalumeau sur un tuyau dans un mur allume la
@@ -495,18 +492,18 @@ quelque chose de dur, on replie l'écrasé sur lui-même et on serre un collier 
 
 Pour souder, le problème est le filet d'eau qui reste dans la ligne : l'eau bout, la
 vapeur chasse l'étain hors du joint, et le joint rate à chaque essai sans que la soudure
-soit en cause. On tasse de la mie de pain blanc dans le tuyau en amont : elle
-retient le suintement le temps de souder, puis on rouvre l'eau, la mie se délite et sort
-par le robinet, qu'on laisse couler longtemps, aérateur dévissé.
+soit en cause. On tasse de la mie de pain blanc dans le tuyau en amont : elle retient le
+suintement le temps de souder, puis on rouvre l'eau, la mie se délite et sort par le
+robinet, qu'on laisse couler longtemps, aérateur dévissé.
 
 *Ce qu'on perd :* le joint d'eau du siphon, seule barrière contre les gaz d'égout, ceux de
 l'égout de la ville comme ceux de la fosse septique au chalet. Le chiffon ralentit les
 gaz, il ne les arrête pas. Ça tient quelques semaines, pas un hiver, et l'odeur d'égout
-signale quand ça lâche. Un tuyau serré au collier est colmaté, pas réparé : il se refait au dégel,
-avant que la maison se remplisse d'eau pendant qu'on est ailleurs.
+signale quand ça lâche. Un tuyau serré au collier est colmaté, pas réparé : il se refait
+au dégel, avant que la maison se remplisse d'eau pendant qu'on est ailleurs.
 
-**Le puisard sans pompe.** Il se remplit au redoux, surtout au retour du chauffage
-(étape 12). Il se vide à la chaudière au bout d'une corde, et l'eau se jette loin de la
+**Le puisard sans pompe.** Il se remplit au redoux, surtout au retour du chauffage (étape
+12). Il se vide à la chaudière au bout d'une corde, et l'eau se jette loin de la
 fondation, vers le bas de la pente : jetée au pied du mur, elle revient par le même
 chemin. Un siphon au boyau d'arrosage fonctionne, mais il gèle dès qu'on arrête : on le
 vide complètement entre deux usages. Dehors, la conduite de refoulement de la pompe est
@@ -521,27 +518,26 @@ plus dur au centre quand on l'ouvre à deux mains se cuit tout de suite ou se je
 monnaie posée dessus, laissé dans le congélateur, dit si ça a dégelé entre deux
 ouvertures. La pièce reste en surface tant que rien n'a fondu. Elle est prise au milieu du
 bloc si ça a fondu à moitié et regelé. Elle est au fond si tout a fondu. Ça se prépare en
-cinq minutes le premier soir. Un thermomètre donne la température au moment où on ouvre
-la porte ; le verre montre ce qui s'est passé depuis la dernière ouverture.
+cinq minutes le premier soir. Un thermomètre donne la température au moment où on ouvre la
+porte ; le verre montre ce qui s'est passé depuis la dernière ouverture.
 
-Le même verre, sans pièce, dans la pièce la plus froide : tant qu'aucune pellicule de glace
-ne se forme à sa surface, la pièce est au-dessus de 0 °C. C'est le seul repère fixe qu'on
-ait sans instrument, et il suffit à savoir de quel côté de la vidange on se trouve.
+Le même verre, sans pièce, dans la pièce la plus froide : tant qu'aucune pellicule de
+glace ne se forme à sa surface, la pièce est au-dessus de 0 °C. C'est le seul repère fixe
+qu'on ait sans instrument, et il suffit à savoir de quel côté de la vidange on se trouve.
 
 **En janvier, le congélateur se déménage dehors.** Le froid y garde la viande gelée sans
-essence. Dès qu'il est clair que la panne dure, le contenu
-sort : garage non chauffé, remise, ou une boîte de bois ou une glacière posée du côté
-**nord** du bâtiment, jamais au soleil : même en janvier, un couvercle sombre chauffe au
-soleil. On tasse de la neige autour et par-dessus : la neige isole, elle
-ne refroidit pas, et elle garde gelé ce qui l'est déjà. On couvre d'une bâche ou d'un
-contreplaqué, on charge de bûches ou de pierres, et on fait le tour chaque matin pour
-lire les traces : renard, chien, martre, corneilles. Le verre à la pièce de monnaie va
-dans la boîte avec la viande.
+essence. Dès qu'il est clair que la panne dure, le contenu sort : garage non chauffé,
+remise, ou une boîte de bois ou une glacière posée du côté **nord** du bâtiment. Jamais au
+soleil, même en janvier : un couvercle sombre y chauffe. On tasse de la neige autour et
+par-dessus : la neige isole, elle ne refroidit pas, et elle garde gelé ce qui l'est déjà.
+On couvre d'une bâche ou d'un contreplaqué, on charge de bûches ou de pierres, et on fait
+le tour chaque matin pour lire les traces : renard, chien, martre, corneilles. Le verre à
+la pièce de monnaie va dans la boîte avec la viande.
 
 Le risque devient le redoux, le soleil et les bêtes. Un cycle dégel-regel n'empoisonne pas
 la viande, il l'abîme : la texture part, l'eau sort en jus rouge à la coupe, et la pièce
-devient plus sèche et plus dure. Ce qui a traversé un cycle se mange en premier, et pas
-en rôti.
+devient plus sèche et plus dure. Ce qui a traversé un cycle se mange en premier, et pas en
+rôti.
 
 *Ce qu'on perd :* sans thermomètre ni sonde, on jette nettement plus. Un thermomètre de
 congélateur coûte moins cher qu'un seul paquet de viande d'orignal (*Alces americanus*)
@@ -573,12 +569,13 @@ et le tenir ; dix minutes de ralenti ne la rechargent pas.
 
 *Ce qu'on perd :* une batterie au plomb tirée à fond ne revient jamais complètement, et
 déchargée, elle gèle beaucoup plus haut que chargée : l'acide abaisse le point de
-congélation, et l'électrolyte d'une batterie vidée est presque de l'eau. Une batterie gelée se fend et ne
-repart pas. Elle reste donc au chaud et ne se vide pas à fond : c'est aussi elle qui fait
-démarrer le camion le jour du départ. On vide d'abord celle du deuxième véhicule.
+congélation, et l'électrolyte d'une batterie vidée est presque de l'eau. Une batterie
+gelée se fend et ne repart pas. Elle reste donc au chaud et ne se vide pas à fond : c'est
+aussi elle qui fait démarrer le camion le jour du départ. On vide d'abord celle du
+deuxième véhicule.
 
-**La génératrice qui ne part pas.** C'est presque toujours l'une
-de ces quatre choses, et aucune ne demande de pièce.
+**La génératrice qui ne part pas.** C'est presque toujours l'une de ces quatre choses, et
+aucune ne demande de pièce.
 
 - **L'essence de l'an passé.** Les fractions légères s'évaporent ; ce qui reste s'allume
  mal, et encore moins bien à froid. On vide le bol du carburateur par sa vis de vidange,
@@ -590,21 +587,21 @@ de ces quatre choses, et aucune ne demande de pièce.
  métallique ou un fil de guitare, et on vérifie à contre-jour qu'on voit le jour au
  travers. Jamais une mèche de perceuse, jamais une épingle forcée : le trou est calibré,
  et un trou agrandi donne un mélange trop riche qui ne se rattrape plus.
-- **La bougie noyée et froide.** On la sort, on l'essuie, on la réchauffe dans la maison, on
- nettoie les électrodes à la toile d'émeri, on la remet. Une bougie mouillée dans un moteur
- froid ne donne pas d'étincelle capable d'allumer le mélange.
-- **La corde du lanceur cassée.** Elle se remplace par du cordage tressé de même grosseur :
- corde à linge de nylon, paracorde dont on a fondu les bouts au briquet. On démonte le
+- **La bougie noyée et froide.** On la sort, on l'essuie, on la réchauffe dans la maison,
+ on nettoie les électrodes à la toile d'émeri, on la remet. Une bougie mouillée dans un
+ moteur froid ne donne pas d'étincelle capable d'allumer le mélange.
+- **La corde du lanceur cassée.** Elle se remplace par du cordage tressé de même grosseur
+ : corde à linge de nylon, paracorde dont on a fondu les bouts au briquet. On démonte le
  carter, on arme le ressort de deux ou trois tours à la main avant de nouer la corde à la
  poulie, on passe le bout par le trou de la poignée et on noue par-dessus.
 
 **L'éclairage.** Lampes frontales d'abord, une seule allumée à la fois, et les piles des
 autres gardées au chaud (ch. 85). Quand il n'y a plus de piles, la lampe à graisse se fait
-avec ce qui traîne : une boîte de conserve ou un pot de verre trapu, de la graisse (gras de
-bacon fondu, saindoux, gras d'orignal fondu, huile de cuisson) et une mèche de coton : un
-lacet de botte, une bande de t-shirt roulée serrée. La mèche se tient debout dans un bout
-de fil de fer enroulé en spirale, ou se couche dans la graisse avec seulement le bout qui
-sort.
+avec ce qui traîne : une boîte de conserve ou un pot de verre trapu, de la graisse (gras
+de bacon fondu, saindoux, gras d'orignal fondu, huile de cuisson) et une mèche de coton :
+un lacet de botte, une bande de t-shirt roulée serrée. La mèche se tient debout dans un
+bout de fil de fer enroulé en spirale, ou se couche dans la graisse avec seulement le bout
+qui sort.
 
 **La mèche ne dépasse presque pas.** Trop longue, elle ne donne pas plus de lumière : elle
 fume noir, salit tout et brûle la graisse plusieurs fois plus vite. On la raccourcit dès
@@ -616,10 +613,11 @@ fondue.
 travaille, et elle ne passe pas la nuit allumée dans une pièce fermée. Le suif et les
 chandelles sont au ch. 112.
 
-**Les voisins** servent surtout au début. Une rue de six maisons froides contient presque
-toujours un poêle, une génératrice et un congélateur encore plein ; se regrouper divise le
-bois par famille et met une personne de garde la nuit. Ça se propose tôt : la famille qui
-propose la première choisit le lieu ; celle qui attend prend la place qui reste. Le groupe de chasse et le voisinage sont au ch. 16.
+**Les voisins.** Ils servent surtout au début. Une rue de six maisons froides contient
+presque toujours un poêle, une génératrice et un congélateur encore plein ; se regrouper
+divise le bois par famille et met une personne de garde la nuit. Ça se propose tôt : la
+famille qui propose la première choisit le lieu ; celle qui attend prend la place qui
+reste. Le groupe de chasse et le voisinage sont au ch. 16.
 
 **Les nouvelles.** La radio du camion fonctionne moteur arrêté, et c'est probablement le
 meilleur récepteur sur place : elle a une vraie antenne. La bande AM porte beaucoup plus
@@ -632,8 +630,8 @@ qu'une seconde à la fois, on écrit, on n'appelle pas.
 
 Les tours cellulaires ont une réserve de batterie qui ne dure pas une panne majeure :
 c'est dans les premières heures qu'on dit où on est et où on s'en va. Sans radio ni
-téléphone, l'absence de nouvelles veut seulement dire qu'on ne sait pas. Retrouver le
-lien : ch. 14.
+téléphone, l'absence de nouvelles veut seulement dire qu'on ne sait pas. Retrouver le lien
+: ch. 14.
 
 **Ce qui ne se remplace pas.**
 
@@ -642,14 +640,14 @@ chargée de CO : le gaz ne prend pas la place de l'oxygène dans l'air, il la pr
 sang. Sans avertisseur qui fonctionne, la règle est absolue : **rien d'autre ne brûle à
 l'intérieur que le poêle raccordé à sa cheminée.**
 
-**La cheminée.** Un poêle s'improvise : un baril se coupe, une porte se découpe, la fonte se
-colmate. La cheminée, non. Il faut un conduit qui traverse le mur ou le toit sans toucher au
-bois, et qui monte assez haut pour tirer. Une maison sans cheminée n'a pas de chauffage
-d'urgence, quoi qu'on ait dans le garage, et c'est ça qui décide du départ, pas le
-thermomètre.
+**La cheminée.** Un poêle s'improvise : un baril se coupe, une porte se découpe, la fonte
+se colmate. La cheminée, non. Il faut un conduit qui traverse le mur ou le toit sans
+toucher au bois, et qui monte assez haut pour tirer. Une maison sans cheminée n'a pas de
+chauffage d'urgence, quoi qu'on ait dans le garage, et c'est ça qui décide du départ, pas
+le thermomètre.
 
-**La sonde de cuisson.** Les **74 °C à cœur** ne s'estiment pas. Le jus clair, la couleur au
-centre, la fermeté sous le doigt peuvent tromper tous les trois à la fois sur une pièce
+**La sonde de cuisson.** Les **74 °C à cœur** ne s'estiment pas. Le jus clair, la couleur
+au centre, la fermeté sous le doigt peuvent tromper tous les trois à la fois sur une pièce
 épaisse. Sans sonde, il reste l'eau bouillante, qui marque 100 °C au niveau de la mer. Une
 viande coupée petite et tenue à **plein bouillon** dans du liquide finit forcément par
 dépasser 74 °C à cœur si on lui en laisse le temps. Le bouilli et le ragoût sont donc plus
@@ -664,6 +662,6 @@ maison n'est plus le bon endroit : c'est la bascule du ch. 2, dès le premier so
 
 **Si la panne s'étire au-delà de deux semaines**, la famille part au chalet : la maison
 devient un endroit sans services au milieu d'autres gens sans services, et le chalet a le
-bois, l'eau et le territoire. La maison, vidangée, peut rester fermée. Au chalet, on
-mange surtout de la viande maigre de gibier, et le risque devient le mal de caribou,
-mortel en quelques semaines (ch. 19). Il faut du gras, et il se prépare d'avance (ch. 72).
+bois, l'eau et le territoire. La maison, vidangée, peut rester fermée. Au chalet, on mange
+surtout de la viande maigre de gibier, et le risque devient le mal de caribou, mortel en
+quelques semaines (ch. 19). Il faut du gras, et il se prépare d'avance (ch. 72).
