@@ -52,6 +52,14 @@ function region(p, kind, first){
     dg.appendChild(frame);
     const cut = document.createElement('div'); cut.className = 'dcut on'; cut.textContent = 'L’encadré continue page suivante';
     dg.appendChild(cut); box.appendChild(dg);
+  } else if(kind === 'o'){
+    // la série des premières minutes (build_chapitre.py, marqueur {.orange}) : encadré orange, repère orange sur la tranche
+    box = document.createElement('div'); box.className = 'rg';
+    const og = document.createElement('div'); og.className = 'orange full'; og.dataset.edge = 'o';
+    og.innerHTML = '<div class="ohead' + (first ? '' : ' small') + '"><i></i><span>Premières minutes' + (first ? '' : ' <span class="sj">(suite)</span>') + '</span></div>';
+    og.appendChild(frame);
+    const cut = document.createElement('div'); cut.className = 'dcut on'; cut.dataset.lab = 'La série continue page '; cut.textContent = 'La série continue page suivante';
+    og.appendChild(cut); box.appendChild(og);
   } else if(kind === 'e'){
     box = document.createElement('div'); box.className = 'rg s9wrap' + (first ? '' : ' cont'); box.dataset.edge = 'k';
     if(first) box.innerHTML = '<h2 class="sec s9" data-n="9"><span class="n">9</span><span class="t">Variante d’urgence</span><span class="sub9">Sans courant, sans matériel acheté, sans personne à appeler</span></h2>';
@@ -94,18 +102,20 @@ function splitTableBal(tb, f){   // jamais une rangée seule en haut de la page 
 function finish(R, kind){
   if(kind === 'main'){ R.frame.classList.add('auto'); return; }
   R.box.classList.add('fin'); R.frame.classList.add('auto');
-  if(kind === 'd'){ const dg = R.box.querySelector('.danger'); dg.classList.remove('full'); dg.querySelector('.dcut').classList.remove('on'); }
+  if(kind === 'd' || kind === 'o'){ const dg = R.box.querySelector(kind === 'd' ? '.danger' : '.orange'); dg.classList.remove('full'); dg.querySelector('.dcut').classList.remove('on'); }
 }
-function story(kind){
-  const tpl = document.getElementById('story-' + kind);
+function story(id, kind, suite){   // kind : main, o, d, e ; suite : histoire reprise après la série orange (pas de second titre)
+  kind = kind || id;
+  const tpl = document.getElementById('story-' + id);
   const q = Array.from(tpl.content.children).map(n => n.cloneNode(true));
   if(!q.length) return;
   const H = P.bl.getBoundingClientRect().height;
-  let first = true, guard = 0;
+  let first = !suite, guard = 0;
   while(q.length && guard++ < 120){
     const fr = free(P), fresh = P.kind === 'text' && !P.bl.children.length;
     // seuils de départ : l'encadré danger et la variante d'urgence ne commencent pas dans un fond de page
-    if(first && !fresh && ((kind === 'd' && fr < 2.2 * 96) || (kind === 'e' && fr < 1.8 * 96) || (kind === 'main' && fr < 1.2 * 96))){ nextPage(); continue; }
+    if(first && !fresh && ((kind === 'd' && fr < 2.2 * 96) || (kind === 'e' && fr < 1.8 * 96) || (kind === 'main' && fr < 1.2 * 96) || (kind === 'o' && fr < 2.0 * 96))){ nextPage(); continue; }
+    if(suite && guard === 1 && !fresh && fr < 1.2 * 96){ nextPage(); continue; }
     P.story = kind;
     const snapQ = q.slice(), snapPl = pendingPlates.slice();
     const R = region(P, kind, first);
@@ -152,12 +162,13 @@ function finishPages(){
     p.el.insertAdjacentHTML('beforeend', ladder(on, label, p.kind === 'open' ? C.num + '-' + p.n : null));
     if(p.plate && p.story === 'e') p.bl.querySelector('img').dataset.edge = 'k';
     if(p.plate && p.story === 'd') p.bl.querySelector('img').dataset.edge = 'd';
+    if(p.plate && p.story === 'o') p.bl.querySelector('img').dataset.edge = 'o';
   });
   document.querySelectorAll('.toc li').forEach(li => { const n = li.dataset.n; li.querySelector('.f').textContent = start[n] ? C.num + '-' + start[n] : ''; });
   // « l'encadré continue page … » et « le tableau continue page … »
   PAGES.forEach((p, i) => {
     const nxt = PAGES.slice(i + 1).find(q => q.kind === 'text');
-    p.el.querySelectorAll('.dcut.on').forEach(c => { if(nxt) c.textContent = 'L’encadré continue page ' + C.num + '-' + nxt.n; });
+    p.el.querySelectorAll('.dcut.on').forEach(c => { if(nxt) c.textContent = (c.dataset.lab || 'L’encadré continue page ') + C.num + '-' + nxt.n; });
     p.el.querySelectorAll('caption.tsuite').forEach(c => { if(nxt && nxt.n !== p.n + 1) c.textContent = 'Le tableau continue page ' + C.num + '-' + nxt.n; });
   });
 }
@@ -169,7 +180,7 @@ function fitTitle(){
 function edges(){
   document.querySelectorAll('[data-edge]').forEach(el => {
     const pg = el.closest('.page'); const pr = pg.getBoundingClientRect(); const r = el.getBoundingClientRect();
-    const e = document.createElement('div'); e.className = 'edge' + (el.dataset.edge === 'd' ? ' d' : '');
+    const e = document.createElement('div'); e.className = 'edge' + (el.dataset.edge === 'd' ? ' d' : el.dataset.edge === 'o' ? ' o' : '');
     e.style.top = (r.top - pr.top) + 'px'; e.style.height = r.height + 'px'; pg.appendChild(e);
   });
 }
@@ -203,7 +214,7 @@ const imgs = Array.from(document.querySelectorAll('template')).flatMap(t => Arra
 const imgLoads = imgs.map(src => new Promise(res => { const i = new Image(); i.onload = i.onerror = res; i.src = src; }));
 Promise.all(faces.map(f => document.fonts.load(f, 'aéÀ§«»—'))).then(() => document.fonts.ready).then(() => Promise.all(imgLoads)).then(() => {
   P = mkPage('open'); fitTitle();
-  ['main', 'd', 'e'].forEach(story);
+  (C.flux || [['main'], ['d'], ['e']]).forEach(f => story(f[0], f[1], f[2]));
   if(pendingPlates.length){ const pl = pendingPlates; pendingPlates = []; pl.forEach(b => { const pp = mkPage('plate', b); pp.story = 'e'; }); }
   finishPages(); edges(); checks();
   const st = {pages: PAGES.length, reste: 0, warn: WARN, mots: {}};

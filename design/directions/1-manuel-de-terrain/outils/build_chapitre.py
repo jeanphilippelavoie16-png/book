@@ -102,6 +102,73 @@ def il(s):
     s = re.sub(r"(?<![\d,])(\d{1,3}) (\d{3})(?![\d,])", "\\1\u202f\\2", s)   # 7 000, 1 440
     return s
 
+# ------------------------------------------------------------------ premières minutes (la série orange)
+# CLAUDE.md, « Les premières minutes, en orange » (JP, 15 octobre 2026). Dans le Markdown, la série se marque
+# sur son intertitre : « ### Les quinze premières minutes {.orange} ». Chaque intertitre marqué ouvre une partie
+# de la série, qui court jusqu'au prochain intertitre ### non marqué ou au prochain ## ; deux parties marquées
+# qui se suivent font un seul encadré. L'heure du titre sort en gros sur une pastille (« 15 MIN », « 0–1 H ») :
+# elle se lit dans le titre (« Heure 0 à heure 1 », « Les six premières heures », « La première heure »), ou
+# se donne dans le marqueur quand le titre n'en dit pas (« {.orange 15 min} »).
+MARQUE_OR = re.compile(r"\s*\{\s*\.orange\b([^}]*)\}\s*$")
+NOMBRES = {"un": 1, "une": 1, "deux": 2, "trois": 3, "quatre": 4, "cinq": 5, "six": 6, "sept": 7, "huit": 8,
+           "neuf": 9, "dix": 10, "douze": 12, "quinze": 15, "vingt": 20, "trente": 30, "vingt-quatre": 24,
+           "quarante-huit": 48, "soixante-douze": 72}
+
+def marque_orange(t):
+    """« Titre {.orange} » -> (« Titre », "") ; « Titre {.orange 15 min} » -> (« Titre », "15 min") ; sans marqueur : (t, None)."""
+    m = MARQUE_OR.search(t)
+    if not m:
+        return t, None
+    return t[:m.start()].rstrip(), m.group(1).strip()
+
+def repere_heure(titre, donne=""):
+    """-> (chiffre, unité, reste du titre) ; chiffre vide si le titre ne dit pas l'heure."""
+    if donne:
+        m = re.match(r"^([\d–\-→+ ]*\d[+]?)\s*(.*)$", donne)
+        return (m.group(1).strip(), m.group(2).strip(), titre) if m else ("", donne, titre)
+    m = re.match(r"^[Hh]eure\s+(\d+)\s+à\s+heure\s+(\d+)\s*(?:[—–:]\s*(.*))?$", titre)
+    if m:
+        return f"{m.group(1)}–{m.group(2)}", "h", m.group(3) or titre
+    m = re.search(r"\b(?:[Ll]es|[Ll]a)\s+(?:([\w-]+)\s+)?premi[eè]res?\s+(demi-heure|minutes?|heures?)\b", titre)
+    if m:
+        mot, unite = (m.group(1) or "").lower(), m.group(2)
+        n = int(mot) if mot.isdigit() else NOMBRES.get(mot)
+        if unite == "demi-heure":
+            return "30", "min", titre
+        if n is None and unite == "heure":          # « La première heure »
+            n = 1
+        if n is not None:
+            return str(n), "min" if unite.startswith("minute") else "h", titre
+    return "", "", titre
+
+def h3_orange(t, donne):
+    chiffre, unite, reste = repere_heure(t, donne)
+    if not chiffre:
+        WARN.append(f"série orange : aucune heure lisible dans « {t} » (la donner dans le marqueur : {{.orange 15 min}})")
+    tag = (f'<span class="otag">{html.escape(chiffre)}<small>{html.escape(unite)}</small></span>' if chiffre else "")
+    return f'<h3 class="sub or">{tag}<span class="ot">{il(reste)}</span></h3>'
+
+def segments_orange(items):
+    """Coupe une histoire [(html, src)] en parties [(orange?, items)] aux intertitres de la série. Une figure
+    posée par place() reste dans la partie de son ancre."""
+    segs, cur, etat = [], [], False
+    for h, src in items:
+        if h.startswith("<h2"):
+            nv = False
+        elif h.startswith('<h3 class="sub or"'):
+            nv = True
+        elif h.startswith("<h3"):
+            nv = False
+        else:
+            nv = etat
+        if nv != etat and cur:
+            segs.append((etat, cur)); cur = []
+        etat = nv
+        cur.append((h, src))
+    if cur:
+        segs.append((etat, cur))
+    return segs
+
 # ------------------------------------------------------------------ blocs
 def parse(lines):
     """Markdown d'une section -> blocs. Gère les étapes numérotées, les puces (et les puces,
@@ -131,7 +198,11 @@ def parse(lines):
         m = re.match(r"^(#{3,4})\s+(.*)", l)
         if m:
             flush(); ctx = None
-            blocks.append({"k": "h3" if len(m.group(1)) == 3 else "h4", "t": m.group(2).strip()}); i += 1; continue
+            t, orange = marque_orange(m.group(2).strip())
+            b = {"k": "h3" if len(m.group(1)) == 3 else "h4", "t": t}
+            if orange is not None:
+                b["or"] = orange
+            blocks.append(b); i += 1; continue
         m = re.match(r"^(\d+)\.\s+(.*)", l)
         if m:
             flush(); cur = {"k": "step", "n": m.group(1), "t": [m.group(2)]}; ctx = "step"; i += 1; continue
@@ -193,7 +264,9 @@ def render(blocks, lead=False):
     out, prev = [], None
     for b in blocks:
         k = b["k"]
-        if k == "h3":
+        if "or" in b:
+            out.append((h3_orange(b["t"], b["or"]), b["t"]))
+        elif k == "h3":
             out.append((f'<h3 class="sub">{il(b["t"])}</h3>', b["t"]))
         elif k == "h4":
             out.append((f'<h4 class="choix">{il(b["t"])}</h4>', b["t"]))
@@ -439,12 +512,34 @@ def build(num):
     if dispo:
         print(f"photos sous l'ancien numéro {ANCIEN.get(num, num)} : {len(dispo)} fichier(s), {len(photos)} placée(s)")
 
+    # la série orange : le texte courant et la variante d'urgence se coupent en parties, chacune son histoire
+    # (story-main, story-o1, story-main2…), que chapitre.js coule dans l'ordre de « flux » ; sans série, rien ne
+    # change (pas de « flux » : main, d, e comme avant)
+    flux, n_or = [], 0
+    for kind in ("main", "d", "e"):
+        segs = segments_orange(stories[kind]) if kind != "d" else []
+        if len(segs) <= 1 or not any(o for o, _ in segs):
+            flux.append([kind, kind, 0])
+            continue
+        del stories[kind]
+        k_suite = 0
+        for est_or, its in segs:
+            if est_or:
+                n_or += 1; sid, sk = f"o{n_or}", "o"
+            else:
+                k_suite += 1; sid, sk = (kind if k_suite == 1 else f"{kind}{k_suite}"), kind
+            stories[sid] = its
+            flux.append([sid, sk, 1 if (sk == kind and k_suite > 1) else 0])
+    if any('class="sub or"' in h for h, _ in stories.get("d", [])):
+        WARN.append("marqueur {.orange} dans la section 8 : le titre sort en orange, sans encadré")
     present = {s["n"] for s in ch["secs"] if s["n"]}
     tn = tome_de(num)
     meta = dict(num=num, title=html.unescape(re.sub("<[^>]+>", "", il(ch["title"]))), tome=ch["tome"],
                 tnum=tn, tfond=TOMES[tn][1], tencre=TOMES[tn][2],
                 lieu=ch["lieu"] or "Les deux", dsub=il(dsubject) if dsubject else "",
                 secs={str(k): v for k, v in SECNAMES.items() if k in present})
+    if n_or:
+        meta["flux"] = flux     # [id de l'histoire, genre (main, o, d, e), 1 si c'est la suite d'une histoire coupée]
     lieu_opts = "".join(f'<span{" class=\"on\"" if o == meta["lieu"] else ""}>{o}</span>' for o in ("Maison", "Chalet", "Les deux"))
     toc = "".join(
         f'<li class="{"d" if k == 8 else "h" if k == 9 else ""}" data-n="{k}"><span class="n">{k}</span>'
@@ -465,9 +560,7 @@ def build(num):
     st = lambda k: "\n".join(h for h, _ in stories[k])
     out = (head + eng + "</style>\n</head>\n<body>\n<div id=\"book\"></div>\n"
            + f'<template id="open">{opening}</template>\n'
-           + f'<template id="story-main">\n{st("main")}\n</template>\n'
-           + f'<template id="story-d">\n{st("d")}\n</template>\n'
-           + f'<template id="story-e">\n{st("e")}\n</template>\n'
+           + "".join(f'<template id="story-{sid}">\n{st(sid)}\n</template>\n' for sid, _, _ in flux)
            + f'<template id="notes">\n{notes_html()}\n</template>\n'
            + '<script type="application/json" id="meta">' + json.dumps(meta, ensure_ascii=False) + "</script>\n"
            + '<pre id="stats"></pre>\n<script>\n(function(){\n' + helpers + engine + "\n})();\n</script>\n</body>\n</html>\n")

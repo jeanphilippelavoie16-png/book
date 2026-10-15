@@ -108,7 +108,7 @@ pichet sortent de cette eau-là. Et une eau contaminée par un produit **chimiqu
 règle pas en la faisant bouillir : le contaminant ne s'évapore pas avec l'eau, il reste,
 et il peut se concentrer.
 
-### Heure 0 à heure 1 — ce qui se fait avant de réfléchir
+### Heure 0 à heure 1 — ce qui se fait avant de réfléchir {.orange}
 
 1. **Écrire l'heure sur la porte du congélateur.** Au marqueur, sur un bout de ruban,
  pas dans la tête. Toutes les décisions des deux prochains jours se comptent à partir de
@@ -151,7 +151,7 @@ et il peut se concentrer.
  portes, et la pièce choisie est celle qui a la source de chaleur, pas celle qui a
  les lits. Un chauffage d'appoint chauffe un volume, pas une maison (chapitre 83).
 
-### Heure 1 à heure 6 — la fenêtre où tout se décide
+### Heure 1 à heure 6 — la fenêtre où tout se décide {.orange}
 
 9. **Remplir tout ce qui se remplit pendant que l'aqueduc donne encore** : contenants,
  chaudrons, baignoire, seaux. Une pression qui baisse est le premier signe visible

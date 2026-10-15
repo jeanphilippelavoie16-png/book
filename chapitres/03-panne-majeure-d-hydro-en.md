@@ -61,7 +61,7 @@ brûle pour se chauffer, et le monoxyde n'a ni odeur ni couleur.
 
 ## 5. Procédure
 
-### Les quinze premières minutes
+### Les quinze premières minutes {.orange}
 
 1. Distinguer la panne du réseau d'une panne d'installation : regarder si les voisins sont
  éclairés, vérifier le disjoncteur principal et les disjoncteurs de branche. Un fil au
@@ -84,7 +84,7 @@ brûle pour se chauffer, et le monoxyde n'a ni odeur ni couleur.
  famille va dormir. S'il ne répond pas, rien d'autre ne brûle cette nuit que le poêle
  raccordé à sa cheminée.
 
-### Les six premières heures
+### Les six premières heures {.orange}
 
 6. Replier le volume chauffé sur une pièce : celle du poêle, avec le moins de murs
  extérieurs possible. Fermer les autres pièces, boucher le bas des portes, fermer les

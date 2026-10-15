@@ -80,6 +80,7 @@ body.t6{--tf:#363432;--tfi:#EEEBE6;--tfn:#EEEBE6;--ta:#363432;--tsq:#363432;--t9
 .vB h2.sec.s9{background:var(--t9)}
 .vB h2.sec.s9 .n{background:#fff;color:var(--t9)}
 .vB .edge:not(.d){background:var(--t9)}
+.vB .edge.o{background:var(--or)}   /* la série des premières minutes garde son orange (chapitre.css) */
 .vB .toc li.h .n{background:var(--t9);border-color:var(--t9)}
 /* onglet de tranche : plein, avec le numéro du chapitre ; se voit livre fermé */
 .vB .page::after{content:var(--chnum);width:0.5in;height:0.84in;display:flex;align-items:flex-end;

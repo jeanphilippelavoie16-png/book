@@ -69,7 +69,8 @@ while (i < L.length) {
     i++; continue;
   }
   if ((m = l.match(/^## (.*)/))) { out.push(`<h2 class="sec"><span class="t">${inline(m[1])}</span></h2>`); i++; continue; }
-  if ((m = l.match(/^#{3,4} (.*)/))) { out.push(`<h3>${inline(m[1])}</h3>`); i++; continue; }
+  // « ### Les quinze premières minutes {.orange} » : la série des premières minutes (CLAUDE.md) ; le marqueur ne s'imprime pas
+  if ((m = l.match(/^#{3,4} (.*)/))) { const or = /\s*\{\s*\.orange\b[^}]*\}\s*$/; out.push(`<h3${or.test(m[1]) ? ' class="or"' : ''}>${inline(m[1].replace(or, ''))}</h3>`); i++; continue; }
   if (/^---+\s*$/.test(l)) { out.push('<hr>'); i++; continue; }
   if (l.startsWith('|')) {
     const rows = [];
@@ -127,6 +128,7 @@ h2.sec .n { background: #000; color: #fff; width: 19pt; height: 19pt; display: i
 h2.sec.dang .n { background: #9B2C1E; } h2.sec.dang { color: #9B2C1E; border-color: #9B2C1E; }
 h2.sec.urg { background: #000; color: #fff; padding: 5pt 8pt; border: 0; } h2.sec.urg .n { background: #fff; color: #000; }
 h3 { font: 700 10pt/12pt 'IBM Plex Sans Condensed'; text-transform: uppercase; letter-spacing: .05em; margin: 10pt 0 4pt; break-after: avoid; border-top: .75pt solid #000; padding-top: 3pt; }
+h3.or { background: #EE7219; color: #000; border-top: 0; padding: 3pt 5pt; }
 p { margin: 0 0 5pt; text-align: justify; }
 p.amorce { break-after: avoid; }
 ul, ol { margin: 0 0 6pt; padding-left: 14pt; } li { margin-bottom: 3pt; text-align: justify; }

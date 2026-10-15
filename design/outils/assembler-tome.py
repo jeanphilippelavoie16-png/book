@@ -172,6 +172,8 @@ RAPPORT_JS = r"""<script>
       out.figs.push({id: 'photo', src: i.getAttribute('src'), page: num(i), taille: i.closest('figure').classList.contains('demi') ? 'demi' : 'quart',
                      w: r.width / 96, h: r.height / 96, nw: i.naturalWidth, nh: i.naturalHeight}); });
     document.querySelectorAll('.page h2.sec[data-n]').forEach(h => { const n = h.dataset.n; if(!(n in out.secs)) out.secs[n] = num(h); });
+    // la série des premières minutes (encadré orange) : ses pages, dans le chapitre
+    out.orange = Array.from(new Set(Array.from(document.querySelectorAll('.page .orange')).map(num)));
     const b = btoa(unescape(encodeURIComponent(JSON.stringify(out))));
     document.body.className = '';
     document.body.innerHTML = '<pre style="font:9px/1.25 \'Courier New\',monospace;white-space:pre-wrap;word-break:break-all;margin:0.4in">@@' + b + '@@</pre>';
@@ -446,6 +448,17 @@ table.som th.r{text-align:right}
 table.som th .sq{display:inline-block;width:11pt;height:11pt;margin-right:3pt;background:var(--k);color:#fff;text-align:center;font:700 7.5pt/11pt var(--sans);letter-spacing:0}
 table.som th .sq.d{background:var(--red)}
 table.som th.s9 .sq{background:var(--t9)}
+/* premières minutes (15 octobre 2026) : la page où commence la série orange, en pastille pleine, chiffre noir ;
+   colonne posée seulement si un chapitre du tome a sa série. Pictogramme noir en image de fond (pas de masque),
+   boîte en px entiers */
+table.som.or td.s8,table.som.or td.s9{width:0.8in}
+table.som td.sor{text-align:right;width:0.82in}
+table.som td.sor span{display:inline-block;min-width:26pt;padding:0 4pt;background:var(--or);color:#000;text-align:center;font:700 11.5pt/17pt var(--sans)}
+table.som th.sor{line-height:1.05}
+table.som th .sq.o{width:15px;height:15px;vertical-align:-3px;background-color:var(--or);background-image:var(--i-minuteur-k);
+  background-position:center;background-size:11px 11px;background-repeat:no-repeat}
+table.som.serre td.sor span{font-size:10.5pt;line-height:15pt}
+table.som.serre2 td.sor span{font-size:9.5pt;line-height:13pt;min-width:22pt}
 table.som tr.cr td{border-top:1.5pt solid var(--ta)}
 table.som tr.cr td.ti{font-weight:600;font-size:10.5pt}
 table.cred{font-size:8pt;line-height:10.4pt}
@@ -530,26 +543,31 @@ def annexe_html(tome, chaps, plan, work):
     # --- sommaire
     icone = {"Maison": "m", "Chalet": "c"}
     rangs = []
+    avec_or = any(c["rapport"].get("orange") for c in chaps)
     for c in chaps:
         s8 = c["debut"] + c["secs"]["8"] - 1 if "8" in c["secs"] else ""
         s9 = c["debut"] + c["secs"]["9"] - 1 if "9" in c["secs"] else ""
+        so = c["rapport"].get("orange") or []
+        sor = (f'<td class="sor">{"<span>%d</span>" % (c["debut"] + so[0] - 1) if so else ""}</td>' if avec_or else "")
         n = aff(c["num"])
         rangs.append(f'<tr><td class="no"><span>{n}</span></td><td class="ti">{il(c["titre"])}</td>'
                      f'<td class="li"><i class="{icone.get(c["lieu"], "d")}"></i>{e(c["lieu"])}</td>'
-                     f'<td class="pg">{c["debut"]}</td><td class="s8">{s8}</td><td class="s9">{s9}</td></tr>')
+                     f'<td class="pg">{c["debut"]}</td>{sor}<td class="s8">{s8}</td><td class="s9">{s9}</td></tr>')
     som_no = plan["sommaire"]
     ex = chaps[-1]["num"]
     note_sommaire = il(f"Deux numéros sur chaque page. **En tête, le folio du chapitre** : {ex}-4, c'est la page 4 du "
                        f"chapitre {ex} ; chaque chapitre ouvre sur le sommaire de ses neuf sections, dans ces folios. "
                        "**En pied, la page du tome**, celle de ce sommaire. Le 8, c'est le danger ; le 9, la variante "
                        "d'urgence, celle qui se fait sans rien."
+                       + (" **En orange, les premières minutes** : la page où commencent les gestes urgents, dans l'ordre "
+                          "où ils se font ; la même couleur marque leurs pages sur la tranche." if avec_or else "")
                        + (" **Le chapitre 00 ouvre le livre, en page 1, devant la page de titre** : il se trouve sans chercher."
                           if chaps and chaps[0]["num"] == "00" and chaps[0]["debut"] < plan["titre"] else ""))
     pages.append(f'''<section class="page {cote(som_no)} ax" id="a-sommaire"><div class="block">
 <div class="ax-top"><span>Tome {tome} · {e(titre_t)}</span><span>Le Grand Livre du Chalet</span></div>
 <h1>Sommaire</h1>
 <p class="ax-note">{note_sommaire}</p>
-<table class="som"><thead><tr><th>Ch.</th><th>Chapitre</th><th>Lieu</th><th class="r">Page</th><th class="r s8"><span class="sq d">8</span>Danger</th><th class="r s9"><span class="sq">9</span>Urgence</th></tr></thead>
+<table class="som{' or' if avec_or else ''}"><thead><tr><th>Ch.</th><th>Chapitre</th><th>Lieu</th><th class="r">Page</th>{'<th class="r sor"><span class="sq o"></span>Premières<br>minutes</th>' if avec_or else ''}<th class="r s8"><span class="sq d">8</span>Danger</th><th class="r s9"><span class="sq">9</span>Urgence</th></tr></thead>
 <tbody>{"".join(rangs)}</tbody></table></div>{pied(som_no, cote(som_no))}</section>''')
     out = (tete_html(f"Tome {tome} — pages hors chapitres — Le Grand Livre du Chalet")
            + f'<body class="vA vB vC t{tome} lieu-2">\n<div id="book">\n'
@@ -899,6 +917,9 @@ def main():
         else:
             c = next((c for c in chaps if "8" in c["secs"]), c0)
             vues_png.append((f"04-danger-ch{c['num']}", c["dst"], f"off={c['off']}&par={c['par']}", f"p{c['num']}-{c['secs'].get('8', 1)}"))
+        c = next((c for c in chaps if c["rapport"].get("orange")), None)
+        if c:
+            vues_png.append((f"05-premieres-minutes-ch{c['num']}", c["dst"], f"off={c['off']}&par={c['par']}", f"p{c['num']}-{c['rapport']['orange'][0]}"))
         jobs = [(png_args(url(src, q, "#page=" + pid), os.path.join(adir, nom + ".png")), os.path.join(adir, nom + ".png"))
                 for nom, src, q, pid in vues_png]
         edge_lot(jobs)
@@ -926,6 +947,16 @@ def main():
         n_v += n_v % 2
         L.append(f"Les chapitres seuls font {somme} pages ; {blanches_ouv} blanche(s) servent à faire ouvrir chaque "
                  f"chapitre à droite. Avec `--verso` (un chapitre peut ouvrir à gauche), le tome ferait {n_v} pages.\n")
+    series = [(c, c["rapport"].get("orange") or []) for c in chaps]
+    if any(so for _, so in series):
+        L.append("## Premières minutes (série orange)\n")
+        L.append("Marqueur `{.orange}` sur l'intertitre ### de la série, dans le Markdown (CLAUDE.md, « Les premières "
+                 "minutes, en orange ») : encadré orange, repère orange sur la tranche, colonne orange au sommaire.\n")
+        L.append("| Ch. | Pages du tome |\n| --- | --- |")
+        for c, so in series:
+            if so:
+                L.append(f"| {c['num']} | {', '.join(str(c['debut'] + x - 1) for x in so)} |")
+        L.append("")
     L.append("## Contrôle Blurb\n")
     ok = lambda b: "oui" if b else "**NON**"
     L.append("| Exigence | Valeur voulue | Ce fichier | Conforme |\n| --- | --- | --- | --- |")

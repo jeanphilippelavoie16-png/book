@@ -85,6 +85,8 @@ def icon_vars():
     v = [f"--i-{k}-{suf}:{_uri(_teinte(ICONES[k], c))}" for k in LIEUX for suf, c in fixes.items()]
     rouge = _teinte(ICONES["danger"], rac["--red"])
     v.append(f"--i-danger-red:{_uri(rouge)}")
+    # minuteur noir sur l'orange : bandeau de la série des premières minutes (chapitre.css), sommaire du tome
+    v.append(f"--i-minuteur-k:{_uri(_teinte(ICONES['minuteur'], rac['--k']))}")
     css = "body{" + base + ";" + ";".join(v) + "}"
     coul = open(os.path.join(HERE, "couleur.css"), encoding="utf-8").read()
     for t in sorted(set(re.findall(r"body\.(t\d+)\{", coul))):

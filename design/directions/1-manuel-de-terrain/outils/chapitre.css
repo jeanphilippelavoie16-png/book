@@ -41,3 +41,30 @@ p.step + table.tcol, p.stepc + table.tcol{margin-top:1pt}
 .encadre p{text-indent:0}
 .danger .pt{orphans:4}   /* l’amorce en gras ne reste pas seule au pied d’une colonne */
 .danger .pt .plead{break-after:avoid}
+
+/* ---------- premières minutes : la série orange (CLAUDE.md, JP 15 octobre 2026) ----------
+   Marqueur {.orange} sur l’intertitre ### du Markdown (build_chapitre.py) ; encadré coulé par chapitre.js comme
+   l’encadré danger (genre « o »). Orange plein --or et teinte pâle pleine --orp, jamais de transparence ni de
+   masque ; texte noir sur l’orange (le blanc y est trop pâle). Pictogramme : image de fond déjà en noir. */
+.rg .orange.full{flex:1 1 0}
+.orange{border:1.5pt solid var(--or);background:var(--orp);display:flex;flex-direction:column;min-height:0}
+.ohead{flex:none;background:var(--or);color:#000;display:flex;align-items:center;gap:7pt;padding:4pt 8pt 4pt 7pt;
+  font:700 12pt/14pt var(--sans);text-transform:uppercase;letter-spacing:.05em}
+.ohead i{flex:none;width:19px;height:19px;background:var(--i-minuteur-k) center/100% 100% no-repeat}
+.ohead.small{padding:2pt 8pt 2pt 7pt}
+.ohead.small i{width:15px;height:15px}
+.ohead .sj{font-weight:600;letter-spacing:.03em}
+.orange .frame{padding:7pt 9pt 2pt;column-gap:0.24in;column-rule:0.75pt solid var(--or)}
+.orange .fnz{padding:0 9pt 6pt}
+.orange .dcut{border-top-color:var(--or)}
+.block > .rg + .frame{margin-top:10pt}
+/* intertitre de la série : l’heure en gros sur une pastille orange, accrochée au filet */
+.block h3.sub.or{display:flex;align-items:flex-start;gap:6pt;border-top:1.5pt solid var(--or);padding-top:0;margin:9pt 0 5pt;break-inside:avoid}
+.block h3.sub.or .otag{flex:none;display:inline-flex;align-items:baseline;gap:2pt;background:var(--or);color:#000;padding:2pt 5pt 3pt;
+  font:700 19pt/1 var(--sans);letter-spacing:-.01em;font-variant-numeric:lining-nums tabular-nums}
+.block h3.sub.or .otag small{font:700 9pt/1 var(--sans);letter-spacing:.05em;text-transform:uppercase}
+.block h3.sub.or .ot{padding-top:4pt}
+.block .frame > h3.sub.or:first-child{margin-top:0}
+.block .orange p.step .sn{color:#000}
+.block .orange p.li::before{background:#000}
+.edge.o{background:var(--or)}
