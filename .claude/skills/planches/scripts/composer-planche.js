@@ -224,7 +224,8 @@ function composer(fichierSpec, { zonesSeulement = false } = {}) {
   brouillon.forEach(r => { if (r.texte.split(/\s+/).length > 8) avis.push(`renvoi ${r.n} : ${r.texte.split(/\s+/).length} mots, c'est une phrase, pas un renvoi`); });
   const rangs = N ? Math.ceil(N / ncol) : 0;
 
-  const piedTexte = `Planche ${spec.ref} — ${spec.titre.replace(/\.$/, '')}.`;
+  // « Planche 04-40. Le sas… » : un point après le numéro, aucun tiret (JP, 15 octobre 2026 : plus aucun tiret)
+  const piedTexte = `Planche ${spec.ref}. ${spec.titre.replace(/\.$/, '')}.`;
   if (largeur(piedTexte, 13) > utile) fautes.push(`le pied « ${piedTexte} » ne tient pas sur une ligne : raccourcis le titre`);
 
   const piedH = 13 + (rangs ? 8 + rangs * PAS_LEGENDE : 0);

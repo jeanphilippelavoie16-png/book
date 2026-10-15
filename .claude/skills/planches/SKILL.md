@@ -257,12 +257,13 @@ au lieu de 50, ce qui ne casse rien. Celles en 680 × 900 sont à refaire.
 Chaque planche porte, sous le dessin :
 
 ```
-Planche NN-NN — Titre en une ligne, en minuscules.
+Planche NN-NN. Titre en une ligne, en casse de phrase.
 1 premier renvoi  ·  2 deuxième renvoi  ·  3 troisième renvoi
 ```
 
 Le numéro suit le chapitre : `84-09` est la neuvième planche du chapitre 84. Le titre est
-en casse de phrase, jamais en capitales.
+en casse de phrase, jamais en capitales. Un point sépare le numéro du titre : aucun tiret, ni
+dans le pied, ni dans l'encadré danger, ni dans un renvoi (JP, 15 octobre 2026).
 
 S'il y a un encadré danger sur la planche, il est **en filet rouge `#9B2C1E`, 2 unités**.
 
@@ -392,7 +393,7 @@ un « on » ou un « à » seul en bout de ligne, et construit la boîte autour 
 marge partout :
 
 ```bash
-node .claude/skills/planches/scripts/encadre.js --x 40 --y 330 --max 600 --danger "Danger — …"
+node .claude/skills/planches/scripts/encadre.js --x 40 --y 330 --max 600 --danger "Le monoxyde n’a ni odeur ni couleur : …"
 ```
 
 Il sort le fragment à coller et la hauteur de la boîte, pour poser ce qui suit.

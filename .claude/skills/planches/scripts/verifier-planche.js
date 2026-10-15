@@ -42,8 +42,8 @@ function verifier(chemin) {
   if (!/<title>/.test(s)) dur.push('pas de <title> : la planche ne s’annonce pas');
   if (!/<desc>/.test(s)) mou.push('pas de <desc>');
   const t = (s.match(/<title>([^<]*)<\/title>/) || [])[1] || '';
-  if (t && !/^Planche \d+[a-z]?-\d+[a-z]?\s+—/.test(t))
-    mou.push(`titre « ${t.slice(0, 50)} » : attendu « Planche NN-NN — … »`);
+  if (t && !/^Planche \d+[a-z]?-\d+[a-z]?\.\s/.test(t))
+    mou.push(`titre « ${t.slice(0, 50)} » : attendu « Planche NN-NN. Titre » (un point après le numéro, aucun tiret)`);
   if (t && t !== t.charAt(0) + t.slice(1) .replace(/([A-ZÀ-Þ]{3,})/g, m => m))
     ; // casse vérifiée plus bas
 

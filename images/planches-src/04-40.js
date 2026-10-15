@@ -247,7 +247,11 @@ module.exports = (h) => {
     const sansBras = F.corps(Object.assign({}, base, { masquer: ['brasP', 'brasL'] }));
     const yGenou = sansBras.articulations.genouP[1] + 40 * e;
     const poncho = sac(sansBras, { marge: 45, lisse: 220, garder: [0, 0, z.l, yGenou] });
-    const pers = F.corps(Object.assign({}, base, { objetP: String(poncho) }));
+    // le linge mouillé pend du poing, devant le poncho, derrière le bras proche
+    const linge = g => { const m = g.mainP;
+      return [h.path(lisse([[m.x - 4, m.y - 1], [m.x + 4, m.y - 1], [m.x + 6, m.y + 14], [m.x + 7, m.y + 30], [m.x + 3, m.y + 34], [m.x - 1, m.y + 31], [m.x - 4, m.y + 33], [m.x - 6, m.y + 16]], true), W(A.arete)),
+        h.ligne(m.x + 1, m.y + 6, m.x + 3, m.y + 30, A.fin), h.ligne(m.x - 3, m.y + 8, m.x - 3, m.y + 28, A.fin)].join('\n'); };
+    const pers = F.corps(Object.assign({}, base, { objetP: g => String(poncho) + '\n' + linge(g) }));
     o.push(String(pers));
     // les plis du plastique
     o.push(h.path(lisse([[-60, -1330], [-74, -1000], [-90, -640]].map(T)), A.fin));
@@ -263,13 +267,9 @@ module.exports = (h) => {
     // les lunettes, sur les yeux
     const tc = [pers.tete.x, pers.tete.y], r = 100 * e;
     o.push(lunettes([tc[0] - 0.05 * r, tc[1] + 0.05 * r], r, 0.05, 0));
-    // le linge mouillé, dans la main, contre le poncho
-    const m = pers.mainP, xa = poncho.avant(m.y);
-    o.push(h.path(lisse([[m.x - 3, m.y - 4], [xa + 2, m.y - 5], [xa + 4, m.y + 8], [xa + 4, m.y + 26], [xa + 1, m.y + 32], [xa - 6, m.y + 30], [m.x - 2, m.y + 8]], true), W(A.arete)));
-    o.push(h.ligne(xa - 1, m.y + 8, xa, m.y + 26, A.fin), h.ligne(xa - 5, m.y + 12, xa - 4, m.y + 26, A.fin));
-    // le geste : du haut vers le bas, devant
-    const xg = poncho.avant(m.y + 30) + 12;
-    o.push(h.geste(`M${f1(xg)} ${f1(m.y + 2)} L${f1(xg)} ${f1(m.y + 58)}`));
+    // le geste : du haut vers le bas, devant le linge
+    const m = pers.mainP, xg = m.x + 15;
+    o.push(h.geste(`M${f1(xg)} ${f1(m.y + 2)} L${f1(xg)} ${f1(m.y + 56)}`));
     // le seau d'eau, devant les pieds
     const sx0 = 132, sx1 = 166, sH = 34;
     o.push(h.path(`M${f1(sx0 + 2)} ${f1(yF - sH)} C${f1(sx0 + 4)} ${f1(yF - sH - 26)} ${f1(sx1 - 4)} ${f1(yF - sH - 26)} ${f1(sx1 - 2)} ${f1(yF - sH)}`, A.detail));
@@ -279,7 +279,7 @@ module.exports = (h) => {
     return {
       svg: o.join('\n'),
       r: [
-        { n: 1, rond: [168, 112], cible: [154, 133], texte: 'dehors : essuyer et rincer le costume' },
+        { n: 1, rond: [170, 112], cible: [149, 141], texte: 'dehors : essuyer et rincer le costume' },
         { n: 9, rond: [154, 18], cible: [tc[0] + 1.18 * r, tc[1] + 0.05 * r], texte: 'lunettes de ski' },
         { n: 10, rond: [16, 96], cible: [poncho.arriere(yP) - 1, yP], texte: 'poncho à capuchon, un sac à ordures' },
         { n: 11, rond: [16, 140], cible: TB([-70, -335]), texte: 'poignets et chevilles rubanés serré' },
@@ -338,20 +338,20 @@ module.exports = (h) => {
 
   // ─── 4. Sortir des bottes, les laisser au bac ─────────────────────────────────────────────────
   const v4 = z => {
-    const o = [], yF = solY(z), e = E, x0 = 104;
+    const o = [], yF = solY(z), e = E, x0 = 84;
     o.push(cadre(z));
     o.push(bacProfil(4, 52, yF, 42, true));
     const pers = F.corps({ x: x0, y: yF, pose: 'debout', echelle: e, mains: { P: 'ouverte', L: 'ouverte' }, pieds: 'nu', ancrer: false,
-      angles: { tronc: 4, tete: 18, brasP: 10, avantbrasP: 18, mainP: 18, brasL: 6, avantbrasL: 14, mainL: 14, cuisseP: 42, jambeP: -22, piedP: 74 } });
+      angles: { tronc: 2, tete: 18, brasP: 16, avantbrasP: 34, mainP: 34, brasL: -8, avantbrasL: 4, mainL: 4, cuisseP: 80, jambeP: -6, piedP: 80 } });
     // la botte du pied loin, déjà vide, derrière ; la botte du pied proche, restée au sol sous le pied levé
     const chL = pers.pieds.L.cheville, chP = pers.pieds.P.cheville;
-    const TL = repere(chL[0] - 60 * e, yF, e), TP = repere(chP[0] - 10 * e, yF, e);
+    const TL = repere(62, yF, e), TP = repere(chP[0] - 10 * e, yF, e);
     o.push(botteVide(TL, 0, true));
     o.push(String(pers));
     o.push(botteVide(TP, 0));
-    const yHaut = TP([0, -340])[1], xg = TP([0, 0])[0] + 95 * e;
-    o.push(h.geste(`M${f1(xg)} ${f1(yHaut + 6)} L${f1(xg)} ${f1(Math.min(yHaut - 14, pers.pieds.P.bas[1] + 10))}`));
-    return { svg: o.join('\n'), r: [{ n: 4, rond: [168, 128], cible: TP([212, -22]), texte: 'sortir des bottes, les laisser au bac' }] };
+    const xg = TP([250, 0])[0];
+    o.push(h.geste(`M${f1(xg)} ${f1(yF - 6)} L${f1(xg)} ${f1(pers.pieds.P.bas[1] - 6)}`));
+    return { svg: o.join('\n'), r: [{ n: 4, rond: [34, 100], cible: TL([-2, -332]), texte: 'sortir des bottes, les laisser au bac' }] };
   };
 
   // ─── 5. Se laver les mains et le visage, avant la deuxième bâche ──────────────────────────────
@@ -379,7 +379,7 @@ module.exports = (h) => {
     o.push(cadre(z, { sol: [[0, xb, GRIS_SALE], [xb, z.l, '#FFFFFF']], baches: [[xb, -1]] }));
     const pers = F.corps({ x: 116, y: yF, pose: 'marche', echelle: e, mains: { P: 'ouverte', L: 'ouverte' }, pieds: 'nu' });
     o.push(String(pers));
-    o.push(h.controle(xb + 34, yF - 4, 13));
+    o.push(h.controle(xb + 34, yF - 5, 12));
     return { svg: o.join('\n'), r: [{ n: 6, rond: [xb + 52, yF - 46], cible: [xb + 40, yF - 16], texte: 'passer la bâche : sol sans poussière' }] };
   };
 
