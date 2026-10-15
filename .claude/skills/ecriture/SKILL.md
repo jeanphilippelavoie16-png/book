@@ -160,7 +160,8 @@ voix haute ou qu'on lit sur une étiquette.
 - [ ] Plus d'image, de scène, de personnification, de chute en formule.
 - [ ] Zéro tiret de ponctuation.
 - [ ] Chaque fait dit une seule fois ; les redites signalées par le script sont réglées.
-- [ ] Zéro « village », zéro « char » (on écrit « auto »).
+- [ ] Zéro « village », zéro « char » (on écrit « auto »), zéro « Baie-Comeau », zéro « JP », pas l'âge
+      des enfants de JP (« de jeunes enfants ») ; un âge qui est un fait (dose, seuil) reste.
 - [ ] Le contrôle des invariants ne signale rien d'inexpliqué.
 - [ ] Les ancres de planches sont intactes.
 - [ ] Aucun chiffre nouveau sans source enregistrée dans `/sources`.

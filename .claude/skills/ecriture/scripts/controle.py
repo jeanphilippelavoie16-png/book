@@ -22,7 +22,8 @@ MOTS_VIDES = ["déjà", "encore", "tout", "toute", "tous", "toutes", "bien", "vr
 VOCAB_IA = ["crucial", "cruciale", "cruciaux", "essentiel", "essentielle", "essentiels", "primordial",
             "véritable", "véritables", "incontournable", "il est important de", "il convient de",
             "force est de", "en somme", "le fait de", "ce qui permet de", "au niveau de", "clé de voûte"]
-BANNIS = [r"\bvillages?\b", r"\bchars?\b"]
+BANNIS = [r"\bvillages?\b", r"\bchars?\b", r"\bBaie-Comeau\b", r"\bJP\b", r"\b4 et 6 ans\b"]
+AGES = [r"\b(?:de|ont|a) [46] ans\b"]   # l'âge des enfants de JP, ou un âge qui est un fait : à juger
 RELIEF = [r"\b[Cc]'est (?:le|la|les|l'|ce|cela|lui|elle|eux|là)\b[^.;:]{0,80}?\b(?:qui|que|qu')\b",
           r"\bn'est pas\b[^.;]{0,80}\bmais\b", r"\bpas\b[^.;]{0,40}\bmais\b"]
 SECURITE = {"74 °C": r"74" + ESP + "°C", "cadmium": r"cadmium", "trichinellose": r"trichin",
@@ -50,6 +51,9 @@ def tics(L):
         for b in BANNIS:
             for m in re.finditer(b, l, re.I):
                 out.append((i, "banni", m.group(0), l))
+        for b in AGES:
+            for m in re.finditer(b, l):
+                out.append((i, "age", m.group(0), l))
         for w in VOCAB_IA:
             if mot(w).search(l):
                 out.append((i, "IA", w, l))
@@ -145,6 +149,7 @@ def main():
     print(f"# Contrôle d'écriture : {chemin}\n")
     print(f"{len(texte.split())} mots, {texte.count('—') + texte.count('–')} tirets\n")
     for cat, titre in [("tiret", "Tirets"), ("banni", "Mots bannis"), ("IA", "Vocabulaire d'IA"),
+                       ("age", "Âges de 4 ou 6 ans (à juger : l'âge des enfants de JP sort, un âge qui est un fait reste)"),
                        ("relief", "Mises en relief et oppositions (à juger)"), ("vide", "Mots vides (à juger)")]:
         x = [r for r in t if r[1] == cat]
         if not x:

@@ -55,7 +55,7 @@ Six numéros deviennent une phrase qui dit pourquoi.
 Elle ne se réécrit pas, elle se coupe. Un coffre verrouillé pour de l'huile à lampe dans
 un chalet où on allume la lampe tous les soirs, c'est une inspection de garderie.
 
-## Le lecteur est un père de deux enfants
+## Le lecteur est un parent compétent
 
 Il sait ce qui se laisse traîner et ce qui ne se laisse pas traîner. Il n'a pas besoin
 qu'un livre lui apprenne à ranger le poison, à surveiller un enfant près du poêle, à
@@ -106,8 +106,8 @@ renumérotation : l'agriculture entre au tome 5, la fin du tome 5 et le tome 6 a
 `plan/renumerotation.json`. Les fiches de `suivi/` et les `sources/` d'avant cette date citent
 les **anciens** numéros.
 
-**Lecteur type :** JP, sa conjointe, deux enfants (4 et 6 ans).
-Il sait souder, câbler du 12 V et abattre un orignal. Il n'a jamais salé une cuisse
+**Lecteur type :** une famille avec de jeunes enfants. Le lecteur sait souder, câbler du 12 V et
+abattre un orignal. Il n'a jamais salé une cuisse
 ni tanné une peau. Écrire pour quelqu'un de compétent de ses mains et débutant en
 conservation.
 
@@ -118,7 +118,7 @@ Il y a **deux endroits**, pas un. Chaque chapitre dit lequel il vise.
 | | La maison | Le chalet |
 | --- | --- | --- |
 | Services | Hydro, aqueduc, égout | Hors réseau |
-| Situation | En ville (Baie-Comeau), voisins proches | Isolé |
+| Situation | En ville, voisins proches | Isolé |
 | Réserves | Le rangement et le congélateur | Le minimum |
 | Territoire | Aucun | Chasse, pêche, bois, jardin, caveau |
 
@@ -246,7 +246,14 @@ le « encore », le « tout », la précision de moment ou de lieu que le lecteu
 
 Le test : sans la phrase — ou sans le mot —, le lecteur sait-il moins quoi faire ? Si non, ça saute.
 
-**Les mots.** Jamais « village » : la maison est en ville, à Baie-Comeau. « Auto », jamais « char ».
+**Les mots.** Jamais « village » : la maison est en ville. « Auto », jamais « char ».
+
+**Un livre ouvert, pas centré sur JP** (JP, 15 octobre 2026 : « mon contexte peut changer, et dans 10 ans
+je veux que ça soit encore lisible »). Le texte ne nomme ni Baie-Comeau (seul le texte des auteurs, au
+dos, le fait), ni JP, ni l'âge de ses enfants : on écrit « la ville », « de jeunes enfants », « un
+enfant ». Un âge reste quand c'est un fait qui change le geste (une dose par tranche d'âge, un seuil de
+développement, un besoin nutritionnel). La région, le climat et le territoire (forêt boréale, −35 °C,
+orignal, fleuve salé) restent : c'est le terrain du livre, pas la vie de JP.
 
 **Les premières minutes, en orange** (JP, 15 octobre 2026). Un chapitre qui a des gestes urgents
 (retombées, feu, monoxyde, blessure, eau froide…) ouvre sa procédure sur la série des premières minutes,
