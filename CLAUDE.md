@@ -4,7 +4,7 @@ Ce fichier est lu au début de chaque session. Il prime sur tout le reste.
 
 ## Ce qu'on fait
 
-Un ouvrage de référence en **6 tomes, 114 chapitres**, sur la conservation des aliments,
+Un ouvrage de référence en **6 tomes, 113 chapitres**, sur la conservation des aliments,
 la subsistance et l'autonomie, adapté à la Côte-Nord (forêt boréale, hivers à -35 °C,
 saison de jardin de 90 à 100 jours, orignal, truite, fleuve salé).
 
@@ -82,7 +82,7 @@ janvier à -35 °C : ça saute.
 
 Les neuf rappels de sécurité du tableau plus bas sont tous des mécanismes. Aucun ne saute.
 
-**La débrouille est le sujet, pas l'annexe.** Souder avec deux batteries de char montées
+**La débrouille est le sujet, pas l'annexe.** Souder avec deux batteries d'auto montées
 en série. Faire tourner un moteur avec ce qui reste. Remplacer un joint par du cuir gras.
 Fabriquer l'outil qu'on n'a pas. Chaque fois qu'il existe une manière de faire la chose
 avec rien, elle vaut plus de place que la manière propre avec le bon matériel — parce que
@@ -93,7 +93,7 @@ C'est pour ça que la **variante d'urgence** (point 9 du gabarit) est le cœur d
 et non sa queue. Un chapitre dont la variante d'urgence est courte est un chapitre qui n'a
 pas fait son travail.
 
-- Tome 1 — Tenir (ch. 00, 00b, 1 à 18)
+- Tome 1 — Tenir (ch. 00b, 1 à 18 ; le 00 est coupé depuis le 15 octobre 2026)
 - Tome 2 — Le corps (ch. 19 à 40)
 - Tome 3 — Prélever (ch. 41 à 60)
 - Tome 4 — De la bête au garde-manger (ch. 61 à 81)
@@ -118,7 +118,7 @@ Il y a **deux endroits**, pas un. Chaque chapitre dit lequel il vise.
 | | La maison | Le chalet |
 | --- | --- | --- |
 | Services | Hydro, aqueduc, égout | Hors réseau |
-| Situation | Au village, voisins proches | Isolé |
+| Situation | En ville (Baie-Comeau), voisins proches | Isolé |
 | Réserves | Le rangement et le congélateur | Le minimum |
 | Territoire | Aucun | Chasse, pêche, bois, jardin, caveau |
 
@@ -207,6 +207,32 @@ pas assez de contenu réel : la réponse est d'écrire le contenu, pas de garder
 remplissage. Ça vaut pour toutes les listes, en particulier « quand c'est un mauvais
 choix ».
 
+**Pas de « fils d'la AI ».** JP a relu le tome 1 au crayon le 15 octobre 2026. Ce qu'il surligne comme
+inutile, c'est toujours la même famille de phrases : elles sonnent bien et n'apprennent rien. **Le texte
+doit être informatif, partout.** Ce qui saute :
+
+- la phrase qui parle du livre ou de la page : « Cette page ne suit pas le gabarit du livre. Elle est
+  faite pour être ouverte à la lampe frontale », « C'est la charnière du livre, et elle a son chapitre »,
+  « Dernier de la liste, et c'est une position motivée » ;
+- la statistique d'ambiance en ouverture : « En 2024, le courant a manqué 436 minutes par client
+  alimenté… », « En 2025, 527 feux ont été combattus… ». Un chiffre reste s'il change ce qu'on fait ;
+- la justification du cadrage : « C'est le scénario du chalet parce que c'est là que sont la scie à
+  chaîne, la hache, l'arme… » ;
+- la chute en formule au bout d'un paragraphe : « juste une impression », « La plus courte commande »,
+  « pas quand le tuyau siffle », « C'est un motif de partir que rien de visible ne signale » ;
+- l'opposition fabriquée (« pas X, mais Y », « au village, c'est… ; au chalet, c'est… ») quand elle
+  n'ajoute pas un fait.
+
+Le test : sans la phrase, le lecteur sait-il moins quoi faire ? Si non, elle saute.
+
+**Les mots.** Jamais « village » : la maison est en ville, à Baie-Comeau. « Auto », jamais « char ».
+
+**Les premières minutes, en orange** (JP, 15 octobre 2026). Un chapitre qui a des gestes urgents
+(retombées, feu, monoxyde, blessure, eau froide…) ouvre sa procédure sur la série des premières minutes,
+dans l'ordre où on les fait, et cette série s'imprime en orange pour qu'on tombe dessus en feuilletant.
+Elle se bâtit sur les guides d'urgence officiels (pour une détonation : se mettre à l'abri, descendre au
+sous-sol…), cherchés et enregistrés dans `/sources` comme tout chiffre du livre.
+
 **Pas de municipalité, pas de code légal.** Aucune phrase sur un règlement municipal, une loi,
 un code, une norme de construction, un permis ou une obligation légale. Le livre sert le jour
 où personne ne vient vérifier. Ce qui compte dans la règle — le mécanisme qu'elle protège —
@@ -241,16 +267,14 @@ ou devient dangereuse —, une ligne par item, 15 à 20 mots, et rien de plus ; 
 marche » tient en trois à cinq phrases (JP, 27 septembre 2026 : « c'est long pour rien » ;
 format dans `gabarit-chapitre.md`). Tout le reste renvoie au chapitre d'achat.
 
-## Les deux chapitres d'ancrage
+## Le chapitre d'ancrage
 
-Ces deux-là ne suivent pas le gabarit. Ils ont leur propre forme, parce qu'ils ont leur
-propre travail.
+Il ne suit pas le gabarit. Il a sa propre forme, parce qu'il a son propre travail.
 
-**Le chapitre principal.** Les catastrophes les plus probables, classées par probabilité
-réelle et non par ce qui fait peur. Pour chacune : quelques points majeurs en gros, et
-rien d'autre. C'est la page qu'on ouvre en panique, à la lampe frontale, avec un enfant
-qui pleure dans l'autre pièce. Il tient sans être lu d'avance. Chaque point renvoie au
-chapitre qui développe. Il ouvre le livre.
+**Le chapitre principal (00) est coupé** (JP, 15 octobre 2026 : « c'est juste du répétage »). Il
+reprenait en résumé ce que les chapitres disent déjà. Le texte est gardé dans `chapitres-retires/`. Ce
+qui doit sauter aux yeux en urgence se met dans le chapitre lui-même, en orange (voir « Les premières
+minutes »).
 
 **Le chapitre d'achat.** Tout ce qui se procure, en quatre paliers : à acheter
 absolument, essentiel, important, et ce qu'on ajoute s'il reste du temps et de l'argent.

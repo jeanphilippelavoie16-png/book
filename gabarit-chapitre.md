@@ -88,7 +88,7 @@ même place dans le chapitre.
 
 C'est ici que vit la raison d'être du livre. La manière propre avec le bon outil, il la
 connaît déjà ; le jour où il ouvre cette page, le bon outil n'est pas là. Souder avec deux
-batteries de char montées en série, remplacer un joint par du cuir gras, fabriquer l'outil
+batteries d'auto montées en série, remplacer un joint par du cuir gras, fabriquer l'outil
 manquant, faire tenir la chose avec ce qui traîne : chaque fois qu'une manière de faire
 avec rien existe, elle se trouve ici, détaillée, pas mentionnée.
 

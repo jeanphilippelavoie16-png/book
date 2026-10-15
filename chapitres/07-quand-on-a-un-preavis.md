@@ -552,7 +552,7 @@ tout en une journée, sans avertissement. Le correctif se bricole : un thermomè
 dans la caisse, ou à défaut un verre d'eau gelé avec une pièce de monnaie posée sur la glace :
 la pièce retrouvée au fond dit que ça a dégelé puis regelé pendant qu'on dormait.
 
-**L'électricité — la batterie du char est la génératrice.** Sans génératrice, il reste le
+**L'électricité — la batterie de l'auto est la génératrice.** Sans génératrice, il reste le
 véhicule, et il fait plus que ce qu'on lui demande d'habitude. Un adaptateur USB
 d'allume-cigarette dont on coupe la fiche et sur lequel on sertit deux pinces crocodile se
 branche directement sur les bornes d'une batterie : c'est une station de recharge pour téléphones,

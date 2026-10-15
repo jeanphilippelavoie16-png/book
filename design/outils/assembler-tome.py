@@ -736,7 +736,8 @@ def main():
             if f["id"] == "photo":
                 photos.append((c, f))
     en_tete = [c for c in chaps if tome == 1 and c["num"] == "00"]
-    ordre = ([("chap", c) for c in en_tete] + [("annexe", "a-titre"), ("blanche", "titre"), ("annexe", "a-dedicace"), ("blanche", "dedicace"), ("annexe", "a-sommaire")]
+    # la dédicace en première page, avant la page de titre (JP, 15 octobre 2026)
+    ordre = ([("chap", c) for c in en_tete] + [("annexe", "a-dedicace"), ("blanche", "dedicace"), ("annexe", "a-titre"), ("blanche", "titre"), ("annexe", "a-sommaire")]
              + [("chap", c) for c in chaps if c not in en_tete])
     plan, seq, lignes_plan = {}, [], []
     blanches, blanches_ouv = 0, 0

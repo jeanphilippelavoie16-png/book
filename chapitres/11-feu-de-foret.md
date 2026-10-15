@@ -580,7 +580,7 @@ rien.
  c'est-à-dire les trois endroits exacts où une braise prend. Et ça ne demande personne : ça coule
  pendant qu'on charge le véhicule.
 - **La pompe de cale en 12 V.** Une pompe de cale de chaloupe, une pompe de transfert d'essence ou
- la pompe à eau d'une roulotte, branchée sur une batterie de char, donne un débit faible mais
+ la pompe à eau d'une roulotte, branchée sur une batterie d'auto, donne un débit faible mais
  continu, sans essence, sans amorçage et sans surveillance. Crépine dans une chaudière ou au bout
  du quai, fil assez gros pour la longueur, fusible à la borne. Deux batteries montées en
  parallèle doublent la durée, pas la pression ; montées en série, elles brûlent la pompe.
@@ -637,7 +637,7 @@ que rien, et il se monte en dix minutes.
 - **Un ventilateur et un filtre.** Un filtre de fournaise à haute efficacité tenu au ruban gommé
  contre la grille d'un ventilateur de boîte, la flèche du filtre pointant vers le ventilateur.
  Hors réseau, le pulseur de chaufferette d'un vieux véhicule, ou même un ventilateur
- d'ordinateur, branché sur une batterie de char fait le même travail plus lentement. Ce qu'on
+ d'ordinateur, branché sur une batterie d'auto fait le même travail plus lentement. Ce qu'on
  perd, c'est le débit, et le débit est exactement ce qui compte : un petit ventilateur dans une
  petite pièce fermée vaut un gros ventilateur dans une grande pièce ouverte, pas mieux. Un
  ventilateur-boîte avec un seul filtre fin traite une pièce d'environ 10 m² ; un carton autour

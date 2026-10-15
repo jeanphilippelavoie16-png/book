@@ -347,7 +347,7 @@ l'iode, et c'est aussi celui qui se remonte le plus facilement avec ce qui traî
 *Le poste d'auto, quand il reste une batterie.* La radio du camion est un récepteur AM
 complet qui tourne sur du 12 V. La sortir du tableau de bord avec son faisceau, son fil
 d'antenne et un haut-parleur, la descendre dans l'abri, brancher le fil jaune ou rouge
-d'alimentation au positif d'une batterie de char et la masse au négatif, et faire sortir le fil
+d'alimentation au positif d'une batterie d'auto et la masse au négatif, et faire sortir le fil
 d'antenne par un cadre de fenêtre, tendu le plus haut et le plus long possible. Un poste
 tire une fraction de ce que tire un démarreur : une batterie pleine en fait tourner
 longtemps, et ce qui la vide, c'est de l'oublier ouverte la nuit. Descendre le poste plutôt

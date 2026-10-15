@@ -23,7 +23,7 @@ suivant.
 **C'est le bon réflexe quand :**
 
 - le courant tombe et que rien ne dit quand il revient ;
-- la route de la Côte-Nord ferme, ou le pont de glace ne tient plus ;
+- la route ferme, ou le pont de glace ne tient plus ;
 - la génératrice ou le propane lâche par temps froid ;
 - le congélateur a coulé pendant une absence et il faut décider quoi sauver ;
 - l'eau du réseau du village devient suspecte : l'horloge 2 change de nature
@@ -471,7 +471,7 @@ neige et tout ce qu'il contient (ch. 73).
 
 ### Le véhicule est la génératrice qu'on a déjà
 
-Un char dans l'entrée, c'est une batterie de 12 V, un alternateur, un chauffage et une
+Une auto dans l'entrée, c'est une batterie de 12 V, un alternateur, un chauffage et une
 radio, et rien là-dedans n'attend une pièce en commande. Deux usages, dans l'ordre de
 ce qu'ils rapportent.
 

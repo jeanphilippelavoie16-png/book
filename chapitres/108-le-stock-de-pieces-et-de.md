@@ -372,7 +372,7 @@ ce chapitre. C'est là que la standardisation paie une seconde fois (§3) : les 
 identique s'ajustent sans lime.
 
 **Souder avec ce qui reste de courant.** Quand il n'y a plus de génératrice pour faire tourner le
-poste, deux batteries de char de 12 V montées en série donnent 24 V, et trois en donnent 36 : assez
+poste, deux batteries d'auto de 12 V montées en série donnent 24 V, et trois en donnent 36 : assez
 pour amorcer et tenir un arc avec une électrode enrobée ordinaire. Le montage tient en trois
 gestes. Les batteries côte à côte, le plus de l'une relié au moins de la suivante par un câble de
 démarrage court et **gros** — c'est le câble qui décide de tout, un câble mince chauffe, ramollit et fond son isolant avant que le cordon soit fini. La pince de masse sur la pièce, grattée jusqu'au

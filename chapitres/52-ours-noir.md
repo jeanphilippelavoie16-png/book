@@ -358,7 +358,7 @@ chaleur douce à côté du poêle, pas dessus, avant de la déclarer morte. Sur 
 capteur n'est pas le boîtier ni le fil, c'est **la jonction des deux métaux** — rien d'autre ne
 mesure. Une jonction cassée se refait en torsadant les deux fils nus serrés l'un contre l'autre :
 ça lit, en réagissant plus lentement. Elle se refait pour de bon en fondant une bille au bout des
-deux fils torsadés, par un contact bref avec une électrode de carbone, sur deux batteries de char
+deux fils torsadés, par un contact bref avec une électrode de carbone, sur deux batteries d'auto
 montées en série (ch. 107). L'arc se tire **loin des batteries** : une batterie qui débite fort
 dégage de l'hydrogène par ses évents, et l'étincelle n'a rien à faire à côté.
 

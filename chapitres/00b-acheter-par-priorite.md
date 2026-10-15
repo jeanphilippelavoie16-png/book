@@ -1,12 +1,10 @@
 # Acheter par priorité
 
-**Les deux.** C'est le seul chapitre du livre qui vise les deux endroits en même temps, parce
-qu'un chèque se signe une fois et qu'il faut savoir lequel des deux bâtiments reçoit l'objet.
+**Les deux.** C'est le seul chapitre du livre qui vise les deux endroits : chaque ligne dit
+lequel des deux bâtiments reçoit l'objet.
 
-C'est aussi **le seul inventaire du livre**. Les 112 autres chapitres ont un tableau Matériel
-qui ne liste que ce qu'il faut pour leur procédure : le chapitre 68 donne le sel et la balance,
-il ne redonne pas l'avertisseur de monoxyde de carbone. Tout ce qui s'achète, se remplace ou
-se tient en réserve est ici, classé par ce qui arrive si on ne l'a pas.
+C'est aussi **le seul inventaire du livre**. Les autres chapitres ont un tableau Matériel
+qui ne liste que ce qu'il faut pour leur procédure.
 
 ---
 
@@ -62,7 +60,7 @@ la raison pour laquelle elle est ici et pas au palier suivant.
 | --- | --- | --- | --- | --- |
 | Eau embouteillée scellée, hors gel | **4 L par personne par jour**, **3 jours** minimum : 48 L pour quatre (calcul) | **Les deux** | Le 6 L par personne de l'aimant de frigo ne couvre que la boisson. C'est la moitié du besoin, et c'est l'erreur la plus répandue de toutes les trousses | 6, 10 |
 | Bidons alimentaires **opaques**, 20 L | 6, soit 120 L | **Chalet** | Sept jours de tampon pendant que la pompe est morte et que le lac est sous un mètre de glace. Opaques parce que la lumière fait verdir l'eau entreposée | 5, 10 |
-| Eau de Javel non parfumée **5,25 %**, sans additif ni agent épaississant, **datée au marqueur** | 4 L, renouvelée à l'année | **Les deux** | C'est le seul moyen de désinfection qui tient sans feu et sans électricité. La javel parfumée ou épaissie ne se dose pas, et une bouteille de trois ans a perdu son titre sans changer d'apparence | 10, 31 |
+| Eau de Javel non parfumée **5,25 %**, sans additif ni agent épaississant, **datée au marqueur** | 4 L, renouvelée à l'année | **Les deux** | C'est le seul moyen de désinfection qui tient sans feu et sans électricité. La javel parfumée ou épaissie ne se dose pas | 10, 31 |
 | Compte-gouttes propre ou seringue de 1 mL | 2 | **Les deux** | La dose est de **2 gouttes (0,2 mL) de javel 5,25 % par litre, 30 minutes d'attente**. Sans instrument, ce n'est plus une dose, c'est une intention | 10 |
 | Marmite à couvercle, 8 à 12 L, qui va sur le dessus du poêle | 1 | **Les deux** | L'ébullition **1 minute à gros bouillons** est la méthode de référence du livre, la seule qui ne dépend d'aucun consommable. Le couvercle divise le bois par deux | 10, 87 |
 
