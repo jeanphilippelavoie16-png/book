@@ -80,6 +80,14 @@ les analyses et que tu les appliques à ta logique de refonte ») :
    et 11) ; « seuil » devient « une raison de partir » (fait au ch. 11). En urgence, ne pas s'appuyer sur une
    préparation que la famille n'a peut-être pas faite (JP, sur « ce que la famille a écrit avant la saison »).
 
+**Le monteur, depuis le 15 octobre au soir** (`design/directions/1-manuel-de-terrain/outils/chapitre.js` et
+`chapitre.css`) : un paragraphe ne se coupe plus de part et d'autre d'une planche pleine page (il passe entier
+après la planche, sauf s'il laisserait plus du tiers de la colonne vide) ; chaque « planche NN-NN » du texte
+devient un appel rouge avec une flèche qui pointe vers la planche (à droite si elle est en face ou plus loin, à
+gauche si elle est plus haut). JP : « faut les intégrer intelligemment, là on l'insère pis ça coupe le texte en
+deux ; une flèche rouge stylée qui pointe quand on en parle au dessin ». **À surveiller au remontage des six
+tomes** : un peu plus de blanc en bas des pages qui précèdent une planche ; le tome 5 était à 438 pages sur 440.
+
 Le **ch. 11 (feu de forêt)** est **le chapitre modèle de la refonte, approuvé par JP** (15 octobre au soir :
 « c'est parfait, on se garde ça pour samedi ») : texte, trois séries orange à la longueur de leur temps (1 h,
 15 min, 1 min) suivies de leur détail hors de l'orange, section 2 sans « mauvaise procédure », logigramme,

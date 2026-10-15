@@ -104,6 +104,10 @@ function pour(f, q, p){
     if(b.classList.contains('fig')){ p.deferred.push(b); continue; }   // la figure attend, le texte continue
     let parts = null;
     if(b.tagName === 'P') parts = splitPara(b, f); else if(b.tagName === 'TABLE') parts = splitTableBal(b, f);
+    // une planche pleine page attend la fin de cette page : le paragraphe ne se coupe pas de part et d'autre
+    // de la planche (JP, 15 octobre 2026 : « là on l'insère pis ça coupe le texte en deux »). Il passe entier
+    // après la planche, sauf s'il laisserait plus du tiers de la colonne vide.
+    if(parts && pendingPlates.length && f.children.length && pli(parts[0], f) < 0.34 * colH(f)) parts = null;
     if(parts){ f.appendChild(parts[0]); syncNotes(f); q.unshift(parts[1]); } else q.unshift(b);
     break;
   }
@@ -118,6 +122,41 @@ function pour(f, q, p){
     q.splice(k, 0, ...p.deferred); p.deferred = [];
   }
   return q.length ? 'full' : 'done';
+}
+function pli(el, f){   // hauteur qu'occuperait el dans le cadre f, colonnes comprises
+  f.appendChild(el); const h = Array.from(el.getClientRects()).reduce((s, r) => s + r.height, 0); f.removeChild(el); return h;
+}
+function colH(f){ return f.getBoundingClientRect().height || P.bl.getBoundingClientRect().height; }
+
+/* ---------- l'appel de planche : une flèche rouge qui pointe vers le dessin ---------- */
+const FLECHE = '<svg viewBox="0 0 18 10" aria-hidden="true"><path d="M0 3.4 H10.2 V0 L18 5 L10.2 10 V6.6 H0 Z"/></svg>';
+function appels(node){   // « planche 11-04 » dans le texte courant, jamais dans une légende
+  const w = document.createTreeWalker(node, NodeFilter.SHOW_TEXT, {acceptNode: n =>
+    (n.parentElement && n.parentElement.closest('figure, figcaption, .fig, .appel')) ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT});
+  const RX = /planches?\s(\d{2,3}[-\u2011]\d{2}[a-z]?)/g, todo = [];
+  while(w.nextNode()) if(RX.test(w.currentNode.nodeValue)) todo.push(w.currentNode);
+  todo.forEach(tn => {
+    const frag = document.createDocumentFragment(); let s = tn.nodeValue, last = 0, m; RX.lastIndex = 0;
+    while((m = RX.exec(s))){
+      frag.appendChild(document.createTextNode(s.slice(last, m.index)));
+      const sp = document.createElement('span'); sp.className = 'appel'; sp.dataset.pl = m[1].replace('\u2011', '-');
+      sp.innerHTML = FLECHE + '<span>' + m[0].replace(/\s/, '\u00a0') + '</span>';
+      frag.appendChild(sp); last = m.index + m[0].length;
+    }
+    frag.appendChild(document.createTextNode(s.slice(last))); tn.parentNode.replaceChild(frag, tn);
+  });
+}
+function orienteAppels(){   // après la mise en pages : la flèche pointe vers la page de la planche
+  document.querySelectorAll('.appel').forEach(a => {
+    const pg = a.closest('.page'); const i = PAGES.findIndex(p => p.el === pg);
+    const j = PAGES.findIndex(p => p.plate === a.dataset.pl);
+    if(i < 0 || j < 0){ a.classList.add('ailleurs'); return; }
+    const verso = pg.classList.contains('verso');
+    if(j === i + 1 && verso) a.classList.add('face');           // en face, à droite
+    else if(j === i - 1 && !verso) a.classList.add('face', 'g'); // en face, à gauche
+    else if(j < i) a.classList.add('g');                          // plus haut dans le chapitre
+    a.title = 'Planche ' + a.dataset.pl + ', page ' + C.num + '-' + PAGES[j].n;
+  });
 }
 function splitTableBal(tb, f){   // jamais une rangée seule en haut de la page suivante
   const parts = splitTable(tb, f); if(!parts) return null;
@@ -135,6 +174,7 @@ function story(id, kind, suite){   // kind : main, o, d, e ; suite : histoire re
   const tpl = document.getElementById('story-' + id);
   const q = Array.from(tpl.content.children).map(n => n.cloneNode(true));
   if(!q.length) return;
+  q.forEach(n => { if(!(n.classList && n.classList.contains('fig'))) appels(n); });
   const H = P.bl.getBoundingClientRect().height;
   let first = !suite, guard = 0;
   while(q.length && guard++ < 120){
@@ -251,7 +291,7 @@ Promise.all(faces.map(f => document.fonts.load(f, 'aéÀ§«»—'))).then(() =>
     if(t.el.classList.contains('verso')){ BOOK.removeChild(t.el); PAGES.pop(); }
     mkSpread(pendingSpreads.shift(), 'e');
   }
-  finishPages(); edges(); checks();
+  finishPages(); edges(); orienteAppels(); checks();
   const st = {pages: PAGES.length, reste: 0, warn: WARN, mots: {}};
   PAGES.forEach(p => st.mots[p.n] = words(p.bl.innerText));
   document.getElementById('stats').textContent = JSON.stringify(st);
