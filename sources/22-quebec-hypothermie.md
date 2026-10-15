@@ -54,3 +54,40 @@ C'est le seul endroit du livre où une fiche médicale sert à corriger une lect
 personne qui parle mal et qui insiste n'est pas forcément menaçante, elle peut être à 30 °C.
 
 Les stades et leurs bornes en °C sont relevés de la page ; la mise en tableau est du rédacteur.
+
+## Revérification du 2026-10-15
+
+Capture : `22-quebec-hypothermie-2026-10-15.html` (HTML brut, curl). Les bornes n'ont pas bougé. La page dit
+maintenant, mot pour mot :
+
+| Stade | Température buccale | Symptômes listés |
+| --- | --- | --- |
+| Légère | « entre 32,2 et 35 °C » | « Frissons », « Extrémités froides (oreilles, nez, joues, doigts et orteils) », « Engourdissement des extrémités (doigts, orteils), au point de provoquer des maladresses » |
+| Modérée | « entre 28 et 32,2 °C » | « Manque de coordination », « Difficulté à parler », « Confusion », « Comportement inhabituel ou anormal », « Jugement affaibli », « Respiration et pouls rapides » |
+| Grave | « plus basse que 28 °C » | « Arrêt des frissons », « Regard vide », « Perte de conscience », « Respiration ralentie », « Arrêt respiratoire », « Arrêt cardiaque », « Décès » |
+
+Gestes, hypothermie légère :
+
+> « Couvrez-vous avec des couvertures et réchauffez-vous progressivement en commençant par la tête, le cou, le
+> tronc et la région des aines (haut des cuisses). »
+
+> « Si vous avez des bouillottes ou des couvertures chauffantes, placez-les sous vos aisselles, sur la région des
+> aines et sur votre ventre. Veillez à ne pas vous brûler. »
+
+> « Ne fumez pas et ne buvez pas de boisson alcoolisée pour vous réchauffer. Au contraire, cela peut faire
+> descendre encore plus la température de votre corps. »
+
+Gestes, hypothermie modérée ou grave :
+
+> « Mettez la personne à l'abri du froid, sans faire de mouvements brusques. Enlevez délicatement ses vêtements
+> humides ou mouillés. Couvrez-la avec des couvertures. »
+
+> « Il est généralement préférable d'appliquer la chaleur externe sur le thorax que sur les extrémités pour
+> débuter le réchauffement. »
+
+> « Si la personne est consciente, donnez-lui de petites gorgées d'une boisson chaude et sucrée, mais sans
+> alcool. »
+
+**Écart avec le ch. 25** (étape 11 : « Modérée ou grave : rien par la bouche »). Le ch. 17 réécrit le 15 octobre
+2026 ne tranche pas à sa place : il renvoie au ch. 25 et ne fait boire que la personne consciente **qui avale
+bien**, ce qui respecte les deux. « Regard vide » est repris à l'étape 8 du ch. 17.

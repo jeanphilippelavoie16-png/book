@@ -449,7 +449,7 @@ sert ces jours-là.
 **La chaîne complète, version dégradée.** Deux chaudières. La première reçoit l'eau brute
 et repose 12 à 24 h sous couvercle. On transvase par-dessus le dépôt dans la seconde, à
 travers quatre épaisseurs de coton, puis on bout à gros bouillons, 1 minute ou 5 minutes
-selon l'étape 12, et on laisse refroidir couvert. Ça suffit contre les bactéries, les
+selon l'étape 12, et on laisse refroidir couvert (planche 10-01). Ça suffit contre les bactéries, les
 virus, *Giardia* et *Cryptosporidium*.
 
 **Bouillir quand il n'y a pas de marmite.** Tout contenant de métal nu va sur le feu : boîte
@@ -471,7 +471,7 @@ ne prouve les 100 °C ni les cinq minutes d'un bassin à castors.
 **Puiser un puits quand la pompe est morte.** Dans un tubage de 150 mm, on puise avec une
 buse : un bout de tuyau rigide de 1,5 à 2 m, un clapet au bas, une corde en haut. Le
 clapet se fait d'un carré de chambre à air vissé d'un seul côté au-dessus d'un trou percé
-dans un bouchon ; il s'ouvre à la descente et se plaque à la remontée. Volume par voyage :
+dans un bouchon ; il s'ouvre à la descente et se plaque à la remontée (planche 10-02). Volume par voyage :
 la longueur immergée × le volume au mètre (étape 28). Un tuyau de 40 mm porte environ
 1,2 L par mètre ; une buse de 2 m remonte 2,5 L. Les 48 L d'une journée pour quatre
 personnes demandent une vingtaine de voyages : on stocke l'eau traitée plutôt que de la
@@ -506,7 +506,7 @@ on s'en sert. Sans bandelette, c'est un dosage à l'aveugle, pire que de bouilli
 **Le filtre à sable.** Un baril debout, un trou au bas avec un bout de boyau. Du fond vers
 le haut : une main de grosse pierre, une couche de gravier, puis du sable lavé jusqu'à ce
 que l'eau de rinçage sorte claire. L'eau entre par le haut, doucement, sur une assiette
-percée qui l'empêche de creuser le sable. Plus la couche de sable est épaisse et plus
+percée qui l'empêche de creuser le sable (planche 10-07). Plus la couche de sable est épaisse et plus
 l'eau la traverse lentement, mieux ça marche : le travail se fait par le film vivant qui
 s'installe à la surface du sable et mange ce qui passe, plus que par le pore du sable. Ce
 film met jusqu'à un mois à se faire, et pendant ce temps l'eau qui sort se désinfecte
@@ -525,7 +525,7 @@ bout ensuite.
 
 **L'alambic de fortune.** Une marmite, un couvercle bombé posé à l'envers, un bol sur un
 trépied au centre : la vapeur monte, frappe le couvercle froid, glisse vers le creux et
-tombe dans le bol. Le joint : un boudin de guenille mouillée ou une pâte de farine et
+tombe dans le bol (planche 10-03). Le joint : un boudin de guenille mouillée ou une pâte de farine et
 d'eau autour du couvercle, refait à chaque fois. Le froid : de la neige ou un linge
 mouillé sur le couvercle, renouvelé pour que la vapeur condense. Le feu : un bouillon
 doux, parce qu'un gros bouillon projette des gouttes d'eau sale dans le bol. Le bol :
