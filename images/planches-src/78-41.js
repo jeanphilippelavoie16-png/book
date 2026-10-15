@@ -43,77 +43,69 @@ module.exports = (h) => {
   };
 
   // ─── Vue 1 : la marmite en coupe ─────────────────────────────────────────────────────────────
+  // Trois pots, un vide d'environ 25 mm entre eux et contre la paroi (dessiné, pas coté).
+  const M = z => {
+    const jeu = 26, n = 3;
+    const Rmm = (n * 2 * RB + (n + 1) * jeu) / 2;      // rayon intérieur de la marmite, en mm
+    const Hmm = 9 + 128 + 95 + 34;                      // grille, pot, une main d'eau, revanche
+    const s = Math.min((z.h - 30) / Hmm, (z.l - 220) / (2 * Rmm));
+    const cx = z.l / 2 - 30, yb = z.h - 4, e = 3;
+    const R = Rmm * s + e, yT = yb - Hmm * s;
+    const yG = yb - e - 9 * s, yCouv = yG - 128 * s, yE = yCouv - 95 * s;
+    const xs = Array.from({ length: n }, (_, i) => cx - Rmm * s + (jeu + RB + i * (2 * RB + jeu)) * s);
+    return { jeu, n, s, cx, yb, e, R, yT, yG, yCouv, yE, xs };
+  };
   const marmite = z => {
-    const out = [];
-    const s = Math.min((z.h - 40) / 230, (z.l - 110) / 290);
-    const cx = z.l / 2 - 14, yb = z.h - 6;
-    const R = 140 * s, H = 220 * s, e = 3;            // la marmite, dessinée, pas cotée
-    const yT = yb - H;
-    const hG = 9 * s;                                  // hauteur de la grille d'anneaux
-    const yG = yb - e - hG;                            // dessus de la grille : là où posent les pots
-    const ypot = 128;                                  // hauteur du pot, en mm
-    const yCouv = yG - ypot * s;                        // dessus des couvercles
-    const main = 95 * s;                                // une hauteur de main, dessinée
-    const yE = yCouv - main;                            // le niveau de l'eau
+    const m = M(z), out = [];
+    const { s, cx, yb, e, R, yT, yG, yCouv, yE, xs } = m;
     // la paroi d'en face, au-dessus de l'eau, en gris loin
     out.push(h.rect(cx - R + e, yT, 2 * (R - e), yE - yT, A.loin));
     // l'eau, du fond jusqu'au niveau : elle passe sous les pots, entre les anneaux
     out.push(h.rect(cx - R + e, yE, 2 * (R - e), yb - e - yE, A.blanc), h.rect(cx - R + e, yE, 2 * (R - e), yb - e - yE, A.hachure('eau', 'aucun')));
-    out.push(h.ligne(cx - R + e, yE, cx + R - e, yE, A.detail));
-    // la grille d'anneaux, coupée : chaque anneau donne deux petites sections ; le fil qui les lie
-    const xs = [], pas = 72 * s, rA = 34 * s;
-    for (let x = cx - R + e + rA + 2; x + rA < cx + R - e; x += pas) xs.push(x);
-    const dx = (cx - (xs[0] + xs[xs.length - 1]) / 2);
-    xs.forEach(x0 => {
-      const x = x0 + dx;
-      [-1, 1].forEach(sg => out.push(h.rect(x + sg * rA - 2 * s, yG, 4 * s, hG, A.plein)));
-    });
+    out.push(h.ligne(cx - R + e, yE, cx + R - e, yE, A.arete));
+    // la grille d'anneaux, coupée : chaque anneau donne deux petites sections
+    const rA = 34 * s;
+    xs.forEach(x => [-1, 1].forEach(sg => out.push(h.rect(x + sg * rA - 2 * s, yG, 4 * s, 9 * s, A.plein))));
     // les pots, posés sur la grille, sans se toucher
-    const pots = [];
-    const n = xs.length;
-    xs.forEach((x0, i) => {
-      const p = pot(x0 + dx, yG, s);
-      pots.push(p); out.push(p.svg);
-    });
-    // la marmite : tôle mince coupée, poignées, couvercle posé
+    const pots = xs.map(x => { const p = pot(x, yG, s); out.push(p.svg); return p; });
+    // la marmite : tôle mince coupée, couvercle posé
     out.push(h.path(poly([[cx - R, yT], [cx - R, yb], [cx + R, yb], [cx + R, yT], [cx + R - e, yT], [cx + R - e, yb - e], [cx - R + e, yb - e], [cx - R + e, yT]]), A.plein));
-    [-1, 1].forEach(sg => out.push(h.path(`M${r1(cx + sg * R)} ${r1(yT + 14)} q${r1(sg * 14)} 0 ${r1(sg * 14)} 10 q0 10 ${r1(-sg * 14)} 10`, A.arete)));
-    const yC = yT - 4;
-    out.push(h.path(`M${r1(cx - R - 6)} ${r1(yT)} L${r1(cx - R - 6)} ${r1(yC)} Q${r1(cx)} ${r1(yC - 16)} ${r1(cx + R + 6)} ${r1(yC)} L${r1(cx + R + 6)} ${r1(yT)} Z`, blanc(A.contour)));
-    out.push(h.path(`M${r1(cx - 12)} ${r1(yC - 13)} q0 -9 12 -9 q12 0 12 9`, A.arete));
-    // la cote : une main d'eau au-dessus des couvercles, prise à droite des pots
-    const xq = cx + R - e - 14;
-    out.push(h.ligne(pots[n - 1].X(RBague) + 2, yCouv, xq + 4, yCouv, A.fin));
+    const yC = yT - 3;
+    out.push(h.path(`M${r1(cx - R - 6)} ${r1(yT)} L${r1(cx - R - 6)} ${r1(yC)} Q${r1(cx)} ${r1(yC - 14)} ${r1(cx + R + 6)} ${r1(yC)} L${r1(cx + R + 6)} ${r1(yT)} Z`, blanc(A.contour)));
+    out.push(h.path(`M${r1(cx - 12)} ${r1(yC - 10)} q0 -8 12 -8 q12 0 12 8`, A.arete));
+    // la cote : une main d'eau au-dessus des couvercles, tirée hors de la marmite, à droite
+    const xq = cx + R + 22;
+    out.push(h.ligne(pots[m.n - 1].X(RBague) + 2, yCouv, cx + R - e - 1, yCouv, A.fin), h.ligne(cx + R + 1, yCouv, xq + 6, yCouv, A.fin));
+    out.push(h.ligne(cx + R + 1, yE, xq + 6, yE, A.fin));
     out.push(h.cote(xq, yE, xq, yCouv, 'une main au moins', { cote: 'droite' }));
     // le point à contrôler : le fond du pot sur la grille, pas sur la tôle
-    out.push(h.controle(pots[0].X(0), yG, 12));
-    return { svg: out.join('\n'), cx, R, yT, yb, yG, yE, yC, pots, rA, xs: xs.map(x => x + dx), s, e };
+    out.push(h.controle(xs[0], yG, 11));
+    return { svg: out.join('\n'), m, pots, rA, yC };
   };
   const marmiteRenvois = z => {
-    const m = marmite(z);
+    const r = marmite(z), m = r.m;
+    const xg = m.cx - m.R - 30;
     return [
-      { n: 1, rond: [m.cx - m.R - 26, m.yG - 6], cible: [m.xs[0] - m.rA - 2 * m.s - 1, m.yG + 4], texte: 'grille au fond : l’eau passe dessous' },
-      { n: 2, rond: [m.cx - m.R - 26, m.yG - 70], cible: [m.pots[0].X(-RB) - 1, m.yG - 70], texte: 'pots qui ne se touchent pas' },
-      { n: 3, rond: [m.cx - m.R - 26, m.yC - 14], cible: [m.cx - m.R - 4, m.yC - 3], texte: 'marmite couverte' },
+      { n: 1, rond: [xg, m.yG + 2], cible: [m.xs[0] - r.rA - 2 * m.s - 1, m.yG + 4], texte: 'grille au fond : l’eau passe dessous' },
+      { n: 2, rond: [xg, (m.yG + m.yCouv) / 2], cible: [r.pots[0].X(-RB) - 1, (m.yG + m.yCouv) / 2], texte: 'pots qui ne se touchent pas' },
+      { n: 3, rond: [xg, r.yC - 8], cible: [m.cx - m.R - 5, r.yC + 1], texte: 'marmite couverte' },
     ];
   };
 
   // ─── Vue 2 : la grille d'anneaux, vue de dessus ──────────────────────────────────────────────
   const anneaux = z => {
     const out = [];
-    const cx = z.l / 2, cy = z.h / 2 + 2;
-    const Rm = Math.min(z.l / 2 - 10, z.h / 2 - 8);    // la marmite, vue de dessus
-    const ra = Rm * 0.235, ri = ra * 0.84;              // un anneau : bord extérieur et intérieur
+    const cx = z.l * 0.42, cy = z.h / 2;
+    const Rm = Math.min(z.l / 2 - 10, z.h / 2 - 4);    // la marmite, vue de dessus
+    const ra = Rm * 0.205, ri = ra * 0.82;              // un anneau : bord extérieur et intérieur
     out.push(h.cercle(cx, cy, Rm, A.contour), h.cercle(cx, cy, Rm - 3, A.detail));
     // anneaux en nid d'abeilles, qui se touchent
     const pas = 2 * ra, centres = [];
-    for (let j = -2; j <= 2; j++) for (let i = -3; i <= 3; i++) {
-      const x = cx + i * pas + (j % 2 ? pas / 2 : 0), y = cy + j * pas * Math.sqrt(3) / 2;
-      if (Math.hypot(x - cx, y - cy) + ra < Rm - 4) centres.push([x, y]);
+    for (let j = -4; j <= 4; j++) for (let i = -5; i <= 5; i++) {
+      const x = cx + i * pas + (Math.abs(j) % 2 ? pas / 2 : 0), y = cy + j * pas * Math.sqrt(3) / 2;
+      if (Math.hypot(x - cx, y - cy) + ra < Rm - 3) centres.push([x, y]);
     }
-    centres.forEach(([x, y]) => {
-      out.push(h.cercle(x, y, ra, blanc(A.arete)), h.cercle(x, y, ri, A.detail));
-    });
+    centres.forEach(([x, y]) => out.push(h.cercle(x, y, ra, blanc(A.arete)), h.cercle(x, y, ri, A.detail)));
     // le fil de fer : un tour serré à chaque point de contact entre deux anneaux
     const liens = [];
     centres.forEach((a, i) => centres.forEach((b, j) => {
@@ -121,98 +113,98 @@ module.exports = (h) => {
       if (Math.abs(Math.hypot(a[0] - b[0], a[1] - b[1]) - pas) < 1) liens.push([(a[0] + b[0]) / 2, (a[1] + b[1]) / 2, Math.atan2(b[1] - a[1], b[0] - a[0])]);
     }));
     liens.forEach(([x, y, t]) => {
-      const ux = Math.cos(t), uy = Math.sin(t), nx = -uy, ny = ux, L = ra * 0.42, w = 2.4;
+      const ux = Math.cos(t), uy = Math.sin(t), nx = -uy, ny = ux, L = (ra - ri) * 2 + 3, w = 1.6;
       out.push(h.path(poly([[x - ux * w - nx * L / 2, y - uy * w - ny * L / 2], [x + ux * w - nx * L / 2, y + uy * w - ny * L / 2], [x + ux * w + nx * L / 2, y + uy * w + ny * L / 2], [x - ux * w + nx * L / 2, y - uy * w + ny * L / 2]]), A.plein));
     });
     return { svg: out.join('\n'), cx, cy, Rm, ra, centres, liens };
   };
   const anneauxRenvois = z => {
     const a = anneaux(z);
-    const c = a.centres[0], l = a.liens.reduce((m, q) => (q[1] < m[1] ? q : m));
+    const l = a.liens.reduce((m, q) => (q[0] - q[1] > m[0] - m[1] ? q : m));
     return [
-      { n: 4, rond: [z.l - 12, 14], cible: [l[0] + 3, l[1] - 2], texte: 'anneaux de pots liés au fil de fer' },
+      { n: 4, rond: [z.l - 14, 16], cible: [l[0] + 2, l[1] - 2], texte: 'anneaux de pots liés au fil de fer' },
     ];
   };
 
   // ─── Vue 3 : la claie de baguettes ───────────────────────────────────────────────────────────
   const claie = z => {
     const out = [];
-    const cx = z.l / 2, cy = z.h / 2 + 2;
-    const Rm = Math.min(z.l / 2 - 10, z.h / 2 - 8);
+    const cx = z.l * 0.42, cy = z.h / 2;
+    const Rm = Math.min(z.l / 2 - 10, z.h / 2 - 4);
     out.push(h.cercle(cx, cy, Rm, A.contour), h.cercle(cx, cy, Rm - 3, A.detail));
-    const d = 7, n = 5, pas = (2 * Rm * 0.62) / (n - 1);
-    const pos = Array.from({ length: n }, (_, i) => -Rm * 0.62 + i * pas);
-    const L = t => Math.sqrt(Math.max(0, (Rm - 8) ** 2 - t * t));     // demi-longueur dans le cercle
-    // le rang du dessous : baguettes verticales ; le rang du dessus : horizontales
-    pos.forEach(t => { const l = L(t) - 2; out.push(h.rect(cx + t - d / 2, cy - l, d, 2 * l, blanc(A.arete))); });
+    const d = 6, pos = [-0.54, -0.18, 0.18, 0.54].map(t => t * Rm);
+    const L = t => Math.sqrt(Math.max(0, (Rm - 7) ** 2 - t * t));     // demi-longueur dans le cercle
+    // le rang du dessous : baguettes verticales, coupées par celles du dessus
     pos.forEach(t => {
-      const l = L(t) - 2;
-      out.push(h.rect(cx - l, cy + t - d / 2, 2 * l, d, blanc(A.arete)));
-      out.push(h.path(`M${r1(cx - l + 6)} ${r1(cy + t)} L${r1(cx + l - 6)} ${r1(cy + t + 0.5)}`, A.fin));
+      const l = L(t) - 1, x = cx + t;
+      const ys = [cy - l, ...pos.flatMap(u => [cy + u - d / 2 - 1.5, cy + u + d / 2 + 1.5]), cy + l];
+      for (let k = 0; k < ys.length; k += 2) {
+        if (ys[k + 1] - ys[k] < 1) continue;
+        const bout0 = k === 0, bout1 = k === ys.length - 2;
+        out.push(h.path(`M${r1(x - d / 2)} ${r1(ys[k])} L${r1(x - d / 2)} ${r1(ys[k + 1])} M${r1(x + d / 2)} ${r1(ys[k])} L${r1(x + d / 2)} ${r1(ys[k + 1])}`, A.arete));
+        if (bout0) out.push(h.path(`M${r1(x - d / 2)} ${r1(ys[k])} Q${r1(x)} ${r1(ys[k] - 3)} ${r1(x + d / 2)} ${r1(ys[k])}`, A.arete));
+        if (bout1) out.push(h.path(`M${r1(x - d / 2)} ${r1(ys[k + 1])} Q${r1(x)} ${r1(ys[k + 1] + 3)} ${r1(x + d / 2)} ${r1(ys[k + 1])}`, A.arete));
+      }
     });
-    // une ligature en croix à chaque croisement
+    // le rang du dessus : horizontales, entières
+    pos.forEach(t => {
+      const l = L(t) - 1, y = cy + t;
+      out.push(h.path(`M${r1(cx - l)} ${r1(y - d / 2)} L${r1(cx + l)} ${r1(y - d / 2)} Q${r1(cx + l + 3)} ${r1(y)} ${r1(cx + l)} ${r1(y + d / 2)} L${r1(cx - l)} ${r1(y + d / 2)} Q${r1(cx - l - 3)} ${r1(y)} ${r1(cx - l)} ${r1(y - d / 2)} Z`, blanc(A.arete)));
+    });
+    // une ligature à chaque croisement : trois tours en biais par-dessus
     pos.forEach(a => pos.forEach(b => {
       const x = cx + a, y = cy + b;
-      if (Math.hypot(a, b) > Rm - 14) return;
-      out.push(h.path(`M${r1(x - 5)} ${r1(y - 5)} L${r1(x + 5)} ${r1(y + 5)} M${r1(x + 5)} ${r1(y - 5)} L${r1(x - 5)} ${r1(y + 5)}`, A.detail));
+      [-2, 0, 2].forEach(o => out.push(h.path(`M${r1(x - d / 2 - 1 + o)} ${r1(y - d / 2 - 1)} L${r1(x + d / 2 + 1 + o)} ${r1(y + d / 2 + 1)}`, A.detail)));
     }));
-    return { svg: out.join('\n'), cx, cy, pos, Rm };
+    return { svg: out.join('\n'), cx, cy, pos, Rm, d };
   };
   const claieRenvois = z => {
     const c = claie(z);
     return [
-      { n: 5, rond: [z.l - 12, 14], cible: [c.cx + c.pos[3] + 5, c.cy + c.pos[0] - 5], texte: 'ou baguettes croisées, ligaturées' },
+      { n: 5, rond: [z.l - 14, 16], cible: [c.cx + c.pos[3] + c.d / 2 + 2, c.cy + c.pos[0] - c.d / 2 - 2], texte: 'ou baguettes croisées, ligaturées' },
     ];
   };
 
   // ─── Vue 4 : le lève-pots de fil de fer ──────────────────────────────────────────────────────
-  // De côté : le pot sorti de l'eau, l'anneau du crochet sous la bague, le manche qui monte et finit
-  // en boucle pour la main. Au-dessus, en petit : l'anneau vu de dessus, ouvert d'un côté.
+  // De côté : le pot, l'anneau du crochet sous la bague, le manche qui monte et finit en boucle pour
+  // la main. À droite : l'anneau vu de dessus autour du col, ouvert d'un côté.
   const leve = z => {
     const out = [];
     const s = Math.min((z.h - 84) / 128, (z.l - 40) / 90);
-    const cx = z.l * 0.42, yb = z.h - 6;
+    const cx = z.l * 0.34, yb = z.h - 6;
     const p = pot(cx, yb, s);
     out.push(p.svg);
-    // l'anneau, presque de chant : la moitié de devant passe devant le col, celle de derrière derrière
-    const ry = 4, rx = (RN + 2.2) * s, yA = p.yCol + 1;
-    const fil = 2.4;                                   // diamètre du fil, dessiné
-    // le manche : il part de l'arrière de l'anneau, à gauche, monte, et finit en boucle
-    const xm = cx - rx - 1, yM = 22;
-    const manche = `M${r1(xm)} ${r1(yA)} L${r1(xm - 4)} ${r1(yA - 18)} L${r1(xm - 4)} ${r1(yM + 22)} C${r1(xm - 4)} ${r1(yM + 4)} ${r1(xm + 24)} ${r1(yM)} ${r1(xm + 24)} ${r1(yM + 14)} C${r1(xm + 24)} ${r1(yM + 26)} ${r1(xm + 4)} ${r1(yM + 26)} ${r1(xm - 3)} ${r1(yM + 22)}`;
-    out.push(h.path(manche, `fill="none" stroke="#1A1A1A" stroke-width="${fil + 1.4}" stroke-linecap="round" stroke-linejoin="round"`));
-    out.push(h.path(manche, `fill="none" stroke="#FFFFFF" stroke-width="${fil - 0.6}" stroke-linecap="round" stroke-linejoin="round"`));
-    // l'arrière de l'anneau, caché par le col : en tireté
+    const fil = 4;                                     // le gros fil de fer, dessiné
+    const ry = 5, rx = (RN + 3) * s, yA = p.yCol + 1;
+    // l'arrière de l'anneau, caché par le col
     out.push(h.path(`M${r1(cx - rx)} ${r1(yA)} A${r1(rx)} ${ry} 0 0 1 ${r1(cx + rx)} ${r1(yA)}`, A.cache));
-    // le devant de l'anneau, du côté gauche jusqu'à l'ouverture, un peu à droite du milieu
-    const t1 = 0.25 * Math.PI;                           // l'ouverture, côté droit, vers l'avant
-    const xo = cx + rx * Math.cos(t1), yo = yA + ry * Math.sin(t1);
-    const avant = `M${r1(cx - rx)} ${r1(yA)} A${r1(rx)} ${ry} 0 0 0 ${r1(xo)} ${r1(yo)}`;
-    out.push(h.path(avant, `fill="none" stroke="#1A1A1A" stroke-width="${fil + 1.4}" stroke-linecap="round"`));
-    out.push(h.path(avant, `fill="none" stroke="#FFFFFF" stroke-width="${fil - 0.6}" stroke-linecap="round"`));
+    // le manche, de la gauche de l'anneau jusqu'à la boucle du haut, et le devant de l'anneau
+    const xm = cx - rx, yM = 18;
+    const t1 = 0.3 * Math.PI;                           // l'ouverture, à droite, vers l'avant
+    const avant = [];
+    for (let i = 0; i <= 16; i++) { const t = Math.PI - (Math.PI - t1) * i / 16; avant.push([cx + rx * Math.cos(t), yA + ry * Math.sin(t)]); }
+    const brin = [[xm + 22, yM + 20], [xm + 26, yM + 8], [xm + 14, yM], [xm, yM + 8], [xm - 3, yM + 26], [xm - 3, yA - 30], [xm - 2, yA - 10], ...avant];
+    out.push(h.formes.corde(brin, { ep: fil, debut: 'coupe', fin: 'coupe', trait: 'arete' }));
     // le geste : sortir le pot à la verticale
-    out.push(h.geste(`M${r1(cx + rx + 26)} ${r1(p.yBague + 30)} L${r1(cx + rx + 26)} ${r1(p.yBague - 40)}`));
+    out.push(h.geste(`M${r1(cx + rx + 30)} ${r1(p.yBague + 40)} L${r1(cx + rx + 30)} ${r1(p.yBague - 34)}`));
 
-    // l'anneau vu de dessus, en petit, à droite en haut : le col en rond, l'anneau ouvert
-    const ox = z.l - 44, oy = 56, Rc = 17, Ra = Rc + 3;
-    out.push(h.cercle(ox, oy, Rc + 6, A.cache));      // la bague, plus large, au-dessus (cachée)
-    out.push(h.cercle(ox, oy, Rc, blanc(A.arete)));   // le col
-    const a0 = -0.55 * Math.PI + Math.PI / 2, a1 = 0.55 * Math.PI + Math.PI / 2; // ouvert vers la droite
+    // l'anneau vu de dessus, autour du col
+    const ox = z.l - 52, oy = 70, Rc = 26, Ra = Rc + 5;
+    out.push(h.cercle(ox, oy, Rc + 7, A.cache));       // la bague, plus large, au-dessus (cachée)
+    out.push(h.cercle(ox, oy, Rc, blanc(A.arete)));    // le col
+    const a0 = Math.PI * 0.28;                           // demi-ouverture, vers la droite
     const arc = [];
-    for (let i = 0; i <= 40; i++) { const t = a1 + (2 * Math.PI - (a1 - a0)) * i / 40; arc.push([ox + Ra * Math.cos(t), oy + Ra * Math.sin(t)]); }
-    // l'anneau : de l'ouverture du bas, par la gauche, jusqu'à l'ouverture du haut ; le manche part à gauche
-    const dArc = ligne(arc);
-    out.push(h.path(dArc, `fill="none" stroke="#1A1A1A" stroke-width="${fil + 1.4}" stroke-linecap="round"`));
-    out.push(h.path(dArc, `fill="none" stroke="#FFFFFF" stroke-width="${fil - 0.6}" stroke-linecap="round"`));
-    out.push(h.cercle(ox - Ra, oy, fil / 2 + 1.2, A.plein));   // le manche qui monte, vu par le bout
-    return { svg: out.join('\n'), p, cx, rx, yA, xm, yM, ox, oy, Ra, s };
+    for (let i = 0; i <= 40; i++) { const t = a0 + (2 * Math.PI - 2 * a0) * i / 40; arc.push([ox + Ra * Math.cos(t), oy + Ra * Math.sin(t)]); }
+    out.push(h.formes.corde(arc, { ep: fil, debut: 'coupe', fin: 'coupe', trait: 'arete' }));
+    out.push(h.cercle(ox - Ra, oy, fil / 2 + 0.8, A.plein));   // le manche qui monte, vu par le bout
+    return { svg: out.join('\n'), p, cx, rx, yA, xm, yM, ox, oy, Ra, Rc, s };
   };
   const leveRenvois = z => {
     const l = leve(z);
     return [
-      { n: 6, rond: [l.xm + 52, l.yM + 4], cible: [l.xm + 25, l.yM + 12], texte: 'gros fil de fer plié' },
-      { n: 7, rond: [l.cx - l.rx - 34, l.yA + 30], cible: [l.cx - l.rx * 0.5, l.yA + 4], texte: 'l’anneau prend sous le col' },
-      { n: 8, rond: [l.ox - l.Ra - 2, l.oy + l.Ra + 26], cible: [l.ox + 4, l.oy + l.Ra + 1], texte: 'ouvert d’un côté, plus d’un demi-tour' },
+      { n: 6, rond: [l.xm + 58, l.yM + 6], cible: [l.xm + 28, l.yM + 12], texte: 'gros fil de fer plié' },
+      { n: 7, rond: [l.cx - l.rx - 30, l.yA + 34], cible: [l.cx - l.rx * 0.45, l.yA + 6], texte: 'l’anneau prend sous le col' },
+      { n: 8, rond: [l.ox, l.oy + l.Ra + 30], cible: [l.ox, l.oy + l.Ra + 3], texte: 'ouvert d’un côté, plus d’un demi-tour' },
     ];
   };
 
