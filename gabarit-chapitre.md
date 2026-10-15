@@ -43,8 +43,8 @@ gants, d'étiquettes ni de ce que tout le monde a déjà. JP, 27 septembre 2026 
 pour rien ». Le format validé :
 
 ```
-- **Thermomètre à sonde** — porte les 74 °C à cœur. Ne se fabrique pas.
-- **Sel nitrité** — sel + nitrite de sodium, 2e barrière contre le botulisme. Dosé selon l'emballage.
+- **Thermomètre à sonde** : porte les 74 °C à cœur. Ne se fabrique pas.
+- **Sel nitrité** : sel et nitrite de sodium, deuxième barrière contre le botulisme. Dosé selon l'emballage.
 ```
 
 **L'item se nomme, il ne se spécifie pas.** « Scie à chaîne », pas le pantalon forestier
@@ -144,3 +144,6 @@ occidentalis*), une unité, une équivalence. Jamais un nom d'organisme.
 Environ 700 mots utiles par page en 8 × 10. Une phrase qui n'apprend rien saute.
 Pas d'introduction qui annonce ce qui suit, pas de conclusion qui résume ce qui précède,
 pas de « il est important de noter que ».
+
+La phrase et le mot : skill `ecriture` (`.claude/skills/ecriture/SKILL.md`). Aucun tiret de ponctuation,
+aucune image poétique, aucune phrase qui parle du livre.

@@ -226,6 +226,12 @@ doit être informatif, partout.** Ce qui saute :
   dans le noir trois jours après le retour du courant, à attendre un camion qui ne viendra pas » (JP :
   « c'est poétique mais dégueulasse »). On écrit le fait : « tant que le mât n'est pas réparé, la maison
   reste sans courant, même quand la rue est rebranchée ».
+- le tiret (— ou –) dans une phrase (JP : « y a juste les AI qui mettent ça dans des phrases »). Il
+  devient une virgule, deux-points, des parenthèses ou un point. Les lignes de matériel aussi :
+  « **Thermomètre à sonde** : porte les 74 °C à cœur. »
+
+La méthode, les exemples et le script de contrôle sont dans le skill `ecriture`
+(`.claude/skills/ecriture/SKILL.md`). Toute écriture ou réécriture du livre passe par lui.
 
 Ça vaut **jusqu'au mot** (JP, 15 octobre 2026) : « sans perdre la viande de l'automne » — « de
 l'automne » n'apprend rien, il saute. Le complément qui décore, l'adjectif qui redit le nom, le « déjà »,
