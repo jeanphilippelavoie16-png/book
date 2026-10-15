@@ -1,6 +1,6 @@
 # Tome 1 · Tenir — rapport d'assemblage
 
-- **Produit le :** 2026-10-15 10:59, par `design/outils/assembler-tome.py 1 --hors-ligne`
+- **Produit le :** 2026-10-15 11:32, par `design/outils/assembler-tome.py 1 --hors-ligne`
 - **Fichier :** `livre/tome-1/interieur.pdf` — 306 pages, 67.2 Mo
 - **Ouvertures :** toujours au recto (page de droite), une page blanche devant au besoin
 - **Placements :** design/epreuves-livre/placements.json, design/epreuves-livre/placements-tome-1.json
@@ -85,7 +85,7 @@ Les planches de `images/a-valider/` sont posées comme les validées (JP les rel
 | 07 | — | — | — | 5 (ancien 10) |
 | 08 | — | — | — | 6 (ancien 11) |
 | 09 | 09-08 (171, pleine) | — | — | 7 (ancien 12) |
-| 10 | 10-02 (184, pleine), 10-07 (187, pleine), 10-01 (185), 10-03 (186), 10-hutte-castor.jpg (175) | — | — | 6 (ancien 13) |
+| 10 | 10-02 (185, pleine), 10-07 (187, pleine), 10-01 (183), 10-03 (186), 10-hutte-castor.jpg (175) | — | — | 6 (ancien 13) |
 | 11 | 11-03 (203, pleine) | — | — | 0 (ancien 16b) |
 | 12 | 12-01a (209, pleine), 12-01b (210, pleine), 12-02 (211, pleine), 12-03 (213, pleine), 12-04 (215, pleine), 12-06a (217, pleine), 12-05a (219, pleine), 12-05b (220, pleine), 12-06b (226, pleine) | — | — | 0 (ancien 16c) |
 | 13 | 13-40 (232, pleine), 13-08 (238, pleine), 13-07 (241, pleine), 13-09 (242, pleine), 13-01 (244, pleine), 13-bouleau-ecorce-rubans.jpg (239), 13-gomme-epinette.jpg (239) | — | — | 6 (ancien 17) |

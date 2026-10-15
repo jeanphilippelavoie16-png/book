@@ -261,3 +261,46 @@ Verdicts : `suivi/verifications/13-verifications.md` (20 drapeaux : 14 levés, 4
   « en hiver »
 
 Compression §3 et §4 — 27 septembre 2026 : 945 mots → 197 mots ; matériel coupé : chaudière de puisage, contenants de décantation, tissu de préfiltration, marmite à couvercle, source de chaleur indépendante, thermomètre de cuisson, contenants d'entreposage, analyse en laboratoire (reste en §5-H, §8, §9), avertisseur de monoxyde (reste en §8 et §9), pompe 12 V ; paragraphes « Le filtre est marqué… » et « À la maison, la moitié de ce tableau… » coupés (deux moyens de désinfecter : §9 et §5-F ; filtre à média qui fixe le plomb : §5-J et §8). §3 : températures létales, tailles des organismes et citation Cryptosporidium coupées (déjà en §5-D, §5-E et §6).
+
+## Passe d'écriture (skill `ecriture`) — 15 octobre 2026
+
+Numéros **actuels** dans cette section (ch. 10 = ancien 13). Texte d'avant la passe : commit
+`32994d1`. Contrôle : `controle.py chapitres/10-… --avant <ce texte>`.
+
+### Sources ajoutées
+
+- §9 « Bouillir quand il n'y a pas de marmite », **contenant d'écorce sur les braises** (demande
+  de JP : dire ce qui va au feu) : un contenant d'écorce de bouleau plein ne brûle pas ; seul le
+  bord au-dessus du liquide est vulnérable ; tenu à l'écart des flammes, un plateau d'écorce a
+  tenu **plus de cinq heures** directement sur les braises ; le chauffage direct demande moins de
+  bois et de temps que les pierres chaudes (au moins deux fois moins, Holman et Egan 1985) ; un
+  grand contenant d'écorce plie — `sources/13-speth-2015-bouillir-dans-l-ecorce.md` (Speth,
+  *PaleoAnthropology* 2015, révisé par les pairs) ; recoupé par
+  `sources/13-fm21-76-contenants-d-ecorce-et-pierres.md` (« will burn above the waterline unless
+  you keep them moist or keep the fire low »).
+- §9, **pierres chaudes** : pierres denses et sèches ; une pierre mouillée, poreuse ou à bulles
+  d'air (grès, calcaire) éclate au feu — `sources/13-fm21-76-contenants-d-ecorce-et-pierres.md`.
+  « Feuilletée » vient du premier jet : non sourcé à part, gardé (même mécanisme : l'eau prise
+  entre les couches).
+- « Tout contenant de métal va sur le feu (boîte de conserve, chaudière, bac) » : sans chiffre,
+  pas de source cherchée.
+
+### Retraits qui touchent au fond
+
+- « à 90 km du premier médecin » (§9, « La marge d'erreur ») : la distance du chalet de JP, non
+  sourcée ; coupée (règle du livre ouvert).
+- « Un enfant de 4 ans », « les enfants de 4 et 6 ans » : remplacés par « un jeune enfant », « de
+  jeunes enfants ». Les âges qui sont des seuils restent (moins de 6 ans pour le plomb, moins de
+  3 mois pour le nitrate).
+- §7, bougie fendue : « la colle bouche le pore autour et laisse la fissure ouverte » coupé
+  (dire ce qui marche : changer de bougie).
+- §5-J étape 42 : « un filtre à sédiments, si fin soit-il, ne fait rien contre un métal
+  dissous » devient « seul ce média [fait pour réduire le plomb] retient un métal dissous ».
+- Les avertissements redits hors de l'encadré (monoxyde au §9, ébullition du plomb à l'étape 42
+  et au §7, chlore et *Cryptosporidium* au §2, sel du fleuve au §9) sont coupés ; ils restent
+  dans le §8. La génératrice reste à l'étape 5 et au §8 (rappel de `CLAUDE.md`).
+
+### Ajouts sans chiffre
+
+- §2 : « le CT requis (concentration de chlore × temps de contact) » : définition du terme.
+- §8 : « les poumons se remplissent **d'air** » : précision, pour qu'on ne lise pas un œdème.
