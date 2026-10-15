@@ -80,8 +80,12 @@ les analyses et que tu les appliques à ta logique de refonte ») :
    et 11) ; « seuil » devient « une raison de partir » (fait au ch. 11). En urgence, ne pas s'appuyer sur une
    préparation que la famille n'a peut-être pas faite (JP, sur « ce que la famille a écrit avant la saison »).
 
-Le **ch. 11 (feu de forêt)** est le chapitre modèle de la refonte : texte, séries orange, logigramme,
-planches 11-03 à 11-05, deux photos. Aperçus en double page : `livre/apercus-ch11/`.
+Le **ch. 11 (feu de forêt)** est **le chapitre modèle de la refonte, approuvé par JP** (15 octobre au soir :
+« c'est parfait, on se garde ça pour samedi ») : texte, trois séries orange à la longueur de leur temps (1 h,
+15 min, 1 min) suivies de leur détail hors de l'orange, section 2 sans « mauvaise procédure », logigramme,
+planches 11-03 à 11-05, deux photos. Aperçus en double page et PDF : `livre/apercus-ch11/`. Samedi, chaque
+chapitre de la refonte se compare à lui, et le brief des agents le donne comme modèle à la place des ch. 4
+et 10.
 
 **Arrêté le 15 octobre vers 15 h** (JP : « mets en pause le reste, on règle les points qu'on est en train de
 parler »). Tous les agents arrêtés, leurs fichiers et leurs ancrages poussés.

@@ -3,7 +3,7 @@
 - [Pas de paperasse](pas-de-paperasse.md) — registres, carnets, fiches à tenir : « qui va vraiment utiliser ça ? » ; le livre sert à survivre
 - [Toujours montrer pour validation](toujours-montrer-pour-validation.md) — chaque planche, formulaire ou chapitre refait s'envoie à JP (PNG + PDF) ; rien n'est « prêt » avant qu'il l'ait vu
 - [Armes de JP](armes-de-jp.md) — calibre 12, .22, 7 mm Rem Mag, deux .308, .303 British : on compte les munitions pour ces calibres, aucune arme à acheter
-- [Plan de match](plan-de-match.md) — 6 tomes, 113 ch. ; PAUSE du 15 oct. (reprise samedi) : « comment reprendre » en tête de suivi/plan-de-match.md ; donner le coût avant de lancer
+- [Plan de match](plan-de-match.md) — 6 tomes, 113 ch. ; PAUSE du 15 oct., reprise samedi : « comment reprendre » en tête de suivi/plan-de-match.md ; le ch. 11 est le modèle approuvé de la refonte ; donner le coût avant de lancer
 - [Matériel et pourquoi compressés](materiel-et-pourquoi-compresses.md) — §4 seulement l'indispensable, une ligne expliquée par item ; §3 en 3 à 5 phrases
 - [Planches sans relecture](planches-sans-relecture.md) — dessin seul, JP relit lui-même ; workflow .claude/planches-dessin-seul.workflow.js
 - [Dessin notice](dessin-notice.md) — mains, têtes, corps : sept essais rejetés ; on calque fidèlement les références de JP (vectoriser.py), usage personnel autorisé le 13 oct.
