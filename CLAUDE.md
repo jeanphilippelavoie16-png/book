@@ -218,6 +218,8 @@ doit être informatif, partout.** Ce qui saute :
   alimenté… », « En 2025, 527 feux ont été combattus… ». Un chiffre reste s'il change ce qu'on fait ;
 - la justification du cadrage : « C'est le scénario du chalet parce que c'est là que sont la scie à
   chaîne, la hache, l'arme… » ;
+- la justification que le lecteur connaît déjà, souvent après deux-points : « …les aliments
+  s'appliquent : il n'y a ni entrée électrique, ni aqueduc, ni égout » (JP : « inutile, on le sait ») ;
 - la chute en formule au bout d'un paragraphe : « juste une impression », « La plus courte commande »,
   « pas quand le tuyau siffle », « C'est un motif de partir que rien de visible ne signale » ;
 - l'opposition fabriquée (« pas X, mais Y », « au village, c'est… ; au chalet, c'est… ») quand elle

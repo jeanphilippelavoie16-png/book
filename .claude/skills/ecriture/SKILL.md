@@ -18,6 +18,9 @@ mains. Chaque phrase doit lui donner un fait, un geste, une mesure ou un signe �
   c'est poétique mais dégueulasse. »
 - « Sans que ça ait l'air d'un AI qui a écrit. Enlève les **—** partout aussi : y a juste les AI qui
   mettent ça dans des phrases. »
+- Sur « …les aliments s'appliquent : il n'y a ni entrée électrique, ni aqueduc, ni égout » : « ni
+  aqueduc, ni égout, ni blablabla, inutile, on le sait. La phrase peut s'arrêter à "les aliments
+  s'appliquent". »
 
 Ses pages annotées sont dans `livre/relecture/notes/` (à régénérer, voir
 `design/outils/relecture/LISEZMOI.md`). Le jaune et le rouge, c'est ce qu'il ne veut plus voir.
@@ -61,6 +64,7 @@ dans le garage.
 | L'image, la petite scène, la personnification | « …une famille dans le noir, à attendre un camion qui ne viendra pas. » ; « une maison qui se croit chauffée au mazout » ; « la panique fait manquer » | « Tant que le mât n'est pas réparé, la maison reste sans courant, même quand la rue est rebranchée. » |
 | Le superlatif qui ne se mesure pas | « …au ch. 77, le chapitre le plus dangereux de l'ouvrage. » | « …au ch. 77. » |
 | La révélation en deux temps | « Le réglage est tout, et il tient en une phrase : la mèche ne dépasse presque pas. » | « La mèche ne dépasse presque pas. » |
+| La justification que le lecteur connaît déjà, après les deux-points | « …seules les parties sur le froid, la plomberie et les aliments s'appliquent : il n'y a ni entrée électrique, ni aqueduc, ni égout. » (JP : « inutile, on le sait ») | « …seules les parties sur le froid, la plomberie et les aliments s'appliquent. » |
 | L'annonce et le résumé | « Voici ce qu'il faut savoir. » ; « En somme… » | *(rien)* |
 | La question rhétorique | « Pourquoi ? Parce que… » | Le fait |
 

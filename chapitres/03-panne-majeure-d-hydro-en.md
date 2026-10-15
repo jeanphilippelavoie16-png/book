@@ -17,8 +17,7 @@ Traverser une panne d'Hydro sans intoxication au monoxyde de carbone, sans plomb
 
 Le chalet n'est pas sur le réseau, et c'est là qu'on va quand la panne s'étire (la bascule
 se décide au ch. 2). Au chalet, la panne, c'est la génératrice ou le banc de batteries qui
-lâche ; seules les parties sur le froid, la plomberie et les aliments s'appliquent : il
-n'y a ni entrée électrique, ni aqueduc, ni égout.
+lâche ; seules les parties sur le froid, la plomberie et les aliments s'appliquent.
 
 **La panne se tient à la maison quand :**
 
