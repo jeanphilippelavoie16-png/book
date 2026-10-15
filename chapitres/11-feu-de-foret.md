@@ -81,16 +81,16 @@ suite au départ, étape 11.
  c'est le deuxième chemin si la route ferme (section 9).
 5. **Décider quel adulte prend quel enfant**, le dire aux enfants, et ne plus en changer jusqu'à l'arrivée
  (ch. 82).
-6. **Écrire sur la porte ce qui fera partir.** Un seul de ces seuils suffit :
+6. **Écrire sur la porte ce qui fera partir.** Une seule de ces raisons suffit :
  - **il ne reste qu'un chemin pour sortir**, parce que l'autre est dans la fumée, bloqué par un arbre ou
- fermé. On part sur celui qui reste. Un chalet qui n'a qu'un chemin et pas de canot à l'eau a déjà atteint
- ce seuil ;
+ fermé. On part sur celui qui reste. Un chalet qui n'a qu'un chemin et pas de canot à l'eau est déjà dans
+ ce cas ;
  - **la fumée se sent dans la maison, portes et fenêtres fermées**, et les enfants n'ont pas de pièce
  d'air propre (étapes 32 et 35) ;
- - **le seuil de la famille**, s'il a été écrit avant la saison (étape 47).
+ - **ce que la famille a écrit avant la saison** (étape 47), s'il y a lieu.
 
- Une fois le seuil écrit, personne ne le discute plus. Un seul adulte décide (ch. 2). Si un seuil est déjà
- atteint, passer au départ, étape 11 ; sinon, faire les étapes 7 à 10 en restant prêt à partir.
+ Une fois que c'est écrit, personne ne le discute plus. Un seul adulte décide (ch. 2). Si une de ces raisons
+ est déjà là, passer au départ, étape 11 ; sinon, faire les étapes 7 à 10 en restant prêt à partir.
 7. **Remplir tout ce qui tient l'eau pendant que le puits ou l'aqueduc en donne** : le bain, les barils,
  les chaudières. Au chalet, monter un baril en hauteur avec un boyau piqué au fond (section 9).
 8. **Dégager autour du bâtiment ce qui peut prendre feu** : vider les gouttières ; tirer le bois de
@@ -104,7 +104,7 @@ suite au départ, étape 11.
 
 ### Le départ {.orange 15 min}
 
-Dès qu'un seuil de l'étape 6 est atteint. Un feu de cimes peut faire un kilomètre en un quart d'heure : le
+Dès qu'une raison de partir de l'étape 6 est là. Un feu de cimes peut faire un kilomètre en un quart d'heure : le
 départ se fait dans ce temps-là. Quand le feu est en vue, on monte dans l'auto et on part, sans faire les
 étapes 13 à 15. Si la fumée cache déjà le chemin, on reste au bâtiment (étape 21).
 
@@ -206,7 +206,7 @@ Le chemin est fermé ou la fumée le cache, et le feu arrive.
  propre.
 35. **Au chalet, l'été, faire une pièce d'air propre pour les enfants** avec un ventilateur et un filtre
  (section 9). Au printemps et à l'automne, quand le poêle chauffe, on ne peut pas fermer le chalet et le
- chauffer en même temps (ch. 2) : la fumée qui se sent dans le chalet devient un seuil de départ
+ chauffer en même temps (ch. 2) : la fumée qui se sent dans le chalet devient une raison de partir
  (étape 6).
 36. **Sans capteur, juger la fumée à la distance qu'on voit**, sur un repère sombre dont on connaît la
  distance, comme une rive boisée ou une montagne. Si on ne voit plus un repère à 16 km, les jeunes enfants
@@ -249,11 +249,11 @@ Le chemin est fermé ou la fumée le cache, et le feu arrive.
  et, deux ou trois ans plus tard, une repousse de feuillus serrée (ch. 42). Rétablir d'abord les 1,5 m
  autour des murs, puis les 10 m, et les 3 m autour du propane (étapes 49 à 56).
 
-### Avant la saison : le seuil de départ
+### Avant la saison : écrire ce qui fera partir
 
-47. **Écrire le seuil de la famille sur la porte du chalet et sur celle du frigo, en mai, avant la
- saison.** Aucune distance ni aucun délai ne vaut pour tous les feux : le vent, la pente et le chemin
- décident. Le seuil s'écrit donc en mesures qu'on vérifie sans débattre : une distance, un temps de
+47. **En mai, avant la saison, écrire ce qui fera partir, sur la porte du chalet et sur celle du
+ frigo.** Aucune distance ni aucun délai ne vaut pour tous les feux : le vent, la pente et le chemin
+ décident. On l'écrit donc en mesures qu'on vérifie sans débattre : une distance, un temps de
  trajet, une heure de la journée. La famille remplit les blancs :
 
  > Nous partons du chalet si le feu le plus proche est à moins de ___ km et que le vent souffle de lui
@@ -261,8 +261,8 @@ Le chemin est fermé ou la fumée le cache, et le feu arrive.
  > heures de clarté et que le feu a grossi depuis la veille. Personne ne change ces chiffres une fois le
  > feu déclaré.
 
- Le seuil du chalet passe avant celui de la maison : la sortie est plus longue, plus fragile, et elle n'a
- pas de rechange. Il se décide en mai parce que, le jour du feu, on a envie de rester. Partir trop tôt
+ Au chalet, on part plus tôt qu'à la maison : la sortie est plus longue, plus fragile, et elle n'a
+ pas de rechange. Ça se décide en mai parce que, le jour du feu, on a envie de rester. Partir trop tôt
  coûte quelques jours ailleurs et du carburant ; partir trop tard peut piéger la famille sur le chemin
  (section 8, point 2).
 48. **Rouler les deux chemins de sortie chaque année, montre en main**, et élargir le tournant où une auto
@@ -323,11 +323,11 @@ la surface, prudemment, puisqu'on cherche ce qu'on ne voit pas (section 9).
 | Chaque printemps | Bois de chauffage, matériaux, propane | À plus de **10 m** de tout bâtiment | Déplacer ; garder un seul petit tas de service |
 | Chaque printemps | Végétation autour du réservoir de propane | **3 m** dégagés | Faucher et râteler |
 | Chaque année | La zone de 10 à 30 m | Au moins **3 m** entre les cimes des conifères, branches coupées jusqu'à **2 m** du sol | Reprendre l'éclaircie |
-| Chaque année | Les deux chemins de sortie | Roulés tous les deux, montre en main | Un seul chemin praticable : le premier seuil de l'étape 6 est atteint dès qu'un feu est déclaré |
-| Chaque année, en mai | Le seuil de départ | Écrit sur la porte du chalet et sur celle du frigo | L'écrire avant la saison (étape 47) |
+| Chaque année | Les deux chemins de sortie | Roulés tous les deux, montre en main | Un seul chemin praticable : c'est une raison de partir dès qu'un feu est déclaré (étape 6) |
+| Chaque année, en mai | Ce qui fera partir | Écrit sur la porte du chalet et sur celle du frigo | L'écrire avant la saison (étape 47) |
 | Épisode de fumée, maison | Les particules fines | Fermer dès **30 µg/m³** ; tout le monde à l'intérieur au-dessus de **250 µg/m³** | Fermer, recirculer, HEPA dans la chambre des enfants |
 | Épisode de fumée, maison ou chalet | La température de la pièce des enfants | Sous **26 °C** ; danger au-dessus de **31 °C** | Ouvrir, même s'il entre de la fumée (étape 34) |
-| Épisode de fumée, chalet | L'odeur de fumée à l'intérieur, portes et fenêtres fermées | Aucune, ou les enfants dans une pièce d'air propre | Seuil de départ (étape 6) ; la nuit, étape 11 |
+| Épisode de fumée, chalet | L'odeur de fumée à l'intérieur, portes et fenêtres fermées | Aucune, ou les enfants dans une pièce d'air propre | Partir (étape 6) ; la nuit, étape 11 |
 | Toutes les 12 h, feu dans le secteur | La décision de rester ou de partir, reprise à neuf (ch. 2) | Deux fois par jour, et chaque fois que le vent tourne | Sans mesure nouvelle, la décision de la veille ne vaut plus |
 | Au retour | Le tour à pied, de jour, avant d'entrer | Aucun fil au sol, aucune odeur de gaz, aucun point chaud | Ne pas entrer. Près d'un fil au sol : s'éloigner à très petits pas traînés (étape 39) |
 | Au retour | L'eau | Jugée avant d'être bue ; l'eau d'un bassin brûlé traitée comme une eau trouble (ch. 10) | Ne pas la boire ; la traiter (ch. 10) |
@@ -340,11 +340,11 @@ la surface, prudemment, puisqu'on cherche ce qu'on ne voit pas (section 9).
 | Observation | Diagnostic | Action |
 | --- | --- | --- |
 | Cendre ou aiguilles roussies sur la galerie, soleil rouge à midi | Un feu assez gros pour porter des débris souffle déjà de ce côté | Étapes 1 à 10, sans attendre de voir la fumée |
-| Odeur de fumée dans le chalet, portes et fenêtres fermées | La fumée entre dans le chalet, et ses murs ne l'arrêtent pas | Les enfants dans la pièce d'air propre (étape 35) ; sans elle, c'est un seuil de départ (étape 6) ; la nuit, étape 11 |
+| Odeur de fumée dans le chalet, portes et fenêtres fermées | La fumée entre dans le chalet, et ses murs ne l'arrêtent pas | Les enfants dans la pièce d'air propre (étape 35) ; sans elle, c'est une raison de partir (étape 6) ; la nuit, étape 11 |
 | Le deuxième chemin est fermé, bloqué ou dans la fumée | Il reste un seul chemin, sans rechange | Partir maintenant, sur le chemin qui reste (étapes 11 à 17) |
 | La sortie prend nettement plus de temps que d'habitude | La fumée ou des débris ralentissent déjà le chemin, et ça ne s'arrangera pas | Partir |
 | Un adulte propose un dernier voyage | Le chargement a pris la place de la décision | Refuser (étape 30) |
-| Le seuil écrit sur la porte est renégocié de vive voix | La personne qui décide a envie de rester | Appliquer le chiffre écrit (étape 47) |
+| Ce qui est écrit sur la porte se rediscute de vive voix | La personne qui décide a envie de rester | Appliquer le chiffre écrit (étape 47) |
 | La corde de bois est encore contre le mur en juillet | Le combustible le plus facile à enlever est collé au bâtiment | La déplacer à plus de 10 m le jour même |
 | Gouttières pleines après un printemps venteux | Des aiguilles sèches tout le tour du toit, là où tombent les braises | Vider |
 | Une bouteille de propane contre un mur, sous une galerie ou dans une remise attenante | Un réservoir à côté d'un mur qui va chauffer | La porter à plus de 10 m, avec 3 m dégagés autour |
@@ -414,7 +414,7 @@ la surface, prudemment, puisqu'on cherche ce qu'on ne voit pas (section 9).
 Sans pompe, sans purificateur et sans nouvelles du feu, ce qui est l'ordinaire d'un chalet hors réseau.
 
 **Sans nouvelles, on part plus tôt.** On ne peut pas savoir si le feu grossit ou s'éloigne, et on ne peut
-donc pas prendre une décision qu'on pourrait défaire. Le seuil de départ baisse d'un cran : un départ pour
+donc pas prendre une décision qu'on pourrait défaire. On part au premier signe : un départ pour
 rien coûte du carburant et deux jours (étape 47).
 
 ### Lire le danger et le feu sur le terrain
@@ -443,7 +443,7 @@ fumée se lit de loin.
  chalet au bas d'une pente a plus de marge que le même chalet à mi-pente.
 - **Le temps qui reste avant la noirceur, sans montre** : tendre le bras, la main à plat entre le soleil
  et l'horizon. Il faut avoir chronométré une fois, un soir clair au chalet, combien de minutes le soleil
- met à descendre d'une largeur de sa main. Ça suffit pour appliquer le troisième seuil (étape 47).
+ met à descendre d'une largeur de sa main. Ça suffit pour appliquer la troisième raison de partir (étape 47).
 
 ### Sortir quand le chemin n'est plus un chemin
 

@@ -138,10 +138,23 @@
     "planches": [
       {
         "id": "11-03",
-        "apres": "**Les vitres cassent par le rayonnement avant que la flamme n'arrive**"
+        "apres": "**Les vitres cassent sous la chaleur du feu avant que la flamme arrive**"
+      },
+      {
+        "id": "11-04",
+        "apres": "**Un ventilateur et un filtre.**"
+      },
+      {
+        "id": "11-05",
+        "apres": "**Le râteau à feu.**"
       }
     ],
-    "photos": []
+    "photos": [],
+    "logigramme": {
+      "fichier": "images/logigrammes/11-feu-de-foret-livre.svg",
+      "apres": "Partir pendant que le chemin est ouvert",
+      "orange": true
+    }
   },
   "12": {
     "planches": [

@@ -119,8 +119,8 @@
       "type": "question",
       "col": "tronc",
       "rang": "g6",
-      "texte": "Un seuil écrit sur la porte est atteint ?",
-      "precision": "Il ne reste qu'un chemin, la fumée se sent dans la maison et les enfants n'ont pas de pièce d'air propre, ou le chiffre de la famille est dépassé",
+      "texte": "Une des raisons de partir est là ?",
+      "precision": "Il ne reste qu'un chemin ; la fumée se sent dans la maison et les enfants n'ont pas de pièce d'air propre ; ou ce que la famille a écrit avant la saison est arrivé",
       "source": "étape 9"
     },
     {
@@ -138,7 +138,7 @@
       "type": "question",
       "col": "tronc",
       "rang": "g7",
-      "texte": "C'est la nuit, et seule l'odeur de la fumée donne l'alerte ?",
+      "texte": "C'est la nuit, et on sent seulement l'odeur de la fumée ?",
       "precision": "On ne voit ni lueur ni braises, et on ne sent pas de chaleur",
       "source": "étape 11"
     },
@@ -246,7 +246,7 @@
       "rang": "d6",
       "ancre": "haut",
       "taille": 10,
-      "texte": "**Quand le front est passé, rester sous la laine jusqu'à ce que l'air refroidisse**, puis aller vers le terrain brûlé et éteindre ce qui reste : gratter jusqu'au sol minéral, retourner, noyer.",
+      "texte": "**Quand le front est passé, rester sous la laine jusqu'à ce que l'air refroidisse.** Ensuite, aller sur le terrain brûlé et éteindre ce qui brûle encore : gratter jusqu'à la terre, retourner et noyer.",
       "renvoi": "ch. 11, étapes 20 et 26",
       "source": "étapes 20 et 26"
     }
@@ -348,7 +348,7 @@
     {
       "de": "rouler",
       "vers": "q6",
-      "etiquette": "La route se ferme devant et derrière",
+      "etiquette": "Si la route se ferme devant et derrière",
       "sx": 10.5,
       "ex": 10.5,
       "pos": "milieu"
