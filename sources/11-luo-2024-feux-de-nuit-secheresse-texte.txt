@@ -1,0 +1,377 @@
+- Article
+- Published: 13 March 2024
+Drought triggers and sustains overnight fires in North America
+- Kaiwei Luo
+ORCID: orcid.org/0009-0001-1921-54291,
+- Xianli Wang
+ORCID: orcid.org/0000-0001-9873-97671,2,
+- Mark de Jong
+ORCID: orcid.org/0000-0002-0790-60973 &
+- …
+- Mike Flannigan1,4
+Show authors
+Nature
+volume 627, pages 321–327 (2024) Cite this article
+Save article
+View saved research
+-
+11k Accesses
+-
+83 Citations
+-
+426 Altmetric
+-
+Metrics details
+Abstract
+Overnight fires are emerging in North America with previously unknown drivers and implications. This notable phenomenon challenges the traditional understanding of the ‘active day, quiet night’ model of the diurnal fire cycle1,2,3 and current fire management practices4,5. Here we demonstrate that drought conditions promote overnight burning, which is a key mechanism fostering large active fires. We examined the hourly diurnal cycle of 23,557 fires and identified 1,095 overnight burning events (OBEs, each defined as a night when a fire burned through the night) in North America during 2017–2020 using geostationary satellite data and terrestrial fire records. A total of 99% of OBEs were associated with large fires (>1,000 ha) and at least one OBE was identified in 20% of these large fires. OBEs were early onset after ignition and OBE frequency was positively correlated with fire size. Although warming is weakening the climatological barrier to night-time fires6, we found that the main driver of recent OBEs in large fires was the accumulated fuel dryness and availability (that is, drought conditions), which tended to lead to consecutive OBEs in a single wildfire for several days and even weeks. Critically, we show that daytime drought indicators can predict whether an OBE will occur the following night, which could facilitate early detection and management of night-time fires. We also observed increases in fire weather conditions conducive to OBEs over recent decades, suggesting an accelerated disruption of the diurnal fire cycle.
+This is a preview of subscription content, access via your institution
+Access options
+Access through your institution
+Access Nature and 54 other Nature Portfolio journals
+Get Nature+, our best-value online-access subscription
+$32.99 / 30 days
+cancel any time
+Learn more
+Subscribe to this journal
+Receive 52 print issues and online access
+$199.00 per year
+only $3.83 per issue
+Learn more
+Buy this article
+- Purchase on SpringerLink
+- Instant access to the full article PDF.
+USD 39.95
+Prices may be subject to local taxes which are calculated during checkout
+Fig. 1: Substantial overnight burning in North America, 2017–2020.
+Fig. 2: Overnight burning promotes extreme fires.
+Fig. 3: Fire weather is elevated during overnight burning and has become more extreme over time.
+Fig. 4: Drought conditions are the main driver of overnight burning.
+Fig. 5: Overnight burning is predictable based on daytime fire weather conditions.
+Similar content being viewed by others
+Warming weakens the night-time barrier to global fire
+Article
+16 February 2022
+Global increase in wildfire potential from compound fire weather and drought
+Article
+Open access
+25 March 2022
+Future enhanced threshold effects of wildfire drivers could increase burned areas in northern mid- and high latitudes
+Article
+Open access
+21 March 2025
+Explore related subjects
+Discover the latest articles and news in related subjects.
+-
+Climate-change impacts
+-
+Environmental health
+-
+Fire ecology
+-
+Wildfire Dynamics in Forest Ecosystems
+Data availability
+The datasets for conducting the analysis presented here are all publicly available. The NBAC, MTBS and CWFP wildland fire datasets are respectively available from the Canadian Forest Service (https://cwfis.cfs.nrcan.gc.ca/datamart/metadata/nbac), https://www.mtbs.gov/ and the U.S. Geological Survey (https://data.usgs.gov/datacatalog/data/USGS:61707c2ad34ea36449a6b066). The GOES-16 and GOES-17 full disk active fire products are available on Amazon Web Service S3 Explorer (https://registry.opendata.aws/noaa-goes/). The hourly ERA5 climate data used for this study are available at https://doi.org/10.24381/cds.adbb2d47. The biome categorizations used in this study are available at https://www.worldwildlife.org/publications/terrestrial-ecoregions-of-the-world. The MODIS GeoMeta Collection 6.1 and geoMetaVIIRS products for reconstructing overpasses are from the Level-1 and Atmosphere Archive & Distribution System (https://ladsweb.modaps.eosdis.nasa.gov/archive). The MODIS and VIIRS active fire products were obtained from the Fire Information for Resource Management System (https://firms.modaps.eosdis.nasa.gov/download/). Source data are provided with this paper.
+Code availability
+Codes used to analyse the data are available from https://github.com/KaiweiLL/overnight-fires or https://doi.org/10.5281/zenodo.10278113.
+References
+- Pyne, S. J. Fire in America: A Cultural History of Wildland and Rural Fire (Univ. Washington Press, 2017).
+- Zhang, T., Wooster, M. J. & Xu, W. Approaches for synergistically exploiting VIIRS I- and M-Band data in regional active fire detection and FRP assessment: a demonstration with respect to agricultural residue burning in Eastern China. Remote Sens. Environ. 198, 407–424 (2017).
+Article
+ADS
+Google Scholar
+- Vadrevu, K. P., Ellicott, E., Badarinath, K. & Vermote, E. MODIS derived fire characteristics and aerosol optical depth variations during the agricultural residue burning season, north India. Environ. Pollut. 159, 1560–1569 (2011).
+Article
+CAS
+PubMed
+Google Scholar
+- McHugh, C. W. & Gleason, P. in Hayman Fire Case Study General Technical Report RMRS-GTR-114 (ed. Graham, R. T.) 131–144 (USDA Forest Service, 2003).
+- Arno, S. F. in Wildland Fire in Ecosystems: Effects of Fire on Flora General Technical Report RMRS-GTR-42-vol 2 (eds Brown, J. K. & Smith, J. K.) 97–120 (USDA Forest Service, 2000).
+- Balch, J. K. et al. Warming weakens the night-time barrier to global fire. Nature 602, 442–448 (2022).
+Article
+ADS
+CAS
+PubMed
+Google Scholar
+- Chiodi, A. M., Potter, B. E. & Larkin, N. K. Multi‐decadal change in western US nighttime vapor pressure deficit. Geophys. Res. Lett. 48, e2021GL092830 (2021).
+Article
+ADS
+Google Scholar
+- Davy, R., Esau, I., Chernokulsky, A., Outten, S. & Zilitinkevich, S. Diurnal asymmetry to the observed global warming. Int. J. Climatol. 37, 79–93 (2017).
+Article
+Google Scholar
+- Jain, P., Castellanos-Acuna, D., Coogan, S. C., Abatzoglou, J. T. & Flannigan, M. D. Observed increases in extreme fire weather driven by atmospheric humidity and temperature. Nat. Clim. Change 12, 63–70 (2022).
+Article
+ADS
+Google Scholar
+- Williamson, G. J. et al. Measurement of inter- and intra-annual variability of landscape fire activity at a continental scale: the Australian case. Environ. Res. Lett. 11, 035003 (2016).
+Article
+ADS
+Google Scholar
+- Freeborn, P. H., Jolly, W. M., Cochrane, M. A. & Roberts, G. Large wildfire driven increases in nighttime fire activity observed across CONUS from 2003–2020. Remote Sens. Environ. 268, 112777 (2022).
+Article
+Google Scholar
+- Giglio, L., Csiszar, I. & Justice, C. O. Global distribution and seasonality of active fires as observed with the Terra and Aqua Moderate Resolution Imaging Spectroradiometer (MODIS) sensors. J. Geophys. Res. Biogeosci. 111, G02016 (2006).
+Article
+ADS
+Google Scholar
+- Giglio, L. Characterization of the tropical diurnal fire cycle using VIRS and MODIS observations. Remote Sens. Environ. 108, 407–421 (2007).
+Article
+ADS
+Google Scholar
+- Roberts, G., Wooster, M. & Lagoudakis, E. Annual and diurnal African biomass burning temporal dynamics. Biogeosciences 6, 849–866 (2009).
+Article
+ADS
+Google Scholar
+- Amraoui, M., DaCamara, C. & Pereira, J. Detection and monitoring of African vegetation fires using MSG-SEVIRI imagery. Remote Sens. Environ. 114, 1038–1052 (2010).
+Article
+ADS
+Google Scholar
+- Maier, S. W. & Russell-Smith, J. in Flammable Australia: Fire Regimes, Biodiversity and Ecosystems in a Changing World (eds Bradstock, R. A. et al.) 79–95 (CSIRO Publishing, 2012).
+- Andela, N., Kaiser, J., van der Werf, G. & Wooster, M. New fire diurnal cycle characterizations to improve fire radiative energy assessments made from MODIS observations. Atmos. Chem. Phys. 15, 8831–8846 (2015).
+Article
+ADS
+CAS
+Google Scholar
+- Balch, J. K. et al. The susceptibility of southeastern Amazon forests to fire: insights from a large-scale burn experiment. Bioscience 65, 893–905 (2015).
+Article
+Google Scholar
+- Van Wagner, C. E. Development and Structure of the Canadian Forest Fire Weather Index System (Canadian Forestry Service, 1987).
+- Veraverbeke, S. et al. Lightning as a major driver of recent large fire years in North American boreal forests. Nat. Clim. Change 7, 529–534 (2017).
+Article
+ADS
+Google Scholar
+- Wang, X., Swystun, T. & Flannigan, M. D. Future wildfire extent and frequency determined by the longest fire-conducive weather spell. Sci. Total Environ. 830, 154752 (2022).
+Article
+ADS
+CAS
+PubMed
+Google Scholar
+- Groot, W. J. D., Field, R. D., Brady, M. A., Roswintiarti, O. & Mohamad, M. Development of the Indonesian and Malaysian fire danger rating systems. Mitig. Adapt. Strateg. Glob. Change 12, 165–180 (2007).
+Article
+Google Scholar
+- Abatzoglou, J. T., Williams, A. P., Boschetti, L., Zubkova, M. & Kolden, C. A. Global patterns of interannual climate–fire relationships. Glob. Change Biol. 24, 5164–5175 (2018).
+Article
+ADS
+Google Scholar
+- Jolly, W. M. et al. Climate-induced variations in global wildfire danger from 1979 to 2013. Nat. Commun. 6, 7537 (2015).
+Article
+ADS
+CAS
+PubMed
+Google Scholar
+- Di Giuseppe, F. et al. The potential predictability of fire danger provided by numerical weather prediction. J. Appl. Meteorol. Climatol. 55, 2469–2491 (2016).
+Article
+ADS
+Google Scholar
+- Wotton, B. M. in Proc. Eighth Symposium on Fire and Forest Meteorology 13–15 (American Meteorological Society, 2009).
+- Wotton, B. M. Interpreting and using outputs from the Canadian Forest Fire Danger Rating System in research applications. Environ. Ecol. Stat. 16, 107–131 (2009).
+Article
+MathSciNet
+CAS
+Google Scholar
+- Bistinas, I., Harrison, S., Prentice, I. & Pereira, J. Causal relationships versus emergent patterns in the global controls of fire frequency. Biogeosciences 11, 5087–5101 (2014).
+Article
+ADS
+Google Scholar
+- Viney, N. R. A review of fine fuel moisture modelling. Int. J. Wildland Fire 1, 215–234 (1991).
+Article
+Google Scholar
+- Cohen, J. D. & Deeming, J. E. The National Fire-danger Rating System: Basic Equations General Technical Report PSW-82 16 (U.S. Department of Agriculture, Forest Service, 1985).
+- Schmit, T. J. et al. A closer look at the ABI on the GOES-R series. Bull. Am. Meteorol. Soc. 98, 681–698 (2017).
+Article
+ADS
+Google Scholar
+- Hersbach, H. et al. The ERA5 global reanalysis. Q. J. R. Meteorol. Soc. 146, 1999–2049 (2020).
+Article
+ADS
+Google Scholar
+- Wooster, M. J. et al. Satellite remote sensing of active fires: history and current status, applications and future requirements. Remote Sens. Environ. 267, 112694 (2021).
+Article
+Google Scholar
+- Podur, J. & Wotton, B. M. Defining fire spread event days for fire-growth modelling. Int. J. Wildland Fire 20, 497–507 (2011).
+Article
+Google Scholar
+- Ho, T. K. in Proc. 3rd International Conference on Document Analysis and Recognition 278–282 (IEEE, 1995).
+- Zachariassen, J., Zeller, K. F., Nikolov, N. & McClelland, T. A Review of the Forest Service Remote Automated Weather Station (RAWS) Network General Technical Report RMRS-GTR-119 (U.S. Department of Agriculture, Forest Service, 2003).
+- Scholten, R. C., Jandt, R., Miller, E. A., Rogers, B. M. & Veraverbeke, S. Overwintering fires in boreal forests. Nature 593, 399–404 (2021).
+Article
+ADS
+CAS
+PubMed
+Google Scholar
+- Vincent, G. E. et al. Sleep in wildland firefighters: what do we know and why does it matter? Int. J. Wildland Fire 27, 73–84 (2018).
+Article
+Google Scholar
+- Page, W. G., Freeborn, P. H., Butler, B. W. & Jolly, W. M. A review of US wildland firefighter entrapments: trends, important environmental factors and research needs. Int. J. Wildland Fire 28, 551–569 (2019).
+Article
+Google Scholar
+- Tymstra, C., Stocks, B. J., Cai, X. & Flannigan, M. D. Wildfire management in Canada: review, challenges and opportunities. Prog. Disaster Sci. 5, 100045 (2020).
+Article
+Google Scholar
+- Tymstra, C., Jain, P. & Flannigan, M. D. Characterisation of initial fire weather conditions for large spring wildfires in Alberta, Canada. Int. J. Wildland Fire 30, 823–835 (2021).
+Article
+Google Scholar
+- van Wagtendonk, J. W. in Fire in California’s Ecosystems (eds Sugihara, N. G. et al.) 38–57 (Univ. California Press, 2006).
+- Wang, X. et al. Projected changes in fire size from daily spread potential in Canada over the 21st century. Environ. Res. Lett. 15, 104048 (2020).
+Article
+ADS
+Google Scholar
+- Bowman, D. M. et al. Vegetation fires in the Anthropocene. Nat. Rev. Earth Environ. 1, 500–515 (2020).
+Article
+ADS
+Google Scholar
+- Williams, A. P. et al. Observed impacts of anthropogenic climate change on wildfire in California. Earths Future 7, 892–910 (2019).
+Article
+ADS
+Google Scholar
+- Vose, R. S., Easterling, D. R. & Gleason, B. Maximum and minimum temperature trends for the globe: an update through 2004. Geophys. Res. Lett. 32, L23822 (2005).
+Article
+ADS
+Google Scholar
+- Yuan, X. et al. A global transition to flash droughts under climate change. Science 380, 187–191 (2023).
+Article
+ADS
+CAS
+PubMed
+Google Scholar
+- Flannigan, M. D., Krawchuk, M. A., de Groot, W. J., Wotton, B. M. & Gowman, L. M. Implications of changing climate for global wildland fire. Int. J. Wildland Fire 18, 483–507 (2009).
+Article
+Google Scholar
+- Wang, X. et al. Increasing frequency of extreme fire weather in Canada with climate change. Clim. Change 130, 573–586 (2015).
+Article
+ADS
+Google Scholar
+- Olson, D. M. et al. Terrestrial ecoregions of the world: a new map of life on Earth: a new global map of terrestrial ecoregions provides an innovative tool for conserving biodiversity. BioScience 51, 933–938 (2001).
+Article
+Google Scholar
+- Hall, R. et al. Generating annual estimates of forest fire disturbance in Canada: the National Burned Area Composite. Int. J. Wildland Fire 29, 878–891 (2020).
+Article
+Google Scholar
+- Eidenshink, J. et al. A project for monitoring trends in burn severity. Fire Ecol. 3, 3–21 (2007).
+Article
+Google Scholar
+- Welty, J. & Jeffries, M. Combined Wildland Fire Datasets for the United States and Certain Territories, 1800s-Present (U.S. Geological Survey, 2021); https://doi.org/10.5066/P9ZXGFY3.
+- Hall, J. V., Zhang, R., Schroeder, W., Huang, C. & Giglio, L. Validation of GOES-16 ABI and MSG SEVIRI active fire products. Int. J. Appl. Earth Obs. Geoinf. 83, 101928 (2019).
+Google Scholar
+- Wooster, M. J. et al. Meteosat SEVIRI Fire Radiative Power (FRP) products from the Land Surface Analysis Satellite Applications Facility (LSA SAF) – part 1: algorithms, product contents and analysis. Atmos. Chem. Phys. Discuss. 15, 15831–15907 (2015).
+ADS
+Google Scholar
+- Page, W. G., Jenkins, M. J. & Alexander, M. E. Foliar moisture content variations in lodgepole pine over the diurnal cycle during the red stage of mountain pine beetle attack. Environ. Model. Softw. 49, 98–102 (2013).
+Article
+Google Scholar
+- Van Wagner, C. E. A Method of Computing Fine Fuel Moisture Content Throughout the Diurnal Cycle Information Report PS-X-69 (Canadian Forestry Service, 1977).
+- Schroeder, W., Oliva, P., Giglio, L. & Csiszar, I. A. The New VIIRS 375 m active fire detection data product: algorithm description and initial assessment. Remote Sens. Environ. 143, 85–96 (2014).
+Article
+ADS
+Google Scholar
+- Giglio, L., Schroeder, W. & Justice, C. O. The collection 6 MODIS active fire detection algorithm and fire products. Remote Sens. Environ. 178, 31–41 (2016).
+Article
+ADS
+PubMed
+PubMed Central
+Google Scholar
+- Di Giuseppe, F. et al. Fire Weather Index: the skill provided by the European Centre for Medium-Range Weather Forecasts ensemble prediction system. Nat. Hazards Earth Syst. Sci. 20, 2365–2378 (2020).
+Article
+ADS
+Google Scholar
+- Wang, X. et al. cffdrs: an R package for the Canadian Forest Fire Danger Rating System. Ecol. Process. 6, 5 (2017).
+Article
+CAS
+Google Scholar
+- McElhinny, M., Beckers, J. F., Hanes, C., Flannigan, M. & Jain, P. A high-resolution reanalysis of global fire weather from 1979 to 2018–overwintering the Drought Code. Earth Syst. Sci. Data 12, 1823–1833 (2020).
+Article
+ADS
+Google Scholar
+- Alduchov, O. A. & Eskridge, R. E. Improved Magnus form approximation of saturation vapor pressure. J. Appl. Meteorol. Climatol. 35, 601–609 (1996).
+Article
+ADS
+Google Scholar
+- Hanley, J. A. & McNeil, B. J. The meaning and use of the area under a receiver operating characteristic (ROC) curve. Radiology 143, 29–36 (1982).
+Article
+CAS
+PubMed
+Google Scholar
+- Kuhn, M. Caret: classification and regression training. Astrophysics Source Code Library, record ascl:1505.003; https://ascl.net/1505.003 (accessed 20 May 2022).
+Download references
+Acknowledgements
+This study is supported by Canada Wildfire. K.L. is supported by the China Scholarship Council (202006070013). We thank P. Jain and D. Castellanos-Acuna for providing the fire weather data and C. Guo, S. C. P. Coogan, B. M. Wotton and H. Qian for their suggestions and help.
+Author information
+Authors and Affiliations
+- Department of Renewable Resources, University of Alberta, Edmonton, Alberta, Canada
+Kaiwei Luo, Xianli Wang & Mike Flannigan
+- Natural Resources Canada, Canadian Forest Service, Northern Forestry Centre, Edmonton, Alberta, Canada
+Xianli Wang
+- Natural Resources Canada, Canadian Forest Service, Great Lakes Forestry Centre, Sault Ste. Marie, Ontario, Canada
+Mark de Jong
+- Department of Natural Resource Science, Faculty of Science, Thompson Rivers University, Kamloops, British Columbia, Canada
+Mike Flannigan
+Authors
+- Kaiwei LuoView author publications
+Search author on:PubMed Google Scholar
+- Xianli WangView author publications
+Search author on:PubMed Google Scholar
+- Mark de JongView author publications
+Search author on:PubMed Google Scholar
+- Mike FlanniganView author publications
+Search author on:PubMed Google Scholar
+Contributions
+Conceptualization: M.F., X.W. and K.L. Methodology: K.L., X.W., M.F. and M.d.J. Investigation: K.L., X.W., M.F. and M.d.J. Visualization: K.L., X.W. and M.d.J. Funding acquisition: M.F., X.W. and K.L. Project administration: M.F. and X.W. Supervision: M.F. and X.W. Writing—original draft: K.L. and X.W. Writing—review and editing: K.L., X.W., M.d.J. and M.F.
+Corresponding authors
+Correspondence to
+Kaiwei Luo or Xianli Wang.
+Ethics declarations
+Competing interests
+The authors declare no competing interests.
+Peer review
+Peer review information
+Nature thanks the anonymous reviewers for their contribution to the peer review of this work. Peer reviewer reports are available.
+Additional information
+Publisher’s note Springer Nature remains neutral with regard to jurisdictional claims in published maps and institutional affiliations.
+Extended data figures and tables
+Extended Data Fig. 1 Data processing workflow used for identifying OBEs and extracting coincident fire weather data.
+First, the hourly diurnal cycle of each fire was examined using terrestrial wildfire databases and GOES-R active fire detections. Specifically, the hourly burning status of each fire was determined by the combination of the extracted or determined start and end dates and the extracted hotspots within its fire perimeter. Based on the spatial centroid of the fire perimeter, every hour during each fire’s lifetime was then designated either a daytime or night-time hour. Nights on which fire activity did and did not occur in every night-time hour were classified as OBEs and non-OBEs, respectively. Second, the hourly and daily fire weather grids within or intersected by each fire perimeter were extracted and then time-matched with the hourly diurnal cycle.
+Extended Data Fig. 2 The number of fires and OBEs categorized by fire size.
+The number of fires (a) and OBEs (b) categorized by fire size: 0–200 ha, 200–1,000 ha, 1,000–10,000 ha, 10,000–20,000 ha, 20,000–50,000 ha, 50,000–100,000 ha and >100,000 ha in North America during 2017–2020. Furthermore, we computed the ratio between the number of OBEs and the total number of fires in each respective category.
+Extended Data Fig. 3 Active fire detections and coincident fire weather for the 2020 Creek Fire in California, in the subtropical mountain system biome.
+The top-left plot shows the time series of GOES-R active fire detection hotspots. Hotspots are categorized and coloured according to daytime (grey) and night time (red and orange for night-time hotspots in OBEs and non-OBEs, respectively). The remaining plots show the corresponding fire weather variables as time series. The Creek Fire burned a total of 154,364 ha, with 43 OBEs observed over 52 days from 6 September to 27 October. Despite rainfall (3.6 mm in total) temporarily putting a stop to OBEs and decreasing fire weather codes and indices on 18 September (see (1)), OBEs quickly resumed on 19 September owing to the dryness of moderately slow-drying fuels (DMC) and high fuel availability (BUI), highlighting the critical role of drought in facilitating overnight burning. However, non-OBEs can still occur when DMC and BUI were high and unaffected (see (2)). These non-OBEs are associated with periods of corresponding changes in the fast-reacting variables adverse to fire spread, such as relatively low temperature and increased RH.
+Extended Data Fig. 4 Comparison of all fire weather variables between OBEs and non-OBEs.
+Comparison of fire weather conditions during OBEs and non-OBEs within fires larger than 1,000 ha in the boreal, temperate mountain system and subtropical mountain system. For each biome, curves show the density distribution of daily variables and daytime and night-time extrema of hourly variables for OBEs (red for summer and orange for fall) and non-OBEs (grey for summer and black for fall). We invert the y axis of the distribution of fire weather variables in fall for better visualization. All variables for OBEs in each biome–season group were significantly greater (or smaller in the case of RH; one-sided Mann–Whitney U test, P < 0.05) than those for non-OBEs, except TNmin in subtropical mountain system fall (P = 0.25).
+Extended Data Fig. 5 Comparison of day–night range of hourly fire weather variables between OBEs and non-OBEs.
+Comparison of day–night range of hourly fire weather variables (FFMC, ISI, RH, T and VPD) between OBEs and non-OBEs within fires larger than 1,000 ha in boreal, temperate mountain system and subtropical mountain system. For each biome, curves show the density distribution of day–night ranges for OBEs (red for summer and orange for fall) and non-OBEs (grey for summer and black for fall). We invert the y axis of the distribution of fire weather variables in fall for better visualization. Only FFMC of OBEs showed a significantly smaller range than non-OBEs (one-sided Mann–Whitney U test, P < 0.05) in boreal summer (P = 0.03) and subtropical mountain system summer (P = 0.03) and fall (P = 0.01).
+Extended Data Fig. 6 Percentile distributions and statistical significance of selected fire weather variables for OBEs (1979–1999 versus 2000–2020).
+The line-linked paired points respectively represent the percentile of fire weather (DC and daytime and/or night-time extrema of ISI, FFMC, VPD, T and RH) for each OBE within fires larger than 1,000 ha relative to comparable observations during the 1979–1999 and 2000–2020 periods at the same geographic location. The 1979–1999 percentiles are significantly higher than the 2000–2020 percentiles for each fire weather variable (paired Wilcoxon test, P < 0.05). Box plots represent the distribution of these percentile values. Each box plot includes a horizontal line to represent the median, a triangle to represent the mean, a box with lower and upper ends that represent the first and third quartiles and whiskers extending from the corresponding ends of the box to the smallest value at most 1.5 times the interquartile range and largest value no further than 1.5 times the interquartile range.
+Extended Data Fig. 7 Fire weather variable importance for OBEs based on random forest modelling and stratified sampling in fire-size categories.
+For each main biome–season group, we calculated the normalized mean decreases in the Gini coefficient of fire weather variables. This was done using a random forest model to classify OBEs and non-OBEs. We used a stratified sampling approach that ensured the inclusion of all OBEs, along with an equivalent number of non-OBEs in each biome–season group in each fire-size category: 0–200 ha, 200–1,000 ha, 1,000–10,000 ha, 10,000–20,000 ha, 20,000–50,000 ha, 50,000–100,000 ha and >100,000 ha. The variables are ranked from the most important to the least important. Slow-reacting variables are represented by dark red horizontal bars and daytime and night-time extrema of fast-reacting variables by grey and black bars, respectively. The performance of the models is evaluated by the area under the receiver operating characteristic curve (AUC).
+Extended Data Fig. 8 Active fire detections and coincident fire weather for the 2019 McMillan Complex wildfire in Alberta, in the boreal biome.
+The top-left plot shows the time series of GOES-R active fire detection hotspots. Hotspots are categorized and coloured according to daytime (grey) and night time (red and orange for night-time hotspots in OBEs and non-OBEs, respectively). The remaining plots show the corresponding fire weather variables as time series. The McMillan Complex wildfire burned a total of 199,888 ha, with nine OBEs within 13 days from 19 May to 31 May. Two OBEs clusters occurred during the McMillan Complex wildfire centred on 20 May (see (1)) and 29 May (see (2)). During both of these periods, DMC and BUI remained relatively low (although both were 40+). However, high wind speeds and dry surface fine fuel (FFMC) at night time increased fire spread potential (ISI) and fire intensity potential (FWI), thereby facilitating the occurrence of OBEs.
+Extended Data Fig. 9 Coverage and data availability of the GOES-R FDCF products.
+Data quality flag layers for GOES-16 (image: 2020250020019200000) (a) and GOES-17 (image: 2020250020031900000) (b) illustrate the spatial extent of the FDCF of GOES-R satellite. GOES-16 does not capture the northwestern area of North America and GOES-17 does not capture the northeastern area of North America. c,d, Number of FDCF products analysed in this study for GOES-16 and GOES-17, respectively, classified by scanning mode.
+Extended Data Table 1 Summary of the total number of OBEs and OBE firesFull size table
+Extended Data Table 2 The metrics for prediction models by variable combination and biome–season groupFull size table
+Supplementary information
+Peer Review File (download PDF )
+Source data
+Source Data Fig. 1 (download XLSX )
+Source Data Fig. 2 (download XLSX )
+Source Data Fig. 3 (download XLSX )
+Source Data Fig. 4 (download XLSX )
+Source Data Fig. 5 (download XLSX )
+Rights and permissions
+Springer Nature or its licensor (e.g. a society or other partner) holds exclusive rights to this article under a publishing agreement with the author(s) or other rightsholder(s); author self-archiving of the accepted manuscript version of this article is solely governed by the terms of such publishing agreement and applicable law.
+Reprints and permissions
+About this article
+Cite this article
+Luo, K., Wang, X., de Jong, M. et al. Drought triggers and sustains overnight fires in North America.
+Nature 627, 321–327 (2024). https://doi.org/10.1038/s41586-024-07028-5
+Download citation
+- Received: 04 April 2023
+- Accepted: 04 January 2024
+- Published: 13 March 2024
+- Version of record: 13 March 2024
+- Issue date: 14 March 2024
+- DOI: https://doi.org/10.1038/s41586-024-07028-5
+Share this article
+Anyone you share the following link with will be able to read this content:
+Get shareable linkSorry, a shareable link is not currently available for this article.
+Copy shareable link to clipboard
+Provided by the Springer Nature SharedIt content-sharing initiative

@@ -1,5 +1,9 @@
-// Planche 11-03 — le chalet paré aux braises (chapitre 11, « Faire de l'eau sous pression sans
+// Planche 11-03. Le chalet paré aux braises (chapitre 11, « Faire de l'eau sous pression sans
 // pompe » et « Fermer le bâtiment aux braises avec ce qui traîne »).
+// Reprise le 15 octobre 2026 : le jute se dessine drapé (il avait l'air de sacs de sable), les gouttes
+// semées sur le mur sont enlevées (on les prenait pour des clous), le dessous de galerie est fermé à la
+// tôle (le chapitre le demande), le jute de la coupe est une bande de tissu (c'était un trait noir qu'on
+// prenait pour un fil), la maille sous l'évent se voit en coupe (une rangée de fils).
 //
 // La charte : la porte, derrière la galerie, en gris loin (les barreaux passent devant) ; dans
 // le bord du toit en coupe, le creux sous le chevron, là où l'évent laisse entrer l'air et la
@@ -8,10 +12,7 @@
 module.exports = (h) => {
   const wf = at => at.replace('fill="none"', 'fill="#ffffff"');
   const n1 = v => Math.round(v * 10) / 10;
-  const tube = (w, c = '#000000') => `fill="none" stroke="${c}" stroke-width="${w}" stroke-linecap="butt" stroke-linejoin="round"`;
-  const boyau = (d, w = 5) => [h.path(d, tube(w)), h.path(d, tube(n1(w - 2.4), '#ffffff'))];
   const goutte = (x, y) => h.ellipse(x, y, 1.1, 1.8, h.a.plein);
-  const pointille = h.a.arete.replace('stroke-linecap="round"', 'stroke-linecap="butt" stroke-dasharray="1.4 1.4"');
 
   // Hasard reproductible.
   const alea = graine => {
@@ -31,24 +32,28 @@ module.exports = (h) => {
     pts.forEach((p, i) => { d += ` Q${n1(p[0])},${n1(p[1])} ${m(p, pts[(i + 1) % n])}`; });
     return d + ' Z';
   };
-  // Un sac de jute trempé, drapé : dessus bosselé (le tissu tassé), bas ondulé, gouttes dessous.
-  const sac = (x0, x1, yH, yB, graine, bosse = 3) => {
-    const r = alea(graine), pts = [];
-    const n = Math.max(3, Math.round((x1 - x0) / 12));
-    for (let i = 0; i <= n; i++) pts.push([x0 + ((x1 - x0) * i) / n, yH - bosse * r()]);
-    const m = Math.max(4, Math.round((x1 - x0) / 8));
+  // Un jute trempé, drapé sur un rebord : le haut suit le rebord, l'ourlet pend en vagues sous lui, les
+  // plis tombent droit. Pas de gouttes semées : on les prenait pour des clous.
+  const drap = (x0, x1, yH, yB, graine) => {
+    const r = alea(graine), pts = [[x0, yH], [x1, yH]];
+    const m = Math.max(4, Math.round((x1 - x0) / 9));
     for (let i = 0; i <= m; i++) {
-      const x = x1 - 1.5 - ((x1 - x0 - 3) * i) / m;
-      pts.push([x, yB - 2 + 4 * r()]);
+      const x = x1 - ((x1 - x0) * i) / m;
+      pts.push([x, yB + (i % 2 ? 2.2 : -0.6) + r() * 1.2]);
     }
-    const d = lisse(pts), plis = [];
-    for (let k = 1; k <= Math.floor((x1 - x0) / 22); k++) {
-      const x = x0 + ((x1 - x0) * k) / (Math.floor((x1 - x0) / 22) + 1) + (r() - 0.5) * 6;
-      plis.push(h.path(`M${n1(x)},${yH + 1} Q${n1(x + 3)},${n1((yH + yB) / 2)} ${n1(x - 1)},${yB - 2}`, h.a.fin));
+    let d = `M${n1(x0)},${n1(yH)} L${n1(x1)},${n1(yH)} L${n1(x1 + 1.2)},${n1(pts[2][1])}`;
+    for (let i = 3; i < pts.length; i++) {
+      const [px, py] = pts[i - 1], [qx, qy] = pts[i];
+      d += ` Q${n1((px + qx) / 2)},${n1(Math.max(py, qy) + 2.2)} ${n1(qx)},${n1(qy)}`;
     }
-    const gouttes = [];
-    for (let x = x0 + 8; x < x1 - 4; x += 22 + 10 * r()) gouttes.push(goutte(n1(x), n1(yB + 5 + 3 * r())));
-    return [h.path(d, h.a.blanc), h.path(d, h.a.hachure('paille', 'aucun')), ...plis, h.path(d, h.a.arete), ...gouttes];
+    d += ` L${n1(x0 - 1.2)},${n1(pts[pts.length - 1][1])} Z`;
+    const plis = [];
+    const k = Math.floor((x1 - x0) / 16);
+    for (let i = 1; i <= k; i++) {
+      const x = x0 + ((x1 - x0) * i) / (k + 1) + (r() - 0.5) * 5;
+      plis.push(h.path(`M${n1(x)},${yH + 2} Q${n1(x + 1.5)},${n1((yH + yB) / 2)} ${n1(x - 0.5)},${yB - 1}`, h.a.fin));
+    }
+    return [h.path(d, h.a.blanc), h.path(d, h.a.hachure('paille', 'aucun')), ...plis, h.path(d, h.a.arete)];
   };
   const planche = (pts, at = wf(h.a.arete)) => h.chemin(pts, at, true);
 
@@ -91,7 +96,7 @@ module.exports = (h) => {
     o.push(h.rect(42, 121, 396, 15, wf(h.a.arete)), h.ligne(42, 124.5, 438, 124.5, h.a.fin));
     o.push(h.rect(62, 136, 6, 146, wf(h.a.arete)), h.rect(55, 282, 13, 6, wf(h.a.arete)));
     // jute trempé sur la gouttière, en trois longueurs
-    o.push(...sac(72, 160, 121, 140, 11), ...sac(176, 290, 121, 141, 12), ...sac(304, 424, 121, 140, 13));
+    o.push(...drap(66, 162, 119, 145, 11), ...drap(172, 296, 119, 146, 12), ...drap(306, 432, 119, 145, 13));
     // galerie : pieux, solive de rive, barreaux, lisses, poteaux, main courante
     [84, 150, 216].forEach(x => o.push(h.rect(x, 268, 8, 24, wf(h.a.arete))));
     o.push(h.rect(78, 258, 152, 10, wf(h.a.arete)), h.ligne(78, 261, 230, 261, h.a.fin));
@@ -99,8 +104,11 @@ module.exports = (h) => {
     o.push(h.rect(78, 248, 152, 3, wf(h.a.arete)));
     [78, 151, 224].forEach(x => o.push(h.rect(x, 206, 6, 52, wf(h.a.arete))));
     o.push(h.rect(76, 204, 156, 5, wf(h.a.arete)));
+    // le dessous de galerie, fermé une fois pour toutes à la tôle ondulée, vissée à la solive de rive
+    o.push(h.rect(80, 268, 148, 23, wf(h.a.arete)));
+    for (let x = 84; x < 226; x += 4) o.push(h.ligne(x, 268.6, x, 290.4, h.a.fin));
     // jute trempé sur le rebord de la galerie
-    o.push(...sac(92, 144, 255, 275, 21, 2));
+    o.push(...drap(96, 148, 256, 278, 21));
     // le bas de mur tenu mouillé
     o.push(h.rect(350, 271, 62, 20, h.a.hachure('eau', 'aucun')));
     // échafaud
@@ -118,8 +126,8 @@ module.exports = (h) => {
     o.push(h.rect(512, 158, 30, 39, h.a.hachure('eau', 'aucun')), h.ligne(511, 158, 543, 158, h.a.arete));
     o.push(h.chemin([[511, 150], [511, 198], [543, 198], [543, 150]], h.a.contour));
     [166, 182].forEach(y => o.push(h.ligne(508.5, y, 511, y, h.a.arete), h.ligne(543, y, 545.5, y, h.a.arete)));
-    // boyau piqué au fond du baril, jusqu'au pied du mur
-    o.push(...boyau('M515,195 L496,195 Q489,195 489,202 L489,280 Q489,287 482,287 L410,287'));
+    // le boyau, en deux traits : piqué au fond du baril, il descend et court au pied du mur
+    o.push(h.path('M515,193.2 L496,193.2 Q487.2,193.2 487.2,202 L487.2,280 Q487.2,288.8 482,288.8 L410,288.8 L410,285.2 L482,285.2 Q490.8,285.2 490.8,280 L490.8,202 Q490.8,196.8 496,196.8 L515,196.8 Z', wf(h.a.arete)));
     [[404, 284.5], [399, 288], [394, 285.5]].forEach(([x, y]) => o.push(goutte(x, y)));
     o.push(h.fleche('M478,277 L446,277', h.a.arete));
     return sol + `\n<g transform="translate(${n1(300 - 300 * K)},${n1(300 - 300 * K)}) scale(${K})">\n` + o.join('\n') + '\n</g>';
@@ -148,17 +156,25 @@ module.exports = (h) => {
     // soffite, avec l'évent ouvert
     o.push(h.rect(44, 153.5, 40, 4, wf(h.a.arete)), h.rect(108, 153.5, 42, 4, wf(h.a.arete)));
     // maille métallique fine sous l'évent, agrafée
-    o.push(h.ligne(74, 159.3, 118, 159.3, pointille));
+    for (let x = 75; x <= 117; x += 2.6) o.push(h.cercle(x, 159.3, 0.85, h.a.plein));
+    o.push(h.ligne(74, 159.3, 118, 159.3, h.a.fin));
     [77, 115].forEach(x => o.push(h.path(`M${x - 2},157.5 L${x - 2},161 L${x + 2},161 L${x + 2},157.5`, h.a.arete)));
     // l'air passe encore
     o.push(h.fleche('M96,190 L96,144', h.a.cache));
     // gouttière
     o.push(h.path('M157,141 L157,160 Q157,165 162,165 L184,165 Q190,165 191,159 L193,145', h.a.arete));
     o.push(h.cercle(193.6, 143.2, 1.8, h.a.arete));
-    // jute trempé
-    o.push(h.path('M160,146 C159,157 162,161.5 170,161.5 C178,161.5 185,159 188,153 C190,148 191,142 193.6,140 C196.5,138.3 198.5,141 198.5,146 L198.5,171 Q197.5,176 199.5,181',
-      'fill="none" stroke="#000000" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"'));
-    o.push(goutte(199.5, 187), goutte(198.6, 193));
+    // jute trempé : une bande de tissu qui tapisse l'auge, passe la lèvre et pend dehors
+    const axe = [[160.5, 145], [161, 153], [163.5, 159.6], [170, 161.2], [178, 160.6], [184.5, 157.6], [188.6, 152], [191, 144.5], [193.6, 140.6], [196.6, 141.6], [198, 146], [198.4, 160], [198.6, 172], [199.6, 181]];
+    const ep = 1.9, gauche = [], droite = [];
+    axe.forEach((p, i) => {
+      const a = axe[Math.max(0, i - 1)], b = axe[Math.min(axe.length - 1, i + 1)];
+      const dx = b[0] - a[0], dy = b[1] - a[1], L = Math.hypot(dx, dy), nx = -dy / L, ny = dx / L;
+      gauche.push([p[0] + nx * ep, p[1] + ny * ep]); droite.push([p[0] - nx * ep, p[1] - ny * ep]);
+    });
+    const bandeJute = [...gauche, ...droite.reverse()];
+    o.push(h.chemin(bandeJute, h.a.blanc, true), h.chemin(bandeJute, h.a.hachure('paille', 'aucun'), true), h.chemin(bandeJute, h.a.arete, true));
+    o.push(goutte(199.8, 188), goutte(199.2, 194));
     return o.join('\n');
   };
 
@@ -218,7 +234,8 @@ module.exports = (h) => {
   return {
     ref: '11-03',
     titre: 'Le chalet paré aux braises',
-    desc: 'Le long pan d’un chalet, de face, paré pour le passage des braises. Des sacs de jute trempés couvrent la gouttière et pendent sur son bord ; un autre est posé sur le rebord de la galerie. La vitre est fermée par une tôle vissée dans le chambranle, de l’extérieur. À droite, un baril ouvert plein d’eau sur un échafaud, un boyau d’arrosage piqué au fond : il descend, court au sol et laisse couler un filet continu au pied du mur. Le baril est plus bas que la gouttière, c’est pour ça que la gouttière est tenue mouillée par le jute. En bas, trois détails : le bord du toit en coupe, avec le jute qui tapisse l’auge de la gouttière vidée et pend dehors, et la maille métallique fine agrafée sous l’évent de soffite, que l’air traverse encore ; l’évent vu d’en dessous, la maille plus grande que lui et agrafée tout le tour ; la vitre en coupe, la tôle posée sur les chambranles du haut et du bas, vissée à travers eux, loin du verre, sous le rayonnement qui vient de dehors. Encadré danger : jamais de moustiquaire de nylon ni de bâche de plastique.',
+    fichier: 'planche-11-03-chalet-pare-aux-braises.svg',
+    desc: 'Le long pan d’un chalet, de face, paré pour le passage des braises. Du jute trempé est drapé sur la gouttière et pend sous son bord ; un autre est drapé sur le rebord de la galerie, dont le dessous est fermé par une tôle ondulée. La vitre est fermée par une tôle vissée dans le chambranle, de l’extérieur. À droite, un baril ouvert plein d’eau sur un échafaud, un boyau d’arrosage piqué au fond : il descend, court au sol et laisse couler un filet continu au pied du mur. Le baril est plus bas que la gouttière, c’est pour ça que la gouttière est tenue mouillée par le jute. En bas, trois détails : le bord du toit en coupe, avec le jute qui tapisse l’auge de la gouttière vidée et pend dehors, et la maille métallique fine agrafée sous l’évent de soffite, que l’air traverse encore ; l’évent vu d’en dessous, la maille plus grande que lui et agrafée tout le tour ; la vitre en coupe, la tôle posée sur les chambranles du haut et du bas, vissée à travers eux, loin du verre, sous le rayonnement qui vient de dehors. Encadré danger : jamais de moustiquaire de nylon ni de bâche de plastique.',
     format: 'pleine',
     disposition: [['chalet'], ['bord', 'event', 'vitre']],
     hauteurs: [3, 2],
@@ -228,12 +245,12 @@ module.exports = (h) => {
         titre: 'Le chalet, de face',
         dessin: chalet,
         renvois: z => [
-          { n: 1, rond: T([458, 104]), cible: T([418, 133]), texte: 'jute trempé sur la gouttière' },
-          { n: 2, rond: [20, 222], cible: T([98, 267]), texte: 'jute trempé sur la galerie' },
-          { n: 3, rond: T([458, 164]), cible: T([399, 180]), texte: 'tôle vissée sur la vitre' },
-          { n: 4, rond: [578, 112], cible: T([530, 180]), texte: 'baril plein, en hauteur' },
-          { n: 5, rond: T([458, 216]), cible: T([491, 199]), texte: 'boyau piqué au fond' },
-          { n: 6, rond: T([458, 254]), cible: T([392, 284]), texte: 'filet continu au pied du mur' },
+          { n: 1, rond: T([458, 104]), cible: T([426, 131]), texte: 'jute trempé sur la gouttière' },
+          { n: 2, rond: [20, 196], cible: T([108, 262]), texte: 'jute trempé sur la galerie' },
+          { n: 3, rond: [20, 268], cible: T([84, 282]), texte: 'dessous de galerie fermé à la tôle' },
+          { n: 4, rond: T([458, 172]), cible: T([399, 180]), texte: 'tôle vissée sur la vitre' },
+          { n: 5, rond: [578, 112], cible: T([530, 180]), texte: 'baril en hauteur, boyau au fond' },
+          { n: 6, rond: T([458, 240]), cible: T([392, 284]), texte: 'filet continu au pied du mur' },
         ],
       },
       bord: {

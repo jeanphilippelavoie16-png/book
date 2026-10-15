@@ -1,0 +1,1972 @@
+1548
+
+Crown fire behaviour in a northern jack pine –
+black spruce forest1
+B.J. Stocks, M.E. Alexander, B.M. Wotton, C.N. Stefner, M.D. Flannigan,
+S.W. Taylor, N. Lavoie, J.A. Mason, G.R. Hartley, M.E. Maffey, G.N. Dalrymple,
+T.W. Blake, M.G. Cruz, and R.A. Lanoville
+
+Abstract: This paper reports on the behaviour of 10 experimental crown fires conducted between 1997 and 2000 during the International Crown Fire Modelling Experiment (ICFME) in Canada’s Northwest Territories. The primary goal
+of ICFME was a replicated series of high-intensity crown fires designed to validate and improve existing theoretical
+and empirical models of crown fire behaviour. Fire behaviour characteristics were typical for fully developed boreal
+forest crown fires, with fires advancing at 15–70 m/min, consuming significant quantities of fuel (2.8–5.5 kg/m2) and
+releasing vast amounts of thermal heat energy. The resulting flame fronts commonly extended 25–40 m above the
+ground with head fire intensities up to 90 000 kW/m. Depth of burn ranged from 1.4–3.6 cm, representing a 25%–65%
+reduction in the thickness of the forest floor layer. Most of the smaller diameter (<3.0 cm) woody surface fuels were
+consumed, along with a significant proportion of the larger downed woody material. A high degree of fuel consumption occurred in the understory and overstory canopy with very little material less than 1.0 cm in diameter remaining.
+The documentation of fire behaviour, fire danger, and fire weather conditions carried out during ICFME permitted the
+evaluation of several empirically based North American fire behaviour prediction systems and models.
+Résumé : Cet article traite du comportement de 10 feux de cime expérimentaux provoqués entre 1997 et 2000 dans le
+cadre de l’Expérience internationale de modélisation des feux de cimes (EIMFC) dans les Territoires du Nord-Ouest au
+Canada. Le principal objectif de cette expérience consistait à reproduire une série de feux de cime de forte intensité
+conçus pour valider et améliorer les modèles théoriques et empiriques existants de comportement des feux de cime. Les
+caractéristiques du comportement des feux de cime étaient typiques des feux de cime en forêt boréale mature, où les
+feux progressent à 15 à 70 m/min, en consumant d’importantes quantités de combustibles (2,8 à 5,5 kg/m2) et génèrent
+de fortes quantités d’énergie thermique sous forme de chaleur. Les fronts de flamme qui en résultent s’élevaient généralement à 25 à 40 m au-dessus du sol avec des intensités à la tête du feu allant jusqu’à 90 000 kW/m. La profondeur
+de brûlage variait de 1,4 à 3,6 cm, ce qui représentait une réduction de 25 % à 65 % de l’épaisseur de la couverture
+morte. La plupart des combustibles de surface de plus petit diamètre (<3,0 cm) ont été consumés de même qu’une importante proportion du plus gros matériel ligneux au sol. Il y a eu une forte consommation de combustibles dans le
+couvert des étages inférieur et supérieur où il restait très peu de matériaux d’un diamètre inférieur à 1,0 cm. La documentation du comportement du feu, le danger de feu et les conditions météorologiques propices aux incendies forestiers ont permis d’évaluer plusieurs systèmes et modèles empiriques nord-américains de prédiction du comportement
+des feux.
+[Traduit par la Rédaction]
+
+Stocks et al.
+
+1560
+
+Received 26 September 2003. Accepted 10 February 2004. Published on the NRC Research Press Web site at http://cjfr.nrc.ca on
+12 August 2004.
+B.J. Stocks,2 B.M. Wotton, M.D. Flannigan, J.A. Mason, G.R. Hartley, and T.W. Blake. Natural Resources Canada, Canadian
+Forest Service, Great Lakes Forestry Centre, 1219 Queen Street East, Sault Ste. Marie, ON P6A 2E5, Canada.
+M.E. Alexander, C.N. Stefner, and M.E. Maffey. Natural Resources Canada, Canadian Forest Service, Northern Forestry Centre,
+5320–122 Street, Edmonton, AB T6H 3S5, Canada.
+S.W. Taylor and G.N. Dalrymple. Natural Resources Canada, Canadian Forest Service, Pacific Forestry Centre, 506 West
+Burnside Road, Victoria, BC V8Z 1M5, Canada.
+N. Lavoie. University of Alberta, Faculty of Agriculture, Forestry, and Home Economics, Department of Renewable Resources,
+Edmonton, AB T6G 2H1, Canada.
+M.G. Cruz. University of Montana, College of Forestry and Conservation, Missoula, MT 59812, USA.
+R.A. Lanoville. Government of Northwest Territories, Department of Resources, Wildlife and Economic Development, Forest
+Management Division, P.O. Box 7, Fort Smith, NT X0E 0P0, Canada.
+1
+
+This article is one of a selection of papers published in this Special Issue on The International Crown Fire Modelling Experiment
+(ICFME) in Canada’s Northwest Territories: Advancing the Science of Fire Behaviour.
+2
+Corresponding author (e-mail: bstocks@nrcan.gc.ca).
+Can. J. For. Res. 34: 1548–1560 (2004)
+
+doi: 10.1139/X04-054
+
+© 2004 NRC Canada
+
+Stocks et al.
+
+Introduction
+A major component of forest fire research in North America for much of the last century has been the quest to predict
+the behaviour of wildland fires at all scales, primarily to assist operational fire management personnel in anticipating
+and managing wildland fires effectively. Over this period,
+Canadian and American fire researchers took decidedly different approaches to the study of fire behaviour and fire danger rating. The emphasis in Canada was on a largely
+empirical approach involving extensive field experiments
+and wildfire observations, while the American research approach since the late 1950s has emphasized theory and laboratory-based fire experiments. Both approaches have
+ultimately resulted in the development of fire danger rating
+and fire behaviour prediction systems (Andrews 1991;
+Stocks et al. 1991; Forestry Canada Fire Danger Group
+1992; Andrews et al. 2003) used both nationally and internationally.
+In recent decades, the Canadian Forest Service (CFS), in
+cooperation with provincial and territorial fire management
+agencies across Canada, has conducted an experimental burning program that was designed, when coupled with documentation of numerous high-intensity wildfires (e.g.,
+Alexander and Lanoville 1987; Stocks and Flannigan 1987),
+to facilitate the development of a fire behaviour prediction
+system covering the complete range of fire behaviour in major Canadian fuel types. This program involved experimental
+fires in logging slash (e.g., Stocks and Walker 1972), deciduous stands (e.g., Quintilio et al. 1991), and coniferous forests in both eastern (e.g., Van Wagner 1963, 1968a; Stocks
+1987a, 1987b, 1989; Weber et al. 1987) and western Canada
+(e.g., Lawson 1973; Quintilio et al. 1977; Alexander and
+Quintilio 1990; Alexander et al. 1991). The culmination of
+these research efforts was the development of the Canadian
+Forest Fire Behavior Prediction (FBP) System (Forestry
+Canada Fire Danger Group 1992; Taylor et al. 1997), which
+combined wildfire and experimental fire data to produce empirical fire behaviour models for numerous Canadian fuel
+types.
+The Rothermel (1972) fire spread model is the basis for
+nearly all of the fire danger rating and fire behaviour prediction systems used in the United States. This model is regarded as semi-empirical in nature because it is based in part
+on laboratory fires as well as physical theory. From the outset, Rothermel (1972) claimed that his model was “not applicable to crown fires.” He later developed a statistical
+correlation between the output of his surface fire spread
+model and a limited number of crown fire spread observations, thereby producing a simple model for predicting
+crown fire rate of spread (Rothermel 1991).
+By the early 1990s, CFS fire researchers had come to realize the impracticality of carrying out experimental burning
+programs in additional fuel types to continue developing empirically based fire behaviour models such as those found in
+the present FBP System. This realization, coupled with the
+need to improve upon the predictive capability of the
+(Rothermel 1991) crown fire rate of spread model (Scott and
+Reinhardt 2001; Pastor et al. 2003), were principal factors in
+the genesis of the International Crown Fire Modelling Experiment (ICFME).
+
+1549
+
+As explained in more detail in the introductory paper
+(Stocks et al. 2004) describing the genesis and broader scope
+of ICFME, the principal focus of this experiment was the
+testing and calibration of a physically based model predicting crown fire rate of spread and intensity developed by
+Albini (1996) under sponsorship by the CFS and USDA Forest Service during the latter half of the 1990s. Between 1997
+and 2000, a total of 18 ICFME crown fires were carried out,
+as research interests expanded and collaborators grew in
+number. The purpose of this paper is to present the fire behaviour methodology and general characteristics of the experimental fires carried out in the 10 primary plots, with the
+aim of be replicating and documenting crown fire behaviour
+in a manner that could serve to calibrate and validate the
+Albini model (Butler et al. 2004).
+
+Materials and methods
+Site selection and description
+Following a 1994 reconnaissance of potential candidate
+sites involving CFS fire research staff and operational fire
+managers from the Government of Northwest Territories,
+Department of Resources, Wildlife and Economic Development (GNWT–DRWED), an experimental burning site, surrounded by marshy shrubland, was located in a 65-year-old
+fire-origin jack pine stand (Pinus banksiana Lamb.) with a
+minor black spruce component (Picea mariana (Mill.) BSP)
+in both the overstory and understory canopies. The ICFME
+site is located approximately 50 km northeast of Fort Providence, Northwest Territories (61.6°N, 117.2°W) and lies
+within the Upper Mackenzie Forest Section (B.23a) of the
+Boreal Forest Region (Rowe 1972) and the Hay River Lowland Ecoregion of the Taiga Plain Ecozone (Ecological Stratification Working Group 1995). The topography at the site is
+essentially flat, the elevation is approximately 160 m above
+mean sea level, and the soils are stony gravelly loam – sandy
+clay loam (Day 1968). The region has a dry, subhumid continental climate characterized by short cool summers and
+long cold winters. The annual precipitation is variable and
+low (approximately 300 mm), with about half of this falling
+as snow. Day-lengths vary from 4–5 h in winter to 19–21 h
+in midsummer, when solar radiation levels are high and
+mean daily temperatures are 15–17 °C (Environment Canada
+1993). The fire season generally begins in early May with
+snowmelt, and runs through late August to early September
+when cooler weather and reduced daylight prevail. Continuous snow cover usually occurs in early October.
+During the summer of 1995, a series of 10 primary burning plots were delineated at the ICFME site, with fireline
+construction begun in 1995 and completed in late 1996. The
+size and orientation of plots was influenced by a number of
+existing roads and seismic lines on-site. All plots were
+square, surrounded by cleared firelines at least 50 m in
+width and with a strip in each fireline bulldozed to mineral
+soil to facilitate access and fire control. As a further measure
+of control, the bog birch (Betula glandulosa Michx.) marsh
+surrounding the ICFME site was burned in the spring of
+1995 and again in 1996 to remove fine fuels. Eight plots (1–
+8) measured 150 × 150 m, while the two remaining primary
+plots (9 and A) were 100 × 100 m and 75 × 75 m, respectively, (Fig. 1).
+© 2004 NRC Canada
+
+1550
+Fig. 1. Aerial oblique view of ICFME site with the primary
+plots identified.
+
+Fig. 2. (a) Stand profile and (b) in-stand views of the ICFME
+jack pine – black spruce fuel complex.
+
+The ICFME jack pine stand originated naturally following
+a wildfire in ca. 1931. General stand characteristics are presented in Table 1 and represent averages and ranges for the
+
+Can. J. For. Res. Vol. 34, 2004
+
+10 primary plots. The predominantly jack pine overstory
+(~10% black spruce) included both live and dead trees, averaging 5921 stems/ha in total. Living trees made up almost
+70% of the overstory, and were larger, averaging 10.1 m in
+height and 8.4 cm diameter at breast height (DBH). The
+smaller size of the dead stems indicates that self-thinning
+had been underway in this stand for some time. Understory
+black spruce was common on most plots, forming a distinctly
+two-tiered fuel complex highly conducive to crown fire initiation and propagation (Fig. 2), averaging 5127 stems/in
+total (almost 90% living) with an average height of 1.5 m
+for living understory stems. Ground vegetation in the ICFME
+plots consisted of scattered shrubs such as bunchberry
+(Cornus canadensis L.), marsh reed grass (Calamagrsotis
+canadensis (Michx.) Beauv.), red pixie-cup (Cladonia
+borealis S. Stenroos.), and kinnikinnick (Arctostaphylos
+uva-ursi (L.) Spreng.), along with infrequent patches of scattered feather moss (e.g., Pleurozium schreberi (Brid.) Mitt.)
+and reindeer lichen (e.g., Cladina mitis (Sandst.) Hale & W.
+Culb). A more detailed account of the fuel complex associated with the primary ICFME plots is given in Alexander et
+al. (2004).
+Preburn fuel sampling
+Modelling crown fire behaviour requires detailed information on fuel loading and bulk density by size classes for all
+fuel strata (crown, surface, and forest floor) within the fuel
+complex, and the ICFME plots were sampled extensively to
+meet this requirement during the summers of 1995 and
+1996, with resampling of fine fuels taking place immediately
+prior to burning of individual plots. A detailed account of
+fuel sampling methods is given in Alexander et al. (2004).
+Understory shrubs and herbaceous vegetation were scarce at
+this site and were not sampled, as their contribution to overall fuel consumption would be negligible.
+The organic material (litter, fermentation, and humus layers) above mineral soil was sampled in 1995 at 100 randomly selected locations throughout the area of the primary
+burning plots. At each point, after determining the full depth
+of the organic layer, a 0.09 m2 sample (30 × 30 cm) was cut
+from the forest floor and sectioned horizontally into 2 cm
+thick layers. These sections were then oven-dried for 24 h at
+100 °C, ashed to determine the amount of inorganic matter
+present in each layer, and averaged to determine fuel loads
+for each 2-cm layer of the forest floor. Sectioning in this
+manner, when combined with postburn depth-of-burn measurements, permits a relatively accurate determination of forest floor consumption.
+The line intersect method (Van Wagner 1968b) was used
+to inventory dead and down woody materials (twigs, branches, logs etc.). A series of 20 m transects were located systematically at grid points within each plot, with 16 transects
+located in each of the 150 × 150 m plots, and a smaller number in plots 9 and A. All dead and down material on each
+transect <7.0 cm in diameter was tallied by round-wood diameter size classes (McRae et al. 1979). Material ≥7.0 cm in
+diameter was sampled individually and its condition noted
+(i.e., sound or rotten). Woody surface fuel loads were calculated using physical fuel properties available in the literature
+(e.g., Nalder et al. 1997, 1999).
+© 2004 NRC Canada
+
+Stocks et al.
+
+1551
+
+Table 1. Stand structure characteristics for the ICFME jack pine – black spruce fuel complex.
+Stem density (no./ha)
+Jack pine –
+black spruce
+Overstory
+Live
+Dead
+Understory
+Live
+Dead
+
+Height (m)
+
+Height to LCB (m)
+
+DBH (cm)
+
+Mean
+
+Range
+
+SD
+
+Mean
+
+Range
+
+SD
+
+Mean
+
+Range
+
+SD
+
+Mean
+
+Range
+
+SD
+
+4115
+1806
+
+2343–5068
+679–2844
+
+827
+689
+
+10.1
+8.1
+
+7.8–11.9
+7.1–9.8
+
+1.2
+0.8
+
+6.6
+—
+
+3.6–8.2
+—
+
+1.3
+—
+
+8.4
+6.1
+
+6.8–11.0
+4.8–7.8
+
+1.2
+1.1
+
+4569
+558
+
+1453–7427
+95–1942
+
+2178
+554
+
+1.5
+2.2
+
+1.0–1.9
+1.2–4.0
+
+0.3
+0.9
+
+0.5
+—
+
+0.2–0.8
+—
+
+0.2
+—
+
+—
+—
+
+—
+—
+
+—
+—
+
+Note: LCB, live crown base.
+
+Determination of crown fuel loads for each primary plot
+required both the development of tree crown biomass equations for the ICFME stand as a whole, and the inventorying
+of trees within each plot. A total of 106 jack pine and black
+spruce overstory and understory trees covering the range of
+DBH or diameter at ground level for smaller trees, common
+in the study area, were felled and sectioned by 1-m height
+intervals, with crown materials (live or dead) separated by
+round-wood diameter size classes (Alexander et al. 2004).
+After air-drying for several weeks, needles were removed,
+and all samples oven-dried. Oven-dry weights of all crown
+fuel components were then regressed against DBH or diameter at ground level to produce the equations necessary, when
+coupled with plot stem inventory data, to determine both
+understory and overstory crown fuel loads. The point-centered quarter method (Cottam and Curtis 1956) was used at
+45 fixed grid points within each plot to inventory all stems
+with a DBH ≥3.0 cm, while understory stems (DBH
+<3.0 cm) were sampled at 25 grid points using a 2-m radius
+fixed plot. Sampling intensities were accordingly less for the
+smaller Plot 9 and Plot A. A composite vertical fuel profile
+for the ICFME stand in general is presented in Fig. 3.
+Fire weather-danger and prescription development
+A fully instrumented hourly weather station was located at
+the ICFME site soon after snow melting each year. Daily
+measurements at 13:00 (Mountain Daylight Time) of dry
+bulb temperature, relative humidity, 10-m open wind speed,
+and 24-h cumulative rainfall were used to calculate the fuel
+moisture codes and fire behaviour indexes of the Canadian
+Forest Fire Weather Index (FWI) System (Van Wagner
+1987). FWI System fuel moisture code start-up values were
+determined from permanent weather stations closest to the
+ICFME site.
+Based on analysis of seasonal trends in FWI System components from recent years in the vicinity of Fort Providence,
+and the recognition that the lightning fire season in the Northwest Territories usually begins before mid-July, an optimal
+burning period between mid-June and early July was established. Previous experience, coupled with the FBP System
+was used to develop an FWI System-based burning prescription that, if met, would guarantee active crown fires at the
+ICFME site.
+Burning procedure
+The preliminary decision to consider burning on any given
+day involved using detailed weather forecasts provided by
+
+the CFS or the GNWT–DRWED, along with calculated and
+forecast FWI System components to first determine whether
+the ICFME site was “in prescription.” Choosing which plot
+to burn was based on the forecast wind direction and downwind control considerations. The preferred time of ignition
+was late afternoon to capitalize on daily peak burning conditions, but this was often adjusted based on forecast hourly
+conditions. As the proposed ignition time approached, weather conditions, particularly wind speed and direction, were
+monitored closely and, when these were considered optimal,
+ignition commenced.
+To determine fuel moisture levels, destructive samples of
+several components of the forest floor, surface, understory
+and overstory fuels were collected at various locations
+within the target plot on the day of burning. Finer fuels (e.g.,
+fine twigs, litter, ground lichens) were sampled as close to
+ignition time as possible, while less responsive fuels (e.g.,
+logs, live needles) were sampled earlier in the day. Samples
+were oven-dried for 24 h.
+An on-site briefing was conducted just prior to ignition to
+review procedures, control measures, and safety precautions.
+The control and suppression of all fires was the responsibility of the GNWT–DRWED fire staff and contract fire crews,
+primarily from Fort Providence. Portable tanks were located
+on-site to provide a supply of water for pumping. At least
+one helicopter was used as an observation platform during
+each fire, and provided additional suppression support when
+required.
+Each experimental plot was ignited as a “line fire” along
+the windward plot-edge, and allowed to spread downwind
+through the plot. A truck-mounted, pressurized flame thrower referred to as a “terra-torch” (Bradshaw and Tour 1993)
+was used to ensure that ignition was accomplished as quickly as possible, to achieve an equilibrium spread rate representative of a free-burning wildfire. The flame stream was
+directed at the ground surface along the plot edge. Ignition
+of 150 m typically took approximately 60 s.
+Fire behaviour was monitored extensively during each
+fire, from the time the ignition line was begun and completed, to the time the fire front exited the burning plot on
+the leeward edge. Ground- and helicopter-based cameras and
+video captured fire development and flame front characteristics and, along with observers’ notes, were used to determine
+the average spread rate for each plot. More detailed information on the incremental growth and spread of each fire was
+obtained using buried thermal dataloggers (Taylor et al.
+2004), which, along with thermocouple towers, provided
+© 2004 NRC Canada
+
+1552
+
+Can. J. For. Res. Vol. 34, 2004
+
+Fig. 3. (a) Individual primary plots and (b) ICFME site composite vertical fuel profiles of the understory and overstory jack pine –
+black spruce canopies. Since the vertical segments along the y-axis are in 1-m intervals, both fuel load (kg/m2) and bulk density
+(kg/m3) are represented on the x-axis.
+
+flame zone temperature data. Tower-based high-speed and infrared photography was also used for documentation purposes
+in some instances (Clark et al. 1999; Radke et al. 2000). A
+helicopter-based infrared camera was used to document flame
+zone characteristics on two fires (McRae and Jin 2003).
+Postburn fuel sampling
+Depth-of-burn (DOB) pins (McRae et al. 1979) were systematically located prior to ignition along the line intersect
+transects established in each plot. Within a few days after each
+fire, measurements of both the DOB and the depth of organic
+matter remaining were completed at each DOB pin location,
+permitting the determination of an average preburn forest floor
+depth for each plot. The average DOB measurement for each
+plot was then combined with the fuel load for each 2-cm layer
+of the forest floor to estimate the forest floor consumption, as
+well as preburn forest floor fuel loads, for each plot.
+
+Woody surface fuels were re-inventoried after each fire by
+remeasuring the line intersect transects. Surface fuel consumption was determined as the difference between preburn
+and postburn fuel loads.
+Destructive postburn crown fuel sampling was undertaken
+to determine both overstory and understory crown fuel consumption. A number of overstory trees from the point-centered
+quarter method grid points, and understory trees from the 2m radius fixed plots inventoried in preburn fuel load calculations were selected for sampling. Trees were cut and all remaining twig and branch material separated by diameter size
+classes, and ovendried for 24 h. The live and dead roundwood crown fuels were not separated in postburn sampling.
+For understory crown fuel consumption, the average percent
+consumption (preburn weight minus postburn weight) from
+each sampled 2-m radius fixed plot was applied to the preburn loads. The overstory crown fuel consumption was de© 2004 NRC Canada
+
+Stocks et al.
+
+1553
+
+Fig. 4. Typical crown fire behavior during the ICFME experimental fires (a) Plot A, (b) Plot 4, (c) Plot 9, and (d) a typical postburn
+in-stand view.
+
+termined in a similar manner, except that percentages were
+calculated on an individual tree basis rather than an area basis.
+
+Results and discussion
+The 10 primary ICFME plots were burned during the
+1997–2000 period (three in 1997, two in 1998, three in
+1999, and two in 2000). Each experimental fire, after ignition, quickly developed into an actively spreading crown fire
+(Fig. 4) and spread the full length of the plot, crowning
+through most of the plot area with two exceptions. During
+the Plot 2 fire, the wind strength dropped significantly after
+the flame front had spread about half way through the plot.
+Wind speeds did not increase again until the fire had become
+a low intensity surface fire after which crowning could not
+re-establish. During the burning of Plot 8 a lull in the winds
+caused the fire to drop to the forest floor and continue spreading as a surface fire. After about 5 min the winds increased and an actively spreading crown fire re-established,
+resulting in two distinct spread rate observations for Plot 8.
+Fuel consumption
+Preburn forest floor depth and load, as well as dead and
+down woody surface fuel loads over a range of size classes
+are summarized in Table 2 where they are paired with measurements of postburn loads. Observed forest floor thickness
+
+at the ICFME site is between that measured in immature
+jack pine (Stocks 1987b) and mature jack pine (Stocks
+1989) in northern Ontario. Results from these two studies
+are important as they make up a large portion of the observations in the immature and mature jack pine fuel types of
+the Canadian FBP System. Forest floor loads at the ICFME
+site, however, are much heavier than those from either Ontario site, as the forest floor at the ICFME site was more
+compact and, for the most part, lacked a continuous feather
+moss layer.
+Mean DOB varied somewhat from plot to plot. However,
+when comparing plot means against each other using estimates of within-plot variability, only the mean DOB for
+Plots 3, 4, and 5 were significantly greater than the rest.
+While the differences are not strong, they are statistically
+significant at the α= 0.05 level (95% confidence). Direct
+measurement of the moisture content of the first 2.0 cm of
+the forest floor (Table 3) reveals that when these plots were
+burned they had a drier upper organic layer than most of the
+others. However, no significant relationship can be found between the DOB and the moisture content of this layer. Further, no significant relationship can be found between
+observed DOB or forest floor consumption and the Duff
+Moisture Code (DMC) or Buildup Index (BUI) components
+of the FWI System at burn time, as has been found in other
+studies in jack pine stands (Stocks 1987b, 1989).
+© 2004 NRC Canada
+
+1554
+
+Can. J. For. Res. Vol. 34, 2004
+
+Table 2. ICFME primary plots: preburn fuel depth and load, consumption of forest floor and woody surface fuels, stand density,
+Woody surface fuel by diameter class (cm)
+≥7.0 sound
+
+≥7.0 rotten
+
+ICFME Plot
+
+PBD
+
+DOB
+
+PBL
+
+FC
+
+PBL
+
+FC
+
+PBL
+
+FC
+
+PBL
+
+FC
+
+PBL
+
+FC
+
+PBL
+
+FC
+
+A
+1
+2
+3
+4
+5
+6
+7
+8
+9
+
+4.60
+7.00
+6.00
+6.00
+4.60
+5.30
+7.50
+5.20
+5.60
+5.80
+
+2.00
+2.30
+1.40
+3.60
+2.60
+2.30
+2.00
+2.10
+2.10
+2.00
+
+3.705
+5.939
+4.863
+4.921
+3.635
+4.249
+6.422
+4.154
+4.569
+4.725
+
+1.637
+1.842
+1.166
+2.000
+2.076
+1.920
+1.629
+1.752
+1.699
+1.669
+
+0.065
+0.038
+0.070
+0.056
+0.062
+0.075
+0.067
+0.072
+0.079
+0.078
+
+0.065
+0.038
+0.065
+0.056
+0.062
+0.075
+0.067
+0.072
+0.079
+0.078
+
+0.119
+0.091
+0.065
+0.221
+0.216
+0.266
+0.180
+0.172
+0.172
+0.204
+
+0.111
+0.065
+0.035
+0.170
+0.141
+0.226
+0.144
+0.125
+0.117
+0.129
+
+0.347
+0.520
+0.222
+0.474
+0.586
+0.794
+0.566
+0.361
+0.686
+0.649
+
+0.224
+0.335
+0.106
+0.315
+0.379
+0.245
+0.264
+0.345
+0.397
+0.458
+
+0.290
+0.201
+0.176
+0.410
+0.325
+1.119
+0.335
+0.206
+0.400
+0.557
+
+0.111
+0.071
+0.070
+0.186
+0.107
+0.456
+0.094
+0.117
+0.160
+0.167
+
+0.471
+0.170
+0.444
+0.493
+0.380
+0.388
+0.175
+0.140
+0.210
+0.502
+
+0.284
+0.086
+0.105
+0.259
+0.148
+0.178
+0.051
+0.068
+0.125
+0.178
+
+Mean
+SD
+
+5.80
+0.94
+
+2.10
+0.57
+
+4.718
+0.895
+
+1.739
+0.254
+
+0.066
+0.012
+
+0.066
+0.012
+
+0.171
+0.062
+
+0.126
+0.052
+
+0.521
+0.174
+
+0.307
+0.101
+
+0.402
+0.277
+
+0.154
+0.113
+
+0.337
+0.147
+
+0.148
+0.078
+
+Forest floor layer
+
+0.0–1.0
+
+1.0–3.0
+
+3.0–7.0
+
+Note: PBD, preburn depth (cm); DOB, depth of burn (cm); PBL, preburn load (kg/m2); FC, fuel consumption (kg/m2).
+a
+Includes live and dead stems.
+
+Preburn loadings of dead and down surface fuels are
+shown in Table 2, along with fuel consumption in each category. Preburn loads in each fuel size category are similar to
+those measured in mature jack pine in Ontario (Stocks
+1989), while consumption at the ICFME site is much greater
+in general. For surface fuels <7.0 cm in diameter, no significant relationship between consumption and either the DMC
+nor BUI of the FWI System could be established. There was,
+however, a strong linear relationship (R2 = 0.85; P < 0.0001)
+with preburn load alone, with approximately 60% of the
+preburn load of <7.0 cm down and dead material consumed
+on each fire. Similarly, for the dead and down fuels ≥7.0 cm
+in diameter, no relationship could be found with the DMC
+and BUI components of the FWI System, while a significant
+linear relationship (R2 = 0.69; P = 0.003) did exist with
+preburn fuel load alone, with approximately 50% of the
+preburn load of down and dead fuels ≥7.0 cm in diameter
+consumed in each fire. However, the purpose of ICFME was
+to obtain active crown fires rather than a wide range of fire
+behaviour, which had been the focus of previous CFS experimental burning projects (Alexander and Quintilio 1990). As
+a result, the burning of the ICFME plots took place under
+generally drier forest floor moisture conditions than in previous experiments. Therefore, the ICFME fires may not have
+been conducted across the range in fuel moisture conditions
+necessary to observe a detectable signal.
+As the fuel moisture codes of the FWI System were not
+found to be correlated with woody surface fuel consumption
+in the ICFME fires, the influence of moisture content of
+each fuel component, measured just prior to ignition, was
+examined (Table 3). These observations did not explain any
+significant amount of the plot-to-plot variability in woody
+fuel consumption and, as such, fuel consumption during the
+ICFME burns seemed unrelated to levels of fuel moisture.
+When analyzed alone, moisture content of rotten wood did
+explain a significant amount of variance in consumption in
+that fuel component. However this significance disappeared
+if Plot 3, a point with very strong leverage, was removed
+from the data set. This relationship was therefore most likely
+not meaningful. It is interesting to note that, although mois-
+
+ture contents in the rotten material ≥7.0 cm in diameter were
+on average six times that of sound roundwood, consumption
+in each of these categories was quite similar.
+Total surface fuel consumption in the Canadian FBP System is the sum of the forest floor and dead and down woody
+materials consumed during the fire, and is related, through
+an empirically developed equation, to the BUI component of
+the FWI System. Total surface fuel consumption during the
+ICFME fires was found to be unrelated to BUI. However,
+over the range of BUI values for the 10 fires, the surface fuel
+consumption model in the FBP System for immature (fuel
+type C-3) and mature (fuel type C-4) jack pine and
+lodgepole pine forests predicts consumptions within the range of those observed.
+Preburn aerial fuel loads were used to model total crown
+fuel load equations for a set of fuel size classes and by species (either jack pine or black spruce) over a range of DBHs.
+The results of the vertical sampling of weight with height
+above ground were then combined with the stand structure
+data to develop further models of fuel load and bulk density
+variation with height (Alexander et al. 2004). The vertical
+fuel profiles for each ICFME plot are presented in Fig. 3a to
+illustrate that, while jack pine overstory fuel loads are relatively consistent for all plots, the black spruce understory
+contribution varies substantially, from quite low in Plots 3
+and 4, to quite prominent in Plots 7 and 8. A composite vertical fuel profile for the ICFME site as a whole is presented
+in Fig. 3b. Figs. 3a and 3b collectively illustrate the high degree of vertical fuel integration at the ICFME site, with the
+black spruce understory reaching into the jack pine overstory
+crowns, providing continuous ladder fuels and enhanced
+crowning potential.
+Preburn loads of elevated (crown) fuels (both understory
+and overstory) are summarized, along with calculated values
+of consumption, for each plot in Table 2. Loads are summarized within a smaller range of size classes, as typically only
+the very small diameter elevated live fuels are consumed in a
+crown fire. Preburn needle loads only are given, as each of
+the ICFME fires was an actively crowning fire consuming
+virtually 100% of the needles. In general, in both understory
+© 2004 NRC Canada
+
+Stocks et al.
+
+1555
+
+preburn fuel loading, and consumption of crown fuels (overstory and understory).
+Understory canopy fuels
+
+Overstory canopy fuels
+
+Needles
+
+0.0–0.5 cm
+
+0.5–1.0 cm
+
+Densitya
+
+Needles
+
+0.0–0.5 cm
+
+0.5–1.0 cm
+
+1.0–3.0 cm
+
+(no./ha)
+
+PBL
+
+PBL
+
+FC
+
+PBL
+
+FC
+
+(no./ha)
+
+PBL
+
+PBL
+
+FC
+
+PBL
+
+FC
+
+PBL
+
+FC
+
+3979
+6271
+2578
+2641
+1557
+7544
+7608
+4616
+6780
+7692
+
+0.101
+0.124
+0.068
+0.028
+0.013
+0.159
+0.220
+0.125
+0.146
+0.199
+
+0.151
+0.185
+0.103
+0.052
+0.023
+1.006
+0.269
+0.176
+0.173
+0.385
+
+0.106
+0.161
+0.091
+0.045
+0.021
+0.941
+0.172
+0.173
+0.161
+0.376
+
+0.049
+0.083
+0.034
+0.027
+0.006
+0.072
+0.087
+0.057
+0.057
+0.133
+
+0.035
+0.066
+0.025
+0.021
+0.006
+0.034
+0.070
+0.055
+0.054
+0.110
+
+4357
+5744
+3022
+6372
+6484
+6825
+6991
+6468
+6562
+6382
+
+0.754
+0.796
+0.515
+0.426
+0.459
+0.424
+0.762
+0.792
+0.822
+0.354
+
+0.686
+0.709
+0.476
+0.514
+0.524
+0.459
+0.635
+0.735
+0.673
+0.443
+
+0.560
+0.655
+0.329
+0.451
+0.451
+0.394
+0.518
+0.674
+0.623
+0.406
+
+0.402
+0.380
+0.290
+0.294
+0.257
+0.235
+0.320
+0.381
+0.336
+0.209
+
+0.336
+0.278
+0.136
+0.210
+0.114
+0.184
+0.268
+0.251
+0.266
+0.138
+
+0.355
+0.243
+0.320
+0.104
+0.102
+0.086
+0.087
+0.221
+0.097
+0.072
+
+0.280
+0.084
+0.119
+0.027
+0.000
+0.042
+0.068
+0.055
+0.059
+0.023
+
+0.118
+0.068
+
+0.252
+0.284
+
+0.225
+0.270
+
+0.061
+0.036
+
+0.048
+0.030
+
+0.610
+0.189
+
+0.585
+0.113
+
+0.506
+0.119
+
+0.310
+0.065
+
+0.218
+0.073
+
+0.169
+0.107
+
+0.076
+0.079
+
+Density
+
+a
+
+and overstory, 86% of the 0 to 0.5 cm size class fuels available were consumed during crowning. For the 0.5–1.0 cm
+size class, 80% of the fuels available in the understory were
+consumed, while in the overstory 70% of the fuels of this
+size were consumed. Preburn loads of the 0.5–1.0 cm size
+were, however, more than four times higher in the overstory.
+In the 1.0–3.0 cm size class in the overstory approximately
+42% of the fuels available were consumed in the process of
+crowning. Fuels greater than 3.0 cm in diameter were not included in postburn sample as very little consumption of fuels above this size was observed. In fact on average 95% of
+the fuels consumed in the overstory were <1.0 cm in diameter.
+Fractional reductions in elevated fuels in each size class
+did vary somewhat from fire to fire; however, this variation
+was not found to be significantly related to the moisture content of the fuel in that class (Table 3) as measured on the
+burn day. Further, none of the variability in fractional fuel
+load reduction in the overstory or understory fuels could be
+explained by variation in surface fuel consumption, final rate
+of spread, or head fire intensity of the fire. Again, as with
+ground and surface fuels, consumption seemed relatively independent of moisture and any factors other than fuel load,
+despite the range in spread rates and fire intensities observed.
+Fire rate of spread and intensity
+The calculated rates of spread for the ICFME crown fires
+ranged from about 15 m/min to almost 70 m/min. The average spread rate values presented in Table 4 are based on the
+maximum spread distance in a given plot and the elapsed time
+between the completion of ignition and the emergence of the
+flame front at the downwind edge of the plot. Variations in
+within-plot spread rates are examined in detail in Taylor et al.
+(2004).
+Head fire intensity levels, determined using the equation
+I = Hwr (Byram 1959), where H is the net low heat of combustion (assumed to be 18 000 kJ/kg), w is the weight of fuel
+consumed in kg/m2, and r is the rate of spread in m/s, ranged
+over an order of magnitude from just over 10 000 kW/m to almost 100 000 kW/m.
+
+In the FBP System, and other experimental burning studies (e.g., Stocks 1987b, 1989) models of observed fire spread
+rate are developed using the Initial Spread Index (ISI) component of the FWI System as a independent variable. The
+ISI is a nonlinear combination of the FWI System’s Fine
+Fuel Moisture Code (FFMC) component, representing the
+moisture content of litter and other cured fine fuels on the
+surface of the forest floor, and wind speed. For the ICFME
+fires, the ISI is indeed a significant predictor of the rate of
+fire spread. An analysis of variance of head fire rate of
+spread indicates that ISI is significant at the α = 0.05 level
+(95% confidence) and explains about 58% of the variance in
+the rate of spread observations given in Table 4. However,
+including wind speed alone with rate of spread provides a
+better fit to the data, explaining 68% of the variability, while
+including an FFMC term is significant but does not add any
+explanatory power, nor is a term representing a nonlinear interaction between FFMC and wind speed significant in the
+analysis of variance. It should be noted that wind speed and
+FFMC might be expected to have nonlinear influences on
+rate of spread (as they do in the ISI), which could influence
+the results of this simple linear analysis of variance. However, over the range of rates of spread observed here both
+wind speed and FFMC appear to follow quite linear trends.
+This strong dependence on wind speed alone is perhaps due
+to the fact that the ICFME fires were all carried out on days
+with relatively low fine fuel moisture contents (Table 3).
+While there was a strong variability in rate of spread, all the
+fires were actively spreading crown fires and, as such, the
+moisture in the fine fuels on the forest floor may have had
+less influence on fire behaviour. It could be hypothesized
+that, given that a fire has reached the crowns and has established an actively spreading flame front in a continuous closed
+canopy stand like that at the ICFME site, variation in wind
+speed alone becomes the most important element driving fire
+spread, and variations in surface moisture become less important. However, re-examination of the spread conditions of
+only the active crown fires carried out during experimental
+burning in immature jack pine in Ontario (Stocks 1987b) reveals that the ISI component of the FWI System still ex© 2004 NRC Canada
+
+Can. J. For. Res. Vol. 34, 2004
+
+65.2
+77.1
+75.9
+69.6
+77.1
+73.9
+88.6
+79.9
+90.4
+81.2
+66.7
+65.4
+75.5
+77.1
+73.1
+61.6
+57.7
+56.2
+71.4
+67.7
+73.9
+69.1
+76.3
+71.1
+69.5
+71.1
+88.6
+88.3
+93.5
+72.0
+
+77.9
+78.7
+79.0
+81.1
+81.8
+75.4
+88.9
+86.3
+88.7
+79.4
+a
+
+b
+
+28.7
+11.4
+14.1
+11.8
+11.1
+13.0
+13.7
+10.4
+15.7
+11.1
+11.0
+10.2
+28.8
+12.1
+9.4
+8.8
+16.0
+7.7
+15.9
+8.9
+112.9
+143.6
+118.4
+64.6
+87.9
+76.5
+122.8
+129.1
+78.7
+119.4
+A
+1
+2
+3
+4
+5
+6
+7
+8
+9
+
+Moisture content of 0.0–1.0 cm dead-down woody fuels is mean of 0.0–0.5 cm and 0.5–1.0 cm values.
+Understory and overstory needle moisture content values represent the mean of 1- and 2-year-old needles.
+
+61.1
+66.1
+84.7
+75.1
+70.7
+69.7
+60.5
+62.8
+73.4
+78.3
+
+0.5–1.0
+
+>7.0 rotten
+63.5
+69.4
+122.0
+29.5
+129.0
+47.3
+66.8
+54.0
+52.8
+96.7
+>7.0 sound
+3.9
+13.6
+15.6
+13.1
+14.0
+14.6
+15.0
+21.9
+17.2
+16.4
+3.0–7.0
+1.0–3.0
+
+0.0–1.0a
+9.3
+9.8
+14.5
+8.8
+9.3
+9.0
+13.1
+6.3
+9.8
+8.9
+0–2 cm
+
+Dead and down woody fuels by diameter (cm)
+
+Surface fuels
+
+Fig. 5. Head fire rate of spread and fuel consumption plotted in
+relation to six levels of fire intensity (assuming a net low heat of
+combustion of 18 000 kJ/kg) for the ICFME crown fires, in comparison with similar values measured during experimental fires in
+immature and mature jack pine stands in northern Ontario.
+
+63.8
+73.0
+70.4
+64.6
+78.5
+70.1
+55.5
+71.5
+74.1
+72.7
+
+Needlesb
+0.0–0.5
+Needlesb
+
+0.0–0.5
+
+Jack pine overstory (cm)
+Canopy fuels (live)
+
+Black spruce understory (cm)
+
+ICFME
+Plot
+
+Forest
+floor
+
+Table 3. Ground, surface, and canopy fuel moisture content values during the ICFME primary plot fires.
+
+0.5–1.0
+
+1556
+
+plains more variance than wind speed alone or in combination with the FFMC.
+Rate of spread – ISI relationships have been developed
+from empirical observations for a range of fuel types in the
+FBP System following a simple S-shaped equation form.
+The lower tail of the “S” represents surface fire, the quick
+rise represents the transition between surface and crowning,
+and the slow rising “top tail” of the “S” represents active
+crown fire spread (Forestry Canada Fire Danger Group
+1992). Nearly all the ICFME fires represent points within
+the upper tail of the standard S-shaped curve. Given this, the
+ICFME data could be used to develop an equation that represents the second or upper curve of a dual equilibrium
+model for predicting the rate of spread of active crown fires
+as described by Van Wagner (1993). Such an equation would
+need to be coupled with a similar equation for surface fire
+spread to create a comprehensive model for predicting fire
+behaviour specific to the fuel type represented by the
+ICFME forest.
+The ICFME fuel consumption and rate of spread data are
+presented in relation to the two sets of experimental fires
+carried out in jack pine in Ontario (Stocks 1987b, 1989) using the fire behaviour characteristics chart (Fig. 5). While
+the Ontario fires cover a range in fire behaviour from lowintensity surface fires to active crown fires, as required to
+develop fuel type-specific models for the FBP System, the
+consistently high fuel consumption and generally higher
+spread rates during the ICFME fires result in a tighter grouping of high-intensity fires. This is consistent with the general
+goal of ICFME, which was to produce a series of replicated
+high-intensity crown fires.
+© 2004 NRC Canada
+
+Stocks et al.
+
+1557
+
+Fig. 6. Observed forward spread rates (y-axis; m/min) of the ICFME fires in comparison to predictions (x-axis) from a number of
+North American fire behaviour prediction systems and models.
+
+The higher fuel consumption levels at ICFME are the result of generally higher levels of fuel dryness, as expressed
+by the BUI, but are also due to higher available fuel loads
+contributed by the understory black spruce crowns. The consistently higher spread rates of the ICFME fires do not appear to be the result of correspondingly higher ISI values.
+Although the ICFME plots generally had a quite welldeveloped ladder fuel structure, the immature jack pine
+stand described by Stocks (1987b) occurred in an equally
+crown-fire prone fuel complex, with self-thinning resulting
+in approximately 10 000 standing dead trees/ha which provided an abundance of ladder fuels. The Ontario plots were
+less than one-quarter the size of the primary ICFME plots,
+with much narrower firelines. It is possible that the much
+wider firelines associated with the ICFME plots created
+more “fetch” and access to the ambient wind immediately
+following ignition than was the case with the immature jack
+pine experimental fires in Ontario.
+The moisture content of the 1- and 2-year old live needles
+in both the understory and overstory was measured on the
+burning day for each of the ICFME plots (Table 3). It has
+been suggested by Van Wagner (1967, 1993, 1998) that the
+natural variation in foliar moisture content (FMC) should
+have an effect on the rate of spread of a crown fire. An analysis of variance was carried out modelling rate of spread
+against wind speed and FMC to examine whether the variability in FMC helped explain any of the remaining variance
+in the rate of fire spread, once the modelled effects due to
+wind had been included. FMC was found not to be significant. This does not disprove the existence of an FMC effect
+on crown fire rate of spread but merely means that no
+discernable signal could be detected over the range of FMCs
+observed in the ten ICFME experimental fires, which were
+all conducted during the 3-week period between mid-June
+and early July (in which the FMC varied within a narrow
+range of approximately 15 percentage points of moisture
+content).
+Measured fuel loads, consumption, and moisture and observed rate of spread from the ICFME fires can be used to
+
+assess the predictive capability of other crown fire models.
+The predictions from Rothermel’s (1991) crown fire rate of
+spread model and two computerized decision support systems that utilize the model namely, FARSITE (Finney 1998)
+and NEXUS (Scott and Reinhardt 2001), were compared
+with the rate of spread of each of the ICFME crown fires
+(Figs. 6a–6c). Given the conditions under which the ICFME
+fires were conducted, the Rothermel (1991) model, and consequently FARSITE and NEXUS, seriously underpredicted
+the range in observed rates of spread.
+The model developed by Cruz et al. (2002) was also tested and produced a good fit to the observed data (Fig. 6d). A
+model proposed by Nelson and Adkins (1988) based simply
+on fuel consumed, wind speed, and flame front residence
+time (tr) was also examined (Figs. 6e and 6f). This model
+was originally formulated for surface fires, although the authors speculated it could be applied to crown fires. Two tr
+values, namely 45 s and 30 s, were used in the computations.
+These residence times represent the approximate durations
+of flaming combustion in the surface fuels and crown fuels,
+respectively, based on the results presented in Taylor et al.
+(2004). The model predicted rates of spread similar to those
+observed with tr = 45 s predicting the observed spread rates
+most accurately.
+A comparison of the rate of spread predictions for the C-3
+(mature jack and lodgepole pine) and C-4 (immature jack
+and lodgepole pine) fuel type models in the Canadian FBP
+System was also undertaken (Figs. 6g and 6h). The FBP
+System models also systematically underpredicted the observed rate of spread of the ICFME fires, but do show a
+greater range in predicted spread rates than the Rothermel
+(1991) model and its derivatives.
+It should be noted that each of the models examined here
+uses differing amounts of information to create behaviour
+predictions and, as such, could be considered different
+“classes” of predictive models. The FBP System models and
+the Rothermel (1991) model use only weather information
+prior to and (or) at burn time (fuel moisture is calculated
+from fire weather relationships) and do not consider the dif© 2004 NRC Canada
+
+1558
+
+Can. J. For. Res. Vol. 34, 2004
+
+Table 4. Fire weather observations, fire danger indexes, and fire behaviour characteristics for the ICFME primary plot fires.
+FWI system componentd
+ICFME
+Plot
+
+Datea
+
+A
+1
+2
+3
+4
+5
+6
+7
+8a
+8c
+9
+
+01-07-97
+17-06-00
+29-06-99
+28-06-00
+20-06-99
+04-07-97
+09-07-97
+05-07-98
+04-07-98
+—
+19-06-99
+
+Size (m)
+
+Ign.
+timeb
+
+Dry-bulb
+temp.
+(°C)
+
+Relative
+humidity
+(%)
+
+Wind speed
+(km/h);
+direction
+
+Days
+since
+rainc
+
+FFMC
+
+DMC
+
+DC
+
+ISI
+
+BUI
+
+FWI
+
+75×75
+150×150
+150×150
+150×150
+150×150
+150×150
+150×150
+150×150
+150×150
+—
+100×100
+
+14:26
+16:01
+14:20
+15:05
+15:02
+17:30
+14:06
+16:42
+16:04
+—
+16:08
+
+22.3
+26.2
+20.6
+31.4
+25.4
+20.6
+24.0
+29.8
+30.2
+—
+31.4
+
+28
+29
+47
+23
+48
+37
+44
+38
+26
+—
+23
+
+15.9 (S)
+10.0 (SSE)
+7.9 (N)
+11.1 (S)
+14.6 (E)
+12.6 (SSE)
+17.2 (N)
+17.1 (SE)
+11.0 (SE)
+14.3 (SE)
+25.0 (E)
+
+5
+12
+6
+3
+5
+8
+13
+6
+5
+—
+4
+
+91.8
+92.8
+89.3
+93.2
+92.4
+89.4
+89.9
+92.5
+91.9
+—
+94.1
+
+35
+84
+54
+65
+70
+43
+59
+42
+37
+—
+66
+
+348
+371
+380
+404
+341
+363
+410
+352
+343
+—
+332
+
+12.3
+10.6
+5.8
+11.8
+12.6
+7.4
+10.1
+14.5
+9.8
+11.6
+27.0
+
+51
+108
+80
+93
+92
+63
+82
+65
+58
+—
+88
+
+26
+34
+19
+34
+35
+20
+29
+33
+24
+27
+56
+
+a
+
+Day-month-year.
+Ignition time; Mountain Daylight Time.
+Since amount > 0.6 mm.
+d
+Canadian Forest Fire Weather Index (FWI) System components: FFMC, Fine Fuel Moisture Code; DMC, Duff Moisture Code; DC, Drought Code; ISI,
+b
+c
+
+ferences that exist between the ICFME fuels and the standard fuel types upon which their predictions are based. In
+addition to burn time weather, the NEXUS, FARSITE and
+Cruz et al. (2002) model also use some stand-specific
+ICFME fuel complex information, such as crown bulk density and live crown base height. The Nelson and Adkins
+model (1988) uses a postburn measurement of fuel consumption for each plot and an experiment average residence
+time in addition to an average wind speed during the fire. In
+terms of data requirements these models are somewhat different and one would expect this to have some influence on
+predictive ability. For instance, the predictive power of the
+Nelson and Adkins (1988) model is similar to that of the
+Cruz et al. (2002) model; however, the Cruz et al. (2002)
+model does not use postburn estimates of any parameter, and
+as such might be considered a better predictive tool in examining preburn fire potential. While the FBP System did
+somewhat under-predict rate of spread, and had less accuracy than the Cruz et al. (2002) model, predictions were derived without using stand, fuel load, or actual fuel moisture
+observations, and as such could not account for the influences of those parameters
+While the Rothermel (1991) and Nelson and Adkins
+(1988) models are limited to predicting crown fire rates of
+spread, the Cruz et al. (2002), NEXUS, FARSITE, and the
+Canadian FBP System models also attempt to predict the
+type of fire (i.e., surface fire, intermittent crown fire or active crown fire). For the 10 ICFME primary plot fires,
+NEXUS predicted all fires would be intermittent crown fires,
+and FARSITE predicted all fires would be surface fires or
+intermittent crown fires. The Canadian FBP System predicted that all of the ICFME fires, if classed as a C-4 fuel
+type, would advance as a continuous or active crown fire except for Plot 2 and Plot 5. The Cruz et al. (2002) model,
+which contains crown fire initiation and type of crown fire
+routines (Cruz et al. 2004), predicted that all ICFME primary plot fires would advance as active crown fires, with the
+exception of Plot 2, which was predicted to be an intermittent crown fire.
+
+Experimental burning programs, while attempting to replicate real-world, larger-scale wildfires, are often constrained
+by plot size, a necessary limitation when control is an issue.
+Line fire ignition could be considered an artificial situation,
+but is necessary if experimental fires are to achieve equilibrium spread rates representative of larger-scale, free-burning
+wildfires. The experimental burning programs conducted in
+Canada to date, and used in the development of the Canadian FBP System, have been successful in achieving fire behaviour levels similar to wildfires, with comparable spread
+rates and fuel consumption. Experimental fires, with their
+necessarily short duration, do not sustain high intensity levels for the prolonged periods common with wildfires. As a
+result they generally do not develop large convection columns to significant altitudes. Nevertheless, the ICFME
+crown fires achieved spread rates and intensity levels comparable to the most intense experimental crown fires in immature jack pine (Stocks 1987b) and spruce budworm-killed
+balsam fir (Stocks 1987a) in Ontario, and spruce–lichen
+woodland in the Northwest Territories (Alexander et al.
+1991), and to many large, well-documented wildfires (e.g.,
+Kiil and Grigel 1969; Alexander and Lanoville 1987; Stocks
+and Flannigan 1987).
+In summary, the primary goal of ICFME was to take advantage of modern instrumentation and unprecedented international, multi-disciplinary collaboration to carry out a
+replicated series of high-intensity crown fires to advance the
+understanding and science of crowning fires. This goal was
+achieved, as the crown fires described in this paper are the
+most thoroughly instrumented and documented experimental
+fires ever conducted. The results described here also justify
+the long-standing requirement for a robust model of crown
+fire propagation and spread such as the Albini (1996) model
+(Butler et al. 2004), as several of the operational fire management decision support systems currently used in North
+America seriously under-predicted the spread rate of the
+ICFME fires. The knowledge gained during ICFME will
+prove critical in the ongoing development of the next generation of fire behaviour models.
+© 2004 NRC Canada
+
+Stocks et al.
+
+1559
+
+2
+
+Fuel consumption (kg/m )
+Forest
+floor
+
+Dead,
+down
+
+Canopy
+
+1.637
+1.842
+1.166
+2.866
+2.076
+1.920
+1.629
+1.752
+1.699
+—
+1.669
+
+0.796
+0.595
+0.382
+0.988
+0.835
+1.450
+0.619
+0.627
+0.878
+—
+1.009
+
+2.172
+2.164
+1.283
+1.208
+1.064
+2.178
+2.078
+2.125
+2.131
+—
+1.606
+
+Total
+
+Rate of
+spread
+(m/s)
+
+Frontal fire
+intensity
+(kW/m)
+
+4.605
+4.601
+2.831
+5.062
+3.975
+5.548
+4.326
+4.504
+4.708
+—
+4.284
+
+0.937
+0.588
+0.263
+0.405
+0.743
+0.482
+0.600
+1.153
+0.405
+0.900
+1.163
+
+77 688
+48 697
+13 402
+36 902
+53 162
+48 134
+46 721
+93 476
+34 321
+76 270
+89 681
+
+Initial Spread Index; BUI, Buildup Index.
+
+Acknowledgements
+A large international and multi-disciplinary research project with the scope and scale of ICFME could not have been
+planned and carried out without the foresight and commitment of a number of agencies and people. The authors
+would like, however, to specifically acknowledge the logistical and financial support of the GNWT–DRWED, the CFS,
+the USDA Forest Service, and the provincial and territorial
+governments of Alberta, Saskatchewan, British Columbia,
+New Brunswick, and the Yukon. We also gratefully acknowledge the support and participation of the people and fire
+crews of the community of Fort Providence and GNWT–
+DRWED staff, specifically B. Bailey, P. Johnson, F. Lepine,
+T. Chowns, P. Rivard, and D. Allaire. Appreciation is extended to the following individuals who assisted with the
+field work associated with this paper: K. Anderson, B.
+Armitage, J. Beck, D. Cahoon, R. Carr, J. Dam, J. Gould, K.
+Hirsch, M. Hobbs, V. Kafka, Y. Kisilyakhov, D. Lavoue, B.
+Lawson, B. Maddin, D. McRae, B. Mottus, X. Navalon, A.
+Robinson, G. Strickland, A. Sukhinin, B. Todd, J.
+Trentmann, L. Trollope, W. Trollope, and T. Zorn. Thanks
+also to the following operational personnel who came from
+outside of the Northwest Territories to assist with the experimental burning: K. Howard, J. McColgan, T. Pastro, M.
+Vanderpas, M. Linane, T. Petrelli, A. Beaver, T. Knauth, G.
+Lemon, P. Gilmore, P. St. John, and C. Duffy. Finally, the
+administrative support of D. Kiil, D. Dube, and B. Case of
+the CFS is gratefully acknowledged.
+
+References
+Albini, F.A. 1996. Iterative solution of the radiation transport equations governing spread of fire in wildland fuel. Fiz. Goreniya
+Vzriva, 32(5): 71–82. [In English. Translated journal is printed
+in English as Physics of Combustion, Explosion and Shock Waves.].
+Alexander, M.E., and Lanoville, R.A. 1987. Wildfires as a source
+of fire behaviour data: a case study from Northwest Territories,
+Canada. In Conference Papers, Ninth Conference on Fire and
+Forest Meteorology, San Diego, California, 21–24 April 1987.
+American Meteorological Society, Boston, Mass. pp. 86–93.
+
+Alexander, M.E., and Quintilio, D. 1990. Perspectives on experimental fires in Canadian forestry research. Math. Comput.
+Model. 13(12):17–26.
+Alexander, M.E., Stocks, B.J., and Lawson, B.D. 1991. Fire behavior in black spruce-lichen woodland: the Porter Lake Project.
+For. Can. Inf. Rep. NOR-X-310.
+Alexander, M.E., Stefner, C.N., Mason, J.A., Stocks, B.J., Hartley,
+G.R., Maffey, M.E. et al. 2004. Characterizing the jack pineblack spruce fuel complex of the International Crown Fire Modelling Experiment (ICFME). Can. For. Serv. Inf. Rep. NOR-X-393.
+Andrews, P.L. 1991. Use of the Rothermel fire spread model for
+fire danger rating and fire behavior prediction in the United
+States. In Conference on Bushfire Modelling and Fire Danger
+Rating Systems Proceedings, Canberra, Australia, 11–12 July
+1988. Edited by N.P. Cheney and A.M. Gill. CSIRO Division of
+Forestry, Canberra, Australia. pp. 1–8.
+Andrews, P.L., Bevins, C.D., and Seli, R.C. 2003. BehavePlus fire
+modeling system, version 2.0: user’s guide. USDA For. Serv.
+Gen. Tech. Rep. RMRS-GTR-106WWW.
+Bradshaw, S., and Tour, J. 1993. Ground ignitions systems: an
+equipment guide for prescribed and wild fires. USDA For. Serv.
+Missoula Tech. Dev. Cent. Tech. Rep. 9351–2806-MTDC.
+Butler, B.W., Finney, M.A., Andrews, P.L., and Albini, F.A. 2004.
+A radiation-driven model for crown fire spread. Can. J. For. Res.
+34. This issue.
+Byram, G.M. 1959. Combustion of forest fuels. In Forest fire: control and use. Edited by K.P. Davis. McGraw-Hill, New York.
+pp. 61–89, 554–555.
+Clark, T.L., Radke, L., Coen, J., and Middleton, D. 1999. Analysis
+of small-scale convective dynamics in a crown fire using infrared video camera imagery. J. Appl. Meteor. 38: 1401–1420.
+Cottam, G., and Curtis, J.T. 1956. The use of distance measures in
+phytosociological sampling. Ecology, 37: 451–460.
+Cruz, M.G., Alexander, M.E., and Wakimoto, R.H. 2002. Predicting crown fire behavior in support of forest fire management
+decision making. In Forest Fire Research and Wildland Fire
+Safety: Proceedings of the IV International Conference on Forest Fire Research, 2002 Wildland Fire Safety Summit. Edited by
+D.X. Viegas. Millpress Science Publishers, Rotterdam, Netherlands. [CD-ROM.]
+Cruz, M.G., Alexander, M.E., and Wakimoto, R.H. 2004. Modeling
+the likelihood of crown fire occurrence in conifer forest stands.
+For. Sci. 50. In press.
+Day, J.H. 1968. Soils of the Upper Mackenzie River area. Canada
+Department of Agriculture, Research Branch, Ottawa, Ont.
+Ecological Stratification Working Group. 1995. A national ecological framework for Canada. Agriculture and Agri-Food Canada,
+Research Branch, Centre for Land Biological Resources Research, Ottawa, Ont., and Environment Canada, State of the Environment Directorate, Ecozone Analysis Branch, Hull, Que.
+Environment Canada. 1993. Canadian climate normals, 1961–90
+(Yukon and Northwest Territories). Environment Canada, Atmospheric Environment Service, Ottawa, Ont.
+Finney, M.A. 1998. FARSITE: Fire Area Simulator — model development and evaluation. USDA For. Serv. Res. Pap. RMRS-RP-4.
+Forestry Canada Fire Danger Group. 1992. Development and structure of the Canadian Forest Fire Behavior Prediction System.
+For. Can. Inf. Rep. ST-X-3.
+Kiil, A.D., and Grigel, J.E. 1969. The May 1968 forest conflagrations in central Alberta: a review of fire weather, fuels, and fire
+behavior. Can. Dep. Fish. For. Inf. Rep. A-X-24.
+Lawson, B.D. 1973. Fire behavior in lodgepole pine stands related
+to the Canadian Fire Weather Index. Can. For. Serv. Inf. Rep.
+BC-X-76.
+© 2004 NRC Canada
+
+1560
+McRae, D.J., and Jin, J. 2003. An infrared approach to fire behavior quantification. In Proceedings of the 22nd Tall Timbers Fire
+Ecology Conference: Fire in Temperate, Boreal, and Montane
+Ecosystems, Kananaskis Village, 15–18 October 2001. Edited
+by R.T. Engstrom, K.E.M. Galley, and W.J. de Groot. Tall Timbers Research Station, Tallahassee, Fla. In press.
+McRae, D.J., Alexander, M.E., and Stocks, B.J. 1979. Measurement and description of fuels and fire behavior on prescribed
+burns: a handbook. Can. For. Serv. Inf. Rep. O-X-287.
+Nalder, I.A., Wein, R.W., Alexander, M.E., and de Groot, W.J.
+1997. Physical properties of dead and downed round-wood fuels
+in the boreal forests of Alberta and Northwest Territories. Can.
+J. For. Res. 27: 1513–1517.
+Nalder, I.A., Wein, R.W., Alexander, M.E., and de Groot, W.J.
+1999. Physical properties of dead and downed round-wood fuels
+in the boreal forests of western and northern Canada. Int. J.
+Wildland Fire 9: 85–99.
+Nelson, R.M., Jr., and Adkins, C.W. 1988. A dimensionless correlation for the spread of wind-driven fires. Can. J. For. Res. 18:
+391–397.
+Pastor, E., Planas, E., and Arnaldos, J. 2003. Mathematical models
+and calculation systems for the study of wildland fire behaviour.
+Prog. Energy Combust. 29: 139–153.
+Quintilio, D., Fahnestock, G.R., and Dube, D.E. 1977. Fire behavior in upland jack pine: the Darwin Lake Project. Can. For. Serv.
+Inf. Rep. NOR-X-174.
+Quintilio, D., Alexander, M.E., and Ponto, R. L. 1991. Spring fires
+in a semimature trembling aspen stand in central Alberta. For.
+Can. Inf. Rep. NOR-X-323.
+Radke, L.F.; Clark, T.L., Coen, J.L., Walther, C.A., Lockwood,
+R.N., Riggan, P.J., Brass, J.A., and Higgins, R.G. 2000. The
+WildFire Experiment (WIFE): observations with airborne remote sensors. Can. J. Remote Sens. 26: 406–417.
+Rothermel, R.C. 1972. A mathematical model for predicting fire
+spread in wildland fuels. USDA For. Serv. Res. Pap. INT-115.
+Rothermel, R.C. 1991. Predicting behavior and size of crown fires
+in the Northern Rocky Mountains. USDA For. Serv. Res. Pap.
+INT-438.
+Rowe, J.S. 1972. Forest regions of Canada. Can. For. Serv. Publ.
+1300.
+Scott, J.H., and Reinhardt, E.D. 2001. Assessing crown fire potential by linking models of surface and crown fire behavior. USDA
+For. Serv. Res. Pap. RMRS-RP-29.
+Stocks, B.J. 1987a. Fire potential in spruce budworm-damaged forests of Ontario. For. Chron. 63: 8–14.
+Stocks, B.J. 1987b. Fire behavior in immature jack pine. Can. J.
+For. Res. 17: 80–86.
+
+Can. J. For. Res. Vol. 34, 2004
+Stocks, B.J. 1989. Fire behavior in mature jack pine. Can. J. For.
+Res. 19: 783–790.
+Stocks, B.J., and Walker, J.D. 1972. Fire behavior and fuel consumption in jack pine slash in Ontario. Can. For. Serv. Inf. Rep.
+O-X-169.
+Stocks, B.J., and Flannigan, M.D. 1987. Analysis of the behavior
+and associated weather for a 1986 northwestern Ontario wildfire: Red Lake #7. In Conference Papers, Ninth Conference on
+Fire and Forest Meteorology, San Diego, California, 21–24 April
+1987. American Meteorological Society, Boston, Mass. pp. 94–
+100.
+Stocks, B.J., Lawson, B.D., Alexander, M.E., Van Wagner, C.E.,
+McAlpine, R.S., Lynham, T.J., and D.E. Dube. 1991. The Canadian system of forest fire danger rating. In Conference on Bushfire Modelling and Fire Danger Rating Systems Proceedings,
+Canberra, Australia, 11–12 July 1988. Edited by N.P. Cheney
+and A.M. Gill. CSIRO Division of Forestry, Canberra, Australia.
+pp. 9–18.
+Stocks, B.J., Alexander, M.E., and Lanoville, R.A. 2004. Overview
+of the International Crown Fire Modelling Experiment (ICFME).
+Can. J. For. Res. 34. This issue.
+Taylor, S.W., Pike, R.G., and Alexander, M.E. 1997. Field guide to
+the Canadian Forest Fire Behavior Prediction (FBP) System.
+Can. For. Serv. North. For. Cent. Spec. Rep. 11.
+Taylor, S.W., Wotton, B.M., Alexander, M.E., and Dalrymple, G.N.
+2004. Variation in wind and crown fire behaviour in a northern
+jack pine – black spruce forest. Can. J. For. Res. 34. This issue.
+Van Wagner, C.E. 1963. Prescribed burning experiments: red and
+white pine. Can. Dep. For. Publ. 1020.
+Van Wagner, C.E. 1967. Seasonal variation in moisture content of
+eastern Canadian tree foliage and possible effect on crown fires.
+Can. Dep. For. Rural Dev. For. Branch Dep. Publ. 1204.
+Van Wagner, C.E. 1968a. Fire behaviour mechanisms in a red pine
+plantation: field and laboratory evidence. Can. Dep. For. Rural
+Dev. For. Branch Dep. Publ. 1229.
+Van Wagner, C.E. 1968b. The line intersect method in forest fuel
+sampling. For. Sci. 14: 20–26.
+Van Wagner, C.E. 1987. Development and structure of the Canadian Forest Fire Weather Index System. Can. For. Serv. For.
+Tech. Rep. 35.
+Van Wagner, C.E. 1993. Prediction of crown fire behavior in two
+stands of jack pine. Can. J. For. Res. 23: 442–449.
+Van Wagner, C.E. 1998. Modelling logic and the Canadian Forest
+Fire Behavior Prediction System. For. Chron. 74: 50–52.
+Weber, M.G., Hummel M., and Van Wagner, C.E. 1987. Selected
+parameters of fire behavior and Pinus banksiana Lamb. regeneration in eastern Ontario. For. Chron. 63: 340–346.
+
+© 2004 NRC Canada
+
+

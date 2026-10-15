@@ -72,3 +72,134 @@ Verdicts : `suivi/verifications/16b-verifications.md` (9 drapeaux : 2 levés, 3 
 - **§9, ventilateur et filtre** — valeurs insérées : un filtre, pièce d'environ 10 m² ; carton autour du ventilateur, +40 % ; quatre filtres en cube, environ 37 m² ; filtre changé brun, gris ou qui sent la fumée. Pulseur et ventilateur d'ordinateur non mesurés. `sources/16b-epa-purificateur-maison-ventilateur-filtre.md`.
 
 Compression §3 et §4 — 27 septembre 2026 : 1 688 mots → 230 mots (§3 : 998 → 123, cinq phrases ; §4 : tableau de 18 lignes → liste de 5 items : réserve d'eau de 200 L, plein de carburant, N95 pour adultes, purificateur HEPA à la maison, râteau à feu). Matériel coupé : deux itinéraires de sortie et seuil de départ écrit (ce sont des gestes, déjà en 5D et en §6, qui porte « 2 itinéraires roulés, montre en main ») ; récepteur AM/FM (§9 le nomme) ; messagerie satellite (5C, ch. 14) ; sac d'évacuation (ch. 7) ; papiers gardés ailleurs ; filtre de rechange de l'échangeur ; gants, balai, échelle ; scie à chaîne (outil d'atelier, ch. 106 ; tirer l'arbre au véhicule est en §9) ; sécateur sur perche (fabriqué en §9) ; pompe portative (5G : du théâtre pendant le feu) ; contenant à cendres (ch. 82) ; ruban rouge (5E) ; avertisseur de CO (§8 point 5 le porte) ; phrase de fin « une scie en juillet et un crayon en mai ». Coupé du §3 sans report : 30 % des feux et 81 % des superficies pour la foudre, la 138 comme ligne unique au village, la citation « bébés et enfants (5 ans et moins) », le chiffre de 1,5 m et les citations de zone (déjà en 5A). Gardé au §3 : les deux kilomètres (seule occurrence du chapitre). Renvoi corrigé au §9 (« Le lac est le deuxième chemin ») : « n'importe quel autre item de la section 4 » → « n'importe quel item de la section 4 », le canot n'étant plus dans la section.
+
+## Passe du 15 octobre 2026 : chapitre modèle (skill `ecriture`, séries orange, logigramme)
+
+Numéros de chapitre **actuels** dans cette section. Original gardé hors dépôt :
+`scratchpad/demo-11/11-avant.md`. Mots : 9 094 → 8 282. Tirets : 37 → 2 (les deux lignes techniques du haut).
+
+**Structure.** La procédure (section 5) ne suit plus les lettres A à J. Elle s'ouvre sur trois séries orange,
+numérotées à la suite comme au ch. 4 :
+- « La première heure : un feu est déclaré dans le secteur » (étapes 1 à 10) ;
+- « Le départ » `{.orange 15 min}` (étapes 11 à 17) ;
+- « Pris par le feu » `{.orange 1 min}` (étapes 18 à 26).
+Puis, hors orange : « Tant que le feu est dans le secteur » (27 à 30), « La fumée, à la maison et au chalet »
+(31 à 37), « Après le feu » (38 à 46), « Avant la saison : le seuil de départ » (47, 48), « Avant : la zone
+défendable, sur des années » (49 à 56), « Chaque jour de la saison de feu » (57, 58). L'ancien 5G (l'eau, ce
+qui marche et le « théâtre ») est fondu dans les étapes 7, 14, 26 et la section 9 ; la liste du « théâtre » sort
+(règle 8 du skill). La ligne de lieu passe à `**Les deux.**` (le moteur ne lisait pas « Lieu : Les deux. »).
+
+**Gestes sortis de l'urgence après avoir joué la scène.** La zone défendable (ancien 5A) et la lecture
+quotidienne (5B) vont après les séries. Le raisonnement du seuil de départ et le gabarit à remplir (5D) vont
+« Avant la saison » : une famille qui n'a rien préparé ne calibre pas ses chiffres le jour du feu ; l'étape 6 lui
+donne les deux seuils qui ne demandent rien d'avance. Dans la première heure, les étapes 7 à 10 (eau, dégager
+autour, évents, contact) viennent après le seuil : une famille au chalet à chemin unique part tout de suite.
+L'arrosage (14) et la fermeture du courant (15) ne se font que s'il reste du temps ; feu en vue, on part sans eux.
+
+**Provenance des faits ajoutés ou déplacés**
+
+| Fait | Où | Source |
+| --- | --- | --- |
+| Saison de feu : du printemps à la fin de l'automne | ligne de lieu | `sources/16b-sopfeu-indice-danger-incendie.md` |
+| Feu de cimes boréal : 15 à 70 m/min (1 à 4 km/h) ; 10 km en moins de 3 h ; 1 km en un quart d'heure | étape 1 ; chapeau du départ | `sources/11-stocks-2004-feux-de-cimes-boreal.md` (calcul noté dans la fiche) |
+| Le côté du feu devient le front quand le vent tourne | étape 1 | `sources/11-cfa-quand-partir-chaleur-comportement.md` |
+| Charger l'auto sans attendre l'odeur ; trois jours de provisions | étape 3 | idem |
+| Couverture de laine par personne dans l'auto | section 4 ; étape 3 ; section 7 | `sources/11-cfa-pris-par-le-feu.md` |
+| La nuit, la fumée descend dans les creux et se lève le jour | étape 11 | `sources/11-epa-guide-fumee-nuit-visibilite-linge.md` |
+| Habits de coton ou de laine, bottes | étapes 12 et 21 | `sources/16b-calfire-go-guide-evacuation.md` ; `sources/11-cfa-pris-par-le-feu.md` |
+| Un boyau laissé ouvert vide la pression | étape 14 | `sources/16b-calfire-go-guide-evacuation.md` |
+| Feuille PARTIS sur la porte (aligné sur le ch. 2, étape 9) | étape 15 | ch. 2 ; remplace le « X de ruban » et le « mot daté » |
+| S'éloigner de la route vers où le feu ne va pas, jamais vers lui | étape 17 | `sources/11-cfa-fiche-travailleurs-auto-maison-texte.txt` |
+| Rattrapé en auto : où s'arrêter, l'avant vers le feu, phares, moteur coupé, laine sèche, sortir quand l'air ne brûle plus | étapes 18 à 20 | `sources/11-cfa-pris-par-le-feu.md` |
+| Au bâtiment : climatiseur arrêté, rideaux fermés, pièce à deux sorties, pas au sous-sol, fermer la pièce qui brûle | étapes 21 à 23 | idem ; éviers et bain : `sources/16b-calfire-go-guide-evacuation.md` |
+| La chaleur brûle la peau à 100 m ; elle tue avant la flamme, traverse les vitres | étape 24 ; section 3 ; section 8, point 6 | `sources/11-cfa-quand-partir-chaleur-comportement.md` |
+| Face contre terre, peau couverte | étape 24 | `sources/16b-calfire-go-guide-evacuation.md` |
+| Les braises tombent pendant des heures après le front | étape 26 | `sources/11-cfa-pris-par-le-feu.md` |
+| Partir le matin, avant 10 h ; le feu est moins fort la nuit | étape 28 | `sources/11-cfa-quand-partir-chaleur-comportement.md` |
+| Chaussures au pied du lit | étape 29 | `sources/16b-calfire-go-guide-evacuation-texte.txt`, l. 87 |
+| Un grand feu sur cinq a brûlé au moins une nuit complète | étape 29 | `sources/11-luo-2024-feux-de-nuit-secheresse.md` |
+| Enfants de 5 ans et moins parmi les plus sensibles ; sorties à 30, 100, 250 µg/m³ | étape 33 | `sources/16b-quebec-fumee-feux-foret-sante.md` |
+| 26 °C, 31 °C, ventilateur inutile au-dessus de 35 °C | étape 34 ; section 9 | `sources/11-interior-health-chaleur-et-fumee.md` |
+| Visibilité : 16 km et 8 km, de jour, sous 65 % d'humidité | étape 36 | `sources/11-epa-guide-fumee-nuit-visibilite-linge.md` |
+| Fil tombé : très petits pas traînés ou petits sauts pieds joints | étape 39 | `sources/11-apsam-fil-sous-tension-petits-pas.md` |
+| On n'attend ni l'odeur ni les flammes ; morts sur la route après être restés défendre | section 8, point 2 | `sources/11-cfa-quand-partir-chaleur-comportement.md` ; `sources/11-cfa-pris-par-le-feu.md` |
+| Couverture mouillée : la vapeur brûle ; sortir de l'auto pour courir tue | section 8, point 6 | `sources/11-cfa-pris-par-le-feu.md` |
+| Colonne en chou-fleur : tirage propre, comportement erratique | section 9 | `sources/11-usfs-feu-domine-par-la-colonne.md` |
+| Le craquement sous le pied ; la pente ; le vallon | section 9 | `sources/11-cfa-quand-partir-chaleur-comportement.md` |
+| Maille de 3 mm | section 9 | `sources/00b-intellifeu-gouttieres-avant-toits-events.md` |
+| Ventilateur : près de 60 °C au moteur avec un filtre chargé ; fiche à fusible et coupure thermique depuis 2012 ; un vieux ventilateur ne tourne pas la nuit ni sans surveillance | section 9 | `sources/16b-epa-purificateur-maison-ventilateur-filtre.md` |
+| Linge sec ou mouillé : n'arrête pas les particules fines | section 9 | `sources/11-epa-guide-fumee-nuit-visibilite-linge.md` |
+
+Les chiffres déjà sourcés restent sur leurs fiches : 200 L, 10 m, 3 m (`16b-quebec-proteger-maison-biens.md`) ;
+1,5 m, 10 m, 30 m, 3 m entre les cimes, 2 m d'élagage (`02-intellifeu-zone-inflammabilite.md`) ; 90 % et
+2 km (`16b-intellifeu-braises-sept-volets.md`, `16b-bc-firesmart-braises-deux-kilometres.md`) ; 30 µg/m³ et
+symptômes (`16b-quebec-fumee-feux-foret-sante.md`) ; 6 h (`16b-quebec-retour-apres-feu-de-foret.md`) ; 10 m²,
+40 %, 37 m² (`16b-epa-purificateur-maison-ventilateur-filtre.md`) ; 6 m de la génératrice (fiches du ch. 3).
+
+**Consignes de sécurité confrontées aux autres dangers du scénario**
+
+- *Fumée dans la maison (seuil de départ) contre départ de nuit dans la fumée* : la nuit, la fumée s'accumule
+  dans les creux sans que le feu ait avancé (EPA), et rouler dans la fumée est ce qu'on évite le plus (CFA). La
+  nuit, on sort voir : lueur, braises ou chaleur, on part si le chemin est clair, sinon on reste au bâtiment ;
+  rien de ça, on part à la première clarté (étape 11).
+- *Rester dans l'auto ou en sortir* : on reste ; on sort sous la laine quand l'air a refroidi (CFA, Lara 1969).
+- *Moteur en marche ou coupé* : coupé quand le feu est proche (CFA). La phrase sans source sur le monoxyde
+  « additionné » d'un véhicule au ralenti est coupée de la section 8.
+- *Couverture mouillée ou sèche* : sèche (CFA, la vapeur brûle). L'ancien §9 disait « laine ou coton mouillés ».
+- *Le bâtiment : pièce d'air propre ou pièce à deux sorties* : l'une contre la fumée, l'autre pendant le passage
+  du front ; pas au sous-sol (CFA ; étape 22).
+- *Rideaux décrochés (départ, CAL FIRE) ou fermés (abri, CFA)* : au départ, personne n'éteint un rideau qui prend ;
+  à l'abri, on est là et la chaleur traverse la vitre (étapes 13 et 21).
+- *Climatiseur en marche (fumée, Québec.ca) ou arrêté (front, CFA)* : étape 32 renvoie à l'étape 21.
+- *La fumée contre la chaleur* : la chaleur l'emporte (Québec.ca ; Interior Health : 26 °C, 31 °C). Vaut aussi
+  pour la pièce d'air propre du chalet en juillet (section 9).
+- *Le ventilateur de la pièce filtrée contre le feu de ventilateur* : un vieux ventilateur ne tourne pas la nuit
+  ni sans surveillance (EPA).
+- *Le lac* : l'eau arrête la chaleur, mais refroidit un enfant plus vite qu'un adulte (ch. 39) : rester au bord
+  et se remouiller. Le « 4 °C » de l'ancien texte sort : c'est l'eau d'une bonne partie de l'année, pas l'eau de
+  surface en saison de feu. Aucune température d'été d'un lac de la Côte-Nord n'a été trouvée ; aucun temps
+  d'immersion tolérable pour un jeune enfant non plus. Le geste n'en dépend pas.
+- *Marcher devant l'auto dans la fumée (ancien §9) contre « ne pas rouler dans la fumée » (CFA)* : gardé seulement
+  loin du feu (ni lueur, ni braises, ni chaleur) ; près du feu, demi-tour ou étape 18.
+- *Gaz* : on garde « fermer le propane à la bouteille » (CAL FIRE) ; le manuel de la C.-B. dit de ne pas couper
+  le gaz naturel de ville, sans raison. Le chapitre ne parle que de la bouteille.
+- *Couper le courant* : en dernier, une fois l'arrosage fini, parce que la pompe du puits en dépend (étape 15).
+
+**Chiffres et phrases sortis, et pourquoi**
+
+- « 4 ans », « 6 ans », « deux enfants de 4 et 6 ans » : l'âge des enfants de JP (CLAUDE.md, livre ouvert).
+- « 4 °C » (lac) : faux pour la saison ; « 35 °C » de l'hypothermie (renvoi au ch. 25 gardé) et « une maison
+  scellée à 35 °C » (illustration sans source).
+- « un geste de dix ou quinze minutes » (arrosage), « un allume-feu long de vingt mètres », « en quatre ou cinq
+  ans » (zone qui se referme) : sans source ; le premier devient « s'il reste du temps », le dernier « en quelques
+  années ».
+- « Le feu […] donne son maximum au milieu de l'après-midi » : remplacé par « plus fort le jour » et « avant 10 h »
+  (CFA) ; le préavis « en jours » d'un feu de foudre : sans source, dit sans chiffre.
+- Les citations entre guillemets d'Intelli-feu et de Québec.ca : le fait reste, la citation sort.
+- Les phrases sur le livre ou le chapitre (« C'est la section la plus importante du chapitre », « le geste au
+  meilleur rendement de tout le chapitre », « l'un des rares endroits du livre ») et la conclusion de l'ancien 5I
+  (« Le point de départ est honnête… »).
+- Le §2 « mauvaise procédure » perd quatre réflexes (lac, confinement, rester pour arroser, attendre les
+  flammes) : ils sont dits une fois, en section 8 (points 2 et 3) et aux étapes 14 et 35.
+
+**Planches.** 11-03 appelée à la puce des vitres (section 9) ; nouvel ancrage proposé, l'ancienne phrase
+d'ancrage a changé. 11-04 appelée à « Un ventilateur et un filtre » ; 11-05 au « râteau à feu ». Ancrages et
+logigramme proposés dans `scratchpad/demo-11/ancrages-texte.json`.
+
+**Logigramme.** `images/logigrammes/11-feu-de-foret.json`, rendu en PNG, PDF, SVG et `-livre.svg` ; contrôle :
+0 erreur, 0 avis.
+
+**À faire ailleurs (pas touché, hors de cette passe).** Le ch. 37 renvoie à « la règle du ch. 11 (section 5-B) » :
+c'est maintenant l'étape 57. Les ch. 96 et 99 renvoient au « ch. 11 §9 » : toujours juste (section 9), mais le
+« § » est à écrire « section ».
+
+**Doutes.**
+- La pastille « 15 min » du départ s'appuie sur la vitesse haute d'un feu de cimes (1 km en 14 min) ; c'est un
+  ordre de grandeur, pas un temps mesuré pour une famille.
+- La visibilité de l'EPA vient de l'air sec de l'Ouest américain ; l'agence ne l'a pas évaluée par temps humide.
+  Le chapitre la limite à moins de 65 % d'humidité, comme la source.
+- Les 100 m de la chaleur rayonnante viennent de la vidéo du CFA (Victoria). Un feu de cimes boréal a des flammes
+  de 25 à 40 m (Stocks) ; la règle américaine des pompiers (4 fois la hauteur des flammes) donnerait 100 à 160 m.
+  Le texte dit « 100 m au moins ».
+- La couleur de la fumée et la colonne couchée par le vent (section 9) restent sans source (mécanisme, aucun
+  chiffre).

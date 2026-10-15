@@ -2,19 +2,18 @@
 
 *Tome 1 — Tenir*
 
-**Lieu : Les deux.** La maison au village est exposée aux **braises portées par le vent**. Le
-chalet est exposé au **front
-lui-même**, à la fumée sans recours, et surtout à **un seul chemin**. Même feu, deux problèmes :
-la maison risque de brûler pendant que ses occupants sont en sécurité ailleurs ; au chalet, ce
-sont les occupants qui sont en jeu.
+**Les deux.** En ville, la maison est surtout exposée aux **braises portées par le vent** : elle peut
+brûler pendant que la famille est à l'abri ailleurs. Au chalet, la famille elle-même est exposée au
+**front**, à la **fumée** et au **chemin unique**. La saison de feu va du printemps à la fin de l'automne.
+Les gestes valent le jour ; ce qui change la nuit est marqué « La nuit ».
 
 ---
 
 ## 1. En une ligne
 
-Le feu qui arrive par le bois est le seul événement de ce livre où rester est presque toujours
-le mauvais choix, et tout le chapitre sert à partir assez tôt — parce que le chemin se ferme par
-la fumée bien avant de se fermer par le feu.
+Partir pendant que le chemin est ouvert, parce que la fumée le ferme bien avant le feu ; enlever autour du
+bâtiment ce qu'une braise peut allumer ; et, si le feu rattrape la famille, se protéger de sa chaleur
+jusqu'au passage du front.
 
 ---
 
@@ -22,381 +21,291 @@ la fumée bien avant de se fermer par le feu.
 
 ### C'est la bonne procédure quand
 
-- **Le combustible est sec au pied**, selon le faisceau de la section 9 : mousse cassante, humus
- qui s'effrite, ruisseaux bas. Il suffit à changer de comportement (5B).
-- **Un orage est passé sans pluie.** Un feu allumé par la foudre peut couver dans l'humus avant
- de se déclarer et d'être détecté : après un orage sec, la surveillance ne s'arrête pas le soir
- même, et c'est ce régime-là qui fait les grands feux (section 3).
-- **De la cendre ou des aiguilles roussies tombent sur la galerie, ou le soleil est rouge à
- midi**, sans qu'aucun feu ne soit visible et sans qu'on sente encore la fumée.
-- **Un feu est déclaré dans le secteur et il n'y a qu'un chemin.** Le nombre de chemins, pas la
- distance au feu, est ce qui décide de l'urgence.
+- **Un feu est déclaré dans le secteur et il n'y a qu'un chemin pour sortir.** Le nombre de chemins décide
+ de l'urgence, plus que la distance du feu.
+- **De la cendre ou des aiguilles roussies tombent sur la galerie, ou le soleil est rouge à midi**, même
+ sans feu visible et sans odeur de fumée.
+- **Un orage est passé sans pluie.** La foudre peut allumer un feu qui couve dans l'humus avant de se
+ déclarer : on continue de regarder l'horizon les jours suivants (étape 58).
+- **Le combustible est sec sous le pied** (section 9, étape 57).
 
 ### C'est la mauvaise procédure quand
 
-- **Le feu est dans le bâtiment, dans le tuyau ou dans un chaudron.** C'est le chapitre 82, et
- c'est le problème inverse : là, un départ de feu plus petit qu'une poubelle se combat avec un
- extincteur en main ; ici, ce qui se combat est déjà perdu.
-- **Le feu est de l'autre côté du lac, donc on se croit à l'abri.** Un plan d'eau arrête un
- front ; il n'arrête pas une braise portée par le vent. «Plus de 90 % des maisons endommagées
- ou détruites par les feux de forêt sont enflammées par des braises » : la
- largeur du lac protège de la voie d'attaque qui compte le moins.
-- **Ça sent la fumée sans feu visible, donc on se confine.** C'est le réflexe habituel,
- et il suppose un bâtiment qu'on peut fermer et dont on peut filtrer ou recirculer l'air. Un
- chalet chauffé au bois tire son air de combustion de la pièce ou d'une prise extérieure : on ne
- ferme pas et on ne chauffe pas en même temps (ch. 2). Sous une fumée dense, le chalet cesse de
- protéger tout en restant parfaitement intact.
-- **On reste pour arroser.** Arroser abondamment le terrain et le toit est un geste
- **du départ** : on arrose, puis on s'en va. Rester pour
- tenir un boyau, c'est rester pour la partie du problème qui ne dépend déjà plus de personne.
-- **On part quand on verra les flammes.** Voir les flammes depuis le chalet veut dire que le
- front est assez proche pour que la fumée ait déjà fermé la route **derrière**. Le feu est
- devant, le piège est derrière, et les deux arrivent dans cet ordre-là.
+- **Le feu est dans le bâtiment, dans le tuyau ou dans un chaudron** : c'est le ch. 82. Un départ de feu
+ plus petit qu'une poubelle s'y éteint à l'extincteur ; un feu de forêt ne se combat pas.
 
 ---
 
 ## 3. Pourquoi ça marche
 
-**Un feu de forêt attaque un bâtiment par ses braises, pas par son front** : elles tombent jusqu'à
-deux kilomètres en avant et n'allument que ce qui est déjà fin, sec et aéré. L'épinette noire
-garde ses branches mortes jusqu'au sol : espacer coupe le pont horizontal, élaguer coupe l'échelle
-vers les cimes. Le chemin se ferme loin du feu, par la fumée, l'arbre versé ou le ponceau brûlé :
-on part pendant qu'il est encore un chemin. Les particules fines ne se voient pas et aucun masque
-n'existe à la taille d'un enfant : son seul air propre est celui de la pièce. Le préavis d'un feu
-de foudre se compte en jours et se perd en hésitation : tout se décide à froid.
+Un feu de forêt allume un bâtiment surtout par ses **braises** : le vent les porte jusqu'à 2 km devant le
+front, et elles prennent dans ce qui est fin, sec et aéré. Les gens, eux, meurent surtout de la **chaleur
+rayonnante** du front, qui brûle la peau de loin ; la distance, un mur, une auto ou la laine l'arrêtent.
+L'épinette noire (*Picea mariana*) garde ses branches mortes jusqu'au sol : espacer les arbres empêche le
+feu de passer de l'un à l'autre, et les élaguer l'empêche de monter aux cimes.
 
 ---
 
 ## 4. Matériel
 
-- **Réserve d'eau de 200 L** — éteint le départ de feu d'une braise ; ne dépend ni du puits ni du courant (→ §9).
-- **Plein de carburant, toute la saison** — pour l'aller et le retour ; bidons hors du bâtiment, puis dans le véhicule.
-- **Masques N95 pour adultes** — scellés au visage, ils arrêtent les particules fines ; le masque de procédure fuit sur les côtés.
-- **Purificateur à filtre HEPA, maison** — fabrique l'air propre de la chambre des enfants, qu'aucun masque ne protège (→ §9).
-- **Râteau à feu** — lame droite et dentée qui gratte jusqu'au sol minéral ; un râteau à feuilles plie dans l'humus (→ §9).
+- **Réserve d'eau de 200 L** : éteint le départ de feu d'une braise, sans puits ni courant (→ section 9).
+- **Plein de carburant, toute la saison** : pour l'aller et le retour ; les bidons restent hors du bâtiment, puis partent dans l'auto.
+- **Couverture de laine, une par personne, dans l'auto** : si le feu rattrape l'auto, elle arrête la chaleur sur la peau.
+- **Masques N95 pour adultes** : bien ajustés, ils arrêtent les particules fines ; le masque de procédure fuit sur les côtés.
+- **Purificateur à filtre HEPA, à la maison** : fait l'air propre de la chambre des enfants (→ section 9 : ventilateur et filtre).
+- **Râteau à feu** : lame droite et dentée qui gratte jusqu'au sol minéral (→ section 9 : le fabriquer).
 
 ---
 
 ## 5. Procédure
 
-### A. La zone défendable — le travail d'été, étalé sur des années
+### La première heure : un feu est déclaré dans le secteur {.orange}
 
-Ce travail vaut pour les deux lieux. Il se fait hors saison de feu, parce qu'il produit lui-même
-des tas de branches sèches.
+Si le feu est déjà en vue (on voit les flammes, des braises tombent ou on sent sa chaleur), passer tout de
+suite au départ, étape 11.
 
-1. **De 0 à 1,5 m du bâtiment : rien qui brûle.** «La Zone immédiate est une zone incombustible
- qui commence à la maison et s'étend jusqu'à 1,5 m » ; «dégagez la
- végétation et les matériaux combustibles jusqu'au sol minéral » et «évitez de planter des
- arbres ou arbustes ligneux ». En pratique : gravier ou sol minéral, pas de paillis, pas de
- haie collée au mur, pas de bois de corde appuyé contre le revêtement.
-2. **Vider les gouttières, les noues de toit et le dessous des galeries.** C'est le geste au
- meilleur rendement de tout le chapitre : il coûte une demi-journée et il attaque directement
- la voie par laquelle plus de 90 % des bâtiments se perdent. Une gouttière pleine d'aiguilles
- d'épinette noire est un allume-feu long de vingt mètres, installé sur le périmètre du toit.
-3. **Dégager le toit et le revêtement.** «Votre toiture et le revêtement extérieur de votre
- maison constituent une large surface où les débris combustibles peuvent s'accumuler.
- Dégagez-les de tout débris combustible ».
-4. **Rien de combustible sous une galerie ou une terrasse** : «n'entreposez pas de matériaux
- combustibles sous celle-ci (ex. : bois, bombonne de propane) ». Un dessous de
- galerie est une boîte à air ouverte, à l'ombre, pleine de feuilles : une braise y trouve tout
- ce qu'il lui faut et le feu part sous le plancher, hors de vue.
-5. **De 1,5 à 10 m : sortir ce qui brûle.** «Gardez hors de cette zone les articles combustibles
- tels que les cordes de bois de chauffage » et «évitez d'incorporer des débris ligneux, y
- compris du paillis ». Remorques, véhicules récréatifs et hangars vont
- dans la zone étendue.
-6. **Le bois de chauffage et le propane, à plus de 10 m.** «Entreposez les matériaux de
- construction, le bois de chauffage et le réservoir de propane à plus de 10 mètres de tout
- bâtiment ». Au chalet, c'est le point le plus souvent raté : la corde de bois est
- toujours à deux pas de la porte, parce que c'est pratique en janvier. Il faut deux tas — un
- petit tas de service à l'abri et sous surveillance, le gros de la réserve à 10 m et plus.
-7. **Trois mètres de végétation dégagée autour du réservoir de propane**, en plus des
- 10 m du bâtiment.
-8. **De 10 à 30 m : éclaircir et élaguer.** «Retirez sélectivement les arbres à feuilles
- persistantes pour créer un espace horizontal d'au moins 3 mètres » et «coupez toutes les
- branches jusqu'à une hauteur de 2 mètres à partir du sol ». «L'objectif
- dans la Zone étendue n'est pas d'éliminer le feu, mais de réduire son intensité. » Travail de
- scie à chaîne : chapitre 106, et les arbres encroués ou sous tension ne se coupent pas à la
- scie seule.
-9. **Ramasser régulièrement ce qui tombe** : branches mortes, herbe sèche, aiguilles. Une zone étendue faite une fois et jamais entretenue redevient un combustible en
- quatre ou cinq ans.
-10. **Élargir le tournant du chemin, à l'endroit où un véhicule doit faire demi-tour.** C'est
- ce qui permet de sortir avec une remorque le jour où il le faut.
+1. **Sortir regarder la fumée : d'où elle vient, et de quel côté elle penche.** Elle montre où est le feu
+ et vers où le vent le pousse (section 9). La nuit, on voit la lueur du feu plutôt que sa fumée. Un feu
+ à 15 km, quand le vent souffle de lui vers nous, est plus proche qu'un feu à 5 km sur le côté. Un feu de
+ cimes dans l'épinette avance de 1 à 4 km à l'heure : à 10 km, il peut arriver en moins de trois heures,
+ et ses braises avant lui. Quand le vent tourne, le côté du feu devient son front, et ce front est plus
+ large.
+2. **Faire le plein tout de suite** : à la station en ville, avec les bidons au chalet. Il faut au moins
+ deux fois ce que prend l'aller (ch. 15). Refaire le plein chaque fois que le réservoir descend à la
+ moitié. Stationner l'auto le devant tourné vers le chemin.
+3. **Charger l'auto maintenant, sans attendre de sentir la fumée** : les médicaments, les papiers, un
+ change complet par personne dans un sac à part, de l'eau et de quoi manger pour trois jours, une
+ couverture de laine par personne et les bidons d'essence. La réserve du chalet reste au chalet (ch. 5) :
+ une heure passée à charger des conserves est une heure de moins pour sortir.
+4. **Au chalet, mettre le canot ou la chaloupe à l'eau**, avec les gilets et une pagaie de rechange :
+ c'est le deuxième chemin si la route ferme (section 9).
+5. **Décider quel adulte prend quel enfant**, le dire aux enfants, et ne plus en changer jusqu'à l'arrivée
+ (ch. 82).
+6. **Écrire sur la porte ce qui fera partir.** Un seul de ces seuils suffit :
+ - **il ne reste qu'un chemin pour sortir**, parce que l'autre est dans la fumée, bloqué par un arbre ou
+ fermé. On part sur celui qui reste. Un chalet qui n'a qu'un chemin et pas de canot à l'eau a déjà atteint
+ ce seuil ;
+ - **la fumée se sent dans la maison, portes et fenêtres fermées**, et les enfants n'ont pas de pièce
+ d'air propre (étapes 32 et 35) ;
+ - **le seuil de la famille**, s'il a été écrit avant la saison (étape 47).
 
-### B. Lire le danger, chaque jour de la saison
+ Une fois le seuil écrit, personne ne le discute plus. Un seul adulte décide (ch. 2). Si un seuil est déjà
+ atteint, passer au départ, étape 11 ; sinon, faire les étapes 7 à 10 en restant prêt à partir.
+7. **Remplir tout ce qui tient l'eau pendant que le puits ou l'aqueduc en donne** : le bain, les barils,
+ les chaudières. Au chalet, monter un baril en hauteur avec un boyau piqué au fond (section 9).
+8. **Dégager autour du bâtiment ce qui peut prendre feu** : vider les gouttières ; tirer le bois de
+ chauffage à plus de 10 m ; ramasser ce qui traîne dans les 1,5 m autour des murs ; rentrer les chaises de
+ galerie, les coussins et les bâches. Porter la bouteille de propane à plus de 10 m, à un endroit sans
+ végétation sur 3 m autour.
+9. **Fermer les entrées des braises, si on a le matériel** : une maille de métal sur les évents, de la
+ tôle ou du contreplaqué vissé sur les fenêtres qui font face au feu (section 9).
+10. **Fixer l'heure du prochain contact avec quelqu'un à l'extérieur, avant de raccrocher** (ch. 14). Si
+ on ne donne pas de nouvelles à cette heure-là, cette personne saura qu'il se passe quelque chose.
 
-Le danger se lit sur le combustible, touché du pied, avec le faisceau de la section 9 : mousse et
-cladonie cassantes, humus qui s'effrite, ruisseaux bas, aucune pluie utile depuis des semaines,
-vent soutenu, air sec. Quand il est réuni, le comportement change :
+### Le départ {.orange 15 min}
 
-- Plus aucun travail qui fait des étincelles : meulage, soudage, débroussailleuse (ch. 107). Le
- plein de carburant se refait tous les jours.
-- Sacs d'évacuation faits. Véhicule tourné vers le chemin. Les deux adultes ne sortent plus du
- même côté en même temps.
-- Feux uniquement dans une installation munie d'un pare-étincelles.
+Dès qu'un seuil de l'étape 6 est atteint. Un feu de cimes peut faire un kilomètre en un quart d'heure : le
+départ se fait dans ce temps-là. Quand le feu est en vue, on monte dans l'auto et on part, sans faire les
+étapes 13 à 15. Si la fumée cache déjà le chemin, on reste au bâtiment (étape 21).
 
-Une chose se vérifie en même temps, chaque jour : une colonne de fumée à l'horizon, et le côté
-d'où vient le vent (section 9).
+11. **La nuit, si l'odeur de la fumée réveille quelqu'un, sortir voir avant de partir.** S'il y a une
+ lueur, des braises ou de la chaleur, partir tout de suite si le chemin n'est pas dans la fumée ; sinon,
+ rester au bâtiment (étape 21). S'il n'y a rien de ça, habiller les enfants, finir de charger l'auto et
+ partir à la première clarté. La nuit, la fumée descend dans les creux et s'y accumule, puis elle se lève
+ le jour : son odeur ne dit pas à elle seule que le feu approche. Les enfants finissent la nuit dans la
+ pièce la mieux fermée.
+12. **Habiller les enfants et les attacher dans l'auto** : pantalons et manches longues de coton ou de
+ laine, bottes ou souliers fermés. Un adulte reste avec eux, les vitres fermées.
+13. **Pendant ce temps, l'autre adulte ferme le bâtiment.** Fermer les portes et les fenêtres. Décrocher
+ les rideaux et les stores, enlever les rideaux légers, et tirer ce qui brûle bien au milieu des pièces,
+ loin des vitres : la chaleur du feu traverse la vitre et allume ce qui est derrière, et personne ne sera
+ là pour l'éteindre. Fermer le propane à la bouteille. Au chalet, fermer la clé d'air du poêle, vider le
+ cendrier dans son contenant de métal et sortir le contenant loin du bâtiment. Un adulte seul installe
+ d'abord les enfants, puis ferme le bâtiment.
+14. **S'il reste du temps, arroser le toit, le pourtour et le bas des murs, puis fermer l'eau.** Au
+ chalet, mouiller aussi la mousse, l'humus et la cladonie autour du bâtiment : les braises y prennent, et
+ ce tapis garde l'eau moins longtemps qu'un bardeau. Un boyau laissé ouvert vide la pression de
+ l'aqueduc ; le baril en hauteur, lui, peut couler pendant qu'on est parti (section 9).
+15. **En sortant, une fois l'arrosage fini, couper le courant au disjoncteur principal** : un panneau sous
+ tension dans une maison brûlée et mouillée blesse la personne qui revient. Afficher sur la porte que le
+ bâtiment est vide : une feuille sous plastique, écrite au marqueur, PARTIS, les noms, le nombre de
+ personnes, la date, l'heure, la destination et le chemin pris (ch. 2, étape 9). Au chalet, en laisser une
+ deuxième à l'intérieur de la porte.
+16. **Prévenir par écrit** : un message texte ou un courriel qui dit où on va. Un texte passe sur un
+ signal faible et réessaie tout seul ; un appel a besoin que la ligne tienne aux deux bouts, et il ne
+ passe pas quand la tour est saturée.
+17. **Fermer les vitres, mettre l'air en recirculation, allumer les phares, et rouler loin du feu, jamais
+ vers lui.** Rouler lentement : sur un chemin forestier, le danger vient de ce qui est tombé dessus depuis
+ le dernier passage (section 9 : l'arbre en travers, le ponceau). Si la fumée cache la route près du feu,
+ faire demi-tour ; si le chemin est fermé derrière aussi, passer à l'étape 18.
 
-### C. Quand un feu est déclaré dans le secteur
+### Pris par le feu {.orange 1 min}
 
-1. **Localiser le feu et le vent, pas seulement le feu.** Un feu à 15 km sous le vent est plus
- près qu'un feu à 5 km de côté. La colonne de fumée dit les deux (section 9).
-2. **Faire le plein maintenant**, et le refaire chaque fois qu'il descend sous la moitié. Le
- carburant se budgète pour l'aller **et** le retour, au moins deux fois le besoin de l'aller
- (ch. 15).
-3. **Sortir les sacs et les papiers du bâtiment**, dans le véhicule. Un sac fait mais resté à
- l'intérieur ne compte pas.
-4. **Faire les gestes de la section 5A qui se font encore en une heure** : vider les gouttières,
- tirer la corde de bois de service à 10 m, ramasser ce qui traîne dans la zone immédiate,
- rentrer ou éloigner les chaises de galerie et les bâches.
-5. **Fixer l'heure du prochain contact avec quelqu'un à l'extérieur, avant de raccrocher**
- (ch. 14). Un silence non planifié ne déclenche rien.
-6. **Décider qui prend quel enfant** et ne plus en changer, comme pour l'évacuation d'un bâtiment
- (ch. 82). On ne répartit pas des enfants dans la fumée.
-7. **Reprendre la décision de rester ou de partir** avec la procédure du chapitre 2, au minimum
- deux fois par jour, et chaque fois que le vent tourne. Une décision qui n'a pas été reprise
- depuis douze heures est une décision périmée qui a l'air valide.
+Le chemin est fermé ou la fumée le cache, et le feu arrive.
 
-### D. Le déclencheur de départ
+18. **En auto, s'arrêter là où rien ne brûle autour** : une gravière, un champ, un brûlis, un grand
+ stationnement, ou derrière un gros rocher, loin des arbres, des broussailles et des autres autos. Garer
+ l'auto le devant tourné vers le feu. Laisser les phares et les feux d'urgence allumés, fermer les vitres
+ et les entrées d'air, et couper le moteur quand le feu est proche.
+19. **Rester dans l'auto, tout le monde couché au plancher, sous le niveau des vitres et sous une
+ couverture de laine sèche.** Mettre un linge sur le nez et la bouche. Boire de l'eau, même sans soif.
+20. **Quand le front est passé, rester sous la couverture jusqu'à ce que l'air refroidisse.** Sortir la
+ main : si l'air chauffe la peau comme un gros coup de soleil, c'est trop tôt. Ensuite, sortir de l'auto,
+ toujours sous la laine, et marcher vers le terrain déjà brûlé.
+21. **Au bâtiment, rester à l'intérieur pendant le passage du front.** Avant qu'il arrive : remplir les
+ éviers, le bain et les chaudières d'eau froide ; arrêter le climatiseur et l'échangeur d'air, qui
+ aspirent les braises ; fermer les rideaux, parce que la chaleur traverse les vitres ; habiller tout le
+ monde de coton ou de laine, avec des bottes ; boire.
+22. **Se tenir dans une pièce qui a deux sorties vers l'extérieur** (deux portes, ou une porte et une
+ fenêtre), loin des vitres, et regarder dehors souvent. Pas au sous-sol, ni dans une pièce sans sortie. La
+ pièce d'air propre de l'étape 35 sert contre la fumée, pas pendant le passage du front.
+23. **Éteindre les braises qui entrent ou qui prennent** : au grenier, sous la galerie, au pied des murs,
+ avec l'eau mise de côté. Si le bâtiment prend feu, fermer la porte de la pièce qui brûle, s'en éloigner
+ en fermant les portes derrière soi et rester bas. Sortir sous la laine vers le terrain brûlé dès que le
+ dehors est moins dangereux que le dedans.
+24. **À pied, s'éloigner des arbres vers un endroit où rien ne brûle** : une gravière, un banc de sable,
+ une grève, un lit de rivière large, un brûlis refroidi, un lac. Il faut pouvoir se tenir à 100 m au moins
+ de tout arbre debout : la chaleur du front brûle la peau à cette distance. Sinon, se mettre derrière un
+ gros rocher. Se coucher face contre terre, la peau couverte de laine ou de coton.
+25. **Au lac, rester au bord et se remouiller souvent, les enfants dans les bras, plutôt que de rester
+ dans l'eau.** L'eau protège de la chaleur, mais elle refroidit un enfant plus vite qu'un adulte, jusqu'à
+ l'hypothermie (ch. 25, ch. 39).
+26. **Après le passage du front, éteindre ce qui reste.** Les braises continuent de tomber et d'allumer
+ des départs de feu pendant des heures. Les 200 L d'eau, le râteau et la pelle servent maintenant :
+ gratter jusqu'au sol minéral, retourner, noyer ou couvrir de terre. Chercher les points chauds[^1] du dos
+ de la main (section 9).
 
-C'est la section la plus importante du chapitre, et elle se décide à froid, en mai, pas le jour
-du feu.
+### Tant que le feu est dans le secteur
 
-**Pourquoi partir tard est pire que partir tôt, et pas seulement moins bien.** Partir tôt coûte
-un dérangement : quelques jours ailleurs, du carburant, un séjour raccourci. Partir tard ne coûte
-pas un dérangement plus grand — ça change de nature. La fumée retire la visibilité sur le chemin
-avant que le feu n'y touche ; un chemin unique bloqué par un arbre versé ou un ponceau brûlé ne
-se contourne pas ; et une fois engagé sur un chemin forestier étroit bordé de résineux, un
-véhicule qui ne peut plus avancer ne peut plus reculer non plus. **Le départ n'échoue pas
-graduellement. Il réussit ou il devient un piège.** C'est pour ça que le seuil ne se négocie pas
-au moment où il est atteint : à ce moment-là, la personne qui décide est celle qui a le plus
-envie de rester.
+27. **Reprendre la décision de rester ou de partir deux fois par jour, et chaque fois que le vent tourne**
+ (ch. 2), avec la radio et la colonne de fumée. Une décision qui n'a pas été reprise depuis douze heures
+ ne vaut plus.
+28. **Partir le matin, avant 10 h si on a le choix.** D'habitude, un feu ralentit la nuit, quand l'air
+ refroidit et que l'humidité remonte, puis il reprend de la force pendant la journée. Le matin, le feu est
+ plus calme et on voit la route ; la nuit, les phares éclairent la fumée (section 9).
+29. **La nuit, laisser les chaussures et les vêtements au pied du lit et les clés dans l'auto, et garder
+ un adulte éveillé.** Après une sécheresse, un grand feu peut brûler la nuit entière : en Amérique du
+ Nord, un grand feu sur cinq a brûlé au moins une nuit complète. Les adultes veillent à tour de rôle.
+30. **Ne pas faire de dernier voyage.** Le deuxième chargement se fait pendant que le chemin se ferme.
 
-**Les deux déclencheurs qui ne se discutent pas.** Écrits d'avance sur la porte du chalet et
-sur la porte du frigo à la maison.
+### La fumée, à la maison et au chalet
 
-1. **Le deuxième itinéraire vient de disparaître.** Dès qu'il ne reste plus qu'un seul chemin
- praticable — fermeture, fumée, arbre en travers —, on part sur
- celui qui reste, tout de suite. Un chemin unique n'est pas une sortie, c'est une chance.
-2. **La fumée devient assez dense pour qu'on la sente à l'intérieur, portes et fenêtres
- fermées.** Au chalet, ce seuil-là est aussi le seuil médical des enfants (section 5H), parce
- qu'il n'existe aucun moyen d'y fabriquer de l'air propre.
+31. **À la maison, fermer les portes et les fenêtres dès que les particules fines dépassent 30 µg/m³** (un
+ capteur le mesure ; sans capteur, étape 36).
+32. **Laisser marcher le climatiseur, qui ne fait pas entrer l'air du dehors, et mettre l'échangeur d'air
+ en recirculation** (sauf quand le front arrive, étape 21). Faire tourner le purificateur à filtre HEPA
+ dans la chambre des enfants, porte fermée : une seule pièce bien tenue vaut mieux qu'une maison entière
+ mal tenue. Ne rien brûler dans la maison pendant l'épisode : ni poêle à bois, ni chandelle, ni friture.
+33. **Régler les sorties des enfants sur les particules fines.** Les enfants de 5 ans et moins sont parmi
+ les plus sensibles. À partir de 30 µg/m³, ils jouent dehors sans s'essouffler ; à partir de 100, ils ne
+ font plus d'effort dehors ; au-dessus de 250, tout le monde reste à l'intérieur.
+34. **Quand la maison devient trop chaude, la chaleur passe avant la fumée.** Dans la pièce des enfants,
+ le risque monte au-dessus de 26 °C et devient dangereux au-dessus de 31 °C : ouvrir les fenêtres, même
+ s'il entre de la fumée. Au-dessus de 35 °C, un ventilateur ne refroidit plus le corps, il souffle de
+ l'air chaud. Si on ne peut ni rafraîchir la pièce ni ouvrir, on part vers un air plus frais et plus
+ propre.
+35. **Au chalet, l'été, faire une pièce d'air propre pour les enfants** avec un ventilateur et un filtre
+ (section 9). Au printemps et à l'automne, quand le poêle chauffe, on ne peut pas fermer le chalet et le
+ chauffer en même temps (ch. 2) : la fumée qui se sent dans le chalet devient un seuil de départ
+ (étape 6).
+36. **Sans capteur, juger la fumée à la distance qu'on voit**, sur un repère sombre dont on connaît la
+ distance, comme une rive boisée ou une montagne. Si on ne voit plus un repère à 16 km, les jeunes enfants
+ évitent de jouer dehors ; à moins de 8 km, ils restent dans la pièce d'air propre, ou on part. Le repère
+ ne vaut qu'en plein jour, loin du lever et du coucher du soleil, et quand l'air est sec : moins de 65 %
+ d'humidité à l'hygromètre, pas de brume.
+37. **Surveiller les enfants, qui ne disent pas bien ce qu'ils ressentent** (ch. 39, ch. 40). Les signes
+ légers : les yeux qui piquent, le nez bouché ou qui coule, une petite toux, le mal de gorge, le mal de
+ tête. Les signes graves : une grosse toux, le souffle court, une respiration sifflante, des
+ étourdissements, le cœur qui bat vite ou irrégulièrement, une douleur à la poitrine. Aux signes graves,
+ sortir l'enfant de l'air chargé, et du secteur s'il le faut (section 7).
 
-**Le troisième déclencheur, celui que la famille écrit elle-même.** Il n'existe pas de distance
-ni de délai qui vaillent pour tous les feux : le vent, la pente et le chemin décident. Ce seuil
-est donc familial, et il s'écrit en unités qui se vérifient
-sans jugement : un temps de trajet, un nombre de chemins, une heure de la journée. Par exemple — et seulement comme forme, les chiffres sont à remplir par JP :
+### Après le feu
 
-> Nous partons du chalet si le feu actif le plus proche sous le vent est à moins de ___ km,
-> **ou** si la sortie prend plus de ___ minutes de plus que sa durée normale, **ou** s'il reste
-> moins de ___ heures de clarté et que le feu a grossi depuis la veille. Personne ne renégocie
-> ces chiffres après le début de l'événement.
+38. **Rentrer de jour, et plutôt tard que tôt.** Le feu est passé, mais il laisse des ponceaux brûlés par
+ en dessous, des chicots qui tombent au premier vent et des points chauds dans l'humus qui reprennent le
+ soir. En rentrant une heure avant la noirceur, on trouve tout ça sans lumière.
+39. **Faire le tour à pied avant d'entrer** : chercher les fils électriques au sol, l'odeur de gaz, les
+ gros débris et les points chauds. Ne jamais marcher vers un fil tombé : il met le sol sous tension autour
+ de lui, et l'écart de tension entre les deux pieds suffit à tuer. Si on est déjà près d'un fil, s'en
+ éloigner à très petits pas, en traînant les pieds sans les lever, ou à petits sauts, les pieds joints.
+40. **Ne pas travailler ni stationner sous un arbre brûlé.** Un tronc brûlé à la base tient debout
+ jusqu'au premier vent, des jours ou des semaines après le feu. Un chicot brûlé, un arbre encroué ou un
+ arbre sous tension se tire au treuil, au levier ou au câble, à distance et hors de l'axe de chute
+ (section 9 ; ch. 106, ch. 109).
+41. **Se méfier des pentes et des talus.** Le feu a brûlé l'humus et les racines fines qui tenaient le
+ sol : les ornières, les bords de chemin et les talus cèdent à la première grosse pluie, qui charrie aussi
+ la cendre dans les ruisseaux.
+42. **Juger l'eau avant de la boire.** Une eau de pluie, de neige ou de surface recueillie sous le vent du
+ feu porte des suies, qui ne partent ni à l'ébullition ni à l'eau de Javel. Un puits de surface et une
+ prise d'eau dans un lac au bassin brûlé se traitent comme une eau trouble (ch. 10).
+43. **Jeter tous les aliments qui sentent la fumée, la nourriture des animaux aussi.** Les conserves et
+ les contenants hermétiques se gardent : les laver avant de les ouvrir. Après plus de 6 h sans courant,
+ vérifier les aliments avant de les manger ; le congélateur suit le ch. 74.
+44. **Aérer plusieurs heures, fenêtres ouvertes**, une fois que l'air du dehors est meilleur que celui de
+ la maison.
+45. **Le soir du retour, sans courant, laisser la génératrice dehors** et tester l'avertisseur de CO avant
+ de dormir (section 8, point 5).
+46. **Refaire la zone défendable avant le reste.** Un brûlis laisse des milliers de tiges mortes debout
+ et, deux ou trois ans plus tard, une repousse de feuillus serrée (ch. 42). Rétablir d'abord les 1,5 m
+ autour des murs, puis les 10 m, et les 3 m autour du propane (étapes 49 à 56).
 
-**Trois règles de procédure qui valent autant que les chiffres.**
+### Avant la saison : le seuil de départ
 
-- **Une personne tranche.** Deux adultes mesurent, un seul décide (ch. 2).
-- **On part de jour.** Sur un chemin forestier, la nuit et la fumée s'additionnent : les phares
- éclairent la fumée et pas la route. Un départ de nuit dans la fumée est le scénario que toute
- la section cherche à éviter.
-- **On ne fait pas un dernier voyage.** Le deuxième chargement est celui qui se fait pendant que
- la fenêtre se ferme.
+47. **Écrire le seuil de la famille sur la porte du chalet et sur celle du frigo, en mai, avant la
+ saison.** Aucune distance ni aucun délai ne vaut pour tous les feux : le vent, la pente et le chemin
+ décident. Le seuil s'écrit donc en mesures qu'on vérifie sans débattre : une distance, un temps de
+ trajet, une heure de la journée. La famille remplit les blancs :
 
-### E. Partir — la maison
+ > Nous partons du chalet si le feu le plus proche est à moins de ___ km et que le vent souffle de lui
+ > vers nous, **ou** si la sortie prend ___ minutes de plus que d'habitude, **ou** s'il reste moins de ___
+ > heures de clarté et que le feu a grossi depuis la veille. Personne ne change ces chiffres une fois le
+ > feu déclaré.
 
-1. Habiller et installer les enfants en premier, avec un change complet chacun dans un sac
- séparé (ch. 2).
-2. Trousse, médicaments, papiers. Les animaux partent avec la
- famille si c'est possible, sans mettre la sécurité de personne en jeu.
-3. **Prévenir par écrit, pas par la voix.** Message texte, courriel ou publication pour dire où
- l'on se réfugie : un texte part par morceaux, tolère un
- signal faible et retente tout seul jusqu'à ce qu'il passe ; un appel exige que les deux bouts
- tiennent en même temps. Sous une tour saturée, le texte passe et l'appel ne passe pas.
-4. **Arroser abondamment le terrain et le toit**, puis partir. Pas l'inverse, et pas
- pendant des heures : c'est un geste de dix ou quinze minutes qui achète du délai contre les
- braises, pas une défense.
-5. «Fermez les portes et les fenêtres, et verrouillez les portes de votre maison avant de
- partir ». Fenêtres fermées. Rideaux et stores qui brûlent **décrochés**, rideaux légers
- enlevés, et ce qui brûle bien tiré au milieu des pièces, loin des fenêtres et des portes : ce
- qui met le feu à une pièce à travers une vitre est le rayonnement, et un rideau contre la
- fenêtre est le premier combustible qu'il trouve.
-6. **Fermer le gaz à la bouteille et couper l'entrée électrique au disjoncteur principal.** Une
- conduite de propane qui alimente un bâtiment en feu l'alimente jusqu'au bout, et un panneau
- sous tension dans une maison brûlée et mouillée est ce qui blesse la personne qui revient.
-7. Marquer le bâtiment comme vide, pour que personne n'y entre à risque : grand X de ruban rouge
- ou réfléchissant sur la porte principale (ch. 2).
-8. Fenêtres du véhicule fermées et **air en recirculation** pendant tout le trajet.
- Ne pas laisser tourner le moteur à l'arrêt dans la fumée.
+ Le seuil du chalet passe avant celui de la maison : la sortie est plus longue, plus fragile, et elle n'a
+ pas de rechange. Il se décide en mai parce que, le jour du feu, on a envie de rester. Partir trop tôt
+ coûte quelques jours ailleurs et du carburant ; partir trop tard peut piéger la famille sur le chemin
+ (section 8, point 2).
+48. **Rouler les deux chemins de sortie chaque année, montre en main**, et élargir le tournant où une auto
+ avec une remorque doit faire demi-tour.
 
-### F. Partir — le chalet
+### Avant : la zone défendable, sur des années
 
-Les gestes 1 à 3 et 8 de la section E sont les mêmes. Ce qui change :
+Ce travail vaut pour les deux lieux. Il se fait hors de la saison de feu, parce qu'il laisse lui-même des
+tas de branches sèches.
 
-1. **Partir plus tôt, d'un cran.** Le déclencheur du chalet est en avance sur celui de la maison,
- parce que la sortie est plus longue, plus fragile et non redondante.
-2. **Sortir l'eau et la nourriture du calcul.** Le chalet garde le stock permanent (ch. 5) ;
- l'évacuation emporte les trois jours et les papiers, pas la réserve. Une heure passée à charger
- des conserves est une heure prise à la fenêtre de sortie.
-3. **Prendre le carburant avec soi.** Les bidons restent hors du bâtiment toute l'année (ch. 82,
- ch. 15), et ils partent dans le véhicule : ils ne servent à rien dans un hangar qui brûle, et
- ils y nuisent beaucoup.
-4. **Éloigner la bouteille de propane du bâtiment si le temps le permet** — c'est déjà la consigne
- pendant un incendie de bâtiment — et si le temps ne le permet pas, on la laisse et on s'éloigne,
- soi. Le dégagement de 3 m de végétation autour du réservoir est ce qui remplace ce
- geste quand il n'y a plus le temps.
-5. **Fermer la clé d'air du poêle, vider le cendrier dans son contenant métallique**, et sortir le
- contenant loin du bâtiment. Un chalet vide avec des cendres tièdes à l'intérieur est un
- deuxième départ de feu qui attend.
-6. **Arroser le pourtour, pas le toit seul.** Au chalet, ce qui reçoit les braises est aussi la
- mousse, l'humus et le tapis de cladonie autour du bâtiment, et ils tiennent l'eau moins
- longtemps qu'un bardeau.
-7. **Écrire un mot daté, en double** — un à l'intérieur de la porte, un à l'extérieur sous
- plastique : date, heure de départ, nombre de personnes, destination, itinéraire, itinéraire de
- rechange (ch. 2). Hors réseau, c'est la seule façon de dire à quelqu'un où chercher.
-8. **Rouler avec les phares allumés et lentement dans la fumée**, en sachant que le danger du
- chemin forestier n'est pas le feu mais ce qui est tombé dessus depuis le dernier passage.
+49. **Du mur à 1,5 m, rien qui brûle** : du gravier ou le sol minéral, pas de paillis, pas de haie contre
+ le mur, pas de bois cordé contre le revêtement, aucun arbre ni arbuste ligneux.
+50. **Vider les gouttières, les noues du toit et le dessous des galeries**, au printemps et à l'automne.
+ Une gouttière pleine d'aiguilles d'épinette noire fait un allume-feu tout le tour du toit, et c'est par
+ les braises que la plupart des bâtiments prennent feu (section 8, point 3). Ça prend une demi-journée.
+51. **Débarrasser le toit et le revêtement** de tout débris qui brûle.
+52. **Ne rien ranger sous une galerie** : ni bois, ni bouteille de propane. Le dessous d'une galerie est à
+ l'ombre, plein de feuilles et ouvert à l'air : une braise y prend et le feu part sous le plancher, hors
+ de vue. Le fermer une fois pour toutes avec ce qui ne brûle pas (section 9).
+53. **De 1,5 à 10 m, sortir ce qui brûle** : pas de corde de bois, pas de paillis, pas de débris de bois.
+ Les remorques, les roulottes et les remises vont au-delà de 10 m.
+54. **Mettre le bois de chauffage, les matériaux et la bouteille de propane à plus de 10 m de tout
+ bâtiment**, et dégager 3 m de végétation autour du propane. Au chalet, la corde de bois est presque
+ toujours à deux pas de la porte, parce que c'est pratique en janvier : faire deux tas, un petit tas de
+ service près de la porte, qu'on éloigne quand un feu est déclaré (étape 8), et le reste à plus de 10 m.
+55. **De 10 à 30 m, éclaircir et élaguer** : espacer les conifères pour laisser au moins 3 m entre les
+ cimes, et couper les branches jusqu'à 2 m du sol (ch. 106). Le feu qui arrive y perd de sa force.
+56. **Ramasser chaque année ce qui tombe** : les branches mortes, l'herbe sèche, les aiguilles. Une zone
+ éclaircie qu'on n'entretient pas redevient du combustible en quelques années.
 
-### G. L'eau : ce qui marche et ce qui est du théâtre
+### Chaque jour de la saison de feu
 
-**Ce qui marche.**
+57. **Toucher le combustible du pied** (section 9). Quand les signes de sécheresse sont réunis :
+ - plus aucun travail qui fait des étincelles, ni meulage, ni soudure, ni débroussailleuse (ch. 107) ;
+ - refaire le plein chaque jour, et garder l'auto chargée et tournée vers le chemin (étapes 2 et 3) ;
+ - un des deux adultes reste toujours au chalet, près de l'auto ;
+ - faire du feu seulement dans un foyer muni d'un pare-étincelles.
+58. **Regarder l'horizon chaque jour**, pour y voir une colonne de fumée, et noter le côté d'où vient le
+ vent (section 9). Une colonne en vue : étape 1.
 
-- Une réserve de 200 L ou un boyau à proximité, pour «éteindre rapidement un début d'incendie ». C'est la bonne échelle : une braise qui vient d'allumer un coin de galerie, pas un
- front.
-- Mouiller le pourtour et le toit **au moment de partir**. L'eau achète le temps que met la
- surface à sécher, et ce temps-là recouvre souvent le passage des premières braises.
-- Mouiller ce qui est fin et sec : mousse, humus, cladonie, paillis résiduel, bas de mur. Ce sont
- les endroits où une braise prend.
-- À la maison, l'aqueduc ne dépend pas de l'électricité du bâtiment. C'est un avantage réel du
- village et il vaut la peine d'être nommé.
-
-**Ce qui est du théâtre.**
-
-- Arroser la forêt. Le rayonnement d'un front sèche en quelques minutes ce qu'un boyau met une
- heure à mouiller.
-- Compter sur une pompe pendant le passage du feu. Une pompe à essence demande quelqu'un pour la
- démarrer, la réamorcer et la surveiller — et cette personne est précisément la ressource qu'on
- est en train de dépenser. Au chalet, elle demande en plus du carburant et un poste d'aspiration
- qui reste accessible.
-- Compter sur le puits pendant une panne. La pompe s'arrête avec le courant, c'est-à-dire au
- moment exact où on en a besoin. C'est toute la raison d'être des 200 L en réserve : ils ne
- dépendent de rien.
-
-### H. La fumée, et les deux enfants
-
-**À la maison, sur le réseau, on peut fabriquer de l'air.**
-
-1. Fermer portes et fenêtres dès que la concentration de particules fines dépasse **30 µg/m³**.
-2. Garder le climatiseur en marche : il n'introduit pas d'air extérieur. Mettre
- l'échangeur d'air en **recirculation**.
-3. Faire fonctionner les purificateurs à filtre **HEPA** dans les pièces occupées. Une
- seule pièce bien tenue vaut mieux qu'une maison entière mal tenue : c'est la chambre où les
- enfants dorment.
-4. Ne pas ajouter de fumée à la fumée : pas de poêle à bois, pas de chandelle, pas de friture
- pendant un épisode.
-5. Repères chiffrés pour décider des sorties : les seuils de particules associés à des
- recommandations sont 30, 60, 100 et 250 µg/m³ ; au-delà de 250, on «planifie des activités à
- l'intérieur ».
-6. **L'exception qui surprend : la chaleur passe avant la fumée.** «S'il fait trop chaud à
- l'intérieur, vous pouvez ouvrir les fenêtres puisque la chaleur est généralement plus
- dommageable pour la santé que la mauvaise qualité de l'air ». La saison de feu
- est la saison chaude : une maison scellée à 35 °C avec deux jeunes enfants est un problème plus
- grave que l'air qui entrerait par la fenêtre.
-
-**Au chalet, on ne peut pas.** Il n'y a ni échangeur d'air, ni climatiseur, ni purificateur, et
-le bâtiment n'est pas étanche. Au printemps et à l'automne, le poêle tire en plus son air de
-combustion de la pièce ou d'une prise extérieure : fermer et chauffer en même temps est
-impossible (ch. 2). Il n'existe donc pas d'air propre pour un enfant de 4 ans dans un chalet sous
-une fumée dense, et aucun masque n'existe à sa taille. **La fumée est un déclencheur
-de départ pour les enfants avant d'en être un pour les adultes**, et c'est l'un des rares
-endroits du livre où l'enfant décide pour la maisonnée.
-
-**Ce qu'on surveille chez les enfants**, sachant qu'ils ne signalent pas leur état de façon
-fiable (ch. 39, ch. 40). Léger : «picotement des yeux ; congestion ; écoulement nasal ; toux
-légère ; mal de gorge ; mal de tête ». Sévère, et l'enfant sort de l'air chargé, du secteur au
-besoin (section 7) : «toux importante ;
-essoufflement ; respiration sifflante ; étourdissements ; palpitations cardiaques ; douleurs à la
-poitrine ».
-
-### I. Si on ne peut pas partir
-
-Le point de départ est honnête : **ne pas pouvoir partir est presque toujours le résultat d'une
-décision prise plusieurs heures plus tôt.** Il n'y a pas de manœuvre qui rattrape ça, il y a
-seulement des choix moins mauvais.
-
-1. **Le véhicule est un moyen de sortir, pas un abri qu'on choisit.** Mais si le feu le
- rattrape, on n'en sort pas pour courir : on s'arrête là où rien ne brûle autour, vitres et
- ventilation fermées, couverture ou manteau de laine sur le corps, couché au plancher.
-2. **Pris au bâtiment, on reste dedans** : éviers, baignoire et chaudières pleins d'eau froide,
- tout le monde à l'intérieur, loin des murs extérieurs et des fenêtres.
-3. **Le seul principe qui tient : là où il n'y a rien à brûler, il n'y a pas de feu.** Une
- gravière, un banc de sable, une grève, un lit de rivière large, une coupe rase ancienne, un
- grand brûlis déjà froid, un lac. Ces endroits se repèrent sur la carte du territoire une fois
- pour toutes, avec les accès et les sorties (ch. 42), et pas pendant que ça brûle. La taille
- compte plus que la nature : un petit dégagement entouré d'épinettes en cimes n'est pas un
- refuge.
-4. **L'eau protège du feu et attaque par le froid.** Un lac boréal est à 4 °C une bonne partie de
- l'année (ch. 10) et l'hypothermie s'installe sous 35 °C de température centrale (ch. 25). Avec
- un enfant de 4 ans, l'immersion prolongée n'est pas une solution : se mouiller, rester au bord,
- se remouiller.
-5. **Laine ou coton épais, jamais de synthétique près de la peau.** Le mécanisme : une fibre
- synthétique prend feu vite et fond, et c'est la matière fondue qui fait les brûlures graves ; la
- laine s'éteint d'elle-même hors de la flamme, le coton brûle sans fondre.
-6. **Après le passage du front, le travail commence.** Le front passe vite ; les départs de feu
- sur le bâtiment et autour durent des heures. C'est là que 200 L d'eau et un râteau servent
- vraiment, et c'est la seule phase où rester change réellement quelque chose au sort du
- bâtiment.
-
-**Ce qu'on perd, nommé.** Rester pour défendre un chalet avec deux enfants de 4 et 6 ans n'est
-pas une option : la personne qui défend ne peut pas surveiller, et l'enfant devient le premier à
-souffrir de la fumée. Rester seul, sans eau sous pression, sans vêtement de protection et sans
-deuxième sortie, ajoute très peu aux chances du bâtiment et ajoute tout au risque pour la
-personne. On perd aussi le soin : une brûlure étendue ou une inhalation de fumée dépasse ce qu'on
-traite au chalet, et le transport est précisément ce qui n'est plus possible (ch. 26, ch. 35).
-
-### J. Après
-
-1. **Rentrer de jour, et rentrer tard plutôt que tôt.** Ce qui rend un retour dangereux n'est pas
- le feu, qui est passé : c'est ce qu'il a laissé debout et ce qu'il a laissé couver. Un ponceau
- brûlé sous un chemin qu'on vient de parcourir à l'aller, un chicot qui attend le premier vent,
- un point chaud[^1] dans l'humus qui ressort à la brunante. Rentrer une heure avant la noirceur,
- c'est découvrir tout ça sans lumière.
-2. **Faire le tour à pied avant d'entrer.** «Marchez autour de votre maison pour repérer tout
- élément problématique (ex. : fils électriques au sol, odeurs de gaz naturel, débris importants,
- points chauds pouvant s'embraser) ». Un fil tombé au sol n'a l'air de rien et
- n'étincelle pas : il met le sol sous tension tout autour de lui, et c'est la différence de
- tension entre les deux pieds qui tue. On ne marche pas vers un fil tombé, et si on se trouve
- déjà près d'un, on s'en éloigne à petits pas traînés, les deux pieds qui se touchent, sans
- jamais faire une enjambée.
-3. **Les arbres tombent encore, des jours et des semaines après.** Un tronc brûlé à la base tient
- debout jusqu'au premier vent. Un chicot brûlé, un arbre encroué et un arbre sous tension ne se
- coupent pas à la scie seule : c'est le treuil, le levier ou le câble, à distance et hors de
- l'axe de chute (ch. 106, ch. 109). Le charbon bourre la chaîne et l'arrête, et un tronc brûlé se
- rompt sans prévenir au lieu de fendre — la charnière qu'on laisse en abattage normal ne tient
- plus.
-4. **Le sol bouge.** Un feu brûle l'humus et les racines fines qui tenaient la pente et la
- couverture. Les ornières, les bords de chemin et les talus deviennent instables, et la première
- pluie forte les emporte. C'est aussi ce qui remplit les ruisseaux de cendre et de sédiment.
-5. **L'eau se juge avant de se boire.** «Vérifiez si votre eau est potable », et
- personne ne le fera à la place de JP. Le cas est déjà nommé au chapitre 10 : une eau de
- pluie, de neige ou de surface recueillie sous le vent d'un feu porte des suies, et «les suies
- ne s'enlèvent ni à l'ébullition ni à la javel ». Un puits de surface et une prise d'eau de lac
- dans un bassin brûlé se traitent comme une eau trouble, pas comme une eau claire (ch. 10).
-6. **Les aliments.** «Il faut jeter tous les aliments qui présentent une odeur de fumée, y
- compris les aliments pour animaux » ; les non périssables hermétiques se gardent, mais «les
- contenants doivent être soigneusement nettoyés avant qu'on les ouvre » ; et «après une coupure
- de courant de plus de 6 h, assurez-vous de la qualité de vos aliments avant de les consommer ». Le congélateur suit le chapitre 74, pas ce chapitre-ci.
-7. **Ventiler.** «Ventilez les pièces adéquatement durant plusieurs heures pour éliminer les
- odeurs en ouvrant les fenêtres » — une fois l'air extérieur redevenu meilleur que
- l'air intérieur, pas avant.
-8. **Le courant revient avant les services.** C'est ici que le rappel de la section 8 devient
- concret : quelqu'un qui rentre dans une maison sans électricité, un soir, avec deux enfants
- fatigués, est le candidat exact à l'intoxication au monoxyde de carbone.
-9. **Refaire la zone défendable avant de refaire le reste.** Un brûlis laisse des milliers de
- tiges mortes debout et, deux ou trois ans plus tard, une repousse feuillue dense (ch. 42). Les
- 10 m, les 3 m et les 1,5 m se rétablissent d'abord.
-
-[^1]: Une braise qui couve enfouie dans l'humus épais, et qui ne se voit pas toujours : ni flamme,
-ni fumée à coup sûr. Elle se trouve à la chaleur, pas à l'œil : la main passée au ras du sol et
-glissée sous la surface, prudemment, puisqu'on cherche ce qu'on ne voit pas (section 9).
+[^1]: Une braise qui couve enfouie dans l'humus épais, et qui ne se voit pas toujours : ni flamme, ni
+fumée à coup sûr. Elle se trouve à la chaleur, pas à l'œil : la main passée au ras du sol et glissée sous
+la surface, prudemment, puisqu'on cherche ce qu'on ne voit pas (section 9).
 
 ---
 
@@ -404,25 +313,25 @@ glissée sous la surface, prudemment, puisqu'on cherche ce qu'on ne voit pas (se
 
 | Moment | Ce qu'on vérifie | Cible chiffrée | Si c'est hors cible |
 | --- | --- | --- | --- |
-| Chaque jour de la saison de feu | Combustible au pied : le faisceau de la section 9 | Faisceau non réuni | Réuni : plus de travaux à étincelles, sacs faits (5B) |
-| Chaque jour de la saison de feu | Colonne de fumée à l'horizon | Aucune | Colonne visible : passer au régime de la section 5C |
-| Chaque jour, feu déclaré dans le secteur | Direction et force du vent par rapport au feu | Feu non sous le vent | Sous le vent : passer au régime de la section 5C, quelle que soit la distance |
-| Chaque semaine de la saison | Niveau de la réserve d'eau près du bâtiment | **≥ 200 L** | Remplir le jour même |
-| Chaque semaine de la saison | Carburant du véhicule | Plein, et au moins **2 ×** le besoin de l'aller (ch. 15) | Faire le plein avant toute autre tâche |
-| Chaque printemps | Zone immédiate, 0 à 1,5 m | Incombustible, jusqu'au sol minéral | Dégager avant la saison de feu |
-| Chaque printemps et chaque automne | Gouttières, noues, dessous de galerie | Aucune aiguille, aucune feuille | Vider. C'est le geste au meilleur rendement du chapitre |
-| Chaque printemps | Bois de chauffage, matériaux, propane | **> 10 m** de tout bâtiment | Déplacer. Garder un seul petit tas de service |
+| Chaque jour de la saison de feu | Le combustible sous le pied (section 9) | Mousse souple, humus qui se tasse | Signes de sécheresse réunis : régime de l'étape 57 |
+| Chaque jour de la saison de feu | L'horizon | Aucune colonne de fumée | Une colonne en vue : étapes 1 à 10 |
+| Chaque jour, feu dans le secteur | Le vent par rapport au feu | Le vent ne souffle pas du feu vers nous | Il souffle vers nous : étapes 1 à 10, quelle que soit la distance |
+| Chaque semaine de la saison | La réserve d'eau près du bâtiment | **200 L** au moins | La remplir le jour même |
+| Chaque semaine de la saison | Le carburant | Plein, et au moins **2 fois** ce que prend l'aller (ch. 15) | Faire le plein avant toute autre tâche |
+| Chaque printemps | Les 1,5 m autour des murs | Rien qui brûle, jusqu'au sol minéral | Dégager avant la saison |
+| Chaque printemps et chaque automne | Gouttières, noues, dessous des galeries | Aucune aiguille, aucune feuille | Vider |
+| Chaque printemps | Bois de chauffage, matériaux, propane | À plus de **10 m** de tout bâtiment | Déplacer ; garder un seul petit tas de service |
 | Chaque printemps | Végétation autour du réservoir de propane | **3 m** dégagés | Faucher et râteler |
-| Chaque année | Zone étendue, 10 à 30 m | Conifères espacés d'au moins **3 m**, branches coupées jusqu'à **2 m** du sol | Reprendre l'éclaircie. Une zone faite une fois se referme en quelques années |
-| Chaque année | Les deux itinéraires de sortie | 2 itinéraires roulés, montre en main | Un seul itinéraire praticable : le chalet n'a plus de sortie, il a une chance |
-| Chaque année | Seuil de départ | Écrit sur la porte du chalet et sur celle du frigo | Absent : l'écrire en mai, avant la saison de feu |
-| Épisode de fumée, maison | Particules fines (PM2,5) | Fermer dès **30 µg/m³** ; intérieur 250 µg/m³ et plus = activités à l'intérieur | Fermer, recirculer, HEPA dans la pièce occupée |
-| Épisode de fumée, maison | Température intérieure, fenêtres fermées | Ne pas laisser la maison devenir trop chaude | Ouvrir : «la chaleur est généralement plus dommageable pour la santé que la mauvaise qualité de l'air » |
-| Épisode de fumée, chalet | Odeur de fumée à l'intérieur, portes et fenêtres fermées | Aucune | Perçue : déclencheur de départ, section 5D |
-| Toutes les 12 h, événement en cours | Décision rester ou partir, reprise à neuf (ch. 2) | Au moins 2 fois par jour, et chaque fois que le vent tourne | Pas de nouvelle mesure : la décision d'hier ne vaut plus |
-| Au retour | Tour à pied du bâtiment avant d'entrer, de jour | Aucun fil au sol, aucune odeur de gaz, aucun point chaud | Ne pas entrer. Un fil au sol met la terre sous tension autour de lui : s'éloigner à petits pas traînés, pieds joints |
-| Au retour | Eau | Jugée avant d'être bue ; eau d'un bassin brûlé traitée comme eau trouble (ch. 10) | Ne pas boire. Traiter selon le ch. 10 |
-| Au retour | Aliments, après coupure de courant | Vigilance au-delà de **6 h** ; durées de conservation au ch. 74 | Jeter tout ce qui a une odeur de fumée, y compris la nourriture animale |
+| Chaque année | La zone de 10 à 30 m | Au moins **3 m** entre les cimes des conifères, branches coupées jusqu'à **2 m** du sol | Reprendre l'éclaircie |
+| Chaque année | Les deux chemins de sortie | Roulés tous les deux, montre en main | Un seul chemin praticable : le premier seuil de l'étape 6 est atteint dès qu'un feu est déclaré |
+| Chaque année, en mai | Le seuil de départ | Écrit sur la porte du chalet et sur celle du frigo | L'écrire avant la saison (étape 47) |
+| Épisode de fumée, maison | Les particules fines | Fermer dès **30 µg/m³** ; tout le monde à l'intérieur au-dessus de **250 µg/m³** | Fermer, recirculer, HEPA dans la chambre des enfants |
+| Épisode de fumée, maison ou chalet | La température de la pièce des enfants | Sous **26 °C** ; danger au-dessus de **31 °C** | Ouvrir, même s'il entre de la fumée (étape 34) |
+| Épisode de fumée, chalet | L'odeur de fumée à l'intérieur, portes et fenêtres fermées | Aucune, ou les enfants dans une pièce d'air propre | Seuil de départ (étape 6) ; la nuit, étape 11 |
+| Toutes les 12 h, feu dans le secteur | La décision de rester ou de partir, reprise à neuf (ch. 2) | Deux fois par jour, et chaque fois que le vent tourne | Sans mesure nouvelle, la décision de la veille ne vaut plus |
+| Au retour | Le tour à pied, de jour, avant d'entrer | Aucun fil au sol, aucune odeur de gaz, aucun point chaud | Ne pas entrer. Près d'un fil au sol : s'éloigner à très petits pas traînés (étape 39) |
+| Au retour | L'eau | Jugée avant d'être bue ; l'eau d'un bassin brûlé traitée comme une eau trouble (ch. 10) | Ne pas la boire ; la traiter (ch. 10) |
+| Au retour | Les aliments, après une coupure de courant | Vérifiés au-delà de **6 h** sans courant ; durées au ch. 74 | Jeter ce qui sent la fumée, la nourriture des animaux aussi |
 
 ---
 
@@ -430,22 +339,23 @@ glissée sous la surface, prudemment, puisqu'on cherche ce qu'on ne voit pas (se
 
 | Observation | Diagnostic | Action |
 | --- | --- | --- |
-| Cendres ou aiguilles roussies sur la galerie, soleil rouge à midi | Un feu assez gros pour porter des débris est déjà en train de souffler dans cette direction | Passer au régime de la section 5C sans attendre de voir de la fumée |
-| Odeur de fumée à l'intérieur du chalet, portes et fenêtres fermées | Le bâtiment ne sépare plus l'air intérieur de l'air extérieur, et il n'y a aucun moyen de le corriger sur place | Déclencheur de départ (5D). Ne pas attendre l'avis des adultes : c'est le seuil des enfants |
-| Le deuxième itinéraire est fermé, bloqué ou couvert de fumée | Il ne reste plus une sortie, il reste une chance | Partir maintenant, sur le chemin qui reste, de jour |
-| La sortie prend nettement plus de temps que d'habitude | La fumée ou les débris ont déjà commencé à ralentir le chemin, et ça ne se rétablit pas | Partir. Le chemin ne se rouvre pas tout seul |
-| Un adulte propose «un dernier voyage » | Le chargement a remplacé la décision ; c'est le voyage qui se fait pendant que la fenêtre se ferme | Refuser. Une personne tranche, et la décision est déjà prise |
-| Le seuil écrit sur la porte vient d'être renégocié verbalement | La personne qui décide est celle qui a envie de rester | Appliquer le chiffre écrit. C'est la seule raison pour laquelle il a été écrit à froid |
-| La corde de bois est encore contre le mur en juillet | Le geste le plus facile de la section 5A n'a pas été fait, et c'est celui qui apporte le combustible au bâtiment | Déplacer à plus de 10 m le jour même |
-| Gouttières pleines après un printemps de vent | Un allume-feu de vingt mètres est installé sur le périmètre du toit | Vider. C'est le meilleur rendement de tout le chapitre |
-| Une bouteille de propane contre un mur, sous une galerie ou dans une remise attenante | Un réservoir sous flux thermique à côté d'une paroi qui chauffe | Déplacer à plus de 10 m, dégager 3 m autour |
-| Un enfant tousse, se plaint des yeux ou devient inhabituellement tranquille pendant un épisode de fumée | Symptômes d'exposition, chez quelqu'un qui ne signalera pas lui-même son état (ch. 39) | Air intérieur filtré immédiatement ; au chalet, il n'y en a pas : c'est un départ |
-| Toux importante, essoufflement, respiration sifflante, palpitations, douleur à la poitrine | Symptômes sévères d'exposition à la fumée : l'atteinte est descendue dans les voies basses et elle ne se corrige plus en ouvrant une fenêtre | Sortir la personne de l'air chargé, au besoin la sortir du secteur. Ce qui dépasse le chalet dépasse le chalet (ch. 26, ch. 35) |
-| Une pompe à essence tourne pendant que tout le monde charge le véhicule | Un moteur à essence sans surveillance, près d'un bâtiment, dans un air chargé de fumée | Arrêter la pompe. L'arrosage est un geste du départ, pas une défense |
-| Au retour, un mur ou un plancher tiède sans flamme visible | Feu couvant, ou point chaud qui a migré sous une structure | Ne pas dormir dans le bâtiment. Arroser, surveiller, revenir de jour (ch. 82) |
-| Au retour, arbre debout mais noir sur le premier mètre | Tronc brûlé à la base, tient jusqu'au premier vent | Ne pas travailler ni stationner dessous. Treuil ou câble, pas la scie seule (ch. 106, ch. 109) |
-| Eau de puits ou de lac claire mais au goût de fumée | Suies dissoutes ou en suspension venant du bassin brûlé | Ne pas boire. «Les suies ne s'enlèvent ni à l'ébullition ni à la javel » (ch. 10) |
-| Une génératrice dans le garage «juste le temps de repartir la maison » | Production continue de monoxyde de carbone dans un volume fermé | Sortir la génératrice et tout le monde, aérer, ne pas rentrer tant que l'avertisseur sonne |
+| Cendre ou aiguilles roussies sur la galerie, soleil rouge à midi | Un feu assez gros pour porter des débris souffle déjà de ce côté | Étapes 1 à 10, sans attendre de voir la fumée |
+| Odeur de fumée dans le chalet, portes et fenêtres fermées | La fumée entre dans le chalet, et ses murs ne l'arrêtent pas | Les enfants dans la pièce d'air propre (étape 35) ; sans elle, c'est un seuil de départ (étape 6) ; la nuit, étape 11 |
+| Le deuxième chemin est fermé, bloqué ou dans la fumée | Il reste un seul chemin, sans rechange | Partir maintenant, sur le chemin qui reste (étapes 11 à 17) |
+| La sortie prend nettement plus de temps que d'habitude | La fumée ou des débris ralentissent déjà le chemin, et ça ne s'arrangera pas | Partir |
+| Un adulte propose un dernier voyage | Le chargement a pris la place de la décision | Refuser (étape 30) |
+| Le seuil écrit sur la porte est renégocié de vive voix | La personne qui décide a envie de rester | Appliquer le chiffre écrit (étape 47) |
+| La corde de bois est encore contre le mur en juillet | Le combustible le plus facile à enlever est collé au bâtiment | La déplacer à plus de 10 m le jour même |
+| Gouttières pleines après un printemps venteux | Des aiguilles sèches tout le tour du toit, là où tombent les braises | Vider |
+| Une bouteille de propane contre un mur, sous une galerie ou dans une remise attenante | Un réservoir à côté d'un mur qui va chauffer | La porter à plus de 10 m, avec 3 m dégagés autour |
+| Pas de couverture de laine dans l'auto, ou une couverture synthétique | Si le feu rattrape l'auto, rien n'arrête la chaleur sur la peau | Une couverture de laine par personne dans l'auto (étape 3) |
+| Un enfant tousse, se plaint des yeux ou devient inhabituellement tranquille pendant un épisode de fumée | Il réagit à la fumée et ne le dira pas lui-même (ch. 39) | Le mettre tout de suite dans la pièce d'air propre (étapes 32 et 35) ; au chalet, sans elle, partir |
+| Grosse toux, souffle court, respiration sifflante, cœur qui bat vite, douleur à la poitrine | La fumée a atteint le fond des poumons ; ouvrir une fenêtre n'y change plus rien | Sortir la personne de l'air chargé, et du secteur s'il le faut ; les soins sont aux ch. 26 et 35 |
+| Une pompe à essence tourne près du bâtiment pendant que tout le monde charge l'auto | Un moteur sans surveillance, près d'un bâtiment, dans la fumée | L'arrêter. On arrose avant de partir, puis on ferme l'eau (étape 14) |
+| Au retour, un mur ou un plancher tiède sans flamme visible | Feu qui couve, ou point chaud passé sous la structure | Ne pas dormir dans le bâtiment. Arroser, surveiller, revenir de jour (ch. 82) |
+| Au retour, un arbre debout mais noir sur le premier mètre | Tronc brûlé à la base, qui tient jusqu'au premier vent | Ne pas travailler ni stationner dessous ; le tirer au treuil ou au câble (étape 40) |
+| Eau de puits ou de lac claire, mais au goût de fumée | Suies venues du bassin brûlé | Ne pas la boire : les suies ne partent ni à l'ébullition ni à l'eau de Javel (ch. 10) |
+| Une génératrice dans le garage « juste le temps de repartir la maison » | Du monoxyde de carbone produit sans arrêt dans un volume fermé | La sortir, sortir tout le monde, aérer, et ne pas rentrer tant que l'avertisseur sonne |
 
 ---
 
@@ -453,233 +363,205 @@ glissée sous la surface, prudemment, puisqu'on cherche ce qu'on ne voit pas (se
 
 > ### ⚠ DANGER
 >
-> **1. La fumée agit avant les flammes, et elle ne se juge pas à l'œil.** La fumée d'un feu de
-> forêt contient du monoxyde de carbone, du dioxyde d'azote, des composés organiques volatils et
-> des particules fines ; ce sont les particules fines qui «représentent le principal risque pour
-> la santé », et elles «ne sont pas visibles à l'œil ». Le mécanisme : l'odeur et
-> la visibilité renseignent sur les grosses particules, pas sur celles qui descendent au fond des
-> poumons. «La fumée s'est levée » n'est donc pas une mesure. Chez un enfant, l'effet arrive plus
-> tôt — il respire plus vite par kilo (ch. 39) — et **il n'existe pas de masque N95 à sa taille**.
-> Un véhicule arrêté dans la fumée, moteur au ralenti, additionne le monoxyde de
-> l'air extérieur et le sien.
+> **1. La fumée agit avant les flammes, et elle ne se juge pas à l'œil.** La fumée d'un feu de forêt
+> contient du monoxyde de carbone, du dioxyde d'azote, des composés organiques volatils et des particules
+> fines. Les particules fines font le plus de tort, et on ne les voit pas : l'odeur et la visibilité
+> renseignent sur les grosses particules, pas sur celles qui descendent au fond des poumons. Une fumée qui
+> s'est levée n'est donc pas une mesure. Un enfant respire plus vite par kilo qu'un adulte (ch. 39) : il
+> est atteint plus tôt, et **il n'existe pas de masque N95 à sa taille**.
 >
-> **2. La route se coupe par la fumée, pas par le feu.** Le feu ferme un chemin en le touchant ;
-> la fumée le ferme des kilomètres à l'avance, en retirant la visibilité. S'ajoutent l'arbre brûlé à la
-> base qui verse en travers et le ponceau de bois qui brûle par en dessous. Conséquence : **sur un chemin unique, un
-> départ ne se dégrade pas graduellement, il réussit ou il devient un piège.** Un véhicule
-> immobilisé dans un chemin étroit bordé de résineux ne peut ni avancer ni reculer.
+> **2. Le chemin se ferme par la fumée avant de se fermer par le feu.** La fumée enlève la visibilité des
+> kilomètres avant le front ; un arbre tombe en travers, un ponceau brûlé cède sous l'auto. **Sur un
+> chemin unique, un départ ne se dégrade pas peu à peu : il réussit, ou il piège la famille.** Une auto
+> arrêtée sur un chemin étroit bordé de résineux ne peut ni avancer ni reculer. On n'attend donc ni
+> l'odeur de la fumée ni la vue des flammes pour partir. Dans les grands feux, beaucoup de morts sont des
+> gens pris sur la route, partis trop tard, souvent après être restés pour défendre la maison.
 >
-> **3. Les braises arrivent avant le front, et ce sont elles qui brûlent les bâtiments.** «Plus
-> de 90 % des maisons endommagées ou détruites par les feux de forêt sont enflammées par des
-> braises ». Le mécanisme : la colonne de chaleur soulève des escarbilles,
-> le vent les lâche loin en avant, et elles n'allument que ce qui est déjà prêt — une gouttière
-> pleine d'aiguilles d'épinette noire, un dessous de galerie, un paillis, une corde de bois
-> appuyée au mur. C'est pourquoi un bâtiment peut brûler pendant que la forêt à 50 m est intacte,
-> et pourquoi le travail utile se fait avec un râteau des mois d'avance, et non avec un boyau le
-> jour même.
+> **3. Les braises arrivent avant le front, et ce sont elles qui allument les bâtiments.** Plus de 90 %
+> des maisons endommagées ou détruites par un feu de forêt sont allumées par des braises. La chaleur de la
+> colonne de fumée les soulève, le vent les porte loin en avant (section 3), et elles allument ce qui est
+> fin et sec : une gouttière pleine d'aiguilles, un dessous de galerie, un paillis, une corde de bois
+> contre le mur. **Un lac entre le feu et le bâtiment ne les arrête pas.** Un bâtiment peut brûler pendant
+> que la forêt à 50 m reste intacte : ce qui le sauve se fait au râteau, des mois avant (étapes 49 à 56).
 >
-> **4. Une bouteille de propane à côté d'un mur qui chauffe.** Un réservoir sous flux thermique
-> monte en pression ; la soupape de sécurité relâche du gaz, et ce gaz s'enflamme à la source dans
-> un environnement déjà en feu. Le propane est plus lourd que l'air : ce qui ne brûle pas coule au
-> sol, sous la galerie, dans la cave, et attend. La parade est une distance :
-> réservoir à **plus de 10 m de tout bâtiment**, et **3 m de végétation dégagée** tout autour.
-> Même chose pour les bidons d'essence, qui ne restent jamais dans le bâtiment
-> (ch. 82, ch. 15).
+> **4. Une bouteille de propane près d'un mur qui chauffe.** La chaleur fait monter la pression dans la
+> bouteille ; la soupape relâche du gaz, qui s'allume dans le feu. Le propane est plus lourd que l'air :
+> ce qui ne brûle pas coule au sol, sous la galerie, dans la cave, et s'y accumule. La parade est la
+> distance (étapes 8 et 54). Les bidons d'essence ne restent pas non plus dans le bâtiment (ch. 82,
+> ch. 15).
 >
-> **5. Une génératrice ne fonctionne jamais dans un bâtiment, un garage, une remise ni sous un
-> auvent.** Elle produit du monoxyde de carbone en continu ; le CO est inodore, il ne s'accumule
-> pas au plafond mais se mélange à tout le volume, et une paroi ou un toit suffit à le retenir.
-> Rien n'avertit : «seul un avertisseur de monoxyde de carbone peut détecter la présence de ce
-> gaz ». Elle va dehors, à «au moins 6 mètres (20 pieds) » du bâtiment,
-> échappement orienté à l'opposé des portes et des fenêtres, interrupteur
-> principal de la résidence à *off* avant de brancher (ch. 3, ch. 87). **Le moment dangereux de ce
-> chapitre-ci est le retour** : quelqu'un qui rentre le soir dans une maison sans courant, avec
-> deux enfants fatigués et une génératrice dans le coffre, est le candidat exact à l'intoxication.
-> Et le carburant se remplit moteur froid, dehors, à la lampe de poche — jamais à la chandelle,
-> parce que les vapeurs d'essence sont plus lourdes que l'air et coulent jusqu'à la flamme.
+> **5. Une génératrice ne tourne jamais dans un bâtiment, un garage, une remise ni sous un auvent.** Elle
+> produit du monoxyde de carbone sans arrêt. Le CO n'a pas d'odeur ; il se mélange à tout l'air de la
+> pièce, et un mur ou un toit suffit à le garder. Rien n'avertit, sauf un avertisseur de monoxyde de
+> carbone. La génératrice va dehors, à **au moins 6 m (20 pi)** du bâtiment, l'échappement tourné à
+> l'opposé des portes et des fenêtres, et l'interrupteur principal de la maison à *off* avant de brancher
+> (ch. 3, ch. 87). Après un feu de forêt, ce danger arrive au retour : une famille fatiguée qui rentre le
+> soir dans une maison sans courant, avec une génératrice dans le coffre. Le plein se fait moteur froid,
+> dehors, à la lampe de poche, jamais à la chandelle : les vapeurs d'essence sont plus lourdes que l'air
+> et coulent jusqu'à la flamme.
+>
+> **6. Pris par le feu, la chaleur tue avant la flamme.** La chaleur rayonnante du front traverse les
+> vitres et cause un coup de chaleur mortel avant que le feu touche la personne (section 3). Sur la peau,
+> la laine doit être **sèche** : une couverture mouillée change la chaleur en vapeur, et la vapeur brûle.
+> Un vêtement synthétique prend feu vite et fond sur la peau : la matière fondue fait les brûlures
+> graves ; la laine s'éteint hors de la flamme, le coton brûle sans fondre. **Les gens qui sortent de
+> l'auto pour courir dans la fumée meurent plus souvent que ceux qui restent dedans** (étapes 18 à 20).
 
 ---
 
 ## 9. Variante d'urgence
 
-Sans pompe, sans purificateur et sans nouvelles du feu. C'est la situation normale d'un chalet
-hors réseau, pas un cas extrême.
+Sans pompe, sans purificateur et sans nouvelles du feu, ce qui est l'ordinaire d'un chalet hors réseau.
 
-**La règle devient : le seuil de départ baisse d'un cran, en permanence.** Sans information, on
-ne peut pas savoir si un feu grossit ou s'éloigne. On ne peut donc pas prendre de décision
-réversible, et la seule option qui se défait bien est de partir tôt pour rien. Un départ inutile
-coûte du carburant et deux jours ; un départ raté coûte le reste.
+**Sans nouvelles, on part plus tôt.** On ne peut pas savoir si le feu grossit ou s'éloigne, et on ne peut
+donc pas prendre une décision qu'on pourrait défaire. Le seuil de départ baisse d'un cran : un départ pour
+rien coûte du carburant et deux jours (étape 47).
 
 ### Lire le danger et le feu sur le terrain
 
-Le danger se lit sur le combustible lui-même, touché du pied. Mousse et
-cladonie cassantes plutôt que souples, humus qui s'effrite au lieu de se tasser, ruisseaux bas,
-aucune pluie utile depuis des semaines, vent soutenu, air sec. Ce n'est pas un indice, c'est un
-faisceau, et il suffit à changer de comportement.
+Le danger se lit sur le combustible, touché du pied. La mousse et la cladonie (*Cladonia*, le lichen
+gris-blanc en tapis) cassent au lieu de plier ; l'humus s'effrite au lieu de se tasser ; plus le
+craquement est sec sous le pied, plus le combustible l'est. Les ruisseaux sont bas, aucune pluie utile
+n'est tombée depuis des semaines, le vent est soutenu et l'air est sec. Quand ces signes sont réunis, on
+passe au régime de l'étape 57.
 
-Ce qui dit où est le feu, c'est d'abord le récepteur AM/FM à piles aux heures de bulletin
-(ch. 14). Quand il ne dit rien, il reste la colonne de fumée, qui se lit de loin et qui ne coûte
-rien.
+La radio à piles, aux heures de bulletin, dit d'abord où est le feu (ch. 14). Sans elle, la colonne de
+fumée se lit de loin.
 
-- **Une colonne couchée par le vent** annonce un feu poussé par le vent : il avance dans une
- direction, vite, et cette direction est celle vers laquelle la colonne penche. On sort
- perpendiculairement à elle, jamais devant.
-- **Une colonne qui monte droit et s'épanouit en chou-fleur** annonce un feu assez chaud pour
- fabriquer son propre tirage. Celui-là ne va pas dans une direction : il aspire l'air de tous les
- côtés et ses sautes partent n'importe où. C'est le pire des deux, et c'est celui qui a l'air
- tranquille d'en bas, justement parce qu'il n'y a pas de vent au sol.
-- **La couleur travaille aussi.** Une fumée blanche et lente, c'est de l'eau qui sort d'un feu qui
- couve. Une fumée épaisse et sombre, c'est du résineux qui flambe à plein.
-- **L'heure de la journée est un renseignement.** Un feu se couche la nuit et au petit matin —
- l'humidité remonte, le vent tombe — et il reprend en fin d'avant-midi pour donner son maximum au
- milieu de l'après-midi. **La fenêtre pour rouler, pour dégager un chemin ou pour aller voir,
- c'est l'aube.** Un départ décidé en plein après-midi se fait à l'heure exacte où le feu court le
- mieux.
-- **La pente compte plus que la distance.** Une flamme préchauffe ce qui est au-dessus d'elle : un
- feu monte une pente beaucoup plus vite qu'il ne la descend, et un vallon étroit ou un col se
- comporte comme une cheminée. Un chalet au bas d'une pente a de la marge ; le même chalet à
- mi-pente n'en a pas.
-- **Sans montre ni clarté annoncée**, le temps qui reste avant la noirceur se mesure au bras tendu,
- main à plat entre le soleil et l'horizon — à condition d'avoir chronométré une fois, un soir
- clair au chalet, combien de minutes le soleil met à descendre d'une largeur de sa propre main.
- Ce chiffre-là se retient. C'est assez précis pour appliquer le troisième chiffre du seuil de départ (5D).
+- **Une colonne couchée par le vent** : le feu est poussé par le vent et avance vers où elle penche. On
+ sort de côté par rapport à cette direction, jamais devant.
+- **Une colonne qui monte droit et s'élargit en chou-fleur** : le feu est assez chaud pour faire son
+ propre tirage. Il aspire l'air autour de lui, et il peut changer de direction et lancer des braises de
+ tous les côtés sans prévenir. D'en bas, il a l'air tranquille parce qu'il n'y a pas de vent au sol ;
+ c'est pourtant le plus dangereux des deux.
+- **La couleur** : une fumée blanche et lente vient d'un feu qui couve ; une fumée épaisse et sombre vient
+ de résineux qui brûlent à plein.
+- **L'heure** : le feu ralentit d'habitude la nuit et au petit matin (étape 28). L'aube est le moment pour
+ rouler, dégager un chemin ou aller voir.
+- **La pente** : un feu monte une pente beaucoup plus vite qu'il la descend, parce que la flamme chauffe
+ ce qui est au-dessus d'elle. Un vallon étroit tire comme une cheminée, et le vent peut y tourner. Un
+ chalet au bas d'une pente a plus de marge que le même chalet à mi-pente.
+- **Le temps qui reste avant la noirceur, sans montre** : tendre le bras, la main à plat entre le soleil
+ et l'horizon. Il faut avoir chronométré une fois, un soir clair au chalet, combien de minutes le soleil
+ met à descendre d'une largeur de sa main. Ça suffit pour appliquer le troisième seuil (étape 47).
 
 ### Sortir quand le chemin n'est plus un chemin
 
-- **Partir à l'aube**, pour la raison ci-dessus, et parce que la fumée est alors plaquée au sol
- mais immobile.
-- **Dans la fumée, les phares éclairent la fumée.** Comme dans la poudrerie, la lumière revient
- dans les yeux. Ce qui marche : phares de croisement seulement, antibrouillards s'il y en a, et
- surtout **quelqu'un à pied devant le véhicule, lampe pointée au sol**, qui suit l'accotement au
- pas. On perd la vitesse, on ne perd pas le chemin. La personne qui marche n'est jamais celle qui
- conduit, et les enfants restent attachés, vitres fermées, air en recirculation.
-- **Un arbre en travers se tire plus vite qu'il ne se coupe.** Un chicot brûlé est sous tension,
- plein de charbon qui bourre la chaîne, et il se rompt au lieu de fendre. Une chaîne ou une
- élingue au véhicule, le point de tire bas sur le tronc, et on le fait pivoter dans le fossé
- (ch. 109). La scie ne sert que si le tronc est trop gros pour tourner, et alors le côté en
- compression se coupe en dernier (ch. 106).
-- **Un ponceau se sonde avant qu'on roule dessus.** Un ponceau de bois brûle par en dessous et
- garde l'air d'un chemin intact. On descend, on regarde dessous, on frappe le tablier avec une
- barre : s'il sonne creux, on passe par le fossé quand la pente le permet, ou on comble avec ce
- qui traîne — billots en travers, roches, terre — au lieu de chercher à franchir.
-- **Le lac est le deuxième chemin.** Un canot ou une chaloupe laissée à l'eau pendant toute la
- saison de feu, avec les gilets et une pagaie de rechange dedans, vaut plus que n'importe quel
- item de la section 4 le jour où l'unique chemin se ferme. Ce qu'on y perd : la fumée
- s'assoit sur l'eau les matins calmes, et une rive qui brûle rayonne loin — on longe la rive d'où
- vient le vent, pas celle où il va.
-- **À pied, on marche vers le noir.** Le brûlis froid, derrière le front, est l'endroit où il ne
- reste plus rien à brûler ; c'est la direction qui sauve, et c'est l'inverse du réflexe, qui est
- de fuir devant. Il faut qu'il soit large et refroidi : les souches y couvent encore et les tiges
- debout tombent. On marche le chemin, jamais le bois, et on descend plutôt que de monter.
+- **Partir à l'aube** : la fumée de la nuit est couchée au sol, mais elle ne bouge pas, et le feu est au
+ plus calme.
+- **Dans la fumée, les phares éclairent la fumée**, comme dans la poudrerie : la lumière revient dans les
+ yeux. Allumer seulement les phares de croisement, et les antibrouillards s'il y en a. Loin du feu, quand
+ on ne voit ni lueur ni braises et qu'on ne sent pas de chaleur, un adulte peut marcher devant l'auto, la
+ lampe pointée sur l'accotement, et l'auto le suit au pas. Cet adulte n'est jamais celui qui conduit, et
+ les enfants restent attachés, les vitres fermées, l'air en recirculation. Près du feu, une fumée qui
+ cache la route ne se traverse pas (étape 17).
+- **Un arbre en travers se tire plus vite qu'il ne se coupe.** Un chicot brûlé est sous tension et plein
+ de charbon, qui bourre la chaîne de la scie, et il casse au lieu de pivoter sur sa charnière. Passer une
+ chaîne ou une élingue bas sur le tronc, l'attacher à l'auto, et faire pivoter l'arbre dans le fossé
+ (ch. 109). La scie ne sert que si le tronc est trop gros pour pivoter ; on coupe alors le côté comprimé
+ en dernier (ch. 106).
+- **Sonder un ponceau avant de rouler dessus.** Un ponceau de bois brûle par en dessous et garde l'air
+ d'un chemin intact. Descendre, regarder dessous et frapper le tablier avec une barre : s'il sonne creux,
+ passer par le fossé si la pente le permet, ou combler avec ce qu'on trouve (billots en travers, roches,
+ terre).
+- **Le lac est le deuxième chemin.** Un canot ou une chaloupe laissés à l'eau toute la saison de feu,
+ prêts à partir (étape 4), valent plus que tout le matériel de la section 4 le jour où le chemin ferme.
+ Les matins calmes, la fumée se couche sur l'eau, et une rive qui brûle chauffe loin : longer la rive d'où
+ vient le vent.
+- **À pied, marcher vers le brûlis.** Derrière le front, le brûlis n'a plus rien à brûler : on marche vers
+ lui, même si le réflexe est de fuir devant le feu. Il doit être large et refroidi, parce que les souches
+ y couvent et que les arbres morts tombent. Marcher sur le chemin, pas dans le bois, et descendre plutôt
+ que monter.
 
 ### Faire de l'eau sous pression sans pompe
 
-- **Le baril en hauteur.** Un baril sur le toit d'un cabanon, sur un échafaud ou dans la boîte du
- pick-up, un boyau de jardin piqué au fond. La gravité ne donne pas un jet, elle donne un filet
- continu — assez pour tenir mouillés un bas de mur, un dessous de galerie et une gouttière,
- c'est-à-dire les trois endroits exacts où une braise prend. Et ça ne demande personne : ça coule
- pendant qu'on charge le véhicule.
-- **La pompe de cale en 12 V.** Une pompe de cale de chaloupe, une pompe de transfert d'essence ou
- la pompe à eau d'une roulotte, branchée sur une batterie d'auto, donne un débit faible mais
- continu, sans essence, sans amorçage et sans surveillance. Crépine dans une chaudière ou au bout
- du quai, fil assez gros pour la longueur, fusible à la borne. Deux batteries montées en
- parallèle doublent la durée, pas la pression ; montées en série, elles brûlent la pompe.
-- **Remplir tout ce qui tient l'eau avant d'en avoir besoin**, pendant que le puits ou l'aqueduc
- fonctionne encore : bain, barils, cuves, chaudières, et le canot ou la chaloupe retournés à
- l'endroit.
-- **Le jute mouillé remplace l'arrosage continu.** Un boyau sèche derrière lui. Une toile de coton
- ou un sac de jute trempé, posé sur une gouttière, sur un rebord de galerie ou contre un bas de
- mur, garde l'eau sur place bien plus longtemps qu'une surface arrosée, et il n'a pas besoin de
- quelqu'un au bout. Jamais une bâche de plastique : elle fond et elle coule en gouttes
- enflammées.
-- **La terre remplace l'eau.** Sur un départ de feu dans la mousse, une pelletée de sable ou de sol
- minéral étouffe mieux qu'un fond de chaudière d'eau, et elle ne se compte pas. C'est le geste de
- base après le passage du front : gratter jusqu'au minéral, retourner, recouvrir.
+- **Le baril en hauteur.** Un baril sur le toit d'une remise, sur un échafaud ou dans la boîte du pick-up,
+ avec un boyau d'arrosage piqué au fond. La gravité ne donne pas un jet, elle donne un filet continu. Ça
+ suffit pour garder mouillés un bas de mur, un dessous de galerie et une gouttière, là où les braises
+ prennent, et ça coule sans personne au bout pendant qu'on charge l'auto.
+- **La pompe de cale en 12 V.** Une pompe de cale de chaloupe, une pompe de transfert d'essence ou la
+ pompe à eau d'une roulotte, branchée sur une batterie d'auto, donne un débit faible mais continu, sans
+ essence, sans amorçage et sans surveillance. Mettre la crépine dans une chaudière ou au bout du quai,
+ prendre un fil assez gros pour la longueur, et poser un fusible à la borne. Deux batteries montées en
+ parallèle durent deux fois plus longtemps, sans donner plus de pression ; montées en série, elles brûlent
+ la pompe.
+- **Le jute mouillé.** Un boyau sèche derrière lui. Un sac de jute ou une toile de coton trempés, posés
+ sur une gouttière, sur un rebord de galerie ou contre un bas de mur, gardent l'eau en place beaucoup plus
+ longtemps qu'une surface arrosée, sans personne au bout. Pas de bâche de plastique : elle fond et tombe
+ en gouttes enflammées.
+- **La terre.** Sur un départ de feu dans la mousse, une pelletée de sable ou de sol minéral étouffe mieux
+ qu'un fond de chaudière d'eau, et il y en a partout (étape 26).
+
+### Fermer le bâtiment aux braises avec ce qu'on a
+
+Une braise entre toujours par les mêmes endroits : les évents de soffite, de pignon et de vide sanitaire,
+la sortie de la sécheuse et l'ouverture sous la galerie.
+
+- **Fermer ces ouvertures avec une maille de métal de 3 mm**, agrafée ou vissée par-dessus. Une
+ moustiquaire de nylon fond avant que la braise arrive, et le trou s'agrandit. Sans maille : une tôle
+ percée de petits trous, un couvercle de canne aplati, un bout de solin.
+- **Les vitres cassent sous la chaleur du feu avant que la flamme arrive**, et la braise entre par le trou
+ dans une pièce meublée. Visser par-dessus, de l'extérieur, de la tôle, du solin ou un panneau de
+ contreplaqué. Le contreplaqué brûle, mais plus tard que le rideau derrière la vitre (planche 11-03).
+- **Fermer le dessous de la galerie une fois pour toutes** avec ce qui ne brûle pas (tôle, solin, panneau
+ de fibrociment), au lieu de le vider chaque printemps.
 
 ### Fabriquer les outils
 
-- **Le râteau à feu.** Un râteau à feuilles plie dans l'humus. Ce qui travaille, c'est une lame
- droite et dentée : un bout de fer plat entaillé à la meule, ou une vieille lame de pelle carrée
- redressée, emmanchée solide (ch. 111). Il sert à gratter jusqu'au sol minéral, pas à ramasser.
-- **Le battoir.** Une bavette de camion, un bout de courroie de convoyeur ou une semelle de botte
- boulonnée au bout d'un manche. On abat à plat sur la flamme, on ne balaie pas : balayer sème des
- braises. Ça éteint une flamme de mousse mieux qu'un balai, et sans une goutte d'eau.
-- **La perche d'élagage.** Une lame d'égoïne ou de scie à métaux boulonnée au bout d'une perche
- d'épinette fait les branches basses jusqu'à hauteur d'homme, lentement, sans monter dans
- l'arbre.
-
-### Fermer le bâtiment aux braises avec ce qui traîne
-
-Ce qui perd un bâtiment, c'est une braise qui entre, et les entrées sont toujours les mêmes :
-évents de soffite, évent de pignon, évent de vide sanitaire, sortie de sécheuse, ouverture sous la
-galerie.
-
-- **Toutes se ferment avec une maille métallique fine**, agrafée ou vissée par-dessus. Une
- moustiquaire de nylon fond avant que la braise n'arrive et agrandit le trou au lieu de le
- boucher. À défaut de maille : une tôle percée de petits trous, un couvercle de canne aplati, un
- morceau de solin.
-- **Les vitres cassent par le rayonnement avant que la flamme n'arrive**, et le trou laisse entrer
- la braise dans une pièce meublée. Ce qui se visse par-dessus, de l'extérieur : de la tôle, un
- solin, un panneau de contreplaqué. Le contreplaqué brûle, mais il brûle plus tard que le rideau
- qui est derrière la vitre.
-- **Le dessous de galerie se ferme une fois** avec ce qui ne brûle pas — tôle, solin, panneau de
- fibrociment — plutôt que de se vider chaque printemps.
+- **Le râteau à feu.** Un râteau à feuilles plie dans l'humus. Ce qui travaille, c'est une lame droite et
+ dentée : un bout de fer plat entaillé à la meule, ou une vieille lame de pelle carrée redressée, bien
+ emmanchée (ch. 111). Il sert à gratter jusqu'au sol minéral, pas à ramasser (planche 11-05).
+- **Le battoir.** Une bavette de camion, un bout de courroie de convoyeur ou une semelle de botte,
+ boulonnés au bout d'un manche. On frappe à plat sur la flamme, sans balayer, parce que balayer sème des
+ braises. Il éteint une flamme dans la mousse mieux qu'un balai, sans une goutte d'eau.
+- **La perche d'élagage.** Une lame d'égoïne ou de scie à métaux boulonnée au bout d'une perche d'épinette
+ coupe les branches basses jusqu'à hauteur d'homme, lentement, sans monter dans l'arbre.
 
 ### De l'air pour les enfants, sans purificateur
 
-Le purificateur à filtre HEPA n'a pas de substitut qui l'égale. Il en a un qui vaut nettement mieux
-que rien, et il se monte en dix minutes.
+Rien n'est aussi bon que le purificateur à filtre HEPA, mais un ventilateur et un filtre de fournaise
+valent beaucoup mieux que rien, et ils se montent avec du ruban gommé.
 
-- **Une pièce, pas le chalet.** La plus petite, la mieux fermée, sans porte extérieure, si possible
- sans poêle. Polythène agrafé sur le cadre de fenêtre, couverture roulée au bas de la porte, clé
- d'air fermée. La saison de feu est la saison chaude : on n'a pas à chauffer et à fermer en même
- temps, ce qui rend l'étanchéité possible en juillet et impossible en octobre.
-- **Un ventilateur et un filtre.** Un filtre de fournaise à haute efficacité tenu au ruban gommé
- contre la grille d'un ventilateur de boîte, la flèche du filtre pointant vers le ventilateur.
- Hors réseau, le pulseur de chaufferette d'un vieux véhicule, ou même un ventilateur
- d'ordinateur, branché sur une batterie d'auto fait le même travail plus lentement. Ce qu'on
- perd, c'est le débit, et le débit est exactement ce qui compte : un petit ventilateur dans une
- petite pièce fermée vaut un gros ventilateur dans une grande pièce ouverte, pas mieux. Un
- ventilateur-boîte avec un seul filtre fin traite une pièce d'environ 10 m² ; un carton autour
- du ventilateur ajoute 40 % ; quatre filtres montés en cube autour du ventilateur, environ
- 37 m². Le filtre se change dès qu'il est brun ou gris ou qu'il sent la fumée. Le pulseur de
- chaufferette ou le ventilateur d'ordinateur n'a pas été mesuré : il fait moins, on ne sait pas
- combien.
-- **Ce que ça ne fait pas.** Ça ne retire pas le monoxyde de carbone : un filtre arrête des
- particules, pas un gaz. Un chalet où quelque chose brûle à l'intérieur reste un chalet où l'on
- s'endort au lieu de sortir.
+- **Une pièce, pas tout le chalet.** Prendre la plus petite et la mieux fermée, sans porte extérieure, et
+ sans poêle si possible. Agrafer du polythène sur le cadre de la fenêtre, rouler une couverture au bas de
+ la porte, fermer la clé d'air. L'été, on n'a pas à chauffer, et la pièce peut rester fermée (étape 35).
+ Au-dessus de 31 °C dans la pièce, on l'ouvre (étape 34).
+- **Un ventilateur et un filtre.** Tenir au ruban gommé un filtre de fournaise fin contre la grille d'un
+ ventilateur-boîte, la flèche du filtre tournée vers le ventilateur (planche 11-04). Un seul filtre traite
+ une pièce d'environ 10 m² ; un carton autour du ventilateur ajoute 40 % ; quatre filtres montés en cube
+ autour du ventilateur traitent environ 37 m². Changer le filtre dès qu'il est brun ou gris, ou qu'il sent
+ la fumée.
+- **Le ventilateur chauffe.** Avec un filtre chargé de poussière, l'intérieur du moteur a monté de près de
+ 60 °C pendant les essais. Un ventilateur fabriqué depuis 2012 a une fiche à fusible et une coupure
+ thermique. Un ventilateur plus vieux ne tourne pas la nuit, ni sans un adulte éveillé à côté.
+- **Hors réseau**, le pulseur de chaufferette d'une vieille auto ou un ventilateur d'ordinateur, branchés
+ sur une batterie d'auto, font le même travail plus lentement. Ils n'ont pas été mesurés : ils font moins,
+ on ne sait pas combien. Ce qui compte, c'est le débit pour la taille de la pièce : plus la pièce est
+ petite, plus un petit ventilateur suffit.
+- **Le filtre n'arrête pas le monoxyde de carbone**, qui est un gaz. Si quelque chose brûle dans le
+ chalet, la pièce d'air propre n'y change rien : on s'endort au lieu de sortir.
 
-### Ce qui ne se remplace vraiment pas
+### Ce qui ne se remplace pas
 
-- **Le masque d'un enfant.** Il n'en existe pas à sa taille, et **le linge mouillé n'en
- est pas un** : il arrête la poussière grossière, laisse passer les particules fines, et augmente
- l'effort qu'il faut fournir pour respirer. Il rassure l'adulte qui le pose. Il reste l'air de la
- pièce, ou la distance.
-- **L'abri de dernier recours.** Les équipes de feu en portent un ; il n'en existe pas de version
- domestique. Ce qui reste, dans un creux de sol minéral, à l'écart des tiges debout : la laine ou
- le coton mouillés sur la peau — jamais de synthétique, qui prend feu et fond (5I) — le visage vers le
- sol, où l'air est le moins chaud. C'est un moins pire, pas une solution, et ça ne se prépare pas :
- ça se prévient en partant.
-- **Le préavis.** Le feu de foudre qui menace un bâtiment isolé donne normalement des jours ; sans
- information, on apprend son existence par la fumée ou par un voisin, c'est-à-dire des heures
- avant, pas des jours.
-- **La deuxième chance sur la route.** On s'engage sans savoir si le chemin est ouvert plus
- loin : il faut du carburant pour l'aller **et** pour le
- retour, ce qui coupe la portée de moitié (ch. 15).
-- **La mesure de la fumée.** Aucune mesure des particules : il reste l'odeur et la toux
- d'un enfant, c'est-à-dire un signal tardif chez la personne la plus vulnérable de la maisonnée.
-- **On ne perd pas la zone défendable.** C'est le seul morceau du chapitre qui ne dépend d'aucun
- réseau, d'aucun appareil et d'aucun abonnement : un râteau, une scie, une échelle, et les
- distances de 1,5 m, 10 m et 30 m. Dans cette variante, c'est ce qui reste, et c'est ce qui compte
- le plus.
+- **Le masque d'un enfant.** Il n'existe pas de N95 à sa taille. Un linge sur le nez et la bouche, sec ou
+ mouillé, n'arrête pas les particules fines. Il reste l'air de la pièce, ou la distance.
+- **L'abri des pompiers forestiers.** Ils portent un abri de dernier recours ; il n'en existe pas pour une
+ famille. Il reste l'étape 24, dans un creux de sol minéral, loin des arbres debout. Ça ne se prépare pas,
+ ça s'évite en partant.
+- **Le préavis.** Sans radio ni voisin, on apprend le feu par sa fumée, plus tard qu'on l'apprendrait par
+ un bulletin.
+- **La deuxième chance sur la route.** On s'engage sans savoir si le chemin est ouvert plus loin : le
+ carburant doit couvrir l'aller et le retour, ce qui coupe la portée de moitié (ch. 15).
+- **La mesure de la fumée.** Sans capteur, il reste la distance qu'on voit (étape 36) et la toux d'un
+ enfant, un signal tardif chez la personne la plus sensible de la maison.
 
 ### Au retour, trouver le feu qui reste sans instrument
 
-- **Le dos de la main**, passé au-dessus du sol et le long des bas de mur. Il sent la chaleur avant
- la paume et il se retire tout seul ; une main à plat se referme sur ce qui brûle.
+- **Le dos de la main**, passé au-dessus du sol et le long des bas de mur. Il sent la chaleur avant la
+ paume, et il se retire tout seul ; une main à plat se referme sur ce qui brûle.
 - **Creuser plutôt que regarder.** Un feu de sol descend dans la matière organique et y avance à
- l'horizontale, sans flamme et sans fumée visible. Partout où le dos de la main a senti quelque
- chose : gratter jusqu'au minéral, retourner, noyer ou étouffer à la terre.
-- **Un feu de sol passe l'hiver.** Dans un humus épais, il peut couver sous la neige et ressortir au
- printemps à distance de l'endroit où on l'avait laissé. C'est pour ça qu'on refait le tour d'un
- brûlis au dégel, et pas seulement en septembre.
+ l'horizontale, sans flamme et sans fumée visible. Partout où le dos de la main sent de la chaleur, on
+ creuse et on éteint comme à l'étape 26.
+- **Un feu de sol peut passer l'hiver.** Dans un humus épais, il couve sous la neige et ressort au
+ printemps, plus loin que l'endroit où on l'avait laissé. On refait donc le tour d'un brûlis au dégel, et
+ pas seulement en septembre.

@@ -1,0 +1,230 @@
+FICHE TECHNIQUE #6
+ ÉLECTRICITÉ ET AUTRES SOURCES D’ÉNERGIE
+ LES DANGERS RELIÉS À L’ÉLECTRICITÉ
+
+
+
+
+Qu’est-ce que                                                   La tension
+l’électricité?                                                  La tension, c’est comme la
+                                                                pression d’eau dans un
+L’électricité, c’est une                                        tuyau. On peut avoir
+forme d’énergie.                                                120 livres au pouce
+                                                                carré ou 25 000 livres
+                                                                au pouce carré.
+                Cette énergie est contenue dans
+                l’électron.                                     En électricité, c’est la même chose. La tension,
+                                                                c’est la mesure de l’énergie électrique disponible.
+                                                                On peut avoir une ligne à 120 volts ou une ligne à
+                                                                25 000 volts.
+
+
+
+
+Le courant électrique, c’est le déplacement des électrons
+dans un conducteur.
+
+On peut comparer l’électricité à de l’eau qui circule
+dans un tuyau.
+
+
+
+
+                                                                La résistance
+                                                                La résistance, c’est ce qui s’oppose au passage du
+                                                                courant. Plus elle est grande, plus le courant a de la
+                                                                difficulté à passer. Un fil de cuivre offre peu de
+                                                                résistance, le courant passe facilement. Le caoutchouc
+                                                                                                 offre beaucoup de
+                                                                                                 résistance.
+
+                                                                                               Le corps humain offre
+                                                                                               peu de résistance. Le
+Les caractéristiques de l’électricité                                                          courant va passer.
+
+Pour dimensionner un objet, on utilise trois mesures : la
+longueur, la largeur et la hauteur. Pour l’électricité, c’est
+la même chose. Pour la mesurer on utilise : la tension
+(volt), la résistance (ohm) et le courant (ampère).
+Le courant                                                      L’eau va fuir par le trou plus ou moins violemment
+Le courant, c’est la quantité d’électrons qui passent. Il       selon la pression d’eau dans le tuyau (tension) et la
+dépend de la tension et de la résistance.                       grosseur du trou (résistance).
+
+Plus la tension est petite ou la résistance grande, moins       Tout comme l’eau, l’électricité aussi peut emprunter des
+il passe de courant. Plus la tension est grande ou la           voies détournées . Elle prend toujours le trajet où il y a
+résistance petite, plus il en passe.                            le moins de résistance. Le métal, l’eau et le corps
+                                                                humain offrent peu de résistance, ils sont donc des
+                                                                chemins faciles pour l’électricité.
+
+
+                                                                Les dangers de l’électricité
+
+                                                                « Prendre un choc
+                                                                électrique », c’est servir
+                                                                de chemin à l’électricité entre
+                                                                le conducteur et la terre ou entre
+                                                                un conducteur et un autre
+                                                                conducteur.
+
+                                                                Les conséquences d’un contact
+                                                                avec un élément sous tension
+                                                                peuvent varier. Elles peuvent aller
+                                                                d’un simple picotement, jusqu’à
+                                                                des brûlures internes ou externes,
+                                                                un dérèglement de la
+                                                                fréquence cardiaque, la
+                                                                paralysie des muscles, l’arrêt
+                                                                respiratoire et même la mort.
+                                                                Lorsque les conséquences d’un
+                                                                « choc électrique » ne sont pas
+                                                                mortelles, on parle d’électrisation; si elles entraînent la
+                                                                mort, on parle d’électrocution.
+
+                                                                Les effets varieront en fonction de plusieurs facteurs :
+                                                                ◆ le trajet du courant dans le corps;
+                                                                ◆ la durée du contact électrique;
+                                                                ◆ l’intensité du courant électrique;
+                                                                ◆ la résistance de la personne au moment du contact
+                                                                   avec l’élément sous tension.
+Comment se comporte l’électricité
+
+Rappelons que l’électricité se comporte sensiblement
+comme de l’eau dans un tuyau. L’eau se déplace dans
+un sens, du lieu où elle est pompée vers le lieu où elle
+est utilisée. L’électricité aussi circule du lieu où elle est
+produite (source) vers les équipements qu’elle alimente.
+
+Que se passe-t-il si on perce le tuyau?
+
+
+
+                                                                Les moyens de protection généraux
+
+                                                                Selon les circonstances et le type de travaux à réaliser,
+                                                                plusieurs règles de sécurité doivent être respectées :
+                                                                ◆ Laisser aux électriciens le soin de procéder aux
+                                                                   travaux qui impliquent l’électricité.
+                                                                ◆ S’assurer que les outils électriques et les rallonges
+                                                                   sont en bon état.
+◆ Pour les outils qui ne                                          Tension entre phases          Distance d’approche
+  possèdent pas une double                                        (volts)                       minimale (mètres)
+  isolation, s’assurer que les                                    Moins de 125 000                      3
+  rallonges électriques               Fil de mise à la terre      125 000 à 250 000                     5
+  possèdent une mise à la
+                                                                  250 000 à 550 000                     8
+  terre.
+◆ Faire localiser les conduites                                   Plus de 550 000                      12
+  de câbles électriques avant
+  d’excaver (voir la fiche
+  technique « Creusement,                                       En planifiant les travaux, il est important
+                                         Double isolation
+  excavation et tranchée :
+  protéger les services publics
+                                                                de repérer les lignes électriques, d’en
+  souterrains »).                                               connaître la tension et d’évaluer la distan-
+◆ Ne jamais utiliser les chambres                               ce qui les sépare du lieu de travail.
+  électriques à des fins
+  d’entreposage.
+◆ S’assurer que les prises de
+  courant exposées aux
+  intempéries sont munies d’un
+  couvercle étanche.                                           S’il y a risque de s’approcher d’une ligne électrique à
+                      ◆ Ne pas se placer en face du            moins de la distance d’approche minimale, une des trois
+                         coffret d’un dispositif de            conditions suivantes doit être respectée :
+                         commande (interrupteur ou             ◆ La mise hors tension de la ligne. Avant de remettre
+                         disjoncteur) lorsqu’on actionne           la ligne sous tension, il faut s’assurer qu’aucune
+                         ce dispositif.                            personne ne court de risque d’électrocution.
+                      ◆ Garder les panneaux électriques        ◆ Une convention, entre l’employeur et l’exploitant du
+                         fermés.                                   réseau, détermine les mesures de sécurité à prendre.
+                      ◆ Ne pas surcharger les circuits             Cette convention doit être transmise à la CSST avant
+                         électriques.                              le début du travail.
+                      ◆ Ne procéder à aucune                   ◆ Les engins déployables
+                         réparation ou modification                (rétrocaveuse, grue,
+                         d’un équipement ou d’une                  camion à benne, etc.)
+                         machine sous tension.                     sont munis d’un
+                                                                   dispositif de blocage
+Les règles de sécurité lors de travaux près                        ayant deux fonctions :
+de lignes électriques aériennes                                     • la première avertit
+                                                                        le conducteur ou
+                                                                        bloque les
+                                                                        manœuvres de façon
+                                                                        à respecter la
+                                                                        distance d’approche
+                                                                        minimale prescrite;
+                                                                    • la deuxième bloque
+                                                                        les manœuvres, en
+                                                                        cas de défaillance
+                                                                        de la première.
+                                                                   Ce dispositif doit être
+                                                                   approuvé par un
+                                                                   ingénieur.
+
+                                                               Lorsqu’un travail doit être effectué à moins de 30
+Dans les municipalités, il est fréquent que des travaux        mètres d’une ligne électrique de 250 000 volts et plus, il
+soient effectués près des lignes électriques aériennes. Le     faut
+Code de sécurité pour les travaux de construction prescrit     ◆ faire le plein d’essence à l’extérieur de cette zone;
+les mesures de sécurité à respecter dans de telles             ◆ s’assurer que tout équipement ou machinerie sur
+situations. Il faut s’assurer que personne ni aucune              pneus est muni d’un lien électrostatique entre la
+pièce, charge, échafaudage ou élément de machinerie               partie métallique et le sol;
+(ex. : benne, mât d’une rétrocaveuse, etc.) ne risque de
+se trouver à moins de la distance d’approche minimale
+suivante d’une ligne électrique :
+◆ lors de la manipulation d’une conduite, clôture ou           Si, pour sa sécurité, le conducteur est forcé de quitter la
+  structure métallique hors terre, s’assurer qu’elle est       cabine, il doit
+  mise à la terre à tous les 30 mètres.                        ◆ ne pas toucher simultanément le véhicule et le sol;
+                                                               ◆ sauter le plus loin possible en gardant les pieds joints;
+Sur toute machinerie qui sert à lever une charge, une          ◆ s’éloigner à très petits pas, en traînant les pieds au
+pancarte d'avertissement : DANGER - N'APPROCHEZ                    sol (les pieds ne doivent pas quitter le sol) ou faire
+PAS DES LIGNES ÉLECTRIQUES, en caractères d'au                     de petits sauts en maintenant les pieds joints.
+moins 12 millimètres, doit être placée à un endroit
+visible de l'utilisateur.                                      Nous remercions Hydro-Québec et l’Association paritaire
+                                                               pour la santé et la sécurité du travail pour le secteur de la
+Intervention en cas d’urgence                                  construction qui nous ont permis d’utiliser certains textes
+                                                               et dessins contenus dans leurs publications. Nous
+◆ Ne pas toucher la victime tant qu’on n’est pas assuré        remercions également Pierre Sirois, ing., Direction
+  qu’elle n’est plus en contact avec la source de              prévention-inspection, Service bâtiments et travaux
+  courant ou que le courant a été coupé.                       publics, de la CSST, pour ses commentaires.
+◆ Communiquer avec les ambulanciers pour assurer le
+  transport de la victime à l’hôpital de toute urgence.        Pour en savoir plus, vous pouvez consulter le site
+◆ Aviser la police, les pompiers et Hydro-Québec.              Internet d’Hydro-Québec à l’adresse suivante :
+◆ Ne pas tenter de déplacer le fil ou l’objet sous             hydroquebec.com. L’Association paritaire pour la santé
+  tension.                                                     et la sécurité du travail pour le secteur de la
+◆ Établir un périmètre de sécurité et tenir éloignés les       construction publie également une brochure
+  curieux.                                                     d’information intitulée « L’électricité et ses risques »
+◆ Lorsque tout danger est écarté, donner les premiers          disponible dans Internet à l’adresse suivante :
+  soins. Pratiquer les manoeuvres de réanimation si            http://www.asp-construction.org/pdf/l%27electri.pdf.
+  nécessaire.
+◆ Éviter de toucher aux brûlures avec les mains et             Réalisation
+  couvrir de compresses de gaze stériles sèches.               Paul Potvin, ppotvin@apsam.com
+                                                               Sylvie Poulin, spoulin@apsam.com
+                                                               Conseillers APSAM
+                                                               Nouvelle édition 2006
+
+                                                               Nota : Bien que cette fiche ait été élaborée avec soin, à partir de sources
+                                                               reconnues comme fiables et crédibles, l’APSAM, ses administrateurs, son
+                                                               personnel ainsi que les personnes et organismes qui ont contribué à son
+                                                               élaboration n’assument aucune responsabilité quant à l’utilisation du contenu
+                                                               ou des produits ou services mentionnés. Il y a des circonstances de lieu et de
+                                                               temps, de même que des conditions générales ou spécifiques, qui peuvent
+                                                               amener à adapter le contenu. Toute reproduction d’un extrait de cette fiche
+                                                               doit être autorisée par écrit par l’APSAM et porter la mention de sa source.
+
+
+                                                               Pour communiquer avec l’Association paritaire pour la
+                                                               santé et la sécurité du travail secteur « affaires
+                                                               municipales » : Région de Montréal : (514) 849-8373
+                                                               De partout au Québec : 1 800 465-1754
+                                                               http://www.apsam.com
+
+
+
+Si un équipement motorisé entre en contact avec une
+ligne électrique sous tension, voici la procédure à suivre :
+◆ le conducteur doit demeurer dans la cabine du
+    véhicule;
+◆ personne ne doit s’approcher des éléments électrisés;
+◆ il faut aviser Hydro-Québec immédiatement afin que
+    la ligne soit mise hors tension;
+◆ seul le conducteur peut essayer d’éloigner
+    l’équipement motorisé de la ligne électrique.
+
