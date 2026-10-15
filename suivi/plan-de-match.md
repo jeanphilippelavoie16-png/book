@@ -43,6 +43,10 @@ scratchpad de la session ne survit pas au conteneur). Tout ce qui était sur le 
    Les ancrages proposés par la passe : `_reprise/scratchpad/passe-t1/ancrages-<lot>.json`. Un chapitre est fait quand `controle.py` passe sans tiret ni mot banni et sans invariant disparu, que
    sa série orange est en place si l'inventaire `plan/premieres-minutes-inventaire.md` en demande une, que
    son logigramme est rendu si l'urgence se décide en branches, et que chaque planche est appelée.
+   **Fini** : p3 (17, 18), ancrages fusionnés. À regarder à la relecture : ch. 17 étape 13 (la consigne de ne
+   pas résister vient d'une page de la GRC sur le vol qualifié, transposée à la porte forcée) ; boire en
+   hypothermie seulement si la personne est consciente et avale bien (Québec.ca fait boire, le ch. 25 dit
+   rien par la bouche) ; le tableau du refroidissement éolien n'a pas pu être revérifié (canada.ca bloque).
 3. **Ensuite** : fusionner les ancrages, remonter le tome 1 (`design/outils/assembler-tome.py 1 --hors-ligne`),
    republier le tome 1 dans le lecteur (`_reprise/memoire/lecteur-relecture.md`) pour la relecture de
    validation de JP, et marquer ses anciennes notes. Puis : recomposer toutes les planches avec la légende

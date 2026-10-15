@@ -66,14 +66,14 @@ module.exports = (h) => {
       o.push(h.path(`M${M(P, x - 1, yt - 5)} L${M(P, x - 4, yt + 1.5)} M${M(P, x + 1, yt - 5)} L${M(P, x + 4, yt + 1.5)}`, h.a.arete));
     }
     // le feu entre deux pierres, la bouilloire posée dessus
-    for (const [x, l, ht] of [[19, 9, 9.5], [41, 9, 9.5]]) {
+    for (const [x, l, ht] of [[19, 11, 7.6], [41, 11, 7.6]]) {
       const d = pierre(P, x, l, ht);
       o.push(h.path(d, h.a.blanc));
       o.push(h.path(pierre(P, x + l * 0.22, l * 0.5, ht * 0.86), h.a.ombre));
       o.push(h.path(d, h.a.arete));
     }
-    o.push(flamme(...P(27.5, 0.4), 7.5 * S1), flamme(...P(32.5, 0.4), 8.8 * S1));
-    const kb = 9.6, kh = 22, kx0 = 17, kx1 = 43;
+    o.push(flamme(...P(27.8, 0.4), 6.2 * S1), flamme(...P(32.4, 0.4), 7.2 * S1));
+    const kb = 7.8, kh = 20.5, kx0 = 17, kx1 = 43;
     const corps = `M${M(P, kx0 + 2, kb)} L${M(P, kx1 - 2, kb)} Q${M(P, kx1, kb)} ${M(P, kx1 - 0.3, kb + 2.5)} L${M(P, kx1 - 3.5, kh)} L${M(P, kx0 + 3.5, kh)} L${M(P, kx0 + 0.3, kb + 2.5)} Q${M(P, kx0, kb)} ${M(P, kx0 + 2, kb)} Z`;
     const couvercle = `M${M(P, kx0 + 5, kh)} Q${M(P, (kx0 + kx1) / 2, kh + 6.5)} ${M(P, kx1 - 5, kh)} Z`;
     // le bec : du flanc bas de la bouilloire au dessous du tuyau, où il entre
@@ -113,8 +113,8 @@ module.exports = (h) => {
     return [
       { n: 1, rond: [tx - 20, ty - 26], cible: [tx, ty - 1.4], texte: 'tuyau de poêle, en légère pente' },
       { n: 2, rond: [Math.min(z.l - 12, cx + 22), Math.max(12, cy - 32)], cible: [cx + 1, cy - 1], texte: 'chiffons aux deux bouts' },
-      { n: 3, rond: [bx - 44, by + 34], cible: [bx - 1.6, by + 1], texte: 'bec qui entre par le dessous' },
-      { n: 4, rond: [px - 30, py + 6], cible: [px - 2.2, py + 1], texte: 'trou de purge au point bas' },
+      { n: 3, rond: [bx - 4, 14], cible: [bx - 0.2, by + 6.5], texte: 'bec qui entre par le dessous' },
+      { n: 4, rond: [P(8.6, 9)[0], P(8.6, 9)[1]], cible: [px + 1.2, py + 2.6], texte: 'trou de purge au point bas' },
       { n: 5, rond: [qx + 8, qy + 44], cible: [qx, qy + 4], texte: 'la pièce à cintrer' },
     ];
   };
@@ -143,7 +143,7 @@ module.exports = (h) => {
     // la vapeur monte, l'eau condensée retombe
     o.push(h.fleche(`M${M(P, -4.8, eau + 3)} C${M(P, -3.2, eau + 8)} ${M(P, -6, eau + 12)} ${M(P, -4.8, eau + 18)}`, h.a.detail));
     o.push(h.fleche(`M${M(P, 4.8, eau + 9)} C${M(P, 6.2, eau + 14)} ${M(P, 3.4, eau + 18)} ${M(P, 4.8, eau + 24)}`, h.a.detail));
-    const [gx, gy] = P(-5, eau + 30), [g2x, g2y] = P(5, eau + 38);
+    const [gx, gy] = P(-5, eau + 30), [g2x, g2y] = P(4.6, eau + 31);
     o.push(goutte(gx, gy, 2.2), goutte(g2x, g2y, 2.2));
     o.push(h.fleche(`M${M(P, -5, eau + 26)} L${M(P, -5, eau + 22)}`, h.a.detail));
     return o.join('\n');
@@ -163,7 +163,7 @@ module.exports = (h) => {
     desc: 'En coupe, une longueur de tuyau de poêle couchée en légère pente sur deux piquets fourchus, bouchée de chiffons aux deux bouts, la pièce à cintrer dedans ; sous le bout bas, une bouilloire sur un petit feu dont le bec entre dans le tuyau par le dessous ; la vapeur monte le long du tuyau, l’eau condensée redescend et sort par un trou au point bas, avant le bec. À côté, la variante pour un bout de pièce : le tuyau debout dans un chaudron d’eau qui bout, un chiffon en haut que la pièce traverse, l’eau condensée qui retombe dans le chaudron.',
     format: 'demi',
     disposition: [['couche', 'debout']],
-    largeurs: [[1.7, 1]],
+    largeurs: [[2, 1]],
     vues: {
       couche: { titre: 'Couchée sur la bouilloire, en coupe', dessin: vueCouche, renvois: renvoisCouche },
       debout: { titre: 'Debout dans le chaudron', dessin: vueDebout, renvois: renvoisDebout },

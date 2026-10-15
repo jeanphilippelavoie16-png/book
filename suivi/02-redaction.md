@@ -254,6 +254,10 @@ Vérifiés pour l'inventaire : antigel par appareil (0,5 L, 1 L, 2 L) et 18 °C 
 
 ### Corrigé
 
+- **Étape 3 et §6, la réserve d'eau** : « La trousse en contient 6 L par personne » se lisait comme toute l'eau de
+  trois jours. Québec.ca dit 6 L pour boire **plus** 6 L pour la cuisine et l'hygiène, pour au moins trois jours, soit
+  4 L par personne et par jour dont 2 L à boire (`23-quebec-reserve-eau-trois-jours.md`, recoupé par
+  `13-canada-trousse-urgence.md`, « environ quatre litres, par personne et par jour »). Le ch. 00b dit déjà 4 L.
 - **Étape 3 et §9, aliment monté au-dessus de 4 °C plus de 2 h** : le texte disait « ça se cuisine tout de suite ou
   ça se jette » (étape 3) et « ça se cuit tout de suite » (§9). La source du chapitre dit rejet
   (`02-quebec-fiche-technique-panne-plomberie.md`), et le ch. 1 aussi (cuire seulement ce qui est resté à 4 °C ou

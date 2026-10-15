@@ -48,7 +48,7 @@ module.exports = (h) => {
       const haut = P.map(p => [p[0], p[1] - p[2] / 2]), bas = P.map(p => [p[0], p[1] + p[2] / 2]).reverse();
       return h.path(poly([...haut, ...bas]), blanc('arete'));
     };
-    out.push(lan(r - 5, xb - xa - 10, 30), lan(r - 2, xb - xa + 40, 50));
+    out.push(lan(r - 5, xb - xa - 40, 18), lan(r - 1, xb - xa + 40, 50));
     // l'écorce entière, à gauche : un tube vert, ses fibres en long
     out.push(h.path(poly([[x0, y - r], [xa, y - r], [xa, y + r], [x0, y + r]]), A.blanc));
     out.push(h.path(poly([[x0, y + r * 0.35], [xa, y + r * 0.35], [xa, y + r], [x0, y + r]]), A.ombre));

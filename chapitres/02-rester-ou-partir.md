@@ -128,7 +128,8 @@ personne sédentaire. Aucune température reconnue ne dit quand quitter une mais
 le seuil que la famille a écrit d'avance sur la fiche, en pensant au plus jeune.
 
 **Eau.** Les litres qu'on a sans sortir, l'accès à la source, et de quoi désinfecter (ch. 10).
-Les 6 L par personne de la trousse font trois jours.
+La réserve de la trousse compte 4 L par personne et par jour, dont 2 L à boire, pour au moins
+trois jours.
 
 À la maison, le robinet peut couler et ne plus être potable : une panne de courant, un bris du
 réseau ou une baisse de pression suffisent, et rien ne se voit au robinet. L'eau se fait alors
@@ -294,7 +295,7 @@ neuves, même quand elle ne change pas. Après douze heures sans mesure, elle es
 | 0 à 5 min | Avertisseur de CO | Silencieux | S'il sonne : étape 1 |
 | Première heure, puis 2 h plus tard | Température intérieure, et la pente entre les deux relevés | 18 à 24 °C, risque minimal pour une personne sédentaire ; pente en °C par heure | Sous le seuil écrit d'avance par la famille, ou pente qui y mène avant la fin de la nuit : regrouper dans une pièce, trancher avant la noirceur |
 | Première heure | Bois sec qu'on atteint sans machine | Nombre de jours écrit sur la fiche (ch. 83) | Sous ce chiffre : partir pendant que la route est ouverte |
-| Première heure | Eau | 6 L par personne en trousse, et l'accès à la source | Pas d'accès à la source : l'eau devient l'horloge la plus courte |
+| Première heure | Eau | 4 L par personne et par jour en réserve, et l'accès à la source | Pas d'accès à la source : l'eau devient l'horloge la plus courte |
 | Première heure, à la maison | Eau du robinet | Ni panne de courant, ni bris, ni baisse de pression | L'un des trois : gros bouillons 1 min avant de boire, de faire la glace, de laver ce qui se mange cru, de se brosser les dents |
 | Chaque jour, à la maison | Heure de rétablissement prévue par Hydro-Québec | Une heure annoncée qui tient | Repoussée deux fois : délai inconnu, appliquer la bascule (étape 4) |
 | Première heure | Aliments réfrigérés et congelés | Réfrigérateur 4 à 6 h, congélateur plein 48 h | Au-delà : ne plus compter ces aliments dans l'autonomie (ch. 74) |

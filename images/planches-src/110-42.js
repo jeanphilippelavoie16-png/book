@@ -379,7 +379,7 @@ module.exports = (h) => {
           return [
             { n: 7, rond: [x1 + 120, yH + 6], cible: [x1 + w + 6, yH + 6], texte: 'droit : la charge descend sur la traverse' },
             { n: 8, rond: [x1 + 120, X[1] + 4], cible: [X[0] + 16, X[1] + 4], texte: 'diagonal : au croisement des jambes de force' },
-            { n: 9, rond: [x1 + 120, yB + 8], cible: [x1 - 30, yB - 34], texte: 'les jambes de force : le cadre ne se couche pas' },
+            { n: 9, rond: [x1 + 120, yB + 8], cible: [x1 - 30, yB - 34], texte: 'jambes de force : le cadre reste droit' },
           ];
         },
       },

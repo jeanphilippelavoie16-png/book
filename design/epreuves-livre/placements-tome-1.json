@@ -252,10 +252,15 @@
     "planches": [
       {
         "id": "17-06",
-        "apres": "Si la porte ouvre vers l'extérieur, ses pentures sont dehors"
+        "apres": "Une porte cède au chambranle, presque jamais au pêne"
       }
     ],
-    "photos": []
+    "photos": [],
+    "logigramme": {
+      "fichier": "images/logigrammes/17-qui-cogne-livre.svg",
+      "apres": "Régler une visite imprévue sur le seuil",
+      "orange": true
+    }
   },
   "18": {
     "planches": [],

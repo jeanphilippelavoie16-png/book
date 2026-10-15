@@ -68,11 +68,11 @@ module.exports = (h) => {
   };
 
   // ─── Dans l'axe du sentier : la neige coupée en travers ───────────────────────────────────
-  const K2 = 6.4;
+  const K2 = 7.5;
   const geo2 = (z) => {
-    const c = 150, yS = 78, yT = yS + 9 * K2, w = 12.5 * K2, R = 5 * K2;
+    const c = 150, yS = 140, yT = yS + 9 * K2, w = 12.5 * K2, R = 5 * K2;
     const yC = yT - 6.5 * K2 - R;                          // le centre de la boucle
-    return { c, yS, yT, w, R, yC, xBr: c + w + 4, xSap: 286, rSap: 3 * K2 };
+    return { c, yS, yT, w, R, yC, xBr: c + w + 4, xSap: 290, rSap: 3 * K2 };
   };
   const face = (z) => {
     const o = [];
@@ -102,7 +102,7 @@ module.exports = (h) => {
   // ─── Pour le renard : la même boucle, plus grande et plus haute ──────────────────────────
   const renard = (z) => {
     const o = [];
-    const K = 2.4, c = 150, yS = z.h - 34, R = 8.75 * K, yC = yS - 17.5 * K - R;
+    const K = 3.0, c = 150, yS = z.h - 60, R = 8.75 * K, yC = yS - 17.5 * K - R;
     o.push(h.rect(0, yS, z.l, z.h - 2 - yS, neige), h.ligne(0, yS, z.l, yS, h.a.contour));
     const xBr = c + R + 18;
     o.push(brindille(xBr, yS, yC - R - 16));
@@ -121,7 +121,7 @@ module.exports = (h) => {
     desc: 'En haut, vu de dessus : un sentier de lièvre tassé dans la neige profonde, avec deux groupes d’empreintes ; au passage le plus étroit, entre un arbre et un tronc vivant gros comme le poignet, la boucle vue de chant en travers du sentier ; son fil passe dans une brindille plantée au bord et va se tourner sur le tronc vivant. Au milieu à gauche, dans l’axe du sentier : la neige coupée en travers, la gouttière du sentier, la boucle ronde d’environ 10 cm qui pend au fil, l’œillet en haut, la brindille fendue qui pince le fil, le tronc vivant où le fil est tourné ; le bas de la boucle est au-dessus du fond de la gouttière. À droite, pour le renard : une boucle de 15 à 20 cm, le bas à 15 à 20 cm de la piste.',
     format: 'pleine',
     disposition: [['plan'], ['face', 'renard']],
-    hauteurs: [1.75, 3],
+    hauteurs: [2.1, 2.6],
     largeurs: [[1], [1.3, 1]],
     vues: {
       plan: {
