@@ -71,6 +71,7 @@ dans le garage.
 | Le superlatif qui ne se mesure pas | « …au ch. 77, le chapitre le plus dangereux de l'ouvrage. » | « …au ch. 77. » |
 | La révélation en deux temps | « Le réglage est tout, et il tient en une phrase : la mèche ne dépasse presque pas. » | « La mèche ne dépasse presque pas. » |
 | La justification que le lecteur connaît déjà, après les deux-points | « …seules les parties sur le froid, la plomberie et les aliments s'appliquent : il n'y a ni entrée électrique, ni aqueduc, ni égout. » (JP : « inutile, on le sait ») | « …seules les parties sur le froid, la plomberie et les aliments s'appliquent. » |
+| La justification collée au geste | « Ne pas rester dans l'auto : la tôle n'arrête rien. » | « Entrer dans un bâtiment. » |
 | La conséquence évidente d'un fait qu'on vient de dire | « Un tuyau fend parce que l'eau prend du volume en gelant : un tuyau vide ne fend pas. » (JP : « no shit ») | « Un tuyau fend parce que l'eau prend du volume en gelant. » |
 | L'annonce et le résumé | « Voici ce qu'il faut savoir. » ; « En somme… » | *(rien)* |
 | La question rhétorique | « Pourquoi ? Parce que… » | Le fait |
@@ -86,6 +87,21 @@ dans le garage.
 | Le tour long | « le fait de », « ce qui permet de », « il convient de », « au niveau de » | la forme courte |
 | La précision que le lecteur a déjà | « dans la maison, à l'intérieur » | « dans la maison » |
 | « C'est… qui / que » de mise en relief | « C'est la cendre qui tient le mieux. » | « La cendre tient le mieux. » |
+
+### Le réel de l'urgence
+
+JP, sur le logigramme des retombées : « Voir que t'as le temps d'aller chercher la radio de l'auto quand
+une bombe nucléaire pète. » ; « La bombe vient de tomber, on n'a pas encore de sas, TOUT EST NOUVEAU. »
+
+- **Un geste urgent se fait avec ce qu'on a sous la main, à ce moment-là**, par quelqu'un qui n'a rien
+  préparé. Ce qui demande une préparation (une pièce scellée d'avance, un sas, une trousse) vient après,
+  ou dans « Avant », jamais dans les premières minutes.
+- **L'ordre réel** : d'abord ce qui sauve dans les secondes et les minutes, ensuite ce qui organise.
+  La radio, l'inventaire, le tri viennent quand tout le monde est à l'abri.
+- **Les mots de tout le monde.** Pas de jargon que le lecteur ne dirait pas : « sas », « source
+  radioactive perdue » (JP : « ça veut rien dire »). Ou on dit la chose simplement, ou elle sort.
+- **Le mot général quand le détail n'apporte rien** : « les animaux », pas « les chiens et les poules »
+  (JP : « personne a des poules, man »).
 
 ### La répétition
 

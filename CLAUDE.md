@@ -265,7 +265,10 @@ Elle se bâtit sur ce que le chapitre dit déjà et sur ce qu'on sait et trouve 
 « monte-les en fonction de ce qu'on sait et ce que tu trouves »). **Pas sur le modèle d'un guide du
 gouvernement** (JP : « c'est mal fait, toi t'es meilleur ») : pas de liste de consignes génériques, mais les
 gestes de cette famille-là, dans leur ordre réel, avec le moment de chacun et le pourquoi en quelques mots.
-Les guides et les études servent à vérifier un fait, pas à copier une forme. La règle 1 tient : aucun
+Les guides et les études servent à vérifier un fait, pas à copier une forme. **La série suit le réel** :
+celui qui la lit n'a rien préparé, tout est nouveau, il fait avec ce qu'il a sous la main ; d'abord ce qui
+sauve dans les secondes et les minutes, ensuite ce qui organise (JP, sur la radio de l'auto et le sas
+« quand une bombe vient de tomber »). La règle 1 tient : aucun
 chiffre sans source notée dans `/sources` et `suivi/`, `[À VÉRIFIER]` sinon.
 
 **Pas de municipalité, pas de code légal.** Aucune phrase sur un règlement municipal, une loi,
