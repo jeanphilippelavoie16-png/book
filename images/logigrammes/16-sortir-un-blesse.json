@@ -1,5 +1,5 @@
 {
-  "_note": "Logigramme du chapitre 16 (le voisinage et le groupe de chasse) : sortir un blessé du bois. Double page, 15 octobre 2026, sur la série orange du chapitre réécrit (étapes 1 à 12). Rendu : python design/outils/logigramme.py images/logigrammes/16-sortir-un-blesse.json ; version du livre : --sans-entete --svg. « source » : les étapes du chapitre d'où vient chaque geste (ignoré au rendu).",
+  "_note": "Logigramme du chapitre 16 (le voisinage et le groupe de chasse) : sortir un blessé du bois. Double page, 15 octobre 2026, sur la série orange du chapitre réécrit (étapes 1 à 12). Rendu : python design/outils/logigramme.py images/logigrammes/16-sortir-un-blesse.json ; version du livre : --sans-entete --svg. « source » : les étapes du chapitre d'où vient chaque geste (ignoré au rendu). Réécrit le 15 octobre en phrases complètes, comme on le dirait à voix haute (JP : « personne parle comme ça »).",
   "format": "double",
   "tome": 1,
   "urgent": true,
@@ -63,14 +63,14 @@
     "g6": 5.85,
     "g7": 7.07,
     "d1": 0.85,
-    "d2": 1.85,
-    "d3": 2.85,
-    "d4": 3.85,
-    "d5": 4.95,
-    "d6": 6.15,
-    "d7": 7.2,
-    "d8": 8.2,
-    "dd": 1.85
+    "d2": 2.03,
+    "d3": 3.16,
+    "d4": 4.36,
+    "d5": 5.49,
+    "d6": 6.67,
+    "d7": 7.75,
+    "d8": 8.58,
+    "dd": 2.03
   },
   "noeuds": [
     {
@@ -79,7 +79,7 @@
       "col": "plein",
       "rang": "g1",
       "taille": 15,
-      "texte": "Un blessé dans le bois, loin du camp",
+      "texte": "Quelqu'un est blessé dans le bois, loin du camp",
       "source": "§5, en tête de la série"
     },
     {
@@ -89,7 +89,7 @@
       "rang": "g2",
       "ancre": "haut",
       "temps": "15 min",
-      "texte": "**Soigner sur place, avant de bouger qui que ce soit** : regarder la scène, arrêter ce qui gicle, isoler du sol, noter l'heure.",
+      "texte": "**Le soigner sur place avant de déplacer qui que ce soit** : regarder autour s'il y a un danger, arrêter un saignement qui gicle, l'isoler du sol et noter l'heure.",
       "renvoi": "ch. 16, étape 1 ; ch. 26",
       "source": "étape 1 ; ch. 26, étapes 8 à 14"
     },
@@ -99,7 +99,7 @@
       "col": "plein",
       "rang": "g3",
       "ancre": "haut",
-      "texte": "**Alerter tôt** : où, qui, quoi, ce qu'on fait, l'heure du prochain message. Sans radio, deux personnes partent avec le message écrit.",
+      "texte": "**Donner l'alerte tôt** : dire où on est, qui est blessé, ce qu'il a, ce qu'on fait, et à quelle heure viendra le prochain message. Sans radio, deux personnes partent porter le message écrit.",
       "renvoi": "ch. 16, étape 3",
       "source": "étape 3 ; ch. 14, étapes 14 et 15 ; ch. 35, 9-B"
     },
@@ -109,8 +109,8 @@
       "col": "q1",
       "rang": "g4",
       "ancre": "haut",
-      "texte": "Un signe qui le fait sortir couché ?",
-      "precision": "Mal au milieu de la nuque ; bras ou jambe engourdi ou faible ; inconscient, confus ou ivre ; autre douleur qui masque celle du cou",
+      "texte": "Il a un des signes qui obligent à le sortir couché ?",
+      "precision": "Il a mal au milieu de la nuque, un bras ou une jambe engourdi ou faible, il est inconscient, confus ou ivre, ou une autre douleur peut cacher celle du cou",
       "source": "étape 2"
     },
     {
@@ -120,7 +120,7 @@
       "rang": "g5",
       "ancre": "haut",
       "taille": 10.5,
-      "texte": "**Couché**, tête calée entre deux rouleaux de vêtements, sur une surface ferme. Pas de collet rigide.",
+      "texte": "**Le coucher sur une surface ferme**, la tête calée entre deux rouleaux de vêtements. Ne pas lui fabriquer de collet rigide.",
       "renvoi": "ch. 16, étape 2",
       "source": "étape 2 ; ch. 26, §9"
     },
@@ -131,7 +131,7 @@
       "rang": "g5",
       "ancre": "haut",
       "taille": 11.5,
-      "texte": "Il marche sans aggraver sa blessure ?",
+      "texte": "Il peut marcher sans aggraver sa blessure ?",
       "source": "étape 4"
     },
     {
@@ -141,7 +141,7 @@
       "rang": "g6",
       "ancre": "haut",
       "taille": 10.5,
-      "texte": "**Il marche**, soutenu, sans charge, quelqu'un à côté de lui.",
+      "texte": "**Il marche**, soutenu, sans rien porter, avec quelqu'un à côté de lui.",
       "renvoi": "ch. 16, étape 4",
       "source": "étape 4"
     },
@@ -152,8 +152,7 @@
       "rang": "g6",
       "ancre": "haut",
       "taille": 11.5,
-      "texte": "Une machine peut-elle venir jusqu'à lui ?",
-      "precision": "Motoneige ou VTT avec traîneau",
+      "texte": "Une motoneige ou un VTT avec traîneau peut se rendre jusqu'à lui ?",
       "source": "étape 4"
     },
     {
@@ -163,7 +162,7 @@
       "rang": "g7",
       "ancre": "haut",
       "taille": 10.5,
-      "texte": "**Deux personnes vont la chercher** ; les autres l'emballent.",
+      "texte": "**Deux personnes vont chercher la machine** pendant que les autres l'emballent.",
       "renvoi": "ch. 16, étape 4",
       "source": "étape 4"
     },
@@ -174,8 +173,8 @@
       "rang": "g7",
       "ancre": "haut",
       "taille": 11,
-      "texte": "Arrivée avant la noirceur, avec assez de bras ?",
-      "precision": "Couché, il sort en 4 à 6 fois le temps de marche ; à bras, il faudrait 18 à 24 porteurs",
+      "texte": "On peut arriver avant la noirceur, avec assez de monde pour le porter ?",
+      "precision": "Couché, il sort en 4 à 6 fois le temps de marche. Le porter à bras demande 18 à 24 personnes.",
       "source": "étape 4"
     },
     {
@@ -185,7 +184,7 @@
       "rang": "g7",
       "ancre": "haut",
       "taille": 10.5,
-      "texte": "**L'abriter sur place** : feu, sol isolé. Deux personnes vont chercher la machine ou des bras.",
+      "texte": "**L'abriter sur place**, avec un feu et le sol isolé sous lui. Deux personnes vont chercher une machine ou du monde.",
       "renvoi": "ch. 16, étape 12",
       "source": "étapes 4 et 12 ; ch. 12"
     },
@@ -196,7 +195,7 @@
       "rang": "d1",
       "ancre": "haut",
       "temps": "1 h",
-      "texte": "**Emballer** : sapin ou matelas dessous, sac de couchage fermé, tuque, pare-vapeur.",
+      "texte": "**L'emballer** : des branches de sapin ou un matelas sous lui, un sac de couchage fermé, une tuque et un pare-vapeur par-dessus.",
       "renvoi": "ch. 16, étape 5 ; ch. 25",
       "source": "étape 5 ; ch. 25, étape 8"
     },
@@ -206,7 +205,7 @@
       "col": "tronc2",
       "rang": "d2",
       "ancre": "haut",
-      "texte": "**Sangler** poitrine, bassin, cuisses, tête calée. Deux personnes doivent pouvoir le rouler d'un bloc sur le côté.",
+      "texte": "**Le sangler** à la poitrine, au bassin et aux cuisses, la tête calée. Deux personnes doivent pouvoir le rouler d'un bloc sur le côté.",
       "renvoi": "ch. 16, étape 6",
       "source": "étape 6 ; ch. 26, §9"
     },
@@ -216,7 +215,7 @@
       "col": "tronc2",
       "rang": "d3",
       "ancre": "haut",
-      "texte": "**Deux devant** aux brancards, **un derrière** à la corde dans les descentes, un qui ouvre la piste en raquettes.",
+      "texte": "**Deux personnes tirent devant** aux brancards, **une retient derrière** à la corde dans les descentes, et une autre ouvre la piste en raquettes.",
       "renvoi": "ch. 16, étape 7",
       "source": "étape 7 ; §9, planche 16-08"
     },
@@ -226,7 +225,7 @@
       "col": "tronc2",
       "rang": "d4",
       "ancre": "haut",
-      "texte": "**Sentier tapé, hors de la glace**, de jour. Un adulte reste avec les enfants ; une note sur la porte.",
+      "texte": "**Prendre un sentier tapé, en restant hors de la glace**, et voyager de jour. Un adulte reste avec les enfants, et on laisse une note sur la porte.",
       "renvoi": "ch. 16, étapes 8 et 9",
       "source": "étapes 8 et 9"
     },
@@ -236,8 +235,8 @@
       "col": "cote2",
       "rang": "dd",
       "ancre": "haut",
-      "titre": "À chaque relève",
-      "texte": "**Regarder le visage et la réponse.** Plaque blanche ou cireuse : couvrir, réchauffer contre une peau saine. Confus ou sans frissons : stade grave, à l'horizontale, sans le secouer.",
+      "titre": "Quand on change de porteurs",
+      "texte": "**Regarder son visage et s'il répond bien.** Une plaque blanche ou cireuse sur la peau : la couvrir et la réchauffer contre une peau saine. S'il est confus ou ne frissonne plus, c'est le stade grave : le garder à l'horizontale, sans le secouer.",
       "renvoi": "ch. 16, étape 11 ; ch. 25",
       "source": "étapes 7 et 11 ; §6 ; ch. 25"
     },
@@ -248,7 +247,7 @@
       "rang": "d5",
       "ancre": "haut",
       "temps": "1 h",
-      "texte": "**Chaque heure** : le message à l'heure dite, puis une halte : sangles, sac fermé, il répond.",
+      "texte": "**Chaque heure**, envoyer le message à l'heure promise, puis faire une halte pour vérifier les sangles et le sac, et s'assurer qu'il répond.",
       "renvoi": "ch. 16, étapes 10 et 11",
       "source": "étapes 10 et 11 ; ch. 14, étapes 13 et 15"
     },
@@ -258,7 +257,7 @@
       "col": "tronc2",
       "rang": "d6",
       "ancre": "haut",
-      "texte": "La nuit tombe, ou les porteurs lâchent ?",
+      "texte": "La nuit tombe, ou les porteurs n'en peuvent plus ?",
       "source": "étape 12"
     },
     {
@@ -267,7 +266,7 @@
       "col": "cote2",
       "rang": "d6",
       "ancre": "haut",
-      "texte": "**S'arrêter** : abri, feu, blessé emballé sur un sol isolé. Deux personnes vont chercher la machine ou des bras.",
+      "texte": "**S'arrêter**, faire un abri et un feu, et garder le blessé emballé sur un sol isolé. Deux personnes vont chercher une machine ou du monde.",
       "renvoi": "ch. 16, étape 12 ; ch. 12",
       "source": "étape 12"
     },
@@ -277,7 +276,7 @@
       "col": "tronc2",
       "rang": "d7",
       "ancre": "haut",
-      "texte": "**Continuer**, et refaire le message et la halte à chaque heure.",
+      "texte": "**Continuer**, et refaire le message et la halte chaque heure.",
       "renvoi": "ch. 16, étapes 10 à 12",
       "source": "étapes 10 à 12"
     },
@@ -287,7 +286,7 @@
       "col": "tronc2",
       "rang": "d8",
       "ancre": "haut",
-      "texte": "**À l'arrivée** : soigner, puis décider de la suite.",
+      "texte": "**À l'arrivée**, le soigner, puis décider de la suite.",
       "renvoi": "ch. 26 ; ch. 35",
       "source": "ch. 26 ; ch. 35, 5-C"
     }
@@ -383,7 +382,7 @@
     {
       "de": "q4",
       "vers": "emballer",
-      "etiquette": "Oui : au traîneau",
+      "etiquette": "Oui, on le sort en traîneau",
       "pos": "debut",
       "sortie": "bas",
       "entree": "gauche",

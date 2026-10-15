@@ -15,7 +15,12 @@
   },
   "02": {
     "planches": [],
-    "photos": []
+    "photos": [],
+    "logigramme": {
+      "fichier": "images/logigrammes/02-rester-ou-partir-livre.svg",
+      "apres": "Décider en moins d'une heure",
+      "orange": true
+    }
   },
   "03": {
     "planches": [
@@ -95,7 +100,7 @@
     "planches": [
       {
         "id": "09-08",
-        "apres": "**Ce qu'on perd :** tout le reste. Le cuir durcit au froid"
+        "apres": "**Les joints, dans le cuir gras.**"
       }
     ],
     "photos": []
@@ -246,7 +251,12 @@
         "apres": "*Deux brancards rigides valent mieux qu'une corde.*"
       }
     ],
-    "photos": []
+    "photos": [],
+    "logigramme": {
+      "fichier": "images/logigrammes/16-sortir-un-blesse-livre.svg",
+      "apres": "Quelqu'un est blessé dans le bois",
+      "orange": true
+    }
   },
   "17": {
     "planches": [

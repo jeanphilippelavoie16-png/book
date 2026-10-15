@@ -1,105 +1,614 @@
 {
-  "_note": "Logigramme du chapitre 4 (retombées radioactives), double page, refait le 15 octobre 2026 sur le chapitre réécrit (remarques de JP : pas de branche « source perdue », radio après l'abri, ni « sas » ni « sceller »). Rendu : python design/outils/logigramme.py images/logigrammes/04-retombees.json. « source » : les étapes du chapitre d'où vient chaque geste (ignoré au rendu).",
+  "_note": "Logigramme du chapitre 4 (retombées radioactives), double page, refait le 15 octobre 2026 sur le chapitre réécrit (remarques de JP : pas de branche « source perdue », radio après l'abri, ni « sas » ni « sceller »). Rendu : python design/outils/logigramme.py images/logigrammes/04-retombees.json. « source » : les étapes du chapitre d'où vient chaque geste (ignoré au rendu). Réécrit le 15 octobre en phrases complètes, comme on le dirait à voix haute (JP : « personne parle comme ça »).",
   "format": "double",
   "tome": 1,
   "urgent": true,
-  "entete": {"chapitre": "04 · Retombées radioactives", "tome": "Tome 1 · Tenir", "onglet": "4", "folios": [null, null]},
+  "entete": {
+    "chapitre": "04 · Retombées radioactives",
+    "tome": "Tome 1 · Tenir",
+    "onglet": "4",
+    "folios": [
+      null,
+      null
+    ]
+  },
   "colonnes": {
-    "depA": [0.5, 4.1],
-    "depB": [4.5, 7.375],
-    "q1": [0.8, 3.8],
-    "v1": [0.5, 2.45],
-    "v2": [2.6, 4.55],
-    "v3": [4.7, 6.65],
-    "large": [0.5, 6.65],
-    "tronc": [0.5, 3.4],
-    "cote": [4.0, 7.375],
-    "tronc2": [9.05, 12.25],
-    "cote2": [12.8, 15.5]
+    "depA": [
+      0.5,
+      4.1
+    ],
+    "depB": [
+      4.5,
+      7.375
+    ],
+    "q1": [
+      0.8,
+      3.8
+    ],
+    "v1": [
+      0.5,
+      2.45
+    ],
+    "v2": [
+      2.6,
+      4.55
+    ],
+    "v3": [
+      4.7,
+      6.65
+    ],
+    "large": [
+      0.5,
+      6.65
+    ],
+    "tronc": [
+      0.5,
+      3.4
+    ],
+    "cote": [
+      4.0,
+      7.375
+    ],
+    "tronc2": [
+      9.05,
+      12.25
+    ],
+    "cote2": [
+      12.8,
+      15.5
+    ]
   },
   "rangs": {
     "g1": 1.11,
     "g2": 1.84,
     "g3": 2.72,
-    "g4": 3.82,
-    "g5": 5.0,
-    "g6": 5.7,
-    "g7": 6.7,
-    "g8": 7.52,
-    "d1": 0.85,
-    "d2": 1.68,
-    "d3": 2.82,
-    "d4": 3.69,
-    "d5": 4.44,
-    "d6": 5.27,
-    "d7": 6.15,
-    "d8": 7.42,
-    "d9": 8.55,
-    "dco": 4.35
+    "g4": 4.02,
+    "g5": 5.445,
+    "g6": 6.05,
+    "g7": 7.1,
+    "g8": 7.92,
+    "d1": 0.8,
+    "d2": 1.76,
+    "d3": 2.92,
+    "d4": 3.74,
+    "d5": 4.36,
+    "d6": 5.15,
+    "d7": 6.11,
+    "d8": 7.34,
+    "d9": 8.65,
+    "dco": 4.58
   },
   "noeuds": [
-    {"id": "depA", "type": "depart", "col": "depA", "rang": "g1", "taille": 15, "texte": "Éclair blanc, détonation", "source": "§2"},
-    {"id": "depB", "type": "depart", "col": "depB", "rang": "g1", "taille": 15, "texte": "Alerte nucléaire, sans éclair", "source": "§2 ; étape 4"},
-    {"id": "q1", "type": "question", "col": "q1", "rang": "g2", "texte": "Où est-on ?"},
-    {"id": "dedans", "type": "urgent", "col": "v1", "rang": "g3", "ancre": "haut", "taille": 10.5, "temps": "30 s", "texte": "**S'éloigner des fenêtres** et se coucher à couvert jusqu'au souffle.", "renvoi": "ch. 4, étape 1", "source": "étape 1"},
-    {"id": "dehors", "type": "urgent", "col": "v2", "rang": "g3", "ancre": "haut", "taille": 10.5, "temps": "30 s", "texte": "**À plat ventre**, visage au sol, mains sous le corps, jusqu'au souffle.", "renvoi": "ch. 4, étape 2", "source": "étape 2"},
-    {"id": "auto", "type": "urgent", "col": "v3", "rang": "g3", "ancre": "haut", "taille": 10.5, "temps": "30 s", "texte": "**Freiner, s'arrêter**, se baisser sous les vitres jusqu'au souffle.", "renvoi": "ch. 4, étape 3", "source": "étape 3"},
-    {"id": "entrer", "type": "urgent", "col": "large", "rang": "g4", "ancre": "haut", "temps": "10 min", "texte": "**Entrer dans le bâtiment le plus solide qu'on atteint en quelques minutes** : sous-sol, béton, brique. Les gens qui étaient à l'extérieur doivent laisser leurs vêtements du dessus et leurs chaussures à la porte.", "renvoi": "ch. 4, étapes 4 et 5", "source": "étapes 4 et 5"},
-    {"id": "famille", "type": "question", "col": "tronc", "rang": "g5", "texte": "Toute la famille est là ?"},
-    {"id": "absent", "type": "urgent", "col": "cote", "rang": "g5", "texte": "**Ne ressortir chercher personne**, même à l'école : on se retrouve après l'abri.", "renvoi": "ch. 4, étape 6", "source": "étape 6"},
-    {"id": "fermer", "type": "urgent", "col": "large", "rang": "g6", "ancre": "haut", "texte": "**Rentrer les animaux, fermer portes et fenêtres**, arrêter fournaise, échangeur d'air et climatiseur.", "renvoi": "ch. 4, étapes 6 et 7", "source": "étapes 6 et 7"},
-    {"id": "ou", "type": "question", "col": "tronc", "rang": "g7", "texte": "Où s'abriter ?"},
-    {"id": "sous-sol", "type": "urgent", "col": "v1", "rang": "g8", "ancre": "haut", "taille": 10.5, "texte": "**Descendre**, contre un mur enterré.", "renvoi": "ch. 4, étape 8 ; ch. 79", "source": "étape 8"},
-    {"id": "changer", "type": "urgent", "col": "v2", "rang": "g8", "ancre": "haut", "taille": 10.5, "texte": "**Y aller**, et y être au plus tard 30 min après l'éclair.", "renvoi": "ch. 4, étape 9", "source": "étape 9"},
-    {"id": "centre", "type": "urgent", "col": "v3", "rang": "g8", "ancre": "haut", "taille": 10.5, "texte": "**Centre de la maison**, loin du toit ; empiler la masse.", "renvoi": "ch. 4, étape 8 et §9", "source": "étape 8 ; §9"},
-    {"id": "laver", "type": "urgent", "col": "tronc2", "rang": "d1", "ancre": "haut", "temps": "1 h", "texte": "**Se laver** à l'eau et au savon, sans revitalisant ; sans eau, au linge mouillé.", "renvoi": "ch. 4, étape 10", "source": "étape 10"},
-    {"id": "radio", "type": "urgent", "col": "tronc2", "rang": "d2", "ancre": "haut", "texte": "**Ouvrir la radio** qu'on a, à piles ou à manivelle. Noter l'heure sur le cadre de porte.", "renvoi": "ch. 4, étape 11", "source": "étape 11"},
-    {"id": "ki", "type": "question", "col": "tronc2", "rang": "d3", "texte": "Des comprimés d'iode (KI) ?"},
-    {"id": "q24", "type": "question", "col": "tronc2", "rang": "d4", "texte": "Moins de 24 h depuis l'exposition ?"},
-    {"id": "pas-iode", "type": "geste", "col": "cote2", "rang": "d4", "texte": "**Aucun autre iode ne protège** : ni teinture, ni Bétadine, ni sel iodé. Couper lait frais, légumes-feuilles et eau de surface 6 à 8 semaines.", "renvoi": "ch. 4, §8 et §9", "source": "§8, point 1 ; §9, sans comprimés d'iode ; étape 13"},
-    {"id": "dose", "type": "urgent", "col": "tronc2", "rang": "d5", "ancre": "haut", "texte": "**Donner la dose par âge**, enfants d'abord, le plus tôt possible.", "renvoi": "ch. 4, étapes 12 à 14", "source": "étapes 12 à 14"},
-    {"id": "abri", "type": "geste", "col": "tronc2", "rang": "d6", "ancre": "haut", "texte": "**Pendant l'abri** : boucher les courants d'air, manger ce qui était fermé, boire la réserve.", "renvoi": "ch. 4, étapes 15 à 18", "source": "étapes 15 à 18"},
-    {"id": "co", "type": "danger", "col": "cote2", "rang": "dco", "ancre": "haut", "titre": "Aux 6 h : l'avertisseur de CO", "texte": "**Alarme, mal de tête ou somnolence chez plusieurs : ouvrir, sortir tout le monde.** Ces signes ressemblent à ceux d'une irradiation. Génératrice : jamais dans un bâtiment, un garage ou sous un auvent.", "renvoi": "ch. 4, §8", "source": "§6 ; §7 ; §8, point 3"},
-    {"id": "h24", "type": "question", "col": "tronc2", "rang": "d7", "ancre": "haut", "temps": "24 h", "texte": "Des nouvelles à la radio, et le débit en baisse ?", "precision": "À l'électroscope, si on en a un", "source": "étape 20"},
-    {"id": "48h", "type": "geste", "col": "cote2", "rang": "d7", "ancre": "haut", "temps": "48 h", "texte": "**Rester jusqu'à 48 h.** Sans radio : 48 h strictes, puis sorties courtes deux semaines.", "renvoi": "ch. 4, étape 20 et §9", "source": "étape 20 ; §9"},
-    {"id": "sortir", "type": "geste", "col": "tronc2", "rang": "d8", "ancre": "haut", "texte": "**Déboucher, ensacher les filtres de la fournaise**, puis sorties courtes.", "renvoi": "ch. 4, étape 21", "source": "étape 21"},
-    {"id": "fin-maison", "type": "geste", "x": [9.05, 11.95], "rang": "d9", "ancre": "haut", "texte": "**Rester ou partir** : reprendre la décision à heure fixe.", "renvoi": "ch. 2", "source": "ch. 2, étape 10"},
-    {"id": "fin-chalet", "type": "geste", "col": "cote2", "rang": "d9", "ancre": "haut", "texte": "**Trier ce qui se mange**, pour des années.", "renvoi": "ch. 4, étapes 24 à 28", "source": "étapes 24 à 28"}
+    {
+      "id": "depA",
+      "type": "depart",
+      "col": "depA",
+      "rang": "g1",
+      "taille": 15,
+      "texte": "Un éclair blanc, puis une détonation",
+      "source": "§2"
+    },
+    {
+      "id": "depB",
+      "type": "depart",
+      "col": "depB",
+      "rang": "g1",
+      "taille": 15,
+      "texte": "Une alerte nucléaire, sans éclair",
+      "source": "§2 ; étape 4"
+    },
+    {
+      "id": "q1",
+      "type": "question",
+      "col": "q1",
+      "rang": "g2",
+      "texte": "Où est-on ?"
+    },
+    {
+      "id": "dedans",
+      "type": "urgent",
+      "col": "v1",
+      "rang": "g3",
+      "ancre": "haut",
+      "taille": 10,
+      "temps": "30 s",
+      "texte": "**S'éloigner des fenêtres** et se coucher à l'abri jusqu'au passage du souffle.",
+      "renvoi": "ch. 4, étape 1",
+      "source": "étape 1"
+    },
+    {
+      "id": "dehors",
+      "type": "urgent",
+      "col": "v2",
+      "rang": "g3",
+      "ancre": "haut",
+      "taille": 10,
+      "temps": "30 s",
+      "texte": "**Se coucher à plat ventre**, le visage au sol et les mains sous le corps, jusqu'au passage du souffle.",
+      "renvoi": "ch. 4, étape 2",
+      "source": "étape 2"
+    },
+    {
+      "id": "auto",
+      "type": "urgent",
+      "col": "v3",
+      "rang": "g3",
+      "ancre": "haut",
+      "taille": 10,
+      "temps": "30 s",
+      "texte": "**Freiner, s'arrêter** et se baisser sous les vitres jusqu'au passage du souffle.",
+      "renvoi": "ch. 4, étape 3",
+      "source": "étape 3"
+    },
+    {
+      "id": "entrer",
+      "type": "urgent",
+      "col": "large",
+      "rang": "g4",
+      "ancre": "haut",
+      "temps": "10 min",
+      "texte": "**Entrer dans le bâtiment le plus solide qu'on atteint en quelques minutes** : sous-sol, béton, brique. Les gens qui étaient à l'extérieur doivent laisser leurs vêtements du dessus et leurs chaussures à la porte.",
+      "renvoi": "ch. 4, étapes 4 et 5",
+      "source": "étapes 4 et 5"
+    },
+    {
+      "id": "famille",
+      "type": "question",
+      "col": "tronc",
+      "rang": "g5",
+      "texte": "Toute la famille est là ?"
+    },
+    {
+      "id": "absent",
+      "type": "urgent",
+      "col": "cote",
+      "rang": "g5",
+      "texte": "**Ne pas ressortir chercher quelqu'un.** Un enfant à l'école y reste : l'école de béton le protège mieux que la maison. On se retrouve après l'abri.",
+      "renvoi": "ch. 4, étape 6",
+      "source": "étape 6",
+      "taille": 10
+    },
+    {
+      "id": "fermer",
+      "type": "urgent",
+      "col": "large",
+      "rang": "g6",
+      "ancre": "haut",
+      "texte": "**Rentrer les animaux, fermer les portes et les fenêtres**, et arrêter la fournaise, l'échangeur d'air et le climatiseur.",
+      "renvoi": "ch. 4, étapes 6 et 7",
+      "source": "étapes 6 et 7"
+    },
+    {
+      "id": "ou",
+      "type": "question",
+      "col": "tronc",
+      "rang": "g7",
+      "texte": "Quel est le meilleur abri ?"
+    },
+    {
+      "id": "sous-sol",
+      "type": "urgent",
+      "col": "v1",
+      "rang": "g8",
+      "ancre": "haut",
+      "taille": 10,
+      "texte": "**Descendre au sous-sol** et se mettre contre un mur enterré.",
+      "renvoi": "ch. 4, étape 8 ; ch. 79",
+      "source": "étape 8"
+    },
+    {
+      "id": "changer",
+      "type": "urgent",
+      "col": "v2",
+      "rang": "g8",
+      "ancre": "haut",
+      "taille": 10,
+      "texte": "**Y aller**, et y être rendu au plus tard 30 min après l'éclair.",
+      "renvoi": "ch. 4, étape 9",
+      "source": "étape 9"
+    },
+    {
+      "id": "centre",
+      "type": "urgent",
+      "col": "v3",
+      "rang": "g8",
+      "ancre": "haut",
+      "taille": 10,
+      "texte": "**Aller au centre de la maison**, loin du toit, et empiler autour de soi ce qui est lourd : bidons d'eau, livres.",
+      "renvoi": "ch. 4, étape 8 et §9",
+      "source": "étape 8 ; §9"
+    },
+    {
+      "id": "laver",
+      "type": "urgent",
+      "col": "tronc2",
+      "rang": "d1",
+      "ancre": "haut",
+      "temps": "1 h",
+      "texte": "**Se laver** à l'eau et au savon, sans revitalisant, ou avec un linge mouillé s'il n'y a pas d'eau.",
+      "renvoi": "ch. 4, étape 10",
+      "source": "étape 10",
+      "taille": 10
+    },
+    {
+      "id": "radio",
+      "type": "urgent",
+      "col": "tronc2",
+      "rang": "d2",
+      "ancre": "haut",
+      "texte": "**Allumer la radio** et la laisser ouverte. Écrire l'heure de l'éclair sur le cadre de porte : les 24 h d'abri se comptent de là.",
+      "renvoi": "ch. 4, étape 11",
+      "source": "étape 11",
+      "taille": 10
+    },
+    {
+      "id": "ki",
+      "type": "question",
+      "col": "tronc2",
+      "rang": "d3",
+      "texte": "On a des comprimés d'iode (KI) ?",
+      "taille": 10
+    },
+    {
+      "id": "q24",
+      "type": "question",
+      "col": "tronc2",
+      "rang": "d4",
+      "texte": "Ça fait moins de 24 h depuis l'exposition ?",
+      "taille": 10
+    },
+    {
+      "id": "pas-iode",
+      "type": "geste",
+      "col": "cote2",
+      "rang": "d4",
+      "texte": "**Aucun autre iode ne protège** : ni la teinture, ni la Bétadine, ni le sel iodé. Pendant 6 à 8 semaines, ne pas boire de lait frais ni d'eau de surface, et ne pas manger de légumes-feuilles.",
+      "renvoi": "ch. 4, §8 et §9",
+      "source": "§8, point 1 ; §9, sans comprimés d'iode ; étape 13",
+      "taille": 10
+    },
+    {
+      "id": "dose",
+      "type": "urgent",
+      "col": "tronc2",
+      "rang": "d5",
+      "ancre": "haut",
+      "texte": "**Donner à chacun la dose de son âge**, les enfants d'abord, le plus tôt possible.",
+      "renvoi": "ch. 4, étapes 12 à 14",
+      "source": "étapes 12 à 14",
+      "taille": 10
+    },
+    {
+      "id": "abri",
+      "type": "geste",
+      "col": "tronc2",
+      "rang": "d6",
+      "ancre": "haut",
+      "texte": "**Pendant l'abri** : boucher les courants d'air, manger ce qui était dans un contenant fermé et boire l'eau mise de côté.",
+      "renvoi": "ch. 4, étapes 15 à 18",
+      "source": "étapes 15 à 18",
+      "taille": 10
+    },
+    {
+      "id": "co",
+      "type": "danger",
+      "col": "cote2",
+      "rang": "dco",
+      "ancre": "haut",
+      "titre": "Le CO ressemble à l'irradiation",
+      "texte": "**Si l'avertisseur de CO sonne, ou si plusieurs ont mal à la tête ou envie de dormir, sortir tout le monde.** On croirait à une irradiation, et on resterait couché.",
+      "renvoi": "ch. 4, §8",
+      "source": "§6 ; §7 ; §8, point 3",
+      "taille": 10
+    },
+    {
+      "id": "h24",
+      "type": "question",
+      "col": "tronc2",
+      "rang": "d7",
+      "ancre": "haut",
+      "temps": "24 h",
+      "texte": "Au bout de 24 h, la radio donne des nouvelles et la radiation baisse ?",
+      "precision": "Si on a un électroscope, la baisse se voit dessus",
+      "source": "étape 20",
+      "taille": 10
+    },
+    {
+      "id": "48h",
+      "type": "geste",
+      "col": "cote2",
+      "rang": "d7",
+      "ancre": "haut",
+      "temps": "48 h",
+      "texte": "**Rester jusqu'à 48 h.** Sans radio, rester les 48 h, puis sortir peu de temps à la fois pendant deux semaines.",
+      "renvoi": "ch. 4, étape 20 et §9",
+      "source": "étape 20 ; §9",
+      "taille": 10
+    },
+    {
+      "id": "sortir",
+      "type": "geste",
+      "col": "tronc2",
+      "rang": "d8",
+      "ancre": "haut",
+      "texte": "**Déboucher les ouvertures et sortir les filtres de la fournaise dans un sac fermé.** Ensuite, sortir peu de temps à la fois.",
+      "renvoi": "ch. 4, étape 21",
+      "source": "étape 21",
+      "taille": 10
+    },
+    {
+      "id": "fin-maison",
+      "type": "geste",
+      "x": [
+        9.05,
+        11.95
+      ],
+      "rang": "d9",
+      "ancre": "haut",
+      "texte": "**Décider si on reste ou si on part** (ch. 2), chaque jour à la même heure.",
+      "renvoi": "ch. 2",
+      "source": "ch. 2, étape 10",
+      "taille": 10
+    },
+    {
+      "id": "fin-chalet",
+      "type": "geste",
+      "col": "cote2",
+      "rang": "d9",
+      "ancre": "haut",
+      "texte": "**Trier pendant des années** le gibier, le poisson et le jardin.",
+      "renvoi": "ch. 4, étapes 24 à 28",
+      "source": "étapes 24 à 28",
+      "taille": 10
+    }
   ],
   "liens": [
-    {"de": "depA", "vers": "q1", "sx": 2.3},
-    {"de": "q1", "vers": "dedans", "etiquette": "Dans un bâtiment", "coude": 2.24, "pos": "palier"},
-    {"de": "q1", "vers": "dehors", "etiquette": "Dehors", "coude": 2.24, "pos": "palier"},
-    {"de": "q1", "vers": "auto", "etiquette": "En auto", "coude": 2.24, "pos": "palier"},
-    {"de": "dedans", "vers": "entrer", "ex": 1.475},
-    {"de": "dehors", "vers": "entrer", "ex": 3.575},
-    {"de": "auto", "vers": "entrer", "ex": 5.675},
-    {"de": "depB", "vers": "entrer", "sortie": "bas", "entree": "droite", "sx": 7.0},
-    {"de": "entrer", "vers": "famille", "sx": 1.95},
-    {"de": "famille", "vers": "absent", "etiquette": "Non"},
-    {"de": "famille", "vers": "fermer", "etiquette": "Oui", "ex": 1.95},
-    {"de": "absent", "vers": "fermer", "ex": 5.6875},
-    {"de": "fermer", "vers": "ou", "sx": 1.95},
-    {"de": "ou", "vers": "sous-sol", "etiquette": "Sous-sol ou caveau", "coude": 7.1, "pos": "palier"},
-    {"de": "ou", "vers": "changer", "etiquette": "Un meilleur abri à 15 min", "coude": 7.1, "pos": "palier"},
-    {"de": "ou", "vers": "centre", "etiquette": "Rien de mieux", "coude": 7.1, "pos": "palier"},
-    {"de": "sous-sol", "vers": "laver", "sortie": "bas", "entree": "gauche", "via": [[1.475, 8.95], [8.8, 8.95], [8.8, 1.15]]},
-    {"de": "changer", "vers": "laver", "sortie": "bas", "entree": "gauche", "via": [[3.575, 8.95], [8.8, 8.95], [8.8, 1.15]]},
-    {"de": "centre", "vers": "laver", "sortie": "bas", "entree": "gauche", "via": [[5.675, 8.95], [8.8, 8.95], [8.8, 1.15]]},
-    {"de": "laver", "vers": "radio"},
-    {"de": "radio", "vers": "ki"},
-    {"de": "ki", "vers": "pas-iode", "etiquette": "Non", "sortie": "droite", "entree": "haut"},
-    {"de": "ki", "vers": "q24", "etiquette": "Oui"},
-    {"de": "q24", "vers": "pas-iode", "etiquette": "Non"},
-    {"de": "q24", "vers": "dose", "etiquette": "Oui"},
-    {"de": "dose", "vers": "abri"},
-    {"de": "pas-iode", "vers": "abri", "sortie": "gauche", "entree": "droite", "sy": 4.0, "via": [[12.52, 4.0], [12.52, 5.6]]},
-    {"de": "abri", "vers": "h24"},
-    {"de": "h24", "vers": "48h", "etiquette": "Non"},
-    {"de": "h24", "vers": "sortir", "etiquette": "Oui"},
-    {"de": "48h", "vers": "sortir", "sortie": "bas", "entree": "droite"},
-    {"de": "sortir", "vers": "fin-maison", "etiquette": "Maison", "icone": "maison", "coude": 8.13, "pos": "palier"},
-    {"de": "sortir", "vers": "fin-chalet", "etiquette": "Chalet", "icone": "chalet", "coude": 8.13, "pos": "palier"},
-    {"de": "fin-maison", "vers": "fin-chalet", "etiquette": "Partir"}
+    {
+      "de": "depA",
+      "vers": "q1",
+      "sx": 2.3
+    },
+    {
+      "de": "q1",
+      "vers": "dedans",
+      "etiquette": "Dans un bâtiment",
+      "coude": 2.24,
+      "pos": "palier"
+    },
+    {
+      "de": "q1",
+      "vers": "dehors",
+      "etiquette": "Dehors",
+      "coude": 2.24,
+      "pos": "palier"
+    },
+    {
+      "de": "q1",
+      "vers": "auto",
+      "etiquette": "En auto",
+      "coude": 2.24,
+      "pos": "palier"
+    },
+    {
+      "de": "dedans",
+      "vers": "entrer",
+      "ex": 1.475
+    },
+    {
+      "de": "dehors",
+      "vers": "entrer",
+      "ex": 3.575
+    },
+    {
+      "de": "auto",
+      "vers": "entrer",
+      "ex": 5.675
+    },
+    {
+      "de": "depB",
+      "vers": "entrer",
+      "sortie": "bas",
+      "entree": "droite",
+      "sx": 7.0
+    },
+    {
+      "de": "entrer",
+      "vers": "famille",
+      "sx": 1.95
+    },
+    {
+      "de": "famille",
+      "vers": "absent",
+      "etiquette": "Non"
+    },
+    {
+      "de": "famille",
+      "vers": "fermer",
+      "etiquette": "Oui",
+      "ex": 1.95
+    },
+    {
+      "de": "absent",
+      "vers": "fermer",
+      "ex": 5.6875
+    },
+    {
+      "de": "fermer",
+      "vers": "ou",
+      "sx": 1.95
+    },
+    {
+      "de": "ou",
+      "vers": "sous-sol",
+      "etiquette": "Le sous-sol ou le caveau",
+      "coude": 7.5,
+      "pos": "palier"
+    },
+    {
+      "de": "ou",
+      "vers": "changer",
+      "etiquette": "Un abri plus solide à 15 min",
+      "coude": 7.5,
+      "pos": "palier"
+    },
+    {
+      "de": "ou",
+      "vers": "centre",
+      "etiquette": "Il n'y a rien de mieux",
+      "coude": 7.5,
+      "pos": "palier"
+    },
+    {
+      "de": "sous-sol",
+      "vers": "laver",
+      "sortie": "bas",
+      "entree": "gauche",
+      "via": [
+        [
+          1.475,
+          9.05
+        ],
+        [
+          8.8,
+          9.05
+        ],
+        [
+          8.8,
+          1.15
+        ]
+      ]
+    },
+    {
+      "de": "changer",
+      "vers": "laver",
+      "sortie": "bas",
+      "entree": "gauche",
+      "via": [
+        [
+          3.575,
+          9.05
+        ],
+        [
+          8.8,
+          9.05
+        ],
+        [
+          8.8,
+          1.15
+        ]
+      ]
+    },
+    {
+      "de": "centre",
+      "vers": "laver",
+      "sortie": "bas",
+      "entree": "gauche",
+      "via": [
+        [
+          5.675,
+          9.05
+        ],
+        [
+          8.8,
+          9.05
+        ],
+        [
+          8.8,
+          1.15
+        ]
+      ]
+    },
+    {
+      "de": "laver",
+      "vers": "radio"
+    },
+    {
+      "de": "radio",
+      "vers": "ki"
+    },
+    {
+      "de": "ki",
+      "vers": "pas-iode",
+      "etiquette": "Non",
+      "sortie": "droite",
+      "entree": "haut"
+    },
+    {
+      "de": "ki",
+      "vers": "q24",
+      "etiquette": "Oui"
+    },
+    {
+      "de": "q24",
+      "vers": "pas-iode",
+      "etiquette": "Non"
+    },
+    {
+      "de": "q24",
+      "vers": "dose",
+      "etiquette": "Oui"
+    },
+    {
+      "de": "dose",
+      "vers": "abri"
+    },
+    {
+      "de": "pas-iode",
+      "vers": "abri",
+      "sortie": "gauche",
+      "entree": "droite",
+      "sy": 4.15,
+      "via": [
+        [
+          12.52,
+          4.15
+        ],
+        [
+          12.52,
+          5.505
+        ]
+      ]
+    },
+    {
+      "de": "abri",
+      "vers": "h24"
+    },
+    {
+      "de": "h24",
+      "vers": "48h",
+      "etiquette": "Non"
+    },
+    {
+      "de": "h24",
+      "vers": "sortir",
+      "etiquette": "Oui"
+    },
+    {
+      "de": "48h",
+      "vers": "sortir",
+      "sortie": "bas",
+      "entree": "droite"
+    },
+    {
+      "de": "sortir",
+      "vers": "fin-maison",
+      "etiquette": "Maison",
+      "icone": "maison",
+      "coude": 8.23,
+      "pos": "palier"
+    },
+    {
+      "de": "sortir",
+      "vers": "fin-chalet",
+      "etiquette": "Chalet",
+      "icone": "chalet",
+      "coude": 8.23,
+      "pos": "palier"
+    },
+    {
+      "de": "fin-maison",
+      "vers": "fin-chalet",
+      "etiquette": "Partir"
+    }
   ]
 }

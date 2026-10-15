@@ -55,7 +55,30 @@ scratchpad de la session ne survit pas au conteneur). Tout ce qui était sur le 
 
 État au moment de la pause : voir la ligne « Arrêté » ci-dessous, mise à jour en arrêtant.
 
-**Arrêté** : pas encore (en cours le 15 octobre, 14 h 30).
+**Arrêté le 15 octobre vers 15 h** (JP : « mets en pause le reste, on règle les points qu'on est en train de
+parler »). Tous les agents arrêtés, leurs fichiers et leurs ancrages poussés.
+
+- **Planches livrées dans `images/a-valider/`** au moment de l'arrêt : 03-11, 04-40, 04-41, 04-42, 05-01, 07-01,
+  109-41 à 109-44, 11-04, 112-42, 15-02, 43-04, 48-09, 48-10, 61-03, 70-13, 77-01, 78-41, 80-41. Les lots t6b
+  (109, 112) est fini ; ses ancrages sont dans `_reprise/scratchpad/planches-lot/ancrages-t6b.json`, pas encore
+  fusionnés. Les autres lots sont à relancer sur ce qui manque. « Remonter quelqu'un d'un trou » (ch. 109) n'a
+  pas de planche : le texte ne dit pas comment faire le harnais, il faut l'écrire d'abord.
+- **Passe du tome 1** : finis, 08, 09, 10 (vérifié), 16, 17, 18 et 02 ; le 01 arrêté au milieu ; le 00b pas
+  commencé. Ancrages p1, p2, p3 fusionnés. À corriger hors du tome : ch. 38 (« ch. 16, étape 5 » ×5 devient
+  étape 17, « étape 18 » devient 30) et ch. 44 (« ch. 16, étape 19 » devient 31) : la passe a ajouté 12 étapes
+  au ch. 16.
+- **Nouvelle règle, à repasser sur tout le tome 1, chapitres déjà passés compris** : la règle 0 du skill
+  `ecriture`, « on écrit comme on l'expliquerait à voix haute » (JP : « personne parle comme ça, c'est fucking
+  pas clair » ; « c'est pas juste les logigrammes, c'est la façon de dire les choses »). Les passes du 15 octobre
+  ont compressé le texte en code : noms sans verbe, participes en chaîne, étiquettes en raccourci. Les quatre
+  logigrammes (02, 04, 16, 17) sont refaits selon cette règle ; les chapitres, non. Points précis de JP :
+  - ch. 17, étape 5 : lire le thermomètre et le vent dans les dix premières minutes ne tient pas (« on est en
+    pleine nuit, on se fait réveiller, oublie ça le thermomètre ») : sort de la série orange ;
+  - ch. 17, étapes 6 et 26 : « Restez au poteau » et le poteau planté (« c'est quoi cette phrase là ») :
+    on dit « Restez au bas de l'escalier », un repère qui existe ;
+  - ch. 4, étape 9 : « Couche du dessus enlevée en arrivant » (participe en chaîne) ;
+  - le logigramme ne redit pas les avertissements (JP, sur l'encadré du réchaud du ch. 17 : « on l'a dit 1000
+    fois »).
 
 ## ⏸ PAUSE du 28 septembre (JP : « met ça sur pause, token manquant ») — COMMENT REPRENDRE
 

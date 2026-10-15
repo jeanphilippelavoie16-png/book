@@ -25,137 +25,144 @@
 <path d="M449.10,381.66 L449.10,414.20" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
 <path d="M367.20,359.31 L315.60,359.31 Q309.60,359.31 309.60,365.31 L309.60,414.20" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
 <path d="M147.60,390.16 L147.60,414.20" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
-<path d="M196.20,465.30 L196.20,469.89 Q196.20,474.48 191.61,474.48 L117.60,474.48 Q111.60,474.48 111.60,480.48 L111.60,502.04" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
-<path d="M196.20,465.30 L196.20,469.89 Q196.20,474.48 200.79,474.48 L262.20,474.48 Q268.20,474.48 268.20,480.48 L268.20,502.04" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M196.20,465.90 L196.20,470.19 Q196.20,474.48 191.91,474.48 L117.60,474.48 Q111.60,474.48 111.60,480.48 L111.60,502.04" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M196.20,465.90 L196.20,470.19 Q196.20,474.48 200.49,474.48 L262.20,474.48 Q268.20,474.48 268.20,480.48 L268.20,502.04" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
 <path d="M338.40,536.40 L371.00,536.40" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
-<path d="M111.60,562.24 L111.60,645.60 Q111.60,651.60 117.60,651.60 L627.60,651.60 Q633.60,651.60 633.60,645.60 L633.60,93.45 Q633.60,87.95 639.10,87.95 L644.60,87.95" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
-<path d="M268.20,602.54 L268.20,645.60 Q268.20,651.60 274.20,651.60 L627.60,651.60 Q633.60,651.60 633.60,645.60 L633.60,93.45 Q633.60,87.95 639.10,87.95 L644.60,87.95" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
-<path d="M766.80,114.70 L766.80,126.20" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
-<path d="M766.80,188.20 L766.80,198.20" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
-<path d="M766.80,260.20 L766.80,270.20" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
-<path d="M766.80,332.20 L766.80,349.40" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
-<path d="M766.80,409.90 L766.80,435.80" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
-<path d="M882.00,466.55 L897.92,466.55 Q901.80,466.55 901.80,470.43 L901.80,470.43 Q901.80,474.30 905.67,474.30 L914.60,474.30" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
-<path d="M766.80,490.30 L766.80,511.40" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
-<path d="M766.80,559.90 L766.80,583.40" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M111.60,570.24 L111.60,645.60 Q111.60,651.60 117.60,651.60 L627.60,651.60 Q633.60,651.60 633.60,645.60 L633.60,100.20 Q633.60,94.70 639.10,94.70 L644.60,94.70" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M268.20,614.04 L268.20,645.60 Q268.20,651.60 274.20,651.60 L627.60,651.60 Q633.60,651.60 633.60,645.60 L633.60,100.20 Q633.60,94.70 639.10,94.70 L644.60,94.70" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M766.80,128.20 L766.80,139.16" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M766.80,209.16 L766.80,220.52" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M766.80,296.02 L766.80,306.92" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M766.80,376.92 L766.80,388.28" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M766.80,462.28 L766.80,473.24" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M882.00,503.99 L895.80,503.99 Q901.80,503.99 901.80,509.99 L901.80,512.49 Q901.80,518.49 907.80,518.49 L914.60,518.49" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M766.80,527.74 L766.80,551.00" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M766.80,599.50 L766.80,610.76" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
 </g>
 <g id="noeuds">
 <rect x="36.00" y="60.22" width="495.00" height="39.40" rx="0" fill="#2B5876"/>
-<text data-max="468.50" x="50.00" y="84.67" font-family="IBM Plex Sans Condensed" font-size="15" fill="#fff" text-anchor="start" xml:space="preserve"><tspan font-weight="700">Un blessé dans le bois, loin du camp</tspan></text>
+<text data-max="468.50" x="50.00" y="84.67" font-family="IBM Plex Sans Condensed" font-size="15" fill="#fff" text-anchor="start" xml:space="preserve"><tspan font-weight="700">Quelqu’un est blessé dans le bois, loin du camp</tspan></text>
 <rect x="36.00" y="115.20" width="495.00" height="45.50" rx="0" fill="#FDE8D8" stroke="#EE7219" stroke-width="1.5"/>
-<text data-max="478.50" x="45.00" y="136.80" font-family="IBM Plex Sans Condensed" font-size="11" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">Soigner sur place, avant de bouger qui que ce soit</tspan><tspan font-weight="500"> : regarder la scène, arrêter ce qui gicle, isoler du sol,</tspan></text>
-<text data-max="478.50" x="45.00" y="150.30" font-family="IBM Plex Sans Condensed" font-size="11" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">noter l’heure.</tspan></text>
+<text data-max="478.50" x="45.00" y="136.80" font-family="IBM Plex Sans Condensed" font-size="11" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">Le soigner sur place avant de déplacer qui que ce soit</tspan><tspan font-weight="500"> : regarder autour s’il y a un danger, arrêter un</tspan></text>
+<text data-max="478.50" x="45.00" y="150.30" font-family="IBM Plex Sans Condensed" font-size="11" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">saignement qui gicle, l’isoler du sol et noter l’heure.</tspan></text>
 <rect x="440.42" y="148.45" width="91.33" height="13.00" fill="#EE7219"/>
 <text x="445.42" y="158.00" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="8.5" fill="#000" xml:space="preserve" data-max="82.83">ch. 16, étape 1 ; ch. 26</text>
 <rect x="44.00" y="108.20" width="36.12" height="14.00" fill="#EE7219"/>
 <text x="49.00" y="118.40" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="9" fill="#000" xml:space="preserve" data-max="27.62">15 min</text>
 <rect x="36.00" y="176.40" width="495.00" height="41.50" rx="0" fill="#FDE8D8" stroke="#EE7219" stroke-width="1.5"/>
-<text data-max="478.50" x="45.00" y="194.00" font-family="IBM Plex Sans Condensed" font-size="11" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">Alerter tôt</tspan><tspan font-weight="500"> : où, qui, quoi, ce qu’on fait, l’heure du prochain message. Sans radio, deux personnes partent</tspan></text>
-<text data-max="478.50" x="45.00" y="207.50" font-family="IBM Plex Sans Condensed" font-size="11" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">avec le message écrit.</tspan></text>
+<text data-max="478.50" x="45.00" y="194.00" font-family="IBM Plex Sans Condensed" font-size="11" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">Donner l’alerte tôt</tspan><tspan font-weight="500"> : dire où on est, qui est blessé, ce qu’il a, ce qu’on fait, et à quelle heure viendra le</tspan></text>
+<text data-max="478.50" x="45.00" y="207.50" font-family="IBM Plex Sans Condensed" font-size="11" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">prochain message. Sans radio, deux personnes partent porter le message écrit.</tspan></text>
 <rect x="468.57" y="205.65" width="63.18" height="13.00" fill="#EE7219"/>
 <text x="473.57" y="215.20" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="8.5" fill="#000" xml:space="preserve" data-max="54.68">ch. 16, étape 3</text>
 <rect x="36.00" y="236.16" width="495.00" height="57.00" rx="10" fill="#fff" stroke="#2B5876" stroke-width="1.75"/>
-<text data-max="472.50" x="283.50" y="256.46" font-family="IBM Plex Sans Condensed" font-size="13" fill="#000" text-anchor="middle" xml:space="preserve"><tspan font-weight="700">Un signe qui le fait sortir couché ?</tspan></text>
-<text data-max="472.50" x="283.50" y="270.73" font-family="IBM Plex Serif" font-size="9.5" font-style="italic" fill="#000" text-anchor="middle" xml:space="preserve"><tspan font-weight="400">Mal au milieu de la nuque ; bras ou jambe engourdi ou faible ;</tspan></text>
-<text data-max="472.50" x="283.50" y="282.23" font-family="IBM Plex Serif" font-size="9.5" font-style="italic" fill="#000" text-anchor="middle" xml:space="preserve"><tspan font-weight="400">inconscient, confus ou ivre ; autre douleur qui masque celle du cou</tspan></text>
+<text data-max="472.50" x="283.50" y="256.46" font-family="IBM Plex Sans Condensed" font-size="13" fill="#000" text-anchor="middle" xml:space="preserve"><tspan font-weight="700">Il a un des signes qui obligent à le sortir couché ?</tspan></text>
+<text data-max="472.50" x="283.50" y="270.73" font-family="IBM Plex Serif" font-size="9.5" font-style="italic" fill="#000" text-anchor="middle" xml:space="preserve"><tspan font-weight="400">Il a mal au milieu de la nuque, un bras ou une jambe engourdi ou faible, il</tspan></text>
+<text data-max="472.50" x="283.50" y="282.23" font-family="IBM Plex Serif" font-size="9.5" font-style="italic" fill="#000" text-anchor="middle" xml:space="preserve"><tspan font-weight="400">est inconscient, confus ou ivre, ou une autre douleur peut cacher celle du cou</tspan></text>
 <rect x="36.00" y="336.96" width="223.20" height="53.20" rx="0" fill="#FDE8D8" stroke="#EE7219" stroke-width="1.5"/>
-<text data-max="206.70" x="45.00" y="354.08" font-family="IBM Plex Sans Condensed" font-size="10.5" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">Couché</tspan><tspan font-weight="500">, tête calée entre deux rouleaux de</tspan></text>
-<text data-max="206.70" x="45.00" y="366.98" font-family="IBM Plex Sans Condensed" font-size="10.5" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">vêtements, sur une surface ferme. Pas de</tspan></text>
-<text data-max="206.70" x="45.00" y="379.88" font-family="IBM Plex Sans Condensed" font-size="10.5" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">collet rigide.</tspan></text>
+<text data-max="206.70" x="45.00" y="354.08" font-family="IBM Plex Sans Condensed" font-size="10.5" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">Le coucher sur une surface ferme</tspan><tspan font-weight="500">, la tête</tspan></text>
+<text data-max="206.70" x="45.00" y="366.98" font-family="IBM Plex Sans Condensed" font-size="10.5" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">calée entre deux rouleaux de vêtements. Ne</tspan></text>
+<text data-max="206.70" x="45.00" y="379.88" font-family="IBM Plex Sans Condensed" font-size="10.5" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">pas lui fabriquer de collet rigide.</tspan></text>
 <rect x="196.77" y="377.91" width="63.18" height="13.00" fill="#EE7219"/>
 <text x="201.77" y="387.46" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="8.5" fill="#000" xml:space="preserve" data-max="54.68">ch. 16, étape 2</text>
 <rect x="367.20" y="336.96" width="163.80" height="44.70" rx="10" fill="#fff" stroke="#2B5876" stroke-width="1.75"/>
-<text data-max="141.30" x="449.10" y="356.03" font-family="IBM Plex Sans Condensed" font-size="11.5" fill="#000" text-anchor="middle" xml:space="preserve"><tspan font-weight="700">Il marche sans</tspan></text>
+<text data-max="141.30" x="449.10" y="356.03" font-family="IBM Plex Sans Condensed" font-size="11.5" fill="#000" text-anchor="middle" xml:space="preserve"><tspan font-weight="700">Il peut marcher sans</tspan></text>
 <text data-max="141.30" x="449.10" y="370.13" font-family="IBM Plex Sans Condensed" font-size="11.5" fill="#000" text-anchor="middle" xml:space="preserve"><tspan font-weight="700">aggraver sa blessure ?</tspan></text>
-<rect x="367.20" y="421.20" width="163.80" height="48.30" rx="0" fill="#E8EDF0" stroke="#2B5876" stroke-width="1.5"/>
-<text data-max="147.30" x="376.20" y="438.32" font-family="IBM Plex Sans Condensed" font-size="10.5" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">Il marche</tspan><tspan font-weight="500">, soutenu, sans charge,</tspan></text>
-<text data-max="147.30" x="376.20" y="451.22" font-family="IBM Plex Sans Condensed" font-size="10.5" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">quelqu’un à côté de lui.</tspan></text>
-<rect x="468.57" y="457.25" width="63.18" height="13.00" fill="#2B5876"/>
-<text x="473.57" y="466.80" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="8.5" fill="#fff" xml:space="preserve" data-max="54.68">ch. 16, étape 4</text>
-<rect x="36.00" y="421.20" width="320.40" height="44.10" rx="10" fill="#fff" stroke="#2B5876" stroke-width="1.75"/>
-<text data-max="297.90" x="196.20" y="440.27" font-family="IBM Plex Sans Condensed" font-size="11.5" fill="#000" text-anchor="middle" xml:space="preserve"><tspan font-weight="700">Une machine peut-elle venir jusqu’à lui ?</tspan></text>
-<text data-max="297.90" x="196.20" y="454.38" font-family="IBM Plex Serif" font-size="9.5" font-style="italic" fill="#000" text-anchor="middle" xml:space="preserve"><tspan font-weight="400">Motoneige ou VTT avec traîneau</tspan></text>
-<rect x="36.00" y="509.04" width="151.20" height="53.20" rx="0" fill="#FDE8D8" stroke="#EE7219" stroke-width="1.5"/>
-<text data-max="134.70" x="45.00" y="526.16" font-family="IBM Plex Sans Condensed" font-size="10.5" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">Deux personnes vont la</tspan></text>
-<text data-max="134.70" x="45.00" y="539.06" font-family="IBM Plex Sans Condensed" font-size="10.5" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">chercher</tspan><tspan font-weight="500"> ; les autres</tspan></text>
-<text data-max="134.70" x="45.00" y="551.96" font-family="IBM Plex Sans Condensed" font-size="10.5" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">l’emballent.</tspan></text>
-<rect x="124.77" y="549.99" width="63.18" height="13.00" fill="#EE7219"/>
-<text x="129.77" y="559.54" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="8.5" fill="#000" xml:space="preserve" data-max="54.68">ch. 16, étape 4</text>
-<rect x="198.00" y="509.04" width="140.40" height="93.50" rx="10" fill="#fff" stroke="#2B5876" stroke-width="1.75"/>
-<text data-max="117.90" x="268.20" y="527.64" font-family="IBM Plex Sans Condensed" font-size="11" fill="#000" text-anchor="middle" xml:space="preserve"><tspan font-weight="700">Arrivée avant la</tspan></text>
-<text data-max="117.90" x="268.20" y="541.14" font-family="IBM Plex Sans Condensed" font-size="11" fill="#000" text-anchor="middle" xml:space="preserve"><tspan font-weight="700">noirceur, avec</tspan></text>
-<text data-max="117.90" x="268.20" y="554.64" font-family="IBM Plex Sans Condensed" font-size="11" fill="#000" text-anchor="middle" xml:space="preserve"><tspan font-weight="700">assez de bras ?</tspan></text>
-<text data-max="117.90" x="268.20" y="568.62" font-family="IBM Plex Serif" font-size="9.5" font-style="italic" fill="#000" text-anchor="middle" xml:space="preserve"><tspan font-weight="400">Couché, il sort en 4 à 6 fois</tspan></text>
-<text data-max="117.90" x="268.20" y="580.12" font-family="IBM Plex Serif" font-size="9.5" font-style="italic" fill="#000" text-anchor="middle" xml:space="preserve"><tspan font-weight="400">le temps de marche ; à bras,</tspan></text>
-<text data-max="117.90" x="268.20" y="591.62" font-family="IBM Plex Serif" font-size="9.5" font-style="italic" fill="#000" text-anchor="middle" xml:space="preserve"><tspan font-weight="400">il faudrait 18 à 24 porteurs</tspan></text>
-<rect x="378.00" y="509.04" width="153.00" height="66.10" rx="0" fill="#FDE8D8" stroke="#EE7219" stroke-width="1.5"/>
-<text data-max="136.50" x="387.00" y="526.16" font-family="IBM Plex Sans Condensed" font-size="10.5" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">L’abriter sur place</tspan><tspan font-weight="500"> : feu, sol</tspan></text>
-<text data-max="136.50" x="387.00" y="539.06" font-family="IBM Plex Sans Condensed" font-size="10.5" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">isolé. Deux personnes vont</tspan></text>
-<text data-max="136.50" x="387.00" y="551.96" font-family="IBM Plex Sans Condensed" font-size="10.5" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">chercher la machine ou des</tspan></text>
-<text data-max="136.50" x="387.00" y="564.86" font-family="IBM Plex Sans Condensed" font-size="10.5" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">bras.</tspan></text>
-<rect x="463.98" y="562.89" width="67.77" height="13.00" fill="#EE7219"/>
-<text x="468.98" y="572.44" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="8.5" fill="#000" xml:space="preserve" data-max="59.27">ch. 16, étape 12</text>
-<rect x="651.60" y="61.20" width="230.40" height="53.50" rx="0" fill="#FDE8D8" stroke="#EE7219" stroke-width="1.5"/>
-<text data-max="213.90" x="660.60" y="82.80" font-family="IBM Plex Sans Condensed" font-size="11" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">Emballer</tspan><tspan font-weight="500"> : sapin ou matelas dessous, sac de</tspan></text>
-<text data-max="213.90" x="660.60" y="96.30" font-family="IBM Plex Sans Condensed" font-size="11" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">couchage fermé, tuque, pare-vapeur.</tspan></text>
-<rect x="791.42" y="102.45" width="91.33" height="13.00" fill="#EE7219"/>
-<text x="796.42" y="112.00" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="8.5" fill="#000" xml:space="preserve" data-max="82.83">ch. 16, étape 5 ; ch. 25</text>
+<rect x="367.20" y="421.20" width="163.80" height="53.20" rx="0" fill="#E8EDF0" stroke="#2B5876" stroke-width="1.5"/>
+<text data-max="147.30" x="376.20" y="438.32" font-family="IBM Plex Sans Condensed" font-size="10.5" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">Il marche</tspan><tspan font-weight="500">, soutenu, sans rien</tspan></text>
+<text data-max="147.30" x="376.20" y="451.22" font-family="IBM Plex Sans Condensed" font-size="10.5" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">porter, avec quelqu’un à côté de</tspan></text>
+<text data-max="147.30" x="376.20" y="464.12" font-family="IBM Plex Sans Condensed" font-size="10.5" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">lui.</tspan></text>
+<rect x="468.57" y="462.15" width="63.18" height="13.00" fill="#2B5876"/>
+<text x="473.57" y="471.70" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="8.5" fill="#fff" xml:space="preserve" data-max="54.68">ch. 16, étape 4</text>
+<rect x="36.00" y="421.20" width="320.40" height="44.70" rx="10" fill="#fff" stroke="#2B5876" stroke-width="1.75"/>
+<text data-max="297.90" x="196.20" y="440.27" font-family="IBM Plex Sans Condensed" font-size="11.5" fill="#000" text-anchor="middle" xml:space="preserve"><tspan font-weight="700">Une motoneige ou un VTT avec</tspan></text>
+<text data-max="297.90" x="196.20" y="454.38" font-family="IBM Plex Sans Condensed" font-size="11.5" fill="#000" text-anchor="middle" xml:space="preserve"><tspan font-weight="700">traîneau peut se rendre jusqu’à lui ?</tspan></text>
+<rect x="36.00" y="509.04" width="151.20" height="61.20" rx="0" fill="#FDE8D8" stroke="#EE7219" stroke-width="1.5"/>
+<text data-max="134.70" x="45.00" y="526.16" font-family="IBM Plex Sans Condensed" font-size="10.5" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">Deux personnes vont</tspan></text>
+<text data-max="134.70" x="45.00" y="539.06" font-family="IBM Plex Sans Condensed" font-size="10.5" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">chercher la machine</tspan><tspan font-weight="500"> pendant</tspan></text>
+<text data-max="134.70" x="45.00" y="551.96" font-family="IBM Plex Sans Condensed" font-size="10.5" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">que les autres l’emballent.</tspan></text>
+<rect x="124.77" y="557.99" width="63.18" height="13.00" fill="#EE7219"/>
+<text x="129.77" y="567.54" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="8.5" fill="#000" xml:space="preserve" data-max="54.68">ch. 16, étape 4</text>
+<rect x="198.00" y="509.04" width="140.40" height="105.00" rx="10" fill="#fff" stroke="#2B5876" stroke-width="1.75"/>
+<text data-max="117.90" x="268.20" y="527.64" font-family="IBM Plex Sans Condensed" font-size="11" fill="#000" text-anchor="middle" xml:space="preserve"><tspan font-weight="700">On peut arriver avant la</tspan></text>
+<text data-max="117.90" x="268.20" y="541.14" font-family="IBM Plex Sans Condensed" font-size="11" fill="#000" text-anchor="middle" xml:space="preserve"><tspan font-weight="700">noirceur, avec assez de</tspan></text>
+<text data-max="117.90" x="268.20" y="554.64" font-family="IBM Plex Sans Condensed" font-size="11" fill="#000" text-anchor="middle" xml:space="preserve"><tspan font-weight="700">monde pour le porter ?</tspan></text>
+<text data-max="117.90" x="268.20" y="568.62" font-family="IBM Plex Serif" font-size="9.5" font-style="italic" fill="#000" text-anchor="middle" xml:space="preserve"><tspan font-weight="400">Couché, il sort en 4 à 6</tspan></text>
+<text data-max="117.90" x="268.20" y="580.12" font-family="IBM Plex Serif" font-size="9.5" font-style="italic" fill="#000" text-anchor="middle" xml:space="preserve"><tspan font-weight="400">fois le temps de marche.</tspan></text>
+<text data-max="117.90" x="268.20" y="591.62" font-family="IBM Plex Serif" font-size="9.5" font-style="italic" fill="#000" text-anchor="middle" xml:space="preserve"><tspan font-weight="400">Le porter à bras demande</tspan></text>
+<text data-max="117.90" x="268.20" y="603.12" font-family="IBM Plex Serif" font-size="9.5" font-style="italic" fill="#000" text-anchor="middle" xml:space="preserve"><tspan font-weight="400">18 à 24 personnes.</tspan></text>
+<rect x="378.00" y="509.04" width="153.00" height="74.10" rx="0" fill="#FDE8D8" stroke="#EE7219" stroke-width="1.5"/>
+<text data-max="136.50" x="387.00" y="526.16" font-family="IBM Plex Sans Condensed" font-size="10.5" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">L’abriter sur place</tspan><tspan font-weight="500">, avec un feu</tspan></text>
+<text data-max="136.50" x="387.00" y="539.06" font-family="IBM Plex Sans Condensed" font-size="10.5" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">et le sol isolé sous lui. Deux</tspan></text>
+<text data-max="136.50" x="387.00" y="551.96" font-family="IBM Plex Sans Condensed" font-size="10.5" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">personnes vont chercher une</tspan></text>
+<text data-max="136.50" x="387.00" y="564.86" font-family="IBM Plex Sans Condensed" font-size="10.5" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">machine ou du monde.</tspan></text>
+<rect x="463.98" y="570.89" width="67.77" height="13.00" fill="#EE7219"/>
+<text x="468.98" y="580.44" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="8.5" fill="#000" xml:space="preserve" data-max="59.27">ch. 16, étape 12</text>
+<rect x="651.60" y="61.20" width="230.40" height="67.00" rx="0" fill="#FDE8D8" stroke="#EE7219" stroke-width="1.5"/>
+<text data-max="213.90" x="660.60" y="82.80" font-family="IBM Plex Sans Condensed" font-size="11" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">L’emballer</tspan><tspan font-weight="500"> : des branches de sapin ou un</tspan></text>
+<text data-max="213.90" x="660.60" y="96.30" font-family="IBM Plex Sans Condensed" font-size="11" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">matelas sous lui, un sac de couchage fermé,</tspan></text>
+<text data-max="213.90" x="660.60" y="109.80" font-family="IBM Plex Sans Condensed" font-size="11" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">une tuque et un pare-vapeur par-dessus.</tspan></text>
+<rect x="791.42" y="115.95" width="91.33" height="13.00" fill="#EE7219"/>
+<text x="796.42" y="125.50" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="8.5" fill="#000" xml:space="preserve" data-max="82.83">ch. 16, étape 5 ; ch. 25</text>
 <rect x="659.60" y="54.20" width="21.63" height="14.00" fill="#EE7219"/>
 <text x="664.60" y="64.40" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="9" fill="#000" xml:space="preserve" data-max="13.13">1 h</text>
-<rect x="651.60" y="133.20" width="230.40" height="55.00" rx="0" fill="#FDE8D8" stroke="#EE7219" stroke-width="1.5"/>
-<text data-max="213.90" x="660.60" y="150.80" font-family="IBM Plex Sans Condensed" font-size="11" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">Sangler</tspan><tspan font-weight="500"> poitrine, bassin, cuisses, tête calée.</tspan></text>
-<text data-max="213.90" x="660.60" y="164.30" font-family="IBM Plex Sans Condensed" font-size="11" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">Deux personnes doivent pouvoir le rouler d’un</tspan></text>
-<text data-max="213.90" x="660.60" y="177.80" font-family="IBM Plex Sans Condensed" font-size="11" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">bloc sur le côté.</tspan></text>
-<rect x="819.57" y="175.95" width="63.18" height="13.00" fill="#EE7219"/>
-<text x="824.57" y="185.50" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="8.5" fill="#000" xml:space="preserve" data-max="54.68">ch. 16, étape 6</text>
-<rect x="651.60" y="205.20" width="230.40" height="55.00" rx="0" fill="#E8EDF0" stroke="#2B5876" stroke-width="1.5"/>
-<text data-max="213.90" x="660.60" y="222.80" font-family="IBM Plex Sans Condensed" font-size="11" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">Deux devant</tspan><tspan font-weight="500"> aux brancards,</tspan><tspan font-weight="700"> un derrière</tspan><tspan font-weight="500"> à la</tspan></text>
-<text data-max="213.90" x="660.60" y="236.30" font-family="IBM Plex Sans Condensed" font-size="11" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">corde dans les descentes, un qui ouvre la piste</tspan></text>
-<text data-max="213.90" x="660.60" y="249.80" font-family="IBM Plex Sans Condensed" font-size="11" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">en raquettes.</tspan></text>
-<rect x="819.57" y="247.95" width="63.18" height="13.00" fill="#2B5876"/>
-<text x="824.57" y="257.50" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="8.5" fill="#fff" xml:space="preserve" data-max="54.68">ch. 16, étape 7</text>
-<rect x="651.60" y="277.20" width="230.40" height="55.00" rx="0" fill="#E8EDF0" stroke="#2B5876" stroke-width="1.5"/>
-<text data-max="213.90" x="660.60" y="294.80" font-family="IBM Plex Sans Condensed" font-size="11" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">Sentier tapé, hors de la glace</tspan><tspan font-weight="500">, de jour. Un</tspan></text>
-<text data-max="213.90" x="660.60" y="308.30" font-family="IBM Plex Sans Condensed" font-size="11" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">adulte reste avec les enfants ; une note sur la</tspan></text>
-<text data-max="213.90" x="660.60" y="321.80" font-family="IBM Plex Sans Condensed" font-size="11" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">porte.</tspan></text>
-<rect x="800.29" y="319.95" width="82.46" height="13.00" fill="#2B5876"/>
-<text x="805.29" y="329.50" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="8.5" fill="#fff" xml:space="preserve" data-max="73.96">ch. 16, étapes 8 et 9</text>
-<rect x="921.60" y="133.20" width="194.40" height="108.50" rx="0" fill="#fff" stroke="#9B2C1E" stroke-width="1.5"/>
-<rect x="920.85" y="132.45" width="195.90" height="19.75" fill="#9B2C1E"/>
-<g transform="translate(928.60,136.20) scale(0.4333) translate(-0.0,-0.0)"><path d="M17 1.5 L32.5 28.5 H1.5 Z" fill="#fff"/><path d="M15.2 10 H18.8 L18.1 20.5 H15.9 Z" fill="#9B2C1E"/><rect x="15.4" y="22.3" width="3.2" height="3.2" fill="#9B2C1E"/></g>
-<text x="949.33" y="146.20" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="10.0" letter-spacing="0.500" fill="#fff" xml:space="preserve" data-max="157.67">À CHAQUE RELÈVE</text>
-<text data-max="177.90" x="930.60" y="171.38" font-family="IBM Plex Sans Condensed" font-size="10.5" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">Regarder le visage et la réponse.</tspan></text>
-<text data-max="177.90" x="930.60" y="184.38" font-family="IBM Plex Sans Condensed" font-size="10.5" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">Plaque blanche ou cireuse : couvrir,</tspan></text>
-<text data-max="177.90" x="930.60" y="197.38" font-family="IBM Plex Sans Condensed" font-size="10.5" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">réchauffer contre une peau saine.</tspan></text>
-<text data-max="177.90" x="930.60" y="210.38" font-family="IBM Plex Sans Condensed" font-size="10.5" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">Confus ou sans frissons : stade grave, à</tspan></text>
-<text data-max="177.90" x="930.60" y="223.38" font-family="IBM Plex Sans Condensed" font-size="10.5" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">l’horizontale, sans le secouer.</tspan></text>
-<rect x="1020.83" y="229.45" width="95.92" height="13.00" fill="#9B2C1E"/>
-<text x="1025.83" y="239.00" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="8.5" fill="#fff" xml:space="preserve" data-max="87.42">ch. 16, étape 11 ; ch. 25</text>
-<rect x="651.60" y="356.40" width="230.40" height="53.50" rx="0" fill="#FDE8D8" stroke="#EE7219" stroke-width="1.5"/>
-<text data-max="213.90" x="660.60" y="378.00" font-family="IBM Plex Sans Condensed" font-size="11" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">Chaque heure</tspan><tspan font-weight="500"> : le message à l’heure dite, puis</tspan></text>
-<text data-max="213.90" x="660.60" y="391.50" font-family="IBM Plex Sans Condensed" font-size="11" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">une halte : sangles, sac fermé, il répond.</tspan></text>
-<rect x="791.11" y="397.65" width="91.64" height="13.00" fill="#EE7219"/>
-<text x="796.11" y="407.20" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="8.5" fill="#000" xml:space="preserve" data-max="83.14">ch. 16, étapes 10 et 11</text>
-<rect x="659.60" y="349.40" width="21.63" height="14.00" fill="#EE7219"/>
-<text x="664.60" y="359.60" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="9" fill="#000" xml:space="preserve" data-max="13.13">1 h</text>
-<rect x="651.60" y="442.80" width="230.40" height="47.50" rx="10" fill="#fff" stroke="#2B5876" stroke-width="1.75"/>
-<text data-max="207.90" x="766.80" y="463.10" font-family="IBM Plex Sans Condensed" font-size="13" fill="#000" text-anchor="middle" xml:space="preserve"><tspan font-weight="700">La nuit tombe, ou les</tspan></text>
-<text data-max="207.90" x="766.80" y="478.60" font-family="IBM Plex Sans Condensed" font-size="13" fill="#000" text-anchor="middle" xml:space="preserve"><tspan font-weight="700">porteurs lâchent ?</tspan></text>
-<rect x="921.60" y="442.80" width="194.40" height="63.00" rx="0" fill="#FDE8D8" stroke="#EE7219" stroke-width="1.5"/>
-<text data-max="177.90" x="930.60" y="460.40" font-family="IBM Plex Sans Condensed" font-size="11" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">S’arrêter</tspan><tspan font-weight="500"> : abri, feu, blessé emballé</tspan></text>
-<text data-max="177.90" x="930.60" y="473.90" font-family="IBM Plex Sans Condensed" font-size="11" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">sur un sol isolé. Deux personnes vont</tspan></text>
-<text data-max="177.90" x="930.60" y="487.40" font-family="IBM Plex Sans Condensed" font-size="11" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">chercher la machine ou des bras.</tspan></text>
-<rect x="1020.83" y="493.55" width="95.92" height="13.00" fill="#EE7219"/>
-<text x="1025.83" y="503.10" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="8.5" fill="#000" xml:space="preserve" data-max="87.42">ch. 16, étape 12 ; ch. 12</text>
-<rect x="651.60" y="518.40" width="230.40" height="41.50" rx="0" fill="#E8EDF0" stroke="#2B5876" stroke-width="1.5"/>
-<text data-max="213.90" x="660.60" y="536.00" font-family="IBM Plex Sans Condensed" font-size="11" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">Continuer</tspan><tspan font-weight="500">, et refaire le message et la halte à</tspan></text>
-<text data-max="213.90" x="660.60" y="549.50" font-family="IBM Plex Sans Condensed" font-size="11" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">chaque heure.</tspan></text>
-<rect x="793.95" y="547.65" width="88.80" height="13.00" fill="#2B5876"/>
-<text x="798.95" y="557.20" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="8.5" fill="#fff" xml:space="preserve" data-max="80.30">ch. 16, étapes 10 à 12</text>
-<rect x="651.60" y="590.40" width="230.40" height="36.00" rx="0" fill="#E8EDF0" stroke="#2B5876" stroke-width="1.5"/>
-<text data-max="213.90" x="660.60" y="608.00" font-family="IBM Plex Sans Condensed" font-size="11" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">À l’arrivée</tspan><tspan font-weight="500"> : soigner, puis décider de la suite.</tspan></text>
-<rect x="822.63" y="614.15" width="60.12" height="13.00" fill="#2B5876"/>
-<text x="827.63" y="623.70" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="8.5" fill="#fff" xml:space="preserve" data-max="51.62">ch. 26 ; ch. 35</text>
+<rect x="651.60" y="146.16" width="230.40" height="63.00" rx="0" fill="#FDE8D8" stroke="#EE7219" stroke-width="1.5"/>
+<text data-max="213.90" x="660.60" y="163.76" font-family="IBM Plex Sans Condensed" font-size="11" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">Le sangler</tspan><tspan font-weight="500"> à la poitrine, au bassin et aux</tspan></text>
+<text data-max="213.90" x="660.60" y="177.26" font-family="IBM Plex Sans Condensed" font-size="11" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">cuisses, la tête calée. Deux personnes doivent</tspan></text>
+<text data-max="213.90" x="660.60" y="190.76" font-family="IBM Plex Sans Condensed" font-size="11" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">pouvoir le rouler d’un bloc sur le côté.</tspan></text>
+<rect x="819.57" y="196.91" width="63.18" height="13.00" fill="#EE7219"/>
+<text x="824.57" y="206.46" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="8.5" fill="#000" xml:space="preserve" data-max="54.68">ch. 16, étape 6</text>
+<rect x="651.60" y="227.52" width="230.40" height="68.50" rx="0" fill="#E8EDF0" stroke="#2B5876" stroke-width="1.5"/>
+<text data-max="213.90" x="660.60" y="245.12" font-family="IBM Plex Sans Condensed" font-size="11" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">Deux personnes tirent devant</tspan><tspan font-weight="500"> aux brancards,</tspan></text>
+<text data-max="213.90" x="660.60" y="258.62" font-family="IBM Plex Sans Condensed" font-size="11" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">une retient derrière</tspan><tspan font-weight="500"> à la corde dans les</tspan></text>
+<text data-max="213.90" x="660.60" y="272.12" font-family="IBM Plex Sans Condensed" font-size="11" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">descentes, et une autre ouvre la piste en</tspan></text>
+<text data-max="213.90" x="660.60" y="285.62" font-family="IBM Plex Sans Condensed" font-size="11" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">raquettes.</tspan></text>
+<rect x="819.57" y="283.77" width="63.18" height="13.00" fill="#2B5876"/>
+<text x="824.57" y="293.32" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="8.5" fill="#fff" xml:space="preserve" data-max="54.68">ch. 16, étape 7</text>
+<rect x="651.60" y="313.92" width="230.40" height="63.00" rx="0" fill="#E8EDF0" stroke="#2B5876" stroke-width="1.5"/>
+<text data-max="213.90" x="660.60" y="331.52" font-family="IBM Plex Sans Condensed" font-size="11" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">Prendre un sentier tapé, en restant hors de la</tspan></text>
+<text data-max="213.90" x="660.60" y="345.02" font-family="IBM Plex Sans Condensed" font-size="11" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">glace</tspan><tspan font-weight="500">, et voyager de jour. Un adulte reste avec</tspan></text>
+<text data-max="213.90" x="660.60" y="358.52" font-family="IBM Plex Sans Condensed" font-size="11" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">les enfants, et on laisse une note sur la porte.</tspan></text>
+<rect x="800.29" y="364.67" width="82.46" height="13.00" fill="#2B5876"/>
+<text x="805.29" y="374.22" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="8.5" fill="#fff" xml:space="preserve" data-max="73.96">ch. 16, étapes 8 et 9</text>
+<rect x="921.60" y="146.16" width="194.40" height="121.50" rx="0" fill="#fff" stroke="#9B2C1E" stroke-width="1.5"/>
+<rect x="920.85" y="145.41" width="195.90" height="19.75" fill="#9B2C1E"/>
+<g transform="translate(928.60,149.16) scale(0.4333) translate(-0.0,-0.0)"><path d="M17 1.5 L32.5 28.5 H1.5 Z" fill="#fff"/><path d="M15.2 10 H18.8 L18.1 20.5 H15.9 Z" fill="#9B2C1E"/><rect x="15.4" y="22.3" width="3.2" height="3.2" fill="#9B2C1E"/></g>
+<text x="949.33" y="158.90" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="9.25" letter-spacing="0.463" fill="#fff" xml:space="preserve" data-max="157.67">QUAND ON CHANGE DE PORTEURS</text>
+<text data-max="177.90" x="930.60" y="184.34" font-family="IBM Plex Sans Condensed" font-size="10.5" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">Regarder son visage et s’il répond bien.</tspan></text>
+<text data-max="177.90" x="930.60" y="197.34" font-family="IBM Plex Sans Condensed" font-size="10.5" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">Une plaque blanche ou cireuse sur la</tspan></text>
+<text data-max="177.90" x="930.60" y="210.34" font-family="IBM Plex Sans Condensed" font-size="10.5" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">peau : la couvrir et la réchauffer contre</tspan></text>
+<text data-max="177.90" x="930.60" y="223.34" font-family="IBM Plex Sans Condensed" font-size="10.5" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">une peau saine. S’il est confus ou ne</tspan></text>
+<text data-max="177.90" x="930.60" y="236.34" font-family="IBM Plex Sans Condensed" font-size="10.5" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">frissonne plus, c’est le stade grave : le</tspan></text>
+<text data-max="177.90" x="930.60" y="249.34" font-family="IBM Plex Sans Condensed" font-size="10.5" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">garder à l’horizontale, sans le secouer.</tspan></text>
+<rect x="1020.83" y="255.41" width="95.92" height="13.00" fill="#9B2C1E"/>
+<text x="1025.83" y="264.96" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="8.5" fill="#fff" xml:space="preserve" data-max="87.42">ch. 16, étape 11 ; ch. 25</text>
+<rect x="651.60" y="395.28" width="230.40" height="67.00" rx="0" fill="#FDE8D8" stroke="#EE7219" stroke-width="1.5"/>
+<text data-max="213.90" x="660.60" y="416.88" font-family="IBM Plex Sans Condensed" font-size="11" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">Chaque heure</tspan><tspan font-weight="500">, envoyer le message à l’heure</tspan></text>
+<text data-max="213.90" x="660.60" y="430.38" font-family="IBM Plex Sans Condensed" font-size="11" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">promise, puis faire une halte pour vérifier les</tspan></text>
+<text data-max="213.90" x="660.60" y="443.88" font-family="IBM Plex Sans Condensed" font-size="11" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">sangles et le sac, et s’assurer qu’il répond.</tspan></text>
+<rect x="791.11" y="450.03" width="91.64" height="13.00" fill="#EE7219"/>
+<text x="796.11" y="459.58" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="8.5" fill="#000" xml:space="preserve" data-max="83.14">ch. 16, étapes 10 et 11</text>
+<rect x="659.60" y="388.28" width="21.63" height="14.00" fill="#EE7219"/>
+<text x="664.60" y="398.48" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="9" fill="#000" xml:space="preserve" data-max="13.13">1 h</text>
+<rect x="651.60" y="480.24" width="230.40" height="47.50" rx="10" fill="#fff" stroke="#2B5876" stroke-width="1.75"/>
+<text data-max="207.90" x="766.80" y="500.54" font-family="IBM Plex Sans Condensed" font-size="13" fill="#000" text-anchor="middle" xml:space="preserve"><tspan font-weight="700">La nuit tombe, ou les</tspan></text>
+<text data-max="207.90" x="766.80" y="516.04" font-family="IBM Plex Sans Condensed" font-size="13" fill="#000" text-anchor="middle" xml:space="preserve"><tspan font-weight="700">porteurs n’en peuvent plus ?</tspan></text>
+<rect x="921.60" y="480.24" width="194.40" height="76.50" rx="0" fill="#FDE8D8" stroke="#EE7219" stroke-width="1.5"/>
+<text data-max="177.90" x="930.60" y="497.84" font-family="IBM Plex Sans Condensed" font-size="11" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">S’arrêter</tspan><tspan font-weight="500">, faire un abri et un feu, et</tspan></text>
+<text data-max="177.90" x="930.60" y="511.34" font-family="IBM Plex Sans Condensed" font-size="11" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">garder le blessé emballé sur un sol</tspan></text>
+<text data-max="177.90" x="930.60" y="524.84" font-family="IBM Plex Sans Condensed" font-size="11" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">isolé. Deux personnes vont chercher</tspan></text>
+<text data-max="177.90" x="930.60" y="538.34" font-family="IBM Plex Sans Condensed" font-size="11" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">une machine ou du monde.</tspan></text>
+<rect x="1020.83" y="544.49" width="95.92" height="13.00" fill="#EE7219"/>
+<text x="1025.83" y="554.04" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="8.5" fill="#000" xml:space="preserve" data-max="87.42">ch. 16, étape 12 ; ch. 12</text>
+<rect x="651.60" y="558.00" width="230.40" height="41.50" rx="0" fill="#E8EDF0" stroke="#2B5876" stroke-width="1.5"/>
+<text data-max="213.90" x="660.60" y="575.60" font-family="IBM Plex Sans Condensed" font-size="11" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">Continuer</tspan><tspan font-weight="500">, et refaire le message et la halte</tspan></text>
+<text data-max="213.90" x="660.60" y="589.10" font-family="IBM Plex Sans Condensed" font-size="11" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">chaque heure.</tspan></text>
+<rect x="793.95" y="587.25" width="88.80" height="13.00" fill="#2B5876"/>
+<text x="798.95" y="596.80" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="8.5" fill="#fff" xml:space="preserve" data-max="80.30">ch. 16, étapes 10 à 12</text>
+<rect x="651.60" y="617.76" width="230.40" height="36.00" rx="0" fill="#E8EDF0" stroke="#2B5876" stroke-width="1.5"/>
+<text data-max="213.90" x="660.60" y="635.36" font-family="IBM Plex Sans Condensed" font-size="11" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">À l’arrivée</tspan><tspan font-weight="500">, le soigner, puis décider de la suite.</tspan></text>
+<rect x="822.63" y="641.51" width="60.12" height="13.00" fill="#2B5876"/>
+<text x="827.63" y="651.06" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="8.5" fill="#fff" xml:space="preserve" data-max="51.62">ch. 26 ; ch. 35</text>
 </g>
 <g id="pointes">
 <path d="M283.50,115.20 L279.70,107.20 L287.30,107.20 Z" fill="#000"/>
@@ -169,15 +176,15 @@
 <path d="M111.60,509.04 L107.80,501.04 L115.40,501.04 Z" fill="#000"/>
 <path d="M268.20,509.04 L264.40,501.04 L272.00,501.04 Z" fill="#000"/>
 <path d="M378.00,536.40 L370.00,540.20 L370.00,532.60 Z" fill="#000"/>
-<path d="M651.60,87.95 L643.60,91.75 L643.60,84.15 Z" fill="#000"/>
-<path d="M766.80,133.20 L763.00,125.20 L770.60,125.20 Z" fill="#000"/>
-<path d="M766.80,205.20 L763.00,197.20 L770.60,197.20 Z" fill="#000"/>
-<path d="M766.80,277.20 L763.00,269.20 L770.60,269.20 Z" fill="#000"/>
-<path d="M766.80,356.40 L763.00,348.40 L770.60,348.40 Z" fill="#000"/>
-<path d="M766.80,442.80 L763.00,434.80 L770.60,434.80 Z" fill="#000"/>
-<path d="M921.60,474.30 L913.60,478.10 L913.60,470.50 Z" fill="#000"/>
-<path d="M766.80,518.40 L763.00,510.40 L770.60,510.40 Z" fill="#000"/>
-<path d="M766.80,590.40 L763.00,582.40 L770.60,582.40 Z" fill="#000"/>
+<path d="M651.60,94.70 L643.60,98.50 L643.60,90.90 Z" fill="#000"/>
+<path d="M766.80,146.16 L763.00,138.16 L770.60,138.16 Z" fill="#000"/>
+<path d="M766.80,227.52 L763.00,219.52 L770.60,219.52 Z" fill="#000"/>
+<path d="M766.80,313.92 L763.00,305.92 L770.60,305.92 Z" fill="#000"/>
+<path d="M766.80,395.28 L763.00,387.28 L770.60,387.28 Z" fill="#000"/>
+<path d="M766.80,480.24 L763.00,472.24 L770.60,472.24 Z" fill="#000"/>
+<path d="M921.60,518.49 L913.60,522.29 L913.60,514.69 Z" fill="#000"/>
+<path d="M766.80,558.00 L763.00,550.00 L770.60,550.00 Z" fill="#000"/>
+<path d="M766.80,617.76 L763.00,609.76 L770.60,609.76 Z" fill="#000"/>
 </g>
 <g id="pastilles">
 <rect x="134.24" y="307.40" width="26.72" height="15.00" rx="7.50" fill="#2B5876"/><text x="140.74" y="318.25" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="9.5" fill="#fff" xml:space="preserve" data-max="15.22">Oui</text>
@@ -187,9 +194,9 @@
 <rect x="98.24" y="479.48" width="26.72" height="15.00" rx="7.50" fill="#2B5876"/><text x="104.74" y="490.33" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="9.5" fill="#fff" xml:space="preserve" data-max="15.22">Oui</text>
 <rect x="253.62" y="479.48" width="29.17" height="15.00" rx="7.50" fill="#fff" stroke="#2B5876" stroke-width="1.25"/><text x="260.12" y="490.33" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="9.5" fill="#2B5876" xml:space="preserve" data-max="17.67">Non</text>
 <rect x="343.40" y="528.90" width="29.17" height="15.00" rx="7.50" fill="#fff" stroke="#2B5876" stroke-width="1.25"/><text x="349.90" y="539.75" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="9.5" fill="#2B5876" xml:space="preserve" data-max="17.67">Non</text>
-<rect x="228.35" y="607.54" width="79.70" height="15.00" rx="7.50" fill="#2B5876"/><text x="234.85" y="618.39" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="9.5" fill="#fff" xml:space="preserve" data-max="68.20">Oui : au traîneau</text>
-<rect x="887.00" y="459.05" width="26.72" height="15.00" rx="7.50" fill="#2B5876"/><text x="893.50" y="469.90" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="9.5" fill="#fff" xml:space="preserve" data-max="15.22">Oui</text>
-<rect x="752.22" y="495.30" width="29.17" height="15.00" rx="7.50" fill="#fff" stroke="#2B5876" stroke-width="1.25"/><text x="758.72" y="506.15" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="9.5" fill="#2B5876" xml:space="preserve" data-max="17.67">Non</text>
+<rect x="209.78" y="619.04" width="116.83" height="15.00" rx="7.50" fill="#2B5876"/><text x="216.28" y="629.89" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="9.5" fill="#fff" xml:space="preserve" data-max="105.33">Oui, on le sort en traîneau</text>
+<rect x="887.00" y="496.49" width="26.72" height="15.00" rx="7.50" fill="#2B5876"/><text x="893.50" y="507.34" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="9.5" fill="#fff" xml:space="preserve" data-max="15.22">Oui</text>
+<rect x="752.22" y="532.74" width="29.17" height="15.00" rx="7.50" fill="#fff" stroke="#2B5876" stroke-width="1.25"/><text x="758.72" y="543.59" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="9.5" fill="#2B5876" xml:space="preserve" data-max="17.67">Non</text>
 </g>
 </g>
 </svg>
