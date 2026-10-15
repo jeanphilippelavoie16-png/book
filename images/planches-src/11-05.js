@@ -279,7 +279,7 @@ module.exports = (h) => {
     ref: '11-05',
     titre: 'Les outils de feu qu’on fabrique',
     fichier: 'planche-11-05-outils-de-feu.svg',
-    desc: 'Trois rangées, une par outil : l’outil monté, en vues alignées, puis son geste. En haut, le râteau à feu, de dos et de côté : une lame de fer plat aux dents entaillées en V à la meule ; sur son chant, au milieu, un bout de tuyau soudé, incliné vers l’arrière, où entre le manche, tenu par un boulon qui traverse tuyau et manche. À côté, sur un sol coupé (mousse, humus, sol minéral), le râteau tiré vers soi, les dents au sol minéral, la terre arrachée en tas contre la lame et le sol à nu derrière. Au milieu, le battoir, de face et de côté : une bavette de caoutchouc, le manche couché sur sa moitié haute, deux boulons au travers avec de grandes rondelles côté caoutchouc ; le bas de la bavette reste libre. À côté, sur le même sol, le battoir abattu : sa moitié libre couchée à plat sur la mousse qui flambe, sa position levée en gris et la flèche rouge du coup. En bas, la perche d’élagage, de côté et de dessus : une lame d’égoïne dents en bas, son talon pris dans une fente sciée au bout d’une perche d’épinette, deux boulons dans les trous de l’ancienne poignée, du fil de fer serré derrière la fente.',
+    desc: 'Trois rangées, une par outil : l’outil monté, en vues alignées, puis son geste. En haut, le râteau à feu, de dos et de côté : une lame de fer plat aux dents entaillées en V à la meule ; sur son chant, au milieu, un bout de tuyau soudé, incliné vers l’arrière, où entre le manche, tenu par un boulon qui traverse tuyau et manche. À côté, sur un sol coupé (mousse, humus, sol minéral), le râteau tiré vers soi, les dents au sol minéral, la terre arrachée en tas contre la lame et le sol à nu derrière. Au milieu, le battoir, de face et de côté : une bavette de caoutchouc, le manche couché sur sa moitié haute, deux boulons au travers avec de grandes rondelles côté caoutchouc ; le bas de la bavette reste libre. À côté, sur le même sol, le battoir qui frappe : sa moitié libre couchée à plat sur la mousse qui flambe, sa position levée en gris et la flèche rouge du coup. En bas, la perche d’élagage, de côté et de dessus : une lame d’égoïne dents en bas, son talon pris dans une fente sciée au bout d’une perche d’épinette, deux boulons dans les trous de l’ancienne poignée, du fil de fer serré derrière la fente.',
     format: 'pleine',
     disposition: [['rateau', 'gratter'], ['battoir', 'abattre'], ['perche']],
     hauteurs: [1, 1, 0.92],
@@ -317,7 +317,7 @@ module.exports = (h) => {
         },
       },
       abattre: {
-        titre: 'Abattre à plat',
+        titre: 'Frapper à plat',
         dessin: z => abattre(z).svg,
         renvois: z => {
           const g = abattre(z);

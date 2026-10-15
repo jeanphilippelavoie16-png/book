@@ -1025,3 +1025,14 @@ Les fonctions de `images/planches-src/_animaux.js` disent d'où vient chaque for
   1910, domaine public, en plumage blanc ; pattes et branche retirées. Fichier : `photos/lot5/45-04a-gelinotte-tetras-fuertes-pl41.jpg`.
 - **Lièvre** (48-09), **chien** (59-08) et **castor** (50-10) : construits sans modèle (masses puis contour). Le
   réseau de la session bloquait Wikimedia et la BHL le 14 octobre.
+
+## Photos du chapitre 11, le feu de forêt (15 octobre 2026)
+
+Deux photos du même feu (Pagami Creek, Boundary Waters, Minnesota, forêt boréale), prises le même jour
+depuis un lac. Licences relues sur l'API de Wikimedia Commons au téléchargement. Détail dans
+`images/photos/registre-manquantes.md`.
+
+| Fichier | Sujet | Auteur | Licence | Lien |
+| --- | --- | --- | --- | --- |
+| `photos/manquantes/11-colonne-couchee-par-le-vent.jpg` | Colonne de fumée sombre couchée par le vent, vue d'un lac | Greg Seitz (Gregseitz) | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Pagami_Creek_Fire.jpg |
+| `photos/manquantes/11-colonne-chou-fleur.jpg` | Colonne qui monte droit et finit en chou-fleur blanc, vue d'un lac | Stephen Handler, United States Forest Service | Domaine public | https://commons.wikimedia.org/wiki/File:Pagami_fire_plume.jpg |

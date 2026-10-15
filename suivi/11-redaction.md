@@ -203,3 +203,42 @@ c'est maintenant l'étape 57. Les ch. 96 et 99 renvoient au « ch. 11 §9 » : t
   Le texte dit « 100 m au moins ».
 - La couleur de la fumée et la colonne couchée par le vent (section 9) restent sans source (mécanisme, aucun
   chiffre).
+
+## Planches 11-03, 11-04, 11-05 et photos du chapitre, 15 octobre 2026
+
+Passe « niveau notice » (brief des planches, JP : « Faisons les choses comme il faut »). Les PNG sont dans
+`images/a-valider/` ; l'ancien PNG de la 11-03 est retiré de `images/validees/`.
+
+- **11-04, la pièce d'air propre (refaite).** Défauts relevés : flèches d'air qui traversaient l'arête
+  basse du cube et les plis, pales vues comme une croix, ventilateur de profil qu'on ne reconnaissait pas,
+  carton de face hachuré comme une coupe de bois, flèche du filtre posée en l'air, cube minuscule qui
+  cachait la fenêtre. Refaite en quatre vues : le cube monté (pales et grille dans le rond du carton,
+  ruban sur les arêtes, fond de carton, ventilateur qui déborde un peu) ; le cube vu de dessus sans le
+  ventilateur, les filtres en moulinet et la flèche imprimée de chacun vers le centre ; le filtre seul de
+  côté (bandes de ruban, flèche imprimée cerclée de rouge) et la face qui souffle de face ; la pièce.
+  Forme du cube : `sources/11-ohcow-boite-corsi-rosenthal.md` (déjà au dépôt). Filtres dessinés de 2 po
+  (5 cm), épaisseur permise par la fiche, pour que la flèche se lise sur leur chant. Aucune cote.
+  **Écart avec le texte** : le chapitre dit « quatre filtres montés en cube autour du ventilateur » ; la
+  fiche et la planche posent le ventilateur **sur** le cube. La phrase est à corriger (rédacteur).
+- **11-03, le chalet paré aux braises (recomposée et reprise).** Le pied suit le format sans tiret. Le
+  jute est drapé (il avait l'air de sacs de sable), les gouttes semées sur le mur sont enlevées (on les
+  prenait pour des clous), le dessous de galerie est fermé à la tôle (section 9 le demande), le jute de la
+  coupe est une bande de tissu (c'était un trait noir qu'on prenait pour un fil), la maille sous l'évent
+  se lit en coupe (rangée de fils), le boyau est dessiné en deux traits (le trait de 5 était hors barème).
+  Renvois : « baril en hauteur, boyau au fond » réunis, « dessous de galerie fermé à la tôle » ajouté.
+- **11-05, les outils de feu qu'on fabrique (nouvelle).** Une rangée par outil : l'outil monté en vues
+  alignées (de dos et de côté, de face et de côté, de côté et de dessus), puis son geste (gratter jusqu'au
+  sol minéral ; frapper à plat). Le chapitre ne dit pas comment emmancher : les montages dessinés sont des
+  choix de construction, sans cote. Râteau : bout de tuyau soudé sur le chant du fer plat, manche enfoncé
+  et boulonné (la variante lame de pelle redressée n'est pas dessinée). Battoir : manche couché sur la
+  moitié haute de la bavette, deux boulons, grandes rondelles côté caoutchouc. Perche : talon de la lame
+  d'égoïne dans une fente sciée au bout de la perche, deux boulons dans les trous de l'ancienne poignée,
+  fil de fer serré derrière la fente (même montage que la planche 56-09). Cherché une spécification du
+  battoir et du râteau de feu (USFS, NWCG) : seules des pages de vendeurs, sans la façon de fixer ; rien
+  d'enregistré, rien de chiffré.
+- **Photos.** Deux, du même feu de forêt boréale (Pagami Creek, Minnesota, 10 septembre 2011), vues d'un
+  lac : `images/photos/manquantes/11-colonne-couchee-par-le-vent.jpg` (Greg Seitz, CC BY-SA 4.0) et
+  `images/photos/manquantes/11-colonne-chou-fleur.jpg` (Stephen Handler, USFS, domaine public). Elles
+  servent la section 9, « Lire le danger et le feu sur le terrain » : la colonne couchée et sombre, la
+  colonne droite en chou-fleur au-dessus d'un lac sans vent. Inscrites dans
+  `images/photos/registre-manquantes.md` et `images/credits.md`.

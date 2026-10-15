@@ -528,8 +528,8 @@ valent beaucoup mieux que rien, et ils se montent avec du ruban gommé.
  Au-dessus de 31 °C dans la pièce, on l'ouvre (étape 34).
 - **Un ventilateur et un filtre.** Tenir au ruban gommé un filtre de fournaise fin contre la grille d'un
  ventilateur-boîte, la flèche du filtre tournée vers le ventilateur (planche 11-04). Un seul filtre traite
- une pièce d'environ 10 m² ; un carton autour du ventilateur ajoute 40 % ; quatre filtres montés en cube
- autour du ventilateur traitent environ 37 m². Changer le filtre dès qu'il est brun ou gris, ou qu'il sent
+ une pièce d'environ 10 m² ; un carton autour du ventilateur ajoute 40 % ; quatre filtres montés en cube,
+ le ventilateur posé dessus, traitent environ 37 m². Changer le filtre dès qu'il est brun ou gris, ou qu'il sent
  la fumée.
 - **Le ventilateur chauffe.** Avec un filtre chargé de poussière, l'intérieur du moteur a monté de près de
  60 °C pendant les essais. Un ventilateur fabriqué depuis 2012 a une fiche à fusible et une coupure

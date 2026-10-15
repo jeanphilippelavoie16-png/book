@@ -149,7 +149,20 @@
         "apres": "**Le râteau à feu.**"
       }
     ],
-    "photos": [],
+    "photos": [
+      {
+        "fichier": "images/photos/manquantes/11-colonne-couchee-par-le-vent.jpg",
+        "apres": "**Une colonne couchée par le vent**",
+        "taille": "demi",
+        "legende": "Une colonne couchée par le vent, vue d'un lac : la fumée part en biais vers la gauche, et le feu avance de ce côté. Elle est sombre parce que des résineux brûlent à plein."
+      },
+      {
+        "fichier": "images/photos/manquantes/11-colonne-chou-fleur.jpg",
+        "apres": "**Une colonne qui monte droit et s'élargit en chou-fleur**",
+        "taille": "quart",
+        "legende": "Une colonne qui monte droit et finit en chou-fleur blanc, au-dessus de la couche de fumée. Le lac est calme : il n'y a pas de vent au sol, le feu fait son propre tirage."
+      }
+    ],
     "logigramme": {
       "fichier": "images/logigrammes/11-feu-de-foret-livre.svg",
       "apres": "Partir pendant que le chemin est ouvert",
