@@ -34,11 +34,11 @@ CIBLES = {   # numéros NOUVEAUX (six tomes) : le 10 est l'ancien 13
 # chiffres clés en exergue (variante C) : posés après le titre dont le texte commence par « apres ».
 # Chiffres et mots repris du chapitre, section 5-E, étape 12.
 EXERGUES = {
-    "10": [{"apres": "E — Désinfecter", "html":
+    "10": [{"apres": "E. Désinfecter", "html":
         '<div class="exergue"><div class="ex-h"><i class="pk"></i>Ébullition, à gros bouillons</div>'
-        '<div class="ex-r"><div class="ex-n">1<small>MIN</small></div><div class="ex-l"><b>Puits</b>, avis d’ébullition au village</div></div>'
+        '<div class="ex-r"><div class="ex-n">1<small>MIN</small></div><div class="ex-l"><b>Puits</b>, eau du robinet sous avis</div></div>'
         '<div class="ex-r"><div class="ex-n">5<small>MIN</small></div><div class="ex-l"><b>Toute eau de surface</b> : castor, rat musqué, lièvre</div></div>'
-        '<div class="ex-f">On compte quand la surface roule. Un frémissement ne compte pas.</div></div>'}],
+        '<div class="ex-f">On compte quand toute la surface roule.</div></div>'}],
 }
 
 # pictogrammes au trait (même main que les planches : trait noir, angles francs)
