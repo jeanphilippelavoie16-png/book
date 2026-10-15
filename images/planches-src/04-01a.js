@@ -156,6 +156,6 @@ module.exports = (h) => {
         ],
       },
     },
-    danger: 'Danger — un poêle au propane, une chaufferette ou une génératrice dans la pièce scellée tue avant les retombées : le monoxyde n’a ni odeur ni couleur, on s’endort au lieu de sortir.',
+    danger: 'Un poêle au propane, une chaufferette ou une génératrice dans l’abri fermé tue avant les retombées. Le monoxyde n’a ni odeur ni couleur : on s’endort au lieu de sortir.',
   };
 };

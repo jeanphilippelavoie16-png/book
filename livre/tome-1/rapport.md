@@ -1,7 +1,7 @@
 # Tome 1 · Tenir — rapport d'assemblage
 
-- **Produit le :** 2026-10-15 12:37, par `design/outils/assembler-tome.py 1 --hors-ligne`
-- **Fichier :** `livre/tome-1/interieur.pdf` — 306 pages, 67.2 Mo
+- **Produit le :** 2026-10-15 13:47, par `design/outils/assembler-tome.py 1 --hors-ligne`
+- **Fichier :** `livre/tome-1/interieur.pdf` — 308 pages, 68.8 Mo
 - **Ouvertures :** toujours au recto (page de droite), une page blanche devant au besoin
 - **Placements :** design/epreuves-livre/placements.json, design/epreuves-livre/placements-tome-1.json
 - **Exigences de Blurb :** `sources/blurb-specifications.md` (relevées le 27 septembre 2026)
@@ -17,27 +17,27 @@
 | 41–52 | ch. 01 — Les quatre horloges | 12 |
 | 53–64 | ch. 02 — Rester ou partir | 12 |
 | 65–81 | ch. 03 — Panne majeure d’Hydro en janvier | 17 |
-| 83–98 | ch. 04 — Retombées radioactives | 16 |
-| 99–114 | ch. 05 — Le stock permanent du chalet | 16 |
-| 115–128 | ch. 06 — La liste de 72 heures | 14 |
-| 129–143 | ch. 07 — Quand on a un préavis | 15 |
-| 145–157 | ch. 08 — Listes par scénario | 13 |
-| 159–172 | ch. 09 — Ce qui manque toujours | 14 |
-| 173–188 | ch. 10 — Eau : puiser, filtrer, désinfecter | 16 |
-| 189–204 | ch. 11 — Le feu de forêt | 16 |
-| 205–228 | ch. 12 — La tente d’hiver et l’abri de neige | 24 |
-| 229–244 | ch. 13 — Feu sans allumettes | 16 |
-| 245–256 | ch. 14 — Communiquer et savoir | 12 |
-| 257–268 | ch. 15 — Se déplacer et le carburant | 12 |
-| 269–281 | ch. 16 — Le voisinage et le groupe de chasse | 13 |
-| 283–294 | ch. 17 — Qui cogne à la porte | 12 |
-| 295–305 | ch. 18 — S’organiser à plusieurs familles | 11 |
-| | Pages blanches (verso de la page de titre, avant les ouvertures, fin du tome) | 9 |
-| | **Total** | **306** |
+| 83–99 | ch. 04 — Retombées radioactives | 17 |
+| 101–116 | ch. 05 — Le stock permanent du chalet | 16 |
+| 117–130 | ch. 06 — La liste de 72 heures | 14 |
+| 131–145 | ch. 07 — Quand on a un préavis | 15 |
+| 147–159 | ch. 08 — Listes par scénario | 13 |
+| 161–174 | ch. 09 — Ce qui manque toujours | 14 |
+| 175–190 | ch. 10 — Eau : puiser, filtrer, désinfecter | 16 |
+| 191–206 | ch. 11 — Le feu de forêt | 16 |
+| 207–230 | ch. 12 — La tente d’hiver et l’abri de neige | 24 |
+| 231–246 | ch. 13 — Feu sans allumettes | 16 |
+| 247–258 | ch. 14 — Communiquer et savoir | 12 |
+| 259–270 | ch. 15 — Se déplacer et le carburant | 12 |
+| 271–283 | ch. 16 — Le voisinage et le groupe de chasse | 13 |
+| 285–296 | ch. 17 — Qui cogne à la porte | 12 |
+| 297–307 | ch. 18 — S’organiser à plusieurs familles | 11 |
+| | Pages blanches (verso de la page de titre, avant les ouvertures, fin du tome) | 10 |
+| | **Total** | **308** |
 
 Aucune page de crédits (JP, 28 septembre 2026) : copie hors du livre dans `livre/credits/tome-1-credits.md` et `livre/credits/tome-1-credits.pdf`.
 
-Les chapitres seuls font 294 pages ; 6 blanche(s) servent à faire ouvrir chaque chapitre à droite. Avec `--verso` (un chapitre peut ouvrir à gauche), le tome ferait 298 pages.
+Les chapitres seuls font 295 pages ; 7 blanche(s) servent à faire ouvrir chaque chapitre à droite. Avec `--verso` (un chapitre peut ouvrir à gauche), le tome ferait 298 pages.
 
 ## Premières minutes (série orange)
 
@@ -55,10 +55,10 @@ Marqueur `{.orange}` sur l'intertitre ### de la série, dans le Markdown (CLAUDE
 | --- | --- | --- | --- |
 | Taille de chaque page | 585 × 738 pt (8,125 × 10,25 po) | 585.0 × 738.0 pt | oui |
 | Rognage (TrimBox) | 8 × 10 po, fond perdu au bord extérieur | recto : reliure à gauche ; verso : à droite | oui |
-| Nombre de pages | pair, de 20 à 440 (papier Standard) | 306 | oui |
+| Nombre de pages | pair, de 20 à 440 (papier Standard) | 308 | oui |
 | Page 1 | à droite | ouverture du chapitre 00 | oui |
 | Polices incorporées | toutes | 57 police(s), 0 non incorporée(s) | oui |
-| Taille du fichier | 2 Go au plus | 67.2 Mo | oui |
+| Taille du fichier | 2 Go au plus | 68.8 Mo | oui |
 | Marques d'imprimeur | aucune | aucune | oui |
 | Couleur | CMJN ou sRVB, sans ton direct | sRVB (Edge) | oui |
 | Noir du texte | 100 % K | noir sRVB (0, 0, 0) : la conversion est faite chez Blurb | à juger sur épreuve |
@@ -68,7 +68,7 @@ Polices du fichier : IBMPlexSansCond-Bold, IBMPlexSansCond-Italic, IBMPlexSansCo
 
 ## Tranche et couverture
 
-Calculateur non interrogé (--hors-ligne). Relevé du 27 septembre 2026 dans `sources/blurb-specifications.md` §2 ; pour 306 pages, prendre la ligne du tableau dont le palier couvre ce nombre, et revérifier au calculateur. [À VÉRIFIER]
+Calculateur non interrogé (--hors-ligne). Relevé du 27 septembre 2026 dans `sources/blurb-specifications.md` §2 ; pour 308 pages, prendre la ligne du tableau dont le palier couvre ce nombre, et revérifier au calculateur. [À VÉRIFIER]
 
 ## Figures
 
@@ -80,20 +80,20 @@ Les planches de `images/a-valider/` sont posées comme les validées (JP les rel
 | 01 | — | — | — | 6 (ancien 01) |
 | 02 | — | — | — | 6 (ancien 02) |
 | 03 | 03-09 (74, pleine), 03-08 (76, pleine), 03-10 (78, pleine) | — | — | 7 (ancien 04) |
-| 04 | 04-01a (95, pleine), 04-01b (96, pleine), 04-40 (98, pleine), 04-retombees-livre (84, double page), 04-lichen-caribous-tapis.jpg (89) | — | — | 6 (ancien 06) |
-| 05 | 05-boite-bombee.jpg (111) | — | — | 5 (ancien 08) |
+| 04 | 04-01a (94, pleine), 04-01b (96, pleine), 04-41 (97, pleine, à valider), 04-40 (99, pleine, à valider), 04-retombees-livre (84, double page), 04-lichen-caribous-tapis.jpg (89) | — | — | 6 (ancien 06) |
+| 05 | 05-boite-bombee.jpg (113) | — | — | 5 (ancien 08) |
 | 06 | — | — | — | 5 (ancien 09) |
 | 07 | — | — | — | 5 (ancien 10) |
 | 08 | — | — | — | 6 (ancien 11) |
-| 09 | 09-08 (171, pleine) | — | — | 7 (ancien 12) |
-| 10 | 10-02 (185, pleine), 10-07 (187, pleine), 10-01 (183), 10-03 (186), 10-hutte-castor.jpg (175) | — | — | 6 (ancien 13) |
-| 11 | 11-03 (203, pleine) | — | — | 0 (ancien 16b) |
-| 12 | 12-01a (209, pleine), 12-01b (210, pleine), 12-02 (211, pleine), 12-03 (213, pleine), 12-04 (215, pleine), 12-06a (217, pleine), 12-05a (219, pleine), 12-05b (220, pleine), 12-06b (226, pleine) | — | — | 0 (ancien 16c) |
-| 13 | 13-40 (232, pleine), 13-08 (238, pleine), 13-07 (241, pleine), 13-09 (242, pleine), 13-01 (244, pleine), 13-bouleau-ecorce-rubans.jpg (239), 13-gomme-epinette.jpg (239) | — | — | 6 (ancien 17) |
-| 14 | 14-01 (254, pleine) | — | — | 7 (ancien 19) |
-| 15 | 15-01 (262, pleine) | — | — | 8 (ancien 20) |
-| 16 | 16-07 (278, pleine), 16-08 (280, pleine) | — | — | 7 (ancien 21) |
-| 17 | 17-06 (292, pleine) | — | — | 6 (ancien 22) |
+| 09 | 09-08 (173, pleine) | — | — | 7 (ancien 12) |
+| 10 | 10-02 (187, pleine), 10-07 (189, pleine), 10-01 (185), 10-03 (188), 10-hutte-castor.jpg (177) | — | — | 6 (ancien 13) |
+| 11 | 11-03 (205, pleine) | — | — | 0 (ancien 16b) |
+| 12 | 12-01a (211, pleine), 12-01b (212, pleine), 12-02 (213, pleine), 12-03 (215, pleine), 12-04 (217, pleine), 12-06a (219, pleine), 12-05a (221, pleine), 12-05b (222, pleine), 12-06b (228, pleine) | — | — | 0 (ancien 16c) |
+| 13 | 13-40 (234, pleine), 13-08 (240, pleine), 13-07 (243, pleine), 13-09 (244, pleine), 13-01 (246, pleine), 13-bouleau-ecorce-rubans.jpg (241), 13-gomme-epinette.jpg (241) | — | — | 6 (ancien 17) |
+| 14 | 14-01 (256, pleine) | — | — | 7 (ancien 19) |
+| 15 | 15-01 (264, pleine) | — | — | 8 (ancien 20) |
+| 16 | 16-07 (280, pleine), 16-08 (282, pleine) | — | — | 7 (ancien 21) |
+| 17 | 17-06 (294, pleine) | — | — | 6 (ancien 22) |
 | 18 | — | — | — | 7 (ancien 23) |
 
 ## Crédits des images — hors du livre
@@ -103,10 +103,10 @@ Rien ne s'imprime (JP, 28 septembre 2026). Copie de sauvegarde : `livre/credits/
 | Page | Ch. | Fichier | Auteur | Licence |
 | ---: | --- | --- | --- | --- |
 | 89 | 04 | 04-lichen-caribous-tapis.jpg | (c) mbrenner131, some rights reserved (CC BY-NC) | CC BY-NC |
-| 111 | 05 | 05-boite-bombee.jpg | Kat1100 | CC BY 4.0 — Creative Commons Attribution 4.0 |
-| 175 | 10 | 10-hutte-castor.jpg | U.S. Fish and Wildlife Service - Midwest Region | Public domain |
-| 239 | 13 | 13-bouleau-ecorce-rubans.jpg | usfs_Eastern_Region | Public domain |
-| 239 | 13 | 13-gomme-epinette.jpg | S. Rae from Scotland, UK | CC BY 2.0 — Creative Commons Attribution 2.0 |
+| 113 | 05 | 05-boite-bombee.jpg | Kat1100 | CC BY 4.0 — Creative Commons Attribution 4.0 |
+| 177 | 10 | 10-hutte-castor.jpg | U.S. Fish and Wildlife Service - Midwest Region | Public domain |
+| 241 | 13 | 13-bouleau-ecorce-rubans.jpg | usfs_Eastern_Region | Public domain |
+| 241 | 13 | 13-gomme-epinette.jpg | S. Rae from Scotland, UK | CC BY 2.0 — Creative Commons Attribution 2.0 |
 
 Photos téléchargées pour ces chapitres et non posées (images de référence ou photos à placer) :
 

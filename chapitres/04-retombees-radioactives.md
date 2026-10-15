@@ -334,7 +334,7 @@ longtemps, ce qui coûte du poids et du moral, ou pas assez au mauvais moment (c
 route vers la ville est coupée, on reste et on fabrique l'épaisseur qui manque. Choisir la pièce qui
 a le moins de murs donnant dehors, puis charger : bois de chauffage cordé contre les murs extérieurs
 sur toute la hauteur possible, neige montée en banc contre le solage jusqu'aux fenêtres, matelas,
-livres serrés, sacs de farine et eau embouteillée contre les murs et sous les fenêtres.
+livres serrés, sacs de farine et eau embouteillée contre les murs et sous les fenêtres (planche 04-01a).
 
 *Le refuge dans le refuge.* Ce qui protège le plus, c'est l'épaisseur juste au-dessus des têtes.
 Deux portes démontées, appuyées en bâtière contre un mur intérieur ou posées à plat sur une table
@@ -358,7 +358,7 @@ de manquer d'air, et le bouchage ne sert que pendant les heures où le panache p
 l'air sans poussière se monte en carton : un panneau de carton fort ou de contreplaqué mince coupé
 au format de l'ouverture moins un jeu, suspendu par le haut à une charnière de ruban à conduits ou
 de toile, avec des lattes en butée pour qu'il ne batte que d'un bord, et une corde au bas du
-battant. Une personne assise tire et relâche : le battant pousse un grand volume d'air à chaque
+battant (planche 04-01b). Une personne assise tire et relâche : le battant pousse un grand volume d'air à chaque
 coup, sans électricité. À l'entrée d'air, un linge humide tendu sur un cadre arrête la poussière ;
 on le sort, on le rince dehors, et l'eau de rinçage se jette loin de la porte.
 
@@ -386,7 +386,7 @@ couvercle transparent. Le fil qui les porte sort par un bouchon isolant (plastiq
 caoutchouc), et rien de métallique ne touche le pot ailleurs. On charge en frottant un sac de
 plastique sur un tissu sec et en l'approchant du fil : les deux feuilles prennent la même charge,
 se repoussent et s'écartent en V. Une échelle de papier millimétré collée derrière et une lumière
-rasante servent à lire l'écartement.
+rasante servent à lire l'écartement (planche 04-41).
 
 *Ce qui fait échouer le montage.* L'humidité. Sans dessiccant, la charge fuit par la vapeur d'eau
 et l'appareil se trompe, en général en montrant du danger là où il n'y en a pas. Du gypse de
@@ -436,7 +436,7 @@ sur le poêle pour le rinçage, et l'eau de lavage jetée loin du puits, du jard
 dans le banc de neige qu'on refondra demain.
 
 L'entrée se monte avec deux bâches ou deux couvertures accrochées en chicane : deux portes qui ne
-s'ouvrent jamais en même temps, et un bac à vêtements entre les deux. Le costume de sortie se taille
+s'ouvrent jamais en même temps, et un bac à vêtements entre les deux (planche 04-40). Le costume de sortie se taille
 dans un sac à ordures : poncho fendu, capuchon, poignets et chevilles rubanés serrés, bottes de
 caoutchouc, lunettes de ski. Il s'essuie, il se rince, il ne franchit pas la deuxième bâche. **Ce
 qu'on perd :** ce costume arrête la poussière et rien d'autre. Il ne rallonge pas d'une minute le

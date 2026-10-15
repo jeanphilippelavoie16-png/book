@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="680" height="826" viewBox="0 0 680 826" role="img">
-<title>Planche 04-01b — La pompe à carton</title>
+<title>Planche 04-01b. La pompe à carton</title>
 <desc>Pompe à air de carton suspendue dans une ouverture de porte : de face, le battant plus petit que l’ouverture, la charnière de ruban en haut, les lattes en butée derrière le battant, le nœud de la corde au bas ; en coupe, quelqu’un assis sur une caisse face au battant, les deux mains sur la corde tendue, qui la tire vers sa poitrine, le battant tiré vers lui puis relâché contre la latte ; vu de dessus, le jeu entre le carton et le cadre et la latte clouée au jambage, sur laquelle le carton porte ; le cadre de lattes tendu d’un linge humide pour l’entrée d’air.</desc>
 <defs>
 <pattern id="h-bois" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" stroke="#1A1A1A" stroke-width="0.7"/></pattern>
@@ -178,7 +178,7 @@
 <circle cx="559" cy="502.6" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
 <circle cx="615" cy="510.6" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="linge"/>
 <text x="615" y="514.6" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">11</text>
-<text x="40" y="698" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">Planche 04-01b — La pompe à carton.</text>
+<text x="40" y="698" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">Planche 04-01b. La pompe à carton.</text>
 <text x="56" y="723" text-anchor="end" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">1</text>
 <text x="62" y="723" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">carton fort ou contreplaqué mince</text>
 <text x="56" y="740" text-anchor="end" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">2</text>

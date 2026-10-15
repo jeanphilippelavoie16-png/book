@@ -250,7 +250,8 @@ des procédures établies (Ready.gov, CDC, FEMA, LLNL, Canada.ca), écrit pour u
 
 ### Ce qui reste ouvert
 
-- La planche 04-40 porte encore le mot « sas » dans ses légendes (« Dans le sas : ôter sans secouer »).
+- ~~La planche 04-40 porte encore le mot « sas » dans ses légendes~~ : réglé, JP emploie « sas » ; il le refusait
+  dans les premières minutes seulement. La planche est refaite (voir plus bas).
 - Étape 14 : « passé 40 ans, généralement pas indiqué » contre la ligne « Adultes de plus de 40 ans : 130 mg » du
   tableau ; les deux viennent des sources (CDC et FDA pour le tableau). Le texte dit « les comprimés vont d'abord
   aux enfants ».
@@ -259,3 +260,27 @@ des procédures établies (Ready.gov, CDC, FEMA, LLNL, Canada.ca), écrit pour u
 - Étape 9 : la règle de la FEMA vaut pour un abri de facteur 2 et un bon abri à moins de 15 minutes ; pour un
   abri de facteur 4, la FEMA dit d'attendre une heure ou deux avant de changer. Le chapitre ne garde que le cas
   de la maison de bois.
+
+## Planches et appels — 15 octobre 2026
+
+- **04-40 refaite** (JP : « mieux faite, c'est une partie importante »), `images/a-valider/` : le plan de l'entrée,
+  dehors, zone sale et zone propre aux deux gris de la charte, le chemin numéroté de 1 à 6 ; six vignettes de profil
+  dans l'ordre du retour (essuyer et rincer dehors, rouler le poncho à l'envers, au sac, sortir des bottes, mains et
+  visage, la deuxième bâche passée et le sol sans poussière, §7) ; le costume nommé sur la vignette 1. Pas d'encadré
+  danger : la phrase d'ancrage le dit juste au-dessus. Aucune cote : le chapitre n'en donne pas. Dessiné sans source
+  du texte : le poncho roulé sur lui-même, l'extérieur en dedans ; la fixation des bâches (pendues du plafond, fixées
+  d'un bord).
+- **04-41 nouvelle**, l'électroscope (§9), `images/a-valider/` : montage, bouchon en coupe, charge, lecture, gypse.
+  Seules mesures : 1 cm au plus, 20 min au rouge sombre. Sans cote, en principe : la barre au bout du fil où les
+  feuilles sont repliées ; le fil par le milieu du bouchon ; le gypse au fond (le texte dit « dans l'appareil ») ;
+  le pot de verre seulement (pas la boîte sous couvercle transparent).
+- **À trancher dans le texte** : « pendues […] à un fil non conducteur » puis « en l'approchant du fil » et « rien de
+  métallique ne touche le pot ailleurs ». Un fil isolant ne porte pas la charge jusqu'aux feuilles ; le texte se lit
+  comme un fil de métal tenu par le bouchon isolant. Dans le KFM (source 06), les feuilles pendent à des fils isolants
+  et la charge entre par un fil de charge à part. La planche dessine un fil sans dire de quoi il est fait.
+- **04-01a** : l'encadré ne dit plus « pièce scellée » ni « Danger — » ; il dit « l'abri fermé ».
+- **Appels** « (planche 04-xx) » posés dans le paragraphe d'ancrage de chacune ; 04-01a ancrée sur « Sans sous-sol et
+  sans caveau » au lieu de « Le toit est le côté faible ». Au remontage du 15 octobre : 04-01a p. 94 (appel p. 93),
+  04-01b p. 96 et 04-41 p. 97 (appels tous deux p. 95), 04-40 p. 99 (appel p. 98). Le §9 tient sur trois pages de
+  texte pour quatre planches pleine page : la 04-41 tombe deux pages après son appel, en vis-à-vis de la 04-01b.
+

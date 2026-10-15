@@ -43,7 +43,7 @@
     "planches": [
       {
         "id": "04-01a",
-        "apres": "*Le toit est le côté faible.*"
+        "apres": "**Sans sous-sol et sans caveau : empiler la masse soi-même.**"
       },
       {
         "id": "04-01b",
@@ -52,6 +52,10 @@
       {
         "id": "04-40",
         "apres": "L'entrée se monte avec deux bâches ou deux couvertures accrochées en chicane"
+      },
+      {
+        "id": "04-41",
+        "apres": "*Le montage.*"
       }
     ],
     "photos": [

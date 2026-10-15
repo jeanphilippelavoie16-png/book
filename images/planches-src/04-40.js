@@ -268,7 +268,7 @@ module.exports = (h) => {
     const tc = [pers.tete.x, pers.tete.y], r = 100 * e;
     o.push(lunettes([tc[0] - 0.05 * r, tc[1] + 0.05 * r], r, 0.05, 0));
     // le geste : du haut vers le bas, devant le linge
-    const m = pers.mainP, xg = m.x + 15;
+    const m = pers.mainP, xg = m.x + 12;
     o.push(h.geste(`M${f1(xg)} ${f1(m.y + 2)} L${f1(xg)} ${f1(m.y + 56)}`));
     // le seau d'eau, devant les pieds
     const sx0 = 132, sx1 = 166, sH = 34;
@@ -333,7 +333,7 @@ module.exports = (h) => {
     o.push(String(pers), botte(TB, -14, true), botte(TB, 0));
     const xg = c[0];
     o.push(h.geste(`M${f1(xg)} ${f1(c[1] + R + 4)} L${f1(xg)} ${f1(yF - bH + 14)}`));
-    return { svg: o.join('\n'), r: [{ n: 3, rond: [172, 110], cible: [bx1 + 2, yF - bH - 1], texte: 'dans le sac, puis fermer le sac' }] };
+    return { svg: o.join('\n'), r: [{ n: 3, rond: [172, 110], cible: [bx1 + 2, yF - bH - 1], texte: 'dans le sac du bac, puis le fermer' }] };
   };
 
   // ─── 4. Sortir des bottes, les laisser au bac ─────────────────────────────────────────────────
@@ -349,9 +349,10 @@ module.exports = (h) => {
     o.push(botteVide(TL, 0, true));
     o.push(String(pers));
     o.push(botteVide(TP, 0));
-    const xg = TP([250, 0])[0];
-    o.push(h.geste(`M${f1(xg)} ${f1(yF - 6)} L${f1(xg)} ${f1(pers.pieds.P.bas[1] - 6)}`));
-    return { svg: o.join('\n'), r: [{ n: 4, rond: [34, 100], cible: TL([-2, -332]), texte: 'sortir des bottes, les laisser au bac' }] };
+    // le geste : le pied sort par la tige
+    const xg = TP([0, 0])[0];
+    o.push(h.geste(`M${f1(xg)} ${f1(yF - 14)} L${f1(xg)} ${f1(pers.pieds.P.bas[1] + 1)}`));
+    return { svg: o.join('\n'), r: [{ n: 4, rond: [168, 150], cible: TP([196, -44]), texte: 'sortir des bottes, les laisser au bac' }] };
   };
 
   // ─── 5. Se laver les mains et le visage, avant la deuxième bâche ──────────────────────────────
@@ -370,7 +371,7 @@ module.exports = (h) => {
     // les gouttes qui retombent dans le bassin
     const m = pers.mainP;
     for (const [dx, dy] of [[4, 14], [9, 24], [2, 30]]) o.push(h.path(`M${f1(m.x + dx)} ${f1(m.y + dy)} q1.6 3 0 4.2 q-1.6 -1.2 0 -4.2 Z`, A.detail));
-    return { svg: o.join('\n'), r: [{ n: 5, rond: [154, 64], cible: [m.x + 8, m.y - 4], texte: 'se laver les mains et le visage' }] };
+    return { svg: o.join('\n'), r: [{ n: 5, rond: [158, 76], cible: [cx1 - 1, by - 13], texte: 'se laver les mains et le visage' }] };
   };
 
   // ─── 6. L'abri : passé la deuxième bâche, le sol reste propre ─────────────────────────────────

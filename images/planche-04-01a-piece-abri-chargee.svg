@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="680" height="826" viewBox="0 0 680 826" role="img">
-<title>Planche 04-01a — La pièce d’abri chargée</title>
+<title>Planche 04-01a. La pièce d’abri chargée</title>
 <desc>Coupe d’un chalet sans sous-sol : bois cordé contre le mur extérieur jusque sous le débord du toit, neige tassée en banc jusqu’au bas de la fenêtre, eau, farine et livres sous la fenêtre, deux portes démontées à plat sur une table chargée de terre, de bûches, de bidons et de livres, un dormeur dessous. Variante des portes appuyées contre un mur intérieur, chargées de sacs de terre montés du plancher, quelqu’un assis dessous le dos au mur. Détail d’une taie remplie aux deux tiers et nouée, et d’un mur de sacs à joints croisés.</desc>
 <defs>
 <pattern id="h-bois" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" stroke="#1A1A1A" stroke-width="0.7"/></pattern>
@@ -343,9 +343,9 @@
 <circle cx="620.8" cy="507.6" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="sacs"/>
 <text x="620.8" y="511.6" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">11</text>
 <rect x="40" y="610" width="600" height="59" fill="none" stroke="#9B2C1E" stroke-width="2"/>
-<text x="54" y="633.4" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#9B2C1E">Danger — un poêle au propane, une chaufferette ou une génératrice dans la pièce scellée tue avant les</text>
-<text x="54" y="651.3" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#9B2C1E">retombées : le monoxyde n’a ni odeur ni couleur, on s’endort au lieu de sortir.</text>
-<text x="40" y="698" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">Planche 04-01a — La pièce d’abri chargée.</text>
+<text x="54" y="633.4" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#9B2C1E">Un poêle au propane, une chaufferette ou une génératrice dans l’abri fermé tue avant les retombées.</text>
+<text x="54" y="651.3" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#9B2C1E">Le monoxyde n’a ni odeur ni couleur : on s’endort au lieu de sortir.</text>
+<text x="40" y="698" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">Planche 04-01a. La pièce d’abri chargée.</text>
 <text x="56" y="723" text-anchor="end" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">1</text>
 <text x="62" y="723" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">bois cordé sur toute la hauteur</text>
 <text x="56" y="740" text-anchor="end" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">2</text>
