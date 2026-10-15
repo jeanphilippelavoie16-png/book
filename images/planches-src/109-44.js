@@ -18,7 +18,7 @@ module.exports = (h) => {
 
   // ─── Vue 1 : former le godet ────────────────────────────────────────────────────────────
   const F1 = z => {
-    const cx = z.l / 2, yT = 112, yF = yT + 66, Rt = 42, e = 4.5, Rm = Rt - e;
+    const cx = z.l / 2, yT = 104, yF = yT + 62, Rt = 40, e = 4.5, Rm = Rt - e;
     return { cx, yT, yF, Rt, e, Rm, yM: yF - e };
   };
   const vueFormer = z => {
@@ -42,7 +42,7 @@ module.exports = (h) => {
     const q = F1(z), { cx, yT, yF, Rt, e, Rm, yM } = q;
     return [
       { n: 1, rond: [cx + Rm + 26, 40], cible: [cx + Rm + 1, 52], texte: 'mandrin au diamètre du piston' },
-      { n: 2, rond: [cx + Rt + 30, yF + 34], cible: [cx + Rt + 1, yF - 10], texte: 'trou au diamètre du cylindre' },
+      { n: 2, rond: [cx + Rt + 26, yF + 18], cible: [cx + Rt + 1, yF - 10], texte: 'trou au diamètre du cylindre' },
       { n: 3, rond: [cx - Rt - 30, yT - 26], cible: [cx - Rt + 2, yT - 6], texte: 'cuir gras chaud, pressé en godet' },
     ];
   };
@@ -51,7 +51,7 @@ module.exports = (h) => {
   // Même cadrage : le cylindre en coupe (parois d'acier), le piston qui descend du haut, l'huile
   // sous pression en bas (on pompe sous le piston).
   const C = z => {
-    const cx = z.l / 2, Rc = 46, t = 13, Rp = Rc - 2, yP = 128, e = 4.5, hl = 30;
+    const cx = z.l / 2, Rc = 44, t = 13, Rp = Rc - 2, yP = 92, e = 4.5, hl = 30;
     return { cx, Rc, t, Rp, yP, e, hl };
   };
   const cylindre = (z, q, out) => {
