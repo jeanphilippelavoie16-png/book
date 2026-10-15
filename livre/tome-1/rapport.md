@@ -1,7 +1,7 @@
 # Tome 1 · Tenir — rapport d'assemblage
 
-- **Produit le :** 2026-10-15 00:28, par `design/outils/assembler-tome.py 1 --hors-ligne`
-- **Fichier :** `livre/tome-1/interieur.pdf` — 308 pages, 68.6 Mo
+- **Produit le :** 2026-10-15 10:06, par `design/outils/assembler-tome.py 1 --hors-ligne`
+- **Fichier :** `livre/tome-1/interieur.pdf` — 308 pages, 68.7 Mo
 - **Ouvertures :** toujours au recto (page de droite), une page blanche devant au besoin
 - **Placements :** design/epreuves-livre/placements.json, design/epreuves-livre/placements-tome-1.json
 - **Exigences de Blurb :** `sources/blurb-specifications.md` (relevées le 27 septembre 2026)
@@ -16,7 +16,7 @@
 | 7–39 | ch. 00b — Acheter par priorité | 33 |
 | 41–52 | ch. 01 — Les quatre horloges | 12 |
 | 53–64 | ch. 02 — Rester ou partir | 12 |
-| 65–82 | ch. 03 — Panne majeure d’Hydro en janvier | 18 |
+| 65–81 | ch. 03 — Panne majeure d’Hydro en janvier | 17 |
 | 83–97 | ch. 04 — Retombées radioactives | 15 |
 | 99–114 | ch. 05 — Le stock permanent du chalet | 16 |
 | 115–128 | ch. 06 — La liste de 72 heures | 14 |
@@ -32,12 +32,12 @@
 | 271–283 | ch. 16 — Le voisinage et le groupe de chasse | 13 |
 | 285–296 | ch. 17 — Qui cogne à la porte | 12 |
 | 297–307 | ch. 18 — S’organiser à plusieurs familles | 11 |
-| | Pages blanches (verso de la page de titre, avant les ouvertures, fin du tome) | 9 |
+| | Pages blanches (verso de la page de titre, avant les ouvertures, fin du tome) | 10 |
 | | **Total** | **308** |
 
 Aucune page de crédits (JP, 28 septembre 2026) : copie hors du livre dans `livre/credits/tome-1-credits.md` et `livre/credits/tome-1-credits.pdf`.
 
-Les chapitres seuls font 296 pages ; 6 blanche(s) servent à faire ouvrir chaque chapitre à droite. Avec `--verso` (un chapitre peut ouvrir à gauche), le tome ferait 300 pages.
+Les chapitres seuls font 295 pages ; 7 blanche(s) servent à faire ouvrir chaque chapitre à droite. Avec `--verso` (un chapitre peut ouvrir à gauche), le tome ferait 298 pages.
 
 ## Contrôle Blurb
 
@@ -48,7 +48,7 @@ Les chapitres seuls font 296 pages ; 6 blanche(s) servent à faire ouvrir chaque
 | Nombre de pages | pair, de 20 à 440 (papier Standard) | 308 | oui |
 | Page 1 | à droite | ouverture du chapitre 00 | oui |
 | Polices incorporées | toutes | 58 police(s), 0 non incorporée(s) | oui |
-| Taille du fichier | 2 Go au plus | 68.6 Mo | oui |
+| Taille du fichier | 2 Go au plus | 68.7 Mo | oui |
 | Marques d'imprimeur | aucune | aucune | oui |
 | Couleur | CMJN ou sRVB, sans ton direct | sRVB (Edge) | oui |
 | Noir du texte | 100 % K | noir sRVB (0, 0, 0) : la conversion est faite chez Blurb | à juger sur épreuve |
@@ -69,7 +69,7 @@ Les planches de `images/a-valider/` sont posées comme les validées (JP les rel
 | 00b | — | — | — | 0 (ancien 00b) |
 | 01 | — | — | — | 6 (ancien 01) |
 | 02 | — | — | — | 6 (ancien 02) |
-| 03 | 03-09 (74, pleine), 03-08 (77, pleine), 03-10 (78, pleine) | — | — | 7 (ancien 04) |
+| 03 | 03-09 (74, pleine), 03-08 (76, pleine), 03-10 (78, pleine) | — | — | 7 (ancien 04) |
 | 04 | 04-01a (93, pleine), 04-01b (94, pleine), 04-40 (97, pleine), 04-lichen-caribous-tapis.jpg (87) | — | — | 6 (ancien 06) |
 | 05 | 05-boite-bombee.jpg (111) | — | — | 5 (ancien 08) |
 | 06 | — | — | — | 5 (ancien 09) |

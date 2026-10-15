@@ -102,16 +102,18 @@ body.t6{--tf:#363432;--tfi:#EEEBE6;--tfn:#EEEBE6;--ta:#363432;--tsq:#363432;--t9
 .vC .pk{display:inline-block;background:currentColor;-webkit-mask:center/contain no-repeat;mask:center/contain no-repeat}
 /* ligne de lieu : pictogramme au-dessus du mot */
 .vC .lieu .opts span{display:flex;flex-direction:column;align-items:center;gap:2pt;padding:5pt 0 3pt;line-height:1}
+/* (option A du 15 octobre 2026 : le dessin remplit sa boîte, la largeur suit la proportion de chaque pictogramme,
+   maison 0,833, chalet 1,367, Les deux 2,333 ; voir ICONES dans variante.py) */
 .vC .lieu .opts span::before{content:"";height:15pt;width:26pt;background:currentColor;-webkit-mask:center/contain no-repeat;mask:center/contain no-repeat}
-.vC .lieu .opts span:nth-child(1)::before{-webkit-mask-image:var(--i-maison);mask-image:var(--i-maison)}
-.vC .lieu .opts span:nth-child(2)::before{-webkit-mask-image:var(--i-chalet);mask-image:var(--i-chalet)}
-.vC .lieu .opts span:nth-child(3)::before{-webkit-mask-image:var(--i-deux);mask-image:var(--i-deux)}
-/* pied : lieu avec son pictogramme */
+.vC .lieu .opts span:nth-child(1)::before{width:12.5pt;-webkit-mask-image:var(--i-maison);mask-image:var(--i-maison)}
+.vC .lieu .opts span:nth-child(2)::before{width:20.5pt;-webkit-mask-image:var(--i-chalet);mask-image:var(--i-chalet)}
+.vC .lieu .opts span:nth-child(3)::before{width:35pt;-webkit-mask-image:var(--i-deux);mask-image:var(--i-deux)}
+/* pied : lieu avec son pictogramme, 8,5 pt (3 mm imprimés), en noir plein : en gris --k70, le trait de 0,26 mm se trame */
 .vC .lieu-ft{display:flex;align-items:center;gap:4pt}
-.vC .lieu-ft::before{content:"";width:17pt;height:11pt;background:currentColor;-webkit-mask:center/contain no-repeat;mask:center/contain no-repeat}
-.vC.lieu-m .lieu-ft::before{-webkit-mask-image:var(--i-maison);mask-image:var(--i-maison)}
-.vC.lieu-c .lieu-ft::before{-webkit-mask-image:var(--i-chalet);mask-image:var(--i-chalet)}
-.vC.lieu-2 .lieu-ft::before{-webkit-mask-image:var(--i-deux);mask-image:var(--i-deux)}
+.vC .lieu-ft::before{content:"";width:17pt;height:8.5pt;background:var(--k);-webkit-mask:center/contain no-repeat;mask:center/contain no-repeat}
+.vC.lieu-m .lieu-ft::before{width:7.08pt;-webkit-mask-image:var(--i-maison);mask-image:var(--i-maison)}
+.vC.lieu-c .lieu-ft::before{width:11.62pt;-webkit-mask-image:var(--i-chalet);mask-image:var(--i-chalet)}
+.vC.lieu-2 .lieu-ft::before{width:19.83pt;-webkit-mask-image:var(--i-deux);mask-image:var(--i-deux)}
 /* sommaire : le 8 porte le triangle */
 .vC .toc li.d .t::after{content:"";display:inline-block;width:8pt;height:7.5pt;margin-left:3pt;vertical-align:-0.5pt;background:var(--red);
   -webkit-mask:var(--i-danger) center/contain no-repeat;mask:var(--i-danger) center/contain no-repeat}

@@ -12,9 +12,10 @@
 .ak{display:inline-block;flex:none;vertical-align:middle;background:currentColor;
   -webkit-mask:center/contain no-repeat;mask:center/contain no-repeat;
   height:var(--h,12pt);width:calc(var(--h,12pt) * var(--r,1))}
-.ak-m{--r:1;-webkit-mask-image:var(--i-maison);mask-image:var(--i-maison)}
-.ak-c{--r:1.29;-webkit-mask-image:var(--i-chalet);mask-image:var(--i-chalet)}
-.ak-2,.ak-mc{--r:1.42;-webkit-mask-image:var(--i-deux);mask-image:var(--i-deux)}
+/* proportions des pictogrammes de l'option A (15 octobre 2026 ; viewBox 20, 32,8 et 56 × 24) */
+.ak-m{--r:0.8333;-webkit-mask-image:var(--i-maison);mask-image:var(--i-maison)}
+.ak-c{--r:1.3667;-webkit-mask-image:var(--i-chalet);mask-image:var(--i-chalet)}
+.ak-2,.ak-mc{--r:2.3333;-webkit-mask-image:var(--i-deux);mask-image:var(--i-deux)}
 .lieu-b{display:inline-flex;align-items:center;gap:4pt;font:700 8pt/1 var(--sans);text-transform:uppercase;letter-spacing:.06em;white-space:nowrap}
 .lieu-b .ak{--h:12pt}
 
@@ -28,7 +29,7 @@
 /* pied : le lieu de la page porte son pictogramme (00 : celui du bloc, pas celui du chapitre) */
 .page.anc .ft .lieu-ft::before{content:none;display:none}
 .page.anc .lieu-ft{display:flex;align-items:center;gap:4pt;white-space:nowrap}
-.page.anc .lieu-ft .ak{--h:10pt}
+.page.anc .lieu-ft .ak{--h:8.5pt;color:var(--k)}   /* 3 mm, noir plein : en gris --k70, le trait se trame */
 .page.anc .lad li{width:13pt}
 
 /* ================================================================ 00 */
@@ -184,7 +185,8 @@ table.achat caption.tsuite{font-size:7.5pt}
 .lcell{display:flex;flex-direction:column;gap:3.5pt}
 .lx{display:flex;align-items:center;gap:3pt;font:700 6.9pt/1 var(--sans);text-transform:uppercase;letter-spacing:.05em;white-space:nowrap}
 .lx .bx{flex:none;width:9.5pt;height:9.5pt;border:1pt solid var(--k);background:#fff}
-.lx .ak{--h:9.5pt;color:var(--ta,#000)}
+/* case de la largeur du chalet, pictogramme calé à gauche : Maison et Chalet commencent au même endroit */
+.lx .ak{--h:9.5pt;color:var(--ta,#000);width:calc(var(--h) * 1.3667);-webkit-mask-position:left center;mask-position:left center}
 .lx.fl .ar{flex:none;width:9.5pt;text-align:center;font:700 9pt/1 var(--sans);color:var(--ta,#000)}
 .lq{display:block;font:italic 500 6.9pt/8.4pt var(--sans);white-space:normal;margin-top:0.5pt}
 

@@ -430,7 +430,9 @@ table.som td.no{width:0.62in}
 table.som td.no span{display:inline-block;min-width:25pt;padding:0 3pt;height:21pt;background:var(--tsq);color:#fff;text-align:center;font:700 13pt/21pt var(--sans)}
 table.som td.ti{font-weight:700;font-size:12pt}
 table.som td.li{white-space:nowrap;color:var(--k70);font-size:8.6pt;letter-spacing:.06em;text-transform:uppercase}
-table.som td.li i{display:inline-block;width:17pt;height:11pt;margin-right:4pt;vertical-align:-1.5pt;background:currentColor;-webkit-mask:center/contain no-repeat;mask:center/contain no-repeat}
+/* pictogramme de lieu (option A, 15 octobre 2026) : 9,5 pt, en noir plein (le gris --k70 trame le trait), calé à gauche
+   dans une case de la largeur de « Les deux » pour que les mots restent alignés */
+table.som td.li i{display:inline-block;width:22.17pt;height:9.5pt;margin-right:4pt;vertical-align:-1.6pt;background:var(--k);-webkit-mask:left center/contain no-repeat;mask:left center/contain no-repeat}
 table.som td.li i.m{-webkit-mask-image:var(--i-maison);mask-image:var(--i-maison)}
 table.som td.li i.c{-webkit-mask-image:var(--i-chalet);mask-image:var(--i-chalet)}
 table.som td.li i.d{-webkit-mask-image:var(--i-deux);mask-image:var(--i-deux)}
