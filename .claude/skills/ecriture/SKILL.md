@@ -143,6 +143,13 @@ Pas de guillemets d'ironie ni de « mots entre guillemets » pour faire image. P
 la provenance vit dans `suivi/`, jamais dans le texte. Les guillemets restent pour un mot qu'on dit à
 voix haute ou qu'on lit sur une étiquette.
 
+## Les planches se nomment dans le texte
+
+JP : « Il faut mentionner les planches pour les retrouver. » Chaque planche est appelée dans le texte, à
+l'endroit où elle sert, par son numéro entre parenthèses : « …deux bâches en chicane (planche 04-40). »
+L'appel va dans la phrase d'ancrage de la planche (`design/epreuves-livre/placements-tome-N.json`) ou
+juste avant. Une planche que le texte n'appelle pas se perd dans le livre.
+
 ## Ce qui ne sort jamais
 
 - **Un fait, un chiffre, une mesure, une étape, un repère observable.** On coupe le remplissage, pas le
@@ -186,6 +193,6 @@ voix haute ou qu'on lit sur une étiquette.
 - [ ] Zéro « village », zéro « char » (on écrit « auto »), zéro « Baie-Comeau », zéro « JP », pas l'âge
       des enfants de JP (« de jeunes enfants ») ; un âge qui est un fait (dose, seuil) reste.
 - [ ] Le contrôle des invariants ne signale rien d'inexpliqué.
-- [ ] Les ancres de planches sont intactes.
+- [ ] Les ancres de planches sont intactes, et chaque planche est appelée dans le texte (« planche NN-NN »).
 - [ ] Aucun chiffre nouveau sans source enregistrée dans `/sources`.
 - [ ] Le texte se lit d'un trait, en français québécois, sans télégraphe.

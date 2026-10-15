@@ -271,6 +271,9 @@ sauve dans les secondes et les minutes, ensuite ce qui organise (JP, sur la radi
 « quand une bombe vient de tomber »). La règle 1 tient : aucun
 chiffre sans source notée dans `/sources` et `suivi/`, `[À VÉRIFIER]` sinon.
 
+**Chaque planche est appelée dans le texte** (JP, 16 octobre 2026 : « il faut mentionner les planches pour
+les retrouver ») : « (planche 04-40) », là où elle sert.
+
 **Pas de municipalité, pas de code légal.** Aucune phrase sur un règlement municipal, une loi,
 un code, une norme de construction, un permis ou une obligation légale. Le livre sert le jour
 où personne ne vient vérifier. Ce qui compte dans la règle — le mécanisme qu'elle protège —
