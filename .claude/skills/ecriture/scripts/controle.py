@@ -113,6 +113,12 @@ def ancres(chemin, texte):
 
 
 def invariants(avant, apres):
+    # le texte d'un seul tenant (un nombre et son unité peuvent tomber sur deux lignes), et les renvois
+    # « chapitre N » ramenés à « ch. N » pour comparer la chose et non sa forme
+    def plat(t):
+        t = re.sub(r"[\s\u00a0\u202f]+", " ", t)
+        return re.sub(r"\bchapitres? (\d+[a-z]?)\b", r"ch. \1", t)
+    avant, apres = plat(avant), plat(apres)
     def compte(rx, t):
         return Counter(norme(m) for m in re.findall(rx, t))
     rapports = []

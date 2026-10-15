@@ -403,7 +403,7 @@ décantation et la filtration.
 > aucun sens humain ne les détecte. Un lac clair qui sent bon ne prouve rien ; seuls
 > l'analyse ou le traitement comptent.
 >
-> **Le chlore ne protège pas contre *Cryptosporidium*.** La paroi de l'oocyste résiste à
+> **Le chlore ne protège pas contre Cryptosporidium.** La paroi de l'oocyste résiste à
 > l'oxydation : le CT requis atteint 7 000 mg-min/L, une valeur qu'aucune chloration
 > domestique n'approche. Une eau de lac traitée à la javel, sans autre étape, n'est pas
 > traitée contre ce parasite. Contre lui, il n'y a que la chaleur ou un filtre à 1 µm.

@@ -39,7 +39,8 @@ dans le garage.
 2. **Le fait d'abord, la raison ensuite**, et seulement si la raison change ce qu'on fait.
    « Vidanger avant que la maison descende sous 5 °C : un tuyau plein fend en gelant. »
 3. **La condition avant le geste.** « Si l'eau est trouble, la filtrer avant de la désinfecter. »
-4. **Les étapes à l'infinitif**, comme le reste du livre : « Couper le disjoncteur principal. »
+4. **Les étapes à l'infinitif**, comme le reste du livre : « Couper le disjoncteur principal. » La prose
+   (§2, §3, §9 hors étapes numérotées) dit « on » : « On coupe le disjoncteur avant de brancher. »
 5. **Le chiffre avec son unité**, en chiffres : 74 °C, 2 gouttes par litre, 48 h. Un chiffre se
    cherche à la source avant d'être écrit (règle 1 de `CLAUDE.md`). À défaut de chiffre, le **repère
    observable** : la couleur, le son, la consistance, ce que ça fait sous le doigt.
