@@ -229,3 +229,43 @@ Verdicts : `suivi/verifications/23-verifications.md`.
   « deux à trois semaines »).
 
 Compression §3 et §4 — 27 septembre 2026 : 1315 mots → 184 mots (§3 655 → 120 ; §4 660 → 64) ; matériel coupé : contenant métallique à cendres (règle à l'étape 18), contenant fermé pour les armes (pièce mobile retirée : étape 5, §8, §9), savon ordinaire (étape 10 ; eau de cendre en §9), contenants peu profonds (étape 15, §9), seaux identifiés (étape 9), gobelets marqués (le « jamais de gobelet commun » passe à la ligne de la louche), deuxième latrine (§9), quantités par item, colonnes substitution et négociable, trois paragraphes de fin (stock au ch. 00b, affichage ppm intégré à la ligne de l'avertisseur, huit non négociables).
+
+## Passe d'écriture — 15 octobre 2026
+
+Numéros de chapitre **nouveaux** dans cette section (ch. 18 = ancien 23). Passe du skill `ecriture` sur tout le
+chapitre. **Pas de série orange ni de logigramme** : l'inventaire des premières minutes classe le chapitre « aucun
+geste urgent ». Le regroupement est une arrivée préparée, et le seul geste urgent qu'il porte (sortir tout le monde
+quand plusieurs ont mal à la tête) est au §7 et au §8, et a sa série dans les chapitres du monoxyde (ch. 1, ch. 3).
+Aucune planche n'est placée pour ce chapitre.
+
+**Mots :** 6 732 avant, 5 906 après (compte de `controle.py`). **Tirets :** 40 avant, 2 après (titre et ligne de
+tome). Aucun fait nouveau, aucune source nouvelle.
+
+### Ce qui a été retiré ou changé
+
+- **« village »** : le paragraphe d'ouverture du §2 (« Au village, une panne de trois jours… ni robinet, ni égout »)
+  est coupé ; le lieu est dit par la ligne « Chalet » et le renvoi au ch. 2.
+- **L'âge des enfants de JP** : « les enfants de 4 et 6 ans » (étape 12), « un enfant de 4 ans » (§8, point 3) et
+  « Chez un enfant de 4 ou 6 ans » (note 1) deviennent « les jeunes enfants », « un jeune enfant ».
+- **« la 138 »** : « la route » (livre ouvert).
+- **Intertitres de la procédure** : les cinq titres en gras à tiret (« Avant l'arrivée — la conversation qui… »,
+  « Heure 0 — la porte »…) deviennent des `###` courts : Avant l'arrivée, à distance ; À l'arrivée ; Les premières
+  heures ; Le premier soir ; Les jours suivants. Le titre du §8 perd « — CE QUI TUE DANS CE CHAPITRE ».
+- **Chiffre sans source retiré** : « Une garde de nuit à deux personnes se tient des semaines ; à une personne,
+  trois jours. » Les « trois jours » n'avaient pas de source ; la ligne dit maintenant que l'adulte seul veille toutes
+  les nuits.
+- **Citations de source entre guillemets** (CO, génératrice, cadmium, voies de la gastro) : redites comme des faits.
+- **Répétitions** : la contagiosité de deux semaines est au §6 et au §8, le §2 y renvoie ; la Javel de dépannage
+  (2 gouttes, 0,2 mL, 30 minutes) est à l'étape 9, le §8 y renvoie ; l'emplacement des avertisseurs (2 m, un par
+  étage) est à l'étape 7, le §8 y renvoie ; le compte des armes : mécanisme au §8, geste à l'étape 5, le §6 renvoie
+  au §8 ; le §9 « Ce qui ne se remplace pas » ne redit plus le mécanisme du CO (§8). La trichinellose reste au §8 et
+  au §9, là où l'ours sort du menu, avec deux formulations.
+- **Formules et oppositions** : « Additionner deux fois la même compétence n'apporte rien ; couvrir un trou change
+  l'issue de l'hiver », « Ce n'est alors pas un geste de solidarité mais un calcul », « Ce n'est pas un problème de
+  caractère mais de sécurité », « Ce n'est pas une étourderie mineure », « Ce n'est pas une aggravation graduelle,
+  c'est un changement d'état », « c'est-à-dire au pire moment », « la façon la plus bête de perdre le bâtiment ».
+- **Ordinaire** : « jamais à l'aspirateur » pour les cendres (au chalet hors réseau, il n'y en a pas).
+
+### Ce qui reste ouvert
+
+- Les `[À VÉRIFIER]` levés le 24 septembre tiennent ; rien de nouveau à sourcer.

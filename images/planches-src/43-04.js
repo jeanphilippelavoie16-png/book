@@ -33,15 +33,13 @@ module.exports = (h) => {
   const DEC = TW - W;                                  // décalage des centres, d'un côté de la piste à l'autre
   const AV = Math.sqrt(S * S - DEC * DEC);             // le pas, compté le long de la marche
 
-  // Une empreinte de sabot d'orignal vue de dessus, décalquée sur une photo (Ivan Kristensen, « 1. Footprint
-  // from alces alces - 26.04.2008 », Wikimedia Commons, CC BY-SA 3.0 ; crédit dans images/credits.md) : les
-  // deux moitiés relevées au contour de l'ombre, la pointe un peu affinée. Points en px de la photo
-  // agrandie (pointes vers le haut) ; le dessin les tourne pour que les pointes aillent vers la marche (+x).
-  // 'v' : la pointe, un angle vif. Les proportions de la photo sont gardées dans chaque moitié ; l'ensemble
-  // est remis à 13 × 10 (le rapport de longueur à largeur que le chapitre donne pour l'orignal, environ 1,2 à 1,3).
-  const MOITIE_G = [[200, 148, 'v'], [168, 180], [150, 230], [143, 300], [148, 370], [160, 440], [178, 510], [204, 570], [240, 606], [284, 612], [322, 596], [344, 560], [348, 500], [338, 430], [318, 350], [296, 275], [274, 210], [240, 165]];
-  const MOITIE_D = [[376, 150, 'v'], [356, 190], [345, 250], [348, 320], [360, 390], [382, 450], [414, 494], [456, 518], [500, 520], [538, 498], [562, 450], [568, 390], [556, 320], [530, 255], [492, 205], [440, 168]];
-  const SAB_C = [355, 380], SAB_L = 464, SAB_W = 425;
+  // Une empreinte de sabot d'orignal vue de dessus. Le contour de chaque moitié, du talon au plus large, est
+  // relevé sur une photo (Ivan Kristensen, « 1. Footprint from alces alces - 26.04.2008 », Wikimedia Commons,
+  // CC BY-SA 3.0 ; crédit dans images/credits.md) : talon rond, plus large au tiers arrière. La pointe est ramenée
+  // vers l'axe, comme sur une empreinte nette au pas (sur la photo, sol mou, les deux moitiés s'écartent) ; les
+  // deux moitiés sont symétriques, l'espace entre elles laissé ouvert. u : du talon (0) à la pointe (1), vers
+  // la marche ; v : de l'axe vers le dehors, en largeur d'empreinte ; 'v' : un angle vif.
+  const MOITIE = [[1.0, 0.07, 'v'], [0.9, 0.17], [0.78, 0.28], [0.64, 0.38], [0.5, 0.45], [0.36, 0.48], [0.22, 0.47], [0.1, 0.41], [0.02, 0.31], [0, 0.2], [0.03, 0.11], [0.1, 0.065], [0.35, 0.055], [0.65, 0.055], [0.88, 0.06]];
   const courbeV = (P, vif) => {
     const n = P.length, g = (i) => P[(i + n) % n], v = (i) => vif[(i + n) % n];
     let d = `M${pf(P[0])}`;
@@ -53,10 +51,9 @@ module.exports = (h) => {
   };
   // (cx, cy) le centre, k px par cm ; style : 'net' (contour, léger grisé) ou 'trace' (à peine visible : tireté)
   const sabot = (cx, cy, k, style = 'net') => {
-    const el = (L * k) / SAB_L, ew = (W * k) / SAB_W;
-    const T = ([x, y]) => [cx - (y - SAB_C[1]) * el, cy + (x - SAB_C[0]) * ew];
+    const l = L * k, w = W * k;
     const at = style === 'net' ? h.a.arete.replace('fill="none"', 'fill="#E6E6E6"') : h.a.cache;
-    return [MOITIE_G, MOITIE_D].map((M) => h.path(courbeV(M.map(T), M.map((p) => p[2] === 'v')), at)).join('\n');
+    return [-1, 1].map((sg) => h.path(courbeV(MOITIE.map(([u, v]) => [cx + (u - 0.5) * l, cy + sg * v * w]), MOITIE.map((p) => p[2] === 'v')), at)).join('\n');
   };
   // Le bâton couché le long de x : du gros bout xb à la pointe xt, au centre yc, épais de e.
   // encoches : les x des encoches (entaillées sur le dessus) ; seules ces fenêtres sont écorcées.
@@ -94,12 +91,11 @@ module.exports = (h) => {
     o.push(h.ellipse(xb, yc, e * 0.18, e / 2, h.a.detail));
     return o.join('\n');
   };
-  // Une cote oblique : ligne fine, deux traits perpendiculaires, le mot au milieu, décalé de d.
+  // Une cote oblique, de centre à centre : la ligne fine entre deux points marqués, le mot au milieu, décalé de d.
   const coteOblique = (a, b, mot, d = -11) => {
     const dx = b[0] - a[0], dy = b[1] - a[1], n = Math.hypot(dx, dy), u = [dx / n, dy / n], v = [-u[1], u[0]];
-    const t = (p) => h.ligne(p[0] - v[0] * 6, p[1] - v[1] * 6, p[0] + v[0] * 6, p[1] + v[1] * 6, h.a.detail);
     const m = [(a[0] + b[0]) / 2 + v[0] * d, (a[1] + b[1]) / 2 + v[1] * d + 4];
-    return [h.ligne(a[0], a[1], b[0], b[1], h.a.detail), t(a), t(b), h.texte(m[0], m[1], mot, { lisere: true })].join('\n');
+    return [h.ligne(a[0], a[1], b[0], b[1], h.a.detail), h.texte(m[0], m[1], mot, { lisere: true })].join('\n');
   };
 
   // ─── Vue 1 : la piste, les quatre mesures ────────────────────────────────────────────────

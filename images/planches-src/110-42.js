@@ -196,28 +196,32 @@ module.exports = (h) => {
   // dormant, et se tord trois fois autour de lui en remontant.
   const bucheron = (cx, cy, entier) => {
     const t0 = tourDiag(cx, cy, u1, 0), n = nrm(u1), A = t0.A, B = t0.B;   // A : haut-gauche, B : bas-droite
-    const along = s => [B[0] - u1[0] * s, B[1] - u1[1] * s];
-    const a = 0.78 * E, k = 1.7 * E;
+    const along = (s, o) => [B[0] - u1[0] * s + n[0] * o, B[1] - u1[1] * s + n[1] * o];
     const dehors = [B[0] + u1[0] * 5.5 * E, B[1] + u1[1] * 5.5 * E];
-    const dormant = entier ? [...droite(dehors, B, 8), ...droite(B, A, 14).slice(1)] : droite(B, A, 14);
-    const tt0 = -0.25, tt1 = 4 * Math.PI + Math.PI * 0.92, so = 0.35 * E, hel = [];
-    for (let i = 0; i <= 120; i++) {
-      const t = tt0 + (tt1 - tt0) * i / 120, q = along(so + k * (t - tt0) / (2 * Math.PI));
-      hel.push({ p: [q[0] + n[0] * a * Math.cos(t), q[1] + n[1] * a * Math.cos(t)], av: Math.sin(t) > 0 });
+    const out = [];
+    // le bout ressort de derrière le montant, dans la fourche du bas à droite, côté +n du dormant
+    const s0 = 0.5 * E, k = 1.25 * E, a = 1.0 * E, N = 3;
+    const e0 = along(-0.2 * E, a + 0.3 * E);
+    out.push(tube(bez(e0, along(0.1 * E, a + 0.2 * E), along(s0 - 0.2 * E, a + 0.1 * E), along(s0, a), 6)));
+    out.push(cap(e0, [u1[0] * 0.8 + n[0] * 0.6, u1[1] * 0.8 + n[1] * 0.6]));
+    // le dormant (le brin devant la traverse), puis la torsade par-dessus : trois passages devant,
+    // chacun en travers du dormant, de +n vers −n en remontant ; derrière, il revient de −n à +n.
+    out.push(tube(droite(B, A, 14)), cap(A, [-u1[0], -u1[1]]));
+    if (entier) out.push(h.formes.cordes([{ pts: droite(B, dehors, 8).map(q => [q[0], q[1], 0]), ep: E, debut: 'ouvert', fin: 'fixe' }], { trait: 'arete' }).toString());
+    else out.push(cap(B, u1));
+    let fin = null;
+    for (let i = 0; i < N; i++) {
+      const sa = s0 + i * k, sb = sa + 0.5 * k;
+      const q0 = along(sa, a), q1 = along(sb, -a);
+      out.push(tube(bez(q0, along(sa + 0.12 * k, 0.4 * a), along(sb - 0.12 * k, -0.4 * a), q1, 10)));
+      out.push(cap(q0, [n[0] - u1[0] * 0.5, n[1] - u1[1] * 0.5]));
+      if (i < N - 1) out.push(cap(q1, [-n[0] - u1[0] * 0.5, -n[1] - u1[1] * 0.5]));
+      fin = q1;
     }
-    const runs = [];
-    hel.forEach((q, i) => { if (!i || q.av !== hel[i - 1].av) runs.push({ av: q.av, pts: i ? [hel[i - 1].p] : [] }); runs[runs.length - 1].pts.push(q.p); });
-    const fin = hel[hel.length - 1].p, m = [-n[0], -n[1]];
-    const queue = bez(fin, [fin[0] + m[0] * 0.8 * E - u1[0] * 0.3 * E, fin[1] + m[1] * 0.8 * E - u1[1] * 0.3 * E],
-      [fin[0] + m[0] * 1.8 * E - u1[0] * 0.4 * E, fin[1] + m[1] * 1.8 * E - u1[1] * 0.4 * E], [fin[0] + m[0] * 2.6 * E - u1[0] * 0.2 * E, fin[1] + m[1] * 2.6 * E - u1[1] * 0.2 * E], 8);
-    // l'entrée du bout : il sort de derrière le montant, dans la fourche du bas à droite
-    const e0 = [B[0] + n[0] * 1.2 * E + u1[0] * 0.6 * E, B[1] + n[1] * 1.2 * E + u1[1] * 0.6 * E];
-    const entree = bez(e0, [e0[0] - u1[0] * 0.6 * E, e0[1] - u1[1] * 0.6 * E], [hel[0].p[0] + u1[0] * 0.5 * E, hel[0].p[1] + u1[1] * 0.5 * E], hel[0].p, 6);
-    const derriere = runs.filter(r => !r.av).map(r => tube(r.pts)).join('\n');
-    const devant = runs.filter(r => r.av).map(r => tube(r.pts)).join('\n');
-    const svg = [tube(entree), cap(e0, [u1[0] + n[0] * 0.3, u1[1] + n[1] * 0.3]), derriere, tube(dormant), cap(A, [-u1[0], -u1[1]]), entier ? '' : cap(B, u1),
-      devant, tube(queue), libre(queue[queue.length - 2], queue[queue.length - 1])].join('\n');
-    return { svg, tire: [[B[0] + u1[0] * 1.5 * E, B[1] + u1[1] * 1.5 * E], dehors], torsade: along(so + k * 1.2), A, B };
+    // le bout libre, après le dernier passage
+    const queue = bez(fin, along(s0 + (N - 0.5) * k + 0.4 * E, -a - 0.5 * E), along(s0 + (N - 0.5) * k + 0.9 * E, -a - 1.3 * E), along(s0 + (N - 0.5) * k + 1.1 * E, -a - 2.2 * E), 8);
+    out.push(tube(queue), libre(queue[queue.length - 2], queue[queue.length - 1]));
+    return { svg: out.join('\n'), tire: [[B[0] + u1[0] * 1.5 * E, B[1] + u1[1] * 1.5 * E], dehors], torsade: along(s0 + k, 0), A, B };
   };
 
   // ─── les frappes, puis l'arrêt sur la traverse ───

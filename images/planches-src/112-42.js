@@ -38,12 +38,17 @@ module.exports = (h) => {
     for (const x of [xa + 30, xa + 110, xa + 190, xa + 270]) if (x < x1 - 20) out.push(h.ligne(x, y - r + 2.5, x + 50, y - r + 2.5, A.fin));
     out.push(h.ligne(xa - 4, y - r, x1, y - r, A.contour));
     // deux lanières qui se détachent vers le bas et vers l'avant, entre xa et xb
-    const lan = (dx, dy, l) => {
-      const p0 = [xa + 2, y + dy], c = [xa + l * 0.5, y + dy + 14], p1 = [xa + l, y + dy + 34 + dx];
-      const w = 7;
-      return h.path(`M ${pt([p0[0], p0[1] - w / 2])} Q ${pt([c[0], c[1] - w / 2])} ${pt([p1[0], p1[1] - w / 2])} L ${pt([p1[0] - 2, p1[1] + w / 2])} Q ${pt([c[0] - 2, c[1] + w / 2])} ${pt([p0[0], p0[1] + w / 2])} Z`, blanc('arete'));
+    // une lanière : un ruban qui part du bord de l'écorce, retombe et s'amincit au bout
+    const lan = (dy, l, chute, w = 6.5) => {
+      const P = [];
+      for (let i = 0; i <= 24; i++) {
+        const t = i / 24, x = xa + 2 + l * t, yy = y + dy + chute * t * t;
+        P.push([x, yy, w * (1 - 0.55 * t)]);
+      }
+      const haut = P.map(p => [p[0], p[1] - p[2] / 2]), bas = P.map(p => [p[0], p[1] + p[2] / 2]).reverse();
+      return h.path(poly([...haut, ...bas]), blanc('arete'));
     };
-    out.push(lan(0, 4, xb - xa - 30), lan(-12, 14, xb - xa + 10));
+    out.push(lan(r - 5, xb - xa - 10, 30), lan(r - 2, xb - xa + 40, 50));
     // l'écorce entière, à gauche : un tube vert, ses fibres en long
     out.push(h.path(poly([[x0, y - r], [xa, y - r], [xa, y + r], [x0, y + r]]), A.blanc));
     out.push(h.path(poly([[x0, y + r * 0.35], [xa, y + r * 0.35], [xa, y + r], [x0, y + r]]), A.ombre));
@@ -56,7 +61,7 @@ module.exports = (h) => {
   const renvoisPeler = z => {
     const q = P1(z), { y, r, xa, xb, x1, e } = q;
     return [
-      { n: 1, rond: [xa + (xb - xa) * 0.5, y + r + 52 > z.h - 12 ? z.h - 12 : y + r + 52], cible: [xa + (xb - xa) * 0.42, y + r + 18], texte: 'écorce verte pelée en lanières' },
+      { n: 1, rond: [xa + 2 + (xb - xa + 40) * 0.55 - 30, z.h - 14], cible: [xa + 2 + (xb - xa + 40) * 0.55, y + r - 2 + 50 * 0.3025 + 2.2], texte: 'écorce verte pelée en lanières' },
       { n: 2, rond: [x1 - 90, y - r - 26], cible: [x1 - 110, y - r + 1], texte: 'une seule bande, d’un bout à l’autre' },
       { n: 3, rond: [x1 - 40, y + r + 28], cible: [x1 - 60, y + 6], texte: 'la moelle : la mèche' },
     ];
@@ -97,10 +102,10 @@ module.exports = (h) => {
   // ─── Vue 5 : brûler, presque couché ─────────────────────────────────────────────────────
   // À l'échelle : un jonc de 70 cm, pincé à un bout dans la fente d'un bâton planté dans une bûche.
   const P5 = z => {
-    const k = 0.4, yg = z.h - 18, xb = 80, hb = 150 * k, wb = 170 * k, hs = 330 * k;
-    const tete = [xb, yg - hb - hs + 6];                      // le haut du bâton, où la fente pince
-    const ang = 17 * RAD, u = [Math.cos(ang), -Math.sin(ang)];
-    const debut = add(tete, u, -40 * k), fin = add(debut, u, 700 * k);
+    const k = 0.45, yg = z.h - 14, xb = 150, hb = 100 * k, wb = 160 * k, hs = 150 * k;
+    const tete = [xb, yg - hb - hs + 10];                     // où la fente pince le jonc
+    const ang = 8 * RAD, u = [Math.cos(ang), -Math.sin(ang)];
+    const debut = add(tete, u, -50 * k), fin = add(debut, u, 700 * k);
     return { k, yg, xb, hb, wb, hs, tete, ang, u, debut, fin };
   };
   const vueBruler = z => {
@@ -112,35 +117,33 @@ module.exports = (h) => {
     out.push(h.rect(xb - wb / 2, yg - hb, wb, hb, A.contour));
     out.push(h.ellipse(xb, yg - hb, wb / 2, 6, blanc('contour')));
     out.push(h.ellipse(xb, yg - hb, wb * 0.3, 3.5, A.fin));
-    // le bâton planté dans la bûche, fendu en haut
-    const w = 26 * k, yH = tete[1] - 22;
-    out.push(h.path(poly([[xb - w / 2, yg - hb + 2], [xb - w / 2, yH], [xb - 1, yH + 2], [xb - 1, tete[1] + 30], [xb + 1, tete[1] + 30], [xb + 1, yH + 2], [xb + w / 2, yH], [xb + w / 2, yg - hb + 2]]), blanc('contour')));
-    out.push(h.ligne(xb - 2, yg - hb - 20, xb - 2, tete[1] + 40, A.fin));
-    // le jonc : pincé dans la fente, presque couché ; la flamme au bout
+    // le jonc d'abord : il passe dans la fente, derrière la moitié de devant du bâton
     const n = nor(u), e = 2.6;
     out.push(h.path(poly([add(debut, n, e), add(fin, n, e), add(fin, n, -e), add(debut, n, -e)]), blanc('arete')));
-    out.push(h.ligne(...add(tete, n, 0), ...add(add(tete, n, 0), u, 4), A.fin));
-    // repasser les lèvres de la fente par-dessus le jonc
-    out.push(h.ligne(xb - w / 2, yH, xb - w / 2, tete[1] + 8, A.contour), h.ligne(xb + w / 2, yH, xb + w / 2, tete[1] + 8, A.contour));
-    // la flamme, couchée vers le haut au bout du jonc
-    const fl = add(fin, u, -2);
+    // le bâton planté dans la bûche, fendu en haut
+    const w = 30 * k, yH = tete[1] - 16;
+    out.push(h.path(poly([[xb - w / 2, yg - hb + 3], [xb - w / 2, yH], [xb - 1.5, yH - 3], [xb + 1.5, yH - 3], [xb + w / 2, yH], [xb + w / 2, yg - hb + 3]]), blanc('contour')));
+    out.push(h.ligne(xb, yH - 2, xb, tete[1] + 22, A.detail));
+    out.push(h.ligne(xb - 3, tete[1] + 40, xb - 3, yg - hb - 14, A.fin));
+    // la flamme, debout au bout du jonc
+    const fl = add(fin, u, -3);
     const F = (x, y) => [fl[0] + x, fl[1] + y];
-    out.push(h.path(`M ${pt(F(-6, 2))} C ${pt(F(-10, -12))} ${pt(F(-2, -22))} ${pt(F(4, -40))} C ${pt(F(10, -22))} ${pt(F(12, -8))} ${pt(F(6, 3))} C ${pt(F(3, 6))} ${pt(F(-3, 6))} ${pt(F(-6, 2))} Z`, blanc('arete')));
-    out.push(h.path(`M ${pt(F(-2, 0))} C ${pt(F(-4, -8))} ${pt(F(0, -14))} ${pt(F(3, -22))} C ${pt(F(6, -12))} ${pt(F(6, -5))} ${pt(F(3, 0))}`, A.detail));
-    // la cote : la longueur du jonc
-    const c0 = add(debut, n, 16), c1 = add(fin, n, 16);
+    out.push(h.path(`M ${pt(F(-6, 2))} C ${pt(F(-10, -10))} ${pt(F(-2, -18))} ${pt(F(3, -32))} C ${pt(F(9, -18))} ${pt(F(11, -7))} ${pt(F(6, 3))} C ${pt(F(3, 6))} ${pt(F(-3, 6))} ${pt(F(-6, 2))} Z`, blanc('arete')));
+    out.push(h.path(`M ${pt(F(-2, 0))} C ${pt(F(-4, -7))} ${pt(F(0, -11))} ${pt(F(2.5, -18))} C ${pt(F(5, -10))} ${pt(F(5, -4))} ${pt(F(3, 0))}`, A.detail));
+    // la cote : la longueur du jonc, sous lui
+    const c0 = add(debut, n, 18), c1 = add(fin, n, 18);
     out.push(h.ligne(...c0, ...c1, A.detail));
     for (const p of [c0, c1]) out.push(h.ligne(...add(p, n, -6), ...add(p, n, 6), A.detail));
-    const m = add([(c0[0] + c1[0]) / 2, (c0[1] + c1[1]) / 2], n, 12);
-    out.push(h.texte(m[0], m[1] + 4, '70 cm', { lisere: true }));
+    const m = add([(c0[0] + c1[0]) / 2, (c0[1] + c1[1]) / 2], n, 14);
+    out.push(h.texte(m[0] + 40, m[1] + 4, '70 cm', { lisere: true }));
     return out.join('\n');
   };
   const renvoisBruler = z => {
     const q = P5(z), { xb, hb, hs, yg, tete, u, debut, fin } = q;
-    const mi = add(debut, u, 160);
+    const mi = add(debut, u, 230);
     return [
-      { n: 5, rond: [xb - 52, tete[1] - 4], cible: [xb - 6, tete[1] + 2], texte: 'pincé dans un bâton fendu' },
-      { n: 6, rond: [mi[0] + 20, mi[1] + 46], cible: [mi[0], mi[1] + 3], texte: 'presque couché' },
+      { n: 5, rond: [xb - 70, tete[1] - 22], cible: [xb - 8, tete[1] - 4], texte: 'pincé dans un bâton fendu' },
+      { n: 6, rond: [mi[0] + 14, mi[1] - 36], cible: [mi[0], mi[1] - 4], texte: 'presque couché' },
     ];
   };
 
@@ -150,7 +153,7 @@ module.exports = (h) => {
     desc: 'La chandelle de jonc, en trois temps. Peler : sur un bout de jonc grossi, l’écorce verte se détache en lanières et il ne reste qu’une seule bande, sur le dessus, d’un bout à l’autre ; elle tient droite la moelle blanche, qui fait la mèche. En coupe, la moelle avec une bande, et avec deux bandes, qui font durer mais éclairent mal. Tremper : le jonc sec tiré de long dans un plat de gras fondu. Brûler : un jonc de 70 cm pincé à un bout dans la fente d’un bâton planté dans une bûche, presque couché, la flamme au bout libre.',
     format: 'pleine',
     disposition: [['peler'], ['une', 'deux', 'tremper'], ['bruler']],
-    hauteurs: [0.9, 0.8, 1.35],
+    hauteurs: [0.95, 0.85, 1.1],
     largeurs: [[1], [1, 1, 1.5], [1]],
     vues: {
       peler: { titre: 'Peler, en gardant une bande (grossi)', dessin: vuePeler, renvois: renvoisPeler },

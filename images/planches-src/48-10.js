@@ -5,14 +5,13 @@
 // dégage la neige d'à peu près la hauteur du menton ; trop large, elle glisse sur le corps ; l'attache à
 // un tronc vivant de la grosseur du poignet. Le chapitre 55 : la boucle se tient ouverte sur la piste par
 // une brindille fendue ; pour le renard, une boucle de 15 à 20 cm, le bas à 15 à 20 cm de la piste, centrée.
+// Le lièvre de profil, la tête dans la boucle, a été essayé (calque d'Audubon, 1845) et retiré : un corps qui
+// n'est pas net ne s'imprime pas (JP, 15 octobre 2026). Le bas « au menton » est dit par le renvoi.
 // Vue de dessus : le sentier tassé, le passage entre deux troncs, la boucle en travers, le fil tenu par la
 // brindille et tourné sur le tronc vivant. Dans l'axe du sentier : la neige coupée en travers, la gouttière,
 // la boucle ronde et sa cote. Le renard : la même boucle, ses deux cotes. De côté : le lièvre la tête passée,
-// le bas au menton ; puis la boucle trop large, sur le corps.
 // Cotes : celles des chapitres seulement (10 cm ; 15 à 20 cm deux fois). La profondeur de la gouttière, la
 // largeur du sentier et la hauteur du bas de la boucle ne sont pas chiffrées : proportions de dessin.
-// Le lièvre vient de _lievre-audubon.js (calqué sur Audubon, 1845).
-const L_ = require('./_lievre-audubon');
 
 module.exports = (h) => {
   const r1 = (v) => Math.round(v * 10) / 10;
@@ -116,43 +115,14 @@ module.exports = (h) => {
     return o.join('\n');
   };
 
-  // ─── De côté : le lièvre, la tête passée ──────────────────────────────────────────────────
-  // Le lièvre engage la tête : la boucle, de chant, passe devant ses yeux ; son bas frôle le menton.
-  const ECH = 0.6, X_L = 190;
-  const sol = (z) => z.h - 22;
-  const geoB = (z) => {
-    const e = L_.lievre(h, { x: X_L, y: sol(z), echelle: ECH });
-    const menton = e.P(326, 600), x = e.P(436, 530)[0], ry = 5 * 10 * ECH, yBas = menton[1] + 2, y = yBas - ry;
-    return { e, menton, x, ry, y, yBas };
-  };
-  // une boucle vue de chant : centre (x, y), demi-hauteur ry ; la moitié du fond, puis celle de devant
-  const chant = (x, y, ry, cote) => {
-    const q = (s) => { const p = []; for (let i = 0; i <= 24; i++) { const t = -Math.PI / 2 + i / 24 * Math.PI; p.push([x + s * 4.5 * Math.cos(t), y + ry * Math.sin(t)]); } return p; };
-    return cote === 'fond' ? h.chemin(q(-1), h.a.arete) : h.chemin(q(1), h.a.contour);
-  };
-  const bon = (z) => {
-    const o = [];
-    const { menton, x, ry, y, yBas } = geoB(z);
-    const yBord = sol(z) - 9 * 10 * ECH;
-    o.push(h.rect(0, sol(z), z.l, z.h - 2 - sol(z), neige), h.ligne(0, sol(z), z.l, sol(z), h.a.contour));
-    o.push(h.ligne(0, yBord, z.l, yBord, h.a.detail));                      // le bord du sentier, derrière
-    // la brindille, derrière, sur le bord du sentier ; le fil qui descend de sa fente à l'œillet
-    o.push(brindille(x + 3, yBord, y - ry - 34, 3.4));
-    o.push(L_.lievre(h, { x: X_L, y: sol(z), echelle: ECH, trait: 2.4, derriere: chant(x, y, ry, 'fond') }).svg);
-    o.push(chant(x, y, ry, 'devant'));
-    o.push(h.ligne(x, y - ry - 2, x + 3, y - ry - 22, h.a.arete), h.cercle(x, y - ry, 3, blanc(h.a.arete)));
-    o.push(h.controle(x - 6, yBas - 4, 12));
-    return o.join('\n');
-  };
-
   return {
     ref: '48-10',
     titre: 'Le collet posé sur le sentier',
-    desc: 'En haut, vu de dessus : un sentier de lièvre tassé dans la neige profonde, avec deux groupes d’empreintes ; au passage le plus étroit, entre un arbre et un tronc vivant gros comme le poignet, la boucle vue de chant en travers du sentier ; son fil passe dans une brindille plantée au bord et va se tourner sur le tronc vivant. Au milieu à gauche, dans l’axe du sentier : la neige coupée en travers, la gouttière du sentier, la boucle ronde d’environ 10 cm qui pend au fil, l’œillet en haut, la brindille fendue qui pince le fil, le tronc vivant où le fil est tourné ; le bas de la boucle est au-dessus du fond de la gouttière. À droite, pour le renard : une boucle de 15 à 20 cm, le bas à 15 à 20 cm de la piste. En bas, de côté : le lièvre d’Amérique en pelage d’hiver a passé la tête dans la boucle, vue de chant juste derrière la tête ; un trait de niveau montre que le bas de la boucle est à la hauteur de son menton.',
+    desc: 'En haut, vu de dessus : un sentier de lièvre tassé dans la neige profonde, avec deux groupes d’empreintes ; au passage le plus étroit, entre un arbre et un tronc vivant gros comme le poignet, la boucle vue de chant en travers du sentier ; son fil passe dans une brindille plantée au bord et va se tourner sur le tronc vivant. Au milieu à gauche, dans l’axe du sentier : la neige coupée en travers, la gouttière du sentier, la boucle ronde d’environ 10 cm qui pend au fil, l’œillet en haut, la brindille fendue qui pince le fil, le tronc vivant où le fil est tourné ; le bas de la boucle est au-dessus du fond de la gouttière. À droite, pour le renard : une boucle de 15 à 20 cm, le bas à 15 à 20 cm de la piste.',
     format: 'pleine',
-    disposition: [['plan'], ['face', 'renard'], ['bon']],
-    hauteurs: [2, 2.4, 2.4],
-    largeurs: [[1], [1.3, 1], [1]],
+    disposition: [['plan'], ['face', 'renard']],
+    hauteurs: [2.2, 3],
+    largeurs: [[1], [1.3, 1]],
     vues: {
       plan: {
         titre: 'Vu de dessus',
@@ -176,17 +146,6 @@ module.exports = (h) => {
         },
       },
       renard: { titre: 'Pour le renard', dessin: renard },
-      bon: {
-        titre: 'De côté : le lièvre engage la tête',
-        dessin: bon,
-        renvois: (z) => {
-          const { menton, x, ry, y, yBas } = geoB(z);
-          return [
-            { n: 7, rond: [x - 70, yBas + 4], cible: [x - 20, yBas - 2], texte: 'le bas frôle le menton' },
-            { n: 8, rond: [x + 64, y - ry - 10], cible: [x + 6, y - ry + 6], texte: 'la tête entre, la boucle serre au cou' },
-          ];
-        },
-      },
     },
   };
 };

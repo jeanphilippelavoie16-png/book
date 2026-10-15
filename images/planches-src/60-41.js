@@ -62,12 +62,10 @@ module.exports = (h) => {
       for (const x of [0, L - 40]) o.push(h.chemin(map(T, [[x, -R], [x, R]]), A.arete));
       // les éclisses coupées, en haut et en bas : le contour
       o.push(h.chemin(map(T, [[0, -R], [L, -R]]), A.contour), h.chemin(map(T, [[0, R], [L, R]]), A.contour));
-      // la ligature de racine sur chaque cerceau : quelques tours serrés autour du cerceau et de l'éclisse
+      // les cerceaux coupés : un rond noir en haut et en bas
       for (const x of [0, L - 40]) for (const y of [-R, R]) {
         const [cx, cy] = T([x, y]);
         o.push(h.cercle(cx, cy, 9 * s + 1.5, A.plein));
-        o.push(h.rect(cx - 2.6, cy - 7, 5.2, 14, W(A.arete)));
-        o.push(h.ligne(cx - 2.6, cy - 2.4, cx + 2.6, cy - 2.4, A.detail), h.ligne(cx - 2.6, cy + 2.4, cx + 2.6, cy + 2.4, A.detail));
       }
       // le bouchon tressé dans le cerceau du fond, et la cheville en travers derrière lui
       o.push(h.chemin(map(T, [[L - 34, -R + 6], [L - 6, -R + 6], [L - 6, R - 6], [L - 34, R - 6]]), A.hachure('paille', 'arete'), true));
@@ -207,7 +205,7 @@ module.exports = (h) => {
       o.push(h.path(`M4 4 L${z.l - 4} 4 L${z.l - 4} ${yR + 2} ` + lisse(bord.slice().reverse()).replace(/^M/, 'L') + ' Z', A.hachure('terre', 'aucun')));
       o.push(h.path(lisse(bord), A.contour));
       // l'eau : le courant, de droite à gauche
-      for (const [x, y] of [[z.l - 30, yR + 40], [z.l - 70, z.h - 22], [130, z.h - 28], [110, yR + 36]]) {
+      for (const [x, y] of [[z.l - 30, yR + 40], [130, z.h - 28], [110, yR + 36]]) {
         o.push(h.fleche(`M${f1(x)} ${f1(y)} L${f1(x - 56)} ${f1(y)}`, A.arete));
       }
       // la branche qui dépasse de la rive : une baguette effilée

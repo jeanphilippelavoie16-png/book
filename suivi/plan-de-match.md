@@ -39,7 +39,7 @@ scratchpad de la session ne survit pas au conteneur). Tout ce qui était sur le 
 2. **Passe d'écriture du tome 1** (skill `ecriture`, modèles ch. 10 et ch. 4) : brief
    `_reprise/scratchpad/passe-t1/brief.md`. Texte d'avant la passe : commit `ef62be7`
    (`git show ef62be7:chapitres/NN-….md`, pour `controle.py --avant`). Lots : p1 (00b, 01, 02), p2 (08, 09,
-   10 à vérifier, 16), p3 (17, 18), lancés ; p4 (03, 05, 06), p5 (07, 11, 12), p6 (13, 14, 15) à lancer.
+   10 à vérifier, 16), p3 (17, 18), lancés ; p4 (03, 05, 06), p5 (07, 11, 12), p6 (13, 14, 15) **pas lancés** (JP, 15 oct. : « ceux qui sont pas lancés, lance-les pas ») : à lancer à la reprise, avec le même brief, une fois le lot de planches t1 fini sur ces chapitres.
    Les ancrages proposés par la passe : `_reprise/scratchpad/passe-t1/ancrages-<lot>.json`. Un chapitre est fait quand `controle.py` passe sans tiret ni mot banni et sans invariant disparu, que
    sa série orange est en place si l'inventaire `plan/premieres-minutes-inventaire.md` en demande une, que
    son logigramme est rendu si l'urgence se décide en branches, et que chaque planche est appelée.

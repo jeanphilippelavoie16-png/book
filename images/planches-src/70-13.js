@@ -202,14 +202,30 @@ module.exports = (h) => {
     out.push(h.rect(xo + wo / 2, yT, x1 - xo - wo / 2, e, A.hachure('bois', 'arete')));
     // le registre : une tôle glissée en partie sur la sortie
     out.push(h.rect(xo - wo / 2 - 14, yT - 4, wo + 8, 3.5, A.plein));
-    // les bâtons en travers, vus par le bout, et les pièces pendues
-    const yB = yT + 30;
-    const xs = [x0 + e + 26, x0 + e + 52, x1 - e - 22];
-    xs.forEach((x, i) => {
-      out.push(h.cercle(x, yB, 3.5, A.hachure('bois', 'detail')));
-      const L = 44 + (i % 2) * 8, wP = 13;
-      out.push(h.ligne(x, yB + 3.5, x, yB + 9, A.detail));
-      out.push(h.path(`M${r1(x - wP / 2)} ${r1(yB + 9)} L${r1(x + wP / 2)} ${r1(yB + 9)} C${r1(x + wP / 2 + 1)} ${r1(yB + 9 + L * 0.5)} ${r1(x + wP / 2 - 2)} ${r1(yB + 9 + L)} ${r1(x)} ${r1(yB + 9 + L)} C${r1(x - wP / 2 + 2)} ${r1(yB + 9 + L)} ${r1(x - wP / 2 - 1)} ${r1(yB + 9 + L * 0.5)} ${r1(x - wP / 2)} ${r1(yB + 9)} Z`, blanc(A.arete)));
+    // un bâton en travers de la chambre, d'un mur à l'autre, et trois poissons pendus par la queue,
+    // la ficelle nouée au pédoncule
+    const yB = yT + 26;
+    out.push(h.path(`M${r1(x0 + e)} ${r1(yB - 2.5)} L${r1(x1 - e)} ${r1(yB - 2.5)} L${r1(x1 - e)} ${r1(yB + 2.5)} L${r1(x0 + e)} ${r1(yB + 2.5)} Z`, blanc(A.arete)));
+    const poisson = (cx, t, L, W) => {
+      const P2 = (fx, fy) => `${r1(cx + fx * W)} ${r1(t + fy * L)}`;
+      const d = `M${P2(-0.5, 0)} L${P2(0, 0.09)} L${P2(0.5, 0)} L${P2(0.12, 0.17)}`
+        + ` C${P2(0.42, 0.32)} ${P2(0.52, 0.55)} ${P2(0.46, 0.74)}`
+        + ` C${P2(0.4, 0.92)} ${P2(0.18, 1)} ${P2(0, 1)}`
+        + ` C${P2(-0.18, 1)} ${P2(-0.4, 0.92)} ${P2(-0.46, 0.74)}`
+        + ` C${P2(-0.52, 0.55)} ${P2(-0.42, 0.32)} ${P2(-0.12, 0.17)} Z`;
+      return [
+        h.path(d, blanc(A.arete)),
+        h.path(`M${P2(-0.4, 0.8)} Q${P2(0, 0.74)} ${P2(0.4, 0.8)}`, A.detail),     // l'ouïe
+        h.cercle(cx + 0.16 * W, t + 0.89 * L, 1.1, A.plein),                       // l'œil
+        h.path(`M${P2(-0.06, 0.24)} L${P2(-0.05, 0.7)}`, A.fin),                   // la ligne du flanc
+      ].join('\n');
+    };
+    [[x0 + e + 30, 52], [x0 + e + 62, 60], [x1 - e - 28, 56]].forEach(([x, L], i) => {
+      const t = yB + 14;
+      // la ficelle : par-dessus le bâton, nouée au pédoncule
+      out.push(h.path(`M${r1(x - 2)} ${r1(t + 0.15 * L)} L${r1(x - 2)} ${r1(yB - 3)} Q${r1(x)} ${r1(yB - 6)} ${r1(x + 2)} ${r1(yB - 3)} L${r1(x + 2)} ${r1(t + 0.15 * L)}`, A.detail));
+      out.push(poisson(x, t, L, 16));
+      out.push(h.ligne(x - 3, t + 0.15 * L, x + 3, t + 0.15 * L, A.arete));   // le nœud
     });
     // le plateau posé au sol, dans le coin, loin sous les pièces : vu de côté, le bord relevé
     const tx0 = x0 + e + 6, tx1 = tx0 + 58, ty = yS - 7;
@@ -217,7 +233,7 @@ module.exports = (h) => {
     out.push(h.rect(tx0 + 1.2, ty + 0.5, tx1 - tx0 - 2.4, yS - ty - 1.2, A.hachure('neige', 'aucun')));
     // la fumée qui monte du plateau vers les pièces et la sortie
     out.push(volute(tx0 + 16, ty - 4, 1, 1), volute(tx0 + 34, ty - 6, 1.1, -1));
-    out.push(h.fleche(`M${r1(xo)} ${r1(yT + 46)} L${r1(xo)} ${r1(yT - 14)}`, A.detail));
+    out.push(h.fleche(`M${r1(xo + 6)} ${r1(yT + 21)} L${r1(xo + 6)} ${r1(yT - 14)}`, A.detail));
     return { svg: out.join('\n'), tx0, tx1, ty, yS, x0, e, xo, yT };
   };
   const chambreRenvois = z => {

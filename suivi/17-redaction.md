@@ -209,3 +209,103 @@ Verdicts : `suivi/verifications/22-verifications.md` (6 drapeaux : 2 levés, 1 c
 - **Délai d'apparition (§7) — corrigé :** « 2 à 7 jours » → dans les deux semaines ; grippe 1 à 4 jours, COVID jusqu'à 14 jours. `sources/22-incubation-et-contact-rapproche.md`
 
 - Compression §3 et §4 — 27 septembre 2026 : 1650 mots → 211 mots ; matériel coupé : savon et eau chaude au point d'entrée, eau de Javel 5 % et contenant gradué, point d'arrêt marqué (décrit à l'étape 4), sac de dépannage (étape 7), carte du secteur ; substituts du tableau (trou de mèche, miroir, lanterne, perche, pierres, sapin) laissés à §9, trois signes de froid sans chiffre coupés. §3 : délais de gel de la peau (-28 à -55) déplacés à l'étape 11, qui renvoyait à la section 3 ; arme, hygiène, mensonge, réputation laissés à §5, §6, §7, §8 et §9.
+
+## Passe d'écriture, premières minutes et logigramme — 15 octobre 2026
+
+Numéros de chapitre **nouveaux** dans cette section (ch. 17 = ancien 22). Passe du skill `ecriture` sur tout le
+chapitre ; la procédure s'ouvre sur la série des premières minutes, marquée `{.orange}` ; logigramme en double page.
+Le chapitre reste sans branche d'affrontement : la seule conduite devant une arme ou une porte forcée est de se
+mettre à l'abri et de ne pas résister.
+
+**Mots :** 6 499 avant, 5 297 après (compte de `controle.py`). **Tirets :** 46 avant, 2 après (titre et ligne de
+tome). Fins de ligne CRLF gardées ; six retours chariot isolés au milieu de lignes (restes d'anciennes retouches,
+que les outils lisaient comme des fins de ligne) enlevés.
+
+### La procédure, dans l'ordre du réel
+
+- **« La première minute » (étapes 1 à 3) et « Les dix premières minutes » (étapes 4 à 13)**, marquées `{.orange}` :
+  ne pas ouvrir mais répondre, éteindre la pièce et éclairer dehors, les enfants au fond et un seul adulte qui
+  parle ; puis compter, lire le refroidissement éolien (tableau à l'étape 5), parler en deux phrases, trier, les
+  signes du froid, réchauffer, donner, refuser, s'il ne part pas, et à tout moment l'arme ou la porte forcée.
+  Le chiffre de l'heure : 10 min, la plus longue conversation dehors que permet le tableau à -28 de refroidissement
+  éolien (la peau exposée y gèle en 10 à 30 min).
+- **Après la visite (14, 15), Si quelqu'un entre ou reste (16 à 22), Avant, une fois (23 à 29)** : l'ancien
+  « Avant que quelqu'un cogne » (anciennes étapes 1 à 8) passe en fin de procédure, comme au ch. 4.
+- Correspondance des anciennes étapes : 9 → 1 et 2 ; 5 → 3 et 23 ; 10 → 4 ; 11 → 5 ; 12 et 4 → 6 et 26 ; 13 → 7 ;
+  14 → 8 ; 15 → 9 ; 16, 17, 18 → 10 ; 21 → 11 ; 22 → 12 ; nouvelle 13 ; 23 → 14 ; 20 → 15 ; 24 → 16 ; 19 → 17 ;
+  25 à 29 → 18 à 22 ; 1 → 23 ; 2 → 24 ; 3 → 25 ; 6 → 27 ; 7 → 28 ; 8 → 29. Renvois internes (§6, §7, §8, §9)
+  mis à jour.
+
+### Les faits ajoutés et leur source
+
+| Fait au chapitre | Où | Source (fichier dans `sources/`) |
+| --- | --- | --- |
+| Ne pas ouvrir, mais faire savoir qu'il y a quelqu'un : certains cambrioleurs cognent et entrent si personne ne répond | §5 étape 1 | Houston Police Department, Home Safety (`22-houston-pd-securite-maison.md`) |
+| Devant une arme, une menace ou une porte forcée : tout le monde dans la pièce du fond, calée de l'intérieur, et on y reste | §5 étape 13 ; logigramme | Indiana DHS, Home Protection (`22-indiana-dhs-protection-maison.md`) : « safe room that can be secured from the inside », « shelter in place » |
+| S'il entre et exige quelque chose : le lui donner, sans argumenter ni résister ; résister peut empirer les choses | §5 étape 13 ; logigramme | GRC, Prévention de la criminalité, vol qualifié (`22-grc-prevention-vol-qualifie.md`) |
+| La pièce du fond choisie d'avance, qui se cale de l'intérieur, avec une lampe ; toute la famille sait où aller | §5 étape 27 | Indiana DHS ; Houston PD (« safe room ») |
+| Hypothermie grave : « regard vide » ajouté aux signes ; chaleur sur la tête, le cou, le tronc et l'aine, bouillottes sous les aisselles et sur le ventre ; à boire seulement si conscient ; alcool et cigarette font baisser la température | §5 étapes 8 et 9 | Québec.ca, Hypothermie, revérifiée le 15 octobre (`22-quebec-hypothermie.md`, section « Revérification », et `22-quebec-hypothermie-2026-10-15.html`) |
+| Couché, rien sur les bras ni les jambes, ne boire que si l'on avale bien | §5 étape 9 | Renvoi au ch. 25, étapes 5, 9, 10 et 11 (ses propres sources). Québec.ca fait boire la personne consciente même en hypothermie modérée ; le ch. 25 ne fait rien boire en modérée : l'étape 9 respecte les deux |
+
+Recoupés sans changement : le tableau du refroidissement éolien (`22-environnement-canada-refroidissement-eolien.md`,
+capté le 20 septembre ; canada.ca ne répondait pas le 15 octobre, ni par curl ni par WebFetch) et les bornes de
+28 et 32,2 °C (Québec.ca, revérifiée le 15 octobre). La colonne « Conversation dehors » du tableau de l'étape 5
+reprend la ligne de l'ancien §6 (10 min, 5 min, aucune), elle-même tirée de la borne basse de chaque plage.
+
+### Ce qui a été retiré ou déplacé
+
+- **« village »** (6 fois) : « la maison » ou « la ville ». **« un enfant de 6 ans »** : « des enfants ».
+- **Le livre qui parle de lui-même** : « le chapitre dit lequel chaque fois que ça compte », « la procédure ne
+  disparaît pas : elle perd ses instruments », « C'est à peu près la seule situation du livre où… », « Les
+  chapitres 39 et 40 expliquent comment… ».
+- **Les formules et la morale** : « je ne peux pas vous garder est une condamnation », « par -35 °C ce n'est pas une
+  figure de style », « Une balle ne se rappelle pas, et le nombre de secondes… », « Cette décision ne se reprend
+  pas à 22 h », « La vitre est le piège », « Une fenêtre entièrement givrée est un mur », « C'est brutal, et c'est
+  plus honnête », « perte sèche… par de la prudence, pas par du courage », « Un refus assumé se pardonne mieux
+  qu'un mensonge découvert », « La dégustation d'essai n'existe pas », « une règle expliquée se respecte, une
+  règle imposée se teste ». Le point 1 du §8 dit le mécanisme (le visiteur ne sait pas si l'arme est chargée, il
+  apprend qu'il y en a une, il peut revenir) sans la leçon.
+- **Les citations de source entre guillemets** (Québec.ca, Santé Canada, ACIA) : redites comme des faits.
+- **Les répétitions** : l'avertissement « aucun appareil à combustion sous un toit » se dit au §8 (point 3) ; l'étape
+  19 dit ce qu'on fait (dehors, à l'air libre) et l'ancien point 7 de « Réchauffer sans faire entrer » est fondu dans
+  le §8 (l'abri de toile que la neige ferme). « Pas de massage, pas d'alcool, pas de cigarette » une seule fois
+  (étape 9). Les délais de gel de la peau une seule fois (tableau de l'étape 5) ; le §8 y renvoie. La ligne « Poisson
+  fumé reçu » du §6 est coupée : l'étape 22 et le §8 la portent. Le gel hydroalcoolique : §6 seulement.
+- **Ce qui suppose quelqu'un qui répond** : « tenter d'appeler (ch. 14) », « signaler dès que les communications le
+  permettent », « appeler du secours » deviennent « prévenir les voisins ou le groupe par radio (ch. 14) ».
+- **Chiffres d'illustration sans source** : « 40 km en motoneige », « deux jours sur un traîneau à +5 °C »,
+  « à quarante mètres ».
+- **Hypothermie** : renvoi au ch. 25 (le chapitre du froid) au lieu du ch. 26 ; « faire boire » réservé à la
+  personne consciente qui avale bien (l'ancien texte faisait boire toute personne en hypothermie, contre le ch. 25).
+- **Viande hachée à 71 °C** précisée « qui n'est pas du gibier » : l'ancienne ligne se lisait comme une
+  permission pour l'orignal haché.
+
+### Logigramme
+
+`images/logigrammes/17-qui-cogne.json` → `.svg`, `.pdf`, `.png` ; version du livre `17-qui-cogne-livre.svg`
+(`--sans-entete --svg`). Contrôle : 0 erreur, 0 avis. Page de gauche : on cogne → ne pas ouvrir (1 min) → deux
+adultes ? → compter et lire le thermomètre (10 min) → les deux phrases → il gèle ? (oui : il entre, étapes 8 et 9,
+ch. 25) ; encadré rouge « À tout moment : une arme, une menace » (étape 13). Page de droite : que répondre ? (on
+donne / refus, il a où aller / refus, nulle part où aller) → il part ? (non : rentrer, fermer, barrer ; oui : dire aux
+autres adultes, désinfecter) → le lendemain (étapes 23 à 29) ; s'il reste (16 à 21) → encadré rouge du réchaud du
+visiteur (§8, point 3). Premier geste : zéro question. Ancrage proposé : après « Régler une visite imprévue sur le
+seuil » (§1), orange, comme au ch. 4.
+
+### Planches
+
+- **17-06** (renfort de porte) appelée « (planche 17-06) » à la fin du premier paragraphe de « La porte, et l'endroit
+  où elle cède » (§9). Ancrage proposé au même paragraphe, « Une porte cède au chambranle, presque jamais au pêne »,
+  au lieu de « Si la porte ouvre vers l'extérieur… » (dernier paragraphe de la section) : la planche montre la gâche,
+  la barre, le contrefort et la penture, et son appel vient avec le premier des quatre. L'ancienne ancre existe
+  toujours dans le texte si le coordonnateur préfère la garder.
+- La légende de la planche porte encore un tiret (« Planche 17-06 — Le renfort de porte. ») : hors de cette passe.
+
+### Ce qui reste ouvert
+
+- Étape 13 : la GRC parle du vol qualifié dans la rue ; l'appliquer à la personne qui a forcé la porte est une
+  transposition (même menace, même geste). Aucune source ne parle d'une famille isolée sans secours.
+- §8, point 2 : « elle ne fait pas demi-tour, ne cherche pas d'abri, et s'assoit » vient de l'ancien texte ; la
+  source dit « jugement affaibli », « confusion », « comportement inhabituel ». La scène est une lecture du
+  rédacteur.
+- §9 : « Sans mur réflecteur, la moitié de la chaleur part vers la forêt » : géométrie (le feu rayonne de tous
+  côtés), pas une mesure.

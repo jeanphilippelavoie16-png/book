@@ -35,21 +35,9 @@
 <path d="M22 44.6 L337.1 44.6" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M22 171.4 L337.1 171.4" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
 <circle cx="22" cy="44.6" r="5" fill="#1A1A1A" stroke="none"/>
-<rect x="19.4" y="37.6" width="5.2" height="14" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
-<line x1="19.4" y1="42.2" x2="24.6" y2="42.2" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
-<line x1="19.4" y1="47" x2="24.6" y2="47" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
 <circle cx="22" cy="171.4" r="5" fill="#1A1A1A" stroke="none"/>
-<rect x="19.4" y="164.4" width="5.2" height="14" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
-<line x1="19.4" y1="169" x2="24.6" y2="169" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
-<line x1="19.4" y1="173.8" x2="24.6" y2="173.8" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
 <circle cx="321.7" cy="44.6" r="5" fill="#1A1A1A" stroke="none"/>
-<rect x="319.1" y="37.6" width="5.2" height="14" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
-<line x1="319.1" y1="42.2" x2="324.3" y2="42.2" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
-<line x1="319.1" y1="47" x2="324.3" y2="47" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
 <circle cx="321.7" cy="171.4" r="5" fill="#1A1A1A" stroke="none"/>
-<rect x="319.1" y="164.4" width="5.2" height="14" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
-<line x1="319.1" y1="169" x2="324.3" y2="169" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
-<line x1="319.1" y1="173.8" x2="324.3" y2="173.8" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M324 46.9 L334.8 46.9 L334.8 169.1 L324 169.1 Z" fill="url(#h-paille)" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round"/>
 <path d="M338.6 36.1 L338.6 179.9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M336.3 36.1 L340.9 36.1 L340.9 179.9 L336.3 179.9 Z" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
@@ -131,7 +119,6 @@
 <path d="M4 4 L596 4 L596 42 L596 42 C566.7 41 476 35.3 420 36 C364 36.7 310 45.7 260 46 C210 46.3 162.7 38.3 120 38 C77.3 37.7 23.3 43 4 44 Z" fill="url(#h-terre)" stroke="none"/>
 <path d="M4 44 C23.3 43 77.3 37.7 120 38 C162.7 38.3 210 46.3 260 46 C310 45.7 364 36.7 420 36 C476 35.3 566.7 41 596 42" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M570 80 L514 80" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl)"/>
-<path d="M530 128 L474 128" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl)"/>
 <path d="M130 122 L74 122" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl)"/>
 <path d="M110 76 L54 76" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl)"/>
 <path d="M255.2 19.5 L280.8 62.7 L283.2 61.3 L260.8 16.5 Z" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>

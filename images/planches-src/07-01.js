@@ -8,6 +8,9 @@
 // le bouchon, le haut contre la solive, on frappe le haut le long de la solive jusqu'à l'aplomb, et elle se coince.
 // Le bouchon dépasse un peu du plancher : sinon l'étai porte sur le béton et non sur le bouchon.
 // Pas de main : à l'échelle de la scène, la main ferait un centimètre ; le marteau seul et la flèche rouge.
+// Le marteau (refait le 15 octobre : un rectangle et un bâton) : un marteau de charpentier de côté, construit sur ses
+// proportions (tête, panne, pied-de-biche recourbé, manche galbé). Le chiffon se lit en coupe : une bande tissée
+// entre le bois du bouchon et la fonte du drain.
 // Le raté du texte (le sac de sable posé dessus) n'est pas dessiné : la planche montre ce qui tient.
 module.exports = (h) => {
   const A = h.a;
@@ -50,12 +53,19 @@ module.exports = (h) => {
     o.push(h.fleche(`M${cx + 20} ${yB + 196} L${cx + 20} ${yB + 140}`, A.detail));
     // le bouchon de bois, effilé, enveloppé du chiffon, enfoncé dans la gorge : en coupe, le chiffon est la bande
     // tissée entre le bois et la fonte ; il serre à l'entrée de la gorge
-    const yBb = yB + 110, wT = rT + 4, wB = rT - 20, c = 6;
+    const yBb = yB + 110, wT = rT + 3, wB = rT - 10, c = 6;
     const w = y => wT + (wB - wT) * (y - yB) / (yBb - yB);
     const yc0 = yB + 7;
+    // le bord du chiffon : à c du bois, écrasé contre la fonte dans la gorge
+    const bord = [];
+    for (let y = yc0; y <= yBb + 0.1; y += 5) bord.push([y >= yC ? Math.min(w(y) + c, rT) : w(y) + c, y]);
+    const gauche = bord.map(([x, y]) => [cx - x, y]), droite = bord.map(([x, y]) => [cx + x, y]).reverse();
     o.push(TISSU);
-    o.push(h.path(`M${f1(cx - w(yc0) - c)} ${f1(yc0)} L${f1(cx - wB - c)} ${f1(yBb)} Q${f1(cx - wB - c)} ${f1(yBb + c)} ${f1(cx - wB)} ${f1(yBb + c)} L${f1(cx + wB)} ${f1(yBb + c)} Q${f1(cx + wB + c)} ${f1(yBb + c)} ${f1(cx + wB + c)} ${f1(yBb)} L${f1(cx + w(yc0) + c)} ${f1(yc0)} L${f1(cx + w(yc0))} ${f1(yc0 - 3)} L${f1(cx - w(yc0))} ${f1(yc0 - 3)} Z`, tissu));
-    o.push(h.chemin([[cx - wT, yB], [cx + wT, yB], [cx + wB, yBb], [cx - wB, yBb]], A.hachure('bois', 'contour'), true));
+    o.push(h.path(`M${f1(cx - w(yc0))} ${f1(yc0 - 3)} ` + gauche.map(p => `L${f1(p[0])} ${f1(p[1])}`).join(' ')
+      + ` Q${f1(cx - wB - c)} ${f1(yBb + c)} ${f1(cx - wB)} ${f1(yBb + c)} L${f1(cx + wB)} ${f1(yBb + c)} Q${f1(cx + wB + c)} ${f1(yBb + c)} ${f1(droite[0][0])} ${f1(droite[0][1])} `
+      + droite.map(p => `L${f1(p[0])} ${f1(p[1])}`).join(' ') + ` L${f1(cx + w(yc0))} ${f1(yc0 - 3)} Z`, tissu));
+    const bouchon = [[cx - wT, yB], [cx + wT, yB], [cx + wB, yBb], [cx - wB, yBb]];
+    o.push(h.chemin(bouchon, A.blanc, true), h.chemin(bouchon, A.hachure('bois', 'contour'), true));
     // le pied de l'étai, posé sur le bouchon ; il monte et sort de la vue (cassure en haut)
     const rE = 44;
     const yH = 28;
@@ -63,6 +73,33 @@ module.exports = (h) => {
     for (const dx of [-24, -6, 14, 30]) o.push(h.ligne(cx + dx, yH + 22, cx + dx + 1, yB - 18, A.detail));
     o.push(h.controle(cx, yB, 10));
     return { svg: o.join('\n'), g: { ...g, yBb, yC, wB, c } };
+  };
+
+  // ─── Le marteau de charpentier, de côté : la tête à l'horizontale, la panne (le côté qui frappe) vers la
+  // gauche, le pied-de-biche recourbé à droite, le manche galbé qui descend. Construit en mm sur les proportions
+  // d'un marteau de 16 oz : tête de 125 mm, manche de 330 mm. (xF, yA) : le centre de la panne.
+  const lisse = (pts, ferme = false) => {
+    const n = pts.length, P = i => ferme ? pts[(i + n) % n] : pts[Math.max(0, Math.min(n - 1, i))];
+    let d = `M${f1(pts[0][0])} ${f1(pts[0][1])}`;
+    for (let i = 0; i < (ferme ? n : n - 1); i++) {
+      const p0 = P(i - 1), p1 = P(i), p2 = P(i + 1), p3 = P(i + 2);
+      d += ` C${f1(p1[0] + (p2[0] - p0[0]) / 6)} ${f1(p1[1] + (p2[1] - p0[1]) / 6)} ${f1(p2[0] - (p3[0] - p1[0]) / 6)} ${f1(p2[1] - (p3[1] - p1[1]) / 6)} ${f1(p2[0])} ${f1(p2[1])}`;
+    }
+    return ferme ? d + ' Z' : d;
+  };
+  const marteau = (xF, yA, k) => {
+    const T = ([u, v]) => [xF + u * k, yA + v * k];       // u : de la panne vers le pied-de-biche ; v : vers le bas
+    const o = [];
+    // le manche : il part de l'œil, s'amincit, puis s'élargit dans la main et finit arrondi
+    const g = [[42, 12], [43, 70], [44, 150], [43, 230], [41, 292], [44, 318]], dr = [[58, 12], [57, 70], [56, 150], [59, 230], [63, 292], [60, 318]];
+    o.push(h.path(lisse(g.map(T)) + ` Q${T([52, 330]).map(f1).join(' ')} ${T(dr[5]).map(f1).join(' ')}` + lisse(dr.slice().reverse().map(T)).replace(/^M[^C]*/, ' L' + T(dr[5]).map(f1).join(' ')), W(A.arete)));
+    // la tête : la panne, le col, l'œil, le pied-de-biche recourbé vers le bas
+    const tete = [[0, -12], [9, -12], [12, -9], [26, -9], [32, -13], [64, -13], [86, -10], [104, -3], [118, 8], [124, 20],
+      [116, 14], [102, 7], [86, 5], [70, 9], [64, 13], [32, 13], [26, 9], [12, 9], [9, 12], [0, 12]];
+    o.push(h.chemin(tete.map(T), W(A.contour).replace('stroke-width="2.4"', 'stroke-width="1.6"'), true));
+    o.push(h.ligne(...T([9, -12]), ...T([9, 12]), A.detail));                 // le bord de la panne
+    o.push(h.path(lisse([[70, 1], [88, -1], [106, 4], [118, 14]].map(T)), A.fin));   // la fente du pied-de-biche
+    return { svg: o.join('\n'), manche: T([56, 200]) };
   };
 
   // ─── La scène : le sous-sol, la solive vue de côté (0,24 unité par mm) ─────────────────────────
@@ -101,11 +138,11 @@ module.exports = (h) => {
     const P = { top, pied, etaiMilieu: [pied[0] + u[0] * 0.5 + nn[0], pied[1] + u[1] * 0.5 + nn[1]] };
     if (penche) {
       // le marteau frappe le haut de l'étai vers l'aplomb ; la flèche rouge du coup
-      const yM = yJb + 26, xM = top[0] - (yM - yJb) * d / H + eE / 2 + 1;   // le bord droit de l'étai à cette hauteur
-      o.push(h.rect(xM, yM - 14, 11, 28, W(A.arete)));
-      o.push(h.chemin([[xM + 11, yM - 3], [xM + 74, yM + 12], [xM + 73, yM + 19], [xM + 11, yM + 4]], W(A.arete), true));
-      o.push(h.geste(`M${f1(xM + 56)} ${f1(yM - 28)} L${f1(xM + 4)} ${f1(yM - 28)}`));
-      P.marteau = [xM + 62, yM + 13];
+      const yM = yJb + 30, xM = top[0] - (yM - yJb) * d / H + eE / 2 + 0.5;   // le bord droit de l'étai à cette hauteur
+      const mt = marteau(xM, yM, 0.27);
+      o.push(mt.svg);
+      o.push(h.geste(`M${f1(xM + 34)} ${f1(yJb + 13)} L${f1(xM + 3)} ${f1(yJb + 13)}`));
+      P.marteau = mt.manche;
     } else {
       o.push(h.controle(top[0], yJb + 1, 11));
     }
@@ -140,7 +177,7 @@ module.exports = (h) => {
           const { g, P } = scene(z, true);
           return [
             { n: 4, rond: [z.l - 30, 330], cible: P.etaiMilieu, texte: 'étai : un 2 × 4 juste trop long' },
-            { n: 5, rond: [z.l - 22, g.yJb + 76], cible: P.marteau, texte: 'frapper le haut vers l’aplomb' },
+            { n: 5, rond: [z.l - 14, g.yJb + 130], cible: P.marteau, texte: 'frapper le haut vers l’aplomb' },
           ];
         },
       },
