@@ -225,6 +225,9 @@ doit être informatif, partout.** Ce qui saute :
 - la répétition (JP : « faut slaquer la répétition ») : un fait se dit une fois par chapitre, là où il
   sert ; ailleurs, un renvoi court. Les rappels de sécurité se disent dans l'étape qui les concerne et
   dans l'encadré danger, pas une troisième fois ;
+- ce qui ne marche pas, quand on peut dire ce qui marche (JP : « je veux pas savoir qu'est-ce qui va pas
+  au feu, je veux savoir c'est quoi qui va au feu ») ; et l'avertissement redit ailleurs que dans
+  l'encadré danger (JP, sur le barbecue dans la maison : « on le sait, on l'a déjà dit ») ;
 - la chute en formule au bout d'un paragraphe : « juste une impression », « La plus courte commande »,
   « pas quand le tuyau siffle », « C'est un motif de partir que rien de visible ne signale » ;
 - l'opposition fabriquée (« pas X, mais Y », « au village, c'est… ; au chalet, c'est… ») quand elle

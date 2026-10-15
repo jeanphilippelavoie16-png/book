@@ -48,7 +48,10 @@ dans le garage.
    ne varie pas les synonymes pour faire joli. « Génératrice » partout, pas « groupe », puis
    « appareil », puis « machine ».
 7. **La voix active, un sujet concret.** « Le monoxyde endort », pas « l'endormissement est causé par ».
-8. **Dire quoi faire**, pas seulement quoi éviter. L'interdit reste pour le danger, avec son mécanisme.
+8. **Dire ce qui marche, pas ce qui ne marche pas.** JP : « Je veux pas savoir qu'est-ce qui va pas au
+   feu, je veux savoir c'est quoi qui va au feu. » On nomme ce qu'on prend, ce qu'on fait, ce qui
+   convient : « Tout contenant de métal va sur le feu. » La liste de ce qui ne convient pas sort, sauf
+   quand l'erreur tue et que le réflexe naturel y mène ; elle va alors dans l'encadré danger, une fois.
 9. **Un avertissement = le mécanisme + ce qui arrive + quoi faire.** Jamais « attention » tout seul.
 10. **Du français québécois clair, pas du télégraphe.** La phrase garde ses articles et ses liaisons.
     Couper n'est pas compresser.
@@ -95,6 +98,9 @@ JP : « Dans les textes, y a beaucoup de répétition aussi, faut slaquer la ré
   autre section a dit. Le §3 donne le mécanisme ; la procédure ne le réexplique pas, elle s'en sert.
 - **Les rappels de sécurité** du tableau de `CLAUDE.md` se disent dans l'étape où ils s'appliquent et
   dans l'encadré du §8. Pas une troisième fois.
+- **Un avertissement se dit une fois.** JP, sur « le barbecue ne rentre pas dans la maison » redit en
+  §9 après le §8 : « ON LE SAIT, ON L'A DÉJÀ DIT. » Une fois dans l'encadré danger ; ailleurs, rien, pas
+  même « (section 8) » au bout d'une phrase qui le redit.
 - **Pas de redite d'une phrase à l'autre** : la deuxième phrase qui reformule la première sort.
 - **Le même mot pour la même chose** reste (règle 6 plus haut) : on chasse l'idée répétée, pas le terme
   technique.
