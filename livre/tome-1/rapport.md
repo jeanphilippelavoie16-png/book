@@ -1,6 +1,6 @@
 # Tome 1 · Tenir — rapport d'assemblage
 
-- **Produit le :** 2026-10-15 10:06, par `design/outils/assembler-tome.py 1 --hors-ligne`
+- **Produit le :** 2026-10-15 10:10, par `design/outils/assembler-tome.py 1 --hors-ligne`
 - **Fichier :** `livre/tome-1/interieur.pdf` — 308 pages, 68.7 Mo
 - **Ouvertures :** toujours au recto (page de droite), une page blanche devant au besoin
 - **Placements :** design/epreuves-livre/placements.json, design/epreuves-livre/placements-tome-1.json

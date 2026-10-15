@@ -185,8 +185,10 @@ table.achat caption.tsuite{font-size:7.5pt}
 .lcell{display:flex;flex-direction:column;gap:3.5pt}
 .lx{display:flex;align-items:center;gap:3pt;font:700 6.9pt/1 var(--sans);text-transform:uppercase;letter-spacing:.05em;white-space:nowrap}
 .lx .bx{flex:none;width:9.5pt;height:9.5pt;border:1pt solid var(--k);background:#fff}
-/* case de la largeur du chalet, pictogramme calé à gauche : Maison et Chalet commencent au même endroit */
-.lx .ak{--h:9.5pt;color:var(--ta,#000);width:calc(var(--h) * 1.3667);-webkit-mask-position:left center;mask-position:left center}
+.lx .ak{--h:9.5pt;color:var(--ta,#000)}
+/* la maison, plus étroite que le chalet, prend la différence en marge : Maison et Chalet commencent au même endroit
+   (une boîte de masque plus large que le dessin laisse un filet dans le PDF d'Edge) */
+.lx .ak-m{margin-right:calc(var(--h) * 0.5334)}
 .lx.fl .ar{flex:none;width:9.5pt;text-align:center;font:700 9pt/1 var(--sans);color:var(--ta,#000)}
 .lq{display:block;font:italic 500 6.9pt/8.4pt var(--sans);white-space:normal;margin-top:0.5pt}
 
