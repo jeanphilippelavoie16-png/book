@@ -199,6 +199,27 @@ tomes** : un peu plus de blanc en bas des pages qui précèdent une planche ; le
     le script la repère (« d'où », « devient flamme », « part à + verbe »). Au ch. 13, toute la section 3 est à
     refaire ainsi (« la chaleur part à évaporer l'eau », « une étincelle ne donne qu'un peu de chaleur, assez
     pour… »).
+21. **« Comment ça marche » sort de tous les chapitres ; le Matériel prend la section 3** (JP, 16 octobre :
+    « Comment ça marche, on les enlève toutes finalement. Matériel vient prendre la place, pour tous les chapitres.
+    C'est important de savoir c'est quoi le matériel avant d'avoir le logigramme »). Le gabarit passe à huit
+    sections : 1 En une ligne, 2 Quand l'utiliser, 3 Matériel, 4 Procédure, 5 Points de contrôle, 6 Signes
+    d'échec, 7 Danger, 8 Variante d'urgence. Remplace le point 10 (le renommage devient une coupe). À faire :
+    - **le contenu de l'ancienne section 3** : ce qui apprend quelque chose (un mécanisme qui change le geste)
+      passe dans l'étape qu'il explique ; le reste sort. Chapitre par chapitre, avec la refonte ;
+    - **les renvois**, dans le même script que le point 1 (« § » devient « section ») : « section 4 » à « section 9 »
+      descendent de un (4 → 3, …, 9 → 8), dans le chapitre et vers les autres chapitres (« ch. 11, section 9 ») ;
+      « section 3 » (138 renvois aujourd'hui) pointait vers l'ancienne section : chaque renvoi pointe vers l'étape
+      où le mécanisme a été déplacé, ou sort. Environ 2 300 renvois « section 3 à 9 » dans les chapitres, plus les
+      logigrammes. Vérifier par un compte avant et après ;
+    - **le moteur** (`build_chapitre.py`, `chapitre.js`, `chapitre.css`) : la Danger est la section 7 et la
+      variante d'urgence la 8 (aujourd'hui `n == 8`, `n == 9`, les titres posés en dur dans `region()`, le sommaire
+      d'ouverture `SECNAMES`, les classes `s8`, `s9`) ; les épreuves de `design/directions/` suivent ;
+    - **le logigramme** se place juste après la section 3, Matériel, avant la Procédure (ancrage `apres` sur le
+      dernier item du Matériel) ;
+    - `gabarit-chapitre.md`, le skill `ecriture` (exemples « section 9 »), `roles.md` et les fiches qui citent les
+      numéros de section ;
+    - remonter les six tomes et revérifier les pages (tome 5 à 438 sur 440 : une section de moins devrait en
+      rendre).
 
 Le **ch. 11 (feu de forêt)** est **le chapitre modèle de la refonte, approuvé par JP** (15 octobre au soir :
 « c'est parfait, on se garde ça pour samedi ») : texte, trois séries orange à la longueur de leur temps (1 h,

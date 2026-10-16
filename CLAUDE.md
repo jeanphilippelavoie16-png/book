@@ -89,7 +89,7 @@ avec rien, elle vaut plus de place que la manière propre avec le bon matériel 
 la manière propre, il la connaît déjà, et parce que le jour où il ouvre ce livre, le bon
 matériel n'est pas là.
 
-C'est pour ça que la **variante d'urgence** (point 9 du gabarit) est le cœur d'un chapitre
+C'est pour ça que la **variante d'urgence** (dernier point du gabarit) est le cœur d'un chapitre
 et non sa queue. Un chapitre dont la variante d'urgence est courte est un chapitre qui n'a
 pas fait son travail.
 
@@ -186,7 +186,12 @@ dans le livre. Quelqu'un ouvre le livre à une page, pas à la première.
 
 ## Le gabarit
 
-Chaque chapitre technique suit les **neuf** points de `gabarit-chapitre.md`, dans l'ordre.
+Chaque chapitre technique suit les points de `gabarit-chapitre.md`, dans l'ordre. **« Comment ça marche »
+(l'ancien « Pourquoi ça marche ») est coupé dans tous les chapitres** (JP, 16 octobre 2026) : le Matériel prend sa
+place et devient la section 3, parce qu'il faut savoir quel matériel on a avant d'arriver au logigramme ; le
+gabarit passe à huit sections (1 En une ligne, 2 Quand l'utiliser, 3 Matériel, 4 Procédure, 5 Points de contrôle,
+6 Signes d'échec, 7 Danger, 8 Variante d'urgence). Un mécanisme qui apprend quelque chose va dans l'étape qu'il
+explique. La migration des 113 chapitres se fait à la grande passe (`suivi/plan-de-match.md`, point 21).
 Un chapitre de référence (listes, tableaux) peut remplacer la procédure numérotée par
 des tableaux, mais garde l'ordre général et l'encadré danger.
 
