@@ -225,7 +225,14 @@ tomes** : un peu plus de blanc en bas des pages qui précèdent une planche ; le
     dans l'encadré orange » ; puis : « pas en quelques mots, j'aime ça la version détaillée ; la version compacte,
     on l'a déjà dans l'arbre de décision ; c'est la place pour creuser et mettre de l'information »). La version
     courte est le logigramme ; l'encadré orange est la version détaillée : les parties « … : le détail » entrent
-    au complet dans l'étape orange qu'elles expliquent, et disparaissent. La longueur ne suit plus la pastille. CLAUDE.md (« Les premières minutes ») et le skill sont à jour. À refaire : les chapitres qui
+    au complet dans l'étape orange qu'elles expliquent, et disparaissent. La longueur ne suit plus la pastille.
+23. **Planche 13-40 à refaire depuis zéro** (JP, 16 octobre : « les mains, l'amadou, le tipi, c'est laid en
+    câlisse ; je comprends pas qu'elle ait passé »). Elle était déjà signalée (« Tabarnak, ouff ») et a été retouchée
+    au lieu d'être refaite. Règle 12, nouvelle, de `images/recommandations-planches.md` : une planche signalée se
+    refait au complet ; aucune planche n'est jugée par l'agent qui l'a dessinée ; une planche retouchée retourne
+    dans `a-valider/`. Les planches du ch. 13 retouchées aujourd'hui (13-01, 13-07, 13-08, 13-09, 13-40) sont
+    revenues dans `a-valider/` : JP ne les a pas validées. Revoir les autres planches du tableau des signalées
+    (13-09, 60-10, 112-10, 45-01a, 29-08, 89-05b, 50-10) avec la même règle. CLAUDE.md (« Les premières minutes ») et le skill sont à jour. À refaire : les chapitres qui
     ont des séries orange, les modèles 11, 3, 4 et 13 compris (`grep -l "{.orange" chapitres/*.md`).
 
 Le **ch. 11 (feu de forêt)** est **le chapitre modèle de la refonte, approuvé par JP** (15 octobre au soir :

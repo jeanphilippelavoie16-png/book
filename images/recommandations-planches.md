@@ -73,6 +73,15 @@ nouvelle numérotation (six tomes).
    peut pas expliquer en une ligne sort. Au ch. 3 : 03-08 (le cercle sous la marmite, celui de la marmite à
    moitié pleine), 03-10 (le robinet de l'étage, le disjoncteur), 03-11 (la fente), 03-12 (les coins et le
    bas de la couverture). Puis toutes les planches, à la passe finale.
+12. **Une planche n'est pas jugée par l'agent qui l'a dessinée, et une planche que JP a déjà rejetée se refait
+   au complet** (JP, 16 octobre 2026, sur la 13-40 retouchée pour le ch. 13 : « les mains, l'amadou, le tipi, c'est
+   laid en câlisse ; je comprends pas qu'elle ait passé, celle-là »). La 13-40 était dans le tableau des planches
+   signalées (« Tabarnak, ouff ») : l'agent l'a retouchée au lieu de la refaire, s'est jugé lui-même, et je l'ai
+   envoyée sans la juger. Désormais : (1) avant toute retouche, on lit le tableau ci-dessous ; une planche qui y
+   est se refait depuis zéro, pas par retouche ; (2) chaque planche est regardée par un second regard, à la taille
+   d'impression puis de près sur les mains, les matières et le feu, contre la barre de JP (« le sable et la terre
+   dans la main, c'est butcher ») : est-ce qu'un illustrateur professionnel publierait ça ? Si non, elle ne
+   part pas ; (3) une planche retouchée retourne dans `a-valider/` jusqu'à ce que JP la voie.
 7. **La passe finale touche 100 % des planches** (JP, 24 septembre : « va falloir refaire une passe
    sur 100 % des planches à la fin »). Chaque planche, validée ou pas, est reprise contre toutes les
    règles ci-dessus : qualité du trait, mains et personnages, gestes fins, mécanismes, coupes en
