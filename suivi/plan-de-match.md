@@ -241,7 +241,15 @@ tomes** : un peu plus de blanc en bas des pages qui précèdent une planche ; le
     haut est dans une autre colonne que la fin du bloc d'avant et que la colonne d'avant garde plus d'un quart
     de vide, la retirer, poser d'abord le ou les paragraphes suivants, puis la figure, au haut de la colonne
     suivante (comme les figures différées de fin de page). Vérifier ensuite tous les chapitres qui ont des
-    photos en quart ou en demi : un compte des colonnes à plus d'un quart de vide, avant et après. CLAUDE.md (« Les premières minutes ») et le skill sont à jour. À refaire : les chapitres qui
+    photos en quart ou en demi : un compte des colonnes à plus d'un quart de vide, avant et après.
+25. **Les petites planches** (JP, 16 octobre : « une option qu'on mette aussi des petites planches qui pourraient
+    aller dans des paragraphes, pour celles qu'on avait sorties qui étaient pas importantes » ; « on pourrait en
+    mettre un peu partout quand c'est d'actualité »). Une colonne de large (format `quart` du composeur), dans le
+    paragraphe qui l'appelle. Candidates : 46 écartées par l'audit parce qu'elles « tiennent en une phrase », plus
+    les 25 de priorité basse qui restent ; liste dans `images/audit-planches/petites-planches.md`. À faire d'abord :
+    le moteur (taille « petite » dans `build_chapitre.py`, place en colonne dans `chapitre.css`, petit bandeau de
+    titre), puis une petite planche d'essai montrée à JP, puis les autres au fil de la refonte, chapitre par
+    chapitre. Environ 60 à 100 k chacune. CLAUDE.md (« Les premières minutes ») et le skill sont à jour. À refaire : les chapitres qui
     ont des séries orange, les modèles 11, 3, 4 et 13 compris (`grep -l "{.orange" chapitres/*.md`).
 
 Le **ch. 11 (feu de forêt)** est **le chapitre modèle de la refonte, approuvé par JP** (15 octobre au soir :
