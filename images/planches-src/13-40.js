@@ -143,11 +143,12 @@ module.exports = (h) => {
   // ── Le bois ─────────────────────────────────────────────────────────────────────────────────────────
   // Un bâton droit de a à b, de rayon ra au pied et rb en haut ; le bout coupé en b se voit (une ellipse).
   const baton = (a, b, ra, rb, gris = false, fort = false) => {
+    // fort : un bâton qui borde l'ouverture, au trait de contour
     const L = Math.hypot(b[0] - a[0], b[1] - a[1]), u = [(b[0] - a[0]) / L, (b[1] - a[1]) / L], n = [-u[1], u[0]];
     const pts = [add(a, mul(n, ra)), add(b, mul(n, rb)), add(b, mul(n, -rb)), add(a, mul(n, -ra))];
     const ang = Math.atan2(n[1], n[0]) * 180 / Math.PI;
     return [h.chemin(pts, gris ? A.loin : A.blanc, true),
-      h.path(`M ${f(pts[0][0])} ${f(pts[0][1])} L ${f(pts[1][0])} ${f(pts[1][1])} M ${f(pts[3][0])} ${f(pts[3][1])} L ${f(pts[2][0])} ${f(pts[2][1])}`, fort ? A.arete : gris ? A.fin : A.detail),
+      h.path(`M ${f(pts[0][0])} ${f(pts[0][1])} L ${f(pts[1][0])} ${f(pts[1][1])} M ${f(pts[3][0])} ${f(pts[3][1])} L ${f(pts[2][0])} ${f(pts[2][1])}`, fort ? A.contour : gris ? A.fin : A.detail),
       `<ellipse cx="${f(b[0])}" cy="${f(b[1])}" rx="${f(rb)}" ry="${f(rb * 0.5)}" transform="rotate(${f(ang)} ${f(b[0])} ${f(b[1])})" fill="${gris ? '#E6E6E6' : '#FFFFFF'}" ${A.detail.replace('fill="none" ', '')}/>`].join('\n');
   };
   // Une pile de bois rond vue de trois quarts : les bouts vers nous, le fût qui fuit vers le haut à droite.
@@ -174,24 +175,45 @@ module.exports = (h) => {
   };
 
   // ── Le tipi ─────────────────────────────────────────────────────────────────────────────────────────
-  // Des bâtons droits dressés autour d'un cercle de base, tous vers un même sommet et prolongés au-delà : ils se
-  // croisent en haut. Derrière : en gris, peints d'abord. L'ouverture est un vide dans le cercle, devant à gauche.
-  const tipi = (cx, yB, rx, ry, haut, graine, { ouverture = [66, 114], N = 14, ra = 2.6, rb = 1.9, dedans = '' } = {}) => {
-    const r = gen(graine), S = [cx + 1, yB - haut];
-    const batons = [];
-    for (let i = 0; i < N; i++) {
-      const p = (((i + 0.5) * 360 / N + (r() - 0.5) * 7) % 360 + 360) % 360;
-      const s = [S[0] + (r() - 0.5) * 5, S[1] + (r() - 0.5) * 3];
-      const pro = 0.08 + r() * 0.08;
-      if (p > ouverture[0] && p < ouverture[1]) continue;
-      const b = [cx + Math.cos(deg(p)) * rx, yB + Math.sin(deg(p)) * ry];
-      batons.push({ p, avant: Math.sin(deg(p)) > 0, b, t: [b[0] + (s[0] - b[0]) * (1 + pro), b[1] + (s[1] - b[1]) * (1 + pro)] });
+  // Vu de trois quarts, d'un peu au-dessus (PHI) : le sol est un plan (un aplat gris en ellipse) et chaque pied de
+  // bâton se pose sur le cercle de base, projeté en ellipse sur ce plan. Les bâtons sont droits, dressés vers un
+  // même sommet et prolongés au-delà : ils se croisent en haut. Derrière (le pied dans la moitié loin du cercle) :
+  // en gris, peints d'abord. L'ouverture est un quart du tour, devant à gauche ; les deux bâtons qui la bordent
+  // sont au trait de contour. Repère : X vers la droite, D vers nous, Z vers le haut ; (cx, yB) le centre du sol.
+  const PHI = deg(18), SP = Math.sin(PHI), CP = Math.cos(PHI);
+  const P3 = (cx, yB, X, D, Z) => [cx + X, yB + D * SP - Z * CP];
+  const tipi = (cx, yB, R, H, graine, { ouv = [62, 152], N = 13, ra = 2.6, rb = 1.9, dedans = '', sol = 1.75 } = {}) => {
+    const r = gen(graine), S = P3(cx, yB, 0, 0, H);
+    const batons = [], arc = 360 - (ouv[1] - ouv[0]);
+    for (let k = 0; k < N; k++) {
+      const bord = k === 0 || k === N - 1;
+      const p = ouv[1] + k * arc / (N - 1) + (bord ? 0 : (r() - 0.5) * 9);
+      const s = [S[0] + (r() - 0.5) * 4, S[1] + (r() - 0.5) * 3];
+      const pro = 0.1 + r() * 0.09;
+      const X = Math.cos(deg(p)) * R, D = Math.sin(deg(p)) * R, b = P3(cx, yB, X, D, 0);
+      batons.push({ p, D, bord, b, t: [b[0] + (s[0] - b[0]) * (1 + pro), b[1] + (s[1] - b[1]) * (1 + pro)] });
     }
-    const derriere = batons.filter(b => !b.avant).map(b => baton(b.b, b.t, ra, rb, true));
-    const devant = batons.filter(b => b.avant).sort((a, b) => a.b[1] - b.b[1]).map(b => baton(b.b, b.t, ra, rb));
-    const om = (ouverture[0] + ouverture[1]) / 2;
-    return { svg: [...derriere, dedans, ...devant].join('\n'), sommet: S, ouv: [cx + Math.cos(deg(om)) * rx, yB + Math.sin(deg(om)) * ry] };
+    const derriere = batons.filter(b => b.D < 0 && !b.bord).sort((a, b) => a.D - b.D).map(b => baton(b.b, b.t, ra, rb, true));
+    const devant = batons.filter(b => b.D >= 0 || b.bord).sort((a, b) => a.D - b.D).map(b => baton(b.b, b.t, ra, rb, false, b.bord));
+    const [kx, ky, dx0] = Array.isArray(sol) ? sol : [sol, sol, 0];
+    const sol0 = h.ellipse(cx + dx0 * R, yB, R * kx, R * ky * SP, A.loin);
+    const om = deg((ouv[0] + ouv[1]) / 2);
+    // un point de l'ouverture à la hauteur z (au milieu du vide entre les deux bâtons qui la bordent)
+    const ouvA = z => P3(cx, yB, Math.cos(om) * R * (1 - z / H) * 0.8, Math.sin(om) * R * (1 - z / H) * 0.8, z);
+    const bords = batons.filter(b => b.bord).map(b => ({ pied: b.b, sommet: b.t }));
+    const segs = batons.filter(b => b.D >= 0 || b.bord).map(b => [b.b, b.t]);
+    return { svg: [sol0, ...derriere, dedans, ...devant].join('\n'), sommet: S, ouvA, om, bords, segs };
   };
+
+  // deux segments se coupent-ils (à l'écran) ? sert à garder les flèches hors des bâtons de devant
+  const coupeSeg = (a, b, c, d) => {
+    const o = (p, q, r) => Math.sign((q[0] - p[0]) * (r[1] - p[1]) - (q[1] - p[1]) * (r[0] - p[0]));
+    return o(a, b, c) !== o(a, b, d) && o(c, d, a) !== o(c, d, b);
+  };
+  const libre = (a, b, segs, marge = 4) => segs.every(([c, d]) => {
+    const n = [-(d[1] - c[1]), d[0] - c[0]], L = Math.hypot(...n), k = [n[0] / L * marge, n[1] / L * marge];
+    return !coupeSeg(a, b, add(c, k), add(d, k)) && !coupeSeg(a, b, add(c, mul(k, -1)), add(d, mul(k, -1)));
+  });
 
   // ── La flamme ───────────────────────────────────────────────────────────────────────────────────────
   const langue = (x, yB, l, ht, pench = 0) => {
@@ -217,9 +239,10 @@ module.exports = (h) => {
       moy: pile(x3, yS, 5, [4, 3, 2], 50, 7),
       gros: pile(x4, yS, 13, [3, 2], 58, 9, { cernes: true }) };
   };
-  // Vue 2 et 6 : le tipi.
-  const tipi2 = z => ({ cx: z.l * 0.6, yB: z.h - 28, rx: 64, ry: 20, ht: Math.min(84, z.h - 36) });
-  const tipi6 = z => ({ cx: z.l * 0.5, yB: z.h - 26, rx: 72, ry: 19, ht: Math.min(112, z.h - 36) });
+  // Vue 2 et 6 : le tipi. L'ouverture regarde devant à gauche (OUV), le vent vient de là.
+  const OUV = [70, 166];
+  const tipi2 = z => ({ cx: z.l * 0.62, yB: z.h - 26, R: 50, H: 92 });
+  const tipi6 = z => ({ cx: z.l * 0.42, yB: z.h - 36, R: 64, H: 122 });
   // Vue 4 : l'étincelle. La tige monte de sa pointe (au bord du nid) vers son manche, à 50° ; le couteau la
   // croise presque d'équerre, son manche vers le haut à gauche. Tout en mm × e.
   const RHO = -50, KAP = -138;
@@ -278,17 +301,22 @@ module.exports = (h) => {
       tipi: {
         titre: 'Monter le tipi',
         dessin: z => {
-          const g = tipi2(z), t = tipi(g.cx, g.yB, g.rx, g.ry, g.ht, 21);
-          return [h.ligne(0, g.yB + g.ry + 2, z.l, g.yB + g.ry + 2, A.arete), t.svg,
-            // le vent, qui entrera par l'ouverture
-            h.fleche(`M 4 ${f(t.ouv[1] - 12)} L ${f(t.ouv[0] - 10)} ${f(t.ouv[1] - 9)}`, A.detail),
-            h.fleche(`M 4 ${f(t.ouv[1] - 1)} L ${f(t.ouv[0] - 12)} ${f(t.ouv[1] - 1)}`, A.detail)].join('\n');
+          const g = tipi2(z), t = tipi(g.cx, g.yB, g.R, g.H, 21, { ouv: OUV, sol: 1.55 });
+          // le vent : deux flèches à mi-hauteur de l'ouverture, qui viennent de loin et entrent dedans
+          // le vent vient de la gauche, devant : deux flèches parallèles à mi-hauteur de l'ouverture, qui y entrent ; elles
+          // passent devant le bâton de gauche, avec un liseré blanc
+          const z1 = g.H * 0.34, z2 = g.H * 0.2, b1 = t.ouvA(z1), b2 = t.ouvA(z2), w = 150;
+          const dep = (b, zh) => { const o = t.ouvA(zh), q = P3(g.cx, g.yB, Math.cos(deg(w)) * g.R * 2.7, Math.sin(deg(w)) * g.R * 2.7, zh); return [b[0] + q[0] - o[0], b[1] + q[1] - o[1]]; };
+          const fl = (a, b) => [h.path(`M ${f(a[0])} ${f(a[1])} L ${f(b[0] - 3)} ${f(b[1])}`, 'fill="none" stroke="#FFFFFF" stroke-width="3.4" stroke-linecap="round"'),
+            h.fleche(`M ${f(a[0])} ${f(a[1])} L ${f(b[0])} ${f(b[1])}`, A.detail)].join('\n');
+          return [t.svg, fl(dep(b1, z1), b1), fl(dep(b2, z2), b2)].join('\n');
         },
         renvois: z => {
-          const g = tipi2(z), t = tipi(g.cx, g.yB, g.rx, g.ry, g.ht, 21);
+          const g = tipi2(z), t = tipi(g.cx, g.yB, g.R, g.H, 21, { ouv: OUV, sol: 1.55 });
+          const o = t.ouvA(g.H * 0.06);
           return [
-            { n: 5, rond: [z.l - 14, g.yB - g.ht * 0.62], cible: [g.cx + g.rx * 0.36, g.yB - g.ht * 0.48], texte: 'cône lâche, du vide entre' },
-            { n: 6, rond: [16, t.ouv[1] - 56], cible: [t.ouv[0] + 2, t.ouv[1] - 22], texte: 'ouverture du côté du vent' },
+            { n: 5, rond: [z.l - 14, g.yB - g.H * 0.62], cible: P3(g.cx, g.yB, g.R * 0.42, -g.R * 0.1, g.H * 0.45), texte: 'cône lâche, du vide entre' },
+            { n: 6, rond: [o[0] - 16, z.h - 11], cible: o, texte: 'ouverture du côté du vent' },
           ];
         },
       },
@@ -399,21 +427,25 @@ module.exports = (h) => {
       glisser: {
         titre: 'Glisser le nid sous le tipi',
         dessin: z => {
-          const g = tipi6(z), nx = g.cx - 4, out = [];
-          out.push(h.ligne(0, g.yB + g.ry + 2, z.l, g.yB + g.ry + 2, A.arete));
-          const dedans = [nid(nx, g.yB - 4, 26, 17, { creux: 0.3, poudre: false }), flammes(nx + 2, g.yB + 2, 30, g.ht * 0.58)].join('\n');
-          const t = tipi(g.cx, g.yB, g.rx, g.ry, g.ht, 29, { dedans });
+          const g = tipi6(z), out = [], t0 = tipi(g.cx, g.yB, g.R, g.H, 29, { ouv: OUV, sol: 1.5 });
+          // le nid au centre du cercle de base, posé sur le sol
+          const Ro = 20, gN = nidGeo(0, 0, Ro, { creux: 0.3, theta: 18 }), rr = Ro * 0.35;
+          const nc = P3(g.cx, g.yB, Math.cos(t0.om) * g.R * 0.42, Math.sin(t0.om) * g.R * 0.42, 0), ny = nc[1] + (Ro - rr) * SP - gN.bas;
+          const dedans = [nid(nc[0], ny, Ro, 17, { creux: 0.3, poudre: false, theta: 18 }), flammes(nc[0] + 2, ny + 2, 30, g.H * 0.5)].join('\n');
+          const t = tipi(g.cx, g.yB, g.R, g.H, 29, { ouv: OUV, dedans, sol: [2.05, 1.5, 0.45] });
           out.push(t.svg);
-          out.push(h.geste(`M ${f(t.ouv[0] - 104)} ${f(t.ouv[1] + 1)} L ${f(nx - 30)} ${f(g.yB + 4)}`));
+          const a = P3(g.cx, g.yB, Math.cos(t.om) * g.R * 2.3, Math.sin(t.om) * g.R * 2.3, 3), b = P3(g.cx, g.yB, Math.cos(t.om) * g.R * 0.62, Math.sin(t.om) * g.R * 0.62, 3);
+          out.push(h.geste(`M ${f(a[0])} ${f(a[1])} L ${f(b[0])} ${f(b[1])}`));
           // le bois de 2 à 5 cm, prêt à côté
-          out.push(pile(g.cx + g.rx + 12, g.yB + g.ry + 2, 4.5, [3, 2], 30, 31).svg);
+          out.push(pile(g.cx + g.R * 1.3, g.yB + 10, 4.5, [3, 2], 30, 31).svg);
           return out.join('\n');
         },
         renvois: z => {
-          const g = tipi6(z), t = tipi(g.cx, g.yB, g.rx, g.ry, g.ht, 29);
+          const g = tipi6(z), t = tipi(g.cx, g.yB, g.R, g.H, 29, { ouv: OUV, sol: 1.5 });
+          const a = P3(g.cx, g.yB, Math.cos(t.om) * g.R * 1.9, Math.sin(t.om) * g.R * 1.9, 3);
           return [
-            { n: 17, rond: [Math.max(16, t.ouv[0] - 96), t.ouv[1] - 30], cible: [t.ouv[0] - 82, t.ouv[1] + 1], texte: 'flèche : par l’ouverture' },
-            { n: 18, rond: [z.l - 16, g.yB - 56], cible: [g.cx + g.rx + 26, g.yB - 4], texte: 'le 2 à 5 cm, quand ça crépite' },
+            { n: 17, rond: [16, a[1] - 34], cible: [a[0], a[1] - 2], texte: 'flèche : par l’ouverture' },
+            { n: 18, rond: [z.l - 16, g.yB - 56], cible: [g.cx + g.R * 1.3 + 14, g.yB - 4], texte: 'le 2 à 5 cm, quand ça crépite' },
           ];
         },
       },

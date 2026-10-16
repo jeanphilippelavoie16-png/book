@@ -250,16 +250,10 @@
     ],
     "photos": [
       {
-        "fichier": "images/photos/tri/13-bouleau-ecorce-rubans.jpg",
-        "apres": "L'écorce extérieure du bouleau à papier, levée sur un arbre mort",
-        "taille": "quart",
-        "legende": "Écorce externe de bouleau à papier qui pèle en rubans. Elle brûle mouillée."
-      },
-      {
-        "fichier": "images/photos/tri/13-gomme-epinette.jpg",
-        "apres": "La gomme figée d'épinette noire, sur les blessures des troncs",
-        "taille": "quart",
-        "legende": "Gomme d'épinette sur une blessure du tronc. Pour le feu, on prend celle qui a figé."
+        "fichier": "images/photos/tri/13-amadou-ecorce-et-gomme.jpg",
+        "apres": "On ramasse ce qui reçoit l'étincelle toute l'année",
+        "taille": "demi",
+        "legende": "À gauche, l'écorce extérieure du bouleau à papier, qui pèle en rubans. À droite, la gomme d'épinette sur une blessure du tronc : on prend celle qui a figé."
       }
     ],
     "logigramme": {

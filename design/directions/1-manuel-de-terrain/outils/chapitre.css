@@ -93,3 +93,11 @@ img.planche.avec-tete{height:calc(8.5in - .46in);width:7in;object-fit:contain;ob
 .fig.pl.petite .pl-num{font-size:8.5pt}
 .fig.pl.petite .pl-titre{font-size:11pt}
 .frame.une-col{column-count:1;width:calc(50% - 10pt)}
+/* Le repère des planches dans le texte : le même cercle numéroté que sur le dessin (JP, 16 octobre 2026) */
+.reps{white-space:nowrap}
+.rep{display:inline-block;text-indent:0;min-width:1.32em;height:1.32em;padding:0 .12em;box-sizing:border-box;border:.9pt solid #1A1A1A;
+  border-radius:.66em;font:600 .74em/1.2em "IBM Plex Sans Condensed",sans-serif;text-align:center;vertical-align:.08em;
+  margin:0 .04em;color:#1A1A1A;background:#fff}
+.rep-a{margin:0 .22em;font-size:.9em}
+/* une photo dans une colonne ne prend plus la hauteur de la page : elle reste près de son texte (JP, 16 octobre 2026) */
+.fig.ph:not(.demi) img{max-height:3.1in;object-fit:cover;object-position:center}

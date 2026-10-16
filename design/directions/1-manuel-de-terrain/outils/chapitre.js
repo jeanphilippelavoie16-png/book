@@ -167,6 +167,30 @@ function colH(f){ return f.getBoundingClientRect().height || P.bl.getBoundingCli
 
 /* ---------- l'appel de planche : une flèche rouge qui pointe vers le dessin ---------- */
 const FLECHE = '<svg viewBox="0 0 18 10" aria-hidden="true"><path d="M0 3.4 H10.2 V0 L18 5 L10.2 10 V6.6 H0 Z"/></svg>';
+const CERCLE = n => '<span class="rep">' + n + '</span>';
+function reperes(node){   // « repère 3 », « repères 7 et 8 », « repères 1 à 3 » : le cercle numéroté des planches
+  // (JP, 16 octobre 2026 : « ajoute un symbole au lieu de dire repère 1, repère 2 »)
+  const RX = /\brepères?\s(\d{1,2})((?:\s?(?:,|et|à)\s\d{1,2})*)/g;
+  const w = document.createTreeWalker(node, NodeFilter.SHOW_TEXT, {acceptNode: n =>
+    (n.parentElement && n.parentElement.closest('figure, figcaption, .fig, .rep')) ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT});
+  const todo = []; while(w.nextNode()){ RX.lastIndex = 0; if(RX.test(w.currentNode.nodeValue)) todo.push(w.currentNode); }
+  todo.forEach(tn => {
+    const s = tn.nodeValue; let html = '', last = 0, m; RX.lastIndex = 0;
+    const esc = t => t.replace(/&/g, '&amp;').replace(/</g, '&lt;');
+    while((m = RX.exec(s))){
+      html += esc(s.slice(last, m.index));
+      let out = CERCLE(m[1]);
+      (m[2].match(/(,|et|à)\s(\d{1,2})/g) || []).forEach(p => { const q = p.match(/(,|et|à)\s(\d{1,2})/); out += (q[1] === 'à' ? '<span class="rep-a">à</span>' : ' ') + CERCLE(q[2]); });
+      let ouv = '';   // la parenthèse ne reste pas seule en fin de ligne
+      if(html.endsWith('(')){ html = html.slice(0, -1); ouv = '('; }
+      let fer = '';
+      if(s[m.index + m[0].length] === ')'){ fer = ')'; }
+      html += '<span class="reps">' + ouv + out + fer + '</span>'; last = m.index + m[0].length + fer.length;
+    }
+    html += esc(s.slice(last));
+    const sp = document.createElement('span'); sp.innerHTML = html; tn.parentNode.replaceChild(sp, tn);
+  });
+}
 function appels(node){   // « planche 11-04 » dans le texte courant, jamais dans une légende
   const w = document.createTreeWalker(node, NodeFilter.SHOW_TEXT, {acceptNode: n =>
     (n.parentElement && n.parentElement.closest('figure, figcaption, .fig, .appel')) ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT});
@@ -226,7 +250,7 @@ function story(id, kind, suite){   // kind : main, o, d, e ; suite : histoire re
   const tpl = document.getElementById('story-' + id);
   const q = Array.from(tpl.content.children).map(n => n.cloneNode(true));
   if(!q.length) return;
-  q.forEach(n => { if(!(n.classList && n.classList.contains('fig'))) appels(n); });
+  q.forEach(n => { if(!(n.classList && n.classList.contains('fig'))){ appels(n); reperes(n); } });
   const H = P.bl.getBoundingClientRect().height;
   let first = !suite, guard = 0, porte = false;   // porte : un titre vient d'être reporté en haut de cette page
   while(q.length && guard++ < 120){
