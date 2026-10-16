@@ -283,6 +283,16 @@ tomes** : un peu plus de blanc en bas des pages qui précèdent une planche ; le
     les prises qui manquent (main de trois quarts qui serre, deux mains), puis refaire les planches. En attendant, une planche neuve évite le gros plan de main : la main coupée par le bord, l'objet seul,
     ou le corps entier de profil. CLAUDE.md (« Les premières minutes ») et le skill sont à jour. À refaire : les chapitres qui
     ont des séries orange, les modèles 11, 3, 4 et 13 compris (`grep -l "{.orange" chapitres/*.md`).
+30. **Une image sur la page d'ouverture de chaque tome** (JP, 16 octobre). Une scène qui représente le tome, dans
+    le style de `images/references/style-pages-de-tome.jpg` : des bonshommes pictogrammes en noir plein, sans visage,
+    en file, chacun avec ce qu'il porte ou ce qu'il fait. L'image de référence est une photo d'écran Shutterstock avec
+    filigrane : elle donne le style, on ne la copie pas ; les bonshommes se dessinent avec `h.formes.corps` en noir
+    plein. Tome 1 (Tenir) : la famille serrée ensemble, un feu, et derrière, un champignon nucléaire et d'autres
+    catastrophes (feu de forêt, tempête, ligne électrique tombée). Pour les autres tomes, à proposer à JP selon le
+    contenu : tome 2 (Le corps) les soins et le poêle ; tome 3 (Prélever) la file qui revient de la chasse, de la
+    pêche et de la cueillette ; tome 4 (De la bête au garde-manger) l'orignal, le fumoir, le caveau ; tome 5 (La
+    forêt, le jardin et le chalet) le bois de chauffage, le jardin, le chalet ; tome 6 (L'atelier) la soudure,
+    la forge, le moteur. Montrer un essai du tome 1 à JP avant de faire les autres.
 
 Le **ch. 11 (feu de forêt)** est **le chapitre modèle de la refonte, approuvé par JP** (15 octobre au soir :
 « c'est parfait, on se garde ça pour samedi ») : texte, trois séries orange à la longueur de leur temps (1 h,
