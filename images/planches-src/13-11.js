@@ -63,24 +63,26 @@ module.exports = (h) => {
 
   // ── Vue 2 : au soleil ──
   const SOL = deg(35), d = [Math.cos(SOL), Math.sin(SOL)], ax = [Math.sin(SOL), -Math.cos(SOL)];
+  // la main : la pince de côté vue côté pouce, la main qui monte ; le pouce devant, sur la tranche du disque, l'index
+  // derrière ; le disque part vers le haut à droite depuis la pince. L'avant-bras descend vers la gauche, le poignet posé
+  // sur une bûche vue par le bout.
+  const MAIN = { pose: 'pince-laterale', vue: 'pouce', cote: 'droite', angle: -35 };
   const soleil = z => {
     const e = 0.42, yS = z.h - 4;
-    // la main gauche : la pince de côté, la main vers la droite et un peu vers le haut, l'avant-bras vers la gauche
-    const o = { x: z.l * 0.42, y: z.h * 0.42, pose: 'pince-laterale', vue: 'auriculaire', echelle: e, angle: -30, ancre: 'prise' };
-    // l'avant-bras couché à l'horizontale (le poignet plie un peu) : il se pose sur la bûche
-    const p0 = F.mainSimple({ ...o, avantbras: false }).poignet;
-    const ab = { longueur: 300, vers: [-200, p0[1] + 18], bord: { l: z.l, h: z.h } };
+    const o = { x: z.l * 0.46, y: z.h * 0.42, ...MAIN, echelle: e, ancre: 'prise' };
+    const ab = { longueur: 300, bord: { l: z.l, h: z.h } };
     const m = F.mainSimple({ ...o, avantbras: ab });
-    // la bûche, vue par le bout (son axe entre dans la page) : un rond posé au sol, sous l'avant-bras, dont le dessus
-    // touche le dessous de l'avant-bras : son rayon est la moitié de la hauteur du dessous de l'avant-bras à cet endroit.
-    const sous = x => { const c = F.mainSimple({ ...o, avantbras: { longueur: ab.longueur, vers: ab.vers, fin: [[x, -200], [x, 400]] } }).coupe; return c ? Math.max(c[0][1], c[1][1]) : yS - 40; };
-    const xl = 40, yHaut = sous(xl) - 0.4, rl = (yS - yHaut) / 2;
+    // la bûche : un rond posé au sol sous le poignet ; son dessus touche le dessous du poignet (relevé par le moteur : le
+    // bas de la coupe de l'avant-bras à l'abscisse de la bûche). L'avant-bras continue vers le bas, coupé par le bord.
+    const sous = x => { const cc = F.mainSimple({ ...o, avantbras: { longueur: ab.longueur, fin: [[x, -200], [x, 400]] } }).coupe; return cc ? Math.max(cc[0][1], cc[1][1]) : null; };
+    const xl = m.poignet[0] + 2, yHaut = (sous(xl) || yS - 40) - 0.4, rl = (yS - yHaut) / 2;
+    const contact = [xl, yHaut];
     const D = 110 * e, ep = 15 * e;
     const pince = [m.prise.x, m.prise.y];
-    const Lc = add(pince, mul(ax, D / 2 * 0.9));
+    const Lc = add(pince, mul(ax, D / 2 * 0.92));
     const fz = ((yS - 2) - Lc[1]) / d[1];
     const Fp = add(Lc, mul(d, fz));
-    return { e, yS, rl, xl, o, ab, m, yHaut, D, ep, Lc, Fp };
+    return { e, yS, rl, xl, o, ab, m, yHaut, contact, D, ep, Lc, Fp };
   };
 
   return {
@@ -118,7 +120,7 @@ module.exports = (h) => {
         },
       },
       soleil: {
-        titre: 'Face au soleil d’hiver, calé',
+        titre: 'Le point sur la cible, calé',
         dessin: z => {
           const g = soleil(z), out = [], r = gen(7);
           // le sol
@@ -141,7 +143,7 @@ module.exports = (h) => {
           const disque = lentille(g.Lc, ax, g.D, g.ep, g.D * 0.11);
           out.push(String(F.mainSimple({ ...g.o, objet: disque, avantbras: g.ab }).svg));
           // les rayons du soleil, parallèles, jusqu'à la face du disque qui regarde le soleil
-          [-0.06, 0.16, 0.37].forEach(s => {
+          [0.08, 0.22, 0.36].forEach(s => {
             const q = add(add(g.Lc, mul(ax, s * g.D)), mul(d, -(g.D * 0.11 + g.ep / 2) * Math.sqrt(1 - (2 * s) ** 2) * 0.95));
             const p0 = add(q, mul(d, -44));
             out.push(h.fleche(`M ${f(p0[0])} ${f(p0[1])} L ${f(q[0])} ${f(q[1])}`, A.fin));
@@ -163,7 +165,7 @@ module.exports = (h) => {
           return [
             { n: 3, rond: [C[0] - 44, g.yS - 12], cible: [C[0] - 10, g.yS - 1.5], texte: 'une cible sombre et sèche' },
             { n: 4, rond: [Math.min(z.l - 12, C[0] + 22), C[1] - 46], cible: [C[0] + 3.5, C[1] - 8], texte: 'cercle : le plus petit point' },
-            { n: 5, rond: [16, g.yHaut - 30], cible: [g.xl, g.yHaut + 0.5], texte: 'mains calées sur un appui' },
+            { n: 5, rond: [16, Math.max(12, Math.min(z.h - 12, g.contact[1] - 26))], cible: g.contact, texte: 'avant-bras calé sur une bûche' },
           ];
         },
       },
