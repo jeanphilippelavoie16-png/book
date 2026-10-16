@@ -138,6 +138,15 @@ tomes** : un peu plus de blanc en bas des pages qui précèdent une planche ; le
       donnée par la page », est fausse et se corrige. Trouver une source officielle pour le mécanisme (signal
       faible, renvoi automatique, tour saturée), ou mettre `[À VÉRIFIER]` aux ch. 3 et 11 ;
     - chercher la même formule ailleurs (« passe là où », « tient là où ») : ch. 71, l. 35, à juger.
+13. **Les procédures tassées dans une étape se découpent** (JP, 16 octobre, ch. 3, étape 23, la vidange : « c'est
+    vraiment pas clair comment faire ; quand on a des passages comme ça, il faut que ça soit mieux expliqué,
+    surtout qu'une planche est reliée ; faut pousser la chose plus loin »). Une étape qui a plusieurs gestes se
+    fait en sous-étapes : le geste, où est la pièce et comment la reconnaître, ce qu'on voit quand c'est fait ;
+    chaque sous-étape renvoie au repère de la planche, dans l'ordre des repères. Au ch. 3, d'abord : la vidange
+    (étapes 23 et 24, planche 03-10), le dégel d'un tuyau, la réparation d'un tuyau fendu (planche 03-11), la
+    couverture de fenêtre (planche 03-12) et la marmite norvégienne (planche 03-08). Puis partout où une planche
+    est appelée. Et le possessif qui oblige à chercher (« son robinet », « son disjoncteur ») nomme la chose :
+    « le robinet de vidange du chauffe-eau ». Ligne au tableau du skill `ecriture`.
 
 Le **ch. 11 (feu de forêt)** est **le chapitre modèle de la refonte, approuvé par JP** (15 octobre au soir :
 « c'est parfait, on se garde ça pour samedi ») : texte, trois séries orange à la longueur de leur temps (1 h,
