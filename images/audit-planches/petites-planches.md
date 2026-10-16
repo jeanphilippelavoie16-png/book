@@ -15,6 +15,10 @@ vignettes au plus ; six repères au plus. Même règles que les grandes (le skil
 
 **Coût indicatif** : environ 60 à 100 k tokens chacune, dessin et second regard compris.
 
+**Trois tailles** (JP : « on pourrait aussi en faire des moitiés de page, si besoin ») : pleine page, demi-page
+(format `demi`, déjà posée par le moteur sur les deux colonnes) et petite planche. Une candidate de cette liste
+peut sortir en demi-page si elle a deux vues.
+
 ## 1. Écartées par l'audit du 15 octobre parce qu'elles « tiennent en une phrase » (46)
 
 C'est le cœur de la liste : un geste simple que la phrase dit, mais qu'un petit dessin montre d'un coup d'œil.

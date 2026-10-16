@@ -257,7 +257,15 @@ tomes** : un peu plus de blanc en bas des pages qui précèdent une planche ; le
     que la petite planche montre, pourquoi la phrase seule ne suffit pas. Écarter les données, ce que JP fait déjà,
     ce qui est déjà dessiné, la décoration. Résultat ajouté à `images/audit-planches/petites-planches.md`, section
     3, classé par chapitre, pour que JP choisisse. Par lots de tomes, en parallèle ; à faire après la refonte d'un
-    tome (le texte change), ou pendant, chapitre par chapitre. Environ 30 à 50 k par tome de lecture. CLAUDE.md (« Les premières minutes ») et le skill sont à jour. À refaire : les chapitres qui
+    tome (le texte change), ou pendant, chapitre par chapitre. Environ 30 à 50 k par tome de lecture.
+27. **Trois tailles de planche, choisies selon le besoin** (JP, 16 octobre : « on pourrait aussi en faire des moitiés
+    de page, les planches, si besoin »). Le composeur et le moteur savent déjà faire la demi-page (format `demi`,
+    680 × 413, sur la largeur des deux colonnes, dans le fil du texte). La règle devient : pleine page quand la
+    planche a plusieurs vues ou une séquence longue ; demi-page quand une ou deux vues suffisent ; petite planche
+    (une colonne, point 25) pour un geste simple. À la passe finale des planches, chaque pleine page à une ou
+    deux vues se juge pour la demi-page : elle se lit mieux près de son texte et rend des pages (tome 5 à 438
+    sur 440). Les petites et demi-pages ont aussi leur bandeau numéro et titre. Ajouter la règle au skill
+    `planches` et à `images/recommandations-planches.md`. CLAUDE.md (« Les premières minutes ») et le skill sont à jour. À refaire : les chapitres qui
     ont des séries orange, les modèles 11, 3, 4 et 13 compris (`grep -l "{.orange" chapitres/*.md`).
 
 Le **ch. 11 (feu de forêt)** est **le chapitre modèle de la refonte, approuvé par JP** (15 octobre au soir :
