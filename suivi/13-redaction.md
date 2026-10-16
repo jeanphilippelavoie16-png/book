@@ -319,15 +319,14 @@ d'ampoule, la lentille de glace, le son clair ou mat du bois.
 
 Sur la version du matin (`demo-13/13-v1.md`), avec les corrections de JP sur cette version : points 20, 21
 et 22 de la pause du plan de match, et les dernières lignes du tableau du skill `ecriture`. 5 324 → 5 377 mots
-(`wc -w`) ; 6 027 avant toute passe. 0 tiret dans le texte (les deux de la ligne de titre et de la ligne de
+(`wc -w`, première partie de la passe), puis 5 478 après la liste de `.claude/cadre-agents.md` ; 6 027 avant toute passe. 0 tiret dans le texte (les deux de la ligne de titre et de la ligne de
 tome restent pour `build_chapitre.py`), 0 « § », 0 mot banni, 0 avis « tournure ».
 
 **Huit sections.** « Comment ça marche » sort ; Matériel devient la section 3, Procédure 4, Points de contrôle
 5, Signes d'échec 6, DANGER 7, Variante d'urgence 8. Renvois internes suivis : « section 9 » → « section 8 »
 (sections 2, 3, 4 et 6), « section 7 » (signes d'échec, étape 29) → « section 6 ». « ch. 11, section 9 » ne bouge
-pas (ch. 11 pas migré). Les étapes gardent leurs numéros (1 à 29). **Le moteur n'est pas migré** (`build_chapitre.py`
-attend encore l'encadré en 8 et la variante en 9 : `SECNAMES`, `n == 8`, `n == 9`) : ne pas monter le ch. 13 avant
-le point 21 « moteur ».
+pas (ch. 11 pas migré). Les étapes gardent leurs numéros (1 à 29). Le moteur (`build_chapitre.py`) reconnaît maintenant
+la Danger et la variante à leur titre : le chapitre à huit sections se lit sans changement (vérifié par `parse`).
 
 **L'ancienne section 3, morceau par morceau.**
 - L'étincelle qui n'allume que du très fin, et la montée d'une grosseur à la fois → étape 10, dit par la chaîne
@@ -375,3 +374,33 @@ dernier item du Matériel (« **Eau, sable ou terre** »).
 
 **Photos.** Ancres séparées (elles avaient la même) : l'écorce de bouleau sur sa ligne de la liste d'amadou, la
 gomme d'épinette sur la sienne.
+
+**Deuxième tour, contre la liste « Le texte » de `.claude/cadre-agents.md`.**
+- L'urgence sans préparation : l'étape 2 commence par « S'il y a un briquet au butane… » ; l'étape 4 ne dit plus
+  « sortir l'amadou de sous ses vêtements » (préparation qui n'a peut-être pas eu lieu) : l'étape 3 fait ramasser
+  l'amadou avec le bois (écorce de bouleau, barbe de vieillard), et l'amadou qu'on avait sur soi sert en premier.
+- Consigne confrontée au scénario : la règle du vent (20 km/h, feu de camp) contre le feu dont on a besoin pour se
+  réchauffer. Ajouté à l'étape 8 : sans poêle, le feu le plus petit possible, derrière une butte, un rocher ou un mur
+  de neige, et dégager plus large autour **[À VÉRIFIER]** (aucune source ne tranche ; à lever ou à couper).
+- Loi en formule encore trouvée : « La lumière chauffe une matière sombre ; une matière blanche la renvoie » → « Le
+  point de lumière fait fumer une matière sombre ; sur une matière blanche, il ne fait presque rien » ; « L'essence
+  brûle par sa vapeur » → « Versée sur des braises, l'essence dégage un nuage de vapeur invisible… ; la vapeur prend
+  feu ».
+- Mot que personne n'emploie : « écharper » → « effilocher » (étapes 6, 14, sections 5 et 6). La légende du repère
+  7 de la 13-40 dit « fibres lâches : le jour passe » : rien à changer sur la planche.
+- Procédures tassées découpées : étape 29 (éteindre) en quatre sous-étapes ; « Couvrir le feu pour la nuit » en
+  quatre ; l'arc à feu, « Tourner le foret », en six (repères 10 à 15).
+- Petites retouches : « Il doit rayer le verre » → « La pierre doit rayer le verre » ; « selon la braise » →
+  « selon la braise qu'on a mise ».
+
+**Planches.** Repères de la 13-40 neuve (`demo-13b/reperes.json`) : mêmes numéros et même ordre que le texte (1 à 4
+étape 10, 5 et 6 étape 13, 7 et 8 étape 14, 9 à 12 étape 15, 13 à 16 étape 16, 17 et 18 étape 17) ; rien à
+renuméroter. Planche 13-10 appelée à l'étape 18 (repères 1 à 3 étape 18, 4 et 5 étape 19, 6 à 8 étape 20, 9 et 10
+section 8). Petite planche 13-11 (lentille de glace) appelée une fois, au bout de son paragraphe en section 8 ; la
+13-12 (réflecteur) n'a pas été dessinée, le paragraphe du réflecteur reste sans appel. Ancrages :
+`demo-13b/ancrages-texte.json`, chaque `apres` vérifié unique contre le texte parsé.
+
+**Reste ouvert.** La pastille de 10 min est le temps des mains, pas un temps compté depuis le déclencheur (doute
+déjà noté) ; le [À VÉRIFIER] du vent ; la lentille de glace, le réflecteur, la mine de crayon et l'écorce de bouleau
+qui brûle humide restent sans source (sans chiffre) ; 13-10 (étape 18) et 13-07 (étape 25) sont à environ une demi-page
+l'une de l'autre : vérifier au montage qu'elles ne tombent pas sur la même page.
