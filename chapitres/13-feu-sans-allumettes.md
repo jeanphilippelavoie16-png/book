@@ -119,7 +119,7 @@ ou une braise qu'on a gardée, aussi longtemps qu'il reste de l'amadou sec.
  de quenouille), puis un peu de poudre de ferrocérium : quelques passes douces du couteau sur la tige,
  sans faire d'étincelle (repère 8). Cette poudre prend feu à la première gerbe.
 15. **Faire l'étincelle.**
- - Poser la pointe de la tige au bord du nid, à un doigt de l'amadou (repère 9).
+ - Poser la pointe de la tige dans le nid, à un doigt au-dessus de l'amadou, sans le toucher (repère 9).
  - Appuyer le dos du couteau sur la tige, presque d'équerre, et le tenir immobile (repère 10).
  - Tirer la tige vers soi, d'un coup, sans bouger le couteau (repère 11). Si on pousse le couteau vers le
  bas, il finit sa course dans le nid et l'éparpille.
@@ -162,10 +162,11 @@ Sans tige de ferrocérium : le briquet à pierre, la batterie, le soleil ou l'ar
 ### Allumer au soleil
 
 22. **Choisir une cible sombre et sèche** : de l'amadou carbonisé (étape 25), du bois pourri sec et brun,
- de l'écorce intérieure noircie. Le point de lumière fait fumer une matière sombre ; sur une matière blanche, il ne fait presque rien.
+ de l'écorce intérieure noircie. Le point de lumière fait fumer une matière sombre ; sur une matière blanche, il ne fait presque rien
+ (planche 13-11, repère 3).
 23. **Faire le plus petit point de lumière possible et le tenir immobile** sur la cible : avancer ou reculer
  la lentille jusqu'à ce que le point soit le plus petit et le plus brillant, puis caler la lentille et les
- mains sur un appui. Il faut un soleil franc.
+ mains sur un appui (planche 13-11, repères 4 et 5). Il faut un soleil franc.
 24. **Souffler doucement dès que la cible fume**, la poser dans le nid et souffler (étape 16).
 
 ### Faire de l'amadou carbonisé
