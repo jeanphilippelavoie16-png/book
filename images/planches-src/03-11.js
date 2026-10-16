@@ -107,7 +107,7 @@ module.exports = (h) => {
   };
 
   // ─── Le raté : le même tuyau, chauffé au milieu du bouchon ─────────────────────────────────────
-  // Le bouchon court du mur jusqu'au robinet. Au milieu, la poche d'eau et de vapeur, prise entre deux glaces ; la
+  // Le bouchon court du mur jusqu'au robinet. Au milieu, la poche d'eau de fonte, prise entre deux glaces ; la
   // pression pousse sur les deux fronts ; le cuivre s'ouvre dessous.
   const P1 = 228, P2 = 300, XC = (P1 + P2) / 2;
   const rate = z => {

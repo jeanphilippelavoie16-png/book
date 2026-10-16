@@ -97,7 +97,7 @@ plus près, il sonne aux bouffées de l'allumage, et on finit par l'enlever. Il 
 fonctionner entre 4,4 et 37,8 °C : sa place est dans la pièce chauffée où la famille dort. S'il y
 en a un deuxième, il va près de la porte du garage attenant : le gaz d'un moteur qui tourne dans le
 garage entre par cette porte. Le bouton teste la pile et la sirène, pas ce qui mesure le gaz : un
-avertisseur installé depuis plus de 84 mois (7 ans) se traite comme absent.
+avertisseur installé depuis plus de sept ans se traite comme absent.
 
 ### Le courant ne revient pas {.orange 6 h}
 
@@ -153,7 +153,7 @@ couvertures à même le plancher (planche 03-09).
 donne des nouvelles dans les premières heures. Un message texte passe là où un appel ne passe pas.
 Quand le cellulaire ne passe plus, il reste la radio (section 9).
 
-**La décision (étape 11).** La maison se tient quand elle a un poêle raccordé à une cheminée et
+**La décision (étape 11).** On peut rester à la maison quand elle a un poêle raccordé à une cheminée et
 assez de bois sec pour la durée de la panne, un avertisseur de CO qui répond au bouton, et que la
 pièce chauffée reste au-dessus de 5 °C. On part pendant que la maison est encore confortable
 quand la panne touche toute la région, que la tempête continue et que le chemin du chalet va
@@ -218,7 +218,7 @@ est en jeu. Ces gestes sont détaillés au ch. 2, étape 1. Le tuyau d'échappem
  murs extérieurs : un robinet ouvert empêche la pression de monter (section 3).
 22. **Prévoir l'heure de la vidange.** Deux relevés du même thermomètre, à 2 h d'intervalle,
  donnent la pente, et la pente donne l'heure d'arrivée à 5 °C : une maison qui perd 1 °C à l'heure
- et qui affiche 14 °C laisse neuf heures. Placer la vidange de jour, à deux, les mains chaudes.
+ et qui affiche 14 °C laisse neuf heures. Faire la vidange de jour, à deux, les mains chaudes.
 23. **Vidanger dans l'ordre.** Fermer l'entrée d'eau. Mettre le chauffe-eau électrique hors tension
  à son disjoncteur. Ouvrir un robinet d'eau chaude à l'étage : sans lui, le chauffe-eau ne se vide
  pas, et on croit son robinet bouché. Tirer d'abord, au robinet de vidange du chauffe-eau, l'eau
@@ -261,7 +261,7 @@ est en jeu. Ces gestes sont détaillés au ch. 2, étape 1. Le tuyau d'échappem
  - décongelé mais à 4 °C ou moins : cuire tout de suite et manger vite, ou cuire puis recongeler ;
  - décongelé et passé au-dessus de 4 °C : jeter.
 31. **Cuire le gibier à 74 °C à cœur**, mesuré à la sonde au centre de la pièce : le rôti d'orignal
- (*Alces americanus*) comme tout le gibier sauvage, gros ou petit. 71 °C est la valeur du bœuf
+ comme tout le gibier sauvage, gros ou petit. 71 °C est la valeur du bœuf
  haché, pas celle du gibier, et on confond souvent les deux.
 32. **Jeter le plat d'une mijoteuse dont la cuisson a été coupée par la panne**, même s'il a l'air
  correct.
@@ -297,7 +297,7 @@ est en jeu. Ces gestes sont détaillés au ch. 2, étape 1. Le tuyau d'échappem
 
 | Moment | Ce qu'on vérifie | Cible chiffrée | Si c'est hors cible |
 | --- | --- | --- | --- |
-| Au début de la panne | L'avertisseur de CO | Il répond au bouton d'essai, et il est installé depuis moins de **84 mois** (7 ans) | Le traiter comme absent (étape 5) |
+| Au début de la panne | L'avertisseur de CO | Il répond au bouton d'essai, et il est installé depuis moins de **7 ans** | Le traiter comme absent (étape 5) |
 | Au début de la panne | L'heure écrite sur la porte du congélateur | Au quart d'heure près | Étape 3 |
 | Toutes les 2 h | La température de la pièce la plus froide, et l'écart avec le relevé d'avant | Au-dessus de **5 °C** | Projeter l'heure d'arrivée à 5 °C et vidanger avant, de jour (étapes 22 et 23) |
 | Heure 4 à 6 | Le thermomètre du réfrigérateur | **0 °C à 4 °C** | Au-dessus de 4 °C : trier tout de suite (étape 27) |
@@ -349,7 +349,7 @@ est en jeu. Ces gestes sont détaillés au ch. 2, étape 1. Le tuyau d'échappem
 > ça ressemble à de la fatigue ou à du mauvais caractère. Le CO tue donc la nuit, des familles
 > entières.
 >
-> **Un avertisseur qui ne sonne pas ne prouve pas que l'air est bon** : à 30 ppm, il n'a pas à
+> **Un avertisseur qui ne sonne pas ne prouve pas que l'air est bon.** À 30 ppm, il n'a pas à
 > sonner avant 30 jours, et cette exposition basse et continue donne le mal de tête, la nausée et
 > la fatigue qu'on met sur le compte du froid. Seul le chiffre de l'affichage la montre, quand il
 > ne redescend pas de la journée.
@@ -358,13 +358,13 @@ est en jeu. Ces gestes sont détaillés au ch. 2, étape 1. Le tuyau d'échappem
 > matin couve, et un feu qui couve, ou qui est réduit à la braise, peut refouler sa fumée et son CO
 > dans la pièce, même porte fermée. La braise fait du CO en ne montrant qu'une lueur rouge.
 >
-> **La génératrice va dehors, à au moins 6 m (20 pi) du bâtiment**, l'échappement tourné à
+> **La génératrice va dehors, à au moins 6 m (20 pi) du bâtiment.** L'échappement est tourné à
 > l'opposé des portes, des fenêtres et des prises d'air. Elle ne tourne jamais dans la maison, ni
 > dans le garage, même porte ouverte, ni dans la remise, le tambour d'entrée ou un véhicule, ni
 > sous une tente, un auvent ou la galerie.
 >
-> **Aucun appareil fait pour l'extérieur ou le camping ne rentre dans la maison**, même pour peu de
-> temps, même avec une fenêtre entrouverte. Le CO a presque la densité de l'air : il ne monte pas au
+> **Aucun appareil fait pour l'extérieur ou le camping ne rentre dans la maison.** Pas même pour peu de
+> temps, ni avec une fenêtre entrouverte. Le CO a presque la densité de l'air : il ne monte pas au
 > plafond, ne coule pas au plancher et se mêle à toute la pièce. Une maison fermée à −35 °C ne
 > change pas assez d'air pour sortir le CO d'un appareil qui en produit sans arrêt.
 >
@@ -381,16 +381,16 @@ est en jeu. Ces gestes sont détaillés au ch. 2, étape 1. Le tuyau d'échappem
 > 6 ou 8 °C est en pleine plage de croissance, et le poisson gardé cru, fumé à froid ou sous vide
 > est le plus à risque.
 >
-> **La toxine ne change ni l'odeur, ni le goût, ni l'apparence de l'aliment**, et aucun test de
+> **La toxine ne change ni l'odeur, ni le goût, ni l'apparence de l'aliment.** Aucun test de
 > cuisine ne la trouve. Sous un emballage qui laisse passer l'air, la pourriture ordinaire se
 > déclare d'habitude avant la toxine et sert d'avertissement ; sous vide, cet avertissement
-> disparaît, et le poisson de congélateur est emballé sous vide. Un omble de fontaine (*Salvelinus
-> fontinalis*) resté plusieurs jours dans un réfrigérateur tiède se jette. Le traitement complet est
+> disparaît, et le poisson de congélateur est emballé sous vide. Une truite
+> restée plusieurs jours dans un réfrigérateur tiède se jette. Le traitement complet est
 > au ch. 77.
 >
-> **La cuisson du gibier sauvage : 74 °C à cœur**, mesurés à la sonde au centre de la pièce la plus
+> **La cuisson du gibier sauvage : 74 °C à cœur.** On mesure à la sonde, au centre de la pièce la plus
 > épaisse, pour le gros comme pour le petit gibier. Le gibier peut porter des parasites
-> (*Trichinella* chez l'ours et le phoque) que ni le sel, ni le fumage, ni la congélation domestique
+> (la trichine, chez l'ours et le phoque) que ni le sel, ni le fumage, ni la congélation domestique
 > ne détruisent : seule la chaleur à cœur les détruit. Une panne qui force à cuire vite beaucoup de
 > viande est le moment où on triche sur la sonde.
 
@@ -399,7 +399,7 @@ est en jeu. Ces gestes sont détaillés au ch. 2, étape 1. Le tuyau d'échappem
 ## 9. Variante d'urgence
 
 Sans génératrice, sans propane, sans avertisseur de CO, sans thermomètre et sans antigel à
-plomberie, la panne se tient, mais plus mal.
+plomberie, on passe quand même la panne, mais plus mal.
 
 ### Le chauffage
 

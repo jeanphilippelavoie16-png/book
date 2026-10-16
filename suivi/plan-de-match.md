@@ -126,6 +126,12 @@ parler »). Tous les agents arrêtés, leurs fichiers et leurs ancrages poussés
   commencé. Ancrages p1, p2, p3 fusionnés. À corriger hors du tome : ch. 38 (« ch. 16, étape 5 » ×5 devient
   étape 17, « étape 18 » devient 30) et ch. 44 (« ch. 16, étape 19 » devient 31) : la passe a ajouté 12 étapes
   au ch. 16.
+- **Ch. 3, deuxième chapitre modèle (16 octobre)** : texte réécrit, séries orange 15 min, 6 h et 1 min,
+  logigramme, planches 03-08 à 03-12 (03-12 neuve), aperçus dans `livre/apercus-ch03/`. Pas de photo : rien de
+  libre de droits ne montre un mât arraché ; une photo de JP de son propre mât irait au détail de l'étape 1.
+  Renvois à corriger hors du chapitre : ch. 8, l. 71 (« étapes 20 à 23 » devient 21 à 24), ch. 8, l. 109
+  (« 22 et 23 » devient 23 et 24), ch. 84, l. 93 (« étape 22 » devient 37). Moteur : la parenthèse qui ouvre un
+  appel de planche ne reste plus seule en fin de ligne.
 - **Nouvelle règle, à repasser sur tout le tome 1, chapitres déjà passés compris** : la règle 0 du skill
   `ecriture`, « on écrit comme on l'expliquerait à voix haute » (JP : « personne parle comme ça, c'est fucking
   pas clair » ; « c'est pas juste les logigrammes, c'est la façon de dire les choses »). Les passes du 15 octobre

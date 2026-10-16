@@ -26,18 +26,31 @@
     "planches": [
       {
         "id": "03-08",
-        "apres": "Trois conditions, et elles ne se négocient pas."
+        "apres": "La marmite part pleine : la masse d'eau chaude fait la réserve"
       },
       {
         "id": "03-09",
-        "apres": "Ce qui se tend au-dessus vaut moins que ce qui se glisse dessous."
+        "apres": "**L'abri (étape 9).**"
       },
       {
         "id": "03-10",
-        "apres": "Deux substituts remettent le joint d'eau sans antigel du commerce."
+        "apres": "23. **Vidanger dans l'ordre.**"
+      },
+      {
+        "id": "03-11",
+        "apres": "**Dégeler un tuyau sans flamme.**"
+      },
+      {
+        "id": "03-12",
+        "apres": "**Fermer les fenêtres.**"
       }
     ],
-    "photos": []
+    "photos": [],
+    "logigramme": {
+      "fichier": "images/logigrammes/03-panne-hydro-livre.svg",
+      "apres": "Traverser une panne d'Hydro sans intoxication",
+      "orange": true
+    }
   },
   "04": {
     "logigramme": {

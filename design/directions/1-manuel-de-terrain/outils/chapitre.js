@@ -138,10 +138,14 @@ function appels(node){   // « planche 11-04 » dans le texte courant, jamais da
   todo.forEach(tn => {
     const frag = document.createDocumentFragment(); let s = tn.nodeValue, last = 0, m; RX.lastIndex = 0;
     while((m = RX.exec(s))){
-      frag.appendChild(document.createTextNode(s.slice(last, m.index)));
+      let avant = s.slice(last, m.index), par = avant.endsWith('(');   // la parenthèse ne reste pas seule en fin de ligne
+      if(par) avant = avant.slice(0, -1);
+      frag.appendChild(document.createTextNode(avant));
       const sp = document.createElement('span'); sp.className = 'appel'; sp.dataset.pl = m[1].replace('\u2011', '-');
       sp.innerHTML = FLECHE + '<span>' + m[0].replace(/\s/, '\u00a0') + '</span>';
-      frag.appendChild(sp); last = m.index + m[0].length;
+      if(par){ const nb = document.createElement('span'); nb.style.whiteSpace = 'nowrap'; nb.append('(', sp); frag.appendChild(nb); }
+      else frag.appendChild(sp);
+      last = m.index + m[0].length;
     }
     frag.appendChild(document.createTextNode(s.slice(last))); tn.parentNode.replaceChild(frag, tn);
   });

@@ -169,18 +169,15 @@ Compression §3 et §4 — 27 septembre 2026 : 1564 mots → 236 mots ; matérie
 
 ## Planches du 16 octobre 2026 (chapitre modèle)
 
-- **03-12, la couverture de fenêtre scellée sur quatre côtés** (section 9, « Le chauffage »). Le
-  montage dessiné (couverture clouée sur le chambranle, une latte de bois clouée par-dessus tout le
-  long de chaque côté, bout à bout aux coins) vient de
-  `sources/03-cornell-cce-traitements-fenetres-economie-energie.md` : le joint se fait sur les quatre
-  bords, en continu et non de place en place, et une latte de 1 × 2 po serre le bord. Aucune cote sur
-  la planche : la fiche dit environ 2,5 cm du verre, le chapitre dit « quelques centimètres ».
-- **À trancher au texte** (même source) : la fiche dit qu'une draperie non scellée réduit encore la
-  perte de 10 % au plus, elle ne dit pas qu'une couverture mal scellée fait « pire que rien » ; et sa
-  boucle entre par le haut et sort par le bas. `[À VÉRIFIER]` sur « pire que rien ».
-- **03-09** montre la tente de table du ch. 6 (couverture sur la table, drap jusqu'au dossier d'une
-  chaise, matelas debout contre le mur) ; le texte du ch. 3 dit « une tente de camping, ou des
-  couvertures tendues au-dessus du lit ». À aligner, dans un sens ou dans l'autre.
+- **03-12, la couverture de fenêtre scellée sur quatre côtés** (section 9, « Fermer les fenêtres »). Le
+  montage (couverture clouée sur le chambranle, une latte de bois clouée par-dessus tout le long de chaque
+  côté, bout à bout aux coins), les 2,5 cm du verre et la boucle de l'air qui entre en haut et ressort en
+  bas viennent de `sources/03-cornell-cce-traitements-fenetres-economie-energie.md` : joint continu sur les
+  quatre bords, latte de 1 × 2 po, « about one inch from the glass », la boucle de la draperie. La toile
+  de plastique côté pièce suit le texte du chapitre (la fiche demande un tissu peu perméable à l'air).
+  Le 2,5 cm est porté par le renvoi 4, pas par une cote : l'écart fait 6 px à l'échelle de la planche.
+- **03-11** suit le texte du 16 octobre : la pression de l'eau de fonte prise entre deux bouts de glace
+  fend le cuivre (le renvoi ne dit plus « au dégel », la vapeur n'est plus dessinée).
 
 ## Passe complète du 16 octobre 2026 (démo sur le modèle du ch. 11)
 
