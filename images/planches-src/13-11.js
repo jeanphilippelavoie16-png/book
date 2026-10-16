@@ -51,7 +51,7 @@ module.exports = (h) => {
   // ── Vue 1 : polir ── le disque de pleine tranche, la paume à plat dessus, l'avant-bras jusqu'au bord ; à gauche, une
   // petite vignette : le disque seul, de profil, et une flèche qui le fait basculer (on le retourne).
   const polir = z => {
-    const e = 0.8, c = [z.l * 0.62, z.h - 20], D = 110 * e, ep = 15 * e;
+    const e = 0.66, c = [z.l * 0.66, z.h - 18], D = 110 * e, ep = 15 * e;
     const v = [38, z.h - 20], Dv = 46, epv = 8;
     return { e, c, D, ep, v, Dv, epv };
   };

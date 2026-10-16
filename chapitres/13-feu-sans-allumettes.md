@@ -163,10 +163,10 @@ Sans tige de ferrocérium : le briquet à pierre, la batterie, le soleil ou l'ar
 
 22. **Choisir une cible sombre et sèche** : de l'amadou carbonisé (étape 25), du bois pourri sec et brun,
  de l'écorce intérieure noircie. Le point de lumière fait fumer une matière sombre ; sur une matière blanche, il ne fait presque rien
- (planche 13-11, repère 3).
+ (planche 13-11, repère 4).
 23. **Faire le plus petit point de lumière possible et le tenir immobile** sur la cible : avancer ou reculer
  la lentille jusqu'à ce que le point soit le plus petit et le plus brillant, puis caler la lentille et les
- mains sur un appui (planche 13-11, repères 4 et 5). Il faut un soleil franc.
+ mains sur un appui (planche 13-11, repères 5 et 6). Il faut un soleil franc.
 24. **Souffler doucement dès que la cible fume**, la poser dans le nid et souffler (étape 16).
 
 ### Faire de l'amadou carbonisé
@@ -397,7 +397,7 @@ fil plus gros : le même montage sert à souder (ch. 107).
 
 **Une lentille de glace.** Prendre de la glace de lac claire, sans bulles. En faire un disque large comme
 la main, plus mince au bord qu'au centre, puis le bomber des deux côtés en le frottant à la paume nue,
-jusqu'à ce que la glace, en fondant, devienne lisse et claire (planche 13-11, repères 1 et 2).
+jusqu'à ce que la glace, en fondant, devienne lisse et claire (planche 13-11, repères 1 à 3).
 
 **Le réflecteur d'une lampe de poche ou d'un phare.** Enlever la vitre et l'ampoule, pointer le réflecteur
 vers le soleil, et mettre l'amadou à la place de l'ampoule.
