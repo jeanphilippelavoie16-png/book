@@ -3,7 +3,7 @@
 //
 // Tout vient du texte : ouvrir le robinet grand d'abord ; guenilles autour du tuyau, eau chaude versée dessus à
 // répétition, en avançant d'une largeur de main à la fois du robinet vers le bouchon de glace ; chauffé au milieu
-// du bouchon, l'eau fondue et la vapeur coincées entre deux glaces fendent le cuivre, au dégel. Le tuyau fendu :
+// du bouchon, l'eau de fonte prise entre deux bouts de glace pousse, et la pression fend le cuivre (texte du 16 octobre ; la vapeur n'y est plus). Le tuyau fendu :
 // chambre à air ou boyau fendu enroulé, deux ou trois colliers l'un contre l'autre, qui mordent de chaque côté de
 // la fente. La branche condamnée : coupée, le bout écrasé au marteau, replié sur lui-même, un collier sur le pli.
 // Aucune cote : le chapitre n'en donne pas. Le tuyau est grossi pour se lire.
@@ -113,8 +113,7 @@ module.exports = (h) => {
   const rate = z => {
     const o = [mur(z)];
     o.push(glace(XM, P1), glace(P2, XR - 4, { frontG: true, frontD: false }));
-    o.push(h.rect(P1 + 3, YT + 1, P2 - P1 - 6, R - EP - 1, A.hachure('eau', 'aucun')));
-    for (const [dx, dy, rr] of [[-20, -5, 3.8], [-6, -7, 2.8], [9, -4.5, 4], [22, -6, 2.6], [1, 0, 2.2]]) o.push(h.cercle(XC + dx, YT + dy, rr, W(A.fin)));
+    o.push(h.rect(P1 + 3, YT - R + EP + 1, P2 - P1 - 6, 2 * (R - EP) - 2, A.hachure('eau', 'aucun')));
     o.push(h.fleche(`M${XC - 8} ${YT + 6} L${P1 + 4} ${YT + 6}`, A.arete), h.fleche(`M${XC + 8} ${YT + 6} L${P2 - 4} ${YT + 6}`, A.arete));
     o.push(parois(XM, XR, { trouBas: [XC - 6, XC + 6] }), robinet());
     // les lèvres de la fente, ouvertes vers le dehors, et l'eau qui en gicle
@@ -184,7 +183,7 @@ module.exports = (h) => {
   return {
     ref: '03-11',
     titre: 'Le tuyau gelé, puis fendu',
-    desc: 'En haut, un tuyau de cuivre en coupe sort d’un mur extérieur ; dedans, le bouchon de glace côté mur, puis l’eau de fonte qui coule vers le robinet, ouvert grand, qui laisse couler un filet. Des guenilles enroulées autour du tuyau contre la glace ; une casserole verse l’eau chaude dessus. Deux places d’avant des guenilles, en tireté, plus près du robinet ; la flèche rouge va du robinet vers la glace. Au milieu, le même tuyau, cadré pareil, le bouchon de glace du mur jusqu’au robinet : la casserole verse sur le milieu du bouchon ; l’eau et la vapeur, prises entre deux glaces, poussent sur les deux fronts, et le cuivre s’ouvre dessous (cercle rouge). En bas à gauche, la fente fermée : une chambre à air enroulée, trois colliers l’un contre l’autre par-dessus, qui couvrent la fente et la dépassent des deux bouts. À droite, la branche condamnée : le bout écrasé, replié sur lui-même, un collier serré sur le pli.',
+    desc: 'En haut, un tuyau de cuivre en coupe sort d’un mur extérieur ; dedans, le bouchon de glace côté mur, puis l’eau de fonte qui coule vers le robinet, ouvert grand, qui laisse couler un filet. Des guenilles enroulées autour du tuyau contre la glace ; une casserole verse l’eau chaude dessus. Deux places d’avant des guenilles, en tireté, plus près du robinet ; la flèche rouge va du robinet vers la glace. Au milieu, le même tuyau, cadré pareil, le bouchon de glace du mur jusqu’au robinet : la casserole verse sur le milieu du bouchon ; l’eau de fonte, prise entre deux glaces, pousse sur les deux fronts, et le cuivre s’ouvre dessous (cercle rouge). En bas à gauche, la fente fermée : une chambre à air enroulée, trois colliers l’un contre l’autre par-dessus, qui couvrent la fente et la dépassent des deux bouts. À droite, la branche condamnée : le bout écrasé, replié sur lui-même, un collier serré sur le pli.',
     format: 'pleine',
     disposition: [['degel'], ['rate'], ['fente', 'branche']],
     hauteurs: [1.15, 1.15, 1],
@@ -204,8 +203,8 @@ module.exports = (h) => {
         titre: 'Raté : chauffé au milieu du bouchon',
         dessin: rate,
         renvois: z => [
-          { n: 6, rond: [XC + 92, YT + 44], cible: [P2 - 10, YT + 3], texte: 'eau et vapeur prises entre deux glaces' },
-          { n: 7, rond: [XC - 84, YT + 50], cible: [XC - 17, YT + R + 12], texte: 'le cuivre fend au dégel' },
+          { n: 6, rond: [XC + 92, YT + 44], cible: [P2 - 10, YT + 3], texte: 'eau de fonte prise entre deux glaces' },
+          { n: 7, rond: [XC - 84, YT + 50], cible: [XC - 17, YT + R + 12], texte: 'la pression fend le cuivre' },
         ],
       },
       fente: {
