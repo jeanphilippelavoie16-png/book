@@ -179,6 +179,11 @@ tomes** : un peu plus de blanc en bas des pages qui précèdent une planche ; le
     seule amorce qui annonce une liste, finie par « : » ou « . » avant la liste), le titre et ce qui le suit
     passent à la colonne suivante, et la colonne reste avec son vide. Remonter les six tomes ensuite, et
     surveiller le tome 5 (438 pages sur 440).
+18. **Ce qui est en rouge sur une planche s'explique** (JP, 16 octobre : « y a des affaires entourées en rouge qu'on
+    sait pas c'est quoi »). Règle 11, nouvelle, de `images/recommandations-planches.md` : chaque marque rouge a
+    son repère, et la légende dit ce qu'on doit y voir. Ch. 3 d'abord (03-08, 03-10, 03-11, 03-12), puis toutes
+    les planches à la passe finale ; le vérificateur des planches peut compter les marques rouges sans repère
+    voisin.
 
 Le **ch. 11 (feu de forêt)** est **le chapitre modèle de la refonte, approuvé par JP** (15 octobre au soir :
 « c'est parfait, on se garde ça pour samedi ») : texte, trois séries orange à la longueur de leur temps (1 h,

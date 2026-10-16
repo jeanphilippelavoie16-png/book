@@ -66,6 +66,13 @@ nouvelle numérotation (six tomes).
    titre « Autre façon » ou « Sans… », elle est séparée de la séquence par un filet ou un espace net, et son
    repère dit « au lieu de 10 », pas « 11 » à la suite. Le texte la dit aussi comme une autre façon. À
    appliquer à toutes les planches qui ont une variante, à la passe finale.
+11. **Ce qui est en rouge s'explique** (JP, 16 octobre 2026, sur les planches du ch. 3 : « y a des affaires entourées
+   en rouge qu'on sait pas c'est quoi ; si c'est rouge, faut l'expliquer »). Chaque cercle, flèche ou zone rouge
+   porte un repère numéroté, et la légende dit ce qu'on doit y voir ou y vérifier (« le lit épais sous la
+   marmite : c'est par le fond qu'elle perd sa chaleur »), pas seulement le nom de la pièce. Un rouge qu'on ne
+   peut pas expliquer en une ligne sort. Au ch. 3 : 03-08 (le cercle sous la marmite, celui de la marmite à
+   moitié pleine), 03-10 (le robinet de l'étage, le disjoncteur), 03-11 (la fente), 03-12 (les coins et le
+   bas de la couverture). Puis toutes les planches, à la passe finale.
 7. **La passe finale touche 100 % des planches** (JP, 24 septembre : « va falloir refaire une passe
    sur 100 % des planches à la fin »). Chaque planche, validée ou pas, est reprise contre toutes les
    règles ci-dessus : qualité du trait, mains et personnages, gestes fins, mécanismes, coupes en
