@@ -7,8 +7,8 @@ Remplace `mainSimple` pour les gros plans de main (plan de match, point 29).
 - `couleur.svg` : la conversion directe (716 tracés).
 - `au-trait.svg` : la version au style du livre. Chaque tracé est posé deux fois : dessous, rempli et
   contouré en noir (trait 9) ; dessus, rempli de blanc. Il reste le contour extérieur de la main, sans les
-  coutures entre les morceaux. L'ombre (#d67048) devient un gris clair (#DCDCDC), les plis (#aa4b2f) restent
-  noirs, les ongles (#fdc6a1) gardent un trait fin.
+  coutures entre les morceaux. L'ombre (#d67048) et les plis (#aa4b2f) deviennent un gris clair (#DCDCDC).
+  Pas d'ongles ni de taches noires (JP, 16 octobre : « y a des taches noires dedans, enlève les ongles aussi »).
 - `eps2svg.py` : le convertisseur (`python3 -I eps2svg.py fichier.eps sortie.svg`).
 
 Licence : licence standard Shutterstock, au nom de JP. À confirmer par JP (impression du livre, nombre
