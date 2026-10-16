@@ -314,3 +314,64 @@ d'ampoule, la lentille de glace, le son clair ou mat du bois.
   de la passe, donc pas appelée. Son appel irait à l'étape 18.
 - Les ancres de `design/epreuves-livre/placements-tome-1.json` pour le ch. 13 sont à remplacer par celles
   de la passe (planches 13-01, 13-07, 13-08, 13-09, 13-40, les deux photos et le logigramme neuf).
+
+## Passe du 16 octobre 2026 (soir) : huit sections, tout dans l'orange, plus de loi en formule
+
+Sur la version du matin (`demo-13/13-v1.md`), avec les corrections de JP sur cette version : points 20, 21
+et 22 de la pause du plan de match, et les dernières lignes du tableau du skill `ecriture`. 5 324 → 5 377 mots
+(`wc -w`) ; 6 027 avant toute passe. 0 tiret dans le texte (les deux de la ligne de titre et de la ligne de
+tome restent pour `build_chapitre.py`), 0 « § », 0 mot banni, 0 avis « tournure ».
+
+**Huit sections.** « Comment ça marche » sort ; Matériel devient la section 3, Procédure 4, Points de contrôle
+5, Signes d'échec 6, DANGER 7, Variante d'urgence 8. Renvois internes suivis : « section 9 » → « section 8 »
+(sections 2, 3, 4 et 6), « section 7 » (signes d'échec, étape 29) → « section 6 ». « ch. 11, section 9 » ne bouge
+pas (ch. 11 pas migré). Les étapes gardent leurs numéros (1 à 29). **Le moteur n'est pas migré** (`build_chapitre.py`
+attend encore l'encadré en 8 et la variante en 9 : `SECNAMES`, `n == 8`, `n == 9`) : ne pas monter le ch. 13 avant
+le point 21 « moteur ».
+
+**L'ancienne section 3, morceau par morceau.**
+- L'étincelle qui n'allume que du très fin, et la montée d'une grosseur à la fois → étape 10, dit par la chaîne
+  qu'on voit (« L'étincelle allume l'amadou ; la flamme de l'amadou allume le bois de moins de 2 cm… »).
+  Source ajoutée : extrait « Fire Material Selection » dans `sources/17-us-army-fm21-76-feu.md`.
+- « Dans une fibre mouillée, la chaleur part à évaporer l'eau » → étape 12 : « Le bois mouillé use la chaleur de
+  la petite flamme du nid à sécher son eau, et la flamme s'éteint avant que le bois prenne » (forme du skill).
+  Section 6 : « Bois vert ou mouillé : l'eau du bois bout ».
+- « Une braise devient flamme quand l'air lui arrive sans arrêt, d'où le souffle continu » → étape 16 : « Pour que
+  la braise grossisse et s'enflamme, il faut lui envoyer de l'air sans arrêt : chaque fois qu'on arrête pour
+  reprendre son souffle, elle refroidit. » La ligne de la section 6 ne redit plus le mécanisme.
+- Le briquet sous son point d'ébullition (0 °C butane, −11 °C isobutane) → étape 2 (orange), dit par la
+  pression : « le butane n'a plus assez de pression pour sortir du briquet » (c'est le mot de la fiche source).
+
+**L'orange a absorbé « le détail ».** La partie « Il faut un feu tout de suite : le détail » sort. Étape 1 : un
+adulte pour la personne mouillée, l'autre pour le feu ; seul, des vêtements secs d'abord. Étape 2 : le pourquoi
+du briquet et « allumer tout de suite, avant que le briquet refroidisse ». Étape 3 : pourquoi garder les
+mitaines. Étape 5 : pourquoi la pile et la batterie (le geste se fait avec les mitaines) et le repère de la
+douleur (16 °C de peau, 15 °C de douleur). Étape 7 : le pourquoi des 10 minutes.
+
+**Ce qui ne se redit plus ailleurs.** Section 5 : les deux lignes « Avant d'enlever les mitaines » (−17,5 °C) et
+« Pendant le travail à mains nues » (10 min) sortent, l'orange les porte. Section 7, point 3 : « les vêtements
+secs, l'abri et le sac de couchage passent avant le feu » sort (étape 1) ; il reste le mécanisme et la consigne
+qui n'est dite nulle part ailleurs (l'autre adulte fait arrêter l'essai, étape 7). Les appels de planche en
+double dans une même étape sortent (13-07 à l'étape 25, 13-08, 13-09, 13-01) : le premier appel reste, la suite
+dit « repère N ». « souffler comme à l'étape 16 » devient « souffler (étape 16) ».
+
+**Autres corrections à la lecture à voix haute.** « d'où vient le vent » → « du côté du vent » ; « Ne pas mettre de
+pierres mouillées » → « prendre des pierres sèches et dures » ; « Ne pas allumer quand le vent dépasse » → « Allumer
+dehors seulement quand le vent reste sous 20 km/h » ; « la combustion avance seule » → « le rouge s'étend seul
+dans la boule » ; « son silence ne prouve rien » (chute) → « il peut ne pas sonner même s'il y a du CO » ; « Ce qui
+brûle, c'est la vapeur » → « L'essence brûle par sa vapeur » ; « Un couteau qu'on pousse… » → « Si on pousse le
+couteau… » ; « Une personne est chargée du feu » (présent qui décrit) → « On charge une personne du feu » ; « la
+tâche change de mains » → « on change de personne » ; « Le coton doit… se déchirer » → « on doit pouvoir le
+déchirer » ; « Ce qui ne se remplace pas » → « Ce qu'on ne peut pas remplacer » ; « la batterie qui allume le feu
+est aussi celle qui démarre l'auto » → « pour garder dans la batterie assez de charge pour démarrer l'auto » ;
+le palier « sinon la chaleur se fait aux deux bouts » → « le foret doit chauffer seulement en bas, dans la
+cavité » ; l'amadouvier « il devient une mèche lente » → « il couve seul, lentement, comme une mèche ». Au soleil,
+la lentille de glace et le réflecteur deviennent des paragraphes (pour leurs petites planches), les autres
+lentilles une ligne.
+
+**Logigramme.** `images/logigrammes/13-feu-sans-allumettes.json` : « section 9 » → « section 8 » partout, la case
+des étapes 2 et 3 dans l'ordre des étapes (le briquet d'abord). Rendu, 0 erreur, 0 avis ; ancrage après le
+dernier item du Matériel (« **Eau, sable ou terre** »).
+
+**Photos.** Ancres séparées (elles avaient la même) : l'écorce de bouleau sur sa ligne de la liste d'amadou, la
+gomme d'épinette sur la sienne.

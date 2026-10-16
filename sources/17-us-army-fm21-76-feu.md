@@ -119,6 +119,20 @@ Tirés du même PDF enregistré (`sources/17-us-army-fm21-76-survie.pdf`), avec 
 > « Make tinder for starting fires from cattail fluff, cedar bark, lighter knot wood from pine
 > trees, or hardened sap from resinous wood trees. » (chapitre 9, plantes, p. 107 du PDF)
 
+### Amadou, petit bois, combustible (ajouté le 16 octobre 2026, soir, pour le ch. 13, étape 10)
+
+Tiré du PDF déjà enregistré (`17-us-army-fm21-76-survie.pdf`, chapitre 7, « Fire Material Selection ») :
+
+> « You need three types of materials (Figure 7-4) to build a fire--tinder, kindling, and fuel.
+> Tinder is dry material that ignites with little heat--a spark starts a fire. The tinder must be
+> absolutely dry to be sure just a spark will ignite it. [...] Kindling is readily combustible
+> material that you add to the burning tinder. Again, this material should be absolutely dry to ensure
+> rapid burning. Kindling increases the fire's temperature so that it will ignite less combustible
+> material. Fuel is less combustible material that burns slowly and steadily once ignited. »
+
+Sert à : ch. 13, étape 10 (l'étincelle allume l'amadou, l'amadou allume le petit bois, le petit bois
+allume les grosseurs suivantes ; tout doit être sec).
+
 ## Ce que ces ajouts règlent au chapitre 13
 
 | Fait | Où |
