@@ -147,6 +147,14 @@ tomes** : un peu plus de blanc en bas des pages qui précèdent une planche ; le
     couverture de fenêtre (planche 03-12) et la marmite norvégienne (planche 03-08). Puis partout où une planche
     est appelée. Et le possessif qui oblige à chercher (« son robinet », « son disjoncteur ») nomme la chose :
     « le robinet de vidange du chauffe-eau ». Ligne au tableau du skill `ecriture`.
+14. **Planche 03-10 et texte du siphon** (JP, 16 octobre) :
+    - **le siphon se vide aussi par son bouchon de nettoyage**, le bouchon qui se dévisse au bas du coude, sous
+      l'évier (seau dessous). C'est la façon la plus simple quand il y en a un ; la poire reste pour les
+      siphons sans bouchon, la toilette et la baignoire. À ajouter au texte (étape 24 et section 9, « Vidanger
+      sans antigel ») et à la planche 03-10, vignette « Vider le siphon » ;
+    - **l'huile est une autre façon, pas l'étape suivante** : la vignette « Ou à l'huile » se marque comme
+      variante (règle 10, nouvelle, de `images/recommandations-planches.md`). À vérifier dans toutes les
+      planches qui montrent une variante, à la passe finale.
 
 Le **ch. 11 (feu de forêt)** est **le chapitre modèle de la refonte, approuvé par JP** (15 octobre au soir :
 « c'est parfait, on se garde ça pour samedi ») : texte, trois séries orange à la longueur de leur temps (1 h,

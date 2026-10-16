@@ -60,6 +60,12 @@ nouvelle numérotation (six tomes).
    d'un volume, en aplats francs. Le rouge `#9B2C1E` sert à la flèche du geste, au point à
    contrôler, à la zone dangereuse et à l'encadré danger, et à rien d'autre. Le détail est dans
    `.claude/skills/planches/SKILL.md`, à la section « La charte ».
+10. **Une autre façon de faire se marque comme une autre façon** (JP, 16 octobre 2026, planche 03-10 : « la
+   variante à l'huile, faudrait la marquer que c'est une variante »). Dans une séquence de vignettes, une
+   vignette qui remplace une autre (« ou à l'huile ») ne se lit pas comme l'étape suivante : elle porte un
+   titre « Autre façon » ou « Sans… », elle est séparée de la séquence par un filet ou un espace net, et son
+   repère dit « au lieu de 10 », pas « 11 » à la suite. Le texte la dit aussi comme une autre façon. À
+   appliquer à toutes les planches qui ont une variante, à la passe finale.
 7. **La passe finale touche 100 % des planches** (JP, 24 septembre : « va falloir refaire une passe
    sur 100 % des planches à la fin »). Chaque planche, validée ou pas, est reprise contre toutes les
    règles ci-dessus : qualité du trait, mains et personnages, gestes fins, mécanismes, coupes en
