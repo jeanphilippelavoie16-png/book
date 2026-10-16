@@ -155,6 +155,15 @@ tomes** : un peu plus de blanc en bas des pages qui précèdent une planche ; le
     - **l'huile est une autre façon, pas l'étape suivante** : la vignette « Ou à l'huile » se marque comme
       variante (règle 10, nouvelle, de `images/recommandations-planches.md`). À vérifier dans toutes les
       planches qui montrent une variante, à la passe finale.
+15. **« Carter »** (JP, 16 octobre, ch. 3, section 6 : « c'est quoi ça, "carter" ? »). C'est le boîtier de métal au
+    bas du moteur, qui contient l'huile ; personne ne dit ça. Au ch. 3 : « Le moteur est encore chaud quand on pose
+    la main dessus après l'heure : attendre plus longtemps. » Ailleurs (59 fois dans 34 chapitres) : là où on
+    touche seulement le moteur, « le moteur » ; là où on ouvre vraiment la pièce (vidange d'huile, réparation,
+    tome 6), le mot reste, expliqué en quelques mots la première fois dans le chapitre. Même traitement pour le
+    vocabulaire de mécanicien en général : le mot de tous les jours d'abord, le mot du métier seulement quand
+    on en a besoin pour faire le geste. **Et la règle « 1 h d'arrêt toutes les 8 h » (ch. 3, étape 20 et
+    section 6) n'a pas de provenance dans `suivi/03-redaction.md`** : la sourcer (manuel de génératrice) ou
+    mettre `[À VÉRIFIER]`.
 
 Le **ch. 11 (feu de forêt)** est **le chapitre modèle de la refonte, approuvé par JP** (15 octobre au soir :
 « c'est parfait, on se garde ça pour samedi ») : texte, trois séries orange à la longueur de leur temps (1 h,
