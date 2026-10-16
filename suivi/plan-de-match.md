@@ -220,6 +220,12 @@ tomes** : un peu plus de blanc en bas des pages qui précèdent une planche ; le
       numéros de section ;
     - remonter les six tomes et revérifier les pages (tome 5 à 438 sur 440 : une section de moins devrait en
       rendre).
+22. **Tout dans l'encadré orange** (JP, 16 octobre, ch. 13 : « le texte en orange et ses explications, c'est comme
+    doublé, surtout qu'on vient de le dire dans le logigramme ; il faut mettre les deux ensemble et que tout soit
+    dans l'encadré orange »). Les parties « … : le détail » disparaissent : chaque étape orange porte son pourquoi,
+    en quelques mots ; la longueur suit encore le temps. Ce qui ne sert pas au moment même va dans la variante
+    d'urgence ou sort. CLAUDE.md (« Les premières minutes ») et le skill sont à jour. À refaire : les chapitres qui
+    ont des séries orange, les modèles 11, 3, 4 et 13 compris (`grep -l "{.orange" chapitres/*.md`).
 
 Le **ch. 11 (feu de forêt)** est **le chapitre modèle de la refonte, approuvé par JP** (15 octobre au soir :
 « c'est parfait, on se garde ça pour samedi ») : texte, trois séries orange à la longueur de leur temps (1 h,
