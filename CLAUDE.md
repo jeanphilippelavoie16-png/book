@@ -297,13 +297,14 @@ gestes de cette famille-là, dans leur ordre réel, avec le moment de chacun et 
 Les guides et les études servent à vérifier un fait, pas à copier une forme. **La série suit le réel** :
 celui qui la lit n'a rien préparé, tout est nouveau, il fait avec ce qu'il a sous la main ; d'abord ce qui
 sauve dans les secondes et les minutes, ensuite ce qui organise. **La pastille dit le temps qu'on a**
-pour faire la série, à partir de ce qui la déclenche, et **la longueur suit ce temps** : sous « 1 min »,
-quelques lignes (JP, 15 octobre 2026 : « 1 h, 15 min, 1 min,
-mais y a 600 mots pour quand le feu passe ; sois plus logique dans la gestion des temps »). **Tout est dans
-l'encadré orange** (JP, 16 octobre 2026 : « le texte en orange et ses explications, c'est comme doublé, surtout qu'on
-vient de le dire dans le logigramme ; il faut mettre les deux ensemble et que tout soit dans l'encadré orange ») :
-chaque geste porte son pourquoi dans son étape, en quelques mots, et il n'y a plus de partie « … : le détail » après
-la série. Ce qui ne sert pas au moment même va dans la variante d'urgence ou sort (JP, sur la radio de l'auto et le sas
+pour faire la série, à partir de ce qui la déclenche (JP, 15 octobre 2026 : « 1 h, 15 min, 1 min ; sois plus
+logique dans la gestion des temps »). **La version courte est le logigramme ; la version détaillée est l'encadré
+orange, et tout y est** (JP, 16 octobre 2026 : « le texte en orange et ses explications, c'est comme doublé, surtout
+qu'on vient de le dire dans le logigramme ; il faut mettre les deux ensemble et que tout soit dans l'encadré orange » ;
+puis : « pas en quelques mots, j'aime ça la version détaillée ; la version compacte, on l'a déjà dans l'arbre de
+décision ; c'est la place pour creuser et mettre de l'information »). Chaque étape orange porte son geste, son
+pourquoi et le détail qui sert à le faire, sans limite de longueur ; il n'y a plus de partie « … : le détail »
+après la série, ni de redite entre les deux (JP, sur la radio de l'auto et le sas
 « quand une bombe vient de tomber »). La règle 1 tient : aucun
 chiffre sans source notée dans `/sources` et `suivi/`, `[À VÉRIFIER]` sinon.
 

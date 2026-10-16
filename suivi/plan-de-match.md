@@ -222,9 +222,10 @@ tomes** : un peu plus de blanc en bas des pages qui précèdent une planche ; le
       rendre).
 22. **Tout dans l'encadré orange** (JP, 16 octobre, ch. 13 : « le texte en orange et ses explications, c'est comme
     doublé, surtout qu'on vient de le dire dans le logigramme ; il faut mettre les deux ensemble et que tout soit
-    dans l'encadré orange »). Les parties « … : le détail » disparaissent : chaque étape orange porte son pourquoi,
-    en quelques mots ; la longueur suit encore le temps. Ce qui ne sert pas au moment même va dans la variante
-    d'urgence ou sort. CLAUDE.md (« Les premières minutes ») et le skill sont à jour. À refaire : les chapitres qui
+    dans l'encadré orange » ; puis : « pas en quelques mots, j'aime ça la version détaillée ; la version compacte,
+    on l'a déjà dans l'arbre de décision ; c'est la place pour creuser et mettre de l'information »). La version
+    courte est le logigramme ; l'encadré orange est la version détaillée : les parties « … : le détail » entrent
+    au complet dans l'étape orange qu'elles expliquent, et disparaissent. La longueur ne suit plus la pastille. CLAUDE.md (« Les premières minutes ») et le skill sont à jour. À refaire : les chapitres qui
     ont des séries orange, les modèles 11, 3, 4 et 13 compris (`grep -l "{.orange" chapitres/*.md`).
 
 Le **ch. 11 (feu de forêt)** est **le chapitre modèle de la refonte, approuvé par JP** (15 octobre au soir :
