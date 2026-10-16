@@ -184,6 +184,14 @@ tomes** : un peu plus de blanc en bas des pages qui précèdent une planche ; le
     son repère, et la légende dit ce qu'on doit y voir. Ch. 3 d'abord (03-08, 03-10, 03-11, 03-12), puis toutes
     les planches à la passe finale ; le vérificateur des planches peut compter les marques rouges sans repère
     voisin.
+19. **Le numéro et le nom de la planche en évidence** (JP, 16 octobre : « là, ils sont comme tout cachés »).
+    Aujourd'hui, « Planche 03-10. Vidanger la maison dans le bon ordre. » est une ligne de texte dans le SVG, en
+    Georgia, au-dessus des repères, sans plus de poids que la légende. Proposition : le moteur
+    (`chapitre.js`, page de planche) pose en haut de la page une étiquette rouge « PLANCHE 03-10 » (même rouge
+    et même police que l'appel fléché du texte, pour qu'on fasse le lien d'un coup d'œil) et le titre en gras,
+    à la taille d'un titre de section ; la ligne du SVG ne s'imprime plus (masquée au montage, ou retirée du
+    générateur). Les repères numérotés restent sous le dessin. Montrer une page modèle à JP avant de remonter
+    les six tomes. Vérifier l'effet sur la hauteur utile des planches et sur le tome 5 (438 pages sur 440).
 
 Le **ch. 11 (feu de forêt)** est **le chapitre modèle de la refonte, approuvé par JP** (15 octobre au soir :
 « c'est parfait, on se garde ça pour samedi ») : texte, trois séries orange à la longueur de leur temps (1 h,
