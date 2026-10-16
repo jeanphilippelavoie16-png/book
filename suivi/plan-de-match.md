@@ -120,12 +120,13 @@ tomes** : un peu plus de blanc en bas des pages qui précèdent une planche ; le
     chapitres (113 titres), `gabarit-chapitre.md`, CLAUDE.md (le paragraphe « Pas d'inventaire éparpillé »), le
     skill `ecriture`, les libellés de la table de section dans `design/directions/1-manuel-de-terrain/outils/`
     (chapitre.js et le gabarit), l'index et le glossaire. Puis remonter les six tomes.
-11. **La section 3 ne parle plus en lois de manuel** (JP, 16 octobre, sur le ch. 3 : « c'est fucking drôlement
-    dit, on dirait que tu parles en paraboles, arrête ça »). « Une maison perd sa chaleur en proportion de
-    l'écart avec le dehors et de la surface exposée », « Un corps couché perd sa chaleur vers le plancher… » :
-    le mécanisme se dit à partir de la situation et du geste, avec les mots de tous les jours (« Couché sur le
-    plancher, on se refroidit bien plus vite que dans l'air : il faut plus d'épaisseur sous soi que sur
-    soi »). Ligne ajoutée au tableau du skill `ecriture`. Toutes les sections 3, puis le reste du texte.
+11. **La section 3 n'est plus un paragraphe en paraboles** (JP, 16 octobre, sur le ch. 3 : « on dirait que tu
+    parles en paraboles, arrête ça » ; puis : « les mots, proportion et tout, c'est bon, c'est la façon que le
+    paragraphe est organisé. Moins poétique, plus informatif, en gardant un bon français professionnel »). Le
+    défaut : des vérités générales posées l'une après l'autre, sans lien entre elles ni avec la procédure, et
+    une chute au bout. La correction : chaque mécanisme, puis ce qu'il change dans la procédure et l'étape où
+    ça se fait ; le registre reste professionnel. Ligne au tableau du skill `ecriture`, avec l'exemple. Toutes
+    les sections 3, puis tout paragraphe d'explication bâti de la même façon.
 
 Le **ch. 11 (feu de forêt)** est **le chapitre modèle de la refonte, approuvé par JP** (15 octobre au soir :
 « c'est parfait, on se garde ça pour samedi ») : texte, trois séries orange à la longueur de leur temps (1 h,
