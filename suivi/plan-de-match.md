@@ -127,6 +127,17 @@ tomes** : un peu plus de blanc en bas des pages qui précèdent une planche ; le
     une chute au bout. La correction : chaque mécanisme, puis ce qu'il change dans la procédure et l'étape où
     ça se fait ; le registre reste professionnel. Ligne au tableau du skill `ecriture`, avec l'exemple. Toutes
     les sections 3, puis tout paragraphe d'explication bâti de la même façon.
+12. **« Un message texte passe là où un appel ne passe pas »** (JP, 16 octobre, ch. 3, détail de l'étape 10 : « on
+    en avait déjà parlé ; explique pourquoi ; "là où un appel ne passe pas", ça veut rien dire »). La phrase
+    avait été corrigée au ch. 11 (détail de l'étape 16) sans que la correction entre au skill : c'est fait
+    maintenant (tableau du skill `ecriture`, avec la règle « toute phrase que JP corrige entre au tableau le
+    jour même »). Samedi :
+    - ch. 3 : dire le mécanisme, comme au ch. 11 ;
+    - **la source** : la page de Québec.ca enregistrée (`sources/10-quebec-feu-de-foret-consignes.md`) dit
+      seulement « de préférence par message texte », sans la raison. La note de la fiche, « C'est la raison
+      donnée par la page », est fausse et se corrige. Trouver une source officielle pour le mécanisme (signal
+      faible, renvoi automatique, tour saturée), ou mettre `[À VÉRIFIER]` aux ch. 3 et 11 ;
+    - chercher la même formule ailleurs (« passe là où », « tient là où ») : ch. 71, l. 35, à juger.
 
 Le **ch. 11 (feu de forêt)** est **le chapitre modèle de la refonte, approuvé par JP** (15 octobre au soir :
 « c'est parfait, on se garde ça pour samedi ») : texte, trois séries orange à la longueur de leur temps (1 h,
