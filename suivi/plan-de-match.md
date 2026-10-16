@@ -115,6 +115,11 @@ tomes** : un peu plus de blanc en bas des pages qui précèdent une planche ; le
    modèle ch. 3 et ch. 11 : séries orange, logigramme, planches, sources (le congélateur et la viande à 25 °C,
    l'eau, la chaleur dans une maison fermée, la génératrice, l'orage). Les parties du ch. 3 qui valent l'été
    (génératrice, aliments, eau) y sont dites une fois, et l'autre chapitre y renvoie.
+10. **Le titre de la section 3, « Pourquoi ça marche », change partout** (JP, 16 octobre : « c'est une tournure
+    de phrase qui marche pas »). Proposition : « Comment ça marche ». À changer d'un coup, par script : les 111
+    chapitres (113 titres), `gabarit-chapitre.md`, CLAUDE.md (le paragraphe « Pas d'inventaire éparpillé »), le
+    skill `ecriture`, les libellés de la table de section dans `design/directions/1-manuel-de-terrain/outils/`
+    (chapitre.js et le gabarit), l'index et le glossaire. Puis remonter les six tomes.
 
 Le **ch. 11 (feu de forêt)** est **le chapitre modèle de la refonte, approuvé par JP** (15 octobre au soir :
 « c'est parfait, on se garde ça pour samedi ») : texte, trois séries orange à la longueur de leur temps (1 h,
