@@ -232,7 +232,16 @@ tomes** : un peu plus de blanc en bas des pages qui précèdent une planche ; le
     refait au complet ; aucune planche n'est jugée par l'agent qui l'a dessinée ; une planche retouchée retourne
     dans `a-valider/`. Les planches du ch. 13 retouchées aujourd'hui (13-01, 13-07, 13-08, 13-09, 13-40) sont
     revenues dans `a-valider/` : JP ne les a pas validées. Revoir les autres planches du tableau des signalées
-    (13-09, 60-10, 112-10, 45-01a, 29-08, 89-05b, 50-10) avec la même règle. CLAUDE.md (« Les premières minutes ») et le skill sont à jour. À refaire : les chapitres qui
+    (13-09, 60-10, 112-10, 45-01a, 29-08, 89-05b, 50-10) avec la même règle.
+24. **Pas de trou blanc dans une colonne à cause d'une photo** (JP, 16 octobre, ch. 13, p. 13-14 : « gros câlisse de
+    trou ici, blanc vide »). La colonne de gauche s'arrête au tiers après « L'amadou qu'on ramasse », parce que
+    la photo de l'écorce de bouleau ne tient pas dans le reste de la colonne et saute en haut de la colonne de
+    droite ; le moteur ne voit pas ce saut (ce n'est pas un débordement du cadre, seulement un changement de
+    colonne). À faire dans `chapitre.js`, fonction de remplissage : après avoir posé une figure (`.fig`), si son
+    haut est dans une autre colonne que la fin du bloc d'avant et que la colonne d'avant garde plus d'un quart
+    de vide, la retirer, poser d'abord le ou les paragraphes suivants, puis la figure, au haut de la colonne
+    suivante (comme les figures différées de fin de page). Vérifier ensuite tous les chapitres qui ont des
+    photos en quart ou en demi : un compte des colonnes à plus d'un quart de vide, avant et après. CLAUDE.md (« Les premières minutes ») et le skill sont à jour. À refaire : les chapitres qui
     ont des séries orange, les modèles 11, 3, 4 et 13 compris (`grep -l "{.orange" chapitres/*.md`).
 
 Le **ch. 11 (feu de forêt)** est **le chapitre modèle de la refonte, approuvé par JP** (15 octobre au soir :
