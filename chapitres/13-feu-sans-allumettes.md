@@ -426,6 +426,7 @@ l'été, au sec, avant de compter dessus.
 - **L'arc** : une branche verte et souple d'environ 2,5 cm de diamètre, avec une corde tendue sans mou
  d'un bout à l'autre (repère 9). Un lacet de botte en coton tressé mord bien sur le foret. Une lanière de
  babiche (ch. 103) mord bien à sec, mais elle s'allonge à l'humidité : il faut la retendre souvent.
+
 **Tourner le foret.**
 
 - Mettre un nid d'amadou sous l'encoche (repère 10).

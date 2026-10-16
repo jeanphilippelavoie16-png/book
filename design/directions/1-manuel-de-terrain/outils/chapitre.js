@@ -110,7 +110,7 @@ function pour(f, q, p){
       const prev = b.previousElementSibling;
       if(prev){
         const rb = b.getBoundingClientRect(), rp = prev.getBoundingClientRect(), rf = f.getBoundingClientRect();
-        if(rb.left > rp.left + 20 && rf.bottom - rp.bottom > 0.25 * rf.height){
+        if(rb.left > rp.left + 20 && rf.bottom - rp.bottom > 0.15 * rf.height){
           f.removeChild(b); syncNotes(f); b.dataset.recule = (+b.dataset.recule || 0) + 1;
           const nxt = q.shift(); q.unshift(b); q.unshift(nxt); continue;
         }
@@ -206,9 +206,12 @@ function splitTableBal(tb, f){   // jamais une rangée seule en haut de la page 
   return parts;
 }
 function finish(R, kind){
-  if(kind === 'main'){ R.frame.classList.add('auto'); return; }
+  // une fin d'histoire de quelques lignes ne se partage pas entre deux colonnes : elle reste dans la première
+  const court = () => { if(R.frame.getBoundingClientRect().height < 6 * ligne(R.frame)) R.frame.classList.add("une-col"); };
+  if(kind === 'main'){ R.frame.classList.add('auto'); court(); return; }
   R.box.classList.add('fin'); R.frame.classList.add('auto');
   if(kind === 'd' || kind === 'o'){ const dg = R.box.querySelector(kind === 'd' ? '.danger' : '.orange'); dg.classList.remove('full'); dg.querySelector('.dcut').classList.remove('on'); }
+  if(kind === 'e') court();
 }
 function derniereTete(p){   // détache le titre qui finit la page, s'il est seul en bas
   const frs = p.bl.querySelectorAll('.frame'); const fr = frs[frs.length - 1];
