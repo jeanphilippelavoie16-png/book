@@ -249,7 +249,15 @@ tomes** : un peu plus de blanc en bas des pages qui précèdent une planche ; le
     les 25 de priorité basse qui restent ; liste dans `images/audit-planches/petites-planches.md`. À faire d'abord :
     le moteur (taille « petite » dans `build_chapitre.py`, place en colonne dans `chapitre.css`, petit bandeau de
     titre), puis une petite planche d'essai montrée à JP, puis les autres au fil de la refonte, chapitre par
-    chapitre. Environ 60 à 100 k chacune. CLAUDE.md (« Les premières minutes ») et le skill sont à jour. À refaire : les chapitres qui
+    chapitre. Environ 60 à 100 k chacune.
+26. **Une passe de fouille pour d'autres petites planches** (JP, 16 octobre : « ajoute une autre passe pour voir si
+    on aurait d'autres candidats pour les mini-planches »). Relire les 113 chapitres (procédure, variante d'urgence,
+    encadré danger) avec un seul critère : un geste ou un objet que l'œil comprend plus vite que la phrase, et qui
+    ne mérite pas une page entière. Pour chaque candidate : le chapitre, le paragraphe exact (début du texte), ce
+    que la petite planche montre, pourquoi la phrase seule ne suffit pas. Écarter les données, ce que JP fait déjà,
+    ce qui est déjà dessiné, la décoration. Résultat ajouté à `images/audit-planches/petites-planches.md`, section
+    3, classé par chapitre, pour que JP choisisse. Par lots de tomes, en parallèle ; à faire après la refonte d'un
+    tome (le texte change), ou pendant, chapitre par chapitre. Environ 30 à 50 k par tome de lecture. CLAUDE.md (« Les premières minutes ») et le skill sont à jour. À refaire : les chapitres qui
     ont des séries orange, les modèles 11, 3, 4 et 13 compris (`grep -l "{.orange" chapitres/*.md`).
 
 Le **ch. 11 (feu de forêt)** est **le chapitre modèle de la refonte, approuvé par JP** (15 octobre au soir :

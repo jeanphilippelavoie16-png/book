@@ -43,6 +43,10 @@ C'est le cœur de la liste : un geste simple que la phrase dit, mais qu'un petit
 Prévues en grande planche ; plusieurs tiendraient mieux en petite. Faites depuis : la couverture de fenêtre
 (03-12) et les outils de feu (11-05). Le reste est dans `LISEZMOI.md`, « Priorité basse ».
 
+## 3. Fouille à venir
+
+Une passe sur les 113 chapitres pour trouver d'autres candidates (plan de match, point 26). Elle s'ajoute ici.
+
 ## Laissées de côté pour de bon
 
 Les données (code sol-air, colonne de fumée à lire), ce que JP fait déjà (poste d'auto, adaptateur USB,
