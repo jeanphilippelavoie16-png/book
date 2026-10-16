@@ -361,6 +361,13 @@ absolument, essentiel, important, et ce qu'on ajoute s'il reste du temps et de l
 Chaque ligne dit si c'est pour la maison, pour le chalet, ou pour les deux. C'est le
 seul inventaire du livre.
 
+## Le cadre des agents
+
+**Tout agent qu'on lance sur le livre reçoit `.claude/cadre-agents.md` au complet**, avant son sujet, et rend la
+liste de contrôle de sa partie cochée (JP, 16 octobre 2026 : « ça sert à rien de faire ça si on refait toujours les
+mêmes erreurs »). **Toute correction de JP entre le jour même** dans le skill concerné et dans ce cadre ; une
+correction notée seulement dans le plan de match sera refaite par le prochain agent.
+
 ## La chaîne
 
 Un chapitre passe par : **rédacteur → vérificateur technique + vérificateur sécurité
