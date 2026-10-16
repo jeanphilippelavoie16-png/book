@@ -41,15 +41,16 @@ ou une braise qu'on a gardée, aussi longtemps qu'il reste de l'amadou sec.
  mettre des vêtements secs et le coucher dans un sac de couchage fermé, avec quelque chose d'épais sous
  lui (ch. 25, étapes 5 à 9). S'il y a deux adultes, l'un s'occupe de la personne mouillée pendant que
  l'autre fait le feu. Une personne seule et mouillée doit mettre des vêtements secs avant d'allumer.
-2. **Mettre le briquet au butane qui ne fait plus de flamme sous ses vêtements, contre le ventre.** Sous
+2. **S'il y a un briquet au butane qui ne fait plus de flamme, le mettre sous ses vêtements, contre le
+ ventre.** Sous
  0 °C environ, le butane n'a plus assez de pression pour sortir du briquet (sous −11 °C pour un briquet à
  l'isobutane). Contre le ventre, le briquet se réchauffe et redonne une flamme. Dès qu'il en donne une,
  allumer le nid tout de suite, avant que le briquet refroidisse dans la main.
 3. **Garder les mitaines et ramasser le bois.** On peut casser les branches, les trier et fendre le bois
  avec les mitaines : les mains restent chaudes pour le geste fin de l'étape 6. Ramasser les branches mortes du bas des épinettes (étape 11), les casser et les trier
- en tas, par grosseur (étape 10), et ramasser quelques bûches.
-4. **Faire le feu à l'abri du vent, sur un lit de branches vertes s'il y a de la neige** (étape 8), et sortir
- l'amadou de sous ses vêtements.
+ en tas, par grosseur (étape 10), et ramasser quelques bûches. Ramasser l'amadou en même temps : de
+ l'écorce de bouleau, de la barbe de vieillard (section 8, « L'amadou qu'on ramasse »). L'amadou qu'on avait sur soi sert en premier.
+4. **Faire le feu à l'abri du vent, sur un lit de branches vertes s'il y a de la neige** (étape 8).
 5. **Choisir la méthode selon les mains.**
  - S'il fait plus froid que −17,5 °C, ou si les doigts font mal ou ne sentent plus rien : allumer à la pile
  ou à la batterie, avec de la laine d'acier (étapes 18 à 21). On touche la laine avec les deux bornes de
@@ -61,7 +62,7 @@ ou une braise qu'on a gardée, aussi longtemps qu'il reste de l'amadou sec.
  Les doigts perdent leur adresse quand la peau des mains descend sous 16 °C. Sans thermomètre, le repère
  est la douleur : les doigts commencent à faire mal au froid vers 15 °C de peau, et c'est aussi là qu'ils
  s'engourdissent et que les gestes deviennent lents et imprécis.
-6. **Enlever les mitaines seulement pour le geste fin** (écharper le nid, tenir la tige et le couteau), et
+6. **Enlever les mitaines seulement pour le geste fin** (effilocher l'amadou, tenir la tige et le couteau), et
  les remettre dès que le nid flambe.
 7. **Après 10 minutes à mains nues sans feu, remettre les mitaines et réchauffer les mains sous les
  aisselles** avant d'essayer encore, pour que les mains retrouvent leur adresse.
@@ -80,7 +81,9 @@ ou une braise qu'on a gardée, aussi longtemps qu'il reste de l'amadou sec.
  - Faire un feu de 1 m sur 1 m au plus.
  - Allumer dehors seulement quand le vent reste sous 20 km/h : à 16 km/h, un drapeau léger est déployé ;
  à 24 km/h, une feuille de papier journal se soulève du sol. Quand le vent est plus fort, ou que la mousse
- craque sous le pied (ch. 11, section 9), faire le feu dans le poêle.
+ craque sous le pied (ch. 11, section 9), faire le feu dans le poêle. Sans poêle, quand il faut un feu
+ pour se réchauffer (étapes 1 à 7), le faire le plus petit possible, derrière une butte, un rocher ou un
+ mur de neige, et dégager plus large autour [À VÉRIFIER].
 9. **Mettre de l'eau, du sable ou de la terre à portée de main** avant d'allumer.
 10. **Trier le bois en quatre tas, au complet, avant la première étincelle** : l'amadou fin
  (planche 13-40, repère 1), le petit bois de moins de 2 cm (repère 2), celui de 2 à 5 cm (repère 3) et les
@@ -109,7 +112,7 @@ ou une braise qu'on a gardée, aussi longtemps qu'il reste de l'amadou sec.
 ### Allumer au ferrocérium
 
 14. **Faire le nid.**
- - Prendre une bonne poignée de fibres fines et sèches, et les écharper entre les doigts jusqu'à voir le
+ - Prendre une bonne poignée de fibres fines et sèches, et les effilocher entre les doigts jusqu'à voir le
  jour au travers (repère 7).
  - Creuser un creux au centre.
  - Mettre au fond du creux une pincée de matière très fine (poudre grattée sur l'écorce de bouleau, duvet
@@ -159,7 +162,7 @@ Sans tige de ferrocérium : le briquet à pierre, la batterie, le soleil ou l'ar
 ### Allumer au soleil
 
 22. **Choisir une cible sombre et sèche** : de l'amadou carbonisé (étape 25), du bois pourri sec et brun,
- de l'écorce intérieure noircie. La lumière chauffe une matière sombre ; une matière blanche la renvoie.
+ de l'écorce intérieure noircie. Le point de lumière fait fumer une matière sombre ; sur une matière blanche, il ne fait presque rien.
 23. **Faire le plus petit point de lumière possible et le tenir immobile** sur la cible : avancer ou reculer
  la lentille jusqu'à ce que le point soit le plus petit et le plus brillant, puis caler la lentille et les
  mains sur un appui. Il faut un soleil franc.
@@ -186,11 +189,15 @@ Sans tige de ferrocérium : le briquet à pierre, la batterie, le soleil ou l'ar
 
 ### Éteindre
 
-29. **Éteindre un feu dehors avant de le quitter.** Arroser abondamment, brasser les cendres, remuer les
- braises et remettre de l'eau, jusqu'à ce que la main passée au ras des cendres ne sente plus aucune
- chaleur, et rester sur place jusque-là. Sur un lit de branches vertes, arroser aussi les branches : elles
- peuvent couver sous ce qu'on a éteint. Le feu qui a gagné l'humus : étape 8 et section 6. Les cendres du
- poêle : ch. 82.
+29. **Éteindre un feu dehors avant de le quitter.**
+ - Arroser abondamment les braises et les cendres.
+ - Brasser les cendres et remuer les braises avec un bâton, puis remettre de l'eau.
+ - Passer la main au ras des cendres. Tant qu'elle sent de la chaleur, brasser et arroser encore, et
+ rester sur place.
+ - Sur un lit de branches vertes, arroser aussi les branches : elles peuvent couver sous ce qu'on a
+ éteint.
+
+ Le feu qui a gagné l'humus : étape 8 et section 6. Les cendres du poêle : ch. 82.
 
 ---
 
@@ -202,7 +209,7 @@ Sans tige de ferrocérium : le briquet à pierre, la batterie, le soleil ou l'ar
 | Avant d'allumer | Les grosseurs | Deux tas de petit bois : moins de **2 cm**, et **2 à 5 cm** ; bûches de moins de **15 cm** | Refendre ; ne pas passer à la grosseur suivante |
 | Avant d'allumer dehors | Le vent | Moins de **20 km/h** : la feuille de papier journal reste au sol | Faire le feu dans le poêle, ou attendre |
 | Avant d'allumer dehors | Le foyer | **1 m sur 1 m** au plus, pourtour dégagé, terre minérale | Réduire ; creuser jusqu'à la terre minérale |
-| Le nid | L'amadou | On voit le jour au travers ; il craque sous les doigts | Écharper encore ; le sécher sous les vêtements |
+| Le nid | L'amadou | On voit le jour au travers ; il craque sous les doigts | L'effilocher encore ; le sécher sous les vêtements |
 | L'étincelle | La gerbe | Une gerbe orange et serrée qui tombe dans le creux | Rapprocher la pointe ; tirer la tige au lieu de pousser le couteau |
 | La braise | La fumée | Blanche, épaisse et continue après le premier souffle | Souffler plus longtemps et plus doucement ; ajouter de la matière fine |
 | Le nid a fini de brûler | Le tipi | Le bois fin crépite seul, sans souffle | Ajouter du bois fin, pas de gros bois |
@@ -217,7 +224,7 @@ Sans tige de ferrocérium : le briquet à pierre, la batterie, le soleil ou l'ar
 | Observation | Diagnostic | Action |
 | --- | --- | --- |
 | Étincelles jaunes et rares, qui meurent dans l'air | Grattoir émoussé ou tenu trop à plat ; tige neuve encore couverte de son vernis | Meuler une arête d'équerre (ch. 105) ; gratter la tige neuve pour enlever le vernis |
-| Le nid fume, puis s'éteint dès qu'on arrête de souffler | Amadou humide au cœur, ou trop serré | L'écharper et le sécher sous les vêtements ; le refermer sans le serrer |
+| Le nid fume, puis s'éteint dès qu'on arrête de souffler | Amadou humide au cœur, ou trop serré | L'effilocher et le sécher sous les vêtements ; le refermer sans le serrer |
 | La braise grossit, puis noircit sans faire de flamme | Souffle par à-coups | Souffler en continu, sans à-coups (étape 16) |
 | Le nid s'envole à la première étincelle | On a poussé le couteau sur la tige | Tenir le couteau immobile et tirer la tige vers soi (étape 15) |
 | Flamme vive quelques secondes, puis plus rien | On est passé du bois fin aux bûches sans le bois de 2 à 5 cm | Remonter le tipi en bois de moins de 2 cm, puis ajouter le 2 à 5 cm |
@@ -244,9 +251,9 @@ Sans tige de ferrocérium : le briquet à pierre, la batterie, le soleil ou l'ar
 > froid, il peut ne pas sonner même s'il y a du CO. On fait le feu dehors, ou dans un poêle raccordé à sa cheminée ;
 > le poêle dans la tente est au ch. 12.
 >
-> **2. Jamais d'accélérant.** Ni essence, ni allume-feu liquide ou en gel. L'essence brûle par sa vapeur :
-> versée sur des braises, elle forme un nuage invisible qui s'étend jusqu'à la main qui verse, et la
-> flamme remonte le nuage jusqu'au bidon. L'essence dégage assez de vapeur pour s'enflammer jusqu'à
+> **2. Jamais d'accélérant.** Ni essence, ni allume-feu liquide ou en gel. Versée sur des braises,
+> l'essence dégage un nuage de vapeur invisible qui s'étend jusqu'à la main qui verse ; la vapeur prend
+> feu, et la flamme remonte le nuage jusqu'au bidon. L'essence dégage assez de vapeur pour s'enflammer jusqu'à
 > −43 °C : le froid de l'hiver ne la rend pas moins dangereuse. On n'ouvre jamais un bidon entre soi et le
 > feu, et on ne verse jamais rien sur une braise.
 >
@@ -271,11 +278,15 @@ Sans tige de ferrocérium : le briquet à pierre, la batterie, le soleil ou l'ar
 
 ### Garder le feu
 
-**Couvrir le feu pour la nuit**, dehors ou dans un foyer ouvert. Ramasser les braises en un tas serré,
-poser par-dessus deux grosses bûches fendues, l'une contre l'autre, les faces fendues vers le bas, et les
-recouvrir de cendre froide jusqu'à ce que plus rien ne rougeoie. Sous la cendre, les braises reçoivent peu
-d'air et brûlent lentement, sans s'éteindre. Au matin, écarter la cendre du bout d'un bâton, souffler sur
-le cœur orange et poser des copeaux dessus. Dans le poêle, on garde l'air ouvert la nuit et on recharge à
+**Couvrir le feu pour la nuit**, dehors ou dans un foyer ouvert.
+
+- Ramasser les braises en un tas serré.
+- Poser par-dessus deux grosses bûches fendues, l'une contre l'autre, les faces fendues vers le bas.
+- Recouvrir le tout de cendre froide, jusqu'à ce que plus rien ne rougeoie. Sous la cendre, les braises
+ reçoivent peu d'air et brûlent lentement, sans s'éteindre.
+- Au matin, écarter la cendre du bout d'un bâton, souffler sur le cœur orange et poser des copeaux dessus.
+
+Dans le poêle, on garde l'air ouvert la nuit et on recharge à
 tour de rôle (ch. 3, étape 6) : quand on ferme l'air d'un poêle pour la nuit, le feu couve et le CO
 refoule dans la pièce.
 
@@ -414,12 +425,16 @@ l'été, au sec, avant de compter dessus.
 - **L'arc** : une branche verte et souple d'environ 2,5 cm de diamètre, avec une corde tendue sans mou
  d'un bout à l'autre (repère 9). Un lacet de botte en coton tressé mord bien sur le foret. Une lanière de
  babiche (ch. 103) mord bien à sec, mais elle s'allonge à l'humidité : il faut la retendre souvent.
-- **Tourner** : mettre un nid d'amadou sous l'encoche (repère 10), poser un pied sur la planchette
- (repère 11), enrouler la corde d'un tour autour du foret (repère 12), mettre le bas du foret dans la
- cavité et appuyer le palier sur le haut (repère 13). Faire aller l'arc d'avant en arrière ; quand le
- mouvement est régulier, appuyer plus fort et aller plus vite (repère 14). La poussière noire s'accumule
- dans l'encoche et se met à fumer seule (repère 15) : c'est la braise. La faire tomber dans le nid et
- souffler (étape 16).
+**Tourner le foret.**
+
+- Mettre un nid d'amadou sous l'encoche (repère 10).
+- Poser un pied sur la planchette (repère 11).
+- Enrouler la corde de l'arc d'un tour autour du foret (repère 12).
+- Mettre le bas du foret dans la cavité, et appuyer le palier sur le haut (repère 13).
+- Faire aller l'arc d'avant en arrière ; quand le mouvement est régulier, appuyer plus fort et aller plus
+ vite (repère 14).
+- La poussière noire s'accumule dans l'encoche et se met à fumer seule (repère 15) : c'est la braise. La
+ faire tomber dans le nid et souffler (étape 16).
 
 Ce qu'on perd : beaucoup d'effort, qui coûte de la nourriture l'hiver (ch. 21) ; il faut du bois sec à
 cœur, rare dehors en février ; et il échoue plus souvent que les autres méthodes, même entre des mains
