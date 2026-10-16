@@ -410,6 +410,18 @@ def danger_story(sec):
     return out, subject
 
 # ------------------------------------------------------------------ planches et photos
+def svg_titre(p, pid):
+    """Le titre de la planche, pris dans le <title> du SVG (« Planche 13-01. L'arc à feu »), sans le numéro."""
+    try:
+        m = re.search(r"<title>(.*?)</title>", open(p, encoding="utf-8").read(4000), re.S)
+    except OSError:
+        return ""
+    if not m:
+        return ""
+    t = html.unescape(m.group(1)).strip()
+    t = re.sub(rf"^Planche\s+{re.escape(pid)}[.\s]*", "", t)
+    return t.rstrip(". ")
+
 def svg_size(p):
     head = open(p, encoding="utf-8").read(600)
     w = re.search(r'width="([\d.]+)"', head); h = re.search(r'height="([\d.]+)"', head)
@@ -435,15 +447,23 @@ def figures(num):
             w, h = svg_size(svg) if src == svg else (680.0, 826.0)
             size = "full" if h / w > 0.9 else "demi"
             rel = REL_ROOT + os.path.relpath(src, ROOT).replace("\\", "/")
-            figs.append(dict(id=pid, src=rel, size=size, ratio=h / w, dossier=dos))
+            titre = svg_titre(svg, pid) if src == svg else ""
+            figs.append(dict(id=pid, src=rel, size=size, ratio=h / w, dossier=dos, titre=titre))
     # l'ordre des numéros, quel que soit le dossier (deux planches ancrées au même paragraphe gardent leur ordre)
     figs.sort(key=lambda f: [int(x) if x.isdigit() else x for x in re.findall(r"\d+|[a-z]+", f["id"])])
     return figs
 
+def pl_tete(f):
+    """Le numéro et le titre de la planche, en évidence au-dessus du dessin (JP, 16 octobre 2026 : « là, ils sont
+    comme tout cachés »). L'étiquette rouge reprend le rouge de l'appel fléché du texte."""
+    t = f'<span class="pl-titre">{html.escape(f["titre"])}</span>' if f.get("titre") else ""
+    return f'<div class="pl-tete"><span class="pl-num">Planche {f["id"]}</span>{t}</div>'
+
 def fig_html(f):
     if f["size"] == "full":
-        return (f'<figure class="fig plf" data-plate="full" data-id="{f["id"]}" data-src="{f["src"]}"></figure>')
-    return (f'<figure class="fig pl demi" data-id="{f["id"]}"><img src="{f["src"]}" alt="Planche {f["id"]}" '
+        return (f'<figure class="fig plf" data-plate="full" data-id="{f["id"]}" data-src="{f["src"]}" '
+                f'data-titre="{html.escape(f.get("titre", ""), quote=True)}"></figure>')
+    return (f'<figure class="fig pl demi" data-id="{f["id"]}">{pl_tete(f)}<img src="{f["src"]}" alt="Planche {f["id"]}" '
             f'style="height:{7 * f["ratio"]:.3f}in"></figure>')
 
 def photo_html(p):
@@ -554,17 +574,23 @@ def build(num):
     if any('class="sub or"' in h for h, _ in stories.get("d", [])):
         WARN.append("marqueur {.orange} dans la section 8 : le titre sort en orange, sans encadré")
     present = {s["n"] for s in ch["secs"] if s["n"]}
+    # le sommaire d'ouverture prend le titre de la section 3 tel que le chapitre l'écrit (« Comment ça marche »
+    # remplace « Pourquoi ça marche », JP, 16 octobre 2026)
+    noms = dict(SECNAMES)
+    for sc in ch["secs"]:
+        if sc["n"] == 3 and sc["title"]:
+            noms[3] = html.unescape(re.sub("<[^>]+>", "", il(sc["title"])))
     tn = tome_de(num)
     meta = dict(num=num, title=html.unescape(re.sub("<[^>]+>", "", il(ch["title"]))), tome=ch["tome"],
                 tnum=tn, tfond=TOMES[tn][1], tencre=TOMES[tn][2],
                 lieu=ch["lieu"] or "Les deux", dsub=il(dsubject) if dsubject else "",
-                secs={str(k): v for k, v in SECNAMES.items() if k in present})
+                secs={str(k): v for k, v in noms.items() if k in present})
     if n_or:
         meta["flux"] = flux     # [id de l'histoire, genre (main, o, d, e), 1 si c'est la suite d'une histoire coupée]
     lieu_opts = "".join(f'<span{" class=\"on\"" if o == meta["lieu"] else ""}>{o}</span>' for o in ("Maison", "Chalet", "Les deux"))
     toc = "".join(
         f'<li class="{"d" if k == 8 else "h" if k == 9 else ""}" data-n="{k}"><span class="n">{k}</span>'
-        f'<span class="t">{v}</span><span class="f"></span></li>' for k, v in SECNAMES.items() if k in present)
+        f'<span class="t">{v}</span><span class="f"></span></li>' for k, v in noms.items() if k in present)
     lieu_note = f'<p class="lieu-note">{il(ch["lieu_txt"])}</p>' if ch["lieu_txt"] else ""
     opening = (f'<header class="open"><div class="open-top"><span>{ch["tome"]}</span><span>Chapitre</span></div>'
                f'<div class="open-title"><div class="num">{int(num) if num.isdigit() else num}</div><h1>{il(ch["title"])}</h1></div>'

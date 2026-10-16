@@ -228,7 +228,9 @@ function composer(fichierSpec, { zonesSeulement = false } = {}) {
   const piedTexte = `Planche ${spec.ref}. ${spec.titre.replace(/\.$/, '')}.`;
   if (largeur(piedTexte, 13) > utile) fautes.push(`le pied « ${piedTexte} » ne tient pas sur une ligne : raccourcis le titre`);
 
-  const piedH = 13 + (rangs ? 8 + rangs * PAS_LEGENDE : 0);
+  // Le numéro et le titre ne s'impriment plus dans le dessin : le moteur de pages les pose en haut de la page,
+  // en évidence (JP, 16 octobre 2026 : « là, ils sont comme tout cachés »). Le SVG les garde dans <title>.
+  const piedH = rangs ? 4 + rangs * PAS_LEGENDE : 0;
   const yPied = H - MB - piedH;
   let yBasDessin = yPied - 18;
   let dangerSvg = '';
@@ -298,12 +300,12 @@ function composer(fichierSpec, { zonesSeulement = false } = {}) {
   }
 
   // Pied : titre, puis la légende en colonnes
-  const pied = [txt(MX, yPied + 13, piedTexte)];
+  const pied = [];
   const triés = renvois.slice().sort((a, b) => a.n - b.n);
   triés.forEach((r, i) => {
     const c = Math.floor(i / rangs), l = i % rangs;
     const x = MX + c * (colL + 24);
-    const yl = yPied + 13 + 8 + (l + 1) * PAS_LEGENDE;
+    const yl = yPied + (l + 1) * PAS_LEGENDE;
     pied.push(txt(x + retrait - 6, yl, String(r.n), { ancre: 'end' }));
     pied.push(txt(x + retrait, yl, r.texte));
   });

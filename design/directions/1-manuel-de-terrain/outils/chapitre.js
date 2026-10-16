@@ -29,8 +29,13 @@ function mkPage(kind, plate){
   const bl = document.createElement('div'); bl.className = 'block'; el.appendChild(bl);
   if(kind === 'open') bl.innerHTML = document.getElementById('open').innerHTML;
   if(kind === 'plate'){
-    const img = document.createElement('img'); img.className = 'planche'; img.src = plate.dataset.src; img.alt = 'Planche ' + plate.dataset.id;
-    bl.appendChild(img);
+    // le numéro et le titre en haut de la page, en évidence (JP, 16 octobre 2026) ; le dessin prend le reste
+    const tete = document.createElement('div'); tete.className = 'pl-tete';
+    tete.innerHTML = '<span class="pl-num">Planche ' + plate.dataset.id + '</span>' +
+      (plate.dataset.titre ? '<span class="pl-titre"></span>' : '');
+    if(plate.dataset.titre) tete.querySelector('.pl-titre').textContent = plate.dataset.titre;
+    const img = document.createElement('img'); img.className = 'planche avec-tete'; img.src = plate.dataset.src; img.alt = 'Planche ' + plate.dataset.id;
+    bl.appendChild(tete); bl.appendChild(img);
   }
   BOOK.appendChild(el);
   const p = {el, bl, kind, n, deferred: [], plate: plate ? plate.dataset.id : null};
@@ -115,6 +120,22 @@ function pour(f, q, p){
     // pas de titre ni d'amorce seule en bas de page
     while(f.lastElementChild && (/^H[234]$/.test(f.lastElementChild.tagName) || f.lastElementChild.classList.contains('kh')))
       q.unshift(f.removeChild(f.lastElementChild));
+    // ni un début de section coupé : un titre suivi de moins de six lignes en bas du cadre passe à la page
+    // suivante avec ce qui le suit, et le cadre garde son vide (JP, 16 octobre 2026 : « laisser un vide et
+    // passer à l'autre page quand c'est de même »)
+    const kids = [...f.children]; let i = -1;
+    for(let k = kids.length - 1; k > 0; k--) if(/^H[234]$/.test(kids[k].tagName) || kids[k].classList.contains('kh')){ i = k; break; }
+    if(i > 0){
+      const hb = kids[i].getBoundingClientRect().bottom;
+      const bas = Math.max(hb, ...kids.slice(i + 1).map(e => e.getBoundingClientRect().bottom));
+      if(bas - hb < 6 * ligne(f)){
+        const der = kids[kids.length - 1];
+        if(der.tagName === 'P' && q[0] && q[0].tagName === 'P' && q[0].classList.contains('cont')){   // recoller le paragraphe coupé
+          const rest = q.shift(); der.appendChild(document.createTextNode(' ')); while(rest.firstChild) der.appendChild(rest.firstChild);
+        }
+        for(let k = kids.length - 1; k >= i; k--) q.unshift(f.removeChild(kids[k]));
+      }
+    }
     syncNotes(f);
   }
   if(p.deferred.length){   // après la fin du paragraphe coupé, jamais au milieu
@@ -125,6 +146,10 @@ function pour(f, q, p){
 }
 function pli(el, f){   // hauteur qu'occuperait el dans le cadre f, colonnes comprises
   f.appendChild(el); const h = Array.from(el.getClientRects()).reduce((s, r) => s + r.height, 0); f.removeChild(el); return h;
+}
+function ligne(f){      // interligne du texte courant, en px
+  const t = f.querySelector('p') || document.querySelector('.frame p');
+  return (t && parseFloat(getComputedStyle(t).lineHeight)) || 17;
 }
 function colH(f){ return f.getBoundingClientRect().height || P.bl.getBoundingClientRect().height; }
 

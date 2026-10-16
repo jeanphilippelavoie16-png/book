@@ -77,3 +77,12 @@ p.step + table.tcol, p.stepc + table.tcol{margin-top:1pt}
 .appel svg{display:inline-block;width:1.2em;height:.66em;margin:0 .22em 0 .04em;vertical-align:.02em;fill:#9B2C1E}
 .appel.g svg{transform:scaleX(-1)}
 .appel.ailleurs{font-weight:500}
+
+/* Le numéro et le titre de la planche, en haut de sa page (JP, 16 octobre 2026 : « là, ils sont comme tout cachés »).
+   L'étiquette rouge est celle de l'appel fléché du texte : on fait le lien d'un coup d'œil. */
+.pl-tete{display:flex;align-items:center;gap:8pt;height:.4in;margin:0 0 .06in;border-bottom:1.2pt solid #1A1A1A}
+.pl-num{background:#9B2C1E;color:#fff;font:700 10pt/1 "IBM Plex Sans Condensed",sans-serif;letter-spacing:.07em;
+  text-transform:uppercase;padding:3.5pt 6pt 3pt;white-space:nowrap}
+.pl-titre{font:700 14.5pt/1.1 "IBM Plex Sans Condensed",sans-serif;color:#1A1A1A}
+img.planche.avec-tete{height:calc(8.5in - .46in);width:7in;object-fit:contain;object-position:center top}
+.fig.pl.demi .pl-tete{height:.34in;margin-bottom:4pt}
