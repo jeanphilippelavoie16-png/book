@@ -256,7 +256,10 @@ doit être informatif, partout.** Ce qui saute :
   fait, puis où : « laisser ses chaussures à la porte », pas « laisser à la porte ses chaussures »), et une
   consigne se dit comme une consigne (« doivent laisser », ou l'infinitif dans une étape), pas au présent
   qui décrit. On écrit : « Les gens qui étaient à l'extérieur doivent laisser leurs vêtements du dessus et
-  leurs chaussures à la porte. »
+  leurs chaussures à la porte. » **Ni au pronominal** (JP, 16 octobre 2026, « très important pour le livre ») :
+  « s'il n'est plus dur au centre, il se cuit tout de suite ou se jette » se dit « on doit le cuire tout de
+  suite ou le jeter ». Quand quelqu'un fait le geste, on dit qui le fait : l'infinitif dans une étape,
+  « on doit », « il faut ». « Se » reste quand la chose le fait toute seule (« le puisard se remplit »).
 - le tiret (— ou –) dans une phrase (JP : « y a juste les AI qui mettent ça dans des phrases »). Il
   devient une virgule, deux-points, des parenthèses ou un point. Les lignes de matériel aussi :
   « **Thermomètre à sonde** : porte les 74 °C à cœur. »

@@ -164,6 +164,12 @@ tomes** : un peu plus de blanc en bas des pages qui précèdent une planche ; le
     on en a besoin pour faire le geste. **Et la règle « 1 h d'arrêt toutes les 8 h » (ch. 3, étape 20 et
     section 6) n'a pas de provenance dans `suivi/03-redaction.md`** : la sourcer (manuel de génératrice) ou
     mettre `[À VÉRIFIER]`.
+16. **La consigne au pronominal** (JP, 16 octobre, ch. 3 : « il se cuit tout de suite ou se jette » ; « on doit le
+    cuire, pas il se cuit ; très important pour le livre »). Quand quelqu'un fait le geste, on dit qui le fait :
+    l'infinitif dans une étape, « on doit », « il faut », « on le fait bouillir ». « Se » reste quand la chose le
+    fait toute seule (« le puisard se remplit »). Environ 3 000 « se + verbe » dans les 113 chapitres, à juger :
+    ajouter un repérage au script `controle.py` (catégorie « pronominal », à juger), puis le passer chapitre
+    par chapitre avec la refonte. Règle ajoutée à CLAUDE.md (« la tournure bizarre ») et au tableau du skill.
 
 Le **ch. 11 (feu de forêt)** est **le chapitre modèle de la refonte, approuvé par JP** (15 octobre au soir :
 « c'est parfait, on se garde ça pour samedi ») : texte, trois séries orange à la longueur de leur temps (1 h,
