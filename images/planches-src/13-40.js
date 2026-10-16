@@ -120,7 +120,7 @@ module.exports = (h) => {
   // regarde vers nous. Entre les brins de la paroi, des jours : on y voit le sol au travers (le même gris).
   // (cx, yG) : le point du sol sous le centre ; Rr : le rayon au bord. Repère : X à droite, D vers nous, Z en haut.
   let nEcu = 0;
-  const ecuelle = (cx, yG, Rr, graine, { theta = 38, poudre = true, jours = 13, densite = 1, sol = 0, fond = true } = {}) => {
+  const ecuelle = (cx, yG, Rr, graine, { theta = 38, poudre = true, jours = 8, densite = 1, sol = 0, fond = true } = {}) => {
     const r = gen(graine), th = deg(theta), st = Math.sin(th), ct = Math.cos(th), id = `ecu-${++nEcu}-1340`;
     const Hb = Rr * 0.6, w = Rr * 0.36, Ri = Rr - w, Rb = Rr * 0.6, zf = Hb * 0.4, Rf = Ri * 0.62, dome = w * 0.28;
     const pr = (X, D, Z) => [cx + X, yG + D * st - Z * ct];
@@ -209,30 +209,32 @@ module.exports = (h) => {
     out.push(`<g clip-path="url(#${id}-paroi)">` + brins('ext', Math.round(170 * dn), Rr * 0.25, Rr * 0.6, { u0: 0, u1: Math.PI, v0: 0, v1: 1 }) + '</g>');
     // les jours : des trous entre les brins, où l'on voit le sol (le gris)
     const trous = [];
-    // un jour : le vide entre quatre brins qui se croisent (deux paires presque parallèles), où l'on voit le sol
+    // un jour : le vide entre quatre brins qui se croisent (deux paires presque parallèles), où l'on voit le sol. Posé
+    // sur la surface : ses coins sont calculés en (u, v), puis projetés, pour qu'il suive la courbure de la paroi.
     const trou = (nom, u, v, l) => {
       const q = S[nom](u, v); if (!vis(q)) return;
-      const c = P(q), a1 = (r() - 0.5) * 1.2, a2 = a1 + (r() < 0.5 ? 1 : -1) * (1.0 + r() * 0.5);
-      const d1 = l * (0.55 + r() * 0.25), d2 = l * (0.45 + r() * 0.25);
-      const u1 = [Math.cos(a1), Math.sin(a1)], u2 = [Math.cos(a2), Math.sin(a2)];
-      const n1 = [-u1[1], u1[0]], n2 = [-u2[1], u2[0]];
-      // les quatre coins : intersections des droites c + s1·d1·n1 (le long de u1) et c + s2·d2·n2 (le long de u2)
-      const X = (s1, s2) => { const p1 = add(c, mul(n1, s1 * d1)), p2 = add(c, mul(n2, s2 * d2));
-        const det = u1[0] * (-u2[1]) - u1[1] * (-u2[0]), t = ((p2[0] - p1[0]) * (-u2[1]) - (p2[1] - p1[1]) * (-u2[0])) / det; return add(p1, mul(u1, t)); };
-      const k = [X(-1, -1), X(-1, 1), X(1, 1), X(1, -1)];
+      const sg = r() < 0.5 ? 1 : -1, a1 = sg * deg(20 + r() * 25), a2 = a1 - sg * deg(80 + r() * 20);
+      const d1 = l * (0.7 + r() * 0.2), d2 = l * (0.6 + r() * 0.2);
+      const u1 = [Math.cos(a1), Math.sin(a1)], u2 = [Math.cos(a2), Math.sin(a2)], n1 = [-u1[1], u1[0]], n2 = [-u2[1], u2[0]];
+      const X = (s1, s2, e1 = 0, e2 = 0) => { const p1 = mul(n1, s1 * d1), p2 = mul(n2, s2 * d2);
+        const det = u1[0] * (-u2[1]) - u1[1] * (-u2[0]), t = ((p2[0] - p1[0]) * (-u2[1]) - (p2[1] - p1[1]) * (-u2[0])) / det;
+        return add(add(p1, mul(u1, t)), add(mul(u1, e1), mul(u2, e2))); };
+      // (du, dv) en longueur d'arc → point de l'écran
+      const E2 = w2 => P(S[nom](u + w2[0] / rayon[nom], Math.min(1, Math.max(0, v + w2[1] / larg[nom]))));
+      const k = [X(-1, -1), X(-1, 1), X(1, 1), X(1, -1)].map(E2);
       out.push(h.chemin(k, A.loin, true));
+      const ligne = (w0, w1) => { const p0 = E2(w0), p1 = E2(w1); return `M ${f(p0[0])} ${f(p0[1])} L ${f(p1[0])} ${f(p1[1])} `; };
+      const L1 = d2 * 2.6, L2 = d1 * 2.6;
       let d = '';
-      [[-1, 0, 1], [1, 2, 3]].forEach(([s1, i0, i1]) => { const A0 = k[i0], B0 = k[i1], m = mul([B0[0] - A0[0], B0[1] - A0[1]], 0.9);
-        d += `M ${f(A0[0] - m[0])} ${f(A0[1] - m[1])} L ${f(B0[0] + m[0] * 0.8)} ${f(B0[1] + m[1] * 0.8)} `; });
-      [[1, 2], [3, 0]].forEach(([i0, i1]) => { const A0 = k[i0], B0 = k[i1], m = mul([B0[0] - A0[0], B0[1] - A0[1]], 0.9);
-        d += `M ${f(A0[0] - m[0] * 0.8)} ${f(A0[1] - m[1] * 0.8)} L ${f(B0[0] + m[0])} ${f(B0[1] + m[1])} `; });
-      out.push(h.path(d, A.fin));
-      trous.push(c);
+      [-1, 1].forEach(s1 => { const c0 = X(s1, 0); d += ligne(add(c0, mul(u1, -L1)), add(c0, mul(u1, L1 * 0.9))); });
+      [-1, 1].forEach(s2 => { const c0 = X(0, s2); d += ligne(add(c0, mul(u2, -L2 * 0.9)), add(c0, mul(u2, L2))); });
+      out.push(h.path(d, A.detail));
+      trous.push(P(q));
     };
     out.push(`<g clip-path="url(#${id}-sil)">`);
     for (let i = 0; i < jours; i++) {
-      if (i % 3 === 2) trou('int', Math.PI * (1.2 + 0.6 * ((i * 0.37) % 1)), 0.25 + r() * 0.35, Rr * (0.06 + r() * 0.02));
-      else trou('ext', Math.PI * (0.12 + 0.76 * ((i * 0.618) % 1)), 0.25 + r() * 0.4, Rr * (0.07 + r() * 0.025));
+      if (i % 3 === 2) trou('int', Math.PI * (1.25 + 0.5 * ((i * 0.37) % 1)), 0.3 + r() * 0.3, Rr * (0.09 + r() * 0.02));
+      else trou('ext', Math.PI * (0.15 + 0.7 * ((i * 0.618) % 1)), 0.2 + r() * 0.35, Rr * (0.1 + r() * 0.03));
     }
     out.push('</g>');
     // le trait du dessous : quelques longs brins qui suivent la silhouette, pour poser la forme
