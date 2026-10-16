@@ -416,6 +416,7 @@ ANNEXE_CSS = """
 .tp-chap{position:absolute;left:0;right:0;top:4.95in;display:flex;justify-content:space-between;align-items:baseline;
   padding-top:7pt;border-top:0.75pt solid var(--k);font:600 10pt/1.2 var(--sans);letter-spacing:.06em;text-transform:uppercase}
 .tp-chap b{font-weight:700}
+.tp-frise{position:absolute;left:0;width:100%;top:5.38in;height:auto}
 .tp-serie{position:absolute;left:0;right:0;bottom:0.02in;display:flex;gap:3pt}
 .tp-serie div{display:flex;flex-direction:column;gap:4pt;min-width:0}
 .tp-serie i{display:block;height:0.3in;border:1.25pt solid var(--k);font:700 12pt/0.28in var(--sans);font-style:normal;padding-left:5pt}
@@ -542,11 +543,14 @@ def annexe_html(tome, chaps, plan, work):
                     for t in sorted(bc.TOMES))
     premier, dernier = chaps[0]["num"], chaps[-1]["num"]
     nb = len(chaps)
+    # la frise du tome (JP, 16 octobre 2026, plan de match point 30) : présente, sans prendre la page
+    f_svg = os.path.join(ROOT, "images", "tomes", f"tome-{tome}.svg")
+    frise = f'<img class="tp-frise" src="{url(f_svg)}" alt="">' if os.path.exists(f_svg) else ""
     pages.append(f'''<section class="page recto tp" id="a-titre"><div class="tp-aplat"></div>
 <div class="block"><div class="tp-head"><span>Le Grand Livre du Chalet</span><span>Tome {tome}</span></div>
 <h1 class="tp-title">{e(titre_t)}</h1><div class="tp-num">{tome}</div>
 <div class="tp-chap"><span>Chapitres <b>{aff(premier)}</b> à <b>{aff(dernier)}</b></span><span>{nb} chapitres</span></div>
-<div class="tp-serie">{serie}</div></div></section>''')
+{frise}<div class="tp-serie">{serie}</div></div></section>''')
     # --- dédicace (recto, après la page de titre ; JP, 14 octobre 2026 : « la première page, comme dans les livres »)
     pages.append(f'''<section class="page recto ax dd" id="a-dedicace"><div class="block">
 <p class="dd-txt">{il(DEDICACE[0])}<br><span class="dd-2">{il(DEDICACE[1])}</span></p></div></section>''')

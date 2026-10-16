@@ -292,7 +292,10 @@ tomes** : un peu plus de blanc en bas des pages qui précèdent une planche ; le
     contenu : tome 2 (Le corps) les soins et le poêle ; tome 3 (Prélever) la file qui revient de la chasse, de la
     pêche et de la cueillette ; tome 4 (De la bête au garde-manger) l'orignal, le fumoir, le caveau ; tome 5 (La
     forêt, le jardin et le chalet) le bois de chauffage, le jardin, le chalet ; tome 6 (L'atelier) la soudure,
-    la forge, le moteur. Montrer un essai du tome 1 à JP avant de faire les autres.
+    la forge, le moteur. Montrer un essai du tome 1 à JP avant de faire les autres. Essai du tome 1 fait le 16 octobre :
+    `images/tomes/_frise-tome-1.js` → `images/tomes/tome-1.svg`, posée par l'assembleur dans la bande blanche de la
+    page de titre (`.tp-frise`, dès que `images/tomes/tome-N.svg` existe) ; aperçu `livre/apercus-tomes/`. Pictogrammes
+    `h.formes.personnage` en `rendu: 'plein'`, catastrophes en gris, flammes en orange du livre.
 
 Le **ch. 11 (feu de forêt)** est **le chapitre modèle de la refonte, approuvé par JP** (15 octobre au soir :
 « c'est parfait, on se garde ça pour samedi ») : texte, trois séries orange à la longueur de leur temps (1 h,
