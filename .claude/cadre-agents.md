@@ -96,6 +96,9 @@ Le cadre complet est `.claude/skills/planches/references/brief-agent.md`. En bre
 - [ ] La taille selon le besoin : pleine page, demi-page (format `demi`) ou petite planche (format `quart`).
 - [ ] Pas de ligne « Planche NN. Titre. » dans le dessin : le moteur pose le bandeau ; le `titre:` est court et juste.
 - [ ] Second regard par un relecteur qui n'a pas dessiné la planche, jusqu'au oui ; PNG dans `images/a-valider/`.
+- [ ] Une image d'ambiance (page de titre, couverture, scène) ne se dessine pas avec les formes simples : JP l'a
+  refusée (16 octobre : « c'est laid, je veux de quoi de beau visuellement »). Elle vient d'un jeu vectoriel
+  professionnel acheté, converti et composé, ou d'une image fournie par JP.
 
 ## Le montage et la vérification (orchestrateur)
 

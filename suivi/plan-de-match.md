@@ -295,7 +295,14 @@ tomes** : un peu plus de blanc en bas des pages qui précèdent une planche ; le
     la forge, le moteur. Montrer un essai du tome 1 à JP avant de faire les autres. Essai du tome 1 fait le 16 octobre :
     `images/tomes/_frise-tome-1.js` → `images/tomes/tome-1.svg`, posée par l'assembleur dans la bande blanche de la
     page de titre (`.tp-frise`, dès que `images/tomes/tome-N.svg` existe) ; aperçu `livre/apercus-tomes/`. Pictogrammes
-    `h.formes.personnage` en `rendu: 'plein'`, catastrophes en gris, flammes en orange du livre.
+    `h.formes.personnage` en `rendu: 'plein'`, catastrophes en gris, flammes en orange du livre. **Refusé par JP le
+    16 octobre** : « c'est laid en câlisse, je veux de quoi de beau visuellement ; on dirait un dessin de Pierre-Alexis ».
+    Une scène d'ambiance ne se dessine pas avec nos formes simples. La voie : un jeu vectoriel professionnel acheté
+    (le style de la référence est celui de l'illustrateur « pixeoo » sur Shutterstock, qui vend des centaines de
+    pictogrammes : familles, catastrophes, feu, chasse, atelier), converti comme les mains et composé ; ou une image
+    faite par JP avec un générateur d'images, à partir du brief `images/tomes/brief-images-tomes.md`. **La
+    couverture aussi** reçoit son image, dans le même style. La frise d'essai et `.tp-frise` restent comme
+    emplacement ; `images/tomes/tome-1.svg` se remplace.
 
 Le **ch. 11 (feu de forêt)** est **le chapitre modèle de la refonte, approuvé par JP** (15 octobre au soir :
 « c'est parfait, on se garde ça pour samedi ») : texte, trois séries orange à la longueur de leur temps (1 h,
