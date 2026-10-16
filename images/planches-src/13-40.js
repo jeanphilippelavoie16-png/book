@@ -122,10 +122,11 @@ module.exports = (h) => {
     return { svg: corps.concat(bouts).join('\n'), items };
   };
   // Les quatre tas en colonne, du plus fin au plus gros, tous à la même échelle.
+  const HT = 0.62;                                   // la part de la vue pour les quatre tas ; dessous, le tipi
   const tas = z => {
-    const sc = Math.min(0.8, (z.l - 40) / 217);
+    const sc = Math.min(0.62, (z.l - 40) / 217, (z.h * HT - 4 - 4 * 8) / 271);
     const hauts = [48, 51, 61, 111].map(v => v * sc);
-    const gap = (z.h - 4 - hauts.reduce((a, b) => a + b, 0)) / 4;
+    const gap = (z.h * HT - 4 - hauts.reduce((a, b) => a + b, 0)) / 4;
     const sols = [];
     let y = 0;
     hauts.forEach(hh => { y += gap + hh; sols.push(y); });
@@ -254,9 +255,34 @@ module.exports = (h) => {
     return h.path(d, blanc(A.arete));
   };
   const tipi = z => {
-    const cx = Math.round(z.l * 0.52), yB = z.h - 44, rx = Math.min(72, z.l * 0.24), ry = 18;
-    const apex = [cx + 4, yB - Math.min(100, z.h - 62)];
+    const cx = Math.round(z.l * 0.43), yB = z.h - 44, rx = Math.min(80, z.l * 0.28), ry = 20;
+    const apex = [cx + 4, yB - Math.min(150, z.h - 70)];
     return { cx, yB, rx, ry, apex };
+  };
+  // le tipi dans la première vue, sous les quatre tas
+  const tipi1 = z => {
+    const ry = 12, yB = z.h - 6 - ry, rx = Math.min(62, z.l * 0.33);
+    const cx = Math.round(z.l * 0.58);
+    const apex = [cx + 3, yB - Math.min(84, z.h * (1 - HT) - 34)];
+    return { cx, yB, rx, ry, apex };
+  };
+  // Les bâtons du tipi, l'ouverture face au vent (à gauche) ; dedans, ce que la vue y met (le nid en flammes).
+  const dessinTipi = ({ cx, yB, rx, ry, apex }, dedans = '', ep = 2.3, graine = 13) => {
+    const out = [], N = 15, r = gen(graine), batons = [];
+    for (let i = 0; i < N; i++) {
+      const phiD = (i * 360 / N + 5) % 360;
+      if (phiD > 100 && phiD < 200) continue;       // l'ouverture, face au vent
+      const phi = deg(phiD);
+      const b = [cx + Math.cos(phi) * rx * (0.92 + r() * 0.1), yB + Math.sin(phi) * ry];
+      const a = [apex[0] + (r() - 0.5) * 8, apex[1] + (r() - 0.5) * 6];
+      const L = Math.hypot(a[0] - b[0], a[1] - b[1]), dir = [(a[0] - b[0]) / L, (a[1] - b[1]) / L];
+      const e = 8 + r() * 12;
+      batons.push({ avant: Math.sin(phi) > 0, svg: tronc(b, dir, 0, L + e, ep, blanc(A.detail)) });
+    }
+    batons.filter(b => !b.avant).forEach(b => out.push(b.svg));
+    out.push(dedans);
+    batons.filter(b => b.avant).forEach(b => out.push(b.svg));
+    return out.join('\n');
   };
 
   return {
@@ -269,21 +295,32 @@ module.exports = (h) => {
     largeurs: [[1, 2.15], [1.45, 1]],
     vues: {
       tas: {
-        titre: 'Trier avant d’allumer',
-        dessin: z => tas(z).out,
+        titre: 'Trier, monter le tipi',
+        dessin: z => {
+          const t1 = tipi1(z), out = [tas(z).out];
+          out.push(h.ligne(0, t1.yB + t1.ry + 1, z.l, t1.yB + t1.ry + 1, A.arete));
+          out.push(dessinTipi(t1, '', 1.9, 13));
+          // le vent, qui entrera par l'ouverture
+          const go = [t1.cx + Math.cos(deg(150)) * t1.rx, t1.yB + Math.sin(deg(150)) * t1.ry];
+          out.push(h.fleche(`M 4 ${f(go[1] - 30)} L ${f(go[0] - 8)} ${f(go[1] - 14)}`, A.cache));
+          out.push(h.fleche(`M 4 ${f(go[1] - 10)} L ${f(go[0] - 8)} ${f(go[1] - 3)}`, A.cache));
+          return out.join('\n');
+        },
         renvois: z => {
-          const t = tas(z), sc = t.sc, xr = z.l - 12;
+          const t = tas(z), sc = t.sc, xr = z.l - 12, t1 = tipi1(z);
           const hautFin = t.fin.items[t.fin.items.length - 1], hautMoy = t.moy.items[t.moy.items.length - 1], hautG = t.gros.items[t.gros.items.length - 1];
           return [
             { n: 1, rond: [xr, t.sols[0] - 30 * sc], cible: [t.x0 + 64 * sc, t.sols[0] - 26 * sc], texte: 'amadou fin' },
-            { n: 2, rond: [xr, t.sols[1] - 36 * sc], cible: [hautFin.cx + 40 * sc, hautFin.cy - 12 * sc], texte: 'allumage sous 2 cm' },
-            { n: 3, rond: [xr, t.sols[2] - 44 * sc], cible: [hautMoy.cx + 48 * sc, hautMoy.cy - 14 * sc], texte: 'allumage de 2 à 5 cm' },
+            { n: 2, rond: [xr, t.sols[1] - 36 * sc], cible: [hautFin.cx + 40 * sc, hautFin.cy - 12 * sc], texte: 'bois de moins de 2 cm' },
+            { n: 3, rond: [xr, t.sols[2] - 44 * sc], cible: [hautMoy.cx + 48 * sc, hautMoy.cy - 14 * sc], texte: 'bois de 2 à 5 cm' },
             { n: 4, rond: [xr, hautG.cy - 20 * sc], cible: [hautG.cx + 50 * sc, hautG.cy - 28 * sc], texte: 'bûches de moins de 15 cm' },
+            { n: 5, rond: [xr, t1.apex[1] + 22], cible: [t1.cx + 16, t1.apex[1] + 40], texte: 'tipi lâche, monté d’avance' },
+            { n: 6, rond: [14, t1.yB - 64], cible: [t1.cx - t1.rx * 0.55, t1.yB - 6], texte: 'ouverture du côté du vent' },
           ];
         },
       },
       geste: {
-        titre: 'Tirer la tige, pas gratter',
+        titre: 'Tirer la tige, le couteau immobile',
         dessin: z => {
           const g = geste(z), { e, T, C, Q } = g, out = [];
           // le sol
@@ -337,7 +374,7 @@ module.exports = (h) => {
           const BORD = { x0: 0, y0: 0, x1: z.l, y1: z.h };
           const mancheTige = tronc(T, u, L_METAL * e, (L_METAL + L_MANCHE) * e, R_MANCHE * e, A.hachure('bois', 'arete'));
           const oT = { x: g.pT[0], y: g.pT[1], pose: 'prise-manche', vue: 'paume', cote: 'droite', diametre: 2 * R_MANCHE, echelle: e };
-          out.push(FM.mainSimple({ ...oT, angle: poser(oT, mul(u, -1)), objet: mancheTige, avantbras: { bord: BORD, longueur: 'bord', fin: [[0, g.G - 3], [z.l, g.G - 3]] } }).svg);
+          out.push(FM.mainSimple({ ...oT, angle: poser(oT, mul(u, -1)), objet: mancheTige, avantbras: { bord: BORD, longueur: 'bord', vers: [z.l + 30, g.pT[1] + 105], fin: [[z.l, 0], [z.l, z.h]] } }).svg);
           const oK = { x: g.pK[0], y: g.pK[1], pose: 'prise-manche', vue: 'paume', cote: 'gauche', diametre: 26, echelle: e };
           out.push(FM.mainSimple({ ...oK, angle: poser(oK, mul(n, -1)), objet: couteau((s, t) => Q(s - K0, t)), avantbras: { bord: BORD, longueur: 'bord' } }).svg);
           return out.join('\n');
@@ -346,12 +383,12 @@ module.exports = (h) => {
           const g = geste(z), { e, T, C, Q } = g;
           const fl = add(T, mul(u, (L_METAL + L_MANCHE + 60) * e));
           return [
-            { n: 5, rond: [MX > 0 ? 16 : z.l - 16, g.G - 36], cible: [g.nid.cx + MX * (26 - g.nid.w / 2), g.G - 20], texte: 'nid écharpé : le jour passe' },
-            { n: 6, rond: [MX > 0 ? 16 : z.l - 16, g.G - 92], cible: [g.nid.cx - 10 * MX, g.G - g.nid.H + 9], texte: 'poudre fine au fond du creux' },
-            { n: 7, rond: [T[0] + 24 * MX, g.G - 10], cible: [T[0] + 3 * MX, T[1] + 5], texte: 'pointe à un doigt du nid' },
-            { n: 8, rond: [Q(22 - K0, 0)[0] + 34 * MX, Q(22 - K0, 0)[1] + 52], cible: Q(22 - K0, -0.5), texte: 'dos du couteau, immobile' },
-            { n: 9, rond: [fl[0] + 34 * MX, fl[1] + 14], cible: [fl[0] + 5 * MX, fl[1] + 4], texte: 'tirer la tige vers soi' },
-            { n: 10, rond: [MX > 0 ? 16 : z.l - 16, g.G - 142], cible: add(add(C, mul(u, -44 * e)), mul(n, -12 * e)), texte: 'la gerbe tombe dans le creux' },
+            { n: 7, rond: [MX > 0 ? 16 : z.l - 16, g.G - 36], cible: [g.nid.cx + MX * (26 - g.nid.w / 2), g.G - 20], texte: 'nid écharpé : le jour passe' },
+            { n: 8, rond: [MX > 0 ? 16 : z.l - 16, g.G - 92], cible: [g.nid.cx - 10 * MX, g.G - g.nid.H + 9], texte: 'au fond : poudre de tige' },
+            { n: 9, rond: [T[0] + 24 * MX, g.G - 10], cible: [T[0] + 3 * MX, T[1] + 5], texte: 'pointe à un doigt du nid' },
+            { n: 10, rond: [Q(22 - K0, 0)[0] + 34 * MX, Q(22 - K0, 0)[1] + 52], cible: Q(22 - K0, -0.5), texte: 'dos du couteau, immobile' },
+            { n: 11, rond: [fl[0] + 34 * MX, fl[1] + 14], cible: [fl[0] + 5 * MX, fl[1] + 4], texte: 'tirer la tige vers soi' },
+            { n: 12, rond: [MX > 0 ? 16 : z.l - 16, g.G - 142], cible: add(add(C, mul(u, -44 * e)), mul(n, -12 * e)), texte: 'la gerbe tombe dans le creux' },
           ];
         },
       },
@@ -385,10 +422,10 @@ module.exports = (h) => {
         renvois: z => {
           const s = souffler(z), { t, B, R } = s, L0 = t.bouche;
           return [
-            { n: 11, rond: [B[0] + R + 30, B[1] + 4], cible: [B[0] + R * 0.4, B[1] - R * 0.2], texte: 'en boule, sans serrer' },
-            { n: 12, rond: [(L0[0] + B[0] - R) / 2 - 6, L0[1] - 34], cible: [(L0[0] + B[0] - R) / 2 - 6, L0[1] - 6], texte: 'souffler en continu' },
-            { n: 13, rond: [(L0[0] + B[0] - R) / 2 + 4, L0[1] + 40], cible: [(L0[0] + B[0] - R) / 2 + 4, L0[1] + 5], texte: 'à un avant-bras du visage' },
-            { n: 14, rond: [B[0] + R + 40, 18], cible: [s.axe(34) + s.larg(34) + 3, 34], texte: 'fumée mince, puis épaisse' },
+            { n: 13, rond: [B[0] + R + 30, B[1] + 4], cible: [B[0] + R * 0.4, B[1] - R * 0.2], texte: 'en boule, sans serrer' },
+            { n: 15, rond: [(L0[0] + B[0] - R) / 2 - 6, L0[1] - 34], cible: [(L0[0] + B[0] - R) / 2 - 6, L0[1] - 6], texte: 'souffler sans à-coups' },
+            { n: 14, rond: [(L0[0] + B[0] - R) / 2 + 4, L0[1] + 40], cible: [(L0[0] + B[0] - R) / 2 + 4, L0[1] + 5], texte: 'à un avant-bras du visage' },
+            { n: 16, rond: [B[0] + R + 40, 18], cible: [s.axe(34) + s.larg(34) + 3, 34], texte: 'fumée mince, puis épaisse' },
           ];
         },
       },
@@ -396,49 +433,30 @@ module.exports = (h) => {
         titre: 'Glisser le nid dessous',
         dessin: z => {
           const t = tipi(z), out = [];
-          const { cx, yB, rx, ry, apex } = t;
-          const N = 15, r = gen(13), batons = [];
-          for (let i = 0; i < N; i++) {
-            const phiD = (i * 360 / N + 5) % 360;
-            if (phiD > 112 && phiD < 190) continue;       // l'ouverture, face au vent
-            const phi = deg(phiD);
-            const b = [cx + Math.cos(phi) * rx * (0.92 + r() * 0.1), yB + Math.sin(phi) * ry];
-            const a = [apex[0] + (r() - 0.5) * 8, apex[1] + (r() - 0.5) * 6];
-            const L = Math.hypot(a[0] - b[0], a[1] - b[1]), dir = [(a[0] - b[0]) / L, (a[1] - b[1]) / L];
-            const e = 8 + r() * 12;
-            batons.push({ avant: Math.sin(phi) > 0, svg: tronc(b, dir, 0, L + e, 2.3, blanc(A.detail)) });
-          }
-          batons.filter(b => !b.avant).forEach(b => out.push(b.svg));
+          const { cx, yB, rx, ry } = t;
           // le nid en flammes, glissé sous le bois fin par l'ouverture
           const nx = cx - 14, ny = yB + 3;
-          out.push(flamme(nx + 10, ny - 6, 22, 80, -3), flamme(nx - 6, ny - 5, 22, 60, 5), flamme(nx - 20, ny - 3, 14, 38, -4));
-          out.push(flamme(nx + 9, ny - 8, 9, 44, 1), flamme(nx - 6, ny - 7, 8, 28, 2));
-          out.push(touffe(nx, ny, 24, 11, 17));
-          batons.filter(b => b.avant).forEach(b => out.push(b.svg));
+          const nid = [flamme(nx + 10, ny - 6, 22, 80, -3), flamme(nx - 6, ny - 5, 22, 60, 5), flamme(nx - 20, ny - 3, 14, 38, -4),
+            flamme(nx + 9, ny - 8, 9, 44, 1), flamme(nx - 6, ny - 7, 8, 28, 2), touffe(nx, ny, 24, 11, 17)].join('\n');
+          out.push(dessinTipi(t, nid));
           // le geste : le nid est poussé sous le bois, par l'ouverture
           const go = [cx + Math.cos(deg(150)) * rx, yB + Math.sin(deg(150)) * ry];
           out.push(h.geste(`M ${f(go[0] - 46)} ${f(yB + 12)} L ${f(nx - 30)} ${f(yB + 10)}`));
-          // le vent, qui entre par l'ouverture
-          out.push(h.fleche(`M 6 ${f(go[1] - 34)} L ${f(go[0] - 14)} ${f(go[1] - 18)}`, A.cache));
-          out.push(h.fleche(`M 6 ${f(go[1] - 12)} L ${f(go[0] - 14)} ${f(go[1] - 6)}`, A.cache));
           // le 2 à 5 cm, couché à côté
-          const xs = cx + rx + 18;
-          [[0, 0], [12, 1], [6, -10]].forEach(([dx, dy]) => out.push(...baton(xs + dx, yB + 10 + dy, 6, 34, 'moyen')));
+          const xs = cx + rx + 14;
+          [[0, 0], [12, 1], [6, -10]].forEach(([dx, dy]) => out.push(...baton(xs + dx, yB + 10 + dy, 6, 30, 'moyen')));
           [[0, 0], [12, 1], [6, -10]].forEach(([dx, dy]) => out.push(...bout(xs + dx, yB + 10 + dy, 6, 'moyen')));
           return out.join('\n');
         },
         renvois: z => {
-          const t = tipi(z), { cx, yB, rx, ry, apex } = t;
+          const t = tipi(z), { cx, yB, rx, ry } = t;
           const go = [cx + Math.cos(deg(150)) * rx, yB + Math.sin(deg(150)) * ry];
           return [
-            { n: 15, rond: [cx + rx + 12, apex[1] + 14], cible: [cx + 30, apex[1] + 46], texte: 'tipi lâche de bois fin' },
-            { n: 16, rond: [16, go[1] - 58], cible: [22, go[1] - 30], texte: 'ouverture au vent' },
-            { n: 17, rond: [go[0] - 36, yB + 32], cible: [go[0] - 24, yB + 13], texte: 'nid glissé sous le bois' },
-            { n: 18, rond: [cx + rx + 44, yB - 30], cible: [cx + rx + 32, yB - 2], texte: 'le 2 à 5 cm, quand ça crépite' },
+            { n: 17, rond: [Math.max(14, go[0] - 30), yB + 30], cible: [Math.max(26, go[0] - 18), yB + 12], texte: 'glisser le nid par l’ouverture' },
+            { n: 18, rond: [z.l - 14, yB - 36], cible: [cx + rx + 34, yB - 6], texte: 'le 2 à 5 cm quand ça crépite' },
           ];
         },
       },
     },
-    danger: 'Danger — au-dessus d’un nid en flammes, une manche de polar fond et colle à la peau : la brûlure est profonde en une seconde. Laine et coton pour allumer.',
   };
 };

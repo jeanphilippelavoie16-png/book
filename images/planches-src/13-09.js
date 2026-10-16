@@ -240,9 +240,9 @@ module.exports = (h) => {
     titre: 'Le briquet à pierre',
     desc: 'Le geste, vu par celui qui frappe : à gauche, la main gauche serre dans le poing un caillou de grève cassé, vue de la paume, les doigts repliés dessus ; le bout de la pierre sort du poing du côté du pouce, vers la droite, et finit en arête vive ; le pouce, refermé par-dessus, tient l’amadou carbonisé, un carré plat de tissu noirci, couché sur la pierre jusqu’au ras de l’arête, cerclé de rouge. À droite, la main droite fermée en poing, vue de la paume, les doigts passés dans l’acier cintré en U, le fond du U devant les doigts repliés, sa face extérieure tournée vers la pierre ; un tireté montre qu’elle descend en rasant l’arête, une flèche rouge le sens du coup, vers le bas. De plus près, au point de frappe : le devant du poing et la pierre, l’acier descendu contre l’arête, les paillettes qui partent, trois qui retombent sur l’amadou. En bas, l’acier : un bout de vieille lime gardé tel quel, dessous le même cintré en U ; et la pierre : un galet dont la cassure fraîche fait une arête coupante, et l’essai qui la juge, l’arête qui raye un éclat de verre.',
     format: 'pleine',
-    disposition: [['geste'], ['detail', 'acier', 'pierre']],
-    hauteurs: [1.05, 1],
-    largeurs: [[1], [1.6, 1, 1]],
+    disposition: [['acier', 'lime', 'pierre'], ['geste', 'detail']],
+    hauteurs: [0.62, 1.38],
+    largeurs: [[0.8, 1, 1.15], [1.75, 1]],
     vues: {
       geste: {
         titre: 'Le geste',
@@ -253,9 +253,9 @@ module.exports = (h) => {
         renvois: z => {
           const { T } = fenetre(z, ...FG);
           return [
-            { n: 1, rond: T([E[0] - 30, -150]), cible: T([TX + U.xo + 2.5, TY_AVANT - 10]), texte: 'acier en U, les doigts passés dedans' },
-            { n: 2, rond: T([E[0] + 70, 22]), cible: T([E[0] + 16, E[1] + 26]), texte: 'frapper vers le bas, en rasant l’arête' },
-            { n: 3, rond: T([E[0] - 6, 40]), cible: T(S(68, 15.7)), texte: 'la pierre, l’arête tournée vers l’acier' },
+            { n: 6, rond: T([E[0] - 34, E[1] - 44]), cible: T([E[0] - 9, E[1] - 7]), texte: 'l’amadou sous le pouce, au ras de l’arête' },
+            { n: 7, rond: T([E[0] - 26, -150]), cible: T([TX + U.xo + 2.5, TY_AVANT - 10]), texte: 'les doigts passés dans le U' },
+            { n: 8, rond: T([E[0] + 52, E[1] + 30]), cible: T([E[0] + 17, E[1] + 26]), texte: 'frapper vers le bas, en rasant l’arête' },
           ];
         },
       },
@@ -268,38 +268,16 @@ module.exports = (h) => {
         renvois: z => {
           const { T } = fenetre(z, ...FD);
           return [
-            { n: 4, rond: T([E[0] - 44, -74]), cible: T(S(ST.arete - 24, tDessus(ST.arete - 24) - 1.5)), texte: 'amadou carbonisé, au ras de l’arête' },
-            { n: 5, rond: T([E[0] - 14, -80]), cible: T(surAmadou(ST.arete - 11)), texte: 'la paillette brûle en tombant sur l’amadou' },
+            { n: 9, rond: T([E[0] - 14, -80]), cible: T(surAmadou(ST.arete - 11)), texte: 'la paillette tombe sur l’amadou' },
           ];
         },
       },
       acier: {
-        titre: 'L’acier',
+        titre: 'L’acier, cintré en U',
         dessin: z => {
-          const { T } = fenetre(z, 0, 0, 200, 280);
+          const { T } = fenetre(z, 70, 105, 200, 250);
           const TT = pts => pts.map(T);
           const out = [];
-
-          // ── Le bout de lime, à plat, taillé des deux sens ──
-          const { x0, x1, y0, y1 } = lime;
-          const casse = [[x1, y0], [x1 + 5, y0 + 6], [x1 + 1, y0 + 11], [x1 + 6, y0 + 17], [x1 + 2, y1]];
-          const contourL = [[x0 + 6, y0], ...casse, [x0 + 6, y1], [x0, y1 - 5], [x0, y0 + 5]];
-          out.push(h.chemin(TT(contourL), A.blanc, true));
-          let taille = '';
-          const coupe = (ax, ay, bx, by) => {             // trait coupé au rectangle intérieur
-            const xa = x0 + 3, xb = x1 - 1, ya = y0 + 2, yb = y1 - 2;
-            let t0 = 0, t1 = 1; const dx = bx - ax, dy = by - ay;
-            for (const [p, q] of [[-dx, ax - xa], [dx, xb - ax], [-dy, ay - ya], [dy, yb - ay]]) {
-              if (p === 0) { if (q < 0) return; continue; }
-              const r = q / p;
-              if (p < 0) { if (r > t1) return; if (r > t0) t0 = r; } else { if (r < t0) return; if (r < t1) t1 = r; }
-            }
-            taille += `M ${pt(T([ax + dx * t0, ay + dy * t0]))} L ${pt(T([ax + dx * t1, ay + dy * t1]))} `;
-          };
-          for (let x = x0 - 20; x < x1 + 10; x += 4.2) coupe(x, y0, x + 12, y1);
-          for (let x = x0 - 20; x < x1 + 20; x += 6) coupe(x + 10, y0, x - 2, y1);
-          out.push(h.path(taille, A.fin));
-          out.push(h.chemin(TT(contourL), A.contour, true));
 
           // ── Le U en relief : le fond à droite, la face qui frappe en dehors ──
           const P = profilU3(), D = U3.D, n = P.length;
@@ -336,17 +314,55 @@ module.exports = (h) => {
           return out.join('\n');
         },
         renvois: z => {
-          const { T } = fenetre(z, 0, 0, 200, 280);
+          const { T } = fenetre(z, 70, 105, 200, 250);
           return [
-            { n: 6, rond: T([22, 14]), cible: T([48, lime.y0 + 9]), texte: 'vieille lime, gardée telle quelle' },
-            { n: 7, rond: T([40, 170]), cible: T([U3.xr - U3.bras + 14, U3.y0 + 3]), texte: 'ou cintrée en U à la forge' },
+            { n: 1, rond: T([84, 120]), cible: T([U3.xr - U3.bras + 14, U3.y0 + 3]), texte: 'acier au carbone, cintré en U' },
+          ];
+        },
+      },
+      lime: {
+        titre: 'Sans forge : la lime',
+        dessin: z => {
+          const { T } = fenetre(z, -4, -10, 204, 104);
+          const TT = pts => pts.map(T);
+          const out = [];
+
+          // ── Le bout de lime, à plat, taillé des deux sens ──
+          const { x0, x1, y0, y1 } = lime;
+          const casse = [[x1, y0], [x1 + 5, y0 + 6], [x1 + 1, y0 + 11], [x1 + 6, y0 + 17], [x1 + 2, y1]];
+          const contourL = [[x0 + 6, y0], ...casse, [x0 + 6, y1], [x0, y1 - 5], [x0, y0 + 5]];
+          out.push(h.chemin(TT(contourL), A.blanc, true));
+          let taille = '';
+          const coupe = (ax, ay, bx, by) => {             // trait coupé au rectangle intérieur
+            const xa = x0 + 3, xb = x1 - 1, ya = y0 + 2, yb = y1 - 2;
+            let t0 = 0, t1 = 1; const dx = bx - ax, dy = by - ay;
+            for (const [p, q] of [[-dx, ax - xa], [dx, xb - ax], [-dy, ay - ya], [dy, yb - ay]]) {
+              if (p === 0) { if (q < 0) return; continue; }
+              const r = q / p;
+              if (p < 0) { if (r > t1) return; if (r > t0) t0 = r; } else { if (r < t0) return; if (r < t1) t1 = r; }
+            }
+            taille += `M ${pt(T([ax + dx * t0, ay + dy * t0]))} L ${pt(T([ax + dx * t1, ay + dy * t1]))} `;
+          };
+          for (let x = x0 - 20; x < x1 + 10; x += 4.2) coupe(x, y0, x + 12, y1);
+          for (let x = x0 - 20; x < x1 + 20; x += 6) coupe(x + 10, y0, x - 2, y1);
+          out.push(h.path(taille, A.fin));
+          out.push(h.chemin(TT(contourL), A.contour, true));
+
+          // règle 10 : un filet sépare cette autre façon du U à sa gauche
+          out.push(h.ligne(-11, -24, -11, z.h, A.fin));
+          return out.join('\n');
+        },
+        renvois: z => {
+          const { T } = fenetre(z, -4, -10, 204, 104);
+          return [
+            { n: 2, rond: T([40, 2]), cible: T([60, lime.y0 + 9]), texte: 'au lieu de 1 : une vieille lime' },
           ];
         },
       },
       pierre: {
         titre: 'La pierre',
         dessin: z => {
-          const { T: T0 } = fenetre(z, 0, 0, 200, 300);
+          const { T: T0 } = fenetre(z, 0, 0, 340, 150);
           const out = [];
           const { cx, cy, rx, ry, fx, fry, frx } = gal;
 
@@ -386,7 +402,7 @@ module.exports = (h) => {
 
           // ── L'essai : l'arête raye le verre ──
           {
-            const T = p => T0([p[0] - 112, p[1] + 66]);
+            const T = p => T0([p[0] + 46, p[1] - 108]);
             const TT = pts => pts.map(T);
             const ep = 4, Vb = verre.map(([x, y]) => [x, y + ep]);
             out.push(h.chemin(TT([verre[2], verre[3], verre[4], Vb[4], Vb[3], Vb[2]]), A.blanc, true));
@@ -412,12 +428,12 @@ module.exports = (h) => {
           return out.join('\n');
         },
         renvois: z => {
-          const { T: T0 } = fenetre(z, 0, 0, 200, 300);
-          const Tg = p => T0([p[0] + 2, p[1] + 6]), Tv = p => T0([p[0] - 112, p[1] + 66]);
+          const { T: T0 } = fenetre(z, 0, 0, 340, 150);
+          const Tg = p => T0([p[0] + 2, p[1] + 6]), Tv = p => T0([p[0] + 46, p[1] - 108]);
           return [
-            { n: 8, rond: T0([40, 150]), cible: Tg([62, 104]), texte: 'caillou de grève : silex, chert, quartz, jaspe' },
-            { n: 9, rond: T0([178, 22]), cible: Tg([gal.fx + 2, gal.cy - 30]), texte: 'cassure fraîche : arête coupante' },
-            { n: 10, rond: T0([40, 290]), cible: Tv([193, 191.9]), texte: 'raye le verre : assez dure' },
+            { n: 3, rond: T0([30, 140]), cible: Tg([58, 108]), texte: 'silex, chert, quartz ou jaspe de grève' },
+            { n: 4, rond: T0([150, 14]), cible: Tg([gal.fx - 2, gal.cy - 34]), texte: 'cassure fraîche : arête coupante' },
+            { n: 5, rond: T0([322, 22]), cible: Tv([279, 158]), texte: 'elle doit rayer le verre' },
           ];
         },
       },
