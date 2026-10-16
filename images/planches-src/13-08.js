@@ -73,7 +73,7 @@ module.exports = (h) => {
     const ry = Math.round(W * 0.16);
     const xl = cx - W / 2, xr = cx + W / 2;
     const yA = yT + 11;                              // trous de l'anse
-    const poing = { x: cx, y: 66 };
+    const poing = { x: cx, y: 78 };
     return { W, H, cx, yB, yT, ry, xl, xr, yA, poing };
   };
 
@@ -96,9 +96,9 @@ module.exports = (h) => {
     titre: 'La boîte à braise',
     desc: 'Une boîte de conserve percée au clou sur le pourtour et dans le couvercle. En coupe : un lit de cendre au fond, une braise vive au centre, un bloc d’amadouvier ou de bois pourri sec posé dessus, encore de la cendre, et le couvercle enfoncé par-dessus ; l’air entre par les trous du pourtour, la fumée sort par ceux du couvercle. Portée : une anse de fil de broche passée dans deux trous sous le bord, le bout tordu sur son brin, la boîte pendue au bout du fil, loin de la main. Percée : la boîte couchée, enfilée sur le bout d’une bûche, et le clou frappé au marteau à travers la paroi.',
     format: 'pleine',
-    disposition: [['coupe', 'portee'], ['percer']],
-    hauteurs: [3, 1.45],
-    largeurs: [[1, 1], [1]],
+    disposition: [['percer'], ['coupe', 'portee']],
+    hauteurs: [1.35, 3],
+    largeurs: [[1], [1, 1]],
     vues: {
       coupe: {
         titre: 'En coupe, chargée',
@@ -172,12 +172,11 @@ module.exports = (h) => {
           const { cx, yT, yB, xl, xr, yL, yBr, bw, bBas, bHaut, xTrou } = coupe(z);
           const bMid = Math.round((bBas + bHaut) / 2);
           return [
-            { n: 1, rond: [xl - 36, yB - 18], cible: [xl + 20, yB - 20], texte: 'lit de cendre ou de sable' },
-            { n: 2, rond: [xr + 34, yBr + 38], cible: [cx + 14, yBr + 6], texte: 'braise vive, au centre' },
-            { n: 3, rond: [xr + 34, bMid], cible: [cx + Math.round(bw * 0.2), bMid], texte: 'amadouvier ou bois pourri sec' },
-            { n: 4, rond: [xl - 36, Math.round((yL + bHaut) / 2)], cible: [xl + 18, Math.round((yL + bHaut) / 2)], texte: 'encore de la cendre' },
-            { n: 5, rond: [xr + 34, yL - 4], cible: [cx + xTrou + 22, yL], texte: 'couvercle percé au clou' },
-            { n: 6, rond: [xl - 36, yBr - 32], cible: [xl, yBr - 1], texte: 'trous au clou, tout autour' },
+            { n: 3, rond: [xl - 36, yB - 18], cible: [xl + 20, yB - 20], texte: 'lit de cendre ou de sable' },
+            { n: 4, rond: [xr + 34, yBr + 38], cible: [cx + 14, yBr + 6], texte: 'braise vive, au centre' },
+            { n: 5, rond: [xr + 34, bMid], cible: [cx + Math.round(bw * 0.2), bMid], texte: 'amadouvier ou bois pourri sec' },
+            { n: 6, rond: [xl - 36, Math.round((yL + bHaut) / 2)], cible: [xl + 18, Math.round((yL + bHaut) / 2)], texte: 'encore de la cendre' },
+            { n: 7, rond: [xr + 34, yL - 4], cible: [cx + xTrou + 22, yL], texte: 'le couvercle percé, fermé' },
           ];
         },
       },
@@ -219,28 +218,36 @@ module.exports = (h) => {
           // À chaque arrêt : fume-t-il encore au trou ?
           out.push(h.controle(sx, sy - 1, 9));
 
-          // L'anse : les deux brins montent jusqu'au bord de la vue (la main est hors champ, loin du corps).
-          const py = 2;
+          // L'anse : les deux brins montent jusqu'au poing, qui tient la boîte au bout du fil, le bras tendu loin du
+          // corps (le corps est à gauche, hors de la vue).
+          const py = poing.y + 16;
           out.push(h.path(`M ${xl + 3} ${yA} L ${xl - 5} ${yA} Q ${xl - 9} ${yA} ${xl - 8} ${yA - 6} L ${poing.x - 5} ${py}`, h.a.arete));
           out.push(h.path(`M ${xr - 3} ${yA} L ${xr + 5} ${yA} Q ${xr + 9} ${yA} ${xr + 8} ${yA - 6} L ${poing.x + 5} ${py}`, h.a.arete));
           const kx = (poing.x - 5 - (xl - 8)), ky = (py - (yA - 6)), kL = Math.hypot(kx, ky);
           out.push(torsade(xl - 8, yA - 6, xl - 8 + kx * 24 / kL, yA - 6 + ky * 24 / kL));
           out.push(torsade(xr + 8, yA - 6, xr + 8 - kx * 24 / kL, yA - 6 + ky * 24 / kL));
           out.push(h.cercle(xl, yA, 2.2, h.a.plein), h.cercle(xr, yA, 2.2, h.a.plein));
+          // le haut de l'anse, tordu en une boucle, dans le poing
+          const fil = h.path(`M ${poing.x - 5} ${py} C ${poing.x - 6} ${poing.y - 30} ${poing.x - 12} ${poing.y - 62} ${poing.x} ${poing.y - 62} C ${poing.x + 12} ${poing.y - 62} ${poing.x + 6} ${poing.y - 30} ${poing.x + 5} ${py}`, h.a.arete);
+          // le fil d'abord, la main par-dessus : son blanc cache le fil dans le poing
+          out.push(fil);
+          out.push(h.formes.mainSimple({ pose: 'prise-corde', vue: 'paume', cote: 'droite', x: poing.x, y: poing.y, angle: 0,
+            diametre: 5, echelle: 0.85, avantbras: { bord: { x0: 0, y0: 0, x1: z.l, y1: z.h }, longueur: 'bord', fin: [[0, 0], [0, z.h]] } }).svg);
 
           return out.join('\n');
         },
         renvois: z => {
           const { xl, yA, poing, cx } = portee(z);
           return [
-            { n: 7, rond: [xl - 26, yA + 34], cible: [xl - 7, yA - 12], texte: 'fil de broche, bout tordu' },
-            { n: 8, rond: [poing.x + 70, 40], cible: [poing.x + 8, 40], texte: 'tenue au bout du fil, loin du corps' },
+            { n: 8, rond: [xl - 26, yA + 34], cible: [xl - 7, yA - 12], texte: 'anse de fil de broche' },
+            { n: 9, rond: [poing.x + 76, poing.y + 70], cible: [poing.x + 14, poing.y + 70], texte: 'la porter au bout du fil, loin du corps' },
+            { n: 10, rond: [cx + 0.22 * 116 + 34, portee(z).yT - 46], cible: [cx + 0.22 * 116 + 8, portee(z).yT - 8], texte: 'à chaque arrêt : de la fumée aux trous' },
           ];
         },
       },
 
       percer: {
-        titre: 'Percée au clou, la boîte enfilée sur une bûche',
+        titre: 'Percer au clou, la boîte enfilée sur une bûche',
         dessin: z => {
           const { G, Dc, D, ya, Lc, xo, xf, xb0, xh, yP } = percer(z);
           const out = [];
@@ -289,8 +296,22 @@ module.exports = (h) => {
           out.push(h.chemin([[xh - 1.6, yP - 3], [xh + 1.6, yP - 3], [xh, yP + 2]], h.a.plein, true));
           out.push(h.rect(xh - 6, yP - nh - 3, 12, 3, h.a.plein));
           const mh = yP - nh - 12;
-          out.push(h.rect(xh - 12, mh - 22, 24, 22, h.a.hachure('metal', 'contour')));
-          out.push(h.chemin([[xh + 12, mh - 14], [xh + 118, mh - 36], [xh + 120, mh - 26], [xh + 12, mh - 7]], h.a.hachure('bois', 'arete'), true));
+          // Le marteau à panne fendue, la tête d'équerre sur le manche : la face qui frappe en bas, sur la tête du
+          // clou ; la panne qui recourbe vers le manche en haut. Repère local : origine au milieu de la face, u le long
+          // du manche (vers la droite), v vers la face (en bas).
+          {
+            const a = Math.atan2(-22, 106), ca = Math.cos(a), sa = Math.sin(a);
+            const M = ([u, v]) => [xh + u * ca - v * sa, mh + u * sa + v * ca];
+            const C = pts => pts.map(M);
+            // le manche : il entre dans l'œil, s'évase vers le bout
+            const manche = [[6, -20.5], [40, -21], [90, -22.5], [116, -23.5], [119, -18], [116, -12.5], [90, -13.5], [40, -15], [6, -15.5]];
+            out.push(h.chemin(C(manche), h.a.hachure('bois', 'arete'), true));
+            // la tête : la face, le col, l'œil, la panne fendue recourbée
+            const tete = [[-8, 0], [8, 0], [8, -3], [6, -6], [6, -11], [8, -13], [8, -24], [10, -29], [14, -33], [19, -36.5],
+              [18, -39.5], [10, -39], [2, -37], [-4, -33], [-7.5, -27], [-8, -24], [-8, -13], [-6, -11], [-6, -6], [-8, -3]];
+            out.push(h.chemin(C(tete), h.a.hachure('metal', 'contour'), true));
+            out.push(h.chemin(C([[-8, -3], [8, -3]]), h.a.detail));
+          }
           out.push(h.geste(`M ${xh - 26} ${mh - 30} L ${xh - 26} ${mh + 4}`));
 
           return out.join('\n');
@@ -298,8 +319,8 @@ module.exports = (h) => {
         renvois: z => {
           const { ya, xo, xb0, xh, yP, D } = percer(z);
           return [
-            { n: 9, rond: [xh + 50, yP - 12], cible: [xh + 3, yP - 16], texte: 'clou' },
-            { n: 10, rond: [Math.round((xb0 + xo) / 2), ya - D / 2 - 28], cible: [Math.round((xb0 + xo) / 2) + 6, ya - D / 2 + 2], texte: 'bout de bûche dans la boîte' },
+            { n: 2, rond: [xh - 58, yP - 40], cible: [xh - 26, yP - 46], texte: 'percer au clou, tout autour' },
+            { n: 1, rond: [Math.round((xb0 + xo) / 2), ya - D / 2 - 28], cible: [Math.round((xb0 + xo) / 2) + 6, ya - D / 2 + 2], texte: 'un bout de bûche dans la boîte' },
           ];
         },
       },

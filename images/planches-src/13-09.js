@@ -94,7 +94,7 @@ module.exports = (h) => {
   // le contour : le bout arrière arrondi dans le poing, le dessus jusqu'à l'arête, la cassure fraîche (la face du
   // bout, vue en fuite), le dessous ; dans le poing et à la sortie, au rayon de la prise (les doigts devant la
   // pierre ne sont repeints que dans le cylindre du moteur)
-  const ST = { arr: -16, sortie: 54, arete: 102, bas: 91 };
+  const ST = { arr: -2, sortie: 54, arete: 102, bas: 91 };
   const R_IN = R_P - 1.2;                           // dans le poing, un peu sous le rayon : le trait de la pierre est couvert
   const DESSUS = [[ST.sortie, -R_IN], [67, -R_IN], [78, -15.8], [90, -15.4], [ST.arete, -14]];
   const dessusP = DESSUS.map(([s, t]) => S(s, t));
@@ -121,7 +121,7 @@ module.exports = (h) => {
   };
   // l'amadou : un carré de tissu carbonisé couché sur le dessus, du ras de l'arête jusque sous le pouce (son bout
   // arrière effiloché passe sous le pouce)
-  const amS0 = 44, amS1 = ST.arete - 0.6, amEp = 3;
+  const amS0 = 44, amS1 = ST.arete - 0.6, amEp = 4;
   const amadou = (() => {
     const bas = [], haut = [];
     for (let s = amS1; s >= amS0 - 0.01; s -= 3) { bas.push(S(s, tDessus(s) + 0.3)); haut.push(S(s, tDessus(s) + 0.3 - amEp)); }
@@ -189,13 +189,13 @@ module.exports = (h) => {
     // moteur, les doigts repliés passent devant elle)
     out.push(amadouSVG(T, k));
     const p0 = T([0, 0]);
-    out.push(F.mainSimple({ ...PIERRE_MAIN, x: p0[0], y: p0[1], echelle: k, objet: () => pierreSVG(T, k), avantbras: { bord } }).svg);
+    out.push(F.mainSimple({ ...PIERRE_MAIN, x: p0[0], y: p0[1], echelle: k, objet: () => pierreSVG(T, k), avantbras: { bord, longueur: 'bord', fin: [[0, 0], [0, z.h]] } }).svg);
     // l'acier, puis le poing : le bras du haut du U passe sous le pouce
     const ty = frappe ? TY_FRAPPE : TY_AVANT;
     const TU = p => T([TX + p[0], ty + p[1]]);
     out.push(h.chemin(profilU().map(TU), A.plein, true));
     const w = T([TX, ty]);
-    out.push(F.mainSimple({ ...ACIER_MAIN, x: w[0], y: w[1], echelle: k, avantbras: { bord } }).svg);
+    out.push(F.mainSimple({ ...ACIER_MAIN, x: w[0], y: w[1], echelle: k, avantbras: { bord, longueur: 'bord' } }).svg);
     if (!frappe) {
       // la course de la face qui frappe : elle descend au ras de l'arête et continue
       out.push(h.path(`M ${pt(TU([U.xo, U.yb - U.ro]))} L ${pt(T([E[0], E[1] + 60]))}`, A.cache));
@@ -213,8 +213,8 @@ module.exports = (h) => {
     return out.join('\n');
   };
 
-  const FG = [-80, -168, 290, 52];                   // fenêtre du geste
-  const FD = [-25, -100, 104.2, 46];                 // fenêtre du point de frappe : le devant du poing, le pouce, la pierre ;
+  const FG = [-40, -165, 172, 56];                   // fenêtre du geste
+  const FD = [-21, -100, 104.2, 46];                 // fenêtre du point de frappe : le devant du poing, le pouce, la pierre ;
                                                      // l'acier coupé au ras du fond
 
   // ─── L'acier (repère 200 × 280) ────────────────────────────────────────────────────────
@@ -241,7 +241,7 @@ module.exports = (h) => {
     desc: 'Le geste, vu par celui qui frappe : à gauche, la main gauche serre dans le poing un caillou de grève cassé, vue de la paume, les doigts repliés dessus ; le bout de la pierre sort du poing du côté du pouce, vers la droite, et finit en arête vive ; le pouce, refermé par-dessus, tient l’amadou carbonisé, un carré plat de tissu noirci, couché sur la pierre jusqu’au ras de l’arête, cerclé de rouge. À droite, la main droite fermée en poing, vue de la paume, les doigts passés dans l’acier cintré en U, le fond du U devant les doigts repliés, sa face extérieure tournée vers la pierre ; un tireté montre qu’elle descend en rasant l’arête, une flèche rouge le sens du coup, vers le bas. De plus près, au point de frappe : le devant du poing et la pierre, l’acier descendu contre l’arête, les paillettes qui partent, trois qui retombent sur l’amadou. En bas, l’acier : un bout de vieille lime gardé tel quel, dessous le même cintré en U ; et la pierre : un galet dont la cassure fraîche fait une arête coupante, et l’essai qui la juge, l’arête qui raye un éclat de verre.',
     format: 'pleine',
     disposition: [['acier', 'lime', 'pierre'], ['geste', 'detail']],
-    hauteurs: [0.62, 1.38],
+    hauteurs: [0.75, 1.25],
     largeurs: [[0.8, 1, 1.15], [1.75, 1]],
     vues: {
       geste: {
@@ -278,6 +278,8 @@ module.exports = (h) => {
           const { T } = fenetre(z, 70, 105, 200, 250);
           const TT = pts => pts.map(T);
           const out = [];
+          // règle 10 : un filet sépare le U de l'autre façon (la lime), à droite, au milieu de la gouttière
+          out.push(h.ligne(z.l + 11, 0, z.l + 11, z.h, A.fin));
 
           // ── Le U en relief : le fond à droite, la face qui frappe en dehors ──
           const P = profilU3(), D = U3.D, n = P.length;
@@ -348,8 +350,6 @@ module.exports = (h) => {
           out.push(h.path(taille, A.fin));
           out.push(h.chemin(TT(contourL), A.contour, true));
 
-          // règle 10 : un filet sépare cette autre façon du U à sa gauche
-          out.push(h.ligne(-11, -24, -11, z.h, A.fin));
           return out.join('\n');
         },
         renvois: z => {

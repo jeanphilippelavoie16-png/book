@@ -220,40 +220,49 @@
   "13": {
     "planches": [
       {
-        "id": "13-01",
-        "apres": "Le palier du dessus est l'autre pièce qu'on fabrique"
+        "id": "13-40",
+        "apres": "10. **Trier le bois en quatre tas, au complet, avant la première étincelle**"
       },
       {
         "id": "13-07",
-        "apres": "**L'amadou carbonisé sans boîte à couvercle.**"
+        "apres": "25. **Charger la boîte** (planche 13-07)."
       },
       {
         "id": "13-08",
-        "apres": "**La boîte à braise, pour se déplacer.**"
+        "apres": "**La boîte à braise, pour se déplacer** (planche 13-08)."
       },
       {
         "id": "13-09",
-        "apres": "La pierre, c'est un caillou de grève assez dur pour rayer le verre"
+        "apres": "Il faut de l'acier au carbone et un caillou de grève (planche 13-09)."
       },
       {
-        "id": "13-40",
-        "apres": "12. Déposer le nid en flammes sous le tas fin déjà monté"
+        "id": "13-01",
+        "apres": "L'arc à feu demande plus de pratique que toutes les autres méthodes (planche 13-01)."
+      },
+      {
+        "id": "13-10",
+        "apres": "18. **Préparer la laine d'acier.**"
       }
     ],
     "photos": [
       {
         "fichier": "images/photos/tri/13-gomme-epinette.jpg",
-        "apres": "Ce qui reçoit l'étincelle se ramasse toute l'année et se garde au sec",
+        "apres": "On ramasse ce qui reçoit l'étincelle toute l'année",
         "taille": "quart",
         "legende": "Gomme d'épinette sur une blessure du tronc. Pour le feu, on prend celle qui a figé."
       },
       {
         "fichier": "images/photos/tri/13-bouleau-ecorce-rubans.jpg",
-        "apres": "Ce qui reçoit l'étincelle se ramasse toute l'année et se garde au sec",
+        "apres": "On ramasse ce qui reçoit l'étincelle toute l'année",
         "taille": "quart",
         "legende": "Écorce externe de bouleau à papier qui pèle en rubans. Elle brûle mouillée."
       }
-    ]
+    ],
+    "logigramme": {
+      "fichier": "images/logigrammes/13-feu-sans-allumettes-livre.svg",
+      "apres": "Faire une flamme sans allumette ni briquet",
+      "orange": true
+    }
   },
   "14": {
     "planches": [

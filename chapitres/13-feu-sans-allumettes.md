@@ -73,7 +73,7 @@ refroidisse dans la main.
 
 **Les mains (étapes 5 à 7).** La dextérité tombe quand la peau des mains descend sous 16 °C. Sans
 thermomètre, le repère est la douleur : les doigts font mal au froid vers 15 °C de peau, et c'est aussi là
-qu'ils s'engourdissent et que les gestes deviennent lents et imprécis. Sous ce seuil, après 10 minutes de
+qu'ils s'engourdissent et que les gestes deviennent lents et imprécis. En dessous, après 10 minutes de
 travail fin à mains nues, il faut réchauffer les mains avant de continuer. Sous −17,5 °C, il faut un outil
 qu'on manie avec les mitaines : la pile et la batterie ne demandent que de toucher la laine d'acier avec
 deux fils, alors que le ferrocérium et le briquet à pierre demandent des doigts.
@@ -93,12 +93,12 @@ deux fils, alors que le ferrocérium et le briquet à pierre demandent des doigt
  allumer dehors non plus quand la mousse craque sous le pied (ch. 11, section 9) : faire le feu dans le
  poêle.
 9. **Mettre de l'eau, du sable ou de la terre à portée de main** avant d'allumer.
-10. **Trier le bois en quatre tas, au complet, avant la première étincelle** (planche 13-40) : l'amadou fin
+10. **Trier le bois en quatre tas, au complet, avant la première étincelle** : l'amadou fin
  (planche 13-40, repère 1), le petit bois de moins de 2 cm (repère 2), celui de 2 à 5 cm (repère 3) et les
  bûches de moins de 15 cm (repère 4). Le feu qui vient de prendre meurt pendant qu'on va chercher le tas qui
  manque.
 11. **Choisir du bois sec.** Cogner deux morceaux l'un contre l'autre : le bois sec sonne clair, le bois
- vert ou mouillé sonne mat. Prendre le bois mort debout : les chicots d'épinette noire (*Picea mariana*)
+ vert ou mouillé sonne mat. Prendre le bois mort debout : les chicots d'épinette noire
  et les branches mortes encore attachées au tronc. Le bois couché au sol garde l'eau de la pluie et de la
  neige, même quand il a l'air sec.
 12. **Fendre pour trouver le sec.**
@@ -106,7 +106,7 @@ deux fils, alors que le ferrocérium et le briquet à pierre demandent des doigt
  éclisses grosses comme un doigt.
  - Sur une éclisse, lever au couteau des copeaux en frisure, du haut vers le bas, sans les détacher :
  ces copeaux prennent la flamme du nid.
- - S'il y a du pin gris (*Pinus banksiana*), prendre son bois gras : les nœuds et les souches gorgés de
+ - S'il y a du pin gris, prendre son bois gras : les nœuds et les souches gorgés de
  résine, qui brûlent même mouillés.
 13. **Monter le tipi** (planche 13-40, repères 5 et 6). Il brûle bien même avec du bois humide : en brûlant,
  le bois de l'extérieur tombe vers le centre et nourrit le feu.
@@ -145,14 +145,14 @@ Sans tige de ferrocérium : le briquet à pierre, la batterie, le soleil ou l'ar
 ### Allumer à la pile ou à la batterie, quand les doigts ne suivent plus
 
 18. **Préparer la laine d'acier.** Étirer un tampon de la laine d'acier la plus fine en une boule lâche de la
- taille du poing, et la poser dans le creux du nid.
-19. **Avec une pile de 9 V, toucher la laine avec les deux bornes de la pile**, à un endroit, puis à un autre.
- Le métal rougit, et la combustion avance seule dans la laine. Une pile trop faible pour faire marcher un
+ taille du poing, et la poser dans le creux du nid (planche 13-10, repères 1 à 3).
+19. **Avec une pile de 9 V, toucher la laine avec les deux bornes de la pile**, à un endroit, puis à un autre
+ (repère 4). Le métal rougit, et la combustion avance seule dans la laine (repère 5). Une pile trop faible pour faire marcher un
  avertisseur peut encore suffire. Pour transporter la pile, garder son capuchon ou couvrir les bornes de
  ruban : un objet de métal qui touche les deux bornes chauffe assez pour mettre le feu au sac.
 20. **Avec la batterie de l'auto, de la motoneige ou du VTT :**
- - attacher un fil de cuivre à chaque borne, ou prendre les câbles de survoltage ;
- - tenir les deux autres bouts par leur gaine, à un bras de la batterie, et toucher la laine avec. Un fil
+ - attacher un fil de cuivre à chaque borne, ou prendre les câbles de survoltage (repère 6) ;
+ - tenir les deux autres bouts par leur gaine, à un bras de la batterie, et toucher la laine avec (repères 7 et 8). Un fil
  court-circuité chauffe sur toute sa longueur, pas seulement au bout ;
  - faire l'étincelle au bout des fils, jamais au-dessus de la batterie, et ne jamais poser un outil d'une
  borne à l'autre : une batterie au plomb dégage de l'hydrogène, un gaz explosif, et l'étincelle peut faire
@@ -266,9 +266,9 @@ Sans tige de ferrocérium : le briquet à pierre, la batterie, le soleil ou l'ar
 > viande ne dit rien. Chez l'ours, ni le sel, ni le fumage, ni le gel domestique ne détruisent la
 > trichine : seule la cuisson la détruit (ch. 52).
 >
-> **5. Le thuya ne va jamais dans une tisane.** Le thuya occidental (*Thuja occidentalis*, le cèdre de la
+> **5. Le thuya ne va jamais dans une tisane.** Le thuya (qu'on appelle cèdre sur la
 > Côte-Nord) donne un bon amadou et une bonne planchette d'arc à feu, mais la thuyone qu'il contient est
-> toxique. Pour la vitamine C, on prend les aiguilles de sapin baumier (*Abies balsamea*) ou d'épinette
+> toxique. Pour la vitamine C, on prend les aiguilles de sapin baumier ou d'épinette
 > noire (ch. 20).
 
 ---
@@ -295,7 +295,7 @@ coupe la veille pour le lendemain, tout l'hiver.
  dans la boîte pour appuyer (planche 13-08, repères 1 et 2).
 - Mettre au fond un lit de cendre sèche ou de sable (repère 3).
 - Poser une braise vive au centre (repère 4).
-- La couvrir d'un bloc d'amadouvier (*Fomes fomentarius*) ou de bois pourri sec (repère 5), puis de cendre
+- La couvrir d'un bloc d'amadouvier ou de bois pourri sec (repère 5), puis de cendre
  (repère 6), et fermer le couvercle (repère 7).
 - Passer une anse de fil de broche (repère 8), et porter la boîte au bout du fil, loin du corps : elle
  chauffe assez pour traverser une mitaine (repère 9).
@@ -310,13 +310,13 @@ de jour, sur un court trajet, avant de s'y fier pour un long.
 On ramasse ce qui reçoit l'étincelle toute l'année, et on le garde au sec, dans un sac fermé qu'on porte
 sous ses vêtements en sortant : sous la pluie verglaçante, on ne trouve pas d'amadou sec dehors.
 
-- L'écorce extérieure du bouleau à papier (*Betula papyrifera*), levée sur un arbre mort, debout ou couché.
+- L'écorce extérieure du bouleau à papier, levée sur un arbre mort, debout ou couché.
  Elle brûle même humide.
 - La gomme figée d'épinette noire, sur les blessures des troncs, et la gomme de sapin baumier, crevée à la
  pointe du couteau dans les cloques de l'écorce (ch. 94).
 - Le bois gras de pin gris (étape 12).
-- La barbe de quenouille (*Typha latifolia*), sur les têtes qui dépassent la neige au bord des marais.
-- La barbe de vieillard (*Usnea*), le lichen en filaments gris-vert des branches basses, qui reste sec sous
+- La barbe de quenouille, sur les têtes qui dépassent la neige au bord des marais.
+- La barbe de vieillard, le lichen en filaments gris-vert des branches basses, qui reste sec sous
  le couvert des arbres.
 - L'écorce intérieure d'un thuya mort, roulée entre les paumes jusqu'à devenir une ouate.
 - Une chandelle de suif (ch. 112) : sa flamme dure assez pour sécher du petit bois tenu au-dessus.
@@ -370,7 +370,7 @@ trop courte pour être tenue dans un manche de bois percé, avec de la gomme d'�
 
 Il reste presque toujours une batterie : dans l'auto, la motoneige, le VTT, la chaloupe ou le banc du
 panneau solaire. On prend les précautions de l'étape 20, et on touche avec les deux fils ce qu'on veut
-faire chauffer.
+faire chauffer (planche 13-10, repères 9 et 10).
 
 - **Un seul brin effiloché d'un fil de cuivre multibrin** : il rougit et se consume en quelques secondes.
 - **Une mine de crayon** posée en travers des deux fils : elle fait un arc et un point très chaud qui dure
@@ -400,14 +400,14 @@ L'arc à feu demande plus de pratique que toutes les autres méthodes (planche 1
 l'été, au sec, avant de compter dessus.
 
 - **La planchette** : du bois tendre, mort, sec et pas pourri, pris debout et non au sol : thuya, peuplier
- faux-tremble (*Populus tremuloides*) ou sapin baumier. Environ 2,5 cm d'épaisseur et 10 cm de large
+ faux-tremble ou sapin baumier. Environ 2,5 cm d'épaisseur et 10 cm de large
  (planche 13-01, repère 1).
 - **La cavité et l'encoche** : creuser une cavité à environ 2 cm du bord de la planchette (repère 2), puis
  tailler une encoche en V du bord jusqu'au centre de la cavité (repère 3).
 - **Le foret** : un bâton de bois dur, sec et droit, d'environ 25 cm de long et 2 cm de diamètre
  (repère 4), le bout du haut arrondi (repère 5) et celui du bas plat (repère 6).
 - **Le palier**, qu'on tient dans la main par-dessus le foret : un nœud de bois dur, un galet ou un os court
- de patte d'orignal (*Alces americanus*), avec un creux (repère 7). Graisser le creux au suif ou à la
+ de patte d'orignal, avec un creux (repère 7). Graisser le creux au suif ou à la
  gomme (repère 8), pour que le haut du foret tourne sans chauffer : sinon la chaleur se fait aux deux bouts,
  et aucun ne prend.
 - **L'arc** : une branche verte et souple d'environ 2,5 cm de diamètre, avec une corde tendue sans mou

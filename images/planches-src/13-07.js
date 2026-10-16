@@ -223,8 +223,8 @@ module.exports = (h) => {
     titre: 'L’amadou',
     desc: 'L’amadouvier en sabot sur un bouleau mort, coupé en deux : la croûte dure dessus, la couche de tubes dessous, et entre les deux la bande brune au toucher de daim, la seule qu’on garde. La tranche de cette bande battue au maillet de bois sur une bûche jusqu’à devenir un feutre souple deux fois plus grand, puis séchée. Le coton en carrés dans une boîte de métal percée d’un seul trou de clou, posée sur les braises, un jet de fumée qui sort du trou ; la fumée finie, le trou bouché d’un bout de bois, la boîte refroidie fermée, et le carré noir qui se déchire sans s’effriter. Sans boîte, le coton roulé serré dans un cornet d’écorce de bouleau ficelé d’une hart, enfoui sous les braises jusqu’à la fin du jet de fumée, puis enfoui dans le sable pour l’étouffer.',
     format: 'pleine',
-    disposition: [['sabot', 'battre'], ['boite', 'bouche'], ['cornet', 'braises']],
-    hauteurs: [1.15, 1, 1],
+    disposition: [['boite', 'bouche'], ['cornet', 'braises'], ['sabot', 'battre']],
+    hauteurs: [1, 1, 1.15],
     largeurs: [[1, 1], [1, 1], [1, 1]],
     vues: {
       sabot: {
@@ -268,10 +268,10 @@ module.exports = (h) => {
           const b2 = [(croute[i2][0] + bande[i2][0]) / 2, (croute[i2][1] + bande[i2][1]) / 2];
           const t3 = P(0.55, 80);
           return [
-            { n: 1, rond: [f(c1[0] + 30), 14], cible: [f((c1[0] + k1[0]) / 2), f((c1[1] + k1[1]) / 2)], texte: 'croûte dure, qu’on jette' },
-            { n: 2, rond: [f(xR + W + 30), f(b2[1] - 4)], cible: [f(b2[0]), f(b2[1])], texte: 'bande brune, la seule gardée' },
-            { n: 3, rond: [f(t3[0] + 34), f(yA + 104 * s + 20)], cible: [f(t3[0]), f(t3[1])], texte: 'couche de tubes, qu’on jette' },
-            { n: 4, rond: [f(xR - 22), f(yA + 104 * s + 22)], cible: [xR + 1, f(yA + 98 * s)], texte: 'se détache à la hache' },
+            { n: 14, rond: [f(c1[0] + 30), 14], cible: [f((c1[0] + k1[0]) / 2), f((c1[1] + k1[1]) / 2)], texte: 'croûte dure : la jeter' },
+            { n: 16, rond: [f(xR + W + 30), f(b2[1] - 4)], cible: [f(b2[0]), f(b2[1])], texte: 'bande brune : la garder' },
+            { n: 15, rond: [f(t3[0] + 34), f(yA + 104 * s + 20)], cible: [f(t3[0]), f(t3[1])], texte: 'couche de tubes : la jeter' },
+            { n: 13, rond: [f(xR - 22), f(yA + 104 * s + 22)], cible: [xR + 1, f(yA + 98 * s)], texte: 'détacher à la hache' },
           ];
         },
       },
@@ -336,11 +336,13 @@ module.exports = (h) => {
         },
         renvois: z => {
           const { cx, rx, yT, M, fx, fy } = battre(z);
-          const m = M(28, -12);
+          const a0 = M(20, 16), a1 = [fx - 28, fy - 12];
+          const Q0 = [a0[0] - 14, a0[1] - 6], Q1 = [a1[0] - 22, (a0[1] + a1[1]) / 2], Q2 = [a1[0] - 6, a1[1] - 2];
+          const gm = [0.25 * Q0[0] + 0.5 * Q1[0] + 0.25 * Q2[0], 0.25 * Q0[1] + 0.5 * Q1[1] + 0.25 * Q2[1]];
           return [
-            { n: 5, rond: [f(cx + rx + 20), f(yT - 24)], cible: [fx + 30, fy - 3], texte: 'tranchée mince, en long' },
-            { n: 6, rond: [f(m[0] + 34), f(m[1] - 22)], cible: [f(m[0]), f(m[1] + 2)], texte: 'maillet de bois' },
-            { n: 7, rond: [f(cx - rx - 2), f(yT + 34)], cible: [fx - 44, fy + 6], texte: 'battue : double de surface' },
+            { n: 17, rond: [f(cx + rx + 20), f(yT - 24)], cible: [fx + 30, fy - 3], texte: 'trancher mince, en long' },
+            { n: 18, rond: [f(gm[0] - 30), f(gm[1] + 16)], cible: [f(gm[0] - 3), f(gm[1] + 2)], texte: 'battre au maillet de bois' },
+            { n: 19, rond: [f(cx - rx - 2), f(yT + 34)], cible: [fx - 44, fy + 6], texte: 'jusqu’à doubler de surface' },
           ];
         },
       },
@@ -349,6 +351,8 @@ module.exports = (h) => {
         titre: 'Le coton en boîte, sur les braises',
         dessin: z => {
           const v = vBoite(z), out = [];
+          // règle 10 : un filet sur toute la largeur sépare la boîte de l'autre façon (le cornet), dessous
+          out.push(h.ligne(0, z.h + 11, 600, z.h + 11, h.a.fin));
           out.push(h.ligne(10, z.h - 3, z.l - 10, z.h - 3, h.a.arete));
           out.push(lit(16, z.l - 16, v.yBase - 8, z.h - 3, 17));
           const b = boite(v.cx, v.yBase, v.bw, v.bh, false);
@@ -364,10 +368,10 @@ module.exports = (h) => {
           const v = vBoite(z), xr = v.cx + v.bw / 2, xl = v.cx - v.bw / 2;
           const y = v.yc - 5;
           return [
-            { n: 8, rond: [f(xr + 34), f(v.yTop + 26)], cible: [f(xr + 1), f(v.yTop + 26)], texte: 'boîte à couvercle serré' },
-            { n: 9, rond: [f(xl - 30), f(v.yBase - 22)], cible: [f(xl + 12), f(v.yBase - 20)], texte: 'coton pur : jeans, guenille' },
-            { n: 10, rond: [f(v.cx - 44), f(v.yc - 22)], cible: [v.cx - 3, f(v.yc)], texte: 'un seul trou, fait d’un clou' },
-            { n: 11, rond: [f(v.cx + 42), f(y - 38)], cible: [v.cx + 3, f(y - 34)], texte: 'attendre que la fumée cesse' },
+            { n: 1, rond: [f(xr + 34), f(v.yTop + 26)], cible: [f(xr + 1), f(v.yTop + 26)], texte: 'boîte à couvercle serré' },
+            { n: 2, rond: [f(xl - 30), f(v.yBase - 22)], cible: [f(xl + 12), f(v.yBase - 20)], texte: 'coton pur : jeans, guenille' },
+            { n: 3, rond: [f(v.cx - 44), f(v.yc - 22)], cible: [v.cx - 9, f(v.yc - 6)], texte: 'un seul trou : le jet en sort' },
+            { n: 4, rond: [f(v.cx + 42), f(y - 38)], cible: [v.cx + 3, f(y - 34)], texte: 'quand le jet cesse, retirer' },
           ];
         },
       },
@@ -403,9 +407,9 @@ module.exports = (h) => {
         renvois: z => {
           const v = vBouche(z), xr = v.cx + v.bw / 2;
           return [
-            { n: 12, rond: [f(v.cx + 34), f(v.yc - 26)], cible: [v.cx + 3, f(v.yc - 11)], texte: 'bouché d’un bout de bois' },
-            { n: 13, rond: [f(xr + 26), f(v.yBase - 16)], cible: [f(xr + 1), f(v.yBase - 16)], texte: 'ouverte chaude, elle flambe' },
-            { n: 14, rond: [f(v.xs + 4), f(v.ys + v.c + 22)], cible: [f(v.xs - 8), f(v.ys + v.c - 6)], texte: 'noir, souple, ne s’effrite pas' },
+            { n: 5, rond: [f(v.cx + 34), f(v.yc - 26)], cible: [v.cx + 3, f(v.yc - 11)], texte: 'boucher d’un bout de bois' },
+            { n: 6, rond: [f(xr + 26), f(v.yBase - 16)], cible: [f(xr + 1), f(v.yBase - 16)], texte: 'refroidir fermée' },
+            { n: 7, rond: [f(v.xs + 4), f(v.ys + v.c + 22)], cible: [f(v.xs - 8), f(v.ys + v.c - 6)], texte: 'noir, souple, ne s’effrite pas' },
           ];
         },
       },
@@ -414,14 +418,15 @@ module.exports = (h) => {
         titre: 'Sans boîte : le cornet d’écorce',
         dessin: z => {
           const c = vCornet(z);
-          return dessinCornet(c, 21) + '\n' + hart(c, Math.round(c.x0 + 0.56 * (c.x1 - c.x0)));
+          // un filet sépare le cornet de l'amadouvier, autre sujet, dessous
+          return h.ligne(0, z.h + 11, 600, z.h + 11, h.a.fin) + '\n' + dessinCornet(c, 21) + '\n' + hart(c, Math.round(c.x0 + 0.56 * (c.x1 - c.x0)));
         },
         renvois: z => {
           const c = vCornet(z), xh = Math.round(c.x0 + 0.56 * (c.x1 - c.x0)), xb = c.x0 + 0.26 * (c.x1 - c.x0);
           return [
-            { n: 15, rond: [c.x1 + 44, c.yc + c.R + 8], cible: [f(c.x1 + 3), c.yc + 4], texte: 'carrés de coton roulés serrés' },
-            { n: 16, rond: [f(xb - 8), f(c.yc + c.R + 18)], cible: [f(xb), f(c.yc + c.r(xb) * 0.5)], texte: 'écorce de bouleau' },
-            { n: 17, rond: [f(xh + 44), f(c.yc - c.R - 12)], cible: [f(xh + 12 + 0.3 * c.r(xh + 8)), f(c.yc - c.r(xh) * 0.4)], texte: 'ficelé d’une hart' },
+            { n: 8, rond: [c.x1 + 44, c.yc + c.R + 8], cible: [f(c.x1 + 3), c.yc + 4], texte: 'au lieu de 1 à 6 : coton roulé' },
+            { n: 9, rond: [f(xb - 8), f(c.yc + c.R + 18)], cible: [f(xb), f(c.yc + c.r(xb) * 0.5)], texte: 'écorce de bouleau' },
+            { n: 10, rond: [f(xh + 44), f(c.yc - c.R - 12)], cible: [f(xh + 12 + 0.3 * c.r(xh + 8)), f(c.yc - c.r(xh) * 0.4)], texte: 'ficelé d’une hart' },
           ];
         },
       },
@@ -450,9 +455,12 @@ module.exports = (h) => {
         },
         renvois: z => {
           const v = vBraises(z), [x, y] = v.fum;
+          const { m0, m1, mh, yG } = v;
+          const P0 = [v.xb - 16, v.yE - 16], P1 = [(v.xb + m0) / 2 + 10, yG - mh - 42], P2 = [(m0 + m1) / 2 - 20, yG - mh - 8];
+          const gq = [0.25 * P0[0] + 0.5 * P1[0] + 0.25 * P2[0], 0.25 * P0[1] + 0.5 * P1[1] + 0.25 * P2[1]];
           return [
-            { n: 18, rond: [x - 44, f(y - 44)], cible: [x - 2, f(y - 43)], texte: 'quand elle cesse, le sortir' },
-            { n: 19, rond: [f(v.m1 - 10), f(v.yG - v.mh - 16)], cible: [f(v.m1 - 26), f(v.yG - v.mh * 0.45)], texte: 'dans le sable, pour l’étouffer' },
+            { n: 11, rond: [x - 44, f(y - 44)], cible: [x - 2, f(y - 43)], texte: 'quand la fumée cesse, sortir' },
+            { n: 12, rond: [f(gq[0] + 6), f(gq[1] - 26)], cible: [f(gq[0]), f(gq[1] - 3)], texte: 'dans le sable, pour l’étouffer' },
           ];
         },
       },
