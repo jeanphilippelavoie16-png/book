@@ -30,14 +30,14 @@ module.exports = (h) => {
 
   // ── Vue 1 : polir ──
   const polir = z => {
-    const e = 0.6, c = [z.l * 0.46, z.h - 30], D = 100 * e, ep = 9 * e;
+    const e = 0.66, c = [z.l * 0.46, z.h - 30], D = 110 * e, ep = 13 * e;
     return { e, c, D, ep };
   };
   // ── Vue 2 : au soleil ── La lentille vue presque de face, tenue par le bord ; le soleil derrière, en haut à gauche ;
   // le cône de lumière qui se resserre jusqu'au point, sur la cible posée sur la bûche ; le bras calé sur la bûche.
   const soleil = z => {
     const e = 0.45, yA = z.h - 16;
-    const L = [z.l * 0.5, 34], R = 50 * e;
+    const L = [z.l * 0.46, 44], R = 50 * e;
     const cible = [z.l * 0.76, yA - 3];
     return { e, yA, L, R, cible };
   };
@@ -82,9 +82,9 @@ module.exports = (h) => {
           out.push(h.ligne(0, g.yA, z.l, g.yA, A.contour));
           out.push(h.path(`M 6 ${f(g.yA + 6)} L 52 ${f(g.yA + 7)} M 84 ${f(g.yA + 10)} L 150 ${f(g.yA + 9)} M 190 ${f(g.yA + 5)} L 236 ${f(g.yA + 6)} M 252 ${f(g.yA + 11)} L 290 ${f(g.yA + 10)}`, A.fin));
           // les rayons du soleil, parallèles, jusqu'à la lentille
-          const ray = [0.62, 0.785];
+          const ray = [0.42, 0.907];
           [-0.7, 0, 0.7].forEach(s => {
-            const p = [g.L[0] + s * g.R * 0.75 - g.R * 0.2, g.L[1] + s * g.R * 0.55 - g.R * 0.45], q = [p[0] - ray[0] * 60, p[1] - ray[1] * 60];
+            const p = [g.L[0] + g.R * 0.25 + s * g.R * 0.62, g.L[1] - g.R * 0.62 + s * g.R * 0.3], q = [p[0] - ray[0] * 60, p[1] - ray[1] * 60];
             out.push(h.fleche(`M ${f(q[0])} ${f(q[1])} L ${f(p[0] - ray[0] * 4)} ${f(p[1] - ray[1] * 4)}`, A.fin));
           });
           // le cône de lumière, des deux bords de la lentille jusqu'au point
