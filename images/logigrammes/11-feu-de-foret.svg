@@ -42,8 +42,8 @@
 <rect x="36.00" y="61.20" width="495.00" height="39.40" rx="0" fill="#2B5876"/>
 <text data-max="468.50" x="50.00" y="85.65" font-family="IBM Plex Sans Condensed" font-size="15" fill="#fff" text-anchor="start" xml:space="preserve"><tspan font-weight="700">Un feu est déclaré dans le secteur</tspan></text>
 <rect x="36.00" y="115.20" width="495.00" height="43.10" rx="0" fill="#FDE8D8" stroke="#EE7219" stroke-width="1.5"/>
-<text data-max="478.50" x="45.00" y="135.85" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">Regarder d’où vient la fumée et de quel côté elle penche.</tspan><tspan font-weight="500"> Un feu de cimes avance de 1 à 4 km à l’heure : à 10 km,</tspan></text>
-<text data-max="478.50" x="45.00" y="148.15" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">avec le vent vers nous, il peut être là en moins de trois heures.</tspan></text>
+<text data-max="478.50" x="45.00" y="135.85" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">Regarder d’où vient la fumée et de quel côté elle penche.</tspan><tspan font-weight="500"> Si le vent souffle du feu vers nous, un feu à 10 km peut</tspan></text>
+<text data-max="478.50" x="45.00" y="148.15" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">arriver en moins de trois heures.</tspan></text>
 <rect x="468.57" y="146.05" width="63.18" height="13.00" fill="#EE7219"/>
 <text x="473.57" y="155.60" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="8.5" fill="#000" xml:space="preserve" data-max="54.68">ch. 11, étape 1</text>
 <rect x="44.00" y="108.20" width="21.63" height="14.00" fill="#EE7219"/>

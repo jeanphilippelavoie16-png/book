@@ -88,7 +88,7 @@
       "ancre": "haut",
       "temps": "1 h",
       "taille": 10,
-      "texte": "**Regarder d'où vient la fumée et de quel côté elle penche.** Un feu de cimes avance de 1 à 4 km à l'heure : à 10 km, avec le vent vers nous, il peut être là en moins de trois heures.",
+      "texte": "**Regarder d'où vient la fumée et de quel côté elle penche.** Si le vent souffle du feu vers nous, un feu à 10 km peut arriver en moins de trois heures.",
       "renvoi": "ch. 11, étape 1",
       "source": "étape 1"
     },

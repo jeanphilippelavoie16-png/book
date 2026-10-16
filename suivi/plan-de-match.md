@@ -95,6 +95,14 @@ tomes** : un peu plus de blanc en bas des pages qui précèdent une planche ; le
    clair (ce qu'on fait, et ce qui arrive sinon). `controle.py` liste les « Un X qui… ne… plus » : 113 dans le
    livre le 16 octobre, à juger une par une dans la grande passe. Les trois du ch. 11 sont faites.
 
+7. **La répétition se cherche par idée** (JP, 16 octobre : la vitesse du feu redite six fois au ch. 11 ; « je
+   croyais te l'avoir dit »). Pour chaque chapitre : l'inventaire de ses faits et l'endroit où chacun est dit ;
+   un fait garde une seule place, la plus utile ; « le détail » et la section 9 n'expliquent que ce qui n'est
+   dit nulle part ailleurs (skill `ecriture`, section « La répétition »). Fait au ch. 11 le 16 octobre :
+   8 374 → 7 869 mots. Et les tournures au présent qui décrivent au lieu de dire quoi faire (« Les enfants
+   finissent la nuit habillés, dans la pièce la mieux fermée, et l'auto est chargée ») se disent comme une
+   consigne.
+
 Le **ch. 11 (feu de forêt)** est **le chapitre modèle de la refonte, approuvé par JP** (15 octobre au soir :
 « c'est parfait, on se garde ça pour samedi ») : texte, trois séries orange à la longueur de leur temps (1 h,
 15 min, 1 min) suivies de leur détail hors de l'orange, section 2 sans « mauvaise procédure », logigramme,

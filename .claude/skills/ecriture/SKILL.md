@@ -173,6 +173,21 @@ JP : « Dans les textes, y a beaucoup de répétition aussi, faut slaquer la ré
 
 Le script de contrôle liste les suites de mots qui reviennent dans le chapitre ; chacune se juge.
 
+**Mais la répétition se cherche par idée, pas par mots** (JP, 16 octobre 2026, sur la vitesse du feu de cimes
+redite six fois dans le ch. 11 avec des chiffres différents : « on comprend que le feu avance vite, la
+première fois tu le dis dans l'orange ; faut arrêter les répétitions, je croyais te l'avoir dit »). Le
+script ne voit pas un même fait redit avec d'autres mots ou d'autres chiffres. Avant de rendre :
+- **Faire l'inventaire des faits du chapitre** : chaque chiffre, chaque mécanisme, chaque consigne, avec les
+  endroits où il est dit (la vitesse du feu, les braises qui allument les bâtiments, la chaleur qui traverse
+  les vitres, le feu qui ralentit la nuit…).
+- **Un fait qui revient garde une seule place**, la plus utile : l'étape où il sert (la série orange
+  d'abord), sinon la section 3 pour un mécanisme et la section 8 pour un danger. Ailleurs, il sort, ou il
+  devient un renvoi court (« section 8, point 6 »).
+- **Les parties « le détail » et la section 9 n'expliquent que ce qui n'est dit nulle part ailleurs.** C'est
+  là que les redites se glissent quand on sort le pourquoi d'une série orange.
+- Les tableaux des sections 6 et 7 redonnent les cibles chiffrées, c'est leur travail ; ils ne redisent pas
+  un avertissement (la génératrice ne revient pas en ligne de tableau).
+
 ### Le tiret
 
 **Aucun tiret (— ou –) comme ponctuation dans une phrase.** Le livre en avait 5 665. Selon le cas :

@@ -81,20 +81,16 @@ suite à l'étape 11.
 
 ### Un feu est déclaré : le détail
 
-**La fumée (étape 1).** Elle montre où est le feu et vers où le vent le pousse (section 9). La nuit, on
-voit la lueur du feu plutôt que sa fumée. Un feu à 15 km, quand le vent souffle de lui vers nous, est plus
-proche qu'un feu à 5 km sur le côté. Un feu de cimes dans l'épinette avance de 1 à 4 km à l'heure, et ses
-braises arrivent avant lui. Quand le vent tourne, le côté du feu devient son front, et ce front est plus
+**La fumée (étape 1).** La nuit, on voit la lueur du feu plutôt que sa fumée. Un feu à 15 km, quand le vent souffle de lui vers nous, est plus
+proche qu'un feu à 5 km sur le côté. Quand le vent tourne, le côté du feu devient son front, et ce front est plus
 large.
 
 **L'auto (étapes 2 et 3).** On fait le plein à la station en ville, avec les bidons au chalet. Il faut au
 moins deux fois ce que prend l'aller (ch. 15), et on refait le plein chaque fois que le réservoir descend
-à la moitié. On charge sans attendre de sentir la fumée, et les vêtements de rechange vont dans un sac à
-part. La réserve du chalet reste au chalet (ch. 5) : une heure passée à charger des conserves est une
+à la moitié. Les vêtements de rechange vont dans un sac à part. La réserve du chalet reste au chalet (ch. 5) : une heure passée à charger des conserves est une
 heure de moins pour sortir.
 
-**Le canot et les enfants (étapes 4 et 5).** Le canot à l'eau est le deuxième chemin si la route ferme
-(section 9). L'adulte qui prend un enfant le garde jusqu'à l'arrivée (ch. 82).
+**Les enfants (étape 5).** L'adulte qui prend un enfant le garde jusqu'à l'arrivée (ch. 82).
 
 **Les deux raisons de partir (étape 6).** Un seul adulte décide (ch. 2). Si la famille a écrit en mai ce
 qui la fait partir (étape 47), la feuille sur la porte s'ajoute à ces deux raisons.
@@ -128,19 +124,15 @@ déjà le chemin, rester au bâtiment (étape 21).
 
 ### Il faut partir : le détail
 
-**Le quart d'heure (étapes 11 à 17).** Un feu de cimes peut faire un kilomètre en un quart d'heure : le
-départ se fait dans ce temps-là.
-
 **La nuit (étape 11).** La fumée de la nuit descend dans les creux et s'y accumule, puis elle se lève le
-jour : son odeur ne dit pas à elle seule que le feu approche. Les enfants finissent la nuit habillés, dans
-la pièce la mieux fermée, et l'auto est chargée.
+jour : son odeur ne dit pas à elle seule que le feu approche. Pour finir la nuit, on habille les enfants, on les
+couche dans la pièce la mieux fermée et on finit de charger l'auto.
 
 **Les enfants (étape 12).** Ils portent des pantalons et des manches longues, et des bottes ou des
 souliers fermés. Un adulte seul installe d'abord les enfants, puis ferme le bâtiment.
 
 **Le bâtiment (étape 13).** On enlève aussi les stores et les rideaux légers, et on tire ce qui brûle bien
-loin des vitres : la chaleur du feu traverse la vitre et allume ce qui est derrière, et personne ne sera
-là pour l'éteindre.
+loin des vitres, parce que personne ne sera là pour éteindre ce qui prend derrière (section 8, point 6).
 
 **L'eau (étape 14).** Au chalet, on mouille aussi la mousse, l'humus et la cladonie autour du bâtiment :
 les braises y prennent, et ce tapis garde l'eau moins longtemps qu'un bardeau. Un boyau laissé ouvert vide
@@ -175,15 +167,14 @@ qui est tombé dessus depuis le dernier passage (section 9 : l'arbre en travers,
 **Où arrêter l'auto (étapes 18 et 19).** Une gravière, un champ, un brûlis, un grand stationnement, ou
 derrière un gros rocher, loin des arbres, des broussailles et des autres autos. On laisse les phares et
 les feux d'urgence allumés. On coupe le moteur quand le feu est proche, et tout le monde se couche sous le
-niveau des vitres. On met un linge sur le nez et la bouche, et on boit de l'eau, même sans soif. On reste
-dans l'auto (section 8, point 6).
+niveau des vitres. On met un linge sur le nez et la bouche, et on boit de l'eau, même sans soif.
 
 **Quand sortir de l'auto (étape 20).** On sort la main de sous la couverture : si l'air chauffe la peau
 comme un gros coup de soleil, c'est trop tôt. On sort de l'auto toujours sous la laine.
 
 **Au bâtiment (étapes 21 à 23).** L'eau froide des éviers, du bain et des chaudières sert à éteindre les
 braises. On arrête aussi l'échangeur d'air : avec le climatiseur, il aspire les braises. On ferme les
-rideaux, qui arrêtent la chaleur du feu à travers les vitres. Tout le monde s'habille de coton ou de
+rideaux. Tout le monde s'habille de coton ou de
 laine, avec des bottes, et boit. La pièce a deux sorties vers l'extérieur, deux portes ou une porte et une
 fenêtre, et on regarde dehors souvent. On ne va ni au sous-sol, ni dans une pièce sans sortie : la pièce
 d'air propre de l'étape 35 sert contre la fumée, pas pendant le passage du front. On cherche les braises
@@ -210,8 +201,8 @@ jusqu'à l'hypothermie (ch. 25, ch. 39) : on ne reste pas dans l'eau.
 27. **Reprendre la décision de rester ou de partir deux fois par jour, et chaque fois que le vent tourne**
  (ch. 2), avec la radio et la colonne de fumée.
 28. **Partir le matin, avant 10 h si on a le choix.** D'habitude, un feu ralentit la nuit, quand l'air
- refroidit et que l'humidité remonte, puis il reprend de la force pendant la journée. Le matin, le feu est
- plus calme et on voit la route ; la nuit, les phares éclairent la fumée (section 9).
+ refroidit et que l'humidité remonte, puis il reprend de la force pendant la journée. L'aube est aussi le
+ moment pour dégager un chemin ou aller voir.
 29. **La nuit, laisser les chaussures et les vêtements au pied du lit et les clés dans l'auto, et garder
  un adulte éveillé.** Après une sécheresse, un grand feu peut brûler la nuit entière : en Amérique du
  Nord, un grand feu sur cinq a brûlé au moins une nuit complète. Les adultes veillent à tour de rôle.
@@ -306,8 +297,8 @@ tas de branches sèches.
 49. **Du mur à 1,5 m, rien qui brûle** : du gravier ou le sol minéral, pas de paillis, pas de haie contre
  le mur, pas de bois cordé contre le revêtement, aucun arbre ni arbuste ligneux.
 50. **Vider les gouttières, les noues du toit et le dessous des galeries**, au printemps et à l'automne.
- Une gouttière pleine d'aiguilles d'épinette noire fait un allume-feu tout le tour du toit, et c'est par
- les braises que la plupart des bâtiments prennent feu (section 8, point 3). Ça prend une demi-journée.
+ Une gouttière pleine d'aiguilles d'épinette noire fait un allume-feu tout le tour du toit. Ça prend une
+ demi-journée.
 51. **Débarrasser le toit et le revêtement** de tout débris qui brûle.
 52. **Ne rien ranger sous une galerie** : ni bois, ni bouteille de propane. Le dessous d'une galerie est à
  l'ombre, plein de feuilles et ouvert à l'air : une braise y prend et le feu part sous le plancher, hors
@@ -385,7 +376,6 @@ la surface, prudemment, puisqu'on cherche ce qu'on ne voit pas (section 9).
 | Au retour, un mur ou un plancher tiède sans flamme visible | Feu qui couve, ou point chaud passé sous la structure | Ne pas dormir dans le bâtiment. Arroser, surveiller, revenir de jour (ch. 82) |
 | Au retour, un arbre debout mais noir sur le premier mètre | Tronc brûlé à la base, qui tient jusqu'au premier vent | Ne pas travailler ni stationner dessous ; le tirer au treuil ou au câble (étape 40) |
 | Eau de puits ou de lac claire, mais au goût de fumée | Suies venues du bassin brûlé | Ne pas la boire : les suies ne partent ni à l'ébullition ni à l'eau de Javel (ch. 10) |
-| Une génératrice dans le garage « juste le temps de repartir la maison » | Du monoxyde de carbone produit sans arrêt dans un volume fermé | La sortir, sortir tout le monde, aérer, et ne pas rentrer tant que l'avertisseur sonne |
 
 ---
 
@@ -442,9 +432,7 @@ la surface, prudemment, puisqu'on cherche ce qu'on ne voit pas (section 9).
 
 Sans pompe, sans purificateur et sans nouvelles du feu, ce qui est l'ordinaire d'un chalet hors réseau.
 
-**Sans nouvelles, on part plus tôt.** On ne peut pas savoir si le feu grossit ou s'éloigne, et on ne peut
-donc pas prendre une décision qu'on pourrait défaire. On part au premier signe : un départ pour rien coûte
-du carburant et deux jours (étape 47).
+**Sans nouvelles du feu, on part au premier signe** (étape 47).
 
 ### Lire le danger et le feu sur le terrain
 
@@ -465,8 +453,6 @@ fumée se lit de loin.
  c'est pourtant le plus dangereux des deux.
 - **La couleur** : une fumée blanche et lente vient d'un feu qui couve ; une fumée épaisse et sombre vient
  de résineux qui brûlent à plein.
-- **L'heure** : le feu ralentit d'habitude la nuit et au petit matin (étape 28). L'aube est le moment pour
- rouler, dégager un chemin ou aller voir.
 - **La pente** : un feu monte une pente beaucoup plus vite qu'il la descend, parce que la flamme chauffe
  ce qui est au-dessus d'elle. Un vallon étroit tire comme une cheminée, et le vent peut y tourner. Un
  chalet au bas d'une pente a plus de marge que le même chalet à mi-pente.
@@ -477,8 +463,6 @@ fumée se lit de loin.
 
 ### Sortir quand le chemin n'est plus un chemin
 
-- **Partir à l'aube** : la fumée de la nuit est couchée au sol, mais elle ne bouge pas, et le feu est au
- plus calme.
 - **Dans la fumée, les phares éclairent la fumée**, comme dans la poudrerie : la lumière revient dans les
  yeux. Allumer seulement les phares de croisement, et les antibrouillards s'il y en a. Loin du feu, quand
  on ne voit ni lueur ni braises et qu'on ne sent pas de chaleur, un adulte peut marcher devant l'auto, la
@@ -573,17 +557,10 @@ valent beaucoup mieux que rien, et ils se montent avec du ruban gommé.
 
 ### Ce qui ne se remplace pas
 
-- **Le masque d'un enfant.** Il n'existe pas de N95 à sa taille. Un linge sur le nez et la bouche, sec ou
- mouillé, n'arrête pas les particules fines. Il reste l'air de la pièce, ou la distance.
+- **Le masque d'un enfant.** Un linge sur le nez et la bouche, sec ou mouillé, n'arrête pas les particules
+ fines (section 8, point 1). Il reste l'air de la pièce, ou la distance.
 - **L'abri des pompiers forestiers.** Ils portent un abri de dernier recours ; il n'en existe pas pour une
- famille. Il reste l'étape 24, dans un creux de sol minéral, loin des arbres debout. Ça ne se prépare pas,
- ça s'évite en partant.
-- **Le préavis.** Sans radio ni voisin, on apprend le feu par sa fumée, plus tard qu'on l'apprendrait par
- un bulletin.
-- **La deuxième chance sur la route.** On s'engage sans savoir si le chemin est ouvert plus loin : le
- carburant doit couvrir l'aller et le retour, ce qui coupe la portée de moitié (ch. 15).
-- **La mesure de la fumée.** Sans capteur, il reste la distance qu'on voit (étape 36) et la toux d'un
- enfant, un signal tardif chez la personne la plus sensible de la maison.
+ famille. Il reste l'étape 24, dans un creux de sol minéral, loin des arbres debout.
 
 ### Au retour, trouver le feu qui reste sans instrument
 
