@@ -20,6 +20,11 @@ bibliothèque validée ; JP l'a vu tout de suite.
 - **Le composeur** (`scripts/composer-planche.js`), le rendu (`rendre-planche.js`) et le vérificateur
   (`verifier-planche.js`) à chaque version ; `xmllint --noout` à la fin.
 
+**Mise à jour du 16 octobre 2026 au soir** : JP trouve les mains de `mainSimple` laides (« c'est pas beau en
+criss ») ; les corps restent beaux. Jusqu'à la nouvelle bibliothèque : pas de gros plan de main dans une planche
+neuve ; la main coupée par le bord, l'objet seul, ou le corps entier de profil (`h.formes.corps`). Toujours rien à la
+main.
+
 ## Les règles à lire avant de dessiner
 
 - `CLAUDE.md` ; les skills `planches`, `dessin-notice`, `encrage`, au complet.

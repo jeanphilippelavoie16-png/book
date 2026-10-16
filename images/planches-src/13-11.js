@@ -5,9 +5,9 @@
 //
 // Mains : les moteurs validés seulement (brief-agent.md).
 //   la paume qui polit   mainSimple 'plat', vue 'pouce' (de profil), la paume posée sur le haut du bombé ;
-//   la main qui tient    mainSimple 'pince-laterale', vue 'auriculaire', main droite, angle −30 : la tranche du disque
-//                        pincée entre le pouce (derrière) et le côté de l'index, les doigts repliés devant ;
-//                        l'avant-bras posé en travers d'une bûche vue par le bout, coupé par le bord de la vue
+//   la main qui tient    mainSimple 'pince-fine', vue 'pouce', main droite, angle −25 : le bas du disque pris entre la
+//                        pulpe du pouce et celle de l'index ; l'avant-bras posé sur une bûche vue par le bout, coupé par
+//                        le bord de la vue
 //                        (feuilles d'essai : scratchpad demo-13b/corr/essais/e11 et t11).
 // L'optique : le soleil à 35° ; le disque perpendiculaire aux rayons, vu de biais (une ellipse étroite qui montre sa
 // tranche bombée) ; le cône part de la face de l'autre côté, dans l'axe des rayons, jusqu'au point sur la cible.
@@ -48,10 +48,12 @@ module.exports = (h) => {
     return out.join('\n');
   };
 
-  // ── Vue 1 : polir ── le disque de pleine tranche, la paume à plat dessus ; à gauche, le même disque retourné.
+  // ── Vue 1 : polir ── le disque de pleine tranche, la paume à plat dessus, l'avant-bras jusqu'au bord ; à gauche, une
+  // petite vignette : le disque seul, de profil, et une flèche qui le fait basculer (on le retourne).
   const polir = z => {
-    const e = 0.66, c = [z.l * 0.56, z.h - 22], D = 110 * e, ep = 15 * e;
-    return { e, c, D, ep };
+    const e = 0.8, c = [z.l * 0.62, z.h - 20], D = 110 * e, ep = 15 * e;
+    const v = [38, z.h - 20], Dv = 46, epv = 8;
+    return { e, c, D, ep, v, Dv, epv };
   };
   const mainPolir = (g, avantbras) => {
     // la paume posée : le point le plus bas de la main tombe sur le haut du bombé (c − ep / 2)
@@ -63,26 +65,30 @@ module.exports = (h) => {
 
   // ── Vue 2 : au soleil ──
   const SOL = deg(35), d = [Math.cos(SOL), Math.sin(SOL)], ax = [Math.sin(SOL), -Math.cos(SOL)];
-  // la main : la pince de côté vue côté pouce, la main qui monte ; le pouce devant, sur la tranche du disque, l'index
-  // derrière ; le disque part vers le haut à droite depuis la pince. L'avant-bras descend vers la gauche, le poignet posé
-  // sur une bûche vue par le bout.
-  const MAIN = { pose: 'pince-laterale', vue: 'pouce', cote: 'droite', angle: -35 };
+  // la main : la pince du bout des doigts, vue côté pouce ; le bas du disque pris entre la pulpe du pouce (devant) et
+  // celle de l'index (derrière) ; le disque part vers le haut à droite depuis la pince. L'avant-bras descend vers la
+  // gauche, posé sur une bûche vue par le bout, et sort par le bord.
+  const MAIN = { pose: 'pince-fine', vue: 'pouce', cote: 'droite', angle: -25 };
   const soleil = z => {
     const e = 0.42, yS = z.h - 4;
-    const o = { x: z.l * 0.46, y: z.h * 0.42, ...MAIN, echelle: e, ancre: 'prise' };
+    const o = { x: z.l * 0.46, y: z.h * 0.36, ...MAIN, echelle: e, ancre: 'prise' };
     const ab = { longueur: 300, bord: { l: z.l, h: z.h } };
     const m = F.mainSimple({ ...o, avantbras: ab });
     // la bûche : un rond posé au sol sous le poignet ; son dessus touche le dessous du poignet (relevé par le moteur : le
     // bas de la coupe de l'avant-bras à l'abscisse de la bûche). L'avant-bras continue vers le bas, coupé par le bord.
     const sous = x => { const cc = F.mainSimple({ ...o, avantbras: { longueur: ab.longueur, fin: [[x, -200], [x, 400]] } }).coupe; return cc ? Math.max(cc[0][1], cc[1][1]) : null; };
-    const xl = m.poignet[0] + 2, yHaut = (sous(xl) || yS - 40) - 0.4, rl = (yS - yHaut) / 2;
+    // on cherche, en partant du poignet vers le coude, l'endroit où le dessous de l'avant-bras est à 2 rl du sol
+    const rl = 13;
+    let xl = m.poignet[0];
+    for (let x = m.poignet[0]; x > 10; x -= 1) { const y = sous(x); if (y != null && y >= yS - 2 * rl) { xl = x; break; } }
+    const yHaut = (sous(xl) || yS - 2 * rl) - 0.4;
     const contact = [xl, yHaut];
     const D = 110 * e, ep = 15 * e;
     const pince = [m.prise.x, m.prise.y];
     const Lc = add(pince, mul(ax, D / 2 * 0.92));
     const fz = ((yS - 2) - Lc[1]) / d[1];
     const Fp = add(Lc, mul(d, fz));
-    return { e, yS, rl, xl, o, ab, m, yHaut, contact, D, ep, Lc, Fp };
+    return { e, yS, rl: (yS - yHaut) / 2, xl, o, ab, m, yHaut, contact, D, ep, Lc, Fp };
   };
 
   return {
@@ -91,31 +97,34 @@ module.exports = (h) => {
     desc: 'Deux vues. En haut, le disque de glace vu par la tranche, plus épais au centre qu’au bord, la paume nue posée à plat dessus qui le frotte d’avant en arrière, et le même disque retourné pour frotter l’autre côté. En bas, un soleil bas d’hiver : les rayons parallèles arrivent sur le disque, tenu par sa tranche entre le pouce et le côté de l’index, les doigts repliés, l’avant-bras couché sur une bûche ; le disque, vu de biais, est perpendiculaire aux rayons, et le cône de lumière part de sa face de l’autre côté jusqu’à un petit point sur une cible sombre posée au sol, qui fume.',
     format: 'quart',
     disposition: [['polir'], ['soleil']],
-    hauteurs: [0.86, 1.14],
+    hauteurs: [0.8, 1.2],
     vues: {
       polir: {
         titre: 'Bomber à la paume, des deux côtés',
         dessin: z => {
           const g = polir(z), out = [];
           out.push(lentille(g.c, [1, 0], g.D, g.ep));
-          const m = mainPolir(g, { longueur: 90 });
+          const m = mainPolir(g, { longueur: 300, bord: { l: z.l, h: z.h } });
           out.push(String(m.svg));
           // le geste : frotter, d'avant en arrière, le long de la paume (juste au-dessus de la main)
-          const yA = m.boite.y0 - 6;
-          out.push(h.geste(`M ${f(g.c[0] - 30)} ${f(yA)} L ${f(g.c[0] + 30)} ${f(yA)}`, { double: true }));
-          // retourner le disque : une flèche en demi-tour autour de son bout gauche
-          // un « C » ouvert vers le disque, à gauche du bout des doigts : on le retourne et on frotte l'autre côté
-          const bx = Math.min(...[m.bout[0], m.pouce[0], g.c[0] - g.D / 2]) - 15, by = g.c[1] - 3, r = 10;
-          const P = a => [bx + r * Math.cos(deg(a)), by + r * Math.sin(deg(a))];
-          const a0 = P(-55), a1 = P(55);
-          out.push(h.fleche(`M ${f(a0[0])} ${f(a0[1])} A ${f(r)} ${f(r)} 0 1 0 ${f(a1[0])} ${f(a1[1])}`, A.arete));
+          const yA = Math.max(6, g.c[1] - g.ep - 32);
+          out.push(h.geste(`M ${f(g.c[0] - 34)} ${f(yA)} L ${f(g.c[0] + 34)} ${f(yA)}`, { double: true }));
+          // la vignette : le disque seul, de profil, et une flèche courbe qui le fait basculer par-dessus
+          out.push(lentille(g.v, [1, 0], g.Dv, g.epv));
+          const r = g.Dv / 2 + 2, y0 = g.v[1] - g.epv - 2;
+          out.push(h.fleche(`M ${f(g.v[0] + r)} ${f(y0)} A ${f(r)} ${f(r * 0.8)} 0 0 0 ${f(g.v[0] - r)} ${f(y0)}`, A.arete));
+          // un filet entre la vignette et le dessin principal
+          const xf = (g.v[0] + g.Dv / 2 + Math.min(m.bout[0], m.pouce[0], g.c[0] - g.D / 2)) / 2;
+          out.push(h.ligne(xf, 8, xf, z.h - 4, A.fin));
           return coupe('polir', z, out.join('\n'));
         },
         renvois: z => {
-          const g = polir(z), m = mainPolir(g, { longueur: 90 }), yA = m.boite.y0 - 6;
+          const g = polir(z), yA = Math.max(6, g.c[1] - g.ep - 32);
+          const r = g.Dv / 2 + 2, y0 = g.v[1] - g.epv - 2;
           return [
-            { n: 1, rond: [g.c[0] - g.D / 2 - 16, z.h - 10], cible: [g.c[0] - g.D / 2 + 7, g.c[1] + 2.2], texte: 'mince au bord, épais au centre' },
-            { n: 2, rond: [z.l - 16, Math.max(11, yA + 2)], cible: [g.c[0] + 34, yA], texte: 'flèche : frotter des deux côtés' },
+            { n: 1, rond: [g.c[0] - g.D / 2 + 30, z.h - 11], cible: [g.c[0] - g.D / 2 + 8, g.c[1] + 2.6], texte: 'mince au bord, épais au centre' },
+            { n: 2, rond: [g.c[0] + 62, Math.max(11, yA - 2)], cible: [g.c[0] + 40, yA], texte: 'frotter à la paume nue, d’avant en arrière' },
+            { n: 3, rond: [g.v[0] + r + 14, Math.max(11, y0 - r * 0.8 - 4)], cible: [g.v[0] + r * 0.5, y0 - r * 0.7], texte: 'retourner, frotter l’autre côté' },
           ];
         },
       },
@@ -149,8 +158,9 @@ module.exports = (h) => {
             out.push(h.fleche(`M ${f(p0[0])} ${f(p0[1])} L ${f(q[0])} ${f(q[1])}`, A.fin));
           });
           // le cône : de la face de l'autre côté, dans l'axe des rayons, jusqu'au point
-          [-1, 1].forEach(s => { const q = add(add(g.Lc, mul(ax, s * g.D * 0.45)), mul(d, (g.D * 0.11 + g.ep / 2) * 0.3)); out.push(h.ligne(q[0], q[1], g.Fp[0], g.Fp[1], A.detail)); });
-          const q0 = add(g.Lc, mul(d, g.D * 0.11 + g.ep / 2));
+          // (la main cache le bas du disque : le cône part de la partie libre, du haut jusqu'au-dessus des doigts)
+          [-0.12, 0.45].forEach(s => { const q = add(add(g.Lc, mul(ax, s * g.D)), mul(d, (g.D * 0.11 + g.ep / 2) * 0.3)); out.push(h.ligne(q[0], q[1], g.Fp[0], g.Fp[1], A.detail)); });
+          const q0 = add(add(g.Lc, mul(ax, g.D * 0.16)), mul(d, (g.D * 0.11 + g.ep / 2) * 0.9));
           out.push(h.ligne(q0[0], q0[1], g.Fp[0], g.Fp[1], A.fin));
           // la cible : un morceau d'amadou carbonisé, noir, posé au sol ; le filet de fumée
           const C = g.Fp;
@@ -163,9 +173,9 @@ module.exports = (h) => {
         renvois: z => {
           const g = soleil(z), C = g.Fp;
           return [
-            { n: 3, rond: [C[0] - 44, g.yS - 12], cible: [C[0] - 10, g.yS - 1.5], texte: 'une cible sombre et sèche' },
-            { n: 4, rond: [Math.min(z.l - 12, C[0] + 22), C[1] - 46], cible: [C[0] + 3.5, C[1] - 8], texte: 'cercle : le plus petit point' },
-            { n: 5, rond: [16, Math.max(12, Math.min(z.h - 12, g.contact[1] - 26))], cible: g.contact, texte: 'avant-bras calé sur une bûche' },
+            { n: 4, rond: [C[0] - 44, g.yS - 12], cible: [C[0] - 10, g.yS - 1.5], texte: 'une cible sombre et sèche' },
+            { n: 5, rond: [Math.min(z.l - 12, C[0] + 22), C[1] - 46], cible: [C[0] + 3.5, C[1] - 8], texte: 'cercle : le plus petit point' },
+            { n: 6, rond: [16, Math.max(12, Math.min(z.h - 12, g.contact[1] - 26))], cible: g.contact, texte: 'avant-bras calé sur une bûche' },
           ];
         },
       },

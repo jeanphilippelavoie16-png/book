@@ -86,6 +86,10 @@ nouvelle numérotation (six tomes).
    d'un dessin à la main (JP, 16 octobre 2026 : « l'agent respecte pas notre nouvelle liste de mains ; on se met des
    règles et des outils, il faut les utiliser »). Le cadre complet à donner à tout agent de planches est dans
    `.claude/skills/planches/references/brief-agent.md`.
+13. **Les mains en gros plan sont à refaire** (JP, 16 octobre 2026, devant la palette de `mainSimple` : « c'est pas beau
+   en criss » ; les corps de `corps` : « les corps sont beaux »). Tant que la bibliothèque de mains n'est pas refaite et
+   validée, une planche neuve évite le gros plan de main : la main coupée par le bord, l'objet seul avec le renvoi qui dit
+   la prise, ou le corps entier de profil. Plan de match, point 29.
 7. **La passe finale touche 100 % des planches** (JP, 24 septembre : « va falloir refaire une passe
    sur 100 % des planches à la fin »). Chaque planche, validée ou pas, est reprise contre toutes les
    règles ci-dessus : qualité du trait, mains et personnages, gestes fins, mécanismes, coupes en

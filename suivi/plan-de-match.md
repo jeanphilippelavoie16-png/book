@@ -269,7 +269,15 @@ tomes** : un peu plus de blanc en bas des pages qui précèdent une planche ; le
 28. **La chose qui pense** (JP, 16 octobre : « les phrases genre "la braise ne sait pas" pis des affaires de
     même »). Un objet, une matière, le froid ou le corps sujet d'un verbe de l'esprit. Ligne au tableau du skill,
     ligne au cadre des agents, repérage au script (catégorie « tournure ») : 97 cas à juger dans les 113 chapitres
-    aujourd'hui. Chacun se refait avec la refonte. CLAUDE.md (« Les premières minutes ») et le skill sont à jour. À refaire : les chapitres qui
+    aujourd'hui. Chacun se refait avec la refonte.
+29. **La bibliothèque de mains est à refaire** (JP, 16 octobre, devant la palette des 23 prises de `mainSimple` :
+    « ouff, mets ça sur notre liste à refaire, les mains, c'est pas beau en criss » ; sur les corps : « les corps sont
+    beaux »). La palette : `images/planches-src/_palette-mains.js` (aperçu `livre/apercus-palette/palette-mains.png`) ;
+    celle des corps : `_palette-corps.js` (`PALETTE_PAGE=1..3`). Les corps (`corps/moteur.js`) restent tels quels.
+    Refaire `mains/moteur.js` (le contour, les doigts, les prises), feuille d'essai à l'appui, et montrer la nouvelle
+    palette à JP avant de recomposer les planches qui ont des mains en gros plan (inventaire : `mains/inventaire.md`,
+    68 planches). En attendant, une planche neuve évite le gros plan de main : la main coupée par le bord, l'objet seul,
+    ou le corps entier de profil. CLAUDE.md (« Les premières minutes ») et le skill sont à jour. À refaire : les chapitres qui
     ont des séries orange, les modèles 11, 3, 4 et 13 compris (`grep -l "{.orange" chapitres/*.md`).
 
 Le **ch. 11 (feu de forêt)** est **le chapitre modèle de la refonte, approuvé par JP** (15 octobre au soir :
