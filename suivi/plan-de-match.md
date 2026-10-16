@@ -276,7 +276,11 @@ tomes** : un peu plus de blanc en bas des pages qui précèdent une planche ; le
     celle des corps : `_palette-corps.js` (`PALETTE_PAGE=1..3`). Les corps (`corps/moteur.js`) restent tels quels.
     Refaire `mains/moteur.js` (le contour, les doigts, les prises), feuille d'essai à l'appui, et montrer la nouvelle
     palette à JP avant de recomposer les planches qui ont des mains en gros plan (inventaire : `mains/inventaire.md`,
-    68 planches). En attendant, une planche neuve évite le gros plan de main : la main coupée par le bord, l'objet seul,
+    68 planches). **Base choisie le 16 octobre** : le jeu Shutterstock 2244726515 (32 mains, JP : « c'est lui qu'on
+    prend, et on adaptera les planches au besoin »), converti en SVG couleur et au trait dans
+    `images/bibliotheque-mains/shutterstock-2244726515/` (aperçus `livre/apercus-palette/shutterstock-*.png`). Reste à
+    faire : découper les 32 mains en pièces posables (position, échelle, rotation, miroir) dans le moteur, adapter
+    les prises qui manquent (main de trois quarts qui serre, deux mains), puis refaire les planches. En attendant, une planche neuve évite le gros plan de main : la main coupée par le bord, l'objet seul,
     ou le corps entier de profil. CLAUDE.md (« Les premières minutes ») et le skill sont à jour. À refaire : les chapitres qui
     ont des séries orange, les modèles 11, 3, 4 et 13 compris (`grep -l "{.orange" chapitres/*.md`).
 
