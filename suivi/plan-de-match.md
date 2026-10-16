@@ -302,7 +302,8 @@ tomes** : un peu plus de blanc en bas des pages qui précèdent une planche ; le
     pictogrammes : familles, catastrophes, feu, chasse, atelier), converti comme les mains et composé ; ou une image
     faite par JP avec un générateur d'images, à partir du brief `images/tomes/brief-images-tomes.md`. **La
     couverture aussi** reçoit son image, dans le même style. La frise d'essai et `.tp-frise` restent comme
-    emplacement ; `images/tomes/tome-1.svg` se remplace.
+    emplacement ; `images/tomes/tome-1.svg` se remplace. Deuxième essai le 16 octobre : la frise composée avec des
+    pictogrammes professionnels libres (`images/tomes/frise.py`, crédits dans `images/tomes/LISEZMOI.md`).
 
 Le **ch. 11 (feu de forêt)** est **le chapitre modèle de la refonte, approuvé par JP** (15 octobre au soir :
 « c'est parfait, on se garde ça pour samedi ») : texte, trois séries orange à la longueur de leur temps (1 h,

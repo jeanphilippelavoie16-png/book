@@ -1037,3 +1037,9 @@ depuis un lac. Licences relues sur l'API de Wikimedia Commons au téléchargemen
 | `photos/manquantes/11-colonne-couchee-par-le-vent.jpg` | Colonne de fumée sombre couchée par le vent, vue d'un lac | Greg Seitz (Gregseitz) | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Pagami_Creek_Fire.jpg |
 | `photos/manquantes/11-colonne-chou-fleur.jpg` | Colonne qui monte droit et finit en chou-fleur blanc, vue d'un lac | Stephen Handler, United States Forest Service | Domaine public | https://commons.wikimedia.org/wiki/File:Pagami_fire_plume.jpg |
 | `photos/manquantes/11-colonnes-de-fumee.jpg` | Les deux photos précédentes côte à côte (montage du 15 octobre 2026, celle qui s'imprime) | Greg Seitz ; Stephen Handler, United States Forest Service | CC BY-SA 4.0 (volet de gauche) ; domaine public (volet de droite) | voir les deux lignes précédentes |
+
+## Pages de titre des tomes (images/tomes/)
+
+- Champignon atomique, forêt en feu : Game-icons.net (Lorc, Delapouite), CC BY 3.0, https://game-icons.net
+- Famille, feu de camp, pylône coupé, neige : Material Design Icons (Pictogrammers), Apache 2.0, https://pictogrammers.com
+- Maison en feu : Font Awesome 6 Free (Fonticons), CC BY 4.0, https://fontawesome.com
