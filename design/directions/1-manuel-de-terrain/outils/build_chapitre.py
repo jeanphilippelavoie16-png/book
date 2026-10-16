@@ -355,6 +355,15 @@ MARQUE_PT = re.compile(r"^\*\*\s*(\d{1,2}|[A-H])\s*(?:\.(?!\d)|[—–])\s*(.+?)
 # Un intertitre qui porte lui-même le numéro du point : « ### 1. … », « ### 8.1 — … », « ### A. … ».
 MARQUE_TITRE = re.compile(r"^(?:\d{1,2}(?:\.\d{1,2})?|[A-H])\s*[.—–]\s")
 
+NUM_PROC = 5
+
+def sec_num(ch, motif):
+    """Le numéro de la section dont le titre commence par ce motif (sans tenir compte de la casse), ou None."""
+    for sc in ch["secs"]:
+        if sc["n"] and re.match(motif, html.unescape(re.sub("<[^>]+>", "", sc["title"] or "")).strip(), re.I):
+            return sc["n"]
+    return None
+
 def danger_story(sec):
     """Section 8 -> blocs de l'encadré danger. Ne numérote que les vrais points (28 septembre 2026 ; avant,
     chaque paragraphe ouvert en gras prenait un numéro : au ch. 102, les points faisaient 1, 2, 3, 2) :
@@ -445,7 +454,8 @@ def figures(num):
             svg = os.path.join(ROOT, "images", base + ".svg")
             src = svg if os.path.exists(svg) else png
             w, h = svg_size(svg) if src == svg else (680.0, 826.0)
-            size = "full" if h / w > 0.9 else "demi"
+            # trois tailles (JP, 16 octobre 2026) : pleine page, demi-page sur les deux colonnes, petite planche d'une colonne
+            size = "petite" if w <= 400 else "full" if h / w > 0.9 else "demi"
             rel = REL_ROOT + os.path.relpath(src, ROOT).replace("\\", "/")
             titre = svg_titre(svg, pid) if src == svg else ""
             figs.append(dict(id=pid, src=rel, size=size, ratio=h / w, dossier=dos, titre=titre))
@@ -463,6 +473,9 @@ def fig_html(f):
     if f["size"] == "full":
         return (f'<figure class="fig plf" data-plate="full" data-id="{f["id"]}" data-src="{f["src"]}" '
                 f'data-titre="{html.escape(f.get("titre", ""), quote=True)}"></figure>')
+    if f["size"] == "petite":
+        return (f'<figure class="fig pl petite" data-id="{f["id"]}">{pl_tete(f)}<img src="{f["src"]}" alt="Planche {f["id"]}">'
+                f'</figure>')
     return (f'<figure class="fig pl demi" data-id="{f["id"]}">{pl_tete(f)}<img src="{f["src"]}" alt="Planche {f["id"]}" '
             f'style="height:{7 * f["ratio"]:.3f}in"></figure>')
 
@@ -496,10 +509,10 @@ def place(stories, items, num, en_ordre=False):
             if done:
                 break
         if not done:
-            # repli : fin de la section 5
-            idx = next((i for i, (bh, _) in enumerate(stories["main"]) if 'data-n="6"' in bh), len(stories["main"]))
+            # repli : fin de la procédure
+            idx = next((i for i, (bh, _) in enumerate(stories["main"]) if f'data-n="{NUM_PROC + 1}"' in bh), len(stories["main"]))
             stories["main"].insert(idx, (h, ""))
-            WARN.append(f"{label} : aucun ancrage trouvé, placé à la fin de la section 5")
+            WARN.append(f"{label} : aucun ancrage trouvé, placé à la fin de la procédure")
 
 # ------------------------------------------------------------------ assemblage
 def build(num):
@@ -509,11 +522,16 @@ def build(num):
     ch = load_chapter(num)
     stories = {"main": [], "d": [], "e": []}
     dsubject = ""
+    # la Danger et la variante d'urgence se reconnaissent à leur titre, pas à leur numéro : 8 et 9 dans le gabarit
+    # à neuf sections, 7 et 8 depuis que « Comment ça marche » est coupé (JP, 16 octobre 2026)
+    nd, nv = sec_num(ch, r"^danger"), sec_num(ch, r"^variante d.urgence")
+    global NUM_PROC
+    NUM_PROC = sec_num(ch, r"^proc[ée]dure") or 5
     for s in ch["secs"]:
         n = s["n"]
-        if n == 8:
+        if n and n == nd:
             stories["d"], dsubject = danger_story(s)
-        elif n == 9:
+        elif n and n == nv:
             stories["e"] = render(parse(s["lines"]))
         else:
             stories["main"].append((h2(n, s["title"]), ""))
@@ -576,20 +594,22 @@ def build(num):
     present = {s["n"] for s in ch["secs"] if s["n"]}
     # le sommaire d'ouverture prend le titre de la section 3 tel que le chapitre l'écrit (« Comment ça marche »
     # remplace « Pourquoi ça marche », JP, 16 octobre 2026)
-    noms = dict(SECNAMES)
+    noms = {}
     for sc in ch["secs"]:
-        if sc["n"] == 3 and sc["title"]:
-            noms[3] = html.unescape(re.sub("<[^>]+>", "", il(sc["title"])))
+        if not sc["n"]:
+            continue
+        t = html.unescape(re.sub("<[^>]+>", "", il(sc["title"] or ""))).strip()
+        noms[sc["n"]] = ("Danger" if re.match(r"(?i)danger", t) else t[:1].upper() + t[1:].lower() if t.isupper() else t) or SECNAMES.get(sc["n"], "")
     tn = tome_de(num)
     meta = dict(num=num, title=html.unescape(re.sub("<[^>]+>", "", il(ch["title"]))), tome=ch["tome"],
                 tnum=tn, tfond=TOMES[tn][1], tencre=TOMES[tn][2],
                 lieu=ch["lieu"] or "Les deux", dsub=il(dsubject) if dsubject else "",
-                secs={str(k): v for k, v in noms.items() if k in present})
+                secs={str(k): v for k, v in noms.items() if k in present}, nd=nd or 8, nv=nv or 9)
     if n_or:
         meta["flux"] = flux     # [id de l'histoire, genre (main, o, d, e), 1 si c'est la suite d'une histoire coupée]
     lieu_opts = "".join(f'<span{" class=\"on\"" if o == meta["lieu"] else ""}>{o}</span>' for o in ("Maison", "Chalet", "Les deux"))
     toc = "".join(
-        f'<li class="{"d" if k == 8 else "h" if k == 9 else ""}" data-n="{k}"><span class="n">{k}</span>'
+        f'<li class="{"d" if k == nd else "h" if k == nv else ""}" data-n="{k}"><span class="n">{k}</span>'
         f'<span class="t">{v}</span><span class="f"></span></li>' for k, v in noms.items() if k in present)
     lieu_note = f'<p class="lieu-note">{il(ch["lieu_txt"])}</p>' if ch["lieu_txt"] else ""
     opening = (f'<header class="open"><div class="open-top"><span>{ch["tome"]}</span><span>Chapitre</span></div>'

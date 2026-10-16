@@ -75,7 +75,7 @@ function region(p, kind, first){
   let box = frame;
   if(kind === 'd'){
     box = document.createElement('div'); box.className = 'rg';
-    if(first) box.innerHTML = '<h2 class="sec s8" data-n="8"><span class="n">8</span><span class="t">Danger</span></h2>';
+    if(first) box.innerHTML = '<h2 class="sec s8" data-n="' + C.nd + '"><span class="n">' + C.nd + '</span><span class="t">Danger</span></h2>';
     const dg = document.createElement('div'); dg.className = 'danger full'; dg.dataset.edge = 'd';
     dg.innerHTML = '<div class="dhead' + (first ? '' : ' small') + '">' + DSVG + '<span>' +
       (first ? 'Danger' + (C.dsub ? ' — <span class="sj">' + C.dsub + '</span>' : '') : 'Danger <span class="sj">(suite)</span>') + '</span></div>';
@@ -92,7 +92,7 @@ function region(p, kind, first){
     og.appendChild(cut); box.appendChild(og);
   } else if(kind === 'e'){
     box = document.createElement('div'); box.className = 'rg s9wrap' + (first ? '' : ' cont'); box.dataset.edge = 'k';
-    if(first) box.innerHTML = '<h2 class="sec s9" data-n="9"><span class="n">9</span><span class="t">Variante d’urgence</span><span class="sub9">Sans courant, sans matériel acheté, sans personne à appeler</span></h2>';
+    if(first) box.innerHTML = '<h2 class="sec s9" data-n="' + C.nv + '"><span class="n">' + C.nv + '</span><span class="t">Variante d’urgence</span><span class="sub9">Sans courant, sans matériel acheté, sans personne à appeler</span></h2>';
     box.appendChild(frame);
   }
   p.bl.appendChild(box);
@@ -104,6 +104,18 @@ function pour(f, q, p){
     if(b.dataset && b.dataset.plate === 'full'){ pendingPlates.push(b); continue; }
     if(b.dataset && b.dataset.plate === 'spread'){ pendingSpreads.push(b); continue; }
     f.appendChild(b); syncNotes(f);
+    // une figure qui saute en haut de la colonne suivante laisse un trou blanc dans la colonne d'avant (JP, 16 octobre
+    // 2026 : « gros trou blanc vide ») : le paragraphe suivant passe d'abord et remplit la colonne, la figure le suit
+    if(!OVER(f) && b.classList && b.classList.contains('fig') && !b.classList.contains('demi') && (+b.dataset.recule || 0) < 3 && q.length){
+      const prev = b.previousElementSibling;
+      if(prev){
+        const rb = b.getBoundingClientRect(), rp = prev.getBoundingClientRect(), rf = f.getBoundingClientRect();
+        if(rb.left > rp.left + 20 && rf.bottom - rp.bottom > 0.25 * rf.height){
+          f.removeChild(b); syncNotes(f); b.dataset.recule = (+b.dataset.recule || 0) + 1;
+          const nxt = q.shift(); q.unshift(b); q.unshift(nxt); continue;
+        }
+      }
+    }
     if(!OVER(f)) continue;
     f.removeChild(b); syncNotes(f);
     if(b.classList.contains('fig')){ p.deferred.push(b); continue; }   // la figure attend, le texte continue
@@ -239,7 +251,7 @@ function story(id, kind, suite){   // kind : main, o, d, e ; suite : histoire re
 /* ---------- après la coulée : pieds de page, sommaire, renvois, tranche ---------- */
 function ladder(on, label, folio){
   let lis = '';
-  Object.keys(C.secs).forEach(k => { lis += '<li class="' + (on.has(+k) ? 'on' + (k === '8' ? ' d' : '') : '') + '">' + k + '</li>'; });
+  Object.keys(C.secs).forEach(k => { lis += '<li class="' + (on.has(+k) ? 'on' + (+k === C.nd ? ' d' : '') : '') + '">' + k + '</li>'; });
   return '<div class="ft">' + (folio ? '<span class="fo-ft">' + folio + '</span>' : '') + '<div class="lad"><ol>' + lis + '</ol><span class="lab">' + label + '</span></div><span class="lieu-ft">Lieu · ' + C.lieu + '</span></div>';
 }
 function finishPages(){
@@ -252,7 +264,7 @@ function finishPages(){
     p.el.querySelectorAll('.block h2.sec[data-n]').forEach(h => { const n = +h.dataset.n; on.add(n); cur = n; if(!start[n]) start[n] = p.n; });
     if(!on.size && p.kind === 'open') on.add(1);
     const mx = Math.max(...on);
-    let label = (on.has(8) && on.has(9)) ? C.secs['8'] + ' · ' + C.secs['9'] : (C.secs[String(mx)] || '');
+    let label = (on.has(C.nd) && on.has(C.nv)) ? C.secs[String(C.nd)] + ' · ' + C.secs[String(C.nv)] : (C.secs[String(mx)] || '');
     if(p.plate) label += ' · Planche ' + p.plate;
     if(p.spread) label = 'Logigramme';
     p.el.insertAdjacentHTML('beforeend', ladder(on, label, p.kind === 'open' ? C.num + '-' + p.n : null));

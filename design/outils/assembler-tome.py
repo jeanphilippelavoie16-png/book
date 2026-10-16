@@ -179,6 +179,9 @@ RAPPORT_JS = r"""<script>
       out.figs.push({id: 'photo', src: i.getAttribute('src'), page: num(i), taille: i.closest('figure').classList.contains('demi') ? 'demi' : 'quart',
                      w: r.width / 96, h: r.height / 96, nw: i.naturalWidth, nh: i.naturalHeight}); });
     document.querySelectorAll('.page h2.sec[data-n]').forEach(h => { const n = h.dataset.n; if(!(n in out.secs)) out.secs[n] = num(h); });
+    // la Danger et la variante d'urgence par leur classe : leur numéro passe de 8 et 9 à 7 et 8 (gabarit à huit sections)
+    const hd = document.querySelector('.page h2.sec.s8'), hv = document.querySelector('.page h2.sec.s9');
+    if(hd) out.secs.d = num(hd); if(hv) out.secs.v = num(hv);
     // la série des premières minutes (encadré orange) : ses pages, dans le chapitre
     out.orange = Array.from(new Set(Array.from(document.querySelectorAll('.page .orange')).map(num)));
     const b = btoa(unescape(encodeURIComponent(JSON.stringify(out))));
@@ -552,8 +555,10 @@ def annexe_html(tome, chaps, plan, work):
     rangs = []
     avec_or = any(c["rapport"].get("orange") for c in chaps)
     for c in chaps:
-        s8 = c["debut"] + c["secs"]["8"] - 1 if "8" in c["secs"] else ""
-        s9 = c["debut"] + c["secs"]["9"] - 1 if "9" in c["secs"] else ""
+        kd = "d" if "d" in c["secs"] else "8"
+        kv = "v" if "v" in c["secs"] else "9"
+        s8 = c["debut"] + c["secs"][kd] - 1 if kd in c["secs"] else ""
+        s9 = c["debut"] + c["secs"][kv] - 1 if kv in c["secs"] else ""
         so = c["rapport"].get("orange") or []
         sor = (f'<td class="sor">{"<span>%d</span>" % (c["debut"] + so[0] - 1) if so else ""}</td>' if avec_or else "")
         n = aff(c["num"])
@@ -927,8 +932,8 @@ def main():
             nom = "04-planche-pleine-page" if f["taille"] == "pleine" else "04-demi-planche"
             vues_png.append((f"{nom}-{f['id']}", c["dst"], f"off={c['off']}&par={c['par']}", f"p{c['num']}-{f['page']}"))
         else:
-            c = next((c for c in chaps if "8" in c["secs"]), c0)
-            vues_png.append((f"04-danger-ch{c['num']}", c["dst"], f"off={c['off']}&par={c['par']}", f"p{c['num']}-{c['secs'].get('8', 1)}"))
+            c = next((c for c in chaps if "d" in c["secs"] or "8" in c["secs"]), c0)
+            vues_png.append((f"04-danger-ch{c['num']}", c["dst"], f"off={c['off']}&par={c['par']}", f"p{c['num']}-{c['secs'].get('d', c['secs'].get('8', 1))}"))
         c = next((c for c in chaps if c["rapport"].get("orange")), None)
         if c:
             vues_png.append((f"05-premieres-minutes-ch{c['num']}", c["dst"], f"off={c['off']}&par={c['par']}", f"p{c['num']}-{c['rapport']['orange'][0]}"))

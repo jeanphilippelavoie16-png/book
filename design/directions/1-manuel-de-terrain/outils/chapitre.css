@@ -86,3 +86,9 @@ p.step + table.tcol, p.stepc + table.tcol{margin-top:1pt}
 .pl-titre{font:700 14.5pt/1.1 "IBM Plex Sans Condensed",sans-serif;color:#1A1A1A}
 img.planche.avec-tete{height:calc(8.5in - .46in);width:7in;object-fit:contain;object-position:center top}
 .fig.pl.demi .pl-tete{height:.34in;margin-bottom:4pt}
+/* La petite planche : une colonne de large, dans le fil du texte (JP, 16 octobre 2026) */
+.fig.pl.petite{break-inside:avoid;margin:3pt 0 9pt}
+.fig.pl.petite img{display:block;width:100%;height:auto}
+.fig.pl.petite .pl-tete{height:auto;min-height:.3in;flex-wrap:wrap;gap:4pt 6pt;padding-bottom:3pt;margin-bottom:3pt}
+.fig.pl.petite .pl-num{font-size:8.5pt}
+.fig.pl.petite .pl-titre{font-size:11pt}
