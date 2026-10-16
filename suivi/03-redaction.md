@@ -166,3 +166,149 @@ Verdicts : `suivi/verifications/04-verifications.md` (4 LEVÉS).
   `sources/21-speth-spielmann-1983-stefansson-mal-de-caribou.md`).
 
 Compression §3 et §4 — 27 septembre 2026 : 1564 mots → 236 mots ; matériel coupé : piles de rechange de l'avertisseur (et le truc de la pile froide réchauffée en poche), bois sec (substitut du bois vert fendu fin), lampes frontales et piles, génératrice, essence et bidons, rallonges d'extérieur (et le paragraphe sur la rallonge trop mince qui fait chauffer le compresseur, avec la vérification à la main), antigel à plomberie non toxique, radio, couvertures et sacs de couchage, bâche et ruban pour replier le volume, réserve d'eau potable, crayon-feutre ; paragraphe de la date de péremption de l'avertisseur (garantie 5 ans, 84 mois : restent en §6 et §7) ; §3 : le froid du dehors comme congélateur (reste en §9), citations sur le CO (restent en §8). Déplacés : « avertisseur silencieux, 30 ppm, 30 jours » → §8, bloc CO ; « jamais de bois traité ni peint » → §5, étape 7. Renvois corrigés : §2 (date de remplacement → section 6) et §9 (« marqué non négociable à la section 4 » → « au matériel de la section 4 »).
+
+## Planches du 16 octobre 2026 (chapitre modèle)
+
+- **03-12, la couverture de fenêtre scellée sur quatre côtés** (section 9, « Le chauffage »). Le
+  montage dessiné (couverture clouée sur le chambranle, une latte de bois clouée par-dessus tout le
+  long de chaque côté, bout à bout aux coins) vient de
+  `sources/03-cornell-cce-traitements-fenetres-economie-energie.md` : le joint se fait sur les quatre
+  bords, en continu et non de place en place, et une latte de 1 × 2 po serre le bord. Aucune cote sur
+  la planche : la fiche dit environ 2,5 cm du verre, le chapitre dit « quelques centimètres ».
+- **À trancher au texte** (même source) : la fiche dit qu'une draperie non scellée réduit encore la
+  perte de 10 % au plus, elle ne dit pas qu'une couverture mal scellée fait « pire que rien » ; et sa
+  boucle entre par le haut et sort par le bas. `[À VÉRIFIER]` sur « pire que rien ».
+- **03-09** montre la tente de table du ch. 6 (couverture sur la table, drap jusqu'au dossier d'une
+  chaise, matelas debout contre le mur) ; le texte du ch. 3 dit « une tente de camping, ou des
+  couvertures tendues au-dessus du lit ». À aligner, dans un sens ou dans l'autre.
+
+## Passe complète du 16 octobre 2026 (démo sur le modèle du ch. 11)
+
+Numéros **actuels** dans cette section. Original : `scratchpad/demo-03/03-avant.md`. Mots : 8 292 → 7 837
+(`wc -w` ; 8 473 → 8 014 au script) ; tirets : 2 → 2 (les deux lignes techniques du haut). Aucun « § », aucun mot banni.
+
+### Les séries orange
+
+| Série | Pastille | Étapes | Ce qui fonde la pastille |
+| --- | --- | --- | --- |
+| « Le courant vient de manquer » | 15 min | 1 à 5 | Le temps des gestes (regarder la rue, éteindre, écrire l'heure, remplir, tester) |
+| « Le courant ne revient pas » | 6 h | 6 à 11 | Les tours cellulaires tiennent « quelques heures » (2 à 4 h, jusqu'à 10 h : `19-cbc-2018-batteries-tours-cellulaires.md`) ; le réfrigérateur 4 à 6 h (`04-quebec-ca-panne-de-courant.md`) |
+| « L'avertisseur de CO sonne » | 1 min | 12 et 13 | Le temps de sortir ; la suite renvoie au ch. 2, étape 1 |
+
+Chaque série a son « … : le détail » juste après, avec les mêmes numéros. La série du CO reprend les trois
+premiers gestes du ch. 2, étape 1, parce que c'est elle qui tranche le froid contre le CO (où mettre les enfants
+à −35 °C) ; tout le reste renvoie au ch. 2.
+
+### Renumérotation des étapes (pour les renvois des autres chapitres)
+
+Ancien → nouveau : 1-2 → 1 (et son détail) ; 3 → 2 ; 4 → 3 ; 11 → 4 ; 5 et 9 → 5 ; 7 → 6 ; 6 → 7 ; 10 → 8 ;
+§9 « abri » → 9 ; message → 10 (nouveau) ; §2 « se tient / ne se tient pas » → 11 ; 8 → 14 ; 19 → 15 ; 14 à 18 →
+16 à 20 ; 20 → 21 ; 21 → 22 ; 22 → 23 ; 23 → 24 ; 24 → 25 ; 12 → 26 ; 25 → 27 ; 26 → 28 ; 31 et §9 « congélateur
+dehors » → 29 ; 27 → 30 ; 28 → 31 ; 29 → 32 ; 30 → 33 ; 32 → 34 ; 33 → 35 ; 34 → 36 ; chauffe-eau rempli → 37 ;
+35 → 38 ; 36 → 39 ; 37 → 40 ; 13 (repas chaud) coupé.
+
+**Renvois à corriger ailleurs (pas touchés ici)** : ch. 8, l. 71 « ch. 3, étapes 20 à 23 » → « étapes 21 à 24 » ;
+ch. 8, l. 109 « ch. 3, étapes 22 et 23 » → « étapes 23 et 24 » ; ch. 84, l. 93 « ch. 3, étape 22 » (l'élément qui chauffe à sec) → « étape 37 » (le geste de couper est à l'étape 23).
+
+### Les faits redits et la place gardée
+
+| Fait | Où il était | Place gardée |
+| --- | --- | --- |
+| Rien d'autre ne brûle que le poêle raccordé, sans avertisseur | §2, étape 5, §6, §7 (×2), §9 (×2) | Étape 5 et encadré ; ailleurs des renvois |
+| Le CO n'a ni odeur ni couleur | §3, §8, §9 | §8 ; §9 garde seulement la chandelle |
+| Pression de l'aqueduc et pompes de la ville | §3, étape 11, §9 « L'eau » | Détail de l'étape 4 |
+| Chauffe-eau : réserve, robinet chaud à l'étage, eau à boire d'abord | Étape 22, §9 (×2) | Étape 23 (et planche 03-10) |
+| Dehors comme congélateur | Étape 31, §9 « En janvier… » | Étape 29 |
+| 5 °C, pente, vidange | §2, étapes 20 et 21, §6 (×2), §9 (×2) | Étapes 21 et 22, §6 ; renvois ailleurs |
+| La maison vidangée peut rester fermée | Étape 24, §9 (×2) | Étape 25 ; « Sans poêle » renvoie |
+| 74 °C et les parasites | Étape 28, §6, §8, §9 marmite, §9 sonde | Étape 31, §8, §6 ; §9 garde le bouilli sans redire les parasites |
+| Mât et Hydro-Québec qui ne rebranche pas | Étape 2, §6, §7 | Détail de l'étape 1 ; §7 renvoie |
+| Appareil médical électrique | §2, §9 | Détail de l'étape 11 |
+| Avertisseur de plus de 84 mois | §6, §7 | Détail de l'étape 5 et §6 ; la ligne du §7 sort |
+| Hypothermie grave | §6, §7 | §7 ; §6 renvoie |
+| Tirage inversé de la cheminée froide | §9 | Détail de l'étape 6 (là où on allume) ; §7 renvoie |
+| Texto et tours cellulaires | §9 | Détail de l'étape 10 |
+| Génératrice dehors, commutateur, appareils de camping | Étapes et §8 | Étape et §8 seulement ; rien au logigramme |
+
+### Les gestes sortis de l'urgence après avoir joué la scène
+
+Le courant manque un soir ou une nuit de janvier, à la maison, avec de jeunes enfants, rien de préparé.
+- **Les cendres** (ancienne étape 8) : le poêle n'en fait pas dans les premières heures → étape 14.
+- **Le puisard** (ancienne 12) : le risque est au redoux → étape 26.
+- **Le repas chaud** (ancienne 13) : coupé.
+- **La routine et le jeu des enfants** : conseil parental ordinaire, coupé avec « 4 et 6 ans ».
+- **Les médicaments** : le gel arrive en jours, pas en heures → étape 33.
+- **La nuit** : les enfants restent dans leur lit, couverture et tuque de plus, et la série de 6 h se fait au
+  réveil ; la génératrice attend le jour ; la vidange se place de jour.
+- **Remplir l'eau** monte dans la série de 15 min : rien n'annonce la chute de pression.
+
+### Les consignes confrontées
+
+| Consigne | Contre quoi | Ce qui tranche |
+| --- | --- | --- |
+| Fermer la pièce et faire durer le feu | CO la nuit | RNCan : un feu étouffé ou en braise refoule fumée et CO, la nuit (`16c-rncan-refoulement-braise-effet-de-tirage.md`) → l'air reste ouvert, les adultes rechargent ou laissent s'éteindre |
+| Cheminée froide, maison fermée | Refoulement | Même source : la torche, ou une fenêtre de la pièce entrouverte du côté du vent |
+| Avertisseur dans les chambres | Chambres froides | Kidde : 4,4 à 37,8 °C (`02-kidde-alarme-co-sortir-rentrer.md`, `15b-quebec-avertisseurs-monoxyde-plage-temperature.md`) → dans la pièce chauffée où on dort |
+| Sortir tout le monde quand ça sonne | −35 °C, enfants | Ch. 2, étape 1 : chez un voisin ou dans l'auto dehors, l'échappement dégagé |
+| Rester ou partir | La nuit, la tempête | Ch. 2, étape 10 : décider au réveil et assez tôt pour rouler de jour |
+| Remplir l'eau tout de suite | Eau impropre après la baisse | INSPQ : la baisse de pression et la panne justifient un avis préventif (`02-inspq-avis-ebullition.md`) |
+| Garder les médicaments au froid | Le gel de la maison | Ch. 32 : la pièce chauffée dès le premier jour |
+| Dégeler un tuyau | L'inondation au dégel | AAA d'après l'IBHS : fermer l'entrée d'eau si fente ou renflement (`03-tuyaux-geles-pression-et-degel.md`) |
+| La génératrice pour le congélateur | La nuit, le froid, le CO | Le congélateur fermé tient 24 à 48 h (`04-quebec-ca-aliments-panne-courant.md`) → installation de jour |
+
+### Les faits ajoutés et leur source
+
+| Fait | Où | Source |
+| --- | --- | --- |
+| Un feu étouffé ou en braise refoule la nuit ; la braise fait du CO ; fenêtre du côté du vent | Étape 6, détail ; §8 | `16c-rncan-refoulement-braise-effet-de-tirage.md` (RNCan, guide 2002) |
+| Plage de l'avertisseur 4,4 à 37,8 °C ; le bouton teste circuit, sirène et pile | Détail de l'étape 5 | `15b-kidde-avertisseur-co-bouton-et-temperature.md`, `15b-quebec-avertisseurs-monoxyde-plage-temperature.md` |
+| Tours cellulaires : quelques heures de batterie | Détail de l'étape 10 | `19-cbc-2018-batteries-tours-cellulaires.md` |
+| Le texto plutôt que l'appel | Détail de l'étape 10 | `10-quebec-feu-de-foret-consignes.md` |
+| L'eau qui coule après une baisse de pression se fait bouillir | Détail de l'étape 4 | `02-inspq-avis-ebullition.md` ; même lecture qu'au ch. 1 |
+| Le tuyau fend en gelant, entre la glace et le robinet fermé ; le filet d'eau ; dégeler du robinet vers la glace | §3, étape 21, §9 | `03-tuyaux-geles-pression-et-degel.md` (nouvelle) |
+| Fenêtre : 10 fois la perte d'un mur isolé ; 2,5 cm de la vitre ; quatre bords scellés tout du long ; tissu peu perméable ; la boucle par le haut et le bas | §9 « Fermer les fenêtres » | `03-cornell-cce-traitements-fenetres-economie-energie.md` (enregistrée par l'agent des planches) |
+| Batterie au plomb : gel à −52 °C chargée à 85 %, −15 °C à 40 % | §9 « Le 12 V » | `18b-trojan-batteries-plomb-froid-et-charge.md` |
+| CO presque de la densité de l'air | §8 | `20-cnesst-reptox-monoxyde-de-carbone.md` |
+| AM la nuit : onde ionosphérique, stations lointaines | §9 « Les nouvelles » | `03-uitr-p1321-ondes-am-nuit.md` (nouvelle) |
+| Fil tombé : petits pas traînés | Détail de l'étape 1 | `11-apsam-fil-sous-tension-petits-pas.md` |
+| Chauffe-eau rempli avant de le remettre sous tension | Étape 37 | `04-quebec-ca-panne-de-courant.md` |
+| Médicaments : la pièce chauffée, le gel | Étape 33 | ch. 32 |
+
+### Chiffres et affirmations retirés
+
+- **10 °C** (§2 et §6, « la maison au-dessus de 10 °C ») : aucune source au dossier. Le repère reste 5 °C.
+- **« La maison tient trois jours »** (§3) : aucune source. Coupé.
+- **« Deux semaines »** avant de partir au chalet : aucune source. Remplacé par la décision reprise deux fois par
+  jour (ch. 2).
+- **« Dix minutes de ralenti ne la rechargent pas »** : aucune source. Reste « l'alternateur charge peu au
+  ralenti ».
+- **« À −35 °C avec du vent, on est dans la deuxième tranche »** : dépend du vent (5 km/h suffit à passer sous
+  −40). Coupé ; les tranches restent.
+- **« Le cuivre fend au dégel et non au gel »** : contredit par l'IBHS ; corrigé (section 9).
+- **« Scellée sur trois côtés, elle fait pire que rien »** : la fiche de Cornell dit qu'une draperie non scellée
+  réduit encore la perte de 10 % au plus. Remplacé par « ne fait presque rien ».
+- **« Un médicament sorti du froid ne change ni de couleur ni d'odeur »** : aucune source. Coupé.
+- **« Un des départs de feu les plus fréquents de l'hiver »** (cendres) : statistique d'ambiance. Coupé.
+- **Sels de cuivre et arsenic dans la fumée du bois traité** : la fiche INSPQ du dossier parle du contact et de
+  l'ingestion, pas de la fumée. Reste le geste : du bois brut, sans peinture ni traitement.
+
+### Sans source enregistrée (mécanismes sans chiffre, à confirmer par le vérificateur technique)
+
+La fournaise au mazout ou au gaz arrêtée par la panne ; le pic de démarrage d'un compresseur ; la pâte de cendre
+et d'argile ; l'huile et le lave-glace dans les siphons ; la mie de pain pour souder ; la pierre de rivière qui
+éclate ; « deux cartons et une couverture » (planche 03-09, validée) ; le chauffe-eau qui ne se vide pas sans
+robinet ouvert à l'étage. Cherché pour la fournaise (Sécurité publique Canada, « Pannes de courant ») : la page n'a
+pas répondu le 16 octobre 2026.
+
+### Le logigramme
+
+`images/logigrammes/03-panne-hydro.json` (PNG, PDF, SVG ; version du livre `03-panne-hydro-livre.svg`).
+Page de gauche : la panne (15 min), la nuit, le poêle (6 h, deux branches). Page de droite : « La maison se
+tient ? » et l'avertisseur qui sonne (1 min). Contrôle : 0 erreur, 0 avis.
+
+### Les planches et la photo
+
+03-08 (marmite, §9 « Les aliments »), 03-09 (abri, détail de l'étape 9), 03-10 (vidange, étape 23), 03-11 (tuyau
+gelé, §9 « La plomberie »), 03-12 (couverture scellée, §9 « Le chauffage »). Un seul appel par planche ; §9 est
+réordonné pour éloigner 03-12, 03-11 et 03-08. Photo proposée : le mât arraché, au détail de l'étape 1. Ancrages :
+`scratchpad/demo-03/ancrages-texte.json`.

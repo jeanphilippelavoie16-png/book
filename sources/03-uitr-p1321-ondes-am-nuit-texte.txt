@@ -1,0 +1,1214 @@
+Recommandation UIT-R P.1321-4
+(09/2013)
+
+Facteurs de propagation qui influent sur les
+systèmes utilisant des techniques de
+modulation numérique dans les bandes
+d'ondes kilométriques et hectométriques
+
+Série P
+Propagation des ondes radioélectriques
+
+ii
+
+Rec. UIT-R P.1321-4
+
+Avant-propos
+Le rôle du Secteur des radiocommunications est d’assurer l’utilisation rationnelle, équitable, efficace et économique du
+spectre radioélectrique par tous les services de radiocommunication, y compris les services par satellite, et de procéder à
+des études pour toutes les gammes de fréquences, à partir desquelles les Recommandations seront élaborées et adoptées.
+Les fonctions réglementaires et politiques du Secteur des radiocommunications sont remplies par les Conférences
+mondiales et régionales des radiocommunications et par les Assemblées des radiocommunications assistées par les
+Commissions d’études.
+
+Politique en matière de droits de propriété intellectuelle (IPR)
+La politique de l'UIT-R en matière de droits de propriété intellectuelle est décrite dans la «Politique commune de
+l'UIT-T, l'UIT-R, l'ISO et la CEI en matière de brevets», dont il est question dans l'Annexe 1 de la Résolution UIT-R 1.
+Les formulaires que les titulaires de brevets doivent utiliser pour soumettre les déclarations de brevet et d'octroi de
+licence sont accessibles à l'adresse http://www.itu.int/ITU-R/go/patents/fr, où l'on trouvera également les Lignes
+directrices pour la mise en oeuvre de la politique commune en matière de brevets de l'UIT-T, l'UIT-R, l'ISO et la CEI et
+la base de données en matière de brevets de l'UIT-R.
+
+Séries des Recommandations UIT-R
+(Egalement disponible en ligne: http://www.itu.int/publ/R-REC/fr)
+
+Séries
+
+Titre
+
+BO
+BR
+BS
+BT
+F
+M
+P
+RA
+RS
+S
+SA
+SF
+
+Diffusion par satellite
+Enregistrement pour la production, l'archivage et la diffusion; films pour la télévision
+Service de radiodiffusion sonore
+Service de radiodiffusion télévisuelle
+Service fixe
+Services mobile, de radiorepérage et d'amateur y compris les services par satellite associés
+Propagation des ondes radioélectriques
+Radio astronomie
+Systèmes de télédétection
+Service fixe par satellite
+Applications spatiales et météorologie
+Partage des fréquences et coordination entre les systèmes du service fixe par satellite et du service
+fixe
+Gestion du spectre
+Reportage d'actualités par satellite
+Emissions de fréquences étalon et de signaux horaires
+Vocabulaire et sujets associés
+
+SM
+SNG
+TF
+V
+
+Note: Cette Recommandation UIT-R a été approuvée en anglais aux termes de la procédure détaillée dans la
+Résolution UIT-R 1.
+
+Publication électronique
+Genève, 2014
+ UIT 2014
+Tous droits réservés. Aucune partie de cette publication ne peut être reproduite, par quelque procédé que ce soit, sans l’accord écrit
+préalable de l’UIT.
+
+Rec. UIT-R P.1321-4
+
+1
+
+RECOMMANDATION UIT-R P.1321-4
+Facteurs de propagation qui influent sur les systèmes utilisant
+des techniques de modulation numérique dans les bandes
+d'ondes kilométriques et hectométriques
+(Question UIT-R 225/3)
+(1997-2005-2007-2009-2013)
+Domaine d'application
+La présente Recommandation contient des informations sur les caractéristiques de la propagation de
+l'onde de sol et de l'onde ionosphérique dans les bandes d'ondes kilométriques et hectométriques,
+qui peuvent affecter l'utilisation des méthodes de modulation numérique dans ces bandes.
+L'Assemblée des radiocommunications de l'UIT,
+considérant
+a)
+que les méthodes de modulation numérique pour la radiodiffusion sonore en ondes
+kilométriques et hectométriques sont actuellement à l'étude;
+b)
+qu'il est nécessaire de disposer d'informations sur les caractéristiques de propagation à ces
+fréquences pour définir des méthodes de modulation,
+recommande
+d'utiliser les informations données en Annexe 1 pour définir des méthodes de modulation
+numérique utilisables en radiodiffusion en ondes hectométriques et kilométriques.
+
+Annexe 1
+1
+
+Introduction
+
+La plupart des services de radiodiffusion en ondes hectométriques et kilométriques sont fondés sur
+les caractéristiques du mode de propagation de l'onde de sol (voir la Recommandation UIT-R
+P.368). Dans ce mode, pendant la journée et en l'absence de brouillage, la portée est limitée par
+l'intensité du bruit radioélectrique causé par la foudre et par des sources artificielles (voir la
+Recommandation UIT-R P.372) et par le rapport signal à bruit spécifié. De nuit, les modes de
+propagation ionosphérique deviennent importants (voir la Recommandation UIT-R P.1147). Dans le
+cas de la modulation d'amplitude analogique, ces modes limitent la portée puisque le brouillage
+entre l'onde de sol et les modes de l'onde ionosphérique déphasés se traduit par une qualité du signal
+insuffisante. Les signaux transmis par l'onde ionosphérique provenant des autres émissions à
+distance peuvent également causer des brouillages nocturnes importants, ce qui peut également
+limiter la couverture du service à des portées où l'onde de sol permet d'obtenir un signal
+suffisamment intense; les différents aspects relatifs aux brouillages causés par d'autres signaux ne
+sont pas traités de façon détaillée dans la présente Annexe.
+
+2
+
+Rec. UIT-R P.1321-4
+
+Les méthodes de modulation numérique peuvent également être influencées par la présence des
+modes de signaux retardés, mais il est possible par une définition d'une modulation convenable de
+compenser ou d'exploiter cet effet. La présente Annexe présente des modèles très simples de cet
+environnement multitrajet, qui sont censés être adaptés à la définition de techniques de modulation.
+Selon la technique de modulation retenue, il pourra être nécessaire de disposer de méthodes de
+prévision plus détaillées pour la planification des services.
+2
+
+Modes de propagation
+
+2.1
+
+Mode de propagation de l'onde de sol
+
+Souvent, l'onde de sol peut ne pas être constante (voir le § 4). Comme indiqué dans la
+Recommandation UIT-R P.368, l'amplitude du signal dépend de la portée et des caractéristiques
+électriques du sol. De plus, l'amplitude du signal n'est pas constante pour des changements
+d'emplacement (de l'ordre de quelques centaines de mètres).
+2.2
+
+Mode de propagation de l'onde ionosphérique
+
+Pendant la journée, l'affaiblissement du signal dans la partie basse de la région D de l'ionosphère
+empêche effectivement la propagation de l'onde ionosphérique. La présente Annexe s'intéresse
+essentiellement aux conditions nocturnes lorsque la propagation de l'onde ionosphérique peut être
+importante.
+La couche E de l'ionosphère diminue après le coucher du soleil, mais la fréquence critique, foE, se
+trouvera dans la bande de radiodiffusion des ondes hectométriques, au moins pendant la première
+partie de la nuit. Les signaux à des fréquences inférieures à la fréquence critique seront toujours
+réfléchis par la couche E, mais il y aura également des réflexions en plusieurs bonds. Les signaux
+aux fréquences supérieures à la fréquence critique peuvent toujours être réfléchis par la couche E,
+en particulier pour les portées plus importantes, mais les signaux franchiront également la couche E
+pour être réfléchis dans la région F plus haute. Établie à partir d'un modèle simple de la couche E, la
+Fig. 1 indique les modes de propagation des signaux disponibles pour trois fréquences dans la bande
+des ondes hectométriques, montrant la façon dont la présence de ces modes varie avec la portée au
+sol et dans le temps après le coucher du soleil. Ces modes seront différés par rapport au mode de
+propagation de l'onde de sol.
+La Recommandation UIT-R P.1147 contient les prévisions de la puissance composite du signal pour
+les modes de propagation de l'onde ionosphérique disponibles et par conséquent ne donne pas les
+informations nécessaires sur les amplitudes relatives de chacun des modes. Cependant, la
+Recommandation UIT-R P.684 donne ce type d'information, bien qu'elle ne concerne que les
+fréquences inférieures à 500 kHz. En particulier, cette Recommandation donne les valeurs des
+coefficients de réflexion ionosphérique dans les conditions d'activité solaire minimale déterminées à
+partir de résultats expérimentaux, et de certaines hypothèses comme indiqué dans la
+Recommandation.
+
+Rec. UIT-R P.1321-4
+3
+
+3
+
+Etalement temporel par trajets multiples
+
+Sur la base des modèles de propagation simples précités, la Fig. 2 montre les valeurs médianes
+attendues du champ et les retards temporels relatifs pour 3 portées (100, 200 et 500 km) et pour
+deux fréquences (700 kHz et 1 MHz). Les champs sont donnés pour une puissance e.m.r.p. de 1 kW
+et n'incluent pas les effets liés au diagramme de rayonnement vertical de l'antenne d'émission – ce
+qui peut réduire les niveaux des signaux de l'onde ionosphérique aux faibles distances.
+Le mode indiqué à 0 ms concerne l'onde de sol, et les intensités sont indiquées pour trois valeurs de
+conductivité du sol à savoir 5 S/m (eau de mer), 10–2 (sol de bonne qualité), et 10–3 (sol de mauvaise
+qualité).
+Les composantes de l'onde ionosphérique sont indiquées avec le mode associé et les niveaux
+représentent approximativement les valeurs médianes du champ quatre heures après le coucher du
+soleil en période d'activité solaire minimale.
+
+4
+
+Rec. UIT-R P.1321-4
+FIGURE 1
+
+Longueur du trajet (km)
+
+Modes de propagation disponibles
+
+0,7 MHz
+
+E
+
+400
+
+E et F
+F
+0
+
+0
+
+2
+
+4
+
+6
+
+8
+
+10
+
+12
+
+10
+
+12
+
+Temps après le coucher du soleil (h)
+
+Longueur du trajet (km)
+
+1,0 MHz
+
+E
+
+500
+
+E et F
+400
+F
+
+0
+
+0
+
+2
+
+4
+
+6
+
+8
+
+Temps après le coucher du soleil (h)
+1 600
+1,5 MHz
+E
+
+Longueur du trajet (km)
+
+1 200
+
+E et F
+800
+
+400
+F
+
+0
+0
+
+2
+
+4
+
+6
+
+8
+
+10
+
+12
+
+Temps après le coucher du soleil (h)
+P.1321-01
+
+Rec. UIT-R P.1321-4
+
+5
+
+FIGURE 2
+Exemples d'étalement du retard
+G
+
+5
+60
+
+100 km
+
+G
+
+5
+
+–2
+
+10
+
+–2
+
+10
+(dB(μV/m))
+
+1E
+40
+
+1F
+
+–3
+
+10
+
+–3
+
+10
+2E
+
+2F
+
+20
+
+3F
+
+3E
+0
+0
+
+1
+
+2
+
+0
+
+3
+
+1
+
+2
+
+G
+60
+
+–2
+
+(dB(μV/m))
+
+5
+
+5
+
+1E
+
+1F
+
+40
+
+20
+
+4
+
+G
+200 km
+
+5
+
+10
+
+3
+(ms)
+
+(ms)
+
+–2
+
+10
+2E
+
+–3
+
+10
+
+2F
+–3
+
+10
+
+3F
+
+3E
+0
+0
+
+1
+
+2
+
+0
+
+3
+
+1
+
+2
+
+3
+
+4
+
+5
+
+4
+
+5
+
+(ms)
+
+(ms)
+
+60
+G 1E
+
+(dB(μV/m))
+
+5
+
+500 km
+
+40
+
+5
+
+G
+
+1E
+
+2E
+20
+
+2F
+
+2E
+
+–2
+
+10
+
+–2
+
+10
+
+3F
+
+0
+0
+
+1
+
+2
+
+3
+
+0
+
+1
+
+2
+
+3
+
+(ms)
+
+(ms)
+
+700 kHz
+
+1 MHz
+
+P.1321-02
+
+6
+
+Rec. UIT-R P.1321-4
+
+La Fig. 3 représente le retard des modes de propagation de l'onde ionosphérique en un bond dans les
+régions E et F par rapport à l'onde de sol pour des portées supérieures à 1 000 km et la Fig. 4 donne
+les retards relatifs entre les modes de propagation de l'onde de sol en un seul bond et en plusieurs
+bonds.
+FIGURE 3
+Retard relatif du signal transmis par l'onde ionosphérique
+par rapport au signal transmis par l'onde de sol
+1,2
+
+Td (ms)
+
+0,8
+
+F
+
+0,4
+
+E
+0
+100
+
+300
+
+1 000
+
+d (km)
+P.1321-03
+
+FIGURE 4
+Retard réciproque des signaux transmis par l'onde
+ionosphérique pour différents nombres de bonds
+3
+1-3
+F
+2
+Td (ms)
+
+1-2
+1-3
+
+1
+
+F
+1-2
+
+E
+
+0
+100
+
+300
+d (km)
+
+1 000
+P.1321-04
+
+Rec. UIT-R P.1321-4
+
+7
+
+La plage de distances pour laquelle les amplitudes de l'onde de sol et de l'onde ionosphérique sont
+similaires présente un intérêt particulier étant donné que l'évanouissement existant dans cette zone
+est particulièrement important. Cette zone a été appelée la zone d'évanouissement nocturne et a
+souvent déterminé la limite de portée pour la radiodiffusion en ondes hectométriques de bonne
+qualité.
+4
+
+Variabilité
+
+4.1
+
+Variations diurnes d'un signal au cours du temps
+
+4.1.1
+
+Variations saisonnières
+
+Le champ des ondes de Terre peut varier en fonction de la température hivernale. La fourchette
+moyenne annuelle (différence entre le champ médian par mois pendant l'été et l'hiver) pour la
+gamme 500-1 000 kHz est indiquée dans le Tableau 1 pour la latitude de l'hémisphère Nord où la
+température moyenne en janvier est inférieure à environ 4°C.
+TABLEAU 1
+Température moyenne en janvier dans
+l'hémisphère Nord (°C)
+
+4
+
+0
+
+–10
+
+–16
+
+Gamme des champs été-hiver U (dB)
+
+4
+
+8
+
+13
+
+15
+
+Dans la bande d'ondes kilométriques, la gamme de variations du champ à des latitudes moyennes
+dans un climat continental (mesurée en Europe continentale et en Sibérie) dépend de la distance et
+de la fréquence, qui dépendent du paramètre q = d · f1/2, où d est la distance (km) et f la fréquence
+(MHz). Les valeurs de q < 500, environ, caractérisent la variation des ondes de sol et les valeurs de
+q > 500 celle des ondes ionosphériques.
+Formules correspondantes pour exprimer la gamme de variations:
+–
+pour les trajets dans une zone peu boisée:
+
+U s / w = 3 + 2 × 10−5 × q2 + 0,005q
+–
+
+dB
+
+pour les trajets dans une zone fortement boisée:
+U L / w = 6,409 × ln (q ) − 21,124
+
+dB
+
+Ici, les indices s/w et L/w désignent respectivement une zone peu boisée (jusqu'à 30% environ) et
+une zone fortement boisée (plus de 50%).
+4.1.2
+
+Variations du champ médian par heure d'un jour à l'autre
+
+L'écart quadratique moyen (σL dans la bande d'ondes kilométriques et σM dans la bande d'ondes
+hectométriques) du champ médian par heure par rapport à la valeur médiane mensuelle dépend de la
+longueur du trajet dans la bande d'ondes kilométriques, tandis qu'il dépend de la fréquence dans la
+bande d'ondes hectométriques.
+Dans la bande d'ondes kilométriques, aux latitudes moyennes dans une zone moyennement boisée,
+on a:
+σL = 0,073 d0,5 + 0,00122 d
+
+dB
+
+8
+
+Rec. UIT-R P.1321-4
+
+Dans la bande d'ondes hectométriques, l'écart quadratique moyen en fonction de la fréquence pour
+les trajets compris entre 20 km et 120 km, indépendamment de la saison, est donné par:
+σM = 0,0018f + 0,6
+
+dB
+
+Dans ces formules, σL, σM sont des valeurs quadratiques moyenne en dB, d est la distance en km,
+f est la fréquence en kHz.
+4.2
+
+Variations diurnes d'un signal d'un point à un autre
+
+Dans la bande d'ondes hectométriques, on constate que les écarts types des variations de niveau d'un
+signal entre des points distants d'environ 1 km sont similaires dans les différentes parties du monde.
+La distribution de probabilité suit pratiquement une loi log-normale, avec un écart quadratique
+moyen σ = 3,7 dB, comme le montre la Fig. 5.
+Dans un environnement urbain, dans les rues et les quartiers, l'écart type est aussi proche de 4 dB.
+Dans les zones urbaines densément construites, en particulier à des distances de l'émetteur
+(inférieures à 1 km), l'écart type augmente et atteint 7 à 8 dB. A l'intérieur des bâtiments, dans de
+rares cas, l'absorption additionnelle peut atteindre 20 dB.
+4.3
+
+Variations nocturnes d'un signal
+
+Les modes de propagation de l'onde ionosphérique seront sujets à une variabilité à long terme entre
+les nuits lorsque les valeurs médianes horaires présentent une distribution log-normale avec une
+plage semi-interdécile comprise entre 3,5 et 9 dB. Pendant une heure, l'évanouissement des modes
+individuels présentent également une distribution log-normale. Les données de mesure sont peu
+nombreuses, mais on peut prendre par hypothèse une valeur caractéristique de 3 dB environ pour
+l'écart type. La fréquence des évanouissements est comprise entre 10 et 30 évanouissements
+par heure.
+Pour les cas où il faut prendre en considération les modes de propagation composites de l'onde de
+sol et de l'onde ionosphérique, c'est-à-dire dans les cas où ces modes ne peuvent être distingués dans
+le système de réception, la distribution des évanouissements du signal est indiquée dans
+l'Appendice 1 à l'Annexe 1.
+Le décalage de fréquence des modes de propagation de l'onde ionosphérique, dû à l'effet Doppler
+résultant de la réflexion sur des couches ionosphériques en mouvement est faible.
+
+Rec. UIT-R P.1321-4
+
+9
+
+FIGURE 5
+Loi de distribution des écarts
+1,0
+0,9
+Ecart de probabilité
+
+0,8
+0,7
+0,6
+0,5
+0,4
+0,3
+0,2
+0,1
+0,0
+–15
+
+–10
+
+–5
+0
+5
+Valeur des écarts (dB)
+
+10
+
+15
+
+Mesures
+Calcul σ = 3,72 dB
+
+4.4
+
+P.1321-05
+
+Caractéristiques des dépassements et des évanouissements dans les canaux
+ionosphériques dans les bandes d'ondes kilométriques et hectométriques
+
+Pour l'analyse et la planification des systèmes de radiocommunication à modulation numérique dans
+les bandes d'ondes kilométriques et hectométriques, la description des caractéristiques des valeurs
+moyennes et de la dispersion du signal s'avère insuffisante. Il est nécessaire de prendre en compte
+des propriétés plus détaillées des dépassements et des évanouissements, il faut en particulier
+connaître la distribution de probabilité des durées des dépassements et des évanouissements, pour
+diverses valeurs du rapport signal/brouillage. L'Appendice 2 contient les caractéristiques statistiques
+des dépassements et des évanouissements qui ont été obtenues sur une période de deux ans pour
+deux liaisons, l'une dans la bande d'ondes kilométriques (1 550 km à 155 kHz) et l'autre dans la
+bande d'ondes hectométriques (860 km à 539 kHz). Les résultats concernent des latitudes
+géographiques moyennes dans l'hémisphère est et une activité modérée des taches solaires
+(SSN ≈ 40).
+Les Tableaux 3 et 4 de l'Appendice 2 donnent le nombre de dépassements et d'évanouissements par
+heure sur chaque liaison. Les Figures 6 et 7 représentent les diagrammes de dispersion du nombre
+de durées des dépassements (%) pour le seuil correspondant à la valeur médiane sur chaque liaison.
+5
+
+Conclusions
+
+La Recommandation UIT-R P.1407 identifie un ensemble de paramètres à utiliser pour décrire les
+effets liés à la propagation par trajets multiples. La «fenêtre de retard» où se trouve environ 98% de
+l'énergie totale, peut être déterminée à partir de la Fig. 2 comme étant inférieure à 3 ms. Il convient
+de noter que dans certaines circonstances la première composante des trajets multiples ne sera pas
+celle qui présentera l'amplitude la plus élevée.
+
+10
+
+Rec. UIT-R P.1321-4
+
+Appendice 1
+à l'Annexe 1
+L'amplitude composite du signal, e, correspondant à une combinaison du signal constant de l'onde
+de sol et d'un signal de l'onde ionosphérique à distribution log-normale est obtenue par addition des
+puissances:
+e=
+
+ee2 + ei2
+
+dans laquelle ee et ei sont respectivement les niveaux des composantes relative à l'onde de sol et
+relative à l'onde ionosphérique généralement exprimés en μV/m.
+La composante onde ionosphérique, ei, a une distribution log-normale (voir l'équation (6) de la
+Recommandation UIT-R P.1057). Pour des raisons de commodité, on suppose que la composante
+de l'onde de sol présente également une distribution log-normale et que le résultat final est obtenu
+en fixant son écart type comme étant égal à 0 dB.
+La combinaison des deux distributions log-normales donne lieu également à une distribution
+log-normale dans laquelle le niveau moyen est la somme de chacun des niveaux moyens
+(c'est-à-dire en amplitude et non en décibels) et sa variance est la somme des deux variances.
+Pour une distribution log-normale (voir la Recommandation UIT-R P.1057) la moyenne et l'écart
+type des niveaux des signaux (μV/m) sont donnés par:
+2
+
+Moyenne = e m ⋅ e σ / 2
+
+Ecart type =
+
+2
+2
+e 2m ⋅ e σ  e σ − 1
+
+
+
+dans laquelle m est la moyenne et σ l'écart type de la distribution log-normale.
+A partir de ces considérations il est possible d'évaluer les paramètres pour la distribution combinée.
+Le Tableau 2 contient des exemples de résultats dans lesquels l'écart type de la composante de
+l'onde ionosphérique log-normale est de 3 dB.
+TABLEAU 2
+ei / ee
+
+Niveau moyen par rapport à la moyenne de la
+composante de l'onde de sol
+
+Ecart type
+
+0,5 (– 6 dB)
+
++1,3 dB
+
+0,72 dB
+
+1 (0 dB)
+
++4,4
+
+1,35
+
+2 (+ 6 dB)
+
++5,7
+
+2,0
+
+Rec. UIT-R P.1321-4
+
+11
+
+Appendice 2
+à l'Annexe 1
+TABLEAU 3
+Nombre de dépassements et d'évanouissements par heure
+sur une liaison dans la bande d'ondes kilométriques
+Heure
+Niveau seuil
+
+18
+
+19
+
+20
+
+21
+
+22
+
+23
+
+24
+
+01
+
+02
+
+Valeur médiane (dépassement)
+
+2,3
+
+2,7
+
+3,1
+
+3,7
+
+4,1
+
+4,6
+
+4,4
+
+3,9
+
+3,5
+
+Décile inférieur (évanouissement)
+
+1,5
+
+1,75
+
+2
+
+2,3
+
+2,6
+
+2,6
+
+2,3
+
+2
+
+1,7
+
+Décile supérieur (dépassement)
+
+1,6
+
+1,8
+
+1,9
+
+2,1
+
+2,25
+
+2,4
+
+2,4
+
+2,3
+
+2,2
+
+TABLEAU 4
+Nombre de dépassements et d'évanouissements par heure
+sur une liaison dans la bande d'ondes hectométriques
+Heure
+Niveau seuil
+
+18
+
+19
+
+20
+
+21
+
+22
+
+23
+
+24
+
+01
+
+02
+
+03
+
+Valeur médiane (dépassement)
+
+1,8
+
+2
+
+2,3
+
+2,7
+
+2,9
+
+3,2
+
+3,5
+
+3,5
+
+3
+
+2,7
+
+Décile inférieur (évanouissement)
+
+1,5
+
+1,7
+
+1,9
+
+2,1
+
+2,2
+
+2,4
+
+2,5
+
+2,4
+
+2,3
+
+2,1
+
+Décile supérieur (dépassement)
+
+1,4
+
+1,5
+
+1,7
+
+1,8
+
+1,9
+
+2
+
+2,1
+
+2,1
+
+2
+
+1,8
+
+Distribution de la durée des dépassements pour la valeur médiane dans les bandes d'ondes
+kilométriques et hectométriques
+
+On peut utiliser la distribution suivante pour donner une approximation des caractéristiques
+statistiques des durées des dépassements pour la valeur médiane dans les bandes d'ondes
+kilométriques et hectométriques:
+2 2
+2
+2
+2
+2
+Pk = 0,38 ⋅ e− d t / r + 0,62 ⋅ e−0,5 t / q + 0,62 ⋅ e−b t / r ⋅ 1 − e−0,5 t / q 
+
+
+
+(1)
+
+où t (min) est supérieur ou égal à 0 et d, b, q et r sont des paramètres choisis.
+Distribution de la durée des dépassements pour le décile supérieur et de la durée des
+évanouissements pour le décile inférieur dans les bandes d'ondes kilométriques et
+hectométriques
+
+La distribution de probabilité de la durée des évanouissements pour les seuils correspondant au
+décile supérieur et au décile inférieur est bien décrite par une distribution Gamma:
+
+pG =
+
+λα
+⋅ t α−1 ⋅ e −λ t ,
+Γ(α )
+
+PG =
+
+λα
+⋅  t α−1 ⋅ e −λ t dt
+Γ(α )
+
+(2)
+
+12
+
+Rec. UIT-R P.1321-4
+
+où:
+pG :
+PG :
+t:
+λ et α :
+
+distribution de probabilité
+distribution cumulative
+durée (min)
+paramètres choisis.
+
+Le Tableau 5 ci-dessous indique la distribution et les valeurs des paramètres pour plusieurs niveaux
+seuils.
+TABLEAU 5
+Distribution et paramètres pour plusieurs seuils
+Dépassement ou
+évanouissement
+
+Distribution
+
+Paramètres
+
+valeur
+médiane
+
+dépassement
+
+Equation (1)
+
+b = 0,32, d = 3,0, q = 4,0, r = 3,8
+
+Ondes
+kilométriques
+
+décile
+inférieur
+
+évanouissement
+
+Equation (2)
+
+α = 2,00, λ = 0,67
+
+Ondes
+kilométriques
+
+décile
+supérieur
+
+dépassement
+
+Equation (2)
+
+α = 2,20, λ = 0,67
+
+Ondes
+hectométriques
+
+valeur
+médiane
+
+dépassement
+
+Equation (1)
+
+b = 0,3, d = 0,8, q = 1,8, r = 2,2
+
+Ondes
+hectométriques
+
+décile
+inférieur
+
+évanouissement
+
+Equation (2)
+
+α = 3,30, λ = 1,13
+
+Ondes
+hectométriques
+
+décile
+supérieur
+
+dépassement
+
+Equation (2)
+
+α = 2,95, λ = 0,7
+
+Bande
+
+Niveau seuil
+
+Ondes
+kilométriques
+
+Il ressort des données expérimentales que la différence entre les valeurs médianes de la durée
+des dépassements pour les bandes d'ondes kilométriques et hectométriques est peu importante:
+environ 1 min (5 min pour la bande d'ondes kilométriques et 4 min pour la bande d'ondes
+hectométriques).
+
+Rec. UIT-R P.1321-4
+
+13
+
+FIGURE 6
+Nombre de durées des dépassements (%) par heure pour le seuil correspondant à la valeur médiane
+sur une liaison dans la bande d'ondes kilométriques et distribution intégrale
+100
+90
+80
+
+P (pourcentage)
+
+70
+60
+50
+40
+30
+20
+10
+0
+0
+
+5
+
+10
+
+15
+
+20
+
+25
+
+t (min) valeur médiane, ondes kilométriques
+
+30
+P.1321-06
+
+FIGURE 7
+Nombre de durées des dépassements (%) par heure pour le seuil correspondant à la valeur médiane
+sur une liaison dans la bande d'ondes hectométriques et distribution intégrale
+100
+90
+80
+
+P (pourcentage)
+
+70
+60
+50
+40
+30
+20
+10
+0
+0
+
+5
+
+10
+
+15
+
+20
+
+25
+
+t (min) valeur médiane, ondes hectométriques
+
+____________
+
+30
+P.1321-07
+
+

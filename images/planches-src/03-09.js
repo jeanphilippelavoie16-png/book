@@ -1,8 +1,10 @@
-// Planche 03-09 — l'abri dans la pièce (ch. 3, section 9, « Le chauffage » : couverture sur la table,
+// Planche 03-09. L’abri dans la pièce (ch. 3, section 9, « Le chauffage » : couverture sur la table,
 // drap jusqu'aux chaises, matelas debout au mur ; les enfants au milieu, les adultes aux bouts).
 // Coupes en cm : en travers, x = distance au mur ; en long, x = le long du mur.
 // 13 oct. : plus de corps vus de dessus (JP) ; la vue de dessus devient une coupe en long, où le
 // dormeur est de profil (corps simple sous sa couverture) et où les deux bouts descendent au plancher.
+// 16 oct. : dans la comparaison du bas, le dormeur est sous sa couverture, comme dans la vue en long (son bras
+// et sa main, dessinés à cette taille, n'étaient pas nets).
 module.exports = (h) => {
   const blanc = a => a.replace('fill="none"', h.a.blanc.split(' ')[0]);
   const r1 = v => Math.round(v * 10) / 10;
@@ -308,13 +310,6 @@ module.exports = (h) => {
   };
 
   // ── La comparaison : ce qui est sous le corps ──
-  // le dormeur sur le dos, de profil : le corps simple, la tête à gauche (le sommet du crâne en x0),
-  // les genoux à peine fléchis ; Lb unités pour 1750 mm
-  const dormeur = (x0, base, Lb) => {
-    const e = Lb / 1750;
-    return h.formes.corps({ pose: 'couche-dos', x: x0 + 822 * e, y: base, echelle: e,
-      angles: { cuisseP: 82, jambeP: 98, cuisseL: 82, jambeL: 98 } }).toString();
-  };
   const epaisseur = (a, b) => x => {
     const e = 5, c = 1.6, r = 8;
     if (x < a - r || x > b + r) return e;
@@ -333,7 +328,13 @@ module.exports = (h) => {
     }
     out.push(h.ligne(x1, sol, x1, sol - nb * 5, h.a.detail), h.ligne(x2, sol, x2, sol - nb * 5, h.a.detail));
     const base = sol - nb * 1.6;
-    out.push(dormeur(x0, base, Lb));
+    // le dormeur sous sa couverture, comme dans la vue en long : la main ne se dessine pas nette à cette taille
+    const e = Lb / 1750;
+    const d = h.formes.corps({ pose: 'couche-dos', x: x0 + 822 * e, y: base, echelle: e,
+      angles: { cuisseP: 82, jambeP: 98, cuisseL: 82, jambeL: 98 } });
+    out.push(d.toString());
+    const cou = d.articulations.cou[0] + 20 * e;
+    out.push(sac(d, { marge: 35, lisse: 120, visage: false, garder: [cou, base - 400 * e, x0 + Lb + 12, base], avec: [[cou, base - 40 * e, d.boite.x1, base]] }));
     if (!cartons) for (const u of [0.3, 0.5, 0.7]) out.push(h.fleche(`M ${r1(x0 + Lb * u)},${r1(base - 4)} L ${r1(x0 + Lb * u)},${r1(G + 10)}`));
     return out.join('\n');
   };

@@ -1,201 +1,232 @@
-// Planche 03-11. Le tuyau gelé, puis fendu (chapitre 3, §9, « Dégeler un tuyau sans chalumeau, et dans le bon
-// sens » et « Réparer un tuyau fendu »). Dessinée le 15 octobre 2026 (inventaire des planches, priorité moyenne).
+// Planche 03-11. Le tuyau gelé, puis fendu (chapitre 3, section 9, « Dégeler un tuyau sans chalumeau, et dans le
+// bon sens » et « Réparer un tuyau fendu »). Dessinée le 15 octobre 2026, refaite le 16 octobre.
+//
 // Tout vient du texte : ouvrir le robinet grand d'abord ; guenilles autour du tuyau, eau chaude versée dessus à
 // répétition, en avançant d'une largeur de main à la fois du robinet vers le bouchon de glace ; chauffé au milieu
-// du bouchon, l'eau fondue et la vapeur coincées entre deux glaces fendent le cuivre. Le tuyau fendu : arêtes
-// limées, chambre à air ou boyau fendu enroulé, deux ou trois colliers l'un contre l'autre, de part et d'autre
-// de la fente. La branche condamnée : coupée, le bout écrasé au marteau, replié sur lui-même, un collier sur le pli.
+// du bouchon, l'eau fondue et la vapeur coincées entre deux glaces fendent le cuivre, au dégel. Le tuyau fendu :
+// chambre à air ou boyau fendu enroulé, deux ou trois colliers l'un contre l'autre, qui mordent de chaque côté de
+// la fente. La branche condamnée : coupée, le bout écrasé au marteau, replié sur lui-même, un collier sur le pli.
 // Aucune cote : le chapitre n'en donne pas. Le tuyau est grossi pour se lire.
-// Les guenilles en tireté, à droite : les places d'avant, du robinet vers la glace.
-// La charte : la flèche rouge, le sens où l'on avance ; le cercle rouge, la fente du raté.
+//
+// Refaite le 16 octobre : le raté est maintenant le même tuyau, cadré comme le bon (même mur, même robinet, même
+// bouchon de glace), chauffé au milieu ; la casserole a son bord roulé et son manche (elle avait l'air d'une boîte) ;
+// les deux réparations sont deux fois plus grandes, et le collier a son boîtier et sa vis, qui le font reconnaître.
+//
+// La charte : la flèche rouge, le sens où l'on avance ; le cercle rouge, la fente du raté. Les guenilles des places
+// d'avant, en tireté.
 module.exports = (h) => {
   const A = h.a;
   const f1 = v => Math.round(v * 10) / 10;
   const W = at => at.replace('fill="none"', 'fill="#FFFFFF"');
 
-  // Le tuyau en coupe, horizontal, d'axe y, de x0 à x1 : les deux parois en plein.
-  const tuyau = (x0, x1, y, r, ep = 2.6) => [
-    h.rect(x0, y - r, x1 - x0, ep, A.plein),
-    h.rect(x0, y + r - ep, x1 - x0, ep, A.plein),
-  ].join('\n');
-  // Des guenilles enroulées autour du tuyau, de xa à xb ; trace = true : en tireté (une place d'avant).
-  const guenilles = (xa, xb, y, R, trace = false) => {
-    const at = trace ? A.cache : W(A.arete);
-    const o = [h.path(`M${xa + 6} ${y - R} Q${(xa + xb) / 2} ${y - R - 4} ${xb - 6} ${y - R + 1} Q${xb + 2} ${y} ${xb - 5} ${y + R - 1} Q${(xa + xb) / 2} ${y + R + 4} ${xa + 5} ${y + R} Q${xa - 3} ${y} ${xa + 6} ${y - R} Z`, at)];
-    if (!trace) for (let x = xa + 10; x < xb - 6; x += 12) o.push(h.path(`M${x} ${y - R + 1} Q${x + 7} ${y} ${x + 3} ${y + R - 1}`, A.fin));
+  // ─── Les pièces communes ─────────────────────────────────────────────────────────────────────────
+  // Le même tuyau dans les deux rangées du haut : mur de 0 à XM, tuyau d'axe YT et de rayon R jusqu'au robinet en XR.
+  const XM = 34, XR = 500, YT = 106, R = 14, EP = 3;
+
+  // Le tuyau en coupe : les deux parois en plein. Une paroi peut être coupée par une fente (trous = [[xa, xb]]).
+  const parois = (x0, x1, { trouHaut = null, trouBas = null } = {}) => {
+    const o = [];
+    const bande = (y, trou) => {
+      if (!trou) return [h.rect(x0, y, x1 - x0, EP, A.plein)];
+      return [h.rect(x0, y, trou[0] - x0, EP, A.plein), h.rect(trou[1], y, x1 - trou[1], EP, A.plein)];
+    };
+    o.push(...bande(YT - R, trouHaut), ...bande(YT + R - EP, trouBas));
     return o.join('\n');
   };
-  // Une casserole qui verse, son bec en (x, y), penchée vers la gauche.
-  const casserole = (x, y, k = 1) => {
-    const P = (u, v) => { const a = -35 * Math.PI / 180; return [x + 32 * k + (u * Math.cos(a) - v * Math.sin(a)) * k + 0, y - 2 * k + (u * Math.sin(a) + v * Math.cos(a)) * k + 18 * k]; };
-    const pp = (...pts) => pts.map(p => { const q = P(...p); return `${f1(q[0])} ${f1(q[1])}`; });
-    const [c0, c1, c2, c3, c4, c5] = pp([-32, -20], [-32, 14], [-26, 20], [26, 20], [32, 14], [32, -20]);
+  // Le mur extérieur en coupe, d'où vient le tuyau.
+  const mur = z => h.rect(0, 14, XM, z.h - 20, A.hachure('bois', 'arete'));
+  // Le robinet ouvert grand : l'écrou sur le tuyau, le corps, le bec qui descend, la manette levée.
+  const robinet = () => [
+    h.rect(XR - 2, YT - R - 3, 10, 2 * R + 6, W(A.arete)),
+    h.path(`M${XR + 8} ${YT - 15} L${XR + 34} ${YT - 15} Q${XR + 42} ${YT - 15} ${XR + 42} ${YT - 6} L${XR + 42} ${YT + 4} Q${XR + 42} ${YT + 14} ${XR + 34} ${YT + 16}`
+      + ` L${XR + 28} ${YT + 18} L${XR + 28} ${YT + 34} L${XR + 14} ${YT + 34} L${XR + 14} ${YT + 16} L${XR + 8} ${YT + 15} Z`, W(A.contour)),
+    h.ligne(XR + 14, YT + 30, XR + 28, YT + 30, A.detail),
+    h.rect(XR + 19, YT - 27, 8, 12, W(A.arete)),
+    h.path(`M${XR + 4} ${YT - 33} L${XR + 42} ${YT - 25} L${XR + 41} ${YT - 21} L${XR + 3} ${YT - 29} Z`, W(A.arete)),
+  ].join('\n');
+  // La glace : un pointillé serré dans le tuyau, de xa à xb ; ses deux fronts en courbe.
+  const glace = (xa, xb, { frontG = false, frontD = true } = {}) => {
+    const y1 = YT - R + EP, y2 = YT + R - EP, o = [];
+    o.push(h.rect(xa, y1, xb - xa, y2 - y1, A.hachure('neige', 'aucun')));
+    if (frontD) o.push(h.path(`M${xb} ${y1} Q${xb + 6} ${YT} ${xb} ${y2}`, A.detail));
+    if (frontG) o.push(h.path(`M${xa} ${y1} Q${xa - 6} ${YT} ${xa} ${y2}`, A.detail));
+    return o.join('\n');
+  };
+  // Des guenilles enroulées autour du tuyau, de xa à xb ; trace = true : en tireté (une place d'avant).
+  const guenilles = (xa, xb, trace = false) => {
+    const Rg = R + 9, y = YT, at = trace ? A.cache : W(A.arete);
+    const o = [h.path(`M${xa + 6} ${y - Rg} Q${(xa + xb) / 2} ${y - Rg - 4} ${xb - 6} ${y - Rg + 1} Q${xb + 2} ${y} ${xb - 5} ${y + Rg - 1} Q${(xa + xb) / 2} ${y + Rg + 4} ${xa + 5} ${y + Rg} Q${xa - 3} ${y} ${xa + 6} ${y - Rg} Z`, at)];
+    if (!trace) for (let x = xa + 10; x < xb - 6; x += 11) o.push(h.path(`M${x} ${y - Rg + 1} Q${x + 7} ${y} ${x + 3} ${y + Rg - 1}`, A.fin));
+    return o.join('\n');
+  };
+  // Une casserole qui verse vers la gauche, son bec en (xb, yb), penchée de 24° : le corps aux coins arrondis, le
+  // bord roulé, le bec, le manche percé au bout. Rend aussi le point exact du bec.
+  const casserole = (xb, yb) => {
+    const a = -24 * Math.PI / 180, c = Math.cos(a), s = Math.sin(a);
+    const P = (u, v) => [f1(xb + u * c - v * s), f1(yb + u * s + v * c)];
+    const p = (u, v) => P(u, v).join(' ');
+    const L0 = 60, H0 = 30, rc = 7;
+    const corps = `M${p(0, 0)} L${p(0, H0 - rc)} Q${p(0, H0)} ${p(rc, H0)} L${p(L0 - rc, H0)} Q${p(L0, H0)} ${p(L0, H0 - rc)} L${p(L0, 0)}`;
+    const manche = `M${p(L0, 5)} L${p(L0 + 38, 1)} Q${p(L0 + 44, 1)} ${p(L0 + 44, 5)} Q${p(L0 + 44, 9)} ${p(L0 + 38, 9)} L${p(L0, 11)} Z`;
     return [
-      h.path(`M${c0} L${c1} Q${pp([-32, 20])} ${c2} L${c3} Q${pp([32, 20])} ${c4} L${c5}`, W(A.contour)),
-      h.chemin([P(-35, -20), P(35, -20)], A.arete),
-      h.chemin([P(32, -15), P(80, -18), P(81, -11), P(32, -8)], W(A.arete), true),
+      h.path(corps, W(A.contour)),
+      h.ligne(...P(-2, 0), ...P(L0 + 2, 0), A.contour),
+      h.path(`M${p(-2, 0)} Q${p(-6, -1)} ${p(-7, -4)}`, A.arete),
+      h.path(manche, W(A.arete)),
+      h.cercle(...P(L0 + 37, 5), 1.8, A.arete),
     ].join('\n');
   };
-  const vapeur = (x, y) => [-7, 3].map((dx, i) => h.path(`M${x + dx} ${y} q-4 -6 0 -12 q4 -6 0 -12`, A.fin)).join('\n');
+  // Le filet d'eau chaude, en ruban, du bec (x0, y0) jusqu'à (x1, y1).
+  const filet = (x0, y0, x1, y1) => {
+    const mx = x0 - 4, e0 = 2.4, e1 = 1.4;
+    return h.path(`M${x0 - e0} ${y0} C${mx - e0} ${y0 + 14} ${x1 - e1} ${y1 - 26} ${x1 - e1} ${y1} L${x1 + e1} ${y1} C${x1 + e1} ${y1 - 26} ${mx + e0} ${y0 + 14} ${x0 + e0} ${y0} Z`, W(A.arete));
+  };
+  const vapeur = (x, y) => [-6, 4].map(dx => h.path(`M${x + dx} ${y} q-4 -5 0 -10 q4 -5 0 -10`, A.fin)).join('\n');
 
   // ─── Dégeler : du robinet vers la glace ─────────────────────────────────────────────────────────
-  const D = z => ({ yT: 150, r: 10, xM: 36, xG: 214, xR: 500, xs: [[214, 270], [330, 386], [420, 476]] });
+  const XG = 330;                                   // le front de glace
+  const RAGS = [[308, 358], [377, 427], [446, 494]]; // la place des guenilles : maintenant, puis les places d'avant
+  const YF = YT + 42;                               // la flèche du sens où l'on avance
   const degel = z => {
-    const g = D(z), o = [];
-    const { yT, r, xM, xG, xR } = g;
-    // le mur extérieur, en coupe, d'où vient le tuyau
-    o.push(h.rect(0, 40, xM, z.h - 70, A.hachure('bois', 'arete')));
-    // dans le tuyau : la glace, puis l'eau de fonte qui coule vers le robinet
-    o.push(h.rect(xM, yT - r + 2, xG - xM, 2 * r - 4, A.hachure('neige', 'aucun')));
-    o.push(h.path(`M${xG} ${yT - r + 2} Q${xG + 6} ${yT - 2} ${xG - 2} ${yT + r - 2}`, A.detail));
-    o.push(h.rect(xG + 1, yT + 1, xR - xG - 1, r - 3, A.hachure('eau', 'aucun')));
-    o.push(tuyau(xM, xR, yT, r));
-    // le robinet ouvert grand : l'écrou sur le tuyau, le corps, le bec qui descend, la manette
-    o.push(h.rect(xR - 2, yT - r - 3, 10, 2 * r + 6, W(A.arete)));
-    o.push(h.path(`M${xR + 8} ${yT - 15} L${xR + 34} ${yT - 15} Q${xR + 42} ${yT - 15} ${xR + 42} ${yT - 6} L${xR + 42} ${yT + 4} Q${xR + 42} ${yT + 14} ${xR + 34} ${yT + 16}`
-      + ` L${xR + 28} ${yT + 18} L${xR + 28} ${yT + 34} L${xR + 14} ${yT + 34} L${xR + 14} ${yT + 16} L${xR + 8} ${yT + 15} Z`, W(A.contour)));
-    o.push(h.ligne(xR + 14, yT + 30, xR + 28, yT + 30, A.detail));
-    o.push(h.rect(xR + 19, yT - 27, 8, 12, W(A.arete)));
-    o.push(h.path(`M${xR + 4} ${yT - 33} L${xR + 42} ${yT - 25} L${xR + 41} ${yT - 21} L${xR + 3} ${yT - 29} Z`, W(A.arete)));
-    // l'eau qui sort, en gouttes et en filet, dans une chaudière
-    o.push(h.ligne(xR + 21, yT + 36, xR + 21, yT + 70, A.arete));
-    for (const dy of [82, 96]) o.push(h.path(`M${xR + 21} ${yT + dy - 4} Q${xR + 24} ${yT + dy + 2} ${xR + 21} ${yT + dy + 3} Q${xR + 18} ${yT + dy + 2} ${xR + 21} ${yT + dy - 4} Z`, A.plein));
-    const yS = yT + 110;
-    o.push(h.chemin([[xR - 9, yS], [xR - 3, z.h - 8], [xR + 45, z.h - 8], [xR + 51, yS]], W(A.contour)));
-    o.push(h.ligne(xR - 13, yS, xR + 55, yS, A.arete));
-    // les guenilles : en place contre la glace ; en tireté, les places d'avant
-    const [[a0, b0], [a1, b1], [a2, b2]] = g.xs;
-    o.push(guenilles(a2, b2, yT, r + 9, true), guenilles(a1, b1, yT, r + 9, true));
-    o.push(guenilles(a0, b0, yT, r + 9));
-    // la casserole d'eau chaude, au-dessus, qui verse sur les guenilles
-    const xb = (a0 + b0) / 2 + 6;
-    o.push(casserole(xb + 18, 34, 0.9));
-    o.push(h.path(`M${xb + 19} ${38} C${xb + 6} ${52} ${xb} ${90} ${xb} ${yT - r - 10}`, A.arete));
-    o.push(vapeur(xb + 64, 26));
+    const o = [mur(z)];
+    o.push(glace(XM, XG));
+    o.push(h.rect(XG + 1, YT + 1, XR - XG - 1, R - EP - 1, A.hachure('eau', 'aucun')));
+    o.push(parois(XM, XR), robinet());
+    // l'eau qui sort : un filet, puis des gouttes
+    o.push(h.ligne(XR + 21, YT + 36, XR + 21, YT + 56, A.arete));
+    for (const dy of [66, 77]) o.push(h.path(`M${XR + 21} ${YT + dy - 4} Q${XR + 24} ${YT + dy + 2} ${XR + 21} ${YT + dy + 3} Q${XR + 18} ${YT + dy + 2} ${XR + 21} ${YT + dy - 4} Z`, A.plein));
+    // les guenilles : les places d'avant en tireté, puis la place de maintenant, contre la glace
+    o.push(guenilles(...RAGS[2], true), guenilles(...RAGS[1], true), guenilles(...RAGS[0]));
+    // la casserole qui verse sur les guenilles
+    const xb = 346, yb = 46;
+    o.push(casserole(xb, yb), filet(xb - 2, yb, 334, YT - R - 9), vapeur(xb + 27, 34));
     // le sens où l'on avance : du robinet vers la glace, d'une main à la fois
-    const yF = yT + 44;
-    o.push(h.geste(`M${b2} ${yF} L${a0 + 4} ${yF}`));
-    for (const x of [a2, a1]) o.push(h.ligne(x + 28, yF - 5, x + 28, yF + 5, A.detail));
-    return { svg: o.join('\n'), g: { ...g, yF, xb } };
+    o.push(h.geste(`M${RAGS[2][1] - 6} ${YF} L${RAGS[0][0] + 6} ${YF}`));
+    for (const [a, b] of [RAGS[1], RAGS[2]]) o.push(h.ligne((a + b) / 2, YF - 5, (a + b) / 2, YF + 5, A.detail));
+    return o.join('\n');
   };
 
-  // ─── Le raté : chauffé au milieu du bouchon ─────────────────────────────────────────────────────
+  // ─── Le raté : le même tuyau, chauffé au milieu du bouchon ─────────────────────────────────────
+  // Le bouchon court du mur jusqu'au robinet. Au milieu, la poche d'eau et de vapeur, prise entre deux glaces ; la
+  // pression pousse sur les deux fronts ; le cuivre s'ouvre dessous.
+  const P1 = 228, P2 = 300, XC = (P1 + P2) / 2;
   const rate = z => {
-    const o = [], y = z.h / 2 - 10, r = 20, x0 = 4, x1 = z.l - 4, xm = z.l / 2, ep = 3;
-    o.push(h.rect(x0, y - r + ep, xm - 30 - x0, 2 * r - 2 * ep, A.hachure('neige', 'aucun')));
-    o.push(h.rect(xm + 30, y - r + ep, x1 - xm - 30, 2 * r - 2 * ep, A.hachure('neige', 'aucun')));
-    o.push(h.path(`M${xm - 30} ${y - r + ep} Q${xm - 25} ${y} ${xm - 30} ${y + r - ep}`, A.detail), h.path(`M${xm + 30} ${y - r + ep} Q${xm + 25} ${y} ${xm + 30} ${y + r - ep}`, A.detail));
-    o.push(h.rect(xm - 27, y + 2, 54, r - ep - 2, A.hachure('eau', 'aucun')));
-    for (const [dx, dy, rr] of [[-15, -8, 3.4], [3, -11, 2.6], [16, -6, 3.6], [-3, -2, 2.2]]) o.push(h.cercle(xm + dx, y + dy, rr, W(A.fin)));
-    // le cuivre : en bas, entier ; en haut, fendu au milieu, les lèvres ouvertes
-    o.push(h.rect(x0, y + r - ep, x1 - x0, ep, A.plein));
-    o.push(h.rect(x0, y - r, xm - 7 - x0, ep, A.plein), h.rect(xm + 7, y - r, x1 - xm - 7, ep, A.plein));
-    // les lèvres de la fente, ouvertes vers le dehors, et ce qui en jaillit
-    o.push(h.path(`M${xm - 7} ${y - r} L${xm - 5} ${y - r - 5} L${xm - 3} ${y - r - 4}`, A.arete), h.path(`M${xm + 7} ${y - r} L${xm + 5} ${y - r - 6} L${xm + 3} ${y - r - 5}`, A.arete));
-    for (const [dx, a] of [[-4, -16], [0, 0], [4, 16]]) { const t = a * Math.PI / 180; o.push(h.ligne(xm + dx * 0.5, y - r - 8, xm + dx * 0.5 + 12 * Math.sin(t), y - r - 8 - 12 * Math.cos(t), A.detail)); }
-    // la chaleur, dessous, au milieu
-    for (const dx of [-14, 0, 14]) o.push(h.path(`M${xm + dx} ${y + r + 46} q-4 -6 0 -12 q4 -6 0 -12`, A.detail));
-    o.push(h.controle(xm, y - r - 6, 16));
-    // la pression qui pousse sur les deux glaces
-    o.push(h.fleche(`M${xm - 8} ${y + 9} L${xm - 25} ${y + 9}`, A.detail), h.fleche(`M${xm + 8} ${y + 9} L${xm + 25} ${y + 9}`, A.detail));
+    const o = [mur(z)];
+    o.push(glace(XM, P1), glace(P2, XR - 4, { frontG: true, frontD: false }));
+    o.push(h.rect(P1 + 3, YT + 1, P2 - P1 - 6, R - EP - 1, A.hachure('eau', 'aucun')));
+    for (const [dx, dy, rr] of [[-20, -5, 3.8], [-6, -7, 2.8], [9, -4.5, 4], [22, -6, 2.6], [1, 0, 2.2]]) o.push(h.cercle(XC + dx, YT + dy, rr, W(A.fin)));
+    o.push(h.fleche(`M${XC - 8} ${YT + 6} L${P1 + 4} ${YT + 6}`, A.arete), h.fleche(`M${XC + 8} ${YT + 6} L${P2 - 4} ${YT + 6}`, A.arete));
+    o.push(parois(XM, XR, { trouBas: [XC - 6, XC + 6] }), robinet());
+    // les lèvres de la fente, ouvertes vers le dehors, et l'eau qui en gicle
+    const yb = YT + R;
+    o.push(h.path(`M${XC - 6} ${yb} L${XC - 4} ${yb + 5} L${XC - 2} ${yb + 4}`, A.arete), h.path(`M${XC + 6} ${yb} L${XC + 4} ${yb + 6} L${XC + 2} ${yb + 5}`, A.arete));
+    for (const a of [-18, 0, 18]) { const t = a * Math.PI / 180; o.push(h.ligne(XC + 5 * Math.sin(t), yb + 10, XC + 18 * Math.sin(t), yb + 10 + 14 * Math.cos(t), A.detail)); }
+    for (const [dx, dy] of [[-8, 34], [7, 38], [0, 46]]) o.push(h.path(`M${XC + dx} ${yb + dy - 3.5} Q${XC + dx + 2.6} ${yb + dy + 1.6} ${XC + dx} ${yb + dy + 2.6} Q${XC + dx - 2.6} ${yb + dy + 1.6} ${XC + dx} ${yb + dy - 3.5} Z`, A.plein));
+    o.push(h.controle(XC, yb + 10, 17));
+    // la chaleur au milieu : la même casserole, qui verse sur le milieu du bouchon
+    const xb = XC + 12, ybec = 46;
+    o.push(casserole(xb, ybec), filet(xb - 2, ybec, XC, YT - R - 0.5), vapeur(xb + 27, 34));
     return o.join('\n');
   };
 
   // ─── La fente fermée : chambre à air et colliers ────────────────────────────────────────────────
-  const F = z => ({ y: z.h / 2 - 6, r: 15, xa: 50, xb: z.l - 50 });
+  // Le tuyau vu de côté, cassé aux deux bouts (il continue). La fente, sous le caoutchouc, en tireté. Trois colliers
+  // l'un contre l'autre couvrent la fente et mordent au-delà de ses deux bouts.
+  const collier = (x, yH, yB, bl = 20) => {
+    const o = [h.rect(x - bl / 2, yH, bl, yB - yH, W(A.arete))];
+    for (let y = yH + 6; y < yB - 4; y += 6) o.push(h.ligne(x - 4, y, x + 4, y, A.fin));
+    // le boîtier sur le dessus, et la tête de la vis qu'on voit de face
+    o.push(h.rect(x - 9, yH - 11, 18, 11, W(A.arete)));
+    const hex = Array.from({ length: 6 }, (_, i) => { const t = (Math.PI / 3) * i; return [x + 4.6 * Math.cos(t), yH - 5.5 + 4.6 * Math.sin(t)]; });
+    o.push(h.chemin(hex, W(A.detail), true), h.ligne(x - 2.6, yH - 5.5, x + 2.6, yH - 5.5, A.detail));
+    return o.join('\n');
+  };
+  const tuyauCote = (x0, x1, y, r) => h.path(`M${x0} ${y - r} L${x1} ${y - r} Q${x1 + 5} ${y - r / 2} ${x1} ${y} Q${x1 - 5} ${y + r / 2} ${x1} ${y + r} L${x0} ${y + r} Q${x0 - 5} ${y + r / 2} ${x0} ${y} Q${x0 + 5} ${y - r / 2} ${x0} ${y - r} Z`, W(A.contour));
+  const FENTE = z => ({ y: z.h / 2 + 8, r: 17, xa: 62, xb: z.l - 62, xm: z.l / 2 });
   const fente = z => {
-    const g = F(z), o = [];
-    const { y, r, xa, xb } = g;
-    // le tuyau, vu de côté, cassé aux deux bouts (il continue)
-    const xL = 6, xD = z.l - 6;
-    o.push(h.path(`M${xL} ${y - r} L${xD} ${y - r} Q${xD + 4} ${y - r / 2} ${xD} ${y} Q${xD - 4} ${y + r / 2} ${xD} ${y + r} L${xL} ${y + r} Q${xL - 4} ${y + r / 2} ${xL} ${y} Q${xL + 4} ${y - r / 2} ${xL} ${y - r} Z`, W(A.contour)));
-    o.push(h.ligne(8, y - r + 5, z.l - 8, y - r + 5, A.fin));
-    // la chambre à air enroulée (gris : la face à l'ombre du caoutchouc noir), les spires
-    const R = r + 5;
-    o.push(h.rect(xa, y - R, xb - xa, 2 * R, A.ombre + ' rx="4"'));
-    o.push(h.rect(xa, y - R, xb - xa, 2 * R, A.arete.replace('fill="none"', 'fill="none" rx="4"')));
-    for (let x = xa + 12; x < xb - 6; x += 14) o.push(h.path(`M${x} ${y - R} Q${x + 8} ${y} ${x + 4} ${y + R}`, A.detail));
-    // la fente, sous le caoutchouc (tireté)
-    o.push(h.ligne(z.l / 2 - 16, y - 3, z.l / 2 + 16, y - 3, A.cache));
-    // trois colliers, l'un contre l'autre, qui mordent de chaque côté de la fente
-    const C = R + 3;
-    const cols = [z.l / 2 - 26, z.l / 2, z.l / 2 + 26];
-    for (const x of cols) {
-      o.push(h.rect(x - 9, y - C, 18, 2 * C, W(A.arete)));
-      o.push(h.ligne(x - 9, y - C + 4, x + 9, y - C + 4, A.fin));
-      // la vis du collier, sur le dessus
-      o.push(h.rect(x - 6, y - C - 9, 12, 9, W(A.arete)), h.ligne(x - 3, y - C - 9, x - 3, y - C, A.fin), h.ligne(x + 3, y - C - 9, x + 3, y - C, A.fin));
-    }
-    return { svg: o.join('\n'), g: { ...g, R, C, cols } };
+    const { y, r, xa, xb, xm } = FENTE(z), o = [];
+    o.push(tuyauCote(8, z.l - 8, y, r));
+    o.push(h.ligne(10, y - r + 6, z.l - 10, y - r + 6, A.fin));
+    // la chambre à air enroulée : le caoutchouc noir, sa face à l'ombre en gris ; les spires
+    const Rc = r + 5;
+    o.push(h.rect(xa, y - Rc, xb - xa, 2 * Rc, A.ombre + ' rx="5"'));
+    o.push(h.rect(xa, y - Rc, xb - xa, 2 * Rc, A.arete.replace('fill="none"', 'fill="none" rx="5"')));
+    for (let x = xa + 14; x < xb - 8; x += 15) o.push(h.path(`M${x} ${y - Rc} Q${x + 9} ${y} ${x + 4} ${y + Rc}`, A.detail));
+    // trois colliers, l'un contre l'autre, sur la fente et au-delà de ses deux bouts
+    const C = Rc + 3;
+    for (const dx of [-21, 0, 21]) o.push(collier(xm + dx, y - C, y + C));
+    // la fente, cachée sous le caoutchouc et les colliers : en tireté, par-dessus
+    o.push(h.ligne(xm - 22, y + 2, xm + 22, y + 2, A.cache.replace('stroke-width="0.7"', 'stroke-width="1.4"')));
+    return o.join('\n');
   };
 
   // ─── La branche condamnée : écrasée, repliée, un collier sur le pli ─────────────────────────────
+  // Vue de côté : le tuyau rond (cassé à gauche) s'aplatit en une bande, qui se replie par-dessus elle-même ;
+  // un collier serre les deux épaisseurs près du pli.
+  const BR = z => {
+    const y = z.h / 2 + 14, r = 17, e = 4.5, x1 = 74, x2 = 106, xp = z.l - 34, Rp = 8;
+    return { y, r, e, x1, x2, xp, Rp, yb: y + 3, yh: y + 3 - 2 * Rp };
+  };
   const branche = z => {
-    // vu de côté : le tuyau rond (cassé à gauche) s'aplatit en une bande, qui se replie par-dessus elle-même ;
-    // un collier serre les deux épaisseurs près du pli
-    const o = [], y = z.h / 2 + 4, r = 15, e = 4.5;
-    const x1 = 46, x2 = 70, xp = z.l - 26, R = 7;
-    const yb = y + 2;                                   // l'axe de la bande du bas ; celle du haut, à yb - 2R
-    const yh = yb - 2 * R;
-    // la bande repliée : le dessus, le pli arrondi, puis la bande du bas qui rejoint le tuyau
-    o.push(h.path(`M${x2 + 14} ${yh - e} L${xp} ${yh - e} A${R + e} ${R + e} 0 0 1 ${xp} ${yb + e} L${x2} ${yb + e}`
-      + ` C${x2 - 10} ${yb + e} ${x1 + 10} ${y + r} ${x1} ${y + r} L6 ${y + r} Q2 ${y + r / 2} 6 ${y} Q10 ${y - r / 2} 6 ${y - r} L${x1} ${y - r}`
-      + ` C${x1 + 10} ${y - r} ${x2 - 10} ${yb - e} ${x2} ${yb - e} L${xp} ${yb - e} A${R - e} ${R - e} 0 0 0 ${xp} ${yh + e} L${x2 + 14} ${yh + e} Z`, W(A.contour)));
-    o.push(h.ligne(10, y - r + 5, x1, y - r + 5, A.fin));
-    // le collier, autour des deux épaisseurs, près du pli ; sa vis dessus
-    const xc = xp - 22, C1 = yh - e - 4, C2 = yb + e + 4;
-    o.push(h.rect(xc - 8, C1, 16, C2 - C1, W(A.arete)));
-    o.push(h.rect(xc - 6, C1 - 9, 12, 9, W(A.arete)), h.ligne(xc - 2.5, C1 - 9, xc - 2.5, C1, A.fin), h.ligne(xc + 2.5, C1 - 9, xc + 2.5, C1, A.fin));
-    return { svg: o.join('\n'), P: { ecrase: [x2 + 30, yb + e], pli: [xp + R + e, (yh + yb) / 2], collier: [xc + 8, C2 - 4] } };
+    const { y, r, e, x1, x2, xp, Rp, yb, yh } = BR(z), o = [];
+    o.push(h.path(`M${x2 + 20} ${yh - e} L${xp} ${yh - e} A${Rp + e} ${Rp + e} 0 0 1 ${xp} ${yb + e} L${x2} ${yb + e}`
+      + ` C${x2 - 14} ${yb + e} ${x1 + 14} ${y + r} ${x1} ${y + r} L8 ${y + r} Q3 ${y + r / 2} 8 ${y} Q13 ${y - r / 2} 8 ${y - r} L${x1} ${y - r}`
+      + ` C${x1 + 14} ${y - r} ${x2 - 14} ${yb - e} ${x2} ${yb - e} L${xp} ${yb - e} A${Rp - e} ${Rp - e} 0 0 0 ${xp} ${yh + e} L${x2 + 20} ${yh + e} Z`, W(A.contour)));
+    o.push(h.ligne(12, y - r + 6, x1, y - r + 6, A.fin));
+    // le bout coupé, au-dessus : une petite arête
+    o.push(h.ligne(x2 + 20, yh - e, x2 + 20, yh + e, A.arete));
+    // le collier, autour des deux épaisseurs, près du pli
+    const xc = xp - 26;
+    o.push(collier(xc, yh - e - 5, yb + e + 5, 18));
+    return o.join('\n');
   };
 
   return {
     ref: '03-11',
     titre: 'Le tuyau gelé, puis fendu',
-    desc: 'En haut, un tuyau de cuivre en coupe sort d’un mur extérieur ; dedans, le bouchon de glace côté mur, puis l’eau de fonte qui coule vers le robinet, ouvert grand, qui goutte dans une chaudière. Des guenilles enroulées autour du tuyau contre la glace ; une casserole verse l’eau chaude dessus. Deux places d’avant des guenilles, en tireté, plus près du robinet ; la flèche rouge va du robinet vers la glace. En bas à gauche, le raté : chauffé au milieu, l’eau et la vapeur prises entre deux glaces fendent le cuivre (cercle rouge). Au milieu, la fente fermée : une chambre à air enroulée, trois colliers l’un contre l’autre par-dessus. À droite, la branche condamnée : le bout écrasé, replié sur lui-même, un collier serré sur le pli.',
+    desc: 'En haut, un tuyau de cuivre en coupe sort d’un mur extérieur ; dedans, le bouchon de glace côté mur, puis l’eau de fonte qui coule vers le robinet, ouvert grand, qui laisse couler un filet. Des guenilles enroulées autour du tuyau contre la glace ; une casserole verse l’eau chaude dessus. Deux places d’avant des guenilles, en tireté, plus près du robinet ; la flèche rouge va du robinet vers la glace. Au milieu, le même tuyau, cadré pareil, le bouchon de glace du mur jusqu’au robinet : la casserole verse sur le milieu du bouchon ; l’eau et la vapeur, prises entre deux glaces, poussent sur les deux fronts, et le cuivre s’ouvre dessous (cercle rouge). En bas à gauche, la fente fermée : une chambre à air enroulée, trois colliers l’un contre l’autre par-dessus, qui couvrent la fente et la dépassent des deux bouts. À droite, la branche condamnée : le bout écrasé, replié sur lui-même, un collier serré sur le pli.',
     format: 'pleine',
-    disposition: [['degel'], ['rate', 'fente', 'branche']],
-    hauteurs: [1.25, 1],
-    largeurs: [[1], [1, 1.15, 1]],
+    disposition: [['degel'], ['rate'], ['fente', 'branche']],
+    hauteurs: [1.15, 1.15, 1],
     vues: {
       degel: {
         titre: 'Dégeler : du robinet vers la glace',
-        dessin: z => degel(z).svg,
-        renvois: z => {
-          const { g } = degel(z);
-          const { yT, r, xM, xG, xR, xs, yF, xb } = g;
-          return [
-            { n: 1, rond: [z.l - 18, yT - 64], cible: [xR + 40, yT - 24], texte: 'ouvrir le robinet grand, d’abord' },
-            { n: 2, rond: [xs[0][0] - 12, yT + 60], cible: [xs[0][0] + 10, yT + r + 8], texte: 'guenilles autour du tuyau' },
-            { n: 3, rond: [xb - 70, 40], cible: [xb + 1, 70], texte: 'eau chaude versée, à répétition' },
-            { n: 4, rond: [xs[1][1] + 6, yF + 30], cible: [xs[1][1], yF + 1], texte: 'avancer d’une main vers la glace' },
-            { n: 5, rond: [96, yT + 60], cible: [110, yT + 6], texte: 'bouchon de glace' },
-          ];
-        },
+        dessin: degel,
+        renvois: z => [
+          { n: 1, rond: [z.l - 14, YT - 66], cible: [XR + 38, YT - 25], texte: 'ouvrir le robinet grand, d’abord' },
+          { n: 2, rond: [RAGS[0][0] - 16, YT + 66], cible: [RAGS[0][0] + 8, YT + R + 9], texte: 'guenilles autour du tuyau' },
+          { n: 3, rond: [262, 44], cible: [331, 68], texte: 'eau chaude versée, à répétition' },
+          { n: 4, rond: [(RAGS[1][0] + RAGS[1][1]) / 2 + 30, YF + 28], cible: [(RAGS[1][0] + RAGS[1][1]) / 2 + 30, YF + 1.5], texte: 'avancer d’une main vers la glace' },
+          { n: 5, rond: [130, YT + 50], cible: [150, YT + 5], texte: 'bouchon de glace' },
+        ],
       },
       rate: {
-        titre: 'Chauffé au milieu : il fend',
-        dessin: z => rate(z),
+        titre: 'Raté : chauffé au milieu du bouchon',
+        dessin: rate,
+        renvois: z => [
+          { n: 6, rond: [XC + 92, YT + 44], cible: [P2 - 10, YT + 3], texte: 'eau et vapeur prises entre deux glaces' },
+          { n: 7, rond: [XC - 84, YT + 50], cible: [XC - 17, YT + R + 12], texte: 'le cuivre fend au dégel' },
+        ],
       },
       fente: {
         titre: 'La fente fermée',
-        dessin: z => fente(z).svg,
+        dessin: fente,
         renvois: z => {
-          const { g } = fente(z);
+          const { y, r, xa } = FENTE(z);
           return [
-            { n: 6, rond: [22, g.y + 70], cible: [g.xa + 6, g.y + g.R - 2], texte: 'chambre à air enroulée' },
-            { n: 7, rond: [z.l - 22, g.y - 58], cible: [g.cols[2] + 6, g.y - g.C - 6], texte: 'colliers serrés, l’un contre l’autre' },
+            { n: 8, rond: [28, y + 54], cible: [xa + 8, y + r + 4], texte: 'chambre à air enroulée' },
+            { n: 9, rond: [z.l - 26, y - 56], cible: [z.l / 2 + 30, y - r - 8], texte: 'colliers serrés, l’un contre l’autre' },
           ];
         },
       },
       branche: {
         titre: 'La branche condamnée',
-        dessin: z => branche(z).svg,
+        dessin: branche,
         renvois: z => {
-          const { P } = branche(z);
+          const { yb, yh, e, x2, xp } = BR(z);
           return [
-            { n: 8, rond: [P.ecrase[0] - 20, z.h - 40], cible: P.ecrase, texte: 'bout écrasé au marteau, replié' },
-            { n: 9, rond: [z.l - 40, 40], cible: [P.collier[0], P.collier[1] - 30], texte: 'collier serré sur le pli' },
+            { n: 10, rond: [x2 + 40, z.h - 16], cible: [x2 + 40, yb + e], texte: 'bout écrasé au marteau, replié' },
+            { n: 11, rond: [xp - 70, 22], cible: [xp - 30, yh - e - 14], texte: 'collier serré sur le pli' },
           ];
         },
       },

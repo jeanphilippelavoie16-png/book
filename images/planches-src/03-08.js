@@ -1,4 +1,4 @@
-// Planche 03-08 — la marmite norvégienne (ch. 4, variante d'urgence de la cuisson).
+// Planche 03-08. La marmite norvégienne (ch. 3, section 9, variante d’urgence de la cuisson).
 // Une boîte, une glacière ou un tiroir bourré de laine, de foin, de journal froissé ou de
 // linge d'hiver ; la marmite y descend pleine, à plein bouillon, couvercle mis, entourée de
 // tous les côtés, y compris dessous. Aucun chiffre : le chapitre n'en donne aucun sur l'objet.
@@ -172,7 +172,7 @@ module.exports = (h) => {
           const G = z.h - 10, b = boiteCoupe(30, G, 1, 0.09);
           const c4 = b.couv(0.72);
           return [
-            { n: 1, rond: [14, b.potB + (b.yiB - b.potB) * 0.62], cible: [b.cx - 30, b.potB + (b.yiB - b.potB) * 0.62], texte: 'lit épais dessous : jamais le fond nu' },
+            { n: 1, rond: [14, b.potB + (b.yiB - b.potB) * 0.62], cible: [b.cx - 30, b.potB + (b.yiB - b.potB) * 0.62], texte: 'un lit épais sous la marmite' },
             { n: 2, rond: [z.l - 16, G - 100], cible: [b.xiR - 22, G - 100], texte: 'laine, foin, journal ou linge, bien tassés' },
             { n: 3, rond: [14, G - 115], cible: [b.cx - 40, G - 115], texte: 'marmite pleine, à plein bouillon, couvercle mis' },
             { n: 4, rond: [z.l - 16, c4[1]], cible: c4, texte: 'couverture pliée par-dessus le couvercle' },
@@ -244,14 +244,17 @@ module.exports = (h) => {
           out.push(h.path(`M ${pts([[bb, yH - c], O(bb, yH - c, pc), O(bb, yH, pc), [bb, yH]])} Z`, ombre(h.a.contour)));
           out.push(h.path(`M ${pts([[a, yH - c], O(a, yH - c, pc), O(bb, yH - c, pc), [bb, yH - c]])} Z`, blanc(h.a.contour)));
           out.push(h.rect(a, yH - c, bb - a, c, blanc(h.a.contour)));
-          // le poêle sert à autre chose : la bouilloire
-          const p = poele(137, G, 44, 46);
+          // le poêle sert à autre chose : la bouilloire. Le même poêle que dans la première vignette, plus petit.
+          const p = poele(z.l - 88, G, 84, 25);
           out.push(p.svg);
-          const kx = 153, kb = p.dessus;
-          out.push(h.path(`M ${kx - 7},${kb - 20} Q ${kx},${kb - 40} ${kx + 7},${kb - 20}`, h.a.arete));
-          out.push(h.path(`M ${kx + 11},${kb - 8} L ${kx + 22},${kb - 20} M ${kx + 13},${kb - 4} L ${kx + 24},${kb - 17} M ${kx + 22},${kb - 20} L ${kx + 24},${kb - 17}`, h.a.arete));
-          out.push(h.path(`M ${kx - 15},${kb} L ${kx - 10},${kb - 20} Q ${kx},${kb - 24} ${kx + 10},${kb - 20} L ${kx + 15},${kb} Z`, blanc(h.a.contour)));
-          out.push(h.ellipse(kx, kb - 23, 3, 1.6, blanc(h.a.arete)));
+          const kx = z.l - 60, kb = p.dessus;
+          // le bec, puis le corps par-dessus sa racine, l'anse, le bouton du couvercle (le 16 octobre : elle
+          // était un trapèze, et le poêle n'était pas celui de la première vignette)
+          out.push(h.path(`M ${kx + 10},${kb - 5} L ${kx + 26},${kb - 23} L ${kx + 28.5},${kb - 20.5} L ${kx + 13},${kb - 1} Z`, blanc(h.a.arete)));
+          out.push(h.path(`M ${kx - 16},${kb} L ${kx + 16},${kb} Q ${kx + 18},${kb - 12} ${kx + 10},${kb - 19} Q ${kx},${kb - 25} ${kx - 10},${kb - 19} Q ${kx - 18},${kb - 12} ${kx - 16},${kb} Z`, blanc(h.a.contour)));
+          out.push(h.ligne(kx - 11, kb - 18, kx + 11, kb - 18, h.a.detail));
+          out.push(h.path(`M ${kx - 9},${kb - 20} C ${kx - 9},${kb - 37} ${kx + 9},${kb - 37} ${kx + 9},${kb - 20}`, h.a.arete));
+          out.push(h.rect(kx - 2.5, kb - 26, 5, 3.5, blanc(h.a.arete)));
           return out.join('\n');
         },
       },

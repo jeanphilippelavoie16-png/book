@@ -74,7 +74,6 @@ module.exports = (h) => {
     o.push(B(1.2, 68, 15.2, 72, A.hachure('bois', 'arete')));            // appui de l'ouverture
     o.push(B(1.2, 214, 15.2, 236, A.hachure('bois', 'arete')));          // linteau
     o.push(B(1.2, 236, 15.2, PLAFOND, A.hachure('bois', 'arete')));      // sablières
-    o.push(B(1.2, PLAFOND, 15.2, HAUT, A.hachure('isolant', 'arete')));
     o.push(B(15.2, 0, 16.5, 67, W(A.arete)), B(15.2, 219, 16.5, PLAFOND, W(A.arete)));
     // la fenêtre : le cadre en bas et en haut, l'allège qui déborde dehors, les deux vitres et leur intercalaire
     o.push(h.chemin([[X(-4), Y(70.5)], [X(0.5), Y(72)], [X(10.5), Y(72)], [X(10.5), Y(79)], [X(0.5), Y(79)], [X(0.5), Y(74)], [X(-4), Y(72.5)]], A.hachure('bois', 'arete'), true));
@@ -118,7 +117,7 @@ module.exports = (h) => {
         `Q${X(20.3)} ${Y(4.5)} ${X(26)} ${Y(4.5)}`,
         `L${X(46)} ${Y(4.5)}`,
       ].join(' ');
-      o.push(h.fleche(p, A.cache));
+      o.push(h.fleche(p, A.arete.replace('stroke-linecap="round"', 'stroke-linecap="round" stroke-dasharray="6 4"')));
       o.push(h.controle(X(20.6), Y(67.5), 13));
     } else {
       o.push(h.controle(X(20.5), Y(71), 13));
@@ -141,22 +140,24 @@ module.exports = (h) => {
     o.push(B(-FX, 0, FX, 9, W(A.arete)));
     // la couverture, puis la fenêtre derrière elle en tireté (l'ouverture, les deux vitres)
     o.push(B(-55, COUV[0], 55, COUV[1], W(A.contour)));
+    // les bandes d'une couverture de laine, près du haut et du bas : c'est elles qui disent « couverture »
+    for (const yb of [196, 90]) {
+      for (const [dy, at] of [[4.5, A.detail], [1.4, A.arete], [-1.4, A.arete], [-4.5, A.detail]]) o.push(h.ligne(X(-55), Y(yb + dy), X(55), Y(yb + dy), at));
+    }
     o.push(B(-45, OUV[0], 45, OUV[1], A.cache));
     o.push(B(-40, 80, -1.5, 206, A.cache), B(1.5, 80, 40, 206, A.cache));
     // les lattes : le haut et le bas sur toute la largeur, les côtés bout à bout entre eux
+    // (sur le chambranle, à 2 cm de son bord : la couverture déborde un peu autour)
     const lattes = [
-      [-54.5, LAT_H[0], 54.5, LAT_H[1]], [-54.5, LAT_B[0], 54.5, LAT_B[1]],
-      [-52, LAT_B[1], -48, LAT_H[0]], [48, LAT_B[1], 52, LAT_H[0]],
+      [-53, LAT_H[0], 53, LAT_H[1]], [-53, LAT_B[0], 53, LAT_B[1]],
+      [-51.5, LAT_B[1], -47.5, LAT_H[0]], [47.5, LAT_B[1], 51.5, LAT_H[0]],
     ];
     for (const l of lattes) o.push(B(...l, W(A.arete)));
-    // le fil du bois sur chaque latte
-    o.push(h.ligne(X(-52), Y(215), X(52), Y(215), A.fin), h.ligne(X(-52), Y(71), X(52), Y(71), A.fin));
-    o.push(h.ligne(X(-50), Y(76), X(-50), Y(210), A.fin), h.ligne(X(50), Y(76), X(50), Y(210), A.fin));
     // les clous, rapprochés, tout le long
     const clou = (c, d) => h.cercle(X(c), Y(d), 1.7, A.plein);
-    for (const c of [-51, -34, -17, 0, 17, 34, 51]) o.push(clou(c, 215), clou(c, 71));
-    for (const d of [88, 106, 124, 142, 160, 178, 196]) o.push(clou(-50, d), clou(50, d));
-    o.push(h.controle(X(-50), Y(73), 12));
+    for (const c of [-50, -33, -16.5, 0, 16.5, 33, 50]) o.push(clou(c, 215), clou(c, 71));
+    for (const d of [88, 106, 124, 142, 160, 178, 196]) o.push(clou(-49.5, d), clou(49.5, d));
+    o.push(h.controle(X(-49.5), Y(73), 12));
     return { svg: o.join('\n'), R };
   };
 
@@ -176,8 +177,8 @@ module.exports = (h) => {
           const { X, Y } = face(z).R;
           return [
             { n: 1, rond: [X(-24), Y(236) + 2], cible: [X(-24), Y(COUV[1]) + 1], texte: 'couverture tendue sur le chambranle' },
-            { n: 2, rond: [X(-24), Y(150)], cible: [X(-48), Y(150)], texte: 'une latte clouée sur chaque côté' },
-            { n: 3, rond: [X(-24), Y(40)], cible: [X(-46.5), Y(65.5)], texte: 'les lattes bout à bout aux coins' },
+            { n: 2, rond: [X(-24), Y(150)], cible: [X(-47.5), Y(150)], texte: 'une latte clouée sur chaque côté' },
+            { n: 3, rond: [X(-24), Y(40)], cible: [X(-46.6), Y(73.4)], texte: 'les lattes bout à bout aux coins' },
           ];
         },
       },
@@ -188,7 +189,7 @@ module.exports = (h) => {
           const { X, Y } = coupe(z, false).R;
           return [
             { n: 4, rond: [X(36), Y(150)], cible: [X(14), Y(150)], texte: 'lame d’air fermée' },
-            { n: 5, rond: [X(38), Y(40)], cible: [X(25.5), Y(62)], texte: 'le bas tenu par sa latte' },
+            { n: 5, rond: [X(38), Y(40)], cible: [X(21.3), Y(70)], texte: 'le bas tenu par sa latte' },
           ];
         },
       },
@@ -198,7 +199,7 @@ module.exports = (h) => {
         renvois: z => {
           const { X, Y } = coupe(z, true).R;
           return [
-            { n: 6, rond: [X(38), Y(104)], cible: [X(22.2), Y(76)], texte: 'le bas laissé libre' },
+            { n: 6, rond: [X(38), Y(104)], cible: [X(22.2), Y(76)], texte: 'le bas s’écarte du chambranle' },
             { n: 7, rond: [X(38), Y(32)], cible: [X(36), Y(4.5) - 2], texte: 'l’air froid coule au plancher' },
           ];
         },

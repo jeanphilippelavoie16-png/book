@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="680" height="826" viewBox="0 0 680 826" role="img">
-<title>Planche 03-10 — Vidanger la maison dans le bon ordre</title>
+<title>Planche 03-10. Vidanger la maison dans le bon ordre</title>
 <desc>Coupe d’une maison à étage avec sous-sol : l’entrée d’eau fermée par une vanne à levier mis en travers du tuyau ; le chauffe-eau électrique mis hors tension au panneau ; le robinet d’eau chaude de l’étage ouvert, par où l’air entre ; deux chaudières couvertes remplies d’eau à boire au robinet de vidange avant tout ; puis le boyau du robinet de vidange conduit au drain de plancher ; le robinet de la cuisine ouvert. En bas, la toilette en coupe, réservoir vide et fond épongé, cuvette épongée puis bouchée d’un chiffon dans un sac ; puis le siphon d’évier vidé à la poire, bouché au chiffon ensaché, ou refait avec une tasse d’huile de cuisson.</desc>
 <defs>
 <pattern id="h-bois" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" stroke="#1A1A1A" stroke-width="0.7"/></pattern>
@@ -210,7 +210,7 @@
 <circle cx="562.5" cy="618" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
 <circle cx="530.5" cy="602" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="huile"/>
 <text x="530.5" y="606" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">11</text>
-<text x="40" y="698" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">Planche 03-10 — Vidanger la maison dans le bon ordre.</text>
+<text x="40" y="698" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">Planche 03-10. Vidanger la maison dans le bon ordre.</text>
 <text x="56" y="723" text-anchor="end" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">1</text>
 <text x="62" y="723" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">entrée d’eau fermée</text>
 <text x="56" y="740" text-anchor="end" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">2</text>
