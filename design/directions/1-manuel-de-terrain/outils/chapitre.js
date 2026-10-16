@@ -210,6 +210,14 @@ function finish(R, kind){
   R.box.classList.add('fin'); R.frame.classList.add('auto');
   if(kind === 'd' || kind === 'o'){ const dg = R.box.querySelector(kind === 'd' ? '.danger' : '.orange'); dg.classList.remove('full'); dg.querySelector('.dcut').classList.remove('on'); }
 }
+function derniereTete(p){   // détache le titre qui finit la page, s'il est seul en bas
+  const frs = p.bl.querySelectorAll('.frame'); const fr = frs[frs.length - 1];
+  const l = fr && fr.lastElementChild;
+  if(!l || !/^H[234]$/.test(l.tagName)) return null;
+  fr.removeChild(l); syncNotes(fr);
+  if(!fr.children.length){ const box = fr.closest('.rg') || fr; const z = fr.nextElementSibling; if(z && z.classList.contains('fnz')) z.remove(); box.remove(); }
+  return l;
+}
 function story(id, kind, suite){   // kind : main, o, d, e ; suite : histoire reprise après la série orange (pas de second titre)
   kind = kind || id;
   const tpl = document.getElementById('story-' + id);
@@ -217,11 +225,16 @@ function story(id, kind, suite){   // kind : main, o, d, e ; suite : histoire re
   if(!q.length) return;
   q.forEach(n => { if(!(n.classList && n.classList.contains('fig'))) appels(n); });
   const H = P.bl.getBoundingClientRect().height;
-  let first = !suite, guard = 0;
+  let first = !suite, guard = 0, porte = false;   // porte : un titre vient d'être reporté en haut de cette page
   while(q.length && guard++ < 120){
     const fr = free(P), fresh = P.kind === 'text' && !P.bl.children.length;
     // seuils de départ : l'encadré danger et la variante d'urgence ne commencent pas dans un fond de page
-    if(first && !fresh && ((kind === 'd' && fr < 2.2 * 96) || (kind === 'e' && fr < 1.8 * 96) || (kind === 'main' && fr < 1.2 * 96) || (kind === 'o' && fr < 2.0 * 96))){ nextPage(); continue; }
+    if(first && !fresh && !porte && ((kind === 'd' && fr < 2.2 * 96) || (kind === 'e' && fr < 1.8 * 96) || (kind === 'main' && fr < 1.2 * 96) || (kind === 'o' && fr < 2.0 * 96))){
+      // le titre resté seul au bas de la page d'avant (« 4 Procédure » avant la série orange) suit l'encadré
+      const orph = derniereTete(P); nextPage();
+      if(orph){ const R0 = region(P, 'main', false); R0.frame.appendChild(orph); syncNotes(R0.frame); finish(R0, 'main'); porte = true; }
+      continue;
+    }
     if(suite && guard === 1 && !fresh && fr < 1.2 * 96){ nextPage(); continue; }
     P.story = kind;
     const snapQ = q.slice(), snapPl = pendingPlates.slice(), snapSp = pendingSpreads.slice();

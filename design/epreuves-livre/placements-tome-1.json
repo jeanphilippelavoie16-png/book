@@ -224,6 +224,10 @@
         "apres": "10. **Trier le bois en quatre tas, au complet, avant la première étincelle**"
       },
       {
+        "id": "13-10",
+        "apres": "18. **Préparer la laine d'acier.**"
+      },
+      {
         "id": "13-07",
         "apres": "25. **Charger la boîte** (planche 13-07)."
       },
@@ -240,27 +244,27 @@
         "apres": "L'arc à feu demande plus de pratique que toutes les autres méthodes (planche 13-01)."
       },
       {
-        "id": "13-10",
-        "apres": "18. **Préparer la laine d'acier.**"
+        "id": "13-11",
+        "apres": "**Une lentille de glace.** Prendre de la glace de lac claire, sans bulles."
       }
     ],
     "photos": [
       {
-        "fichier": "images/photos/tri/13-gomme-epinette.jpg",
-        "apres": "On ramasse ce qui reçoit l'étincelle toute l'année",
-        "taille": "quart",
-        "legende": "Gomme d'épinette sur une blessure du tronc. Pour le feu, on prend celle qui a figé."
-      },
-      {
         "fichier": "images/photos/tri/13-bouleau-ecorce-rubans.jpg",
-        "apres": "On ramasse ce qui reçoit l'étincelle toute l'année",
+        "apres": "L'écorce extérieure du bouleau à papier, levée sur un arbre mort",
         "taille": "quart",
         "legende": "Écorce externe de bouleau à papier qui pèle en rubans. Elle brûle mouillée."
+      },
+      {
+        "fichier": "images/photos/tri/13-gomme-epinette.jpg",
+        "apres": "La gomme figée d'épinette noire, sur les blessures des troncs",
+        "taille": "quart",
+        "legende": "Gomme d'épinette sur une blessure du tronc. Pour le feu, on prend celle qui a figé."
       }
     ],
     "logigramme": {
       "fichier": "images/logigrammes/13-feu-sans-allumettes-livre.svg",
-      "apres": "Faire une flamme sans allumette ni briquet",
+      "apres": "**Eau, sable ou terre**",
       "orange": true
     }
   },
