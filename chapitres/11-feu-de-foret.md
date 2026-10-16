@@ -208,15 +208,15 @@ jusqu'à l'hypothermie (ch. 25, ch. 39) : on ne reste pas dans l'eau.
 ### Tant que le feu est dans le secteur
 
 27. **Reprendre la décision de rester ou de partir deux fois par jour, et chaque fois que le vent tourne**
- (ch. 2), avec la radio et la colonne de fumée. Une décision qui n'a pas été reprise depuis douze heures
- ne vaut plus.
+ (ch. 2), avec la radio et la colonne de fumée.
 28. **Partir le matin, avant 10 h si on a le choix.** D'habitude, un feu ralentit la nuit, quand l'air
  refroidit et que l'humidité remonte, puis il reprend de la force pendant la journée. Le matin, le feu est
  plus calme et on voit la route ; la nuit, les phares éclairent la fumée (section 9).
 29. **La nuit, laisser les chaussures et les vêtements au pied du lit et les clés dans l'auto, et garder
  un adulte éveillé.** Après une sécheresse, un grand feu peut brûler la nuit entière : en Amérique du
  Nord, un grand feu sur cinq a brûlé au moins une nuit complète. Les adultes veillent à tour de rôle.
-30. **Ne pas faire de dernier voyage.** Le deuxième chargement se fait pendant que le chemin se ferme.
+30. **Partir avec un seul chargement.** Ne pas revenir au chalet chercher ce qu'on a oublié : pendant ce
+ voyage, le feu ou la fumée peuvent fermer le chemin, et on reste pris entre les deux.
 
 ### La fumée, à la maison et au chalet
 
@@ -358,7 +358,7 @@ la surface, prudemment, puisqu'on cherche ce qu'on ne voit pas (section 9).
 | Épisode de fumée, maison | Les particules fines | Fermer dès **30 µg/m³** ; tout le monde à l'intérieur au-dessus de **250 µg/m³** | Fermer, recirculer, HEPA dans la chambre des enfants |
 | Épisode de fumée, maison ou chalet | La température de la pièce des enfants | Sous **26 °C** ; danger au-dessus de **31 °C** | Ouvrir, même s'il entre de la fumée (étape 34) |
 | Épisode de fumée, chalet | L'odeur de fumée à l'intérieur, portes et fenêtres fermées | Aucune, ou les enfants dans une pièce d'air propre | Partir (étape 6) ; la nuit, étape 11 |
-| Toutes les 12 h, feu dans le secteur | La décision de rester ou de partir, reprise à neuf (ch. 2) | Deux fois par jour, et chaque fois que le vent tourne | Sans mesure nouvelle, la décision de la veille ne vaut plus |
+| Toutes les 12 h, feu dans le secteur | La décision de rester ou de partir, reprise à neuf (ch. 2) | Deux fois par jour, et chaque fois que le vent tourne | La reprendre avec la radio et la colonne de fumée (étape 27) |
 | Au retour | Le tour à pied, de jour, avant d'entrer | Aucun fil au sol, aucune odeur de gaz, aucun point chaud | Ne pas entrer. Près d'un fil au sol : s'éloigner à très petits pas traînés (étape 39) |
 | Au retour | L'eau | Jugée avant d'être bue ; l'eau d'un bassin brûlé traitée comme une eau trouble (ch. 10) | Ne pas la boire ; la traiter (ch. 10) |
 | Au retour | Les aliments, après une coupure de courant | Vérifiés au-delà de **6 h** sans courant ; durées au ch. 74 | Jeter ce qui sent la fumée, la nourriture des animaux aussi |
@@ -396,8 +396,7 @@ la surface, prudemment, puisqu'on cherche ce qu'on ne voit pas (section 9).
 > **1. La fumée agit avant les flammes, et elle ne se juge pas à l'œil.** La fumée d'un feu de forêt
 > contient du monoxyde de carbone, du dioxyde d'azote, des composés organiques volatils et des particules
 > fines. Les particules fines font le plus de tort, et on ne les voit pas : l'odeur et la visibilité
-> renseignent sur les grosses particules, pas sur celles qui descendent au fond des poumons. Une fumée qui
-> s'est levée n'est donc pas une mesure. Un enfant respire plus vite par kilo qu'un adulte (ch. 39) : il
+> renseignent sur les grosses particules, pas sur celles qui descendent au fond des poumons. Un enfant respire plus vite par kilo qu'un adulte (ch. 39) : il
 > est atteint plus tôt, et **il n'existe pas de masque N95 à sa taille**.
 >
 > **2. Le chemin se ferme par la fumée avant de se fermer par le feu.** La fumée enlève la visibilité des

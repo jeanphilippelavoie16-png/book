@@ -31,6 +31,10 @@ RELIEF = [r"\b[Cc]'est (?:le|la|les|l'|ce|cela|lui|elle|eux|là)\b[^.;:]{0,80}?\
 TOURNURE = [r"\b(?:Ceux|Celui|Celle|Celles) qui\b",
             r"\b\w+(?:ent|er|e|ez|ons)\s+(?:à|au|aux|dans|sur|sous|devant|derrière|contre|vers)\s+(?:la|le|les|l'|un|une)\s?"
             r"[\wÀ-ÿ'-]+\s+(?:la|le|les|l'|un|une)\s?(?!plus\b|moins\b|même\b|long\b|temps\b)(?!quel)[\wÀ-ÿ'-]+"]
+# la maxime (JP : « Une décision qui n'a pas été reprise depuis douze heures ne vaut plus » : « inutile ») :
+# la règle redite comme un proverbe, en « Un X qui… ne… plus/rien/pas »
+MAXIME = [r"(?:^|(?<=[.!?:]\s))(?:Un|Une)\s+(?:[\wÀ-ÿ'’-]+\s+){0,4}qui\s+[^.;:]{3,90}?\s(?:ne|n')\s?[\wÀ-ÿ'’-]+(?:\s+[\wÀ-ÿ'’-]+)?\s+(?:plus|rien|pas|jamais|personne)\b[^.]*\.",
+          r"(?:^|(?<=[.!?:]\s))(?:Un|Une)\s+[^.;:]{3,50}?\s(?:ne|n')\s?[\wÀ-ÿ'’-]+\s+(?:plus|rien|jamais|personne)\s*(?:de\s+\w+)?\."]
 SECURITE = {"74 °C": r"74" + ESP + "°C", "cadmium": r"cadmium", "trichinellose": r"trichin",
             "tularémie": r"tularémie", "thuyone": r"thuyone", "3 °C (botulisme E)": r"\b3" + ESP + "°C",
             "botulisme": r"botulisme", "mal de caribou": r"caribou", "génératrice": r"génératrice"}
@@ -179,6 +183,13 @@ def main():
         print(f"## {titre} ({len(x)})")
         for i, _, m, l in x[:400]:
             print(f"  l.{i} [{m.strip()}] {l.strip()[:110]}")
+        print()
+    plat = re.sub(r"\s+", " ", texte)
+    maximes = [m.group(0) for rx in MAXIME for m in re.finditer(rx, plat)]
+    if maximes:
+        print(f"## Maximes : la règle redite en proverbe (à juger : elle sort ou se dit en clair) ({len(maximes)})")
+        for m in maximes[:60]:
+            print(f"  « {m[:140]} »")
         print()
     r = redites(L)
     if r:

@@ -88,6 +88,13 @@ gauche si elle est plus haut). JP : « faut les intégrer intelligemment, là on
 deux ; une flèche rouge stylée qui pointe quand on en parle au dessin ». **À surveiller au remontage des six
 tomes** : un peu plus de blanc en bas des pages qui précèdent une planche ; le tome 5 était à 438 pages sur 440.
 
+6. **Les maximes sortent** (JP, 16 octobre : « Une décision qui n'a pas été reprise depuis douze heures ne
+   vaut plus » : « inutile, c'est une sorte de tournure que je veux plus dans mon livre » ; « Le deuxième
+   chargement se fait pendant que le chemin se ferme » : « je comprends pas ça, sois plus clair quand tu dis
+   des affaires de même »). La règle redite en proverbe sort ; le fait caché derrière une formule s'écrit en
+   clair (ce qu'on fait, et ce qui arrive sinon). `controle.py` liste les « Un X qui… ne… plus » : 113 dans le
+   livre le 16 octobre, à juger une par une dans la grande passe. Les trois du ch. 11 sont faites.
+
 Le **ch. 11 (feu de forêt)** est **le chapitre modèle de la refonte, approuvé par JP** (15 octobre au soir :
 « c'est parfait, on se garde ça pour samedi ») : texte, trois séries orange à la longueur de leur temps (1 h,
 15 min, 1 min) suivies de leur détail hors de l'orange, section 2 sans « mauvaise procédure », logigramme,
