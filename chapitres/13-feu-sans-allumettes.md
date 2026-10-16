@@ -397,7 +397,7 @@ fil plus gros : le même montage sert à souder (ch. 107).
 
 **Une lentille de glace.** Prendre de la glace de lac claire, sans bulles. En faire un disque large comme
 la main, plus mince au bord qu'au centre, puis le bomber des deux côtés en le frottant à la paume nue,
-jusqu'à ce que la glace, en fondant, devienne lisse et claire (planche 13-11).
+jusqu'à ce que la glace, en fondant, devienne lisse et claire (planche 13-11, repères 1 et 2).
 
 **Le réflecteur d'une lampe de poche ou d'un phare.** Enlever la vitre et l'ampoule, pointer le réflecteur
 vers le soleil, et mettre l'amadou à la place de l'ampoule.
