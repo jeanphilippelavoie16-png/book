@@ -219,6 +219,11 @@ function composer(fichierSpec, { zonesSeulement = false } = {}) {
     const lignes = Math.ceil(N / k);
     if (largeurs.every(w => w <= colL) && (lignes <= 6 || k === 3)) break;
   }
+  // Repli : une ligne que JP a voulue entière ne tient pas sur trois colonnes ; on prend le plus de colonnes où
+  // toutes les lignes tiennent (deux, ou une), plutôt que de refuser la planche. Une planche qui passait ne change pas.
+  if (!largeurs.every(w => w <= (utile - (ncol - 1) * 24) / ncol)) {
+    for (const k of [2, 1]) { if (largeurs.every(w => w <= (utile - (k - 1) * 24) / k)) { ncol = k; break; } }
+  }
   const colL = (utile - (ncol - 1) * 24) / ncol;
   largeurs.forEach((w, i) => { if (w > colL) fautes.push(`renvoi ${brouillon[i].n} trop long pour sa colonne (${Math.round(w)} > ${Math.round(colL)}) : « ${brouillon[i].texte} ». Cinq ou six mots`); });
   brouillon.forEach(r => { if (r.texte.split(/\s+/).length > 8) avis.push(`renvoi ${r.n} : ${r.texte.split(/\s+/).length} mots, c'est une phrase, pas un renvoi`); });
