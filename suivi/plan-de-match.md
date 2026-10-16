@@ -102,6 +102,19 @@ tomes** : un peu plus de blanc en bas des pages qui précèdent une planche ; le
    8 374 → 7 869 mots. Et les tournures au présent qui décrivent au lieu de dire quoi faire (« Les enfants
    finissent la nuit habillés, dans la pièce la mieux fermée, et l'auto est chargée ») se disent comme une
    consigne.
+8. **La note de lieu sous le titre sort** (JP, 16 octobre, sur le ch. 3 : « useless comme passage » ; « pour la
+   refonte des autres chapitres aussi »). C'est le paragraphe qui suit `*Tome N — …*` : « **Maison.** Au chalet,
+   la panne vient de… : les parties sur… s'appliquent. Quand la panne s'étire… L'été, seules les parties…
+   servent. Ce qui change la nuit est marqué « La nuit ». » La pastille MAISON / CHALET / LES DEUX dit déjà le
+   lieu ; ce qui change d'un lieu à l'autre se dit dans l'étape qui change. 37 chapitres sur 113 en ont une, le
+   ch. 11 modèle compris.
+9. **Ch. 3 en deux chapitres : la panne d'électricité l'hiver et l'été** (JP, 16 octobre : « ça peut arriver
+   dans les deux cas et la façon de le gérer est différente » ; « l'été, moins de stock c'est sûr, mais
+   conservation de la viande et sécurité »). Le ch. 3 devient « Panne d'électricité en hiver » ; un chapitre neuf,
+   « Panne d'électricité en été », numéroté 03b comme le 00b pour ne rien renuméroter. Il se bâtit sur le
+   modèle ch. 3 et ch. 11 : séries orange, logigramme, planches, sources (le congélateur et la viande à 25 °C,
+   l'eau, la chaleur dans une maison fermée, la génératrice, l'orage). Les parties du ch. 3 qui valent l'été
+   (génératrice, aliments, eau) y sont dites une fois, et l'autre chapitre y renvoie.
 
 Le **ch. 11 (feu de forêt)** est **le chapitre modèle de la refonte, approuvé par JP** (15 octobre au soir :
 « c'est parfait, on se garde ça pour samedi ») : texte, trois séries orange à la longueur de leur temps (1 h,
