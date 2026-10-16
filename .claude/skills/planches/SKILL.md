@@ -9,6 +9,11 @@ Une planche du livre n'est pas un diagramme de présentation. C'est un dessin te
 trait qu'un homme regarde à la lampe frontale, les mains sales, pour comprendre un montage
 qu'il n'a jamais fait. Tout ce qui suit découle de ça.
 
+**Les mains, les corps et les têtes viennent des moteurs validés** (`h.formes.mainSimple`, `h.formes.corps`,
+`h.formes.teteSimple`), jamais d'un dessin à la main (JP, 16 octobre 2026 : « on se met des règles et des outils,
+il faut les utiliser »). Un agent qu'on lance pour dessiner reçoit d'abord le cadre de
+`references/brief-agent.md`, au complet.
+
 ## Avant tout : est-ce que cette planche mérite sa place ?
 
 **Une planche montre comment fabriquer, monter ou faire quelque chose de ses mains.** C'est

@@ -1,459 +1,492 @@
-// Planche 13-40 — le ferrocérium jusqu'à la flamme, à refaire : les quatre tas triés du plus fin
-// au plus gros ; le geste (pointe de la tige au bord du nid, dos du couteau immobile en travers de
-// la tige, tige tirée vers soi, gerbe dans le creux) ; la boule refermée, tenue par le bas à une
-// longueur d'avant-bras du visage et soufflée ; le nid en flammes glissé sous le tipi.
-// Mains : les mains simples (prise-manche, vues de la paume, 14 oct.) pour la tige et le couteau ; le buste qui
-// souffle est le corps simple de profil (13 oct.), avec sa main. Seuls les objets sont dessinés ici. La flèche de
-// la tige tirée est le geste, en rouge (la charte).
-// Aucune cote : les calibres (sous 2 cm, 2 à 5 cm, moins de 15 cm) sont des bornes de tri, pas
-// des mesures de construction ; ils vont dans la légende, tels que le chapitre les donne.
+// Planche 13-40. Le ferrocérium, du tri du bois à la flamme. Refaite depuis zéro le 16 octobre 2026
+// (règle 12 : JP, sur la version retouchée, « les mains, l'amadou, le tipi, c'est laid en câlisse »).
+//
+// Six vues, dans l'ordre des gestes du chapitre (étapes 10 à 17) : trier les quatre tas ; monter le tipi,
+// l'ouverture face au vent ; faire le nid ; faire l'étincelle (le couteau immobile, la tige tirée) ; refermer et
+// souffler ; glisser le nid sous le tipi. Les repères 1 à 18 sont ceux du texte.
+//
+// Les mains de l'étincelle ne passent plus par mainSimple (jugée laide sur cette planche) : ce sont deux poings
+// vus du côté des doigts, dessinés ici au trait égal du style cible (dessin-notice, style-cible.md) : quatre
+// doigts repliés en marches, le pouce couché sur l'index, le poignet ouvert. La main qui porte la boule est la
+// même construction, ouverte en coupe sous la boule.
+// L'amadou est fait de brins : des arcs fins qui tournent autour du creux (le nid) ou de la boule, jamais un
+// contour gribouillé. Le tipi est construit : des bâtons droits, tous dressés vers un même sommet et prolongés
+// au-delà, qui se croisent en haut ; ceux de derrière sont dessinés d'abord, l'ouverture face au vent est un
+// vide franc dans le cercle de base.
+// Aucune cote : les calibres (moins de 2 cm, 2 à 5 cm, moins de 15 cm) sont des bornes de tri, dans la légende.
 
 module.exports = (h) => {
-  const A = h.a, FM = h.formes;
+  const A = h.a;
+  const NOIR = '#1A1A1A';
   const f = v => Math.round(v * 10) / 10;
-  const blanc = a => a.replace('fill="none"', 'fill="#FFFFFF"');
-  const gen = s => { let g = s; return () => (g = (g * 16807) % 2147483647) / 2147483647; };
   const deg = a => a * Math.PI / 180;
   const add = (p, q) => [p[0] + q[0], p[1] + q[1]];
   const mul = (p, k) => [p[0] * k, p[1] * k];
+  const gen = s => { let g = s; return () => (g = (g * 16807) % 2147483647) / 2147483647; };
+  const blanc = at => at.replace('fill="none"', 'fill="#FFFFFF"');
+  const T1 = (w) => `fill="none" stroke="${NOIR}" stroke-width="${w}" stroke-linecap="round" stroke-linejoin="round"`;
 
-  // Courbe lisse (Catmull-Rom) passant par chaque point.
-  const lisse = (pts, ferme) => {
-    const n = pts.length;
-    const p = i => ferme ? pts[(i + n) % n] : pts[Math.max(0, Math.min(n - 1, i))];
+  // Courbe lisse (Catmull-Rom) par tous les points.
+  const lisse = (pts, ferme = false) => {
+    const n = pts.length, p = i => ferme ? pts[(i + n) % n] : pts[Math.max(0, Math.min(n - 1, i))];
     let d = `M ${f(pts[0][0])} ${f(pts[0][1])}`;
-    const segs = ferme ? n : n - 1;
-    for (let i = 0; i < segs; i++) {
+    for (let i = 0; i < (ferme ? n : n - 1); i++) {
       const p0 = p(i - 1), p1 = p(i), p2 = p(i + 1), p3 = p(i + 2);
-      const c1 = [p1[0] + (p2[0] - p0[0]) / 6, p1[1] + (p2[1] - p0[1]) / 6];
-      const c2 = [p2[0] - (p3[0] - p1[0]) / 6, p2[1] - (p3[1] - p1[1]) / 6];
-      d += ` C ${f(c1[0])} ${f(c1[1])} ${f(c2[0])} ${f(c2[1])} ${f(p2[0])} ${f(p2[1])}`;
+      d += ` C ${f(p1[0] + (p2[0] - p0[0]) / 6)} ${f(p1[1] + (p2[1] - p0[1]) / 6)} ${f(p2[0] - (p3[0] - p1[0]) / 6)} ${f(p2[1] - (p3[1] - p1[1]) / 6)} ${f(p2[0])} ${f(p2[1])}`;
     }
     return ferme ? d + ' Z' : d;
   };
-  // Point dans un repère local : origine o, axes a et b.
-  const P = (o, a, b, s, t = 0) => [o[0] + a[0] * s + b[0] * t, o[1] + a[1] * s + b[1] * t];
-  const perp = a => [-a[1], a[0]];
-  // Un cylindre vu de côté, le long de a, de s0 à s1, de rayon r.
-  const tronc = (o, a, s0, s1, r, at) => {
-    const b = perp(a);
-    return h.chemin([P(o, a, b, s0, -r), P(o, a, b, s1, -r), P(o, a, b, s1, r), P(o, a, b, s0, r)], at, true);
+  const arc = (cx, cy, rx, ry, a0, a1, n = 8) => {
+    const o = [];
+    for (let i = 0; i <= n; i++) { const a = deg(a0 + (a1 - a0) * i / n); o.push([cx + rx * Math.cos(a), cy + ry * Math.sin(a)]); }
+    return o;
   };
 
-  // ── Une touffe de fibres : contour ébouriffé, brins fins dedans, mèches qui dépassent ──
-  const touffe = (cx, cy, rx, ry, graine, sol) => {
-    const r = gen(graine), out = [], pts = [], n = 26;
-    for (let k = 0; k < n; k++) {
-      const a = k / n * 2 * Math.PI;
-      const j = 0.88 + r() * 0.2;
-      let x = cx + Math.cos(a) * rx * j, y = cy + Math.sin(a) * ry * j;
-      if (sol !== undefined && y > sol) y = sol;
-      pts.push([x, y]);
+  // ── Le poing, vu du côté des doigts ─────────────────────────────────────────────────────────────────
+  // Repère local en mm : le manche suit l'axe y (le pouce du côté −y), le poignet vers +x. T : local → vue.
+  const PEAU = T1(1.4), PEAU_IN = T1(0.7);
+  const phalange = (xL, xR, c, r, rt, rot = 0) => {
+    const k = r * 0.82, pts = [], m = (xL + xR) / 2;
+    pts.push(...arc(xR - rt, c, rt, rt, -90, 90, 10).slice(1, -1));
+    pts.push([xR - rt - 4, c + rt + (r - rt) * 0.3], [m, c + r * 1.02], [xL + k + 2, c + r]);
+    pts.push(...arc(xL + k, c + r - k, k, k, 90, 180, 6).slice(1, -1));
+    pts.push([xL, c + (r - k) / 2], [xL, c - (r - k) / 2]);
+    pts.push(...arc(xL + k, c - r + k, k, k, 180, 270, 6).slice(1, -1));
+    pts.push([xL + k + 2, c - r], [m, c - r * 1.02], [xR - rt - 4, c - rt - (r - rt) * 0.3]);
+    const a = deg(rot), ca = Math.cos(a), sa = Math.sin(a);
+    return pts.map(([x, y]) => [xL + (x - xL) * ca - (y - c) * sa, c + (x - xL) * sa + (y - c) * ca]);
+  };
+  const poing = (T, avantbras = 90) => {
+    const P = pts => pts.map(T);
+    const L = 100 + avantbras;
+    const dessous = [[L, 33], [100, 30], [82, 31], [62, 38], [34, 46], [8, 47], [-12, 44]];
+    const fond = [[-14, -38], [10, -44], [40, -45]];
+    // le dessus : de l'avant-bras au bout du pouce, d'un seul trait ; puis le dessous du pouce qui rentre dans la paume
+    const dessus = [[L, -31], [100, -29], [82, -31.5], [62, -40], [46, -47], [26, -48], [10, -46],
+      ...arc(4, -37, 9.2, 9, -90, -255, 8).slice(1), [13, -28.5], [27, -28], [42, -24]];
+    const derriere = [
+      `<path d="${lisse(P([...fond, ...dessus.slice(0, 4).reverse(), ...dessous]), true)}" fill="#FFFFFF" stroke="none"/>`,
+      `<path d="${lisse(P(dessous))}" ${PEAU}/>`,
+    ].join('\n');
+    const doigts = [phalange(-25, 9, 34.5, 8.5, 7.5, 4), phalange(-31, 15, 16, 10, 8.5, 1.5), phalange(-33, 18, -4, 11, 9.5, 0), phalange(-30, 19, -25, 10.5, 9, -3)];
+    const devant = [
+      ...doigts.map(d => `<path d="${lisse(P(d), true)}" fill="#FFFFFF" ${PEAU.replace('fill="none" ', '')}/>`),
+      `<path d="${lisse(P([...dessus, [56, -30], [70, -34]]), true)}" fill="#FFFFFF" stroke="none"/>`,
+      `<path d="${lisse(P(dessus))}" ${PEAU}/>`,
+    ].join('\n');
+    return { derriere, devant, articulation: T([-33, -4]), pouce: T([-5, -37]) };
+  };
+  // Repère d'un poing posé : c le point du manche au creux de la main, X la direction de l'avant-bras, Y la
+  // direction du manche vers l'auriculaire (unitaires), e l'échelle (unités de vue par mm).
+  // Ce qui sort d'une vue (les avant-bras) est coupé net par son bord.
+  const coupe = (id, z, svg) => `<clipPath id="c1340-${id}"><rect x="0" y="0" width="${z.l}" height="${z.h}"/></clipPath>\n<g clip-path="url(#c1340-${id})">\n${svg}\n</g>`;
+  const repere = (c, X, Y, e) => ([x, y]) => [c[0] + e * (x * X[0] + y * Y[0]), c[1] + e * (x * X[1] + y * Y[1])];
+
+  // ── L'amadou : des brins ────────────────────────────────────────────────────────────────────────────
+  // Le nid vu un peu d'en haut : des brins qui tournent autour du creux, une paroi qui se voit sur le devant,
+  // des brins libres qui débordent. cx, cy : le centre du creux ; R, Ry : le bord extérieur ; ep : la hauteur.
+  const nid = (cx, cy, R, Ry, ep, graine, { creux = 0.42, poudre = true } = {}) => {
+    const r = gen(graine), out = [];
+    const ri = R * creux, riy = Ry * creux;
+    // le fond blanc : le dessus (ellipse) et la paroi du devant
+    out.push(h.path(`M ${f(cx - R)} ${f(cy)} A ${f(R)} ${f(Ry)} 0 0 1 ${f(cx + R)} ${f(cy)} L ${f(cx + R * 0.97)} ${f(cy + ep * 0.7)} A ${f(R * 0.97)} ${f(Ry + ep * 0.4)} 0 0 1 ${f(cx - R * 0.97)} ${f(cy + ep * 0.7)} Z`, A.blanc));
+    let fin = '', moyen = '';
+    // les brins du dessus : des arcs autour du creux, du bord du creux au bord extérieur
+    const nb = Math.round(R * 1.3);
+    for (let i = 0; i < nb; i++) {
+      const t = Math.pow(r(), 0.8), rx = ri + (R - ri) * t, ry = riy + (Ry - riy) * t;
+      const a0 = r() * 360, span = 35 + r() * 70, n = 6, pts = [];
+      for (let k = 0; k <= n; k++) {
+        const a = deg(a0 + span * k / n), w = 1 + (r() - 0.5) * 0.06;
+        pts.push([cx + Math.cos(a) * rx * w, cy + Math.sin(a) * ry * w]);
+      }
+      const d = lisse(pts);
+      if (i % 4 === 0) moyen += d + ' '; else fin += d + ' ';
     }
-    out.push(h.path(lisse(pts, true), blanc(A.arete)));
-    let brins = '';
-    for (let i = 0; i < Math.round(rx * ry / 28); i++) {
-      const t = Math.sqrt(r()) * 0.78, a = r() * 2 * Math.PI;
-      const x = cx + Math.cos(a) * rx * t, y = cy + Math.sin(a) * ry * t;
-      if (sol !== undefined && y > sol - 3) continue;
-      const L = 7 + r() * 9, o = (r() - 0.5) * 1.2;
-      const dx = Math.cos(o) * L, dy = Math.sin(o) * L * 0.5;
-      brins += `M ${f(x - dx / 2)} ${f(y - dy / 2)} Q ${f(x)} ${f(y + (r() - 0.5) * 5)} ${f(x + dx / 2)} ${f(y + dy / 2)} `;
+    // la paroi du devant : des brins presque horizontaux qui suivent la courbe
+    for (let i = 0; i < Math.round(R * 0.5); i++) {
+      const s = r() * ep * 0.85, a0 = 15 + r() * 120, span = 25 + r() * 40, pts = [];
+      for (let k = 0; k <= 5; k++) {
+        const a = deg(a0 + span * k / 5);
+        pts.push([cx + Math.cos(a) * R * 0.985, cy + Math.sin(a) * (Ry + s * 0.25) + s]);
+      }
+      fin += lisse(pts) + ' ';
     }
-    out.push(h.path(brins, A.fin));
-    let meches = '';
-    pts.forEach(([x, y], k) => {
-      if (k % 2 || (sol !== undefined && y >= sol - 1)) return;
-      const vx = x - cx, vy = y - cy, L = Math.hypot(vx, vy) || 1;
-      const e = 3 + r() * 4, tw = (r() - 0.5) * 6;
-      meches += `M ${f(x)} ${f(y)} q ${f(vx / L * e + tw)} ${f(vy / L * e)} ${f(vx / L * e * 1.6 - tw)} ${f(vy / L * e * 1.6 + 1)} `;
-    });
-    out.push(h.path(meches, A.fin));
+    // les brins libres qui débordent du bord
+    for (let i = 0; i < Math.round(R * 0.32); i++) {
+      const a = deg(r() * 360), x0 = cx + Math.cos(a) * R * 0.92, y0 = cy + Math.sin(a) * Ry * 0.92 + (Math.sin(a) > 0 ? ep * 0.5 : 0);
+      const L = 5 + r() * 9, b = a + deg((r() - 0.5) * 70);
+      fin += `M ${f(x0)} ${f(y0)} q ${f(Math.cos(b) * L * 0.5 + (r() - 0.5) * 3)} ${f(Math.sin(b) * L * 0.5 * Ry / R)} ${f(Math.cos(b) * L)} ${f(Math.sin(b) * L * Ry / R + (r() - 0.5) * 2)} `;
+    }
+    out.push(h.path(fin, T1(0.5)), h.path(moyen, T1(0.7)));
+    // le creux : son bord, plus dense, et la poudre au fond
+    let bord = '';
+    for (let k = 0; k < 5; k++) {
+      const a0 = k * 72 + r() * 20, pts = arc(cx, cy, ri * (1.02 + r() * 0.06), riy * (1.02 + r() * 0.06), a0, a0 + 80 + r() * 30, 6);
+      bord += lisse(pts) + ' ';
+    }
+    out.push(h.path(bord, T1(0.7)));
+    if (poudre) {
+      let pts = '';
+      for (let i = 0; i < 26; i++) {
+        const a = r() * 2 * Math.PI, t = Math.sqrt(r()) * 0.6;
+        pts += `<circle cx="${f(cx + Math.cos(a) * ri * t)}" cy="${f(cy + Math.sin(a) * riy * t + riy * 0.15)}" r="${f(0.55 + r() * 0.45)}" ${A.plein}/>`;
+      }
+      out.push(pts);
+    }
     return out.join('\n');
   };
-
-  // ── Vue 1 : les quatre tas ─────────────────────────────────────────────────────────────
-  const V = [0.74, -0.24];                          // fuite oblique : la longueur du bois
-  const VN = (() => { const L = Math.hypot(...V); return [V[0] / L, V[1] / L]; })();
-  const PN = [-VN[1], VN[0]];
-  const baton = (cx, cy, r, len, bois = 'rien') => {
-    const bx = cx + V[0] * len, by = cy + V[1] * len;
-    const t1 = [cx + PN[0] * r, cy + PN[1] * r], t2 = [cx - PN[0] * r, cy - PN[1] * r];
-    const out = [h.cercle(bx, by, r, blanc(A.detail))];
-    out.push(h.chemin([t1, [t1[0] + V[0] * len, t1[1] + V[1] * len], [t2[0] + V[0] * len, t2[1] + V[1] * len], t2], A.blanc, true));
-    out.push(h.ligne(t1[0], t1[1], t1[0] + V[0] * len, t1[1] + V[1] * len, r > 10 ? A.arete : A.detail));
-    out.push(h.ligne(t2[0], t2[1], t2[0] + V[0] * len, t2[1] + V[1] * len, r > 10 ? A.arete : A.detail));
-    if (bois === 'buche') {
-      const r2 = gen(Math.round(cx * 7 + cy));
-      let e = '';
-      for (let i = 0; i < 9; i++) {
-        const s = 0.12 + r2() * 0.8, t = (r2() - 0.5) * 1.6 * r;
-        const x = cx + V[0] * len * s + PN[0] * t, y = cy + V[1] * len * s + PN[1] * t;
-        const l = 8 + r2() * 10;
-        e += `M ${f(x)} ${f(y)} l ${f(VN[0] * l)} ${f(VN[1] * l)} `;
+  // La boule refermée : des brins enroulés comme une pelote lâche, quelques-uns qui dépassent.
+  const boule = (cx, cy, R, graine) => {
+    const r = gen(graine), out = [h.cercle(cx, cy, R * 0.97, A.blanc)];
+    let fin = '', moyen = '';
+    for (let i = 0; i < Math.round(R * 1.6); i++) {
+      const th = r() * Math.PI, rx = R * (0.55 + r() * 0.42), ry = R * (0.12 + r() * 0.5);
+      const a0 = r() * 360, span = 60 + r() * 110, pts = [];
+      for (let k = 0; k <= 8; k++) {
+        const a = deg(a0 + span * k / 8), x = Math.cos(a) * rx, y = Math.sin(a) * ry;
+        pts.push([cx + x * Math.cos(th) - y * Math.sin(th), cy + x * Math.sin(th) + y * Math.cos(th)]);
       }
-      out.push(h.path(e, A.fin));
+      if (i % 4 === 0) moyen += lisse(pts) + ' '; else fin += lisse(pts) + ' ';
     }
-    return out;
-  };
-  const bout = (cx, cy, r, bois) => {
-    const out = [h.cercle(cx, cy, r, blanc(r > 10 ? A.arete : A.detail))];
-    if (bois === 'buche') {
-      out.push(h.cercle(cx, cy, r - 3.2, A.detail));
-      out.push(h.cercle(cx + 1, cy - 0.5, r * 0.55, A.fin), h.cercle(cx + 1.5, cy - 1, r * 0.25, A.fin));
-      out.push(h.path(`M ${f(cx + 2)} ${f(cy - 1)} L ${f(cx + r * 0.3)} ${f(cy - r * 0.34)} L ${f(cx + r * 0.66)} ${f(cy - r * 0.46)}`, A.fin));
-    } else if (bois === 'moyen') {
-      out.push(h.cercle(cx + 0.5, cy - 0.3, r * 0.35, A.fin));
+    // le tour : des arcs courts au bord, qui ne se ferment pas en un seul contour
+    for (let k = 0; k < 9; k++) {
+      const a0 = k * 40 + r() * 15, rr = R * (0.96 + r() * 0.06);
+      moyen += lisse(arc(cx, cy, rr, rr, a0, a0 + 34 + r() * 14, 5)) + ' ';
     }
-    return out;
+    for (let i = 0; i < 12; i++) {
+      const a = deg(r() * 360), L = 4 + r() * 7, b = a + deg((r() - 0.5) * 80);
+      const x0 = cx + Math.cos(a) * R * 0.95, y0 = cy + Math.sin(a) * R * 0.95;
+      fin += `M ${f(x0)} ${f(y0)} q ${f(Math.cos(b) * L * 0.5 + (r() - 0.5) * 3)} ${f(Math.sin(b) * L * 0.5 + (r() - 0.5) * 3)} ${f(Math.cos(b) * L)} ${f(Math.sin(b) * L)} `;
+    }
+    out.push(h.path(fin, T1(0.5)), h.path(moyen, T1(0.7)));
+    return out.join('\n');
   };
-  const pile = (x0, yS, r, rangs, len, bois, graine) => {
+  // Une touffe d'amadou posée (le premier tas) : un nid plat sans creux marqué.
+  const touffe = (cx, cyS, R, graine) => nid(cx, cyS - R * 0.28, R, R * 0.32, R * 0.28, graine, { creux: 0.2, poudre: false });
+
+  // ── Le bois ─────────────────────────────────────────────────────────────────────────────────────────
+  // Un bâton droit de a à b, de rayon ra au pied et rb en haut ; le bout coupé en b se voit (une ellipse).
+  const baton = (a, b, ra, rb, { at = A.detail, bout = true, gris = false } = {}) => {
+    const L = Math.hypot(b[0] - a[0], b[1] - a[1]), u = [(b[0] - a[0]) / L, (b[1] - a[1]) / L], n = [-u[1], u[0]];
+    const pts = [add(a, mul(n, ra)), add(b, mul(n, rb)), add(b, mul(n, -rb)), add(a, mul(n, -ra))];
+    const out = [h.chemin(pts, gris ? A.loin : A.blanc, true)];
+    out.push(h.ligne(...pts[0], ...pts[1], at), h.ligne(...pts[3], ...pts[2], at));
+    if (bout) {
+      const ang = Math.atan2(n[1], n[0]) * 180 / Math.PI;
+      out.push(`<ellipse cx="${f(b[0])}" cy="${f(b[1])}" rx="${f(rb)}" ry="${f(rb * 0.45)}" transform="rotate(${f(ang)} ${f(b[0])} ${f(b[1])})" ${gris ? A.loin.replace('stroke="none"', '') : 'fill="#FFFFFF"'} ${at.replace('fill="none" ', '')}/>`);
+    }
+    return out.join('\n');
+  };
+  // Une pile de bois rond vue de trois quarts : les bouts vers nous, le fût qui fuit vers le haut à droite.
+  const FUITE = [0.86, -0.5];
+  const pile = (x0, yS, r, rangs, long, graine, { cernes = false } = {}) => {
     const rnd = gen(graine), items = [];
     rangs.forEach((nb, j) => {
-      const larg = nb * 2 * r;
-      const xg = x0 + (rangs[0] * 2 * r - larg) / 2 + r;
-      for (let i = 0; i < nb; i++) {
-        const jit = bois === 'fin' ? (rnd() - 0.5) * 1.6 : 0;
-        items.push({ cx: xg + i * 2 * r + jit, cy: yS - r - j * r * 1.72, r: r * (bois === 'fin' ? 0.85 + rnd() * 0.3 : 1), len: len * (0.85 + rnd() * 0.25) });
-      }
+      const xg = x0 + (rangs[0] - nb) * r + r;
+      for (let i = 0; i < nb; i++) items.push({ cx: xg + i * 2 * r + (rnd() - 0.5) * r * 0.15, cy: yS - r - j * r * 1.72, r: r * (0.9 + rnd() * 0.18), l: long * (0.88 + rnd() * 0.2) });
     });
-    const corps = [], bouts = [];
-    items.forEach(it => { corps.push(...baton(it.cx, it.cy, it.r, it.len, bois)); bouts.push(...bout(it.cx, it.cy, it.r, bois)); });
-    return { svg: corps.concat(bouts).join('\n'), items };
-  };
-  // Les quatre tas en colonne, du plus fin au plus gros, tous à la même échelle.
-  const HT = 0.62;                                   // la part de la vue pour les quatre tas ; dessous, le tipi
-  const tas = z => {
-    const sc = Math.min(0.62, (z.l - 40) / 217, (z.h * HT - 4 - 4 * 8) / 271);
-    const hauts = [48, 51, 61, 111].map(v => v * sc);
-    const gap = (z.h * HT - 4 - hauts.reduce((a, b) => a + b, 0)) / 4;
-    const sols = [];
-    let y = 0;
-    hauts.forEach(hh => { y += gap + hh; sols.push(y); });
-    const x0 = 6, out = [];
-    const sol = (yS, l) => out.push(h.ligne(0, yS, x0 + l + 6, yS, A.arete));
-    sol(sols[0], 80 * sc);
-    out.push(touffe(x0 + 38 * sc, sols[0] - 20 * sc, 38 * sc, 26 * sc, 11, sols[0]));
-    const fin = pile(x0, sols[1], 3.2 * sc, [7, 6, 5, 4, 3, 2], 70 * sc, 'fin', 5);
-    sol(sols[1], 100 * sc); out.push(fin.svg);
-    const moy = pile(x0, sols[2], 7.5 * sc, [4, 3, 2], 84 * sc, 'moyen', 7);
-    sol(sols[2], 125 * sc); out.push(moy.svg);
-    const gros = pile(x0, sols[3], 24 * sc, [3, 2], 90 * sc, 'buche', 9);
-    sol(sols[3], 215 * sc); out.push(gros.svg);
-    return { out: out.join('\n'), sols, sc, x0, fin, moy, gros };
-  };
-
-  // ── Vue 2 : le geste ───────────────────────────────────────────────────────────────────
-  // La tige monte de la pointe (au bord du nid) vers le manche, à TH sur l'horizontale : u.
-  // n lui est perpendiculaire, vers le bas à droite. Le couteau est couché le long de n, en
-  // travers de la tige ; son dos (arête vers la pointe de la tige) appuie sur le métal.
-  // Tout se mesure en mm, e = unités de vue par mm.
-  // MX = −1 met la vue en miroir (le nid à droite) ; essayé, les deux avant-bras s'y croisent : on garde le sens d'origine.
-  const MX = 1;
-  const TH = deg(52);
-  const u = [MX * Math.cos(TH), -Math.sin(TH)];
-  const n = [MX * Math.sin(TH), Math.cos(TH)];
-  const cap = v => Math.atan2(v[0], -v[1]) * 180 / Math.PI;   // angle compté depuis le haut, sens horaire
-  const L_METAL = 125, L_MANCHE = 58, R_TIGE = 5.5, R_MANCHE = 9, D_C = 62, K0 = 16;
-  const geste = z => {
-    const G = z.h - 16;
-    const e = Math.min(1, (G - 62) / 282);
-    const nid = { w: 150 * e, H: 60 * e };
-    const xT = MX > 0 ? Math.round(46 + 128 * e) : Math.round(z.l - 46 - 128 * e);
-    // la pointe : au-dessus du bord du creux (le bord gauche, en miroir), à un doigt de la matière
-    nid.cx = xT - MX * (0.30 * nid.w + 8 * e);
-    const T = [xT, G - nid.H - 18 * e];
-    const C = add(T, mul(u, D_C * e));                           // le dos du couteau sur la tige
-    const Q = (s, t) => add(C, add(mul(n, s * e), mul(u, t * e)));   // repère du couteau (mm)
-    const pT = add(T, mul(u, (L_METAL + L_MANCHE / 2) * e));     // le poing sur le manche de la tige
-    const pK = Q(-92 - K0, 11);                                  // le poing sur le manche du couteau
-    return { G, e, nid, T, C, Q, pT, pK };
-  };
-  const nidCreux = (cx, yG, w, H, graine) => {
-    const r = gen(graine), out = [], x0 = cx - w / 2;
-    const pts = [];
-    for (let i = 0; i <= 16; i++) {
-      const t = i / 16;
-      const bosse = Math.min(1, 1.55 * Math.pow(Math.sin(Math.PI * t), 0.8));
-      pts.push([x0 + w * t + (r() - 0.5) * 3, yG - H * bosse + (i && i < 16 ? (r() - 0.5) * 4 : 0)]);
-    }
-    out.push(h.path(lisse(pts, false) + ' Z', blanc(A.arete)));
-    let brins = '';
-    for (let i = 0; i < 52; i++) {
-      const t = 0.08 + r() * 0.84, x = x0 + w * t;
-      const top = yG - H * Math.min(1, 1.55 * Math.pow(Math.sin(Math.PI * t), 0.8));
-      const y = top + 12 + r() * (yG - top - 14);
-      if (y > yG - 3) continue;
-      const L = 8 + r() * 10, o = (r() - 0.5) * 0.9;
-      brins += `M ${f(x - Math.cos(o) * L / 2)} ${f(y - Math.sin(o) * L / 2)} Q ${f(x)} ${f(y + (r() - 0.5) * 5)} ${f(x + Math.cos(o) * L / 2)} ${f(y + Math.sin(o) * L / 2)} `;
-    }
-    out.push(h.path(brins, A.fin));
-    let m = '';
-    pts.forEach(([x, y], i) => {
-      if (i === 0 || i === 16 || i % 2) return;
-      const e = 3 + r() * 4;
-      m += `M ${f(x)} ${f(y)} q ${f((r() - 0.5) * 6)} ${f(-e)} ${f((r() - 0.5) * 8)} ${f(-e * 1.5)} `;
+    // les fûts, du rang du haut (le plus loin) au rang du bas, puis tous les bouts
+    const futs = [], bouts = [];
+    items.slice().reverse().forEach(it => {
+      const b = [it.cx + FUITE[0] * it.l, it.cy + FUITE[1] * it.l];
+      const n = [-FUITE[1], FUITE[0]];
+      const p = [add([it.cx, it.cy], mul(n, it.r)), add(b, mul(n, it.r)), add(b, mul(n, -it.r)), add([it.cx, it.cy], mul(n, -it.r))];
+      futs.push(h.chemin(p, A.blanc, true), h.ligne(...p[0], ...p[1], it.r > 6 ? A.arete : A.detail), h.ligne(...p[3], ...p[2], it.r > 6 ? A.arete : A.detail));
+      futs.push(h.path(`M ${f(p[1][0])} ${f(p[1][1])} A ${f(it.r)} ${f(it.r)} 0 0 0 ${f(p[2][0])} ${f(p[2][1])}`, it.r > 6 ? A.arete : A.detail));
     });
-    out.push(h.path(m, A.fin));
-    // le creux, vu un peu d'en haut : bord, fond fibreux, poudre au fond
-    const cy = yG - H + 8, rx = w * 0.28, ry = 8;
-    out.push(h.ellipse(cx, cy, rx, ry, blanc(A.detail)));
-    out.push(h.path(`M ${f(cx - rx + 4)} ${f(cy + 1)} Q ${f(cx)} ${f(cy + ry + 3)} ${f(cx + rx - 4)} ${f(cy + 1)}`, A.fin));
-    let poudre = '';
-    for (let i = 0; i < 30; i++) {
-      const a = r() * 2 * Math.PI, t = Math.sqrt(r()) * 0.62;
-      poudre += `<circle cx="${f(cx + Math.cos(a) * rx * t)}" cy="${f(cy + 1.5 + Math.sin(a) * ry * t * 0.7)}" r="${f(0.6 + r() * 0.5)}" ${A.plein}/>`;
-    }
-    out.push(poudre);
-    return { svg: out.join('\n'), creux: [cx, cy], rx };
-  };
-  // Le couteau à lame fixe, dans son repère Q(s, t) : s le long de la lame (vers la pointe),
-  // t vers le tranchant ; le dos est la ligne t = 0. La garde en s = -28, le manche au-delà.
-  const couteau = Q => {
-    const out = [];
-    // le manche : un fuseau à peine renflé, le pommeau arrondi
-    const manche = [Q(-34, -1.5), Q(-70, -3), Q(-110, -3), Q(-138, -1), Q(-146, 5), Q(-146, 17), Q(-138, 23), Q(-110, 25), Q(-70, 25), Q(-34, 23.5)];
-    out.push(h.path(lisse(manche, true), A.hachure('bois', 'arete')));
-    // la garde
-    out.push(h.chemin([Q(-34, -5), Q(-28, -5), Q(-28, 27), Q(-34, 27)], blanc(A.arete), true));
-    // la lame : le dos droit jusqu'à la pointe, le tranchant qui remonte en ventre
-    const lame = `M ${Q(-28, 0).map(f).join(' ')} L ${Q(46, 0).map(f).join(' ')} Q ${Q(64, 0.5).map(f).join(' ')} ${Q(76, 4).map(f).join(' ')} `
-      + `C ${Q(66, 16).map(f).join(' ')} ${Q(50, 21).map(f).join(' ')} ${Q(28, 21).map(f).join(' ')} L ${Q(-28, 21).map(f).join(' ')} Z`;
-    out.push(h.path(lame, blanc(A.arete)));
-    // le fil du biseau
-    out.push(h.path(`M ${Q(-24, 12).map(f).join(' ')} L ${Q(30, 12).map(f).join(' ')} Q ${Q(58, 11.5).map(f).join(' ')} ${Q(74, 5).map(f).join(' ')}`, A.fin));
-    // le dos qui gratte : trait fort
-    out.push(h.chemin([Q(-26, 0), Q(46, 0)], A.contour));
-    return out.join('\n');
+    items.forEach(it => {
+      bouts.push(h.cercle(it.cx, it.cy, it.r, blanc(it.r > 6 ? A.arete : A.detail)));
+      if (cernes) {
+        bouts.push(h.cercle(it.cx, it.cy, it.r - 2.6, T1(0.5)), h.cercle(it.cx + 0.6, it.cy - 0.4, it.r * 0.5, T1(0.5)), h.cercle(it.cx + 0.9, it.cy - 0.6, 1.2, A.plein));
+      } else if (it.r > 3) bouts.push(h.cercle(it.cx + 0.3, it.cy - 0.2, it.r * 0.3, T1(0.5)));
+    });
+    return { svg: futs.concat(bouts).join('\n'), items };
   };
 
-  // ── Vue 3 : souffler ───────────────────────────────────────────────────────────────────
-  // La personne en buste, de profil : le corps simple (13 oct.), coupé par le bas de la vue. La main
-  // proche, paume en l'air (« porte »), tient la boule par le bas, à une longueur d'avant-bras devant
-  // la bouche, à sa hauteur : bras à 55,6°, avant-bras à 172°, main à plat (90°), posés par le calcul
-  // (épaule-coude 325 mm, coude-poignet 255 mm).
-  const R_BOULE = 48, AVANT_BRAS = 255, COUPE = 520;
-  const souffler = z => {
-    const e = Math.min(0.5, (z.h - 8) / (COUPE + 150), (z.l - 30) / (126 + 104 + AVANT_BRAS + 2 * R_BOULE + 60));
-    const oreille = [12 + 130 * e, z.h - 4 - COUPE * e];
-    // le visage : la tête simple (corps({ visage }), 14 oct.), la bouche entrouverte qui souffle
-    const o = { pose: 'buste-main-bouche', echelle: e, x: oreille[0] - 19 * e, y: oreille[1] + 1666 * e, mains: { P: 'porte' },
-      angles: { brasP: 55.6, avantbrasP: 172, mainP: 90 }, visage: { bouche: 'ouverte', ouverture: 0.2 } };
-    const c = FM.corps(o);
-    const bouche = c.visage.bouche;
-    const R = R_BOULE * e, B = [c.mainP.x, c.mainP.y - R * 0.92];
-    const y0 = B[1] - R * 0.8;
-    const axe = y => B[0] + R * 0.35 + (y0 - y) * 0.18 + 5 * Math.sin((y0 - y) / 14);
-    const larg = y => 1.5 + (y0 - y) * 0.16;
-    const t = { bouche };
-    return { e, t, B, R, y0, axe, larg, oreille, o };
-  };
-
-  // ── Vue 4 : le nid sous le tipi ────────────────────────────────────────────────────────
-  const flamme = (x, yB, l, ht, pencher = 0) => {
-    const d = `M ${f(x - l / 2)} ${f(yB)} C ${f(x - l / 2 - 2)} ${f(yB - ht * 0.45)} ${f(x + pencher - l * 0.2)} ${f(yB - ht * 0.7)} ${f(x + pencher)} ${f(yB - ht)} C ${f(x + pencher + l * 0.15)} ${f(yB - ht * 0.65)} ${f(x + l / 2 + 3)} ${f(yB - ht * 0.45)} ${f(x + l / 2)} ${f(yB)} Z`;
-    return h.path(d, blanc(A.arete));
-  };
-  const tipi = z => {
-    const cx = Math.round(z.l * 0.43), yB = z.h - 44, rx = Math.min(80, z.l * 0.28), ry = 20;
-    const apex = [cx + 4, yB - Math.min(150, z.h - 70)];
-    return { cx, yB, rx, ry, apex };
-  };
-  // le tipi dans la première vue, sous les quatre tas
-  const tipi1 = z => {
-    const ry = 12, yB = z.h - 6 - ry, rx = Math.min(62, z.l * 0.33);
-    const cx = Math.round(z.l * 0.58);
-    const apex = [cx + 3, yB - Math.min(84, z.h * (1 - HT) - 34)];
-    return { cx, yB, rx, ry, apex };
-  };
-  // Les bâtons du tipi, l'ouverture face au vent (à gauche) ; dedans, ce que la vue y met (le nid en flammes).
-  const dessinTipi = ({ cx, yB, rx, ry, apex }, dedans = '', ep = 2.3, graine = 13) => {
-    const out = [], N = 15, r = gen(graine), batons = [];
+  // ── Le tipi ─────────────────────────────────────────────────────────────────────────────────────────
+  // Des bâtons droits dressés autour d'un cercle de base, tous vers un même sommet et prolongés au-delà : ils
+  // se croisent en haut. L'ouverture est un vide dans le cercle, du côté du vent (devant à gauche).
+  const tipi = (cx, yB, rx, ry, haut, graine, { ouverture = [118, 178], N = 13, ra = 2.6, rb = 1.9, dedans = '' } = {}) => {
+    const r = gen(graine), S = [cx + 2, yB - haut];
+    const batons = [];
     for (let i = 0; i < N; i++) {
-      const phiD = (i * 360 / N + 5) % 360;
-      if (phiD > 100 && phiD < 200) continue;       // l'ouverture, face au vent
-      const phi = deg(phiD);
-      const b = [cx + Math.cos(phi) * rx * (0.92 + r() * 0.1), yB + Math.sin(phi) * ry];
-      const a = [apex[0] + (r() - 0.5) * 8, apex[1] + (r() - 0.5) * 6];
-      const L = Math.hypot(a[0] - b[0], a[1] - b[1]), dir = [(a[0] - b[0]) / L, (a[1] - b[1]) / L];
-      const e = 8 + r() * 12;
-      batons.push({ avant: Math.sin(phi) > 0, svg: tronc(b, dir, 0, L + e, ep, blanc(A.detail)) });
+      const phi = i * 360 / N + 8 + (r() - 0.5) * 8;
+      const p = ((phi % 360) + 360) % 360;
+      if (p > ouverture[0] && p < ouverture[1]) continue;
+      const b = [cx + Math.cos(deg(p)) * rx, yB + Math.sin(deg(p)) * ry];
+      const s = [S[0] + (r() - 0.5) * 6, S[1] + (r() - 0.5) * 4];
+      const pro = 0.14 + r() * 0.14;
+      const t = [b[0] + (s[0] - b[0]) * (1 + pro), b[1] + (s[1] - b[1]) * (1 + pro)];
+      batons.push({ p, avant: Math.sin(deg(p)) > 0.05, b, t });
     }
-    batons.filter(b => !b.avant).forEach(b => out.push(b.svg));
-    out.push(dedans);
-    batons.filter(b => b.avant).forEach(b => out.push(b.svg));
-    return out.join('\n');
+    const derriere = batons.filter(b => !b.avant).map(b => baton(b.b, b.t, ra, rb, { at: A.detail }));
+    const devant = batons.filter(b => b.avant).sort((a, b) => a.b[1] - b.b[1]).map(b => baton(b.b, b.t, ra, rb, { at: A.arete }));
+    return { svg: [...derriere, dedans, ...devant].join('\n'), sommet: S, batons };
+  };
+
+  // ── La flamme ───────────────────────────────────────────────────────────────────────────────────────
+  const langue = (x, yB, l, ht, pench = 0) => {
+    const d = `M ${f(x - l / 2)} ${f(yB)} C ${f(x - l / 2 - l * 0.12)} ${f(yB - ht * 0.38)} ${f(x + pench * 0.2 - l * 0.38)} ${f(yB - ht * 0.6)} ${f(x + pench)} ${f(yB - ht)} `
+      + `C ${f(x + pench * 0.5 + l * 0.12)} ${f(yB - ht * 0.66)} ${f(x + l / 2 + l * 0.16)} ${f(yB - ht * 0.42)} ${f(x + l / 2)} ${f(yB)} Z`;
+    const di = `M ${f(x - l * 0.2)} ${f(yB - ht * 0.08)} C ${f(x - l * 0.28)} ${f(yB - ht * 0.3)} ${f(x + pench * 0.2 - l * 0.12)} ${f(yB - ht * 0.42)} ${f(x + pench * 0.45)} ${f(yB - ht * 0.58)} `
+      + `C ${f(x + pench * 0.3 + l * 0.12)} ${f(yB - ht * 0.38)} ${f(x + l * 0.24)} ${f(yB - ht * 0.24)} ${f(x + l * 0.18)} ${f(yB - ht * 0.06)}`;
+    return [h.path(d, blanc(A.arete)), h.path(di, A.detail)].join('\n');
+  };
+  const flammes = (x, yB, l, ht) => [
+    langue(x - l * 0.42, yB, l * 0.55, ht * 0.55, -l * 0.12),
+    langue(x + l * 0.4, yB, l * 0.55, ht * 0.62, l * 0.14),
+    langue(x, yB, l * 0.72, ht, -l * 0.05),
+  ].join('\n');
+
+  // ═══ Les vues ═══════════════════════════════════════════════════════════════════════════════════════
+
+  // Vue 1 : les quatre tas, du plus fin au plus gros, sur une même ligne de sol.
+  const tas = z => {
+    const yS = z.h - 10, e = 0.2;          // unités de vue par mm
+    const x1 = 6, x2 = x1 + 74, x3 = x2 + 70, x4 = x3 + 84;
+    return { yS, e, x1, x2, x3, x4,
+      fin: pile(x2, yS, 2.2, [6, 5, 4, 3, 2], 44, 5),
+      moy: pile(x3, yS, 5, [4, 3, 2], 50, 7),
+      gros: pile(x4, yS, 13, [3, 2], 58, 9, { cernes: true }) };
+  };
+
+  // Vue 4 : l'étincelle. Tout en mm × e.
+  const TH = deg(52);
+  const u = [Math.cos(TH), -Math.sin(TH)];            // le long de la tige, de la pointe vers le manche
+  const nT = [Math.sin(TH), Math.cos(TH)];            // perpendiculaire, vers le bas à droite
+  const etincelle = z => {
+    const e = Math.min(1, (z.h - 20) / 270, z.l / 400);
+    const G = z.h - 6;
+    const T = [Math.round(z.l * 0.36), G - 58 * e];  // la pointe de la tige
+    const nidC = [T[0] - 22 * e, G - 34 * e];        // le centre du creux, sous la pointe
+    const C = add(T, mul(u, 26 * e));                // le dos du couteau sur la tige
+    return { e, G, T, nidC, C };
+  };
+
+
+  // Vue 5 : la tête de profil (le visage à droite), la boule à une longueur d'avant-bras devant la bouche.
+  const souffler = z => {
+    const e = Math.min(0.6, (z.h - 8) / 290);
+    const tete = h.formes.teteSimple({ x: 52 * e + 8, y: z.h - 150 * e, echelle: e, bouche: 'ouverte', ouverture: 0.25, cou: 70 });
+    const L0 = tete.bouche;
+    const R = 40 * e, B = [L0[0] + 255 * e + R * 0.4, L0[1] + 6 * e];
+    return { e, tete, B, R };
+  };
+  // La main qui porte la boule, vue de côté : la paume dessous, les doigts qui remontent derrière la boule,
+  // le pouce devant. Repère local en mm : origine au centre de la boule, y vers le bas.
+  const main = ({ e, B, R }) => {
+    const k = R / 40 / e;                               // la boule fait 80 mm ; tout le reste suit
+    const P = pts => pts.map(([x, y]) => [B[0] + x * e * k, B[1] + y * e * k]);
+    const ax = [-0.62, 0.78], pe = [0.78, 0.62];         // l'avant-bras vers le bas à gauche ; sa normale
+    const W = [-58, 46], lb = 160;
+    const hautW = add(W, mul(pe, -26)), basW = add(W, mul(pe, 26));
+    const dos = [add(hautW, mul(ax, lb)), hautW, [-64, 14], [-52, 30], [-26, 50], [4, 56], [30, 50], [48, 34],
+      [57, 12], [58, -8], ...arc(50, -14, 8.5, 8.5, -10, -170, 7).slice(1), [41, -2], [40, 12], [32, 28], [16, 38], [-6, 40], [-30, 34],
+      basW, add(basW, mul(ax, lb))];
+    // le côté de l'avant-bras et de la paume (le contour ouvert), puis l'aplat
+    const contour = [add(basW, mul(ax, lb)), basW, [-26, 50], [4, 56], [30, 50], [48, 34], [57, 12], [58, -8], ...arc(50, -14, 8.5, 8.5, -10, -175, 7).slice(1), [41.5, -4]];
+    const fond = [add(hautW, mul(ax, lb)), hautW, [-56, 8], [-30, 26], [0, 38], [30, 26], [41.5, -4], ...contour.slice().reverse()];
+    const dosSvg = [h.path(lisse(P(fond), true), A.blanc), h.path(lisse(P(contour)), PEAU),
+      h.path(lisse(P([[52, 18], [48, 32], [40, 42]])), PEAU_IN)].join('\n');
+    // le pouce, devant la boule : de la base du poignet, le long du bas de la boule, le bout vers l'avant
+    const pouce = [add(hautW, mul(ax, lb)), hautW, [-62, 10], [-56, -2], [-46, -10], ...arc(-40, -8, 7, 7, -150, 40, 8).slice(1), [-36, 2], [-38, 14], [-34, 28], [-20, 40]];
+    const pouceSvg = [h.path(lisse(P([...pouce, [-30, 46], basW, add(basW, mul(ax, lb))]), true), A.blanc),
+      h.path(lisse(P(pouce)), PEAU)].join('\n');
+    return { dos: dosSvg, pouce: pouceSvg };
+  };
+  // La fumée : deux bords qui s'écartent en ondulant, une volute au bout.
+  const fumee = (x, y, l0, z) => {
+    const pts = (s) => { const o = []; for (let yy = y; yy >= 10; yy -= 6) { const m = (y - yy); o.push([x + s * (l0 + m * 0.2) + 6 * Math.sin(m / 16), yy]); } return o; };
+    const a = pts(-1), b = pts(1);
+    return [h.path(lisse(a), A.detail), h.path(lisse(b), A.detail),
+      h.path(lisse(pts(0.15).map(([px, py], i) => [px + 3 * Math.sin(i / 2), py]).slice(2)), A.fin)].join('\n');
+  };
+  // Vue 6 : le tipi, plus grand, le nid en flammes à l'intérieur.
+  const glisser = z => {
+    const cx = z.l * 0.5, yB = z.h - 20, ht = Math.min(130, z.h - 26);
+    return { cx, yB, rx: 54, ry: 13, ht, nx: cx - 6 };
   };
 
   return {
     ref: '13-40',
-    titre: 'Le ferrocérium, du tas de bois à la flamme',
-    desc: 'Quatre tas séparés, du plus fin au plus gros : l’amadou, le bois d’allumage sous 2 cm, celui de 2 à 5 cm, les bûches de moins de 15 cm. Le geste, de côté : le nid écharpé, creusé au centre, de la poudre au fond du creux ; la pointe de la tige posée au-dessus du bord du creux, à un doigt de la matière, la tige tenue dans un poing ; en travers de la tige, le dos d’un couteau à lame fixe tenu dans l’autre poing, presque d’équerre, immobile ; la tige tirée vers soi le long de son axe ; la gerbe qui part du dos du couteau et tombe dans le creux. Puis la boule refermée, tenue par le bas dans une main, à une longueur d’avant-bras du visage, soufflée en continu, la fumée qui monte. Enfin le nid en flammes glissé sous le tipi de bois fin, par l’ouverture tournée au vent, le bois de 2 à 5 cm qui attend à côté.',
+    titre: 'Le ferrocérium, du tri du bois à la flamme',
+    desc: 'Six vues dans l’ordre des gestes. Les quatre tas triés côte à côte : une touffe d’amadou, une botte de petit bois de moins de 2 cm, une pile de bois de 2 à 5 cm, une pile de bûches de moins de 15 cm. Le tipi : des bâtons droits dressés en cône lâche, qui se croisent au sommet, avec une ouverture du côté d’où vient le vent. Le nid vu d’en haut : des fibres écharpées qui tournent autour d’un creux, de la poudre de tige au fond. L’étincelle : la pointe de la tige posée au bord du nid, le dos du couteau appuyé en travers de la tige et tenu immobile dans un poing, la tige tirée vers soi par l’autre poing, la gerbe qui tombe dans le creux. Puis la boule refermée, tenue par-dessous à une longueur d’avant-bras du visage, soufflée en continu, la fumée qui monte. Enfin le nid en flammes glissé sous le tipi par l’ouverture, le bois de 2 à 5 cm qui attend à côté.',
     format: 'pleine',
-    disposition: [['tas', 'geste'], ['souffler', 'deposer']],
-    hauteurs: [1.6, 1.2],
-    largeurs: [[1, 2.15], [1.45, 1]],
+    disposition: [['tas', 'tipi'], ['nid', 'etincelle'], ['souffler', 'glisser']],
+    hauteurs: [0.82, 1.42, 1.08],
+    largeurs: [[1.45, 1], [0.78, 1.42], [1.12, 1]],
     vues: {
+      // ── 1. Trier ───────────────────────────────────────────────────────────────────────────────────
       tas: {
-        titre: 'Trier, monter le tipi',
+        titre: 'Trier en quatre tas',
         dessin: z => {
-          const t1 = tipi1(z), out = [tas(z).out];
-          out.push(h.ligne(0, t1.yB + t1.ry + 1, z.l, t1.yB + t1.ry + 1, A.arete));
-          out.push(dessinTipi(t1, '', 1.9, 13));
-          // le vent, qui entrera par l'ouverture
-          const go = [t1.cx + Math.cos(deg(150)) * t1.rx, t1.yB + Math.sin(deg(150)) * t1.ry];
-          out.push(h.fleche(`M 4 ${f(go[1] - 30)} L ${f(go[0] - 8)} ${f(go[1] - 14)}`, A.cache));
-          out.push(h.fleche(`M 4 ${f(go[1] - 10)} L ${f(go[0] - 8)} ${f(go[1] - 3)}`, A.cache));
+          const t = tas(z), out = [];
+          out.push(h.ligne(0, t.yS, z.l, t.yS, A.arete));
+          out.push(touffe(t.x1 + 26, t.yS, 26, 11));
+          out.push(t.fin.svg, t.moy.svg, t.gros.svg);
           return out.join('\n');
         },
         renvois: z => {
-          const t = tas(z), sc = t.sc, xr = z.l - 12, t1 = tipi1(z);
-          const hautFin = t.fin.items[t.fin.items.length - 1], hautMoy = t.moy.items[t.moy.items.length - 1], hautG = t.gros.items[t.gros.items.length - 1];
+          const t = tas(z), y = 14;
+          const haut = p => p.items[p.items.length - 1];
+          const hf = haut(t.fin), hm = haut(t.moy), hg = haut(t.gros);
           return [
-            { n: 1, rond: [xr, t.sols[0] - 30 * sc], cible: [t.x0 + 64 * sc, t.sols[0] - 26 * sc], texte: 'amadou fin' },
-            { n: 2, rond: [xr, t.sols[1] - 36 * sc], cible: [hautFin.cx + 40 * sc, hautFin.cy - 12 * sc], texte: 'bois de moins de 2 cm' },
-            { n: 3, rond: [xr, t.sols[2] - 44 * sc], cible: [hautMoy.cx + 48 * sc, hautMoy.cy - 14 * sc], texte: 'bois de 2 à 5 cm' },
-            { n: 4, rond: [xr, hautG.cy - 20 * sc], cible: [hautG.cx + 50 * sc, hautG.cy - 28 * sc], texte: 'bûches de moins de 15 cm' },
-            { n: 5, rond: [xr, t1.apex[1] + 22], cible: [t1.cx + 16, t1.apex[1] + 40], texte: 'tipi lâche, monté d’avance' },
-            { n: 6, rond: [14, t1.yB - 64], cible: [t1.cx - t1.rx * 0.55, t1.yB - 6], texte: 'ouverture du côté du vent' },
+            { n: 1, rond: [t.x1 + 14, y], cible: [t.x1 + 22, t.yS - 15], texte: 'amadou fin' },
+            { n: 2, rond: [t.x2 + 16, y], cible: [hf.cx + 1, hf.cy - hf.r - 1], texte: 'bois de moins de 2 cm' },
+            { n: 3, rond: [t.x3 + 18, y], cible: [hm.cx + 2, hm.cy - hm.r - 1], texte: 'bois de 2 à 5 cm' },
+            { n: 4, rond: [t.x4 + 22, y], cible: [hg.cx - 2, hg.cy - hg.r - 1], texte: 'bûches de moins de 15 cm' },
           ];
         },
       },
-      geste: {
+      // ── 2. Le tipi ─────────────────────────────────────────────────────────────────────────────────
+      tipi: {
+        titre: 'Monter le tipi',
+        dessin: z => {
+          const cx = z.l * 0.6, yB = z.h - 18, out = [];
+          out.push(h.ligne(0, yB + 12, z.l, yB + 12, A.arete));
+                    out.push(tipi(cx, yB, 54, 13, Math.min(92, z.h - 22), 13).svg);
+          // le vent, qui entrera par l'ouverture
+          out.push(h.fleche(`M 6 ${f(yB - 26)} L ${f(cx - 54)} ${f(yB - 6)}`, A.detail));
+          out.push(h.fleche(`M 6 ${f(yB - 2)} L ${f(cx - 56)} ${f(yB + 4)}`, A.detail));
+          return out.join('\n');
+        },
+        renvois: z => {
+          const cx = z.l * 0.6, yB = z.h - 18, ht = Math.min(92, z.h - 22);
+          return [
+            { n: 5, rond: [z.l - 14, yB - ht * 0.55], cible: [cx + 23, yB - ht * 0.5], texte: 'cône lâche, du vide entre' },
+            { n: 6, rond: [16, yB - 50], cible: [cx - 34, yB - 14], texte: 'ouverture du côté du vent' },
+          ];
+        },
+      },
+      // ── 3. Le nid ──────────────────────────────────────────────────────────────────────────────────
+      nid: {
+        titre: 'Faire le nid',
+        dessin: z => {
+          const cx = z.l / 2, cy = z.h * 0.52, R = Math.min(z.l * 0.44, 96);
+          return [h.ligne(0, cy + R * 0.5 + R * 0.24 + 2, z.l, cy + R * 0.5 + R * 0.24 + 2, A.arete),
+            nid(cx, cy, R, R * 0.5, R * 0.24, 3)].join('\n');
+        },
+        renvois: z => {
+          const cx = z.l / 2, cy = z.h * 0.52, R = Math.min(z.l * 0.44, 96);
+          return [
+            { n: 7, rond: [16, cy - R * 0.5 - 40], cible: [cx - R * 0.72, cy - R * 0.18], texte: 'fibres lâches : le jour passe' },
+            { n: 8, rond: [z.l - 16, cy - R * 0.5 - 40], cible: [cx + 3, cy + 2], texte: 'poudre de tige dans le creux' },
+          ];
+        },
+      },
+      // ── 4. L'étincelle ─────────────────────────────────────────────────────────────────────────────
+      etincelle: {
         titre: 'Tirer la tige, le couteau immobile',
         dessin: z => {
-          const g = geste(z), { e, T, C, Q } = g, out = [];
-          // le sol
-          out.push(h.rect(0, g.G, z.l, 12, A.hachure('terre', 'aucun')));
-          out.push(h.ligne(0, g.G, z.l, g.G, A.arete));
-          // le nid, creusé, la poudre au fond du creux
-          const nid = nidCreux(g.nid.cx, g.G, g.nid.w, g.nid.H, 3);
-          out.push(nid.svg);
-          // la gerbe : du dos du couteau, le long de la tige, jusque dans le creux
+          const g = etincelle(z), { e, G, T, nidC, C } = g, out = [];
+          out.push(h.ligne(0, G, z.l, G, A.arete));
+          out.push(nid(nidC[0], nidC[1], 58 * e, 21 * e, 13 * e, 4));
+          // la tige : 100 mm de métal, 62 mm de manche ; le bout arrondi
+          const P = (s, t) => add(add(T, mul(u, s * e)), mul(nT, t * e));
+          const metal = h.path(`M ${f(P(0, -5)[0])} ${f(P(0, -5)[1])} L ${f(P(100, -5)[0])} ${f(P(100, -5)[1])} L ${f(P(100, 5)[0])} ${f(P(100, 5)[1])} L ${f(P(0, 5)[0])} ${f(P(0, 5)[1])} Q ${f(P(-4, 0)[0])} ${f(P(-4, 0)[1])} ${f(P(0, -5)[0])} ${f(P(0, -5)[1])} Z`, A.hachure('metal', 'arete'));
+          const manche = h.path(lisse([P(98, -9), P(160, -9.5), P(170, -7), P(172, 0), P(170, 7), P(160, 9.5), P(98, 9)]) + ' Z', A.hachure('bois', 'arete'));
+          // le poing de la tige : X vers le bas à droite (l'avant-bras), Y le long de la tige vers le bout du manche
+          const pT = poing(repere(P(128, 0), nT, u, e), 120);
+          // le couteau : le manche part du contact vers le haut à gauche, la lame croise la tige
+          const kd = [-nT[0], -nT[1]];                          // vers le manche du couteau
+          const Q = (s, t) => add(add(C, mul(kd, s * e)), mul(u, t * e));   // s le long du couteau, t vers le manche de la tige
+          // la lame : le dos (t = 0) sur la tige, le tranchant vers la pointe de la tige (t négatif)
+          const lame = h.path(`M ${f(Q(62, 0)[0])} ${f(Q(62, 0)[1])} L ${f(Q(-18, 0)[0])} ${f(Q(-18, 0)[1])} Q ${f(Q(-30, -1)[0])} ${f(Q(-30, -1)[1])} ${f(Q(-36, -5)[0])} ${f(Q(-36, -5)[1])} `
+            + `C ${f(Q(-26, -16)[0])} ${f(Q(-26, -16)[1])} ${f(Q(-8, -21)[0])} ${f(Q(-8, -21)[1])} ${f(Q(12, -21)[0])} ${f(Q(12, -21)[1])} L ${f(Q(62, -21)[0])} ${f(Q(62, -21)[1])} Z`, blanc(A.arete));
+          const biseau = h.path(`M ${f(Q(60, -12)[0])} ${f(Q(60, -12)[1])} L ${f(Q(8, -12)[0])} ${f(Q(8, -12)[1])} Q ${f(Q(-22, -11)[0])} ${f(Q(-22, -11)[1])} ${f(Q(-34, -6)[0])} ${f(Q(-34, -6)[1])}`, A.fin);
+          const dos = h.chemin([Q(-17, 0), Q(62, 0)], A.contour);
+          const garde = h.path(lisse([Q(62, 3), Q(68, 3), Q(68, -24), Q(62, -24)]) + ' Z', blanc(A.arete));
+          const mancheK = h.path(lisse([Q(68, 1), Q(110, 2), Q(160, 1.5), Q(170, -4), Q(170, -18), Q(160, -23), Q(110, -24), Q(68, -22)], true), A.hachure('bois', 'arete'));
+          const pK = poing(repere(Q(118, -11), u, kd, e), 160);
+          // la gerbe : du dos du couteau dans le creux
           const r = gen(21);
-          let gerbe = '';
+          let gerbe = '', etoiles = '';
           const S = add(C, mul(u, -2 * e));
-          const cibles = [-0.75, -0.45, -0.15, 0.15, 0.45, 0.75, 1.0].map(t => [nid.creux[0] + t * nid.rx * 0.85 + (r() - 0.5) * 4, nid.creux[1] + 1 + (r() - 0.5) * 3]);
-          cibles.forEach(([x2, y2], i) => {
-            const L = Math.hypot(x2 - S[0], y2 - S[1]);
-            const ecart = (i - 3) * 5 * e;
-            const c1 = add(add(S, mul(u, -L * 0.55)), mul(n, ecart - 6 * e));
-            const N = 8;
-            for (let k = 0; k < N; k++) {
-              const t0 = 0.06 + k / N * 0.92, t1 = Math.min(1, t0 + 0.05);
-              const q = t => [(1 - t) * (1 - t) * S[0] + 2 * t * (1 - t) * c1[0] + t * t * x2, (1 - t) * (1 - t) * S[1] + 2 * t * (1 - t) * c1[1] + t * t * y2];
-              const p0 = q(t0), p1 = q(t1);
+          for (let i = 0; i < 9; i++) {
+            const cible = [nidC[0] + (i - 4) * 5.2 * e + (r() - 0.5) * 3, nidC[1] - 2 + (r() - 0.5) * 4 * e];
+            const ctrl = add(add(S, mul(u, -30 * e)), mul(nT, (i - 4) * 7 * e - 8 * e));
+            const q = t => [(1 - t) ** 2 * S[0] + 2 * t * (1 - t) * ctrl[0] + t * t * cible[0], (1 - t) ** 2 * S[1] + 2 * t * (1 - t) * ctrl[1] + t * t * cible[1]];
+            for (let k = 0; k < 6; k++) {
+              const t0 = 0.12 + k * 0.15 + r() * 0.03, p0 = q(t0), p1 = q(Math.min(1, t0 + 0.07));
               gerbe += `M ${f(p0[0])} ${f(p0[1])} L ${f(p1[0])} ${f(p1[1])} `;
             }
-          });
-          out.push(h.path(gerbe, A.detail));
-          // la tige de métal, le bout arrondi
-          out.push(tronc(T, u, 0, L_METAL * e, R_TIGE * e, A.hachure('metal', 'arete')));
-          const b0 = P(T, u, n, 0, -R_TIGE * e), b1 = P(T, u, n, -4 * e, 0), b2 = P(T, u, n, 0, R_TIGE * e);
-          out.push(h.path(`M ${f(b0[0])} ${f(b0[1])} Q ${f(b1[0])} ${f(b1[1])} ${f(b2[0])} ${f(b2[1])}`, blanc(A.arete)));
-          // l'éclat au point de contact
-          let eclat = '';
-          for (let i = 0; i < 7; i++) {
-            const a = deg(-50 + i * 26), dir = add(mul(u, -Math.cos(a)), mul(n, Math.sin(a)));
-            const r1 = 7 * e, r2 = (13 + (i % 2) * 5) * e;
-            eclat += `M ${f(S[0] + dir[0] * r1)} ${f(S[1] + dir[1] * r1)} L ${f(S[0] + dir[0] * r2)} ${f(S[1] + dir[1] * r2)} `;
+            const p = q(1);
+            etoiles += h.cercle(p[0], p[1], 1, A.plein);
           }
-          out.push(h.path(eclat, A.detail));
-          // la tige tirée vers soi : la flèche (le geste, en rouge) prolonge le manche
-          const f0 = add(T, mul(u, (L_METAL + L_MANCHE + 22) * e)), f1 = add(T, mul(u, (L_METAL + L_MANCHE + 78) * e));
-          out.push(h.geste(`M ${f(f0[0])} ${f(f0[1])} L ${f(f1[0])} ${f(f1[1])}`));
-          // Les deux poings (mains simples, prise-manche), vus de la paume, les doigts repliés sur les manches : la
-          // main droite sur le manche de la tige, le pouce sur le bout, la tige qui sort du côté de l'auriculaire vers
-          // le nid, l'avant-bras qui descend vers le genou ; la main gauche sur le manche du couteau, la lame qui sort
-          // du côté du pouce, l'avant-bras qui monte. (Vus du dos, comme dans la première version, les deux poings
-          // faisaient des moufles, JP 14 octobre ; de la paume, les mains changent de côté : la gauche tient le couteau
-          // immobile, la droite tire la tige — le chapitre ne dit pas laquelle.) L'axe de la prise suit le manche :
-          // poser donne l'angle qui met l'axe du moteur (du pouce vers l'auriculaire) sur la direction voulue.
-          const ax = v => Math.atan2(v[1], v[0]) * 180 / Math.PI;
-          const poser = (o, dir) => ax(dir) - FM.mainSimple({ ...o, x: 0, y: 0, angle: 0, avantbras: false }).prise.angle;
-          const BORD = { x0: 0, y0: 0, x1: z.l, y1: z.h };
-          const mancheTige = tronc(T, u, L_METAL * e, (L_METAL + L_MANCHE) * e, R_MANCHE * e, A.hachure('bois', 'arete'));
-          const oT = { x: g.pT[0], y: g.pT[1], pose: 'prise-manche', vue: 'paume', cote: 'droite', diametre: 2 * R_MANCHE, echelle: e };
-          out.push(FM.mainSimple({ ...oT, angle: poser(oT, mul(u, -1)), objet: mancheTige, avantbras: { bord: BORD, longueur: 'bord', vers: [z.l + 30, g.pT[1] + 105], fin: [[z.l, 0], [z.l, z.h]] } }).svg);
-          const oK = { x: g.pK[0], y: g.pK[1], pose: 'prise-manche', vue: 'paume', cote: 'gauche', diametre: 26, echelle: e };
-          out.push(FM.mainSimple({ ...oK, angle: poser(oK, mul(n, -1)), objet: couteau((s, t) => Q(s - K0, t)), avantbras: { bord: BORD, longueur: 'bord' } }).svg);
-          return out.join('\n');
+          let eclat = '';
+          for (let k = 0; k < 6; k++) {
+            const a = deg(150 + k * 22), d = [Math.cos(a), Math.sin(a)];
+            eclat += `M ${f(C[0] + d[0] * 6 * e)} ${f(C[1] + d[1] * 6 * e)} L ${f(C[0] + d[0] * (11 + (k % 2) * 5) * e)} ${f(C[1] + d[1] * (11 + (k % 2) * 5) * e)} `;
+          }
+          // l'ordre : les avant-bras et les paumes ; la tige ; le manche de la tige ; le poing de la tige ;
+          // la gerbe ; la lame, le manche du couteau, son poing
+          out.push(pT.derriere, metal, manche, pT.devant);
+          out.push(h.path(gerbe, A.detail), etoiles, h.path(eclat, A.detail));
+          out.push(pK.derriere, lame, biseau, dos, garde, mancheK, pK.devant);
+          // le geste : la tige tirée vers soi, le long de son axe
+          out.push(h.geste(`M ${f(P(178, 0)[0])} ${f(P(178, 0)[1])} L ${f(P(228, 0)[0])} ${f(P(228, 0)[1])}`));
+          // le point à contrôler : le dos du couteau, qui ne bouge pas
+          out.push(h.controle(C[0], C[1], 10 * e + 3));
+          return coupe('etincelle', z, out.join('\n'));
         },
         renvois: z => {
-          const g = geste(z), { e, T, C, Q } = g;
-          const fl = add(T, mul(u, (L_METAL + L_MANCHE + 60) * e));
+          const g = etincelle(z), { e, G, T, nidC, C } = g;
+          const P = (s, t) => add(add(T, mul(u, s * e)), mul(nT, t * e));
           return [
-            { n: 7, rond: [MX > 0 ? 16 : z.l - 16, g.G - 36], cible: [g.nid.cx + MX * (26 - g.nid.w / 2), g.G - 20], texte: 'nid écharpé : le jour passe' },
-            { n: 8, rond: [MX > 0 ? 16 : z.l - 16, g.G - 92], cible: [g.nid.cx - 10 * MX, g.G - g.nid.H + 9], texte: 'au fond : poudre de tige' },
-            { n: 9, rond: [T[0] + 24 * MX, g.G - 10], cible: [T[0] + 3 * MX, T[1] + 5], texte: 'pointe à un doigt du nid' },
-            { n: 10, rond: [Q(22 - K0, 0)[0] + 34 * MX, Q(22 - K0, 0)[1] + 52], cible: Q(22 - K0, -0.5), texte: 'dos du couteau, immobile' },
-            { n: 11, rond: [fl[0] + 34 * MX, fl[1] + 14], cible: [fl[0] + 5 * MX, fl[1] + 4], texte: 'tirer la tige vers soi' },
-            { n: 12, rond: [MX > 0 ? 16 : z.l - 16, g.G - 142], cible: add(add(C, mul(u, -44 * e)), mul(n, -12 * e)), texte: 'la gerbe tombe dans le creux' },
+            { n: 9, rond: [T[0] - 70 * e, T[1] - 60 * e], cible: add(T, [-3 * e, 1]), texte: 'pointe à un doigt du nid' },
+            { n: 10, rond: [C[0] + 54 * e, C[1] + 34 * e], cible: add(C, [9 * e + 3, 4]), texte: 'cercle : couteau immobile' },
+            { n: 11, rond: [P(212, 30)[0], P(212, 30)[1]], cible: P(208, 1.5), texte: 'flèche : tige tirée vers soi' },
+            { n: 12, rond: [Math.max(16, nidC[0] - 70 * e), nidC[1] - 2], cible: [nidC[0] - 20 * e, nidC[1] - 2], texte: 'la gerbe tombe dans le creux' },
           ];
         },
       },
+      // ── 5. Souffler ────────────────────────────────────────────────────────────────────────────────
       souffler: {
         titre: 'Refermer et souffler',
         dessin: z => {
-          const s = souffler(z), { e, t, B, R } = s, out = [];
-          // la fumée : un filet mince qui monte et s'épaissit en montant
-          const { y0, axe, larg } = s, yT = 8;
-          // trois filets qui partent ensemble du haut de la boule et s'ouvrent en montant
-          const filets = [-1, 0, 1].map(k => {
-            const pts = [];
-            for (let y = y0; y >= yT + Math.abs(k) * 10; y -= 4) {
-              const m = (y0 - y) / (y0 - yT);
-              pts.push([axe(y) + k * larg(y) + k * 4 * m * Math.sin((y0 - y) / 9 + k), y]);
-            }
-            return lisse(pts, false);
-          });
-          out.push(h.path(filets[0] + ' ' + filets[2], A.detail), h.path(filets[1], A.fin));
-          // la boule de fibres, refermée sans serrer, posée dans la paume ; le corps coupé par le bas de
-          // la vue, la boule devant tout (objet)
-          const boule = touffe(B[0], B[1], R, R * 0.94, 8);
-          out.push(`<clipPath id="buste-1340"><rect x="0" y="0" width="${f(z.l)}" height="${f(z.h - 4)}"/></clipPath>`);
-          out.push(`<g clip-path="url(#buste-1340)">`, String(FM.corps(Object.assign({}, s.o, { objet: boule }))), '</g>');
+          const s = souffler(z), { e, B, R, tete } = s, out = [];
+          out.push(main(s).dos);
+          out.push(boule(B[0], B[1], R, 8));
+          out.push(main(s).pouce);
+          out.push(String(tete));
+          // la fumée : un filet mince au-dessus de la boule, qui s'épaissit en montant
+          out.push(fumee(B[0] + R * 0.15, B[1] - R * 0.92, 4, z));
           // le souffle, en continu, de la bouche à la boule
-          const L0 = t.bouche;
-          out.push(h.fleche(`M ${f(L0[0] + 10)} ${f(L0[1] - 4)} L ${f(B[0] - R * 0.42 - 5)} ${f(B[1] - R * 0.91 - 4)}`, A.cache));
-          out.push(h.fleche(`M ${f(L0[0] + 10)} ${f(L0[1] + 3)} L ${f(B[0] - R * 0.71 - 6)} ${f(B[1] - R * 0.71 - 3)}`, A.cache));
-          return out.join('\n');
+          const L0 = tete.bouche;
+          out.push(h.fleche(`M ${f(L0[0] + 8)} ${f(L0[1] - 3)} L ${f(B[0] - R - 8)} ${f(B[1] - R * 0.3)}`, A.cache));
+          out.push(h.fleche(`M ${f(L0[0] + 8)} ${f(L0[1] + 4)} L ${f(B[0] - R - 8)} ${f(B[1] + R * 0.05)}`, A.cache));
+          return coupe('souffler', z, out.join('\n'));
         },
         renvois: z => {
-          const s = souffler(z), { t, B, R } = s, L0 = t.bouche;
+          const s = souffler(z), { B, R, tete } = s, L0 = tete.bouche;
+          const mx = (L0[0] + B[0] - R) / 2;
           return [
-            { n: 13, rond: [B[0] + R + 30, B[1] + 4], cible: [B[0] + R * 0.4, B[1] - R * 0.2], texte: 'en boule, sans serrer' },
-            { n: 15, rond: [(L0[0] + B[0] - R) / 2 - 6, L0[1] - 34], cible: [(L0[0] + B[0] - R) / 2 - 6, L0[1] - 6], texte: 'souffler sans à-coups' },
-            { n: 14, rond: [(L0[0] + B[0] - R) / 2 + 4, L0[1] + 40], cible: [(L0[0] + B[0] - R) / 2 + 4, L0[1] + 5], texte: 'à un avant-bras du visage' },
-            { n: 16, rond: [B[0] + R + 40, 18], cible: [s.axe(34) + s.larg(34) + 3, 34], texte: 'fumée mince, puis épaisse' },
+            { n: 13, rond: [z.l - 14, B[1] + R + 4], cible: [B[0] + R * 0.6, B[1] - R * 0.3], texte: 'en boule, sans serrer' },
+            { n: 14, rond: [mx, z.h - 14], cible: [mx, L0[1] + 12], texte: 'à un avant-bras du visage' },
+            { n: 15, rond: [mx - 6, L0[1] - 40], cible: [mx - 6, L0[1] - 6], texte: 'souffler sans à-coups' },
+            { n: 16, rond: [z.l - 14, 40], cible: [B[0] + R * 0.15 + 14, 22], texte: 'fumée mince, puis épaisse' },
           ];
         },
       },
-      deposer: {
-        titre: 'Glisser le nid dessous',
+      // ── 6. Glisser ─────────────────────────────────────────────────────────────────────────────────
+      glisser: {
+        titre: 'Glisser le nid sous le tipi',
         dessin: z => {
-          const t = tipi(z), out = [];
-          const { cx, yB, rx, ry } = t;
-          // le nid en flammes, glissé sous le bois fin par l'ouverture
-          const nx = cx - 14, ny = yB + 3;
-          const nid = [flamme(nx + 10, ny - 6, 22, 80, -3), flamme(nx - 6, ny - 5, 22, 60, 5), flamme(nx - 20, ny - 3, 14, 38, -4),
-            flamme(nx + 9, ny - 8, 9, 44, 1), flamme(nx - 6, ny - 7, 8, 28, 2), touffe(nx, ny, 24, 11, 17)].join('\n');
-          out.push(dessinTipi(t, nid));
-          // le geste : le nid est poussé sous le bois, par l'ouverture
-          const go = [cx + Math.cos(deg(150)) * rx, yB + Math.sin(deg(150)) * ry];
-          out.push(h.geste(`M ${f(go[0] - 46)} ${f(yB + 12)} L ${f(nx - 30)} ${f(yB + 10)}`));
-          // le 2 à 5 cm, couché à côté
-          const xs = cx + rx + 14;
-          [[0, 0], [12, 1], [6, -10]].forEach(([dx, dy]) => out.push(...baton(xs + dx, yB + 10 + dy, 6, 30, 'moyen')));
-          [[0, 0], [12, 1], [6, -10]].forEach(([dx, dy]) => out.push(...bout(xs + dx, yB + 10 + dy, 6, 'moyen')));
+          const g = glisser(z), out = [];
+          out.push(h.ligne(0, g.yB + 12, z.l, g.yB + 12, A.arete));
+          const dedans = [nid(g.nx, g.yB + 2, 26, 8, 6, 17, { creux: 0.3, poudre: false }), flammes(g.nx + 2, g.yB, 30, g.ht * 0.62)].join('\n');
+          out.push(tipi(g.cx, g.yB, g.rx, g.ry, g.ht, 13, { dedans }).svg);
+          out.push(h.geste(`M ${f(g.nx - 98)} ${f(g.yB + 8)} L ${f(g.nx - 36)} ${f(g.yB + 6)}`));
+          // le bois de 2 à 5 cm, prêt à côté
+          out.push(pile(g.cx + g.rx + 14, g.yB + 12, 4.5, [3, 2], 34, 31).svg);
           return out.join('\n');
         },
         renvois: z => {
-          const t = tipi(z), { cx, yB, rx, ry } = t;
-          const go = [cx + Math.cos(deg(150)) * rx, yB + Math.sin(deg(150)) * ry];
+          const g = glisser(z);
           return [
-            { n: 17, rond: [Math.max(14, go[0] - 30), yB + 30], cible: [Math.max(26, go[0] - 18), yB + 12], texte: 'glisser le nid par l’ouverture' },
-            { n: 18, rond: [z.l - 14, yB - 36], cible: [cx + rx + 34, yB - 6], texte: 'le 2 à 5 cm quand ça crépite' },
+            { n: 17, rond: [g.nx - 90, g.yB - 18], cible: [g.nx - 70, g.yB + 6], texte: 'flèche : par l’ouverture' },
+            { n: 18, rond: [z.l - 16, g.yB - 50], cible: [g.cx + g.rx + 26, g.yB - 8], texte: 'le 2 à 5 cm, quand ça crépite' },
           ];
         },
       },

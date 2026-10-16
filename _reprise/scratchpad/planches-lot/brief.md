@@ -8,6 +8,11 @@ monter, réparer ou manier et qu'aucune planche ne montre. Il a aussi relevé de
 montrent pas l'essentiel. JP a dit go pour les priorités haute et moyenne et pour les planches à refaire.
 Neuf agents se partagent la liste, par chapitres. Tu as la tienne dans ton message de lancement.
 
+## Le cadre obligatoire
+
+Lis d'abord `.claude/skills/planches/references/brief-agent.md` et applique-le : les mains, corps et têtes
+viennent des moteurs validés, jamais d'un dessin à la main ; second regard avant de livrer.
+
 ## À lire avant la première planche
 
 1. `CLAUDE.md`, en entier.
