@@ -170,6 +170,15 @@ tomes** : un peu plus de blanc en bas des pages qui précèdent une planche ; le
     fait toute seule (« le puisard se remplit »). Environ 3 000 « se + verbe » dans les 113 chapitres, à juger :
     ajouter un repérage au script `controle.py` (catégorie « pronominal », à juger), puis le passer chapitre
     par chapitre avec la refonte. Règle ajoutée à CLAUDE.md (« la tournure bizarre ») et au tableau du skill.
+17. **Pas de début de section coupé en bas de page** (JP, 16 octobre, ch. 3, p. 03-18 : « La génératrice qui ne
+    part pas » commence au bas de la colonne, deux lignes d'amorce, et la liste reprend deux pages plus loin
+    après la planche ; « je veux pas en voir, laisser un vide et passer à l'autre page quand c'est de même »).
+    Moteur `design/directions/1-manuel-de-terrain/outils/chapitre.js`, fonction de remplissage (vers la ligne
+    114, « pas de titre ni d'amorce seule en bas de page ») : aujourd'hui, seul un titre tout seul remonte. À
+    faire : quand un titre H3 ou H4 est suivi, dans la colonne, de moins de 6 lignes de sa section (ou d'une
+    seule amorce qui annonce une liste, finie par « : » ou « . » avant la liste), le titre et ce qui le suit
+    passent à la colonne suivante, et la colonne reste avec son vide. Remonter les six tomes ensuite, et
+    surveiller le tome 5 (438 pages sur 440).
 
 Le **ch. 11 (feu de forêt)** est **le chapitre modèle de la refonte, approuvé par JP** (15 octobre au soir :
 « c'est parfait, on se garde ça pour samedi ») : texte, trois séries orange à la longueur de leur temps (1 h,
