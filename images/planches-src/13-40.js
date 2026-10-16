@@ -113,6 +113,143 @@ module.exports = (h) => {
     for (let b = -Math.PI; b < Math.PI; b += 0.02) bas = Math.max(bas, cy + (Rm + rr * Math.cos(b)) * st - rz * Math.sin(b) * ct);
     return { creux: [cx, cy + rz * 0.55 * ct], bas };
   };
+  // ── Le nid : une écuelle de fibres ───────────────────────────────────────────────────────────────────
+  // Une poignée de fibres effilochées, creusée au milieu : une paroi épaisse et arrondie, un bord, un creux au fond
+  // plat de fibres plus fines, un petit tas de poudre au centre. Vue d'en haut à theta. Les brins sont posés sur les
+  // surfaces en 3D, chacun dans une direction au hasard (ils se croisent en tous sens), et on ne garde que ce qui
+  // regarde vers nous. Entre les brins de la paroi, des jours : on y voit le sol au travers (le même gris).
+  // (cx, yG) : le point du sol sous le centre ; Rr : le rayon au bord. Repère : X à droite, D vers nous, Z en haut.
+  let nEcu = 0;
+  const ecuelle = (cx, yG, Rr, graine, { theta = 38, poudre = true, jours = 13, densite = 1, sol = 0, fond = true } = {}) => {
+    const r = gen(graine), th = deg(theta), st = Math.sin(th), ct = Math.cos(th), id = `ecu-${++nEcu}-1340`;
+    const Hb = Rr * 0.6, w = Rr * 0.36, Ri = Rr - w, Rb = Rr * 0.6, zf = Hb * 0.4, Rf = Ri * 0.62, dome = w * 0.28;
+    const pr = (X, D, Z) => [cx + X, yG + D * st - Z * ct];
+    const E = [0, ct, st];
+    const pol = (rad, a, z) => [rad * Math.cos(a), rad * Math.sin(a), z];
+    // les surfaces : (u, v) → point 3D et normale vers l'air
+    const S = {
+      ext: (u, v) => { const t = v * Math.PI / 2, rad = Rb + (Rr - Rb) * Math.cos(t), z = Hb * (1 - Math.sin(t));
+        const dr = -(Rr - Rb) * Math.sin(t), dz = -Hb * Math.cos(t); const nn = Math.hypot(dr, dz);
+        return { p: pol(rad, u, z), n: [Math.cos(u) * (-dz / nn), Math.sin(u) * (-dz / nn), dr / nn] }; },
+      bord: (u, v) => { const b = v * Math.PI, Rm = (Rr + Ri) / 2, rad = Rm + (w / 2) * Math.cos(b), z = Hb + dome * Math.sin(b);
+        const nr = Math.cos(b) / (w / 2), nz = Math.sin(b) / dome, nn = Math.hypot(nr, nz);
+        return { p: pol(rad, u, z), n: [Math.cos(u) * nr / nn, Math.sin(u) * nr / nn, nz / nn] }; },
+      int: (u, v) => { const t = v * Math.PI / 2, rad = Rf + (Ri - Rf) * Math.cos(t), z = zf + (Hb - zf) * (1 - Math.sin(t));
+        const dr = -(Ri - Rf) * Math.sin(t), dz = -(Hb - zf) * Math.cos(t); const nn = Math.hypot(dr, dz);
+        return { p: pol(rad, u, z), n: [Math.cos(u) * (dz / nn), Math.sin(u) * (dz / nn), -dr / nn] }; },
+      fond: (u, v) => ({ p: pol(Rf * Math.sqrt(v), u, zf), n: [0, 0, 1] }),
+    };
+    const vis = q => q.n[0] * E[0] + q.n[1] * E[1] + q.n[2] * E[2] > 0.04;
+    const P = q => pr(...q.p);
+    // un brin : part de (u0, v0), avance dans une direction au hasard (dans le plan de la surface), en courbe douce
+    const larg = { ext: Rr * 1.15, bord: w * 1.6, int: (Ri + Rf) * 0.9, fond: Rf };   // longueur d'arc de v = 0 à 1 (environ)
+    const rayon = { ext: (Rr + Rb) / 2, bord: (Rr + Ri) / 2, int: (Ri + Rf) / 2, fond: Rf * 0.6 };
+    const brins = (nom, nb, Lmin, Lmax, dom) => {
+      let fin = '', moyen = '';
+      for (let i = 0; i < nb; i++) {
+        let u = dom.u0 + r() * (dom.u1 - dom.u0), v = dom.v0 + r() * (dom.v1 - dom.v0), a = r() * Math.PI * 2;
+        const L = Lmin + r() * (Lmax - Lmin), k = (r() - 0.5) * 0.035, n = Math.max(8, Math.round(L / 1.6));
+        const runs = []; let cur = [];
+        for (let j = 0; j <= n; j++) {
+          const q = S[nom](u, Math.min(1, Math.max(0, v)));
+          if (v >= 0 && v <= 1 && vis(q)) cur.push(P(q)); else { if (cur.length > 2) runs.push(cur); cur = []; }
+          const ds = L / n; a += k * ds;
+          u += Math.cos(a) * ds / rayon[nom]; v += Math.sin(a) * ds / larg[nom];
+        }
+        if (cur.length > 2) runs.push(cur);
+        const d = runs.map(c => lisse(c)).join(' ') + ' ';
+        if (r() < 0.22) moyen += d; else fin += d;
+      }
+      return [h.path(fin, A.fin), h.path(moyen, A.detail)].join('\n');
+    };
+    // les contours en plan : une ellipse à la hauteur z, de rayon rad
+    const ell = (rad, z, n = 64) => { const o = []; for (let k = 0; k < n; k++) o.push(pr(...pol(rad, k / n * 2 * Math.PI, z))); return o; };
+    // la silhouette : l'enveloppe des cercles de la paroi extérieure et du bord, colonne par colonne
+    const cercles = [];
+    for (let k = 0; k <= 24; k++) { const t = k / 24 * Math.PI / 2; cercles.push([Rb + (Rr - Rb) * Math.cos(t), Hb * (1 - Math.sin(t))]); }
+    for (let k = 1; k < 12; k++) { const b = k / 12 * Math.PI; cercles.push([(Rr + Ri) / 2 + (w / 2) * Math.cos(b), Hb + dome * Math.sin(b)]); }
+    const haut = [], bas = [];
+    for (let k = 0; k <= 80; k++) {
+      const x = -Rr + 2 * Rr * k / 80; let y0 = 1e9, y1 = -1e9;
+      cercles.forEach(([rad, z]) => { if (Math.abs(x) > rad) return; const e = rad * st * Math.sqrt(1 - (x / rad) ** 2), c = yG - z * ct; y0 = Math.min(y0, c - e); y1 = Math.max(y1, c + e); });
+      if (y0 < 1e8) { haut.push([cx + x, y0]); bas.push([cx + x, y1]); }
+    }
+    const sil = [...haut, ...bas.reverse()];
+    const silD = lisse(sil, true);
+    const ouvD = lisse(ell(Ri, Hb), true), bordD = lisse(ell(Rr, Hb), true), fondD = lisse(ell(Rf, zf), true);
+    const out = [];
+    const cp = (nom, d, ev = '') => `<clipPath id="${id}-${nom}"><path d="${d}" fill="#FFFFFF" stroke="none"${ev}/></clipPath>`;
+    out.push(`<defs>${cp('sil', silD)}${cp('ouv', ouvD)}${cp('paroi', silD + ' ' + bordD, ' clip-rule="evenodd"')}${cp('fond', fondD)}</defs>`);
+    if (sol) out.push(h.ellipse(cx, yG, Rr * sol, Rr * sol * st * 0.9, A.loin));
+    out.push(h.path(silD, A.blanc));
+    const dn = densite;
+    // le creux : la paroi de derrière, vue de l'intérieur, puis le fond de fibres fines, puis la poudre
+    out.push(`<g clip-path="url(#${id}-ouv)">`);
+    out.push(brins('int', Math.round(150 * dn), Rr * 0.2, Rr * 0.5, { u0: Math.PI, u1: 2 * Math.PI, v0: 0, v1: 1 }));
+    if (fond) {
+      out.push(h.path(fondD, A.blanc));
+      out.push(`<g clip-path="url(#${id}-fond)">` + brins('fond', Math.round(70 * dn), Rf * 0.25, Rf * 0.6, { u0: 0, u1: 2 * Math.PI, v0: 0, v1: 1 }).replace(A.detail, A.fin) + '</g>');
+    }
+    const poudreP = pr(0, 0, zf);
+    if (poudre) {
+      // un petit tas net : un dôme bas, piqué de grains
+      const rx = Rf * 0.36, ht = Rf * 0.34;
+      const d = `M ${f(poudreP[0] - rx)} ${f(poudreP[1])} C ${f(poudreP[0] - rx * 0.6)} ${f(poudreP[1] - ht * 1.25)} ${f(poudreP[0] + rx * 0.6)} ${f(poudreP[1] - ht * 1.25)} ${f(poudreP[0] + rx)} ${f(poudreP[1])} `
+        + `Q ${f(poudreP[0])} ${f(poudreP[1] + rx * st * 0.7)} ${f(poudreP[0] - rx)} ${f(poudreP[1])} Z`;
+      out.push(h.path(d, blanc(A.detail)));
+      let g = '';
+      for (let i = 0; i < 26; i++) { const a = r() * Math.PI, d2 = Math.sqrt(r()); g += `<circle cx="${f(poudreP[0] + Math.cos(a) * rx * 0.8 * d2 * (r() < 0.5 ? -1 : 1))}" cy="${f(poudreP[1] - Math.sin(a) * ht * 0.9 * d2 + 0.3)}" r="0.45" ${A.plein}/>`; }
+      out.push(g);
+    }
+    out.push('</g>');
+    // le bord : un anneau bombé, des brins qui le croisent
+    out.push(h.path(`${bordD} ${ouvD}`, A.blanc.replace('stroke="none"', 'stroke="none" fill-rule="evenodd"')));
+    out.push(`<g clip-path="url(#${id}-sil)">` + brins('bord', Math.round(170 * dn), w * 0.7, w * 1.7, { u0: 0, u1: 2 * Math.PI, v0: 0, v1: 1 }) + '</g>');
+    // la paroi de devant
+    out.push(`<g clip-path="url(#${id}-paroi)">` + brins('ext', Math.round(170 * dn), Rr * 0.25, Rr * 0.6, { u0: 0, u1: Math.PI, v0: 0, v1: 1 }) + '</g>');
+    // les jours : des trous entre les brins, où l'on voit le sol (le gris)
+    const trous = [];
+    // un jour : le vide entre quatre brins qui se croisent (deux paires presque parallèles), où l'on voit le sol
+    const trou = (nom, u, v, l) => {
+      const q = S[nom](u, v); if (!vis(q)) return;
+      const c = P(q), a1 = (r() - 0.5) * 1.2, a2 = a1 + (r() < 0.5 ? 1 : -1) * (1.0 + r() * 0.5);
+      const d1 = l * (0.55 + r() * 0.25), d2 = l * (0.45 + r() * 0.25);
+      const u1 = [Math.cos(a1), Math.sin(a1)], u2 = [Math.cos(a2), Math.sin(a2)];
+      const n1 = [-u1[1], u1[0]], n2 = [-u2[1], u2[0]];
+      // les quatre coins : intersections des droites c + s1·d1·n1 (le long de u1) et c + s2·d2·n2 (le long de u2)
+      const X = (s1, s2) => { const p1 = add(c, mul(n1, s1 * d1)), p2 = add(c, mul(n2, s2 * d2));
+        const det = u1[0] * (-u2[1]) - u1[1] * (-u2[0]), t = ((p2[0] - p1[0]) * (-u2[1]) - (p2[1] - p1[1]) * (-u2[0])) / det; return add(p1, mul(u1, t)); };
+      const k = [X(-1, -1), X(-1, 1), X(1, 1), X(1, -1)];
+      out.push(h.chemin(k, A.loin, true));
+      let d = '';
+      [[-1, 0, 1], [1, 2, 3]].forEach(([s1, i0, i1]) => { const A0 = k[i0], B0 = k[i1], m = mul([B0[0] - A0[0], B0[1] - A0[1]], 0.9);
+        d += `M ${f(A0[0] - m[0])} ${f(A0[1] - m[1])} L ${f(B0[0] + m[0] * 0.8)} ${f(B0[1] + m[1] * 0.8)} `; });
+      [[1, 2], [3, 0]].forEach(([i0, i1]) => { const A0 = k[i0], B0 = k[i1], m = mul([B0[0] - A0[0], B0[1] - A0[1]], 0.9);
+        d += `M ${f(A0[0] - m[0] * 0.8)} ${f(A0[1] - m[1] * 0.8)} L ${f(B0[0] + m[0])} ${f(B0[1] + m[1])} `; });
+      out.push(h.path(d, A.fin));
+      trous.push(c);
+    };
+    out.push(`<g clip-path="url(#${id}-sil)">`);
+    for (let i = 0; i < jours; i++) {
+      if (i % 3 === 2) trou('int', Math.PI * (1.2 + 0.6 * ((i * 0.37) % 1)), 0.25 + r() * 0.35, Rr * (0.06 + r() * 0.02));
+      else trou('ext', Math.PI * (0.12 + 0.76 * ((i * 0.618) % 1)), 0.25 + r() * 0.4, Rr * (0.07 + r() * 0.025));
+    }
+    out.push('</g>');
+    // le trait du dessous : quelques longs brins qui suivent la silhouette, pour poser la forme
+    const sb = bas.slice().reverse();
+    let bordure = '';
+    for (let k = 0; k < 4; k++) {
+      const i0 = Math.floor(k * sb.length / 4) + (k ? -2 : 0), i1 = Math.min(sb.length - 1, Math.floor((k + 1) * sb.length / 4) + 2);
+      bordure += lisse(sb.slice(Math.max(0, i0), i1 + 1).map(([x, y], j) => [x, y - 0.4 - 0.5 * Math.sin(j * 0.7 + k)])) + ' ';
+    }
+    const arcs = (pts, nb, dy) => { let d = ''; for (let k = 0; k < nb; k++) { const i0 = Math.floor(k * pts.length / nb), i1 = Math.floor((k + 1) * pts.length / nb) + 2; d += lisse(pts.slice(i0, Math.min(pts.length, i1 + 1)).map(([x, y], j) => [x, y + dy * Math.sin(j * 0.9 + k * 2)])) + ' '; } return d; };
+    const ouvP = ell(Ri * 0.99, Hb + dome * 0.2, 72); ouvP.push(ouvP[0], ouvP[1]);
+    bordure += arcs(ouvP, 7, 0.5);
+    bordure += arcs(haut, 4, 0.4);
+    out.push(h.path(bordure, A.detail));
+    const creux = pr(0, 0, zf), bas0 = Math.max(...bas.map(p => p[1]));
+    return { svg: out.join('\n'), creux, poudre: poudreP, trous, bas: bas0, haut: Math.min(...haut.map(p => p[1])), bordAvant: pr(0, Ri, Hb), Hb, zf, Rf, Ri, ouv: { cy: yG - Hb * ct, rx: Ri, ry: Ri * st } };
+  };
   // La boule refermée : des brins enroulés en grands cercles, comme une pelote lâche ; ky l'écrase (un tas).
   const boule = (cx, cy, R, graine, { ky = 1, densite = 1 } = {}) => {
     const r = gen(graine), out = [h.ellipse(cx, cy, R * 0.97, R * 0.97 * ky, A.blanc)];
@@ -324,14 +461,15 @@ module.exports = (h) => {
       nid: {
         titre: 'Faire le nid',
         dessin: z => {
-          const cx = z.l / 2, cy = z.h * 0.5, R = Math.min(z.l * 0.46, 92), g = nidGeo(cx, cy, R);
-          return [h.ligne(0, g.bas, z.l, g.bas, A.arete), nid(cx, cy, R, 3)].join('\n');
+          const n = ecuelle(z.l / 2, z.h * 0.58, z.l * 0.31, 3, { sol: 1.45 });
+          return n.svg;
         },
         renvois: z => {
-          const cx = z.l / 2, cy = z.h * 0.5, R = Math.min(z.l * 0.46, 92), g = nidGeo(cx, cy, R);
+          const n = ecuelle(z.l / 2, z.h * 0.58, z.l * 0.31, 3, { sol: 1.45 });
+          const j = n.trous.slice().sort((a, b) => a[0] - b[0])[0];
           return [
-            { n: 7, rond: [16, cy - R * 0.62 - 40], cible: [cx - R * 0.68, cy - R * 0.22], texte: 'fibres lâches : le jour passe' },
-            { n: 8, rond: [z.l - 16, cy - R * 0.62 - 40], cible: [g.creux[0] + 3, g.creux[1]], texte: 'poudre de tige dans le creux' },
+            { n: 7, rond: [16, j[1] + 46], cible: j, texte: 'fibres lâches : le jour passe' },
+            { n: 8, rond: [z.l - 16, z.h * 0.18], cible: [n.poudre[0] + 2, n.poudre[1] - 2], texte: 'poudre de tige dans le creux' },
           ];
         },
       },

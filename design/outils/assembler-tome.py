@@ -581,12 +581,125 @@ def annexe_html(tome, chaps, plan, work):
 <p class="ax-note">{note_sommaire}</p>
 <table class="som{' or' if avec_or else ''}"><thead><tr><th>Ch.</th><th>Chapitre</th><th>Lieu</th><th class="r">Page</th>{'<th class="r sor"><span class="sq o"></span>Premières<br>minutes</th>' if avec_or else ''}<th class="r s8"><span class="sq d">8</span>Danger</th><th class="r s9"><span class="sq">9</span>Urgence</th></tr></thead>
 <tbody>{"".join(rangs)}</tbody></table></div>{pied(som_no, cote(som_no))}</section>''')
+    ids = ["a-titre", "a-dedicace", "a-sommaire"]
+    if tome == 1 and "mode1" in plan:
+        pages.extend(mode_emploi(tome, titre_t, plan))
+        ids += ["a-mode1", "a-mode2"]
     out = (tete_html(f"Tome {tome} — pages hors chapitres — Le Grand Livre du Chalet")
            + f'<body class="vA vB vC t{tome} lieu-2">\n<div id="book">\n'
            + "\n".join(pages) + "\n</div>\n" + ANNEXE_JS + "</body>\n</html>\n")
     dst = os.path.join(work, "html", f"annexes-tome-{tome}.html")
     open(dst, "w", encoding="utf-8").write(out)
-    return dst, ["a-titre", "a-dedicace", "a-sommaire"]
+    return dst, ids
+
+MODE_CSS = """
+.md .block{display:flex;flex-direction:column}
+.md h1{font-size:30pt}
+.md-row{display:grid;grid-template-columns:1.85in 1fr;gap:0 16pt;padding:8.5pt 0;border-top:0.6pt solid #C9C9C9}
+.md-row:first-of-type{border-top:none}
+.md-spec{display:flex;flex-direction:column;align-items:flex-start;gap:5pt;font:600 8.5pt/1.2 var(--sans)}
+.md-txt h2{margin:0 0 3pt;font:700 10.5pt/1.2 var(--sans);text-transform:uppercase;letter-spacing:.04em}
+.md-txt p{margin:0 0 4pt;text-indent:0;font:400 9.4pt/12.6pt var(--serif)}
+.md-txt p b{font-weight:700}
+.md .lieu .opts{width:1.85in}
+.md .lieu .opts span{font-size:7.4pt;line-height:15pt}
+.md .lad li{width:13pt;height:13pt;font:600 7.5pt/12pt var(--sans);text-align:center;list-style:none;border:0.75pt solid #000}
+.md .lad li.on{background:var(--tsq);border-color:var(--tsq);color:#fff}
+.md .lad li.d{background:var(--red);border-color:var(--red);color:#fff}
+.md-or{border:1.5pt solid var(--or);background:var(--orp);padding:5pt 6pt;width:1.8in}
+.md-or .otag{font-size:15pt}
+.md-q{border:1.2pt solid var(--tsq);border-radius:8pt;padding:4pt 7pt;font:700 8.5pt/1.2 var(--sans);text-align:center}
+.md-a{border:1pt solid var(--tsq);background:#EEF2F4;padding:4pt 6pt;font:600 8pt/1.25 var(--sans);position:relative;width:1.7in}
+.md-a i{display:block;margin-top:3pt;text-align:right;font:700 7pt/1 var(--sans);font-style:normal}
+.md-a i span{background:var(--tsq);color:#fff;padding:1.5pt 4pt}
+.md-oui{display:inline-block;border-radius:7pt;background:var(--tsq);color:#fff;padding:1pt 7pt;font:700 7.5pt/1.2 var(--sans)}
+.md-ic{display:inline-flex;align-items:center;gap:6pt}
+.md-ic i{display:inline-block;width:15pt;height:15pt;background:center/100% 100% no-repeat}
+.md-ic i.t{background-image:var(--i-minuteur-tsq)} .md-ic i.c{background-image:var(--i-thermo-tsq)} .md-ic i.d{background-image:var(--i-danger-red)}
+.md-tab{display:inline-block;width:20pt;height:26pt;color:#fff;font:700 11pt/26pt var(--sans);text-align:center}
+.md-fn{font:400 8pt/1.2 var(--serif)} .md-fn sup{font-size:6.5pt}
+.md-rep{font-size:12pt}
+"""
+
+def mode_emploi(tome, titre_t, plan):
+    """Les deux pages qui expliquent comment le livre fonctionne, au début du tome 1 (JP, 16 octobre 2026 : « dans les
+    premières pages, je veux une page explicative de comment le livre fonctionne : pictogrammes, chapitres,
+    symboles »). Chaque spécimen est l'élément du livre lui-même, avec ses classes."""
+    cote = lambda n: "recto" if n % 2 else "verso"
+    fl = '<span class="appel"><svg viewBox="0 0 18 10"><path d="M0 3.4 H10.2 V0 L18 5 L10.2 10 V6.6 H0 Z"/></svg><span>planche&nbsp;13-40</span></span>'
+    lad = '<div class="lad"><ol>' + "".join(
+        f'<li class="{"on" if k == 4 else "d" if k == 7 else ""}">{k}</li>' for k in range(1, 9)) + '</ol></div>'
+    rang = lambda spec, titre, txt: (f'<div class="md-row"><div class="md-spec">{spec}</div>'
+                                     f'<div class="md-txt"><h2>{titre}</h2>{txt}</div></div>')
+    p = lambda t: f"<p>{il(t)}</p>"
+    g = [
+        rang('<div class="lieu"><div class="opts"><span>Maison</span><span class="on">Chalet</span><span>Les deux</span></div></div>',
+             "Le lieu",
+             p("Sous le titre de chaque chapitre, la case foncée dit où il se passe. **Maison** : en ville, avec le courant, "
+               "l'aqueduc et l'égout du réseau, et des voisins. **Chalet** : hors réseau, avec le bois, l'eau et le territoire. "
+               "**Les deux** : le chapitre sert aux deux endroits ; ce qui change de l'un à l'autre est dit dans l'étape qui change.")),
+        rang(lad + '<span>13-4</span>',
+             "Les huit sections et les pages",
+             p("Tous les chapitres ont les mêmes huit sections, dans le même ordre : **1** En une ligne, **2** Quand l'utiliser, "
+               "**3** Matériel, **4** Procédure, **5** Points de contrôle, **6** Signes d'échec, **7** Danger, **8** Variante d'urgence. "
+               "En bas de chaque page, la case pleine dit dans quelle section on est. La **7**, en rouge, rassemble les dangers du "
+               "chapitre. La **8** dit comment faire sans courant, sans matériel acheté et sans personne à appeler.")
+             + p("En haut de la page, **13-4** veut dire la page 4 du chapitre 13 ; en bas, le numéro de la page dans le tome, "
+                 "celui du sommaire. Dans le texte, **ch. 25** renvoie au chapitre 25, **section 7** à la section 7 du même "
+                 "chapitre, **étape 12** à l'étape 12 de la procédure.")),
+        rang('<div class="md-or"><h3 class="sub or"><span class="otag">10<small>min</small></span><span class="ot">Il faut un feu tout de suite</span></h3></div>',
+             "Les premières minutes",
+             p("Quand un chapitre a des gestes urgents, sa procédure commence par un encadré orange. **La pastille dit le temps "
+               "qu'on a** pour faire la série, à partir de ce qui la déclenche. Les gestes sont dans l'ordre où on les fait, avec "
+               "leur raison et ce qu'il faut savoir pour les faire. Une marque orange au bord de ces pages permet de les trouver "
+               "livre fermé.")),
+        rang('<div class="md-q">Il fait plus froid que −17,5 °C ?</div><span class="md-oui">Oui</span>'
+             '<div class="md-a">Allumer à la pile ou à la batterie.<i><span>ch. 13, étapes 18 à 21</span></i></div>',
+             "Le logigramme",
+             p("Sur deux pages, juste après le Matériel : des questions auxquelles on répond **oui** ou **non**, qui mènent au "
+               "geste à faire. Chaque case dit l'étape où le geste est expliqué. C'est la version courte ; l'encadré orange et "
+               "la procédure donnent le détail.")),
+    ]
+    d = [
+        rang('<span class="pl-tete" style="border:none;height:auto;margin:0"><span class="pl-num">Planche 13-40</span></span>'
+             + f'<span style="font:400 9.4pt var(--serif)">… le tipi ({fl}) …</span>',
+             "Les planches",
+             p("Une planche montre comment faire ou fabriquer. Son numéro est en rouge en haut de la page, avec son titre. Dans "
+               "le texte, la **flèche rouge** renvoie à la planche : elle pointe à droite quand la planche est en face ou plus "
+               "loin, à gauche quand elle est en face ou sur la page d'avant. La planche est sur la même page que son appel, ou "
+               "sur la suivante. Une **petite planche**, d'une colonne de large, se place dans le paragraphe qui en parle.")),
+        rang('<span class="md-rep"><span class="reps"><span class="rep">3</span></span></span>'
+             '<span style="font:400 9.4pt var(--serif)">(planche 13-40, <span class="reps"><span class="rep">5</span> <span class="rep">6</span></span>)</span>',
+             "Les repères",
+             p("Sur la planche, chaque détail porte un numéro dans un cercle ; la légende, sous le dessin, dit ce qu'on doit y "
+               "voir. Dans le texte, le même cercle renvoie au même détail : **③**, c'est le 3 de la planche.")
+             + p("Ce qui est en **rouge** sur une planche est le geste (une flèche), le point à vérifier (un cercle) ou la zone "
+                 "dangereuse ; il a toujours son numéro. Une vignette titrée **« Sans… »** ou **« Autre façon »** remplace une "
+                 "autre vignette ; sa légende dit au lieu de quel numéro.")),
+        rang('<span class="md-ic"><i class="t"></i>un temps</span><span class="md-ic"><i class="c"></i>une température</span>'
+             '<span class="md-ic"><i class="d"></i>un danger</span>',
+             "Les pictogrammes des étapes",
+             p("Sous le numéro d'une étape : le **minuteur**, un temps à respecter ou à surveiller ; le **thermomètre**, une "
+               "température à atteindre ou à vérifier ; le **triangle rouge**, un danger, expliqué dans la section 7.")),
+        rang('<span class="md-fn">… la peau prend une tache blanche<sup>1</sup> …</span>',
+             "Les notes",
+             p("Un signe qu'il faut savoir reconnaître (une couleur, une odeur, un son, un test) est décrit en note, en bas de "
+               "la même page.")),
+        rang('<span style="display:flex;gap:4pt"><span class="md-tab" style="background:var(--tsq)">13</span>'
+             '<span class="md-tab" style="background:var(--or);color:#000">13</span>'
+             '<span class="md-tab" style="background:var(--red)">13</span></span>',
+             "Le bord des pages",
+             p("Le numéro du chapitre est imprimé au bord de chaque page : livre fermé, on voit où commence chaque chapitre. "
+               "Le bord est **orange** sur les pages des premières minutes, **rouge** sur celles du danger.")),
+    ]
+    n1, n2 = plan["mode1"], plan["mode2"]
+    tete = f'<div class="ax-top"><span>Tome {tome} · {e(titre_t)}</span><span>Le Grand Livre du Chalet</span></div>'
+    return [
+        f'<section class="page {cote(n1)} ax md" id="a-mode1"><style>{MODE_CSS}</style><div class="block">{tete}'
+        f'<h1>Comment le livre fonctionne</h1>{"".join(g)}</div>{pied(n1, cote(n1))}</section>',
+        f'<section class="page {cote(n2)} ax md" id="a-mode2"><div class="block">{tete}'
+        f'{"".join(d)}</div>{pied(n2, cote(n2))}</section>',
+    ]
 
 DEDICACE = ("À Pierre-Alexis et à Louis-Charles,", "pour qu’il y ait toujours quelqu’un qui sait.")
 
@@ -773,6 +886,7 @@ def main():
     en_tete = [c for c in chaps if tome == 1 and c["num"] == "00"]
     # la dédicace en première page, avant la page de titre (JP, 15 octobre 2026)
     ordre = ([("chap", c) for c in en_tete] + [("annexe", "a-dedicace"), ("blanche", "dedicace"), ("annexe", "a-titre"), ("blanche", "titre"), ("annexe", "a-sommaire")]
+             + ([("annexe", "a-mode1"), ("annexe", "a-mode2")] if tome == 1 else [])
              + [("chap", c) for c in chaps if c not in en_tete])
     plan, seq, lignes_plan = {}, [], []
     blanches, blanches_ouv = 0, 0
@@ -795,7 +909,7 @@ def main():
                 seq.append(("blanche", None)); blanches += 1; prochaine += 1
             plan[x[2:]] = prochaine
             seq.append(("annexe", x))
-            lignes_plan.append((str(prochaine), {"a-titre": "Page de titre", "a-dedicace": "Dédicace", "a-sommaire": "Sommaire"}[x], 1))
+            lignes_plan.append((str(prochaine), {"a-titre": "Page de titre", "a-dedicace": "Dédicace", "a-sommaire": "Sommaire", "a-mode1": "Comment le livre fonctionne (1)", "a-mode2": "Comment le livre fonctionne (2)"}[x], 1))
     while len(seq) % MULTIPLE or len(seq) < PAGES_MIN:
         seq.append(("blanche", None)); blanches += 1
     total = len(seq)
