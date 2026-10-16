@@ -192,6 +192,13 @@ tomes** : un peu plus de blanc en bas des pages qui précèdent une planche ; le
     à la taille d'un titre de section ; la ligne du SVG ne s'imprime plus (masquée au montage, ou retirée du
     générateur). Les repères numérotés restent sous le dessin. Montrer une page modèle à JP avant de remonter
     les six tomes. Vérifier l'effet sur la hauteur utile des planches et sur le tome 5 (438 pages sur 440).
+20. **La loi en formule** (JP, 16 octobre, ch. 13, section 3 : « Une braise devient flamme quand l'air lui arrive
+    sans arrêt, d'où le souffle continu » ; « on avait dit plus de phrases de même ; arrête les tournures de phrase
+    de même »). La correction du point 11 (l'organisation du paragraphe) ne suffit pas : chaque phrase part de ce
+    qu'on fait et de ce qu'on voit, garde ses articles, et ne lie jamais par « d'où ». Ligne au tableau du skill ;
+    le script la repère (« d'où », « devient flamme », « part à + verbe »). Au ch. 13, toute la section 3 est à
+    refaire ainsi (« la chaleur part à évaporer l'eau », « une étincelle ne donne qu'un peu de chaleur, assez
+    pour… »).
 
 Le **ch. 11 (feu de forêt)** est **le chapitre modèle de la refonte, approuvé par JP** (15 octobre au soir :
 « c'est parfait, on se garde ça pour samedi ») : texte, trois séries orange à la longueur de leur temps (1 h,

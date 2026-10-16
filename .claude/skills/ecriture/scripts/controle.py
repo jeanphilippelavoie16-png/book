@@ -30,7 +30,13 @@ RELIEF = [r"\b[Cc]'est (?:le|la|les|l'|ce|cela|lui|elle|eux|là)\b[^.;:]{0,80}?\
 # en pronom en tête de phrase, et le complément de lieu glissé entre le verbe et son objet
 TOURNURE = [r"\b(?:Ceux|Celui|Celle|Celles) qui\b",
             r"\b\w+(?:ent|er|e|ez|ons)\s+(?:à|au|aux|dans|sur|sous|devant|derrière|contre|vers)\s+(?:la|le|les|l'|un|une)\s?"
-            r"[\wÀ-ÿ'-]+\s+(?:la|le|les|l'|un|une)\s?(?!plus\b|moins\b|même\b|long\b|temps\b)(?!quel)[\wÀ-ÿ'-]+"]
+            r"[\wÀ-ÿ'-]+\s+(?:la|le|les|l'|un|une)\s?(?!plus\b|moins\b|même\b|long\b|temps\b)(?!quel)[\wÀ-ÿ'-]+",
+            # la loi en formule (JP, 16 octobre 2026, ch. 13 : « Une braise devient flamme quand l'air lui arrive sans
+            # arrêt, d'où le souffle continu » : « on avait dit plus de phrases de même ») : « d'où », la chose qui
+            # « devient » un nom sans article, la chaleur qui « part à » faire quelque chose
+            r"\bd['’]où\b",
+            r"\bdevien(?:t|nent)\s+(?:flamme|feu|braise|cendre|glace|vapeur|eau|poussière)\b",
+            r"\bpar(?:t|tent)\s+à\s+[\wÀ-ÿ]+er\b"]
 # la maxime (JP : « Une décision qui n'a pas été reprise depuis douze heures ne vaut plus » : « inutile ») :
 # la règle redite comme un proverbe, en « Un X qui… ne… plus/rien/pas »
 MAXIME = [r"(?:^|(?<=[.!?:]\s))(?:Un|Une)\s+(?:[\wÀ-ÿ'’-]+\s+){0,4}qui\s+[^.;:]{3,90}?\s(?:ne|n')\s?[\wÀ-ÿ'’-]+(?:\s+[\wÀ-ÿ'’-]+)?\s+(?:plus|rien|pas|jamais|personne)\b[^.]*\.",
