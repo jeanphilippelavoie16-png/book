@@ -265,7 +265,11 @@ tomes** : un peu plus de blanc en bas des pages qui précèdent une planche ; le
     (une colonne, point 25) pour un geste simple. À la passe finale des planches, chaque pleine page à une ou
     deux vues se juge pour la demi-page : elle se lit mieux près de son texte et rend des pages (tome 5 à 438
     sur 440). Les petites et demi-pages ont aussi leur bandeau numéro et titre. Ajouter la règle au skill
-    `planches` et à `images/recommandations-planches.md`. CLAUDE.md (« Les premières minutes ») et le skill sont à jour. À refaire : les chapitres qui
+    `planches` et à `images/recommandations-planches.md`.
+28. **La chose qui pense** (JP, 16 octobre : « les phrases genre "la braise ne sait pas" pis des affaires de
+    même »). Un objet, une matière, le froid ou le corps sujet d'un verbe de l'esprit. Ligne au tableau du skill,
+    ligne au cadre des agents, repérage au script (catégorie « tournure ») : 97 cas à juger dans les 113 chapitres
+    aujourd'hui. Chacun se refait avec la refonte. CLAUDE.md (« Les premières minutes ») et le skill sont à jour. À refaire : les chapitres qui
     ont des séries orange, les modèles 11, 3, 4 et 13 compris (`grep -l "{.orange" chapitres/*.md`).
 
 Le **ch. 11 (feu de forêt)** est **le chapitre modèle de la refonte, approuvé par JP** (15 octobre au soir :

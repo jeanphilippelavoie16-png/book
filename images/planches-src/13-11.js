@@ -33,16 +33,13 @@ module.exports = (h) => {
     const e = 0.6, c = [z.l * 0.46, z.h - 30], D = 100 * e, ep = 9 * e;
     return { e, c, D, ep };
   };
-  // ── Vue 2 : au soleil ──
+  // ── Vue 2 : au soleil ── La lentille vue presque de face, tenue par le bord ; le soleil derrière, en haut à gauche ;
+  // le cône de lumière qui se resserre jusqu'au point, sur la cible posée sur la bûche ; le bras calé sur la bûche.
   const soleil = z => {
-    const e = 0.6, yA = z.h - 18;                        // le dessus de l'appui (une bûche couchée)
-    const cible = [z.l * 0.66, yA - 3];                   // la cible sombre, posée sur la bûche
-    const th = deg(-58);                                  // les rayons viennent d'en haut à gauche
-    const ray = [Math.cos(deg(58)), Math.sin(deg(58))];   // leur direction
-    const foc = 88;                                       // la lentille à 88 unités de la cible [dessin, pas une mesure]
-    const L = add(cible, mul(ray, -foc));                 // le centre de la lentille
-    const ax = [-ray[1], ray[0]];                         // la lentille perpendiculaire aux rayons
-    return { e, yA, cible, ray, L, ax, D: 100 * e, ep: 9 * e, th };
+    const e = 0.45, yA = z.h - 16;
+    const L = [z.l * 0.5, 34], R = 50 * e;
+    const cible = [z.l * 0.76, yA - 3];
+    return { e, yA, L, R, cible };
   };
 
   return {
@@ -58,9 +55,12 @@ module.exports = (h) => {
         dessin: z => {
           const g = polir(z), out = [];
           out.push(lentille(g.c, [1, 0], g.D, g.ep));
-          // la paume à plat sur le dessus du disque
-          const m = F.mainSimple({ x: g.c[0] + 6, y: g.c[1] - g.ep, pose: 'plat', vue: 'pouce', echelle: g.e, angle: 180, ancre: 'prise', avantbras: { longueur: 70 } });
-          out.push(String(m.svg));
+          // la paume à plat sur le dessus du disque : posée pour que ses points de contact touchent le bombé
+          const o = { x: g.c[0] + 4, y: g.c[1], pose: 'plat', vue: 'pouce', echelle: g.e, angle: 180 };
+          const m0 = F.mainSimple({ ...o, avantbras: false });
+          const yc = m0.boite.y1;
+          o.y += (g.c[1] - g.ep * 0.98) - yc;
+          out.push(String(F.mainSimple({ ...o, avantbras: { longueur: 70 } }).svg));
           // le geste : frotter d'un côté puis de l'autre
           out.push(h.geste(`M ${f(g.c[0] - 34)} ${f(g.c[1] + g.ep + 10)} L ${f(g.c[0] + 34)} ${f(g.c[1] + g.ep + 10)}`, { double: true }));
           return coupe('polir', z, out.join('\n'));
@@ -78,35 +78,41 @@ module.exports = (h) => {
         dessin: z => {
           const g = soleil(z), out = [];
           // l'appui : une bûche couchée, vue de côté
-          out.push(h.path(`M -4 ${f(g.yA)} L ${f(z.l + 4)} ${f(g.yA)} L ${f(z.l + 4)} ${f(z.h + 4)} L -4 ${f(z.h + 4)} Z`, A.blanc));
+          out.push(h.path(`M 0 ${f(g.yA)} L ${f(z.l)} ${f(g.yA)} L ${f(z.l)} ${f(z.h)} L 0 ${f(z.h)} Z`, A.blanc));
           out.push(h.ligne(0, g.yA, z.l, g.yA, A.contour));
-          out.push(h.path(`M 0 ${f(g.yA + 8)} L 40 ${f(g.yA + 9)} M 70 ${f(g.yA + 14)} L 130 ${f(g.yA + 13)} M 170 ${f(g.yA + 7)} L 220 ${f(g.yA + 8)} M 250 ${f(g.yA + 16)} L 296 ${f(g.yA + 15)}`, A.fin));
-          // les rayons du soleil, parallèles, jusqu'à la lentille ; puis le cône qui se resserre sur la cible
-          const k = g.D / 2 - 4;
-          [-1, -0.5, 0, 0.5, 1].forEach(s => {
-            const p = add(g.L, mul(g.ax, s * k)), q = add(p, mul(g.ray, -120));
-            out.push(h.ligne(q[0], q[1], p[0], p[1], A.fin));
-            out.push(h.ligne(p[0], p[1], g.cible[0], g.cible[1], A.fin));
+          out.push(h.path(`M 6 ${f(g.yA + 6)} L 52 ${f(g.yA + 7)} M 84 ${f(g.yA + 10)} L 150 ${f(g.yA + 9)} M 190 ${f(g.yA + 5)} L 236 ${f(g.yA + 6)} M 252 ${f(g.yA + 11)} L 290 ${f(g.yA + 10)}`, A.fin));
+          // les rayons du soleil, parallèles, jusqu'à la lentille
+          const ray = [0.62, 0.785];
+          [-0.7, 0, 0.7].forEach(s => {
+            const p = [g.L[0] + s * g.R * 0.75 - g.R * 0.2, g.L[1] + s * g.R * 0.55 - g.R * 0.45], q = [p[0] - ray[0] * 60, p[1] - ray[1] * 60];
+            out.push(h.fleche(`M ${f(q[0])} ${f(q[1])} L ${f(p[0] - ray[0] * 4)} ${f(p[1] - ray[1] * 4)}`, A.fin));
           });
+          // le cône de lumière, des deux bords de la lentille jusqu'au point
+          const tg = (s) => [g.L[0] + s * g.R * 0.7, g.L[1] - g.R * 0.66 * s];
+          [[-1], [1]].forEach(([s]) => { const p = tg(s); out.push(h.ligne(p[0], p[1], g.cible[0], g.cible[1], A.detail)); });
+          out.push(h.ligne(g.L[0], g.L[1] + g.R * 0.9, g.cible[0], g.cible[1], A.fin));
           // la cible : un carré d'amadou carbonisé, noir, posé sur la bûche, et le filet de fumée
-          out.push(h.path(`M ${f(g.cible[0] - 13)} ${f(g.yA)} L ${f(g.cible[0] - 11)} ${f(g.yA - 4)} L ${f(g.cible[0] + 13)} ${f(g.yA - 4)} L ${f(g.cible[0] + 14)} ${f(g.yA)} Z`, A.plein));
-          out.push(h.path(`M ${f(g.cible[0] + 2)} ${f(g.cible[1] - 3)} C ${f(g.cible[0] + 8)} ${f(g.cible[1] - 14)} ${f(g.cible[0] - 3)} ${f(g.cible[1] - 22)} ${f(g.cible[0] + 4)} ${f(g.cible[1] - 34)}`, A.detail));
-          // la main en C autour du bord de la lentille, l'avant-bras posé sur la bûche
-          const lent = lentille(g.L, g.ax, g.D, g.ep);
-          const o = { x: g.L[0], y: g.L[1], pose: 'coupe-c', vue: 'dos', diametre: 100, echelle: g.e, angle: -120 };
-          const m0 = F.mainSimple({ ...o, avantbras: false });
-          o.angle += (Math.atan2(g.ray[1], g.ray[0]) * 180 / Math.PI) - m0.prise.angle;
-          out.push(String(F.mainSimple({ ...o, objet: lent, avantbras: { longueur: 90 } }).svg));
+          out.push(h.path(`M ${f(g.cible[0] - 12)} ${f(g.yA)} L ${f(g.cible[0] - 10)} ${f(g.yA - 4)} L ${f(g.cible[0] + 12)} ${f(g.yA - 4)} L ${f(g.cible[0] + 13)} ${f(g.yA)} Z`, A.plein));
+          out.push(h.path(`M ${f(g.cible[0] + 3)} ${f(g.cible[1] - 3)} C ${f(g.cible[0] + 10)} ${f(g.cible[1] - 12)} ${f(g.cible[0] - 1)} ${f(g.cible[1] - 20)} ${f(g.cible[0] + 6)} ${f(g.cible[1] - 30)}`, A.detail));
+          // la lentille dans la main en C, l'avant-bras qui descend se poser sur la bûche
+          const disque = [h.ellipse(g.L[0], g.L[1], g.R, g.R * 0.92, blanc(A.contour)),
+            h.path(`M ${f(g.L[0] - g.R * 0.55)} ${f(g.L[1] - g.R * 0.35)} Q ${f(g.L[0] - g.R * 0.35)} ${f(g.L[1] - g.R * 0.62)} ${f(g.L[0] - g.R * 0.05)} ${f(g.L[1] - g.R * 0.66)}`, A.detail)].join('\n');
+          const o = { x: g.L[0], y: g.L[1], pose: 'coupe-c', vue: 'pouce', diametre: 100, echelle: g.e, angle: -120, cote: 'gauche' };
+          out.push(String(F.mainSimple({ ...o, objet: disque, avantbras: { longueur: 300, fin: [[0, g.yA], [z.l, g.yA]] } }).svg));
           // le point à contrôler : le plus petit point de lumière, sur la cible
-          out.push(h.controle(g.cible[0], g.cible[1] - 1, 7));
+          out.push(h.controle(g.cible[0], g.cible[1] - 1, 6));
           return coupe('soleil', z, out.join('\n'));
         },
         renvois: z => {
           const g = soleil(z);
           return [
-            { n: 3, rond: [z.l - 16, g.cible[1] - 52], cible: [g.cible[0] + 6, g.cible[1] - 6], texte: 'cercle : le plus petit point' },
-            { n: 4, rond: [z.l - 16, g.yA - 22], cible: [g.cible[0] + 13, g.yA - 3], texte: 'sur une cible sombre et sèche' },
-            { n: 5, rond: [16, g.yA - 40], cible: [26, g.yA - 4], texte: 'mains calées sur un appui' },
+            { n: 3, rond: [z.l - 16, g.yA - 50], cible: [g.cible[0] + 5, g.cible[1] - 5], texte: 'cercle : le plus petit point' },
+            { n: 4, rond: [z.l - 16, g.yA - 20], cible: [g.cible[0] + 11, g.yA - 2], texte: 'sur une cible sombre et sèche' },
+            { n: 5, rond: [16, g.yA - 34], cible: (() => {
+              const m = F.mainSimple({ x: g.L[0], y: g.L[1], pose: 'coupe-c', vue: 'pouce', diametre: 100, echelle: g.e, angle: -120, cote: 'gauche', avantbras: { longueur: 300, fin: [[0, g.yA], [z.l, g.yA]] } });
+              const c = m.coupe || [[g.L[0] + 40, g.yA], [g.L[0] + 60, g.yA]];
+              return [(c[0][0] + c[1][0]) / 2, g.yA - 1];
+            })(), texte: 'mains calées sur un appui' },
           ];
         },
       },

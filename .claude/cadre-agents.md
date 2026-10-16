@@ -50,6 +50,9 @@ La phrase
   dit ce qu'il change à l'étape.
 - [ ] Pas de formule « X passe là où Y ne passe pas » : on dit le mécanisme.
 - [ ] Pas de maxime ni de chute en formule ; pas d'opposition fabriquée ; pas d'image poétique ni de petite scène.
+- [ ] Pas de chose qui pense, sait, veut, attend, pardonne ou se croit (JP : « les phrases genre "la braise ne sait
+  pas" ») : « le froid ne pardonne pas », « la braise ne sait pas », « une maison qui se croit chauffée », « le corps
+  demande ». On dit le fait : ce qui arrive, et ce qu'on fait. Le script les repère (catégorie « tournure »).
 - [ ] La consigne n'est jamais au pronominal (« le jeter », « on doit le cuire », pas « il se jette ») ; « se »
   reste quand la chose le fait toute seule.
 - [ ] La consigne se dit comme une consigne, pas au présent qui décrit ; le sujet se nomme (« les gens qui »,

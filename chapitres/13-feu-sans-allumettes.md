@@ -442,5 +442,5 @@ habiles.
 
 ### Ce qu'on ne peut pas remplacer
 
-**Les allumettes.** On ne les fabrique pas au chalet : la tête et le grattoir demandent des produits
-chimiques (du chlorate, du phosphore rouge) qu'on n'y trouve pas.
+**Les allumettes.** On ne peut pas les fabriquer au chalet : il faut, pour la tête et le grattoir, des
+produits chimiques (du chlorate, du phosphore rouge) qu'on n'y trouve pas.

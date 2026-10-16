@@ -36,7 +36,13 @@ TOURNURE = [r"\b(?:Ceux|Celui|Celle|Celles) qui\b",
             # « devient » un nom sans article, la chaleur qui « part à » faire quelque chose
             r"\bd['’]où\b",
             r"\bdevien(?:t|nent)\s+(?:flamme|feu|braise|cendre|glace|vapeur|eau|poussière)\b",
-            r"\bpar(?:t|tent)\s+à\s+[\wÀ-ÿ]+er\b"]
+            r"\bpar(?:t|tent)\s+à\s+[\wÀ-ÿ]+er\b",
+            # la chose qui pense, sait ou veut (JP, 16 octobre 2026 : « les phrases genre "la braise ne sait pas" ») :
+            # un nom qui n'est pas une personne, sujet d'un verbe de l'esprit
+            r"\b(?:[Ll]a|[Ll]e|[Ll]es|[Ll]')\s?(?!enfants?\b|personnes?\b|adultes?\b|bébés?\b|gens\b|famille\b|blessée?s?\b|"
+            r"voisins?\b|parents?\b|mère\b|père\b|chasseurs?\b|lecteur\b|malade\b|patient\b)[a-zà-ÿ'-]+\s+(?:ne\s+|n')?"
+            r"(?:sait|savent|veut|veulent|pardonne|pardonnent|aime|aiment|déteste|refuse|refusent|demande|demandent|ment|"
+            r"oublie|oublient|se\s+croit|se\s+souvient|attend|attendent|décide|décident|comprend|comprennent|connaît)\b"]
 # la maxime (JP : « Une décision qui n'a pas été reprise depuis douze heures ne vaut plus » : « inutile ») :
 # la règle redite comme un proverbe, en « Un X qui… ne… plus/rien/pas »
 MAXIME = [r"(?:^|(?<=[.!?:]\s))(?:Un|Une)\s+(?:[\wÀ-ÿ'’-]+\s+){0,4}qui\s+[^.;:]{3,90}?\s(?:ne|n')\s?[\wÀ-ÿ'’-]+(?:\s+[\wÀ-ÿ'’-]+)?\s+(?:plus|rien|pas|jamais|personne)\b[^.]*\.",
