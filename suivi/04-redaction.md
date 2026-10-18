@@ -470,10 +470,17 @@ avertissement. Chaque appel tombe sur sa propre page et sa planche sur la page s
 planche p. 13 du chapitre), 04-41 (14, 15), 04-01b (16, 17), 04-42 (18, 19), 04-40 (20, 21). Pour y arriver, les
 sous-sections de la section 7 sont dans cet ordre : sans iode, la masse, la radio, l'électroscope, ventiler, sans
 ruban, sans eau chaude, sans eau fermée, sans sel, sans viande, l'entrée en chicane, ce qui ne se remplace pas. Le
-logigramme tombe en double page p. 2-3, la série orange p. 4 à 7, la photo du lichen p. 9. Les encadrés En plus : les
-rennes au bas de la p. 5, sous l'étape 10 (dans la série orange : au metteur en pages de juger si un encadré « savoir »
-peut s'y poser), l'argile au bas de la p. 20, sous « Ce qui ne se remplace pas ». Aucune page ne porte que des encadrés. **Pour le metteur en pages** : les tableaux des sections 5 et 6 débordent de deux ou trois lignes sur la
-page suivante (« Le tableau continue page suivante ») : à resserrer au montage, après la vérification et l'édition.
+logigramme tombe en double page p. 2-3, la série orange p. 4 à 7, la photo du lichen p. 9. Les quatre encadrés En plus
+trouvent tous un trou : « La baisse du rayonnement » au bas de la p. 5, sous la fin de la deuxième série orange
+(étape 10 ; au metteur en pages de juger si un encadré peut se poser entre deux séries orange), l'estomac, les rennes
+et l'argile empilés au bas de la p. 20, sous « Ce qui ne se remplace pas ». Aucune page ne porte que des encadrés.
+L'encadré de l'argile montre un cadre vide tant que le dessin n'est pas fait.
+
+**Pour le metteur en pages** : les tableaux des sections 5 et 6 débordent chacun de deux rangées sur la page suivante
+(« Le tableau continue page suivante » ; p. 10 à 11 et 11 à 12). Le cadre l'interdit maintenant (JP, 18 octobre : « il
+y a juste une ligne, c'est pas beau ») ; resserré au montage, après la vérification et l'édition, parce que l'éditeur
+changera la longueur des cellules. En resserrant, revérifier que chaque appel de planche de la section 7 reste seul
+sur sa page.
 
 **Pour l'agent des planches (rien redessiné)** :
 - **04-40** : l'ordre des repères ne suit pas l'ordre des gestes. Le texte bâtit d'abord l'entrée (bâches 7, bac 8),
@@ -532,6 +539,10 @@ légende « Il prend le césium du sol » devient « Il prend directement la pou
 | Sous la forêt boréale, terre le plus souvent sableuse | Section 7, eau | `96-sol-podzol-vers-aulne-nodules.md` (AAC : podzols sur matériaux « de texture grossière à moyenne ») |
 | Le ruban entre le pouce et l'index : plus de 5 cm, argileuse ; casse avant 2,5 cm, sableuse ; l'argile colle, le sable gratte | Section 7, eau | `96-csu-texture-et-inoculants.md` (CSU) |
 | Pour la viande, l'eau fait le même travail que la saumure | Section 7, sans sel | Petäjä et coll. (« Soaking in brine or water ») |
+| Rayonnement dix fois plus faible à la 7e heure, cent fois à 2 jours (48 h), environ mille fois à 2 semaines, compté depuis l'explosion ; la pluie fait baisser le rayonnement de la poussière tombée | En plus, « La baisse du rayonnement » | ORNL, chap. 1, p. 12 et 13 (`04-ornl-kearny-extraits-refonte-2026-10-18.md`) |
+| Contenu de l'estomac du caribou mangé par les Inuit (Ungava, Labrador) et d'autres peuples du Nord ; surtout du lichen ; cru ou bouilli, avec le sang ; plus digeste | En plus, « L'estomac du caribou » | `04-estomac-du-caribou-inuit.md` |
+| Mer jusqu'à plus de 120 m au-dessus du niveau actuel ; argile grise sous la tourbe et le sable ; coquillages ; glissements pendant et après de fortes pluies | En plus, « L'argile grise de l'ancienne mer » | `04-mrn-1975-dp304-argile-goldthwait.md` |
+| Viande de renne d'hiver plus chargée que celle d'automne les premières années (lichen) ; abattre au début de l'automne ; quelques semaines en enclos au fourrage propre ; année à champignons | En plus, « Les rennes de Norvège après Tchornobyl » | `04-nrpa-skuterud-rennes-apres-tchornobyl.md` |
 
 Les autres chiffres sont ceux d'avant, déjà sourcés (sections plus haut), redits sans changement.
 
@@ -540,7 +551,9 @@ Les autres chiffres sont ceux d'avant, déjà sourcés (sections plus haut), red
 Quatre dans le texte :
 1. **Étape 26** : la pluie entraîne la poussière du toit et du terrain vers les gouttières, les fossés et les creux.
    Seules des sources de presse sur Fukushima trouvées (« hot spots » dans les fossés et les drains) ; aucune page
-   officielle enregistrée.
+   officielle enregistrée. L'ORNL (chap. 1, p. 13, ajouté pour l'encadré « La baisse du rayonnement ») dit que la
+   pluie lave la poussière des plantes et des maisons vers le sol, mais rien sur l'eau qui l'accumule dans les
+   gouttières, les fossés et les creux : le `[À VÉRIFIER]` reste.
 2. **Section 7, la pompe à carton** : « À chaque coup, le battant pousse de l'air dans la pièce. » Le battant n'a pas
    de clapet ; l'ORNL distingue sa pompe à volets (KAP) du « punkah », panneau sans clapet qui ne pousse pas l'air dans
    un sens. L'éventail de carton, sourcé, est ajouté comme autre façon.
@@ -551,16 +564,32 @@ Quatre dans le texte :
 
 ### Les encadrés « En plus »
 
-Resserrés à **30 à 80 mots** (règle du cadre et du gabarit, ddbbb8d, JP : « moins de texte ») : d'abord 150 et 123 mots,
-maintenant 78 et 78 (sans compter les deux-points).
+Quatre encadrés, dans l'ordre du fichier. Règles du cadre et du gabarit entrées pendant la refonte : **30 à 80 mots**
+(ddbbb8d, JP : « moins de texte ») et **une réserve de 4 à 8** par chapitre (397fddc). Les deux premiers encadrés
+écrits (rennes et argile, d'abord 150 et 123 mots) sont resserrés à 78 mots ; deux encadrés sont ajoutés pour atteindre
+la réserve. Comptes sans les deux-points : 78, 76, 78, 78 mots. Mélange : deux façons d'une nation du Nord (Inuit,
+Sami), un savoir, un petit dessin ; pas de photo (plus bas).
 
-1. **Les rennes de Norvège après Tchornobyl** (78 mots ; la façon d'une nation du Nord, les Sami) : la viande d'hiver
+1. **La baisse du rayonnement** (78 mots ; un savoir) : dix fois plus faible à la 7e heure qu'à la 1re, cent fois au
+   bout de 2 jours, environ mille fois au bout de 2 semaines, compté depuis l'explosion ; la pluie, une fois la
+   poussière tombée, le fait baisser plus vite. Source : ORNL, *Nuclear War Survival Skills*, chap. 1, p. 12 et 13,
+   extraits ajoutés à `04-ornl-kearny-extraits-refonte-2026-10-18.md`. Le chapitre ne le disait pas : l'étape 24 donne
+   seulement les 80 % du premier jour.
+2. **L'estomac du caribou** (76 mots ; la façon d'une nation du Nord, les Inuit) : le contenu de l'estomac, surtout du
+   lichen à demi digéré, mangé cru ou bouilli, souvent mêlé au sang ; pourquoi ça marche (l'estomac de la bête a défait
+   une partie du lichen, qu'on digère alors mieux) ; ce qui la rend dangereuse après des retombées (le lichen porte la
+   poussière, renvoi à l'étape 29, sans chiffre). Sources : `04-estomac-du-caribou-inuit.md` (Kuhnlein et Turner, FAO ;
+   Turner 1894, Koksoagmyut de l'Ungava), deux textes déjà au dossier `sources/autochtones/`. Rien sur les Innus ni les
+   Naskapis dans ces textes : l'encadré ne nomme que les Inuit. Le chapitre ne parlait pas de l'estomac (l'étape 30
+   dit quoi garder et quoi laisser sur la carcasse) : l'encadré ne redit rien.
+3. **Les rennes de Norvège après Tchornobyl** (78 mots ; la façon d'une nation du Nord, les Sami) : la viande d'hiver
    plus chargée que celle de l'automne les premières années, parce que le renne mange du lichen l'hiver (pourquoi ça
    marche) ; abattre au début de l'automne, ou quelques semaines en enclos au fourrage propre ; ce qui la rend
    dangereuse (l'année à champignons). Sortis au resserrement : la mesure des bêtes vivantes, la résistance des Sami
-   (le lien de la femelle et du petit), « du centre de la Norvège ». Sources : `04-nrpa-skuterud-rennes-apres-tchornobyl.md`. Aucune pratique innue sur les retombées
-   n'est documentée au dossier (`sources/autochtones/`).
-2. **L'argile grise de l'ancienne mer** (78 mots ; un petit dessin) : la mer de Goldthwait jusqu'à plus de 120 m
+   (le lien de la femelle et du petit), « du centre de la Norvège ». Sources :
+   `04-nrpa-skuterud-rennes-apres-tchornobyl.md`. Aucune pratique innue sur les retombées n'est documentée au dossier
+   (`sources/autochtones/`).
+4. **L'argile grise de l'ancienne mer** (78 mots ; un petit dessin) : la mer de Goldthwait jusqu'à plus de 120 m
    au-dessus du niveau actuel, l'argile grise sous la tourbe et le sable, les coquillages de mer loin du rivage comme
    repère, où la prendre sans faire glisser le talus. Sortis au resserrement : « plus de 30 m » d'épaisseur, « l'un des
    dépôts les plus répandus », « plusieurs glissements pendant qu'on y creusait », et « les berges des rivières et les
@@ -596,20 +625,20 @@ plantée.
 
 ### controle.py, avant et après
 
-- **Avant** (texte du 15 octobre) : 6 567 mots, 2 tirets (titre et ligne de tome), 18 « § », 1 tournure (« d'où »),
-  34 mots vides, 1 redite.
-- **Après** (refait après le resserrement des encadrés) : 8 342 mots, 2 tirets (titre et ligne de tome, comme aux ch. 10 et 12), 0 « § », 0 mot banni, 0 tournure,
-  0 mise en relief, 0 maxime, 42 mots vides jugés (« tout de suite », « tout le monde », « toute la hauteur », « encore
-  chaud », « porte encore la trichine », « déjà » dans « le sens où il circule déjà » : ils portent le sens),
-  13 redites jugées (renvois, ou deux faits différents : « bâtiment de béton ou de brique » aux étapes 4 et 6, « laver
-  les mains et le visage » à trois gestes différents, « 2,5 cm de terre » pour la décantation et le filtre), 0 ancre
-  introuvable.
+- **Avant** (texte du 15 octobre) : 6 567 mots, 2 tirets (titre et ligne de tome), 18 « § », 1 tournure (« d'où »), 34
+  mots vides, 1 redite.
+- **Après** (refait après le resserrement des encadrés et l'ajout de deux encadrés) : 8 505 mots, 2 tirets (titre et
+  ligne de tome, comme aux ch. 10 et 12), 0 « § », 0 mot banni, 0 tournure, 0 mise en relief, 0 maxime, 42 mots vides
+  jugés (« tout de suite », « tout le monde », « toute la hauteur », « encore chaud », « porte encore la trichine »,
+  « déjà » dans « le sens où il circule déjà » : ils portent le sens), 13 redites jugées (renvois, ou deux faits
+  différents : « bâtiment de béton ou de brique » aux étapes 4 et 6, « laver les mains et le visage » à trois gestes
+  différents, « 2,5 cm de terre » pour la décantation et le filtre), 0 ancre introuvable.
 - **Invariants signalés et justifiés** : 20 L, 20 kg, 200 mm (retirés, sans source) ; « 3 semaines » (devient « une à
   deux semaines », ORNL) ; 3 °C et botulisme (le rappel du poisson fumé sort) ; « iode 131 », « césium 137 » (dits
-  « iode radioactif », « césium radioactif ») ; 250 (page `co`) ; 2012 (Gentilly-2) ; ch. 77 (botulisme) ; ch. 14,
-  ch. 19, ch. 79, ch. 93 (une mention chacun au lieu de deux) ; « 100 % » (les colonnes du tableau des points de
-contrôle disent « toutes les couches », « toutes les sorties ») ; 74 °C, mal de caribou et génératrice (une fois chacun
-  dans leur étape, plus le rappel de l'ancien Danger qui sort) ; 130 mg, 24 h, 48 heures (une mention de moins chacun).
+  « iode radioactif », « césium radioactif ») ; 250 (page `co`) ; 2012 (Gentilly-2) ; ch. 77 (botulisme) ; ch. 14, ch.
+  19, ch. 79, ch. 93 (une mention chacun au lieu de deux) ; « 100 % » (les colonnes du tableau des points de contrôle
+  disent « toutes les couches », « toutes les sorties ») ; 74 °C, mal de caribou et génératrice (une fois chacun dans
+  leur étape, plus le rappel de l'ancien Danger qui sort) ; 130 mg, 24 h, 48 heures (une mention de moins chacun).
 - La hausse du nombre de mots vient de l'orange au complet (la solution d'iode, les contre-indications), des étapes
-  découpées en sous-étapes qui suivent les repères des planches, de l'éventail de carton, de la décantation et du
-  filtre de terre, et des deux encadrés En plus.
+  découpées en sous-étapes qui suivent les repères des planches, de l'éventail de carton, de la décantation et du filtre
+  de terre, et des quatre encadrés En plus (310 mots).

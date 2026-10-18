@@ -561,6 +561,20 @@ dans la maison.
 
 ## En plus
 
+### La baisse du rayonnement
+
+Le rayonnement des retombées baisse très vite au début, puis de plus en plus lentement. En comptant à partir de
+l'explosion, il est dix fois plus faible à la septième heure qu'à la première, cent fois plus faible au bout de 2 jours,
+et environ mille fois plus faible au bout de 2 semaines. Une fois la poussière tombée, la pluie le fait baisser plus
+vite : elle lave la poussière des toits et des plantes vers le sol.
+
+### L'estomac du caribou
+
+Les Inuit de l'Ungava et du Labrador, comme d'autres peuples du Nord, mangeaient le contenu de l'estomac du caribou,
+cru ou bouilli, souvent mêlé au sang de la bête : surtout du lichen à demi digéré. L'estomac du caribou a défait une
+partie du lichen, et on le digère alors mieux. Après des retombées, la façon devient dangereuse : ce lichen porte la
+poussière qu'il a prise (étape 29), et on la mange avec lui.
+
 ### Les rennes de Norvège après Tchornobyl
 
 Après Tchornobyl, en Norvège, la viande de renne d'hiver était beaucoup plus chargée de césium que celle de

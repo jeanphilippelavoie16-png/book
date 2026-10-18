@@ -7,7 +7,7 @@ extraits du 24 septembre : épaisseur de demi-atténuation, filtre de terre, des
 **Consulté le :** 2026-10-18
 **Utilisé dans :** chapitre 04 : étapes 12, 15, 29, 30 ; section 6 (signes de l'irradiation, brûlures de la peau) ;
 section 7 (Sans sous-sol ni caveau, Ventiler la pièce d'abri, Sans eau chaude ni savon, l'électroscope, Sans eau
-fermée).
+fermée) ; encadré En plus « La baisse du rayonnement ».
 
 ---
 
@@ -146,6 +146,27 @@ fermée).
 > (charge) « move the hard plastic rapidly back and forth so that it [...] is rubbed vigorously on the paper » ;
 > « Move the electrostatically charged part of the rubbed plastic rather slowly past the upper end of the
 > charging-wire »
+
+### La baisse du rayonnement des retombées (chap. 1, p. 12 et 13 du livre ; encadré En plus « La baisse du rayonnement »)
+
+> « Fortunately for all living things, the danger from fallout radiation lessens with time. The radioactive decay, as
+> this lessening is called, is rapid at first, then gets slower and slower. »
+
+> « Notice that it takes about seven times as long for the dose rate to decay from 1000 roentgens per hour (1000 R/hr)
+> to 10 R/hr (48 hours) as to decay from 1000 R/hr to 100 R/hr (7 hours). »
+
+> « Fig. 1.2. Decay of the dose rate of radiation from fallout, from the time of the explosion, not from the time of
+> fallout deposition. »
+
+> « If the dose rate 1 hour after an explosion is 1000 R/hr, it would take about 2 weeks for the dose rate to be
+> reduced to 1 R/hr solely as a result of radioactive decay. Weathering effects will reduce the dose rate further, for
+> example, rain can wash fallout particles from plants and houses to lower positions on or closer to the ground.
+> Surrounding objects would reduce the radiation dose from these low-lying particles. »
+
+Lecture : 1 000 à la 1re heure, 100 à la 7e (dix fois moins), 10 à 48 heures (cent fois moins, écrit « au bout de
+2 jours »), 1 au bout d'environ 2 semaines (mille fois moins). Compté depuis l'explosion, pas depuis l'arrivée de la
+poussière : l'encadré le dit. « Une fois la poussière tombée » : la phrase de la source parle de la poussière déjà
+déposée sur les plantes et les maisons.
 
 ---
 
