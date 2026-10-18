@@ -66,7 +66,15 @@ def neige(s, A):
           f'stroke-width="{f(s.u(1.2, 2.4))}" stroke-linecap="round" opacity=".8"/>')
 
 
+def bouffee(A, x, y, sens=1):
+    """Une fumée courte : trois volutes pâles juste au-dessus du tuyau."""
+    for dx, dy, rx, ry, op in [(0, -10, 9, 8, .22), (8 * sens, -24, 12, 9, .16), (20 * sens, -36, 15, 9, .1)]:
+        A(f'<ellipse cx="{x + dx}" cy="{y + dy}" rx="{rx}" ry="{ry}" fill="{K["smoke"]}" opacity="{op}"/>')
+
+
 def fumee(A, x, y, sens=1, haut=180):
+    if haut <= 60:
+        return bouffee(A, x, y, sens)
     d = (f"M{x} {y} C{x - 8 * sens} {y - 30} {x + 22 * sens} {y - 42} {x + 16 * sens} {y - 70} "
          f"C{x + 10 * sens} {y - 98} {x + 50 * sens} {y - 112} {x + 80 * sens} {y - 122} "
          f"C{x + 112 * sens} {y - 132} {x + 140 * sens} {y - haut + 30} {x + 165 * sens} {y - haut}")
@@ -101,7 +109,7 @@ def chalet(s, A, cx, base, larg=110, lumiere=True):
     A(f'<rect x="{f(cx + larg * 0.08)}" y="{f(base - h * 0.8)}" width="{f(larg * 0.14)}" height="{f(h * 0.8)}" fill="{K["iron"]}"/>')
 
 
-def atelier(s, A, x0, base, larg=230, hmur=118):
+def atelier(s, A, x0, base, larg=230, hmur=118, fumee_h=125):
     """L'atelier en planches, le pignon de face, la grande porte double ouverte sur la forge."""
     x1 = x0 + larg
     cx = (x0 + x1) / 2
@@ -131,7 +139,7 @@ def atelier(s, A, x0, base, larg=230, hmur=118):
     ty = base - hmur - (larg * 0.42) * (1 - abs(tx - cx) / (larg / 2))
     A(f'<rect x="{f(tx)}" y="{f(ty - 46)}" width="9" height="50" fill="{K["iron"]}"/>')
     A(f'<path d="M{f(tx - 4)} {f(ty - 50)} h17 l-3 5 h-11z" fill="{K["iron"]}"/>')
-    fumee(A, tx + 4, ty - 52, sens=-1, haut=125)
+    fumee(A, tx + 4, ty - 52, sens=-1, haut=fumee_h)
     etincelles(s, A, tx - 6, tx + 22, ty - 110, ty - 52, 14)
     # la petite fenêtre du grenier
     A(f'<rect x="{f(cx - 11)}" y="{f(faite + 34)}" width="22" height="18" fill="{K["or_"]}"/>')
@@ -274,9 +282,78 @@ def scene_B():
     return "\n".join(s.out)
 
 
+def scene_A2():
+    """Deuxième tour : sans lune (le générateur la montait dans la zone du titre), fumée courte (il en faisait un
+    éclair), l'atelier agrandi pour que la forge et l'enclume aient de la place dans la porte."""
+    s = Scene(6016)
+    A = s.add
+    A(f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}">')
+    ciel(s, A, lune=False)
+    collines(s, A)
+    neige(s, A)
+    chalet(s, A, 120, 700, larg=100)
+    corde_bois(A, 182, 704, n=6, rangs=3)
+    k, cx0, base = 1.22, 430, 846
+    A(f'<g transform="translate({cx0} {base}) scale({k}) translate({-cx0} {-base})">')
+    atelier(s, A, cx0 - 140, base, larg=280, hmur=134, fumee_h=40)
+    A('</g>')
+    raquettes(A, 640, 812)
+    bille_hache(A, 214, 866)
+    traces(s, A, (330, 1000), (cx0, 852))
+    for x, bas, h, l in [(-6, 1000, 440, 104), (58, 985, 250, 62), (110, 975, 140, 38),
+                         (736, 1010, 400, 98), (686, 985, 210, 52), (650, 960, 100, 26)]:
+        epinette_neige(s, x, bas, h, l)
+    A('</svg>')
+    return "\n".join(s.out)
+
+
+def scene_B2():
+    s = Scene(6116)
+    A = s.add
+    A(f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}">')
+    ciel(s, A, lune=False)
+    collines(s, A)
+    neige(s, A)
+    chalet(s, A, 200, 770, larg=200)
+    x0, x1, base = 300, 540, 806
+    A('<defs><radialGradient id="feu2"><stop offset="0" stop-color="#FFF1D6"/><stop offset=".3" stop-color="' + K["or2"] + '"/>'
+      f'<stop offset=".7" stop-color="{K["or_"]}" stop-opacity=".9"/><stop offset="1" stop-color="{K["or_"]}" stop-opacity="0"/></radialGradient></defs>')
+    A(f'<ellipse cx="420" cy="780" rx="160" ry="90" fill="url(#feu2)" opacity=".9"/>')
+    # le toit de l'appentis, épais, sous sa neige, sur trois poteaux
+    A(f'<polygon points="{x0},{base - 132} {x1 + 16},{base - 96} {x1 + 16},{base - 80} {x0},{base - 114}" fill="{K["wall"]}"/>')
+    A(f'<path d="M{x0 - 2} {base - 136} L{x1 + 20} {base - 100} q-6 7 -12 2 q-5 6 -11 0 L{x0} {base - 126}z" fill="{K["snow"]}"/>')
+    for px in (x0 + 110, x1 - 2, x1 + 10):
+        A(f'<rect x="{px}" y="{base - 92 + (px - x0) * 0.0}" width="7" height="94" fill="{K["wall"]}"/>')
+    # la forge (foyer en pierre), son feu et son tuyau court
+    A(f'<path d="M320 {base} v-42 h64 v42z" fill="{K["iron"]}"/>')
+    A(f'<path d="M327 {base - 42} q16 -20 25 -5 q9 -20 22 2z" fill="#FFF1D6"/>')
+    A(f'<rect x="347" y="{base - 168}" width="10" height="44" fill="{K["iron"]}"/>')
+    fumee(A, 352, base - 170, sens=1, haut=40)
+    # l'enclume et la silhouette qui frappe, plus grande, de profil, sans visage
+    ax = 446
+    A(f'<path d="M{ax - 11} {base} v-30 h22 v30z" fill="{K["iron"]}"/>')
+    A(f'<path d="M{ax - 34} {base - 48} q12 -1 18 -4 h34 v9 h-5 q-4 0 -5 4 l-2 5 h4 l3 5 h-28 l3 -5 h4 l-2 -5 q-2 -4 -7 -4 q-10 -1 -17 -5z" fill="{K["iron"]}"/>')
+    px, py = 492, base
+    A(f'<path d="M{px - 10} {py} l5 -50 h12 l5 50 h-7 l-4 -38 l-4 38z" fill="{K["iron"]}"/>')
+    A(f'<path d="M{px - 12} {py - 48} q2 -36 11 -42 h5 q10 5 11 42z" fill="{K["iron"]}"/>')
+    A(f'<circle cx="{px - 1}" cy="{py - 100}" r="10" fill="{K["iron"]}"/>')
+    A(f'<path d="M{px - 8} {py - 84} l-22 -20 l-6 -14" stroke="{K["iron"]}" stroke-width="6" stroke-linecap="round" fill="none"/>')
+    A(f'<path d="M{px - 42} {py - 124} l13 -5 l4 10 l-13 5z" fill="{K["iron"]}"/>')
+    A(f'<path d="M{px - 10} {py - 76} l-32 18" stroke="{K["iron"]}" stroke-width="6" stroke-linecap="round"/>')
+    etincelles(s, A, ax - 50, ax + 30, base - 100, base - 44, 46, monte=False)
+    corde_bois(A, 576, 806, n=8, rangs=4)
+    bille_hache(A, 640, 860)
+    traces(s, A, (420, 1000), (460, 816))
+    for x, bas, h, l in [(-6, 1000, 440, 104), (58, 985, 250, 62), (110, 975, 140, 38),
+                         (736, 1010, 400, 98), (686, 985, 210, 52), (700, 770, 100, 26)]:
+        epinette_neige(s, x, bas, h, l)
+    A('</svg>')
+    return "\n".join(s.out)
+
+
 if __name__ == "__main__":
     v = sys.argv[1] if len(sys.argv) > 1 else "A"
-    svg = scene_A() if v == "A" else scene_B()
+    svg = {"A": scene_A, "B": scene_B, "A2": scene_A2, "B2": scene_B2}[v]()
     out = os.path.join(ICI, f"ref-atelier-{v}.svg")
     with open(out, "w", encoding="utf-8") as fh:
         fh.write(svg + "\n")

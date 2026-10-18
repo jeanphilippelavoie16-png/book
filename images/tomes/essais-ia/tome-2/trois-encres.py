@@ -38,9 +38,11 @@ l2 = lum.copy()
 l2[papier | orange] = np.median(lum[~papier & ~orange])       # le blanc et l'orange ne font pas d'ombre autour d'eux
 flou = np.asarray(Image.fromarray((l2 * 255).astype(np.uint8)).filter(ImageFilter.GaussianBlur(24))).astype(float) / 255.0
 double = ((lum < 0.115) | (lum - flou < -0.05)) & ~papier & ~orange
-t = (~double).astype(float)[..., None]
-res = DOUBLE * (1 - t) + ENCRE * t
-res[papier] = PAPIER
-res[orange] = ORANGE
+# la carte des encres (0 encre deux fois, 1 encre, 2 papier, 3 orange), nettoyée des grains isolés par un filtre de mode
+carte = np.where(double, 0, 1).astype(np.uint8)
+carte[papier] = 2
+carte[orange] = 3
+carte = np.asarray(Image.fromarray(carte * 60).filter(ImageFilter.ModeFilter(7))).astype(int) // 60
+res = np.array([DOUBLE, ENCRE, PAPIER, ORANGE])[carte]
 Image.fromarray(res.astype(np.uint8)).resize((w, h), Image.LANCZOS).save(out)
-print(out, (w, h), f"papier {papier.mean():.0%}, orange {orange.mean():.1%}")
+print(out, (w, h), f"papier {(carte == 2).mean():.0%}, orange {(carte == 3).mean():.1%}")

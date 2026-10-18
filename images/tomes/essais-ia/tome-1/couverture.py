@@ -106,15 +106,16 @@ def nb_chapitres():
 def sous_titre(k):
     f = os.path.join(ROOT, 'design', 'outils', 'assembler-tome.py')
     m = re.search(r'^SOUS_TITRES\s*=\s*(\{.*?\})\s*$', open(f, encoding='utf-8').read(), re.M | re.S)
-    return ast.literal_eval(m.group(1)).get(k, '').replace("'", '’') if m else ''
+    st = ast.literal_eval(m.group(1)).get(k, '').replace("'", '’') if m else ''
+    return st.replace('feu de forêt', 'feu\u00a0de\u00a0forêt')        # le groupe ne se coupe pas en fin de ligne
 
 
 esc = lambda s: html.escape(s, quote=False)
 
 
 def typo(s):
-    """Espaces insécables du français : fine devant : ; ! ?, insécable dans « 100 jours »."""
-    return esc(s).replace(' :', '&#8239;:').replace(' ;', '&#8239;;')
+    """Espace fine insécable devant le deux-points et le point-virgule ; les insécables du texte restent."""
+    return esc(s).replace(' :', '&#8239;:').replace(' ;', '&#8239;;').replace('\u00a0', '&nbsp;')
 
 
 def serie(k):
@@ -195,15 +196,15 @@ body{-webkit-print-color-adjust:exact;print-color-adjust:exact}
 .hd{display:flex;justify-content:space-between;align-items:flex-end;padding-bottom:11px;border-bottom:1px solid var(--fort);
   font-weight:600;font-size:16px;line-height:1;letter-spacing:.24em;text-transform:uppercase;white-space:nowrap}
 .back .hd{border-bottom:2.5pt solid var(--encre);padding-bottom:8px;font-weight:700}
-.back .txt{margin-top:0.3in;font:400 12.5pt/17.5pt var(--serif);max-width:6.5in}
+.back .txt{margin-top:0.3in;font:400 13pt/18pt var(--serif);max-width:6.6in}
 .back .txt p{margin:0 0 8pt}
 .back .txt strong{font-weight:700}
 .back h2{margin:0 0 6pt;padding-bottom:5pt;border-bottom:1.25pt solid var(--encre);font-weight:700;font-size:11pt;line-height:1;
   letter-spacing:.16em;text-transform:uppercase}
 .back h2 .nc{text-transform:none}
-.back .toc{margin-top:0.24in}
-.back .toc ol{margin:0;padding:0;list-style:none;columns:2;column-gap:0.36in;font-weight:500;font-size:12pt;line-height:13pt}
-.back .toc li{display:flex;gap:8pt;break-inside:avoid;padding:3.6pt 0 3.4pt;border-bottom:0.6pt solid var(--filet)}
+.back .toc{margin-top:0.28in}
+.back .toc ol{margin:0;padding:0;list-style:none;columns:2;column-gap:0.36in;font-weight:500;font-size:12.5pt;line-height:13.5pt}
+.back .toc li{display:flex;gap:8pt;break-inside:avoid;padding:4.6pt 0 4.3pt;border-bottom:0.6pt solid var(--filet)}
 .back .toc li b{width:24pt;flex:none;font-weight:700}
 .back .bas{margin-top:auto}
 .back .auteurs h2{margin-bottom:9pt}
@@ -230,17 +231,18 @@ body{-webkit-print-color-adjust:exact;print-color-adjust:exact}
 .spine .vt span{font-weight:600;font-size:9.5pt;line-height:1;letter-spacing:.26em;text-transform:uppercase;white-space:nowrap}
 
 /* ---------- devant : A, l'affiche (mêmes cotes que la page de titre, en px de la page rognée) ---------- */
+.front .hd{border-bottom:1px solid #4A6476}
 .hd-a{position:absolute;left:56px;right:56px;top:52px}
 .haut{position:absolute;left:50px;right:56px;top:104px;display:flex;flex-direction:column}
 .titre{margin:0;font-weight:800;line-height:.84;letter-spacing:.01em;text-transform:uppercase;white-space:nowrap}
 .haut .titre{font-size:236px}
-.sous{margin:26px 0 0 8px;max-width:380px;font-weight:500;font-size:23px;line-height:1.28;letter-spacing:.01em;color:#B9C7D1}
+.sous{margin:26px 0 0 8px;max-width:400px;text-wrap:balance;font-weight:500;font-size:23px;line-height:1.28;letter-spacing:.01em;color:#B9C7D1}
 
 /* ---------- devant : B, le gros chiffre ---------- */
 .hd-b{position:absolute;left:56px;right:56px;top:50px;font-weight:700;font-size:25px;letter-spacing:.2em;padding-bottom:14px}
 .hd-b span+span{font-weight:600;font-size:16px;letter-spacing:.22em}
 .duo{position:absolute;left:40px;right:56px;top:0;height:3.92in;display:flex;align-items:flex-end;gap:26px}
-.duo .num{flex:none;font-weight:800;font-size:410px;line-height:.74;letter-spacing:-.02em;color:var(--accent)}
+.duo .num{flex:none;font-weight:800;font-size:372px;line-height:.74;letter-spacing:-.02em;color:var(--accent)}
 .duo .titre{flex:1;min-width:0;font-size:196px;line-height:.8}
 
 /* ---------- devant : C, centré ---------- */
@@ -297,7 +299,8 @@ SCRIPT = r'''<script>
           out.push([b.left-o.left,top-o.top,b.right-o.left,bot-o.top,fs]);
         }
       }
-      sheet.querySelectorAll('img,.ph,.serie i,.rule,.hd,h2,.tome i').forEach(e=>{
+      // les blocs de la quatrième entiers : une étoile entre deux lignes du sommaire se lit comme une puce
+      sheet.querySelectorAll('img,.ph,.serie i,.rule,.hd,h2,.tome i,.back .txt,.back .toc,.back .auteurs,.back .serie').forEach(e=>{
         const b=e.getBoundingClientRect(); out.push([b.left-o.left,b.top-o.top,b.right-o.left,b.bottom-o.top,0]);
       });
       const p=document.createElement('pre'); p.id='mesure'; p.textContent=JSON.stringify(out); document.body.appendChild(p);
@@ -395,10 +398,15 @@ def nettoyer(can, rects, ppp):
     H, W = can.shape[:2]
     k = 0.0104 * ppp                      # 1 px CSS en px de l'image
     zone = np.zeros((H, W), bool)
+    po = 96                               # px CSS par pouce
     for x0, y0, x1, y1, fs in rects:
-        mg = min(max(0.3 * fs, 0.06 * 96), 0.16 * 96) if fs else 0.05 * 96
-        a, b = max(0, int((y0 - mg) * k)), min(H, int(np.ceil((y1 + mg) * k)))
-        c, d = max(0, int((x0 - mg) * k)), min(W, int(np.ceil((x1 + mg) * k)))
+        # marge plus large sur la ligne du texte que dessus et dessous : une étoile au bout d'un mot se lit comme un point
+        if fs:
+            mx, my = min(max(1.0 * fs, .15 * po), .3 * po), min(max(.5 * fs, .12 * po), .2 * po)
+        else:
+            mx = my = .12 * po
+        a, b = max(0, int((y0 - my) * k)), min(H, int(np.ceil((y1 + my) * k)))
+        c, d = max(0, int((x0 - mx) * k)), min(W, int(np.ceil((x1 + mx) * k)))
         zone[a:b, c:d] = True
     if not zone.any():
         return can, 0
