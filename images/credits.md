@@ -1112,5 +1112,5 @@ Linogravures générées par le réseau AI Horde à partir d'une image de dépar
 | --- | --- | --- | --- |
 | `images/tomes/titre-tome-1.jpg` | Juggernaut XL (img2img 0,75) | CreativeML Open RAIL++-M | étoiles contre les lettres retirées |
 | `images/tomes/titre-tome-3.jpg` | Juggernaut XL (img2img 0,65) | CreativeML Open RAIL++-M | reflet du soleil regravé en tirets ; canot remonté |
-| `images/tomes/titre-tome-4.jpg` | Flux.1-Schnell (img2img 0,55 sur la candidate 1 nettoyée, `t4-r4-flux-lacnet-55-0`) | Apache 2.0 | soleil en aplat sans halo ; reflet regravé en morceaux ; ombres de la neige en aplat ; chaloupe remplacée par un canot ; fumée en ruban ; poissons variés ; sapins miniatures retirés (`retouche_lac.py`) |
+| `images/tomes/titre-tome-4.jpg` | Flux.1-Schnell (img2img 0,55 sur la candidate 1 nettoyée, `t4-r4-flux-lacnet-55-0`) | Apache 2.0 | soleil en aplat sans halo ; reflet regravé en morceaux ; ombres de la neige en aplat ; chaloupe retirée ; fumée en ruban ; poissons variés ; sapins miniatures retirés ; neige allégée (première neige) (`retouche_lac.py`) |
 | `images/tomes/titre-tome-6.jpg` | Flux.1-Schnell (img2img 0,88, `t6-fA88-1`) | Apache 2.0 | croissant de lune déplacé hors du titre ; intérieur de l'atelier redessiné (`retouche_atelier.py`) |

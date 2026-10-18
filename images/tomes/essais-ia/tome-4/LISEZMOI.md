@@ -10,6 +10,12 @@ que le lac, qui penche vers les poissons ; les seize poissons identiques devienn
 penchés et de ficelles différents ; les deux sapins miniatures sur la neige partent. Résultat :
 `images/tomes/titre-tome-4.jpg` ; un aplat papier passe sous le bloc du bas (`TP_BAS_FOND`).
 
+Deuxième passe, même jour (JP : « enlève le mini canot, et mets moins d'accumulation de neige dehors, vu que le lac
+est pas gelé ») : le canot part, sans rien à sa place ; c'est la première neige. Sur les épinettes et le toit du
+chalet, il ne reste que la crête du dessus de chaque paquet de neige ; au sol, la terre se voit par plaques étirées
+en largeur, aux bords cassés en traits comme à la gouge, surtout le long de la rive et autour du feu, avec quelques
+brins d'herbe sèche.
+
 Générées le 18 octobre 2026 par AI Horde (gratuit, sans clé) avec `../horde-img2img.py`, 768 × 960, dans le style
 de `images/tomes/titre-tome-1.jpg` : linogravure, trois encres (bleu ardoise foncé #25414F, papier blanc cassé,
 orange #EE7219 pour le feu et la lumière), grand ciel calme en haut pour le titre, collines basses, scène dans la

@@ -77,7 +77,7 @@ trait(pts, 11, 3, FUMEE)
 pts = [(384 - 40 * u + 5 * math.sin(3.0 + 9 * u), ra + (rb - ra) * 0.5 - 14 - 70 * u) for u in np.linspace(0, 1, 30)]
 trait(pts, 5, 1.2, FUMEE)
 
-# 4. la chaloupe part ; un canot de profil sur la neige, l'intérieur éclairé par le feu, son ombre en aplat
+# 4. la chaloupe part, sans rien à sa place (JP : « enlève le mini canot »)
 zone_c = Image.new('L', im.size, 0)
 ImageDraw.Draw(zone_c).polygon(P([(433, 707), (468, 702), (540, 724), (604, 737), (618, 800), (612, 884), (442, 884), (434, 840)]), fill=255)
 vieux = (np.asarray(zone_c) > 0) & (np.abs(ORIG - np.array(PAPIER)).sum(2) > 60)      # la chaloupe, ses rames, son ombre
@@ -86,25 +86,6 @@ im = Image.fromarray(arr.astype(np.uint8)); d = ImageDraw.Draw(im)
 for _ in range(9):                                            # la neige garde ses entailles d'ombre
     x, yv = R.uniform(430, 590), R.uniform(745, 875); L = R.uniform(8, 18)
     trait([(x, yv), (x + L / 2, yv - 0.8), (x + L, yv)], 0.4, 1.8, OMBRE)
-BOIS = (171, 108, 77)
-x0, y0, x1, y1 = 442, 806, 606, 790                           # les deux bouts du canot, au-dessus du bloc des tomes
-def base(t): return x0 + (x1 - x0) * t, y0 + (y1 - y0) * t
-def plat_bord(t):                                             # le bord proche : bas au milieu, relevé en pointe aux bouts
-    bx, by = base(t); u = abs(2 * t - 1); return bx, by - 20 - 26 * u ** 3.5
-def plat_bord_loin(t):                                        # le bord du fond, vu un peu d'en haut
-    bx, by = plat_bord(t); return bx, by - 7 * (1 - abs(2 * t - 1) ** 2.4)
-def fond(t):                                                  # la coque : un peu de bascule, qui remonte rejoindre la pointe
-    bx, by = base(t); u = abs(2 * t - 1); return bx, by - 45 * u ** 6
-ts = np.linspace(0, 1, 90)
-tsb = np.linspace(0.08, 0.92, 60)
-d.polygon(P([(base(t)[0] + 12, base(t)[1] + 5) for t in tsb] + [(base(t)[0] - 3, base(t)[1] + 0.5) for t in tsb[::-1]]), fill=OMBRE)
-d.polygon(P([plat_bord_loin(t) for t in ts] + [plat_bord(t) for t in ts[::-1]]), fill=BOIS)            # l'intérieur, au feu
-for t in (0.33, 0.5, 0.67):                                                                          # les traverses
-    (ax, ay), (bx_, by_) = plat_bord(t), plat_bord_loin(t); trait([(ax - 1.5, ay), (bx_ + 1.5, by_)], 2.2, 1.6, ENCRE)
-d.polygon(P([plat_bord(t) for t in ts] + [fond(t) for t in ts[::-1]]), fill=ENCRE)                     # la coque
-trait([(plat_bord(t)[0], plat_bord(t)[1] + 3.2) for t in np.linspace(0.06, 0.94, 50)], 1.0, 1.0, PAPIER)  # le plat-bord, à la gouge
-for a_, b_, dec in ((0.2, 0.45, 10), (0.55, 0.82, 10), (0.3, 0.7, 16)):                              # les bordages
-    trait([(plat_bord(t)[0], plat_bord(t)[1] + dec + 2 * math.sin(math.pi * t)) for t in np.linspace(a_, b_, 20)], 0.3, 1.2, PAPIER)
 
 # 5. les deux sapins miniatures posés sur la neige partent
 for b in ((26, 868, 64, 930), (486, 868, 514, 906), (424, 722, 435, 735)):      # et un reste de la poignée de la chaloupe
@@ -150,5 +131,35 @@ sat = arr.max(2) - arr.min(2); L = arr.mean(2)
 gris = sous & (sat < 45)
 arr[gris & (L >= 185)] = PAPIER
 arr[gris & (L >= 85) & (L < 185)] = OMBRE
+
+# 8. moins de neige (JP : « mets moins d'accumulation de neige dehors, vu que le lac est pas gelé ») : c'est la
+# première neige. Sur les épinettes et le toit, il ne reste que la crête du dessus de chaque paquet ; au sol, la terre
+# se voit par plaques, surtout le long de la rive et autour du feu, avec des herbes sèches.
+blanc = arr.min(2) > 165
+t = max(2, int(2.6 * K))
+au_dessus = np.zeros_like(blanc); au_dessus[t:] = blanc[:-t]
+arbres = (xx > 515) & (yy > 90) & (yy < 688)
+arr[arbres & blanc & au_dessus] = ENCRE
+TERRE = (52, 46, 40); HERBE = (150, 118, 76)
+rng = np.random.default_rng(7)
+def bruit(px, py):                                            # un bruit doux, étiré en largeur comme le sol vu de biais
+    g = ndimage.gaussian_filter(rng.standard_normal((int(H / py) + 2, int(W / px) + 2)), 1.0)
+    return np.asarray(Image.fromarray(((g - g.min()) / (np.ptp(g) or 1) * 255).astype(np.uint8)).resize((W, H), Image.BICUBIC)) / 255
+neige = (blanc | (np.abs(arr - np.array(OMBRE)).sum(2) < 30)) & (yy > 600)
+lab, _ = ndimage.label(neige)
+sol = np.isin(lab, [v for v in np.unique(lab[-int(6 * K):, :]) if v])  # la neige du sol : ce qui touche le bas de l'image
+haut_sol = np.where(sol.any(0), sol.argmax(0), H)
+prof = (np.arange(H)[:, None] - haut_sol[None, :]) / K                   # la distance à la rive, en px de l'image 768
+champ = bruit(26 * K, 7 * K) * 0.75 + bruit(10 * K, 3 * K) * 0.25
+champ += 0.035 * np.sin(2 * np.pi * yy / 3.4)                             # les bords cassés en traits, comme à la gouge
+seuil = 0.57 - 0.22 * np.exp(-prof / 16)                                  # la terre se voit surtout le long de la rive
+seuil -= 0.28 * np.exp(-((xx - 372) ** 2 + ((yy - 805) * 1.8) ** 2) / (2 * 46 ** 2))   # la neige a fondu autour du feu
+nu = sol & neige & (champ > seuil)
+arr[nu] = TERRE
+for y, x in zip(*np.nonzero(nu & (rng.random((H, W)) < 0.0016 / K))):   # des brins d'herbe sèche
+    L = int(rng.uniform(3, 7) * K); dx = rng.uniform(-0.35, 0.35)
+    for j in range(L):
+        X = int(x + dx * j); Y = y - j
+        if 0 <= X < W - int(K) and 0 <= Y < H and nu[Y, X]: arr[Y, X:X + max(1, int(0.8 * K))] = HERBE
 Image.fromarray(arr.astype(np.uint8)).save(dst, quality=95)
 print('ok', dst)

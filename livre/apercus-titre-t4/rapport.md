@@ -1,7 +1,7 @@
 # Tome 4 · De la bête au garde-manger — rapport d'assemblage
 
-- **Produit le :** 2026-10-18 20:30, par `design/outils/assembler-tome.py 4 --chapitres 61 --hors-ligne --sortie livre/apercus-titre-t4`
-- **Fichier :** `livre/tome-4/interieur.pdf` — 20 pages, 3.1 Mo
+- **Produit le :** 2026-10-18 20:33, par `design/outils/assembler-tome.py 4 --chapitres 61 --hors-ligne --sortie livre/apercus-titre-t4`
+- **Fichier :** `livre/tome-4/interieur.pdf` — 20 pages, 3.3 Mo
 - **Ouvertures :** au recto ou au verso (--verso)
 - **Placements :** design/epreuves-livre/placements.json, design/epreuves-livre/placements-tome-4.json
 - **Exigences de Blurb :** `sources/blurb-specifications.md` (relevées le 27 septembre 2026)
@@ -28,7 +28,7 @@ Aucune page de crédits (JP, 28 septembre 2026) : copie hors du livre dans `livr
 | Nombre de pages | pair, de 20 à 440 (papier Standard) | 20 | oui |
 | Page 1 | à droite | ouverture du chapitre 00 | oui |
 | Polices incorporées | toutes | 19 police(s), 0 non incorporée(s) | oui |
-| Taille du fichier | 2 Go au plus | 3.1 Mo | oui |
+| Taille du fichier | 2 Go au plus | 3.3 Mo | oui |
 | Marques d'imprimeur | aucune | aucune | oui |
 | Couleur | CMJN ou sRVB, sans ton direct | sRVB (Edge) | oui |
 | Noir du texte | 100 % K | noir sRVB (0, 0, 0) : la conversion est faite chez Blurb | à juger sur épreuve |
