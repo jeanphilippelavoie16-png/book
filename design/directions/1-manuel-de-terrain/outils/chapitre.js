@@ -85,7 +85,10 @@ function nextPage(){
   // logigramme) ; l'assembleur évite ce cas en choisissant le côté d'ouverture du chapitre
   if(pendingSpreads.length && P.el.classList.contains('recto')){
     // la page de droite qui attend le logigramme prend les encadrés « En plus » plutôt que de rester blanche
+    // une page qui ne porte que des encadrés compte comme blanche (JP : « un encadré vert qui occupe une page tout seul,
+    // c'est inutile ») : l'assembleur choisit alors le côté d'ouverture qui l'évite
     if(!fillExtras(P)){ P.blanche = true; WARN.push(P.el.id + ' : page blanche avant le logigramme'); }
+    else WARN.push(P.el.id + ' : page blanche avant le logigramme, remplie d\'encadrés seulement');
     P = mkPage('text');
   }
   // une double page commence toujours sur une page de gauche : posée dès que la page qui vient est un verso ;

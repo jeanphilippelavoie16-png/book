@@ -1037,3 +1037,7 @@ renvoi à l'étape 23. Invariants : rien n'a disparu.
 - « Le dessin montre un corps mort deux fois : … Ses repères suivent les gestes de l'étape 13. » devient « Le corps mort de l'étape 13, vu de dessus avant de remplir le trou, puis en coupe une fois la neige tassée, avec le cordon qui remonte en biais vers la tente. Les repères suivent l'ordre des gestes. »
 - « bouche l'entrée » devient « bouche l'entrée d'air ».
 - Le reste des trois encadrés passe tel quel, relu phrase par phrase.
+
+### Encadrés resserrés (JP, 18 octobre 2026 : « moins de texte »)
+
+Les trois encadrés passent de 92, 95 et 31 mots à 55, 58 et 18 environ. Rien d'ajouté : la literie garde le geste, le pourquoi et les deux mises en garde ; les conifères gardent un trait par arbre (aiguilles plates et odorantes ; courtes, 8 à 15 mm, grisâtres ; écailles en éventail) ; le corps mort devient une légende.

@@ -589,25 +589,20 @@ section 9), mais pas de tente.
 
 ### Pendre la literie aux murs de la tente, le jour
 
-Pendant la journée, les Innus pendent les couvertures, les petits matelas et les vêtements aux murs de leurs tentes
-d'hiver. La toile n'isole pas (étape 15) : la literie pendue contre elle garde la chaleur dans la tente, et on
-s'assoit sur le sapinage, adossé aux couvertures. Sous une toile chauffée au poêle, il ne faut rien pendre là où on
-ne peut pas garder la main sur la toile (étape 23), ni devant l'entrée d'air basse : une couverture qui descend
-jusqu'au plancher bouche l'entrée d'air, et le poêle n'a plus d'air (étape 16).
+Le jour, les Innus pendent les couvertures, les petits matelas et les vêtements aux murs de la tente d'hiver : la
+literie garde la chaleur que la toile laisse passer (étape 15). Ne rien pendre là où on ne peut pas garder la main sur
+la toile (étape 23), ni devant l'entrée d'air basse : le poêle manquerait d'air (étape 16).
 
 ### Reconnaître le sapin, l'épinette noire et le cèdre
 
 ![De gauche à droite : le sapin baumier, l'épinette noire, le cèdre](images/extras/12-trois-coniferes.jpg)
 
-Les aiguilles du sapin baumier sont disposées sur deux rangs, de chaque côté du rameau. Elles sont vert foncé et
-brillantes sur le dessus, avec des bandes de points blancs sur le dessous, et elles sentent fort quand on les
-froisse. L'épinette noire a des aiguilles courtes, de 8 à 15 mm, d'un vert grisâtre mat, serrées le long du rameau,
-et ses rameaux sont couverts de poils brunâtres. Le cèdre (étape 101) n'a pas d'aiguilles : ses feuilles sont de
-petites écailles serrées sur des rameaux aplatis, étalés en éventail. Il vire au bronze l'hiver.
+Le sapin baumier a des aiguilles plates, sur deux rangs, avec des bandes blanches dessous ; froissées, elles sentent
+fort. L'épinette noire a des aiguilles courtes, de 8 à 15 mm, d'un vert grisâtre, serrées le long du rameau. Le cèdre
+n'a pas d'aiguilles : de petites écailles sur des rameaux plats, en éventail (étape 101).
 
 ### Le corps mort
 
 ![](images/extras/12-corps-mort.png)
 
-Le corps mort de l'étape 13, vu de dessus avant de remplir le trou, puis en coupe une fois la neige tassée, avec le
-cordon qui remonte en biais vers la tente. Les repères suivent l'ordre des gestes.
+L'amarrage de l'étape 13 : vu de dessus avant de remplir le trou, puis en coupe une fois la neige tassée.

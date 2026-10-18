@@ -57,7 +57,7 @@ flèche, flocon).
 | 25 | `trichine` | Ours et phoque : ni sel, ni fumée, ni gel | La larve est dans le muscle ; seule la chaleur à cœur la tue | Une tête d'ours, un flocon et un grain de sel barrés | 1 3 4 6 7 8 9 13 16 17 18 19 20 21 22 23 35 39 40 41 42 44 46 52 55 56 61 62 64 65 66 67 68 69 70 71 72 73 74 77 78 80 81 83 102 112 |
 | 26 | `abats` | Abats qui ne se mangent pas | Foie et reins de cervidés (cadmium), cerveau, moelle et ganglions de cervidés (prion), foie d'ours et de phoque (vitamine A) | Un foie barré | 4 6 7 9 16 18 19 20 21 22 23 35 36 38 39 40 41 42 44 46 56 61 62 63 64 65 66 68 69 71 72 73 74 77 78 96 102 |
 | 27 | `botulisme` | Botulisme | Sans air, la toxine se fait sans rien changer à l'aliment ; celle du poisson, dès 3 °C | Un bocal fermé, une tête de poisson | 1 3 4 5 6 7 8 9 16 17 18 21 22 23 29 33 34 35 39 40 41 46 49 52 54 56 57 58 59 60 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 86 87 91 92 93 97 |
-| 28 | `zone-de-danger` | Les heures entre 4 et 60 °C | Les heures s'additionnent ; certaines toxines restent après la cuisson | Un thermomètre entre deux traits | 1 18 60 64 66 68 69 71 72 73 74 81 |
+| 28 | `zone-de-danger` | Les heures entre 4 et 60 °C | Les heures s'additionnent ; certaines toxines restent après la cuisson | Un thermomètre entre deux traits | 1 4 18 60 64 66 68 69 71 72 73 74 81 |
 | 29 | `mal-de-caribou` | Viande maigre seule | La viande sans gras tue en quelques semaines, le ventre plein, les enfants d'abord | Un morceau maigre et une goutte de gras | 4 8 9 16 19 20 21 35 36 38 39 40 41 42 44 45 46 47 48 49 51 52 53 58 59 61 62 63 64 66 71 73 74 75 76 81 92 93 101 103 112 |
 | 30 | `thuyone` | Le cèdre ne se boit pas | La thuyone du cèdre donne des convulsions : sapin baumier ou épinette | Un rameau en écailles, une tasse barrée | 9 12 13 20 21 32 33 34 35 36 38 39 42 78 92 94 95 98 103 110 112 |
 | 31 | `plante` | Plante, graine ou coquillage qui empoisonne | Ni le goût ni la cuisson ne protègent : identifier à l'espèce, jamais goûter | Une feuille et une baie, un point d'exclamation | 20 33 34 41 59 88 91 92 93 94 95 96 97 98 100 |
@@ -868,6 +868,10 @@ là » : il suffit d'y poser le pictogramme et de couper la redite.
 - `cuisson`, `trichine`, `abats`, `botulisme`, `mal-de-caribou` (rappels) : le trempage enlève du césium, pas
   les parasites ; un ours trempé reste trichiné → étape 28 (« Cuire à l'eau, jeter le bouillon, et monter à
   74 °C »), déjà là. Le reste des rappels saute : il ne sert à aucune étape du chapitre.
+- **Posés à la refonte du 18 octobre 2026** (numérotation nouvelle du chapitre) : `poison` aux étapes 12 et 16 ;
+  `co` à l'étape 18 ; `generatrice` à l'étape 19 ; `abats` et `mal-de-caribou` à l'étape 30 ; `zone-de-danger` à
+  l'étape 31 (le trempage de 2 jours, tenu entre 0 et 4 °C) ; `cuisson` et `trichine` à l'étape 32. `botulisme` n'est
+  posé nulle part : aucune étape ne fume ni ne garde de poisson (fiche `suivi/04-redaction.md`).
 
 **Ch. 05, Le stock permanent du chalet** (chapitre de référence, tableaux).
 - `co` + `generatrice` : avertisseur dans chaque chambre où on dort porte fermée, à plus de 2 m d'un appareil,

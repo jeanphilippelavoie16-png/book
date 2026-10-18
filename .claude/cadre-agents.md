@@ -48,11 +48,12 @@ L'urgence
   Un couloir de lien qui passe d'une page à l'autre se tient à 8,7 po, et les boîtes de droite commencent alors à 8,9 po.
 - [ ] **Les encadrés « En plus »** (JP, 18 octobre 2026 : « fais un mixte et mets des encadrés pour montrer que c'est
   de l'extra, en vert pâle ») : une section non numérotée `## En plus` à la fin du chapitre, un `### Titre` par encadré,
-  40 à 150 mots ; un mélange de trois sortes : la façon des Innus (ou d'une autre nation du Nord, avec pourquoi elle
+  **30 à 80 mots** (JP, même jour : « moins de texte ») ; un mélange de trois sortes : la façon des Innus (ou d'une autre nation du Nord, avec pourquoi elle
   marche et ce qui la rend dangereuse si on change ses conditions), une photo pour reconnaître (ligne
   `![légende](images/extras/…)`, licence dans `images/credits.md`), un petit dessin (`images/extras/`, jamais nommé
   `planche-NN-…`). Ce qui est bon à savoir sans être nécessaire au geste ; rien de ce que le chapitre dit déjà. Le
-  moteur les pose dans les trous des pages ; un encadré qui ne trouve pas de trou ne s'imprime pas.
+  moteur les pose dans les trous des pages ; un encadré qui ne trouve pas de trou ne s'imprime pas, et une page qui ne
+  porterait que des encadrés compte comme blanche (JP : « un encadré qui occupe une page tout seul, c'est inutile »).
 - [ ] Le logigramme vient après le Matériel ; il ne redit aucun avertissement ; ses boîtes sont des phrases
   complètes (pas d'étiquette en raccourci).
 

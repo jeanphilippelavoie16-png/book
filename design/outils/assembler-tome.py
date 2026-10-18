@@ -729,10 +729,12 @@ def mode_emploi(tome, titre_t, plan):
                "dangers** qui suivent celle-ci.")),
         # les encadrés « En plus » (JP, 18 octobre 2026 : « ajoute-le dans la page d'explication comme pour le orange et
         # le rouge ») : chapitre.css, .extra
-        rang('<span style="display:block;padding:5pt 7pt;background:#E6EFE0;border-left:2.5pt solid #4E7A45">'
-             '<span style="display:flex;align-items:baseline;gap:6pt"><b style="font:700 7.4pt var(--sans);letter-spacing:.1em;'
-             'text-transform:uppercase;color:#fff;background:#4E7A45;padding:2pt 4pt 1.6pt;white-space:nowrap">En plus</b>'
-             '<b style="font:700 10pt var(--sans);color:#2F4A2B">La façon des Innus</b></span></span>',
+        rang('<span style="display:flex;align-items:center;gap:7pt;padding:6pt 9pt;background:#EDF4E7;border:0.9pt solid #B9D0AC;border-radius:10pt">'
+             '<span style="flex:none;width:20pt;height:20pt;border-radius:50%;background:#4E7A45;display:flex;align-items:center;justify-content:center">'
+             '<svg viewBox="0 0 24 24" style="width:12pt;height:12pt;fill:#fff"><path d="M20 3c-6 1-11 5-13 11l-2 7 2-1c1-3 2-4 4-5 4-1 7-4 9-12zM9 15c1-3 4-6 8-8-2 3-4 6-8 8z"/></svg></span>'
+             '<span style="display:flex;flex-direction:column;gap:1.5pt"><b style="font:700 6.2pt var(--sans);letter-spacing:.14em;'
+             'text-transform:uppercase;color:#5E8B54;white-space:nowrap">En plus</b>'
+             '<b style="font:700 9.6pt var(--sans);color:#2F4A2B">La façon des Innus</b></span></span>',
              "En plus",
              p("Un encadré **vert pâle**, marqué **En plus**, ajoute ce qui est bon à savoir sans être nécessaire au geste : "
                "une façon de faire des Innus, une photo pour reconnaître un arbre ou une plante, un petit dessin. Il remplit "

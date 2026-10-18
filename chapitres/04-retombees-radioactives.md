@@ -42,12 +42,12 @@ Se mettre à couvert à l'éclair, entrer sous terre ou dans le béton avant que
 
 ### Un éclair aveuglant {.orange 30 s}
 
-1. **Dans un bâtiment, s'éloigner des fenêtres et se coucher à l'abri, tout de suite.** Le souffle de la
- détonation suit l'éclair : au-delà de quelques kilomètres, il avance d'environ 1,6 km toutes les 5 secondes, soit
- 3 secondes par kilomètre, et il met de quelques secondes à plus de 30 secondes à arriver. Il casse les vitres à
- des kilomètres, et le verre blesse les gens qui sont derrière. Ce délai pousse à aller voir à la fenêtre, et c'est
- là qu'on se blesse. Se coucher derrière un mur intérieur, un comptoir ou un meuble lourd, et y rester jusqu'au
- passage du souffle.
+1. **Dans un bâtiment, s'éloigner des fenêtres et se coucher à l'abri, tout de suite.** Le souffle de la détonation
+ suit l'éclair : au-delà de quelques kilomètres, il avance d'environ 1,6 km toutes les 5 secondes, soit 3 secondes par
+ kilomètre, et il met de quelques secondes à plus de 30 secondes à arriver. Il casse les vitres à des kilomètres, et le
+ verre blesse les gens qui sont derrière. Pendant ce délai, on a le réflexe d'aller voir à la fenêtre, et on s'y
+ blesse. Se coucher derrière un mur intérieur, un comptoir ou un meuble lourd, et y rester jusqu'au passage du
+ souffle.
 2. **Dehors, se coucher à plat ventre, le visage contre le sol et les mains sous le corps**, derrière un muret, une
  butte ou une auto si l'un d'eux est à un pas. La chaleur de l'éclair brûle la peau tournée vers lui, et le souffle
  projette des débris : à plat ventre, on leur présente le moins de peau possible. Rester couché jusqu'au passage du
@@ -61,7 +61,7 @@ Se mettre à couvert à l'éclair, entrer sous terre ou dans le béton avant que
 ### Le souffle est passé, ou l'alerte est donnée {.orange 10 min}
 
 4. **Entrer dans le bâtiment le plus solide qu'on peut atteindre en quelques minutes.** Après une détonation, les
- retombées mettent 10 minutes ou plus à arriver, et ce sont les premières heures qui comptent : la poussière
+ retombées mettent 10 minutes ou plus à arriver, et les premières heures comptent le plus : la poussière
  radioactive donne plus de la moitié de son rayonnement dans la première heure. Ce rayonnement vient de la poussière
  qui se pose sur le sol et sur les toits ; la terre, le béton et la brique l'arrêtent.
  - Choisir, dans l'ordre : un sous-sol ; le centre d'un gros bâtiment de béton ou de brique ; un stationnement
@@ -98,8 +98,8 @@ Se mettre à couvert à l'éclair, entrer sous terre ou dans le béton avant que
  gardant les coupures couvertes. Prendre du shampooing, sans revitalisant : le revitalisant fait coller aux
  cheveux la poussière qu'on veut rincer. L'eau du robinet sert au lavage même quand on ne la boit plus.
  - Sans eau courante : prendre un linge propre mouillé, une serviette de papier humide ou une lingette, et laver
- d'abord les mains et le visage ; se moucher, puis essuyer les paupières, les cils et les oreilles. Pas de
- lingette ménagère sur la peau ; le désinfectant à mains n'enlève rien. Mettre les linges usés dans le sac des
+ d'abord les mains et le visage ; se moucher, puis essuyer les paupières, les cils et les oreilles. Ne pas utiliser
+ de lingette ménagère sur la peau ; le désinfectant à mains n'enlève rien. Mettre les linges usés dans le sac des
  vêtements du dehors.
  - Remettre des vêtements pris dans un tiroir ou une garde-robe fermés. Sans vêtements propres, secouer ou
  brosser les siens à l'entrée, les remettre, et se relaver les mains et le visage.
@@ -171,9 +171,9 @@ Se mettre à couvert à l'éclair, entrer sous terre ou dans le béton avant que
  linge humide au bas des portes, un bouchon dans les prises d'air. Le bouchage arrête la poussière, pas le
  rayonnement : contre lui, il faut la masse autour de la pièce (étape 8).
  - Ne jamais boucher la pièce où brûle un appareil : le poêle à bois doit garder son air.
- - Au bout de quelques heures, enlever le plastique et le ruban, et aérer la pièce : une pièce fermée hermétiquement plus
- de quelques heures devient irrespirable. Pour faire entrer l'air sans la poussière : section 7, « Ventiler la
- pièce d'abri ».
+ - Au bout de quelques heures, enlever le plastique et le ruban, et aérer la pièce : une pièce fermée
+ hermétiquement plus de quelques heures devient irrespirable. Pour faire entrer l'air sans la poussière : section 7,
+ « Ventiler la pièce d'abri ».
  - Les premiers signes du monoxyde (le mal de tête, la nausée, l'envie de dormir) ressemblent à ceux de
  l'irradiation, et on reste couché au lieu d'agir. Si l'avertisseur sonne, ou si plusieurs personnes ont mal à la
  tête ou envie de dormir en même temps : arrêter ce qui brûle, ouvrir la pièce d'abri sur le reste de la maison et
@@ -230,8 +230,8 @@ Se mettre à couvert à l'éclair, entrer sous terre ou dans le béton avant que
  dans les os, comme le calcium. Dans un territoire qui a reçu des retombées : pas de bouillon d'os long, pas d'os
  broyé dans la viande hachée (ch. 72). Le foie, les reins et la thyroïde d'une bête qui a mangé ou bu de la
  poussière radioactive en concentrent ; on ne mange de toute façon jamais le foie ni les reins d'un cervidé, qui
- accumulent le cadmium (ch. 22). Garder le gras : la viande maigre presque seule mène au mal de caribou, qui tue en quelques
- semaines (ch. 19).
+ accumulent le cadmium (ch. 22). Garder le gras : la viande maigre presque seule mène au mal de caribou, qui tue en
+ quelques semaines (ch. 19).
 31. {!zone-de-danger} **Faire tremper la viande avant de la cuire, au froid.**
  - Couper la viande en morceaux d'environ 200 g, et les faire tremper 2 jours dans une saumure ou dans l'eau : il
  reste moins de la moitié du césium. Deux trempages de 2 jours, en changeant le bain, en laissent environ 20 % ;
@@ -242,9 +242,9 @@ Se mettre à couvert à l'éclair, entrer sous terre ou dans le béton avant que
  se multiplient pendant les deux jours de trempage.
  - Compter le sel de ce bain en grammes par litre d'eau, pas en pourcentage du poids de la viande comme dans les
  salaisons (ch. 67, ch. 69) : 50 g par litre, quelle que soit la quantité de viande. Prendre du sel ordinaire.
-32. {!cuisson} {!trichine} **Cuire à l'eau, jeter le bouillon, et monter à cœur à 74 °C pour le gibier, à 70 °C
- tenu 1 minute pour le poisson, au thermomètre.** Jeter le liquide de cuisson enlève environ la moitié du césium, et
- cuire à l'eau en enlève plus que griller. On y perd du gras et du goût. Le trempage et la cuisson à l'eau enlèvent
+32. {!cuisson} {!trichine} **Cuire à l'eau, jeter le bouillon, et monter à cœur à 74 °C pour le gibier, à 70 °C tenu 1
+ minute pour le poisson, au thermomètre.** Jeter le liquide de cuisson enlève environ la moitié du césium, et cuire à
+ l'eau en enlève plus que griller. On y perd du goût, et du gras (étape 30). Le trempage et la cuisson à l'eau enlèvent
  du césium, pas les parasites ni les bactéries : un ours (ch. 52) ou un phoque (ch. 56) trempé porte encore la
  trichine, et seule la chaleur à cœur la tue.
 
@@ -252,7 +252,7 @@ Se mettre à couvert à l'éclair, entrer sous terre ou dans le béton avant que
 
 33. **Acheter les comprimés d'iode (ch. 00b) et les ranger dans la trousse qui part avec la famille.** Les garder
  entre 15 et 30 °C, à l'abri de la lumière et de l'humidité : une maison chauffée tient cette plage, un chalet
- laissé froid l'hiver ne la tient pas. Une seule boîte, celle de la trousse, qu'on trouve dans le noir.
+ laissé froid l'hiver ne la tient pas. Garder une seule boîte, celle de la trousse, pour la trouver dans le noir.
 34. **Choisir d'avance la pièce d'abri de la maison et celle du chalet** : celle qui a le plus de masse autour
  d'elle et le moins de murs extérieurs (étape 8). Au chalet sans caveau, un mur de bois rond arrête peu : prévoir de
  quoi empiler la masse (section 7).
@@ -289,7 +289,7 @@ Se mettre à couvert à l'éclair, entrer sous terre ou dans le béton avant que
 | Poussière ou traces de pas poudreuses dans la pièce d'abri | La poussière est entrée : une ouverture mal bouchée, ou quelqu'un est entré habillé | Laver les surfaces à l'eau, sans balayer. Refaire le déshabillage à l'entrée. Passer dans la pièce voisine la mieux protégée |
 | La peau démange et brûle là où la poussière est restée, puis, quelques jours plus tard, elle brûle et change de couleur | La poussière fraîche est restée des dizaines de minutes sur la peau | Laver tout de suite à l'eau et au savon ; sans eau, brosser et frotter la poussière. La brûlure est peu profonde, mais elle met des semaines à guérir : la garder propre |
 | Nausées, vomissements, mal de tête et étourdissements quelques heures après l'exposition | Le début d'une irradiation, ou la peur, qui donne les mêmes signes | Rester à l'abri, faire boire et se reposer. Ces premiers signes passent en un ou deux jours. S'ils commencent dans la demi-heure, la dose reçue peut être mortelle. Soigner une personne irradiée n'expose pas celle qui la soigne |
-| Une à deux semaines plus tard, les cheveux tombent en touffes, de petites taches de sang apparaissent sous la peau ou dans la bouche, ou une diarrhée commence | Forte dose reçue, pas forcément mortelle : la vie est en jeu pendant un à deux mois | Repos, nourriture complète, propreté. Garder les antibiotiques pour cette période, où les infections prennent facilement (ch. 32, ch. 35) |
+| Une à deux semaines plus tard, les cheveux tombent en touffes, de petites taches de sang apparaissent sous la peau ou dans la bouche, ou une diarrhée commence | Forte dose reçue, pas forcément mortelle : la vie est en jeu pendant un à deux mois | Faire reposer la personne, lui donner des repas complets et garder propre l'endroit où elle est couchée. Garder les antibiotiques pour cette période, où les infections prennent facilement (ch. 32, ch. 35) |
 | Alarme de CO, mal de tête, somnolence ou confusion chez plusieurs personnes à la fois | Monoxyde de carbone dans l'abri fermé | Faire l'étape 18 tout de suite |
 | Poêle qui tire mal, fumée qui revient dans l'abri | Le bouchage a coupé l'air du poêle | Déboucher une entrée d'air du côté opposé au vent |
 | Un enfant a reçu deux doses d'iode en moins de 24 heures | Trop d'iode | Ne pas le faire vomir. Sauter la dose suivante, et écrire l'heure et la quantité sur le cadre de porte |
@@ -303,7 +303,7 @@ Se mettre à couvert à l'éclair, entrer sous terre ou dans le béton avant que
 
 ### Sans comprimés d'iode
 
-Rien ne remplace le comprimé (étape 12). Ce qui reste, c'est de ne pas avaler d'iode radioactif. Pendant au moins
+Rien ne remplace le comprimé (étape 12). Il reste à ne pas avaler d'iode radioactif. Pendant au moins
 six à huit semaines, ne pas boire de lait frais, d'eau de surface ni de neige fondue, et ne pas manger les
 légumes-feuilles du jardin : l'iode radioactif perd la moitié de sa force tous les 8 jours, et au bout de six
 semaines, il en reste moins de 3 %. Rester à l'intérieur, portes et fenêtres fermées, réduit beaucoup l'iode qu'on
@@ -430,13 +430,14 @@ elle, il n'y a qu'un compteur.
 Une pièce d'abri pleine de monde devient chaude et humide en quelques heures, l'été surtout, et l'air s'y vicie : il
 faut faire entrer l'air du dehors même pendant les retombées, en arrêtant la poussière à l'entrée.
 
-**La pompe à carton** : on la monte dans la porte de la pièce d'abri, et on la fait marcher à la main, sans électricité (planche 04-01b).
+**La pompe à carton** : on la monte dans la porte de la pièce d'abri, et on la fait marcher à la main, sans
+électricité (planche 04-01b).
 
 - Couper un panneau de carton fort ou de contreplaqué mince (repère 1), et le suspendre par le haut, dans la porte,
  à une charnière de ruban à conduits ou de toile (repère 2).
 - Clouer des lattes en butée derrière le battant (repère 3), et nouer une corde au bas du battant (repère 4).
-- Une personne assise tire la corde d'un coup, puis la relâche (repère 5) : relâché, le battant retombe contre la
- latte (repère 6). À chaque coup, le battant pousse de l'air dans la pièce [À VÉRIFIER].
+- Assis, tirer la corde d'un coup, puis la relâcher (repère 5) : relâché, le battant retombe contre la latte
+ (repère 6). À chaque coup, le battant pousse de l'air dans la pièce [À VÉRIFIER].
 - Vu de dessus : la latte est clouée sur le cadre de la porte (repère 7), le battant a la taille de l'ouverture
  moins un jeu tout autour (repère 8), et il ne bat que d'un côté (repère 9).
 - À l'entrée d'air, clouer quatre lattes en cadre (repère 10) et tendre dessus un filtre de fournaise neuf, ou un
@@ -452,8 +453,8 @@ faut faire entrer l'air du dehors même pendant les retombées, en arrêtant la 
 - Lever l'éventail à la verticale devant le visage, pousser l'air d'un coup vers l'ouverture en finissant les bras
  tendus et l'éventail presque à plat, puis le ramener lentement, à plat. Recommencer environ 40 fois par minute.
 - Pousser l'air dans le sens où il circule déjà dans la pièce.
-- Une personne qui évente de cette façon fait passer près de 8 m³ d'air par minute : assez pour 9 adultes serrés par grande chaleur, et
- pour une centaine de personnes par temps froid.
+- Une personne qui évente de cette façon fait passer près de 8 m³ d'air par minute : assez pour 9 adultes serrés
+ par grande chaleur, et pour une centaine de personnes par temps froid.
 
 **Ce qu'on perd :** il faut quelqu'un pour tirer la corde ou éventer, à tour de rôle, même quand tout le monde est
 fatigué. Le filtre arrête la poussière, mais rien du rayonnement ni des gaz.
@@ -479,9 +480,9 @@ Dans l'eau qui a reçu des retombées, presque tout le danger est dans la poussi
 radioactivité se dissout. Enlever la poussière enlève donc presque tout.
 
 *Décanter à l'argile.* Remplir une chaudière aux trois quarts. Y brasser de l'argile ou de la terre argileuse sèche,
-en poudre, prise sous la surface comme pour le filtre (plus bas) : environ 2,5 cm de terre sèche pour 10 cm d'eau. Brasser jusqu'à
-ce que la terre soit en suspension, puis laisser reposer au moins 6 heures : en tombant, l'argile entraîne la
-poussière au fond et la recouvre. Puiser l'eau claire, ou la siphonner (ch. 10, étape 10).
+en poudre, prise sous la surface comme pour le filtre (plus bas) : environ 2,5 cm de terre sèche pour 10 cm d'eau.
+Brasser jusqu'à ce que la terre soit en suspension, puis laisser reposer au moins 6 heures : en tombant, l'argile
+entraîne la poussière au fond et la recouvre. Puiser l'eau claire, ou la siphonner (ch. 10, étape 10).
 
 *Le filtre de terre* (planche 04-42).
 
