@@ -54,9 +54,11 @@ L'urgence
   **Jamais de planche ni de dessin** (JP : « je veux pas de planche dans les affaires vertes : photo, ou faits, ou
   façon »). Ce qui est bon à savoir sans être nécessaire au geste ; rien de ce que le chapitre dit déjà. Ce sont des
   **notes laissées dans le texte**, pas des bulles (JP : « genre des notes laissées doucement dans le texte, la bulle
-  est trop invasive ») : fond vert pâle, sans bordure ni pastille, dans une colonne, à la suite du texte d'une page qui
-  a de la place (en bas, ou en haut d'une colonne de droite restée vide) ; **une seule par page**, jamais empilées (JP :
-  « je veux pas qu'ils soient cordés »). Une réserve de **4 à 8** par chapitre ; une note qui ne trouve pas de page ne
+  est trop invasive ») : une feuille vert pâle à peine penchée, avec une ombre douce, sans bordure ni pastille, dans
+  une colonne ; **une seule par page**, jamais empilées (JP : « je veux pas qu'ils soient cordés »), et **dispersées**
+  (JP : « plus naturel, plus beau, plus d'ombre, dispersé ») : le moteur relève les pages qui ont de la place, place le
+  plus de notes possible, met chacune sur la page de l'étape dont elle parle ou la plus proche, et la glisse après le
+  paragraphe de cette étape. Une note dit donc son étape entre parenthèses quand elle en a une (« (étape 29) »). Une réserve de **4 à 8** par chapitre ; une note qui ne trouve pas de page ne
   s'imprime pas ; jamais une page qui ne porte que des notes (JP : « un encadré qui occupe une page tout seul, c'est
   inutile »).
 - [ ] Le logigramme vient après le Matériel ; il ne redit aucun avertissement ; ses boîtes sont des phrases

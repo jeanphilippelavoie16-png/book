@@ -53,26 +53,88 @@ function orPages(){   // les planches de l'orange : pleine page sur leur propre 
   });
 }
 // les notes « En plus » (JP, 18 octobre 2026 : « des notes laissées doucement dans le texte » ; « je veux pas qu'ils
-// soient cordés ») : quand une page se ferme sur un cadre de texte qui a de la place, la première note qui tient entre
-// dans ce cadre, à la suite du texte, dans sa colonne ; une seule par page. Une note qui ne trouve aucune page ne
-// s'imprime pas (avertissement). Jamais sous une série orange, un encadré ou des notes de bas de page : seulement à la
-// suite d'un cadre de texte.
+// soient cordés » ; « plus naturel, dispersé »). Une note entre dans le cadre de texte qui ferme une page, à la suite
+// du texte, dans sa colonne, une seule par page ; jamais sous une série orange, un encadré ou des notes de bas de page.
+// Le placement ne change rien à la suite (la page se ferme de toute façon) : pendant la mise en pages, fillExtras
+// relève seulement les pages qui ont de la place et les notes qui y tiennent ; placerNotes choisit à la fin, pour que
+// chaque note tombe près de l'étape dont elle parle et loin des autres. Une note sans page ne s'imprime pas
+// (avertissement).
+const NOTE_PLACES = [];
 function fillExtras(p){
   if(!p || !EXTRAS.length || !(p.kind === 'text' || p.kind === 'open')) return false;
   const fr = p.bl.lastElementChild;
   if(!fr || !fr.classList.contains('frame') || !fr.children.length) return false;
-  const bas = () => p.bl.getBoundingClientRect().bottom + 0.5;
+  const bas = p.bl.getBoundingClientRect().bottom + 0.5;
   // un cadre encore ouvert remplit la page et met tout son texte à gauche : on l'équilibre sur les deux colonnes, la
   // note vient à la fin
   const ouvert = !fr.classList.contains('auto');
   if(ouvert){ fr.classList.add('auto'); if(OVER(fr)){ fr.classList.remove('auto'); return false; } }
-  for(let i = 0; i < EXTRAS.length; i++){
-    const x = EXTRAS[i]; fr.appendChild(x);
-    if(!OVER(fr) && fr.getBoundingClientRect().bottom <= bas()){ EXTRAS.splice(i, 1); return true; }
-    fr.removeChild(x);
-  }
+  const tient = [];
+  EXTRAS.forEach(x => { fr.appendChild(x); if(!OVER(fr) && fr.getBoundingClientRect().bottom <= bas) tient.push(x); fr.removeChild(x); });
   if(ouvert) fr.classList.remove('auto');
+  if(tient.length) NOTE_PLACES.push({p, fr, ouvert, tient});
   return false;
+}
+function placerNotes(){
+  if(!EXTRAS.length) return;
+  // où en est chaque page dans la procédure : ses étapes, ou la dernière étape vue avant elle
+  let vu = 0; const pos = new Map();
+  PAGES.forEach(p => {
+    const s = [...p.bl.querySelectorAll('.sn')].map(e => parseInt(e.textContent, 10)).filter(n => n > 0);
+    pos.set(p, s.length ? s : [vu]); if(s.length) vu = Math.max(vu, ...s);
+  });
+  const idx = c => PAGES.indexOf(c.p);
+  const renvois = x => (x.dataset.etapes || '').split(' ').filter(Boolean).map(Number);
+  const choix = [];                      // [note, page]
+  const ecart = c => choix.length ? Math.min(...choix.map(([, d]) => Math.abs(idx(d) - idx(c)))) : 99;
+  const cout = (x, c) => {
+    const e = renvois(x), g = ecart(c);
+    const pres = e.length ? Math.min(...e.map(a => Math.min(...pos.get(c.p).map(s => Math.abs(a - s))))) : 12 - Math.min(g, 10);
+    return pres + (g < 3 ? 60 : 0);      // deux notes ont au moins deux pages entre elles quand c'est possible
+  };
+  // d'abord placer le plus de notes possible, puis les mettre au meilleur endroit : chaque choix doit laisser assez de
+  // pages pour les notes qui restent (couplage maximal, par chemins augmentants)
+  const couplage = (notes, pris) => {
+    const m = new Map();
+    const essaie = (x, vu) => {
+      for(const c of NOTE_PLACES){
+        if(pris.has(c) || vu.has(c) || !c.tient.includes(x)) continue;
+        vu.add(c); if(!m.has(c) || essaie(m.get(c), vu)){ m.set(c, x); return true; }
+      }
+      return false;
+    };
+    return notes.filter(x => essaie(x, new Set())).length;
+  };
+  for(;;){
+    const libres = EXTRAS.filter(x => !choix.some(([n]) => n === x));
+    const pris = new Set(choix.map(([, c]) => c));
+    const M = couplage(libres, pris);
+    if(!M) break;
+    const paires = [];
+    libres.forEach(x => NOTE_PLACES.forEach(c => { if(!pris.has(c) && c.tient.includes(x)) paires.push([cout(x, c), x, c]); }));
+    paires.sort((a, b) => a[0] - b[0]);
+    const bon = paires.find(([, x, c]) => couplage(libres.filter(n => n !== x), new Set([...pris, c])) === M - 1);
+    choix.push([bon[1], bon[2]]);
+  }
+  choix.sort((a, b) => idx(a[1]) - idx(b[1])).forEach(([x, c], n) => {
+    if(c.ouvert) c.fr.classList.add('auto');
+    // la note se glisse après le paragraphe de l'étape dont elle parle (ou vers le milieu du texte si elle ne renvoie à
+    // rien), pas toujours au bas de la colonne ; si le texte ne tient plus, elle va à la fin
+    const enf = [...c.fr.children], e = renvois(x);
+    const num = el => { const t = el.querySelector('.sn'); return t ? parseInt(t.textContent, 10) : NaN; };
+    let apres = null;
+    if(e.length){
+      const d = el => Math.min(...e.map(a => Math.abs(a - num(el))));
+      enf.filter(el => !isNaN(num(el))).forEach(el => { if(!apres || d(el) < d(apres)) apres = el; });
+    } else if(enf.length > 3) apres = enf[Math.floor(enf.length * 0.45)];
+    if(apres && apres.nextElementSibling && /^H[1-6]$/.test(apres.tagName)) apres = apres.nextElementSibling;
+    if(apres && apres !== enf[enf.length - 1]) c.fr.insertBefore(x, apres.nextElementSibling); else c.fr.appendChild(x);
+    const ok = () => !OVER(c.fr) && c.fr.getBoundingClientRect().bottom <= c.p.bl.getBoundingClientRect().bottom + 0.5;
+    if(!ok()){ c.fr.appendChild(x); }
+    if(!ok()){ c.fr.removeChild(x); if(c.ouvert) c.fr.classList.remove('auto'); return; }
+    x.classList.add(n % 2 ? 'xd' : 'xg');      // penchée après la mesure : la rotation déborde un peu de la colonne
+    EXTRAS.splice(EXTRAS.indexOf(x), 1);
+  });
 }
 function nextPage(){
   fillExtras(P);
@@ -440,6 +502,7 @@ Promise.all(faces.map(f => document.fonts.load(f, 'aéÀ§«»—'))).then(() =>
   P = mkPage('open'); fitTitle();
   (C.flux || [['main'], ['d'], ['e']]).forEach(f => story(f[0], f[1], f[2]));
   fillExtras(P);
+  placerNotes();
   EXTRAS.forEach(x => WARN.push('encadré « En plus » sans trou où se poser : ' + ((x.querySelector('.xtit') || {}).textContent || '')));
   orPages();
   if(orTop.length){ P = mkPage('text'); const fr = document.createElement('div'); fr.className = 'frame'; P.bl.appendChild(fr); orTop.forEach(b => fr.appendChild(b)); orTop = []; }

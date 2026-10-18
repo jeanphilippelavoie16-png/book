@@ -377,7 +377,13 @@ def extras_html(s):
         # une note laissée dans le texte, pas une bulle (JP, 18 octobre 2026 : « genre des notes laissées doucement dans
         # le texte ; la bulle est trop invasive ») : la mention En plus, le titre, la photo s'il y en a une, le texte
         cls = "extra ximg" if imgs else "extra"
-        boites.append(f'<div class="{cls}"><div class="xhead"><span class="xlab">En plus</span> '
+        # les étapes auxquelles la note renvoie : chapitre.js la pose sur une page qui les porte, ou près (JP, 18 octobre
+        # 2026 : « plus naturel, dispersé »)
+        etapes = []
+        for m in re.finditer(r"étapes? (\d+)(?: (?:à|et) (\d+))?", " ".join(corps)):
+            a, b = int(m.group(1)), int(m.group(2) or m.group(1))
+            etapes += list(range(a, b + 1)) if 0 <= b - a <= 12 else [a, b]
+        boites.append(f'<div class="{cls}" data-etapes="{" ".join(map(str, etapes))}"><div class="xhead"><span class="xlab">En plus</span> '
                       f'<span class="xtit">{il(x["t"])}</span></div>{fig}<div class="xtxt">{texte}</div></div>')
     return boites
 
