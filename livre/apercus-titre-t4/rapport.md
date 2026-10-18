@@ -1,6 +1,6 @@
 # Tome 4 · De la bête au garde-manger — rapport d'assemblage
 
-- **Produit le :** 2026-10-18 22:28, par `design/outils/assembler-tome.py 4 --chapitres 61 --hors-ligne --sortie livre/apercus-titre-t4`
+- **Produit le :** 2026-10-18 22:34, par `design/outils/assembler-tome.py 4 --chapitres 61 --hors-ligne --sortie livre/apercus-titre-t4`
 - **Fichier :** `livre/tome-4/interieur.pdf` — 20 pages, 3.1 Mo
 - **Ouvertures :** au recto ou au verso (--verso)
 - **Placements :** design/epreuves-livre/placements.json, design/epreuves-livre/placements-tome-4.json

@@ -1,6 +1,6 @@
 # Tome 1 · Tenir — rapport d'assemblage
 
-- **Produit le :** 2026-10-18 22:21, par `design/outils/assembler-tome.py 1 --chapitres 01 --hors-ligne --sortie livre/apercus-titre-t1`
+- **Produit le :** 2026-10-18 22:34, par `design/outils/assembler-tome.py 1 --chapitres 01 --hors-ligne --sortie livre/apercus-titre-t1`
 - **Fichier :** `livre/tome-1/interieur.pdf` — 20 pages, 1.9 Mo
 - **Ouvertures :** au recto ou au verso (--verso)
 - **Placements :** design/epreuves-livre/placements.json, design/epreuves-livre/placements-tome-1.json

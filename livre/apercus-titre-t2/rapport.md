@@ -1,6 +1,6 @@
 # Tome 2 · Le corps — rapport d'assemblage
 
-- **Produit le :** 2026-10-18 22:23, par `design/outils/assembler-tome.py 2 --chapitres 19 --hors-ligne --sortie livre/apercus-titre-t2`
+- **Produit le :** 2026-10-18 22:34, par `design/outils/assembler-tome.py 2 --chapitres 19 --hors-ligne --sortie livre/apercus-titre-t2`
 - **Fichier :** `livre/tome-2/interieur.pdf` — 20 pages, 7.0 Mo
 - **Ouvertures :** au recto ou au verso (--verso)
 - **Placements :** design/epreuves-livre/placements.json, design/epreuves-livre/placements-tome-2.json

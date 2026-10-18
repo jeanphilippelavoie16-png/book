@@ -418,6 +418,8 @@ ANNEXE_CSS = """
   border-bottom:1px solid #4A6476;color:#E2E7EA;font-weight:600;font-size:16px;letter-spacing:.24em;text-transform:uppercase}
 .tp-haut{position:absolute;left:50px;right:56px;top:104px;display:flex;flex-direction:column;color:#E2E7EA}
 .tp-title{margin:0;font-weight:800;font-size:var(--tpt,236px);line-height:.84;letter-spacing:.01em;text-transform:uppercase;hyphens:manual}
+.tp-haut.c .tp-title{align-self:stretch}
+.tp-haut.c .tp-sous{margin-left:0;max-width:480px}
 .tp-sous{margin:26px 0 0 8px;max-width:380px;text-indent:0;font-weight:500;font-size:23px;line-height:1.28;letter-spacing:.01em;color:#B9C7D1}
 .tp-bas{--bas:#15222B;--bas-txt:#fff;position:absolute;left:176px;right:176px;bottom:40px;display:flex;flex-direction:column;gap:12px;color:var(--bas)}
 .tp-chap{display:flex;justify-content:space-between;font-weight:700;font-size:14px;letter-spacing:.16em;text-transform:uppercase}
@@ -569,7 +571,12 @@ SOUS_TITRES = {1: "Rester ou partir, la panne, les retombées, le feu de forêt,
                6: "Le cuir, coudre, affûter, la scie à chaîne, souder, le bois, le métal, le savon."}
 # le bas du bloc du titre et du sous-titre, en px du repère de la page de titre : au-dessus de ce que l'image dessine
 # à gauche (mesuré sur chaque image) ; le titre rapetisse s'il le faut
-TP_HAUT_MAX = {2: 509, 3: 413, 4: 432, 5: 426, 6: 327}
+TP_HAUT_MAX = {2: 509, 3: 420, 4: 432, 5: 405, 6: 345}
+# la place du titre selon l'image (JP, 18 octobre 2026 : « adapte la grosseur et le positionnement des titres en fonction
+# de leur image ») : droite = la marge droite du bloc en px (le titre rapetisse pour tenir dans la largeur qui reste),
+# centre = titre et sous-titre centrés. Tome 3 : le soleil au milieu du lac ; tome 4 : les épinettes montent à droite ;
+# tome 6 : la lune dans le coin, en haut à droite.
+TP_MISE = {3: dict(centre=True), 4: dict(droite=215), 6: dict(droite=150)}
 # le sous-titre : une teinte claire du ciel de chaque image (le gris-bleu du tome 1 jure sur le rouge et le brun)
 TP_SOUS = {2: "#E8C8BC", 3: "#C9D8CC", 4: "#C3D5D9", 5: "#E3CDAE", 6: "#CDD1CF"}
 # le bloc des tomes en bas, posé sur l'image sans aplat, comme au tome 1 : encre foncée sur une image claire, encre
@@ -598,9 +605,16 @@ def annexe_html(tome, chaps, plan, work):
         scene = ""
     sous = SOUS_TITRES.get(tome, "")
     fond = f'<img class="tp-img" src="{url(jpg)}" alt="">' if os.path.exists(jpg) else ""
+    def mise_haut(t):
+        st = []
+        if t in TP_ENCRE: st.append(f"color:{TP_ENCRE[t][0]}")
+        m = TP_MISE.get(t, {})
+        if m.get("droite"): st.append(f"right:{m['droite']}px")
+        if m.get("centre"): st.append("align-items:center;text-align:center;left:56px")
+        return f' style="{";".join(st)}"' if st else ""
     pages.append(f'''<section class="page recto tp" id="a-titre">{fond}<div class="tp-sc">{scene}
 <div class="tp-head"{f' style="color:{TP_ENCRE[tome][0]};border-bottom-color:{TP_ENCRE[tome][2]}"' if tome in TP_ENCRE else ""}><span>Le Manuel du Nord</span><span>Tome {tome}</span></div>
-<div class="tp-haut"{f' style="color:{TP_ENCRE[tome][0]}"' if tome in TP_ENCRE else ""}{f' data-max="{TP_HAUT_MAX[tome]}"' if tome in TP_HAUT_MAX else ""}><h1 class="tp-title">{e(titre_t)}</h1>{f'<p class="tp-sous"{chr(32) + "style=" + chr(34) + "color:" + (TP_ENCRE[tome][1] if tome in TP_ENCRE else TP_SOUS[tome]) + chr(34) if (tome in TP_ENCRE or tome in TP_SOUS) else ""}>{il(sous)}</p>' if sous else ""}</div>
+<div class="tp-haut{' c' if TP_MISE.get(tome, {}).get('centre') else ''}"{mise_haut(tome)}{f' data-max="{TP_HAUT_MAX[tome]}"' if tome in TP_HAUT_MAX else ""}><h1 class="tp-title">{e(titre_t)}</h1>{f'<p class="tp-sous"{chr(32) + "style=" + chr(34) + "color:" + (TP_ENCRE[tome][1] if tome in TP_ENCRE else TP_SOUS[tome]) + chr(34) if (tome in TP_ENCRE or tome in TP_SOUS) else ""}>{il(sous)}</p>' if sous else ""}</div>
 <div class="tp-bas"{f' style="background:{TP_BAS_FOND[tome]};padding:9px 12px 8px;margin:0 -12px"' if tome in TP_BAS_FOND else (f' style="--bas:{TP_BAS_ENCRE[tome][0]};--bas-txt:{TP_BAS_ENCRE[tome][1]}"' if tome in TP_BAS_ENCRE else "")}><div class="tp-chap"><span>{f"Chapitres {aff(premier)} à {aff(dernier)}" if nb > 1 else f"Chapitre {aff(premier)}"}</span><span>{nb} chapitre{"s" if nb > 1 else ""}</span></div>
 <div class="tp-serie">{serie}</div></div></div></section>''')
     # --- dédicace (recto, après la page de titre ; JP, 14 octobre 2026 : « la première page, comme dans les livres »)

@@ -1,6 +1,6 @@
 # Tome 5 · La forêt, le jardin et le chalet — rapport d'assemblage
 
-- **Produit le :** 2026-10-18 22:23, par `design/outils/assembler-tome.py 5 --chapitres 82 --hors-ligne --sortie livre/apercus-titre-t5`
+- **Produit le :** 2026-10-18 22:34, par `design/outils/assembler-tome.py 5 --chapitres 82 --hors-ligne --sortie livre/apercus-titre-t5`
 - **Fichier :** `livre/tome-5/interieur.pdf` — 24 pages, 9.0 Mo
 - **Ouvertures :** au recto ou au verso (--verso)
 - **Placements :** design/epreuves-livre/placements.json, design/epreuves-livre/placements-tome-5.json

@@ -6,9 +6,9 @@ miroir sur la tranche et la quatrième, aux mesures de Blurb de chaque tome (la 
 
     python3 images/tomes/essais-ia/tome-1/couverture.py --tome N --variantes C --sortie images/tomes/couvertures
 
-Le tome 6 prend `fond-tome-6-sans-lune.jpg` (`--image`) : le croissant de lune de l'image touchait la fin du titre
-centré, qui est plus grand que sur la page de titre. Son titre est remonté (`CENTRE_BAS` du script) pour rester dans le
-ciel noir, au-dessus de la colline enneigée.
+Le tome 6 : la lune est remontée dans le coin du ciel, en haut à droite, sur l'image même (`essais-ia/tome-6/lune_atelier.py`,
+JP : « rajoute la lune dans l'atelier en haut à droite ») ; elle ne touche plus le titre. Son titre centré est remonté
+(`CENTRE_BAS` du script) pour rester dans le ciel noir, au-dessus de la colline enneigée.
 
 Deux règles ajoutées au script pour les images des tomes 2 à 6 : le miroir du ciel s'arrête avant la première colonne
 qui n'est plus du ciel (les épinettes du tome 4 montaient sur le dos), et avant la première ligne où les collines

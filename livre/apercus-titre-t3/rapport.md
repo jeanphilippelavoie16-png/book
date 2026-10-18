@@ -1,6 +1,6 @@
 # Tome 3 · Prélever — rapport d'assemblage
 
-- **Produit le :** 2026-10-18 22:28, par `design/outils/assembler-tome.py 3 --chapitres 41 --hors-ligne --sortie livre/apercus-titre-t3`
+- **Produit le :** 2026-10-18 22:39, par `design/outils/assembler-tome.py 3 --chapitres 41 --hors-ligne --sortie livre/apercus-titre-t3`
 - **Fichier :** `livre/tome-3/interieur.pdf` — 20 pages, 2.6 Mo
 - **Ouvertures :** au recto ou au verso (--verso)
 - **Placements :** design/epreuves-livre/placements.json, design/epreuves-livre/placements-tome-3.json

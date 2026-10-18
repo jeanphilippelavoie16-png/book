@@ -74,3 +74,5 @@ La **candidate 2** est la deuxième si JP préfère des collines gravées et plu
 - **Un long filet de fumée** dans l'image de départ devient un éclair orange ou une comète. Il faut une fumée courte.
 - **Juggernaut XL** donne une belle gravure mais ferme la porte et perd la forge, à toutes les forces de 0,62 à 0,78. Il fait mieux pour un paysage que pour un objet précis dans une ouverture.
 - **L'idée B** (forgeron dehors) ne donne rien : la silhouette disparaît ou se multiplie.
+
+Troisième passe (JP : « rajoute la lune dans l'atelier en haut à droite ») : `lune_atelier.py` découpe le croissant, rebouche sa place avec le ciel voisin et le pose dans le coin du ciel, en haut à droite, loin du titre. Chaîne : `retouche_atelier.py titre-tome-6-avant-retouche.jpg …`, puis `lune_atelier.py`.
