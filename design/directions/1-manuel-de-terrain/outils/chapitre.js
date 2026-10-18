@@ -60,6 +60,26 @@ function fillExtras(p){
   const last = p.bl.lastElementChild;
   // jamais sous une série orange ou un encadré qui continue à la page suivante, ni sous des notes
   if(last && (last.classList.contains('fnz') || (last.classList.contains('rg') && !last.classList.contains('fin')))) return false;
+  // la colonne de droite est restée vide (la page se ferme sur une planche, par exemple) : les encadrés s'y empilent,
+  // sur une colonne (JP, 18 octobre 2026 : « dans des pages comme ça, on peut aussi mettre des encadrés verts à droite »)
+  if(last && last.classList.contains('frame') && last.children.length){
+    const r = last.getBoundingClientRect(), b0 = p.bl.getBoundingClientRect();
+    const droite = Math.max(...[...last.children].map(c => c.getBoundingClientRect().right));
+    if(droite < r.left + r.width / 2 && r.height > 0.3 * b0.height){
+      const col = document.createElement('div'); col.className = 'xcolz';
+      const gap = 0.22 * 96;
+      col.style.left = (r.left - b0.left + (r.width + gap) / 2) + 'px'; col.style.top = (r.top - b0.top) + 'px';
+      col.style.width = ((r.width - gap) / 2) + 'px';
+      p.bl.appendChild(col); let pose = false;
+      for(let i = 0; i < EXTRAS.length; ){
+        const x = EXTRAS[i]; x.classList.add('xcol'); col.appendChild(x);
+        if(col.getBoundingClientRect().bottom <= r.bottom + 0.5){ EXTRAS.splice(i, 1); pose = true; continue; }
+        col.removeChild(x); x.classList.remove('xcol'); i++;
+      }
+      if(pose) return true;
+      col.remove();
+    }
+  }
   // un cadre de texte encore ouvert remplit la page (flex) : on l'équilibre pour voir le vrai trou en bas
   let fr = null;
   if(last && last.classList.contains('frame') && !last.classList.contains('auto')){ fr = last; fr.classList.add('auto'); }

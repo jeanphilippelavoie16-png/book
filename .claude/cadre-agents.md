@@ -52,7 +52,8 @@ L'urgence
   marche et ce qui la rend dangereuse si on change ses conditions), une photo pour reconnaître (ligne
   `![légende](images/extras/…)`, licence dans `images/credits.md`), un petit dessin (`images/extras/`, jamais nommé
   `planche-NN-…`). Ce qui est bon à savoir sans être nécessaire au geste ; rien de ce que le chapitre dit déjà. Le
-  moteur les pose dans les trous des pages ; un encadré qui ne trouve pas de trou ne s'imprime pas, et une page qui ne
+  moteur les pose dans les trous des pages, en bas ou dans une colonne de droite restée vide (JP : « on peut aussi
+  mettre des encadrés verts à droite ») ; une réserve de **4 à 8** par chapitre, parce qu'un chapitre a plusieurs trous ; un encadré qui ne trouve pas de trou ne s'imprime pas, et une page qui ne
   porterait que des encadrés compte comme blanche (JP : « un encadré qui occupe une page tout seul, c'est inutile »).
 - [ ] Le logigramme vient après le Matériel ; il ne redit aucun avertissement ; ses boîtes sont des phrases
   complètes (pas d'étiquette en raccourci).

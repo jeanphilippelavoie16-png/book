@@ -138,3 +138,9 @@ p.pc .pmarge svg.picto{display:block;width:26pt;height:26pt;margin:0}
 .extra.x-dessin .xfig{width:1.75in}
 .extra.x-dessin .xfig img{background:#fff;padding:4pt;border-radius:6pt}
 .extra .xfig figcaption{font:italic 600 7.2pt/9.2pt "IBM Plex Sans Condensed",sans-serif;color:#3F6338;margin-top:3pt}
+/* encadrés « En plus » empilés dans une colonne de droite restée vide (chapitre.js, fillExtras) */
+.xcolz{position:absolute;display:flex;flex-direction:column;gap:10pt}
+.extra.xcol .xtxt{column-count:1}
+.extra.xcol.ximg .xcorps{flex-direction:column;align-items:stretch;gap:7pt}
+.extra.xcol .xfig{width:100%}
+.extra.xcol.x-dessin .xfig{width:72%;align-self:center}
