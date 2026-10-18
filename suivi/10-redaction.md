@@ -321,3 +321,123 @@ Le chapitre n'est pas repassé : c'est le modèle approuvé par JP. Deux vérifi
 - **`controle.py --avant`** : rien de nouveau. 7 574 → 7 582 mots (les quatre appels), 2 tirets (titre et
   ligne de tome), la même redite qu'à l'approbation (la génératrice à l'étape 5 et au §8, rappel de
   `CLAUDE.md`), aucun invariant disparu.
+
+## Refonte au gabarit à sept sections, pictogrammes de danger — 18 octobre 2026
+
+Chapitre test demandé par JP avant la refonte du tome 1. Texte d'avant : `git show 8f823ec:chapitres/10-eau-puiser-filtrer-desinfecter.md`.
+Contrôle : `controle.py --avant` : 7 582 → 8 230 mots (les sous-étapes de la désinfection du puits, de la buse, du
+filtre à sable et de l'alambic ; les planches sont maintenant appelées repère par repère), 2 tirets (titre et ligne de
+tome, comme le ch. 15), 0 « § », 0 mot banni.
+
+### Ce qui a changé
+
+- **Sept sections.** « Pourquoi ça marche » coupé : le tamis du filtre va à l'étape 11 ; le chlore qui doit toucher
+  le microbe, à l'étape 19 ; la chaleur et le gros bouillon, à l'étape 14 ; ce qui est dissous et l'ébullition qui le
+  concentre, à l'étape 27. La section 8 Danger est sortie (voir plus bas, où chaque bloc est allé). La Variante
+  d'urgence devient la section 7.
+- **Rien sous le titre que `**Les deux**`.** La note de lieu (maison : sous-section J ; chalet : A à I) est sortie ;
+  la sous-section « À la maison » et la section 2 disent où vaut chaque étape.
+- **Section 2** : seulement les situations, avec leurs étapes. La liste « C'est un mauvais choix » est sortie ; ce
+  qu'elle apprenait est allé à l'étape qui sert : le sel du fleuve (étape 1), la contamination chimique (étape 27),
+  la chloration seule d'une eau de surface, d'une eau froide ou trouble (étape 19), la suie (étape 39), les
+  retombées (étape 1, renvoi au ch. 4).
+- **Pas de série orange.** Rien dans ce chapitre ne se joue en minutes (`plan/premieres-minutes-inventaire.md` l'avait
+  déjà conclu : « l'avis d'ébullition n'est pas une affaire de minutes ; le remplissage pendant que la pression tient
+  est aux ch. 1 et 3 »). La giardiase se déclare de 3 à 25 jours plus tard ; aucune pastille ne se sourcerait.
+- **Logigramme neuf** : `images/logigrammes/10-eau.json` (double page, pas orange, boîtes « geste »), rendu en
+  `10-eau.svg`, `.pdf`, `.png` et `10-eau-livre.svg` (`--sans-entete --svg`), contrôle 0 erreur. Page de gauche :
+  l'eau du robinet (coule-t-elle, avis de non-consommation, avis d'ébullition, sinon le robinet froid de la vieille
+  maison). Page de droite : l'eau qu'on puise (eau douce ou fleuve, puiser, décanter, feu, javel, rien). Aucun
+  avertissement redit. Ancré sur la dernière ligne du Matériel (`placements-tome-1.json`, clé `"logigramme"`).
+- **Procédure découpée** : siphon (étape 10, avec la petite planche 10-08 faite en parallèle), désinfection du puits
+  (étapes 28 à 35, une étape par geste, sous-étapes pour verser et mélanger), levée de l'avis (étape 47), buse, filtre
+  à sable et alambic en sous-étapes qui suivent les repères des planches refaites le 18 octobre.
+- **Repères des planches** (numérotation de l'agent des planches, 18 octobre) : 10-01, repères 1 à 3 aux étapes 8 à 10,
+  4 à l'étape 14, 5 à l'étape 15 ; 10-08, repères 1 à 3 à l'étape 10 ; 10-02, repères 1 à 7 dans « Puiser un puits
+  quand la pompe est morte » ; 10-07, repères 1 à 12 dans « Le filtre à sable » ; 10-03, repères 1 à 8 dans
+  « L'alambic de fortune ». L'étape 14 rappelle « planche 10-01, repère 4 » : la 10-08 a ses propres repères 1 à 3
+  entre les deux, et « repère 4 » seul se lirait sur la mauvaise planche.
+- **Retiré** : la ligne « avec thermomètre : 73 °C pendant 1 min » des Points de contrôle, parce que le virus de
+  l'hépatite A demande environ 85 °C (`13-inspq-avis-ebullition.md`) : 73 °C ne couvre que *Cryptosporidium*. La
+  « hutte de castor à 300 m » (exemple sans source). « Un lac boréal est à 4 °C une bonne partie de l'année » (aucune
+  source : la fiche INSPQ donne le CT à 3 à 5 °C, pas la température des lacs ; l'étape 19 dit maintenant de mesurer
+  l'eau au thermomètre). « Une eau de lac à 8 °C » (exemple). L'avertisseur de CO dans « Ce qui ne se remplace pas » :
+  il est dans la page du pictogramme `co`. Le « nœud » de la ficelle lestée : la longueur mouillée donne la colonne
+  d'eau directement.
+- **Corrigé à la source** : l'iode (étape 23). Le texte disait « contre-indiqué pendant la grossesse (goitre néonatal),
+  en cas de maladie thyroïdienne, même contrôlée par médicament » et « moins d'un mois ». La source enregistrée
+  (`13-cdc-yellow-book-desinfection-eau.md`) dit : maladie thyroïdienne instable ou allergie connue, jamais ; femme
+  enceinte, pas sur une longue période (thyroïde du fœtus) ; tout le monde, quelques semaines au plus (OMS). Le
+  texte suit maintenant la source.
+- **Volume du puits** : « du puits et de la plomberie » devient « du puits » : le calcul et le tableau du ministère
+  ne comptent que la colonne d'eau.
+
+### Chiffres et faits nouveaux, avec leur provenance
+
+| Fait | Où | Source |
+| --- | --- | --- |
+| Génératrice à au moins 6 m du bâtiment, échappement à l'opposé des portes et fenêtres | Étape 6 | `10-sante-canada-generatrice-distance.md` |
+| Bactéries courantes inactivées sous 65 °C en moins d'une minute ; hépatite A vers 85 °C | Étape 14 | `13-inspq-avis-ebullition.md` |
+| Désinfection du puits pas à pas : nettoyer le fond à la puisette, verser, mélanger en rinçant la paroi au boyau branché sur le robinet le plus proche, ouvrir les robinets jusqu'à l'odeur, arrêter la pompe, 24 h, purger, rincer chaque robinet | Étapes 31 à 34 | `10-melcc-desinfection-puits-procedure.md` (nouvelle, avec le PDF) ; recoupe `13-melcc-qualite-eau-de-mon-puits.md` |
+| Contrôle du calcul : 540 mL de javel pour 30 m d'eau dans 152 mm (le livre : environ 0,5 L pour 28 m dans 150 mm) ; × 5 pour un puits neuf | Étapes 29 et 30 | `10-melcc-desinfection-puits-procedure.md` |
+| Avis de non-consommation : bouillir ne règle rien ; l'eau du robinet ne sert qu'à la chasse d'eau | Étape 43 | `10-quebec-contamination-penurie-eau-potable.md` ; `10-quebec-avis-ebullition.md` ; `13-inspq-avis-ebullition.md` (« d'aucune utilité dans la gestion d'une contamination chimique ») |
+| Chauffe-eau : 180 à 280 L selon 40 ou 60 gallons | Étape 49 | `10-chauffe-eau-residentiel-volume.md` |
+| Filtre à sable : sortie du boyau 5 cm plus haut que le sable ; l'eau s'arrête à la hauteur du bout du boyau | Section 7, « Le filtre à sable » | `13-cawst-couche-biologique-filtre-a-sable.md` et le manuel `13-cawst-2009-biosand-filter-manual.pdf` (section 3.5 et « The standing water layer will be at the same height as the end of the outlet tube ») |
+| Alambic : enlève aussi le nitrate | Section 7, « L'alambic de fortune » | `13-sante-canada-traitement-eau-puits.md` (distillation : nitrates, nitrites, arsenic, manganèse) |
+
+Les autres chiffres sont ceux d'avant, déjà sourcés (sections plus haut), redits sans changement.
+
+### Pictogrammes posés (étape → id)
+
+| Étape | Id | Ce qui est propre au chapitre |
+| --- | --- | --- |
+| 2 (« Puiser en amont ») | `selles` | Castor, rat musqué, orignal en amont ; 10 kystes de *Giardia*, 8 × 14 µm |
+| 6 (pompe sur génératrice) | `generatrice` | 6 m, échappement à l'opposé ; jamais dans un bâtiment, un garage ou sous un auvent |
+| 19 (juger l'eau avant de chlorer) | `selles` | Chlore contre *Cryptosporidium* : CT 7 000 ; filtre à 1 µm ou ébullition |
+| 20 (doser la javel) | `chimie` | Ni vinaigre, détartrant, nettoyant à cuvette, ammoniaque, urine ; seringue et contenant réservés |
+| 27 (analyse du puits) | `poison` | Pas de biberon avec un puits jamais analysé ; nitrate 10 mg/L en azote ou 45 en nitrate, avant 3 mois (note) ; bouillir concentre |
+| 36 (percer sous la glace) | `glace` | Renvoi aux épaisseurs du ch. 15, étapes 40 à 42 (pas de chiffre redit) |
+| 40 (fondre la neige avant de la boire) | `froid` | Manger la neige refroidit (venu de l'ancienne section 9) |
+| 48 (vieille maison) | `plomb` | Entrées de service 1940 à 1955, jusqu'aux années 1970 ; 0,005 mg/L ; purge, eau froide, aérateur, filtre, jamais la marmite |
+| Section 7, « Bouillir à la maison sans cuisinière » | `co` | Barbecue et réchaud dehors, même pour une longue ébullition |
+| Section 7, « Bouillir quand il n'y a pas de marmite » | `pas-au-feu` | Pas de métal galvanisé ni peint sur le feu |
+| Section 7, les pierres chaudes | `projection` | Pierre mouillée, poreuse ou feuilletée qui éclate |
+| Section 7, hypochlorite de calcium | `chimie` | Granules seuls, loin de l'huile, des guenilles et du carburant |
+| Section 7, électrolyse | `vapeurs`, `chimie` | Hydrogène sous un couvercle ; chlore à la surface |
+
+`glace`, `froid`, `co`, `pas-au-feu`, `projection` et `vapeurs` ne sont pas dans la colonne « Chapitres » de
+l'inventaire pour le ch. 10 : à ajouter à `plan/dangers-inventaire.md`, section 1.
+
+### Ce que l'ancienne section 8 Danger est devenue
+
+- Génératrice et CO → étape 6 (`generatrice`) ; le barbecue et le réchaud → section 7 (`co`). Le mécanisme du CO
+  (sans odeur, pas d'alarme, l'avertisseur seul) → page du pictogramme `co`.
+- Eau contaminée qui a l'air propre, 10 kystes → étape 2 (`selles`).
+- Chlore et *Cryptosporidium*, CT 7 000 → étape 19 (`selles`).
+- Bouillir concentre le chimique ; nitrate et nourrisson, méthémoglobine, note des signes → étape 27 (`poison`, note
+  [^1] gardée). Le mécanisme du nitrite dans le sang → page `poison`.
+- Le plomb : purge, filtre, jamais la marmite → étape 48 (`plomb`).
+- La javel ne se mélange à rien → étape 20 (`chimie`). Le chlore et les chloramines, et l'atteinte des poumons 24 à
+  48 h plus tard → page `chimie` (inventaire, section 2.9, qui cite ce chapitre) : pas redits dans l'étape.
+  « La javel dans l'eau, jamais l'inverse » → l'étape dit « la verser dans l'eau ».
+- L'eau du fleuve → étape 1, sans pictogramme (inventaire, section 4).
+
+### [À VÉRIFIER]
+
+Aucun dans le texte. Deux points pour l'agent des planches :
+- 10-08 montre le boyau « couché au fond de la chaudière pleine » ; le texte dit de le plonger sans toucher le dépôt,
+  puisque c'est la chaudière qu'on décante.
+- 10-01 : la seconde chaudière est posée plus bas que la première (le texte le dit, étape 9) ; vérifier que le dessin
+  le montre.
+
+### Renvois corrigés dans les autres chapitres
+
+- ch. 8 : « ch. 10, étape 22 » → 24 (bidon avec vide d'air) ; « étape 12 » → 14 (gros bouillons) ; « étapes 18 et
+  19 » → 19 à 21 (javel en eau froide).
+- ch. 27 : « ch. 10, section 2 » → étape 2 (castor et rat musqué en amont).
+- ch. 29 : « ch. 10, section 8 » → étape 27 (nitrate du puits).
+- ch. 37 : « ch. 10, section 9 » → section 7 (pierres chaudes). Fichier en CRLF, écrit tel quel.
+- ch. 84 : « 30-I » → étapes 36 à 41 (deux fois) ; « 30-H » → étapes 27 à 35 ; « 30-E et 5-I » → étapes 39 à 41.
+  Fichier en CRLF, écrit tel quel.
+- `design/epreuves-livre/placements.json` (ancien fichier, clé 10) : les quatre ancres suivent le nouveau texte, format
+  compact gardé.
