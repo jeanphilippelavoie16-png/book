@@ -637,7 +637,9 @@ def build(num):
             flux.append([sid, sk, 1 if (sk == kind and k_suite > 1) else 0])
     # les planches appelées dans une série orange ne coupent pas la série (JP, 18 octobre 2026 : « premières minutes est
     # scindé, il doit se suivre » ; « après le orange c'est les planches, et ensuite on commence l'essence ; laisse des
-    # trous au pire ») : elles sortent de l'orange, se posent tout de suite après, et un saut de page les suit
+    # trous au pire ») : elles sortent de l'orange et prennent la page d'en face, ou la suivante ; le texte qui suit
+    # la série remplit la page où elle finit (JP, 18 octobre 2026 : « si les planches sont nommées dans le cadre
+    # orange, ça peut occuper la place voisine » ; « sur la page d'en face »). chapitre.js, pendingOr
     for i, (sid, sk, _) in enumerate(flux):
         if sk != "o":
             continue
@@ -645,10 +647,10 @@ def build(num):
         if not figs_or:
             continue
         stories[sid] = [x for x in stories[sid] if x not in figs_or]
-        saut = ('<div class="saut" data-plate="saut"></div>', "")
+        figs_or = [(x[0].replace("<figure ", '<figure data-orpl="1" ', 1),) + tuple(x[1:]) for x in figs_or]
         suite = next((f for f in flux[i + 1:] if f[1] != "o"), None)
         if suite:
-            stories[suite[0]][0:0] = figs_or + [saut]
+            stories[suite[0]][0:0] = figs_or
         else:
             stories[sid].extend(figs_or)
     if any('class="sub or"' in h for h, _ in stories.get("d", [])):

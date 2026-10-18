@@ -19,6 +19,8 @@ const PAGES = [];
 let P = null;                 // page courante
 let pendingPlates = [];       // planches pleine page qui attendent la fin de la page courante
 let pendingSpreads = [];      // doubles pages (logigramme) qui attendent la prochaine page de gauche
+let pendingOr = [];           // planches appelées dans la série orange : la page d'en face, ou la suivante
+let orTop = [];               // demi-pages de l'orange qui ouvrent la prochaine page de texte
 const DSVG = '<svg viewBox="0 0 34 30" aria-hidden="true"><path d="M17 1.5 L32.5 28.5 H1.5 Z" fill="#fff"/><path d="M15.2 10 H18.8 L18.1 20.5 H15.9 Z" fill="#9B2C1E"/><rect x="15.4" y="22.3" width="3.2" height="3.2" fill="#9B2C1E"/></svg>';
 const PT = 96/72;
 
@@ -41,7 +43,16 @@ function mkPage(kind, plate){
   const p = {el, bl, kind, n, deferred: [], plate: plate ? plate.dataset.id : null};
   PAGES.push(p); return p;
 }
+function orPages(){   // les planches de l'orange : pleine page sur leur propre page ; demi-page et petite en haut de la
+  // page qui suit, et le texte continue dessous
+  const pl = pendingOr; pendingOr = [];
+  pl.forEach(b => {
+    b.removeAttribute('data-orpl');
+    if(b.dataset.plate === 'full'){ const pp = mkPage('plate', b); pp.story = 'o'; } else orTop.push(b);
+  });
+}
 function nextPage(){
+  orPages();
   const pl = pendingPlates; pendingPlates = [];
   pl.forEach(b => { const pp = mkPage('plate', b); pp.story = P.story; });
   const avant = P ? P.story : 'main';
@@ -102,8 +113,10 @@ function region(p, kind, first){
   return {box, frame};
 }
 function pour(f, q, p){
+  if(orTop.length && !f.children.length && !pendingOr.length){ q.unshift(...orTop); orTop = []; }
   while(q.length){
     const b = q.shift();
+    if(b.dataset && b.dataset.orpl){ pendingOr.push(b); continue; }
     if(b.dataset && b.dataset.plate === 'full'){ pendingPlates.push(b); continue; }
     // le logigramme vient tout de suite après le Matériel, et la procédure TOUJOURS après lui (JP, 18 octobre 2026 : « c'est
     // lui qu'on veut en premier » ; puis « la procédure va toujours APRÈS le diagramme ») : la page se ferme à l'ancre ;
@@ -111,15 +124,6 @@ function pour(f, q, p){
     // chapitre qui évite la page de droite laissée blanche avant la double page.
     if(b.dataset && b.dataset.plate === 'spread'){ pendingSpreads.push(b); if(f.children.length) break; continue; }
     if(pendingSpreads.length){ q.unshift(b); break; }   // le texte attend que la double page soit posée
-    // le saut qui suit les planches d'une série orange : la page se ferme, le texte reprend après les planches ; mais
-    // s'il reste plus de la moitié de la page, la suite la remplit (JP, 18 octobre 2026 : « la suite peut la remplir
-    // s'il reste plus que la moitié de la page dispo »)
-    if(b.dataset && b.dataset.plate === 'saut'){
-      const bb = p.bl.getBoundingClientRect();
-      const bas = f.children.length ? Math.max(...[...f.children].map(e => e.getBoundingClientRect().bottom)) : f.getBoundingClientRect().top;
-      if(bb.bottom - bas <= 0.5 * bb.height) break;
-      continue;
-    }
     f.appendChild(b); syncNotes(f);
     // une figure qui saute en haut de la colonne suivante laisse un trou blanc dans la colonne d'avant (JP, 16 octobre
     // 2026 : « gros trou blanc vide ») : le paragraphe suivant passe d'abord et remplit la colonne, la figure le suit
@@ -141,7 +145,7 @@ function pour(f, q, p){
     // une planche pleine page attend la fin de cette page : le paragraphe ne se coupe pas de part et d'autre
     // de la planche (JP, 15 octobre 2026 : « là on l'insère pis ça coupe le texte en deux »). Il passe entier
     // après la planche, sauf s'il laisserait plus du tiers de la colonne vide.
-    if(parts && pendingPlates.length && f.children.length && pli(parts[0], f) < 0.34 * colH(f)) parts = null;
+    if(parts && (pendingPlates.length || pendingOr.length) && f.children.length && pli(parts[0], f) < 0.34 * colH(f)) parts = null;
     if(parts){ f.appendChild(parts[0]); syncNotes(f); q.unshift(parts[1]); } else q.unshift(b);
     break;
   }
@@ -285,7 +289,7 @@ function story(id, kind, suite){   // kind : main, o, d, e ; suite : histoire re
     }
     if(suite && guard === 1 && !fresh && fr < 1.2 * 96){ nextPage(); continue; }
     P.story = kind;
-    const snapQ = q.slice(), snapPl = pendingPlates.slice(), snapSp = pendingSpreads.slice();
+    const snapQ = q.slice(), snapPl = pendingPlates.slice(), snapSp = pendingSpreads.slice(), snapOr = pendingOr.slice(), snapOT = orTop.slice();
     const R = region(P, kind, first);
     const r = pour(R.frame, q, P);
     if(!R.frame.children.length){
@@ -296,12 +300,12 @@ function story(id, kind, suite){   // kind : main, o, d, e ; suite : histoire re
         nextPage(); continue;
       }
       R.box.remove(); const z = R.frame.nextElementSibling; if(z && z.classList.contains('fnz')) z.remove();
-      q.splice(0, q.length, ...snapQ); pendingPlates = snapPl; pendingSpreads = snapSp;
+      q.splice(0, q.length, ...snapQ); pendingPlates = snapPl; pendingSpreads = snapSp; pendingOr = snapOr; orTop = snapOT;
       nextPage(); continue;
     }
     // l'encadré danger ne se coupe pas s'il tiendrait entier sur la page suivante
     if(kind === 'd' && first && r === 'full' && !fresh && fr < 0.62 * H){
-      R.box.remove(); q.splice(0, q.length, ...snapQ); pendingPlates = snapPl; pendingSpreads = snapSp; nextPage(); continue;
+      R.box.remove(); q.splice(0, q.length, ...snapQ); pendingPlates = snapPl; pendingSpreads = snapSp; pendingOr = snapOr; orTop = snapOT; nextPage(); continue;
     }
     first = false;
     if(r === 'done'){ finish(R, kind); break; }
@@ -387,6 +391,8 @@ const imgLoads = imgs.map(src => new Promise(res => { const i = new Image(); i.o
 Promise.all(faces.map(f => document.fonts.load(f, 'aéÀ§«»—'))).then(() => document.fonts.ready).then(() => Promise.all(imgLoads)).then(() => {
   P = mkPage('open'); fitTitle();
   (C.flux || [['main'], ['d'], ['e']]).forEach(f => story(f[0], f[1], f[2]));
+  orPages();
+  if(orTop.length){ P = mkPage('text'); const fr = document.createElement('div'); fr.className = 'frame'; P.bl.appendChild(fr); orTop.forEach(b => fr.appendChild(b)); orTop = []; }
   if(pendingPlates.length){ const pl = pendingPlates; pendingPlates = []; pl.forEach(b => { const pp = mkPage('plate', b); pp.story = 'e'; }); }
   while(pendingSpreads.length){   // fin du chapitre : une page blanche au recto au besoin, puis la double page
     const t = mkPage('text'); t.story = 'e';

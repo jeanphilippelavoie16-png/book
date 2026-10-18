@@ -1,6 +1,6 @@
 # Tome 1 · Tenir — rapport d'assemblage
 
-- **Produit le :** 2026-10-18 16:36, par `design/outils/assembler-tome.py 1 --chapitres 15 --hors-ligne --sortie livre/apercus-ch15`
+- **Produit le :** 2026-10-18 16:42, par `design/outils/assembler-tome.py 1 --chapitres 15 --hors-ligne --sortie livre/apercus-ch15`
 - **Fichier :** `livre/tome-1/interieur.pdf` — 28 pages, 4.4 Mo
 - **Ouvertures :** au recto ou au verso (--verso)
 - **Placements :** design/epreuves-livre/placements.json, design/epreuves-livre/placements-tome-1.json
@@ -62,7 +62,7 @@ Les planches de `images/a-valider/` sont posées comme les validées (JP les rel
 
 | Ch. | Posées (page du tome) | Mentionnées dans le texte sans planche dessinée | À valider, non posées | Photos demandées encore à acquérir (credits.md) |
 | --- | --- | --- | --- | ---: |
-| 15 | 15-01 (16, pleine, à valider), 15-02 (24, pleine, à valider), 15-03 (15, à valider), 15-05 (19, à valider), 15-06 (26, à valider), 15-04 (27, à valider), 15-se-deplacer-livre (10, double page) | — | — | 8 (ancien 20) |
+| 15 | 15-01 (16, pleine, à valider), 15-02 (24, pleine, à valider), 15-03 (17, à valider), 15-05 (18, à valider), 15-06 (26, à valider), 15-04 (27, à valider), 15-se-deplacer-livre (10, double page) | — | — | 8 (ancien 20) |
 
 ## Crédits des images — hors du livre
 
@@ -72,7 +72,7 @@ Aucune photo posée dans ce tome. Les photos téléchargées sous les anciens nu
 
 ## Avertissements
 
-- aucun
+- ch. 15, paginateur : p15-13 : page à moitié vide
 
 ## À savoir avant de téléverser
 
