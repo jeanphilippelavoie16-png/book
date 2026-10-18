@@ -9,8 +9,8 @@
 ## 1. Les raquettes plantées debout près de la porte (Cris de Wemindji)
 
 - **Organisme :** Nation crie de Wemindji (Eeyou Istchee), exposition « Life Is An Expedition: Travelling Wemindji
-  Eeyouch Lands and Waters » / « La vie est une expédition », Histoires de chez nous, Musées numériques Canada
-  (programme du Musée canadien de l'histoire), 2019.
+  Eeyouch Lands and Waters » / « La vie est une expédition », Histoires de chez nous (Community Stories), Musées
+  numériques Canada, 2019.
 - **Page anglaise :** https://www.communitystories.ca/v2/la-vie-est-une-expedition_life-is-an-expedition/?p=174
   (galerie, « Snowshoes »)
 - **Page française :** https://www.histoiresdecheznous.ca/v2/la-vie-est-une-expedition_life-is-an-expedition/galerie/raquettes/
