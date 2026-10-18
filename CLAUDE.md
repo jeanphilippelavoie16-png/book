@@ -195,7 +195,9 @@ chaque danger a son pictogramme, expliqué une fois à fond dans les pages des d
 chapitre, le pictogramme s'affiche dans l'étape où le danger se présente (`{!co}`, `{!glace}`…, liste dans
 `plan/dangers-inventaire.md`), et ce qui est propre au chapitre (la distance, l'épaisseur, la durée) se dit dans cette
 étape. Le gabarit a donc **sept sections** : 1 En une ligne, 2 Quand l'utiliser, 3 Matériel, 4 Procédure, 5 Points de
-contrôle, 6 Signes d'échec, 7 Variante d'urgence. Tome 1 d'abord, puis les tomes 2 à 6. Un mécanisme qui apprend quelque chose va dans l'étape qu'il
+contrôle, 6 Signes d'échec, 7 Variante d'urgence. Tome 1 d'abord, puis les tomes 2 à 6. Après la section 7, une section non numérotée **« En plus »** garde des encadrés vert pâle (la façon des Innus, une
+photo pour reconnaître, un petit dessin) que la mise en pages pose dans les trous des pages (JP, 18 octobre 2026) ;
+c'est de l'extra, jamais ce que le geste exige. Un mécanisme qui apprend quelque chose va dans l'étape qu'il
 explique. La migration des 113 chapitres se fait à la grande passe (`suivi/plan-de-match.md`, point 21).
 Un chapitre de référence (listes, tableaux) peut remplacer la procédure numérotée par
 des tableaux, mais garde l'ordre général et l'encadré danger.

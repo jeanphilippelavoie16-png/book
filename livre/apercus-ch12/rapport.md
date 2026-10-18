@@ -1,7 +1,7 @@
 # Tome 1 · Tenir — rapport d'assemblage
 
-- **Produit le :** 2026-10-18 18:26, par `design/outils/assembler-tome.py 1 --chapitres 12 --hors-ligne --sortie livre/apercus-ch12`
-- **Fichier :** `livre/tome-1/interieur.pdf` — 44 pages, 20.7 Mo
+- **Produit le :** 2026-10-18 18:38, par `design/outils/assembler-tome.py 1 --chapitres 12 --hors-ligne --sortie livre/apercus-ch12`
+- **Fichier :** `livre/tome-1/interieur.pdf` — 44 pages, 21.1 Mo
 - **Ouvertures :** au recto ou au verso (--verso)
 - **Placements :** design/epreuves-livre/placements.json, design/epreuves-livre/placements-tome-1.json
 - **Exigences de Blurb :** `sources/blurb-specifications.md` (relevées le 27 septembre 2026)
@@ -39,7 +39,7 @@ Marqueur `{.orange}` sur l'intertitre ### de la série, dans le Markdown (CLAUDE
 | Nombre de pages | pair, de 20 à 440 (papier Standard) | 44 | oui |
 | Page 1 | à droite | ouverture du chapitre 00 | oui |
 | Polices incorporées | toutes | 23 police(s), 0 non incorporée(s) | oui |
-| Taille du fichier | 2 Go au plus | 20.7 Mo | oui |
+| Taille du fichier | 2 Go au plus | 21.1 Mo | oui |
 | Marques d'imprimeur | aucune | aucune | oui |
 | Couleur | CMJN ou sRVB, sans ton direct | sRVB (Edge) | oui |
 | Noir du texte | 100 % K | noir sRVB (0, 0, 0) : la conversion est faite chez Blurb | à juger sur épreuve |

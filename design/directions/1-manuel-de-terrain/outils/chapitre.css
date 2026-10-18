@@ -117,3 +117,16 @@ p.pc .pi{display:flex;flex-direction:column;align-items:center;gap:1.5pt;max-wid
 p.pc .pmarge svg.picto{display:block;width:26pt;height:26pt;margin:0}
 .pnom{font:700 6.6pt/1.05 "IBM Plex Sans Condensed",sans-serif;color:#9B2C1E;text-transform:uppercase;letter-spacing:.04em;text-indent:0}
 .pnum{margin-top:-1pt;font:700 6.6pt/1.05 "IBM Plex Sans Condensed",sans-serif;color:#9B2C1E;text-transform:uppercase;letter-spacing:.04em;white-space:nowrap;text-indent:0}
+/* encadré « En plus » (JP, 18 octobre 2026) : vert pâle, filet vert à gauche ; posé par chapitre.js dans les trous des pages */
+.xzone{flex:none;margin-top:9pt}
+.extra{background:#E6EFE0;border-left:2.5pt solid #4E7A45;padding:6pt 9pt 7pt 10pt;break-inside:avoid}
+.extra .xhead{display:flex;align-items:baseline;gap:7pt;margin-bottom:4pt}
+.extra .xlab{font:700 7.4pt/1 "IBM Plex Sans Condensed",sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#fff;background:#4E7A45;padding:2pt 4pt 1.6pt}
+.extra .xtit{font:700 10.5pt/1.15 "IBM Plex Sans Condensed",sans-serif;color:#2F4A2B}
+.extra .xtxt{column-count:2;column-gap:14pt}
+.extra .xtxt p{text-indent:0;margin:0 0 3.5pt}
+.extra.ximg .xcorps{display:flex;gap:11pt;align-items:flex-start}
+.extra.ximg .xtxt{column-count:1;flex:1}
+.extra .xfig{margin:0;flex:none;width:2.4in}
+.extra .xfig img{display:block;width:100%;height:auto;max-height:3in;object-fit:contain}
+.extra .xfig figcaption{font:italic 600 7.4pt/9.4pt "IBM Plex Sans Condensed",sans-serif;color:#2F4A2B;margin-top:2pt}

@@ -108,6 +108,15 @@ travail.
 
 ---
 
+## En plus (section non numérotée, à la fin)
+
+Ajoutée le 18 octobre 2026 (JP : « fais un mixte et mets des encadrés pour montrer que c'est de l'extra, en vert
+pâle »). Une réserve d'encadrés `### Titre`, 40 à 150 mots chacun, que la mise en pages pose dans les trous des pages
+(chapitre.js, `fillExtras`) : la façon des Innus (pourquoi elle marche, ce qui la rend dangereuse si on change ses
+conditions), une photo pour reconnaître (`![légende](images/extras/…)`), un petit dessin (`images/extras/`). Ce qui est
+bon à savoir sans être nécessaire au geste ; jamais une redite du chapitre. Un encadré qui ne trouve pas de trou ne
+s'imprime pas, et le rapport de l'assembleur le dit.
+
 ## Ce qui n'est plus dans le chapitre
 
 **La section Sources a été retirée du livre.** C'est un document de survie, pas un

@@ -723,6 +723,16 @@ def mode_emploi(tome, titre_t, plan):
                "le sien. L'étape dit ce qui est propre à la situation : la distance, la dose, la durée. Le danger lui-même "
                "(ce qu'il fait, comment le reconnaître, quoi faire) est expliqué une seule fois, dans **les pages des "
                "dangers** qui suivent celle-ci.")),
+        # les encadrés « En plus » (JP, 18 octobre 2026 : « ajoute-le dans la page d'explication comme pour le orange et
+        # le rouge ») : chapitre.css, .extra
+        rang('<span style="display:block;padding:5pt 7pt;background:#E6EFE0;border-left:2.5pt solid #4E7A45">'
+             '<span style="display:flex;align-items:baseline;gap:6pt"><b style="font:700 7.4pt var(--sans);letter-spacing:.1em;'
+             'text-transform:uppercase;color:#fff;background:#4E7A45;padding:2pt 4pt 1.6pt;white-space:nowrap">En plus</b>'
+             '<b style="font:700 10pt var(--sans);color:#2F4A2B">La façon des Innus</b></span></span>',
+             "En plus",
+             p("Un encadré **vert pâle**, marqué **En plus**, ajoute ce qui est bon à savoir sans être nécessaire au geste : "
+               "une façon de faire des Innus, une photo pour reconnaître un arbre ou une plante, un petit dessin. Il remplit "
+               "un bas de page ; on peut le sauter sans rien manquer de la procédure.")),
         rang('<span class="md-fn">… la peau prend une tache blanche<sup>1</sup> …</span>',
              "Les notes",
              p("Un signe qu'il faut savoir reconnaître (une couleur, une odeur, un son, un test) est décrit en note, en bas de "

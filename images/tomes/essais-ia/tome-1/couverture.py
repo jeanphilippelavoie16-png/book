@@ -162,14 +162,14 @@ def devant(v, k):
     if VARIANTES[v]['devant'] == 'affiche':
         st = sous_titre(k)
         return (f'<div class="hd hd-a"><span>Le Manuel du Nord</span><span>Tome {k}</span></div>'
-                f'<div class="haut"><h1 class="titre" data-fit>{titre}</h1>'
+                f'<div class="haut" data-boite><h1 class="titre" data-fit>{titre}</h1>'
                 + (f'<p class="sous">{typo(st)}</p>' if st else '') + '</div>')
     if VARIANTES[v]['devant'] == 'chiffre':
         return (f'<div class="hd hd-b"><span>Le Manuel du Nord</span><span>Tome {k} sur 6</span></div>'
-                f'<div class="duo"><div class="num">{k}</div><h1 class="titre" data-fit>{titre}</h1></div>')
+                f'<div class="duo"><div class="num">{k}</div><h1 class="titre" data-fit data-haut=".hd-b">{titre}</h1></div>')
     return (f'<div class="marque">Le Manuel du Nord</div>'
             f'<div class="centre"><div class="tome"><i></i><span>Tome {k}</span><i></i></div>'
-            f'<h1 class="titre" data-fit>{titre}</h1></div>')
+            f'<h1 class="titre" data-fit data-haut=".marque" data-sommet=".tome">{titre}</h1></div>')
 
 
 # ------------------------------------------------------------------ gabarit
@@ -233,7 +233,7 @@ body{-webkit-print-color-adjust:exact;print-color-adjust:exact}
 /* ---------- devant : A, l'affiche (mêmes cotes que la page de titre, en px de la page rognée) ---------- */
 .front .hd{border-bottom:1px solid #4A6476}
 .hd-a{position:absolute;left:56px;right:56px;top:52px}
-.haut{position:absolute;left:50px;right:56px;top:104px;display:flex;flex-direction:column}
+.haut{position:absolute;left:50px;right:56px;top:104px;height:calc(4.2in - 104px);display:flex;flex-direction:column}   /* au-dessus des crêtes */
 .titre{margin:0;font-weight:800;line-height:.84;letter-spacing:.01em;text-transform:uppercase;white-space:nowrap}
 .haut .titre{font-size:236px}
 .sous{margin:26px 0 0 8px;max-width:400px;text-wrap:balance;font-weight:500;font-size:23px;line-height:1.28;letter-spacing:.01em;color:#B9C7D1}
@@ -252,7 +252,7 @@ body{-webkit-print-color-adjust:exact;print-color-adjust:exact}
 .centre .tome{display:flex;align-items:center;gap:16px;margin-bottom:20px;font-weight:600;font-size:19px;letter-spacing:.3em;text-transform:uppercase;color:#B9C7D1}
 .centre .tome i{display:block;width:0.62in;border-top:1px solid #B9C7D1}
 .centre .tome span{padding-left:.3em}
-.centre .titre{font-size:250px;text-align:center;line-height:.8}
+.centre .titre{align-self:stretch;font-size:250px;text-align:center;line-height:.8}   /* toute la largeur : un titre long rapetisse */
 
 /* ---------- guides (--guides) ---------- */
 .g{position:absolute;pointer-events:none}
@@ -268,10 +268,17 @@ SCRIPT = r'''<script>
   const FACES=['800 40px "Barlow Condensed"','700 40px "Barlow Condensed"','600 40px "Barlow Condensed"',
                '500 40px "Barlow Condensed"','400 12pt "IBM Plex Serif"','700 12pt "IBM Plex Serif"'];
   Promise.all(FACES.map(f=>document.fonts.load(f,'TENIRaéÀ−’01'))).then(()=>document.fonts.ready).then(()=>{
-    // un titre trop large pour sa place rapetisse (titres longs des tomes 4 et 5)
+    // un titre trop grand pour sa place rapetisse (titres longs des tomes 4 et 5) : trop large, plus haut que sa boîte
+    // (data-boite), ou monté à moins de 0,25 po de ce qui est au-dessus de lui (data-haut ; data-sommet : le haut de
+    // son bloc qu'on mesure, s'il porte une étiquette au-dessus du titre)
     document.querySelectorAll('[data-fit]').forEach(e=>{
+      const pan=e.closest('.panel'), boite=e.closest('[data-boite]');
+      const haut=e.dataset.haut?pan.querySelector(e.dataset.haut):null;
+      const sommet=e.dataset.sommet?pan.querySelector(e.dataset.sommet):e;
+      const trop=()=>e.scrollWidth>e.clientWidth+0.5 || (boite && boite.scrollHeight>boite.clientHeight+0.5) ||
+        (haut && sommet.getBoundingClientRect().top<haut.getBoundingClientRect().bottom+24);
       let s=parseFloat(getComputedStyle(e).fontSize);
-      while(e.scrollWidth>e.clientWidth+0.5 && s>40){s-=2;e.style.fontSize=s+'px';}
+      while(trop() && s>40){s-=2;e.style.fontSize=s+'px';}
     });
     document.querySelectorAll('[data-fit-v]').forEach(e=>{
       const box=e.parentElement; let s=parseFloat(getComputedStyle(e).fontSize);

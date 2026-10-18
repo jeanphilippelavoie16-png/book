@@ -352,6 +352,28 @@ def _render(blocks, lead=False):
         prev = k
     return out
 
+def extras_html(s):
+    """Section « En plus » (JP, 18 octobre 2026 : « fais un mixte et mets des encadrés pour montrer que c'est de
+    l'extra, en vert pâle ») : une réserve d'encadrés, un par « ### Titre », que chapitre.js pose dans les trous des
+    pages (fillExtras). Une ligne « ![légende](images/...) » met une photo ou une petite planche dans l'encadré."""
+    out, cur = [], None
+    for l in s["lines"]:
+        if l.startswith("### "):
+            cur = {"t": l[4:].strip(), "lines": []}; out.append(cur); continue
+        if cur is not None:
+            cur["lines"].append(l)
+    boites = []
+    for x in out:
+        imgs = [(m.group(1), m.group(2)) for m in (re.match(r"^\s*!\[([^\]]*)\]\(([^)]+)\)\s*$", l) for l in x["lines"]) if m]
+        corps = [l for l in x["lines"] if not re.match(r"^\s*!\[", l)]
+        texte = "".join(h for h, _ in render(parse(corps)))
+        fig = "".join(f'<figure class="xfig"><img src="{REL_ROOT + src}" alt="">'
+                      + (f"<figcaption>{il(cap)}</figcaption>" if cap else "") + "</figure>" for cap, src in imgs)
+        cls = "extra ximg" if imgs else "extra"
+        boites.append(f'<div class="{cls}"><div class="xhead"><span class="xlab">En plus</span>'
+                      f'<span class="xtit">{il(x["t"])}</span></div><div class="xcorps">{fig}<div class="xtxt">{texte}</div></div></div>')
+    return boites
+
 def h2(n, title):
     if n is None:
         return f'<h2 class="sec"><span class="t">{il(title)}</span></h2>'
@@ -576,8 +598,12 @@ def build(num):
     nd, nv = sec_num(ch, r"^danger"), sec_num(ch, r"^variante d.urgence")
     global NUM_PROC
     NUM_PROC = sec_num(ch, r"^proc[ée]dure") or 5
+    extras = []
     for s in ch["secs"]:
         n = s["n"]
+        if n is None and re.match(r"(?i)^en plus", s["title"]):
+            extras = extras_html(s)
+            continue
         if n and n == nd:
             stories["d"], dsubject = danger_story(s)
         elif n and n == nv:
@@ -697,6 +723,7 @@ def build(num):
            + f'<template id="open">{opening}</template>\n'
            + "".join(f'<template id="story-{sid}">\n{st(sid)}\n</template>\n' for sid, _, _ in flux)
            + "".join(t + "\n" for t in spreads)
+           + '<template id="extras">\n' + "\n".join(extras) + "\n</template>\n"
            + f'<template id="notes">\n{notes_html()}\n</template>\n'
            + '<script type="application/json" id="meta">' + json.dumps(meta, ensure_ascii=False) + "</script>\n"
            + '<pre id="stats"></pre>\n<script>\n(function(){\n' + helpers + engine + "\n})();\n</script>\n</body>\n</html>\n")

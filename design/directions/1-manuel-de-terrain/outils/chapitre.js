@@ -21,6 +21,7 @@ let pendingPlates = [];       // planches pleine page qui attendent la fin de la
 let pendingSpreads = [];      // doubles pages (logigramme) qui attendent la prochaine page de gauche
 let pendingOr = [];           // planches appelées dans la série orange : la page d'en face, ou la suivante
 let orTop = [];               // demi-pages de l'orange qui ouvrent la prochaine page de texte
+let EXTRAS = [];              // encadrés « En plus » (section En plus du chapitre) : ils remplissent les trous des pages
 const DSVG = '<svg viewBox="0 0 34 30" aria-hidden="true"><path d="M17 1.5 L32.5 28.5 H1.5 Z" fill="#fff"/><path d="M15.2 10 H18.8 L18.1 20.5 H15.9 Z" fill="#9B2C1E"/><rect x="15.4" y="22.3" width="3.2" height="3.2" fill="#9B2C1E"/></svg>';
 const PT = 96/72;
 
@@ -51,7 +52,22 @@ function orPages(){   // les planches de l'orange : pleine page sur leur propre 
     if(b.dataset.plate === 'full'){ const pp = mkPage('plate', b); pp.story = 'o'; } else orTop.push(b);
   });
 }
+// les encadrés « En plus » (JP, 18 octobre 2026 : « fais un mixte et mets des encadrés pour montrer que c'est de
+// l'extra, en vert pâle ») : quand une page se ferme avec un vrai trou en bas, on y pose ceux qui tiennent, dans
+// l'ordre du chapitre ; ceux qui ne trouvent aucun trou ne s'impriment pas (avertissement)
+function fillExtras(p){
+  if(!p || !EXTRAS.length || !(p.kind === 'text' || p.kind === 'open')) return false;
+  const bl = p.bl, H = bl.getBoundingClientRect().height; let pose = false;
+  for(let i = 0; i < EXTRAS.length; ){
+    if(free(p) < 0.16 * H) break;
+    const z = document.createElement('div'); z.className = 'xzone'; z.appendChild(EXTRAS[i]); bl.appendChild(z);
+    if(z.getBoundingClientRect().bottom <= bl.getBoundingClientRect().bottom + 0.5){ EXTRAS.splice(i, 1); pose = true; continue; }
+    z.remove(); i++;
+  }
+  return pose;
+}
 function nextPage(){
+  fillExtras(P);
   orPages();
   const pl = pendingPlates; pendingPlates = [];
   pl.forEach(b => { const pp = mkPage('plate', b); pp.story = P.story; });
@@ -59,7 +75,11 @@ function nextPage(){
   P = mkPage('text');
   // une double page attend et la page qui vient est à droite : elle reste blanche (la procédure ne passe pas avant le
   // logigramme) ; l'assembleur évite ce cas en choisissant le côté d'ouverture du chapitre
-  if(pendingSpreads.length && P.el.classList.contains('recto')){ P.blanche = true; WARN.push(P.el.id + ' : page blanche avant le logigramme'); P = mkPage('text'); }
+  if(pendingSpreads.length && P.el.classList.contains('recto')){
+    // la page de droite qui attend le logigramme prend les encadrés « En plus » plutôt que de rester blanche
+    if(!fillExtras(P)){ P.blanche = true; WARN.push(P.el.id + ' : page blanche avant le logigramme'); }
+    P = mkPage('text');
+  }
   // une double page commence toujours sur une page de gauche : posée dès que la page qui vient est un verso ;
   // sur un recto, le texte continue et la double page attend la page suivante (jamais de page blanche au milieu)
   if(pendingSpreads.length && P.el.classList.contains('verso')){
@@ -405,8 +425,11 @@ const faces = ['400 10pt "IBM Plex Serif"','600 10pt "IBM Plex Serif"','700 10pt
 const imgs = Array.from(document.querySelectorAll('template')).flatMap(t => Array.from(t.content.querySelectorAll('img')).map(i => i.getAttribute('src')));
 const imgLoads = imgs.map(src => new Promise(res => { const i = new Image(); i.onload = i.onerror = res; i.src = src; }));
 Promise.all(faces.map(f => document.fonts.load(f, 'aéÀ§«»—'))).then(() => document.fonts.ready).then(() => Promise.all(imgLoads)).then(() => {
+  { const t = document.getElementById('extras'); EXTRAS = t ? Array.from(t.content.children).map(n => n.cloneNode(true)) : []; }
   P = mkPage('open'); fitTitle();
   (C.flux || [['main'], ['d'], ['e']]).forEach(f => story(f[0], f[1], f[2]));
+  fillExtras(P);
+  EXTRAS.forEach(x => WARN.push('encadré « En plus » sans trou où se poser : ' + ((x.querySelector('.xtit') || {}).textContent || '')));
   orPages();
   if(orTop.length){ P = mkPage('text'); const fr = document.createElement('div'); fr.className = 'frame'; P.bl.appendChild(fr); orTop.forEach(b => fr.appendChild(b)); orTop = []; }
   if(pendingPlates.length){ const pl = pendingPlates; pendingPlates = []; pl.forEach(b => { const pp = mkPage('plate', b); pp.story = 'e'; }); }
