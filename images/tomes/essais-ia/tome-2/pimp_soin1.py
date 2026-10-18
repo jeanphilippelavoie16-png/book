@@ -129,19 +129,58 @@ for y in (852, 886):
 d.ellipse(P([(44, 833), (122, 844)]), fill=(178, 160, 140), outline=CERNE, width=max(1, int(k(2) / 1.6)))
 d.arc(P([(52, 804), (114, 864)]), 200, 340, fill=CERNE, width=max(1, int(k(2.4) / 1.6)))
 
-# 7. les bûches empilées devant le poêle : l'écorce foncée, le bout clair avec ses cernes
-def buche(cx, cy, r):
-    pts = [(cx + r * math.cos(t) * (1 + R.uniform(-0.07, 0.04)), cy + r * 0.92 * math.sin(t) * (1 + R.uniform(-0.05, 0.04)))
-           for t in np.linspace(0, 2 * math.pi, 15)[:-1]]
-    poly(pts, FONCE, w=2.2)
-    poly([(cx + (x - cx) * 0.78, cy + (y - cy) * 0.78) for x, y in pts], OCRE, cerne=None)
-    for f in (0.5, 0.24):
-        d.arc(P([(cx - r * f, cy - r * f * 0.92), (cx + r * f, cy + r * f * 0.92)]), R.uniform(0, 70), R.uniform(240, 340),
-              fill=MOYEN, width=max(1, int(k(0.9) / 1.6)))
-    if R.random() < 0.5:
-        t = R.uniform(0, 6.28); ligne((cx, cy), (cx + r * 0.7 * math.cos(t), cy + r * 0.65 * math.sin(t)), fill=FONCE, w=1.1)
-for cx, cy, r in ((636, 896, 15), (668, 897, 16), (700, 896, 15), (732, 897, 16), (652, 870, 15), (684, 870, 15), (716, 870, 15)):
-    buche(cx, cy, r)
+# 7. la corde de bois devant le poêle (JP : « les bûches mieux faites aussi ») : du bois fendu, vu par les bouts. Une
+#    bûche ronde, un quartier ou une demie ; l'écorce en bande foncée sur le côté rond ; le bout du bois en ocre avec ses
+#    cernes autour du cœur et une fente ; empilées en rangs croisés
+BOIS = (214, 160, 92); BOIS2 = (186, 124, 62)
+def bout(cx, cy, r, sorte, rot):
+    """Un bout de bûche. sorte : 'rond', 'demi' (le cœur au milieu du côté plat) ou 'quartier' (le cœur à la pointe)."""
+    if sorte == 'rond':
+        a0, a1, coeur = 0, 360, (cx, cy)
+    elif sorte == 'demi':
+        a0, a1 = rot, rot + 180; coeur = (cx, cy)
+    else:
+        a0, a1 = rot, rot + 95; coeur = (cx, cy)
+    ang = np.radians(np.linspace(a0, a1, 40))
+    ext = [(coeur[0] + r * (1 + R.uniform(-0.04, 0.03)) * math.cos(t), coeur[1] + r * 0.94 * math.sin(t)) for t in ang]
+    inn = [(coeur[0] + r * 0.80 * math.cos(t), coeur[1] + r * 0.80 * 0.94 * math.sin(t)) for t in ang]
+    if sorte == 'rond':
+        poly(ext, FONCE, w=2.0); poly(inn, BOIS, cerne=None)
+    else:
+        poly(ext + [coeur], FONCE, w=2.0)                                                   # l'écorce, puis le bois
+        poly(inn + [coeur], BOIS, cerne=None)
+        poly([(coeur[0] + (x - coeur[0]) * 1.0, coeur[1] + (y - coeur[1]) * 1.0) for x, y in [ext[0], coeur, ext[-1]]], BOIS, cerne=None)
+        d.line(P([ext[0], coeur, ext[-1]]), fill=CERNE, width=max(1, int(k(2.0) / 1.6)), joint='curve')   # les faces fendues
+    for f in (0.62, 0.42, 0.22):                                                            # les cernes, autour du cœur
+        rr = r * f
+        d.arc(P([(coeur[0] - rr, coeur[1] - rr * 0.94), (coeur[0] + rr, coeur[1] + rr * 0.94)]),
+              a0 + R.uniform(5, 25), a1 - R.uniform(5, 25), fill=BOIS2, width=max(1, int(k(1.1) / 1.6)))
+    t = math.radians(R.uniform(a0 + 20, a1 - 20))                                            # une fente qui part du cœur
+    ligne(coeur, (coeur[0] + r * 0.72 * math.cos(t), coeur[1] + r * 0.68 * math.sin(t)), fill=CERNE, w=1.1)
+    for _ in range(3):                                                                      # l'écorce, à la gouge
+        t = math.radians(R.uniform(a0 + 5, a1 - 5))
+        ligne((coeur[0] + r * 0.86 * math.cos(t), coeur[1] + r * 0.81 * math.sin(t)),
+              (coeur[0] + r * 0.97 * math.cos(t), coeur[1] + r * 0.91 * math.sin(t)), fill=MOYEN, w=0.9)
+# la corde, serrée : trois rangs qui se touchent ; les quartiers et les demies sont plus grands que les ronds (même
+# bois), tournés pour se caser ; le fond de la pile en ombre, pour que les vides se lisent comme des creux
+corde = []
+for j, (y, xs) in enumerate(((894, (632, 664, 697, 730, 762)), (869, (648, 681, 714, 747)), (845, (664, 697, 730)))):
+    for i, x in enumerate(xs):
+        sorte = ('rond', 'quartier', 'demi', 'quartier', 'rond', 'demi')[(i + j * 2) % 6]
+        r = {'rond': 15.5, 'demi': 19, 'quartier': 23}[sorte]
+        rot = {'rond': 0, 'demi': R.choice((150, 190, 200)), 'quartier': R.choice((205, 225, 240, 250))}[sorte]
+        cx, cy = x, y
+        if sorte == 'demi':                                      # le centre de masse de la demie revient sur la case
+            cx -= r * 0.42 * math.cos(math.radians(rot + 90)); cy -= r * 0.42 * 0.94 * math.sin(math.radians(rot + 90))
+        if sorte == 'quartier':
+            cx -= r * 0.6 * math.cos(math.radians(rot + 47.5)); cy -= r * 0.6 * 0.94 * math.sin(math.radians(rot + 47.5))
+        corde.append((cx, cy, r, sorte, rot, x, y))
+from scipy.spatial import ConvexHull
+pts_c = np.array([(x + 16 * math.cos(t), y + 15 * math.sin(t)) for *_, x, y in corde for t in np.linspace(0, 6.28, 12)])
+hull = pts_c[ConvexHull(pts_c).vertices]
+poly([tuple(p_) for p_ in hull], CERNE, cerne=None)
+for cx, cy, r, sorte, rot, *_ in corde:
+    bout(cx, cy, r, sorte, rot)
 
 # 8. le feu dans le poêle (JP : « le foyer mieux fait ») : le fond du foyer, la lueur, deux bûches en croix, les braises,
 #    des flammes en langues, la grille devant ; tout est coupé à la fenêtre du poêle
@@ -170,13 +209,20 @@ for bx, hh, l, pente in ((628, 34, 10, -5), (652, 62, 14, 4), (676, 86, 17, -3),
     ph = R2.uniform(0, 6)
     langue(bx, 742, l, hh, pente, ph, (250, 170, 80))
     langue(bx + 1, 742, l * 0.5, hh * 0.58, pente * 0.6, ph, (246, 226, 180))
-for xa, ya, xb, yb in ((616, 752, 712, 734), (640, 732, 738, 752)):               # les bûches en croix, devant le pied des flammes
-    n_ = np.array([-(yb - ya), xb - xa], float); n_ = n_ / np.linalg.norm(n_) * 5.5
-    df.polygon(P2([(xa + n_[0], ya + n_[1]), (xb + n_[0], yb + n_[1]), (xb - n_[0], yb - n_[1]), (xa - n_[0], ya - n_[1])]), fill=FONCE)
-    df.line(P2([(xa - n_[0] * 0.55, ya - n_[1] * 0.55), (xb - n_[0] * 0.55, yb - n_[1] * 0.55)]), fill=ORANGE, width=int(k(1.4)))
+for xa, ya, xb, yb in ((614, 751, 712, 731), (638, 731, 740, 751)):               # les bûches en croix, devant le pied des flammes
+    n_ = np.array([-(yb - ya), xb - xa], float); n_ = n_ / np.linalg.norm(n_) * 7
+    corps_b = [(xa + n_[0], ya + n_[1]), (xb + n_[0], yb + n_[1]), (xb - n_[0], yb - n_[1]), (xa - n_[0], ya - n_[1])]
+    df.polygon(P2(corps_b), fill=FONCE)
+    for t in (0.2, 0.42, 0.66, 0.85):                                                 # l'écorce, en écailles
+        px, py = xa + (xb - xa) * t, ya + (yb - ya) * t
+        df.line(P2([(px + n_[0] * 0.2, py + n_[1] * 0.2), (px + n_[0] * 0.75 + 3, py + n_[1] * 0.75)]), fill=(90, 26, 18), width=int(k(1.2)))
+    df.line(P2([(xa - n_[0] * 0.7, ya - n_[1] * 0.7), (xb - n_[0] * 0.7, yb - n_[1] * 0.7)]), fill=ORANGE, width=int(k(1.8)))   # la braise dessus
     for cx_, cy_ in ((xa, ya), (xb, yb)):
-        df.ellipse(P2([(cx_ - 5, cy_ - 5.5), (cx_ + 5, cy_ + 5.5)]), fill=OCRE, outline=FONCE, width=int(k(1.2)))
-        df.ellipse(P2([(cx_ - 2, cy_ - 2.3), (cx_ + 2, cy_ + 2.3)]), outline=FONCE, width=int(k(0.8)))
+        df.ellipse(P2([(cx_ - 6.5, cy_ - 7), (cx_ + 6.5, cy_ + 7)]), fill=FONCE)
+        df.ellipse(P2([(cx_ - 5, cy_ - 5.5), (cx_ + 5, cy_ + 5.5)]), fill=BOIS)
+        for rr in (3.4, 1.6):
+            df.ellipse(P2([(cx_ - rr, cy_ - rr * 1.08), (cx_ + rr, cy_ + rr * 1.08)]), outline=BOIS2, width=int(k(0.8)))
+        df.line(P2([(cx_, cy_), (cx_ + 4, cy_ - 3)]), fill=CERNE, width=int(k(0.8)))
 for x in range(612, 742, 6):                                                          # les braises
     df.ellipse(P2([(x, 753 + R2.uniform(-1, 1)), (x + 5, 758)]), fill=OCRE if R2.random() < 0.5 else ORANGE)
 df.rectangle(P2([(610, 750), (740, 754)]), fill=FONCE)                               # la grille, devant
