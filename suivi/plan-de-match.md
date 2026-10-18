@@ -309,7 +309,10 @@ tomes** : un peu plus de blanc en bas des pages qui précèdent une planche ; le
     pictogrammes professionnels libres (`images/tomes/frise.py`, crédits dans `images/tomes/LISEZMOI.md`). **Retenu le 18
     octobre** : l'image générée A (`images/tomes/essais-ia/tome-1-qwen-a.png`, AI Horde, Qwen-Image), vectorisée en
     aplats par `images/tomes/vectoriser.py` → `images/tomes/tome-1.svg`. Les autres tomes et la couverture : même
-    chemin (le texte de chaque tome dans `images/tomes/brief-images-tomes.md`, `essais-ia/horde.py`).
+    chemin (le texte de chaque tome dans `images/tomes/brief-images-tomes.md`, `essais-ia/horde.py`). **18 octobre, la page de titre
+    entière est refusée** (« pas beau pentoute ») : l'image, la mise en page et les couleurs, tout est à repenser. JP
+    envoie un exemple de page qu'il aime ; la page se refait en maquette dans Claude Design (un canevas avec des
+    versions côte à côte), puis se reporte dans l'assembleur.
 
 Le **ch. 11 (feu de forêt)** est **le chapitre modèle de la refonte, approuvé par JP** (15 octobre au soir :
 « c'est parfait, on se garde ça pour samedi ») : texte, trois séries orange à la longueur de leur temps (1 h,
