@@ -606,3 +606,24 @@ n'a pas d'aiguilles : de petites écailles sur des rameaux plats, en éventail (
 ![](images/extras/12-corps-mort.png)
 
 L'amarrage de l'étape 27 : vu de dessus avant de remplir le trou, puis en coupe une fois la neige tassée.
+
+### Planter ses raquettes debout près de la porte
+
+Chez les Cris de Wemindji, quand on s'arrête pour la nuit, on plante ses raquettes debout dans la neige, à côté de
+la porte. S'il neige beaucoup pendant la nuit, on les retrouve facilement le matin.
+
+### Une fenêtre de glace dans la maison de blocs
+
+Les Inuits du détroit d'Hudson posaient parfois une fenêtre dans la maison de blocs, du côté du soleil : un morceau
+de glace de lac, épais et clair, encastré dans la paroi du dôme. Le jour, il fait assez clair dans une maison de
+blocs ordinaire ; la fenêtre sert quand on a dû bâtir des murs très épais, là où le vent et la poudrerie usent la
+paroi (étape 102).
+
+### Reconnaître le mélèze, l'hiver
+
+![À gauche, un mélèze l'hiver, sans aiguilles, parmi des conifères verts ; à droite, un rameau de mélèze et un cône](images/extras/12-meleze-hiver.jpg)
+
+Le mélèze perd toutes ses aiguilles à l'automne : l'hiver, il a l'air d'un arbre mort, mais il est vivant et son
+bois est vert. Ne pas le prendre pour le bois mort debout de l'étape 15. On le reconnaît aux petites bosses le long
+de ses rameaux, d'où les aiguilles sortent en touffes au printemps, et à ses cônes presque ronds, de 1 à 2 cm. Il
+pousse souvent dans les tourbières et sur leur bord.
