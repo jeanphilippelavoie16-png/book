@@ -44,7 +44,7 @@ manque (botulisme de type E, poisson).
   « When adequate shelters are nearby (within 15 minutes travel time), people in poor-quality shelters (protection
   factors = 2) should stay there no longer than 30 minutes from the detonation. » La FEMA fixe l'heure du **départ**
   du mauvais abri ; avec 15 minutes de trajet, on arrive jusqu'à 45 minutes après l'éclair. Le texte avance le départ
-  de 15 minutes, en pleine arrivée des retombées (10 minutes ou plus, étape 4).
+  jusqu'à 15 minutes plus tôt que l'heure que la FEMA calcule.
 - **Correction proposée :**
   - Étape 9 : « **Dans une maison de bois sans sous-sol, changer d'abri si un meilleur est à moins de 15 minutes**,
     et partir au plus tard 30 minutes après l'éclair : un sous-sol, ou un gros bâtiment de béton ou de brique. »
@@ -224,12 +224,12 @@ manque (botulisme de type E, poisson).
 - **Texte :** « Dans l'eau qui a reçu des retombées, presque tout le danger est dans la poussière qui flotte : moins de
   2 % de sa radioactivité se dissout. Enlever la poussière enlève donc presque tout. » ; « environ 99 % de la
   radioactivité de l'eau ».
-- **Source :** ORNL, p. 73 : « in areas of heavy fallout, less than 2% of the radioactivity of the fallout particles
+- **Source :** ORNL, chap. 8, p. 72 et 73 : « in areas of heavy fallout, less than 2% of the radioactivity of the fallout particles
   contained in the water would become dissolved » (retombées d'une explosion). AIEA 2006, p. 34 du PDF
   (`04-aiea-2006-tchornobyl-environnement-p33-34-texte.txt`) : « at longer distances the fraction of soluble condensed
   particles increased. As one example, almost all the 137Cs deposited in 1986 in the United Kingdom was water soluble
   and exchangeable. » AIEA, TRS-472, tableau 12 : la terre retient le césium (Kd moyen 1 200 L/kg) environ 170 fois
-  plus que l'iode (6,9 L/kg). ORNL, p. 73 : la terre enlève « more of the dissolved radioactive material than does
+  plus que l'iode (6,9 L/kg). ORNL, même page : la terre enlève « more of the dissolved radioactive material than does
   boiling-water distillation ». L'étape 12 dit que le panache d'une centrale apporte de l'iode : la section 7 doit
   valoir pour lui aussi.
 - **Correction proposée** (premier paragraphe de « Sans eau fermée ») : « Après une détonation, presque tout le danger
@@ -243,7 +243,7 @@ manque (botulisme de type E, poisson).
 
 - **Texte :** « Prendre de la terre qui contient un peu d'argile, à au moins 10 cm sous la surface : presque toute la
   poussière radioactive reste en surface. »
-- **Source :** ORNL, p. 73 : « (Nearly all fallout particles remain near the surface except after deposition on sand or
+- **Source :** ORNL, chap. 8, p. 73 : « (Nearly all fallout particles remain near the surface except after deposition on sand or
   gravel.) » Le chapitre dit lui-même que sous la forêt boréale la terre est le plus souvent sableuse.
 - **Correction proposée :** « …: presque toute la poussière radioactive reste en surface, sauf là où elle est tombée
   sur du sable ou du gravier. Ne pas prendre la terre sous une couche de sable ou de gravier. »
@@ -253,7 +253,7 @@ manque (botulisme de type E, poisson).
 - **Texte :** « Si les retombées se mettent à tomber, entrer tout de suite dans le bâtiment le plus proche. Elles se
   voient : du sable fin, une poussière comme du sel de table, de la cendre, ou une pluie. »
 - **Source :** FEMA 2022, p. 28 : « After a detonation near the surface, immediately dangerous fallout […] can be
-  readily visible » ; ORNL, chap. 6, p. 50 : « air bursts produce only tiny particles » ; Québec, « Se mettre à
+  readily visible » ; ORNL, chap. 5, p. 49 : « air bursts produce only tiny particles » ; Québec, « Se mettre à
   l'abri » (`06-quebec-ccsn-mise-a-l-abri.md`) : « certain contaminants are invisible and odourless ». Le lecteur qui
   ne voit rien tomber après une alerte de centrale peut se croire épargné.
 - **Correction proposée :** « …entrer tout de suite dans le bâtiment le plus proche. Après une explosion au sol, elles
@@ -322,7 +322,7 @@ manque (botulisme de type E, poisson).
 
 - **Texte :** « La teinture d'iode, la povidone iodée (Bétadine) et les comprimés d'iode pour désinfecter l'eau sont
   des poisons quand on les avale ». Le ch. 10, étape 23, désinfecte l'eau avec ces mêmes produits.
-- **Source :** ORNL, p. 116 : « Elemental (free) iodine is poisonous, except in the very small amounts in water
+- **Source :** ORNL, p. 115 : « Elemental (free) iodine is poisonous, except in the very small amounts in water
   disinfected with iodine tablets or a few drops of tincture of iodine. »
 - **Correction proposée :** « …sont des poisons quand on les avale (on peut boire l'eau qu'ils ont désinfectée : ch. 10,
   étape 23), et ils ne protègent pas la thyroïde ».
@@ -396,7 +396,7 @@ manque (botulisme de type E, poisson).
 
 - Section 6, « Garder les antibiotiques pour cette période […] (ch. 32, ch. 35) » : la phrase vient de l'ORNL (« Any
   available antibiotics should be reserved for this critical phase ») ; le ch. 32 refuse de stocker des antibiotiques
-  sans ordonnance active (tableau de sa section 4, « Ce que le chapitre refuse de mettre au stock »). Les deux
+  sans ordonnance active (section 5-B, tableau des catégories, ligne « Ce que le chapitre refuse de mettre au stock »). Les deux
   chapitres se contredisent ; rien changé au ch. 32.
 - Section 6, « une brûlure de la rétine, qui reste (ch. 35) » : le ch. 35 ne parle ni de la rétine ni de
   l'irradiation. Renvoi faible.
@@ -434,7 +434,7 @@ la pièce d'abri et l'aérer | ch. 4, étape 18 | » ; « À la sortie » garde 
 
 **Le ch. 4 a raison pour les retombées d'une détonation ; le ch. 10 a raison pour l'ébullition seulement.** ORNL,
 p. 71 : « neither fallout particles nor dissolved radioactive elements or compounds can be removed from water by
-chemical disinfection or boiling » ; p. 73 : « Filtering through earth removes essentially all of the fallout particles
+chemical disinfection or boiling » ; p. 72 et 73 : « Filtering through earth removes essentially all of the fallout particles
 and more of the dissolved radioactive material than does boiling-water distillation […]. In areas of heavy fallout,
 about 99% of the radioactivity in water could be removed by filtering it through ordinary earth » ; décanter à
 l'argile « will carry most of the suspended fallout particles to the bottom ». Réserve (P3) : après une centrale
@@ -501,7 +501,7 @@ CONFORME : retrouvé dans la source notée. Les numéros de page sont ceux des f
 | 13 | Lavage : savon, sans frotter, coupures couvertes, pas de revitalisant ; eau du robinet ; linge, serviette, lingette ; paupières, cils, oreilles ; pas de lingette ménagère ; désinfectant inutile ; vêtements d'un tiroir ; secouer les siens | Étape 10 | CDC 2024 et infographie ; Ready.gov |
 | 14 | Brosser le poil des animaux, les laver, se laver après | Étape 10 | Ready.gov (« Gently brush your pet's coat ») ; CDC |
 | 15 | La thyroïde ne fait pas la différence ; ne protège qu'elle, contre l'iode, environ 24 h ; pas un remède | Étape 12 | OMS 2025 ; CCSN ; CDC |
-| 16 | Teinture, povidone, comprimés pour l'eau : poisons avalés, ne bloquent pas ; sur la peau, moins de protection, effets graves | Étape 12 | ORNL p. 116 et 117 (nuance P11) |
+| 16 | Teinture, povidone, comprimés pour l'eau : poisons avalés, ne bloquent pas ; sur la peau, moins de protection, effets graves | Étape 12 | ORNL p. 115 à 117 (nuance P11) |
 | 17 | Sel iodé trop faible, risque à en manger beaucoup ; suppléments | Étape 12 | OMS ; CDC (pour les suppléments : « may not work […] and can hurt you », le texte dit « beaucoup trop peu » : écart sans conséquence) |
 | 18 | Tableau des doses (16, 32, 65, 130 mg ; ¼, ½, 1, 2 comprimés de 65 mg ; ½ et 1 de 130 mg ; solution sous 3 ans) | Étape 13 | CDC ; FDA FAQ (même tableau) |
 | 19 | 70 kg, dose adulte à l'adolescent | Étape 13 | FDA (« > 150 lbs or 70 kg ») |

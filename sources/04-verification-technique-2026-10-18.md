@@ -111,7 +111,7 @@ Numéros de page du livre.
 > (p. 73) « 4. Take soil containing some clay almost any soil will do from at least 4 inches below the surface of the
 > ground. (Nearly all fallout particles remain near the surface except after deposition on sand or gravel.) »
 
-> (p. 73) « Filtering through earth removes essentially all of the fallout particles and more of the dissolved
+> (p. 72 et 73) « Filtering through earth removes essentially all of the fallout particles and more of the dissolved
 > radioactive material than does boiling-water distillation, a generally impractical purification method that does
 > not eliminate dangerous radio-active iodines. Earth filters are also more effective in removing radioactive iodines
 > than are ordinary ion-exchange water softeners or charcoal filters. »
@@ -129,7 +129,7 @@ Numéros de page du livre.
 > official advice is obtainable, avoid eating fresh leafy vegetables that were growing or exposed at the time of
 > fallout deposition; thoroughly wash all vegetables and fruits. »
 
-### Les retombées d'une explosion en altitude (chap. 6, p. 50)
+### Les retombées d'une explosion en altitude (chap. 5, p. 49)
 
 > « Fortunately, air bursts produce only tiny particles, and only a small fraction of these, while they still are very
 > radioactive, are likely to be promptly brought to earth in scattered "hot spots" by rain-outs and snow-outs. »
