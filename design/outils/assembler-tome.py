@@ -688,9 +688,12 @@ def mode_emploi(tome, titre_t, plan):
              "Les pictogrammes des étapes",
              p("Sous le numéro d'une étape : le **minuteur**, un temps à respecter ou à surveiller ; le **thermomètre**, une "
                "température à atteindre ou à vérifier.")),
-        rang('<span style="font:400 9.4pt var(--serif)">' + il("12. {!generatrice} Laisser la génératrice dehors…") + '</span>',
+        rang('<span style="display:flex;gap:6pt;align-items:flex-start;font:400 9.4pt var(--serif)">'
+             '<span style="display:flex;flex-direction:column;align-items:flex-end;gap:2pt"><b style="font:700 11pt var(--sans)">12</b>'
+             + il("{!generatrice}").replace('class="picto"', 'class="picto" style="width:21pt;height:21pt"') + '</span>'
+             '<span>Laisser la génératrice dehors…</span></span>',
              "Les dangers",
-             p("Un **carré rouge** au début d'une phrase veut dire qu'un danger se présente à cette étape. Chaque danger a "
+             p("Un **carré rouge** dans la marge, à gauche d'une étape, veut dire qu'un danger se présente à cette étape. Chaque danger a "
                "le sien. L'étape dit ce qui est propre à la situation : la distance, la dose, la durée. Le danger lui-même "
                "(ce qu'il fait, comment le reconnaître, quoi faire) est expliqué une seule fois, dans **les pages des "
                "dangers** qui suivent celle-ci.")),
@@ -851,8 +854,8 @@ def dangers_html(tome, chap_ids, debut, work, nom="dangers"):
         return None, 0
     tete = f'<div class="ax-top"><span>Tome {tome} · {e(titre_t)}</span><span>Le Grand Livre du Chalet</span></div>'
     h1 = ('<h1>Les dangers</h1><p class="dg-intro">' + il(
-        "Dans un chapitre, ce carré rouge au début d'une phrase {!" + next(iter(k for k in ent if k in vus)) + "} veut dire "
-        "qu'un danger se présente à cette étape. L'étape dit ce qui est propre à cette situation (la distance, la dose, la "
+        "Dans un chapitre, ce carré rouge {!" + next(iter(k for k in ent if k in vus)) + "}, dans la marge à gauche d'une "
+        "étape, veut dire qu'un danger se présente à cette étape. L'étape dit ce qui est propre à cette situation (la distance, la dose, la "
         "durée) ; le danger lui-même, ce qu'il fait au corps, comment le reconnaître et quoi faire, est expliqué ici, une "
         "seule fois.") + "</p>")
     src = (f'<div id="dg-src" data-debut="{debut}" data-tete="{e(tete)}" data-h1="{e(h1)}" style="display:none">'

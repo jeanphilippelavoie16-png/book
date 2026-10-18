@@ -122,8 +122,9 @@ Le cadre complet est `.claude/skills/planches/references/brief-agent.md`. En bre
   faut optimiser l'espace pour pas trop de vide finalement »).
 - [ ] Pas de vide inutile (même jour) : un chapitre peut ouvrir sur une page de gauche (plus de page blanche devant une
   ouverture) ; le seul trou voulu reste celui qui suit les planches d'une série orange.
-- [ ] Le pictogramme de danger se pose au début de la phrase de l'étape ; le moteur l'affiche à gauche des lignes, sur
-  deux lignes de haut (JP, même jour : « on le met à côté du texte en plus gros, ils sont trop petits dans le texte »).
+- [ ] Le pictogramme de danger se pose au début de la phrase de l'étape ; le moteur le sort dans la marge de gauche du
+  paragraphe, en gros, sous le numéro de l'étape (JP, même jour : « ils sont trop petits dans le texte », puis
+  « j'aimerais mieux les pictogrammes en gros dans la marge »).
 - [ ] La série orange se lit d'un trait, sans planche ni page au milieu (JP, 18 octobre : « premières minutes est
   scindé, il doit se suivre ») : les planches appelées dans l'orange gardent leur ancre à l'étape qui les appelle ; le moteur les sort de l'orange, les
   pose juste après la série et ferme la page (JP : « après le orange c'est les planches, ensuite on commence l'essence ;

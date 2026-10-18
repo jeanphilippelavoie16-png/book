@@ -261,8 +261,24 @@ def table_html(rows, nested):
     cls = "tcol" + (" nest" if nested else "") if col else "tspan"
     return f'<table class="{cls}">{cg}<thead><tr>{th}</tr></thead><tbody>{"".join(trs)}</tbody></table>'
 
+PICTO_SVG = re.compile(r'<svg class="picto"[^>]*>.*?</svg>[\u00a0 ]?', re.S)
+
+def marge(h):
+    """Les pictogrammes de danger d'un paragraphe sortent dans sa marge de gauche, en gros, l'un sous l'autre (JP,
+    18 octobre 2026 : « j'aimerais mieux les pictogrammes en gros dans la marge »). Le paragraphe prend la classe pc."""
+    if 'class="picto"' not in h or not h.startswith("<p"):
+        return h
+    pics = PICTO_SVG.findall(h)
+    h = PICTO_SVG.sub("", h)
+    m = re.match(r'<p( class="([^"]*)")?>', h)
+    cls = ((m.group(2) or "") + " pc").strip()
+    return f'<p class="{cls}" style="--np:{len(pics)}"><span class="pmarge">' + "".join(x.rstrip("\u00a0 ") for x in pics) + "</span>" + h[m.end():]
+
 def render(blocks, lead=False):
     """-> liste de (html, texte source) ; le texte source sert à ancrer planches et photos."""
+    return [(marge(h), t) for h, t in _render(blocks, lead)]
+
+def _render(blocks, lead=False):
     out, prev = [], None
     for b in blocks:
         k = b["k"]
