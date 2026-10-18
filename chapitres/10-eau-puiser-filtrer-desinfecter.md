@@ -83,16 +83,17 @@ saute jamais.
 8. **Laisser reposer l'eau dans une chaudière, sans y toucher, couvercle posé, de 12 à 24 h** (planche 10-01,
  repère 1). Le sable tombe en quelques minutes ; l'argile et la matière organique fine prennent des heures. Ce qui
  reste en suspension abrite les microbes, use la javel avant qu'elle les atteigne et bouche le filtre.
-9. **Tirer l'eau claire par-dessus le dépôt, sans le remettre en suspension**, et laisser les 2 ou 3 derniers
- centimètres au fond (repère 2).
- - **Au siphon.** Plonger le boyau au complet dans la chaudière pleine jusqu'à ce qu'il soit rempli d'eau, sans
- bulle. Boucher les deux bouts avec les pouces, garder un bout dans la chaudière pleine, à 2 ou 3 cm au-dessus du
- dépôt, et descendre l'autre bout dans la chaudière vide, posée plus bas. Lâcher les deux pouces : l'eau coule
- seule tant que le bout du bas reste plus bas que le niveau de l'eau.
+9. **Tendre trois ou quatre épaisseurs de coton serré sur une seconde chaudière**, posée plus bas que la première :
+ une taie d'oreiller pliée en deux et attachée sous le bord fait l'affaire (repère 2). Le coton retient ce que la
+ décantation a laissé ; devant un filtre fin, il fait durer la cartouche.
+10. **Tirer l'eau claire par-dessus le dépôt, à travers le coton, sans remettre le dépôt en suspension** : tenir le
+ bout du boyau au-dessus du dépôt, et laisser les 2 ou 3 derniers centimètres au fond (repère 3).
+ - **Amorcer le siphon sans la bouche** (planche 10-08, repère 1). Coucher le boyau au fond de la chaudière pleine
+ jusqu'à ce qu'il n'en sorte plus de bulle. Boucher un bout avec le pouce (repère 2), et laisser l'autre bout dans
+ la chaudière, au-dessus du dépôt. Descendre le bout bouché sur le coton de la chaudière du bas, et lâcher le pouce
+ (repère 3) : l'eau coule seule tant que ce bout reste plus bas que le niveau de l'eau de la chaudière du haut.
  - **Autre façon, sans boyau.** Verser doucement, d'un seul mouvement, sans redresser la chaudière, et arrêter
  quand le dépôt arrive au bord.
-10. **Passer l'eau dans trois ou quatre épaisseurs de coton serré**, tendues sur la seconde chaudière (repère 3). Le
- coton retient ce que la décantation a laissé ; devant un filtre fin, il fait durer la cartouche.
 
 ### Filtrer
 
@@ -112,7 +113,7 @@ saute jamais.
 
 ### Faire bouillir
 
-14. **Porter l'eau à gros bouillons et chronométrer à partir du moment où toute la surface roule** (repère 4) : au
+14. **Porter l'eau à gros bouillons et chronométrer à partir du moment où toute la surface roule** (planche 10-01, repère 4) : au
  moins 1 minute pour une eau de puits ou de robinet ; 5 minutes pour une eau de lac, de ruisseau, de neige ou de
  glace, et pour toute eau bue en forêt sans le reste de la chaîne. Si le bouillon tombe, recommencer le compte à
  zéro.
@@ -126,7 +127,7 @@ saute jamais.
  pour l'eau bue en forêt, là où la tularémie circule, est quand même de 5 minutes, et on s'y tient. Le filtre ne
  remplace pas ces 5 minutes : un trou de 1 µm arrête la plupart des bactéries, pas toutes, et celle-ci est très
  petite. Les ch. 48 (lièvre) et 50 (castor) appliquent la même durée.
-15. **Couvrir la marmite pendant l'ébullition** : on perd moins d'eau et moins de bois.
+15. **Couvrir la marmite pendant l'ébullition** (repère 5) : on perd moins d'eau et moins de bois.
 16. **Laisser refroidir l'eau dans la marmite couverte**, puis la verser dans un contenant lavé, avec des ustensiles
  propres.
 17. **Transvaser l'eau bouillie deux ou trois fois d'un contenant à l'autre avant de la donner aux enfants** :
@@ -407,22 +408,21 @@ Ce qu'on perd avec les pierres : l'eau fume sans rouler, et sans gros bouillon, 
 Dans un tubage de 150 mm, on puise avec une buse : un bout de tuyau rigide avec un clapet au bas et une corde en haut
 (planche 10-02).
 
-- **Le tuyau.** Couper un tuyau rigide de 40 mm de diamètre, long de 1,5 à 2 m (repère 5).
-- **Le clapet.** Percer un trou au centre d'un bouchon qui ferme le bas du tuyau (repère 7). Découper un carré de
- chambre à air qui couvre le trou avec de la marge tout autour (repères 8 et 12), et le visser d'un seul côté, par
- deux vis sur le même bord (repères 9 et 11), pour qu'il se soulève comme une porte. Poser le bouchon au bas du
- tuyau, le carré vers l'intérieur (repère 6).
-- **La corde.** L'attacher deux fois au haut du tuyau (repère 4) : ce qui tombe au fond d'un puits y reste et y
- pourrit.
-- **Puiser.** Enlever le couvercle du tubage (repère 1). Enrouler la corde sur un bâton, posé en travers, hors du
- sol (repère 2). Descendre la buse jusque sous l'eau (repère 3) : à la descente, l'eau soulève le carré et entre
- dans le tuyau ; à la remontée, son poids plaque le carré sur le trou (repère 10), et la buse remonte pleine.
+- **Le tuyau.** Couper un tuyau rigide de 40 mm de diamètre, long de 1,5 à 2 m.
+- **Le clapet.** Percer un trou au centre d'un bouchon qui ferme le bas du tuyau (repère 1). Découper un carré de
+ chambre à air qui couvre le trou avec de la marge tout autour, et le visser d'un seul côté, par deux vis sur le
+ même bord, pour qu'il se soulève comme une porte (repère 2). Enfoncer le bouchon au bas du tuyau, le carré vers
+ l'intérieur (repère 3).
+- **Puiser.** Enlever le couvercle du tubage et descendre la buse jusque sous l'eau : à la descente, l'eau soulève
+ le carré et entre dans le tuyau (repère 4) ; à la remontée, son poids plaque le carré sur le trou (repère 5), et la
+ buse remonte pleine.
 - **Ce qu'elle remonte.** Un tuyau de 40 mm porte environ 1,2 L par mètre, et une buse de 2 m remonte 2,5 L. Les
  48 L d'une journée pour quatre personnes demandent une vingtaine de voyages : on fait les voyages d'un coup et on
  stocke l'eau traitée, plutôt que de puiser au fur et à mesure.
 - **Garder le puits propre.** Tout ce qu'on descend dans le tubage finit dans l'eau qu'on boit : la corde, la buse,
- les mains. Garder la corde enroulée sur son bâton, ranger la buse bouchée et suspendue, et remettre le couvercle
- du tubage entre deux voyages.
+ les mains. Enrouler la corde sur un bâton posé en travers, hors du sol (repère 6). Attacher la corde au haut du
+ tuyau dans deux trous (repère 7) : ce qui tombe au fond d'un puits y reste et y pourrit. Ranger la buse bouchée et
+ suspendue, et remettre le couvercle du tubage entre deux voyages.
 
 ### Faire du chlore quand il n'y a plus de javel
 
@@ -456,28 +456,28 @@ Sans bandelette, c'est un dosage à l'aveugle, pire que de faire bouillir.
 ### Le filtre à sable
 
 Un baril debout, rempli de sable, que l'eau traverse lentement de haut en bas (planche 10-07). Il clarifie l'eau ;
-on la fait bouillir ensuite.
+il ne la désinfecte pas.
 
-- **Le baril et la sortie.** Percer un trou au bas du baril et y fixer un bout de boyau. Faire remonter le boyau le
- long du baril et le couper 5 cm plus haut que le dessus du sable (repère 6) : l'eau cesse de couler à cette
- hauteur, et il reste toujours 5 cm d'eau sur le sable.
-- **Le fond.** Mettre au fond une main de grosse pierre (repère 5), puis une couche de gravier (repère 4).
-- **Laver le sable.** Brasser le sable dans un seau d'eau, le laisser tomber et vider l'eau trouble (repère 9) ;
- recommencer jusqu'à ce que l'eau de rinçage sorte claire (repère 10).
-- **Le sable.** Le verser en couche épaisse sur le gravier (repère 3). Plus la couche est épaisse et plus l'eau la
- traverse lentement, mieux le filtre travaille.
-- **Verser l'eau.** La verser doucement sur une assiette percée posée sur le sable (repère 1) : l'assiette empêche
+- **Le baril et la sortie.** Percer un trou au bas du baril et y passer un bout de boyau (repère 1). Faire remonter le
+ boyau le long du baril et le couper 5 cm plus haut que le dessus du sable (repère 2) : l'eau cesse de couler à
+ cette hauteur, et il reste toujours 5 cm d'eau sur le sable.
+- **Le fond.** Mettre au fond une main de grosse pierre (repère 3), puis une couche de gravier (repère 4).
+- **Le sable.** Le verser en couche épaisse sur le gravier (repère 5). Plus la couche est épaisse et plus l'eau la
+ traverse lentement, mieux le filtre travaille. Le laver d'abord : le brasser dans un seau d'eau, le laisser tomber
+ et vider l'eau trouble (repère 6), et recommencer jusqu'à ce que l'eau de rinçage sorte claire (repère 7).
+- **Verser l'eau.** La verser doucement sur une assiette percée posée sur le sable (repère 8) : l'assiette empêche
  l'eau de creuser le sable.
 - **Le film vivant.** Le travail se fait surtout par un film de microbes qui s'installe à la surface du sable et
- mange ce qui passe (repère 2), plus que par les grains de sable. Il met jusqu'à un mois à se former, et pendant ce
- temps, l'eau qui sort se désinfecte comme le reste. Il ne se voit pas ; le sable qui fonce montre seulement la
- saleté prise. Il vit tant que le sable reste mouillé et hors gel, et qu'il reçoit de l'eau neuve au moins tous
- les deux jours : on monte le filtre l'été ou l'automne, avant d'en avoir besoin, et on le nourrit chaque jour.
-- **Le charbon.** Concasser et rincer du charbon de bois du poêle, et le mettre dans un second seau percé, posé sous
- la sortie du filtre (repère 7), jamais sur le sable (repère 8) : posé sur le sable, il étouffe le film vivant. Ce
- second seau corrige le goût et la couleur. Le charbon du poêle n'est pas du charbon actif : il offre de quelques
- m² à 300 m² de surface par gramme, et l'activation, une cuisson à la vapeur au-dessus de 800 °C qui ouvre ses pores,
- la porte de 750 à 1 100 m², et il retient alors trois à cinq fois plus.
+ mange ce qui passe, plus que par les grains de sable. Il met jusqu'à un mois à se former, et pendant ce temps,
+ l'eau qui sort se désinfecte comme le reste. Il ne se voit pas ; le sable qui fonce montre seulement la saleté
+ prise. Il vit tant que le sable reste mouillé et hors gel, et qu'il reçoit de l'eau neuve au moins tous les deux
+ jours : on monte le filtre l'été ou l'automne, avant d'en avoir besoin, et on le nourrit chaque jour.
+- **Le charbon.** Concasser et rincer du charbon de bois du poêle, et en remplir un second seau percé, posé sous la
+ sortie du filtre, jamais sur le sable (repère 9) : posé sur le sable, il étouffe le film vivant. Ce second seau
+ corrige le goût et la couleur. Le charbon du poêle n'est pas du charbon actif : il offre de quelques m² à 300 m² de
+ surface par gramme, et l'activation, une cuisson à la vapeur au-dessus de 800 °C qui ouvre ses pores, la porte de
+ 750 à 1 100 m², et il retient alors trois à cinq fois plus.
+- **Faire bouillir l'eau qui sort** (repère 10), comme toute eau de surface (étape 14).
 - **Quand le débit tombe.** Gratter à plat les 2 ou 3 cm du dessus (repère 11), et laisser le lit en place, sans le
  brasser (repère 12).
 
@@ -486,7 +486,7 @@ on la fait bouillir ensuite.
 L'alambic fait de l'eau douce avec l'eau du fleuve, et enlève l'arsenic, l'uranium, le nitrate et le manganèse que
 rien d'autre n'enlève au chalet (planche 10-03).
 
-- **Le bol.** Poser un bol sur un trépied au centre d'une marmite, au-dessus de l'eau (repère 1).
+- **Le bol.** Poser un bol sur un trépied au centre d'une marmite, hors de l'eau (repère 1).
 - **Le couvercle.** Poser un couvercle bombé à l'envers sur la marmite (repère 2), le creux au-dessus du bol
  (repère 3) : la vapeur monte, frappe le couvercle froid, glisse vers le creux et tombe dans le bol.
 - **Le joint.** Faire le tour du couvercle avec un boudin de guenille mouillée ou une pâte de farine et d'eau, refait
@@ -495,8 +495,9 @@ rien d'autre n'enlève au chalet (planche 10-03).
  condenser (repère 5).
 - **Le feu.** Tenir un bouillon doux (repère 6) : un gros bouillon projette des gouttes d'eau sale dans le bol.
 - **Le bol.** Le sortir à froid, avant qu'il soit plein.
-- **Autre façon : le serpentin.** Un bout de tuyau de cuivre enroulé dans un banc de neige, branché sur le couvercle,
- récupère plus de vapeur (repère 7).
+- **Autre façon : le serpentin.** Au lieu du couvercle à l'envers et du bol dedans, faire sortir la vapeur par un
+ bout de tuyau de cuivre branché sur le couvercle (repère 7), et l'enrouler dans un banc de neige (repère 8) : l'eau
+ coule au bout du tuyau, dans un bol, et on récupère plus de vapeur.
 
 L'alambic mange du bois : faire passer un litre d'eau en vapeur demande plus de cinq fois la chaleur qu'il a fallu
 pour l'amener à ébullition, donc plus de six fois le bois d'une simple ébullition. On le réserve à l'eau à boire des

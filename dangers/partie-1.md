@@ -258,7 +258,7 @@ Un outil trempé (ciseau à froid, marteau) frappé contre un autre acier tremp�
 
 Le point d'attache reçoit plus que la charge. Une poulie de renvoi accrochée à un arbre reçoit les deux brins de la corde : elle porte le double de la traction. L'arbre, la branche ou le piquet qui la tient doit tenir ce double.
 
-Ce qui s'effondre sur quelqu'un se fait sans bruit :
+D'autres choses s'effondrent sur les gens sans prévenir :
 
 - la paroi d'une tranchée se détache et ensevelit la personne au fond ;
 - un abri de neige mal durci, ou ramolli par un redoux, s'écrase sur les gens qui dorment dedans ;

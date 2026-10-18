@@ -8,7 +8,7 @@
 
 1. Dès qu'on voit un de ces signes, reculer par où on est venu et lui laisser beaucoup de place. Garder le chien en laisse et ne jamais le laisser courir après l'orignal.
 2. S'il charge, courir : il ne poursuit pas loin. Se mettre derrière quelque chose de solide, un gros arbre, une auto, un rocher. On tourne autour d'un tronc plus vite que lui.
-3. S'il renverse quelqu'un, la personne se roule en boule, protège sa tête avec ses mains et ne bouge plus. Elle attend qu'il soit loin pour se relever : si elle bouge trop tôt, il recommence.
+3. S'il renverse quelqu'un : se rouler en boule, protéger sa tête avec ses mains et ne plus bouger. Attendre qu'il soit loin pour se relever : un mouvement trop tôt relance l'attaque.
 4. Après le tir, attendre que la bête soit immobile depuis un bon moment avant d'approcher. Un orignal assommé se relève sans avertir, et un coup de sabot de devant blesse gravement la personne accroupie près de lui, les mains occupées et l'arme posée. Approcher par l'arrière, l'arme prête, et regarder le flanc : s'il monte et descend, la bête respire.
 
 **Où il revient.** En forêt au printemps et à l'automne, à la chasse et au pistage, en marche avec le chien, et quand on approche une bête abattue (ch. 42, 43, 44, 61).
@@ -28,7 +28,7 @@ Une cartouche de calibre 20 glissée par erreur dans un fusil de calibre 12 desc
 - Après un clic, garder le canon pointé dans une direction sûre pendant 60 secondes avant d'ouvrir l'arme.
 - Ne jamais tirer une cartouche qui a chauffé, séchée sur le poêle ou oubliée au soleil dans l'auto : la chaleur abîme la poudre.
 - Tirer seulement sur une bête vue en entier, avec de la terre derrière elle : une butte, une pente, le sol. Jamais vers un chemin, jamais sur une bête découpée sur le ciel.
-- À la chasse, tout le monde porte de l'orange fluo sur le dos, les épaules et la poitrine, enfants compris : une forme brune qui bouge dans les aulnes ressemble à ce que l'autre chasseur cherche.
+- À la chasse, tout le monde doit porter de l'orange fluo sur le dos, les épaules et la poitrine, enfants compris : une forme brune qui bouge dans les aulnes ressemble à ce que l'autre chasseur cherche.
 - Au retour au camp, retirer le verrou, la culasse ou le percuteur de chaque arme avant de décharger l'auto, et compter les armes à voix haute.
 - À la porte, garder l'arme hors de vue : une arme qu'on montre change une visite en affrontement.
 - Quand quelqu'un de la maison va très mal (deuil, alcool, dispute qui monte), rendre les armes inutilisables avant de parler : verrou ou culasse retirés, munitions dans une autre pièce.
@@ -67,7 +67,7 @@ Chez la personne, de 3 à 6 jours après, parfois jusqu'à 3 semaines : une fiè
 
 - Mettre des gants imperméables avant de ramasser la bête, pas seulement avant de la dépouiller. Sans gants, des sacs de plastique serrés au poignet.
 - Mouiller la fourrure avant de la manipuler, pour que le poil ne vole pas. Porter des lunettes et un masque quand on scie ou qu'on secoue une peau.
-- La personne qui a une coupure ou une gerçure aux mains ne prépare pas le lièvre.
+- Une personne qui a une coupure ou une gerçure aux mains ne doit pas préparer le lièvre.
 - Après, laver les mains et les avant-bras au savon, et laver la surface et les lames avec 1 volume d'eau de Javel pour 9 volumes d'eau. Une éclaboussure sur la peau nue : laver à l'eau courante et au savon au moins 10 minutes.
 - Ne pas toucher une bête trouvée morte ou qui a l'air malade, gants ou pas. Devant des points blancs sur le foie ou la rate, on ne mange pas la bête et on ne pare pas autour. Rien de cru ni aucun abat de bête sauvage au chien.
 - Un oiseau sauvage abattu, qui tremble, tourne en rond, a la tête enflée ou la diarrhée, peut porter l'influenza aviaire : on ne le ramasse pas, on ne le plume pas.
@@ -108,7 +108,7 @@ Dans la plaie, la bactérie fabrique une toxine qui empêche les muscles de se r
 
 ## {!cuisson} Cuire à cœur, mesuré
 
-**Ce qui arrive.** La viande sauvage porte des bactéries et des parasites que la cuisson tue seulement quand le centre de la pièce atteint la bonne température. La surface cuit vite et le centre arrive en dernier. Dans la viande hachée, la surface contaminée se retrouve mêlée à toute la masse : le haché se cuit à cœur comme une pièce épaisse.
+**Ce qui arrive.** La viande sauvage porte des bactéries et des parasites que la cuisson tue seulement quand le centre de la pièce atteint la bonne température. La surface cuit vite et le centre arrive en dernier. Dans la viande hachée, la surface contaminée se retrouve mêlée à toute la masse : on cuit le haché à cœur comme une pièce épaisse.
 
 | Ce qu'on cuit | Au cœur |
 | --- | --- |
@@ -126,7 +126,7 @@ Le 71 °C qu'on lit partout est celui du porc et du bœuf haché, et le 63 °C s
 
 **Ce qu'on fait.** Mesurer chaque pièce, pas une sur la plaque. Une pièce qui n'a pas atteint sa température retourne au feu, peu importe le temps de cuisson.
 
-Pour une femme enceinte, une personne âgée ou une personne dont les défenses sont affaiblies, le poisson cru ou fumé à froid ne se sert pas. Il peut porter la *Listeria*, une bactérie qui pousse de −0,4 à 45 °C, donc au réfrigérateur, et que le fumage à froid ne tue pas ; les signes de la listériose peuvent arriver jusqu'à 70 jours après le repas. Le poisson cru peut aussi porter des larves de vers : le gel les tue seulement si le poisson lui-même atteint −20 °C pendant 7 jours, ou −35 °C pendant 15 h. Un congélateur ordinaire, réglé à −18 °C, n'y arrive pas.
+Pour une femme enceinte, une personne âgée ou une personne dont les défenses sont affaiblies, on ne sert pas de poisson cru ou fumé à froid. Il peut porter la *Listeria*, une bactérie qui pousse de −0,4 à 45 °C, donc au réfrigérateur, et que le fumage à froid ne tue pas ; les signes de la listériose peuvent arriver jusqu'à 70 jours après le repas. Le poisson cru peut aussi porter des larves de vers : le gel les tue seulement si le poisson lui-même atteint −20 °C pendant 7 jours, ou −35 °C pendant 15 h. Un congélateur ordinaire, réglé à −18 °C, n'y arrive pas.
 
 **Où il revient.** Partout où la viande, le poisson, l'oiseau ou les œufs passent au feu : la chasse, la pêche, la découpe, la salaison, le fumoir, le congélateur qui dégèle, la cuisine en grand volume et les repas d'urgence.
 
@@ -147,7 +147,7 @@ Pour une femme enceinte, une personne âgée ou une personne dont les défenses 
 
 **Où il revient.** À la chasse à l'ours et au phoque, au piégeage des carnivores, et dans chaque façon de conserver la viande : salaison, saumure, fumoir, séchage, pemmican, congélateur (ch. 52, 55, 56, 66 à 74, 78).
 
-## {!abats} Foie, reins, cervelle : les abats qui ne se mangent pas
+## {!abats} Foie, reins, cervelle : les abats qu'on ne mange pas
 
 **Ce qui arrive.** Trois groupes d'abats sont interdits, pour trois raisons différentes. La cuisson ne règle ni le cadmium ni le prion.
 
@@ -237,7 +237,7 @@ Chez la personne, les convulsions : le corps se raidit, puis les bras et les jam
 
 ## {!plante} Plante, champignon ou coquillage qui empoisonne
 
-**Ce qui arrive.** Ni le goût ni la cuisson ne protègent. Aucun traitement ne rend sûr un champignon toxique : ni la cuisson, ni le séchage, ni le gel, ni la conserve. Les toxines des moules, des myes et des autres coquillages à deux coquilles viennent des algues qu'ils filtrent ; une moule contaminée a l'air d'une moule, et même bien cuite, elle reste toxique. La pomme de terre verdie, amère ou germée garde son poison à la cuisson.
+**Ce qui arrive.** La cuisson ne rend pas sûre une plante toxique. Pour un champignon toxique, aucun traitement ne marche : ni la cuisson, ni le séchage, ni le gel, ni la conserve. Les toxines des moules, des myes et des autres coquillages à deux coquilles viennent des algues qu'ils filtrent ; une moule contaminée a l'air d'une moule, et même bien cuite, elle reste toxique. La pomme de terre verdie, amère ou germée garde son poison à la cuisson.
 
 Le délai trompe. Les champignons les plus mortels ne donnent aucun signe avant 6 à 72 heures, et certains semblent passer au bout de quelques heures, puis reviennent de 3 à 5 jours plus tard avec des signes plus graves, souvent mortels. À l'inverse, la cicutaire maculée donne des convulsions moins d'une heure après.
 
@@ -245,9 +245,9 @@ Le délai trompe. Les champignons les plus mortels ne donnent aucun signe avant 
 
 - **L'if du Canada** : un arbuste bas aux tiges qui traînent, aux aiguilles plates sans bandes blanches dessous. Tout est toxique, frais ou sec, à l'année, sauf la chair rouge autour de la graine ; la graine l'est. Chez le bétail, la mort vient souvent en 2 à 3 heures, et il n'existe aucun antidote.
 - **La cicutaire maculée** : une grande plante à petites fleurs blanches groupées en parasol plat (une ombellifère), dans les fossés et au bord de l'eau. Coupée en long, la base de la tige et le haut de la racine montrent des chambres creuses ; la racine est la partie la plus toxique.
-- **Les cerisiers sauvages** : la chair du fruit se mange, mais l'amande à l'intérieur du noyau, écrasée, libère du cyanure.
+- **Les cerisiers sauvages** : on peut manger la chair du fruit, mais l'amande à l'intérieur du noyau, écrasée, libère du cyanure.
 - **Le thé du Labrador** a un feutre roux et dense sous chaque feuille ; le kalmia et l'andromède, toxiques et mêlés à lui dans les tourbières, n'ont pas ce feutre roux.
-- **La pomme de terre** : le vert sous la peau, l'amertume ou une brûlure dans la bouche signalent le poison. Mise à la noirceur, elle pâlit sans perdre son poison.
+- **La pomme de terre** : le vert sous la peau, l'amertume ou une brûlure dans la bouche signalent le poison. Mise à la noirceur, elle peut pâlir sans que son poison baisse.
 
 Chez la personne : nausées, vomissements, crampes, diarrhée, et selon la plante, des convulsions, un cœur qui ralentit, ou le foie qui lâche plusieurs jours après un champignon.
 
@@ -296,10 +296,10 @@ Chez la personne : nausées, vomissements, crampes, diarrhée, et selon la plant
 
 **Ce qu'on fait.**
 
-- Faire bouillir l'eau d'un lac, d'une rivière ou d'une source douteuse, ou la passer dans un filtre qui arrête les parasites ; le chlore seul ne suffit pas.
+- Faire bouillir l'eau d'un lac, d'une rivière ou d'une source douteuse, ou la passer dans un filtre de 1 µm ou plus fin (l'oocyste de *Cryptosporidium* mesure de 4 à 6 µm) ; le chlore seul ne suffit pas.
 - Se laver les mains au savon avant de cuisiner et de manger, et après la toilette, les couches, la bête et le jardin.
 - Une personne qui a eu la gastro doit attendre 48 heures sans signe avant de retoucher à la cuisine commune.
-- Ne mettre au jardin aucune crotte de chien, de chat ni d'humain. Le fumier cru s'enfouit au moins 120 jours avant la récolte de ce qui touche la terre, et 90 jours avant le reste.
+- Ne mettre au jardin aucune crotte de chien, de chat ni d'humain. Enfouir le fumier cru au moins 120 jours avant la récolte de ce qui touche la terre, et 90 jours avant le reste.
 - Ne jamais rien donner de cru au chien ; ramasser ses crottes avec des gants.
 - Cuire les petits fruits et les légumes ramassés près du sol quand des canidés passent dans le secteur.
 
@@ -313,7 +313,7 @@ Chez la personne : nausées, vomissements, crampes, diarrhée, et selon la plant
 
 **Attendre trompe, parce que le délai est long.** L'antigel goûte sucré ; la personne a d'abord l'air ivre, somnolente, elle titube, puis ses reins lâchent. Le méthanol du lave-glace et de l'antigel ne donne parfois aucun signe pendant 1 à 72 heures, puis la vue part ; 30 mL peuvent tuer un enfant, 60 à 240 mL un adulte. L'acétaminophène avalé en trop ne donne souvent rien de plus qu'une nausée pendant deux jours, alors que le foie est déjà atteint. Une pile bouton avalée brûle l'œsophage en aussi peu que 2 heures, même usée, sans signe au début. On agit sur le soupçon, pas sur les signes.
 
-**Les médicaments.** Deux boîtes différentes peuvent contenir le même ingrédient : l'acétaminophène se double sans qu'on le veuille. Pas d'aspirine à un enfant, ni d'écorce de saule avant 18 ans : après une grippe ou une varicelle, elles déclenchent le syndrome de Reye, où le cerveau enfle et le foie lâche ; environ un enfant atteint sur cinq en meurt.
+**Les médicaments.** Deux boîtes différentes peuvent contenir le même ingrédient : on double la dose d'acétaminophène sans le vouloir. Pas d'aspirine ni d'écorce de saule avant 18 ans : pendant une grippe ou une varicelle, elles peuvent déclencher le syndrome de Reye, où le cerveau enfle et le foie lâche ; environ un enfant atteint sur cinq en meurt.
 
 **Le sel nitrité et le nitrate.** Le nitrite du sel de salaison change le sang pour qu'il ne porte plus l'oxygène. Le nitrate d'un puits fait la même chose au nourrisson de moins de 3 mois nourri au biberon, et faire bouillir l'eau le concentre. Signe : la peau et les lèvres bleutées.
 
@@ -323,7 +323,7 @@ Chez la personne : nausées, vomissements, crampes, diarrhée, et selon la plant
 2. Prendre le contenant, la boîte ou l'emballage, et partir vers l'hôpital tant que la route existe, même si la personne a l'air bien (pictogramme de la vie en jeu).
 3. Une toux qui ne passe pas après un liquide huileux, une respiration rapide, une peau bleutée : la vie est en jeu.
 
-Lire l'ingrédient actif de chaque boîte avant de donner un médicament, et peser le sel nitrité au dixième de gramme, dans son contenant étiqueté. Un contenant blanc sans étiquette lisible, on le jette.
+Lire l'ingrédient actif de chaque boîte avant de donner un médicament. Le sel nitrité ressemble au sel de table : on le pèse au dixième de gramme, et un contenant blanc sans étiquette lisible, on le jette.
 
 **Où il revient.** À la pharmacie, aux dents, au carburant, à l'éclairage, à l'atelier, au stock de pièces, à la salaison et au savon (ch. 4, 10, 15, 27, 32 à 34, 38, 39, 49, 67 à 70, 85, 106, 108, 111, 112).
 
@@ -344,7 +344,7 @@ Lire l'ingrédient actif de chaque boîte avant de donner un médicament, et pes
 **Ce qu'on fait.**
 
 1. Compter en heures : dans combien d'heures l'état devient impossible à rattraper, et combien d'heures prend la route jusqu'à l'hôpital (ch. 26).
-2. Partir tôt plutôt que vite : décidé pendant que la personne est stable, le départ se fait de jour, avec l'auto chargée comme il faut et un adulte à l'arrière pour surveiller.
+2. Décider pendant que la personne est stable : on part alors de jour, avec l'auto chargée comme il faut et un adulte à l'arrière pour surveiller.
 3. Avertir le voisinage ou le groupe du départ, pour que quelqu'un sache qu'une auto est partie.
 4. Pendant l'attente ou le trajet, faire les gestes qui gardent la personne en vie (ch. 35).
 
