@@ -384,7 +384,7 @@ ou pas assez au mauvais moment (ch. 14).
 Une pièce d'abri pleine de monde devient chaude et humide en quelques heures, l'été surtout, et l'air s'y vicie : il
 faut faire entrer l'air du dehors même pendant les retombées, en arrêtant la poussière à l'entrée.
 
-**La pompe à carton** se monte dans la porte de la pièce d'abri, sans électricité (planche 04-01b).
+**La pompe à carton** : on la monte dans la porte de la pièce d'abri, et on la fait marcher à la main, sans électricité (planche 04-01b).
 
 - Couper un panneau de carton fort ou de contreplaqué mince (repère 1), et le suspendre par le haut, dans la porte,
  à une charnière de ruban à conduits ou de toile (repère 2).
@@ -496,6 +496,21 @@ partie. Du ruban adhésif appliqué puis arraché lève la poussière des cheveu
 [À VÉRIFIER]. Faire fondre de la neige sur le poêle pour se rincer, et jeter l'eau de lavage loin du puits, du jardin
 et de la porte, pas dans le banc de neige qu'on fera fondre le lendemain.
 
+### Sans sel pour le trempage
+
+Pour la viande, l'eau claire fait le même travail que la saumure : 2 jours dans l'eau enlèvent autant de césium que
+2 jours dans la saumure (étape 31). Changer l'eau à chaque trempage. Pour le poisson, compter 8 heures à l'eau
+courante au lieu de 4 heures en saumure. **Ce qu'on perd :** 4 heures de trempage pour le poisson, et une eau courante
+froide qu'il faut trouver. Où trouver du sel quand il n'en reste plus : ch. 67.
+
+### Sans aucune viande de confiance
+
+Prendre, dans cet ordre, du moins exposé au plus exposé : les conserves et les réserves fermées d'avant l'événement ;
+les animaux de petit élevage nourris de grain entreposé à l'intérieur (ch. 101) ; le poisson du fleuve plutôt que
+celui d'un lac de tête [À VÉRIFIER] ; le gibier trempé et bouilli, bouillon jeté. Ne jamais aller jusqu'au lichen,
+aux champignons ni aux abats. **Ce qu'on perd :** du gras, du goût, et les vitamines qui partent dans l'eau de
+cuisson ; la fermentation devient la source de vitamine C (ch. 80, ch. 20).
+
 ### Sans eau fermée : décanter et filtrer à la terre
 
 Dans l'eau qui a reçu des retombées, presque tout le danger est dans la poussière qui flotte : moins de 2 % de sa
@@ -533,21 +548,6 @@ et 8). Rouler une poignée mouillée entre les mains : l'argile colle aux doigts
 de plus de 5 cm avant de casser, c'est une terre argileuse ; un ruban qui casse avant 2,5 cm, une terre sableuse.
 
 **Ce qu'on perd :** du temps et du débit. La décantation prend 6 heures, le filtre ralentit, et il faut le refaire.
-
-### Sans sel pour le trempage
-
-Pour la viande, l'eau claire fait le même travail que la saumure : 2 jours dans l'eau enlèvent autant de césium que
-2 jours dans la saumure (étape 31). Changer l'eau à chaque trempage. Pour le poisson, compter 8 heures à l'eau
-courante au lieu de 4 heures en saumure. **Ce qu'on perd :** 4 heures de trempage pour le poisson, et une eau courante
-froide qu'il faut trouver. Où trouver du sel quand il n'en reste plus : ch. 67.
-
-### Sans aucune viande de confiance
-
-Prendre, dans cet ordre, du moins exposé au plus exposé : les conserves et les réserves fermées d'avant l'événement ;
-les animaux de petit élevage nourris de grain entreposé à l'intérieur (ch. 101) ; le poisson du fleuve plutôt que
-celui d'un lac de tête [À VÉRIFIER] ; le gibier trempé et bouilli, bouillon jeté. Ne jamais aller jusqu'au lichen,
-aux champignons ni aux abats. **Ce qu'on perd :** du gras, du goût, et les vitamines qui partent dans l'eau de
-cuisson ; la fermentation devient la source de vitamine C (ch. 80, ch. 20).
 
 ### Ce qui ne se remplace pas
 

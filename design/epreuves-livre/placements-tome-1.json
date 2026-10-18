@@ -55,33 +55,37 @@
   "04": {
     "logigramme": {
       "fichier": "images/logigrammes/04-retombees-livre.svg",
-      "apres": "Se mettre à couvert à l'éclair",
+      "apres": "**Dosimètre ou compteur Geiger**",
       "orange": true
     },
     "planches": [
       {
         "id": "04-01a",
-        "apres": "**Sans sous-sol et sans caveau : empiler la masse soi-même.**"
+        "apres": "Si l'alerte tombe au chalet, ou si la route vers la ville est coupée"
       },
       {
         "id": "04-01b",
-        "apres": "*Ventiler quand même.*"
+        "apres": "**La pompe à carton** : on la monte dans la porte de la pièce d'abri"
       },
       {
         "id": "04-40",
-        "apres": "L'entrée se monte avec deux bâches ou deux couvertures accrochées en chicane"
+        "apres": "Monter l'entrée avec deux bâches ou deux couvertures accrochées en chicane"
       },
       {
         "id": "04-41",
-        "apres": "*Le montage.*"
+        "apres": "Sans appareil, on ne sait pas si la poussière reçue est négligeable ou grave"
+      },
+      {
+        "id": "04-42",
+        "apres": "*Le filtre de terre* (planche 04-42)."
       }
     ],
     "photos": [
       {
         "fichier": "images/photos/tri/04-lichen-caribous-tapis.jpg",
-        "apres": "**Trier le gibier du plus exposé au moins exposé :**",
+        "apres": "**Trier le gibier, du plus exposé au moins exposé.**",
         "taille": "quart",
-        "legende": "Lichen des caribous en tapis. Il prend le césium du sol, et le caribou qui s'en nourrit l'hiver passe en tête du tri."
+        "legende": "Lichen des caribous en tapis. Il prend directement la poussière radioactive qui tombe dessus, et le caribou qui s'en nourrit l'hiver passe en tête du tri."
       }
     ]
   },

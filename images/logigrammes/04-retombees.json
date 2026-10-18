@@ -1,5 +1,5 @@
 {
-  "_note": "Logigramme du chapitre 4 (retombées radioactives), double page, refait le 15 octobre 2026 sur le chapitre réécrit (remarques de JP : pas de branche « source perdue », radio après l'abri, ni « sas » ni « sceller »). Rendu : python design/outils/logigramme.py images/logigrammes/04-retombees.json. « source » : les étapes du chapitre d'où vient chaque geste (ignoré au rendu). Réécrit le 15 octobre en phrases complètes, comme on le dirait à voix haute (JP : « personne parle comme ça »).",
+  "_note": "Logigramme du chapitre 4 (retombées radioactives), double page. Refait le 15 octobre 2026 (pas de branche « source perdue », radio après l'abri, ni « sas » ni « sceller », phrases complètes), puis le 18 octobre 2026 sur le chapitre refait au gabarit à sept sections : renvois aux nouvelles étapes, pastilles identiques aux trois séries orange (30 s, 10 min, 2 h), l'heure écrite qui ouvre la série de l'iode, le bouchage de quelques heures, plus d'avertissement redit ; colonnes de droite gardées telles quelles. Rendu : python design/outils/logigramme.py images/logigrammes/04-retombees.json. « source » : les étapes du chapitre d'où vient chaque geste (ignoré au rendu).",
   "format": "double",
   "tome": 1,
   "urgent": true,
@@ -86,7 +86,7 @@
       "rang": "g1",
       "taille": 15,
       "texte": "Un éclair blanc, puis une détonation",
-      "source": "§2"
+      "source": "section 2 ; étapes 1 à 3"
     },
     {
       "id": "depB",
@@ -95,7 +95,7 @@
       "rang": "g1",
       "taille": 15,
       "texte": "Une alerte nucléaire, sans éclair",
-      "source": "§2 ; étape 4"
+      "source": "section 2 ; étape 4"
     },
     {
       "id": "q1",
@@ -163,7 +163,7 @@
       "type": "urgent",
       "col": "cote",
       "rang": "g5",
-      "texte": "**Ne pas ressortir chercher quelqu'un.** Un enfant à l'école y reste : l'école de béton le protège mieux que la maison. On se retrouve après l'abri.",
+      "texte": "**Ne pas ressortir chercher quelqu'un.** Un enfant à l'école doit y rester : l'école de béton le protège mieux que la maison. On se retrouve après l'abri.",
       "renvoi": "ch. 4, étape 6",
       "source": "étape 6",
       "taille": 10
@@ -174,7 +174,7 @@
       "col": "large",
       "rang": "g6",
       "ancre": "haut",
-      "texte": "**Rentrer les animaux, fermer les portes et les fenêtres**, et arrêter la fournaise, l'échangeur d'air et le climatiseur.",
+      "texte": "**Rentrer les animaux à portée, fermer les portes et les fenêtres**, et arrêter l'échangeur d'air, la fournaise et le climatiseur.",
       "renvoi": "ch. 4, étapes 6 et 7",
       "source": "étapes 6 et 7"
     },
@@ -192,9 +192,9 @@
       "rang": "g8",
       "ancre": "haut",
       "taille": 10,
-      "texte": "**Descendre au sous-sol** et se mettre contre un mur enterré.",
-      "renvoi": "ch. 4, étape 8 ; ch. 79",
-      "source": "étape 8"
+      "texte": "**Descendre au sous-sol** et se mettre contre un mur enterré. Au chalet, aller au caveau.",
+      "renvoi": "ch. 4, étape 8",
+      "source": "étape 8 ; ch. 79"
     },
     {
       "id": "changer",
@@ -215,8 +215,8 @@
       "ancre": "haut",
       "taille": 10,
       "texte": "**Aller au centre de la maison**, loin du toit, et empiler autour de soi ce qui est lourd : bidons d'eau, livres.",
-      "renvoi": "ch. 4, étape 8 et §9",
-      "source": "étape 8 ; §9"
+      "renvoi": "ch. 4, étape 8 et section 7",
+      "source": "étape 8 ; section 7, Sans sous-sol ni caveau"
     },
     {
       "id": "laver",
@@ -224,7 +224,6 @@
       "col": "tronc2",
       "rang": "d1",
       "ancre": "haut",
-      "temps": "1 h",
       "texte": "**Se laver** à l'eau et au savon, sans revitalisant, ou avec un linge mouillé s'il n'y a pas d'eau.",
       "renvoi": "ch. 4, étape 10",
       "source": "étape 10",
@@ -236,10 +235,11 @@
       "col": "tronc2",
       "rang": "d2",
       "ancre": "haut",
-      "texte": "**Allumer la radio** et la laisser ouverte. Écrire l'heure de l'éclair sur le cadre de porte : les 24 h d'abri se comptent de là.",
+      "texte": "**Écrire l'heure de l'éclair ou de l'alerte** sur le cadre de la porte : le délai de l'iode et les 24 h d'abri se comptent de là.",
       "renvoi": "ch. 4, étape 11",
       "source": "étape 11",
-      "taille": 10
+      "taille": 10,
+      "temps": "2 h"
     },
     {
       "id": "ki",
@@ -254,17 +254,18 @@
       "type": "question",
       "col": "tronc2",
       "rang": "d4",
-      "texte": "Ça fait moins de 24 h depuis l'exposition ?",
-      "taille": 10
+      "texte": "Ça fait moins de 24 h depuis l'arrivée des retombées ?",
+      "taille": 10,
+      "source": "étape 14"
     },
     {
       "id": "pas-iode",
       "type": "geste",
       "col": "cote2",
       "rang": "d4",
-      "texte": "**Aucun autre iode ne protège** : ni la teinture, ni la Bétadine, ni le sel iodé. Pendant 6 à 8 semaines, ne pas boire de lait frais ni d'eau de surface, et ne pas manger de légumes-feuilles.",
-      "renvoi": "ch. 4, §8 et §9",
-      "source": "§8, point 1 ; §9, sans comprimés d'iode ; étape 13",
+      "texte": "**Ne pas avaler d'iode radioactif** : pendant 6 à 8 semaines, pas de lait frais, pas d'eau de surface ni de neige fondue, et pas de légumes-feuilles du jardin.",
+      "renvoi": "ch. 4, section 7",
+      "source": "section 7, Sans comprimés d'iode ; étape 14",
       "taille": 10
     },
     {
@@ -274,8 +275,8 @@
       "rang": "d5",
       "ancre": "haut",
       "texte": "**Donner à chacun la dose de son âge**, les enfants d'abord, le plus tôt possible.",
-      "renvoi": "ch. 4, étapes 12 à 14",
-      "source": "étapes 12 à 14",
+      "renvoi": "ch. 4, étapes 13 à 16",
+      "source": "étapes 13 à 16",
       "taille": 10
     },
     {
@@ -284,9 +285,9 @@
       "col": "tronc2",
       "rang": "d6",
       "ancre": "haut",
-      "texte": "**Pendant l'abri** : boucher les courants d'air, manger ce qui était dans un contenant fermé et boire l'eau mise de côté.",
-      "renvoi": "ch. 4, étapes 15 à 18",
-      "source": "étapes 15 à 18",
+      "texte": "**Pendant l'abri** : ouvrir la radio, boucher les courants d'air quelques heures, manger ce qui était fermé et boire l'eau mise de côté.",
+      "renvoi": "ch. 4, étapes 17 à 23",
+      "source": "étapes 17 à 23",
       "taille": 10
     },
     {
@@ -296,9 +297,9 @@
       "rang": "dco",
       "ancre": "haut",
       "titre": "Le CO ressemble à l'irradiation",
-      "texte": "**Si l'avertisseur de CO sonne, ou si plusieurs ont mal à la tête ou envie de dormir : arrêter ce qui brûle, ouvrir l'abri sur la maison et y emmener tout le monde.** On reste à l'intérieur et on aère au battant.",
-      "renvoi": "ch. 4, §8 et §9",
-      "source": "§6 ; §7 ; §8, point 3",
+      "texte": "**Si l'avertisseur de CO sonne, ou si plusieurs ont mal à la tête ou envie de dormir : arrêter ce qui brûle, ouvrir l'abri sur la maison et y emmener tout le monde.** On reste à l'intérieur et on aère.",
+      "renvoi": "ch. 4, étape 18",
+      "source": "étape 18",
       "taille": 10
     },
     {
@@ -307,10 +308,9 @@
       "col": "tronc2",
       "rang": "d7",
       "ancre": "haut",
-      "temps": "24 h",
-      "texte": "Au bout de 24 h, la radio donne des nouvelles et la radiation baisse ?",
-      "precision": "Si on a un électroscope, la baisse se voit dessus",
-      "source": "étape 20",
+      "texte": "Au bout de 24 h, la radio annonce que le rayonnement baisse ?",
+      "precision": "Avec un électroscope, la baisse se voit dessus",
+      "source": "étape 24",
       "taille": 10
     },
     {
@@ -319,10 +319,9 @@
       "col": "cote2",
       "rang": "d7",
       "ancre": "haut",
-      "temps": "48 h",
-      "texte": "**Rester jusqu'à 48 h.** Sans radio, rester les 48 h, puis sortir peu de temps à la fois pendant deux semaines.",
-      "renvoi": "ch. 4, étape 20 et §9",
-      "source": "étape 20 ; §9",
+      "texte": "**Rester jusqu'à 48 h.** Sans radio, rester les 48 h, puis sortir peu de temps à la fois.",
+      "renvoi": "ch. 4, étape 24 et section 7",
+      "source": "étape 24 ; section 7, Sans radio à piles",
       "taille": 10
     },
     {
@@ -331,9 +330,9 @@
       "col": "tronc2",
       "rang": "d8",
       "ancre": "haut",
-      "texte": "**Déboucher les ouvertures et sortir les filtres de la fournaise dans un sac fermé.** Ensuite, sortir peu de temps à la fois.",
-      "renvoi": "ch. 4, étape 21",
-      "source": "étape 21",
+      "texte": "**Remplacer les filtres de la fournaise** et les sortir dans un sac fermé. Ensuite, sortir peu de temps à la fois.",
+      "renvoi": "ch. 4, étape 25",
+      "source": "étape 25",
       "taille": 10
     },
     {
@@ -347,7 +346,7 @@
       "ancre": "haut",
       "texte": "**Décider si on reste ou si on part** (ch. 2), chaque jour à la même heure.",
       "renvoi": "ch. 2",
-      "source": "ch. 2, étape 10",
+      "source": "ch. 2",
       "taille": 10
     },
     {
@@ -357,8 +356,8 @@
       "rang": "d9",
       "ancre": "haut",
       "texte": "**Trier pendant des années** le gibier, le poisson et le jardin.",
-      "renvoi": "ch. 4, étapes 24 à 28",
-      "source": "étapes 24 à 28",
+      "renvoi": "ch. 4, étapes 28 à 32",
+      "source": "étapes 27 à 32",
       "taille": 10
     }
   ],
