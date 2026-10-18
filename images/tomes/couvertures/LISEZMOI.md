@@ -17,4 +17,10 @@ commencent (le sommet enneigé du tome 6 faisait des traînées claires sur la q
 Les textes des auteurs, au dos, sont réécrits le 18 octobre 2026 avec les règles d'écriture (JP : « refais nos textes
 avec nos règles d'écriture ») : liste `AUTEURS` de `design/directions/1-manuel-de-terrain/outils/build_couvertures_6.py`.
 
+La bulle des photos des auteurs (JP : « travaille la bulle de nos images ») : `BULLES` et `BULLE` de `couverture.py`,
+ou `--bulle plate|medaillon|bulle|cuivre`. Par défaut, le médaillon : un filet clair détaché du disque par un mince
+anneau du fond, et une ombre. L'étincelle de Claude sourit (JP : « mets-toi un sourire, genre :) mais de l'autre sens ») :
+`images/auteurs/claude.svg`, les yeux et le sourire découpés dans le cœur de l'étincelle, agrandi ; elle prend 72 % du
+disque au lieu de 62 %.
+
 Planche : `les-six-couvertures.png`. À refaire à chaque changement d'image de titre ou du nombre de pages d'un tome.

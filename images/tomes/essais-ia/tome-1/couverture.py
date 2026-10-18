@@ -57,6 +57,23 @@ def mesures(k):
     return dict(tranche=tr, W=16.25 + tr, H=10.25, x_tranche=FP + 8.0, x_devant=FP + 8.0 + tr)
 
 
+# ------------------------------------------------------------------ la bulle des photos des auteurs
+# JP, 18 octobre 2026 : « travaille la bulle de nos images ». Le disque clair seul faisait une pastille plate.
+BULLES = {
+    'plate': 'border:0.9pt solid var(--encre)',
+    # un filet clair détaché du disque par un mince anneau du fond, et une ombre qui décolle le médaillon
+    'medaillon': 'box-shadow:0 0 0 2.4pt var(--fond),0 0 0 3.3pt var(--encre),0 3pt 8pt 2pt rgba(0,0,0,.35),'
+                 'inset 0 1.6pt 3.5pt rgba(0,0,0,.28)',
+    # une bulle bombée : ombre portée, le bas plus sombre, le haut éclairé
+    'bulle': 'box-shadow:0 3pt 7pt rgba(0,0,0,.55),0 0.8pt 1.6pt rgba(0,0,0,.4),inset 0 -2.5pt 5pt rgba(0,0,0,.22),'
+             'inset 0 2pt 3pt rgba(255,255,255,.65)',
+    # le filet à la couleur d'accent
+    'cuivre': 'box-shadow:0 0 0 2.2pt var(--fond),0 0 0 3.8pt var(--accent),0 3pt 8pt 2pt rgba(0,0,0,.35),'
+              'inset 0 1.6pt 3.5pt rgba(0,0,0,.25)',
+}
+BULLE = 'medaillon'
+
+
 # ------------------------------------------------------------------ couleurs
 CLAIR, CLAIR2, FILET_NUIT = '#E2E7EA', '#B9C7D1', '#4A6476'     # celles de la page de titre
 CUIVRE = '#BE6A3F'                      # médiane des crêtes orangées de l'image du tome 1 (190, 106, 63)
@@ -219,9 +236,9 @@ body{-webkit-print-color-adjust:exact;print-color-adjust:exact}
 .back .auteurs h2{margin-bottom:9pt}
 .back .aut{display:grid;grid-template-columns:1fr 1fr;column-gap:0.36in}
 .back .ph{float:left;shape-outside:circle(50%);shape-margin:0.1in;margin:2pt 0.11in 0 0;width:0.78in;height:0.78in;border-radius:50%;
-  border:0.9pt solid var(--encre);overflow:hidden;display:flex;align-items:center;justify-content:center;background:var(--disque)}
+  overflow:hidden;display:flex;align-items:center;justify-content:center;background:var(--disque)}
 .back .ph img{display:block;width:100%;height:100%;object-fit:cover}
-.back .ph.claude img{width:62%;height:62%}
+.back .ph.claude img{width:72%;height:72%}
 .back .a p{margin:0;font:400 8.8pt/11.6pt var(--serif);hyphens:manual}
 .back .a .n{font:700 12.5pt/1 var(--bc);letter-spacing:.02em;display:inline-block;margin-bottom:4pt}
 .back .a .q{font:500 10pt/1 var(--bc);color:var(--douce)}
@@ -344,7 +361,7 @@ def page_html(v, k, m, pal, fichiers, fond, accent, guides=False):
 <html lang="fr-CA"><head><meta charset="utf-8">
 <title>Le Manuel du Nord, tome {k} : couverture {v}</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-{POLICES}<style>{CSS}</style></head>
+{POLICES}<style>{CSS}.back .ph{{{BULLES[BULLE]}}}</style></head>
 <body>
 <div class="sheet v{v}" style="width:{m['W']:.4f}in;height:{m['H']}in;background-color:{pal['fond']};{('background-image:url(' + fond + ');') if fond else ''}{vars_}">
   <div class="panel back">{quatrieme(k, fichiers)}</div>
@@ -593,10 +610,13 @@ def main():
     ap.add_argument('--ppp', type=float, default=150)
     ap.add_argument('--fond-ppp', type=float, default=300)
     ap.add_argument('--accent', default=CUIVRE)
+    ap.add_argument('--bulle', choices=sorted(BULLES), help='la bulle des photos des auteurs (BULLE par défaut)')
     ap.add_argument('--guides', action='store_true')
     ap.add_argument('--garder')
     ap.add_argument('--sortie', default=ICI)
     o = ap.parse_args()
+    global BULLE
+    BULLE = o.bulle or BULLE
     k = o.tome
     m = mesures(k)
     image = o.image or os.path.join(ROOT, 'images', 'tomes', 'titre-tome-%d.jpg' % k)
