@@ -23,11 +23,25 @@ def boite(x0, y0, x1, y1):
 
 # 1. le halo : le mur reprend son papier, sauf dans le foyer
 foyer = boite(545, 640, 695, 765)
-halo = (R_ > 215) & (R_ - B_ > 34) & (L > 185) & ~foyer & boite(425, 560, 768, 880)      # pas les vapeurs
+# on retire la teinte (la basse fréquence) et on garde le grain du papier : le mur clair, loin des objets, des vapeurs
+# et du bassin, reprend la couleur du papier sans raccord visible
+mur = (L > 185) & ~foyer & boite(0, 380, 768, 880)
+for b in ((640, 395, 730, 545), (280, 520, 350, 640)):          # les vapeurs : leurs traits seulement, élargis
+    mur &= ~ndimage.binary_dilation(boite(*b) & (L < 232), iterations=int(5 * K))
+bassin = boite(232, 622, 388, 702) & (L < 150)                    # l'intérieur du bassin garde sa teinte
+mur &= ~ndimage.binary_dilation(ndimage.binary_fill_holes(ndimage.binary_closing(bassin, iterations=int(2 * K))), iterations=int(2 * K))
+m = mur.astype(float)
+sig = 7 * K
+poids = ndimage.gaussian_filter(m, sig)
+for c in range(3):
+    bas = ndimage.gaussian_filter(a[:, :, c] * m, sig) / np.maximum(poids, 1e-3)
+    a[:, :, c] = np.where(mur, np.clip(a[:, :, c] - bas + PAPIER[c], 0, 255), a[:, :, c])
+R_, G_, B_ = a[:, :, 0], a[:, :, 1], a[:, :, 2]; L = a.mean(2)
+halo = (R_ > 215) & (R_ - B_ > 34) & (L > 185) & ~foyer & boite(425, 560, 768, 880)      # ce qui reste, pas les vapeurs
 a[halo] = PAPIER
 
 # 2. les points qui flottent au bout des vapeurs : les petites taches isolées au-dessus des volutes
-for x0, y0, x1, y1 in ((655, 405, 720, 470), (285, 530, 345, 565)):
+for x0, y0, x1, y1 in ((655, 405, 720, 470), (285, 530, 345, 576)):
     z = boite(x0, y0, x1, y1) & (np.abs(a - PAPIER).sum(2) > 40)
     lab, n = ndimage.label(z)
     tailles = ndimage.sum(z, lab, range(1, n + 1))
