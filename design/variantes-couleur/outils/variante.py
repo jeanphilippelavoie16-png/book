@@ -32,12 +32,12 @@ CIBLES = {   # numéros NOUVEAUX (six tomes) : le 10 est l'ancien 13
     "10": {"procedure": ("h3.sub", "ébullition"), "urgence": ("img", "Planche 10-01")},
 }
 # chiffres clés en exergue (variante C) : posés après le titre dont le texte commence par « apres ».
-# Chiffres et mots repris du chapitre, section 5-E, étape 12.
+# Chiffres et mots repris du chapitre (ch. 10, étape 14 depuis la refonte du 18 octobre 2026).
 EXERGUES = {
-    "10": [{"apres": "E. Désinfecter", "html":
+    "10": [{"apres": "Faire bouillir", "html":
         '<div class="exergue"><div class="ex-h"><i class="pk"></i>Ébullition, à gros bouillons</div>'
-        '<div class="ex-r"><div class="ex-n">1<small>MIN</small></div><div class="ex-l"><b>Puits</b>, eau du robinet sous avis</div></div>'
-        '<div class="ex-r"><div class="ex-n">5<small>MIN</small></div><div class="ex-l"><b>Toute eau de surface</b> : castor, rat musqué, lièvre</div></div>'
+        '<div class="ex-r"><div class="ex-n">1<small>MIN</small></div><div class="ex-l"><b>Puits</b> ou eau du robinet</div></div>'
+        '<div class="ex-r"><div class="ex-n">5<small>MIN</small></div><div class="ex-l"><b>Lac, ruisseau, neige, glace</b> : toute eau prise en forêt</div></div>'
         '<div class="ex-f">On compte quand toute la surface roule.</div></div>'}],
 }
 
