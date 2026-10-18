@@ -28,16 +28,17 @@ def ligne(a, b, fill=CLAIR, w=1.3):
 def ellipse(x0, y0, x1, y1, fill, cerne=CERNE, w=2.0):
     d.ellipse(P([(x0, y0), (x1, y1)]), fill=fill, outline=cerne, width=max(1, int(k(w) / 1.6)))
 
-# 1. le tuyau du poêle, du dessus du poêle jusqu'en haut de l'image
-x0, x1 = 689, 715
+# 1. le tuyau du poêle, du dessus du poêle jusqu'en haut de l'image, au coin arrière droit : à droite de « Tome 2 »
+x0, x1 = 720, 744
 poly([(x0 - 5, 566), (x1 + 5, 566), (x1 + 5, 580), (x0 - 5, 580)], BRIQUE)        # le collet
 poly([(x0, -4), (x1, -4), (x1, 567), (x0, 567)], BRIQUE)
 ligne((x0 + 3.5, 0), (x0 + 3.5, 562)); ligne((x1 - 3.5, 0), (x1 - 3.5, 562), w=0.8)
 for y in (150, 330):                                                                  # les joints des longueurs
     poly([(x0 - 2.5, y), (x1 + 2.5, y), (x1 + 2.5, y + 7), (x0 - 2.5, y + 7)], BRIQUE)
     ligne((x0 - 1, y + 3.5), (x1 + 1, y + 3.5), w=0.8)
-ligne((x0 + 1, 462), (x1 + 9, 459), fill=CLAIR, w=1.6)                               # la clé
-ellipse(x1 + 7, 455, x1 + 15, 463, BRIQUE)
+ligne((x0 + 1, 460.5), (x1 - 1, 462), fill=CLAIR, w=1.6)                             # la clé : son axe dans le tuyau
+ligne((x0 - 8, 460), (x0 + 1, 460.5), fill=CERNE, w=2.6)                              # et sa poignée, côté gauche
+ellipse(x0 - 13, 456, x0 - 6, 464, BRIQUE)
 
 # 2. la tablette sous la table, entre les pieds
 poly([(38, 798), (440, 798), (440, 810), (38, 810)], BRIQUE)
