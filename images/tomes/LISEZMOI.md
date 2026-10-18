@@ -1,8 +1,10 @@
 # Les images des pages de titre des tomes
 
 **Depuis le 18 octobre 2026, la page de titre est l'affiche du Nord, la nuit d'hiver** (choix de JP) :
-`titre-tome-N.svg`, une scène dessinée en aplats (ciel, lune, crêtes, fleuve, épinettes, neige, chalet aux fenêtres
-orange), en px de la page rognée (768 × 960). L'assembleur l'incorpore telle quelle ; un tome sans scène prend celle
+`titre-tome-N.svg`, écrite par `scene_titre.py N` (JP, même jour, sur la première version en aplats : « c'est très
+carré comme trait, ça manque d'âme ») : épinettes noires irrégulières chargées de neige, crêtes qui ondulent, aurore
+boréale, lune et son reflet, chalet en rondins aux fenêtres allumées, corde de bois, fumée, trace de raquettes. En px
+de la page rognée (768 × 960). L'assembleur l'incorpore telle quelle ; un tome sans scène prend celle
 du tome 1. La frise ci-dessous n'est plus posée sur la page de titre.
 
 `frise.py N` compose `tome-N.svg` ; l'assembleur la pose dans la bande blanche de la page de titre (`.tp-frise`).
