@@ -129,53 +129,57 @@ module.exports = (h) => {
   // que celui de la planche 15-02, le bec fermé de son bouchon) pend à sa poignée, penché : son centre se met sous
   // le nœud.
   const vBidon = z => {
-    const m = F.mainStock({ id: 'poing-barre', objet: false, taille: 50, x: 46, y: 30 });
-    const o = m.objet, a = o.angle * Math.PI / 180, u = [Math.cos(a), Math.sin(a)];
-    const at = t => [o.x + u[0] * t, o.y + u[1] * t];
     const ec = 3.6;
-    // le bidon, dans son repère : (x, yT) le coin haut gauche du corps ; la poignée sur le dessus, vers la droite
-    const L = 44, H = 54, T = [38, 70];                        // T : le haut de la barre de la poignée, au milieu
-    const px0 = 0.42 * L, px1 = 0.9 * L, xm = (px0 + px1) / 2;
+    // le bidon, dans son repère (avant le miroir et la pente) : (x, yT) le coin haut gauche du corps ; la poignée sur
+    // le dessus, vers la droite ; T le haut de la barre de la poignée, au milieu : c'est là que la corde est nouée
+    const L = 36, H = 40, T = [42, 80];
+    const px0 = 0.3 * L, px1 = 0.92 * L, xm = (px0 + px1) / 2;
     const x = T[0] - xm, yT = T[1] + 9, sol = yT + H, yb = yT - 9;
+    // le bidon pend à sa poignée : retourné (la poignée à gauche du milieu), il penche jusqu'à ce que son centre
+    // passe sous le nœud
+    const tilt = 14;
+    const rr = q => { const mx = 2 * T[0] - q[0], c = Math.cos(tilt * Math.PI / 180), sn = Math.sin(tilt * Math.PI / 180), dx = mx - T[0], dy = q[1] - T[1];
+      return [T[0] + dx * c - dy * sn, T[1] + dx * sn + dy * c]; };
     const can = [];
-    can.push(h.path(`M ${P(x + L - 6, yT + 2)} L ${P(x + L, yT + 8)} L ${P(x + L, sol)} L ${P(x + L - 6, sol)} Z`, h.a.ombre));
+    can.push(h.path(`M ${P(x + 5, yT)} L ${P(x + L - 6, yT)} Q ${P(x + L, yT)} ${P(x + L, yT + 6)} L ${P(x + L, sol)} L ${P(x, sol)} L ${P(x, yT + 5)} Q ${P(x, yT)} ${P(x + 5, yT)} Z`, blanc(h.a.contour)));
+    can.push(h.path(`M ${P(x + 6, yT + 2)} L ${P(x, yT + 8)} L ${P(x, sol)} L ${P(x + 6, sol)} Z`, h.a.ombre));
     can.push(h.path(`M ${P(x + 5, yT)} L ${P(x + L - 6, yT)} Q ${P(x + L, yT)} ${P(x + L, yT + 6)} L ${P(x + L, sol)} L ${P(x, sol)} L ${P(x, yT + 5)} Q ${P(x, yT)} ${P(x + 5, yT)} Z`, h.a.contour));
-    can.push(h.ligne(x + L - 6, yT + 2, x + L - 6, sol, h.a.detail));
-    const bx0 = x + 6, bx1 = x + L - 12, by0 = yT + 9, by1 = sol - 7;
+    can.push(h.ligne(x + 6, yT + 2, x + 6, sol, h.a.detail));
+    const bx0 = x + 12, bx1 = x + L - 6, by0 = yT + 8, by1 = sol - 6;
     can.push(h.rect(bx0, by0, bx1 - bx0, by1 - by0, h.a.detail));
     can.push(h.path(`M ${P(bx0 + 3, by0 + 3)} L ${P(bx1 - 3, by1 - 3)} M ${P(bx1 - 3, by0 + 3)} L ${P(bx0 + 3, by1 - 3)}`, h.a.detail));
-    // la poignée : la barre pleine et son trou
     const anse = h.path(`M ${P(x + px0, yT)} L ${P(x + px0 + 3, yb)} L ${P(x + px1 - 3, yb)} L ${P(x + px1, yT)} Z`, blanc(h.a.arete))
       + h.path(`M ${P(x + px0 + 6, yT)} L ${P(x + px0 + 7.5, yT - 5)} L ${P(x + px1 - 7.5, yT - 5)} L ${P(x + px1 - 6, yT)}`, blanc(h.a.detail));
-    // le bec, penché vers la gauche, fermé de son bouchon vissé (le bouchon à l'ombre, ses stries)
+    // le bec, fermé de son bouchon vissé (le bouchon à l'ombre, ses stries)
     const ax = -0.423, ay = -0.906, nx = -ay, ny = ax;
-    const bc = [x + 12, yT + 1], lb = 10, wb = 10;
-    const Q = (s, v) => [bc[0] + ax * s + nx * v, bc[1] + ay * s + ny * v];
+    const bc = [x + 11, yT + 1], lb = 8, wb = 9;
+    const Q = (u, v) => [bc[0] + ax * u + nx * v, bc[1] + ay * u + ny * v];
     const col = h.chemin([Q(0, -wb / 2), Q(lb, -wb / 2), Q(lb, wb / 2), Q(0, wb / 2)], blanc(h.a.arete), true);
-    const bouchon = h.chemin([Q(lb - 1, -wb / 2 - 1.5), Q(lb + 6, -wb / 2 - 1.5), Q(lb + 6, wb / 2 + 1.5), Q(lb - 1, wb / 2 + 1.5)], h.a.ombre, true)
-      + h.chemin([Q(lb - 1, -wb / 2 - 1.5), Q(lb + 6, -wb / 2 - 1.5), Q(lb + 6, wb / 2 + 1.5), Q(lb - 1, wb / 2 + 1.5)], h.a.arete, true)
+    const bq = [Q(lb - 1, -wb / 2 - 1.5), Q(lb + 6, -wb / 2 - 1.5), Q(lb + 6, wb / 2 + 1.5), Q(lb - 1, wb / 2 + 1.5)];
+    const bouchon = h.chemin(bq, h.a.ombre, true) + h.chemin(bq, h.a.arete, true)
       + [-3, 0, 3].map(v => h.ligne(...Q(lb, v), ...Q(lb + 5, v), h.a.detail)).join('');
-    // la corde au bout : elle descend, passe derrière la barre, ressort dessous, remonte devant et fait une demi-clé
-    // autour d'elle-même
+    // la corde : le brin qui descend passe derrière la barre (A), ressort dessous et remonte devant, passe par-dessus
+    // le brin qui descend, en fait le tour par derrière (B), et repasse sous son propre tour (C) : une demi-clé
     const xs = T[0] - 3;
-    const brin = { ep: ec, fin: 'coupe', debut: 'coupe', pts: [
-      [xs, yb - 30, 0], [xs, yb - 10, 0], [xs + 0.5, yb + 1, -2], [xs + 3, yT - 1.6, -2], [xs + 8.5, yT - 2.5, 0], [xs + 10, yb - 1, 1],
-      [xs + 8, yb - 9, 1], [xs - 1, yb - 13, 2], [xs - 7, yb - 15.5, 2], [xs - 7, yb - 20, -1], [xs, yb - 22, -1], [xs + 6, yb - 19, -1],
-      [xs + 9, yb - 14, 0.5], [xs + 13, yb - 6, 0.5]] };
-    const nouee = F.cordes([brin], { trait: 'arete', jeu: 1.4 });
-    // la barre de la poignée, repeinte par-dessus la corde là où celle-ci passe derrière
-    const barre = `<clipPath id="vue1503-barre"><rect x="${xs - 4}" y="${yb - 2}" width="7.5" height="${yT - yb + 2}"/></clipPath>`
+    const A = { ep: ec, debut: 'coupe', fin: 'ouvert', pts: [[xs, yb - 46, 0], [xs, yb - 10, 0], [xs + 0.5, yb + 1, -2], [xs + 3, yT - 1.8, -2]] };
+    const B = { ep: ec, debut: 'ouvert', fin: 'ouvert', pts: [[xs + 3, yT - 1.8, -2], [xs + 7.5, yT - 2.8, 0], [xs + 8.5, yb - 2, 1], [xs + 6.5, yb - 9, 1],
+      [xs - 1, yb - 12, 2], [xs - 5, yb - 14.5, 2], [xs - 4, yb - 18.5, -1], [xs + 1.5, yb - 19.5, -1], [xs + 5, yb - 17, -1]] };
+    const C = { ep: ec, debut: 'ouvert', fin: 'libre', pts: [[xs + 5, yb - 17, -1], [xs + 5, yb - 12.5, -1], [xs + 4, yb - 6, -1]] };
+    const nouee = F.cordes([A, B, C], { trait: 'arete', jeu: 1.2 });
+    const barre = `<clipPath id="vue1503-barre"><rect x="${xs - 4.5}" y="${yb - 2}" width="8" height="${yT - yb + 2}"/></clipPath>`
       + `<g clip-path="url(#vue1503-barre)">${anse}</g>`;
-    const tilt = -14;
-    const canSvg = `<g transform="rotate(${tilt} ${T[0]} ${T[1]})">\n${can.join('\n')}\n${col}\n${bouchon}\n${anse}\n${nouee}\n${barre}\n</g>`;
-    // la corde du poing jusqu'au nœud, dans le repère de la vue
-    const r = (q) => { const c = Math.cos(tilt * Math.PI / 180), s_ = Math.sin(tilt * Math.PI / 180), dx = q[0] - T[0], dy = q[1] - T[1]; return [T[0] + dx * c - dy * s_, T[1] + dx * s_ + dy * c]; };
-    const haut = r([xs, yb - 30]);
-    const dHaut = lisse([at(o.longueur * 1.1), at(o.longueur * 0.3), at(0), at(-o.longueur * 0.36), haut]);
-    const dessus = F.cordes([{ ep: ec, debut: 'coupe', fin: 'coupe', pts: [at(o.longueur * 1.2), at(0), at(-o.longueur * 0.4), [haut[0], haut[1] - 1]] }], { trait: 'arete' });
+    const canSvg = `<g transform="rotate(${tilt} ${T[0]} ${T[1]}) translate(${2 * T[0]} 0) scale(-1 1)">\n${can.join('\n')}\n${col}\n${bouchon}\n${anse}\n${nouee}\n${barre}\n</g>`;
+    // la main : poing-barre, posée pour que son axe continue le brin qui descend au nœud
+    const haut = rr([xs, yb - 46]);
+    const ua = [Math.cos(-73.6 * Math.PI / 180), Math.sin(-73.6 * Math.PI / 180)];
+    const cm = [haut[0] + ua[0] * 9, haut[1] + ua[1] * 9];
+    const m = F.mainStock({ id: 'poing-barre', objet: false, taille: 50, x: cm[0], y: cm[1] });
+    const o = m.objet, uo = [Math.cos(o.angle * Math.PI / 180), Math.sin(o.angle * Math.PI / 180)];
+    const at = t => [o.x + uo[0] * t, o.y + uo[1] * t];
+    const dessus = F.cordes([{ ep: ec, debut: 'coupe', fin: 'coupe', pts: [at(o.longueur * 1.3), at(o.longueur * 0.4), at(0), haut] }], { trait: 'arete' });
     const id = 'vue1503-bidon';
     return { svg: [`<clipPath id="${id}"><rect x="0" y="0" width="${z.l}" height="${z.h}"/></clipPath>`, `<g clip-path="url(#${id})">`,
-      canSvg, dessus, String(m), '</g>'].join('\n'), m, T, x, yT, L, H, r, sol, dHaut };
+      canSvg, dessus, String(m), '</g>'].join('\n'), m, T, x, yT, L, H, rr, sol };
   };
 
   // ── vue 3 : autre façon, y aller couché en poussant le toboggan ──
@@ -236,7 +240,7 @@ module.exports = (h) => {
       bidon: {
         dessin: z => vBidon(z).svg,
         renvois: z => { const v = vBidon(z); return [
-          { n: 2, rond: [z.l - 12, v.yT + 34], cible: [v.r([v.x + v.L, v.yT + 34])[0] + 1, v.r([v.x + v.L, v.yT + 34])[1]], texte: 'nouer un bidon vide et bouché au bout' },
+          { n: 2, rond: [z.l - 12, v.yT + 22], cible: [v.rr([v.x, v.yT + 18])[0] + 1, v.rr([v.x, v.yT + 18])[1]], texte: 'nouer un bidon vide et bouché au bout' },
         ]; },
       },
       autre: {

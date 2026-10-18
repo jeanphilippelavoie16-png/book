@@ -96,13 +96,41 @@ module.exports = (h) => {
     return { svg: [coupe(z, E, yG), String(g),
       h.geste(`M ${P(A.hancheP[0] + 30, yF)} L ${P(A.epauleP[0] + 22, yF)}`)].join('\n'), g, E, yG, yF };
   };
-  // ── 8 : sorti, rouler loin du trou sans se relever ──
-  const vRouler = z => {
-    const E = z.l - 28, yG = 60;
-    const g0 = corps(ROULE, { x: 0, y: 0 });
-    const g = corps(ROULE, { x: E - 18 - g0.boite.x1, y: yG });
-    const A = g.articulations, cx = (A.bassin[0] + A.epauleP[0]) / 2;
-    return { svg: [coupe(z, E, yG), String(g), anneau(cx, yG - 22, 9, 21, 120, 400)].join('\n'), g, E, yG, cx };
+  // ── 8 : vu de dessus, sorti, rouler loin du trou vers ses traces, sans se relever ──
+  // Le trou en haut (l'eau, le bord cassé, deux morceaux qui flottent) ; les traces de bottes arrivent d'en bas à gauche
+  // jusqu'au trou (le côté d'où l'on vient) ; la personne couchée (le corps simple vu de dessus, pose couche-face, couché par la
+  // planche, la tête à gauche) en trois positions qui s'éloignent du trou vers les traces : les deux plus anciennes en
+  // gris, la dernière en blanc. Le corps roule de côté : il avance perpendiculairement à sa longueur.
+  const SD = 0.058;
+  const vDessus = z => {
+    const cx = z.l / 2 - 10, hy = 24;
+    const trou = [[-52, -14], [-34, -22], [-6, -19], [18, -24], [44, -16], [54, 0], [46, 14], [22, 20], [-4, 17], [-30, 21], [-50, 10]]
+      .map(([a, b]) => [cx + a, hy + b]);
+    const out = [h.chemin(trou, h.a.hachure('eau', 'contour'), true)];
+    out.push(h.chemin([[cx - 26, hy - 9], [cx - 6, hy - 12], [cx - 3, hy + 2], [cx - 22, hy + 5]], blanc(h.a.arete), true));
+    out.push(h.chemin([[cx + 14, hy - 4], [cx + 32, hy - 8], [cx + 36, hy + 6], [cx + 18, hy + 9]], blanc(h.a.arete), true));
+    // trois positions : le corps vu de dessus, couché par la planche (la tête à gauche), un peu à droite du trou
+    const g0 = F.corps({ pose: 'couche-face', vue: 'face', echelle: SD, x: 0, y: 0, visage: false });
+    const b = g0.boite, bx = (b.x0 + b.x1) / 2, by = (b.y0 + b.y1) / 2, demiL = (b.y1 - b.y0) / 2, demiW = (b.x1 - b.x0) / 2;
+    const xc = cx + 22, ys = [hy + 42, hy + 80, hy + 118];
+    // les traces de bottes : de bas à gauche jusqu'au bord du trou, semelle et talon, la pointe vers le trou, en
+    // quinconce ; une trace qui tomberait sous un corps n'est pas dessinée
+    const A0 = [18, z.h - 8], A1 = [cx - 40, hy + 18], d = Math.hypot(A1[0] - A0[0], A1[1] - A0[1]);
+    const u = [(A1[0] - A0[0]) / d, (A1[1] - A0[1]) / d], ang = Math.atan2(u[1], u[0]) * 180 / Math.PI;
+    for (let t = 0, k = 0; t < d - 8; t += 15, k++) {
+      const q = k % 2 ? 4 : -4, x = A0[0] + u[0] * t - u[1] * q, y = A0[1] + u[1] * t + u[0] * q;
+      if (ys.some(yy => Math.abs(y - yy) < demiW + 6 && x > xc - demiL - 8)) continue;
+      out.push(`<g transform="rotate(${ang.toFixed(1)} ${P(x, y)})">${h.ellipse(x + 2, y, 5.5, 2.6, h.a.arete)}${h.ellipse(x - 7, y, 2.2, 2.4, h.a.arete)}</g>`);
+    }
+    for (const [k, y] of ys.entries()) {
+      const g = String(F.corps({ pose: 'couche-face', vue: 'face', echelle: SD, x: xc - bx, y: y - by, visage: false }));
+      const t = `<g transform="rotate(-90 ${P(xc, y)})">${g}</g>`;
+      out.push(k < 2 ? t.replace(/fill="#FFFFFF"/g, 'fill="#E6E6E6"') : t);
+    }
+    // la flèche du geste : au bout des pieds, du trou vers le côté des traces
+    const xF = xc + demiL + 12;
+    out.push(h.geste(`M ${P(xF, ys[0] - 10)} L ${P(xF, ys[2] + 12)}`));
+    return { svg: out.join('\n'), cx, hy, ys, xF };
   };
 
   // ── 1 : avant d'aller sur la glace, les pics au cou, par-dessus le manteau, sur la poitrine ──
@@ -152,7 +180,7 @@ module.exports = (h) => {
   const vPoing = z => {
     const yG = z.h - 20;
     const ancre = [(5364.4 - 5362.7) / 539.9, (638.8 - 197.5) / 448.3];
-    const m = F.mainStock({ id: 'poing-manche-debout', miroir: true, objet: false, taille: 212, ancre, x: z.l + 3, y: yG, angle: 7 });
+    const m = F.mainStock({ id: 'poing-manche-debout', miroir: true, objet: false, taille: 176, ancre, x: z.l + 3, y: yG, angle: 7 });
     const o = m.objet, a = o.angle * Math.PI / 180, k = m.echelle;
     const u = [Math.cos(a), Math.sin(a)], n = [-u[1], u[0]];          // l'axe du manche (vers le bas), sa normale
     const at = (t, q = 0) => [o.x + u[0] * t + n[0] * q, o.y + u[1] * t + n[1] * q];
@@ -181,10 +209,10 @@ module.exports = (h) => {
   return {
     ref: '15-01',
     titre: 'Sortir d’un trou dans la glace',
-    desc: 'Six vues, dans l’ordre des gestes. Avant d’aller sur la glace, la paire de pics, la pointe de l’une rentrée dans l’autre, pend au cou par-dessus le manteau, au milieu de la poitrine. Dans l’eau, on se tourne vers le côté d’où l’on vient et on pose les avant-bras à plat sur la glace. De près, le pic tenu au poing, la pointe vers la glace. On plante les pics près du bord, on bat des jambes jusqu’à ce que le corps soit à l’horizontale, on tire en glissant sur le ventre et on replante plus loin. Sorti, on roule loin du trou sans se relever.',
+    desc: 'Six vues, dans l’ordre des gestes. Avant d’aller sur la glace, la paire de pics, la pointe de l’une rentrée dans l’autre, pend au cou par-dessus le manteau, au milieu de la poitrine. Dans l’eau, on se tourne vers le côté d’où l’on vient et on pose les avant-bras à plat sur la glace. De près, le pic tenu au poing, la pointe vers la glace. On plante les pics près du bord, on bat des jambes jusqu’à ce que le corps soit à l’horizontale, on tire en glissant sur le ventre et on replante plus loin. Vu de dessus, sorti, on roule loin du trou vers ses traces, sans se relever : trois positions successives, la flèche vers les traces de bottes de l’aller.',
     format: 'pleine',
-    disposition: [['porter', 'eau'], ['poing', 'jambes'], ['tirer', 'rouler']],
-    hauteurs: [290, 230, 130],
+    disposition: [['porter', 'eau'], ['poing', 'jambes'], ['tirer', 'dessus']],
+    hauteurs: [262, 190, 198],
     vues: {
       porter: {
         titre: 'Avant d’aller sur la glace',
@@ -220,10 +248,11 @@ module.exports = (h) => {
           { n: 7, rond: [A.hancheP[0] + 58, v.yF], cible: [A.hancheP[0] + 32, v.yF], texte: 'tirer en glissant sur le ventre, replanter plus loin' },
         ]; },
       },
-      rouler: {
-        dessin: z => vRouler(z).svg,
-        renvois: z => { const v = vRouler(z); return [
-          { n: 8, rond: [v.cx + 44, 12], cible: [v.cx + 9, v.yG - 26], texte: 'rouler loin du trou, sans se relever' },
+      dessus: {
+        titre: 'Vu de dessus',
+        dessin: z => vDessus(z).svg,
+        renvois: z => { const v = vDessus(z); return [
+          { n: 8, rond: [v.xF + 28, (v.ys[0] + v.ys[2]) / 2], cible: [v.xF + 2, (v.ys[0] + v.ys[2]) / 2], texte: 'rouler vers ses traces, sans se relever' },
         ]; },
       },
     },
