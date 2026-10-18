@@ -7,9 +7,7 @@ bibliothèque validée ; JP l'a vu tout de suite.
 
 ## Les outils sont obligatoires
 
-- **Les gros plans de mains passent par `h.formes.mainSimple`** (`.claude/skills/planches/scripts/mains/`, poses
-  dans `mains/poses.json`, liste des prises et de leurs usages dans `mains/inventaire.md`). Validées par JP le
-  14 octobre 2026 sur 73 planches. **Aucune main dessinée à la main**, ni « au trait du style cible », ni en chemins
+- **Les gros plans de mains passent par `h.formes.mainStock`** : les mains Adobe Stock 116570613 que JP a choisies (18 octobre 2026 : « les bonnes mains »), tracés exacts de l'illustratrice au style du livre ; `scripts/mains/stock.js`, catalogue `scripts/mains/stock/catalogue.json`, noms `stock/noms.json`, feuille des ids `images/planches-src/_palette-mains-stock.js` (aperçu `livre/apercus-palette/mains-stock-ids.png`). `mainSimple` ne sert plus. **Aucune main dessinée à la main**, ni « au trait du style cible », ni en chemins
   écrits dans la planche.
 - **Un corps entier passe par `h.formes.corps`** (`scripts/corps/`), de profil seulement.
 - **Une tête avec visage passe par `h.formes.teteSimple`** (`scripts/tetes/`) ou `corps({ visage })`.
@@ -20,10 +18,8 @@ bibliothèque validée ; JP l'a vu tout de suite.
 - **Le composeur** (`scripts/composer-planche.js`), le rendu (`rendre-planche.js`) et le vérificateur
   (`verifier-planche.js`) à chaque version ; `xmllint --noout` à la fin.
 
-**Mise à jour du 16 octobre 2026 au soir** : JP trouve les mains de `mainSimple` laides (« c'est pas beau en
-criss ») ; les corps restent beaux. Jusqu'à la nouvelle bibliothèque : pas de gros plan de main dans une planche
-neuve ; la main coupée par le bord, l'objet seul, ou le corps entier de profil (`h.formes.corps`). Toujours rien à la
-main.
+**Mise à jour du 18 octobre 2026** : la nouvelle bibliothèque est branchée (`h.formes.mainStock`, JP : « les bonnes
+mains »). Les gros plans de main reviennent dans les planches, par elle seulement. Toujours rien à la main.
 
 ## Les règles à lire avant de dessiner
 

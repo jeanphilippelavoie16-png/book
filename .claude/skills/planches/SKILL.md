@@ -9,7 +9,7 @@ Une planche du livre n'est pas un diagramme de présentation. C'est un dessin te
 trait qu'un homme regarde à la lampe frontale, les mains sales, pour comprendre un montage
 qu'il n'a jamais fait. Tout ce qui suit découle de ça.
 
-**Les mains, les corps et les têtes viennent des moteurs validés** (`h.formes.mainSimple`, `h.formes.corps`,
+**Les mains, les corps et les têtes viennent des moteurs validés** (`h.formes.mainStock`, `h.formes.corps`,
 `h.formes.teteSimple`), jamais d'un dessin à la main (JP, 16 octobre 2026 : « on se met des règles et des outils,
 il faut les utiliser »). Un agent qu'on lance pour dessiner reçoit d'abord le cadre de
 `references/brief-agent.md`, au complet.
@@ -428,8 +428,10 @@ chauve « laid en tabarnak » : chaque fois, c'était une forme dessinée planch
   de côté sont toutes vraiment belles, élimine toutes les vues de face et de haut »). Le corps entier passe par
   `h.formes.corps` (la bibliothèque des corps simples, `scripts/corps/`). Une vue de dessus d'un objet seul
   reste, sans corps.
-- **Les gros plans de mains** passent par `h.formes.mainSimple` (`scripts/mains/`) : JP a jugé les mains
-  calquées « pas acceptables », et les 68 planches de mains sont migrées (14 octobre 2026). Le poing et la
+- **Les gros plans de mains** passent par `h.formes.mainStock` : les mains Adobe Stock 116570613 que JP a choisies (18 octobre 2026 : « les bonnes mains »), tracés exacts de l'illustratrice au style du livre ; `scripts/mains/stock.js`, catalogue `scripts/mains/stock/catalogue.json`, noms `stock/noms.json`, feuille des ids `images/planches-src/_palette-mains-stock.js` (aperçu `livre/apercus-palette/mains-stock-ids.png`). On choisit la prise, on la
+  place (`x`, `y`, `ancre`), on la tourne (`angle`), on la retourne (`miroir`) ; `objet: false` enlève l'objet du fichier et
+  rend son axe (`.objet`), où la planche pose le sien avant la main. `mainSimple` est retiré (JP, 16 octobre : « c'est pas
+  beau en criss ») ; les 68 planches qui l'emploient sont à refaire avec `mainStock`. Le poing et la
   prise de manche vus de la paume, tournés de `[-25, 0, 0]`, se lisent bien ; le poing vu de dos fait moufle.
   **Une main laide ne s'imprime pas** (JP : « les prises que c'est laid, on élimine ») : pour une pince, le
   gros plan des deux bouts de doigts coupés par le bord de la vue (27-04, 23-02, 34-01) ; sinon une autre

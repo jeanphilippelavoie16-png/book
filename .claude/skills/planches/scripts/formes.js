@@ -18,6 +18,8 @@
 //   maille({ x, y, echelle, ep, fleche, jeu, trait })
 //   modele(id, { x, y, ancre, angle, echelle, miroir, masquer, bras })   un modèle calqué (images/modeles)
 //   corps({ x, y, pose, vue, age, echelle, cote, angles, mains, pieds, objetP, objetL })   le corps simple (corps/moteur.js)
+//   mainStock({ id, x, y, taille, angle, miroir, ancre, objet, trait, loin })   les mains des planches, tracés exacts
+//              du fichier Adobe Stock 116570613 (mains/stock.js ; la feuille des ids : _palette-mains-stock.js)
 //
 // Chaque fonction rend un objet qui se colle comme une chaîne (join, gabarit `${}`) et qui porte
 // la géométrie utile, en coordonnées de la vue : m.trou (où se dessine l'objet tenu), m.poignet…
@@ -1964,6 +1966,7 @@ module.exports = function formes(h) {
 
   return { main, personnage, tete, buste, corde, cordes, aiguilleFilet, moule, maille, modele, corps: (...a) => require('./corps/moteur').corps(...a),
     mainSimple: (...a) => require('./mains/moteur').mainSimple(...a),   // la main simple des gros plans : mains/moteur.js (tête du fichier)
+    mainStock: (...a) => require('./mains/stock').mainStock(...a),       // les mains Adobe Stock 116570613 : mains/stock.js (tête du fichier)
     teteSimple: (...a) => require('./tetes/moteur').teteSimple(...a),   // la tête simple de profil : tetes/moteur.js (tête du fichier)
     _interne: { tube, peindre, repere, lisse, ser, forme, enroule, plie, ik2, tangente, pointBord, suite, cubPts, arcPts, mainProfil, personnageAncien, brasVersMain, capsule } };
 };

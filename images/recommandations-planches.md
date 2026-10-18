@@ -82,14 +82,15 @@ nouvelle numérotation (six tomes).
    d'impression puis de près sur les mains, les matières et le feu, contre la barre de JP (« le sable et la terre
    dans la main, c'est butcher ») : est-ce qu'un illustrateur professionnel publierait ça ? Si non, elle ne
    part pas ; (3) une planche retouchée retourne dans `a-valider/` jusqu'à ce que JP la voie.
-   (4) Les mains, les corps et les têtes viennent des moteurs validés (`mainSimple`, `corps`, `teteSimple`), jamais
+   (4) Les mains, les corps et les têtes viennent des moteurs validés (`mainStock`, `corps`, `teteSimple`), jamais
    d'un dessin à la main (JP, 16 octobre 2026 : « l'agent respecte pas notre nouvelle liste de mains ; on se met des
    règles et des outils, il faut les utiliser »). Le cadre complet à donner à tout agent de planches est dans
    `.claude/skills/planches/references/brief-agent.md`.
 13. **Les mains en gros plan sont à refaire** (JP, 16 octobre 2026, devant la palette de `mainSimple` : « c'est pas beau
    en criss » ; les corps de `corps` : « les corps sont beaux »). Tant que la bibliothèque de mains n'est pas refaite et
    validée, une planche neuve évite le gros plan de main : la main coupée par le bord, l'objet seul avec le renvoi qui dit
-   la prise, ou le corps entier de profil. Plan de match, point 29.
+   la prise, ou le corps entier de profil. Plan de match, point 29. **Refaite le 18 octobre** : `h.formes.mainStock`, les
+   mains Adobe Stock 116570613 choisies par JP ; les planches à mains se refont avec elle.
 7. **La passe finale touche 100 % des planches** (JP, 24 septembre : « va falloir refaire une passe
    sur 100 % des planches à la fin »). Chaque planche, validée ou pas, est reprise contre toutes les
    règles ci-dessus : qualité du trait, mains et personnages, gestes fins, mécanismes, coupes en
