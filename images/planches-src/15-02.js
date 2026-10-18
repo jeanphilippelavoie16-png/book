@@ -1,204 +1,463 @@
-// Planche 15-02. Siphonner sans la bouche : le clapet de fortune, les deux boyaux (chapitre 15, §9, « Tirer le
-// carburant de là où il est », amorçages 2 et 3). Dessinée le 15 octobre 2026 (inventaire des planches, priorité
-// haute).
-// Le texte : « une bille ou un roulement laissé libre dans le bout du boyau, retenu par un clou traversé en
-// croix : il se soulève quand le liquide monte et retombe quand il voudrait redescendre. On plonge et on secoue de
-// haut en bas » ; « un long qui descend au fond et sort vers le bidon, un court qui reste dans le ciel du
-// réservoir. On bourre le goulot d'un chiffon autour des deux, et on souffle dans le court avec une pompe à vélo ou
-// une pompe de matelas, à la main et lentement » ; « le bidon doit être franchement plus bas que le réservoir ».
-// Ce que le texte ne dit pas et que la planche tranche (géométrie, et le brevet US 4 414 997, sources/
-// 15-brevet-us4414997-siphon-clapet.md : le siège au fond du corps de clapet, l'élément libre au-dessus, la butée
-// au-dessus de l'élément) : le siège est en bas, sous la bille, et le clou au-dessus d'elle ; monté à l'envers, le
-// clapet ne retient rien. Le siège : un bout de tube plus étroit que la bille, enfoncé dans le bout du boyau.
-// Proportions dessinées (sans cote, le chapitre n'en donne pas) : boyau de 16 mm intérieur, bille de 12 mm, siège de
-// 8 mm intérieur, la bille libre de quelques millimètres sous le clou.
-// Pas de main : l'objet seul et la flèche rouge du geste (le brief : une main qui n'est pas nette ne s'imprime pas).
-// La charte : les flèches rouges, le boyau qu'on plonge puis qu'on remonte, et la pompe qu'on pousse ; le cercle
-// rouge, la bille sur son siège.
+// Planche 15-02. Siphonner sans la bouche (chapitre 15, variante d'urgence, « Tirer le carburant de là où il est »).
+// Refaite depuis zéro le 18 octobre 2026 : nouveau dessin, rien de l'ancienne version.
+//
+// La façon principale, en haut : deux boyaux dans le goulot bourré d'un chiffon, la pompe à vélo sur le court ; l'air
+// poussé dans le réservoir fait monter l'essence dans le long, qui la mène au bidon posé au sol, plus bas. En bas, après
+// un filet, l'autre façon (règle 10) : sans pompe, le boyau à bille qu'on secoue ; « au lieu de 3 à 5 ».
+//
+// Ce que dit le texte (HEAD, chapitre 15, section 9) : le bidon « franchement plus bas que le réservoir » ; « un long qui
+// descend au fond et sort vers le bidon, un court qui reste dans le ciel du réservoir. On bourre le goulot d'un chiffon
+// autour des deux, et on souffle dans le court avec une pompe à vélo ou une pompe de matelas, à la main et lentement » ;
+// « une bille ou un roulement laissé libre dans le bout du boyau, retenu par un clou traversé en croix : il se soulève
+// quand le liquide monte et retombe quand il voudrait redescendre. On plonge et on secoue de haut en bas » ; « le
+// contenant est posé au sol ».
+// Sources : le bidon au sol, sources/83-cchst-garages-securite-essence.md (« Placer le contenant sur le sol ») ; le boyau
+// à clapet qu'on secoue, le récipient plus bas, le siège en bas, l'élément libre au-dessus et la butée au-dessus de
+// l'élément, sources/15-brevet-us4414997-siphon-clapet.html. Le texte ne nomme pas le siège ; sans lui la bille ne
+// retient rien : la planche le dessine (un bout de tube plus étroit enfoncé dans le bout du boyau), d'après le brevet.
+// La méthode à deux boyaux et la pompe n'ont pas de source enregistrée : la planche ne dessine que la géométrie que le
+// texte décrit (le long au fond, le court hors de l'essence, le chiffon, la pompe), sans cote ni chiffre.
+// Proportions dessinées, sans cote (le chapitre n'en donne pas) : baril de 205 L (57 × 88 cm), bidon de 20 L, pompe
+// à vélo debout ; boyau de 16 mm intérieur et 20 mm dehors, bille de 12 mm, siège de 8 mm de trou.
+//
+// La main : h.formes.mainStock, « poing-barre » (1-01), l'objet du fichier enlevé (objet: false) ; le boyau est posé
+// sur l'axe .objet, avant la main. Elle tient le boyau au-dessus du goulot et porte le geste de secouer.
+// Le rouge : repère 5 (pousser la pompe), repère 11 (secouer, flèche double), repère 13 (la bille sur le trou, cercle).
 module.exports = (h) => {
   const A = h.a;
-  const f1 = v => Math.round(v * 10) / 10;
-  const W = at => at.replace('fill="none"', 'fill="#FFFFFF"');
+  const f = v => Math.round(v * 10) / 10;
+  const blanc = at => at.replace('fill="none"', 'fill="#FFFFFF"');
+  const NOIR = '#1A1A1A';
 
-  // ─── Le clapet, en coupe (4 unités par mm) ──────────────────────────────────────────────────────
-  const k = 4;
-  const C = z => {
-    const cx = z.l / 2 - 4, ri = 8 * k, ro = 11 * k, yE = z.h - 30, yS = yE - 15 * k, rs = 4 * k, rb = 6 * k;
-    const ySiege = yS - Math.sqrt(rb * rb - rs * rs);   // le centre de la bille posée sur le siège
-    const yClou = yS - 18 * k;
-    return { cx, ri, ro, yE, yS, rs, rb, ySiege, yLeve: yClou + 2.5 * k + rb + 1, yClou };
+  // ─── Outils ───────────────────────────────────────────────────────────────────────────────────────
+  // Une polyligne aux coins arrondis, échantillonnée (pour poser un boyau d'épaisseur constante).
+  const lisser = (pts, r) => {
+    const out = [pts[0]];
+    for (let i = 1; i < pts.length - 1; i++) {
+      const p0 = pts[i - 1], p1 = pts[i], p2 = pts[i + 1];
+      const d1 = Math.hypot(p1[0] - p0[0], p1[1] - p0[1]), d2 = Math.hypot(p2[0] - p1[0], p2[1] - p1[1]);
+      const rr = Math.min(r, d1 / 2, d2 / 2);
+      const a = [p1[0] + (p0[0] - p1[0]) * rr / d1, p1[1] + (p0[1] - p1[1]) * rr / d1];
+      const b = [p1[0] + (p2[0] - p1[0]) * rr / d2, p1[1] + (p2[1] - p1[1]) * rr / d2];
+      for (let k = 0; k <= 14; k++) {
+        const t = k / 14;
+        out.push([(1 - t) * (1 - t) * a[0] + 2 * (1 - t) * t * p1[0] + t * t * b[0], (1 - t) * (1 - t) * a[1] + 2 * (1 - t) * t * p1[1] + t * t * b[1]]);
+      }
+    }
+    out.push(pts[pts.length - 1]);
+    return out.filter((p, i, t) => i === 0 || Math.hypot(p[0] - t[i - 1][0], p[1] - t[i - 1][1]) > 0.05);
   };
-  const clapet = (z, leve) => {
-    const g = C(z), o = [];
-    const { cx, ri, ro, yE, yS, rs, rb, ySiege, yLeve, yClou } = g;
-    const yb = leve ? yLeve : ySiege;
-    // l'essence dans le boyau : en montant, partout ; retenue, au-dessus de la bille seulement
-    if (leve) o.push(h.rect(cx - ri, 20, 2 * ri, yS - 20, A.hachure('eau', 'aucun')), h.rect(cx - rs, yS, 2 * rs, yE - yS, A.hachure('eau', 'aucun')));
-    else o.push(h.rect(cx - ri, 20, 2 * ri, yb - 20, A.hachure('eau', 'aucun')));
-    // la paroi du boyau, coupée, des deux côtés ; cassée en haut
-    for (const s of [-1, 1]) {
-      const xa = cx + s * ri, xb = cx + s * ro;
-      o.push(h.path(`M${f1(xa)} ${yE} L${f1(xa)} 22 L${f1(xb)} 16 L${f1(xb)} ${yE} Z`, A.hachure('isolant', 'arete')));
-    }
-    // le siège : un bout de tube plus étroit, enfoncé dans le bout du boyau
-    for (const s of [-1, 1]) o.push(h.rect(s < 0 ? cx - ri : cx + rs, yS, ri - rs, yE - yS + 4, A.hachure('metal', 'arete')));
-    // le clou, en croix, au-dessus de la bille : la tête dehors à gauche, la pointe dehors à droite
-    const ec = 1.4 * k;
-    o.push(h.path(`M${f1(cx - ro - 6)} ${f1(yClou - ec)} L${f1(cx + ro + 18)} ${f1(yClou - ec)} L${f1(cx + ro + 28)} ${f1(yClou)} L${f1(cx + ro + 18)} ${f1(yClou + ec)} L${f1(cx - ro - 6)} ${f1(yClou + ec)} Z`, W(A.arete)));
-    o.push(h.rect(cx - ro - 12, yClou - 4 * k, 6, 8 * k, W(A.arete)));
-    // la bille
-    o.push(h.cercle(cx, yb, rb, W(A.contour)));
-    o.push(h.path(`M${f1(cx - rb * 0.55)} ${f1(yb - rb * 0.2)} A${f1(rb * 0.6)} ${f1(rb * 0.6)} 0 0 1 ${f1(cx - rb * 0.1)} ${f1(yb - rb * 0.62)}`, A.detail));
-    // ce qui coule
-    if (leve) {
-      o.push(h.fleche(`M${cx} ${yE + 26} L${cx} ${yE - 8}`, A.arete));
-      for (const s of [-1, 1]) o.push(h.fleche(`M${f1(cx + s * (rb + 4))} ${f1(yb + rb - 4)} L${f1(cx + s * (rb + 4))} ${f1(yb - rb - 2)}`, A.detail));
-      o.push(h.fleche(`M${cx} ${yClou - 14} L${cx} ${48}`, A.arete));
-    } else {
-      o.push(h.fleche(`M${cx} ${yClou - 40} L${cx} ${yClou - 12}`, A.arete));
-      o.push(h.controle(cx, yS, rb + 8));
-    }
-    // le geste : on plonge, puis on remonte
-    const xg = cx + ro + 26;
-    o.push(leve ? h.geste(`M${xg} 40 L${xg} 96`) : h.geste(`M${xg} 96 L${xg} 40`));
-    return { svg: o.join('\n'), g: { ...g, yb } };
+  // Un boyau : le contour fermé d'un tube de largeur w autour de la ligne pts (les deux bouts coupés droit).
+  const boyau = (pts, w, r = 12, at = blanc(A.arete), bouts = [true, true]) => {
+    const P = lisser(pts, r);
+    const N = P.map((p, i) => {
+      const a = P[Math.max(0, i - 1)], b = P[Math.min(P.length - 1, i + 1)];
+      const dx = b[0] - a[0], dy = b[1] - a[1], d = Math.hypot(dx, dy);
+      return [-dy / d, dx / d];
+    });
+    const G = P.map((p, i) => `${f(p[0] + N[i][0] * w / 2)} ${f(p[1] + N[i][1] * w / 2)}`);
+    const D = P.map((p, i) => `${f(p[0] - N[i][0] * w / 2)} ${f(p[1] - N[i][1] * w / 2)}`);
+    const ferme = `M${G.join(' L')} L${[...D].reverse().join(' L')} Z`;
+    if (bouts[0] && bouts[1]) return h.path(ferme, at);
+    // un bout sans trait (le boyau continue dedans) : le fond blanc fermé, puis le contour ouvert de ce côté
+    const fond = h.path(ferme, A.blanc);
+    const trait = at.replace(/fill="[^"]*"/, 'fill="none"');
+    let d;
+    if (bouts[1]) d = `M${G.join(' L')} L${[...D].reverse().join(' L')}`;        // le trait passe par le bout de fin
+    else if (bouts[0]) d = `M${[...G].reverse().join(' L')} L${D.join(' L')}`;   // le trait passe par le bout de début
+    else d = `M${G.join(' L')} M${D.join(' L')}`;
+    return fond + '\n' + h.path(d, trait);
+  };
+  // Le point à la distance t (0 à 1) le long d'une polyligne lissée : pour poser une flèche le long d'un boyau.
+  const le_long = (pts, r) => {
+    const P = lisser(pts, r);
+    const cum = [0];
+    for (let i = 1; i < P.length; i++) cum.push(cum[i - 1] + Math.hypot(P[i][0] - P[i - 1][0], P[i][1] - P[i - 1][1]));
+    return t => {
+      const L = t * cum[cum.length - 1];
+      let i = 1;
+      while (i < P.length - 1 && cum[i] < L) i++;
+      const u = (L - cum[i - 1]) / (cum[i] - cum[i - 1] || 1);
+      return [P[i - 1][0] + u * (P[i][0] - P[i - 1][0]), P[i - 1][1] + u * (P[i][1] - P[i - 1][1])];
+    };
   };
 
-  // ─── Le baril sur ses blocs, l'essence dedans ────────────────────────────────────────────────────
-  // (x0, yH) : le coin haut gauche ; l : largeur ; ht : hauteur ; le bonde à xB
-  const baril = (x0, yH, l, ht, yN, ouv = null) => {
+  // Les abscisses où la ligne d'un boyau croise l'horizontale y (pour couper le trait tireté du niveau).
+  const croisements = (pts, r, y) => {
+    const P = lisser(pts, r), xs = [];
+    for (let i = 1; i < P.length; i++) {
+      const [a, b] = [P[i - 1], P[i]];
+      if ((a[1] - y) * (b[1] - y) <= 0 && a[1] !== b[1]) xs.push(a[0] + (y - a[1]) / (b[1] - a[1]) * (b[0] - a[0]));
+    }
+    return xs;
+  };
+  // Le niveau de l'essence du baril, prolongé en tireté jusqu'au-dessus du bidon, coupé là où un boyau le croise.
+  const niveau = (g, boyaux) => {
+    let segs = [[g.x1 + 6, g.xJ + g.lJ + 4]];
+    for (const [pts, r] of boyaux) for (const xc of croisements(pts, r, g.yN)) {
+      segs = segs.flatMap(([a, b]) => (xc - 7 > a && xc + 7 < b ? [[a, xc - 7], [xc + 7, b]] : [[a, b]]));
+    }
+    return segs.map(([a, b]) => h.path(`M${f(a)} ${f(g.yN)} L${f(b)} ${f(g.yN)}`, A.cache)).join('\n');
+  };
+
+  // ─── La scène : le baril sur son support, le bidon au sol ─────────────────────────────────────────
+  // Échelle de la scène : s unités par centimètre.
+  const s = 1.65;
+  const S = (z, x0 = 112) => {
+    const sol = z.h - 8;
+    const D = 57 * s, Hd = 88 * s;                       // le baril de 205 L
+    const hB = 19 * s, hP = 4.5 * s;                     // deux blocs de béton empilés, un madrier
+    const x1 = x0 + D;
+    const yP = sol - 2 * hB - hP;                        // le dessus des blocs, le dessous du madrier
+    const yR = yP - Hd;                                  // le haut du rebord du baril
+    const yL = yR + 3, yF = yP - 3;                      // le couvercle et le fond, en retrait du rebord
+    const yN = yF - 0.52 * (yF - yL);                    // le niveau de l'essence
+    const xB = x0 + 0.7 * D, wB = 18;                    // la bonde (grossie pour qu'on y voie les deux boyaux)
+    const xJ = z.l - 74, lJ = 35 * s, hJ = 44 * s;       // le bidon de 20 L, vu de côté
+    return { sol, D, Hd, hB, hP, x0, x1, yP, yR, yL, yF, yN, xB, wB, xJ, lJ, hJ };
+  };
+
+  const support = g => {
     const o = [];
-    o.push(h.rect(x0, yN, l, yH + ht - yN, A.hachure('eau', 'aucun')));
-    o.push(h.ligne(x0, yN, x0 + l, yN, A.detail));
-    o.push(h.rect(x0 - 3, yH, 3, ht, A.plein), h.rect(x0 + l, yH, 3, ht, A.plein), h.rect(x0 - 3, yH + ht, l + 6, 3, A.plein));
-    if (ouv) o.push(h.rect(x0 - 3, yH - 3, ouv[0] - ouv[1] - x0 + 3, 3, A.plein), h.rect(ouv[0] + ouv[1], yH - 3, x0 + l + 3 - ouv[0] - ouv[1], 3, A.plein));
-    else o.push(h.rect(x0 - 3, yH - 3, l + 6, 3, A.plein));
-    // les cerclages, vus en coupe : deux bosses de chaque côté
-    for (const y of [yH + ht * 0.33, yH + ht * 0.66]) for (const s of [-1, 1]) {
-      const x = s < 0 ? x0 - 3 : x0 + l + 3;
-      o.push(h.path(`M${f1(x)} ${f1(y - 5)} Q${f1(x + s * 6)} ${f1(y)} ${f1(x)} ${f1(y + 5)}`, A.arete));
+    const { x0, x1, sol, hB, hP, yP } = g;
+    const lb = 19 * s;
+    for (const xb of [x0 - 6, x1 + 6 - lb]) {
+      for (const k of [0, 1]) o.push(h.rect(xb, sol - (k + 1) * hB, lb, hB, A.hachure('gravier', 'arete')));
     }
+    // le madrier, vu de chant : deux traits de fil
+    o.push(h.rect(x0 - 12, yP, x1 - x0 + 24, hP, blanc(A.arete)));
+    o.push(h.path(`M${f(x0 - 4)} ${f(yP + hP * 0.45)} L${f(x0 + 40)} ${f(yP + hP * 0.45)}`, A.fin));
+    o.push(h.path(`M${f(x1 - 30)} ${f(yP + hP * 0.6)} L${f(x1 + 6)} ${f(yP + hP * 0.6)}`, A.fin));
     return o.join('\n');
   };
-  const blocs = (x0, l, y, sol) => [x0 + 4, x0 + l - 40].map(x => h.rect(x, y + 3, 36, sol - y - 3, A.hachure('pierre', 'arete'))).join('\n');
-  const bidon = (x, sol, l = 52, ht = 64) => {
-    // le bidon de côté, le goulot en haut à droite
+
+  const baril = g => {
     const o = [];
-    o.push(h.path(`M${x} ${sol} L${x} ${sol - ht + 8} Q${x} ${sol - ht} ${x + 8} ${sol - ht} L${x + l - 18} ${sol - ht} L${x + l} ${sol - ht + 12} L${x + l} ${sol} Z`, W(A.contour)));
-    o.push(h.path(`M${x + 8} ${sol - ht + 12} L${x + 26} ${sol - ht + 12}`, A.detail));
-    o.push(h.rect(x + l - 16, sol - ht - 6, 12, 10, W(A.arete)));
-    for (const dy of [0.45, 0.75]) o.push(h.ligne(x + 6, sol - ht * dy, x + l - 6, sol - ht * dy, A.fin));
-    return { svg: o.join('\n'), goulot: [x + l - 10, sol - ht - 6] };
-  };
-  const boyau = (pts, at = A.arete) => {
-    // un boyau : deux traits parallèles (6 de large) le long d'une polyligne arrondie
-    const d = pts.map((p, i) => `${i ? 'L' : 'M'}${f1(p[0])} ${f1(p[1])}`).join(' ');
-    return `<path d="${d}" fill="none" stroke="#1A1A1A" stroke-width="7.4" stroke-linejoin="round" stroke-linecap="butt"/>\n<path d="${d}" fill="none" stroke="#FFFFFF" stroke-width="4.6" stroke-linejoin="round" stroke-linecap="butt"/>`;
+    const { x0, x1, yR, yL, yF, yN, yP, Hd, xB, wB } = g;
+    // l'essence, en coupe
+    o.push(h.rect(x0, yN, x1 - x0, yF - yN, A.hachure('eau', 'aucun')));
+    o.push(h.ligne(x0, yN, x1, yN, A.detail));
+    // les parois coupées, avec les deux cerclages en bosse
+    const rh = 3.2, cercl = [yR + Hd * 0.34, yR + Hd * 0.66];
+    const paroi = (x, balayage) => {
+      let d = `M${f(x)} ${f(yR)}`;
+      for (const y of cercl) d += ` L${f(x)} ${f(y - rh)} A${rh} ${rh} 0 0 ${balayage} ${f(x)} ${f(y + rh)}`;
+      return d + ` L${f(x)} ${f(yP)}`;
+    };
+    o.push(h.path(paroi(x0, 0), A.contour), h.path(paroi(x1, 1), A.contour));
+    // le couvercle (ouvert à la bonde) et le fond, en retrait du rebord
+    o.push(h.ligne(x0, yL, xB - wB / 2, yL, A.contour), h.ligne(xB + wB / 2, yL, x1, yL, A.contour));
+    o.push(h.ligne(x0, yF, x1, yF, A.contour));
+    // le collet de la bonde
+    o.push(h.rect(xB - wB / 2 - 2.6, yL - 3.4, 2.6, 3.4, A.plein), h.rect(xB + wB / 2, yL - 3.4, 2.6, 3.4, A.plein));
+    return o.join('\n');
   };
 
-  // ─── Secouer : le boyau à clapet dans le baril, l'autre bout dans le bidon, plus bas ───────────
-  const S = z => ({ x0: 16, yH: 96, l: 116, ht: 156, sol: z.h - 8 });
-  const secouer = z => {
-    const g = S(z), o = [];
-    const { x0, yH, l, ht, sol } = g;
-    const yN = yH + 40, yBas = yH + ht;
-    const xb = x0 + l - 26;
-    o.push(baril(x0, yH, l, ht, yN, [xb, 9]), blocs(x0, l, yBas, sol));
-    // la bonde ouverte : son collet de part et d'autre du trou
-    o.push(h.rect(xb - 13, yH - 9, 4, 6, A.plein), h.rect(xb + 9, yH - 9, 4, 6, A.plein));
-    o.push(h.ligne(0, sol, z.l, sol, A.arete));
-    const bd = bidon(z.l - 60, sol);
+  // Le bidon de 20 L, vu de côté : le corps et son X embouti, la poignée, le bec en haut à gauche, ouvert.
+  const bidon = g => {
+    const { xJ: x, lJ: L, hJ: H, sol } = g, yT = sol - H, o = [];
+    // la face à l'ombre : le côté droit (lumière en haut à gauche)
+    o.push(h.path(`M${f(x + L - 6)} ${f(yT + 2)} L${f(x + L)} ${f(yT + 8)} L${f(x + L)} ${f(sol)} L${f(x + L - 6)} ${f(sol)} Z`, A.ombre));
+    o.push(h.path(`M${f(x + 5)} ${f(yT)} L${f(x + L - 6)} ${f(yT)} Q${f(x + L)} ${f(yT)} ${f(x + L)} ${f(yT + 6)} L${f(x + L)} ${f(sol)} L${f(x)} ${f(sol)} L${f(x)} ${f(yT + 5)} Q${f(x)} ${f(yT)} ${f(x + 5)} ${f(yT)} Z`, A.contour));
+    o.push(h.ligne(x + L - 6, yT + 2, x + L - 6, sol, A.detail));
+    // le X embouti, dans son cadre
+    const bx0 = x + 6, bx1 = x + L - 12, by0 = yT + 9, by1 = sol - 7;
+    o.push(h.rect(bx0, by0, bx1 - bx0, by1 - by0, A.detail));
+    o.push(h.path(`M${f(bx0 + 3)} ${f(by0 + 3)} L${f(bx1 - 3)} ${f(by1 - 3)} M${f(bx1 - 3)} ${f(by0 + 3)} L${f(bx0 + 3)} ${f(by1 - 3)}`, A.detail));
+    // la poignée sur le dessus
+    const px0 = x + L * 0.42, px1 = x + L * 0.9;
+    o.push(h.path(`M${f(px0)} ${f(yT)} L${f(px0 + 3)} ${f(yT - 9)} L${f(px1 - 3)} ${f(yT - 9)} L${f(px1)} ${f(yT)}`, blanc(A.arete)));
+    o.push(h.path(`M${f(px0 + 6)} ${f(yT)} L${f(px0 + 7.5)} ${f(yT - 5)} L${f(px1 - 7.5)} ${f(yT - 5)} L${f(px1 - 6)} ${f(yT)}`, A.detail));
+    // le bec : un col court penché vers la gauche, ouvert
+    const ax = -0.423, ay = -0.906, nx = -ay, ny = ax;      // l'axe du bec (vers le haut à gauche) et sa normale
+    const bc = [x + 12, yT + 1], lb = 12, wb = 11;
+    const P = (u, v) => [bc[0] + ax * u + nx * v, bc[1] + ay * u + ny * v];
+    const col = [P(0, -wb / 2), P(lb, -wb / 2), P(lb, -wb / 2 - 1.5), P(lb + 3, -wb / 2 - 1.5), P(lb + 3, wb / 2 + 1.5), P(lb, wb / 2 + 1.5), P(lb, wb / 2), P(0, wb / 2)];
+    const bouche = P(lb + 3, 0);
+    return { svg: o.join('\n'), col: h.chemin(col, blanc(A.arete), true), bouche, axe: [ax, ay] };
+  };
+
+  // La pompe à vélo debout : le pied, le corps, la tige, la poignée en T, le tuyau qui part du bas.
+  const pompe = (xc, sol) => {
+    const o = [], yC = sol - 6 - 92;
+    o.push(h.rect(xc - 22, sol - 5, 44, 5, blanc(A.arete)));
+    o.push(h.rect(xc + 1.5, yC, 3.5, sol - 5 - yC, A.ombre));
+    o.push(h.rect(xc - 5, yC, 10, sol - 5 - yC, A.contour));
+    o.push(h.rect(xc - 6.5, yC - 5, 13, 5, blanc(A.arete)));
+    o.push(h.rect(xc - 1.3, yC - 25, 2.6, 20, blanc(A.detail)));
+    o.push(h.rect(xc - 21, yC - 31, 42, 6.5, blanc(A.contour) + ' rx="3"'));
+    // le raccord du tuyau, au bas du corps
+    o.push(h.rect(xc + 5, sol - 15, 5, 5, blanc(A.detail)));
+    return { svg: o.join('\n'), yPoignee: yC - 31, sortie: [xc + 10, sol - 12.5] };
+  };
+
+  // ─── Vue 1 : avec une pompe à vélo ────────────────────────────────────────────────────────────────
+  const wS = 6.5;                                        // le boyau, dans la scène
+  const V1 = z => {
+    const g = S(z);
+    const { xB, yL, yF, yN, x0, sol } = g;
+    const xLong = xB + 4.3, xCourt = xB - 4.3;
+    const bd = bidon(g);
+    // le long : du fond du baril, par la bonde, en arc, jusqu'au bec du bidon
+    const mL = [bd.bouche[0] - bd.axe[0] * 8, bd.bouche[1] - bd.axe[1] * 8];   // le bout, un peu entré dans le bec
+    const long = [[xLong, yF - 4], [xLong, yL - 30], [xLong + 6, yL - 46], [xLong + 40, yL - 46], [bd.bouche[0] + bd.axe[0] * 100, bd.bouche[1] + bd.axe[1] * 100], mL];
+    // le court : de l'air du baril, par la bonde, par-dessus le bord, jusqu'à la pompe
+    const xp = 34;
+    const pp = pompe(xp, sol);
+    const court = [[xCourt, yL + 9], [xCourt, yL - 22], [xCourt - 26, yL - 36], [x0 - 34, yL - 36], [x0 - 44, yL - 20], [x0 - 44, sol - 34], [x0 - 52, sol - 22]];
+    const bout = court[court.length - 1];
+    return { g, bd, long, court, pp, xp, bout, xLong, xCourt };
+  };
+  const vue1 = z => {
+    const v = V1(z), { g, bd, long, court, pp, bout } = v, o = [];
+    o.push(support(g), baril(g));
+    // le niveau de l'essence, prolongé jusqu'au-dessus du bidon : le bidon est bien plus bas
+    o.push(niveau(g, [[long, 14]]));
     o.push(bd.svg);
-    o.push(boyau([[xb, yBas - 14], [xb, yH - 40], [xb + 10, yH - 58], [z.l - 54, yH - 58], [z.l - 50, yH - 50], [bd.goulot[0], bd.goulot[1] + 6]]));
-    // le clapet au bout, dans le fond : le bout du boyau un peu plus gros
-    o.push(h.rect(xb - 5, yBas - 30, 10, 18, W(A.arete)));
-    o.push(h.cercle(xb, yBas - 24, 3, A.fin));
+    // le tuyau de la pompe, du raccord jusque dans le bout du boyau court (posé avant : le boyau le cache où il entre)
+    const [sx, sy] = pp.sortie, av = court[court.length - 2];
+    const dl = Math.hypot(bout[0] - av[0], bout[1] - av[1]), ux = (bout[0] - av[0]) / dl, uy = (bout[1] - av[1]) / dl;
+    o.push(pp.svg);
+    o.push(boyau([[sx, sy], [sx + 3, sy], [bout[0] + ux * 7, bout[1] + uy * 7], [bout[0] - ux * 8, bout[1] - uy * 8]], 2.6, 4));
+    o.push(boyau(long, wS, 14), boyau(court, wS, 12));
+    o.push(bd.col);
+    // le chiffon dans la bonde (la loupe le montre de près) et le cercle qui renvoie à la loupe
+    o.push(h.path(`M${f(g.xB - 10)} ${f(g.yL - 2)} Q${f(g.xB - 14)} ${f(g.yL - 9)} ${f(g.xB - 7)} ${f(g.yL - 11)} Q${f(g.xB)} ${f(g.yL - 14)} ${f(g.xB + 7)} ${f(g.yL - 11)} Q${f(g.xB + 14)} ${f(g.yL - 9)} ${f(g.xB + 10)} ${f(g.yL - 2)} Z`, blanc(A.arete)));
+    o.push(h.cercle(g.xB, g.yL - 6, 21, A.fin));
+    // ce qui passe : l'air dans le court, l'essence dans le long
+    const pc = le_long(court, 12), pl = le_long(long, 14);
+    const fl = (pt, a, b, d) => { const p = pt(a), q = pt(b); return h.fleche(`M${f(p[0] + d[0])} ${f(p[1] + d[1])} L${f(q[0] + d[0])} ${f(q[1] + d[1])}`, A.detail); };
+    o.push(fl(pc, 0.62, 0.5, [-8, 0]));
+    o.push(fl(pl, 0.6, 0.72, [9, 0]));
+    o.push(fl(pl, 0.86, 0.95, [9, 0]));
+    // le geste : pousser la poignée, doucement
+    o.push(h.geste(`M${v.xp} ${f(pp.yPoignee - 34)} L${v.xp} ${f(pp.yPoignee - 6)}`));
+    return o.join('\n');
+  };
+
+  // ─── Vue 2 : le goulot, de près (dans une loupe) ──────────────────────────────────────────────────
+  const k = 11;                                          // unités par centimètre dans la loupe
+  const G = z => {
+    const cx = z.l / 2, cy = z.h / 2 + 4, R = Math.min(z.l, z.h) / 2 - 8;
+    const yL = cy - 26;                                  // le couvercle
+    const xB = cx - 4, wB = 5.6 * k;                     // la bonde
+    const wT = 1.5 * k;                                  // les boyaux
+    const xC = xB - 0.95 * k, xLg = xB + 0.95 * k;       // le court à gauche, le long à droite
+    const yBoutC = yL + 4.2 * k;                         // le bout du court, dans l'air
+    return { cx, cy, R, yL, xB, wB, wT, xC, xLg, yBoutC };
+  };
+  // Une courbe fermée et lisse (Catmull-Rom) par des points : la masse du chiffon.
+  const fermee = pts => {
+    const n = pts.length, p = i => pts[(i + n) % n];
+    let d = `M${f(pts[0][0])} ${f(pts[0][1])}`;
+    for (let i = 0; i < n; i++) {
+      const p0 = p(i - 1), p1 = p(i), p2 = p(i + 1), p3 = p(i + 2);
+      d += ` C${f(p1[0] + (p2[0] - p0[0]) / 6)} ${f(p1[1] + (p2[1] - p0[1]) / 6)} ${f(p2[0] - (p3[0] - p1[0]) / 6)} ${f(p2[1] - (p3[1] - p1[1]) / 6)} ${f(p2[0])} ${f(p2[1])}`;
+    }
+    return d + ' Z';
+  };
+  const vue2 = z => {
+    const g = G(z), o = [];
+    const { cx, cy, R, yL, xB, wB, wT, xC, xLg, yBoutC } = g;
+    const id = 'loupe-15-02';
+    o.push(`<defs><clipPath id="${id}"><circle cx="${f(cx)}" cy="${f(cy)}" r="${f(R)}"/></clipPath></defs>`);
+    o.push(`<g clip-path="url(#${id})">`);
+    // le couvercle, coupé : la tôle en noir, ouverte à la bonde
+    const ep = 4;
+    o.push(h.rect(cx - R, yL, xB - wB / 2 - (cx - R), ep, A.plein));
+    o.push(h.rect(xB + wB / 2, yL, cx + R - (xB + wB / 2), ep, A.plein));
+    // le collet fileté de la bonde, coupé
+    const hc = 1.6 * k, lc = 0.55 * k;
+    o.push(h.rect(xB - wB / 2 - lc, yL - hc, lc, hc + ep, A.hachure('metal', 'arete')));
+    o.push(h.rect(xB + wB / 2, yL - hc, lc, hc + ep, A.hachure('metal', 'arete')));
+    // les deux boyaux : le long descend vers le fond, le court s'arrête juste sous le couvercle
+    const court = [[xC, yBoutC], [xC, yL - 6 * k], [xC - 3 * k, cy - R - 6]];
+    o.push(boyau([[xLg, cy + R + 4], [xLg, cy - R - 4]], wT, 0));
+    o.push(boyau(court, wT, 2.4 * k));
+    o.push(h.ellipse(xC, yBoutC, wT / 2 - 0.7, 2.8, A.detail));
+    // le chiffon, bourré dans la bonde et serré autour des deux boyaux : une masse froissée qui déborde du collet
+    const e = k / 7.2, P = (dx, dy) => [xB + dx * e, yL + dy * e];
+    const masse = [P(-19, 8), P(-19.3, -5), P(-23, -11.5), P(-30, -12.5), P(-36.5, -8.5), P(-42, -2.6), P(-40.5, -9), P(-37.5, -15),
+      P(-37, -21), P(-31, -27), P(-24, -28), P(-17, -35), P(-8, -33.5), P(-1, -40), P(7, -35.5), P(15, -38.5), P(22, -31),
+      P(29, -29.5), P(35, -22), P(33, -16), P(26, -13), P(19.4, -5), P(19, 8), P(9, 12), P(-4, 10)];
+    o.push(h.path(fermee(masse), blanc(A.arete)));
+    // les plis
+    const pli = (a, b, c) => h.path(`M${f(a[0])} ${f(a[1])} Q${f(b[0])} ${f(b[1])} ${f(c[0])} ${f(c[1])}`, A.detail);
+    o.push(pli(P(-31, -18), P(-26, -24), P(-19, -24)));
+    o.push(pli(P(-34, -13), P(-37, -9), P(-39.5, -5)));
+    o.push(pli(P(-27, -12), P(-22, -16), P(-16, -14)));
+    o.push(pli(P(-24, -29), P(-19, -27), P(-15, -31)));
+    o.push(pli(P(17, -30), P(24, -27), P(28, -20)));
+    o.push(pli(P(14, -16), P(20, -20), P(25, -16)));
+    o.push(pli(P(-16, 2), P(-12, -3), P(-13.5, -8)));
+    o.push(pli(P(15.5, 4), P(14, -2), P(16.5, -7)));
+    o.push(pli(P(-4, 7), P(0, 4.5), P(4, 7.5)));
+    // les boyaux sortent du chiffon par le haut (sans trait de bout : ils continuent dedans)
+    o.push(boyau([[xLg, yL - 31 * e], [xLg, cy - R - 4]], wT, 0, blanc(A.arete), [false, true]));
+    o.push(boyau([[xC, yL - 30 * e], ...court.slice(1)], wT, 2.4 * k, blanc(A.arete), [false, true]));
+    // ce qui passe : l'air poussé descend dans le court et sort sous le couvercle ; l'essence monte dans le long
+    o.push(h.fleche(`M${f(xC)} ${f(yBoutC + 7)} L${f(xC)} ${f(yBoutC + 52)}`, A.cache));
+    o.push(h.fleche(`M${f(xC - 5)} ${f(yBoutC + 7)} L${f(xC - 30)} ${f(yBoutC + 42)}`, A.cache));
+    const xf = xLg + wT / 2 + 8;
+    o.push(h.fleche(`M${f(xf)} ${f(cy + R - 14)} L${f(xf)} ${f(yBoutC + 6)}`, A.detail));
+    o.push(h.fleche(`M${f(xf)} ${f(yL - 5.2 * k)} L${f(xf)} ${f(yL - 7.2 * k)}`, A.detail));
+    o.push('</g>');
+    o.push(h.cercle(cx, cy, R, A.arete));
+    return o.join('\n');
+  };
+
+  // ─── Vue 3 : sans pompe, le boyau à bille qu'on secoue ────────────────────────────────────────────
+  const V3 = z => {
+    const g = S(z, 46);
+    const { xB, yL, yF, sol } = g;
+    const bd = bidon(g);
+    const yMain = yL - 31;
+    const mL = [bd.bouche[0] - bd.axe[0] * 8, bd.bouche[1] - bd.axe[1] * 8];
+    const ligne = [[xB, yF - 4], [xB, yL - 48], [xB + 6, yL - 60], [xB + 62, yL - 60], [bd.bouche[0] + bd.axe[0] * 100, bd.bouche[1] + bd.axe[1] * 100], mL];
+    return { g, bd, yMain, ligne, sol };
+  };
+  const vue3 = z => {
+    const v = V3(z), { g, bd, ligne, yMain } = v, o = [];
+    o.push(support(g), baril(g));
+    o.push(niveau(g, [[ligne, 14]]));
+    o.push(bd.svg);
+    o.push(boyau(ligne, wS, 14));
+    // le bout à bille, au fond : le tube du siège un peu plus gros, la bille dedans
+    o.push(h.rect(g.xB - 4, g.yF - 11, 8, 7, blanc(A.arete)));
+    o.push(h.cercle(g.xB, g.yF - 13.6, 1.9, A.plein));
+    o.push(bd.col);
+    // la main tient le boyau au-dessus de la bonde (le boyau sur l'axe de l'objet, posé avant la main)
+    const m = h.formes.mainStock({ id: 'poing-barre', x: g.xB, y: yMain, taille: 56, angle: -16, objet: false });
+    o.push(m.svg);
     // le geste : secouer de haut en bas
-    o.push(h.geste(`M${xb - 16} ${yH - 70} L${xb - 16} ${yH - 18}`, { double: true }));
-    return { svg: o.join('\n'), g: { ...g, xb, yN, yBas, bd } };
+    o.push(h.geste(`M${f(g.xB + 22)} ${f(yMain - 18)} L${f(g.xB + 22)} ${f(yMain + 16)}`, { double: true }));
+    // l'essence qui arrive au bidon
+    const pl = le_long(ligne, 14), p = pl(0.86), q = pl(0.95);
+    o.push(h.fleche(`M${f(p[0] + 9)} ${f(p[1])} L${f(q[0] + 9)} ${f(q[1])}`, A.detail));
+    return o.join('\n');
   };
 
-  // ─── À deux boyaux : le goulot bourré, la pompe sur le court ────────────────────────────────────
-  const D = z => ({ x0: 200, yH: 70, l: 150, ht: 136, sol: z.h - 8 });
-  const deux = z => {
-    const g = D(z), o = [];
-    const { x0, yH, l, ht, sol } = g;
-    const yN = yH + 34, yBas = yH + ht;
-    const xg = x0 + l - 40;
-    o.push(baril(x0, yH, l, ht, yN, [xg, 12]), blocs(x0, l, yBas, sol));
-    o.push(h.ligne(0, sol, z.l, sol, A.arete));
-    // le goulot, la bonde ouverte, bourrée d'un chiffon autour des deux boyaux
-    o.push(h.rect(xg - 16, yH - 14, 4, 14, A.plein), h.rect(xg + 12, yH - 14, 4, 14, A.plein));
-    o.push(`<defs><pattern id="vue-tissu" width="6" height="4.5" patternUnits="userSpaceOnUse"><path d="M0 1 L3 3.5 L6 1" fill="none" stroke="#1A1A1A" stroke-width="0.5"/></pattern></defs>`);
-    o.push(h.path(`M${xg - 12} ${yH + 6} L${xg - 12} ${yH - 14} Q${xg - 22} ${yH - 24} ${xg - 14} ${yH - 30} L${xg + 14} ${yH - 30} Q${xg + 22} ${yH - 24} ${xg + 12} ${yH - 14} L${xg + 12} ${yH + 6} Z`, 'fill="url(#vue-tissu)" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round"'));
-    // le long, jusqu'au fond, qui sort vers le bidon ; le court, dans le ciel, vers la pompe
-    const bd = bidon(z.l - 70, sol);
-    o.push(bd.svg);
-    const xl = xg + 5, xc = xg - 5;
-    o.push(boyau([[xl, yBas - 10], [xl, yH - 46], [xl + 12, yH - 58], [z.l - 64, yH - 58], [z.l - 60, yH - 50], [bd.goulot[0], bd.goulot[1] + 6]]));
-    o.push(boyau([[xc, yN - 12], [xc, yH - 50], [xc - 12, yH - 62], [110, yH - 62], [96, yH - 50], [96, sol - 60]]));
-    // ce qui passe : l'air poussé dans le court, l'essence qui monte dans le long
-    o.push(h.fleche(`M${xc - 60} ${yH - 46} L${xc - 30} ${yH - 46}`, A.cache));
-    o.push(h.fleche(`M${xl + 50} ${yH - 44} L${xl + 84} ${yH - 44}`, A.arete));
-    o.push(h.fleche(`M${xl + 14} ${yBas - 30} L${xl + 14} ${yN + 14}`, A.detail));
-    // la pompe à vélo, au sol : le pied, le corps, la tige et la poignée en T, le boyau qui part du bas
-    const xp = 60, yP = sol - 120;
-    o.push(h.rect(xp - 34, sol - 6, 68, 6, W(A.arete)));
-    o.push(h.rect(xp - 9, yP, 18, sol - 6 - yP, W(A.contour)));
-    o.push(h.rect(xp - 2.5, yP - 30, 5, 30, W(A.arete)));
-    o.push(h.rect(xp - 30, yP - 38, 60, 9, W(A.arete) + ' rx="4"'));
-    o.push(h.path(`M${xp + 9} ${sol - 20} Q${xp + 34} ${sol - 20} ${96} ${sol - 60}`, 'fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linecap="round"'));
-    o.push(h.geste(`M${xp} ${yP - 68} L${xp} ${yP - 44}`));
-    return { svg: o.join('\n'), g: { ...g, xg, xl, xc, yN, yBas, bd, xp, yP } };
+  // ─── Vues 4 et 5 : le bout du boyau, en coupe, quand on plonge et quand on remonte ────────────────
+  const u = 2.6;                                         // unités par millimètre
+  const C = z => {
+    const cx = z.l / 2, yE = z.h - 34;                   // l'axe, le bout du boyau
+    const ri = 8 * u, re = 10 * u;                       // le boyau : 16 mm de trou, 20 mm dehors
+    const rs = 4 * u, ls = 14 * u;                       // le siège : 8 mm de trou, 14 mm de long
+    const rb = 6 * u;                                    // la bille : 12 mm
+    const yS = yE - ls;                                  // le haut du siège
+    const yPose = yS - Math.sqrt(rb * rb - rs * rs);     // la bille posée sur le siège
+    const yClou = yPose - rb - 8 * u;                    // le clou, 8 mm au-dessus de la bille posée
+    const rc = 1.5 * u;
+    const yLeve = yClou + rc + rb + 0.6;                 // la bille levée contre le clou
+    return { cx, yE, ri, re, rs, ls, rb, yS, yPose, yClou, rc, yLeve };
+  };
+  const coupe = (z, leve) => {
+    const g = C(z), o = [];
+    const { cx, yE, ri, re, rs, rb, yS, yPose, yClou, rc, yLeve } = g;
+    const yb = leve ? yLeve : yPose, yH = 14;
+    // l'essence dans le boyau : en plongeant, partout ; en remontant, au-dessus de la bille seulement
+    if (leve) {
+      o.push(h.rect(cx - ri, yH, 2 * ri, yS - yH, A.hachure('eau', 'aucun')));
+      o.push(h.rect(cx - rs, yS, 2 * rs, yE - yS, A.hachure('eau', 'aucun')));
+    } else {
+      o.push(h.rect(cx - ri, yH, 2 * ri, yb - yH, A.hachure('eau', 'aucun')));
+    }
+    // la paroi du boyau, coupée, en noir ; le haut cassé
+    for (const sg of [-1, 1]) {
+      const xa = cx + sg * ri, xb = cx + sg * re;
+      o.push(h.path(`M${f(xa)} ${f(yE)} L${f(xa)} ${f(yH + 3)} L${f((xa + xb) / 2)} ${f(yH)} L${f(xb)} ${f(yH + 4)} L${f(xb)} ${f(yE)} Z`, `fill="${NOIR}" stroke="${NOIR}" stroke-width="0.7" stroke-linejoin="round"`));
+    }
+    // le siège : le bout de tube plus étroit, enfoncé dans le bout du boyau, coupé (métal)
+    for (const sg of [-1, 1]) o.push(h.rect(sg < 0 ? cx - ri : cx + rs, yS, ri - rs, yE - yS, A.hachure('metal', 'arete')));
+    // le clou, en travers, au-dessus de la bille : la tête à gauche, la pointe dehors à droite
+    const xT = cx - re - 3;
+    o.push(h.path(`M${f(xT)} ${f(yClou - rc)} L${f(cx + re + 6)} ${f(yClou - rc)} L${f(cx + re + 13)} ${f(yClou)} L${f(cx + re + 6)} ${f(yClou + rc)} L${f(xT)} ${f(yClou + rc)} Z`, blanc(A.arete)));
+    o.push(h.rect(xT - 3.2, yClou - 4.5 * u, 3.2, 9 * u, blanc(A.arete)));
+    // la bille
+    o.push(h.cercle(cx, yb, rb, blanc(A.contour)));
+    o.push(h.path(`M${f(cx - rb * 0.55)} ${f(yb - rb * 0.15)} A${f(rb * 0.6)} ${f(rb * 0.6)} 0 0 1 ${f(cx - rb * 0.1)} ${f(yb - rb * 0.6)}`, A.detail));
+    // le mouvement du boyau, à droite : vers le bas, ou vers le haut
+    const xm = cx + re + 9;
+    o.push(leve ? h.fleche(`M${f(xm)} ${f(yH + 30)} L${f(xm)} ${f(yH + 66)}`, A.arete) : h.fleche(`M${f(xm)} ${f(yH + 66)} L${f(xm)} ${f(yH + 30)}`, A.arete));
+    if (leve) {
+      // l'essence entre par le bas, passe autour de la bille et monte
+      o.push(h.fleche(`M${f(cx)} ${f(yE + 26)} L${f(cx)} ${f(yE - 6)}`, A.arete));
+      for (const sg of [-1, 1]) o.push(h.fleche(`M${f(cx + sg * (rb + 2.2))} ${f(yb + rb * 0.4)} L${f(cx + sg * (rb + 2.2))} ${f(yb - rb * 0.9)}`, A.detail));
+      o.push(h.fleche(`M${f(cx)} ${f(yClou - 12)} L${f(cx)} ${f(yH + 74)}`, A.arete));
+    } else {
+      // la bille bouche le trou : l'essence au-dessus ne redescend plus
+      o.push(h.controle(cx, yS, rb + 6));
+    }
+    return { svg: o.join('\n'), g: { ...g, yb, xT } };
   };
 
   return {
     ref: '15-02',
     titre: 'Siphonner sans la bouche',
-    desc: 'En haut à gauche, deux coupes du bout du boyau : un bout de tube plus étroit enfoncé dans le boyau fait le siège ; une bille, plus grosse que le siège, est libre au-dessus ; un clou traverse le boyau en croix au-dessus de la bille. Quand on plonge le boyau (flèche rouge vers le bas), l’essence entre par le bas, soulève la bille contre le clou et monte autour. Quand on le remonte (flèche rouge vers le haut), la bille retombe sur le siège (cercle rouge) et l’essence au-dessus ne redescend plus. En haut à droite : le boyau à clapet plongé jusqu’au fond d’un baril posé sur des blocs, l’autre bout dans un bidon posé au sol, plus bas ; une double flèche rouge, secouer de haut en bas. En bas : le même baril, le goulot bourré d’un chiffon autour de deux boyaux ; le long descend au fond et sort vers le bidon, le court s’arrête dans l’air du baril et va à une pompe à vélo au sol, dont on pousse la poignée (flèche rouge) ; l’air entre par le court, l’essence sort par le long.',
+    desc: 'En haut, avec une pompe à vélo. Un baril de 205 L, en coupe, posé sur un madrier et deux piles de deux blocs de béton ; l’essence le remplit à moitié. Un bidon de 20 L posé au sol, à droite ; un trait tireté prolonge le niveau de l’essence du baril jusqu’au-dessus du bidon, qui est bien plus bas. Deux boyaux entrent par l’ouverture du baril : le long descend jusqu’au fond, ressort en arche et descend dans le bec du bidon ; le court s’arrête dans l’air, juste sous le couvercle, et va à une pompe à vélo debout au sol, à gauche, dont le tuyau entre dans son bout. Une flèche rouge pousse la poignée de la pompe vers le bas ; une flèche noire le long du boyau long montre l’essence qui coule vers le bidon. Une loupe montre l’ouverture de près : un chiffon froissé bourré dans le collet, serré autour des deux boyaux ; l’air poussé sort du bout du court ; l’essence monte dans le long. En bas, après un filet, sans pompe : le même baril et le même bidon ; un seul boyau, avec une bille au bout, au fond du baril ; une main tient le boyau au-dessus de l’ouverture, une flèche rouge double : secouer de haut en bas. Deux coupes du bout du boyau : un bout de tube plus étroit enfoncé dans le bout du boyau, une bille plus grosse que son trou posée dessus, un clou en travers au-dessus de la bille. On plonge : l’essence entre par le bas, soulève la bille contre le clou et monte. On remonte : la bille retombe sur le trou (cercle rouge) et l’essence au-dessus ne redescend plus.',
     format: 'pleine',
-    disposition: [['monte', 'retombe', 'secouer'], ['deux']],
-    hauteurs: [1.25, 1],
-    largeurs: [[1, 1, 1.5], [1]],
+    disposition: [['pompe', 'goulot'], ['secouer', 'plonge', 'remonte']],
+    largeurs: [[330, 248], [290, 133, 133]],
     vues: {
-      monte: {
-        titre: 'On plonge : elle se soulève',
-        dessin: z => clapet(z, true).svg,
+      pompe: {
+        titre: 'Avec une pompe à vélo',
+        dessin: z => {
+          // règle 10 : un filet sur toute la largeur sépare la façon principale, en haut, de l'autre façon, en bas
+          return h.ligne(0, z.h + 11, 600, z.h + 11, A.fin) + '\n' + vue1(z);
+        },
         renvois: z => {
-          const { g } = clapet(z, true);
+          const v = V1(z), { g, bd, pp, xp } = v;
+          const fl6 = w => { const p = le_long(w.long, 14)(0.9); return [p[0] + 9, p[1]]; };
           return [
-            { n: 1, rond: [16, g.yS + 46], cible: [g.cx - g.ri + 4, g.yS + 46], texte: 'bout de tube étroit : le siège' },
-            { n: 2, rond: [16, g.yb + 40], cible: [g.cx - g.rb * 0.75, g.yb + g.rb * 0.66], texte: 'bille plus grosse que le siège' },
-            { n: 3, rond: [z.l - 16, g.yClou + 40], cible: [g.cx + g.ro + 14, g.yClou + 5.6], texte: 'clou en croix au-dessus de la bille' },
+            { n: 1, rond: [g.xJ + g.lJ / 2 + 4, g.sol - g.hJ - 34], cible: [g.xJ + g.lJ * 0.55, g.sol - g.hJ * 0.55], texte: 'poser le bidon au sol, plus bas que l’essence' },
+            { n: 2, rond: [g.x0 + 26, g.yF - 22], cible: [v.xLong - wS / 2 - 0.5, g.yF - 8], texte: 'pousser le boyau long jusqu’au fond' },
+            { n: 5, rond: [14, pp.yPoignee - 52], cible: [xp - 2, pp.yPoignee - 30], texte: 'pomper doucement jusqu’à ce que ça coule' },
+            { n: 6, rond: [g.xJ + g.lJ / 2 + 14, g.yN - 34], cible: fl6(v), texte: 'une fois le boyau plein, ça coule seul' },
           ];
         },
       },
-      retombe: {
-        titre: 'On remonte : elle retombe',
-        dessin: z => clapet(z, false).svg,
+      goulot: {
+        titre: 'Le goulot, de près',
+        dessin: vue2,
+        renvois: z => {
+          const g = G(z);
+          return [
+            { n: 3, rond: [g.cx - 78, g.yBoutC + 30], cible: [g.xC - g.wT / 2 - 0.5, g.yBoutC - 4], texte: 'garder le boyau court hors de l’essence' },
+            { n: 4, rond: [g.cx + 80, g.yL - 46], cible: [g.xB + 34 * k / 7.2 - 1, g.yL - 19 * k / 7.2], texte: 'bourrer un chiffon autour des deux boyaux' },
+          ];
+        },
       },
       secouer: {
-        titre: 'Plonger et secouer',
-        dessin: z => secouer(z).svg,
+        titre: 'Sans pompe : le boyau à bille',
+        dessin: vue3,
         renvois: z => {
-          const { g } = secouer(z);
+          const v = V3(z), { g } = v;
           return [
-            { n: 4, rond: [g.xb - 40, g.yH - 84], cible: [g.xb - 20, g.yH - 60], texte: 'secouer de haut en bas' },
-            { n: 5, rond: [g.x0 + 30, g.yBas - 22], cible: [g.xb - 5, g.yBas - 22], texte: 'le clapet au fond' },
-            { n: 6, rond: [z.l - 20, g.sol - 100], cible: [z.l - 34, g.sol - 52], texte: 'bidon plus bas que le réservoir' },
+            { n: 7, rond: [g.x0 + 26, g.yF - 24], cible: [g.xB - 4, g.yF - 9], texte: 'au lieu de 3 à 5 : une bille au bout' },
+            { n: 11, rond: [g.xB + 42, v.yMain + 4], cible: [g.xB + 24.5, v.yMain], texte: 'secouer de haut en bas, sans arrêt' },
           ];
         },
       },
-      deux: {
-        titre: 'À deux boyaux, sans clapet',
-        dessin: z => deux(z).svg,
+      plonge: {
+        titre: 'On plonge',
+        dessin: z => coupe(z, true).svg,
         renvois: z => {
-          const { g } = deux(z);
+          const { g } = coupe(z, true);
           return [
-            { n: 7, rond: [g.x0 + g.l + 34, g.yBas - 20], cible: [g.xl + 3, g.yBas - 20], texte: 'boyau long jusqu’au fond' },
-            { n: 8, rond: [g.x0 + 30, g.yN + 26], cible: [g.xc - 3, g.yN - 6], texte: 'boyau court dans l’air du baril' },
-            { n: 9, rond: [g.xg + 70, g.yH - 20], cible: [g.xg + 16, g.yH - 22], texte: 'chiffon bourré dans le goulot' },
-            { n: 10, rond: [g.xp - 40, g.yP + 20], cible: [g.xp - 9, g.yP + 30], texte: 'pompe à vélo, à la main, lentement' },
+            { n: 8, rond: [12, g.yE - 6], cible: [g.cx - g.ri + 2, g.yE - 6], texte: 'enfoncer un tube plus étroit dans le bout' },
+            { n: 9, rond: [12, g.yb + 2], cible: [g.cx - g.rb + 1, g.yb + 2], texte: 'glisser une bille plus grosse que le trou' },
+            { n: 10, rond: [12, g.yClou - 34], cible: [g.xT - 1.6, g.yClou - 8], texte: 'planter un clou au-dessus de la bille' },
+            { n: 12, rond: [z.l - 12, g.yE + 14], cible: [g.cx + 2, g.yE + 14], texte: 'l’essence soulève la bille et monte' },
+          ];
+        },
+      },
+      remonte: {
+        titre: 'On remonte',
+        dessin: z => coupe(z, false).svg,
+        renvois: z => {
+          const { g } = coupe(z, false);
+          return [
+            { n: 13, rond: [z.l - 12, g.yS + 30], cible: [g.cx + g.rb + 4, g.yS + 6], texte: 'la bille retombe et bouche le trou' },
           ];
         },
       },
