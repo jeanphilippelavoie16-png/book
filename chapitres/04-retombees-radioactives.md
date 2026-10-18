@@ -577,6 +577,6 @@ Après le retrait des glaciers, une mer a couvert les basses terres de la Côte-
 grise, parfois gris foncé, qui est l'un des dépôts les plus répandus des basses terres, souvent cachée sous la
 tourbe, le sable ou le gravier. On la voit dans les berges des rivières et les coupes de chemin, parfois sur plus de
 30 m d'épaisseur. Elle contient souvent des coquillages de mer, loin du rivage d'aujourd'hui : c'est le meilleur
-repère. On s'en sert pour décanter l'eau (section 7). La prendre dans une petite coupe, pas en
-creusant au pied d'un grand talus : certaines de ces argiles deviennent liquides quand on les dérange, et les talus
-glissent.
+repère. On s'en sert pour décanter l'eau (section 7). La prendre dans une petite coupe, jamais en creusant au pied
+d'un grand talus : ces argiles glissent, surtout pendant et après de fortes pluies, et plusieurs glissements ont eu
+lieu pendant qu'on y creusait.
