@@ -74,8 +74,8 @@ def fumee(A, x, y, dx=1, haut=260):
     h = haut
     d = (f"M{x} {y} C{x - 6 * dx} {y - h * .2} {x + 16 * dx} {y - h * .32} {x + 10 * dx} {y - h * .5} "
          f"S{x + 34 * dx} {y - h * .78} {x + 70 * dx} {y - h}")
-    for w, op in [(30, .1), (18, .16), (8, .24)]:
-        A(f'<path d="{d}" fill="none" stroke="{C["smoke"]}" stroke-width="{w}" stroke-linecap="round" opacity="{op}"/>')
+    for w, op in [(36, .14), (22, .24), (10, .4)]:
+        A(f'<path d="{d}" fill="none" stroke="#C9D3D6" stroke-width="{w}" stroke-linecap="round" opacity="{op}"/>')
 
 
 def chalet(A, cx, cy, k=1.0):
@@ -126,14 +126,19 @@ def quartier(A, cx, haut, w, h, s):
 
 
 def perche(s, A, x0, x1, y):
+    # un fourré d'épinettes sombres derrière, pour que les sacs blancs se détachent
+    A(f'<path d="M{x0 - 10} {y + 130} L{x0 - 10} {y + 10} Q{(x0 + x1) / 2} {y - 40} {x1 + 10} {y + 10} L{x1 + 10} {y + 130}Z" '
+      f'fill="{C["front"]}"/>')
+    for k in range(6):
+        s.epinette(x0 + 12 + k * (x1 - x0 - 24) / 5, y + 130, s.u(150, 200), 50, C["front"], neige=False)
     # deux épinettes qui portent la perche
     for x in (x0, x1):
         s.epinette(x, y + 140, 250, 64, C["front"], neige=True)
-    A(f'<path d="M{x0 - 18} {y} L{x1 + 18} {y + 4}" stroke="#3B5866" stroke-width="7" stroke-linecap="round"/>')
-    for i, cx in enumerate([x0 + (x1 - x0) * t for t in (0.3, 0.52, 0.74)]):
+    A(f'<path d="M{x0 - 18} {y} L{x1 + 18} {y + 4}" stroke="#6E8792" stroke-width="8" stroke-linecap="round"/>')
+    for i, cx in enumerate([x0 + (x1 - x0) * t for t in (0.28, 0.5, 0.72)]):
         yy = y + 2 + (cx - x0) / (x1 - x0) * 4
-        A(f'<path d="M{f(cx)} {f(yy)} v14" stroke="#3B5866" stroke-width="2.5"/>')
-        quartier(A, cx, yy + 12, 34 + 4 * (i % 2), 78 + 8 * ((i + 1) % 2), s)
+        A(f'<path d="M{f(cx)} {f(yy)} v12" stroke="#6E8792" stroke-width="3"/>')
+        quartier(A, cx, yy + 10, 44 + 4 * (i % 2), 96 + 10 * ((i + 1) % 2), s)
 
 
 def caveau(A, x, bas):
