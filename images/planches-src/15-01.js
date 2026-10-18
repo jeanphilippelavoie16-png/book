@@ -112,16 +112,6 @@ module.exports = (h) => {
   // une corde : un trait noir et son âme blanche, qui se lit comme un cordon et pas comme une couture
   const corde = (d, ep = 3.2) => `<path d="${d}" fill="none" stroke="${NOIR}" stroke-width="${ep}" stroke-linecap="round" stroke-linejoin="round"/>\n`
     + `<path d="${d}" fill="none" stroke="#FFFFFF" stroke-width="${(ep - 1.4).toFixed(1)}" stroke-linecap="round" stroke-linejoin="round"/>`;
-  // un pic pendu : le manche (10 cm, Ø 3 cm), le clou en bas ; loin : en gris, derrière
-  const picPendu = (x, y, k, loin) => {
-    const r = 15 * k, L = 100 * k, rc = 4.5 * k, lc = 34 * k, e = r * 0.35;
-    const fond = loin ? h.a.loin.replace('stroke="none"', `stroke="${NOIR}" stroke-width="0.7" stroke-linejoin="round"`) : blanc(h.a.arete);
-    return [
-      h.path(`M ${P(x - rc, y + L - 1)} L ${P(x, y + L + lc)} L ${P(x + rc, y + L - 1)} Z`, loin ? fond : h.a.plein),
-      h.path(`M ${P(x - r, y)} L ${P(x - r, y + L)} A ${P(r, e)} 0 0 0 ${P(x + r, y + L)} L ${P(x + r, y)} Z`, fond),
-      h.ellipse(x, y, r, e, fond),
-    ].join('\n');
-  };
   const vPorter = z => {
     const g0 = F.corps({ pose: DEBOUT, cote: 'gauche', echelle: SB, x: 0, y: 0, visage: true });
     const ox = z.l * 0.56 - g0.tete.x, oy = 6 - g0.tete.haut[1];

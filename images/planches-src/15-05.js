@@ -24,19 +24,28 @@ module.exports = (h) => {
 
   // ── la géométrie de la coupe ──
   const geo = z => {
-    const yG = Math.round(z.h * 0.56);          // le dessus de la glace
-    const EP = 64;                               // l'épaisseur de la glace sur le dessin
+    const yG = Math.round(z.h * 0.5);           // le dessus de la glace
+    const EP = 76;                               // l'épaisseur de la glace sur le dessin
     const yB = yG + EP;                          // le dessous de la glace
     const yW = yG + EP * 0.1;                    // l'eau dans le trou
     const NE = 16;                               // la neige sur la glace
     const xc = z.l * 0.42, R = 25;               // le trou : centre, demi-largeur
     const xg = xc - R, xd = xc + R;              // les parois du trou
     const xN1 = xg - 46, xN2 = xd + 58;          // la neige pelletée : là où elle recommence
-    const xR = xg + 7;                           // le ruban descend le long de la paroi gauche
-    const lame = 4;                              // la largeur de la lame vue de face
-    const crochet = 9;                           // la longueur du crochet sous la glace
-    const yBoite = yG - 104;                     // le bas du boîtier
+    const xR = xg + 10;                          // le ruban descend le long de la paroi gauche
+    const lame = 5;                              // la largeur de la lame vue de face
+    const crochet = 12;                          // la longueur du crochet sous la glace
+    const yBoite = yG - 80;                      // le bas du boîtier
     return { yG, EP, yB, yW, NE, xc, R, xg, xd, xN1, xN2, xR, lame, crochet, yBoite };
+  };
+
+  // la main tient le boîtier par le côté droit, le pouce devant ; le bas du boîtier tombe en yBoite, son bord gauche
+  // juste à gauche de la lame
+  const TAILLE = 104;
+  const main = g => {
+    const m0 = F.mainStock({ id: 'plaque-cote', objet: false, miroir: true, taille: TAILLE, x: 0, y: 0 });
+    const o = m0.objet;
+    return F.mainStock({ id: 'plaque-cote', objet: false, miroir: true, taille: TAILLE, x: g.xR - 3 + o.largeur / 2, y: g.yBoite - o.longueur / 2 });
   };
 
   const dessin = z => {
@@ -49,12 +58,6 @@ module.exports = (h) => {
     out.push(pan(-3, g.xg), pan(g.xd, z.l + 3));
     // le niveau de l'eau dans le trou
     out.push(h.ligne(g.xg, g.yW, g.xd, g.yW, A.arete));
-    // quelques traits courts dans la glace : elle est claire (reflets), loin des bords
-    [[0.18, 0.3], [0.1, 0.62], [0.72, 0.36], [0.86, 0.64]].forEach(([u, v]) => {
-      const x = u * z.l, y = g.yG + v * g.EP;
-      if (x > g.xg - 12 && x < g.xd + 12) return;
-      out.push(h.ligne(x, y, x + 9, y - 6, A.detail));
-    });
     // la neige, pelletée en petits bancs de chaque côté
     const banc = (x0, x1, cote) => {
       const ht = g.NE, bosse = 9;
@@ -67,21 +70,23 @@ module.exports = (h) => {
 
     // le ruban : la lame descend le long de la paroi gauche, passe sous la glace, le crochet replié vers la paroi,
     // collé contre le dessous de la glace
-    const x0 = g.xR, x1 = g.xR + g.lame, yBas = g.yB + 7;
+    const x0 = g.xR, x1 = g.xR + g.lame, yBas = g.yB + 3.5;
     out.push(h.path(`M ${f(x0)} ${f(g.yBoite)} L ${f(x0)} ${f(yBas)} L ${f(x1)} ${f(yBas)} L ${f(x1)} ${f(g.yBoite)} Z`, blanc(A.arete)));
     // le crochet : un petit pied de métal plié vers la gauche, sous le bord de la glace
-    out.push(h.path(`M ${f(x1)} ${f(yBas)} L ${f(x0 - g.crochet)} ${f(yBas)} L ${f(x0 - g.crochet)} ${f(g.yB + 0.8)} L ${f(x0)} ${f(g.yB + 0.8)}`, `fill="#FFFFFF" stroke="${NOIR}" stroke-width="1.4" stroke-linejoin="round"`));
+    // (une plaque mince vue par la tranche : un aplat noir, collé contre le dessous de la glace)
+    out.push(h.path(`M ${f(x1)} ${f(yBas)} L ${f(x0 - g.crochet)} ${f(yBas)} L ${f(x0 - g.crochet)} ${f(g.yB + 0.3)} L ${f(x0)} ${f(g.yB + 0.3)} L ${f(x0)} ${f(g.yB - 2)} L ${f(x1)} ${f(g.yB - 2)} Z`, A.plein));
     // les graduations de la lame
     for (let y = g.yBoite + 8; y < g.yB; y += 6) {
       const long = Math.round((y - g.yBoite) / 6) % 5 === 0;
       out.push(h.ligne(x1 - (long ? 3 : 1.6), y, x1, y, A.fin));
     }
 
-    // le boîtier du ruban, tenu par la main
-    const bx = x0 - 2, bw = 40, bh = 38, by = g.yBoite - bh;
-    out.push(h.path(`M ${f(bx)} ${f(g.yBoite)} L ${f(bx)} ${f(by + 8)} Q ${f(bx)} ${f(by)} ${f(bx + 8)} ${f(by)} L ${f(bx + bw - 10)} ${f(by)} Q ${f(bx + bw)} ${f(by)} ${f(bx + bw)} ${f(by + 10)} L ${f(bx + bw)} ${f(g.yBoite - 6)} Q ${f(bx + bw)} ${f(g.yBoite)} ${f(bx + bw - 6)} ${f(g.yBoite)} Z`, blanc(A.contour)));
-    out.push(h.cercle(bx + bw / 2 + 2, by + bh / 2 + 1, 8, A.detail));
-    const m = F.mainStock({ id: 'plaque-cote', objet: false, miroir: true, taille: 112, ancre: 'objet', x: bx + bw / 2 + 12, y: by + bh / 2 - 6, angle: 0 });
+    // le boîtier du ruban, tenu par la main : la main d'abord posée pour lire l'axe de la plaque qu'elle tient, puis
+    // le boîtier dessiné à la place et à la taille de cette plaque, et la main par-dessus
+    const m = main(g);
+    const o = m.objet, bw = o.largeur, bh = o.longueur, bx = o.x - bw / 2, by = o.y - bh / 2, rb = 9;
+    out.push(h.path(`M ${f(bx)} ${f(by + bh)} L ${f(bx)} ${f(by + rb)} Q ${f(bx)} ${f(by)} ${f(bx + rb)} ${f(by)} L ${f(bx + bw - rb)} ${f(by)} Q ${f(bx + bw)} ${f(by)} ${f(bx + bw)} ${f(by + rb)} L ${f(bx + bw)} ${f(by + bh - rb)} Q ${f(bx + bw)} ${f(by + bh)} ${f(bx + bw - rb)} ${f(by + bh)} Z`, blanc(A.contour)));
+    out.push(h.cercle(bx + bw * 0.42, by + bh * 0.48, bw * 0.2, A.detail));
     out.push(String(m.svg));
 
     // le geste : tirer le ruban vers le haut, à droite de la lame
@@ -106,7 +111,7 @@ module.exports = (h) => {
             { n: 1, rond: [g.xN2 + 34, g.yG - g.NE - 34], cible: [g.xN2 + 12, g.yG - g.NE - 6], texte: 'pelleter la neige jusqu’à la glace' },
             { n: 2, rond: [g.xd + 40, g.yB + 30], cible: [g.xd + 1, g.yB - 10], texte: 'percer jusqu’à l’eau' },
             { n: 3, rond: [g.xg - 40, g.yB + 34], cible: [g.xR - g.crochet - 5, g.yB + 6], texte: 'crocher le bout du ruban sous la glace' },
-            { n: 4, rond: [g.xR + 44, g.yG - 74], cible: [g.xR + g.lame + 14, g.yG - 56], texte: 'tirer le ruban, bien tendu' },
+            { n: 4, rond: [g.xR + 52, g.yG - 26], cible: [g.xR + g.lame + 15, g.yG - 40], texte: 'tirer le ruban, bien tendu' },
             { n: 5, rond: [g.xg - 44, g.yG - 30], cible: [g.xR - 1, g.yG], texte: 'lire au ras du dessus de la glace' },
           ];
         },
