@@ -19,6 +19,7 @@ dernière vue (8) est vue de dessus.
    derrière soi ; la flèche rouge double dit le battement des jambes.
 7. **Tirer en glissant sur le ventre, replanter plus loin** : la poitrine sur la glace, les hanches au bord, les jambes
    à la surface ; la flèche rouge dit le glissement vers l'avant, le bras du fond (en gris) va replanter plus loin.
-8. **Rouler vers ses traces, sans se relever** (vue « Vu de dessus ») : le trou en haut, les traces de bottes de l'aller
-   qui arrivent d'en bas à gauche ; la personne couchée en trois positions qui s'éloignent du trou (les deux plus
-   anciennes en gris, la dernière en blanc), la flèche rouge dit le sens de la roulade.
+8. **Rouler vers ses traces, sans se relever** (vue « Vu de dessus ») : le trou en haut, plus long que le corps, au bord
+   cassé et fissuré ; la personne couchée en trois positions, la première collée au bord du trou, les deux plus
+   anciennes en gris, la dernière en blanc ; la flèche rouge descend le long des traces de bottes de l'aller, qui
+   montent jusqu'au bord du trou.
