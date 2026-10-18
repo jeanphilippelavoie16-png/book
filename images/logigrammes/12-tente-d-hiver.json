@@ -85,7 +85,7 @@
       "rang": "g3",
       "ancre": "haut",
       "taille": 10.5,
-      "texte": "**Couper tout le bois de la nuit avant la noirceur** : l'épinette morte debout, et deux ou trois grosses billes sèches pour le feu long. Les enfants ramassent les branches mortes.",
+      "texte": "**Couper tout le bois de la nuit avant la noirceur** : l'épinette morte debout, et deux ou trois grosses billes sèches pour le feu long. Envoyer les enfants ramasser les branches mortes.",
       "renvoi": "ch. 12, étapes 90 et 91",
       "source": "étapes 90 et 91"
     },
@@ -117,7 +117,7 @@
       "rang": "g6",
       "ancre": "haut",
       "taille": 10,
-      "texte": "**Faire un lit de sapinage en écailles**, jusqu'à ce qu'un genou appuyé ne sente plus le froid.",
+      "texte": "**Faire un lit de sapinage en écailles**, de 15 à 30 cm d'épaisseur.",
       "renvoi": "ch. 12, étape 94",
       "source": "étape 94"
     },
@@ -128,7 +128,7 @@
       "rang": "g7",
       "ancre": "haut",
       "taille": 10,
-      "texte": "**Faire le feu long sur une plateforme de billes vertes** : trois billes de la longueur de l'abri, un mur derrière. La main doit tenir sur la bâche.",
+      "texte": "**Faire le feu long sur une plateforme de billes vertes** : trois billes de la longueur de l'abri, et un mur de billes derrière. On doit pouvoir garder la main sur la bâche.",
       "renvoi": "ch. 12, étapes 95 à 98",
       "source": "étapes 95 à 98"
     },
@@ -161,7 +161,7 @@
       "rang": "g6",
       "ancre": "haut",
       "taille": 10,
-      "texte": "**Poser des perches en travers, puis la bâche**, et la neige sur les perches, jamais sur le plastique seul.",
+      "texte": "**Poser des perches serrées en travers, puis la bâche**, et charger la neige sur les perches, jamais sur la bâche seule.",
       "renvoi": "ch. 12, section 7",
       "source": "section 7, la tranchée bâchée"
     },
@@ -172,7 +172,7 @@
       "rang": "g7",
       "ancre": "haut",
       "taille": 10,
-      "texte": "**Mettre du sapinage sous les corps**, fermer l'entrée d'un sac et garder une ouverture au toit. N'allumer aucune flamme dedans.",
+      "texte": "**Mettre du sapinage sous les corps**, fermer l'entrée avec un sac et laisser une ouverture dans le toit.",
       "renvoi": "ch. 12, section 7",
       "source": "section 7, la tranchée bâchée"
     },
@@ -192,7 +192,7 @@
       "rang": "d2",
       "ancre": "haut",
       "taille": 10.5,
-      "texte": "**Choisir la place** à l'abri du vent, près de l'eau et du bois mort debout. La porte va sous le vent, l'entrée d'air du côté du vent.",
+      "texte": "**Choisir la place** à l'abri du vent, près de l'eau et du bois mort debout. Tourner la porte sous le vent, et placer l'entrée d'air du côté du vent.",
       "renvoi": "ch. 12, étapes 1 à 4",
       "source": "étapes 1 à 4"
     },
@@ -236,7 +236,7 @@
       "rang": "d6",
       "ancre": "haut",
       "taille": 10.5,
-      "texte": "**Poser le sapinage en écailles**, du fond vers la porte, et rien dans le rond de neige autour du poêle.",
+      "texte": "**Poser le sapinage en écailles**, du fond vers la porte, sans en mettre dans le rond de neige autour du poêle.",
       "renvoi": "ch. 12, étapes 26 à 33",
       "source": "étapes 26 à 33"
     },
@@ -256,7 +256,7 @@
       "rang": "d8",
       "ancre": "haut",
       "taille": 10,
-      "texte": "**Il garde une flamme claire**, l'air et la clé ouverts, et se fait relever aux recharges.",
+      "texte": "**Il garde une flamme claire**, l'air et la clé ouverts. Les adultes se relaient à chaque recharge.",
       "renvoi": "ch. 12, étape 34",
       "source": "étape 34"
     },
