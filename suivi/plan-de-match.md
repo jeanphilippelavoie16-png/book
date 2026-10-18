@@ -314,6 +314,10 @@ tomes** : un peu plus de blanc en bas des pages qui précèdent une planche ; le
     envoie un exemple de page qu'il aime ; la page se refait en maquette dans Claude Design (un canevas avec des
     versions côte à côte), puis se reporte dans l'assembleur.
 
+    **18 octobre (soir)** : JP, « pars sans exemple, fais-moi 3 directions ». Canevas Claude Design
+    https://claude.ai/artifact/BArarHtfudkPTnjmKWaGoG : A, la carte du territoire (courbes de niveau, gros 1, la
+    série des six tomes) ; B, l'affiche du Nord (fond foncé, crêtes et épinettes en aplats, le chalet à la fenêtre
+    orange) ; C, la table du tome (gros 1 coupé, la liste des 19 chapitres). Aucune image d'IA. Attend le choix de JP.
 31. **Les dangers en pictogrammes ; la section Danger sort des chapitres** (JP, 18 octobre 2026). Un pictogramme
     par danger ; chaque danger est expliqué une fois, à fond, dans la section qui explique les symboles et les
     pictogrammes du livre ; dans un chapitre, le pictogramme s'affiche là où le danger est présent, et la section 7
