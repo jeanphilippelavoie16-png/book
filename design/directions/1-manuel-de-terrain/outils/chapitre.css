@@ -105,5 +105,8 @@ svg.rep text{font:600 13px "IBM Plex Sans Condensed",sans-serif;fill:#1A1A1A}
 .fig.ph:not(.demi) img{max-height:3.1in;object-fit:cover;object-position:center}
 /* Le pictogramme de danger, dans la phrase de l'étape où le danger se présente (JP, 18 octobre 2026 : la section Danger
    sort des chapitres ; chaque danger est expliqué une fois dans les pages des dangers du tome). Marqueur {!id}. */
-svg.picto{display:inline;height:1.32em;width:1.32em;vertical-align:-.36em;margin:0 .22em 0 0}
-.ohead svg.picto, h3 svg.picto{height:1.1em;width:1.1em;vertical-align:-.2em}
+/* JP, 18 octobre 2026 : « quand il y a un pictogramme, on le met à côté du texte, en plus gros ; ils sont trop petits
+   dans le texte » : le pictogramme flotte à gauche des lignes de la phrase qui l'appelle, sur deux lignes de haut. */
+svg.picto{float:left;height:2.45em;width:2.45em;margin:.18em .5em .1em 0;shape-outside:margin-box}
+p:has(> svg.picto), p:has(> strong > svg.picto){display:flow-root}   /* le pictogramme reste dans son paragraphe */
+.ohead svg.picto, h3 svg.picto, .dg-intro svg.picto, .md-txt svg.picto, .md-spec svg.picto{float:none;display:inline;height:1.2em;width:1.2em;margin:0 .2em 0 0;vertical-align:-.25em}

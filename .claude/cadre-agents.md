@@ -117,7 +117,13 @@ Le cadre complet est `.claude/skills/planches/references/brief-agent.md`. En bre
 
 - [ ] Aucun vérificateur sécurité : JP n'en veut jamais (18 octobre 2026).
 - [ ] Le logigramme tombe juste après le Matériel, avant la procédure (JP, 18 octobre : « c'est lui qu'on veut en
-  premier ») : son ancre est le dernier item du Matériel ; le moteur ferme la page à l'ancre.
+  premier ») : son ancre est le dernier item du Matériel ; il prend la première page de gauche qui suit. Le moteur ne
+  ferme plus la page à l'ancre : la procédure remplit le reste (JP, 18 octobre, plus tard : « beaucoup de pages vides,
+  faut optimiser l'espace pour pas trop de vide finalement »).
+- [ ] Pas de vide inutile (même jour) : un chapitre peut ouvrir sur une page de gauche (plus de page blanche devant une
+  ouverture) ; le seul trou voulu reste celui qui suit les planches d'une série orange.
+- [ ] Le pictogramme de danger se pose au début de la phrase de l'étape ; le moteur l'affiche à gauche des lignes, sur
+  deux lignes de haut (JP, même jour : « on le met à côté du texte en plus gros, ils sont trop petits dans le texte »).
 - [ ] La série orange se lit d'un trait, sans planche ni page au milieu (JP, 18 octobre : « premières minutes est
   scindé, il doit se suivre ») : les planches appelées dans l'orange gardent leur ancre à l'étape qui les appelle ; le moteur les sort de l'orange, les
   pose juste après la série et ferme la page (JP : « après le orange c'est les planches, ensuite on commence l'essence ;

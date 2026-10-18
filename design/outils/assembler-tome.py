@@ -6,8 +6,8 @@ Standard Portrait 8 × 10 po, téléversé par PDF to Book).
     python design/outils/assembler-tome.py 6 --chapitres 102,103      (essai sur quelques chapitres)
 
 Options :
-    --verso                un chapitre peut ouvrir sur une page de gauche (sinon : toujours à droite,
-                           avec une page blanche devant au besoin — c'est le cas actuel du design)
+    --recto                un chapitre ouvre toujours à droite, avec une page blanche devant au besoin
+                           (par défaut depuis le 18 octobre 2026 : un chapitre peut ouvrir à gauche)
     --couverture souple|imagewrap|jaquette   type de couverture pour la tranche (défaut : souple)
     --hors-ligne           ne pas interroger le calculateur de Blurb pour la tranche
     --sans-apercus         pas de PNG de contrôle
@@ -982,7 +982,9 @@ def main():
         sys.exit(__doc__)
     tome = int(a[0])
     opt = lambda k: a[a.index(k) + 1] if k in a else None
-    verso = "--verso" in a
+    # un chapitre peut ouvrir à gauche : plus de page blanche devant une ouverture (JP, 18 octobre 2026 : « beaucoup de
+    # pages vides, faut optimiser l'espace ») ; --recto remet l'ouverture toujours à droite
+    verso = "--recto" not in a
     couverture = opt("--couverture") or "souple"
     extra = opt("--placements")
     if extra and not os.path.isabs(extra):
@@ -1021,22 +1023,28 @@ def main():
         chaps.append(c)
         log(f"  {num} monté ({len(h) // 1024} Ko)" + (" — déjà paginé" if "rapport" in c else ""))
     garder()
-    a_faire = [c for c in chaps if "rapport" not in c]
+    # Un chapitre se pagine des deux côtés (ouverture à droite, par=0 ; à gauche, par=1) : le côté change la place
+    # des doubles pages et des planches en face ; le plan prend ensuite le rapport du côté où le chapitre tombe.
+    cotes = ("0", "1") if verso else ("0",)
+    manque = lambda c: [k for k in cotes if k not in c.get("rapports", {})]
+    a_faire = [c for c in chaps if manque(c)]
     for essai in range(2):
         if not a_faire:
             break
         log(f"pagination de {len(a_faire)} chapitre(s)…")
-        cibles = [os.path.join(work, "pdf", f"{c['num']}-rapport.pdf") for c in a_faire]
-        edge_lot([(pdf_args(url(c["dst"], "", "#tome-rapport"), t), t) for c, t in zip(a_faire, cibles)])
-        for c in a_faire:
-            r = lire_rapport(os.path.join(work, "pdf", f"{c['num']}-rapport.pdf"))
+        lot = [(c, k, os.path.join(work, "pdf", f"{c['num']}-rapport-{k}.pdf")) for c in a_faire for k in manque(c)]
+        edge_lot([(pdf_args(url(c["dst"], f"par={k}", "#tome-rapport"), t), t) for c, k, t in lot])
+        for c, k, t in lot:
+            r = lire_rapport(t)
             if r:
-                c["rapport"] = r
-                log(f"  {c['num']} : {r['pages']} pages, {len(r['warn'])} avertissement(s)")
+                c.setdefault("rapports", {})[k] = r
+                log(f"  {c['num']} ({'gauche' if k == '1' else 'droite'}) : {r['pages']} pages, {len(r['warn'])} avertissement(s)")
         garder()
-        a_faire = [c for c in chaps if "rapport" not in c]
+        a_faire = [c for c in chaps if manque(c)]
     if a_faire:
         sys.exit("pagination impossible pour : " + ", ".join(c["num"] for c in a_faire))
+    for c in chaps:
+        c["rapport"] = c["rapports"]["0"]
 
     # 1 b. les pages des dangers : une passe pour les compter
     dg_n = 0
@@ -1051,11 +1059,6 @@ def main():
     #    blanches de fin. Tome 1 : le chapitre 00 d'abord, en page 1, avant la page de titre (il se trouve
     #    sans chercher). Pas de crédits : ils vont hors du livre (livre/credits/), JP, 28 septembre 2026.
     credits_map = registre_credits()
-    photos = []
-    for c in chaps:
-        for f in c["rapport"]["figs"]:
-            if f["id"] == "photo":
-                photos.append((c, f))
     en_tete = [c for c in chaps if tome == 1 and c["num"] == "00"]
     # la dédicace en première page, avant la page de titre (JP, 15 octobre 2026)
     ordre = ([("chap", c) for c in en_tete] + [("annexe", "a-dedicace"), ("blanche", "dedicace"), ("annexe", "a-titre"), ("blanche", "titre"), ("annexe", "a-sommaire")]
@@ -1071,6 +1074,7 @@ def main():
             if (not verso or "recto" in c["notes"]) and prochaine % 2 == 0:
                 seq.append(("blanche", None)); blanches += 1; blanches_ouv += 1; prochaine += 1
             c["debut"] = prochaine
+            c["rapport"] = c["rapports"]["1" if prochaine % 2 == 0 and "1" in c["rapports"] else "0"]
             c["secs"] = c["rapport"]["secs"]
             for k in range(c["rapport"]["pages"]):
                 seq.append(("chap", (c["num"], k)))
@@ -1089,6 +1093,7 @@ def main():
             plan[x[2:]] = prochaine
             seq.append(("annexe", x))
             lignes_plan.append((str(prochaine), {"a-titre": "Page de titre", "a-dedicace": "Dédicace", "a-sommaire": "Sommaire", "a-mode1": "Comment le livre fonctionne (1)", "a-mode2": "Comment le livre fonctionne (2)"}[x], 1))
+    photos = [(c, f) for c in chaps for f in c["rapport"]["figs"] if f["id"] == "photo"]
     while len(seq) % MULTIPLE or len(seq) < PAGES_MIN:
         seq.append(("blanche", None)); blanches += 1
     total = len(seq)

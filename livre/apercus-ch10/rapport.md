@@ -1,8 +1,8 @@
 # Tome 1 · Tenir — rapport d'assemblage
 
-- **Produit le :** 2026-10-18 15:12, par `design/outils/assembler-tome.py 1 --chapitres 10 --hors-ligne --refaire --sortie livre/apercus-ch10`
-- **Fichier :** `livre/tome-1/interieur.pdf` — 42 pages, 8.6 Mo
-- **Ouvertures :** toujours au recto (page de droite), une page blanche devant au besoin
+- **Produit le :** 2026-10-18 15:25, par `design/outils/assembler-tome.py 1 --chapitres 10 --hors-ligne --refaire --sortie livre/apercus-ch10`
+- **Fichier :** `livre/tome-1/interieur.pdf` — 40 pages, 8.6 Mo
+- **Ouvertures :** au recto ou au verso (--verso)
 - **Placements :** design/epreuves-livre/placements.json, design/epreuves-livre/placements-tome-1.json
 - **Exigences de Blurb :** `sources/blurb-specifications.md` (relevées le 27 septembre 2026)
 
@@ -16,13 +16,11 @@
 | 6 | Comment le livre fonctionne (1) | 1 |
 | 7 | Comment le livre fonctionne (2) | 1 |
 | 8–19 | Les dangers | 12 |
-| 21–41 | ch. 10 — Eau : puiser, filtrer, désinfecter | 21 |
-| | Pages blanches (verso de la page de titre, avant les ouvertures, fin du tome) | 4 |
-| | **Total** | **42** |
+| 20–39 | ch. 10 — Eau : puiser, filtrer, désinfecter | 20 |
+| | Pages blanches (verso de la page de titre, avant les ouvertures, fin du tome) | 3 |
+| | **Total** | **40** |
 
 Aucune page de crédits (JP, 28 septembre 2026) : copie hors du livre dans `livre/apercus-ch10/credits/tome-1-credits.md` et `livre/apercus-ch10/credits/tome-1-credits.pdf`.
-
-Les chapitres seuls font 21 pages ; 1 blanche(s) servent à faire ouvrir chaque chapitre à droite. Avec `--verso` (un chapitre peut ouvrir à gauche), le tome ferait 24 pages.
 
 ## Contrôle Blurb
 
@@ -30,7 +28,7 @@ Les chapitres seuls font 21 pages ; 1 blanche(s) servent à faire ouvrir chaque 
 | --- | --- | --- | --- |
 | Taille de chaque page | 585 × 738 pt (8,125 × 10,25 po) | 585.0 × 738.0 pt | oui |
 | Rognage (TrimBox) | 8 × 10 po, fond perdu au bord extérieur | recto : reliure à gauche ; verso : à droite | oui |
-| Nombre de pages | pair, de 20 à 440 (papier Standard) | 42 | oui |
+| Nombre de pages | pair, de 20 à 440 (papier Standard) | 40 | oui |
 | Page 1 | à droite | ouverture du chapitre 00 | oui |
 | Polices incorporées | toutes | 20 police(s), 0 non incorporée(s) | oui |
 | Taille du fichier | 2 Go au plus | 8.6 Mo | oui |
@@ -49,7 +47,7 @@ Polices du fichier : IBMPlexSansCond-Bold, IBMPlexSansCond-Medium, IBMPlexSansCo
 
 ## Tranche et couverture
 
-Calculateur non interrogé (--hors-ligne). Relevé du 27 septembre 2026 dans `sources/blurb-specifications.md` §2 ; pour 42 pages, prendre la ligne du tableau dont le palier couvre ce nombre, et revérifier au calculateur. [À VÉRIFIER]
+Calculateur non interrogé (--hors-ligne). Relevé du 27 septembre 2026 dans `sources/blurb-specifications.md` §2 ; pour 40 pages, prendre la ligne du tableau dont le palier couvre ce nombre, et revérifier au calculateur. [À VÉRIFIER]
 
 ## Figures
 
@@ -57,7 +55,7 @@ Les planches de `images/a-valider/` sont posées comme les validées (JP les rel
 
 | Ch. | Posées (page du tome) | Mentionnées dans le texte sans planche dessinée | À valider, non posées | Photos demandées encore à acquérir (credits.md) |
 | --- | --- | --- | --- | ---: |
-| 10 | 10-02 (36, pleine), 10-07 (38, pleine), 10-01 (26), 10-08 (27, à valider), 10-03 (39), 10-eau-livre (24, double page), 10-hutte-castor.jpg (23) | — | — | 6 (ancien 13) |
+| 10 | 10-02 (34, pleine), 10-07 (36, pleine), 10-01 (24), 10-08 (25, à valider), 10-03 (37), 10-eau-livre (22, double page), 10-hutte-castor.jpg (21) | — | — | 6 (ancien 13) |
 
 ## Crédits des images — hors du livre
 
@@ -65,7 +63,7 @@ Rien ne s'imprime (JP, 28 septembre 2026). Copie de sauvegarde : `livre/apercus-
 
 | Page | Ch. | Fichier | Auteur | Licence |
 | ---: | --- | --- | --- | --- |
-| 23 | 10 | 10-hutte-castor.jpg | U.S. Fish and Wildlife Service - Midwest Region | Public domain |
+| 21 | 10 | 10-hutte-castor.jpg | U.S. Fish and Wildlife Service - Midwest Region | Public domain |
 
 Photos téléchargées pour ces chapitres et non posées (images de référence ou photos à placer) :
 
