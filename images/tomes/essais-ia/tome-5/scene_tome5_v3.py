@@ -1,13 +1,13 @@
-"""Image de départ du tome 5, deuxième version (après le premier tour, 18 octobre 2026).
+"""Image de départ du tome 5, troisième version (après le deuxième tour, 18 octobre 2026).
 
-Au premier tour, le jardin en rangs sur fond papier devenait un champ de neige, l'abri à bois devenait un deuxième
-chalet et le billot disparaissait. Ici : le jardin est feuillu (plants ronds bien marqués, clôture de perches),
-la corde de bois est longue, basse et ouverte (bouts de bûches gros et nombreux, toit mince sur deux poteaux), le
-billot et la hache sont plus gros, le toit du chalet est foncé sans liseré clair, de l'herbe haute et des épilobes
-dans les coins du bas.
+Aux deux premiers tours, Juggernaut XL changeait tout fond papier du premier plan en champ de neige, même avec
+« snow, winter » en négatif. Ici, comme les jardins que Flux dessine de lui-même : la terre du jardin est foncée
+et les plants sont clairs (choux, pommes de terre), la clairière est en herbe brune, et seul un sentier clair
+reste en papier, du bas de l'image jusqu'à la porte du chalet. Le reste (ciel, soleil, collines, forêt, chalet,
+corde de bois, billot) vient de la deuxième version.
 
-    PYTHONDONTWRITEBYTECODE=1 python3 scene_tome5_v2.py ete      écrit depart2-ete.svg
-    PYTHONDONTWRITEBYTECODE=1 python3 scene_tome5_v2.py automne  écrit depart2-automne.svg
+    PYTHONDONTWRITEBYTECODE=1 python3 scene_tome5_v3.py ete      écrit depart3-ete.svg
+    PYTHONDONTWRITEBYTECODE=1 python3 scene_tome5_v3.py automne  écrit depart3-automne.svg
 """
 import os
 import sys
@@ -80,11 +80,12 @@ def scene(ambiance="ete"):
 
     # la clairière
     sol = s.onde(664, [(3, 1.2), (1.5, 3.5)])
-    A(f'<polygon points="{pts(sol + [(W + 40, H + 40), (-20, H + 40)])}" fill="{C["paper"]}"/>')
-    for _ in range(260):          # l'herbe de la clairière, en petits coups de gouge
-        x, y = s.u(-10, W + 10), s.u(668, 742)
-        h = s.u(3, 7) * (0.6 + (y - 668) / 70)
-        A(f'<path d="M{f(x)} {f(y)} l{f(s.u(-2, 2))} {f(-h)}" stroke="{C["mid"]}" stroke-width="1.3" stroke-linecap="round" opacity=".8"/>')
+    A(f'<polygon points="{pts(sol + [(W + 40, H + 40), (-20, H + 40)])}" fill="{C["far"]}"/>')
+    for _ in range(320):          # l'herbe de la clairière, en petits coups de gouge clairs et foncés
+        x, y = s.u(-10, W + 10), s.u(668, 746)
+        h = s.u(3, 8) * (0.6 + (y - 668) / 70)
+        coul = C["paper2"] if s.r.random() < 0.45 else C["near"]
+        A(f'<path d="M{f(x)} {f(y)} l{f(s.u(-2, 2))} {f(-h)}" stroke="{coul}" stroke-width="1.3" stroke-linecap="round" opacity=".85"/>')
 
     # le chalet en rondins, toit foncé
     cx, cy = 420, 684
@@ -138,15 +139,16 @@ def scene(ambiance="ete"):
     for x in range(10, W, 64):
         A(f'<path d="M{x} {fy + 8} L{x + 1} {fy - 26}" stroke="{C["front"]}" stroke-width="4" stroke-linecap="round"/>')
 
-    # le jardin : rangs de plants feuillus en perspective, sillons minces
+    # le jardin : terre foncée, rangs de plants clairs en perspective
     vx, vy = 440, 600
     top = 748
+    A(f'<rect x="-20" y="{top - 6}" width="{W + 40}" height="{H - top + 50}" fill="{C["soil"]}"/>')
     rangs = [vx + i * 104 for i in range(-10, 13)]
     for i, xb in enumerate(rangs):
         def at(y, xb=xb):
             return vx + (xb - vx) * (y - vy) / (H + 40 - vy)
-        A(f'<polygon points="{f(at(top) - 1)},{top} {f(at(top) + 1)},{top} {f(at(H + 40) + 6)},{H + 40} {f(at(H + 40) - 6)},{H + 40}" '
-          f'fill="{C["soil"]}" opacity=".75"/>')
+        A(f'<polygon points="{f(at(top) - 1)},{top} {f(at(top) + 1)},{top} {f(at(H + 40) + 5)},{H + 40} {f(at(H + 40) - 5)},{H + 40}" '
+          f'fill="{C["front"]}"/>')
         if i + 1 < len(rangs):
             xb2 = rangs[i + 1]
             sorte = i % 2
@@ -158,12 +160,23 @@ def scene(ambiance="ete"):
                 if automne and sorte == 0 and s.r.random() < 0.3 and y > 800:
                     A(f'<ellipse cx="{f(xm)}" cy="{f(y)}" rx="{f(7 * sc)}" ry="{f(5 * sc)}" fill="{C["sun"]}"/>')
                 else:
-                    plant(s, xm, y, sc, C["leaf"], sorte)
+                    plant(s, xm, y, sc, C["logend"], sorte)
                 y += 10 + 30 * (y - top) / (H - top)
+
+    # le sentier clair, du bas de l'image à la porte du chalet (une barrière ouverte dans la clôture)
+    A(f'<path d="M478 688 C474 712 470 730 462 748 C440 800 380 880 330 {H + 40} L560 {H + 40} C520 880 496 800 488 748 '
+      f'C484 730 484 712 490 688Z" fill="{C["paper"]}"/>')
+    for _ in range(40):
+        y = s.u(752, 950)
+        t = (y - 748) / 200
+        x = s.u(462 - 130 * t, 488 + 70 * t)
+        A(f'<path d="M{f(x)} {f(y)} h{f(s.u(4, 14) * (0.4 + t))}" stroke="{C["paper2"]}" stroke-width="{f(1 + 1.5 * t)}" stroke-linecap="round"/>')
+    # le coin de terre battue autour du billot
+    A(f'<ellipse cx="176" cy="905" rx="150" ry="48" fill="{C["paper2"]}"/>')
 
     # le billot de fente, la hache plantée, des quartiers fendus et des copeaux
     kx, ky = 176, 852
-    A(f'<ellipse cx="{kx}" cy="{ky + 66}" rx="86" ry="16" fill="{C["paper2"]}"/>')
+    A(f'<ellipse cx="{kx}" cy="{ky + 66}" rx="86" ry="16" fill="{C["far"]}"/>')
     A(f'<path d="M{kx - 58} {ky} L{kx - 62} {ky + 64} Q{kx} {ky + 80} {kx + 62} {ky + 64} L{kx + 58} {ky}Z" fill="{C["log"]}"/>')
     for i in range(7):
         x = kx - 50 + i * 16.5
@@ -199,7 +212,7 @@ def scene(ambiance="ete"):
 
 if __name__ == "__main__":
     amb = sys.argv[1] if len(sys.argv) > 1 else "ete"
-    out = os.path.join(ICI, f"depart2-{amb}.svg")
+    out = os.path.join(ICI, f"depart3-{amb}.svg")
     with open(out, "w", encoding="utf-8") as fh:
         fh.write(scene(amb) + "\n")
     print(out)
