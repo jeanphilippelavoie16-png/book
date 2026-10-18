@@ -1030,3 +1030,10 @@ avec image (`extra ximg`).
 maxime, pronominal ni mise en relief dans la section En plus ; aucun mot vide signalé dans les encadrés. Une redite
 nouvelle, jugée : « ne peut pas garder la main » (étape 98 et encadré 1) : le même test, appliqué à un autre cas, avec
 renvoi à l'étape 23. Invariants : rien n'a disparu.
+
+### Édition des encadrés (orchestrateur, qui ne les a pas écrits), 18 octobre 2026
+
+- « Le corps mort, en coupe » devient « Le corps mort » (le dessin a aussi une vue de dessus).
+- « Le dessin montre un corps mort deux fois : … Ses repères suivent les gestes de l'étape 13. » devient « Le corps mort de l'étape 13, vu de dessus avant de remplir le trou, puis en coupe une fois la neige tassée, avec le cordon qui remonte en biais vers la tente. Les repères suivent l'ordre des gestes. »
+- « bouche l'entrée » devient « bouche l'entrée d'air ».
+- Le reste des trois encadrés passe tel quel, relu phrase par phrase.

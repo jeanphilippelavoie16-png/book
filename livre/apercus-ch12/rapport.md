@@ -1,7 +1,7 @@
 # Tome 1 · Tenir — rapport d'assemblage
 
-- **Produit le :** 2026-10-18 18:38, par `design/outils/assembler-tome.py 1 --chapitres 12 --hors-ligne --sortie livre/apercus-ch12`
-- **Fichier :** `livre/tome-1/interieur.pdf` — 44 pages, 21.1 Mo
+- **Produit le :** 2026-10-18 18:57, par `design/outils/assembler-tome.py 1 --chapitres 12 --hors-ligne --sortie livre/apercus-ch12`
+- **Fichier :** `livre/tome-1/interieur.pdf` — 44 pages, 22.6 Mo
 - **Ouvertures :** au recto ou au verso (--verso)
 - **Placements :** design/epreuves-livre/placements.json, design/epreuves-livre/placements-tome-1.json
 - **Exigences de Blurb :** `sources/blurb-specifications.md` (relevées le 27 septembre 2026)
@@ -16,8 +16,8 @@
 | 6 | Comment le livre fonctionne (1) | 1 |
 | 7 | Comment le livre fonctionne (2) | 1 |
 | 8–16 | Les dangers | 9 |
-| 18–44 | ch. 12 — La tente d’hiver et l’abri de neige | 27 |
-| | Pages blanches (verso de la page de titre, avant les ouvertures, fin du tome) | 3 |
+| 17–44 | ch. 12 — La tente d’hiver et l’abri de neige | 28 |
+| | Pages blanches (verso de la page de titre, avant les ouvertures, fin du tome) | 2 |
 | | **Total** | **44** |
 
 Aucune page de crédits (JP, 28 septembre 2026) : copie hors du livre dans `livre/apercus-ch12/credits/tome-1-credits.md` et `livre/apercus-ch12/credits/tome-1-credits.pdf`.
@@ -39,7 +39,7 @@ Marqueur `{.orange}` sur l'intertitre ### de la série, dans le Markdown (CLAUDE
 | Nombre de pages | pair, de 20 à 440 (papier Standard) | 44 | oui |
 | Page 1 | à droite | ouverture du chapitre 00 | oui |
 | Polices incorporées | toutes | 23 police(s), 0 non incorporée(s) | oui |
-| Taille du fichier | 2 Go au plus | 21.1 Mo | oui |
+| Taille du fichier | 2 Go au plus | 22.6 Mo | oui |
 | Marques d'imprimeur | aucune | aucune | oui |
 | Couleur | CMJN ou sRVB, sans ton direct | sRVB (Edge) | oui |
 | Noir du texte | 100 % K | noir sRVB (0, 0, 0) : la conversion est faite chez Blurb | à juger sur épreuve |
@@ -73,7 +73,7 @@ Aucune photo posée dans ce tome. Les photos téléchargées sous les anciens nu
 
 ## Avertissements
 
-- aucun
+- ch. 12, paginateur : p12-3 : page à moitié vide
 
 ## À savoir avant de téléverser
 

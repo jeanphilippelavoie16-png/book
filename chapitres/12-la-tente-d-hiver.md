@@ -593,7 +593,7 @@ Pendant la journée, les Innus pendent les couvertures, les petits matelas et le
 d'hiver. La toile n'isole pas (étape 15) : la literie pendue contre elle garde la chaleur dans la tente, et on
 s'assoit sur le sapinage, adossé aux couvertures. Sous une toile chauffée au poêle, il ne faut rien pendre là où on
 ne peut pas garder la main sur la toile (étape 23), ni devant l'entrée d'air basse : une couverture qui descend
-jusqu'au plancher bouche l'entrée, et le poêle n'a plus d'air (étape 16).
+jusqu'au plancher bouche l'entrée d'air, et le poêle n'a plus d'air (étape 16).
 
 ### Reconnaître le sapin, l'épinette noire et le cèdre
 
@@ -605,10 +605,9 @@ froisse. L'épinette noire a des aiguilles courtes, de 8 à 15 mm, d'un vert gri
 et ses rameaux sont couverts de poils brunâtres. Le cèdre (étape 101) n'a pas d'aiguilles : ses feuilles sont de
 petites écailles serrées sur des rameaux aplatis, étalés en éventail. Il vire au bronze l'hiver.
 
-### Le corps mort, en coupe
+### Le corps mort
 
 ![](images/extras/12-corps-mort.png)
 
-Le dessin montre un corps mort deux fois : vu de dessus, la perche couchée dans le trou avant qu'on le remplisse,
-puis en coupe, une fois le trou rempli de neige tassée, avec le cordon qui remonte en biais vers la tente. Ses
-repères suivent les gestes de l'étape 13.
+Le corps mort de l'étape 13, vu de dessus avant de remplir le trou, puis en coupe une fois la neige tassée, avec le
+cordon qui remonte en biais vers la tente. Les repères suivent l'ordre des gestes.

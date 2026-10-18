@@ -57,13 +57,21 @@ function orPages(){   // les planches de l'orange : pleine page sur leur propre 
 // l'ordre du chapitre ; ceux qui ne trouvent aucun trou ne s'impriment pas (avertissement)
 function fillExtras(p){
   if(!p || !EXTRAS.length || !(p.kind === 'text' || p.kind === 'open')) return false;
+  const last = p.bl.lastElementChild;
+  // jamais sous une série orange ou un encadré qui continue à la page suivante, ni sous des notes
+  if(last && (last.classList.contains('fnz') || (last.classList.contains('rg') && !last.classList.contains('fin')))) return false;
+  // un cadre de texte encore ouvert remplit la page (flex) : on l'équilibre pour voir le vrai trou en bas
+  let fr = null;
+  if(last && last.classList.contains('frame') && !last.classList.contains('auto')){ fr = last; fr.classList.add('auto'); }
   const bl = p.bl, H = bl.getBoundingClientRect().height; let pose = false;
+  if(fr && OVER(fr)){ fr.classList.remove('auto'); return false; }
   for(let i = 0; i < EXTRAS.length; ){
     if(free(p) < 0.16 * H) break;
     const z = document.createElement('div'); z.className = 'xzone'; z.appendChild(EXTRAS[i]); bl.appendChild(z);
     if(z.getBoundingClientRect().bottom <= bl.getBoundingClientRect().bottom + 0.5){ EXTRAS.splice(i, 1); pose = true; continue; }
     z.remove(); i++;
   }
+  if(!pose && fr) fr.classList.remove('auto');
   return pose;
 }
 function nextPage(){
