@@ -314,6 +314,12 @@ tomes** : un peu plus de blanc en bas des pages qui précèdent une planche ; le
     envoie un exemple de page qu'il aime ; la page se refait en maquette dans Claude Design (un canevas avec des
     versions côte à côte), puis se reporte dans l'assembleur.
 
+31. **Les dangers en pictogrammes ; la section Danger sort des chapitres** (JP, 18 octobre 2026). Un pictogramme
+    par danger ; chaque danger est expliqué une fois, à fond, dans la section qui explique les symboles et les
+    pictogrammes du livre ; dans un chapitre, le pictogramme s'affiche là où le danger est présent, et la section 7
+    « Danger » disparaît. À faire : l'inventaire des dangers des 113 chapitres, les pictogrammes (jeux libres
+    professionnels, montrés à JP), les pages qui les expliquent, la migration des chapitres et le moteur.
+
 Le **ch. 11 (feu de forêt)** est **le chapitre modèle de la refonte, approuvé par JP** (15 octobre au soir :
 « c'est parfait, on se garde ça pour samedi ») : texte, trois séries orange à la longueur de leur temps (1 h,
 15 min, 1 min) suivies de leur détail hors de l'orange, section 2 sans « mauvaise procédure », logigramme,

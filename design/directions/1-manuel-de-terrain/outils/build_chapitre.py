@@ -589,6 +589,22 @@ def build(num):
                 k_suite += 1; sid, sk = (kind if k_suite == 1 else f"{kind}{k_suite}"), kind
             stories[sid] = its
             flux.append([sid, sk, 1 if (sk == kind and k_suite > 1) else 0])
+    # les planches appelées dans une série orange ne coupent pas la série (JP, 18 octobre 2026 : « premières minutes est
+    # scindé, il doit se suivre » ; « après le orange c'est les planches, et ensuite on commence l'essence ; laisse des
+    # trous au pire ») : elles sortent de l'orange, se posent tout de suite après, et un saut de page les suit
+    for i, (sid, sk, _) in enumerate(flux):
+        if sk != "o":
+            continue
+        figs_or = [x for x in stories[sid] if x[0].lstrip().startswith("<figure") and 'data-plate="spread"' not in x[0]]
+        if not figs_or:
+            continue
+        stories[sid] = [x for x in stories[sid] if x not in figs_or]
+        saut = ('<div class="saut" data-plate="saut"></div>', "")
+        suite = next((f for f in flux[i + 1:] if f[1] != "o"), None)
+        if suite:
+            stories[suite[0]][0:0] = figs_or + [saut]
+        else:
+            stories[sid].extend(figs_or)
     if any('class="sub or"' in h for h, _ in stories.get("d", [])):
         WARN.append("marqueur {.orange} dans la section 8 : le titre sort en orange, sans encadré")
     present = {s["n"] for s in ch["secs"] if s["n"]}

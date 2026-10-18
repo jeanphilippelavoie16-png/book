@@ -105,6 +105,8 @@ function pour(f, q, p){
     // le logigramme vient tout de suite après le Matériel (JP, 18 octobre 2026 : « c'est lui qu'on veut en premier ») :
     // le texte s'arrête à son ancre, la page se ferme, et la double page prend la page de gauche qui suit
     if(b.dataset && b.dataset.plate === 'spread'){ pendingSpreads.push(b); if(f.children.length) break; continue; }
+    // le saut qui suit les planches d'une série orange : la page se ferme, le texte reprend après les planches
+    if(b.dataset && b.dataset.plate === 'saut'){ if(f.children.length) break; continue; }
     f.appendChild(b); syncNotes(f);
     // une figure qui saute en haut de la colonne suivante laisse un trou blanc dans la colonne d'avant (JP, 16 octobre
     // 2026 : « gros trou blanc vide ») : le paragraphe suivant passe d'abord et remplit la colonne, la figure le suit

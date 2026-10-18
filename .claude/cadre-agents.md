@@ -110,7 +110,9 @@ Le cadre complet est `.claude/skills/planches/references/brief-agent.md`. En bre
 - [ ] Le logigramme tombe juste après le Matériel, avant la procédure (JP, 18 octobre : « c'est lui qu'on veut en
   premier ») : son ancre est le dernier item du Matériel ; le moteur ferme la page à l'ancre.
 - [ ] La série orange se lit d'un trait, sans planche ni page au milieu (JP, 18 octobre : « premières minutes est
-  scindé, il doit se suivre ») : les planches appelées dans l'orange s'ancrent au premier paragraphe après la série.
+  scindé, il doit se suivre ») : les planches appelées dans l'orange gardent leur ancre à l'étape qui les appelle ; le moteur les sort de l'orange, les
+  pose juste après la série et ferme la page (JP : « après le orange c'est les planches, ensuite on commence l'essence ;
+  laisse des trous au pire »). On ne remplit pas le trou avec la section suivante.
 - [ ] Aucune liste ni section qui déborde d'une ou deux lignes sur la page suivante (JP, 18 octobre : « il y a juste
   une ligne, c'est pas beau ») : on resserre le texte pour qu'elle tienne.
 
