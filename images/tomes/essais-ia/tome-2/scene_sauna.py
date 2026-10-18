@@ -25,6 +25,7 @@ st.C["snow"] = C["snow"]          # les coussins de neige des épinettes
 
 
 def scene(seed=2002):
+    """La scène complète, en SVG."""
     s = st.Scene(seed)
     A = s.add
     A(f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}">')
@@ -114,8 +115,8 @@ def scene(seed=2002):
     lw = 58                  # le mur de côté, en fuite vers la droite
     A(f'<g transform="translate({sx + 56} {sy}) scale(1.35) translate({-sx - 56} {-sy})">')
     # la lueur de la porte sur la neige
-    A(f'<path d="M{sx + 64} {sy} L{sx + 92} {sy} L{sx + 176} {sy + 70} L{sx + 20} {sy + 70}Z" fill="url(#lueur)" opacity=".9"/>')
-    A(f'<ellipse cx="{sx + 80}" cy="{sy + 22}" rx="96" ry="30" fill="url(#lueur)"/>')
+    A(f'<path d="M{sx + 64} {sy} L{sx + 92} {sy} L{sx + 176} {sy + 70} L{sx + 20} {sy + 70}Z" fill="url(#lueur)" opacity=".45"/>')
+    A(f'<ellipse cx="{sx + 80}" cy="{sy + 14}" rx="70" ry="18" fill="url(#lueur)" opacity=".8"/>')
     # mur de côté
     A(f'<polygon points="{sx + fw},{sy} {sx + fw + lw},{sy - 18} {sx + fw + lw},{sy - fh - 14} {sx + fw},{sy - fh}" fill="{C["log"]}"/>')
     for i in range(9):
@@ -149,13 +150,12 @@ def scene(seed=2002):
             y = by - row * 6.2 - k * 1.6
             A(f'<circle cx="{f(x)}" cy="{f(y)}" r="3.3" fill="{C["log"]}"/><circle cx="{f(x)}" cy="{f(y)}" r="1.3" fill="{C["win2"]}"/>')
     A(f'<path d="M{bx - 5} {by - 16} q22 -12 46 -8 q-22 5 -46 8z" fill="{C["snow"]}"/>')
-    # la vapeur et la fumée qui montent du toit, en volutes
+    # la vapeur et la fumée qui sortent sous le faîte : des bouffées qui montent peu et se défont vers la droite
     x0, y0 = px + 4, sy - fh - 40
-    d = (f"M{f(x0)} {y0} C{f(x0 - 14)} {y0 - 30} {f(x0 + 20)} {y0 - 46} {f(x0 + 8)} {y0 - 80} "
-         f"C{f(x0 - 4)} {y0 - 112} {f(x0 + 34)} {y0 - 128} {f(x0 + 40)} {y0 - 160} "
-         f"C{f(x0 + 46)} {y0 - 190} {f(x0 + 84)} {y0 - 206} {f(x0 + 120)} {y0 - 214}")
-    for w, op in [(34, .16), (22, .22), (12, .32), (5, .5)]:
-        A(f'<path d="{d}" fill="none" stroke="{C["steam"]}" stroke-width="{w}" stroke-linecap="round" opacity="{op}"/>')
+    for k, (ddx, ddy, rx, ry, op) in enumerate([(0, -6, 16, 12, .55), (6, -22, 22, 15, .5), (16, -42, 28, 18, .42),
+                                                 (32, -62, 34, 20, .34), (54, -80, 40, 21, .26), (82, -96, 44, 20, .18),
+                                                 (112, -108, 46, 17, .11)]):
+        A(f'<ellipse cx="{f(x0 + ddx)}" cy="{f(y0 + ddy)}" rx="{rx}" ry="{ry}" fill="{C["steam"]}" opacity="{op}"/>')
     A('</g>')
     # le sentier dans la neige, de la porte vers le bas de la page
     t = 0.0

@@ -932,8 +932,8 @@
 <path d="M161.7 848.2 q52.8 -5.8 105.5 0" fill="none" stroke="#CDB8A4" stroke-width="2.3" stroke-linecap="round" opacity=".8"/>
 <path d="M117.1 844.6 q71.1 -5.9 142.3 0" fill="none" stroke="#CDB8A4" stroke-width="1.6" stroke-linecap="round" opacity=".8"/>
 <g transform="translate(292 818) scale(1.35) translate(-292 -818)">
-<path d="M300 818 L328 818 L412 888 L256 888Z" fill="url(#lueur)" opacity=".9"/>
-<ellipse cx="316" cy="840" rx="96" ry="30" fill="url(#lueur)"/>
+<path d="M300 818 L328 818 L412 888 L256 888Z" fill="url(#lueur)" opacity=".45"/>
+<ellipse cx="316" cy="832" rx="70" ry="18" fill="url(#lueur)" opacity=".8"/>
 <polygon points="348,818 406,800 406,742 348,756" fill="#3A0E0A"/>
 <path d="M348 814 L406 799" stroke="#5C1A15" stroke-width="1.3"/>
 <path d="M348 807.4 L406 792.4" stroke="#5C1A15" stroke-width="1.3"/>
@@ -995,10 +995,13 @@
 <circle cx="379" cy="800.4" r="3.3" fill="#3A0E0A"/><circle cx="379" cy="800.4" r="1.3" fill="#F7B062"/>
 <circle cx="386" cy="798.8" r="3.3" fill="#3A0E0A"/><circle cx="386" cy="798.8" r="1.3" fill="#F7B062"/>
 <path d="M353 800 q22 -12 46 -8 q-22 5 -46 8z" fill="#F3EADC"/>
-<path d="M296 716 C282 686 316 670 304 636 C292 604 330 588 336 556 C342 526 380 510 416 502" fill="none" stroke="#F3EADC" stroke-width="34" stroke-linecap="round" opacity="0.16"/>
-<path d="M296 716 C282 686 316 670 304 636 C292 604 330 588 336 556 C342 526 380 510 416 502" fill="none" stroke="#F3EADC" stroke-width="22" stroke-linecap="round" opacity="0.22"/>
-<path d="M296 716 C282 686 316 670 304 636 C292 604 330 588 336 556 C342 526 380 510 416 502" fill="none" stroke="#F3EADC" stroke-width="12" stroke-linecap="round" opacity="0.32"/>
-<path d="M296 716 C282 686 316 670 304 636 C292 604 330 588 336 556 C342 526 380 510 416 502" fill="none" stroke="#F3EADC" stroke-width="5" stroke-linecap="round" opacity="0.5"/>
+<ellipse cx="296" cy="710" rx="16" ry="12" fill="#F3EADC" opacity="0.55"/>
+<ellipse cx="302" cy="694" rx="22" ry="15" fill="#F3EADC" opacity="0.5"/>
+<ellipse cx="312" cy="674" rx="28" ry="18" fill="#F3EADC" opacity="0.42"/>
+<ellipse cx="328" cy="654" rx="34" ry="20" fill="#F3EADC" opacity="0.34"/>
+<ellipse cx="350" cy="636" rx="40" ry="21" fill="#F3EADC" opacity="0.26"/>
+<ellipse cx="378" cy="620" rx="44" ry="20" fill="#F3EADC" opacity="0.18"/>
+<ellipse cx="408" cy="608" rx="46" ry="17" fill="#F3EADC" opacity="0.11"/>
 </g>
 <ellipse cx="324.5" cy="828.3" rx="2.2" ry="1" transform="rotate(15.5 324.5 828.3)" fill="#CDB8A4"/>
 <ellipse cx="332.2" cy="834.3" rx="2.3" ry="1" transform="rotate(16.5 332.2 834.3)" fill="#CDB8A4"/>
