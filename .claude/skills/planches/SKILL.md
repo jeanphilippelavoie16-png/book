@@ -428,7 +428,8 @@ chauve « laid en tabarnak » : chaque fois, c'était une forme dessinée planch
   de côté sont toutes vraiment belles, élimine toutes les vues de face et de haut »). Le corps entier passe par
   `h.formes.corps` (la bibliothèque des corps simples, `scripts/corps/`). Une vue de dessus d'un objet seul
   reste, sans corps.
-- **Les gros plans de mains** passent par `h.formes.mainStock` : les mains Adobe Stock 116570613 que JP a choisies (18 octobre 2026 : « les bonnes mains »), tracés exacts de l'illustratrice au style du livre ; `scripts/mains/stock.js`, catalogue `scripts/mains/stock/catalogue.json`, noms `stock/noms.json`, feuille des ids `images/planches-src/_palette-mains-stock.js` (aperçu `livre/apercus-palette/mains-stock-ids.png`). On choisit la prise, on la
+- **Les gros plans de mains** passent par `h.formes.mainStock` : les mains Adobe Stock 116570613 que JP a choisies (18 octobre 2026 : « les bonnes mains »), tracés exacts de l'illustratrice au style du livre ; `scripts/mains/stock.js`, catalogue `scripts/mains/stock/catalogue.json`, noms `stock/noms.json`, feuille des ids `images/planches-src/_palette-mains-stock.js` (aperçu `livre/apercus-palette/mains-stock-ids.png`). Seules les mains gardées servent (nommées dans `noms.json`,
+  sans « exclue » : JP, 18 octobre, « y a des mains vraiment weird » ; le moteur refuse les autres). On choisit la prise, on la
   place (`x`, `y`, `ancre`), on la tourne (`angle`), on la retourne (`miroir`) ; `objet: false` enlève l'objet du fichier et
   rend son axe (`.objet`), où la planche pose le sien avant la main. `mainSimple` est retiré (JP, 16 octobre : « c'est pas
   beau en criss ») ; les 68 planches qui l'emploient sont à refaire avec `mainStock`. Le poing et la

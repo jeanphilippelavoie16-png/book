@@ -72,6 +72,20 @@ def regrouper(ch, touche=4.0):
     return [[ch[i] for i in sorted(v)] for v in g.values()]
 
 
+def sans_trous(d, aire, seuil=0.04):
+    """Enlève les sous-chemins intérieurs (dans la boîte du plus grand) dont la boîte fait moins de `seuil` de
+    l'aire de la main."""
+    morceaux = ["M" + m for m in d.split("M") if m.strip()]
+    if len(morceaux) < 2: return d
+    B = []
+    for m in morceaux:
+        x0, x1, y0, y1 = parse_path(m).bbox(); B.append((x0, y0, x1, y1, (x1 - x0) * (y1 - y0)))
+    g = max(range(len(B)), key=lambda i: B[i][4]); G = B[g]
+    garde = [m for i, m in enumerate(morceaux)
+             if i == g or not (B[i][0] >= G[0] and B[i][1] >= G[1] and B[i][2] <= G[2] and B[i][3] <= G[3] and B[i][4] < seuil * aire)]
+    return " ".join(garde)
+
+
 def points(d, n=400):
     P = parse_path(d); L = P.length()
     return np.array([[P.point(P.ilength(L * k / n)).real, P.point(P.ilength(L * k / n)).imag] for k in range(n)])
@@ -119,6 +133,11 @@ if __name__ == "__main__":
         if rangs and (it["boite"][1] + it["boite"][3]) / 2 < rangs[-1]["y1"]: rangs[-1]["l"].append(it); rangs[-1]["y1"] = max(rangs[-1]["y1"], it["boite"][3])
         else: rangs.append({"y1": it["boite"][3], "l": [it]})
     noms = json.load(open(os.path.join(ICI, "noms.json"))) if os.path.exists(os.path.join(ICI, "noms.json")) else {}
+    # les petits trous dans une main (fente de paume, pli) se lisent mal au trait : ils sortent
+    for it in items:
+        bx0, by0, bx1, by1 = it["boite"]; aire = (bx1 - bx0) * (by1 - by0)
+        for c in it["chemins"]:
+            if c["role"] == "main": c["d"] = sans_trous(c["d"], aire)
     cat = {}
     for r, rg in enumerate(rangs, 1):
         rg["l"].sort(key=lambda it: ((it["boite"][0] + it["boite"][2]) / 2 // 120, it["boite"][1]))

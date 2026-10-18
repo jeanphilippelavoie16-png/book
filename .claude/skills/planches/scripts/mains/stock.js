@@ -22,6 +22,7 @@
 //     objetCouleur  le gris de l'objet (défaut #E6E6E6)
 //     trait     l'épaisseur du contour en unités de la vue (défaut 1,5, celui de la silhouette du livre)
 //     loin      true : la main en gris (#E6E6E6), la main de derrière
+//     forcer    true : accepter une main exclue ou pas nommée (pour la feuille de toutes les mains seulement)
 //
 // Le résultat se colle comme une chaîne SVG et porte, en unités de la vue :
 //   .objet   { x, y, angle, longueur, largeur }  l'axe de l'objet tenu dans le fichier (null sans objet) : la
@@ -37,14 +38,20 @@ try { NOMS = require('./stock/noms.json'); } catch (e) { /* pas encore nommées 
 const NOIR = '#1A1A1A', BLANC = '#FFFFFF', GRIS = '#E6E6E6';
 const r1 = v => Math.round(v * 100) / 100;
 
-function trouver(id) {
-  if (CAT[id]) return [id, CAT[id]];
-  for (const [k, v] of Object.entries(NOMS)) if (v.nom === id) return [k, CAT[k]];
-  throw new Error(`mainStock : main « ${id} » introuvable (un id 'R-CC' de stock/catalogue.json ou un nom de stock/noms.json)`);
+// Les mains gardées : celles qui ont un nom dans stock/noms.json, sans « exclue ». Les autres se lisent mal au trait
+// (JP, 18 octobre : « y a des mains vraiment weird ») et le moteur les refuse, sauf forcer: true.
+const GARDEES = Object.keys(NOMS).filter(k => NOMS[k].nom && !NOMS[k].exclue && CAT[k]);
+
+function trouver(id, forcer) {
+  let k = CAT[id] ? id : null;
+  if (!k) for (const [i, v] of Object.entries(NOMS)) if (v.nom && v.nom === id) k = i;
+  if (!k) throw new Error(`mainStock : main « ${id} » introuvable (un nom de stock/noms.json, ou un id 'R-CC')`);
+  if (!forcer && !GARDEES.includes(k)) throw new Error(`mainStock : la main ${k} n'est pas gardée (${(NOMS[k] && NOMS[k].exclue) || 'pas nommée'}) ; voir la feuille _palette-mains-stock.js`);
+  return [k, CAT[k]];
 }
 
 function mainStock(o = {}) {
-  const [id, M] = trouver(o.id);
+  const [id, M] = trouver(o.id, o.forcer);
   const [bx0, by0, bx1, by1] = M.boite;
   const W = bx1 - bx0, H = by1 - by0;
   const k = o.echelle || (o.taille || 120) / Math.max(W, H);
@@ -84,4 +91,4 @@ function mainStock(o = {}) {
   return Object.assign({ svg, toString() { return svg; } }, geo);
 }
 
-module.exports = { mainStock, catalogue: CAT, noms: NOMS };
+module.exports = { mainStock, catalogue: CAT, noms: NOMS, gardees: GARDEES };

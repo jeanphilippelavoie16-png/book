@@ -87,7 +87,8 @@ Avant de rendre
 
 Le cadre complet est `.claude/skills/planches/references/brief-agent.md`. En bref :
 - [ ] Mains par `h.formes.mainStock` (les mains Adobe Stock choisies par JP le 18 octobre ; feuille des ids
-  `images/planches-src/_palette-mains-stock.js`), corps par `h.formes.corps` (de profil), têtes par `h.formes.teteSimple` ;
+  `images/planches-src/_palette-mains-stock.js`) : seulement les mains gardées (JP, 18 octobre : « y a des mains vraiment
+  weird » ; le moteur refuse les autres) ; corps par `h.formes.corps` (de profil), têtes par `h.formes.teteSimple` ;
   jamais de dessin à la main ; une prise laide se règle par le cadrage, une autre prise, ou l'objet seul.
 - [ ] Une planche du tableau des signalées se refait au complet, jamais par retouche.
 - [ ] Chaque rouge a son repère, et la légende dit ce qu'on doit y voir (règle 11).
