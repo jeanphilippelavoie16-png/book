@@ -11,6 +11,7 @@ Trois mises en page de la couverture complète (quatrième | tranche | devant), 
   python3 couverture.py --tome 3 --image images/tomes/titre-tome-3.jpg --variantes B
   --ppp N        résolution des PNG (150)
   --fond-ppp N   résolution de l'image de fond composée (300 ; 375 garde l'image du tome 1 à sa pleine définition)
+  --accent HEX   couleur du gros chiffre (variante B) : une couleur forte de l'image du tome (cuivre des crêtes, tome 1)
   --guides       trace le rognage, les plis, la zone sûre et la tolérance de coupe (pour vérifier)
   --garder DIR   garde le HTML, les fonds et les portraits dans DIR (sinon : dossier temporaire, effacé)
   --sortie DIR   où écrire les PNG (ce dossier par défaut)
@@ -100,6 +101,8 @@ def palette(v, k, ciel):
 
 # ------------------------------------------------------------------ textes (build_couvertures_6.py, tels quels)
 def nb_chapitres():
+    # le texte de build_couvertures_6.py dit encore « 114 chapitres » (le ch. 00 coupé le 15 octobre y était) : on
+    # compte le sommaire des six tomes, 113
     return sum(len(s) for s in bc.SOMMAIRE.values())
 
 
@@ -241,7 +244,7 @@ body{-webkit-print-color-adjust:exact;print-color-adjust:exact}
 /* ---------- devant : B, le gros chiffre ---------- */
 .hd-b{position:absolute;left:56px;right:56px;top:50px;font-weight:700;font-size:25px;letter-spacing:.2em;padding-bottom:14px}
 .hd-b span+span{font-weight:600;font-size:16px;letter-spacing:.22em}
-.duo{position:absolute;left:40px;right:56px;top:0;height:3.92in;display:flex;align-items:flex-end;gap:26px}
+.duo{position:absolute;left:40px;right:56px;bottom:calc(10in - 3.92in);display:flex;align-items:last baseline;gap:26px}   /* le chiffre et la dernière ligne du titre sur la même ligne de base */
 .duo .num{flex:none;font-weight:800;font-size:372px;line-height:.74;letter-spacing:-.02em;color:var(--accent)}
 .duo .titre{flex:1;min-width:0;font-size:196px;line-height:.8}
 
@@ -529,8 +532,8 @@ def planche(k, m, pngs, ppp, sortie, travail):
         g = 8.0 / (m['W'] - 2 * FP) * 100
         dr = (8.0 + m['tranche']) / (m['W'] - 2 * FP) * 100
         cols.append(f'''<div class="col"><div class="let">{v}</div><div class="nom">{esc(VARIANTES[v]['nom'])}</div>
-<div class="cv"><img src="{nom}" alt=""><i style="left:{g:.3f}%"></i><i style="left:{dr:.3f}%"></i></div>
-<div class="res">{esc(VARIANTES[v]['resume'])}</div></div>''')
+<div class="cv"><img src="{nom}" alt="">{''.join('<i class="%s" style="left:%.3f%%"></i>' % (c, x) for x in (g, dr) for c in ('h', 'b'))}</div>
+<div class="res">{esc(VARIANTES[v]['resume'][0].upper() + VARIANTES[v]['resume'][1:])}.</div></div>''')
     w = 3 * 1150 + 4 * 70
     doc = f'''<!DOCTYPE html><html lang="fr-CA"><head><meta charset="utf-8">{POLICES}<style>
 html,body{{margin:0;background:#D5D9DC}}
@@ -540,7 +543,8 @@ html,body{{margin:0;background:#D5D9DC}}
 .nom{{font-weight:700;font-size:30px;letter-spacing:.04em;text-transform:uppercase;margin:6px 0 22px}}
 .cv{{position:relative;box-shadow:0 2px 0 rgba(0,0,0,.18),0 10px 26px rgba(0,0,0,.22)}}
 .cv img{{display:block;width:100%}}
-.cv i{{position:absolute;top:-14px;bottom:-14px;border-left:1.5px solid rgba(21,34,43,.55);clip-path:polygon(0 0,100% 0,100% 12px,0 12px,0 calc(100% - 12px),100% calc(100% - 12px),100% 100%,0 100%)}}
+.cv i{{position:absolute;height:12px;border-left:2px solid #15222B;margin-left:-1px}}
+.cv i.h{{top:-17px}} .cv i.b{{bottom:-17px}}
 .res{{font-weight:500;font-size:24px;line-height:1.25;margin-top:24px}}
 </style></head><body><div class="b">{''.join(cols)}</div>
 <script>document.fonts.ready.then(()=>document.documentElement.dataset.ready='1')</script></body></html>'''
@@ -561,6 +565,7 @@ def main():
     ap.add_argument('--variantes', default='ABC')
     ap.add_argument('--ppp', type=float, default=150)
     ap.add_argument('--fond-ppp', type=float, default=300)
+    ap.add_argument('--accent', default=CUIVRE)
     ap.add_argument('--guides', action='store_true')
     ap.add_argument('--garder')
     ap.add_argument('--sortie', default=ICI)
@@ -580,7 +585,7 @@ def main():
         for v in o.variantes:
             pal = palette(v, k, ciel)
             fichiers = portraits(v, k, pal, ciel, travail)
-            accent = CUIVRE
+            accent = o.accent
             f = os.path.join(travail, 'couverture-%s.html' % v)
             open(f, 'w', encoding='utf-8').write(page_html(v, k, m, pal, fichiers, None, accent))
             rects = mesurer(f, m)

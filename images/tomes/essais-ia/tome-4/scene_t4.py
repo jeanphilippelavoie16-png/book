@@ -145,12 +145,11 @@ def caveau(A, x, bas):
     """La butte enneigée et la porte du caveau, cadre de rondins."""
     A(f'<path d="M{x - 150} {bas + 6} C{x - 110} {bas - 90} {x - 20} {bas - 122} {x + 50} {bas - 118} '
       f'C{x + 130} {bas - 112} {x + 190} {bas - 80} {x + 240} {bas + 6}Z" fill="{C["snow2"]}"/>')
-    # les pierres qui retiennent la terre de chaque côté de la porte
+    # un muret de rondins debout de chaque côté de la porte, qui retient la terre de la butte
     for sx in (-1, 1):
-        for k in range(4):
-            px = x + 30 + sx * (48 + k * 13)
-            py = bas - 8 - (3 - k) * 10
-            A(f'<ellipse cx="{px}" cy="{py}" rx="9" ry="6" fill="{C["wood2"]}"/>')
+        for k in range(3):
+            px = x + 30 + sx * (46 + k * 12)
+            A(f'<rect x="{px - 5}" y="{bas - 70 + k * 18}" width="10" height="{70 - k * 18}" rx="3" fill="{C["wood2"]}"/>')
     A(f'<path d="M{x - 110} {bas - 6} C{x - 80} {bas - 66} {x - 20} {bas - 90} {x + 50} {bas - 86}" fill="none" '
       f'stroke="{C["snow3"]}" stroke-width="3"/>')
     # le cadre et la porte
@@ -223,9 +222,74 @@ def scene_sechoir():
     return "\n".join(s.out)
 
 
+def scene_lac():
+    """Le bord du lac au couchant : le séchoir à truites au-dessus du feu, le canot renversé, le chalet."""
+    s = Scene(4077)
+    A = s.add
+    A(f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}">')
+    A('<defs>'
+      f'<linearGradient id="ciel" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="{C["sky0"]}"/>'
+      f'<stop offset=".62" stop-color="{C["sky1"]}"/><stop offset=".86" stop-color="#4B5A5E"/>'
+      f'<stop offset="1" stop-color="#D9773A"/></linearGradient>'
+      f'<radialGradient id="lueur"><stop offset="0" stop-color="{C["orange2"]}" stop-opacity=".6"/>'
+      f'<stop offset="1" stop-color="{C["orange"]}" stop-opacity="0"/></radialGradient>'
+      '</defs>')
+    A(f'<rect x="-20" y="-40" width="{W + 60}" height="520" fill="url(#ciel)"/>')
+    for x, y in [(600, 120), (650, 210), (700, 160), (560, 260)]:
+        A(f'<circle cx="{x}" cy="{y}" r="1.6" fill="{C["star"]}" opacity=".85"/>')
+    # le soleil couché à moitié derrière les collines basses
+    A(f'<circle cx="270" cy="472" r="34" fill="{C["orange"]}"/>')
+    loin = s.onde(462, [(8, 0.7), (4, 1.8)])
+    A(f'<polygon points="{pts(loin + [(W + 40, 500), (-20, 500)])}" fill="{C["mid"]}"/>')
+    A(f'<rect x="-20" y="478" width="{W + 60}" height="24" fill="{C["near"]}"/>')
+    s.rangee(lambda x: 482, -10, W + 30, 10, 20, C["near"], dens=1.3)
+    # le lac et le reflet orange
+    A(f'<rect x="-20" y="500" width="{W + 60}" height="210" fill="{C["lake"]}"/>')
+    for i in range(14):
+        y = 506 + i * 9
+        w = 90 - i * 5 + s.u(-8, 8)
+        A(f'<path d="M{f(270 - w / 2)} {y} H{f(270 + w / 2)}" stroke="{C["orange"]}" stroke-width="{f(s.u(2, 3.5))}" '
+          f'stroke-linecap="round" opacity="{f(.9 - i * .05)}"/>')
+    for _ in range(30):
+        x, y = s.u(0, W), s.u(510, 700)
+        A(f'<path d="M{f(x)} {f(y)} h{f(s.u(10, 46))}" stroke="{C["snow3"]}" stroke-width="1.4" stroke-linecap="round" opacity=".5"/>')
+    # la rive de ce côté-ci, enneigée
+    n1 = s.onde(708, [(6, 0.8), (3, 2.1)])
+    A(f'<polygon points="{pts(n1 + [(W + 40, H + 40), (-20, H + 40)])}" fill="{C["snow"]}"/>')
+    # le chalet à droite, sous les épinettes
+    for x in (600, 650, 700):
+        s.epinette(x, 760, s.u(170, 230), 56, C["front"], neige=True)
+    chalet(A, 520, 790, k=1.4)
+    # le séchoir : deux poteaux fourchus, deux traverses, les truites pendues tête en bas ; le feu dessous
+    x0, x1, yb = 120, 360, 880
+    A(f'<ellipse cx="{(x0 + x1) / 2}" cy="{yb - 4}" rx="170" ry="34" fill="url(#lueur)"/>')
+    for x in (x0, x1):
+        A(f'<path d="M{x} {yb} L{x} {yb - 190} M{x} {yb - 186} l-10 -14 M{x} {yb - 186} l10 -14" stroke="{C["wood"]}" '
+          f'stroke-width="7" stroke-linecap="round"/>')
+    for k, y in enumerate((yb - 186, yb - 140)):
+        A(f'<path d="M{x0 - 14} {y} L{x1 + 14} {y}" stroke="{C["wood"]}" stroke-width="6" stroke-linecap="round"/>')
+        for i in range(8):
+            cx = x0 + 22 + i * (x1 - x0 - 44) / 7 + (k % 2) * 10
+            A(f'<path d="M{f(cx - 5)} {y} l5 6 l5 -6 z" fill="{C["bag2"]}"/>')          # la queue
+            A(f'<ellipse cx="{f(cx)}" cy="{y + 22}" rx="6.5" ry="17" fill="{C["bag"]}"/>')  # le corps
+    fx = (x0 + x1) / 2
+    A(f'<path d="M{fx - 70} {yb + 2} L{fx + 70} {yb - 10} M{fx - 70} {yb - 10} L{fx + 70} {yb + 2}" stroke="{C["wood"]}" '
+      f'stroke-width="9" stroke-linecap="round"/>')
+    A(f'<path d="M{fx - 44} {yb - 4} q16 -50 44 -78 q30 30 44 78z" fill="{C["orange"]}"/>')
+    A(f'<path d="M{fx - 20} {yb - 4} q8 -30 20 -44 q14 16 20 44z" fill="{C["orange2"]}"/>')
+    fumee(A, fx, yb - 90, dx=1, haut=300)
+    # le canot renversé sur la neige
+    A(f'<path d="M380 920 Q520 856 700 900 Q540 936 380 920z" fill="{C["wood"]}"/>')
+    A(f'<path d="M388 920 Q540 940 694 902" fill="none" stroke="{C["snow3"]}" stroke-width="3"/>')
+    for x, bas, h, l in [(-14, 1000, 470, 110), (755, 1000, 430, 100)]:
+        s.epinette(x, bas, h, l, C["front"], neige=True)
+    A('</svg>')
+    return "\n".join(s.out)
+
+
 if __name__ == "__main__":
     var = sys.argv[1] if len(sys.argv) > 1 else "fumoir"
-    svg = scene_sechoir() if var == "sechoir" else scene_fumoir()
+    svg = {"sechoir": scene_sechoir, "lac": scene_lac}.get(var, scene_fumoir)()
     out = os.path.join(ICI, "t4-depart.svg" if var == "fumoir" else f"t4-depart-{var}.svg")
     with open(out, "w", encoding="utf-8") as fh:
         fh.write(svg + "\n")
