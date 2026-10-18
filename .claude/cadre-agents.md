@@ -109,6 +109,8 @@ Le cadre complet est `.claude/skills/planches/references/brief-agent.md`. En bre
 - [ ] Aucun vérificateur sécurité : JP n'en veut jamais (18 octobre 2026).
 - [ ] Le logigramme tombe juste après le Matériel, avant la procédure (JP, 18 octobre : « c'est lui qu'on veut en
   premier ») : son ancre est le dernier item du Matériel ; le moteur ferme la page à l'ancre.
+- [ ] La série orange se lit d'un trait, sans planche ni page au milieu (JP, 18 octobre : « premières minutes est
+  scindé, il doit se suivre ») : les planches appelées dans l'orange s'ancrent au premier paragraphe après la série.
 - [ ] Aucune liste ni section qui déborde d'une ou deux lignes sur la page suivante (JP, 18 octobre : « il y a juste
   une ligne, c'est pas beau ») : on resserre le texte pour qu'elle tienne.
 
