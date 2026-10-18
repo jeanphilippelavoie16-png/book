@@ -249,3 +249,255 @@ aligner à la migration.
 plein) ; « encore », « bien », « déjà » gardés là où ils portent le sens (« peut encore baisser », « bien
 éveillée ») ; redites signalées entre entrées différentes gardées (chaque entrée se lit seule) ; la
 « maxime » signalée (la personne écrasée et l'hémorragie) est un signe, pas une règle en proverbe.
+
+## Partie 2
+
+Pages des dangers, `dangers/partie-2.md`, 18 octobre 2026 : `orignal`, `arme`, `rage`, `tularemie`, `hantavirus`,
+`tetanos`, `cuisson`, `trichine`, `abats`, `botulisme`, `zone-de-danger`, `mal-de-caribou`, `thuyone`, `plante`,
+`plomb`, `selles`, `poison`, `vie-en-jeu`. Chaque chiffre a été relu dans le fichier source avant d'être écrit.
+Aucune source nouvelle n'a été enregistrée.
+
+### Provenance, danger par danger
+
+**`orignal`**
+| Fait | Source |
+| --- | --- |
+| En Alaska, l'orignal blesse chaque année plus de gens que l'ours ; perçu moins dangereux | `35d-adfg-orignal-agressif.md` |
+| Femelle suitée (fin du printemps, été), mâle au rut (fin septembre, octobre), orignal affamé de fin d'hiver dans la neige profonde ; veau seul | `35c-adfg-ours-carcasse-et-orignal-agressif.md`, `35d-adfg-orignal-agressif.md` |
+| Chien vu comme un ennemi, même en laisse ; poils de la bosse, oreilles couchées, langue sur les lèvres (« way too close ») | `35d-adfg-orignal-agressif.md` |
+| Charges souvent des feintes ; sabots de devant ; piétine des quatre pattes ; courir, arbre, en boule, mains sur la tête, immobile | `35d-adfg-orignal-agressif.md` |
+| Orignal assommé qui se relève ; attendre, approcher par l'arrière, flanc | ch. 61, étape 2 et section 8 (sans chiffre) |
+
+**`arme`**
+| Fait | Source |
+| --- | --- |
+| Neige, boue, chiffon, balle d'un coup faible bouchent le canon ; calibre 20 dans un 12 | `35b-canon-bouche-percuteur-et-ruban.md`, `35b-saami-munitions-et-armes-mouillees.md` |
+| Coup faible : bruit étouffé, recul réduit, que le bruit ambiant peut cacher | `35b-canon-bouche-percuteur-et-ruban.md` (source 3) |
+| Vérification par la culasse, par la bouche à la lumière, ou à la baguette | `35b-canon-bouche-percuteur-et-ruban.md` |
+| Long feu : 60 secondes, bouche dans une direction sûre | `35b-grc-ccsmaf-manuel-etudiant-2014.md` |
+| Cartouche chauffée au poêle : la chaleur altère la poudre | `35b-saami-munitions-et-armes-mouillees.md` |
+| .22 : plus de 2 km (lecture prudente du graphique) | `43b-kalkomey-portee-maximale-carabine.md` |
+| Ricochet sur l'eau et les surfaces dures et planes ; butte de terre derrière | `43b-alabama-dcnr-ricochet.md` |
+| Orange fluo sur le dos, les épaules et la poitrine | `21-quebec-chasse-dossard-recherche-gibier.md` (la fonction seulement, sans la règle) |
+| Chambre ouverte au passage de main ; verrou ou culasse retirés ; arme à la porte ; détresse | ch. 16, 17, 18, 36, 38 et leurs fiches (sans chiffre) |
+
+**`rage`**
+| Fait | Source |
+| --- | --- |
+| Salive ; morsure, griffure, plaie, muqueuse (œil, nez, bouche) | `27-quebec-rage-chez-humain.md`, `47-quebec-rage-chez-les-animaux.md` |
+| Signes de 20 à 90 jours après ; mort en général dans les 14 jours | `51-quebec-rage-chez-humain.md` |
+| Lavage à grande eau et au savon 10 à 15 minutes | `27-quebec-rage-chez-humain.md` |
+| Le vaccin après exposition prévient la rage de façon très efficace | `27-aspc-guide-immunisation-rage-chauves-souris.html` |
+| Chauve-souris, renard, raton laveur, mouffette ; chien, chat | `51-quebec-rage-chez-humain.md`, `27-quebec-rage-chez-humain.md` |
+| Transmission plusieurs jours avant les signes ; bête morte présumée porteuse ; virus détruit par chaleur, sécheresse, soleil, survit dans une carcasse gelée | `47-quebec-rage-chez-les-animaux.md`, `80-quebec-rage-chez-les-animaux.md` |
+| Perte de la peur, bave, paralysie, agressivité, activité de jour chez une espèce de nuit | `46-quebec-rage-animaux.md`, `47-quebec-rage-chez-les-animaux.md` |
+| Morsure de chauve-souris pas ressentie, sans marque ; contact direct même bref ; chauve-souris dans les cheveux | `27-aspc-guide-immunisation-rage-chauves-souris.md`. La même page précise qu'une chauve-souris dans la pièce d'une personne endormie n'est une exposition que s'il y a eu contact direct : la page des dangers ne parle que du contact. Aucun chapitre ne dit le contraire (vérifié) |
+
+**`tularemie`**
+| Fait | Source |
+| --- | --- |
+| Endémique dans toutes les régions du Québec ; 70 à 85 % de forme ulcéroglandulaire ; cas classique du petit gibier préparé avec des lésions aux mains ; cinq voies (peau, œil, inhalation, piqûre, ingestion) | `49-melccfp-tularemie-fiche-information.md`, `44-quebec-fiche-tularemie.md` |
+| Survit plusieurs années à la congélation | idem |
+| Bête malade : faiblesse, léthargie, bon état de chair ; points blancs de 2 mm ou plus sur foie, rate, poumons ; foie et rate gros et pâles | idem |
+| Lièvre malade moins méfiant, très lent | `43b-adfg-tularemie-lievre-comportement.md` |
+| Incubation 3 à 6 jours, jusqu'à 3 semaines | `49-melccfp-tularemie-fiche-information.md` |
+| Fièvre brutale, frissons, céphalées, nausées ; ulcère au point d'entrée ; ganglions régionaux | `44-merck-pro-tularemie.md`, `49-melccfp-tularemie-fiche-information.md` |
+| Peut évoluer vers pleuropneumonie, méningite, choc septique, mort | `49-melccfp-tularemie-fiche-information.md` |
+| Gants imperméables, masque, lunettes ; mouiller la fourrure ; javel 1 pour 9 ; contact cutané : eau et savon au moins 10 minutes ; jamais d'abats de bête sauvage à un animal domestique | `49-melccfp-tularemie-fiche-information.md` |
+| 74 °C | `08-mapaq-temperatures-cuisson-conservation.md` |
+| Signes de l'oiseau malade (tremblements, tourne en rond, enflure de la tête, diarrhée) | `45-eccc-influenza-aviaire-oiseaux-sauvages.md`, `50-signes-nerveux-influenza-aviaire.md` |
+
+**`hantavirus`**
+| Fait | Source |
+| --- | --- |
+| Souris sylvestre, campagnol à dos roux ; poussière soulevée par le balai et l'aspirateur | `76-aspc-hantavirus-transmission-prevention.md`, `85-aspc-hantavirus-nettoyage.md` |
+| **1 à 8 semaines**, le plus souvent 2 à 4 | `75-quebec-hantavirus.md` (1 à 8) ; `15b-cchst-hantavirus-habitation-inoccupee.md` et `76-cchst-hantavirus.md` (1 à 6, moyenne 2 à 4). Décision ci-dessous |
+| Signes : fièvre, frissons, maux de tête, douleurs musculaires, troubles digestifs ; puis toux, essoufflement, choc | `75-quebec-hantavirus.md`, `75-aspc-hantavirus-symptomes.md` |
+| Environ 40 % de mortalité | `15b-cchst-hantavirus-habitation-inoccupee.md`, `76-cchst-hantavirus.md` |
+| Aérer au moins 30 minutes ; masque filtrant ajusté (l'appellation du masque n'est pas imprimée) ; javel 1 pour 9, 10 minutes | `15b-cchst-hantavirus-habitation-inoccupee.md`, `85-aspc-hantavirus-nettoyage.md` |
+| La solution gèle sous zéro | note de `15b-cchst-hantavirus-habitation-inoccupee.md` (fait physique) |
+
+**`tetanos`**
+| Fait | Source |
+| --- | --- |
+| Spores dans la terre, la poussière, la salive et les selles | `80-msss-tetanos.md` |
+| Bactérie anaérobie ; les spores germent sans air ; une proportion plus grande des cas récents suit des plaies mineures | `29-femmes-cdc-pink-book-tetanos-spores.html` |
+| Signes surtout dans les 2 semaines ; incubation 3 à 21 jours ; 10 à 80 % de mortalité chez les non-vaccinés ; la maladie ne confère pas l'immunité | `27-quebec-tetanos.md`, `80-msss-tetanos.md` |
+| Cou puis visage ; trismus (mâchoire), déglutition, ventre rigide | `27-quebec-tetanos.md`, `29-femmes-cdc-pink-book-tetanos-spores.html` |
+| Plaie à risque : rappel si la dernière dose a plus de 5 ans ; plaie mineure propre : 10 ans ; moins de 3 doses : vaccin | `27-inspq-ciq-2018-plaie-a-risque-tetanos.md`, `81-inspq-ciq-plaie-risque-tetanos.md` |
+| Rappel adulte à 50 ans | `27-quebec-tetanos.md` |
+| Retirer le corps étranger, laver | `29-femmes-cdc-pink-book-tetanos-spores.html` (« foreign material should be removed ») |
+
+**`cuisson`**
+| Fait | Source |
+| --- | --- |
+| 74 °C gibier, haché de gibier, morceaux de volaille, fruits de mer, œufs, farce, réchauffés ; 82 °C volaille entière ; 70 °C poisson ; 71 °C porc et viandes hachées ; 63 °C bœuf | `08-mapaq-temperatures-cuisson-conservation.md`, `10-mapaq-cuisson-temperatures-internes.md` |
+| Poisson : 70 °C tenu au moins 1 minute ; parasites : −20 °C 7 jours ou −35 °C 15 h ; *Listeria* de −0,4 à 45 °C, survit au fumage à froid | `72-sante-canada-poisson-fume-barrieres-parasites-listeria.md` |
+| Listériose : jusqu'à 70 jours ; personnes enceintes, âgées, immunité affaiblie | `65-quebec-listeriose.md` |
+| −18 °C du congélateur | `08-mapaq-temperatures-cuisson-conservation.md` |
+| Couleur trompeuse (fumée, nitrite) | ch. 69 et 71, fiches `suivi/69-` et `suivi/71-redaction.md` (sans chiffre) |
+
+**`trichine`**
+| Fait | Source |
+| --- | --- |
+| Salaison, séchage, fumage, micro-ondes ne détruisent pas toujours ; la plupart des espèces sauvages résistent à la congélation | `01-acia-trichinose.md` |
+| Ours noir, animal le plus susceptible au Québec ; plus fréquente chez carnivores et omnivores ; aucun signe chez la bête ; larve invisible ; diarrhée la première semaine, puis rougeurs, enflure, douleurs musculaires qui peuvent durer des semaines | `48-quebec-trichinellose-maladie-animale.md` |
+| Tous les mammifères peuvent être infectés ; 5 à 15 jours ; fièvre, enflure du visage, peur de la lumière ; cœur et cerveau graves | fiches ACIA (`22-acia-trichinose.md`, `52-acia-trichinose.md`, `41-acia-trichinose.md`) |
+| *Trichinella nativa* chez le phoque gris ; tolérance au gel | `52-pubmed-trichinella-et-doigt-du-phoque.md` |
+| 74 °C ; autoclave 116 °C | `08-mapaq-temperatures-cuisson-conservation.md`, `73-quebec-mapaq-conserves-maison.md` |
+
+**`abats`**
+| Fait | Source |
+| --- | --- |
+| Foie et reins de cervidés ; cent fois la quantité tolérée (l'organisme n'est pas imprimé) | `01-mapaq-gibier-sauvage-chasseurs.md`, `11-mapaq-gibier-cuisson-cadmium.md` |
+| Cadmium venu des plantes ; accumulation toute la vie, plus chez la bête âgée ; élimination très lente chez l'humain ; troubles rénaux à long terme ; ours noir aussi ; muscle, langue, cœur : très peu | `46-cisss-at-abats-orignaux-cadmium.html`, `46-cisss-at-reflexes-sante-chasse-cadmium.html` |
+| Prion : cerveau, moelle épinière, ganglions ; non détruit par la cuisson ; des années dans l'environnement ; aucune preuve de transmission à l'humain | `36-quebec-maladie-debilitante-chronique-cervides.md` |
+| Diagnostic seulement chez une bête infectée depuis plus de 12 mois | `38-quebec-maladie-debilitante-chronique-cervides.md` |
+| Foie de phoque annelé **3 710 µg** / 100 g ; morse 4 283 µg ; lotte 4 000 µg ; aucun chiffre pour l'ours | `41-sante-canada-fcen-abats-gibier.md`, `26-sante-canada-fcen-orignal-farine-pomme-de-terre-aretes.md` |
+| Apport maximal tolérable : 3 000 µg adulte, 900 µg 4 à 8 ans, 600 µg 1 à 3 ans | `26-sante-canada-anref-vitamines.md` |
+| Foie d'ours blanc ou de phoque chez les explorateurs | `41-merck-intoxication-vitamine-a.md` |
+| Signes en quelques heures ; desquamation ; pression intracrânienne chez l'enfant | `26-msd-exces-vitamine-a.md` |
+| Ces abats ne vont pas au chien | `49-melccfp-tularemie-fiche-information.md` (aucun abat de bête sauvage à un animal domestique) |
+
+**`botulisme`**
+| Fait | Source |
+| --- | --- |
+| Spores dans le sol, l'eau de rivière et de mer ; résistent à l'ébullition pendant des heures ; anaérobie ; pH sous 4,6 ; pas de fièvre, conscience gardée ; antitoxine précoce ; nourrisson : perte du contrôle de la tête, pleurs changés, miel avant 1 an | `26-oms-botulisme-fiche.html` |
+| pH 4,6 ; ne change ni la couleur, ni l'odeur, ni le goût ; boîtes qui coulent, gonflées | `01-sante-canada-botulisme-conserves-maison.md`, `08-sante-canada-conserves-botulisme.md` |
+| Autoclave 116 °C pour les aliments peu acides | `73-quebec-mapaq-conserves-maison.md` |
+| Type E arrêté sous 3 °C, pH 5,0, activité de l'eau 0,97 ; poisson fumé ≤ 4 °C, ≤ 14 jours, emballage perméable ; flore d'altération qui avertit sous film perméable | `72-sante-canada-poisson-fume-barrieres-parasites-listeria.md`, `34-quebec-poisson-fume-conservation.md` |
+| 9 % de sel dans le produit fini ; emballage qui ne laisse pas passer l'oxygène | `12-quebec-poisson-fume-botulisme.md` |
+| **12 à 72 heures, de 2 heures à 8 jours** | `61-aspc-botulisme-symptomes.md`, `66-aspc-botulisme-symptomes-et-delais.md`, `72-aspc-…`, `73-aspc-…`. Décision ci-dessous |
+| Paupières, vision double, élocution, déglutition ; nourrisson : salive, refus de s'alimenter, difficulté à téter, constipation | mêmes fiches ASPC |
+| **Huile aux herbes ou à l'ail faite maison : jeter après 7 jours au réfrigérateur** | `08-mapaq-meilleur-avant-bon-apres.md`. Décision ci-dessous |
+
+**`zone-de-danger`**
+| Fait | Source |
+| --- | --- |
+| 4 à 60 °C ; doublement toutes les 15 minutes entre 35 et 45 °C | `65-mapaq-zone-de-danger-manipulation.md`, `70-quebec-mapaq-temperatures-entreposage-decongelation.md` |
+| Cuisson n'élimine pas toujours les toxines | `66-mapaq-zone-de-danger-4-a-60.md` |
+| 15,6 °C ; toxine du staphylocoque très thermostable | `71-acia-fermentes-secs-toxine-et-sel-nitrite.md`, `71-aspc-staphylococcus-aureus-toxine-chaleur.md` |
+| Signes de 30 minutes à 8 heures | `71-aspc-staphylococcus-aureus-toxine-chaleur.md` |
+| Ni odeur ni altération | `64-fao-1991-staphylocoque-alteration-sel.md` |
+| −18 °C arrête la multiplication ; 60 °C maintien chaud ; 60 à 21 °C en moins de 2 h, 21 à 4 °C en moins de 4 h | `08-mapaq-temperatures-cuisson-conservation.md` |
+| Carcasse à 7 °C dans les 24 premières heures | `01-mapaq-gibier-sauvage-chasseurs.md` |
+| Décongélation au froid ou dans l'eau à 21 °C ou moins ; cristaux de glace : recongeler | `23-quebec-refroidir-rechauffer-decongeler.md` |
+| Cru dégelé resté à 4 °C ou moins : cuire ou recongeler cuit ; dégelé au-dessus de 4 °C : jeter | `68-quebec-panne-courant-aliments.md`, `10-quebec-aliments-panne-courant.md` |
+
+**`mal-de-caribou`**
+| Fait | Source |
+| --- | --- |
+| Plus de 35 % des calories en protéines : nausée, diarrhée, mort ; capacité limitée du foie à faire l'urée | `24-bilsborough-mann-2006-plafond-prudent.md` |
+| Étendues : 10 à 35 % adulte, 10 à 30 % de 4 à 18 ans, 5 à 20 % de 1 à 3 ans | `24-sante-canada-anref-macronutriments.md` |
+| Orignal, caribou, lièvre, truite 71 à 90 % ; ours, castor, corégone 50 à 69 % ; moelle d'orignal 8 % | `24-sante-canada-fcen-gibier-poissons-gras.md` (relevé dans `suivi/19-redaction.md`, ligne de la passe du tableau « Part des calories ») |
+| Trois ou quatre fois plus au bout d'une semaine ; diarrhée en une semaine à dix jours, que seul le gras arrête ; mort après plusieurs semaines ; envie de gras | `21-speth-spielmann-1983-stefansson-mal-de-caribou.md` |
+| Malade le deuxième jour sur viande maigre ; deux ou trois semaines dans le Nord (gras derrière les yeux, moelle) | `24-stefansson-1936-delais-mal-de-caribou.md` |
+
+**`thuyone`**
+| Fait | Source |
+| --- | --- |
+| Convulsions chez le rat : 50 mg/kg mâles, 25 mg/kg femelles ; sur deux ans, quelques-uns à 12,5 mg/kg | `25-ntp-thuyone.md` |
+| Plafond adulte 6 mg/j ; aucun pour l'enfant ; contre-indiqué en cas de convulsions | `25-sante-canada-nnhpd-thuyone-limite.md` |
+| 7,6 mg par gramme de rameaux séchés (une mesure) | `31-ema-thuja-occidentalis-thuyone.md` |
+| Sapin baumier 270 mg, thuya 45 mg de vitamine C / 100 g frais | `25-durzan-annedda-coniferes.md` |
+| Sapin : aiguilles plates sur deux rangs, bandes blanches, odeur | `25-rncan-sapin-baumier.md` |
+
+**`plante`**
+| Fait | Source |
+| --- | --- |
+| If : tout toxique sauf l'arille ; mort souvent en 2 à 3 h chez le bétail ; aucun antidote | `25-ontario-if-du-canada-toxicite.md` |
+| Cicutaire : convulsions dans les 60 minutes ; racine la plus toxique ; cloisons creuses à la base de la tige et au haut de la racine | `30-usda-fs-cicutaire-maculee.html` (le fichier `30-cdc-mmwr-1994-cicutaire.html` est une page d'erreur « Access Denied » : à recapturer) |
+| Ombellifère à fleurs blanches | `58-herbier-du-quebec-cicutaire-maculee.md` |
+| Amande du noyau toxique, chair du fruit non | `60-acia-glycosides-cyanogenes-cerises.md` |
+| Feutre roux sous la feuille du thé du Labrador ; kalmia et andromède toxiques, en tourbière | `34n-sosies-the-du-labrador-bord-feuille-cote-nord.md` |
+| Glycoalcaloïdes : cuisson sans grand effet ; germes, chair autour des yeux ; le vert qui pâlit à la noirceur ne prouve rien ; amertume ou brûlure | `74-sante-canada-glycoalcaloides-pommes-de-terre.md` |
+| Champignons : aucun traitement ne rend sûr ; 6 à 72 h ; rechute de 3 à 5 jours ; coprine et alcool dans les 72 h | `59-fda-bad-bug-book-toxines-champignons.md` |
+| Toxines des bivalves non détruites par la cuisson | `89b-acia-biotoxines-mollusques-cuisson.md` |
+| Crosses : 15 minutes à l'eau bouillante ou 10 à 12 minutes à la vapeur | `58-sante-canada-crosses-de-fougere.md` |
+
+**`plomb`**
+| Fait | Source |
+| --- | --- |
+| Effets sous 5 µg/dL, dès 1 à 2 µg/dL | `45-sante-canada-plomb.md` |
+| Aucune fonction ; enfant plus sensible, absorbe plus, excrète moins ; QI ; pression chez l'adulte | `60-sante-canada-plomb-aliments.md` |
+| Éclats à 13 cm en moyenne, jusqu'à 46 cm (chevreuil) | `43b-ctdeep-fragments-balles-plomb.md` |
+| Érablière : soudé avant 1995, galvanisé d'avant 1994, laiton, bronze | `60-acia-plomb-produits-erable.md` |
+| Eau chaude et eau stagnante ; bouillir inutile ; laisser couler l'eau froide ; eau froide seulement pour cuisiner | `13-sante-canada-plomb-eau-chaude.md`, `13-quebec-plomb-eau-potable.md` |
+| Grenaille d'acier vérifiée à l'aimant | `43b-adfg-grenaille-non-toxique-acier.md` |
+
+**`selles`**
+| Fait | Source |
+| --- | --- |
+| 10 kystes de *Giardia* ; chlore lent à basse température | `13-inspq-giardia-lamblia.md` |
+| *Cryptosporidium* : chlore presque nul ; 73 °C en 1 minute ; 4 à 6 µm ; DI50 de 132 oocystes | `13-inspq-cryptosporidium.md` |
+| Oocystes infectieux 31 jours à −22 °C | `28-inspq-cryptosporidium.md` |
+| Gastro : contagiosité jusqu'à deux semaines ; 48 heures sans signe (règle des travailleurs de la restauration, transposée) | `23-quebec-gastro-enterite.md` |
+| Fumier cru enfoui 120 jours (partie mangée au contact du sol), 90 jours (le reste) | `78-usda-nop-fumier-compost-delais.md` |
+| Échinocoque : œufs jusqu'à un an ; 5 à 15 ans ; mains, eau, petits fruits | `51-quebec-echinococcose-transmission-humain.md` |
+| 8 mois l'automne et l'hiver ; lavage insuffisant ; 70 °C 5 minutes ; congélation industrielle insuffisante ; cuire ce qui est ramassé au sol | `58-anses-echinococcus-oeufs-inactivation.md` |
+
+**`poison`**
+| Fait | Source |
+| --- | --- |
+| Soude avalée : corrosion, vomissements sanglants | `80-cnesst-reptox-hydroxyde-de-sodium.md` |
+| Huiles fluides : 2 mL suffisent pour une pneumonie chimique ; vider l'estomac est contre-indiqué | `27b-centres-antipoison-merck-huile-bue-ne-pas-faire-vomir.md` |
+| Toux, étouffement ; difficultés respiratoires plusieurs heures plus tard | `18-merck-intoxication-hydrocarbures.md` |
+| Antigel : goût sucré ; reins | `85-atsdr-ethylene-glycol-gout-sucre.md`, `85-sante-canada-ethylene-glycol.md` (somnolence, stupeur, ataxie) |
+| Méthanol : 30 mL enfant, 60 à 240 mL adulte ; cécité ; 1 à 72 h sans signe | `38n-medlineplus-intoxication-methanol.md`, `38n-cdc-niosh-methanol-carte-urgence.md` |
+| Acétaminophène : signes mineurs jusqu'à 48 h et plus | `29-msd-intoxication-paracetamol.md` |
+| Pile bouton : 2 heures, même usée | `18-sante-canada-piles-bouton.md` |
+| Reye : cerveau et foie ; environ 21 % de mortalité ; aspirine chez l'enfant | `29-msd-syndrome-de-reye.md` |
+| Écorce de saule contre-indiquée sous 18 ans (Reye) | `34n-saule-ecorce-ema-sante-canada.md` |
+| Nitrate : nourrisson de moins de 3 mois au biberon ; peau et lèvres bleutées | `13-inspq-nitrates-fiche-methemoglobinemie.md`, `62-inspq-nitrates-nitrites-methemoglobinemie.md` |
+
+**`vie-en-jeu`** : aucun chiffre. Exemples pris aux ch. 24, 27, 28, 32, 38 ; la décision en heures, ch. 26 (section G) ;
+les gestes d'attente, ch. 35.
+
+### Chiffres tranchés à la source, et chapitres à corriger à la migration
+
+1. **Délai du botulisme.** Retenu : **en général 12 à 72 heures, de 2 heures à 8 jours** (ASPC, quatre fiches concordantes).
+   L'OMS (`26-oms-botulisme-fiche.html`) et le Manitoba (`57-manitoba-…`) donnent 12 à 36 heures, plus étroit ; la fourchette
+   fédérale canadienne est plus large et c'est elle qui protège (le premier signe d'un repas d'il y a trois jours).
+   **Portent 12 à 36 h :** ch. 5 (l. 530), 35 (l. 300), 54 (l. 362), 68 (l. 262), 91 (l. 255 et 293). **Porte 12 à 48 h :**
+   ch. 80 (l. 358). Corrects : ch. 66, 76, 78.
+2. **Délai du hantavirus.** Retenu : **1 à 8 semaines, le plus souvent 2 à 4** (Québec pour la fourchette, la plus large ;
+   CCHST pour la moyenne). **À aligner :** ch. 79 (l. 298, « une à six semaines »). Le ch. 100 est correct (1 à 8).
+3. **Vitamine A du foie de phoque annelé.** Retenu : **3 710 µg par 100 g** (Fichier canadien sur les éléments nutritifs,
+   3 observations, valeur mesurée en ÉAR). L'USDA n'a qu'un seul échantillon, en UI ; sa conversion à environ 11 000 µg
+   est un calcul du livre. **Porte 36 600 UI / environ 11 000 µg :** ch. 56 (l. 236 et 345).
+4. **Végétaux dans l'huile.** Retenu : **jeter après 7 jours de réfrigération** pour une huile à l'ail ou aux herbes
+   fraîches faite maison (MAPAQ, `08-mapaq-meilleur-avant-bon-apres.md`, qui vise la fabrication domestique). Le « 10 jours
+   après ouverture » (ASPC) vise un produit conservé dans l'huile qu'on ouvre ; il ne s'applique pas à l'huile faite à la
+   maison. **Portent 10 jours :** ch. 78 (l. 345), ch. 92 (l. 147, 370, 431).
+5. **Poisson fumé.** Retenu : **au plus 14 jours à 4 °C ou moins, dans un emballage qui laisse passer l'air, ou congelé**
+   (Québec et Santé Canada). **Porte « se garde congelé, pas au froid » :** ch. 35 (l. 303), trop strict, à aligner.
+6. **Cuisson des coquillages bivalves.** Retenu : **la cuisson ne détruit pas les toxines** (ACIA,
+   `89b-acia-biotoxines-mollusques-cuisson.md`). **Porte « rien de vérifié ne tranche » :** ch. 59 (l. 352). Le ch. 59
+   (l. 278) donne aussi 74 °C pour les mollusques comme cible de sécurité : il protège des bactéries, pas de la toxine.
+7. **Proportion de protéines du lièvre.** L'inventaire disait « plus de 80 % » ; la fiche du ch. 19 relève 76 à 90 % au
+   Fichier canadien. La page dit « orignal, caribou, lièvre, truite : 71 à 90 % ». Rien à corriger dans les chapitres
+   sans relire le ch. 47 et le ch. 48.
+
+### `[À VÉRIFIER]`
+
+- `abats`, vitamine A : « La cuisson ne la détruit pas. » Aucune source enregistrée ne dit ce que la cuisson fait au
+  rétinol du foie. Lever avec une table de rétention des vitamines (USDA, *Table of Nutrient Retention Factors*), ou
+  couper la phrase.
+
+### Coupé faute de source, ou parce que le fait ne sert qu'un chapitre
+
+- `orignal` : « la laisse se tient à la main » (inventaire) : aucune source ne le dit ; remplacé par « ne jamais laisser le
+  chien courir après l'orignal » (ADF&G).
+- `arme` : « jamais de blanc ni de beige » (inventaire) : sans source ; coupé.
+- `hantavirus` : « pas le masque de papier » : sans source ; le masque est décrit par sa fonction.
+- `cuisson` : la sonde sur l'os d'un lièvre « lit faux de plusieurs degrés » : sans chiffre sourcé, la phrase garde
+  seulement « sans toucher l'os ni le gras ». Germes de graines, pâte crue, lait cru : laissés à leurs chapitres (88, 100,
+  101).
+- `abats` : « rate, yeux, amygdales » pour le prion : la page du Québec ne les nomme pas (`42-quebec-maladie-…`, note) ;
+  non imprimés.
+- `poison` : « pas de lait » : raisonnement du ch. 108, sans source ; coupé. Le plafond de 200 ppm de nitrite reste au
+  chapitre de la salaison (propre au chapitre).
+- `plante` : semence traitée, ergot, favisme : propres à leurs chapitres (88, 96, 98) ; non repris.
+- `selles` : « les distances aux latrines ne se négocient pas au jugé » : maxime, et propre au ch. 31.
+
+`controle.py dangers/partie-2.md` : 0 tiret, 0 « § », 0 mot banni. Avis jugés : « tout / toute / tous » au sens plein (« tout de suite », « tout le monde », « toute la masse ») ; « encore », « déjà », « bien » gardés là où ils portent le sens (« porte encore des cristaux », « a déjà fait des convulsions », « a l'air bien ») ; « essentielle » dans « huile essentielle », nom de la chose ; la « maxime » signalée au tétanos est une consigne (« doit être vaccinée ») ; les redites signalées sont entre entrées différentes (chaque entrée se lit seule).

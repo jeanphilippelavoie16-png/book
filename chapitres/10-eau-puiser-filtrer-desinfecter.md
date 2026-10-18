@@ -17,7 +17,7 @@ saute jamais.
 ## 2. Quand l'utiliser
 
 - **Un avis d'ébullition est donné, ou la pression baisse franchement au robinet**, après un bris, des travaux, un
- incendie dans le quartier ou une longue panne de courant (étapes 42 à 47).
+ incendie dans le quartier ou une longue panne de courant (étapes 42 à 47 ; ch. 3).
 - **L'avis dit de ne pas consommer l'eau** (étape 43).
 - **L'eau ne coule plus au robinet** (étape 49).
 - **La maison est sur l'aqueduc et a été bâtie avant les années 1970** (étape 48).
