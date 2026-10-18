@@ -1,7 +1,7 @@
 # Tome 1 · Tenir — rapport d'assemblage
 
-- **Produit le :** 2026-10-18 22:01, par `design/outils/assembler-tome.py 1 --chapitres 04 --hors-ligne --sortie livre/apercus-ch04`
-- **Fichier :** `livre/tome-1/interieur.pdf` — 38 pages, 18.8 Mo
+- **Produit le :** 2026-10-18 22:47, par `design/outils/assembler-tome.py 1 --chapitres 04 --hors-ligne --sortie livre/apercus-ch04`
+- **Fichier :** `livre/tome-1/interieur.pdf` — 40 pages, 18.8 Mo
 - **Ouvertures :** au recto ou au verso (--verso)
 - **Placements :** design/epreuves-livre/placements.json, design/epreuves-livre/placements-tome-1.json
 - **Exigences de Blurb :** `sources/blurb-specifications.md` (relevées le 27 septembre 2026)
@@ -15,10 +15,10 @@
 | 5 | Sommaire | 1 |
 | 6 | Comment le livre fonctionne (1) | 1 |
 | 7 | Comment le livre fonctionne (2) | 1 |
-| 8–16 | Les dangers | 9 |
-| 17–38 | ch. 04 — Retombées radioactives | 22 |
-| | Pages blanches (verso de la page de titre, avant les ouvertures, fin du tome) | 2 |
-| | **Total** | **38** |
+| 8–17 | Les dangers | 10 |
+| 19–40 | ch. 04 — Retombées radioactives | 22 |
+| | Pages blanches (verso de la page de titre, avant les ouvertures, fin du tome) | 3 |
+| | **Total** | **40** |
 
 Aucune page de crédits (JP, 28 septembre 2026) : copie hors du livre dans `livre/apercus-ch04/credits/tome-1-credits.md` et `livre/apercus-ch04/credits/tome-1-credits.pdf`.
 
@@ -28,7 +28,7 @@ Marqueur `{.orange}` sur l'intertitre ### de la série, dans le Markdown (CLAUDE
 
 | Ch. | Pages du tome |
 | --- | --- |
-| 04 | 20, 21, 22, 23 |
+| 04 | 22, 23, 24, 25 |
 
 ## Contrôle Blurb
 
@@ -36,16 +36,16 @@ Marqueur `{.orange}` sur l'intertitre ### de la série, dans le Markdown (CLAUDE
 | --- | --- | --- | --- |
 | Taille de chaque page | 585 × 738 pt (8,125 × 10,25 po) | 585.0 × 738.0 pt | oui |
 | Rognage (TrimBox) | 8 × 10 po, fond perdu au bord extérieur | recto : reliure à gauche ; verso : à droite | oui |
-| Nombre de pages | pair, de 20 à 440 (papier Standard) | 38 | oui |
+| Nombre de pages | pair, de 20 à 440 (papier Standard) | 40 | oui |
 | Page 1 | à droite | page de titre | oui |
-| Polices incorporées | toutes | 24 police(s), 0 non incorporée(s) | oui |
+| Polices incorporées | toutes | 23 police(s), 0 non incorporée(s) | oui |
 | Taille du fichier | 2 Go au plus | 18.8 Mo | oui |
 | Marques d'imprimeur | aucune | aucune | oui |
 | Couleur | CMJN ou sRVB, sans ton direct | sRVB (Edge) | oui |
 | Noir du texte | 100 % K | noir sRVB (0, 0, 0) : la conversion est faite chez Blurb | à juger sur épreuve |
 | PDF/X | plus exigé en 2026 (le guide de 2010 le demandait) | PDF 1.4 d'Edge, pas PDF/X | à surveiller au téléversement |
 
-Polices du fichier : BarlowCondensed-Bold, BarlowCondensed-ExtraBold, BarlowCondensed-Medium, BarlowCondensed-SemiBold, IBMPlexSansCond-Bold, IBMPlexSansCond-Medium, IBMPlexSansCond-Regular, IBMPlexSansCond-SemiBold, IBMPlexSansCond-SemiBoldItalic, IBMPlexSerif-Bold, IBMPlexSerif-Italic, IBMPlexSerif-Regular, IBMPlexSerif-SemiBold, LiberationSerif, LiberationSerif-Italic, Type 3 sans nom (texte des planches)
+Polices du fichier : BarlowCondensed-Bold, BarlowCondensed-ExtraBold, BarlowCondensed-Medium, BarlowCondensed-SemiBold, IBMPlexSansCond-Bold, IBMPlexSansCond-Medium, IBMPlexSansCond-SemiBold, IBMPlexSansCond-SemiBoldItalic, IBMPlexSerif-Bold, IBMPlexSerif-Italic, IBMPlexSerif-Regular, IBMPlexSerif-SemiBold, LiberationSerif, LiberationSerif-Italic, Type 3 sans nom (texte des planches)
 
 **Caractères tombés hors des polices du livre** (IBM Plex, et les Noto chargées pour ce que Plex n'a pas) : le navigateur les a pris dans une police de secours (incorporée, donc imprimable, mais d'un autre dessin que le texte) :
 
@@ -55,7 +55,7 @@ Polices du fichier : BarlowCondensed-Bold, BarlowCondensed-ExtraBold, BarlowCond
 
 ## Tranche et couverture
 
-Calculateur non interrogé (--hors-ligne). Relevé du 27 septembre 2026 dans `sources/blurb-specifications.md` §2 ; pour 38 pages, prendre la ligne du tableau dont le palier couvre ce nombre, et revérifier au calculateur. [À VÉRIFIER]
+Calculateur non interrogé (--hors-ligne). Relevé du 27 septembre 2026 dans `sources/blurb-specifications.md` §2 ; pour 40 pages, prendre la ligne du tableau dont le palier couvre ce nombre, et revérifier au calculateur. [À VÉRIFIER]
 
 ## Figures
 
@@ -63,7 +63,7 @@ Les planches de `images/a-valider/` sont posées comme les validées (JP les rel
 
 | Ch. | Posées (page du tome) | Mentionnées dans le texte sans planche dessinée | À valider, non posées | Photos demandées encore à acquérir (credits.md) |
 | --- | --- | --- | --- | ---: |
-| 04 | 04-01a (29, pleine), 04-41 (32, pleine, à valider), 04-01b (34, pleine, à valider), 04-42 (36, pleine), 04-40 (38, pleine, à valider), 04-retombees-livre (18, double page), 04-lichen-caribous-tapis.jpg (25) | — | — | 6 (ancien 06) |
+| 04 | 04-01a (32, pleine), 04-41 (34, pleine), 04-01b (36, pleine), 04-42 (38, pleine), 04-40 (40, pleine, à valider), 04-retombees-livre (20, double page), 04-lichen-caribous-tapis.jpg (28) | — | — | 6 (ancien 06) |
 
 ## Crédits des images — hors du livre
 
@@ -71,11 +71,13 @@ Rien ne s'imprime (JP, 28 septembre 2026). Copie de sauvegarde : `livre/apercus-
 
 | Page | Ch. | Fichier | Auteur | Licence |
 | ---: | --- | --- | --- | --- |
-| 25 | 04 | 04-lichen-caribous-tapis.jpg | (c) mbrenner131, some rights reserved (CC BY-NC) | CC BY-NC |
+| 28 | 04 | 04-lichen-caribous-tapis.jpg | (c) mbrenner131, some rights reserved (CC BY-NC) | CC BY-NC |
 
 ## Avertissements
 
 - ch. 04, paginateur : encadré « En plus » sans trou où se poser : La baisse du rayonnement
+- ch. 04, paginateur : encadré « En plus » sans trou où se poser : L’estomac du caribou
+- ch. 04, paginateur : encadré « En plus » sans trou où se poser : Les rennes de Norvège après Tchornobyl
 - ch. 04, paginateur : encadré « En plus » sans trou où se poser : L’argile grise de l’ancienne mer
 
 ## À savoir avant de téléverser

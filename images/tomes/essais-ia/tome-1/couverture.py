@@ -409,8 +409,8 @@ def composer(v, m, img, pal, ppp):
         pres = np.nonzero(ecarte[int(0.15 * rh):])[0]
         if len(pres):
             lim = int(0.15 * rh) + int(pres[0]) - int(0.04 * ppp)
-            if lim < r_hi:
-                a_ = max(int(0.15 * rh), lim - int(0.05 * rh))
+            a_ = max(int(0.15 * rh), lim - int(0.05 * rh))
+            if a_ < lim < r_hi:          # une cime d'épinette tout en haut (tome 4) : la règle des colonnes s'en charge
                 r_hi = a_ + int(np.argmin(lignes[a_:lim]))
         r_lo = int(np.argmin(lignes[:int(0.03 * rh)]))
         colonnes = ch[r_lo:r_hi].max(axis=0)

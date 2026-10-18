@@ -14,4 +14,7 @@ Deux règles ajoutées au script pour les images des tomes 2 à 6 : le miroir du
 qui n'est plus du ciel (les épinettes du tome 4 montaient sur le dos), et avant la première ligne où les collines
 commencent (le sommet enneigé du tome 6 faisait des traînées claires sur la quatrième).
 
+Les textes des auteurs, au dos, sont réécrits le 18 octobre 2026 avec les règles d'écriture (JP : « refais nos textes
+avec nos règles d'écriture ») : liste `AUTEURS` de `design/directions/1-manuel-de-terrain/outils/build_couvertures_6.py`.
+
 Planche : `les-six-couvertures.png`. À refaire à chaque changement d'image de titre ou du nombre de pages d'un tome.
