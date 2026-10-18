@@ -407,24 +407,24 @@ def tranche_blurb(pages, couverture):
 # ------------------------------------------------------------------ pages hors chapitres (titre, sommaire, crédits)
 ANNEXE_CSS = """
 /* assembler-tome.py : page de titre, sommaire, crédits */
-.tp-aplat{position:absolute;inset:0;background:repeating-linear-gradient(135deg,var(--tx) 0 1.1px,transparent 1.1px 5px),var(--tf)}
-.tp .block{justify-content:flex-start}
-.tp-head{position:relative;display:flex;justify-content:space-between;align-items:flex-end;padding-bottom:6pt;border-bottom:3pt solid var(--tfi);
-  color:var(--tfi);font:700 12pt/1 var(--sans);letter-spacing:.16em;text-transform:uppercase}
-.tp-head span:last-child{font-weight:600;font-size:10pt;letter-spacing:.14em}
-.tp-title{position:relative;margin:0.32in 0 0;width:4.3in;color:var(--tfi);font:700 58pt/1.02 var(--sans);text-transform:uppercase;letter-spacing:.005em;hyphens:manual}
-.tp-num{position:absolute;right:-0.05in;top:0.95in;color:var(--tfn);font:700 250pt/0.72 var(--sans);letter-spacing:-.03em}
-.tp-chap{position:absolute;left:0;right:0;top:3.7in;display:flex;justify-content:space-between;align-items:baseline;
-  padding-top:7pt;border-top:0.75pt solid var(--tfi);color:var(--tfi);font:600 10pt/1.2 var(--sans);letter-spacing:.06em;text-transform:uppercase}
-.tp-chap b{font-weight:700}
-/* la frise du tome (point 30) : posée sur la page, au bas, à fond perdu d'un bord à l'autre */
-.tp-frise{position:absolute;left:0;right:0;bottom:0;width:100%;height:auto;display:block}
-.tp-serie{position:absolute;left:0;right:0;top:4.1in;display:flex;gap:4pt}
-.tp-serie div{display:flex;flex-direction:column;gap:4pt;min-width:0}
-.tp-serie i{display:block;height:0.26in;border:1.1pt solid var(--tfi);color:var(--tfi);font:700 11pt/0.24in var(--sans);font-style:normal;padding-left:5pt}
-.tp-serie div.on i{background:var(--tfn);border-color:var(--tfn);color:#fff}
-.tp-serie small{font:600 7pt/1.2 var(--sans);letter-spacing:.03em;text-transform:uppercase;color:var(--tfi);overflow-wrap:normal;hyphens:none}
-.tp-serie div.on small{font-weight:700}
+/* page de titre : l'affiche du Nord, la nuit d'hiver (JP, 18 octobre 2026, plan de match point 30). La scène
+   (images/tomes/titre-tome-N.svg) est en px de la page rognée, 768 × 960 (8 × 10 po) ; ce qui dépasse à droite et
+   en bas tombe dans le fond perdu. Le texte se pose sur le même repère. */
+.page.tp{background:#15222B}
+.tp-sc{position:absolute;left:0;top:0.125in;width:768px;height:960px;font-family:"Barlow Condensed",var(--sans)}
+.tp-sc>svg{position:absolute;left:0;top:0;overflow:visible}
+.tp-head{position:absolute;left:56px;right:56px;top:52px;display:flex;justify-content:space-between;padding-bottom:12px;
+  border-bottom:1px solid #4A6476;color:#E2E7EA;font-weight:600;font-size:16px;letter-spacing:.24em;text-transform:uppercase}
+.tp-haut{position:absolute;left:50px;right:56px;top:104px;display:flex;flex-direction:column;color:#E2E7EA}
+.tp-title{margin:0;font-weight:800;font-size:var(--tpt,236px);line-height:.84;letter-spacing:.01em;text-transform:uppercase;hyphens:manual}
+.tp-sous{margin:26px 0 0 8px;max-width:380px;text-indent:0;font-weight:500;font-size:23px;line-height:1.28;letter-spacing:.01em;color:#B9C7D1}
+.tp-bas{position:absolute;left:176px;right:176px;bottom:40px;display:flex;flex-direction:column;gap:12px;color:#15222B}
+.tp-chap{display:flex;justify-content:space-between;font-weight:700;font-size:14px;letter-spacing:.16em;text-transform:uppercase}
+.tp-serie{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:6px;font-weight:600;font-size:10.5px;line-height:1.15;
+  letter-spacing:.03em;text-transform:uppercase}
+.tp-serie div{display:flex;flex-direction:column;gap:4px}
+.tp-serie i{display:block;height:20px;border:1px solid #15222B;font-style:normal;font-size:13px;line-height:20px;padding-left:6px}
+.tp-serie div.on i{height:22px;border:0;background:#15222B;color:#fff;line-height:22px}
 
 .ax-top{display:flex;justify-content:space-between;padding-bottom:5pt;border-bottom:0.75pt solid var(--ta);
   font:600 8pt/1 var(--sans);letter-spacing:.12em;text-transform:uppercase}
@@ -500,9 +500,18 @@ ANNEXE_JS = r"""<script>
     for(const rp of [3, 2.5, 2, 1.5, 1]){ t.style.setProperty('--rp', rp + 'pt'); if(!over()) return; }
   };
   const faces = ['700 12pt "IBM Plex Sans Condensed"', '600 10pt "IBM Plex Sans Condensed"', '500 10pt "IBM Plex Sans Condensed"',
-                 '700 58pt "IBM Plex Sans Condensed"', '500 9pt "IBM Plex Serif"'];
+                 '500 9pt "IBM Plex Serif"', '800 60px "Barlow Condensed"', '600 16px "Barlow Condensed"', '500 23px "Barlow Condensed"'];
+  // page de titre : le nom du tome rapetisse tant qu'il dépasse la largeur de la page ou deux lignes
+  const titre = () => {
+    const h = document.querySelector('.tp-title'); if(!h) return;
+    const lh = px => px * 0.84;
+    for(let px = 236; px >= 60; px -= 4){
+      h.style.setProperty('--tpt', px + 'px');
+      if(h.scrollWidth <= h.clientWidth + 0.5 && h.getBoundingClientRect().height <= 2 * lh(px) + 1) return;
+    }
+  };
   Promise.all(faces.map(f => document.fonts.load(f))).then(() => document.fonts.ready).then(() => {
-    fit(); document.documentElement.dataset.ready = '1';
+    fit(); titre(); document.documentElement.dataset.ready = '1';
   });
   const h = location.hash;
   if(h.startsWith('#page=')){
@@ -529,30 +538,37 @@ def tete_html(titre_doc):
     head_tpl = open(os.path.join(os.path.dirname(bc.__file__), "interieur.tpl.html"), encoding="utf-8").read()
     head = head_tpl[:head_tpl.index("</style>")]
     head = re.sub(r"<title>.*?</title>", f"<title>{e(titre_doc)}</title>", head)
+    # la page de titre est en Barlow Condensed (direction B, 18 octobre 2026)
+    head = head.replace("<style>", '<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&display=block" rel="stylesheet">\n<style>', 1)
     css = (open(os.path.join(os.path.dirname(bc.__file__), "chapitre.css"), encoding="utf-8").read()
            + open(os.path.join(VAR_TOOLS, "couleur.css"), encoding="utf-8").read()
            + "\n" + v.icon_vars() + "\n" + FCONT_CSS + ANNEXE_CSS)
     return head + css + "</style>\n</head>\n"
+
+# ce que le tome couvre, sous son nom sur la page de titre (les tomes 2 à 6 viendront avec leur scène)
+SOUS_TITRES = {1: "Rester ou partir, la panne, les retombées, le feu de forêt, l'eau, le froid, se déplacer, les voisins."}
 
 def annexe_html(tome, chaps, plan, work):
     """Page de titre et sommaire du tome (les seules pages du livre hors chapitres)."""
     titre_t, fond, encre = bc.TOMES[tome]
     pages = []
     cote = lambda n: "recto" if n % 2 else "verso"
-    # --- page de titre (page 1, recto)
-    comptes = {t: len(chapitres_du_tome(t)) for t in bc.TOMES}
-    serie = "".join(f'<div class="{"on" if t == tome else ""}" style="flex:{comptes[t]}"><i>{t}</i><small>{e(bc.TOMES[t][0])}</small></div>'
+    # --- page de titre (recto) : l'affiche du Nord, la nuit d'hiver (JP, 18 octobre 2026). La scène est propre au
+    #     tome (images/tomes/titre-tome-N.svg) ; un tome qui n'a pas encore la sienne prend celle du tome 1
+    serie = "".join(f'<div class="{"on" if t == tome else ""}"><i>{t}</i><span>{e(bc.TOMES[t][0])}</span></div>'
                     for t in sorted(bc.TOMES))
     premier, dernier = chaps[0]["num"], chaps[-1]["num"]
     nb = len(chaps)
-    # la frise du tome (JP, 16 octobre 2026, plan de match point 30) : présente, sans prendre la page
-    f_svg = os.path.join(ROOT, "images", "tomes", f"tome-{tome}.svg")
-    frise = f'<img class="tp-frise" src="{url(f_svg)}" alt="">' if os.path.exists(f_svg) else ""
-    pages.append(f'''<section class="page recto tp" id="a-titre"><div class="tp-aplat"></div>
-<div class="block"><div class="tp-head"><span>Le Grand Livre du Chalet</span><span>Tome {tome}</span></div>
-<h1 class="tp-title">{e(titre_t)}</h1><div class="tp-num">{tome}</div>
-<div class="tp-chap"><span>Chapitres <b>{aff(premier)}</b> à <b>{aff(dernier)}</b></span><span>{nb} chapitres</span></div>
-<div class="tp-serie">{serie}</div></div>{frise}</section>''')
+    sc = os.path.join(ROOT, "images", "tomes", f"titre-tome-{tome}.svg")
+    if not os.path.exists(sc):
+        sc = os.path.join(ROOT, "images", "tomes", "titre-tome-1.svg")
+    scene = re.sub(r"<!--.*?-->\s*", "", open(sc, encoding="utf-8").read(), flags=re.S)
+    sous = SOUS_TITRES.get(tome, "")
+    pages.append(f'''<section class="page recto tp" id="a-titre"><div class="tp-sc">{scene}
+<div class="tp-head"><span>Le Grand Livre du Chalet</span><span>Tome {tome}</span></div>
+<div class="tp-haut"><h1 class="tp-title">{e(titre_t)}</h1>{f'<p class="tp-sous">{il(sous)}</p>' if sous else ""}</div>
+<div class="tp-bas"><div class="tp-chap"><span>{f"Chapitres {aff(premier)} à {aff(dernier)}" if nb > 1 else f"Chapitre {aff(premier)}"}</span><span>{nb} chapitre{"s" if nb > 1 else ""}</span></div>
+<div class="tp-serie">{serie}</div></div></div></section>''')
     # --- dédicace (recto, après la page de titre ; JP, 14 octobre 2026 : « la première page, comme dans les livres »)
     pages.append(f'''<section class="page recto ax dd" id="a-dedicace"><div class="block">
 <p class="dd-txt">{il(DEDICACE[0])}<br><span class="dd-2">{il(DEDICACE[1])}</span></p></div></section>''')
@@ -921,7 +937,7 @@ def polices(reader):
                 non.add(nom)
     return vues, non
 
-POLICES_DU_LIVRE = ("IBMPlex", "NotoSans", "NotoSerif")   # interieur.tpl.html : Plex, et ses voisins pour les
+POLICES_DU_LIVRE = ("IBMPlex", "NotoSans", "NotoSerif", "BarlowCondensed")   # interieur.tpl.html : Plex, et ses voisins pour les
                                                           # caractères qu'il n'a pas (28 septembre 2026)
 
 def glyphes_de_secours(reader, pages_planche):

@@ -320,7 +320,10 @@ tomes** : un peu plus de blanc en bas des pages qui précèdent une planche ; le
     orange) ; C, la table du tome (gros 1 coupé, la liste des 19 chapitres). Aucune image d'IA. Attend le choix de JP.
     JP choisit B (« celle du milieu, mais mieux faite, dans ce style-là ») : B refaite en deux ambiances sur le même
     canevas (la nuit d'hiver ; l'aube), épinettes à étages, crêtes, fleuve, neige au premier plan, chalet aux fenêtres
-    orange, la série des six tomes avec leurs noms complets. Attend le choix de l'ambiance.
+    orange, la série des six tomes avec leurs noms complets. JP choisit **la nuit d'hiver**. Posée dans l'assembleur
+    (`annexe_html`, scène `images/tomes/titre-tome-1.svg`, texte en Barlow Condensed, sous-titre dans `SOUS_TITRES`) ;
+    elle remplace l'ancienne page de titre et sa frise. Reste : une scène et un sous-titre pour chacun des tomes 2
+    à 6 (d'ici là, ils prennent la scène du tome 1).
 31. **Les dangers en pictogrammes ; la section Danger sort des chapitres** (JP, 18 octobre 2026). Un pictogramme
     par danger ; chaque danger est expliqué une fois, à fond, dans la section qui explique les symboles et les
     pictogrammes du livre ; dans un chapitre, le pictogramme s'affiche là où le danger est présent, et la section 7

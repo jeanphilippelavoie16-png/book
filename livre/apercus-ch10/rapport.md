@@ -1,6 +1,6 @@
 # Tome 1 · Tenir — rapport d'assemblage
 
-- **Produit le :** 2026-10-18 16:28, par `design/outils/assembler-tome.py 1 --chapitres 10 --hors-ligne --sortie livre/apercus-ch10`
+- **Produit le :** 2026-10-18 16:31, par `design/outils/assembler-tome.py 1 --chapitres 10 --hors-ligne --sortie livre/apercus-ch10`
 - **Fichier :** `livre/tome-1/interieur.pdf` — 40 pages, 8.6 Mo
 - **Ouvertures :** au recto ou au verso (--verso)
 - **Placements :** design/epreuves-livre/placements.json, design/epreuves-livre/placements-tome-1.json
@@ -30,14 +30,14 @@ Aucune page de crédits (JP, 28 septembre 2026) : copie hors du livre dans `livr
 | Rognage (TrimBox) | 8 × 10 po, fond perdu au bord extérieur | recto : reliure à gauche ; verso : à droite | oui |
 | Nombre de pages | pair, de 20 à 440 (papier Standard) | 40 | oui |
 | Page 1 | à droite | ouverture du chapitre 00 | oui |
-| Polices incorporées | toutes | 19 police(s), 0 non incorporée(s) | oui |
+| Polices incorporées | toutes | 25 police(s), 0 non incorporée(s) | oui |
 | Taille du fichier | 2 Go au plus | 8.6 Mo | oui |
 | Marques d'imprimeur | aucune | aucune | oui |
 | Couleur | CMJN ou sRVB, sans ton direct | sRVB (Edge) | oui |
 | Noir du texte | 100 % K | noir sRVB (0, 0, 0) : la conversion est faite chez Blurb | à juger sur épreuve |
 | PDF/X | plus exigé en 2026 (le guide de 2010 le demandait) | PDF 1.4 d'Edge, pas PDF/X | à surveiller au téléversement |
 
-Polices du fichier : IBMPlexSansCond-Bold, IBMPlexSansCond-Medium, IBMPlexSansCond-SemiBold, IBMPlexSansCond-SemiBoldItalic, IBMPlexSerif-Bold, IBMPlexSerif-Italic, IBMPlexSerif-Regular, IBMPlexSerif-SemiBold, IBMPlexSerif-SemiBoldItalic, LiberationSerif, LiberationSerif-Italic, Type 3 sans nom (texte des planches)
+Polices du fichier : BarlowCondensed-Bold, BarlowCondensed-ExtraBold, BarlowCondensed-Medium, BarlowCondensed-SemiBold, IBMPlexSansCond-Bold, IBMPlexSansCond-Medium, IBMPlexSansCond-SemiBold, IBMPlexSansCond-SemiBoldItalic, IBMPlexSerif-Bold, IBMPlexSerif-Italic, IBMPlexSerif-Regular, IBMPlexSerif-SemiBold, IBMPlexSerif-SemiBoldItalic, LiberationSerif, LiberationSerif-Italic, Type 3 sans nom (texte des planches)
 
 **Caractères tombés hors des polices du livre** (IBM Plex, et les Noto chargées pour ce que Plex n'a pas) : le navigateur les a pris dans une police de secours (incorporée, donc imprimable, mais d'un autre dessin que le texte) :
 

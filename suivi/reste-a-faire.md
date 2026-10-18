@@ -14,6 +14,9 @@ lancé sur un de ces chantiers reçoit `.claude/cadre-agents.md` au complet.
   (`h.formes.mainStock`, 100 mains, dont une trentaine qui tiennent un objet ; feuille des numéros
   `livre/apercus-palette/mains-stock-ids.png`).
 - **L'image du tome 1** : générée, choisie par JP, vectorisée, posée sur la page de titre.
+- **La page de titre** (point 30) : l'affiche du Nord, la nuit d'hiver, choisie par JP le 18 octobre et posée dans
+  l'assembleur. À faire : la scène et le sous-titre des tomes 2 à 6 (`images/tomes/titre-tome-N.svg`,
+  `SOUS_TITRES` dans `assembler-tome.py`).
 
 ## 0. Les dangers en pictogrammes (point 31)
 
