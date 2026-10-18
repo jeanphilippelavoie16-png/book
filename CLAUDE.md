@@ -370,12 +370,11 @@ correction notée seulement dans le plan de match sera refaite par le prochain a
 
 ## La chaîne
 
-Un chapitre passe par : **rédacteur → vérificateur technique + vérificateur sécurité
-→ éditeur → metteur en pages**. Les deux vérificateurs travaillent en parallèle, sur
-des sessions distinctes. Les prompts sont dans `roles.md`.
+Un chapitre passe par : **rédacteur → vérificateur technique → éditeur → metteur en pages**.
+Les prompts sont dans `roles.md`. **Plus jamais de vérificateur sécurité** (JP, 18 octobre 2026 : « j'en veux
+jamais ») : on ne le lance pas, et les rappels de sécurité du tableau restent la responsabilité du rédacteur.
 
-Un rôle ne fait que sa mission. Le vérificateur technique signale, il ne réécrit pas.
-Le vérificateur sécurité ne juge pas le style. Un rédacteur qui se relit lui-même
+Un rôle ne fait que sa mission. Le vérificateur technique signale, il ne réécrit pas. Un rédacteur qui se relit lui-même
 trouve ce qu'il a voulu écrire, pas ce qu'il a écrit.
 
 ## Pas de relecture extérieure

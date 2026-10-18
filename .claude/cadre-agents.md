@@ -104,6 +104,8 @@ Le cadre complet est `.claude/skills/planches/references/brief-agent.md`. En bre
 
 ## Le montage et la vérification (orchestrateur)
 
+- [ ] Aucun vérificateur sécurité : JP n'en veut jamais (18 octobre 2026).
+
 - [ ] Chaque planche tombe sur la page de son appel ou la suivante (pdftotext, page par page).
 - [ ] Aucun début de section coupé en bas de page ; aucune colonne à plus d'un quart de vide à cause d'une figure.
 - [ ] Le bandeau rouge de chaque planche, la flèche rouge de chaque appel.
