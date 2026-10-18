@@ -1043,3 +1043,7 @@ depuis un lac. Licences relues sur l'API de Wikimedia Commons au téléchargemen
 - Champignon atomique, forêt en feu : Game-icons.net (Lorc, Delapouite), CC BY 3.0, https://game-icons.net
 - Famille, feu de camp, pylône coupé, neige : Material Design Icons (Pictogrammers), Apache 2.0, https://pictogrammers.com
 - Maison en feu : Font Awesome 6 Free (Fonticons), CC BY 4.0, https://fontawesome.com
+
+## Bibliothèque de mains (images/bibliotheque-mains/adobe-116570613/)
+
+- Mains en silhouette, « hands » : Ewelina Kowalska, Adobe Stock 116570613, licence standard Adobe Stock (JP).
