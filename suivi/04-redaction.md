@@ -297,7 +297,8 @@ bout de quelques heures ; aucune source ne fait sortir dehors pendant les retomb
 ## Refonte au gabarit à sept sections, pictogrammes et encadrés En plus — 18 octobre 2026
 
 Chapitre test demandé par JP (le dernier avant le tome 1 au complet), refait sur le modèle des ch. 10 et 12. Texte
-d'avant : `git show 8807275~1:chapitres/04-retombees-radioactives.md` (version du 15 octobre, gabarit à neuf sections).
+d'avant : `git show 8f248a9:chapitres/04-retombees-radioactives.md` (version du 15 octobre, gabarit à neuf sections ;
+les commits 8807275 et suivants portent déjà la refonte en cours).
 Numéros de chapitre de cette section : les nouveaux. Fichier en LF (il l'était), gardé en LF.
 
 ### Ce qui a changé
@@ -416,6 +417,13 @@ vêtements, se laver) : c'est le même sujet, entrer propre. La radio sort de l'
 cadre de porte ouvre la série de l'iode, parce que le délai de l'iode se compte à partir d'elle. Plus de partie
 « le détail » : tout est dans l'orange.
 
+**Règle de JP du 18 octobre** (« les premières minutes doivent toujours être directement après les [logigrammes]
+associés ») : vérifiée. Le logigramme est ancré sur la dernière ligne du Matériel ; `## 4. Procédure` s'ouvre sur les
+trois séries orange, étapes 1 à 16, sans paragraphe entre le titre de section et la première série ; aucune série
+orange ailleurs (ni dans la variante d'urgence, ni plus loin dans la procédure). Les renvois du logigramme visent
+ces mêmes étapes, ses trois pastilles (30 s, 10 min, 2 h) sont celles des intertitres orange. Au montage d'essai :
+logigramme p. 2-3 du chapitre, série orange p. 4 à 7.
+
 ### Le logigramme
 
 `images/logigrammes/04-retombees.json`, rendus refaits : `04-retombees.svg`, `.pdf`, `.png`, et
@@ -457,12 +465,14 @@ remarque « butcher » : le boudin seul, sans mains), le texte ne l'appelait pas
 la fin de la procédure. À trancher par JP si elle reste à valider.
 
 **Montage d'essai** (`assembler-tome.py 1 --chapitres 04 --hors-ligne --sortie` dans le scratchpad, rien d'écrit dans
-`livre/`) : 22 pages. Chaque appel tombe sur sa propre page et sa planche sur la page suivante : 04-01a (appel p. 13,
-planche p. 14 du chapitre), 04-41 (15, 16), 04-01b (17, 18), 04-42 (19, 20), 04-40 (21, 22). Pour y arriver, les
+`livre/`), refait après le resserrement des encadrés et le moteur de ddbbb8d : 21 pages (ouverture à droite), 0
+avertissement. Chaque appel tombe sur sa propre page et sa planche sur la page suivante : 04-01a (appel p. 12,
+planche p. 13 du chapitre), 04-41 (14, 15), 04-01b (16, 17), 04-42 (18, 19), 04-40 (20, 21). Pour y arriver, les
 sous-sections de la section 7 sont dans cet ordre : sans iode, la masse, la radio, l'électroscope, ventiler, sans
 ruban, sans eau chaude, sans eau fermée, sans sel, sans viande, l'entrée en chicane, ce qui ne se remplace pas. Le
-logigramme tombe en p. 3-4, la photo du lichen p. 10, les deux encadrés En plus p. 2 (la page à moitié vide devant le
-logigramme). **Pour le metteur en pages** : les tableaux des sections 5 et 6 débordent de deux ou trois lignes sur la
+logigramme tombe en double page p. 2-3, la série orange p. 4 à 7, la photo du lichen p. 9. Les encadrés En plus : les
+rennes au bas de la p. 5, sous l'étape 10 (dans la série orange : au metteur en pages de juger si un encadré « savoir »
+peut s'y poser), l'argile au bas de la p. 20, sous « Ce qui ne se remplace pas ». Aucune page ne porte que des encadrés. **Pour le metteur en pages** : les tableaux des sections 5 et 6 débordent de deux ou trois lignes sur la
 page suivante (« Le tableau continue page suivante ») : à resserrer au montage, après la vérification et l'édition.
 
 **Pour l'agent des planches (rien redessiné)** :
@@ -541,13 +551,20 @@ Quatre dans le texte :
 
 ### Les encadrés « En plus »
 
-1. **Les rennes de Norvège après Tchornobyl** (150 mots ; la façon d'une nation du Nord, les Sami) : abattre au début
-   de l'automne plutôt qu'en hiver, avec la mesure des bêtes vivantes ; quelques semaines en enclos, fourrage propre ;
-   pourquoi ça marche (le lichen d'hiver) ; pourquoi les Sami ont résisté ; ce qui la rend dangereuse (l'année à
-   champignons). Sources : `04-nrpa-skuterud-rennes-apres-tchornobyl.md`. Aucune pratique innue sur les retombées
+Resserrés à **30 à 80 mots** (règle du cadre et du gabarit, ddbbb8d, JP : « moins de texte ») : d'abord 150 et 123 mots,
+maintenant 78 et 78 (sans compter les deux-points).
+
+1. **Les rennes de Norvège après Tchornobyl** (78 mots ; la façon d'une nation du Nord, les Sami) : la viande d'hiver
+   plus chargée que celle de l'automne les premières années, parce que le renne mange du lichen l'hiver (pourquoi ça
+   marche) ; abattre au début de l'automne, ou quelques semaines en enclos au fourrage propre ; ce qui la rend
+   dangereuse (l'année à champignons). Sortis au resserrement : la mesure des bêtes vivantes, la résistance des Sami
+   (le lien de la femelle et du petit), « du centre de la Norvège ». Sources : `04-nrpa-skuterud-rennes-apres-tchornobyl.md`. Aucune pratique innue sur les retombées
    n'est documentée au dossier (`sources/autochtones/`).
-2. **L'argile grise de l'ancienne mer** (123 mots ; un petit dessin) : la mer de Goldthwait, l'argile grise sous la
-   tourbe et le sable, plus de 30 m, les coquillages, où la prendre sans faire glisser le talus. Source :
+2. **L'argile grise de l'ancienne mer** (78 mots ; un petit dessin) : la mer de Goldthwait jusqu'à plus de 120 m
+   au-dessus du niveau actuel, l'argile grise sous la tourbe et le sable, les coquillages de mer loin du rivage comme
+   repère, où la prendre sans faire glisser le talus. Sortis au resserrement : « plus de 30 m » d'épaisseur, « l'un des
+   dépôts les plus répandus », « plusieurs glissements pendant qu'on y creusait », et « les berges des rivières et les
+   coupes de chemin » (la section 7, « Trouver l'argile », le dit déjà). Source :
    `04-mrn-1975-dp304-argile-goldthwait.md` (MRN, 1975). **Pas de photo** : l'API de Wikimedia Commons a répondu 429
    (trop de requêtes) toute la journée, et iNaturalist n'a rien sur une couche d'argile.
 
@@ -581,8 +598,8 @@ plantée.
 
 - **Avant** (texte du 15 octobre) : 6 567 mots, 2 tirets (titre et ligne de tome), 18 « § », 1 tournure (« d'où »),
   34 mots vides, 1 redite.
-- **Après** : 8 469 mots, 2 tirets (titre et ligne de tome, comme aux ch. 10 et 12), 0 « § », 0 mot banni, 0 tournure,
-  0 mise en relief, 0 maxime, 43 mots vides jugés (« tout de suite », « tout le monde », « toute la hauteur », « encore
+- **Après** (refait après le resserrement des encadrés) : 8 342 mots, 2 tirets (titre et ligne de tome, comme aux ch. 10 et 12), 0 « § », 0 mot banni, 0 tournure,
+  0 mise en relief, 0 maxime, 42 mots vides jugés (« tout de suite », « tout le monde », « toute la hauteur », « encore
   chaud », « porte encore la trichine », « déjà » dans « le sens où il circule déjà » : ils portent le sens),
   13 redites jugées (renvois, ou deux faits différents : « bâtiment de béton ou de brique » aux étapes 4 et 6, « laver
   les mains et le visage » à trois gestes différents, « 2,5 cm de terre » pour la décantation et le filtre), 0 ancre
@@ -590,7 +607,8 @@ plantée.
 - **Invariants signalés et justifiés** : 20 L, 20 kg, 200 mm (retirés, sans source) ; « 3 semaines » (devient « une à
   deux semaines », ORNL) ; 3 °C et botulisme (le rappel du poisson fumé sort) ; « iode 131 », « césium 137 » (dits
   « iode radioactif », « césium radioactif ») ; 250 (page `co`) ; 2012 (Gentilly-2) ; ch. 77 (botulisme) ; ch. 14,
-  ch. 19, ch. 79, ch. 93 (une mention chacun au lieu de deux) ; 74 °C, mal de caribou et génératrice (une fois chacun
+  ch. 19, ch. 79, ch. 93 (une mention chacun au lieu de deux) ; « 100 % » (les colonnes du tableau des points de
+contrôle disent « toutes les couches », « toutes les sorties ») ; 74 °C, mal de caribou et génératrice (une fois chacun
   dans leur étape, plus le rappel de l'ancien Danger qui sort) ; 130 mg, 24 h, 48 heures (une mention de moins chacun).
 - La hausse du nombre de mots vient de l'orange au complet (la solution d'iode, les contre-indications), des étapes
   découpées en sous-étapes qui suivent les repères des planches, de l'éventail de carton, de la décantation et du
