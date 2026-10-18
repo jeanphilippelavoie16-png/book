@@ -4,6 +4,12 @@
 au pied du bâtiment de gauche, la rangée de fausse écriture devient une rangée de pierres taillées à la main.
 Résultat : `images/tomes/titre-tome-5.jpg`.
 
+Puis le ciel (JP : « tome 5, retravaille le ciel », puis « 2, nuages ») : `ciel_ete.py VARIANTE` le regrave au-dessus
+de la crête de la colline, relevée à la main. Trois variantes sur `tome-5-ciels.png` (calme, nuages, rayons) ; JP
+prend **nuages** : le ciel uni, deux bandes plus chaudes au ras des collines, cinq bancs de nuages orange effilés de
+part et d'autre du soleil, chacun avec deux entailles de gouge, et le soleil en aplat au bord coupé à la main. Chaîne :
+`retouche_ete.py t5e-jug50-1-x4.png` puis `ciel_ete.py … nuages`.
+
 JP, sur la candidate 4 retouchée : « tome 5, faut que ça soit l'été ». Les taches blanches (le sentier, les buttes des
 rangs, le bas) se lisaient comme de la neige. Image de départ `t5-depart-ete.png` : la 4 retouchée (`../retouche_jardin.py`),
 le sentier et les grandes plaques en terre brune avec de l'herbe sur les bords, les buttes en plants. Puis AI Horde en

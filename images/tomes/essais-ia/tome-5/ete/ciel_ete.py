@@ -57,7 +57,8 @@ if var == 'nuages':
         for j in range(2):                                     # deux entailles dans le nuage, comme à la gouge
             a_, b_ = sorted(R.sample(range(8, 52), 2))
             if b_ - a_ < 10: b_ = min(56, a_ + 14)
-            trait(d, [(px, py + R.uniform(-1.2, 1.2) * e * 0.18) for px, py in pts[a_:b_]], 0, 0, CHAUD1, wmax=e * 0.22)
+            dy = R.uniform(-1, 1) * e * 0.16                   # un décalage pour toute l'entaille : un trait lisse
+            trait(d, [(px, py + dy) for px, py in pts[a_:b_]], 0, 0, CHAUD1, wmax=e * 0.22)
 elif var == 'rayons':
     for i in range(18):
         a = math.radians(180 + i * 10 + R.uniform(-2, 2))
