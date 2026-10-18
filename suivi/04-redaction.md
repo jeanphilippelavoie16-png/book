@@ -642,3 +642,7 @@ plantée.
 - La hausse du nombre de mots vient de l'orange au complet (la solution d'iode, les contre-indications), des étapes
   découpées en sous-étapes qui suivent les repères des planches, de l'éventail de carton, de la décantation et du filtre
   de terre, et des quatre encadrés En plus (310 mots).
+
+**18 octobre 2026 : JP valide la planche 04-42** (« filtre de terre, oui ») ; elle passe dans `images/validees/`. Les deux
+écarts notés plus haut (le linge du fond qui dépasse d'environ 8 cm, les trous près du centre) restent à reprendre
+à la prochaine passe des planches, sans bloquer.
