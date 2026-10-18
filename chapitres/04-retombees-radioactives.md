@@ -34,7 +34,7 @@ Se mettre à couvert à l'éclair, entrer sous terre ou dans le béton avant que
 - **Radio à piles ou à manivelle** : la seule façon d'apprendre où va le panache et quand l'abri finit (sans radio : section 7).
 - **Eau dans des contenants fermés** : 4 L par personne et par jour, tirés avant le passage des retombées (étape 22).
 - **Avertisseur de CO à pile, à affichage** : le seul moyen de savoir que la pièce d'abri fermée se remplit de monoxyde (étape 18).
-- **Dosimètre ou compteur Geiger** : le seul appareil qui dit si le gibier, le poisson et le lichen sont chargés (sans compteur : section 7).
+- **Compteur Geiger ou dosimètre à affichage** : mesure le rayonnement dans la pièce et dehors, et montre quand il a assez baissé pour sortir (sans compteur : section 7).
 
 ---
 
@@ -68,8 +68,10 @@ Se mettre à couvert à l'éclair, entrer sous terre ou dans le béton avant que
  souterrain.
  - À défaut, entrer dans le bâtiment le plus proche : une maison de bois sans sous-sol ne divise la dose que par 2
  ou 3, mais on y est mieux que dehors (étape 9).
- - Si les retombées se mettent à tomber, entrer tout de suite dans le bâtiment le plus proche. Elles se voient : du
- sable fin, une poussière comme du sel de table, de la cendre, ou une pluie.
+ - Si les retombées se mettent à tomber, entrer tout de suite dans le bâtiment le plus proche. Après une explosion
+ au sol, elles se voient : du sable fin, une poussière comme du sel de table, de la cendre, ou une pluie. Les
+ retombées d'une explosion en altitude et le panache d'une centrale ne se voient pas : entrer dès l'éclair ou
+ l'alerte, sans attendre de voir quelque chose tomber.
  - Dehors, se couvrir le nez et la bouche d'un linge.
 5. **Enlever ses vêtements du dessus et ses chaussures avant d'entrer, ou juste passé la porte**, lentement, sans
  les secouer et sans se toucher le visage. Ça enlève jusqu'à 90 % de la poussière radioactive qui s'est posée sur
@@ -81,16 +83,17 @@ Se mettre à couvert à l'éclair, entrer sous terre ou dans le béton avant que
  qui sont à portée, sans aller les chercher loin.
 7. **Fermer les portes et les fenêtres, et arrêter ce qui fait entrer l'air du dehors** : l'échangeur d'air, la
  fournaise à air pulsé, le climatiseur et les ventilateurs. Fermer la clé des foyers qui ne servent pas. L'hiver,
- on peut garder allumé le poêle à bois qui chauffe la maison : il prend son air dans la maison et le renvoie
- dehors par son tuyau (étape 18).
+ on peut garder allumé le poêle à bois qui chauffe la maison. Il envoie l'air de la maison dehors par son tuyau,
+ et le même volume d'air du dehors entre par les fentes, assez lentement pour n'apporter presque pas de poussière
+ (étape 18).
 8. **Descendre au sous-sol et se mettre contre un mur enterré**, loin des fenêtres du sous-sol. Le sous-sol divise
  la dose par 10 à 20 : la terre derrière le mur et l'étage au-dessus arrêtent le rayonnement de la poussière posée
  dehors. À la maison, c'est le sous-sol ; au chalet, le caveau (ch. 79). Sans sous-sol ni caveau, aller dans la
  pièce du centre, loin du toit et des murs extérieurs, et empiler autour de soi ce qui est lourd (section 7,
  « Sans sous-sol ni caveau »). L'abri n'a pas besoin d'être étanche, et des fenêtres cassées n'enlèvent presque
  rien à la protection : on reste.
-9. **Dans une maison de bois sans sous-sol, changer d'abri si un meilleur est à moins de 15 minutes**, et y être
- rendu au plus tard 30 minutes après l'éclair : un sous-sol, ou un gros bâtiment de béton ou de brique. En
+9. **Dans une maison de bois sans sous-sol, changer d'abri si un meilleur est à moins de 15 minutes**, et partir
+ au plus tard 30 minutes après l'éclair : un sous-sol, ou un gros bâtiment de béton ou de brique. En
  arrivant, enlever ses vêtements du dessus et ses chaussures comme à l'étape 5. S'il n'y a pas de meilleur abri à
  moins de 15 minutes, rester et empiler la masse (section 7).
 10. **Se laver, une fois à l'intérieur.**
@@ -107,15 +110,18 @@ Se mettre à couvert à l'éclair, entrer sous terre ou dans le béton avant que
 
 ### Il faut protéger la thyroïde {.orange 2 h}
 
-11. **Écrire au crayon l'heure de l'éclair ou de l'alerte sur le cadre de la porte de l'abri.** Le délai de l'iode
- et les 24 heures d'abri se comptent à partir de cette heure-là.
+11. **Écrire au crayon l'heure de l'éclair ou de l'alerte sur le cadre de la porte de l'abri, et dessous, l'heure où
+ les retombées ont commencé à tomber ou celle que la radio donne pour l'arrivée du panache.** On compte les
+ 24 heures d'abri à partir de l'éclair, et le délai de l'iode à partir de l'arrivée des retombées ou du panache
+ (étape 14).
 12. {!poison} **Donner l'iode seulement contre de l'iode radioactif, et seulement en comprimés d'iodure de
  potassium.** Une détonation et le panache d'une centrale nucléaire en apportent. La thyroïde ne fait pas la
  différence entre l'iode ordinaire et l'iode radioactif : le comprimé la remplit d'iode ordinaire, et elle ne prend
  presque plus l'iode radioactif. Il ne protège que la thyroïde, contre l'iode seulement, pendant environ
  24 heures : il ne fait rien contre le césium, le strontium ni le rayonnement de la poussière, et il ne soigne pas
  l'irradiation. Aucun autre iode ne le remplace. La teinture d'iode, la povidone iodée (Bétadine) et les comprimés
- d'iode pour désinfecter l'eau sont des poisons quand on les avale, et ils ne protègent pas la thyroïde ; étendus
+ d'iode pour désinfecter l'eau sont des poisons quand on les avale (on peut boire l'eau qu'ils ont désinfectée :
+ ch. 10, étape 23), et ils ne protègent pas la thyroïde ; étendus
  sur la peau, ils protègent moins que le comprimé et peuvent faire du mal. Le sel iodé et les suppléments d'iode en
  contiennent beaucoup trop peu, et en avaler beaucoup rend malade. Sans comprimés : section 7.
 13. **Donner à chacun la dose de son âge, en commençant par les enfants.**
@@ -143,9 +149,9 @@ Se mettre à couvert à l'éclair, entrer sous terre ou dans le béton avant que
  rattraper un oubli : une dose plus forte ou plus fréquente ne protège pas mieux, et elle peut rendre gravement
  malade.
 15. **Pour un bébé ou un jeune enfant qui n'avale pas un comprimé, faire la solution.**
- - Mettre deux comprimés de 65 mg dans un petit bol, ajouter 20 mL d'eau (4 cuillères à thé) et les laisser
- tremper 1 minute.
- - Les écraser avec le dos d'une cuillère jusqu'à ce qu'il ne reste plus de gros morceaux.
+ - Mettre deux comprimés de 65 mg, ou un comprimé de 130 mg, dans un petit bol, ajouter 20 mL d'eau (4 cuillères
+ à thé) et laisser tremper 1 minute.
+ - Écraser avec le dos d'une cuillère jusqu'à ce qu'il ne reste plus de gros morceaux.
  - Ajouter 20 mL (4 cuillères à thé) de lait, de lait maternisé, de jus d'orange ou d'eau, et mélanger : le
  comprimé a très mauvais goût, et la boisson le cache.
  - Donner 5 mL (1 cuillère à thé) de la naissance à 1 mois, 10 mL de 1 mois à 3 ans, et 20 mL de 4 à 12 ans.
@@ -190,7 +196,8 @@ Se mettre à couvert à l'éclair, entrer sous terre ou dans le béton avant que
  linge dans le sac du dehors. Ne pas manger ce qui était dehors à découvert.
 22. **Boire l'eau tirée avant le passage des retombées.** À la maison, l'aqueduc coule peut-être encore, mais on ne
  sait pas si sa source a reçu de la poussière radioactive : boire la réserve. Au chalet, un puits tubé et fermé est
- protégé ; un lac, un ruisseau, un baril de pluie et la neige tombée pendant ou après le passage ne le sont pas.
+ protégé ; un lac, un ruisseau, un baril de pluie, la neige qui était au sol quand les retombées sont tombées et
+ la neige tombée pendant le passage ne le sont pas.
  Sans réserve, décanter l'eau de surface à l'argile et la passer au filtre de terre (section 7), puis la
  désinfecter (ch. 10).
 23. **Ne pas boire de lait frais d'une vache ou d'une chèvre qui a brouté dehors ou mangé du foin exposé.** Après
@@ -202,15 +209,16 @@ Se mettre à couvert à l'éclair, entrer sous terre ou dans le béton avant que
 24. **Rester à l'abri 24 heures, sauf en cas de feu, de fuite de gaz, d'effondrement ou de blessure grave.** Environ
  80 % de la dose qu'on recevrait dehors arrive le premier jour. Rester jusqu'à 48 heures si la radio n'annonce pas
  que le rayonnement baisse dans le secteur, ou si l'électroscope (section 7) ne montre pas la baisse.
-25. **En quittant l'abri, remplacer les filtres de la fournaise et de l'échangeur d'air.** Les filtres qui ont tourné
- pendant le passage ont retenu de la poussière radioactive : les mettre dans un sac fermé et les porter loin du
- bâtiment. Sans filtre de rechange, faire tourner la fournaise sans filtre plutôt qu'avec l'ancien. Ensuite, sortir
+25. **En quittant l'abri, remplacer les filtres de la fournaise et de l'échangeur d'air.** Les filtres ont pu
+ retenir de la poussière radioactive : les mettre dans un sac fermé et les porter loin du bâtiment. Ensuite, sortir
  peu de temps à la fois : laisser ses bottes et ses vêtements de dehors à l'entrée, et se laver les mains et le
  visage en rentrant (ch. 31). Laver les planchers à l'eau au lieu de les balayer : le balai soulève la poussière. À
  la maison, l'eau de lavage part à l'égout ; au chalet, la jeter loin du puits et du jardin.
 26. **Traiter la première pluie et la première neige comme de la poussière radioactive qui se déplace.** La pluie
- entraîne la poussière du toit et du terrain vers les gouttières, les fossés et les creux où l'eau s'accumule
- [À VÉRIFIER] : ne pas y jardiner, et ne pas y laisser jouer les enfants.
+ entraîne la poussière du toit et du terrain vers les gouttières et le bas des descentes de gouttière, l'endroit où
+ l'eau tombe du toit, les fossés, les flaques et les creux, et le pied des arbres : ne pas y jardiner, et ne pas y
+ laisser jouer les enfants. Le ruisseau qui coule boueux après les premières grosses pluies est le plus chargé : ne
+ pas y puiser.
 27. **Jeter les légumes-feuilles du jardin qui étaient dehors au passage des retombées ; laver et peler les légumes
  qui se pèlent.** Juste après le passage, la poussière est en surface, et une partie part au lavage. Les
  légumes-racines, qui étaient sous terre, sont moins exposés (ch. 95).
@@ -225,21 +233,23 @@ Se mettre à couvert à l'éclair, entrer sous terre ou dans le béton avant que
  ramilles toute l'année, et des feuilles et des plantes aquatiques l'été. Le poisson des lacs pauvres, comme les
  lacs de tête, peut prendre beaucoup de césium. Ne pas manger une bête qui a l'air malade : elle a pu recevoir une
  forte dose, et une infection a pu suivre, dont les toxines restent dans la viande même bien cuite.
-30. {!abats} {!mal-de-caribou} **Sur la carcasse, prendre la viande et le gras, et laisser les os, le foie, les
- reins et la thyroïde.** Le césium se répartit dans toute la viande, comme le potassium ; le strontium s'accumule
- dans les os, comme le calcium. Dans un territoire qui a reçu des retombées : pas de bouillon d'os long, pas d'os
- broyé dans la viande hachée (ch. 72). Le foie, les reins et la thyroïde d'une bête qui a mangé ou bu de la
- poussière radioactive en concentrent ; on ne mange de toute façon jamais le foie ni les reins d'un cervidé, qui
- accumulent le cadmium (ch. 22). Garder le gras : la viande maigre presque seule mène au mal de caribou, qui tue en
- quelques semaines (ch. 19).
+30. {!abats} {!mal-de-caribou} **Sur la carcasse, prendre la viande et le gras, et laisser les os, le foie, les reins
+ et la thyroïde.** Le césium se répartit dans toute la viande, comme le potassium ; le strontium s'accumule dans les
+ os, comme le calcium, et il y reste à la cuisson : ne pas mettre d'os broyé dans la viande hachée. Le bouillon d'os
+ (ch. 72) prend le césium des os et de la viande : le jeter, comme à l'étape 32. Le foie, les reins et la thyroïde
+ d'une bête qui a mangé ou bu de la poussière radioactive en concentrent ; on ne mange de toute façon jamais le foie
+ ni les reins d'un cervidé, qui accumulent le cadmium (ch. 22). Garder le gras : la viande maigre presque seule mène
+ au mal de caribou, qui tue en quelques semaines (ch. 19).
 31. {!zone-de-danger} **Faire tremper la viande avant de la cuire, au froid.**
  - Couper la viande en morceaux d'environ 200 g, et les faire tremper 2 jours dans une saumure ou dans l'eau : il
  reste moins de la moitié du césium. Deux trempages de 2 jours, en changeant le bain, en laissent environ 20 % ;
  trois, environ 10 %.
- - Couper le poisson en morceaux de 70 à 290 g, et les faire tremper 4 heures dans une saumure à 50 g de sel par
- litre d'eau, puis dans l'eau claire, ou 8 heures à l'eau courante : il en part environ la moitié.
- - Tenir le bain entre 0 et 4 °C, comme une saumure de salaison (ch. 69) : dans un bain plus chaud, les bactéries
- se multiplient pendant les deux jours de trempage.
+ - {!botulisme} Couper le poisson en morceaux de 70 à 290 g, et les faire tremper 4 heures dans une saumure à 50 g
+ de sel par litre d'eau, puis dans l'eau claire, ou 8 heures à l'eau courante : il en part environ la moitié. Tenir
+ le bain du poisson sous 3 °C, en y mettant de la glace ou de la neige, et ne le faire tremper à l'eau courante que
+ si elle est aussi froide.
+ - Tenir le bain de la viande entre 0 et 4 °C, comme une saumure de salaison (ch. 69) : dans un bain plus chaud, les
+ bactéries se multiplient pendant les deux jours de trempage.
  - Compter le sel de ce bain en grammes par litre d'eau, pas en pourcentage du poids de la viande comme dans les
  salaisons (ch. 67, ch. 69) : 50 g par litre, quelle que soit la quantité de viande. Prendre du sel ordinaire.
 32. {!cuisson} {!trichine} **Cuire à l'eau, jeter le bouillon, et monter à cœur à 74 °C pour le gibier, à 70 °C tenu 1
@@ -268,14 +278,14 @@ Se mettre à couvert à l'éclair, entrer sous terre ou dans le béton avant que
 | Secondes 0 à 30, après un éclair | Tout le monde couché à couvert, loin des vitres | Personne debout près d'une fenêtre | Se coucher là où on est |
 | Minutes 0 à 10 | Tout le monde et les animaux à portée dans un bâtiment, vêtements du dessus laissés à la porte | Toutes les têtes comptées | Une personne abritée ailleurs y reste : écrire où elle est |
 | Minute 10 | L'air du dehors coupé | Aucun appareil qui fait entrer l'air du dehors | Le couper au disjoncteur |
-| Minute 30, maison de bois sans sous-sol | Arrivé dans un meilleur abri, s'il y en a un à moins de 15 minutes (étape 9) | Avant la 30e minute après l'éclair | Rester et empiler la masse (section 7) |
+| Minute 30, maison de bois sans sous-sol | Parti vers un meilleur abri, s'il y en a un à moins de 15 minutes (étape 9) | Avant la 30e minute après l'éclair | Rester et empiler la masse (section 7) |
 | Heure 2 après l'arrivée du panache ou des retombées | Iode donné à chacun (étapes 13 à 16) | La dose du tableau de l'étape 13 | Jusqu'à 8 h, la donner quand même ; passé 24 h, ne plus la donner |
 | Quelques heures après le bouchage | Plastique et ruban enlevés, pièce aérée (étape 18) | Quelques heures au plus | Aérer tout de suite |
 | Avant chaque sommeil et à chaque réveil | Avertisseur de CO de la pièce d'abri | 0 ppm affiché, aucune alarme | Faire l'étape 18 tout de suite |
 | Toutes les 24 heures | Iode redonné tant que le risque dure | Une dose par 24 h au plus, sauf dose unique (étape 16) | Ne pas doubler pour rattraper un oubli |
-| Heure 24 | Fin de l'abri | 24 h depuis l'heure écrite sur le cadre de porte | Prolonger jusqu'à 48 h (étape 24) |
+| Heure 24 | Fin de l'abri | 24 h depuis l'heure de l'éclair écrite sur le cadre de porte | Prolonger jusqu'à 48 h (étape 24) |
 | Chaque sortie, ensuite | Bottes et vêtements de dehors laissés à l'entrée, mains et visage lavés | Toutes les sorties | Reprendre la routine avec les enfants (ch. 39, ch. 40) |
-| Pendant le trempage | Température du bain | Entre 0 et 4 °C | Remettre au froid ; si on ne sait pas combien d'heures le bain est resté chaud, jeter la viande |
+| Pendant le trempage | Température du bain | Entre 0 et 4 °C pour la viande ; sous 3 °C pour le poisson | Remettre au froid ; si on ne sait pas combien d'heures le bain est resté chaud, jeter la viande |
 | Avant chaque repas de gibier ou de poisson | Trempage fait, bouillon jeté, température à cœur | 74 °C le gibier ; 70 °C tenu 1 min le poisson | Remettre à cuire ; un temps de cuisson ne prouve rien |
 
 ---
@@ -289,12 +299,12 @@ Se mettre à couvert à l'éclair, entrer sous terre ou dans le béton avant que
 | Poussière ou traces de pas poudreuses dans la pièce d'abri | La poussière est entrée : une ouverture mal bouchée, ou quelqu'un est entré habillé | Laver les surfaces à l'eau, sans balayer. Refaire le déshabillage à l'entrée. Passer dans la pièce voisine la mieux protégée |
 | La peau démange et brûle là où la poussière est restée, puis, quelques jours plus tard, elle brûle et change de couleur | La poussière fraîche est restée des dizaines de minutes sur la peau | Laver tout de suite à l'eau et au savon ; sans eau, brosser et frotter la poussière. La brûlure est peu profonde, mais elle met des semaines à guérir : la garder propre |
 | Nausées, vomissements, mal de tête et étourdissements quelques heures après l'exposition | Le début d'une irradiation, ou la peur, qui donne les mêmes signes | Rester à l'abri, faire boire et se reposer. Ces premiers signes passent en un ou deux jours. S'ils commencent dans la demi-heure, la dose reçue peut être mortelle. Soigner une personne irradiée n'expose pas celle qui la soigne |
-| Une à deux semaines plus tard, les cheveux tombent en touffes, de petites taches de sang apparaissent sous la peau ou dans la bouche, ou une diarrhée commence | Forte dose reçue, pas forcément mortelle : la vie est en jeu pendant un à deux mois | Faire reposer la personne, lui donner des repas complets et garder propre l'endroit où elle est couchée. Garder les antibiotiques pour cette période, où les infections prennent facilement (ch. 32, ch. 35) |
+| Dans les deux semaines qui suivent, les cheveux tombent en touffes, de petites taches de sang apparaissent sous la peau ou dans la bouche, ou une diarrhée commence | Forte dose reçue, pas forcément mortelle : la vie est en jeu pendant un à deux mois | Faire reposer la personne, lui donner des repas complets et garder propre l'endroit où elle est couchée. Garder les antibiotiques pour cette période, où les infections prennent facilement (ch. 32, ch. 35) |
 | Alarme de CO, mal de tête, somnolence ou confusion chez plusieurs personnes à la fois | Monoxyde de carbone dans l'abri fermé | Faire l'étape 18 tout de suite |
-| Poêle qui tire mal, fumée qui revient dans l'abri | Le bouchage a coupé l'air du poêle | Déboucher une entrée d'air du côté opposé au vent |
-| Un enfant a reçu deux doses d'iode en moins de 24 heures | Trop d'iode | Ne pas le faire vomir. Sauter la dose suivante, et écrire l'heure et la quantité sur le cadre de porte |
-| Comprimés d'iode friables, décolorés ou périmés | Gardés hors de 15 à 30 °C, ou trop vieux | Ne pas se fier au reste de la plaquette : un comprimé abîmé n'a plus une dose connue |
-| Le gibier a l'air normal, sent bon et goûte bon | La contamination ne se voit pas, ne se sent pas et ne se goûte pas | Seul un compteur mesure le césium. Sans compteur, faire tremper, jeter le bouillon et s'en tenir aux bêtes les moins exposées (étapes 29 à 32) |
+| Poêle qui tire mal, fumée qui revient dans l'abri | Le bouchage a coupé l'air du poêle | Ouvrir une entrée d'air au même étage que le poêle, du côté d'où vient le vent, et tendre dessus un filtre de fournaise ou deux épaisseurs de serviette de bain |
+| Un enfant a reçu deux doses d'iode en moins de 24 heures | Une dose de trop | Ne pas le faire vomir. À partir de 4 ans, deux doses font 130 mg, la dose d'un adulte, sans danger pour l'enfant. Écrire l'heure et la quantité sur le cadre de porte. À un bébé de moins d'un mois, ne plus en donner (étape 16) |
+| Comprimés d'iode jaunis, ou mouillés dans une plaquette ouverte | L'humidité de l'air les a abîmés | Ne pas donner un comprimé jauni : sa dose n'est plus sûre. On peut donner un comprimé intact, seulement périmé, resté dans sa plaquette fermée : l'iodure de potassium ne se dégrade pas. S'il fond mal, l'écraser dans la boisson (étape 15) |
+| Le gibier a l'air normal, sent bon et goûte bon | La contamination ne se voit pas, ne se sent pas et ne se goûte pas | On mesure le césium d'une viande au laboratoire, avec un détecteur blindé de plomb ; au chalet, on ne peut pas le mesurer. Faire tremper, jeter le bouillon et s'en tenir aux bêtes les moins exposées (étapes 29 à 32) |
 | Champignons beaux, nombreux et propres | Le césium ne se voit pas | Ne pas les cueillir (étape 28) |
 
 ---
@@ -319,7 +329,8 @@ Si l'alerte tombe au chalet, ou si la route vers la ville est coupée, on reste 
 
 - empiler le bois de chauffage cordé contre les murs extérieurs, sur toute la hauteur possible (repère 1) ;
 - l'hiver, monter un banc de neige contre le solage jusqu'aux fenêtres (repère 2), en tassant la neige par couches
- et en l'arrosant entre les couches pour qu'elle prenne en bloc (repère 3) ;
+ et en l'arrosant entre les couches pour qu'elle prenne en bloc (repère 3). La neige arrête beaucoup moins que la
+ terre : il en faut environ 1,5 m, arrosée ou bien tassée, pour diviser la dose par 50 ;
 - mettre l'eau embouteillée, les sacs de farine et les livres serrés contre les murs et sous les fenêtres
  (repère 4).
 
@@ -337,8 +348,8 @@ têtes.
 
 *Les sacs de terre, sans sacs.* Remplir aux deux tiers de terre ou de sable (repère 9) des taies d'oreiller, des sacs
 de farine vides ou des jambes de pantalon nouées à un bout (repère 10). Les corder comme des briques, en croisant les
-joints d'un rang à l'autre (repère 11). L'hiver, le sol est gelé : prendre de la neige, tassée et arrosée comme pour
-le banc (repère 3).
+joints d'un rang à l'autre (repère 11). L'hiver, le sol est gelé, et la neige fond dans une pièce chauffée : monter
+plutôt la neige dehors, en banc contre les murs (repère 2).
 
 **Ce qu'on perd :** une protection beaucoup plus faible qu'un sous-sol de béton, qu'on ne peut pas chiffrer sans
 appareil, et des heures de travail pour la monter.
@@ -347,9 +358,12 @@ appareil, et des heures de travail pour la monter.
 
 *Le poste d'auto, quand il reste une batterie.* La radio de l'auto est un récepteur AM complet qui marche au 12 V.
 
-- La sortir du tableau de bord avec son faisceau, son fil d'antenne et un haut-parleur, et la descendre dans
+- Avant de sortir le poste, chercher au multimètre ses deux fils d'alimentation : celui qui garde 12 V clé enlevée,
+ et celui qui n'a 12 V que clé tournée. Sur un poste de remplacement, ce sont le fil jaune et le fil rouge, et la
+ masse est noire ; sur un poste d'origine, les couleurs changent d'une auto à l'autre.
+- Sortir le poste du tableau de bord avec son faisceau, son fil d'antenne et un haut-parleur, et le descendre dans
  l'abri.
-- Brancher le fil d'alimentation jaune ou rouge au positif d'une batterie d'auto, et la masse au négatif.
+- Brancher ensemble les deux fils d'alimentation au positif d'une batterie d'auto, et la masse au négatif.
 - Faire sortir le fil d'antenne par un cadre de fenêtre, tendu le plus haut et le plus long possible.
 - Une batterie pleine la fait marcher longtemps : l'éteindre la nuit.
 - Pendant les 24 heures d'abri, faire ce démontage seulement si l'auto est dans un garage attenant. Écouter le
@@ -379,13 +393,14 @@ sortir peu de temps à la fois, et faire le tri des étapes 28 à 32 au complet.
 panache et l'annonce d'un deuxième rejet. On restreint sans doute trop longtemps, ce qui coûte du poids et du moral,
 ou pas assez au mauvais moment (ch. 14).
 
-### Sans dosimètre : l'électroscope
+### Sans compteur : l'électroscope
 
 Sans appareil, on ne sait pas si la poussière reçue est négligeable ou grave, si la pièce d'abri vaut mieux que la
 cuisine, ni quand le rayonnement a assez baissé pour sortir : tout repose sur la radio. On peut monter un
-électroscope avec ce qu'il y a dans la maison (planche 04-41). Deux feuilles de métal mince qui portent la même
-charge se repoussent et s'écartent ; le rayonnement rend l'air conducteur, et les feuilles perdent leur charge, puis
-se rapprochent, d'autant plus vite que le rayonnement est fort.
+électroscope avec ce qu'il y a dans la maison (planche 04-41).
+
+Deux feuilles de métal mince qui portent la même charge se repoussent et s'écartent ; le rayonnement rend l'air
+conducteur, et les feuilles perdent leur charge, puis se rapprochent, d'autant plus vite que le rayonnement est fort.
 
 *Le montage.*
 
@@ -423,26 +438,34 @@ pour l'appareil documenté, construit à ses dimensions exactes.
 
 **Ce qu'on perd :** tout ce qui est faible. Un électroscope maison ne voit que les débits élevés. Il ne dira jamais
 si un lichen, un champignon ou un quartier d'orignal est chargé, et c'est la question des années suivantes : pour
-elle, il n'y a qu'un compteur.
+elle, il faut l'appareil d'un laboratoire.
 
 ### Ventiler la pièce d'abri
 
 Une pièce d'abri pleine de monde devient chaude et humide en quelques heures, l'été surtout, et l'air s'y vicie : il
 faut faire entrer l'air du dehors même pendant les retombées, en arrêtant la poussière à l'entrée.
 
-**La pompe à carton** : on la monte dans la porte de la pièce d'abri, et on la fait marcher à la main, sans
-électricité (planche 04-01b).
+**La pompe à volets** : on la pend dans le haut de la porte de la pièce d'abri, et on la fait marcher à la main,
+sans électricité (planche 04-01b). Ses volets se ferment quand on tire et s'ouvrent au retour : l'air avance dans
+un seul sens.
 
-- Couper un panneau de carton fort ou de contreplaqué mince (repère 1), et le suspendre par le haut, dans la porte,
- à une charnière de ruban à conduits ou de toile (repère 2).
-- Clouer des lattes en butée derrière le battant (repère 3), et nouer une corde au bas du battant (repère 4).
-- Assis, tirer la corde d'un coup, puis la relâcher (repère 5) : relâché, le battant retombe contre la latte
- (repère 6). À chaque coup, le battant pousse de l'air dans la pièce [À VÉRIFIER].
-- Vu de dessus : la latte est clouée sur le cadre de la porte (repère 7), le battant a la taille de l'ouverture
- moins un jeu tout autour (repère 8), et il ne bat que d'un côté (repère 9).
-- À l'entrée d'air, clouer quatre lattes en cadre (repère 10) et tendre dessus un filtre de fournaise neuf, ou un
- linge humide (repère 11), pour arrêter la poussière. Sortir le linge, le rincer dehors, et jeter l'eau de rinçage
- loin de la porte.
+- Choisir, pour la pompe, l'ouverture par où l'air entre déjà dans la pièce.
+- Faire un cadre de lattes, ou de bâtons d'environ 3 cm liés avec des bandes de tissu, 2,5 cm plus étroit que
+ l'ouverture. Le doubler : un cadre trop léger ne revient pas assez loin tout seul.
+- Clouer une planche en travers du haut de l'ouverture, et y pendre le cadre par le haut, à deux pentures ou à des
+ boucles de cuir, de sangle ou de corde. Le cadre doit passer à environ 1 cm du bas de l'ouverture et à 1 à 2,5 cm
+ des côtés.
+- Tendre des ficelles en travers de la face du cadre tournée vers la pièce : elles arrêtent les volets.
+- Tailler les volets dans un grand sac à ordures, 9 cm de large. Replier un ourlet sur le haut de chacun, le fermer
+ au ruban, et y enfiler un fil de cintre redressé.
+- Fixer les fils de cintre en travers du cadre, tous les 7,5 cm, devant les ficelles, du côté de la pièce : chaque
+ volet doit tourner librement et couvrir un peu celui du dessous.
+- Nouer la corde au cadre, un peu sous les pentures. Assis dans la pièce, tirer la corde jusqu'à ce que le cadre
+ monte presque à l'horizontale : les volets se plaquent contre les ficelles et poussent l'air vers soi. Laisser la
+ corde lâche pendant tout le retour : le cadre revient seul, les volets s'ouvrent, et l'air continue d'avancer.
+- À l'entrée d'air, tendre sur un cadre de lattes un filtre de fournaise neuf, ou deux épaisseurs de serviette de
+ bain, sur la plus grande surface possible : un petit filtre étouffe la pompe.
+- Une pompe de 60 cm de haut suffit pour quelques personnes ; par temps froid, elle suffit pour plus de monde.
 
 **Autre façon, sans rien monter : l'éventail de carton.**
 
@@ -470,14 +493,16 @@ condensation sur les murs froids.
 ### Sans eau chaude ni savon
 
 Avant d'entrer, brosser à sec ses vêtements et sa peau, dos au vent : brosser et frotter la poussière en enlève une
-partie. Du ruban adhésif appliqué puis arraché lève la poussière des cheveux, des sourcils et du dos des mains
-[À VÉRIFIER]. Faire fondre de la neige sur le poêle pour se rincer, et jeter l'eau de lavage loin du puits, du jardin
+partie. Faire fondre de la neige sur le poêle pour se rincer, et jeter l'eau de lavage loin du puits, du jardin
 et de la porte, pas dans le banc de neige qu'on fera fondre le lendemain.
 
 ### Sans eau fermée : décanter et filtrer à la terre
 
-Dans l'eau qui a reçu des retombées, presque tout le danger est dans la poussière qui flotte : moins de 2 % de sa
-radioactivité se dissout. Enlever la poussière enlève donc presque tout.
+Après une détonation, presque tout le danger de l'eau est dans la poussière qui flotte : moins de 2 % de sa
+radioactivité se dissout, et enlever la poussière enlève presque tout. Le panache d'une centrale lointaine dépose au
+contraire un césium qui se dissout presque en entier dans l'eau. La terre de la décantation et du filtre retient
+fortement le césium dissous, mais mal l'iode radioactif : pendant les six à huit semaines où il en reste, boire
+d'abord l'eau d'un puits tubé et fermé, ou ce qui reste d'eau fermée (« Sans comprimés d'iode », plus haut).
 
 *Décanter à l'argile.* Remplir une chaudière aux trois quarts. Y brasser de l'argile ou de la terre argileuse sèche,
 en poudre, prise sous la surface comme pour le filtre (plus bas) : environ 2,5 cm de terre sèche pour 10 cm d'eau.
@@ -491,18 +516,19 @@ entraîne la poussière au fond et la recouvre. Puiser l'eau claire, ou la sipho
 - Poser au fond une couche de petits cailloux lavés (repère 2), et la couvrir d'un linge poreux, une serviette ou
  une toile de jute, taillé environ 8 cm plus large que la chaudière (repère 3).
 - Prendre de la terre qui contient un peu d'argile, à au moins 10 cm sous la surface : presque toute la poussière
- radioactive reste en surface. La broyer, puis la tasser doucement par couches sur le linge, sur 15 à 18 cm
+ radioactive reste en surface, sauf là où elle est tombée sur du sable ou du gravier. Ne pas prendre la terre qui est
+ sous une couche de sable ou de gravier. La broyer, puis la tasser doucement par couches sur le linge, sur 15 à 18 cm
  d'épaisseur (repère 4). Pas d'argile pure, qui ne laisse pas passer l'eau, ni de sable, qui laisse tout passer.
 - Couvrir la terre d'un autre linge, tenu au bord par quelques pierres, pour que l'eau versée ne la creuse pas
  (repère 5).
 - Poser la chaudière sur deux bâtons, en travers d'un contenant plus large, et recueillir l'eau dessous (repère 6).
 
-Le filtre retient presque toute la poussière et une partie de ce qui est dissous : environ 99 % de la radioactivité
-de l'eau. Au début, il donne environ 6 L d'eau claire par heure, et environ 2 L après quelques heures. S'il coule
-plus vite qu'un litre en 10 minutes, enlever le linge du dessus et retasser la terre. Quand il coule trop lentement,
-enlever le linge du dessus, le rincer, retirer environ 2,5 cm de terre et remettre le linge. Refaire le filtre avec
-de la terre neuve après une cinquantaine de litres. La terre ne fait rien contre les microbes : désinfecter l'eau qui
-sort (ch. 10).
+Le filtre retient presque toute la poussière et une partie de ce qui est dissous : environ 99 % de la radioactivité de
+l'eau, après une détonation. Au début, il donne environ 6 L d'eau claire par heure, et environ 2 L après quelques
+heures. S'il coule plus vite qu'un litre en 10 minutes, enlever le linge du dessus et retasser la terre. Quand il
+coule trop lentement, enlever le linge du dessus, le rincer, retirer environ 2,5 cm de terre et remettre le linge.
+Refaire le filtre avec de la terre neuve après une cinquantaine de litres. La terre ne fait rien contre les microbes :
+désinfecter l'eau qui sort (ch. 10).
 
 *Trouver l'argile.* Sous la forêt boréale, la terre est le plus souvent sableuse. Chercher sur une berge de rivière,
 dans une coupe de chemin ou au fond d'un fossé la couche grise et collante sous la terre noire de surface (repères 7
@@ -516,14 +542,14 @@ de plus de 5 cm avant de casser, c'est une terre argileuse ; un ruban qui casse 
 
 Pour la viande, l'eau claire fait le même travail que la saumure : 2 jours dans l'eau enlèvent autant de césium que
 2 jours dans la saumure (étape 31). Changer l'eau à chaque trempage. Pour le poisson, compter 8 heures à l'eau
-courante au lieu de 4 heures en saumure. **Ce qu'on perd :** 4 heures de trempage pour le poisson, et une eau courante
+courante au lieu de 4 heures en saumure. **Ce qu'on perd :** du temps de trempage pour le poisson, et une eau courante
 froide qu'il faut trouver. Où trouver du sel quand il n'en reste plus : ch. 67.
 
 ### Sans aucune viande de confiance
 
 Prendre, dans cet ordre, du moins exposé au plus exposé : les conserves et les réserves fermées d'avant l'événement ;
 les animaux de petit élevage nourris de grain entreposé à l'intérieur (ch. 101) ; le poisson du fleuve plutôt que
-celui d'un lac de tête [À VÉRIFIER] ; le gibier trempé et bouilli, bouillon jeté. Ne jamais aller jusqu'au lichen,
+celui d'un lac de tête ; le gibier trempé et bouilli, bouillon jeté. Ne jamais aller jusqu'au lichen,
 aux champignons ni aux abats. **Ce qu'on perd :** du gras, du goût, et les vitamines qui partent dans l'eau de
 cuisson ; la fermentation devient la source de vitamine C (ch. 80, ch. 20).
 
@@ -563,10 +589,10 @@ dans la maison.
 
 ### La baisse du rayonnement
 
-Le rayonnement des retombées baisse très vite au début, puis de plus en plus lentement. En comptant à partir de
-l'explosion, il est dix fois plus faible à la septième heure qu'à la première, cent fois plus faible au bout de 2 jours,
-et environ mille fois plus faible au bout de 2 semaines. Une fois la poussière tombée, la pluie le fait baisser plus
-vite : elle lave la poussière des toits et des plantes vers le sol.
+Le rayonnement des retombées baisse très vite au début, puis de plus en plus lentement (étape 24). En comptant depuis
+l'explosion, il est dix fois plus faible à la septième heure qu'à la première, cent fois plus faible au bout de 2
+jours, et environ mille fois plus faible au bout de 2 semaines. Une fois la poussière tombée, la pluie le fait baisser
+plus vite : elle lave la poussière des toits et des plantes vers le sol.
 
 ### L'estomac du caribou
 
@@ -577,15 +603,15 @@ poussière qu'il a prise (étape 29), et on la mange avec lui.
 
 ### Les rennes de Norvège après Tchornobyl
 
-Après Tchornobyl, en Norvège, la viande de renne d'hiver était beaucoup plus chargée de césium que celle de
-l'automne, les premières années : l'hiver, le renne mange surtout du lichen. Les éleveurs, dont des Sami, ont donc
-abattu au début de l'automne, ou gardé la bête quelques semaines en enclos, nourrie de fourrage propre. Ce qui rend la
-façon dangereuse : une année où les champignons abondent, les rennes en mangent et leur viande d'automne se charge à
-son tour.
+Après Tchornobyl, en Norvège, la viande de renne d'hiver était beaucoup plus chargée de césium que celle de l'automne,
+les premières années : l'hiver, le renne mange surtout du lichen (étape 29). Les éleveurs, dont des Sami, ont abattu
+au début de l'automne, ou gardé la bête quelques semaines en enclos, nourrie de fourrage propre. Ce qui rend la façon
+dangereuse : une année où les champignons abondent, les rennes en mangent et leur viande d'automne se charge à son
+tour.
 
 ### L'argile grise de l'ancienne mer
 
-Après le retrait des glaciers, la mer a couvert les basses terres de la côte jusqu'à plus de 120 m au-dessus de son
-niveau actuel. Elle y a laissé une argile grise, souvent cachée sous la tourbe ou le sable. Une argile qui contient des
-coquillages de mer, loin du rivage, vient de cette ancienne mer. La prendre dans une petite coupe, jamais au pied d'un
-grand talus : ces argiles glissent, surtout pendant et après de fortes pluies.
+Après le retrait des glaciers, la mer a couvert les basses terres de la côte jusqu'à plus de 120 m d'altitude. Elle y
+a laissé une argile grise, souvent cachée sous la tourbe ou le sable, qui sert à décanter l'eau (étape 22). Une argile
+qui contient des coquillages de mer, loin du rivage, vient de cette mer. La prendre dans une petite coupe, jamais au
+pied d'un grand talus : ces argiles glissent, surtout après de fortes pluies.

@@ -203,7 +203,7 @@
       "rang": "g8",
       "ancre": "haut",
       "taille": 10,
-      "texte": "**Y aller**, et y être rendu au plus tard 30 min après l'éclair.",
+      "texte": "**Y aller**, et partir au plus tard 30 min après l'éclair.",
       "renvoi": "ch. 4, étape 9",
       "source": "étape 9"
     },
@@ -235,7 +235,7 @@
       "col": "tronc2",
       "rang": "d2",
       "ancre": "haut",
-      "texte": "**Écrire l'heure de l'éclair ou de l'alerte** sur le cadre de la porte : le délai de l'iode et les 24 h d'abri se comptent de là.",
+      "texte": "**Écrire l'heure de l'éclair ou de l'alerte**, puis celle de l'arrivée des retombées, sur le cadre de la porte.",
       "renvoi": "ch. 4, étape 11",
       "source": "étape 11",
       "taille": 10,

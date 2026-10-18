@@ -51,8 +51,9 @@ jamais la désinfection.
  fonte. Faire bouillir l'eau, la chlorer ou la filtrer n'enlève pas le sel ; seuls l'alambic et l'osmose inverse
  l'enlèvent. Boire de l'eau salée oblige les reins à rejeter plus d'eau qu'elle n'en apporte, et on se déshydrate
  plus vite. Quand il ne reste que le fleuve, on passe son eau à l'alambic ou on la dessale par le gel (section 7).
- Après des retombées radioactives, le ch. 4 dit quelle pluie, quelle neige et quelle eau de surface on peut boire :
- faire bouillir ou filtrer l'eau n'enlève pas ce qui est radioactif.
+ Après des retombées radioactives, faire bouillir ou chlorer l'eau n'enlève rien de ce qui est radioactif. Après une
+ détonation, la décanter à l'argile et la passer au filtre de terre en enlèvent presque tout ; après le panache d'une
+ centrale, la terre retient le césium, mais mal l'iode radioactif (ch. 4, étape 22 et section 7).
 2. **Puiser en amont de tout ce qui peut salir l'eau** : le camp, la fosse septique, l'enclos, le sentier de
  motoneige, la hutte de castor. {!selles} Il faut traiter toute eau de surface, même claire, froide et sans odeur.
  Le castor et le rat musqué portent *Giardia*. Avec l'orignal, ils vivent autour des lacs et des ruisseaux du chalet

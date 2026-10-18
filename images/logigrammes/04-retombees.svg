@@ -34,10 +34,10 @@
 <path d="M140.40,527.20 L140.40,534.00 Q140.40,540.00 146.40,540.00 L251.40,540.00 Q257.40,540.00 257.40,546.00 L257.40,563.24" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
 <path d="M140.40,527.20 L140.40,534.00 Q140.40,540.00 146.40,540.00 L402.60,540.00 Q408.60,540.00 408.60,546.00 L408.60,563.24" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
 <path d="M106.20,633.94 L106.20,645.60 Q106.20,651.60 112.20,651.60 L620.40,651.60 Q626.40,651.60 626.40,645.60 L626.40,84.85 Q626.40,81.15 630.10,81.15 L633.80,81.15" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
-<path d="M257.40,621.64 L257.40,645.60 Q257.40,651.60 263.40,651.60 L620.40,651.60 Q626.40,651.60 626.40,645.60 L626.40,84.85 Q626.40,81.15 630.10,81.15 L633.80,81.15" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M257.40,617.34 L257.40,645.60 Q257.40,651.60 263.40,651.60 L620.40,651.60 Q626.40,651.60 626.40,645.60 L626.40,84.85 Q626.40,81.15 630.10,81.15 L633.80,81.15" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
 <path d="M408.60,641.94 L408.60,646.77 Q408.60,651.60 413.43,651.60 L620.40,651.60 Q626.40,651.60 626.40,645.60 L626.40,84.85 Q626.40,81.15 630.10,81.15 L633.80,81.15" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
 <path d="M758.68,104.70 L758.68,119.72" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
-<path d="M758.68,182.12 L758.68,188.84" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M758.68,177.82 L758.68,188.84" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
 <path d="M876.56,210.24 L1010.54,210.24 Q1016.54,210.24 1016.54,216.24 L1016.54,230.43" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
 <path d="M758.68,224.64 L758.68,241.73" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
 <path d="M876.56,269.28 L910.08,269.28" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
@@ -115,12 +115,11 @@
 <text data-max="123.90" x="45.00" y="623.79" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">caveau.</tspan></text>
 <rect x="118.56" y="621.69" width="58.59" height="13.00" fill="#EE7219"/>
 <text x="123.56" y="631.24" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="8.5" fill="#000" xml:space="preserve" data-max="50.09">ch. 4, étape 8</text>
-<rect x="187.20" y="570.24" width="140.40" height="51.40" rx="0" fill="#FDE8D8" stroke="#EE7219" stroke-width="1.5"/>
-<text data-max="123.90" x="196.20" y="586.89" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">Y aller</tspan><tspan font-weight="500">, et y être rendu au</tspan></text>
-<text data-max="123.90" x="196.20" y="599.19" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">plus tard 30 min après</tspan></text>
-<text data-max="123.90" x="196.20" y="611.49" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">l’éclair.</tspan></text>
-<rect x="269.76" y="609.39" width="58.59" height="13.00" fill="#EE7219"/>
-<text x="274.76" y="618.94" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="8.5" fill="#000" xml:space="preserve" data-max="50.09">ch. 4, étape 9</text>
+<rect x="187.20" y="570.24" width="140.40" height="47.10" rx="0" fill="#FDE8D8" stroke="#EE7219" stroke-width="1.5"/>
+<text data-max="123.90" x="196.20" y="586.89" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">Y aller</tspan><tspan font-weight="500">, et partir au plus tard</tspan></text>
+<text data-max="123.90" x="196.20" y="599.19" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">30 min après l’éclair.</tspan></text>
+<rect x="269.76" y="605.09" width="58.59" height="13.00" fill="#EE7219"/>
+<text x="274.76" y="614.64" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="8.5" fill="#000" xml:space="preserve" data-max="50.09">ch. 4, étape 9</text>
 <rect x="338.40" y="570.24" width="140.40" height="71.70" rx="0" fill="#FDE8D8" stroke="#EE7219" stroke-width="1.5"/>
 <text data-max="123.90" x="347.40" y="586.89" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">Aller au centre de la maison</tspan><tspan font-weight="500">,</tspan></text>
 <text data-max="123.90" x="347.40" y="599.19" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">loin du toit, et empiler autour</tspan></text>
@@ -133,12 +132,11 @@
 <text data-max="219.26" x="649.80" y="86.55" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">avec un linge mouillé s’il n’y a pas d’eau.</tspan></text>
 <rect x="814.13" y="92.45" width="63.18" height="13.00" fill="#EE7219"/>
 <text x="819.13" y="102.00" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="8.5" fill="#000" xml:space="preserve" data-max="54.68">ch. 4, étape 10</text>
-<rect x="640.80" y="126.72" width="235.76" height="55.40" rx="0" fill="#FDE8D8" stroke="#EE7219" stroke-width="1.5"/>
-<text data-max="219.26" x="649.80" y="147.37" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">Écrire l’heure de l’éclair ou de l’alerte</tspan><tspan font-weight="500"> sur le cadre</tspan></text>
-<text data-max="219.26" x="649.80" y="159.67" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">de la porte : le délai de l’iode et les 24 h d’abri se</tspan></text>
-<text data-max="219.26" x="649.80" y="171.97" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">comptent de là.</tspan></text>
-<rect x="814.13" y="169.87" width="63.18" height="13.00" fill="#EE7219"/>
-<text x="819.13" y="179.42" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="8.5" fill="#000" xml:space="preserve" data-max="54.68">ch. 4, étape 11</text>
+<rect x="640.80" y="126.72" width="235.76" height="51.10" rx="0" fill="#FDE8D8" stroke="#EE7219" stroke-width="1.5"/>
+<text data-max="219.26" x="649.80" y="147.37" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">Écrire l’heure de l’éclair ou de l’alerte</tspan><tspan font-weight="500">, puis celle de</tspan></text>
+<text data-max="219.26" x="649.80" y="159.67" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">l’arrivée des retombées, sur le cadre de la porte.</tspan></text>
+<rect x="814.13" y="165.57" width="63.18" height="13.00" fill="#EE7219"/>
+<text x="819.13" y="175.12" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="8.5" fill="#000" xml:space="preserve" data-max="54.68">ch. 4, étape 11</text>
 <rect x="648.80" y="119.72" width="21.63" height="14.00" fill="#EE7219"/>
 <text x="653.80" y="129.92" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="9" fill="#000" xml:space="preserve" data-max="13.13">2 h</text>
 <rect x="640.80" y="195.84" width="235.76" height="28.80" rx="10" fill="#fff" stroke="#2B5876" stroke-width="1.75"/>

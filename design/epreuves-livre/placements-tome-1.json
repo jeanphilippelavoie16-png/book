@@ -55,7 +55,7 @@
   "04": {
     "logigramme": {
       "fichier": "images/logigrammes/04-retombees-livre.svg",
-      "apres": "**Dosimètre ou compteur Geiger**",
+      "apres": "**Compteur Geiger ou dosimètre à affichage**",
       "orange": true
     },
     "planches": [
@@ -65,7 +65,7 @@
       },
       {
         "id": "04-01b",
-        "apres": "**La pompe à carton** : on la monte dans la porte de la pièce d'abri"
+        "apres": "**La pompe à volets** : on la pend dans le haut de la porte de la pièce d'abri"
       },
       {
         "id": "04-40",

@@ -1,5 +1,15 @@
 # Tome 4, De la bête au garde-manger : essais d'images pour la page de titre et la couverture
 
+**JP choisit la candidate 2** (18 octobre 2026 : « la 2, mais retravaille ombre, soleil et objets pour moins l'air
+AI »). Agrandie ×4 par AI Horde (`../horde-agrandir.py`, `tome-4-2-x4.png`), puis retouchée par `retouche_lac.py` :
+le soleil devient un aplat orange au bord coupé à la main, sans halo ; le reflet en échelle de barres devient des
+morceaux de traits effilés, de plus en plus rares en descendant ; les ombres molles de la neige deviennent un aplat ;
+la chaloupe aux poignées de traîneau et aux rames croisées devient un canot de profil, l'intérieur éclairé par le
+feu, remonté au-dessus du bloc des tomes ; la fumée en S parfait devient un ruban d'une encre à peine plus claire
+que le lac, qui penche vers les poissons ; les seize poissons identiques deviennent une douzaine, de tailles, de
+penchés et de ficelles différents ; les deux sapins miniatures sur la neige partent. Résultat :
+`images/tomes/titre-tome-4.jpg` ; un aplat papier passe sous le bloc du bas (`TP_BAS_FOND`).
+
 Générées le 18 octobre 2026 par AI Horde (gratuit, sans clé) avec `../horde-img2img.py`, 768 × 960, dans le style
 de `images/tomes/titre-tome-1.jpg` : linogravure, trois encres (bleu ardoise foncé #25414F, papier blanc cassé,
 orange #EE7219 pour le feu et la lumière), grand ciel calme en haut pour le titre, collines basses, scène dans la

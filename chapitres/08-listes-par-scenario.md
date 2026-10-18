@@ -167,7 +167,8 @@ plus longtemps : lichen, champignons et orignal, pendant des décennies (ch. 4).
 | 0 à 30 min | Descendre au sous-sol, contre un mur enterré ; au chalet, au caveau | ch. 4, étape 8 |
 | Continu | Rester à l'abri le temps compté depuis l'heure de l'éclair ou de l'alerte, pas jusqu'à ce que ça semble calme | 24 à 48 h (ch. 4, étape 24) |
 | Continu | Boire et cuisiner avec l'eau et les aliments qui étaient à l'intérieur, en contenants fermés |  |
-| À la sortie | Déboucher les ouvertures et les prises d'air ; ensacher les filtres de la fournaise et les porter loin du bâtiment |  |
+| Après quelques heures | Déboucher les ouvertures de la pièce d'abri et l'aérer | ch. 4, étape 18 |
+| À la sortie | Ensacher les filtres de la fournaise et les porter loin du bâtiment |  |
 | À la sortie | Le jardin et l'eau du lac passent au tri : le dépôt reste sur ce qui pousse et dans l'eau de surface | ch. 4, étapes 22 et 26 à 32 |
 
 **L'iode.** Personne n'en distribue d'avance sur la Côte-Nord : la boîte s'achète
