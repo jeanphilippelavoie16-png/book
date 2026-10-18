@@ -1,7 +1,7 @@
 # Tome 1 · Tenir — rapport d'assemblage
 
-- **Produit le :** 2026-10-18 20:54, par `design/outils/assembler-tome.py 1 --chapitres 04 --hors-ligne --sortie livre/apercus-ch04`
-- **Fichier :** `livre/tome-1/interieur.pdf` — 38 pages, 18.4 Mo
+- **Produit le :** 2026-10-18 22:01, par `design/outils/assembler-tome.py 1 --chapitres 04 --hors-ligne --sortie livre/apercus-ch04`
+- **Fichier :** `livre/tome-1/interieur.pdf` — 38 pages, 18.8 Mo
 - **Ouvertures :** au recto ou au verso (--verso)
 - **Placements :** design/epreuves-livre/placements.json, design/epreuves-livre/placements-tome-1.json
 - **Exigences de Blurb :** `sources/blurb-specifications.md` (relevées le 27 septembre 2026)
@@ -10,8 +10,8 @@
 
 | Pages du tome | Contenu | Pages |
 | --- | --- | ---: |
-| 1 | Dédicace | 1 |
-| 3 | Page de titre | 1 |
+| 1 | Page de titre | 1 |
+| 3 | Dédicace | 1 |
 | 5 | Sommaire | 1 |
 | 6 | Comment le livre fonctionne (1) | 1 |
 | 7 | Comment le livre fonctionne (2) | 1 |
@@ -37,9 +37,9 @@ Marqueur `{.orange}` sur l'intertitre ### de la série, dans le Markdown (CLAUDE
 | Taille de chaque page | 585 × 738 pt (8,125 × 10,25 po) | 585.0 × 738.0 pt | oui |
 | Rognage (TrimBox) | 8 × 10 po, fond perdu au bord extérieur | recto : reliure à gauche ; verso : à droite | oui |
 | Nombre de pages | pair, de 20 à 440 (papier Standard) | 38 | oui |
-| Page 1 | à droite | ouverture du chapitre 00 | oui |
+| Page 1 | à droite | page de titre | oui |
 | Polices incorporées | toutes | 24 police(s), 0 non incorporée(s) | oui |
-| Taille du fichier | 2 Go au plus | 18.4 Mo | oui |
+| Taille du fichier | 2 Go au plus | 18.8 Mo | oui |
 | Marques d'imprimeur | aucune | aucune | oui |
 | Couleur | CMJN ou sRVB, sans ton direct | sRVB (Edge) | oui |
 | Noir du texte | 100 % K | noir sRVB (0, 0, 0) : la conversion est faite chez Blurb | à juger sur épreuve |
@@ -63,7 +63,7 @@ Les planches de `images/a-valider/` sont posées comme les validées (JP les rel
 
 | Ch. | Posées (page du tome) | Mentionnées dans le texte sans planche dessinée | À valider, non posées | Photos demandées encore à acquérir (credits.md) |
 | --- | --- | --- | --- | ---: |
-| 04 | 04-01a (29, pleine), 04-41 (32, pleine, à valider), 04-01b (34, pleine), 04-42 (36, pleine), 04-40 (38, pleine, à valider), 04-retombees-livre (18, double page), 04-lichen-caribous-tapis.jpg (25) | — | — | 6 (ancien 06) |
+| 04 | 04-01a (29, pleine), 04-41 (32, pleine, à valider), 04-01b (34, pleine, à valider), 04-42 (36, pleine), 04-40 (38, pleine, à valider), 04-retombees-livre (18, double page), 04-lichen-caribous-tapis.jpg (25) | — | — | 6 (ancien 06) |
 
 ## Crédits des images — hors du livre
 
@@ -75,7 +75,8 @@ Rien ne s'imprime (JP, 28 septembre 2026). Copie de sauvegarde : `livre/apercus-
 
 ## Avertissements
 
-- ch. 04, paginateur : p04-21 : page à moitié vide
+- ch. 04, paginateur : encadré « En plus » sans trou où se poser : La baisse du rayonnement
+- ch. 04, paginateur : encadré « En plus » sans trou où se poser : L’argile grise de l’ancienne mer
 
 ## À savoir avant de téléverser
 

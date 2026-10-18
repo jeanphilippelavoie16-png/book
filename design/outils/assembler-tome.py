@@ -1068,8 +1068,9 @@ def main():
     #    sans chercher). Pas de crédits : ils vont hors du livre (livre/credits/), JP, 28 septembre 2026.
     credits_map = registre_credits()
     en_tete = [c for c in chaps if tome == 1 and c["num"] == "00"]
-    # la dédicace en première page, avant la page de titre (JP, 15 octobre 2026)
-    ordre = ([("chap", c) for c in en_tete] + [("annexe", "a-dedicace"), ("blanche", "dedicace"), ("annexe", "a-titre"), ("blanche", "titre"), ("annexe", "a-sommaire")]
+    # la page de titre d'abord, la dédicace après (JP, 18 octobre 2026 : « le texte va après la page couverture » ;
+    # avant, le 15 octobre, la dédicace était en première page)
+    ordre = ([("chap", c) for c in en_tete] + [("annexe", "a-titre"), ("blanche", "titre"), ("annexe", "a-dedicace"), ("blanche", "dedicace"), ("annexe", "a-sommaire")]
              + ([("annexe", "a-mode1"), ("annexe", "a-mode2")] if tome == 1 else [])
              + [("dg", k) for k in range(dg_n)]
              + [("chap", c) for c in chaps if c not in en_tete])

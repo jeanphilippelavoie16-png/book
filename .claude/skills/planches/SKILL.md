@@ -9,6 +9,8 @@ Une planche du livre n'est pas un diagramme de présentation. C'est un dessin te
 trait qu'un homme regarde à la lampe frontale, les mains sales, pour comprendre un montage
 qu'il n'a jamais fait. Tout ce qui suit découle de ça.
 
+**Une main qui appuie ou frotte à plat a la paume vers la surface** (JP, 18 octobre 2026, planche 04-41 : « la main est à l'envers, paume vers le sol il faut ») : on voit le dos de la main. Avec `mainStock`, la main ouverte aux doigts serrés (`6-09`) couchée (`angle: 90`) et écrasée en hauteur se pose sur une table vue de côté (voir `frotter` dans `images/planches-src/04-41.js`).
+
 **Jamais de cheveux, et le visage seulement quand il sert** (JP, 18 octobre 2026 : « on met jamais les cheveux, je veux plus les voir ; le visage est affiché seulement quand le visage fait une action ou qu'il y a une interaction »). Le moteur des têtes ne dessine plus de cheveux. `visage: true` seulement si la bouche, les yeux ou le nez font le geste (souffler, boire, regarder un point) ou si deux personnes interagissent ; sinon la tête reste nue.
 
 **Les mains, les corps et les têtes viennent des moteurs validés** (`h.formes.mainStock`, `h.formes.corps`,

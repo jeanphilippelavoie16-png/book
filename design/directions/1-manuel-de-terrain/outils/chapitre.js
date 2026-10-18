@@ -75,8 +75,16 @@ function fillExtras(p){
   const ouvert = !fr.classList.contains('auto');
   if(ouvert){ fr.classList.add('auto'); if(OVER(fr)){ fr.classList.remove('auto'); return false; } }
   const tient = [];
-  const tientIci = () => !OVER(fr) && p.bl.lastElementChild.getBoundingClientRect().bottom <= bas;
-  EXTRAS.forEach(x => { fr.appendChild(x); if(tientIci()) tient.push(x); fr.removeChild(x); });
+  // la note, le cadre et tout ce qui suit doivent rester dans le bloc : une note dans la variante d'urgence déborde de
+  // son cadre sans que le cadre le dise (JP, 18 octobre 2026 : « l'encadré vert embarque sur les chiffres en bas »)
+  const dansBloc = (x, cadre, page) => {
+    const b = page.bl.getBoundingClientRect().bottom + 0.5;
+    const r = x.getBoundingClientRect();
+    return !OVER(cadre) && r.bottom <= b && cadre.getBoundingClientRect().bottom <= b
+      && [...cadre.children].every(e => e.getBoundingClientRect().bottom <= b) && page.bl.lastElementChild.getBoundingClientRect().bottom <= b;
+  };
+  const tientIci = x => dansBloc(x, fr, p);
+  EXTRAS.forEach(x => { fr.appendChild(x); if(tientIci(x)) tient.push(x); fr.removeChild(x); });
   if(ouvert) fr.classList.remove('auto');
   if(tient.length) NOTE_PLACES.push({p, fr, ouvert, tient});
   return false;
@@ -135,7 +143,11 @@ function placerNotes(){
     } else if(enf.length > 3) apres = enf[Math.floor(enf.length * 0.45)];
     if(apres && apres.nextElementSibling && /^H[1-6]$/.test(apres.tagName)) apres = apres.nextElementSibling;
     if(apres && apres !== enf[enf.length - 1]) c.fr.insertBefore(x, apres.nextElementSibling); else c.fr.appendChild(x);
-    const ok = () => !OVER(c.fr) && c.p.bl.lastElementChild.getBoundingClientRect().bottom <= c.p.bl.getBoundingClientRect().bottom + 0.5;
+    const ok = () => {
+      const b = c.p.bl.getBoundingClientRect().bottom + 0.5;
+      return !OVER(c.fr) && x.getBoundingClientRect().bottom <= b && [...c.fr.children].every(e => e.getBoundingClientRect().bottom <= b)
+        && c.p.bl.lastElementChild.getBoundingClientRect().bottom <= b;
+    };
     if(!ok()){ c.fr.appendChild(x); }
     if(!ok()){ c.fr.removeChild(x); if(c.ouvert) c.fr.classList.remove('auto'); return; }
     EXTRAS.splice(EXTRAS.indexOf(x), 1);

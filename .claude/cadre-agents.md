@@ -60,7 +60,10 @@ L'urgence
   plus de notes possible, met chacune sur la page de l'étape dont elle parle ou la plus proche, et la glisse après le
   paragraphe de cette étape. Une note dit donc son étape entre parenthèses quand elle en a une (« (étape 29) »). Une réserve de **4 à 8** par chapitre ; une note qui ne trouve pas de page ne
   s'imprime pas ; jamais une page qui ne porte que des notes (JP : « un encadré qui occupe une page tout seul, c'est
-  inutile »).
+  inutile ») ; jamais une note qui touche le pied de page (JP : « l'encadré vert embarque sur les chiffres en bas » :
+  le moteur vérifie la note elle-même, pas seulement son cadre).
+- [ ] L'ordre du début du tome : la page de titre, puis la dédicace, puis le sommaire (JP, 18 octobre 2026 : « le texte
+  va après la page couverture »).
 - [ ] Le logigramme vient après le Matériel ; il ne redit aucun avertissement ; ses boîtes sont des phrases
   complètes (pas d'étiquette en raccourci).
 
@@ -117,6 +120,9 @@ Le cadre complet est `.claude/skills/planches/references/brief-agent.md`. En bre
   `images/planches-src/_palette-mains-stock.js`) : seulement les mains gardées (JP, 18 octobre : « y a des mains vraiment
   weird » ; le moteur refuse les autres) ; corps par `h.formes.corps` (de profil), têtes par `h.formes.teteSimple` ;
   jamais de dessin à la main ; une prise laide se règle par le cadrage, une autre prise, ou l'objet seul.
+- [ ] Une main qui appuie, frotte ou tient quelque chose à plat sur une surface a **la paume vers la surface** : on voit
+  le dos de la main (JP, 18 octobre 2026, planche 04-41 : « la main est à l'envers, paume vers le sol il faut »). Une
+  main qui se lit paume en l'air ou recourbée en coupe ne frotte rien.
 - [ ] Une planche du tableau des signalées se refait au complet, jamais par retouche.
 - [ ] **Jamais de cheveux, et le visage seulement quand il sert** (JP, 18 octobre 2026 : « on met jamais les cheveux, je veux plus les voir ; le visage est affiché seulement quand le visage fait une action ou qu'il y a une interaction »). Le moteur des têtes ne dessine plus de cheveux. `visage: true` seulement si la bouche, les yeux ou le nez font le geste (souffler, boire, regarder un point) ou si deux personnes interagissent ; sinon la tête reste nue.
 - [ ] L'eau par `h.a.hachure('eau')` seulement : le bleu pâle et ses vaguelettes (JP, 18 octobre : « fais l'eau plus belle »).
