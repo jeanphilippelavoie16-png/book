@@ -1100,4 +1100,4 @@ Linogravures générées par le réseau AI Horde à partir d'une image de dépar
 | --- | --- | --- | --- |
 | `images/tomes/titre-tome-1.jpg` | Juggernaut XL (img2img 0,75) | CreativeML Open RAIL++-M | étoiles contre les lettres retirées |
 | `images/tomes/titre-tome-3.jpg` | Juggernaut XL (img2img 0,65) | CreativeML Open RAIL++-M | reflet du soleil regravé en tirets ; canot remonté |
-| `images/tomes/titre-tome-6.jpg` | Flux.1-Schnell (img2img 0,80) | Apache 2.0 | croissant de lune déplacé hors du titre |
+| `images/tomes/titre-tome-6.jpg` | Flux.1-Schnell (img2img 0,88, `t6-fA88-1`) | Apache 2.0 | croissant de lune déplacé hors du titre |
