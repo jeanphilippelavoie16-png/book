@@ -1064,3 +1064,15 @@ Le détail par pictogramme est dans `images/pictos-dangers/LISEZMOI.md`.
 | Health Icons | Resolve to Save Lives | MIT | https://healthicons.org | poison |
 | Twemoji | Twitter, suite jdecked | CC BY 4.0 | https://github.com/jdecked/twemoji | moose |
 | Boxicons | Boxicons | MIT | https://boxicons.com | meat-filled |
+
+**Propositions du 18 octobre (images/pictos-dangers/propositions/)**, en attente du choix de JP. Jeux déjà inscrits
+ci-dessus, icônes ajoutées : Material Design Icons (fire, cloud, ladder, water, tea, nail, hand-wash, thermometer,
+fish) ; Font Awesome 6 Free (house, person, child, worm, jar, leaf) ; Game-icons.net : Delapouite (power-generator,
+log, shotgun-rounds, bear-head, fly, canned-fish), Lorc (tree-branch, nailed-foot, elderberry), Skoll (ham-shank,
+winchester-rifle, lee-enfield), Sbed (poison-cloud) ; Pinhead (person-sleeping, liver-with-bile-duct, kidneys) ;
+Boxicons (meat-filled) ; Twemoji (moose). Jeux nouveaux :
+
+| Jeu | Auteur | Licence | Lien | Icônes prises |
+| --- | --- | --- | --- | --- |
+| Fluent Emoji Flat | Microsoft | MIT | https://github.com/microsoft/fluentui-emoji | moose |
+| IconOven | Appic Marketing | MIT | https://iconoven.com/icons | meat-thermometer |

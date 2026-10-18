@@ -547,3 +547,5 @@ soi** » ; 15-01 après « 3. **Prendre les pics à glace, s'il y en a au cou** 
 d'autre est tombé » ; 15-02 après « **Amorcer sans la bouche** » ; 15-04 après « Il faut deux bouts de manche
 à balai, deux gros clous et un cordon ». L'ancre actuelle de 15-01 dans `placements-tome-1.json` (« 34. Si on tombe à
 travers la glace… ») n'existe plus. À vérifier au montage : 15-01 et 15-03 tombent dans une série orange.
+
+**Pompe à vélo pour amorcer le siphon** (JP, 18 octobre 2026 : « oui, garde ») : geste de débrouille sans source écrite, gardé comme une autre façon, sans chiffre.
