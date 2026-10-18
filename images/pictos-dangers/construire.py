@@ -152,6 +152,106 @@ RECETTES = {
         icone=('fa6-solid', 'heart-pulse'), taille=72),
 }
 
+# ---------------------------------------------------------------------------------------------
+# Propositions du 18 octobre (JP : « il y en a qui sont bizarres ») : deux par pictogramme repris,
+# écrites dans propositions/<id>-a.svg et <id>-b.svg ; RECETTES ne change pas tant que JP n'a pas choisi.
+# ---------------------------------------------------------------------------------------------
+TOIT = 'M14 36L50 12L86 36'
+FOSSE = 'M8 34H26V88H74V34H92'
+PROPOSITIONS = {
+    'co': {
+        'a': dict(nom='Dormeur et flamme sous le toit', icone=('pinhead', 'person-sleeping'), taille=50, dx=-10, dy=20,
+                  ajouts=[('trait', dict(d=TOIT, e=7)),
+                          ('icone', dict(jeu='mdi', nom='fire', taille=30, cx=76, cy=60))]),
+        'b': dict(nom='Maison fermée, nuage dedans', icone=('fa6-solid', 'house'), taille=78, dy=2,
+                  ajouts=[('icone', dict(jeu='mdi', nom='cloud', taille=46, cx=50, cy=62, couleur='r'))]),
+    },
+    'generatrice': {
+        'a': dict(nom='Génératrice à cadre', icone=('game-icons', 'power-generator'), taille=76),
+        'b': dict(nom='Génératrice sous un toit au trait', icone=('game-icons', 'power-generator'), taille=58, dy=12,
+                  ajouts=[('trait', dict(d=TOIT, e=6))]),
+    },
+    'espace-clos': {
+        'a': dict(nom='Personne au fond de la fosse', icone=('fa6-solid', 'person'), taille=40, dy=20,
+                  ajouts=[('trait', dict(d=FOSSE, e=6))]),
+        'b': dict(nom='Échelle qui descend dans la fosse', icone=('mdi', 'ladder'), taille=70, dy=8,
+                  ajouts=[('trait', dict(d=FOSSE, e=6))]),
+    },
+    'pas-au-feu': {
+        'a': dict(nom='Bûche barrée au-dessus du feu', icone=('game-icons', 'log'), taille=58, dy=-16,
+                  ajouts=[('barre', dict(x1=22, y1=12, x2=78, y2=58)),
+                          ('icone', dict(jeu='mdi', nom='fire', taille=40, cx=50, cy=76))]),
+        'b': dict(nom='Feu et fumée toxique', icone=('mdi', 'fire'), taille=44, dy=22,
+                  ajouts=[('icone', dict(jeu='game-icons', nom='poison-cloud', taille=54, cx=50, cy=30))]),
+    },
+    'abats': {
+        'a': dict(nom='Foie barré', icone=('pinhead', 'liver-with-bile-duct'), taille=70, ajouts=[('barre', {})]),
+        'b': dict(nom='Rognons barrés', icone=('pinhead', 'kidneys'), taille=66, ajouts=[('barre', {})]),
+    },
+    'mal-de-caribou': {
+        'a': dict(nom='Gigot et goutte de gras', icone=('game-icons', 'ham-shank'), taille=66, dx=-6, dy=8,
+                  ajouts=[('icone', dict(jeu='mdi', nom='water', taille=32, cx=76, cy=24, halo=5))]),
+        'b': dict(nom='Gigot, goutte de gras en moins', icone=('game-icons', 'ham-shank'), taille=66, dx=-6, dy=8,
+                  ajouts=[('icone', dict(jeu='mdi', nom='water', taille=36, cx=76, cy=24, halo=5)),
+                          ('forme', dict(d='M70 26H82V31H70Z', couleur='r'))]),
+    },
+    'thuyone': {
+        'a': dict(nom='Cèdre et tasse, barrés', icone=('iconoven', 'cypress-tree'), taille=66, dx=-20, remplir=True,
+                  epaissir=2,
+                  ajouts=[('icone', dict(jeu='mdi', nom='tea', taille=40, cx=70, cy=64)), ('barre', {})]),
+        'b': dict(nom='Cèdre barré', icone=('iconoven', 'cypress-tree'), taille=80, remplir=True, epaissir=2,
+                  ajouts=[('barre', {})]),
+    },
+    'plomb': {
+        'a': dict(nom='Cartouches de grenaille', icone=('game-icons', 'shotgun-rounds'), taille=76),
+        'b': dict(nom='Enfant et bille', icone=('fa6-solid', 'child'), taille=62, dx=-12,
+                  ajouts=[('cercle', dict(cx=74, cy=76, r=7)), ('cercle', dict(cx=86, cy=66, r=5))]),
+    },
+    'tetanos': {
+        'a': dict(nom='Clou dans le pied', icone=('game-icons', 'nailed-foot'), taille=76),
+        'b': dict(nom='Clou qui sort de la planche', icone=('mdi', 'nail'), taille=64, dy=-6, rotation=180,
+                  ajouts=[('forme', dict(d='M10 66H90V84H10Z'))]),
+    },
+    'orignal': {
+        'a': dict(nom='Tête de profil', icone=('fluent-emoji-flat', 'moose'), taille=80,
+                  couleurs={3: 'r', 4: 'r', 6: 'r', 9: 'r'}),
+        'b': dict(nom='Tête de face, sans les yeux', icone=('twemoji', 'moose'), taille=76,
+                  couleurs={1: 'r', 3: 'r', 8: 'b', 9: 'r'}),
+    },
+    'trichine': {
+        'a': dict(nom='Ver dans la viande', icone=('boxicons', 'meat-filled'), taille=72,
+                  ajouts=[('icone', dict(jeu='fa6-solid', nom='worm', taille=34, cx=46, cy=46, halo=5))]),
+        'b': dict(nom='Tête d’ours et ver', icone=('game-icons', 'bear-head'), taille=66, dx=-8, dy=-6,
+                  ajouts=[('icone', dict(jeu='fa6-solid', nom='worm', taille=32, cx=76, cy=74, halo=5))]),
+    },
+    'selles': {
+        'a': dict(nom='Mains sous le robinet', icone=('mdi', 'hand-wash'), taille=74),
+        'b': dict(nom='Mouche', icone=('game-icons', 'fly'), taille=74),
+    },
+    'arme': {
+        'a': dict(nom='Carabine à levier', icone=('game-icons', 'winchester-rifle'), taille=84, epaissir=3),
+        'b': dict(nom='Carabine à verrou', icone=('game-icons', 'lee-enfield'), taille=84, epaissir=2),
+    },
+    'cuisson': {
+        'a': dict(nom='Thermomètre piqué dans le gigot', icone=('game-icons', 'ham-shank'), taille=62, dx=-8, dy=12,
+                  ajouts=[('icone', dict(jeu='mdi', nom='thermometer', taille=50, cx=66, cy=34, rotation=35, halo=5))]),
+        'b': dict(nom='Sonde à cadran dans la viande', icone=('boxicons', 'meat-filled'), taille=60, dx=-10, dy=12,
+                  ajouts=[('icone', dict(jeu='iconoven', nom='meat-thermometer', taille=56, cx=66, cy=32,
+                                         rotation=35, epaissir=2.5, halo=5))]),
+    },
+    'botulisme': {
+        'a': dict(nom='Bocal et poisson', icone=('fa6-solid', 'jar'), taille=64, dx=-10,
+                  ajouts=[('icone', dict(jeu='mdi', nom='fish', taille=40, cx=70, cy=70, halo=5))]),
+        'b': dict(nom='Conserve de poisson', icone=('game-icons', 'canned-fish'), taille=76),
+    },
+    'plante': {
+        'a': dict(nom='Rameau de baies', icone=('game-icons', 'elderberry'), taille=76),
+        'b': dict(nom='Feuille et baies', icone=('fa6-solid', 'leaf'), taille=52, dx=-10, dy=-10,
+                  ajouts=[('cercle', dict(cx=64, cy=70, r=9)), ('cercle', dict(cx=81, cy=63, r=8)),
+                          ('cercle', dict(cx=76, cy=82, r=7))]),
+    },
+}
+
 # L'ordre du tableau de plan/dangers-inventaire.md, section 1 (ours et orignal à la place de bete-qui-charge).
 ORDRE = ['co', 'generatrice', 'electrocution', 'vapeurs', 'huile-en-feu', 'incendie', 'feu-de-foret',
          'espace-clos', 'chimie', 'pas-au-feu', 'projection', 'ecrasement', 'coupure', 'brulure', 'froid',
@@ -251,15 +351,23 @@ def halo(corps, epaisseur_px, taille, w, h):
     s = taille / max(w, h)
     e = epaisseur_px / s
     c = corps.replace('currentColor', ROUGE)
+    c = re.sub(r'(fill|stroke)="#(?:fff|FFF|ffffff|FFFFFF)"', r'\1="' + ROUGE + '"', c) if 'mask' not in c else c
     return f'<g stroke="{ROUGE}" stroke-width="{e:.2f}" stroke-linejoin="round" fill="{ROUGE}">{c}</g>'
 
 
+def epaissir(corps, couleur, epaisseur_px, taille, w, h):
+    """Icône au trait fin : un contour de la même couleur autour de chaque forme l'épaissit."""
+    s = taille / max(w, h)
+    return (f'<g stroke="{couleur}" stroke-width="{epaisseur_px / s:.2f}" stroke-linejoin="round" '
+            f'stroke-linecap="round">{corps}</g>')
+
+
 # ---------------------------------------------------------------------------------------------
-# Les signes ajoutés (barre, Z, glace fendue)
+# Les signes ajoutés (barre, Z, glace fendue, traits et formes simples)
 # ---------------------------------------------------------------------------------------------
-def barre():
-    return (f'<line x1="20" y1="20" x2="80" y2="80" stroke="{ROUGE}" stroke-width="17" stroke-linecap="round"/>'
-            f'<line x1="20" y1="20" x2="80" y2="80" stroke="{BLANC}" stroke-width="7.5" stroke-linecap="round"/>')
+def barre(x1=20, y1=20, x2=80, y2=80):
+    return (f'<line x1="{x1}" y1="{y1}" x2="{x2}" y2="{y2}" stroke="{ROUGE}" stroke-width="17" stroke-linecap="round"/>'
+            f'<line x1="{x1}" y1="{y1}" x2="{x2}" y2="{y2}" stroke="{BLANC}" stroke-width="7.5" stroke-linecap="round"/>')
 
 
 def lettre_z(x, y, l, h, e):
@@ -276,6 +384,10 @@ def glace_fendue():
     return f'<path fill="{BLANC}" d="{gauche}"/><path fill="{BLANC}" d="{droite}"/>'
 
 
+def teinte(c):
+    return {'b': BLANC, 'r': ROUGE}.get(c, c)
+
+
 # ---------------------------------------------------------------------------------------------
 def prefixer_ids(svg, prefixe):
     ids = set(re.findall(r'\sid="([^"]+)"', svg))
@@ -285,41 +397,69 @@ def prefixer_ids(svg, prefixe):
     return svg
 
 
-def construire(dossier, ident):
-    r = RECETTES[ident]
-    corps, l, t, w, h = icone(dossier, *r['icone'])
-    if 'sous_chemins' in r:
-        corps = garder_sous_chemins(corps, r['sous_chemins'])
-    if 'couleurs' in r:
-        corps = recolorer(corps, r['couleurs'])
-    corps = peindre(corps, BLANC, r.get('trait'))
-    principal = poser(corps, l, t, w, h, r.get('taille', 70), 50 + r.get('dx', 0), 50 + r.get('dy', 0),
-                      r.get('miroir', False))
+def poser_icone(dossier, o):
+    """Une icône d'un jeu, posée dans le carré : o = dict(jeu, nom, taille, cx, cy, et options)."""
+    c, l, t, w, h = icone(dossier, o['jeu'], o['nom'])
+    if 'sous_chemins' in o:
+        c = garder_sous_chemins(c, o['sous_chemins'])
+    if 'couleurs' in o:
+        c = recolorer(c, o['couleurs'])
+    couleur = teinte(o.get('couleur', 'b'))
+    taille = o.get('taille', 70)
+    morceaux = []
+    if o.get('halo'):
+        morceaux.append(poser(halo(c, o['halo'] + o.get('epaissir', 0), taille, w, h), l, t, w, h, taille,
+                              o['cx'], o['cy'], o.get('miroir', False)))
+    corps = peindre(c, couleur, o.get('trait'))
+    if o.get('remplir'):
+        corps = corps.replace('fill="none"', f'fill="{couleur}"')
+    if o.get('epaissir'):
+        corps = epaissir(corps, couleur, o['epaissir'], taille, w, h)
+    morceaux.append(poser(corps, l, t, w, h, taille, o['cx'], o['cy'], o.get('miroir', False)))
+    svg = ''.join(morceaux)
+    if o.get('rotation'):
+        svg = f'<g transform="rotate({o["rotation"]} {o["cx"]} {o["cy"]})">{svg}</g>'
+    return svg
+
+
+def construire_recette(dossier, ident, r):
+    principal = {k: v for k, v in r.items() if k not in ('icone', 'ajouts', 'nom', 'dx', 'dy')}
+    principal.update(jeu=r['icone'][0], nom=r['icone'][1], cx=50 + r.get('dx', 0), cy=50 + r.get('dy', 0))
     if r.get('rotation'):
-        principal = f'<g transform="rotate({r["rotation"]} 50 50)">{principal}</g>'
-    morceaux = [f'<rect width="100" height="100" rx="14" fill="{ROUGE}"/>', principal]
+        principal.update(cx=50 + r.get('dx', 0), cy=50 + r.get('dy', 0))
+    morceaux = [f'<rect width="100" height="100" rx="14" fill="{ROUGE}"/>']
+    if not r.get('principal_apres'):
+        morceaux.append(poser_icone(dossier, principal))
     for genre, o in r.get('ajouts', []):
         if genre == 'barre':
-            morceaux.append(barre())
+            morceaux.append(barre(**o))
         elif genre == 'z':
             morceaux.append(lettre_z(**o))
         elif genre == 'glace':
             morceaux.append(glace_fendue())
         elif genre == 'icone':
-            c, l2, t2, w2, h2 = icone(dossier, o['jeu'], o['nom'])
-            if o.get('halo'):
-                morceaux.append(poser(halo(c, o['halo'], o['taille'], w2, h2), l2, t2, w2, h2,
-                                      o['taille'], o['cx'], o['cy'], o.get('miroir', False)))
-            morceaux.append(poser(peindre(c, BLANC, o.get('trait')), l2, t2, w2, h2, o['taille'], o['cx'], o['cy'],
-                                  o.get('miroir', False)))
+            morceaux.append(poser_icone(dossier, o))
+        elif genre == 'trait':
+            morceaux.append(f'<path d="{o["d"]}" fill="none" stroke="{teinte(o.get("couleur", "b"))}" '
+                            f'stroke-width="{o["e"]}" stroke-linecap="round" stroke-linejoin="round"/>')
+        elif genre == 'forme':
+            morceaux.append(f'<path d="{o["d"]}" fill="{teinte(o.get("couleur", "b"))}"/>')
+        elif genre == 'cercle':
+            morceaux.append(f'<circle cx="{o["cx"]}" cy="{o["cy"]}" r="{o["r"]}" fill="{teinte(o.get("couleur", "b"))}"/>')
         else:
             raise ValueError(genre)
+    if r.get('principal_apres'):
+        morceaux.append(poser_icone(dossier, principal))
     sources = [':'.join(r['icone'])] + [f"{o['jeu']}:{o['nom']}" for g, o in r.get('ajouts', []) if g == 'icone']
     svg = (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">'
            f'<!-- {ident} : {", ".join(sources)} (voir LISEZMOI.md) -->' + ''.join(morceaux) + '</svg>\n')
-    svg = prefixer_ids(svg, ident)
+    svg = prefixer_ids(svg, ident.replace('/', '-'))
     assert '<text' not in svg and '<image' not in svg and 'currentColor' not in svg, ident
     return svg
+
+
+def construire(dossier, ident):
+    return construire_recette(dossier, ident, RECETTES[ident])
 
 
 # ---------------------------------------------------------------------------------------------
@@ -384,21 +524,22 @@ def planche(dossier_svg, sortie_png, sortie_png_bande, scratch):
     f1, f2 = os.path.join(scratch, 'planche.html'), os.path.join(scratch, 'bande.html')
     open(f1, 'w', encoding='utf-8').write(html_planche)
     open(f2, 'w', encoding='utf-8').write(html_bande)
+    capturer(f1, sortie_png, 210, 420, 200 / 96)
+    capturer(f2, sortie_png_bande, 160, 160, 300 / 96)
+
+
+def capturer(html, png, largeur, hauteur, echelle):
+    """Chromium headless ; la mise à l'échelle passe par CSS zoom (--force-device-scale-factor coupe le bas)."""
     chrome = sorted(glob.glob('/opt/pw-browsers/chromium-*/chrome-linux/chrome'))[-1]
     mm = 96 / 25.4
-    # planche : environ 200 dpi ; bande : 300 dpi
-    for html, png, largeur, hauteur, echelle in [(f1, sortie_png, 210, 420, 200 / 96),
-                                                 (f2, sortie_png_bande, 160, 160, 300 / 96)]:
-        # La mise à l'échelle passe par CSS zoom : --force-device-scale-factor coupe le rendu en bas.
-        texte = open(html, encoding='utf-8').read().replace('<body>', f'<body style="zoom:{echelle:.4f}">', 1)
-        open(html, 'w', encoding='utf-8').write(texte)
-        subprocess.run([chrome, '--headless', '--no-sandbox', '--disable-gpu', '--hide-scrollbars',
-                        f'--screenshot={png}',
-                        f'--window-size={round(largeur * mm * echelle)},{round(hauteur * mm * echelle)}',
-                        'file://' + html],
-                       check=True, stderr=subprocess.DEVNULL, stdout=subprocess.DEVNULL)
-        rogner(png, marge=round(6 * mm * echelle))
-
+    texte = open(html, encoding='utf-8').read().replace('<body>', f'<body style="zoom:{echelle:.4f}">', 1)
+    open(html, 'w', encoding='utf-8').write(texte)
+    subprocess.run([chrome, '--headless', '--no-sandbox', '--disable-gpu', '--hide-scrollbars',
+                    f'--screenshot={png}',
+                    f'--window-size={round(largeur * mm * echelle)},{round(hauteur * mm * echelle)}',
+                    'file://' + html],
+                   check=True, stderr=subprocess.DEVNULL, stdout=subprocess.DEVNULL)
+    rogner(png, marge=round(6 * mm * echelle))
 
 def rogner(png, marge):
     """Coupe le blanc en trop sous et à droite du contenu (fenêtre prise large exprès)."""
@@ -412,6 +553,49 @@ def rogner(png, marge):
         im.crop((0, 0, min(im.width, boite[2] + marge), min(im.height, boite[3] + marge))).save(png)
 
 
+def planche_propositions(dossier_svg, sortie_png, scratch):
+    """Une ligne par pictogramme repris : l'actuel, la proposition A, la proposition B, chacun à 25 mm
+    et dans une phrase à la taille du texte."""
+    phrases = {}
+    for ligne in BANDE:
+        for k, m in enumerate(ligne[1:-1], 1):
+            if m in RECETTES:
+                t = ligne[k + 1].strip(' ;.')
+                phrases[m] = t[0].upper() + t[1:] + '.'
+    def cellule(fichier, titre, ident):
+        src = f'file://{fichier}'
+        return (f'<div class="cel"><img class="p" src="{src}" alt=""><div class="txt"><div class="nom">{titre}</div>'
+                f'<p><img class="enligne" src="{src}" alt=""> {phrases.get(ident, "")}</p></div></div>')
+    lignes = []
+    for ident, props in PROPOSITIONS.items():
+        cel = [cellule(f'{dossier_svg}/{ident}.svg', 'Actuel', ident)]
+        for lettre in ('a', 'b'):
+            cel.append(cellule(f'{dossier_svg}/propositions/{ident}-{lettre}.svg',
+                               f'{lettre.upper()}. {props[lettre]["nom"]}', ident))
+        lignes.append(f'<div class="ligne"><div class="id">{ident}<br><span>{RECETTES[ident]["nom"]}</span></div>'
+                      + ''.join(cel) + '</div>')
+    style = '''<style>
+      body { margin: 0; background: #fff; }
+      .page { width: 230mm; padding: 6mm; box-sizing: border-box; }
+      h1 { font: 600 12pt Georgia, "DejaVu Serif", serif; margin: 0 0 4mm; }
+      .ligne { display: grid; grid-template-columns: 26mm repeat(3, 1fr); gap: 3mm; align-items: center;
+               border-top: 0.2mm solid #ccc; padding: 2.5mm 0; }
+      .id { font: 7pt "DejaVu Sans Mono", monospace; color: #333; }
+      .id span { font: 7pt Georgia, "DejaVu Serif", serif; color: #666; }
+      .cel { display: flex; gap: 2.5mm; align-items: center; }
+      .p { width: 25mm; height: 25mm; flex: none; }
+      .nom { font: 600 7.5pt Georgia, "DejaVu Serif", serif; margin-bottom: 1mm; }
+      .txt p { font: 10pt/1.4 Georgia, "DejaVu Serif", serif; margin: 0; }
+      .enligne { height: 1.2em; width: 1.2em; vertical-align: -0.25em; }
+    </style>'''
+    html = (f'<!doctype html><html><head><meta charset="utf-8">{style}</head><body><div class="page">'
+            f'<h1>Pictogrammes repris : l’actuel, puis deux propositions</h1>{"".join(lignes)}</div></body></html>')
+    os.makedirs(scratch, exist_ok=True)
+    f = os.path.join(scratch, 'propositions.html')
+    open(f, 'w', encoding='utf-8').write(html)
+    capturer(f, sortie_png, 230, 34 * len(PROPOSITIONS) + 30, 200 / 96)
+
+
 def main():
     if len(sys.argv) < 2:
         sys.exit(__doc__)
@@ -420,6 +604,15 @@ def main():
         with open(os.path.join(ICI, ident + '.svg'), 'w', encoding='utf-8') as f:
             f.write(construire(dossier, ident))
     print(f'{len(ORDRE)} pictogrammes écrits dans {ICI}')
+    if '--propositions' in sys.argv:
+        os.makedirs(os.path.join(ICI, 'propositions'), exist_ok=True)
+        for ident, props in PROPOSITIONS.items():
+            for lettre, r in props.items():
+                with open(os.path.join(ICI, 'propositions', f'{ident}-{lettre}.svg'), 'w', encoding='utf-8') as f:
+                    f.write(construire_recette(dossier, f'{ident}-{lettre}', r))
+        print(f'{2 * len(PROPOSITIONS)} propositions écrites dans {ICI}/propositions')
+        planche_propositions(ICI, os.path.join(DEPOT, 'livre', 'apercus-palette', 'pictos-dangers-propositions.png'),
+                             os.environ.get('PICTOS_TMP', os.path.join('/tmp', 'pictos-dangers-apercu')))
     if '--apercu' in sys.argv:
         sortie = os.path.join(DEPOT, 'livre', 'apercus-palette')
         scratch = os.environ.get('PICTOS_TMP', os.path.join('/tmp', 'pictos-dangers-apercu'))

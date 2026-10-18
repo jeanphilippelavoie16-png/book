@@ -16,3 +16,8 @@ node_modules/
 
 # Lecteur de relecture : pages rendues, notes téléchargées (design/outils/relecture/)
 livre/relecture/
+livre/apercus-*/travail/
+livre/apercus-*/apercus/
+livre/apercus-*/pg/
+livre/apercus-*/interieur.pdf
+livre/apercus-*/planche-contact.png

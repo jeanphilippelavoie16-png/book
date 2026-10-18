@@ -4,7 +4,8 @@
 // lâche. » Le siphon sert à l'étape 8 (siphonner par-dessus le dépôt) et à la planche 10-01.
 //
 // Deux vignettes au même cadrage de la chaudière :
-//   1. le boyau couché au fond de la chaudière pleine, noyé jusqu'à ce qu'il ne sorte plus de bulles ;
+//   1. le boyau enroulé et noyé dans l'eau du haut de la chaudière pleine, au-dessus du dépôt sans le toucher, jusqu'à ce
+//      qu'il ne sorte plus de bulles ;
 //   2. un bout du boyau reste au fond de la chaudière, posée sur un billot ; l'autre bout, bouché par le pouce dans
 //      le poing, est descendu dans le seau posé au sol, plus bas, puis lâché.
 // Le seau plus bas que l'eau de la chaudière : c'est la condition d'un siphon (géométrie des niveaux), le texte dit
@@ -39,6 +40,23 @@ module.exports = (h) => {
       h.ligne(c.xt0 - 3, c.yt, c.xt0 + 3, c.yt, A.contour), h.ligne(c.xt1 - 3, c.yt, c.xt1 + 3, c.yt, A.contour),
     ] };
   };
+  // le dépôt au fond : un pointillé serré (comme à la planche 10-01)
+  const alea = graine => {
+    let t0 = graine >>> 0;
+    return () => {
+      t0 = (t0 + 0x6D2B79F5) >>> 0;
+      let t = t0;
+      t = Math.imul(t ^ (t >>> 15), t | 1);
+      t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+      return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+    };
+  };
+  const pointille = (x0, x1, y0, y1, graine, pas) => {
+    const r = alea(graine), out = [];
+    const n = Math.round(((x1 - x0) * (y1 - y0)) / pas);
+    for (let i = 0; i < n; i++) out.push(h.cercle(x0 + r() * (x1 - x0), y0 + r() * (y1 - y0), 0.75, A.plein));
+    return out;
+  };
   const sol = (z, y) => [h.rect(0, y, z.l, 8, A.hachure('terre', 'aucun')), h.ligne(0, y, z.l, y, A.arete)];
 
   // ── 1 : noyer le boyau ──
@@ -50,14 +68,18 @@ module.exports = (h) => {
   const remplir = z => {
     const g = geo1(z), out = [], ch = chaudiere(g.c, g.yEau);
     out.push(...sol(z, g.yS), ...ch.eau);
-    // le boyau couché en boucles au fond, tout entier sous l'eau
-    const y0 = g.yS - 11, cx = g.cx;
-    const d = `M${f(cx - 66)},${f(y0)} C${f(cx - 66)},${f(y0 - 27)} ${f(cx + 10)},${f(y0 - 27)} ${f(cx + 10)},${f(y0 - 8)} `
-      + `C${f(cx + 10)},${f(y0 + 6)} ${f(cx - 40)},${f(y0 + 6)} ${f(cx - 40)},${f(y0 - 12)} `
-      + `C${f(cx - 40)},${f(y0 - 31)} ${f(cx + 62)},${f(y0 - 31)} ${f(cx + 62)},${f(y0 - 6)}`;
+    // le dépôt au fond, qu'on ne touche pas
+    const yD = g.yS - 10, xg = g.c.xb0 + 1.5 + 2, xd = g.c.xb1 - 1.5 - 2;
+    out.push(...pointille(xg, xd, yD + 1.5, g.yS - 2, 23, 7));
+    out.push(h.path(`M${f(xg - 1)},${f(yD)} Q${f(g.cx - 30)},${f(yD - 2)} ${f(g.cx)},${f(yD)} T${f(xd + 1)},${f(yD)}`, A.detail));
+    // le boyau enroulé, tout entier dans l'eau du haut, au-dessus du dépôt sans le toucher
+    const y0 = yD - 9, cx = g.cx;
+    const d = `M${f(cx - 66)},${f(y0)} C${f(cx - 66)},${f(y0 - 24)} ${f(cx + 10)},${f(y0 - 24)} ${f(cx + 10)},${f(y0 - 7)} `
+      + `C${f(cx + 10)},${f(y0 + 4)} ${f(cx - 40)},${f(y0 + 4)} ${f(cx - 40)},${f(y0 - 10)} `
+      + `C${f(cx - 40)},${f(y0 - 28)} ${f(cx + 62)},${f(y0 - 28)} ${f(cx + 62)},${f(y0 - 5)}`;
     out.push(...boyau(d));
     // les dernières bulles qui sortent du bout
-    [[cx + 63, y0 - 16, 2.2], [cx + 61, y0 - 28, 2.8], [cx + 64, y0 - 41, 3.2]].forEach(([x, y, r]) => out.push(h.cercle(x, y, r, blanc(A.detail))));
+    [[cx + 64, y0 - 14, 2.2], [cx + 62, y0 - 24, 2.8]].forEach(([x, y, r]) => out.push(h.cercle(x, y, r, blanc(A.detail))));
     out.push(...ch.bord);
     return out.join('\n');
   };
@@ -101,7 +123,7 @@ module.exports = (h) => {
   return {
     ref: '10-08',
     titre: 'Amorcer un siphon sans la bouche',
-    desc: 'Deux vignettes. En haut, une chaudière pleine d’eau, un boyau couché en boucles au fond, tout entier sous l’eau ; les dernières bulles sortent de son bout. En bas, la chaudière posée sur un billot : un bout du boyau reste au fond de l’eau, le boyau plein passe par-dessus le bord et descend tout droit dans un poing fermé, tenu d’en haut, dont le pouce bouche le bout ; le poing est au-dessus du seau receveur, plus bas que l’eau de la chaudière. Une flèche rouge descend du bout jusqu’au fond du seau : on le descend, puis on le lâche.',
+    desc: 'Deux vignettes. En haut, une chaudière pleine d’eau, un dépôt au fond et, au-dessus sans le toucher, un boyau enroulé tout entier sous l’eau ; les dernières bulles sortent de son bout. En bas, la chaudière posée sur un billot : un bout du boyau reste au fond de l’eau, le boyau plein passe par-dessus le bord et descend tout droit dans un poing fermé, tenu d’en haut, dont le pouce bouche le bout ; le poing est au-dessus du seau receveur, plus bas que l’eau de la chaudière. Une flèche rouge descend du bout jusqu’au fond du seau : on le descend, puis on le lâche.',
     format: 'quart',
     disposition: [['remplir'], ['amorcer']],
     hauteurs: [1.3, 2.1],

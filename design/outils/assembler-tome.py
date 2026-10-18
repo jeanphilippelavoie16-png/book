@@ -754,6 +754,22 @@ DANGERS_JS = r"""<script>
     book.appendChild(s); flow = s.querySelector('.dg-flow');
   };
   const deborde = () => flow.scrollHeight > flow.clientHeight + 0.5;
+  // coupe le paragraphe p après la dernière phrase qui tient ; rend la suite (un nouveau <p>), ou null si rien ne tient
+  // (au moins deux lignes de chaque côté)
+  const couper = p => {
+    const html = p.innerHTML, bornes = [];
+    const rx = /[.;:!?]\u202f?(?:<\/strong>)?\s(?=[A-ZÀÂÉÈÊÎÔÛÇ«<0-9])/g; let m;
+    while((m = rx.exec(html))) bornes.push(m.index + m[0].length);
+    const lh = parseFloat(getComputedStyle(p).lineHeight) || 16;
+    for(let k = bornes.length - 1; k >= 0; k--){
+      p.innerHTML = html.slice(0, bornes[k]);
+      if(!deborde() && p.getBoundingClientRect().height >= 2 * lh - 1){
+        const q = document.createElement('p'); q.className = p.className; q.innerHTML = html.slice(bornes[k]);
+        if(q.textContent.trim().length > 60) return q;
+      }
+    }
+    p.innerHTML = html; return null;
+  };
   const go = () => {
     const blocs = Array.from(src.children); src.remove(); page();
     for(let i = 0; i < blocs.length; i++){
@@ -761,6 +777,16 @@ DANGERS_JS = r"""<script>
       flow.appendChild(b);
       const seul = b.classList.contains('dg-h') && i + 1 < blocs.length;
       if(seul) flow.appendChild(blocs[i + 1]);
+      if(deborde() && !seul && b.tagName === 'P' && flow.children.length > 1){
+        // un paragraphe trop long pour le bas de la page se coupe entre deux phrases, plutôt que de laisser un trou
+        const reste = couper(b);
+        if(reste){ page(); flow.appendChild(reste); continue; }
+      }
+      if(deborde() && seul && blocs[i + 1].tagName === 'P' && flow.children.length > 2){
+        // le titre d'un danger et le début de son premier paragraphe restent au bas de la page, le reste passe
+        const reste = couper(blocs[i + 1]);
+        if(reste){ page(); flow.appendChild(reste); i++; continue; }
+      }
       if(deborde() && flow.children.length > (seul ? 2 : 1)){
         if(seul) blocs[i + 1].remove();
         b.remove(); page(); flow.appendChild(b); if(seul) flow.appendChild(blocs[i + 1]);
