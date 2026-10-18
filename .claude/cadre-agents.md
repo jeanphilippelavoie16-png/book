@@ -43,6 +43,9 @@ L'urgence
 - [ ] Le logigramme est la version courte ; l'encadré orange est la version détaillée, et tout y est (le geste, le
   pourquoi, ce qu'il faut savoir pour le faire). Plus de partie « … : le détail ». Rien de l'orange ne se redit
   ailleurs.
+- [ ] La page de droite d'un logigramme en double page répond à celle de gauche (JP, 18 octobre 2026, sur le ch. 12 :
+  « mal centré ») : colonnes de 8,625 à 15,5 po (0,625 po au pli, 0,5 po au bord), comme la gauche de 0,5 à 7,375 po.
+  Un couloir de lien qui passe d'une page à l'autre se tient à 8,7 po, et les boîtes de droite commencent alors à 8,9 po.
 - [ ] Le logigramme vient après le Matériel ; il ne redit aucun avertissement ; ses boîtes sont des phrases
   complètes (pas d'étiquette en raccourci).
 

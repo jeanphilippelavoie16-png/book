@@ -7,87 +7,319 @@
     "chapitre": "13 · Feu sans allumettes",
     "tome": "Tome 1 · Tenir",
     "onglet": "13",
-    "folios": [null, null]
+    "folios": [
+      null,
+      null
+    ]
   },
   "colonnes": {
-    "large": [0.5, 7.375],
-    "fA": [0.5, 3.8],
-    "fB": [4.075, 7.375],
-    "q": [9.05, 12.2],
-    "r": [12.75, 15.5],
-    "large2": [9.05, 15.5]
+    "large": [
+      0.5,
+      7.375
+    ],
+    "fA": [
+      0.5,
+      3.8
+    ],
+    "fB": [
+      4.075,
+      7.375
+    ],
+    "q": [
+      8.625,
+      11.9826
+    ],
+    "r": [
+      12.5688,
+      15.5
+    ],
+    "large2": [
+      8.625,
+      15.5
+    ]
   },
   "rangs": {
-    "g1": 0.85, "g2": 1.6, "g3": 2.5, "g4": 3.4, "g5": 4.6, "g6": 6.0, "g7": 7.45,
-    "d1": 0.85, "d2": 1.9, "d3": 3.3, "d4": 4.7, "d5": 6.0, "d6": 6.85, "d7": 7.7
+    "g1": 0.85,
+    "g2": 1.6,
+    "g3": 2.5,
+    "g4": 3.4,
+    "g5": 4.6,
+    "g6": 6.0,
+    "g7": 7.45,
+    "d1": 0.85,
+    "d2": 1.9,
+    "d3": 3.3,
+    "d4": 4.7,
+    "d5": 6.0,
+    "d6": 6.85,
+    "d7": 7.7
   },
   "noeuds": [
-    {"id": "depA", "type": "depart", "col": "large", "rang": "g1", "ancre": "haut", "taille": 15,
-     "texte": "Il faut un feu tout de suite, par grand froid", "source": "titre de la série orange"},
-    {"id": "u1", "type": "urgent", "col": "large", "rang": "g2", "ancre": "haut", "temps": "10 min", "taille": 10,
-     "texte": "**Si quelqu'un est mouillé, le mettre au sec avant d'allumer** : des vêtements secs, un sac de couchage fermé et quelque chose d'épais sous lui.",
-     "renvoi": "ch. 13, étape 1", "source": "étape 1"},
-    {"id": "u2", "type": "urgent", "col": "large", "rang": "g3", "ancre": "haut", "taille": 10,
-     "texte": "**Mettre le briquet qui ne fait plus de flamme contre le ventre.** Garder les mitaines pour ramasser le bois : les branches mortes du bas des épinettes, en un tas de moins de 2 cm et un tas de 2 à 5 cm.",
-     "renvoi": "ch. 13, étapes 2 et 3", "source": "étapes 2 et 3"},
-    {"id": "u3", "type": "urgent", "col": "large", "rang": "g4", "ancre": "haut", "taille": 10,
-     "texte": "**Faire le feu à l'abri du vent**, sur un lit de branches vertes s'il y a de la neige, et sortir l'amadou de sous ses vêtements.",
-     "renvoi": "ch. 13, étapes 4 et 8", "source": "étapes 4 et 8"},
-    {"id": "q1", "type": "question", "col": "large", "rang": "g5",
-     "texte": "Il fait plus froid que −17,5 °C, ou les doigts font mal ?",
-     "precision": "Des doigts qui ne sentent plus rien comptent aussi", "source": "étape 5"},
-    {"id": "fA", "type": "urgent", "col": "fA", "rang": "g6", "ancre": "haut", "taille": 10,
-     "texte": "**Allumer à la pile ou à la batterie, sans enlever les mitaines** : toucher la laine d'acier posée dans le nid avec les deux bornes de la pile, ou avec deux fils tirés de la batterie.",
-     "renvoi": "ch. 13, étapes 18 à 21", "source": "étapes 5, 18 à 21"},
-    {"id": "fB", "type": "urgent", "col": "fB", "rang": "g6", "ancre": "haut", "taille": 10,
-     "texte": "**Allumer au ferrocérium, ou au briquet s'il a repris.** Enlever les mitaines seulement pour le geste fin, et les remettre dès que le nid flambe.",
-     "renvoi": "ch. 13, étapes 6, 14 à 17", "source": "étapes 5, 6, 14 à 17"},
-    {"id": "u7", "type": "urgent", "col": "fB", "rang": "g7", "ancre": "haut", "taille": 10,
-     "texte": "**Après 10 minutes à mains nues sans feu, remettre les mitaines** et réchauffer les mains sous les aisselles avant d'essayer encore.",
-     "renvoi": "ch. 13, étape 7", "source": "étape 7"},
-
-    {"id": "depB", "type": "depart", "col": "large2", "rang": "d1", "ancre": "haut", "taille": 12,
-     "texte": "Il n'y a ni ferrocérium, ni briquet, ni laine d'acier", "source": "section 8"},
-    {"id": "qa", "type": "question", "col": "q", "rang": "d2",
-     "texte": "Il y a une batterie dans l'auto, la motoneige ou le VTT ?", "source": "section 8, le feu à la batterie"},
-    {"id": "bat", "type": "geste", "col": "r", "rang": "d2", "taille": 10,
-     "texte": "**Tirer deux fils des bornes** et toucher avec eux un brin de cuivre, une mine de crayon ou un filament d'ampoule, contre l'amadou.",
-     "renvoi": "ch. 13, étape 20 ; section 8", "source": "étape 20 ; section 8"},
-    {"id": "qb", "type": "question", "col": "q", "rang": "d3",
-     "texte": "On a de l'amadou carbonisé ou de l'amadouvier, et un acier au carbone ?",
-     "precision": "Une vieille lime, un ressort, une tête de hache : pas un couteau inoxydable", "source": "section 8, le briquet à pierre"},
-    {"id": "pierre", "type": "geste", "col": "r", "rang": "d3", "taille": 10,
-     "texte": "**Frapper l'acier vers le bas sur l'arête d'un caillou de grève**, l'amadou pincé au ras de l'arête.",
-     "renvoi": "ch. 13, section 8", "source": "section 8, le briquet à pierre"},
-    {"id": "qc", "type": "question", "col": "q", "rang": "d4",
-     "texte": "Le soleil est franc ?", "source": "étapes 22 à 24 ; section 8"},
-    {"id": "soleil", "type": "geste", "col": "r", "rang": "d4", "taille": 10,
-     "texte": "**Tenir le point de lumière immobile sur une cible sombre**, avec une lentille de glace, une bouteille d'eau ou un verre de lunettes de lecture.",
-     "renvoi": "ch. 13, étapes 22 à 24", "source": "étapes 22 à 24 ; section 8"},
-    {"id": "arc", "type": "geste", "col": "q", "rang": "d5", "taille": 10,
-     "texte": "**Faire un arc à feu** : une planchette de bois tendre et un foret de bois dur, secs à cœur.",
-     "renvoi": "ch. 13, section 8", "source": "section 8, l'arc à feu"},
-    {"id": "depC", "type": "depart", "col": "large2", "rang": "d6", "ancre": "haut", "taille": 12,
-     "texte": "Le feu a pris", "source": "section 8, garder le feu"},
-    {"id": "garder", "type": "geste", "col": "large2", "rang": "d7", "ancre": "haut", "taille": 10,
-     "texte": "**Le garder.** Dehors, le couvrir de cendre pour la nuit. Au poêle, garder l'air ouvert et recharger à tour de rôle. Pour partir, porter une braise dans une boîte percée.",
-     "renvoi": "ch. 13, section 8", "source": "section 8, garder le feu"}
+    {
+      "id": "depA",
+      "type": "depart",
+      "col": "large",
+      "rang": "g1",
+      "ancre": "haut",
+      "taille": 15,
+      "texte": "Il faut un feu tout de suite, par grand froid",
+      "source": "titre de la série orange"
+    },
+    {
+      "id": "u1",
+      "type": "urgent",
+      "col": "large",
+      "rang": "g2",
+      "ancre": "haut",
+      "temps": "10 min",
+      "taille": 10,
+      "texte": "**Si quelqu'un est mouillé, le mettre au sec avant d'allumer** : des vêtements secs, un sac de couchage fermé et quelque chose d'épais sous lui.",
+      "renvoi": "ch. 13, étape 1",
+      "source": "étape 1"
+    },
+    {
+      "id": "u2",
+      "type": "urgent",
+      "col": "large",
+      "rang": "g3",
+      "ancre": "haut",
+      "taille": 10,
+      "texte": "**Mettre le briquet qui ne fait plus de flamme contre le ventre.** Garder les mitaines pour ramasser le bois : les branches mortes du bas des épinettes, en un tas de moins de 2 cm et un tas de 2 à 5 cm.",
+      "renvoi": "ch. 13, étapes 2 et 3",
+      "source": "étapes 2 et 3"
+    },
+    {
+      "id": "u3",
+      "type": "urgent",
+      "col": "large",
+      "rang": "g4",
+      "ancre": "haut",
+      "taille": 10,
+      "texte": "**Faire le feu à l'abri du vent**, sur un lit de branches vertes s'il y a de la neige, et sortir l'amadou de sous ses vêtements.",
+      "renvoi": "ch. 13, étapes 4 et 8",
+      "source": "étapes 4 et 8"
+    },
+    {
+      "id": "q1",
+      "type": "question",
+      "col": "large",
+      "rang": "g5",
+      "texte": "Il fait plus froid que −17,5 °C, ou les doigts font mal ?",
+      "precision": "Des doigts qui ne sentent plus rien comptent aussi",
+      "source": "étape 5"
+    },
+    {
+      "id": "fA",
+      "type": "urgent",
+      "col": "fA",
+      "rang": "g6",
+      "ancre": "haut",
+      "taille": 10,
+      "texte": "**Allumer à la pile ou à la batterie, sans enlever les mitaines** : toucher la laine d'acier posée dans le nid avec les deux bornes de la pile, ou avec deux fils tirés de la batterie.",
+      "renvoi": "ch. 13, étapes 18 à 21",
+      "source": "étapes 5, 18 à 21"
+    },
+    {
+      "id": "fB",
+      "type": "urgent",
+      "col": "fB",
+      "rang": "g6",
+      "ancre": "haut",
+      "taille": 10,
+      "texte": "**Allumer au ferrocérium, ou au briquet s'il a repris.** Enlever les mitaines seulement pour le geste fin, et les remettre dès que le nid flambe.",
+      "renvoi": "ch. 13, étapes 6, 14 à 17",
+      "source": "étapes 5, 6, 14 à 17"
+    },
+    {
+      "id": "u7",
+      "type": "urgent",
+      "col": "fB",
+      "rang": "g7",
+      "ancre": "haut",
+      "taille": 10,
+      "texte": "**Après 10 minutes à mains nues sans feu, remettre les mitaines** et réchauffer les mains sous les aisselles avant d'essayer encore.",
+      "renvoi": "ch. 13, étape 7",
+      "source": "étape 7"
+    },
+    {
+      "id": "depB",
+      "type": "depart",
+      "col": "large2",
+      "rang": "d1",
+      "ancre": "haut",
+      "taille": 12,
+      "texte": "Il n'y a ni ferrocérium, ni briquet, ni laine d'acier",
+      "source": "section 8"
+    },
+    {
+      "id": "qa",
+      "type": "question",
+      "col": "q",
+      "rang": "d2",
+      "texte": "Il y a une batterie dans l'auto, la motoneige ou le VTT ?",
+      "source": "section 8, le feu à la batterie"
+    },
+    {
+      "id": "bat",
+      "type": "geste",
+      "col": "r",
+      "rang": "d2",
+      "taille": 10,
+      "texte": "**Tirer deux fils des bornes** et toucher avec eux un brin de cuivre, une mine de crayon ou un filament d'ampoule, contre l'amadou.",
+      "renvoi": "ch. 13, étape 20 ; section 8",
+      "source": "étape 20 ; section 8"
+    },
+    {
+      "id": "qb",
+      "type": "question",
+      "col": "q",
+      "rang": "d3",
+      "texte": "On a de l'amadou carbonisé ou de l'amadouvier, et un acier au carbone ?",
+      "precision": "Une vieille lime, un ressort, une tête de hache : pas un couteau inoxydable",
+      "source": "section 8, le briquet à pierre"
+    },
+    {
+      "id": "pierre",
+      "type": "geste",
+      "col": "r",
+      "rang": "d3",
+      "taille": 10,
+      "texte": "**Frapper l'acier vers le bas sur l'arête d'un caillou de grève**, l'amadou pincé au ras de l'arête.",
+      "renvoi": "ch. 13, section 8",
+      "source": "section 8, le briquet à pierre"
+    },
+    {
+      "id": "qc",
+      "type": "question",
+      "col": "q",
+      "rang": "d4",
+      "texte": "Le soleil est franc ?",
+      "source": "étapes 22 à 24 ; section 8"
+    },
+    {
+      "id": "soleil",
+      "type": "geste",
+      "col": "r",
+      "rang": "d4",
+      "taille": 10,
+      "texte": "**Tenir le point de lumière immobile sur une cible sombre**, avec une lentille de glace, une bouteille d'eau ou un verre de lunettes de lecture.",
+      "renvoi": "ch. 13, étapes 22 à 24",
+      "source": "étapes 22 à 24 ; section 8"
+    },
+    {
+      "id": "arc",
+      "type": "geste",
+      "col": "q",
+      "rang": "d5",
+      "taille": 10,
+      "texte": "**Faire un arc à feu** : une planchette de bois tendre et un foret de bois dur, secs à cœur.",
+      "renvoi": "ch. 13, section 8",
+      "source": "section 8, l'arc à feu"
+    },
+    {
+      "id": "depC",
+      "type": "depart",
+      "col": "large2",
+      "rang": "d6",
+      "ancre": "haut",
+      "taille": 12,
+      "texte": "Le feu a pris",
+      "source": "section 8, garder le feu"
+    },
+    {
+      "id": "garder",
+      "type": "geste",
+      "col": "large2",
+      "rang": "d7",
+      "ancre": "haut",
+      "taille": 10,
+      "texte": "**Le garder.** Dehors, le couvrir de cendre pour la nuit. Au poêle, garder l'air ouvert et recharger à tour de rôle. Pour partir, porter une braise dans une boîte percée.",
+      "renvoi": "ch. 13, section 8",
+      "source": "section 8, garder le feu"
+    }
   ],
   "liens": [
-    {"de": "depA", "vers": "u1"},
-    {"de": "u1", "vers": "u2"},
-    {"de": "u2", "vers": "u3"},
-    {"de": "u3", "vers": "q1"},
-    {"de": "q1", "vers": "fA", "etiquette": "Oui", "coude": 5.25, "pos": "palier", "sx": 3.94},
-    {"de": "q1", "vers": "fB", "etiquette": "Non", "coude": 5.25, "pos": "palier", "sx": 3.94},
-    {"de": "fB", "vers": "u7"},
-    {"de": "depB", "vers": "qa", "sx": 10.625, "ex": 10.625},
-    {"de": "qa", "vers": "bat", "etiquette": "Oui", "sortie": "droite", "entree": "gauche"},
-    {"de": "qa", "vers": "qb", "etiquette": "Non"},
-    {"de": "qb", "vers": "pierre", "etiquette": "Oui", "sortie": "droite", "entree": "gauche"},
-    {"de": "qb", "vers": "qc", "etiquette": "Non"},
-    {"de": "qc", "vers": "soleil", "etiquette": "Oui", "sortie": "droite", "entree": "gauche"},
-    {"de": "qc", "vers": "arc", "etiquette": "Non"},
-    {"de": "depC", "vers": "garder"}
+    {
+      "de": "depA",
+      "vers": "u1"
+    },
+    {
+      "de": "u1",
+      "vers": "u2"
+    },
+    {
+      "de": "u2",
+      "vers": "u3"
+    },
+    {
+      "de": "u3",
+      "vers": "q1"
+    },
+    {
+      "de": "q1",
+      "vers": "fA",
+      "etiquette": "Oui",
+      "coude": 5.25,
+      "pos": "palier",
+      "sx": 3.94
+    },
+    {
+      "de": "q1",
+      "vers": "fB",
+      "etiquette": "Non",
+      "coude": 5.25,
+      "pos": "palier",
+      "sx": 3.94
+    },
+    {
+      "de": "fB",
+      "vers": "u7"
+    },
+    {
+      "de": "depB",
+      "vers": "qa",
+      "sx": 10.3038,
+      "ex": 10.3038
+    },
+    {
+      "de": "qa",
+      "vers": "bat",
+      "etiquette": "Oui",
+      "sortie": "droite",
+      "entree": "gauche"
+    },
+    {
+      "de": "qa",
+      "vers": "qb",
+      "etiquette": "Non"
+    },
+    {
+      "de": "qb",
+      "vers": "pierre",
+      "etiquette": "Oui",
+      "sortie": "droite",
+      "entree": "gauche"
+    },
+    {
+      "de": "qb",
+      "vers": "qc",
+      "etiquette": "Non"
+    },
+    {
+      "de": "qc",
+      "vers": "soleil",
+      "etiquette": "Oui",
+      "sortie": "droite",
+      "entree": "gauche"
+    },
+    {
+      "de": "qc",
+      "vers": "arc",
+      "etiquette": "Non"
+    },
+    {
+      "de": "depC",
+      "vers": "garder"
+    }
   ]
 }

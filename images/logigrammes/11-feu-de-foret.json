@@ -26,31 +26,31 @@
       7.375
     ],
     "dB": [
-      11.0,
+      10.8953,
       15.5
     ],
     "qr": [
-      9.05,
-      12.9
+      8.9,
+      12.8395
     ],
     "q6": [
-      9.05,
+      8.9,
       15.5
     ],
     "c1": [
-      9.05,
-      11.1
+      8.9,
+      10.9977
     ],
     "c2": [
-      11.25,
-      13.3
+      11.1512,
+      13.2488
     ],
     "c3": [
-      13.45,
+      13.4023,
       15.5
     ],
     "large2": [
-      9.05,
+      8.9,
       15.5
     ]
   },
@@ -314,11 +314,11 @@
           9.05
         ],
         [
-          8.8,
+          8.7,
           9.05
         ],
         [
-          8.8,
+          8.7,
           2.08
         ]
       ]
@@ -326,15 +326,15 @@
     {
       "de": "depB",
       "vers": "qroute",
-      "sx": 12.0,
-      "ex": 12.0
+      "sx": 11.9186,
+      "ex": 11.9186
     },
     {
       "de": "qroute",
       "vers": "rouler",
       "etiquette": "Oui",
-      "sx": 10.5,
-      "ex": 10.5
+      "sx": 10.3837,
+      "ex": 10.3837
     },
     {
       "de": "qroute",
@@ -342,15 +342,15 @@
       "etiquette": "Non",
       "sortie": "droite",
       "entree": "haut",
-      "ex": 14.3,
+      "ex": 14.2721,
       "pos": "debut"
     },
     {
       "de": "rouler",
       "vers": "q6",
       "etiquette": "Si la route se ferme devant et derrière",
-      "sx": 10.5,
-      "ex": 10.5,
+      "sx": 10.3837,
+      "ex": 10.3837,
       "pos": "milieu"
     },
     {
@@ -359,7 +359,7 @@
       "etiquette": "Dans l'auto",
       "coude": 4.85,
       "pos": "palier",
-      "sx": 12.05
+      "sx": 11.9698
     },
     {
       "de": "q6",
@@ -367,7 +367,7 @@
       "etiquette": "Dans un bâtiment",
       "coude": 4.85,
       "pos": "palier",
-      "sx": 12.05
+      "sx": 11.9698
     },
     {
       "de": "q6",
@@ -375,22 +375,22 @@
       "etiquette": "À pied",
       "coude": 4.85,
       "pos": "palier",
-      "sx": 12.05
+      "sx": 11.9698
     },
     {
       "de": "auto",
       "vers": "apres",
-      "ex": 10.075
+      "ex": 9.9488
     },
     {
       "de": "bat",
       "vers": "apres",
-      "ex": 12.275
+      "ex": 12.2
     },
     {
       "de": "pied",
       "vers": "apres",
-      "ex": 14.475
+      "ex": 14.4512
     }
   ]
 }
