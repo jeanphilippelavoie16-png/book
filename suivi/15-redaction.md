@@ -472,8 +472,8 @@ l. 689 (capot, tôle roulée, skis, porte comme traîneau).
 **Règles du livre, sans source externe (des décisions, pas des faits mesurés)** : partir avec deux fois le
 carburant du trajet (étape 30 ; le ch. 11 s'y réfère) ; l'heure de demi-tour au coucher du soleil moins deux fois
 le temps de l'aller (étape 31, remplace « trois heures de jour », qui n'avait pas de source) ; trois mesures de
-consommation, garder la plus forte (étape 20) ; inspection mensuelle (étape 27). À montrer à JP si ces règles
-doivent porter une source.
+consommation, garder la plus forte (étape 20) ; inspection mensuelle (étape 27). **Validées par JP le 18 octobre
+2026 (« 3 règles sont bonnes, garde ») : elles restent telles quelles, sans source.**
 
 **Gestes sans source écrite et sans chiffre, gardés** : la tenue du pic au poing, pointe sous le petit doigt ; le
 filtre de diesel réchauffé au linge chaud ; l'huile vidangée chaude et reversée tiède ; partir à la corde ;
