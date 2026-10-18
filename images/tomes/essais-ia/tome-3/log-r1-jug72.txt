@@ -1,6 +1,0 @@
-{'id': 'd0c07fb5-e84f-45d1-a1b9-bdb43da27729', 'kudos': 14.0}
-0 0 0 False
-15 291 177 False
-31 276 170 False
-46 262 161 False
-62 248 154 False

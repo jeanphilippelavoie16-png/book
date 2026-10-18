@@ -21,3 +21,7 @@ livre/apercus-*/apercus/
 livre/apercus-*/pg/
 livre/apercus-*/interieur.pdf
 livre/apercus-*/planche-contact.png
+
+# journaux des tâches du générateur d'images (AI Horde) : écrits en continu pendant les essais
+images/tomes/essais-ia/tome-*/log-*.txt
+images/tomes/essais-ia/tome-*/*.log
