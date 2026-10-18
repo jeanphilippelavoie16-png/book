@@ -8,8 +8,8 @@
 
 ## 1. En une ligne
 
-Se mettre à couvert à l'éclair, entrer sous terre ou dans un bâtiment de béton avant que les retombées arrivent, y rester 24 à
-48 heures, protéger la thyroïde avec des comprimés d'iode, puis trier pendant des années ce qu'on mange au chalet.
+Se mettre à couvert à l'éclair, entrer sous terre ou dans un bâtiment de béton avant que les retombées arrivent,
+y rester 24 à 48 heures, protéger la thyroïde avec des comprimés d'iode, puis trier pendant des années ce qu'on mange au chalet.
 
 ---
 
@@ -210,8 +210,8 @@ Se mettre à couvert à l'éclair, entrer sous terre ou dans un bâtiment de bé
  80 % de la dose qu'on recevrait dehors arrive le premier jour. Rester jusqu'à 48 heures si la radio n'annonce pas
  que le rayonnement baisse dans le secteur, ou si l'électroscope (section 7) ne montre pas la baisse.
 25. **En quittant l'abri, remplacer les filtres de la fournaise et de l'échangeur d'air.** Les vieux filtres ont
- pu retenir de la poussière radioactive : les mettre dans un sac, fermer le sac et le porter loin du bâtiment. Ensuite, sortir
- peu de temps à la fois : laisser ses bottes et ses vêtements de dehors à l'entrée, et se laver les mains et le
+ pu retenir de la poussière radioactive : les mettre dans un sac, fermer le sac et le porter loin du bâtiment.
+ Ensuite, sortir peu de temps à la fois : laisser ses bottes et ses vêtements de dehors à l'entrée, et se laver les mains et le
  visage en rentrant (ch. 31). Laver les planchers à l'eau au lieu de les balayer : le balai soulève la poussière.
  Jeter l'eau de lavage à l'égout à la maison, et loin du puits et du jardin au chalet.
 26. **Traiter la première pluie et la première neige comme de la poussière radioactive qui se déplace.** La pluie
@@ -334,8 +334,8 @@ Si l'alerte tombe au chalet, ou si la route vers la ville est coupée, on reste 
 - mettre l'eau embouteillée, les sacs de farine et les livres serrés contre les murs et sous les fenêtres
  (repère 4).
 
-*Le refuge sous la table ou contre le mur.* Le toit porte une partie de la poussière : il faut aussi de l'épaisseur au-dessus des
-têtes.
+*Le refuge sous la table ou contre le mur.* Le toit porte une partie de la poussière : il faut aussi de
+l'épaisseur au-dessus des têtes.
 
 - Poser deux portes démontées à plat sur une table solide (repère 5), et charger le dessus de tout ce qui est
  lourd : caisses de terre, bûches serrées, bidons d'eau pleins, livres à plat (repère 6).
@@ -580,8 +580,8 @@ peut passer dehors : le rayonnement du sol traverse un sac à ordures.
 
 - **Les comprimés d'iode** (étape 12).
 - **La mesure du césium dans la viande** (section 6).
-- **La réserve fermée constituée avant** : ce qui était à découvert au passage du panache ne redevient pas propre au
- lavage, seulement moins chargé.
+- **L'eau et la nourriture mises de côté dans des contenants fermés avant l'événement** : ce qui était à
+ découvert au passage du panache ne redevient pas propre au lavage, seulement moins chargé.
 
 ---
 
