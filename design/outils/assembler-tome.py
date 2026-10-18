@@ -673,8 +673,8 @@ def mode_emploi(tome, titre_t, plan):
                "le texte, la **flèche rouge** renvoie à la planche : elle pointe à droite quand la planche est en face ou plus "
                "loin, à gauche quand elle est en face ou sur la page d'avant. La planche est sur la même page que son appel, ou "
                "sur la suivante. Une **petite planche**, d'une colonne de large, se place dans le paragraphe qui en parle.")),
-        rang('<span class="md-rep"><span class="reps"><span class="rep">3</span></span></span>'
-             '<span style="font:400 9.4pt var(--serif)">(planche 13-40, <span class="reps"><span class="rep">5</span> <span class="rep">6</span></span>)</span>',
+        rang('<span class="md-rep"><span class="reps"><svg class="rep" viewBox="0 0 20 20"><rect x=".7" y=".7" width="18.6" height="18.6" rx="9.3" fill="#fff" stroke="#1A1A1A" stroke-width="1.2"/><text x="10.0" y="10.6" text-anchor="middle" dominant-baseline="middle">3</text></svg></span></span>'
+             '<span style="font:400 9.4pt var(--serif)">(planche 13-40, <span class="reps"><svg class="rep" viewBox="0 0 20 20"><rect x=".7" y=".7" width="18.6" height="18.6" rx="9.3" fill="#fff" stroke="#1A1A1A" stroke-width="1.2"/><text x="10.0" y="10.6" text-anchor="middle" dominant-baseline="middle">5</text></svg> <svg class="rep" viewBox="0 0 20 20"><rect x=".7" y=".7" width="18.6" height="18.6" rx="9.3" fill="#fff" stroke="#1A1A1A" stroke-width="1.2"/><text x="10.0" y="10.6" text-anchor="middle" dominant-baseline="middle">6</text></svg></span>)</span>',
              "Les repères",
              p("Sur la planche, chaque détail porte un numéro dans un cercle ; la légende, sous le dessin, dit ce qu'on doit y "
                "voir. Dans le texte, le même cercle renvoie au même détail : **③**, c'est le 3 de la planche.")

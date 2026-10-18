@@ -28,12 +28,12 @@ et se sortir vivant de la glace qui cède ou de la machine qui s'arrête loin de
 
 ## 3. Matériel
 
-- **Pics à glace, au cou par-dessus le manteau** : deux poignées à pointe qui mordent la glace mouillée où les mains glissent (→ section 8).
+- **Pics à glace, au cou par-dessus le manteau** : deux poignées à pointe qui mordent la glace où les mains glissent (section 8).
 - **Corde qui flotte, 15 m au moins** : on la lance à la personne dans l'eau sans s'approcher du trou (étape 8).
-- **Tarière ou ciseau à glace, et ruban à mesurer** : percer la glace et lire son épaisseur sur le trajet (étape 40 ; ciseau : ch. 111).
+- **Tarière ou ciseau à glace, et ruban** : percer la glace et lire son épaisseur (étape 40 ; ciseau : ch. 111).
 - **Pelle** : dégager le tuyau d'échappement et les roues d'une auto prise dans la neige (étapes 11 et 17).
 - **Avertisseur de CO à pile, à affichage** : le seul moyen de savoir que l'auto, l'abri ou la maison se remplit de monoxyde.
-- **Bidons à essence, bouchon vissé** : ils ferment sans fuir ni laisser sortir la vapeur ; on y écrit la date et la part.
+- **Bidons à essence, bouchon vissé** : ils ferment sans laisser sortir la vapeur ; on y écrit la date et la part.
 - **Trousse d'allumage, sur soi** : pour le feu qui suit une chute à l'eau ou une nuit dehors (ch. 13).
 
 ---
@@ -60,8 +60,8 @@ et se sortir vivant de la glace qui cède ou de la machine qui s'arrête loin de
 3. **Prendre les pics à glace, s'il y en a au cou** (planche 15-01, repère 1). Ce sont deux poignées de
  bois à pointe de métal, reliées par un cordon et portées sur la poitrine, la pointe de l'une rentrée dans
  l'autre (section 8 pour les faire). Tirer les deux poignées chacune de son côté pour les séparer. Sans
- pics : serrer dans le poing ce qu'on a de pointu (une clé, un couteau, un tournevis), ou étendre les bras le
- plus large possible, à plat sur la glace.
+ pics, serrer dans chaque poing ce qu'on a de pointu : une clé, un couteau, un tournevis, un gros clou. Sans
+ rien de pointu, faire l'étape 5 à mains nues (dernier point de l'étape).
 4. **Se tourner vers le côté par où on est arrivé** (repère 2). La glace de ce côté vient de porter : c'est
  probablement la plus solide.
  - Poser les avant-bras à plat sur la glace (repère 3).
@@ -77,6 +77,10 @@ et se sortir vivant de la glace qui cède ou de la machine qui s'arrête loin de
  bras.
  - Tirer en glissant vers l'avant, puis replanter un peu plus loin (repère 7), et recommencer jusqu'à ce que
  les jambes sortent de l'eau.
+ - **Autre façon, à mains nues.** Étendre les bras le plus loin possible sur la glace qui a porté, les
+ avant-bras et les mains à plat. Battre des jambes jusqu'à ce que le corps soit à l'horizontale, puis tirer sur les avant-bras et les coudes
+ en même temps que les jambes poussent, un peu à la fois. Les mains mouillées glissent sur la glace : on
+ avance par petites poussées, en gardant les coudes au sol, pas en tirant d'un seul coup.
 6. **Une fois sorti, rester couché et rouler pour s'éloigner du trou** (repère 8). Couché, le poids
  s'étale sur toute la longueur du corps, et la glace risque moins de céder une deuxième fois. Rouler ou
  ramper jusqu'à ses propres traces : cette glace a porté à l'aller. Se relever seulement là, ou

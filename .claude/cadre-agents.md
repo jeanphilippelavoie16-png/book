@@ -107,6 +107,10 @@ Le cadre complet est `.claude/skills/planches/references/brief-agent.md`. En bre
 ## Le montage et la vérification (orchestrateur)
 
 - [ ] Aucun vérificateur sécurité : JP n'en veut jamais (18 octobre 2026).
+- [ ] Le logigramme tombe juste après le Matériel, avant la procédure (JP, 18 octobre : « c'est lui qu'on veut en
+  premier ») : son ancre est le dernier item du Matériel ; le moteur ferme la page à l'ancre.
+- [ ] Aucune liste ni section qui déborde d'une ou deux lignes sur la page suivante (JP, 18 octobre : « il y a juste
+  une ligne, c'est pas beau ») : on resserre le texte pour qu'elle tienne.
 
 - [ ] Chaque planche tombe sur la page de son appel ou la suivante (pdftotext, page par page).
 - [ ] Aucun début de section coupé en bas de page ; aucune colonne à plus d'un quart de vide à cause d'une figure.

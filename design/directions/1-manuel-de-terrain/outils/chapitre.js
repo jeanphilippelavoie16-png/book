@@ -102,7 +102,9 @@ function pour(f, q, p){
   while(q.length){
     const b = q.shift();
     if(b.dataset && b.dataset.plate === 'full'){ pendingPlates.push(b); continue; }
-    if(b.dataset && b.dataset.plate === 'spread'){ pendingSpreads.push(b); continue; }
+    // le logigramme vient tout de suite après le Matériel (JP, 18 octobre 2026 : « c'est lui qu'on veut en premier ») :
+    // le texte s'arrête à son ancre, la page se ferme, et la double page prend la page de gauche qui suit
+    if(b.dataset && b.dataset.plate === 'spread'){ pendingSpreads.push(b); if(f.children.length) break; continue; }
     f.appendChild(b); syncNotes(f);
     // une figure qui saute en haut de la colonne suivante laisse un trou blanc dans la colonne d'avant (JP, 16 octobre
     // 2026 : « gros trou blanc vide ») : le paragraphe suivant passe d'abord et remplit la colonne, la figure le suit
@@ -167,7 +169,11 @@ function colH(f){ return f.getBoundingClientRect().height || P.bl.getBoundingCli
 
 /* ---------- l'appel de planche : une flèche rouge qui pointe vers le dessin ---------- */
 const FLECHE = '<svg viewBox="0 0 18 10" aria-hidden="true"><path d="M0 3.4 H10.2 V0 L18 5 L10.2 10 V6.6 H0 Z"/></svg>';
-const CERCLE = n => '<span class="rep">' + n + '</span>';
+// le repère : un cercle vectoriel, le chiffre centré par le SVG et non par la police (JP, 18 octobre : « les chiffres
+// sont tout mal placés dans les bulles »)
+const CERCLE = n => { const w = String(n).length > 1 ? 26 : 20;
+  return '<svg class="rep" viewBox="0 0 ' + w + ' 20" aria-label="' + n + '"><rect x=".7" y=".7" width="' + (w - 1.4) + '" height="18.6" rx="9.3" fill="#fff" stroke="#1A1A1A" stroke-width="1.2"/>'
+    + '<text x="' + (w / 2) + '" y="10.6" text-anchor="middle" dominant-baseline="middle">' + n + '</text></svg>'; };
 function reperes(node){   // « repère 3 », « repères 7 et 8 », « repères 1 à 3 » : le cercle numéroté des planches
   // (JP, 16 octobre 2026 : « ajoute un symbole au lieu de dire repère 1, repère 2 »)
   const RX = /\brepères?\s(\d{1,2})((?:\s?(?:,|et|à)\s\d{1,2})*)/g;
