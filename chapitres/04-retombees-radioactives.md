@@ -390,8 +390,8 @@ loin ou hors d'ondes, il ne capte rien.
 
 *Quand aucun des deux ne donne de son.* Rester 48 heures à l'abri au lieu de 24, puis, les semaines suivantes,
 sortir peu de temps à la fois, et faire le tri des étapes 28 à 32 au complet. **Ce qu'on perd :** la direction du
-panache et l'annonce d'un deuxième rejet. On restreint sans doute trop longtemps, ce qui coûte du poids et du moral,
-ou pas assez au mauvais moment (ch. 14).
+panache et l'annonce d'un deuxième rejet. On limite sans doute les sorties et la nourriture trop longtemps, ce qui
+coûte du poids et du moral, ou pas assez au mauvais moment (ch. 14).
 
 ### Sans compteur : l'électroscope
 
@@ -417,7 +417,8 @@ conducteur, et les feuilles perdent leur charge, puis se rapprochent, d'autant p
 *Charger.* Frotter vivement un sac de plastique sur un tissu sec, puis l'approcher du haut du fil : la charge passe
 par le fil jusqu'aux feuilles, qui s'écartent en V.
 
-*Garder l'air sec.* L'humidité fait fuir la charge, et l'appareil montre alors du danger là où il n'y en a pas.
+*Garder l'air sec.* L'humidité fait fuir la charge : les feuilles se referment comme sous un fort rayonnement, et
+on croit à un danger qui n'existe pas.
 
 - Enlever le papier d'un morceau de placoplâtre, et casser le gypse en morceaux de 1 cm au plus.
 - Le cuire une heure au four le plus chaud (au-dessus de 200 °C), ou au moins 20 minutes dans une boîte de conserve
@@ -433,10 +434,10 @@ Chronométrer de la même façon chaque jour (repère 10). Une mesure de référ
 pot, la même charge et le même temps, montre aussi si l'appareil fuit : dans une pièce sans retombées, les feuilles
 doivent garder presque le même écartement pendant 3 heures. Avec cette référence et la même mesure refaite chaque
 jour, on sait si le rayonnement monte ou baisse, et à peu près dans quel rapport : assez pour décider de rester une
-journée de plus ou de sortir. La table qui convertit les millimètres et les minutes en débit de dose ne vaut que
-pour l'appareil documenté, construit à ses dimensions exactes.
+journée de plus ou de sortir. On ne peut pas convertir ces lectures en débit de dose : les tables qui le font ne
+valent que pour l'appareil qu'elles décrivent, construit à ses dimensions exactes.
 
-**Ce qu'on perd :** tout ce qui est faible. Un électroscope maison ne voit que les débits élevés. Il ne dira jamais
+**Ce qu'on perd :** un électroscope maison ne voit que les débits élevés. Il ne dira jamais
 si un lichen, un champignon ou un quartier d'orignal est chargé, et c'est la question des années suivantes : pour
 elle, il faut l'appareil d'un laboratoire.
 
