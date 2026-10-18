@@ -9,6 +9,8 @@ Une planche du livre n'est pas un diagramme de présentation. C'est un dessin te
 trait qu'un homme regarde à la lampe frontale, les mains sales, pour comprendre un montage
 qu'il n'a jamais fait. Tout ce qui suit découle de ça.
 
+**Jamais de cheveux, et le visage seulement quand il sert** (JP, 18 octobre 2026 : « on met jamais les cheveux, je veux plus les voir ; le visage est affiché seulement quand le visage fait une action ou qu'il y a une interaction »). Le moteur des têtes ne dessine plus de cheveux. `visage: true` seulement si la bouche, les yeux ou le nez font le geste (souffler, boire, regarder un point) ou si deux personnes interagissent ; sinon la tête reste nue.
+
 **Les mains, les corps et les têtes viennent des moteurs validés** (`h.formes.mainStock`, `h.formes.corps`,
 `h.formes.teteSimple`), jamais d'un dessin à la main (JP, 16 octobre 2026 : « on se met des règles et des outils,
 il faut les utiliser »). Un agent qu'on lance pour dessiner reçoit d'abord le cadre de

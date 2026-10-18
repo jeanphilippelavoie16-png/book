@@ -45,7 +45,7 @@ module.exports = (h) => {
 
   // un corps de la séquence, regardant vers la gauche (le côté d'où l'on vient) ; posé une première fois pour lire
   // sa géométrie, puis décalé pour qu'un de ses points tombe où on le veut
-  const corps = (pose, o) => F.corps(Object.assign({ pose, cote: 'gauche', echelle: S, visage: true }, o));
+  const corps = (pose, o) => F.corps(Object.assign({ pose, cote: 'gauche', echelle: S, visage: false }, o));
   const dx = (pose, cle, xCible) => xCible - corps(pose, { x: 0, y: 0 }).articulations[cle][0];
 
   // une flèche du geste qui suit une ellipse (le tour d'un corps qui pivote ou qui roule)
@@ -113,7 +113,7 @@ module.exports = (h) => {
   const corde = (d, ep = 3.2) => `<path d="${d}" fill="none" stroke="${NOIR}" stroke-width="${ep}" stroke-linecap="round" stroke-linejoin="round"/>\n`
     + `<path d="${d}" fill="none" stroke="#FFFFFF" stroke-width="${(ep - 1.4).toFixed(1)}" stroke-linecap="round" stroke-linejoin="round"/>`;
   const vPorter = z => {
-    const g0 = F.corps({ pose: DEBOUT, cote: 'gauche', echelle: SB, x: 0, y: 0, visage: true });
+    const g0 = F.corps({ pose: DEBOUT, cote: 'gauche', echelle: SB, x: 0, y: 0, visage: false });
     const ox = z.l * 0.56 - g0.tete.x, oy = 6 - g0.tete.haut[1];
     let pic = null;
     const pics = gg => {
@@ -139,7 +139,7 @@ module.exports = (h) => {
         corde(`M ${P(...nuque)} C ${P(nuque[0] - 30 * SB, nuque[1] + 60 * SB)} ${P(x + 40 * SB, y0 - 90 * SB)} ${P(x, y0)}`, 3),
       ].join('\n');
     };
-    const g = F.corps({ pose: DEBOUT, cote: 'gauche', echelle: SB, x: ox, y: oy, visage: true, objet: pics });
+    const g = F.corps({ pose: DEBOUT, cote: 'gauche', echelle: SB, x: ox, y: oy, visage: false, objet: pics });
     const id = 'vue1501-porter';
     return { svg: [`<clipPath id="${id}"><rect x="0" y="0" width="${z.l}" height="${z.h}"/></clipPath>`,
       `<g clip-path="url(#${id})">`, String(g), '</g>'].join('\n'), g, pic };

@@ -118,3 +118,5 @@ planches de couture et de nœud déjà validées) ; les autres pièges et mécan
 collet, 51-08 l'assommoir, 48-08 et 48-09 les collets, 59-09 la trappe de batture) ; les autres coupes
 en couches (73-07 la glacière de blocs, 13-07 le filtre à sable, 12-06 le quinzhee et la tranchée,
 les caveaux, la cache de gel, la bécosse).
+
+14. **Jamais de cheveux, et le visage seulement quand il sert** (JP, 18 octobre 2026 : « on met jamais les cheveux, je veux plus les voir ; le visage est affiché seulement quand le visage fait une action ou qu'il y a une interaction »). Le moteur des têtes ne dessine plus de cheveux. `visage: true` seulement si la bouche, les yeux ou le nez font le geste (souffler, boire, regarder un point) ou si deux personnes interagissent ; sinon la tête reste nue.

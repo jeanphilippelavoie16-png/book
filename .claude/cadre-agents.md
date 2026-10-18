@@ -91,6 +91,7 @@ Le cadre complet est `.claude/skills/planches/references/brief-agent.md`. En bre
   weird » ; le moteur refuse les autres) ; corps par `h.formes.corps` (de profil), têtes par `h.formes.teteSimple` ;
   jamais de dessin à la main ; une prise laide se règle par le cadrage, une autre prise, ou l'objet seul.
 - [ ] Une planche du tableau des signalées se refait au complet, jamais par retouche.
+- [ ] **Jamais de cheveux, et le visage seulement quand il sert** (JP, 18 octobre 2026 : « on met jamais les cheveux, je veux plus les voir ; le visage est affiché seulement quand le visage fait une action ou qu'il y a une interaction »). Le moteur des têtes ne dessine plus de cheveux. `visage: true` seulement si la bouche, les yeux ou le nez font le geste (souffler, boire, regarder un point) ou si deux personnes interagissent ; sinon la tête reste nue.
 - [ ] L'eau par `h.a.hachure('eau')` seulement : le bleu pâle et ses vaguelettes (JP, 18 octobre : « fais l'eau plus belle »).
 - [ ] Chaque rouge a son repère, et la légende dit ce qu'on doit y voir (règle 11).
 - [ ] Une autre façon de faire est marquée : titre « Autre façon » ou « Sans… », filet, « au lieu de N » (règle 10).

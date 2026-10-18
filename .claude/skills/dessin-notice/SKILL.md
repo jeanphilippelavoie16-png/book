@@ -10,6 +10,9 @@ description: Dessiner les mains, les têtes et les personnages des planches du G
 > JP a fourni ses modèles (références dans `references/style-cible.md`) et autorisé le calque pour
 > l'usage personnel du livre. La méthode qui marche est plus bas, « Calquer puis poser ».
 
+
+**Jamais de cheveux, et le visage seulement quand il sert** (JP, 18 octobre 2026 : « on met jamais les cheveux, je veux plus les voir ; le visage est affiché seulement quand le visage fait une action ou qu'il y a une interaction »). Le moteur des têtes ne dessine plus de cheveux. `visage: true` seulement si la bouche, les yeux ou le nez font le geste (souffler, boire, regarder un point) ou si deux personnes interagissent ; sinon la tête reste nue.
+
 ## Calquer puis poser (la méthode)
 
 1. **Le calque.** `scripts/vectoriser.py` : l'image agrandie, chaque trait coupé à mi-chemin entre

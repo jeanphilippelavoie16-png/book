@@ -376,7 +376,7 @@ function pieces(ageDemande, o = {}) {
   const Cor = lisseOuvert([add(Oc, [6, -oh * 0.86]), add(Oc, [-ol * 0.35, -oh]), add(Oc, [-ol * 0.62, -oh * 0.55]),
     add(Oc, [-ol * 0.6, oh * 0.15]), add(Oc, [-ol * 0.35, oh * 0.82]), add(Oc, [0, oh]), add(Oc, [5, oh * 0.8])], 8).map(K);
   const versHaut = o._regard != null && Math.abs((((o._regard + 90) % 360) + 540) % 360 - 180) <= 40;
-  let sorte0 = o.cheveux == null ? (age === 'femme' ? 'long' : age === 'bebe' ? 'aucun' : 'court') : o.cheveux;
+  let sorte0 = 'aucun';   // jamais de cheveux (JP, 18 octobre 2026 : « je veux plus les voir ») ; o.cheveux est ignoré
   // (o._aplomb : la composante verticale, à l'écran, du bas de la tête ; 1 : la tête droite) : ce qui pend ne pend
   // plus au-delà de 30°, les cheveux s'attachent
   if ((sorte0 === 'long' || sorte0 === 'queue') && o._aplomb != null && o._aplomb < Math.cos(30 * RAD)) sorte0 = 'attache';
