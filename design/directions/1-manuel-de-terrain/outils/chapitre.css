@@ -116,4 +116,4 @@ p.pc .pmarge{float:right;display:flex;flex-direction:column;gap:5pt;margin:0 0 2
 p.pc .pi{display:flex;flex-direction:column;align-items:center;gap:1.5pt;max-width:52pt;text-align:center}
 p.pc .pmarge svg.picto{display:block;width:26pt;height:26pt;margin:0}
 .pnom{font:700 6.6pt/1.05 "IBM Plex Sans Condensed",sans-serif;color:#9B2C1E;text-transform:uppercase;letter-spacing:.04em;text-indent:0}
-.pnum{font:700 7.4pt/1 "IBM Plex Sans Condensed",sans-serif;color:#1A1A1A;letter-spacing:.02em;white-space:nowrap;text-indent:0}
+.pnum{margin-top:-1pt;font:700 6.6pt/1.05 "IBM Plex Sans Condensed",sans-serif;color:#9B2C1E;text-transform:uppercase;letter-spacing:.04em;white-space:nowrap;text-indent:0}

@@ -111,8 +111,15 @@ function pour(f, q, p){
     // chapitre qui évite la page de droite laissée blanche avant la double page.
     if(b.dataset && b.dataset.plate === 'spread'){ pendingSpreads.push(b); if(f.children.length) break; continue; }
     if(pendingSpreads.length){ q.unshift(b); break; }   // le texte attend que la double page soit posée
-    // le saut qui suit les planches d'une série orange : la page se ferme, le texte reprend après les planches
-    if(b.dataset && b.dataset.plate === 'saut'){ if(f.children.length) break; continue; }
+    // le saut qui suit les planches d'une série orange : la page se ferme, le texte reprend après les planches ; mais
+    // s'il reste plus de la moitié de la page, la suite la remplit (JP, 18 octobre 2026 : « la suite peut la remplir
+    // s'il reste plus que la moitié de la page dispo »)
+    if(b.dataset && b.dataset.plate === 'saut'){
+      const bb = p.bl.getBoundingClientRect();
+      const bas = f.children.length ? Math.max(...[...f.children].map(e => e.getBoundingClientRect().bottom)) : f.getBoundingClientRect().top;
+      if(bb.bottom - bas <= 0.5 * bb.height) break;
+      continue;
+    }
     f.appendChild(b); syncNotes(f);
     // une figure qui saute en haut de la colonne suivante laisse un trou blanc dans la colonne d'avant (JP, 16 octobre
     // 2026 : « gros trou blanc vide ») : le paragraphe suivant passe d'abord et remplit la colonne, la figure le suit

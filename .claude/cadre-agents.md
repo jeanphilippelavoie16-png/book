@@ -123,12 +123,13 @@ Le cadre complet est `.claude/skills/planches/references/brief-agent.md`. En bre
   ouvrir sur une page de gauche ; l'assembleur choisit le côté d'ouverture qui coûte le moins de pages.
 - [ ] Le pictogramme de danger se pose au début de la phrase de l'étape ; le moteur met l'étape sur fond rose pâle avec un
   filet rouge, et à droite le pictogramme en gros, son nom court et la page du danger (JP, même jour : « les dangers
-  en dessous du pictogramme pointent à la page du danger » ; « C, mais avec texte et page »). Chaque danger a sa page au début du tome, une seule (« chacun sa propre page, pas
+  en dessous du pictogramme pointent à la page du danger » ; « C, mais avec texte et page » ; puis « mets la page de la même couleur que le nom » : la page est en rouge, sous le nom, dans le même style). Chaque danger a sa page au début du tome, une seule (« chacun sa propre page, pas
   plus qu'une page ») : une page de danger qui déborde se resserre, ou son texte se coupe.
 - [ ] La série orange se lit d'un trait, sans planche ni page au milieu (JP, 18 octobre : « premières minutes est
   scindé, il doit se suivre ») : les planches appelées dans l'orange gardent leur ancre à l'étape qui les appelle ; le moteur les sort de l'orange, les
   pose juste après la série et ferme la page (JP : « après le orange c'est les planches, ensuite on commence l'essence ;
-  laisse des trous au pire »). On ne remplit pas le trou avec la section suivante.
+  laisse des trous au pire »). Si la page garde plus de la moitié de sa hauteur libre, la suite la remplit (JP, 18 octobre 2026 :
+  « la suite peut la remplir s'il reste plus que la moitié de la page dispo ») ; sinon, le trou reste.
 - [ ] Aucune liste ni section qui déborde d'une ou deux lignes sur la page suivante (JP, 18 octobre : « il y a juste
   une ligne, c'est pas beau ») : on resserre le texte pour qu'elle tienne.
 
