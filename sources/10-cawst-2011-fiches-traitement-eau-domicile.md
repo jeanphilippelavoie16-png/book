@@ -78,3 +78,16 @@ Tableau : très efficace contre les virus : ultrafiltration (UF), nanofiltration
 - UV : eau à moins de 5 UNT, préfiltre, lampe changée chaque année.
 - Soleil : bouteille de plastique, secouée, couchée sur une surface qui réfléchit (tôle), jamais à l'ombre ; la
   méthode est faite pour les latitudes de 15 à 35 degrés : beaucoup plus au sud que la Côte-Nord.
+
+### Filtre de céramique (fiche « Ceramic Pot Filter »)
+
+> « It is recommended that the filter pot be replaced every 1-2 years. This is in part to protect against fine
+> invisible cracks which may have developed over time. Any cracks will reduce the effectiveness since water can
+> short-circuit without being filtered through the ceramic pores. »
+
+> « Small cracks can occur which are not visible to the naked eye, but which allow pathogens to pass through the
+> filter » ; « Filter needs to be replaced if there are visible cracks » ; « Filters are cleaned by lightly scrubbing
+> the surface when the flow rate is reduced ».
+
+Ce que le livre en tire : section 6, ligne du filtre qui coule plus vite (fêlure souvent invisible, l'eau passe sans
+être filtrée ; fêlure visible : changer la bougie). Le « pli crevé » d'une cartouche n'a pas de source : sorti.

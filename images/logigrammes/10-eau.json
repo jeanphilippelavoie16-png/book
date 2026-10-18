@@ -154,7 +154,7 @@
       "rang": "g2",
       "ancre": "haut",
       "taille": 10.5,
-      "texte": "**Il ne reste que le fleuve** : passer son eau à l'alambic, ou la dessaler par le gel. Bouillir ne lui enlève pas le sel.",
+      "texte": "**Il ne reste que le fleuve** : passer son eau à l'alambic, ou la dessaler par le gel.",
       "renvoi": "ch. 10, étape 1 ; section 7",
       "source": "étape 1 ; section 7"
     },
@@ -165,7 +165,7 @@
       "rang": "d2",
       "ancre": "haut",
       "taille": 10.5,
-      "texte": "**Puiser en amont** du camp, de la fosse et de la hutte de castor, à 20 ou 30 cm sous la surface.",
+      "texte": "**Puiser en amont** du camp, de la fosse et de la hutte de castor, sous la surface, sans racler le fond.",
       "renvoi": "ch. 10, étapes 2 à 5",
       "source": "étapes 2 à 5"
     },
@@ -176,7 +176,7 @@
       "rang": "d3",
       "ancre": "haut",
       "taille": 10.5,
-      "texte": "**Si l'eau est trouble, la laisser reposer** de 12 à 24 h, tirer l'eau claire par-dessus le dépôt et la passer dans un linge de coton.",
+      "texte": "**Laisser reposer l'eau** de quelques heures à un jour, tirer l'eau claire par-dessus le dépôt et la passer dans un linge de coton.",
       "renvoi": "ch. 10, étapes 8 à 10",
       "source": "étapes 8 à 10"
     },
@@ -216,7 +216,7 @@
       "rang": "d5",
       "ancre": "haut",
       "taille": 10.5,
-      "texte": "**Passer une eau de lac ou de neige au filtre à 1 µm**, s'il y en a un, puis mettre 2 gouttes de javel par litre et attendre 30 minutes. Froide ou colorée : 4 gouttes, et attendre plus longtemps.",
+      "texte": "**Passer une eau de lac ou de neige au filtre à 1 µm**, puis mettre 0,2 mL de javel par litre. Attendre 30 minutes au-dessus de 20 °C, 1 heure plus froid, 2 heures sous 10 °C.",
       "renvoi": "ch. 10, étapes 19 à 22",
       "source": "étapes 19 à 22"
     },
@@ -227,9 +227,9 @@
       "rang": "d6",
       "ancre": "haut",
       "taille": 10.5,
-      "texte": "**Sans feu ni javel** : l'été, six heures de plein soleil dans une bouteille claire ; sinon, du chlore fait maison, dosé à la bandelette.",
-      "renvoi": "ch. 10, section 7",
-      "source": "section 7"
+      "texte": "**Sans feu ni javel** : l'iode, 5 gouttes par litre ; l'été, six heures de soleil dans une bouteille claire ; sinon, du chlore fait maison.",
+      "renvoi": "ch. 10, étape 23 ; section 7",
+      "source": "étape 23 ; section 7"
     }
   ],
   "liens": [

@@ -43,3 +43,22 @@ puisqu'on recommande une concentration de 250 mg/l de chlore libre. »
   24 h, purger.
 - Le contrôle du calcul du chapitre : 28 m d'eau dans 150 mm → environ 0,5 L ; le tableau donne 540 mL pour 30 m
   dans 152 mm. Le calcul du livre (rayon² × 3,14 ÷ 10, puis 1 L de javel par 1 000 L) tombe sur le tableau.
+
+## Ajout du 18 octobre 2026 (vérification technique) : coliformes totaux, et chercher la cause
+
+Même document (Lac-Sainte-Marie, p. 1) :
+
+> « La présence de coliformes totaux renforce l'importance de faire des analyses, d'apporter les correctifs appropriés
+> pour prévenir toute contamination fécale éventuelle et de faire un suivi régulier de la qualité de l'eau. Si une
+> nouvelle analyse confirme la présence de coliformes totaux en des concentrations excédant les normes (au-delà de
+> 10 ufc/100 ml), il s'avère alors pertinent d'effectuer un traitement choc de désinfection du puits. »
+
+Municipalité des Éboulements, « Désinfecter un puits artésien » (copie : `sources/10-eboulements-desinfecter-puits-artesien.pdf`) :
+
+> « Les sources locales de contamination peuvent être multiples : aménagement du puits (manque d'étanchéité du
+> couvercle ou du scellement), sol environnant (absence d'un monticule autour du puits pour éloigner le ruissellement
+> de surface), installation septique défectueuse ou encore insalubrité des lieux (ex., épandage de fumier ou autres
+> activités générant de la pollution fécale). »
+
+Ce que le livre en tire : étape 35 (chercher la cause : couvercle, scellement, butte, fosse, fumier) et la ligne
+« Coliformes totaux » des Signes d'échec (au-dessus de 10 par 100 mL à la nouvelle analyse, choc).

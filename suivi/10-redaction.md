@@ -441,3 +441,134 @@ Aucun dans le texte. Deux points pour l'agent des planches :
   Fichier en CRLF, écrit tel quel.
 - `design/epreuves-livre/placements.json` (ancien fichier, clé 10) : les quatre ancres suivent le nouveau texte, format
   compact gardé.
+
+## Corrections après la vérification technique, 18 octobre 2026
+
+Rapport : `suivi/10-technique.md` (18 écarts, 20 NON RETROUVÉ, 3 renvois faux, logigramme). Toutes les corrections
+faites à la source. `controle.py` : 8 567 mots, 2 tirets (titre et ligne de tome), 0 « § », 0 mot banni ; un
+`[À VÉRIFIER]`.
+
+### Sources ajoutées
+
+- `10-cawst-2011-fiches-traitement-eau-domicile.md` (+ PDF) : décanter, temps de contact de la javel en eau froide,
+  filtres à membrane et virus, UV, désinfection solaire, filtre de céramique fêlé.
+- `10-montreal-levee-avis-ebullition-2026-03.md` (+ page) : les gestes à la levée de l'avis.
+- `10-noaa-cameo-hypochlorite-de-calcium.md` (+ page) : les granules allument le bois, l'huile, les vêtements ; le
+  chlore avec un acide ; l'explosif avec l'urine ou l'ammoniaque.
+- `10-savemyexams-electrolyse-saumure.md` (+ page) : électrodes de carbone, chlore à une électrode, hydrogène à l'autre.
+- `10-eboulements-desinfecter-puits-artesien.pdf` et ajout à `10-melcc-desinfection-puits-procedure.md` : les causes
+  de contamination d'un puits ; coliformes totaux au-dessus de 10 par 100 mL.
+- Ajout à `13-cawst-couche-biologique-filtre-a-sable.md` : laver le sable sans aller jusqu'à l'eau claire, le test du
+  pot, le sable trop lavé, la couche vivante dans le 1 ou 2 cm du dessus, le « swirl & dump ».
+- Déjà au dossier, maintenant cités : `10-epa-hypochlorite-calcium-et-redosage.md` (recette, 15 minutes) ;
+  `43b-us-army-fm3-05-70-survival-2002-texte.txt` (« Eating snow or ice can reduce body temperature and lead to more
+  dehydration. Snow or ice are no purer than the water from which they come ») ;
+  `10-sante-canada-avis-ebullition-lignes-directrices.html`, section A.6 (bébés lavés à la débarbouillette ; glace et
+  aliments crus jetés) ; `10-melccfp-l-eau-de-mon-puits.pdf` (une eau limpide, inodore et bonne au goût peut contenir
+  des substances) ; `13-inspq-sante-voyage-eau.md` (*E. coli*, 0,2 à 0,4 µm).
+
+### Les écarts, point par point
+
+1. **Réserve d'eau (écart grave)** : 6 L + 6 L par personne **pour 72 heures**, soit 4 L par jour. Étape 26 :
+   16 L par jour pour quatre, 48 L pour 72 h, 480 L par mois (30 × 16), 24 bidons de 20 L (480 ÷ 20). Points de
+   contrôle « Avant l'hiver » : 48 L pour quatre sur 72 h. Buse : 16 L ÷ 2,5 L = 6,4, donc 7 voyages. « Ce qu'on
+   perd » : la « deuxième corvée à temps plein » et la bûche (sans source) sortent.
+2. **Filtre à 1 µm** (étapes 11 et 14, Matériel) : il arrête *Cryptosporidium* et *Giardia* ; il laisse passer une partie
+   des bactéries (*E. coli* 0,5 µm de large, 0,2 à 0,4 µm pour la retenir) et les virus ; on désinfecte toujours après.
+3. **Virus** : « les filtres portatifs courants » ne les retiennent pas ; seule l'ultrafiltration (0,01 à 0,1 µm) le
+   fait (CAWST). « Ce qui ne se remplace pas » : un filtre contre les virus ne se fabrique pas.
+4. **Redosage** : 15 minutes (EPA), étape 22 et Points de contrôle.
+5. **Iode, grossesse** : « pas longtemps » (CDC : « for prolonged periods »), sans chiffre.
+6. **Javel** : on lit et on écrit la **date de fabrication** (code du fabricant : année sur deux chiffres, puis jour de
+   l'année).
+7. **999 kystes sur 1 000** retirés (chiffre de l'usine) ; l'étape 12 garde les 0,3 UNT comme condition où la
+   filtration retient le mieux, sans pourcentage.
+8. **Sable** : laver le gravier jusqu'à l'eau claire, pas le sable ; test du pot ; sable trop lavé.
+9. **Débit qui tombe** : paume à plat, en rond, à peine, puis puiser l'eau sale ; plus de grattage de 2 ou 3 cm.
+10. **Hypochlorite de calcium** : recette EPA : une cuillère à thé comble (environ 7 g) dans 7,5 L (2 gallons
+    américains = 7,57 L) → environ 500 mg/L ; 1 pour 100 (100 mL pour 10 L).
+11. **Électrolyse** : « l'utiliser dans les 24 heures ».
+12. **Goût** : « une eau limpide, sans odeur et bonne au goût peut en contenir » (au lieu de « aucun des cinq n'a de
+    goût », faux pour le manganèse).
+13. **Manganèse** : au-dessus de 0,06 mg/L, pas d'eau du puits pour les biberons ; au-dessus de 0,12, pour aucun
+    nourrisson.
+14. **Bandelettes 0 à 200 mg/L** : le puits neuf (250 mg/L) se lit sur l'eau diluée de moitié avec de l'eau bouillie,
+    chiffre doublé (étape 28, Points de contrôle). Arithmétique, pas de source à chercher.
+15. **Volume du puits** : arrondi **vers le haut**.
+16. **Javel en millilitres** : 0,2 mL par litre (0,4 mL à double dose), à la seringue ; le Matériel dit de compter les
+    gouttes d'un compte-gouttes dans 1 mL. Les « 2 gouttes » sortent du texte et du logigramme.
+17. **Alambic** : laisse dans la marmite « ce qui ne s'évapore pas ».
+18. **Uranium** retiré de la liste de l'alambic (étape 27 et Points de contrôle : « une autre source ; pour le nitrate,
+    l'arsenic et le plomb, l'alambic »).
+
+En plus, trouvé dans la fiche CAWST : **javel en eau froide**, 1 h entre 10 et 18 °C, 2 h ou plus sous 10 °C (étape
+21, Points de contrôle, logigramme). L'étape 21 dit « au moins 1 heure dans une eau plus froide » que 20 °C : la plage
+de 18 à 20 °C, que ni l'INSPQ ni CAWST ne couvrent, prend la plus longue des deux. L'iode devient « quand il n'y a ni feu
+ni javel ».
+
+### Les NON RETROUVÉ
+
+| # | Décision |
+| --- | --- |
+| 1 (20 ou 30 cm) | Chiffre et raison coupés : « sous la surface, sans racler le fond » |
+| 2 (12 à 24 h) | Source CAWST : « de quelques heures à un jour, plus si elle est trouble » ; l'argile la plus fine ne tombe pas ; un jour de repos fait mourir une partie des bactéries |
+| 3 (trois ou quatre épaisseurs) | « Plié en plusieurs épaisseurs » |
+| 4 (2 ou 3 cm au fond) | « Arrêter quand le dépôt commence à monter vers le boyau » |
+| 5 (UV) | CAWST : moins de 5 UNT, décantée et filtrée avant, lampe changée chaque année ; « rien ne le signale » et la comparaison sortent |
+| 6 (deux ou trois fois) | « Plusieurs fois » |
+| 7 (positif deux fois) | Les causes du document municipal (couvercle, scellement, butte, fosse, fumier) |
+| 8 (manger la neige) | Manuel de survie de l'armée américaine (`43b-…`) ; la phrase suit la source |
+| 9 (levée de l'avis) | Communiqué de Montréal et Santé Canada |
+| 10 (plomb) | Chasse d'eau, soudures, raison de l'aérateur : coupés |
+| 11 (coliformes totaux) | Document municipal (Lac-Sainte-Marie) : la ligne est réécrite |
+| 12 (filtre qui coule plus vite) | CAWST, filtre de céramique : fêlure souvent invisible ; « pli crevé » coupé |
+| 13 (une bûche de plus) | Coupé |
+| 14 (granules « des années ») | Coupé : aucune durée dans les sources |
+| 15 (feu des granules) | NOAA CAMEO ; pictogramme `incendie` (feu), `chimie` (acide, urine) |
+| 16 (électrolyse) | Mécanisme et carbone : manuel de chimie. **Le métal d'une électrode d'acier ou de cuivre qui se dissout : `[À VÉRIFIER]`** |
+| 17 (« hors gel ») | Coupé |
+| 18 (uranium, serpentin) | L'uranium sort ; « on récupère plus de vapeur » sort |
+| 19 (soleil) | CAWST : bouteille de plastique, secouée, sur une surface qui renvoie le soleil (et pas une surface sombre), jamais à l'ombre, 6 h ou 2 jours, pas sous la pluie ; méthode faite pour 15 à 35 degrés de latitude ; ne suffit pas contre *Cryptosporidium* |
+| 20 (40 mm, 1,5 à 2 m) | Écrit comme un choix de construction (« qui descend librement dans le tubage, par exemple ») ; l'arithmétique suit |
+
+### Renvois
+
+- « ch. 48 (lièvre) et 50 (castor) » devient « Le ch. 50 (castor) applique la même durée ».
+- « (rendements : ch. 87) » coupé.
+- « (ch. 94) » devient « (lever l'écorce : ch. 94) » : la récolte de l'écorce y est ; le contenant n'est décrit nulle part.
+
+### Noms latins
+
+La règle du cadre gagne : *Castor canadensis*, *Ondatra zibethicus*, *Alces americanus*, *Giardia lamblia* (devient
+*Giardia*) et *Francisella tularensis* sortent du texte. Restent les noms de microbes qu'on emploie tels quels :
+*Giardia*, *Cryptosporidium*, *E. coli*.
+
+### Pictogrammes
+
+- Hypochlorite de calcium : `incendie` (les granules allument le bois, l'huile, les guenilles) et `chimie` (un acide
+  en dégage du chlore ; l'urine ou l'ammoniaque). À ajouter au ch. 10 dans l'inventaire, avec les six de la section
+  précédente.
+- Serpentin qui gèle et se bouche : aucune source, et le texte ne le dit pas : rien d'ajouté.
+
+### Logigramme
+
+- p1 : « sous la surface, sans racler le fond » ;
+- p2 : « Laisser reposer l'eau de quelques heures à un jour… », sans condition ;
+- q5o : filtre à 1 µm sans « s'il y en a un », 0,2 mL par litre, 30 min, 1 h, 2 h selon la température ;
+- q5n : l'iode ajouté (étape 23) ;
+- q2n : « Bouillir ne lui enlève pas le sel » sort.
+
+Régénéré (`10-eau.svg`, `.pdf`, `.png`, `10-eau-livre.svg`), contrôle 0 erreur, PNG regardé.
+
+### Pour l'agent des planches
+
+- **10-01, repère 1** : « laisser reposer de 12 à 24 h » devient « laisser reposer de quelques heures à un jour ».
+- **10-07, repère 7** : « recommencer jusqu'à l'eau claire » devient « arrêter quand l'eau est encore un peu sale ».
+  Le gravier, lui, se lave jusqu'à l'eau claire (repère 4).
+- **10-07, repères 11 et 12** : « gratter à plat 2 ou 3 cm du dessus » et « laisser le lit dessous en place » deviennent
+  « frotter à peine le dessus, la paume à plat, en rond » (11) et « puiser l'eau sale » (12). La vue « Quand le débit
+  tombe » montre une paume ou un petit contenant qui puise, plus une gratte.
+- **10-03, repère 7** : « au lieu de 2 et 3 » devient « au lieu de 1, 2 et 3 » (le serpentin remplace le bol, le
+  couvercle à l'envers et son creux).
+- **10-08** : le boyau du repère 1 ne touche pas le dépôt ; le seau du bas porte le coton de l'étape 9 (le texte dit
+  de descendre le bout « sur le coton de la chaudière du bas »).
