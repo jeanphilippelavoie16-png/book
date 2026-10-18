@@ -112,3 +112,9 @@ sont des formes simples ; le sujet vient toujours d'un jeu d'icônes.
 | `plante-b` feuille et baies | fa6-solid:leaf | baies tracées | Fonticons | CC BY 4.0 |
 
 Versions ajoutées : fluent-emoji-flat 1.2.6, iconoven 1.2.1.
+
+## Le choix de JP (18 octobre 2026)
+
+Sur la planche des propositions, JP a entouré : co A, generatrice A, abats A, mal-de-caribou A, thuyone A, plomb A,
+tetanos A, orignal B, trichine B, selles A, arme B, cuisson B, botulisme A, plante A ; espace-clos et pas-au-feu
+gardent leur dessin d'origine. Le choix est dans `CHOIX` de `construire.py`.

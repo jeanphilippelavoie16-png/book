@@ -459,7 +459,16 @@ def construire_recette(dossier, ident, r):
     return svg
 
 
+# Le choix de JP sur la planche des propositions (18 octobre 2026, entourés au crayon) : la proposition retenue
+# remplace la recette ; espace-clos et pas-au-feu gardent leur recette d'origine.
+CHOIX = {'co': 'a', 'generatrice': 'a', 'abats': 'a', 'mal-de-caribou': 'a', 'thuyone': 'a', 'plomb': 'a',
+         'tetanos': 'a', 'orignal': 'b', 'trichine': 'b', 'selles': 'a', 'arme': 'b', 'cuisson': 'b',
+         'botulisme': 'a', 'plante': 'a'}
+
+
 def construire(dossier, ident):
+    if ident in CHOIX:
+        return construire_recette(dossier, ident, PROPOSITIONS[ident][CHOIX[ident]])
     return construire_recette(dossier, ident, RECETTES[ident])
 
 
