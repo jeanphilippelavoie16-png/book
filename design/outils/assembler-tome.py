@@ -135,11 +135,12 @@ def placements(tome, extra=None):
 
 # ------------------------------------------------------------------ ce que l'assembleur ajoute au HTML d'un chapitre
 TOME_JS = ("<script>var TOME=(function(){var q=new URLSearchParams(location.search);"
-           "return {off:q.has('off')?+q.get('off'):null,par:+(q.get('par')||0)};})();</script>\n")
+           "var dg={};(q.get('dg')||'').split(',').forEach(function(x){var p=x.split('.');if(p[1])dg[p[0]]=p[1];});"
+           "return {off:q.has('off')?+q.get('off'):null,par:+(q.get('par')||0),dg:dg};})();</script>\n")
 SIDE_OLD = "const n = PAGES.length + 1, side = n % 2 ? 'recto' : 'verso';"
 SIDE_NEW = "const n = PAGES.length + 1, side = (n + TOME.par) % 2 ? 'recto' : 'verso';"
 FIN_OLD = "function finishPages(){"
-FIN_NEW = ("function finishPages(){\n  if(TOME.off !== null) PAGES.forEach(p => { if(p.kind === 'open') return;"
+FIN_NEW = ("function finishPages(){\n  document.querySelectorAll('.pnum').forEach(s => { const n = TOME.dg[s.dataset.pg]; if(n) s.textContent = 'p. ' + n; });\n  if(TOME.off !== null) PAGES.forEach(p => { if(p.kind === 'open') return;"
            " const f = document.createElement('div'); f.className = 'fcont'; f.textContent = TOME.off + p.n; p.el.appendChild(f); });")
 # numéro de page du tome : en pied, à la hauteur de l'échelle des sections, dans la marge extérieure,
 # entre le bloc (0,5 po du rognage) et la limite sûre de Blurb (0,25 po du rognage)
@@ -688,12 +689,13 @@ def mode_emploi(tome, titre_t, plan):
              "Les pictogrammes des étapes",
              p("Sous le numéro d'une étape : le **minuteur**, un temps à respecter ou à surveiller ; le **thermomètre**, une "
                "température à atteindre ou à vérifier.")),
-        rang('<span style="display:flex;gap:6pt;align-items:flex-start;font:400 9.4pt var(--serif)">'
-             '<span style="display:flex;flex-direction:column;align-items:flex-end;gap:2pt"><b style="font:700 11pt var(--sans)">12</b>'
-             + il("{!generatrice}").replace('class="picto"', 'class="picto" style="width:21pt;height:21pt"') + '</span>'
-             '<span>Laisser la génératrice dehors…</span></span>',
+        rang('<span style="display:flex;gap:8pt;align-items:flex-start;font:400 9.4pt var(--serif)">'
+             '<span><b style="font:700 11pt var(--sans)">12</b> Laisser la génératrice dehors…</span>'
+             '<span style="display:flex;flex-direction:column;align-items:center;gap:1.5pt">'
+             + il("{!generatrice}").replace('class="picto"', 'class="picto" style="width:27pt;height:27pt;margin:0"')
+             + '<b style="font:700 7.6pt var(--sans);color:#9B2C1E">p. 9</b></span></span>',
              "Les dangers",
-             p("Un **carré rouge** dans la marge, à gauche d'une étape, veut dire qu'un danger se présente à cette étape. Chaque danger a "
+             p("Un **carré rouge** à droite d'une étape veut dire qu'un danger se présente à cette étape ; le numéro sous le carré est la page du danger. Chaque danger a "
                "le sien. L'étape dit ce qui est propre à la situation : la distance, la dose, la durée. Le danger lui-même "
                "(ce qu'il fait, comment le reconnaître, quoi faire) est expliqué une seule fois, dans **les pages des "
                "dangers** qui suivent celle-ci.")),
@@ -726,79 +728,45 @@ def mode_emploi(tome, titre_t, plan):
 # pages, la seconde les imprime avec leurs folios.
 DANGERS_CSS = """
 .dgp .block{display:flex;flex-direction:column}
-.dgp h1{font-size:30pt}
-.dg-flow{flex:1 1 0;min-height:0;overflow:hidden}
-.dg-intro{margin:0 0 10pt;text-indent:0;font:500 9.2pt/12.4pt var(--sans)}
+.dgp h1{font-size:26pt;margin:10pt 0 6pt;padding-bottom:6pt}
+.dg-intro{margin:0 0 8pt;text-indent:0;font:500 9pt/12pt var(--sans)}
 .dg-intro svg.picto{height:1.4em;width:1.4em;vertical-align:-.4em}
-.dg-h{display:flex;align-items:center;gap:10pt;margin:12pt 0 5pt;padding-top:8pt;border-top:0.75pt solid #1A1A1A;break-after:avoid}
-.dg-flow > .dg-h:first-child{margin-top:0}
-.dg-h svg.picto-g{flex:none;width:0.62in;height:0.62in}
-.dg-h h2{margin:0;font:700 14pt/1.1 var(--sans);text-transform:uppercase;letter-spacing:.03em}
-.dg-h h2 small{display:block;margin-top:2pt;font:600 7.5pt/1 var(--sans);letter-spacing:.08em;color:#6A6A6A}
-.dg-flow > :not(.dg-h){margin-left:calc(0.62in + 10pt)}
-.dg-flow p{margin:0 0 4pt;text-indent:0;font:400 9.4pt/12.6pt var(--serif)}
-.dg-flow p.li{padding-left:11pt}
-.dg-flow table.tcol{width:calc(100% - 0.62in - 10pt)}
+.dg-e{flex:1 1 0;min-height:0;display:flex;flex-direction:column}
+.dg-h{flex:none;display:flex;align-items:center;gap:14pt;margin:8pt 0 10pt;padding:0 0 10pt;border-bottom:3pt solid #9B2C1E}
+.dg-h svg.picto-g{flex:none;width:0.95in;height:0.95in}
+.dg-h h2{margin:0;font:700 22pt/1.05 var(--sans);text-transform:uppercase;letter-spacing:.02em}
+.dg-h h2 small{display:block;margin-top:5pt;font:600 8.5pt/1.2 var(--sans);letter-spacing:.08em;color:#555}
+.dg-b{flex:1 1 0;min-height:0;columns:2;column-gap:0.24in;column-fill:auto;column-rule:0.5pt solid #BBB;overflow:hidden;font-size:var(--fs,9.4pt)}
+.dg-b p{margin:0 0 4pt;text-indent:0;font-family:var(--serif);font-size:1em;line-height:1.36}
+.dg-b p.li{padding-left:11pt}
+.dg-b p.step{padding-left:17pt}
+.dg-b table.tcol{font-size:.92em}
 """
 
 DANGERS_JS = r"""<script>
 (function(){
-  // coupe le flot des dangers en pages : un bloc à la fois ; le titre d'un danger ne reste jamais seul au bas d'une page
+  // une page par danger, jamais plus (JP, 18 octobre 2026 : « les dangers, chacun sa propre page, pas plus qu'une
+  // page ») : le texte se resserre jusqu'à tenir sur sa page ; s'il ne tient pas à 8 pt, la page le signale
   const src = document.getElementById('dg-src'); if(!src) return;
   const debut = +src.dataset.debut, tete = src.dataset.tete;
   const book = document.getElementById('book');
-  let n = 0, flow = null;
-  const page = () => {
-    const no = debut + n; n++;
-    const s = document.createElement('section');
-    s.className = 'page ' + (no % 2 ? 'recto' : 'verso') + ' ax dgp'; s.id = 'a-dg-' + (n - 1);
-    s.innerHTML = '<div class="block">' + tete + (n === 1 ? src.dataset.h1 : '') + '<div class="dg-flow"></div></div>'
-      + (debut ? '<div class="fcont">' + no + '</div>' : '');
-    book.appendChild(s); flow = s.querySelector('.dg-flow');
-  };
-  const deborde = () => flow.scrollHeight > flow.clientHeight + 0.5;
-  // coupe le paragraphe p après la dernière phrase qui tient ; rend la suite (un nouveau <p>), ou null si rien ne tient
-  // (au moins deux lignes de chaque côté)
-  const couper = p => {
-    const html = p.innerHTML, bornes = [];
-    const rx = /[.;:!?]\u202f?(?:<\/strong>)?\s(?=[A-ZÀÂÉÈÊÎÔÛÇ«<0-9])/g; let m;
-    while((m = rx.exec(html))) bornes.push(m.index + m[0].length);
-    const lh = parseFloat(getComputedStyle(p).lineHeight) || 16;
-    for(let k = bornes.length - 1; k >= 0; k--){
-      p.innerHTML = html.slice(0, bornes[k]);
-      if(!deborde() && p.getBoundingClientRect().height >= 2 * lh - 1){
-        const q = document.createElement('p'); q.className = p.className; q.innerHTML = html.slice(bornes[k]);
-        if(q.textContent.trim().length > 60) return q;
-      }
-    }
-    p.innerHTML = html; return null;
-  };
+  const ents = Array.from(src.querySelectorAll('.dg-e'));
   const go = () => {
-    const blocs = Array.from(src.children); src.remove(); page();
-    for(let i = 0; i < blocs.length; i++){
-      const b = blocs[i];
-      flow.appendChild(b);
-      const seul = b.classList.contains('dg-h') && i + 1 < blocs.length;
-      if(seul) flow.appendChild(blocs[i + 1]);
-      if(deborde() && !seul && b.tagName === 'P' && flow.children.length > 1){
-        // un paragraphe trop long pour le bas de la page se coupe entre deux phrases, plutôt que de laisser un trou
-        const reste = couper(b);
-        if(reste){ page(); flow.appendChild(reste); continue; }
-      }
-      if(deborde() && seul && blocs[i + 1].tagName === 'P' && flow.children.length > 2){
-        // le titre d'un danger et le début de son premier paragraphe restent au bas de la page, le reste passe
-        const reste = couper(blocs[i + 1]);
-        if(reste){ page(); flow.appendChild(reste); i++; continue; }
-      }
-      if(deborde() && flow.children.length > (seul ? 2 : 1)){
-        if(seul) blocs[i + 1].remove();
-        b.remove(); page(); flow.appendChild(b); if(seul) flow.appendChild(blocs[i + 1]);
-      }
-      if(seul) i++;
-    }
+    src.remove();
+    ents.forEach((en, k) => {
+      const no = debut + k;
+      const s = document.createElement('section');
+      s.className = 'page ' + ((debut ? no : k + 1) % 2 ? 'recto' : 'verso') + ' ax dgp'; s.id = 'a-dg-' + k;
+      s.innerHTML = '<div class="block">' + tete + (k === 0 ? src.dataset.h1 : '') + '</div>' + (debut ? '<div class="fcont">' + no + '</div>' : '');
+      s.querySelector('.block').appendChild(en); book.appendChild(s);
+      const b = en.querySelector('.dg-b');
+      const deborde = () => b.scrollWidth > b.clientWidth + 1 || b.scrollHeight > b.clientHeight + 1;
+      for(const fs of [9.4, 9.1, 8.8, 8.5, 8.2, 8.0]){ b.style.setProperty('--fs', fs + 'pt'); if(!deborde()) break; }
+      if(deborde()) s.dataset.deborde = '1';
+    });
     document.documentElement.dataset.ready = '1';
   };
-  document.fonts.ready.then(() => Promise.all(['700 14pt "IBM Plex Sans Condensed"', '400 9.4pt "IBM Plex Serif"'].map(f => document.fonts.load(f)))).then(go);
+  document.fonts.ready.then(() => Promise.all(['700 22pt "IBM Plex Sans Condensed"', '400 9.4pt "IBM Plex Serif"'].map(f => document.fonts.load(f)))).then(go);
 })();
 </script>
 """
@@ -834,39 +802,39 @@ def dangers_du_tome(tome, chap_ids):
     return vus
 
 def dangers_html(tome, chap_ids, debut, work, nom="dangers"):
-    """Écrit le HTML des pages des dangers du tome ; debut = folio de la première page (0 : passe de comptage)."""
+    """Écrit le HTML des pages des dangers du tome, une page par danger ; debut = folio de la première (0 : passe de
+    comptage). Rend (chemin, [ids dans l'ordre des pages])."""
     titre_t = bc.TOMES[tome][0]
     vus = dangers_du_tome(tome, chap_ids)
     ent = dangers_entrees()
     import md2blocks as mb
-    blocs = []
+    ents, ids = [], []
     for pid, (nomd, corps) in ent.items():
         if pid not in vus:
             continue
         chs = ", ".join(aff(c) for c in vus[pid])
-        blocs.append(f'<div class="dg-h">{mb.picto_svg(pid, "picto-g")}<h2>{il(nomd)}'
-                     f'<small>{"Chapitre" if len(vus[pid]) == 1 else "Chapitres"} {chs}</small></h2></div>')
-        blocs += [h for h, _ in bc.render(bc.parse(corps))]
+        corps_html = "".join(h for h, _ in bc.render(bc.parse(corps)))
+        ents.append(f'<section class="dg-e" data-id="{pid}"><div class="dg-h">{mb.picto_svg(pid, "picto-g")}<h2>{il(nomd)}'
+                    f'<small>{"Chapitre" if len(vus[pid]) == 1 else "Chapitres"} {chs}</small></h2></div>'
+                    f'<div class="dg-b">{corps_html}</div></section>')
+        ids.append(pid)
     manquent = sorted(set(vus) - set(ent))
     if manquent:
         log("  ATTENTION : dangers marqués sans page d'explication : " + ", ".join(manquent))
-    if not blocs:
-        return None, 0
+    if not ents:
+        return None, []
     tete = f'<div class="ax-top"><span>Tome {tome} · {e(titre_t)}</span><span>Le Grand Livre du Chalet</span></div>'
     h1 = ('<h1>Les dangers</h1><p class="dg-intro">' + il(
-        "Dans un chapitre, ce carré rouge {!" + next(iter(k for k in ent if k in vus)) + "}, dans la marge à gauche d'une "
-        "étape, veut dire qu'un danger se présente à cette étape. L'étape dit ce qui est propre à cette situation (la distance, la dose, la "
-        "durée) ; le danger lui-même, ce qu'il fait au corps, comment le reconnaître et quoi faire, est expliqué ici, une "
-        "seule fois.") + "</p>")
-    src = (f'<div id="dg-src" data-debut="{debut}" data-tete="{e(tete)}" data-h1="{e(h1)}" style="display:none">'
-           + "".join(blocs) + "</div>")
-    # le flot se mesure visible : le conteneur caché ne sert qu'à porter les blocs jusqu'au script
-    src = src.replace(' style="display:none"', ' style="position:absolute;left:-9999px;width:7in"')
+        "Dans un chapitre, ce carré rouge {!" + ids[0] + "} veut dire qu'un danger se présente à cette étape ; le numéro "
+        "sous le carré est celui de la page du danger. L'étape dit ce qui est propre à la situation (la distance, la "
+        "dose, la durée) ; la page du danger dit ce qu'il fait, comment le reconnaître et quoi faire.") + "</p>")
+    src = (f'<div id="dg-src" data-debut="{debut}" data-tete="{e(tete)}" data-h1="{e(h1)}" '
+           'style="display:none">' + "".join(ents) + "</div>")   # caché : à hauteur nulle, les colonnes se multiplient sans fin
     out = (tete_html(f"Tome {tome} — les dangers — Le Grand Livre du Chalet").replace("</style>", DANGERS_CSS + "</style>", 1)
            + f'<body class="vA vB vC t{tome} lieu-2">\n<div id="book">\n</div>\n' + src + "\n" + DANGERS_JS + "</body>\n</html>\n")
     dst = os.path.join(work, "html", f"{nom}-tome-{tome}.html")
     open(dst, "w", encoding="utf-8").write(out)
-    return dst, len(vus)
+    return dst, ids
 
 DEDICACE = ("À Pierre-Alexis et à Louis-Charles,", "pour qu’il y ait toujours quelqu’un qui sait.")
 
@@ -1051,12 +1019,10 @@ def main():
 
     # 1 b. les pages des dangers : une passe pour les compter
     dg_n = 0
-    dg_html, dg_nb = dangers_html(tome, chap_ids, 0, work, "dangers-compte")
+    dg_html, dg_ids = dangers_html(tome, chap_ids, 0, work, "dangers-compte")
     if dg_html:
-        dg_cpt = os.path.join(work, "pdf", f"dangers-compte-tome-{tome}.pdf")
-        edge_lot([(pdf_args(url(dg_html), dg_cpt), dg_cpt)])
-        dg_n = len(pypdf.PdfReader(dg_cpt).pages) if os.path.exists(dg_cpt) else 0
-        log(f"pages des dangers : {dg_nb} dangers, {dg_n} pages")
+        dg_n = len(dg_ids)   # une page par danger
+        log(f"pages des dangers : {dg_n} dangers, une page chacun")
 
     # 2. plan du tome : titre (recto), blanche, sommaire, puis les chapitres (chacun au recto), puis les
     #    blanches de fin. Tome 1 : le chapitre 00 d'abord, en page 1, avant la page de titre (il se trouve
@@ -1076,6 +1042,14 @@ def main():
             c = x
             if (not verso or "recto" in c["notes"]) and prochaine % 2 == 0:
                 seq.append(("blanche", None)); blanches += 1; blanches_ouv += 1; prochaine += 1
+            elif verso and len(c.get("rapports", {})) == 2:
+                # le côté d'ouverture qui coûte le moins : une page blanche devant le chapitre vaut mieux qu'une page
+                # blanche au milieu (la procédure attend le logigramme, qui commence toujours à gauche)
+                cout = lambda k, plus: (c["rapports"][k]["pages"] + plus,
+                                        any("page blanche" in w for w in c["rapports"][k]["warn"]))
+                nat, aut = ("1", "0") if prochaine % 2 == 0 else ("0", "1")
+                if cout(aut, 1) < cout(nat, 0):
+                    seq.append(("blanche", None)); blanches += 1; blanches_ouv += 1; prochaine += 1
             c["debut"] = prochaine
             c["rapport"] = c["rapports"]["1" if prochaine % 2 == 0 and "1" in c["rapports"] else "0"]
             c["secs"] = c["rapport"]["secs"]
@@ -1125,17 +1099,19 @@ def main():
     rel = lambda p: os.path.relpath(p, ROOT).replace("\\", "/")
     open(cred_md, "w", encoding="utf-8").write(credits_md(tome, credits_lignes, credits_manques, total, rel(cred_pdf)))
 
-    # 4. rendu PDF des chapitres (numéro de page continu et côté passés dans l'URL)
+    # 4. rendu PDF des chapitres (numéro de page continu et côté passés dans l'URL ; la page de chaque danger, que le
+    #    chapitre écrit sous le pictogramme)
+    dg_q = ",".join(f"{pid}.{plan['dangers'] + k}" for k, pid in enumerate(dg_ids)) if dg_n else ""
     jobs = []
     for c in chaps:
         off, par = c["debut"] - 1, (0 if c["debut"] % 2 else 1)
-        cle = f"{c['html']}|{off}|{par}"
+        cle = f"{c['html']}|{off}|{par}|{dg_q}"
         c["pdf"] = os.path.join(work, "pdf", f"{c['num']}.pdf")
         c["off"], c["par"] = off, par
         if c.get("pdf_cle") == cle and os.path.exists(c["pdf"]):
             continue
         c["pdf_cle_voulue"] = cle
-        jobs.append((pdf_args(url(c["dst"], f"off={off}&par={par}"), c["pdf"]), c["pdf"]))
+        jobs.append((pdf_args(url(c["dst"], f"off={off}&par={par}&dg={dg_q}"), c["pdf"]), c["pdf"]))
     if jobs:
         log(f"impression de {len(jobs)} chapitre(s)…")
         edge_lot(jobs)

@@ -1,6 +1,6 @@
 # Tome 1 · Tenir — rapport d'assemblage
 
-- **Produit le :** 2026-10-18 16:14, par `design/outils/assembler-tome.py 1 --chapitres 10 --hors-ligne --sortie livre/apercus-ch10`
+- **Produit le :** 2026-10-18 16:26, par `design/outils/assembler-tome.py 1 --chapitres 10 --hors-ligne --sortie livre/apercus-ch10`
 - **Fichier :** `livre/tome-1/interieur.pdf` — 40 pages, 8.6 Mo
 - **Ouvertures :** au recto ou au verso (--verso)
 - **Placements :** design/epreuves-livre/placements.json, design/epreuves-livre/placements-tome-1.json
@@ -16,8 +16,8 @@
 | 6 | Comment le livre fonctionne (1) | 1 |
 | 7 | Comment le livre fonctionne (2) | 1 |
 | 8–19 | Les dangers | 12 |
-| 20–39 | ch. 10 — Eau : puiser, filtrer, désinfecter | 20 |
-| | Pages blanches (verso de la page de titre, avant les ouvertures, fin du tome) | 3 |
+| 20–40 | ch. 10 — Eau : puiser, filtrer, désinfecter | 21 |
+| | Pages blanches (verso de la page de titre, avant les ouvertures, fin du tome) | 2 |
 | | **Total** | **40** |
 
 Aucune page de crédits (JP, 28 septembre 2026) : copie hors du livre dans `livre/apercus-ch10/credits/tome-1-credits.md` et `livre/apercus-ch10/credits/tome-1-credits.pdf`.
@@ -30,7 +30,7 @@ Aucune page de crédits (JP, 28 septembre 2026) : copie hors du livre dans `livr
 | Rognage (TrimBox) | 8 × 10 po, fond perdu au bord extérieur | recto : reliure à gauche ; verso : à droite | oui |
 | Nombre de pages | pair, de 20 à 440 (papier Standard) | 40 | oui |
 | Page 1 | à droite | ouverture du chapitre 00 | oui |
-| Polices incorporées | toutes | 20 police(s), 0 non incorporée(s) | oui |
+| Polices incorporées | toutes | 19 police(s), 0 non incorporée(s) | oui |
 | Taille du fichier | 2 Go au plus | 8.6 Mo | oui |
 | Marques d'imprimeur | aucune | aucune | oui |
 | Couleur | CMJN ou sRVB, sans ton direct | sRVB (Edge) | oui |
@@ -55,7 +55,7 @@ Les planches de `images/a-valider/` sont posées comme les validées (JP les rel
 
 | Ch. | Posées (page du tome) | Mentionnées dans le texte sans planche dessinée | À valider, non posées | Photos demandées encore à acquérir (credits.md) |
 | --- | --- | --- | --- | ---: |
-| 10 | 10-02 (34, pleine), 10-07 (36, pleine), 10-01 (24), 10-08 (25, à valider), 10-03 (37), 10-eau-livre (22, double page), 10-hutte-castor.jpg (21) | — | — | 6 (ancien 13) |
+| 10 | 10-02 (35, pleine), 10-07 (37, pleine), 10-01 (25), 10-08 (26, à valider), 10-03 (38), 10-eau-livre (22, double page), 10-hutte-castor.jpg (24) | — | — | 6 (ancien 13) |
 
 ## Crédits des images — hors du livre
 
@@ -63,7 +63,7 @@ Rien ne s'imprime (JP, 28 septembre 2026). Copie de sauvegarde : `livre/apercus-
 
 | Page | Ch. | Fichier | Auteur | Licence |
 | ---: | --- | --- | --- | --- |
-| 21 | 10 | 10-hutte-castor.jpg | U.S. Fish and Wildlife Service - Midwest Region | Public domain |
+| 24 | 10 | 10-hutte-castor.jpg | U.S. Fish and Wildlife Service - Midwest Region | Public domain |
 
 Photos téléchargées pour ces chapitres et non posées (images de référence ou photos à placer) :
 

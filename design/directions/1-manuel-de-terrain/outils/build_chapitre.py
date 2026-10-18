@@ -285,8 +285,12 @@ def marge(h):
     h = PICTO_SVG.sub("", h)
     m = re.match(r'<p( class="([^"]*)")?>', h)
     cls = ((m.group(2) or "") + " pc").strip()
-    items = "".join('<span class="pi">' + x.rstrip("\u00a0 ") + '<span class="pnom">'
-                    + html.escape(nom_danger(re.search(r'data-picto="([a-z-]+)"', x).group(1))) + "</span></span>" for x in pics)
+    def item(x):
+        pid = re.search(r'data-picto="([a-z-]+)"', x).group(1)
+        # sous le pictogramme, la page du danger dans le tome (l'assembleur la passe dans l'URL : TOME.dg)
+        return ('<span class="pi">' + x.rstrip("\u00a0 ") + f'<span class="pnum" data-pg="{pid}">p.\u00a000</span>'
+                '<span class="pnom">' + html.escape(nom_danger(pid)) + "</span></span>")
+    items = "".join(item(x) for x in pics)
     return f'<p class="{cls}" style="--np:{len(pics)}"><span class="pmarge">' + items + "</span>" + h[m.end():]
 
 def render(blocks, lead=False):

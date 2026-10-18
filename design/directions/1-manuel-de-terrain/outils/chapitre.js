@@ -46,6 +46,9 @@ function nextPage(){
   pl.forEach(b => { const pp = mkPage('plate', b); pp.story = P.story; });
   const avant = P ? P.story : 'main';
   P = mkPage('text');
+  // une double page attend et la page qui vient est à droite : elle reste blanche (la procédure ne passe pas avant le
+  // logigramme) ; l'assembleur évite ce cas en choisissant le côté d'ouverture du chapitre
+  if(pendingSpreads.length && P.el.classList.contains('recto')){ P.blanche = true; WARN.push(P.el.id + ' : page blanche avant le logigramme'); P = mkPage('text'); }
   // une double page commence toujours sur une page de gauche : posée dès que la page qui vient est un verso ;
   // sur un recto, le texte continue et la double page attend la page suivante (jamais de page blanche au milieu)
   if(pendingSpreads.length && P.el.classList.contains('verso')){
@@ -102,10 +105,12 @@ function pour(f, q, p){
   while(q.length){
     const b = q.shift();
     if(b.dataset && b.dataset.plate === 'full'){ pendingPlates.push(b); continue; }
-    // le logigramme vient tout de suite après le Matériel (JP, 18 octobre 2026 : « c'est lui qu'on veut en premier ») : il
-    // prend la première page de gauche qui suit son ancre. La page ne se ferme plus à l'ancre (JP, même jour : « beaucoup
-    // de pages vides, faut optimiser l'espace ») : fermer la page laissait un trou sans avancer la double page d'une page.
-    if(b.dataset && b.dataset.plate === 'spread'){ pendingSpreads.push(b); continue; }
+    // le logigramme vient tout de suite après le Matériel, et la procédure TOUJOURS après lui (JP, 18 octobre 2026 : « c'est
+    // lui qu'on veut en premier » ; puis « la procédure va toujours APRÈS le diagramme ») : la page se ferme à l'ancre ;
+    // nextPage() pose la double page sur la première page de gauche. L'assembleur choisit le côté d'ouverture du
+    // chapitre qui évite la page de droite laissée blanche avant la double page.
+    if(b.dataset && b.dataset.plate === 'spread'){ pendingSpreads.push(b); if(f.children.length) break; continue; }
+    if(pendingSpreads.length){ q.unshift(b); break; }   // le texte attend que la double page soit posée
     // le saut qui suit les planches d'une série orange : la page se ferme, le texte reprend après les planches
     if(b.dataset && b.dataset.plate === 'saut'){ if(f.children.length) break; continue; }
     f.appendChild(b); syncNotes(f);
@@ -277,7 +282,7 @@ function story(id, kind, suite){   // kind : main, o, d, e ; suite : histoire re
     const R = region(P, kind, first);
     const r = pour(R.frame, q, P);
     if(!R.frame.children.length){
-      if(fresh){   // rien ne tient même sur une page vide : on force, et on le signale
+      if(fresh && !pendingSpreads.length){   // rien ne tient même sur une page vide : on force, et on le signale
         WARN.push(P.el.id + ' : bloc trop grand, ' + (q[0].textContent || q[0].className).slice(0, 40));
         R.frame.appendChild(q.shift()); first = false;
         if(!q.length){ finish(R, kind); break; }

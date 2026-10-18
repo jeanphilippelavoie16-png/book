@@ -116,15 +116,15 @@ Le cadre complet est `.claude/skills/planches/references/brief-agent.md`. En bre
 ## Le montage et la vérification (orchestrateur)
 
 - [ ] Aucun vérificateur sécurité : JP n'en veut jamais (18 octobre 2026).
-- [ ] Le logigramme tombe juste après le Matériel, avant la procédure (JP, 18 octobre : « c'est lui qu'on veut en
-  premier ») : son ancre est le dernier item du Matériel ; il prend la première page de gauche qui suit. Le moteur ne
-  ferme plus la page à l'ancre : la procédure remplit le reste (JP, 18 octobre, plus tard : « beaucoup de pages vides,
-  faut optimiser l'espace pour pas trop de vide finalement »).
-- [ ] Pas de vide inutile (même jour) : un chapitre peut ouvrir sur une page de gauche (plus de page blanche devant une
-  ouverture) ; le seul trou voulu reste celui qui suit les planches d'une série orange.
-- [ ] Le pictogramme de danger se pose au début de la phrase de l'étape ; le moteur le sort dans la marge de gauche du
-  paragraphe, en gros, sous le numéro de l'étape (JP, même jour : « ils sont trop petits dans le texte », puis
-  « j'aimerais mieux les pictogrammes en gros dans la marge »).
+- [ ] Le logigramme tombe juste après le Matériel, et **la procédure toujours après lui** (JP, 18 octobre : « c'est lui
+  qu'on veut en premier » ; « la procédure va toujours APRÈS le diagramme ») : son ancre est le dernier item du
+  Matériel ; le moteur ferme la page à l'ancre et la procédure attend la double page.
+- [ ] Pas de vide inutile (JP, même jour : « beaucoup de pages vides, faut optimiser l'espace ») : un chapitre peut
+  ouvrir sur une page de gauche ; l'assembleur choisit le côté d'ouverture qui coûte le moins de pages.
+- [ ] Le pictogramme de danger se pose au début de la phrase de l'étape ; le moteur l'affiche en gros à droite du
+  paragraphe, avec sous lui le numéro de la page du danger (JP, même jour : « les dangers en dessous du pictogramme
+  pointent à la page du danger »). Chaque danger a sa page au début du tome, une seule (« chacun sa propre page, pas
+  plus qu'une page ») : une page de danger qui déborde se resserre, ou son texte se coupe.
 - [ ] La série orange se lit d'un trait, sans planche ni page au milieu (JP, 18 octobre : « premières minutes est
   scindé, il doit se suivre ») : les planches appelées dans l'orange gardent leur ancre à l'étape qui les appelle ; le moteur les sort de l'orange, les
   pose juste après la série et ferme la page (JP : « après le orange c'est les planches, ensuite on commence l'essence ;
