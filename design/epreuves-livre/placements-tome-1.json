@@ -187,43 +187,48 @@
   "12": {
     "planches": [
       {
-        "id": "12-01a",
-        "apres": "7. **Dehors, le tuyau monte plus haut que le faîte**"
+        "id": "12-01b",
+        "apres": "3. **Tourner la porte de la tente sous le vent dominant"
       },
       {
-        "id": "12-01b",
-        "apres": "8. **La première flambée se fait vive"
+        "id": "12-01a",
+        "apres": "18. **Placer le poêle près de la porte, dans l'allée, avec le lit de neige au fond**"
       },
       {
         "id": "12-02",
-        "apres": "6. **Rien autour du poêle**"
+        "apres": "27. **Poser le premier rang contre le mur du fond**"
       },
       {
         "id": "12-03",
-        "apres": "10. **Dedans :**"
+        "apres": "42. **Choisir la place (étapes 1 à 4) et fouler l'aire en ellipse allongée**"
       },
       {
         "id": "12-04",
-        "apres": "11. **Le feu reste petit.**"
-      },
-      {
-        "id": "12-05a",
-        "apres": "6. **Colmater tous les joints**"
-      },
-      {
-        "id": "12-05b",
-        "apres": "9. **Percer le trou d'aération**"
+        "apres": "53. **Poser la bâche du bas en premier**"
       },
       {
         "id": "12-06a",
-        "apres": "11. **Sur le banc :**"
+        "apres": "66. **Planter au centre une perche droite"
+      },
+      {
+        "id": "12-05a",
+        "apres": "80. **Tailler les blocs**"
+      },
+      {
+        "id": "12-05b",
+        "apres": "85. **Faire la porte sous le premier rang**"
       },
       {
         "id": "12-06b",
-        "apres": "Il n'y a pas de bois sec, ou le vent tourne et rabat la fumée dans l'appentis."
+        "apres": "Quand le feu est impossible (étape 93), la chaleur vient des corps"
       }
     ],
-    "photos": []
+    "photos": [],
+    "logigramme": {
+      "fichier": "images/logigrammes/12-tente-d-hiver-livre.svg",
+      "apres": "**Sac de couchage d'hiver**",
+      "orange": true
+    }
   },
   "13": {
     "planches": [
