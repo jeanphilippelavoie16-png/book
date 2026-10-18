@@ -177,8 +177,8 @@ def devant(v, k):
 
 
 # le bas du titre centré (variante C), en pouces depuis le haut du devant rogné, quand l'image du tome monte plus haut
-# que 3,95 po (tome 6 : la colline enneigée, sur laquelle le titre crème ne se lit pas)
-CENTRE_BAS = {6: 3.3}
+# que 3,95 po (tome 6 : la colline enneigée, sur laquelle le titre crème ne se lit pas ; tome 2 : le cadre au mur)
+CENTRE_BAS = {2: 3.3, 6: 3.3}
 
 
 # ------------------------------------------------------------------ gabarit

@@ -1,7 +1,8 @@
 """Tome 2 : le cadre au mur (JP, 18 octobre 2026 : « mets un cadre sur le mur, que c'est cette photo, mais dans le style
 de la photo »). La photo de JP (le lac, le drapeau, les deux enfants sur le sentier), regravée dans les encres de
-l'image, se pose dans un cadre de bois foncé à passe-partout crème, pendu à un clou par une ficelle, à droite de « LE »,
-au-dessus de « CORPS » ; une ombre plate le détache du mur.
+l'image, se pose dans un cadre de bois foncé à passe-partout crème, pendu à un clou par une ficelle, sur le mur libre
+à droite du sous-titre, au-dessus du poêle (entre la vapeur du bol et le tuyau) ; une ombre plate le détache du mur, un
+filet brun presque noir détache la gravure du passe-partout (son ciel est crème lui aussi).
     python3 cadre_mur.py SOURCE GRAVURE.png SORTIE
 Les coordonnées sont celles de l'image 768 × 960 ; elles se multiplient par K (4 sur l'image agrandie)."""
 import sys
@@ -16,11 +17,12 @@ d = ImageDraw.Draw(big)
 k = lambda v: int(round(v * K * S))
 FONCE = (45, 12, 10); CERNE = (30, 7, 6); CREME = (238, 224, 203); OMBRE = (70, 18, 14); MOYEN = (128, 52, 38)
 
-# le cadre : 262 × 172 dehors ; bois de 10, filet crème, passe-partout de 9 ; la gravure au milieu
-X0, Y0, X1, Y1 = 392, 128, 654, 300
+# le cadre : 240 × 151 dehors ; bois de 10, filet crème, passe-partout de 9 ; la gravure (1070 × 600) au milieu. Son clou
+# reste sous le titre de la couverture (remonté pour le tome 2 : CENTRE_BAS de couverture.py) ; le bas, au-dessus de la bouilloire
+X0, Y0, X1, Y1 = 460, 345, 700, 496
 BOIS, PP = 10, 9
 d.rectangle([k(X0 + 5), k(Y0 + 6), k(X1 + 5), k(Y1 + 6)], fill=OMBRE)                     # l'ombre, à droite et en bas
-clou = ((X0 + X1) / 2, Y0 - 34)                                                             # la ficelle et le clou
+clou = ((X0 + X1) / 2, Y0 - 16)                                                             # la ficelle et le clou
 for coin in ((X0 + 40, Y0 + 2), (X1 - 40, Y0 + 2)):
     d.line([(k(clou[0]), k(clou[1])), (k(coin[0]), k(coin[1]))], fill=CERNE, width=k(1.3))
 d.ellipse([k(clou[0] - 3), k(clou[1] - 3), k(clou[0] + 3), k(clou[1] + 3)], fill=FONCE, outline=CERNE, width=k(0.8))
@@ -40,6 +42,6 @@ r = max(fw / g.width, fh / g.height)
 g = g.resize((int(g.width * r + 0.5), int(g.height * r + 0.5)), Image.LANCZOS)
 ox, oy = (g.width - fw) // 2, (g.height - fh) // 2
 big.paste(g.crop((ox, oy, ox + fw, oy + fh)), (k(gx0), k(gy0)))
-d.rectangle([k(gx0) - k(0.6), k(gy0) - k(0.6), k(gx1) + k(0.6), k(gy1) + k(0.6)], outline=CERNE, width=k(0.9))
+d.rectangle([k(gx0) - k(0.6), k(gy0) - k(0.6), k(gx1) + k(0.6), k(gy1) + k(0.6)], outline=CERNE, width=k(1.4))
 big.resize(im.size, Image.LANCZOS).save(dst, quality=95)
 print('ok', dst)
