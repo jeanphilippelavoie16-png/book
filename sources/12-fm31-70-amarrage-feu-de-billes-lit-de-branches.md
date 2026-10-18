@@ -63,4 +63,4 @@ corps mort dans la neige molle, n'a pas pu être téléchargé (404, puis serveu
 | Trou d'aération bouché par la neige ou le givre (le manuel le fait vérifier toutes les 2 ou 3 h dans une caverne chauffée) | 226 | 63 |
 | L'air froid, plus lourd, s'accumule dans les vallées | 436 | 2 |
 | Lit de branches d'épinette ou de sapin, en bardeaux, de 15 à 30 cm d'épaisseur | 492 | 26, 94 |
-| Tuyau nettoyé chaque jour quand on brûle du bois (« every day … to avoid fires in the stovepipes ») | 485 | **Pas repris** : le ch. 12 garde le ramonage hebdomadaire du ch. 83 (truie) ; écart signalé à JP dans `suivi/12-redaction.md` |
+| Tuyau nettoyé chaque jour quand on brûle du bois (« every day … to avoid fires in the stovepipes ») | 485 | Points de contrôle, ligne du tuyau : « chaque matin, poêle froid » (JP, 18 octobre 2026 : oui au nettoyage chaque jour pour le poêle de la tente ; le ch. 83 garde chaque semaine pour le poêle du chalet) |

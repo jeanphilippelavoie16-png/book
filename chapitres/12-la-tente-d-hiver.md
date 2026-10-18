@@ -391,7 +391,7 @@ pratique : on l'apprend pendant un hiver ordinaire, sur le lac devant le chalet,
 | Chaque soir | Pare-étincelles et bout du tuyau | Grille libre de givre, de suie et de neige | Enlever le givre, gratter la suie |
 | Chaque soir | Avertisseur de CO | Gardé au chaud le jour. Au coucher : posé à plus de 2 m du poêle, bouton d'essai qui sonne, affichage à 0 ppm | Le réchauffer contre le corps. Sans avertisseur fiable, laisser mourir le feu avant le coucher (étape 34) |
 | Au coucher, sans veilleur | Le poêle | Plus une braise rouge quand on brasse la cendre, lampe éteinte | Attendre debout, l'air et la clé ouverts, ou sortir la braise dehors dans une chaudière de métal |
-| Chaque semaine, poêle froid | Le tuyau, démonté section par section | Un dépôt poudreux qui se gratte ; aucune croûte noire, dure et luisante | Le gratter dehors (ch. 83, section 9). S'il y a une croûte luisante, ne pas faire de feu avant de l'avoir enlevée |
+| Chaque matin, poêle froid | Le tuyau, démonté section par section | Un dépôt poudreux qui se gratte ; aucune croûte noire, dure et luisante | Le gratter dehors (ch. 83, section 9). S'il y a une croûte luisante, ne pas faire de feu avant de l'avoir enlevée |
 | Chaque matin | Pieux du poêle | D'aplomb, tête pas charbonnée | Laisser refroidir le poêle, replanter ou remplacer le pieu |
 | Chaque matin | Le rond de neige nue autour du poêle | Pas une aiguille sèche à portée de la porte du poêle | Ramasser les aiguilles, élargir le rond |
 | Après chaque bordée | Toit de la tente, tuyau, haubans, pare-étincelles | Pas de poche de neige sur la toile ; tuyau d'aplomb ; grille libre | Faire glisser la neige, retendre les haubans, enlever le givre de la grille |

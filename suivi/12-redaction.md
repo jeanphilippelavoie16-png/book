@@ -946,3 +946,8 @@ Toutes les ancres de `design/epreuves-livre/placements-tome-1.json`, clé `"12"`
 | - **L'avertisseur de CO.** Aucun montage ne le fabrique. Sans lui, il reste la règle de la nuit (étape 34). | - **L'avertisseur de CO.** On ne peut pas le fabriquer. Sans lui, il reste l'étape 34 : veiller toute la nuit, ou laisser mourir le feu avant de se coucher. |
 | [^2]: Tenir le fil au bout d'une broche et l'approcher d'une flamme, dehors. | [^2]: Tirer un fil du bord du tissu, le tenir au bout d'une broche et l'approcher d'une flamme, dehors. |
 | On ne peut pas lire à coup sûr un tissu mélangé : dans le doute, il sert avec la bâche. | Avec un tissu mélangé, le test n'est pas sûr : dans le doute, le traiter comme du synthétique. |
+
+## Décisions de JP, 18 octobre 2026
+
+- **Ramonage** : le tuyau du poêle de la tente se nettoie chaque jour quand on brûle du bois (FM 31-70, `sources/12-fm31-70-amarrage-feu-de-billes-lit-de-branches.md`). Points de contrôle : « Chaque semaine, poêle froid » devient « Chaque matin, poêle froid ». Le ch. 83 garde chaque semaine pour le poêle du chalet.
+- **Pastille** : « 40 min » (la clarté après le coucher du soleil en décembre) est gardée.
