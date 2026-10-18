@@ -29,13 +29,23 @@ module.exports = (h) => {
   // LM manche, DM son diamètre, DC le clou, PC sa pointe dehors, IC sa partie dans le bois (le trou), DT et PT le
   // second trou, OFF son écart à l'axe, YT le trou du cordon depuis le haut, DT2 son diamètre
 
-  // un cordon : la bande de la bibliothèque de formes
+  // un cordon : la bande de la bibliothèque de formes ; corde : un trait noir et son âme blanche (comme 15-01)
+  const corde = (d, ep = 3.4) => `<path d="${d}" fill="none" stroke="${NOIR}" stroke-width="${ep}" stroke-linecap="round" stroke-linejoin="round"/>\n`
+    + `<path d="${d}" fill="none" stroke="#FFFFFF" stroke-width="${(ep - 1.4).toFixed(1)}" stroke-linecap="round" stroke-linejoin="round"/>`;
+  const lisse = pts => {
+    let d = `M ${P(...pts[0])}`;
+    for (let i = 0; i < pts.length - 1; i++) {
+      const p0 = pts[Math.max(0, i - 1)], p1 = pts[i], p2 = pts[i + 1], p3 = pts[Math.min(pts.length - 1, i + 2)];
+      d += ` C ${P(p1[0] + (p2[0] - p0[0]) / 6, p1[1] + (p2[1] - p0[1]) / 6)} ${P(p2[0] - (p3[0] - p1[0]) / 6, p2[1] - (p3[1] - p1[1]) / 6)} ${P(...p2)}`;
+    }
+    return d;
+  };
   const cordon = (pts, o = {}) => F.cordes([Object.assign({ ep: 3.4, pts, debut: 'coupe', fin: 'coupe' }, o)], { trait: 'arete' });
 
   // ── vue 1 : un pic en coupe dans l'axe, couché, la pointe à droite ──
   const k1 = 2.1;
   const vCoupe = z => {
-    const xL = 128, yc = 40;                    // le bout du cordon, l'axe
+    const xL = 196, yc = 40;                    // le bout du cordon, l'axe
     const r = DM / 2 * k1, xR = xL + LM * k1;             // le rayon, le bout du clou
     const rc = DC / 2 * k1, xFond = xR - IC * k1, xPointe = xR + PC * k1, xCone = xR + PC * k1 * 0.5;
     const yt = yc - OFF * k1, rt = DT / 2 * k1, xt = xR - PT * k1;
@@ -56,9 +66,9 @@ module.exports = (h) => {
     // le cordon : il descend dans le trou en travers, le traverse, et un nœud d'arrêt le retient dessous ; il remonte
     // vers le cou
     o.push(cordon([[xtr - 96, 6], [xtr - 40, 4], [xtr - 6, yc - r - 6], [xtr, yc - r + 4], [xtr, yc + r + 4]], { fin: 'ouvert' }));
-    o.push(h.ellipse(xtr, yc + r + 8, 6.4, 5.6, blanc(h.a.arete)));
-    o.push(h.path(`M ${P(xtr - 4, yc + r + 5)} Q ${P(xtr + 1, yc + r + 9)} ${P(xtr + 4, yc + r + 12)}`, h.a.detail));
-    o.push(cordon([[xtr + 3, yc + r + 13], [xtr + 7, yc + r + 19], [xtr + 14, yc + r + 21]], { debut: 'ouvert', fin: 'libre' }));
+    o.push(h.ellipse(xtr, yc + r + 8, 7.4, 6.4, blanc(h.a.arete)));
+    o.push(h.path(`M ${P(xtr - 5, yc + r + 4)} Q ${P(xtr + 1, yc + r + 8)} ${P(xtr + 5, yc + r + 13)} M ${P(xtr - 6, yc + r + 9)} Q ${P(xtr - 1, yc + r + 7)} ${P(xtr + 3, yc + r + 3)}`, h.a.detail));
+    o.push(cordon([[xtr + 5, yc + r + 13], [xtr + 9, yc + r + 19], [xtr + 17, yc + r + 22]], { debut: 'ouvert', fin: 'libre' }));
     // la cote de longueur, sous le manche
     const yq = yc + r + 26;
     o.push(h.ligne(xL, yc + r + 3, xL, yq + 6, h.a.fin), h.ligne(xR, yc + r + 3, xR, yq + 6, h.a.fin));
@@ -67,7 +77,7 @@ module.exports = (h) => {
   };
 
   // ── vue 2 : les deux pics emboîtés, chaque pointe dans le second trou de l'autre ; le cordon fait le tour du cou ──
-  const k2 = 1.0;
+  const k2 = 1.2;
   const vPaire = z => {
     const r = DM / 2 * k2, L = LM * k2, d = OFF * k2;
     const xJ = z.l / 2, ya = z.h - 14 - r - d, yb = ya + d;   // le joint ; l'axe du pic de gauche, celui de droite
@@ -81,7 +91,7 @@ module.exports = (h) => {
     const xtrA = x0 + YT * k2, xtrB = x1 - YT * k2;
     // le cordon, derrière les manches : de chaque trou en travers, il monte et fait le tour du cou
     const top = 8;
-    o.push(cordon([[xtrA, ya], [xtrA - 2, ya - r - 6], [x0 - 4, ya - r - 30], [x0 + 30, top + 16], [xJ, top], [x1 - 30, top + 16], [x1 + 4, yb - r - 30], [xtrB + 2, yb - r - 6], [xtrB, yb]]));
+    o.push(corde(lisse([[xtrA, ya], [xtrA - 4, ya - r - 8], [x0 + 6, top + 16], [x0 + 60, top + 1], [xJ, top], [x1 - 60, top + 1], [x1 - 6, top + 16], [xtrB + 4, yb - r - 8], [xtrB, yb]])));
     o.push(manche(x0, xJ, ya), manche(xJ, x1, yb));
     o.push(h.ligne(xJ, ya - r, xJ, yb + r, h.a.arete));
     // les clous, cachés : le clou de gauche dans le second trou de droite, et l'inverse
@@ -92,11 +102,11 @@ module.exports = (h) => {
 
   // ── vue 3 : autre façon, le clou planté pointe première, la tête limée en pointe (le bout du manche seul) ──
   const vAutre = z => {
-    const yc = z.h / 2 + 2, r = DM / 2 * k1, xR = z.l - 80, xL = xR - 44 * k1;
+    const yc = z.h / 2 + 2, r = DM / 2 * k1, xR = z.l - 80, xL = xR - 62 * k1;
     const rc = DC / 2 * k1, xFond = xR - IC * k1 * 0.75, rh = 5.5 * k1;
     const xCol = xR + 5, xPointe = xR + PC * k1;
     const o = [];
-    o.push(h.ligne(-11, 0, -11, z.h, h.a.fin));            // le filet qui sépare l'autre façon
+    o.push(h.ligne(1, 0, 1, z.h, h.a.fin));            // le filet qui sépare l'autre façon
     // le manche, coupé à gauche par une ligne de rupture
     const rupt = [[xL, yc - r], [xL + 5, yc - r * 0.35], [xL - 5, yc + r * 0.35], [xL, yc + r]];
     const contour = [[xR, yc - r], ...rupt, [xR, yc + r]];
@@ -117,14 +127,14 @@ module.exports = (h) => {
     format: 'demi',
     disposition: [['coupe'], ['paire', 'autre']],
     largeurs: [[1], [1.25, 1]],
-    hauteurs: [1.45, 1],
+    hauteurs: [1.25, 1.1],
     vues: {
       coupe: {
         titre: 'Un pic, en coupe',
         dessin: z => vCoupe(z).svg,
         renvois: z => { const v = vCoupe(z); return [
           { n: 1, rond: [v.xL - 30, v.yc + 20], cible: [v.xL - 1, v.yc + 16], texte: 'couper deux bouts de manche à balai de 10 cm' },
-          { n: 2, rond: [v.xFond - 40, v.yc + v.r + 16], cible: [v.xFond + 2, v.yc + 3], texte: 'enfoncer le clou sans sa tête, côté coupé au fond' },
+          { n: 2, rond: [v.xFond - 26, 10], cible: [v.xFond + 2, v.yc - 3], texte: 'enfoncer le clou sans sa tête, côté coupé au fond' },
           { n: 3, rond: [v.xR + 26, 10], cible: [v.xR - 12, v.yt], texte: 'percer à côté un second trou, moins profond' },
           { n: 4, rond: [v.xtr - 46, v.yc + v.r + 14], cible: [v.xtr - 7, v.yc + v.r + 8], texte: 'percer l’autre bout en travers, y nouer le cordon' },
         ]; },

@@ -97,39 +97,49 @@ module.exports = (h) => {
       h.geste(`M ${P(A.hancheP[0] + 30, yF)} L ${P(A.epauleP[0] + 22, yF)}`)].join('\n'), g, E, yG, yF };
   };
   // ── 8 : vu de dessus, sorti, rouler loin du trou vers ses traces, sans se relever ──
-  // Le trou en haut (l'eau, le bord cassé, deux morceaux qui flottent) ; les traces de bottes arrivent d'en bas à gauche
-  // jusqu'au trou (le côté d'où l'on vient) ; la personne couchée (le corps simple vu de dessus, pose couche-face, couché par la
-  // planche, la tête à gauche) en trois positions qui s'éloignent du trou vers les traces : les deux plus anciennes en
-  // gris, la dernière en blanc. Le corps roule de côté : il avance perpendiculairement à sa longueur.
-  const SD = 0.058;
+  // Le trou en haut, plus long que le corps (l'eau, le bord cassé, des fissures qui partent du bord, deux morceaux qui
+  // flottent) ; la personne couchée (le corps simple vu de dessus, pose couche-face, couché par la planche, la tête à
+  // gauche ; pieds 'nu' : à cette taille, la botte vue de dessus fait un crochet) en trois positions, la première
+  // collée au bord du trou, les deux plus anciennes en gris, la dernière en blanc. Le corps roule de côté : il avance
+  // en travers de sa longueur, vers le bas, le long des traces de bottes de l'aller qui montent jusqu'au bord du trou.
+  const SD = 0.052;
   const vDessus = z => {
-    const cx = z.l / 2 - 10, hy = 24;
-    const trou = [[-52, -14], [-34, -22], [-6, -19], [18, -24], [44, -16], [54, 0], [46, 14], [22, 20], [-4, 17], [-30, 21], [-50, 10]]
-      .map(([a, b]) => [cx + a, hy + b]);
-    const out = [h.chemin(trou, h.a.hachure('eau', 'contour'), true)];
-    out.push(h.chemin([[cx - 26, hy - 9], [cx - 6, hy - 12], [cx - 3, hy + 2], [cx - 22, hy + 5]], blanc(h.a.arete), true));
-    out.push(h.chemin([[cx + 14, hy - 4], [cx + 32, hy - 8], [cx + 36, hy + 6], [cx + 18, hy + 9]], blanc(h.a.arete), true));
-    // trois positions : le corps vu de dessus, couché par la planche (la tête à gauche), un peu à droite du trou
-    const g0 = F.corps({ pose: 'couche-face', vue: 'face', echelle: SD, x: 0, y: 0, visage: false });
+    const corpsD = o => F.corps(Object.assign({ pose: 'couche-face', vue: 'face', echelle: SD, visage: false, pieds: 'nu' }, o));
+    const g0 = corpsD({ x: 0, y: 0 });
     const b = g0.boite, bx = (b.x0 + b.x1) / 2, by = (b.y0 + b.y1) / 2, demiL = (b.y1 - b.y0) / 2, demiW = (b.x1 - b.x0) / 2;
-    const xc = cx + 22, ys = [hy + 42, hy + 80, hy + 118];
-    // les traces de bottes : de bas à gauche jusqu'au bord du trou, semelle et talon, la pointe vers le trou, en
-    // quinconce ; une trace qui tomberait sous un corps n'est pas dessinée
-    const A0 = [18, z.h - 8], A1 = [cx - 40, hy + 18], d = Math.hypot(A1[0] - A0[0], A1[1] - A0[1]);
-    const u = [(A1[0] - A0[0]) / d, (A1[1] - A0[1]) / d], ang = Math.atan2(u[1], u[0]) * 180 / Math.PI;
-    for (let t = 0, k = 0; t < d - 8; t += 15, k++) {
-      const q = k % 2 ? 4 : -4, x = A0[0] + u[0] * t - u[1] * q, y = A0[1] + u[1] * t + u[0] * q;
-      if (ys.some(yy => Math.abs(y - yy) < demiW + 6 && x > xc - demiL - 8)) continue;
-      out.push(`<g transform="rotate(${ang.toFixed(1)} ${P(x, y)})">${h.ellipse(x + 2, y, 5.5, 2.6, h.a.arete)}${h.ellipse(x - 7, y, 2.2, 2.4, h.a.arete)}</g>`);
-    }
+    const cx = z.l / 2 + 22, hy = 34;
+    // le trou : un peu plus long que le corps, le bord cassé en dents irrégulières
+    const T = [[-66, -8], [-58, -20], [-40, -24], [-30, -19], [-12, -27], [6, -22], [22, -28], [40, -21], [56, -24], [66, -10],
+      [62, 2], [68, 12], [58, 22], [38, 19], [24, 25], [6, 20], [-12, 24], [-28, 18], [-46, 23], [-60, 14], [-68, 4]]
+      .map(([a, c]) => [cx - 22 + a * 1.25, hy + c]);
+    const out = [];
+    // les fissures qui partent du bord dans la glace
+    for (const f of [[[-68, 4], [-78, 10], [-86, 6]], [[40, -21], [48, -32], [60, -38]], [[68, 12], [84, 16], [92, 26]],
+      [[-58, -20], [-66, -32], [-78, -36]]])
+      out.push(h.chemin(f.map(([a, c]) => [cx - 22 + a * 1.25, hy + c]), h.a.detail));
+    out.push(h.chemin(T, h.a.hachure('eau', 'contour'), true));
+    out.push(h.chemin([[cx - 70, hy - 10], [cx - 48, hy - 14], [cx - 44, hy + 2], [cx - 66, hy + 6]], blanc(h.a.arete), true));
+    out.push(h.chemin([[cx + 18, hy - 6], [cx + 40, hy - 10], [cx + 44, hy + 6], [cx + 22, hy + 10]], blanc(h.a.arete), true));
+    // trois positions : la première collée au bord du trou
+    const ys = [hy + 22 + demiW, hy + 22 + demiW + 33, hy + 22 + demiW + 66];
+    // les traces de bottes de l'aller : semelle ovale plus large devant, talon à part, gauche et droite en quinconce,
+    // dans l'axe de la roulade, du bas de la vue jusqu'au bord du trou, à gauche des têtes
+    const xT = cx - demiL - 34;
+    const botte = (x, y, gauche) => {
+      const d = gauche ? -1 : 1;
+      const semelle = `M ${P(x, y - 7)} C ${P(x + 3.6, y - 7)} ${P(x + 3.4, y - 1)} ${P(x + 2.4, y + 1.5)} C ${P(x + 1.6, y + 3)} ${P(x - 1.6, y + 3)} ${P(x - 2.4, y + 1.5)} C ${P(x - 3.4, y - 1)} ${P(x - 3.6, y - 7)} ${P(x, y - 7)} Z`;
+      return `<g transform="rotate(${d * 4} ${P(x, y)})">` + h.path(semelle, h.a.loin.replace('stroke="none"', `stroke="${NOIR}" stroke-width="0.7" stroke-linejoin="round"`))
+        + h.rect(x - 2.2, y + 4.2, 4.4, 3.6, h.a.loin.replace('stroke="none"', `stroke="${NOIR}" stroke-width="0.7" stroke-linejoin="round"`)) + '</g>';
+    };
+    for (let y = z.h - 10, k = 0; y > hy + 24; y -= 13, k++) out.push(botte(xT + (k % 2 ? 4 : -4), y, k % 2 === 1));
     for (const [k, y] of ys.entries()) {
-      const g = String(F.corps({ pose: 'couche-face', vue: 'face', echelle: SD, x: xc - bx, y: y - by, visage: false }));
-      const t = `<g transform="rotate(-90 ${P(xc, y)})">${g}</g>`;
+      const g = String(corpsD({ x: cx - bx, y: y - by }));
+      const t = `<g transform="rotate(-90 ${P(cx, y)})">${g}</g>`;
       out.push(k < 2 ? t.replace(/fill="#FFFFFF"/g, 'fill="#E6E6E6"') : t);
     }
-    // la flèche du geste : au bout des pieds, du trou vers le côté des traces
-    const xF = xc + demiL + 12;
-    out.push(h.geste(`M ${P(xF, ys[0] - 10)} L ${P(xF, ys[2] + 12)}`));
+    // la flèche du geste : le long des traces, du trou vers le bas
+    const xF = xT + 15;
+    out.push(h.geste(`M ${P(xF, ys[0] - 4)} L ${P(xF, ys[2] + 16)}`));
     return { svg: out.join('\n'), cx, hy, ys, xF };
   };
 
@@ -252,7 +262,7 @@ module.exports = (h) => {
         titre: 'Vu de dessus',
         dessin: z => vDessus(z).svg,
         renvois: z => { const v = vDessus(z); return [
-          { n: 8, rond: [v.xF + 28, (v.ys[0] + v.ys[2]) / 2], cible: [v.xF + 2, (v.ys[0] + v.ys[2]) / 2], texte: 'rouler vers ses traces, sans se relever' },
+          { n: 8, rond: [v.xF + 30, z.h - 12], cible: [v.xF + 2, v.ys[2] + 12], texte: 'rouler vers ses traces, sans se relever' },
         ]; },
       },
     },
