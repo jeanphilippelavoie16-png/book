@@ -75,8 +75,8 @@ module.exports = (h) => {
   // la personne dans l'eau : la poitrine et les avant-bras sur le bord de la glace, le reste du corps dans l'eau,
   // penché ; les jambes battent
   const BORD = { appui: 'avantbras', mains: { P: 'plat', L: 'plat' },
-    angles: { tronc: 62, cou: 48, tete: 18, brasP: 46, avantbrasP: 90, mainP: 92, brasL: 42, avantbrasL: 90, mainL: 92,
-      cuisseP: -36, jambeP: -54, piedP: 10, cuisseL: -52, jambeL: -34, piedL: 30 } };
+    angles: { tronc: 40, cou: 30, tete: 8, brasP: 30, avantbrasP: 90, mainP: 92, brasL: 26, avantbrasL: 90, mainL: 92,
+      cuisseP: -12, jambeP: -28, piedP: 24, cuisseL: -28, jambeL: -10, piedL: 44 } };
   // la même, qui tend les bras vers le toboggan
   const TEND = { appui: 'avantbras', mains: { P: 'ouverte', L: 'ouverte' },
     angles: { tronc: 64, cou: 52, tete: 24, brasP: 74, avantbrasP: 86, mainP: 88, brasL: 70, avantbrasL: 84, mainL: 86,
@@ -101,19 +101,19 @@ module.exports = (h) => {
   // ── vue 1 : on tire ──
   // Le sauveteur, coupé par le bord gauche de la vue, couché loin du trou ; entre ses mains et la personne, plus
   // d'une longueur de corps : la corde seule, tendue.
-  const S1 = 0.085;
+  const S1 = 0.062;
   const vTirer = z => {
-    const yG = 46, E = z.l - 130, D = z.l + 10;
-    const s = poser({ pose: COUCHE, cote: 'droite', echelle: S1, visage: true, y: yG }, 'bassin', -30);
+    const yG = 46, E = z.l - 110, D = z.l + 10;
+    const s = poser({ pose: COUCHE, cote: 'droite', echelle: S1, visage: true, y: yG }, 'bassin', 30);
     const mP = [s.mainP.x, s.mainP.y];
     // la personne : ses coudes sur la glace, juste avant le bord
     let bc = null;
     const fabrique = x => F.corps({ pose: BORD, cote: 'gauche', echelle: S1, visage: true, x, y: yG,
-      objetL: gg => { bc = boucle(gg.articulations.epauleP, gg.articulations.hancheP, 15, 11, 2.8); return bc.derriere; },
-      objetP: gg => { const b = boucle(gg.articulations.epauleP, gg.articulations.hancheP, 15, 11, 2.8);
+      objetL: gg => { bc = boucle(gg.articulations.epauleP, gg.articulations.hancheP, 11, 8.5, 2.6); return bc.derriere; },
+      objetP: gg => { const b = boucle(gg.articulations.epauleP, gg.articulations.hancheP, 11, 8.5, 2.6);
         return [corde(`M ${P(mP[0], mP[1])} L ${P(...b.noeud)}`, 2.8), b.devant, h.ellipse(b.noeud[0], b.noeud[1], 3.6, 3, blanc(h.a.arete))].join('\n'); } });
     // les hanches juste passé le bord, dans l'eau
-    const p0 = fabrique(0), p = fabrique(E + 8 - p0.articulations.hancheP[0]);
+    const p0 = fabrique(0), p = fabrique(E + 10 - p0.articulations.hancheP[0]);
     const pd = p.pieds.P.bas || p.pieds.P.cheville;
     const id = 'vue1503-tirer';
     const svg = [
@@ -133,12 +133,12 @@ module.exports = (h) => {
   // que celui de la planche 15-02, le bec fermé de son bouchon) pend à sa poignée, penché : son centre se met sous
   // le nœud.
   const vBidon = z => {
-    const ec = 3.6;
+    const ec = 4.4;
     // le bidon, dans son repère (avant le miroir et la pente) : (x, yT) le coin haut gauche du corps ; la poignée sur
     // le dessus, vers la droite ; T le haut de la barre de la poignée, au milieu : c'est là que la corde est nouée
-    const L = 36, H = 40, T = [42, 80];
+    const L = 38, H = 40, T = [42, 74];
     const px0 = 0.3 * L, px1 = 0.92 * L, xm = (px0 + px1) / 2;
-    const x = T[0] - xm, yT = T[1] + 9, sol = yT + H, yb = yT - 9;
+    const x = T[0] - xm, yT = T[1] + 12, sol = yT + H, yb = yT - 12;
     // le bidon pend à sa poignée : retourné (la poignée à gauche du milieu), il penche jusqu'à ce que son centre
     // passe sous le nœud
     const tilt = 14;
@@ -153,7 +153,7 @@ module.exports = (h) => {
     can.push(h.rect(bx0, by0, bx1 - bx0, by1 - by0, h.a.detail));
     can.push(h.path(`M ${P(bx0 + 3, by0 + 3)} L ${P(bx1 - 3, by1 - 3)} M ${P(bx1 - 3, by0 + 3)} L ${P(bx0 + 3, by1 - 3)}`, h.a.detail));
     const anse = h.path(`M ${P(x + px0, yT)} L ${P(x + px0 + 3, yb)} L ${P(x + px1 - 3, yb)} L ${P(x + px1, yT)} Z`, blanc(h.a.arete))
-      + h.path(`M ${P(x + px0 + 6, yT)} L ${P(x + px0 + 7.5, yT - 5)} L ${P(x + px1 - 7.5, yT - 5)} L ${P(x + px1 - 6, yT)}`, blanc(h.a.detail));
+      + h.path(`M ${P(x + px0 + 6, yT)} L ${P(x + px0 + 7.5, yT - 7)} L ${P(x + px1 - 7.5, yT - 7)} L ${P(x + px1 - 6, yT)}`, blanc(h.a.detail));
     // le bec, fermé de son bouchon vissé (le bouchon à l'ombre, ses stries)
     const ax = -0.423, ay = -0.906, nx = -ay, ny = ax;
     const bc = [x + 11, yT + 1], lb = 8, wb = 9;
@@ -162,14 +162,15 @@ module.exports = (h) => {
     const bq = [Q(lb - 1, -wb / 2 - 1.5), Q(lb + 6, -wb / 2 - 1.5), Q(lb + 6, wb / 2 + 1.5), Q(lb - 1, wb / 2 + 1.5)];
     const bouchon = h.chemin(bq, h.a.ombre, true) + h.chemin(bq, h.a.arete, true)
       + [-3, 0, 3].map(v => h.ligne(...Q(lb, v), ...Q(lb + 5, v), h.a.detail)).join('');
-    // la corde : le brin qui descend passe derrière la barre (A), ressort dessous et remonte devant, passe par-dessus
-    // le brin qui descend, en fait le tour par derrière (B), et repasse sous son propre tour (C) : une demi-clé
-    const xs = T[0] - 3;
-    const A = { ep: ec, debut: 'coupe', fin: 'ouvert', pts: [[xs, yb - 46, 0], [xs, yb - 10, 0], [xs + 0.5, yb + 1, -2], [xs + 3, yT - 1.8, -2]] };
-    const B = { ep: ec, debut: 'ouvert', fin: 'ouvert', pts: [[xs + 3, yT - 1.8, -2], [xs + 7.5, yT - 2.8, 0], [xs + 8.5, yb - 2, 1], [xs + 6.5, yb - 9, 1],
-      [xs - 1, yb - 12, 2], [xs - 5, yb - 14.5, 2], [xs - 4, yb - 18.5, -1], [xs + 1.5, yb - 19.5, -1], [xs + 5, yb - 17, -1]] };
-    const C = { ep: ec, debut: 'ouvert', fin: 'libre', pts: [[xs + 5, yb - 17, -1], [xs + 5, yb - 12.5, -1], [xs + 4, yb - 6, -1]] };
-    const nouee = F.cordes([A, B, C], { trait: 'arete', jeu: 1.2 });
+    // la corde : le brin qui descend passe derrière la barre de la poignée (A), ressort dessous et remonte devant le
+    // long de lui (B) ; un nœud serre les deux brins l'un contre l'autre, le bout dépasse dessous
+    const xs = T[0] - 3, yk = yb - 19;
+    const A = { ep: ec, debut: 'coupe', fin: 'ouvert', pts: [[xs, yb - 46], [xs, yb - 12], [xs + 0.6, yb + 2], [xs + 4, yT - 2.4]] };
+    const B = { ep: ec, debut: 'ouvert', fin: 'ouvert', pts: [[xs + 4, yT - 2.4], [xs + 9.5, yT - 4], [xs + 10.5, yb - 4], [xs + 8, yk + 6], [xs + 5, yk]] };
+    const nouee = F.cordes([A], { trait: 'arete' }) + F.cordes([B], { trait: 'arete' })
+      + `<g transform="rotate(-8 ${xs + 3.5} ${yk})">` + h.ellipse(xs + 3.5, yk, 7.2, 9, blanc(h.a.arete))
+      + h.path(`M ${P(xs - 2.5, yk - 5)} Q ${P(xs + 4, yk - 1)} ${P(xs + 9.5, yk - 6)} M ${P(xs - 3, yk + 1)} Q ${P(xs + 4, yk + 5)} ${P(xs + 10, yk + 1)}`, h.a.detail) + '</g>'
+      + F.cordes([{ ep: ec * 0.9, debut: 'coupe', fin: 'libre', pts: [[xs + 9, yk + 6], [xs + 13, yk + 11], [xs + 15, yk + 17]] }], { trait: 'arete' });
     const barre = `<clipPath id="vue1503-barre"><rect x="${xs - 4.5}" y="${yb - 2}" width="8" height="${yT - yb + 2}"/></clipPath>`
       + `<g clip-path="url(#vue1503-barre)">${anse}</g>`;
     const canSvg = `<g transform="rotate(${tilt} ${T[0]} ${T[1]}) translate(${2 * T[0]} 0) scale(-1 1)">\n${can.join('\n')}\n${col}\n${bouchon}\n${anse}\n${nouee}\n${barre}\n</g>`;
@@ -189,7 +190,7 @@ module.exports = (h) => {
   // ── vue 3 : autre façon, y aller couché en poussant le toboggan ──
   // De gauche à droite : l'adulte couché qui tient la corde ; la corde tendue jusqu'à la taille du sauveteur ; le
   // sauveteur couché qui pousse le toboggan, la spatule vers le trou ; le trou, la personne qui tend les bras.
-  const S3 = 0.065;
+  const S3 = 0.06;
   const vAutre = z => {
     const yG = 29, E = z.l - 110, D = z.l + 10;
     const p0 = F.corps({ pose: TEND, cote: 'gauche', echelle: S3, visage: true, x: 0, y: yG });
@@ -241,9 +242,9 @@ module.exports = (h) => {
       tirer: {
         dessin: z => vTirer(z).svg,
         renvois: z => { const v = vTirer(z), A = v.s.articulations; return [
-          { n: 1, rond: [A.epauleP[0] - 10, v.yG + 34], cible: [A.epauleP[0] - 10, v.yG + 1], texte: 'rester sur la glace qui a porté, lancer la corde' },
+          { n: 1, rond: [Math.max(16, A.epauleP[0]), v.yG + 34], cible: [Math.max(16, A.epauleP[0]), v.yG + 1], texte: 'rester sur la glace qui a porté, lancer la corde' },
           { n: 3, rond: [v.bc.noeud[0] + 34, 10], cible: [v.bc.noeud[0] + 3, v.bc.noeud[1] - 2], texte: 'lui nouer la corde sous les bras' },
-          { n: 4, rond: [v.mP[0] + 94, v.yG - 14], cible: [v.mP[0] + 71, v.yG - 14], texte: 'tirer pendant qu’il bat des jambes' },
+          { n: 4, rond: [v.mP[0] + 42, v.yG - 36], cible: [v.mP[0] + 42, v.yG - 16], texte: 'tirer pendant qu’il bat des jambes' },
         ]; },
       },
       bidon: {

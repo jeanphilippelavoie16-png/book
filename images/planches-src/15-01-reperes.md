@@ -20,6 +20,7 @@ dernière vue (8) est vue de dessus.
 7. **Tirer en glissant sur le ventre, replanter plus loin** : la poitrine sur la glace, les hanches au bord, les jambes
    à la surface ; la flèche rouge dit le glissement vers l'avant, le bras du fond (en gris) va replanter plus loin.
 8. **Rouler vers ses traces, sans se relever** (vue « Vu de dessus ») : le trou en haut, plus long que le corps, au bord
-   cassé et fissuré ; la personne couchée en trois positions, la première collée au bord du trou, les deux plus
-   anciennes en gris, la dernière en blanc ; la flèche rouge descend le long des traces de bottes de l'aller, qui
-   montent jusqu'au bord du trou.
+   cassé et fissuré ; la personne couchée en quatre positions, un quart de tour chacune (à plat ventre, sur le côté,
+   sur le dos, à plat ventre), la première collée au bord du trou, les trois plus anciennes en gris ; sur chacune des
+   trois premières, un arc rouge qui passe par-dessus le corps dit la roulade, et la flèche rouge droite descend le
+   long des traces de bottes de l'aller, qui montent jusqu'au bord du trou.

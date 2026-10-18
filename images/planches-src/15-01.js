@@ -120,26 +120,41 @@ module.exports = (h) => {
     out.push(h.chemin(T, h.a.hachure('eau', 'contour'), true));
     out.push(h.chemin([[cx - 70, hy - 10], [cx - 48, hy - 14], [cx - 44, hy + 2], [cx - 66, hy + 6]], blanc(h.a.arete), true));
     out.push(h.chemin([[cx + 18, hy - 6], [cx + 40, hy - 10], [cx + 44, hy + 6], [cx + 22, hy + 10]], blanc(h.a.arete), true));
-    // trois positions : la première collée au bord du trou
-    const ys = [hy + 22 + demiW, hy + 22 + demiW + 33, hy + 22 + demiW + 66];
+    // quatre positions, un quart de tour chacune, la première collée au bord du trou : à plat ventre (le corps vu de
+    // dos), sur le côté (vu de dessus, c'est le profil : les épaules et les hanches de côté, le bras du dessus le long du
+    // corps), sur le dos (vu de face), à plat ventre. Toutes couchées par la planche, la tête à gauche.
+    const DROIT = { appui: 'pieds', angles: { tronc: 0, cou: 4, tete: 0, brasP: 2, avantbrasP: 4, brasL: 0, avantbrasL: 2,
+      cuisseP: 0, jambeP: 0, piedP: 90, cuisseL: 0, jambeL: 0, piedL: 90 } };
+    const formes = [
+      o => corpsD(Object.assign({ vue: 'dos', cheveux: false }, o)),
+      o => F.corps(Object.assign({ pose: DROIT, cote: 'droite', echelle: SD, visage: false }, o)),
+      o => corpsD(o),
+      o => corpsD(Object.assign({ vue: 'dos', cheveux: false }, o)),
+    ];
+    const poses = formes.map(f => { const q = f({ x: 0, y: 0 }).boite; return { f, cx: (q.x0 + q.x1) / 2, cy: (q.y0 + q.y1) / 2, dw: (q.x1 - q.x0) / 2 }; });
+    const ys = [];
+    let yy = hy + 23;
+    for (const [k, q] of poses.entries()) { yy += q.dw + (k ? 4 : 0); ys.push(yy); yy += q.dw; }
+    for (const [k, q] of poses.entries()) {
+      const g = String(q.f({ x: cx - q.cx, y: ys[k] - q.cy }));
+      const t = `<g transform="rotate(-90 ${P(cx, ys[k])})">${g}</g>`;
+      out.push(k < 3 ? t.replace(/fill="#FFFFFF"/g, 'fill="#E6E6E6"') : t);
+    }
+    // la roulade : sur chacune des trois premières positions, un arc rouge qui s'enroule autour du tronc
+    // (l'arc passe par-dessus le corps de haut en bas : le dessus du corps part vers le bas, du côté où l'on roule)
+    for (let k = 0; k < 3; k++) out.push(anneau(cx - demiL * 0.3, ys[k], 4.5, poses[k].dw + 2.5, 150, 410));
     // les traces de bottes de l'aller : semelle ovale plus large devant, talon à part, gauche et droite en quinconce,
     // dans l'axe de la roulade, du bas de la vue jusqu'au bord du trou, à gauche des têtes
     const xT = cx - demiL - 34;
+    const gris = h.a.loin.replace('stroke="none"', `stroke="${NOIR}" stroke-width="0.7" stroke-linejoin="round"`);
     const botte = (x, y, gauche) => {
-      const d = gauche ? -1 : 1;
       const semelle = `M ${P(x, y - 7)} C ${P(x + 3.6, y - 7)} ${P(x + 3.4, y - 1)} ${P(x + 2.4, y + 1.5)} C ${P(x + 1.6, y + 3)} ${P(x - 1.6, y + 3)} ${P(x - 2.4, y + 1.5)} C ${P(x - 3.4, y - 1)} ${P(x - 3.6, y - 7)} ${P(x, y - 7)} Z`;
-      return `<g transform="rotate(${d * 4} ${P(x, y)})">` + h.path(semelle, h.a.loin.replace('stroke="none"', `stroke="${NOIR}" stroke-width="0.7" stroke-linejoin="round"`))
-        + h.rect(x - 2.2, y + 4.2, 4.4, 3.6, h.a.loin.replace('stroke="none"', `stroke="${NOIR}" stroke-width="0.7" stroke-linejoin="round"`)) + '</g>';
+      return `<g transform="rotate(${gauche ? -4 : 4} ${P(x, y)})">` + h.path(semelle, gris) + h.rect(x - 2.2, y + 4.2, 4.4, 3.6, gris) + '</g>';
     };
     for (let y = z.h - 10, k = 0; y > hy + 24; y -= 13, k++) out.push(botte(xT + (k % 2 ? 4 : -4), y, k % 2 === 1));
-    for (const [k, y] of ys.entries()) {
-      const g = String(corpsD({ x: cx - bx, y: y - by }));
-      const t = `<g transform="rotate(-90 ${P(cx, y)})">${g}</g>`;
-      out.push(k < 2 ? t.replace(/fill="#FFFFFF"/g, 'fill="#E6E6E6"') : t);
-    }
     // la flèche du geste : le long des traces, du trou vers le bas
     const xF = xT + 15;
-    out.push(h.geste(`M ${P(xF, ys[0] - 4)} L ${P(xF, ys[2] + 16)}`));
+    out.push(h.geste(`M ${P(xF, ys[0] - 4)} L ${P(xF, ys[3] + 14)}`));
     return { svg: out.join('\n'), cx, hy, ys, xF };
   };
 
@@ -262,7 +277,7 @@ module.exports = (h) => {
         titre: 'Vu de dessus',
         dessin: z => vDessus(z).svg,
         renvois: z => { const v = vDessus(z); return [
-          { n: 8, rond: [v.xF + 30, z.h - 12], cible: [v.xF + 2, v.ys[2] + 12], texte: 'rouler vers ses traces, sans se relever' },
+          { n: 8, rond: [v.xF + 24, z.h - 11], cible: [v.xF + 3, v.ys[3] + 12], texte: 'rouler vers ses traces, sans se relever' },
         ]; },
       },
     },
