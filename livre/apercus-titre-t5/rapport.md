@@ -1,7 +1,7 @@
 # Tome 5 · La forêt, le jardin et le chalet — rapport d'assemblage
 
-- **Produit le :** 2026-10-18 20:40, par `design/outils/assembler-tome.py 5 --chapitres 82 --hors-ligne --sortie livre/apercus-titre-t5`
-- **Fichier :** `livre/tome-5/interieur.pdf` — 24 pages, 9.4 Mo
+- **Produit le :** 2026-10-18 21:32, par `design/outils/assembler-tome.py 5 --chapitres 82 --hors-ligne --sortie livre/apercus-titre-t5`
+- **Fichier :** `livre/tome-5/interieur.pdf` — 24 pages, 9.3 Mo
 - **Ouvertures :** au recto ou au verso (--verso)
 - **Placements :** design/epreuves-livre/placements.json, design/epreuves-livre/placements-tome-5.json
 - **Exigences de Blurb :** `sources/blurb-specifications.md` (relevées le 27 septembre 2026)
@@ -28,7 +28,7 @@ Aucune page de crédits (JP, 28 septembre 2026) : copie hors du livre dans `livr
 | Nombre de pages | pair, de 20 à 440 (papier Standard) | 24 | oui |
 | Page 1 | à droite | ouverture du chapitre 00 | oui |
 | Polices incorporées | toutes | 18 police(s), 0 non incorporée(s) | oui |
-| Taille du fichier | 2 Go au plus | 9.4 Mo | oui |
+| Taille du fichier | 2 Go au plus | 9.3 Mo | oui |
 | Marques d'imprimeur | aucune | aucune | oui |
 | Couleur | CMJN ou sRVB, sans ton direct | sRVB (Edge) | oui |
 | Noir du texte | 100 % K | noir sRVB (0, 0, 0) : la conversion est faite chez Blurb | à juger sur épreuve |

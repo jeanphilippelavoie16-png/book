@@ -1,5 +1,9 @@
 # Tome 5, version d'été (18 octobre 2026)
 
+**JP choisit la n° 2** (18 octobre 2026). Agrandie ×4 (`t5e-jug50-1-x4.png`), puis retouchée par `retouche_ete.py` :
+au pied du bâtiment de gauche, la rangée de fausse écriture devient une rangée de pierres taillées à la main.
+Résultat : `images/tomes/titre-tome-5.jpg`.
+
 JP, sur la candidate 4 retouchée : « tome 5, faut que ça soit l'été ». Les taches blanches (le sentier, les buttes des
 rangs, le bas) se lisaient comme de la neige. Image de départ `t5-depart-ete.png` : la 4 retouchée (`../retouche_jardin.py`),
 le sentier et les grandes plaques en terre brune avec de l'herbe sur les bords, les buttes en plants. Puis AI Horde en

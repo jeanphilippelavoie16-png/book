@@ -1,5 +1,11 @@
 # Tome 4, version d'été (18 octobre 2026)
 
+**JP choisit la n° 6** (18 octobre 2026 : « tome 4, la 6, mais règle ombre, soleil, et varie grosseur de poisson »).
+Agrandie ×4 (`t4e-flux62-1-x4.png`), puis retouchée par `retouche_ete.py` : le soleil en aplat au bord coupé à la main,
+sans liseré sombre ni dégradé ; le reflet regravé en morceaux de traits ; les deux bêtes couchées dans l'herbe et
+l'oiseau du ciel retirés ; les poissons raccrochés de tailles différentes (de 0,6 à 1,35 fois), penchés et centrés
+entre les poteaux. Résultat : `images/tomes/titre-tome-4.jpg`.
+
 JP, sur la version d'hiver retouchée : « non, au pire fais une image d'été pour celle-là, pas de neige, recommence au
 début ». On repart de la candidate 2 d'origine (`../tome-4-2.png`) : `t4-depart-ete.png` en est l'image de départ,
 la neige du sol changée en terre sombre avec des herbes claires, la neige des épinettes et du toit retirée, la
