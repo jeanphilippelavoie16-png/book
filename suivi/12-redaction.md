@@ -987,7 +987,7 @@ avec image (`extra ximg`).
   plus petites. Ce passage peut trancher la partie 0, point 3 (le « concave » de N360) et l'étape 27 ; il donne aussi
   une épaisseur au sapinage de la tente, que l'étape 26 n'a pas. Décision de JP.
 
-### 2. Reconnaître le sapin, l'épinette noire et le cèdre (photo ; 94 mots)
+### 2. Reconnaître le sapin, l'épinette noire et le cèdre (photo ; 95 mots)
 
 - **Image :** `images/extras/12-trois-coniferes.jpg`, 3 435 × 1 500 px, trois panneaux de 1 125 × 1 500 px (3 × 4)
   séparés de 30 px de blanc, sans texte. De gauche à droite : sapin baumier, épinette noire, cèdre. Fait au PIL :
@@ -1026,7 +1026,7 @@ avec image (`extra ximg`).
 
 ### controle.py
 
-9 431 mots (9 155 avant) ; 2 tirets (titre et ligne de tome, comme avant) ; aucun tiret, « § », mot banni, tournure,
+9 439 mots (9 155 avant) ; 2 tirets (titre et ligne de tome, comme avant) ; aucun tiret, « § », mot banni, tournure,
 maxime, pronominal ni mise en relief dans la section En plus ; aucun mot vide signalé dans les encadrés. Une redite
 nouvelle, jugée : « ne peut pas garder la main » (étape 98 et encadré 1) : le même test, appliqué à un autre cas, avec
 renvoi à l'étape 23. Invariants : rien n'a disparu.
