@@ -1,5 +1,16 @@
 # Tome 2, Le corps : l'image de la page de titre et de la couverture
 
+**Le cadre au mur, la photo de JP** (18 octobre 2026 : « mets un cadre sur le mur, que c'est cette photo, mais dans le
+style de la photo » ; puis, des trois gravures, « celle-là c'est ma préférée »). La photo du lac (le drapeau, les deux
+enfants sur le sentier) est repeinte en linogravure par AI Horde (Juggernaut XL, img2img 0,51, sans personnages), puis
+ramenée aux six encres de l'image ; le mât, le drapeau et les deux enfants sont dessinés par-dessus (`cadre-gravure/`,
+`refaire.sh` ; la photo elle-même n'est pas dans le dépôt). `cadre_mur.py` pose la gravure dans un cadre de bois foncé à
+passe-partout crème, sur le mur à droite du sous-titre, au-dessus de la bouilloire ; le titre de la couverture du tome 2
+est remonté pour le laisser libre (`CENTRE_BAS` de `essais-ia/tome-1/couverture.py`). La chaîne complète :
+
+    python3 pimp_soin1.py tome-2-1-x4.png /tmp/t2.png
+    python3 cadre_mur.py /tmp/t2.png cadre-gravure/gravure-lac.png ../../titre-tome-2.jpg
+
 **JP change d'avis : la n° 1 du troisième tour** (18 octobre 2026 : « finalement, pimp celle-là, je l'aime plus »),
 le mur sang de bœuf. Agrandie ×4 (`tome-2-1-x4.png`), puis `pimp_soin1.py` : les taches roses qui flottaient sur le
 mur sont effacées (le mur estimé sur un anneau propre autour de chaque tache, la lueur de la lampe suit) ; le
