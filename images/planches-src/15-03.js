@@ -201,7 +201,7 @@ module.exports = (h) => {
     // dans ses mains et va, posée sur la glace, jusqu'à la taille du sauveteur
     const cordeA = gg => corde(lisse([[-30, yG - 1.6], [gg.mainL.x - 24, yG - 2], [gg.mainL.x, gg.mainL.y], [gg.mainP.x, gg.mainP.y],
       [gg.mainP.x + 30, yG - 1.8], [nd[0] - 40, yG - 1.8], [nd[0] - 8, yG - 4], nd]), 2.6);
-    const a = poser({ pose: COUCHE, cote: 'droite', echelle: S3, visage: true, y: yG, objetP: cordeA }, 'bassin', 10);
+    const a = poser({ pose: COUCHE, cote: 'droite', echelle: S3, visage: false, y: yG, objetP: cordeA }, 'bassin', 10);
     const id = 'vue1503-autre';
     const svg = [
       `<clipPath id="${id}"><rect x="0" y="0" width="${z.l}" height="${z.h}"/></clipPath>`, `<g clip-path="url(#${id})">`,
