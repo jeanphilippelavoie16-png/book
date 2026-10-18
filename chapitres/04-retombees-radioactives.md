@@ -334,7 +334,7 @@ Si l'alerte tombe au chalet, ou si la route vers la ville est coupée, on reste 
 - mettre l'eau embouteillée, les sacs de farine et les livres serrés contre les murs et sous les fenêtres
  (repère 4).
 
-*Le refuge dans le refuge.* Le toit porte une partie de la poussière : il faut aussi de l'épaisseur au-dessus des
+*Le refuge sous la table ou contre le mur.* Le toit porte une partie de la poussière : il faut aussi de l'épaisseur au-dessus des
 têtes.
 
 - Poser deux portes démontées à plat sur une table solide (repère 5), et charger le dessus de tout ce qui est
@@ -356,7 +356,7 @@ appareil, et des heures de travail pour la monter.
 
 ### Sans radio à piles
 
-*Le poste d'auto, quand il reste une batterie.* La radio de l'auto est un récepteur AM complet qui marche au 12 V.
+*Le poste d'auto, quand il reste une batterie.* Le poste de l'auto est un récepteur AM complet qui marche au 12 V.
 
 - Avant de sortir le poste, chercher au multimètre ses deux fils d'alimentation : celui qui garde 12 V clé enlevée,
  et celui qui n'a 12 V que clé tournée. Sur un poste de remplacement, ce sont le fil jaune et le fil rouge, et la
@@ -365,20 +365,20 @@ appareil, et des heures de travail pour la monter.
  l'abri.
 - Brancher ensemble les deux fils d'alimentation au positif d'une batterie d'auto, et la masse au négatif.
 - Faire sortir le fil d'antenne par un cadre de fenêtre, tendu le plus haut et le plus long possible.
-- Une batterie pleine la fait marcher longtemps : l'éteindre la nuit.
+- Une batterie pleine fait marcher le poste longtemps : l'éteindre la nuit.
 - Pendant les 24 heures d'abri, faire ce démontage seulement si l'auto est dans un garage attenant. Écouter le
  poste dans l'abri, jamais assis dans l'auto (étape 3).
 
-*Le poste à galène, quand il n'y a plus de pile.* Un récepteur AM à détection ne consomme rien : il tire sa
-puissance de l'onde. Il a cinq pièces.
+*Le poste à galène, quand il n'y a plus de pile.* Le poste à galène ne prend aucune pile : il marche avec
+l'énergie de l'onde radio. Il a cinq pièces.
 
-- La bobine : du fil de cuivre isolé fin, enroulé serré en une seule couche sur un tube de carton d'une dizaine de
+- La bobine : du fil de cuivre fin et isolé, enroulé serré en une seule couche sur un tube de carton d'une dizaine de
  centimètres de diamètre (une boîte de gruau) ou sur une bouteille de verre, 80 tours en tout. Faire une prise tous
  les dix tours sur les 70 premiers, puis une prise à chaque tour sur les dix derniers : on trouve la station avec
  les prises de dix tours, et on la règle avec celles d'un tour. Chaque prise est une boucle de fil torsadée,
  décalée un peu de la précédente.
 - Le détecteur : une lame de rasoir bleuie au feu et une mine de crayon taillée, tenue par un fil raide et posée
- légèrement sur le bleu de la lame. Promener la pointe jusqu'à ce que la station sorte.
+ légèrement sur le bleu de la lame. Promener la pointe sur la lame jusqu'à ce qu'on entende la station.
 - L'écouteur, à haute impédance : la pastille piézo d'un avertisseur de fumée brisé, d'une carte musicale ou d'un
  vieux combiné. Avec un haut-parleur ordinaire, on n'entend rien.
 - L'antenne : le plus long fil possible, tendu le plus haut possible, isolé à ses deux bouts.
