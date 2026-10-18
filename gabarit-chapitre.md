@@ -72,7 +72,15 @@ hors cible. À quoi ça doit ressembler, sentir et peser à chaque étape.
 Ce qui indique qu'il faut jeter. Formulé sans ambiguïté. Un tableau observation →
 diagnostic → action. « Ça sent bizarre » ne suffit pas.
 
-## 8. Danger
+## 8. Danger (retiré)
+
+**La section Danger sort des chapitres** (JP, 18 octobre 2026 : « on crée des pictogrammes pour tous les dangers ;
+les dangers sont expliqués une fois dans le livre, dans la section qui explique les symboles ; chaque fois qu'un
+danger est présent, on affiche le pictogramme et on enlève la section »). Le gabarit en vigueur a sept sections
+(1 En une ligne, 2 Quand l'utiliser, 3 Matériel, 4 Procédure, 5 Points de contrôle, 6 Signes d'échec, 7 Variante
+d'urgence ; voir CLAUDE.md). Dans l'étape où le danger se présente : le pictogramme (`{!id}`, ids dans
+`plan/dangers-inventaire.md`) et ce qui est propre au chapitre. Le texte ci-dessous reste pour la règle du mécanisme,
+qui vaut maintenant pour la page du tome et pour l'étape :
 
 Encadré. Seulement quand il y a un risque de mort ou d'intoxication grave. Pas de
 dilution : si l'encadré est partout, personne ne le lit.

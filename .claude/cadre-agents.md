@@ -24,9 +24,13 @@ avoir repassé lui-même la même liste sur les pages montées.
 ## Le texte (skill `ecriture`)
 
 La forme du chapitre
-- [ ] Huit sections : 1 En une ligne, 2 Quand l'utiliser, 3 Matériel, 4 Procédure, 5 Points de contrôle,
-  6 Signes d'échec, 7 Danger, 8 Variante d'urgence. Plus de « Comment ça marche » : ce qu'il apprenait va dans
-  l'étape qu'il explique. Les renvois « section N » suivent la numérotation du chapitre.
+- [ ] Sept sections : 1 En une ligne, 2 Quand l'utiliser, 3 Matériel, 4 Procédure, 5 Points de contrôle,
+  6 Signes d'échec, 7 Variante d'urgence. Plus de « Comment ça marche » : ce qu'il apprenait va dans
+  l'étape qu'il explique. **Plus de section Danger** (JP, 18 octobre 2026) : chaque danger a son pictogramme,
+  expliqué une fois dans les pages des dangers du tome ; dans le chapitre, on pose le pictogramme dans l'étape où
+  le danger se présente (`{!co}`, `{!generatrice}`…, ids dans `plan/dangers-inventaire.md`, section 1 ; `ours` et
+  `orignal` sont deux pictogrammes distincts) et on y écrit ce qui est propre au chapitre (la distance, l'épaisseur,
+  la durée, le geste). Le mécanisme général du danger n'est pas redit : il est dans la page du tome. Les renvois « section N » suivent la numérotation du chapitre.
 - [ ] Rien sous le titre que la ligne de lieu (`**Maison**`, `**Chalet**`, `**Les deux**`) : pas de note de lieu.
   Ce qui change d'un lieu à l'autre se dit dans l'étape qui change.
 - [ ] Section 2 : seulement quand l'utiliser ; aucune liste « mauvaise procédure », aucun contre-exemple évident.
@@ -73,7 +77,7 @@ La procédure
 
 La répétition
 - [ ] Inventaire des faits du chapitre : un fait garde une seule place ; les rappels de sécurité dans leur étape
-  et dans l'encadré danger seulement ; la variante d'urgence n'apprend que du neuf.
+  et à côté de leur pictogramme seulement ; la variante d'urgence n'apprend que du neuf.
 
 Les planches dans le texte
 - [ ] Chaque planche est appelée « (planche NN-NN) » là où elle sert, une seule fois par phrase ; deux appels de

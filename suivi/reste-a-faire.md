@@ -15,6 +15,11 @@ lancé sur un de ces chantiers reçoit `.claude/cadre-agents.md` au complet.
   `livre/apercus-palette/mains-stock-ids.png`).
 - **L'image du tome 1** : générée, choisie par JP, vectorisée, posée sur la page de titre.
 
+## 0. Les dangers en pictogrammes (point 31)
+
+Tome 1 seulement pour l'instant ; les tomes 2 à 6 ensuite (JP, 18 octobre). D'abord les 36 pictogrammes et un
+chapitre test (le ch. 10) montrés à JP ; puis les pages des dangers du tome 1 et la migration de ses chapitres.
+
 ## 1. Les passes mécaniques sur le texte (par script, avant tout le reste)
 
 Elles touchent les 113 chapitres et doivent passer avant les réécritures, qui touchent le même texte.

@@ -321,7 +321,12 @@ tomes** : un peu plus de blanc en bas des pages qui précèdent une planche ; le
     professionnels, montrés à JP), les pages qui les expliquent, la migration des chapitres et le moteur. Tranché par
     JP : les pages qui expliquent les dangers vont **dans chaque tome**, avec « Comment le livre fonctionne » ; ce qui
     est propre au chapitre (la génératrice à 6 m, l'épaisseur de glace…) va **dans l'étape où il sert**, à côté du
-    pictogramme. Inventaire : `plan/dangers-inventaire.md`.
+    pictogramme. Inventaire : `plan/dangers-inventaire.md`. **Tranché par JP le 18 octobre (suite)** : l'ours et
+    l'orignal ont chacun leur pictogramme (`ours`, `orignal` : 36 en tout) ; cadmium, prion et vitamine A restent
+    ensemble sous `abats` ; le botulisme des conserves et le type E sous `botulisme` ; les chiffres qui diffèrent
+    d'un chapitre à l'autre se corrigent à la source pendant la migration ; le cordon des vêtements d'enfant et la
+    corde à portée des enfants (ch. 103, 104) sont coupés. **On fait le tome 1 seulement, les tomes 2 à 6 ensuite.**
+    Avant le tome 1 au complet, JP veut voir les pictogrammes et un chapitre refait (le ch. 10, l'eau).
 
 Le **ch. 11 (feu de forêt)** est **le chapitre modèle de la refonte, approuvé par JP** (15 octobre au soir :
 « c'est parfait, on se garde ça pour samedi ») : texte, trois séries orange à la longueur de leur temps (1 h,
