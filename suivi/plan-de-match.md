@@ -323,7 +323,10 @@ tomes** : un peu plus de blanc en bas des pages qui précèdent une planche ; le
     orange, la série des six tomes avec leurs noms complets. JP choisit **la nuit d'hiver**. Posée dans l'assembleur
     (`annexe_html`, scène `images/tomes/titre-tome-1.svg`, texte en Barlow Condensed, sous-titre dans `SOUS_TITRES`) ;
     elle remplace l'ancienne page de titre et sa frise. Reste : une scène et un sous-titre pour chacun des tomes 2
-    à 6 (d'ici là, ils prennent la scène du tome 1).
+    à 6 (d'ici là, ils prennent la scène du tome 1). Puis, même jour : la scène dessinée « manque d'âme » ; JP la veut
+    repeinte par un générateur, en linogravure, ciel ouvert et collines basses, et choisit la variante 4
+    (`images/tomes/essais-ia/titre-nuit-pistes-2.png`) : agrandie ×4 (3072 × 3840), elle est
+    `images/tomes/titre-tome-1.jpg`, que l'assembleur pose sur toute la page sous le texte.
 31. **Les dangers en pictogrammes ; la section Danger sort des chapitres** (JP, 18 octobre 2026). Un pictogramme
     par danger ; chaque danger est expliqué une fois, à fond, dans la section qui explique les symboles et les
     pictogrammes du livre ; dans un chapitre, le pictogramme s'affiche là où le danger est présent, et la section 7

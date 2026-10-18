@@ -413,6 +413,7 @@ ANNEXE_CSS = """
 .page.tp{background:#15222B}
 .tp-sc{position:absolute;left:0;top:0.125in;width:768px;height:960px;font-family:"Barlow Condensed",var(--sans)}
 .tp-sc>svg{position:absolute;left:0;top:0;overflow:visible}
+.tp-img{position:absolute;left:0;top:0;width:8.125in;height:10.25in;object-fit:cover;object-position:center top;display:block}
 .tp-head{position:absolute;left:56px;right:56px;top:52px;display:flex;justify-content:space-between;padding-bottom:12px;
   border-bottom:1px solid #4A6476;color:#E2E7EA;font-weight:600;font-size:16px;letter-spacing:.24em;text-transform:uppercase}
 .tp-haut{position:absolute;left:50px;right:56px;top:104px;display:flex;flex-direction:column;color:#E2E7EA}
@@ -559,12 +560,18 @@ def annexe_html(tome, chaps, plan, work):
                     for t in sorted(bc.TOMES))
     premier, dernier = chaps[0]["num"], chaps[-1]["num"]
     nb = len(chaps)
+    # l'image retenue par JP (titre-tome-N.jpg, linogravure repeinte et agrandie, 18 octobre 2026) passe devant la
+    # scène dessinée ; elle couvre la page entière, fond perdu compris
+    jpg = os.path.join(ROOT, "images", "tomes", f"titre-tome-{tome}.jpg")
     sc = os.path.join(ROOT, "images", "tomes", f"titre-tome-{tome}.svg")
     if not os.path.exists(sc):
         sc = os.path.join(ROOT, "images", "tomes", "titre-tome-1.svg")
     scene = re.sub(r"<!--.*?-->\s*", "", open(sc, encoding="utf-8").read(), flags=re.S)
+    if os.path.exists(jpg):
+        scene = ""
     sous = SOUS_TITRES.get(tome, "")
-    pages.append(f'''<section class="page recto tp" id="a-titre"><div class="tp-sc">{scene}
+    fond = f'<img class="tp-img" src="{url(jpg)}" alt="">' if os.path.exists(jpg) else ""
+    pages.append(f'''<section class="page recto tp" id="a-titre">{fond}<div class="tp-sc">{scene}
 <div class="tp-head"><span>Le Grand Livre du Chalet</span><span>Tome {tome}</span></div>
 <div class="tp-haut"><h1 class="tp-title">{e(titre_t)}</h1>{f'<p class="tp-sous">{il(sous)}</p>' if sous else ""}</div>
 <div class="tp-bas"><div class="tp-chap"><span>{f"Chapitres {aff(premier)} à {aff(dernier)}" if nb > 1 else f"Chapitre {aff(premier)}"}</span><span>{nb} chapitre{"s" if nb > 1 else ""}</span></div>
