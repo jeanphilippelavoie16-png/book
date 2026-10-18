@@ -45,7 +45,12 @@ from PIL import ImageFilter
 l2 = lum.copy()
 l2[papier | orange] = np.median(lum[~papier & ~orange])       # le blanc et l'orange ne font pas d'ombre autour d'eux
 flou = np.asarray(Image.fromarray((l2 * 255).astype(np.uint8)).filter(ImageFilter.GaussianBlur(24))).astype(float) / 255.0
-double = ((lum < 0.115) | (lum - flou < -0.05)) & ~papier & ~orange
+# le seuil du franchement sombre se règle sur la partie la plus sombre du ciel (le quart du haut), pour qu'un ciel qui
+# fonce vers le haut reste d'une seule encre ; le grain du papier est lissé avant de trancher
+haut = lum[: lum.shape[0] // 4][~papier[: lum.shape[0] // 4]]
+seuil = min(0.115, 0.8 * np.percentile(haut, 5)) if haut.size else 0.115
+lisse = np.asarray(Image.fromarray((lum * 255).astype(np.uint8)).filter(ImageFilter.GaussianBlur(3))).astype(float) / 255.0
+double = ((lisse < seuil) | (lum - flou < -0.05)) & ~papier & ~orange
 # la carte des encres (0 encre deux fois, 1 encre, 2 papier, 3 orange), nettoyée des grains isolés par un filtre de mode
 carte = np.where(double, 0, 1).astype(np.uint8)
 carte[papier] = 2
