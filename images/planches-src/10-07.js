@@ -290,7 +290,7 @@ module.exports = (h) => {
         renvois: renv([
           { n: 1, rond: [264, 320], cible: [238, 269.5], texte: 'passer un boyau au bas du baril' },
           { n: 2, rond: [330, 150], cible: [303, 128], texte: 'couper la sortie 5 cm au-dessus du sable' },
-          { n: 3, rond: [48, 290], cible: [104, 274], texte: 'poser une main de grosse pierre' },
+          { n: 3, rond: [48, 290], cible: [104, 274], texte: 'poser de grosses pierres au fond' },
           { n: 4, rond: [48, 230], cible: [104, 241], texte: 'étendre du gravier lavé jusqu’à l’eau claire' },
           { n: 5, rond: [48, 186], cible: [112, 192], texte: 'verser le sable en couche épaisse' },
           { n: 8, rond: [48, 112], cible: [131, 133], texte: 'verser doucement sur une assiette percée' },
@@ -300,7 +300,7 @@ module.exports = (h) => {
         titre: 'Après le sable',
         dessin: centre(charbonVue, 315),
         renvois: renv([
-          { n: 9, rond: [208, 142], cible: [150, 150], texte: 'remplir un second seau de charbon concassé' },
+          { n: 9, rond: [208, 142], cible: [150, 150], texte: 'remplir une chaudière de charbon concassé' },
           { n: 10, rond: [208, 262], cible: [160, 272], texte: 'faire bouillir cette eau ensuite' },
         ], 315),
       },
