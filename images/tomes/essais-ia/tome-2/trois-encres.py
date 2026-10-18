@@ -31,10 +31,14 @@ papier = (V > 0.62) & (S < 0.38)
 orange = ~papier & (H > 12) & (H < 52) & (S > 0.45) & (V > 0.72)
 lum = np.asarray(big.convert("L")).astype(float) / 255.0
 DOUBLE = np.array([0x33, 0x0C, 0x09], float)
-sombre = ~papier & ~orange
-pivot = np.median(lum[sombre]) - 0.035 if sombre.any() else 0.2     # la valeur du ciel reste l'encre
-t = np.clip((lum - pivot) / 0.06 + 0.5, 0, 1)[..., None]
-t = (t > 0.5).astype(float) * 0.85 + np.clip(t, 0, 1) * 0.15      # deux valeurs franches, un peu de transition
+# l'encre passée deux fois : ce qui est franchement sombre, ou plus sombre que son voisinage (un trait, une ombre) ;
+# un ciel en dégradé reste d'une seule encre
+from PIL import ImageFilter
+l2 = lum.copy()
+l2[papier | orange] = np.median(lum[~papier & ~orange])       # le blanc et l'orange ne font pas d'ombre autour d'eux
+flou = np.asarray(Image.fromarray((l2 * 255).astype(np.uint8)).filter(ImageFilter.GaussianBlur(24))).astype(float) / 255.0
+double = ((lum < 0.115) | (lum - flou < -0.05)) & ~papier & ~orange
+t = (~double).astype(float)[..., None]
 res = DOUBLE * (1 - t) + ENCRE * t
 res[papier] = PAPIER
 res[orange] = ORANGE

@@ -81,6 +81,10 @@ def scene(ambiance="ete"):
     # la clairière
     sol = s.onde(664, [(3, 1.2), (1.5, 3.5)])
     A(f'<polygon points="{pts(sol + [(W + 40, H + 40), (-20, H + 40)])}" fill="{C["paper"]}"/>')
+    for _ in range(260):          # l'herbe de la clairière, en petits coups de gouge
+        x, y = s.u(-10, W + 10), s.u(668, 742)
+        h = s.u(3, 7) * (0.6 + (y - 668) / 70)
+        A(f'<path d="M{f(x)} {f(y)} l{f(s.u(-2, 2))} {f(-h)}" stroke="{C["mid"]}" stroke-width="1.3" stroke-linecap="round" opacity=".8"/>')
 
     # le chalet en rondins, toit foncé
     cx, cy = 420, 684
