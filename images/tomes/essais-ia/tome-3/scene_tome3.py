@@ -116,7 +116,28 @@ def canot(cx, cy, L, coul=V):
     return out
 
 
-def lac(gros=False):
+def pecheurs(cx, cy, L, coul=V):
+    """Canot sur l'eau, deux silhouettes de dos (sans visage), une canne à pêche ; (cx, cy) = la ligne d'eau."""
+    out = canot(cx, cy, L, coul)[:1]
+    out = [o for o in out]
+    for dx, h in [(-0.2, 1.0), (0.18, 0.92)]:
+        x = cx + L * dx
+        y = cy - L * 0.08
+        r = L * 0.035 * h
+        out.append(f'<path d="M{f(x - r * 1.5)} {f(y)} Q{f(x - r * 1.6)} {f(y - r * 2.6)} {f(x)} {f(y - r * 2.8)} '
+                   f'Q{f(x + r * 1.6)} {f(y - r * 2.6)} {f(x + r * 1.5)} {f(y)}Z" fill="{coul}"/>')
+        out.append(f'<circle cx="{f(x)}" cy="{f(y - r * 3.6)}" r="{f(r)}" fill="{coul}"/>')
+    x = cx + L * 0.18
+    out.append(f'<path d="M{f(x + 4)} {f(cy - L * 0.16)} Q{f(x + L * 0.25)} {f(cy - L * 0.32)} {f(x + L * 0.42)} {f(cy - L * 0.24)}" '
+               f'stroke="{coul}" stroke-width="1.6" fill="none"/>')
+    out.append(f'<path d="M{f(x + L * 0.42)} {f(cy - L * 0.24)} V{f(cy + 2)}" stroke="{coul}" stroke-width=".7"/>')
+    for i in range(3):     # le reflet et les rides autour du canot
+        out.append(f'<path d="M{f(cx - L * (0.45 + i * 0.08))} {f(cy + 6 + i * 6)} h{f(L * (0.9 + i * 0.16))}" stroke="{coul}" '
+                   f'stroke-width="{f(2.2 - i * 0.5)}" stroke-linecap="round" stroke-dasharray="{24 + i * 8} {6 + i * 6}"/>')
+    return out
+
+
+def lac(gros=False, peche=False):
     """gros : l'orignal et le canot plus grands, le soleil à gauche (pour qu'ils survivent à l'img2img)."""
     s = Scene(3003)
     A = s.add
@@ -152,8 +173,8 @@ def lac(gros=False):
     A(f'<rect x="-20" y="630" width="{W + 40}" height="16" fill="{V}"/>')
     melezes(s, rive, -10, W + 30, 14, 46, dens=1.4, p_orange=0.16)
     # le lac : papier, traits de gouge horizontaux
-    A(f'<rect x="-20" y="644" width="{W + 40}" height="200" fill="{P}"/>')
-    for i in range(34):
+    A(f'<rect x="-20" y="644" width="{W + 40}" height="{340 if peche else 200}" fill="{P}"/>')
+    for i in range(60 if peche else 34):
         yy = 650 + i * 5.2
         x = -20 + s.u(0, 60)
         while x < W:
@@ -172,47 +193,51 @@ def lac(gros=False):
         A(f'<path d="M{f(sx - w / 2 + s.u(-4, 4))} {f(yy)} h{f(w)}" stroke="{O}" stroke-width="{f(s.u(2, 3.4))}" stroke-linecap="round"/>')
     # l'orignal sur la rive d'en face, dans l'eau jusqu'aux sabots, et son reflet
     ox, oy, oe = (520, 736, 1.15) if gros else (590, 704, 0.72)
-    for p in orignal(ox, oy, e=oe):
+    for p in ([] if peche else orignal(ox, oy, e=oe)):
         A(p.replace("<polygon", f'<polygon transform="translate(0 {2 * oy}) scale(1 -1)" opacity=".3"', 1))
-    A(f'<rect x="{ox - 10}" y="{oy - 2}" width="{f(100 * oe)}" height="{f(60 * oe)}" fill="{P}" opacity=".55"/>')
-    for p in orignal(ox, oy, e=oe):
+    if peche:
+        for p in pecheurs(330, 742, 210):
+            A(p)
+    for p in ([] if peche else orignal(ox, oy, e=oe)):
         A(p)
-    for i in range(4):
+    for i in range(0 if peche else 4):
         A(f'<path d="M{f(ox - 14 - i * 6)} {f(oy + 2 + i * 5)} h{f(90 * oe + i * 12)}" stroke="{V}" stroke-width="1.4" stroke-linecap="round"/>')
-    # la grève de ce côté-ci, à gauche, qui avance dans le lac
-    greve = [(-20, 760), (60, 752), (180, 758), (300, 776), (420, 802), (520, 826), (640, 846), (W + 40, 852),
-             (W + 40, H + 40), (-20, H + 40)]
-    A(f'<polygon points="{pts(greve)}" fill="{P}"/>')
-    for k in range(3):
-        A(f'<path d="M-20 {758 - k * 7} C120 {746 - k * 7} 260 {768 - k * 7} 420 {800 - k * 7} S640 {844 - k * 7} {W + 40} {850 - k * 7}" '
-          f'stroke="{V}" stroke-width="{2.4 - k * 0.6}" stroke-dasharray="{30 + k * 10} {8 + k * 9}" fill="none"/>')
-    for _ in range(170):        # les galets, gravés
-        x, y = s.u(0, W), s.u(770, 950)
-        if y < 760 + (x / W) * 90 + 6:
-            continue
-        if 176 < x < 600 and y > 860:
-            continue                  # la série des tomes se pose ici
-        r = s.u(1.5, 5)
-        A(f'<ellipse cx="{f(x)}" cy="{f(y)}" rx="{f(r * 1.6)}" ry="{f(r)}" fill="none" stroke="{V}" stroke-width="1.1" opacity=".75"/>')
-    for i in range(6):            # quelques traits de sable
-        y = 880 + i * 12
-        A(f'<path d="M{f(s.u(170, 260))} {y} h{f(s.u(120, 300))}" stroke="{V}" stroke-width=".9" opacity=".35"/>')
-    # le canot d'écorce tiré sur la grève, la pince vers l'eau
-    for p in (canot(352, 836, 300) if gros else canot(345, 818, 230)):
-        A(p)
+    if not peche:
+        # la grève de ce côté-ci, à gauche, qui avance dans le lac
+        greve = [(-20, 760), (60, 752), (180, 758), (300, 776), (420, 802), (520, 826), (640, 846), (W + 40, 852),
+                 (W + 40, H + 40), (-20, H + 40)]
+        A(f'<polygon points="{pts(greve)}" fill="{P}"/>')
+        for k in range(3):
+            A(f'<path d="M-20 {758 - k * 7} C120 {746 - k * 7} 260 {768 - k * 7} 420 {800 - k * 7} S640 {844 - k * 7} {W + 40} {850 - k * 7}" '
+              f'stroke="{V}" stroke-width="{2.4 - k * 0.6}" stroke-dasharray="{30 + k * 10} {8 + k * 9}" fill="none"/>')
+        for _ in range(170):        # les galets, gravés
+            x, y = s.u(0, W), s.u(770, 950)
+            if y < 760 + (x / W) * 90 + 6:
+                continue
+            if 176 < x < 600 and y > 860:
+                continue                  # la série des tomes se pose ici
+            r = s.u(1.5, 5)
+            A(f'<ellipse cx="{f(x)}" cy="{f(y)}" rx="{f(r * 1.6)}" ry="{f(r)}" fill="none" stroke="{V}" stroke-width="1.1" opacity=".75"/>')
+        for i in range(6):            # quelques traits de sable
+            y = 880 + i * 12
+            A(f'<path d="M{f(s.u(170, 260))} {y} h{f(s.u(120, 300))}" stroke="{V}" stroke-width=".9" opacity=".35"/>')
+        # le canot d'écorce tiré sur la grève, la pince vers l'eau
+        for p in (canot(352, 836, 300) if gros else canot(345, 818, 230)):
+            A(p)
     # les grands arbres du premier plan : épinettes noires à gauche, un mélèze doré et des épinettes à droite
     for x, bas, h, l in [(-4, 990, 430, 104), (64, 960, 300, 70)] + ([] if gros else [(118, 880, 150, 38)]):
         s.epinette(x, bas, h, l, V)
     for x, bas, h, l in [(726, 1000, 400, 98), (668, 960, 250, 60)]:
         s.epinette(x, bas, h, l, V)
-    # mélèze doré, haut, à droite
-    x, bas, h = (128, 880, 260) if gros else (168, 846, 250)
-    for i in range(16):
-        yy = bas - h + 12 + i * 13
-        ww = 6 + (yy - (bas - h)) / h * 44
-        A(f'<path d="M{f(x)} {f(yy - 6)} q{f(-ww * 0.5)} 2 {f(-ww)} 10 q{f(ww * 0.6)} -2 {f(ww)} -4 '
-          f'q{f(ww * 0.4)} 2 {f(ww)} 4 q{f(-ww * 0.5)} -8 {f(-ww)} -10z" fill="{O}"/>')
-    A(f'<path d="M{x} {bas - h} V{bas}" stroke="{V}" stroke-width="3"/>')
+    if not peche:
+        # mélèze doré, haut, à droite
+        x, bas, h = (128, 880, 260) if gros else (168, 846, 250)
+        for i in range(16):
+            yy = bas - h + 12 + i * 13
+            ww = 6 + (yy - (bas - h)) / h * 44
+            A(f'<path d="M{f(x)} {f(yy - 6)} q{f(-ww * 0.5)} 2 {f(-ww)} 10 q{f(ww * 0.6)} -2 {f(ww)} -4 '
+              f'q{f(ww * 0.4)} 2 {f(ww)} 4 q{f(-ww * 0.5)} -8 {f(-ww)} -10z" fill="{O}"/>')
+        A(f'<path d="M{x} {bas - h} V{bas}" stroke="{V}" stroke-width="3"/>')
     A(f'<rect x="-20" y="-20" width="{W + 40}" height="{H + 40}" filter="url(#grain)"/>')
     A('</svg>')
     return "\n".join(s.out)
@@ -324,7 +349,7 @@ def fleuve():
 
 if __name__ == "__main__":
     quoi = sys.argv[1] if len(sys.argv) > 1 else "lac"
-    svg = {"lac": lac, "lac2": lambda: lac(True), "fleuve": fleuve}[quoi]()
+    svg = {"lac": lac, "lac2": lambda: lac(True), "lac3": lambda: lac(False, True), "fleuve": fleuve}[quoi]()
     out = os.path.join(ICI, f"depart-{quoi}.svg")
     open(out, "w", encoding="utf-8").write(svg + "\n")
     print(out)

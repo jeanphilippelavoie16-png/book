@@ -381,6 +381,7 @@ def composer(v, m, img, pal, ppp):
     grande = np.asarray(img.resize((rw, rh), Image.LANCZOS))
     cx0 = (rw - fw) // 2
     can[:, xf:] = grande[:Hp, cx0:cx0 + fw]
+    bandes = []
     if VARIANTES[v]['dos'] == 'etoiles':
         # le ciel de l'image, reflété au pli du devant (le ciel passe le pli sans raccord), puis en miroir : les étoiles
         # sont celles de l'image, à la même taille. Les autres raccords du miroir tombent sur une ligne et une colonne
@@ -401,9 +402,18 @@ def composer(v, m, img, pal, ppp):
         rows = np.where(y < r_hi, y, (r_hi - 1) - (aller_retour(y - r_hi, 0, r_hi - r_lo)))
         cols = aller_retour(xf - 1 - np.arange(xf), cx0, c_hi)
         can[:, :xf] = grande[rows[:, None], cols[None, :]]
-        print('    ciel recadré : lignes %d à %d, colonnes %d à %d de l\'image agrandie ; étoile au pli : %s' % (
-            r_lo, r_hi, cx0, c_hi, 'oui' if colonnes[cx0] > 12 else 'non'))
-    return can
+        # une étoile proche d'un raccord a sa jumelle à quelques millimètres : on vide une bande de chaque côté des
+        # raccords, et du côté tranche du pli (rectangles en px CSS, sans marge : fs = -1)
+        q, b_ = 96 / ppp, 0.22 * 96
+        p = r_hi - r_lo
+        for y0 in range(r_hi, Hp, p):
+            bandes.append((0, y0 * q - b_, xf * q, y0 * q + b_, -1))
+        xs = xf - (c_hi - cx0)
+        if xs > 0:
+            bandes.append((xs * q - b_, 0, xs * q + b_, Hp * q, -1))
+        bandes.append((xf * q - b_, 0, xf * q, Hp * q, -1))
+        print('    ciel recadré : lignes %d à %d, colonnes %d à %d de l\'image agrandie' % (r_lo, r_hi, cx0, c_hi))
+    return can, bandes
 
 
 def nettoyer(can, rects, ppp):
@@ -416,7 +426,9 @@ def nettoyer(can, rects, ppp):
     po = 96                               # px CSS par pouce
     for x0, y0, x1, y1, fs in rects:
         # marge plus large sur la ligne du texte que dessus et dessous : une étoile au bout d'un mot se lit comme un point
-        if fs:
+        if fs < 0:
+            mx = my = 0
+        elif fs:
             mx, my = min(max(1.0 * fs, .15 * po), .3 * po), min(max(.5 * fs, .12 * po), .2 * po)
         else:
             mx = my = .12 * po
@@ -572,8 +584,8 @@ def main():
             f = os.path.join(travail, 'couverture-%s.html' % v)
             open(f, 'w', encoding='utf-8').write(page_html(v, k, m, pal, fichiers, None, accent))
             rects = mesurer(f, m)
-            can = composer(v, m, img, pal, o.fond_ppp)
-            can, n = nettoyer(can, rects, o.fond_ppp)
+            can, bandes = composer(v, m, img, pal, o.fond_ppp)
+            can, n = nettoyer(can, rects + bandes, o.fond_ppp)
             fond = 'fond-%s.jpg' % v
             Image.fromarray(can).save(os.path.join(travail, fond), quality=92, subsampling=0)
             open(f, 'w', encoding='utf-8').write(page_html(v, k, m, pal, fichiers, fond, accent, o.guides))
