@@ -232,7 +232,8 @@ aligner à la migration.
 
 | Fait ou chiffre | Source |
 | --- | --- |
-| Crainte, nourriture humaine, reculer en parlant, corridor, ne pas courir, faire face, se défendre, **ne pas faire le mort** | `35c-quebec-ours-noir-rencontre-et-attaque.md` (Québec, source principale ; la divergence Parcs Canada / ADF&G sur l'ours défensif au contact est tranchée au ch. 35c en faveur du Québec, gardée ici) |
+| Crainte, nourriture humaine, reculer en parlant, corridor, ne pas courir, faire face, se défendre | `35c-quebec-ours-noir-rencontre-et-attaque.md` |
+| **Deux cas au contact (décision de JP, 18 octobre 2026)** : ours qui se défend, faire le mort ; ours qui suit, chasse ou entre au campement, se battre | `35c-parcs-canada-forillon-rencontre-ours-noir.html`, `35c-adfg-framework-bear-safety-2017.pdf` (voir « Édition, partie 1 ») |
 | Défensif / prédateur ; fausse charge | idem (Parcs Canada, ADF&G) |
 | Carcasse : un signe suffit, partir | `35c-adfg-ours-carcasse-et-orignal-agressif.md` |
 | Ours blessé : 30 min, couvert épais, pluie, approche par l'arrière et le haut | `35d-adfg-ours-apres-le-tir-et-site-d-abattage.md` |
@@ -249,6 +250,306 @@ aligner à la migration.
 plein) ; « encore », « bien », « déjà » gardés là où ils portent le sens (« peut encore baisser », « bien
 éveillée ») ; redites signalées entre entrées différentes gardées (chaque entrée se lit seule) ; la
 « maxime » signalée (la personne écrasée et l'hémorragie) est un signe, pas une règle en proverbe.
+
+### Édition, partie 1 (18 octobre 2026)
+
+Relecture phrase par phrase par un éditeur qui n'a pas écrit la page, après la remarque de JP (« j'ai
+l'impression que tu as recommencé à faire des tournures de phrase bizarres »), avec le tableau des corrections
+du skill `ecriture` sous les yeux. Aucun chiffre changé, aucun contenu technique ajouté, sauf la décision sur
+l'ours ci-dessous. `controle.py` avant : 8 604 mots, 0 tiret ; après : 9 039 mots, 0 tiret, 0 mot banni, aucun
+invariant disparu (chiffres, renvois, `[À VÉRIFIER]`). Les mots montent : on a remis les verbes, les articles
+et les sujets que le texte avait coupés (règle 0).
+
+Familles corrigées : la loi en formule (« Un liquide qui brûle ne brûle pas en liquide », « Le feu ne détruit
+pas un métal », « La fumée agit avant les flammes ») ; la chose qui parle, attend ou décide (« la couleur dit »,
+« les signes peuvent attendre », « l'avertisseur peut attendre », « une direction que décide… », « la piste…
+dit », « l'avertisseur ne voit ») ; la règle qui se brise ; la maxime en fin de phrase (« la personne qui se
+sent mieux n'est pas guérie », « l'hiver ne protège pas », « n'est pas tirée d'affaire ») ; l'opposition
+fabriquée (« un gant sec protège, un gant mouillé brûle ») ; la consigne au pronominal (« se refroidit »,
+« se dilue », « la décision… se prend ») ; la consigne au présent de constat dans une étape (« On ne fait
+jamais… » devient « Ne jamais faire… ») ; les listes de noms sans verbe dans « Comment on le reconnaît » ;
+l'ordre renversé (« donne, quand on le soude…, la fièvre ») ; l'annonce (« Le courant tue à distance, de deux
+façons », « Deux conduites se distinguent ») ; le pronom qui oblige à chercher (« Ne jamais la brancher »
+devient « Ne jamais brancher la génératrice »).
+
+Coupé sans remplacement, parce que le fait était déjà dit dans la même entrée : « Le point d'attache reçoit
+plus que la charge » (la phrase suivante le dit avec le mécanisme) ; « Le tas de terre et de branches, l'odeur
+et les oiseaux disent qu'il garde quelque chose » (les trois signes de la carcasse sont dans « Ce qui
+arrive ») ; dans `brulure`, le paragraphe « Une brûlure profonde peut ne pas faire mal au début… » fondu dans
+« Comment on le reconnaît », qui disait la même chose ; dans `feu-de-foret`, étape 4, « passer le dos de la
+main au ras du sol » devient « chercher les points chauds » (le geste est décrit juste au-dessus).
+
+**Décision de JP sur l'ours (18 octobre 2026) : les deux cas.** La page disait « ne pas faire le mort devant un
+ours noir » (page du Québec, `35c-quebec-ours-noir-rencontre-et-attaque.md`, arbitrage du ch. 35c). JP tranche
+pour les deux conduites :
+- **ours qui se défend** (surpris de près, mère avec ses petits, ours sur une carcasse) **qui touche** : faire
+  le mort, à plat ventre, jambes écartées, mains sur la nuque, sac à dos sur le dos, sans bouger ni crier ; se
+  remettre sur le ventre s'il retourne la personne ; rester couché jusqu'à ce qu'il soit parti, 30 minutes s'il
+  le faut ; se relever et se battre si l'attaque dure ou s'il commence à manger. Sources : Parcs Canada,
+  Forillon, « Rencontre avec un ours noir », `sources/35c-parcs-canada-forillon-rencontre-ours-noir.html`
+  (https://parcs.canada.ca/pn-np/qc/forillon/securite-safety/faune-wildlife/rencontre-ours-bear-encounter1,
+  page modifiée le 2024-12-20, déjà enregistrée) : « Si un ours noir défensif est sur le point de vous toucher
+  ou qu'il vous touche, faites le mort » ; « Étendez-vous sur le ventre, les jambes bien écartées avec les mains
+  sur la nuque. Demeurez silencieux. Si l'ours vous retourne sur le dos, ramenez-vous sur le ventre » ;
+  « restez couché immobile, 30 minutes s'il le faut » ; « si l'ours persiste… il faut alors se relever et se
+  battre ». ADF&G, *A Framework for Bear Safety Messages in Alaska* (2017),
+  `sources/35c-adfg-framework-bear-safety-2017.pdf` : « A bear that you surprise or crowd, especially one with
+  cubs or on a carcass… » ; « Lie face down, with hands clasped behind your neck. Spread your legs… Leave your
+  backpack on » ; « If the attack is prolonged and the bear starts feeding on you… fight back ».
+- **ours qui suit, qui s'approche sans raison, qui tourne autour, ou qui entre au campement ou dans la tente**,
+  et qui touche : se battre, ne jamais faire le mort. Sources : Parcs Canada (même page) : l'ours prédateur
+  « suit les gens sur un sentier ou les attaque pendant leur sommeil » ; « Si un ours noir NON défensif attaque…
+  Défendez-vous! Ne faites pas le mort » ; ADF&G : « If a bear approaches your campsite directly, assertively
+  defend your camp » ; « Do not play dead! » devant un ours non défensif.
+
+L'étape 4 (« S'il charge ou s'il suit ») devient deux étapes, parce que les deux ours ne se traitent pas de la
+même façon avant le contact : celui qui fonce (on s'arrête, on lui fait face, puis on recommence à reculer en
+lui parlant quand il s'arrête, Parcs Canada) et celui qui suit ou tourne autour (on se fait grand, on crie,
+ADF&G « assert your dominance »). Les étapes passent de 7 à 9.
+
+**À aligner ailleurs (pas touché par l'éditeur)** : `plan/dangers-inventaire.md` (l. 428, « ne jamais faire le
+mort devant… ») et les chapitres qui portent l'arbitrage de la page du Québec (ch. 35c et ceux qui y renvoient).
+
+Liste avant → après, phrase par phrase (225 phrases d'avant touchées, sur 414) :
+**`co`**
+
+- « Tout ce qui brûle un combustible fait du monoxyde de carbone quand l'air lui manque : le poêle qu'on étouffe pour la nuit, la braise, le réchaud, le barbecue, le fanal, la lampe à l'huile, la chandelle, le fumoir, la forge et tous les moteurs. »
+  → « Le feu et les moteurs produisent du monoxyde de carbone quand le combustible brûle avec trop peu d'air : le poêle qu'on étouffe pour la nuit, la braise, le réchaud, le barbecue, le fanal, la lampe à l'huile, la chandelle, le fumoir, la forge et tous les moteurs. »
+- « Une fois respiré, il se fixe sur l'hémoglobine du sang, qui l'attire 200 à 250 fois plus que l'oxygène : le sang circule, mais il n'apporte plus d'oxygène aux organes. »
+  → « Une fois respiré, il se fixe sur l'hémoglobine du sang, qui l'attire 200 à 250 fois plus que l'oxygène. » « Le sang continue de circuler, mais il n'apporte plus d'oxygène aux organes. »
+- « Dans des bains de vapeur chauffés au bois où on l'a mesuré, les enfants avaient autant de monoxyde dans le sang que les adultes en restant trois fois moins longtemps. » « Mal de tête, fatigue, nausée, vomissements, étourdissements, puis confusion, faiblesse et perte de conscience. »
+  → « Dans des mesures faites dans des bains de vapeur chauffés au bois, les enfants avaient autant de monoxyde dans le sang que les adultes après y être restés trois fois moins longtemps. » « Les signes sont le mal de tête, la fatigue, la nausée, les vomissements et les étourdissements, puis la confusion, la faiblesse et la perte de conscience. »
+- « Chez un jeune enfant, ils ressemblent à de la fatigue ou à du mauvais caractère, et un parent attentif conclut au caractère. » « Deux personnes qui ont mal à la tête en même temps dans le même bâtiment, ou des maux qui passent dehors et reviennent dedans : c'est du monoxyde jusqu'à preuve du contraire. » « Seul un avertisseur détecte le gaz, et son silence ne prouve pas que l'air est bon. » « Il compte en parties par million (ppm). » « À 400 ppm, l'air donne mal à la tête en 1 à 3 h, et l'avertisseur doit sonner en 4 à 15 minutes ; à 70 ppm, il peut attendre jusqu'à 4 h ; à 30 ppm, il ne sonne pas avant 30 jours. »
+  → « Chez un jeune enfant, ils ressemblent à de la fatigue ou à du mauvais caractère, et un parent attentif croit que c'est son caractère. » « Quand deux personnes ont mal à la tête en même temps dans le même bâtiment, ou quand les maux passent dehors et reviennent à l'intérieur, on agit comme si c'était du monoxyde. » « On ne peut détecter le gaz qu'avec un avertisseur de monoxyde. » « L'avertisseur mesure le gaz en parties par million (ppm), et il ne sonne pas tout de suite quand la dose est faible. » « À 400 ppm, l'air donne mal à la tête en 1 à 3 h, et l'avertisseur doit sonner en 4 à 15 minutes ; à 70 ppm, il peut prendre jusqu'à 4 h pour sonner ; à 30 ppm, il ne sonne pas avant 30 jours. » « Quand l'avertisseur ne sonne pas, l'air peut quand même contenir du monoxyde. »
+- « L'avertisseur est fait pour une pièce entre 4,4 et 37,8 °C : dans un chalet froid, il ne prouve rien tant qu'il n'est pas revenu dans cette plage. » « Le bouton d'essai vérifie la pile, le circuit et la sirène, pas la cellule qui sent le gaz. »
+  → « L'avertisseur est conçu pour fonctionner dans une pièce entre 4,4 et 37,8 °C : dans un chalet froid, on ne peut pas se fier à lui tant que la pièce n'est pas revenue dans cette plage. » « Le bouton d'essai vérifie la pile, le circuit et la sirène ; il ne vérifie pas la cellule qui détecte le gaz. »
+- « Ouvrir grand les portes et les fenêtres de l'extérieur avant de rentrer chercher quelqu'un : la personne qui entre en courant respire plus vite et absorbe le gaz plus vite. » « Arrêter la source si on l'atteint sans rester dedans. »
+  → « Avant de rentrer chercher quelqu'un, ouvrir grand les portes et les fenêtres en restant dehors : la personne qui entre en courant respire plus vite et absorbe le gaz plus vite. » « Arrêter la source si on peut l'atteindre sans rester à l'intérieur. »
+- « À l'air libre, la moitié du monoxyde est encore dans le sang 3 à 5 h plus tard : la personne qui se sent mieux n'est pas guérie. »
+  → « À l'air libre, la moitié du monoxyde est encore dans le sang 3 à 5 h plus tard, même si la personne se sent mieux. »
+
+**`generatrice`**
+
+- « Une porte ouverte ne laisse pas sortir le gaz assez vite : un moteur qui tourne dans un garage intoxique même porte ouverte, que le garage soit attenant à la maison, à côté ou en toile. » « Une remise, un abri d'auto, une tente, un vestibule, une serre, un auvent ou une bâche tendue au-dessus de la machine comptent comme l'intérieur. »
+  → « Ouvrir la porte du garage ne suffit pas : le gaz ne sort pas assez vite, que le garage soit attenant à la maison, séparé ou en toile. » « C'est la même chose dans une remise, un abri d'auto, une tente, un vestibule, une serre, ou sous un auvent ou une bâche tendue au-dessus de la machine. »
+- « La règle se brise dans les mêmes moments : la panne d'hiver, la nuit, la tempête, le soir de l'arrivée au chalet, quand on veut protéger la génératrice de la neige ou des voleurs, ou garder le congélateur en marche. » « Le réflexe est alors de la mettre au garage, dans la remise ou sous l'auvent, porte ouverte. » « La scie ou la souffleuse qu'on démarre dans le garage « juste le temps qu'elle chauffe » à −30 °C entre dans la même règle. » « Par les signes du monoxyde, chez tout le monde dans le bâtiment à la fois, et par l'avertisseur. »
+  → « On est tenté de mettre la génératrice au garage, dans la remise ou sous l'auvent, porte ouverte, toujours dans les mêmes moments : la panne d'hiver, la nuit, la tempête, le soir de l'arrivée au chalet, quand on veut la protéger de la neige ou des voleurs, ou garder le congélateur en marche. » « Démarrer la scie ou la souffleuse dans le garage à −30 °C, « juste le temps qu'elle chauffe », est aussi dangereux. » « Tout le monde dans le bâtiment a les signes du monoxyde en même temps, ou l'avertisseur sonne. »
+- « On ne fait jamais le plein à la lumière d'une chandelle ou d'un fanal. »
+  → « Ne jamais faire le plein à la lumière d'une chandelle ou d'un fanal. »
+- « Dans une auto prise dans la neige, dégager le tuyau d'échappement avant chaque démarrage : bouché, il renvoie le gaz dans l'habitacle. » « Ne jamais la brancher sur une prise ni sur le panneau de la maison (pictogramme du courant renvoyé). »
+  → « Dans une auto prise dans la neige, dégager le tuyau d'échappement avant chaque démarrage : un tuyau bouché renvoie le gaz dans l'habitacle. » « Ne jamais brancher la génératrice sur une prise ni sur le panneau électrique de la maison (pictogramme du courant renvoyé). »
+
+**`electrocution`**
+
+- « Le courant tue à distance, de deux façons. » « La génératrice branchée sur le circuit de la maison (par une prise murale, par la prise de la sécheuse, par le panneau sans commutateur de transfert, ou par un câble qui a une fiche mâle à chaque bout) renvoie son courant dans le réseau. »
+  → « Une génératrice branchée sur le circuit de la maison renvoie son courant dans le réseau. » « Ça arrive quand on la branche par une prise murale, par la prise de la sécheuse, par le panneau sans commutateur de transfert, ou avec un câble qui a une fiche mâle à chaque bout. »
+- « Le câble à deux fiches mâles a un autre défaut : quand une fiche est branchée, les broches de l'autre bout sont sous tension à l'air libre. »
+  → « Avec le câble à deux fiches mâles, il y a un autre danger : dès qu'une fiche est branchée, les broches de l'autre bout sont sous tension, à nu. »
+- « Le courant passe dans le sol autour du point où le fil touche. » « Entre deux points du sol séparés par un pas, il y a une tension : en marchant vers le fil, ou en s'en éloignant à grands pas, on met les deux pieds à deux tensions différentes, et le courant monte par une jambe et redescend par l'autre. » « Un fil dans la neige ou dans l'eau ne se reconnaît pas à l'œil : on le traite comme sous tension, toujours. » « Un fil par terre, un poteau cassé, une branche ou un arbre appuyé sur une ligne, un grésillement, une odeur de brûlé. » « Le courant peut paralyser les muscles : la personne qui touche le fil ne le lâche pas toujours. » « Le choc peut causer des brûlures en dedans comme en dehors, un cœur qui bat mal, un arrêt de la respiration. »
+  → « Le courant passe dans le sol autour de l'endroit où le fil touche, et la tension change d'un pas à l'autre. » « Quand on marche vers le fil, ou qu'on s'en éloigne à grands pas, les deux pieds sont à deux tensions différentes : le courant monte par une jambe et redescend par l'autre. » « À l'œil, on ne peut pas savoir si un fil dans la neige ou dans l'eau est sous tension : on fait toujours comme s'il l'était. » « On voit un fil par terre, un poteau cassé, une branche ou un arbre appuyé sur une ligne ; on entend un grésillement ; on sent une odeur de brûlé. » « Le courant peut paralyser les muscles : la personne qui touche le fil ne peut pas toujours le lâcher. » « Le choc peut brûler le corps en dedans comme en surface, dérégler les battements du cœur et arrêter la respiration. »
+- « Jamais par une prise de la maison, jamais avec un adaptateur mâle-mâle. »
+  → « Ne jamais passer par une prise de la maison ni par un câble à deux fiches mâles. »
+- « On ne le déplace pas, même avec un bâton. »
+  → « Ne pas le déplacer, même avec un bâton. »
+- « S'il faut sortir (feu), sauter le plus loin possible les pieds joints, sans toucher l'auto et le sol en même temps, puis s'éloigner à petits pas. »
+  → « S'il faut sortir parce que l'auto prend feu, sauter le plus loin possible les pieds joints, sans toucher l'auto et le sol en même temps, puis s'éloigner à petits pas. »
+- « Quand le contact est rompu : réanimer si elle ne respire pas, et couvrir les brûlures d'un linge propre et sec. »
+  → « Une fois qu'elle ne touche plus rien de sous tension, la réanimer si elle ne respire pas, et couvrir ses brûlures d'un linge propre et sec. »
+
+**`vapeurs`**
+
+- « Un liquide qui brûle ne brûle pas en liquide : ce sont ses vapeurs qui prennent feu. » « L'essence fait assez de vapeur pour s'enflammer jusqu'à −43 °C, et le naphte de camping (le gaz blanc) sous −18 °C : l'hiver ne protège pas. » « Le kérosène n'en fait assez qu'au-dessus de 38 °C environ, et l'huile à lampe paraffinique vers 97 °C : il faut une mèche qui les chauffe. »
+  → « Quand un carburant ou un solvant brûle, ce sont ses vapeurs qui prennent feu, pas le liquide. » « L'essence dégage assez de vapeurs pour s'enflammer jusqu'à −43 °C, et le naphte de camping (le gaz blanc) même sous −18 °C : en plein hiver, leurs vapeurs peuvent prendre feu. » « Le kérosène ne dégage assez de vapeurs qu'au-dessus de 38 °C environ, et l'huile à lampe paraffinique vers 97 °C : c'est pour ça qu'ils brûlent seulement avec une mèche qui les chauffe. »
+- « Elles coulent au plancher, s'accumulent au point bas et voyagent jusqu'à une flamme ou une étincelle à plusieurs mètres : la veilleuse d'un chauffe-eau, la porte du poêle, un interrupteur, le moteur du congélateur. »
+  → « Elles descendent au plancher, s'accumulent dans les endroits les plus bas et peuvent s'étendre sur plusieurs mètres jusqu'à une flamme ou une étincelle : la veilleuse d'un chauffe-eau, la porte du poêle, un interrupteur, le moteur du congélateur. »
+- « L'essence qu'on verse se charge d'électricité statique, et une étincelle de statique suffit. » « Le propane pèse 1,55 fois le poids de l'air et brûle quand il fait entre 2,1 et 9,5 % de l'air. »
+  → « L'essence qu'on verse se charge d'électricité statique, et une étincelle de statique suffit à allumer les vapeurs. » « Le propane pèse 1,55 fois le poids de l'air. » « Il prend feu quand il y en a entre 2,1 et 9,5 % dans l'air. »
+- « Le propane n'a pas d'odeur à lui : on lui ajoute une odeur qui doit se sentir quand il n'y en a encore que le cinquième de ce qui s'enflamme. » « Une bouteille chauffée au-dessus de 50 °C, ou penchée à plus de 60°, crache du liquide qui flambe. » « L'hydrogène sort des batteries au plomb en charge et de la soude caustique au contact de l'aluminium ou du zinc. » « Il explose quand il fait de 4,1 % à 72 % de l'air : un peu d'hydrogène dans un placard suffit, et un mélange très riche explose encore. »
+  → « Le propane n'a pas d'odeur naturelle. » « On lui ajoute une odeur assez forte pour qu'on la sente quand il n'y a dans l'air que le cinquième de la quantité qui prend feu. » « Quand une bouteille est chauffée au-dessus de 50 °C, ou penchée à plus de 60°, du propane liquide en sort et flambe. » « Les batteries au plomb dégagent de l'hydrogène pendant la charge, et la soude caustique en dégage quand elle touche de l'aluminium ou du zinc. » « L'hydrogène explose quand il y en a de 4,1 % à 72 % dans l'air : il en faut peu dans un placard pour qu'il explose, et un mélange très riche explose aussi. »
+- « On ne le soude, ne le coupe ni ne le chauffe tant que toute trace du produit n'est pas enlevée. » « L'odeur d'essence, de solvant ou de propane dans un local fermé, surtout près du plancher ; un sifflement à la bouteille ou au raccord. » « Dans un local qui sent l'essence ou le propane : n'allumer ni n'éteindre rien (ni lumière, ni interrupteur, ni briquet), sortir, et ouvrir par le bas, de l'extérieur. »
+  → « Avant de le souder, de le couper ou de le chauffer, il faut enlever toute trace du produit. » « On sent l'essence, le solvant ou le propane dans un local fermé, surtout près du plancher, ou on entend un sifflement à la bouteille ou à un raccord. » « Dans un local qui sent l'essence ou le propane : ne rien allumer ni éteindre (ni lumière, ni interrupteur, ni briquet), sortir, puis ouvrir les portes et les ouvertures près du plancher en restant dehors. »
+- « Remplir un bidon posé au sol, moteur arrêté, le bec appuyé contre le métal. »
+  → « Poser le bidon au sol pour le remplir, moteur arrêté, et garder le bec de remplissage appuyé contre le métal du bidon. »
+- « Sur une flaque de carburant en feu : poudre de l'extincteur, sable ou terre. » « Jamais d'eau lancée au seau : l'essence flotte et le feu s'étend avec l'eau. »
+  → « Éteindre une flaque de carburant en feu avec la poudre de l'extincteur, du sable ou de la terre. » « Ne jamais lancer d'eau au seau : l'essence flotte sur l'eau, et le feu s'étend avec elle. »
+
+**`huile-en-feu`**
+
+- « L'eau est plus lourde que l'huile. » « Jetée sur un chaudron d'huile en feu, elle coule au fond, là où il fait plus de 100 °C, se change en vapeur d'un coup et projette l'huile en feu au visage, aux murs et au plafond. » « Le gras qui fume continue de chauffer, et il finit par s'allumer seul. »
+  → « Quand on jette de l'eau sur un chaudron d'huile en feu, l'eau coule au fond, parce qu'elle est plus lourde que l'huile. » « Au fond, il fait plus de 100 °C : l'eau se change en vapeur d'un coup et projette l'huile en feu au visage, aux murs et au plafond. » « Quand le gras fume, il continue de chauffer et finit par prendre feu tout seul. »
+- « Aucune valeur n'est publiée pour les gras animaux qu'on fait fondre (suif, saindoux, graisse d'ours) : on se règle sur la plus basse, 130 °C. » « L'autre réflexe est de prendre le chaudron pour le sortir dehors. » « Le chaudron chaud et lourd se renverse sur la personne qui le porte, sur ses jambes et ses pieds, et le feu suit l'huile répandue. » « La même chose se produit à l'envers : une goutte d'eau, un peu de neige ou de glace sur une pièce de métal qu'on trempe dans l'huile chaude (plus de 100 °C) éclate sous la surface et projette l'huile. » « De la fumée qui monte du gras veut dire qu'il a atteint son point de fumée et qu'il continue de chauffer vers le point où il s'allume. » « Avant d'allumer sous un chaudron de gras : avoir un couvercle de métal qui le ferme et l'extincteur à portée de main. » « Si l'huile prend feu : couper la chaleur si on l'atteint sans se pencher au-dessus. »
+  → « On ne connaît pas le point de fumée des gras animaux qu'on fait fondre (suif, saindoux, graisse d'ours) : on prend la valeur la plus basse, 130 °C. » « L'autre réflexe, c'est de prendre le chaudron pour le sortir dehors. » « Le chaudron est chaud et lourd : il peut se renverser sur les jambes et les pieds de la personne qui le porte, et le feu suit l'huile répandue. » « Une pièce de métal qu'on trempe dans l'huile chaude (plus de 100 °C) projette l'huile de la même façon si elle porte une goutte d'eau, un peu de neige ou de glace : l'eau éclate en vapeur sous la surface. » « Quand de la fumée monte du gras, il a atteint son point de fumée ; s'il continue de chauffer, il va prendre feu. » « Avant d'allumer sous un chaudron de gras : garder à portée de main un couvercle de métal qui ferme le chaudron, et l'extincteur. » « Si l'huile prend feu : couper la chaleur, si on peut le faire sans se pencher au-dessus du chaudron. »
+- « Une plaque de métal ou une plaque à biscuits fait l'affaire. »
+  → « Sans couvercle, une plaque de métal ou une plaque à biscuits fait l'affaire. »
+- « Une brûlure d'huile se refroidit comme une autre brûlure (pictogramme de la brûlure). »
+  → « On refroidit une brûlure d'huile comme une autre brûlure (pictogramme de la brûlure). »
+
+**`incendie`**
+
+- « La fumée chaude monte et remplit la pièce par le haut ; elle porte du monoxyde de carbone et elle brûle la gorge et les poumons. » « Les enfants qui dorment en haut, dans une mezzanine, sont là où elle arrive en premier. »
+  → « La fumée chaude monte et remplit la pièce en commençant par le plafond. » « Elle contient du monoxyde de carbone, et elle brûle la gorge et les poumons. » « Les enfants qui dorment en haut, dans une mezzanine, sont les premiers atteints. »
+- « Un feu de cheminée chauffe le conduit au point de l'abîmer, et le bois de la charpente au passage du tuyau peut prendre feu après. »
+  → « Un feu de cheminée peut chauffer le conduit au point de l'abîmer, et le bois de la charpente, autour de l'endroit où passe le tuyau, peut prendre feu après. »
+- « Des cendres qui ont l'air froides gardent des braises plusieurs jours : il faut attendre au moins 7 jours, dans un contenant de métal fermé posé sur une surface qui ne brûle pas, à au moins 1 m de tout, avant de les vider ailleurs. »
+  → « Des cendres qui ont l'air froides gardent des braises plusieurs jours : on les garde au moins 7 jours dans un contenant de métal fermé, posé sur une surface qui ne brûle pas, à au moins 1 m de tout, avant de les vider ailleurs. »
+- « L'avertisseur de fumée, l'odeur, la lumière orange. » « Un feu de cheminée se voit au tuyau qui rougit et aux étincelles qui sortent par le haut de la cheminée. »
+  → « L'avertisseur de fumée sonne, on sent la fumée, on voit une lueur orange. » « On reconnaît un feu de cheminée au tuyau qui rougit et aux étincelles qui sortent par le haut de la cheminée. »
+- « On ne prend rien et on ne retourne jamais à l'intérieur. »
+  → « Ne rien prendre, et ne jamais retourner à l'intérieur. »
+- « Jamais d'eau dans le poêle ni dans un tuyau rougi : l'eau se change en vapeur d'un coup et peut faire exploser l'appareil. » « Après un feu de cheminée : passer la main sur les murs et le plafond autour du tuyau, le soir même et pendant la nuit, et ne pas rallumer avant d'avoir regardé le conduit. » « Le petit feu qui commence : le couvrir ou l'éteindre à l'extincteur en balayant la base des flammes. »
+  → « Ne jamais mettre d'eau dans le poêle ni dans un tuyau rougi : l'eau se change en vapeur d'un coup et peut faire exploser l'appareil. » « Après un feu de cheminée : le soir même et pendant la nuit, passer la main sur les murs et le plafond autour du tuyau pour sentir s'ils chauffent, et ne pas rallumer avant d'avoir regardé le conduit. » « Si le feu commence à peine : le couvrir ou l'éteindre à l'extincteur en balayant la base des flammes. »
+
+**`feu-de-foret`**
+
+- « La fumée agit avant les flammes. » « Les particules fines font le plus de tort aux poumons, et l'odeur ou la vue ne disent pas combien on en respire. » « Un enfant respire plus d'air par kilo de poids qu'un adulte, et le masque filtrant (N95) ne convient pas aux enfants de moins de 2 ans. » « Les gens qui meurent dans un feu de forêt sont souvent des gens partis trop tard : la fumée épaisse cache la route, les phares n'aident presque pas, des arbres tombent, et le chemin unique se ferme avant que le feu arrive. » « Les gens qui restent pour défendre la maison et qui fuient à la dernière minute meurent sur la route. »
+  → « La fumée arrive bien avant les flammes. » « Ses particules fines font le plus de tort aux poumons, et on ne peut pas juger à l'odeur ou à la vue combien on en respire. » « Un enfant respire plus d'air qu'un adulte pour son poids. » « Le masque filtrant (N95) ne convient pas aux enfants de moins de 2 ans. » « Dans un feu de forêt, beaucoup de morts sont des gens partis trop tard : la fumée épaisse cache la route, les phares n'aident presque pas, des arbres tombent, et le seul chemin peut être fermé avant que le feu arrive. » « Les gens qui restent pour défendre la maison et qui partent à la dernière minute meurent sur la route. »
+- « Le vent les porte jusqu'à 2 km en avant du feu ; elles entrent sous les avant-toits, dans les gouttières pleines d'aiguilles, par les évents, et un lac ne les arrête pas. » « Pris par le feu, on meurt de la chaleur rayonnante avant que la flamme arrive : elle brûle la peau à 100 m, elle traverse les vitres et elle donne un coup de chaleur rapide. » « Une couverture de laine sèche arrête cette chaleur ; mouillée, elle donne des brûlures de vapeur. » « Le synthétique fond sur la peau. »
+  → « Le vent porte les braises jusqu'à 2 km en avant du feu, même par-dessus un lac. » « Elles entrent sous les avant-toits, dans les gouttières pleines d'aiguilles et par les évents. » « Une personne prise par le feu meurt de la chaleur rayonnante avant que les flammes l'atteignent. » « Cette chaleur brûle la peau à 100 m, elle traverse les vitres et elle donne un coup de chaleur rapide. » « Une couverture de laine sèche arrête cette chaleur. » « Mouillée, elle cause des brûlures de vapeur. » « Un vêtement synthétique fond sur la peau. »
+- « Dans un humus épais, il peut passer l'hiver sous la neige et ressortir au printemps plus loin. » « Un brûlis de jardin qui s'échappe fait la même chose. » « La fumée, une lueur orange la nuit, des cendres qui tombent, le vent qui tourne. » « Quand le vent tourne, le côté du feu devient le nouveau front, plus large. » « Un point chaud dans le sol se sent du dos de la main passée au ras du sol. »
+  → « Dans un humus épais, il peut passer l'hiver sous la neige et ressortir plus loin au printemps. » « Un brûlis de jardin qui s'échappe peut faire la même chose. » « On voit de la fumée, une lueur orange la nuit, des cendres qui tombent, ou le vent tourne. » « Quand le vent tourne, le flanc du feu devient le nouveau front, et ce front est plus large. » « On trouve un point chaud dans le sol en passant le dos de la main au ras du sol. »
+- « On ne revient pas chercher ce qu'on a oublié. » « Dans l'auto rattrapée par le feu : s'arrêter là où rien ne brûle, l'avant vers le feu, vitres et entrées d'air fermées, moteur arrêté quand le feu est proche, tout le monde au plancher sous la laine sèche, un linge sur la bouche. »
+  → « Ne pas revenir chercher ce qu'on a oublié. » « Si le feu rattrape l'auto : s'arrêter à un endroit où rien ne brûle, l'avant tourné vers le feu. » « Fermer les vitres et les entrées d'air, et arrêter le moteur quand le feu est proche. » « Coucher tout le monde au plancher sous la laine sèche, un linge sur la bouche. »
+- « Sortir quand l'air, sur le dos de la main levée, n'est pas plus chaud qu'un gros coup de soleil. » « Habiller tout le monde de laine, de coton épais ou de jean, et de bottes de cuir. » « Après un brûlis ou au retour : gratter jusqu'à la terre minérale, passer le dos de la main au ras du sol, creuser et éteindre partout où c'est chaud, et refaire le tour au dégel. »
+  → « Sortir quand on lève le dos de la main et que l'air ne chauffe pas plus qu'un gros coup de soleil. » « Habiller tout le monde de laine, de coton épais ou de jean, et leur mettre des bottes de cuir. » « Après un brûlis, ou en revenant après un feu de forêt : gratter jusqu'à la terre minérale, chercher les points chauds, creuser et éteindre partout où c'est chaud, et refaire le tour au dégel. »
+
+**`espace-clos`**
+
+- « Le gaz carbonique qui sort des légumes entreposés et de la matière qui pourrit, le sulfure d'hydrogène des eaux d'égout et des peaux qui trempent, le propane d'une fuite : ces gaz restent au fond, invisibles. »
+  → « Ces gaz restent au fond, et on ne les voit pas : le gaz carbonique que dégagent les légumes entreposés et la matière qui pourrit, le sulfure d'hydrogène des eaux d'égout et des peaux qui trempent, le propane d'une fuite. »
+- « À 4 %, quelques inspirations suffisent pour tomber, sans avoir senti quoi que ce soit : on ne peut pas compter sur « je sortirai si je me sens mal ». »
+  → « À 4 %, on tombe après quelques inspirations, sans avoir rien senti : on ne peut pas compter sortir à temps dès qu'on se sentira mal. »
+- « Mais vers 100 à 150 ppm, il paralyse l'odorat : l'odeur qui disparaît veut dire que le gaz monte. »
+  → « Mais vers 100 à 150 ppm, il paralyse l'odorat : quand l'odeur disparaît, c'est que le gaz augmente. »
+- « Il est plus lourd que l'air (densité 1,19) : la personne qui se penche au-dessus du baril pour sentir met son nez dans la couche la plus forte. » « Environ 60 % des gens qui meurent dans un espace clos sont des sauveteurs : ils sont descendus chercher la personne tombée et ils sont tombés à côté. » « Une personne au fond qui ne répond plus, qui titube ou qui s'effondre sans raison visible. » « Une odeur d'œuf pourri qui s'efface. » « L'avertisseur de monoxyde ne voit ni le gaz carbonique ni le propane. »
+  → « Il est plus lourd que l'air (densité 1,19) : quand on se penche au-dessus du baril pour sentir, on met le nez dans la couche la plus concentrée. » « Environ 60 % des gens qui meurent dans un espace clos sont des sauveteurs : ils sont descendus chercher la personne tombée et ils ont perdu connaissance à leur tour. » « La personne au fond ne répond plus, titube ou s'effondre sans raison visible. » « L'odeur d'œuf pourri s'efface. » « L'avertisseur de monoxyde ne détecte ni le gaz carbonique ni le propane. »
+- « L'aération naturelle ne suffit souvent pas dans un trou profond. »
+  → « Dans un trou profond, ouvrir ne suffit souvent pas. »
+
+**`chimie`**
+
+- « Elles font peu mal au contact : on rince trop tard ou pas assez, et la brûlure finit plus profonde que celle d'un acide. » « Elle peut prendre jusqu'à 12 h pour se montrer au complet. »
+  → « Comme elles font peu mal au contact, on rince trop tard ou pas assez longtemps, et la brûlure devient plus profonde que celle d'un acide. » « Il faut parfois jusqu'à 12 h pour voir toute la profondeur de la brûlure. »
+- « Le vinaigre sur une brûlure de soude chauffe en réagissant et ajoute une brûlure de chaleur à la brûlure chimique. » « On rince à l'eau, rien d'autre. »
+  → « Le vinaigre versé sur une brûlure de soude réagit en chauffant et ajoute une brûlure de chaleur à la brûlure chimique. » « On rince à l'eau seulement. »
+- « Verser l'eau dans la soude ou dans l'acide fait bouillir le produit et le projette : on verse toujours la soude ou l'acide dans l'eau froide, lentement, jamais l'inverse. » « La poussière de chaux ou de soude respirée peut faire entrer de l'eau dans les poumons jusqu'à 48 h plus tard : la personne qui va bien le soir n'est pas tirée d'affaire. » « Certains mélanges font un gaz toxique : »
+  → « Si on verse l'eau dans la soude ou dans l'acide, le produit bout et gicle : on verse toujours la soude ou l'acide dans l'eau froide, lentement, jamais l'inverse. » « La poussière de chaux ou de soude respirée peut faire entrer de l'eau dans les poumons jusqu'à 48 h plus tard, même chez une personne qui va bien le soir même. » « Certains mélanges dégagent un gaz toxique : »
+- « Les signes du chlore dans les poumons peuvent attendre 24 à 48 h. » « L'eau de Javel se dilue dans l'eau, avec rien d'autre. » « Après un contact avec une base : une rougeur qui s'étend, des cloques, une vision brouillée, même sans grande douleur. » « Une toux, un essoufflement ou une respiration sifflante qui arrivent des heures après un nuage de gaz ou de poussière. » « Avant d'ouvrir le sac ou le pot : avoir de l'eau prête, beaucoup, et des lunettes sur les yeux. » « Éclaboussure de soude, de lessive ou de chaux : enlever les vêtements touchés et rincer à l'eau tiède, en douceur, au moins 60 minutes sans arrêter, l'œil comme la peau. »
+  → « Quand le chlore atteint les poumons, les signes peuvent n'apparaître qu'après 24 à 48 h. » « On dilue l'eau de Javel dans l'eau seulement, sans rien y ajouter. » « Après un contact avec une base, la peau rougit de plus en plus loin, des cloques apparaissent, ou la vue devient brouillée, même sans grande douleur. » « Après un nuage de gaz ou de poussière, une toux, un essoufflement ou une respiration sifflante peuvent arriver des heures plus tard. » « Avant d'ouvrir le sac ou le pot : préparer beaucoup d'eau et mettre des lunettes. » « Si de la soude, de la lessive ou de la chaux éclabousse : enlever les vêtements touchés et rincer à l'eau tiède, en douceur, au moins 60 minutes sans arrêter, l'œil comme la peau. »
+- « Éclaboussure d'acide de batterie : rincer au moins 30 minutes. » « Gaz respiré : sortir à l'air, garder la personne au repos et la surveiller 48 h. »
+  → « Si c'est de l'acide de batterie : rincer au moins 30 minutes. » « Si quelqu'un a respiré du gaz : le sortir à l'air, le garder au repos et le surveiller 48 h. »
+
+**`pas-au-feu`**
+
+- « Le feu ne détruit pas un métal : il le concentre dans la fumée qu'on respire et dans la cendre qu'on étend. » « Le bois traité vert pâle ou grisé des vieilles terrasses, des clôtures et des modules de jeu est traité à l'arsenic et au chrome (bois traité à l'ACC). » « La plupart de ces structures, au Canada, datent d'avant 2004. » « Avec le temps, il grisonne comme du bois ordinaire : on le reconnaît à la date de la structure, pas à sa couleur. » « Brûlé, il met l'arsenic dans la fumée et dans la cendre ; la terre au pied de la vieille terrasse en contient aussi. » « On ne brûle pas non plus les bois traités plus récents, au cuivre, de couleur brune. » « Le métal peint ou galvanisé (le zinc gris qui recouvre les tuyaux, les seaux, la tôle) donne, quand on le soude, qu'on le meule ou qu'on le chauffe, la fièvre des fondeurs : frissons, fièvre, courbatures, qui passent en 24 à 48 h. » « Le cadmium (pièces cadmiées, certaines baguettes de brasage à l'argent qui en contiennent jusqu'à 20 %) donne au début les mêmes signes, 4 à 10 h après, le soir à la maison. » « Mais il peut ensuite remplir les poumons d'eau jusqu'à 48 h plus tard, et environ une personne sur cinq qui fait cette atteinte des poumons en meurt. »
+  → « Le bois traité vert pâle ou grisé des vieilles terrasses, des clôtures et des modules de jeu contient de l'arsenic et du chrome (bois traité à l'ACC). » « Au Canada, la plupart de ces structures datent d'avant 2004. » « Avec le temps, ce bois devient gris comme du bois ordinaire : on le reconnaît à l'âge de la structure, pas à sa couleur. » « Quand on le brûle, l'arsenic passe dans la fumée qu'on respire et se concentre dans la cendre qu'on étend. » « La terre au pied d'une vieille terrasse en contient aussi. » « Il ne faut pas brûler non plus les bois traités plus récents, au cuivre, qui sont bruns. » « Quand on soude, meule ou chauffe du métal peint ou galvanisé (le zinc gris qui recouvre les tuyaux, les seaux, la tôle), on peut faire la fièvre des fondeurs : des frissons, de la fièvre et des courbatures, qui passent en 24 à 48 h. » « Les fumées de cadmium (pièces cadmiées, certaines baguettes de brasage à l'argent qui en contiennent jusqu'à 20 %) donnent d'abord les mêmes signes, 4 à 10 h après, le soir à la maison. » « Mais le cadmium peut ensuite remplir les poumons d'eau jusqu'à 48 h plus tard, et environ une personne sur cinq qui a cette atteinte des poumons en meurt. »
+- « L'herbe à puce brûlée met son huile dans la fumée, et cette fumée respirée enflamme les poumons de façon très douloureuse et peut tuer. » « Le bois : la date de la structure, une teinte vert pâle sur une coupe fraîche. » « Le métal : le gris mat du galvanisé, souvent en motif de cristaux, et la peinture. » « La baguette de brasage : l'inscription « sans cadmium » sur l'emballage, et son absence. » « Ne jamais mettre de bois traité, de palette, de bois peint, verni ou aggloméré, ni de bois de démolition dont on ne connaît pas l'origine au poêle, au fumoir, au compost, en paillis ou en litière, ni au contact des aliments. »
+  → « Quand on brûle de l'herbe à puce, son huile passe dans la fumée. » « Respirée, cette fumée enflamme les poumons, cause une douleur très forte et peut tuer. » « On reconnaît le bois traité à l'ACC à l'âge de la structure et à une teinte vert pâle sur une coupe fraîche. » « Le métal à risque est peint, ou galvanisé : d'un gris mat, souvent marqué d'un motif de cristaux. » « Une baguette de brasage sans cadmium porte l'inscription « sans cadmium » sur l'emballage ; sans cette inscription, on la considère comme cadmiée. » « Ne jamais brûler au poêle ou au fumoir, ni mettre au compost, en paillis, en litière ou au contact des aliments : le bois traité, les palettes, le bois peint, verni ou aggloméré, et le bois de démolition dont on ne connaît pas l'origine. »
+- « N'allumer que des baguettes marquées « sans cadmium ». »
+  → « Braser seulement avec des baguettes marquées « sans cadmium ». »
+- « Après une exposition au cadmium, garder la personne au repos et la surveiller 48 h ; un essoufflement veut dire que sa vie est en jeu. »
+  → « Si quelqu'un a respiré des fumées de cadmium, le garder au repos et le surveiller 48 h ; un essoufflement veut dire que sa vie est en jeu. »
+
+**`projection`**
+
+- « Une énergie stockée se libère d'un coup, et la pièce part plus vite qu'on peut bouger. » « La meule ne tient que par la colle qui lie son grain. » « Une fissure qu'on ne voit pas (une chute, un serrage trop fort, une vitesse plus haute que celle marquée sur la meule) la fait éclater, et les morceaux partent dans le plan où elle tourne. »
+  → « Une meule, un contenant fermé, un arbre tordu ou un câble tendu peuvent lâcher d'un coup, et la pièce part plus vite qu'on ne peut s'écarter. » « Une meule est faite de grains d'abrasif collés ensemble. » « Elle peut se fissurer sans qu'on le voie, après une chute ou un serrage trop fort, et elle éclate alors en tournant ; elle éclate aussi quand elle tourne plus vite que la vitesse marquée dessus. » « Les morceaux partent dans le plan où elle tourne. »
+- « L'air ou le gaz se dilate sans pouvoir sortir jusqu'à ce que l'enveloppe cède. »
+  → « L'air ou le gaz à l'intérieur prend du volume en chauffant et, comme il ne peut pas sortir, le contenant finit par céder. »
+- « Un arbre encroué (tombé sur un autre arbre) et le bois sous tension sont des ressorts chargés : ils se détendent sans prévenir, dans une direction que décide la façon dont ils sont tordus. » « Un câble ou une corde tendus sont aussi des ressorts : quand une pièce lâche, le bout libre fouette tout le long de la ligne de traction. » « Un outil trempé (ciseau à froid, marteau) frappé contre un autre acier trempé peut lancer un éclat au lieu de s'écraser `[À VÉRIFIER]`. » « Une meule qui sonne sourd quand on la tapote, qui est ébréchée, ou dont la vitesse marquée est plus basse que celle de la meuleuse. » « Un contenant sans trou. » « Une batterie gonflée ou au liquide gelé. » « Un arbre appuyé sur un autre, une branche ou une jeune tige pliée sous un tronc. »
+  → « Un arbre encroué (tombé sur un autre arbre) et le bois sous tension se détendent d'un coup, sans prévenir, comme un ressort, dans le sens où ils ont été pliés. » « Un câble ou une corde tendus réagissent de la même façon : quand une pièce lâche, le bout libre fouette tout le long de la ligne de traction. » « Quand on frappe un outil trempé (ciseau à froid, marteau) contre un autre acier trempé, un éclat peut partir `[À VÉRIFIER]`. » « Une meule est dangereuse quand elle sonne sourd sous un petit coup, qu'elle est ébréchée, ou que la vitesse marquée dessus est plus basse que celle de la meuleuse. » « Un contenant est dangereux à chauffer quand il n'a aucun trou, et une batterie quand elle est gonflée ou que son liquide est gelé. » « Le bois est sous tension quand un arbre est appuyé sur un autre, ou qu'une branche ou une jeune tige est pliée sous un tronc. »
+- « Elle doit sonner clair ; un son sourd, on la jette. » « Serrer la bride juste assez pour que la meule ne glisse pas, la faire tourner au moins 1 minute avant de s'en servir, et se tenir à côté de son plan de rotation, pas devant. »
+  → « Elle doit sonner clair ; si le son est sourd, la jeter. » « Serrer la bride juste assez pour que la meule ne glisse pas, et la faire tourner au moins 1 minute avant de s'en servir, en se tenant sur le côté, hors du plan où elle tourne. »
+- « Ne jamais entrer dans la zone d'un arbre encroué : le faire tomber de loin, avec un treuil ou un moyen mécanique, et ne jamais le laisser accroché pour revenir plus tard. »
+  → « Ne jamais entrer dans la zone où un arbre encroué peut tomber : le faire tomber de loin, avec un treuil ou un moyen mécanique, et ne jamais le laisser accroché pour revenir plus tard. »
+
+**`ecrasement`**
+
+- « Une charge suspendue tombe sans prévenir : le crochet, la corde, la branche ou le tendon qui la tient cède d'un coup. » « Un orignal mâle pèse de 329 à 635 kg vivant, et un quartier pèse autour de 95 kg : un quartier qui tombe d'un mètre écrase une jambe ou un bras. » « Le point d'attache reçoit plus que la charge. » « Une poulie de renvoi accrochée à un arbre reçoit les deux brins de la corde : elle porte le double de la traction. » « L'arbre, la branche ou le piquet qui la tient doit tenir ce double. »
+  → « Une charge suspendue peut tomber sans prévenir quand le crochet, la corde, la branche ou le tendon qui la tient cède d'un coup. » « Un orignal mâle pèse de 329 à 635 kg vivant, et un quartier pèse autour de 95 kg : s'il tombe d'un mètre, un quartier écrase une jambe ou un bras. » « Avec une poulie de renvoi accrochée à un arbre, les deux brins de la corde tirent sur la poulie : l'arbre, la branche ou le piquet qui la tient porte le double de la traction. »
+- « Une corde qui s'effiloche ou qui s'allonge, un crochet qui s'ouvre, une branche qui plie, un câble aux fils cassés. » « Une fissure au bord d'une tranchée, de la terre qui tombe en petites mottes. » « Un toit d'abri de neige qui s'affaisse ou qui dégoutte. » « Une personne écrasée qui respire mal, qui est pâle, moite et agitée a peut-être une hémorragie qu'on ne voit pas (pictogramme de la coupure). » « Ne jamais passer sous une charge suspendue, ni la tenir à bout de bras pour la guider : la guider avec une corde ou une perche, de côté. »
+  → « Avant de lâcher, une corde s'effiloche ou s'allonge, un crochet s'ouvre, une branche plie, un câble a des fils cassés. » « Une tranchée peut s'effondrer quand une fissure apparaît le long du bord ou que de la terre tombe en petites mottes. » « Le toit d'un abri de neige peut tomber quand il s'affaisse ou qu'il dégoutte. » « Si une personne écrasée respire mal, est pâle, moite et agitée, elle saigne peut-être en dedans (pictogramme de la coupure). » « Ne jamais passer sous une charge suspendue, ni la tenir à bout de bras pour la guider : la guider de côté, avec une corde ou une perche. »
+- « Un cric ou un vérin seul ne porte pas une charge sous laquelle on travaille. »
+  → « Ne jamais travailler sous une charge tenue seulement par un cric ou un vérin. »
+- « Dans une tranchée où on descend : tailler les parois en pente de moins de 45°, la partie droite du bas ne dépassant pas 1,2 m, déposer la terre à plus de 1,2 m du bord, et garder quelqu'un en haut qui surveille les parois. »
+  → « Dans une tranchée où on descend : tailler les parois en pente de moins de 45°, en gardant au plus 1,2 m de paroi droite au fond, déposer la terre à plus de 1,2 m du bord, et garder quelqu'un en haut qui surveille les parois. »
+
+**`coupure`**
+
+- « Une coupure là vide le corps de son sang en quelques minutes. »
+  → « Une coupure à cet endroit vide le corps de son sang en quelques minutes. »
+- « La scie à chaîne cause ces coupures par le rebond. »
+  → « Avec la scie à chaîne, ces coupures viennent du rebond. »
+- « Une chaîne mal affûtée, avec des guides de profondeur trop bas, rebondit plus. »
+  → « La scie rebondit plus quand la chaîne est mal affûtée ou que ses guides de profondeur sont trop bas. »
+- « Le pantalon de coupe arrête la chaîne : ses fibres longues s'arrachent, bourrent le pignon et l'arrêtent. »
+  → « Quand la chaîne touche le pantalon de coupe, les fibres longues du pantalon s'arrachent, bourrent le pignon et arrêtent la chaîne. »
+- « Le saignement qu'on ne voit pas est aussi mortel : une cuisse cassée, un bassin écrasé, un coup au ventre peuvent vider le sang en dedans. » « Un sang rouge vif qui gicle ou qui coule à flot, et qui ne ralentit pas sous la pression. » « Pour le saignement en dedans : un pouls rapide et faible, une peau froide, moite et pâle ou bleutée, la soif, l'agitation, puis la somnolence et la confusion. » « Ces signes veulent dire que la vie est en jeu, et la décision de partir se prend pendant que la personne a encore l'air correcte. »
+  → « On peut aussi mourir d'un saignement qu'on ne voit pas : une cuisse cassée, un bassin écrasé ou un coup au ventre peuvent vider le sang en dedans. » « Le sang est rouge vif, il gicle ou coule à flot, et il ne ralentit pas quand on appuie. » « Quand ça saigne en dedans, le pouls est rapide et faible, la peau est froide, moite et pâle ou bleutée, la personne a soif et s'agite, puis elle devient somnolente et confuse. » « Ces signes veulent dire que sa vie est en jeu. » « Il faut décider de partir pendant que la personne a encore l'air correcte. »
+- « Sinon, quelqu'un sait où on est et jusqu'à quand, et on porte un sifflet sur soi. »
+  → « Si on n'a pas le choix, dire à quelqu'un où on va et quand on revient, et porter un sifflet sur soi. »
+- « Tenir la scie à deux mains, les pouces enroulés sous les poignées, et éprouver le frein de chaîne avant de commencer. » « Si ça saigne : appuyer fort, directement sur la plaie, avec un linge ou les mains, et ne pas relâcher pour regarder ; au moins 5 minutes, et jusqu'à ce que ça arrête ou qu'un garrot soit posé. »
+  → « Tenir la scie à deux mains, les pouces enroulés sous les poignées, et essayer le frein de chaîne avant de commencer. » « Si ça saigne : appuyer fort, directement sur la plaie, avec un linge ou les mains, et ne pas relâcher pour regarder. » « Appuyer au moins 5 minutes, et jusqu'à ce que le saignement arrête ou qu'un garrot soit posé. »
+- « On ne le desserre pas pour voir. »
+  → « Ne pas le desserrer pour voir. »
+
+**`brulure`**
+
+- « Ce qui colle à la peau continue de la cuire après le contact : le sirop qui bout, la poix fondue, la cire, le gras, un vêtement synthétique qui a fondu. »
+  → « Une matière qui colle à la peau continue de la brûler après le contact : le sirop qui bout, la poix fondue, la cire, le gras, un vêtement synthétique qui a fondu. »
+- « La vapeur traverse un linge ou un gant mouillé : un gant ou une mitaine sèche protège, un gant mouillé brûle. » « Le bol d'eau bouillante qu'on pose devant un enfant pour qu'il respire la vapeur d'un rhume n'aide pas le rhume, et il ébouillante l'enfant qui se penche ou qui le renverse. »
+  → « La vapeur traverse un linge ou un gant mouillé et brûle la peau dessous. » « Faire respirer la vapeur d'un bol d'eau bouillante à un enfant n'aide pas son rhume, et l'enfant s'ébouillante s'il se penche trop ou renverse le bol. »
+- « Une brûlure profonde peut ne pas faire mal au début : la peau est blanche ou a l'air de cuir. » « L'absence de douleur ne veut pas dire que c'est léger. » « Rouge et douloureuse : brûlure de surface. » « Des cloques : plus profonde. » « Blanche, cireuse, comme du cuir, et peu douloureuse : la peau est brûlée sur toute son épaisseur. » « Refroidir tout de suite sous l'eau fraîche qui coule (pas froide, pas glacée), au moins 20 minutes. » « Ça sert encore si on commence jusqu'à 3 h après. » « Sans eau courante, n'importe quel liquide propre et frais. »
+  → « Une brûlure rouge et douloureuse est en surface. » « Avec des cloques, elle est plus profonde. » « Quand la peau est blanche, cireuse ou a l'air de cuir, elle est brûlée sur toute son épaisseur, même si elle fait peu mal. » « Refroidir tout de suite la brûlure sous l'eau fraîche qui coule (pas froide, pas glacée), pendant au moins 20 minutes. » « Refroidir sert encore si on commence jusqu'à 3 h après la brûlure. » « Sans eau courante, prendre n'importe quel liquide propre et frais. »
+- « Près du poêle et de l'évaporateur : rien d'ample qui flotte à la hauteur de la porte, de la laine plutôt que du synthétique, et des gants secs pour la vapeur. »
+  → « Près du poêle et de l'évaporateur, ne rien porter d'ample qui flotte à la hauteur de la porte, porter de la laine plutôt que du synthétique, et prendre des gants secs pour travailler dans la vapeur. »
+
+**`froid`**
+
+- « La personne qui se refroidit est la dernière à s'apercevoir de son état ; elle s'obstine, ne fait pas demi-tour, s'assoit dans la neige. »
+  → « La personne qui se refroidit est la dernière à s'apercevoir de son état : elle s'obstine, ne fait pas demi-tour, s'assoit dans la neige. »
+- « Les frissons qui s'arrêtent ne sont pas un mieux : c'est le stade grave. » « Un enfant qui se plaignait du froid et qui devient tranquille en est au même stade. » « Un enfant refroidit plus vite qu'un adulte, parce qu'il a beaucoup de peau pour son poids, et il dit mal qu'il a froid. »
+  → « Quand une personne refroidie arrête de frissonner, elle ne va pas mieux : elle est passée au stade grave. » « C'est la même chose quand un enfant qui se plaignait du froid devient tranquille. » « Un enfant refroidit plus vite qu'un adulte, parce qu'il a beaucoup de peau pour son poids, et il ne sait pas bien dire qu'il a froid. »
+- « La gelure : la peau picote et devient insensible, rougit, puis devient blanche ou cireuse ; des cloques viennent ensuite. »
+  → « Quand la peau gèle, elle picote et devient insensible, rougit, puis devient blanche ou cireuse ; des cloques apparaissent ensuite. »
+- « Enlever les vêtements mouillés, la mettre dans un sac de couchage fermé, avec une bâche ou un sac de plastique autour. »
+  → « Enlever ses vêtements mouillés, la mettre dans un sac de couchage fermé, avec une bâche ou un sac de plastique autour. »
+- « Pas de douche ni de bain chaud. »
+  → « Ne pas lui donner de douche ni de bain chaud. »
+- « La gelure : ne pas frotter, ni avec de la neige ni avec la main. » « La dégeler seulement si elle ne regèlera pas, dans l'eau à 37 à 39 °C (sans thermomètre, l'eau qu'on supporte la main dedans 30 secondes), environ 30 minutes, jusqu'à ce que la peau soit souple et rouge violacé. » « Jamais près du feu ni d'un poêle : la peau insensible brûle. » « Réchauffer l'hypothermie avant la gelure. »
+  → « Pour une gelure : ne pas frotter, ni avec de la neige ni avec la main. » « La dégeler seulement si elle ne risque pas de regeler, dans de l'eau à 37 à 39 °C, pendant environ 30 minutes, jusqu'à ce que la peau soit souple et rouge violacé. » « Sans thermomètre, on prend une eau où on peut garder la main 30 secondes. » « Ne jamais la réchauffer près du feu ou d'un poêle : la peau insensible brûle. » « Traiter l'hypothermie avant la gelure. »
+
+**`eau-froide`**
+
+- « Si la tête est sous l'eau à ce moment, on avale l'eau, et même un bon nageur peut se noyer là. »
+  → « Si la tête est sous l'eau pendant cette inspiration, on avale de l'eau, et même un bon nageur peut se noyer à ce moment-là. »
+- « Tout ce qui est attaché à soi et qui coule entraîne au fond : une corde enroulée autour de la main, un harnais, une ceinture bouclée à un toboggan, une raquette qui ne se défait pas, un sac de couchage fermé sur les bras. »
+  → « Tout ce qu'on a attaché sur soi et qui coule nous entraîne au fond : une corde enroulée autour de la main, un harnais, une ceinture bouclée à un toboggan, une raquette qui ne se défait pas, un sac de couchage fermé sur les bras. »
+- « Celui d'un enfant a une sangle entre les jambes ; on l'essaie à terre en le tirant par les épaules : il ne doit pas remonter sous le menton ni aux oreilles. » « Tombé à l'eau : garder la tête hors de l'eau pendant la première minute et ralentir sa respiration, sans essayer de nager. » « Pendant les 10 minutes suivantes : se sortir de l'eau, ou grimper sur ce qui flotte pour sortir le plus de corps possible de l'eau. »
+  → « Le gilet d'un enfant doit avoir une sangle entre les jambes ; l'essayer à terre en le tirant par les épaules : il ne doit pas remonter sous le menton ni aux oreilles. » « Une fois à l'eau : garder la tête hors de l'eau pendant la première minute et ralentir sa respiration, sans essayer de nager. » « Pendant les 10 minutes suivantes : se sortir de l'eau, ou grimper sur ce qui flotte pour avoir le plus possible du corps hors de l'eau. »
+
+**`glace`**
+
+- « La couleur dit sa force. »
+  → « On juge la solidité de la glace à sa couleur. »
+- « Ces minimums supposent une glace égale : on mesure à plusieurs endroits, jamais à un seul. » « La glace de mer et celle du fleuve ne suivent pas ce tableau : le sel et la marée changent sa force d'un endroit et d'un jour à l'autre. » « On la traite comme une glace qui ne porte pas. » « La piste d'une bête sur la glace dit seulement que la glace a porté cette bête, à cet endroit, le jour où elle est passée. » « On mesure : un trou à la hache ou à la tarière tous les quelques pas, et on lit l'épaisseur de glace claire sous la glace blanche. » « Une glace grise, ou de l'eau qui monte par le trou : on recule. »
+  → « Ces épaisseurs valent pour une glace égale partout : il faut donc mesurer à plusieurs endroits, jamais à un seul. » « Le tableau ne vaut pas pour la glace de mer ni pour celle du fleuve : le sel et la marée changent leur solidité d'un endroit à l'autre et d'un jour à l'autre. » « On considère qu'elles ne portent pas. » « Si un animal a laissé des pistes sur la glace, on sait seulement qu'elle l'a porté, lui, à cet endroit, le jour où il est passé. » « On mesure en faisant un trou à la hache ou à la tarière tous les quelques pas, et on regarde l'épaisseur de glace claire sous la glace blanche. » « Si la glace est grise, ou si l'eau monte par le trou, on recule. »
+- « Tombé à l'eau (pictogramme de l'eau froide) : se tourner vers l'endroit par où on est arrivé, où la glace a porté. »
+  → « Si on tombe à l'eau (pictogramme de l'eau froide) : se tourner vers l'endroit par où on est arrivé, parce que la glace y a porté. »
+- « On ne va pas sur la glace près du trou. »
+  → « Ne pas s'avancer sur la glace près du trou. »
+
+**`ours`**
+
+- « Un ours qui trouve à manger près des gens (le compost, les ordures, les restes de dépeçage, le poisson cru) perd sa peur des gens et devient dangereux. »
+  → « Un ours apprend à manger près des gens quand il y trouve le compost, les ordures, les restes de dépeçage ou le poisson cru : il perd alors sa peur des gens. »
+- « Trois signes disent qu'une carcasse est là, et un seul suffit : une odeur de bête morte, des corbeaux, des geais ou des aigles réunis, ou un gros tas frais de terre et de branches. » « Deux conduites se distinguent. » « L'ours qui se défend souffle, grogne, claque des dents, tape le sol, et charge souvent pour s'arrêter avant de toucher. » « L'ours qui chasse est silencieux, les oreilles dressées, les yeux fixés sur la personne ; il s'approche ou tourne autour. »
+  → « On sait qu'une carcasse est proche à trois signes, et un seul suffit : une odeur de bête morte, des corbeaux, des geais ou des aigles réunis, ou un gros tas frais de terre et de branches. » « L'ours qui se défend (un ours surpris de près, une mère avec ses petits, un ours sur une carcasse) souffle, grogne, claque des dents, tape le sol, et charge souvent pour s'arrêter avant de toucher. » « L'ours qui chasse est silencieux, les oreilles dressées, les yeux fixés sur la personne ; il s'approche, tourne autour ou suit. »
+- « La course déclenche la poursuite : l'ours court, grimpe et nage mieux qu'une personne. » « Le réflexe de courir et celui de faire le mort sont les deux mauvais devant l'ours noir. »
+  → « C'est aussi lui qui entre dans un campement ou attaque une personne qui dort. » « Quand on court, l'ours nous poursuit, et il court, grimpe et nage mieux qu'une personne. »
+- « Les pistes, les crottes, les billots roulés ou éventrés et les fourmilières creusées disent qu'un ours vit là. » « Le tas de terre et de branches, l'odeur et les oiseaux disent qu'il garde quelque chose. »
+  → « On sait qu'un ours vit dans le secteur quand on trouve ses pistes, ses crottes, des billots roulés ou éventrés et des fourmilières creusées. »
+- « Si on surprend un ours : reculer lentement en lui parlant, et lui laisser un chemin pour partir. » « On ne l'entoure pas. » « S'il charge ou s'il suit : s'arrêter, lui faire face, se faire grand, crier, taper un bâton sur un arbre. » « Ne pas courir, sauf si un endroit sûr est tout proche. » « S'il touche : se battre avec ce qu'on a (roche, bâton, hache, rame), en frappant la face et le museau. » « Ne pas faire le mort devant un ours noir. » « Un ours blessé : attendre au moins 30 minutes avant de suivre, ne pas le suivre à la brunante, et approcher un ours tombé par l'arrière et par le haut, arme prête. » « Au chalet : rien qui se mange dehors, ni compost ouvert, ni restes de dépeçage, ni poisson cru au jardin. »
+  → « Si on surprend un ours : reculer lentement en lui parlant, et lui laisser un chemin libre pour partir, sans l'entourer. » « S'il fonce sur nous : s'arrêter, lui faire face et ne pas courir, sauf si un endroit sûr est tout proche. » « Quand il s'arrête, recommencer à reculer en lui parlant. » « S'il suit, s'approche sans raison ou tourne autour : lui faire face, se faire grand, crier, taper un bâton sur un arbre. » « Si un ours qui se défend nous touche : faire le mort. » « Se coucher à plat ventre, les jambes écartées, les mains croisées sur la nuque, le sac à dos sur le dos, sans bouger ni crier. » « S'il nous retourne sur le dos, rouler de nouveau sur le ventre. » « Rester couché jusqu'à ce que l'ours soit parti, 30 minutes s'il le faut. » « Si l'attaque dure, ou s'il commence à nous manger, se relever et se battre. » « Si l'ours qui suivait, qui s'approchait sans raison ou qui tournait autour nous touche, ou si un ours entre dans le campement ou dans la tente : se battre avec ce qu'on a (roche, bâton, hache, rame), en frappant la face et le museau. » « Ne jamais faire le mort devant cet ours. » « Après avoir blessé un ours : attendre au moins 30 minutes avant de suivre sa piste, ne pas la suivre à la brunante, et approcher un ours tombé par l'arrière et par le haut, l'arme prête. » « Au chalet, ne rien laisser dehors qui se mange : ni compost ouvert, ni restes de dépeçage, ni poisson cru dans le jardin. »
 
 ## Partie 2
 

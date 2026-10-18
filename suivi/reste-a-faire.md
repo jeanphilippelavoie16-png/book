@@ -19,6 +19,10 @@ lancé sur un de ces chantiers reçoit `.claude/cadre-agents.md` au complet.
 
 Tome 1 seulement pour l'instant ; les tomes 2 à 6 ensuite (JP, 18 octobre). D'abord les 36 pictogrammes et un
 chapitre test (le ch. 10) montrés à JP ; puis les pages des dangers du tome 1 et la migration de ses chapitres.
+À la migration des tomes 2 à 6 : aligner le ch. 35c (et ses renvois) sur l'ours noir en deux cas, décidé par JP le
+18 octobre ; corriger les chiffres tranchés à la source dans `suivi/dangers-redaction.md` (génératrice 6 m au ch. 5 ;
+glace aux ch. 39, 41, 50, 73 ; botulisme aux ch. 5, 35, 54, 68, 80, 91 ; vitamine A au ch. 56 ; huile à l'ail aux
+ch. 78, 92 ; poisson fumé au ch. 35 ; moules au ch. 59 ; hantavirus au ch. 79).
 
 ## 1. Les passes mécaniques sur le texte (par script, avant tout le reste)
 
