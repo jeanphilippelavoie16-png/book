@@ -416,7 +416,7 @@ ANNEXE_CSS = """
 .tp-chap{position:absolute;left:0;right:0;top:4.95in;display:flex;justify-content:space-between;align-items:baseline;
   padding-top:7pt;border-top:0.75pt solid var(--k);font:600 10pt/1.2 var(--sans);letter-spacing:.06em;text-transform:uppercase}
 .tp-chap b{font-weight:700}
-.tp-frise{position:absolute;left:0;width:100%;top:5.38in;height:auto}
+.tp-frise{position:absolute;left:0;width:100%;top:5.32in;height:2.3in;object-fit:contain}
 .tp-serie{position:absolute;left:0;right:0;bottom:0.02in;display:flex;gap:3pt}
 .tp-serie div{display:flex;flex-direction:column;gap:4pt;min-width:0}
 .tp-serie i{display:block;height:0.3in;border:1.25pt solid var(--k);font:700 12pt/0.28in var(--sans);font-style:normal;padding-left:5pt}

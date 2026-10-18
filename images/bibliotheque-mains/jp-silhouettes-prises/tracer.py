@@ -36,7 +36,7 @@ def bandes(tout):
 
 def tracer1(args):
     masque, dy = args
-    p = potrace.Bitmap(masque).trace(turdsize=40, alphamax=1.0, opticurve=True, opttolerance=0.3)
+    p = potrace.Bitmap(~masque).trace(turdsize=40, alphamax=1.0, opticurve=True, opttolerance=0.3)   # potracer trace le False : on lui donne le négatif
     f = lambda pt: f"{pt.x / K:.2f} {(pt.y + dy) / K:.2f}"
     d = []
     for c in p:

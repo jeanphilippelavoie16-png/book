@@ -303,7 +303,10 @@ tomes** : un peu plus de blanc en bas des pages qui précèdent une planche ; le
     faite par JP avec un générateur d'images, à partir du brief `images/tomes/brief-images-tomes.md`. **La
     couverture aussi** reçoit son image, dans le même style. La frise d'essai et `.tp-frise` restent comme
     emplacement ; `images/tomes/tome-1.svg` se remplace. Deuxième essai le 16 octobre : la frise composée avec des
-    pictogrammes professionnels libres (`images/tomes/frise.py`, crédits dans `images/tomes/LISEZMOI.md`).
+    pictogrammes professionnels libres (`images/tomes/frise.py`, crédits dans `images/tomes/LISEZMOI.md`). **Retenu le 18
+    octobre** : l'image générée A (`images/tomes/essais-ia/tome-1-qwen-a.png`, AI Horde, Qwen-Image), vectorisée en
+    aplats par `images/tomes/vectoriser.py` → `images/tomes/tome-1.svg`. Les autres tomes et la couverture : même
+    chemin (le texte de chaque tome dans `images/tomes/brief-images-tomes.md`, `essais-ia/horde.py`).
 
 Le **ch. 11 (feu de forêt)** est **le chapitre modèle de la refonte, approuvé par JP** (15 octobre au soir :
 « c'est parfait, on se garde ça pour samedi ») : texte, trois séries orange à la longueur de leur temps (1 h,
