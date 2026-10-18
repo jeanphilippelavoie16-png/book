@@ -85,7 +85,7 @@ rattachent à l'os et **meurent en séchant**.
 7. **Toute eau qui va en bouche est bouillie ou traitée**, pour le brossage comme pour chaque
    rinçage de ce chapitre : à la maison dès que l'eau du robinet est douteuse, au chalet toujours
    — lac, ruisseau, neige fondue ou puits. Le castor et le rat musqué vivent en amont de la prise
-   d'eau (ch. 10, section 2 ; ch. 31, étape 39).
+   d'eau (ch. 10, étape 2 ; ch. 31, étape 39).
 8. **Lire le saignement des gencives.** Des gencives qui saignent à la soie les premiers jours,
    c'est l'inflammation qu'on est en train de corriger ; elle cesse en quelques jours. Des gencives
    qui saignent en fin d'hiver, avec une coupure qui ne ferme pas et de vieilles cicatrices qui

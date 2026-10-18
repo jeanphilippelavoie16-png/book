@@ -875,7 +875,7 @@ bébé ou les suivants, qui viennent vite, un adulte ne quitte pas le chalet les
   reste plus de **2 heures** à la température de la pièce. Le lait cru ne se donne jamais (ch. 101).
   **L'eau propre n'est jamais celle d'un puits qui n'a pas été analysé** : le nitrate y est
   invisible, il empêche le sang du bébé de porter l'oxygène, surtout avant 3 mois, et l'ébullition le
-  concentre au lieu de l'enlever (ch. 10, section 8). C'est le geste qui rassure et qui empire.
+  concentre au lieu de l'enlever (ch. 10, étape 27). C'est le geste qui rassure et qui empire.
   *Ce qu'on perd* : la protection contre les infections que donne le lait maternel, et des vitamines
   que le lait animal n'a pas. La vitamine C d'abord : c'est ainsi que se faisait le scorbut du
   nourrisson (ch. 20), vers **5 ou 6 mois**, quand les réserves venues de la mère sont épuisées. Le

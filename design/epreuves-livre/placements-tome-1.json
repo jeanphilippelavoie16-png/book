@@ -122,30 +122,34 @@
     "planches": [
       {
         "id": "10-01",
-        "apres": "**La chaîne complète, version dégradée.**"
+        "apres": "8. **Laisser reposer l'eau dans une chaudière, sans y toucher"
       },
       {
         "id": "10-02",
-        "apres": "**Puiser un puits quand la pompe est morte.**"
+        "apres": "Dans un tubage de 150 mm, on puise avec une buse"
       },
       {
         "id": "10-07",
-        "apres": "**Le filtre à sable.**"
+        "apres": "Un baril debout, rempli de sable"
       },
       {
         "id": "10-03",
-        "apres": "**L'alambic de fortune.**"
+        "apres": "L'alambic fait de l'eau douce avec l'eau du fleuve"
       }
     ],
     "photos": [
       {
         "fichier": "images/photos/manquantes/10-hutte-castor.jpg",
-        "apres": "1. Puiser **en amont** de tout ce qui vit",
+        "apres": "2. **Puiser en amont de tout ce qui vit**",
         "taille": "quart",
         "legende": "Hutte de castor en hiver : un dôme de branches sous la neige. Toute eau prise en aval, glace comprise, bout cinq minutes."
       }
     ],
-    "_photos": "Photos de images/photos/manquantes/ (29 septembre 2026). Posée : 10-hutte-castor, à l'étape 1 qui la nomme ; en hiver, sous la neige, la hutte n'a l'air que d'un tas de branches. Non posées : 10-barrage-castor (le chapitre ne parle pas de barrage ; le registre la destine aussi aux ch. 43 et 50), 10-gros-bouillons (une marmite qui bout sur une cuisinière : rien que « la surface roule » ne dise), 10-trou-puisage-glace (un trou ouvert et une chaudière, sans le couvercle ni la neige de l'étape 33, que la planche 58-10 dessine). Les fichiers 13-* de images/photos/58 et /60 sont l'image n° 13 des anciens chapitres 58 (salicorne) et 60 (chaudière galvanisée « celle-ci, jamais »), pas des photos de ce chapitre."
+    "_photos": "Photos de images/photos/manquantes/ (29 septembre 2026). Posée : 10-hutte-castor, à l'étape 2 qui la nomme (étape 1 avant la refonte du 18 octobre 2026) ; en hiver, sous la neige, la hutte n'a l'air que d'un tas de branches. Non posées : 10-barrage-castor (le chapitre ne parle pas de barrage ; le registre la destine aussi aux ch. 43 et 50), 10-gros-bouillons (une marmite qui bout sur une cuisinière : rien que « la surface roule » ne dise), 10-trou-puisage-glace (un trou ouvert et une chaudière, sans le couvercle ni la neige de l'étape 37, que la planche 58-10 dessine). Les fichiers 13-* de images/photos/58 et /60 sont l'image n° 13 des anciens chapitres 58 (salicorne) et 60 (chaudière galvanisée « celle-ci, jamais »), pas des photos de ce chapitre.",
+    "logigramme": {
+      "fichier": "images/logigrammes/10-eau-livre.svg",
+      "apres": "**Filtre à 1 µm ou moins**"
+    }
   },
   "11": {
     "planches": [

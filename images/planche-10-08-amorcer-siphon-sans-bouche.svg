@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="340" height="413" viewBox="0 0 340 413" role="img">
+<title>Planche 10-08. Amorcer un siphon sans la bouche</title>
+<desc>Deux vignettes. En haut, une chaudière pleine d’eau, un boyau couché en boucles au fond, tout entier sous l’eau ; les dernières bulles sortent de son bout. En bas, la chaudière posée sur un billot : un bout du boyau reste au fond de l’eau, le boyau plein passe par-dessus le bord et redescend jusqu’à un poing qui tient l’autre bout, bouché sous le pouce, au-dessus d’un seau posé au sol, plus bas que la chaudière. Une flèche rouge montre qu’on descend ce bout dans le seau, puis qu’on le lâche.</desc>
+<defs>
+<pattern id="h-terre" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="5.5" stroke="#1A1A1A" stroke-width="0.7"/><line x1="4.5" y1="4.5" x2="4.5" y2="9" stroke="#1A1A1A" stroke-width="0.5"/></pattern>
+<pattern id="h-eau" width="64" height="22" patternUnits="userSpaceOnUse"><rect width="64" height="22" fill="#DCEAF2"/><path d="M4 7 q4 -2.4 8 0 t8 0 M36 18 q4 -2.4 8 0 t8 0" fill="none" stroke="#4F7A93" stroke-width="0.6" stroke-linecap="round"/></pattern>
+<marker id="fl-r" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9 Z" fill="#9B2C1E" stroke="#9B2C1E" stroke-width="1" stroke-linejoin="round"/></marker>
+</defs>
+<rect x="0" y="0" width="340" height="413" fill="#FFFFFF"/>
+<text x="22" y="38" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#1A1A1A">Remplir le boyau</text>
+<g transform="translate(22 46)" data-vue="remplir">
+<rect x="0" y="75" width="296" height="8" fill="url(#h-terre)" stroke="none"/>
+<line x1="0" y1="75" x2="296" y2="75" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M59 22 L237 22 L228.8 73.8 L67.2 73.8 Z" fill="url(#h-eau)" stroke="none"/>
+<line x1="59" y1="22" x2="237" y2="22" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M82,64 C82,37 158,37 158,56 C158,70 108,70 108,52 C108,33 210,33 210,58" fill="none" stroke="#1A1A1A" stroke-width="7" stroke-linecap="butt" stroke-linejoin="round"/>
+<path d="M82,64 C82,37 158,37 158,56 C158,70 108,70 108,52 C108,33 210,33 210,58" fill="none" stroke="#FFFFFF" stroke-width="3.8" stroke-linecap="butt" stroke-linejoin="round"/>
+<circle cx="211" cy="48" r="2.2" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="209" cy="36" r="2.8" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="212" cy="23" r="3.2" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M56 10 L66 75 L230 75 L240 10" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="53" y1="10" x2="59" y2="10" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="237" y1="10" x2="243" y2="10" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+</g>
+<text x="22" y="165.5" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#1A1A1A">Boucher, descendre, lâcher</text>
+<g transform="translate(22 173.5)" data-vue="amorcer">
+<rect x="0" y="140" width="296" height="8" fill="url(#h-terre)" stroke="none"/>
+<line x1="0" y1="140" x2="296" y2="140" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="8" y="94" width="86" height="46" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="80" y="94" width="14" height="46" fill="#CFCFCF" stroke="none"/>
+<line x1="34" y1="104" x2="34" y2="130" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="8" y="94" width="86" height="46" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M7.7 41 L96.3 41 L88.8 92.8 L15.2 92.8 Z" fill="url(#h-eau)" stroke="none"/>
+<line x1="7.7" y1="41" x2="96.3" y2="41" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M43,85 L43,26 Q43,6 65,6 L239,6 Q259,6 259,26 L259,62 A13,13 0 0 1 233,62 L233,30" fill="none" stroke="#1A1A1A" stroke-width="7" stroke-linecap="butt" stroke-linejoin="round"/>
+<path d="M43,85 L43,26 Q43,6 65,6 L239,6 Q259,6 259,26 L259,62 A13,13 0 0 1 233,62 L233,30" fill="none" stroke="#FFFFFF" stroke-width="3.8" stroke-linecap="butt" stroke-linejoin="round"/>
+<path d="M5 30 L14 94 L90 94 L99 30" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="2" y1="30" x2="8" y2="30" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="96" y1="30" x2="102" y2="30" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M198 86 L204 140 L266 140 L272 86" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="195" y1="86" x2="201" y2="86" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="269" y1="86" x2="275" y2="86" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+<g data-main="1-01" transform="translate(233 42) rotate(-16) scale(0.137822 0.137822) translate(-442.4 -436.5)"><path fill="#FFFFFF" stroke="#1A1A1A" stroke-width="10.8836" stroke-linejoin="round" fill-rule="nonzero" d="M167.234 434.336 C220.764 436.242 237.327 430.145 257.927 424.085 C282.614 416.823 342.156 323.882 358.401 314.376 C382.458 300.297 436.55 289.028 465.992 285.158 C476.918 283.722 504.602 300.361 504.602 300.361 C504.602 300.361 536.57 309.034 540.467 317.577 C542.533 322.102 536.618 333.04 532.478 335.799 C513.848 348.212 466.887 344.79 466.887 344.79 C466.887 344.79 556.595 333.506 563.439 354.033 C571.769 379.011 560.025 382.038 560.025 382.038 C560.025 382.038 570.175 388.235 570.837 393.792 C573.957 419.993 562.299 418.513 563.537 423.046 C571.876 453.57 541.588 459.949 541.588 459.949 C541.588 459.949 549.946 469.484 547.149 479.686 C545.87 484.348 534.968 503.799 528.731 510.148 C519.523 519.519 496.176 532.617 484.249 538.123 C465.288 546.876 404.533 563.09 404.533 563.09 L283.438 570.622 C283.438 570.622 243.54 581.874 191.436 596.078 C109.66 618.37 116.863 432.542 167.234 434.336 Z"/></g>
+<path d="M286,22 L286,104" fill="none" stroke="#9B2C1E" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl-r)"/>
+</g>
+<line x1="268.5" y1="69.9" x2="236" y2="91" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+<line x1="268.5" y1="69.9" x2="236" y2="91" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
+<circle cx="236" cy="91" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
+<circle cx="276" cy="65" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="remplir"/>
+<text x="276" y="69" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">1</text>
+<line x1="207.6" y1="206.9" x2="249" y2="194.5" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+<line x1="207.6" y1="206.9" x2="249" y2="194.5" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
+<circle cx="249" cy="194.5" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
+<circle cx="199" cy="209.5" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="amorcer"/>
+<text x="199" y="213.5" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">2</text>
+<line x1="308" y1="288.5" x2="308" y2="279.5" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+<line x1="308" y1="288.5" x2="308" y2="279.5" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
+<circle cx="308" cy="279.5" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
+<circle cx="308" cy="297.5" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="amorcer"/>
+<text x="308" y="301.5" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">3</text>
+<text x="32" y="357" text-anchor="end" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">1</text>
+<text x="38" y="357" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">noyer le boyau jusqu’à la dernière bulle</text>
+<text x="32" y="374" text-anchor="end" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">2</text>
+<text x="38" y="374" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">boucher le bout avec le pouce</text>
+<text x="32" y="391" text-anchor="end" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">3</text>
+<text x="38" y="391" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">le descendre dans le seau, et lâcher</text>
+</svg>

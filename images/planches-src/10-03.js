@@ -1,8 +1,17 @@
-// Planche 10-03 — l'alambic de fortune (chapitre 13, « L'alambic de fortune »).
+// Planche 10-03. L'alambic de fortune.
+// Le texte : ch. 10, variante d'urgence, « L'alambic de fortune » : une marmite, un couvercle bombé posé à l'envers,
+// un bol sur un trépied au centre ; la vapeur monte, frappe le couvercle froid, glisse vers le creux et tombe dans le
+// bol ; le joint, un boudin de guenille mouillée ou une pâte de farine et d'eau ; de la neige sur le couvercle,
+// renouvelée ; un bouillon doux ; un bout de tuyau de cuivre enroulé dans un banc de neige, en guise de serpentin.
 //
-// La charte : le dedans de la marmite, au-dessus de l'eau, vu par la coupe, en gris loin ; le
-// bol reste blanc, c'est lui qu'on regarde. Le rouge : un seul point à contrôler, le point bas
-// du couvercle à l'aplomb du bol. Pas de geste : les flèches de vapeur restent noires.
+// Refaite le 18 octobre 2026 : la légende nommait des pièces au lieu des gestes, et le serpentin, une autre façon de
+// condenser, se lisait comme la suite (règle 10). Il porte maintenant le titre « Autre façon : un serpentin » et son
+// repère dit ce qu'il remplace (« au lieu de 2 et 3 »). La disposition et la largeur des vues ne bougent pas : la
+// quatrième de couverture du tome 1 découpe la vue « serpentin » de ce fichier (build_couvertures_6.py).
+//
+// La charte : le dedans de la marmite, au-dessus de l'eau, vu par la coupe, en gris loin ; le bol reste blanc, c'est
+// lui qu'on regarde. Le rouge : un seul point à contrôler, le point bas du couvercle à l'aplomb du bol (repère 3).
+// Pas de geste : les flèches de vapeur restent noires. Aucune main : rien n'est tenu.
 module.exports = (h) => {
   const blancArete = h.a.arete.replace('fill="none"', 'fill="#ffffff"');
   const halo = 'fill="none" stroke="#ffffff" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"';
@@ -74,16 +83,16 @@ module.exports = (h) => {
           h.controle(173, 95, 13),
         ].join('\n'),
         renvois: z => [
-          { n: 1, rond: [312, 126], cible: [198.5, 114], texte: 'bol sur trépied, au-dessus de l’eau' },
-          { n: 2, rond: [36, 88], cible: [112, 69], texte: 'couvercle bombé posé à l’envers' },
-          { n: 3, rond: [312, 100], cible: [176.5, 90], texte: 'point bas à l’aplomb du bol' },
-          { n: 4, rond: [312, 70], cible: [261.5, 64], texte: 'joint de guenille ou pâte de farine' },
-          { n: 5, rond: [312, 40], cible: [236, 56], texte: 'neige sur le couvercle, renouvelée' },
-          { n: 6, rond: [36, 146], cible: [106, 145], texte: 'bouillon doux, jamais gros bouillon' },
+          { n: 1, rond: [312, 126], cible: [198.5, 114], texte: 'poser le bol sur un trépied, hors de l’eau' },
+          { n: 2, rond: [36, 88], cible: [112, 69], texte: 'poser le couvercle bombé à l’envers' },
+          { n: 3, rond: [312, 100], cible: [176.5, 90], texte: 'centrer le point bas au-dessus du bol' },
+          { n: 4, rond: [312, 70], cible: [261.5, 64], texte: 'faire le joint : guenille ou pâte de farine' },
+          { n: 5, rond: [312, 40], cible: [236, 56], texte: 'charger de neige et la renouveler' },
+          { n: 6, rond: [36, 146], cible: [106, 145], texte: 'garder un bouillon doux' },
         ],
       },
       serpentin: {
-        titre: 'Avec un serpentin',
+        titre: 'Autre façon : un serpentin',
         dessin: z => {
           const spire = [];
           for (let i = 0; i <= 140; i++) {
@@ -117,7 +126,8 @@ module.exports = (h) => {
           ].join('\n');
         },
         renvois: z => [
-          { n: 7, rond: [206, 104], cible: [175, 151], texte: 'tuyau de cuivre enroulé dans la neige' },
+          { n: 7, rond: [100, 40], cible: [99, 72.5], texte: 'au lieu de 2 et 3 : un tuyau de cuivre' },
+          { n: 8, rond: [206, 104], cible: [175, 151], texte: 'l’enrouler dans un banc de neige' },
         ],
       },
     },

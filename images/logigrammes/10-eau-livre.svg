@@ -1,0 +1,144 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="16.250in" height="10.250in" viewBox="0 0 1170.00 738.00">
+<style>@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:ital,wght@0,400;0,500;0,600;0,700&amp;family=IBM+Plex+Serif:ital,wght@0,400;0,600;1,400&amp;display=block');</style>
+<g transform="translate(9.00,9.00)">
+<rect x="-9.00" y="-9.00" width="1170.00" height="738.00" fill="#fff"/>
+<g id="entete">
+</g>
+<g id="liens">
+<path d="M147.60,99.62 L147.60,119.00" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M147.60,173.50 L147.60,209.00" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M259.20,149.76 L614.00,149.76" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M259.20,231.84 L299.00,231.84" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M147.60,248.00 L147.60,281.00" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M259.20,311.76 L299.00,311.76" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M147.60,335.50 L147.60,367.40" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M259.20,398.16 L299.00,398.16" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M147.60,421.90 L147.60,471.80" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M853.20,154.44 L885.80,154.44" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M737.10,183.00 L737.10,209.00" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M737.10,264.30 L737.10,288.20" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M737.10,356.40 L737.10,381.80" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M853.20,404.64 L885.80,404.64" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M737.10,420.80 L737.10,468.20" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M853.20,491.04 L885.80,491.04" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M737.10,507.20 L737.10,569.00" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
+</g>
+<g id="noeuds">
+<rect x="36.00" y="60.22" width="495.00" height="39.40" rx="0" fill="#2B5876"/>
+<text data-max="468.50" x="50.00" y="84.67" font-family="IBM Plex Sans Condensed" font-size="15" fill="#fff" text-anchor="start" xml:space="preserve"><tspan font-weight="700">Il faut de l’eau à boire</tspan></text>
+<rect x="36.00" y="126.00" width="223.20" height="47.50" rx="10" fill="#fff" stroke="#2B5876" stroke-width="1.75"/>
+<text data-max="200.70" x="147.60" y="146.30" font-family="IBM Plex Sans Condensed" font-size="13" fill="#000" text-anchor="middle" xml:space="preserve"><tspan font-weight="700">L’eau vient du robinet</tspan></text>
+<text data-max="200.70" x="147.60" y="161.80" font-family="IBM Plex Sans Condensed" font-size="13" fill="#000" text-anchor="middle" xml:space="preserve"><tspan font-weight="700">de la maison ?</tspan></text>
+<rect x="36.00" y="216.00" width="223.20" height="32.00" rx="10" fill="#fff" stroke="#2B5876" stroke-width="1.75"/>
+<text data-max="200.70" x="147.60" y="236.30" font-family="IBM Plex Sans Condensed" font-size="13" fill="#000" text-anchor="middle" xml:space="preserve"><tspan font-weight="700">L’eau coule encore au robinet ?</tspan></text>
+<rect x="306.00" y="216.00" width="225.00" height="48.30" rx="0" fill="#E8EDF0" stroke="#2B5876" stroke-width="1.5"/>
+<text data-max="208.50" x="315.00" y="233.12" font-family="IBM Plex Sans Condensed" font-size="10.5" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">Boire la réserve, puis l’eau du chauffe-eau.</tspan><tspan font-weight="500"> Si</tspan></text>
+<text data-max="208.50" x="315.00" y="246.03" font-family="IBM Plex Sans Condensed" font-size="10.5" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">la coupure s’étire, partir au chalet.</tspan></text>
+<rect x="440.42" y="252.05" width="91.33" height="13.00" fill="#2B5876"/>
+<text x="445.42" y="261.60" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="8.5" fill="#fff" xml:space="preserve" data-max="82.83">ch. 10, étape 49 ; ch. 2</text>
+<rect x="36.00" y="288.00" width="223.20" height="47.50" rx="10" fill="#fff" stroke="#2B5876" stroke-width="1.75"/>
+<text data-max="200.70" x="147.60" y="308.30" font-family="IBM Plex Sans Condensed" font-size="13" fill="#000" text-anchor="middle" xml:space="preserve"><tspan font-weight="700">L’avis dit de ne pas</tspan></text>
+<text data-max="200.70" x="147.60" y="323.80" font-family="IBM Plex Sans Condensed" font-size="13" fill="#000" text-anchor="middle" xml:space="preserve"><tspan font-weight="700">consommer l’eau ?</tspan></text>
+<rect x="306.00" y="288.00" width="225.00" height="48.30" rx="0" fill="#E8EDF0" stroke="#2B5876" stroke-width="1.5"/>
+<text data-max="208.50" x="315.00" y="305.12" font-family="IBM Plex Sans Condensed" font-size="10.5" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">Boire la réserve.</tspan><tspan font-weight="500"> Faire bouillir l’eau du robinet</tspan></text>
+<text data-max="208.50" x="315.00" y="318.02" font-family="IBM Plex Sans Condensed" font-size="10.5" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">ne change rien : elle ne sert plus qu’à la toilette.</tspan></text>
+<rect x="463.98" y="324.05" width="67.77" height="13.00" fill="#2B5876"/>
+<text x="468.98" y="333.60" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="8.5" fill="#fff" xml:space="preserve" data-max="59.27">ch. 10, étape 43</text>
+<rect x="36.00" y="374.40" width="223.20" height="47.50" rx="10" fill="#fff" stroke="#2B5876" stroke-width="1.75"/>
+<text data-max="200.70" x="147.60" y="394.70" font-family="IBM Plex Sans Condensed" font-size="13" fill="#000" text-anchor="middle" xml:space="preserve"><tspan font-weight="700">Il y a un avis d’ébullition,</tspan></text>
+<text data-max="200.70" x="147.60" y="410.20" font-family="IBM Plex Sans Condensed" font-size="13" fill="#000" text-anchor="middle" xml:space="preserve"><tspan font-weight="700">ou la pression a baissé ?</tspan></text>
+<rect x="306.00" y="374.40" width="225.00" height="61.20" rx="0" fill="#E8EDF0" stroke="#2B5876" stroke-width="1.5"/>
+<text data-max="208.50" x="315.00" y="391.53" font-family="IBM Plex Sans Condensed" font-size="10.5" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">Faire bouillir 1 minute à gros bouillons l’eau</tspan></text>
+<text data-max="208.50" x="315.00" y="404.43" font-family="IBM Plex Sans Condensed" font-size="10.5" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">qui va à la bouche</tspan><tspan font-weight="500"> : à boire, les biberons, la</tspan></text>
+<text data-max="208.50" x="315.00" y="417.32" font-family="IBM Plex Sans Condensed" font-size="10.5" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">brosse à dents, les glaçons, les légumes crus.</tspan></text>
+<rect x="440.11" y="423.35" width="91.64" height="13.00" fill="#2B5876"/>
+<text x="445.11" y="432.90" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="8.5" fill="#fff" xml:space="preserve" data-max="83.14">ch. 10, étapes 42 et 44</text>
+<rect x="36.00" y="478.80" width="223.20" height="66.10" rx="0" fill="#E8EDF0" stroke="#2B5876" stroke-width="1.5"/>
+<text data-max="206.70" x="45.00" y="495.93" font-family="IBM Plex Sans Condensed" font-size="10.5" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">Boire l’eau froide du robinet.</tspan><tspan font-weight="500"> Dans une maison</tspan></text>
+<text data-max="206.70" x="45.00" y="508.82" font-family="IBM Plex Sans Condensed" font-size="10.5" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">bâtie avant les années 1970, la laisser couler</tspan></text>
+<text data-max="206.70" x="45.00" y="521.72" font-family="IBM Plex Sans Condensed" font-size="10.5" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">quelques minutes après qu’elle est devenue</tspan></text>
+<text data-max="206.70" x="45.00" y="534.62" font-family="IBM Plex Sans Condensed" font-size="10.5" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">froide.</tspan></text>
+<rect x="192.18" y="532.65" width="67.77" height="13.00" fill="#2B5876"/>
+<text x="197.18" y="542.20" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="8.5" fill="#fff" xml:space="preserve" data-max="59.27">ch. 10, étape 48</text>
+<rect x="621.00" y="126.00" width="232.20" height="57.00" rx="10" fill="#fff" stroke="#2B5876" stroke-width="1.75"/>
+<text data-max="209.70" x="737.10" y="146.30" font-family="IBM Plex Sans Condensed" font-size="13" fill="#000" text-anchor="middle" xml:space="preserve"><tspan font-weight="700">Il y a de l’eau douce à puiser ?</tspan></text>
+<text data-max="209.70" x="737.10" y="160.57" font-family="IBM Plex Serif" font-size="9.5" font-style="italic" fill="#000" text-anchor="middle" xml:space="preserve"><tspan font-weight="400">Un lac, un ruisseau, un puits,</tspan></text>
+<text data-max="209.70" x="737.10" y="172.07" font-family="IBM Plex Serif" font-size="9.5" font-style="italic" fill="#000" text-anchor="middle" xml:space="preserve"><tspan font-weight="400">la neige ou la glace d’un lac</tspan></text>
+<rect x="892.80" y="126.00" width="223.20" height="53.20" rx="0" fill="#E8EDF0" stroke="#2B5876" stroke-width="1.5"/>
+<text data-max="206.70" x="901.80" y="143.12" font-family="IBM Plex Sans Condensed" font-size="10.5" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">Il ne reste que le fleuve</tspan><tspan font-weight="500"> : passer son eau à</tspan></text>
+<text data-max="206.70" x="901.80" y="156.03" font-family="IBM Plex Sans Condensed" font-size="10.5" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">l’alambic, ou la dessaler par le gel. Bouillir ne</tspan></text>
+<text data-max="206.70" x="901.80" y="168.93" font-family="IBM Plex Sans Condensed" font-size="10.5" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">lui enlève pas le sel.</tspan></text>
+<rect x="1014.79" y="166.95" width="101.96" height="13.00" fill="#2B5876"/>
+<text x="1019.79" y="176.50" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="8.5" fill="#fff" xml:space="preserve" data-max="93.46">ch. 10, étape 1 ; section 7</text>
+<rect x="621.00" y="216.00" width="232.20" height="48.30" rx="0" fill="#E8EDF0" stroke="#2B5876" stroke-width="1.5"/>
+<text data-max="215.70" x="630.00" y="233.12" font-family="IBM Plex Sans Condensed" font-size="10.5" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">Puiser en amont</tspan><tspan font-weight="500"> du camp, de la fosse et de la</tspan></text>
+<text data-max="215.70" x="630.00" y="246.03" font-family="IBM Plex Sans Condensed" font-size="10.5" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">hutte de castor, à 20 ou 30 cm sous la surface.</tspan></text>
+<rect x="774.33" y="252.05" width="79.62" height="13.00" fill="#2B5876"/>
+<text x="779.33" y="261.60" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="8.5" fill="#fff" xml:space="preserve" data-max="71.12">ch. 10, étapes 2 à 5</text>
+<rect x="621.00" y="295.20" width="232.20" height="61.20" rx="0" fill="#E8EDF0" stroke="#2B5876" stroke-width="1.5"/>
+<text data-max="215.70" x="630.00" y="312.32" font-family="IBM Plex Sans Condensed" font-size="10.5" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">Si l’eau est trouble, la laisser reposer</tspan><tspan font-weight="500"> de</tspan></text>
+<text data-max="215.70" x="630.00" y="325.22" font-family="IBM Plex Sans Condensed" font-size="10.5" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">12 à 24 h, tirer l’eau claire par-dessus le dépôt et</tspan></text>
+<text data-max="215.70" x="630.00" y="338.12" font-family="IBM Plex Sans Condensed" font-size="10.5" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">la passer dans un linge de coton.</tspan></text>
+<rect x="769.74" y="344.15" width="84.21" height="13.00" fill="#2B5876"/>
+<text x="774.74" y="353.70" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="8.5" fill="#fff" xml:space="preserve" data-max="75.71">ch. 10, étapes 8 à 10</text>
+<rect x="621.00" y="388.80" width="232.20" height="32.00" rx="10" fill="#fff" stroke="#2B5876" stroke-width="1.75"/>
+<text data-max="209.70" x="737.10" y="409.10" font-family="IBM Plex Sans Condensed" font-size="13" fill="#000" text-anchor="middle" xml:space="preserve"><tspan font-weight="700">On a du feu ?</tspan></text>
+<rect x="892.80" y="388.80" width="223.20" height="61.20" rx="0" fill="#E8EDF0" stroke="#2B5876" stroke-width="1.5"/>
+<text data-max="206.70" x="901.80" y="405.93" font-family="IBM Plex Sans Condensed" font-size="10.5" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">Faire bouillir à gros bouillons</tspan><tspan font-weight="500"> : 5 minutes une</tspan></text>
+<text data-max="206.70" x="901.80" y="418.82" font-family="IBM Plex Sans Condensed" font-size="10.5" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">eau de lac, de ruisseau, de neige ou de glace,</tspan></text>
+<text data-max="206.70" x="901.80" y="431.72" font-family="IBM Plex Sans Condensed" font-size="10.5" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">1 minute une eau de puits.</tspan></text>
+<rect x="1025.11" y="437.75" width="91.64" height="13.00" fill="#2B5876"/>
+<text x="1030.11" y="447.30" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="8.5" fill="#fff" xml:space="preserve" data-max="83.14">ch. 10, étapes 14 et 41</text>
+<rect x="621.00" y="475.20" width="232.20" height="32.00" rx="10" fill="#fff" stroke="#2B5876" stroke-width="1.75"/>
+<text data-max="209.70" x="737.10" y="495.50" font-family="IBM Plex Sans Condensed" font-size="13" fill="#000" text-anchor="middle" xml:space="preserve"><tspan font-weight="700">On a de la javel ?</tspan></text>
+<rect x="892.80" y="475.20" width="223.20" height="74.10" rx="0" fill="#E8EDF0" stroke="#2B5876" stroke-width="1.5"/>
+<text data-max="206.70" x="901.80" y="492.32" font-family="IBM Plex Sans Condensed" font-size="10.5" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">Passer une eau de lac ou de neige au filtre à</tspan></text>
+<text data-max="206.70" x="901.80" y="505.22" font-family="IBM Plex Sans Condensed" font-size="10.5" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">1 µm</tspan><tspan font-weight="500">, s’il y en a un, puis mettre 2 gouttes de</tspan></text>
+<text data-max="206.70" x="901.80" y="518.12" font-family="IBM Plex Sans Condensed" font-size="10.5" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">javel par litre et attendre 30 minutes. Froide ou</tspan></text>
+<text data-max="206.70" x="901.80" y="531.02" font-family="IBM Plex Sans Condensed" font-size="10.5" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">colorée : 4 gouttes, et attendre plus longtemps.</tspan></text>
+<rect x="1027.95" y="537.05" width="88.80" height="13.00" fill="#2B5876"/>
+<text x="1032.95" y="546.60" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="8.5" fill="#fff" xml:space="preserve" data-max="80.30">ch. 10, étapes 19 à 22</text>
+<rect x="621.00" y="576.00" width="232.20" height="53.20" rx="0" fill="#E8EDF0" stroke="#2B5876" stroke-width="1.5"/>
+<text data-max="215.70" x="630.00" y="593.12" font-family="IBM Plex Sans Condensed" font-size="10.5" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">Sans feu ni javel</tspan><tspan font-weight="500"> : l’été, six heures de plein soleil</tspan></text>
+<text data-max="215.70" x="630.00" y="606.02" font-family="IBM Plex Sans Condensed" font-size="10.5" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">dans une bouteille claire ; sinon, du chlore fait</tspan></text>
+<text data-max="215.70" x="630.00" y="618.92" font-family="IBM Plex Sans Condensed" font-size="10.5" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">maison, dosé à la bandelette.</tspan></text>
+<rect x="785.17" y="616.95" width="68.78" height="13.00" fill="#2B5876"/>
+<text x="790.17" y="626.50" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="8.5" fill="#fff" xml:space="preserve" data-max="60.28">ch. 10, section 7</text>
+</g>
+<g id="pointes">
+<path d="M147.60,126.00 L143.80,118.00 L151.40,118.00 Z" fill="#000"/>
+<path d="M147.60,216.00 L143.80,208.00 L151.40,208.00 Z" fill="#000"/>
+<path d="M621.00,149.76 L613.00,153.56 L613.00,145.96 Z" fill="#000"/>
+<path d="M306.00,231.84 L298.00,235.64 L298.00,228.04 Z" fill="#000"/>
+<path d="M147.60,288.00 L143.80,280.00 L151.40,280.00 Z" fill="#000"/>
+<path d="M306.00,311.76 L298.00,315.56 L298.00,307.96 Z" fill="#000"/>
+<path d="M147.60,374.40 L143.80,366.40 L151.40,366.40 Z" fill="#000"/>
+<path d="M306.00,398.16 L298.00,401.96 L298.00,394.36 Z" fill="#000"/>
+<path d="M147.60,478.80 L143.80,470.80 L151.40,470.80 Z" fill="#000"/>
+<path d="M892.80,154.44 L884.80,158.24 L884.80,150.64 Z" fill="#000"/>
+<path d="M737.10,216.00 L733.30,208.00 L740.90,208.00 Z" fill="#000"/>
+<path d="M737.10,295.20 L733.30,287.20 L740.90,287.20 Z" fill="#000"/>
+<path d="M737.10,388.80 L733.30,380.80 L740.90,380.80 Z" fill="#000"/>
+<path d="M892.80,404.64 L884.80,408.44 L884.80,400.84 Z" fill="#000"/>
+<path d="M737.10,475.20 L733.30,467.20 L740.90,467.20 Z" fill="#000"/>
+<path d="M892.80,491.04 L884.80,494.84 L884.80,487.24 Z" fill="#000"/>
+<path d="M737.10,576.00 L733.30,568.00 L740.90,568.00 Z" fill="#000"/>
+</g>
+<g id="pastilles">
+<rect x="134.24" y="178.50" width="26.72" height="15.00" rx="7.50" fill="#2B5876"/><text x="140.74" y="189.35" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="9.5" fill="#fff" xml:space="preserve" data-max="15.22">Oui</text>
+<rect x="264.20" y="142.26" width="29.17" height="15.00" rx="7.50" fill="#fff" stroke="#2B5876" stroke-width="1.25"/><text x="270.70" y="153.11" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="9.5" fill="#2B5876" xml:space="preserve" data-max="17.67">Non</text>
+<rect x="264.20" y="224.34" width="29.17" height="15.00" rx="7.50" fill="#fff" stroke="#2B5876" stroke-width="1.25"/><text x="270.70" y="235.19" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="9.5" fill="#2B5876" xml:space="preserve" data-max="17.67">Non</text>
+<rect x="134.24" y="253.00" width="26.72" height="15.00" rx="7.50" fill="#2B5876"/><text x="140.74" y="263.85" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="9.5" fill="#fff" xml:space="preserve" data-max="15.22">Oui</text>
+<rect x="264.20" y="304.26" width="26.72" height="15.00" rx="7.50" fill="#2B5876"/><text x="270.70" y="315.11" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="9.5" fill="#fff" xml:space="preserve" data-max="15.22">Oui</text>
+<rect x="133.02" y="340.50" width="29.17" height="15.00" rx="7.50" fill="#fff" stroke="#2B5876" stroke-width="1.25"/><text x="139.52" y="351.35" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="9.5" fill="#2B5876" xml:space="preserve" data-max="17.67">Non</text>
+<rect x="264.20" y="390.66" width="26.72" height="15.00" rx="7.50" fill="#2B5876"/><text x="270.70" y="401.51" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="9.5" fill="#fff" xml:space="preserve" data-max="15.22">Oui</text>
+<rect x="133.02" y="426.90" width="29.17" height="15.00" rx="7.50" fill="#fff" stroke="#2B5876" stroke-width="1.25"/><text x="139.52" y="437.75" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="9.5" fill="#2B5876" xml:space="preserve" data-max="17.67">Non</text>
+<rect x="858.20" y="146.94" width="29.17" height="15.00" rx="7.50" fill="#fff" stroke="#2B5876" stroke-width="1.25"/><text x="864.70" y="157.79" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="9.5" fill="#2B5876" xml:space="preserve" data-max="17.67">Non</text>
+<rect x="723.74" y="188.00" width="26.72" height="15.00" rx="7.50" fill="#2B5876"/><text x="730.24" y="198.85" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="9.5" fill="#fff" xml:space="preserve" data-max="15.22">Oui</text>
+<rect x="858.20" y="397.14" width="26.72" height="15.00" rx="7.50" fill="#2B5876"/><text x="864.70" y="407.99" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="9.5" fill="#fff" xml:space="preserve" data-max="15.22">Oui</text>
+<rect x="722.52" y="425.80" width="29.17" height="15.00" rx="7.50" fill="#fff" stroke="#2B5876" stroke-width="1.25"/><text x="729.02" y="436.65" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="9.5" fill="#2B5876" xml:space="preserve" data-max="17.67">Non</text>
+<rect x="858.20" y="483.54" width="26.72" height="15.00" rx="7.50" fill="#2B5876"/><text x="864.70" y="494.39" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="9.5" fill="#fff" xml:space="preserve" data-max="15.22">Oui</text>
+<rect x="722.52" y="512.20" width="29.17" height="15.00" rx="7.50" fill="#fff" stroke="#2B5876" stroke-width="1.25"/><text x="729.02" y="523.05" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="9.5" fill="#2B5876" xml:space="preserve" data-max="17.67">Non</text>
+</g>
+</g>
+</svg>

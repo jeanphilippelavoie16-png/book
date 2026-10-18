@@ -41,7 +41,7 @@ en plein hiver.
 - **On veut remettre l'eau en janvier dans un système d'été.** Une prise d'eau au lac dont la
   conduite court en surface ou dans un vide sanitaire ouvert ne se remet pas en marche l'hiver,
   même avec le poêle qui roule : elle gèle dehors, là où aucune chaleur ne l'atteint. L'ouverture
-  de la section 5-B ne s'applique qu'au dégel. En hiver, l'eau vient à la chaudière (ch. 10, 30-I).
+  de la section 5-B ne s'applique qu'au dégel. En hiver, l'eau vient à la chaudière (ch. 10, étapes 36 à 41).
 - **On rouvre en hiver comme au printemps.** L'ordre du printemps suppose du temps, de la clarté
   et un bâtiment qui n'est pas plus froid que l'air. L'arrivée d'hiver a son propre ordre — l'air
   avant le feu, le feu avant l'eau, et l'eau pas le premier jour —, à la section 9.
@@ -295,7 +295,7 @@ dehors vers le dedans, et de l'air vers l'eau.
 40. **Le chauffe-eau se remplit avant de chauffer.** Robinet d'eau chaude ouvert jusqu'à ce que
     l'eau coule sans air ; seulement là, le gaz ou le courant.
 41. **L'eau se traite.** L'eau du lac est une eau de surface et le reste (ch. 10). Un puits qui a
-    passé l'hiver et le dégel se juge au ch. 10, 30-H.
+    passé l'hiver et le dégel se juge au ch. 10, étapes 27 à 35.
 42. **Le reste.** La bécosse et la fosse au dégel : ch. 31. Le stock : boîtes bombées, rouillées ou
     bosselées sur le serti jetées sans être ouvertes (ch. 5). Tout bocal de conserve maison resté
     l'hiver dans le chalet a gelé, et il se jette, fendu ou non (ch. 78, §6). **Le botulisme ne
@@ -584,8 +584,8 @@ simple : **le feu d'abord, et la plomberie ne se touche pas.**
 **Si la plomberie a été vidangée en octobre**, il n'y a rien à sauver et rien à faire : robinets
 ouverts, pompe coupée, et on la laisse comme ça. L'eau du premier soir vient du thermos, puis de la
 neige ou de la glace fondue sur le poêle, dans un chaudron où l'on a laissé un fond d'eau pour que
-le fond ne roussisse pas, et elle passe par l'ébullition comme toute eau de surface (ch. 10, 30-E et
-5-I). La glace de lac donne plus d'eau que la neige à volume égal. Le sac de neige suspendu à
+le fond ne roussisse pas, et elle passe par l'ébullition comme toute eau de surface (ch. 10, étapes 39 à
+41). La glace de lac donne plus d'eau que la neige à volume égal. Le sac de neige suspendu à
 côté du poêle fond sans prendre de place sur la plaque (ch. 3, §9).
 
 **Si elle ne l'a pas été** — la fermeture a été bâclée, ou quelqu'un a remis l'eau en novembre —,
@@ -602,7 +602,7 @@ froid, à la chambre à air et aux colliers.
 
 **L'eau courante revient-elle cet hiver ?** Un système d'été — prise au lac, conduite en surface
 ou dans un vide sanitaire ouvert — ne revient pas avant le dégel. On vit à la chaudière et au trou
-dans la glace (ch. 10, 30-I ; la glace se lit au ch. 58), et c'est une corvée de chaque jour qui
+dans la glace (ch. 10, étapes 36 à 41 ; la glace se lit au ch. 58), et c'est une corvée de chaque jour qui
 entre dans l'horaire (ch. 36). Un système d'hiver — puits, conduite enfouie sous le gel, vide
 sanitaire fermé — se remet en eau seulement quand la pièce où est chaque appareil a tenu 18 °C et
 que les tuyaux sont tièdes à la main sur toute la longueur qu'on peut toucher, **y compris dans le

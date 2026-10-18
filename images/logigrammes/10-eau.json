@@ -1,0 +1,350 @@
+{
+  "_note": "Logigramme du chapitre 10 (eau : puiser, filtrer, désinfecter), double page, fait le 18 octobre 2026 sur le chapitre refait à sept sections. Pas de série orange dans ce chapitre (inventaire des premières minutes : l'avis d'ébullition n'est pas une affaire de minutes), donc pas d'orange ici : « urgent » faux, boîtes « geste ». Page de gauche : l'eau du robinet de la maison (étapes 42 à 49). Page de droite : l'eau qu'on puise au chalet ou en forêt, puis le traitement selon ce qu'on a (feu, javel, rien). Aucun avertissement redit : la génératrice, la javel mélangée, le nitrate du biberon restent dans leur étape, à côté de leur pictogramme. Rendu : env -u TMPDIR python3 design/outils/logigramme.py images/logigrammes/10-eau.json ; version du livre : --sans-entete --svg. « source » : les étapes du chapitre d'où vient chaque geste (ignoré au rendu). Se place après la section 3, Matériel.",
+  "format": "double",
+  "tome": 1,
+  "urgent": false,
+  "entete": {
+    "chapitre": "10 · Eau : puiser, filtrer, désinfecter",
+    "tome": "Tome 1 · Tenir",
+    "onglet": "10",
+    "folios": [
+      null,
+      null
+    ]
+  },
+  "colonnes": {
+    "plein": [
+      0.5,
+      7.375
+    ],
+    "L": [
+      0.5,
+      3.6
+    ],
+    "R": [
+      4.25,
+      7.375
+    ],
+    "q": [
+      8.625,
+      11.85
+    ],
+    "r": [
+      12.4,
+      15.5
+    ]
+  },
+  "rangs": {
+    "g1": 1.11,
+    "g2": 1.75,
+    "g3": 3.0,
+    "g4": 4.0,
+    "g5": 5.2,
+    "g6": 6.65,
+    "d2": 3.0,
+    "d3": 4.1,
+    "d4": 5.4,
+    "d5": 6.6,
+    "d6": 8.0
+  },
+  "noeuds": [
+    {
+      "id": "dep",
+      "type": "depart",
+      "col": "plein",
+      "rang": "g1",
+      "taille": 15,
+      "texte": "Il faut de l'eau à boire",
+      "source": "section 2"
+    },
+    {
+      "id": "q1",
+      "type": "question",
+      "col": "L",
+      "rang": "g2",
+      "ancre": "haut",
+      "texte": "L'eau vient du robinet de la maison ?",
+      "source": "étapes 42 à 49"
+    },
+    {
+      "id": "m1",
+      "type": "question",
+      "col": "L",
+      "rang": "g3",
+      "ancre": "haut",
+      "texte": "L'eau coule encore au robinet ?",
+      "source": "étape 49"
+    },
+    {
+      "id": "m1n",
+      "type": "geste",
+      "col": "R",
+      "rang": "g3",
+      "ancre": "haut",
+      "taille": 10.5,
+      "texte": "**Boire la réserve, puis l'eau du chauffe-eau.** Si la coupure s'étire, partir au chalet.",
+      "renvoi": "ch. 10, étape 49 ; ch. 2",
+      "source": "étape 49"
+    },
+    {
+      "id": "m2",
+      "type": "question",
+      "col": "L",
+      "rang": "g4",
+      "ancre": "haut",
+      "texte": "L'avis dit de ne pas consommer l'eau ?",
+      "source": "étape 43"
+    },
+    {
+      "id": "m2o",
+      "type": "geste",
+      "col": "R",
+      "rang": "g4",
+      "ancre": "haut",
+      "taille": 10.5,
+      "texte": "**Boire la réserve.** Faire bouillir l'eau du robinet ne change rien : elle ne sert plus qu'à la toilette.",
+      "renvoi": "ch. 10, étape 43",
+      "source": "étape 43"
+    },
+    {
+      "id": "m3",
+      "type": "question",
+      "col": "L",
+      "rang": "g5",
+      "ancre": "haut",
+      "texte": "Il y a un avis d'ébullition, ou la pression a baissé ?",
+      "source": "étape 42"
+    },
+    {
+      "id": "m3o",
+      "type": "geste",
+      "col": "R",
+      "rang": "g5",
+      "ancre": "haut",
+      "taille": 10.5,
+      "texte": "**Faire bouillir 1 minute à gros bouillons l'eau qui va à la bouche** : à boire, les biberons, la brosse à dents, les glaçons, les légumes crus.",
+      "renvoi": "ch. 10, étapes 42 et 44",
+      "source": "étapes 42 et 44"
+    },
+    {
+      "id": "m4",
+      "type": "geste",
+      "col": "L",
+      "rang": "g6",
+      "ancre": "haut",
+      "taille": 10.5,
+      "texte": "**Boire l'eau froide du robinet.** Dans une maison bâtie avant les années 1970, la laisser couler quelques minutes après qu'elle est devenue froide.",
+      "renvoi": "ch. 10, étape 48",
+      "source": "étape 48"
+    },
+    {
+      "id": "q2",
+      "type": "question",
+      "col": "q",
+      "rang": "g2",
+      "ancre": "haut",
+      "texte": "Il y a de l'eau douce à puiser ?",
+      "precision": "Un lac, un ruisseau, un puits, la neige ou la glace d'un lac",
+      "source": "étape 1"
+    },
+    {
+      "id": "q2n",
+      "type": "geste",
+      "col": "r",
+      "rang": "g2",
+      "ancre": "haut",
+      "taille": 10.5,
+      "texte": "**Il ne reste que le fleuve** : passer son eau à l'alambic, ou la dessaler par le gel. Bouillir ne lui enlève pas le sel.",
+      "renvoi": "ch. 10, étape 1 ; section 7",
+      "source": "étape 1 ; section 7"
+    },
+    {
+      "id": "p1",
+      "type": "geste",
+      "col": "q",
+      "rang": "d2",
+      "ancre": "haut",
+      "taille": 10.5,
+      "texte": "**Puiser en amont** du camp, de la fosse et de la hutte de castor, à 20 ou 30 cm sous la surface.",
+      "renvoi": "ch. 10, étapes 2 à 5",
+      "source": "étapes 2 à 5"
+    },
+    {
+      "id": "p2",
+      "type": "geste",
+      "col": "q",
+      "rang": "d3",
+      "ancre": "haut",
+      "taille": 10.5,
+      "texte": "**Si l'eau est trouble, la laisser reposer** de 12 à 24 h, tirer l'eau claire par-dessus le dépôt et la passer dans un linge de coton.",
+      "renvoi": "ch. 10, étapes 8 à 10",
+      "source": "étapes 8 à 10"
+    },
+    {
+      "id": "q4",
+      "type": "question",
+      "col": "q",
+      "rang": "d4",
+      "ancre": "haut",
+      "texte": "On a du feu ?",
+      "source": "étape 14"
+    },
+    {
+      "id": "q4o",
+      "type": "geste",
+      "col": "r",
+      "rang": "d4",
+      "ancre": "haut",
+      "taille": 10.5,
+      "texte": "**Faire bouillir à gros bouillons** : 5 minutes une eau de lac, de ruisseau, de neige ou de glace, 1 minute une eau de puits.",
+      "renvoi": "ch. 10, étapes 14 et 41",
+      "source": "étapes 14 et 41"
+    },
+    {
+      "id": "q5",
+      "type": "question",
+      "col": "q",
+      "rang": "d5",
+      "ancre": "haut",
+      "texte": "On a de la javel ?",
+      "source": "étapes 18 à 22"
+    },
+    {
+      "id": "q5o",
+      "type": "geste",
+      "col": "r",
+      "rang": "d5",
+      "ancre": "haut",
+      "taille": 10.5,
+      "texte": "**Passer une eau de lac ou de neige au filtre à 1 µm**, s'il y en a un, puis mettre 2 gouttes de javel par litre et attendre 30 minutes. Froide ou colorée : 4 gouttes, et attendre plus longtemps.",
+      "renvoi": "ch. 10, étapes 19 à 22",
+      "source": "étapes 19 à 22"
+    },
+    {
+      "id": "q5n",
+      "type": "geste",
+      "col": "q",
+      "rang": "d6",
+      "ancre": "haut",
+      "taille": 10.5,
+      "texte": "**Sans feu ni javel** : l'été, six heures de plein soleil dans une bouteille claire ; sinon, du chlore fait maison, dosé à la bandelette.",
+      "renvoi": "ch. 10, section 7",
+      "source": "section 7"
+    }
+  ],
+  "liens": [
+    {
+      "de": "dep",
+      "vers": "q1",
+      "sx": 2.05,
+      "ex": 2.05
+    },
+    {
+      "de": "q1",
+      "vers": "m1",
+      "etiquette": "Oui"
+    },
+    {
+      "de": "q1",
+      "vers": "q2",
+      "etiquette": "Non",
+      "sortie": "droite",
+      "entree": "gauche",
+      "pos": "debut",
+      "sy": 2.08,
+      "ey": 2.08
+    },
+    {
+      "de": "m1",
+      "vers": "m1n",
+      "etiquette": "Non",
+      "sortie": "droite",
+      "entree": "gauche",
+      "sy": 3.22,
+      "ey": 3.22
+    },
+    {
+      "de": "m1",
+      "vers": "m2",
+      "etiquette": "Oui"
+    },
+    {
+      "de": "m2",
+      "vers": "m2o",
+      "etiquette": "Oui",
+      "sortie": "droite",
+      "entree": "gauche",
+      "sy": 4.33,
+      "ey": 4.33
+    },
+    {
+      "de": "m2",
+      "vers": "m3",
+      "etiquette": "Non"
+    },
+    {
+      "de": "m3",
+      "vers": "m3o",
+      "etiquette": "Oui",
+      "sortie": "droite",
+      "entree": "gauche",
+      "sy": 5.53,
+      "ey": 5.53
+    },
+    {
+      "de": "m3",
+      "vers": "m4",
+      "etiquette": "Non"
+    },
+    {
+      "de": "q2",
+      "vers": "q2n",
+      "etiquette": "Non",
+      "sortie": "droite",
+      "entree": "gauche",
+      "sy": 2.145,
+      "ey": 2.145
+    },
+    {
+      "de": "q2",
+      "vers": "p1",
+      "etiquette": "Oui"
+    },
+    {
+      "de": "p1",
+      "vers": "p2"
+    },
+    {
+      "de": "p2",
+      "vers": "q4"
+    },
+    {
+      "de": "q4",
+      "vers": "q4o",
+      "etiquette": "Oui",
+      "sortie": "droite",
+      "entree": "gauche",
+      "sy": 5.62,
+      "ey": 5.62
+    },
+    {
+      "de": "q4",
+      "vers": "q5",
+      "etiquette": "Non"
+    },
+    {
+      "de": "q5",
+      "vers": "q5o",
+      "etiquette": "Oui",
+      "sortie": "droite",
+      "entree": "gauche",
+      "sy": 6.82,
+      "ey": 6.82
+    },
+    {
+      "de": "q5",
+      "vers": "q5n",
+      "etiquette": "Non"
+    }
+  ]
+}

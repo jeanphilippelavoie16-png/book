@@ -599,7 +599,7 @@ que durent les pierres.
  le feu nourri jusqu'à ce qu'il tombe en braises. Elles sont prêtes quand une goutte d'eau jetée
  dessus ne s'étale pas mais danse en sifflant et disparaît.
 10. **Les sortir à la pelle, ou avec deux bâtons verts taillés en pince**, comme les pierres à
- faire bouillir l'eau (ch. 10, section 9).
+ faire bouillir l'eau (ch. 10, section 7).
 11. **Brosser chaque pierre avant qu'elle entre.** Une branche verte de sapin, deux ou trois coups
  dehors : on fait tomber les braises, le charbon et la cendre collés dessus. **C'est l'étape
  qui empêche le monoxyde.** Des pierres seules n'en font presque pas ; ce sont les braises et

@@ -230,7 +230,7 @@ part, et personne ne cherche un véhicule dont personne n'attend le retour.*
 
 La trousse du véhicule (ch. 00b) y reste toute l'année : une panne de juillet sur un
 chemin forestier se règle avec la même boîte. Son eau voyage en bouteilles de plastique,
-avec un vide d'air pour le gel (ch. 10, étape 22). La moitié de son contenu sert à être
+avec un vide d'air pour le gel (ch. 10, étape 24). La moitié de son contenu sert à être
 trouvé : sifflet, feu de signalisation, chandelle, lampe.
 
 [^1]: Modérée : gestes maladroits, difficulté à parler, confusion. Grave : les frissons
@@ -344,13 +344,13 @@ le métal du feu, et le fond brûle avant que la neige fonde. On ajoute par poig
 bourrer. Il faut de 10 à 25 L de neige fraîche pour faire un litre d'eau : un chaudron
 plein de poudreuse donne un fond. La neige tassée, prise en profondeur et à l'écart des
 sentiers, rend plus : on prend celle-là. L'eau de neige ou de lac bout 5 minutes à
-gros bouillons (ch. 10, étape 12). Elle se garde ensuite 24 heures à la température de la
+gros bouillons (ch. 10, étape 14). Elle se garde ensuite 24 heures à la température de la
 pièce, 3 jours au frais : on en fait chaque jour plutôt qu'une grosse fois.
 
 **Désinfecter sans feu, et clarifier avant.** S'il n'y a rien pour bouillir, l'eau de
 Javel non parfumée à 5,25 % désinfecte à raison d'environ 2 gouttes, soit 0,2 mL, par
 litre d'eau, remuée et laissée reposer 30 minutes (eau froide ou de lac : ch. 10,
-étapes 18 et 19). Une eau trouble use le désinfectant sur la matière en suspension avant
+étapes 19 à 21). Une eau trouble use le désinfectant sur la matière en suspension avant
 qu'il atteigne les microbes : on la laisse décanter dans une chaudière, on tire le clair
 par-dessus sans remuer le fond, et on le passe dans un linge serré ou dans un bas de laine
 avant de traiter. Ce linge enlève la terre ; la javel fait le reste. Quand le doute porte
