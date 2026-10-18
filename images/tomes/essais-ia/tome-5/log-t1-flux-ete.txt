@@ -1,0 +1,5 @@
+{'id': '0bc2d351-cb09-4ebd-8fde-e414f97fb589', 'kudos': 7.0}
+1 374 190 False
+17 366 180 False
+32 347 166 False
+48 334 158 False

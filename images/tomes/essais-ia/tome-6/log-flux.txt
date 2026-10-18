@@ -1,0 +1,6 @@
+{'id': '14565b34-70ac-4e11-9bc6-cff22eaf057a', 'kudos': 7.0}
+0 366 188 False
+15 358 178 False
+31 348 166 False
+46 324 154 False
+62 313 145 False
