@@ -17,9 +17,10 @@ d = ImageDraw.Draw(big)
 k = lambda v: int(round(v * K * S))
 FONCE = (45, 12, 10); CERNE = (30, 7, 6); CREME = (238, 224, 203); OMBRE = (70, 18, 14); MOYEN = (128, 52, 38)
 
-# le cadre : 240 × 151 dehors ; bois de 10, filet crème, passe-partout de 9 ; la gravure (1070 × 600) au milieu. Son clou
-# reste sous le titre de la couverture (remonté pour le tome 2 : CENTRE_BAS de couverture.py) ; le bas, au-dessus de la bouilloire
-X0, Y0, X1, Y1 = 460, 345, 700, 496
+# le cadre : 230 × 146 dehors ; bois de 10, filet crème, passe-partout de 9 ; la gravure (1070 × 600) au milieu. Le clou
+# reste bien dégagé du titre de la couverture (remonté pour le tome 2 : CENTRE_BAS de couverture.py ; JP : « le titre ne
+# doit pas cacher le cadre ») ; le bas, au-dessus de la bouilloire
+X0, Y0, X1, Y1 = 468, 355, 698, 501
 BOIS, PP = 10, 9
 d.rectangle([k(X0 + 5), k(Y0 + 6), k(X1 + 5), k(Y1 + 6)], fill=OMBRE)                     # l'ombre, à droite et en bas
 clou = ((X0 + X1) / 2, Y0 - 16)                                                             # la ficelle et le clou
