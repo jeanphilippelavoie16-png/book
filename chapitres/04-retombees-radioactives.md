@@ -487,25 +487,26 @@ fatigué. Le filtre arrête la poussière, mais rien du rayonnement ni des gaz.
 
 Pendant les heures de bouchage (étape 18), tendre des couvertures mouillées devant les portes et les fenêtres, et
 rouler des linges humides au pied des portes. Pour fermer un cadre de fenêtre, cuire une colle de farine et d'eau
-jusqu'à ce qu'elle épaississe, et poser des bandes de papier journal à cheval sur le joint, en deux épaisseurs
-croisées ; elle se décolle à l'eau chaude. **Ce qu'on perd :** de l'humidité dans une pièce fermée, et de la
-condensation sur les murs froids.
+jusqu'à ce qu'elle épaississe, et s'en servir pour coller des bandes de papier journal à cheval sur le joint, en deux
+épaisseurs croisées ; on l'enlève à l'eau chaude. **Ce qu'on perd :** l'air sec : les couvertures mouillées mettent
+de l'humidité dans la pièce fermée, et l'eau condense sur les murs froids.
 
-### Sans eau chaude ni savon
+### Sans eau courante ni savon
 
-Avant d'entrer, brosser à sec ses vêtements et sa peau, dos au vent : brosser et frotter la poussière en enlève une
-partie. Faire fondre de la neige sur le poêle pour se rincer, et jeter l'eau de lavage loin du puits, du jardin
-et de la porte, pas dans le banc de neige qu'on fera fondre le lendemain.
+Avant d'entrer, brosser à sec ses vêtements et sa peau, dos au vent, pour enlever une partie de la poussière. Pour
+se rincer, faire fondre sur le poêle de la neige tombée après le passage des retombées et ramassée sur une surface
+qui n'en a pas reçu, comme une bâche étendue après le passage ; sinon, prendre l'eau de la réserve. Jeter l'eau de
+lavage loin du puits, du jardin et de la porte.
 
-### Sans eau fermée : décanter et filtrer à la terre
+### Sans réserve d'eau : décanter et filtrer à la terre
 
 Après une détonation, presque tout le danger de l'eau est dans la poussière qui flotte : moins de 2 % de sa
 radioactivité se dissout, et enlever la poussière enlève presque tout. Le panache d'une centrale lointaine dépose au
 contraire un césium qui se dissout presque en entier dans l'eau. La terre de la décantation et du filtre retient
 fortement le césium dissous, mais mal l'iode radioactif : pendant les six à huit semaines où il en reste, boire
-d'abord l'eau d'un puits tubé et fermé, ou ce qui reste d'eau fermée (« Sans comprimés d'iode », plus haut).
+d'abord l'eau d'un puits tubé et fermé, ou ce qui reste de la réserve d'eau (« Sans comprimés d'iode », plus haut).
 
-*Décanter à l'argile.* Remplir une chaudière aux trois quarts. Y brasser de l'argile ou de la terre argileuse sèche,
+*Décanter à l'argile.* Remplir une chaudière d'eau aux trois quarts. Y brasser de l'argile ou de la terre argileuse sèche,
 en poudre, prise sous la surface comme pour le filtre (plus bas) : environ 2,5 cm de terre sèche pour 10 cm d'eau.
 Brasser jusqu'à ce que la terre soit en suspension, puis laisser reposer au moins 6 heures : en tombant, l'argile
 entraîne la poussière au fond et la recouvre. Puiser l'eau claire, ou la siphonner (ch. 10, étape 10).
@@ -531,9 +532,9 @@ coule trop lentement, enlever le linge du dessus, le rincer, retirer environ 2,5
 Refaire le filtre avec de la terre neuve après une cinquantaine de litres. La terre ne fait rien contre les microbes :
 désinfecter l'eau qui sort (ch. 10).
 
-*Trouver l'argile.* Sous la forêt boréale, la terre est le plus souvent sableuse. Chercher sur une berge de rivière,
-dans une coupe de chemin ou au fond d'un fossé la couche grise et collante sous la terre noire de surface (repères 7
-et 8). Rouler une poignée mouillée entre les mains : l'argile colle aux doigts et se roule en boudin sans casser
+*Trouver l'argile.* Sous la forêt boréale, la terre est le plus souvent sableuse. Chercher la couche grise et
+collante sous la terre noire de surface, sur une berge de rivière, dans une coupe de chemin ou au fond d'un fossé
+(repères 7 et 8). Rouler une poignée mouillée entre les mains : l'argile colle aux doigts et se roule en boudin sans casser
 (repère 9) ; le sable gratte et s'effrite. Pour trancher, la presser entre le pouce et l'index en un ruban : un ruban
 de plus de 5 cm avant de casser, c'est une terre argileuse ; un ruban qui casse avant 2,5 cm, une terre sableuse.
 
@@ -541,17 +542,16 @@ de plus de 5 cm avant de casser, c'est une terre argileuse ; un ruban qui casse 
 
 ### Sans sel pour le trempage
 
-Pour la viande, l'eau claire fait le même travail que la saumure : 2 jours dans l'eau enlèvent autant de césium que
-2 jours dans la saumure (étape 31). Changer l'eau à chaque trempage. Pour le poisson, compter 8 heures à l'eau
-courante au lieu de 4 heures en saumure. **Ce qu'on perd :** du temps de trempage pour le poisson, et une eau courante
+Pour la viande, 2 jours dans l'eau claire enlèvent autant de césium que 2 jours dans la saumure (étape 31). Pour le
+poisson, compter 8 heures à l'eau courante au lieu de 4 heures en saumure. **Ce qu'on perd :** du temps de trempage pour le poisson, et une eau courante
 froide qu'il faut trouver. Où trouver du sel quand il n'en reste plus : ch. 67.
 
 ### Sans aucune viande de confiance
 
 Prendre, dans cet ordre, du moins exposé au plus exposé : les conserves et les réserves fermées d'avant l'événement ;
 les animaux de petit élevage nourris de grain entreposé à l'intérieur (ch. 101) ; le poisson du fleuve plutôt que
-celui d'un lac de tête ; le gibier trempé et bouilli, bouillon jeté. Ne jamais aller jusqu'au lichen,
-aux champignons ni aux abats. **Ce qu'on perd :** du gras, du goût, et les vitamines qui partent dans l'eau de
+celui d'un lac de tête ; le gibier trempé et bouilli, bouillon jeté. Ne jamais manger de lichen, de champignons
+ni d'abats. **Ce qu'on perd :** du gras, du goût, et les vitamines qui partent dans l'eau de
 cuisson ; la fermentation devient la source de vitamine C (ch. 80, ch. 20).
 
 ### L'entrée en chicane et le costume de sortie
