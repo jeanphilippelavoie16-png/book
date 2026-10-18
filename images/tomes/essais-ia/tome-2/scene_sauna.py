@@ -47,8 +47,8 @@ def scene(seed=2002):
         A(f'<circle cx="{f(x)}" cy="{f(y)}" r="{f(rr)}" fill="{C["star"]}" opacity="{f(s.u(.4, .9))}"/>')
 
     # la lune basse, à gauche, à moitié cachée par la colline
-    A(f'<circle cx="150" cy="560" r="70" fill="url(#halo)"/>')
-    A(f'<circle cx="150" cy="560" r="30" fill="{C["moon"]}"/>')
+    A(f'<circle cx="138" cy="548" r="70" fill="url(#halo)"/>')
+    A(f'<circle cx="138" cy="548" r="28" fill="{C["moon"]}"/>')
 
     # les collines basses : la plus loin a la crête prise dans la lumière orange du soir
     loin = s.onde(580, [(14, 0.8), (7, 1.9), (2, 6)])
@@ -96,6 +96,12 @@ def scene(seed=2002):
     n1 = s.onde(722, [(6, 0.9), (3, 2.2)])
     A(f'<polygon points="{pts(n1 + [(W + 40, H + 40), (-20, H + 40)])}" fill="{C["snow"]}"/>')
     A(f'<polyline points="{pts(n1)}" fill="none" stroke="{C["snow3"]}" stroke-width="2"/>')
+    for _ in range(40):      # les roches et les arbustes de la rive, sous la neige
+        x = s.u(-10, W + 10)
+        y = min(yy for xx, yy in n1 if abs(xx - x) <= 6) + s.u(-1, 3)
+        w, hh = s.u(6, 22), s.u(3, 8)
+        A(f'<path d="M{f(x - w / 2)} {f(y)} q{f(w / 2)} {f(-hh * 2)} {f(w)} 0z" fill="{C["shore"]}"/>')
+        A(f'<path d="M{f(x - w / 3)} {f(y - hh * 0.7)} q{f(w / 3)} {f(-hh * 0.9)} {f(w * 0.66)} 0z" fill="{C["snow"]}"/>')
     for k in range(7):
         x, y = s.u(0, W), s.u(760, 940)
         w = s.u(60, 160)
@@ -106,6 +112,7 @@ def scene(seed=2002):
     sx, sy = 236, 818        # coin bas gauche de la façade
     fw, fh = 112, 62         # la façade (pignon)
     lw = 58                  # le mur de côté, en fuite vers la droite
+    A(f'<g transform="translate({sx + 56} {sy}) scale(1.35) translate({-sx - 56} {-sy})">')
     # la lueur de la porte sur la neige
     A(f'<path d="M{sx + 64} {sy} L{sx + 92} {sy} L{sx + 176} {sy + 70} L{sx + 20} {sy + 70}Z" fill="url(#lueur)" opacity=".9"/>')
     A(f'<ellipse cx="{sx + 80}" cy="{sy + 22}" rx="96" ry="30" fill="url(#lueur)"/>')
@@ -149,10 +156,11 @@ def scene(seed=2002):
          f"C{f(x0 + 46)} {y0 - 190} {f(x0 + 84)} {y0 - 206} {f(x0 + 120)} {y0 - 214}")
     for w, op in [(34, .16), (22, .22), (12, .32), (5, .5)]:
         A(f'<path d="{d}" fill="none" stroke="{C["steam"]}" stroke-width="{w}" stroke-linecap="round" opacity="{op}"/>')
+    A('</g>')
     # le sentier dans la neige, de la porte vers le bas de la page
     t = 0.0
-    tr = lambda t: ((1 - t) ** 2 * (dx + 14) + 2 * (1 - t) * t * 470 + t * t * 560,
-                    (1 - t) ** 2 * (sy + 6) + 2 * (1 - t) * t * 870 + t * t * 990)
+    tr = lambda t: ((1 - t) ** 2 * (dx + 24) + 2 * (1 - t) * t * 470 + t * t * 560,
+                    (1 - t) ** 2 * (sy + 12) + 2 * (1 - t) * t * 870 + t * t * 990)
     i = 0
     while t < 1:
         x, y = tr(t)
