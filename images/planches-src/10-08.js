@@ -9,8 +9,9 @@
 //      le poing, est descendu dans le seau posé au sol, plus bas, puis lâché.
 // Le seau plus bas que l'eau de la chaudière : c'est la condition d'un siphon (géométrie des niveaux), le texte dit
 // « on en descend un ». Aucune cote, aucun chiffre.
-// Main : h.formes.mainStock 'poing-barre' (1-01), tournée de -16°, sans son objet : le poing tient le bout du boyau,
-// debout, le pouce dessus ; le bout est caché dans le poing. (La 1-09 vue de dos faisait moufle : écartée.) Le bout resté dans l'eau n'a pas besoin du pouce pour
+// Main : h.formes.mainStock 'poing-barre' (1-01), tournée de 164° (la main vient d'en haut à droite), sans son objet :
+// le boyau descend sur l'axe .objet rendu, traverse le poing fermé et finit sous le pouce, posé sur l'ouverture du bout.
+// (La 1-09 vue de dos faisait moufle ; la 1-01 tournée de -16° mettait le pouce à l'entrée du boyau : écartées.) Le bout resté dans l'eau n'a pas besoin du pouce pour
 // rester plein : il n'est pas dessiné avec une main.
 // Le rouge : la flèche du geste, descendre le bout dans le seau (repère 3).
 
@@ -66,13 +67,14 @@ module.exports = (h) => {
     const yS = z.h - 8;
     const bil = { x0: 8, x1: 94, y0: yS - 46 };
     const c = { xt0: 5, xt1: 99, yt: yS - 46 - 64, xb0: 14, xb1: 90, yb: bil.y0 };
-    const s = { xt0: z.l - 98, xt1: z.l - 24, yt: yS - 54, xb0: z.l - 92, xb1: z.l - 30, yb: yS };   // le seau receveur
+    const s = { xt0: z.l - 110, xt1: z.l - 36, yt: yS - 54, xb0: z.l - 104, xb1: z.l - 42, yb: yS };   // le seau receveur
     const xIn = 43, yIn = c.yb - 9;                      // le bout resté au fond de la chaudière
-    const xP = (s.xt0 + s.xt1) / 2 - 2, yP = s.yt - 44;  // le centre du poing, au-dessus du seau
+    const xP = (s.xt0 + s.xt1) / 2, yP = yS - 86;        // le centre du poing, au-dessus du seau, plus bas que l'eau
     return { yS, bil, c, s, xIn, yIn, xP, yP };
   };
-  const BOUT = 12;   // le bout du boyau, au-dessus du centre du poing : sous le pouce
-  const poing = g => F.mainStock({ id: 'poing-barre', objet: false, angle: -16, taille: 70, x: g.xP, y: g.yP });
+  // le poing tenu d'en haut : l'axe de l'objet est vertical ; le pouce ferme le bas du poing
+  const poing = g => F.mainStock({ id: 'poing-barre', objet: false, angle: 164, taille: 70, x: g.xP, y: g.yP });
+  const bout = o => o.y + o.longueur * 0.27;              // le bout du boyau, caché sous le pouce
   const amorcer = z => {
     const g = geo2(z), out = [];
     out.push(...sol(z, g.yS));
@@ -83,28 +85,23 @@ module.exports = (h) => {
     out.push(h.rect(g.bil.x0, g.bil.y0, g.bil.x1 - g.bil.x0, g.yS - g.bil.y0, A.contour));
     const ch = chaudiere(g.c, g.c.yt + 11), se = chaudiere(g.s, null);
     out.push(...ch.eau);
-    // le boyau : du fond de la chaudière, par-dessus le bord, puis il redescend tout droit dans le poing
+    // le boyau : du fond de la chaudière, par-dessus le bord, puis tout droit vers le bas jusque dans le poing
     const m = poing(g), o = m.objet;
     const yHaut = g.c.yt - 24;
-    // le bout tenu pointe vers le haut, sous le pouce : le boyau passe à droite du poing, descend, fait un U sous le
-    // poing et remonte dedans
-    const xD = o.x + 26, yU = o.y + 20, r = (xD - o.x) / 2;
     const d = `M${f(g.xIn)},${f(g.yIn)} L${f(g.xIn)},${f(g.c.yt - 4)} Q${f(g.xIn)},${f(yHaut)} ${f(g.xIn + 22)},${f(yHaut)} `
-      + `L${f(xD - 20)},${f(yHaut)} Q${f(xD)},${f(yHaut)} ${f(xD)},${f(yHaut + 20)} L${f(xD)},${f(yU)} `
-      + `A${f(r)},${f(r)} 0 0 1 ${f(o.x)},${f(yU)} L${f(o.x)},${f(o.y - BOUT)}`;
+      + `L${f(o.x - 22)},${f(yHaut)} Q${f(o.x)},${f(yHaut)} ${f(o.x)},${f(yHaut + 22)} L${f(o.x)},${f(bout(o))}`;
     out.push(...boyau(d));
     out.push(...ch.bord, ...se.bord);
     out.push(String(m.svg));
-    // le geste : descendre le bout dans le seau
-    const xg = g.s.xt1 + 14;
-    out.push(h.geste(`M${f(xg)},${f(g.yP - 20)} L${f(xg)},${f(g.s.yt + 18)}`));
+    // le geste : descendre le bout jusqu'au fond du seau
+    out.push(h.geste(`M${f(o.x)},${f(bout(o) + 8)} L${f(o.x)},${f(g.yS - 10)}`));
     return out.join('\n');
   };
 
   return {
     ref: '10-08',
     titre: 'Amorcer un siphon sans la bouche',
-    desc: 'Deux vignettes. En haut, une chaudière pleine d’eau, un boyau couché en boucles au fond, tout entier sous l’eau ; les dernières bulles sortent de son bout. En bas, la chaudière posée sur un billot : un bout du boyau reste au fond de l’eau, le boyau plein passe par-dessus le bord et redescend jusqu’à un poing qui tient l’autre bout, bouché sous le pouce, au-dessus d’un seau posé au sol, plus bas que la chaudière. Une flèche rouge montre qu’on descend ce bout dans le seau, puis qu’on le lâche.',
+    desc: 'Deux vignettes. En haut, une chaudière pleine d’eau, un boyau couché en boucles au fond, tout entier sous l’eau ; les dernières bulles sortent de son bout. En bas, la chaudière posée sur un billot : un bout du boyau reste au fond de l’eau, le boyau plein passe par-dessus le bord et redescend jusqu’à un poing qui tient l’autre bout, bouché sous le pouce, au-dessus d’un seau posé au sol, plus bas que la chaudière. Le boyau plein passe par-dessus le bord et descend tout droit dans un poing fermé, tenu d’en haut, dont le pouce bouche le bout ; le poing est au-dessus du seau receveur, plus bas que l’eau de la chaudière. Une flèche rouge descend du bout jusqu’au fond du seau : on le descend, puis on le lâche.',
     format: 'quart',
     disposition: [['remplir'], ['amorcer']],
     hauteurs: [1.3, 2.1],
@@ -123,10 +120,10 @@ module.exports = (h) => {
         titre: 'Boucher, descendre, lâcher',
         dessin: amorcer,
         renvois: z => {
-          const g = geo2(z), o = poing(g).objet;
+          const g = geo2(z), o = poing(g).objet, yb = bout(o);
           return [
-            { n: 2, rond: [o.x - 56, g.yP - 6], cible: [o.x - 6, g.yP - 21], texte: 'boucher le bout avec le pouce' },
-            { n: 3, rond: [g.s.xt1 + 14, g.s.yt + 38], cible: [g.s.xt1 + 14, g.s.yt + 20], texte: 'le descendre dans le seau, et lâcher' },
+            { n: 2, rond: [o.x - 58, yb - 4], cible: [o.x - 6, yb - 1], texte: 'boucher le bout avec le pouce' },
+            { n: 3, rond: [o.x - 30, g.yS - 22], cible: [o.x - 1.5, g.yS - 24], texte: 'le descendre dans le seau, et lâcher' },
           ];
         },
       },
