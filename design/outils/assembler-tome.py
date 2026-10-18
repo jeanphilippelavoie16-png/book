@@ -406,22 +406,23 @@ def tranche_blurb(pages, couverture):
 # ------------------------------------------------------------------ pages hors chapitres (titre, sommaire, crédits)
 ANNEXE_CSS = """
 /* assembler-tome.py : page de titre, sommaire, crédits */
-.tp-aplat{position:absolute;left:0;right:0;top:0;height:5.55in;background:repeating-linear-gradient(135deg,var(--tx) 0 1.1px,transparent 1.1px 5px),var(--tf)}
+.tp-aplat{position:absolute;inset:0;background:repeating-linear-gradient(135deg,var(--tx) 0 1.1px,transparent 1.1px 5px),var(--tf)}
 .tp .block{justify-content:flex-start}
 .tp-head{position:relative;display:flex;justify-content:space-between;align-items:flex-end;padding-bottom:6pt;border-bottom:3pt solid var(--tfi);
   color:var(--tfi);font:700 12pt/1 var(--sans);letter-spacing:.16em;text-transform:uppercase}
 .tp-head span:last-child{font-weight:600;font-size:10pt;letter-spacing:.14em}
 .tp-title{position:relative;margin:0.32in 0 0;width:4.3in;color:var(--tfi);font:700 58pt/1.02 var(--sans);text-transform:uppercase;letter-spacing:.005em;hyphens:manual}
-.tp-num{position:absolute;right:-0.05in;top:1.05in;color:var(--tfn);font:700 330pt/0.72 var(--sans);letter-spacing:-.03em}
-.tp-chap{position:absolute;left:0;right:0;top:4.95in;display:flex;justify-content:space-between;align-items:baseline;
-  padding-top:7pt;border-top:0.75pt solid var(--k);font:600 10pt/1.2 var(--sans);letter-spacing:.06em;text-transform:uppercase}
+.tp-num{position:absolute;right:-0.05in;top:0.95in;color:var(--tfn);font:700 250pt/0.72 var(--sans);letter-spacing:-.03em}
+.tp-chap{position:absolute;left:0;right:0;top:3.7in;display:flex;justify-content:space-between;align-items:baseline;
+  padding-top:7pt;border-top:0.75pt solid var(--tfi);color:var(--tfi);font:600 10pt/1.2 var(--sans);letter-spacing:.06em;text-transform:uppercase}
 .tp-chap b{font-weight:700}
-.tp-frise{position:absolute;left:0;width:100%;top:5.32in;height:2.3in;object-fit:contain}
-.tp-serie{position:absolute;left:0;right:0;bottom:0.02in;display:flex;gap:3pt}
+/* la frise du tome (point 30) : posée sur la page, au bas, à fond perdu d'un bord à l'autre */
+.tp-frise{position:absolute;left:0;right:0;bottom:0;width:100%;height:auto;display:block}
+.tp-serie{position:absolute;left:0;right:0;top:4.1in;display:flex;gap:4pt}
 .tp-serie div{display:flex;flex-direction:column;gap:4pt;min-width:0}
-.tp-serie i{display:block;height:0.3in;border:1.25pt solid var(--k);font:700 12pt/0.28in var(--sans);font-style:normal;padding-left:5pt}
-.tp-serie div.on i{background:var(--tf);border-color:var(--tf);color:var(--tfi)}
-.tp-serie small{font:600 7.5pt/1.15 var(--sans);letter-spacing:.04em;text-transform:uppercase}
+.tp-serie i{display:block;height:0.26in;border:1.1pt solid var(--tfi);color:var(--tfi);font:700 11pt/0.24in var(--sans);font-style:normal;padding-left:5pt}
+.tp-serie div.on i{background:var(--tfn);border-color:var(--tfn);color:#fff}
+.tp-serie small{font:600 7pt/1.2 var(--sans);letter-spacing:.03em;text-transform:uppercase;color:var(--tfi);overflow-wrap:normal;hyphens:none}
 .tp-serie div.on small{font-weight:700}
 
 .ax-top{display:flex;justify-content:space-between;padding-bottom:5pt;border-bottom:0.75pt solid var(--ta);
@@ -550,7 +551,7 @@ def annexe_html(tome, chaps, plan, work):
 <div class="block"><div class="tp-head"><span>Le Grand Livre du Chalet</span><span>Tome {tome}</span></div>
 <h1 class="tp-title">{e(titre_t)}</h1><div class="tp-num">{tome}</div>
 <div class="tp-chap"><span>Chapitres <b>{aff(premier)}</b> à <b>{aff(dernier)}</b></span><span>{nb} chapitres</span></div>
-{frise}<div class="tp-serie">{serie}</div></div></section>''')
+<div class="tp-serie">{serie}</div></div>{frise}</section>''')
     # --- dédicace (recto, après la page de titre ; JP, 14 octobre 2026 : « la première page, comme dans les livres »)
     pages.append(f'''<section class="page recto ax dd" id="a-dedicace"><div class="block">
 <p class="dd-txt">{il(DEDICACE[0])}<br><span class="dd-2">{il(DEDICACE[1])}</span></p></div></section>''')

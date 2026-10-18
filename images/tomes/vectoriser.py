@@ -13,7 +13,7 @@ K = 3
 COUCHES = [
     ("gris-clair", "#BDBDBD", lambda r, g, b, l: (l >= 150) & (l < 225) & (abs(r - b) < 30)),
     ("gris", "#7A7A7A", lambda r, g, b, l: (l >= 70) & (l < 150) & (abs(r - b) < 30)),
-    ("sol", "#333333", lambda r, g, b, l: (l >= 28) & (l < 70) & (abs(r - b) < 30)),
+    ("sol", "#2B5876",   # le sol dans la couleur du tome (tome 1 : le bleu du chiffre) ; lambda r, g, b, l: (l >= 28) & (l < 70) & (abs(r - b) < 30)),
     ("orange", "#EE7219", lambda r, g, b, l: (r - b > 90) & (r > 180)),
     ("orange-pale", "#F7A35C", lambda r, g, b, l: (r - b > 90) & (r > 180) & (g > 140)),
     ("noir", "#111111", lambda r, g, b, l: l < 28),
