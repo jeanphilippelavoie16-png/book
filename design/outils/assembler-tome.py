@@ -546,6 +546,10 @@ def tete_html(titre_doc):
            + "\n" + v.icon_vars() + "\n" + FCONT_CSS + ANNEXE_CSS)
     return head + css + "</style>\n</head>\n"
 
+# le bas de la page de titre (chapitres, série des tomes) se lit mal sur une image chargée (les lignes de l'eau du
+# tome 3) : un aplat de la couleur du papier de l'image, derrière le bloc
+TP_BAS_FOND = {3: "#E4DCBD"}
+
 # ce que le tome couvre, sous son nom sur la page de titre (les tomes 2 à 6 viendront avec leur scène)
 SOUS_TITRES = {1: "Rester ou partir, la panne, les retombées, le feu de forêt, l'eau, le froid, se déplacer, les voisins."}
 
@@ -574,7 +578,7 @@ def annexe_html(tome, chaps, plan, work):
     pages.append(f'''<section class="page recto tp" id="a-titre">{fond}<div class="tp-sc">{scene}
 <div class="tp-head"><span>Le Manuel du Nord</span><span>Tome {tome}</span></div>
 <div class="tp-haut"><h1 class="tp-title">{e(titre_t)}</h1>{f'<p class="tp-sous">{il(sous)}</p>' if sous else ""}</div>
-<div class="tp-bas"><div class="tp-chap"><span>{f"Chapitres {aff(premier)} à {aff(dernier)}" if nb > 1 else f"Chapitre {aff(premier)}"}</span><span>{nb} chapitre{"s" if nb > 1 else ""}</span></div>
+<div class="tp-bas"{f' style="background:{TP_BAS_FOND[tome]};padding:9px 12px 8px;margin:0 -12px"' if tome in TP_BAS_FOND else ""}><div class="tp-chap"><span>{f"Chapitres {aff(premier)} à {aff(dernier)}" if nb > 1 else f"Chapitre {aff(premier)}"}</span><span>{nb} chapitre{"s" if nb > 1 else ""}</span></div>
 <div class="tp-serie">{serie}</div></div></div></section>''')
     # --- dédicace (recto, après la page de titre ; JP, 14 octobre 2026 : « la première page, comme dans les livres »)
     pages.append(f'''<section class="page recto ax dd" id="a-dedicace"><div class="block">

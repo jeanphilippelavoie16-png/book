@@ -5,7 +5,11 @@ tome 2 : rouge sang de bœuf #5C1A15, papier blanc cassé, orange #EE7219. Le ci
 pose) ; collines basses ; le lac gelé ; le chalet au loin, fenêtres allumées ; au premier plan, le sauna en rondins,
 la porte entrouverte, la vapeur qui monte.
 
-    python3 scene_sauna.py [graine]      écrit sauna-reference.svg à côté du script
+    python3 -B scene_sauna.py [graine]      écrit sauna-reference.svg à côté du script
+
+Rendu en PNG par Chromium sans écran (fenêtre 768 × 1100, puis recadrage à 768 × 960) : sauna-reference-2.png.
+sauna-reference-1.png est la première version, où la vapeur montait en colonne jusqu'au tiers du haut : le générateur
+la prolongeait jusqu'en haut de la page, dans la place du titre ; la vapeur est maintenant faite de bouffées courtes.
 """
 import math
 import os

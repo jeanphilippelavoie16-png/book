@@ -1091,3 +1091,12 @@ Boxicons (meat-filled) ; Twemoji (moose). Jeux nouveaux :
 | --- | --- | --- | --- | --- |
 | Fluent Emoji Flat | Microsoft | MIT | https://github.com/microsoft/fluentui-emoji | moose |
 | IconOven | Appic Marketing | MIT | https://iconoven.com/icons | meat-thermometer |
+
+## Pages de titre et couvertures des tomes (images générées, 18 octobre 2026)
+
+Linogravures générées par le réseau AI Horde à partir d'une image de départ dessinée pour le livre (`images/tomes/scene_titre.py`, `essais-ia/tome-N/`), choisies par JP, agrandies ×4 (RealESRGAN, AI Horde) et retouchées (étoiles contre les lettres, reflet, canot).
+
+| Fichier | Modèle | Licence du modèle | Retouches |
+| --- | --- | --- | --- |
+| `images/tomes/titre-tome-1.jpg` | Juggernaut XL (img2img 0,75) | CreativeML Open RAIL++-M | étoiles contre les lettres retirées |
+| `images/tomes/titre-tome-3.jpg` | Juggernaut XL (img2img 0,65) | CreativeML Open RAIL++-M | reflet du soleil regravé en tirets ; canot remonté |

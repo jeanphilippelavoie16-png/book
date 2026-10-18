@@ -1,3 +1,5 @@
+**JP choisit la candidate 1** (18 octobre 2026), « mais le reflet du soleil mieux sur le lac ». Agrandie ×4, l'ovale orange du reflet est remplacé par des tirets taillés à la gouge sur les bandes claires de l'eau, qui rétrécissent vers le bas ; le canot est remonté de 290 px pour dégager la ligne des chapitres ; un aplat papier passe sous le bloc du bas (`TP_BAS_FOND` dans `assembler-tome.py`). Résultat : `images/tomes/titre-tome-3.jpg`.
+
 # Tome 3, Prélever : essais d'images pour la page de titre et la couverture
 
 Faits le 18 octobre 2026 par AI Horde (gratuit, sans clé), avec `../horde-img2img.py`, dans le style choisi par JP

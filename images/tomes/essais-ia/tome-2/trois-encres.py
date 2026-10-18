@@ -9,6 +9,8 @@ du ciel et que les rondins gardent leurs traits.
 
 Chaque rectangle donné est d'abord repeint en papier : c'est pour effacer une fausse signature posée sur la neige.
 « g5 » ou « d5 » : la marge crème de 5 px à gauche ou à droite est remplacée par la colonne voisine de l'image.
+« bx0,y0,x1,y1 » : dans ce rectangle, l'orange devient papier (une vapeur que le générateur a teintée d'orange, et qui
+se lirait comme du feu à la cheminée).
 """
 import sys
 import numpy as np
@@ -22,7 +24,11 @@ src, out = sys.argv[1], sys.argv[2]
 im = Image.open(src).convert("RGB")
 w, h = im.size
 a = np.asarray(im).astype(float)
+blancs = []
 for r in sys.argv[3:]:
+    if r[0] == "b":
+        blancs.append(tuple(2 * int(v) for v in r[1:].split(",")))
+        continue
     if r[0] in "gd":
         n = int(r[1:])
         if r[0] == "g":
@@ -37,6 +43,11 @@ hsv = np.asarray(big.convert("HSV")).astype(float) / 255.0
 H, S, V = hsv[..., 0] * 360, hsv[..., 1], hsv[..., 2]
 papier = (V > 0.62) & (S < 0.38)
 orange = ~papier & (H > 12) & (H < 52) & (S > 0.45) & (V > 0.72)
+for x0, y0, x1, y1 in blancs:
+    zone = np.zeros_like(orange)
+    zone[y0:y1, x0:x1] = True
+    papier |= zone & (orange | (V > 0.55))
+    orange &= ~zone
 lum = np.asarray(big.convert("L")).astype(float) / 255.0
 DOUBLE = np.array([0x33, 0x0C, 0x09], float)
 # l'encre passée deux fois : ce qui est franchement sombre, ou plus sombre que son voisinage (un trait, une ombre) ;

@@ -1,11 +1,11 @@
-"""Planche de choix : les candidates côte à côte, numérotées au-dessus, cinq par rangée.
+"""Planche de choix : les candidates côte à côte, numérotées au-dessus, cinq par rangée au plus, deux rangées égales au-delà.
     python3 planche.py <sortie.png> <image1> <image2> ...
 """
 import sys
 from PIL import Image, ImageDraw, ImageFont
 
 out, imgs = sys.argv[1], sys.argv[2:]
-cols = min(5, len(imgs))
+cols = min(5, len(imgs)) if len(imgs) <= 5 else (len(imgs) + 1) // 2
 rows = (len(imgs) + cols - 1) // cols
 tw, th, bande, gap = 384, 480, 44, 6
 W = cols * tw + (cols - 1) * gap
