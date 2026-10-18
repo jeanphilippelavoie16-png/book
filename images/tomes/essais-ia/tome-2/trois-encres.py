@@ -1,7 +1,9 @@
 """Ramener une image générée aux trois encres du tome 2, comme une vraie linogravure en trois passages :
 le rouge sang de bœuf #5C1A15, le papier blanc cassé, l'orange #EE7219. Chaque pixel prend l'encre la plus proche
 selon sa clarté, sa saturation et sa teinte ; le calcul se fait au double de la taille puis se réduit, pour garder
-des bords nets sans escalier. La taille de sortie est celle de l'entrée (on n'agrandit rien).
+des bords nets sans escalier. La taille de sortie est celle de l'entrée (on n'agrandit rien). Le rouge garde deux
+valeurs (l'encre, et l'encre passée deux fois là où l'image était plus sombre), pour que les collines se détachent
+du ciel et que les rondins gardent leurs traits.
 
     python3 trois-encres.py <entrée> <sortie.png> [x0,y0,x1,y1 ...]
 
@@ -27,8 +29,11 @@ hsv = np.asarray(big.convert("HSV")).astype(float) / 255.0
 H, S, V = hsv[..., 0] * 360, hsv[..., 1], hsv[..., 2]
 papier = (V > 0.62) & (S < 0.38)
 orange = ~papier & (H > 12) & (H < 52) & (S > 0.45) & (V > 0.72)
-res = np.empty(hsv.shape, float)
-res[:] = ENCRE
+lum = np.asarray(big.convert("L")).astype(float) / 255.0
+DOUBLE = np.array([0x33, 0x0C, 0x09], float)
+t = np.clip((lum - 0.06) / 0.30, 0, 1)[..., None]
+t = (t > 0.5).astype(float) * 0.85 + np.clip(t, 0, 1) * 0.15      # deux valeurs franches, un peu de transition
+res = DOUBLE * (1 - t) + ENCRE * t
 res[papier] = PAPIER
 res[orange] = ORANGE
 Image.fromarray(res.astype(np.uint8)).resize((w, h), Image.LANCZOS).save(out)

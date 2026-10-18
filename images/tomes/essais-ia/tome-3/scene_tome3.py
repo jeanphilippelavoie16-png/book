@@ -116,14 +116,15 @@ def canot(cx, cy, L, coul=V):
     return out
 
 
-def lac():
+def lac(gros=False):
+    """gros : l'orignal et le canot plus grands, le soleil à gauche (pour qu'ils survivent à l'img2img)."""
     s = Scene(3003)
     A = s.add
     A(f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}">')
     A('<defs><filter id="grain" x="0" y="0" width="1" height="1"><feTurbulence type="fractalNoise" baseFrequency=".9" '
       'numOctaves="2" seed="7"/><feColorMatrix values="0 0 0 0 .1  0 0 0 0 .2  0 0 0 0 .15  0 0 0 .22 0"/></filter></defs>')
     A(f'<rect x="-20" y="-20" width="{W + 40}" height="{H + 40}" fill="{V}"/>')
-    sx, sy, sr = 520, 566, 30
+    sx, sy, sr = (250, 566, 30) if gros else (520, 566, 30)
     # le ciel : vide en haut, rayé de gouge près de l'horizon
     rayures(s, 430, 590, soleil=(sx, sy, sr))
     # le soleil qui se lève derrière les collines, et ses anneaux gravés
@@ -170,7 +171,7 @@ def lac():
         w = 54 - i * 2.2 + s.u(-6, 6)
         A(f'<path d="M{f(sx - w / 2 + s.u(-4, 4))} {f(yy)} h{f(w)}" stroke="{O}" stroke-width="{f(s.u(2, 3.4))}" stroke-linecap="round"/>')
     # l'orignal sur la rive d'en face, dans l'eau jusqu'aux sabots, et son reflet
-    ox, oy, oe = 590, 704, 0.72
+    ox, oy, oe = (520, 736, 1.15) if gros else (590, 704, 0.72)
     for p in orignal(ox, oy, e=oe):
         A(p.replace("<polygon", f'<polygon transform="translate(0 {2 * oy}) scale(1 -1)" opacity=".3"', 1))
     A(f'<rect x="{ox - 10}" y="{oy - 2}" width="{f(100 * oe)}" height="{f(60 * oe)}" fill="{P}" opacity=".55"/>')
@@ -197,7 +198,7 @@ def lac():
         y = 880 + i * 12
         A(f'<path d="M{f(s.u(170, 260))} {y} h{f(s.u(120, 300))}" stroke="{V}" stroke-width=".9" opacity=".35"/>')
     # le canot d'écorce tiré sur la grève, la pince vers l'eau
-    for p in canot(345, 818, 230):
+    for p in (canot(300, 836, 320) if gros else canot(345, 818, 230)):
         A(p)
     # les grands arbres du premier plan : épinettes noires à gauche, un mélèze doré et des épinettes à droite
     for x, bas, h, l in [(-4, 990, 430, 104), (64, 960, 300, 70), (118, 880, 150, 38)]:
@@ -323,7 +324,7 @@ def fleuve():
 
 if __name__ == "__main__":
     quoi = sys.argv[1] if len(sys.argv) > 1 else "lac"
-    svg = {"lac": lac, "fleuve": fleuve}[quoi]()
+    svg = {"lac": lac, "lac2": lambda: lac(True), "fleuve": fleuve}[quoi]()
     out = os.path.join(ICI, f"depart-{quoi}.svg")
     open(out, "w", encoding="utf-8").write(svg + "\n")
     print(out)
