@@ -81,8 +81,8 @@ le faut, sans s'intoxiquer au monoxyde du chauffage.
 
 On transporte seulement la toile, le poêle et le tuyau, au toboggan (ch. 89) ; on coupe la charpente sur place.
 
-10. **Couper trois perches** : le faîte, un peu plus long que la toile, et deux traverses, une pour le haut de
- chaque mur.
+10. **Couper sept perches** : le faîte, un peu plus long que la toile ; deux traverses, une pour le haut de
+ chaque mur ; et quatre pour les deux chevalets.
 11. **Monter les chevalets et poser les perches.**
  - À chaque bout, croiser deux perches en X et les attacher au croisement par un brêlage (ch. 110 ; planche
  12-01b, repère 13).
@@ -421,7 +421,7 @@ pratique : on l'apprend pendant un hiver ordinaire, sur le lac devant le chalet,
 | Toile qui s'affaisse sous la neige | Poêle éteint pendant une bordée | Faire tomber la neige par en dedans, relancer le feu |
 | Perche qui casse net au lieu de plier (shaputuan) | L'épinette est trop gelée pour casser en gardant ses fibres | Arrêter. Attendre le redoux, ou monter la charpente liée (étapes 10 et 11) |
 | Neige qui coule en poudre au creusage du quinzhee | La butte n'a pas encore pris | Sortir, attendre, recommencer à creuser plus tard |
-| Plafond d'abri de neige qui dégoutte ou qui baisse | Trop chaud dedans, ou redoux | Ouvrir la porte, éteindre toute flamme. S'il baisse, faire sortir tout le monde |
+| Plafond d'abri de neige qui dégoutte ou qui baisse | Trop chaud dedans, ou redoux | Ouvrir la porte. S'il baisse, faire sortir tout le monde |
 | Parois intérieures luisantes, glacées | L'haleine et la chaleur des corps ont glacé la paroi | Gratter la glace, tenir le trou d'aération ouvert. Après plusieurs nuits, faire un abri neuf |
 | Réveil trempé dans un abri de neige | Banc trop bas, pas de rigole, pas assez d'isolant sous le corps | Remonter le banc, creuser la rigole, doubler le sapinage |
 
@@ -478,7 +478,7 @@ pratique : on l'apprend pendant un hiver ordinaire, sur le lac devant le chalet,
  - Allumer le feu à plusieurs endroits, pour qu'il prenne sur toute la longueur. Un feu de trois billes monté ainsi
  brûle toute la nuit avec peu de soins.
  - Avec deux billes seulement, planter quatre piquets dans la neige pour tenir la bille du haut sur celle du bas.
- Les piquets lâchent quand la neige fond autour du feu.
+ Les piquets lâchent quand la neige fond autour du feu : les replanter dès qu'ils penchent.
 97. **Monter le mur réflecteur derrière le feu**, du côté opposé à l'abri, pour renvoyer la chaleur vers les
  dormeurs.
  - Planter quatre pieux de 1,5 m.

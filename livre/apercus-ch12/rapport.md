@@ -1,7 +1,7 @@
 # Tome 1 · Tenir — rapport d'assemblage
 
-- **Produit le :** 2026-10-18 17:30, par `design/outils/assembler-tome.py 1 --chapitres 12 --hors-ligne --sortie livre/apercus-ch12`
-- **Fichier :** `livre/tome-1/interieur.pdf` — 42 pages, 20.2 Mo
+- **Produit le :** 2026-10-18 18:18, par `design/outils/assembler-tome.py 1 --chapitres 12 --hors-ligne --sortie livre/apercus-ch12`
+- **Fichier :** `livre/tome-1/interieur.pdf` — 44 pages, 20.7 Mo
 - **Ouvertures :** au recto ou au verso (--verso)
 - **Placements :** design/epreuves-livre/placements.json, design/epreuves-livre/placements-tome-1.json
 - **Exigences de Blurb :** `sources/blurb-specifications.md` (relevées le 27 septembre 2026)
@@ -15,10 +15,10 @@
 | 5 | Sommaire | 1 |
 | 6 | Comment le livre fonctionne (1) | 1 |
 | 7 | Comment le livre fonctionne (2) | 1 |
-| 8–15 | Les dangers | 8 |
-| 16–42 | ch. 12 — La tente d’hiver et l’abri de neige | 27 |
-| | Pages blanches (verso de la page de titre, avant les ouvertures, fin du tome) | 2 |
-| | **Total** | **42** |
+| 8–16 | Les dangers | 9 |
+| 18–44 | ch. 12 — La tente d’hiver et l’abri de neige | 27 |
+| | Pages blanches (verso de la page de titre, avant les ouvertures, fin du tome) | 3 |
+| | **Total** | **44** |
 
 Aucune page de crédits (JP, 28 septembre 2026) : copie hors du livre dans `livre/apercus-ch12/credits/tome-1-credits.md` et `livre/apercus-ch12/credits/tome-1-credits.pdf`.
 
@@ -28,7 +28,7 @@ Marqueur `{.orange}` sur l'intertitre ### de la série, dans le Markdown (CLAUDE
 
 | Ch. | Pages du tome |
 | --- | --- |
-| 12 | 38, 39 |
+| 12 | 40, 41, 42 |
 
 ## Contrôle Blurb
 
@@ -36,10 +36,10 @@ Marqueur `{.orange}` sur l'intertitre ### de la série, dans le Markdown (CLAUDE
 | --- | --- | --- | --- |
 | Taille de chaque page | 585 × 738 pt (8,125 × 10,25 po) | 585.0 × 738.0 pt | oui |
 | Rognage (TrimBox) | 8 × 10 po, fond perdu au bord extérieur | recto : reliure à gauche ; verso : à droite | oui |
-| Nombre de pages | pair, de 20 à 440 (papier Standard) | 42 | oui |
+| Nombre de pages | pair, de 20 à 440 (papier Standard) | 44 | oui |
 | Page 1 | à droite | ouverture du chapitre 00 | oui |
 | Polices incorporées | toutes | 23 police(s), 0 non incorporée(s) | oui |
-| Taille du fichier | 2 Go au plus | 20.2 Mo | oui |
+| Taille du fichier | 2 Go au plus | 20.7 Mo | oui |
 | Marques d'imprimeur | aucune | aucune | oui |
 | Couleur | CMJN ou sRVB, sans ton direct | sRVB (Edge) | oui |
 | Noir du texte | 100 % K | noir sRVB (0, 0, 0) : la conversion est faite chez Blurb | à juger sur épreuve |
@@ -55,7 +55,7 @@ Polices du fichier : BarlowCondensed-Bold, BarlowCondensed-ExtraBold, BarlowCond
 
 ## Tranche et couverture
 
-Calculateur non interrogé (--hors-ligne). Relevé du 27 septembre 2026 dans `sources/blurb-specifications.md` §2 ; pour 42 pages, prendre la ligne du tableau dont le palier couvre ce nombre, et revérifier au calculateur. [À VÉRIFIER]
+Calculateur non interrogé (--hors-ligne). Relevé du 27 septembre 2026 dans `sources/blurb-specifications.md` §2 ; pour 44 pages, prendre la ligne du tableau dont le palier couvre ce nombre, et revérifier au calculateur. [À VÉRIFIER]
 
 ## Figures
 
@@ -63,7 +63,7 @@ Les planches de `images/a-valider/` sont posées comme les validées (JP les rel
 
 | Ch. | Posées (page du tome) | Mentionnées dans le texte sans planche dessinée | À valider, non posées | Photos demandées encore à acquérir (credits.md) |
 | --- | --- | --- | --- | ---: |
-| 12 | 12-01b (21, pleine), 12-01a (23, pleine), 12-02 (25, pleine), 12-03 (27, pleine), 12-04 (29, pleine), 12-06a (32, pleine), 12-05a (33, pleine), 12-05b (35, pleine), 12-06b (41, pleine), 12-tente-d-hiver-livre (18, double page) | — | — | 0 (ancien 16c) |
+| 12 | 12-01b (23, pleine), 12-01a (25, pleine), 12-02 (27, pleine), 12-03 (30, pleine), 12-04 (32, pleine), 12-06a (34, pleine), 12-05a (36, pleine), 12-05b (37, pleine), 12-06b (43, pleine), 12-tente-d-hiver-livre (20, double page) | — | — | 0 (ancien 16c) |
 
 ## Crédits des images — hors du livre
 
