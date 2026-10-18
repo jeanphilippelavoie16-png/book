@@ -646,3 +646,179 @@ plantée.
 **18 octobre 2026 : JP valide la planche 04-42** (« filtre de terre, oui ») ; elle passe dans `images/validees/`. Les deux
 écarts notés plus haut (le linge du fond qui dépasse d'environ 8 cm, les trous près du centre) restent à reprendre
 à la prochaine passe des planches, sans bloquer.
+
+## Corrections du vérificateur, 18 octobre 2026
+
+Fiche du vérificateur : `suivi/04-technique.md` (8 erreurs, 19 points à préciser) ; ses sources :
+`sources/04-verification-technique-2026-10-18.md`. Texte d'avant : `git show f05cc2a:chapitres/04-retombees-radioactives.md`.
+Fichier en LF, gardé en LF. Chaque correction est réécrite selon le skill `ecriture` (infinitif, aucun pronominal de
+consigne, aucun tiret, rien d'attribué) ; les écarts au texte proposé sont dits ligne par ligne.
+
+### Les 8 erreurs : toutes appliquées
+
+- **E1, la maison de bois** : étape 9, « et partir au plus tard 30 minutes après l'éclair » (FEMA 2022, p. 67) ;
+  Points de contrôle, « Parti vers un meilleur abri » ; logigramme, nœud « changer » : « **Y aller**, et partir au
+  plus tard 30 min après l'éclair. »
+- **E2, l'heure écrite** : étape 11, l'heure de l'éclair ou de l'alerte, et dessous l'heure où les retombées ont
+  commencé à tomber ou celle que la radio donne pour le panache ; les 24 heures d'abri se comptent depuis l'éclair, le
+  délai de l'iode depuis l'arrivée des retombées (OMS 2025). Points de contrôle, ligne « Heure 24 » ; logigramme, nœud
+  « radio ». La pastille de la série reste 2 h.
+- **E3, la pompe à volets** (ORNL, chap. 6, p. 50 ; annexe B, p. 194 à 206 ; annexe E, p. 271) : le titre et les
+  puces de « La pompe à carton » sont remplacés. Écarts au texte proposé :
+  - « planche clouée en travers du haut de la porte » devient « … de l'ouverture », parce que la puce qui précède fait
+    choisir l'ouverture ; ORNL, annexe B : « Do NOT attach a KAP's hinges directly to the door frame », d'où la
+    planche ;
+  - « boucles de cuir ou de corde » devient « de cuir, de sangle ou de corde » (ORNL, annexe B, liste des matériaux :
+    « improvised hinges made of leather, woven straps, cords ») ;
+  - « à environ 1 cm du seuil » devient « du bas de l'ouverture » (« seuil » est un mot banni du skill) ;
+  - « Pendre la pompe dans l'ouverture par où l'air entre déjà » passe en tête des puces, comme un choix à faire
+    avant de construire (ORNL : « Install the air pump (a KAP) in the shelter opening into which air is already
+    naturally moving ») ;
+  - « Un panneau plein qui bat dans la porte ne fait que brasser l'air… » est coupé (une phrase sur ce qui ne marche
+    pas, en « ne fait que ») ; la phrase d'en tête dit ce qui marche : « Ses volets se ferment quand on tire et
+    s'ouvrent au retour : l'air avance dans un seul sens. » ;
+  - « Lâcher la corde pendant tout le retour » devient « Laisser la corde lâche pendant tout le retour » (ORNL : « the
+    pull-cord is kept slack during the entire, free-swinging return stroke »).
+  La section n'a plus de repères : ils reviendront avec la planche refaite (plus bas, « Planches à refaire »). Le
+  `[À VÉRIFIER]` du battant sort avec lui.
+- **E4, ce que mesure un compteur** : Matériel, « **Compteur Geiger ou dosimètre à affichage** : mesure le
+  rayonnement dans la pièce et dehors, et montre quand il a assez baissé pour sortir » ; section 6, ligne du gibier
+  (le laboratoire, le détecteur blindé de plomb ; MOE 2021) ; électroscope, « pour elle, il faut l'appareil d'un
+  laboratoire ». Le titre « Sans dosimètre : l'électroscope » devient « Sans compteur : l'électroscope », comme le
+  renvoi du Matériel (« sans compteur : section 7 »).
+- **E5, le comprimé périmé** (FDA 2004) : section 6, « Comprimés d'iode jaunis, ou mouillés dans une plaquette
+  ouverte » ; « On peut donner un comprimé intact, seulement périmé, resté dans sa plaquette fermée ». Le texte proposé
+  disait « On peut donner » : gardé tel quel, sans pronominal.
+- **E6, l'entrée d'air du poêle** (RNCan, p. 40) : section 6, « au même étage que le poêle, du côté d'où vient le
+  vent », avec le filtre ou les deux épaisseurs de serviette.
+- **E7, la neige** (ORNL, p. 72) : étape 22, « la neige qui était au sol quand les retombées sont tombées et la neige
+  tombée pendant le passage ».
+- **E8, le poste d'auto** (Retro Manufacturing) : les deux fils d'alimentation ensemble au positif. Écart : la
+  recherche au multimètre devient la première puce, « Avant de sortir le poste », parce qu'il faut la clé dans
+  l'auto pour la faire ; la puce suivante sort le poste, la troisième le branche.
+
+### Les 19 points à préciser
+
+**Appliqués** (source et correction proposée) :
+- **P1**, étape 26 : les gouttières et le bas des descentes de gouttière, l'endroit où l'eau tombe du toit, les
+  fossés, les flaques et les creux, le pied des arbres ; le ruisseau boueux des premières grosses pluies (MOE 2013 ;
+  ORNL, p. 72). Le `[À VÉRIFIER]` sort.
+- **P2** : la phrase du ruban adhésif sort, avec son `[À VÉRIFIER]`. La phrase de remplacement (couper les cheveux
+  aux ciseaux) n'est pas ajoutée : le vérificateur la laisse à JP.
+- **P3**, section 7, « Sans eau fermée » : « Après une détonation » ; le panache d'une centrale lointaine dépose un
+  césium qui se dissout presque en entier (AIEA 2006) ; la terre retient le césium, mal l'iode (AIEA, TRS-472,
+  tableau 12) ; pendant les six à huit semaines où il reste de l'iode radioactif, boire d'abord l'eau d'un puits
+  tubé et fermé ou ce qui reste d'eau fermée. Écart : « boire d'abord l'eau fermée » devient « l'eau d'un puits tubé
+  et fermé, ou ce qui reste d'eau fermée », parce que la sous-section s'appelle « Sans eau fermée ». Les 99 % : « après
+  une détonation ».
+- **P4**, le filtre de terre : sauf là où la poussière est tombée sur du sable ou du gravier (ORNL, p. 73).
+- **P5**, étape 4 : visibles après une explosion au sol ; invisibles après une explosion en altitude ou le panache
+  d'une centrale : entrer dès l'éclair ou l'alerte (FEMA, p. 28 ; ORNL, p. 49 ; Québec).
+- **P6**, étape 7 : le poêle envoie l'air dehors, le même volume entre par les fentes, assez lentement pour
+  n'apporter presque pas de poussière (RNCan ; ORNL, annexe B).
+- **P9**, section 6, deux doses : « Une dose de trop » ; à partir de 4 ans, 130 mg, sans danger (FDA 2002) ; « Sauter
+  la dose suivante » sort (non retrouvé). Écart : la phrase du nouveau-né devient un renvoi qui dit le geste, « À un
+  bébé de moins d'un mois, ne plus en donner (étape 16) », au lieu de redire le mécanisme de l'étape 16. La dose
+  suivante à l'heure prévue n'est pas écrite : le vérificateur la laisse à JP.
+- **P10**, étape 15 : ou un comprimé de 130 mg (FDA 2012). « les laisser tremper » et « Les écraser » perdent leur
+  « les », qui ne marchait plus avec un seul comprimé.
+- **P11**, étape 12 : on peut boire l'eau désinfectée à l'iode (ch. 10, étape 23 ; ORNL, p. 115).
+- **P12**, étape 25 : « Les filtres ont pu retenir de la poussière radioactive » ; la phrase de la fournaise sans
+  filtre sort (non retrouvée).
+- **P13**, étape 30 : le strontium reste dans l'os à la cuisson, pas d'os broyé ; le bouillon d'os (ch. 72) prend le
+  césium : le jeter (AIEA, TRS-472, tableau 76).
+- **P14**, la neige : écart de place. Le fait des 1,5 m de neige arrosée ou bien tassée pour diviser la dose par 50
+  (ORNL, p. 158) va dans la puce du banc de neige, où la neige sert ; le paragraphe des sacs dit seulement de monter
+  plutôt la neige dehors, en banc contre les murs (repère 2), parce qu'elle fond dans une pièce chauffée.
+- **P15**, le botulisme du poisson : `{!botulisme}` en tête de la puce du poisson, étape 31, et « Tenir le bain du
+  poisson sous 3 °C, en y mettant de la glace ou de la neige, et ne le faire tremper à l'eau courante que si elle est
+  aussi froide » (tableau de `CLAUDE.md` ; page `botulisme`). La puce suivante dit « le bain de la viande » entre 0 et
+  4 °C ; Points de contrôle, « sous 3 °C pour le poisson ».
+- **P16**, section 6 : « Dans les deux semaines qui suivent » (ORNL, p. 110).
+- **P17**, « Sans sel » : « du temps de trempage pour le poisson ».
+
+**Pas appliqués :**
+- **P7**, l'avertisseur de CO sous 4,4 °C au caveau : la phrase va dans l'étape 18, que l'orchestrateur réserve à
+  la décision de JP (P8). À poser avec elle. La ligne du Matériel (« le seul moyen de savoir ») et celle des Points
+  de contrôle (« avant chaque sommeil ») restent telles quelles en attendant.
+- **P8**, rester dedans ou sortir à l'air libre devant le CO : à JP. L'étape 18 n'est pas touchée.
+- **P18**, le détecteur et l'écouteur du poste à galène : aucune correction proposée, aucune source ; le geste reste.
+- **P19**, les renvois faibles : aucune correction proposée. Les antibiotiques gardés (ch. 32, ch. 35) contredisent
+  le ch. 32, qui refuse d'en stocker sans ordonnance ; le renvoi « rétine (ch. 35) » est faible. À l'orchestrateur.
+
+### Les `[À VÉRIFIER]`
+
+Il n'en reste aucun dans le chapitre : le ruban adhésif est coupé (P2), l'étape 26 prend le texte sourcé (P1), le
+poisson du fleuve perd son étiquette (AIEA, poisson de mer 100 L/kg, TRS-422, contre 2 500 L/kg pour le muscle du
+poisson d'eau douce, TRS-472 ; MOE 2018), la pompe à carton est remplacée par la pompe à volets (E3).
+
+### Les notes En plus
+
+Les encadrés sont devenus des notes (f348aa3) : la ligne d'image de l'argile reste retirée. Chaque note dit son
+étape entre parenthèses, parce que c'est ce qui la place : la baisse du rayonnement (étape 24), l'estomac du caribou
+(étape 29, déjà là), les rennes (étape 29), l'argile (étape 22, la décantation). Comptes : 78, 73, 79 et 78 mots. Pour
+tenir sous 80 mots, l'argile perd « au-dessus de son niveau actuel » (« 120 m d'altitude ») et « pendant et » (« surtout
+après de fortes pluies ») ; les rennes perdent « donc ».
+
+### Planches à refaire
+
+- **04-01b, à redessiner en pompe à volets** (ORNL, annexe B, fig. 1, 2, 11, 13 et 21 du livre de Kearny). Le
+  dessin actuel montre le punkah : un panneau plein, des lattes en butée (repères 3, 6, 7, 9) et un linge humide
+  (repère 11). À montrer : l'ouverture choisie, la planche clouée en travers du haut, le cadre doublé pendu à deux
+  pentures ou à des boucles, les ficelles d'arrêt sur la face tournée vers la pièce, les volets de sac à ordures
+  enfilés sur leurs fils de cintre devant les ficelles, la corde nouée un peu sous les pentures, le coup (le cadre
+  monte presque à l'horizontale, volets fermés, l'air poussé vers la pièce) et le retour (corde lâche, volets
+  ouverts), le filtre sur son cadre de lattes à l'entrée d'air. Les repères se remettent dans le texte quand la
+  planche est refaite, dans l'ordre des puces. **Son ancre change** : elle est déjà mise à jour dans
+  `design/epreuves-livre/placements-tome-1.json`, « **La pompe à volets** : on la pend dans le haut de la porte de la
+  pièce d'abri ». Pas dessinée ici. Le commentaire de tête de `images/planches-src/04-01b.js` dit encore « La pompe à
+  carton ».
+- **04-01a** : les sacs de neige ne se montent plus dans la pièce (P14) ; le paragraphe des sacs renvoie maintenant
+  au repère 2 (le banc du dehors). Le repère 3 (neige tassée et arrosée) ne se montre que dans le banc.
+- `images/planches-src/04-41.js` cite encore le titre « Sans dosimètre » dans son commentaire de tête.
+
+### Ancres, logigramme, montage
+
+- **Ancres** (`placements-tome-1.json`) : le logigramme suit la nouvelle ligne du Matériel, « **Compteur Geiger ou
+  dosimètre à affichage** » ; 04-01b, plus haut. Les autres ancres ne changent pas ; controle.py : 0 ancre
+  introuvable.
+- **Logigramme** : nœuds « changer » (E1) et « radio » (E2) ; rendu refait (`logigramme.py`, puis `--sans-entete
+  --svg`) : 0 erreur, 0 avis. Les pastilles ne changent pas.
+- **Électroscope** : son premier paragraphe est coupé après l'appel de la planche 04-41. Au premier montage d'essai,
+  ce paragraphe commençait au bas d'une page et finissait sur la suivante, et la planche tombait deux pages après son
+  appel.
+- **Montage d'essai** (scratchpad, rien dans `livre/`) : 22 pages. Chaque appel tombe seul sur sa page et sa planche
+  sur la suivante : 04-01a (p. 12 et 13 du chapitre), 04-41 (14, 15), 04-01b (16, 17), 04-42 (18, 19), 04-40 (20,
+  21). **Les quatre notes En plus ne trouvent pas de page** (« sans trou où se poser ») : le texte a pris environ
+  600 mots, et la p. 22, qui a de la place sous « Ce qui ne se remplace pas », ne les reçoit pas. Les tableaux des
+  sections 5 et 6 débordent encore. Au metteur en pages.
+
+### Ch. 8 et ch. 10 (seulement les phrases corrigées)
+
+- **Ch. 8**, scénario 6 : la ligne « À la sortie : Déboucher les ouvertures et les prises d'air ; ensacher les
+  filtres… » devient deux lignes : « Après quelques heures | Déboucher les ouvertures de la pièce d'abri et l'aérer |
+  ch. 4, étape 18 », puis « À la sortie | Ensacher les filtres de la fournaise et les porter loin du bâtiment ».
+- **Ch. 10**, étape 1 : « Après des retombées radioactives, faire bouillir ou chlorer l'eau n'enlève rien de ce qui
+  est radioactif. Après une détonation, la décanter à l'argile et la passer au filtre de terre en enlèvent presque
+  tout ; après le panache d'une centrale, la terre retient le césium, mais mal l'iode radioactif (ch. 4, étape 22 et
+  section 7). »
+- controle.py, avant et après : aucun avis nouveau dans les deux chapitres. Les avis qui y étaient déjà (ch. 8 :
+  7 « § », 1 « ceux qui », 1 mot du vocabulaire d'IA ; ch. 10 : 1 « ceux qui », 2 mises en relief) ne sont pas
+  touchés : rien d'autre ne change dans ces deux chapitres.
+
+### À signaler (pas dans la fiche du vérificateur)
+
+- **Section 7, « Sans eau chaude ni savon »** : « Faire fondre de la neige sur le poêle pour se rincer ». Après E7,
+  la neige du sol a reçu la poussière ; la même question se pose pour le lavage. Rien changé : à trancher.
+- **`plan/dangers-inventaire.md`**, entrée du ch. 04 : « `botulisme` n'est posé nulle part » n'est plus vrai (étape
+  31, puce du poisson). Pas modifié (hors des fichiers donnés).
+
+### controle.py, avant et après la correction
+
+- **Avant** (f05cc2a) : 8 504 mots, 2 tirets (titre et ligne de tome), 42 mots vides, 13 redites.
+- **Après** : 9 098 mots, 2 tirets (les mêmes), 0 « § », 0 mot banni, 0 tournure, 0 mise en relief, 0 maxime, 0
+  pronominal, 0 ancre introuvable. 1 âge (« À partir de 4 ans » : une dose, un fait qui change le geste). 46 mots vides
+  jugés (les nouveaux : « tout seul » et « tout le retour » pour le cadre qui revient sans qu'on le tire, « tous les
+  7,5 cm », « l'air entre déjà », « bien tassée » : ils portent le sens). 12 redites, les mêmes qu'avant.
+- **Invariants** : « 30 °C » (le diagnostic des comprimés change, E5 ; les 15 à 30 °C restent à l'étape 33) ;
+  « 4 heures » (P17).
