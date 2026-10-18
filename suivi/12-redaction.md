@@ -1045,3 +1045,93 @@ Les trois encadrés passent de 92, 95 et 31 mots à 55, 58 et 18 environ. Rien d
 ## La série orange en tête de la procédure (JP, 18 octobre 2026)
 
 JP : « les premières minutes doivent toujours être directement après les [logigrammes] associés, je comprends pas, je te l'ai déjà dit ». La série « Le soleil se couche et on ne rentrera pas » passe du début de la section 7 au début de la section 4, juste après le logigramme. Numérotation : anciennes étapes 89 à 102 → 1 à 14 ; anciennes 1 à 88 → 15 à 102. Renvois mis à jour par script dans le chapitre (sauf ceux vers d'autres chapitres), le logigramme (`renvoi`), les ancres de `placements-tome-1.json`, le ch. 37 (étapes 36, 26 à 29, 19 → 50, 40 à 43, 33) et le ch. 82 (« ch. 12 (section 7) » → « ch. 12 (étapes 1 à 14) » pour la nuit dehors). Les fiches de suivi plus haut gardent l'ancienne numérotation.
+
+## Encadrés En plus 4 à 6, 18 octobre 2026
+
+Rôle 2, rédacteur. JP veut une réserve de 4 à 8 encadrés par chapitre (le moteur les pose aussi dans une colonne de
+droite restée vide, sur une page qui se ferme sur une planche). Trois encadrés ajoutés après « Le corps mort » ; rien
+d'autre du chapitre n'a bougé (fichier gardé en CRLF). Fiche des sources :
+`sources/12-en-plus-raquettes-fenetre-de-glace-meleze.md`. La section compte maintenant six encadrés : trois façons
+d'une nation du Nord (Innus, Cris, Inuits), deux photos, un dessin. Lecture vérifiée avec `extras_html` de
+`build_chapitre.py` : six boîtes, dont deux photos (`x-photo`) et un dessin (`x-dessin`). L'assembleur n'a pas été lancé.
+
+### 4. Planter ses raquettes debout près de la porte (la façon des Cris ; 36 mots)
+
+- **Provenance :** Nation crie de Wemindji, exposition « Life Is An Expedition / La vie est une expédition », Histoires
+  de chez nous, Musées numériques Canada, 2019, galerie « Raquettes » (photo de Linda Stewart, vers 2000). Pages
+  anglaise et française enregistrées en entier (`sources/12-en-plus-wemindji-raquettes-en-2026-10-18.html`,
+  `…-fr-2026-10-18.html`) ; extraits dans la fiche, partie 1.
+- **Faits imprimés :** quand on s'arrête pour la nuit, on laisse ses raquettes debout dans la neige, près de la porte ;
+  on les retrouve facilement s'il a beaucoup neigé pendant la nuit. Aucun chiffre.
+- **Pourquoi elle marche :** dit par la source (« C'est plus facile de les retrouver s'il a beaucoup neigé »).
+- **Danger :** aucun ; la façon ne contredit aucune règle du livre.
+- **Pourquoi celle-là :** la fiche des encadrés 1 à 3 l'avait gardée pour le ch. 89, faute d'un danger à dire. Un
+  encadré n'a besoin d'un avertissement que si la façon contredit une règle du livre, ce qui n'est pas le cas ; elle
+  sert au camp d'une nuit (étapes 1 à 14), qui est dans ce chapitre. Rien n'empêche le ch. 89 de la reprendre.
+- **Pas repris :** la pelle de bois taillée à la main (akwaaskupaan) vue sur la photo : la page ne dit ni comment la
+  faire ni qu'on la plante avec les raquettes.
+
+### 5. Une fenêtre de glace dans la maison de blocs (la façon des Inuits ; 70 mots)
+
+- **Provenance :** Lucien M. Turner, *Ethnology of the Ungava District*, 1894, domaine public, texte intégral déjà au
+  dossier (`sources/autochtones/turner-1894-ethnologie-ungava-gutenberg.txt`, l. 2772-2773 et 2841-2847) ; extraits
+  dans la fiche, partie 2. La fiche `16c-turner-1894-…` résumait la maison de neige sans la fenêtre.
+- **Faits imprimés :** chez les Inuits du détroit d'Hudson, une fenêtre parfois posée du côté du soleil ; un morceau de
+  glace de lac, épais et clair, encastré dans la paroi du dôme ; le jour, il fait assez clair dans une maison de blocs
+  ordinaire ; la fenêtre sert quand les murs ont dû être bâtis très épais, aux endroits où le vent et la poudrerie
+  usent la paroi. Aucun chiffre.
+- **Renvoi :** étape 102 (le mur de blocs contre la poudrerie, tiré du même passage de Turner, l. 2848-2851).
+- **Danger :** aucun ; la façon ne contredit aucune règle du livre.
+
+### 6. Reconnaître le mélèze, l'hiver (photo ; 69 mots)
+
+- **Pourquoi celui-là :** le chapitre fait couper l'épinette morte debout pour le feu (étapes 3 et 15). L'hiver, un
+  mélèze vivant n'a plus d'aiguilles et a l'air mort : c'est le fait qui surprend, et la photo le montre à côté de
+  conifères verts.
+- **Image :** `images/extras/12-meleze-hiver.jpg`, 3 343 × 1 500 px : à gauche l'arbre (1 125 × 1 500, la photo est
+  déjà en 3 × 4), à droite le rameau (2 188 × 1 500), séparés de 30 px de blanc ; fait au PIL, sans recadrage, sans
+  texte ni retouche. Originaux dans `images/extras/originaux/`. Choisie sur une planche de 40 photos (iNaturalist,
+  *Larix laricina*, Québec, décembre à mars, « research », CC BY ou CC0).
+
+| Volet | Auteur | Licence de la photo | Lien |
+| --- | --- | --- | --- |
+| Gauche, l'arbre nu parmi des conifères verts (Sainte-Béatrix, 15 février 2025) | Patrice Dupont | CC BY | https://www.inaturalist.org/observations/261887656 (photo 470590126) |
+| Droite, le rameau, ses rameaux nains et un cône ouvert (Rouyn-Noranda, 28 mars 2025) | Pierre Cartier | CC0 (l'observation est en CC BY-NC) | https://www.inaturalist.org/observations/267511623 (photo 480749975) |
+
+  Réponse de l'API : `sources/12-inaturalist-meleze-2026-10-18.json` ; crédits dans `images/credits.md`, section
+  « Encadrés En plus du chapitre 12 ».
+- **Faits et sources :** Ressources naturelles Canada, fiche 34, mélèze laricin
+  (`sources/12-rncan-fiche-34-meleze-laricin-2026-10-18.html`) : aiguilles en faisceaux sur des rameaux nains, cônes
+  « largement ovoïdes » de **1 à 2 cm** (seul chiffre de l'encadré), tourbières, muskeg et pourtour des tourbières.
+  UNH Cooperative Extension, Ray Berthiaume, « The Tamarack », 28 novembre 2023
+  (`sources/12-en-plus-unh-extension-tamarack-2026-10-18.html`) : il perd toutes ses aiguilles à l'automne, elles
+  reviennent en touffes au printemps, l'arbre nu « n'est pas en train de mourir ». La fiche de RNCan ne dit pas que
+  les aiguilles tombent toutes ; aucune page gouvernementale canadienne ou québécoise ne l'a dit en clair (Espace pour
+  la vie bloqué par son pare-feu) : la page de l'UNH porte ce fait.
+- **« Son bois est vert » :** tiré de « il est vivant », sans taux d'humidité ; le chapitre emploie déjà « bois vert ».
+- **Les cônes l'hiver :** aucune source ne dit qu'ils restent sur l'arbre ; les observations de février et de mars en
+  montrent. Le texte dit seulement à quoi ils ressemblent.
+- **Légende :** « À gauche, un mélèze l'hiver, sans aiguilles, parmi des conifères verts ; à droite, un rameau de
+  mélèze et un cône ». Les conifères verts de la photo ne sont pas nommés (sapin ou épinette, on ne le voit pas).
+
+### Pistes regardées et non retenues
+
+- **La lampe de pierre des Inuits dans la maison de neige** (Turner, l. 3024-3070 : seule source de chaleur et de
+  lumière, mèche de mousse, cadre au-dessus pour sécher les mitaines). Elle contredit l'étape 78 (aucune flamme dans un
+  abri de neige), et aucune source trouvée ne dit ce qui la rendait sûre dans leurs conditions (une recherche sur le
+  monoxyde d'une lampe à l'huile de phoque dans un iglou n'a rien donné de mesuré). Sans ce pourquoi, l'encadré ne
+  peut pas suivre la règle des méthodes ancestrales : non écrit.
+- **Le sapinage innu de Casault** (grosses branches posées le creux de la courbe vers la neige, puis de petites
+  branches ; plus de 30 cm l'hiver) : il touche la question ouverte de la partie 0, point 3, et les étapes 41 à 47.
+  Laissé à la décision de JP, comme la fiche des encadrés 1 à 3 le demandait.
+- **La pente du plancher de la tente conique des Naskapis** (Turner, l. 5986-5988) : la source n'en dit que le confort.
+- **La neige de sucre en photo** : l'API de Wikimedia Commons répond 429 depuis ce conteneur ; iNaturalist n'a pas de
+  neige.
+
+### controle.py
+
+9 555 mots (9 332 avant les encadrés 4 à 6) ; 2 tirets (titre et ligne de tome, comme avant) ; aucun « § », mot banni,
+maxime, pronominal ni mise en relief dans la section En plus. Un « d'où » relevé dans le premier jet du mélèze (« les
+bosses… d'où les aiguilles sortent ») a été réécrit (« où les aiguilles poussent »). Reste un mot vide signalé dans les
+encadrés, jugé : « toutes ses aiguilles » (le mélèze les perd toutes, c'est le fait). Aucune redite nouvelle.
+Invariants contre la version d'avant les encadrés : rien n'a disparu.

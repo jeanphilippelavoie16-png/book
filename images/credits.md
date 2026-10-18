@@ -1053,6 +1053,18 @@ originaux (taille « original » d'iNaturalist) sont gardés dans `extras/origin
 | `extras/originaux/12-cedre-inat-420156486.jpg` | Thuya occidental, le cèdre (*Thuja occidentalis*), rameaux aplatis en éventail ; Gatineau, Québec, 13 août 2024 | Alexis Tinker-Tsavalas (alexis_orion), « (c) Alexis Tinker-Tsavalas, some rights reserved (CC BY) » | CC BY | https://www.inaturalist.org/observations/236186493 (photo 420156486) |
 | `extras/12-trois-coniferes.jpg` | Les trois photos précédentes côte à côte, de gauche à droite : sapin baumier, épinette noire, cèdre (montage du 18 octobre 2026, celui qui s'imprime) | Patrice Dupont ; rboles ; Alexis Tinker-Tsavalas | CC BY (les trois volets) | voir les trois lignes précédentes |
 
+Encadré « Reconnaître le mélèze, l'hiver » (ajouté le 18 octobre 2026) : deux photos d'iNaturalist, prises au Québec
+en hiver, identification confirmée par la communauté (« research »). Licence **de chaque photo** relue sur l'API
+d'iNaturalist au téléchargement ; réponse enregistrée dans `sources/12-inaturalist-meleze-2026-10-18.json`. Originaux
+dans `extras/originaux/`. Le montage met les deux photos à la même hauteur (1 500 px), séparées de 30 px de blanc, sans
+recadrage, sans texte ni retouche.
+
+| Fichier | Sujet | Auteur | Licence | Lien |
+| --- | --- | --- | --- | --- |
+| `extras/originaux/12-meleze-arbre-inat-470590126.jpg` | Mélèze laricin (*Larix laricina*) en hiver, sans aiguilles, parmi des conifères verts ; Sainte-Béatrix, Québec, 15 février 2025 | Patrice Dupont (patrice_dupont), « (c) Patrice Dupont, some rights reserved (CC BY) » | CC BY | https://www.inaturalist.org/observations/261887656 (photo 470590126) |
+| `extras/originaux/12-meleze-rameau-inat-480749975.jpg` | Mélèze laricin (*Larix laricina*), rameau nu avec ses rameaux nains et un cône ouvert, tenu dans la main ; Rouyn-Noranda, Québec, 28 mars 2025 | Pierre Cartier (pcartier), « no rights reserved » | CC0 (licence de la photo ; l'observation est en CC BY-NC) | https://www.inaturalist.org/observations/267511623 (photo 480749975) |
+| `extras/12-meleze-hiver.jpg` | Les deux photos précédentes côte à côte, l'arbre à gauche, le rameau à droite (montage du 18 octobre 2026, celui qui s'imprime) | Patrice Dupont ; Pierre Cartier | CC BY (volet de gauche) ; CC0 (volet de droite) | voir les deux lignes précédentes |
+
 ## Pages de titre des tomes (images/tomes/)
 
 - Champignon atomique, forêt en feu : Game-icons.net (Lorc, Delapouite), CC BY 3.0, https://game-icons.net

@@ -69,7 +69,7 @@ pas imprimée : la page ne dit ni comment la tailler ni qu'on la plante avec les
 | Les Inuits du détroit d'Hudson posaient parfois une fenêtre dans la maison de blocs, du côté du soleil | « The winter dwellings of the Eskimo of Hudson strait » ; « A window is sometimes set in the side of the structure toward the sun » |
 | Un morceau de glace de lac, épais et clair, encastré dans la paroi du dôme | « a piece of thick, clear ice, from a lake, set in the wall of the dome » |
 | Le jour, il fait assez clair dans une maison de blocs ordinaire | « it is generally light enough during the day within the snow-house » |
-| La fenêtre sert quand on a dû bâtir des murs très épais, là où le vent et la poudrerie usent la paroi | « unless the walls be built particularly thick, but great thickness in certain situations becomes necessary lest the winds and drifting snow wear away the sides of the structure » |
+| La fenêtre sert quand on a dû bâtir des murs très épais, aux endroits où le vent et la poudrerie usent la paroi | « unless the walls be built particularly thick, but great thickness in certain situations becomes necessary lest the winds and drifting snow wear away the sides of the structure » |
 
 Le renvoi à l'étape 102 (le mur de blocs contre la poudrerie, même source, l. 2848-2851) relie les deux réponses de
 Turner à la même usure. La façon ne contredit aucune règle du livre.
@@ -134,11 +134,11 @@ Extraits intégraux :
 | Fait imprimé | Extrait |
 | --- | --- |
 | Le mélèze perd toutes ses aiguilles à l'automne | UNH : « looses its leaves (needles) in the fall » ; « the trees will lose all the needles » |
-| L'hiver, il a l'air d'un arbre mort, mais il est vivant | UNH : « 'Why are my Pine trees dying?' […] they are not dying […] will come back just fine in the spring » |
+| L'hiver, il a l'air mort, mais il est vivant | UNH : « 'Why are my Pine trees dying?' […] they are not dying […] will come back just fine in the spring » |
 | Son bois est vert | Conséquence directe : un arbre vivant donne du bois vert, pas le bois mort debout sec de l'étape 15 (le chapitre emploie déjà « bois vert » pour les billes de la plateforme et des cales). Aucun taux d'humidité n'est imprimé |
-| Les petites bosses le long des rameaux, d'où les aiguilles sortent en touffes au printemps | RNCan : aiguilles « 15 à 60 par faisceau », bourgeons « sur les rameaux nains » ; UNH : « arranged in tufts stemming from buds along the branches », « come out in the spring ». Les rameaux nains se voient sur la photo comme de petites bosses |
+| Les petites bosses de ses rameaux, où les aiguilles poussent en touffes au printemps | RNCan : aiguilles « 15 à 60 par faisceau », bourgeons « sur les rameaux nains » ; UNH : « arranged in tufts stemming from buds along the branches », « come out in the spring ». Les rameaux nains se voient sur la photo comme de petites bosses |
 | Les cônes presque ronds, de 1 à 2 cm | RNCan : « Largement ovoïdes » ; « 1 à 2 cm » |
-| Il pousse souvent dans les tourbières et sur leur bord | RNCan : « tourbières à sphaignes et le muskeg » ; « sur le pourtour des tourbières » ; UNH : « often associated with peatlands and bogs » |
+| On le trouve souvent autour des tourbières | RNCan : « tourbières à sphaignes et le muskeg » ; « sur le pourtour des tourbières » ; UNH : « often associated with peatlands and bogs » |
 
 **Les cônes l'hiver :** aucune des deux pages ne dit que les cônes restent sur l'arbre l'hiver. Les observations
 d'iNaturalist de la photo et de la planche de choix (15 février, 5 mars et 28 mars, au Québec) en montrent sur les

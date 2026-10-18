@@ -7,6 +7,7 @@ des planches de la procédure.
 | Fichier | Chapitre | Ce que c'est | Source |
 | --- | --- | --- | --- |
 | `12-corps-mort.svg`, `12-corps-mort.png` | 12, étape 13 | Petite planche (format quart, 340 × 413) : le corps mort vu de dessus avant de remplir, puis en coupe, rempli et tassé | `images/planches-src/extra-12-corps-mort.js` |
+| `12-meleze-hiver.jpg` | 12, encadré « Reconnaître le mélèze, l'hiver » | Montage de deux photos, 3 343 × 1 500 : un mélèze nu l'hiver, puis un rameau et un cône | iNaturalist, originaux dans `originaux/`, crédits dans `images/credits.md` |
 
 ## Refaire une petite planche
 
