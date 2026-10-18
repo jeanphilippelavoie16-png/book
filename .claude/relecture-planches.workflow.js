@@ -28,7 +28,7 @@ const SCHEMA = {
 
 function prompt(g) {
   const liste = g.planches.map(p => `- **${p.ref}** — chapitre \`chapitres/${p.chapitre}\``).join('\n')
-  return `Tu relis des planches du « Grand Livre du Chalet », un manuel de survie personnel pour JP, qui soude, câble du 12 V, abat un orignal, et qui va **bâtir ou faire** ce que montrent ces planches sans en avoir jamais vu. Le projet est dans C:\\Users\\jeanp\\New folder. Tu n'as pas dessiné ces planches : c'est pour ça que tu les relis.
+  return `Tu relis des planches du « Manuel du Nord », un manuel de survie personnel pour JP, qui soude, câble du 12 V, abat un orignal, et qui va **bâtir ou faire** ce que montrent ces planches sans en avoir jamais vu. Le projet est dans C:\\Users\\jeanp\\New folder. Tu n'as pas dessiné ces planches : c'est pour ça que tu les relis.
 
 **Tes planches :**
 ${liste}

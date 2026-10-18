@@ -1,6 +1,6 @@
 ---
 name: canevas
-description: Monter et tenir à jour le canevas de relecture des planches du Grand Livre du Chalet — un Artifact de type Design où les planches sont posées côte à côte, à leur taille d'impression, pour être jugées et commentées. Utilise ce skill dès qu'il est question de montrer des planches, d'en faire voir plusieurs ensemble, de monter ou de mettre à jour le canevas, d'ajouter une planche à la vitrine, de regrouper ou de réorganiser des artboards, ou quand quelqu'un dit qu'il ne voit pas une planche. Il porte la mise en page du canevas, pas le dessin des planches — pour ça, c'est le skill planches.
+description: Monter et tenir à jour le canevas de relecture des planches du Manuel du Nord — un Artifact de type Design où les planches sont posées côte à côte, à leur taille d'impression, pour être jugées et commentées. Utilise ce skill dès qu'il est question de montrer des planches, d'en faire voir plusieurs ensemble, de monter ou de mettre à jour le canevas, d'ajouter une planche à la vitrine, de regrouper ou de réorganiser des artboards, ou quand quelqu'un dit qu'il ne voit pas une planche. Il porte la mise en page du canevas, pas le dessin des planches — pour ça, c'est le skill planches.
 ---
 
 # Monter un canevas de relecture

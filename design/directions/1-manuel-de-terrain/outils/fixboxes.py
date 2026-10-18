@@ -7,7 +7,7 @@ def fix(name, specs):
         p.mediabox=RectangleObject([0,0,W,H]); p.cropbox=RectangleObject([0,0,W,H])
         p.bleedbox=RectangleObject([0,0,W,H]); p.trimbox=RectangleObject(trim)
         w.add_page(p)
-    w.add_metadata({"/Title": name.replace(".pdf","")+" — Le Grand Livre du Chalet, direction 1 : manuel de terrain"})
+    w.add_metadata({"/Title": name.replace(".pdf","")+" — Le Manuel du Nord, direction 1 : manuel de terrain"})
     with open(O+"\\"+name,"wb") as f: w.write(f)
 R=(585,738,[0,9,576,729]); V=(585,738,[9,9,585,729])
 fix("interieur.pdf",[R,V,R,V,R,V,R,R,R])   # 65-1 65-2 65-3 65-6 65-7 65-12 65-13 00-7 73-5

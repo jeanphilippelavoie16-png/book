@@ -13,7 +13,7 @@ const LISTE = SCR + '/args-corrections-50.json'
 const BACK = SCR + '/backup-corrections'
 const S = { type: 'object', properties: { ref: { type: 'string' }, fichiers: { type: 'array', items: { type: 'string' } }, faites: { type: 'array', items: { type: 'string' } }, pasFaites: { type: 'array', items: { type: 'string' }, description: 'modif non faite et pourquoi' }, ceQueJeVois: { type: 'string' } }, required: ['ref', 'fichiers', 'faites', 'pasFaites', 'ceQueJeVois'] }
 
-const P = (p) => `Planche **${p.ref}** du « Grand Livre du Chalet », un manuel de survie imprimé pour JP et sa famille (Côte-Nord) ; JP va bâtir ou faire ce qu'elle montre sans l'avoir jamais vu. Projet : ${ROOT}. Chapitre : \`chapitres/${p.chapitre}\`.
+const P = (p) => `Planche **${p.ref}** du « Manuel du Nord », un manuel de survie imprimé pour JP et sa famille (Côte-Nord) ; JP va bâtir ou faire ce qu'elle montre sans l'avoir jamais vu. Projet : ${ROOT}. Chapitre : \`chapitres/${p.chapitre}\`.
 
 **Ta mission : corriger cette planche selon la passe qualité.** Dans \`${LISTE}\`, trouve l'entrée dont \`ref\` vaut \`${p.ref}\` : son \`verdict\` (retouches ou a-refaire), les \`regles\` touchées et les \`modifs\`, dans l'ordre d'importance. Ce sont tes consignes. (Le détail de l'examen est aussi dans \`images/passe-qualite/lot-*.md\`.)
 

@@ -1,6 +1,6 @@
 ---
 name: planches
-description: Dessiner les planches au trait du Grand Livre du Chalet — montages, coupes de principe, séquences de gestes, gabarits à recopier, comparaisons bon/raté — en SVG prêt pour l'impression noir et blanc 8 × 10 po. Utilise ce skill dès qu'il est question de dessiner, illustrer, schématiser ou produire une image pour un chapitre du livre, dès qu'on parle de planche, de figure, de schéma, de coupe, de croquis ou de « comment montrer ça », et dès qu'on demande de remplacer une photo impossible par un dessin. Il porte surtout le critère de choix — une planche montre comment fabriquer ou faire, jamais une règle ni une donnée, et ce qui se construit se dessine en profondeur — et la règle de ce qu'on n'a PAS le droit de dessiner.
+description: Dessiner les planches au trait du Manuel du Nord — montages, coupes de principe, séquences de gestes, gabarits à recopier, comparaisons bon/raté — en SVG prêt pour l'impression noir et blanc 8 × 10 po. Utilise ce skill dès qu'il est question de dessiner, illustrer, schématiser ou produire une image pour un chapitre du livre, dès qu'on parle de planche, de figure, de schéma, de coupe, de croquis ou de « comment montrer ça », et dès qu'on demande de remplacer une photo impossible par un dessin. Il porte surtout le critère de choix — une planche montre comment fabriquer ou faire, jamais une règle ni une donnée, et ce qui se construit se dessine en profondeur — et la règle de ce qu'on n'a PAS le droit de dessiner.
 ---
 
 # Dessiner une planche

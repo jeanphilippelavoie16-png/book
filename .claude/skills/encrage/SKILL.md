@@ -1,6 +1,6 @@
 ---
 name: encrage
-description: La passe d'encrage d'un dessinateur professionnel sur les dessins au trait du Grand Livre du Chalet — décalques, mains, corps, têtes, planches — pour que le trait soit parfait. Utilise ce skill dès qu'un dessin est décalqué ou construit et doit être « repassé », dès que JP dit que les traits ne sont pas parfaits, tremblent, se coupent, se doublent ou font « pas pro », dès qu'on parle d'encrer, de nettoyer, de repasser, de mettre au propre un dessin, et toujours avant de montrer à JP un dessin issu d'un décalque (skill dessin-notice). Il ne décide pas quoi dessiner (skill planches) ni la forme du corps (skill dessin-notice) : il fait le trait.
+description: La passe d'encrage d'un dessinateur professionnel sur les dessins au trait du Manuel du Nord — décalques, mains, corps, têtes, planches — pour que le trait soit parfait. Utilise ce skill dès qu'un dessin est décalqué ou construit et doit être « repassé », dès que JP dit que les traits ne sont pas parfaits, tremblent, se coupent, se doublent ou font « pas pro », dès qu'on parle d'encrer, de nettoyer, de repasser, de mettre au propre un dessin, et toujours avant de montrer à JP un dessin issu d'un décalque (skill dessin-notice). Il ne décide pas quoi dessiner (skill planches) ni la forme du corps (skill dessin-notice) : il fait le trait.
 ---
 
 # L'encrage — le trait d'un dessinateur professionnel

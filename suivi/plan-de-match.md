@@ -326,7 +326,11 @@ tomes** : un peu plus de blanc en bas des pages qui précèdent une planche ; le
     à 6 (d'ici là, ils prennent la scène du tome 1). Puis, même jour : la scène dessinée « manque d'âme » ; JP la veut
     repeinte par un générateur, en linogravure, ciel ouvert et collines basses, et choisit la variante 4
     (`images/tomes/essais-ia/titre-nuit-pistes-2.png`) : agrandie ×4 (3072 × 3840), elle est
-    `images/tomes/titre-tome-1.jpg`, que l'assembleur pose sur toute la page sous le texte.
+    `images/tomes/titre-tome-1.jpg`, que l'assembleur pose sur toute la page sous le texte. Les étoiles derrière et
+    autour du texte sont retirées (JP). **Le livre change de nom** (JP, 18 octobre 2026 : « enlève le Grand Livre du
+    Chalet et trouve un autre nom ») : **Le Manuel du Nord**, choisi parmi quatre propositions. Remplacé dans les
+    outils (assembleur, chapitres, logigrammes, couvertures, formulaires, index), CLAUDE.md, les skills et les plans ;
+    les archives gardent l'ancien nom.
 31. **Les dangers en pictogrammes ; la section Danger sort des chapitres** (JP, 18 octobre 2026). Un pictogramme
     par danger ; chaque danger est expliqué une fois, à fond, dans la section qui explique les symboles et les
     pictogrammes du livre ; dans un chapitre, le pictogramme s'affiche là où le danger est présent, et la section 7

@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Contrôle d'une planche SVG du Grand Livre du Chalet.
+// Contrôle d'une planche SVG du Manuel du Nord.
 // Usage : node verifier-planche.js images/planche-84-09.svg [autres.svg ...]
 //
 // Le script attrape ce qui ne se voit qu'à l'impression. Il ne juge pas le dessin.

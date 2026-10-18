@@ -1,4 +1,4 @@
-# Vocabulaire de l'index — Le Grand Livre du Chalet
+# Vocabulaire de l'index — Le Manuel du Nord
 #
 # Ce fichier dit QUOI indexer et COMMENT le reconnaître. Le script index/outils/construire-index.py
 # trouve OÙ (les ancres) et écrit index/tome-N.json et index/general.json.

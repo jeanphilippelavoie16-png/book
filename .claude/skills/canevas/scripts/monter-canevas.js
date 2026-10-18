@@ -1,11 +1,11 @@
 #!/usr/bin/env node
-// Monte le canevas de relecture des planches du Grand Livre du Chalet.
+// Monte le canevas de relecture des planches du Manuel du Nord.
 //
 //   node monter-canevas.js images/manifeste-canevas.json [dossier-de-sortie]
 //
 // Le manifeste :
 // {
-//   "titre": "Planches — Le Grand Livre du Chalet",
+//   "titre": "Planches — Le Manuel du Nord",
 //   "colonnes": 3,
 //   "groupes": [
 //     { "id": "refaire", "titre": "À refaire",

@@ -26,7 +26,7 @@ W = M + LW + 3 * PW + 2 * GAP + M
 H = TOP + 3 * PH + 2 * RG + M
 img = Image.new("RGB", (W, H), "#D8DADB")
 d = ImageDraw.Draw(img)
-d.text((M, 28), "LE GRAND LIVRE DU CHALET · INTÉRIEUR · TROIS VARIANTES DE COULEUR · CH. 13, TOME 1 (NEIGE)", font=font(BOLD, 40), fill="#15222B")
+d.text((M, 28), "LE MANUEL DU NORD · INTÉRIEUR · TROIS VARIANTES DE COULEUR · CH. 13, TOME 1 (NEIGE)", font=font(BOLD, 40), fill="#15222B")
 d.text((M, 80), "Texte courant noir sur blanc dans les trois. Le rouge reste au danger seul. Pages rognées 8 × 10 po.", font=font(REG, 26), fill="#333")
 for j, (_, lab) in enumerate(COLS):
     x = M + LW + j * (PW + GAP)

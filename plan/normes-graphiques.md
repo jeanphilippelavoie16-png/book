@@ -1,4 +1,4 @@
-# Normes graphiques — Le Grand Livre du Chalet
+# Normes graphiques — Le Manuel du Nord
 
 Document de référence du **rôle 6, metteur en pages**. Il complète `roles.md`, qui nomme les
 éléments, et `gabarit-chapitre.md`, qui fixe l'ordre des sections. Il ne les contredit nulle part.

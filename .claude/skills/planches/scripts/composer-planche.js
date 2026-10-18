@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Compose une planche du Grand Livre du Chalet à partir d'une description en JavaScript.
+// Compose une planche du Manuel du Nord à partir d'une description en JavaScript.
 //
 //   node .claude/skills/planches/scripts/composer-planche.js images/planches-src/28-01.js
 //   node .claude/skills/planches/scripts/composer-planche.js images/planches-src/28-01.js --zones

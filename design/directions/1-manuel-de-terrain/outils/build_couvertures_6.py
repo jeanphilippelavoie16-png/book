@@ -470,7 +470,7 @@ def serie(on):
 def avant_in(k):
     d = TOMES[k]
     style = 'font-size:%gpt' % d['taille'] + (';line-height:%g' % d['interligne'] if 'interligne' in d else '')
-    return ('<div class="hd"><span>Le Grand Livre du Chalet</span><span class="r">Tome %d sur 6</span></div>\n'
+    return ('<div class="hd"><span>Le Manuel du Nord</span><span class="r">Tome %d sur 6</span></div>\n'
             '  <div class="num">%d</div>\n'
             '  <div class="ttl"><h1 style="%s">%s</h1><div class="ch"><b>Chapitres %s à %s</b>'
             '<span>Conservation, subsistance et autonomie<br>sur la Côte-Nord</span></div></div>\n  %s') % (
@@ -488,7 +488,7 @@ def complete(k, tailles, fichiers):
     lis = ''.join('<li><b>%s</b>%s</li>' % (n, esc(x)) for n, x in SOMMAIRE[k])
     return f'''<section class="sheet full t{k}" id="full{k}" data-tome="{k}" style="--spine:{SPINE[k]}in;page:full{k}">
   <div class="panel back"><div class="in">
-    <div class="hd"><span>Le Grand Livre du Chalet</span><span class="r">Tome {k} · {esc(d['titre'])}</span></div>
+    <div class="hd"><span>Le Manuel du Nord</span><span class="r">Tome {k} · {esc(d['titre'])}</span></div>
     <div class="txt">
       <p>Six tomes, 114 chapitres sur la conservation des aliments, la subsistance et l’autonomie, faits pour la Côte-Nord&#8239;: forêt boréale, hivers à −35&#8239;°C, saison de jardin de 90 à 100&nbsp;jours, orignal, truite, fleuve salé.</p>
       <p><strong>Le test de chaque page&#8239;: il n’y a personne à appeler.</strong></p>
@@ -500,7 +500,7 @@ def complete(k, tailles, fichiers):
       {auteurs_html(fichiers)}</div>
     {serie(k)}
   </div></div>
-  <div class="panel spine"><div class="sp"><div class="sn">{k}</div><div class="rule"></div><div class="vt"><b>{esc(d['titre'])}</b><span>Le Grand Livre du Chalet</span></div></div></div>
+  <div class="panel spine"><div class="sp"><div class="sn">{k}</div><div class="rule"></div><div class="vt"><b>{esc(d['titre'])}</b><span>Le Manuel du Nord</span></div></div></div>
   <div class="panel fr"><div class="in">
   {avant_in(k)}
   </div></div>
@@ -710,7 +710,7 @@ def main(dest=None, photo=None, choix=None):
     hexes = '{' + ','.join("%d:'%s'" % (k, f) for k, (f, i, n, s) in COUL.items()) + '}'
     info = '{' + ','.join("%d:'%d p., tranche %s po'" % (k, PAGES[k], str(SPINE[k]).replace('.', ',')) for k in sorted(SPINE)) + '}'
     html = ('<!DOCTYPE html>\n<html lang="fr-CA">\n<head>\n<meta charset="utf-8">\n'
-            '<title>Le Grand Livre du Chalet — couvertures des six tomes</title>\n'
+            '<title>Le Manuel du Nord — couvertures des six tomes</title>\n'
             '<link rel="preconnect" href="https://fonts.googleapis.com">\n'
             '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n' + POLICES +
             '<!-- Généré par outils/build_couvertures_6.py : ne pas modifier à la main. -->\n'
@@ -768,8 +768,8 @@ def decouper():
         full = RectangleObject([0, h0 - H, W, h0])       # le haut de la page imprimée, sa largeur exacte
         pg.mediabox = full; pg.cropbox = full; pg.bleedbox = full
         pg.trimbox = RectangleObject([9, h0 - H + 9, W - 9, h0 - 9])
-        w.add_metadata({'/Title': 'Le Grand Livre du Chalet — Tome %d · %s — couverture' % (k, TOMES[k]['titre']),
-                        '/Author': 'Le Grand Livre du Chalet',
+        w.add_metadata({'/Title': 'Le Manuel du Nord — Tome %d · %s — couverture' % (k, TOMES[k]['titre']),
+                        '/Author': 'Le Manuel du Nord',
                         '/Creator': 'design/directions/1-manuel-de-terrain/outils/build_couvertures_6.py'})
         cible = os.path.join(ROOT, 'livre', 'tome-%d' % k, 'couverture.pdf')
         with open(cible + '.tmp', 'wb') as f:

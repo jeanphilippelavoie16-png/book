@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Contrôle d'écriture d'un chapitre du Grand Livre du Chalet (skill ecriture).
+"""Contrôle d'écriture d'un chapitre du Manuel du Nord (skill ecriture).
 
   python3 .claude/skills/ecriture/scripts/controle.py chapitres/NN-titre.md
       → les tics qui restent : tirets, mots vides, vocabulaire d'IA, mises en relief, « village », « char »,

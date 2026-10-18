@@ -32,7 +32,7 @@ const S = {
 
 const ouvre = s => s.startsWith('V:') ? { f: 'images/validees/planche-' + s.slice(2), statut: 'validée' } : { f: 'images/a-valider/planche-' + s.slice(2), statut: 'à valider' }
 
-const P = (lot0, i) => { const lot = lot0.map(ouvre); return `Tu fais la **passe qualité** des planches du « Grand Livre du Chalet », un manuel de survie imprimé (8 × 10 po, noir au trait) pour JP et sa famille, sur la Côte-Nord. Projet : ${ROOT}. JP va **bâtir ou faire** ce que montre chaque planche sans en avoir jamais vu ; une planche qu'il ne comprend pas au premier coup d'œil ne sert à rien.
+const P = (lot0, i) => { const lot = lot0.map(ouvre); return `Tu fais la **passe qualité** des planches du « Manuel du Nord », un manuel de survie imprimé (8 × 10 po, noir au trait) pour JP et sa famille, sur la Côte-Nord. Projet : ${ROOT}. JP va **bâtir ou faire** ce que montre chaque planche sans en avoir jamais vu ; une planche qu'il ne comprend pas au premier coup d'œil ne sert à rien.
 
 **D'abord, lis en entier \`images/recommandations-planches.md\` : ce sont les exigences de JP, c'est ta grille.** En résumé : les gestes fins (couture, nœud, maille, laçage, ligature) extrêmement bien dessinés ou inutiles ; les mains et les personnages sont le point faible (simples et justes, ou pas de main du tout ; pas de « pince de homard », pas de bloc) ; un mécanisme ou un piège se lit au premier coup d'œil ; une coupe en couches se lit couche par couche ; un dessin technique est un vrai dessin technique (vues alignées, traits propres) ; des **cotes en mm sur ce qu'on construit**, jamais inventées, et pas sur le reste ; les flèches pointent dans le vrai sens du geste ; aucun mot sur le dessin sauf une cote ; les légendes numérotées correspondent à ce qu'elles désignent.
 

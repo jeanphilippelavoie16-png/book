@@ -10,7 +10,7 @@ export const meta = {
 // JP, 29 septembre 2026 : « Fait 2, 3, 4 » (plan de match : photos à poser, petites corrections de texte,
 // réassemblage). Les corrections de planches restent en pause.
 const ROOT = 'C:\\Users\\jeanp\\New folder'
-const TETE = `Tu travailles sur « Le Grand Livre du Chalet », six tomes imprimés chez Blurb (8 × 10 po, 440 pages au plus par tome). Projet : ${ROOT}. **CLAUDE.md est dans ton contexte et prime** (aucune attribution de source dans le texte, aucun numéro de téléphone ni service qui répond, pas de crédits dans le livre). Lis \`design/choix.md\`. **Écris au fur et à mesure.** Travaille économiquement.`
+const TETE = `Tu travailles sur « Le Manuel du Nord », six tomes imprimés chez Blurb (8 × 10 po, 440 pages au plus par tome). Projet : ${ROOT}. **CLAUDE.md est dans ton contexte et prime** (aucune attribution de source dans le texte, aucun numéro de téléphone ni service qui répond, pas de crédits dans le livre). Lis \`design/choix.md\`. **Écris au fur et à mesure.** Travaille économiquement.`
 const S = { type: 'object', properties: { fichiers: { type: 'array', items: { type: 'string' } }, fait: { type: 'string' }, reste: { type: 'array', items: { type: 'string' } }, pagesParTome: { type: 'object' }, apercus: { type: 'array', items: { type: 'string' } } }, required: ['fichiers', 'fait', 'reste'] }
 
 const PHOTOS = (tomes) => `${TETE}

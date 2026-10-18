@@ -1,6 +1,6 @@
 ---
 name: formulaires
-description: Composer les formulaires vierges du Grand Livre du Chalet — fiches de relevé, registres, carnets, étiquettes à découper — en PDF 8 × 10 po typographié en Georgia, prêts à imprimer et à remplir au crayon. Utilise ce skill dès qu'un chapitre demande une feuille à remplir, un registre, une fiche, un carnet de suivi ou une étiquette, et dès qu'une « planche » est en réalité un formulaire. Un formulaire n'est jamais une planche : pas de dessin, pas de renvoi numéroté.
+description: Composer les formulaires vierges du Manuel du Nord — fiches de relevé, registres, carnets, étiquettes à découper — en PDF 8 × 10 po typographié en Georgia, prêts à imprimer et à remplir au crayon. Utilise ce skill dès qu'un chapitre demande une feuille à remplir, un registre, une fiche, un carnet de suivi ou une étiquette, et dès qu'une « planche » est en réalité un formulaire. Un formulaire n'est jamais une planche : pas de dessin, pas de renvoi numéroté.
 ---
 
 # Composer un formulaire
@@ -64,7 +64,7 @@ panne. Un registre de stock n'en porte pas.
 - Des renvois numérotés, des flèches, un dessin.
 - Des exemples pré-remplis. Une case remplie donne envie de la laisser telle quelle. Si un
   exemple est vraiment nécessaire, une seule ligne, en italique gris, clairement à part.
-- Une attribution de source. Le pied de page dit « Le Grand Livre du Chalet » et le numéro
+- Une attribution de source. Le pied de page dit « Le Manuel du Nord » et le numéro
   de fiche, rien d'autre.
 - Du remplissage pour faire sérieux : un champ « signature », un champ « vérifié par ».
   Personne ne signe sa fiche de panne.

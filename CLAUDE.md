@@ -1,4 +1,4 @@
-# Le Grand Livre du Chalet — instructions du projet
+# Le Manuel du Nord — instructions du projet
 
 Ce fichier est lu au début de chaque session. Il prime sur tout le reste.
 

@@ -24,7 +24,7 @@ const S = {
   required: ['chapitres'],
 }
 
-const P = (g) => `Tu travailles sur « Le Grand Livre du Chalet », un manuel de survie pour une famille de la Côte-Nord. Projet : C:\\Users\\jeanp\\New folder. **CLAUDE.md est dans ton contexte et prime sur tout.**
+const P = (g) => `Tu travailles sur « Le Manuel du Nord », un manuel de survie pour une famille de la Côte-Nord. Projet : C:\\Users\\jeanp\\New folder. **CLAUDE.md est dans ton contexte et prime sur tout.**
 
 **JP a tranché : aucun numéro de téléphone dans le livre.** Ni 911 (ou 9-1-1), ni Info-Santé 811, ni Centre antipoison (1 800 463-5060), ni ligne d'un ministère ou d'Hydro, ni aucun autre. Le test « il n'y a personne à appeler » vaut partout, même pour une panne courte à la maison.
 

@@ -232,7 +232,7 @@ def ladder(n_on, total, label, lieu_k, lieu_txt, folio=None, cls_of=None):
 def entete_html(num, title, js_name, meta):
     tpl = open(os.path.join(TOOLS, "interieur.tpl.html"), encoding="utf-8").read()
     head = tpl[:tpl.index("</style>")]
-    head = re.sub(r"<title>.*?</title>", f"<title>{num} — {html.escape(title)} — Le Grand Livre du Chalet</title>", head)
+    head = re.sub(r"<title>.*?</title>", f"<title>{num} — {html.escape(title)} — Le Manuel du Nord</title>", head)
     css = open(os.path.join(TOOLS, "chapitre.css"), encoding="utf-8").read()
     css += open(os.path.join(TOOLS, "ancrage.css"), encoding="utf-8").read()
     css += "\n" + icones() + "\n"

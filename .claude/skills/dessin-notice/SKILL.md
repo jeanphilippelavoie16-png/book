@@ -1,6 +1,6 @@
 ---
 name: dessin-notice
-description: Dessiner les mains, les têtes et les personnages des planches du Grand Livre du Chalet au style « notice de montage » (IKEA) — trait net et sûr, formes simples, positions justes. Utilise ce skill dès qu'une planche montre une main qui tient, pince, appuie ou fait un geste, une tête, un enfant, un bébé ou un personnage entier, dès qu'on parle de refaire les mains, les têtes ou les corps, de la bibliothèque formes.js ou des feuilles d'essai, et chaque fois que JP trouve une main ou une tête « laide », « weird » ou « mal faite ». Il complète le skill planches (qui décide quoi dessiner) : celui-ci dit comment dessiner le corps humain pour que ce soit beau.
+description: Dessiner les mains, les têtes et les personnages des planches du Manuel du Nord au style « notice de montage » (IKEA) — trait net et sûr, formes simples, positions justes. Utilise ce skill dès qu'une planche montre une main qui tient, pince, appuie ou fait un geste, une tête, un enfant, un bébé ou un personnage entier, dès qu'on parle de refaire les mains, les têtes ou les corps, de la bibliothèque formes.js ou des feuilles d'essai, et chaque fois que JP trouve une main ou une tête « laide », « weird » ou « mal faite ». Il complète le skill planches (qui décide quoi dessiner) : celui-ci dit comment dessiner le corps humain pour que ce soit beau.
 ---
 
 # Mains, têtes et corps au style notice

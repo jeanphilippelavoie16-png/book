@@ -1,11 +1,11 @@
 ---
 name: ecriture
-description: Écrire, réécrire ou resserrer le texte du Grand Livre du Chalet comme un livre technique professionnel, informatif, qui ne sonne pas écrit par une IA. Utilise ce skill dès qu'on écrit ou retouche un chapitre, un encadré, une étape, une ligne de matériel, une légende ou une note ; dès qu'on lance une passe de style sur un ou plusieurs chapitres ; et chaque fois que JP dit « trop AI », « fils d'la AI », « c'est inutile », « c'est long pour rien », « c'est poétique », « faut que ça soit informatif » ou se plaint des tirets. Il porte la phrase et le mot. Le fond (chiffres, sources, sécurité) est dans CLAUDE.md ; la structure des neuf points, dans gabarit-chapitre.md.
+description: Écrire, réécrire ou resserrer le texte du Manuel du Nord comme un livre technique professionnel, informatif, qui ne sonne pas écrit par une IA. Utilise ce skill dès qu'on écrit ou retouche un chapitre, un encadré, une étape, une ligne de matériel, une légende ou une note ; dès qu'on lance une passe de style sur un ou plusieurs chapitres ; et chaque fois que JP dit « trop AI », « fils d'la AI », « c'est inutile », « c'est long pour rien », « c'est poétique », « faut que ça soit informatif » ou se plaint des tirets. Il porte la phrase et le mot. Le fond (chiffres, sources, sécurité) est dans CLAUDE.md ; la structure des neuf points, dans gabarit-chapitre.md.
 ---
 
 # L'écriture : un livre technique, pas un texte d'IA
 
-Le Grand Livre du Chalet se lit à la lampe frontale, dans l'urgence, par quelqu'un de compétent de ses
+Le Manuel du Nord se lit à la lampe frontale, dans l'urgence, par quelqu'un de compétent de ses
 mains. Chaque phrase doit lui donner un fait, un geste, une mesure ou un signe à reconnaître. Rien d'autre.
 
 ## Ce que JP a dit (15 octobre 2026, relecture du tome 1 au crayon)

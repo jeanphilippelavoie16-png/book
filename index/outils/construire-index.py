@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Construit l'index du Grand Livre du Chalet : un fichier par tome et l'index général.
+# Construit l'index du Manuel du Nord : un fichier par tome et l'index général.
 #
 #   python index/outils/construire-index.py            -> écrit index/tome-1.json ... tome-6.json et index/general.json
 #   python index/outils/construire-index.py --rapport  -> écrit aussi index/outils/rapport.txt (entrées vides, entrées trop larges)

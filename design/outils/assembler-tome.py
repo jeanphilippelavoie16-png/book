@@ -572,7 +572,7 @@ def annexe_html(tome, chaps, plan, work):
     sous = SOUS_TITRES.get(tome, "")
     fond = f'<img class="tp-img" src="{url(jpg)}" alt="">' if os.path.exists(jpg) else ""
     pages.append(f'''<section class="page recto tp" id="a-titre">{fond}<div class="tp-sc">{scene}
-<div class="tp-head"><span>Le Grand Livre du Chalet</span><span>Tome {tome}</span></div>
+<div class="tp-head"><span>Le Manuel du Nord</span><span>Tome {tome}</span></div>
 <div class="tp-haut"><h1 class="tp-title">{e(titre_t)}</h1>{f'<p class="tp-sous">{il(sous)}</p>' if sous else ""}</div>
 <div class="tp-bas"><div class="tp-chap"><span>{f"Chapitres {aff(premier)} à {aff(dernier)}" if nb > 1 else f"Chapitre {aff(premier)}"}</span><span>{nb} chapitre{"s" if nb > 1 else ""}</span></div>
 <div class="tp-serie">{serie}</div></div></div></section>''')
@@ -608,7 +608,7 @@ def annexe_html(tome, chaps, plan, work):
                        + (" **Le chapitre 00 ouvre le livre, en page 1, devant la page de titre** : il se trouve sans chercher."
                           if chaps and chaps[0]["num"] == "00" and chaps[0]["debut"] < plan["titre"] else ""))
     pages.append(f'''<section class="page {cote(som_no)} ax" id="a-sommaire"><div class="block">
-<div class="ax-top"><span>Tome {tome} · {e(titre_t)}</span><span>Le Grand Livre du Chalet</span></div>
+<div class="ax-top"><span>Tome {tome} · {e(titre_t)}</span><span>Le Manuel du Nord</span></div>
 <h1>Sommaire</h1>
 <p class="ax-note">{note_sommaire}</p>
 <table class="som{' or' if avec_or else ''}"><thead><tr><th>Ch.</th><th>Chapitre</th><th>Lieu</th><th class="r">Page</th>{'<th class="r sor"><span class="sq o"></span>Premières<br>minutes</th>' if avec_or else ''}{'<th class="r s8"><span class="sq d">8</span>Danger</th>' if avec_d else ''}<th class="r s9"><span class="sq">{n_urg}</span>Urgence</th></tr></thead>
@@ -617,7 +617,7 @@ def annexe_html(tome, chaps, plan, work):
     if tome == 1 and "mode1" in plan:
         pages.extend(mode_emploi(tome, titre_t, plan))
         ids += ["a-mode1", "a-mode2"]
-    out = (tete_html(f"Tome {tome} — pages hors chapitres — Le Grand Livre du Chalet")
+    out = (tete_html(f"Tome {tome} — pages hors chapitres — Le Manuel du Nord")
            + f'<body class="vA vB vC t{tome} lieu-2">\n<div id="book">\n'
            + "\n".join(pages) + "\n</div>\n" + ANNEXE_JS + "</body>\n</html>\n")
     dst = os.path.join(work, "html", f"annexes-tome-{tome}.html")
@@ -735,7 +735,7 @@ def mode_emploi(tome, titre_t, plan):
                "Le bord est **orange** sur les pages des premières minutes.")),
     ]
     n1, n2 = plan["mode1"], plan["mode2"]
-    tete = f'<div class="ax-top"><span>Tome {tome} · {e(titre_t)}</span><span>Le Grand Livre du Chalet</span></div>'
+    tete = f'<div class="ax-top"><span>Tome {tome} · {e(titre_t)}</span><span>Le Manuel du Nord</span></div>'
     return [
         f'<section class="page {cote(n1)} ax md" id="a-mode1"><style>{MODE_CSS}</style><div class="block">{tete}'
         f'<h1>Comment le livre fonctionne</h1>{"".join(g)}</div>{pied(n1, cote(n1))}</section>',
@@ -847,14 +847,14 @@ def dangers_html(tome, chap_ids, debut, work, nom="dangers"):
         log("  ATTENTION : dangers marqués sans page d'explication : " + ", ".join(manquent))
     if not ents:
         return None, []
-    tete = f'<div class="ax-top"><span>Tome {tome} · {e(titre_t)}</span><span>Le Grand Livre du Chalet</span></div>'
+    tete = f'<div class="ax-top"><span>Tome {tome} · {e(titre_t)}</span><span>Le Manuel du Nord</span></div>'
     h1 = ('<h1>Les dangers</h1><p class="dg-intro">' + il(
         "Dans un chapitre, une étape sur fond rose avec ce carré rouge {!" + ids[0] + "} veut dire qu'un danger se présente "
         "à cette étape ; sous le carré, le nom du danger et sa page. L'étape dit ce qui est propre à la situation (la distance, la "
         "dose, la durée) ; la page du danger dit ce qu'il fait, comment le reconnaître et quoi faire.") + "</p>")
     src = (f'<div id="dg-src" data-debut="{debut}" data-tete="{e(tete)}" data-h1="{e(h1)}" '
            'style="display:none">' + "".join(ents) + "</div>")   # caché : à hauteur nulle, les colonnes se multiplient sans fin
-    out = (tete_html(f"Tome {tome} — les dangers — Le Grand Livre du Chalet").replace("</style>", DANGERS_CSS + "</style>", 1)
+    out = (tete_html(f"Tome {tome} — les dangers — Le Manuel du Nord").replace("</style>", DANGERS_CSS + "</style>", 1)
            + f'<body class="vA vB vC t{tome} lieu-2">\n<div id="book">\n</div>\n' + src + "\n" + DANGERS_JS + "</body>\n</html>\n")
     dst = os.path.join(work, "html", f"{nom}-tome-{tome}.html")
     open(dst, "w", encoding="utf-8").write(out)
@@ -889,9 +889,9 @@ def credits_html(tome, credits_lignes, total, work):
         h1 = (f'<h1>Crédits des images</h1><p class="ax-note">{intro}</p>' if k == 0
               else '<h1 style="font-size:24pt">Crédits des images (suite)</h1>')
         pages.append(f'''<section class="page {cote(no)} ax" id="a-credits-{k + 1}"><div class="block">
-<div class="ax-top"><span>Tome {tome} · {e(titre_t)} · hors du livre</span><span>Le Grand Livre du Chalet</span></div>
+<div class="ax-top"><span>Tome {tome} · {e(titre_t)} · hors du livre</span><span>Le Manuel du Nord</span></div>
 {h1}{tab}</div></section>''')
-    out = (tete_html(f"Tome {tome} — crédits des images (hors du livre) — Le Grand Livre du Chalet")
+    out = (tete_html(f"Tome {tome} — crédits des images (hors du livre) — Le Manuel du Nord")
            + f'<body class="vA vB vC t{tome} lieu-2">\n<div id="book">\n'
            + "\n".join(pages) + "\n</div>\n" + ANNEXE_JS + "</body>\n</html>\n")
     dst = os.path.join(work, "html", f"credits-tome-{tome}.html")
@@ -1206,8 +1206,8 @@ def main():
         pg.mediabox = full; pg.cropbox = full; pg.bleedbox = full
         # recto (page impaire) : reliure à gauche, fond perdu à droite ; verso : l'inverse
         pg.trimbox = RectangleObject([0, BLEED, TRIM_W, BLEED + TRIM_H] if (i + 1) % 2 else [BLEED, BLEED, PAGE_W, BLEED + TRIM_H])
-    w.add_metadata({"/Title": f"Le Grand Livre du Chalet — Tome {tome} · {bc.TOMES[tome][0]} — intérieur",
-                    "/Author": "Le Grand Livre du Chalet", "/Creator": "design/outils/assembler-tome.py"})
+    w.add_metadata({"/Title": f"Le Manuel du Nord — Tome {tome} · {bc.TOMES[tome][0]} — intérieur",
+                    "/Author": "Le Manuel du Nord", "/Creator": "design/outils/assembler-tome.py"})
     pdf_final = os.path.join(sortie, "interieur.pdf")
     tmp = pdf_final + ".tmp"
     with open(tmp, "wb") as f:

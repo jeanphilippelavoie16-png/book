@@ -687,7 +687,7 @@ def build(num):
 
     tpl = open(os.path.join(TOOLS, "interieur.tpl.html"), encoding="utf-8").read()
     head = tpl[:tpl.index("</style>")]
-    head = re.sub(r"<title>.*?</title>", f"<title>{num} — {html.escape(meta['title'])} — Le Grand Livre du Chalet</title>", head)
+    head = re.sub(r"<title>.*?</title>", f"<title>{num} — {html.escape(meta['title'])} — Le Manuel du Nord</title>", head)
     js0 = tpl.index("const OVER"); js1 = tpl.index("/* appels hors cadre")
     helpers = tpl[js0:js1]
     eng = open(os.path.join(TOOLS, "chapitre.css"), encoding="utf-8").read()
@@ -745,7 +745,7 @@ def rendu(num, dst):
         pg.bleedbox = RectangleObject([0, 0, W, H])
         pg.trimbox = RectangleObject([0, 9, 576, 729] if i % 2 == 0 else [9, 9, 585, 729])
         w.add_page(pg)
-    w.add_metadata({"/Title": f"Chapitre {num} — Le Grand Livre du Chalet (épreuve de mise en pages)"})
+    w.add_metadata({"/Title": f"Chapitre {num} — Le Manuel du Nord (épreuve de mise en pages)"})
     npages = len(r.pages)
     with open(pdf, "wb") as f:
         w.write(f)

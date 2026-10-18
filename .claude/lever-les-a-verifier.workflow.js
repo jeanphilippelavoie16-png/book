@@ -5,7 +5,7 @@ export const meta = {
 }
 const S = { type: 'object', properties: { chapitres: { type: 'array', items: { type: 'object', properties: { fichier: { type: 'string' }, rapport: { type: 'string' }, drapeaux: { type: 'number' }, leves: { type: 'number' }, corriges: { type: 'number', description: 'la source donne une autre valeur que le texte' }, introuvables: { type: 'number' } }, required: ['fichier', 'rapport', 'drapeaux', 'leves', 'corriges', 'introuvables'] } } }, required: ['chapitres'] }
 
-const P = (g) => `Tu lèves les drapeaux \`[À VÉRIFIER]\` du « Grand Livre du Chalet », un manuel de survie pour une famille de la Côte-Nord. Projet : C:\\Users\\jeanp\\New folder. CLAUDE.md est dans ton contexte : la règle 1 (aucun chiffre inventé) est la tienne. Le livre est à JP, pour lui : **aucune relecture extérieure**, donc aucune recommandation « à faire vérifier par un spécialiste » — soit la source le dit, soit on le dit autrement, soit on coupe.
+const P = (g) => `Tu lèves les drapeaux \`[À VÉRIFIER]\` du « Manuel du Nord », un manuel de survie pour une famille de la Côte-Nord. Projet : C:\\Users\\jeanp\\New folder. CLAUDE.md est dans ton contexte : la règle 1 (aucun chiffre inventé) est la tienne. Le livre est à JP, pour lui : **aucune relecture extérieure**, donc aucune recommandation « à faire vérifier par un spécialiste » — soit la source le dit, soit on le dit autrement, soit on coupe.
 
 **Tes chapitres :** ${g.map(f => '`chapitres/' + f + '`').join(', ')}.
 

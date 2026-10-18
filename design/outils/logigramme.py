@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Logigramme de décision du Grand Livre du Chalet.
+"""Logigramme de décision du Manuel du Nord.
 
 Un arbre de questions oui / non qui mène aux gestes et aux renvois d'un chapitre, aux couleurs et aux polices du
 livre, en page simple ou en double page (deux pages face à face : verso à gauche, recto à droite).
@@ -802,7 +802,7 @@ def rendre(R, nom, sortie):
         # recto : reliure à gauche, fond perdu à droite ; verso : l'inverse (y : 9 pt en tête et en pied)
         pg.trimbox = RectangleObject([0, FP, ROG_W, PAGE_H - FP] if cote == "recto" else [FP, FP, PAGE_W, PAGE_H - FP])
         w.add_page(pg)
-    w.add_metadata({"/Title": f"Logigramme {nom} — Le Grand Livre du Chalet"})
+    w.add_metadata({"/Title": f"Logigramme {nom} — Le Manuel du Nord"})
     with open(pdf, "wb") as f:
         w.write(f)
     # PNG : la double page ouverte, rognée, trait fin au pli

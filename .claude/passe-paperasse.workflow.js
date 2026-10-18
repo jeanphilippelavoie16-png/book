@@ -27,7 +27,7 @@ const SCHEMA = {
 }
 
 function prompt(g) {
-  return `Tu fais une passe de nettoyage sur ${g.length > 1 ? 'des chapitres' : 'un chapitre'} du « Grand Livre du Chalet », un manuel de survie personnel en français québécois. Le projet est dans C:\\Users\\jeanp\\New folder ; ses règles sont dans CLAUDE.md, déjà dans ton contexte.
+  return `Tu fais une passe de nettoyage sur ${g.length > 1 ? 'des chapitres' : 'un chapitre'} du « Manuel du Nord », un manuel de survie personnel en français québécois. Le projet est dans C:\\Users\\jeanp\\New folder ; ses règles sont dans CLAUDE.md, déjà dans ton contexte.
 
 **Tes chapitres :** ${g.map(f => '`chapitres/' + f + '`').join(', ')}. Une copie de sauvegarde existe ; ne touche à aucun autre chapitre.
 
