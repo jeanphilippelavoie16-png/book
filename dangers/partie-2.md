@@ -221,7 +221,7 @@ Le gibier du territoire est très maigre. La viande d'orignal, de caribou, de li
 
 ## {!thuyone} Cèdre : la thuyone
 
-**Ce qui arrive.** Le « cèdre » d'ici est le thuya occidental. Ses rameaux contiennent de la thuyone, un poison des nerfs qui donne des convulsions. Chez le rat, les convulsions commencent à 50 mg par kilo chez le mâle et à 25 mg par kilo chez la femelle ; sur deux ans, quelques-uns convulsent dès 12,5 mg par kilo. La limite publiée pour un adulte est de 6 mg par jour, toutes sources confondues, et il n'y en a aucune pour un enfant. Dans une analyse, un gramme de rameaux séchés en contenait 7,6 mg, plus que la limite d'une journée. La teneur change d'un rameau à l'autre et d'un arbre à l'autre : on ne peut pas savoir combien il y en a dans une tasse. Comme la dose se compte par kilo de poids, un enfant qui boit la même tasse qu'un adulte en reçoit plusieurs fois plus. Une personne qui a déjà fait des convulsions ne doit jamais en prendre. On ne peut pas mesurer la dose : on n'en boit donc pas du tout.
+**Ce qui arrive.** Le « cèdre » d'ici est le thuya occidental. Ses rameaux contiennent de la thuyone, un poison des nerfs qui donne des convulsions. Chez le rat, les convulsions commencent à 50 mg par kilo chez le mâle et à 25 mg par kilo chez la femelle ; sur deux ans, quelques-uns convulsent dès 12,5 mg par kilo. La limite publiée pour un adulte est de 6 mg par jour, toutes sources confondues, et il n'y en a aucune pour un enfant. Dans une analyse, un gramme de rameaux séchés en contenait 7,6 mg, plus que la limite d'une journée. La teneur change d'un rameau à l'autre et d'un arbre à l'autre : on ne peut pas savoir combien il y en a dans une tasse. Comme la dose se compte par kilo de poids, un enfant qui boit la même tasse qu'un adulte en reçoit plusieurs fois plus. Une personne qui a déjà fait des convulsions ne doit jamais prendre de thuyone. On ne peut pas mesurer la dose : on n'en boit donc pas du tout.
 
 Le thuya donne en plus peu de vitamine C : 45 mg par 100 g de rameaux frais, contre 270 mg pour les aiguilles de sapin baumier.
 
@@ -239,7 +239,7 @@ Chez la personne, les convulsions : le corps se raidit, puis les bras et les jam
 
 Les signes peuvent tarder. Les champignons les plus mortels ne donnent aucun signe avant 6 à 72 heures ; avec certains, les signes semblent passer au bout de quelques heures, puis reviennent de 3 à 5 jours plus tard, plus graves et souvent mortels. À l'inverse, la cicutaire maculée donne des convulsions moins d'une heure après.
 
-**Comment on le reconnaît.** On ne voit pas le poison, mais on peut reconnaître les plantes dangereuses :
+**Comment on le reconnaît.** On reconnaît les plantes dangereuses à leur aspect :
 
 - **L'if du Canada** : un arbuste bas aux tiges qui traînent, aux aiguilles plates sans bandes blanches dessous. Toute la plante est toxique, fraîche ou sèche, à l'année, sauf la chair rouge autour de la graine ; la graine elle-même est toxique. Une bête de ferme qui en mange meurt souvent en 2 à 3 heures, et il n'existe aucun antidote.
 - **La cicutaire maculée** : une grande plante à petites fleurs blanches groupées en parasol plat (une ombellifère) ; elle pousse dans les fossés et au bord de l'eau. Quand on coupe en long la base de la tige et le haut de la racine, on voit des chambres creuses ; la racine est la partie la plus toxique.
