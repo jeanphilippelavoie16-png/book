@@ -114,7 +114,12 @@ Le cadre complet est `.claude/skills/planches/references/brief-agent.md`. En bre
 - [ ] Second regard par un relecteur qui n'a pas dessiné la planche, jusqu'au oui ; PNG dans `images/a-valider/`.
 - [ ] Une image d'ambiance (page de titre, couverture, scène) ne se dessine pas avec les formes simples : JP l'a
   refusée (16 octobre : « c'est laid, je veux de quoi de beau visuellement »). Elle vient d'un jeu vectoriel
-  professionnel acheté, converti et composé, ou d'une image fournie par JP.
+  professionnel acheté, converti et composé, ou d'une image fournie par JP. **Depuis le 18 octobre 2026**, les pages
+  de titre et les couvertures des six tomes sont des **linogravures générées** (AI Horde, `images/tomes/essais-ia/`),
+  choisies par JP sur une planche numérotée : trois encres (la couleur du tome, le papier, l'orange), un grand ciel
+  calme en haut pour le titre, collines basses, aucun texte ni signature. L'image retenue s'agrandit sans retouche qui
+  floute (JP : « la première était belle, fallait juste enlever 4-5 étoiles ») : on n'efface que les étoiles qui
+  touchent une lettre, une à une, avec la couleur du ciel autour.
 
 ## Le montage et la vérification (orchestrateur)
 
