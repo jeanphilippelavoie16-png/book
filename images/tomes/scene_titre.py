@@ -105,7 +105,7 @@ class Scene:
             x += h * self.u(0.18, 0.4) / dens
 
 
-def scene(tome=1):
+def scene(tome=1, aurore=True):
     s = Scene(1000 + tome)
     A = s.add
     A(f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}" overflow="visible">')
@@ -123,19 +123,21 @@ def scene(tome=1):
       '</defs>')
     A(f'<rect x="-20" y="-40" width="{W + 60}" height="{H + 80}" fill="url(#ciel)"/>')
 
-    # aurore boréale : des voiles qui ondulent, et leurs rayons
-    bord = s.onde(300, [(26, 0.9), (12, 2.3), (5, 5.1)], x0=-20, x1=W + 40, pas=8)
-    dv = "M" + " L".join(f"{f(x)} {f(y)}" for x, y in bord)
-    for k, (w, op) in enumerate([(96, .022), (80, .026), (66, .03), (52, .034), (40, .038), (30, .042), (21, .048), (13, .055), (6, .07)]):
-        A(f'<path d="{dv}" transform="translate(0 {-w * 0.45})" fill="none" stroke="{C["aur"]}" stroke-width="{w}" '
-          f'stroke-linejoin="round" opacity="{op}"/>')
-    for x, y in bord:
-        for _ in range(2):
-            if s.r.random() < 0.6:
-                hh = s.u(50, 180)
-                w = s.u(1.2, 4)
-                xx = x + s.u(-4, 4)
-                A(f'<rect x="{f(xx)}" y="{f(y - hh)}" width="{f(w)}" height="{f(hh)}" fill="url(#rai)" opacity="{f(s.u(.25, .8))}"/>')
+    # aurore boréale : des voiles qui ondulent, et leurs rayons (sans elle : l'image de départ du générateur, qui
+    # prenait le bord de l'aurore pour une crête de montagne)
+    if aurore:
+        bord = s.onde(300, [(26, 0.9), (12, 2.3), (5, 5.1)], x0=-20, x1=W + 40, pas=8)
+        dv = "M" + " L".join(f"{f(x)} {f(y)}" for x, y in bord)
+        for k, (w, op) in enumerate([(96, .022), (80, .026), (66, .03), (52, .034), (40, .038), (30, .042), (21, .048), (13, .055), (6, .07)]):
+            A(f'<path d="{dv}" transform="translate(0 {-w * 0.45})" fill="none" stroke="{C["aur"]}" stroke-width="{w}" '
+              f'stroke-linejoin="round" opacity="{op}"/>')
+        for x, y in bord:
+            for _ in range(2):
+                if s.r.random() < 0.6:
+                    hh = s.u(50, 180)
+                    w = s.u(1.2, 4)
+                    xx = x + s.u(-4, 4)
+                    A(f'<rect x="{f(xx)}" y="{f(y - hh)}" width="{f(w)}" height="{f(hh)}" fill="url(#rai)" opacity="{f(s.u(.25, .8))}"/>')
 
     # étoiles : plus rares derrière le titre
     for _ in range(170):
@@ -256,10 +258,11 @@ def scene(tome=1):
 
 if __name__ == "__main__":
     tome = int(sys.argv[1]) if len(sys.argv) > 1 else 1
+    aurore = "--sans-aurore" not in sys.argv
     ici = os.path.dirname(os.path.abspath(__file__))
-    out = os.path.join(ici, f"titre-tome-{tome}.svg")
+    out = os.path.join(ici, f"titre-tome-{tome}.svg" if aurore else f"essais-ia/titre-tome-{tome}-sans-aurore.svg")
     with open(out, "w", encoding="utf-8") as fh:
         fh.write(f"<!-- Page de titre du tome {tome}, la nuit d'hiver : écrit par scene_titre.py, ne pas modifier à la main.\n"
                  "     Repère : la page rognée, 768 × 960 px (8 × 10 po) ; ce qui dépasse à droite et en bas va dans le fond perdu. -->\n")
-        fh.write(scene(tome) + "\n")
+        fh.write(scene(tome, aurore) + "\n")
     print(out)
