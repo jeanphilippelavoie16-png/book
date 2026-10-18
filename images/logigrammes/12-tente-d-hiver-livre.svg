@@ -14,8 +14,8 @@
 <path d="M283.50,290.30 L283.50,314.40 Q283.50,320.40 289.50,320.40 L408.00,320.40 Q414.00,320.40 414.00,326.40 L414.00,349.40" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
 <path d="M153.00,415.80 L153.00,425.00" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
 <path d="M153.00,479.10 L153.00,493.40" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
-<path d="M153.00,551.80 L153.00,565.40" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
-<path d="M414.00,403.50 L414.00,425.00" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M153.00,559.80 L153.00,576.20" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M414.00,407.80 L414.00,425.00" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
 <path d="M414.00,479.10 L414.00,493.40" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
 <path d="M883.80,98.42 L883.80,108.20" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
 <path d="M883.80,155.50 L883.80,173.00" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
@@ -28,17 +28,17 @@
 </g>
 <g id="noeuds">
 <rect x="36.00" y="60.22" width="495.00" height="39.40" rx="0" fill="#2B5876"/>
-<text data-max="468.50" x="50.00" y="84.67" font-family="IBM Plex Sans Condensed" font-size="15" fill="#fff" text-anchor="start" xml:space="preserve"><tspan font-weight="700">La noirceur vient et on ne rentrera pas</tspan></text>
+<text data-max="468.50" x="50.00" y="84.67" font-family="IBM Plex Sans Condensed" font-size="15" fill="#fff" text-anchor="start" xml:space="preserve"><tspan font-weight="700">Le soleil se couche et on ne rentrera pas</tspan></text>
 <rect x="36.00" y="115.20" width="495.00" height="44.30" rx="0" fill="#FDE8D8" stroke="#EE7219" stroke-width="1.5"/>
-<text data-max="478.50" x="45.00" y="136.33" font-family="IBM Plex Sans Condensed" font-size="10.5" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">Décider tout de suite de passer la nuit sur place.</tspan><tspan font-weight="500"> Faire dans l’ordre : le bois de toute la nuit, l’abri, le lit, puis</tspan></text>
-<text data-max="478.50" x="45.00" y="149.22" font-family="IBM Plex Sans Condensed" font-size="10.5" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">le feu.</tspan></text>
+<text data-max="478.50" x="45.00" y="136.33" font-family="IBM Plex Sans Condensed" font-size="10.5" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">Décider tout de suite de passer la nuit sur place</tspan><tspan font-weight="500">, et commencer avant le coucher du soleil : le bois de toute la</tspan></text>
+<text data-max="478.50" x="45.00" y="149.22" font-family="IBM Plex Sans Condensed" font-size="10.5" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">nuit, l’abri, le lit, puis le feu.</tspan></text>
 <rect x="463.98" y="147.25" width="67.77" height="13.00" fill="#EE7219"/>
 <text x="468.98" y="156.80" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="8.5" fill="#000" xml:space="preserve" data-max="59.27">ch. 12, étape 89</text>
-<rect x="44.00" y="108.20" width="38.12" height="14.00" fill="#EE7219"/>
-<text x="49.00" y="118.40" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="9" fill="#000" xml:space="preserve" data-max="29.62">15 h 20</text>
+<rect x="44.00" y="108.20" width="36.12" height="14.00" fill="#EE7219"/>
+<text x="49.00" y="118.40" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="9" fill="#000" xml:space="preserve" data-max="27.62">40 min</text>
 <rect x="36.00" y="180.00" width="495.00" height="40.30" rx="0" fill="#FDE8D8" stroke="#EE7219" stroke-width="1.5"/>
-<text data-max="478.50" x="45.00" y="197.12" font-family="IBM Plex Sans Condensed" font-size="10.5" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">Couper tout le bois de la nuit avant la noirceur</tspan><tspan font-weight="500">, dans l’épinette morte debout. Les enfants ramassent les</tspan></text>
-<text data-max="478.50" x="45.00" y="210.03" font-family="IBM Plex Sans Condensed" font-size="10.5" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">branches mortes basses des épinettes.</tspan></text>
+<text data-max="478.50" x="45.00" y="197.12" font-family="IBM Plex Sans Condensed" font-size="10.5" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">Couper tout le bois de la nuit avant la noirceur</tspan><tspan font-weight="500"> : l’épinette morte debout, et deux ou trois grosses billes</tspan></text>
+<text data-max="478.50" x="45.00" y="210.03" font-family="IBM Plex Sans Condensed" font-size="10.5" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">sèches pour le feu long. Les enfants ramassent les branches mortes.</tspan></text>
 <rect x="440.11" y="208.05" width="91.64" height="13.00" fill="#EE7219"/>
 <text x="445.11" y="217.60" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="8.5" fill="#000" xml:space="preserve" data-max="83.14">ch. 12, étapes 90 et 91</text>
 <rect x="36.00" y="244.80" width="495.00" height="45.50" rx="10" fill="#fff" stroke="#2B5876" stroke-width="1.75"/>
@@ -55,22 +55,24 @@
 <text data-max="217.50" x="45.00" y="460.95" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">qu’un genou appuyé ne sente plus le froid.</tspan></text>
 <rect x="202.98" y="466.85" width="67.77" height="13.00" fill="#EE7219"/>
 <text x="207.98" y="476.40" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="8.5" fill="#000" xml:space="preserve" data-max="59.27">ch. 12, étape 94</text>
-<rect x="36.00" y="500.40" width="234.00" height="51.40" rx="0" fill="#FDE8D8" stroke="#EE7219" stroke-width="1.5"/>
+<rect x="36.00" y="500.40" width="234.00" height="59.40" rx="0" fill="#FDE8D8" stroke="#EE7219" stroke-width="1.5"/>
 <text data-max="217.50" x="45.00" y="517.05" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">Faire le feu long sur une plateforme de billes</tspan></text>
-<text data-max="217.50" x="45.00" y="529.35" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">vertes</tspan><tspan font-weight="500">, le long de l’abri, avec un mur derrière. La</tspan></text>
-<text data-max="217.50" x="45.00" y="541.65" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">main doit tenir sur la bâche.</tspan></text>
-<rect x="181.95" y="539.55" width="88.80" height="13.00" fill="#EE7219"/>
-<text x="186.95" y="549.10" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="8.5" fill="#000" xml:space="preserve" data-max="80.30">ch. 12, étapes 95 à 98</text>
-<rect x="36.00" y="572.40" width="234.00" height="47.10" rx="0" fill="#FDE8D8" stroke="#EE7219" stroke-width="1.5"/>
-<text data-max="217.50" x="45.00" y="589.05" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">Se coucher les pieds au feu</tspan><tspan font-weight="500">, les enfants entre les</tspan></text>
-<text data-max="217.50" x="45.00" y="601.35" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">adultes. Un adulte veille et recharge.</tspan></text>
-<rect x="174.52" y="607.25" width="96.23" height="13.00" fill="#EE7219"/>
-<text x="179.52" y="616.80" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="8.5" fill="#000" xml:space="preserve" data-max="87.73">ch. 12, étapes 99 et 100</text>
-<rect x="297.00" y="356.40" width="234.00" height="47.10" rx="0" fill="#FDE8D8" stroke="#EE7219" stroke-width="1.5"/>
-<text data-max="217.50" x="306.00" y="373.05" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">Creuser une tranchée étroite</tspan><tspan font-weight="500"> jusqu’au sol, juste</tspan></text>
-<text data-max="217.50" x="306.00" y="385.35" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">assez longue pour les corps couchés serrés.</tspan></text>
-<rect x="462.97" y="391.25" width="68.78" height="13.00" fill="#EE7219"/>
-<text x="467.97" y="400.80" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="8.5" fill="#000" xml:space="preserve" data-max="60.28">ch. 12, section 7</text>
+<text data-max="217.50" x="45.00" y="529.35" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">vertes</tspan><tspan font-weight="500"> : trois billes de la longueur de l’abri, un mur</tspan></text>
+<text data-max="217.50" x="45.00" y="541.65" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">derrière. La main doit tenir sur la bâche.</tspan></text>
+<rect x="181.95" y="547.55" width="88.80" height="13.00" fill="#EE7219"/>
+<text x="186.95" y="557.10" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="8.5" fill="#000" xml:space="preserve" data-max="80.30">ch. 12, étapes 95 à 98</text>
+<rect x="36.00" y="583.20" width="234.00" height="51.40" rx="0" fill="#FDE8D8" stroke="#EE7219" stroke-width="1.5"/>
+<text data-max="217.50" x="45.00" y="599.85" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">Se coucher les pieds au feu</tspan><tspan font-weight="500">, les enfants entre les</tspan></text>
+<text data-max="217.50" x="45.00" y="612.15" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">adultes. À deux adultes, on se relaie pour surveiller</tspan></text>
+<text data-max="217.50" x="45.00" y="624.45" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">le feu.</tspan></text>
+<rect x="174.52" y="622.35" width="96.23" height="13.00" fill="#EE7219"/>
+<text x="179.52" y="631.90" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="8.5" fill="#000" xml:space="preserve" data-max="87.73">ch. 12, étapes 99 et 100</text>
+<rect x="297.00" y="356.40" width="234.00" height="51.40" rx="0" fill="#FDE8D8" stroke="#EE7219" stroke-width="1.5"/>
+<text data-max="217.50" x="306.00" y="373.05" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">Creuser une tranchée étroite</tspan><tspan font-weight="500">, jusqu’au sol si la</tspan></text>
+<text data-max="217.50" x="306.00" y="385.35" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">neige le permet, juste assez longue pour les corps</tspan></text>
+<text data-max="217.50" x="306.00" y="397.65" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">couchés serrés.</tspan></text>
+<rect x="462.97" y="395.55" width="68.78" height="13.00" fill="#EE7219"/>
+<text x="467.97" y="405.10" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="8.5" fill="#000" xml:space="preserve" data-max="60.28">ch. 12, section 7</text>
 <rect x="297.00" y="432.00" width="234.00" height="47.10" rx="0" fill="#FDE8D8" stroke="#EE7219" stroke-width="1.5"/>
 <text data-max="217.50" x="306.00" y="448.65" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">Poser des perches en travers, puis la bâche</tspan><tspan font-weight="500">, et la</tspan></text>
 <text data-max="217.50" x="306.00" y="460.95" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">neige sur les perches, jamais sur le plastique seul.</tspan></text>
@@ -128,7 +130,7 @@
 <path d="M414.00,356.40 L410.20,348.40 L417.80,348.40 Z" fill="#000"/>
 <path d="M153.00,432.00 L149.20,424.00 L156.80,424.00 Z" fill="#000"/>
 <path d="M153.00,500.40 L149.20,492.40 L156.80,492.40 Z" fill="#000"/>
-<path d="M153.00,572.40 L149.20,564.40 L156.80,564.40 Z" fill="#000"/>
+<path d="M153.00,583.20 L149.20,575.20 L156.80,575.20 Z" fill="#000"/>
 <path d="M414.00,432.00 L410.20,424.00 L417.80,424.00 Z" fill="#000"/>
 <path d="M414.00,500.40 L410.20,492.40 L417.80,492.40 Z" fill="#000"/>
 <path d="M883.80,115.20 L880.00,107.20 L887.60,107.20 Z" fill="#000"/>

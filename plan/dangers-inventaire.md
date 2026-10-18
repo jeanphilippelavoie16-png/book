@@ -40,11 +40,11 @@ flèche, flocon).
 | 8 | `espace-clos` | L'air qui manque au fond | Fosse, caveau, cuve, cave : un gaz lourd ou un air sans oxygène fait tomber sans prévenir | Une silhouette au fond d'un trou, une flèche vers le bas barrée | 12 31 79 87 102 107 |
 | 9 | `chimie` | Produit qui brûle ou qui gaze | Lessive, soude, chaux, cendre, acide, javel : brûlure qui travaille en profondeur, gaz de mélange | Un œil et une goutte | 10 30 31 96 99 102 103 107 108 112 |
 | 10 | `pas-au-feu` | Ce qui empoisonne en brûlant | Bois traité, pièce galvanisée ou peinte, brasure au cadmium, herbe à puce : jamais au feu | Une planche dans une flamme, barrée | 33 71 79 92 95 107 110 111 |
-| 11 | `projection` | Ce qui éclate ou part d'un coup | Meule, acier trempé, contenant fermé chauffé, câble tendu, arbre encroué, arc | Un éclat qui part vers un visage | 37 45 78 86 96 105 106 108 109 111 |
+| 11 | `projection` | Ce qui éclate ou part d'un coup | Meule, acier trempé, contenant fermé chauffé, câble tendu, arbre encroué, arc | Un éclat qui part vers un visage | 12 37 45 78 86 96 105 106 108 109 111 |
 | 12 | `ecrasement` | Ce qui tombe ou s'effondre | Charge suspendue, quartier de viande, abri de neige, paroi de tranchée, neige du toit | Une charge au-dessus d'une silhouette | 12 37 62 63 64 79 84 89 103 109 110 |
 | 13 | `coupure` | Coupure qui vide le sang | Scie, couteau, rebond : la cuisse se vide en minutes ; le saignement qu'on ne voit pas | Une lame et une goutte | 26 62 105 106 |
-| 14 | `brulure` | Brûlure qui colle | Sirop, poix, vapeur, eau bouillante, vêtement qui fond ou qui flotte près du feu | Une main sous une coulée | 11 34 78 94 104 111 |
-| 15 | `froid` | Hypothermie et gelure | Le jugement part avant la force ; les frissons qui cessent ne sont pas un mieux | Un thermomètre et un flocon | 1 2 6 7 13 17 25 29 31 35 36 42 44 58 62 73 82 89 104 |
+| 14 | `brulure` | Brûlure qui colle | Sirop, poix, vapeur, eau bouillante, vêtement qui fond ou qui flotte près du feu | Une main sous une coulée | 11 12 34 78 94 104 111 |
+| 15 | `froid` | Hypothermie et gelure | Le jugement part avant la force ; les frissons qui cessent ne sont pas un mieux | Un thermomètre et un flocon | 1 2 6 7 12 13 17 25 29 31 35 36 42 44 58 62 73 82 89 104 |
 | 16 | `eau-froide` | Eau froide | Le choc de la première minute noie ; les mains lâchent en dix minutes | Une tête à la surface, des vagues | 39 42 47 50 56 57 58 59 60 89 90 |
 | 17 | `glace` | Glace mince | La glace casse là où on ne savait pas qu'elle était mince | Une silhouette sur une glace fendue | 15 39 41 42 43 44 50 58 59 73 89 |
 | 18 | `bete-qui-charge` | Ours ou orignal | La bête qui garde une carcasse, la bête blessée, la femelle et son veau : deux conduites opposées | Une tête d'ours et un panache | 23 42 43 44 52 56 61 95 96 |
@@ -59,7 +59,7 @@ flèche, flocon).
 | 27 | `botulisme` | Botulisme | Sans air, la toxine se fait sans rien changer à l'aliment ; celle du poisson, dès 3 °C | Un bocal fermé, une tête de poisson | 1 3 4 5 6 7 8 9 16 17 18 21 22 23 29 33 34 35 39 40 41 46 49 52 54 56 57 58 59 60 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 86 87 91 92 93 97 |
 | 28 | `zone-de-danger` | Les heures entre 4 et 60 °C | Les heures s'additionnent ; certaines toxines restent après la cuisson | Un thermomètre entre deux traits | 1 18 60 64 66 68 69 71 72 73 74 81 |
 | 29 | `mal-de-caribou` | Viande maigre seule | La viande sans gras tue en quelques semaines, le ventre plein, les enfants d'abord | Un morceau maigre et une goutte de gras | 4 8 9 16 19 20 21 35 36 38 39 40 41 42 44 45 46 47 48 49 51 52 53 58 59 61 62 63 64 66 71 73 74 75 76 81 92 93 101 103 112 |
-| 30 | `thuyone` | Le cèdre ne se boit pas | La thuyone du cèdre donne des convulsions : sapin baumier ou épinette | Un rameau en écailles, une tasse barrée | 9 13 20 21 32 33 34 35 36 38 39 42 78 92 94 95 98 103 110 112 |
+| 30 | `thuyone` | Le cèdre ne se boit pas | La thuyone du cèdre donne des convulsions : sapin baumier ou épinette | Un rameau en écailles, une tasse barrée | 9 12 13 20 21 32 33 34 35 36 38 39 42 78 92 94 95 98 103 110 112 |
 | 31 | `plante` | Plante, graine ou coquillage qui empoisonne | Ni le goût ni la cuisson ne protègent : identifier à l'espèce, jamais goûter | Une feuille et une baie, un point d'exclamation | 20 33 34 41 59 88 91 92 93 94 95 96 97 98 100 |
 | 32 | `plomb` | Plomb | Grenaille, balle, soudure d'étain, vieux métal : invisible, sans goût, pour les enfants d'abord | Une bille et un enfant | 10 47 49 54 62 85 94 107 |
 | 33 | `selles` | Des selles à la bouche | Eau claire contaminée, mains, jardin au fumier cru, crottes de canidés, chien nourri cru | Une goutte et une main | 10 18 22 23 31 43 50 52 55 63 91 95 96 97 103 |
@@ -2217,6 +2217,7 @@ du chapitre.
 | Le poumon du fermier (poussière de foin moisi) | 99 | Un seul chapitre | Sous-section G du ch. 99, sans pictogramme |
 | La fausse protection du KI | 32 | Rangée sous `poison` pour le comprimé ; la fausse impression d'être protégé est un comportement | Garder une phrase au ch. 4, étape 12 |
 | Le doigt du phoque (infection après morsure ou coupure, tétracycline) | 56 | Un seul chapitre | Étape 9 du ch. 56, sans pictogramme propre (ou `rage` si on élargit « morsure ») |
+| La plaque à vent qui glisse au pied d'une pente raide chargée par le vent (avalanche) | 12 | Aucun pictogramme ne la couvre ; `ecrasement` est le plus proche, mais sa page n'en parle pas | Étape 78 du ch. 12, sans pictogramme (vérification technique du 18 octobre 2026). À envisager : un pictogramme d'avalanche, ou une ligne dans la page `ecrasement` |
 
 ---
 

@@ -531,3 +531,95 @@ on ne respire plus et on ne se dégage pas seul).
   (CLAUDE.md) ; « 5A » (ancien renvoi de section) ; ch. 3 (note de lieu, génératrice : page) ; ch. 17 (fraction sans
   source) ; ch. 39 et ch. 87 (CO chez l'enfant, avertisseur : page `co`) ; un ch. 25, un ch. 82, des ch. 83 (redites
   des mêmes renvois).
+
+## Corrections après la vérification technique, 18 octobre 2026
+
+Rapport : `suivi/12-technique.md`. Décisions de l'orchestrateur appliquées (points 1 à 12 de son message). Fichiers :
+`chapitres/12-la-tente-d-hiver.md` (CRLF gardé), `images/logigrammes/12-tente-d-hiver.json` et ses rendus (`.svg`,
+`.pdf`, `.png`, `-livre.svg`, contrôle 0 erreur), `plan/dangers-inventaire.md`. Aucun ancrage de planche n'a bougé.
+Source nouvelle : `sources/12-fm31-70-amarrage-feu-de-billes-lit-de-branches.md` (extraits du FM 31-70, chapitre 3,
+déjà enregistré en texte intégral sous `sources/20b-fm31-70-ch3-texte-integral.txt`).
+
+### Les points graves et importants
+
+| # | Avant | Après |
+| --- | --- | --- |
+| 1, pastille | « La noirceur vient et on ne rentrera pas `{.orange 15 h 20}` » ; étape 89 : « sur la Côte-Nord, le soleil se couche vers 15 h 20 » | « Le soleil se couche et on ne rentrera pas `{.orange 40 min}` » : la clarté qui reste après le coucher (crépuscule civil, 36 à 41 min en décembre, 33 à 38 à la fin de janvier, USNO, `sources/12-usno-coucher-crepuscule-cote-nord.md`). Étape 89 : « environ 40 minutes… en décembre, un peu moins à la fin de janvier » ; le coucher « entre 15 h et 15 h 45 selon l'endroit » en décembre (USNO : 15 h 04 à Natashquan, 15 h 48 à Tadoussac le 21) et « entre 16 h et 16 h 40 » à la fin de janvier (15 h 59 à 16 h 37) ; « Le bois, l'abri et le lit ne se font pas en 40 minutes : il faut les commencer avant. » Le « jour à peine plus de 8 h » est sorti (heure de Sept-Îles). Logigramme : même titre, même pastille |
+| 2, étape 37 | « Dans le shaputuan, on sort par la porte de l'autre bout. » | « Dans le shaputuan, qui a un poêle près de chaque porte, on sort par la porte du bout opposé au poêle qui brûle. » |
+| 3, étape 34 | « intoxiqués de cette façon par le poêle à bois d'une yourte… » | Le cas dit comme l'article : « intoxiqués dans une yourte chauffée par un poêle à bois, une nuit de grand froid : le monoxyde est entré par le poêle, et l'ouverture du toit, qui sert de prise d'air, est restée à moitié fermée une bonne partie de la nuit. » Plus de lien de cause avec le refoulement décrit juste avant |
+| 4, étape 13 | « Amarrer chaque cordon à un corps mort… Un piquet ne tient pas dans la neige. » | Arbre, branche, bille couchée ou souche à portée ; sinon piquet d'amarrage (IREPI) ou corps mort : perche ou bille d'environ 1 m, cordon attaché, trou rempli de neige bien tassée qui gèle en peu de temps (FM 31-70, ch. 3, l. 139). Le Continental Field Manual de l'US Antarctic Program, qui décrit aussi le corps mort dans la neige molle, n'a pas pu être téléchargé (404, serveur injoignable) : non cité |
+| 5, noms latins | *Abies balsamea*, *Picea mariana*, *Rangifer tarandus*, *Salix* spp., *Alnus incana*, *Thuja occidentalis* | Sortis. « Cèdre (thuya) » reste, comme la page `thuyone` |
+| 6, étape 86 | « aulne rugueux » | « aulne » |
+| 7, repères | Étape 75 : repère 13 ; étape 19 : « plancher foulé (repère 8) … poser le poêle (repère 7) » | Étape 75 : repère 12 (« porte basse, bloc devant ») ; étape 19 : « Planter quatre pieux verts de conifère (repère 7) à travers le plancher foulé (repère 8) » |
+| 8, étape 27 | « le bout coupé piqué dans la neige vers le fond, la courbe naturelle de la branche vers le haut, comme un ressort, et la pointe vers la porte » | « le bout coupé vers le fond (repère 1) et la pointe vers la porte (repère 3) » : seulement ce que N360 tranche. « Concave » n'est pas interprété ; le repère 2 de la 12-02 (« courbe vers le haut, en ressort ») n'est plus appelé (pour l'agent des planches) |
+| 9, étape 78 | Plaque qui glisse, sans pictogramme | Inchangé dans le texte. Ajouté à `plan/dangers-inventaire.md`, section 4, « à envisager : un pictogramme d'avalanche, ou une ligne dans la page `ecrasement` » |
+
+### Les points mineurs
+
+| Point | Avant | Après |
+| --- | --- | --- |
+| Étape 20 | « sable, de cendre ou de petites pierres » | « sable, de terre sèche ou de petites pierres », comme le ch. 83, section 9 |
+| Étape 48 | « agrafes, clous à toiture ou laçage » | « agrafes » (N360) |
+| Étape 24, haubans | « amarrés à des corps morts » | « attachés à la tente ou à ses cordons, pas au sol ni aux arbres » (FM 31-70, l. 148 : les trois haubans du tuyau du poêle Yukon). Même chose dans la section 7, « Les haubans ». « Trois » est maintenant sourcé |
+| Renvoi au ch. 82 (pare-étincelles) | « le serrer au fil sur le haut du tuyau (ch. 82) » | Renvoi coupé : le ch. 82 ne dit pas comment le fabriquer |
+| Renvoi au ch. 104 (rideaux) | « (ch. 104) » | « (pour la couture : ch. 104) » |
+| Renvois aux sections 8 et 9 des ch. 25, 82, 83 | Fragiles | Gardés : ils seront refaits à la migration de ces chapitres (grande passe) |
+| Logigramme, t1 et a4 | « jusqu'au sol » ; « Un adulte veille et recharge » | « jusqu'au sol si la neige le permet » ; « À deux adultes, on se relaie pour surveiller le feu » |
+
+### Pictogrammes proposés
+
+| Étape | Décision |
+| --- | --- |
+| 62 (le feu du cône lance des escarbilles, le plastique fond en gouttes brûlantes sur les dormeurs) | `brulure` posé : la matière fondue qui colle et brûle, comme la page `brulure` |
+| 63 (règle de toutes les maisons de neige) | `espace-clos` posé ici et **retiré de l'étape 74** : l'air vicié par le souffle et le trou bouché par le givre ou la neige soufflée sont dits une fois, pour le quinzhee, la caverne et l'iglou (FM 31-70, l. 226, pour le givre et la neige qui bouchent le trou). L'étape 74 garde le geste (tirer la perche, laisser un bâton) et renvoie à l'étape 63 |
+| 40 (bordée mouillée sur la tente éteinte) | Pas posé : la page `ecrasement` parle de la neige d'un toit qu'on chauffe, et une toile qui s'affaisse ne présente pas le même risque qu'une charge qui tombe ; le geste (faire tomber la neige à chaque réveil) suffit |
+| 78 (plaque qui glisse) | Sans pictogramme, noté à l'inventaire (point 9) |
+
+Inventaire, section 1 : le ch. 12 ajouté à `projection`, `froid`, `thuyone` et `brulure` (`espace-clos` l'avait déjà).
+
+### Les NON RETROUVÉ, un par un
+
+| # | Fait | Décision |
+| --- | --- | --- |
+| 8 | Air froid au fond d'un creux par nuit claire et calme (étape 2) | **Sourcé** : FM 31-70, l. 436 (« Cold air is heavier and frequently settles in valleys »). « Nuit claire et calme » sort ; le texte dit « l'air froid, plus lourd, descend et s'accumule au fond des creux et des vallées » |
+| 18 | La botte n'enfonce plus (étape 7, points de contrôle) | Gardé : test de terrain, sans chiffre |
+| 20 | Perche au bord du lit de neige (étape 9) | Gardé : geste de construction ; le FM 31-70 (l. 492) borde aussi le lit de branches de billes de 8 cm qui le tiennent en place |
+| 23 | Chevalets en X (étape 11) | Gardé : geste de construction, sans chiffre |
+| 33 | Clé dans la première section (étape 22) | Gardé : geste d'installation |
+| 35 | L'escarbille s'éteint en tombant (étape 24) | Le mécanisme sort ; reste le but du geste : « pour que les escarbilles ne retombent pas sur la toile » (FM 31-70, l. 199 : les étincelles qui mettent le feu au toit) |
+| 36 | Trois haubans | **Sourcé** : FM 31-70, l. 148 |
+| 38, 39 | Sapin « le plus doux » ; épinette noire « souvent la seule » (étape 26) | Sortis. « De l'épinette ou du sapin » : N360 et FM 31-70, l. 492 (« spruce, fir, or balsam boughs ») |
+| 43 | Peaux « poil en haut » (étape 32) | Sorti |
+| 55 | Avertisseur « à hauteur de tête » (étape 36) | « près des dormeurs » : la page du Québec dit « dans chaque chambre où l'on dort » |
+| 81 | Cône : laisser respirer la base côté porte (étape 60) | Gardé : geste cohérent avec l'entrée d'air basse (RNCan), sans chiffre |
+| 84 | Une chandelle n'est pas un test (étape 64) | **Sorti** : aucune source au dossier, et la recherche n'en a pas trouvé |
+| 87 | Dégager la tête d'abord (étape 65) | Gardé : geste de secours de bon sens, sans chiffre |
+| 91 | La méthode des bâtons repères (étape 68) | Gardé : geste, et l'épaisseur de 30 cm est sourcée (IREPI) |
+| 97 | Bâton dans le trou d'aération que le givre referme (étape 74) | Gardé ; le givre qui bouche le trou est maintenant sourcé à l'étape 63 (FM 31-70, l. 226) |
+| 112 | « À 3 h du matin, par −30 °C » (étape 91) | Sorti (petite scène ; l'étape 89 dit déjà la lampe frontale) |
+| 113 | Branches basses « sèches même sous la neige » (étape 91) | Sorti ; « les branches mortes encore attachées au tronc des épinettes (ch. 13, étape 11) » |
+| 120 | Feu long, billes poussées dans le feu (étape 96) | **Réécrit sur la source** : FM 31-70, l. 199, 234 et 235. Deux ou trois billes sèches, de feuillu si possible, de 20 à 40 cm de diamètre et de la longueur de l'abri (étape 91) ; faces entaillées, deux billes sur des cales de bois vert, la troisième dessus, petits coins pour le tirage, allumé à plusieurs endroits ; « brûle toute la nuit avec peu de soins » ; à deux billes, quatre piquets qui lâchent quand la neige fond. Étape 100 accordée : l'adulte seul dort aussi et accepte que le feu baisse (« met moins de billes, mais de plus grosses » est sorti) |
+| 122 | Le plastique fond bien avant que le bois prenne feu (étape 98) | La comparaison sort : « le feu est trop près, et le plastique va ramollir et fondre » |
+| 124 | Le sac synthétique fond « à la première » étincelle (étape 98) | « fond sous les étincelles » (fiche des fibres) |
+| 133 | La moustiquaire se bouche « plus vite » (section 7) | « plus vite » sort : elle « se bouche de givre et de suie » (FM 31-70, l. 483 : le givre et la suie dans le tuyau) |
+| 134 | Toile non traitée qui roussit plus vite (section 7) | « La toile d'une tente de prospecteur est traitée pour ne pas s'enflammer ; une toile de récupération ne l'est pas » (IREPI : toile « ininflammable ») |
+| 135 | Toile roussie qui a perdu sa résistance (section 6) | Sorti ; l'action devient « rapiécer la toile » |
+| Lit | Épaisseur du lit de la nuit dehors (étape 94) | **Ajouté, sourcé** : « sur 15 à 30 cm d'épaisseur » (FM 31-70, l. 492), à la place de « plus épais que sous une tente » |
+
+Aucun `[À VÉRIFIER]` dans le texte.
+
+### Pour JP
+
+- **Le ramonage du tuyau.** Le FM 31-70 (l. 485) fait nettoyer le tuyau d'un poêle de tente **chaque jour** quand on brûle
+  du bois ; le ch. 12 (Points de contrôle) garde le ramonage **hebdomadaire** du ch. 83 (la truie). Pas changé : à
+  trancher (le chiffre touche le danger `incendie`).
+- **Les planches** : 12-01a, repère 6, et 12-01b, repères 5 et 6, dessinent des haubans et des cordons amarrés à des corps
+  morts enfouis ; le texte attache maintenant les haubans à la tente ou à ses cordons (FM 31-70), et les cordons à un
+  arbre, un piquet ou un corps mort. 12-02, repère 2 (« courbe vers le haut, en ressort ») n'est plus appelé. 12-05a :
+  « env. 60 cm » coté en hauteur, le texte dit « de large ». Pour l'agent des planches.
+
+### controle.py après les corrections
+
+8 780 mots, 2 tirets (titre et ligne de tome), 0 mot banni, 0 « § », 0 tournure, 0 ancre introuvable, 9 redites
+jugées (renvois, ou deux faits différents). Invariants signalés et justifiés : « 30 °C » (la scène de 3 h du matin, sortie),
+« 8 heures » (le jour de Sept-Îles, sorti), plus ceux de la refonte (section plus haut).

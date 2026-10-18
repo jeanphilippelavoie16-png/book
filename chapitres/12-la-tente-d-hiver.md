@@ -49,8 +49,8 @@ s'intoxiquer au monoxyde du chauffage.
  évite de faire fondre la neige, qui coûte cher en bois (ch. 10, étape 39). L'épinette morte debout brûle le jour
  même où on la coupe (ch. 83, section 9).
 2. **Regarder au-dessus et autour.** Ne pas monter l'abri sous une branche lourde de neige : la chaleur fait
- lâcher la neige, qui tombe sur l'abri et éteint le feu. Ne pas le monter au fond d'un creux : par nuit claire et
- calme, l'air froid coule vers le bas et s'y accumule.
+ lâcher la neige, qui tombe sur l'abri et éteint le feu. Ne pas le monter au fond d'un creux : l'air froid, plus
+ lourd, descend et s'accumule au fond des creux et des vallées.
 3. **Tourner la porte de la tente sous le vent dominant, et garder l'entrée d'air basse dans le mur qui reçoit le
  vent** (planche 12-01b, repères 1 à 3 ; étape 16). Ce sont deux côtés opposés de la tente.
 4. **Vérifier qu'il y a assez de neige, et la bonne.**
@@ -91,8 +91,10 @@ Seuls la toile, le poêle et le tuyau voyagent, au toboggan (ch. 89) ; la charpe
  corde tendue entre deux arbres.
  - Poser chaque traverse sur des piquets fourchus en Y, plantés dans la neige foulée (repère 15).
 12. **Poser la toile** sur le faîte et tirer les murs sur les traverses.
-13. **Amarrer chaque cordon à un corps mort** : un bout de bois couché dans une petite fosse et recouvert de neige
- foulée (repère 6). Un piquet ne tient pas dans la neige ; le corps mort gèle en place pendant la nuit.
+13. **Amarrer chaque cordon** à un arbre, une branche, une bille couchée ou une souche, s'il y en a à portée ;
+ sinon, à un piquet d'amarrage ou à un corps mort (repère 6). Pour le corps mort, creuser un trou dans la neige, y
+ coucher une perche ou une bille d'environ 1 m, le cordon attaché dessus, puis remplir le trou de neige bien
+ tassée : en peu de temps, la neige tassée gèle et tient la tente.
 14. **Coucher la jupe à neige** à plat sur la neige, à l'extérieur.
 15. **Renchausser** : pelleter la neige contre le bas des murs, sur au moins 50 cm de haut, et la taper à la pelle
  (planche 12-01b, repère 4). La toile coupe le vent, mais elle n'isole pas : la chaleur
@@ -114,11 +116,11 @@ Seuls la toile, le poêle et le tuyau voyagent, au toboggan (ch. 89) ; la charpe
 
 18. **Placer le poêle près de la porte, dans l'allée, avec le lit de neige au fond** (planche 12-01a, repère 9).
  Le tuyau sort par le mur de devant avec un coude, ou par le toit.
-19. **Planter quatre pieux verts de conifère** à travers le plancher foulé (repère 8), aussi profond que la pelle
- le permet, jusqu'au sol si on peut, et poser le poêle dessus, au-dessus du plancher (repère 7). La neige fond sous
+19. **Planter quatre pieux verts de conifère** (repère 7) à travers le plancher foulé (repère 8), aussi profond que
+ la pelle le permet, jusqu'au sol si on peut, et poser le poêle dessus, au-dessus du plancher. La neige fond sous
  le poêle ; les pieux le gardent d'aplomb pendant que le trou se creuse dessous. Sans eux, le poêle s'enfonce et
  se couche, avec son tuyau. Chaque matin, regarder si la tête des pieux a charbonné.
-20. **Si la tôle du poêle est mince, mettre au fond un lit de sable, de cendre ou de petites pierres**, de
+20. **Si la tôle du poêle est mince, mettre au fond un lit de sable, de terre sèche ou de petites pierres**, de
  l'épaisseur d'une main (repère 1 ; ch. 83, section 9).
 21. **Laisser un rond de neige nue entre les pieux et devant la porte du poêle**, sans sapinage (repère 11). Une
  braise qui tombe y fait fondre la neige au lieu d'allumer le lit.
@@ -128,28 +130,26 @@ Seuls la toile, le poêle et le tuyau voyagent, au toboggan (ch. 89) ; la charpe
  plaque de la collerette est percée à peine plus grand que le tuyau, et la toile commence à son bord : la plaque la tient loin du tuyau, et cette distance la protège. Au plus fort d'un
  feu vif, poser la main sur la toile au bord de la plaque : elle doit pouvoir y rester. Si elle ne tient pas, la
  plaque est trop petite : en coudre une plus grande.
-24. **Monter le tuyau dehors plus haut que le faîte, coiffé du pare-étincelles** (repère 4). Une escarbille qui
- sort bas retombe encore rouge sur la toile ; plus elle tombe de haut, plus elle a le temps de s'éteindre. Tenir le
- tuyau contre le vent par trois haubans de fil de fer amarrés à des corps morts (repère 6 ; planche 12-01b,
- repère 5) : un tuyau qui se déboîte dehors renvoie la fumée dans la tente par le joint ouvert.
+24. **Monter le tuyau dehors plus haut que le faîte, coiffé du pare-étincelles** (repère 4), pour que les
+ escarbilles ne retombent pas sur la toile. Tenir le tuyau contre le vent par trois haubans de fil de fer, attachés
+ à la tente ou à ses cordons, pas au sol ni aux arbres (repère 6 ; planche 12-01b, repère 5) : un tuyau qui se
+ déboîte dehors renvoie la fumée dans la tente par le joint ouvert.
 25. **Faire la première flambée vive, l'air grand ouvert.** Elle sèche la toile, raidit les cassures du shaputuan
  et montre les fuites : chercher la fumée à chaque joint et au bord de la collerette.
 
 ### Poser le sapinage en écailles
 
-26. **Prendre les branches.** Le sapin baumier (*Abies balsamea*) est le plus doux sous le corps. L'épinette noire
- (*Picea mariana*) est souvent la seule qu'il y a, et elle fait l'affaire. Les branches des perches ébranchées sur
- l'aire foulée font la première couche. Prendre des branches courtes et souples, et laisser les grosses tiges.
+26. **Prendre les branches** : de l'épinette ou du sapin. Les branches des perches ébranchées sur l'aire foulée font
+ la première couche. Prendre des branches courtes et souples, et laisser les grosses tiges.
 27. **Poser le premier rang contre le mur du fond** (planche 12-02, repère 6) : les branches couchées côte à côte,
- le bout coupé piqué dans la neige vers le fond (repère 1), la courbe naturelle de la branche vers le haut, comme
- un ressort (repère 2), et la pointe vers la porte (repère 3).
+ le bout coupé vers le fond (repère 1) et la pointe vers la porte (repère 3).
 28. **Poser chaque rang sur les bouts coupés du rang d'avant**, comme des bardeaux sur un toit (repère 4), et
  avancer vers la porte (repère 5). Il ne reste en surface que des pointes souples, et aucun bout de tige ne
  touche le dos.
 29. **Serrer les branches comme un tapis**, jusqu'à ce qu'un genou appuyé ne sente plus la neige.
 30. **Dans une tente à deux portes, partir du milieu** et poser vers chaque porte (repère 10).
 31. **Ne rien poser dans le rond de neige nue autour du poêle** (repère 8 ; étape 21).
-32. **Étendre par-dessus** les peaux, poil en haut, la bâche de sol et les matelas.
+32. **Étendre par-dessus** les peaux, la bâche de sol et les matelas.
 33. **Entretenir le sapinage.** Il s'écrase : ajouter une couche fraîche par-dessus au lieu de tout changer,
  parce que l'ancienne, tassée, isole le dessous. Ramasser les aiguilles sèches tombées près du poêle : elles
  brûlent comme de l'amadou.
@@ -159,8 +159,9 @@ Seuls la toile, le poêle et le tuyau voyagent, au toboggan (ch. 89) ; la charpe
 34. {!co} **Décider avant de se coucher : quelqu'un veille toute la nuit, ou le feu est mort avant que le dernier
  adulte se couche.** Quand le feu tombe en braise, le tuyau refroidit et tire moins que la tente : la tente fait
  descendre l'air par le tuyau, et la fumée et le monoxyde de la braise entrent dedans. Au Québec, des campeurs ont
- été intoxiqués de cette façon par le poêle à bois d'une yourte, une nuit de grand froid où l'ouverture du toit
- était à moitié fermée ; leurs maux de tête et de cœur ont commencé vers 2 h du matin.
+ été intoxiqués dans une yourte chauffée par un poêle à bois, une nuit de grand froid : le monoxyde est entré par le
+ poêle, et l'ouverture du toit, qui sert de prise d'air, est restée à moitié fermée une bonne partie de la nuit.
+ Leurs maux de tête et de cœur ont commencé vers 2 h du matin.
  - **Veiller.** Un adulte reste assis près du poêle et le nourrit pour garder une flamme claire, l'air et la clé
  ouverts. On se relaie, et la relève se compte en recharges (ch. 18).
  - **Laisser mourir le feu.** Le laisser brûler, l'air et la clé grands ouverts, en restant debout jusqu'au bout ;
@@ -176,8 +177,7 @@ Seuls la toile, le poêle et le tuyau voyagent, au toboggan (ch. 89) ; la charpe
  400 ppm en moins de 10 minutes ; deux heures sous une petite tente avec un réchaud ont bloqué en moyenne plus du
  cinquième de l'hémoglobine d'adultes en santé. L'allumage est le pire moment, et un brûleur encrassé ou une
  flamme jaune en font beaucoup plus.
-36. **Poser l'avertisseur de CO à hauteur de tête des dormeurs, à plus de 2 m du poêle, et lire ce qu'il
- affiche.** Il n'est pas fait pour une pièce sous 4,4 °C, et une tente où le poêle s'éteint y descend vite.
+36. **Poser l'avertisseur de CO près des dormeurs, à plus de 2 m du poêle, et lire ce qu'il affiche.** Il n'est pas fait pour une pièce sous 4,4 °C, et une tente où le poêle s'éteint y descend vite.
  - Le jour, le garder dans une poche intérieure, jamais au fond d'un sac ou d'un traîneau : la cellule de certains
  avertisseurs contient de l'eau, et si elle gèle, elle peut rester abîmée pour de bon sans que le bouton d'essai
  le montre.
@@ -185,7 +185,8 @@ Seuls la toile, le poêle et le tuyau voyagent, au toboggan (ch. 89) ; la charpe
  d'essai.
 37. {!incendie} **Garder un couteau à la tête du lit.** Une tente de toile brûle d'un coup, avec son sapinage sec
  et les sacs de couchage. Le feu part du poêle, qui est près de la porte : la porte est du côté du feu. On tranche
- la toile et on sort par le mur du fond. Dans le shaputuan, on sort par la porte de l'autre bout.
+ la toile et on sort par le mur du fond. Dans le shaputuan, qui a un poêle près de chaque porte, on sort par la porte
+ du bout opposé au poêle qui brûle.
 38. **Avant de se coucher, faire le tour dehors** : l'entrée d'air basse doit être dégagée (planche 12-01a, repère 5), et le pare-étincelles
  libre de givre, de suie et de neige. Une grille bouchée ferme le tuyau, et la fumée n'a plus d'autre sortie que la
  tente.
@@ -218,7 +219,7 @@ maisonnées hivernent ensemble, chacune a son bout et son poêle près de sa por
  charpente liée de la tente de prospecteur (étapes 10 et 11).
 47. **Fermer les bouts** : planter des épinettes à chaque extrémité et les lier en haut aux perches cassées, en
  laissant la place de la porte (repères 10 et 15).
-48. **Fixer la toile des côtés** aux perches par des agrafes, des clous à toiture ou un laçage. À mesure qu'on
+48. **Fixer la toile des côtés** aux perches par des agrafes. À mesure qu'on
  avance, planter en dedans des pieux appuyés contre la toile (repère 11), et pelleter la neige dehors, contre la
  toile, jusqu'à la hauteur des cassures (repère 5). Les pieux tiennent la toile contre la poussée de la neige ; la
  neige tient la toile, isole le bas et fait le mur. Garder une entrée d'air basse par poêle, du côté du vent
@@ -231,7 +232,7 @@ maisonnées hivernent ensemble, chacune a son bout et son poêle près de sa por
 
 ### Le cône de bâches
 
-C'est la tente conique des Innus et des Naskapis, faite de deux bandes de peaux de caribou (*Rangifer tarandus*) :
+C'est la tente conique des Innus et des Naskapis, faite de deux bandes de peaux de caribou :
 la bande du bas se posait en premier, et celle du haut la recouvrait. Des bâches font la même chose. Le feu est au
 milieu, la fumée sort par le sommet, et on a chaud tant que la flamme brûle. On y respire de la fumée : c'est un
 abri pour veiller plus que pour dormir.
@@ -269,7 +270,7 @@ abri pour veiller plus que pour dormir.
  le haut, et quelqu'un la garde éveillé toute la nuit. La braise fait du monoxyde sans faire monter la fumée. Si on
  ferme le sommet, si on laisse le feu tomber en braise ou si tout le monde s'endort, le cône devient un abri fermé
  avec un feu dedans.
-62. **Garder le feu petit.** Une grande flamme lance des escarbilles sur le plastique du haut, qui fond et tombe en
+62. {!brulure} **Garder le feu petit.** Une grande flamme lance des escarbilles sur le plastique du haut, qui fond et tombe en
  gouttes brûlantes sur les dormeurs et sur le sapinage.
 
 ### La maison de neige
@@ -277,12 +278,13 @@ abri pour veiller plus que pour dormir.
 Il y en a trois, et on choisit selon la neige : le quinzhee dans la neige du sous-bois, la caverne dans une
 congère, la maison de blocs dans la plaque à vent (étape 4).
 
-63. **Dans toutes les maisons de neige, garder l'entrée plus basse que le banc, la voûte en arc, le trou d'aération
- ouvert même quand rien ne brûle, et une pelle dedans.**
+63. {!espace-clos} **Dans toutes les maisons de neige, garder l'entrée plus basse que le banc, la voûte en arc, le
+ trou d'aération ouvert même quand rien ne brûle, et une pelle dedans.** Même sans flamme, un abri bouché se vicie
+ du souffle des gens qui dorment dedans. Le givre et la neige soufflée bouchent le trou et l'entrée : les rouvrir
+ à chaque réveil, et après une poudrerie ou une bordée, avant de se rendormir.
 64. {!co} **N'allumer aucune flamme dans un abri de neige, éveillé ou non**, pas même un réchaud (étape 35). Une
  maison de neige ne se chauffe pas : sa paroi fond à 0 °C. Faire fondre la neige dehors, à l'air libre, jamais
- dans l'entrée ni dans le passage couvert. Une chandelle brûle normalement dans un air chargé de monoxyde : elle
- ne sert pas de test.
+ dans l'entrée ni dans le passage couvert.
 65. {!ecrasement} **Ne jamais creuser seul.** Un autre adulte reste à l'entrée, pelle en main, voit la personne
  qui creuse ou lui parle sans arrêt, et ne fait rien d'autre. Une butte creusée avant d'avoir pris tombe sur la
  personne qui creuse, et sous une masse de neige, on ne respire plus et on ne se dégage pas seul. Si la personne
@@ -316,11 +318,9 @@ congère, la maison de blocs dans la plaque à vent (étape 4).
  (repère 11). Creuser une petite rigole entre le banc et la paroi pour l'eau de fonte (repère 14).
 73. **Faire le test de la lumière, de jour** : boucher la porte et regarder la paroi du dedans. Là où elle luit
  plus clair, elle est mince : gratter les endroits sombres pour égaliser.
-74. {!espace-clos} **Tirer la perche du centre** : son trou devient le trou d'aération (repère 8). Laisser un bâton
- planté dedans pour le rouvrir à chaque réveil : le givre le referme. Après une poudrerie ou une bordée, dégager
- l'entrée et le trou avant de se rendormir : même sans flamme, un abri bouché se vicie du souffle des gens qui
- dorment dedans.
-75. **Fermer la porte d'un bloc ou d'un sac**, juste assez pour couper le vent (repère 13).
+74. **Tirer la perche du centre** : son trou devient le trou d'aération (repère 8). Laisser un bâton planté dedans
+ pour le rouvrir (étape 63).
+75. **Fermer la porte d'un bloc ou d'un sac**, juste assez pour couper le vent (repère 12).
 76. **Sur le banc, poser le sapinage en écailles**, puis la bâche, les matelas et les sacs (repères 15 à 17).
 
 Il faut compter 2 à 3 h d'attente et 3 à 4 h de creusage, sans le pelletage de la butte. Ces durées sont celles
@@ -363,7 +363,7 @@ on l'apprend un hiver ordinaire, sur le lac devant le chalet, avant d'en avoir b
  Poser des blocs le long de la tranchée et les coiffer d'un toit en arc (repères 6 et 7) : le passage couvert est
  plus bas que le plancher, et le froid y reste, comme dans l'allée de la tente (étape 9 ; repère 5).
 86. **Faire le banc** : laisser en place la neige d'un côté de la fosse, ou empiler des blocs (repère 3). Le couvrir
- de sapinage, ou de brindilles de saule (*Salix* spp.) et d'aulne rugueux (*Alnus incana*), puis de peaux
+ de sapinage, ou de brindilles de saule et d'aulne, puis de peaux
  (repère 8).
 87. **Percer le trou d'aération près du sommet** (repère 2).
 88. **Si l'abri doit durer, monter tout autour un mur de blocs de 60 à 90 cm de haut** : une seule nuit de
@@ -409,7 +409,7 @@ on l'apprend un hiver ordinaire, sur le lac devant le chalet, avant d'en avoir b
 | Odeur de fumée froide dans la tente au réveil | Le tuyau a refoulé pendant la nuit | Comme pour le mal de tête : tout le monde dehors, aérer, puis chercher pourquoi (entrée basse bouchée, grille bouchée, poêle étouffé, feu laissé mourir pendant qu'on dormait) |
 | Ronflement grave dans le tuyau, tuyau qui rougit, étincelles à la sortie | Feu de cheminée (ch. 83, section 8) | Fermer l'air du poêle et la clé. Tout le monde dehors avec les sacs. Surveiller la toile autour de la collerette et le toit sous la sortie |
 | Flamme jaune au réchaud | Le combustible brûle mal : beaucoup plus de monoxyde | Éteindre, nettoyer le brûleur ; le réchaud sert dehors seulement |
-| Toile qui brunit ou roussit autour de la collerette | Plaque trop petite, ou tuyau trop chaud contre elle | Agrandir la plaque, baisser le feu. Une toile roussie a perdu sa résistance et se déchire |
+| Toile qui brunit ou roussit autour de la collerette | Plaque trop petite, ou tuyau trop chaud contre elle | Agrandir la plaque, baisser le feu, rapiécer la toile |
 | Petits trous ronds dans le toit | Escarbilles : pare-étincelles absent, percé ou bouché | Réparer la grille, rapiécer les trous (ch. 104) |
 | Poêle qui penche, tuyau qui force sur la collerette | Pieux enfoncés, charbonnés ou mal plantés | Laisser refroidir, replanter plus profond |
 | Plancher qui cède sous les pas, flaque près du poêle | Plancher foulé en raquettes seulement, ou poêle posé sans pieux | Fouler en bottes autour, remonter le poêle sur ses pieux |
@@ -424,22 +424,24 @@ on l'apprend un hiver ordinaire, sur le lac devant le chalet, avant d'en avoir b
 
 ## 7. Variante d'urgence
 
-### La noirceur vient et on ne rentrera pas {.orange 15 h 20}
+### Le soleil se couche et on ne rentrera pas {.orange 40 min}
 
-89. **Décider de passer la nuit sur place dès qu'on sait qu'on ne rentrera pas avant la noirceur, et commencer
- tout de suite.** Le bois, l'abri et le lit prennent toute la clarté qui reste ; à la lampe frontale, on ne trouve
- pas de bois sec et on monte mal un abri. En décembre, sur la Côte-Nord, le soleil se couche vers 15 h 20 et le jour
- dure à peine plus de 8 h ; à la fin de janvier, il se couche vers 16 h 15. Faire les choses dans cet ordre : le bois
- de toute la nuit, l'abri, le lit, puis le feu. Si la machine s'est arrêtée sur une trace, monter l'abri au bord de
+89. **Décider de passer la nuit sur place dès qu'on sait qu'on ne rentrera pas, et commencer tout de suite, avant le
+ coucher du soleil.** Après le coucher, il reste environ 40 minutes de clarté pour travailler sans lampe en
+ décembre, un peu moins à la fin de janvier ; ensuite,
+ à la lampe frontale, on ne trouve pas de bois sec et on monte mal un abri. En décembre, sur la Côte-Nord, le soleil
+ se couche entre 15 h et 15 h 45 selon l'endroit ; à la fin de janvier, entre 16 h et 16 h 40. Le bois, l'abri et le
+ lit ne se font pas en 40 minutes : il faut les commencer avant. Faire les choses dans cet ordre : le bois de toute
+ la nuit, l'abri, le lit, puis le feu. Si la machine s'est arrêtée sur une trace, monter l'abri au bord de
  la trace (ch. 15, étape 18).
 90. **Choisir la place** : sous le vent d'un fourré ou d'un rocher, avec du bois mort autour, sans branche chargée
  de neige au-dessus, et pas au fond d'un creux (étapes 1 et 2).
-91. **Couper tout le bois de la nuit avant la noirceur.** C'est le travail le plus long : à 3 h du matin, par
- −30 °C, personne ne trouve de bois sec à la lampe frontale.
+91. **Couper tout le bois de la nuit avant la noirceur** : c'est le travail le plus long.
  - Prendre l'épinette morte debout (étape 1).
- - Envoyer les enfants ramasser les branches mortes basses des épinettes, sèches même sous la neige : c'est le bois
- d'allumage, et c'est un vrai travail pour eux (ch. 40).
- - Prendre des billes longues de bois mort pour le feu long (étape 96).
+ - Envoyer les enfants ramasser les branches mortes encore attachées au tronc des épinettes (ch. 13, étape 11) :
+ c'est le bois d'allumage, et c'est un vrai travail pour eux (ch. 40).
+ - Pour le feu long, couper deux ou trois billes sèches, de feuillu si possible, de 20 à 40 cm de diamètre et à peu
+ près de la longueur de l'abri (étape 96).
  - Par grand froid, casser contre un arbre ou sous la botte, sans hache, des tiges vertes de la grosseur du
  poignet : ce sont les billes de la plateforme (étape 95).
 92. **Fouler l'aire de l'abri en bottes, puis égaliser en raquettes** (étapes 5 et 6). Si la neige est mince,
@@ -454,17 +456,24 @@ on l'apprend un hiver ordinaire, sur le lac devant le chalet, avant d'en avoir b
  de la neige sur le dos, mais pas du côté du feu : la chaleur la fait fondre, et l'eau coule dans l'abri.
  - **Quand le feu est impossible**, parce qu'il n'y a pas de bois sec ou que le vent tourne et rabat la fumée dans
  l'abri : creuser la tranchée bâchée à la place (« La tranchée bâchée », plus bas).
-94. {!froid} **Faire le lit** : poser le sapinage en écailles (étapes 27 à 29, planche 12-02), plus épais que sous
- une tente, jusqu'à ce qu'un genou appuyé ne sente plus le froid. Aucun poêle ne chauffe ce plancher : le corps
+94. {!froid} **Faire le lit** : poser le sapinage en écailles (étapes 27 à 29, planche 12-02), sur 15 à 30 cm
+ d'épaisseur, jusqu'à ce qu'un genou appuyé ne sente plus le froid. Aucun poêle ne chauffe ce plancher : le corps
  couché perd sa chaleur dans la neige qu'il touche, et le sapinage l'en isole. S'il n'y a qu'une bâche, elle fait
  le toit, et le sapinage fait le dessous.
 95. **Monter la plateforme du feu.** Sur la neige profonde, un feu s'enfonce dans son propre trou et s'y noie.
  Coucher côte à côte des billes vertes sur la neige, puis une ou deux autres couches, celle du haut en travers de
  celle du dessous, et faire le feu sur ce radeau. Le matin, défaire la plateforme : le bois vert continue de couver
  sous ce qu'on a éteint (ch. 13, étape 29).
-96. **Faire le feu long**, aussi long que le rang des dormeurs et parallèle à l'ouverture de l'abri, pour que
- chaque corps reçoive sa part de chaleur. Coucher les billes longues de bois mort dans le sens du feu : elles
- brûlent longtemps, et on les pousse dans le feu au lieu de recharger.
+96. **Faire le feu long**, aussi long que l'abri et parallèle à son ouverture, pour que la chaleur se répartisse
+ sur toute la longueur des dormeurs.
+ - Avec la hache, entailler les faces des billes qui vont se toucher : elles brûlent mieux.
+ - Coucher deux billes côte à côte sur de petites cales de bois vert, pour que l'air passe dessous.
+ - Poser la troisième bille par-dessus, au milieu, et glisser de petits coins de bois entre les billes pour le
+ tirage.
+ - Allumer le feu à plusieurs endroits, pour qu'il prenne sur toute la longueur. Un feu de trois billes monté ainsi
+ brûle toute la nuit avec peu de soins.
+ - Avec deux billes seulement, planter quatre piquets dans la neige pour tenir la bille du haut sur celle du bas.
+ Les piquets lâchent quand la neige fond autour du feu.
 97. **Monter le mur réflecteur derrière le feu**, du côté opposé à l'abri, pour renvoyer la chaleur vers les
  dormeurs.
  - Planter quatre pieux de 1,5 m.
@@ -475,17 +484,15 @@ on l'apprend un hiver ordinaire, sur le lac devant le chalet, avant d'en avoir b
  - Quand la terre est gelée sous la neige, monter les deux rangs de billes sans remplissage : le mur tient moins et
  renvoie moins de chaleur.
 98. **Régler la distance entre le feu et la bâche avec la main** : si la main ne tient pas sur la bâche, le feu est
- trop près, parce que le plastique ramollit et fond bien avant qu'un bout de bois prenne feu. Garder les sacs
- roulés, loin du feu, jusqu'au coucher : l'épinette lance beaucoup d'étincelles, et l'enveloppe d'un sac
- synthétique fond à la première.
+ trop près, et le plastique va ramollir et fondre. Garder les sacs roulés, loin du feu, jusqu'au coucher :
+ l'épinette lance beaucoup d'étincelles, et l'enveloppe d'un sac synthétique fond sous les étincelles.
 99. **Se coucher en rang le long de l'ouverture, les pieds vers le feu**, les enfants entre les adultes, chacun dans
  son sac ou dans l'enveloppe croisée (ch. 25, section 9).
-100. **Veiller le feu.** À deux adultes, se relayer aux recharges (ch. 18). Un adulte seul avec les enfants met
- moins de billes, mais de plus grosses, et accepte que le feu tombe à un moment de la nuit : le sapinage sous les
- corps et les sacs gardent alors la chaleur jusqu'au matin, et c'est pour ça que le lit doit être épais.
+100. **Veiller le feu.** À deux adultes, se relayer pour le surveiller (ch. 18). Un adulte seul avec les enfants
+ dort aussi, et accepte que le feu baisse à un moment de la nuit : le sapinage sous les corps et les sacs gardent
+ alors la chaleur jusqu'au matin, et c'est pour ça que le lit doit être épais.
 101. {!thuyone} **Boire chaud.** Faire fondre la neige dans le chaudron, sur un fond d'eau (ch. 10, étape 39).
- Faire la décoction avec des aiguilles de sapin baumier ou d'épinette, jamais de cèdre (thuya, *Thuja
- occidentalis*) : la thuyone du cèdre est toxique (ch. 20).
+ Faire la décoction avec des aiguilles de sapin baumier ou d'épinette, jamais de cèdre (thuya) : la thuyone du cèdre est toxique (ch. 20).
 102. {!projection} **Glisser des pierres chauffées dans les sacs.** Les prendre au sec, jamais dans l'eau ni sur
  une rive : l'eau prise dans la pierre se change en vapeur d'un coup dans le feu, fait éclater la pierre, et les
  éclats partent à hauteur d'homme (ch. 83). Les rouler dans deux épaisseurs de tissu avant de les mettre dans le
@@ -521,7 +528,7 @@ On a un poêle et du tuyau récupérés dans les cendres du chalet (ch. 82, sect
 section 9), mais pas de tente.
 
 - **La toile.** Prendre une toile de coton, quelle qu'elle soit : toile de chaloupe, bâche de coton d'un hangar,
- rideaux épais cousus ensemble (ch. 104), s'ils sont de coton. Le coton respire, roussit au lieu de fondre, et se
+ rideaux épais cousus ensemble (pour la couture : ch. 104), s'ils sont de coton. Le coton respire, roussit au lieu de fondre, et se
  recoud. Une tente d'été, une toile de chaloupe récente ou un rideau qui coupe la lumière peuvent être en nylon, en
  polyester, ou enduits : le vérifier.
  - Un tissu enduit se reconnaît à son envers luisant ou caoutchouté. Il ne laisse pas passer l'air.
@@ -540,17 +547,16 @@ section 9), mais pas de tente.
  - Coudre la plaque à la toile au fil de fer, en passant par ses trous (repère 11).
  - Faire le test de la main (étape 23) : il dit si la plaque est assez grande.
 - **Le pare-étincelles.** Rouler en manchon un bout de treillis ou de tôle perforée, avec des ouvertures d'au plus
- 1 cm, et le serrer au fil sur le haut du tuyau (ch. 82). Une moustiquaire métallique, plus fine, se bouche plus
- vite de givre et de suie : ne la prendre qu'à défaut, et la regarder chaque soir (étape 38).
-- **Les haubans.** Du fil à balles, de la broche de clôture ou du fil électrique récupéré, tendus à trois arbres ou
- à trois corps morts.
-- **Ce qu'on perd** : une toile qui n'est pas traitée contre le feu roussit plus vite, et il faut refaire le test de
- la main après chaque grosse flambée.
+ 1 cm, et le serrer au fil sur le haut du tuyau. Une moustiquaire métallique, plus fine, se bouche de givre et de
+ suie : ne la prendre qu'à défaut, et la regarder chaque soir (étape 38).
+- **Les haubans.** Trois bouts de fil à balles, de broche de clôture ou de fil électrique récupéré, attachés à la
+ tente ou à ses cordons (étape 24).
+- **Ce qu'on perd** : la toile d'une tente de prospecteur est traitée pour ne pas s'enflammer ; une toile de
+ récupération ne l'est pas. Refaire le test de la main après chaque grosse flambée.
 
 ### Ce qu'on perd
 
-- **L'appentis et le feu** : la nuit devient une suite de petits sommes entre deux recharges. On brûle énormément de
- bois, et la fumée tourne avec le vent. Le côté du corps tourné vers le feu chauffe, le côté tourné vers la bâche
+- **L'appentis et le feu** : on brûle beaucoup de bois, et la fumée tourne avec le vent. Le côté du corps tourné vers le feu chauffe, le côté tourné vers la bâche
  gèle, et on se retourne sans arrêt.
 - **L'abri de neige** : des heures de travail, toute la clarté d'une journée d'hiver pour le quinzhee, du linge
  mouillé qu'on ne sèche nulle part dedans, et aucune source de chaleur. On y dort, mais on n'y vit pas.

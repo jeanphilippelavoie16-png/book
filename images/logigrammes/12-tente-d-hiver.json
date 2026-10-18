@@ -1,5 +1,5 @@
 {
-  "_note": "Logigramme du chapitre 12 (la tente d'hiver et l'abri de neige), double page, fait le 18 octobre 2026 sur le chapitre refait à sept sections, sur le modèle des 10 et 15. Page de gauche : la série orange « La noirceur vient et on ne rentrera pas » (section 7, étapes 89 à 102), pastille 15 h 20, l'heure du coucher du soleil en décembre sur la Côte-Nord (sources/16c-sept-iles-lever-coucher-soleil-hiver.md) : la série doit être finie avant la noirceur. La fourche « On peut faire un feu ? » sépare l'appentis et le feu long de la tranchée bâchée. Page de droite, sans orange : la tente à poêle montée dans l'ordre (étapes 1 à 33), puis la seule vraie décision de la nuit, quelqu'un veille ou le feu est mort avant le coucher (étape 34). Aucun avertissement redit (ni le mécanisme du monoxyde, ni la génératrice, ni la thuyone : ils restent dans leur étape, à côté de leur pictogramme). Rendu : env -u TMPDIR python3 design/outils/logigramme.py images/logigrammes/12-tente-d-hiver.json ; version du livre : --sans-entete --svg. « source » : les étapes du chapitre d'où vient chaque geste (ignoré au rendu). Se place après la section 3, Matériel.",
+  "_note": "Logigramme du chapitre 12 (la tente d'hiver et l'abri de neige), double page, fait le 18 octobre 2026 sur le chapitre refait à sept sections, sur le modèle des 10 et 15. Page de gauche : la série orange « Le soleil se couche et on ne rentrera pas » (section 7, étapes 89 à 102), pastille 40 min : la clarté qui reste après le coucher du soleil, jusqu'à la fin du crépuscule civil, 36 à 41 min en décembre sur la Côte-Nord (USNO, sources/12-usno-coucher-crepuscule-cote-nord.md). Décision de l'orchestrateur après la vérification technique : le déclencheur est le coucher du soleil, et l'étape 89 dit de commencer avant. La fourche « On peut faire un feu ? » sépare l'appentis et le feu long de la tranchée bâchée. Page de droite, sans orange : la tente à poêle montée dans l'ordre (étapes 1 à 33), puis la seule vraie décision de la nuit, quelqu'un veille ou le feu est mort avant le coucher (étape 34). Aucun avertissement redit (ni le mécanisme du monoxyde, ni la génératrice, ni la thuyone : ils restent dans leur étape, à côté de leur pictogramme). Rendu : env -u TMPDIR python3 design/outils/logigramme.py images/logigrammes/12-tente-d-hiver.json ; version du livre : --sans-entete --svg. « source » : les étapes du chapitre d'où vient chaque geste (ignoré au rendu). Se place après la section 3, Matériel.",
   "format": "double",
   "tome": 1,
   "urgent": true,
@@ -46,7 +46,7 @@
     "g5": 4.95,
     "g6": 6.0,
     "g7": 6.95,
-    "g8": 7.95,
+    "g8": 8.1,
     "d1": 1.11,
     "d2": 1.6,
     "d3": 2.5,
@@ -63,7 +63,7 @@
       "col": "plein",
       "rang": "g1",
       "taille": 15,
-      "texte": "La noirceur vient et on ne rentrera pas",
+      "texte": "Le soleil se couche et on ne rentrera pas",
       "source": "titre de la série orange"
     },
     {
@@ -72,9 +72,9 @@
       "col": "plein",
       "rang": "g2",
       "ancre": "haut",
-      "temps": "15 h 20",
+      "temps": "40 min",
       "taille": 10.5,
-      "texte": "**Décider tout de suite de passer la nuit sur place.** Faire dans l'ordre : le bois de toute la nuit, l'abri, le lit, puis le feu.",
+      "texte": "**Décider tout de suite de passer la nuit sur place**, et commencer avant le coucher du soleil : le bois de toute la nuit, l'abri, le lit, puis le feu.",
       "renvoi": "ch. 12, étape 89",
       "source": "étape 89"
     },
@@ -85,7 +85,7 @@
       "rang": "g3",
       "ancre": "haut",
       "taille": 10.5,
-      "texte": "**Couper tout le bois de la nuit avant la noirceur**, dans l'épinette morte debout. Les enfants ramassent les branches mortes basses des épinettes.",
+      "texte": "**Couper tout le bois de la nuit avant la noirceur** : l'épinette morte debout, et deux ou trois grosses billes sèches pour le feu long. Les enfants ramassent les branches mortes.",
       "renvoi": "ch. 12, étapes 90 et 91",
       "source": "étapes 90 et 91"
     },
@@ -128,7 +128,7 @@
       "rang": "g7",
       "ancre": "haut",
       "taille": 10,
-      "texte": "**Faire le feu long sur une plateforme de billes vertes**, le long de l'abri, avec un mur derrière. La main doit tenir sur la bâche.",
+      "texte": "**Faire le feu long sur une plateforme de billes vertes** : trois billes de la longueur de l'abri, un mur derrière. La main doit tenir sur la bâche.",
       "renvoi": "ch. 12, étapes 95 à 98",
       "source": "étapes 95 à 98"
     },
@@ -139,7 +139,7 @@
       "rang": "g8",
       "ancre": "haut",
       "taille": 10,
-      "texte": "**Se coucher les pieds au feu**, les enfants entre les adultes. Un adulte veille et recharge.",
+      "texte": "**Se coucher les pieds au feu**, les enfants entre les adultes. À deux adultes, on se relaie pour surveiller le feu.",
       "renvoi": "ch. 12, étapes 99 et 100",
       "source": "étapes 99 et 100"
     },
@@ -150,7 +150,7 @@
       "rang": "g5",
       "ancre": "haut",
       "taille": 10,
-      "texte": "**Creuser une tranchée étroite** jusqu'au sol, juste assez longue pour les corps couchés serrés.",
+      "texte": "**Creuser une tranchée étroite**, jusqu'au sol si la neige le permet, juste assez longue pour les corps couchés serrés.",
       "renvoi": "ch. 12, section 7",
       "source": "section 7, la tranchée bâchée"
     },
