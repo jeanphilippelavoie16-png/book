@@ -548,7 +548,9 @@ def tete_html(titre_doc):
 
 # le bas de la page de titre (chapitres, série des tomes) se lit mal sur une image chargée (les lignes de l'eau du
 # tome 3) : un aplat de la couleur du papier de l'image, derrière le bloc
-TP_BAS_FOND = {3: "#E4DCBD", 4: "#F5EACD", 5: "#EFE3C8", 6: "#F7EBD3"}
+TP_BAS_FOND = {2: "#EFE6D2", 3: "#E4DCBD", 4: "#F5EACD", 5: "#EFE3C8", 6: "#F7EBD3"}
+# l'encre du titre quand l'image de titre a un fond clair (tome 2 : le mur couleur papier, JP, 18 octobre 2026)
+TP_ENCRE = {2: ("#5E1F18", "#7A3A2E", "#B98F80")}           # titre, sous-titre, filet de l'en-tête
 
 # ce que le tome couvre, sous son nom sur la page de titre (les tomes 2 à 6 viendront avec leur scène)
 SOUS_TITRES = {1: "Rester ou partir, la panne, les retombées, le feu de forêt, l'eau, le froid, se déplacer, les voisins."}
@@ -576,8 +578,8 @@ def annexe_html(tome, chaps, plan, work):
     sous = SOUS_TITRES.get(tome, "")
     fond = f'<img class="tp-img" src="{url(jpg)}" alt="">' if os.path.exists(jpg) else ""
     pages.append(f'''<section class="page recto tp" id="a-titre">{fond}<div class="tp-sc">{scene}
-<div class="tp-head"><span>Le Manuel du Nord</span><span>Tome {tome}</span></div>
-<div class="tp-haut"><h1 class="tp-title">{e(titre_t)}</h1>{f'<p class="tp-sous">{il(sous)}</p>' if sous else ""}</div>
+<div class="tp-head"{f' style="color:{TP_ENCRE[tome][0]};border-bottom-color:{TP_ENCRE[tome][2]}"' if tome in TP_ENCRE else ""}><span>Le Manuel du Nord</span><span>Tome {tome}</span></div>
+<div class="tp-haut"{f' style="color:{TP_ENCRE[tome][0]}"' if tome in TP_ENCRE else ""}><h1 class="tp-title">{e(titre_t)}</h1>{f'<p class="tp-sous"{chr(32) + "style=" + chr(34) + "color:" + TP_ENCRE[tome][1] + chr(34) if tome in TP_ENCRE else ""}>{il(sous)}</p>' if sous else ""}</div>
 <div class="tp-bas"{f' style="background:{TP_BAS_FOND[tome]};padding:9px 12px 8px;margin:0 -12px"' if tome in TP_BAS_FOND else ""}><div class="tp-chap"><span>{f"Chapitres {aff(premier)} à {aff(dernier)}" if nb > 1 else f"Chapitre {aff(premier)}"}</span><span>{nb} chapitre{"s" if nb > 1 else ""}</span></div>
 <div class="tp-serie">{serie}</div></div></div></section>''')
     # --- dédicace (recto, après la page de titre ; JP, 14 octobre 2026 : « la première page, comme dans les livres »)

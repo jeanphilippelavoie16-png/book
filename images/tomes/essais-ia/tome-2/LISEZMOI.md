@@ -1,5 +1,13 @@
 # Tome 2, Le corps : l'image de la page de titre et de la couverture
 
+**JP choisit la n° 11 du troisième tour** (18 octobre 2026 : « la 11 ») : le mur couleur papier, la table du soin
+(bocaux, mortier, bassin qui fume, bandes roulées) et le poêle entier, porte ouverte, avec la bouilloire. Agrandie ×4
+par AI Horde (`../horde-agrandir.py`, `tome-2-11-x4.png`), puis retouchée par `retouche_soin.py` : le halo orange flou
+sur le mur autour du poêle s'efface ; les points qui flottaient au bout des vapeurs partent ; les griffonnages qui
+imitaient une écriture sur le mortier et le pilon, les mouchetures et la fausse étiquette de la bouilloire deviennent
+l'aplat de l'objet. Résultat : `images/tomes/titre-tome-2.jpg`. Le fond étant clair, le titre s'imprime à l'encre
+brique (`TP_ENCRE` de l'assembleur) et un aplat papier passe sous le bloc du bas (`TP_BAS_FOND`).
+
 Linogravure, trois encres : rouge sang de bœuf #5C1A15, papier blanc cassé, orange #EE7219 pour la lumière et le feu.
 768 × 960, rien n'est agrandi. Aucun texte, aucun visage, aucune main, aucun animal.
 
