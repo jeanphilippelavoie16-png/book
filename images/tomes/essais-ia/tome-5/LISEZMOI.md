@@ -1,5 +1,12 @@
 # Tome 5, La forêt, le jardin et le chalet : essais d'images pour la page de titre
 
+**JP choisit la candidate 4** (18 octobre 2026 : « tome 5, la 4 »). Agrandie ×4 par AI Horde (`../horde-agrandir.py`,
+`tome-5-4-x4.png`), puis retouchée par `retouche_jardin.py`, comme le tome 4, pour ne pas faire IA : le halo flou
+derrière le soleil s'efface ; les anneaux qui tournaient à angle droit et se changeaient en traits du ciel deviennent
+trois anneaux nets, cassés comme à la gouge ; le disque est net ; l'œuf orange posé sur la souche part et le dessus
+de la souche montre ses cernes ; la petite échelle blanche plantée dans la forêt à gauche part. Résultat :
+`images/tomes/titre-tome-5.jpg` ; un aplat papier passe sous le bloc du bas (`TP_BAS_FOND`).
+
 Générées le 18 octobre 2026 par AI Horde (gratuit, sans clé) avec `../horde-img2img.py`, au format de la page rognée
 (768 × 960). Même style que le tome 1 (`images/tomes/titre-tome-1.jpg`, le n° 4 de `titre-nuit-pistes-2.png`) :
 linogravure, traces de gouge, trois encres (brun terre très foncé, papier blanc cassé, orange #EE7219 pour le soleil

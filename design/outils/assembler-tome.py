@@ -548,7 +548,7 @@ def tete_html(titre_doc):
 
 # le bas de la page de titre (chapitres, série des tomes) se lit mal sur une image chargée (les lignes de l'eau du
 # tome 3) : un aplat de la couleur du papier de l'image, derrière le bloc
-TP_BAS_FOND = {3: "#E4DCBD", 4: "#F5EACD", 6: "#F7EBD3"}
+TP_BAS_FOND = {3: "#E4DCBD", 4: "#F5EACD", 5: "#EFE3C8", 6: "#F7EBD3"}
 
 # ce que le tome couvre, sous son nom sur la page de titre (les tomes 2 à 6 viendront avec leur scène)
 SOUS_TITRES = {1: "Rester ou partir, la panne, les retombées, le feu de forêt, l'eau, le froid, se déplacer, les voisins."}

@@ -59,6 +59,9 @@ arr[colline & (dist < 180)] = ORIG[colline & (dist < 180)]
 im = Image.fromarray(arr.astype(np.uint8)); d = ImageDraw.Draw(im)
 
 # 2. la petite échelle blanche plantée dans la forêt à gauche part
+bords = np.concatenate([ORIG[int(k(600)):int(k(660)), int(k(44)):int(k(53))].reshape(-1, 3),
+                        ORIG[int(k(600)):int(k(660)), int(k(95)):int(k(104))].reshape(-1, 3)])
+FORET = tuple(int(v) for v in np.median(bords, 0))           # la couleur de la forêt autour, prise sur l'image même
 d.rectangle(P([(54, 600), (94, 660)]), fill=FORET)
 
 # 3. la souche : l'œuf orange part, le dessus de la souche montre ses cernes
