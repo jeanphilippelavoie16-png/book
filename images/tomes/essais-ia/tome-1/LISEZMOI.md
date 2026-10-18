@@ -1,5 +1,9 @@
 # Couverture imprimée du tome 1 : trois mises en page (18 octobre 2026)
 
+**JP a choisi C, le ciel fait le tour** (18 octobre 2026) : titre centré, le ciel étoilé de l'image couvre la tranche et
+la quatrième. C'est le modèle des six tomes : `couverture.py --tome N --image images/tomes/titre-tome-N.jpg
+--variantes C`. Le PDF pour Blurb se fait quand le tome est réassemblé et que son compte de pages est connu.
+
 L'image est celle de la page de titre, choisie par JP : `images/tomes/titre-tome-1.jpg` (linogravure, ciel étoilé,
 crêtes orange, chalet dans la neige). Chaque variante est la couverture complète, quatrième, tranche et devant, aux
 mesures de Blurb du tome 1. Elle sert de modèle aux cinq autres tomes : le même script les fait avec leur image.

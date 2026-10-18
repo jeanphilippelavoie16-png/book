@@ -14,6 +14,9 @@ lancé sur un de ces chantiers reçoit `.claude/cadre-agents.md` au complet.
   (`h.formes.mainStock`, 100 mains, dont une trentaine qui tiennent un objet ; feuille des numéros
   `livre/apercus-palette/mains-stock-ids.png`).
 - **L'image du tome 1** : générée, choisie par JP, vectorisée, posée sur la page de titre.
+- **Les couvertures** (18 octobre) : JP choisit la mise en page **C, le ciel fait le tour**
+  (`images/tomes/essais-ia/tome-1/couverture.py --variantes C`). À faire pour chaque tome : son image choisie et
+  agrandie (`images/tomes/titre-tome-N.jpg`), puis la couverture C et son PDF Blurb au réassemblage du tome.
 - **Le nouveau nom, Le Manuel du Nord** (18 octobre) : refaire les couvertures des six tomes
   (`build_couvertures_6.py`) et les formulaires déjà rendus (pied de page) au prochain assemblage.
 - **La page de titre** (point 30) : l'affiche du Nord, la nuit d'hiver, choisie par JP le 18 octobre et posée dans
