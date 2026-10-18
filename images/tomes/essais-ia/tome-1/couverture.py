@@ -367,11 +367,6 @@ def portraits(v, k, pal, ciel, dest):
 
 
 # ------------------------------------------------------------------ l'image de fond, composée à plat
-def _miroir(i, n):
-    m = np.mod(i, 2 * n)
-    return np.where(m < n, m, 2 * n - 1 - m)
-
-
 def composer(v, m, img, pal, ppp):
     """Le fond de toute la couverture, fond perdu compris : la quatrième et la tranche (aplat ou ciel étoilé), l'image
     du tome sur le devant (8,125 × 10,25 po, centrée en largeur, calée en haut comme sur la page de titre)."""
@@ -387,14 +382,27 @@ def composer(v, m, img, pal, ppp):
     cx0 = (rw - fw) // 2
     can[:, xf:] = grande[:Hp, cx0:cx0 + fw]
     if VARIANTES[v]['dos'] == 'etoiles':
-        # le ciel de l'image (le haut, jusqu'à 0,39 de la hauteur : au-dessus de la lune et des crêtes), reflété au pli
-        # du devant puis en miroir : les étoiles sont celles de l'image, à la même taille, et le ciel ne fait pas de
-        # raccord visible
-        ciel_h = int(0.39 * rh)
-        x = np.arange(xf)
-        cols = _miroir(cx0 + (xf - 1 - x), rw)
-        rows = _miroir(np.arange(Hp), ciel_h)
+        # le ciel de l'image, reflété au pli du devant (le ciel passe le pli sans raccord), puis en miroir : les étoiles
+        # sont celles de l'image, à la même taille. Les autres raccords du miroir tombent sur une ligne et une colonne
+        # sans étoile, sinon une étoile coupée par le raccord se dédouble (deux points collés).
+        L = grande[:int(0.42 * rh)].astype(np.float32) @ np.array([.2126, .7152, .0722], np.float32)
+        t = int(0.09 * ppp) | 1
+        ch = L - ndi.grey_opening(L, size=(t, t))
+        lignes = ch[:, cx0:].max(axis=1)
+        r_hi = int(0.33 * rh) + int(np.argmin(lignes[int(0.33 * rh):int(0.39 * rh)]))   # au-dessus de la lune et des crêtes
+        r_lo = int(np.argmin(lignes[:int(0.03 * rh)]))
+        colonnes = ch[r_lo:r_hi].max(axis=0)
+        c_hi = int(0.94 * rw) + int(np.argmin(colonnes[int(0.94 * rw):]))
+        def aller_retour(z, a, b):            # a, a+1, … b-1, b-1, … a, a, … : miroir entre a et b
+            p = b - a
+            m_ = np.mod(z, 2 * p)
+            return np.where(m_ < p, a + m_, a + 2 * p - 1 - m_)
+        y = np.arange(Hp)
+        rows = np.where(y < r_hi, y, (r_hi - 1) - (aller_retour(y - r_hi, 0, r_hi - r_lo)))
+        cols = aller_retour(xf - 1 - np.arange(xf), cx0, c_hi)
         can[:, :xf] = grande[rows[:, None], cols[None, :]]
+        print('    ciel recadré : lignes %d à %d, colonnes %d à %d de l\'image agrandie ; étoile au pli : %s' % (
+            r_lo, r_hi, cx0, c_hi, 'oui' if colonnes[cx0] > 12 else 'non'))
     return can
 
 
@@ -433,8 +441,8 @@ def nettoyer(can, rects, ppp):
     ids = np.unique(lab[z & cand])
     ids = ids[ids > 0]
     objets = ndi.find_objects(lab)
-    cote = 0.11 * ppp
-    garder = [i for i in ids if taille[i] <= cote * cote and
+    cote = 0.25 * ppp                     # une grappe de deux ou trois étoiles passe ; une crête ou un trait de neige, non
+    garder = [i for i in ids if taille[i] <= (0.12 * ppp) ** 2 and
               (objets[i - 1][0].stop - objets[i - 1][0].start) <= cote and (objets[i - 1][1].stop - objets[i - 1][1].start) <= cote]
     if not garder:
         return can, 0
