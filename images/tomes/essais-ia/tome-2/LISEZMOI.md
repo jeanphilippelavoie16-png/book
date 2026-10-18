@@ -8,6 +8,12 @@ imitaient une écriture sur le mortier et le pilon, les mouchetures et la fausse
 l'aplat de l'objet. Résultat : `images/tomes/titre-tome-2.jpg`. Le fond étant clair, le titre s'imprime à l'encre
 brique (`TP_ENCRE` de l'assembleur) et un aplat papier passe sous le bloc du bas (`TP_BAS_FOND`).
 
+Puis (JP : « le tome 2, ajoute des éléments, c'est vide ») `ajouts_soin.py` dessine, dans le style de l'image et
+seulement là où le titre et le bloc des tomes ne les cachent pas : le tuyau du poêle avec ses joints et sa clé ; une
+tablette sous la table avec du linge plié, un panier de plantes séchées et une cruche de grès ; une chaudière de bois
+sur le plancher, à gauche ; des bûches empilées devant le poêle. Chaîne : `retouche_soin.py tome-2-11-x4.png` puis
+`ajouts_soin.py`.
+
 Linogravure, trois encres : rouge sang de bœuf #5C1A15, papier blanc cassé, orange #EE7219 pour la lumière et le feu.
 768 × 960, rien n'est agrandi. Aucun texte, aucun visage, aucune main, aucun animal.
 
