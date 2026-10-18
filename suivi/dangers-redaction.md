@@ -1,13 +1,13 @@
 # Pages des dangers : provenance
 
-# Partie 1 — pages des dangers, 18 pictogrammes (`dangers/partie-1.md`)
+## Partie 1 : pages des dangers, 18 pictogrammes (`dangers/partie-1.md`)
 
 Rédigé le 18 octobre 2026. Ordre : co, generatrice, electrocution, vapeurs, huile-en-feu, incendie,
 feu-de-foret, espace-clos, chimie, pas-au-feu, projection, ecrasement, coupure, brulure, froid,
 eau-froide, glace, ours. Chaque chiffre ci-dessous a été relu dans le fichier source, pas seulement
 dans l'inventaire.
 
-## Sources nouvelles enregistrées le 18 octobre
+### Sources nouvelles enregistrées le 18 octobre
 
 | Fichier | Ce qu'il porte | Pourquoi |
 | --- | --- | --- |
@@ -15,7 +15,7 @@ dans l'inventaire.
 | `sources/dangers-incendie-drolet-feu-de-cheminee.md` (+ `.pdf`, `-texte.txt`) | Feu de cheminée : fermer la porte et l'arrivée d'air, prévenir, poudre / soda à pâte / sable, jamais d'eau (explosion de vapeur) | Aucune page officielle ne donne la marche à suivre (signalé aux ch. 82 et 83). **Source de fabricant** (Drolet, Québec) |
 | `sources/dangers-electrocution-oqlf-tension-de-pas.md` (+ `.html`) | Définition de la tension de pas (fiche Hydro-Québec, 1984) | Le pourquoi des petits pas près d'un fil tombé |
 
-## co
+### co
 
 | Fait ou chiffre | Source |
 | --- | --- |
@@ -30,7 +30,7 @@ dans l'inventaire.
 | « Le parent conclut au caractère » | `CLAUDE.md` (exemple donné par JP) ; aucune source chiffrée |
 | Coupé de l'inventaire : 1 200 ppm, 20 000 ppm, 25 / 10 ppm résidentiels, la chandelle qui brûle dans le CO (aucune source au dossier), « le corps sent le CO2, pas le manque d'O2 » (aucune source) | |
 
-## generatrice
+### generatrice
 
 | Fait ou chiffre | Source |
 | --- | --- |
@@ -45,7 +45,7 @@ régionale (`08-sante-monteregie-generatrice-monoxyde.md`, « des portes, des fe
 donne 6 m **du bâtiment** (quatre captations concordantes). La page retient **6 m**. Le ch. 5 est à
 aligner à la migration.
 
-## electrocution
+### electrocution
 
 | Fait ou chiffre | Source |
 | --- | --- |
@@ -55,7 +55,7 @@ aligner à la migration.
 | Petits pas, petits sauts, sortir d'un véhicule, ne pas toucher la victime, compresses sèches, paralysie musculaire, brûlures internes | `11-apsam-fil-sous-tension-petits-pas-texte.txt` |
 | Coupé : « le transformateur remonte le courant à haute tension » (aucune source) ; les broches à l'air libre du câble mâle-mâle restent (conséquence directe du branchement, pas un chiffre) | |
 
-## vapeurs
+### vapeurs
 
 | Fait ou chiffre | Source |
 | --- | --- |
@@ -70,7 +70,7 @@ aligner à la migration.
 | Bidon au sol ; eau seulement en brouillard sur l'essence | `83-cchst-garages-securite-essence.md` ; `15-cchst-essence-profil-2026-10-18.md` |
 | Coupé : « un bidon plein pousse moins de vapeur qu'un bidon à moitié vide » (aucune source) | |
 
-## huile-en-feu
+### huile-en-feu
 
 | Fait ou chiffre | Source |
 | --- | --- |
@@ -79,7 +79,7 @@ aligner à la migration.
 | Huile de trempe > 100 °C, eau = explosion | `88-cchst-traitement-thermique-trempe.md` |
 | Coupé : « pas de farine » et le bicarbonate sur la graisse (aucune source au dossier) | |
 
-## incendie
+### incendie
 
 | Fait ou chiffre | Source |
 | --- | --- |
@@ -92,7 +92,7 @@ aligner à la migration.
 | Extincteur : balayer la base des flammes | `16-quebec-extincteur-dincendie.md` |
 | Coupé : chandelle 30 cm, 5 mm, 5 cm (sécurité domestique ordinaire, reste dans les chapitres d'éclairage) ; étincelles de meulage 60 min à 3 h et chiffons huilés (aucune source au dossier) ; « gronde comme un moteur » (aucune source) | |
 
-## feu-de-foret
+### feu-de-foret
 
 | Fait ou chiffre | Source |
 | --- | --- |
@@ -104,7 +104,7 @@ aligner à la migration.
 | Laine sèche, jamais mouillée ; l'auto ; test de la main (coup de soleil) ; vêtements | `11-cfa-pris-par-le-feu.md` |
 | Feu qui passe l'hiver | Scholten et coll., *Nature* 593, 2021, cité dans `11-luo-2024-feux-de-nuit-secheresse-texte.txt` (référence, pas l'article) ; repris du ch. 11 |
 
-## espace-clos
+### espace-clos
 
 | Fait ou chiffre | Source |
 | --- | --- |
@@ -114,7 +114,7 @@ aligner à la migration.
 | L'avertisseur de CO ne voit ni CO2 ni propane | inventaire, ch. 79 et 87 (non revérifié à la source) |
 | Coupé : « une flamme qui baisse en descendant » (aucune source, et une flamme dans un trou à propane est le contraire de ce qu'il faut) | |
 
-## chimie
+### chimie
 
 **Tranché à la source (inventaire, section 5) : durée de rinçage d'une brûlure alcaline.** CNESST
 (RepTox, soude et chaux) : « au moins 30 minutes » l'œil, « au moins 20 minutes » la peau ; CCHST
@@ -134,7 +134,7 @@ produit inconnu » du ch. 108 n'est pas repris (pas de source repérée).
 | Solvant chloré + arc = phosgène | `84-cchst-soudage-fumees-rayonnement-epi-ventilation.md`, `84-cnesst-reptox-gaz-et-fumees-de-soudage-et-de-coupage.md` |
 | Coupé : « peau glissante comme du savon », « rincer du nez vers l'extérieur », gants de caoutchouc et non de cuir (pas de source revérifiée) | |
 
-## pas-au-feu
+### pas-au-feu
 
 | Fait ou chiffre | Source |
 | --- | --- |
@@ -143,7 +143,7 @@ produit inconnu » du ch. 108 n'est pas repris (pas de source repérée).
 | Zinc : fièvre des fondeurs ; cadmium 20 % des baguettes, 4 à 10 h, 48 h, 20 % de mortalité, 24 à 48 h | `84-cnesst-reptox-oxyde-de-cadmium.md`, `88-cchst-fumees-metalliques-zinc-cadmium-plomb.md` |
 | Herbe à puce : fumée, inflammation des poumons, peut tuer | `30-quebec-herbe-a-la-puce.md`, `58-quebec-herbe-a-la-puce.md` |
 
-## projection
+### projection
 
 | Fait ou chiffre | Source |
 | --- | --- |
@@ -155,7 +155,7 @@ produit inconnu » du ch. 108 n'est pas repris (pas de source repérée).
 | `[À VÉRIFIER]` : l'acier trempé frappé sur l'acier trempé qui éclate (déclaré « affirmation du livre » au ch. 111) | |
 | Sans source, gardé comme mécanisme sans chiffre : le câble tendu qui fouette le long de la ligne de traction (ch. 109) | |
 
-## ecrasement
+### ecrasement
 
 | Fait ou chiffre | Source |
 | --- | --- |
@@ -166,7 +166,7 @@ produit inconnu » du ch. 108 n'est pas repris (pas de source repérée).
 | Neige qui durcit (frittage) ; maison de neige qui s'effondre par temps doux | `16c-avalanche-canada-frittage-neige.md` ; `16c-turner-1894-maison-de-neige-et-tente-conique.md` |
 | Coupé : le froid qui casse l'acier net, la pièce de levage qu'on ne soude pas, l'assemblage qui cède par cisaillement (pas de source revérifiée) | |
 
-## coupure
+### coupure
 
 | Fait ou chiffre | Source |
 | --- | --- |
@@ -177,7 +177,7 @@ produit inconnu » du ch. 108 n'est pas repris (pas de source repérée).
 | Pression au moins 5 min et jusqu'à l'arrêt ; garrot, ne pas desserrer | `27-saignement-pression-directe-et-garrot.md` |
 | Choc : pouls, peau froide et moite, somnolence, confusion | `27-msd-choc.md` |
 
-## brulure
+### brulure
 
 | Fait ou chiffre | Source |
 | --- | --- |
@@ -186,7 +186,7 @@ produit inconnu » du ch. 108 n'est pas repris (pas de source repérée).
 | Vêtement ample, air des deux côtés | Santé Canada, vêtements de nuit d'enfant (`suivi/104-redaction.md`) |
 | Coupé : « le sirop est plus chaud que l'eau bouillante » (aucune source de température), « la laine s'éteint hors de la flamme » (le ch. 104 n'a pas de source qui compare les fibres) | |
 
-## froid
+### froid
 
 | Fait ou chiffre | Source |
 | --- | --- |
@@ -199,7 +199,7 @@ produit inconnu » du ch. 108 n'est pas repris (pas de source repérée).
 | 37 à 39 °C, main 30 s, ~30 min, souple ; regel ; pas de feu ; hypothermie d'abord | `03-wms-gelures.md` |
 | Coupé : « plus vite par vent de plus de 50 km/h » (non revérifié), le nouveau-né à 23 °C (propre au ch. 29) ; « une autre personne » comme source de chaleur (WMS : pas mieux que les frissons) | |
 
-## eau-froide
+### eau-froide
 
 | Fait ou chiffre | Source |
 | --- | --- |
@@ -210,7 +210,7 @@ produit inconnu » du ch. 108 n'est pas repris (pas de source repérée).
 | Enfants 1 à 4 ans, 69 % | `07-inspq-noyades-enfants.md` |
 | Coupé : « la noyade d'un enfant est silencieuse », « le linge mouillé refroidit aussi vite que l'eau » (aucune source revérifiée) ; « rien d'attaché à ce qui coule » gardé comme mécanisme sans chiffre (ch. 60, 89) | |
 
-## glace
+### glace
 
 **Tranché à la source (inventaire, section 5) : épaisseurs.** Société de sauvetage : 10 cm à pied,
 12 cm en motoneige (`07-societe-de-sauvetage-epaisseur-glace.md`) ; Croix-Rouge canadienne : 15 cm seul,
@@ -228,7 +228,7 @@ aligner à la migration.
 | Pics, corde, sifflet ; se tourner vers d'où on vient ; rouler ; atteindre, lancer, ne pas y aller | `15-mndnr-glace-sortie-sauvetage-deplacements.md`, `07-societe-de-sauvetage-epaisseur-glace.md` |
 | Glace de mer et fleuve : non portante | décision des ch. 41, 42, 59 ; Croix-Rouge nomme marées et sel parmi les facteurs |
 
-## ours
+### ours
 
 | Fait ou chiffre | Source |
 | --- | --- |
@@ -237,13 +237,13 @@ aligner à la migration.
 | Carcasse : un signe suffit, partir | `35c-adfg-ours-carcasse-et-orignal-agressif.md` |
 | Ours blessé : 30 min, couvert épais, pluie, approche par l'arrière et le haut | `35d-adfg-ours-apres-le-tir-et-site-d-abattage.md` |
 | Signes de présence | `35c-ours-loup-renard-orignal-comportements-et-signes.md` |
-| Coupé : « l'ours blessé saigne peu », « ne pas suivre à la brunante » gardé (ch. 44) | |
+| Coupé : « l'ours blessé saigne peu » (non revérifié). Gardé du ch. 44 sans source revérifiée : ne pas suivre à la brunante | |
 
-## `[À VÉRIFIER]` restant dans le texte
+### `[À VÉRIFIER]` restant dans le texte
 
 1. `projection` : l'outil trempé frappé contre un autre acier trempé qui lance un éclat.
 
-## Contrôle
+### Contrôle
 
 `controle.py dangers/partie-1.md` : 0 tiret, 0 « § », 0 mot banni. Avis jugés : « tout / tous » (sens
 plein) ; « encore », « bien », « déjà » gardés là où ils portent le sens (« peut encore baisser », « bien
