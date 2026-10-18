@@ -54,7 +54,7 @@ saute jamais.
  Après des retombées radioactives, la pluie, la neige et l'eau de surface se jugent au ch. 4 : ni l'ébullition ni
  le filtre de ce chapitre n'enlèvent ce qui est radioactif.
 2. **Puiser en amont de tout ce qui vit** : le camp, la fosse septique, l'enclos, le sentier de motoneige, la hutte
- de castor. {!selles} Toute eau de surface se traite, même claire, froide et sans odeur. Le castor (*Castor
+ de castor. {!selles} Il faut traiter toute eau de surface, même claire, froide et sans odeur. Le castor (*Castor
  canadensis*) et le rat musqué (*Ondatra zibethicus*) portent *Giardia lamblia* ; avec l'orignal (*Alces
  americanus*), ils vivent dans le bassin d'un chalet boréal et font leurs besoins en amont de la prise d'eau. Dix
  kystes de *Giardia* peuvent suffire à rendre quelqu'un malade, et un kyste mesure 8 × 14 µm : à l'œil, l'eau
@@ -63,8 +63,8 @@ saute jamais.
  des eaux usées qui n'est pas étanche, ou 15 m si le puits est scellé. Un puits scellé a été foré au moins 10 cm
  plus large que son tubage (le tuyau d'acier qui sort du sol), et cet espace a été rempli de bentonite ou de
  ciment-bentonite sur au moins 5 m de profondeur. Ce bouchon oblige l'eau de surface à descendre à travers le sol,
- qui la filtre, au lieu de couler le long du tubage jusqu'à la nappe (les eaux usées : ch. 31). Un puits trop proche,
- ou dont on ne sait pas s'il est scellé, se traite comme une eau de surface.
+ qui la filtre, au lieu de couler le long du tubage jusqu'à la nappe (les eaux usées : ch. 31). L'eau d'un puits trop
+ proche, ou dont on ne sait pas s'il est scellé, se traite comme une eau de surface (étape 14).
 4. **Prendre l'eau à 20 ou 30 cm sous la surface, sans racler le fond** : la surface concentre les pollens et les
  hydrocarbures, et le fond, les sédiments.
 
@@ -88,8 +88,8 @@ saute jamais.
  décantation a laissé ; devant un filtre fin, il fait durer la cartouche.
 10. **Tirer l'eau claire par-dessus le dépôt, à travers le coton, sans remettre le dépôt en suspension** : tenir le
  bout du boyau au-dessus du dépôt, et laisser les 2 ou 3 derniers centimètres au fond (repère 3).
- - **Amorcer le siphon sans la bouche** (planche 10-08, repère 1). Coucher le boyau au fond de la chaudière pleine
- jusqu'à ce qu'il n'en sorte plus de bulle. Boucher un bout avec le pouce (repère 2), et laisser l'autre bout dans
+ - **Amorcer le siphon sans la bouche** (planche 10-08, repère 1). Plonger le boyau dans la chaudière pleine, sans
+ toucher le dépôt, jusqu'à ce qu'il n'en sorte plus de bulle. Boucher un bout avec le pouce (repère 2), et laisser l'autre bout dans
  la chaudière, au-dessus du dépôt. Descendre le bout bouché sur le coton de la chaudière du bas, et lâcher le pouce
  (repère 3) : l'eau coule seule tant que ce bout reste plus bas que le niveau de l'eau de la chaudière du haut.
  - **Autre façon, sans boyau.** Verser doucement, d'un seul mouvement, sans redresser la chaudière, et arrêter
@@ -105,8 +105,8 @@ saute jamais.
  1 000, quand le trouble de l'eau ne dépasse pas 0,3 UNT (l'unité dans laquelle on mesure le trouble). Sans
  appareil de mesure, on regarde une feuille imprimée à travers 20 cm d'eau : on ne doit voir aucun voile. L'œil
  voit un voile à partir d'environ 5 UNT ; une eau limpide à l'œil peut donc être plusieurs fois au-dessus de
- 0,3 UNT, et le filtre y retient moins. Un filtre qui ralentit se récure (section 7, « Réparer plutôt que
- remplacer »).
+ 0,3 UNT, et le filtre y retient moins. Quand le filtre ralentit, le récurer (section 7, « Réparer plutôt
+ que remplacer »).
 13. **Autre façon, quand il y a du courant : le stérilisateur à ultraviolet.** Il traite les bactéries, les virus et
  les protozoaires, plus que le chlore et que le filtre. Les particules dans l'eau bloquent ses rayons : une eau
  trouble l'empêche de désinfecter, et rien ne le signale. On le place donc après la décantation et le filtre.
@@ -161,7 +161,7 @@ saute jamais.
  seringue ou un compte-gouttes qui ne sert qu'à elle, dans un contenant qui n'a jamais contenu autre chose que de
  l'eau.
 21. **Brasser et laisser reposer 30 minutes, couvercle posé.** À double dose, attendre plus longtemps : aucune durée
- n'est donnée pour ce cas, et une eau de surface froide se fait bouillir (étape 19).
+ n'est donnée pour ce cas, et on fait bouillir une eau de surface froide (étape 19).
 22. **Sentir l'eau au bout des 30 minutes** : elle doit garder une légère odeur de chlore, ou la bandelette doit
  montrer du chlore libre. Sans odeur, la matière organique a consommé le chlore : redoser une fois et attendre
  encore 30 minutes. Si l'odeur ne revient pas, faire bouillir l'eau.
@@ -170,14 +170,14 @@ saute jamais.
  15 et 20 °C, et 120 minutes entre 5 et 15 °C. Une personne qui a une maladie de la thyroïde mal contrôlée ou une
  allergie à l'iode n'en boit pas ; une femme enceinte n'en boit pas plus de quelques jours, à cause de la thyroïde
  du bébé ; et personne n'en boit plus de quelques semaines. L'iode ne détruit pas *Cryptosporidium* non plus, même
- en allongeant le contact : une eau de surface passe d'abord au filtre à 1 µm.
+ en allongeant le contact : on passe d'abord une eau de surface au filtre à 1 µm.
 
 ### Entreposer
 
 24. **Remplir des contenants alimentaires opaques, à goulot étroit, à ras bord, et les boucher.** L'opacité empêche
- les algues de pousser ; le goulot étroit empêche d'y plonger les mains ou une tasse. Un contenant qui risque de
- geler, dans un hangar, une auto ou une remise, garde un vide d'air et se range couché : plein, il fend en gelant,
- et on le retrouve vide au dégel.
+ les algues de pousser ; le goulot étroit empêche d'y plonger les mains ou une tasse. Dans un contenant qui
+ risque de geler, dans un hangar, une auto ou une remise, laisser un vide d'air et le ranger couché : plein, il fend
+ en gelant, et on le retrouve vide au dégel.
 25. **Écrire la date du traitement sur le contenant.** L'eau traitée n'est pas stérile : le contenant et les mains la
  recontaminent. L'eau bouillie se garde dans un contenant propre et fermé jusqu'à 3 jours au réfrigérateur, ou 24 h
  à la température de la pièce ; passé ce temps, la faire bouillir de nouveau avant de la boire. L'eau chlorée dans
@@ -186,14 +186,14 @@ saute jamais.
 26. **Viser une réserve par personne et par jour** : 4 L pour la trousse de 72 heures (ch. 6) ; quand l'eau manque ou
  qu'elle est contaminée, 6 L pour boire, plus 6 L pour cuisiner et se laver, soit 12 L. Pour quatre personnes, ça
  donne 48 L par jour, 144 L pour 72 heures, et environ 1 440 L pour un mois, soit 72 bidons de 20 L. On stocke les
- 72 heures ; le reste se produit chaque jour, et ce volume quotidien décide de la taille de la marmite et de la
+ 72 heures ; on produit le reste chaque jour, et ce volume quotidien décide de la taille de la marmite et de la
  réserve de bois.
 
 ### Le puits : analyser, puis désinfecter
 
 27. **Faire analyser l'eau du puits tant qu'un laboratoire reçoit des échantillons** : seule l'analyse voit ce qui est
- dissous dans l'eau. L'analyse microbiologique se fait au moins deux fois par année ; l'analyse chimique, au moins
- une fois : uranium, baryum, arsenic, nitrates et nitrites, fer, fluorures, manganèse.
+ dissous dans l'eau. Faire faire l'analyse microbiologique au moins deux fois par année, et l'analyse chimique au
+ moins une fois : uranium, baryum, arsenic, nitrates et nitrites, fer, fluorures, manganèse.
  - {!poison} **Ne préparer aucun biberon avec l'eau d'un puits jamais analysé, même bouillie.** Le nitrate du puits
  empêche le sang du bébé de porter l'oxygène au-delà de 10 mg/L (exprimé en azote, ou 45 mg/L exprimé en
  nitrate), surtout avant 3 mois[^1]. Bouillir n'enlève ni le nitrate, ni l'arsenic, ni l'uranium : l'eau qui part
@@ -205,11 +205,10 @@ saute jamais.
  commencer : l'eau du robinet ne se boit pas pendant les étapes 31 à 34.
 29. **Calculer la javel.** Une javel à 5,25 % contient 52 500 mg de chlore par litre. Pour amener 1 000 L d'eau à
  50 mg/L, il faut 50 × 1 000 ÷ 52 500 ≈ 0,95 L de javel, soit environ **1 L de javel par 1 000 L d'eau**, et
- 5 L pour un puits neuf.
+ 5 L par 1 000 L pour un puits neuf.
 30. **Calculer le volume d'eau du puits.**
  - Mesurer la colonne d'eau, c'est-à-dire la profondeur du puits moins la profondeur où commence l'eau.
- Descendre une ficelle lestée, attachée deux fois, jusqu'à ce que le poids touche le fond, faire un nœud au ras du
- haut du tubage, et remonter : la longueur mouillée de la ficelle est la colonne d'eau. Un puits de 40 m dont l'eau
+ Descendre une ficelle lestée, attachée deux fois, jusqu'à ce que le poids touche le fond, puis la remonter : la longueur mouillée de la ficelle est la colonne d'eau. Un puits de 40 m dont l'eau
  commence à 12 m porte 28 m d'eau.
  - Multiplier la colonne par l'eau que contient chaque mètre :
 
@@ -250,7 +249,7 @@ saute jamais.
  la plus régulière. Mesurer la glace du chemin qui mène au trou avant d'y marcher (ch. 15, étapes 40 à 42) ;
  percer et entretenir le trou : ch. 58.
 37. **Garder le trou ouvert sous un couvercle isolé et un matelas de neige**, plutôt que de le repercer chaque jour.
-38. **Prendre la glace du lac avant la neige** : à volume égal, elle donne plus d'eau, et elle se manipule mieux.
+38. **Prendre la glace du lac avant la neige** : à volume égal, elle donne plus d'eau, et on la transporte plus facilement.
 39. **Faire fondre la neige seulement quand il n'y a ni eau libre ni glace.**
  - Prendre la neige tassée et vieillie : la neige fraîche ne contient que 4 à 10 % d'eau, et il en faut de 10 à
  25 L pour un litre d'eau. La neige tassée rend beaucoup plus pour le même effort.
@@ -532,21 +531,21 @@ il faut la marmite ou le filtre à 1 µm.
 
 ### Réparer plutôt que remplacer
 
-- **Une bougie de céramique colmatée** se récure sous l'eau propre avec une brosse dure ou le dos d'un couteau, et
+- **Une bougie de céramique colmatée.** La récurer sous l'eau propre avec une brosse dure ou le dos d'un couteau :
  son débit repart. Chaque nettoyage lui enlève une pelure : mesurer son diamètre quand elle est neuve, l'écrire sur
  le couvercle et le comparer à chaque nettoyage pour savoir quand la changer.
-- **Une cartouche plissée** se rince à contre-courant, sans brosse : la brosse ouvre le pli, et le filtre coule sans
+- **Une cartouche plissée.** La rincer à contre-courant, sans brosse : la brosse ouvre le pli, et le filtre coule sans
  plus rien filtrer.
-- **Un fût de plastique fendu** se ressoude au fer, avec une bande découpée dans un fût du même plastique, le seul
+- **Un fût de plastique fendu.** Le ressouder au fer, avec une bande découpée dans un fût du même plastique, le seul
  qui fond avec lui.
-- **Un boyau crevé** se coupe de part et d'autre du trou, et on raboute les deux bouts sur un manchon de tuyau rigide
+- **Un boyau crevé.** Le couper de part et d'autre du trou, et rabouter les deux bouts sur un manchon de tuyau rigide
  serré au fil de fer.
-- **Une pompe 12 V morte** se remplace par la hauteur : un baril monté sur une plateforme distribue l'eau par
+- **Une pompe 12 V morte.** La remplacer par la hauteur : un baril monté sur une plateforme distribue l'eau par
  gravité ; on monte l'eau du lac jusqu'au baril à bras.
 
 ### Ce qui ne se remplace pas
 
-**Les bandelettes de chlore** : sans elles, le chlore fait maison et le choc du puits se dosent à l'aveugle.
+**Les bandelettes de chlore** : sans elles, on dose le chlore fait maison et le choc du puits à l'aveugle.
 **L'analyse chimique** : aucune de ces méthodes ne voit l'arsenic, l'uranium, le nitrate, le manganèse ni le plomb,
 et aucun des cinq n'a de goût. **Un filtre de terrain contre les virus** : il n'en existe pas (étape 11).
 
@@ -554,7 +553,7 @@ et aucun des cinq n'a de goût. **Un filtre de terrain contre les virus** : il n
 
 - **Le volume.** Faire bouillir 16 L par jour pour quatre personnes, le minimum de la trousse, demande une bûche de
  plus à fendre chaque jour, en plus du chauffage. Faire bouillir chaque litre des 48 L de la cible (étape 26) est
- une deuxième corvée à temps plein : l'hygiène descend au minimum en premier (ch. 31). La réserve se monte à
+ une deuxième corvée à temps plein : l'hygiène descend au minimum en premier (ch. 31). On monte la réserve à
  l'automne.
 - **La protection dans le bidon.** Sans javel, l'eau n'a plus de chlore qui la protège une fois traitée (étape 25).
 - **Ce qui est dissous.** L'alambic est le seul à y toucher, et il donne très peu d'eau.
