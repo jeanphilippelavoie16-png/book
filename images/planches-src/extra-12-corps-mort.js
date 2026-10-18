@@ -102,7 +102,7 @@ module.exports = (h) => {
           out.push(h.rect(xc - lp, yc - rp, 2 * lp, 2 * rp, A.contour));
           // Le nœud au milieu : deux tours serrés en travers de la perche, et le cordon qui part vers la tente.
           for (const dxk of [-3.2, 3.2]) out.push(h.ligne(xc + dxk - 2.6, yc + rp, xc + dxk + 2.6, yc - rp, A.arete));
-          out.push(h.path(`M ${f(xc + 5.8)} ${f(yc - rp)} C ${f(xc + 6.8)} ${f(yc - rp - 4)} ${f(xc + 4)} ${f(yc - rp - 6)} ${f(xc + 4)} ${f(yc - rp - 12)} L ${f(xc + 4)} 0`, A.arete));
+          out.push(h.ligne(xc + 5.8, yc - rp, xc + 5.8, 0, A.arete));
           // La cote : la longueur de la perche, sous le trou, avec ses lignes d'attache.
           for (const s of [-1, 1]) out.push(h.ligne(xc + s * lp, yc + rp + 2.5, xc + s * lp, yq + 4, A.fin));
           out.push(h.cote(xc - lp, yq, xc + lp, yq, 'environ 1 m', { cote: 'dessous' }));
@@ -111,7 +111,7 @@ module.exports = (h) => {
         renvois: z => {
           const { xc, yc, rp } = P(z);
           return [
-            { n: 1, rond: [xc + 50, 16], cible: [xc + 6.5, yc - rp - 1.5], texte: 'nouer le cordon au milieu de la perche' },
+            { n: 1, rond: [xc - 52, 16], cible: [xc - 3.2, yc], texte: 'nouer le cordon au milieu de la perche' },
           ];
         },
       },

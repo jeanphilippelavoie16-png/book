@@ -582,3 +582,32 @@ section 9), mais pas de tente.
  flamme, sent le papier brûlé et laisse une cendre grise et fine. Le nylon et le polyester fondent en se
  recroquevillant loin de la flamme, sentent le produit chimique et laissent une petite bille fondue. Avec un tissu
  mélangé, le test n'est pas sûr : dans le doute, le traiter comme du synthétique.
+
+---
+
+## En plus
+
+### Pendre la literie aux murs de la tente, le jour
+
+Pendant la journée, les Innus pendent les couvertures, les petits matelas et les vêtements aux murs de leurs tentes
+d'hiver. La toile n'isole pas (étape 15) : la literie pendue contre elle garde la chaleur dans la tente, et on
+s'assoit sur le sapinage, adossé aux couvertures. Sous une toile chauffée au poêle, il ne faut rien pendre là où on
+ne peut pas garder la main sur la toile (étape 23), ni devant l'entrée d'air basse : une couverture qui descend
+jusqu'au plancher bouche l'entrée, et le poêle n'a plus d'air (étape 16).
+
+### Reconnaître le sapin, l'épinette noire et le cèdre
+
+![De gauche à droite : le sapin baumier, l'épinette noire, le cèdre](images/extras/12-trois-coniferes.jpg)
+
+Le sapin baumier range ses aiguilles sur deux rangs, de chaque côté du rameau. Elles sont vert foncé et brillantes
+sur le dessus, le dessous porte des bandes de points blancs, et elles sentent fort quand on les froisse. L'épinette
+noire a des aiguilles courtes, de 8 à 15 mm, d'un vert grisâtre mat, serrées le long du rameau, et ses rameaux sont
+couverts de poils brunâtres. Le cèdre (étape 101) n'a pas d'aiguilles : ses feuilles sont de petites écailles
+serrées sur des rameaux aplatis, étalés en éventail. Il vire au bronze l'hiver.
+
+### Le corps mort, en coupe
+
+![](images/extras/12-corps-mort.png)
+
+Le dessin montre en coupe un corps mort enfoui dans la neige : la perche ou la bille couchée au fond du trou, le
+cordon de la tente attaché dessus, et la neige tassée qui remplit le trou. Pour le faire, suivre l'étape 13.
