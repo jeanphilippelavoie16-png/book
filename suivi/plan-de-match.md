@@ -280,7 +280,10 @@ tomes** : un peu plus de blanc en bas des pages qui précèdent une planche ; le
     prend, et on adaptera les planches au besoin »), converti en SVG couleur et au trait dans
     `images/bibliotheque-mains/shutterstock-2244726515/` (aperçus `livre/apercus-palette/shutterstock-*.png`). Reste à
     faire : découper les 32 mains en pièces posables (position, échelle, rotation, miroir) dans le moteur, adapter
-    les prises qui manquent (main de trois quarts qui serre, deux mains), puis refaire les planches. En attendant, une planche neuve évite le gros plan de main : la main coupée par le bord, l'objet seul,
+    les prises qui manquent (main de trois quarts qui serre, deux mains), puis refaire les planches. **Le 18 octobre,
+    JP choisit une autre planche, « les bonnes mains »** : `images/bibliotheque-mains/jp-silhouettes-prises/` (128
+    silhouettes, dont une trentaine de prises sur un objet, et des mains à deux). Le .ai d'origine est à recevoir ;
+    en attendant, un traçage de la capture. C'est elle, la base des prises des planches. En attendant, une planche neuve évite le gros plan de main : la main coupée par le bord, l'objet seul,
     ou le corps entier de profil. CLAUDE.md (« Les premières minutes ») et le skill sont à jour. À refaire : les chapitres qui
     ont des séries orange, les modèles 11, 3, 4 et 13 compris (`grep -l "{.orange" chapitres/*.md`).
 30. **Une image sur la page d'ouverture de chaque tome** (JP, 16 octobre). Une scène qui représente le tome, dans
