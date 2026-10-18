@@ -1,0 +1,451 @@
+{
+  "_note": "Logigramme du chapitre 15 (se déplacer et le carburant), double page, fait le 18 octobre 2026 sur le chapitre réécrit à huit sections, sur le modèle des 13 et 16. Page de gauche : la série orange « Quelqu'un passe à travers la glace » (étapes 1 à 10), pastille 10 min (la dizaine de minutes de mouvements utiles qui suit la première minute dans l'eau froide : Transports Canada, TP 511, sources/03-transports-canada-eau-froide.md ; Minnesota DNR, sources/20-minnesota-dnr-equipement-glace-pics.md). La fourche « Qui est dans l'eau ? » sépare se sortir soi-même et sortir quelqu'un d'autre ; les deux branches passent sur la page de droite, au réchauffement. Page de droite : la série orange « La machine s'arrête loin de tout, l'hiver » (étapes 11 à 18), pastille 30 min (le premier cycle du moteur, une dizaine de minutes par période de 30 minutes : Québec.ca, sources/19-quebec-trousse-urgence-et-auto.md). Aucun avertissement redit (ni le mécanisme du CO, ni la génératrice, ni la vapeur d'essence : ils restent dans l'étape et l'encadré danger). Rendu : env -u TMPDIR python3 design/outils/logigramme.py images/logigrammes/15-se-deplacer.json ; version du livre : --sans-entete --svg. « source » : les étapes du chapitre d'où vient chaque geste (ignoré au rendu). Se place après la section 3, Matériel.",
+  "format": "double",
+  "tome": 1,
+  "urgent": true,
+  "entete": {
+    "chapitre": "15 · Se déplacer et le carburant",
+    "tome": "Tome 1 · Tenir",
+    "onglet": "15",
+    "folios": [
+      null,
+      null
+    ]
+  },
+  "colonnes": {
+    "plein": [
+      0.5,
+      7.375
+    ],
+    "L": [
+      0.5,
+      3.5
+    ],
+    "R": [
+      4.35,
+      7.375
+    ],
+    "large2": [
+      9.05,
+      15.5
+    ],
+    "q": [
+      9.05,
+      12.2
+    ],
+    "r": [
+      12.75,
+      15.5
+    ]
+  },
+  "rangs": {
+    "g1": 1.11,
+    "g2": 1.6,
+    "g3": 2.5,
+    "g4": 3.75,
+    "g5": 4.75,
+    "g6": 5.75,
+    "g7": 6.95,
+    "g8": 7.95,
+    "d1": 0.85,
+    "d2": 2.75,
+    "d3": 3.35,
+    "d4": 4.5,
+    "d5": 5.5,
+    "d6": 6.5,
+    "d7": 7.95
+  },
+  "noeuds": [
+    {
+      "id": "dep",
+      "type": "depart",
+      "col": "plein",
+      "rang": "g1",
+      "taille": 15,
+      "texte": "Quelqu'un passe à travers la glace",
+      "source": "titre de la série orange"
+    },
+    {
+      "id": "auto",
+      "type": "urgent",
+      "col": "plein",
+      "rang": "g2",
+      "ancre": "haut",
+      "temps": "10 min",
+      "taille": 10.5,
+      "texte": "**Si l'auto passe à travers la glace, en sortir tout de suite** par une fenêtre de côté, pendant qu'elle flotte.",
+      "renvoi": "ch. 15, étape 1",
+      "source": "étape 1"
+    },
+    {
+      "id": "q0",
+      "type": "question",
+      "col": "plein",
+      "rang": "g3",
+      "ancre": "haut",
+      "texte": "Qui est dans l'eau ?",
+      "source": "étapes 2 et 8"
+    },
+    {
+      "id": "s1",
+      "type": "urgent",
+      "col": "L",
+      "rang": "g4",
+      "ancre": "haut",
+      "taille": 10,
+      "texte": "**Pendant la première minute, garder la tête hors de l'eau** et souffler lentement. Garder ses vêtements.",
+      "renvoi": "ch. 15, étape 2",
+      "source": "étape 2"
+    },
+    {
+      "id": "s2",
+      "type": "urgent",
+      "col": "L",
+      "rang": "g5",
+      "ancre": "haut",
+      "taille": 10,
+      "texte": "**Se tourner vers le côté par où on est arrivé** et poser les avant-bras à plat sur la glace.",
+      "renvoi": "ch. 15, étape 3",
+      "source": "étape 3"
+    },
+    {
+      "id": "s3",
+      "type": "urgent",
+      "col": "L",
+      "rang": "g6",
+      "ancre": "haut",
+      "taille": 10,
+      "texte": "**Battre des jambes et se hisser à plat ventre**, les pics plantés près du bord, ou les bras écartés à plat.",
+      "renvoi": "ch. 15, étapes 4 et 5",
+      "source": "étapes 4 et 5"
+    },
+    {
+      "id": "qs",
+      "type": "question",
+      "col": "L",
+      "rang": "g7",
+      "ancre": "haut",
+      "taille": 11,
+      "texte": "On est sorti au bout de 10 minutes ?",
+      "source": "étapes 6 et 7"
+    },
+    {
+      "id": "s5",
+      "type": "urgent",
+      "col": "L",
+      "rang": "g8",
+      "ancre": "haut",
+      "taille": 10,
+      "texte": "**Arrêter de forcer** : garder les avant-bras sur la glace et la tête hors de l'eau, et siffler.",
+      "renvoi": "ch. 15, étape 7",
+      "source": "étape 7"
+    },
+    {
+      "id": "o1",
+      "type": "urgent",
+      "col": "R",
+      "rang": "g4",
+      "ancre": "haut",
+      "taille": 10,
+      "texte": "**Ne pas courir au trou.** Rester sur la glace qui a porté, se coucher, et lui crier de se tourner et de battre des jambes.",
+      "renvoi": "ch. 15, étape 8",
+      "source": "étape 8"
+    },
+    {
+      "id": "o2",
+      "type": "urgent",
+      "col": "R",
+      "rang": "g5",
+      "ancre": "haut",
+      "taille": 10,
+      "texte": "**Lui tendre ou lui lancer une corde, une perche ou des câbles**, qu'il se passe la corde sous les bras, et tirer pendant qu'il bat des jambes.",
+      "renvoi": "ch. 15, étape 8",
+      "source": "étape 8"
+    },
+    {
+      "id": "o3",
+      "type": "urgent",
+      "col": "R",
+      "rang": "g6",
+      "ancre": "haut",
+      "taille": 10,
+      "texte": "**Si rien ne l'atteint, aller le chercher couché**, en poussant le toboggan ou une échelle, attaché à une corde que tient un autre adulte.",
+      "renvoi": "ch. 15, étape 9",
+      "source": "étape 9"
+    },
+    {
+      "id": "fin",
+      "type": "urgent",
+      "col": "large2",
+      "rang": "d1",
+      "ancre": "haut",
+      "taille": 10.5,
+      "texte": "**Hors de l'eau, rester couché** : rouler loin du trou jusqu'à ses traces, ou traîner la personne qu'on a sortie, sans la remettre debout. À l'abri, des vêtements secs, un sac de couchage fermé, et la chaleur sur la poitrine et le dos.",
+      "renvoi": "ch. 15, étapes 6 et 10 ; ch. 25",
+      "source": "étapes 6 et 10"
+    },
+    {
+      "id": "depB",
+      "type": "depart",
+      "col": "large2",
+      "rang": "d2",
+      "taille": 13,
+      "texte": "La machine s'arrête loin de tout, l'hiver",
+      "source": "titre de la série orange"
+    },
+    {
+      "id": "qm",
+      "type": "question",
+      "col": "q",
+      "rang": "d3",
+      "ancre": "haut",
+      "texte": "On est en auto ?",
+      "source": "étapes 11 et 18"
+    },
+    {
+      "id": "a1",
+      "type": "urgent",
+      "col": "r",
+      "rang": "d3",
+      "ancre": "haut",
+      "temps": "30 min",
+      "taille": 10,
+      "texte": "**Avant de faire tourner le moteur, dégager le tuyau d'échappement** jusqu'au sol, et le refaire avant chaque démarrage.",
+      "renvoi": "ch. 15, étape 11",
+      "source": "étape 11"
+    },
+    {
+      "id": "a2",
+      "type": "urgent",
+      "col": "r",
+      "rang": "d4",
+      "ancre": "haut",
+      "taille": 10,
+      "texte": "**Ouvrir un peu une fenêtre du côté opposé au vent**, et faire tourner le moteur une dizaine de minutes par demi-heure.",
+      "renvoi": "ch. 15, étapes 12 et 13",
+      "source": "étapes 12 et 13"
+    },
+    {
+      "id": "a3",
+      "type": "urgent",
+      "col": "r",
+      "rang": "d5",
+      "ancre": "haut",
+      "taille": 10,
+      "texte": "**Rester dans l'auto**, les feux de détresse allumés, tout le monde serré sous les couvertures, isolé du plancher.",
+      "renvoi": "ch. 15, étapes 14 à 16",
+      "source": "étapes 14 à 16"
+    },
+    {
+      "id": "a4",
+      "type": "geste",
+      "col": "r",
+      "rang": "d6",
+      "ancre": "haut",
+      "taille": 10,
+      "texte": "**Essayer de sortir l'auto** : pelleter devant les roues qui tirent, y coucher des planches ou des branches, et avancer en première.",
+      "renvoi": "ch. 15, étape 17",
+      "source": "étape 17"
+    },
+    {
+      "id": "m1",
+      "type": "urgent",
+      "col": "q",
+      "rang": "d4",
+      "ancre": "haut",
+      "taille": 10,
+      "texte": "**En motoneige ou en VTT, chercher la panne** et la réparer avec ce qu'on porte sur soi.",
+      "renvoi": "ch. 15, étape 18 ; section 8",
+      "source": "étape 18 ; section 8"
+    },
+    {
+      "id": "qn",
+      "type": "question",
+      "col": "q",
+      "rang": "d5",
+      "ancre": "haut",
+      "taille": 11,
+      "texte": "On peut rentrer à pied avant la nuit ?",
+      "precision": "La machine ne repart pas",
+      "source": "étape 18"
+    },
+    {
+      "id": "m2",
+      "type": "urgent",
+      "col": "q",
+      "rang": "d7",
+      "ancre": "haut",
+      "taille": 10,
+      "texte": "**Revenir dans sa propre trace**, en raquettes si la neige est profonde.",
+      "renvoi": "ch. 15, étape 18 ; ch. 89",
+      "source": "étape 18"
+    },
+    {
+      "id": "m3",
+      "type": "urgent",
+      "col": "r",
+      "rang": "d7",
+      "ancre": "haut",
+      "taille": 10,
+      "texte": "**Faire un feu et un abri au bord de la trace**, et y passer la nuit.",
+      "renvoi": "ch. 15, étape 18 ; ch. 12",
+      "source": "étape 18"
+    }
+  ],
+  "liens": [
+    {
+      "de": "dep",
+      "vers": "auto"
+    },
+    {
+      "de": "auto",
+      "vers": "q0"
+    },
+    {
+      "de": "q0",
+      "vers": "s1",
+      "etiquette": "Soi-même",
+      "coude": 3.3,
+      "pos": "palier"
+    },
+    {
+      "de": "q0",
+      "vers": "o1",
+      "etiquette": "Quelqu'un d'autre",
+      "coude": 3.3,
+      "pos": "palier"
+    },
+    {
+      "de": "s1",
+      "vers": "s2"
+    },
+    {
+      "de": "s2",
+      "vers": "s3"
+    },
+    {
+      "de": "s3",
+      "vers": "qs"
+    },
+    {
+      "de": "qs",
+      "vers": "s5",
+      "etiquette": "Non"
+    },
+    {
+      "de": "qs",
+      "vers": "fin",
+      "etiquette": "Oui",
+      "sortie": "droite",
+      "entree": "gauche",
+      "pos": "debut",
+      "via": [
+        [
+          3.925,
+          7.16
+        ],
+        [
+          3.925,
+          9.05
+        ],
+        [
+          8.8,
+          9.05
+        ],
+        [
+          8.8,
+          1.3
+        ]
+      ]
+    },
+    {
+      "de": "o1",
+      "vers": "o2"
+    },
+    {
+      "de": "o2",
+      "vers": "o3"
+    },
+    {
+      "de": "o3",
+      "vers": "fin",
+      "sortie": "bas",
+      "entree": "gauche",
+      "via": [
+        [
+          5.86,
+          9.05
+        ],
+        [
+          8.8,
+          9.05
+        ],
+        [
+          8.8,
+          1.3
+        ]
+      ]
+    },
+    {
+      "de": "depB",
+      "vers": "qm",
+      "sx": 10.625,
+      "ex": 10.625
+    },
+    {
+      "de": "qm",
+      "vers": "a1",
+      "etiquette": "Oui",
+      "sortie": "droite",
+      "entree": "gauche"
+    },
+    {
+      "de": "qm",
+      "vers": "m1",
+      "etiquette": "Non"
+    },
+    {
+      "de": "a1",
+      "vers": "a2"
+    },
+    {
+      "de": "a2",
+      "vers": "a3"
+    },
+    {
+      "de": "a3",
+      "vers": "a4"
+    },
+    {
+      "de": "m1",
+      "vers": "qn"
+    },
+    {
+      "de": "qn",
+      "vers": "m2",
+      "etiquette": "Oui"
+    },
+    {
+      "de": "qn",
+      "vers": "m3",
+      "etiquette": "Non",
+      "sortie": "droite",
+      "entree": "haut",
+      "pos": "debut",
+      "via": [
+        [
+          12.475,
+          5.75
+        ],
+        [
+          12.475,
+          7.68
+        ],
+        [
+          14.125,
+          7.68
+        ]
+      ]
+    }
+  ]
+}

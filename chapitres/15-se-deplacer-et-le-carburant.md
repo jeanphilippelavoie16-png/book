@@ -2,510 +2,563 @@
 
 *Tome 1 — Tenir*
 
----
-
 **Les deux**
+
+---
 
 ## 1. En une ligne
 
-Tenir une réserve de carburant étiquetée et tournée aux deux endroits, et n'engager un
-déplacement que sur un budget de carburant, de jour et de chaleur calculé pour l'aller **et** le
-retour, transforme la sortie la plus dangereuse de l'hiver en une opération dont on connaît
-d'avance le point de non-retour.
+Garder une réserve de carburant qui tient deux ans sans mettre le feu, partir seulement avec de quoi revenir,
+et se sortir vivant de la glace qui cède ou de la machine qui s'arrête loin de tout.
+
+---
 
 ## 2. Quand l'utiliser
 
-Trois déplacements portent le même nom et n'ont pas le même prix. Partir de la maison vers le
-village se compte en minutes, sur une route déneigée, avec des voisins qui passent : ce qui rate
-là, c'est la route, et le préavis du chapitre 7 en vient à bout. Partir du chalet, c'est la
-sortie dangereuse : pas de route entretenue, pas de témoin, et la machine est le seul moyen de
-rentrer. Entre les deux, le transfert de la maison vers le chalet — la bascule du chapitre 2 —
-est le plus gros déplacement de l'hiver : chargé, à sens unique, et il se paie en carburant qu'il
-faut avoir gardé. Les seuils des deux listes qui suivent sont ceux du chalet ; de la maison, le
-même calcul se fait avec une marge plus courte, tant que la route et les voisins existent.
+- **Quelqu'un passe à travers la glace** (étapes 1 à 10).
+- **L'auto, la motoneige ou le VTT s'arrête loin de tout, l'hiver** (étapes 11 à 18).
+- **Il faut sortir** : aller chercher ce qui manque, mener quelqu'un se faire soigner ailleurs (ch. 35),
+ faire le transfert de la maison au chalet (ch. 2).
+- **Le chemin passe sur un lac ou une rivière gelée** (étapes 40 à 44).
+- **On monte ou on tient la réserve de carburant**, à la maison ou au chalet (étapes 19 à 27).
+- **On fait tourner une génératrice** (étapes 45 à 48).
+- **Il ne reste plus d'essence, ou le moteur ne part plus** (section 8).
 
-**Se déplacer est le bon choix quand :**
+---
 
-- Quelqu'un a un problème que l'endroit ne peut pas régler et que le chapitre 26 range dans
- «ça ne se soigne pas ici ». Une jambe cassée, une plaie qui se met à rougir et à chauffer,
- un accouchement qui commence : le déplacement n'est plus une option à comparer, c'est la
- seule. De la maison comme du chalet, il n'y a personne d'autre pour le faire.
-- Une fenêtre météo s'ouvre et le stock a un trou nommé. Pas «on manque de stock » : «il
- manque du carburant à lampe et des piles AA », écrit sur la liste du chapitre 9, avec
- l'endroit où ça s'achète.
-- Le préavis existe. Une tempête annoncée, une fermeture de chemin annoncée, une évacuation
- probable : on bouge **avant**, pas pendant. C'est tout le chapitre 7.
-- La reconnaissance se fait dans le rayon du retour à pied. Aller voir si le chemin forestier
- est ouvert, si la glace de la baie porte, si les voisins du lac sont là, en restant à une
- distance qu'on pourrait couvrir en raquettes si la machine meurt.
+## 3. Matériel
 
-**Se déplacer est un mauvais choix quand :**
+- **Pics à glace, au cou par-dessus le manteau** : deux poignées à pointe qui mordent la glace mouillée où les mains glissent (→ section 8).
+- **Corde qui flotte, 15 m au moins** : on la lance à la personne dans l'eau sans s'approcher du trou (étape 8).
+- **Tarière ou ciseau à glace, et ruban à mesurer** : percer la glace et lire son épaisseur sur le trajet (étape 40 ; ciseau : ch. 111).
+- **Pelle** : dégager le tuyau d'échappement et les roues d'une auto prise dans la neige (étapes 11 et 17).
+- **Avertisseur de CO à pile, à affichage** : le seul moyen de savoir que l'auto, l'abri ou la maison se remplit de monoxyde.
+- **Bidons à essence, bouchon vissé** : ils ferment sans fuir ni laisser sortir la vapeur ; on y écrit la date et la part.
+- **Trousse d'allumage, sur soi** : pour le feu qui suit une chute à l'eau ou une nuit dehors (ch. 13).
 
-- Le motif est l'inconfort ou l'ennui. L'ennui ne se présente jamais sous son nom : il arrive
- déguisé en commission utile, et c'est pour ça que le motif s'écrit en une phrase avant de
- partir (étape 11). Une sortie qui règle une humeur relève du chapitre 36, pas de celui-ci.
-- Il reste moins que le double du carburant nécessaire à l'aller. Sans marge de retour, on ne
- fait pas un déplacement, on fait un déménagement à sens unique sans l'avoir décidé.
-- L'indice de refroidissement éolien est sous **-40** : la peau exposée gèle alors en **5 à
- 10 minutes**, et sous **-48**, en **2 à 5 minutes**. Une panne mécanique à 20 km du chalet dans ces conditions n'est plus un contretemps.
-- La glace est la seule route et son épaisseur n'a pas été mesurée **ce jour-là**, au vilebrequin,
- à plusieurs endroits.
-- Il reste moins de trois heures de jour. La nuit ne rend pas le chemin plus long, elle rend
- chaque réparation impossible et chaque erreur définitive.
-- Personne ne reste au point de départ pour savoir quand s'inquiéter. Un départ sans heure de
- retour écrite au mur n'est pas un déplacement, c'est une disparition différée.
+---
 
-## 3. Pourquoi ça marche
+## 4. Procédure
 
-Le carburant est une **monnaie de conversion** : un litre devient des kilomètres, des heures de
-génératrice ou des cordes de bois, et sans parts nommées d'avance, le premier usage vide le
-baril. L'essence tue par ses **vapeurs**, qui coulent au point bas et voyagent jusqu'à
-l'étincelle ; contrairement au diesel et au kérosène, elle en dégage assez pour s'allumer par
-tous les froids. Le monoxyde se **mélange** à tout le volume et n'a pas d'odeur : dans un espace
-fermé, aucun coin n'est sûr. La neige isole la glace au lieu de l'épaissir, et la vitesse de la
-machine compte comme du vent. Au froid, la batterie donne moins quand l'huile épaissie demande
-plus, et le diesel cristallise[^1].
+### Quelqu'un passe à travers la glace {.orange 10 min}
 
-[^1]: Ça se voit dans un pot de verre clair : le diesel tiré du réservoir ou du bol du filtre
-    porte de petits cristaux solides, qui tombent au fond si on le laisse reposer ; plus froid
-    encore, il prend en gelée et ne coule plus. Réchauffé, il se redissout, lentement si on ne le
-    monte qu'à peine au-dessus du point où les cristaux sont apparus.
+1. **Si l'auto passe à travers la glace, en sortir tout de suite, par une fenêtre de côté.** Une
+ auto flotte de quelques secondes à quelques minutes, puis elle coule : on sort pendant qu'elle flotte. La
+ pression de l'eau retient souvent les portières ; ouvrir les fenêtres de côté, ou casser une vitre avec un
+ objet dur pris dans l'auto, et faire passer tout le monde par là. Ne pas retourner dans l'auto chercher quoi
+ que ce soit. Dans l'eau, faire les étapes 2 à 7.
+2. **Dans l'eau, pendant la première minute, garder la tête hors de l'eau et ralentir son souffle.** Au
+ contact de l'eau glacée, on prend malgré soi une grande inspiration, puis on respire très vite, sans pouvoir
+ s'en empêcher, pendant environ une minute. Si la tête est sous l'eau à ce moment-là, on avale de l'eau, et
+ un bon nageur peut se noyer comme un autre. Pendant cette minute, ne pas essayer de sortir ni de nager :
+ garder le visage hors de l'eau, s'appuyer au bord et souffler lentement jusqu'à ce que le souffle se calme.
+ - **Garder ses vêtements d'hiver**, même lourds : ils retiennent de l'air qui tient chaud et aide à
+ flotter, surtout un habit de motoneige.
+ - **Lâcher la motoneige** et ce qui y est attaché : elle coule.
+ - **Siffler plutôt que crier**, si on a un sifflet : le choc de l'eau froide coupe la voix, et crier use
+ les forces.
+3. **Se tourner vers le côté par où on est arrivé** (planche 15-01, repère 1). La glace de ce côté vient de
+ porter : c'est probablement la plus solide. Poser les avant-bras à plat sur la glace (repère 2). Si les
+ vêtements sont pleins d'eau, se soulever un peu sur les coudes et attendre quelques secondes que l'eau s'en
+ égoutte avant de tirer : l'eau des vêtements alourdit le corps qu'il faut hisser.
+4. **Prendre les pics à glace, s'il y en a au cou.** Ce sont deux poignées de bois à pointe de métal,
+ reliées par un cordon et portées sur la poitrine, la pointe de l'une rentrée dans l'autre (section 8 pour
+ les faire).
+ - Tirer les deux poignées chacune de son côté pour les séparer (repère 3).
+ - Tenir chaque pic dans le poing, la pointe qui sort sous le petit doigt (repère 4).
+ - Sans pics : serrer dans le poing ce qu'on a de pointu (une clé, un couteau, un tournevis), ou étendre
+ les bras le plus large possible, à plat sur la glace.
+5. **Se hisser à plat ventre.**
+ - Battre des jambes sans arrêter, comme pour nager, pour ramener le corps à l'horizontale derrière soi
+ (repère 5). À plat, le corps glisse sur la glace ; à la verticale, il faut le soulever à la force des
+ bras.
+ - Planter les pics près du bord, environ 30 cm plus près que le bout des bras (repère 6). Le réflexe est
+ de les planter le plus loin possible ; plus près, le poids passe sur les pics et les coudes, et le haut du
+ corps monte sur la glace au lieu de glisser vers l'eau.
+ - Tirer en glissant vers l'avant, puis replanter un peu plus loin (repère 7), et recommencer jusqu'à ce que
+ les jambes sortent de l'eau.
+6. **Une fois sorti, rester couché et rouler pour s'éloigner du trou** (repère 8). Couché, le poids
+ s'étale sur toute la longueur du corps, et la glace risque moins de céder une deuxième fois. Rouler ou
+ ramper jusqu'à ses propres traces (repère 9) : cette glace a porté à l'aller. Se relever seulement là, ou
+ sur la rive.
+7. **Si on n'est pas sorti au bout d'une dizaine de minutes, arrêter de forcer.** Après la première minute,
+ les bras, les jambes et les doigts gardent leur force une dizaine de minutes, puis ils ne répondent plus.
+ Sortir de l'eau le plus de corps possible, garder les avant-bras posés sur la glace et la tête hors de
+ l'eau, ne plus bouger, et siffler. Même dans l'eau glacée, on met souvent une heure à perdre connaissance
+ par le froid : la noyade tue avant le froid, quand la tête passe sous l'eau. Ne pas nager pour se
+ réchauffer.
+8. **Quelqu'un d'autre est tombé : ne pas courir jusqu'au trou.** Autour du trou, la glace est aussi mince :
+ la personne qui court à son secours passe à travers à son tour, et on a deux personnes dans l'eau. Rester sur la glace
+ qui a porté, s'approcher couché s'il le faut, et lui crier de se tourner vers le côté par où il est arrivé, de
+ poser les avant-bras sur la glace et de battre des jambes (étapes 3 à 5).
+ - Lui tendre ou lui lancer quelque chose (planche 15-03, repère 1) : une corde, une perche, une branche,
+ une échelle, les câbles de survoltage de l'auto. Un bidon vide, bouché serré et noué au bout de la corde, la
+ fait flotter et lui donne du poids pour la lancer loin (repère 2).
+ - Lui faire passer la corde autour du corps, sous les bras, et la nouer (repère 3) pendant que ses mains
+ serrent encore : au bout de quelques minutes dans l'eau, elles ne tiennent plus rien.
+ - Tirer pendant qu'il bat des jambes, en le gardant à plat ventre sur la glace (repère 4). S'il entraîne
+ le sauveteur vers le trou, lâcher la corde et recommencer.
+9. **Si rien ne l'atteint, aller le chercher couché, en poussant quelque chose devant soi** (repère 5) : le
+ toboggan, une chaloupe légère, une échelle ou une longue branche. Mettre ses pics au cou et s'attacher à une
+ corde que tient un autre adulte resté sur la glace qui a porté : si la glace cède, il tire le sauveteur
+ hors de l'eau. Arrivé près du trou, tendre le bout de ce qu'on pousse à la personne ; avec une chaloupe,
+ monter dedans et la hisser à bord par l'avant. Sans personne pour tenir la corde, si la glace cède sous le
+ sauveteur, il est à son tour dans l'eau (étapes 2 à 7).
+10. **Hors de l'eau, mettre la personne au chaud et au sec tout de suite.**
+ - La garder couchée, et la traîner ou la porter jusqu'à l'abri le plus proche : l'auto, le chalet ou un
+ feu. Debout ou en marchant, le sang froid des jambes remonte vers le cœur et la pression du sang tombe :
+ un cœur refroidi peut s'arrêter. Une personne seule n'a pas ce choix : elle marche jusqu'à l'abri, ou elle
+ fait un feu sur place (ch. 13, étapes 1 à 7).
+ - À l'abri, lui enlever doucement ses vêtements mouillés, lui mettre des vêtements secs et la coucher dans
+ un sac de couchage fermé jusqu'en haut, avec quelque chose d'épais dessous.
+ - Mettre la chaleur sur la poitrine, le dos et sous les aisselles, jamais sur les bras et les jambes, et
+ pas de bain ni de douche chaude : la chaleur sur les membres renvoie d'un coup leur sang froid vers le cœur,
+ qui peut s'arrêter.
+ - Si elle est éveillée et alerte, qu'elle frissonne et qu'elle avale sans peine, lui donner à boire chaud et
+ sucré, sans alcool.
+ - Un enfant passe en premier : son petit corps perd sa chaleur plus vite que celui d'un adulte.
+ - La suite du réchauffement, et les signes qui disent que c'est grave : ch. 25, étapes 5 à 14.
 
-## 4. Matériel
+### La machine s'arrête loin de tout, l'hiver {.orange 30 min}
 
-- **Avertisseur de CO à pile, affichage en ppm** — seul témoin d'un gaz sans odeur. Rien ne le remplace.
-- **Bidons à essence, bouchon vissé** — jamais un contenant à lait ou à eau : l'essence ramollit ce plastique.
-- **Tarière à glace** — perce le trou où se mesure l'épaisseur ; à défaut, ciseau à glace emmanché (ch. 111).
-- **Pics à glace, au cou sur le manteau** — pour sortir de l'eau ; sinon, manche à balai et gros clou.
-- **Corde qui flotte, 15 m** — polypropylène (le nylon coule) ; on la tend sans avancer sur la glace qui a cédé.
-- **Trousse d'allumage, sur soi** — le feu qui suit une chute à l'eau ; sur la machine, elle part avec elle.
+11. **En auto, avant de laisser tourner le moteur pour se chauffer, sortir et dégager le tuyau
+ d'échappement** (planche 15-04, repère 1). Le tuyau sort sous l'arrière de l'auto. Pelleter la neige
+ autour du bout du tuyau et sous le pare-chocs, jusqu'au sol, pour que le gaz sorte à l'air libre. Quand la
+ neige bouche le tuyau, le gaz du moteur entre dans l'auto ; le monoxyde n'a ni odeur ni couleur, et on
+ s'endort au lieu de sortir. Refaire ce geste après chaque bourrasque ou chute de neige, et avant chaque
+ démarrage : la neige poussée par le vent rebouche le tuyau pendant qu'on attend.
+12. **Ouvrir un peu une fenêtre du côté opposé au vent avant de démarrer** (repère 2). Poser l'avertisseur
+ de CO, s'il y en a un, à l'endroit le plus chaud de l'auto : il est fait pour fonctionner entre 4,4 et
+ 37,8 °C, et dans une auto froide, il peut ne pas sonner.
+13. **Faire tourner le moteur une dizaine de minutes par demi-heure, pas en continu.** Dix minutes de
+ ralenti brûlent de 0,25 à 0,5 L : à ce rythme, l'auto consomme de 0,5 à 1 L par heure d'attente, et 10 L
+ donnent de 10 à 20 heures de chauffage. Lire la jauge et compter les heures qui restent. Si quelqu'un a mal
+ à la tête, mal au cœur ou s'endort pendant que le moteur tourne, couper le moteur, ouvrir les portières et
+ dégager l'échappement avant de redémarrer (section 7, point 1).
+14. **Allumer les feux de détresse, et ménager la batterie** : la lumière, le chauffage et la radio à tour
+ de rôle, jamais ensemble. La batterie doit garder assez de charge pour redémarrer le moteur à chaque
+ demi-heure.
+15. **Rester dans l'auto.** Elle coupe le vent, on la voit de loin, et si quelqu'un connaît le trajet et
+ l'heure d'arrivée (étape 32), il viendra par ce chemin. On la quitte seulement pour un bâtiment qu'on voit
+ depuis l'auto.
+16. **Garder la chaleur.**
+ - Regrouper tout le monde sous les couvertures, avec tuques et mitaines.
+ - Glisser quelque chose d'épais entre le corps et le plancher ou les parois de métal (un tapis, un sac, un
+ manteau) : un corps perd beaucoup de chaleur par ce qu'il touche.
+ - Bouger les doigts, les orteils et le visage de temps en temps, pour sentir les endroits qui
+ deviennent durs ou engourdis.
+ - Toucher les joues et les doigts des enfants au lieu de leur demander s'ils ont froid (ch. 25, étape 32).
+17. **Quand tout le monde est installé, essayer de sortir l'auto de la neige.**
+ - Pelleter un chemin devant chaque roue qui tire l'auto, puis y coucher des planches ou des branches pour
+ que les pneus mordent.
+ - Avancer doucement en première (« 1 » ou « L » sur une boîte automatique), en gamme basse si l'auto en a
+ une.
+ - Quand les roues patinent, l'arrière de l'auto s'enfonce : regarder le tuyau d'échappement chaque fois
+ qu'on s'arrête (étape 11).
+18. **En motoneige ou en VTT, il n'y a pas d'abri.**
+ - Chercher la panne et la réparer avec ce qu'on porte (section 8, « Réparer sur le chemin »).
+ - Si la machine ne repart pas et qu'on peut arriver avant la nuit, revenir à pied dans sa propre trace, en
+ raquettes si la neige est profonde (ch. 89). La neige y est tassée, et si quelqu'un attend le retour, il
+ viendra par là.
+ - Sinon, s'installer pour la nuit au bord de la trace, avec un feu et un abri (ch. 12 et ch. 13), et y
+ attendre.
+ - En marchant, se regarder le visage l'un l'autre à chaque arrêt (étape 38).
 
-## 5. Procédure
+### La réserve de carburant
 
-**Constituer la réserve**
+19. **Compter les usages avant les litres.** Faire le tour des moteurs de la maison et du chalet : l'auto,
+ la motoneige, le VTT, la scie à chaîne, la génératrice, la pompe. Noter pour chacun le carburant exact
+ (essence, diesel, mélange deux temps) et l'endroit où la machine passe l'hiver, à la maison ou au
+ chalet : son carburant doit être au même endroit qu'elle.
+20. **Mesurer la consommation réelle de chaque moteur.** Faire le plein, noter le compteur ou l'heure,
+ rouler ou travailler, refaire le plein et diviser les litres par les kilomètres ou par les heures. Faire
+ trois mesures par machine, l'hiver et chargé, et garder la plus forte. Les consommations publiées sont
+ mesurées au chaud et à vide : le froid seul fait monter celle d'une auto en ville de 12 à 28 % dès 7 °C,
+ une route enneigée en ajoute de 7 à 35 %, et rien n'est publié pour une motoneige chargée à −30 °C.
+21. **Séparer la réserve en parts nommées**, et écrire le nom sur chaque bidon au crayon gras : *scie*,
+ *génératrice*, *déplacement*, *intouchable*. La part *intouchable* sert au départ pour faire soigner
+ quelqu'un (ch. 35), et on ne l'ouvre que si deux adultes le décident ensemble. À la maison, la part
+ *déplacement* a un seul usage : le transfert au chalet avec la famille et la charge, tant que la route est
+ ouverte (ch. 2). Sans nom sur les bidons, on puise d'abord dans la part du déplacement, pour des
+ commissions.
+22. **Sortir l'essence du bâtiment où on dort.** Dans ce bâtiment, il ne reste que l'essence des réservoirs
+ des machines ; le reste va dans un dépôt à part. La vapeur d'essence est plus lourde que l'air et coule au
+ ras du sol jusqu'au point le plus bas (section 7, point 3) : un plancher de chalet ou un sous-sol est ce
+ point bas.
+23. **Monter le dépôt au bon endroit.**
+ - Plus haut que le chalet ou la maison, jamais en contrebas : la vapeur et l'essence qui coule descendent la
+ pente.
+ - Non chauffé, à l'ombre, aéré au ras du sol, là où la vapeur s'accumule : un abri de planches espacées,
+ ouvert dans le bas, garde moins la vapeur qu'un cabanon fermé.
+ - Rien dedans qui fait une flamme ou une étincelle : ni lampe, ni moteur, ni interrupteur, ni prise.
+24. **Remplir et ranger les bidons.**
+ - Remplir chaque bidon posé au sol : l'essence qui coule se charge d'électricité statique, et un bidon
+ posé sur la doublure de plastique d'une boîte de camionnette peut faire une étincelle au goulot, là où la
+ vapeur est la plus forte.
+ - Laisser environ 5 % de vide en haut du bidon : l'essence prend du volume en se réchauffant, et un bidon
+ trop plein force son bouchon. Un bidon à moitié vide, lui, contient beaucoup d'air, et l'air fait vieillir
+ l'essence plus vite.
+ - Ranger les bidons debout, bouchon vissé.
+25. **Dater chaque bidon au remplissage, et y verser le stabilisateur tout de suite** s'il ne sera pas vidé
+ dans les trois mois. L'essence s'oxyde dès qu'on l'entrepose : elle peut donner des ennuis après 30 jours,
+ en laissant des dépôts collants qui bouchent les petits passages du carburateur. L'éthanol de l'essence
+ capte aussi l'humidité de l'air, qui finit en une couche d'eau et d'alcool au fond du bidon, celle que le
+ moteur aspire en premier. Avec le stabilisateur versé au remplissage, l'essence reste bonne jusqu'à 24 mois.
+ Aucun stabilisateur ne répare une essence vieillie. La dose est celle qui est écrite sur le contenant
+ du stabilisateur.
+26. **Faire tourner la réserve.** Brûler la plus vieille essence en premier, dans l'auto ou la génératrice,
+ et garder la plus fraîche pour la scie et la motoneige : les dépôts bouchent d'abord les petits
+ carburateurs, et on dépend de ces deux machines pour se chauffer et pour rentrer.
+27. **Inspecter les bidons chaque mois.** Une trace sombre dessous, un bouchon qui suinte, un bidon gonflé
+ par la chaleur : transvider l'essence dehors dans un bidon sain, et jeter le contenant.
 
-1. Compter d'abord les usages, pas les litres. Faire le tour des moteurs des deux endroits :
- véhicule routier, motoneige, VTT, scie à chaîne, génératrice, pompe. Pour chacun, le
- carburant exact et le mélange s'il y a lieu, et l'endroit où la machine dort, parce que le
- carburant doit être là où elle est.
-2. Mesurer la consommation réelle de chaque moteur au lieu de l'estimer. Faire le plein, noter
- le compteur ou l'heure, refaire le plein, diviser. Trois mesures par machine suffisent pour
- un chiffre utilisable. **Aucune consommation n'est donnée dans ce chapitre** : les valeurs
- publiées sont mesurées au chaud et à vide. Le froid seul les fait monter de 12 à 28 % en ville
- dès 7 °C, une route enneigée de 7 à 35 % de plus, et personne ne publie ce que devient une
- motoneige chargée à -30 °C : ça se mesure.
-3. Séparer la réserve en parts nommées et les écrire sur les bidons au crayon gras : *scie*,
- *génératrice*, *déplacement*, *intouchable*. La part *intouchable* ne s'ouvre que sur
- décision prise à deux adultes, et elle sert au déplacement médical du chapitre 26. À la
- maison, la part *déplacement* a un seul usage nommé : faire le trajet jusqu'au chalet,
- chargé, pendant que la route est encore ouverte. C'est la part qui se vide la première quand
- personne ne l'a nommée.
-4. Sortir l'essence du bâtiment habité. Ce qui reste dedans, c'est ce qui est dans les réservoirs
- des machines. Le reste va dans un dépôt séparé du bâtiment où l'on dort, parce que la vapeur
- qui coule d'un bidon fendu cherche le point bas le plus proche et qu'un plancher de chalet en
- est un.
-5. Monter le dépôt là où une coulée ne peut pas revenir vers la maison : **en contrebas jamais,
- au-dessus toujours** — la vapeur et le liquide descendent tous les deux. Non chauffé, aéré au
- ras du sol puisque c'est là que la vapeur s'accumule, sans aucune source d'allumage : pas de
- fanal, pas de moteur, pas d'interrupteur, pas de prise. Un abri de planches à claire-voie fait
- mieux qu'un cabanon étanche, parce que l'étanchéité est exactement ce qui garde la vapeur.
- Au chalet, ce dépôt n'est pas une précaution parmi d'autres : c'est la seule chose qui sépare
- un bidon qui coule du bâtiment où la famille dort.
-6. Entreposer bidon debout, bouchon vissé, sur du bois ou du gravier plutôt que sur du béton
- froid, à l'écart du soleil direct. Un bidon plein bouge moins qu'un bidon à moitié vide : ce
- qui vieillit l'essence, ce qui condense l'eau et ce qui gonfle le contenant au redoux, c'est
- l'air qu'on laisse dedans.
+### Décider de partir
 
-**Faire vivre la réserve**
+28. **Écrire en une phrase pourquoi on part** : ce qu'on va chercher (ch. 9) ou faire, et pourquoi ça ne
+ peut pas attendre. Si on n'arrive pas à l'écrire, on remet la sortie : l'ennui et l'envie de bouger se règlent
+ autrement (ch. 36).
+29. **Savoir si le chemin est ouvert.** Sur un chemin forestier, personne ne donne l'état : on se fie à la
+ date du dernier passage connu et à ce qu'en dit la personne qui l'a fait (ch. 14 et ch. 16). Sans nouvelle
+ récente, on fait comme si le chemin était fermé.
+30. **Partir avec au moins deux fois le carburant que prend le trajet.** Multiplier la consommation mesurée
+ (étape 20) par la distance : pour une sortie, deux fois l'aller-retour ; pour un départ sans retour (le
+ transfert au chalet, une évacuation), deux fois l'aller. La marge couvre la route enneigée, le détour et le
+ moteur qu'on fait tourner pour se chauffer (étape 13). Si la réserve ne permet pas cette marge, on ne part
+ pas.
+31. **Fixer l'heure de demi-tour, pas l'heure d'arrivée** : l'heure du coucher du soleil, moins deux fois le
+ temps qu'a pris l'aller. À cette heure-là, on revient, qu'on ait fini ou non. La nuit, on répare une panne à
+ la lampe, et on ne voit pas qu'on s'est trompé de trajet.
+32. **Écrire au mur, avant de partir** : la destination, le trajet, l'heure de départ, l'heure de retour
+ prévue, l'heure à laquelle la personne qui reste doit s'inquiéter, et ce qu'elle doit faire alors : par où
+ chercher, et avec quoi. Les moyens de donner l'alerte sont au ch. 14 ; aller chercher quelqu'un, au ch. 16.
+33. **Lire le refroidissement éolien du trajet, pas la température.** En motoneige, la vitesse compte comme
+ du vent : à −20 °C sans vent, rouler à 50 km/h donne au visage un refroidissement de −35, et la peau
+ exposée gèle en 10 à 30 minutes. À −40, elle gèle en 5 à 10 minutes : on part seulement si la sortie ne
+ peut pas attendre, le visage couvert au complet.
+34. **Après une tempête, dégager le tuyau d'échappement avant de démarrer** (étape 11).
 
-7. Dater chaque bidon au remplissage. L'essence vieillit : les fractions légères s'évaporent,
- l'éthanol absorbe l'humidité de l'air et finit par se séparer en une phase aqueuse au fond du
- bidon, qui sera la première aspirée. Elle peut donner des ennuis après un mois. Un bidon qui
- ne sera pas vidé dans les trois mois reçoit son stabilisateur au remplissage, et il tient alors
- jusqu'à deux ans ; aucun stabilisateur ne rattrape une essence déjà vieillie.
-8. Tourner le stock au lieu de le conserver. Le vieux carburant part dans le véhicule routier ou
- dans la génératrice, qui pardonnent, jamais en premier dans la scie à chaîne ni dans la
- motoneige, dont on dépend pour rentrer.
-9. Ajouter le stabilisateur **au remplissage**, pas le jour où on découvre le bidon oublié.
- Suivre la dose du fabricant, inscrite sur le contenant : aucune dose n'est reproduite ici.
-10. Inspecter les contenants régulièrement pour détecter les fuites.
- Une trace sombre sous un bidon, un couvercle qui suinte, un bidon bombé par la chaleur d'un
- redoux : on transvide et on met le contenant au rebut.
+### Le trajet
 
-**Décider de partir**
+35. **Partir à deux machines quand c'est possible** : si l'une casse, l'autre ramène tout le monde. Seul,
+ rester à une distance qu'on pourrait refaire à pied, en raquettes, avant la nuit.
+36. **Porter sur soi ce qui sauve** : les pics à glace au cou par-dessus le manteau, le sifflet, l'allumage,
+ une lampe, le téléphone ou la radio (ch. 14). Ce qui est attaché sur la machine coule avec elle, et reste
+ avec elle quand il faut marcher.
+37. **N'attacher personne à ce qui peut couler** : ni le passager au traîneau, ni le conducteur à la
+ motoneige. Le passager du traîneau reste immobile et ne fait aucun effort : il se refroidit
+ plus vite que le conducteur, et on l'habille plus chaudement.
+38. **Se regarder les visages à deux, à chaque arrêt, plus souvent que le délai de gelure du jour** (étape
+ 33). La gelure du nez et des joues ne fait souvent pas mal, et la personne gelée est la dernière à la voir :
+ sa peau devient jaunâtre ou gris blanc. Couvrir l'endroit d'une main chaude jusqu'à ce que la douleur
+ revienne. Les enfants ne se plaignent pas du froid : on les regarde (ch. 25, étape 32).
+39. **La nuit, rouler à une vitesse qui permet de s'arrêter dans ce qu'éclaire le phare.** Vers 25 km/h, on a
+ le temps de s'arrêter devant un trou ou une crête de glace qu'on voit apparaître ; vers 55 km/h, on ne l'a
+ pas.
 
-11. Écrire le motif en une phrase. S'il faut trois phrases, ce n'est pas un motif, c'est une
- envie.
-12. Vérifier l'état du réseau routier avant de partir. Sur la Côte-Nord, la route 138 se ferme
- en entier, pas par voie. Du chemin forestier, personne ne donne l'état : ce qui en tient lieu,
- c'est la date du dernier passage connu et l'appel au voisin qui l'a fait (ch. 14 et 16). Une route
- d'hiver sans information récente se traite comme une route fermée.
-13. Calculer le carburant : quantité mesurée à l'étape 2 × distance aller-retour, puis ajouter
- la même quantité en marge. Si la marge n'existe pas dans la réserve, on ne part pas.
-14. Fixer une heure de demi-tour, pas une heure d'arrivée. À cette heure-là, on rentre, quel que
- soit l'avancement. L'heure de demi-tour se calcule à partir du coucher du soleil moins
- trois heures.
-15. Écrire au mur, avant de partir : la destination, le trajet, l'heure de départ, l'heure de
- retour prévue, l'heure à laquelle celui qui reste doit agir, et ce qu'il doit faire alors.
- Le chapitre 14 donne les moyens d'appeler ; celui-ci donne le déclencheur.
-16. Vérifier l'indice de refroidissement éolien attendu pendant la fenêtre du déplacement, pas
- la température. Sous **-40**, la peau exposée gèle en 5 à 10 minutes : ça se planifie
- en couvrant tout, ou ça ne se planifie pas.
-17. Dégager le tuyau d'échappement **avant** de démarrer, pas après : trois minutes de moteur
- avec la sortie enfouie dans un banc ont déjà rempli l'habitacle. Dégager aussi la prise d'air
- et la calandre, qu'une bordée bouche sans que ça se voie de la portière.
+### Traverser un lac ou une rivière gelée
 
-**Le déplacement**
+40. **Mesurer la glace avant d'y engager une machine, le jour même.**
+ - Commencer près de la rive : la glace y est souvent plus mince qu'au large.
+ - Pelleter la neige, percer à la tarière ou au ciseau, glisser le ruban dans le trou et accrocher son bout
+ sous la glace pour lire l'épaisseur. Ne pas juger l'épaisseur à la facilité du perçage : la tarière passe
+ vite, et on croit la glace plus épaisse qu'elle n'est.
+ - Mesurer au moins tous les 45 m sur le trajet, puis passer seulement par le trajet mesuré.
+ - À pied, au début et à la fin de l'hiver, frapper la glace au ciseau devant soi à chaque pas.
+41. **Comparer à ces épaisseurs, sur de la glace claire** (transparente ou bleu pâle) :
+ - 15 cm pour une personne à pied ;
+ - 25 cm pour une motoneige ou une auto ;
+ - 33 cm pour une camionnette.
 
-18. Partir à deux machines quand c'est possible. Une machine seule sur un chemin d'hiver est une
- marche de retour déguisée.
-19. Porter sur soi ce qui sauve : allumage, sifflet, pics à glace, lampe, téléphone ou radio
- (ch. 14). Ce qui est sanglé sur la machine part avec la machine.
-20. Sur la glace, mesurer avant d'engager. Percer à plusieurs endroits du trajet, pas seulement
- au départ. Les seuils publiés vont de 10 à 15 cm pour marcher et de 12 à 25 cm pour une
- motoneige. Le livre retient le plus prudent : **15 cm** à pied, **25 cm** en motoneige —
- quand deux seuils circulent, on garde le plus prudent.
-21. Lire la couleur : transparente, on continue ; blanche ou opaque, on sait qu'elle est plus
- fragile ; grise ou foncée, on ne passe pas.
-22. Contourner systématiquement les embouchures de rivière, les rétrécissements et les zones où
- la neige est la plus épaisse. La neige isole et ralentit la congélation : la glace est plus
- mince sous la grosse bordée, pas plus épaisse. La glace de marée du fleuve ne relève d'aucun
- seuil publié : les épaisseurs de l'étape 20 ne s'y appliquent pas.
-23. Espacer les machines et les personnes sur la glace. Deux motoneiges à dix mètres l'une de
- l'autre concentrent une charge que la glace ne verrait pas autrement.
-24. Ne pas attacher le passager au traîneau. Détacher la ceinture de tout ce qui coule.
-25. S'arrêter pour se regarder les visages à deux, plus souvent que le délai de gelure du jour :
- au risque élevé, la peau exposée gèle en 10 à 30 minutes ; au très élevé, en 5 à 10. La gelure
- du nez et des joues ne fait pas mal et le porteur est le dernier à la voir. Le passager du traîneau, immobile et sans effort, gèle plus vite que le conducteur. Les enfants ne signalent pas, ils endurent (ch. 39).
+ Sur de la glace blanche ou opaque, doubler ces épaisseurs : elle porte environ deux fois moins que la glace
+ claire. Sur de la glace grise ou foncée, ne pas passer : le gris vient de l'eau dans la glace.
+42. **Contourner les endroits où la glace est plus mince.**
+ - Là où l'eau bouge : les embouchures, les rétrécissements, les passages entre deux lacs, les abords des
+ ponts et des ponceaux, les sources, et l'extérieur des courbes d'une rivière.
+ - Les larges fissures, les creux, et les crêtes de glace soulevée.
+ - Sous la neige épaisse (section 7, point 6).
+ - L'eau sous la neige : des taches sombres et affaissées, une trace qui fonce et se remplit d'eau
+ derrière soi (ch. 89).
+ - La glace de marée du fleuve : aucune épaisseur publiée ne s'y applique, on ne la traverse pas.
+ - Au printemps, la glace qui se défait en colonnes debout et casse presque sans effort : aucune épaisseur
+ ne vaut pour elle, on n'y va pas.
+43. **En auto sur la glace :**
+ - avant d'y monter, baisser une fenêtre et déverrouiller les portières, pour sortir vite si la glace cède
+ (étape 1) ;
+ - ne pas porter de veste de flottaison dans l'auto : elle empêche de passer par la fenêtre ; la garder sur
+ le siège, à portée de main ;
+ - à l'arrêt, laisser au moins 15 m entre deux autos, et déplacer l'auto toutes les deux heures : immobile,
+ elle fait plier la glace. Percer un trou à côté de l'auto ; si l'eau monte par le trou, la glace s'enfonce,
+ et on déplace l'auto tout de suite.
+44. **Espacer les personnes et les machines** : deux machines côte à côte pèsent ensemble sur le même bout de
+ glace.
 
-**La génératrice**
+### La génératrice
 
-26. La sortir dehors, toujours. Jamais dans un bâtiment, jamais dans un garage — attenant ou
- non —, jamais dans une remise, et jamais sous un auvent ou dans un abri d'auto en toile.
-27. Laisser **au moins 6 m (20 pi)** entre la génératrice en marche et toute habitation ou tout
- bâtiment, et la placer sous le vent des portes, des fenêtres et des prises
- d'air. À la maison, les 6 m se comptent aussi vers la maison d'à côté : la
- prise d'air du voisin ne sait pas d'où vient le gaz, et c'est chez lui que l'avertisseur
- sonnera.
-28. La brancher directement sur les appareils, par des rallonges. Jamais d'adaptateur mâle-mâle,
- jamais de raccordement par une prise murale. Une rallonge qui va de la
- génératrice à l'appareil est le seul branchement qui ne peut pas physiquement remonter dans
- la ligne ; tout ce qui passe par le panneau le peut. Le mécanisme est à la section 8.
-29. Arrêter le moteur et le laisser refroidir avant de faire le plein. Le plein se fait dehors,
- à distance de toute flamme et de toute étincelle, sur une surface d'où une coulée ne peut
- pas rejoindre un point bas fermé.
+45. **La faire tourner dehors seulement** : jamais dans un bâtiment, un garage même porte ouverte ou une
+ remise, ni sous un auvent ou dans un abri d'auto en toile (section 7, point 2).
+46. **La placer à au moins 6 m de toute maison ou de tout bâtiment**, loin des portes, des fenêtres et des
+ prises d'air, du côté où le vent emporte le gaz loin des bâtiments. À la maison, on compte aussi les 6 m
+ vers la maison du voisin : le gaz entre chez lui par ses prises d'air.
+47. **Brancher les appareils directement sur la génératrice, avec des rallonges.** Jamais d'adaptateur
+ mâle-mâle, jamais de branchement par le panneau électrique ni par une prise murale : le courant remonterait
+ dans la ligne de la rue (section 7, point 4).
+48. **Faire le plein moteur arrêté et refroidi**, dehors, le bidon posé au sol, loin de toute flamme :
+ l'essence renversée sur un moteur chaud peut prendre feu.
 
-**Immobilisé**
+---
 
-30. Rester avec le véhicule tant que le chalet ou un bâtiment n'est pas en vue. Le véhicule est
- visible, il coupe le vent, et il porte le stock.
-31. Avant de faire tourner le moteur pour chauffer : sortir, dégager la neige autour du tuyau
- d'échappement, et la redégager après chaque rafale. Un échappement obstrué par la neige
- ramène le monoxyde dans l'habitacle.
-32. Faire tourner le moteur par périodes courtes plutôt qu'en continu, entrebâiller une fenêtre
- du côté sous le vent, et garder l'avertisseur de CO allumé dans l'habitacle.
-33. S'isoler du sol et du métal : couverture, tapis, sac. La conduction par le plancher vide un
- corps plus vite que l'air.
-34. Si on tombe à travers la glace, appliquer le budget 1-10-1 : une minute pour maîtriser la
- respiration en gardant les voies respiratoires hors de l'eau, puis dix minutes de mains
- encore utiles pour se hisser du côté d'où l'on venait, à plat ventre, en s'aidant des pics.
- Les planter près du bord, pas au bout du bras comme le veut le réflexe : le poids passe alors
- sur les pics et les coudes, et le haut du corps monte sur la glace au lieu de glisser. Battre
- des jambes pour ramener le corps à l'horizontale derrière soi, puis tirer. Le pic se tient au
- poing, le clou sortant sous le petit doigt : on tire en glissant vers l'avant, on replante un
- peu plus loin. Une fois sorti, rouler sur la glace au lieu
- de se relever, puis faire du feu immédiatement
- (ch. 13) : l'hypothermie continue de descendre après la sortie de l'eau.
-
-## 6. Points de contrôle
+## 5. Points de contrôle
 
 | Moment | Ce qu'on vérifie | Cible chiffrée | Si c'est hors cible |
 | --- | --- | --- | --- |
-| Au remplissage d'un bidon | Date, part nommée, stabilisateur | Date inscrite, nom inscrit, dose du fabricant | Bidon non identifié = bidon suspect. On le verse dans le véhicule routier, pas dans la scie |
-| Chaque mois | Essence à l'intérieur du bâtiment habité | Rien hors des réservoirs des machines | Sortir au dépôt le jour même, pas la fin de semaine suivante |
-| Chaque mois | Dépôt | Aéré au ras du sol, aucune source d'allumage, aucune coulée possible vers le bâtiment | Déplacer le dépôt ou percer l'évent bas avant d'y remettre un bidon |
-| Chaque mois | Contenants | Aucune trace, aucun suintement, aucun bidon déformé | Transvider et mettre le contenant au rebut |
-| Avant chaque départ | Marge de carburant | ≥ **2 ×** le besoin de l'aller | On ne part pas |
-| Avant chaque départ | Jour restant | ≥ **3 h** avant le coucher du soleil | On reporte au lendemain |
-| Avant chaque départ | Refroidissement éolien attendu | Au-dessus de **-40** pour une sortie ordinaire | Sortie médicale seulement, tout couvert, trajet raccourci |
-| Avant chaque départ | Échappement, prise d'air, calandre | Dégagés avant le démarrage, pas après | On dégage, puis on démarre |
-| Avant chaque départ | Heure de retour au mur | Écrite, avec le déclencheur d'alerte | On n'ouvre pas la porte |
-| Sur la glace, à chaque zone | Épaisseur mesurée le jour même | ≥ **25 cm** en motoneige, ≥ **15 cm** à pied | On contourne. On ne «passe pas vite » |
-| Sur la glace | Couleur | Claire et transparente | Blanche : prudence. Grise ou foncée : demi-tour |
-| Génératrice en marche | Distance aux bâtiments | ≥ **6 m (20 pi)** | On l'éloigne avant de la redémarrer |
-| Génératrice en marche | Avertisseur de CO à l'intérieur | 0 ppm affiché | À la moindre lecture : sortir, puis chercher |
-| À chaque arrêt, plus souvent que le délai de gelure du jour (10 à 30 min au risque élevé, 5 à 10 au très élevé) | Visages, doigts, orteils | Peau souple, sensible, colorée | Zone blanche et insensible : gelure, ch. 25 |
+| Au remplissage d'un bidon | Date, part, stabilisateur, niveau | Date et part écrites ; stabilisateur s'il ne sera pas vidé dans les **3 mois** ; environ **5 %** de vide en haut | Traiter un bidon sans date comme du vieux carburant : dans l'auto, pas dans la scie |
+| Chaque mois | L'essence dans le bâtiment où on dort | Aucune, hors des réservoirs des machines | La sortir au dépôt le jour même |
+| Chaque mois | Les bidons | Aucune trace, aucun suintement, aucun bidon gonflé | Transvider dehors, jeter le contenant |
+| Avant chaque départ | Le carburant | Au moins **2 fois** ce que prend le trajet (étape 30) | On ne part pas |
+| Avant chaque départ | L'heure de demi-tour | Coucher du soleil moins **2 fois** le temps de l'aller | Partir plus tôt, ou le lendemain |
+| Avant chaque départ | Le refroidissement éolien du trajet | Au-dessus de **−40** | Partir seulement si la sortie ne peut pas attendre, le visage couvert |
+| Avant chaque départ | Le mot au mur | Destination, trajet, heures, ce qu'il faut faire | On ne part pas sans |
+| Sur la glace, au moins tous les **45 m** | L'épaisseur, mesurée le jour même | Glace claire : **15 cm** à pied, **25 cm** en motoneige ou en auto, **33 cm** en camionnette ; le double sur glace blanche | Contourner, ou revenir dans sa trace |
+| Sur la glace | La couleur | Claire, transparente ou bleu pâle | Blanche : doubler l'épaisseur. Grise : demi-tour |
+| Auto arrêtée sur la glace | Le trou percé à côté | Pas d'eau qui monte | Déplacer l'auto tout de suite |
+| Auto prise dans la neige, à chaque démarrage | Le tuyau d'échappement et la fenêtre | Tuyau dégagé jusqu'au sol ; fenêtre entrouverte du côté opposé au vent | Couper le moteur, dégager, ouvrir |
+| Auto prise dans la neige, chaque heure | Le carburant qui reste | **0,5 à 1 L** par heure, moteur **10 min** par demi-heure | Allonger les arrêts du moteur, se serrer sous les couvertures |
+| À chaque arrêt, plus souvent que le délai de gelure | Les visages et les doigts | Peau souple, colorée, sensible | Peau jaunâtre ou gris blanc : une main chaude dessus ; la gelure : ch. 25 |
+| Génératrice en marche | La distance | **6 m** au moins de tout bâtiment | L'arrêter et l'éloigner avant de la redémarrer |
+| Génératrice en marche | L'avertisseur de CO dans la maison | **0 ppm** affiché | Tout chiffre veut dire du CO : sortir, puis chercher ce qui le produit |
 
-## 7. Signes d'échec
+---
+
+## 6. Signes d'échec
 
 | Observation | Diagnostic | Action |
 | --- | --- | --- |
-| Odeur d'essence dans un local fermé | Vapeur accumulée au point bas, dans la zone où elle s'enflamme | Sortir. **N'actionner aucun interrupteur, aucune lampe, aucun démarreur.** Ouvrir de l'extérieur, ventiler, chercher la fuite au jour |
-| Flaque ou trace sombre sous un bidon | Contenant percé ou joint mort ; la vapeur voyage déjà | Transvider dehors, mettre le contenant au rebut, laver et sécher le plancher |
-| Mal de tête chez plus d'une personne au même endroit | Intoxication au CO jusqu'à preuve du contraire. Le CO est inodore | Sortir tout le monde dehors |
-| Mal de tête, nausées, vertiges dans un véhicule à l'arrêt, moteur en marche | Échappement obstrué, ou reflux dans l'habitacle | Couper le moteur, ouvrir, sortir. Ne redémarrer qu'après avoir dégagé l'échappement |
-| L'avertisseur de CO affiche un chiffre, même bas | Une source existe. Le CO ne se dissipe pas du sang à mesure : il s'accumule tant que la source tourne, donc un petit chiffre tenu longtemps fait le même travail qu'un gros chiffre tenu court | Sortir, puis chercher la source. Ne jamais «attendre de voir » |
-| Génératrice qui tourne sous un auvent ou dans un abri en toile | Volume fermé, quelle que soit la toile | Arrêt immédiat. Déplacer à ≥ 6 m, sous le vent |
-| Moteur qui tousse et meurt par grand froid, redémarre au redoux | Paraffines cristallisées dans le filtre à diesel, ou eau gelée dans la conduite d'essence | Réchauffer, remplacer le filtre, vidanger l'eau du fond de réservoir. Ne pas chauffer à la flamme nue |
-| Eau claire au fond du bidon, carburant trouble au-dessus | Séparation de phase : l'éthanol a capté l'humidité | Ne pas verser dans un moteur dont on dépend. Décanter, réserver au véhicule routier, ou éliminer |
-| Machine qui démarre mal chaque matin | Batterie affaiblie par le froid, huile épaissie | Rentrer la batterie, réduire les sorties, préparer le scénario sans machine (section 9) |
-| Glace grise ou foncée sur le trajet habituel | Eau présente sous ou dans la glace | Demi-tour. Marquer la zone et la donner au groupe (ch. 16) |
-| Craquement sec et continu sous la machine | Charge à la limite de la portance | Ne pas accélérer, ne pas s'arrêter : trajectoire droite vers la rive la plus proche, poids déplacé vers l'arrière |
-| Carburant consommé plus vite que le budget deux sorties de suite | Le budget est faux, ou les parts s'empruntent entre elles | Recompter, refaire les mesures de l'étape 2, réduire les sorties immédiatement |
+| Odeur d'essence dans un local fermé | De la vapeur accumulée au ras du sol | Ne rien allumer ni éteindre : sortir, ouvrir de l'extérieur, aérer, chercher la fuite de jour |
+| Flaque ou trace sombre sous un bidon | Bidon percé ou bouchon qui fuit | Transvider dehors ; absorber la flaque avec du sable ou de la terre, jamais de la sciure ; jeter le contenant |
+| Mal de tête, nausée ou envie de dormir dans une auto arrêtée, moteur en marche | Monoxyde de carbone : le tuyau d'échappement est bouché | Couper le moteur, ouvrir les portières, dégager le tuyau avant de redémarrer |
+| L'avertisseur de CO affiche un chiffre, même bas | Il y a du monoxyde | Sortir, puis chercher ce qui le produit |
+| Le moteur tousse et meurt par grand froid, et repart au redoux | Diesel figé dans le filtre, ou eau gelée dans la conduite d'essence | Section 8, « Le diesel qui fige » |
+| Eau claire au fond du bidon, essence trouble au-dessus | L'éthanol a capté l'humidité : la couche du fond est de l'eau et de l'alcool | Ne pas verser le fond dans un moteur ; tirer l'essence du dessus au siphon (section 8) et la brûler dans l'auto |
+| La machine démarre mal chaque matin | Batterie affaiblie par le froid | Rentrer la batterie la nuit (section 8) |
+| Glace grise ou foncée sur le trajet habituel | De l'eau dans la glace ou dessus | Demi-tour ; marquer l'endroit et le dire aux voisins (ch. 16) |
+| L'eau monte dans le trou percé à côté de l'auto | La glace s'enfonce sous l'auto | Déplacer l'auto tout de suite |
+| Carburant brûlé plus vite que prévu deux sorties de suite | La mesure est fausse, ou on puise dans une autre part | Refaire les mesures de l'étape 20, réduire les sorties |
 
-## 8. Danger
+---
 
-> ### ⚠ DANGER — Ces cinq mécanismes tuent vite, et quatre ne se sentent pas
+## 7. DANGER
+
+> ### ⚠ DANGER
 >
-> **1. Le monoxyde de carbone se mélange à l'air : il n'y a pas de coin sûr.** Sa densité de
-> vapeur est de **0,96** contre 1 pour l'air. Il ne monte pas au plafond, il ne descend
-> pas au plancher, il occupe tout le volume uniformément. Se coucher par terre, ouvrir une
-> fenêtre du haut, entrebâiller une porte : rien de tout ça ne crée une zone respirable. Il est
-> **inodore**, et son absence d'odeur le rend impossible à identifier par
-> l'odorat avant ou après les valeurs d'exposition. L'échelle : **35 ppm** est déjà une
-> exposition qui compte, **1 200 ppm** est le danger immédiat pour la vie et la santé.
-> À **1 600 ppm** : vertiges en 20 minutes, coma et mort en 2 heures. À **20 000 ppm** :
-> **mort en 4 minutes**. Un moteur dans un volume fermé atteint ces valeurs-là, pas les
-> premières.
+> **1. Le monoxyde de carbone dans l'auto, le garage et l'abri.** Le monoxyde de carbone n'a ni odeur ni
+> couleur, et on s'endort au lieu de sortir. Sa densité est presque celle de l'air (0,96) : il se mêle à
+> tout l'air de l'auto ou de la pièce, et il y en a autant au ras du sol qu'au plafond. À 1 600 ppm, il donne
+> des vertiges en 20 minutes et tue en 2 heures ; à 20 000 ppm, il tue en 4 minutes. Les premiers signes (mal
+> de tête, fatigue, nausée, vomissements, étourdissements) ressemblent à la fatigue de la route ; chez un
+> enfant, on les prend pour de la fatigue ou de la mauvaise humeur. Une personne qui s'endort dans une auto
+> arrêtée, moteur en marche, est en danger de mort : couper le moteur et sortir tout le monde. Le moteur d'une
+> auto tue dans un garage même porte ouverte, garage de toile compris, et le démarreur à distance fait la même
+> chose sans personne pour le voir. Dans l'auto prise dans la neige, le gaz entre par le tuyau d'échappement
+> bouché (étape 11). On n'allume jamais un réchaud, un fanal ou une chaufferette faits pour l'extérieur dans
+> une auto, une tente fermée ou une cabane.
 >
-> **2. La génératrice ne rentre jamais.** Jamais dans un bâtiment, jamais dans un garage
-> attenant ou séparé, jamais dans une remise, **jamais sous un auvent ni dans un abri d'auto en
-> toile**. Laisser **au
-> moins 6 mètres (20 pieds)** entre elle et toute habitation ou tout bâtiment, et
-> la placer sous le vent des portes, des fenêtres et des prises d'air. La même interdiction
-> couvre la souffleuse, la tondeuse, la scie et **tout appareil à combustion utilisé dans un
-> véhicule**. Un moteur d'automobile en marche dans un garage est dangereux
-> «même si la porte du garage est ouverte », et le **démarreur à distance** déclenché sur une
-> auto stationnée dans un garage produit exactement la même chose, sans témoin.
+> **2. La génératrice dans un bâtiment.** On ne fait jamais tourner une génératrice dans un bâtiment, un
+> garage même porte ouverte, une remise, ni sous un auvent ou dans un abri d'auto en toile : son moteur fait le
+> même gaz que celui d'une auto, et un abri de toile est un volume fermé où le gaz s'accumule. On la fait
+> tourner dehors, à au moins 6 m de toute maison (étape 46).
 >
-> **3. Un échappement bouché par la neige remplit l'habitacle.** C'est le scénario du véhicule
-> embourbé, moteur laissé tourner pour chauffer, neige qui monte contre l'arrière.
-> **Avant chaque redémarrage, sortir et dégager le tuyau.** Les premiers symptômes —
-> maux de tête, fatigue,
-> nausées, vomissements, étourdissements — ressemblent à de la fatigue de route, et ils touchent
-> les enfants plus vite parce qu'ils ont un plus petit corps et une respiration plus rapide. Un
-> occupant somnolent dans un véhicule à l'arrêt moteur tournant est une urgence, pas quelqu'un
-> qui dort : sa vie est en jeu. Sortir tout le monde.
+> **3. La vapeur d'essence.** L'essence dégage assez de vapeur pour prendre feu jusqu'à −43 °C : le froid de
+> l'hiver ne la rend pas moins dangereuse. La vapeur coule au ras du sol, s'accumule au point bas, et peut
+> aller loin jusqu'à une étincelle (un interrupteur, un démarreur, une lampe) ; la flamme revient alors le
+> long de la vapeur jusqu'au bidon. Dans un local qui sent l'essence, on n'allume ni n'éteint rien : on sort,
+> on ouvre de l'extérieur et on aère. Sur une flaque d'essence en feu, pas d'eau au seau ni au boyau :
+> l'essence flotte sur l'eau et s'étend en brûlant ; on l'étouffe à l'extincteur à poudre, ou sous la terre
+> ou le sable. Un bidon fermé qu'on chauffe peut éclater.
 >
-> **4. La vapeur d'essence coule au sol, voyage, et ramène la flamme.** La vapeur
-> «peut s'accumuler en quantités dangereuses près du sol, surtout dans des espaces clos », et
-> les liquides «peuvent se déplacer vers des endroits distants et/ou propager des flammes ».
-> L'essence «peut s'enflammer à la température ambiante » : le froid ne la rend pas inoffensive.
-> Une nappe de vapeur invisible qui s'est étendue sous un établi s'allume à l'étincelle d'un
-> interrupteur, d'un démarreur ou d'une lampe de poche à l'autre bout du local, et le front de
-> flamme revient jusqu'au bidon. **Dans un local qui sent l'essence, on n'actionne rien : on
-> sort, on ouvre de l'extérieur, on ventile.** Et on n'éteint pas une flaque d'essence à l'eau :
-> l'eau passe dessous, le liquide flotte et s'étale en brûlant. C'est le sable, la terre sèche ou
-> la poudre qui l'étouffent.
+> **4. La génératrice branchée au panneau électrique.** Branchée par le panneau, par une prise murale ou par
+> un adaptateur mâle-mâle, la génératrice renvoie son courant dans la ligne de la rue, où le transformateur
+> du poteau le monte à la tension du réseau. Les monteurs qui réparent la ligne la croient sans courant et
+> peuvent être électrocutés. On relie la génératrice à ses appareils par des rallonges seulement (étape 47).
 >
-> **5. Une génératrice branchée par le panneau peut tuer quelqu'un d'autre.** Un transformateur
-> de ligne fonctionne dans les deux sens : le courant qui remonte de la génératrice dans le
-> panneau ressort du poteau à la tension de la ligne, sur des fils qu'un voisin ou un secouriste
-> croit morts : pour les équipes d'intervention, ce sont des «risques d'électrocution graves,
-> voire mortels ». Jamais d'adaptateur mâle-mâle, jamais de branchement par une prise
-> murale : la génératrice se relie à ses appareils par des rallonges, qui sont le seul chemin
-> incapable de remonter la ligne. C'est le seul danger de ce chapitre dont la victime n'est pas
-> dans la famille.
+> **5. L'essence à la bouche.** Avalée de travers ou vomie, l'essence entre dans les poumons, les abîme
+> gravement, et peut tuer. On n'amorce jamais un siphon à la bouche (section 8).
 >
-> **Et la glace, qui ne pardonne pas l'approximation.** Minimums publiés : de 10 à 15 cm pour
-> marcher, de 12 à 25 cm pour une motoneige — le livre retient le plus prudent, **15 cm** à
-> pied et **25 cm** en motoneige. **La neige ne fait pas épaissir la glace : elle isole et
-> ralentit la congélation.** Après une bordée, la glace est plus mince là où la neige est la plus
-> profonde, exactement là où elle a l'air la plus solide. Si elle cède, le budget est celui du
-> 1-10-1 : **1 minute** de choc thermique, **10 minutes** de mains encore utilisables,
-> **1 heure** avant l'inconscience par hypothermie sous **35 °C** de température corporelle.
-> L'auto-sauvetage se joue dans les dix premières minutes, avec ce qu'on porte sur soi.
+> **6. La glace qui a l'air solide.** La neige ralentit le gel de la glace qu'elle couvre, et son poids réduit
+> ce que la glace peut porter : après une bordée, la glace est souvent plus mince là où la neige est la plus
+> épaisse, et rien ne le montre en surface. Sur un même lac, l'épaisseur change d'un endroit à l'autre : on
+> mesure le jour même avant de passer (étapes 40 à 42). Si la glace cède : étapes 1 à 10.
 
-## 9. Variante d'urgence
+---
 
-Plus de livraison, plus de pièce en commande, plus de pompe qui fonctionne au village. Il reste ce
-qui est déjà sur le terrain, et l'ordre dans lequel on s'en sert : d'abord tirer le carburant de
-là où il dort, puis étirer ce qui reste, puis faire partir la machine avec ce qu'on a, puis la
-réparer sur le chemin — et seulement quand tout ça est épuisé, marcher.
+## 8. Variante d'urgence
 
-**Tirer le carburant de là où il est.** Il y a presque toujours plus d'essence sur un terrain que
-dans le baril : le réservoir du véhicule routier, celui du tracteur à gazon, de la souffleuse, du
-hors-bord, du VTT, la réserve de la scie, le réservoir d'huile à chauffage du sous-sol — l'huile
-à fournaise fait tourner un moteur diesel, elle n'a rien de plus que du diesel sans additif. Tout
-ça se vide, à condition de savoir amorcer sans la bouche. **Jamais à la bouche** : l'essence
-avalée de travers ne brûle pas l'estomac, elle glisse dans les poumons, et la pneumonie chimique
-qui suit ne se soigne pas au chalet (ch. 26). Trois amorçages, du plus simple au plus obstiné.
+### Tirer le carburant de là où il est
 
-1. **Par gravité, boyau rempli d'avance.** Le bidon doit être franchement plus bas que le
- réservoir, pas à côté. Descendre le boyau jusqu'au fond, puis le remplir par le haut à
- l'entonnoir avec un peu de carburant jusqu'à ce qu'il n'y ait plus d'air dedans, pincer le
- bout, le descendre dans le bidon, lâcher. La colonne qui descend tire le reste.
-2. **Par pression, à deux boyaux.** Un long qui descend au fond et sort vers le bidon, un court
- qui reste dans le ciel du réservoir. On bourre le goulot d'un chiffon autour des deux, et on
- souffle dans le court avec une pompe à vélo ou une pompe de matelas, **à la main et
- lentement** : un réservoir n'est pas un contenant sous pression et une couture qui lâche
- arrose tout.
-3. **Avec un clapet de fortune.** Une bille ou un roulement laissé libre dans le bout du boyau,
- retenu par un clou traversé en croix : il se soulève quand le liquide monte et retombe quand
- il voudrait redescendre. On plonge et on secoue de haut en bas ; la colonne monte par
- à-coups et ne redescend plus. C'est lent et c'est ce qui marche quand rien d'autre ne marche.
+Il reste presque toujours de l'essence ailleurs que dans le baril : dans les réservoirs de l'auto, du tracteur
+à gazon, de la souffleuse, du moteur hors-bord, du VTT et de la scie. Le mazout du réservoir de la maison est
+un proche parent du diesel : un moteur diesel peut le brûler en dépannage ; un moteur à essence, non.
 
-Sur un véhicule récent, le goulot porte une grille ou un clapet qui refuse le boyau. On ne perce
-jamais le réservoir pour contourner ça : le ciel d'un réservoir à moitié vide contient exactement
-le mélange d'air et de vapeur qui prend le mieux, et une meule ou une mèche l'allume. Le chemin
-est à l'avant : on débranche la conduite d'alimentation au filtre, on met le contact sans
-démarrer, et la pompe du réservoir pousse le carburant elle-même dans le bidon. Dans tous les
-cas, le contenant est posé au sol et son bec touche le métal de la machine avant que ça coule :
-entre deux métaux en contact, il n'y a pas de charge à égaliser, donc pas d'étincelle au moment
-où la vapeur sort du goulot.
+**Amorcer sans la bouche** (planche 15-02). Trois façons, de la plus simple à la plus lente.
 
-**Étirer ce qui reste.** Un litre n'a pas la même valeur selon la machine où il va. Dans la
-motoneige, il devient quelques kilomètres ; dans la scie, il devient des cordes, donc des degrés
-tout l'hiver (ch. 83). Quand la réserve descend, l'arbitrage est toujours le même et il est
-contre-intuitif : **les derniers litres vont à la scie, et le dernier plein de la machine est
-réservé au déplacement qu'on n'a pas encore choisi** — celui de la part *intouchable*.
+**Par gravité, le boyau rempli d'avance.**
 
-Le mélange deux temps se fait avec l'huile prescrite, et le rapport est celui du bouchon ou du
-manuel de l'appareil : ce livre n'en publie aucun (ch. 106). Quand il n'y a plus d'huile deux
-temps, de l'huile à moteur propre vaut mieux que de l'essence pure, qui grippe un deux temps en
-quelques minutes. Elle lubrifie moins bien à haut régime, elle encrasse la bougie et elle charbonne
-la lumière d'échappement : c'est une corvée de plus, pas une saison. À l'inverse, du mélange deux temps versé dans un moteur
-quatre temps fume et encrasse mais ramène à la maison.
+- Poser le bidon au sol, nettement plus bas que le fond du réservoir (repère 1).
+- Remplir le boyau d'essence à l'entonnoir, avec un peu d'essence d'un autre bidon, jusqu'à ce qu'il n'y
+ reste plus d'air, et pincer les deux bouts (repère 2).
+- Plonger un bout au fond du réservoir, descendre l'autre dans le bidon, et lâcher les deux bouts :
+ l'essence qui descend dans le boyau tire celle du réservoir (repère 3).
 
-Le diesel qui fige ne tombe pas en panne d'allumage : ses paraffines cristallisent et colmatent
-le filtre, le moteur s'étouffe et meurt d'un manque d'alimentation. Sur le chemin, on réchauffe le
-filtre avec un chiffon trempé d'eau chaude, **jamais à la flamme** — c'est le seul endroit du
-moteur où il y a du carburant sous le tissu. Couper le diesel avec du diesel no 1 abaisse le
-point où il se trouble d'un peu moins de 2 °C par tranche de 10 % : moitié-moitié, on gagne
-moins de dix degrés, et aux grands froids, sous -34 °C, seul le no 1 pur tient. Le mélange se
-fait avant le froid, pas après : des cristaux déjà formés restent dans le carburant qu'on coupe
-et bouchent le filtre quand même. Ce qui se dit franchement : couper au diesel avec de l'essence est une mauvaise
-idée répandue, parce que c'est le diesel lui-même qui lubrifie la pompe d'injection et que
-l'essence l'en prive.
+**À deux boyaux, en poussant de l'air.**
 
-**Faire partir un moteur gelé.** Le froid ferme les deux bouts en même temps : la batterie donne
-moins pendant que l'huile épaissie demande plus. Tout ce qui suit consiste à rouvrir un des deux
-bouts.
+- Descendre un boyau long jusqu'au fond du réservoir, et sortir son autre bout vers le bidon posé plus bas
+ (repère 4).
+- Glisser un boyau court qui reste dans l'air du réservoir, au-dessus de l'essence (repère 5).
+- Bourrer le goulot d'un chiffon autour des deux boyaux (repère 6).
+- Pomper dans le boyau court avec une pompe à vélo ou à matelas, à la main et lentement (repère 7) : l'air
+ pousse l'essence dans le boyau long. Un réservoir n'est pas fait pour tenir de la pression : s'il ouvre à
+ une couture, l'essence gicle par la fente.
 
-- **Rentrer la batterie, pas la charger.** Une batterie passée la nuit près du poêle — à côté,
- pas dessus — retrouve une bonne part de ce que le froid lui avait pris, et ça ne coûte rien
- qu'un aller-retour. Elle se remonte juste avant de tirer.
-- **Réchauffer l'huile.** Vidanger l'huile pendant qu'elle est chaude, dans une chaudière propre
- gardée à l'intérieur, et la reverser tiède avant de démarrer : c'est le vieux tour du Nord et
- c'est celui qui fonctionne le mieux. À défaut, un bidon d'eau chaude couché sur le carter le
- fait plus lentement. Un lit de braises dans une tôle sous le carter marche aussi et met en jeu
- un réservoir de plastique et des conduites à un mètre de là : si on le fait, c'est loin du
- réservoir, surveillé, et jamais sous une machine qui fuit.
-- **Partir sur une corde.** Un lanceur cassé n'immobilise pas un petit moteur : on enlève le
- capot du lanceur, on enroule une corde sur la poulie ou le volant dans le sens de rotation, et
- on tire d'un coup franc. La corde ne se noue jamais à la main ni au poignet.
-- **Partir en roulant.** Une transmission manuelle se pousse et s'embraye en deuxième ; une
- motoneige se laisse descendre une pente, embrayage engagé. Ça ne marche sur rien d'automatique,
- et ça ne sert à rien si c'est l'étincelle qui manque plutôt que le courant.
-- **L'éther, avec des pinces.** Sur un diesel à bougies de préchauffage, un jet d'éther peut
- s'allumer avant que le piston soit en haut et plier une bielle. Le moteur se casse alors
- définitivement pour avoir voulu démarrer une fois.
-- **Deux batteries en série, c'est de la soudure, pas du démarrage** (ch. 107). Le 24 V fait
- tourner un démarreur de 12 V fort et court, et ce qui brûle en premier est le solénoïde et le
- câblage de la machine dont on dépend pour rentrer.
+**Avec un clapet de fortune**, quand rien d'autre ne marche.
 
-**Réparer sur le chemin.** Ce qui casse à vingt kilomètres se répare avec ce qui est dans les
-poches, ou ne se répare pas.
+- Enfoncer dans le bout du boyau un bout de tube plus étroit que la bille : c'est le siège (repère 8).
+- Mettre au-dessus du siège une bille, ou une bille de roulement, plus grosse que lui (repère 9).
+- Traverser le boyau d'un clou, en croix, un peu au-dessus de la bille, pour qu'elle ne monte pas plus haut
+ (repère 10). Monté dans l'autre sens, siège en haut, le clapet ne retient rien.
+- Plonger le bout du boyau au fond du réservoir et le secouer de haut en bas (repère 11). Quand on plonge, la
+ bille se soulève et l'essence entre ; quand on remonte, elle retombe sur son siège et garde l'essence dans
+ le boyau. L'essence monte par à-coups ; dès qu'elle passe le bord du réservoir et redescend vers le bidon
+ posé plus bas, elle coule seule (repère 12).
 
-- **Câble d'accélérateur cassé.** Un câble de frein de vélo, un brin de fil à collet, une corde à
- piano font l'affaire le temps de rentrer. Si rien ne convient : on monte la vis de ralenti
- jusqu'à ce que la machine avance seule à petite vitesse et on conduit sur l'interrupteur
- d'arrêt. C'est laid, ça ramène.
-- **Conduite d'alimentation percée.** Un bout de boyau prélevé ailleurs sur la machine, un manchon
- de boyau enfilé par-dessus les deux bouts et ligaturé au fil. Un tube de vinyle transparent
- gonfle et se ramollit dans l'essence : il tient une sortie, pas un mois.
-- **Joint mort.** Le cuir gras taillé au couteau fait un joint sur une bride froide, et le carton
- d'une boîte huilé fait le même travail sur un couvercle. Une chambre à air ne fait **pas** de
- joint côté carburant : le caoutchouc gonfle dans l'essence et se délite.
-- **Trou d'épingle dans un réservoir.** Du savon dur frotté à sec dans le trou colmate le temps de
- rentrer, une vis à tôle avec une rondelle de cuir aussi. Ni l'un ni l'autre ne tient sur une
- pièce chaude ou sous pression, et les deux se refont au retour.
-- **Ski ou patin cassé.** Une éclisse de plat d'acier — un montant de sommier fait très bien —
- boulonnée de part en part. À défaut, une perche verte ligaturée sous le ski le porte jusqu'à la
- rive.
-- **Bougie encrassée.** Elle se gratte à la pointe du couteau, jamais à l'abrasif, et se remonte.
- Si l'électrode a bougé, l'écartement se remet à celui de la machine — beaucoup de petits
- moteurs demandent 0,76 mm — en pliant doucement l'électrode courbe : la cale accroche
- légèrement quand c'est bon. Porcelaine fendue ou électrode rongée : la bougie ne se sauve pas.
- Le test d'étincelle et l'ordre de
- diagnostic — compression, étincelle, carburant, air — sont au chapitre 106.
+**Le bidon contre la machine.** Poser le bidon au sol et appuyer son bec contre le métal nu de la machine
+avant que l'essence coule (repère 13), pour la même raison qu'à l'étape 24 : pas d'étincelle au goulot.
+Sur beaucoup d'autos récentes, le boyau bute contre un clapet au fond du goulot : on tire alors l'essence des
+petits moteurs et des bidons.
+On ne perce et on ne meule jamais un réservoir pour le vider, même presque vide : la vapeur qui reste dedans
+prend feu à l'étincelle de la mèche ou de la meule.
 
-**Quand il n'y a plus de moteur du tout.** Le déplacement redevient musculaire — raquettes et
-toboggan sur la neige (ch. 89), canot sur l'eau libre (ch. 90) —, et tout le reste du chapitre
-se réécrit autour de cette contrainte.
+### Étirer ce qui reste
 
-Les raquettes remplacent la motoneige. Une paire par personne, ajustées d'avance, essayées
-d'avance : une raquette qui blesse au premier kilomètre est pire que pas de raquette. Le
-toboggan ou le traîneau remplace le porte-bagages, et il change tout : on traîne une charge au
-lieu de la porter, donc on garde le dos et l'équilibre, et on peut sortir un blessé — lentement.
-À défaut, une bâche solide, deux perches et de la corde font un traîneau de fortune (ch. 110), et
-un cadre de raquette se refait en bouleau à papier (*Betula papyrifera*) cintré à la vapeur, avec
-du babiche à la place du laçage synthétique (ch. 89 ; la babiche, ch. 103).
+Quand la réserve baisse, les derniers litres vont à la scie à chaîne : dans la scie, un litre devient du bois
+de chauffage (ch. 83) ; dans la motoneige, il devient quelques kilomètres. Le dernier plein de la motoneige
+reste dans la part *intouchable*, pour un départ imprévu (étape 21).
 
-Le trajet se choisit autrement. On suit les lignes de moindre neige : crêtes soufflées, sentiers
-de coupe, pistes d'orignal (*Alces americanus*) déjà tassées, bordure de lac plutôt que sa
-traverse. On part au premier jour et on accepte de rentrer sans avoir fini. On marche en file,
-le plus fort devant qui casse la trace et qu'on relaie, parce que le premier travaille deux fois
-plus que les autres.
+On fait le mélange deux temps au rapport inscrit sur le bouchon du réservoir ou dans le manuel de la machine
+(ch. 106). Sans huile deux temps, de l'huile à moteur propre, au même rapport, vaut mieux que de l'essence
+pure : sans huile, le piston d'un moteur deux temps grippe. Elle encrasse la bougie et l'échappement plus
+vite, et on les nettoie plus souvent.
 
-La chaleur se transporte au lieu de se produire : couche isolante sèche dans le sac, thermos
-rempli avant le départ, feu allumé aux arrêts plutôt qu'à l'arrivée. L'épinette noire
-(*Picea mariana*) donne des branches basses sèches qui prennent même mouillées à l'extérieur
-(ch. 13), et un lit de branches sous les pieds coupe la conduction vers le sol pendant l'arrêt.
-L'allumage se porte sur soi, jamais dans le traîneau.
+### Le diesel qui fige
 
-C'est là que la fatigue fait faire la seule erreur qui tue à cette étape-ci : allumer un réchaud,
-un fanal ou un poêle d'appoint dans un abri fermé contre le vent — une tente rabattue, une cabine
-de machine, un véhicule enseveli, une bâche tendue jusqu'au sol. Le monoxyde ne monte pas et ne
-descend pas, il se mélange à tout le volume, il n'a pas d'odeur, et ce qu'on ressent
-avant de perdre connaissance ressemble exactement à la fatigue d'une journée de raquette. Une
-flamme qui chauffe un abri chauffe dehors, sous un toit ouvert d'un côté, ou elle ne chauffe pas.
+Le diesel ordinaire se trouble vers −10 °C : des cristaux de paraffine s'y forment[^1] et bouchent le filtre
+quelques degrés plus bas. Le moteur manque de carburant, tousse et s'arrête.
 
-Côté électricité, on abandonne. Pas de génératrice, donc pas de charge, donc la radio et le
-téléphone se rationnent au lieu de se recharger : allumage aux heures convenues avec le
-voisinage (ch. 14 et 16), jamais en veille. L'éclairage bascule sur le chapitre 85.
+- Sur le chemin, réchauffer le filtre avec un linge trempé dans l'eau chaude, jamais à la flamme : le filtre
+ est plein de carburant.
+- Avant les grands froids, couper le diesel ordinaire avec du diesel no 1 : chaque tranche de 10 % de no 1
+ abaisse d'environ 1,7 °C la température où il se trouble. Moitié-moitié, on gagne environ 8 °C ; sous
+ −34 °C, il faut du no 1 pur.
+- Faire le mélange avant le froid : les cristaux formés avant le mélange restent dans le carburant qu'on
+ coupe et bouchent le filtre quand même.
 
-À la maison, la même panne de carburant se voit moins et se paie plus tard. L'auto reste dans
-l'entrée, le village est à distance de marche, les voisins sont là : tant que la maison chauffe,
-rien ne presse, et c'est exactement ce qui fait vider le dernier plein en commissions. Le jour où
-elle cesse de chauffer, le chalet est à la distance qu'il a toujours eue, sauf qu'il faut la
-faire chargé, à pied, avec un enfant de quatre ans qui ne marche pas cette distance-là. Le
-transfert se décide donc sur le carburant qui reste, pas sur le dernier degré dans la maison :
-partir avec un demi-réservoir est un choix, partir à vide n'en est plus un. Le chapitre 2 donne
-le moment où l'on bascule ; celui-ci donne ce qu'il faut qu'il reste dans le bidon quand ce
-moment arrive.
+[^1]: Dans un pot de verre clair, le diesel tiré du réservoir ou du bol du filtre montre de petits cristaux
+    solides, qui tombent au fond si on le laisse reposer ; plus froid, il prend en gelée et ne coule plus.
+    Réchauffé, il redevient liquide, lentement si on le monte à peine au-dessus de la température où les
+    cristaux sont apparus.
 
-**Ce qu'on perd, honnêtement.** Le rayon d'action passe de plusieurs dizaines de kilomètres par
-jour à quelques kilomètres, aller-retour compris, et il fond encore avec la neige profonde et
-avec les enfants. L'évacuation d'un blessé couché devient une affaire de plusieurs adultes sur
-plusieurs heures, pas une décision qu'on prend à midi. Le ravitaillement lourd — bidons, moulée,
-sacs de farine — disparaît purement et simplement : ce qui n'est pas déjà au chalet n'y viendra
-plus cet hiver. Le bois se coupe au sciotte et à la hache, ce qui change le calendrier du
-chapitre 83 bien plus que la corvée elle-même. Et le délai entre la décision de partir et
-l'arrivée s'allonge d'un facteur tel que les urgences médicales du chapitre 26 changent de
-catégorie : certaines cessent d'être transportables. C'est exactement pour cette raison que la
-part *intouchable* de l'étape 3 existe, et qu'elle ne s'ouvre pas pour aller chercher du lait.
+### Faire partir un moteur gelé
 
-**Ce qui ne se remplace vraiment pas.** Quatre choses, et il vaut mieux le savoir avant d'y
-compter.
+- **Rentrer la batterie la nuit.** À −18 °C, une batterie au plomb ne donne que la moitié de sa capacité.
+ La garder près du poêle, pas dessus, et la remonter juste avant de démarrer. Une batterie pleine gèle vers
+ −69 °C ; à moitié vide, elle gèle entre −15 et −27 °C, et une batterie gelée est souvent perdue. On ne
+ charge jamais une batterie gelée.
+- **Réchauffer l'huile.** Le soir, vidanger l'huile du moteur pendant qu'elle est chaude, dans une chaudière
+ propre gardée à l'intérieur, et la reverser tiède le matin, avant de démarrer. Autre façon : coucher un
+ bidon d'eau chaude contre le bas du moteur, plus lent.
+- **Partir à la corde.** Un lanceur cassé n'immobilise pas un petit moteur : enlever le capot du lanceur,
+ enrouler une corde sur la poulie dans le sens où le moteur tourne, et tirer d'un coup sec. Ne jamais nouer
+ la corde à la main ni au poignet : le moteur peut donner un coup en sens inverse et arracher la corde.
+- **Partir en poussant.** Une auto à transmission manuelle démarre si on la pousse, en deuxième, l'embrayage
+ relâché d'un coup. Une transmission automatique ne démarre pas de cette façon, ni une motoneige.
+- **Pas d'éther sur un diesel à bougies de préchauffage** : l'éther s'allume sur la bougie chaude avant le
+ bon moment et peut briser le moteur.
+- **Deux batteries en série**, c'est pour souder (ch. 107) : sur une machine de 12 V, le 24 V brûle le
+ démarreur et le câblage de la machine dont on dépend pour rentrer.
 
-L'avertisseur de CO. Aucun sens ne le remplace, aucun montage ne le remplace, et ce qu'il détecte
-est précisément ce qu'on ne peut pas détecter. Ce qui tient sa place, faute de lui, c'est une
-règle de conduite sans exception : rien qui brûle dans un volume fermé, jamais, pas même une
-minute, pas même «le temps de ».
+### Réparer sur le chemin
 
-La courroie d'entraînement d'une motoneige, la chenille, un piston grippé. Il n'y a pas de version
-de fortune d'une courroie : elle se transporte en double sous le capot ou la sortie se finit à
-pied. C'est le poste où l'avance d'une pièce achetée vaut plus que n'importe quelle astuce
-(ch. 108).
+- **Câble d'accélérateur cassé.** Le remplacer par un câble de frein de vélo, un brin de fil à collet ou une
+ corde à piano. Sans câble : visser la vis de ralenti du carburateur jusqu'à ce que la machine avance seule,
+ lentement, et conduire en coupant et en remettant le contact.
+- **Conduite d'essence percée.** Enfiler un bout de boyau pris ailleurs sur la machine par-dessus les deux
+ bouts, et le serrer au fil de fer. Le tube de vinyle transparent ramollit dans l'essence : il sert le temps
+ de rentrer.
+- **Joint usé.** Tailler un joint dans du cuir gras pour une bride froide, ou dans du carton huilé pour un
+ couvercle. Pas de chambre à air du côté de l'essence : le caoutchouc gonfle dans l'essence et se défait.
+- **Trou d'épingle dans un réservoir.** Frotter du savon dur dans le trou, ou visser une vis à tôle avec une
+ rondelle de cuir. Ni l'un ni l'autre ne tient sur une pièce chaude ni sous pression : on répare au retour.
+- **Ski ou patin cassé.** Boulonner une éclisse de plat d'acier de part et d'autre de la cassure ; un montant
+ de sommier fait l'affaire. Sans acier, ligaturer une perche de bois vert sous le ski pour rejoindre la rive.
+- **Bougie encrassée.** La gratter à la pointe du couteau, jamais à l'abrasif, et la remettre. Si l'électrode
+ a bougé, remettre l'écartement de la machine (beaucoup de petits moteurs demandent 0,76 mm) en pliant
+ doucement l'électrode courbe : la cale accroche légèrement quand c'est bon. Porcelaine fendue ou électrode
+ rongée : la bougie est perdue. Le test d'étincelle et l'ordre dans lequel chercher la panne sont au
+ ch. 106.
 
-Le carburant lui-même. On ne le fabrique pas au chalet. Le gaz de bois est réel — des voitures ont
-roulé au gazogène pendant la guerre — mais c'est une construction en tôle avec un foyer, un
-refroidisseur et un filtre, et c'est le goudron qui décide de tout : un filtre mal fait encrasse le
-moteur en quelques heures. Un moteur ainsi alimenté perd une grande partie de sa puissance. Ça se
-bâtit l'été d'avant, avec le métal et l'outillage des chapitres 107 et 111, pas le matin où le baril
-est vide. L'alcool distillé assez fort pour brûler dans un moteur demande la même chose : une
-installation et un réglage de carburateur, pas un dépannage.
+### Faire des pics à glace
 
-Et le temps. Une sortie à pied ne se raccourcit pas par la volonté. C'est la seule variable du
-chapitre qui ne se substitue d'aucune façon, et c'est celle sur laquelle se décide le départ.
+Il faut deux bouts de manche à balai, deux gros clous et un cordon (planche 15-01, repères 10 à 14).
+
+- Couper deux bouts de manche à balai de 10 cm (4 po) (repère 10). Le bois flotte : un pic qu'on échappe ne
+ coule pas.
+- Percer un bout de chaque manche dans l'axe, le plus profond possible, et y enfoncer un gros clou (repère
+ 11) : la tête coupée à la scie à métaux, côté coupé au fond du trou, et la pointe du clou dehors ; ou le
+ clou planté pointe première et sa tête limée en pointe. Un tournevis coupé fait aussi un pic, à condition
+ que la pointe ne dépasse que de 2,5 à 3,8 cm : plus longue, elle mord moins et peut blesser la personne qui
+ la porte.
+- Percer à côté du clou un second trou, moins profond, qui reçoit la pointe de l'autre pic (repère 12) :
+ emboîtés, les deux pics se couvrent la pointe. Plier un peu les clous jusqu'à ce que les deux pics se
+ séparent d'un coup sec.
+- Percer l'autre bout de chaque manche en travers et y nouer un cordon solide, un pic à chaque bout (repère
+ 13).
+- Passer le cordon par-dessus la tête et sous un bras, assez court pour que la paire reste au milieu de la
+ poitrine, par-dessus le manteau (repère 14). Dans une poche ou sous le manteau, les mains engourdies ne les
+ trouvent pas.
+
+### Quand il n'y a plus de moteur
+
+On se déplace à la force des bras et des jambes : en raquettes et au toboggan sur la neige (ch. 89), en canot
+sur l'eau libre (ch. 90). On choisit le trajet où la neige est la moins profonde : les crêtes balayées par le
+vent, les chemins de coupe, les pistes d'orignal tassées, la rive d'un lac plutôt que sa traversée. Le plus
+fort marche devant pour casser la trace, et on le relaie souvent. On transporte la chaleur au lieu de la
+produire : des vêtements secs dans le sac, un thermos rempli au départ, un feu à chaque arrêt (ch. 13). Sans
+génératrice pour les recharger, on allume la radio et le téléphone seulement aux heures convenues avec les
+voisins (ch. 14 et ch. 16) ; l'éclairage passe au ch. 85.
+
+À la maison, la panne de carburant se voit moins. L'auto reste dans l'entrée, les voisins sont là, et tant que
+la maison chauffe, on vide le dernier plein en commissions. Le jour où elle ne chauffe plus, le chalet est à la
+même distance qu'avant, mais il faut y aller chargé, avec de jeunes enfants. On décide donc le transfert sur le
+carburant qui reste, pas sur la température de la maison : la part *déplacement* (étape 21) doit être pleine le
+jour où on part (ch. 2).
+
+**Ce qu'on perd.** À pied, on ne fait plus que quelques kilomètres par jour, aller-retour compris, et moins
+dans la neige profonde ou avec des enfants. Sortir un blessé couché demande plusieurs adultes pendant des
+heures (ch. 16). Les charges lourdes (bidons, sacs de farine) ne viennent plus : ce qui n'est pas au chalet n'y
+viendra pas de l'hiver. On coupe le bois au sciotte et à la hache, et le calendrier de coupe change (ch. 83).
+Et certains malades ne peuvent plus être menés à temps là où on les soignerait (ch. 35) : la part
+*intouchable* existe pour eux, et on ne l'ouvre pas pour aller chercher du lait.
+
+### Ce qu'on ne peut pas remplacer
+
+**L'avertisseur de CO.** Aucun sens et aucun montage ne détectent ce gaz. Sans avertisseur, la seule
+protection est de ne jamais faire brûler quoi que ce soit dans un volume fermé sans cheminée, pas même une
+minute.
+
+**La courroie de la motoneige, la chenille, un piston grippé.** Il n'existe pas de courroie de fortune : on en
+transporte une de rechange sous le capot, ou on finit la sortie à pied (ch. 108).
+
+**Le carburant.** On ne le fabrique pas au chalet. Le gazogène, qui fait marcher un moteur au gaz de bois, a
+fait rouler des autos pendant la guerre, mais c'est une construction de tôle avec un foyer, un refroidisseur et un
+filtre : un filtre mal fait encrasse le moteur, et le moteur perd une grande partie de sa puissance. On le bâtit
+l'été d'avant, avec le métal et l'outillage des ch. 107 et 111, pas le jour où le baril est vide. Un alcool
+assez fort pour faire tourner un moteur demande la même chose : un alambic et un carburateur réglé, pas un
+dépannage.
