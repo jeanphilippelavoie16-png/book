@@ -62,7 +62,12 @@ function orPages(){   // les planches de l'orange : pleine page sur leur propre 
 const NOTE_PLACES = [];
 function fillExtras(p){
   if(!p || !EXTRAS.length || !(p.kind === 'text' || p.kind === 'open')) return false;
-  const fr = p.bl.lastElementChild;
+  // le dernier cadre de texte de la page, même si ses notes de bas de page le suivent
+  let fr = p.bl.lastElementChild;
+  if(fr && fr.classList.contains('fnz')) fr = fr.previousElementSibling;
+  // la variante d'urgence a son enveloppe (titre de section, filet noir) : la note va dans son texte ; jamais dans une
+  // série orange
+  if(fr && fr.classList.contains('s9wrap')) fr = [...fr.children].filter(c => c.classList.contains('frame')).pop() || fr;
   if(!fr || !fr.classList.contains('frame') || !fr.children.length) return false;
   const bas = p.bl.getBoundingClientRect().bottom + 0.5;
   // un cadre encore ouvert remplit la page et met tout son texte à gauche : on l'équilibre sur les deux colonnes, la
@@ -70,7 +75,8 @@ function fillExtras(p){
   const ouvert = !fr.classList.contains('auto');
   if(ouvert){ fr.classList.add('auto'); if(OVER(fr)){ fr.classList.remove('auto'); return false; } }
   const tient = [];
-  EXTRAS.forEach(x => { fr.appendChild(x); if(!OVER(fr) && fr.getBoundingClientRect().bottom <= bas) tient.push(x); fr.removeChild(x); });
+  const tientIci = () => !OVER(fr) && p.bl.lastElementChild.getBoundingClientRect().bottom <= bas;
+  EXTRAS.forEach(x => { fr.appendChild(x); if(tientIci()) tient.push(x); fr.removeChild(x); });
   if(ouvert) fr.classList.remove('auto');
   if(tient.length) NOTE_PLACES.push({p, fr, ouvert, tient});
   return false;
@@ -129,7 +135,7 @@ function placerNotes(){
     } else if(enf.length > 3) apres = enf[Math.floor(enf.length * 0.45)];
     if(apres && apres.nextElementSibling && /^H[1-6]$/.test(apres.tagName)) apres = apres.nextElementSibling;
     if(apres && apres !== enf[enf.length - 1]) c.fr.insertBefore(x, apres.nextElementSibling); else c.fr.appendChild(x);
-    const ok = () => !OVER(c.fr) && c.fr.getBoundingClientRect().bottom <= c.p.bl.getBoundingClientRect().bottom + 0.5;
+    const ok = () => !OVER(c.fr) && c.p.bl.lastElementChild.getBoundingClientRect().bottom <= c.p.bl.getBoundingClientRect().bottom + 0.5;
     if(!ok()){ c.fr.appendChild(x); }
     if(!ok()){ c.fr.removeChild(x); if(c.ouvert) c.fr.classList.remove('auto'); return; }
     EXTRAS.splice(EXTRAS.indexOf(x), 1);
