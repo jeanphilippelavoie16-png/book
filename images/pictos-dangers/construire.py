@@ -164,7 +164,8 @@ PROPOSITIONS = {
                   ajouts=[('trait', dict(d=TOIT, e=7)),
                           ('icone', dict(jeu='mdi', nom='fire', taille=30, cx=76, cy=60))]),
         'b': dict(nom='Maison fermée, nuage dedans', icone=('fa6-solid', 'house'), taille=78, dy=2,
-                  ajouts=[('icone', dict(jeu='mdi', nom='cloud', taille=36, cx=50, cy=58, couleur='r'))]),
+                  ajouts=[('forme', dict(d='M38 62H62V86H38Z')),
+                          ('icone', dict(jeu='mdi', nom='cloud', taille=38, cx=50, cy=62, couleur='r'))]),
     },
     'generatrice': {
         'a': dict(nom='Génératrice à cadre', icone=('game-icons', 'power-generator'), taille=76),
@@ -196,8 +197,8 @@ PROPOSITIONS = {
                           ('forme', dict(d='M70 26H82V31H70Z', couleur='r'))]),
     },
     'thuyone': {
-        'a': dict(nom='Rameau et tasse, barrés', icone=('game-icons', 'tree-branch'), taille=54, dx=-18, dy=-14,
-                  ajouts=[('icone', dict(jeu='mdi', nom='tea', taille=48, cx=64, cy=64, halo=4)), ('barre', {})]),
+        'a': dict(nom='Rameau et tasse, barrés', icone=('game-icons', 'tree-branch'), taille=44, dx=20, dy=-20,
+                  ajouts=[('icone', dict(jeu='mdi', nom='tea', taille=46, cx=32, cy=68)), ('barre', {})]),
         'b': dict(nom='Rameau infusé dans la tasse, barré', icone=('game-icons', 'tree-branch'), taille=48, dx=2, dy=-20,
                   rotation=20,
                   ajouts=[('icone', dict(jeu='mdi', nom='tea', taille=62, cx=46, cy=60, halo=4)), ('barre', {})]),
@@ -214,7 +215,7 @@ PROPOSITIONS = {
     },
     'orignal': {
         'a': dict(nom='Tête de profil', icone=('fluent-emoji-flat', 'moose'), taille=80,
-                  couleurs={3: 'r', 4: 'r', 6: 'r', 9: 'r'}),
+                  couleurs={3: 'r', 9: 'r'}),
         'b': dict(nom='Tête de face, sans les yeux', icone=('twemoji', 'moose'), taille=76,
                   couleurs={1: 'r', 3: 'r', 8: 'b', 9: 'r'}),
     },

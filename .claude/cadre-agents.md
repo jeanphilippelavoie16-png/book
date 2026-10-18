@@ -66,6 +66,11 @@ La phrase
   « un change », pas de nom latin, pas de notation que le lecteur n'emploie pas (« 84 mois (7 ans) »).
 - [ ] Aucun tiret (— ou –) dans le texte ni dans les titres ; « section N », jamais « § ».
 - [ ] Les titres de sous-sections sont des noms de gestes ou de choses, pas des maximes.
+- [ ] Les tournures relevées par JP dans les pages des dangers (18 octobre 2026 : « tu as recommencé à faire des
+  tournures de phrase bizarres ») : pas de « X ne fait pas Y : il fait Z », pas de « la couleur dit », pas de « la
+  règle se brise », pas de chute en image (« tant que la route existe », « l'heure de la décision »). Le script ne
+  les voit pas toutes : un éditeur qui n'a pas écrit la page la relit phrase par phrase (skill `ecriture`, tableau
+  des corrections).
 
 La procédure
 - [ ] Une étape qui a plusieurs gestes se découpe en sous-étapes : le geste, où est la chose et comment la
