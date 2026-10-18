@@ -6,7 +6,7 @@
 //
 // Refaite le 18 octobre 2026 : la légende nommait des pièces au lieu des gestes, et le serpentin, une autre façon de
 // condenser, se lisait comme la suite (règle 10). Il porte maintenant le titre « Autre façon : un serpentin » et son
-// repère dit ce qu'il remplace (« au lieu de 2 et 3 »). La disposition et la largeur des vues ne bougent pas : la
+// repère dit ce qu'il remplace (« au lieu de 1, 2 et 3 » : le bol, le couvercle à l'envers et son creux). La disposition et la largeur des vues ne bougent pas : la
 // quatrième de couverture du tome 1 découpe la vue « serpentin » de ce fichier (build_couvertures_6.py).
 //
 // La charte : le dedans de la marmite, au-dessus de l'eau, vu par la coupe, en gris loin ; le bol reste blanc, c'est
@@ -126,7 +126,7 @@ module.exports = (h) => {
           ].join('\n');
         },
         renvois: z => [
-          { n: 7, rond: [100, 40], cible: [99, 72.5], texte: 'au lieu de 2 et 3 : un tuyau de cuivre' },
+          { n: 7, rond: [100, 40], cible: [99, 72.5], texte: 'au lieu de 1, 2 et 3 : un tuyau de cuivre' },
           { n: 8, rond: [206, 104], cible: [175, 151], texte: 'l’enrouler dans un banc de neige' },
         ],
       },

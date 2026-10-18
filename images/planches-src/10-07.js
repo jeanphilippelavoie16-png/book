@@ -1,25 +1,21 @@
 // Planche 10-07. Le filtre à sable en baril.
-// Le texte : ch. 10, variante d'urgence, « Le filtre à sable » : un baril debout, un trou au bas avec un bout de boyau ;
-// du fond vers le haut, une main de grosse pierre, une couche de gravier, puis du sable lavé jusqu'à ce que l'eau de
-// rinçage sorte claire ; l'eau entre par le haut, doucement, sur une assiette percée ; le sable reste mouillé ; quand
-// le débit tombe, on gratte les deux ou trois centimètres du dessus et on laisse le lit en place ; le charbon du
-// poêle, concassé et rincé, va dans un deuxième seau, après le sable ; on bout l'eau ensuite.
+// Le texte : ch. 10, variante d'urgence, « Le filtre à sable » (texte corrigé le 18 octobre 2026 après la vérification
+// technique) : un trou au bas du baril avec un bout de boyau (1), la sortie coupée 5 cm plus haut que le dessus du
+// sable (2) ; au fond une main de grosse pierre (3), puis du gravier lavé jusqu'à ce que l'eau de rinçage sorte
+// claire (4) ; le sable versé en couche épaisse (5), lavé moins que le gravier : brassé à la main, l'eau sale vidée (6),
+// et on arrête quand l'eau de lavage est encore un peu sale (7) ; l'eau versée sur une assiette percée (8) ; le charbon
+// dans un second seau, sous la sortie (9) ; bouillir l'eau qui sort (10) ; quand le débit tombe, frotter à peine le
+// dessus du sable, la paume à plat, en rond, sous un peu d'eau (11), puis puiser l'eau sale avec un petit contenant
+// (12). Le lit de sable reste en place.
 //
-// Refaite le 18 octobre 2026 : le film vivant était dessiné en bande noire, alors que le texte et la source disent
-// qu'il ne se voit pas (sources/13-cawst-couche-biologique-filtre-a-sable.md : « The biolayer is NOT visible ») ; la
-// vue du grattage montre à la place le dessus du sable qui fonce, ce qu'on gratte. La légende nommait des pièces et
-// finissait au pronominal (« le lit dessous ne se brasse pas ») ; l'encadré danger redisait la dernière phrase du
-// texte : il devient le repère 10, « faire bouillir cette eau ensuite ». La cote de 20 à 30 mm sur un geste sort
-// (règle 4) : le chiffre passe dans la légende. Les repères suivent le texte : le boyau (1, 2), les couches du fond
-// vers le haut (3 à 5), le lavage du sable (6, 7), l'assiette (8), le charbon (9), bouillir (10), le grattage (11, 12).
+// Refaite le 18 octobre 2026. Le film vivant ne se dessine pas (« The biolayer is NOT visible »,
+// sources/13-cawst-couche-biologique-filtre-a-sable.md) : seul le dessus du sable qui fonce se voit. Pas d'encadré
+// danger : « faire bouillir cette eau ensuite » est le repère 10. La gratte est sortie avec le texte corrigé.
+// Aucune main : la main à plat paume en bas manque dans les mains gardées (la 8-01 retournée replie les doigts) ; le
+// geste du repère 11 est porté par la flèche rouge en rond sur le dessus du sable, comme le permet la consigne.
 //
-// La sortie du boyau plus haute que le sable : le texte dit que le film vit tant que le sable reste mouillé ; un
-// boyau qui sort plus bas que le dessus du sable vide le baril sous le sable (géométrie du niveau d'eau). Cerclée en
-// rouge, repère 2.
-// Aucune main : le seau qu'on penche et la gratte se lisent seuls ; le geste est dans la légende et la flèche rouge.
-//
-// La charte : le haut vide du baril et de la chaudière, au-dessus de l'eau, vus par la coupe, en gris loin ; les
-// couches restent en trame, sans gris. Le rouge : la sortie du boyau (2) ; le sens de la gratte (11).
+// La charte : le haut vide du baril et de la chaudière, au-dessus de l'eau, en gris loin ; les couches en trame. Le
+// rouge : la sortie du boyau (2), le frottement en rond (11). L'eau sale : la teinte d'eau et un pointillé clairsemé.
 module.exports = (h) => {
   const blancArete = h.a.arete.replace('fill="none"', 'fill="#ffffff"');
   const halo = 'fill="none" stroke="#ffffff" stroke-width="5" stroke-linecap="round"';
@@ -104,7 +100,7 @@ module.exports = (h) => {
     pts.forEach((p, i) => { d += ` Q${n1(p[0])},${n1(p[1])} ${m(p, pts[(i + 1) % n])}`; });
     return h.path(d + ' Z', blancArete);
   };
-  // Le film vivant : une bande noire mince, un peu ondulée, posée sur le sable.
+  // (Le film vivant ne se dessine pas : il ne se voit pas. Ce tracé ne sert plus.)
   const film = (x0, x1, y) => {
     const haut = [], bas = [];
     for (let x = x0; x <= x1; x += 4) {
@@ -240,6 +236,7 @@ module.exports = (h) => {
       h.fleche('M150,70 C176,40 214,40 238,78', h.a.arete),
       // le seau debout : le sable au fond, l'eau claire dessus
       h.rect(237.5, 126, 57, 34, h.a.hachure('eau', 'aucun')),
+      ...pointille([[239, 128], [293, 128], [293, 158], [239, 158]], 25, 70),
       h.ligne(237.4, 126, 294.6, 126, h.a.detail),
       ...pointille(sousLigne(debout, 160), 24, 20),
       h.ligne(239.5, 160, 292.5, 160, h.a.fin),
@@ -249,26 +246,34 @@ module.exports = (h) => {
 
   // ── Gratter le dessus ──────────────────────────────────────────────────────
   // Paroi du baril à x 24 ; le dessus du sable à y 80, gratté jusqu'à y 102.
-  const grattage = z => [
-    h.ligne(16, 40, 16, 180, h.a.contour),
-    ...pointille([[17, 81.5], [70, 81.5], [70, 102], [204, 102], [204, 180], [17, 180]], 51, 26),
-    // le dessus encrassé, plus foncé : c'est lui qu'on gratte
-    ...pointille([[17, 80.5], [70, 80.5], [70, 101], [17, 101]], 53, 5),
-    h.ligne(17, 80, 70, 80, h.a.arete),
-    h.ligne(70, 81, 70, 102, h.a.arete),
-    h.ligne(70, 102, 204, 102, h.a.arete),
-    // l'ancien dessus, parti dans la gratte
-    h.ligne(124, 80, 204, 80, h.a.cache),
-    // la gratte, pleine de ce qu'elle a levé
-    ...pointille([[76, 97], [114, 97], [114, 86], [100, 84], [84, 88]], 52, 5),
-    h.path('M75,93 Q82,88 92,86 L96,88 Q86,90 77,96 Z', h.a.plein),
-    h.path('M70,102 L112,102 Q120,102 120,94 L120,78 L154,44', h.a.contour),
-    h.path('M70,102 L75.5,98.5 L112,98.5 Q116.5,98.5 116.5,94 L116.5,80', h.a.contour),
-    h.geste('M62,62 L24,62'),
-    // coupures du dessin
-    h.path('M16,180 L60,180 L64,175 L70,185 L74,180 L204,180', h.a.fin),
-    h.path('M204,102 L204,136 L199,140 L209,146 L204,150 L204,180', h.a.fin),
-  ].join('\n');
+  // ── Quand le débit tombe : frotter le dessus du sable, puiser l'eau sale ──
+  // Paroi du baril à x 16 ; un peu d'eau sale de y 78 à 112 ; le sable dessous, son dessus encrassé (112 à 119).
+  const grattage = z => {
+    const can = 'rotate(-70 170 82)';
+    return [
+      // l'eau sale au-dessus du sable
+      h.rect(17, 78, 187, 34, h.a.hachure('eau', 'aucun')),
+      ...pointille([[17, 80], [204, 80], [204, 111], [17, 111]], 61, 60),
+      h.ligne(17, 78, 204, 78, h.a.arete),
+      // le sable, et son dessus encrassé, plus foncé
+      ...pointille([[17, 112], [204, 112], [204, 180], [17, 180]], 51, 26),
+      ...pointille([[17, 112.5], [204, 112.5], [204, 119], [17, 119]], 53, 5),
+      h.ligne(17, 112, 204, 112, h.a.arete),
+      h.ligne(16, 30, 16, 180, h.a.contour),
+      // le geste : frotter en rond, à peine, sur le dessus du sable
+      h.geste('M36,104 A34,6.5 0 1 1 42,109.5'),
+      // le petit contenant qui puise l'eau sale, la bouche sous la surface
+      `<g transform="${can}">`,
+      h.rect(159, 64, 22, 36, h.a.blanc),
+      h.rect(160.2, 72, 19.6, 26.8, h.a.hachure('eau', 'aucun')),
+      h.rect(159, 64, 22, 36, h.a.contour),
+      h.ligne(159, 70, 181, 70, h.a.detail),
+      '</g>',
+      // coupures du dessin
+      h.path('M16,180 L60,180 L64,175 L70,185 L74,180 L204,180', h.a.fin),
+      h.path('M204,78 L204,136 L199,140 L209,146 L204,150 L204,180', h.a.fin),
+    ].join('\n');
+  };
 
   return {
     ref: '10-07',
@@ -284,10 +289,10 @@ module.exports = (h) => {
         dessin: centre(coupe, 315),
         renvois: renv([
           { n: 1, rond: [264, 320], cible: [238, 269.5], texte: 'passer un boyau au bas du baril' },
-          { n: 2, rond: [330, 150], cible: [303, 128], texte: 'monter la sortie plus haut que le sable' },
+          { n: 2, rond: [330, 150], cible: [303, 128], texte: 'couper la sortie 5 cm au-dessus du sable' },
           { n: 3, rond: [48, 290], cible: [104, 274], texte: 'poser une main de grosse pierre' },
-          { n: 4, rond: [48, 230], cible: [104, 241], texte: 'étendre une couche de gravier' },
-          { n: 5, rond: [48, 186], cible: [112, 192], texte: 'remplir de sable lavé, en couche épaisse' },
+          { n: 4, rond: [48, 230], cible: [104, 241], texte: 'étendre du gravier lavé jusqu’à l’eau claire' },
+          { n: 5, rond: [48, 186], cible: [112, 192], texte: 'verser le sable en couche épaisse' },
           { n: 8, rond: [48, 112], cible: [131, 133], texte: 'verser doucement sur une assiette percée' },
         ], 315),
       },
@@ -303,16 +308,16 @@ module.exports = (h) => {
         titre: 'Laver le sable',
         dessin: centre(lavage, 203),
         renvois: renv([
-          { n: 6, rond: [196, 132], cible: [155, 158], texte: 'brasser, puis vider l’eau trouble' },
-          { n: 7, rond: [326, 104], cible: [284, 140], texte: 'recommencer jusqu’à l’eau claire' },
+          { n: 6, rond: [196, 132], cible: [155, 158], texte: 'brasser à la main, puis vider l’eau sale' },
+          { n: 7, rond: [326, 104], cible: [284, 140], texte: 'arrêter quand l’eau est encore un peu sale' },
         ], 203),
       },
       grattage: {
         titre: 'Quand le débit tombe',
         dessin: centre(grattage, 203),
         renvois: renv([
-          { n: 11, rond: [44, 36], cible: [43, 62], texte: 'gratter à plat 2 ou 3 cm du dessus' },
-          { n: 12, rond: [220, 156], cible: [170, 150], texte: 'laisser le lit dessous en place' },
+          { n: 11, rond: [74, 40], cible: [70, 96], texte: 'frotter à peine, la paume à plat, en rond' },
+          { n: 12, rond: [214, 40], cible: [186, 76], texte: 'puiser l’eau sale' },
         ], 203),
       },
     },

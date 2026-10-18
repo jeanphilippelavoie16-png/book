@@ -1,5 +1,5 @@
 // Planche 10-01 (demi-page). La chaîne de l'eau en trois temps : décanter, passer au tissu, bouillir.
-// Le texte : ch. 10, étapes 7 à 9 (laisser reposer de 12 à 24 h ; siphonner par-dessus le dépôt, sans le remettre en
+// Le texte : ch. 10, étapes 8 à 10 (laisser reposer de quelques heures à un jour ; siphonner par-dessus le dépôt, sans le remettre en
 // suspension ; préfiltrer à travers trois ou quatre épaisseurs de coton serré), étapes 12 et 13 (gros bouillons,
 // chronométrés à partir du moment où toute la surface roule ; couvrir pendant l'ébullition), et la variante d'urgence
 // « La chaîne complète, version dégradée » (deux chaudières, quatre épaisseurs de coton, bouillir, refroidir couvert).
@@ -197,7 +197,7 @@ module.exports = (h) => {
         renvois: z => {
           const g = geoA(z), { c1, c2 } = g;
           return [
-            { n: 1, rond: [c1.xt1 + 22, g.yDep + 2], cible: [c1.xb1 - 14, g.yDep + 6], texte: 'laisser reposer de 12 à 24 h' },
+            { n: 1, rond: [c1.xt1 + 22, g.yDep + 2], cible: [c1.xb1 - 14, g.yDep + 6], texte: 'laisser reposer de quelques heures à un jour' },
             { n: 2, rond: [c2.xt0 - 30, c2.yt + 40], cible: [c2.xt0 - 7, c2.yt + 20], texte: 'attacher une taie pliée en deux' },
             { n: 3, rond: [c1.xt1 + 22, g.yIn - 34], cible: [g.xIn + 11, g.yIn + 2], texte: 'tenir le bout au-dessus du dépôt' },
           ];

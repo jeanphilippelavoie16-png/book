@@ -6,15 +6,16 @@
 // Deux vignettes au même cadrage de la chaudière :
 //   1. le boyau enroulé et noyé dans l'eau du haut de la chaudière pleine, au-dessus du dépôt sans le toucher, jusqu'à ce
 //      qu'il ne sorte plus de bulles ;
-//   2. un bout du boyau reste au fond de la chaudière, posée sur un billot ; l'autre bout, bouché par le pouce dans
-//      le poing, est descendu dans le seau posé au sol, plus bas, puis lâché.
+//   2. un bout du boyau reste dans la chaudière, posée sur un billot, au-dessus du dépôt ; l'autre bout, bouché par
+//      le pouce dans le poing, est descendu sur le coton tendu sur la chaudière du bas (étape 9 : une taie d'oreiller
+//      pliée en deux, attachée sous le bord, comme à la planche 10-01), puis lâché.
 // Le seau plus bas que l'eau de la chaudière : c'est la condition d'un siphon (géométrie des niveaux), le texte dit
 // « on en descend un ». Aucune cote, aucun chiffre.
 // Main : h.formes.mainStock 'poing-barre' (1-01), tournée de 164° (la main vient d'en haut à droite), sans son objet :
 // le boyau descend sur l'axe .objet rendu, traverse le poing fermé et finit sous le pouce, posé sur l'ouverture du bout.
 // (La 1-09 vue de dos faisait moufle ; la 1-01 tournée de -16° mettait le pouce à l'entrée du boyau : écartées.) Le bout resté dans l'eau n'a pas besoin du pouce pour
 // rester plein : il n'est pas dessiné avec une main.
-// Le rouge : la flèche du geste, descendre le bout dans le seau (repère 3).
+// Le rouge : la flèche du geste, descendre le bout sur le coton (repère 3).
 
 module.exports = (h) => {
   const A = h.a, F = h.formes;
@@ -57,6 +58,20 @@ module.exports = (h) => {
     for (let i = 0; i < n; i++) out.push(h.cercle(x0 + r() * (x1 - x0), y0 + r() * (y1 - y0), 0.75, A.plein));
     return out;
   };
+  // le coton : une taie d'oreiller pliée en deux, tendue sur le seau et attachée sous le bord (comme à la planche 10-01)
+  const taie = (c, yC, xC) => {
+    const xg = c.xt0, xd = c.xt1, yt = c.yt, out = [];
+    const d = `M${f(xg - 6)},${f(yt + 20)} L${f(xg - 6)},${f(yt - 2)} Q${f(xg - 6)},${f(yt - 5)} ${f(xg + 2)},${f(yt - 4)} `
+      + `C${f(xg + 20)},${f(yt + 3)} ${f(xC - 22)},${f(yC)} ${f(xC)},${f(yC)} `
+      + `C${f(xC + 22)},${f(yC)} ${f(xd - 20)},${f(yt + 3)} ${f(xd - 2)},${f(yt - 4)} `
+      + `Q${f(xd + 6)},${f(yt - 5)} ${f(xd + 6)},${f(yt - 2)} L${f(xd + 6)},${f(yt + 20)} L${f(xd + 2)},${f(yt + 20)} L${f(xd + 2)},${f(yt + 2)} `
+      + `C${f(xd - 18)},${f(yt + 7)} ${f(xC + 22)},${f(yC + 5)} ${f(xC)},${f(yC + 5)} `
+      + `C${f(xC - 22)},${f(yC + 5)} ${f(xg + 18)},${f(yt + 7)} ${f(xg - 2)},${f(yt + 2)} L${f(xg - 2)},${f(yt + 20)} Z`;
+    out.push(h.path(d, blanc(A.arete)));
+    out.push(h.rect(xg - 9, yt + 9, 5, 3.5, A.plein), h.rect(xd + 4, yt + 9, 5, 3.5, A.plein));
+    out.push(h.path(`M${f(xd + 9)},${f(yt + 10.5)} q5,2 6,8 M${f(xd + 9)},${f(yt + 10.5)} q7,-1 9,5`, A.arete));
+    return out;
+  };
   const sol = (z, y) => [h.rect(0, y, z.l, 8, A.hachure('terre', 'aucun')), h.ligne(0, y, z.l, y, A.arete)];
 
   // ── 1 : noyer le boyau ──
@@ -90,9 +105,10 @@ module.exports = (h) => {
     const bil = { x0: 8, x1: 94, y0: yS - 46 };
     const c = { xt0: 5, xt1: 99, yt: yS - 46 - 64, xb0: 14, xb1: 90, yb: bil.y0 };
     const s = { xt0: z.l - 110, xt1: z.l - 36, yt: yS - 54, xb0: z.l - 104, xb1: z.l - 42, yb: yS };   // le seau receveur
-    const xIn = 43, yIn = c.yb - 9;                      // le bout resté au fond de la chaudière
-    const xP = (s.xt0 + s.xt1) / 2, yP = yS - 86;        // le centre du poing, au-dessus du seau, plus bas que l'eau
-    return { yS, bil, c, s, xIn, yIn, xP, yP };
+    const xIn = 43, yIn = c.yb - 17;                     // le bout resté dans la chaudière, au-dessus du dépôt
+    const xP = (s.xt0 + s.xt1) / 2, yP = yS - 90;        // le centre du poing, au-dessus du coton, plus bas que l'eau
+    const yC = s.yt + 22;                                 // le creux du coton
+    return { yS, bil, c, s, xIn, yIn, xP, yP, yC };
   };
   // le poing tenu d'en haut : l'axe de l'objet est vertical ; le pouce ferme le bas du poing
   const poing = g => F.mainStock({ id: 'poing-barre', objet: false, angle: 164, taille: 70, x: g.xP, y: g.yP });
@@ -107,23 +123,27 @@ module.exports = (h) => {
     out.push(h.rect(g.bil.x0, g.bil.y0, g.bil.x1 - g.bil.x0, g.yS - g.bil.y0, A.contour));
     const ch = chaudiere(g.c, g.c.yt + 11), se = chaudiere(g.s, null);
     out.push(...ch.eau);
-    // le boyau : du fond de la chaudière, par-dessus le bord, puis tout droit vers le bas jusque dans le poing
+    // le dépôt au fond de la chaudière du haut
+    const yD = g.c.yb - 8;
+    out.push(...pointille(g.c.xb0 + 3, g.c.xb1 - 3, yD + 1.5, g.c.yb - 2, 29, 7));
+    out.push(h.path(`M${f(g.c.xb0 + 1.5)},${f(yD)} Q${f(g.c.xb0 + 30)},${f(yD - 2)} ${f((g.c.xb0 + g.c.xb1) / 2)},${f(yD)} T${f(g.c.xb1 - 1.5)},${f(yD)}`, A.detail));
+    // le boyau : de la chaudière, par-dessus le bord, puis tout droit vers le bas jusque dans le poing
     const m = poing(g), o = m.objet;
     const yHaut = g.c.yt - 24;
     const d = `M${f(g.xIn)},${f(g.yIn)} L${f(g.xIn)},${f(g.c.yt - 4)} Q${f(g.xIn)},${f(yHaut)} ${f(g.xIn + 22)},${f(yHaut)} `
       + `L${f(o.x - 22)},${f(yHaut)} Q${f(o.x)},${f(yHaut)} ${f(o.x)},${f(yHaut + 22)} L${f(o.x)},${f(bout(o))}`;
     out.push(...boyau(d));
-    out.push(...ch.bord, ...se.bord);
+    out.push(...ch.bord, ...se.bord, ...taie(g.s, g.yC, o.x));
     out.push(String(m.svg));
-    // le geste : descendre le bout jusqu'au fond du seau
-    out.push(h.geste(`M${f(o.x)},${f(bout(o) + 8)} L${f(o.x)},${f(g.yS - 10)}`));
+    // le geste : descendre le bout sur le coton
+    out.push(h.geste(`M${f(o.x)},${f(bout(o) + 6)} L${f(o.x)},${f(g.yC - 3)}`));
     return out.join('\n');
   };
 
   return {
     ref: '10-08',
     titre: 'Amorcer un siphon sans la bouche',
-    desc: 'Deux vignettes. En haut, une chaudière pleine d’eau, un dépôt au fond et, au-dessus sans le toucher, un boyau enroulé tout entier sous l’eau ; les dernières bulles sortent de son bout. En bas, la chaudière posée sur un billot : un bout du boyau reste au fond de l’eau, le boyau plein passe par-dessus le bord et descend tout droit dans un poing fermé, tenu d’en haut, dont le pouce bouche le bout ; le poing est au-dessus du seau receveur, plus bas que l’eau de la chaudière. Une flèche rouge descend du bout jusqu’au fond du seau : on le descend, puis on le lâche.',
+    desc: 'Deux vignettes. En haut, une chaudière pleine d’eau, un dépôt au fond et, au-dessus sans le toucher, un boyau enroulé tout entier sous l’eau ; les dernières bulles sortent de son bout. En bas, la chaudière posée sur un billot : un bout du boyau reste dans l’eau, au-dessus du dépôt ; le boyau plein passe par-dessus le bord et descend tout droit dans un poing fermé, tenu d’en haut, dont le pouce bouche le bout ; le poing est au-dessus du seau du bas, coiffé d’une taie d’oreiller pliée en deux et attachée sous le bord, plus bas que l’eau de la chaudière. Une flèche rouge descend du bout jusqu’au creux du coton : on le descend, puis on le lâche.',
     format: 'quart',
     disposition: [['remplir'], ['amorcer']],
     hauteurs: [1.3, 2.1],
@@ -145,7 +165,7 @@ module.exports = (h) => {
           const g = geo2(z), o = poing(g).objet, yb = bout(o);
           return [
             { n: 2, rond: [o.x - 58, yb - 4], cible: [o.x - 6, yb - 1], texte: 'boucher le bout avec le pouce' },
-            { n: 3, rond: [o.x - 30, g.yS - 22], cible: [o.x - 1.5, g.yS - 24], texte: 'le descendre dans le seau, et lâcher' },
+            { n: 3, rond: [o.x - 36, g.yS - 18], cible: [o.x, g.yC + 5], texte: 'le descendre sur le coton, et lâcher' },
           ];
         },
       },
