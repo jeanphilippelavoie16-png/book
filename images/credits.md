@@ -1038,6 +1038,21 @@ depuis un lac. Licences relues sur l'API de Wikimedia Commons au téléchargemen
 | `photos/manquantes/11-colonne-chou-fleur.jpg` | Colonne qui monte droit et finit en chou-fleur blanc, vue d'un lac | Stephen Handler, United States Forest Service | Domaine public | https://commons.wikimedia.org/wiki/File:Pagami_fire_plume.jpg |
 | `photos/manquantes/11-colonnes-de-fumee.jpg` | Les deux photos précédentes côte à côte (montage du 15 octobre 2026, celle qui s'imprime) | Greg Seitz ; Stephen Handler, United States Forest Service | CC BY-SA 4.0 (volet de gauche) ; domaine public (volet de droite) | voir les deux lignes précédentes |
 
+## Encadrés « En plus » du chapitre 12, la tente d'hiver (18 octobre 2026)
+
+Trois photos d'iNaturalist, prises au Québec, identification confirmée par la communauté (« research »). Licence
+**de chaque photo** relue sur l'API d'iNaturalist au téléchargement (`license_code` de la photo, pas de
+l'observation) ; réponse de l'API enregistrée dans `sources/12-inaturalist-trois-coniferes-2026-10-18.json`. Les
+originaux (taille « original » d'iNaturalist) sont gardés dans `extras/originaux/` ; le montage les recadre en 3 × 4
+(le sapin un peu serré sur la branche) et les met à la même hauteur, sans texte ni retouche.
+
+| Fichier | Sujet | Auteur | Licence | Lien |
+| --- | --- | --- | --- | --- |
+| `extras/originaux/12-sapin-baumier-inat-750762021.jpg` | Sapin baumier (*Abies balsamea*), rameau de près, dessus des aiguilles ; Sainte-Béatrix, Québec, 11 octobre 2026 | Patrice Dupont (patrice_dupont), « (c) Patrice Dupont, some rights reserved (CC BY) » | CC BY | https://www.inaturalist.org/observations/408422961 (photo 750762021) |
+| `extras/originaux/12-epinette-noire-inat-48737841.jpg` | Épinette noire (*Picea mariana*), rameau de près, poils brunâtres du rameau ; La Vallée-de-la-Gatineau, Québec, 9 août 2019 | rboles, « (c) rboles, some rights reserved (CC BY) » | CC BY | https://www.inaturalist.org/observations/31157360 (photo 48737841) |
+| `extras/originaux/12-cedre-inat-420156486.jpg` | Thuya occidental, le cèdre (*Thuja occidentalis*), rameaux aplatis en éventail ; Gatineau, Québec, 13 août 2024 | Alexis Tinker-Tsavalas (alexis_orion), « (c) Alexis Tinker-Tsavalas, some rights reserved (CC BY) » | CC BY | https://www.inaturalist.org/observations/236186493 (photo 420156486) |
+| `extras/12-trois-coniferes.jpg` | Les trois photos précédentes côte à côte, de gauche à droite : sapin baumier, épinette noire, cèdre (montage du 18 octobre 2026, celui qui s'imprime) | Patrice Dupont ; rboles ; Alexis Tinker-Tsavalas | CC BY (les trois volets) | voir les trois lignes précédentes |
+
 ## Pages de titre des tomes (images/tomes/)
 
 - Champignon atomique, forêt en feu : Game-icons.net (Lorc, Delapouite), CC BY 3.0, https://game-icons.net

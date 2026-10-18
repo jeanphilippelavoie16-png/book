@@ -97,7 +97,7 @@ module.exports = (h) => {
           out.push(h.rect(xc - lt, yc - wt, 2 * lt, 2 * wt, A.loin));
           out.push(h.rect(xc - lt, yc - wt, 2 * lt, 2 * wt, A.arete));
           // La perche, couchée au fond, en travers du cordon : ronde, sa face du bas à l'ombre.
-          out.push(h.rect(xc - lp, yc - rp, 2 * lp, 2 * rp, blanc(A.contour)));
+          out.push(h.rect(xc - lp, yc - rp, 2 * lp, 2 * rp, A.blanc));
           out.push(h.rect(xc - lp + 1.2, yc + rp * 0.2, 2 * lp - 2.4, rp * 0.8 - 1.2, A.ombre));
           out.push(h.rect(xc - lp, yc - rp, 2 * lp, 2 * rp, A.contour));
           // Le nœud au milieu : deux tours serrés en travers de la perche, et le cordon qui part vers la tente.

@@ -89,3 +89,7 @@ Son canot touche la ligne « Chapitres » : refaire la même image à partir de 
 plus haut) ou remonter la scène à l'agrandissement. **Deuxième choix, 3** (`r2-lac2-alb66-1`), plus riche (îlot,
 remous, reflet). Si JP tient à l'orignal : **5** ou **6** (Flux), avec leurs réserves de style. Pour le fleuve
 salé : **7**.
+
+## Arrivées après la planche (ajoutées par l'orchestrateur)
+
+`tome-3-pistes-2.png`, candidates 11 à 15 : `r3-lac2-jug55-1` (11), `r3-lac3-jug65-0` et `-1` (12, 13), `r3-lac3-jug70-0` et `-1` (14, 15). Les 13 et 15 ont le canot remonté, au-dessus de la ligne des chapitres : la 15 (deux pêcheurs, soleil et reflet) règle la réserve de la n° 1.

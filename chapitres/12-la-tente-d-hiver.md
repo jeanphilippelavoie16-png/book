@@ -609,5 +609,6 @@ serrées sur des rameaux aplatis, étalés en éventail. Il vire au bronze l'hiv
 
 ![](images/extras/12-corps-mort.png)
 
-Le dessin montre en coupe un corps mort enfoui dans la neige : la perche ou la bille couchée au fond du trou, le
-cordon de la tente attaché dessus, et la neige tassée qui remplit le trou. Pour le faire, suivre l'étape 13.
+Le dessin montre un corps mort deux fois : vu de dessus, la perche couchée dans le trou avant qu'on le remplisse,
+puis en coupe, une fois le trou rempli de neige tassée, avec le cordon qui remonte en biais vers la tente. Ses
+repères suivent les gestes de l'étape 13.
