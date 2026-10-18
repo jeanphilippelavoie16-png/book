@@ -341,3 +341,193 @@ Verdicts : `suivi/verifications/16c-verifications.md`. Aucun chiffre changé ; u
 - **§5, « Avant de se coucher », point 3 — avertisseur gelé (LEVÉ).** Rien ne garantit qu'une cellule gelée redevienne fiable : la cellule de CO d'un fabricant très employé n'est garantie ni en marche ni en entreposage sous -5 °C, elle contient une réserve d'eau, et le gel de cette eau peut l'abîmer pour de bon ; le bouton d'essai n'éprouve pas la cellule. Phrase remplacée, drapeau retiré, aucun chiffre imprimé. Sources : `sources/16c-figaro-tgs5042-cellule-co-gel.md` ; `sources/15b-kidde-avertisseur-co-bouton-et-temperature.md`.
 
 Compression §3 et §4 — 27 septembre 2026 : 1 543 mots → 261 mots (§3 : 1 059 → 122 ; §4 : 484 → 139, tableau remplacé par une liste de 7 items) ; matériel coupé : égoïne ou long couteau, hache, corde et fil de fer, peaux / matelas / bâche de sol, bâches de plastique, bâtons repères, phrase de renvoi au ch. 00b. §3 : coupés l'incident québécois, les mesures de CO (réchaud, cavernes, tentes 3 et 4 saisons), la neige qui pourrit par le fond et la plaque à vent, l'abri de neige qu'on ne chauffe pas, l'air vicié sans flamme — tous déjà dits en §2, §5A, §5I, §8 (points 1, 2, 4) et §9. Renvois corrigés : 5H point 5 (« section 3 » → « section 8 ») et 5I intro (« section 3 » → « section 8, point 4 »).
+
+## Refonte au gabarit à sept sections, pictogrammes de danger — 18 octobre 2026
+
+Chapitre test demandé par JP (« refais un chapitre test qu'on n'a pas encore touché »), refait sur le modèle du ch. 10.
+Texte d'avant : `git show HEAD:chapitres/12-la-tente-d-hiver.md`. Numéros de chapitre de cette section : les nouveaux.
+
+### Ce qui a changé
+
+- **Sept sections** : 1 En une ligne, 2 Quand l'utiliser, 3 Matériel, 4 Procédure, 5 Points de contrôle, 6 Signes
+  d'échec, 7 Variante d'urgence. « Pourquoi ça marche » et la section 8 Danger sont sortis (où chaque bloc est allé :
+  plus bas).
+- **Rien sous le titre que `**Chalet**`.** La note de lieu est sortie : la maison qui va chez les voisins (ch. 3) et
+  la liste des raisons de perdre le chalet passent en section 2 ; « la tente, le poêle et le tuyau se rangent hors du
+  chalet » passe dans la ligne de matériel de la tente. « Maison du village » est sorti avec elle.
+- **Section 2** : seulement les situations, avec leurs étapes. La liste « C'est un mauvais choix quand » est sortie ;
+  ce qu'elle apprenait est allé à l'étape qui sert : le redoux sous une voûte (étape 65, `ecrasement`), les perches
+  trop gelées pour casser (étape 46), l'abri de neige qui ne se chauffe pas (étape 64), la bâche et le synthétique
+  avec un poêle (Matériel ; section 7, la toile), la neige de sucre (étape 4).
+- **Numérotation continue des étapes**, de 1 à 102, comme au ch. 10 : les anciennes sous-sections 5A à 5I gardent
+  leurs intertitres sans lettre (« Choisir la place », « Fouler le plancher de neige », « Monter la tente de
+  prospecteur », « Poser le poêle et passer le tuyau », « Poser le sapinage en écailles », « La nuit sous la toile »,
+  « Le shaputuan », « Le cône de bâches », « La maison de neige » et ses trois `####`). Plus aucun « § », plus de
+  renvoi « 5C, point 7 » : tous les renvois internes sont des numéros d'étape ou « section 7 ».
+- **Étapes découpées** : les chevalets (étape 11), l'entrée d'air basse (16), le sapinage (27 à 33), la nuit (34),
+  l'avertisseur (36), la bâche du bas du cône (53), le creusage du quinzhee (70), les blocs (80, 81), l'appentis
+  (93), le mur réflecteur (97), la tranchée et la collerette de fortune (section 7) se font en sous-étapes qui suivent
+  les repères des planches.
+- **Étape nouvelle** : 17, la génératrice et la motoneige à 6 m de la tente, loin de l'entrée d'air basse (ancien
+  Danger, point 3). Le « 6 m » est neuf dans ce chapitre (voir les chiffres).
+- **Retiré** : la statistique de l'avertisseur (4 min à 400 ppm, 1 h à 70 ppm), le mal de tête en 1 à 3 h à 400 ppm,
+  la densité du CO, « on s'endort au lieu de sortir », le bouton d'essai qui ne vérifie pas la cellule, l'enfant
+  intoxiqué qui a l'air fatigué (ch. 39) : tout est dans la page du pictogramme `co` (dangers/partie-1.md). « Chez un
+  enfant de 4 ou 6 ans » (CLAUDE.md). « Sans mur, la chaleur part vers la forêt (ch. 17) » : le ch. 17 y met « la
+  moitié de la chaleur », fraction sans source (partie 7, point 4) ; le renvoi sortait avec la phrase. « La chaleur
+  qui part par le sommet ouvert est de toute façon énorme » (cône) : aucune source. La pratique de la maison de blocs
+  et la lumière du jour dans « Ce qui ne se remplace pas » : redites des étapes 79 et 89. « La seule pièce du
+  chapitre qui ne se remplace pas est celle qui brûle d'abord » (chute en formule).
+- **Tournures corrigées** : « Celui qui » en tête (quatre fois), « d'où » (deux fois), « la neige qui choisit »,
+  « le test de la main demande », « c'est le sac qui porte », les tirets du Matériel, les « § ».
+
+### Où sont allés les blocs de l'ancien « Pourquoi ça marche »
+
+| Bloc | Où il est allé |
+| --- | --- |
+| La toile coupe le vent sans isoler ; la chaleur part par le dessous (neige du plancher, vent sous la jupe) | Étape 15 (renchausser) |
+| La neige isole ; foulée ou brassée, elle se soude en quelques heures, plus lentement par grand froid (frittage) | Étape 7 (laisser prendre) ; le quinzhee y renvoie (étape 67). Le mot « frittage » ne s'imprime plus : le geste dit ce qu'on voit |
+| L'air froid tombe ; l'entrée plus basse que le lit le garde en bas (trappe à froid) | Étape 9 (lit de neige) ; la maison de blocs y renvoie (étape 85) |
+| La tente tire comme une cheminée ; le tuyau refroidi tire moins que la tente et refoule le CO de la braise | Étape 16 (entrée d'air basse, le mécanisme de la pression) et étape 34 (le refoulement quand le feu tombe en braise) |
+
+### Où sont allés les blocs de l'ancienne section 8, Danger
+
+| Point | Où il est allé | Pictogramme |
+| --- | --- | --- |
+| 1. Poêle raccordé qui intoxique la tente ; la yourte, 2 h du matin ; les quatre règles | Mécanisme et yourte : étape 34 ; entrée d'air : étape 16 ; pare-étincelles dégagé : étape 38 ; veille ou feu mort : étape 34 ; avertisseur au chaud, lu : étape 36. Sans odeur, densité, délais de l'avertisseur : page `co` | `co` (34) |
+| 2. Rien ne brûle dans un abri de neige ; sous la toile, seul le poêle ; réchaud à 400 ppm, hémoglobine, allumage, flamme jaune ; fondre dehors ; chandelle ; l'enfant mou | Sous la toile, les mesures du réchaud : étape 35 ; abri de neige, fondre dehors, chandelle : étape 64 ; le cône : étape 61 ; l'enfant mou : ligne des Signes d'échec (« enfant compris… devient molle ») ; le reste : page `co` | `co` (35, 61, 64) |
+| 3. Génératrice, vestibule, bâche, entrée d'air basse, motoneige | Étape 17 | `generatrice` (17) |
+| 4. L'abri de neige qui s'effondre ; jamais seul ; adulte seul avec les enfants ; redoux ; bâche sans perches sur la tranchée ; abri bouché par la poudrerie | Creuser jamais seul, adulte seul, redoux : étape 65 ; bâche sans perches : section 7, la tranchée ; poudrerie et air vicié : étape 74 | `ecrasement` (65 ; section 7, la tranchée), `espace-clos` (74) |
+| 5. La tente qui brûle d'un coup ; couteau à la tête du lit ; shaputuan à deux portes ; feu de cheminée sous la toile ; épinette et sac synthétique | Couteau, sortie par le mur du fond, l'autre porte du shaputuan : étape 37 ; collerette et test de la main : étape 23 ; feu de cheminée : ligne des Signes d'échec ; épinette et sac synthétique : étape 98 | `incendie` (23, 37) |
+
+### Pictogrammes posés (étape → id)
+
+| Étape | Id | Ce qui est propre au chapitre |
+| --- | --- | --- |
+| 17 (génératrice, motoneige) | `generatrice` | 6 m de la tente, loin de l'entrée d'air basse ; ni vestibule ni bâche tendue |
+| 23 (le tuyau dans la collerette) | `incendie` | Le tuyau ne touche jamais la toile ; la main tient sur la toile au bord de la plaque |
+| 34 (décider avant de se coucher) | `co` | Le refoulement quand le feu tombe en braise ; la yourte ; veiller ou feu mort ; ni poêle étouffé ni clé fermée |
+| 35 (rien d'autre sous la toile) | `co` | Réchaud, lampe, fanal, chandelle, chaufferette ; 400 ppm en moins de 10 min ; plus du cinquième de l'hémoglobine en 2 h |
+| 37 (couteau à la tête du lit) | `incendie` | Sortie par le mur du fond, la porte étant du côté du poêle ; l'autre porte du shaputuan |
+| 57 (le foyer du cône) | `projection` | Pierres sèches d'une crête ou d'un talus, jamais d'une rive (mécanisme à l'étape 102) |
+| 61 (veiller le cône) | `co` | Les trois raisons qui rendent le feu ouvert sûr, et ce qui le rend dangereux (méthode ancestrale avec son avertissement) |
+| 64 (aucune flamme dans un abri de neige) | `co` | Fondre la neige dehors ; la chandelle n'est pas un test |
+| 65 (ne jamais creuser seul) | `ecrasement` | L'adulte à l'entrée, pelle en main ; adulte seul avec les enfants ; redoux ; dégager la tête d'abord |
+| 74 (le trou d'aération du quinzhee) | `espace-clos` | Le rouvrir à chaque réveil et après une poudrerie ; l'abri bouché se vicie sans flamme |
+| 94 (le lit de la nuit dehors) | `froid` | Le corps perd sa chaleur dans la neige qu'il touche ; le sapinage plus épais que sous une tente |
+| 101 (boire chaud) | `thuyone` | Sapin baumier ou épinette, jamais de cèdre (rappel de CLAUDE.md) |
+| 102 (pierres chauffées dans les sacs) | `projection` | Pierres prises au sec ; deux épaisseurs de tissu (la peau engourdie ne sent pas la brûlure) |
+| Section 7, la tranchée (les perches avant la bâche) | `ecrasement` | La bâche sans perches qui descend sur les visages |
+
+Une étape, un pictogramme. `co` revient sur quatre étapes parce que le monoxyde y vient de quatre sources
+différentes (le poêle qui refoule, le réchaud, le feu du cône, une flamme dans la neige). `projection`, `froid`,
+`thuyone` et `espace-clos` ne sont pas dans la colonne « Chapitres » de l'inventaire pour le ch. 12 : à ajouter à
+`plan/dangers-inventaire.md`, section 1.
+
+### La série orange et le logigramme
+
+- **La série orange reste, en tête de la section 7** : « La noirceur vient et on ne rentrera pas
+  `{.orange 15 h 20}` », étapes 89 à 102. Elle ouvre sa section (choix permis par le brief) plutôt que la
+  procédure : la section 4 est la tente qu'on monte pour durer ; la série est la nuit qu'on n'a pas préparée, sans
+  tente, avec une bâche, du sapin, un feu et une hache ou un couteau, qui est le sujet de la variante d'urgence. Un
+  seul sujet. L'ancienne liste « L'ordre des gestes » (bois, appentis, lit, feu) est devenue la série complète, avec
+  tout le détail de l'appentis, du lit, de la plateforme, du feu long, du mur réflecteur, de la veille, de la boisson
+  chaude et des pierres : plus de partie « le détail » ni de redite ailleurs. La place, le plancher foulé et le
+  sapinage en écailles ne sont dits qu'une fois, aux étapes 1, 2, 5, 6 et 27 à 29 : la série y renvoie.
+- **La pastille « 15 h 20 »** : l'heure de la noirceur en décembre sur la Côte-Nord (coucher du soleil le plus hâtif,
+  15 h 21 ; `sources/16c-sept-iles-lever-coucher-soleil-hiver.md`). Aucune source trouvée ne donne la durée de la
+  série (bois, appentis, lit et feu), et le temps qui reste dépend de l'heure où on décide : la pastille dit donc
+  l'heure avant laquelle tout doit être fini, et l'étape 89 donne aussi la fin de janvier (16 h 15). **À trancher par
+  JP** : c'est une heure d'horloge, pas une durée comme « 15 min » ou « 1 h ». Recherches faites sans résultat
+  officiel : une règle du type « commencer l'abri deux heures avant la noirceur » (Colorado Parks and Wildlife,
+  pages en 404 ; AdventureSmart ; manuels de survie) ; seules des pages de magazines la donnent.
+- **Pas de seconde série pour le monoxyde** : les gestes (tout le monde dehors) sont dans la page `co` ; ce qui est
+  propre à la tente à −35 °C (dehors dans les sacs, bottes aux pieds ; poêle éteint, braise sortie ; quand rentrer)
+  reste dans la première ligne des Signes d'échec. L'inventaire des premières minutes ne demandait que la série de
+  la nuit. Point possible pour JP s'il veut une série « Mal de tête dans la tente, la nuit ».
+- **Logigramme** : `images/logigrammes/12-tente-d-hiver.json`, double page, rendu en `.svg`, `.pdf`, `.png` et
+  `12-tente-d-hiver-livre.svg` (`--sans-entete --svg`), contrôle 0 erreur. Page de gauche, orange : la série, avec la
+  fourche « On peut faire un feu ? » (appentis, lit, feu long, coucher ; ou la tranchée bâchée). Page de droite, en
+  boîtes « geste » : la tente montée dans l'ordre (étapes 1 à 33), puis « Un adulte peut veiller le poêle toute la
+  nuit ? » (étape 34). Aucun avertissement redit. Ancré sur la dernière ligne du Matériel (« **Sac de couchage
+  d'hiver** »), clé `"logigramme"` avec `"orange": true` dans `design/epreuves-livre/placements-tome-1.json`.
+
+### Planches : appels et ancrages
+
+| Planche | Premier appel, et ancre `apres` | Repères appelés |
+| --- | --- | --- |
+| 12-01b | Étape 3 (« 3. **Tourner la porte de la tente sous le vent dominant ») | 1 à 3 (étape 3), 13 à 15 (11), 6 (13), 4 (15), 3 (16), 5 (24) ; 7 à 12 dans la collerette de fortune (section 7) |
+| 12-01a | Étape 18 (« 18. **Placer le poêle près de la porte, dans l'allée, avec le lit de neige au fond** ») | 9 (18), 8 et 7 (19), 1 (20), 11 (21), 2 (22), 3 (23), 4 et 6 (24), 5 (38) |
+| 12-02 | Étape 27 (« 27. **Poser le premier rang contre le mur du fond** ») | 6, 1, 2, 3 (27), 4 et 5 (28), 10 (30), 8 (31) ; rappelée à l'étape 94 |
+| 12-03 | Étape 42 (« 42. **Choisir la place (étapes 1 à 4) et fouler l'aire en ellipse allongée** ») | 14 (42), 1 (44), 2 et 3 (45), 4, 7, 8, 9 (46), 10 et 15 (47), 11, 5, 19 (48), 6 (49), 17, 12, 18, 13, 16 (50) |
+| 12-04 | Étape 53 (« 53. **Poser la bâche du bas en premier** ») | 9, 12, 1, 2 (53), 10 (54), 8 (55), 11 (56), 3 (57), 4 (58), 5 (59), 6 et 7 (60) |
+| 12-06a | Étape 66 (« 66. **Planter au centre une perche droite ») | 1, 2, 5, 7 (66), 3 (67), 4 et 6 (68), 12 (70), 10 et 9 (71), 11 et 14 (72), 8 (74), 13 (75), 15 à 17 (76) |
+| 12-05a | Étape 80 (« 80. **Tailler les blocs** ») | 1 à 3 (80), 4 à 7 (81), 8 et 9 (83), 10 (84) |
+| 12-05b | Étape 85 (« 85. **Faire la porte sous le premier rang** ») | 4, 6, 7, 5 (85), 3 et 8 (86), 2 (87) |
+| 12-06b | Section 7, « Quand le feu est impossible (étape 93), la chaleur vient des corps » | 6 et 13, 1, 2 et 3, 4, 7 à 9, 12 et 11, 5 et 10 |
+
+Avant la refonte, aucune planche n'était appelée dans le texte. Chaque `apres` tombe sur un seul paragraphe (vérifié
+par script). **Pour le metteur en pages** (écart entre deux appels de planches pleine page, en mots de texte) :
+12-01b → 12-01a, 825 ; 12-01a → 12-02, 485 ; 12-03 → 12-04, 549 ; 12-05a → 12-05b, 219. Les trois derniers peuvent
+tomber sur la même page : à vérifier au montage ; la 12-05b se prêterait à la demi-page (deux vues), et 12-05a et
+12-05b pourraient aussi se monter l'une après l'autre sans gêne, puisqu'elles montrent la même maison.
+
+**Pour l'agent des planches (rien redessiné)** :
+- L'ordre des repères ne suit pas l'ordre des gestes du texte sur 12-01a (le texte va 9, 8, 7, 1, 11, 2, 3, 4, 6, puis
+  5), 12-04 (le texte va 9, 12, 1, 2, 10, 8, 11, 3, 4, 5, 6, 7 : les repères 1 et 2 de la charpente sont sur la vue
+  « Le sommet », placée après la coupe) et 12-03 (14 vient en premier). Règle de `images/recommandations-planches.md` :
+  l'ordre des repères suit l'ordre des gestes.
+- Repères qui ne sont plus appelés : 12-01a, 8 est appelé mais 10 (sapinage) et 12 (neige sur la jupe, 500 mm) ne le
+  sont pas (appeler 12 à l'étape 15 aurait mis l'ancre de 12-01a trop près de 12-01b) ; 12-02, 7, 9 et 11 ; 12-05b, 1
+  (« chaque rang penche un peu plus », étape 82 : l'appeler là aurait ancré 12-05b encore plus près de 12-05a).
+- 12-01a, légende du repère 4 : « mailles de 10 mm au plus » ; le texte dit « 1 cm ». Même valeur, unité différente :
+  à aligner sur le texte (règle du livre : le mm pour les cotes de construction ; ici, l'un ou l'autre, mais le même).
+- 12-01b montre la collerette taillée dans un couvercle de baril : c'est la collerette **de fortune** de la section 7.
+  Le texte l'appelle aussi à l'étape 3 pour le plan (repères 1 à 3) : la planche sert les deux, rien à changer.
+- 12-03 et 12-06a commentent encore « ch. 12, section 5G », « I-1 » dans leur en-tête de code : sans effet sur
+  l'image ; à mettre à jour à la prochaine retouche.
+- Aucune image de ces planches n'est dans `images/a-valider/` ni dans `images/validees/` (seulement les sources
+  `images/planches-src/12-*.js`) : elles n'ont pas été regardées à l'image.
+
+### Chiffres nouveaux, avec leur source
+
+| Fait | Où | Source |
+| --- | --- | --- |
+| Génératrice à au moins 6 m de la tente | Étape 17 | `sources/10-sante-canada-generatrice-distance.md` (« au moins 6 mètres (20 pieds) entre toute habitation ou tout bâtiment ») ; concorde avec la page `generatrice` |
+| Coucher du soleil à la fin de janvier vers 16 h 15 | Étape 89 | `sources/16c-sept-iles-lever-coucher-soleil-hiver.md` (31 janvier : 16:16) et la page HTML enregistrée |
+
+Les autres chiffres sont ceux d'avant, déjà sourcés (partie 2), redits sans changement. Concordance avec les pages
+des dangers vérifiée : avertisseur entre 4,4 et 37,8 °C (page `co` ; étapes 34 et 36) ; génératrice à 6 m (page
+`generatrice`) ; laisser durcir la neige d'un abri et en sortir quand le toit s'affaisse ou dégoutte (page
+`ecrasement` ; étape 65 et Signes d'échec) ; pierres de rive qui éclatent (page `projection` ne le dit pas : il reste
+à l'étape 102 avec son renvoi au ch. 83). Aucune différence trouvée. Aucun fichier nouveau dans `/sources`.
+
+### [À VÉRIFIER]
+
+Aucun dans le texte. Un geste ajouté sans chiffre, à juger à la vérification technique : étape 65, « l'adulte de
+l'entrée la dégage tout de suite, la tête d'abord » (déduit du mécanisme de l'ancien Danger, point 4 : sous la neige,
+on ne respire plus et on ne se dégage pas seul).
+
+### Renvois corrigés dans les autres chapitres
+
+- ch. 37 (CRLF gardé) : « ch. 12, section 5-F, point 3 » → étape 36 (deux fois) ; « section 5-E » → étapes 26 à 29 ;
+  « section 5-D » → étape 19.
+- ch. 82 : « ch. 12 (§9) » et « du même §9 » → « section 7 » et « de la même section » ; « ch. 12 §9 » → « ch. 12,
+  section 7 ».
+- Les autres renvois au ch. 12 (ch. 13, 15, 16, 88, 97, logigrammes 15 et 16) visent le chapitre entier : rien à
+  changer.
+
+### controle.py, avant et après
+
+- **Avant** : 9 514 mots, 9 tirets (titre, ligne de tome, 7 lignes de Matériel), 1 mot banni (« village »), 5 « § »,
+  11 tournures, 5 mises en relief, 45 mots vides, 29 redites.
+- **Après** : 8 692 mots, 2 tirets (titre et ligne de tome, comme aux ch. 10 et 15), 0 mot banni, 0 « § », 0 tournure,
+  0 mise en relief, 37 mots vides (jugés : « tout de suite », « toute la nuit », « tout autour » portent le sens),
+  8 redites (jugées : ce sont des renvois ou deux faits différents, sauf le genou appuyé, gardé à l'étape 94 parce
+  que c'est la cible de cette étape), 0 ancre introuvable.
+- **Invariants signalés et justifiés** : 15 h 20 (une fois dans le texte, plus la pastille ; avant : trois fois),
+  « 1 à 3 heures », « 4 minutes », « 70 ppm », un « 400 ppm », un « 4,4 °C » (délais et seuils de l'avertisseur :
+  page `co`) ; « 3 m » (la congère dite une fois, étape 77) ; « 8 heures » (dit une fois, « 8 h », étape 89) ; « 6 ans »
+  (CLAUDE.md) ; « 5A » (ancien renvoi de section) ; ch. 3 (note de lieu, génératrice : page) ; ch. 17 (fraction sans
+  source) ; ch. 39 et ch. 87 (CO chez l'enfant, avertisseur : page `co`) ; un ch. 25, un ch. 82, des ch. 83 (redites
+  des mêmes renvois).
