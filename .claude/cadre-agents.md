@@ -123,6 +123,10 @@ Le cadre complet est `.claude/skills/planches/references/brief-agent.md`. En bre
 - [ ] Une main qui appuie, frotte ou tient quelque chose à plat sur une surface a **la paume vers la surface** : on voit
   le dos de la main (JP, 18 octobre 2026, planche 04-41 : « la main est à l'envers, paume vers le sol il faut »). Une
   main qui se lit paume en l'air ou recourbée en coupe ne frotte rien.
+- [ ] **Une main de la bibliothèque ne se déforme jamais** : ni écrasée, ni étirée, ni coupée en biais pour la coucher
+  (JP, 18 octobre 2026, sur une main écrasée pour la poser à plat : « laid en tabarnak, t'es-tu sérieux? »). On cherche
+  dans la feuille des mains (`images/_palette-mains-stock.svg`) celle qui a déjà la pose (pour une main à plat paume
+  vers le bas, vue de côté : `1-08` sans son objet), et on regarde le rendu de près avant de l'envoyer.
 - [ ] Une planche du tableau des signalées se refait au complet, jamais par retouche.
 - [ ] **Jamais de cheveux, et le visage seulement quand il sert** (JP, 18 octobre 2026 : « on met jamais les cheveux, je veux plus les voir ; le visage est affiché seulement quand le visage fait une action ou qu'il y a une interaction »). Le moteur des têtes ne dessine plus de cheveux. `visage: true` seulement si la bouche, les yeux ou le nez font le geste (souffler, boire, regarder un point) ou si deux personnes interagissent ; sinon la tête reste nue.
 - [ ] L'eau par `h.a.hachure('eau')` seulement : le bleu pâle et ses vaguelettes (JP, 18 octobre : « fais l'eau plus belle »).

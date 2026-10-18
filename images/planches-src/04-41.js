@@ -153,6 +153,7 @@ module.exports = (h) => {
   };
 
   // ─── Frotter le sac sur un tissu sec ─────────────────────────────────────────────────────────
+  const DY_MAIN = 0;
   const frotter = z => {
     const o = [], yT = z.h - 28;
     // la table, en coupe
@@ -164,32 +165,26 @@ module.exports = (h) => {
     // le sac de plastique, à plat, froissé
     o.push(h.path(lisse([[46, yS + 0.5], [60, yS - 3], [80, yS - 1.5], [100, yS - 4], [124, yS - 2], [146, yS - 3.5], [154, yS], [130, yS + 0.8], [90, yS + 0.8]], true), W(A.arete)));
     for (const x of [64, 92, 118, 140]) o.push(h.path(`M${x} ${f1(yS - 2)} q3 -2 6 0`, A.fin));
-    // la main à plat, la paume sur le sac, vue de dessus et un peu de biais (on voit le dos de la main) : la main
-    // ouverte aux doigts serrés de la bibliothèque, couchée doigts vers la droite, écrasée en hauteur pour la poser sur
-    // la table (JP, 18 octobre 2026 : « la main est à l'envers, paume vers le sol il faut ») ; l'avant-bras sort en
-    // haut à gauche
-    const ky = 0.56;
-    const m = F.mainStock({ id: '6-09', angle: 90, taille: 96, ancre: 'centre', x: 104, y: yS - 20, trait: 1.5 / ky });
-    const bas = m.boite.y1, Hm = m.boite.y1 - m.boite.y0;
-    const ty = yS - 1.5 - bas;                                           // la main touche le sac
-    const ecr = ([x, y]) => [x, bas + (y - bas) * ky + ty];              // le point, une fois la main écrasée et posée
-    // le poignet est le bord gauche de la main couchée (le catalogue ne donne pas sa coupe pour cette main)
-    const p0 = ecr([m.boite.x0 + 0.5, m.boite.y0 + 0.27 * Hm]), p1 = ecr([m.boite.x0 + 0.5, m.boite.y0 + 0.89 * Hm]);
-    // l'avant-bras, derrière la main : il part vers la gauche en montant un peu (la personne est debout à la table),
-    // et s'élargit jusqu'au bord de la vue
-    const v = [-60, -26], n = Math.hypot(...v), u = [v[0] / n, v[1] / n];
-    const L = p0[0] / -u[0];                                              // jusqu'au bord gauche de la vue
-    let perp = [-u[1], u[0]];
-    if ((p1[0] - p0[0]) * perp[0] + (p1[1] - p0[1]) * perp[1] < 0) perp = [-perp[0], -perp[1]];   // du côté de p1
-    const q0 = [p0[0] + u[0] * L, p0[1] + u[1] * L];
-    const q1 = [q0[0] + perp[0] * 26, q0[1] + perp[1] * 26];
-    // le fond blanc, puis les deux bords seulement : l'avant-bras sort de la vue, il n'a pas de bout
-    o.push(h.path(`M${f1(p0[0] + 3)} ${f1(p0[1])} L${f1(q0[0])} ${f1(q0[1])} L${f1(q1[0])} ${f1(q1[1])} L${f1(p1[0] + 3)} ${f1(p1[1])} Z`, 'fill="#FFFFFF" stroke="none"'));
-    o.push(h.path(`M${f1(q0[0])} ${f1(q0[1])} L${f1(p0[0] + 3)} ${f1(p0[1])}`, A.arete));
-    o.push(h.path(`M${f1(q1[0])} ${f1(q1[1])} L${f1(p1[0] + 3)} ${f1(p1[1])}`, A.arete));
-    o.push(`<g transform="translate(0 ${f1(bas + ty)}) scale(1 ${ky}) translate(0 ${f1(-bas)})">${m.svg}</g>`);
+    // la main à plat sur le sac, paume vers le bas, vue de côté : la main 1-08 de la bibliothèque, sans sa tige
+    // (JP, 18 octobre 2026 : « la main est à l'envers, paume vers le sol il faut », puis, sur la main écrasée : « laid »).
+    // Elle penche un peu, le poignet plus haut que les doigts ; l'avant-bras continue la main jusqu'au bord gauche.
+    const ANG = 8, T = 96, CX = 108, CY = yS - 22 + DY_MAIN;
+    const m = F.mainStock({ id: '1-08', objet: false, taille: T, angle: ANG, ancre: 'centre', x: CX, y: CY });
+    const m0 = F.mainStock({ id: '1-08', objet: false, taille: T, angle: 0, ancre: 'centre', x: CX, y: CY });
+    const Hm = m0.boite.y1 - m0.boite.y0, th = ANG * RAD;
+    const tourne = ([x, y]) => [CX + (x - CX) * Math.cos(th) - (y - CY) * Math.sin(th), CY + (x - CX) * Math.sin(th) + (y - CY) * Math.cos(th)];
+    // la coupe du poignet, relevée sur le dessin de la main (le catalogue ne la donne pas juste pour celle-ci)
+    const pH = tourne([m0.boite.x0 + 10, m0.boite.y0 + 0.145 * Hm]), pB = tourne([m0.boite.x0 + 10, m0.boite.y0 + 0.86 * Hm]);
+    const u = [-Math.cos(th), -Math.sin(th)];
+    const L = pH[0] / -u[0] + 2;
+    const qH = [pH[0] + u[0] * L, pH[1] + u[1] * L], qB = [pB[0] + u[0] * L, pB[1] + u[1] * L];
+    o.push(m.svg);
+    // l'avant-bras par-dessus la coupe : le fond blanc, puis ses deux bords (il sort de la vue, il n'a pas de bout)
+    o.push(h.path(`M${f1(pH[0])} ${f1(pH[1])} L${f1(qH[0])} ${f1(qH[1])} L${f1(qB[0])} ${f1(qB[1])} L${f1(pB[0])} ${f1(pB[1])} Z`, 'fill="#FFFFFF" stroke="none"'));
+    o.push(h.path(`M${f1(qH[0])} ${f1(qH[1])} L${f1(pH[0])} ${f1(pH[1])}`, A.arete));
+    o.push(h.path(`M${f1(qB[0])} ${f1(qB[1])} L${f1(pB[0])} ${f1(pB[1])}`, A.arete));
     // le geste : frotter, aller et retour, au-dessus du dos de la main
-    o.push(h.geste(`M${f1(70)} ${f1(yS - 40)} L${f1(150)} ${f1(yS - 40)}`, { double: true }));
+    o.push(h.geste(`M${f1(84)} ${f1(yS - 60)} L${f1(160)} ${f1(yS - 60)}`, { double: true }));
     return { svg: o.join('\n'), r: [] };
   };
 
