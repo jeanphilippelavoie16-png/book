@@ -352,16 +352,11 @@ def _render(blocks, lead=False):
         prev = k
     return out
 
-XICONES = {   # glyphes blancs, 24 × 24
-    "savoir": '<svg viewBox="0 0 24 24"><path d="M20 3c-6 1-11 5-13 11l-2 7 2-1c1-3 2-4 4-5 4-1 7-4 9-12zM9 15c1-3 4-6 8-8-2 3-4 6-8 8z"/></svg>',
-    "photo": '<svg viewBox="0 0 24 24"><path d="M12 2c-1 3-4 5-4 9 0 2 1 4 3 5v6h2v-6c2-1 3-3 3-5 0-4-3-6-4-9zm-1 13c-1-1-1-2-1-4 0-2 1-3 2-5v9h-1z"/></svg>',
-    "dessin": '<svg viewBox="0 0 24 24"><path d="M3 17.3V21h3.7L17.8 9.9l-3.7-3.7L3 17.3zM20.7 7c.4-.4.4-1 0-1.4l-2.3-2.3c-.4-.4-1-.4-1.4 0l-1.8 1.8 3.7 3.7L20.7 7z"/></svg>',
-}
-
 def extras_html(s):
     """Section « En plus » (JP, 18 octobre 2026 : « fais un mixte et mets des encadrés pour montrer que c'est de
     l'extra, en vert pâle ») : une réserve d'encadrés, un par « ### Titre », que chapitre.js pose dans les trous des
-    pages (fillExtras). Une ligne « ![légende](images/...) » met une photo ou une petite planche dans l'encadré."""
+    pages (fillExtras). Une ligne « ![légende](images/...jpg) » met une photo dans l'encadré ; jamais de planche
+    (JP, 18 octobre 2026 : « je veux pas de planche dans les affaires vertes : photo, ou faits, ou façon »)."""
     out, cur = [], None
     for l in s["lines"]:
         if l.startswith("### "):
@@ -371,17 +366,19 @@ def extras_html(s):
     boites = []
     for x in out:
         imgs = [(m.group(1), m.group(2)) for m in (re.match(r"^\s*!\[([^\]]*)\]\(([^)]+)\)\s*$", l) for l in x["lines"]) if m]
+        for _, src in imgs:
+            if not src.lower().endswith((".jpg", ".jpeg")):
+                print(f"  avertissement : « {x['t']} » : {src} n'est pas une photo, il ne s'imprime pas (pas de planche en encadré)")
+        imgs = [(c, src) for c, src in imgs if src.lower().endswith((".jpg", ".jpeg"))]
         corps = [l for l in x["lines"] if not re.match(r"^\s*!\[", l)]
         texte = "".join(h for h, _ in render(parse(corps)))
         fig = "".join(f'<figure class="xfig"><img src="{REL_ROOT + src}" alt="">'
                       + (f"<figcaption>{il(cap)}</figcaption>" if cap else "") + "</figure>" for cap, src in imgs)
+        # une note laissée dans le texte, pas une bulle (JP, 18 octobre 2026 : « genre des notes laissées doucement dans
+        # le texte ; la bulle est trop invasive ») : la mention En plus, le titre, la photo s'il y en a une, le texte
         cls = "extra ximg" if imgs else "extra"
-        # la pastille dit le genre (JP, 18 octobre 2026 : « plus beau, des bulles plus stylisées ») : une photo, un
-        # dessin, ou un savoir (la façon des Innus…)
-        genre = "photo" if any(s.lower().endswith((".jpg", ".jpeg")) for _, s in imgs) else "dessin" if imgs else "savoir"
-        boites.append(f'<div class="{cls} x-{genre}"><div class="xhead"><span class="xico">{XICONES[genre]}</span>'
-                      f'<span class="xtt"><span class="xlab">En plus</span><span class="xtit">{il(x["t"])}</span></span></div>'
-                      f'<div class="xcorps">{fig}<div class="xtxt">{texte}</div></div></div>')
+        boites.append(f'<div class="{cls}"><div class="xhead"><span class="xlab">En plus</span> '
+                      f'<span class="xtit">{il(x["t"])}</span></div>{fig}<div class="xtxt">{texte}</div></div>')
     return boites
 
 def h2(n, title):

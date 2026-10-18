@@ -52,47 +52,27 @@ function orPages(){   // les planches de l'orange : pleine page sur leur propre 
     if(b.dataset.plate === 'full'){ const pp = mkPage('plate', b); pp.story = 'o'; } else orTop.push(b);
   });
 }
-// les encadrés « En plus » (JP, 18 octobre 2026 : « fais un mixte et mets des encadrés pour montrer que c'est de
-// l'extra, en vert pâle ») : quand une page se ferme avec un vrai trou en bas, on y pose ceux qui tiennent, dans
-// l'ordre du chapitre ; ceux qui ne trouvent aucun trou ne s'impriment pas (avertissement)
+// les notes « En plus » (JP, 18 octobre 2026 : « des notes laissées doucement dans le texte » ; « je veux pas qu'ils
+// soient cordés ») : quand une page se ferme sur un cadre de texte qui a de la place, la première note qui tient entre
+// dans ce cadre, à la suite du texte, dans sa colonne ; une seule par page. Une note qui ne trouve aucune page ne
+// s'imprime pas (avertissement). Jamais sous une série orange, un encadré ou des notes de bas de page : seulement à la
+// suite d'un cadre de texte.
 function fillExtras(p){
   if(!p || !EXTRAS.length || !(p.kind === 'text' || p.kind === 'open')) return false;
-  const last = p.bl.lastElementChild;
-  // jamais sous une série orange ou un encadré qui continue à la page suivante, ni sous des notes
-  if(last && (last.classList.contains('fnz') || (last.classList.contains('rg') && !last.classList.contains('fin')))) return false;
-  // la colonne de droite est restée vide (la page se ferme sur une planche, par exemple) : les encadrés s'y empilent,
-  // sur une colonne (JP, 18 octobre 2026 : « dans des pages comme ça, on peut aussi mettre des encadrés verts à droite »)
-  if(last && last.classList.contains('frame') && last.children.length){
-    const r = last.getBoundingClientRect(), b0 = p.bl.getBoundingClientRect();
-    const droite = Math.max(...[...last.children].map(c => c.getBoundingClientRect().right));
-    if(droite < r.left + r.width / 2 && r.height > 0.3 * b0.height){
-      const col = document.createElement('div'); col.className = 'xcolz';
-      const gap = 0.22 * 96;
-      col.style.left = (r.left - b0.left + (r.width + gap) / 2) + 'px'; col.style.top = (r.top - b0.top) + 'px';
-      col.style.width = ((r.width - gap) / 2) + 'px';
-      p.bl.appendChild(col); let pose = false;
-      for(let i = 0; i < EXTRAS.length; ){
-        const x = EXTRAS[i]; x.classList.add('xcol'); col.appendChild(x);
-        if(col.getBoundingClientRect().bottom <= r.bottom + 0.5){ EXTRAS.splice(i, 1); pose = true; continue; }
-        col.removeChild(x); x.classList.remove('xcol'); i++;
-      }
-      if(pose) return true;
-      col.remove();
-    }
+  const fr = p.bl.lastElementChild;
+  if(!fr || !fr.classList.contains('frame') || !fr.children.length) return false;
+  const bas = () => p.bl.getBoundingClientRect().bottom + 0.5;
+  // un cadre encore ouvert remplit la page et met tout son texte à gauche : on l'équilibre sur les deux colonnes, la
+  // note vient à la fin
+  const ouvert = !fr.classList.contains('auto');
+  if(ouvert){ fr.classList.add('auto'); if(OVER(fr)){ fr.classList.remove('auto'); return false; } }
+  for(let i = 0; i < EXTRAS.length; i++){
+    const x = EXTRAS[i]; fr.appendChild(x);
+    if(!OVER(fr) && fr.getBoundingClientRect().bottom <= bas()){ EXTRAS.splice(i, 1); return true; }
+    fr.removeChild(x);
   }
-  // un cadre de texte encore ouvert remplit la page (flex) : on l'équilibre pour voir le vrai trou en bas
-  let fr = null;
-  if(last && last.classList.contains('frame') && !last.classList.contains('auto')){ fr = last; fr.classList.add('auto'); }
-  const bl = p.bl, H = bl.getBoundingClientRect().height; let pose = false;
-  if(fr && OVER(fr)){ fr.classList.remove('auto'); return false; }
-  for(let i = 0; i < EXTRAS.length; ){
-    if(free(p) < 0.16 * H) break;
-    const z = document.createElement('div'); z.className = 'xzone'; z.appendChild(EXTRAS[i]); bl.appendChild(z);
-    if(z.getBoundingClientRect().bottom <= bl.getBoundingClientRect().bottom + 0.5){ EXTRAS.splice(i, 1); pose = true; continue; }
-    z.remove(); i++;
-  }
-  if(!pose && fr) fr.classList.remove('auto');
-  return pose;
+  if(ouvert) fr.classList.remove('auto');
+  return false;
 }
 function nextPage(){
   fillExtras(P);

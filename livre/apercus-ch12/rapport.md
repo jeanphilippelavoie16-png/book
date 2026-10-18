@@ -1,7 +1,7 @@
 # Tome 1 · Tenir — rapport d'assemblage
 
-- **Produit le :** 2026-10-18 19:32, par `design/outils/assembler-tome.py 1 --chapitres 12 --hors-ligne --sortie livre/apercus-ch12`
-- **Fichier :** `livre/tome-1/interieur.pdf` — 44 pages, 22.7 Mo
+- **Produit le :** 2026-10-18 19:59, par `design/outils/assembler-tome.py 1 --chapitres 12 --hors-ligne --sortie livre/apercus-ch12`
+- **Fichier :** `livre/tome-1/interieur.pdf` — 44 pages, 23.9 Mo
 - **Ouvertures :** au recto ou au verso (--verso)
 - **Placements :** design/epreuves-livre/placements.json, design/epreuves-livre/placements-tome-1.json
 - **Exigences de Blurb :** `sources/blurb-specifications.md` (relevées le 27 septembre 2026)
@@ -38,14 +38,14 @@ Marqueur `{.orange}` sur l'intertitre ### de la série, dans le Markdown (CLAUDE
 | Rognage (TrimBox) | 8 × 10 po, fond perdu au bord extérieur | recto : reliure à gauche ; verso : à droite | oui |
 | Nombre de pages | pair, de 20 à 440 (papier Standard) | 44 | oui |
 | Page 1 | à droite | ouverture du chapitre 00 | oui |
-| Polices incorporées | toutes | 24 police(s), 0 non incorporée(s) | oui |
-| Taille du fichier | 2 Go au plus | 22.7 Mo | oui |
+| Polices incorporées | toutes | 25 police(s), 0 non incorporée(s) | oui |
+| Taille du fichier | 2 Go au plus | 23.9 Mo | oui |
 | Marques d'imprimeur | aucune | aucune | oui |
 | Couleur | CMJN ou sRVB, sans ton direct | sRVB (Edge) | oui |
 | Noir du texte | 100 % K | noir sRVB (0, 0, 0) : la conversion est faite chez Blurb | à juger sur épreuve |
 | PDF/X | plus exigé en 2026 (le guide de 2010 le demandait) | PDF 1.4 d'Edge, pas PDF/X | à surveiller au téléversement |
 
-Polices du fichier : BarlowCondensed-Bold, BarlowCondensed-ExtraBold, BarlowCondensed-Medium, BarlowCondensed-SemiBold, IBMPlexSansCond-Bold, IBMPlexSansCond-Medium, IBMPlexSansCond-Regular, IBMPlexSansCond-SemiBold, IBMPlexSansCond-SemiBoldItalic, IBMPlexSerif-Bold, IBMPlexSerif-Italic, IBMPlexSerif-Regular, IBMPlexSerif-SemiBold, LiberationSerif, LiberationSerif-Italic, Type 3 sans nom (texte des planches)
+Polices du fichier : BarlowCondensed-Bold, BarlowCondensed-ExtraBold, BarlowCondensed-Medium, BarlowCondensed-SemiBold, IBMPlexSansCond-Bold, IBMPlexSansCond-Italic, IBMPlexSansCond-Medium, IBMPlexSansCond-Regular, IBMPlexSansCond-SemiBold, IBMPlexSansCond-SemiBoldItalic, IBMPlexSerif-Bold, IBMPlexSerif-Italic, IBMPlexSerif-Regular, IBMPlexSerif-SemiBold, LiberationSerif, LiberationSerif-Italic, Type 3 sans nom (texte des planches)
 
 **Caractères tombés hors des polices du livre** (IBM Plex, et les Noto chargées pour ce que Plex n'a pas) : le navigateur les a pris dans une police de secours (incorporée, donc imprimable, mais d'un autre dessin que le texte) :
 
@@ -73,7 +73,8 @@ Aucune photo posée dans ce tome. Les photos téléchargées sous les anciens nu
 
 ## Avertissements
 
-- aucun
+- ch. 12, paginateur : p12-2 : page à moitié vide
+- ch. 12, paginateur : p12-11 : page à moitié vide
 
 ## À savoir avant de téléverser
 

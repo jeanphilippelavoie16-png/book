@@ -6,16 +6,8 @@ des planches de la procédure.
 
 | Fichier | Chapitre | Ce que c'est | Source |
 | --- | --- | --- | --- |
-| `12-corps-mort.svg`, `12-corps-mort.png` | 12, étape 13 | Petite planche (format quart, 340 × 413) : le corps mort vu de dessus avant de remplir, puis en coupe, rempli et tassé | `images/planches-src/extra-12-corps-mort.js` |
 | `12-meleze-hiver.jpg` | 12, encadré « Reconnaître le mélèze, l'hiver » | Montage de deux photos, 3 343 × 1 500 : un mélèze nu l'hiver, puis un rameau et un cône | iNaturalist, originaux dans `originaux/`, crédits dans `images/credits.md` |
 
-## Refaire une petite planche
-
-```bash
-node .claude/skills/planches/scripts/composer-planche.js images/planches-src/extra-12-corps-mort.js
-node .claude/skills/planches/scripts/rendre-planche.js images/extras/12-corps-mort.svg images/extras/12-corps-mort.png
-node .claude/skills/planches/scripts/verifier-planche.js images/extras/12-corps-mort.svg
-```
-
-Le composeur écrit le SVG ici grâce au champ `fichier: 'extras/…'` de la description. Les deux avis « tiède » du
-vérificateur (pas de numéro de planche) sont voulus : une image d'encadré n'a pas de numéro.
+Pas de planche ni de dessin dans un encadré (JP, 18 octobre 2026 : « je veux pas de planche dans les affaires vertes :
+photo, ou faits, ou façon ») : seulement des photos (`.jpg`). Le petit dessin du corps mort (ch. 12) et celui de
+l'argile de l'ancienne mer (ch. 4, jamais dessiné) sont retirés.

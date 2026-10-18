@@ -585,8 +585,6 @@ son tour.
 
 ### L'argile grise de l'ancienne mer
 
-![](images/extras/04-argile-de-la-mer.png)
-
 Après le retrait des glaciers, la mer a couvert les basses terres de la côte jusqu'à plus de 120 m au-dessus de son
 niveau actuel. Elle y a laissé une argile grise, souvent cachée sous la tourbe ou le sable. Une argile qui contient des
 coquillages de mer, loin du rivage, vient de cette ancienne mer. La prendre dans une petite coupe, jamais au pied d'un

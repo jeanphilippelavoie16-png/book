@@ -1135,3 +1135,11 @@ maxime, pronominal ni mise en relief dans la section En plus. Un « d'où » rel
 bosses… d'où les aiguilles sortent ») a été réécrit (« où les aiguilles poussent »). Reste un mot vide signalé dans les
 encadrés, jugé : « toutes ses aiguilles » (le mélèze les perd toutes, c'est le fait). Aucune redite nouvelle.
 Invariants contre la version d'avant les encadrés : rien n'a disparu.
+
+## Encadrés En plus devenus des notes, 18 octobre 2026
+
+JP : « je veux pas de planche dans les affaires vertes : photo, ou faits, ou façon » ; « je veux pas qu'ils soient cordés,
+je veux genre des notes laissées doucement dans le texte, la bulle est trop invasive ». L'encadré « Le corps mort » (petite
+planche) est retiré du chapitre, avec son image (`images/extras/12-corps-mort.*`) et sa source de planche. Il reste cinq
+notes : la literie innue, les trois conifères (photo), les raquettes des Cris, la fenêtre de glace, le mélèze (photo).
+Le moteur en pose une seule par page, à la suite du texte, dans sa colonne ; fond vert pâle sans bordure ni pastille.

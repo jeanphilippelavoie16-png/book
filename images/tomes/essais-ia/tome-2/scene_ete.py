@@ -6,6 +6,10 @@ le quai de bois qui part dans l'eau ; des bouleaux à droite ; herbes et roches 
 
     python3 scene_ete.py            ciel foncé (l'encre)      écrit ete-reference-fonce.svg
     python3 scene_ete.py --clair    ciel clair (le papier)    écrit ete-reference-clair.svg
+    python3 scene_ete.py --clair --sans-reflet                écrit ete-reference-clair-2.svg
+
+Sans reflet : la bande orange sur l'eau disparaît ; le générateur en faisait un soleil couchant posé sur l'eau, et
+le coucher de soleil d'été est la scène du tome 5.
 """
 import math
 import os
@@ -21,7 +25,7 @@ ENC, DBL, PAP, ORA, ORA2, PAP2 = "#5C1A15", "#2E0B08", "#F3EADC", "#EE7219", "#F
 f, pts = st.f, st.pts
 
 
-def scene(clair=False, seed=2207):
+def scene(clair=False, seed=2207, reflet=True):
     s = st.Scene(seed)
     A = s.add
     ciel = PAP if clair else ENC
@@ -51,7 +55,7 @@ def scene(clair=False, seed=2207):
         x, y = s.u(-20, W), s.u(632, 820)
         A(f'<path d="M{f(x)} {f(y)} h{f(s.u(20, 110) * (0.6 + (y - 624) / 200))}" stroke="{trait_eau}" '
           f'stroke-width="{f(s.u(1, 2.4))}" stroke-linecap="round" opacity=".8"/>')
-    for i in range(8):
+    for i in range(8 if reflet else 0):
         y = 634 + i * 9
         A(f'<path d="M{f(470 + s.u(-20, 20))} {y} h{f(140 - i * 12)}" stroke="{ORA}" stroke-width="2.4" stroke-linecap="round" opacity=".8"/>')
 
@@ -149,6 +153,7 @@ def scene(clair=False, seed=2207):
 
 if __name__ == "__main__":
     clair = "--clair" in sys.argv
-    out = os.path.join(ICI, f"ete-reference-{'clair' if clair else 'fonce'}.svg")
-    open(out, "w", encoding="utf-8").write(scene(clair) + "\n")
+    reflet = "--sans-reflet" not in sys.argv
+    out = os.path.join(ICI, f"ete-reference-{'clair' if clair else 'fonce'}{'' if reflet else '-2'}.svg")
+    open(out, "w", encoding="utf-8").write(scene(clair, reflet=reflet) + "\n")
     print(out)

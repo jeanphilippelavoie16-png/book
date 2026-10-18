@@ -729,16 +729,13 @@ def mode_emploi(tome, titre_t, plan):
                "dangers** qui suivent celle-ci.")),
         # les encadrés « En plus » (JP, 18 octobre 2026 : « ajoute-le dans la page d'explication comme pour le orange et
         # le rouge ») : chapitre.css, .extra
-        rang('<span style="display:flex;align-items:center;gap:7pt;padding:6pt 9pt;background:#EDF4E7;border:0.9pt solid #B9D0AC;border-radius:10pt">'
-             '<span style="flex:none;width:20pt;height:20pt;border-radius:50%;background:#4E7A45;display:flex;align-items:center;justify-content:center">'
-             '<svg viewBox="0 0 24 24" style="width:12pt;height:12pt;fill:#fff"><path d="M20 3c-6 1-11 5-13 11l-2 7 2-1c1-3 2-4 4-5 4-1 7-4 9-12zM9 15c1-3 4-6 8-8-2 3-4 6-8 8z"/></svg></span>'
-             '<span style="display:flex;flex-direction:column;gap:1.5pt"><b style="font:700 6.2pt var(--sans);letter-spacing:.14em;'
-             'text-transform:uppercase;color:#5E8B54;white-space:nowrap">En plus</b>'
-             '<b style="font:700 9.6pt var(--sans);color:#2F4A2B">La façon des Innus</b></span></span>',
+        rang('<span style="display:block;padding:4pt 8pt 5pt;background:#EFF5EA;border-radius:2pt;line-height:1.2">'
+             '<b style="font:700 6pt var(--sans);letter-spacing:.14em;text-transform:uppercase;color:#6F9A64">En plus</b> '
+             '<b style="font:600 8.8pt var(--sans);color:#2F4A2B">La façon des Innus</b></span>',
              "En plus",
-             p("Un encadré **vert pâle**, marqué **En plus**, ajoute ce qui est bon à savoir sans être nécessaire au geste : "
-               "une façon de faire des Innus, une photo pour reconnaître un arbre ou une plante, un petit dessin. Il remplit "
-               "un bas de page ; on peut le sauter sans rien manquer de la procédure.")),
+             p("Une note **vert pâle**, marquée **En plus**, laissée dans le texte, ajoute ce qui est bon à savoir sans être "
+               "nécessaire au geste : une façon de faire des Innus ou d'une autre nation du Nord, un fait, une photo pour "
+               "reconnaître un arbre ou une plante. On peut la sauter sans rien manquer de la procédure.")),
         rang('<span class="md-fn">… la peau prend une tache blanche<sup>1</sup> …</span>',
              "Les notes",
              p("Un signe qu'il faut savoir reconnaître (une couleur, une odeur, un son, un test) est décrit en note, en bas de "

@@ -111,11 +111,14 @@ travail.
 ## En plus (section non numérotée, à la fin)
 
 Ajoutée le 18 octobre 2026 (JP : « fais un mixte et mets des encadrés pour montrer que c'est de l'extra, en vert
-pâle »). Une réserve de 4 à 8 encadrés `### Titre`, 30 à 80 mots chacun (JP : « moins de texte »), que la mise en pages pose dans les trous des pages
-(chapitre.js, `fillExtras`) : la façon des Innus (pourquoi elle marche, ce qui la rend dangereuse si on change ses
-conditions), une photo pour reconnaître (`![légende](images/extras/…)`), un petit dessin (`images/extras/`). Ce qui est
-bon à savoir sans être nécessaire au geste ; jamais une redite du chapitre. Un encadré qui ne trouve pas de trou ne
-s'imprime pas, et le rapport de l'assembleur le dit.
+pâle »). Une réserve de 4 à 8 notes `### Titre`, 30 à 80 mots chacune (JP : « moins de texte »), que la mise en pages
+laisse dans le texte (chapitre.js, `fillExtras`) : à la suite du texte d'une page qui a de la place, dans sa colonne,
+**une seule par page** (JP : « je veux pas qu'ils soient cordés ; genre des notes laissées doucement dans le texte, la
+bulle est trop invasive »). Trois genres seulement : la façon des Innus ou d'une autre nation du Nord (pourquoi elle
+marche, ce qui la rend dangereuse si on change ses conditions), un fait, ou une photo pour reconnaître
+(`![légende](images/extras/….jpg)`). **Jamais de planche ni de dessin** (JP : « je veux pas de planche dans les
+affaires vertes »). Ce qui est bon à savoir sans être nécessaire au geste ; jamais une redite du chapitre. Une note qui
+ne trouve pas de page ne s'imprime pas, et le rapport de l'assembleur le dit.
 
 ## Ce qui n'est plus dans le chapitre
 

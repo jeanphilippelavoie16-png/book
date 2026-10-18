@@ -48,13 +48,17 @@ L'urgence
   Un couloir de lien qui passe d'une page à l'autre se tient à 8,7 po, et les boîtes de droite commencent alors à 8,9 po.
 - [ ] **Les encadrés « En plus »** (JP, 18 octobre 2026 : « fais un mixte et mets des encadrés pour montrer que c'est
   de l'extra, en vert pâle ») : une section non numérotée `## En plus` à la fin du chapitre, un `### Titre` par encadré,
-  **30 à 80 mots** (JP, même jour : « moins de texte ») ; un mélange de trois sortes : la façon des Innus (ou d'une autre nation du Nord, avec pourquoi elle
-  marche et ce qui la rend dangereuse si on change ses conditions), une photo pour reconnaître (ligne
-  `![légende](images/extras/…)`, licence dans `images/credits.md`), un petit dessin (`images/extras/`, jamais nommé
-  `planche-NN-…`). Ce qui est bon à savoir sans être nécessaire au geste ; rien de ce que le chapitre dit déjà. Le
-  moteur les pose dans les trous des pages, en bas ou dans une colonne de droite restée vide (JP : « on peut aussi
-  mettre des encadrés verts à droite ») ; une réserve de **4 à 8** par chapitre, parce qu'un chapitre a plusieurs trous ; un encadré qui ne trouve pas de trou ne s'imprime pas, et une page qui ne
-  porterait que des encadrés compte comme blanche (JP : « un encadré qui occupe une page tout seul, c'est inutile »).
+  **30 à 80 mots** (JP, même jour : « moins de texte ») ; un mélange de trois sortes seulement : la façon des Innus (ou
+  d'une autre nation du Nord, avec pourquoi elle marche et ce qui la rend dangereuse si on change ses conditions), un
+  fait, une photo pour reconnaître (ligne `![légende](images/extras/….jpg)`, licence dans `images/credits.md`).
+  **Jamais de planche ni de dessin** (JP : « je veux pas de planche dans les affaires vertes : photo, ou faits, ou
+  façon »). Ce qui est bon à savoir sans être nécessaire au geste ; rien de ce que le chapitre dit déjà. Ce sont des
+  **notes laissées dans le texte**, pas des bulles (JP : « genre des notes laissées doucement dans le texte, la bulle
+  est trop invasive ») : fond vert pâle, sans bordure ni pastille, dans une colonne, à la suite du texte d'une page qui
+  a de la place (en bas, ou en haut d'une colonne de droite restée vide) ; **une seule par page**, jamais empilées (JP :
+  « je veux pas qu'ils soient cordés »). Une réserve de **4 à 8** par chapitre ; une note qui ne trouve pas de page ne
+  s'imprime pas ; jamais une page qui ne porte que des notes (JP : « un encadré qui occupe une page tout seul, c'est
+  inutile »).
 - [ ] Le logigramme vient après le Matériel ; il ne redit aucun avertissement ; ses boîtes sont des phrases
   complètes (pas d'étiquette en raccourci).
 

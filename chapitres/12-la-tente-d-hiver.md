@@ -601,12 +601,6 @@ Le sapin baumier a des aiguilles plates, sur deux rangs, avec des bandes blanche
 fort. L'épinette noire a des aiguilles courtes, de 8 à 15 mm, d'un vert grisâtre, serrées le long du rameau. Le cèdre
 n'a pas d'aiguilles : de petites écailles sur des rameaux plats, en éventail (étape 13).
 
-### Le corps mort
-
-![](images/extras/12-corps-mort.png)
-
-L'amarrage de l'étape 27 : vu de dessus avant de remplir le trou, puis en coupe une fois la neige tassée.
-
 ### Planter ses raquettes debout près de la porte
 
 Chez les Cris de Wemindji, quand on s'arrête pour la nuit, on plante ses raquettes debout dans la neige, à côté de
