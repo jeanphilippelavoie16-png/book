@@ -73,7 +73,7 @@ class Dessin:
         gid = f"lu{len(self.o) - 1}"
         self.A(f'<ellipse cx="{cx}" cy="{cy}" rx="{rx}" ry="{ry}" fill="url(#{gid})"/>')
         # la lumière taillée : des coups de gouge orange autour de la source
-        for _ in range(int(26 * force)):
+        for _ in range(int(14 * force)):
             a = self.u(0, 2 * math.pi)
             d = self.u(0.45, 0.95)
             x, y = cx + math.cos(a) * rx * d, cy + math.sin(a) * ry * d
@@ -81,7 +81,7 @@ class Dessin:
                 continue
             l = self.u(10, 26)
             self.A(f'<path d="M{x:.0f} {y:.0f} q{l / 2:.0f} -1.5 {l:.0f} 0" fill="none" stroke="{ORA}" stroke-width="{self.u(1.4, 2.6):.1f}" '
-                   f'stroke-linecap="round" opacity=".55"/>')
+                   f'stroke-linecap="round" opacity=".3"/>')
 
     # ------------------------------------------------------------------ la table
     def table(self, x0, x1, y, nappe=True, pattes=True):
@@ -100,6 +100,12 @@ class Dessin:
             haut = y + 18
         A(f'<rect x="{x0}" y="{haut}" width="{x1 - x0 + 8}" height="12" fill="{d}"/>')
         A(f'<path d="M{x0 + 4} {haut + 6} H{x1}" stroke="{PAP}" stroke-width="1.2" opacity=".6"/>')
+        if not pattes:       # cadrage serré : le corps de la table descend jusqu'au bas de la page, gravé de fil de bois
+            A(f'<rect x="{x0}" y="{haut + 12}" width="{x1 - x0 + 8}" height="{H}" fill="{d}"/>')
+            for k in range(int((x1 - x0) / 26)):
+                xx = x0 + 10 + k * 26 + self.u(-4, 4)
+                A(f'<path d="M{xx:.0f} {haut + 20} q{self.u(-6, 6):.0f} {(H - haut) / 2:.0f} {self.u(-4, 4):.0f} {H - haut:.0f}" fill="none" '
+                  f'stroke="{PAP}" stroke-width="1.1" opacity=".4"/>')
         if pattes:
             for x in (x0 + 26, x1 - 30):
                 A(f'<rect x="{x}" y="{haut + 12}" width="22" height="{H}" fill="{d}"/>')
@@ -348,7 +354,7 @@ def E_pres_papier(d):
     d.mortier(410, 718, 1.2)
     d.bassin(470, 718, 160, vapeur_haut=480)
     d.linge(640, 720, 96)
-    d.rameau(260, 700, 0, 0)
+    d.rameau(250, 732, 180, -3)
 
 
 def F_large_papier(d):
