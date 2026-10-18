@@ -1,0 +1,29 @@
+{'id': 'fa71351c-8290-405a-9a52-7291a9a0dbdd', 'kudos': 14.0}
+0 0 0 False
+16 557 206 False
+32 525 197 False
+47 508 186 False
+63 476 177 False
+78 451 165 False
+93 432 152 False
+109 417 142 False
+124 404 135 False
+140 401 146 False
+156 377 126 False
+171 365 139 False
+187 355 147 False
+202 326 135 False
+217 319 142 False
+233 311 127 False
+249 311 125 False
+265 291 114 False
+280 280 112 False
+295 285 123 False
+311 273 109 False
+327 292 120 False
+342 30 0 False
+358 13 0 False
+374 0 0 True
+ok t4-r2-albedo-70 0 AlbedoBase XL (SDXL)
+ok t4-r2-albedo-70 1 AlbedoBase XL (SDXL)
+FIN

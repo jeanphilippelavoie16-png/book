@@ -75,7 +75,7 @@
       "temps": "40 min",
       "taille": 10.5,
       "texte": "**Décider tout de suite de passer la nuit sur place**, et commencer avant le coucher du soleil : le bois de toute la nuit, l'abri, le lit, puis le feu.",
-      "renvoi": "ch. 12, étape 89",
+      "renvoi": "ch. 12, étape 1",
       "source": "étape 89"
     },
     {
@@ -86,7 +86,7 @@
       "ancre": "haut",
       "taille": 10.5,
       "texte": "**Couper tout le bois de la nuit avant la noirceur** : l'épinette morte debout, et deux ou trois grosses billes sèches pour le feu long. Envoyer les enfants ramasser les branches mortes.",
-      "renvoi": "ch. 12, étapes 90 et 91",
+      "renvoi": "ch. 12, étapes 2 et 3",
       "source": "étapes 90 et 91"
     },
     {
@@ -107,7 +107,7 @@
       "ancre": "haut",
       "taille": 10,
       "texte": "**Monter l'appentis, le dos au vent** : la bâche du faîte jusque dans la neige. Sans bâche, des perches couvertes de sapin, du bas vers le haut.",
-      "renvoi": "ch. 12, étapes 92 et 93",
+      "renvoi": "ch. 12, étapes 4 et 5",
       "source": "étapes 92 et 93"
     },
     {
@@ -118,7 +118,7 @@
       "ancre": "haut",
       "taille": 10,
       "texte": "**Faire un lit de sapinage en écailles**, de 15 à 30 cm d'épaisseur.",
-      "renvoi": "ch. 12, étape 94",
+      "renvoi": "ch. 12, étape 6",
       "source": "étape 94"
     },
     {
@@ -129,7 +129,7 @@
       "ancre": "haut",
       "taille": 10,
       "texte": "**Faire le feu long sur une plateforme de billes vertes** : trois billes de la longueur de l'abri, et un mur de billes derrière. On doit pouvoir garder la main sur la bâche.",
-      "renvoi": "ch. 12, étapes 95 à 98",
+      "renvoi": "ch. 12, étapes 7 à 10",
       "source": "étapes 95 à 98"
     },
     {
@@ -140,7 +140,7 @@
       "ancre": "haut",
       "taille": 10,
       "texte": "**Se coucher les pieds au feu**, les enfants entre les adultes. À deux adultes, on se relaie pour surveiller le feu.",
-      "renvoi": "ch. 12, étapes 99 et 100",
+      "renvoi": "ch. 12, étapes 11 et 12",
       "source": "étapes 99 et 100"
     },
     {
@@ -193,7 +193,7 @@
       "ancre": "haut",
       "taille": 10.5,
       "texte": "**Choisir la place** à l'abri du vent, près de l'eau et du bois mort debout. Tourner la porte sous le vent, et placer l'entrée d'air du côté du vent.",
-      "renvoi": "ch. 12, étapes 1 à 4",
+      "renvoi": "ch. 12, étapes 15 à 18",
       "source": "étapes 1 à 4"
     },
     {
@@ -204,7 +204,7 @@
       "ancre": "haut",
       "taille": 10.5,
       "texte": "**Fouler le plancher en bottes, puis en raquettes**, et monter au fond un lit de neige à la hauteur des genoux.",
-      "renvoi": "ch. 12, étapes 5 à 9",
+      "renvoi": "ch. 12, étapes 19 à 23",
       "source": "étapes 5 à 9"
     },
     {
@@ -215,7 +215,7 @@
       "ancre": "haut",
       "taille": 10.5,
       "texte": "**Monter la charpente et la toile, puis renchausser le bas des murs**, sauf à l'entrée d'air basse.",
-      "renvoi": "ch. 12, étapes 10 à 16",
+      "renvoi": "ch. 12, étapes 24 à 30",
       "source": "étapes 10 à 16"
     },
     {
@@ -226,7 +226,7 @@
       "ancre": "haut",
       "taille": 10.5,
       "texte": "**Poser le poêle sur quatre pieux**, passer le tuyau dans la collerette et le monter plus haut que le faîte.",
-      "renvoi": "ch. 12, étapes 18 à 25",
+      "renvoi": "ch. 12, étapes 32 à 39",
       "source": "étapes 18 à 25"
     },
     {
@@ -237,7 +237,7 @@
       "ancre": "haut",
       "taille": 10.5,
       "texte": "**Poser le sapinage en écailles**, du fond vers la porte, sans en mettre dans le rond de neige autour du poêle.",
-      "renvoi": "ch. 12, étapes 26 à 33",
+      "renvoi": "ch. 12, étapes 40 à 47",
       "source": "étapes 26 à 33"
     },
     {
@@ -257,7 +257,7 @@
       "ancre": "haut",
       "taille": 10,
       "texte": "**Il garde une flamme claire**, l'air et la clé ouverts. Les adultes se relaient à chaque recharge.",
-      "renvoi": "ch. 12, étape 34",
+      "renvoi": "ch. 12, étape 48",
       "source": "étape 34"
     },
     {
@@ -268,7 +268,7 @@
       "ancre": "haut",
       "taille": 10,
       "texte": "**Laisser mourir le feu avant que le dernier adulte se couche** : plus une braise rouge dans le poêle.",
-      "renvoi": "ch. 12, étape 34",
+      "renvoi": "ch. 12, étape 48",
       "source": "étape 34"
     }
   ],

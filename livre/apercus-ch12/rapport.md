@@ -1,6 +1,6 @@
 # Tome 1 · Tenir — rapport d'assemblage
 
-- **Produit le :** 2026-10-18 19:29, par `design/outils/assembler-tome.py 1 --chapitres 12 --hors-ligne --sortie livre/apercus-ch12`
+- **Produit le :** 2026-10-18 19:32, par `design/outils/assembler-tome.py 1 --chapitres 12 --hors-ligne --sortie livre/apercus-ch12`
 - **Fichier :** `livre/tome-1/interieur.pdf` — 44 pages, 22.7 Mo
 - **Ouvertures :** au recto ou au verso (--verso)
 - **Placements :** design/epreuves-livre/placements.json, design/epreuves-livre/placements-tome-1.json
@@ -28,7 +28,7 @@ Marqueur `{.orange}` sur l'intertitre ### de la série, dans le Markdown (CLAUDE
 
 | Ch. | Pages du tome |
 | --- | --- |
-| 12 | 40, 41, 42 |
+| 12 | 22, 23 |
 
 ## Contrôle Blurb
 
@@ -63,7 +63,7 @@ Les planches de `images/a-valider/` sont posées comme les validées (JP les rel
 
 | Ch. | Posées (page du tome) | Mentionnées dans le texte sans planche dessinée | À valider, non posées | Photos demandées encore à acquérir (credits.md) |
 | --- | --- | --- | --- | ---: |
-| 12 | 12-01b (23, pleine), 12-01a (25, pleine), 12-02 (27, pleine), 12-03 (30, pleine), 12-04 (32, pleine), 12-06a (34, pleine), 12-05a (36, pleine), 12-05b (37, pleine), 12-06b (43, pleine), 12-tente-d-hiver-livre (20, double page) | — | — | 0 (ancien 16c) |
+| 12 | 12-01b (25, pleine), 12-01a (27, pleine), 12-02 (29, pleine), 12-03 (32, pleine), 12-04 (34, pleine), 12-06a (36, pleine), 12-05a (38, pleine), 12-05b (39, pleine), 12-06b (43, pleine), 12-tente-d-hiver-livre (20, double page) | — | — | 0 (ancien 16c) |
 
 ## Crédits des images — hors du livre
 

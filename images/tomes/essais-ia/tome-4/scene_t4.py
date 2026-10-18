@@ -5,8 +5,12 @@ premier plan, le fumoir en planches (porte entrouverte, lueur orange, fumée), l
 trois quartiers enveloppés, la porte du caveau dans la butte ; le chalet plus loin, fenêtre orange.
 
     PYTHONDONTWRITEBYTECODE=1 python3 scene_t4.py [variante]     écrit t4-depart[-variante].svg
+    sh rasteriser.sh t4-depart-3.svg t4-depart-3.png               le PNG à donner au générateur
 
-Variante « sechoir » : le bord du lac, le séchoir à poisson au-dessus du feu, le fumoir, le canot renversé.
+Sans variante : le fumoir (t4-depart.svg, renommé t4-depart-3.svg ; -1 et -2 sont les états précédents du même
+dessin : sacs pâles sur la neige, puis fourré sombre derrière les sacs et pierres du caveau).
+Variante « sechoir » : le bord du lac, le séchoir à poisson au-dessus du feu, le fumoir, le canot renversé (tour 1).
+Variante « lac » : le bord du lac au couchant, le séchoir à truites au-dessus du feu, le canot, le chalet (tours 3 et 4).
 Réutilise les épinettes de images/tomes/scene_titre.py (lecture seule).
 """
 import math

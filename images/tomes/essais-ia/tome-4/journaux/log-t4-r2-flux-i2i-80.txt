@@ -1,0 +1,35 @@
+{'id': '41bbc114-3b5e-49d3-bb70-4791a6e7c1e4', 'kudos': 6.0}
+0 578 217 False
+16 557 207 False
+31 525 198 False
+47 503 185 False
+63 477 180 False
+78 462 171 False
+94 434 154 False
+109 418 143 False
+125 406 140 False
+140 402 147 False
+156 380 131 False
+171 367 152 False
+187 363 152 False
+203 325 133 False
+218 317 138 False
+234 315 130 False
+249 307 126 False
+265 292 115 False
+280 280 113 False
+295 285 123 False
+311 274 110 False
+326 292 121 False
+342 274 107 False
+357 251 93 False
+373 244 80 False
+389 220 72 False
+404 205 60 False
+419 194 49 False
+436 186 43 False
+451 0 0 False
+467 0 0 True
+ok t4-r2-flux-i2i-80 0 Flux.1-Schnell fp8 (Compact)
+ok t4-r2-flux-i2i-80 1 Flux.1-Schnell fp8 (Compact)
+FIN

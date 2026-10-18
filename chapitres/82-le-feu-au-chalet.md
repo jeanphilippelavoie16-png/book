@@ -462,7 +462,7 @@ l'isolant, et c'est la partie qu'on est tenté de sauter parce qu'elle prend du 
 couché sur la neige nue perd sa chaleur beaucoup plus vite que le même corps dans l'air froid.
 Un feu long, allumé le long du côté ouvert, avec un mur de billes vertes ou de neige tassée
 derrière lui pour renvoyer la chaleur. L'ordre des gestes, l'appentis, le lit et le feu de toute
-la nuit sont au ch. 12 (section 7) ; sans bois sec, c'est la tranchée bâchée de la même section, sans flamme.
+la nuit sont au ch. 12 (étapes 1 à 14) ; sans bois sec, c'est la tranchée bâchée du ch. 12 (section 7), sans flamme.
 
 **Les roches chaudes**, pour réchauffer deux enfants tout de suite. Des roches prises **au sec**,
 jamais dans le lit d'un ruisseau ni au bord du lac, chauffées dans le feu, roulées à la pelle hors

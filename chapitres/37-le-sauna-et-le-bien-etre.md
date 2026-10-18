@@ -244,7 +244,7 @@ presque pas.
  pièce chaude et du coin où on se lave : la vapeur le sort de sa plage ou le fait sonner pour
  rien, et un avertisseur qui sonne pour rien finit ignoré. Bouton d'essai, puis on **lit
  l'affichage** : 0 ppm. Le bouton prouve la pile, le circuit et la sirène, pas la cellule qui
- sent le CO (ch. 12, étape 36).
+ sent le CO (ch. 12, étape 50).
 26. **Boire avant d'entrer.** De l'eau, ou une tisane de sapin baumier (*Abies balsamea*) ou
  d'épinette tiédie. **Jamais de cèdre (thuya, *Thuja occidentalis*)** : sa thuyone est toxique,
  et c'est le sapin ou l'épinette qui donnent la vitamine C (ch. 20).
@@ -586,7 +586,7 @@ que durent les pierres.
  qui marquent la limite qu'on ne franchit pas et qui arrêtent le pied qui glisse. La bâche ne
  touche jamais le bac ni les pierres : une bâche de plastique fond, coule et prend feu au
  contact d'une pierre qui sort d'un feu.
-7. **Le plancher : du sapinage épais, posé en écailles comme au ch. 12 (étapes 26 à 29), gardé loin
+7. **Le plancher : du sapinage épais, posé en écailles comme au ch. 12 (étapes 40 à 43), gardé loin
  du bac.** Le sapinage sec qui touche une pierre chaude s'enflamme ; on garde un rond de sol nu
  autour du bac, comme autour du poêle de la tente.
 
@@ -640,7 +640,7 @@ les pierres au ras du sol.
 La tente à poêle du ch. 12 fait un sauna quand elle est de toile. On monte au-dessus du poêle de
 tôle une petite cage de fil de fer ou de treillis, ni l'un ni l'autre galvanisé, remplie de
 pierres éprouvées. Elle ne repose pas sur la tôle mince du dessus : ses pattes portent sur les
-pieux du ch. 12 (étape 19), ou sur deux traverses de fer liées d'un pieu à l'autre, **jamais
+pieux du ch. 12 (étape 33), ou sur deux traverses de fer liées d'un pieu à l'autre, **jamais
 dans la neige**, qui fond sous le poêle et la ferait pencher contre lui ou contre la toile. Les
 pierres restent sur le poêle, pas autour du tuyau. Toutes les règles du ch. 12 s'appliquent, et
 certaines deviennent plus sévères :
@@ -649,7 +649,7 @@ certaines deviennent plus sévères :
  avant que le dernier adulte se couche ;
 - **l'avertisseur de CO de la tente quitte sa place pendant le sauna** : la chaleur et la vapeur
  le sortent de sa plage, et c'est lui qui gardera la nuit. Il passe dans la poche intérieure de
- celui qui veille, contre le corps, et revient au coucher comme le veut le ch. 12 (étape 36) : bouton d'essai, affichage lu ;
+ celui qui veille, contre le corps, et revient au coucher comme le veut le ch. 12 (étape 50) : bouton d'essai, affichage lu ;
 - **pas d'eau jetée près de la toile** : la vapeur se dépose sur la toile froide, y gèle la nuit
  et retombe en pluie au premier feu du matin, comme le givre d'haleine du ch. 12 ; on arrose
  seulement les pierres, peu à la fois ;

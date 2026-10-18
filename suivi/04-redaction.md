@@ -293,3 +293,305 @@ arrêter ce qui brûle, ouvrir la pièce d'abri sur le reste de la maison et y e
 dehors, et aérer au battant (§9). Le §8, point 3, dit « on reste couché au lieu d'arrêter la source et
 d'aérer ». Source : `sources/04-cdc-abri-ventiler-en-quelques-heures.md` (le CDC fait ventiler la pièce d'abri au
 bout de quelques heures ; aucune source ne fait sortir dehors pendant les retombées).
+
+## Refonte au gabarit à sept sections, pictogrammes et encadrés En plus — 18 octobre 2026
+
+Chapitre test demandé par JP (le dernier avant le tome 1 au complet), refait sur le modèle des ch. 10 et 12. Texte
+d'avant : `git show 8807275~1:chapitres/04-retombees-radioactives.md` (version du 15 octobre, gabarit à neuf sections).
+Numéros de chapitre de cette section : les nouveaux. Fichier en LF (il l'était), gardé en LF.
+
+### Ce qui a changé
+
+- **Sept sections** : 1 En une ligne, 2 Quand l'utiliser, 3 Matériel, 4 Procédure, 5 Points de contrôle, 6 Signes
+  d'échec, 7 Variante d'urgence, plus la section non numérotée « En plus ». « Pourquoi ça marche » et la section 8
+  Danger sont sortis (où chaque bloc est allé : plus bas). Plus aucun « § » : les renvois internes sont des numéros
+  d'étape ou « section 7 » (avec le titre de la sous-section quand il aide : « section 7, « Ventiler la pièce
+  d'abri » »).
+- **Rien sous le titre que `**Les deux**`.** La note de lieu est sortie ; ce qu'elle disait va dans les étapes qui
+  changent d'un lieu à l'autre : le sous-sol ou le caveau (étape 8), l'aqueduc ou le puits (étape 22), l'égout ou la
+  jeter loin du puits (étape 25), le tri des années au chalet (titre « Les mois et les années, au chalet »), la pièce
+  d'abri de la maison et du chalet (étape 34).
+- **Section 2** : seulement les situations, avec leurs étapes. Sortis : la liste « C'est la mauvaise réponse quand »
+  (l'objet radioactif perdu ou volé : JP, 15 octobre, « source radioactive perdue, ça veut rien dire », branche déjà
+  retirée du logigramme ; et « quelques dizaines de mètres » n'a aucune source au dossier) ; le paragraphe sur
+  Gentilly-2 et les zones de planification (statistique d'ambiance) ; « la boîte s'achète (ch. 00b) » passe à
+  l'étape 33.
+- **Numérotation continue des étapes, de 1 à 35**, sans lettres. Les intertitres : trois séries orange (« Un éclair
+  aveuglant », « Le souffle est passé, ou l'alerte est donnée », « Il faut protéger la thyroïde »), puis « Les heures
+  d'abri », « Sortir de l'abri, puis les semaines qui suivent », « Les mois et les années, au chalet », « Avant, une
+  fois ».
+- **Étapes nouvelles** : 11 (écrire l'heure, qui ouvre la série de l'iode ; venue de l'ancienne étape 11), 15 (la
+  solution d'iode pour les bébés, recette de la FDA), 16 (dose unique et contre-indications, avec la Pologne), 19 (la
+  génératrice arrêtée pendant l'abri : `generatrice`, venu de l'ancien Danger, point 3).
+- **Corrigé à la source** :
+  - **Le bouchage ne dure que quelques heures** (CDC, `04-cdc-abri-ventiler-en-quelques-heures.md` : « Within a few
+    hours, you should remove the plastic and duct tape and ventilate the room. Suffocation could occur… »).
+    L'ancien texte bouchait jusqu'à la fin de l'abri (« Au bout de l'abri, déboucher les ouvertures »). Étape 18 et
+    Points de contrôle.
+  - **L'iode après 40 ans** (point ouvert du 15 octobre, `suivi/reste-a-faire.md`) : le tableau garde 130 mg (CDC),
+    et l'étape 13 dit pourquoi l'OMS ne l'indique généralement pas : risque de cancer faible, réactions plus
+    fréquentes, et le comprimé ne sert qu'à empêcher la destruction de la thyroïde par une très forte dose (FDA
+    2002). Quand la boîte manque, les comprimés vont d'abord aux enfants, aux femmes enceintes ou qui allaitent et aux
+    moins de 40 ans.
+  - **Le fil de l'électroscope** (point ouvert du 15 octobre) : « pendues […] à un fil non conducteur » devient un fil
+    de cuivre dénudé ou un trombone déplié qui traverse un bouchon isolant, les feuilles en contact avec lui
+    (`04-nise-2019-electroscope.md`) ; c'est ce que dessine la planche 04-41 (repères 2 et 3). Le KFM de Kearny, qui
+    pend ses feuilles à des fils isolants et charge par un fil à part, n'est plus décrit.
+  - **L'eau** : moins de 2 % de la radioactivité des retombées se dissout (ORNL) ; l'ancien texte disait qu'un filtre à
+    particules laisse passer ce qui compte. Ajouté : la décantation à l'argile (6 h) ; le débit du filtre de terre.
+  - **Les cheveux** : « 2 à 3 semaines après » devient « une à deux semaines plus tard », avec les petites taches de
+    sang et la diarrhée (ORNL).
+  - **Le tableau de l'iode** : « 3 à 12 ans » devient « 4 à 12 ans », et « 1 mois à 3 ans » reste à 32 mg (la fiche de
+    la FDA dit « Older than 1 month to 3 years » ; le tableau CDC dit « Over 3–12 years » : même découpe).
+  - **Le lichen** : il prend la poussière qui tombe dessus (DSA), pas le césium du sol. Légende de la photo corrigée.
+- **Retiré** (sans source au dossier, ou redit d'une page de danger) :
+  - « le gras pur est le morceau le moins chargé en césium » ; « pas de pemmican à la moelle » (aucune source ; la
+    moelle est un gras contre le mal de caribou) ; « le césium suit le potassium jusqu'au muscle » devient « se
+    répartit dans toute la viande » (MOE Japon) ;
+  - « l'orignal mange des champignons à la fin de l'été » (la fiche de l'orignal, `35-mrnf-potvin-2006-…`, dit
+    ramilles, feuilles et plantes aquatiques) ; « le lièvre se nourrit au ras du sol » ; les noms latins ;
+  - « un bidon de 20 L vaut ses 20 kg » et « un mur de bois rond de 200 mm » (aucune source ; la densité est dite par
+    l'ORNL) ; « le toit… y reste jusqu'à la première grosse pluie » ;
+  - « Pas de corps gras, qui fixe la matière » ; « Couper court les cheveux longs » (formule sans source) ; « Ça ferme
+    aussi bien qu'un ruban pour une tasse de farine » ; « Ça se tient trois jours » ; « deux semaines » de sorties
+    courtes sans radio (devient « les semaines suivantes ») ; le molleton taillé au format du filtre de fournaise ;
+    « se tromper de base donne un bain dix fois trop salé » (le sens du facteur dépend de la quantité de viande :
+    remplacé par « 50 g par litre, quelle que soit la quantité de viande ») ; « ni nitrite, ni salpêtre » (la source
+    de 2016 donne 77 % avec du salpêtre : remplacé par « Prendre du sel ordinaire ») ;
+  - le réservoir de la toilette comme réserve d'eau (Matériel) ;
+  - le monoxyde « 200 à 250 fois », « n'a ni odeur ni couleur » : page `co` ; le botulisme de type E et la truite
+    fumée (aucune étape ne fume de poisson ; l'inventaire disait que ce rappel sautait) ;
+  - « ch. 26, section E » devient « ch. 26 » (renvoi à une section d'un chapitre pas encore migré).
+
+### Où sont allés les blocs de l'ancien « Pourquoi ça marche »
+
+| Bloc | Où il est allé |
+| --- | --- |
+| Le rayonnement vient du dépôt sur le sol et les toits ; la masse l'arrête | Étape 4 (le choix du bâtiment) et étape 8 (le mur enterré, l'étage au-dessus) |
+| Maison de bois ÷ 2 ou 3, sous-sol ÷ 10 à 20, auto ÷ moins de 2 | Étape 4 (maison de bois), étape 8 (sous-sol), étape 3 (auto) |
+| L'étanchéité n'y change presque rien | Étape 8 (« L'abri n'a pas besoin d'être étanche ») et étape 18 (le bouchage arrête la poussière, pas le rayonnement) |
+| Plus de la moitié du rayonnement dans la première heure | Étape 4 (pourquoi entrer tout de suite) ; les 80 % du premier jour à l'étape 24 |
+| L'iode stable sature la thyroïde, qui ne distingue pas ; ne protège qu'elle | Étape 12 (OMS 2025 : « elle ne fait pas la différence ») |
+| Le césium 137, 30 ans ; lichen, champignons, poisson des lacs de tête, orignal | Étape 28 (30 ans, champignons) et étape 29 (lichen, poisson des lacs pauvres, orignal) ; « le sol boréal, acide et pauvre en argile, le laisse au lichen » sort : lien de cause sans source |
+
+### Où sont allés les blocs de l'ancienne section 8, Danger
+
+| Point | Où il est allé | Pictogramme |
+| --- | --- | --- |
+| 1. Aucun autre iode que le comprimé de KI ; teinture, povidone, iode à l'eau, sel iodé, suppléments | Étape 12, maintenant sourcé à l'ORNL (« dangerous poisons if taken orally » ; sur la peau, moins de protection et des effets graves), au CDC et à l'OMS (sel, suppléments). « brûlent la bouche, l'œsophage et l'estomac » sort : la source dit « poisons » | `poison` (12) |
+| 2. Le KI sans iode radioactif ; contre-indications ; note [^1] ; pas un antidote | Étape 12 (pas un remède, rien contre le césium) et étape 16 (contre-indications, note [^1] gardée, Pologne) | `poison` (16) |
+| 3. Génératrice, propane, chaufferette ; pièce calfeutrée ; signes du CO pris pour l'irradiation ; avertisseur essayé ; poêle à bois | Étape 18 (bouchage, avertisseur essayé, poêle qui garde son air, signes confondus, ouvrir l'abri sur la maison sans sortir) et étape 19 (génératrice arrêtée pendant l'abri) ; l'odeur, l'hémoglobine : page `co` | `co` (18), `generatrice` (19) |
+| Rappels : 74 °C, trichine, foie et reins, botulisme E, mal de caribou | 74 °C et trichine : étape 32 ; foie et reins (cadmium, ch. 22) et mal de caribou (garder le gras, ch. 19) : étape 30 ; botulisme E : sorti (voir plus haut) | `cuisson`, `trichine` (32) ; `abats`, `mal-de-caribou` (30) |
+
+### Pictogrammes posés (étape → id)
+
+| Étape | Id | Ce qui est propre au chapitre |
+| --- | --- | --- |
+| 12 (l'iode seulement contre l'iode radioactif, en comprimés) | `poison` | Teinture, povidone, comprimés pour l'eau : poisons avalés, ne protègent pas ; sel iodé et suppléments trop faibles |
+| 16 (une seule dose ; contre-indications) | `poison` | Nouveau-né, femme enceinte ou qui allaite, plus de 60 ans ; allergie, Basedow, nodules, Hashimoto, dermatite herpétiforme, vascularite ; note des signes |
+| 18 (boucher quelques heures) | `co` | L'avertisseur essayé avant ; jamais la pièce où brûle un appareil ; les signes pris pour l'irradiation ; ouvrir l'abri sur la maison sans sortir dehors, puis aérer |
+| 19 (génératrice arrêtée pendant l'abri) | `generatrice` | La sortir à 6 m oblige à sortir dans la poussière ; le garage, l'entrée, l'auvent remplissent la maison ; après l'abri, à 6 m pendant une sortie courte |
+| 30 (la carcasse) | `abats`, `mal-de-caribou` | Foie, reins et thyroïde d'une bête exposée (ORNL) ; foie et reins de cervidé de toute façon (cadmium) ; garder le gras |
+| 31 (le trempage de 2 jours) | `zone-de-danger` | Bain tenu entre 0 et 4 °C, comme la saumure du ch. 69 |
+| 32 (cuire à l'eau, 74 °C) | `cuisson`, `trichine` | 74 °C le gibier, 70 °C tenu 1 min le poisson (page `cuisson`) ; ours ou phoque trempé porte encore la trichine |
+
+`zone-de-danger` ajouté au ch. 4 dans `plan/dangers-inventaire.md`, section 1 ; la section 3 (ch. 04) note les
+pictogrammes posés. Concordance avec les pages des dangers vérifiée : génératrice à 6 m (`generatrice`) ; 74 °C et
+70 °C tenu 1 minute (`cuisson`) ; 4 à 60 °C (`zone-de-danger`) ; « ne pas faire vomir » (`poison`, ligne du surdosage
+d'iode) ; aucun chiffre du CO redit.
+
+### Les séries orange et leurs pastilles
+
+Trois séries, un sujet chacune, la scène réelle d'abord (une famille qui n'a rien préparé) :
+
+| Série | Étapes | Pastille | Source du temps |
+| --- | --- | --- | --- |
+| Un éclair aveuglant | 1 à 3 | **30 s** | Le délai entre l'éclair et le souffle : « up to 30 seconds or more » (LLNL 2009, p. 3) ; « tens of seconds » (FEMA 2022, p. 17). Le texte dit « de quelques secondes à plus de 30 secondes », 3 s par km |
+| Le souffle est passé, ou l'alerte est donnée | 4 à 10 | **10 min** | « Fallout will likely take 10 minutes or more to arrive » (FEMA 2022, p. 53) ; « you will have 10 minutes or more to find an adequate shelter » (Ready.gov 2025) |
+| Il faut protéger la thyroïde | 11 à 16 | **2 h** | « jusqu'à 2 heures après le début prévu de l'exposition » : la fin de la période optimale (OMS 2025, `04-oms-2025-iodure-de-potassium.md`) ; l'étape 14 dit aussi 8 h et 24 h |
+
+Le lavage (étape 10) reste dans la deuxième série, comme dans la page du CDC « Get Inside » (entrer, enlever ses
+vêtements, se laver) : c'est le même sujet, entrer propre. La radio sort de l'orange et ouvre « Les heures d'abri »
+(JP, 15 octobre : « la radio, l'inventaire, le tri viennent quand tout le monde est à l'abri »). L'heure écrite sur le
+cadre de porte ouvre la série de l'iode, parce que le délai de l'iode se compte à partir d'elle. Plus de partie
+« le détail » : tout est dans l'orange.
+
+### Le logigramme
+
+`images/logigrammes/04-retombees.json`, rendus refaits : `04-retombees.svg`, `.pdf`, `.png`, et
+`04-retombees-livre.svg` (`--sans-entete --svg`) ; contrôle **0 erreur, 0 avis**, regardé à l'image. Colonnes de
+droite (`tronc2`, `cote2`, le couloir à 8,7 po) gardées telles quelles. Changements :
+
+- renvois aux nouvelles étapes (« ch. 4, étape 11 », « étapes 13 à 16 », « étapes 17 à 23 », « étape 24 et section 7 »,
+  « étape 25 », « étapes 28 à 32 ») ; plus aucun « § » ;
+- pastilles : 30 s, 10 min (inchangées) ; « 1 h » enlevée de la boîte « Se laver » (elle fait partie de la série de
+  10 min) ; **2 h** sur la boîte « Écrire l'heure de l'éclair ou de l'alerte », qui ouvre la série de l'iode ; « 24 h »
+  et « 48 h » enlevées des boîtes non orange (ce ne sont pas des temps qu'on a ; la question et la boîte disent déjà
+  24 h et 48 h) ;
+- la boîte « Allumer la radio » devient « Écrire l'heure… » ; la radio passe dans « Pendant l'abri : ouvrir la radio,
+  boucher les courants d'air quelques heures, manger ce qui était fermé et boire l'eau mise de côté » ;
+- « Aucun autre iode ne protège : ni la teinture, ni la Bétadine, ni le sel iodé » sort (avertissement redit) ; la
+  boîte dit le geste : « Ne pas avaler d'iode radioactif : pendant 6 à 8 semaines, pas de lait frais… » ;
+- l'encadré danger « Le CO ressemble à l'irradiation » reste : il change la décision (on ne sort pas dehors, on ouvre
+  l'abri sur la maison) ; renvoi à l'étape 18 ;
+- « Déboucher les ouvertures et sortir les filtres » devient « Remplacer les filtres de la fournaise et les sortir
+  dans un sac fermé » (le débouchage se fait au bout de quelques heures, étape 18) ;
+- au chalet, « Descendre au sous-sol… Au chalet, aller au caveau » ; « Rentrer les animaux à portée ».
+
+Ancre : `"apres": "**Dosimètre ou compteur Geiger**"` (dernière ligne du Matériel) au lieu de « Se mettre à couvert à
+l'éclair » (qui était l'En une ligne).
+
+### Planches : appels, repères et ancrages
+
+| Planche | Paragraphe d'appel et ancre `apres` | Repères appelés, dans l'ordre du texte |
+| --- | --- | --- |
+| 04-01a | « Si l'alerte tombe au chalet, ou si la route vers la ville est coupée » (section 7, « Sans sous-sol ni caveau ») | 1, 2, 3, 4 ; 5, 6 (refuge) ; 7, 8 (autre façon) ; 9, 10, 11 (sacs) ; 3 (neige, rappel) |
+| 04-41 | « Sans appareil, on ne sait pas si la poussière reçue est négligeable ou grave » (section 7, l'électroscope) | 1 à 7 (montage) ; 6 (gypse, rappel) ; 8, 9, 10 (lire) |
+| 04-01b | « **La pompe à carton** : on la monte dans la porte de la pièce d'abri » (section 7, « Ventiler la pièce d'abri ») | 1 à 11, dans l'ordre |
+| 04-42 | « *Le filtre de terre* (planche 04-42). » (section 7, « Sans eau fermée ») | 1 à 6 (montage), 7 et 8 (où prendre la terre), 9 (le boudin) |
+| 04-40 | « Monter l'entrée avec deux bâches ou deux couvertures accrochées en chicane » (section 7) | 7, 8 (bâches, bac) ; 9 à 12 (costume) ; 1 à 6 (le retour) |
+
+Chaque `apres` tombe sur un seul paragraphe et en est le début (vérifié par script, avec la logique de `place()` de
+`build_chapitre.py`). **04-42 est ajoutée aux placements** : elle est dans `images/a-valider/` (corrigée après la
+remarque « butcher » : le boudin seul, sans mains), le texte ne l'appelait pas, et l'assembleur la posait par repli à
+la fin de la procédure. À trancher par JP si elle reste à valider.
+
+**Montage d'essai** (`assembler-tome.py 1 --chapitres 04 --hors-ligne --sortie` dans le scratchpad, rien d'écrit dans
+`livre/`) : 22 pages. Chaque appel tombe sur sa propre page et sa planche sur la page suivante : 04-01a (appel p. 13,
+planche p. 14 du chapitre), 04-41 (15, 16), 04-01b (17, 18), 04-42 (19, 20), 04-40 (21, 22). Pour y arriver, les
+sous-sections de la section 7 sont dans cet ordre : sans iode, la masse, la radio, l'électroscope, ventiler, sans
+ruban, sans eau chaude, sans eau fermée, sans sel, sans viande, l'entrée en chicane, ce qui ne se remplace pas. Le
+logigramme tombe en p. 3-4, la photo du lichen p. 10, les deux encadrés En plus p. 2 (la page à moitié vide devant le
+logigramme). **Pour le metteur en pages** : les tableaux des sections 5 et 6 débordent de deux ou trois lignes sur la
+page suivante (« Le tableau continue page suivante ») : à resserrer au montage, après la vérification et l'édition.
+
+**Pour l'agent des planches (rien redessiné)** :
+- **04-40** : l'ordre des repères ne suit pas l'ordre des gestes. Le texte bâtit d'abord l'entrée (bâches 7, bac 8),
+  puis le costume (9 à 12), puis le retour (1 à 6). Règle : renuméroter bâches 1, bac 2, costume 3 à 6, retour 7 à 12.
+  Le titre dit encore « Le sas » : JP accepte « sas » hors des premières minutes (15 octobre) ; le texte dit
+  « l'entrée en chicane ».
+- **04-01a** : l'encadré rouge du bas (« Un poêle au propane, une chaufferette ou une génératrice dans l'abri fermé tue
+  avant les retombées. Le monoxyde n'a ni odeur ni couleur… ») redit les pages `co` et `generatrice` : à enlever,
+  le pictogramme de l'étape 18 et de l'étape 19 le porte. Le repère 4 dit « eau, farine, livres sous la fenêtre » :
+  le texte dit aussi « contre les murs ». Le texte ne parle plus de matelas.
+- **04-01b** : la légende du repère 7 dit « jambage » (mot de métier) ; le texte dit « le cadre de la porte ». Le
+  battant n'a pas de clapet : le KAP de Kearny en a (voir `[À VÉRIFIER]`) ; si JP veut une pompe sûre, la planche est
+  à refaire sur le KAP, ou remplacée par l'éventail de carton (sourcé).
+- **04-41** : le fil doit se lire comme un fil de métal (cuivre ou trombone) ; le titre de la vue « Le bouchon, en
+  coupe » montre le fil qui traverse le bouchon : conforme. La vue « Lire » montre une montre : conforme au
+  « temps fixe ».
+- **04-42** : le linge du fond doit dépasser d'environ 8 cm et les trous être près du centre (ORNL) ; la vue de la
+  chaudière posée sur deux bâtons au-dessus d'un contenant plus large (le dessin montre une chaudière dans une autre,
+  sans bâtons). Le repère 9 montre le boudin ; le texte ajoute le ruban entre le pouce et l'index (CSU).
+
+### Photo
+
+`images/photos/tri/04-lichen-caribous-tapis.jpg` : ancre « **Trier le gibier, du plus exposé au moins exposé.** » ;
+légende « Il prend le césium du sol » devient « Il prend directement la poussière radioactive qui tombe dessus »
+(DSA Norvège : « lichen can absorb large amounts of fallout directly from the surface »).
+
+### Chiffres et faits nouveaux, avec leur source
+
+| Fait | Où | Source |
+| --- | --- | --- |
+| La solution : deux comprimés de 65 mg, 20 mL d'eau, 1 min, écrasés, 20 mL de boisson ; 5, 10 et 20 mL ; 7 jours au froid | Étape 15 | `04-fda-solution-ki-et-questions-reponses.md` (fiches de la FDA, 2012) |
+| Nouveau-né : trop d'iode peut ralentir la thyroïde pour un temps ; pas de dose répétée (enceinte, nouveau-né) | Étape 16 | Même fiche, FDA 2002 |
+| Plus de 40 ans : le comprimé ne sert que contre une dose qui détruirait la thyroïde | Étape 13 | FDA 2002 ; OMS 2025 |
+| Pologne : 7 millions d'adultes, deux réactions graves, chez des allergiques connus | Étape 16 | FDA 2002 |
+| Maladies de la thyroïde (Basedow, nodules, Hashimoto) : ne pas en prendre ; surtout des adultes | Étape 16 | FDA 2002 ; la dermatite herpétiforme et la vascularite : `06-cdc-fda-posologie-iodure-potassium.md` |
+| Dose plus forte ou plus fréquente : pas plus de protection, maladie grave | Étape 14 | FDA, FAQ (capture `04-fda-faq-ki-2026.html`) |
+| La thyroïde ne fait pas la différence ; pas un antidote ; sel iodé trop faible et risqué | Étape 12 | `04-oms-2025-iodure-de-potassium.md` |
+| Teinture d'iode, povidone, comprimés pour l'eau : poisons avalés, ne bloquent pas la thyroïde ; sur la peau, moins de protection, effets graves | Étape 12 | `04-ornl-kearny-extraits-refonte-2026-10-18.md` |
+| Le comprimé a très mauvais goût | Étape 15 | ORNL |
+| Bête exposée : foie, reins, thyroïde à ne pas manger ; bête malade à ne pas manger, toxines qui restent après cuisson | Étapes 29 et 30 | ORNL, p. 76 |
+| Césium dans tout le corps comme le potassium ; strontium dans les os comme le calcium ; 30 ans | Étapes 28 et 30 | `04-japon-moe-2021-iode-cesium-strontium.md` ; CCSN (30 ans, `06-ccsn-tchornobyl-effets-sante.md`) |
+| L'orignal : ramilles toute l'année, feuilles et plantes aquatiques l'été | Étape 29 | `35-mrnf-potvin-2006-habitat-faune-apres-coupe.md` |
+| Bouchage quelques heures, puis aérer ; sinon irrespirable | Étape 18 | `04-cdc-abri-ventiler-en-quelques-heures.md` |
+| Environ 80 % de la dose possible le premier jour | Étape 24 | LLNL 2009, p. 3 (`06-llnl-2009-key-response-planning.md`) |
+| Bain du trempage entre 0 et 4 °C | Étape 31, Points de contrôle | Ch. 69 (saumure tenue entre 0 et 4 °C) et page `zone-de-danger` ; lecture du rédacteur : la source du trempage (Petäjä) ne donne pas la température du bain, et dit qu'un bain plus chaud enlève plus de césium |
+| Rester à l'intérieur réduit beaucoup l'iode respiré | Section 7, sans iode | ORNL, citant la FDA (« merely staying indoors can significantly reduce inhaled doses ») |
+| Moins de 3 % de l'iode radioactif après six semaines | Section 7, sans iode | Arithmétique sur la période de 8 jours (CCSN) : 0,5^(42/8) = 2,6 % |
+| Signes de l'irradiation : quelques heures ; dans la demi-heure, dose qui peut être mortelle ; la peur donne les mêmes ; une à deux semaines plus tard, cheveux, petites taches de sang, diarrhée ; un à deux mois ; antibiotiques ; soigner sans danger | Section 6 | ORNL, p. 110 et chap. 2 |
+| Brûlures de la peau par la poussière fraîche : démangeaison, puis brûlure et peau qui change de couleur des jours plus tard ; laver, sinon brosser ; peu profondes, des semaines à guérir | Section 6 ; section 7, sans eau chaude (brosser) | ORNL |
+| 9 cm de terre, 6 cm de béton ; cinq épaisseurs ÷ 32, six ÷ 64 ; plus dense, mieux | Section 7, la masse | `06-ornl-kearny-nwss-abri-filtre-kfm.md` |
+| Pièce pleine de monde, chaude et humide en quelques heures | Section 7, ventiler | ORNL, chap. 6 |
+| L'éventail de carton : 55 × 35 cm, ouverture 60 × 50 cm, 40 coups par minute, près de 8 m³/min, 9 adultes l'été, une centaine par temps froid ; filtre de fournaise à l'entrée d'air | Section 7, ventiler | ORNL, chap. 6 (conversions dans la fiche) |
+| Électroscope : fil de métal par un bouchon isolant, feuilles au fil ; humidité | Section 7 | `04-nise-2019-electroscope.md` |
+| Feuilles qui gardent presque le même écartement pendant 3 h (fuite) | Section 7 | ORNL, KFM (1 mm en 3 h, dit sans chiffre) |
+| Moins de 2 % dissous ; décanter à l'argile : 2,5 cm de terre sèche pour 10 cm d'eau, 6 h ; filtre : douzaine de trous près du centre, linge 8 cm plus large, deux bâtons, 6 L/h puis 2 L/h, plus vite qu'un litre en 10 min, retirer 2,5 cm | Section 7, eau | ORNL, chap. 8 |
+| Sous la forêt boréale, terre le plus souvent sableuse | Section 7, eau | `96-sol-podzol-vers-aulne-nodules.md` (AAC : podzols sur matériaux « de texture grossière à moyenne ») |
+| Le ruban entre le pouce et l'index : plus de 5 cm, argileuse ; casse avant 2,5 cm, sableuse ; l'argile colle, le sable gratte | Section 7, eau | `96-csu-texture-et-inoculants.md` (CSU) |
+| Pour la viande, l'eau fait le même travail que la saumure | Section 7, sans sel | Petäjä et coll. (« Soaking in brine or water ») |
+
+Les autres chiffres sont ceux d'avant, déjà sourcés (sections plus haut), redits sans changement.
+
+### [À VÉRIFIER]
+
+Quatre dans le texte :
+1. **Étape 26** : la pluie entraîne la poussière du toit et du terrain vers les gouttières, les fossés et les creux.
+   Seules des sources de presse sur Fukushima trouvées (« hot spots » dans les fossés et les drains) ; aucune page
+   officielle enregistrée.
+2. **Section 7, la pompe à carton** : « À chaque coup, le battant pousse de l'air dans la pièce. » Le battant n'a pas
+   de clapet ; l'ORNL distingue sa pompe à volets (KAP) du « punkah », panneau sans clapet qui ne pousse pas l'air dans
+   un sens. L'éventail de carton, sourcé, est ajouté comme autre façon.
+3. **Section 7, sans eau chaude** : le ruban adhésif qui lève la poussière (ancien texte, aucune source au dossier).
+4. **Section 7, sans viande** : le poisson du fleuve salé moins chargé que celui d'un lac de tête. Piste : la JAEA
+   (Fukushima) dit que le poisson d'eau douce garde le césium plus longtemps que le poisson de mer ; la page n'a pas pu
+   être enregistrée (403, 404).
+
+### Les encadrés « En plus »
+
+1. **Les rennes de Norvège après Tchornobyl** (150 mots ; la façon d'une nation du Nord, les Sami) : abattre au début
+   de l'automne plutôt qu'en hiver, avec la mesure des bêtes vivantes ; quelques semaines en enclos, fourrage propre ;
+   pourquoi ça marche (le lichen d'hiver) ; pourquoi les Sami ont résisté ; ce qui la rend dangereuse (l'année à
+   champignons). Sources : `04-nrpa-skuterud-rennes-apres-tchornobyl.md`. Aucune pratique innue sur les retombées
+   n'est documentée au dossier (`sources/autochtones/`).
+2. **L'argile grise de l'ancienne mer** (123 mots ; un petit dessin) : la mer de Goldthwait, l'argile grise sous la
+   tourbe et le sable, plus de 30 m, les coquillages, où la prendre sans faire glisser le talus. Source :
+   `04-mrn-1975-dp304-argile-goldthwait.md` (MRN, 1975). **Pas de photo** : l'API de Wikimedia Commons a répondu 429
+   (trop de requêtes) toute la journée, et iNaturalist n'a rien sur une couche d'argile.
+
+**Le petit dessin à faire** : `images/extras/04-argile-de-la-mer.png` (format `quart`, comme
+`images/extras/12-corps-mort.png`, source à écrire dans `images/planches-src/extra-04-argile-de-la-mer.js`). Une berge
+de rivière en coupe, vue de côté : en haut, le sol de la forêt et la terre noire (mince) ; dessous, une couche de sable
+et de gravier ; dessous, une épaisse couche d'argile grise, lisse, avec quelques coquillages de mer dedans (une mye
+tronquée, ovale coupée net à un bout ; une moule), à plat ou en biais. À gauche, un petit talus bas où une main tient
+une pelle dans une petite coupe à hauteur de taille (geste juste) ; à droite, un grand talus raide avec une cicatrice de
+glissement en croissant au sommet et la terre tombée au pied (sans personne). Aucun texte dans le dessin, sinon deux
+mots discrets : « argile grise », « coquillages ». Pas de mains Adobe Stock nécessaires si la pelle est montrée seule,
+plantée.
+
+### Renvois corrigés dans les autres chapitres
+
+- ch. 8 (LF gardé) : « ch. 4, étape 20 » → étape 24 ; « ch. 4, étapes 22 à 28 » → « étapes 22 et 26 à 32 » ;
+  « ch. 4, étapes 12 à 14 » → « étapes 13 à 16 ». Les renvois « étapes 5 et 10 » et « étape 8 » tombent juste.
+- Les autres renvois au ch. 4 (ch. 14 ; page `poison`) visent le chapitre entier.
+
+### Pour JP et l'orchestrateur
+
+- **Ch. 8, « À la sortie : Déboucher les ouvertures et les prises d'air »** contredit maintenant le ch. 4 (étape 18 :
+  on débouche au bout de quelques heures, CDC). Rien changé au ch. 8 (hors du sujet).
+- **Ch. 10, étape 1** : « faire bouillir ou filtrer l'eau n'enlève pas ce qui est radioactif » ; l'ORNL dit que moins de
+  2 % se dissout et que la décantation et le filtre de terre en enlèvent presque tout. À aligner au ch. 10.
+- **La FDA de 2002** porte « Draft — Not for Implementation » en tête : c'est la révision publiée d'un guide aux
+  planificateurs ; les faits retenus recoupent l'OMS et la FAQ de la FDA.
+- **04-42** posée (voir plus haut) ; **04-01a** garde un encadré danger dans le dessin.
+
+### controle.py, avant et après
+
+- **Avant** (texte du 15 octobre) : 6 567 mots, 2 tirets (titre et ligne de tome), 18 « § », 1 tournure (« d'où »),
+  34 mots vides, 1 redite.
+- **Après** : 8 469 mots, 2 tirets (titre et ligne de tome, comme aux ch. 10 et 12), 0 « § », 0 mot banni, 0 tournure,
+  0 mise en relief, 0 maxime, 43 mots vides jugés (« tout de suite », « tout le monde », « toute la hauteur », « encore
+  chaud », « porte encore la trichine », « déjà » dans « le sens où il circule déjà » : ils portent le sens),
+  13 redites jugées (renvois, ou deux faits différents : « bâtiment de béton ou de brique » aux étapes 4 et 6, « laver
+  les mains et le visage » à trois gestes différents, « 2,5 cm de terre » pour la décantation et le filtre), 0 ancre
+  introuvable.
+- **Invariants signalés et justifiés** : 20 L, 20 kg, 200 mm (retirés, sans source) ; « 3 semaines » (devient « une à
+  deux semaines », ORNL) ; 3 °C et botulisme (le rappel du poisson fumé sort) ; « iode 131 », « césium 137 » (dits
+  « iode radioactif », « césium radioactif ») ; 250 (page `co`) ; 2012 (Gentilly-2) ; ch. 77 (botulisme) ; ch. 14,
+  ch. 19, ch. 79, ch. 93 (une mention chacun au lieu de deux) ; 74 °C, mal de caribou et génératrice (une fois chacun
+  dans leur étape, plus le rappel de l'ancien Danger qui sort) ; 130 mg, 24 h, 48 heures (une mention de moins chacun).
+- La hausse du nombre de mots vient de l'orange au complet (la solution d'iode, les contre-indications), des étapes
+  découpées en sous-étapes qui suivent les repères des planches, de l'éventail de carton, de la décantation et du
+  filtre de terre, et des deux encadrés En plus.

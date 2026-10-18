@@ -1,0 +1,34 @@
+{'id': 'ab1aae3d-3b5c-4d71-a0e6-6b3128d2e57d', 'kudos': 7.0}
+0 0 0 False
+16 564 209 False
+31 519 195 False
+47 511 188 False
+62 471 175 False
+77 451 167 False
+93 435 155 False
+108 421 145 False
+124 400 131 False
+140 395 143 False
+155 374 128 False
+171 360 139 False
+186 354 148 False
+202 325 135 False
+217 317 140 False
+233 307 128 False
+248 302 125 False
+263 286 114 False
+279 272 103 False
+294 282 124 False
+309 272 111 False
+325 289 122 False
+340 271 107 False
+356 248 93 False
+371 241 80 False
+386 219 71 False
+402 209 61 False
+417 191 48 False
+433 185 42 False
+448 0 0 True
+ok t4-r2-flux-fumoir 0 Flux.1-Schnell fp8 (Compact)
+ok t4-r2-flux-fumoir 1 Flux.1-Schnell fp8 (Compact)
+FIN

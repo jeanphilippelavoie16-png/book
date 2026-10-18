@@ -1041,3 +1041,7 @@ renvoi à l'étape 23. Invariants : rien n'a disparu.
 ### Encadrés resserrés (JP, 18 octobre 2026 : « moins de texte »)
 
 Les trois encadrés passent de 92, 95 et 31 mots à 55, 58 et 18 environ. Rien d'ajouté : la literie garde le geste, le pourquoi et les deux mises en garde ; les conifères gardent un trait par arbre (aiguilles plates et odorantes ; courtes, 8 à 15 mm, grisâtres ; écailles en éventail) ; le corps mort devient une légende.
+
+## La série orange en tête de la procédure (JP, 18 octobre 2026)
+
+JP : « les premières minutes doivent toujours être directement après les [logigrammes] associés, je comprends pas, je te l'ai déjà dit ». La série « Le soleil se couche et on ne rentrera pas » passe du début de la section 7 au début de la section 4, juste après le logigramme. Numérotation : anciennes étapes 89 à 102 → 1 à 14 ; anciennes 1 à 88 → 15 à 102. Renvois mis à jour par script dans le chapitre (sauf ceux vers d'autres chapitres), le logigramme (`renvoi`), les ancres de `placements-tome-1.json`, le ch. 37 (étapes 36, 26 à 29, 19 → 50, 40 à 43, 33) et le ch. 82 (« ch. 12 (section 7) » → « ch. 12 (étapes 1 à 14) » pour la nuit dehors). Les fiches de suivi plus haut gardent l'ancienne numérotation.
