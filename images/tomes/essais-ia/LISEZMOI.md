@@ -16,3 +16,9 @@ Deuxième tour, même jour (JP : « c'est pas beau, cherche une alternative ») 
 (`titre-nuit-prompt-flux.txt`). Planche de choix : `titre-nuit-pistes.png`. Flux signe ses images d'un faux nom en
 bas : le bas de la page de titre porte la série des tomes, et la signature se retire de toute façon avant
 l'impression.
+
+Troisième tour, même jour (JP aime A et B : « les montagnes sont trop haut dans le ciel ; travaille le ciel et les
+montagnes ; explore plus ») : l'image de départ perd l'aurore (`titre-nuit-reference-sans-aurore.png`, écrite par
+`scene_titre.py 1 --sans-aurore`), dont le bord devenait une crête. `titre-nuit-prompt-lino2.txt` (ciel ouvert sur la
+moitié du haut, collines basses) : 1 et 2 Juggernaut XL à 0,65, 3 et 4 à 0,75, 5 et 6 AlbedoBase XL à 0,7 ; 7 à 10,
+Flux à partir de `titre-nuit-prompt-flux2.txt`. Planche : `titre-nuit-pistes-2.png`.
