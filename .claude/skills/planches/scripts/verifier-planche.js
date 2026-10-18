@@ -60,9 +60,9 @@ function verifier(chemin) {
   // --- couleurs ---
   const couleurs = [...new Set((s.match(/#[0-9A-Fa-f]{3,6}/g) || []).map(c => c.slice(1).toLowerCase()))]
     .map(c => c.length === 3 ? c.split('').map(x => x + x).join('') : c);
-  const interdites = couleurs.filter(c => ![NOIR, BLANC, ROUGE_DANGER, ...GRIS, '3a3a3a', '000000'].includes(c));
+  const interdites = couleurs.filter(c => ![NOIR, BLANC, ROUGE_DANGER, ...GRIS, '3a3a3a', '000000', 'dceaf2', '4f7a93'].includes(c));   // + l'eau (JP, 18 octobre)
   if (interdites.length)
-    dur.push(`couleurs hors palette : ${interdites.map(c => '#' + c).join(', ')} — la charte est noir, blanc, deux gris (#E6E6E6, #CFCFCF) et le rouge #9B2C1E`);
+    dur.push(`couleurs hors palette : ${interdites.map(c => '#' + c).join(', ')} — la charte est noir, blanc, deux gris (#E6E6E6, #CFCFCF), le rouge #9B2C1E et l'eau (#DCEAF2, #4F7A93, par la hachure « eau » seulement)`);
   // Le rouge marque ce qui compte : flèche du geste, zone dangereuse, point à contrôler, encadré
   // danger. Au-delà de quelques marques, il ne désigne plus rien.
   const marquesRouges = (s.match(new RegExp('<(?:path|circle|line|rect|ellipse|polyline|polygon)\\b[^>]*stroke="#' + ROUGE_DANGER, 'gi')) || []).length;

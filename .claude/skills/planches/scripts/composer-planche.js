@@ -79,6 +79,7 @@ const NOIR = '#1A1A1A', ROUGE = '#9B2C1E', BLANC = '#FFFFFF';
 // Le rouge marque ce qui compte, et rien d'autre : la flèche du geste, la zone dangereuse, le
 // point à contrôler, l'encadré danger.
 const GRIS_LOIN = '#E6E6E6', GRIS_OMBRE = '#CFCFCF';
+const EAU = '#DCEAF2', EAU_TRAIT = '#4F7A93';   // l'eau, seule couleur hors du noir, des gris et du rouge
 const FONTE = "Georgia, 'Times New Roman', serif";
 
 const FORMATS = { pleine: [680, 826], demi: [680, 413], quart: [340, 413] };
@@ -122,7 +123,8 @@ const MOTIFS = {
   terre:    `<pattern id="h-terre" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">${L(0, 0, 0, 5.5)}${L(4.5, 4.5, 4.5, 9, 0.5)}</pattern>`,
   gravier:  `<pattern id="h-gravier" width="10" height="9" patternUnits="userSpaceOnUse"><circle cx="2.5" cy="2.5" r="1.7" fill="none" stroke="${NOIR}" stroke-width="0.5"/><circle cx="7.5" cy="7" r="1.3" fill="none" stroke="${NOIR}" stroke-width="0.5"/></pattern>`,
   isolant:  `<pattern id="h-isolant" width="12" height="8" patternUnits="userSpaceOnUse"><path d="M0 6 Q3 0 6 4 T12 2" fill="none" stroke="${NOIR}" stroke-width="0.5"/></pattern>`,
-  eau:      `<pattern id="h-eau" width="16" height="7" patternUnits="userSpaceOnUse">${L(1, 2, 8, 2, 0.5)}${L(9, 5.5, 15, 5.5, 0.5)}</pattern>`,
+  // l'eau (JP, 18 octobre 2026 : « fais l'eau plus belle ») : une teinte d'eau pâle et des vaguelettes fines en quinconce
+  eau:      `<pattern id="h-eau" width="64" height="22" patternUnits="userSpaceOnUse"><rect width="64" height="22" fill="${EAU}"/><path d="M4 7 q4 -2.4 8 0 t8 0 M36 18 q4 -2.4 8 0 t8 0" fill="none" stroke="${EAU_TRAIT}" stroke-width="0.6" stroke-linecap="round"/></pattern>`,
   neige:    `<pattern id="h-neige" width="8" height="8" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="0.7" fill="${NOIR}" stroke="none"/><circle cx="6" cy="6" r="0.7" fill="${NOIR}" stroke="none"/></pattern>`,
   paille:   `<pattern id="h-paille" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(20)">${L(1, 1, 1, 7, 0.5)}${L(6, 4, 6, 10, 0.5)}</pattern>`,
   grillage: `<pattern id="h-grillage" width="5" height="5" patternUnits="userSpaceOnUse">${L(0, 0, 5, 0, 0.5)}${L(0, 0, 0, 5, 0.5)}</pattern>`,

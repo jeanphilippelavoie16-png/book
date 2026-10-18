@@ -59,7 +59,9 @@ nouvelle numérotation (six tomes).
    pèse, le reste est fin. Le premier gris est pour le plan loin, le second pour la face à l'ombre
    d'un volume, en aplats francs. Le rouge `#9B2C1E` sert à la flèche du geste, au point à
    contrôler, à la zone dangereuse et à l'encadré danger, et à rien d'autre. Le détail est dans
-   `.claude/skills/planches/SKILL.md`, à la section « La charte ».
+   `.claude/skills/planches/SKILL.md`, à la section « La charte ». **L'eau a sa couleur** (JP, 18 octobre 2026 : « fais
+   l'eau plus belle ») : un bleu pâle `#DCEAF2` et des vaguelettes fines `#4F7A93`, par la hachure `h.a.hachure('eau')`
+   seulement ; plus de tirets gris.
 10. **Une autre façon de faire se marque comme une autre façon** (JP, 16 octobre 2026, planche 03-10 : « la
    variante à l'huile, faudrait la marquer que c'est une variante »). Dans une séquence de vignettes, une
    vignette qui remplace une autre (« ou à l'huile ») ne se lit pas comme l'étape suivante : elle porte un

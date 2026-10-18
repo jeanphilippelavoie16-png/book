@@ -289,6 +289,10 @@ en `#1A1A1A` sur blanc.
      haut à gauche. C'est la face de droite ou de dessous d'une bûche, d'une caisse, d'un
      poteau. Une face par volume.
 
+3. **L'eau, en bleu pâle** (JP, 18 octobre 2026 : « fais l'eau plus belle »). La hachure `h.a.hachure('eau')` pose une
+   teinte d'eau `#DCEAF2` et des vaguelettes fines `#4F7A93` en quinconce. C'est la seule couleur hors du noir, des
+   gris et du rouge, et elle ne sert qu'à l'eau.
+
    Jamais de dégradé ni d'ombre portée. Pas de gris sur un corps, à part son côté loin. Pas
    de gris sur une coupe hachurée : la hachure dit déjà la matière. On peint l'aplat d'abord,
    puis le trait par-dessus.

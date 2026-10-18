@@ -91,6 +91,7 @@ Le cadre complet est `.claude/skills/planches/references/brief-agent.md`. En bre
   weird » ; le moteur refuse les autres) ; corps par `h.formes.corps` (de profil), têtes par `h.formes.teteSimple` ;
   jamais de dessin à la main ; une prise laide se règle par le cadrage, une autre prise, ou l'objet seul.
 - [ ] Une planche du tableau des signalées se refait au complet, jamais par retouche.
+- [ ] L'eau par `h.a.hachure('eau')` seulement : le bleu pâle et ses vaguelettes (JP, 18 octobre : « fais l'eau plus belle »).
 - [ ] Chaque rouge a son repère, et la légende dit ce qu'on doit y voir (règle 11).
 - [ ] Une autre façon de faire est marquée : titre « Autre façon » ou « Sans… », filet, « au lieu de N » (règle 10).
 - [ ] L'ordre des repères suit l'ordre des gestes du texte.
