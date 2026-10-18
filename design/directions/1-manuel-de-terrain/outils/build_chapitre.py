@@ -263,6 +263,19 @@ def table_html(rows, nested):
 
 PICTO_SVG = re.compile(r'<svg class="picto"[^>]*>.*?</svg>[\u00a0 ]?', re.S)
 
+_NOMS_DANGERS = None
+
+def nom_danger(pid):
+    """Le nom court d'un danger, tiré des pages des dangers (dangers/*.md : « ## {!id} Nom »)."""
+    global _NOMS_DANGERS
+    if _NOMS_DANGERS is None:
+        import glob as _g
+        _NOMS_DANGERS = {}
+        for f in _g.glob(os.path.join(ROOT, "dangers", "*.md")):
+            for m in re.finditer(r"^##\s+\{!([a-z-]+)\}\s*(.+)$", open(f, encoding="utf-8").read(), re.M):
+                _NOMS_DANGERS[m.group(1)] = m.group(2).strip()
+    return _NOMS_DANGERS.get(pid, pid)
+
 def marge(h):
     """Les pictogrammes de danger d'un paragraphe sortent dans sa marge de gauche, en gros, l'un sous l'autre (JP,
     18 octobre 2026 : « j'aimerais mieux les pictogrammes en gros dans la marge »). Le paragraphe prend la classe pc."""
@@ -272,7 +285,9 @@ def marge(h):
     h = PICTO_SVG.sub("", h)
     m = re.match(r'<p( class="([^"]*)")?>', h)
     cls = ((m.group(2) or "") + " pc").strip()
-    return f'<p class="{cls}" style="--np:{len(pics)}"><span class="pmarge">' + "".join(x.rstrip("\u00a0 ") for x in pics) + "</span>" + h[m.end():]
+    items = "".join('<span class="pi">' + x.rstrip("\u00a0 ") + '<span class="pnom">'
+                    + html.escape(nom_danger(re.search(r'data-picto="([a-z-]+)"', x).group(1))) + "</span></span>" for x in pics)
+    return f'<p class="{cls}" style="--np:{len(pics)}"><span class="pmarge">' + items + "</span>" + h[m.end():]
 
 def render(blocks, lead=False):
     """-> liste de (html, texte source) ; le texte source sert à ancrer planches et photos."""

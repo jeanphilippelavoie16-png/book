@@ -117,3 +117,4 @@ p.step.pc{min-height:calc(var(--np,1) * 23pt + 16pt)}
 p.li.pc::before{left:19pt}
 p.li.pc{padding-left:30pt !important}
 p.pc .pmarge svg.picto{display:block;width:21pt;height:21pt;margin:0;vertical-align:0}
+.pnom{display:none}
