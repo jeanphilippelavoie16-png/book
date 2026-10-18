@@ -264,6 +264,16 @@ def table_html(rows, nested):
 PICTO_SVG = re.compile(r'<svg class="picto"[^>]*>.*?</svg>[\u00a0 ]?', re.S)
 
 _NOMS_DANGERS = None
+# Le nom court qui s'imprime sous le pictogramme, dans l'étape (JP, 18 octobre 2026 : « C, mais avec texte et page »)
+NOMS_COURTS = {"co": "Monoxyde", "generatrice": "Génératrice", "electrocution": "Électrocution", "vapeurs": "Vapeurs",
+               "huile-en-feu": "Huile en feu", "incendie": "Incendie", "feu-de-foret": "Feu de forêt",
+               "espace-clos": "Espace clos", "chimie": "Produit chimique", "pas-au-feu": "Pas au feu",
+               "projection": "Projection", "ecrasement": "Écrasement", "coupure": "Coupure", "brulure": "Brûlure",
+               "froid": "Froid", "eau-froide": "Eau froide", "glace": "Glace mince", "ours": "Ours", "orignal": "Orignal",
+               "arme": "Arme", "rage": "Rage", "tularemie": "Tularémie", "hantavirus": "Hantavirus", "tetanos": "Tétanos",
+               "cuisson": "Cuisson", "trichine": "Trichine", "abats": "Abats", "botulisme": "Botulisme",
+               "zone-de-danger": "Entre 4 et 60 °C", "mal-de-caribou": "Viande maigre", "thuyone": "Cèdre",
+               "plante": "Plante", "plomb": "Plomb", "selles": "Selles", "poison": "Poison", "vie-en-jeu": "Vie en jeu"}
 
 def nom_danger(pid):
     """Le nom court d'un danger, tiré des pages des dangers (dangers/*.md : « ## {!id} Nom »)."""
@@ -288,8 +298,9 @@ def marge(h):
     def item(x):
         pid = re.search(r'data-picto="([a-z-]+)"', x).group(1)
         # sous le pictogramme, la page du danger dans le tome (l'assembleur la passe dans l'URL : TOME.dg)
-        return ('<span class="pi">' + x.rstrip("\u00a0 ") + f'<span class="pnum" data-pg="{pid}">p.\u00a000</span>'
-                '<span class="pnom">' + html.escape(nom_danger(pid)) + "</span></span>")
+        return ('<span class="pi">' + x.rstrip("\u00a0 ") + '<span class="pnom">'
+                + html.escape(NOMS_COURTS.get(pid) or nom_danger(pid)) + "</span>"
+                + f'<span class="pnum" data-pg="{pid}">p.\u00a000</span></span>')
     items = "".join(item(x) for x in pics)
     return f'<p class="{cls}" style="--np:{len(pics)}"><span class="pmarge">' + items + "</span>" + h[m.end():]
 

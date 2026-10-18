@@ -121,9 +121,9 @@ Le cadre complet est `.claude/skills/planches/references/brief-agent.md`. En bre
   Matériel ; le moteur ferme la page à l'ancre et la procédure attend la double page.
 - [ ] Pas de vide inutile (JP, même jour : « beaucoup de pages vides, faut optimiser l'espace ») : un chapitre peut
   ouvrir sur une page de gauche ; l'assembleur choisit le côté d'ouverture qui coûte le moins de pages.
-- [ ] Le pictogramme de danger se pose au début de la phrase de l'étape ; le moteur l'affiche en gros à droite du
-  paragraphe, avec sous lui le numéro de la page du danger (JP, même jour : « les dangers en dessous du pictogramme
-  pointent à la page du danger »). Chaque danger a sa page au début du tome, une seule (« chacun sa propre page, pas
+- [ ] Le pictogramme de danger se pose au début de la phrase de l'étape ; le moteur met l'étape sur fond rose pâle avec un
+  filet rouge, et à droite le pictogramme en gros, son nom court et la page du danger (JP, même jour : « les dangers
+  en dessous du pictogramme pointent à la page du danger » ; « C, mais avec texte et page »). Chaque danger a sa page au début du tome, une seule (« chacun sa propre page, pas
   plus qu'une page ») : une page de danger qui déborde se resserre, ou son texte se coupe.
 - [ ] La série orange se lit d'un trait, sans planche ni page au milieu (JP, 18 octobre : « premières minutes est
   scindé, il doit se suivre ») : les planches appelées dans l'orange gardent leur ancre à l'étape qui les appelle ; le moteur les sort de l'orange, les

@@ -1,6 +1,6 @@
 # Tome 1 · Tenir — rapport d'assemblage
 
-- **Produit le :** 2026-10-18 16:26, par `design/outils/assembler-tome.py 1 --chapitres 10 --hors-ligne --sortie livre/apercus-ch10`
+- **Produit le :** 2026-10-18 16:28, par `design/outils/assembler-tome.py 1 --chapitres 10 --hors-ligne --sortie livre/apercus-ch10`
 - **Fichier :** `livre/tome-1/interieur.pdf` — 40 pages, 8.6 Mo
 - **Ouvertures :** au recto ou au verso (--verso)
 - **Placements :** design/epreuves-livre/placements.json, design/epreuves-livre/placements-tome-1.json
@@ -55,7 +55,7 @@ Les planches de `images/a-valider/` sont posées comme les validées (JP les rel
 
 | Ch. | Posées (page du tome) | Mentionnées dans le texte sans planche dessinée | À valider, non posées | Photos demandées encore à acquérir (credits.md) |
 | --- | --- | --- | --- | ---: |
-| 10 | 10-02 (35, pleine), 10-07 (37, pleine), 10-01 (25), 10-08 (26, à valider), 10-03 (38), 10-eau-livre (22, double page), 10-hutte-castor.jpg (24) | — | — | 6 (ancien 13) |
+| 10 | 10-02 (36, pleine), 10-07 (38, pleine), 10-01 (25), 10-08 (26, à valider), 10-03 (39), 10-eau-livre (22, double page), 10-hutte-castor.jpg (24) | — | — | 6 (ancien 13) |
 
 ## Crédits des images — hors du livre
 

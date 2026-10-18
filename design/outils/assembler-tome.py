@@ -689,13 +689,14 @@ def mode_emploi(tome, titre_t, plan):
              "Les pictogrammes des étapes",
              p("Sous le numéro d'une étape : le **minuteur**, un temps à respecter ou à surveiller ; le **thermomètre**, une "
                "température à atteindre ou à vérifier.")),
-        rang('<span style="display:flex;gap:8pt;align-items:flex-start;font:400 9.4pt var(--serif)">'
+        rang('<span style="display:flex;gap:8pt;align-items:flex-start;padding:4pt 6pt;background:#F6E7E3;border-left:2.5pt solid #9B2C1E;font:400 9.4pt var(--serif)">'
              '<span><b style="font:700 11pt var(--sans)">12</b> Laisser la génératrice dehors…</span>'
              '<span style="display:flex;flex-direction:column;align-items:center;gap:1.5pt">'
-             + il("{!generatrice}").replace('class="picto"', 'class="picto" style="width:27pt;height:27pt;margin:0"')
-             + '<b style="font:700 7.6pt var(--sans);color:#9B2C1E">p. 9</b></span></span>',
+             + il("{!generatrice}").replace('class="picto"', 'class="picto" style="width:26pt;height:26pt;margin:0"')
+             + '<b style="font:700 6.6pt var(--sans);color:#9B2C1E;text-transform:uppercase">Génératrice</b>'
+             '<b style="font:700 7.4pt var(--sans)">p. 9</b></span></span>',
              "Les dangers",
-             p("Un **carré rouge** à droite d'une étape veut dire qu'un danger se présente à cette étape ; le numéro sous le carré est la page du danger. Chaque danger a "
+             p("Une étape sur **fond rose**, avec un **carré rouge** à droite, veut dire qu'un danger se présente à cette étape ; sous le carré, le nom du danger et sa page. Chaque danger a "
                "le sien. L'étape dit ce qui est propre à la situation : la distance, la dose, la durée. Le danger lui-même "
                "(ce qu'il fait, comment le reconnaître, quoi faire) est expliqué une seule fois, dans **les pages des "
                "dangers** qui suivent celle-ci.")),
@@ -825,8 +826,8 @@ def dangers_html(tome, chap_ids, debut, work, nom="dangers"):
         return None, []
     tete = f'<div class="ax-top"><span>Tome {tome} · {e(titre_t)}</span><span>Le Grand Livre du Chalet</span></div>'
     h1 = ('<h1>Les dangers</h1><p class="dg-intro">' + il(
-        "Dans un chapitre, ce carré rouge {!" + ids[0] + "} veut dire qu'un danger se présente à cette étape ; le numéro "
-        "sous le carré est celui de la page du danger. L'étape dit ce qui est propre à la situation (la distance, la "
+        "Dans un chapitre, une étape sur fond rose avec ce carré rouge {!" + ids[0] + "} veut dire qu'un danger se présente "
+        "à cette étape ; sous le carré, le nom du danger et sa page. L'étape dit ce qui est propre à la situation (la distance, la "
         "dose, la durée) ; la page du danger dit ce qu'il fait, comment le reconnaître et quoi faire.") + "</p>")
     src = (f'<div id="dg-src" data-debut="{debut}" data-tete="{e(tete)}" data-h1="{e(h1)}" '
            'style="display:none">' + "".join(ents) + "</div>")   # caché : à hauteur nulle, les colonnes se multiplient sans fin

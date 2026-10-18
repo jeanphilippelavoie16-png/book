@@ -103,14 +103,17 @@ svg.rep{display:inline;height:1.05em;width:auto;min-width:0;padding:0;border:0;b
 svg.rep text{font:600 13px "IBM Plex Sans Condensed",sans-serif;fill:#1A1A1A}
 /* une photo dans une colonne ne prend plus la hauteur de la page : elle reste près de son texte (JP, 16 octobre 2026) */
 .fig.ph:not(.demi) img{max-height:3.1in;object-fit:cover;object-position:center}
-/* Le pictogramme de danger (marqueur {!id}) : en gros, à droite du paragraphe qui l'appelle, et sous lui le numéro de
-   la page du danger dans le tome (JP, 18 octobre 2026 : après l'essai dans la phrase, puis dans la marge de gauche,
-   « ça marche pas » ; « les dangers en dessous du pictogramme pointent à la page du danger, avec le numéro de page en
-   dessous du pictogramme »). build_chapitre.marge() les sort du texte dans .pmarge (classe pc sur le paragraphe). */
+/* L'étape où un danger se présente (marqueur {!id}) : fond rose pâle et filet rouge à gauche ; à droite, le pictogramme
+   en gros, son nom et la page du danger dans le tome (JP, 18 octobre 2026, après trois essais : « C, mais avec texte et
+   page »). build_chapitre.marge() sort les pictogrammes du texte dans .pmarge et donne la classe pc au paragraphe. */
 svg.picto{display:inline;height:1.2em;width:1.2em;vertical-align:-.25em;margin:0 .2em 0 0}
-p.pc{display:flow-root}
-p.pc .pmarge{float:right;display:flex;flex-direction:column;gap:4pt;margin:1pt 0 3pt 8pt}
-p.pc .pi{display:flex;flex-direction:column;align-items:center;gap:1.5pt}
-p.pc .pmarge svg.picto{display:block;width:27pt;height:27pt;margin:0}
-.pnum{font:700 7.6pt/1 "IBM Plex Sans Condensed",sans-serif;color:#9B2C1E;letter-spacing:.02em;white-space:nowrap;text-indent:0}
-.pnom{display:none}
+p.pc{display:flow-root;background:#F6E7E3;border-left:2.5pt solid #9B2C1E;padding:4pt 6pt 4pt 7pt;margin-left:0;margin-right:0}
+p.step.pc{padding-left:22pt}
+p.step.pc .sn{left:3pt;top:4pt}
+p.li.pc{padding-left:16pt}
+p.li.pc::before{left:6pt;top:8.4pt}
+p.pc .pmarge{float:right;display:flex;flex-direction:column;gap:5pt;margin:0 0 2pt 8pt}
+p.pc .pi{display:flex;flex-direction:column;align-items:center;gap:1.5pt;max-width:52pt;text-align:center}
+p.pc .pmarge svg.picto{display:block;width:26pt;height:26pt;margin:0}
+.pnom{font:700 6.6pt/1.05 "IBM Plex Sans Condensed",sans-serif;color:#9B2C1E;text-transform:uppercase;letter-spacing:.04em;text-indent:0}
+.pnum{font:700 7.4pt/1 "IBM Plex Sans Condensed",sans-serif;color:#1A1A1A;letter-spacing:.02em;white-space:nowrap;text-indent:0}
