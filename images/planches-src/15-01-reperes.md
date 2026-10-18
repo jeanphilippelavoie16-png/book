@@ -1,7 +1,8 @@
 # Planche 15-01. Sortir d'un trou dans la glace : les repères
 
 Pleine page, six vues dans l'ordre des gestes (chapitre 15, ligne « Pics à glace » du Matériel et étape 34). Les
-quatre coupes de la séquence (2 et 3, 5 et 6, 7, 8) sont à la même échelle, la glace à gauche, le trou à droite.
+trois coupes de la séquence (2 et 3, 5 et 6, 7) sont à la même échelle, la glace à gauche, le trou à droite ; la
+dernière vue (8) est vue de dessus.
 
 1. **Porter les pics au cou, par-dessus le manteau** (vue « Avant d'aller sur la glace ») : la personne de profil, la
    paire de pics au milieu de la poitrine, la pointe de l'une rentrée dans l'autre (les clous en tireté), le cordon
@@ -18,5 +19,6 @@ quatre coupes de la séquence (2 et 3, 5 et 6, 7, 8) sont à la même échelle, 
    derrière soi ; la flèche rouge double dit le battement des jambes.
 7. **Tirer en glissant sur le ventre, replanter plus loin** : la poitrine sur la glace, les hanches au bord, les jambes
    à la surface ; la flèche rouge dit le glissement vers l'avant, le bras du fond (en gris) va replanter plus loin.
-8. **Rouler loin du trou, sans se relever** : la personne couchée à plat sur la glace, la flèche rouge en anneau autour
-   du corps dit la roulade.
+8. **Rouler vers ses traces, sans se relever** (vue « Vu de dessus ») : le trou en haut, les traces de bottes de l'aller
+   qui arrivent d'en bas à gauche ; la personne couchée en trois positions qui s'éloignent du trou (les deux plus
+   anciennes en gris, la dernière en blanc), la flèche rouge dit le sens de la roulade.

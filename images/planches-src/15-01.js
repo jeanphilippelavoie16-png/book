@@ -89,7 +89,7 @@ module.exports = (h) => {
   };
   // ── 7 : tirer en glissant sur le ventre, replanter plus loin ──
   const vTirer = z => {
-    const E = 150, yG = 60;
+    const E = 150, yG = 96;
     const g = corps(TIRER, { x: dx(TIRER, 'hancheP', E + 40 * S), y: yG,
       objetP: gg => picCorps(gg.mainP, yG, true), objetL: gg => picCorps(gg.mainL, yG, true) });
     const A = g.articulations, yF = yG - 47;
@@ -178,9 +178,9 @@ module.exports = (h) => {
   // un point du dessous de l'avant-bras, posé sur la glace au bord droit de la vue (l'avant-bras sort de la vue, coupé
   // par elle) ; tournée de 7° pour que le poing monte sur le pic.
   const vPoing = z => {
-    const yG = z.h - 20;
+    const yG = z.h - 16;
     const ancre = [(5364.4 - 5362.7) / 539.9, (638.8 - 197.5) / 448.3];
-    const m = F.mainStock({ id: 'poing-manche-debout', miroir: true, objet: false, taille: 176, ancre, x: z.l + 3, y: yG, angle: 7 });
+    const m = F.mainStock({ id: 'poing-manche-debout', miroir: true, objet: false, taille: 168, ancre, x: z.l + 3, y: yG, angle: 7 });
     const o = m.objet, a = o.angle * Math.PI / 180, k = m.echelle;
     const u = [Math.cos(a), Math.sin(a)], n = [-u[1], u[0]];          // l'axe du manche (vers le bas), sa normale
     const at = (t, q = 0) => [o.x + u[0] * t + n[0] * q, o.y + u[1] * t + n[1] * q];
