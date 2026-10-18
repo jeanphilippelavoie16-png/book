@@ -563,23 +563,17 @@ dans la maison.
 
 ### Les rennes de Norvège après Tchornobyl
 
-En 1986, les retombées de Tchornobyl ont chargé de césium les pâturages de rennes du centre de la Norvège. Les
-éleveurs, dont des Sami, abattaient leurs rennes l'hiver. Or le renne mange surtout du lichen l'hiver, et les
-premières années, sa viande d'hiver était beaucoup plus chargée que celle de l'automne. Abattre au début de l'automne
-plutôt qu'en hiver a été, avec la mesure des bêtes vivantes, la façon la plus employée de garder la viande
-mangeable. Une bête qu'on ne pouvait pas abattre tôt passait quelques semaines en enclos, nourrie de fourrage
-propre. Les Sami ont d'abord résisté : au début de l'automne, la femelle et son petit sont encore très liés, et on
-dérange le troupeau pendant qu'il broute. Ce qui rend la façon dangereuse : une année où les champignons abondent,
-les bêtes qui en mangent à la fin de l'été ont une viande d'automne chargée à son tour.
+Après Tchornobyl, en Norvège, la viande de renne d'hiver était beaucoup plus chargée de césium que celle de
+l'automne, les premières années : l'hiver, le renne mange surtout du lichen. Les éleveurs, dont des Sami, ont donc
+abattu au début de l'automne, ou gardé la bête quelques semaines en enclos, nourrie de fourrage propre. Ce qui rend la
+façon dangereuse : une année où les champignons abondent, les rennes en mangent et leur viande d'automne se charge à
+son tour.
 
 ### L'argile grise de l'ancienne mer
 
 ![](images/extras/04-argile-de-la-mer.png)
 
-Après le retrait des glaciers, la mer a couvert les basses terres de la côte, jusqu'à plus de 120 m au-dessus de son
-niveau actuel. Elle y a laissé une argile grise, parfois gris foncé, qui est l'un des dépôts les plus répandus de ces
-terres, souvent cachée sous la tourbe, le sable ou le gravier. On la voit dans les berges des rivières et les coupes
-de chemin, parfois sur plus de 30 m d'épaisseur. Elle contient souvent des coquillages de mer, loin du rivage : c'est
-le meilleur repère. On s'en sert pour décanter l'eau (section 7). La prendre dans une petite coupe, jamais en creusant
-au pied d'un grand talus : ces argiles glissent, surtout pendant et après de fortes pluies, et plusieurs glissements
-ont eu lieu pendant qu'on y creusait.
+Après le retrait des glaciers, la mer a couvert les basses terres de la côte jusqu'à plus de 120 m au-dessus de son
+niveau actuel. Elle y a laissé une argile grise, souvent cachée sous la tourbe ou le sable. Une argile qui contient des
+coquillages de mer, loin du rivage, vient de cette ancienne mer. La prendre dans une petite coupe, jamais au pied d'un
+grand talus : ces argiles glissent, surtout pendant et après de fortes pluies.
