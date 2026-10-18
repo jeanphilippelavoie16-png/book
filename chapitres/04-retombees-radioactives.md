@@ -172,8 +172,9 @@ y rester 24 à 48 heures, protéger la thyroïde avec des comprimés d'iode, pui
 17. **Ouvrir une radio à piles ou à manivelle dans l'abri, et la laisser ouverte.** On y apprend où va le
  panache, s'il y a un deuxième rejet et quand l'abri finit. Sans radio : section 7.
 18. {!co} **Boucher les courants d'air de la pièce d'abri pendant le passage du panache, quelques heures au plus.**
- - Avant de boucher, poser l'avertisseur de CO dans la pièce et appuyer sur son bouton d'essai. Au caveau, sous
- 4,4 °C, on ne peut pas se fier à l'avertisseur : ne rien faire brûler dans le caveau.
+ - Avant de boucher, poser l'avertisseur de CO dans la pièce et appuyer sur son bouton d'essai. Au caveau, ne rien
+ faire brûler : une flamme y consomme l'oxygène, et s'il y fait moins de 4,4 °C, on ne peut pas se fier à
+ l'avertisseur.
  - Boucher avec ce qu'on a : du ruban sur le cadre des portes et des fenêtres, du plastique sur les vitres, un
  linge humide au bas des portes, un bouchon dans les prises d'air. Le bouchage arrête la poussière, pas le
  rayonnement : contre lui, il faut la masse autour de la pièce (étape 8).
@@ -184,25 +185,35 @@ y rester 24 à 48 heures, protéger la thyroïde avec des comprimés d'iode, pui
  - Les premiers signes du monoxyde (le mal de tête, la nausée, l'envie de dormir) ressemblent à ceux de
  l'irradiation, et on reste couché au lieu d'agir. Si l'avertisseur sonne, ou si plusieurs personnes ont mal à la
  tête ou envie de dormir en même temps, chercher d'abord la source du monoxyde (une flamme, une braise ou un
- moteur) et l'éliminer. Éteindre la lampe, le fanal, le réchaud, la chaufferette et les chandelles. Arrêter le
- moteur qui tourne dans le garage ou près de la maison. Mettre dehors ce qui brûle et qu'on ne peut pas éteindre,
- comme un barbecue au charbon de bois.
- - Si la source est le poêle à bois (de la fumée revient dans la maison, surtout quand le feu tombe en braise),
- remboîter le tuyau s'il s'est déboîté, et donner de l'air au poêle (section 6). Ne pas fermer l'entrée d'air ni la
- clé pour éteindre le feu : un feu qui manque d'air couve, et sa fumée fuit dans la maison même quand la porte du
- poêle est fermée.
- - Ensuite, décider selon la situation s'il faut rester à l'intérieur, en ouvrant la pièce d'abri sur le reste de
- la maison et en l'aérant, ou sortir à l'air libre.
- - Ce qui pousse à sortir : une personne est confuse, se réveille mal ou perd connaissance ; on ne trouve pas la
- source, ou on ne peut pas l'éliminer ; le chiffre affiché par l'avertisseur ne baisse pas une fois la source
- éliminée et la pièce ouverte. On peut quitter l'abri pour une personne dans cet état : sa vie est en jeu, comme
- pour une blessure grave (étape 24). Pour sortir, se couvrir le nez et la bouche d'un linge ; en rentrant, passer
- par le coin de l'entrée (étape 20).
- - Ce qui pousse à rester : les retombées sont arrivées depuis peu, et une sortie fait recevoir le plus de
- rayonnement dans les premières heures (étape 4) ; le panache passe encore, et on respire beaucoup moins d'iode
- radioactif à l'intérieur (section 7, « Sans comprimés d'iode ») ; une fois la source éliminée, tout le monde est
- réveillé et répond. Au sous-sol ou au caveau, sortir fait perdre beaucoup de protection ; dans une maison de bois
- sans sous-sol, beaucoup moins (étapes 4 et 8).
+ moteur) et l'éliminer. Éteindre la lampe à l'huile, le fanal, le réchaud, la chaufferette au propane et les
+ chandelles. Arrêter le moteur qui tourne dans le garage ou près de la maison. Mettre dehors ce qui brûle et qu'on
+ ne peut pas éteindre, comme un barbecue au charbon de bois.
+ - {!espace-clos} Au caveau, où rien ne brûle, chercher d'abord du côté de l'air : les légumes et les gens y font
+ du gaz carbonique et y consomment l'oxygène, et l'avertisseur de CO ne détecte ni le gaz carbonique ni le manque
+ d'oxygène. Des gens qui respirent vite, dont le cœur s'emballe, ou qui deviennent maladroits ou fatigués manquent
+ d'oxygène. Enlever les bouchons des deux conduits du caveau et aérer tout de suite (section 7).
+ - Si de la fumée revient dans la maison, ou si rien d'autre ne brûle, la source est sans doute le poêle à bois :
+ quand le feu tombe en braise, le poêle peut refouler du monoxyde avec peu de fumée. Remboîter le tuyau s'il s'est
+ déboîté, ouvrir une entrée d'air au même étage que le poêle (section 6) et relancer une flamme claire avec du
+ petit bois sec. Ne pas fermer l'arrivée d'air du poêle ni la clé du tuyau pour éteindre le feu : un feu qui manque
+ d'air couve, et sa fumée peut fuir dans la maison même quand la porte du poêle est fermée. Si la fumée continue,
+ ou si le chiffre affiché par l'avertisseur ne baisse pas, sortir la braise dans une chaudière de métal et mettre
+ la chaudière dehors : le feu est éteint quand il ne reste plus une braise rouge dans le poêle.
+ - Ensuite, décider selon la situation s'il faut sortir à l'air libre, ou rester à l'intérieur, en ouvrant la
+ pièce d'abri sur le reste de la maison et en l'aérant avec la pompe à volets ou l'éventail (section 7).
+ - Ce qui pousse à sortir : on ne trouve pas la source, ou on ne peut pas l'éliminer ; le chiffre affiché par
+ l'avertisseur ne baisse pas une fois la source éliminée et la pièce ouverte ; l'abri est une maison de bois sans
+ sous-sol, qui protège peu (étape 4). Si une personne est confuse, ne se réveille pas bien ou perd connaissance,
+ sa vie est en jeu : on peut la sortir à l'air libre, comme on quitte l'abri pour une blessure grave (étape 24).
+ Pour sortir, se couvrir le nez et la bouche d'un linge. Rentrer dès que l'abri a été aéré et que l'avertisseur ne
+ sonne plus et n'affiche plus de chiffre ; en rentrant, enlever ses vêtements du dessus et se laver dans le coin
+ de l'entrée (étape 20).
+ - Ce qui pousse à rester : après une détonation, les retombées sont arrivées depuis peu, et dehors, on reçoit le
+ plus de rayonnement pendant les premières heures, environ dix fois plus à la première heure après l'explosion
+ qu'à la septième (étape 4) ; le panache passe encore, et dans la maison fermée, on respire beaucoup moins d'iode
+ radioactif que dehors, ce qui compte surtout pour les personnes qui n'ont pas pris de comprimé d'iode (étape 12 ;
+ section 7, « Sans comprimés d'iode ») ; une fois la source éliminée, tout le monde est réveillé et répond ;
+ l'abri est un sous-sol ou le caveau, qui protège beaucoup (étape 8).
 19. {!generatrice} **Laisser la génératrice arrêtée tant qu'on reste à l'abri.** Pour la faire tourner dehors, à
  6 m du bâtiment, quelqu'un doit sortir dans la poussière radioactive ; la faire tourner dans le garage, dans
  l'entrée ou sous l'auvent, même porte ouverte, remplit la maison de monoxyde. Après l'abri, la sortir à 6 m
@@ -608,10 +619,10 @@ peut passer dehors : le rayonnement du sol traverse un sac à ordures.
 
 ### La baisse du rayonnement
 
-Le rayonnement des retombées baisse très vite au début, puis de plus en plus lentement (étape 24). En comptant depuis
-l'explosion, il est dix fois plus faible à la septième heure qu'à la première, cent fois plus faible au bout de 2
-jours, et environ mille fois plus faible au bout de 2 semaines. Une fois la poussière tombée, la pluie le fait baisser
-plus vite : elle lave la poussière des toits et des plantes vers le sol.
+Le rayonnement des retombées baisse très vite au début, puis de plus en plus lentement (étapes 18 et 24). En comptant
+depuis l'explosion, il est cent fois plus faible au bout de 2 jours qu'à la première heure, et environ mille fois plus
+faible au bout de 2 semaines. Une fois la poussière tombée, la pluie le fait baisser plus vite : elle lave la
+poussière des toits et des plantes vers le sol.
 
 ### L'estomac du caribou
 

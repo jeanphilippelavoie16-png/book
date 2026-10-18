@@ -37,7 +37,7 @@ flèche, flocon).
 | 5 | `huile-en-feu` | Huile ou gras en feu | Jamais d'eau sur ni dans l'huile chaude : couvercle, et le chaudron ne bouge pas | Un chaudron en flammes, un couvercle, une goutte barrée | 5 15 72 82 90 111 112 |
 | 6 | `incendie` | Le bâtiment brûle | Flamme nue, cheminée, feu qui couve : on sort en moins de 3 minutes et on ne rentre pas | Une maison, une flamme à la fenêtre | 12 37 82 83 85 99 101 102 105 108 112 |
 | 7 | `feu-de-foret` | Feu de forêt | La fumée, les braises et le chemin qui se ferme avant le front ; le brûlis qui s'échappe | Un conifère en flammes | 11 96 99 |
-| 8 | `espace-clos` | L'air qui manque au fond | Fosse, caveau, cuve, cave : un gaz lourd ou un air sans oxygène fait tomber sans prévenir | Une silhouette au fond d'un trou, une flèche vers le bas barrée | 12 31 79 87 102 107 |
+| 8 | `espace-clos` | L'air qui manque au fond | Fosse, caveau, cuve, cave : un gaz lourd ou un air sans oxygène fait tomber sans prévenir | Une silhouette au fond d'un trou, une flèche vers le bas barrée | 4 12 31 79 87 102 107 |
 | 9 | `chimie` | Produit qui brûle ou qui gaze | Lessive, soude, chaux, cendre, acide, javel : brûlure qui travaille en profondeur, gaz de mélange | Un œil et une goutte | 10 30 31 96 99 102 103 107 108 112 |
 | 10 | `pas-au-feu` | Ce qui empoisonne en brûlant | Bois traité, pièce galvanisée ou peinte, brasure au cadmium, herbe à puce : jamais au feu | Une planche dans une flamme, barrée | 33 71 79 92 95 107 110 111 |
 | 11 | `projection` | Ce qui éclate ou part d'un coup | Meule, acier trempé, contenant fermé chauffé, câble tendu, arbre encroué, arc | Un éclat qui part vers un visage | 12 37 45 78 86 96 105 106 108 109 111 |
@@ -873,7 +873,9 @@ là » : il suffit d'y poser le pictogramme et de couper la redite.
   l'étape 31 (le trempage de 2 jours, tenu entre 0 et 4 °C) ; `cuisson` et `trichine` à l'étape 32. `botulisme` est
   posé à l'étape 31, sur la puce du poisson (bain tenu sous 3 °C, avec de la glace ou de la neige) : le trempage
   garde du poisson dans l'eau 4 à 8 heures (corrections du vérificateur du 18 octobre 2026, `suivi/04-technique.md`,
-  point P15).
+  point P15). `espace-clos` est posé à l'étape 18, sur la puce du caveau (rien n'y brûle ; les légumes et les gens y
+  font du gaz carbonique et y consomment l'oxygène, que l'avertisseur de CO ne voit pas ; on enlève les bouchons des
+  deux conduits et on aère), après la relecture de l'étape 18 du 18 octobre 2026 (`suivi/04-redaction.md`).
 
 **Ch. 05, Le stock permanent du chalet** (chapitre de référence, tableaux).
 - `co` + `generatrice` : avertisseur dans chaque chambre où on dort porte fermée, à plus de 2 m d'un appareil,

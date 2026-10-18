@@ -1,5 +1,5 @@
 {
-  "_note": "Logigramme du chapitre 4 (retombées radioactives), double page. Refait le 15 octobre 2026 (pas de branche « source perdue », radio après l'abri, ni « sas » ni « sceller », phrases complètes), puis le 18 octobre 2026 sur le chapitre refait au gabarit à sept sections : renvois aux nouvelles étapes, pastilles identiques aux trois séries orange (30 s, 10 min, 2 h), l'heure écrite qui ouvre la série de l'iode, le bouchage de quelques heures, plus d'avertissement redit ; colonnes de droite gardées telles quelles. Édition du 18 octobre 2026 (suivi/04-edition.md) : boîtes dites en phrases, étiquette « à moins de 15 min ». Décision de JP du 18 octobre 2026 sur l'étape 18 (suivi/04-redaction.md) : le nœud « co » cherche et élimine d'abord la source du monoxyde, puis laisse rester ou sortir au jugement de la personne. Rendu : python design/outils/logigramme.py images/logigrammes/04-retombees.json. « source » : les étapes du chapitre d'où vient chaque geste (ignoré au rendu).",
+  "_note": "Logigramme du chapitre 4 (retombées radioactives), double page. Refait le 15 octobre 2026 (pas de branche « source perdue », radio après l'abri, ni « sas » ni « sceller », phrases complètes), puis le 18 octobre 2026 sur le chapitre refait au gabarit à sept sections : renvois aux nouvelles étapes, pastilles identiques aux trois séries orange (30 s, 10 min, 2 h), l'heure écrite qui ouvre la série de l'iode, le bouchage de quelques heures, plus d'avertissement redit ; colonnes de droite gardées telles quelles. Édition du 18 octobre 2026 (suivi/04-edition.md) : boîtes dites en phrases, étiquette « à moins de 15 min ». Décision de JP du 18 octobre 2026 sur l'étape 18 (suivi/04-redaction.md) : le nœud « co » cherche et élimine d'abord la source du monoxyde, puis laisse rester ou sortir au jugement de la personne ; relecture du même jour : au caveau, où rien ne brûle, on ouvre les conduits et on aère (le rang d7 descend de 6,11 à 6,28 po pour laisser la boîte à sept lignes). Rendu : python design/outils/logigramme.py images/logigrammes/04-retombees.json. « source » : les étapes du chapitre d'où vient chaque geste (ignoré au rendu).",
   "format": "double",
   "tome": 1,
   "urgent": true,
@@ -73,7 +73,7 @@
     "d4": 3.74,
     "d5": 4.36,
     "d6": 5.15,
-    "d7": 6.11,
+    "d7": 6.28,
     "d8": 7.34,
     "d9": 8.65,
     "dco": 4.36
@@ -297,7 +297,7 @@
       "rang": "dco",
       "ancre": "haut",
       "titre": "Le CO ressemble à l'irradiation",
-      "texte": "**Si l'avertisseur de CO sonne, ou si plusieurs personnes ont mal à la tête ou envie de dormir : chercher ce qui fait le monoxyde et l'éteindre, l'arrêter ou le sortir.** Ensuite, décider selon la situation : rester à l'intérieur ou sortir à l'air libre.",
+      "texte": "**Si l'avertisseur de CO sonne, ou si plusieurs personnes ont mal à la tête ou envie de dormir : chercher ce qui fait le monoxyde et l'éteindre, l'arrêter ou le sortir.** Au caveau, ouvrir les conduits et aérer. Ensuite, décider selon la situation : rester à l'intérieur ou sortir à l'air libre.",
       "renvoi": "ch. 4, étape 18",
       "source": "étape 18",
       "taille": 10

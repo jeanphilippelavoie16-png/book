@@ -951,3 +951,130 @@ sortir devant le monoxyde. Rien de chiffré n'est ajouté : aucun `[À VÉRIFIER
   chose, règle 6).
 - **Pronominaux** relus à la main : « s'il s'est déboîté » (le tuyau le fait seul), « se couvrir », « se réveille »,
   « se fier » (verbes réfléchis ou essentiellement pronominaux, pas une consigne au pronominal).
+
+### Relecture de l'étape 18 par deux relecteurs, 18 octobre 2026 : ce qui est appliqué, ce qui est écarté
+
+Quatorze points. Douze appliqués (plusieurs fusionnés, parce qu'ils touchent la même puce), un appliqué à la page
+`co`, un renvoyé à l'orchestrateur. Aucun chiffre nouveau sans source : le seul chiffre qui entre dans l'étape
+(dix fois plus à la première heure qu'à la septième) y est déplacé depuis l'encadré En plus, avec sa source.
+
+**La numérotation des puces.** L'étape avait neuf puces, pas dix : la fiche et les relecteurs comptaient la puce des
+signes du monoxyde comme la 6e. Elle en a maintenant dix, numérotées ainsi dans ce qui suit : 1 l'avertisseur (P7) ;
+2 boucher avec ce qu'on a ; 3 ne jamais boucher la pièce où brûle un appareil ; 4 aérer au bout de quelques heures ;
+5 les signes, chercher la source ; 6 le caveau (nouvelle) ; 7 le poêle ; 8 décider ; 9 sortir ; 10 rester. Les
+puces 7 à 10 gardent les numéros des relecteurs.
+
+#### Le texte final des puces changées
+
+> - Avant de boucher, poser l'avertisseur de CO dans la pièce et appuyer sur son bouton d'essai. Au caveau, ne rien
+> faire brûler : une flamme y consomme l'oxygène, et s'il y fait moins de 4,4 °C, on ne peut pas se fier à
+> l'avertisseur.
+
+> - […] Éteindre la lampe à l'huile, le fanal, le réchaud, la chaufferette au propane et les chandelles. […]
+> - {!espace-clos} Au caveau, où rien ne brûle, chercher d'abord du côté de l'air : les légumes et les gens y font
+> du gaz carbonique et y consomment l'oxygène, et l'avertisseur de CO ne détecte ni le gaz carbonique ni le manque
+> d'oxygène. Des gens qui respirent vite, dont le cœur s'emballe, ou qui deviennent maladroits ou fatigués manquent
+> d'oxygène. Enlever les bouchons des deux conduits du caveau et aérer tout de suite (section 7).
+> - Si de la fumée revient dans la maison, ou si rien d'autre ne brûle, la source est sans doute le poêle à bois :
+> quand le feu tombe en braise, le poêle peut refouler du monoxyde avec peu de fumée. Remboîter le tuyau s'il s'est
+> déboîté, ouvrir une entrée d'air au même étage que le poêle (section 6) et relancer une flamme claire avec du
+> petit bois sec. Ne pas fermer l'arrivée d'air du poêle ni la clé du tuyau pour éteindre le feu : un feu qui manque
+> d'air couve, et sa fumée peut fuir dans la maison même quand la porte du poêle est fermée. Si la fumée continue,
+> ou si le chiffre affiché par l'avertisseur ne baisse pas, sortir la braise dans une chaudière de métal et mettre
+> la chaudière dehors : le feu est éteint quand il ne reste plus une braise rouge dans le poêle.
+> - Ensuite, décider selon la situation s'il faut sortir à l'air libre, ou rester à l'intérieur, en ouvrant la
+> pièce d'abri sur le reste de la maison et en l'aérant avec la pompe à volets ou l'éventail (section 7).
+> - Ce qui pousse à sortir : on ne trouve pas la source, ou on ne peut pas l'éliminer ; le chiffre affiché par
+> l'avertisseur ne baisse pas une fois la source éliminée et la pièce ouverte ; l'abri est une maison de bois sans
+> sous-sol, qui protège peu (étape 4). Si une personne est confuse, ne se réveille pas bien ou perd connaissance,
+> sa vie est en jeu : on peut la sortir à l'air libre, comme on quitte l'abri pour une blessure grave (étape 24).
+> Pour sortir, se couvrir le nez et la bouche d'un linge. Rentrer dès que l'abri a été aéré et que l'avertisseur ne
+> sonne plus et n'affiche plus de chiffre ; en rentrant, enlever ses vêtements du dessus et se laver dans le coin
+> de l'entrée (étape 20).
+> - Ce qui pousse à rester : après une détonation, les retombées sont arrivées depuis peu, et dehors, on reçoit le
+> plus de rayonnement pendant les premières heures, environ dix fois plus à la première heure après l'explosion
+> qu'à la septième (étape 4) ; le panache passe encore, et dans la maison fermée, on respire beaucoup moins d'iode
+> radioactif que dehors, ce qui compte surtout pour les personnes qui n'ont pas pris de comprimé d'iode (étape 12 ;
+> section 7, « Sans comprimés d'iode ») ; une fois la source éliminée, tout le monde est réveillé et répond ;
+> l'abri est un sous-sol ou le caveau, qui protège beaucoup (étape 8).
+
+Encadré En plus « La baisse du rayonnement », après : « Le rayonnement des retombées baisse très vite au début, puis
+de plus en plus lentement (étapes 18 et 24). En comptant depuis l'explosion, il est cent fois plus faible au bout de
+2 jours qu'à la première heure, et environ mille fois plus faible au bout de 2 semaines. […] » (environ 70 mots).
+
+#### Point par point
+
+| # | Point | Décision | Pourquoi, et ce qui change par rapport à la proposition |
+| --- | --- | --- | --- |
+| 1 | Le caveau : rien n'y brûle, les signes viennent de l'air | **Appliqué**, nouvelle puce 6 avec `{!espace-clos}` | Le relecteur a raison : au caveau, « on ne trouve pas la source » poussait la famille dehors, alors que le geste est d'aérer. Trois retouches : « ne détecte ni l'un ni l'autre » devient « ni le gaz carbonique ni le manque d'oxygène » (on nomme la chose) ; « les bouchons des conduits » devient « des deux conduits du caveau » (ch. 79 : deux conduits, bas et haut, un bouchon sur chacun) ; le renvoi devient « (section 7) », court, parce que la puce 4 donne déjà le titre « Ventiler la pièce d'abri ». Ch. 4 ajouté à la colonne « Chapitres » de `espace-clos` (`plan/dangers-inventaire.md`, section 1) et la pose notée à la section 3 (Ch. 04). Logigramme : la boîte « co » dit maintenant « Au caveau, ouvrir les conduits et aérer. » (voir plus bas). |
+| 2 | Le poêle : l'éliminer quand la correction ne suffit pas ; la braise fait du CO avec peu de fumée ; « peut fuir » | **Appliqué**, fusionné avec 7 et 8 | L'ancien écart (« sortir la braise » couvert par « mettre dehors ce qui brûle ») ne tenait pas : la puce du poêle venait après et disait de ne pas éteindre le feu. Deux retouches : « si l'avertisseur affiche encore un chiffre » devient « si le chiffre affiché par l'avertisseur ne baisse pas » : juste après la relance, la pièce garde le monoxyde déjà fait, l'avertisseur affiche un chiffre tant qu'on n'a pas aéré (Kidde : tout chiffre affiché veut dire du CO), et on sortirait la braise à tous les coups ; « ne baisse pas » est aussi le mot de la puce 9 (règle 6). « La mettre dehors » devient « mettre la chaudière dehors » : le pronom pouvait être la braise ou la chaudière. |
+| 3 | La protection contre l'iode suppose la maison fermée ; le comprimé change le poids | **Appliqué** | Le comment de l'aération vient du point 11 (« avec la pompe à volets ou l'éventail »), qui nomme le geste ; la pompe a son filtre à l'entrée d'air, et ni l'un ni l'autre n'ouvre une fenêtre. « Ce qui protège surtout » devient « ce qui compte surtout » : la maison fermée protège tout le monde, et c'est pour les personnes sans comprimé que ça pèse le plus (étape 12). |
+| 4 | « Depuis peu » ne permet pas de juger ; la règle des premières heures vaut pour une détonation | **Appliqué**, fusionné avec 13 | « Après une détonation » ouvre le poids. Le chiffre est dit avec un sujet concret (« on reçoit […] environ dix fois plus à la première heure après l'explosion qu'à la septième »), plutôt que « une sortie coûte ». Le fait de la 7e heure sort de l'encadré En plus, qui garde 2 jours et 2 semaines, renvoie aux étapes 18 et 24, et prend « qu'à la première heure » comme base de comparaison (ORNL : 1 000 R/h à la 1re heure, 10 R/h à 48 h, 1 R/h vers 2 semaines). |
+| 5 | Combien de temps rester dehors | **Appliqué**, fusionné avec 12 | « Dès que la maison a été aérée » devient « dès que l'abri a été aéré » : au chalet, l'abri est le caveau. |
+| 6 | La page `co` dit de sortir sans chercher la source | **Appliqué** | Point 1 de « Ce qu'on fait » : la phrase proposée, mot pour mot, à la fin. « Où il revient » : « la pièce d'abri des retombées (ch. 4) », après la panne (ch. 3). La fiche disait plus haut que la page `co` restait telle quelle ; ce n'est plus le cas. **Tient sur sa page** : dans le dernier montage du tome 1 (page 1 des dangers, avec le titre « Les dangers »), il restait environ un quart de la colonne de droite ; l'ajout fait environ 35 mots, trois lignes. À revoir au montage. |
+| 7 | « Entrée d'air » nomme deux choses | **Appliqué** | « Ouvrir une entrée d'air au même étage que le poêle (section 6) » pour l'ouverture dans la maison ; « l'arrivée d'air du poêle » et « la clé du tuyau » pour les réglages du poêle (ch. 84, étape 19 ; ch. 83). |
+| 8 | Le seul signe du poêle était la fumée ; la condition cachée dans une parenthèse | **Appliqué** | Phrase d'ouverture du relecteur, avec « le poêle peut refouler » au lieu de « il peut refouler » (on nomme la chose) et « peut fuir » au lieu de « fuit » (point 2). Ligne ajoutée au tableau des sources ci-dessous. |
+| 9 | « La lampe », « la chaufferette » | **Appliqué** | « La lampe à l'huile » (page `co`), « la chaufferette au propane » (ch. 01, 05, 12). |
+| 10 | « Au caveau, sous 4,4 °C » ambigu | **Appliqué, adapté** | Avec « s'il fait moins de 4,4 °C, […] : ne rien faire brûler dans le caveau », l'interdiction devenait conditionnelle : un caveau à plus de 4,4 °C (l'été) semblait permettre une flamme, alors que le ch. 79 interdit toute flamme au caveau. L'interdiction se dit donc seule, avec son mécanisme (« une flamme y consomme l'oxygène », ch. 79, encadré du danger), et la condition de température se dit en clair devant ce qu'elle touche, la confiance dans l'avertisseur. |
+| 11 | L'incise sépare les deux choix ; « en l'aérant » ne dit pas comment | **Appliqué** | Texte du relecteur, mot pour mot. |
+| 12 | « Se réveille mal », « dans cet état », la maison de bois du mauvais côté, le coin de l'entrée | **Appliqué, une retouche** | « Se changer et se laver » devient « enlever ses vêtements du dessus et se laver » : ce sont les mots des étapes 5 et 20 (règle 6), et « se changer » laisse croire qu'il y a des vêtements de rechange à l'entrée. |
+| 13 | « Une sortie fait recevoir » ; « beaucoup moins » en ellipse et du mauvais côté | **Appliqué** | Fusionné avec 3 et 4. |
+| 14 | « Les bûches mieux faites aussi en dessous du feu » ; « Oui 4-01 » | **Écarté pour le rédacteur** | Ce sont des demandes de JP sur les planches (04-01, le feu), pas sur le texte de l'étape 18. À l'orchestrateur, pour la chaîne des planches (skill `planches`). Rien à changer dans le texte. |
+
+#### La source de chaque fait nouveau ou changé
+
+| Fait | Puce | Source |
+| --- | --- | --- |
+| Une flamme au caveau consomme l'oxygène ; aucune flamme au caveau | 1 | Ch. 79, encadré du danger 1 (« Aucune flamme au caveau. Ni chandelle, ni lanterne, ni réchaud : une flamme consomme l'oxygène qui manque déjà ») |
+| L'avertisseur n'est pas fiable sous 4,4 °C | 1 | Inchangé : `15b-kidde-avertisseur-co-bouton-et-temperature.md` ; page `co` |
+| La lampe à l'huile, la chaufferette au propane | 5 | Page `co` (« la lampe à l'huile ») ; `16c-cisss-cote-nord-monoxyde-de-carbone.md` (« chaufferette à combustible ») ; ch. 01, 05 et 12 (« chaufferette au propane ») |
+| Les légumes respirent même à 0 °C, font du gaz carbonique et consomment l'oxygène | 6 | Page `espace-clos` (« le gaz carbonique que dégagent les légumes entreposés ») ; ch. 79, encadré du danger 1 ; `76-cchst-dioxyde-de-carbone.md` (« Une concentration élevée peut déplacer l'oxygène ») |
+| Les gens enfermés usent l'air de la pièce | 6 | `04-cdc-abri-ventiler-en-quelques-heures.md` (« Suffocation could occur if you keep the shelter tightly sealed for more than a few hours ») ; aucun chiffre |
+| L'avertisseur de CO ne détecte ni le gaz carbonique ni le manque d'oxygène | 6 | Page `espace-clos` (« L'avertisseur de monoxyde ne détecte ni le gaz carbonique ni le propane ») ; ch. 79 (« Un avertisseur de monoxyde de carbone ne détecte pas ce danger-là ») ; `76-cchst-dioxyde-de-carbone.md`, note de captation |
+| Respirer vite, le cœur qui s'emballe, la maladresse, la fatigue : le manque d'oxygène | 6 | `28-cchst-espaces-clos-oxygene.md` (« 19,5 % ou moins […] une respiration rapide, une fréquence cardiaque élevée, de la maladresse […] et de la fatigue ») ; `76-cchst-dioxyde-de-carbone.md` ; page `espace-clos` |
+| Le caveau a deux conduits, chacun avec son bouchon ; on aère en les ouvrant | 6 | Ch. 79, section 4, Matériel (« Deux conduits, bas et haut […] Grillage fin et bouchon sur chacun ») et encadré du danger 1 (« Deux conduits ouverts et la porte ouverte ») |
+| Le poêle refoule surtout en braise ; la braise fait souvent du CO avec un peu de flamme ou de fumée ; un feu couvant fait entrer « la fumée et/ou le monoxyde » | 7 | `16c-rncan-refoulement-braise-effet-de-tirage.md`, p. 38, 40 et 45 (copie intégrale `15b-rncan-guide-chauffage-bois-residentiel.pdf`) ; ch. 12, étape 75 |
+| Une flamme claire refait le tirage | 7 | RNCan, p. 39 (le feu qui manque d'air couve « parce que la température des gaz d'échappement est trop faible pour qu'il y ait un tirage suffisant ») et p. 40 (chauffer le conduit « jusqu'à ce qu'il produise un certain tirage ») ; ch. 12, section 6 (« Rouvrir l'entrée d'air basse et relancer une flamme claire ») |
+| Le feu couvant peut fuir de la fumée porte fermée | 7 | RNCan, p. 39 (« un important feu couvant peut provoquer des fuites de fumée ») |
+| Si la fumée continue, sortir la braise dans une chaudière de métal ; plus une braise rouge | 7 | Ch. 12, section 6 (« Si la fumée continue, la sortie est bouchée : éteindre le feu, sortir la braise ») et étape 48 (« mettre la braise dans une chaudière de métal et la sortir dehors » ; « plus une braise rouge ») ; RNCan, p. 39 (l'air extérieur « risque de ne pas avoir d'effet ») |
+| L'aération par la pompe à volets ou l'éventail | 8 | Section 7, « Ventiler la pièce d'abri » (sources de la section : ORNL, chap. 6, p. 50, et annexe B, pour la pompe à volets ; chap. 6 pour l'éventail de carton) |
+| La maison de bois sans sous-sol protège peu ; le sous-sol et le caveau beaucoup | 9, 10 | Inchangé : LLNL 2009, tableau 1 ; étapes 4 et 8 |
+| Rentrer quand les lieux ont été aérés et que l'avertisseur est revenu à la normale ; tout chiffre affiché veut dire du CO | 7, 9 | `15-kidde-reentree-et-affichage-co.md` (guide P3010L-CO-CA, « until […] the premises have been aired out, and your alarm remains in its normal condition » ; page 3, « Any time a digital unit displays a number […] assume it senses carbon monoxide ») |
+| Dehors, le rayonnement est environ dix fois plus fort à la 1re heure après l'explosion qu'à la 7e ; la règle des premières heures | 10 | `04-ornl-kearny-extraits-refonte-2026-10-18.md`, chap. 1, p. 12 et 13, fig. 1.2 (« from 1000 R/hr to 100 R/hr (7 hours) » ; « from the time of the explosion ») ; `06-llnl-2009-key-response-planning.md`, p. ii et p. 3 |
+| Dans la maison fermée, on respire beaucoup moins d'iode ; le comprimé protège la thyroïde | 10 | `04-ornl-kearny-extraits-refonte-2026-10-18.md` (FDA, « merely staying indoors can significantly reduce inhaled doses ») ; section 7 (« portes et fenêtres fermées ») ; étape 12 (OMS 2025, CCSN ; confirmé no 15 de `suivi/04-technique.md`) |
+| En plus : cent fois plus faible à 2 jours, mille fois vers 2 semaines, depuis l'explosion | En plus | ORNL, chap. 1, p. 12 et 13 (« 10 R/hr (48 hours) » ; « about 2 weeks for the dose rate to be reduced to 1 R/hr ») |
+
+#### Ce qui change dans les notes plus haut
+
+- « Ce qui a été écarté en écrivant », 2e point (la braise dans une chaudière) : levé. La braise se sort maintenant
+  quand la fumée continue ou que le chiffre ne baisse pas (point 2).
+- « Ailleurs », « Pas changé », la page `co` : changée (point 6).
+- Le tableau « La source de chaque fait » plus haut garde ses numéros de puces ; les lignes « Puce 6 » des signes et
+  de la flamme, de la braise et des moteurs sont la puce 5 dans la nouvelle numérotation ; les lignes « Puce 9 » et
+  « Puce 10 » sont remplacées par celles du tableau ci-dessus.
+
+#### Logigramme
+
+Boîte « co » (`images/logigrammes/04-retombees.json`) : « … chercher ce qui fait le monoxyde et l'éteindre, l'arrêter
+ou le sortir.** Au caveau, ouvrir les conduits et aérer. Ensuite, décider selon la situation : rester à l'intérieur ou
+sortir à l'air libre. » La boîte passe de 6 à 7 lignes et touchait « Rester jusqu'à 48 h » : le rang `d7` (« Au bout
+de 24 h… » et « Rester jusqu'à 48 h ») descend de 6,11 à 6,28 po ; il reste 0,30 po jusqu'à « Remplacer les filtres ».
+Le `_note` du JSON le dit. Rendus refaits (`logigramme.py`, puis `--sans-entete --svg`) : `04-retombees.svg`, `.pdf`,
+`.png`, `04-retombees-livre.svg` ; **0 erreur, 0 avis** ; regardé à l'image : la boîte tient entre « Ne pas avaler
+d'iode » et « Rester jusqu'à 48 h », les flèches de « pas-iode » vers « abri » et de « 48 h » vers « sortir » ne
+touchent rien. « Le sortir » couvre la braise du poêle (point 2) : rien d'autre ne change dans la boîte.
+
+#### controle.py, avant et après cette relecture
+
+- **Avant** : 9 426 mots, 2 tirets (titre et ligne de tome), 46 mots vides, 16 redites.
+- **Après** : 9 661 mots, 2 tirets (les mêmes), 0 « § », 0 mot banni, 0 tournure, 0 mise en relief, 0 maxime, 0
+  pronominal, 0 ancre introuvable ; invariants : rien n'a disparu.
+- **Mots vides** : 48 ; ceux de l'étape portent le sens (« tout de suite », « ne se réveille pas bien », le mot de
+  la page `co`, « le panache passe encore », « tout le monde »).
+- **Redites** : 17 ; deux nouvelles, jugées : « le chiffre affiché par l'avertisseur ne » (puces 7 et 9 : la même
+  condition à deux moments, dite avec les mêmes mots, règle 6) ; « enlever ses vêtements du dessus et » (étape 5 et
+  puce 9 : le geste nommé avec les mots des étapes 5 et 20, plus court qu'une explication).
+- **Pronominaux** relus à la main : « s'il s'est déboîté » et « le cœur s'emballe » (la chose le fait seule) ;
+  « se couvrir », « se réveille », « se fier », « se laver » (verbes réfléchis, pas une consigne au pronominal).
+- `dangers/partie-1.md` : 9 039 mots avant, 9 065 après ; invariants : rien n'a disparu ; les avis du script
+  (l. 65, l. 328) sont sur d'autres pages et existaient avant.

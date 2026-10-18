@@ -12,13 +12,13 @@ On ne peut détecter le gaz qu'avec un avertisseur de monoxyde. L'avertisseur me
 
 **Ce qu'on fait.**
 
-1. Sortir tout le monde à l'air libre tout de suite, sans chercher la source, et compter les personnes.
+1. Sortir tout le monde à l'air libre tout de suite, sans chercher la source, et compter les personnes. Pendant des retombées radioactives, chercher d'abord la source et l'éliminer, puis juger s'il faut sortir (ch. 4, étape 18).
 2. Avant de rentrer chercher quelqu'un, ouvrir grand les portes et les fenêtres en restant dehors : la personne qui entre en courant respire plus vite et absorbe le gaz plus vite.
 3. Arrêter la source si on peut l'atteindre sans rester à l'intérieur.
 4. Garder les personnes intoxiquées au repos et au chaud, loin de toute flamme. À l'air libre, la moitié du monoxyde est encore dans le sang 3 à 5 h plus tard, même si la personne se sent mieux. Si elle est confuse ou ne se réveille pas bien, sa vie est en jeu.
 5. Ne rien rallumer avant d'avoir trouvé la cause : tuyau déboîté, conduit bouché, sortie prise dans la neige, appareil d'extérieur rentré.
 
-**Où il revient.** Partout où une flamme ou un moteur brûle dans un volume fermé : la panne (ch. 3), la tente, l'auto prise dans la neige, le sauna (ch. 37), le fumoir et l'atelier.
+**Où il revient.** Partout où une flamme ou un moteur brûle dans un volume fermé : la panne (ch. 3), la pièce d'abri des retombées (ch. 4), la tente, l'auto prise dans la neige, le sauna (ch. 37), le fumoir et l'atelier.
 
 ## {!generatrice} Génératrice et moteur sous un toit
 
@@ -170,7 +170,7 @@ Environ 60 % des gens qui meurent dans un espace clos sont des sauveteurs : ils 
 3. Travailler du haut quand c'est possible, avec des outils à long manche.
 4. Si quelqu'un tombe au fond : ne pas descendre le chercher. Aérer le trou et l'aider du haut, avec une corde ou une échelle s'il peut s'en servir. Un masque à poussière ou un linge mouillé n'arrête aucun gaz.
 
-**Où il revient.** Le caveau (ch. 79), la fosse et les eaux usées (ch. 31), le puits, le tannage dans un baril (ch. 102), la soudure dans une cuve (ch. 107).
+**Où il revient.** Le caveau (ch. 79), la pièce d'abri bouchée pendant les retombées (ch. 4), la fosse et les eaux usées (ch. 31), le puits, le tannage dans un baril (ch. 102), la soudure dans une cuve (ch. 107).
 
 ## {!chimie} Produit qui brûle ou qui gaze
 
