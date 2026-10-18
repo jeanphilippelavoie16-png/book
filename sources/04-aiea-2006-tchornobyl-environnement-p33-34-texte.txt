@@ -1,0 +1,246 @@
+AIEA (IAEA), Environmental Consequences of the Chernobyl Accident and their Remediation: Twenty Years of Experience, Radiological Assessment Reports Series, Vienne, 2006 (STI/PUB/1239).
+URL : https://www-pub.iaea.org/MTCD/Publications/PDF/Pub1239_web.pdf (HTTP 200, 9,1 Mo, consulté le 2026-10-18).
+Texte des pages 33 et 34 du PDF (section 3.1.2), extrait par pdftotext -raw. Page de titre : 04-aiea-2006-tchornobyl-environnement-titre.pdf.
+----
+20
+expected to increase in its levels in the coming years
+is 241
+Am, which arises from the decay of 241
+Pu; it
+takes about 100 years for the maximum amount of
+241
+Am to form from 241
+Pu.
+3.1.2. Physical and chemical forms of released
+material
+Radionuclides in the releases from the
+stricken reactor were in the form of gases,
+condensed particles and fuel particles. The presence
+of the latter was an important characteristic of the
+accident. The oxidation of nuclear fuel was the basic
+mechanism of fuel particle formation. Less oxidized
+fuel particles were formed as a result of the initial
+explosion and were released primarily towards the
+western direction. More oxidized and soluble
+particles predominated in the remaining fallout,
+which was deposited in many other areas.
+During oxidation and dispersal of the nuclear
+fuel, volatilization of some radionuclides took place.
+After the initial cloud cooled, the more volatile of
+the released radionuclides remained in the gas
+phase, whilst the less volatile radionuclides
+condensed on particles of construction material,
+soot and dust. Thus the chemical and physical forms
+of the radionuclides in the Chernobyl release were
+determined by the volatility of their compounds and
+the conditions inside the reactor. Radioactive
+compounds with relatively high vapour pressure
+(primarily isotopes of inert gases and iodine in
+different chemical forms) were transported in the
+atmosphere in the gas phase. Isotopes of refractory
+elements (e.g. cerium, zirconium, niobium and
+plutonium) were released into the atmosphere
+primarily in the form of fuel particles. Other radio-
+nuclides (isotopes of caesium, tellurium, antimony,
+etc.) were found in both fuel and condensed
+particles. The relative contributions of condensed
+and fuel components in the deposition at a given
+site can be estimated from the activity ratios of
+radionuclides of different volatility classes.
+Fuel particles made up the most important
+part of the fallout in the vicinity of the release
+source. Radionuclides such as 95
+Zr, 95
+Nb, 99
+Mo,
+141,144
+Ce, 154,155
+Eu, 237,239
+Np, 238–242
+Pu, 241,243
+Am and
+242,244
+Cm were released in a matrix of fuel particles
+only. More than 90% of 89,90
+Sr and 103,106
+Ru activities
+was also released in fuel particles. The release
+fraction of 90
+Sr, 154
+Eu, 238
+Pu, 239,240
+Pu and 241
+Am,
+and, therefore, of the nuclear fuel itself, deposited
+outside the Chernobyl nuclear power plant
+industrial site has been recently estimated to be
+only 1.5% ± 0.5% [3.9], which is half that of earlier
+estimates [3.1].
+The chemical and radionuclide composition of
+fuel particles was close to that of irradiated nuclear
+fuel, but with a lower fraction of volatile radionu-
+clides, a higher oxidation state of uranium and the
+presence of various admixtures, especially in the
+surface layer. In contrast, the chemical and radionu-
+clide composition of condensed particles varied
+widely. The specific activity of the radionuclides in
+these particles was determined by the duration of
+the condensation process and the process temper-
+ature, as well as by the particle characteristics. The
+radionuclide content of some of the particles was
+dominated by just one or two nuclides, for example
+103,106
+Ru or 140
+Ba/140
+La [3.10].
+The form of a radionuclide in the release
+determined the distance of its atmospheric
+transport. Even the smallest fuel particles consisting
+of a single grain of nuclear fuel crystallite had a
+relatively large size (up to 10 µm) and high density
+(8–10 g/cm3
+). Owing to their size, they were
+transported only a few tens of kilometres. Larger
+aggregates of particles were found only within
+distances of several kilometres from the power
+plant. For this reason, the deposition of refractory
+radionuclides strongly decreased with distance from
+the damaged reactor, and only traces of refractory
+elements could be found outside the industrial site
+of the power plant. In contrast, significant
+deposition of gaseous radionuclides and sub-
+micrometre condensed particles took place
+thousands of kilometres from Chernobyl.
+Ruthenium particles, for example, were found
+throughout Europe [3.11]. At distances of hundreds
+of kilometres from Chernobyl the deposition of
+137
+Cs was as high as 1 MBq/m2
+[3.12, 3.13].
+Another important characteristic of fallout is
+related to its solubility in aqueous solutions. This
+determines the mobility and bioavailability of
+deposited radionuclides in soils and surface waters
+during the initial period after deposition. In fallout
+sampled at the Chernobyl meteorological station
+from 26 April to 5 May 1986 with a 24 h sampling
+period, the water soluble and exchangeable
+(extractable with 1M CH3COONH4) forms of 137
+Cs
+varied from 5% to more than 30% [3.14]. The water
+soluble and exchangeable forms of 90
+Sr in deposits on
+26 April accounted for only about 1% of the total;
+this value increased to 5–10% in subsequent days.
+The low solubility of deposited 137
+Cs and 90
+Sr
+near the nuclear power plant indicates that fuel
+particles were the major part of the fallout, even at
+21
+20 km from the source. At shorter distances the
+portion of water soluble and exchangeable forms of
+137
+Cs and 90
+Sr was, obviously, lower, due to the
+presence of larger particles; at longer distances the
+fraction of soluble condensed particles increased.
+As one example, almost all the 137
+Cs deposited in
+1986 in the United Kingdom was water soluble and
+exchangeable [3.15].
+3.1.3. Meteorological conditions during the
+course of the accident
+At the time of the accident the weather in
+most of Europe was dominated by a vast anti-
+cyclone. At the 700–800 m and 1500 m altitudes, the
+area of the Chernobyl nuclear power plant was at
+the south-west periphery of a high atmospheric
+pressure zone with air masses moving north-west
+with a velocity of 5–10 m/s [3.12].
+At daybreak, the altitude of the air mixing
+layer was about 2500 m. This resulted in rapid
+mixing of the airborne debris throughout the mixing
+layer and dispersion of the cloud at different layers
+of the mixing height. Further dissemination of the
+particles originating from the time of the accident
+within the 700–1500 m layer occurred as the air
+mass moved towards the north-east, with a
+subsequent turn to the north; this plume was
+detected in Scandinavian countries.
+Ground level air on 26 April was transported
+to the west and north-west and reached Poland and
+the Scandinavian countries by 27–29 April. In
+southern and western Ukraine, the Republic of
+Moldova, Romania, Slovakia and Poland the
+weather was influenced by a low gradient pressure
+field. In the following days the cyclone moved
+slowly south-east and the low gradient pressure
+field with several poorly defined pressure areas
+dispersed over the major part of the European
+sector of the former USSR. One of the pressure
+areas was a small near surface cyclone located on
+the morning of 27 April south of Gomel.
+Later, the releases from the reactor were
+carried predominantly in the south-western and
+southern directions until 7–8 May. During the first
+five days after the accident commenced, the wind
+pattern had changed through all directions of the
+compass [3.12].
+Within a few days after the accident,
+measurements of radiation levels in air over Europe,
+Japan and the USA showed the presence of
+radionuclides at altitudes of up to 7000 m. The force
+of the explosion, rapid mixing of air layers due to
+thunderstorms near the Chernobyl nuclear power
+plant and the presence of warm frontal air masses
+between the Chernobyl nuclear power plant and the
+Baltic Sea all contributed to the transport of
+radionuclides to such heights.
+To understand the complex meteorological
+situation better, Borzilov and Klepikova [3.16]
+carried out calculations with assumed input pulses
+of unit activity at various times of the accident. The
+height of the source was selected to be 1000 m until
+14:00 (GMT) on 28 April, and later 500 m. The
+results of calculations are presented in Fig. 3.2 for
+six time periods (GMT time) with differing long
+range transport conditions as follows:
+(1) From the start of the accident to 12:00 (GMT)
+on 26 April: towards Belarus, Lithuania, the
+Kaliningrad region (of the Russian Feder-
+ation), Sweden and Finland.
+(2) From 12:00 on 26 April to 12:00 on 27 April: to
+Polessye, then Poland and then south-west.
+(3) From 12:00 on 27 April to 29 April: to the
+Gomel (Belarus) region, the Bryansk
+(Russian Federation) region and then the east.
+(4) 29 April to 30 April: to the Sumy and Poltava
+regions (Ukraine) and towards Romania.
+(5) 1–3 May: to southern Ukraine and across the
+Black Sea to Turkey.
+(6) 4–5 May: to western Ukraine and Romania,
+and then to Belarus.
+Atmospheric precipitation plays an important
+role in determining whether an area might receive
+heavy contamination, as the processes of rainout
+(entrainment in a storm system) and washout (rain
+falling through a contaminated air mass) are
+important mechanisms in bringing released material
+to the ground. In particular, significant heteroge-
+neity in the deposition of radioactive material is
+related to the presence or absence of precipitation
+during passage of the cloud. Also, there are
+differences in behaviour regarding how effectively
+different radionuclides, or chemical forms of the
+same radionuclide, are rained or washed out.
+There were many precipitation events during
+the course of the accident, and these events
+produced some areas of high ground deposition at
+distances far from the reactor. An example of the
+complex precipitation situation during the accident
+is shown in Fig. 3.3, which is a map of average daily
+precipitation intensity on 29 April for the parts of
+Belarus, the Russian Federation and Ukraine most
+heavily affected by the accident.
+

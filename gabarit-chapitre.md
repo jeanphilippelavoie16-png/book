@@ -112,8 +112,8 @@ travail.
 
 Ajoutée le 18 octobre 2026 (JP : « fais un mixte et mets des encadrés pour montrer que c'est de l'extra, en vert
 pâle »). Une réserve de 4 à 8 notes `### Titre`, 30 à 80 mots chacune (JP : « moins de texte »), que la mise en pages
-laisse dans le texte (chapitre.js, `fillExtras` et `placerNotes`) : une feuille vert pâle à peine penchée, avec une
-ombre douce, dans une colonne d'une page qui a de la place, **une seule par page**, glissée après le paragraphe de
+laisse dans le texte (chapitre.js, `fillExtras` et `placerNotes`) : une feuille vert pâle droite (JP : « mets-les pas
+croches »), avec une ombre douce, dans une colonne d'une page qui a de la place, **une seule par page**, glissée après le paragraphe de
 l'étape dont elle parle (JP : « je veux pas qu'ils soient cordés ; genre des notes laissées doucement dans le texte, la
 bulle est trop invasive » ; « plus naturel, plus beau, plus d'ombre, dispersé »). La note dit son étape entre
 parenthèses quand elle en a une : c'est ce qui la place. Trois genres seulement : la façon des Innus ou d'une autre nation du Nord (pourquoi elle

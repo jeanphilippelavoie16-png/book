@@ -116,7 +116,7 @@ function placerNotes(){
     const bon = paires.find(([, x, c]) => couplage(libres.filter(n => n !== x), new Set([...pris, c])) === M - 1);
     choix.push([bon[1], bon[2]]);
   }
-  choix.sort((a, b) => idx(a[1]) - idx(b[1])).forEach(([x, c], n) => {
+  choix.sort((a, b) => idx(a[1]) - idx(b[1])).forEach(([x, c]) => {
     if(c.ouvert) c.fr.classList.add('auto');
     // la note se glisse après le paragraphe de l'étape dont elle parle (ou vers le milieu du texte si elle ne renvoie à
     // rien), pas toujours au bas de la colonne ; si le texte ne tient plus, elle va à la fin
@@ -132,7 +132,6 @@ function placerNotes(){
     const ok = () => !OVER(c.fr) && c.fr.getBoundingClientRect().bottom <= c.p.bl.getBoundingClientRect().bottom + 0.5;
     if(!ok()){ c.fr.appendChild(x); }
     if(!ok()){ c.fr.removeChild(x); if(c.ouvert) c.fr.classList.remove('auto'); return; }
-    x.classList.add(n % 2 ? 'xd' : 'xg');      // penchée après la mesure : la rotation déborde un peu de la colonne
     EXTRAS.splice(EXTRAS.indexOf(x), 1);
   });
 }

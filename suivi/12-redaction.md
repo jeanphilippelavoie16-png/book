@@ -1142,5 +1142,6 @@ JP : « je veux pas de planche dans les affaires vertes : photo, ou faits, ou fa
 je veux genre des notes laissées doucement dans le texte, la bulle est trop invasive ». L'encadré « Le corps mort » (petite
 planche) est retiré du chapitre, avec son image (`images/extras/12-corps-mort.*`) et sa source de planche. Il reste cinq
 notes : la literie innue, les trois conifères (photo), les raquettes des Cris, la fenêtre de glace, le mélèze (photo).
-Le moteur en pose une seule par page, sur la page de l'étape dont elle parle, après son paragraphe ; feuille vert pâle à
-peine penchée, avec une ombre douce (JP : « plus naturel, plus beau, plus d'ombre, dispersé »).
+Le moteur en pose une seule par page, sur la page de l'étape dont elle parle, après son paragraphe ; feuille vert pâle
+avec une ombre douce (JP : « plus naturel, plus beau, plus d'ombre, dispersé ») ; droite, pas penchée (JP : « mets-les pas
+croches finalement »).

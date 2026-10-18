@@ -54,7 +54,7 @@ L'urgence
   **Jamais de planche ni de dessin** (JP : « je veux pas de planche dans les affaires vertes : photo, ou faits, ou
   façon »). Ce qui est bon à savoir sans être nécessaire au geste ; rien de ce que le chapitre dit déjà. Ce sont des
   **notes laissées dans le texte**, pas des bulles (JP : « genre des notes laissées doucement dans le texte, la bulle
-  est trop invasive ») : une feuille vert pâle à peine penchée, avec une ombre douce, sans bordure ni pastille, dans
+  est trop invasive ») : une feuille vert pâle droite (JP : « mets-les pas croches »), avec une ombre douce, sans bordure ni pastille, dans
   une colonne ; **une seule par page**, jamais empilées (JP : « je veux pas qu'ils soient cordés »), et **dispersées**
   (JP : « plus naturel, plus beau, plus d'ombre, dispersé ») : le moteur relève les pages qui ont de la place, place le
   plus de notes possible, met chacune sur la page de l'étape dont elle parle ou la plus proche, et la glisse après le
