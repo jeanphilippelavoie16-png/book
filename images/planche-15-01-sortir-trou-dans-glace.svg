@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="680" height="826" viewBox="0 0 680 826" role="img">
 <title>Planche 15-01. Sortir d’un trou dans la glace</title>
-<desc>Six vues, dans l’ordre des gestes. Avant d’aller sur la glace, les pics pendent au cou, par-dessus le manteau. Dans l’eau, on se tourne vers le côté d’où l’on vient et on pose les avant-bras à plat sur la glace. De près, le pic tenu au poing, la pointe vers la glace. On plante les pics près du bord, on bat des jambes jusqu’à ce que le corps soit à l’horizontale, on tire en glissant sur le ventre et on replante plus loin. Sorti, on roule loin du trou sans se relever.</desc>
+<desc>Six vues, dans l’ordre des gestes. Avant d’aller sur la glace, la paire de pics, la pointe de l’une rentrée dans l’autre, pend au cou par-dessus le manteau, au milieu de la poitrine. Dans l’eau, on se tourne vers le côté d’où l’on vient et on pose les avant-bras à plat sur la glace. De près, le pic tenu au poing, la pointe vers la glace. On plante les pics près du bord, on bat des jambes jusqu’à ce que le corps soit à l’horizontale, on tire en glissant sur le ventre et on replante plus loin. Sorti, on roule loin du trou sans se relever.</desc>
 <defs>
 <pattern id="h-eau" width="16" height="7" patternUnits="userSpaceOnUse"><line x1="1" y1="2" x2="8" y2="2" stroke="#1A1A1A" stroke-width="0.5"/><line x1="9" y1="5.5" x2="15" y2="5.5" stroke="#1A1A1A" stroke-width="0.5"/></pattern>
 <marker id="fl-r" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9 Z" fill="#9B2C1E" stroke="#9B2C1E" stroke-width="1" stroke-linejoin="round"/></marker>
@@ -19,14 +19,16 @@
 <path d="M183.99 531.89 L101.91 531.89" fill="none" stroke="#1A1A1A" stroke-width="0.6" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M165.05 52.61 L165.78 53.91 L166.24 54.34 L166.51 54.42 L167.58 54.25 L168.41 53.87 L169.22 53.23 L169.57 52.79 L170.54 50.85 L171.12 49.22 L171.58 47.53 L172 45.11 L172.14 42.62 L172.05 41.09 L171.58 39.1 L170.75 37.37 L170 36.57 L169.57 36.33 L169.05 36.24 L168.43 36.3 L167.02 36.71 L164.76 37.6 M137.54 41.2 L138.94 41.09 L140.26 40.65 L138.94 39.92 L137.73 39.86 M142.59 37.35 L140.71 36.91 L139.38 36.77 L138.14 37.03 L136.47 37.64 M171.98 49.41 L174.09 51.79 L175.95 53.47 L177.4 54.56 L179.04 55.36 L181.05 55.93 L182.83 56.32 M138.85 18.67 L140.73 19.37 L142.01 20 L143.67 21.18 L145.21 22.62 L146.6 24.3 L147.84 26.12 L149.53 29.33 L150.61 31 L151.36 31.98 L152.22 32.83 L153.78 33.8 L157.49 35.5 L158.34 36.04 L158.68 36.38 L159.44 37.54 L159.93 38.8 L160.24 41 L160.32 43.02 L160.48 43.59 L160.72 43.98 L161.26 44.35 L161.75 44.47 L163.01 44.5 L164.01 44.41" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M145.67 327.66 L147 326.93 L149.82 324.62 L150.8 323.53 L151.41 322.39 L154.07 313.69 L157.25 302.8 L157.74 300.83 L159.73 290.47 L159.84 288.9 L159.77 287.65 L158.71 277.49 L158.73 275.21 L158.89 272.86 L164.73 243.98 L166.28 236.9 L169.34 224.05 L170.31 219.37 L171.12 214.59 L171.51 211.03 L171.96 202.69 L174.04 180.49 L177.31 150.89 L179.78 129.58 L182.01 108.93 M152.56 106.85 L150.76 159.79 L150.42 184.85 L149.94 196.78 L149.71 198.52 L149.19 200.69 L147.46 206.46 L146.85 208.89 L146.45 211.21 L146.02 214.76 L145.4 221.92 L144.55 236.35 L142.02 272.34 L141.91 273.01 L141.42 274.33" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M 125.3 172.3 L 126.6 183.5 L 128.0 172.3 Z" fill="#E6E6E6" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round"/>
-<path d="M 122.1 143.3 L 122.1 173.3 A 4.5 1.6 0 0 0 131.1 173.3 L 131.1 143.3 Z" fill="#E6E6E6" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round"/>
-<ellipse cx="126.6" cy="143.3" rx="4.5" ry="1.6" fill="#E6E6E6" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round"/>
-<path d="M 177.9 79.8 C 168.9 97.8 135.9 110.3 123.9 148.1" fill="none" stroke="#1A1A1A" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M 177.9 79.8 C 168.9 97.8 135.9 110.3 123.9 148.1" fill="none" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M 122.6 175.3 L 123.9 186.5 L 125.3 175.3 Z" fill="#1A1A1A" stroke="none"/>
-<path d="M 119.4 146.3 L 119.4 176.3 A 4.5 1.6 0 0 0 128.4 176.3 L 128.4 146.3 Z" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
-<ellipse cx="123.9" cy="146.3" rx="4.5" ry="1.6" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 126.2 131.9 L 126.2 188.9 C 126.2 197.9 123.0 197.3 123.0 190.1" fill="none" stroke="#1A1A1A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 126.2 131.9 L 126.2 188.9 C 126.2 197.9 123.0 197.3 123.0 190.1" fill="none" stroke="#FFFFFF" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 119.4 130.1 L 119.4 160.1 L 128.4 160.1 L 128.4 130.1 Z" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 119.4 160.1 L 119.4 190.1 L 128.4 190.1 L 128.4 160.1 Z" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="121.9" y1="151.1" x2="121.9" y2="167.9" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="5 3.5"/>
+<line x1="126" y1="152.3" x2="126" y2="169.1" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="5 3.5"/>
+<path d="M 119.4 190.1 A 4.5 1.6 0 0 0 128.4 190.1" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<ellipse cx="123.9" cy="130.1" rx="4.5" ry="1.6" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 177.9 79.8 C 168.9 97.8 135.9 103.1 123.9 130.1" fill="none" stroke="#1A1A1A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 177.9 79.8 C 168.9 97.8 135.9 103.1 123.9 130.1" fill="none" stroke="#FFFFFF" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
 </g>
 </g>
 </g>
@@ -146,11 +148,11 @@
 </g>
 <path d="M 77.7 56.2 L 76.9 55.0 L 76.2 53.7 L 75.6 52.2 L 75.0 50.5 L 74.5 48.8 L 74.1 46.9 L 73.7 44.9 L 73.5 42.8 L 73.3 40.7 L 73.2 38.6 L 73.2 36.5 L 73.3 34.4 L 73.6 32.3 L 73.8 30.2 L 74.2 28.3 L 74.7 26.5 L 75.2 24.7 L 75.8 23.2 L 76.5 21.7 L 77.3 20.5 L 78.1 19.4 L 78.9 18.5 L 79.8 17.8 L 80.7 17.3 L 81.6 17.1 L 82.5 17.0 L 83.4 17.2 L 84.3 17.6 L 85.2 18.2 L 86.0 19.0 L 86.8 20.0 L 87.6 21.2 L 88.3 22.5 L 88.9 24.0 L 89.5 25.7 L 90.0 27.5 L 90.4 29.4 L 90.8 31.4 L 91.0 33.5 L 91.2 35.6 L 91.2 37.7 L 91.2 39.8 L 91.1 41.9 L 90.8 44.0 L 90.5 46.0 L 90.1 48.0 L 89.7 49.8 L 89.1 51.5" fill="none" stroke="#9B2C1E" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl-r)"/>
 </g>
-<line x1="104.4" y1="207.3" x2="158.4" y2="207.3" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
-<line x1="104.4" y1="207.3" x2="158.4" y2="207.3" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
-<circle cx="158.4" cy="207.3" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
-<circle cx="95.4" cy="207.3" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="porter"/>
-<text x="95.4" y="211.3" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">1</text>
+<line x1="104.4" y1="201.3" x2="158.4" y2="201.3" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+<line x1="104.4" y1="201.3" x2="158.4" y2="201.3" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
+<circle cx="158.4" cy="201.3" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
+<circle cx="95.4" cy="201.3" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="porter"/>
+<text x="95.4" y="205.3" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">1</text>
 <line x1="503.5" y1="35.6" x2="477.2" y2="28.3" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
 <line x1="503.5" y1="35.6" x2="477.2" y2="28.3" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
 <circle cx="477.2" cy="28.3" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
