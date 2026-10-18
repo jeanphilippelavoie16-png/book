@@ -143,8 +143,14 @@ def perche(s, A, x0, x1, y):
 
 def caveau(A, x, bas):
     """La butte enneigée et la porte du caveau, cadre de rondins."""
-    A(f'<path d="M{x - 120} {bas + 6} C{x - 90} {bas - 70} {x - 20} {bas - 96} {x + 50} {bas - 92} '
-      f'C{x + 120} {bas - 88} {x + 170} {bas - 60} {x + 210} {bas + 6}Z" fill="{C["snow2"]}"/>')
+    A(f'<path d="M{x - 150} {bas + 6} C{x - 110} {bas - 90} {x - 20} {bas - 122} {x + 50} {bas - 118} '
+      f'C{x + 130} {bas - 112} {x + 190} {bas - 80} {x + 240} {bas + 6}Z" fill="{C["snow2"]}"/>')
+    # les pierres qui retiennent la terre de chaque côté de la porte
+    for sx in (-1, 1):
+        for k in range(4):
+            px = x + 30 + sx * (48 + k * 13)
+            py = bas - 8 - (3 - k) * 10
+            A(f'<ellipse cx="{px}" cy="{py}" rx="9" ry="6" fill="{C["wood2"]}"/>')
     A(f'<path d="M{x - 110} {bas - 6} C{x - 80} {bas - 66} {x - 20} {bas - 90} {x + 50} {bas - 86}" fill="none" '
       f'stroke="{C["snow3"]}" stroke-width="3"/>')
     # le cadre et la porte

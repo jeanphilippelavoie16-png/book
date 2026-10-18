@@ -198,15 +198,15 @@ def lac(gros=False):
         y = 880 + i * 12
         A(f'<path d="M{f(s.u(170, 260))} {y} h{f(s.u(120, 300))}" stroke="{V}" stroke-width=".9" opacity=".35"/>')
     # le canot d'écorce tiré sur la grève, la pince vers l'eau
-    for p in (canot(300, 836, 320) if gros else canot(345, 818, 230)):
+    for p in (canot(352, 836, 300) if gros else canot(345, 818, 230)):
         A(p)
     # les grands arbres du premier plan : épinettes noires à gauche, un mélèze doré et des épinettes à droite
-    for x, bas, h, l in [(-4, 990, 430, 104), (64, 960, 300, 70), (118, 880, 150, 38)]:
+    for x, bas, h, l in [(-4, 990, 430, 104), (64, 960, 300, 70)] + ([] if gros else [(118, 880, 150, 38)]):
         s.epinette(x, bas, h, l, V)
     for x, bas, h, l in [(726, 1000, 400, 98), (668, 960, 250, 60)]:
         s.epinette(x, bas, h, l, V)
     # mélèze doré, haut, à droite
-    x, bas, h = 168, 846, 250
+    x, bas, h = (128, 880, 260) if gros else (168, 846, 250)
     for i in range(16):
         yy = bas - h + 12 + i * 13
         ww = 6 + (yy - (bas - h)) / h * 44
