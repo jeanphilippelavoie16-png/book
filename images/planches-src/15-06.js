@@ -5,9 +5,9 @@
 //
 // Deux vignettes au même cadrage, le ski de motoneige vu de côté, la spatule à droite, la cassure en avant de la
 // selle où s'attache la jambe de direction :
-//   1. le plat d'acier centré sur la cassure, boulonné de part en part de chaque côté (les tiges dans le ski en tireté,
+//   1. le plat d'acier (ou un montant de sommier) centré sur la cassure, boulonné de part en part de chaque côté (les tiges dans le ski en tireté,
 //      les écrous dessous) ;
-//   2. « Sans plat d'acier », au lieu de 1 et 2 : une perche verte couchée sous le ski, ligaturée de chaque côté de la
+//   2. « Sans acier », au lieu de 1 et 2 : une perche verte couchée sous le ski, ligaturée de chaque côté de la
 //      cassure.
 // Aucune cote, aucun chiffre : le texte n'en donne pas (geste sans source écrite, gardé : suivi/15-redaction.md,
 // « Gestes sans source écrite et sans chiffre, gardés », « les réparations de chemin (câble, conduite, cuir, savon,
@@ -109,12 +109,12 @@ module.exports = (h) => {
   return {
     ref: '15-06',
     titre: 'Le ski cassé, réparé sur le chemin',
-    desc: 'Deux vignettes au même cadrage : un ski de motoneige vu de côté, la spatule relevée à droite avec sa boucle, la selle et la jambe de direction au tiers arrière, et une cassure à travers le ski en avant de la selle. En haut, un plat d’acier posé sur le dessus du ski, centré sur la cassure, tenu par quatre boulons qui traversent le plat et le ski, deux de chaque côté de la cassure, les écrous dessous. En bas, séparée par un filet et marquée comme une autre façon : une perche verte couchée sous le ski, attachée par deux ligatures de corde, une de chaque côté de la cassure.',
+    desc: 'Deux vignettes au même cadrage : un ski de motoneige vu de côté, la spatule relevée à droite avec sa boucle, la selle et la jambe de direction au tiers arrière, et une cassure à travers le ski en avant de la selle. En haut, un plat d’acier (un montant de sommier fait l’affaire) posé sur le dessus du ski, centré sur la cassure, tenu par quatre boulons qui traversent le plat et le ski, deux de chaque côté de la cassure, les écrous dessous. En bas, séparée par un filet et marquée comme une autre façon : une perche verte couchée sous le ski, attachée par deux ligatures de corde, une de chaque côté de la cassure.',
     format: 'quart',
     disposition: [['eclisse'], ['perche']],
     vues: {
       eclisse: {
-        titre: 'Avec un plat d’acier',
+        titre: 'Un plat d’acier ou un montant de sommier',
         dessin: z => [coupe('e', z, eclisse(z).svg), h.ligne(0, z.h + 9, z.l, z.h + 9, A.fin)].join('\n'),
         renvois: z => {
           const v = eclisse(z), g = v.g;
@@ -125,7 +125,7 @@ module.exports = (h) => {
         },
       },
       perche: {
-        titre: 'Sans plat d’acier',
+        titre: 'Sans acier',
         dessin: z => {
           // le filet qui sépare l'autre façon est tiré sous la première vignette
           return coupe('p', z, perche(z).svg);
@@ -133,7 +133,7 @@ module.exports = (h) => {
         renvois: z => {
           const v = perche(z), g = v.g;
           return [
-            { n: 3, rond: [v.px0 - 24, v.yP + 14], cible: [v.px0 + 6, v.yP + v.R - 0.5], texte: 'au lieu de 1 et 2 : une perche verte sous le ski' },
+            { n: 3, rond: [v.px0 - 24, v.yP + 14], cible: [v.px0 + 6, v.yP + v.R - 0.5], texte: 'au lieu de 1 et 2 : une perche de bois vert' },
             { n: 4, rond: [v.xl2 + 30, g.y0 - g.E - 28], cible: [v.xl2 + 4, g.y0 - g.E - 2], texte: 'ligaturer de chaque côté de la cassure' },
           ];
         },

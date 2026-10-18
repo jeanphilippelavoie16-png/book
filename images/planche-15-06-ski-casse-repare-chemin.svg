@@ -1,11 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="340" height="413" viewBox="0 0 340 413" role="img">
 <title>Planche 15-06. Le ski cassé, réparé sur le chemin</title>
-<desc>Deux vignettes au même cadrage : un ski de motoneige vu de côté, la spatule relevée à droite avec sa boucle, la selle et la jambe de direction au tiers arrière, et une cassure à travers le ski en avant de la selle. En haut, un plat d’acier posé sur le dessus du ski, centré sur la cassure, tenu par quatre boulons qui traversent le plat et le ski, deux de chaque côté de la cassure, les écrous dessous. En bas, séparée par un filet et marquée comme une autre façon : une perche verte couchée sous le ski, attachée par deux ligatures de corde, une de chaque côté de la cassure.</desc>
+<desc>Deux vignettes au même cadrage : un ski de motoneige vu de côté, la spatule relevée à droite avec sa boucle, la selle et la jambe de direction au tiers arrière, et une cassure à travers le ski en avant de la selle. En haut, un plat d’acier (un montant de sommier fait l’affaire) posé sur le dessus du ski, centré sur la cassure, tenu par quatre boulons qui traversent le plat et le ski, deux de chaque côté de la cassure, les écrous dessous. En bas, séparée par un filet et marquée comme une autre façon : une perche verte couchée sous le ski, attachée par deux ligatures de corde, une de chaque côté de la cassure.</desc>
 <defs>
 <pattern id="h-metal" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="10" stroke="#1A1A1A" stroke-width="0.7"/></pattern>
 </defs>
 <rect x="0" y="0" width="340" height="413" fill="#FFFFFF"/>
-<text x="22" y="38" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#1A1A1A">Avec un plat d’acier</text>
+<text x="22" y="38" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#1A1A1A">Un plat d’acier ou un montant de sommier</text>
 <g transform="translate(22 46)" data-vue="eclisse">
 <clipPath id="vue-1506-e"><rect x="0" y="0" width="296" height="107"/></clipPath>
 <g clip-path="url(#vue-1506-e)">
@@ -41,7 +41,7 @@
 </g>
 <line x1="0" y1="116" x2="296" y2="116" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
 </g>
-<text x="22" y="189.5" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#1A1A1A">Sans plat d’acier</text>
+<text x="22" y="189.5" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#1A1A1A">Sans acier</text>
 <g transform="translate(22 197.5)" data-vue="perche">
 <clipPath id="vue-1506-p"><rect x="0" y="0" width="296" height="107"/></clipPath>
 <g clip-path="url(#vue-1506-p)">
@@ -126,7 +126,7 @@
 <text x="32" y="357" text-anchor="end" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">2</text>
 <text x="38" y="357" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">boulonner de part en part, des deux côtés</text>
 <text x="32" y="374" text-anchor="end" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">3</text>
-<text x="38" y="374" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">au lieu de 1 et 2 : une perche verte sous le ski</text>
+<text x="38" y="374" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">au lieu de 1 et 2 : une perche de bois vert</text>
 <text x="32" y="391" text-anchor="end" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">4</text>
 <text x="38" y="391" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">ligaturer de chaque côté de la cassure</text>
 </svg>

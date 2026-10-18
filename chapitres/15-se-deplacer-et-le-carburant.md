@@ -260,7 +260,7 @@ et se sortir vivant de la glace qui cède ou de la machine qui s'arrête loin de
 40. **Mesurer la glace avant d'y engager une machine, le jour même.**
  - Commencer près de la rive : la glace y est souvent plus mince qu'au large.
  - Pelleter la neige, percer à la tarière ou au ciseau, glisser le ruban dans le trou et accrocher son bout
- sous la glace pour lire l'épaisseur. Ne pas juger l'épaisseur à la facilité du perçage : la tarière passe
+ sous la glace pour lire l'épaisseur (planche 15-05). Ne pas juger l'épaisseur à la facilité du perçage : la tarière passe
  vite, et on croit la glace plus épaisse qu'elle n'est.
  - Mesurer au moins tous les 45 m sur le trajet, puis passer seulement par le trajet mesuré.
  - À pied, au début et à la fin de l'hiver, frapper la glace au ciseau devant soi à chaque pas.
@@ -496,7 +496,7 @@ quelques degrés plus bas. Le moteur manque de carburant, tousse et s'arrête.
 - **Trou d'épingle dans un réservoir.** Frotter du savon dur dans le trou, ou visser une vis à tôle avec une
  rondelle de cuir. Ni l'un ni l'autre ne tient sur une pièce chaude ni sous pression : on répare au retour.
 - **Ski ou patin cassé.** Boulonner une éclisse de plat d'acier de part et d'autre de la cassure ; un montant
- de sommier fait l'affaire. Sans acier, ligaturer une perche de bois vert sous le ski pour rejoindre la rive.
+ de sommier fait l'affaire (planche 15-06, repères 1 et 2). Sans acier, ligaturer une perche de bois vert sous le ski pour rejoindre la rive (repères 3 et 4).
 - **Bougie encrassée.** La gratter à la pointe du couteau, jamais à l'abrasif, et la remettre. Si l'électrode
  a bougé, remettre l'écartement de la machine (beaucoup de petits moteurs demandent 0,76 mm) en pliant
  doucement l'électrode courbe : la cale accroche légèrement quand c'est bon. Porcelaine fendue ou électrode

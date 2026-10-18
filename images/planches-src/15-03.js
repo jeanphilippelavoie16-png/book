@@ -78,82 +78,129 @@ module.exports = (h) => {
       cuisseP: -66, jambeP: -58, piedP: -30, cuisseL: -78, jambeL: -86, piedL: -60 } };
 
   // ── vue 1 : on tire ──
-  const S1 = 0.085;
+  // Le sauveteur est coupé par le bord gauche de la vue (ses jambes sont dehors) : la vue garde sa place pour la
+  // corde, qui dit la distance entre lui et le trou.
+  const S1 = 0.11;
   const vTirer = z => {
-    const yG = 44, E = z.l - 150, D = z.l + 10;
-    // la personne : ses avant-bras sur la glace, juste avant le bord
-    const p = poser({ pose: DANS, cote: 'gauche', echelle: S1, visage: true, y: yG }, 'epauleP', E - 26);
-    // le sauveteur, loin du trou
-    const s = poser({ pose: COUCHE, cote: 'droite', echelle: S1, visage: true, y: yG }, 'x0', 6);
+    const yG = 46, E = z.l - 96, D = z.l + 10;
+    // la personne : les hanches au bord de la glace, le torse et les avant-bras sur la glace, les jambes dans l'eau
+    const p = poser({ pose: DANS, cote: 'gauche', echelle: S1, visage: true, y: yG }, 'hancheP', E + 4);
+    // le sauveteur, loin du trou, le bassin au bord gauche de la vue
+    const s = poser({ pose: COUCHE, cote: 'droite', echelle: S1, visage: true, y: yG }, 'bassin', 16);
     const A = p.articulations;
-    // le nœud, sur le dos de la personne, sous les bras ; la corde fait le tour du torse
+    // la corde autour du torse, un peu sous l'aisselle ; le nœud sur le dos
     const ep = A.epauleP, ha = A.hancheP;
-    const u = [(ha[0] - ep[0]), (ha[1] - ep[1])], L = Math.hypot(...u), t = [u[0] / L, u[1] / L], n = [-t[1], t[0]];
-    const c = [ep[0] + t[0] * 18, ep[1] + t[1] * 18];          // la corde autour du torse, un peu sous l'aisselle
-    const demi = 13;                                          // la demi-épaisseur du torse à cet endroit
-    const tour = [[c[0] + n[0] * demi, c[1] + n[1] * demi], [c[0] - n[0] * demi, c[1] - n[1] * demi]];
-    const noeud = tour[1][1] < tour[0][1] ? tour[1] : tour[0];   // le côté du dos (le plus haut)
+    const u = [ha[0] - ep[0], ha[1] - ep[1]], L = Math.hypot(...u), t = [u[0] / L, u[1] / L], n = [-t[1], t[0]];
+    const c = [ep[0] + t[0] * 20, ep[1] + t[1] * 20];
+    const demi = 17;
+    const tour = [[c[0] + n[0] * demi, c[1] + n[1] * demi], [c[0] - n[0] * (demi - 2), c[1] - n[1] * (demi - 2)]];
+    const noeud = tour[1][1] < tour[0][1] ? tour[1] : tour[0];
     const mP = [s.mainP.x, s.mainP.y], mL = [s.mainL.x, s.mainL.y];
+    const pd = p.pieds.P.bas || p.pieds.P.cheville;
+    const morceau = (mx, ml) => {
+      const EP = 90 * S1, yv = yG;
+      return h.chemin([[mx, yv + 1.5], [mx + ml * 0.55, yv], [mx + ml, yv + 1], [mx + ml + 1.5, yv + EP * 0.8], [mx + 1, yv + EP * 0.85]], blanc(h.a.arete), true);
+    };
+    const id = 'vue1503-tirer';
     const svg = [
+      `<clipPath id="${id}"><rect x="0" y="0" width="${z.l}" height="${z.h}"/></clipPath>`, `<g clip-path="url(#${id})">`,
       coupe(z, S1, E, D, yG),
+      morceau(z.l - 30, 22),
       String(s), String(p),
       // la corde : de la queue posée derrière le sauveteur, par ses deux mains, jusqu'au nœud
-      corde(lisse([[mL[0] - 40, yG - 1.6], [mL[0] - 14, yG - 2.5], [mL[0], mL[1]], [mP[0], mP[1]], [noeud[0] - 40, noeud[1] - 2], noeud]), 2.6),
+      corde(lisse([[-4, yG - 2], [mL[0] - 30, yG - 2.4], [mL[0], mL[1]], [mP[0], mP[1]], [mP[0] + 50, yG - 3.5], [noeud[0] - 26, noeud[1] - 1], noeud]), 3),
       // le tour de la corde autour du torse
-      corde(`M ${P(...tour[0])} L ${P(...tour[1])}`, 2.6),
-      h.cercle(noeud[0], noeud[1], 2.6, blanc(h.a.arete)),
+      corde(`M ${P(...tour[0])} L ${P(...tour[1])}`, 3),
+      h.cercle(noeud[0], noeud[1], 3, blanc(h.a.arete)),
+      '</g>',
       // tirer
-      h.geste(`M ${P(mP[0] + 40, mP[1] - 22)} L ${P(mP[0] - 10, mP[1] - 22)}`),
+      h.geste(`M ${P(mP[0] + 54, yG - 26)} L ${P(mP[0] - 4, yG - 26)}`),
+      // les jambes qui battent : deux petites flèches noires sous les pieds
+      h.fleche(`M ${P(pd[0] + 14, pd[1] - 8)} L ${P(pd[0] + 14, pd[1] - 22)}`, h.a.detail),
+      h.fleche(`M ${P(pd[0] + 14, pd[1] - 4)} L ${P(pd[0] + 14, pd[1] + 10)}`, h.a.detail),
     ];
-    // les jambes qui battent : deux petites flèches noires de part et d'autre des pieds
-    const pd = p.pieds.P.bas || p.pieds.P.cheville;
-    svg.push(h.fleche(`M ${P(pd[0] + 12, pd[1] - 2)} L ${P(pd[0] + 12, pd[1] - 16)}`, h.a.detail));
-    svg.push(h.fleche(`M ${P(pd[0] + 12, pd[1] + 2)} L ${P(pd[0] + 12, pd[1] + 16)}`, h.a.detail));
     return { svg: svg.join('\n'), s, p, tour, noeud, yG, E, mP, pd };
   };
 
   // ── vue 2 : de près, le bidon bouché au bout de la corde, tenu avant de lancer ──
+  // La main : poing-tige-face, tournée de 90° : l'avant-bras arrive du bord gauche, la corde passe dans le poing
+  // presque debout et pend jusqu'au bidon.
   const vBidon = z => {
-    const m0 = F.mainStock({ id: 'poing-tige-face', objet: false, taille: 74, x: 0, y: 0 });
-    const m = F.mainStock({ id: 'poing-tige-face', objet: false, taille: 74, x: z.l * 0.52, y: 34 });
+    const m = F.mainStock({ id: 'poing-tige-face', objet: false, taille: 60, x: 26, y: 30, angle: 90 });
     const o = m.objet, a = o.angle * Math.PI / 180, u = [Math.cos(a), Math.sin(a)];
-    const r = o.largeur * 0.32;
-    const at = (t) => [o.x + u[0] * t, o.y + u[1] * t];
-    // le bidon : un bidon de plastique, sa poignée en haut, le bouchon vissé
-    const bx = z.l * 0.5, bw = 46, bh = 54, by = z.h - bh - 6;
-    const poigneeX = bx + 8, poigneeY = by - 2;
-    const svgB = [
-      // le corps du bidon, l'épaule et le goulot
-      h.path(`M ${P(bx - bw / 2, by + 8)} Q ${P(bx - bw / 2, by)} ${P(bx - bw / 2 + 8, by)} L ${P(bx - 6, by)} L ${P(bx - 6, by - 4)} L ${P(bx + bw / 2 - 8, by - 4)} Q ${P(bx + bw / 2, by - 4)} ${P(bx + bw / 2, by + 6)} L ${P(bx + bw / 2, by + bh - 6)} Q ${P(bx + bw / 2, by + bh)} ${P(bx + bw / 2 - 6, by + bh)} L ${P(bx - bw / 2 + 6, by + bh)} Q ${P(bx - bw / 2, by + bh)} ${P(bx - bw / 2, by + bh - 6)} Z`, blanc(h.a.contour)),
-      h.path(`M ${P(bx + bw / 2, by + 10)} L ${P(bx + bw / 2, by + bh - 8)}`, h.a.arete),
-    ];
-    // la corde : de la main, elle descend jusqu'à la poignée et y est nouée
-    const bas = at(-o.longueur * 0.5);
-    const d = lisse([at(o.longueur * 0.9), at(o.longueur * 0.3), at(0), at(-o.longueur * 0.35), [bas[0] - 6, bas[1] + 18], [poigneeX - 2, poigneeY - 10], [poigneeX, poigneeY + 2]]);
-    return { svg: [svgB.join('\n'), corde(d, r * 2), String(m)].join('\n'), m, bx, by, bw, bh };
+    const at = t => [o.x + u[0] * t, o.y + u[1] * t];
+    const ec = o.largeur * 0.62;                                   // l'épaisseur de la corde
+    // le bidon de plastique, de face, un peu de trois quarts : le corps, la face de côté à l'ombre, l'épaule,
+    // le goulot et son bouchon vissé à gauche, la poignée creuse à droite
+    const bx = 30, by = 84, bw = 52, bh = 50, sd = 9;               // coin haut gauche du corps, largeur, hauteur, côté
+    const X = bx + bw, Y = by + bh;
+    const corps = h.path(`M ${P(bx, by + 6)} Q ${P(bx, by)} ${P(bx + 6, by)} L ${P(X - 4, by)} Q ${P(X, by)} ${P(X, by + 4)} L ${P(X, Y - 5)} Q ${P(X, Y)} ${P(X - 5, Y)} L ${P(bx + 5, Y)} Q ${P(bx, Y)} ${P(bx, Y - 5)} Z`, blanc(h.a.contour));
+    const cote = h.path(`M ${P(X - 1, by + 2)} L ${P(X + sd, by - 3)} L ${P(X + sd, Y - 8)} Q ${P(X + sd, Y - 4)} ${P(X + sd - 3, Y - 3)} L ${P(X - 1, Y - 1)} Z`, h.a.ombre);
+    const coteT = h.path(`M ${P(X - 1, by + 2)} L ${P(X + sd, by - 3)} L ${P(X + sd, Y - 8)} Q ${P(X + sd, Y - 4)} ${P(X + sd - 3, Y - 3)} L ${P(X - 1, Y - 1)}`, h.a.arete);
+    // le goulot et le bouchon, à gauche sur le dessus
+    const gx = bx + 12, gw = 14;
+    const goulot = h.rect(gx, by - 5, gw, 5, blanc(h.a.arete));
+    const bouchon = h.rect(gx - 2, by - 14, gw + 4, 9, h.a.ombre) + h.rect(gx - 2, by - 14, gw + 4, 9, h.a.arete)
+      + [1, 2, 3, 4].map(k => h.ligne(gx - 2 + k * (gw + 4) / 5, by - 13, gx - 2 + k * (gw + 4) / 5, by - 6, h.a.detail)).join('');
+    // la poignée : une anse pleine sur le dessus, à droite, avec son trou
+    const px0 = bx + 31, px1 = X - 3, py = by - 15;
+    const anse = h.path(`M ${P(px0, by)} L ${P(px0, py + 5)} Q ${P(px0, py)} ${P(px0 + 5, py)} L ${P(px1 - 5, py)} Q ${P(px1, py)} ${P(px1, py + 5)} L ${P(px1, by)} Z`, blanc(h.a.arete));
+    const trou = h.path(`M ${P(px0 + 4, by)} L ${P(px0 + 4, py + 8)} Q ${P(px0 + 4, py + 5)} ${P(px0 + 7, py + 5)} L ${P(px1 - 7, py + 5)} Q ${P(px1 - 4, py + 5)} ${P(px1 - 4, py + 8)} L ${P(px1 - 4, by)}`, h.a.arete);
+    // la corde : du haut de la vue, par le poing, jusqu'à l'anse ; elle passe sous la barre de l'anse et remonte
+    // faire un nœud sur elle-même
+    const xa = (px0 + px1) / 2;
+    const bas = at(o.longueur * 0.42);
+    const dCorde = lisse([at(-o.longueur * 1.2), at(-o.longueur * 0.4), at(0), bas, [xa - 2, py - 18], [xa - 1, py - 4], [xa, py + 4]]);
+    const dRetour = lisse([[xa + 1, py - 1], [xa + 9, py - 6], [xa + 6, py - 15], [xa - 1, py - 16]]);
+    const noeud = [xa - 1.5, py - 15];
+    return { svg: [
+      corps, cote, coteT, goulot, bouchon,
+      corde(dCorde, ec),
+      anse, trou,
+      corde(dRetour, ec),
+      h.ellipse(noeud[0], noeud[1], ec * 0.9, ec * 0.75, blanc(h.a.arete)),
+      corde(`M ${P(noeud[0] + 2, noeud[1] + 2)} Q ${P(noeud[0] + 10, noeud[1] + 4)} ${P(noeud[0] + 12, noeud[1] + 11)}`, ec * 0.9),
+      String(m)].join('\n'), m, bx, by, bw, bh, gx, gw };
   };
 
   // ── vue 3 : autre façon, y aller couché en poussant le toboggan ──
-  const S3 = 0.07;
+  const S3 = 0.075;
   const vAutre = z => {
-    const yG = 34, E = z.l - 92, D = z.l + 10;
-    const p = poser({ pose: DANS, cote: 'gauche', echelle: S3, visage: true, y: yG }, 'epauleP', E - 20);
-    // le toboggan : une planche mince, la tête cintrée vers le trou
-    const tl = 1800 * S3, te = 3, xt1 = E - 34, xt0 = xt1 - tl;
-    const tob = h.path(`M ${P(xt0, yG)} L ${P(xt1 - 10, yG)} Q ${P(xt1 + 6, yG)} ${P(xt1 + 6, yG - 10)} Q ${P(xt1 + 6, yG - 18)} ${P(xt1 - 2, yG - 18)} Q ${P(xt1 - 8, yG - 18)} ${P(xt1 - 8, yG - 12)} L ${P(xt1 - 4, yG - 12)} Q ${P(xt1 - 3, yG - 15)} ${P(xt1 - 1, yG - 15)} Q ${P(xt1 + 3, yG - 15)} ${P(xt1 + 3, yG - 10)} Q ${P(xt1 + 3, yG - te)} ${P(xt1 - 10, yG - te)} L ${P(xt0, yG - te)} Z`, blanc(h.a.arete));
-    const s = poser({ pose: POUSSE, cote: 'droite', echelle: S3, visage: true, y: yG }, 'x1', xt0 + 6);
-    // l'autre adulte, couché lui aussi sur la glace qui a porté, au bord gauche de la vue
-    const a = poser({ pose: COUCHE, cote: 'droite', echelle: S3, visage: true, y: yG }, 'x0', 2);
-    const hs = s.articulations.bassin;
+    const yG = 30, E = z.l - 100, D = z.l + 10;
+    const p = poser({ pose: DANS, cote: 'gauche', echelle: S3, visage: true, y: yG }, 'hancheP', E + 3);
+    // le toboggan : une planche mince, la tête cintrée vers le trou (ligne médiane, puis la bande autour)
+    const R = 9, e = 1.6, xt1 = p.boite.x0 - 6, xt0 = xt1 - 1800 * S3 + R, yc = yG - e - R;
+    const mil = [[xt0, yG - e]];
+    for (let k = 0; k <= 20; k++) { const a = (90 - 200 * k / 20) * Math.PI / 180; mil.push([xt1 - R + R * Math.cos(a) + 0, yc + R * Math.sin(a)]); }
+    const bande = (q) => mil.map((m, i) => {
+      const a = mil[Math.min(i + 1, mil.length - 1)], b = mil[Math.max(i - 1, 0)];
+      const dx = a[0] - b[0], dy = a[1] - b[1], l = Math.hypot(dx, dy) || 1;
+      return [m[0] - dy / l * q, m[1] + dx / l * q];
+    });
+    const tob = h.chemin([...bande(e), ...bande(-e).reverse()], blanc(h.a.arete), true);
+    const s = poser({ pose: POUSSE, cote: 'droite', echelle: S3, visage: true, y: yG }, 'x1', xt0 + 8);
+    // l'autre adulte, couché lui aussi sur la glace qui a porté, coupé par le bord gauche de la vue
+    const a = poser({ pose: COUCHE, cote: 'droite', echelle: S3, visage: true, y: yG }, 'bassin', 8);
+    const As = s.articulations;
+    // la corde du sauveteur, nouée à la taille
+    const tb = As.bassin, te = As.epauleP;
+    const ut = [te[0] - tb[0], te[1] - tb[1]], Lt = Math.hypot(...ut), tt = [ut[0] / Lt, ut[1] / Lt], nt = [-tt[1], tt[0]];
+    const ct = [tb[0] + tt[0] * 10, tb[1] + tt[1] * 10], dt = 11;
+    const taille = [[ct[0] + nt[0] * dt, ct[1] + nt[1] * dt], [ct[0] - nt[0] * dt, ct[1] - nt[1] * dt]];
+    const nd = taille[1][1] < taille[0][1] ? taille[1] : taille[0];
+    const id = 'vue1503-autre';
     const svg = [
+      `<clipPath id="${id}"><rect x="0" y="0" width="${z.l}" height="${z.h}"/></clipPath>`, `<g clip-path="url(#${id})">`,
       coupe(z, S3, E, D, yG),
       tob,
       String(a), String(s), String(p),
-      corde(lisse([[a.mainL.x - 30, yG - 1.4], [a.mainL.x, a.mainL.y], [a.mainP.x, a.mainP.y], [hs[0] - 20, yG - 3], [hs[0], hs[1] + 2]]), 2.4),
-      h.cercle(hs[0], hs[1] + 2, 2.2, blanc(h.a.arete)),
-      h.geste(`M ${P(s.boite.x1 - 30, yG - 24)} L ${P(s.boite.x1 + 10, yG - 24)}`),
+      corde(lisse([[-4, yG - 1.6], [a.mainL.x - 24, yG - 2], [a.mainL.x, a.mainL.y], [a.mainP.x, a.mainP.y], [a.mainP.x + 40, yG - 2.4], [nd[0] - 30, nd[1] - 1], nd]), 2.6),
+      corde(`M ${P(...taille[0])} L ${P(...taille[1])}`, 2.6),
+      h.cercle(nd[0], nd[1], 2.6, blanc(h.a.arete)),
+      '</g>',
+      h.geste(`M ${P(As.epauleP[0] - 6, yG - 26)} L ${P(As.epauleP[0] + 46, yG - 26)}`),
     ];
-    return { svg: svg.join('\n'), s, a, p, xt0, xt1, yG, E };
+    return { svg: svg.join('\n'), s, a, p, xt0, xt1, yG, E, nd };
   };
 
   return {
@@ -162,28 +209,28 @@ module.exports = (h) => {
     desc: 'En coupe de profil. Le sauveteur reste couché sur la glace qui a porté, loin du trou, et lance la corde à la personne tombée à l’eau. De près, un bidon vide, bouché, noué au bout de la corde : il la fait flotter et lui donne du poids. La corde est nouée autour du corps de la personne, sous les bras ; on tire pendant qu’elle bat des jambes, à plat ventre sur le bord. Autre façon, si rien ne l’atteint : y aller couché en poussant le toboggan devant soi, attaché à une corde que tient un autre adulte resté sur la glace qui a porté.',
     format: 'demi',
     disposition: [['tirer', 'bidon'], ['autre']],
-    largeurs: [[3.6, 1], [1]],
-    hauteurs: [130, 112],
+    largeurs: [[3.5, 1], [1]],
+    hauteurs: [140, 102],
     vues: {
       tirer: {
         dessin: z => vTirer(z).svg,
         renvois: z => { const v = vTirer(z), A = v.s.articulations; return [
-          { n: 1, rond: [A.bassin[0], v.yG + 30], cible: [A.bassin[0], v.yG - 4], texte: 'rester couché loin du trou, lancer la corde' },
-          { n: 3, rond: [v.noeud[0] + 30, 12], cible: [v.noeud[0] - 2, v.noeud[1] - 3], texte: 'lui nouer la corde autour du corps, sous les bras' },
-          { n: 4, rond: [v.mP[0] + 58, v.mP[1] - 22], cible: [v.mP[0] + 41, v.mP[1] - 22], texte: 'tirer pendant qu’il bat des jambes' },
+          { n: 1, rond: [A.epauleP[0] - 10, v.yG + 34], cible: [A.epauleP[0] - 10, v.yG + 1], texte: 'rester sur la glace qui a porté, lancer la corde' },
+          { n: 3, rond: [v.noeud[0] + 30, 12], cible: [v.noeud[0] + 2, v.noeud[1] - 2], texte: 'lui nouer la corde sous les bras' },
+          { n: 4, rond: [v.mP[0] + 78, v.yG - 26], cible: [v.mP[0] + 56, v.yG - 26], texte: 'tirer pendant qu’il bat des jambes' },
         ]; },
       },
       bidon: {
         dessin: z => vBidon(z).svg,
         renvois: z => { const v = vBidon(z); return [
-          { n: 2, rond: [v.bx - v.bw / 2 - 2, v.by - 20], cible: [v.bx - v.bw / 2 + 3, v.by + 8], texte: 'nouer un bidon vide et bouché au bout' },
+          { n: 2, rond: [12, v.by + 26], cible: [v.bx - 1, v.by + 26], texte: 'nouer un bidon vide et bouché au bout' },
         ]; },
       },
       autre: {
         titre: 'Autre façon, si rien ne l’atteint',
         dessin: z => vAutre(z).svg,
         renvois: z => { const v = vAutre(z); return [
-          { n: 5, rond: [v.xt0 + 40, v.yG + 30], cible: [v.xt0 + 40, v.yG], texte: 'au lieu de 1 : y aller couché, attaché, en poussant le toboggan' },
+          { n: 5, rond: [v.xt0 + 60, v.yG + 34], cible: [v.xt0 + 60, v.yG + 1], texte: 'au lieu de 1 : pousser le toboggan, couché, attaché' },
         ]; },
       },
     },

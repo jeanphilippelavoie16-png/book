@@ -75,8 +75,8 @@ module.exports = (h) => {
     // gauche du trou jusque sous la glace ; au bout, le crochet replié à angle droit vers la paroi passe sous le bord
     // du dessous de la glace et s'y appuie. Le crochet est un peu grossi pour se lire.
     // la lame et son crochet : une seule bande de métal mince, en L, blanche cernée
-    const x0 = g.xR, ep = 3.4, yH = g.yB + 1.2, yBas = g.yB + 5.4, xC = x0 - g.crochet;
-    out.push(h.path(`M ${f(x0 - ep / 2)} ${f(g.yBoite)} L ${f(x0 - ep / 2)} ${f(yH)} L ${f(xC)} ${f(yH)} L ${f(xC)} ${f(yBas)} L ${f(x0 + ep / 2)} ${f(yBas)} L ${f(x0 + ep / 2)} ${f(g.yBoite)} Z`, `fill="#FFFFFF" stroke="${NOIR}" stroke-width="1.1" stroke-linejoin="miter"`));
+    const x0 = g.xR, ep = 4, yH = g.yB + 1.4, yBas = g.yB + 6.2, xC = x0 - g.crochet;
+    out.push(h.path(`M ${f(x0 - ep / 2)} ${f(g.yBoite)} L ${f(x0 - ep / 2)} ${f(yH)} L ${f(xC)} ${f(yH)} L ${f(xC)} ${f(yBas)} L ${f(x0 + ep / 2)} ${f(yBas)} L ${f(x0 + ep / 2)} ${f(g.yBoite)} Z`, `fill="#FFFFFF" stroke="${NOIR}" stroke-width="1.4" stroke-linejoin="miter"`));
 
     // le boîtier du ruban, tenu par la main : la main d'abord posée pour lire l'axe de la plaque qu'elle tient, puis
     // le boîtier dessiné à la place et à la taille de cette plaque, et la main par-dessus
