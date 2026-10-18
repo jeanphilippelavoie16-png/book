@@ -952,3 +952,81 @@ Toutes les ancres de `design/epreuves-livre/placements-tome-1.json`, clé `"12"`
 - **Ramonage** : le tuyau du poêle de la tente se nettoie chaque jour quand on brûle du bois (FM 31-70, `sources/12-fm31-70-amarrage-feu-de-billes-lit-de-branches.md`). Points de contrôle : « Chaque semaine, poêle froid » devient « Chaque matin, poêle froid ». Le ch. 83 garde chaque semaine pour le poêle du chalet.
 - **Pastille** : « 40 min » (la clarté après le coucher du soleil en décembre) est gardée.
 - **Points ouverts de l'éditeur, réglés par l'orchestrateur** : étape 10, « trois perches » devient « sept perches » (le faîte, deux traverses, et les quatre des chevalets de l'étape 11) ; étape 96, les piquets qui lâchent se replantent dès qu'ils penchent ; signes d'échec, « éteindre toute flamme » sort (l'étape 64 interdit déjà toute flamme dans un abri de neige). Reste pour l'agent des planches : 12-05a, repère 2, « trancher le fond net » contre « trancher le dessous du bloc » dans le texte.
+
+## Encadrés En plus, 18 octobre 2026
+
+Rôle 2, rédacteur. Décision de JP du jour : les trous des pages se remplissent d'encadrés « En plus », vert pâle, que
+le moteur pose tout seul (`build_chapitre.py`, `extras_html` ; `chapitre.js`, `fillExtras`). Section non numérotée
+`## En plus` ajoutée à la fin du chapitre, après la section 7 et sa note 2, avec trois encadrés `###`. Rien d'autre
+du chapitre n'a bougé (fichier gardé en CRLF). Lecture vérifiée par les fonctions du moteur : trois boîtes, dont deux
+avec image (`extra ximg`).
+
+### 1. Pendre la literie aux murs de la tente, le jour (la façon des Innus ; 92 mots)
+
+- **Provenance :** André Casault, « House Hunting, or I've Never "Lived" in My House », *JSSAC / JSÉAC* 28, nos 1-2
+  (2003), p. 31-42, revue savante ; terrain chez les Innus d'Unamen Shipu (La Romaine), Côte-Nord, 1998-1999. Fiche :
+  `sources/12-en-plus-literie-innue-et-trois-coniferes.md`, partie 1 ; PDF et texte enregistrés à côté
+  (`sources/12-casault-2003-jssac-house-hunting-innu.pdf`, `…-texte.txt`).
+- **Faits imprimés et leur extrait :** le jour, couvertures, petits matelas et vêtements pendus aux murs de la tente
+  d'hiver (« bedclothes, blankets, small mattresses, and clothing are carefully hung up on the tent walls during the
+  daytime », p. 33) ; ça garde la chaleur (« keep the heat in ») ; on s'assoit sur le sapinage, adossé (« very
+  comfortable to lean back on », p. 33 ; « the Innu sit on the floor (the comfortable sapinage floor) », p. 38).
+- **Pourquoi ça marche :** la source dit que ça garde la chaleur sans dire pourquoi ; le texte le rattache à la toile
+  qui n'isole pas, fait déjà dans le chapitre (étape 15), par un renvoi.
+- **Ce qui la rend dangereuse :** pas dans la source. Deux gestes du chapitre, sans chiffre neuf : rien pendu là où on
+  ne garde pas la main sur la toile (étape 23), rien qui descende devant l'entrée d'air basse, par où le poêle prend
+  son air (étape 16).
+- **Aucun chiffre.** L'origine est dite une fois, à plat (règle 4.2 de `suivi/idees-savoirs-autochtones.md`) ; rien
+  de cérémoniel.
+- **Pourquoi celle-là :** le chapitre a déjà le shaputuan, le sapinage, le pied renchaussé, le poêle sur pieux et le
+  sable au fond du poêle. Pistes écartées (fiche source, partie 2) : Nametau innu, « Campement d'hiver » (rien de
+  neuf sur l'abri) ; les raquettes plantées debout près de la porte, chez les Cris de Wemindji (rien ne dit ce qui
+  rendrait la façon dangereuse : à garder pour le ch. 89) ; Tytelman et Castro 2010 ; Tipatshimuna.
+- **Pour l'orchestrateur (rien touché) :** Casault décrit aussi le sapinage d'hiver de plus d'un pied d'épaisseur, de
+  grosses branches posées « with the inside of the branch curve facing the snow », recouvertes de branches beaucoup
+  plus petites. Ce passage peut trancher la partie 0, point 3 (le « concave » de N360) et l'étape 27 ; il donne aussi
+  une épaisseur au sapinage de la tente, que l'étape 26 n'a pas. Décision de JP.
+
+### 2. Reconnaître le sapin, l'épinette noire et le cèdre (photo ; 94 mots)
+
+- **Image :** `images/extras/12-trois-coniferes.jpg`, 3 435 × 1 500 px, trois panneaux de 1 125 × 1 500 px (3 × 4)
+  séparés de 30 px de blanc, sans texte. De gauche à droite : sapin baumier, épinette noire, cèdre. Fait au PIL :
+  recadrage centré en 3 × 4 (le sapin serré sur la branche, moins de feuilles mortes), même hauteur, aucune retouche.
+  Originaux dans `images/extras/originaux/`.
+- **Photos et licences** (relues sur l'API d'iNaturalist au téléchargement, champ de la photo ; réponse enregistrée :
+  `sources/12-inaturalist-trois-coniferes-2026-10-18.json` ; crédits dans `images/credits.md`, section « Encadrés En
+  plus du chapitre 12 ») :
+
+| Panneau | Espèce (consensus « research ») | Auteur | Licence | Lien |
+| --- | --- | --- | --- | --- |
+| Gauche | Sapin baumier | Patrice Dupont | CC BY | https://www.inaturalist.org/observations/408422961 (photo 750762021) |
+| Milieu | Épinette noire | rboles | CC BY | https://www.inaturalist.org/observations/31157360 (photo 48737841) |
+| Droite | Thuya occidental (cèdre) | Alexis Tinker-Tsavalas | CC BY | https://www.inaturalist.org/observations/236186493 (photo 420156486) |
+
+- **Légende :** « De gauche à droite : le sapin baumier, l'épinette noire, le cèdre » (le moteur l'imprime sous
+  l'image) ; le texte ne la redit pas.
+- **Faits et source :** Ressources naturelles Canada, fiches 80, 39 et 73, déjà résumées dans
+  `sources/25-rncan-coniferes-identification.md`, relues et enregistrées en entier le 18 octobre
+  (`sources/12-rncan-fiche-80-…`, `…-39-…`, `…-73-…`). Sapin : deux rangs, vert foncé brillant dessus, bandes de
+  points blancs dessous, forte odeur au froissement. Épinette noire : **8 à 15 mm** (seul chiffre de l'encadré), vert
+  grisâtre mat, aiguilles serrées le long du rameau, rameaux couverts de poils brunâtres. Cèdre : pas d'aiguilles,
+  écailles sur des rameaux aplatis en éventail, bronze l'hiver. La fiche 39 ne dit pas « tout autour du rameau » :
+  le texte garde « serrées le long du rameau ».
+- **Sécurité :** la thuyone n'est pas redite ; « Le cèdre (étape 101) » renvoie à l'étape qui porte le rappel et le
+  pictogramme `thuyone`. L'if n'est pas nommé : le ch. 20 porte la confusion sapin et if.
+
+### 3. Le corps mort, en coupe (petit dessin ; 50 mots)
+
+- **Image :** `images/extras/12-corps-mort.png`, dessinée par un autre agent ; regardée le 18 octobre. Elle a deux
+  vues (« Avant de remplir, vu de dessus » et « Rempli et tassé, en coupe ») et trois repères (nouer le cordon, coucher
+  la perche, remplir de neige tassée). Le texte dit ce que montrent les deux vues et renvoie à l'étape 13 pour les
+  gestes, sans les redire. Aucun chiffre.
+- **Titre :** gardé tel que le brief le donne. Le dessin montre aussi une vue de dessus : « Le corps mort » tout court
+  serait plus juste, si l'orchestrateur le veut.
+
+### controle.py
+
+9 431 mots (9 155 avant) ; 2 tirets (titre et ligne de tome, comme avant) ; aucun tiret, « § », mot banni, tournure,
+maxime, pronominal ni mise en relief dans la section En plus ; aucun mot vide signalé dans les encadrés. Une redite
+nouvelle, jugée : « ne peut pas garder la main » (étape 98 et encadré 1) : le même test, appliqué à un autre cas, avec
+renvoi à l'étape 23. Invariants : rien n'a disparu.
