@@ -217,9 +217,113 @@ def lac():
     return "\n".join(s.out)
 
 
+def outarde(x, y, e=1.0, ang=0, coul=V):
+    """Outarde en vol, de profil, ailes en haut ; (x, y) = le corps."""
+    corps = [(-14, 0), (-8, -2), (6, -2), (12, -1), (16, -3), (20, -3), (21, -2), (17, 0), (10, 2), (-6, 2), (-12, 3)]
+    aile = [(-4, -1), (-8, -12), (-14, -18), (-6, -14), (2, -2)]
+    aile2 = [(-2, 1), (-4, 10), (-10, 14), (-2, 10), (4, 1)]
+    out = []
+    for poly in (corps, aile, aile2):
+        out.append(f'<polygon points="{pts([(x + a * e, y + b * e) for a, b in poly])}" fill="{coul}" '
+                   f'transform="rotate({ang} {x} {y})"/>')
+    return out
+
+
+def phoque(x, y, e=1.0, coul=V):
+    """Phoque couché sur une roche, la tête relevée vers la gauche ; (x, y) = le dessous du ventre."""
+    d = [(-30, -16), (-34, -19), (-37, -18), (-38, -15), (-34, -11), (-26, -6), (-14, -2), (0, 0), (14, 0), (26, -1),
+         (34, 2), (40, 0), (36, -4), (28, -6), (16, -10), (0, -13), (-14, -14), (-22, -16)]
+    return [f'<polygon points="{pts([(x + a * e, y + b * e) for a, b in d])}" fill="{coul}"/>']
+
+
+def fleuve():
+    s = Scene(3013)
+    A = s.add
+    A(f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}">')
+    A('<defs><filter id="grain" x="0" y="0" width="1" height="1"><feTurbulence type="fractalNoise" baseFrequency=".9" '
+      'numOctaves="2" seed="7"/><feColorMatrix values="0 0 0 0 .1  0 0 0 0 .2  0 0 0 0 .15  0 0 0 .22 0"/></filter></defs>')
+    A(f'<rect x="-20" y="-20" width="{W + 40}" height="{H + 40}" fill="{V}"/>')
+    hz = 590
+    sx, sy, sr = 410, hz, 34
+    rayures(s, 440, hz + 4, soleil=(sx, sy, sr))
+    for rr, w in [(sr + 24, 2.2), (sr + 13, 2.8)]:
+        A(f'<circle cx="{sx}" cy="{sy}" r="{rr}" fill="none" stroke="{O}" stroke-width="{w}"/>')
+    A(f'<circle cx="{sx}" cy="{sy}" r="{sr}" fill="{O}"/>')
+    # l'eau salée, large comme la mer
+    A(f'<rect x="-20" y="{hz}" width="{W + 40}" height="{H}" fill="{P}"/>')
+    # la côte d'en face, mince et basse, à gauche
+    cote = s.onde(hz - 6, [(3, 1.4), (1.5, 4)], x0=-20, x1=300)
+    A(f'<polygon points="{pts(cote + [(300, hz + 1), (-20, hz + 1)])}" fill="{V2}"/>')
+    for i in range(46):
+        yy = hz + 6 + i * (3 + i * 0.12)
+        x = -20 + s.u(0, 60)
+        while x < W:
+            long = s.u(20, 140)
+            if not (sx - 34 - i < x + long / 2 < sx + 34 + i) or s.r.random() < 0.25:
+                A(f'<path d="M{f(x)} {f(yy + s.u(-1, 1))} h{f(long)}" stroke="{V}" stroke-width="{f(s.u(.7, 1.8) * (0.8 + i / 50))}" stroke-linecap="round"/>')
+            x += long + s.u(10, 60)
+    for i in range(24):       # le chemin de lumière du soleil sur l'eau
+        yy = hz + 6 + i * 6.5
+        w = 60 - i * 1.6 + s.u(-8, 8)
+        A(f'<path d="M{f(sx - w / 2 + s.u(-5, 5))} {f(yy)} h{f(w)}" stroke="{O}" stroke-width="{f(s.u(2, 3.6))}" stroke-linecap="round"/>')
+    # les outardes en V, au ras de l'eau
+    for k in range(9):
+        side = 1 if k % 2 else -1
+        rang = (k + 1) // 2
+        x = 220 - rang * 22
+        y = 618 + side * rang * 7
+        for p in outarde(x, y, e=0.62, ang=-4):
+            A(p)
+    # la pointe rocheuse à droite, ses épinettes et ses mélèzes
+    pointe = [(430, 700), (470, 676), (520, 664), (580, 650), (640, 640), (W + 40, 630), (W + 40, 760), (430, 760)]
+    A(f'<polygon points="{pts(pointe)}" fill="{V}"/>')
+    for x, y, w in [(460, 690, 30), (520, 676, 44), (610, 664, 50), (700, 654, 60)]:
+        A(f'<path d="M{x - w / 2} {y + 8} q{w * 0.2} -14 {w / 2} -14 q{w * 0.3} 2 {w / 2} 14" stroke="{P}" stroke-width="1.3" fill="none" opacity=".7"/>')
+    xs = lambda x: 640 if x > 620 else (660 if x > 540 else 674)
+    melezes(s, xs, 500, W + 30, 50, 130, dens=1.0, p_orange=0.25)
+    # le phoque sur sa roche
+    A(f'<path d="M318 768 q10 -20 46 -20 q36 0 46 20z" fill="{V}"/>')
+    A(f'<path d="M331 760 q20 -10 40 -6" stroke="{P}" stroke-width="1.2" fill="none" opacity=".7"/>')
+    for p in phoque(366, 748, e=0.95):
+        A(p)
+    # la pêche à fascines : une ligne de piquets dans l'eau, le filet entre eux
+    for k in range(10):
+        x = 60 + k * 23
+        y = 742 - k * 3.2
+        hh = 40 - k * 1.4
+        A(f'<path d="M{f(x)} {f(y)} v{f(-hh)}" stroke="{V}" stroke-width="{f(3 - k * 0.1)}" stroke-linecap="round"/>')
+        if k:
+            A(f'<path d="M{f(x - 23)} {f(y + 3.2 - hh * 0.8)} q11.5 4 23 {f(-0.2)}" stroke="{V}" stroke-width=".8" fill="none"/>')
+            A(f'<path d="M{f(x - 23)} {f(y + 3.2 - hh * 0.3)} q11.5 3 23 0" stroke="{V}" stroke-width=".8" fill="none"/>')
+    # la grève à marée basse, galets et varech
+    greve = [(-20, 790), (140, 782), (300, 792), (460, 808), (620, 820), (W + 40, 826), (W + 40, H + 40), (-20, H + 40)]
+    A(f'<polygon points="{pts(greve)}" fill="{P}"/>')
+    for k in range(3):
+        A(f'<path d="M-20 {788 - k * 7} C140 {778 - k * 7} 300 {790 - k * 7} 460 {806 - k * 7} S640 {820 - k * 7} {W + 40} {824 - k * 7}" '
+          f'stroke="{V}" stroke-width="{2.4 - k * 0.6}" stroke-dasharray="{30 + k * 10} {8 + k * 9}" fill="none"/>')
+    for _ in range(150):
+        x, y = s.u(0, W), s.u(800, 950)
+        if y < 790 + (x / W) * 36 + 8 or (176 < x < 600 and y > 860):
+            continue
+        r = s.u(1.5, 5)
+        A(f'<ellipse cx="{f(x)}" cy="{f(y)}" rx="{f(r * 1.6)}" ry="{f(r)}" fill="none" stroke="{V}" stroke-width="1.1" opacity=".75"/>')
+    for _ in range(9):        # le varech
+        x, y = s.u(20, 740), s.u(810, 850)
+        A(f'<path d="M{f(x)} {f(y)} q{f(s.u(8, 16))} -6 {f(s.u(20, 40))} 2 q-12 4 {f(-s.u(20, 40))} -2z" fill="{O}" opacity=".85"/>')
+    # la chaloupe tirée sur la grève, à gauche
+    for p in canot(190, 842, 200):
+        A(p)
+    # deux épinettes au bord gauche
+    for x, bas, h, l in [(-6, 990, 360, 90), (54, 960, 220, 54)]:
+        s.epinette(x, bas, h, l, V)
+    A(f'<rect x="-20" y="-20" width="{W + 40}" height="{H + 40}" filter="url(#grain)"/>')
+    A('</svg>')
+    return "\n".join(s.out)
+
+
 if __name__ == "__main__":
     quoi = sys.argv[1] if len(sys.argv) > 1 else "lac"
-    svg = {"lac": lac}[quoi]()
+    svg = {"lac": lac, "fleuve": fleuve}[quoi]()
     out = os.path.join(ICI, f"depart-{quoi}.svg")
     open(out, "w", encoding="utf-8").write(svg + "\n")
     print(out)

@@ -1,0 +1,6 @@
+{'id': '23a478cd-9df8-4762-ba5b-8eec867580c3', 'kudos': 7.0}
+0 0 0 False
+15 288 176 False
+31 279 171 False
+46 259 160 False
+62 245 153 False

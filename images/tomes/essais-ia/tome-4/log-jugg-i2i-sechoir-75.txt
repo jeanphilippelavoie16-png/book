@@ -2,3 +2,7 @@
 2 284 163 False
 17 275 159 False
 33 265 153 False
+48 235 142 False
+63 224 138 False
+79 208 131 False
+95 187 122 False

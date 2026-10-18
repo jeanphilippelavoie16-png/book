@@ -131,7 +131,7 @@ def atelier(s, A, x0, base, larg=230, hmur=118):
     ty = base - hmur - (larg * 0.42) * (1 - abs(tx - cx) / (larg / 2))
     A(f'<rect x="{f(tx)}" y="{f(ty - 46)}" width="9" height="50" fill="{K["iron"]}"/>')
     A(f'<path d="M{f(tx - 4)} {f(ty - 50)} h17 l-3 5 h-11z" fill="{K["iron"]}"/>')
-    fumee(A, tx + 4, ty - 52, sens=1, haut=135)
+    fumee(A, tx + 4, ty - 52, sens=-1, haut=125)
     etincelles(s, A, tx - 6, tx + 22, ty - 110, ty - 52, 14)
     # la petite fenêtre du grenier
     A(f'<rect x="{f(cx - 11)}" y="{f(faite + 34)}" width="22" height="18" fill="{K["or_"]}"/>')
@@ -150,7 +150,7 @@ def atelier(s, A, x0, base, larg=230, hmur=118):
     A(f'<path d="M{f(dr - 30)} {f(dt + 12)} v34" stroke="{K["iron"]}" stroke-width="2.6"/><path d="M{f(dr - 36)} {f(dt + 12)} h12 v6 h-12z" fill="{K["iron"]}"/>')
     A(f'<path d="M{f(dr - 18)} {f(dt + 10)} h12 v10 l-4 40 h-8z" fill="{K["iron"]}"/>')
     # l'enclume sur sa bille, dans l'embrasure, en contre-jour : bigorne à gauche, table plate, talon, pied évasé
-    ax, ay = cx + 14, base
+    ax, ay = cx + 38, base
     A(f'<path d="M{f(ax - 13)} {f(ay)} v-30 h26 v30z" fill="{K["iron"]}"/>')
     A(f'<path d="M{f(ax - 40)} {f(ay - 50)} q14 -1 22 -5 h40 v10 h-6 q-4 0 -6 4 l-2 6 h4 l4 6 h-34 l4 -6 h4 l-2 -6 q-2 -4 -8 -5 q-12 -1 -20 -4z" fill="{K["iron"]}"/>')
     # les deux battants ouverts vers l'extérieur
@@ -213,7 +213,7 @@ def scene_A():
     collines(s, A)
     neige(s, A)
     chalet(s, A, 150, 700, larg=104)
-    fumee(A, 150 + 104 * 0.22 + 4, 700 - 104 * 0.45 - 104 * 0.46, sens=-1, haut=90)
+    fumee(A, 150 + 104 * 0.22 + 4, 700 - 104 * 0.45 - 104 * 0.46, sens=1, haut=40)
     corde_bois(A, 214, 704, n=6, rangs=3)
     cx, dl, dr = atelier(s, A, 300, 826, larg=280, hmur=134)
     raquettes(A, 602, 800)
