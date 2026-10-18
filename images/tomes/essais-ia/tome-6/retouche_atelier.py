@@ -1,8 +1,11 @@
 """Tome 6 : l'intérieur de l'atelier redessiné (JP, 18 octobre 2026 : « je veux pas que ça fasse AI ; il y a des
 détails dans la cabane »). On repart de l'image choisie (candidate 3, agrandie, lune déplacée), on repeint l'ouverture
 de la porte en orange uni et on y grave des silhouettes nettes : enclume sur sa bille, forge de pierre avec hotte et
-braises, outils de forgeron accrochés, quelques étincelles. Le chiffon blanc du haut de la porte disparaît.
-    python3 retouche_atelier.py SOURCE.jpg SORTIE.jpg
+braises, outils de forgeron accrochés. Le chiffon blanc du haut de la porte disparaît.
+Deuxième passe (JP, même jour : « le feu qui sort de l'affaire qu'on frappe dessus, ça pas rapport, pi la niche à côté
+non plus ») : plus d'étincelles sur l'enclume, et la petite cabane allumée à droite de l'atelier est enlevée ; le mur de
+l'appentis descend jusqu'à la neige, avec un banc de neige au pied.
+    python3 retouche_atelier.py titre-tome-6-avant-retouche.jpg ../../titre-tome-6.jpg
 """
 import sys, random
 import numpy as np
@@ -93,12 +96,56 @@ poly([(cx - 205, face + 12), (cx - 150, face + 4), (cx - 92, face), (cx + 118, f
 ligne((cx - 86, face + 7), (cx + 110, face + 7), 4, PAPIER)    # la table, à la gouge
 ligne((cx - 190, face + 14), (cx - 96, face + 8), 3, PAPIER)    # la bigorne
 d.rectangle([P(cx + 78, face + 12), P(cx + 92, face + 22)], fill=PAPIER)   # le trou carré
-# 6. les étincelles
-for _ in range(9):
-    ang = R.uniform(-1.2, -0.2); L = R.uniform(30, 70); x = cx + R.uniform(-30, 40); y = face - 8
-    ligne((x, y), (x + L * np.cos(ang) * 1.4, y + L * np.sin(ang)), 4, BRAISE)
-
 zone = zone.resize((X1 - X0, Y1 - Y0), Image.LANCZOS)
+im.paste(zone, (X0, Y0))
+
+# 6. la niche à droite de l'atelier : on recopie vers le bas la texture du mur de l'appentis (en miroir une fois sur
+# deux, pour que les planches se raccordent) et celle de l'épinette d'à côté, puis la neige au pied
+src = im.copy(); copie = im.copy()
+def empiler(boite, y0, y1, retourne):
+    tuile = src.crop(boite); h = boite[3] - boite[1]; y = y0; k = 0
+    while y < y1:
+        t = tuile.transpose(retourne) if k % 2 == 0 else tuile
+        copie.paste(t.crop((0, 0, t.width, min(h, y1 - y))), (boite[0], y)); y += h; k += 1
+empiler((2325, 2130, 2600, 2318), 2290, 2800, Image.FLIP_TOP_BOTTOM)                    # le mur et ses planches
+empiler((2600, 2159, 2860, 2286), 2290, 2800, Image.FLIP_LEFT_RIGHT)                    # l'épinette derrière (rangées
+                                                                                        # de bord sans neige : aucune tache coupée)
+# on ne remplace que la niche : son toit, son corps, et le clair entre elle et l'épinette, qui n'a plus de raison d'être
+niche = Image.new('L', im.size, 0)
+ImageDraw.Draw(niche).polygon([(2325, 2318), (2560, 2318), (2580, 2266), (2862, 2458), (2862, 2532), (2752, 2532),
+                               (2752, 2800), (2325, 2800)], fill=255)
+from scipy import ndimage
+# le clair entre la niche et l'épinette, avec les trois branches enneigées qui le touchent, part en entier
+clair = np.asarray(src.convert('L'))[2470:2785, 2740:3060] > 140
+lab, _ = ndimage.label(clair)
+fente = Image.fromarray((ndimage.binary_dilation(lab == lab[180, 30], iterations=3) * 255).astype(np.uint8))
+niche.paste(fente, (2740, 2470), fente)
+# une tache de neige d'origine que le bord coupe disparaît en entier, pour ne pas laisser de bord droit
+m = np.asarray(niche)[2300:2790, 2700:2900] > 0
+lab, n = ndimage.label(np.asarray(src.convert('L'))[2300:2790, 2700:2900] > 140)
+for k in range(1, n + 1):
+    c = lab == k
+    if c.sum() < 4000 and (c & m).any() and (c & ~m).any():
+        m |= ndimage.binary_dilation(c, iterations=2)
+niche.paste(255, (2700, 2300), Image.fromarray((m * 255).astype(np.uint8)))
+copie.paste((28, 28, 28), (2858, 2300, 3000, 2800))                                       # hors de la tuile : le sombre de l'épinette
+im.paste(copie, (0, 0), niche)
+X0, Y0, X1, Y1 = 2270, 2300, 2880, 3000
+zone = im.crop((X0, Y0, X1, Y1)).resize(((X1 - X0) * S, (Y1 - Y0) * S), Image.LANCZOS)
+d = ImageDraw.Draw(zone)
+NEIGE = (251, 238, 211)
+poly([(2462, 2796), (2500, 2772), (2560, 2758), (2630, 2752), (2690, 2748), (2745, 2742), (2790, 2752),
+      (2820, 2768), (2850, 2780), (2880, 2786), (2880, 2990), (2462, 2990)], NEIGE)                   # le banc de neige et le sol
+for x, y in ((2590, 2832), (2650, 2860), (2700, 2900), (2600, 2930)):                  # quelques traces dans la neige
+    poly([(x, y), (x + 26, y), (x + 26, y + 6), (x, y + 6)], NOIR)
+zone = zone.resize((X1 - X0, Y1 - Y0), Image.LANCZOS)
+# les pierres du solage restent devant le mur, et la hache plantée plus bas aussi
+masque = Image.new('L', (X1 - X0, Y1 - Y0), 0)
+md = ImageDraw.Draw(masque)
+md.polygon([(p[0] - X0, p[1] - Y0) for p in
+    ((2270, 2684), (2392, 2684), (2420, 2730), (2476, 2808), (2478, 2848), (2420, 2890), (2270, 2890))], fill=255)
+md.rectangle([0, 2950 - Y0, 2470 - X0, Y1 - Y0], fill=255)
+zone.paste(src.crop((X0, Y0, X1, Y1)), (0, 0), masque)
 im.paste(zone, (X0, Y0))
 im.save(dst, quality=95)
 print('ok', dst)

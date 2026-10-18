@@ -128,7 +128,9 @@ Le cadre complet est `.claude/skills/planches/references/brief-agent.md`. En bre
   choisies par JP sur une planche numérotée : trois encres (la couleur du tome, le papier, l'orange), un grand ciel
   calme en haut pour le titre, collines basses, aucun texte ni signature. L'image retenue s'agrandit sans retouche qui
   floute (JP : « la première était belle, fallait juste enlever 4-5 étoiles ») : on n'efface que les étoiles qui
-  touchent une lettre, une à une, avec la couleur du ciel autour.
+  touchent une lettre, une à une, avec la couleur du ciel autour. On regarde chaque détail comme JP : un objet qui
+  n'a pas de sens part (JP, sur l'atelier : « le feu qui sort de l'affaire qu'on frappe dessus, ça pas rapport, pi la
+  niche à côté non plus ») ; on l'enlève en recopiant la texture voisine de l'image, jamais en aplat.
 
 ## Le montage et la vérification (orchestrateur)
 

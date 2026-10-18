@@ -2,6 +2,8 @@
 
 Puis, même jour (JP : « je veux pas que ça fasse AI ; il y a des détails dans la cabane ») : l'intérieur de l'atelier est redessiné par `retouche_atelier.py` (enclume sur sa bille, forge de pierre avec hotte rivetée et braises, marteau, pinces, tisonnier et lime accrochés, étincelles) ; le chiffon blanc du haut de la porte disparaît.
 
+Deuxième passe, même jour (JP : « le feu qui sort de l'affaire qu'on frappe dessus, ça pas rapport, pi la niche à côté non plus ») : plus d'étincelles sur l'enclume ; la petite cabane allumée à droite de l'atelier est enlevée. Le mur de l'appentis et l'épinette sont prolongés vers le bas en recopiant leur propre texture (en miroir une fois sur deux, sur des rangées sans neige pour ne couper aucune tache), et un banc de neige passe au pied. L'image de départ de la retouche est gardée : `titre-tome-6-avant-retouche.jpg` (la candidate 3 agrandie, lune déplacée).
+
 # Tome 6, L'atelier : essais d'image de titre (18 octobre 2026)
 
 L'image a été générée par AI Horde avec `../horde-img2img.py` (gratuit, sans clé), en 768 × 960. Aucune image n'a été agrandie.
