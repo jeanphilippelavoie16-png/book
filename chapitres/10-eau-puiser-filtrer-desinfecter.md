@@ -51,7 +51,7 @@ saute jamais.
  fonte. L'ébullition, la javel et le filtre laissent passer le sel ; seules la distillation et l'osmose inverse
  l'enlèvent. Boire de l'eau salée oblige les reins à rejeter plus d'eau qu'elle n'en apporte, et on se déshydrate
  plus vite. Quand il ne reste que le fleuve, on passe son eau à l'alambic ou on la dessale par le gel (section 7).
- Après des retombées radioactives, la pluie, la neige et l'eau de surface se jugent au ch. 4 : ni l'ébullition ni
+ Après des retombées radioactives, on juge la pluie, la neige et l'eau de surface au ch. 4 : ni l'ébullition ni
  le filtre de ce chapitre n'enlèvent ce qui est radioactif.
 2. **Puiser en amont de tout ce qui vit** : le camp, la fosse septique, l'enclos, le sentier de motoneige, la hutte
  de castor. {!selles} Il faut traiter toute eau de surface, même claire, froide et sans odeur. Le castor (*Castor
@@ -63,8 +63,8 @@ saute jamais.
  des eaux usées qui n'est pas étanche, ou 15 m si le puits est scellé. Un puits scellé a été foré au moins 10 cm
  plus large que son tubage (le tuyau d'acier qui sort du sol), et cet espace a été rempli de bentonite ou de
  ciment-bentonite sur au moins 5 m de profondeur. Ce bouchon oblige l'eau de surface à descendre à travers le sol,
- qui la filtre, au lieu de couler le long du tubage jusqu'à la nappe (les eaux usées : ch. 31). L'eau d'un puits trop
- proche, ou dont on ne sait pas s'il est scellé, se traite comme une eau de surface (étape 14).
+ qui la filtre, au lieu de couler le long du tubage jusqu'à la nappe (les eaux usées : ch. 31). Si le puits est trop
+ proche, ou si on ne sait pas s'il est scellé, on traite son eau comme une eau de surface (étape 14).
 4. **Prendre l'eau à 20 ou 30 cm sous la surface, sans racler le fond** : la surface concentre les pollens et les
  hydrocarbures, et le fond, les sédiments.
 
@@ -202,7 +202,7 @@ saute jamais.
 28. **Désinfecter le puits au chlore** quand l'analyse trouve des bactéries, et après une crue, une inondation, des
  travaux ou le remplacement de la pompe : viser **50 mg/L** de chlore libre dans l'eau d'un puits existant,
  **250 mg/L** dans un puits neuf, avec de la javel non parfumée à 5,25 %. Mettre de l'eau traitée de côté avant de
- commencer : l'eau du robinet ne se boit pas pendant les étapes 31 à 34.
+ commencer : on ne boit pas l'eau du robinet pendant les étapes 31 à 34.
 29. **Calculer la javel.** Une javel à 5,25 % contient 52 500 mg de chlore par litre. Pour amener 1 000 L d'eau à
  50 mg/L, il faut 50 × 1 000 ÷ 52 500 ≈ 0,95 L de javel, soit environ **1 L de javel par 1 000 L d'eau**, et
  5 L par 1 000 L pour un puits neuf.
@@ -468,7 +468,7 @@ il ne la désinfecte pas.
  l'eau de creuser le sable.
 - **Le film vivant.** Le travail se fait surtout par un film de microbes qui s'installe à la surface du sable et
  mange ce qui passe, plus que par les grains de sable. Il met jusqu'à un mois à se former, et pendant ce temps,
- l'eau qui sort se désinfecte comme le reste. Il ne se voit pas ; le sable qui fonce montre seulement la saleté
+ il faut désinfecter l'eau qui sort comme le reste. Il ne se voit pas ; le sable qui fonce montre seulement la saleté
  prise. Il vit tant que le sable reste mouillé et hors gel, et qu'il reçoit de l'eau neuve au moins tous les deux
  jours : on monte le filtre l'été ou l'automne, avant d'en avoir besoin, et on le nourrit chaque jour.
 - **Le charbon.** Concasser et rincer du charbon de bois du poêle, et en remplir un second seau percé, posé sous la
@@ -559,5 +559,5 @@ et aucun des cinq n'a de goût. **Un filtre de terrain contre les virus** : il n
 - **Ce qui est dissous.** L'alambic est le seul à y toucher, et il donne très peu d'eau.
 - **Le goût.** L'eau reste teintée par les tanins et plate, et de jeunes enfants refusent de la boire. Un enfant qui
  ne boit pas l'hiver se déshydrate (ch. 39 et 40).
-- **La marge d'erreur.** Avec deux méthodes, un oubli se rattrape. Avec une seule, un chronomètre mal parti donne une
+- **La marge d'erreur.** Avec deux méthodes, on rattrape un oubli. Avec une seule, un chronomètre mal parti donne une
  gastro-entérite à toutes les personnes qui boivent l'eau.
