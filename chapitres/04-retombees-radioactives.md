@@ -551,7 +551,7 @@ cuisson ; la fermentation devient la source de vitamine C (ch. 80, ch. 20).
 
 ### Ce qui ne se remplace pas
 
-- **Les comprimés d'iode** : aucun autre iode ne protège la thyroïde, et les autres empoisonnent (étape 12).
+- **Les comprimés d'iode** : les autres iodes ne protègent pas la thyroïde, et plusieurs empoisonnent (étape 12).
 - **La mesure fine** : un pot de verre à feuilles d'aluminium ne dira jamais si un quartier d'orignal est chargé.
 - **La réserve fermée constituée avant** : ce qui était à découvert au passage du panache ne redevient pas propre au
  lavage, seulement moins chargé.
@@ -569,7 +569,7 @@ plutôt qu'en hiver a été, avec la mesure des bêtes vivantes, la façon la pl
 mangeable. Une bête qu'on ne pouvait pas abattre tôt passait quelques semaines en enclos, nourrie de fourrage
 propre. Les Sami ont d'abord résisté : au début de l'automne, la femelle et son petit sont encore très liés, et on
 dérange le troupeau pendant qu'il broute. Ce qui rend la façon dangereuse : une année où les champignons abondent,
-les bêtes en mangent à la fin de l'été, et leur viande d'automne se charge à son tour.
+les bêtes qui en mangent à la fin de l'été ont une viande d'automne chargée à son tour.
 
 ### L'argile grise de l'ancienne mer
 
