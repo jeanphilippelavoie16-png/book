@@ -47,7 +47,7 @@
 > Légende de la fig. 7 : « Things are carefully tied up along the interior walls of the tent. (Photo: Louise
 > Bellemare and Théo Mark, 1999) »
 
-> (p. 36) « While in their tents, the Innu sit on the floor (the comfortable sapinage floor described above). »
+> (p. 38) « While in their tents, the Innu sit on the floor (the comfortable sapinage floor described above). »
 
 ### Ce que l'encadré en tire
 
