@@ -488,7 +488,7 @@ fatigué. Le filtre arrête la poussière, mais rien du rayonnement ni des gaz.
 Pendant les heures de bouchage (étape 18), tendre des couvertures mouillées devant les portes et les fenêtres, et
 rouler des linges humides au pied des portes. Pour fermer un cadre de fenêtre, cuire une colle de farine et d'eau
 jusqu'à ce qu'elle épaississe, et s'en servir pour coller des bandes de papier journal à cheval sur le joint, en deux
-épaisseurs croisées ; on l'enlève à l'eau chaude. **Ce qu'on perd :** l'air sec : les couvertures mouillées mettent
+épaisseurs croisées ; on l'enlève à l'eau chaude. **Ce qu'on perd :** l'air sec. Les couvertures mouillées mettent
 de l'humidité dans la pièce fermée, et l'eau condense sur les murs froids.
 
 ### Sans eau courante ni savon
