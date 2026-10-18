@@ -318,6 +318,9 @@ tomes** : un peu plus de blanc en bas des pages qui précèdent une planche ; le
     https://claude.ai/artifact/BArarHtfudkPTnjmKWaGoG : A, la carte du territoire (courbes de niveau, gros 1, la
     série des six tomes) ; B, l'affiche du Nord (fond foncé, crêtes et épinettes en aplats, le chalet à la fenêtre
     orange) ; C, la table du tome (gros 1 coupé, la liste des 19 chapitres). Aucune image d'IA. Attend le choix de JP.
+    JP choisit B (« celle du milieu, mais mieux faite, dans ce style-là ») : B refaite en deux ambiances sur le même
+    canevas (la nuit d'hiver ; l'aube), épinettes à étages, crêtes, fleuve, neige au premier plan, chalet aux fenêtres
+    orange, la série des six tomes avec leurs noms complets. Attend le choix de l'ambiance.
 31. **Les dangers en pictogrammes ; la section Danger sort des chapitres** (JP, 18 octobre 2026). Un pictogramme
     par danger ; chaque danger est expliqué une fois, à fond, dans la section qui explique les symboles et les
     pictogrammes du livre ; dans un chapitre, le pictogramme s'affiche là où le danger est présent, et la section 7
