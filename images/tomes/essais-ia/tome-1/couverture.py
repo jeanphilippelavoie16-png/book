@@ -170,9 +170,15 @@ def devant(v, k):
     if VARIANTES[v]['devant'] == 'chiffre':
         return (f'<div class="hd hd-b"><span>Le Manuel du Nord</span><span>Tome {k} sur 6</span></div>'
                 f'<div class="duo"><div class="num">{k}</div><h1 class="titre" data-fit data-haut=".hd-b">{titre}</h1></div>')
+    bas = CENTRE_BAS.get(k)
     return (f'<div class="marque">Le Manuel du Nord</div>'
-            f'<div class="centre"><div class="tome"><i></i><span>Tome {k}</span><i></i></div>'
+            f'<div class="centre"{f" style=\"height:{bas}in\"" if bas else ""}><div class="tome"><i></i><span>Tome {k}</span><i></i></div>'
             f'<h1 class="titre" data-fit data-haut=".marque" data-sommet=".tome">{titre}</h1></div>')
+
+
+# le bas du titre centré (variante C), en pouces depuis le haut du devant rogné, quand l'image du tome monte plus haut
+# que 3,95 po (tome 6 : la colline enneigée, sur laquelle le titre crème ne se lit pas)
+CENTRE_BAS = {6: 3.3}
 
 
 # ------------------------------------------------------------------ gabarit
@@ -395,9 +401,29 @@ def composer(v, m, img, pal, ppp):
         ch = L - ndi.grey_opening(L, size=(t, t))
         lignes = ch[:, cx0:].max(axis=1)
         r_hi = int(0.33 * rh) + int(np.argmin(lignes[int(0.33 * rh):int(0.39 * rh)]))   # au-dessus de la lune et des crêtes
+        # quand les collines montent plus haut (tome 6), le miroir s'arrête au-dessus de leur sommet : la première ligne
+        # où le ciel, débarrassé de ses étoiles, s'écarte de sa couleur
+        Lr = ndi.grey_closing(ndi.grey_opening(L, size=(t, t)), size=(t, t))
+        ciel_r = float(np.median(Lr[:int(0.1 * rh), cx0:cx0 + max(8, int(0.2 * rw))]))
+        ecarte = (np.abs(Lr[:, cx0:int(0.94 * rw)] - ciel_r) > 14).mean(axis=1) > 0.002
+        pres = np.nonzero(ecarte[int(0.15 * rh):])[0]
+        if len(pres):
+            lim = int(0.15 * rh) + int(pres[0]) - int(0.04 * ppp)
+            if lim < r_hi:
+                a_ = max(int(0.15 * rh), lim - int(0.05 * rh))
+                r_hi = a_ + int(np.argmin(lignes[a_:lim]))
         r_lo = int(np.argmin(lignes[:int(0.03 * rh)]))
         colonnes = ch[r_lo:r_hi].max(axis=0)
         c_hi = int(0.94 * rw) + int(np.argmin(colonnes[int(0.94 * rw):]))
+        # tout ce qui n'est pas le ciel (une épinette qui monte, la lune) ne passe pas au dos : les petites étoiles
+        # s'effacent par une ouverture, puis chaque colonne qui s'écarte du ciel arrête le miroir (tomes 4 et 6)
+        Lf = ndi.grey_opening(L[r_lo:r_hi], size=(t, t))
+        Lf = ndi.grey_closing(Lf, size=(t, t))
+        ciel_L = float(np.median(Lf[:, cx0:cx0 + max(8, int(0.2 * rw))]))
+        hors = (np.abs(Lf - ciel_L) > 14).mean(axis=0)
+        mauvais = np.nonzero(hors[cx0 + int(0.25 * rw):] > 0.004)[0]
+        if len(mauvais):
+            c_hi = min(c_hi, cx0 + int(0.25 * rw) + int(mauvais[0]) - int(0.06 * ppp))
         def aller_retour(z, a, b):            # a, a+1, … b-1, b-1, … a, a, … : miroir entre a et b
             p = b - a
             m_ = np.mod(z, 2 * p)

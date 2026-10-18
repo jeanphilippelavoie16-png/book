@@ -172,7 +172,8 @@ y rester 24 à 48 heures, protéger la thyroïde avec des comprimés d'iode, pui
 17. **Ouvrir une radio à piles ou à manivelle dans l'abri, et la laisser ouverte.** On y apprend où va le
  panache, s'il y a un deuxième rejet et quand l'abri finit. Sans radio : section 7.
 18. {!co} **Boucher les courants d'air de la pièce d'abri pendant le passage du panache, quelques heures au plus.**
- - Avant de boucher, poser l'avertisseur de CO dans la pièce et appuyer sur son bouton d'essai.
+ - Avant de boucher, poser l'avertisseur de CO dans la pièce et appuyer sur son bouton d'essai. Au caveau, sous
+ 4,4 °C, on ne peut pas se fier à l'avertisseur : ne rien faire brûler dans le caveau.
  - Boucher avec ce qu'on a : du ruban sur le cadre des portes et des fenêtres, du plastique sur les vitres, un
  linge humide au bas des portes, un bouchon dans les prises d'air. Le bouchage arrête la poussière, pas le
  rayonnement : contre lui, il faut la masse autour de la pièce (étape 8).
@@ -182,8 +183,26 @@ y rester 24 à 48 heures, protéger la thyroïde avec des comprimés d'iode, pui
  « Ventiler la pièce d'abri ».
  - Les premiers signes du monoxyde (le mal de tête, la nausée, l'envie de dormir) ressemblent à ceux de
  l'irradiation, et on reste couché au lieu d'agir. Si l'avertisseur sonne, ou si plusieurs personnes ont mal à la
- tête ou envie de dormir en même temps : arrêter ce qui brûle, ouvrir la pièce d'abri sur le reste de la maison et
- y emmener tout le monde, sans sortir dehors, puis aérer (section 7).
+ tête ou envie de dormir en même temps, chercher d'abord la source du monoxyde (une flamme, une braise ou un
+ moteur) et l'éliminer. Éteindre la lampe, le fanal, le réchaud, la chaufferette et les chandelles. Arrêter le
+ moteur qui tourne dans le garage ou près de la maison. Mettre dehors ce qui brûle et qu'on ne peut pas éteindre,
+ comme un barbecue au charbon de bois.
+ - Si la source est le poêle à bois (de la fumée revient dans la maison, surtout quand le feu tombe en braise),
+ remboîter le tuyau s'il s'est déboîté, et donner de l'air au poêle (section 6). Ne pas fermer l'entrée d'air ni la
+ clé pour éteindre le feu : un feu qui manque d'air couve, et sa fumée fuit dans la maison même quand la porte du
+ poêle est fermée.
+ - Ensuite, décider selon la situation s'il faut rester à l'intérieur, en ouvrant la pièce d'abri sur le reste de
+ la maison et en l'aérant, ou sortir à l'air libre.
+ - Ce qui pousse à sortir : une personne est confuse, se réveille mal ou perd connaissance ; on ne trouve pas la
+ source, ou on ne peut pas l'éliminer ; le chiffre affiché par l'avertisseur ne baisse pas une fois la source
+ éliminée et la pièce ouverte. On peut quitter l'abri pour une personne dans cet état : sa vie est en jeu, comme
+ pour une blessure grave (étape 24). Pour sortir, se couvrir le nez et la bouche d'un linge ; en rentrant, laisser
+ ses vêtements du dessus et ses chaussures à l'entrée (étape 20).
+ - Ce qui pousse à rester : les retombées sont arrivées depuis peu, et une sortie fait recevoir le plus de
+ rayonnement dans les premières heures (étape 4) ; le panache passe encore, et on respire beaucoup moins d'iode
+ radioactif à l'intérieur (section 7, « Sans comprimés d'iode ») ; une fois la source éliminée, tout le monde est
+ réveillé et répond. Au sous-sol ou au caveau, sortir fait perdre beaucoup de protection ; dans une maison de bois
+ sans sous-sol, beaucoup moins (étapes 4 et 8).
 19. {!generatrice} **Laisser la génératrice arrêtée tant qu'on reste à l'abri.** Pour la faire tourner dehors, à
  6 m du bâtiment, quelqu'un doit sortir dans la poussière radioactive ; la faire tourner dans le garage, dans
  l'entrée ou sous l'auvent, même porte ouverte, remplit la maison de monoxyde. Après l'abri, la sortir à 6 m
