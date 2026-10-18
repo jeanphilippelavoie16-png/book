@@ -78,7 +78,7 @@ module.exports = (h) => {
   };
   // ── 5, 6 : les pics plantés près du bord, battre des jambes jusqu'à l'horizontale ──
   const vJambes = z => {
-    const E = 96, yG = 66;
+    const E = 96, yG = 92;
     let mP = null;
     const g = corps(JAMBES, { x: dx(JAMBES, 'epauleP', E + 30 * S), y: yG,
       objetP: gg => { mP = gg.mainP; return picCorps(gg.mainP, yG, true); }, objetL: gg => picCorps(gg.mainL, yG, true) });
@@ -200,7 +200,7 @@ module.exports = (h) => {
         ]; },
       },
       poing: {
-        titre: 'De près',
+        titre: 'Le pic, de près',
         dessin: z => vPoing(z).svg,
         renvois: z => { const v = vPoing(z), c = v.at(v.tG - 8, 4); return [
           { n: 4, rond: [c[0] - 60, c[1] - 6], cible: [c[0] - 6, c[1]], texte: 'tenir le pic au poing, la pointe vers la glace' },

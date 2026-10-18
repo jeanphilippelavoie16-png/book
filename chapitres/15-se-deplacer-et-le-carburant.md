@@ -398,41 +398,39 @@ Il reste presque toujours de l'essence ailleurs que dans le baril : dans les ré
 à gazon, de la souffleuse, du moteur hors-bord, du VTT et de la scie. Le mazout du réservoir de la maison est
 un proche parent du diesel : un moteur diesel peut le brûler en dépannage ; un moteur à essence, non.
 
-**Amorcer sans la bouche** (planche 15-02). Trois façons, de la plus simple à la plus lente.
+**Amorcer sans la bouche** (planche 15-02). Poser d'abord le bidon au sol, nettement plus bas que le niveau
+de l'essence dans le réservoir (repère 1).
 
-**Par gravité, le boyau rempli d'avance.**
+**À deux boyaux et une pompe à vélo.**
 
-- Poser le bidon au sol, nettement plus bas que le fond du réservoir (repère 1).
-- Remplir le boyau d'essence à l'entonnoir, avec un peu d'essence d'un autre bidon, jusqu'à ce qu'il n'y
- reste plus d'air, et pincer les deux bouts (repère 2).
-- Plonger un bout au fond du réservoir, descendre l'autre dans le bidon, et lâcher les deux bouts :
- l'essence qui descend dans le boyau tire celle du réservoir (repère 3).
+- Pousser un boyau long jusqu'au fond du réservoir, et mettre son autre bout dans le bidon (repère 2).
+- Glisser un boyau court qui s'arrête dans l'air du réservoir, au-dessus de l'essence (repère 3).
+- Bourrer un chiffon autour des deux boyaux, dans le goulot (repère 4), pour que l'air qu'on pousse reste dans
+ le réservoir.
+- Pomper doucement dans le boyau court, avec une pompe à vélo ou à matelas (repère 5) : l'air pousse l'essence
+ dans le boyau long. Un réservoir n'est pas fait pour tenir de la pression : s'il ouvre à une couture,
+ l'essence gicle par la fente.
+- Arrêter de pomper quand l'essence coule dans le bidon : le boyau plein continue seul (repère 6).
 
-**À deux boyaux, en poussant de l'air.**
+**Autre façon, sans pompe : le boyau à bille** (repère 7, au lieu des repères 3 à 5).
 
-- Descendre un boyau long jusqu'au fond du réservoir, et sortir son autre bout vers le bidon posé plus bas
- (repère 4).
-- Glisser un boyau court qui reste dans l'air du réservoir, au-dessus de l'essence (repère 5).
-- Bourrer le goulot d'un chiffon autour des deux boyaux (repère 6).
-- Pomper dans le boyau court avec une pompe à vélo ou à matelas, à la main et lentement (repère 7) : l'air
- pousse l'essence dans le boyau long. Un réservoir n'est pas fait pour tenir de la pression : s'il ouvre à
- une couture, l'essence gicle par la fente.
+- Enfoncer dans le bout du boyau un bout de tube plus étroit : c'est le siège de la bille (repère 8).
+- Glisser une bille dans le boyau, ou une bille de roulement, plus grosse que le trou du tube (repère 9).
+- Passer un clou en travers du boyau, un peu au-dessus de la bille, pour qu'elle ne monte pas plus haut
+ (repère 10). Monté dans l'autre sens, le tube étroit au-dessus de la bille, le clapet ne retient rien.
+- Plonger le bout à bille au fond du réservoir et secouer le boyau de haut en bas, sans arrêt (repère 11).
+ Quand on plonge, l'essence soulève la bille et monte dans le boyau (repère 12) ; quand on remonte, la bille
+ retombe sur le tube étroit, et l'essence au-dessus ne redescend plus (repère 13). L'essence monte par
+ à-coups jusqu'à ce qu'elle passe le bord du réservoir ; ensuite, elle coule seule vers le bidon.
 
-**Avec un clapet de fortune**, quand rien d'autre ne marche.
+**Autre façon, s'il reste un peu d'essence : le boyau rempli d'avance.** Remplir le boyau d'essence à
+l'entonnoir, avec un peu d'essence d'un autre bidon, jusqu'à ce qu'il n'y reste plus d'air, et pincer les deux
+bouts. Plonger un bout au fond du réservoir, descendre l'autre dans le bidon, et lâcher les deux bouts :
+l'essence qui descend dans le boyau tire celle du réservoir.
 
-- Enfoncer dans le bout du boyau un bout de tube plus étroit que la bille : c'est le siège (repère 8).
-- Mettre au-dessus du siège une bille, ou une bille de roulement, plus grosse que lui (repère 9).
-- Traverser le boyau d'un clou, en croix, un peu au-dessus de la bille, pour qu'elle ne monte pas plus haut
- (repère 10). Monté dans l'autre sens, siège en haut, le clapet ne retient rien.
-- Plonger le bout du boyau au fond du réservoir et le secouer de haut en bas (repère 11). Quand on plonge, la
- bille se soulève et l'essence entre ; quand on remonte, elle retombe sur son siège et garde l'essence dans
- le boyau. L'essence monte par à-coups ; dès qu'elle passe le bord du réservoir et redescend vers le bidon
- posé plus bas, elle coule seule (repère 12).
-
-**Le bidon contre la machine.** Poser le bidon au sol et appuyer son bec contre le métal nu de la machine
-avant que l'essence coule (repère 13), pour la même raison qu'à l'étape 24 : pas d'étincelle au goulot.
-Sur beaucoup d'autos récentes, le boyau bute contre un clapet au fond du goulot : on tire alors l'essence des
-petits moteurs et des bidons.
+**Le bidon contre la machine.** Appuyer le bec du bidon contre le métal nu de la machine avant que l'essence
+coule, pour la même raison qu'à l'étape 24 : pas d'étincelle au goulot. Sur beaucoup d'autos récentes, le
+boyau bute contre un clapet au fond du goulot : on tire alors l'essence des petits moteurs et des bidons.
 On ne perce et on ne meule jamais un réservoir pour le vider, même presque vide : la vapeur qui reste dedans
 prend feu à l'étincelle de la mèche ou de la meule.
 
