@@ -253,7 +253,6 @@ Chez la personne : nausées, vomissements, crampes, diarrhée, et selon la plant
 
 - Ne rien manger avant d'avoir reconnu l'espèce, en regardant la plante entière. Ne jamais goûter une plante pour la reconnaître ; dans le doute, la jeter.
 - Ne cueillir aucune plante à petites fleurs blanches en parasol, et ne déterrer aucune racine sauvage, sauf celle de la quenouille.
-- Quand les enfants cueillent, un adulte doit vérifier chaque poignée avant qu'ils la mangent.
 - Peler les pommes de terre et enlever les germes et la chair autour des yeux.
 - Faire bouillir les crosses de fougère 15 minutes à grande eau, ou 10 à 12 minutes à la vapeur, et jeter l'eau.
 - Ne pas boire d'alcool pendant 72 heures après avoir mangé un coprin noir d'encre.
