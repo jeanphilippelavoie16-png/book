@@ -379,47 +379,6 @@ sortir peu de temps à la fois, et faire le tri des étapes 28 à 32 au complet.
 panache et l'annonce d'un deuxième rejet. On restreint sans doute trop longtemps, ce qui coûte du poids et du moral,
 ou pas assez au mauvais moment (ch. 14).
 
-### Ventiler la pièce d'abri
-
-Une pièce d'abri pleine de monde devient chaude et humide en quelques heures, l'été surtout, et l'air s'y vicie : il
-faut faire entrer l'air du dehors même pendant les retombées, en arrêtant la poussière à l'entrée.
-
-**La pompe à carton** : on la monte dans la porte de la pièce d'abri, et on la fait marcher à la main, sans électricité (planche 04-01b).
-
-- Couper un panneau de carton fort ou de contreplaqué mince (repère 1), et le suspendre par le haut, dans la porte,
- à une charnière de ruban à conduits ou de toile (repère 2).
-- Clouer des lattes en butée derrière le battant (repère 3), et nouer une corde au bas du battant (repère 4).
-- Une personne assise tire la corde d'un coup, puis la relâche (repère 5) : relâché, le battant retombe contre la
- latte (repère 6). À chaque coup, le battant pousse de l'air dans la pièce [À VÉRIFIER].
-- Vu de dessus : la latte est clouée sur le cadre de la porte (repère 7), le battant a la taille de l'ouverture
- moins un jeu tout autour (repère 8), et il ne bat que d'un côté (repère 9).
-- À l'entrée d'air, clouer quatre lattes en cadre (repère 10) et tendre dessus un filtre de fournaise neuf, ou un
- linge humide (repère 11), pour arrêter la poussière. Sortir le linge, le rincer dehors, et jeter l'eau de rinçage
- loin de la porte.
-
-**Autre façon, sans rien monter : l'éventail de carton.**
-
-- Attacher ou coller ensemble deux épaisseurs de carton fort d'environ 55 × 35 cm (22 × 14 po).
-- S'asseoir face à l'ouverture par où l'air sort de la pièce, les coudes un peu plus bas qu'elle. Une ouverture
- d'environ 60 × 50 cm (24 × 20 po) marche le mieux : au besoin, en percer une à cette taille dans une cloison de
- carton posée dans la porte.
-- Lever l'éventail à la verticale devant le visage, pousser l'air d'un coup vers l'ouverture en finissant les bras
- tendus et l'éventail presque à plat, puis le ramener lentement, à plat. Recommencer environ 40 fois par minute.
-- Pousser l'air dans le sens où il circule déjà dans la pièce.
-- Une personne qui évente de cette façon fait passer près de 8 m³ d'air par minute : assez pour 9 adultes serrés par grande chaleur, et
- pour une centaine de personnes par temps froid.
-
-**Ce qu'on perd :** il faut quelqu'un pour tirer la corde ou éventer, à tour de rôle, même quand tout le monde est
-fatigué. Le filtre arrête la poussière, mais rien du rayonnement ni des gaz.
-
-### Sans ruban ni plastique
-
-Pendant les heures de bouchage (étape 18), tendre des couvertures mouillées devant les portes et les fenêtres, et
-rouler des linges humides au pied des portes. Pour fermer un cadre de fenêtre, cuire une colle de farine et d'eau
-jusqu'à ce qu'elle épaississe, et poser des bandes de papier journal à cheval sur le joint, en deux épaisseurs
-croisées ; elle se décolle à l'eau chaude. **Ce qu'on perd :** de l'humidité dans une pièce fermée, et de la
-condensation sur les murs froids.
-
 ### Sans dosimètre : l'électroscope
 
 Sans appareil, on ne sait pas si la poussière reçue est négligeable ou grave, si la pièce d'abri vaut mieux que la
@@ -466,28 +425,46 @@ pour l'appareil documenté, construit à ses dimensions exactes.
 si un lichen, un champignon ou un quartier d'orignal est chargé, et c'est la question des années suivantes : pour
 elle, il n'y a qu'un compteur.
 
-### L'entrée en chicane et le costume de sortie
+### Ventiler la pièce d'abri
 
-Monter l'entrée avec deux bâches ou deux couvertures accrochées en chicane, chacune ouverte d'un seul côté, pour que
-les deux passages ne soient jamais face à face (planche 04-40, repère 7). Poser entre les deux un bac avec un sac
-ouvert dedans (repère 8). La première bâche sépare le dehors de la zone sale ; la deuxième, la zone sale de l'abri.
+Une pièce d'abri pleine de monde devient chaude et humide en quelques heures, l'été surtout, et l'air s'y vicie : il
+faut faire entrer l'air du dehors même pendant les retombées, en arrêtant la poussière à l'entrée.
 
-Tailler le costume de sortie dans un sac à ordures. Porter des lunettes de ski (repère 9) et le poncho à capuchon
-fendu dans le sac (repère 10), rubaner serré les poignets et les chevilles (repère 11), et mettre des bottes de
-caoutchouc (repère 12).
+**La pompe à carton** : on la monte dans la porte de la pièce d'abri, et on la fait marcher à la main, sans électricité (planche 04-01b).
 
-Au retour, dans l'ordre :
+- Couper un panneau de carton fort ou de contreplaqué mince (repère 1), et le suspendre par le haut, dans la porte,
+ à une charnière de ruban à conduits ou de toile (repère 2).
+- Clouer des lattes en butée derrière le battant (repère 3), et nouer une corde au bas du battant (repère 4).
+- Une personne assise tire la corde d'un coup, puis la relâche (repère 5) : relâché, le battant retombe contre la
+ latte (repère 6). À chaque coup, le battant pousse de l'air dans la pièce [À VÉRIFIER].
+- Vu de dessus : la latte est clouée sur le cadre de la porte (repère 7), le battant a la taille de l'ouverture
+ moins un jeu tout autour (repère 8), et il ne bat que d'un côté (repère 9).
+- À l'entrée d'air, clouer quatre lattes en cadre (repère 10) et tendre dessus un filtre de fournaise neuf, ou un
+ linge humide (repère 11), pour arrêter la poussière. Sortir le linge, le rincer dehors, et jeter l'eau de rinçage
+ loin de la porte.
 
-- dehors, essuyer et rincer le costume de haut en bas avec un linge mouillé (repère 1) ;
-- passé la première bâche, rouler le poncho à l'envers, l'extérieur en dedans, sans le secouer (repère 2), le mettre
- dans le sac du bac et fermer le sac (repère 3) ;
-- sortir des bottes et les laisser près du bac (repère 4) ;
-- se laver les mains et le visage (repère 5) ;
-- passer la deuxième bâche : après elle, le sol doit rester sans poussière (repère 6).
+**Autre façon, sans rien monter : l'éventail de carton.**
 
-**Ce qu'on perd :** le costume arrête la poussière et rien d'autre. Il ne rallonge pas d'une minute le temps qu'on
-peut passer dehors : le rayonnement du sol traverse un sac à ordures. Il empêche seulement de rentrer la poussière
-dans la maison.
+- Attacher ou coller ensemble deux épaisseurs de carton fort d'environ 55 × 35 cm (22 × 14 po).
+- S'asseoir face à l'ouverture par où l'air sort de la pièce, les coudes un peu plus bas qu'elle. Une ouverture
+ d'environ 60 × 50 cm (24 × 20 po) marche le mieux : au besoin, en percer une à cette taille dans une cloison de
+ carton posée dans la porte.
+- Lever l'éventail à la verticale devant le visage, pousser l'air d'un coup vers l'ouverture en finissant les bras
+ tendus et l'éventail presque à plat, puis le ramener lentement, à plat. Recommencer environ 40 fois par minute.
+- Pousser l'air dans le sens où il circule déjà dans la pièce.
+- Une personne qui évente de cette façon fait passer près de 8 m³ d'air par minute : assez pour 9 adultes serrés par grande chaleur, et
+ pour une centaine de personnes par temps froid.
+
+**Ce qu'on perd :** il faut quelqu'un pour tirer la corde ou éventer, à tour de rôle, même quand tout le monde est
+fatigué. Le filtre arrête la poussière, mais rien du rayonnement ni des gaz.
+
+### Sans ruban ni plastique
+
+Pendant les heures de bouchage (étape 18), tendre des couvertures mouillées devant les portes et les fenêtres, et
+rouler des linges humides au pied des portes. Pour fermer un cadre de fenêtre, cuire une colle de farine et d'eau
+jusqu'à ce qu'elle épaississe, et poser des bandes de papier journal à cheval sur le joint, en deux épaisseurs
+croisées ; elle se décolle à l'eau chaude. **Ce qu'on perd :** de l'humidité dans une pièce fermée, et de la
+condensation sur les murs froids.
 
 ### Sans eau chaude ni savon
 
@@ -495,21 +472,6 @@ Avant d'entrer, brosser à sec ses vêtements et sa peau, dos au vent : brosser 
 partie. Du ruban adhésif appliqué puis arraché lève la poussière des cheveux, des sourcils et du dos des mains
 [À VÉRIFIER]. Faire fondre de la neige sur le poêle pour se rincer, et jeter l'eau de lavage loin du puits, du jardin
 et de la porte, pas dans le banc de neige qu'on fera fondre le lendemain.
-
-### Sans sel pour le trempage
-
-Pour la viande, l'eau claire fait le même travail que la saumure : 2 jours dans l'eau enlèvent autant de césium que
-2 jours dans la saumure (étape 31). Changer l'eau à chaque trempage. Pour le poisson, compter 8 heures à l'eau
-courante au lieu de 4 heures en saumure. **Ce qu'on perd :** 4 heures de trempage pour le poisson, et une eau courante
-froide qu'il faut trouver. Où trouver du sel quand il n'en reste plus : ch. 67.
-
-### Sans aucune viande de confiance
-
-Prendre, dans cet ordre, du moins exposé au plus exposé : les conserves et les réserves fermées d'avant l'événement ;
-les animaux de petit élevage nourris de grain entreposé à l'intérieur (ch. 101) ; le poisson du fleuve plutôt que
-celui d'un lac de tête [À VÉRIFIER] ; le gibier trempé et bouilli, bouillon jeté. Ne jamais aller jusqu'au lichen,
-aux champignons ni aux abats. **Ce qu'on perd :** du gras, du goût, et les vitamines qui partent dans l'eau de
-cuisson ; la fermentation devient la source de vitamine C (ch. 80, ch. 20).
 
 ### Sans eau fermée : décanter et filtrer à la terre
 
@@ -549,6 +511,44 @@ de plus de 5 cm avant de casser, c'est une terre argileuse ; un ruban qui casse 
 
 **Ce qu'on perd :** du temps et du débit. La décantation prend 6 heures, le filtre ralentit, et il faut le refaire.
 
+### Sans sel pour le trempage
+
+Pour la viande, l'eau claire fait le même travail que la saumure : 2 jours dans l'eau enlèvent autant de césium que
+2 jours dans la saumure (étape 31). Changer l'eau à chaque trempage. Pour le poisson, compter 8 heures à l'eau
+courante au lieu de 4 heures en saumure. **Ce qu'on perd :** 4 heures de trempage pour le poisson, et une eau courante
+froide qu'il faut trouver. Où trouver du sel quand il n'en reste plus : ch. 67.
+
+### Sans aucune viande de confiance
+
+Prendre, dans cet ordre, du moins exposé au plus exposé : les conserves et les réserves fermées d'avant l'événement ;
+les animaux de petit élevage nourris de grain entreposé à l'intérieur (ch. 101) ; le poisson du fleuve plutôt que
+celui d'un lac de tête [À VÉRIFIER] ; le gibier trempé et bouilli, bouillon jeté. Ne jamais aller jusqu'au lichen,
+aux champignons ni aux abats. **Ce qu'on perd :** du gras, du goût, et les vitamines qui partent dans l'eau de
+cuisson ; la fermentation devient la source de vitamine C (ch. 80, ch. 20).
+
+### L'entrée en chicane et le costume de sortie
+
+Monter l'entrée avec deux bâches ou deux couvertures accrochées en chicane, chacune ouverte d'un seul côté, pour que
+les deux passages ne soient jamais face à face (planche 04-40, repère 7). Poser entre les deux un bac avec un sac
+ouvert dedans (repère 8). La première bâche sépare le dehors de la zone sale ; la deuxième, la zone sale de l'abri.
+
+Tailler le costume de sortie dans un sac à ordures. Porter des lunettes de ski (repère 9) et le poncho à capuchon
+fendu dans le sac (repère 10), rubaner serré les poignets et les chevilles (repère 11), et mettre des bottes de
+caoutchouc (repère 12).
+
+Au retour, dans l'ordre :
+
+- dehors, essuyer et rincer le costume de haut en bas avec un linge mouillé (repère 1) ;
+- passé la première bâche, rouler le poncho à l'envers, l'extérieur en dedans, sans le secouer (repère 2), le mettre
+ dans le sac du bac et fermer le sac (repère 3) ;
+- sortir des bottes et les laisser près du bac (repère 4) ;
+- se laver les mains et le visage (repère 5) ;
+- passer la deuxième bâche : après elle, le sol doit rester sans poussière (repère 6).
+
+**Ce qu'on perd :** le costume arrête la poussière et rien d'autre. Il ne rallonge pas d'une minute le temps qu'on
+peut passer dehors : le rayonnement du sol traverse un sac à ordures. Il empêche seulement de rentrer la poussière
+dans la maison.
+
 ### Ce qui ne se remplace pas
 
 - **Les comprimés d'iode** : les autres iodes ne protègent pas la thyroïde, et plusieurs empoisonnent (étape 12).
@@ -573,10 +573,12 @@ les bêtes qui en mangent à la fin de l'été ont une viande d'automne chargée
 
 ### L'argile grise de l'ancienne mer
 
-Après le retrait des glaciers, une mer a couvert les basses terres de la Côte-Nord. Elle y a laissé une argile
-grise, parfois gris foncé, qui est l'un des dépôts les plus répandus des basses terres, souvent cachée sous la
-tourbe, le sable ou le gravier. On la voit dans les berges des rivières et les coupes de chemin, parfois sur plus de
-30 m d'épaisseur. Elle contient souvent des coquillages de mer, loin du rivage d'aujourd'hui : c'est le meilleur
-repère. On s'en sert pour décanter l'eau (section 7). La prendre dans une petite coupe, jamais en creusant au pied
-d'un grand talus : ces argiles glissent, surtout pendant et après de fortes pluies, et plusieurs glissements ont eu
-lieu pendant qu'on y creusait.
+![](images/extras/04-argile-de-la-mer.png)
+
+Après le retrait des glaciers, la mer a couvert les basses terres de la côte, jusqu'à plus de 120 m au-dessus de son
+niveau actuel. Elle y a laissé une argile grise, parfois gris foncé, qui est l'un des dépôts les plus répandus de ces
+terres, souvent cachée sous la tourbe, le sable ou le gravier. On la voit dans les berges des rivières et les coupes
+de chemin, parfois sur plus de 30 m d'épaisseur. Elle contient souvent des coquillages de mer, loin du rivage : c'est
+le meilleur repère. On s'en sert pour décanter l'eau (section 7). La prendre dans une petite coupe, jamais en creusant
+au pied d'un grand talus : ces argiles glissent, surtout pendant et après de fortes pluies, et plusieurs glissements
+ont eu lieu pendant qu'on y creusait.

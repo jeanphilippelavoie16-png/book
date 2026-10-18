@@ -1,5 +1,7 @@
 **JP choisit la candidate 3** (18 octobre 2026). Agrandie ×4 ; le croissant de lune, qui tombait derrière « IE » du titre, est déplacé dans le coin du ciel libre, à droite au-dessus des collines ; un aplat papier passe sous le bloc du bas (`TP_BAS_FOND`). Résultat : `images/tomes/titre-tome-6.jpg`.
 
+Puis, même jour (JP : « je veux pas que ça fasse AI ; il y a des détails dans la cabane ») : l'intérieur de l'atelier est redessiné par `retouche_atelier.py` (enclume sur sa bille, forge de pierre avec hotte rivetée et braises, marteau, pinces, tisonnier et lime accrochés, étincelles) ; le chiffon blanc du haut de la porte disparaît.
+
 # Tome 6, L'atelier : essais d'image de titre (18 octobre 2026)
 
 L'image a été générée par AI Horde avec `../horde-img2img.py` (gratuit, sans clé), en 768 × 960. Aucune image n'a été agrandie.

@@ -28,14 +28,25 @@
 > « Des études intensives sur les propriétés mécaniques des argiles [...] furent entreprises durant la construction du
 > chemin de fer, période au cours de laquelle plusieurs glissements se produisirent durant les excavations. »
 
+## Extraits intégraux (section 6.3, « Transgression marine »)
+
+> « La mer de Goldthwait aurait atteint une altitude maximum de 430 pieds (129m). En effet, le plus haut lit de
+> coquillages marins se trouve vers 410 pieds (123m) d'altitude (Pointe Noire) »
+
+> « Les datations au C14 indiquent que la mer de Goldthwait dura approximativement de 9,140 ± 200 (GSC-1337) à 6,710 ±
+> 140 ans B.P. (Qu 192). Le relèvement isostatique graduel amena le retrait des eaux de la mer de Goldthwait. »
+
+Section 6.2, « Déglaciation » : au cours du retrait glaciaire, le front du glacier se trouvait dans la mer dans la
+partie est de la région.
+
 ## Ce qu'on en tire
 
-L'encadré dit : une argile grise, parfois gris foncé, l'un des dépôts les plus répandus des basses terres, souvent
-cachée sous la tourbe, le sable ou le gravier ; parfois plus de 30 m ; souvent des coquillages de mer ; les talus
-glissent, surtout pendant et après de fortes pluies, et plusieurs glissements ont eu lieu pendant qu'on y creusait.
-« Après le retrait des glaciers, une mer a couvert les basses terres de la Côte-Nord » : la mer de Goldthwait, que le
-rapport décrit sans la dater ; la date (submersion tardi- et postglaciaire, environ 25 000 km² surtout sur la côte
-nord) vient du résumé de J.-C. Dionne (1977, *Géographie physique et Quaternaire*, 31 (1-2)), lu dans le moteur de
-recherche le 18 octobre 2026 (la page d'Érudit n'a pas pu être enregistrée). Le rapport porte sur la région de
-Sept-Îles ; « la Côte-Nord » de l'encadré s'appuie sur l'étendue que donne Dionne (de Les Escoumins à Blanc-Sablon).
-Le nom de la mer n'est pas écrit dans l'encadré (mot que le lecteur n'emploie pas).
+L'encadré dit : après le retrait des glaciers, la mer a couvert les basses terres de la côte, jusqu'à plus de 120 m
+au-dessus du niveau d'aujourd'hui (le plus haut lit de coquillages, 123 m) ; une argile grise, parfois gris foncé, l'un
+des dépôts les plus répandus des basses terres, souvent cachée sous la tourbe, le sable ou le gravier ; parfois plus de
+30 m d'épaisseur ; souvent des coquillages de mer ; les talus glissent, surtout pendant et après de fortes pluies, et
+plusieurs glissements ont eu lieu pendant qu'on y creusait. Le rapport porte sur la région de Sept-Îles ; le résumé de
+J.-C. Dionne (1977, *Géographie physique et Quaternaire*, 31 (1-2)), lu dans le moteur de recherche le 18 octobre 2026
+(la page d'Érudit n'a pas pu être enregistrée), donne à la mer de Goldthwait environ 25 000 km² au Québec, surtout sur la
+côte nord entre Les Escoumins et Blanc-Sablon : l'encadré dit « la côte », sans nommer de ville. Le nom de la mer n'est
+pas écrit dans l'encadré (mot que le lecteur n'emploie pas).

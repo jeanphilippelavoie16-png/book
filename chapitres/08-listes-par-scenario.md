@@ -165,14 +165,14 @@ plus longtemps : lichen, champignons et orignal, pendant des décennies (ch. 4).
 | 0 à 10 min | Fermer portes et fenêtres, couper la ventilation, le chauffage à air pulsé et la climatisation |  |
 | 0 à 30 min | Ceux qui étaient dehors : couche du dessus et chaussures enlevées à la porte, ensachées. Se laver à l'eau du robinet et au savon | ch. 4, étapes 5 et 10 |
 | 0 à 30 min | Descendre au sous-sol, contre un mur enterré ; au chalet, au caveau | ch. 4, étape 8 |
-| Continu | Rester à l'abri le temps compté depuis l'heure de l'éclair ou de l'alerte, pas jusqu'à ce que ça semble calme | 24 à 48 h (ch. 4, étape 20) |
+| Continu | Rester à l'abri le temps compté depuis l'heure de l'éclair ou de l'alerte, pas jusqu'à ce que ça semble calme | 24 à 48 h (ch. 4, étape 24) |
 | Continu | Boire et cuisiner avec l'eau et les aliments qui étaient à l'intérieur, en contenants fermés |  |
 | À la sortie | Déboucher les ouvertures et les prises d'air ; ensacher les filtres de la fournaise et les porter loin du bâtiment |  |
-| À la sortie | Le jardin et l'eau du lac passent au tri : le dépôt reste sur ce qui pousse et dans l'eau de surface | ch. 4, étapes 22 à 28 |
+| À la sortie | Le jardin et l'eau du lac passent au tri : le dépôt reste sur ce qui pousse et dans l'eau de surface | ch. 4, étapes 22 et 26 à 32 |
 
 **L'iode.** Personne n'en distribue d'avance sur la Côte-Nord : la boîte s'achète
 (ch. 00b). Il ne protège que la thyroïde, contre l'iode radioactif ; la mise à l'abri
-protège tout le corps. Doses et délai : ch. 4, étapes 12 à 14.
+protège tout le corps. Doses et délai : ch. 4, étapes 13 à 16.
 
 ### Scénario 7. Blessure grave, loin de tout (**chalet**)
 

@@ -1,6 +1,6 @@
 # Tome 6 · L’atelier — rapport d'assemblage
 
-- **Produit le :** 2026-10-18 19:20, par `design/outils/assembler-tome.py 6 --chapitres 102 --hors-ligne --sortie livre/apercus-titre-t6`
+- **Produit le :** 2026-10-18 19:26, par `design/outils/assembler-tome.py 6 --chapitres 102 --hors-ligne --sortie livre/apercus-titre-t6`
 - **Fichier :** `livre/tome-6/interieur.pdf` — 22 pages, 5.2 Mo
 - **Ouvertures :** au recto ou au verso (--verso)
 - **Placements :** design/epreuves-livre/placements.json, design/epreuves-livre/placements-tome-6.json
