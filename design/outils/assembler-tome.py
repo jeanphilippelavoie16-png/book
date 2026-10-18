@@ -550,7 +550,7 @@ def tete_html(titre_doc):
 # tome 3) : un aplat de la couleur du papier de l'image, derrière le bloc
 TP_BAS_FOND = {2: "#EFE6D2", 3: "#E4DCBD", 4: "#F5EACD", 5: "#EFE3C8", 6: "#F7EBD3"}
 # l'encre du titre quand l'image de titre a un fond clair (tome 2 : le mur couleur papier, JP, 18 octobre 2026)
-TP_ENCRE = {2: ("#5E1F18", "#7A3A2E", "#B98F80")}           # titre, sous-titre, filet de l'en-tête
+TP_ENCRE = {}           # titre, sous-titre, filet de l'en-tête
 
 # ce que le tome couvre, sous son nom sur la page de titre (les tomes 2 à 6 viendront avec leur scène)
 SOUS_TITRES = {1: "Rester ou partir, la panne, les retombées, le feu de forêt, l'eau, le froid, se déplacer, les voisins."}

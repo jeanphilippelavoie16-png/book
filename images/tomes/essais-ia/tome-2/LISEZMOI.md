@@ -1,5 +1,13 @@
 # Tome 2, Le corps : l'image de la page de titre et de la couverture
 
+**JP change d'avis : la n° 1 du troisième tour** (18 octobre 2026 : « finalement, pimp celle-là, je l'aime plus »),
+le mur sang de bœuf. Agrandie ×4 (`tome-2-1-x4.png`), puis `pimp_soin1.py` : les taches roses qui flottaient sur le
+mur sont effacées (le mur estimé sur un anneau propre autour de chaque tache, la lueur de la lampe suit) ; le
+rectangle clair de la bouilloire part ; on ajoute le tuyau du poêle (au bord droit, à droite de « Tome 2 ») avec ses
+joints et sa clé, un bouquet de plantes qui sèche sous le bord de la table, une tablette avec du linge plié, un panier
+de plantes séchées et une cruche, une chaudière d'eau et des bûches devant le poêle. Le titre revient en crème
+(`TP_ENCRE` vide). La n° 11 et ses scripts (`retouche_soin.py`, `ajouts_soin.py`) restent dans le dossier.
+
 **JP choisit la n° 11 du troisième tour** (18 octobre 2026 : « la 11 ») : le mur couleur papier, la table du soin
 (bocaux, mortier, bassin qui fume, bandes roulées) et le poêle entier, porte ouverte, avec la bouilloire. Agrandie ×4
 par AI Horde (`../horde-agrandir.py`, `tome-2-11-x4.png`), puis retouchée par `retouche_soin.py` : le halo orange flou

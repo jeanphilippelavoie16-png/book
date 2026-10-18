@@ -1111,7 +1111,7 @@ Linogravures générées par le réseau AI Horde à partir d'une image de dépar
 | Fichier | Modèle | Licence du modèle | Retouches |
 | --- | --- | --- | --- |
 | `images/tomes/titre-tome-1.jpg` | Juggernaut XL (img2img 0,75) | CreativeML Open RAIL++-M | étoiles contre les lettres retirées |
-| `images/tomes/titre-tome-2.jpg` | Flux.1-Schnell (img2img 0,66, `s3-F-flux-i66-0`) | Apache 2.0 | halo orange du mur effacé ; points au bout des vapeurs retirés ; griffonnages du mortier et du pilon, mouchetures et fausse étiquette de la bouilloire retirés (`retouche_soin.py`) ; tuyau du poêle, tablette, linge, panier, cruche, chaudière et bûches ajoutés (`ajouts_soin.py`) |
+| `images/tomes/titre-tome-2.jpg` | Flux.1-Schnell (img2img 0,66, `s3-A-flux-i66-0`) | Apache 2.0 | taches roses du mur et rectangle de la bouilloire retirés ; tuyau du poêle, bouquet de plantes, tablette avec linge, panier et cruche, chaudière et bûches ajoutés (`pimp_soin1.py`) |
 | `images/tomes/titre-tome-3.jpg` | Juggernaut XL (img2img 0,65) | CreativeML Open RAIL++-M | reflet du soleil regravé en tirets ; canot remonté |
 | `images/tomes/titre-tome-4.jpg` | Flux.1-Schnell (img2img 0,62 sur la version d'été de la candidate 2, `t4e-flux62-1`) | Apache 2.0 | soleil en aplat sans liseré ; reflet regravé en morceaux ; deux bêtes couchées dans l'herbe et un oiseau retirés ; poissons de tailles variées (`ete/retouche_ete.py`) |
 | `images/tomes/titre-tome-5.jpg` | Juggernaut XL (img2img 0,50 sur la version d'été de la candidate 4, `t5e-jug50-1`) | CreativeML Open RAIL++-M | rangée de fausse écriture au pied du bâtiment remplacée par des pierres (`ete/retouche_ete.py`) ; ciel regravé avec des bancs de nuages (`ete/ciel_ete.py`) |
