@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="340" height="413" viewBox="0 0 340 413" role="img">
+<title>Planche 12, en plus. Le corps mort</title>
+<desc>Le corps mort qui tient un cordon de la tente dans la neige, en deux vues. Vu de dessus, avant de remplir : un trou un peu plus long que la perche, creusé dans la neige ; au fond, une perche d’environ 1 m couchée en travers du cordon ; le cordon est noué au milieu de la perche et part vers la tente. En coupe, une fois rempli : la perche vue par le bout, au fond du trou ; le trou rempli de neige bien tassée jusqu’à la surface ; le cordon remonte dans la neige tassée jusqu’au bord du trou, du côté de la tente, puis en biais au-dessus de la neige vers la tente. Une flèche rouge, vers le bas, sur le trou : tasser la neige.</desc>
+<defs>
+<pattern id="h-neige" width="8" height="8" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="0.7" fill="#1A1A1A" stroke="none"/><circle cx="6" cy="6" r="0.7" fill="#1A1A1A" stroke="none"/></pattern>
+<marker id="fl-r" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9 Z" fill="#9B2C1E" stroke="#9B2C1E" stroke-width="1" stroke-linejoin="round"/></marker>
+</defs>
+<rect x="0" y="0" width="340" height="413" fill="#FFFFFF"/>
+<text x="22" y="38" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#1A1A1A">Avant de remplir, vu de dessus</text>
+<g transform="translate(22 46)" data-vue="plan">
+<path d="M 0 0 H 296 V 109 H 0 Z M 71.2 21.4 V 72.6 H 224.8 V 21.4 Z M 113.3 88.6 V 105.6 H 182.7 V 88.6 Z" fill-rule="evenodd" fill="url(#h-neige)" stroke="none"/>
+<rect x="71.2" y="21.4" width="153.6" height="51.2" fill="#E6E6E6" stroke="none"/>
+<rect x="71.2" y="21.4" width="153.6" height="51.2" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="84" y="40.6" width="128" height="12.8" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="85.2" y="48.3" width="125.6" height="3.9" fill="#CFCFCF" stroke="none"/>
+<rect x="84" y="40.6" width="128" height="12.8" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="142.2" y1="53.4" x2="147.4" y2="40.6" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="148.6" y1="53.4" x2="153.8" y2="40.6" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 153.8 40.6 C 154.8 36.6 152 34.6 152 28.6 L 152 0" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="84" y1="55.9" x2="84" y2="89.6" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="212" y1="55.9" x2="212" y2="89.6" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="84" y1="85.6" x2="212" y2="85.6" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="84" y1="79.6" x2="84" y2="91.6" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="212" y1="79.6" x2="212" y2="91.6" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="148" y="100.6" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="3" stroke-linejoin="round" paint-order="stroke">environ 1 m</text>
+</g>
+<text x="22" y="191" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#1A1A1A">Rempli et tassé, en coupe</text>
+<g transform="translate(22 199)" data-vue="coupe">
+<defs><pattern id="h-neige-tassee" width="4" height="4" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="0.55" fill="#1A1A1A" stroke="none"/><circle cx="3" cy="3" r="0.55" fill="#1A1A1A" stroke="none"/></pattern></defs>
+<path d="M 0 52.6 H 296 V 123 H 0 Z M 75 52.6 V 110.2 H 126.2 V 52.6 Z" fill-rule="evenodd" fill="url(#h-neige)" stroke="none"/>
+<rect x="75" y="52.6" width="51.2" height="57.6" fill="url(#h-neige-tassee)" stroke="none"/>
+<path d="M75 52.6 L75 110.2 L126.2 110.2 L126.2 52.6" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="0" y1="52.6" x2="296" y2="52.6" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="100.6" cy="102.6" r="8.6" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="100.6" cy="102.6" r="6.4" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="100.6" cy="102.6" r="4" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="100.6" cy="102.6" r="1.8" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M93.4 98 L122.2 52.6 L211.6 1" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 90.9 16.6 L 90.9 46.6" fill="none" stroke="#9B2C1E" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl-r)"/>
+</g>
+<line x1="212.1" y1="66.2" x2="176.5" y2="85.1" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+<line x1="212.1" y1="66.2" x2="176.5" y2="85.1" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
+<circle cx="176.5" cy="85.1" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
+<circle cx="220" cy="62" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="plan"/>
+<text x="220" y="66" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">1</text>
+<line x1="76" y1="300" x2="113.5" y2="301.6" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+<line x1="76" y1="300" x2="113.5" y2="301.6" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
+<circle cx="113.5" cy="301.6" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
+<circle cx="67" cy="299.6" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="coupe"/>
+<text x="67" y="303.6" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">2</text>
+<line x1="86.9" y1="229.6" x2="104.9" y2="265.6" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+<line x1="86.9" y1="229.6" x2="104.9" y2="265.6" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
+<circle cx="104.9" cy="265.6" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
+<circle cx="82.9" cy="221.6" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="coupe"/>
+<text x="82.9" y="225.6" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">3</text>
+<text x="32" y="357" text-anchor="end" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">1</text>
+<text x="38" y="357" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">nouer le cordon au milieu de la perche</text>
+<text x="32" y="374" text-anchor="end" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">2</text>
+<text x="38" y="374" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">coucher la perche au fond du trou</text>
+<text x="32" y="391" text-anchor="end" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">3</text>
+<text x="38" y="391" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">remplir de neige bien tassée</text>
+</svg>

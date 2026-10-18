@@ -165,7 +165,7 @@ def devant(v, k):
     if VARIANTES[v]['devant'] == 'affiche':
         st = sous_titre(k)
         return (f'<div class="hd hd-a"><span>Le Manuel du Nord</span><span>Tome {k}</span></div>'
-                f'<div class="haut" data-boite><h1 class="titre" data-fit>{titre}</h1>'
+                f'<div class="haut" data-boite><h1 class="titre" data-fit data-bas="3.95">{titre}</h1>'
                 + (f'<p class="sous">{typo(st)}</p>' if st else '') + '</div>')
     if VARIANTES[v]['devant'] == 'chiffre':
         return (f'<div class="hd hd-b"><span>Le Manuel du Nord</span><span>Tome {k} sur 6</span></div>'
@@ -236,7 +236,7 @@ body{-webkit-print-color-adjust:exact;print-color-adjust:exact}
 /* ---------- devant : A, l'affiche (mêmes cotes que la page de titre, en px de la page rognée) ---------- */
 .front .hd{border-bottom:1px solid #4A6476}
 .hd-a{position:absolute;left:56px;right:56px;top:52px}
-.haut{position:absolute;left:50px;right:56px;top:104px;height:calc(4.2in - 104px);display:flex;flex-direction:column}   /* au-dessus des crêtes */
+.haut{position:absolute;left:50px;right:56px;top:104px;height:calc(4.45in - 104px);display:flex;flex-direction:column}   /* au-dessus des crêtes */
 .titre{margin:0;font-weight:800;line-height:.84;letter-spacing:.01em;text-transform:uppercase;white-space:nowrap}
 .haut .titre{font-size:236px}
 .sous{margin:26px 0 0 8px;max-width:400px;text-wrap:balance;font-weight:500;font-size:23px;line-height:1.28;letter-spacing:.01em;color:#B9C7D1}
@@ -272,14 +272,15 @@ SCRIPT = r'''<script>
                '500 40px "Barlow Condensed"','400 12pt "IBM Plex Serif"','700 12pt "IBM Plex Serif"'];
   Promise.all(FACES.map(f=>document.fonts.load(f,'TENIRaéÀ−’01'))).then(()=>document.fonts.ready).then(()=>{
     // un titre trop grand pour sa place rapetisse (titres longs des tomes 4 et 5) : trop large, plus haut que sa boîte
-    // (data-boite), ou monté à moins de 0,25 po de ce qui est au-dessus de lui (data-haut ; data-sommet : le haut de
-    // son bloc qu'on mesure, s'il porte une étiquette au-dessus du titre)
+    // (data-boite), descendu sous data-bas (po depuis le haut du devant rogné : la lune), ou monté à moins de 0,25 po
+    // de ce qui est au-dessus de lui (data-haut ; data-sommet : le haut de son bloc, s'il porte une étiquette)
     document.querySelectorAll('[data-fit]').forEach(e=>{
       const pan=e.closest('.panel'), boite=e.closest('[data-boite]');
       const haut=e.dataset.haut?pan.querySelector(e.dataset.haut):null;
       const sommet=e.dataset.sommet?pan.querySelector(e.dataset.sommet):e;
       const trop=()=>e.scrollWidth>e.clientWidth+0.5 || (boite && boite.scrollHeight>boite.clientHeight+0.5) ||
-        (haut && sommet.getBoundingClientRect().top<haut.getBoundingClientRect().bottom+24);
+        (haut && sommet.getBoundingClientRect().top<haut.getBoundingClientRect().bottom+24) ||
+        (e.dataset.bas && e.getBoundingClientRect().bottom-pan.getBoundingClientRect().top>parseFloat(e.dataset.bas)*96);
       let s=parseFloat(getComputedStyle(e).fontSize);
       while(trop() && s>40){s-=2;e.style.fontSize=s+'px';}
     });
