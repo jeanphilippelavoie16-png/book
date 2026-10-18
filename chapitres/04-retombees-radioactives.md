@@ -560,9 +560,9 @@ Monter l'entrée avec deux bâches ou deux couvertures accrochées en chicane, c
 les deux passages ne soient jamais face à face (planche 04-40, repère 7). Poser entre les deux un bac avec un sac
 ouvert dedans (repère 8). La première bâche sépare le dehors de la zone sale ; la deuxième, la zone sale de l'abri.
 
-Tailler le costume de sortie dans un sac à ordures. Porter des lunettes de ski (repère 9) et le poncho à capuchon
-fendu dans le sac (repère 10), rubaner serré les poignets et les chevilles (repère 11), et mettre des bottes de
-caoutchouc (repère 12).
+Pour le costume de sortie, porter des lunettes de ski (repère 9) et un poncho à capuchon taillé dans un sac à
+ordures (repère 10), rubaner serré les poignets et les chevilles (repère 11), et mettre des bottes de caoutchouc
+(repère 12).
 
 Au retour, dans l'ordre :
 
@@ -574,13 +574,12 @@ Au retour, dans l'ordre :
 - passer la deuxième bâche : après elle, le sol doit rester sans poussière (repère 6).
 
 **Ce qu'on perd :** le costume arrête la poussière et rien d'autre. Il ne rallonge pas d'une minute le temps qu'on
-peut passer dehors : le rayonnement du sol traverse un sac à ordures. Il empêche seulement de rentrer la poussière
-dans la maison.
+peut passer dehors : le rayonnement du sol traverse un sac à ordures.
 
 ### Ce qui ne se remplace pas
 
-- **Les comprimés d'iode** : les autres iodes ne protègent pas la thyroïde, et plusieurs empoisonnent (étape 12).
-- **La mesure fine** : un pot de verre à feuilles d'aluminium ne dira jamais si un quartier d'orignal est chargé.
+- **Les comprimés d'iode** (étape 12).
+- **La mesure du césium dans la viande** (section 6).
 - **La réserve fermée constituée avant** : ce qui était à découvert au passage du panache ne redevient pas propre au
  lavage, seulement moins chargé.
 
@@ -598,7 +597,7 @@ plus vite : elle lave la poussière des toits et des plantes vers le sol.
 ### L'estomac du caribou
 
 Les Inuit de l'Ungava et du Labrador, comme d'autres peuples du Nord, mangeaient le contenu de l'estomac du caribou,
-cru ou bouilli, souvent mêlé au sang de la bête : surtout du lichen à demi digéré. L'estomac du caribou a défait une
+surtout du lichen à demi digéré, cru ou bouilli, souvent mêlé au sang de la bête. L'estomac du caribou a défait une
 partie du lichen, et on le digère alors mieux. Après des retombées, la façon devient dangereuse : ce lichen porte la
 poussière qu'il a prise (étape 29), et on la mange avec lui.
 
