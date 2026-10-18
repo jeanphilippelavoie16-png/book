@@ -1047,3 +1047,20 @@ depuis un lac. Licences relues sur l'API de Wikimedia Commons au téléchargemen
 ## Bibliothèque de mains (images/bibliotheque-mains/adobe-116570613/)
 
 - Mains en silhouette, « hands » : Ewelina Kowalska, Adobe Stock 116570613, licence standard Adobe Stock (JP).
+
+## Pictogrammes de danger (images/pictos-dangers/, 18 octobre 2026)
+
+Icônes de jeux libres, recadrées en blanc sur le carré rouge du livre par `images/pictos-dangers/construire.py`.
+Le détail par pictogramme est dans `images/pictos-dangers/LISEZMOI.md`.
+
+| Jeu | Auteur | Licence | Lien | Icônes prises |
+| --- | --- | --- | --- | --- |
+| Material Design Icons | Pictogrammers | Apache 2.0 | https://pictogrammers.com | cloud, generator-portable, home-roof, heat-wave, fire, pine-tree-fire, fire-off, kettle-steam, crosshairs, rodent, nail, thermometer, water, tea-off |
+| Font Awesome 6 Free | Fonticons (Dave Gandy) | CC BY 4.0 | https://fontawesome.com | house-fire, flask, burst, weight-hanging, person, snowflake, person-drowning, person-walking, worm, jar, hourglass, poop, heart-pulse |
+| Game-icons.net | Delapouite (hole-ladder, rabbit, liver, cherry), Lorc (dripping-knife, wolf-head), SeregaCthtuf (pouch-with-beads) | CC BY 3.0 | https://game-icons.net | hole-ladder, dripping-knife, wolf-head, rabbit, liver, cherry, pouch-with-beads |
+| Pinhead Map Icons | Quincy Morgan | CC0 | https://github.com/waysidemapping/pinhead | utility-pole-with-bolt, bear |
+| IconPark | ByteDance | Apache 2.0 | https://github.com/bytedance/IconPark | petrol |
+| Material Symbols | Google | Apache 2.0 | https://github.com/google/material-design-icons | skillet |
+| Health Icons | Resolve to Save Lives | MIT | https://healthicons.org | poison |
+| Twemoji | Twitter, suite jdecked | CC BY 4.0 | https://github.com/jdecked/twemoji | moose |
+| Boxicons | Boxicons | MIT | https://boxicons.com | meat-filled |
