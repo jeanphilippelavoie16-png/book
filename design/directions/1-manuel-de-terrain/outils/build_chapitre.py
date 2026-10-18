@@ -163,7 +163,10 @@ def segments_orange(items):
             nv = False
         else:
             nv = etat
-        if nv != etat and cur:
+        # chaque série orange est sa propre partie, même collée à la précédente : ses planches se posent tout de
+        # suite après elle (JP, 18 octobre 2026 : « quand on traite deux sujets, on les sépare pour permettre aux
+        # planches reliées au sujet d'être plus proches »)
+        if (nv != etat or h.startswith('<h3 class="sub or"')) and cur:
             segs.append((etat, cur)); cur = []
         etat = nv
         cur.append((h, src))
@@ -643,12 +646,13 @@ def build(num):
     for i, (sid, sk, _) in enumerate(flux):
         if sk != "o":
             continue
-        figs_or = [x for x in stories[sid] if x[0].lstrip().startswith("<figure") and 'data-plate="spread"' not in x[0]]
+        figs_or = [x for x in stories[sid] if x[0].lstrip().startswith("<figure") and 'data-plate="spread"' not in x[0]
+                   and 'data-orpl' not in x[0]]      # pas celles de la série d'avant, déjà posées en tête de celle-ci
         if not figs_or:
             continue
         stories[sid] = [x for x in stories[sid] if x not in figs_or]
         figs_or = [(x[0].replace("<figure ", '<figure data-orpl="1" ', 1),) + tuple(x[1:]) for x in figs_or]
-        suite = next((f for f in flux[i + 1:] if f[1] != "o"), None)
+        suite = flux[i + 1] if i + 1 < len(flux) else None
         if suite:
             stories[suite[0]][0:0] = figs_or
         else:

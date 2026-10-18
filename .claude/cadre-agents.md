@@ -125,6 +125,10 @@ Le cadre complet est `.claude/skills/planches/references/brief-agent.md`. En bre
   filet rouge, et à droite le pictogramme en gros, son nom court et la page du danger (JP, même jour : « les dangers
   en dessous du pictogramme pointent à la page du danger » ; « C, mais avec texte et page » ; puis « mets la page de la même couleur que le nom » : la page est en rouge, sous le nom, dans le même style). Chaque danger a sa page au début du tome, une seule (« chacun sa propre page, pas
   plus qu'une page ») : une page de danger qui déborde se resserre, ou son texte se coupe.
+- [ ] **Un sujet par série orange** (JP, 18 octobre 2026, sur le ch. 15 : « quand on traite deux sujets, on les sépare,
+  pour permettre aux planches reliées au sujet d'être plus proches ») : « On passe à travers la glace » et « Quelqu'un
+  d'autre passe à travers la glace » sont deux séries, chacune son intertitre `{.orange …}` et sa pastille ; les numéros
+  d'étapes continuent. Le moteur pose les planches d'une série tout de suite après elle, avant la série suivante.
 - [ ] La série orange se lit d'un trait, sans planche ni page au milieu (JP, 18 octobre : « premières minutes est
   scindé, il doit se suivre ») : les planches appelées dans l'orange gardent leur ancre à l'étape qui les appelle ; le
   moteur les sort de l'orange et les pose sur la page d'en face, ou la suivante (JP, 18 octobre 2026 : « si les planches

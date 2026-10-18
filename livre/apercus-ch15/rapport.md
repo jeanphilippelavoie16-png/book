@@ -1,7 +1,7 @@
 # Tome 1 · Tenir — rapport d'assemblage
 
-- **Produit le :** 2026-10-18 16:42, par `design/outils/assembler-tome.py 1 --chapitres 15 --hors-ligne --sortie livre/apercus-ch15`
-- **Fichier :** `livre/tome-1/interieur.pdf` — 28 pages, 4.4 Mo
+- **Produit le :** 2026-10-18 17:02, par `design/outils/assembler-tome.py 1 --chapitres 15 --hors-ligne --sortie livre/apercus-ch15`
+- **Fichier :** `livre/tome-1/interieur.pdf` — 28 pages, 5.0 Mo
 - **Ouvertures :** au recto ou au verso (--verso)
 - **Placements :** design/epreuves-livre/placements.json, design/epreuves-livre/placements-tome-1.json
 - **Exigences de Blurb :** `sources/blurb-specifications.md` (relevées le 27 septembre 2026)
@@ -15,8 +15,8 @@
 | 5 | Sommaire | 1 |
 | 6 | Comment le livre fonctionne (1) | 1 |
 | 7 | Comment le livre fonctionne (2) | 1 |
-| 9–27 | ch. 15 — Se déplacer et le carburant | 19 |
-| | Pages blanches (verso de la page de titre, avant les ouvertures, fin du tome) | 4 |
+| 9–28 | ch. 15 — Se déplacer et le carburant | 20 |
+| | Pages blanches (verso de la page de titre, avant les ouvertures, fin du tome) | 3 |
 | | **Total** | **28** |
 
 Aucune page de crédits (JP, 28 septembre 2026) : copie hors du livre dans `livre/apercus-ch15/credits/tome-1-credits.md` et `livre/apercus-ch15/credits/tome-1-credits.pdf`.
@@ -27,7 +27,7 @@ Marqueur `{.orange}` sur l'intertitre ### de la série, dans le Markdown (CLAUDE
 
 | Ch. | Pages du tome |
 | --- | --- |
-| 15 | 12, 13, 14, 15 |
+| 15 | 12, 13, 15, 17 |
 
 ## Contrôle Blurb
 
@@ -38,7 +38,7 @@ Marqueur `{.orange}` sur l'intertitre ### de la série, dans le Markdown (CLAUDE
 | Nombre de pages | pair, de 20 à 440 (papier Standard) | 28 | oui |
 | Page 1 | à droite | ouverture du chapitre 00 | oui |
 | Polices incorporées | toutes | 21 police(s), 0 non incorporée(s) | oui |
-| Taille du fichier | 2 Go au plus | 4.4 Mo | oui |
+| Taille du fichier | 2 Go au plus | 5.0 Mo | oui |
 | Marques d'imprimeur | aucune | aucune | oui |
 | Couleur | CMJN ou sRVB, sans ton direct | sRVB (Edge) | oui |
 | Noir du texte | 100 % K | noir sRVB (0, 0, 0) : la conversion est faite chez Blurb | à juger sur épreuve |
@@ -62,7 +62,7 @@ Les planches de `images/a-valider/` sont posées comme les validées (JP les rel
 
 | Ch. | Posées (page du tome) | Mentionnées dans le texte sans planche dessinée | À valider, non posées | Photos demandées encore à acquérir (credits.md) |
 | --- | --- | --- | --- | ---: |
-| 15 | 15-01 (16, pleine, à valider), 15-02 (24, pleine, à valider), 15-03 (17, à valider), 15-05 (18, à valider), 15-06 (26, à valider), 15-04 (27, à valider), 15-se-deplacer-livre (10, double page) | — | — | 8 (ancien 20) |
+| 15 | 15-01 (14, pleine, à valider), 15-02 (25, pleine, à valider), 15-03 (16, à valider), 15-05 (20, à valider), 15-06 (27, à valider), 15-04 (28, à valider), 15-se-deplacer-livre (10, double page) | — | — | 8 (ancien 20) |
 
 ## Crédits des images — hors du livre
 
@@ -72,7 +72,7 @@ Aucune photo posée dans ce tome. Les photos téléchargées sous les anciens nu
 
 ## Avertissements
 
-- ch. 15, paginateur : p15-13 : page à moitié vide
+- ch. 15, paginateur : p15-5 : page à moitié vide
 
 ## À savoir avant de téléverser
 

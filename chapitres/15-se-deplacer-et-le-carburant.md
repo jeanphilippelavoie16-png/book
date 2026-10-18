@@ -40,7 +40,7 @@ et se sortir vivant de la glace qui cède ou de la machine qui s'arrête loin de
 
 ## 4. Procédure
 
-### Quelqu'un passe à travers la glace {.orange 10 min}
+### On passe à travers la glace {.orange 10 min}
 
 1. **Si l'auto passe à travers la glace, en sortir tout de suite, par une fenêtre de côté.** Une
  auto flotte de quelques secondes à quelques minutes, puis elle coule : on sort pendant qu'elle flotte. La
@@ -84,14 +84,16 @@ et se sortir vivant de la glace qui cède ou de la machine qui s'arrête loin de
 6. **Une fois sorti, rester couché et rouler pour s'éloigner du trou** (repère 8). Couché, le poids
  s'étale sur toute la longueur du corps, et la glace risque moins de céder une deuxième fois. Rouler ou
  ramper jusqu'à ses propres traces : cette glace a porté à l'aller. Se relever seulement là, ou
- sur la rive.
+ sur la rive, puis se mettre au chaud (étape 10).
 7. **Si on n'est pas sorti au bout d'une dizaine de minutes, arrêter de forcer.** Après la première minute,
  les bras, les jambes et les doigts gardent leur force une dizaine de minutes, puis ils ne répondent plus.
  Sortir de l'eau le plus de corps possible, garder les avant-bras posés sur la glace et la tête hors de
  l'eau, ne plus bouger, et siffler. Même dans l'eau glacée, on met souvent une heure à perdre connaissance
  par le froid : la noyade tue avant le froid, quand la tête passe sous l'eau. Ne pas nager pour se
  réchauffer.
-8. **Quelqu'un d'autre est tombé : ne pas courir jusqu'au trou.** Autour du trou, la glace est aussi mince :
+### Quelqu'un d'autre passe à travers la glace {.orange 10 min}
+
+8. **Ne pas courir jusqu'au trou.** Autour du trou, la glace est aussi mince :
  la personne qui court à son secours passe à travers à son tour, et on a deux personnes dans l'eau. Rester sur la glace
  qui a porté, s'approcher couché s'il le faut, et lui crier de se tourner vers le côté par où il est arrivé, de
  poser les avant-bras sur la glace et de battre des jambes (étapes 4 et 5).

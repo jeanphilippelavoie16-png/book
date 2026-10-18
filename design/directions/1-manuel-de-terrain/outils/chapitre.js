@@ -276,9 +276,15 @@ function story(id, kind, suite){   // kind : main, o, d, e ; suite : histoire re
   const q = Array.from(tpl.content.children).map(n => n.cloneNode(true));
   if(!q.length) return;
   q.forEach(n => { if(!(n.classList && n.classList.contains('fig'))){ appels(n); reperes(n); } });
+  // une série orange qui suit une autre série : les planches de celle-ci passent avant elle, à la prochaine page
+  if(kind === 'o') while(q[0] && q[0].dataset && q[0].dataset.orpl) pendingOr.push(q.shift());
   const H = P.bl.getBoundingClientRect().height;
   let first = !suite, guard = 0, porte = false;   // porte : un titre vient d'être reporté en haut de cette page
   while(q.length && guard++ < 120){
+    // les demi-pages de l'orange ouvrent la page, au-dessus de ce qui vient, même une autre série orange
+    if(orTop.length && P.kind === 'text' && !P.bl.children.length){
+      const fo = document.createElement('div'); fo.className = 'frame'; P.bl.appendChild(fo); orTop.forEach(b => fo.appendChild(b)); orTop = [];
+    }
     const fr = free(P), fresh = P.kind === 'text' && !P.bl.children.length;
     // seuils de départ : l'encadré danger et la variante d'urgence ne commencent pas dans un fond de page
     if(first && !fresh && !porte && ((kind === 'd' && fr < 2.2 * 96) || (kind === 'e' && fr < 1.8 * 96) || (kind === 'main' && fr < 1.2 * 96) || (kind === 'o' && fr < 2.0 * 96))){
@@ -288,6 +294,16 @@ function story(id, kind, suite){   // kind : main, o, d, e ; suite : histoire re
       continue;
     }
     if(suite && guard === 1 && !fresh && fr < 1.2 * 96){ nextPage(); continue; }
+    // une série orange qui suit les planches d'une autre série ne se fait pas couper par elles : elle commence sur la
+    // page en cours seulement si elle y tient au complet ; sinon elle commence après les planches
+    if(kind === 'o' && first && !fresh && pendingOr.length){
+      const sQ = q.slice(), sPl = pendingPlates.slice(), sSp = pendingSpreads.slice(), sOr = pendingOr.slice(), sOT = orTop.slice();
+      const R1 = region(P, kind, true), r1 = pour(R1.frame, q, P);
+      if(r1 === 'done'){ finish(R1, kind); break; }
+      R1.box.remove(); const z1 = R1.frame.nextElementSibling; if(z1 && z1.classList.contains('fnz')) z1.remove();
+      q.splice(0, q.length, ...sQ); pendingPlates = sPl; pendingSpreads = sSp; pendingOr = sOr; orTop = sOT;
+      nextPage(); continue;
+    }
     P.story = kind;
     const snapQ = q.slice(), snapPl = pendingPlates.slice(), snapSp = pendingSpreads.slice(), snapOr = pendingOr.slice(), snapOT = orTop.slice();
     const R = region(P, kind, first);
