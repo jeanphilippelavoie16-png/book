@@ -8,7 +8,7 @@
 
 ## 1. En une ligne
 
-Se mettre à couvert à l'éclair, entrer sous terre ou dans le béton avant que les retombées tombent, y rester 24 à
+Se mettre à couvert à l'éclair, entrer sous terre ou dans un bâtiment de béton avant que les retombées arrivent, y rester 24 à
 48 heures, protéger la thyroïde avec des comprimés d'iode, puis trier pendant des années ce qu'on mange au chalet.
 
 ---
@@ -24,13 +24,13 @@ Se mettre à couvert à l'éclair, entrer sous terre ou dans le béton avant que
  à 27).
 - **Les années suivantes, on chasse, on pêche, on cueille ou on jardine** dans un territoire qui a reçu des
  retombées (étapes 28 à 32).
-- **Il manque l'iode, la radio, le sous-sol, le compteur ou l'eau fermée** (section 7).
+- **Il manque l'iode, la radio, le sous-sol, le compteur ou la réserve d'eau** (section 7).
 
 ---
 
 ## 3. Matériel
 
-- **Comprimés d'iodure de potassium de 65 mg** : ils remplissent la thyroïde d'iode ordinaire ; aucun autre iode ne les remplace (étape 12).
+- **Comprimés d'iodure de potassium de 65 mg** : ils protègent la thyroïde de l'iode radioactif en la remplissant d'iode ordinaire (étape 12).
 - **Radio à piles ou à manivelle** : la seule façon d'apprendre où va le panache et quand l'abri finit (sans radio : section 7).
 - **Eau dans des contenants fermés** : 4 L par personne et par jour, tirés avant le passage des retombées (étape 22).
 - **Avertisseur de CO à pile, à affichage** : le seul moyen de savoir que la pièce d'abri fermée se remplit de monoxyde (étape 18).
@@ -56,7 +56,7 @@ Se mettre à couvert à l'éclair, entrer sous terre ou dans le béton avant que
  la personne qui ne regardait pas dans sa direction : quelques secondes le jour, 5 à 10 minutes la nuit, puis une
  tache sombre reste dans la vue pendant plusieurs minutes. Ne pas repartir avant de voir clair : les autres
  conducteurs sont aveuglés aussi, et les routes se remplissent d'accidents. Ensuite, entrer dans un bâtiment
- (étape 4) : une auto ne divise la dose que par moins de 2.
+ (étape 4) : une auto divise la dose par moins de 2.
 
 ### Le souffle est passé, ou l'alerte est donnée {.orange 10 min}
 
@@ -75,7 +75,7 @@ Se mettre à couvert à l'éclair, entrer sous terre ou dans le béton avant que
  - Dehors, se couvrir le nez et la bouche d'un linge.
 5. **Enlever ses vêtements du dessus et ses chaussures avant d'entrer, ou juste passé la porte**, lentement, sans
  les secouer et sans se toucher le visage. Ça enlève jusqu'à 90 % de la poussière radioactive qui s'est posée sur
- soi. Mettre les vêtements dans un sac de plastique fermé, et laisser le sac dehors, ou loin des gens et des
+ soi. Mettre les vêtements dans un sac de plastique, fermer le sac et le laisser dehors, ou loin des gens et des
  animaux. Les gens qui arrivent plus tard du dehors doivent faire la même chose (étape 20).
 6. **Ne pas ressortir chercher quelqu'un.** Un enfant qui est à l'école ou à la garderie doit y rester : l'école a
  un plan pour garder les enfants à l'abri, et un bâtiment de béton ou de brique les protège mieux qu'une maison de
@@ -88,23 +88,23 @@ Se mettre à couvert à l'éclair, entrer sous terre ou dans le béton avant que
  (étape 18).
 8. **Descendre au sous-sol et se mettre contre un mur enterré**, loin des fenêtres du sous-sol. Le sous-sol divise
  la dose par 10 à 20 : la terre derrière le mur et l'étage au-dessus arrêtent le rayonnement de la poussière posée
- dehors. À la maison, c'est le sous-sol ; au chalet, le caveau (ch. 79). Sans sous-sol ni caveau, aller dans la
+ dehors. Au chalet, aller au caveau (ch. 79). Sans sous-sol ni caveau, aller dans la
  pièce du centre, loin du toit et des murs extérieurs, et empiler autour de soi ce qui est lourd (section 7,
  « Sans sous-sol ni caveau »). L'abri n'a pas besoin d'être étanche, et des fenêtres cassées n'enlèvent presque
  rien à la protection : on reste.
-9. **Dans une maison de bois sans sous-sol, changer d'abri si un meilleur est à moins de 15 minutes**, et partir
- au plus tard 30 minutes après l'éclair : un sous-sol, ou un gros bâtiment de béton ou de brique. En
+9. **Dans une maison de bois sans sous-sol, changer d'abri si un meilleur est à moins de 15 minutes** : un
+ sous-sol, ou un gros bâtiment de béton ou de brique. Partir au plus tard 30 minutes après l'éclair. En
  arrivant, enlever ses vêtements du dessus et ses chaussures comme à l'étape 5. S'il n'y a pas de meilleur abri à
- moins de 15 minutes, rester et empiler la masse (section 7).
+ moins de 15 minutes, rester et empiler autour de soi ce qui est lourd (section 7).
 10. **Se laver, une fois à l'intérieur.**
- - Avec de l'eau : laver à l'eau et au savon la peau et les cheveux qui étaient découverts, sans frotter fort, en
- gardant les coupures couvertes. Prendre du shampooing, sans revitalisant : le revitalisant fait coller aux
- cheveux la poussière qu'on veut rincer. L'eau du robinet sert au lavage même quand on ne la boit plus.
+ - Avec de l'eau : savonner et rincer la peau et les cheveux qui étaient découverts, sans frotter fort, en
+ gardant les coupures couvertes. Prendre du shampooing, sans revitalisant : le revitalisant fait coller la
+ poussière aux cheveux. L'eau du robinet sert au lavage même quand on ne la boit plus.
  - Sans eau courante : prendre un linge propre mouillé, une serviette de papier humide ou une lingette, et laver
  d'abord les mains et le visage ; se moucher, puis essuyer les paupières, les cils et les oreilles. Ne pas utiliser
  de lingette ménagère sur la peau ; le désinfectant à mains n'enlève rien. Mettre les linges usés dans le sac des
  vêtements du dehors.
- - Remettre des vêtements pris dans un tiroir ou une garde-robe fermés. Sans vêtements propres, secouer ou
+ - S'habiller avec des vêtements pris dans un tiroir ou une garde-robe fermés. Sans vêtements propres, secouer ou
  brosser les siens à l'entrée, les remettre, et se relaver les mains et le visage.
  - Brosser le poil des animaux qui étaient dehors, les laver au savon, puis se laver les mains et le visage.
 
@@ -115,15 +115,15 @@ Se mettre à couvert à l'éclair, entrer sous terre ou dans le béton avant que
  24 heures d'abri à partir de l'éclair, et le délai de l'iode à partir de l'arrivée des retombées ou du panache
  (étape 14).
 12. {!poison} **Donner l'iode seulement contre de l'iode radioactif, et seulement en comprimés d'iodure de
- potassium.** Une détonation et le panache d'une centrale nucléaire en apportent. La thyroïde ne fait pas la
- différence entre l'iode ordinaire et l'iode radioactif : le comprimé la remplit d'iode ordinaire, et elle ne prend
- presque plus l'iode radioactif. Il ne protège que la thyroïde, contre l'iode seulement, pendant environ
- 24 heures : il ne fait rien contre le césium, le strontium ni le rayonnement de la poussière, et il ne soigne pas
- l'irradiation. Aucun autre iode ne le remplace. La teinture d'iode, la povidone iodée (Bétadine) et les comprimés
- d'iode pour désinfecter l'eau sont des poisons quand on les avale (on peut boire l'eau qu'ils ont désinfectée :
- ch. 10, étape 23), et ils ne protègent pas la thyroïde ; étendus
- sur la peau, ils protègent moins que le comprimé et peuvent faire du mal. Le sel iodé et les suppléments d'iode en
- contiennent beaucoup trop peu, et en avaler beaucoup rend malade. Sans comprimés : section 7.
+ potassium.** Une détonation et le panache d'une centrale nucléaire en apportent. La thyroïde prend l'iode
+ radioactif aussi bien que l'iode ordinaire : le comprimé la remplit d'iode ordinaire, et elle ne prend presque plus
+ l'iode radioactif. Le comprimé ne protège que la thyroïde, et contre l'iode seulement : il ne fait rien contre le
+ césium, le strontium ni le rayonnement de la poussière, et il ne soigne pas l'irradiation. Aucun autre iode ne le
+ remplace. La teinture d'iode, la povidone iodée (Bétadine) et les comprimés d'iode pour désinfecter l'eau sont des
+ poisons quand on les avale, et ils ne protègent pas la thyroïde. Étendus sur la peau, ils protègent moins que le
+ comprimé et peuvent faire du mal. On peut boire l'eau qu'ils ont désinfectée (ch. 10, étape 23). Le sel iodé et
+ les suppléments d'iode en contiennent beaucoup trop peu, et en avaler beaucoup rend malade. Sans comprimés :
+ section 7.
 13. **Donner à chacun la dose de son âge, en commençant par les enfants.**
 
  | Âge | Dose d'iodure de potassium | Comprimés de 65 mg | Comprimés de 130 mg |
@@ -136,12 +136,12 @@ Se mettre à couvert à l'éclair, entrer sous terre ou dans le béton avant que
  | Femme enceinte ou qui allaite | 130 mg | 2 | 1 |
  | Plus de 40 ans | 130 mg | 2 | 1 |
 
- Un adolescent de 12 à 18 ans qui a la taille d'un adulte, 70 kg ou plus, prend la dose adulte. Passé 40 ans, le
+ Donner la dose adulte à un adolescent de 12 à 18 ans qui a la taille d'un adulte, 70 kg ou plus. Passé 40 ans, le
  risque d'un cancer de la thyroïde causé par l'iode radioactif est faible, le risque d'une mauvaise réaction au
  comprimé augmente, et le comprimé ne sert que si la thyroïde risque une très forte dose, assez forte pour la
  détruire. Quand la boîte ne suffit pas pour tout le monde, donner les comprimés d'abord aux enfants, aux femmes
- enceintes ou qui allaitent et aux adultes de moins de 40 ans ; un adulte de plus de 40 ans prend sa dose s'il en
- reste.
+ enceintes ou qui allaitent et aux adultes de moins de 40 ans ; s'il en reste, en donner aux adultes de plus de
+ 40 ans.
 14. **Donner l'iode le plus tôt possible.** Le mieux, c'est entre 24 heures avant et 2 heures après le début de
  l'exposition, c'est-à-dire l'arrivée du panache ou des retombées. L'iode sert encore jusqu'à 8 heures après, et il
  ne protège plus du tout passé 24 heures. Une dose protège environ 24 heures : la redonner chaque jour, à la même
@@ -161,7 +161,7 @@ Se mettre à couvert à l'éclair, entrer sous terre ou dans le béton avant que
  thyroïde pendant un temps. Ne pas en donner à une personne allergique à l'iode, ou qui a une maladie de la
  thyroïde (maladie de Basedow, nodules, thyroïdite de Hashimoto), une dermatite herpétiforme ou une vascularite
  hypocomplémentémique : le comprimé peut déclencher chez elle une crise de la thyroïde ou une réaction allergique
- grave[^1]. Ce sont surtout des adultes, qui risquent peu le cancer de la thyroïde. Pour les autres, le risque est
+ grave[^1]. Ces personnes sont surtout des adultes, qui risquent peu le cancer de la thyroïde. Pour les autres, le risque est
  très faible : en Pologne, après Tchornobyl, 7 millions d'adultes ont pris de l'iode, et on a rapporté deux
  réactions graves, chez deux personnes qui se savaient allergiques à l'iode.
 
@@ -169,8 +169,8 @@ Se mettre à couvert à l'éclair, entrer sous terre ou dans le béton avant que
 
 ### Les heures d'abri
 
-17. **Ouvrir la radio qu'on a dans l'abri, à piles ou à manivelle, et la laisser ouverte.** C'est par elle
- qu'arrivent la direction du panache, l'annonce d'un deuxième rejet et la fin de l'abri. Sans radio : section 7.
+17. **Ouvrir une radio à piles ou à manivelle dans l'abri, et la laisser ouverte.** On y apprend où va le
+ panache, s'il y a un deuxième rejet et quand l'abri finit. Sans radio : section 7.
 18. {!co} **Boucher les courants d'air de la pièce d'abri pendant le passage du panache, quelques heures au plus.**
  - Avant de boucher, poser l'avertisseur de CO dans la pièce et appuyer sur son bouton d'essai.
  - Boucher avec ce qu'on a : du ruban sur le cadre des portes et des fenêtres, du plastique sur les vitres, un
@@ -193,7 +193,7 @@ Se mettre à couvert à l'éclair, entrer sous terre ou dans le béton avant que
  deux bâches, ce coin devient une entrée en chicane (section 7, « L'entrée en chicane et le costume de sortie »).
 21. **Manger ce qui était dans la maison ou dans un contenant fermé** : conserves, pots, sacs sous vide, seaux à
  couvercle. Le contenu n'a rien reçu. Essuyer le contenant avec un linge humide avant de l'ouvrir, et mettre le
- linge dans le sac du dehors. Ne pas manger ce qui était dehors à découvert.
+ linge dans le sac des vêtements du dehors.
 22. **Boire l'eau tirée avant le passage des retombées.** À la maison, l'aqueduc coule peut-être encore, mais on ne
  sait pas si sa source a reçu de la poussière radioactive : boire la réserve. Au chalet, un puits tubé et fermé est
  protégé ; un lac, un ruisseau, un baril de pluie, la neige qui était au sol quand les retombées sont tombées et
@@ -201,7 +201,7 @@ Se mettre à couvert à l'éclair, entrer sous terre ou dans le béton avant que
  Sans réserve, décanter l'eau de surface à l'argile et la passer au filtre de terre (section 7), puis la
  désinfecter (ch. 10).
 23. **Ne pas boire de lait frais d'une vache ou d'une chèvre qui a brouté dehors ou mangé du foin exposé.** Après
- Tchornobyl, environ 5 000 cancers de la thyroïde sont venus d'enfants qui avaient bu ce lait dans les semaines
+ Tchornobyl, environ 5 000 cancers de la thyroïde sont apparus chez des enfants qui avaient bu ce lait dans les semaines
  suivant l'accident. On peut boire le lait en poudre et le lait en conserve d'avant les retombées.
 
 ### Sortir de l'abri, puis les semaines qui suivent
@@ -209,11 +209,11 @@ Se mettre à couvert à l'éclair, entrer sous terre ou dans le béton avant que
 24. **Rester à l'abri 24 heures, sauf en cas de feu, de fuite de gaz, d'effondrement ou de blessure grave.** Environ
  80 % de la dose qu'on recevrait dehors arrive le premier jour. Rester jusqu'à 48 heures si la radio n'annonce pas
  que le rayonnement baisse dans le secteur, ou si l'électroscope (section 7) ne montre pas la baisse.
-25. **En quittant l'abri, remplacer les filtres de la fournaise et de l'échangeur d'air.** Les filtres ont pu
- retenir de la poussière radioactive : les mettre dans un sac fermé et les porter loin du bâtiment. Ensuite, sortir
+25. **En quittant l'abri, remplacer les filtres de la fournaise et de l'échangeur d'air.** Les vieux filtres ont
+ pu retenir de la poussière radioactive : les mettre dans un sac, fermer le sac et le porter loin du bâtiment. Ensuite, sortir
  peu de temps à la fois : laisser ses bottes et ses vêtements de dehors à l'entrée, et se laver les mains et le
- visage en rentrant (ch. 31). Laver les planchers à l'eau au lieu de les balayer : le balai soulève la poussière. À
- la maison, l'eau de lavage part à l'égout ; au chalet, la jeter loin du puits et du jardin.
+ visage en rentrant (ch. 31). Laver les planchers à l'eau au lieu de les balayer : le balai soulève la poussière.
+ Jeter l'eau de lavage à l'égout à la maison, et loin du puits et du jardin au chalet.
 26. **Traiter la première pluie et la première neige comme de la poussière radioactive qui se déplace.** La pluie
  entraîne la poussière du toit et du terrain vers les gouttières et le bas des descentes de gouttière, l'endroit où
  l'eau tombe du toit, les fossés, les flaques et les creux, et le pied des arbres : ne pas y jardiner, et ne pas y
@@ -227,8 +227,8 @@ Se mettre à couvert à l'éclair, entrer sous terre ou dans le béton avant que
 
 28. **Ne plus cueillir de champignons.** Le césium radioactif met 30 ans à perdre la moitié de sa force, et les
  champignons en prennent dans le sol plus que les plantes, année après année (ch. 93).
-29. **Trier le gibier, du plus exposé au moins exposé.** La bête qui mange du lichen l'hiver vient en tête : le
- caribou. Le lichen prend directement la poussière qui tombe dessus. Viennent ensuite les bêtes qui mangent des
+29. **Trier le gibier, du plus exposé au moins exposé.** Le caribou, qui mange du lichen l'hiver, vient en
+ tête. Le lichen prend directement la poussière qui tombe dessus. Viennent ensuite les bêtes qui mangent des
  champignons et des plantes, et en dernier les bêtes nourries de grain entreposé à l'intérieur. L'orignal mange des
  ramilles toute l'année, et des feuilles et des plantes aquatiques l'été. Le poisson des lacs pauvres, comme les
  lacs de tête, peut prendre beaucoup de césium. Ne pas manger une bête qui a l'air malade : elle a pu recevoir une
@@ -237,8 +237,8 @@ Se mettre à couvert à l'éclair, entrer sous terre ou dans le béton avant que
  et la thyroïde.** Le césium se répartit dans toute la viande, comme le potassium ; le strontium s'accumule dans les
  os, comme le calcium, et il y reste à la cuisson : ne pas mettre d'os broyé dans la viande hachée. Le bouillon d'os
  (ch. 72) prend le césium des os et de la viande : le jeter, comme à l'étape 32. Le foie, les reins et la thyroïde
- d'une bête qui a mangé ou bu de la poussière radioactive en concentrent ; on ne mange de toute façon jamais le foie
- ni les reins d'un cervidé, qui accumulent le cadmium (ch. 22). Garder le gras : la viande maigre presque seule mène
+ d'une bête qui a mangé ou bu de la poussière radioactive en concentrent. Même sans retombées, ne jamais manger le
+ foie ni les reins d'un cervidé : ils accumulent le cadmium (ch. 22). Garder le gras : la viande maigre presque seule mène
  au mal de caribou, qui tue en quelques semaines (ch. 19).
 31. {!zone-de-danger} **Faire tremper la viande avant de la cuire, au froid.**
  - Couper la viande en morceaux d'environ 200 g, et les faire tremper 2 jours dans une saumure ou dans l'eau : il
@@ -261,13 +261,13 @@ Se mettre à couvert à l'éclair, entrer sous terre ou dans le béton avant que
 ### Avant, une fois
 
 33. **Acheter les comprimés d'iode (ch. 00b) et les ranger dans la trousse qui part avec la famille.** Les garder
- entre 15 et 30 °C, à l'abri de la lumière et de l'humidité : une maison chauffée tient cette plage, un chalet
- laissé froid l'hiver ne la tient pas. Garder une seule boîte, celle de la trousse, pour la trouver dans le noir.
+ entre 15 et 30 °C, à l'abri de la lumière et de l'humidité : dans une maison chauffée, pas dans un chalet
+ laissé froid l'hiver. Garder une seule boîte, celle de la trousse, pour la trouver dans le noir.
 34. **Choisir d'avance la pièce d'abri de la maison et celle du chalet** : celle qui a le plus de masse autour
- d'elle et le moins de murs extérieurs (étape 8). Au chalet sans caveau, un mur de bois rond arrête peu : prévoir de
- quoi empiler la masse (section 7).
-35. **Écrire sur la porte de la pièce d'abri la fréquence AM de la station régionale, le tableau des doses d'iode
- (étape 13) et la recette de la solution (étape 15).**
+ d'elle et le moins de murs extérieurs (étape 8). Au chalet sans caveau, un mur de bois rond arrête peu le
+ rayonnement : prévoir ce qu'on empilera autour de la pièce (section 7).
+35. **Écrire la fréquence AM de la station régionale, le tableau des doses d'iode (étape 13) et la recette de la
+ solution (étape 15) sur la porte de la pièce d'abri.**
 
 ---
 
@@ -276,9 +276,9 @@ Se mettre à couvert à l'éclair, entrer sous terre ou dans le béton avant que
 | Moment | Ce qu'on vérifie | Cible chiffrée | Si c'est hors cible |
 | --- | --- | --- | --- |
 | Secondes 0 à 30, après un éclair | Tout le monde couché à couvert, loin des vitres | Personne debout près d'une fenêtre | Se coucher là où on est |
-| Minutes 0 à 10 | Tout le monde et les animaux à portée dans un bâtiment, vêtements du dessus laissés à la porte | Toutes les têtes comptées | Une personne abritée ailleurs y reste : écrire où elle est |
+| Minutes 0 à 10 | Tout le monde et les animaux à portée dans un bâtiment, vêtements du dessus laissés à la porte | Toutes les têtes comptées | Une personne abritée ailleurs doit y rester : écrire où elle est |
 | Minute 10 | L'air du dehors coupé | Aucun appareil qui fait entrer l'air du dehors | Le couper au disjoncteur |
-| Minute 30, maison de bois sans sous-sol | Parti vers un meilleur abri, s'il y en a un à moins de 15 minutes (étape 9) | Avant la 30e minute après l'éclair | Rester et empiler la masse (section 7) |
+| Minute 30, maison de bois sans sous-sol | Parti vers un meilleur abri, s'il y en a un à moins de 15 minutes (étape 9) | Avant la 30e minute après l'éclair | Rester et empiler autour de soi ce qui est lourd (section 7) |
 | Heure 2 après l'arrivée du panache ou des retombées | Iode donné à chacun (étapes 13 à 16) | La dose du tableau de l'étape 13 | Jusqu'à 8 h, la donner quand même ; passé 24 h, ne plus la donner |
 | Quelques heures après le bouchage | Plastique et ruban enlevés, pièce aérée (étape 18) | Quelques heures au plus | Aérer tout de suite |
 | Avant chaque sommeil et à chaque réveil | Avertisseur de CO de la pièce d'abri | 0 ppm affiché, aucune alarme | Faire l'étape 18 tout de suite |
@@ -296,9 +296,9 @@ Se mettre à couvert à l'éclair, entrer sous terre ou dans le béton avant que
 | --- | --- | --- |
 | Tout est blanc après l'éclair, puis une tache sombre reste dans la vue | Éblouissement par l'éclair (étape 3) | Ne pas conduire ni traverser une route avant de voir clair. Une tache aveugle qui ne part pas est une brûlure de la rétine, qui reste (ch. 35) |
 | Peau rouge ou brûlée du côté tourné vers l'éclair, dans les minutes qui suivent | Brûlure par la chaleur de l'éclair | La soigner comme une brûlure (ch. 26) |
-| Poussière ou traces de pas poudreuses dans la pièce d'abri | La poussière est entrée : une ouverture mal bouchée, ou quelqu'un est entré habillé | Laver les surfaces à l'eau, sans balayer. Refaire le déshabillage à l'entrée. Passer dans la pièce voisine la mieux protégée |
+| Poussière ou traces de pas poudreuses dans la pièce d'abri | La poussière est entrée : une ouverture mal bouchée, ou quelqu'un est entré habillé | Laver les surfaces à l'eau, sans balayer. Les gens qui arrivent du dehors doivent enlever leurs vêtements du dessus à l'entrée (étape 20). Passer dans la pièce voisine la mieux protégée |
 | La peau démange et brûle là où la poussière est restée, puis, quelques jours plus tard, elle brûle et change de couleur | La poussière fraîche est restée des dizaines de minutes sur la peau | Laver tout de suite à l'eau et au savon ; sans eau, brosser et frotter la poussière. La brûlure est peu profonde, mais elle met des semaines à guérir : la garder propre |
-| Nausées, vomissements, mal de tête et étourdissements quelques heures après l'exposition | Le début d'une irradiation, ou la peur, qui donne les mêmes signes | Rester à l'abri, faire boire et se reposer. Ces premiers signes passent en un ou deux jours. S'ils commencent dans la demi-heure, la dose reçue peut être mortelle. Soigner une personne irradiée n'expose pas celle qui la soigne |
+| Nausées, vomissements, mal de tête et étourdissements quelques heures après l'exposition | Le début d'une irradiation, ou la peur, qui donne les mêmes signes | Rester à l'abri, faire boire la personne et la faire reposer. Ces premiers signes passent en un ou deux jours. S'ils commencent dans la demi-heure, la dose reçue peut être mortelle. Soigner une personne irradiée n'expose pas celle qui la soigne |
 | Dans les deux semaines qui suivent, les cheveux tombent en touffes, de petites taches de sang apparaissent sous la peau ou dans la bouche, ou une diarrhée commence | Forte dose reçue, pas forcément mortelle : la vie est en jeu pendant un à deux mois | Faire reposer la personne, lui donner des repas complets et garder propre l'endroit où elle est couchée. Garder les antibiotiques pour cette période, où les infections prennent facilement (ch. 32, ch. 35) |
 | Alarme de CO, mal de tête, somnolence ou confusion chez plusieurs personnes à la fois | Monoxyde de carbone dans l'abri fermé | Faire l'étape 18 tout de suite |
 | Poêle qui tire mal, fumée qui revient dans l'abri | Le bouchage a coupé l'air du poêle | Ouvrir une entrée d'air au même étage que le poêle, du côté d'où vient le vent, et tendre dessus un filtre de fournaise ou deux épaisseurs de serviette de bain |
@@ -322,7 +322,7 @@ respire (étapes 7 et 18).
 **Ce qu'on perd :** la protection contre l'iode qu'on respire pendant le passage du panache. Un enfant qui respire
 l'air du dehors pendant le passage reçoit sa dose à la thyroïde, et rien après ne l'enlève.
 
-### Sans sous-sol ni caveau : empiler la masse
+### Sans sous-sol ni caveau : empiler ce qui est lourd
 
 Si l'alerte tombe au chalet, ou si la route vers la ville est coupée, on reste et on fabrique l'épaisseur qui manque
 (planche 04-01a). Choisir la pièce qui a le moins de murs donnant dehors, puis la charger :
