@@ -1,7 +1,106 @@
 # Tome 2, Le corps : l'image de la page de titre et de la couverture
 
 Linogravure, trois encres : rouge sang de bœuf #5C1A15, papier blanc cassé, orange #EE7219 pour la lumière et le feu.
-768 × 960, rien n'est agrandi. Aucun texte, aucun visage, aucun animal.
+768 × 960, rien n'est agrandi. Aucun texte, aucun visage, aucune main, aucun animal.
+
+## Troisième tour (18 octobre 2026) : planche `tome-2-pistes-3.png`
+
+JP retient la direction du n° 4 du deuxième tour (le coin du soin, Flux 0,74) : « Tome 2 la 4, mais donne-moi plus
+de choix, rien à mon goût ». Ce tour varie le cadrage, les objets, la lumière, la matière et la couleur du mur, et
+écarte tout ce qui « fait AI ».
+
+Les 11 candidates : `tome-2-tour-3-piste-1.png` à `-11.png`, numéros au-dessus de chacune sur la planche.
+
+### Comment
+
+**Huit images de départ** (`scene_soin3.py` → `soin3-A.png` à `soin3-H.png`). La gravure y est dessinée, comme dans
+la linogravure du tome 1 : des entailles claires taillées dans les masses foncées (le poêle, la table, le plancher,
+le bas du mur), des hachures dans les masses claires (la nappe, le bassin), la vapeur en lignes taillées. Le haut du
+mur reste uni : aucune entaille au-dessus de 46 % de la hauteur, aucune vapeur au-dessus de 44 %.
+
+| Image | Mur | Cadrage | Lumière | Objets |
+| --- | --- | --- | --- | --- |
+| A | sang de bœuf #5C1A15 (celui du n° 4) | large, table et poêle | la lampe et le feu | lampe, 2 bocaux, mortier et pilon, bassin, bandes roulées, sapin, thé du Labrador, bouilloire |
+| B | sang de bœuf | près de la table | la lampe seule, poêle froid | lampe, 2 bocaux, grand bassin, linge plié, sapin, thé du Labrador |
+| C | plus foncé #3E100C | près de la table | le feu seul | 2 bocaux, mortier, bassin, bandes roulées, sapin, bouilloire |
+| D | brique #7B2D21 | large, le poêle entier au centre | le feu seul | tabouret et bassin, bouilloire, linge, bandes, bois cordé |
+| E | papier #F1E6D4 | près de la table | la lampe seule | lampe, 2 bocaux, mortier, bassin, linge |
+| F | papier | large | le feu seul | 2 bocaux, mortier, bassin, bandes, poêle entier, bouilloire |
+| G | plus foncé | large | la lampe et le feu | lampe, bocal, bassin, linge, bande, sapin, thé du Labrador |
+| H | brique | près, la lampe au centre | la lampe seule | 3 bocaux, bassin, lampe, mortier, bandes, sapin, thé du Labrador |
+
+Un texte par image (`soin3-X-prompt-flux.txt`, `soin3-X-prompt-lino.txt`) : le style, la couleur du mur, puis la
+liste exacte des objets, et « nothing else » (sans liste fermée, le générateur ajoute ce qui manque à son idée d'une
+table de soin). Deux réglages :
+
+- **Flux.1-Schnell, image de départ, force 0,66** (et 0,60 en plus sur B, C, G) : il garde chaque objet à sa place et
+  les traces de gouge du mur, de la nappe et du plancher ; c'est déjà plus gravé que le n° 4, mais encore lisse.
+- **Juggernaut XL, image de départ, force 0,44 à 0,46** : le plus gravé (traits taillés, bords irréguliers, grain).
+  À 0,54, il invente déjà (montagnes sur le mur, lampe changée en théière, casserole à manche, cuisinière à boutons).
+
+Une seule retouche : sur la 5, les bouts des deux bandes roulées portaient une spirale qui se lisait comme un « h » ;
+`bout-de-bande.py` les redessine en ovales de papier, deux tours d'enroulement et un trou au centre
+(`bout-de-bande.py s3-C-flux-i66-0.webp … 447.3,716,5.6,12 477.3,716,6,12`). Aucune signature sur les 11.
+
+### Les candidates
+
+Le haut libre est la part du haut de l'image où il n'y a que le mur ; sur les 11, aucun point dans les deux
+cinquièmes du haut.
+
+| N° | Source | Comment | Mur | Cadrage, lumière | Haut libre | Ce qu'on voit | À savoir |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | `s3-A-flux-i66-0.webp` | Flux 0,66 | sang de bœuf | large, lampe et feu | 55 % | La lampe, deux bocaux (sapin, fleurs), le mortier et le pilon, le bassin qui fume, deux bandes roulées, sapin et thé du Labrador sur la nappe, la bouilloire qui fume sur le poêle, la porte ouverte | La plus proche du n° 4, avec tout le soin sur la table |
+| 2 | `s3-B-flux-i66-0.webp` | Flux 0,66 | sang de bœuf | près, lampe seule | 55 % | Grande lampe, bocaux de sapin et de fleurs séchées, grand bassin, linge plié, poêle froid au bord | La plus calme ; le poêle éteint se lit comme un meuble sombre |
+| 3 | `s3-G-jugg-i46-1.webp` | Juggernaut 0,46 | plus foncé | large, lampe et feu | 55 % | Lampe, bocal, bassin, pile de linge, branches sur la nappe, poêle et bouilloire | Gravée ; le halo de la lampe est taillé en un aplat rond derrière les objets |
+| 4 | `s3b-C-jugg-i44-0.webp` | Juggernaut 0,44 | plus foncé | près, feu seul | 59 % | Bocaux, mortier, bassin dont la vapeur prend la lumière du feu, bande roulée, poêle et bouilloire | Gravée ; toute la lumière vient du feu |
+| 5 | `s3-C-flux-i66-0.webp`, bouts de bandes redessinés | Flux 0,66 | plus foncé | près, feu seul | 59 % | Même scène que la 4, plus lisse ; la vapeur du bassin est orange (la lumière du feu) | Retouchée (les bandes) |
+| 6 | `s3-H-jugg-i46-1.webp` | Juggernaut 0,46 | brique | près, la lampe au centre | 52 % | Trois bocaux de plantes, le bassin, la lampe au milieu de son halo, le mortier, une bande roulée, sapin et thé du Labrador | Gravée ; la lampe au centre, la plus « nature morte » |
+| 7 | `s3-D-jugg-i46-1.webp` | Juggernaut 0,46 | brique | large, le poêle entier, feu seul | 52 % | Le bassin d'eau chaude sur un tabouret, le poêle entier porte ouverte, la bouilloire qui fume, le bois cordé | Gravée ; pas de table ni de plantes : le soin par l'eau chaude |
+| 8 | `s3-D-jugg-i46-0.webp` | Juggernaut 0,46 | brique | large, feu seul | 50 % | Même scène que la 7, avec le halo du feu taillé en arc sur le mur | Gravée |
+| 9 | `s3-E-jugg-i46-1.webp` | Juggernaut 0,46 | papier | près, lampe seule | 61 % | La lampe et son halo orange, deux bocaux, le mortier, le bassin, le linge, la table gravée de fil de bois | Gravée ; le mur clair change tout, et se distingue de tous les autres tomes |
+| 10 | `s3-E-flux-i66-1.webp` | Flux 0,66 | papier | près, lampe seule | 53 % | Même scène que la 9, plus lisse ; un brin de sapin couché devant les bocaux | |
+| 11 | `s3-F-flux-i66-0.webp` | Flux 0,66 | papier | large, feu seul | 55 % | Bocaux, mortier, bassin, bandes roulées sur une table de bois, le poêle entier porte ouverte, la bouilloire | Le dessin le plus net |
+
+Six candidates sur onze sont de Juggernaut (3, 4, 6, 7, 8, 9), nettement plus gravées que le n° 4 ; les cinq de Flux
+le sont un peu plus que lui (traces de gouge sur le mur, nappe hachurée, plancher gratté).
+
+### Écartées au troisième tour
+
+Toutes gardées en `.webp` sous leur nom de tâche (`s3-…`, `s3b-…`). Ce qui revient le plus : le brin de thé du
+Labrador (feuilles et petites fleurs blanches) devient une souris, un rat, un chien qui court, un oursin, une
+brosse ou un couteau ; les bandes roulées deviennent des tasses, des guimauves, des œufs, des gousses d'ail ou des
+spirales en forme de lettre.
+
+- Du texte : `s3-A-flux-i66-1` (« balsam » sur un bocal), `s3-E-flux-i66-0` (« Ball 1924 » sur la table),
+  `s3b-A-jugg-i44-0` et `-1` (le brin de sapin se lit comme une écriture cursive), `s3-C-flux-i66-1` (un « g » au
+  bout d'une bande), `s3-H-flux-i66-0` et `-1` (spirales en « @ » au bout des bandes).
+- Un animal ou une forme vivante sur la nappe : `s3-A-jugg-i46-0` et `-1`, `s3-B-flux-i60-0`, `s3-B-flux-i60-1`,
+  `s3b-B-jugg-i44-1`, `s3-H-jugg-i46-0` (une limace), `s3-B-jugg-i46-0` et `-1` (une boule à piquants).
+- Ce qui pend de la nappe : `s3-C-jugg-i46-0` (le sapin tombe en frange par-dessus le bord).
+- Des objets qui n'ont pas de sens ou fondus : `s3-A-jugg-i54-0` (un pichet-bocal, une perche sur la bouilloire),
+  `s3-A-jugg-i54-1` et `s3-C-jugg-i54-0` (casserole à manche, louche), `s3-B-jugg-i54-0` (un bassin à anse de tasse),
+  `s3-D-jugg-i54-0` (un tuyau qui part de la bouilloire vers une boîte au mur), `s3-D-jugg-i54-1` (une tablette avec
+  des boîtes orange), `s3-E-jugg-i54-0` (une chandelle dans le bassin), `s3-G-jugg-i54-0` et `-1` (la lampe changée
+  en théière), `s3-H-jugg-i54-1` (une plante dans un arrosoir), `s3-F-jugg-i54-0` et `-1` (un poêle à boutons de
+  cuisinière, un brin dans une tasse), `s3-G-flux-i66-0` (une courroie autour du bassin), `s3-G-flux-i66-1` (un « # »
+  sur le bassin), `s3-G-flux-i60-0` (un couteau sur la nappe), `s3-G-flux-i60-1` (une brosse), `s3-G-jugg-i46-0` (la
+  lampe sans flamme), `s3b-B-jugg-i44-0` (une chandelle dans la lampe), `s3-C-flux-i60-1` (des cubes de sucre, une
+  petite marmite sur le poêle), `s3-C-jugg-i46-1` et `s3b-C-jugg-i44-1` (des dents ou des œufs à la place des bandes),
+  `s3-E-jugg-i54-1` (bocaux à motifs de poterie, sans plantes).
+- Une forme dans le haut ou derrière : `s3-B-jugg-i54-1` et `s3-C-jugg-i54-1` (des montagnes sur le mur).
+- Hors des trois encres : `s3-C-flux-i60-0` (herbes vertes, flamme en triangles).
+- Trop proches d'une retenue, sans rien de plus : `s3-B-flux-i66-1`, `s3-D-flux-i66-0` et `-1` (et le bois cordé
+  montre des bouts en « C »), `s3-E-jugg-i46-0`, `s3-F-flux-i66-1`.
+
+### Recommandation du troisième tour
+
+**6** si JP veut la gravure du tome 1 : la lampe au centre de son halo, trois bocaux, le bassin, le mortier, une
+vraie nature morte ; le mur brique est plus chaud que le sang de bœuf. **9** pour le mur de papier : le tome 2
+serait le seul tome au fond clair, et la page de titre se lit très bien. **1** si JP veut garder le n° 4 presque
+tel quel, avec plus d'objets de soin et un peu plus de gravure. Pour l'agrandissement, l'orchestrateur reprend le
+`.webp` (ou, pour la 5, refait `bout-de-bande.py` avec les valeurs multipliées par le même facteur).
+
+---
 
 ## Deuxième tour (18 octobre 2026) : planche `tome-2-pistes-2.png`
 
