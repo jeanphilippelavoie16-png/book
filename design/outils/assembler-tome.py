@@ -419,13 +419,13 @@ ANNEXE_CSS = """
 .tp-haut{position:absolute;left:50px;right:56px;top:104px;display:flex;flex-direction:column;color:#E2E7EA}
 .tp-title{margin:0;font-weight:800;font-size:var(--tpt,236px);line-height:.84;letter-spacing:.01em;text-transform:uppercase;hyphens:manual}
 .tp-sous{margin:26px 0 0 8px;max-width:380px;text-indent:0;font-weight:500;font-size:23px;line-height:1.28;letter-spacing:.01em;color:#B9C7D1}
-.tp-bas{position:absolute;left:176px;right:176px;bottom:40px;display:flex;flex-direction:column;gap:12px;color:#15222B}
+.tp-bas{--bas:#15222B;--bas-txt:#fff;position:absolute;left:176px;right:176px;bottom:40px;display:flex;flex-direction:column;gap:12px;color:var(--bas)}
 .tp-chap{display:flex;justify-content:space-between;font-weight:700;font-size:14px;letter-spacing:.16em;text-transform:uppercase}
 .tp-serie{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:6px;font-weight:600;font-size:10.5px;line-height:1.15;
   letter-spacing:.03em;text-transform:uppercase}
 .tp-serie div{display:flex;flex-direction:column;gap:4px}
-.tp-serie i{display:block;height:20px;border:1px solid #15222B;font-style:normal;font-size:13px;line-height:20px;padding-left:6px}
-.tp-serie div.on i{height:22px;border:0;background:#15222B;color:#fff;line-height:22px}
+.tp-serie i{display:block;height:20px;border:1px solid var(--bas);font-style:normal;font-size:13px;line-height:20px;padding-left:6px}
+.tp-serie div.on i{height:22px;border:0;background:var(--bas);color:var(--bas-txt);line-height:22px}
 
 .ax-top{display:flex;justify-content:space-between;padding-bottom:5pt;border-bottom:0.75pt solid var(--ta);
   font:600 8pt/1 var(--sans);letter-spacing:.12em;text-transform:uppercase}
@@ -506,9 +506,12 @@ ANNEXE_JS = r"""<script>
   const titre = () => {
     const h = document.querySelector('.tp-title'); if(!h) return;
     const lh = px => px * 0.84;
+    const bloc = h.closest('.tp-haut'), sc = h.closest('.tp-sc');
+    const max = bloc && bloc.dataset.max ? parseFloat(bloc.dataset.max) : Infinity;
     for(let px = 236; px >= 60; px -= 4){
       h.style.setProperty('--tpt', px + 'px');
-      if(h.scrollWidth <= h.clientWidth + 0.5 && h.getBoundingClientRect().height <= 2 * lh(px) + 1) return;
+      const bas = bloc ? bloc.getBoundingClientRect().bottom - sc.getBoundingClientRect().top : 0;
+      if(h.scrollWidth <= h.clientWidth + 0.5 && h.getBoundingClientRect().height <= 2 * lh(px) + 1 && bas <= max) return;
     }
   };
   Promise.all(faces.map(f => document.fonts.load(f))).then(() => document.fonts.ready).then(() => {
@@ -548,12 +551,30 @@ def tete_html(titre_doc):
 
 # le bas de la page de titre (chapitres, série des tomes) se lit mal sur une image chargée (les lignes de l'eau du
 # tome 3) : un aplat de la couleur du papier de l'image, derrière le bloc
-TP_BAS_FOND = {2: "#EFE6D2", 3: "#E4DCBD", 4: "#F5EACD", 5: "#EFE3C8", 6: "#F7EBD3"}
+# l'aplat papier sous le bloc des tomes, seulement là où l'image est trop chargée pour le lire sans lui (les lignes de
+# l'eau au tome 3, le feu et l'herbe au tome 4, les épinettes au tome 6) ; ailleurs, le bloc se pose sur l'image comme au
+# tome 1 (JP, 18 octobre 2026 : la disposition du tome 1)
+TP_BAS_FOND = {3: "#E4DCBD", 4: "#F5EACD", 6: "#F7EBD3"}
 # l'encre du titre quand l'image de titre a un fond clair (tome 2 : le mur couleur papier, JP, 18 octobre 2026)
 TP_ENCRE = {}           # titre, sous-titre, filet de l'en-tête
 
 # ce que le tome couvre, sous son nom sur la page de titre (les tomes 2 à 6 viendront avec leur scène)
-SOUS_TITRES = {1: "Rester ou partir, la panne, les retombées, le feu de forêt, l'eau, le froid, se déplacer, les voisins."}
+SOUS_TITRES = {1: "Rester ou partir, la panne, les retombées, le feu de forêt, l'eau, le froid, se déplacer, les voisins.",
+               # la même disposition aux six tomes (JP, 18 octobre 2026 : « adapte-les comme on a fait pour le tome 1,
+               # je parle de la disposition ») : les sujets du tome, tirés de son sommaire
+               2: "Manger pour passer l'hiver, soigner sans personne, les plantes qui soignent, l'hygiène, le moral, les enfants.",
+               3: "Lire le territoire, pister, le petit gibier, l'ours, les oiseaux d'eau, le phoque, la truite, les filets.",
+               4: "Abattre et découper, le sel, le fumage, le pemmican, le poisson, les conserves, le caveau, la fermentation.",
+               5: "Le poêle, la lumière, le pain, les raquettes et le canot, la cueillette, le jardin, les semences, l'élevage.",
+               6: "Le cuir, coudre, affûter, la scie à chaîne, souder, le bois, le métal, le savon."}
+# le bas du bloc du titre et du sous-titre, en px du repère de la page de titre : au-dessus de ce que l'image dessine
+# à gauche (mesuré sur chaque image) ; le titre rapetisse s'il le faut
+TP_HAUT_MAX = {2: 509, 3: 413, 4: 432, 5: 426, 6: 327}
+# le sous-titre : une teinte claire du ciel de chaque image (le gris-bleu du tome 1 jure sur le rouge et le brun)
+TP_SOUS = {2: "#E8C8BC", 3: "#C9D8CC", 4: "#C3D5D9", 5: "#E3CDAE", 6: "#CDD1CF"}
+# le bloc des tomes en bas, posé sur l'image sans aplat, comme au tome 1 : encre foncée sur une image claire, encre
+# claire sur une image foncée (texte, puis texte de la case du tome)
+TP_BAS_ENCRE = {2: ("#F1E3CF", "#5E1B15"), 5: ("#F2E4CC", "#3E2913")}
 
 def annexe_html(tome, chaps, plan, work):
     """Page de titre et sommaire du tome (les seules pages du livre hors chapitres)."""
@@ -579,8 +600,8 @@ def annexe_html(tome, chaps, plan, work):
     fond = f'<img class="tp-img" src="{url(jpg)}" alt="">' if os.path.exists(jpg) else ""
     pages.append(f'''<section class="page recto tp" id="a-titre">{fond}<div class="tp-sc">{scene}
 <div class="tp-head"{f' style="color:{TP_ENCRE[tome][0]};border-bottom-color:{TP_ENCRE[tome][2]}"' if tome in TP_ENCRE else ""}><span>Le Manuel du Nord</span><span>Tome {tome}</span></div>
-<div class="tp-haut"{f' style="color:{TP_ENCRE[tome][0]}"' if tome in TP_ENCRE else ""}><h1 class="tp-title">{e(titre_t)}</h1>{f'<p class="tp-sous"{chr(32) + "style=" + chr(34) + "color:" + TP_ENCRE[tome][1] + chr(34) if tome in TP_ENCRE else ""}>{il(sous)}</p>' if sous else ""}</div>
-<div class="tp-bas"{f' style="background:{TP_BAS_FOND[tome]};padding:9px 12px 8px;margin:0 -12px"' if tome in TP_BAS_FOND else ""}><div class="tp-chap"><span>{f"Chapitres {aff(premier)} à {aff(dernier)}" if nb > 1 else f"Chapitre {aff(premier)}"}</span><span>{nb} chapitre{"s" if nb > 1 else ""}</span></div>
+<div class="tp-haut"{f' style="color:{TP_ENCRE[tome][0]}"' if tome in TP_ENCRE else ""}{f' data-max="{TP_HAUT_MAX[tome]}"' if tome in TP_HAUT_MAX else ""}><h1 class="tp-title">{e(titre_t)}</h1>{f'<p class="tp-sous"{chr(32) + "style=" + chr(34) + "color:" + (TP_ENCRE[tome][1] if tome in TP_ENCRE else TP_SOUS[tome]) + chr(34) if (tome in TP_ENCRE or tome in TP_SOUS) else ""}>{il(sous)}</p>' if sous else ""}</div>
+<div class="tp-bas"{f' style="background:{TP_BAS_FOND[tome]};padding:9px 12px 8px;margin:0 -12px"' if tome in TP_BAS_FOND else (f' style="--bas:{TP_BAS_ENCRE[tome][0]};--bas-txt:{TP_BAS_ENCRE[tome][1]}"' if tome in TP_BAS_ENCRE else "")}><div class="tp-chap"><span>{f"Chapitres {aff(premier)} à {aff(dernier)}" if nb > 1 else f"Chapitre {aff(premier)}"}</span><span>{nb} chapitre{"s" if nb > 1 else ""}</span></div>
 <div class="tp-serie">{serie}</div></div></div></section>''')
     # --- dédicace (recto, après la page de titre ; JP, 14 octobre 2026 : « la première page, comme dans les livres »)
     pages.append(f'''<section class="page recto ax dd" id="a-dedicace"><div class="block">

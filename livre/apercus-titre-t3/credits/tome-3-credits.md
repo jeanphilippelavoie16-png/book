@@ -3,7 +3,7 @@
 **Ne s'imprime pas.** JP, 28 septembre 2026 : « enlève les pages crédit photo, garde les backup quelque part mais pas dans le livre ». Aucune page de crédits dans `livre/tome-3/interieur.pdf`, rien au sommaire.
 
 - **Tiré de :** `images/credits.md` et `images/photos/registre-*.md` (les registres restent la référence)
-- **Par :** `design/outils/assembler-tome.py 3`, le 2026-10-18 19:14, tome de 20 pages
+- **Par :** `design/outils/assembler-tome.py 3`, le 2026-10-18 22:27, tome de 20 pages
 - **Même contenu, lisible à l'écran :** `livre/apercus-titre-t3/credits/tome-3-credits.pdf`
 - **Page :** celle du tome où l'image s'imprime ; elle change à chaque assemblage.
 

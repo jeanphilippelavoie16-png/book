@@ -1,6 +1,6 @@
 # Tome 2 · Le corps — rapport d'assemblage
 
-- **Produit le :** 2026-10-18 21:57, par `design/outils/assembler-tome.py 2 --chapitres 19 --hors-ligne --sortie livre/apercus-titre-t2`
+- **Produit le :** 2026-10-18 22:23, par `design/outils/assembler-tome.py 2 --chapitres 19 --hors-ligne --sortie livre/apercus-titre-t2`
 - **Fichier :** `livre/tome-2/interieur.pdf` — 20 pages, 7.0 Mo
 - **Ouvertures :** au recto ou au verso (--verso)
 - **Placements :** design/epreuves-livre/placements.json, design/epreuves-livre/placements-tome-2.json
@@ -10,8 +10,8 @@
 
 | Pages du tome | Contenu | Pages |
 | --- | --- | ---: |
-| 1 | Dédicace | 1 |
-| 3 | Page de titre | 1 |
+| 1 | Page de titre | 1 |
+| 3 | Dédicace | 1 |
 | 5 | Sommaire | 1 |
 | 6–17 | ch. 19 — Le mal de caribou | 12 |
 | | Pages blanches (verso de la page de titre, avant les ouvertures, fin du tome) | 5 |
@@ -26,7 +26,7 @@ Aucune page de crédits (JP, 28 septembre 2026) : copie hors du livre dans `livr
 | Taille de chaque page | 585 × 738 pt (8,125 × 10,25 po) | 585.0 × 738.0 pt | oui |
 | Rognage (TrimBox) | 8 × 10 po, fond perdu au bord extérieur | recto : reliure à gauche ; verso : à droite | oui |
 | Nombre de pages | pair, de 20 à 440 (papier Standard) | 20 | oui |
-| Page 1 | à droite | ouverture du chapitre 00 | oui |
+| Page 1 | à droite | page de titre | oui |
 | Polices incorporées | toutes | 20 police(s), 0 non incorporée(s) | oui |
 | Taille du fichier | 2 Go au plus | 7.0 Mo | oui |
 | Marques d'imprimeur | aucune | aucune | oui |
@@ -34,7 +34,7 @@ Aucune page de crédits (JP, 28 septembre 2026) : copie hors du livre dans `livr
 | Noir du texte | 100 % K | noir sRVB (0, 0, 0) : la conversion est faite chez Blurb | à juger sur épreuve |
 | PDF/X | plus exigé en 2026 (le guide de 2010 le demandait) | PDF 1.4 d'Edge, pas PDF/X | à surveiller au téléversement |
 
-Polices du fichier : BarlowCondensed-Bold, BarlowCondensed-ExtraBold, BarlowCondensed-SemiBold, IBMPlexSansCond-Bold, IBMPlexSansCond-Medium, IBMPlexSansCond-SemiBold, IBMPlexSansCond-SemiBoldItalic, IBMPlexSerif-Bold, IBMPlexSerif-Italic, IBMPlexSerif-Regular, IBMPlexSerif-SemiBold, IBMPlexSerif-SemiBoldItalic, LiberationSerif, LiberationSerif-Italic, NotoSerif-Regular
+Polices du fichier : BarlowCondensed-Bold, BarlowCondensed-ExtraBold, BarlowCondensed-Medium, BarlowCondensed-SemiBold, IBMPlexSansCond-Bold, IBMPlexSansCond-Medium, IBMPlexSansCond-SemiBold, IBMPlexSansCond-SemiBoldItalic, IBMPlexSerif-Bold, IBMPlexSerif-Italic, IBMPlexSerif-Regular, IBMPlexSerif-SemiBold, IBMPlexSerif-SemiBoldItalic, LiberationSerif, LiberationSerif-Italic, NotoSerif-Regular
 
 ## Tranche et couverture
 

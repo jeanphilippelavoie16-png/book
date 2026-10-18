@@ -196,8 +196,8 @@ y rester 24 à 48 heures, protéger la thyroïde avec des comprimés d'iode, pui
  - Ce qui pousse à sortir : une personne est confuse, se réveille mal ou perd connaissance ; on ne trouve pas la
  source, ou on ne peut pas l'éliminer ; le chiffre affiché par l'avertisseur ne baisse pas une fois la source
  éliminée et la pièce ouverte. On peut quitter l'abri pour une personne dans cet état : sa vie est en jeu, comme
- pour une blessure grave (étape 24). Pour sortir, se couvrir le nez et la bouche d'un linge ; en rentrant, laisser
- ses vêtements du dessus et ses chaussures à l'entrée (étape 20).
+ pour une blessure grave (étape 24). Pour sortir, se couvrir le nez et la bouche d'un linge ; en rentrant, passer
+ par le coin de l'entrée (étape 20).
  - Ce qui pousse à rester : les retombées sont arrivées depuis peu, et une sortie fait recevoir le plus de
  rayonnement dans les premières heures (étape 4) ; le panache passe encore, et on respire beaucoup moins d'iode
  radioactif à l'intérieur (section 7, « Sans comprimés d'iode ») ; une fois la source éliminée, tout le monde est

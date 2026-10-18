@@ -1,6 +1,6 @@
 # Tome 3 · Prélever — rapport d'assemblage
 
-- **Produit le :** 2026-10-18 19:14, par `design/outils/assembler-tome.py 3 --chapitres 41 --hors-ligne --sortie livre/apercus-titre-t3`
+- **Produit le :** 2026-10-18 22:28, par `design/outils/assembler-tome.py 3 --chapitres 41 --hors-ligne --sortie livre/apercus-titre-t3`
 - **Fichier :** `livre/tome-3/interieur.pdf` — 20 pages, 2.6 Mo
 - **Ouvertures :** au recto ou au verso (--verso)
 - **Placements :** design/epreuves-livre/placements.json, design/epreuves-livre/placements-tome-3.json
@@ -10,8 +10,8 @@
 
 | Pages du tome | Contenu | Pages |
 | --- | --- | ---: |
-| 1 | Dédicace | 1 |
-| 3 | Page de titre | 1 |
+| 1 | Page de titre | 1 |
+| 3 | Dédicace | 1 |
 | 5 | Sommaire | 1 |
 | 6–18 | ch. 41 — Calendrier annuel de prélèvement | 13 |
 | | Pages blanches (verso de la page de titre, avant les ouvertures, fin du tome) | 4 |
@@ -26,15 +26,15 @@ Aucune page de crédits (JP, 28 septembre 2026) : copie hors du livre dans `livr
 | Taille de chaque page | 585 × 738 pt (8,125 × 10,25 po) | 585.0 × 738.0 pt | oui |
 | Rognage (TrimBox) | 8 × 10 po, fond perdu au bord extérieur | recto : reliure à gauche ; verso : à droite | oui |
 | Nombre de pages | pair, de 20 à 440 (papier Standard) | 20 | oui |
-| Page 1 | à droite | ouverture du chapitre 00 | oui |
-| Polices incorporées | toutes | 18 police(s), 0 non incorporée(s) | oui |
+| Page 1 | à droite | page de titre | oui |
+| Polices incorporées | toutes | 19 police(s), 0 non incorporée(s) | oui |
 | Taille du fichier | 2 Go au plus | 2.6 Mo | oui |
 | Marques d'imprimeur | aucune | aucune | oui |
 | Couleur | CMJN ou sRVB, sans ton direct | sRVB (Edge) | oui |
 | Noir du texte | 100 % K | noir sRVB (0, 0, 0) : la conversion est faite chez Blurb | à juger sur épreuve |
 | PDF/X | plus exigé en 2026 (le guide de 2010 le demandait) | PDF 1.4 d'Edge, pas PDF/X | à surveiller au téléversement |
 
-Polices du fichier : BarlowCondensed-Bold, BarlowCondensed-ExtraBold, BarlowCondensed-SemiBold, IBMPlexSansCond-Bold, IBMPlexSansCond-Medium, IBMPlexSansCond-SemiBold, IBMPlexSansCond-SemiBoldItalic, IBMPlexSerif-Bold, IBMPlexSerif-Italic, IBMPlexSerif-Regular, IBMPlexSerif-SemiBold, IBMPlexSerif-SemiBoldItalic
+Polices du fichier : BarlowCondensed-Bold, BarlowCondensed-ExtraBold, BarlowCondensed-Medium, BarlowCondensed-SemiBold, IBMPlexSansCond-Bold, IBMPlexSansCond-Medium, IBMPlexSansCond-SemiBold, IBMPlexSansCond-SemiBoldItalic, IBMPlexSerif-Bold, IBMPlexSerif-Italic, IBMPlexSerif-Regular, IBMPlexSerif-SemiBold, IBMPlexSerif-SemiBoldItalic
 
 ## Tranche et couverture
 

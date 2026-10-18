@@ -822,3 +822,132 @@ après de fortes pluies ») ; les rennes perdent « donc ».
   7,5 cm », « l'air entre déjà », « bien tassée » : ils portent le sens). 12 redites, les mêmes qu'avant.
 - **Invariants** : « 30 °C » (le diagnostic des comprimés change, E5 ; les 15 à 30 °C restent à l'étape 33) ;
   « 4 heures » (P17).
+
+## Étape 18, décision de JP, 18 octobre 2026
+
+La décision, mot pour mot : « Étape 18, c'est une bombe nucléaire : faut chercher la source et l'éliminer ; rendu là,
+c'est une question de jugement selon la situation. » Elle règle le point P8 de `suivi/04-technique.md` (rester dedans ou
+sortir à l'air libre devant le monoxyde) ; le point P7 (l'avertisseur au caveau) est posé dans la même étape, comme le
+proposait le vérificateur. Fichier en LF, gardé en LF. Texte d'avant : `git show HEAD:chapitres/04-retombees-radioactives.md`.
+
+### Le texte avant
+
+Première puce :
+
+> - Avant de boucher, poser l'avertisseur de CO dans la pièce et appuyer sur son bouton d'essai.
+
+Dernière puce :
+
+> - Les premiers signes du monoxyde (le mal de tête, la nausée, l'envie de dormir) ressemblent à ceux de
+> l'irradiation, et on reste couché au lieu d'agir. Si l'avertisseur sonne, ou si plusieurs personnes ont mal à la
+> tête ou envie de dormir en même temps : arrêter ce qui brûle, ouvrir la pièce d'abri sur le reste de la maison et
+> y emmener tout le monde, sans sortir dehors, puis aérer (section 7).
+
+### Le texte après
+
+Première puce (P7) :
+
+> - Avant de boucher, poser l'avertisseur de CO dans la pièce et appuyer sur son bouton d'essai. Au caveau, sous
+> 4,4 °C, on ne peut pas se fier à l'avertisseur : ne rien faire brûler dans le caveau.
+
+La dernière puce devient cinq puces :
+
+> - Les premiers signes du monoxyde (le mal de tête, la nausée, l'envie de dormir) ressemblent à ceux de
+> l'irradiation, et on reste couché au lieu d'agir. Si l'avertisseur sonne, ou si plusieurs personnes ont mal à la
+> tête ou envie de dormir en même temps, chercher d'abord la source du monoxyde (une flamme, une braise ou un
+> moteur) et l'éliminer. Éteindre la lampe, le fanal, le réchaud, la chaufferette et les chandelles. Arrêter le
+> moteur qui tourne dans le garage ou près de la maison. Mettre dehors ce qui brûle et qu'on ne peut pas éteindre,
+> comme un barbecue au charbon de bois.
+> - Si la source est le poêle à bois (de la fumée revient dans la maison, surtout quand le feu tombe en braise),
+> remboîter le tuyau s'il s'est déboîté, et donner de l'air au poêle (section 6). Ne pas fermer l'entrée d'air ni la
+> clé pour éteindre le feu : un feu qui manque d'air couve, et sa fumée fuit dans la maison même quand la porte du
+> poêle est fermée.
+> - Ensuite, décider selon la situation s'il faut rester à l'intérieur, en ouvrant la pièce d'abri sur le reste de
+> la maison et en l'aérant, ou sortir à l'air libre.
+> - Ce qui pousse à sortir : une personne est confuse, se réveille mal ou perd connaissance ; on ne trouve pas la
+> source, ou on ne peut pas l'éliminer ; le chiffre affiché par l'avertisseur ne baisse pas une fois la source
+> éliminée et la pièce ouverte. On peut quitter l'abri pour une personne dans cet état : sa vie est en jeu, comme
+> pour une blessure grave (étape 24). Pour sortir, se couvrir le nez et la bouche d'un linge ; en rentrant, passer
+> par le coin de l'entrée (étape 20).
+> - Ce qui pousse à rester : les retombées sont arrivées depuis peu, et une sortie fait recevoir le plus de
+> rayonnement dans les premières heures (étape 4) ; le panache passe encore, et on respire beaucoup moins d'iode
+> radioactif à l'intérieur (section 7, « Sans comprimés d'iode ») ; une fois la source éliminée, tout le monde est
+> réveillé et répond. Au sous-sol ou au caveau, sortir fait perdre beaucoup de protection ; dans une maison de bois
+> sans sous-sol, beaucoup moins (étapes 4 et 8).
+
+Le texte ne tranche pas entre rester et sortir : il donne ce qui pèse de chaque côté, et chaque poids est un fait
+sourcé ou un renvoi à une étape sourcée. Aucun chiffre nouveau ; le seul chiffre de l'étape (4,4 °C) vient de la page
+`co`.
+
+### La source de chaque fait
+
+| Fait | Où | Source |
+| --- | --- | --- |
+| L'avertisseur est fait pour une pièce entre 4,4 et 37,8 °C ; le froid peut changer sa sensibilité | Puce 1 (P7) | `15b-kidde-avertisseur-co-bouton-et-temperature.md` (« Operating Range: 4.4°C (40°F) to 37.8°C (100°F) » ; « Extreme temperatures may affect the sensitivity of the alarm ») ; `15b-quebec-avertisseurs-monoxyde-plage-temperature.md` ; page `co` (`dangers/partie-1.md`) |
+| Le caveau se tient à 0 °C, donc sous 4,4 °C | Puce 1 (P7) | Ch. 79, section 1 (« à **0 °C** ») ; `suivi/04-technique.md`, P7 |
+| Les signes du monoxyde ressemblent à ceux de l'irradiation ; on reste couché | Puce 6 (gardé tel quel) | Page `co` ; ORNL, p. 110 (`04-ornl-kearny-extraits-refonte-2026-10-18.md` : « nausea, vomiting, headache, dizziness ») ; confirmé au vérificateur, ligne 28 |
+| Plusieurs personnes ont mal à la tête en même temps : agir comme si c'était du monoxyde | Puce 6 (gardé) | Page `co` (« Comment on le reconnaît ») |
+| Le feu, la braise et les moteurs font le monoxyde ; la lampe, le fanal, le réchaud, la chandelle | Puce 6 | Page `co` (« Ce qui arrive ») ; `16c-cisss-cote-nord-monoxyde-de-carbone.md` (« tout type de combustible ») |
+| La chaufferette, le barbecue, la génératrice dans un garage font du monoxyde | Puce 6 | `16c-cisss-cote-nord-monoxyde-de-carbone.md` (« poêle à briquettes, Hibachi, BBQ, chaufferette à combustible, génératrice ») ; page `generatrice` ; étape 19 |
+| Le charbon de bois qui brûle fait souvent du monoxyde (il ne s'éteint pas d'un geste : on le met dehors) | Puce 6 | `16c-rncan-refoulement-braise-effet-de-tirage.md` (RNCan, p. 45 : « la combustion du charbon produit souvent du monoxyde de carbone ») ; le geste « le sortir » est celui de la décision de JP |
+| Le poêle refoule surtout quand le feu tombe en braise et que le tirage est faible | Puce 7 | `16c-rncan-refoulement-braise-effet-de-tirage.md` (RNCan, p. 38) |
+| Le tuyau déboîté est une cause du monoxyde d'un poêle | Puce 7 | Page `co`, point 5 ; `plan/dangers-inventaire.md`, 2.1 (ch. 40, 83) |
+| Donner de l'air au poêle : une entrée au même étage, du côté du vent | Puce 7 (renvoi à la section 6) | RNCan, p. 40 (E6 du vérificateur, déjà dans la section 6) |
+| Un feu qui manque d'air couve et fume, et fuit même porte de chargement fermée | Puce 7 | RNCan, p. 39 (« Un feu de bois qui manque d'air couve et fume […] même quand cette porte est fermée, un important feu couvant peut provoquer des fuites de fumée ») ; ch. 12, étape 48 |
+| Aérer la pièce d'abri fait partie de l'abri | Puce 8 | `04-cdc-abri-ventiler-en-quelques-heures.md` (CDC) ; FEMA 2022, p. 66 (« Make sure to maintain enough ventilation to ensure adequate indoor air quality », `06-fema-2022-detonation-nucleaire.md`) |
+| Confusion, perte de conscience : intoxication grave, la vie en jeu | Puce 9 | Page `co`, point 4 ; `04-quebec-ca-monoxyde-de-carbone.md` (intoxication grave : « perte de conscience ») ; `16c-cisss-cote-nord-monoxyde-de-carbone.md` (« perte de conscience, convulsion pouvant évoluer vers l'arrêt cardiorespiratoire ») |
+| On quitte l'abri pour une urgence qui menace la vie, comme pour une blessure grave | Puce 9 | LLNL 2009, p. ii (« Shelter for at least the first hour unless threatened by fire, building collapse, medical necessity, or other immediate threats », `06-llnl-2009-key-response-planning.md`) ; Ready.gov 2025 (« unless threatened by an immediate hazard (e.g., fire, gas leak, building collapse, or serious injury) », `06-ready-gov-urgences-radiologiques-2025.md`) ; étape 24 |
+| Tout chiffre affiché par l'avertisseur est du monoxyde | Puce 9 | `15-kidde-reentree-et-affichage-co.md` (déjà la source du « 0 ppm affiché » des Points de contrôle) |
+| Dehors, un linge sur le nez et la bouche ; en rentrant, le coin de l'entrée | Puce 9 (renvois) | LLNL 2009, p. ii ; étapes 4, 5 et 20 |
+| Une sortie coûte le plus dans les premières heures après l'arrivée des retombées | Puce 10 (renvoi à l'étape 4) | LLNL 2009, p. ii (« Avoid outdoor exposure during the first few minutes and hours after the fallout arrives—this is the highest priority ») et p. 3 (environ 55 % dans la première heure) ; FEMA 2022, p. 32 |
+| Rester dedans réduit beaucoup l'iode radioactif qu'on respire | Puce 10 (renvoi à la section 7) | ORNL, citant la FDA (« merely staying indoors can significantly reduce inhaled doses », `04-ornl-kearny-extraits-refonte-2026-10-18.md`) ; déjà sourcé pour la section 7 |
+| Le sous-sol et le caveau protègent beaucoup ; une maison de bois sans sous-sol, peu | Puce 10 (renvoi aux étapes 4 et 8) | LLNL 2009, tableau 1 (maison de bois 2 à 3, sous-sol 10 à 20, sous 3 pi de terre 5 000) ; FEMA 2022, p. 65 et 66 |
+
+**Ce que les sources ne disent pas.** Aucune source au dossier ne traite le monoxyde pendant les retombées, ni ne
+chiffre le compromis entre les deux dangers (recherche du 15 octobre, notée plus haut ; P8 du vérificateur). C'est pour
+ça que le texte ne donne pas de seuil : il donne les poids, et la personne juge. La puce 9 s'appuie sur la règle de
+l'abri elle-même, qui laisse partir pour une urgence médicale (LLNL, Ready.gov), et non sur une source qui dirait de
+sortir devant le monoxyde. Rien de chiffré n'est ajouté : aucun `[À VÉRIFIER]` dans l'étape.
+
+**Ce qui a été écarté en écrivant.**
+- « Ouvrir grand les fenêtres de la maison : comme des fenêtres cassées, elles enlèvent peu de protection » (LLNL,
+  « Broken windows do not greatly reduce the protection ») : la source parle du rayonnement, pas de l'iode du panache
+  qui entrerait avec l'air. Le texte garde la ventilation par le filtre de la section 7, déjà sourcée.
+- « Laisser mourir le feu, l'air et la clé ouverts » et « sortir la braise dans une chaudière de métal » (ch. 12,
+  étape 48) : laisser mourir le feu fait passer le poêle par la braise, le moment où il refoule le plus (RNCan, p. 38),
+  et l'étape dit déjà de ne pas l'étouffer. La braise du poêle reste couverte par « mettre dehors ce qui brûle ».
+- Le froid du dehors l'hiver comme poids : la page `co` dit déjà de garder la personne intoxiquée au chaud, et ce que
+  le froid fait dehors est l'évidence du lecteur.
+
+### Ailleurs
+
+- **Logigramme** (`images/logigrammes/04-retombees.json`), nœud « co » : « **Si l'avertisseur de CO sonne, ou si
+  plusieurs ont mal à la tête ou envie de dormir : arrêter ce qui brûle, ouvrir l'abri sur la maison et y emmener tout
+  le monde.** On reste à l'intérieur et on aère. » devient « **Si l'avertisseur de CO sonne, ou si plusieurs personnes
+  ont mal à la tête ou envie de dormir : chercher ce qui fait le monoxyde et l'éteindre, l'arrêter ou le sortir.**
+  Ensuite, décider selon la situation : rester à l'intérieur ou sortir à l'air libre. » La boîte passe de 5 à 6 lignes
+  et touchait la boîte « 48h » (erreur du contrôle) : le rang `dco` monte de 4,48 à 4,36 po, le haut de la boîte
+  « dose » qu'elle longe. Le `_note` du JSON dit la décision. Rendus refaits (`logigramme.py`, puis
+  `--sans-entete --svg`) : `04-retombees.svg`, `.pdf`, `.png`, `04-retombees-livre.svg` ; **0 erreur, 0 avis** ;
+  regardé à l'image : la boîte tient entre « Ne pas avaler d'iode » et « Rester jusqu'à 48 h », la flèche de
+  « pas-iode » vers « abri » passe à sa gauche sans la toucher.
+- **Pas changé**, et pourquoi : le Matériel (« le seul moyen de savoir… », vrai partout ; au caveau, la puce 1 dit de
+  ne rien faire brûler) ; les Points de contrôle (« Avant chaque sommeil… | Faire l'étape 18 tout de suite ») et la
+  section 6 (« Alarme de CO… | Faire l'étape 18 tout de suite »), qui renvoient à l'étape et la suivent ; l'étape 24
+  (sa liste d'exceptions sert de repère à la puce 9 sans changer) ; la page `co` (sa règle générale, sortir sans
+  chercher la source, reste juste hors des retombées ; l'étape 18 dit l'exception propre au chapitre) ; la section 3
+  de `plan/dangers-inventaire.md` (hors des fichiers donnés).
+- Aucune ancre de planche dans l'étape 18 (`placements-tome-1.json`) ; controle.py : 0 ancre introuvable.
+
+### controle.py, avant et après
+
+- **Avant** (texte de l'édition) : 9 094 mots, 2 tirets (titre et ligne de tome), 45 mots vides, 13 redites.
+- **Après** : 9 426 mots, 2 tirets (les mêmes), 0 « § », 0 mot banni, 0 tournure, 0 mise en relief, 0 maxime, 0
+  pronominal, 0 ancre introuvable ; invariants : rien n'a disparu.
+- **Mots vides** : 46 ; les deux nouveaux portent le sens (« le panache passe encore », « tout le monde est réveillé ») ;
+  le « tout le monde » de l'ancienne puce est parti avec elle.
+- **Redites** : 16 ; trois nouvelles, jugées : « couvrir le nez et la bouche » (étape 4 et puce 9 : le même geste pour
+  une autre sortie, six mots, plus court qu'un renvoi) ; « une maison de bois sans sous-sol », deux fois (le nom de la
+  chose, règle 6).
+- **Pronominaux** relus à la main : « s'il s'est déboîté » (le tuyau le fait seul), « se couvrir », « se réveille »,
+  « se fier » (verbes réfléchis ou essentiellement pronominaux, pas une consigne au pronominal).
