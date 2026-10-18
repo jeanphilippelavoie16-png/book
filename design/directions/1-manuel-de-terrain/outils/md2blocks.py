@@ -47,7 +47,7 @@ def load_notes(md, ch):
     NOTES.update(ch=ch, num=num, defs={k: " ".join(v) for k, v in defs.items()})
     for lab, n in num.items():
         if lab in NOTES["defs"]:
-            txt = _inline(NOTES["defs"][lab])
+            txt = pictos(_inline(NOTES["defs"][lab]))
             ALL_NOTES[f"{ch}-{n}"] = f'<p class="fn" data-fn="{ch}-{n}"><span class="fnn">{n}</span>{txt}</p>'
     return body
 
@@ -65,7 +65,30 @@ def inline(s):
     s = _inline(s)
     return re.sub("\x00FN([^\x00]+)\x00", _call, s)
 
+# ---------- pictogrammes de danger ----------
+# « {!co} » dans le Markdown : le pictogramme du danger, en ligne, au début de la phrase de l'étape où le danger se
+# présente (JP, 18 octobre 2026 : la section Danger sort ; le danger est expliqué une fois dans les pages des
+# dangers du tome). Les SVG sont dans images/pictos-dangers/<id>.svg ; un id sans fichier imprime un carré rouge
+# marqué de son id, pour qu'il se voie à l'épreuve.
+import os
+PICTOS_DIR = os.path.normpath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "..", "..", "images", "pictos-dangers"))
+_PICTOS = {}
+
+def picto_svg(pid, cls="picto"):
+    if pid not in _PICTOS:
+        f = os.path.join(PICTOS_DIR, pid + ".svg")
+        if os.path.exists(f):
+            t = re.sub(r"<\?xml[^>]*>\s*", "", open(f, encoding="utf-8").read()).strip()
+            _PICTOS[pid] = re.sub(r"<!--.*?-->", "", t, flags=re.S)
+        else:
+            _PICTOS[pid] = ('<svg viewBox="0 0 100 100"><rect width="100" height="100" rx="14" fill="#9B2C1E"/>'
+                            f'<text x="50" y="58" text-anchor="middle" font-size="22" fill="#fff">{pid}</text></svg>')
+    return re.sub(r"^<svg\b", f'<svg class="{cls}" data-picto="{pid}" role="img" aria-label="{pid}"', _PICTOS[pid], count=1)
+
+PICTO_RX = re.compile(r"\{!([a-z][a-z-]*)\}")
+
 def _inline(s):
+    s = PICTO_RX.sub(lambda m: "\x01" + m.group(1) + "\x01", s)
     s = html.escape(s, quote=False)
     s = s.replace("’", "’")
     # [À VÉRIFIER] entre backticks ou nu
@@ -78,6 +101,12 @@ def _inline(s):
     s = re.sub(r"\b([Cc]h\. \d+[a-z]?(?:, \d+[a-z]?)*)", lambda m: '<span class="ref">' + m.group(1).replace(" ", NBSP) + "</span>", s)
     s = re.sub(r"(§\s?\d+)", lambda m: '<span class="ref">' + m.group(1).replace(" ", NBSP) + "</span>", s)
     return typo(s)
+
+def pictos(s):
+    """Pose les pictogrammes laissés en jalon par _inline. À appeler en dernier (build_chapitre.il) : les retouches
+    typographiques qui suivent _inline abîmeraient les chiffres des tracés SVG. Le pictogramme colle au mot qui le suit
+    (espace insécable) : il ne reste jamais seul au bout d'une ligne."""
+    return re.sub("\x01([a-z-]+)\x01[ \u00a0\u202f]?", lambda m: picto_svg(m.group(1)) + NBSP, s)
 
 def join_lines(lines):
     return " ".join(l.strip() for l in lines if l.strip())

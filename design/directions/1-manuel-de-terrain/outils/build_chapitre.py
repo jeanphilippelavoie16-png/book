@@ -19,7 +19,7 @@ Logigramme en double page : même fichier, clé « logigramme » (fichier : le S
 """
 import re, sys, os, glob, json, html, subprocess, time, tempfile, shutil
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from md2blocks import inline, load_notes, notes_html, join_lines
+from md2blocks import inline, load_notes, notes_html, join_lines, pictos
 
 def _racine_livre():
     # Windows (le PC de JP) : le dossier d'origine ; ailleurs (session dans le nuage) : le dépôt qui contient ce fichier
@@ -102,7 +102,7 @@ def il(s):
     s = re.sub("&(gt|lt|amp)[\u202f\u00a0 ];", r"&\1;", s)
     s = re.sub(rf"(\d) ({UNITS})(?![\w/])", "\\1\u202f\\2", s)
     s = re.sub(r"(?<![\d,])(\d{1,3}) (\d{3})(?![\d,])", "\\1\u202f\\2", s)   # 7 000, 1 440
-    return s
+    return pictos(s)
 
 # ------------------------------------------------------------------ premières minutes (la série orange)
 # CLAUDE.md, « Les premières minutes, en orange » (JP, 15 octobre 2026). Dans le Markdown, la série se marque
