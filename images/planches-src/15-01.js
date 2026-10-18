@@ -89,7 +89,7 @@ module.exports = (h) => {
   };
   // ── 7 : tirer en glissant sur le ventre, replanter plus loin ──
   const vTirer = z => {
-    const E = 150, yG = 96;
+    const E = 150, yG = 110;
     const g = corps(TIRER, { x: dx(TIRER, 'hancheP', E + 40 * S), y: yG,
       objetP: gg => picCorps(gg.mainP, yG, true), objetL: gg => picCorps(gg.mainL, yG, true) });
     const A = g.articulations, yF = yG - 47;
@@ -120,29 +120,30 @@ module.exports = (h) => {
     out.push(h.chemin(T, h.a.hachure('eau', 'contour'), true));
     out.push(h.chemin([[cx - 70, hy - 10], [cx - 48, hy - 14], [cx - 44, hy + 2], [cx - 66, hy + 6]], blanc(h.a.arete), true));
     out.push(h.chemin([[cx + 18, hy - 6], [cx + 40, hy - 10], [cx + 44, hy + 6], [cx + 22, hy + 10]], blanc(h.a.arete), true));
-    // quatre positions, un quart de tour chacune, la première collée au bord du trou : à plat ventre (le corps vu de
+    // cinq positions, un quart de tour chacune, la première collée au bord du trou : à plat ventre (le corps vu de
     // dos), sur le côté (vu de dessus, c'est le profil : les épaules et les hanches de côté, le bras du dessus le long du
-    // corps), sur le dos (vu de face), à plat ventre. Toutes couchées par la planche, la tête à gauche.
+    // corps), sur le dos (vu de face), sur l'autre côté (le profil retourné), à plat ventre. Toutes couchées par la planche, la tête à gauche.
     const DROIT = { appui: 'pieds', angles: { tronc: 0, cou: 4, tete: 0, brasP: 2, avantbrasP: 4, brasL: 0, avantbrasL: 2,
       cuisseP: 0, jambeP: 0, piedP: 90, cuisseL: 0, jambeL: 0, piedL: 90 } };
     const formes = [
       o => corpsD(Object.assign({ vue: 'dos', cheveux: false }, o)),
       o => F.corps(Object.assign({ pose: DROIT, cote: 'droite', echelle: SD, visage: false }, o)),
       o => corpsD(o),
+      o => F.corps(Object.assign({ pose: DROIT, cote: 'gauche', echelle: SD, visage: false }, o)),
       o => corpsD(Object.assign({ vue: 'dos', cheveux: false }, o)),
     ];
     const poses = formes.map(f => { const q = f({ x: 0, y: 0 }).boite; return { f, cx: (q.x0 + q.x1) / 2, cy: (q.y0 + q.y1) / 2, dw: (q.x1 - q.x0) / 2 }; });
     const ys = [];
     let yy = hy + 23;
-    for (const [k, q] of poses.entries()) { yy += q.dw + (k ? 4 : 0); ys.push(yy); yy += q.dw; }
+    for (const [k, q] of poses.entries()) { yy += q.dw + (k ? 5 : 0); ys.push(yy); yy += q.dw; }
     for (const [k, q] of poses.entries()) {
       const g = String(q.f({ x: cx - q.cx, y: ys[k] - q.cy }));
       const t = `<g transform="rotate(-90 ${P(cx, ys[k])})">${g}</g>`;
-      out.push(k < 3 ? t.replace(/fill="#FFFFFF"/g, 'fill="#E6E6E6"') : t);
+      out.push(k < 4 ? t.replace(/fill="#FFFFFF"/g, 'fill="#E6E6E6"') : t);
     }
-    // la roulade : sur chacune des trois premières positions, un arc rouge qui s'enroule autour du tronc
+    // la roulade : sur chacune des quatre premières positions, un arc rouge qui s'enroule autour du tronc
     // (l'arc passe par-dessus le corps de haut en bas : le dessus du corps part vers le bas, du côté où l'on roule)
-    for (let k = 0; k < 3; k++) out.push(anneau(cx - demiL * 0.3, ys[k], 4.5, poses[k].dw + 2.5, 150, 410));
+    for (let k = 0; k < 4; k++) out.push(anneau(cx - demiL * 0.3, ys[k], 4.5, poses[k].dw + 2.5, 150, 410));
     // les traces de bottes de l'aller : semelle ovale plus large devant, talon à part, gauche et droite en quinconce,
     // dans l'axe de la roulade, du bas de la vue jusqu'au bord du trou, à gauche des têtes
     const xT = cx - demiL - 34;
@@ -154,7 +155,7 @@ module.exports = (h) => {
     for (let y = z.h - 10, k = 0; y > hy + 24; y -= 13, k++) out.push(botte(xT + (k % 2 ? 4 : -4), y, k % 2 === 1));
     // la flèche du geste : le long des traces, du trou vers le bas
     const xF = xT + 15;
-    out.push(h.geste(`M ${P(xF, ys[0] - 4)} L ${P(xF, ys[3] + 14)}`));
+    out.push(h.geste(`M ${P(xF, ys[0] - 4)} L ${P(xF, ys[4] + 14)}`));
     return { svg: out.join('\n'), cx, hy, ys, xF };
   };
 
@@ -205,7 +206,7 @@ module.exports = (h) => {
   const vPoing = z => {
     const yG = z.h - 16;
     const ancre = [(5364.4 - 5362.7) / 539.9, (638.8 - 197.5) / 448.3];
-    const m = F.mainStock({ id: 'poing-manche-debout', miroir: true, objet: false, taille: 168, ancre, x: z.l + 3, y: yG, angle: 7 });
+    const m = F.mainStock({ id: 'poing-manche-debout', miroir: true, objet: false, taille: 140, ancre, x: z.l + 3, y: yG, angle: 7 });
     const o = m.objet, a = o.angle * Math.PI / 180, k = m.echelle;
     const u = [Math.cos(a), Math.sin(a)], n = [-u[1], u[0]];          // l'axe du manche (vers le bas), sa normale
     const at = (t, q = 0) => [o.x + u[0] * t + n[0] * q, o.y + u[1] * t + n[1] * q];
@@ -237,7 +238,7 @@ module.exports = (h) => {
     desc: 'Six vues, dans l’ordre des gestes. Avant d’aller sur la glace, la paire de pics, la pointe de l’une rentrée dans l’autre, pend au cou par-dessus le manteau, au milieu de la poitrine. Dans l’eau, on se tourne vers le côté d’où l’on vient et on pose les avant-bras à plat sur la glace. De près, le pic tenu au poing, la pointe vers la glace. On plante les pics près du bord, on bat des jambes jusqu’à ce que le corps soit à l’horizontale, on tire en glissant sur le ventre et on replante plus loin. Vu de dessus, sorti, on roule loin du trou vers ses traces, sans se relever : trois positions successives, la flèche vers les traces de bottes de l’aller.',
     format: 'pleine',
     disposition: [['porter', 'eau'], ['poing', 'jambes'], ['tirer', 'dessus']],
-    hauteurs: [262, 190, 198],
+    hauteurs: [246, 170, 234],
     vues: {
       porter: {
         titre: 'Avant d’aller sur la glace',
@@ -277,7 +278,7 @@ module.exports = (h) => {
         titre: 'Vu de dessus',
         dessin: z => vDessus(z).svg,
         renvois: z => { const v = vDessus(z); return [
-          { n: 8, rond: [v.xF + 24, z.h - 11], cible: [v.xF + 3, v.ys[3] + 12], texte: 'rouler vers ses traces, sans se relever' },
+          { n: 8, rond: [v.xF + 34, z.h - 11], cible: [v.xF + 3, v.ys[4] + 14], texte: 'rouler vers ses traces, sans se relever' },
         ]; },
       },
     },
