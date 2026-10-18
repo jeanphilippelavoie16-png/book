@@ -8,6 +8,7 @@ du ciel et que les rondins gardent leurs traits.
     python3 trois-encres.py <entrée> <sortie.png> [x0,y0,x1,y1 ...]
 
 Chaque rectangle donné est d'abord repeint en papier : c'est pour effacer une fausse signature posée sur la neige.
+« g5 » ou « d5 » : la marge crème de 5 px à gauche ou à droite est remplacée par la colonne voisine de l'image.
 """
 import sys
 import numpy as np
@@ -22,6 +23,13 @@ im = Image.open(src).convert("RGB")
 w, h = im.size
 a = np.asarray(im).astype(float)
 for r in sys.argv[3:]:
+    if r[0] in "gd":
+        n = int(r[1:])
+        if r[0] == "g":
+            a[:, :n] = a[:, n:n + 1]
+        else:
+            a[:, w - n:] = a[:, w - n - 1:w - n]
+        continue
     x0, y0, x1, y1 = map(int, r.split(","))
     a[y0:y1, x0:x1] = PAPIER
 big = Image.fromarray(a.astype(np.uint8)).resize((w * 2, h * 2), Image.LANCZOS)
