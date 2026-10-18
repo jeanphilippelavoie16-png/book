@@ -870,8 +870,10 @@ là » : il suffit d'y poser le pictogramme et de couper la redite.
   74 °C »), déjà là. Le reste des rappels saute : il ne sert à aucune étape du chapitre.
 - **Posés à la refonte du 18 octobre 2026** (numérotation nouvelle du chapitre) : `poison` aux étapes 12 et 16 ;
   `co` à l'étape 18 ; `generatrice` à l'étape 19 ; `abats` et `mal-de-caribou` à l'étape 30 ; `zone-de-danger` à
-  l'étape 31 (le trempage de 2 jours, tenu entre 0 et 4 °C) ; `cuisson` et `trichine` à l'étape 32. `botulisme` n'est
-  posé nulle part : aucune étape ne fume ni ne garde de poisson (fiche `suivi/04-redaction.md`).
+  l'étape 31 (le trempage de 2 jours, tenu entre 0 et 4 °C) ; `cuisson` et `trichine` à l'étape 32. `botulisme` est
+  posé à l'étape 31, sur la puce du poisson (bain tenu sous 3 °C, avec de la glace ou de la neige) : le trempage
+  garde du poisson dans l'eau 4 à 8 heures (corrections du vérificateur du 18 octobre 2026, `suivi/04-technique.md`,
+  point P15).
 
 **Ch. 05, Le stock permanent du chalet** (chapitre de référence, tableaux).
 - `co` + `generatrice` : avertisseur dans chaque chambre où on dort porte fermée, à plus de 2 m d'un appareil,

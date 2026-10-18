@@ -1,5 +1,5 @@
 {
-  "_note": "Logigramme du chapitre 4 (retombées radioactives), double page. Refait le 15 octobre 2026 (pas de branche « source perdue », radio après l'abri, ni « sas » ni « sceller », phrases complètes), puis le 18 octobre 2026 sur le chapitre refait au gabarit à sept sections : renvois aux nouvelles étapes, pastilles identiques aux trois séries orange (30 s, 10 min, 2 h), l'heure écrite qui ouvre la série de l'iode, le bouchage de quelques heures, plus d'avertissement redit ; colonnes de droite gardées telles quelles. Rendu : python design/outils/logigramme.py images/logigrammes/04-retombees.json. « source » : les étapes du chapitre d'où vient chaque geste (ignoré au rendu).",
+  "_note": "Logigramme du chapitre 4 (retombées radioactives), double page. Refait le 15 octobre 2026 (pas de branche « source perdue », radio après l'abri, ni « sas » ni « sceller », phrases complètes), puis le 18 octobre 2026 sur le chapitre refait au gabarit à sept sections : renvois aux nouvelles étapes, pastilles identiques aux trois séries orange (30 s, 10 min, 2 h), l'heure écrite qui ouvre la série de l'iode, le bouchage de quelques heures, plus d'avertissement redit ; colonnes de droite gardées telles quelles. Édition du 18 octobre 2026 (suivi/04-edition.md) : boîtes dites en phrases, étiquette « à moins de 15 min ». Rendu : python design/outils/logigramme.py images/logigrammes/04-retombees.json. « source » : les étapes du chapitre d'où vient chaque geste (ignoré au rendu).",
   "format": "double",
   "tome": 1,
   "urgent": true,
@@ -147,7 +147,7 @@
       "rang": "g4",
       "ancre": "haut",
       "temps": "10 min",
-      "texte": "**Entrer dans le bâtiment le plus solide qu'on atteint en quelques minutes** : sous-sol, béton, brique. Les gens qui étaient à l'extérieur doivent laisser leurs vêtements du dessus et leurs chaussures à la porte.",
+      "texte": "**Entrer dans le bâtiment le plus solide qu'on atteint en quelques minutes** : un sous-sol, ou un bâtiment de béton ou de brique. Les gens qui étaient à l'extérieur doivent laisser leurs vêtements du dessus et leurs chaussures à la porte.",
       "renvoi": "ch. 4, étapes 4 et 5",
       "source": "étapes 4 et 5"
     },
@@ -163,7 +163,7 @@
       "type": "urgent",
       "col": "cote",
       "rang": "g5",
-      "texte": "**Ne pas ressortir chercher quelqu'un.** Un enfant à l'école doit y rester : l'école de béton le protège mieux que la maison. On se retrouve après l'abri.",
+      "texte": "**Ne pas ressortir chercher quelqu'un.** Un enfant à l'école doit y rester : il y est mieux protégé qu'à la maison. On se retrouve après l'abri.",
       "renvoi": "ch. 4, étape 6",
       "source": "étape 6",
       "taille": 10
@@ -203,7 +203,7 @@
       "rang": "g8",
       "ancre": "haut",
       "taille": 10,
-      "texte": "**Y aller**, et partir au plus tard 30 min après l'éclair.",
+      "texte": "**Y aller**, en partant au plus tard 30 min après l'éclair.",
       "renvoi": "ch. 4, étape 9",
       "source": "étape 9"
     },
@@ -246,7 +246,7 @@
       "type": "question",
       "col": "tronc2",
       "rang": "d3",
-      "texte": "On a des comprimés d'iode (KI) ?",
+      "texte": "On a des comprimés d'iode ?",
       "taille": 10
     },
     {
@@ -263,7 +263,7 @@
       "type": "geste",
       "col": "cote2",
       "rang": "d4",
-      "texte": "**Ne pas avaler d'iode radioactif** : pendant 6 à 8 semaines, pas de lait frais, pas d'eau de surface ni de neige fondue, et pas de légumes-feuilles du jardin.",
+      "texte": "**Ne pas avaler d'iode radioactif** : pendant 6 à 8 semaines, ne pas boire de lait frais, d'eau de surface ni de neige fondue, et ne pas manger les légumes-feuilles du jardin.",
       "renvoi": "ch. 4, section 7",
       "source": "section 7, Sans comprimés d'iode ; étape 14",
       "taille": 10
@@ -309,7 +309,7 @@
       "rang": "d7",
       "ancre": "haut",
       "texte": "Au bout de 24 h, la radio annonce que le rayonnement baisse ?",
-      "precision": "Avec un électroscope, la baisse se voit dessus",
+      "precision": "Un électroscope montre aussi la baisse",
       "source": "étape 24",
       "taille": 10
     },
@@ -330,7 +330,7 @@
       "col": "tronc2",
       "rang": "d8",
       "ancre": "haut",
-      "texte": "**Remplacer les filtres de la fournaise** et les sortir dans un sac fermé. Ensuite, sortir peu de temps à la fois.",
+      "texte": "**Remplacer les filtres de la fournaise** et sortir les vieux filtres dans un sac fermé. Ensuite, sortir peu de temps à la fois.",
       "renvoi": "ch. 4, étape 25",
       "source": "étape 25",
       "taille": 10
@@ -355,7 +355,7 @@
       "col": "cote2",
       "rang": "d9",
       "ancre": "haut",
-      "texte": "**Trier pendant des années** le gibier, le poisson et le jardin.",
+      "texte": "**Trier pendant des années** le gibier, le poisson et les légumes.",
       "renvoi": "ch. 4, étapes 28 à 32",
       "source": "étapes 27 à 32",
       "taille": 10
@@ -446,7 +446,7 @@
     {
       "de": "ou",
       "vers": "changer",
-      "etiquette": "Un abri plus solide à 15 min",
+      "etiquette": "Un abri plus solide à moins de 15 min",
       "coude": 7.5,
       "pos": "palier"
     },

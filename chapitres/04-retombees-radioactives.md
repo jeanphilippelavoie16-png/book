@@ -31,7 +31,7 @@ y rester 24 à 48 heures, protéger la thyroïde avec des comprimés d'iode, pui
 ## 3. Matériel
 
 - **Comprimés d'iodure de potassium de 65 mg** : ils protègent la thyroïde de l'iode radioactif en la remplissant d'iode ordinaire (étape 12).
-- **Radio à piles ou à manivelle** : la seule façon d'apprendre où va le panache et quand l'abri finit (sans radio : section 7).
+- **Radio à piles ou à manivelle** : la seule façon d'avoir des nouvelles dans l'abri (étape 17 ; sans radio : section 7).
 - **Eau dans des contenants fermés** : 4 L par personne et par jour, tirés avant le passage des retombées (étape 22).
 - **Avertisseur de CO à pile, à affichage** : le seul moyen de savoir que la pièce d'abri fermée se remplit de monoxyde (étape 18).
 - **Compteur Geiger ou dosimètre à affichage** : mesure le rayonnement dans la pièce et dehors, et montre quand il a assez baissé pour sortir (sans compteur : section 7).
@@ -95,7 +95,7 @@ y rester 24 à 48 heures, protéger la thyroïde avec des comprimés d'iode, pui
 9. **Dans une maison de bois sans sous-sol, changer d'abri si un meilleur est à moins de 15 minutes** : un
  sous-sol, ou un gros bâtiment de béton ou de brique. Partir au plus tard 30 minutes après l'éclair. En
  arrivant, enlever ses vêtements du dessus et ses chaussures comme à l'étape 5. S'il n'y a pas de meilleur abri à
- moins de 15 minutes, rester et empiler autour de soi ce qui est lourd (section 7).
+ moins de 15 minutes, rester et faire comme à l'étape 8.
 10. **Se laver, une fois à l'intérieur.**
  - Avec de l'eau : savonner et rincer la peau et les cheveux qui étaient découverts, sans frotter fort, en
  gardant les coupures couvertes. Prendre du shampooing, sans revitalisant : le revitalisant fait coller la
