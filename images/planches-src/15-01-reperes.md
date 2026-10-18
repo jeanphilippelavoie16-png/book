@@ -3,8 +3,9 @@
 Pleine page, six vues dans l'ordre des gestes (chapitre 15, ligne « Pics à glace » du Matériel et étape 34). Les
 quatre coupes de la séquence (2 et 3, 5 et 6, 7, 8) sont à la même échelle, la glace à gauche, le trou à droite.
 
-1. **Porter les pics au cou, par-dessus le manteau** (vue « Avant d'aller sur la glace ») : la personne de profil, le
-   cordon passé derrière la nuque, les deux pics qui pendent au milieu de la poitrine.
+1. **Porter les pics au cou, par-dessus le manteau** (vue « Avant d'aller sur la glace ») : la personne de profil, la
+   paire de pics au milieu de la poitrine, la pointe de l'une rentrée dans l'autre (les clous en tireté), le cordon
+   qui fait le tour du cou et entre dans les deux bouts.
 2. **Se tourner vers le côté d'où l'on vient** : dans l'eau jusqu'aux aisselles, la personne regarde vers la glace de
    gauche ; la flèche rouge en anneau au-dessus de la tête dit le demi-tour.
 3. **Poser les avant-bras à plat sur la glace** : les deux avant-bras couchés sur la glace intacte, les poings au bout,

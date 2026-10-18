@@ -519,28 +519,31 @@ anti-siphon au fond du goulot des autos récentes ; étouffer l'essence en feu s
 
 ### Planches
 
-Les repères sont fixés ici, dans l'ordre des gestes du texte ; les planches 15-01 et 15-02 sont refaites par
-d'autres agents (`images/planches-src/15-01-reperes.md`, `15-02-reperes.md`), l'orchestrateur réconcilie.
+Les repères du texte suivent les fichiers de repères des planches refaites le 18 octobre par d'autres agents
+(`images/planches-src/15-01-reperes.md`, 8 repères ; `15-02-reperes.md`, 13 repères) : le texte a été réordonné
+pour les appeler dans leur ordre (étapes 3 à 6 ; section 8, « Amorcer sans la bouche »).
 
-- **15-01** (pleine page) : 1 se tourner vers ses traces ; 2 avant-bras à plat ; 3 tirer les deux poignées pour
-  séparer les pics ; 4 le pic au poing, pointe sous le petit doigt ; 5 battre des jambes jusqu'à l'horizontale ;
-  6 pics plantés près du bord ; 7 tirer en glissant, replanter ; 8 rouler loin du trou ; 9 ses traces, la glace
-  qui a porté ; 10 bouts de manche à balai de 10 cm ; 11 clou étêté au fond du trou (ou tête limée) ; 12 second
-  trou qui loge la pointe de l'autre pic ; 13 cordon noué en travers, un pic à chaque bout ; 14 la paire au milieu
-  de la poitrine, par-dessus le manteau.
-- **15-02** (pleine page) : 1 bidon plus bas que le fond du réservoir ; 2 boyau rempli, deux bouts pincés ; 3 un
-  bout au fond du réservoir, l'autre dans le bidon ; 4 boyau long ; 5 boyau court dans l'air ; 6 chiffon dans le
-  goulot ; 7 pompe à vélo ; 8 siège (tube étroit) ; 9 bille ; 10 clou en croix au-dessus ; 11 plonger et secouer ;
-  12 l'essence passe le bord et coule seule ; 13 le bec du bidon contre le métal nu.
+- **15-01** (pleine page, refaite) : 1 les pics portés au cou, sur la poitrine (étape 3) ; 2 se tourner vers le
+  côté par où on est arrivé ; 3 avant-bras à plat ; 4 le pic au poing, pointe sous le petit doigt (étape 4) ;
+  5 planter près du bord ; 6 battre des jambes jusqu'à l'horizontale ; 7 tirer en glissant, replanter (étape 5) ;
+  8 rouler loin du trou (étape 6). La vue « Les pics, faits maison » de l'ancienne 15-01 n'est plus dans la
+  planche refaite : elle passe à la 15-04 proposée.
+- **15-02** (pleine page, refaite) : 1 bidon au sol, plus bas que l'essence ; 2 boyau long jusqu'au fond ; 3 boyau
+  court dans l'air ; 4 chiffon autour des deux boyaux ; 5 pomper doucement ; 6 le boyau plein coule seul ;
+  autre façon, 7 le boyau à bille au lieu de 3 à 5 ; 8 tube étroit (siège) ; 9 bille ; 10 clou au-dessus ;
+  11 secouer ; 12 la bille monte ; 13 la bille retombe. Le boyau rempli d'avance (troisième façon) reste sans
+  dessin.
 - **15-03** (proposée, demi-page) : sortir quelqu'un d'autre de l'eau. 1 le sauveteur couché sur la glace qui a
   porté tend ou lance ; 2 le bidon bouché au bout de la corde ; 3 la corde nouée sous les bras ; 4 on tire, la
   personne à plat ventre bat des jambes ; 5 autre façon : aller couché en poussant le toboggan, attaché à une
-  corde tenue par un autre adulte.
-- **15-04** (proposée, petite planche) : l'auto prise dans la neige. 1 le tuyau d'échappement dégagé jusqu'au
-  sol ; 2 la fenêtre entrouverte du côté opposé au vent (vue de dessus, flèche du vent).
+  corde tenue par un autre adulte (étapes 8 et 9).
+- **15-04** (proposée, demi-page) : faire des pics à glace (section 8). 1 deux bouts de manche à balai de 10 cm ;
+  2 le clou étêté, côté coupé au fond du trou (autre façon : le clou planté pointe première, tête limée) ; 3 le
+  second trou qui loge la pointe de l'autre pic ; 4 le cordon noué en travers, un pic à chaque bout ; 5 la paire
+  au cou, au milieu de la poitrine, par-dessus le manteau.
 
 Ancrages proposés (`apres`, chacun unique dans le chapitre) : logigramme après « **Trousse d'allumage, sur
-soi** » ; 15-01 après « 3. **Se tourner vers le côté par où on est arrivé** » ; 15-03 après « 8. **Quelqu'un
-d'autre est tombé » ; 15-04 après « 11. **En auto, avant de laisser tourner le moteur » ; 15-02 après
-« **Amorcer sans la bouche** ». L'ancre actuelle de 15-01 dans `placements-tome-1.json` (« 34. Si on tombe à
-travers la glace… ») n'existe plus. À vérifier au montage : 15-01, 15-03 et 15-04 tombent dans une série orange.
+soi** » ; 15-01 après « 3. **Prendre les pics à glace, s'il y en a au cou** » ; 15-03 après « 8. **Quelqu'un
+d'autre est tombé » ; 15-02 après « **Amorcer sans la bouche** » ; 15-04 après « Il faut deux bouts de manche
+à balai, deux gros clous et un cordon ». L'ancre actuelle de 15-01 dans `placements-tome-1.json` (« 34. Si on tombe à
+travers la glace… ») n'existe plus. À vérifier au montage : 15-01 et 15-03 tombent dans une série orange.

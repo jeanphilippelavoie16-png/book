@@ -99,7 +99,7 @@ Quelqu'un est blessé dans le bois, au bûchage, à la chasse, sur le sentier.
 5. **Emballer avant de partir.** Sapin en couches croisées ou matelas dessous, le blessé dans un sac
  de couchage fermé, tuque, visage dégagé, pare-vapeur (ch. 25, étape 8). Le sol gelé lui prend sa
  chaleur par contact plus vite que l'air. Sur le traîneau, immobile et sans effort, il gèle avant
- ceux qui tirent (ch. 15, étape 25).
+ ceux qui tirent (ch. 15, étape 38).
 6. **Le sangler sur ce qui glisse.** Toboggan, traîneau à bois, capot retourné, porte, ou le
  traîneau de perches du §9. Sangles en travers de la poitrine, du bassin et des cuisses, vides
  bourrés de linge roulé pour qu'il ne glisse pas dans les descentes, tête calée. Deux personnes
@@ -108,9 +108,9 @@ Quelqu'un est blessé dans le bois, au bûchage, à la chasse, sur le sentier.
 7. **Placer les porteurs.** Deux devant, aux brancards ou à la corde ; dans les descentes, une
  personne derrière, à la corde, qui retient. Quelqu'un ouvre la piste en raquettes devant le
  traîneau. La relève se fait souvent, avant que les bras lâchent, et à chaque relève on regarde le
- visage et les doigts du blessé, plus souvent que le délai de gelure du jour (ch. 15, étape 25).
+ visage et les doigts du blessé, plus souvent que le délai de gelure du jour (ch. 15, étape 38).
 8. **Choisir le chemin.** Le sentier tapé plutôt que le plus court. Hors de la glace des lacs : sur
- la glace, le passager d'un traîneau ne s'attache pas (ch. 15, étape 24), et un blessé se sangle.
+ la glace, le passager d'un traîneau ne s'attache pas (ch. 15, étape 37), et un blessé se sangle.
  Pas de gravier ni de roche à nu : ce qui accroche renverse le traîneau (ch. 35, 9-C).
 9. **Partir de jour, et laisser le camp tenu.** Un adulte nommé reste avec les enfants et le poêle
  (ch. 35, 5-C). Une note sur la porte : qui est parti, à quelle heure, vers où, dans quel état

@@ -128,14 +128,25 @@ module.exports = (h) => {
     let pic = null;
     const pics = gg => {
       const A = gg.articulations, cou = A.cou, ep = A.epauleP;
-      // les pics au milieu de la poitrine, juste devant elle ; le cordon part derrière la nuque, passe sur l'épaule
-      const xP = ep[0] - 146 * SB, yP = ep[1] + 150 * SB;
-      pic = { x: xP, y: yP, L: 100 * SB };
+      // La paire, la pointe de l'une rentrée dans l'autre : deux manches bout à bout, debout au milieu de la poitrine,
+      // juste devant elle. Le cordon fait le tour du cou et descend au bout du haut ; son autre brin passe derrière la
+      // paire et entre dans le bout du bas.
+      const x = ep[0] - 146 * SB, y0 = ep[1] + 96 * SB, L = 100 * SB, r = 15 * SB, e = r * 0.35;
+      pic = { x, y: y0, L: 2 * L };
       const nuque = [cou[0] + 42 * SB, cou[1] - 22 * SB];
+      const manche = (ya, yb) => h.path(`M ${P(x - r, ya)} L ${P(x - r, yb)} L ${P(x + r, yb)} L ${P(x + r, ya)} Z`, blanc(h.a.arete));
+      const yM = y0 + L, yB = y0 + 2 * L;
       return [
-        picPendu(xP + 9 * SB, yP - 10 * SB, SB, true),
-        corde(`M ${P(...nuque)} C ${P(nuque[0] - 30 * SB, nuque[1] + 60 * SB)} ${P(xP + 40 * SB, yP - 120 * SB)} ${P(xP, yP + 6 * SB)}`),
-        picPendu(xP, yP, SB, false),
+        // le brin du bas descend derrière la paire, du bout du haut jusqu'au bout du bas, où il entre par-dessous
+        corde(`M ${P(x + r * 0.5, y0 + 6 * SB)} L ${P(x + r * 0.5, yB - 4 * SB)} C ${P(x + r * 0.5, yB + 26 * SB)} ${P(x - r * 0.2, yB + 24 * SB)} ${P(x - r * 0.2, yB)}`, 3),
+        manche(y0, yM), manche(yM, yB),
+        // les deux clous, cachés : chacun entre dans le trou qui l'attend dans l'autre manche
+        h.ligne(x - r * 0.45, yM - 30 * SB, x - r * 0.45, yM + 26 * SB, h.a.cache),
+        h.ligne(x + r * 0.45, yM - 26 * SB, x + r * 0.45, yM + 30 * SB, h.a.cache),
+        h.path(`M ${P(x - r, yB)} A ${P(r, e)} 0 0 0 ${P(x + r, yB)}`, h.a.arete),
+        h.ellipse(x, y0, r, e, blanc(h.a.arete)),
+        // le brin du haut : de la nuque, par-dessus l'épaule, jusqu'au bout du haut
+        corde(`M ${P(...nuque)} C ${P(nuque[0] - 30 * SB, nuque[1] + 60 * SB)} ${P(x + 40 * SB, y0 - 90 * SB)} ${P(x, y0)}`, 3),
       ].join('\n');
     };
     const g = F.corps({ pose: DEBOUT, cote: 'gauche', echelle: SB, x: ox, y: oy, visage: true, objet: pics });
@@ -180,7 +191,7 @@ module.exports = (h) => {
   return {
     ref: '15-01',
     titre: 'Sortir d’un trou dans la glace',
-    desc: 'Six vues, dans l’ordre des gestes. Avant d’aller sur la glace, les pics pendent au cou, par-dessus le manteau. Dans l’eau, on se tourne vers le côté d’où l’on vient et on pose les avant-bras à plat sur la glace. De près, le pic tenu au poing, la pointe vers la glace. On plante les pics près du bord, on bat des jambes jusqu’à ce que le corps soit à l’horizontale, on tire en glissant sur le ventre et on replante plus loin. Sorti, on roule loin du trou sans se relever.',
+    desc: 'Six vues, dans l’ordre des gestes. Avant d’aller sur la glace, la paire de pics, la pointe de l’une rentrée dans l’autre, pend au cou par-dessus le manteau, au milieu de la poitrine. Dans l’eau, on se tourne vers le côté d’où l’on vient et on pose les avant-bras à plat sur la glace. De près, le pic tenu au poing, la pointe vers la glace. On plante les pics près du bord, on bat des jambes jusqu’à ce que le corps soit à l’horizontale, on tire en glissant sur le ventre et on replante plus loin. Sorti, on roule loin du trou sans se relever.',
     format: 'pleine',
     disposition: [['porter', 'eau'], ['poing', 'jambes'], ['tirer', 'rouler']],
     hauteurs: [290, 230, 130],
@@ -189,7 +200,7 @@ module.exports = (h) => {
         titre: 'Avant d’aller sur la glace',
         dessin: z => vPorter(z).svg,
         renvois: z => { const p = vPorter(z).pic; return [
-          { n: 1, rond: [p.x - 15 * SB - 64, p.y + p.L * 0.5], cible: [p.x - 15 * SB - 1, p.y + p.L * 0.5], texte: 'porter les pics au cou, par-dessus le manteau' },
+          { n: 1, rond: [p.x - 15 * SB - 64, p.y + p.L * 0.42], cible: [p.x - 15 * SB - 1, p.y + p.L * 0.42], texte: 'porter les pics au cou, par-dessus le manteau' },
         ]; },
       },
       eau: {

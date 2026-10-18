@@ -275,10 +275,27 @@
     "planches": [
       {
         "id": "15-01",
-        "apres": "34. Si on tombe à travers la glace, appliquer le budget 1-10-1"
+        "apres": "3. **Prendre les pics à glace, s'il y en a au cou**"
+      },
+      {
+        "id": "15-03",
+        "apres": "8. **Quelqu'un d'autre est tombé"
+      },
+      {
+        "id": "15-02",
+        "apres": "**Amorcer sans la bouche**"
+      },
+      {
+        "id": "15-04",
+        "apres": "Il faut deux bouts de manche à balai, deux gros clous et un cordon"
       }
     ],
-    "photos": []
+    "photos": [],
+    "logigramme": {
+      "fichier": "images/logigrammes/15-se-deplacer-livre.svg",
+      "apres": "**Trousse d'allumage, sur soi**",
+      "orange": true
+    }
   },
   "16": {
     "planches": [

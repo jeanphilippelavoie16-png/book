@@ -386,7 +386,7 @@ chercher la fuite (ch. 2, ch. 3).
 > - **Le véhicule qui sert d'abri** : la neige poussée par le vent rebouche l'échappement pendant
 >   qu'on est assis dedans, le monoxyde entre par le plancher, et on s'endort. Échappement dégagé
 >   avant **chaque** redémarrage, un adulte éveillé, l'avertisseur de voyage dans l'habitacle
->   (ch. 2, §9 ; ch. 15, étapes 31 et 32).
+>   (ch. 2, §9 ; ch. 15, étapes 11 à 13).
 > - **Une fois le chalet chauffé, personne sous le versant qui porte le conduit**, ni à la perche,
 >   ni à la ronde de nuit : la tôle réchauffée lâche sa neige d'un coup, sur celui qui est seul
 >   dehors pendant que l'autre dort. On regarde le chapeau depuis le côté du pignon.
@@ -449,7 +449,7 @@ regardé. Si le véhicule s'est rendu à la porte, ils attendent dedans, avec l'
 c'est le seul endroit chaud, donc le seul où il est dans sa plage. La neige qui bouche le tuyau
 d'échappement renvoie le monoxyde dans l'habitacle par le plancher, et un enfant qui s'endort
 après la route, c'est justement ce qu'on s'attend à voir. Donc : tuyau dégagé à la pelle avant
-**chaque** redémarrage, pas seulement le premier (ch. 2, §9 ; ch. 15, étape 31) ; l'arrière du
+**chaque** redémarrage, pas seulement le premier (ch. 2, §9 ; ch. 15, étape 11) ; l'arrière du
 véhicule tourné loin des portes et des fenêtres qu'on vient d'ouvrir au chalet ; fenêtre
 entrouverte du côté opposé au vent ; moteur une dizaine de minutes par période de 30 minutes.
 Si la fin du trajet s'est faite en motoneige, ils restent dans leur sac, dans le
@@ -545,7 +545,7 @@ reste :
 - **Le véhicule.** C'est l'abri où l'on s'endort, et c'est là que le monoxyde tue : la neige
   s'accumule sous le vent et rebouche le tuyau pendant la nuit, le gaz entre par le
   plancher, rien ne se sent, et personne ne se réveille. L'échappement se dégage avant **chaque**
-  redémarrage (ch. 2, §9 ; ch. 15, étapes 31 et 32), moteur une dizaine de minutes par période de
+  redémarrage (ch. 2, §9 ; ch. 15, étapes 11 à 13), moteur une dizaine de minutes par période de
   30 minutes, un adulte reste éveillé, et l'avertisseur de voyage passe dans l'habitacle : il y
   fait chaud, il y est dans sa plage.
 - **L'abri de neige et le feu long** (ch. 82, §9).

@@ -455,7 +455,7 @@ pour tirer les deux planches du tronc.
 > mauvais thermomètre. Et un enfant qui refroidit **devient tranquille** : emmitouflé sur la
 > charge, il a l'air de dormir. Sous lui, une peau avec son poil ou du sapinage : un sac écrasé
 > n'isole plus du bas (étape 60). On s'arrête pour lui **à intervalle fixe, décidé avant de
-> partir**, pas quand celui qui tire a envie de souffler (ch. 25, étape 34 ; ch. 15, étape 25). Sur
+> partir**, pas quand celui qui tire a envie de souffler (ch. 25, étape 34 ; ch. 15, étape 38). Sur
 > un lac, c'est le vent qui fait le froid : à un indice de -40, la peau nue gèle en 5 à 10 minutes
 > (ch. 25, tableau du refroidissement éolien). Joues, oreilles, doigts, et est-ce qu'il répond. Pas
 > l'air qu'il a : sa réponse.
@@ -463,7 +463,7 @@ pour tirer les deux planches du tronc.
 > **2. Sur la glace, rien ne doit rester attaché à ce qui coule.** Un toboggan qui passe à travers
 > la glace tire vers le fond celui qui le traîne par une ceinture bouclée. Une raquette qui ne se
 > défait pas garde au pied une grande palette qui accroche le bord de la glace et empêche de battre
-> des jambes pour remonter à l'horizontale (ch. 15, étape 34). Dans l'eau, tout ce qui fait une
+> des jambes pour remonter à l'horizontale (ch. 15, étape 5). Dans l'eau, tout ce qui fait une
 > boucle fermée autour du corps retient comme une attache : un harnais, une corde en bandoulière,
 > le double de la corde contre la poitrine, une sangle, un sac de couchage fermé sur les bras. La
 > traction vient de l'arrière et du bas, et elle serre la boucle au lieu de la faire glisser.
@@ -477,7 +477,7 @@ pour tirer les deux planches du tronc.
 > sans les mains : la lanière, qui s'enfile et s'enlève d'un mouvement du pied, réglée assez lâche
 > pour sortir d'un tour de cheville. Une boucle, une sangle ou une bande de chambre à air s'ouvre à
 > la main : on l'essaie sur la rive, et si le pied n'en sort pas d'un tour de cheville, on traverse
-> sans raquettes, dans la trace, ou on contourne. Et la glace se mesure avant, raquettes ou pas (ch. 15, étapes 20 à 23). En plein froid, de l'eau peut
+> sans raquettes, dans la trace, ou on contourne. Et la glace se mesure avant, raquettes ou pas (ch. 15, étapes 40 à 44). En plein froid, de l'eau peut
 > aussi dormir sous la neige d'un lac et tremper le pied sans prévenir (§7).
 >
 > **3. Dans une pente, la charge va plus vite que soi.** Un toboggan chargé, retenu par une corde

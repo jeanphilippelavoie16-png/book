@@ -105,8 +105,8 @@
       "ancre": "haut",
       "taille": 10,
       "texte": "**Se tourner vers le côté par où on est arrivé** et poser les avant-bras à plat sur la glace.",
-      "renvoi": "ch. 15, étape 3",
-      "source": "étape 3"
+      "renvoi": "ch. 15, étape 4",
+      "source": "étape 4"
     },
     {
       "id": "s3",
@@ -116,8 +116,8 @@
       "ancre": "haut",
       "taille": 10,
       "texte": "**Battre des jambes et se hisser à plat ventre**, les pics plantés près du bord, ou les bras écartés à plat.",
-      "renvoi": "ch. 15, étapes 4 et 5",
-      "source": "étapes 4 et 5"
+      "renvoi": "ch. 15, étapes 3 et 5",
+      "source": "étapes 3 et 5"
     },
     {
       "id": "qs",

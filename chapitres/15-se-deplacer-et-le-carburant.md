@@ -57,29 +57,29 @@ et se sortir vivant de la glace qui cède ou de la machine qui s'arrête loin de
  - **Lâcher la motoneige** et ce qui y est attaché : elle coule.
  - **Siffler plutôt que crier**, si on a un sifflet : le choc de l'eau froide coupe la voix, et crier use
  les forces.
-3. **Se tourner vers le côté par où on est arrivé** (planche 15-01, repère 1). La glace de ce côté vient de
- porter : c'est probablement la plus solide. Poser les avant-bras à plat sur la glace (repère 2). Si les
- vêtements sont pleins d'eau, se soulever un peu sur les coudes et attendre quelques secondes que l'eau s'en
- égoutte avant de tirer : l'eau des vêtements alourdit le corps qu'il faut hisser.
-4. **Prendre les pics à glace, s'il y en a au cou.** Ce sont deux poignées de bois à pointe de métal,
- reliées par un cordon et portées sur la poitrine, la pointe de l'une rentrée dans l'autre (section 8 pour
- les faire).
- - Tirer les deux poignées chacune de son côté pour les séparer (repère 3).
- - Tenir chaque pic dans le poing, la pointe qui sort sous le petit doigt (repère 4).
- - Sans pics : serrer dans le poing ce qu'on a de pointu (une clé, un couteau, un tournevis), ou étendre
- les bras le plus large possible, à plat sur la glace.
+3. **Prendre les pics à glace, s'il y en a au cou** (planche 15-01, repère 1). Ce sont deux poignées de
+ bois à pointe de métal, reliées par un cordon et portées sur la poitrine, la pointe de l'une rentrée dans
+ l'autre (section 8 pour les faire). Tirer les deux poignées chacune de son côté pour les séparer. Sans
+ pics : serrer dans le poing ce qu'on a de pointu (une clé, un couteau, un tournevis), ou étendre les bras le
+ plus large possible, à plat sur la glace.
+4. **Se tourner vers le côté par où on est arrivé** (repère 2). La glace de ce côté vient de porter : c'est
+ probablement la plus solide.
+ - Poser les avant-bras à plat sur la glace (repère 3).
+ - Tenir un pic dans chaque poing, la pointe qui sort sous le petit doigt et touche la glace (repère 4).
+ - Si les vêtements sont pleins d'eau, se soulever un peu sur les coudes et attendre quelques secondes que
+ l'eau s'en égoutte avant de tirer : l'eau des vêtements alourdit le corps qu'il faut hisser.
 5. **Se hisser à plat ventre.**
- - Battre des jambes sans arrêter, comme pour nager, pour ramener le corps à l'horizontale derrière soi
- (repère 5). À plat, le corps glisse sur la glace ; à la verticale, il faut le soulever à la force des
- bras.
- - Planter les pics près du bord, environ 30 cm plus près que le bout des bras (repère 6). Le réflexe est
+ - Planter les pics près du bord, environ 30 cm plus près que le bout des bras (repère 5). Le réflexe est
  de les planter le plus loin possible ; plus près, le poids passe sur les pics et les coudes, et le haut du
  corps monte sur la glace au lieu de glisser vers l'eau.
+ - Battre des jambes sans arrêter, comme pour nager, pour ramener le corps à l'horizontale derrière soi
+ (repère 6). À plat, le corps glisse sur la glace ; à la verticale, il faut le soulever à la force des
+ bras.
  - Tirer en glissant vers l'avant, puis replanter un peu plus loin (repère 7), et recommencer jusqu'à ce que
  les jambes sortent de l'eau.
 6. **Une fois sorti, rester couché et rouler pour s'éloigner du trou** (repère 8). Couché, le poids
  s'étale sur toute la longueur du corps, et la glace risque moins de céder une deuxième fois. Rouler ou
- ramper jusqu'à ses propres traces (repère 9) : cette glace a porté à l'aller. Se relever seulement là, ou
+ ramper jusqu'à ses propres traces : cette glace a porté à l'aller. Se relever seulement là, ou
  sur la rive.
 7. **Si on n'est pas sorti au bout d'une dizaine de minutes, arrêter de forcer.** Après la première minute,
  les bras, les jambes et les doigts gardent leur force une dizaine de minutes, puis ils ne répondent plus.
@@ -90,7 +90,7 @@ et se sortir vivant de la glace qui cède ou de la machine qui s'arrête loin de
 8. **Quelqu'un d'autre est tombé : ne pas courir jusqu'au trou.** Autour du trou, la glace est aussi mince :
  la personne qui court à son secours passe à travers à son tour, et on a deux personnes dans l'eau. Rester sur la glace
  qui a porté, s'approcher couché s'il le faut, et lui crier de se tourner vers le côté par où il est arrivé, de
- poser les avant-bras sur la glace et de battre des jambes (étapes 3 à 5).
+ poser les avant-bras sur la glace et de battre des jambes (étapes 4 et 5).
  - Lui tendre ou lui lancer quelque chose (planche 15-03, repère 1) : une corde, une perche, une branche,
  une échelle, les câbles de survoltage de l'auto. Un bidon vide, bouché serré et noué au bout de la corde, la
  fait flotter et lui donne du poids pour la lancer loin (repère 2).
@@ -122,12 +122,12 @@ et se sortir vivant de la glace qui cède ou de la machine qui s'arrête loin de
 ### La machine s'arrête loin de tout, l'hiver {.orange 30 min}
 
 11. **En auto, avant de laisser tourner le moteur pour se chauffer, sortir et dégager le tuyau
- d'échappement** (planche 15-04, repère 1). Le tuyau sort sous l'arrière de l'auto. Pelleter la neige
+ d'échappement**. Le tuyau sort sous l'arrière de l'auto. Pelleter la neige
  autour du bout du tuyau et sous le pare-chocs, jusqu'au sol, pour que le gaz sorte à l'air libre. Quand la
  neige bouche le tuyau, le gaz du moteur entre dans l'auto ; le monoxyde n'a ni odeur ni couleur, et on
  s'endort au lieu de sortir. Refaire ce geste après chaque bourrasque ou chute de neige, et avant chaque
  démarrage : la neige poussée par le vent rebouche le tuyau pendant qu'on attend.
-12. **Ouvrir un peu une fenêtre du côté opposé au vent avant de démarrer** (repère 2). Poser l'avertisseur
+12. **Ouvrir un peu une fenêtre du côté opposé au vent avant de démarrer.** Poser l'avertisseur
  de CO, s'il y en a un, à l'endroit le plus chaud de l'auto : il est fait pour fonctionner entre 4,4 et
  37,8 °C, et dans une auto froide, il peut ne pas sonner.
 13. **Faire tourner le moteur une dizaine de minutes par demi-heure, pas en continu.** Dix minutes de
@@ -414,8 +414,9 @@ de l'essence dans le réservoir (repère 1).
 
 **Autre façon, sans pompe : le boyau à bille** (repère 7, au lieu des repères 3 à 5).
 
-- Enfoncer dans le bout du boyau un bout de tube plus étroit : c'est le siège de la bille (repère 8).
-- Glisser une bille dans le boyau, ou une bille de roulement, plus grosse que le trou du tube (repère 9).
+- Enfoncer un bout de tube plus étroit dans le bout du boyau : c'est le siège de la bille (repère 8).
+- Glisser une bille dans le boyau (une bille de jeu ou une bille de roulement), plus grosse que le trou du tube
+ (repère 9).
 - Passer un clou en travers du boyau, un peu au-dessus de la bille, pour qu'elle ne monte pas plus haut
  (repère 10). Monté dans l'autre sens, le tube étroit au-dessus de la bille, le clapet ne retient rien.
 - Plonger le bout à bille au fond du réservoir et secouer le boyau de haut en bas, sans arrêt (repère 11).
@@ -504,23 +505,22 @@ quelques degrés plus bas. Le moteur manque de carburant, tousse et s'arrête.
 
 ### Faire des pics à glace
 
-Il faut deux bouts de manche à balai, deux gros clous et un cordon (planche 15-01, repères 10 à 14).
+Il faut deux bouts de manche à balai, deux gros clous et un cordon (planche 15-04).
 
-- Couper deux bouts de manche à balai de 10 cm (4 po) (repère 10). Le bois flotte : un pic qu'on échappe ne
+- Couper deux bouts de manche à balai de 10 cm (4 po) (repère 1). Le bois flotte : un pic qu'on échappe ne
  coule pas.
 - Percer un bout de chaque manche dans l'axe, le plus profond possible, et y enfoncer un gros clou (repère
- 11) : la tête coupée à la scie à métaux, côté coupé au fond du trou, et la pointe du clou dehors ; ou le
+ 2) : la tête coupée à la scie à métaux, côté coupé au fond du trou, et la pointe du clou dehors ; ou le
  clou planté pointe première et sa tête limée en pointe. Un tournevis coupé fait aussi un pic, à condition
  que la pointe ne dépasse que de 2,5 à 3,8 cm : plus longue, elle mord moins et peut blesser la personne qui
  la porte.
-- Percer à côté du clou un second trou, moins profond, qui reçoit la pointe de l'autre pic (repère 12) :
+- Percer à côté du clou un second trou, moins profond, qui reçoit la pointe de l'autre pic (repère 3) :
  emboîtés, les deux pics se couvrent la pointe. Plier un peu les clous jusqu'à ce que les deux pics se
  séparent d'un coup sec.
 - Percer l'autre bout de chaque manche en travers et y nouer un cordon solide, un pic à chaque bout (repère
- 13).
-- Passer le cordon par-dessus la tête et sous un bras, assez court pour que la paire reste au milieu de la
- poitrine, par-dessus le manteau (repère 14). Dans une poche ou sous le manteau, les mains engourdies ne les
- trouvent pas.
+ 4).
+- Passer le cordon autour du cou, assez court pour que la paire pende au milieu de la poitrine, par-dessus le
+ manteau (repère 5). Dans une poche ou sous le manteau, les mains engourdies ne les trouvent pas.
 
 ### Quand il n'y a plus de moteur
 
