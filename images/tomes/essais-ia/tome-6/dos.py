@@ -293,7 +293,7 @@ def motif(can, info):
         poses_.append((ordre, N, G, int((pointe - oy) * SS) - lo, int(xc * SS) - N.shape[1] // 2))
 
     a_coll = a                                         # les collines, avant les traits
-    lab_tr, _ = ndi.label(tr > .3)
+    lab_tr, _ = ndi.label(tr > .08)
     lim_dur = int((Yt + .86 * H - oy) * SS)
     lim_neige = (Yt + H * rng.uniform(.86, .98, 4096) - oy) * SS
     cols = np.arange(ww)
@@ -398,6 +398,8 @@ def motif(can, info):
                 print('      tache sans cause : y %d-%d x %d-%d' % (ys.min() + oy, ys.max() + oy, xs.min(), xs.max()))
     if DEBUG:
         print('    ôtés : %d traits, %d arbres' % (len(sans_traits), len(sans_arbres)))
+        for j in sorted(sans_arbres):
+            print('      arbre ôté', poses[j][:4])
     return out
 
 

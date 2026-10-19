@@ -415,7 +415,7 @@ def desarmer(avant, can, boites, ppp):
             petits = [i for i in range(1, k + 1) if taille[i] <= (0.12 * ppp) ** 2
                       and objs[i - 1][0].stop - objs[i - 1][0].start <= 0.25 * ppp
                       and objs[i - 1][1].stop - objs[i - 1][1].start <= 0.25 * ppp]
-            m = np.isin(lab, petits) & dessin & (L - ouv < 24)
+            m = np.isin(lab, petits) & dessin & (L < 70)            # du mur, jamais de l'or ni de la crème
             if not m.any():
                 break
             f = np.where(m, (ouv + 11) / np.maximum(L, 1), 1)[..., None]
