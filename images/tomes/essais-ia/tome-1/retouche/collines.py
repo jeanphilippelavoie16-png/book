@@ -391,10 +391,14 @@ def appliquer(a, K=4):
         m2 = ndi.binary_closing(np.pad(m, p), _disque(r))[p:-p, p:-p]
         return ndi.binary_fill_holes(m2 | m)
 
-    gauche_m = remplir(gauche_brut, 12 * q)
+    # les grandes épinettes du premier plan comptent dans la colline le temps de boucher ses trous (une colline
+    # ouverte du côté de l'arbre ne se remplit pas)
+    pp = (garde_pp > 0.5) & (yy < Y(690))
+    gauche_m = remplir(gauche_brut | pp, 12 * q) & ~(pp & ~remplir(gauche_brut, 12 * q) & (_raster(
+        [poly_px(PREMIER_PLAN[2])], h, w) > 0.5))
     gauche_m0 = gauche_m.copy()                      # pour les bandes : sans le bas refait à la main
     gauche_m |= (_raster([poly_px(GAUCHE_BAS)], h, w) > 0.5) & (yy < Y(690))
-    droite_m = remplir(droite_brut, 12 * q)
+    droite_m = remplir(droite_brut | (pp & (_raster([poly_px(PREMIER_PLAN[2])], h, w) > 0.5)), 12 * q)
     vallee_m = remplir(vallee_brut, 6 * q)
 
     # le pied de la masse noire : le bas du bleu des collines, colonne par colonne, lissé
@@ -448,7 +452,7 @@ def appliquer(a, K=4):
     for m_plein, m_brut, a_c in ((gauche_m0, gauche_brut, a_g), (droite_m, droite_brut, a_d)):
         sombre = m_plein & ~m_brut & ~ndi.binary_dilation(blanc, _disque(2 * q))
         sombre &= yy < (yb[None, :] - 4 * K)
-        sombre &= ~interdit
+        sombre &= ~interdit & (garde_pp < 0.01)
         sombre = ndi.binary_opening(sombre, _disque(1.5 * q))
         lab_s, ns = ndi.label(sombre)
         polys = []
