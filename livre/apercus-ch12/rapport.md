@@ -1,6 +1,6 @@
 # Tome 1 · Tenir — rapport d'assemblage
 
-- **Produit le :** 2026-10-18 20:14, par `design/outils/assembler-tome.py 1 --chapitres 12 --hors-ligne --sortie livre/apercus-ch12`
+- **Produit le :** 2026-10-19 01:00, par `design/outils/assembler-tome.py 1 --chapitres 12 --hors-ligne --sortie livre/apercus-ch12`
 - **Fichier :** `livre/tome-1/interieur.pdf` — 44 pages, 24.0 Mo
 - **Ouvertures :** au recto ou au verso (--verso)
 - **Placements :** design/epreuves-livre/placements.json, design/epreuves-livre/placements-tome-1.json
@@ -10,8 +10,8 @@
 
 | Pages du tome | Contenu | Pages |
 | --- | --- | ---: |
-| 1 | Dédicace | 1 |
-| 3 | Page de titre | 1 |
+| 1 | Page de titre | 1 |
+| 3 | Dédicace | 1 |
 | 5 | Sommaire | 1 |
 | 6 | Comment le livre fonctionne (1) | 1 |
 | 7 | Comment le livre fonctionne (2) | 1 |
@@ -37,7 +37,7 @@ Marqueur `{.orange}` sur l'intertitre ### de la série, dans le Markdown (CLAUDE
 | Taille de chaque page | 585 × 738 pt (8,125 × 10,25 po) | 585.0 × 738.0 pt | oui |
 | Rognage (TrimBox) | 8 × 10 po, fond perdu au bord extérieur | recto : reliure à gauche ; verso : à droite | oui |
 | Nombre de pages | pair, de 20 à 440 (papier Standard) | 44 | oui |
-| Page 1 | à droite | ouverture du chapitre 00 | oui |
+| Page 1 | à droite | page de titre | oui |
 | Polices incorporées | toutes | 25 police(s), 0 non incorporée(s) | oui |
 | Taille du fichier | 2 Go au plus | 24.0 Mo | oui |
 | Marques d'imprimeur | aucune | aucune | oui |
@@ -63,7 +63,7 @@ Les planches de `images/a-valider/` sont posées comme les validées (JP les rel
 
 | Ch. | Posées (page du tome) | Mentionnées dans le texte sans planche dessinée | À valider, non posées | Photos demandées encore à acquérir (credits.md) |
 | --- | --- | --- | --- | ---: |
-| 12 | 12-01b (25, pleine), 12-01a (27, pleine), 12-02 (29, pleine), 12-03 (32, pleine), 12-04 (34, pleine), 12-06a (36, pleine), 12-05a (38, pleine), 12-05b (39, pleine), 12-06b (43, pleine), 12-tente-d-hiver-livre (20, double page) | — | — | 0 (ancien 16c) |
+| 12 | 12-01b (25, pleine), 12-01a (27, pleine), 12-02 (29, pleine), 12-03 (32, pleine), 12-04 (34, pleine), 12-06a (36, pleine), 12-05a (38, pleine), 12-05b (40, pleine), 12-06b (43, pleine), 12-tente-d-hiver-livre (20, double page) | — | — | 0 (ancien 16c) |
 
 ## Crédits des images — hors du livre
 
@@ -73,8 +73,7 @@ Aucune photo posée dans ce tome. Les photos téléchargées sous les anciens nu
 
 ## Avertissements
 
-- ch. 12, paginateur : p12-2 : page à moitié vide
-- ch. 12, paginateur : p12-11 : page à moitié vide
+- aucun
 
 ## À savoir avant de téléverser
 
