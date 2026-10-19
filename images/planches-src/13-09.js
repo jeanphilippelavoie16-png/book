@@ -1,43 +1,54 @@
-// Planche 13-09 — le briquet à pierre, refaite avec les mains simples (h.formes.mainSimple).
+// Planche 13-09. Le briquet à pierre. Refaite au complet le 19 octobre 2026 (règle 12 : planche signalée, la main
+// de la pierre en « pince de homard », le poing de l'acier en « gant de boxe », puis l'avant-bras au plan de match).
+// Rien n'est repris de l'ancienne version.
 //
-// Le geste (refait le 14 octobre avec mainSimple ; JP : la main de la pierre en « pince de homard », puis en
-// marionnette dans le premier essai) : vu par celui qui frappe, les deux paumes vers lui. À gauche, la main
-// gauche serre la pierre dans le poing, vue de la paume ; le bout de la pierre sort du côté du pouce, vers la
-// droite, et finit en arête vive ; le pouce, refermé par-dessus, tient l'amadou couché sur la pierre jusqu'au ras
-// de l'arête (chapitre 13 : « on pince l'amadou carbonisé entre le pouce et l'arête de la pierre »). À droite, la
-// main droite en poing, vue de la paume, le pouce en haut : les doigts sont passés dans l'acier cintré en U, le
-// fond du U devant les doigts repliés, les bras le long de l'index (sous le pouce) et de l'auriculaire. La face
-// extérieure du fond est la face qui frappe : elle descend en rasant l'arête (tireté, flèche rouge du coup) ; le
-// cercle rouge, l'amadou au ras de l'arête, là où elle passe.
-// Au point de frappe : le devant du poing et la pierre, de plus près (1,4 fois le geste ; le poing coupé par le
-// bord, l'acier au ras du fond) ; l'acier contre l'arête, les paillettes, dont trois retombent sur l'amadou.
-// L'acier : un bout de vieille lime gardé tel quel, ou cintré en U (même longueur dépliée).
-// La pierre : le galet cassé (cortex roulé, cassure fraîche à arête vive) et l'essai du verre.
-// Aucune cote : le chapitre ne donne aucune mesure à reporter (les « deux centimètres » sont la
-// chute de la paillette, pas une mesure de fabrication).
+// Les repères 1 à 9 sont ceux du chapitre 13 (section 7, « Le briquet à pierre »), dans l'ordre du texte :
+//   l'acier cintré en U (1), ou la lime (2, au lieu de 1) ; la pierre de grève (3), cassée (4), qui raye le verre (5) ;
+//   pincer l'amadou (6) ; passer les doigts dans le U (7) ; frapper vers le bas en rasant l'arête (8) ; la paillette
+//   qui tombe sur l'amadou (9).
+//
+// Les mains : h.formes.mainStock seulement (brief-agent.md), aucune main dessinée, aucune main déformée. Les deux
+// sont la main 1-01 « poing-barre » (le poing serré, le pouce refermé par-dessus), retournée (miroir), sans son
+// objet (objet: false) :
+//   la pierre   tournée de 96° : l'avant-bras descend vers le bas à gauche, les doigts repliés en haut ; la pierre
+//               sort du poing à droite, du côté du pouce, et le bout du pouce appuie sur l'amadou couché dessus ;
+//   l'acier     tournée de 16,4° : l'avant-bras descend vers le bas à droite, les doigts repliés tournés vers la
+//               pierre ; le U de l'acier passe devant les doigts, ses deux bras rentrent dans le poing. La face du
+//               fond du U est la face qui frappe : elle est droite, et descend en rasant l'arête.
+// L'avant-bras (signalé au plan de match) : celui de la main de la bibliothèque, prolongé tout droit dans le sens de
+// ses bords jusqu'au bord de la vue, sans coude ni courbe (comme 04-41 et 13-40) ; les deux viennent du bas, du
+// corps de celui qui frappe.
+//
+// Le rouge : la flèche du verre (5) et la flèche du coup (8), chacune avec son repère.
+// Aucune cote : le chapitre ne donne aucune mesure de l'acier ni de la pierre.
 // Se lit en regard de la 13-40 (le nid qu'on souffle ensuite).
 
 module.exports = (h) => {
-  const F = h.formes, A = h.a;
+  const path = require('path');
+  const A = h.a, F = h.formes;
+  const CAT = require(path.resolve(__dirname, '../../.claude/skills/planches/scripts/mains/stock.js')).catalogue;
   const f = v => Math.round(v * 10) / 10;
+  const RAD = Math.PI / 180;
+  const add = (p, q) => [p[0] + q[0], p[1] + q[1]];
+  const sub = (p, q) => [p[0] - q[0], p[1] - q[1]];
+  const mul = (p, k) => [p[0] * k, p[1] * k];
+  const lon = p => Math.hypot(p[0], p[1]);
+  const unit = p => mul(p, 1 / lon(p));
+  const perp = p => [-p[1], p[0]];
   const gen = s => { let g = s; return () => (g = (g * 16807) % 2147483647) / 2147483647; };
-
-  // Courbe lisse (Catmull-Rom) passant par chaque point ; suite = sans le M de départ.
-  const lisse = (pts, ferme, suite = false) => {
-    const n = pts.length;
-    const p = i => ferme ? pts[(i + n) % n] : pts[Math.max(0, Math.min(n - 1, i))];
-    let d = suite ? '' : `M ${f(pts[0][0])} ${f(pts[0][1])}`;
-    const segs = ferme ? n : n - 1;
-    for (let i = 0; i < segs; i++) {
+  const M = p => `M ${f(p[0])} ${f(p[1])}`;
+  const Lp = p => ` L ${f(p[0])} ${f(p[1])}`;
+  const poly = (pts, ferme = true) => pts.map((p, i) => (i ? Lp(p) : M(p))).join('') + (ferme ? ' Z' : '');
+  // Courbe lisse (Catmull-Rom) par tous les points.
+  const lisse = (pts, ferme = false) => {
+    const n = pts.length, p = i => ferme ? pts[(i + n) % n] : pts[Math.max(0, Math.min(n - 1, i))];
+    let d = M(pts[0]);
+    for (let i = 0; i < (ferme ? n : n - 1); i++) {
       const p0 = p(i - 1), p1 = p(i), p2 = p(i + 1), p3 = p(i + 2);
-      const c1 = [p1[0] + (p2[0] - p0[0]) / 6, p1[1] + (p2[1] - p0[1]) / 6];
-      const c2 = [p2[0] - (p3[0] - p1[0]) / 6, p2[1] - (p3[1] - p1[1]) / 6];
-      d += ` C ${f(c1[0])} ${f(c1[1])} ${f(c2[0])} ${f(c2[1])} ${f(p2[0])} ${f(p2[1])}`;
+      d += ` C ${f(p1[0] + (p2[0] - p0[0]) / 6)} ${f(p1[1] + (p2[1] - p0[1]) / 6)} ${f(p2[0] - (p3[0] - p1[0]) / 6)} ${f(p2[1] - (p3[1] - p1[1]) / 6)} ${f(p2[0])} ${f(p2[1])}`;
     }
     return ferme ? d + ' Z' : d;
   };
-  const pt = p => `${f(p[0])} ${f(p[1])}`;
-  const poly = pts => 'M ' + pts.map(pt).join(' L ');
   const dansPoly = pl => ([x, y]) => {
     let c = false;
     for (let i = 0, j = pl.length - 1; i < pl.length; j = i++) {
@@ -46,9 +57,9 @@ module.exports = (h) => {
     }
     return c;
   };
-  // Semis de points (surface roulée d'un caillou) dans une forme donnée par un test.
-  const semis = (x0, y0, x1, y1, dedans, n, graine, T = p => p, ep = 1.4) => {
-    const r = gen(graine);
+  // Le grain roulé d'un caillou de grève : un semis de points dans une forme (test), tirés dans la boîte du repère.
+  const semis = (boite, dedans, n, graine, T, ep = 1.4) => {
+    const r = gen(graine), [x0, y0, x1, y1] = boite;
     let d = '';
     for (let i = 0; i < n; i++) {
       const p = [x0 + r() * (x1 - x0), y0 + r() * (y1 - y0)];
@@ -56,206 +67,318 @@ module.exports = (h) => {
       const q = T(p);
       d += `M${f(q[0])} ${f(q[1])}h0.01`;
     }
-    return `<path d="${d}" fill="none" stroke="#000" stroke-width="${ep}" stroke-linecap="round"/>`;
+    return d ? `<path d="${d}" fill="none" stroke="#1A1A1A" stroke-width="${ep}" stroke-linecap="round"/>` : '';
   };
-  const arc = (cx, cy, r, a0, a1, n = 6) => {
-    const out = [];
-    for (let i = 0; i <= n; i++) {
-      const a = (a0 + (a1 - a0) * i / n) * Math.PI / 180;
-      out.push([cx + Math.cos(a) * r, cy + Math.sin(a) * r]);
-    }
-    return out;
-  };
-  // Une fenêtre du repère de la scène (mm), ramenée à la vue.
+  // Une fenêtre d'un repère de dessin, ramenée à la vue (même échelle en x et en y, centrée).
   const fenetre = (z, x0, y0, x1, y1) => {
     const k = Math.min(z.l / (x1 - x0), z.h / (y1 - y0));
     const ox = (z.l - (x1 - x0) * k) / 2 - x0 * k, oy = (z.h - (y1 - y0) * k) / 2 - y0 * k;
     return { k, T: ([x, y]) => [ox + x * k, oy + y * k] };
   };
-  const decoupe = (id, z, contenu) =>
-    `<clipPath id="${id}"><rect x="0" y="0" width="${z.l}" height="${z.h}"/></clipPath>\n<g clip-path="url(#${id})">\n${contenu}\n</g>`;
-
-  // ─── La scène, en mm, origine au point de prise de la main de la pierre ─────────────────────
-  // La main de la pierre : la main gauche en poing sur la pierre (prise-manche, 30 mm), vue de la paume, les
-  // doigts repliés dessus ; le bout de la pierre sort du poing du côté du pouce, vers la droite, et finit en
-  // arête vive ; le pouce, refermé par-dessus à la sortie, tient l'amadou couché sur la pierre (chapitre 13 :
-  // « on pince l'amadou carbonisé entre le pouce et l'arête de la pierre »). La pince entre le pouce et le côté
-  // de l'index du premier essai faisait une marionnette (JP, 14 octobre) : le poing est la force de la
-  // bibliothèque. L'avant-bras monte vers la gauche (le coude levé) ; la pierre sort à 10° au-dessus de
-  // l'horizontale, assez loin devant les doigts pour que l'acier passe sans toucher les jointures.
-  const PIERRE_MAIN = { pose: 'prise-manche', diametre: 30, vue: 'paume', cote: 'gauche', angle: 60 };
-  const RAD = Math.PI / 180;
-  const g0 = F.mainSimple({ ...PIERRE_MAIN, x: 0, y: 0, echelle: 1, avantbras: false });
-  const aU = (g0.prise.angle + 180) * RAD;           // l'axe de la pierre, du poing vers son bout (le côté du pouce)
-  const uS = [Math.cos(aU), Math.sin(aU)], nS = [-uS[1], uS[0]];
-  const R_P = g0.prise.r;                            // le rayon de la prise (15 mm) : la pierre a ce rayon dans le poing
-  // un point de la pierre : s le long de l'axe (0 : le point de prise), t en travers (négatif : le dessus)
-  const S = (s, t) => [s * uS[0] + t * nS[0], s * uS[1] + t * nS[1]];
-  // le contour : le bout arrière arrondi dans le poing, le dessus jusqu'à l'arête, la cassure fraîche (la face du
-  // bout, vue en fuite), le dessous ; dans le poing et à la sortie, au rayon de la prise (les doigts devant la
-  // pierre ne sont repeints que dans le cylindre du moteur)
-  const ST = { arr: -2, sortie: 54, arete: 102, bas: 91 };
-  const R_IN = R_P - 1.2;                           // dans le poing, un peu sous le rayon : le trait de la pierre est couvert
-  const DESSUS = [[ST.sortie, -R_IN], [67, -R_IN], [78, -15.8], [90, -15.4], [ST.arete, -14]];
-  const dessusP = DESSUS.map(([s, t]) => S(s, t));
-  const E = dessusP[dessusP.length - 1];             // l'arête, vue par le bout
-  const faceP = [[ST.arete, -14], [100.6, -6], [98.4, 3], [95, 10.5], [ST.bas, 15.4]].map(([s, t]) => S(s, t));
-  const dessousP = [[ST.bas, 15.4], [72, 15.9], [ST.sortie, R_IN]].map(([s, t]) => S(s, t));
-  const C2 = S(ST.bas, 15.4);
-  // la face de la cassure : entre le contour du bout et une ligne en retrait (la face vue en biais)
-  const faceIn = [[ST.arete, -14], [96, -4], [93, 6], [ST.bas, 15.4]].map(([s, t]) => S(s, t));
-  const contourPierre = [...dessusP, ...faceP.slice(1), ...dessousP.slice(1)];
-  const cheminPierre = T => {
-    // dans le poing, le caillou reste un peu bosselé (sous le rayon de la prise), le bout arrière arrondi
-    const dessous = [[ST.sortie, R_IN], [40, 13.1], [24, 13.6], [8, 13], [-4, 13.5], [ST.arr + 4, 10]].map(([s, t]) => S(s, t));
-    const dessusArr = [[ST.arr + 4, -10], [-4, -13.3], [10, -13.8], [26, -13], [42, -13.7], [ST.sortie, -R_IN]].map(([s, t]) => S(s, t));
-    return `M ${pt(T(dessusP[0]))}` + lisse(dessusP.map(T), false, true) + lisse(faceP.map(T), false, true) +
-      lisse(dessousP.map(T), false, true) + lisse(dessous.map(T), false, true) + ` Q ${pt(T(S(ST.arr, 0)))} ${pt(T(dessusArr[0]))}` +
-      lisse(dessusArr.map(T), false, true) + ' Z';
-  };
-  // le dessus de la pierre (pour poser l'amadou et les paillettes) : t au-dessus de s
-  const tDessus = s => {
-    const D = DESSUS;
-    for (let i = 0; i < D.length - 1; i++) if (s >= D[i][0] && s <= D[i + 1][0]) return D[i][1] + (D[i + 1][1] - D[i][1]) * (s - D[i][0]) / (D[i + 1][0] - D[i][0]);
-    return s < D[0][0] ? -R_IN : D[D.length - 1][1];
-  };
-  // l'amadou : un carré de tissu carbonisé couché sur le dessus, du ras de l'arête jusque sous le pouce (son bout
-  // arrière effiloché passe sous le pouce)
-  const amS0 = 44, amS1 = ST.arete - 0.6, amEp = 4;
-  const amadou = (() => {
-    const bas = [], haut = [];
-    for (let s = amS1; s >= amS0 - 0.01; s -= 3) { bas.push(S(s, tDessus(s) + 0.3)); haut.push(S(s, tDessus(s) + 0.3 - amEp)); }
-    const tb = tDessus(amS0) + 0.3, th = tb - amEp;
-    const effiloche = [S(amS0 - 1.4, tb - 0.3), S(amS0 - 0.5, tb - 0.9), S(amS0 - 2.2, tb - 1.4), S(amS0 - 0.7, th + 1.1), S(amS0 - 1.8, th + 0.4)];
-    return [...bas, ...effiloche, ...haut.reverse()];
-  })();
-  const amadouSVG = (T, k) => [
-    h.path(poly(amadou.map(T)) + ' Z', `fill="none" stroke="#FFFFFF" stroke-width="${f(Math.max(1.6, 0.9 * k))}" stroke-linejoin="round"`),
-    h.chemin(amadou.map(T), A.plein, true),
-  ].join('\n');
-  // la pierre, dans la vue : le cortex roulé (un semis) sur le bout qui sort du poing, la cassure à l'ombre
-  const pierreSVG = (T, k) => {
-    const out = [];
-    const dP = cheminPierre(T);
-    out.push(h.path(dP, A.blanc));
-    const local = p => { const q = [p[0], p[1]]; return [q[0] * uS[0] + q[1] * uS[1], q[0] * nS[0] + q[1] * nS[1]]; };
-    const dansFace = dansPoly([...faceP, ...faceIn.slice(1, -1).reverse()]);
-    const dansBout = p => { const [s] = local(p); return s > ST.sortie - 2 && dansPoly(contourPierre)(p) && !dansFace(p); };
-    out.push(semis(30, -40, 92, 10, dansBout, Math.round(5200 * 0.02 * k * k), 29, T));
-    // la cassure fraîche, face du bout tournée vers la droite et le bas : à l'ombre (lumière d'en haut à gauche)
-    out.push(h.path(`M ${pt(T(faceP[0]))}` + lisse(faceP.map(T), false, true) + lisse([...faceIn].reverse().map(T), false, true) + ' Z', A.ombre));
-    out.push(h.path(lisse(faceIn.map(T), false), A.detail));
-    // les ondes de la cassure, bombées vers l'arête
-    [[0.35, 0.5], [0.62, 0.45]].forEach(([a, b]) => {
-      const p = S(ST.arete - 3 - 6 * a, -8 + 20 * a), q = S(ST.arete - 5 - 6 * a, -4 + 20 * a);
-      out.push(h.path(`M ${pt(T(p))} Q ${pt(T(S(ST.arete - 1.5 - 6 * a, -6 + 20 * a)))} ${pt(T(q))}`, A.fin));
+  // Ce qui sort d'une vue (un avant-bras, l'acier) est coupé net par son bord.
+  const decoupe = (id, z, s) => `<clipPath id="vue-${id}-1309"><rect x="0" y="0" width="${z.l}" height="${z.h}"/></clipPath>\n<g clip-path="url(#vue-${id}-1309)">\n${s}\n</g>`;
+  // Un corps vu un peu de haut, par l'extrusion d'un profil : les faces de côté qu'on voit (celles qui regardent vers
+  // le fond D), la face qui regarde à droite à l'ombre (la lumière vient d'en haut à gauche), puis le profil devant.
+  const extrusion = (P, D, T, devant) => {
+    const n = P.length, out = [];
+    const aire = P.reduce((s, p, i) => { const q = P[(i + 1) % n]; return s + p[0] * q[1] - q[0] * p[1]; }, 0);
+    const faces = [];
+    for (let i = 0; i < n; i++) {
+      const p = P[i], q = P[(i + 1) % n], e = sub(q, p);
+      const no = aire > 0 ? [e[1], -e[0]] : [-e[1], e[0]];            // la normale vers l'extérieur
+      if (no[0] * D[0] + no[1] * D[1] > 0.01) faces.push({ p, q, no });
+    }
+    // les faces du fond d'abord : celles dont le milieu est le plus loin dans le sens de D
+    faces.sort((a, b) => ((a.p[0] + a.q[0]) * D[0] + (a.p[1] + a.q[1]) * D[1]) - ((b.p[0] + b.q[0]) * D[0] + (b.p[1] + b.q[1]) * D[1]));
+    faces.forEach(({ p, q, no }) => {
+      const ombre = no[0] > 0.6 * lon(no);
+      const pl = poly([p, q, add(q, D), add(p, D)].map(T));
+      out.push(h.path(pl, ombre ? A.ombre : A.blanc), h.path(pl, A.arete));
     });
-    out.push(h.path(dP, A.contour));
+    out.push(h.path(poly(P.map(T)), devant));
     return out.join('\n');
   };
 
-  // La main de l'acier : la main droite en poing, vue de la paume, les doigts vers la gauche, le pouce en haut :
-  // les doigts repliés se lisent, passés dans le U. U : l'acier dans le repère de cette main (l'origine au poignet,
-  // en mm, les doigts vers −x) : le fond devant les doigts repliés, face extérieure en x = xo ; les bras le long de
-  // l'index (en haut, sous le pouce) et de l'auriculaire (en bas), jusqu'en xg ; épaisseur 5,5. Relevé sur la
-  // silhouette du poing : le devant des doigts à x −83 à −93 de y −45 à +20, l'auriculaire recule à −72 ; le
-  // dessus sous le pouce à −54, le dessous de l'auriculaire à +42.
-  const ACIER_MAIN = { pose: 'poing', vue: 'paume', cote: 'droite', angle: 180, ancre: 'poignet' };
-  const U = { xi: -94, xo: -99.5, yh: -55.5, yhi: -50, yb: 48.5, ybi: 43, xg: -45, ro: 8, ri: 2.5 };
-  const profilU = () => [
-    [U.xg, U.yh], ...arc(U.xo + U.ro, U.yh + U.ro, U.ro, 270, 180), ...arc(U.xo + U.ro, U.yb - U.ro, U.ro, 180, 90),
-    [U.xg, U.yb], [U.xg, U.ybi], ...arc(U.xo + U.ro, U.yb - U.ro, U.ri, 90, 180), ...arc(U.xo + U.ro, U.yh + U.ro, U.ri, 180, 270), [U.xg, U.yhi],
-  ];
-  const TX = E[0] - U.xo;                           // le poignet : la face qui frappe passe au ras de l'arête
-  const TY_AVANT = E[1] - U.yb - 14, TY_FRAPPE = E[1] - U.yb + 4;
+  // ═══ Les mains ═════════════════════════════════════════════════════════════════════════════════════
+  // La main 1-01 « poing-barre », dans le repère de son objet (l'axe de la barre) : s le long de la barre, vers le
+  // côté du pouce ; t en travers, vers le bout du pouce et le devant des doigts repliés. Unités du fichier.
+  const M101 = CAT['1-01'];
+  const C0 = [M101.objet.x, M101.objet.y];
+  const uB = [Math.cos(M101.objet.angle * RAD), Math.sin(M101.objet.angle * RAD)], nB = perp(uB);
+  const ST = (s, t) => add(C0, add(mul(uB, s), mul(nB, t)));
+  // Les bords de l'avant-bras, là où ils finissent droits avant l'arrondi de la coupe du fichier, et leur sens.
+  const BORDS = [[178, 434.3], [182, 596]], SENS_BRAS = unit([-1, 0.012]);
 
-  // Les paillettes, du point de contact : trois retombent sur l'amadou (de 5 à 17 mm de l'arête : le chapitre
-  // dit qu'elles tombent à deux centimètres), les autres filent en bas.
-  const C = [E[0] - 0.3, E[1] + 0.5];
-  const surAmadou = s => S(s, tDessus(s) - amEp - 1.1);
-  const paillettes = [
-    { q: [E[0] - 1, E[1] - 14], fin: surAmadou(ST.arete - 5) },
-    { q: [E[0] - 5, E[1] - 22], fin: surAmadou(ST.arete - 11) },
-    { q: [E[0] - 9, E[1] - 26], fin: surAmadou(ST.arete - 17) },
-    { q: [E[0] + 0.5, E[1] + 14], fin: [E[0] + 1, E[1] + 33] },
-    { q: [E[0] + 2, E[1] + 10], fin: [E[0] + 3.5, E[1] + 25] },
-    { q: [E[0] + 3.5, E[1] + 7], fin: [E[0] + 6, E[1] + 17] },
-  ];
+  // Du fichier à la scène (k = 1), comme mainStock retourné (miroir) : l'ancre au centre de l'objet, puis la rotation.
+  const versScene = o => {
+    const c = Math.cos(o.angle * RAD), s = Math.sin(o.angle * RAD);
+    return ([px, py]) => { const u = -(px - C0[0]), v = py - C0[1]; return [o.x + c * u - s * v, o.y + s * u + c * v]; };
+  };
+  // La main dans la vue, son avant-bras prolongé tout droit jusqu'au bord de la vue : deux traits qui continuent ses
+  // bords, et un fond blanc qui couvre l'arrondi de la coupe du fichier. La main n'est ni déformée ni redessinée.
+  const main = (o, T, k) => {
+    const sc = versScene(o), p0 = T([o.x, o.y]);
+    const m = F.mainStock({ id: '1-01', miroir: true, angle: o.angle, x: p0[0], y: p0[1], echelle: k, ancre: 'objet', objet: false });
+    const [e1, e2] = BORDS.map(q => T(sc(q)));
+    const d = unit(sub(T(sc(add(BORDS[0], SENS_BRAS))), e1));
+    const a1 = add(e1, mul(d, -1.2)), a2 = add(e2, mul(d, -1.2)), b1 = add(e1, mul(d, 2000)), b2 = add(e2, mul(d, 2000));
+    const tr = 'fill="none" stroke="#1A1A1A" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"';
+    return [String(m), h.path(poly([a1, b1, b2, a2]), A.blanc), h.path(M(e1) + Lp(b1) + ' ' + M(e2) + Lp(b2), tr)].join('\n');
+  };
 
-  const scene = (T, k, z, frappe) => {
-    const out = [];
-    const bord = { x0: 0, y0: 0, x1: z.l, y1: z.h };
-    // l'amadou d'abord (le pouce passe devant son bout arrière), puis le poing et la pierre (objet : le manche du
-    // moteur, les doigts repliés passent devant elle)
-    out.push(amadouSVG(T, k));
-    const p0 = T([0, 0]);
-    out.push(F.mainSimple({ ...PIERRE_MAIN, x: p0[0], y: p0[1], echelle: k, objet: () => pierreSVG(T, k), avantbras: { bord, longueur: 'bord', fin: [[0, 0], [0, z.h]] } }).svg);
-    // l'acier, puis le poing : le bras du haut du U passe sous le pouce
-    const ty = frappe ? TY_FRAPPE : TY_AVANT;
-    const TU = p => T([TX + p[0], ty + p[1]]);
-    out.push(h.chemin(profilU().map(TU), A.plein, true));
-    const w = T([TX, ty]);
-    out.push(F.mainSimple({ ...ACIER_MAIN, x: w[0], y: w[1], echelle: k, avantbras: { bord, longueur: 'bord' } }).svg);
-    if (!frappe) {
-      // la course de la face qui frappe : elle descend au ras de l'arête et continue
-      out.push(h.path(`M ${pt(TU([U.xo, U.yb - U.ro]))} L ${pt(T([E[0], E[1] + 60]))}`, A.cache));
-      out.push(h.geste(`M ${pt(T([E[0] + 16, E[1] - 12]))} L ${pt(T([E[0] + 16, E[1] + 46]))}`));
-      // le point à contrôler : l'amadou au ras de l'arête, là où la face de l'acier va passer
-      const cc = T([E[0] - 2, E[1] - 2.5]);
-      out.push(h.controle(cc[0], cc[1], 8 * k));
-    } else {
-      paillettes.forEach(({ q, fin }) => {
-        out.push(h.path(`M ${pt(T(C))} Q ${pt(T(q))} ${pt(T(fin))}`, A.cache));
-        const c = T(fin);
-        out.push(h.cercle(c[0], c[1], 2.4, A.plein));
-      });
+  // ═══ La pierre dans le poing ══════════════════════════════════════════════════════════════════════
+  const PIERRE_M = { angle: 96, x: 0, y: 0 };
+  const sP = versScene(PIERRE_M);
+  const P = (s, t) => sP(ST(s, t));
+  // En (s, t) de la main de la pierre : +s vers le bout qui sort du poing, +t vers le dessus (le bout du pouce).
+  // Un caillou de grève cassé, vu un peu de haut : la face qu'on voit (le grain roulé, puis les éclats frais), le
+  // dessus (où l'amadou est couché) et le bout (la cassure fraîche, à l'ombre). L'arête est le bord entre le dessus
+  // et la cassure du bout.
+  const PROF = [20, 48];
+  const fond = q => add(q, mul(PROF, 1 + 0.07 * Math.sin(q[0] / 21)));          // un fond un peu irrégulier
+  const HAUT = [[112, 30], [146, 37], [186, 35], [226, 38], [258, 31]];         // le bord du dessus, devant
+  const A1 = HAUT[HAUT.length - 1];                                               // le bout de l'arête, devant
+  const BOUT = [A1, [253, 2], [243, -28], [226, -56]];                           // le bord de la cassure, devant
+  const DESSOUS = [[226, -56], [194, -74], [150, -74], [116, -60], [98, -20]];
+  const FACE = [...HAUT.slice().reverse(), ...BOUT.slice(1), ...DESSOUS.slice(1)];
+  const DESSUS = [...HAUT, ...HAUT.slice().reverse().map(fond)];
+  const CASSE = [...BOUT, ...BOUT.slice().reverse().map(fond)];
+  const ROULE = [[112, 30], [146, 37], [186, 35], [196, -6], [192, -74], [150, -74], [116, -60], [98, -20]];
+  const ECLATS = [[[186, 35], [196, -6], [192, -74]], [[226, 38], [232, -10], [226, -56]]];
+  // les éclats frais de la face qu'on voit, et le point d'où partent leurs ondes
+  const FACETTES = [{ pl: [[186, 35], [226, 38], [232, -10], [226, -56], [192, -74], [196, -6]], c: [206, -70], r: [26, 46, 66] },
+    { pl: [[226, 38], [258, 31], [253, 2], [243, -28], [226, -56], [232, -10]], c: [236, -52], r: [24, 44, 64] }];
+  const SILHOUETTE = [...DESSOUS.slice().reverse(), ...BOUT.slice().reverse().map(fond), ...HAUT.slice().reverse().map(fond).slice(1), HAUT[0]];
+  // L'amadou : un carré de toile carbonisée couché sur le dessus, du dessous du pouce jusqu'au ras de l'arête, les
+  // bords effilochés.
+  const AMADOU = (() => {
+    const g = gen(7);
+    const bord = (a, b, n, j) => { const o = []; for (let i = 0; i < n; i++) { const t = i / n, q = [a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t]; o.push(i ? add(q, [(g() - 0.5) * j, (g() - 0.5) * j]) : q); } return o; };
+    const p1 = add([104, 34], mul(PROF, 0.08)), p2 = add([248, 34], mul(PROF, 0.08)), p3 = add([248, 34], mul(PROF, 0.9)), p4 = add([104, 34], mul(PROF, 0.9));
+    return [...bord(p1, p2, 18, 4), ...bord(p2, p3, 6, 4), ...bord(p3, p4, 18, 4), ...bord(p4, p1, 6, 4)];
+  })();
+  // où la paillette tombe : sur l'amadou, près de l'arête
+  const CHUTE = add([222, 36], mul(PROF, 0.5));
+
+  // ═══ L'acier dans la main ═════════════════════════════════════════════════════════════════════════
+  // Le U en (s, t) de la main de l'acier : le fond devant les doigts repliés (le devant des doigts est à t ≈ 111 à
+  // 117), sa face extérieure en t = 136, la face qui frappe ; les bras au-dessus de l'index et sous l'auriculaire,
+  // qui rentrent dans le poing.
+  const U = { s0: -64, s1: 152, t0: 118, t1: 136, ep: 18, fin: 58, r: 10 };
+  const arcs = (out, cs, ct, rr, a0, a1, n = 6) => { for (let i = 0; i <= n; i++) { const a = (a0 + (a1 - a0) * i / n) * RAD; out.push([cs + rr * Math.cos(a), ct + rr * Math.sin(a)]); } return out; };
+  const profilU = () => {
+    const { s0, s1, t0, t1, ep, fin, r } = U, out = [[s1, fin]];
+    arcs(out, s1 - r, t1 - r, r, 0, 90);           // le coin du haut, dehors
+    arcs(out, s0 + r, t1 - r, r, 90, 180);         // le coin du bas, dehors
+    out.push([s0, fin], [s0 + ep, fin], [s0 + ep, t0], [s1 - ep, t0], [s1 - ep, fin]);
+    return out;
+  };
+  const ACIER_ANGLE = 16.4;                         // la face qui frappe est droite
+  // le point de contact : le point de la pierre le plus à droite, le bout de l'arête
+  const E = SILHOUETTE.map(q => P(...q)).reduce((m, p) => (p[0] > m[0] ? p : m));
+  const face0 = versScene({ angle: ACIER_ANGLE, x: 0, y: 0 })(ST(U.s0, U.t1));
+  // la main de l'acier placée pour que la face qui frappe passe au ras de l'arête, son bas à « ecart » au-dessus
+  const acier = ecart => {
+    const o = { angle: ACIER_ANGLE, x: E[0] + 1 - face0[0], y: E[1] - ecart - face0[1] };
+    return { o, sc: versScene(o) };
+  };
+  const AVANT = 40, APRES = -60;                    // le bas de la face : au-dessus de l'arête, puis passé dessous
+
+  // ═══ La scène ═════════════════════════════════════════════════════════════════════════════════════
+  const pierreSVG = (T, k) => {
+    const TT = pts => pts.map(q => T(P(...q))), out = [];
+    [FACE, DESSUS, CASSE].forEach(pl => out.push(h.path(poly(TT(pl)), A.blanc)));
+    out.push(semis([90, -70, 200, 60], q => dansPoly(ROULE)(q) && q[0] > 136, Math.round(1800 * k * k), 13, q => T(P(...q)), 1.4));
+    out.push(h.path(poly(TT(CASSE)), A.ombre));
+    if (k > 0.6) FACETTES.forEach(({ pl, c, r }, i) => {
+      const id = `onde-1309-${i}`;
+      let d = '';
+      r.forEach(rr => { const pts = []; for (let j = 0; j <= 14; j++) { const a = (-160 + 140 * j / 14) * RAD; pts.push(T(P(c[0] + rr * Math.cos(a), c[1] - rr * Math.sin(a) * 0.9))); } d += lisse(pts) + ' '; });
+      out.push(`<clipPath id="${id}"><path d="${poly(TT(pl))}" fill="#FFFFFF" stroke="none"/></clipPath>`, `<g clip-path="url(#${id})">${h.path(d, A.fin)}</g>`);
+    });
+    ECLATS.forEach(o => out.push(h.path(poly(TT(o), false), A.detail)));
+    out.push(h.path(poly(TT(HAUT), false), A.arete));
+    out.push(h.path(poly(TT(BOUT), false), A.arete));
+    out.push(h.path(poly(TT([A1, fond(A1)]), false), A.arete));
+    out.push(h.path(poly(TT(SILHOUETTE)), A.contour));
+    out.push(h.path(poly(TT(AMADOU)), A.plein));
+    // de près, le tissage de la toile carbonisée
+    if (k > 0.6) {
+      let d = '';
+      for (let i = 1; i < 12; i++) { const a = add([126 + i * 10, 37], mul(PROF, 0.14)), b = add([126 + i * 10, 36], mul(PROF, 0.84)); d += M(T(P(...a))) + Lp(T(P(...b))) + ' '; }
+      for (let j = 1; j < 4; j++) { const a = add([132, 37], mul(PROF, 0.08 + 0.2 * j)), b = add([242, 34], mul(PROF, 0.08 + 0.2 * j)); d += M(T(P(...a))) + Lp(T(P(...b))) + ' '; }
+      out.push(h.path(d, 'fill="none" stroke="#FFFFFF" stroke-width="0.5"'));
     }
     return out.join('\n');
   };
+  // l'état : 'avant' (l'acier levé) ou 'apres' (l'acier qui passe l'arête)
+  const scene = (T, k, etat) => {
+    const out = [pierreSVG(T, k), main(PIERRE_M, T, k)];
+    const { o, sc } = acier(etat === 'avant' ? AVANT : APRES);
+    out.push(h.path(poly(profilU().map(q => T(sc(ST(...q))))), A.plein));
+    out.push(main(o, T, k));
+    return out.join('\n');
+  };
+  const scenePt = etat => q => acier(etat === 'avant' ? AVANT : APRES).sc(ST(...q));
 
-  const FG = [-40, -165, 172, 56];                   // fenêtre du geste
-  const FD = [-21, -100, 104.2, 46];                 // fenêtre du point de frappe : le devant du poing, le pouce, la pierre ;
-                                                     // l'acier coupé au ras du fond
-
-  // ─── L'acier (repère 200 × 280) ────────────────────────────────────────────────────────
-  const U3 = { xr: 150, bras: 46, y0: 140, y1: 230, t: 6, R: 11, D: [18, -13] };
-  const lime = { x0: 12, x1: 12 + (120 - 30) + 2 * 46 - 12, y0: 40, y1: 64 };
-  const profilU3 = () => {
-    const { xr, bras, y0, y1, t, R: r } = U3, xl = xr - bras;
-    return [
-      [xl, y0], ...arc(xr - r, y0 + r, r, 270, 360, 7), ...arc(xr - r, y1 - r, r, 0, 90, 7),
-      [xl, y1], [xl, y1 - t], ...arc(xr - r, y1 - r, r - t, 90, 0, 5),
-      ...arc(xr - r, y0 + r, r - t, 0, -90, 5), [xl, y0 + t],
+  // Les paillettes, du point de contact : l'une remonte et retombe sur l'amadou, les autres filent en bas.
+  const paillettes = (T, k) => {
+    const c = T(E), chute = T(P(...CHUTE)), out = [];
+    const traj = [
+      { q: [8, 46], fin: [14, 92] },
+      { q: [16, 30], fin: [30, 70] },
+      { q: [4, 60], fin: [-2, 110] },
+      { q: [24, 14], fin: [44, 40] },
     ];
+    traj.forEach(({ q, fin }) => {
+      const a = T(add(E, q)), b = T(add(E, fin));
+      out.push(h.path(`M ${f(c[0])} ${f(c[1])} Q ${f(a[0])} ${f(a[1])} ${f(b[0])} ${f(b[1])}`, A.cache));
+      out.push(h.cercle(b[0], b[1], 2.2, A.plein));
+    });
+    // la paillette qui retombe sur l'amadou : elle y brûle, un point clair sur la toile noire
+    // son trajet passe au-dessus de la toile noire : un liseré blanc sous le tireté le garde lisible
+    const sommet = T(add(E, [-16, -120]));
+    const trajet = `M ${f(c[0])} ${f(c[1])} Q ${f(sommet[0])} ${f(sommet[1])} ${f(chute[0])} ${f(chute[1])}`;
+    out.push(h.path(trajet, 'fill="none" stroke="#FFFFFF" stroke-width="2.4" stroke-linecap="round"'), h.path(trajet, A.cache));
+    let r = '';
+    for (let i = 0; i < 8; i++) { const a = (i * 45 + 20) * RAD; r += M(add(chute, [Math.cos(a) * 4.5, Math.sin(a) * 4.5])) + Lp(add(chute, [Math.cos(a) * 8, Math.sin(a) * 8])) + ' '; }
+    out.push(h.path(r, 'fill="none" stroke="#FFFFFF" stroke-width="1.4" stroke-linecap="round"'));
+    out.push(h.cercle(chute[0], chute[1], 3.2, A.blanc));
+    return out.join('\n');
   };
 
-  // ─── La pierre (repère 200 × 300) ──────────────────────────────────────────────────────
-  const gal = { cx: 92, cy: 78, rx: 76, ry: 42, fx: 146, fry: 38, frx: 17 };
-  const verre = [[140, 180], [230, 164], [292, 190], [222, 216], [146, 206]];
-  const contact = [226, 190];
-  const eclat = [contact, [214, 170], [216, 146], [232, 130], [252, 132], [262, 148], [256, 170]];
+  // ═══ L'acier seul ═════════════════════════════════════════════════════════════════════════════════
+  // Le même U, vu un peu de haut : x vers la face qui frappe, y vers le bas ; la largeur de la bande vers le fond.
+  const UV = profilU().map(([s, t]) => [t - U.fin, U.s1 - s]);
+  const DU = [30, -22];
+
+  // ═══ La lime ══════════════════════════════════════════════════════════════════════════════════════
+  // Une vieille lime plate, la soie à gauche, vue un peu de haut : le dessus taillé, la tranche à l'ombre.
+  const LIME = { x0: 0, x1: 230, y0: 0, y1: 26, soie: 52, ep: 6 };
+
+  // ═══ La pierre seule et l'essai du verre ══════════════════════════════════════════════════════════
+  // Le caillou cassé : le grain roulé autour, la cassure fraîche au bout (vue de trois quarts) ; le bord de la
+  // cassure est l'arête coupante. Les ondes de la cassure partent du point où le coup l'a fendue.
+  const CORTEX = [[118, 24], [96, 15], [64, 12], [34, 20], [12, 38], [6, 62], [18, 86], [48, 100], [84, 101], [110, 95], [122, 91]];
+  const CASSURE = (() => { const o = []; for (let i = 0; i < 28; i++) { const a = (i / 28) * 2 * Math.PI; const m = 1 + 0.05 * Math.sin(3 * a + 1) + 0.04 * Math.sin(5 * a); o.push([126 + 19 * Math.cos(a) * m, 58 + 34 * Math.sin(a) * m]); } return o; })();
+  const COUP = [114, 84];
+  // L'essai : un éclat de la même pierre, son arête traînée sur un morceau de vitre ; la rayure reste derrière.
+  const VITRE = [[64, 168], [204, 140], [252, 168], [112, 198]];
+  const ECLAT = [[176, 166], [168, 140], [176, 116], [198, 108], [214, 122], [208, 146]];
+  const ECLAT_C = [[176, 166], [208, 146], [214, 122], [196, 138]];
+
+  // Les fenêtres des deux vues du geste, autour du point de contact.
+  const POUCE = P(132, 62);
+  const FG = [E[0] - 400, E[1] - 275, E[0] + 290, E[1] + 270];
+  const FD = [POUCE[0] - 30, E[1] - 90, E[0] + 56, E[1] + 150];
 
   return {
     ref: '13-09',
     titre: 'Le briquet à pierre',
-    desc: 'Le geste, vu par celui qui frappe : à gauche, la main gauche serre dans le poing un caillou de grève cassé, vue de la paume, les doigts repliés dessus ; le bout de la pierre sort du poing du côté du pouce, vers la droite, et finit en arête vive ; le pouce, refermé par-dessus, tient l’amadou carbonisé, un carré plat de tissu noirci, couché sur la pierre jusqu’au ras de l’arête, cerclé de rouge. À droite, la main droite fermée en poing, vue de la paume, les doigts passés dans l’acier cintré en U, le fond du U devant les doigts repliés, sa face extérieure tournée vers la pierre ; un tireté montre qu’elle descend en rasant l’arête, une flèche rouge le sens du coup, vers le bas. De plus près, au point de frappe : le devant du poing et la pierre, l’acier descendu contre l’arête, les paillettes qui partent, trois qui retombent sur l’amadou. En bas, l’acier : un bout de vieille lime gardé tel quel, dessous le même cintré en U ; et la pierre : un galet dont la cassure fraîche fait une arête coupante, et l’essai qui la juge, l’arête qui raye un éclat de verre.',
+    desc: 'En haut, l’acier : un morceau d’acier au carbone cintré en U, vu un peu de haut ; à côté, séparée par un filet, l’autre façon, une vieille lime plate telle quelle ; puis la pierre : un caillou de grève cassé, le grain roulé d’un côté, la cassure fraîche de l’autre, dont le bord fait une arête coupante, et l’essai : l’arête qu’on traîne sur un morceau de verre y laisse une rayure (flèche rouge). En bas, le geste : la main gauche serre la pierre dans le poing, l’avant-bras qui descend vers le corps ; la pierre sort du côté du pouce, et le bout du pouce appuie sur un carré d’amadou noir couché sur la pierre jusqu’au ras de l’arête. La main droite, en poing, a les doigts passés dans le U ; la face du fond du U est juste au-dessus de l’arête, et la flèche rouge dit de frapper vers le bas en la rasant. De plus près, au point de frappe : l’acier qui passe l’arête, les paillettes qui partent, et l’une qui retombe et brûle sur l’amadou.',
     format: 'pleine',
     disposition: [['acier', 'lime', 'pierre'], ['geste', 'detail']],
-    hauteurs: [0.75, 1.25],
-    largeurs: [[0.8, 1, 1.15], [1.75, 1]],
+    hauteurs: [0.84, 1.16],
+    largeurs: [[0.78, 0.9, 1.4], [2, 1]],
     vues: {
+      acier: {
+        titre: 'L’acier, cintré en U',
+        dessin: z => {
+          const { T } = fenetre(z, -26, -36, 140, 236);
+          const out = [h.ligne(z.l + 11, 0, z.l + 11, z.h, A.fin)];    // le filet de l'autre façon (règle 10)
+          out.push(extrusion(UV, DU, T, A.plein));
+          return out.join('\n');
+        },
+        renvois: z => {
+          const { T } = fenetre(z, -26, -36, 140, 236);
+          return [{ n: 1, rond: T([-12, 30]), cible: T([12, 9]), texte: 'acier au carbone cintré en U' }];
+        },
+      },
+      lime: {
+        titre: 'Sans forge : une lime',
+        dessin: z => {
+          const { T } = fenetre(z, -60, -150, 210, 80);
+          const { x0, x1, y0, y1, soie, ep } = LIME;
+          const R = p => { const a = -32 * RAD, c = Math.cos(a), s = Math.sin(a); return T([p[0] * c - p[1] * s, p[0] * s + p[1] * c]); };
+          const out = [];
+          // la soie, qui s'amincit vers son bout
+          const soieP = [[x0, y0 + 6], [x0 - soie, 11], [x0 - soie, 15], [x0, y1 - 6]];
+          out.push(h.path(poly(soieP.map(R)), A.blanc), h.path(poly(soieP.map(R)), A.contour));
+          // la tranche, à l'ombre, puis le dessus
+          const tranche = [[x0, y1], [x1, y1 - 2], [x1, y1 - 2 + ep], [x0, y1 + ep]];
+          out.push(h.path(poly(tranche.map(R)), A.ombre), h.path(poly(tranche.map(R)), A.arete));
+          const dessus = [[x0, y0], [x1 - 14, y0 + 1], [x1, y0 + 6], [x1, y1 - 2], [x0, y1]];
+          out.push(h.path(poly(dessus.map(R)), A.blanc));
+          // la taille croisée, coupée au dessus de la lime
+          let d = '';
+          for (let x = x0 - 30; x < x1 + 30; x += 5) d += M(R([x, y0])) + Lp(R([x + 9, y1])) + ' ';
+          for (let x = x0 - 30; x < x1 + 30; x += 8) d += M(R([x + 7, y0])) + Lp(R([x - 3, y1])) + ' ';
+          out.push(`<clipPath id="lime-1309"><path d="${poly(dessus.map(R))}" fill="#FFFFFF" stroke="none"/></clipPath>`);
+          out.push(`<g clip-path="url(#lime-1309)">${h.path(d, A.fin)}</g>`);
+          out.push(h.path(poly(dessus.map(R)), A.contour));
+          return out.join('\n');
+        },
+        renvois: z => {
+          const { T } = fenetre(z, -60, -150, 210, 80);
+          const R = p => { const a = -32 * RAD, c = Math.cos(a), s = Math.sin(a); return T([p[0] * c - p[1] * s, p[0] * s + p[1] * c]); };
+          return [{ n: 2, rond: T([150, 30]), cible: R([150, 26]), texte: 'au lieu de 1 : une vieille lime' }];
+        },
+      },
+      pierre: {
+        titre: 'La pierre',
+        dessin: z => {
+          const { T, k } = fenetre(z, 0, 4, 262, 206);
+          const out = [];
+          // le caillou cassé
+          out.push(h.path(lisse([...CORTEX, [140, 58]].map(T), true), A.blanc));
+          out.push(semis([0, 8, 130, 104], p => dansPoly([...CORTEX, [145, 58]])(p) && Math.hypot((p[0] - 126) / 19, (p[1] - 58) / 34) > 1.12, Math.round(1100 * k * k), 41, T, 1.4));
+          out.push(h.path(lisse(CASSURE.map(T), true), A.ombre));
+          out.push(`<clipPath id="cassure-1309"><path d="${lisse(CASSURE.map(T), true)}" fill="#FFFFFF" stroke="none"/></clipPath>`);
+          let ondes = '';
+          [14, 26, 38, 50].forEach(r => { const pts = []; for (let i = 0; i <= 12; i++) { const a = (-100 + 110 * i / 12) * RAD; pts.push(T([COUP[0] + r * Math.cos(a), COUP[1] + r * Math.sin(a)])); } ondes += lisse(pts) + ' '; });
+          out.push(`<g clip-path="url(#cassure-1309)">${h.path(ondes, A.fin)}</g>`);
+          out.push(h.path(lisse(CORTEX.map(T)), A.contour));
+          out.push(h.path(lisse(CASSURE.map(T), true), A.contour));
+          // l'essai du verre : la vitre, sa tranche, deux reflets ; la rayure derrière l'éclat
+          const ep = [0, 5];
+          out.push(h.path(poly([VITRE[2], VITRE[3], add(VITRE[3], ep), add(VITRE[2], ep)].map(T)), A.blanc));
+          out.push(h.path(poly([VITRE[3], add(VITRE[3], ep), add(VITRE[2], ep), VITRE[2]].map(T), false), A.arete));
+          out.push(h.path(poly(VITRE.map(T)), A.blanc), h.path(poly(VITRE.map(T)), A.arete));
+          out.push(h.path(M(T([84, 176])) + Lp(T([100, 166])) + ' ' + M(T([92, 180])) + Lp(T([104, 172])) + ' ' + M(T([222, 160])) + Lp(T([232, 154])), A.fin));
+          out.push(h.path(M(T([112, 178])) + Lp(T([128, 175.6])) + Lp(T([142, 172.4])) + Lp(T([156, 170.6])) + Lp(T([170, 167.4])) + Lp(T([176, 166])), A.detail));
+          out.push(h.path(poly(ECLAT.map(T)), A.blanc));
+          out.push(semis([166, 106, 216, 168], p => dansPoly(ECLAT)(p) && !dansPoly(ECLAT_C)(p), Math.round(700 * k * k), 7, T, 1.4));
+          out.push(h.path(poly(ECLAT_C.map(T)), A.ombre));
+          out.push(h.path(poly([[198, 108], [196, 138], [176, 166]].map(T), false), A.detail));
+          out.push(h.path(poly(ECLAT.map(T)), A.contour));
+          out.push(h.geste(M(T([214, 158])) + Lp(T([246, 151]))));
+          return out.join('\n');
+        },
+        renvois: z => {
+          const { T } = fenetre(z, 0, 4, 262, 206);
+          return [
+            { n: 3, rond: T([30, 134]), cible: T([42, 96]), texte: 'silex, chert, quartz ou jaspe de grève' },
+            { n: 4, rond: T([176, 30]), cible: T([142, 44]), texte: 'casser pour avoir une arête fraîche et coupante' },
+            { n: 5, rond: T([136, 136]), cible: T([150, 171]), texte: 'la pierre doit rayer le verre' },
+          ];
+        },
+      },
       geste: {
         titre: 'Le geste',
         dessin: z => {
           const { T, k } = fenetre(z, ...FG);
-          return decoupe('vue-geste', z, scene(T, k, z, false));
+          const out = [scene(T, k, 'avant')];
+          // le coup : la face du U descend en rasant l'arête
+          out.push(h.geste(M(T(add(E, [12, -34]))) + Lp(T(add(E, [12, 120])))));
+          return decoupe('geste', z, out.join('\n'));
         },
         renvois: z => {
           const { T } = fenetre(z, ...FG);
+          const sA = scenePt('avant');
           return [
-            { n: 6, rond: T([E[0] - 34, E[1] - 44]), cible: T([E[0] - 9, E[1] - 7]), texte: 'l’amadou sous le pouce, au ras de l’arête' },
-            { n: 7, rond: T([E[0] - 26, -150]), cible: T([TX + U.xo + 2.5, TY_AVANT - 10]), texte: 'les doigts passés dans le U' },
-            { n: 8, rond: T([E[0] + 52, E[1] + 30]), cible: T([E[0] + 17, E[1] + 26]), texte: 'frapper vers le bas, en rasant l’arête' },
+            { n: 6, rond: T(add(E, [-150, -150])), cible: T(P(...add([186, 36], mul(PROF, 0.5)))), texte: 'pincer l’amadou au ras de l’arête' },
+            { n: 7, rond: T(add(E, [-90, -240])), cible: T(sA([40, U.t1 - 9])), texte: 'passer les doigts dans le U' },
+            { n: 8, rond: T(add(E, [80, 90])), cible: T(add(E, [12, 50])), texte: 'frapper vers le bas, en rasant l’arête' },
           ];
         },
       },
@@ -263,178 +386,11 @@ module.exports = (h) => {
         titre: 'Au point de frappe',
         dessin: z => {
           const { T, k } = fenetre(z, ...FD);
-          return decoupe('vue-detail', z, scene(T, k, z, true));
+          return decoupe('detail', z, scene(T, k, 'apres') + '\n' + paillettes(T, k));
         },
         renvois: z => {
           const { T } = fenetre(z, ...FD);
-          return [
-            { n: 9, rond: T([E[0] - 14, -80]), cible: T(surAmadou(ST.arete - 11)), texte: 'la paillette tombe sur l’amadou' },
-          ];
-        },
-      },
-      acier: {
-        titre: 'L’acier, cintré en U',
-        dessin: z => {
-          const { T } = fenetre(z, 70, 105, 200, 250);
-          const TT = pts => pts.map(T);
-          const out = [];
-          // règle 10 : un filet sépare le U de l'autre façon (la lime), à droite, au milieu de la gouttière
-          out.push(h.ligne(z.l + 11, 0, z.l + 11, z.h, A.fin));
-
-          // ── Le U en relief : le fond à droite, la face qui frappe en dehors ──
-          const P = profilU3(), D = U3.D, n = P.length;
-          const aire = P.reduce((s, p, i) => { const q = P[(i + 1) % n]; return s + p[0] * q[1] - q[0] * p[1]; }, 0);
-          const sens = aire > 0 ? 1 : -1;
-          const faces = P.map((p, i) => {
-            const q = P[(i + 1) % n], ex = q[0] - p[0], ey = q[1] - p[1];
-            const no = sens > 0 ? [ey, -ex] : [-ey, ex];
-            return { p, q, vis: no[0] * D[0] + no[1] * D[1] > 0.01, dir: [ex, ey], no };
-          });
-          const Dp = p => [p[0] + D[0], p[1] + D[1]];
-          out.push(h.chemin(TT(P.map(Dp)), A.blanc, true), h.chemin(TT(P.map(Dp)), A.arete, true));
-          const xl = U3.xr - U3.bras;
-          const interieur = i => {
-            const m = [(faces[i].p[0] + faces[i].q[0]) / 2, (faces[i].p[1] + faces[i].q[1]) / 2];
-            return m[0] < U3.xr - U3.t + 0.5 && m[1] > U3.y0 + U3.t - 0.5 && m[1] < U3.y1 - U3.t + 0.5 && m[0] > xl + 0.5;
-          };
-          const ordre = [...faces.keys()].sort((a, b) => (interieur(b) ? 1 : 0) - (interieur(a) ? 1 : 0));
-          ordre.forEach(i => {
-            const Fc = faces[i];
-            if (!Fc.vis) return;
-            // la charte : la lumière vient d'en haut à gauche ; la face extérieure du fond, tournée vers la
-            // droite, est à l'ombre
-            const ombre = !interieur(i) && Fc.no[0] > 0.5 * Math.hypot(...Fc.no);
-            out.push(h.chemin(TT([Fc.p, Fc.q, Dp(Fc.q), Dp(Fc.p)]), ombre ? A.ombre : A.blanc, true));
-            out.push(h.ligne(...T(Dp(Fc.p)), ...T(Dp(Fc.q)), A.arete));
-            [[i, (i + 1) % n, Fc.q], [(i - 1 + n) % n, i, Fc.p]].forEach(([a, b, s]) => {
-              const Aa = faces[a], B = faces[b];
-              const cosang = (Aa.dir[0] * B.dir[0] + Aa.dir[1] * B.dir[1]) / (Math.hypot(...Aa.dir) * Math.hypot(...B.dir));
-              if (Aa.vis !== B.vis || cosang < 0.5) out.push(h.ligne(...T(s), ...T(Dp(s)), A.arete));
-            });
-          });
-          out.push(h.chemin(TT(P), A.plein, true));
-          return out.join('\n');
-        },
-        renvois: z => {
-          const { T } = fenetre(z, 70, 105, 200, 250);
-          return [
-            { n: 1, rond: T([84, 120]), cible: T([U3.xr - U3.bras + 14, U3.y0 + 3]), texte: 'acier au carbone, cintré en U' },
-          ];
-        },
-      },
-      lime: {
-        titre: 'Sans forge : la lime',
-        dessin: z => {
-          const { T } = fenetre(z, -4, -10, 204, 104);
-          const TT = pts => pts.map(T);
-          const out = [];
-
-          // ── Le bout de lime, à plat, taillé des deux sens ──
-          const { x0, x1, y0, y1 } = lime;
-          const casse = [[x1, y0], [x1 + 5, y0 + 6], [x1 + 1, y0 + 11], [x1 + 6, y0 + 17], [x1 + 2, y1]];
-          const contourL = [[x0 + 6, y0], ...casse, [x0 + 6, y1], [x0, y1 - 5], [x0, y0 + 5]];
-          out.push(h.chemin(TT(contourL), A.blanc, true));
-          let taille = '';
-          const coupe = (ax, ay, bx, by) => {             // trait coupé au rectangle intérieur
-            const xa = x0 + 3, xb = x1 - 1, ya = y0 + 2, yb = y1 - 2;
-            let t0 = 0, t1 = 1; const dx = bx - ax, dy = by - ay;
-            for (const [p, q] of [[-dx, ax - xa], [dx, xb - ax], [-dy, ay - ya], [dy, yb - ay]]) {
-              if (p === 0) { if (q < 0) return; continue; }
-              const r = q / p;
-              if (p < 0) { if (r > t1) return; if (r > t0) t0 = r; } else { if (r < t0) return; if (r < t1) t1 = r; }
-            }
-            taille += `M ${pt(T([ax + dx * t0, ay + dy * t0]))} L ${pt(T([ax + dx * t1, ay + dy * t1]))} `;
-          };
-          for (let x = x0 - 20; x < x1 + 10; x += 4.2) coupe(x, y0, x + 12, y1);
-          for (let x = x0 - 20; x < x1 + 20; x += 6) coupe(x + 10, y0, x - 2, y1);
-          out.push(h.path(taille, A.fin));
-          out.push(h.chemin(TT(contourL), A.contour, true));
-
-          return out.join('\n');
-        },
-        renvois: z => {
-          const { T } = fenetre(z, -4, -10, 204, 104);
-          return [
-            { n: 2, rond: T([40, 2]), cible: T([60, lime.y0 + 9]), texte: 'au lieu de 1 : une vieille lime' },
-          ];
-        },
-      },
-      pierre: {
-        titre: 'La pierre',
-        dessin: z => {
-          const { T: T0 } = fenetre(z, 0, 0, 340, 150);
-          const out = [];
-          const { cx, cy, rx, ry, fx, fry, frx } = gal;
-
-          // ── Le galet cassé : cortex roulé, fermé à droite par la cassure ──
-          {
-            const T = p => T0([p[0] + 2, p[1] + 6]);
-            const TT = pts => pts.map(T);
-            const haut = [fx - 4, cy - fry], bas = [fx - 4, cy + fry];
-            const polyCortex = [haut, [cx + 20, cy - ry], [cx - 30, cy - ry + 4], [cx - rx + 4, cy - 12], [cx - rx + 6, cy + 16], [cx - 32, cy + ry], [cx + 22, cy + ry], bas];
-            const cortex = lisse(TT(polyCortex), false);
-            const ell = (a0, a1) => {
-              const pts = [];
-              for (let i = 0; i <= 24; i++) {
-                const a = (a0 + (a1 - a0) * i / 24) * Math.PI / 180;
-                const m = 1 + 0.07 * Math.sin(3 * a + 0.6) + 0.05 * Math.sin(5 * a + 2);   // cassure irrégulière
-                pts.push([fx - 4 + Math.cos(a) * frx * m, cy + Math.sin(a) * fry * m]);
-              }
-              return pts;
-            };
-            out.push(h.path(cortex + ' ' + lisse(TT(ell(90, -90)), false, true) + ' Z', A.blanc));
-            out.push(semis(cx - rx, cy - ry, fx, cy + ry, p => dansPoly(polyCortex)(p) && Math.hypot((p[0] - fx + 4) / frx, (p[1] - cy) / fry) > 1.15, 420, 41, T));
-            out.push(h.path(cortex, A.contour));
-            const bordCasse = lisse(TT(ell(90, -270).slice(0, -1)), true);
-            // la charte : la cassure, face de droite du galet, est à l'ombre (la lumière vient d'en haut à gauche)
-            out.push(h.path(bordCasse, A.ombre));
-            [0.3, 0.52, 0.74].forEach(kk => {
-              const pts = [];
-              for (let i = 0; i <= 10; i++) {
-                const a = (-160 + 140 * i / 10) * Math.PI / 180;
-                pts.push([fx - 4 + Math.cos(a) * frx * kk * 1.5, cy + fry * 0.82 + Math.sin(a) * fry * kk * 1.5]);
-              }
-              const dans = pts.filter(([x, y]) => Math.hypot((x - fx + 4) / frx, (y - cy) / fry) < 0.93);
-              if (dans.length > 1) out.push(h.path(lisse(TT(dans), false), A.fin));
-            });
-            out.push(h.path(bordCasse, A.contour));
-          }
-
-          // ── L'essai : l'arête raye le verre ──
-          {
-            const T = p => T0([p[0] + 46, p[1] - 108]);
-            const TT = pts => pts.map(T);
-            const ep = 4, Vb = verre.map(([x, y]) => [x, y + ep]);
-            out.push(h.chemin(TT([verre[2], verre[3], verre[4], Vb[4], Vb[3], Vb[2]]), A.blanc, true));
-            out.push(h.chemin(TT([verre[2], Vb[2], Vb[3], Vb[4], verre[4]]), A.arete, false));
-            out.push(h.ligne(...T(verre[3]), ...T(Vb[3]), A.arete));
-            out.push(h.chemin(TT(verre), A.blanc, true), h.chemin(TT(verre), A.arete, true));
-            out.push(h.ligne(...T([160, 196]), ...T([174, 186]), A.fin), h.ligne(...T([166, 200]), ...T([176, 193]), A.fin));
-            out.push(h.ligne(...T([262, 184]), ...T([272, 178]), A.fin));
-            // la rayure, derrière l'arête qui avance
-            out.push(h.path(`M ${pt(T([176, 192.5]))} L ${pt(T([188, 191.6]))} L ${pt(T([199, 192.2]))} L ${pt(T([212, 190.8]))} L ${pt(T(contact))}`, A.detail));
-            // l'éclat : cortex en haut à gauche, cassure en bas à droite, arête sur le verre
-            out.push(h.chemin(TT(eclat), A.blanc, true));
-            const faceE = [contact, [256, 170], [262, 148], [240, 156]];
-            out.push(h.chemin(TT(faceE), A.ombre, true));          // la cassure de l'éclat, à l'ombre
-            out.push(semis(214, 130, 262, 172, p => dansPoly(eclat)(p) && !dansPoly(faceE)(p), 150, 7, T));
-            out.push(h.chemin(TT([[232, 130], [240, 156], contact]), A.detail));
-            out.push(h.chemin(TT([[240, 156], [262, 148]]), A.detail));
-            out.push(h.path(`M ${pt(T([244, 170]))} Q ${pt(T([250, 164]))} ${pt(T([252, 172]))}`, A.fin));
-            out.push(h.chemin(TT(eclat), A.contour, true));
-            // le geste de l'essai : traîner l'arête sur le verre
-            out.push(h.geste(`M ${pt(T([266, 160]))} L ${pt(T([292, 160]))}`));
-          }
-          return out.join('\n');
-        },
-        renvois: z => {
-          const { T: T0 } = fenetre(z, 0, 0, 340, 150);
-          const Tg = p => T0([p[0] + 2, p[1] + 6]), Tv = p => T0([p[0] + 46, p[1] - 108]);
-          return [
-            { n: 3, rond: T0([30, 140]), cible: Tg([58, 108]), texte: 'silex, chert, quartz ou jaspe de grève' },
-            { n: 4, rond: T0([150, 14]), cible: Tg([gal.fx - 2, gal.cy - 34]), texte: 'cassure fraîche : arête coupante' },
-            { n: 5, rond: T0([322, 22]), cible: Tv([279, 158]), texte: 'elle doit rayer le verre' },
-          ];
+          return [{ n: 9, rond: T(add(P(...CHUTE), [-90, -70])), cible: T(P(...CHUTE)), texte: 'la paillette brûle en tombant sur l’amadou' }];
         },
       },
     },
