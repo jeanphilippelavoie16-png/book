@@ -147,8 +147,8 @@ tôt que prévu, l'essentiel est fait.
  - La pente des premières heures est la plus forte. Dans des maisons sans chauffage mesurées par environ −8 °C
  dehors, l'air est passé de 20 à 14 °C dans les premières heures, puis il a baissé beaucoup plus lentement : l'écart
  avec le dehors avait diminué, et le béton, le gypse, les meubles et la terre autour du sous-sol rendent leur chaleur
- lentement. Plus il fait froid
- dehors, plus la maison perd vite. Refaire la mesure à chaque reprise de la décision (étape 43).
+ lentement. Plus il fait froid dehors, plus la maison perd vite. Refaire la mesure à chaque reprise de la décision
+ (étape 43).
  - À la maison chauffée à l'électricité, l'horloge de la chaleur est cette pente. Au chalet, on la compte en jours
  de bois sec qu'on peut aller chercher sans machine, au rythme où on chauffe (ch. 83).
  - Entre 18 et 24 °C, le risque est minimal pour une personne sédentaire. Aucune température reconnue ne dit quand
@@ -208,8 +208,8 @@ tôt que prévu, l'essentiel est fait.
 37. {!feu-de-foret} **Devant un feu de forêt, rester au chalet seulement si le pourtour a été dégagé d'avance**, en
  trois zones : de 0 à 1,5 m, rien qui brûle ; de 1,5 à 10 m, aucune corde de bois ; de 10 à 30 m, des conifères
  espacés d'au moins 3 m entre les cimes et élagués jusqu'à 2 m du sol (ch. 11, étapes 49 à 56). Sans ces trois
- zones, un chalet dans une forêt serrée d'épinettes noires ne se défend pas : partir tôt, avant que le feu ou la fumée ferment le chemin. À la
- maison, décider selon l'avance du feu vers la ville (ch. 11).
+ zones, un chalet dans une forêt serrée d'épinettes noires ne se défend pas : partir tôt, avant que le feu ou la
+ fumée ferment le chemin. À la maison, décider selon l'avance du feu vers la ville (ch. 11).
 38. **Devant une fumée sans feu visible, rester dedans, les portes et les fenêtres fermées, l'air recirculé ou
  filtré** ; la radio donne la Cote air santé[^2]. L'été, s'il fait trop chaud dedans, ouvrir les fenêtres : la
  chaleur fait en général plus de tort que la fumée. Un chalet chauffé au bois tire son air de combustion de la pièce
@@ -321,10 +321,9 @@ route est peut-être coupée et personne ne sait qu'on est là.
 
 - **Sans radio à piles** : écouter la radio de l'auto, moteur coupé, par tranches de quelques minutes, en alternant
  avec l'éclairage pour ménager la batterie (une batterie qu'on vide gèle plus facilement : « Faire démarrer l'auto »,
- plus bas). Un
- fil de cuivre lancé dans un arbre et enroulé sur le brin d'antenne allonge la portée. La bande AM porte beaucoup
- plus loin après le coucher du soleil qu'à midi : on capte parfois à 22 h une station qu'on n'entendait pas à 14 h.
- Essayer le jour et le soir.
+ plus bas). Un fil de cuivre lancé dans un arbre et enroulé sur le brin d'antenne allonge la portée. La bande AM
+ porte beaucoup plus loin après le coucher du soleil qu'à midi : on capte parfois à 22 h une station qu'on
+ n'entendait pas à 14 h. Essayer le jour et le soir.
 - **Sans nouvelles de la route** : faire un aller de reconnaissance jusqu'au premier endroit où on voit la route, à
  pied ou en motoneige, à deux, de jour, et sans l'adulte qui garde les enfants. Le compter au tiers : un tiers
  du carburant et de la clarté pour l'aller, un tiers pour le retour, et un tiers de marge qu'on ne touche pas. Casser
