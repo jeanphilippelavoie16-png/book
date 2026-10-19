@@ -205,8 +205,9 @@ Le cadre complet est `.claude/skills/planches/references/brief-agent.md`. En bre
   de photos dans le livre, utilisons ces espaces pour en mettre » ; « tu commences à comprendre le principe ? ») :
   une note verte au plus par page (« trop de notes vertes, c'est pas beau non plus ») ; le vide qui reste au bas d'une
   page reçoit une photo (`images/vides/NN-*.jpg`, ce dont le chapitre parle, puis `images/pleine-page/tome-N/`), en
-  bande sur toute la largeur ; pas de pastilles tirées de l'image du tome (JP : « non, j'aime pas ça les pastilles
-  finalement, mets des photos ») ; une page blanche
+  bande sur toute la largeur, seulement sur une page qui n'a ni note verte, ni planche, ni photo (« les pages qui ont
+  déjà du stock dedans, on rajoute pas de photo ») ; pas de pastilles tirées de l'image du tome (JP : « non, j'aime pas
+  ça les pastilles finalement, mets des photos ») ; une page blanche
   devient une photo de la nature du Québec en pleine page, fond perdu (« genre pleine page, pas de blanc »). Une note
   ne se pose jamais sous un titre resté seul (« note verte pour remplir un trou qui existe pas ») : le titre suit son
   texte. JP aime les notes vertes avec des photos pour reconnaître (le sapin, l'épinette noire, le cèdre).

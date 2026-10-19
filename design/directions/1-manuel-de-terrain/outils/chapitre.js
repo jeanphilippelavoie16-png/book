@@ -550,6 +550,9 @@ function remplirVides(){
   const prochaine = () => propres.length ? propres.shift() : photos[ip++ % photos.length];
   PAGES.forEach(p => {
     if(p.kind !== 'text' && p.kind !== 'open') return;
+    // une page qui porte déjà du « stock » (une note verte, une planche, une photo) n'en reçoit pas d'autre (JP, 19
+    // octobre 2026 : « les pages qui ont déjà du stock dedans, on rajoute pas de photo »)
+    if(p.bl.querySelector('.extra, .fig, figure, img')) return;
     const kids = [...p.bl.children].filter(e => !e.classList.contains('fnz'));
     const der = kids[kids.length - 1]; if(!der) return;
     const fnz = [...p.bl.children].find(e => e.classList.contains('fnz'));
