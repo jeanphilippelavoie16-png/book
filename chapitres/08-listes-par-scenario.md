@@ -19,14 +19,14 @@ arriver à la maison ou au chalet, de la première heure jusqu'à la fin de l'é
  deux heures, la radio annonce un feu à 40 km, le congélateur est tiède (scénarios 1 à 9).
 - **Le sinistre n'est aucun des neuf** : on prend la liste du scénario qui lui ressemble (section 4).
 - **Une fois par année, hors sinistre** : on vérifie que le stock couvre les neuf listes, pas seulement la première
- (section 5 ; rotation : ch. 5 ; achats : ch. 00b).
+ (section 5 ; la rotation du stock est au ch. 5, les achats au ch. 00b).
 - **Rien n'a été préparé** : ni réserve d'eau, ni piles neuves, ni avertisseur de CO, ni génératrice (section 7).
 
 ---
 
 ## 3. Matériel
 
-- **Eau prête à boire** : 4 L par personne et par jour, pour boire et se laver (sans réserve : section 7, « L'eau du bâtiment »).
+- **Eau prête à boire** : 4 L par personne et par jour, pour boire et se laver (si on n'a pas de réserve : section 7, « L'eau du bâtiment »).
 - **Eau de Javel non parfumée** : désinfecte l'eau quand on ne peut pas la faire bouillir (section 7).
 - **Avertisseur de CO à piles** : le seul moyen de savoir que l'air de la pièce contient du monoxyde (scénario 1).
 - **Médicaments d'ordonnance** : une réserve de 2 à 3 semaines, gardée dans le sac qui part avec la famille ; rien ne les remplace.
@@ -37,14 +37,14 @@ arriver à la maison ou au chalet, de la première heure jusqu'à la fin de l'é
 
 ## 4. Procédure
 
-Choisir le scénario qui ressemble à l'événement sur cinq questions : où on est, si on reste ou si on part, combien de
+Choisir le scénario qui ressemble le plus à l'événement, en se posant cinq questions : où on est, si on reste ou si on part, combien de
 temps ça va durer, si on peut se servir de l'air et de l'eau du dehors, et quel service lâche en premier. Devant
 un sinistre qui n'est aucun des neuf, prendre la liste du scénario qui répond de la même façon à ces cinq questions.
 
 ### Scénario 1. Panne majeure d'Hydro en janvier, on reste (**maison**)
 
-*Détaillé au ch. 3. Le chauffage électrique, l'eau chaude et l'électronique lâchent d'abord, puis le congélateur. Au
-chalet, hors réseau, la génératrice ou le propane s'arrête : scénario 8 et ch. 87.*
+*Le détail est au ch. 3. Le chauffage électrique, l'eau chaude et l'électronique lâchent d'abord, puis le
+congélateur. Au chalet, la panne vient de la génératrice ou du propane qui s'arrête : voir le scénario 8 et le ch. 87.*
 
 | Quand | Geste | Repère chiffré |
 | --- | --- | --- |

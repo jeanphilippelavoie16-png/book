@@ -391,8 +391,9 @@ que le niveau de l'essence dans le réservoir (repère 1).
  à-coups jusqu'à ce qu'elle passe le bord du réservoir ; ensuite, elle coule seule vers le bidon.
 
 **Autre façon, avec un peu d'essence d'un autre bidon : le boyau rempli d'avance.** Remplir le boyau de cette
-essence à l'entonnoir, jusqu'à ce qu'il n'y reste plus d'air, et pincer les deux bouts. Plonger un bout au fond du réservoir, descendre l'autre dans le bidon, et lâcher les deux bouts :
-l'essence qui descend dans le boyau tire celle du réservoir.
+essence à l'entonnoir, jusqu'à ce qu'il n'y reste plus d'air, et pincer les deux bouts. Plonger un bout au
+fond du réservoir, descendre l'autre dans le bidon, et lâcher les deux bouts : l'essence qui descend dans le
+boyau tire celle du réservoir.
 
 **Le bidon contre la machine.** Appuyer le bec du bidon contre le métal nu de la machine avant que l'essence
 coule, pour qu'une étincelle de statique ne parte pas au goulot (étape 24). Sur beaucoup d'autos récentes, le
@@ -440,9 +441,10 @@ quelques degrés plus bas. Le moteur manque de carburant, tousse et s'arrête.
 - **Réchauffer l'huile.** Le soir, vidanger l'huile du moteur pendant qu'elle est chaude, dans une chaudière
  propre gardée à l'intérieur, et la reverser tiède le matin, avant de démarrer. Autre façon, plus lente :
  coucher un bidon d'eau chaude contre le bas du moteur.
-- **Partir à la corde.** Avec un lanceur cassé, on peut quand même faire partir un petit moteur : enlever le capot du lanceur,
- enrouler une corde sur la poulie dans le sens où le moteur tourne, et tirer d'un coup sec. Ne jamais nouer
- la corde à la main ni au poignet : le moteur peut donner un coup en sens inverse et arracher la corde.
+- **Partir à la corde.** Avec un lanceur cassé, on peut quand même faire partir un petit moteur : enlever le
+ capot du lanceur, enrouler une corde sur la poulie dans le sens où le moteur tourne, et tirer d'un coup sec.
+ Ne jamais nouer la corde à la main ni au poignet : le moteur peut donner un coup en sens inverse et arracher
+ la corde.
 - **Partir en poussant.** Une auto à transmission manuelle démarre si on la pousse en deuxième vitesse et
  qu'on relâche l'embrayage d'un coup. Une auto à transmission automatique ne démarre pas de cette façon, ni
  une motoneige.
@@ -503,34 +505,32 @@ sac et un thermos rempli au départ, et on fait un feu à chaque arrêt (ch. 13)
 recharger, on allume la radio et le téléphone seulement aux heures convenues avec les
 voisins (ch. 14 et ch. 16) ; pour l'éclairage, voir le ch. 85.
 
-À la maison, la panne de carburant se voit moins. L'auto reste dans l'entrée, les voisins sont là, et tant que
-la maison chauffe, on vide le dernier plein en commissions. Le jour où elle ne chauffe plus, le chalet est à la
-même distance qu'avant, mais il faut y aller chargé, avec de jeunes enfants. On décide donc le transfert sur le
-carburant qui reste, pas sur la température de la maison : la part *déplacement* (étape 21) doit être pleine le
-jour où on part (ch. 2).
+À la maison, tant que la maison chauffe, on a tendance à brûler le dernier plein en commissions. On décide le
+transfert au chalet selon le carburant qui reste, pas selon la température de la maison : la part *déplacement*
+(étape 21) doit être pleine le jour où on part, avec la charge et de jeunes enfants (ch. 2).
 
 **Ce qu'on perd.** À pied, on ne fait plus que quelques kilomètres par jour, aller-retour compris, et moins
 dans la neige profonde ou avec des enfants. Sortir un blessé couché demande plusieurs adultes pendant des
-heures (ch. 16). Les charges lourdes (bidons, sacs de farine) ne viennent plus : ce qui n'est pas au chalet n'y
-viendra pas de l'hiver. On coupe le bois au sciotte et à la hache, et le calendrier de coupe change (ch. 83).
-Et certains malades ne peuvent plus être menés à temps là où on les soignerait (ch. 35) : la part
-*intouchable* existe pour eux, et on ne l'ouvre pas pour aller chercher du lait.
+heures (ch. 16). On ne peut plus transporter de charges lourdes (bidons, sacs de farine) : ce qui n'est pas au
+chalet n'y viendra pas de l'hiver. On coupe le bois au sciotte et à la hache, et le calendrier de coupe change
+(ch. 83). Certains malades ne peuvent plus être menés à temps là où on les soignerait (ch. 35) : c'est pour eux
+qu'on garde la part *intouchable* (étape 21).
 
 ### Ce qu'on ne peut pas remplacer
 
-**L'avertisseur de CO.** Aucun sens et aucun montage ne détectent ce gaz. Sans avertisseur, la seule
+**L'avertisseur de CO.** On ne peut ni sentir ce gaz ni fabriquer de quoi le détecter. Sans avertisseur, la seule
 protection est de ne jamais faire brûler quoi que ce soit dans un volume fermé sans cheminée, pas même une
 minute.
 
 **La courroie de la motoneige, la chenille, un piston grippé.** Il n'existe pas de courroie de fortune : on en
 transporte une de rechange sous le capot, ou on finit la sortie à pied (ch. 108).
 
-**Le carburant.** On ne le fabrique pas au chalet. Le gazogène, qui fait marcher un moteur au gaz de bois, a
-fait rouler des autos pendant la guerre, mais c'est une construction de tôle avec un foyer, un refroidisseur et un
-filtre : un filtre mal fait encrasse le moteur, et le moteur perd une grande partie de sa puissance. On le bâtit
-l'été d'avant, avec le métal et l'outillage des ch. 107 et 111, pas le jour où le baril est vide. Un alcool
-assez fort pour faire tourner un moteur demande la même chose : un alambic et un carburateur réglé, pas un
-dépannage.
+**Le carburant.** On ne peut pas faire d'essence au chalet. Le gazogène, qui fait marcher un moteur au gaz de
+bois, a fait rouler des autos pendant la guerre, mais c'est une construction de tôle avec un foyer, un
+refroidisseur et un filtre : un filtre mal fait encrasse le moteur, et le moteur perd une grande partie de sa
+puissance. Il faut le bâtir l'été d'avant, avec le métal et l'outillage des ch. 107 et 111. Un alcool assez fort
+pour faire tourner un moteur demande lui aussi une préparation d'avance : un alambic et un carburateur réglé
+pour l'alcool.
 
 ---
 
@@ -539,8 +539,8 @@ dépannage.
 ### Le bâton à sonder de la côte de l'Alaska
 
 Sur la glace de mer, les chasseurs autochtones de la côte de l'Alaska marchent avec un long bâton à pointe
-d'os, l'unghaq en yupik. On frappe la glace où on va mettre le pied : si la pointe passe, on n'y marche pas.
-Si on passe à travers, on se hisse en tirant sur le bâton. Ces chasseurs connaissent leur glace de mer. Sur la
+d'os, l'unghaq en yupik. Ils frappent la glace où ils vont mettre le pied : si la pointe passe, ils n'y
+marchent pas. S'ils passent à travers, ils se hissent en tirant sur le bâton. Ces chasseurs connaissent leur glace de mer. Sur la
 glace de marée du fleuve, on ne passe pas, même avec un bâton (étape 42).
 
 ### Les oiseaux et les poissons qui ouvrent la glace
