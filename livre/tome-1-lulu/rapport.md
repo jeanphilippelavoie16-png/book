@@ -1,6 +1,6 @@
 # Tome 1 · Tenir — rapport d'assemblage
 
-- **Produit le :** 2026-10-19 13:27, par `design/outils/assembler-tome.py 1 --hors-ligne --sortie livre/tome-1-lulu`
+- **Produit le :** 2026-10-19 13:39, par `design/outils/assembler-tome.py 1 --hors-ligne --sortie livre/tome-1-lulu`
 - **Fichier :** `livre/tome-1-lulu/interieur.pdf` — 354 pages, 93.1 Mo
 - **Ouvertures :** au recto ou au verso (--verso)
 - **Placements :** design/epreuves-livre/placements.json, design/epreuves-livre/placements-tome-1.json
@@ -29,14 +29,14 @@
 | 187–197 | ch. 09 — Ce qui manque toujours | 11 |
 | 199–217 | ch. 10 — Eau : puiser, filtrer, désinfecter | 19 |
 | 219–235 | ch. 11 — Le feu de forêt | 17 |
-| 236–261 | ch. 12 — La tente d’hiver et l’abri de neige | 26 |
+| 236–262 | ch. 12 — La tente d’hiver et l’abri de neige | 27 |
 | 263–280 | ch. 13 — Feu sans allumettes | 18 |
 | 281–294 | ch. 14 — Communiquer et savoir | 14 |
 | 295–313 | ch. 15 — Se déplacer et le carburant | 19 |
 | 315–329 | ch. 16 — Le voisinage et le groupe de chasse | 15 |
 | 331–342 | ch. 17 — Qui cogne à la porte | 12 |
 | 343–353 | ch. 18 — S’organiser à plusieurs familles | 11 |
-| | Pages blanches (verso de la page de titre, avant les ouvertures, fin du tome) | 9 |
+| | Pages blanches (verso de la page de titre, avant les ouvertures, fin du tome) | 8 |
 | | **Total** | **354** |
 
 Aucune page de crédits (JP, 28 septembre 2026) : copie hors du livre dans `livre/tome-1-lulu/credits/tome-1-credits.md` et `livre/tome-1-lulu/credits/tome-1-credits.pdf`.
@@ -84,8 +84,8 @@ Marqueur `{.orange}` sur l'intertitre ### de la série, dans le Markdown (CLAUDE
 | 11 | Les autos de Lara, 1969 | 226 (11-8) | étape(s) 19 | étape 39 (Après le feu) | dans un trou de la page |
 | 12 | Reconnaître le sapin, l’épinette noire et le cèdre | 237 (12-2) | étape(s) 13 |  (Matériel) | dans un trou de la page |
 | 12 | Pendre la literie aux murs de la tente, le jour | 244 (12-9) | étape(s) 29, 37, 30 | étape 39 (Poser le poêle et passer le tuyau) | dans un trou de la page |
-| 12 | Planter ses raquettes debout près de la porte | 252 (12-17) | étape(s) — | étape 79 (La maison de neige) | dans un trou de la page |
-| 12 | Une fenêtre de glace dans la maison de blocs | 259 (12-24) | étape(s) 102 | étape 102 (La tranchée bâchée, quand le feu est impossible) | dans un trou de la page |
+| 12 | Une fenêtre de glace dans la maison de blocs | 253 (12-18) | étape(s) 102 | étape 94 (La maison de blocs) | dans un trou de la page |
+| 12 | Planter ses raquettes debout près de la porte | 255 (12-20) | étape(s) — | étape 98 (La maison de blocs) | dans un trou de la page |
 | 13 | La pyrite au lieu de l’acier | 263 (13-1) | étape(s) — |  (Matériel) | dans un trou de la page |
 | 13 | Quatre fois plus de coups avec la grosse tige | 269 (13-7) | étape(s) 15 | étape 24 (Allumer au soleil) | dans un trou de la page |
 | 13 | Reconnaître l’amadouvier | 276 (13-14) | étape(s) — | étape 29 (L’amadou qu’on ramasse) | dans un trou de la page |
@@ -112,7 +112,7 @@ Marqueur `{.orange}` sur l'intertitre ### de la série, dans le Markdown (CLAUDE
 | Une page par page, sans marques de coupe ni mot de passe | oui | oui | oui |
 | Couleur | sRVB préféré, CMJN accepté ; noir plein à 100 % ; teintes de moins de 20 % à éviter | sRVB (Edge) ; aplats pâles (rose des étapes de danger, orange pâle, vert des notes) | à juger sur épreuve |
 
-Pages avec transparence (ombre douce des notes « En plus », trames ou dessins à opacité) : 7, 11, 70, 73, 81, 92, 93, 100, 140, 150, 152, 159, 160, 161, 166, 168, 172, 174, 175, 176, 177, 179, 187, 189, 190, 195, 199, 211, 213, 222, 226, 237, 244, 252, 259, 263, 267, 269, 276, 279, 290, 294, 302, 304, 306, 307, 310, 315, 331.
+Pages avec transparence (ombre douce des notes « En plus », trames ou dessins à opacité) : 7, 11, 70, 73, 81, 92, 93, 100, 140, 150, 152, 159, 160, 161, 166, 168, 172, 174, 175, 176, 177, 179, 187, 189, 190, 195, 199, 211, 213, 222, 226, 237, 244, 253, 255, 263, 267, 269, 276, 279, 290, 294, 302, 304, 306, 307, 310, 315, 331.
 
 Polices du fichier : BarlowCondensed-Bold, BarlowCondensed-ExtraBold, BarlowCondensed-Medium, BarlowCondensed-SemiBold, IBMPlexSansCond-Bold, IBMPlexSansCond-Italic, IBMPlexSansCond-Medium, IBMPlexSansCond-Regular, IBMPlexSansCond-SemiBold, IBMPlexSansCond-SemiBoldItalic, IBMPlexSerif-Bold, IBMPlexSerif-Italic, IBMPlexSerif-Regular, IBMPlexSerif-SemiBold, IBMPlexSerif-SemiBoldItalic, LiberationSerif, LiberationSerif-Italic, NotoSerif-Regular, Type 3 sans nom (texte des planches)
 
@@ -144,8 +144,8 @@ Les planches de `images/a-valider/` sont posées comme les validées (JP les rel
 | 09 | 09-08 (196, pleine) | — | — | 7 (ancien 12) |
 | 10 | 10-02 (212, pleine), 10-07 (214, pleine), 10-01 (203), 10-08 (204), 10-03 (215), 10-eau-livre (200, double page), 10-hutte-castor.jpg (202) | — | — | 6 (ancien 13) |
 | 11 | 11-03 (224, pleine), 11-04 (227, pleine), 11-05 (234, pleine), 11-feu-de-foret-livre (220, double page), 11-colonnes-de-fumee.jpg (232) | — | — | 0 (ancien 16b) |
-| 12 | 12-01b (243, pleine), 12-01a (245, pleine), 12-02 (247, pleine), 12-03 (249, pleine), 12-04 (251, pleine), 12-06a (253, pleine), 12-05a (255, pleine), 12-05b (257, pleine), 12-06b (260, pleine), 12-tente-d-hiver-livre (238, double page) | — | — | 0 (ancien 16c) |
-| 13 | 13-40 (268, pleine, à valider), 13-10 (270, pleine, à valider), 13-07 (272, pleine), 13-08 (275, pleine), 13-09 (277, pleine, à valider), 13-01 (280, pleine), 13-11 (278), 13-feu-sans-allumettes-livre (264, double page), 13-amadou-ecorce-et-gomme.jpg (276) | — | — | 6 (ancien 17) |
+| 12 | 12-01b (243, pleine), 12-01a (245, pleine), 12-02 (247, pleine), 12-03 (249, pleine), 12-04 (251, pleine), 12-06a (254, pleine), 12-05a (256, pleine), 12-05b (258, pleine), 12-06b (261, pleine), 12-tente-d-hiver-livre (238, double page) | — | — | 0 (ancien 16c) |
+| 13 | 13-40 (268, pleine, à valider), 13-10 (270, pleine, à valider), 13-07 (272, pleine), 13-08 (275, pleine), 13-09 (278, pleine, à valider), 13-01 (280, pleine), 13-11 (277), 13-feu-sans-allumettes-livre (264, double page), 13-amadou-ecorce-et-gomme.jpg (276) | — | — | 6 (ancien 17) |
 | 14 | 14-01 (291, pleine), 14-communiquer-livre (282, double page) | — | — | 7 (ancien 19) |
 | 15 | 15-01 (300, pleine), 15-02 (309, pleine), 15-03 (302), 15-05 (306), 15-06 (311), 15-04 (312), 15-se-deplacer-livre (296, double page) | — | — | 8 (ancien 20) |
 | 16 | 16-08 (320, pleine), 16-07 (327, pleine), 16-sortir-un-blesse-livre (316, double page) | — | — | 7 (ancien 21) |
@@ -211,7 +211,7 @@ Photos téléchargées pour ces chapitres et non posées (images de référence 
 - ch. 11, paginateur : encadré « En plus » pas imprimé, aucun trou près de son étape : Reconnaître la pessière à cladonie
 - ch. 12, paginateur : encadré « En plus » pas imprimé, aucun trou près de son étape : Reconnaître le mélèze, l’hiver
 - ch. 12, paginateur : p12-2 : page à moitié vide
-- ch. 12, paginateur : p12-17 : page à moitié vide
+- ch. 12, paginateur : p12-20 : page à moitié vide
 - ch. 14, paginateur : encadré « En plus » pas imprimé, aucun trou près de son étape : Comment la balise est entendue
 - ch. 14, paginateur : encadré « En plus » pas imprimé, aucun trou près de son étape : La portée d’un walkie-talkie
 - ch. 15, paginateur : encadré « En plus » pas imprimé, aucun trou près de son étape : Le bâton à sonder de la côte de l’Alaska

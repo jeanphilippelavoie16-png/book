@@ -22,6 +22,13 @@
 // Le rouge : la flèche du verre (5) et la flèche du coup (8), chacune avec son repère.
 // Aucune cote : le chapitre ne donne aucune mesure de l'acier ni de la pierre.
 // Se lit en regard de la 13-40 (le nid qu'on souffle ensuite).
+//
+// 19 octobre 2026, JP sur la vue « La pierre » : « la coupe est pas bonne de la roche, c'est offset ». La cassure était
+// une ellipse à part, avec son propre contour fort, posée sur le bout d'un cortex qui ne se fermait pas au même
+// endroit : elle dépassait. La pierre a maintenant une seule silhouette ; la face cassée en est découpée (la moitié de
+// droite de son ellipse fait le bout de la silhouette, la moitié de gauche est l'arête) ; le pointillé du cortex est
+// découpé sur l'arête ; les ondes partent du point d'impact, posé sur l'arête. L'éclat sur la vitre n'avait pas le
+// défaut (sa face est bâtie sur les sommets de son contour) : il ne change pas, ni le reste de la planche.
 
 module.exports = (h) => {
   const path = require('path');
@@ -264,11 +271,35 @@ module.exports = (h) => {
   const LIME = { x0: 0, x1: 230, y0: 0, y1: 26, soie: 52, ep: 6 };
 
   // ═══ La pierre seule et l'essai du verre ══════════════════════════════════════════════════════════
-  // Le caillou cassé : le grain roulé autour, la cassure fraîche au bout (vue de trois quarts) ; le bord de la
-  // cassure est l'arête coupante. Les ondes de la cassure partent du point où le coup l'a fendue.
-  const CORTEX = [[118, 24], [96, 15], [64, 12], [34, 20], [12, 38], [6, 62], [18, 86], [48, 100], [84, 101], [110, 95], [122, 91]];
-  const CASSURE = (() => { const o = []; for (let i = 0; i < 28; i++) { const a = (i / 28) * 2 * Math.PI; const m = 1 + 0.05 * Math.sin(3 * a + 1) + 0.04 * Math.sin(5 * a); o.push([126 + 19 * Math.cos(a) * m, 58 + 34 * Math.sin(a) * m]); } return o; })();
-  const COUP = [114, 84];
+  // Le caillou cassé, une seule silhouette (JP, 19 octobre 2026 : « la coupe est pas bonne de la roche, c'est
+  // offset »). Le bout cassé est une face plane, vue de trois quarts : une ellipse un peu bosselée (eF). Sa moitié de
+  // droite fait le bout de la silhouette ; sa moitié de gauche est l'arête, où le cortex pointillé s'arrête net. Les
+  // trois formes (la silhouette, le cortex, la face) sont bâties sur les mêmes points : la face ne peut ni dépasser ni
+  // se décaler. Les ondes de la cassure sont des arcs concentriques autour du point d'impact, posé sur l'arête, et
+  // découpés dans la face.
+  const eF = a => { const m = 1 + 0.05 * Math.sin(3 * a + 1) + 0.04 * Math.sin(5 * a); return [126 + 19 * Math.cos(a) * m, 58 + 34 * Math.sin(a) * m]; };
+  const arcF = (a0, a1, n = 60) => Array.from({ length: n + 1 }, (_, i) => eF(a0 + (a1 - a0) * i / n));
+  const F_DROITE = arcF(Math.PI / 2, -Math.PI / 2);          // du bas au haut de la face, par la droite : le bout
+  const F_GAUCHE = arcF(Math.PI / 2, 3 * Math.PI / 2);       // du bas au haut de la face, par la gauche : l'arête
+  // le cortex : du haut de la face, par la gauche du caillou, jusqu'au bas de la face (une courbe Catmull-Rom,
+  // échantillonnée pour que les trois formes partagent exactement ses points)
+  const CORTEX = (() => {
+    const pts = [F_DROITE[F_DROITE.length - 1], [96, 15], [64, 12], [34, 20], [12, 38], [6, 62], [18, 86], [48, 100], [84, 102], [110, 97], F_DROITE[0]];
+    const n = pts.length, p = i => pts[Math.max(0, Math.min(n - 1, i))], o = [pts[0]];
+    for (let i = 0; i < n - 1; i++) {
+      const p0 = p(i - 1), p1 = p(i), p2 = p(i + 1), p3 = p(i + 2);
+      const c1 = [p1[0] + (p2[0] - p0[0]) / 6, p1[1] + (p2[1] - p0[1]) / 6], c2 = [p2[0] - (p3[0] - p1[0]) / 6, p2[1] - (p3[1] - p1[1]) / 6];
+      for (let k = 1; k <= 12; k++) {
+        const t = k / 12, u = 1 - t;
+        o.push([u * u * u * p1[0] + 3 * u * u * t * c1[0] + 3 * u * t * t * c2[0] + t * t * t * p2[0], u * u * u * p1[1] + 3 * u * u * t * c1[1] + 3 * u * t * t * c2[1] + t * t * t * p2[1]]);
+      }
+    }
+    return o;
+  })();
+  const SIL_PIERRE = [...CORTEX, ...F_DROITE.slice(1, -1)];                  // la silhouette : le cortex, puis le bout
+  const CORTEX_ZONE = [...CORTEX, ...F_GAUCHE.slice(1, -1)];                 // le cortex, fermé sur l'arête
+  const FACE_CASSEE = [...F_DROITE, ...F_GAUCHE.slice(1, -1).reverse()];     // la face, toute l'ellipse
+  const COUP = eF(128 * RAD);                                                // le point d'impact, sur l'arête
   // L'essai : un éclat de la même pierre, son arête traînée sur un morceau de vitre ; la rayure reste derrière.
   const VITRE = [[64, 168], [204, 140], [252, 168], [112, 198]];
   const ECLAT = [[176, 166], [168, 140], [176, 116], [198, 108], [214, 122], [208, 146]];
@@ -336,16 +367,19 @@ module.exports = (h) => {
         dessin: z => {
           const { T, k } = fenetre(z, 0, 4, 262, 206);
           const out = [];
-          // le caillou cassé
-          out.push(h.path(lisse([...CORTEX, [140, 58]].map(T), true), A.blanc));
-          out.push(semis([0, 8, 130, 104], p => dansPoly([...CORTEX, [145, 58]])(p) && Math.hypot((p[0] - 126) / 19, (p[1] - 58) / 34) > 1.12, Math.round(1100 * k * k), 41, T, 1.4));
-          out.push(h.path(lisse(CASSURE.map(T), true), A.ombre));
-          out.push(`<clipPath id="cassure-1309"><path d="${lisse(CASSURE.map(T), true)}" fill="#FFFFFF" stroke="none"/></clipPath>`);
+          // le caillou cassé : la silhouette en blanc ; le grain roulé, découpé dans le cortex (il s'arrête net sur
+          // l'arête) ; la face cassée à l'ombre (elle regarde à droite) et ses ondes, découpées dans la face ; l'arête ;
+          // la silhouette par-dessus
+          out.push(h.path(poly(SIL_PIERRE.map(T)), A.blanc));
+          out.push(`<clipPath id="cortex-1309"><path d="${poly(CORTEX_ZONE.map(T))}" fill="#FFFFFF" stroke="none"/></clipPath>`);
+          out.push(`<g clip-path="url(#cortex-1309)">${semis([0, 6, 128, 106], dansPoly(CORTEX_ZONE), Math.round(1130 * k * k), 41, T, 1.4)}</g>`);
+          out.push(h.path(poly(FACE_CASSEE.map(T)), A.ombre));
+          out.push(`<clipPath id="cassure-1309"><path d="${poly(FACE_CASSEE.map(T))}" fill="#FFFFFF" stroke="none"/></clipPath>`);
           let ondes = '';
-          [14, 26, 38, 50].forEach(r => { const pts = []; for (let i = 0; i <= 12; i++) { const a = (-100 + 110 * i / 12) * RAD; pts.push(T([COUP[0] + r * Math.cos(a), COUP[1] + r * Math.sin(a)])); } ondes += lisse(pts) + ' '; });
+          [5, 13, 23, 34, 46, 59].forEach(r => { const pts = []; for (let i = 0; i <= 24; i++) { const a = (-150 + 210 * i / 24) * RAD; pts.push(T([COUP[0] + r * Math.cos(a), COUP[1] + r * Math.sin(a)])); } ondes += lisse(pts) + ' '; });
           out.push(`<g clip-path="url(#cassure-1309)">${h.path(ondes, A.fin)}</g>`);
-          out.push(h.path(lisse(CORTEX.map(T)), A.contour));
-          out.push(h.path(lisse(CASSURE.map(T), true), A.contour));
+          out.push(h.path(poly(F_GAUCHE.map(T), false), A.arete));
+          out.push(h.path(poly(SIL_PIERRE.map(T)), A.contour));
           // l'essai du verre : la vitre, sa tranche, deux reflets ; la rayure derrière l'éclat
           const ep = [0, 5];
           out.push(h.path(poly([VITRE[2], VITRE[3], add(VITRE[3], ep), add(VITRE[2], ep)].map(T)), A.blanc));

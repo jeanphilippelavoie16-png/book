@@ -20,6 +20,12 @@
 // pile, sous l'avant-bras, et le filet du repère 5 descend par la gauche de la pile jusque dans les rayons.
 // 19 octobre 2026, deuxième second regard : plus de mèche du nid dans la largeur du creux (elles encadraient chaque
 // boule comme deux parenthèses frisées) ; le reste du nid ne change pas.
+// 19 octobre 2026, JP : « le nid est pas beau, prends le nid [de la 13-40] qui est réussi ». La butte de fibres est
+// remplacée, dans les trois vues, par le nid de la 13-40 (vue « Faire le nid »), importé de _communs/nid.js, sans la
+// poudre, à son angle de vue de 38° ; chaque nid est posé sur la ligne de sol, sous la boule, son ouverture de la
+// largeur de la boule. La boule de laine ne bouge pas : elle est dans le creux, et son bas passe derrière le bord avant
+// du creux (découpé sur la courbe même de l'ouverture). La flèche « étirer » est tracée après le nid, pour que sa
+// pointe reste visible ; la pastille 3 passe à gauche du nid et vise sa paroi.
 
 module.exports = (h) => {
   const F = h.formes, A = h.a;
@@ -31,11 +37,10 @@ module.exports = (h) => {
   // nid qui est réussi »), importé du module commun, sans la poudre au fond. Le nid est posé sur la ligne de sol : un
   // premier tirage mesure le bas de sa silhouette, le second le descend jusqu'à la ligne.
   const { nid: nidReussi } = require('./_communs/nid.js')(h, '1310');
-  const THETA = 25;
   const poserNid = (cx, yG, R, graine, o = {}) => {
-    const essai = nidReussi(cx, 0, R, graine, { poudre: false, theta: THETA, ...o });
+    const essai = nidReussi(cx, 0, R, graine, { poudre: false, ...o });
     const bas = Math.max(...essai.sil.map(p => p[1]));
-    return nidReussi(cx, yG - bas + 0.6, R, graine, { poudre: false, theta: THETA, ...o });
+    return nidReussi(cx, yG - bas + 0.6, R, graine, { poudre: false, ...o });
   };
 
   // La laine d'acier : le module partagé avec la feuille d'essai (images/planches-src/_laine-acier.js, façon D). Des fils
@@ -161,7 +166,7 @@ module.exports = (h) => {
     const tampon = { cx: 52, cy: 46, rx: 38, ry: 20 };
     const boule = { cx: n.cx, cy: yG - H - 14, rx: 46, ry: 30 };
     // le nid de la 13-40, posé sur le sol sous la boule : son ouverture (0,6 R) un peu plus large que la boule
-    const nidR = 72;
+    const nidR = 82;
     return { n, tampon, boule, nidR };
   };
   const vB = z => {
@@ -172,7 +177,7 @@ module.exports = (h) => {
     // la boule, presque entière au-dessus du bord du creux (comme la boule de la vue « Préparer la laine ») ; la pile
     // debout au-dessus, les bornes en bas, qui touchent le dessus de la boule
     const boule = { cx: n.cx, cy: yG - H - 28, rx: 66, ry: 44 };
-    const nidR = 98;                                    // le nid de la 13-40 : l'ouverture (0,6 R) de la largeur de la boule
+    const nidR = 112;                                    // le nid de la 13-40 : l'ouverture (0,6 R) de la largeur de la boule
     const bx = n.cx - W / 2 + 6, bB = boule.cy - boule.ry + 8;
     const xc = bx + W * 0.3;                             // le point qui rougit, sous la borne ronde
     const xF = bx + W + D + 14;                          // la flèche du geste, à droite de la pile, sous l'avant-bras
@@ -183,7 +188,7 @@ module.exports = (h) => {
     const n = { cx: z.l - 92, yG, w, H };
     const bat = { x: 14, y: 130, l: 112, ht: 84, ox: 22, oy: -14 };
     const boule = { cx: n.cx, cy: yG - H - 8, rx: 34, ry: 20 };
-    const nidR = 56;                                     // le nid de la 13-40 : l'ouverture (0,6 R) un peu plus large que la boule
+    const nidR = 60;                                     // le nid de la 13-40 : l'ouverture (0,6 R) un peu plus large que la boule
     return { n, bat, boule, nidR };
   };
   const vD = z => ({ y1: Math.round(z.h * 0.3), y2: Math.round(z.h * 0.76), cx: Math.round(z.l / 2) });
@@ -205,11 +210,11 @@ module.exports = (h) => {
           out.push(h.ligne(0, z.h + 11, 600, z.h + 11, A.fin));
           out.push(h.ligne(0, n.yG, z.l, n.yG, A.arete));
           out.push(laine(tampon.cx, tampon.cy, tampon.rx, tampon.ry, 4, { lache: 0 }));
-          // étirer : du tampon serré à la boule lâche
-          out.push(h.fleche(`M ${tampon.cx + tampon.rx + 10} ${tampon.cy + 6} Q ${f((tampon.cx + boule.cx) / 2 + 10)} ${f(tampon.cy - 4)} ${f(boule.cx - boule.rx * 0.7)} ${f(boule.cy - boule.ry - 6)}`, A.arete));
           const N = poserNid(n.cx, n.yG, nidR, 3);
           out.push(N.svg);
           out.push(dansLeCreux(N, z, 'creux-1310a', laine(boule.cx, boule.cy, boule.rx, boule.ry, 7, { posee: true })));
+          // étirer : du tampon serré à la boule lâche (après le nid : sa pointe passe par-dessus le bord du nid)
+          out.push(h.fleche(`M ${tampon.cx + tampon.rx + 10} ${tampon.cy + 6} Q ${f((tampon.cx + boule.cx) / 2 + 10)} ${f(tampon.cy - 4)} ${f(boule.cx - boule.rx * 0.7)} ${f(boule.cy - boule.ry - 6)}`, A.arete));
           return out.join('\n');
         },
         renvois: z => {
@@ -219,7 +224,7 @@ module.exports = (h) => {
           return [
             { n: 1, rond: [tampon.cx - 20, tampon.cy + tampon.ry + 30], cible: [tampon.cx - 10, tampon.cy + tampon.ry - 2], texte: 'la laine d’acier la plus fine' },
             { n: 2, rond: [boule.cx + boule.rx + 8, boule.cy - boule.ry - 22], cible: [boule.cx + boule.rx * 0.6, boule.cy - boule.ry * 0.6], texte: 'étirée en boule lâche, grosse comme le poing' },
-            { n: 3, rond: [c3[0] - 30, c3[1] + 34], cible: c3, texte: 'posée dans le creux du nid' },
+            { n: 3, rond: [c3[0] - 40, c3[1] - 24], cible: c3, texte: 'posée dans le creux du nid' },
           ];
         },
       },

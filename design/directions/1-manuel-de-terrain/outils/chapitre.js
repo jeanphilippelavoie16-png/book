@@ -64,6 +64,13 @@ function orPages(){   // les planches de l'orange : pleine page sur leur propre 
 // pousse pas le texte pour elle). Une note qui ne trouve pas de trou près de son étape ne s'imprime pas : c'est de
 // l'extra. (Le fil, INLINE et attenteNotes, du matin du 19 octobre, ne sert plus : INLINE reste vide.)
 const NOTE_PLACES = [];
+// tout ce qui s'imprime reste dans le bloc : les cadres, leurs enfants et les notes de bas de page, même dans l'enveloppe
+// de la variante d'urgence, qui garde sa hauteur quand son contenu déborde (p12-25 : la note de bas de page, poussée par
+// une note « En plus », passait sur le pied de page ; 19 octobre 2026)
+function dansLeBloc(p){
+  const b = p.bl.getBoundingClientRect().bottom + 0.5;
+  return [...p.bl.children, ...p.bl.querySelectorAll('.frame, .fnz, .frame > *, .fnz > *')].every(e => e.getBoundingClientRect().bottom <= b);
+}
 let NOTES_X = [];             // les notes de la section En plus, dans l'ordre du chapitre
 let ANCRES = [];              // pour chaque note, la clé (data-k) du bloc après lequel elle entre dans le fil
 const INLINE = new Map();     // notes posées dans le fil : indice → clé du bloc
@@ -138,7 +145,8 @@ function fillExtras(p){
     const b = page.bl.getBoundingClientRect().bottom + 0.5;
     const r = x.getBoundingClientRect();
     return !OVER(cadre) && r.bottom <= b && cadre.getBoundingClientRect().bottom <= b
-      && [...cadre.children].every(e => e.getBoundingClientRect().bottom <= b) && page.bl.lastElementChild.getBoundingClientRect().bottom <= b;
+      && [...cadre.children].every(e => e.getBoundingClientRect().bottom <= b) && page.bl.lastElementChild.getBoundingClientRect().bottom <= b
+      && dansLeBloc(page);
   };
   const tientIci = x => dansBloc(x, fr, p);
   EXTRAS.forEach(x => { fr.appendChild(x); if(tientIci(x)) tient.push(x); fr.removeChild(x); });
@@ -204,7 +212,7 @@ function placerNotes(){
     const ok = () => {
       const b = c.p.bl.getBoundingClientRect().bottom + 0.5;
       return !OVER(c.fr) && x.getBoundingClientRect().bottom <= b && [...c.fr.children].every(e => e.getBoundingClientRect().bottom <= b)
-        && c.p.bl.lastElementChild.getBoundingClientRect().bottom <= b;
+        && c.p.bl.lastElementChild.getBoundingClientRect().bottom <= b && dansLeBloc(c.p);
     };
     if(!ok()){ c.fr.removeChild(x); if(c.ouvert) c.fr.classList.remove('auto'); return; }
     // la note qui ouvre la deuxième colonne : sa marge du haut tombe à la coupure de colonne, et le haut du « i » à cheval
@@ -533,9 +541,8 @@ function veuves(){   // entre les deux colonnes d'un cadre, après la mise en pa
     const deborde = g => (!g.classList.contains('auto') && OVER(g)) || g.scrollWidth > g.clientWidth + 1;
     const avant = new Set([...p.bl.querySelectorAll('.frame')].filter(deborde));
     const tient = f => {
-      const b = p.bl.getBoundingClientRect().bottom + 0.5;
       return !deborde(f) && [...p.bl.querySelectorAll('.frame')].every(g => avant.has(g) || !deborde(g))
-        && [...p.bl.children, ...p.bl.querySelectorAll('.frame > *')].every(e => e.getBoundingClientRect().bottom <= b);
+        && dansLeBloc(p);
     };
     p.bl.querySelectorAll('.frame').forEach(f => {
       if((parseInt(getComputedStyle(f).columnCount, 10) || 1) !== 2) return;
@@ -800,7 +807,7 @@ function checks(){
     const br = p.bl.getBoundingClientRect();
     p.bl.querySelectorAll('.frame').forEach(f => { if(!f.classList.contains('auto') && OVER(f)) WARN.push(p.el.id + ' : cadre qui déborde'); });
     const last = p.bl.lastElementChild;
-    if(last && last.getBoundingClientRect().bottom > br.bottom + 1) WARN.push(p.el.id + ' : sort de la zone utile');
+    if((last && last.getBoundingClientRect().bottom > br.bottom + 1) || !dansLeBloc(p)) WARN.push(p.el.id + ' : sort de la zone utile');
     // la dernière page de texte du chapitre finit où le texte finit, même suivie des planches de la fin
     const derniere = !PAGES.slice(PAGES.indexOf(p) + 1).some(q => q.kind === 'text');
     if(p.kind === 'text' && !derniere && free(p) > 0.4 * br.height) WARN.push(p.el.id + ' : page à moitié vide');
