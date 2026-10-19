@@ -116,7 +116,7 @@ module.exports = (h) => {
     const yF = sh.yb - sh.e;                       // dessus du fond du seau
     out.push(h.path(poly([[sh.xg(sh.yt), sh.yt], [sh.xd(sh.yt), sh.yt], [sh.xd(sh.yb), sh.yb], [sh.xg(sh.yb), sh.yb]]), A.blanc));
     const yJ = yF - 4 * k;                         // le jus
-    out.push(h.path(poly([[sh.xg(yJ) + sh.e, yJ], [sh.xd(yJ) - sh.e, yJ], [sh.xd(yF) - sh.e, yF], [sh.xg(yF) + sh.e, yF]]), A.hachure('eau', 'aucun')));
+    // le jus du poisson n'est pas de l'eau du bain : il reste blanc, pour qu'on ne lise pas de l'eau entrée dans le seau
     out.push(h.ligne(sh.xg(yJ) + sh.e, yJ, sh.xd(yJ) - sh.e, yJ, A.fin));
     // la claie : deux traverses en long, des bâtons en travers vus par le bout
     const rb = 3.4 * k, yC = yF - 7 * k;           // centre des bâtons en travers
@@ -151,7 +151,7 @@ module.exports = (h) => {
         { n: 2, rond: [m.ch.xg(m.yPt) - 26, m.yPt + 6], cible: [cx - 50 * k, m.yPt + 12 * k], texte: 'poisson fumé enveloppé de papier' },
         { n: 3, rond: [m.ch.xg(m.ch.yt) - 26, m.ch.yt - 20], cible: [m.sh.xg(m.ch.yt - 20) - 1, m.ch.yt - 20], texte: 'seau debout dans une chaudière plus large' },
         { n: 4, rond: [m.sh.xd(m.sh.yt) + 40, m.yl - 4], cible: [m.sh.xd(m.sh.yt) + 1, m.yl - 5 * k], texte: 'couvercle posé, pas vissé ni serré' },
-        { n: 5, rond: [m.ch.xg(m.yE) - 30, m.yE + 8], cible: [m.ch.xg(m.yE) + m.ch.e + 4 * k, m.yE + 4], texte: 'glace et eau, recharger chaque jour' },
+        { n: 5, rond: [m.ch.xg(m.yE) - 30, m.yE + 8], cible: [m.ch.xg(m.yE) + m.ch.e + 4 * k, m.yE + 4], texte: 'glaçons qui flottent : recharger chaque jour' },
         { n: 6, rond: [m.ch.xd(m.yE) + 34, m.yE - 26], cible: [m.xNiv + 6, m.yE - 8], texte: 'surface de l’eau, plus haute que le paquet' },
       ],
     };

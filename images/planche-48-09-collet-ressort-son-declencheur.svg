@@ -98,11 +98,11 @@
 <circle cx="237.2" cy="299" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
 <circle cx="315" cy="277" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="arme"/>
 <text x="315" y="281" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">3</text>
-<line x1="130.6" y1="305.1" x2="152" y2="325" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
-<line x1="130.6" y1="305.1" x2="152" y2="325" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
-<circle cx="152" cy="325" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
-<circle cx="124" cy="299" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="arme"/>
-<text x="124" y="303" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">4</text>
+<line x1="203.2" y1="345.7" x2="211.8" y2="333.6" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+<line x1="203.2" y1="345.7" x2="211.8" y2="333.6" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
+<circle cx="211.8" cy="333.6" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
+<circle cx="198" cy="353" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="arme"/>
+<text x="198" y="357" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">4</text>
 <line x1="195.1" y1="379.8" x2="179" y2="377.2" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
 <line x1="195.1" y1="379.8" x2="179" y2="377.2" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
 <circle cx="179" cy="377.2" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>

@@ -1,5 +1,8 @@
 // Planche 03-12. La couverture de fenêtre scellée sur quatre côtés (chapitre 3, section 9, « Le chauffage »,
 // le paragraphe « Fermer les fenêtres »). Dessinée le 16 octobre 2026.
+// 19 octobre 2026 : la ligne « Planche 03-12. … » sort du dessin (le moteur de pages pose le bandeau) ; la légende
+// remonte sous les vues. Les vues passent de 60 à 57 cm de large (FX, LCM) pour que le dessin prenne la hauteur
+// libérée ; la boucle d'air du raté suit (montée à 50 cm au lieu de 51,5).
 //
 // Ce que dit le chapitre (texte du 16 octobre) : on tend une couverture à environ 2,5 cm de la vitre et on la cloue
 // sur le chambranle, sur ses quatre côtés, avec une latte de bois tout le long de chaque bord ; l'air pris entre la

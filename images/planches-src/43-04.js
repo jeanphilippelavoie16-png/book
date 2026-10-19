@@ -197,7 +197,7 @@ module.exports = (h) => {
         titre: 'Le bâton, marqué au couteau à partir de la pointe',
         dessin: vueBaton,
         renvois: (z) => [
-          { n: 2, rond: [z.l - 12, YC2 + 25], cible: [XT2 - 8, YC2 + 2], texte: 'la pointe : tout se compte de là' },
+          { n: 2, rond: [z.l - 12, YC2 + 25], cible: [XT2 - 8, YC2 + 2], texte: 'tout mesurer à partir de la pointe' },
           { n: 3, rond: [enc2.e4 + 44, YC2 + 25], cible: [enc2.e4 + 1, YC2 + 2], texte: 'encoches au couteau' },
           { n: 4, rond: [70, YC2 + 25], cible: [96, YC2 + 4], texte: 'écorcé par endroits' },
         ],
@@ -208,8 +208,8 @@ module.exports = (h) => {
         renvois: (z) => {
           const { sure, suiv, xt } = geo3(z);
           return [
-            { n: 5, rond: [sure[0] - 92, sure[1] - 44], cible: [sure[0] - 62, sure[1] - 34], texte: 'trois cailloux : la dernière sûre' },
-            { n: 6, rond: [sure[0] - 20, sure[1] + 72], cible: [sure[0] - 6, sure[1] + 10], texte: 'troisième encoche sur son centre' },
+            { n: 5, rond: [sure[0] - 92, sure[1] - 44], cible: [sure[0] - 62, sure[1] - 34], texte: 'trois cailloux : la dernière empreinte sûre' },
+            { n: 6, rond: [sure[0] - 20, sure[1] + 72], cible: [sure[0] - 6, sure[1] + 10], texte: 'poser la troisième encoche sur son centre' },
             { n: 7, rond: [suiv[0] - 112, suiv[1] + 34], cible: [suiv[0] - 52, suiv[1] + 6], texte: 'à hauteur de la pointe : chercher là' },
           ];
         },

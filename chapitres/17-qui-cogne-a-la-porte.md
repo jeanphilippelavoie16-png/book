@@ -77,8 +77,8 @@ destination.
  dans la maison ou dans un abri dehors (section 7, « Réchauffer quelqu'un sans le faire entrer »). Parler
  ensuite. L'hiver, décider vite : à partir de −28 de refroidissement éolien, la peau exposée de la personne qui
  attend peut geler en 10 à 30 minutes, et plus vite quand il fait plus froid.
- - Un adulte seul avec les enfants : si le compte de l'étape 4 concorde (une seule personne, aucune trace de plus que
- la sienne), ouvrir, coucher la personne sur une couverture et la traîner à l'intérieur. Sinon, ne pas sortir : lui
+ - Quand un adulte est seul avec les enfants : si le compte de l'étape 4 donne une seule personne, et aucune trace
+ de plus que la sienne, ouvrir, coucher la personne sur une couverture et la traîner à l'intérieur. Sinon, ne pas sortir : lui
  passer par la fenêtre un sac de couchage et une couverture, et lui dire d'étendre la couverture pliée en deux sur
  la neige, contre le mur, à l'abri du vent, de poser le sac de couchage dessus, puis d'entrer dans le sac et de le
  fermer.

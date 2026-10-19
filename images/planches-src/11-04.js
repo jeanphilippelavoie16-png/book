@@ -21,7 +21,10 @@
 // le cube 5 à 11 (vue de dessus comprise). Ancien → nouveau : 10→1, 11→2, 8→3, 9→4, 1→5, 2→6, 3→7, 4→8, 5→9, 6→10,
 // 7→11. Les vues suivent les numéros : la pièce et le filtre seul en haut, le cube et sa vue de dessus en bas. La
 // pastille 1 passe à gauche de sa cible, dans le blanc au-dessus de la fenêtre, pour ne plus cacher le coin de la
-// porte ; le renvoi 3 entre dans le cercle rouge et touche la queue de la flèche imprimée.
+// porte ; le renvoi 3 entre dans le cercle rouge et touche la queue de la flèche imprimée. Au second regard : la
+// pastille 1 descend au milieu du blanc, entre le mur du haut et le cadre de la fenêtre ; les deux rangées ont le même
+// partage de largeur, pour que les titres de la colonne de droite s'alignent, et les flèches d'air du cube
+// raccourcissent d'autant pour tenir dans sa vue.
 module.exports = (h) => {
   const A = h.a;
   const f1 = v => Math.round(v * 10) / 10;
@@ -56,7 +59,7 @@ module.exports = (h) => {
     // l'air qui entre : une flèche par face vue, près de l'arête extérieure, qui traverse l'arête
     const lisere = d => `<path d="${d}" fill="none" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round"/>`;
     const entree = (a, b) => { const d = `M${pt(a)} L${pt(b)}`; return lisere(d) + '\n' + h.fleche(d, A.arete); };
-    o.push(entree(P([9, L + 26, 34]), P([9, L + 1.2, 34])), entree(P([L + 26, 9, 34]), P([L + 1.2, 9, 34])));
+    o.push(entree(P([9, L + 20, 34]), P([9, L + 1.2, 34])), entree(P([L + 20, 9, 34]), P([L + 1.2, 9, 34])));
     // le ventilateur posé dessus, qui déborde un peu ; le carton par-dessus
     const a0 = -DEB, a1 = L + DEB, z0 = L, z1 = L + F, z2 = z1 + EPC;
     o.push(poly([P([a1, a1, z0]), P([a1, a0, z0]), P([a1, a0, z1]), P([a1, a1, z1])], A.ombre));
@@ -217,7 +220,7 @@ module.exports = (h) => {
     format: 'pleine',
     disposition: [['piece', 'seul'], ['cube', 'plan']],
     hauteurs: [1, 1.3],
-    largeurs: [[1, 1.05], [1.12, 1]],
+    largeurs: [[1, 1.05], [1, 1.05]],
     vues: {
       cube: {
         titre: 'Le cube de quatre filtres',
@@ -261,7 +264,7 @@ module.exports = (h) => {
         renvois: z => {
           const g = piece(z);
           return [
-            { n: 1, rond: [g.poly[0] - 12, 22], cible: [g.poly[0], g.poly[1] - 22], texte: 'polythène agrafé sur le cadre' },
+            { n: 1, rond: [g.poly[0] - 12, 25], cible: [g.poly[0], g.poly[1] - 22], texte: 'polythène agrafé sur le cadre' },
             { n: 2, rond: [g.porte[0] + 30, g.couv[1] - 40], cible: g.couv, texte: 'couverture roulée au bas de la porte' },
           ];
         },

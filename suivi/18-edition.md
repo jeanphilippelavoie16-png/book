@@ -131,3 +131,9 @@ quatre notes « En plus » (30 à 80 mots, étape dite, rien à reprendre).
 7. **Section 5, ligne de la créosote.** La colonne « Moment » (« Selon la quantité de bois brûlé ») redit la cible
    (« plus souvent selon la qualité et la quantité du bois brûlé »), et la colonne « Si c'est hors cible » porte une
    explication (« À douze, on brûle plus de bois… »). Forme du tableau à revoir par le rédacteur ; aucun chiffre en cause.
+
+## Édition des décisions de JP, 19 octobre 2026
+
+Éditeur de la passe « décisions de JP » (`_reprise/scratchpad/tome1-final/decisions-jp.js`). Relu seulement les phrases que la passe a changées (texte d'avant : commit `03525fa`), à voix haute, avec le skill `ecriture` ; aucun fait ni chiffre touché, aucune ancre touchée. `controle.py --avant` (texte d'avant l'édition) : rien n'a disparu.
+
+- Section 7, « Cuire dehors, sans avertisseur » : la parenthèse de l'exception, au milieu de la phrase, en sort : « …que dans le poêle raccordé à sa cheminée. Seule exception : la lampe à graisse, qu'on allume seulement dans la pièce du poêle et qu'on éteint avant de dormir (ch. 3, section 7, « L'éclairage »). On cuisine dehors… ». Le début du paragraphe (ancre de la planche 18-01) ne change pas.

@@ -95,3 +95,12 @@ Toutes intactes, début de paragraphe unique (vérifié) :
 5. **Logigramme 16** (`images/logigrammes/16-sortir-un-blesse.json`) relu, non touché : la boîte « **Le faire
    marcher**, soutenu, sans rien porter » garde le participe que le chapitre a perdu (« avec quelqu'un à côté de lui
    pour le soutenir »). À reprendre au prochain rendu.
+
+## Édition des décisions de JP, 19 octobre 2026
+
+Éditeur de la passe « décisions de JP » (`_reprise/scratchpad/tome1-final/decisions-jp.js`). Relu seulement les phrases que la passe a changées (texte d'avant : commit `03525fa`), à voix haute, avec le skill `ecriture` ; aucun fait ni chiffre touché, aucune ancre touchée. `controle.py --avant` (texte d'avant l'édition) : rien n'a disparu.
+
+- Étape 3 : « est difficile à réveiller ou devient confus, ou ne pourra pas » devient « est difficile à réveiller, devient confus ou ne pourra pas » ; la ligne trop longue est recoupée.
+- Étape 5, premier tiret : « ou avec le monde qu'on a » devient « ou s'il n'y a pas assez de monde pour le tirer et se relayer » (les mots du dernier tiret) ; « avec l'appareil allumé sur soi » devient « en gardant sur soi l'appareil allumé ».
+- Section 7, « L'été, sans neige » : « une ou deux personnes lèvent l'avant… et le bout des perches traîne » (présent qui décrit) devient la consigne « lever l'avant par les brancards, à une ou deux personnes, et laisser le bout des perches traîner au sol. Coucher le blessé la tête du côté des brancards » ; « arrêter de le tirer en travois, qui le tient incliné » (relative ambiguë) devient « Le travois tient le blessé incliné : quand il doit rester à l'horizontale (étape 13), arrêter de le tirer en travois ».
+- Logigramme 16, boîte de l'alerte : « Sans SOS, dire où on est » devient « Sans SOS, envoyer un message : où on est ». Rendu (SVG, PDF, PNG et version du livre) : mêmes lignes, 0 erreur. Le point 5 plus haut (« soutenu ») est réglé par la passe.

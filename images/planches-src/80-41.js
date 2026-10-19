@@ -8,7 +8,8 @@
 // 3 à 5 mm au-dessus de la face où glisse le chou ; le chou arrive par le long côté (les deux tiers).
 // La charte : le bois coupé en hachure, sans gris ; la tranche du dessus de la planche à l'ombre dans
 // la vue en place ; la paroi d'en face de la cuve en gris loin. Le rouge : la poussée du chou (le
-// geste), et le dépassement de la lame, le seul réglage de l'outil (point à contrôler).
+// geste, dans la vue en place, repère 10), et le dépassement de la lame, le seul réglage de l'outil (point
+// à contrôler, repère 7). Dans la coupe, le chou qui avance est une flèche noire : chaque rouge a son repère.
 module.exports = (h) => {
   const A = h.a;
   const r1 = v => Math.round(v * 10) / 10;
@@ -129,8 +130,8 @@ module.exports = (h) => {
     const tr = `M${r1(xFil + 1)} ${r1(yS - 0.5)} C${r1(xFil + 6 * q)} ${r1(yS + 12)} ${r1(xFil + 7 * q)} ${r1(yS + 46)} ${r1(xFil + 2 * q)} ${r1(yS + 84)}`
       + ` L${r1(xFil - 2 * q)} ${r1(yS + 82)} C${r1(xFil + 2.5 * q)} ${r1(yS + 46)} ${r1(xFil + 1.5 * q)} ${r1(yS + 14)} ${r1(xFil - 4 * q)} ${r1(yS + 1)} Z`;
     out.push(h.path(tr, blanc(A.arete)));
-    // le geste : la poussée du chou vers la lame
-    out.push(h.geste(`M${r1(14)} ${r1(yS - 34)} L${r1(xFil - 46)} ${r1(yS - 34)}`));
+    // le chou qui avance vers la lame : une flèche noire ; le geste en rouge est dans la vue en place (repère 10)
+    out.push(h.fleche(`M${r1(14)} ${r1(yS - 34)} L${r1(xFil - 46)} ${r1(yS - 34)}`, A.arete));
     // la cote : du dessus de la face amont au fil, prise à gauche de la fente, sous le chou
     out.push(h.ligne(xFil - 2, yC, xA - 58, yC, A.fin));
     out.push(h.cote(xA - 50, yC, xA - 50, yS, '3 à 5 mm', { cote: 'gauche' }));
@@ -141,7 +142,8 @@ module.exports = (h) => {
     const d = coupe(z), c = d.c;
     return [
       { n: 6, rond: [z.l - 30, d.yC - 50], cible: [z.l - 40, d.yC + c.cale / 2], texte: 'cale sous la lame' },
-      { n: 7, rond: [c.xFil - 80, c.yS + 70], cible: [c.xFil - 1 * c.q, c.yS + 60], texte: 'la tranche passe sous le fil' },
+      { n: 7, rond: [c.xFil + 52, d.yC - 30], cible: [c.xFil + 10, d.yC + 2], texte: 'le dépassement fixe l’épaisseur de la tranche' },
+      { n: 8, rond: [c.xFil - 80, c.yS + 70], cible: [c.xFil - 1 * c.q, c.yS + 60], texte: 'la tranche passe sous le fil' },
     ];
   };
 
@@ -190,8 +192,8 @@ module.exports = (h) => {
   const placeRenvois = z => {
     const p = place(z);
     return [
-      { n: 8, rond: [p.xd - 8, p.yP - 44], cible: [p.xd - 16, p.yP - 9], texte: 'planche posée en travers de la cuve' },
-      { n: 9, rond: [p.xc - 96, p.yP - 30], cible: [p.xc - 56, p.yP - 22], texte: 'pousser le quartier de chou vers la lame' },
+      { n: 9, rond: [p.xd - 8, p.yP - 44], cible: [p.xd - 16, p.yP - 9], texte: 'planche posée en travers de la cuve' },
+      { n: 10, rond: [p.xc - 96, p.yP - 30], cible: [p.xc - 56, p.yP - 22], texte: 'pousser le quartier de chou vers la lame' },
     ];
   };
 

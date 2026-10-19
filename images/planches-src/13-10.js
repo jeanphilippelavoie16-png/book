@@ -62,24 +62,104 @@ module.exports = (h) => {
     return { svg: out.join('\n'), creux: [cx, cy], rx, ry };
   };
 
-  // La laine d'acier : un contour mou et une foule de petites boucles fines. serre : 0 (boule lâche) à 1 (tampon).
-  const laine = (cx, cy, rx, ry, graine, serre = 0) => {
-    const r = gen(graine), out = [], pts = [];
-    for (let k = 0; k < 20; k++) {
-      const a = k / 20 * 2 * Math.PI, j = serre ? 0.97 + r() * 0.05 : 0.85 + r() * 0.3;
-      pts.push([cx + Math.cos(a) * rx * j, cy + Math.sin(a) * ry * j]);
+  // La laine d'acier (JP, 19 octobre 2026, sur la première version en petites boucles : « on dirait du poil de pubis »).
+  // En vrai, la laine d'acier fine, c'est un tampon de fibres de métal très fines, longues et presque droites, couchées
+  // en couches selon deux ou trois directions ; étirée en boule lâche, un nuage aéré de fils droits, avec du jour au
+  // travers. Choisie sur la feuille d'essai images/planches-src/_essai-laine-acier.js (façon D) :
+  //   la silhouette : un rond (boule) ou un coussin (tampon), déformé par quelques ondes lentes ;
+  //   les fils : des bouts de fils presque droits (une ondulation de moins de 4 % de leur longueur), couchés selon deux
+  //   ou trois directions dominantes, plus nombreux au centre (là où la boule est épaisse), clairsemés au bord ; vers le
+  //   bord, le fil se couche le long de la silhouette (une boule, pas une galette) ; quelques bouts droits dépassent ;
+  //   le métal : un voile de fils gris clair sous les fils gris foncé ; quelques fils noirs du côté de l'ombre, en bas à
+  //   droite ; quelques fils clairs par-dessus du côté de la lumière, en haut à gauche.
+  // lache : 0 (le tampon) à 1 (la boule lâche) ; posee : rien ne pend sous la boule (elle est dans le nid).
+  const FONCE = '#3A3A3A', CLAIR = '#CFCFCF';
+  const fibre = (c, ep) => `fill="none" stroke="${c}" stroke-width="${ep}" stroke-linecap="round" stroke-linejoin="round"`;
+  const laine = (cx, cy, rx, ry, graine, { lache = 1, posee = false } = {}) => {
+    const r = gen(graine * 7919 + 13), boule = lache > 0.5;
+    const forme = boule ? 2 : 3.2, enroule = boule ? 0.7 : 0.25;
+    const dirs = boule ? [-0.24, 0.18, 0.8] : [0, -0.12, 0.14], poids = boule ? [0.45, 0.4, 0.15] : [0.6, 0.2, 0.2];
+    const jit = boule ? 0.12 : 0.06, amp = boule ? 0.035 : 0.02, gam = boule ? 1.5 : 0.35;
+    const ondes = [2, 3, 4, 5].map(k => [k, (boule ? 0.07 : 0.025) / (k - 1) * (0.6 + r() * 0.8), r() * 6.283]);
+    const R = th => 1 + ondes.reduce((s, [k, a, p]) => s + a * Math.sin(k * th + p), 0);
+    const rho = (x, y) => {
+      const dx = (x - cx) / rx, dy = (y - cy) / ry;
+      return Math.pow(Math.pow(Math.abs(dx), forme) + Math.pow(Math.abs(dy), forme), 1 / forme) / R(Math.atan2(dy, dx));
+    };
+    const dedans = (x, y) => rho(x, y) <= 1;
+    const corde = (p, u) => {
+      const t = [0, 0];
+      for (const s of [-1, 1]) { let k = 0; while (k < 4 * Math.max(rx, ry) && dedans(p[0] + u[0] * k * s, p[1] + u[1] * k * s)) k += 0.75; t[s > 0 ? 1 : 0] = k * s; }
+      return t;
+    };
+    const tireDir = () => { let x = r(), i = 0; while (i < poids.length - 1 && x > poids[i]) { x -= poids[i]; i++; } return dirs[i] + (r() - 0.5) * 2 * jit; };
+    const tirePoint = () => {
+      for (let essai = 0; essai < 600; essai++) {
+        const x = cx + (r() * 2 - 1) * rx * 1.1, y = cy + (r() * 2 - 1) * ry * 1.1, q = rho(x, y);
+        if (q <= 1 && r() < Math.pow(Math.sqrt(Math.max(0, 1 - q * q)), gam)) return [x, y];
+      }
+      return [cx, cy];
+    };
+    const unFil = (a, b) => {
+      const L = Math.hypot(b[0] - a[0], b[1] - a[1]), u = [(b[0] - a[0]) / L, (b[1] - a[1]) / L], n = [-u[1], u[0]];
+      const e1 = (r() - 0.5) * 2 * amp * L, e2 = (r() - 0.5) * 2 * amp * L;
+      const c1 = [a[0] + u[0] * L / 3 + n[0] * e1, a[1] + u[1] * L / 3 + n[1] * e1];
+      const c2 = [a[0] + u[0] * 2 * L / 3 + n[0] * e2, a[1] + u[1] * 2 * L / 3 + n[1] * e2];
+      return `M ${f(a[0])} ${f(a[1])} C ${f(c1[0])} ${f(c1[1])} ${f(c2[0])} ${f(c2[1])} ${f(b[0])} ${f(b[1])} `;
+    };
+    const lDepasse = () => (boule ? 4 + r() * 10 : 2 + r() * 5) * Math.max(rx, ry) / 46;
+    // un fil de longueur visible L sur la corde de la silhouette qui passe par p ; rend la longueur posée
+    const pose = (liste, p, u, L, depasse) => {
+      const [t0, t1] = corde(p, u), C = t1 - t0;
+      if (C < 3) return 0;
+      L = Math.min(L, C);
+      let s0 = Math.max(t0, Math.min(t1 - L, (r() - 0.5) * L - L / 2)), s1 = s0 + L;
+      if (depasse) {
+        let bas = r() < 0.5;
+        if (posee && p[1] + u[1] * (bas ? t0 - depasse : t1 + depasse) > cy + ry * 0.35) bas = !bas;
+        if (posee && p[1] + u[1] * (bas ? t0 - depasse : t1 + depasse) > cy + ry * 0.35) depasse = 0;
+        if (bas) s0 = t0 - depasse; else s1 = t1 + depasse;
+      }
+      const a = [p[0] + u[0] * s0, p[1] + u[1] * s0], b = [p[0] + u[0] * s1, p[1] + u[1] * s1];
+      liste.push([unFil(a, b), (a[0] + b[0]) / 2, (a[1] + b[1]) / 2]);
+      return s1 - s0;
+    };
+    // la quantité de fil : un taux de couverture visé (trait de 0,5) sur l'aire de la silhouette
+    const aire = Math.PI * rx * ry, pDep = boule ? 0.12 : 0.07;
+    const longueur = () => (boule ? 0.16 + r() * 0.34 : 0.3 + r() * 0.45) * 2 * rx;
+    const remplir = (liste, encre) => {
+      let tot = 0, garde = 0;
+      while (tot < encre && garde++ < 4000) {
+        const p = tirePoint();
+        let th = tireDir();
+        const dx = (p[0] - cx) / rx, dy = (p[1] - cy) / ry, q = Math.min(1, rho(p[0], p[1]));
+        let tg = Math.atan2(Math.cos(Math.atan2(dy, dx)) * ry, -Math.sin(Math.atan2(dy, dx)) * rx);
+        while (tg - th > Math.PI / 2) tg -= Math.PI;
+        while (th - tg > Math.PI / 2) tg += Math.PI;
+        th += (tg - th) * enroule * q * q;
+        tot += pose(liste, p, [Math.cos(th), Math.sin(th)], longueur(), r() < pDep ? lDepasse() : 0);
+      }
+    };
+    const fonce = [], voile = [];
+    remplir(fonce, (boule ? 0.45 : 0.8) * aire / 0.5);
+    remplir(voile, (boule ? 0.35 : 0.3) * aire / 0.5);
+    let dFonce = '', dNoir = '', dClair = '', dVoile = '';
+    for (const [d, mx, my] of fonce) {
+      const lum = -((mx - cx) / rx + (my - cy) / ry) * 0.7;   // > 0 vers le haut à gauche, d'où vient la lumière
+      if (lum > 0.2 && r() < 0.22) dClair += d;
+      else if (lum < -0.25 && r() < 0.4) dNoir += d;
+      else dFonce += d;
     }
-    out.push(h.path(lisse(pts, true), blanc(A.detail)));
-    let d = '';
-    const n = Math.round(rx * ry / (serre ? 9 : 16));
-    for (let i = 0; i < n; i++) {
-      const t = Math.sqrt(r()) * 0.88, a = r() * 2 * Math.PI;
-      const x = cx + Math.cos(a) * rx * t, y = cy + Math.sin(a) * ry * t;
-      const R = (serre ? 1.6 : 2.6) + r() * (serre ? 1.8 : 3.4), b = r() * 6.28;
-      d += `M ${f(x + Math.cos(b) * R)} ${f(y + Math.sin(b) * R)} A ${f(R)} ${f(R * 0.7)} ${f(b * 57)} 1 1 ${f(x + Math.cos(b + 2.2) * R)} ${f(y + Math.sin(b + 2.2) * R)} `;
+    for (const [d] of voile) dVoile += d;
+    // le blanc sous la laine : il cache le nid derrière, un peu en retrait des bouts de fils
+    const pts = [];
+    for (let k = 0; k < 64; k++) {
+      const th = k / 64 * 2 * Math.PI, c = Math.cos(th), s = Math.sin(th);
+      const q = R(th) * 0.84 / Math.pow(Math.pow(Math.abs(c), forme) + Math.pow(Math.abs(s), forme), 1 / forme);
+      pts.push([cx + c * rx * q, cy + s * ry * q]);
     }
-    out.push(h.path(d, A.fin));
-    return out.join('\n');
+    return [h.chemin(pts, A.blanc, true), h.path(dVoile, fibre(CLAIR, 0.5)), h.path(dFonce, fibre(FONCE, 0.5)),
+      h.path(dNoir, fibre(NOIR, 0.5)), h.path(dClair, fibre(CLAIR, 0.7))].join('\n');
   };
 
   // La laine qui rougit : de petits traits qui rayonnent autour d'un point.
@@ -92,6 +172,17 @@ module.exports = (h) => {
     }
     return h.path(d, A.detail);
   };
+
+  // La boule posée dans le creux du nid : la laine est découpée par le bord avant du creux (la moitié basse de son
+  // ellipse), pour que le bas de la boule passe derrière le bord du nid au lieu de pendre devant.
+  const dansLeCreux = (N, z, id, contenu) => {
+    const [ex, ey] = N.creux, pts = [[0, 0], [z.l, 0], [z.l, ey]];
+    for (let k = 0; k <= 24; k++) { const a = k / 24 * Math.PI; pts.push([ex + Math.cos(a) * N.rx, ey + Math.sin(a) * N.ry]); }
+    pts.push([0, ey]);
+    return `<clipPath id="${id}"><path d="${pts.map((q, i) => `${i ? 'L' : 'M'} ${f(q[0])} ${f(q[1])}`).join(' ')} Z" fill="#FFFFFF"/></clipPath>\n<g clip-path="url(#${id})">\n${contenu}\n</g>`;
+  };
+  // Le point qui rougit, au contact : un rond blanc sous ses rayons, pour qu'il se lise dans les fils de la laine.
+  const lueur = (x, y, rayon) => h.cercle(x, y, rayon, A.blanc);
 
   // Un fil électrique : la gaine en deux traits parallèles, fermée par un liseré blanc, puis le cuivre nu au bout, en brins.
   const decale = (pts, d) => {
@@ -190,12 +281,12 @@ module.exports = (h) => {
           // règle 10 : un filet sur toute la largeur sépare la méthode, en haut, des autres façons, en bas
           out.push(h.ligne(0, z.h + 11, 600, z.h + 11, A.fin));
           out.push(h.ligne(0, n.yG, z.l, n.yG, A.arete));
-          out.push(laine(tampon.cx, tampon.cy, tampon.rx, tampon.ry, 4, 1));
+          out.push(laine(tampon.cx, tampon.cy, tampon.rx, tampon.ry, 4, { lache: 0 }));
           // étirer : du tampon serré à la boule lâche
           out.push(h.fleche(`M ${tampon.cx + tampon.rx + 10} ${tampon.cy + 6} Q ${f((tampon.cx + boule.cx) / 2 + 10)} ${f(tampon.cy - 4)} ${f(boule.cx - boule.rx * 0.7)} ${f(boule.cy - boule.ry - 6)}`, A.arete));
           const N = nid(n.cx, n.yG, n.w, n.H, 3);
           out.push(N.svg);
-          out.push(laine(boule.cx, boule.cy, boule.rx, boule.ry, 7, 0));
+          out.push(dansLeCreux(N, z, 'creux-1310a', laine(boule.cx, boule.cy, boule.rx, boule.ry, 7, { posee: true })));
           return out.join('\n');
         },
         renvois: z => {
@@ -213,10 +304,12 @@ module.exports = (h) => {
         dessin: z => {
           const g = vB(z), { n, k, L, W, D, bx, bB, bT, boule } = g, out = [];
           out.push(h.ligne(0, n.yG, z.l, n.yG, A.arete));
-          out.push(nid(n.cx, n.yG, n.w, n.H, 5).svg);
-          out.push(laine(boule.cx, boule.cy, boule.rx, boule.ry, 9, 0));
+          const N = nid(n.cx, n.yG, n.w, n.H, 5);
+          out.push(N.svg);
+          out.push(dansLeCreux(N, z, 'creux-1310b', laine(boule.cx, boule.cy, boule.rx, boule.ry, 9, { posee: true })));
           // la laine rougit sous les bornes
           const xc = bx + W * 0.3;
+          out.push(lueur(xc, bB + 3, 11));
           out.push(rougit(xc, bB + 3, 6, 15, 10, 5));
           // la pile : la face avant, la face de droite à l'ombre, les deux bornes en bas
           const pile = [
@@ -267,8 +360,10 @@ module.exports = (h) => {
           const yBas = boule.cy - boule.ry + 3;                   // les bouts nus, sur la laine
           const fA = [[bornes[0][0], bornes[0][1] - 6], [bornes[0][0] + 6, y - 44], [pz[0] - 30, y - 44], [pz[0] - 5, pz[1] - 40], [pz[0] - 5, yBas - 7]];
           const fB = [[bornes[1][0], bornes[1][1] - 6], [bornes[1][0] + 8, y - 30], [pz[0] - 14, y - 30], [pz[0] + 5, pz[1] - 40], [pz[0] + 5, yBas - 7]];
-          out.push(nid(n.cx, n.yG, n.w, n.H, 7).svg);
-          out.push(laine(boule.cx, boule.cy, boule.rx, boule.ry, 11, 0));
+          const N = nid(n.cx, n.yG, n.w, n.H, 7);
+          out.push(N.svg);
+          out.push(dansLeCreux(N, z, 'creux-1310c', laine(boule.cx, boule.cy, boule.rx, boule.ry, 11, { posee: true })));
+          out.push(lueur(pz[0], yBas + 1, 10));
           out.push(fil(fA, 7), fil(fB, 7));
           out.push(rougit(pz[0], yBas + 1, 5, 14, 9, 9));
           // le trait de coupure : le fil est long, la batterie est à un bras du feu

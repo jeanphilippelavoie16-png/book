@@ -83,7 +83,7 @@ mal à la tête, la nausée ou des étourdissements en même temps, avec ou sans
  dire qu'il reste du CO. L'avertisseur n'est fait pour fonctionner qu'au-dessus de 4,4 °C : si la maison aérée est
  descendue plus bas, refermer et laisser la pièce remonter avant de se fier à son silence.
 8. **Ne rien rallumer avant d'avoir réglé ce qui a fait le CO** (pour un conduit bouché par la neige ou le givre :
- ch. 84). Si la source était le chauffage, la chaleur durera moins longtemps : reprendre la décision à l'étape 25.
+ ch. 84). Si la source était le chauffage, la maison restera chaude moins longtemps : reprendre la décision à l'étape 25.
 
 ### On reste : la première heure {.orange 1 h}
 
@@ -148,8 +148,9 @@ tôt que prévu, le plus important est fait.
  dehors avait diminué, et le béton, le gypse, les meubles et la terre autour du sous-sol rendaient leur chaleur
  lentement. Plus il fait froid dehors, plus la maison perd vite. Refaire la mesure à chaque reprise de la décision
  (étape 43).
- - Dans une maison chauffée à l'électricité, on calcule la mesure de la chaleur à partir de ces degrés perdus à
- l'heure. Au chalet, on la compte en jours de bois sec qu'on peut aller chercher sans machine, au rythme où on chauffe (ch. 83).
+ - Dans une maison chauffée à l'électricité, on calcule le temps qu'il reste de chaleur à partir de ces degrés
+ perdus à l'heure. Au chalet, on le compte en jours de bois sec qu'on peut aller chercher sans machine, au rythme
+ où on chauffe (ch. 83).
  - Entre 18 et 24 °C, le risque est minimal pour une personne sédentaire. Il n'existe aucune température reconnue à
  partir de laquelle on doit quitter une maison : partir à la température écrite d'avance sur la fiche de décision,
  choisie en pensant au plus jeune. Sans fiche, les deux adultes doivent la fixer maintenant.
@@ -174,8 +175,8 @@ tôt que prévu, le plus important est fait.
  - Elle dure plus de 72 h : rester, et continuer à mesurer.
  - Elle dure moins de 72 h : rester seulement avec un plan écrit pour faire durer ce qui va manquer en premier, avec
  ce qu'on a sur place.
- - Elle dure moins que le trajet : partir maintenant, ou décider de rester pour de bon. Si on attend, on en manquera
- avant d'arriver.
+ - Elle dure moins que le trajet : partir maintenant, ou décider de rester pour de bon. Si on attend, ce qu'elle
+ mesure manquera avant qu'on arrive.
 32. **Choisir où aller.** Quand l'événement est court et que le délai de réparation est connu, rester à la maison, ou
  aller chez un proche en ville, où il y a les voisins et l'hôpital. Quand on ne sait plus combien de temps ça va
  durer, aller au chalet : la maison devient un bâtiment sans services parmi d'autres, et le chalet a le bois, l'eau et
@@ -273,7 +274,7 @@ tôt que prévu, le plus important est fait.
 | Avant de quitter le bâtiment l'hiver | Plomberie vidangée, antigel versé | Tous les appareils, de 0,5 à 2 L selon l'appareil | Pas le temps de tout faire : fermer l'entrée d'eau et ouvrir les robinets d'abord, verser l'antigel dans les renvois ensuite |
 | En route, aux 30 min | Chacun parle, répond, bouge | Réponses cohérentes de tous | Un des signes de l'étape 40 : premier abri chauffé (ch. 25) |
 | Auto immobilisée | Échappement, fenêtre, moteur | Échappement dégagé ; fenêtre entrouverte du côté opposé au vent ; moteur une dizaine de minutes par période de 30 minutes | Échappement bouché qu'on ne peut pas dégager : couper le moteur |
-| Deux fois par jour | Les quatre mesures et la décision | Quatre mesures refaites, décision reprise | Pas de mesure neuve : remesurer avant de garder la décision de la veille |
+| Deux fois par jour | Les quatre mesures et la décision | Les quatre mesures sont refaites et la décision est reprise | Pas de mesure neuve : remesurer avant de garder la décision de la veille |
 
 ---
 
@@ -282,7 +283,7 @@ tôt que prévu, le plus important est fait.
 | Observation | Diagnostic | Action |
 | --- | --- | --- |
 | « On verra demain » dit deux fois | On repousse la décision parce qu'on est fatigué, pas à cause des chiffres | Trancher maintenant, même avec une information incomplète |
-| Personne ne sait l'heure ni depuis combien de temps ça dure | Plus de repère : on ne peut plus faire les quatre mesures | Écrire l'heure et les quatre mesures avant tout autre geste |
+| Personne ne sait l'heure ni depuis combien de temps ça dure | On n'a plus de repère : on ne peut pas faire les quatre mesures | Écrire l'heure et les quatre mesures avant tout autre geste |
 | Le plan pour rester commence par « j'irais chercher » | Le plan dépend d'un déplacement qu'on n'a pas fait, dans des conditions qui empirent | Faire le déplacement tout de suite, ou partir |
 | Maux de tête, fatigue, nausées, vomissements ou étourdissements chez plus d'une personne | Monoxyde de carbone jusqu'à preuve du contraire | Étapes 1 à 8 |
 | Un enfant devient silencieux et maladroit en auto | Hypothermie modérée possible | L'amener tout de suite dans un abri chauffé (ch. 25) |

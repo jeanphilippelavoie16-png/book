@@ -85,3 +85,12 @@ se lisait « les fréquences qui entrent sur la radio ») ; les quatre notes « 
    la source, ou garder seulement le long fil coincé dans la prise d'antenne.
 5. **Section 7, l'accord, « Autre façon de régler plus fin »** avec deux tubes de papier d'aluminium : le texte ne dit
    pas où brancher les deux tubes. À compléter (planche 14-01 ou source du rédacteur).
+
+## Édition des décisions de JP, 19 octobre 2026
+
+Éditeur de la passe « décisions de JP » (`_reprise/scratchpad/tome1-final/decisions-jp.js`). Relu seulement les phrases que la passe a changées (texte d'avant : commit `03525fa`), à voix haute, avec le skill `ecriture` ; aucun fait ni chiffre touché, aucune ancre touchée. `controle.py --avant` (texte d'avant l'édition) : rien n'a disparu.
+
+- Étape 3, premier tiret : « ou si on ne peut pas arriver au chalet ou à la route avant la nuit, ou avec le monde qu'on a » devient « si on ne peut pas arriver au chalet ou à la route avant la nuit, ou s'il n'y a pas assez de monde pour sortir le blessé ».
+- Étape 3, second tiret : « avec l'appareil allumé sur soi et le SOS en marche » devient « en gardant sur soi l'appareil allumé et le SOS en marche ».
+- Relu sans changement : l'étape 4 (« Si on reste sur place… ») et le logigramme 14 (boîtes a2 et a3).
+- Hors de la passe, noté : l'étape 1 garde « est difficile à réveiller ou devient confuse, ou ne pourra pas » ; le ch. 16, étape 3, dit maintenant « est difficile à réveiller, devient confus ou ne pourra pas ».

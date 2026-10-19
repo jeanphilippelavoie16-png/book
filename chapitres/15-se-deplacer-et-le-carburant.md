@@ -554,9 +554,9 @@ contourne l'endroit où des oiseaux d'eau se tiennent sur un lac gelé (étape 4
 
 ![Un bloc de glace de printemps sur la rive, fait de colonnes debout serrées les unes contre les autres](images/extras/15-glace-chandelles.jpg)
 
-La glace en chandelles est faite de colonnes perpendiculaires à la surface, serrées comme des chandelles. Les
-colonnes qui se détachent flottent et tintent en se cognant. Elles ne sont plus liées entre elles : quand on passe
-à travers, le bord du trou se défait sous les mains, et on n'a rien pour se hisser (étape 42).
+La glace en chandelles est faite de colonnes debout, serrées comme des chandelles, qui ne tiennent plus entre
+elles. Quand on passe à travers, le bord du trou se défait sous les mains, et on n'a rien pour se hisser
+(étape 42). Les colonnes qui se détachent flottent et tintent en se cognant.
 
 ### Ne pas laisser la machine geler au sol
 

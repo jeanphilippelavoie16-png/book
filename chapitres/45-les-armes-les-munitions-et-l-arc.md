@@ -115,19 +115,19 @@ coupée sur le dos le casse, d'où la bille fendue selon le fil et tout le trava
    gibier. Dès que le stock devient fini, plus aucune cartouche de carabine ne part sur du petit
    gibier (ch. 41).
 
-**Le compte, calibre par calibre.** On fait une ligne par calibre qu'on a. Chaque ligne ramène à
-une cartouche ce qui précède : les bêtes du tableau, le réglage (étape 2), la pratique (étape 3).
+**Le compte, calibre par calibre.** On fait une ligne par calibre qu'on a. Chaque ligne compte en
+cartouches ce qui précède : les bêtes du tableau, le réglage (étape 2) et la pratique (étape 3).
 
 | Cartouche | Ce qu'elle prend | Avant la première bête | Ce qui compte |
 | --- | --- | --- | --- |
 | .22 | Tout ce qui s'assoit : lièvre, porc-épic, gélinotte et tétras perchés, lagopède, écureuil, rat musqué ; la bête vivante au piège | Le zéro à 25 m, trois au froid (étapes 33 et 34), et toute la pratique | Une cartouche par bête assise. C'est celle qu'on tire le plus et la plus fragile (§8, bloc 3) : ce qui manque ici passe aux engins et à l'arc (§9) |
 | 12 | La gélinotte levée, le lagopède en bande, la sauvagine ; à courte distance, l'orignal à balle unique | — | Plusieurs cartouches par oiseau en vol, de l'ordre de cinq par canard. Plomb et acier jamais dans la même veste (ch. 54, étape 0) |
-| Chaque calibre de carabine | Orignal, ours, phoque | 12 par carabine | Une cartouche d'un autre calibre peut entrer dans la chambre, et l'arme cède si on la tire (étape 39). Si la boîte est un vieux surplus militaire, l'amorce peut être corrosive (étape 24) |
+| Chaque calibre de carabine | Orignal, ours, phoque | 12 par carabine | Une cartouche d'un autre calibre peut entrer dans la chambre : si on la tire, l'arme cède (étape 39). Si la boîte est un vieux surplus militaire, l'amorce peut être corrosive (étape 24) |
 
 Le réglage coûte **12 cartouches par carabine** avant qu'un seul orignal soit vu. Quand deux
 carabines tirent le même calibre, une boîte sert deux armes et deux tireurs, et si une carabine
 casse, ses cartouches passent à l'autre sans qu'une seule soit perdue. Une cartouche qu'une seule
-carabine tire ne sert qu'à elle : que cette carabine casse, et sa boîte ne vaut plus rien. Au mois
+carabine tire ne sert qu'à elle : si cette carabine casse, sa boîte ne vaut plus rien. Au mois
 d'août, on remplit d'abord la boîte du calibre que plusieurs carabines partagent ; une carabine
 seule de son calibre reçoit son réglage et les coups des bêtes qu'on lui confie, pas plus.
 
@@ -287,11 +287,10 @@ seule de son calibre reçoit son réglage et les coups des bêtes qu'on lui conf
 39. **Un seul calibre par poche, par veste, par caisse, au fusil comme à la carabine.** Même
     discipline que celle du plomb et de l'acier au ch. 54 (étape 0), pour d'autres raisons. Au
     fusil, c'est le canon bouché (§8, bloc 1). À la carabine, une cartouche d'un autre calibre peut
-    entrer dans la chambre : si on la tire, la pression du gaz monte, ou le gaz s'échappe, au-delà
-    de ce que l'arme tient, et l'arme cède à hauteur du visage. Lire le calibre gravé sur le canon
+    entrer dans la chambre : si on la tire, la pression du gaz monte au-delà de ce que l'arme tient,
+    ou le gaz sous pression s'échappe, et l'arme cède à hauteur du visage. Lire le calibre gravé sur le canon
     de chaque carabine, et ne mettre dans sa poche ou sa caisse que des boîtes qui portent ce
-    calibre. Au toucher, à la mitaine, dans
-    le noir : une cartouche à bourrelet a un rebord qui déborde au culot, une cartouche à ceinture
+    calibre. Au toucher, à la mitaine, dans le noir : une cartouche à bourrelet a un rebord qui déborde au culot, une cartouche à ceinture
     un anneau juste au-dessus du culot, et les autres ni l'un ni l'autre.
 
 [^1]: Le renflement est un anneau où le canon a gonflé sous le choc de la balle contre l'obstacle.

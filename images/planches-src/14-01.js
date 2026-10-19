@@ -6,8 +6,9 @@
 // 2026 (sources/19-nbs-circulaire-120-poste-recepteur.md ; suivi/14-redaction.md, levée du 24 septembre).
 // Le 19 octobre 2026 : recomposée sans la ligne « Planche 14-01. … » dans le dessin (le moteur de pages
 // pose le numéro et le titre). Le même jour, le renvoi 14 vise le cercle rouge de l'entrée de la descente (règle 11 :
-// chaque rouge a son repère). À soumettre à JP : le dessin montre 7 prises (les dizaines), pas la prise à chaque spire
-// sur les 10 dernières que demande le texte (« L'accord », repère 3).
+// chaque rouge a son repère). Au second regard, le même jour : la bobine suit le texte (« L'accord », repère 3). Les
+// 80 spires sont dessinées une à une, une prise toutes les 10 spires sur les 70 premières, puis une bande d'émail
+// gratté en travers des 10 dernières, où chaque spire se voit : c'est là qu'on règle la station.
 //
 // La charte : les deux épinettes, qui portent l'antenne sans être le sujet, en gris loin ; pas
 // de gris sur le poste ni sur le détecteur, vus à plat. Le rouge : la pointe qu'on promène sur
@@ -128,10 +129,13 @@ module.exports = (h) => {
     g.cx = 172; g.r = 32;
     g.yT = g.by0 + 46; g.yB = g.by1 - 104;
     g.yW0 = g.yT + 12; g.yW1 = g.yB - 8;
-    g.pas = 3.2;
+    // 80 spires dessinées une à une ; une prise toutes les 10 spires sur les 70 premières, puis la bande
+    // grattée qui découvre chacune des 10 dernières
+    g.pas = (g.yW1 - g.yW0) / 80;
     g.xPrise = g.cx - 14;
     g.prises = [];
-    for (let y = g.yW0 + 14; y < g.yW1 - 6; y += 26) g.prises.push(y);
+    for (let k = 1; k <= 7; k++) g.prises.push(g.yW0 + 10 * k * g.pas);
+    g.bande = [g.prises[6] + 4.2, g.yW1 - 1];
     g.yPince = g.prises[3];
     g.lame = [z.l - 88, g.by0 + 92];
     g.visMine = [z.l - 44, g.by0 + 170];
@@ -142,7 +146,7 @@ module.exports = (h) => {
   return {
     ref: '14-01',
     titre: 'Le poste à galène',
-    desc: 'Un récepteur AM sans pile monté sur une planche : bobine de fil de cuivre sur une bouteille, pince promenée sur les prises grattées, détecteur fait d’une lame de rasoir et d’une mine de crayon, pastille piézo en écouteur, une résistance de carte morte tordue en travers de ses deux fils ; dehors, un fil tendu haut entre deux épinettes et un contrepoids déroulé sur la neige sous lui.',
+    desc: 'Un récepteur AM sans pile monté sur une planche : bobine de fil de cuivre sur une bouteille, une prise grattée toutes les dix spires puis une bande grattée en travers des dix dernières, pince promenée de prise en prise, détecteur fait d’une lame de rasoir et d’une mine de crayon, pastille piézo en écouteur, une résistance de carte morte tordue en travers de ses deux fils ; dehors, un fil tendu haut entre deux épinettes et un contrepoids déroulé sur la neige sous lui.',
     format: 'pleine',
     disposition: [['poste', 'detecteur'], ['antenne']],
     hauteurs: [3, 2],
@@ -179,13 +183,18 @@ module.exports = (h) => {
           ], blanc(h.a.contour), true));
           o.push(h.rect(cx - col - 3, g.yB + 40, 2 * col + 6, 9, blanc(h.a.arete)));
           // les spires, serrées
-          for (let y = g.yW0; y <= g.yW1; y += g.pas) o.push(h.ligne(cx - r, y, cx + r, y, h.a.detail));
+          for (let k = 0; k <= 80; k++) { const y = g.yW0 + k * g.pas; o.push(h.ligne(cx - r, y, cx + r, y, h.a.detail)); }
           o.push(h.ligne(cx - r, g.yW0, cx + r, g.yW0, h.a.arete));
           o.push(h.ligne(cx - r, g.yW1, cx + r, g.yW1, h.a.arete));
           // bout de fil de fin de bobine, rentré dans un trou
           o.push(h.chemin([[cx + r, g.yW1], [cx + r + 10, g.yW1 + 6]], h.a.arete));
-          // prises grattées dans l'émail
+          // prises grattées dans l'émail ; sur les 10 dernières spires, une bande grattée qui les découvre toutes
           for (const y of g.prises) o.push(h.rect(g.xPrise - 5, y - 3, 10, 6, blanc(h.a.fin)));
+          o.push(h.rect(g.xPrise - 5, g.bande[0], 10, g.bande[1] - g.bande[0], blanc(h.a.fin)));
+          for (let k = 71; k < 80; k++) {
+            const y = g.yW0 + k * g.pas;
+            if (y > g.bande[0] + 0.6 && y < g.bande[1] - 0.6) o.push(h.ligne(g.xPrise - 5, y, g.xPrise + 5, y, h.a.fin));
+          }
           // la pince crocodile, mâchoire sur une prise
           const y = g.yPince;
           const xp = g.xPrise;

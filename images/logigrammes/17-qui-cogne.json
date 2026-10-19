@@ -1,5 +1,5 @@
 {
-  "_note": "Logigramme du chapitre 17 (qui cogne à la porte), double page. Fait le 15 octobre 2026, remis d'accord avec le chapitre refait au gabarit final le 19 octobre 2026. Page de gauche : la série « Quelqu'un cogne à la porte » (1 min, étapes 1 à 3), la série « La personne attend dehors » (10 min, étapes 4 à 8) et ce qui vaut à tout moment (étape 12). Page de droite : la réponse (étapes 9 à 11), l'après (13 et 14), l'hébergement (15 à 21), le lendemain (22 à 29). Le monoxyde n'y est pas : il est à l'étape 18, avec son pictogramme (JP : « on l'a dit 1000 fois »). Phrases complètes (JP : « personne parle comme ça »). Aucune branche ne mène à l'arme de la maison (étape 11). Rendu : python3 design/outils/logigramme.py images/logigrammes/17-qui-cogne.json. « source » : les étapes du chapitre d'où vient chaque geste (ignoré au rendu). Décisions de JP du 19 octobre 2026 : la première boîte dit « Répondre à travers la porte, sans ouvrir » (étape 1) ; l'adulte seul avec les enfants (décision 8) : la boîte « seul » garde l'exception de la personne seule qui gèle (étape 3), et la boîte « entre » dit le geste de l'étape 7 (si le compte concorde, ouvrir et la traîner dans la maison sur une couverture ; sinon, passer par la fenêtre un sac de couchage et une couverture). La boîte « entre » prend toute la largeur ; l'encadré de l'arme (à tout moment, étape 12) passe au bas de la page de droite, sous « Le lendemain » ; rangs g3 à g8 descendus.",
+  "_note": "Logigramme du chapitre 17 (qui cogne à la porte), double page. Fait le 15 octobre 2026, remis d'accord avec le chapitre refait au gabarit final le 19 octobre 2026. Page de gauche : la série « Quelqu'un cogne à la porte » (1 min, étapes 1 à 3), la série « La personne attend dehors » (10 min, étapes 4 à 8) et ce qui vaut à tout moment (étape 12). Page de droite : la réponse (étapes 9 à 11), l'après (13 et 14), l'hébergement (15 à 21), le lendemain (22 à 29). Le monoxyde n'y est pas : il est à l'étape 18, avec son pictogramme (JP : « on l'a dit 1000 fois »). Phrases complètes (JP : « personne parle comme ça »). Aucune branche ne mène à l'arme de la maison (étape 11). Rendu : python3 design/outils/logigramme.py images/logigrammes/17-qui-cogne.json. « source » : les étapes du chapitre d'où vient chaque geste (ignoré au rendu). Décisions de JP du 19 octobre 2026 : la première boîte dit « Répondre à travers la porte, sans ouvrir » (étape 1) ; l'adulte seul avec les enfants (décision 8) : la boîte « seul » garde l'exception de la personne seule qui gèle (étape 3), et la boîte « entre » dit le geste de l'étape 7 (si le compte concorde, ouvrir et la traîner dans la maison sur une couverture ; sinon, passer par la fenêtre un sac de couchage et une couverture). La boîte « entre » prend toute la largeur ; l'encadré de l'arme (à tout moment, étape 12) passe au bas de la page de droite, sous « Le lendemain » ; rangs g3 à g8 descendus. Éditeur, 19 octobre 2026 (règle 0) : « seul » sans renvoi dans le texte (le renvoi dit « étapes 3 et 7 ») et « passer ce qu'on donne par une fenêtre entrouverte » ; « entre » : « Si on est seul avec les enfants, ouvrir seulement si on a compté une seule personne et aucune autre trace » au lieu de l'étiquette « Seul avec les enfants : si le compte concorde » ; « deux » : « Un seul adulte doit parler » ; « arme » : « Emmener tout le monde dans la pièce du fond, bloquer la porte de l'intérieur et y rester » (les deux dernières, notées au plan de match pour après la passe). Mêmes lignes par boîte, 0 erreur.",
   "format": "double",
   "tome": 1,
   "urgent": true,
@@ -117,7 +117,7 @@
       "rang": "g4",
       "ancre": "haut",
       "taille": 10.5,
-      "texte": "**Un seul adulte parle.** L'autre va dans la pièce du fond avec les enfants et regarde par une autre fenêtre.",
+      "texte": "**Un seul adulte doit parler.** L'autre va dans la pièce du fond avec les enfants et regarde par une autre fenêtre.",
       "renvoi": "ch. 17, étape 3",
       "source": "étape 3"
     },
@@ -128,8 +128,8 @@
       "rang": "g4",
       "ancre": "haut",
       "taille": 10.5,
-      "texte": "**Envoyer les enfants dans la pièce du fond, et ne pas sortir**, sauf pour une personne seule qui gèle (étape 7). Parler à travers la porte et donner par une fenêtre entrouverte.",
-      "renvoi": "ch. 17, étape 3",
+      "texte": "**Envoyer les enfants dans la pièce du fond, et ne pas sortir**, sauf pour une personne seule qui gèle. Parler à travers la porte, et passer ce qu'on donne par une fenêtre entrouverte.",
+      "renvoi": "ch. 17, étapes 3 et 7",
       "source": "étape 3 ; section 7, le deuxième adulte"
     },
     {
@@ -168,7 +168,7 @@
       "col": "large",
       "rang": "g8",
       "ancre": "haut",
-      "texte": "**Le porter couché**, sans le faire marcher, dans la maison ou dans un abri dehors. Lui enlever ses vêtements mouillés et mettre de la chaleur sur son tronc. Lui donner à boire seulement s'il est bien éveillé et avale bien. **Seul avec les enfants** : si le compte concorde, ouvrir et le traîner dans la maison sur une couverture ; sinon, lui passer par la fenêtre un sac de couchage et une couverture pour se coucher dessus.",
+      "texte": "**Le porter couché**, sans le faire marcher, dans la maison ou dans un abri dehors. Lui enlever ses vêtements mouillés et mettre de la chaleur sur son tronc. Lui donner à boire seulement s'il est bien éveillé et avale bien. **Si on est seul avec les enfants**, ouvrir seulement si on a compté une seule personne et aucune autre trace, et le traîner dans la maison sur une couverture. Sinon, lui passer par la fenêtre un sac de couchage et une couverture pour qu'il se couche dessus.",
       "renvoi": "ch. 17, étapes 7 et 8 ; ch. 25",
       "source": "étapes 7 et 8"
     },
@@ -179,7 +179,7 @@
       "rang": "darme",
       "ancre": "haut",
       "titre": "S'il montre une arme ou s'il menace",
-      "texte": "**Tout le monde va dans la pièce du fond**, on bloque la porte de l'intérieur et on y reste. S'il entre et exige quelque chose, le lui donner sans discuter ni résister.",
+      "texte": "**Emmener tout le monde dans la pièce du fond**, bloquer la porte de l'intérieur et y rester. S'il entre et exige quelque chose, le lui donner sans discuter ni résister.",
       "renvoi": "ch. 17, étape 12",
       "source": "étape 12"
     },

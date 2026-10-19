@@ -5,21 +5,23 @@
 // neige sèche à mesure qu'elle fond : de la neige fondue autour d'un plat fait un bain tiède. On pose un panneau
 // lesté par-dessus, contre les animaux (planche 18-02). »
 //
-// Deux vues, les repères dans l'ordre des gestes du texte (1 à 6).
-//   De biais : l'auge vue d'en haut et de devant, coupée en long pour qu'on voie le fond. Trois plats couchés au
-//   fond (un plat à rôtir à anses, une tôle, un couvercle de chaudière retourné), une couche de ragoût dans chacun.
-//   Une cuillère de bois dans le plat à rôtir, la flèche rouge du brassage autour (repère 4). Autour de la tôle, la
-//   neige a fondu : l'eau en bleu (repère 5) ; on la remplace par de la neige sèche prise sur le bord (la flèche
-//   rouge, du tas de neige sèche au monticule posé contre la tôle).
-//   En coupe : l'auge coupée en travers au plat à rôtir. Le ragoût en couche mince (repère 3), le panneau posé sur
-//   les deux bords de l'auge, une bûche dessus (repère 6).
+// Deux vues de biais, même projection : l'auge ouverte, puis couverte (règle 3 : ouvert / fermé). Les repères suivent
+// l'ordre des gestes du texte (1 à 6).
+//   Ouverte : un bloc de neige tassée, l'auge coupée par l'avant pour qu'on voie le fond. Les plats couchés sur deux
+//   rangs (le texte les nomme) : devant, un plat à rôtir à anses et un couvercle de chaudière retourné ; derrière, une
+//   tôle et une gamelle. Une couche de ragoût dans chacun. Une cuillère de bois dans le plat à rôtir, la flèche rouge
+//   du brassage autour (repère 4). Autour de la tôle, la neige a fondu : l'eau en bleu ; une pelletée de neige sèche
+//   prise au tas posé sur le bord (la flèche rouge) la remplace (repère 5).
+//   Couverte : le même bloc, un panneau de planches posé sur les bords de l'auge, une bûche couchée dessus (repère 6).
 // Aucune cote : le texte n'en donne aucune (règle 1). Les plats et la bûche donnent l'échelle.
-// Aucune main : le brassage se lit par la cuillère et sa flèche, le renvoi dit le geste.
+// Aucune main ni aucun corps : le brassage se lit par la cuillère et sa flèche, le renvoi dit le geste.
 // Les dimensions des objets (en cm, pour les proportions seulement, jamais imprimées) : plat à rôtir 45 × 28 × 6,
-// tôle 48 × 34 × 2, couvercle de chaudière de 32 de diamètre, auge de 48 de large et 18 de creux.
-// La charte : neige coupée en pointillé ; en gris d'ombre, les faces tournées vers la droite (lumière en haut à
-// gauche) : la paroi gauche de l'auge, le flanc droit du bloc, le flanc droit des plats ; en gris clair, le ragoût ;
-// l'eau par la hachure « eau » seulement. Deux rouges, les deux gestes : brasser, et rapporter de la neige sèche.
+// tôle 46 × 28 × 2, couvercle de chaudière de 32 de diamètre, gamelle 20 × 16 × 5, auge de 100 × 80 et 18 de creux,
+// bûche de 42 de long et 17 de diamètre.
+// La charte : la neige en pointillé partout (le dessus, la coupe, les parois, les tas) ; en gris d'ombre, les faces
+// tournées vers la droite (lumière en haut à gauche) : la paroi gauche de l'auge et des plats, le flanc droit du bloc,
+// du panneau et de la bûche ; en gris clair, le ragoût ; l'eau par la hachure « eau » seulement. Deux rouges, les
+// deux gestes : brasser, et rapporter de la neige sèche.
 module.exports = (h) => {
   const f = v => Math.round(v * 10) / 10;
   const P = pts => pts.map(p => [f(p[0]), f(p[1])]);
@@ -71,37 +73,29 @@ module.exports = (h) => {
     return out;
   };
   const rond = (cx, cy, r, n = 48) => Array.from({ length: n }, (_, k) => [cx + r * Math.cos(2 * Math.PI * k / n), cy + r * Math.sin(2 * Math.PI * k / n)]);
-  // un tas de neige : le contour fermé, à l'écran ; les bords tournés vers le haut se bossellent en festons
-  const bossele = (pts, amp = 2.2, pas = 9) => {
-    const sens = aire(pts) > 0 ? 1 : -1;
-    let d = `M${f(pts[0][0])} ${f(pts[0][1])}`;
-    for (let i = 0; i < pts.length; i++) {
-      const a = pts[i], b = pts[(i + 1) % pts.length];
-      const dx = b[0] - a[0], dy = b[1] - a[1], L = Math.hypot(dx, dy) || 1;
-      const nx = sens * dy / L, ny = -sens * dx / L;          // normale vers l'extérieur
-      if (ny > -0.35) { d += ` L${f(b[0])} ${f(b[1])}`; continue; }
-      const k = Math.max(1, Math.round(L / pas));
-      for (let j = 0; j < k; j++) {
-        const t0 = j / k, t1 = (j + 1) / k, tm = (t0 + t1) / 2, ampj = amp * (0.75 + 0.5 * Math.abs(Math.sin(i * 1.9 + j * 2.7)));
-        const c = [a[0] + dx * tm + nx * ampj * 2, a[1] + dy * tm + ny * ampj * 2];
-        d += ` Q${f(c[0])} ${f(c[1])} ${f(a[0] + dx * t1)} ${f(a[1] + dy * t1)}`;
-      }
-    }
-    return d + ' Z';
-  };
   const neigeTas = d => [h.path(d, blancSans), h.path(d, h.a.hachure('neige', 'aucun')), h.path(d, h.a.arete)];
-  // un tas de neige posé à plat : le pied (la moitié avant d'une ellipse au sol) et le dos bosselé
-  const tasDeNeige = (p3, { cx, cy, rx, ry, ht, z0 = 0, amp = 1.5, pas = 11 }) => {
+  // un tas de neige posé à plat : le pied (la moitié avant d'une ellipse au sol) et un dos bombé, à trois ou quatre
+  // bosses irrégulières ; le contour est une seule courbe lisse
+  const tasDeNeige = (p3, { cx, cy, rx, ry, ht, z0 = 0, graine = 0 }) => {
     const pied = [], dos = [];
-    for (let q = 0; q <= 10; q++) {
-      const uu = -1 + 2 * q / 10, w = Math.sqrt(Math.max(0, 1 - uu * uu));
+    for (let q = 0; q <= 12; q++) {
+      const uu = -1 + 2 * q / 12, w = Math.sqrt(Math.max(0, 1 - uu * uu));
       pied.push(p3(cx + rx * uu, cy - ry * w, z0));
     }
-    for (let q = 10; q >= 0; q--) {
-      const uu = -1 + 2 * q / 10, w = Math.sqrt(Math.max(0, 1 - uu * uu));
-      dos.push(p3(cx + rx * uu * 0.94, cy + ry * 0.25, z0 + ht * Math.pow(w, 0.9)));
+    for (let q = 7; q >= 1; q--) {
+      const uu = -1 + 2 * q / 8, w = Math.sqrt(Math.max(0, 1 - uu * uu));
+      const bosse = 1 + 0.09 * Math.sin(q * 2.2 + graine) + 0.05 * Math.cos(q * 3.9 + graine * 2);
+      dos.push(p3(cx + rx * uu * 0.98, cy + ry * 0.25 * w, z0 + ht * Math.pow(w, 0.7) * bosse));
     }
-    return neigeTas(bossele(pied.concat(dos), amp, pas));
+    // le pied en ligne, le dos en une courbe lisse qui part d'un bout du pied et revient à l'autre
+    const ch = [pied[pied.length - 1], ...dos, pied[0]];
+    const Q = i => ch[Math.max(0, Math.min(ch.length - 1, i))];
+    let d = 'M' + pied.map(q => `${f(q[0])} ${f(q[1])}`).join(' L');
+    for (let i = 0; i < ch.length - 1; i++) {
+      const p0 = Q(i - 1), p1 = Q(i), p2 = Q(i + 1), p4 = Q(i + 2);
+      d += ` C${f(p1[0] + (p2[0] - p0[0]) / 6)} ${f(p1[1] + (p2[1] - p0[1]) / 6)} ${f(p2[0] - (p4[0] - p1[0]) / 6)} ${f(p2[1] - (p4[1] - p1[1]) / 6)} ${f(p2[0])} ${f(p2[1])}`;
+    }
+    return neigeTas(d + ' Z');
   };
 
   // ════ La scène, vue de biais ═══════════════════════════════════════════════════════
@@ -196,7 +190,7 @@ module.exports = (h) => {
     });
 
     // la neige sèche, pelletée contre la tôle à la place de la neige mouillée
-    const pelletee = { cx: 62.5, cy: 61, rx: 6.5, ry: 9, ht: 4.5, z0: fond, amp: 1.3 * k, pas: 8 * k };
+    const pelletee = { cx: 62.5, cy: 61, rx: 7, ry: 9, ht: 5, z0: fond, graine: 1 };
     const monticule = tasDeNeige(p3, pelletee);
 
     // la gamelle, derrière à droite
@@ -224,7 +218,7 @@ module.exports = (h) => {
 
     // la cuillère de bois, et le brassage
     const emerge = [27.5, 19.5, zrP];                     // où le manche sort du ragoût
-    const bout = [41, 31, 14];
+    const bout = [43, 21, 5.5];                             // le manche penche vers la droite, au-dessus du plat
     const a = p3(...emerge), b = p3(...bout);
     const dir = [b[0] - a[0], b[1] - a[1]], L = Math.hypot(...dir), u = [dir[0] / L, dir[1] / L], nn = [-u[1], u[0]];
     const demi = 2.5 * k;
@@ -284,8 +278,8 @@ module.exports = (h) => {
     const reperes = {};
     if (!couverte) {
       // ── le tas de neige sèche sur le bord, et le geste : en prendre pour remplacer la neige mouillée ──
-      const tas = { cx: 66, cy: 89, rx: 16, ry: 5, ht: 8 };
-      out.push(...tasDeNeige(p3, { ...tas, amp: 1.6 * k, pas: 11 * k }));
+      const tas = { cx: 66, cy: 85.5, rx: 15, ry: 4, ht: 9 };
+      out.push(...tasDeNeige(p3, { ...tas, graine: 0.4 }));
       const g0 = p3(tas.cx - 3, tas.cy, 8), g1 = p3(pelletee.cx, pelletee.cy + 2, fond + pelletee.ht);
       const gc = [g0[0] + 30 * k, (g0[1] + g1[1]) / 2 - 4 * k];
       out.push(h.geste(`M${f(g0[0])} ${f(g0[1])} Q${f(gc[0])} ${f(gc[1])} ${f(g1[0] + 2 * k)} ${f(g1[1] - 3 * k)}`));
@@ -294,12 +288,12 @@ module.exports = (h) => {
         plat: p3(cv.cx + cv.r * 0.96, cv.cy + 3, fond + 2.5),
         ragout: p3(30, 64, zrT),
         brasser: arc[3],
-        neige: [g1[0] + 2 * k, g1[1] - 3 * k],
+        neige: p3(pelletee.cx + pelletee.rx * 0.93, pelletee.cy - 2, fond + 1.6),
         flaque: p3(3.5, 62, fond),
       });
     } else {
       // la bûche, couchée d'avant en arrière sur le panneau ; on voit son bout, rond, devant
-      const rb = 8, C0 = [50, 14, PN.ep + rb], C1 = [50, 74, PN.ep + rb];
+      const rb = 8.5, C0 = [50, 22, PN.ep + rb], C1 = [50, 64, PN.ep + rb];
       const ell = (C, r = rb) => Array.from({ length: 40 }, (_, q) => { const t = 2 * Math.PI * q / 40; return p3(C[0] + r * Math.cos(t), C[1], C[2] + r * Math.sin(t)); });
       const corps = enveloppe(ell(C0).concat(ell(C1)));
       out.push(h.chemin(P(corps), blancSans, true));
@@ -308,18 +302,19 @@ module.exports = (h) => {
         p3(C1[0] + rb, C1[1], C1[2]), p3(C1[0] + rb * 0.7, C1[1], C1[2] + rb * 0.7), p3(C0[0] + rb * 0.7, C0[1], C0[2] + rb * 0.7), p3(C0[0] + rb, C0[1], C0[2])];
       out.push(h.chemin(P(enveloppe(fl)), h.a.ombre, true));
       // l'écorce : quelques traits le long de la bûche
-      for (const [t0, t1, an] of [[22, 52, 150], [30, 66, 115], [20, 44, 70], [40, 70, 35]]) {
+      for (const [t0, t1, an] of [[27, 48, 150], [32, 60, 118], [26, 41, 72], [44, 61, 38]]) {
         const c = Math.cos(an * RAD), sn = Math.sin(an * RAD);
         out.push(h.chemin(P([p3(C0[0] + rb * c, t0, C0[2] + rb * sn), p3(C0[0] + rb * c, t1, C0[2] + rb * sn)]), h.a.detail));
       }
       out.push(h.chemin(P(corps), h.a.contour, true));
       // le bout scié : l'écorce, deux cernes, le cœur, une fente
       out.push(h.chemin(P(ell(C0)), blanc(h.a.arete), true));
-      out.push(h.chemin(P(ell(C0, rb * 0.84)), h.a.detail, true), h.chemin(P(ell(C0, rb * 0.52)), h.a.detail, true), h.chemin(P(ell(C0, rb * 0.24)), h.a.detail, true));
+      out.push(h.chemin(P(ell(C0, rb * 0.62)), h.a.detail, true), h.chemin(P(ell(C0, rb * 0.3)), h.a.detail, true));
+      out.push(h.cercle(...p3(...C0), 0.9 * k, h.a.plein));
       const cb = p3(...C0);
       out.push(h.ligne(cb[0] + 1, cb[1] - 1, ...p3(C0[0] + rb * 0.7, C0[1], C0[2] + rb * 0.6), h.a.detail));
       out.push(h.chemin(P(ell(C0)), h.a.contour, true));
-      Object.assign(reperes, { panneau: p3(20, 40, PN.ep), buche: p3(C0[0] - rb * 0.72, C0[1], C0[2] + rb * 0.69) });
+      Object.assign(reperes, { panneau: p3(30, 46, PN.ep), buche: p3(C0[0] - rb * 0.72, C0[1], C0[2] + rb * 0.69) });
     }
     return { svg: out.join('\n'), reperes };
   };
@@ -337,7 +332,7 @@ module.exports = (h) => {
     desc: 'Deux vues de biais, d’en haut. À gauche, l’auge ouverte : une auge creusée dans un bloc de neige tassée, coupée par l’avant pour qu’on voie le fond. Au fond, des plats larges et plats couchés sur deux rangs : devant, un plat à rôtir à anses et un couvercle de chaudière retourné ; derrière, une tôle et une gamelle. Chacun porte une couche mince de ragoût, avec des morceaux. Une cuillère de bois est plantée dans le plat à rôtir, une flèche rouge tourne autour : on brasse. Autour de la tôle, la neige a fondu en eau, en bleu : un bain tiède. Contre la tôle, un monticule de neige sèche, et une flèche rouge qui vient d’un tas de neige sèche posé sur le bord de l’auge : on remplace la neige mouillée par de la neige sèche. À droite, la même auge couverte : un panneau de planches posé sur les bords, une bûche couchée dessus pour le lester contre les animaux. Aucune cote ; les plats et la bûche donnent l’échelle.',
     format: 'demi',
     disposition: [['ouverte', 'couverte']],
-    largeurs: [[2, 1]],
+    largeurs: [[1.8, 1]],
     vues: (() => {
       const memo = (fn, m = {}) => z => (m[`${z.l}x${z.h}`] = m[`${z.l}x${z.h}`] || fn(z));
       const O = memo(z => scene({ ...echelle(z, 26) }));
@@ -352,7 +347,7 @@ module.exports = (h) => {
               { n: 2, rond: [z.l - 12, r.plat[1] - 6], cible: r.plat, texte: 'coucher les plats les plus larges dans l’auge' },
               { n: 3, rond: [r.ragout[0] - 22, 12], cible: r.ragout, texte: 'verser le ragoût en couche mince' },
               { n: 4, rond: [12, r.brasser[1] - 18], cible: r.brasser, texte: 'brasser deux ou trois fois' },
-              { n: 5, rond: [r.neige[0] + 38, 12], cible: r.neige, texte: 'remplacer la neige mouillée par de la sèche' },
+              { n: 5, rond: [r.neige[0] + 70, 12], cible: r.neige, texte: 'remplacer la neige mouillée par de la sèche' },
             ];
           },
         },
@@ -361,7 +356,7 @@ module.exports = (h) => {
           dessin: z => C(z).svg,
           renvois: z => {
             const r = C(z).reperes;
-            return [{ n: 6, rond: [r.panneau[0] - 6, r.panneau[1] - 52], cible: r.panneau, texte: 'poser un panneau lesté contre les animaux' }];
+            return [{ n: 6, rond: [r.panneau[0] - 4, 14], cible: r.panneau, texte: 'poser un panneau lesté contre les animaux' }];
           },
         },
       };

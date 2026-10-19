@@ -195,7 +195,7 @@ module.exports = (h) => {
             { n: 1, rond: [16, 60], cible: bordArbre(z, 0.3), texte: 'jeune bouleau plié vers le sentier' },
             { n: 2, rond: [g.xC + 40, g.yH - 52], cible: [g.xC + 6, g.yH - 40], texte: 'corde du bout de l’arbre au bâtonnet' },
             { n: 3, rond: [z.l - 14, g.yH - 52], cible: [g.xP + g.rP - 1, g.yH - 30], texte: 'piquet fiché au bord du sentier' },
-            { n: 4, rond: [g.c - 34, g.yH - 30], cible: [g.c - 6, g.yH - 4], texte: 'bâtonnet coincé sous le crochet' },
+            { n: 4, rond: [g.c + 40, g.yH + 24], cible: [g.xP - g.rP - 7, g.yH + 4.6], texte: 'bâtonnet coincé sous le crochet' },
             { n: 5, rond: [g.c + 46, g.yBoucle + 6], cible: [g.c + g.R, g.yBoucle + 2], texte: 'la boucle, pendue au bâtonnet' },
           ];
         },

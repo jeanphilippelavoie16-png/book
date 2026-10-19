@@ -292,9 +292,9 @@ d'orignal.
 Sans électricité, sans congélateur, sans scie, sans sacs à carcasse achetés, avec un couteau,
 une pierre et ce qu'il y a au chalet. **Au chalet, ce n'est pas le cas rare.** Le congélateur
 est à la maison, en ville : il suffit que la route ferme, que la bête tombe trop loin pour redescendre le
-jour même, ou que l'essence soit comptée, et c'est ici que le chapitre recommence. La question
-n'est pas de savoir si ça arrivera, mais si le sel est au chalet quand ça arrive : la ligne du
-sel sans additif, au chapitre d'achat (ch. 00b, section 1.D), porte la mention **Chalet**.
+jour même, ou que l'essence soit comptée, pour devoir conserver la viande sur place, sans congélateur. Il
+faut donc que le sel soit au chalet avant la chasse : la ligne du sel sans additif, au chapitre d'achat (ch. 00b, section 1.D),
+porte la mention **Chalet**.
 
 **La table et la suspension, quand il n'y a ni crochet ni palan.** La peau de la bête,
 étendue à plat poil en dessous, est la table la plus propre du territoire : le côté chair

@@ -79,3 +79,11 @@ Intactes, début de paragraphe unique (vérifié) :
 5. **Section 7, « Donner sans renseigner ».** « souffler dans le boyau court » puis, juste après, « Ne jamais amorcer le
    siphon à la bouche » : souffler n'est pas aspirer, mais la suite peut faire hésiter. « Une poire de pompe » n'est
    pas le nom qu'emploie le ch. 15 (« une pompe à vélo ou à matelas ») ; non touché.
+
+## Édition des décisions de JP, 19 octobre 2026
+
+Éditeur de la passe « décisions de JP » (`_reprise/scratchpad/tome1-final/decisions-jp.js`). Relu seulement les phrases que la passe a changées (texte d'avant : commit `03525fa`), à voix haute, avec le skill `ecriture` ; aucun fait ni chiffre touché, aucune ancre touchée. `controle.py --avant` (texte d'avant l'édition) : rien n'a disparu.
+
+- Étape 7, tiret : l'étiquette « Un adulte seul avec les enfants : si le compte de l'étape 4 concorde (une seule personne, …) » devient « Quand un adulte est seul avec les enfants : si le compte de l'étape 4 donne une seule personne, et aucune trace de plus que la sienne, ouvrir… ».
+- Relu sans changement : l'étape 3 (« Seule exception… ») et la section 7, « Le deuxième adulte ».
+- Logigramme 17 : boîte « seul », le renvoi « (étape 7) » sort du texte et va dans le renvoi (« ch. 17, étapes 3 et 7 »), et « donner par une fenêtre entrouverte » (sans complément) devient « passer ce qu'on donne par une fenêtre entrouverte » ; boîte « entre », l'étiquette « Seul avec les enfants : si le compte concorde » devient « Si on est seul avec les enfants, ouvrir seulement si on a compté une seule personne et aucune autre trace ». Les deux corrections notées au plan de match pour après la passe sont faites en même temps : « Un seul adulte doit parler » et « Emmener tout le monde dans la pièce du fond, bloquer la porte de l'intérieur et y rester ». Rendu : mêmes lignes par boîte, 0 erreur.

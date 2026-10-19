@@ -143,3 +143,13 @@ Tout le reste a été lu phrase par phrase et gardé, dont les deux notes de bas
 - [x] Planches : aucune ; l'ancre du logigramme est un début de paragraphe unique.
 - [x] `controle.py` : 0 tiret dans le texte, 0 « § », 0 mot banni ; chaque avis jugé ; invariants : rien n'a disparu.
 - [x] Aucun chiffre nouveau, aucune source cherchée ; rien commité.
+
+## Édition des décisions de JP, 19 octobre 2026
+
+Éditeur de la passe « décisions de JP » (`_reprise/scratchpad/tome1-final/decisions-jp.js`). Relu seulement les phrases que la passe a changées (texte d'avant : commit `03525fa`), à voix haute, avec le skill `ecriture` ; aucun fait ni chiffre touché, aucune ancre touchée. `controle.py --avant` (texte d'avant l'édition) : rien n'a disparu.
+
+- Étape 8 : « la chaleur durera moins longtemps » devient « la maison restera chaude moins longtemps ».
+- Étape 27 : « on calcule la mesure de la chaleur à partir de ces degrés » devient « on calcule le temps qu'il reste de chaleur à partir de ces degrés » ; « on la compte » devient « on le compte ».
+- Étape 31 : « Si on attend, on en manquera avant d'arriver » (« en » ne renvoyait à rien de clair) devient « Si on attend, ce qu'elle mesure manquera avant qu'on arrive ».
+- Section 5, dernière ligne : « Quatre mesures refaites, décision reprise » (participes en chaîne) devient « Les quatre mesures sont refaites et la décision est reprise ». Section 6 : « Plus de repère : on ne peut plus faire » devient « On n'a plus de repère : on ne peut pas faire ».
+- Relu sans changement : le titre « La radio et les quatre mesures », les étapes 26, 30, 43, la section 7 (congélateur dans la neige), le logigramme 02.

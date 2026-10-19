@@ -162,7 +162,7 @@ module.exports = (h) => {
   const claieRenvois = z => {
     const c = claie(z);
     return [
-      { n: 5, rond: [z.l - 14, 16], cible: [c.cx + c.pos[3] + c.d / 2 + 2, c.cy + c.pos[0] - c.d / 2 - 2], texte: 'ou baguettes croisées, ligaturées' },
+      { n: 5, rond: [z.l - 14, 16], cible: [c.cx + c.pos[3] + c.d / 2 + 2, c.cy + c.pos[0] - c.d / 2 - 2], texte: 'au lieu de 4 : baguettes croisées, ligaturées' },
     ];
   };
 
@@ -189,7 +189,7 @@ module.exports = (h) => {
     // le geste : sortir le pot à la verticale
     out.push(h.geste(`M${r1(cx + rx + 30)} ${r1(p.yBague + 40)} L${r1(cx + rx + 30)} ${r1(p.yBague - 34)}`));
 
-    return { svg: out.join('\n'), p, cx, rx, yA, xm, yM, s };
+    return { svg: out.join('\n'), p, cx, rx, yA, xm, yM, s, xF: cx + rx + 30 };
   };
   const leveDessus = z => {
     const out = [], fil = 4;
@@ -209,6 +209,8 @@ module.exports = (h) => {
     return [
       { n: 6, rond: [l.xm + 58, l.yM + 6], cible: [l.xm + 28, l.yM + 12], texte: 'gros fil de fer plié' },
       { n: 7, rond: [l.cx - l.rx - 30, l.yA + 34], cible: [l.cx - l.rx * 0.45, l.yA + 6], texte: 'l’anneau prend sous le col' },
+      // la flèche rouge a son repère (règle 11) : le geste, après l'anneau vu de dessus
+      { n: 9, rond: [l.xF + 30, l.p.yBague + 12], cible: [l.xF + 2, l.p.yBague + 12], texte: 'sortir le pot à la verticale' },
     ];
   };
   const leveDessusRenvois = z => {

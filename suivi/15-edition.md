@@ -87,3 +87,9 @@ Chaque `apres` est un début de paragraphe unique (vérifié). Chaque planche es
 4. **Section 7, « Ski ou patin cassé » : « pour rejoindre la rive ».** Le but étonne (pourquoi la rive, et pas le
    chalet ?) ; non touché.
 5. **Logigramme** (`images/logigrammes/15-se-deplacer.json`) relu : rien qui contredise le texte édité ; non touché.
+
+## Édition des décisions de JP, 19 octobre 2026
+
+Éditeur de la passe « décisions de JP » (`_reprise/scratchpad/tome1-final/decisions-jp.js`). Relu seulement les phrases que la passe a changées (texte d'avant : commit `03525fa`), à voix haute, avec le skill `ecriture` ; aucun fait ni chiffre touché, aucune ancre touchée. `controle.py --avant` (texte d'avant l'édition) : rien n'a disparu.
+
+- En plus, « Reconnaître la glace en chandelles » : « colonnes perpendiculaires à la surface » devient « colonnes debout » ; « Elles ne sont plus liées entre elles » (on lisait « elles » comme les colonnes détachées) passe en tête : « …serrées comme des chandelles, qui ne tiennent plus entre elles. Quand on passe à travers… (étape 42). Les colonnes qui se détachent flottent et tintent en se cognant. » Mêmes faits, 55 mots.

@@ -324,8 +324,8 @@ module.exports = (h) => {
           // le jet, du collet à l'eau de la chaudière
           h.path('M67.5,146 L76.5,146 L74.5,160 L74,181 L70,181 L69.5,160 Z', h.a.hachure('eau', 'fin')),
           // la chaudière posée dessous, un fond d'eau
-          h.path('M50,176 L94,176 L91,198 L53,198 Z', h.a.hachure('eau', 'aucun')),
-          h.ligne(50, 176, 94, 176, h.a.detail),
+          h.path('M45.4,176 L98.6,176 L96,198 L48,198 Z', h.a.hachure('eau', 'aucun')),
+          h.ligne(45.4, 176, 98.6, 176, h.a.detail),
           h.path('M44,164 L100,164 L96,198 L48,198 Z', h.a.arete),
           h.rect(42, 161, 60, 4, blancArete),
           // le bouchon dévissé, tenu à côté : son filet et sa tête

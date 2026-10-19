@@ -64,12 +64,12 @@ elles n'arrivent pas.
  satellite allumé et au chaud sous le manteau. Pendant un SOS, le sortir sous un ciel dégagé aussi souvent que le
  froid le permet : sous le manteau, ce qu'il envoie reste en attente, et il ne reçoit pas les réponses (étapes 7
  et 22).
- - Rester sur place seulement si une réponse confirme que des secours viennent, ou si on ne peut pas arriver au
- chalet ou à la route avant la nuit, ou avec le monde qu'on a (ch. 16, étapes 5 et 14). Rester alors près de
- la machine (la motoneige ou le VTT), de l'auto ou du traîneau, et la dégager de la neige : d'un avion, on repère
- une machine plus facilement qu'une personne.
- - Sinon, sortir le blessé (ch. 16, étape 5), sans attendre de réponse, avec l'appareil allumé sur soi et le SOS en
- marche.
+ - Rester sur place seulement si une réponse confirme que des secours viennent, si on ne peut pas arriver au chalet
+ ou à la route avant la nuit, ou s'il n'y a pas assez de monde pour sortir le blessé (ch. 16, étapes 5 et 14).
+ Rester alors près de la machine (la motoneige ou le VTT), de l'auto ou du traîneau, et la dégager de la neige :
+ d'un avion, on repère une machine plus facilement qu'une personne.
+ - Sinon, sortir le blessé (ch. 16, étape 5) sans attendre de réponse, en gardant sur soi l'appareil allumé et le
+ SOS en marche.
 4. {!froid} **Si on reste sur place, se préparer à attendre longtemps, et à être vu.** Une recherche peut prendre
  jusqu'à 24 h avant que quelqu'un arrive.
  - Monter un abri (ch. 12, étapes 1 à 14) et faire un feu (ch. 13) près de la machine, ou au bord de l'ouverture la

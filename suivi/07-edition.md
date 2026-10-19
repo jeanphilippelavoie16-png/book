@@ -138,3 +138,9 @@ Les mots montent parce que les phrases reprennent leurs verbes et leurs articles
 - Planches appelées, ancres intactes : fait (07-01, logigramme 07).
 - controle.py : 0 tiret dans le texte, 0 « § », 0 mot banni ; avis jugés un par un (voir le tableau).
 - Aucun chiffre changé, aucune source cherchée : fait.
+
+## Édition des décisions de JP, 19 octobre 2026
+
+Éditeur de la passe « décisions de JP » (`_reprise/scratchpad/tome1-final/decisions-jp.js`). Relu seulement les phrases que la passe a changées (texte d'avant : commit `03525fa`), à voix haute, avec le skill `ecriture` ; aucun fait ni chiffre touché, aucune ancre touchée. `controle.py --avant` (texte d'avant l'édition) : rien n'a disparu.
+
+- Étapes 6 et 7 : « Pour une famille de quatre et sept jours » et « … et trois jours » deviennent « Pour une famille de quatre, pendant sept jours » et « …, pendant trois jours ».

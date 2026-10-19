@@ -80,11 +80,11 @@ la génératrice, et décider tout de suite si on monte au chalet.
 
 #### L'eau
 
-6. **Faire la réserve d'eau à boire : 2 L par personne et par jour.** Pour une famille de quatre et sept jours, il faut
- 56 L. Le minimum est de 6 L par personne, soit trois jours. Prendre des contenants propres qui ferment et qui n'ont
+6. **Faire la réserve d'eau à boire : 2 L par personne et par jour.** Pour une famille de quatre, pendant sept jours, il
+ faut 56 L. Le minimum est de 6 L par personne, soit trois jours. Prendre des contenants propres qui ferment et qui n'ont
  jamais contenu de produit chimique : un bidon de lave-glace garde du produit même rincé.
 7. **Faire une réserve d'eau de service à part : au moins 6 L de plus par personne**, pour la cuisine et pour se
- laver. Pour une famille de quatre et trois jours, il faut donc au moins 48 L en tout, eau à boire comprise.
+ laver. Pour une famille de quatre, pendant trois jours, il faut donc au moins 48 L en tout, eau à boire comprise.
  - Mettre l'eau de service dans des contenants d'une autre couleur que ceux de l'eau à boire, et écrire « boisson »
  ou « service » au feutre sur chacun avant de le remplir.
  - Pour la vaisselle et la chasse d'eau, remplir en plus la baignoire, après l'avoir tapissée d'un sac à ordures neuf

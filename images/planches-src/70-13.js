@@ -129,9 +129,9 @@ module.exports = (h) => {
     return [
       { n: 1, rond: [g.x0 + g.S * 0.5, g.y0 + g.S + 26], cible: [g.x0 + g.S * 0.5, g.y0 + g.S + 1], texte: 'plateau de tôle' },
       { n: 2, rond: [xr, pRun[1] - g.w - 4], cible: [g.xb + g.p / 2 + g.w + 1, pRun[1] - g.p / 2], texte: 'grillage plié en U, monté en labyrinthe' },
-      { n: 4, rond: [12, p0[1] + 30], cible: [p0[0] - 6, p0[1] + 4], texte: 'allumé à un seul bout' },
+      { n: 4, rond: [12, p0[1] + 30], cible: [p0[0] - 6, p0[1] + 4], texte: 'allumer à un seul bout' },
       { n: 5, rond: [xr, g.y0 + 16], cible: [pf[0] + 6, pf[1] - g.w + 4], texte: 'le front couve d’un bout à l’autre' },
-      { n: 6, rond: [xr, g.yNote - 14], cible: [g.x0 + g.bord + 14 + 76, g.yNote + 1], texte: 'vitesse notée au crayon gras' },
+      { n: 6, rond: [xr, g.yNote - 14], cible: [g.x0 + g.bord + 14 + 76, g.yNote + 1], texte: 'noter la vitesse au crayon gras' },
     ];
   };
 
@@ -182,7 +182,7 @@ module.exports = (h) => {
   const coupeRenvois = z => {
     const c = coupe(z);
     return [
-      { n: 3, rond: [c.xa + 2.5 * c.wC + 4, c.yTop - 44], cible: [c.xa + 2.5 * c.wC + 4, c.yTop + 10], texte: 'bran de scie de feuillu tassé à ras' },
+      { n: 3, rond: [c.xa + c.wC + 1 + 30, c.yTop - 44], cible: [c.xa + c.wC + 1 + 7, c.yTop - 6], texte: 'bran de scie de feuillu, tassé à ras du grillage' },
     ];
   };
 
@@ -239,7 +239,7 @@ module.exports = (h) => {
   const chambreRenvois = z => {
     const c = chambre(z);
     return [
-      { n: 7, rond: [c.tx1 + 26, c.ty - 34], cible: [c.tx1 - 6, c.ty + 1], texte: 'posé au fond, à l’écart des pièces' },
+      { n: 7, rond: [c.tx1 + 26, c.ty - 34], cible: [c.tx1 - 6, c.ty + 1], texte: 'poser le plateau au fond, loin des pièces' },
     ];
   };
 

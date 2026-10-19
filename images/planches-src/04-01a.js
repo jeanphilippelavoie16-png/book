@@ -1,10 +1,24 @@
 // Planche 04-01a — La pièce d'abri chargée (chapitre 4, variante « Sans sous-sol et sans caveau »)
 // Cotes : 2/3 (sacs remplis aux deux tiers, variante).
 // Repères 9 et 10 échangés le 18 octobre 2026 (suivi/04-edition.md, point 8) : le texte nomme la taie avant la terre.
+// 19 octobre 2026 : l'encadré rouge du monoxyde est coupé (le danger a son pictogramme {!co} à l'étape 18 du ch. 4 et sa
+// page au début du tome ; JP : « on le sait, on l'a déjà dit »). La place qu'il prenait revient aux dessins : chaque
+// vue est agrandie d'un même facteur (VUE) et centrée dans sa zone, ses renvois suivent par le même calcul ; les sols
+// des deux vues du bas tombent à la même hauteur.
 module.exports = (h) => {
   const A = h.a;
   const W = at => at.replace('fill="none"', 'fill="#FFFFFF"');
   const rr = (x, y, l, ht, r, at) => h.rect(x, y, l, ht, `${at} rx="${r}"`);
+  // Agrandir une vue dessinée en unités fixes : le dessin dans un groupe, les renvois par le même calcul.
+  const f1 = v => Math.round(v * 10) / 10;
+  const VUE = {
+    coupe: { k: 1.1, dx: -30, dy: 0 },
+    appentis: { k: 1.15, dx: -39.8, dy: 6.4 },
+    sacs: { k: 1.1, dx: -14, dy: 6.9 },
+  };
+  const enG = (id, fn) => z => { const { k, dx, dy } = VUE[id]; return `<g transform="translate(${dx} ${dy}) scale(${k})">\n${fn(z)}\n</g>`; };
+  const pt = (id, [x, y]) => { const { k, dx, dy } = VUE[id]; return [f1(dx + k * x), f1(dy + k * y)]; };
+  const suit = (id, fn) => z => fn(z).map(r => ({ ...r, rond: pt(id, r.rond), cible: pt(id, r.cible) }));
 
   // ── En coupe : le chalet de plain-pied, la pièce chargée ──────────────────────────
   const coupe = z => {
@@ -124,39 +138,38 @@ module.exports = (h) => {
     desc: 'Coupe d’un chalet sans sous-sol : bois cordé contre le mur extérieur jusque sous le débord du toit, neige tassée en banc jusqu’au bas de la fenêtre, eau, farine et livres sous la fenêtre, deux portes démontées à plat sur une table chargée de terre, de bûches, de bidons et de livres, un dormeur dessous. Variante des portes appuyées contre un mur intérieur, chargées de sacs de terre montés du plancher, quelqu’un assis dessous le dos au mur. Détail d’une taie remplie aux deux tiers et nouée, et d’un mur de sacs à joints croisés.',
     format: 'pleine',
     disposition: [['coupe'], ['appentis', 'sacs']],
-    hauteurs: [3, 2],
+    hauteurs: [2.9, 2.1],
     largeurs: [[1], [3, 2]],
     vues: {
       coupe: {
         titre: 'En coupe, le chalet sans sous-sol',
-        dessin: coupe,
-        renvois: z => [
+        dessin: enG('coupe', coupe),
+        renvois: suit('coupe', z => [
           { n: 1, rond: [525, 194], cible: [470, 201], texte: 'bois cordé sur toute la hauteur' },
           { n: 2, rond: [72, 175], cible: [128, 219], texte: 'neige montée jusqu’aux fenêtres' },
           { n: 3, rond: [42, 231], cible: [112, 241], texte: 'tassée par couches, arrosée entre chacune' },
           { n: 4, rond: [228, 175], cible: [225, 206], texte: 'eau, farine, livres sous la fenêtre' },
           { n: 5, rond: [258, 171], cible: [268, 213], texte: 'deux portes démontées, à plat sur la table' },
           { n: 6, rond: [330, 147], cible: [326, 176], texte: 'chargées de terre, bûches, bidons, livres' },
-        ],
+        ]),
       },
       appentis: {
         titre: 'Ou les portes appuyées au mur',
-        dessin: appentis,
-        renvois: z => [
+        dessin: enG('appentis', appentis),
+        renvois: suit('appentis', z => [
           { n: 7, rond: [118, 22], cible: [102, 56.5], texte: 'portes appuyées à un mur intérieur' },
           { n: 8, rond: [300, 94], cible: [214, 95], texte: 'sacs montés du plancher contre la porte' },
-        ],
+        ]),
       },
       sacs: {
         titre: 'Les sacs de terre, sans sacs',
-        dessin: sacs,
-        renvois: z => [
+        dessin: enG('sacs', sacs),
+        renvois: suit('sacs', z => [
           { n: 9, rond: [208, 36], cible: [178.8, 58.4], texte: 'taie ou jambe de pantalon nouée' },
           { n: 10, rond: [78, 16], cible: [84, 42.4], texte: 'terre ou sable aux deux tiers' },
           { n: 11, rond: [212, 112], cible: [145, 130], texte: 'joints croisés d’un rang à l’autre' },
-        ],
+        ]),
       },
     },
-    danger: 'Un poêle au propane, une chaufferette ou une génératrice dans l’abri fermé tue avant les retombées. Le monoxyde n’a ni odeur ni couleur : on s’endort au lieu de sortir.',
   };
 };

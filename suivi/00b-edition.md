@@ -134,3 +134,13 @@
 - [x] Planches : aucune. Fait.
 - [x] `controle.py` : 0 tiret dans le texte, 0 « § », 0 mot banni ; l'invariant signalé (« 1 minute », « 5 minutes »)
   est une redite coupée, le fait reste en A. Fait.
+
+## Édition des décisions de JP, 19 octobre 2026
+
+Éditeur de la passe « décisions de JP » (`_reprise/scratchpad/tome1-final/decisions-jp.js`). Relu seulement les phrases que la passe a changées (texte d'avant : commit `03525fa`), à voix haute, avec le skill `ecriture` ; aucun fait ni chiffre touché, aucune ancre touchée. `controle.py --avant` (texte d'avant l'édition) : rien n'a disparu.
+
+- Introduction : « des chaudières et des caisses qu'on soulève seul, plutôt qu'un sac de 20 kg » redisait « qu'une personne charge seule » de la même phrase : « des chaudières et des caisses plutôt qu'un sac de 20 kg ».
+- 1.D, gras acheté : « pour vivre de gibier, pour une famille de quatre, environ 370 g » (deux « pour ») devient « pour une famille de quatre qui vit de gibier, environ 370 g ».
+- 1.E, lunettes : « à l'autre endroit que la paire qu'elle porte » ne se disait pas ; « 1 paire de rechange par personne : avec la paire qu'elle porte, ça fait une paire à chaque endroit » (le sens de la ligne et du ch. 9, étape 26). « reste sans elle » devient « reste sans lunettes ».
+- 2.B, cartouches de carabine : « Le gros du stock dans le calibre… » (sans verbe) devient « Le gros du stock va dans le calibre… ».
+- Relu sans changement : la vitamine D, l'eau, le clapet et la pompe de puisard, le godendard, le poste et ses électrodes, la ligne du tableau G.

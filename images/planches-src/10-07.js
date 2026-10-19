@@ -15,10 +15,13 @@
 // Le 19 octobre 2026 : en-tête et desc alignés sur le texte (couche de grosses pierres, chaudière, sable lavé jusqu'à
 // une eau encore un peu sale, frottement en rond, plus d'encadré) ; les deux filets d'eau qui tombent (de la chaudière
 // dans le baril, et l'eau sale qui passe par-dessus le bord au lavage) passent en bandes bleues, comme toute l'eau.
+// Le même jour, après le second regard : les gouttes passent en larmes bleues cerclées d'un trait fin (en ovales noirs,
+// sous la chaudière de charbon, on les lisait comme des miettes de charbon qui passent par les trous), et le haut vide
+// de la chaudière qui reçoit l'eau, dans « En coupe », passe en gris loin comme dans « Après le sable ».
 // Aucune main : le geste du repère 11 est porté par la flèche rouge en rond sur le dessus du sable. La main 1-08 sans
 // objet (paume vers le bas) existe depuis le 18 octobre et pourra s'ajouter à la passe finale si JP la veut.
 //
-// La charte : le haut vide du baril et de la chaudière, au-dessus de l'eau, en gris loin ; les couches en trame. Le
+// La charte : le haut vide du baril et des chaudières, au-dessus de l'eau, en gris loin ; les couches en trame. Le
 // rouge : la sortie du boyau (2), le frottement en rond (11). L'eau sale : la teinte d'eau et un pointillé clairsemé.
 module.exports = (h) => {
   const blancArete = h.a.arete.replace('fill="none"', 'fill="#ffffff"');
@@ -123,7 +126,9 @@ module.exports = (h) => {
   const buche = (x, y, r) => [h.cercle(x, y, r, h.a.blanc), h.cercle(x, y, r, h.a.arete), h.cercle(x, y, r * 0.62, h.a.fin), h.cercle(x, y, r * 0.28, h.a.fin)];
   // Un bâton vu en long, posé en travers d'un rebord à l'autre.
   const baton = (x0, x1, y, e) => [h.rect(x0, y, x1 - x0, e, h.a.blanc), h.rect(x0, y, x1 - x0, e, h.a.hachure('bois')), h.rect(x0, y, x1 - x0, e, h.a.arete)];
-  const goutte = (x, y) => h.ellipse(x, y, 1.4, 2.2, h.a.plein);
+  // Une goutte d'eau : une larme, pointe en haut, bleu d'eau cerclé d'un trait fin ; (x, y) est son milieu.
+  const goutte = (x, y) => h.path(`M${n1(x)},${n1(y - 3.5)} C${n1(x + 0.6)},${n1(y - 1.8)} ${n1(x + 2)},${n1(y - 0.2)} ${n1(x + 2)},${n1(y + 1.5)} `
+    + `A2,2 0 0 1 ${n1(x - 2)},${n1(y + 1.5)} C${n1(x - 2)},${n1(y - 0.2)} ${n1(x - 0.6)},${n1(y - 1.8)} ${n1(x)},${n1(y - 3.5)} Z`, h.a.hachure('eau', 'detail'));
   // les vues sont dessinées pour une hauteur fixe ; on centre le dessin dans la vue rendue, et ses renvois avec lui
   const dec = (z, H0) => Math.max(0, Math.round((z.h - H0) / 2));
   const centre = (dessin, H0) => z => `<g transform="translate(0 ${dec(z, H0)})">\n${dessin(z)}\n</g>`;
@@ -161,7 +166,7 @@ module.exports = (h) => {
     // l'assiette percée posée sous l'arrivée
     h.path('M124,124 Q130,134 138,134', h.a.arete),
     ...fondPerce(138, 182, 134, [149, 160, 171], h.a.arete),
-    goutte(149, 138.5), goutte(160, 138.5), goutte(171, 138.5),
+    goutte(149, 137.5), goutte(160, 137.5), goutte(171, 137.5),
     h.path('M182,134 Q190,134 196,124', h.a.arete),
     // le baril et ses deux cercles de roulement
     h.chemin([[92, 72], [92, 276], [232, 276], [232, 72]], h.a.contour),
@@ -171,11 +176,12 @@ module.exports = (h) => {
     ]),
     // le boyau : il sort au bas, remonte plus haut que le sable, puis redescend à la chaudière de charbon
     ...boyau('M230,266 L240,266 Q246,266 246,259 L246,124 Q246,116 254,116 L292,116 Q300,116 300,124 L300,128'),
-    goutte(300, 137), goutte(300, 149),
+    goutte(300, 141.5), goutte(300, 152),
     // la bouche du boyau, plus haute que le sable
     h.controle(300, 126, 11),
     h.fleche('M300,158 L300,202', h.a.cache),
-    // la chaudière de charbon, sur deux bâtons en travers d'une autre chaudière
+    // la chaudière de charbon, sur deux bâtons en travers d'une autre chaudière ; le haut vide de celle-ci en gris
+    h.chemin([[272, 244], [336, 244], [334.1, 268], [273.9, 268]], h.a.loin, true),
     h.rect(273.5, 268, 61, 24, h.a.hachure('eau', 'aucun')),
     h.ligne(273.2, 268, 334.8, 268, h.a.detail),
     h.chemin([[272, 244], [276, 293.5], [332, 293.5], [336, 244]], h.a.arete),

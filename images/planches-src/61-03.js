@@ -100,7 +100,7 @@ module.exports = (h) => {
     h.path('M62,190 Q47,195 33,190.5 L33,194 Q47,198.5 62,193.5 Z', blancArete),
     h.path('M62,197.5 Q47,202.5 33,198 L33,201.5 Q47,206 62,201 Z', blancArete),
   ];
-  const sonde = X([18, 105]);
+  const sonde = X([13, 103]);   // au milieu du cuissot, entre l'enfourchure et le bord
 
   const vueGreement = {
     titre: 'Vu du ventre',
@@ -124,9 +124,9 @@ module.exports = (h) => {
     ].join('\n') + '</g>',
     renvois: z => [
       { n: 1, rond: [14, 176], cible: [40, 196], texte: 'ancrage : deux tours au pied du tronc' },
-      { n: 2, rond: [132, 200], cible: [f(G[0] - 14 * n[0]), f(G[1] - 14 * n[1])], texte: 'guindeau : bâton tordu, calé contre le tronc' },
+      { n: 2, rond: [132, 200], cible: [f(G[0] - 14 * n[0]), f(G[1] - 14 * n[1])], texte: 'guindeau : tourner le bâton, le bloquer au tronc' },
       { n: 3, rond: [292, 160], cible: [C + 4, 160], texte: 'écarteur de bois vert en travers des côtes' },
-      { n: 4, rond: [292, 104], cible: sonde, texte: 'sonde : centre du cuissot, sans toucher l’os' },
+      { n: 4, rond: [292, 104], cible: sonde, texte: 'sonde au centre du cuissot, sans toucher l’os' },
     ].map(r => ({ ...r, rond: r.rond.map(v => f(v * z.h / 230)), cible: r.cible.map(v => f(v * z.h / 230)) })),
   };
   // La charte, hors de l'échelle de la vue pour garder l'épaisseur du rouge : le geste (on tord le
@@ -214,14 +214,14 @@ module.exports = (h) => {
     renvois: z => [
       { n: 5, rond: [22, 112], cible: [Gg[0], f(Gg[1] + 6)], texte: 'palonnier de bois vert, gorge aux bouts' },
       { n: 6, rond: [212, 108], cible: [148, 110], texte: 'passage entre le tendon d’Achille et l’os' },
-      { n: 7, rond: [214, 160], cible: [(bordA(yT2) + bordR(yT2)) / 2 + 12, yT2 + pente + 7], texte: 'bête pendue des jours : tour de secours' },
+      { n: 7, rond: [214, 160], cible: [(bordA(yT2) + bordR(yT2)) / 2 + 12, yT2 + pente + 7], texte: 'bête pendue des jours : ajouter un tour mort' },
     ],
   };
 
   return {
     ref: '61-03',
     titre: 'Le gréement de la carcasse',
-    desc: 'À gauche, la carcasse vue du ventre, pendue tête en bas sous une branche : une corde doublée part de deux tours au pied du tronc, monte par-dessus la branche et ses deux brins s’écartent jusqu’aux gorges d’un palonnier passé dans les jarrets ; au pied du tronc, un bâton tordu entre les deux brins, calé contre l’écorce, fait guindeau. Un bâton écarteur tient la cavité ouverte en travers des côtes ; une croix marque le point de sonde au centre du cuissot. À droite, le jarret de côté : le palonnier sort du passage entre le tendon et l’os, et la corde fait trois tours dans sa gorge. Sous le palonnier, deux tours d’une corde de secours serrent le jarret entier, os et tendon compris ; le brin remonte s’amarrer en haut : si le tendon lâche, rien ne tombe.',
+    desc: 'À gauche, la carcasse vue du ventre, pendue tête en bas sous une branche : une corde doublée part de deux tours au pied du tronc, monte par-dessus la branche et ses deux brins s’écartent jusqu’aux gorges d’un palonnier passé dans les jarrets ; au pied du tronc, un bâton passé entre les deux brins, tourné puis bloqué contre l’écorce, fait guindeau. Un bâton écarteur tient la cavité ouverte en travers des côtes ; une croix marque le point de sonde au centre du cuissot. À droite, le jarret de côté : le palonnier sort du passage entre le tendon et l’os, et la corde fait trois tours dans sa gorge. Sous le palonnier, deux tours d’une corde de secours serrent le jarret entier, os et tendon compris ; le brin remonte s’amarrer en haut : si le tendon lâche, rien ne tombe.',
     format: 'demi',
     disposition: [['greement', 'jarret']],
     largeurs: [[3, 2]],

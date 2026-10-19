@@ -1,473 +1,330 @@
 # -*- coding: utf-8 -*-
-"""Le dos du tome 2 (variante C) : brouillon 2, la tablette de la tranche."""
-import math
+"""Le dos de la couverture du tome 2 (Le corps) : l'image du devant revient sur la tranche, au style du dos du tome 3
+(JP, 19 octobre 2026, devant la couverture du tome 3 : « ça, j'aime ça, le style » ; avant : « mets-en dans les trous
+sur la page en arrière, faut juste pas que ça touche au texte »).
+
+Appelé par motif_dos() de images/tomes/essais-ia/tome-1/couverture.py :
+
+    python3 images/tomes/essais-ia/tome-1/couverture.py --tome 2 --variantes C --sortie DOSSIER
+
+Le dos du tome 2 est le mur du devant, en planches verticales peintes (texture_mur.py), reflété. Le seul grand trou est
+la tranche, entre le titre et « Le Manuel du Nord » : la quatrième n'a, entre ses blocs de texte, que des bandes de
+0,24 à 0,35 po, où rien de l'image ne se lit. Sur la tranche, un seul groupe, découpé dans l'image du devant elle-même
+(images/tomes/titre-tome-2.jpg), aux encres de l'image, rien de redessiné :
+  - la lampe à huile allumée, de la cheminée au pied, debout sur une tablette ;
+  - la tablette : un bout de la planche du bas de la table du devant (son dessus clair, sa face sombre et ses filets) ;
+  - la ficelle aux trois bouquets d'herbes qui sèchent la tête en bas, avec ses deux crochets, pendue sous la tablette
+    comme elle pend sous la table du devant ;
+  - la lueur de la lampe sur le mur : celle du devant, mesurée sur l'image (une tache ronde, centrée sur la flamme),
+    à la même force, resserrée en largeur pour s'éteindre avant les plis (rien ne passe sur la quatrième ni sur le
+    devant). Elle éclaire les planches sans les effacer : elle multiplie la couleur du mur, comme sur le devant.
+Les trois pièces sont à la même échelle entre elles, la tablette aussi large que la tranche le permet ; tout est réduit
+depuis l'image d'origine, rien n'est agrandi.
+
+Le miroir du mur porte aussi le clou et le haut du fil de fer du cadre du devant (la dernière rangée reflétée passe
+juste sous eux) : deux petits points sombres, en miroir l'un de l'autre, tombaient au dos juste après « Le scorbut et
+l'arbre de vie » dans le sommaire. On les efface ici, et toute autre tache que le miroir aurait laissée : chaque point
+du dos qui s'écarte de sa colonne de planche est remplacé par la même colonne prise plus haut ou plus bas (les
+planches sont verticales : le fil du bois continue).
+
+Rien ne touche le texte : chaque texte, chaque filet, les photos et la barre des tomes, élargis de MARGE, sont
+interdits, et on vérifie à la fin qu'aucun point changé, hors des taches effacées du mur, n'y entre.
+"""
+import os
 import numpy as np
-from PIL import Image, ImageDraw
+from PIL import Image
 from scipy import ndimage as ndi
 
-# les encres de l'image du devant (titre-tome-2.jpg), relevées sur l'image
-BRUN = (40, 13, 9)          # le tuyau, le cadre, le clou, la fougère du bocal
-CREME = (243, 219, 197)     # les bocaux, la lampe, le bassin
-OR = (205, 142, 72)         # les herbes qui sèchent sous la table et dans le panier
-OMBRE = 0.76                # l'ombre portée : celle du cadre est le mur à 0,70 (69, 18, 14 sur 98, 27, 22) ; à 0,76,
-                            # le mur entre une feuille et son ombre ne se lit pas comme une étoile au nettoyage
-FILET = (150, 92, 78)       # le liseré clair du bord de la table et des couvercles
+LUM = np.array([.2126, .7152, .0722], np.float32)
 
-S = 4                       # on dessine à quatre fois la taille, puis on réduit
+# Dans l'image d'origine (3072 × 3840 px) :
+LAMPE = (228, 2090, 582, 2792)            # x0, y0, x1, y1 : la lampe, de la cheminée au pied
+NAPPE = 2759                              # le haut de la nappe : dessous, seul le pied sombre est à la lampe
+PIED = 2786                               # le bas du pied de la lampe
+PLANCHE = (790, 3206, 3275)               # la planche du bas de la table : x de départ, haut et bas (dessus clair de
+                                          # 3210 à 3221, face sombre et ses deux filets jusqu'à 3274)
+DESSUS = 3210                             # le fond du dessus clair de la planche : le pied de la lampe y pose, et tout le
+                                          # dessus clair se voit devant lui (le pied sombre ne se perd pas dans la planche)
+BOUQUETS = (822, 2967, 1046, 3192)        # la ficelle, ses deux crochets et les trois bouquets, sous la poutre
+LUEUR = dict(cx=390, cy=2386,             # la lueur mesurée sur le mur du devant (gaussienne ajustée sur le mur,
+             amp=(0.616, 1.392, 0.293),   # rouge, vert, bleu : le vert monte le plus, la lueur est orangée)
+             sx=(255, 273, 193), sy=(232, 241, 181))
 
-# marges autour de ce qui est écrit ou tracé (po)
-M_TEXTE, M_FILET, M_BLOC = 0.22, 0.16, 0.20
-M_PLI, M_ROGNE = 0.12, 0.30
-
-# les objets découpés dans l'image du devant (px de titre-tome-2.jpg) : boîte, et dernière rangée de l'objet
-BOCAL_FOUGERE = (655, 2300, 856, 2750)
-BOCAL_POIS = (857, 2380, 1040, 2750)
-
-
-class Calque:
-    """Une zone du fond, en pouces depuis le coin du fond perdu ; une couche par encre, dessinée à S fois."""
-
-    def __init__(self, x0, y0, x1, y1, ppp):
-        self.ppp, self.x0, self.y0 = ppp, x0, y0
-        self.w, self.h = int(math.ceil((x1 - x0) * ppp)), int(math.ceil((y1 - y0) * ppp))
-        self.c = {}
-        self.images = []
-
-    def couche(self, nom):
-        if nom not in self.c:
-            self.c[nom] = Image.new('L', (self.w * S, self.h * S), 0)
-        return ImageDraw.Draw(self.c[nom])
-
-    def px(self, p):
-        return ((p[0] - self.x0) * self.ppp * S, (p[1] - self.y0) * self.ppp * S)
-
-    def poly(self, nom, pts, v=255):
-        self.couche(nom).polygon([self.px(p) for p in pts], fill=v)
-
-    def rect(self, nom, x0, y0, x1, y1, v=255):
-        self.poly(nom, [(x0, y0), (x1, y0), (x1, y1), (x0, y1)], v)
-
-    def disque(self, nom, c, r, v=255):
-        x, y = self.px(c)
-        r *= self.ppp * S
-        self.couche(nom).ellipse([x - r, y - r, x + r, y + r], fill=v)
-
-    def trait(self, nom, pts, e, v=255):
-        """Un trait d'épaisseur e (po), bouts et coudes arrondis."""
-        d = self.couche(nom)
-        q = [self.px(p) for p in pts]
-        w = e * self.ppp * S
-        for a, b in zip(q, q[1:]):
-            dx, dy = b[0] - a[0], b[1] - a[1]
-            n = math.hypot(dx, dy) or 1
-            ox, oy = -dy / n * w / 2, dx / n * w / 2
-            d.polygon([(a[0] + ox, a[1] + oy), (b[0] + ox, b[1] + oy), (b[0] - ox, b[1] - oy), (a[0] - ox, a[1] - oy)], fill=v)
-        for p in q:
-            d.ellipse([p[0] - w / 2, p[1] - w / 2, p[0] + w / 2, p[1] + w / 2], fill=v)
-
-    def attacher(self, nom, appui):
-        """Retire de la couche nom les éclats que la gouge a détachés de la couche appui, jugés à la taille du fond
-        (ce qui ne tient que par un fil plus mince qu'un pixel tombe aussi) : un éclat seul sur le mur, le nettoyage
-        des étoiles le prendrait pour une étoile et le brouillerait."""
-        a, b = self.alpha(nom) > 0.45, self.alpha(appui) > 0.45
-        lab, n = ndi.label(a | b)
-        bons = np.unique(lab[b])
-        perdu = a & ~np.isin(lab, bons[bons > 0])
-        if perdu.any():
-            gros = np.kron(ndi.binary_dilation(perdu, iterations=1), np.ones((S, S), bool))
-            m = np.asarray(self.c[nom]).copy()
-            m[gros[:m.shape[0], :m.shape[1]] & ~(np.asarray(self.c[appui]) > 96)] = 0
-            self.c[nom] = Image.fromarray(m)
-
-    def image(self, rgba, x, y):
-        """Un objet découpé (RGBA, à la taille du fond), son coin haut gauche en (x, y) po."""
-        self.images.append((rgba, x, y))
-
-    def alpha(self, nom):
-        im = self.c[nom].resize((self.w, self.h), Image.LANCZOS)
-        return np.asarray(im, np.float32) / 255
-
-    def encre(self, noms):
-        """Les couches nommées (et les objets découpés, si 'images' y est), en alpha."""
-        m = np.zeros((self.h, self.w), np.float32)
-        for nom in self.c:
-            if nom in noms:
-                m = np.maximum(m, self.alpha(nom))
-        for rgba, x, y in (self.images if 'images' in noms else []):
-            a = np.zeros_like(m)
-            ox, oy = round((x - self.x0) * self.ppp), round((y - self.y0) * self.ppp)
-            h, w = rgba.shape[:2]
-            a[oy:oy + h, ox:ox + w] = rgba[..., 3][:max(0, self.h - oy), :max(0, self.w - ox)]
-            m = np.maximum(m, a)
-        return m
-
-    def poser(self, can, ordre, decal=(0.035, 0.045), ombre=('bois', 'images')):
-        """Pose sur le fond : l'ombre portée des couches nommées dans ombre (décalée en bas à droite, comme celle du
-        cadre au mur), puis les couches et les objets dans l'ordre donné (un nom de couche avec sa couleur, ou
-        'images'). Les herbes, les fils, les clous et les équerres n'ont pas d'ombre, comme les herbes sous la table
-        du devant : une ombre en lanières entre des feuilles laisse des points de mur clair que le nettoyage des
-        étoiles de couverture.py prendrait pour des étoiles et brouillerait."""
-        ox, oy = round(self.x0 * self.ppp), round(self.y0 * self.ppp)
-        zone = can[oy:oy + self.h, ox:ox + self.w].astype(np.float32)
-        h, w = zone.shape[:2]
-        m = self.encre(ombre)
-        dx, dy = round(decal[0] * self.ppp), round(decal[1] * self.ppp)
-        a = ndi.shift(m, (dy, dx), order=1)[:h, :w, None]
-        zone = zone * (1 - a * (1 - OMBRE))
-        for nom, coul in ordre:
-            if nom == 'images':
-                for rgba, x, y in self.images:
-                    px, py = round((x - self.x0) * self.ppp), round((y - self.y0) * self.ppp)
-                    hh, ww = rgba.shape[:2]
-                    sub = zone[py:py + hh, px:px + ww]
-                    r = rgba[:sub.shape[0], :sub.shape[1]]
-                    al = r[..., 3:4]
-                    zone[py:py + hh, px:px + ww] = sub * (1 - al) + r[..., :3] * al
-                continue
-            if nom not in self.c:
-                continue
-            a = self.alpha(nom)[:h, :w, None]
-            zone = zone * (1 - a) + np.array(coul, np.float32) * a
-        can[oy:oy + h, ox:ox + w] = np.clip(np.rint(zone), 0, 255).astype(np.uint8)
-        return can
+MARGE = 0.13                              # po, autour de tout ce qui est écrit ou tracé
+PLI = 0.085                               # po : la tablette s'arrête à cette distance des plis de la tranche
+ESPACE_PLI = 0.03                         # po : la lueur est éteinte à cette distance des plis
+DEBORD = 0.09                             # la tablette dépasse le pied de la lampe de 9 % de sa largeur, de chaque côté
+BOUQUETS_X = 1.3                          # les bouquets, 1,3 fois l'échelle de la lampe : à l'échelle de la lampe, ils ne
+                                          # se lisaient plus (des petits balais)
+LUEUR_X = 0.36                            # la lueur, resserrée en largeur : sa largeur à l'échelle, fois LUEUR_X
+HAUT = 0.46                               # le groupe se place à 46 % du trou (un peu au-dessus du milieu)
 
 
-# ------------------------------------------------------------------ objets découpés dans l'image du devant
-def decouper(img, boite, echelle):
-    """Découpe un objet posé sur le mur : le mur derrière lui (dont la lueur de la lampe) est estimé rangée par rangée
-    entre les deux bords de la boîte, puis chaque pixel du bord est démélangé de ce mur. Rend un RGBA flottant
-    (couleurs 0 à 255, alpha 0 à 1) réduit à l'échelle donnée (px du fond par px de l'image)."""
-    x0, y0, x1, y1 = boite
-    a = np.asarray(img.crop((x0, y0, x1, y1)), np.float32)
-    h, w = a.shape[:2]
-    g, d = a[:, :3].mean(axis=1), a[:, -3:].mean(axis=1)
-    t = np.linspace(0, 1, w)[None, :, None]
-    mur = g[:, None] * (1 - t) + d[:, None] * t
-    ecart = np.linalg.norm(a - mur, axis=2)
-    objet = ndi.binary_fill_holes(ndi.binary_opening(ecart > 40, iterations=1))
-    lab, n = ndi.label(objet)
-    if n > 1:
-        tailles = ndi.sum(objet, lab, range(1, n + 1))
-        objet = lab == (1 + int(np.argmax(tailles)))
-    coeur = ndi.binary_erosion(objet, iterations=2)
-    # la couleur de l'objet au bord : celle du point du cœur le plus proche
+# ---------------------------------------------------------------- outils
+def _mur(a):
+    """Les points du mur peint : rouge sombre, jusqu'à l'orangé de la lueur (ni crème, ni or, ni brun d'encre)."""
+    R, G, B = a[..., 0], a[..., 1], a[..., 2]
+    return (R > 70) & (R < 200) & (B < 48) & (G < 0.5 * R) & (R - G > 40)
+
+
+def _mur_lisse(a, mur, sigma=10):
+    """La couleur du mur derrière un objet, de proche en proche : la moyenne des points du mur voisins, à plusieurs
+    échelles (le bord de l'objet prend le mur juste à côté, son milieu un mur plus lointain)."""
+    out = np.zeros_like(a)
+    reste = np.ones(mur.shape, bool)
+    for s in (sigma, 4 * sigma, 16 * sigma):
+        w = ndi.gaussian_filter(mur.astype(np.float32), s)
+        m = np.dstack([ndi.gaussian_filter(a[..., c] * mur, s) for c in range(3)]) / np.maximum(w, 1e-6)[..., None]
+        prend = reste & (w > 0.02)
+        out[prend] = m[prend]
+        reste &= ~prend
+    return out
+
+
+def _decouper(a, mur, coeur_min=80, frange=2):
+    """Détache de son mur un objet de l'image : alpha (0 à 1) et couleur. Le cœur de l'objet est tout point à plus de
+    coeur_min du mur ; ses bords (frange points autour) sont démêlés du mur : alpha = la part de la couleur du cœur le
+    plus proche dans le point, le reste étant le mur."""
+    W = _mur_lisse(a, mur)
+    d = np.linalg.norm(a - W, axis=2)
+    coeur = d > coeur_min
     _, (iy, ix) = ndi.distance_transform_edt(~coeur, return_indices=True)
-    coul = a[iy, ix]
-    v = coul - mur
-    al = np.clip(((a - mur) * v).sum(axis=2) / np.maximum((v * v).sum(axis=2), 1), 0, 1)
+    C = a[iy, ix]
+    v = C - W
+    al = np.clip(((a - W) * v).sum(2) / np.maximum((v * v).sum(2), 1.0), 0, 1)
     al[coeur] = 1
-    al[~ndi.binary_dilation(objet, iterations=2)] = 0
-    rgb = np.where(coeur[..., None], a, coul)
-    # réduction en prémultiplié
-    W, Hh = max(1, round(w * echelle)), max(1, round(h * echelle))
-    pre = np.dstack([rgb * al[..., None], al * 255]).astype(np.float32)
-    canaux = [np.asarray(Image.fromarray(pre[..., c]).resize((W, Hh), Image.LANCZOS), np.float32) for c in range(4)]
-    A = np.clip(canaux[3] / 255, 0, 1)
-    RGB = np.dstack(canaux[:3]) / np.maximum(A[..., None], 1e-4)
-    return np.dstack([np.clip(RGB, 0, 255), A])
+    al[~ndi.binary_dilation(coeur, iterations=frange)] = 0
+    coul = np.where(coeur[..., None], a, C)
+    return al.astype(np.float32), coul.astype(np.float32), coeur
 
 
-# ------------------------------------------------------------------ dessin
-def contour_feuille(base, ang, L, larg, courbe=0.0, asym=0.0, n=28):
-    """Le contour d'une feuille ovale, la base au point donné, la pointe dans la direction ang (radians, 0 = vers le
-    bas) ; courbe la plie (la pointe part de côté), asym élargit un côté."""
-    g, d = [], []
-    for i in range(n + 1):
-        t = i / n
-        h = larg / 2 * (t ** 0.55) * (1 - t) ** 0.85 / (0.39 ** 0.55 * 0.61 ** 0.85)
-        aa = ang + courbe * t
-        # le milieu de la feuille, intégré le long de la courbe
-        if i == 0:
-            cx, cy = base
-        else:
-            cx += math.sin(aa) * L / n
-            cy += math.cos(aa) * L / n
-        nx, ny = math.cos(aa), -math.sin(aa)
-        g.append((cx + nx * h * (1 + asym), cy + ny * h * (1 + asym)))
-        d.append((cx - nx * h * (1 - asym), cy - ny * h * (1 - asym)))
-    return g + d[::-1], g, d
+def _garder(al, coeur, pres=6, mini=30):
+    """Garde la plus grande pièce de l'objet et ce qui en est à moins de pres points (les fleurs détachées d'un
+    bouquet) ; les grains plus petits que mini points, loin d'elle, tombent."""
+    lab, n = ndi.label(coeur, structure=np.ones((3, 3)))
+    if n == 0:
+        return al
+    tailles = ndi.sum(coeur, lab, np.arange(1, n + 1))
+    grand = lab == 1 + int(np.argmax(tailles))
+    proche = ndi.binary_dilation(grand, iterations=pres)
+    garde = np.zeros(n + 1, bool)
+    for i in range(1, n + 1):
+        garde[i] = tailles[i - 1] >= mini or (proche & (lab == i)).any()
+    zone = ndi.binary_dilation(garde[lab], iterations=3)
+    return np.where(zone, al, 0).astype(np.float32)
 
 
-def feuille(cal, nom, base, ang, L, larg, courbe=0.0, asym=0.0, gorge=0.007, nervure=True):
-    """Une feuille gravée : un liseré du mur la détache de ce qu'elle couvre, et un coup de gouge lui fait sa nervure."""
-    pts, g, d = contour_feuille(base, ang, L, larg, courbe, asym)
-    if gorge:
-        large, _, _ = contour_feuille(base, ang, L * 1.0, larg + 2 * gorge, courbe, asym)
-        cal.poly(nom, large, v=0)
-    cal.poly(nom, pts)
-    if nervure and L > 0.07:
-        mil = [((a[0] + b[0]) / 2, (a[1] + b[1]) / 2) for a, b in zip(g, d)]
-        n = len(mil) - 1
-        cal.trait(nom, mil[int(n * .26):int(n * .66)], max(0.005, larg * 0.1), v=0)
+def _reduire(al, coul, s):
+    """Réduit (LANCZOS) un objet détaché, en couleur prémultipliée : le bord ne fonce ni ne pâlit."""
+    h, w = al.shape
+    W, H = max(1, int(round(w * s))), max(1, int(round(h * s)))
+    pre = np.dstack([coul * al[..., None], al * 255]).astype(np.float32)
+    ch = [np.asarray(Image.fromarray(pre[..., c]).resize((W, H), Image.LANCZOS), np.float32) for c in range(4)]
+    A = np.clip(ch[3] / 255, 0, 1)
+    C = np.dstack(ch[:3]) / np.maximum(A[..., None], 1e-4)
+    return A, np.clip(C, 0, 255)
 
 
-def tige(x0, y0, a, L, courbe=0.0, n=24):
-    pts = []
-    x, y = x0, y0
-    for i in range(n + 1):
-        t = i / n
-        pts.append((x, y))
-        aa = a + courbe * t
-        x += math.sin(aa) * L / n
-        y += math.cos(aa) * L / n
-    return pts
+def _poser(can, A, coul, x, y):
+    """Pose A (alpha) de couleur coul (image RVB de la taille de A) au coin x, y du fond."""
+    h, w = A.shape
+    H, W = can.shape[:2]
+    a0, b0, a1, b1 = max(0, -y), max(0, -x), min(h, H - y), min(w, W - x)
+    if a1 <= a0 or b1 <= b0:
+        return
+    z = can[y + a0:y + a1, x + b0:x + b1].astype(np.float32)
+    al = A[a0:a1, b0:b1, None]
+    c = coul[a0:a1, b0:b1]
+    can[y + a0:y + a1, x + b0:x + b1] = np.clip(np.rint(z + al * (c - z)), 0, 255).astype(np.uint8)
 
 
-def bouquet(cal, noeud, k=1.0, graine=5, tiges=None, feuilles=1.0):
-    """Un bouquet d'herbes qui sèche la tête en bas, lié au point donné, gravé comme les plantes du cadre au mur :
-    des feuilles ovales à nervure creusée, qui tombent vers la pointe de leur tige. Les tiges et les queues des
-    feuilles sont sur leur propre couche, que la gouge ne coupe jamais : chaque feuille reste attachée."""
-    r = np.random.default_rng(graine)
-    nx_, ny_ = noeud
-    if tiges is None:
-        tiges = [(-0.30, 0.95), (-0.17, 1.22), (-0.05, 1.05), (0.06, 1.38), (0.18, 1.12), (0.30, 0.9)]
-    et = 0.014 * k if k > 0.6 else 0.011
-    # les bouts de tiges coupés au-dessus du lien
-    for dx in (-0.034, -0.012, 0.01, 0.03):
-        cal.trait('tige', [(nx_ + dx * k * .6, ny_ + 0.03 * k), (nx_ + dx * k * 1.25, ny_ - 0.075 * k)], et * 1.05)
-    ordre = sorted(range(len(tiges)), key=lambda j: -tiges[j][1])      # les longues derrière
-    for j in ordre:
-        a, L = tiges[j]
-        a += r.uniform(-0.02, 0.02)
-        L *= k
-        courbe = -a * 0.35 + r.uniform(-0.05, 0.05)                  # elles pendent : la pointe revient vers l'axe
-        pts = tige(nx_ + a * 0.08 * k, ny_ + 0.035 * k, a, L, courbe)
-        cal.trait('tige', pts, et)
-        n = 7 if L > 1.0 * k else 6
-        for i in range(n):
-            t = 0.16 + 0.8 * i / (n - 1)
-            p = pts[int(round(t * 24))]
-            at = a + courbe * t
-            cote = 1 if (i + j) % 2 else -1
-            fl = (0.21 - 0.09 * t) * k * feuilles * r.uniform(0.85, 1.1)
-            af = at + cote * r.uniform(0.55, 0.8)
-            feuille(cal, 'or', p, af, fl, fl * r.uniform(0.38, 0.46), courbe=-cote * r.uniform(0.1, 0.35),
-                    asym=r.uniform(-0.12, 0.12), gorge=0.007 if k > 0.6 else 0.005)
-            cal.trait('tige', [p, (p[0] + math.sin(af) * fl * .24, p[1] + math.cos(af) * fl * .24)], et * 0.9)
-        # la pointe : une petite feuille dans l'axe
-        at = a + courbe
-        feuille(cal, 'or', pts[-1], at, 0.1 * k * feuilles, 0.04 * k * feuilles, courbe=r.uniform(-.2, .2), nervure=False,
-                gorge=0.007 if k > 0.6 else 0.005)
-        cal.trait('tige', [pts[-1], (pts[-1][0] + math.sin(at) * 0.03 * k, pts[-1][1] + math.cos(at) * 0.03 * k)], et)
-    cal.attacher('or', 'tige')
-    # le lien : trois tours de ficelle crème
-    for i in range(3):
-        y = ny_ + (0.0 + 0.03 * i) * k
-        cal.trait('ficelle', [(nx_ - 0.05 * k, y), (nx_ + 0.05 * k, y + 0.012 * k)], max(0.017 * k, 0.011))
-
-
-def tablette(cal, x0, x1, y, k=1.0):
-    """Une tablette de bois foncé sur deux équerres, son dessus à la hauteur y ; rend le dessous."""
-    ep = 0.055 * k
-    cal.rect('bois', x0, y, x1, y + ep)
-    cal.rect('liseré', x0, y + 0.012 * k, x1, y + 0.02 * k)
-    for xe in (x0 + 0.09 * k, x1 - 0.09 * k):
-        cal.poly('equerre', [(xe - 0.018 * k, y + ep), (xe + 0.018 * k, y + ep), (xe + 0.018 * k, y + ep + 0.02 * k),
-                          (xe + 0.004 * k, y + ep + 0.15 * k), (xe - 0.018 * k, y + ep + 0.15 * k)])
-    return y + ep
-
-
-# ------------------------------------------------------------------ les trous
-def obstacles(info):
-    """Ce que rien ne doit toucher, en pouces, marges comprises : les lignes de texte, les filets des titres, les blocs
-    pleins (sommaire, auteurs, photos, barre des tomes)."""
-    R = [tuple(v / 96 for v in r[:4]) + (r[4],) for r in info['rects']]
-    lignes = [r for r in R if r[4] > 0]
-    obs = [(x0 - M_TEXTE, y0 - M_TEXTE, x1 + M_TEXTE, y1 + M_TEXTE) for x0, y0, x1, y1, _ in lignes]
-    titres = []
-    for b in R:
-        x0, y0, x1, y1, fs = b
-        if fs > 0:
+def _occupe(rects, q, shape, marge):
+    """Ce qui est écrit ou tracé, élargi de la marge (px du fond). Les blocs (le texte d'ouverture, le sommaire, les
+    auteurs, la barre des tomes) comptent entiers : le sommaire et les auteurs ont des filets entre leurs lignes."""
+    occ = np.zeros(shape, bool)
+    for r in rects:
+        if r[4] == -1:                    # les bandes des raccords du ciel : pas du texte
             continue
-        dans = [l for l in lignes if l[0] >= x0 - .05 and l[2] <= x1 + .05 and l[1] >= y0 - .05 and l[3] <= y1 + .05]
-        if dans and y1 - y0 < 0.4 and x1 - x0 > 1.5:
-            titres.append(b)
-    for b in R:
-        x0, y0, x1, y1, fs = b
-        if fs > 0:
+        a, b = max(0, int(r[1] * q - marge)), int(np.ceil(r[3] * q + marge))
+        c, d = max(0, int(r[0] * q - marge)), int(np.ceil(r[2] * q + marge))
+        occ[a:b, c:d] = True
+    return occ
+
+
+# ---------------------------------------------------------------- le mur du dos
+def reparer_mur(can, xf, ppp):
+    """Efface du mur reflété ce qui n'est pas des planches (le clou et le fil de fer du cadre, tout grain sombre ou
+    clair) : un point qui s'écarte de plus de 9 niveaux de la médiane de sa colonne (sur 0,2 po de haut) est une
+    tache ; la tache, élargie, est remplacée par la même colonne prise juste au-dessus ou au-dessous, fondue sur
+    deux points. Rend le fond et le masque de ce qui a changé."""
+    z = can[:, :xf].astype(np.float32)
+    L = z @ LUM
+    med = ndi.median_filter(L, size=(int(0.2 * ppp) | 1, 1))
+    tache = np.abs(L - med) > 9
+    lab, n = ndi.label(ndi.binary_dilation(tache, iterations=4))
+    change = np.zeros(can.shape[:2], bool)
+    for sl in ndi.find_objects(lab):
+        y0, y1 = max(0, sl[0].start - 3), min(z.shape[0], sl[0].stop + 3)
+        x0, x1 = max(0, sl[1].start - 3), min(xf, sl[1].stop + 3)
+        h = y1 - y0
+        src = y0 - h - 6 if y0 - h - 6 >= 0 else y1 + 6       # la même colonne, juste au-dessus (ou au-dessous)
+        if src + h > z.shape[0]:
             continue
-        dans = [l for l in lignes if l[0] >= x0 - .05 and l[2] <= x1 + .05 and l[1] >= y0 - .05 and l[3] <= y1 + .05]
-        if b in titres:                                       # un titre : ses lettres et son filet dessous
-            obs.append((x0 - M_FILET, y1 - 0.04 - M_FILET, x1 + M_FILET, y1 + M_FILET))
-            continue
-        if dans and y1 - y0 >= 0.4 and max(l[0] for l in dans) - x0 < 0.5 * (x1 - x0):
-            continue                                          # un paragraphe : ses lignes suffisent
-        # un bloc plein ; s'il commence par un titre, il commence sous le filet de ce titre
-        for t in titres:
-            if t is not b and abs(t[1] - y0) < .01 and t[0] >= x0 - .01 and t[2] <= x1 + .01:
-                y0 = t[3]
-        obs.append((x0 - M_BLOC, y0 - M_BLOC, x1 + M_BLOC, y1 + M_BLOC))
-    return obs
+        m = np.zeros((h, x1 - x0), np.float32)
+        m[3:-3, 3:-3] = 1
+        m = ndi.gaussian_filter(m, 1.2)[..., None]
+        z[y0:y1, x0:x1] = z[y0:y1, x0:x1] * (1 - m) + z[src:src + h, x0:x1] * m
+        change[y0:y1, x0:x1] = True
+    can[:, :xf] = np.clip(np.rint(z), 0, 255).astype(np.uint8)
+    return can, change, n
 
 
-def grille(obs, info, r=100):
-    """La carte des places libres du dos (quatrième et tranche), r cases par pouce : hors des obstacles, dans la
-    zone sûre du rognage, loin des plis."""
-    ppp = info['ppp']
-    xt, xf, H = info['xt'] / ppp, info['xf'] / ppp, info['H'] / ppp
-    g = np.ones((int(H * r), int(xf * r)), bool)
-    for a, b, c, d in obs:
-        g[max(0, int(b * r)):max(0, int(math.ceil(d * r))), max(0, int(a * r)):max(0, int(math.ceil(c * r)))] = False
-    m = int((0.125 + M_ROGNE) * r)
-    g[:m] = False
-    g[-m:] = False
-    g[:, :m] = False
-    g[:, int((xt - M_PLI) * r):int(math.ceil((xt + M_PLI) * r))] = False
-    g[:, int((xf - M_PLI) * r):] = False
-    return g
+# ---------------------------------------------------------------- les pièces de l'image
+def _lampe(src):
+    """La lampe, de la cheminée au pied : alpha et couleur à la résolution d'origine, et la colonne de la flamme.
+    Au-dessus de la nappe, la lampe se détache du mur ; sur la nappe, on ne garde que son pied sombre, détaché du
+    crème de la nappe par sa clarté."""
+    x0, y0, x1, y1 = LAMPE
+    a = src[y0:y1, x0:x1].astype(np.float32)
+    mur = _mur(a)
+    al, coul, coeur = _decouper(a, mur)
+    n = NAPPE - y0
+    al[n:] = 0
+    al = _garder(al, coeur & (np.arange(a.shape[0])[:, None] < n))
+    # le pied, sur la nappe : sombre sur crème
+    L = a @ LUM
+    pied = np.zeros_like(al)
+    p = (L < 120)
+    p[:n - 30] = False
+    p[PIED - y0:] = False
+    lab, k = ndi.label(p)
+    if k:
+        ids = np.unique(lab[n - 30:n][p[n - 30:n]])
+        p = np.isin(lab, ids[ids > 0])
+    sombre = np.median(a[p & (L < 70)], axis=0)
+    a_pied = np.clip((235.0 - L) / (235.0 - float(sombre @ LUM)), 0, 1)
+    pied[n - 30:PIED - y0] = np.where(ndi.binary_dilation(p, iterations=1), a_pied, 0)[n - 30:PIED - y0]
+    pied[:n] = 0
+    al = np.maximum(al, pied)
+    coul[n:] = np.where(pied[n:, :, None] > 0, sombre, coul[n:])
+    ys, xs = np.nonzero(al > 0.02)
+    sl = (slice(ys.min(), ys.max() + 1), slice(xs.min(), xs.max() + 1))
+    return al[sl], coul[sl], x0 + xs.min(), y0 + ys.min()
 
 
-def rectangles(g, r=100):
-    """Les rectangles libres maximaux de la carte (méthode de l'histogramme), en pouces : (x0, y0, x1, y1)."""
-    h = np.zeros(g.shape[1], int)
-    out = set()
-    for y in range(g.shape[0]):
-        h = np.where(g[y], h + 1, 0)
-        pile = []
-        for x in range(g.shape[1] + 1):
-            v = h[x] if x < g.shape[1] else 0
-            debut = x
-            while pile and pile[-1][1] >= v:
-                debut, hv = pile.pop()
-                if hv > 0:
-                    out.add((debut, y + 1 - hv, x, y + 1))
-            if v and (not pile or pile[-1][1] < v):
-                pile.append((debut, v))
-    return [(a / r, b / r, c / r, d / r) for a, b, c, d in out]
+def _planche(src, larg):
+    """Un bout de la planche du bas de la table du devant, larg points de large (image d'origine), coupé droit aux
+    deux bouts : le dessus clair, la face sombre et ses filets. Ses rangées du haut et du bas sont démêlées du mur."""
+    x0, y0, y1 = PLANCHE
+    a = src[y0 - 2:y1 + 2, x0:x0 + larg].astype(np.float32)
+    mur = np.median(src[y0 - 30:y0 - 8, x0:x0 + larg].reshape(-1, 3), axis=0)
+    bord = np.median(src[y0 + 1:y0 + 3, x0:x0 + larg].reshape(-1, 3), axis=0)     # le filet sombre du haut
+    al = np.ones(a.shape[:2], np.float32)
+    for r in (0, 1, 2, a.shape[0] - 3, a.shape[0] - 2, a.shape[0] - 1):
+        v = bord - mur
+        al[r] = np.clip(((a[r] - mur) * v).sum(1) / max(float((v * v).sum()), 1.0), 0, 1)
+    coul = np.where(al[..., None] < 1, bord, a)
+    return al, coul.astype(np.float32)
 
 
-def guirlande(cal, x0, x1, y0, y1, graine=8):
-    """Une corde clouée aux deux bouts, avec trois bouquets qui sèchent (comme les trois sous la table du devant)."""
-    r = np.random.default_rng(graine)
-    yn = y0 + 0.035
-    fleche = 0.07
-    xm, demi = (x0 + x1) / 2, (x1 - x0) / 2
-    corde = lambda x: yn + fleche * (1 - ((x - xm) / demi) ** 2)
-    xs = np.linspace(x0, x1, 40)
-    cal.trait('fil', [(x, corde(x)) for x in xs], 0.011)
-    for x in (x0, x1):
-        cal.disque('clou', (x, yn), 0.024)
-    sortes = [
-        [(-0.30, 0.95), (-0.12, 1.2), (0.06, 1.12), (0.25, 0.9)],
-        [(-0.34, 1.0), (-0.15, 1.28), (0.03, 1.42), (0.19, 1.2), (0.36, 0.92)],
-        [(-0.27, 0.92), (-0.08, 1.16), (0.11, 1.24), (0.3, 0.98)],
-    ]
-    for i, tiges in enumerate(sortes):
-        xb = x0 + (x1 - x0) * (i + 1) / 4
-        yc = corde(xb)
-        nd = yc + 0.07
-        k = (y1 - nd - 0.03) / (max(L for _, L in tiges) + 0.17)
-        cal.trait('fil', [(xb, yc), (xb, nd)], 0.01)
-        bouquet(cal, (xb, nd), k, graine=graine + i, tiges=tiges, feuilles=1.3)
+def _bouquets(src):
+    """La ficelle aux trois bouquets et ses deux crochets, détachés du mur."""
+    x0, y0, x1, y1 = BOUQUETS
+    a = src[y0:y1, x0:x1].astype(np.float32)
+    al, coul, coeur = _decouper(a, _mur(a), coeur_min=60, frange=2)
+    al = _garder(al, coeur, pres=8, mini=12)
+    ys, xs = np.nonzero(al > 0.02)
+    sl = (slice(0, ys.max() + 1), slice(xs.min(), xs.max() + 1))
+    return al[sl], coul[sl]
 
 
-def nettoyer_mur(can, x1, ppp):
-    """Les petites taches sombres du mur (une poussière de l'image, reflétée, tombait contre « l'arbre de vie » du
-    sommaire) : bouchées à la couleur du mur autour."""
-    zone = can[:, :x1].astype(np.float32)
-    L = zone @ np.array([.2126, .7152, .0722], np.float32)
-    t = int(0.1 * ppp) | 1
-    tache = (ndi.grey_closing(L, size=(t, t)) - L) > 14
-    lab, n = ndi.label(tache)
-    if not n:
-        return can, 0
-    tailles = ndi.sum(tache, lab, range(1, n + 1))
-    p = int(0.08 * ppp)
-    k = 0
-    for i, sl in enumerate(ndi.find_objects(lab)):
-        if tailles[i] >= (0.08 * ppp) ** 2:
-            continue
-        a, b = max(0, sl[0].start - p), min(zone.shape[0], sl[0].stop + p)
-        c, d = max(0, sl[1].start - p), min(zone.shape[1], sl[1].stop + p)
-        m = ndi.binary_dilation(lab[a:b, c:d] == i + 1, iterations=2)
-        poids = (~m).astype(np.float32)
-        den = np.maximum(ndi.gaussian_filter(poids, 0.02 * ppp), 1e-3)
-        for ch in range(3):
-            moy = ndi.gaussian_filter(zone[a:b, c:d, ch] * poids, 0.02 * ppp) / den
-            zone[a:b, c:d, ch][m] = moy[m]
-        k += 1
-    can[:, :x1] = np.clip(np.rint(zone), 0, 255).astype(np.uint8)
-    return can, k
+def _lueur(can, cx, cy, s, x_g, x_d, ppp):
+    """La lueur de la lampe sur le mur, centrée sur la flamme (cx, cy, px du fond) : la gaussienne mesurée au devant, à
+    l'échelle s, resserrée en largeur (LUEUR_X) et éteinte à ESPACE_PLI des deux plis (x_g, x_d). Elle multiplie la
+    couleur du mur. Rend le masque de ce qu'elle change."""
+    H = can.shape[0]
+    ry = int(3.2 * max(LUEUR['sy']) * s)
+    a, b = max(0, cy - ry), min(H, cy + ry)
+    xs = np.arange(x_g, x_d, dtype=np.float32)
+    ys = np.arange(a, b, dtype=np.float32)
+    e = ESPACE_PLI * ppp
+    fen = np.clip(np.minimum(xs - x_g - e, x_d - e - xs) / (0.18 * ppp), 0, 1)
+    fen = fen * fen * (3 - 2 * fen)                           # s'éteint en douceur avant chaque pli
+    z = can[a:b, x_g:x_d].astype(np.float32)
+    for c in range(3):
+        sx, sy = LUEUR['sx'][c] * s * LUEUR_X, LUEUR['sy'][c] * s
+        g = np.exp(-((xs[None, :] - cx) ** 2 / (2 * sx * sx) + (ys[:, None] - cy) ** 2 / (2 * sy * sy)))
+        z[..., c] *= 1 + LUEUR['amp'][c] * g * fen[None, :]
+    can[a:b, x_g:x_d] = np.clip(np.rint(z), 0, 255).astype(np.uint8)
+    m = np.zeros(can.shape[:2], bool)
+    m[a:b, x_g:x_d] = True
+    return m
 
 
-def desarmer(avant, can, boites, ppp):
-    """Le nettoyage des étoiles de couverture.py (après ce module) prend pour une étoile tout petit point plus clair
-    que son voisinage sombre, et le brouille. Près d'un trait foncé (un clou, le nœud d'une ficelle), un grain du mur
-    passe ce seuil. On baisse ces quelques grains de mur juste sous le seuil : quelques niveaux sur un ou deux
-    pixels, invisibles, et rien du dessin n'est brouillé. Mêmes règles que nettoyer() de couverture.py."""
-    t = int(0.09 * ppp) | 1
-    n = 0
-    for x0, y0, x1, y1 in boites:
-        p = int(0.3 * ppp)
-        a, b = max(0, int(y0 * ppp) - p), min(can.shape[0], int(y1 * ppp) + p)
-        c, d = max(0, int(x0 * ppp) - p), int(x1 * ppp) + p
-        for _ in range(3):
-            z = can[a:b, c:d].astype(np.float32)
-            L = z @ np.array([.2126, .7152, .0722], np.float32)
-            ouv = ndi.grey_opening(L, size=(t, t))
-            cand = ((L - ouv) > 12) & (ouv < 80)
-            lab, k = ndi.label(cand)
-            if not k:
-                break
-            taille = np.bincount(lab.ravel())
-            objs = ndi.find_objects(lab)
-            dessin = ndi.binary_dilation(np.any(z != avant[a:b, c:d], axis=2), iterations=int(0.1 * ppp))
-            petits = [i for i in range(1, k + 1) if taille[i] <= (0.12 * ppp) ** 2
-                      and objs[i - 1][0].stop - objs[i - 1][0].start <= 0.25 * ppp
-                      and objs[i - 1][1].stop - objs[i - 1][1].start <= 0.25 * ppp]
-            m = np.isin(lab, petits) & dessin & (L < 70)            # du mur, jamais de l'or ni de la crème
-            if not m.any():
-                break
-            f = np.where(m, (ouv + 11) / np.maximum(L, 1), 1)[..., None]
-            can[a:b, c:d] = np.clip(np.rint(z * f), 0, 255).astype(np.uint8)
-            n += int(m.sum())
-    return n
-
-
+# ---------------------------------------------------------------- le motif
 def motif(can, info):
-    ppp = info['ppp']
-    xt, xf, H = info['xt'] / ppp, info['xf'] / ppp, info['H'] / ppp
-    img = info['image']
-    ech = max(8.125 * ppp / img.size[0], 10.25 * ppp / img.size[1])     # l'échelle de l'image sur le devant
-    can, n = nettoyer_mur(can, info['xf'], ppp)
+    ppp, xf, xt = info['ppp'], info['xf'], info['xt']
+    H = can.shape[0]
+    q = ppp / 96.0                        # px du fond par px CSS
+    src = np.asarray(info['image'].convert('RGB'))
+    occ = _occupe(info['rects'], q, can.shape[:2], MARGE * ppp)
+
+    can, repare, n = reparer_mur(can, xf, ppp)
     avant = can.copy()
-    boites = []
-    print('    dos : %d tache(s) du mur bouchée(s)' % n)
-    obs = obstacles(info)
-    g = grille(obs, info)
-    libres = rectangles(g)
 
-    # la tranche : la tablette avec le bocal à la fougère, et le bouquet pendu dessous
-    tr = [b for b in libres if b[0] >= xt and b[2] <= xf]
-    x0, y0, x1, y1 = max(tr, key=lambda b: (b[3] - b[1]) * (b[2] - b[0]))
-    cx = (xt + xf) / 2
-    bocal = decouper(img, BOCAL_FOUGERE, ech)
-    bh, bw = bocal.shape[0] / ppp, bocal.shape[1] / ppp
-    k = 0.92
-    groupe = bh + 0.055 + 0.2 + 1.52 * k            # bocal, tablette, ficelle, bouquet
-    haut = y0 + (y1 - y0 - groupe) * 0.42
-    cal = Calque(xt, y0 - 0.1, xf, y1 + 0.1, ppp)
-    boites.append((xt, y0, xf, y1))
-    y_tab = haut + bh
-    cal.image(bocal, cx - bw / 2, haut)
-    dessous = tablette(cal, cx - 0.31, cx + 0.31, y_tab)
-    cal.trait('fil', [(cx - 0.004, dessous), (cx - 0.004, dessous + 0.2)], 0.011)
-    bouquet(cal, (cx, dessous + 0.2), k)
-    cal.poser(can, [('equerre', BRUN), ('bois', BRUN), ('liseré', FILET), ('images', None), ('fil', BRUN), ('tige', OR), ('or', OR), ('ficelle', CREME)])
+    # le trou de la tranche : les rangées où rien n'est écrit entre les plis, la plus longue suite
+    libre = ~occ[:, xt:xf].any(1)
+    libre[:int(0.125 * ppp + 0.25 * ppp)] = False
+    libre[H - int(0.125 * ppp + 0.25 * ppp):] = False
+    lab, k = ndi.label(libre)
+    if not k:
+        print('    dos 2 : pas de trou sur la tranche, rien au dos')
+        return can
+    t = max(ndi.find_objects(lab), key=lambda s_: s_[0].stop - s_[0].start)[0]
+    ga, gb = t.start, t.stop
 
-    # la quatrième : la corde aux trois bouquets dans le grand trou du haut, à droite du texte
-    # (la colonne du texte s'arrête au bord droit des filets : la corde aussi)
-    droite = max(r[2] / 96 for r in info['rects'] if r[2] / 96 <= xt)
-    q = [(b[0], b[1], min(b[2], droite), b[3]) for b in libres if b[2] <= xt and b[3] < H / 2]
-    q = [b for b in q if b[3] - b[1] >= 0.6 and b[2] - b[0] >= 1.6]
-    if q:
-        x0, y0, x1, y1 = max(q, key=lambda b: (b[3] - b[1]) * (b[2] - b[0]))
-        larg = min(x1 - x0, 2.1)
-        xa = (x0 + x1) / 2 - larg / 2
-        cal = Calque(x0 - 0.05, y0 - 0.05, x1 + 0.05, y1 + 0.05, ppp)
-        boites.append((x0, y0, x1, y1))
-        guirlande(cal, xa + 0.03, xa + larg - 0.03, y0, y1 - 0.05)
-        cal.poser(can, [('fil', BRUN), ('tige', OR), ('or', OR), ('ficelle', CREME), ('clou', BRUN)])
-    g = desarmer(avant, can, boites, ppp)
-    print('    dos : %d grain(s) du mur baissé(s) sous le seuil des étoiles' % g)
+    # les pièces, à la résolution d'origine
+    la, lc, lx0, ly0 = _lampe(src)
+    deb = int(round(DEBORD * la.shape[1]))
+    pa, pc = _planche(src, la.shape[1] + 2 * deb)
+    ba, bc_ = _bouquets(src)
+
+    # l'échelle : la tablette aussi large que la tranche le permet, à PLI de chaque pli
+    x_g, x_d = xt + int(round(PLI * ppp)), xf - int(round(PLI * ppp))
+    s = min(1.0, (x_d - x_g) / pa.shape[1])
+    LA, LC = _reduire(la, lc, s)
+    PA, PC = _reduire(pa, pc, s)
+    BA, BC = _reduire(ba, bc_, min(1.0, s * BOUQUETS_X))
+
+    # le groupe, de haut en bas : la lampe, son pied posé au milieu du dessus de la tablette, puis les bouquets sous la
+    # tablette (comme sous la table du devant)
+    pose = int(round((DESSUS - (PLANCHE[1] - 2)) * s))       # du haut de la tablette au point où pose le pied
+    h_lampe = LA.shape[0]
+    y_tab = h_lampe - pose
+    y_bq = y_tab + PA.shape[0]
+    h = y_bq + BA.shape[0]
+    if h > gb - ga:
+        print('    dos 2 : trou trop bas pour le groupe (%.2f po), rien au dos' % ((gb - ga) / ppp))
+        return can
+    y0 = int(round(ga + HAUT * (gb - ga - h)))
+    cx = (xt + xf) // 2
+
+    # la lueur, centrée sur la flamme
+    fx = int(round(cx - LA.shape[1] / 2 + (LUEUR['cx'] - lx0) * s))
+    fy = int(round(y0 + (LUEUR['cy'] - ly0) * s))
+    lueur = _lueur(can, fx, fy, s, xt, xf, ppp)
+
+    _poser(can, PA, PC, cx - PA.shape[1] // 2, y0 + y_tab)
+    _poser(can, BA, BC, cx - BA.shape[1] // 2, y0 + y_bq)
+    _poser(can, LA, LC, cx - LA.shape[1] // 2, y0)
+
+    # contrôle : rien sur le devant ni sur la quatrième, rien dans la marge du texte (hors des taches effacées du mur)
+    chg = (can != avant).any(2)
+    if chg[:, xf:].any() or chg[:, :xt].any() or (chg & occ).any():
+        print('    dos 2 : ATTENTION, le motif touche le devant, la quatrième ou la marge du texte')
+    ys_, xs_ = np.nonzero(chg)
+    print('    dos 2 : %d tache(s) du mur effacée(s) ; groupe de %.2f à %.2f po du haut (trou, marges ôtées : %.2f à '
+          '%.2f po), %.2f po de large ; lampe de %.2f × %.2f po ; échelle %.3f de l\'image' % (
+              n, (y0) / ppp, (y0 + h) / ppp, ga / ppp, gb / ppp, PA.shape[1] / ppp, LA.shape[1] / ppp,
+              LA.shape[0] / ppp, s))
     return can

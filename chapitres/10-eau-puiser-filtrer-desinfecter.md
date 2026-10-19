@@ -422,7 +422,7 @@ Dans un tubage de 150 mm, on puise avec une buse : un bout de tuyau rigide avec 
  le carré et entre dans le tuyau (repère 4) ; à la remontée, le poids de l'eau plaque le carré sur le trou (repère 5), et la
  buse remonte pleine.
 - **Ce qu'elle remonte.** Un tuyau de 40 mm contient environ 1,2 L par mètre, et une buse de 2 m remonte 2,5 L. Pour
- les 16 L d'une journée pour une famille de quatre, il faut 7 voyages : on les fait d'un coup et on garde l'eau traitée,
+ les 16 L qu'une famille de quatre utilise en une journée, il faut 7 voyages : on les fait d'un coup et on garde l'eau traitée,
  plutôt que de puiser au fur et à mesure.
 - **Garder le puits propre.** Tout ce qu'on descend dans le tubage touche l'eau qu'on boit : la corde, la buse,
  les mains. Enrouler la corde sur un bâton posé en travers, hors du sol (repère 6). Attacher la corde au haut du

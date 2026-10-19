@@ -88,3 +88,10 @@ rat musqué (corrigées ce matin, rien à reprendre).
    Gardé, à trancher par JP.
 5. **Légende de la photo 10-hutte-castor** (`placements-tome-1.json`, pas touchée) : « Faire bouillir cinq minutes toute
    eau prise en aval, glace comprise » redit l'étape 14 et l'étape 41 ; la légende pourrait dire seulement ce qu'on voit.
+
+## Édition des décisions de JP, 19 octobre 2026
+
+Éditeur de la passe « décisions de JP » (`_reprise/scratchpad/tome1-final/decisions-jp.js`). Relu seulement les phrases que la passe a changées (texte d'avant : commit `03525fa`), à voix haute, avec le skill `ecriture` ; aucun fait ni chiffre touché, aucune ancre touchée. `controle.py --avant` (texte d'avant l'édition) : rien n'a disparu.
+
+- Section 7, la buse : « Pour les 16 L d'une journée pour une famille de quatre » (deux « pour ») devient « Pour les 16 L qu'une famille de quatre utilise en une journée ».
+- Relu sans changement : étape 26 et la ligne de la section 5 (« pour une famille de quatre »). La légende de la photo 10-hutte-castor est raccourcie par la passe, comme le proposait le point 5 plus haut.

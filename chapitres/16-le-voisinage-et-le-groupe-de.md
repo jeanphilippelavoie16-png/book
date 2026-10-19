@@ -60,8 +60,9 @@ règles du groupe de chasse, et sortir un blessé du bois à plusieurs : en tra�
  - Écrire l'heure de l'accident : on compte à partir de cette heure les délais des soins qui suivent
  (ch. 26, étape 14).
 3. **Donner l'alerte tôt.** Si la vie du blessé est en jeu (il respire mal, saigne sans qu'on arrive à l'arrêter, est
- difficile à réveiller ou devient confus, ou ne pourra pas passer la nuit là où il est) et qu'on a un appareil
- satellite ou une balise, déclencher le SOS sans attendre (ch. 14, étapes 1 et 2). Sinon, par radio ou par message satellite, envoyer un message court : où on est, qui est blessé, ce
+ difficile à réveiller, devient confus ou ne pourra pas passer la nuit là où il est) et qu'on a un appareil
+ satellite ou une balise, déclencher le SOS sans attendre (ch. 14, étapes 1 et 2). Sinon, par radio ou par
+ message satellite, envoyer un message court : où on est, qui est blessé, ce
  qu'il a, ce qu'on fait, et l'heure du prochain message (ch. 14, étapes 5 et 6). Sans radio, envoyer deux personnes
  porter le message écrit, jamais une seule : si une personne seule se blesse en route, le message
  n'arrive pas (ch. 35, section 9).
@@ -77,10 +78,10 @@ règles du groupe de chasse, et sortir un blessé du bois à plusieurs : en tra�
  section 9). Ne pas lui fabriquer de collet rigide : rien ne montre qu'il protège, et il gêne la respiration.
 5. **Décider comment il sort, et envoyer chercher la machine tout de suite.**
  - Si on a déclenché le SOS ou la balise, rester sur place avec le blessé seulement si une réponse confirme que des
- secours viennent, ou si on ne peut pas le sortir avant la nuit ou avec le monde qu'on a (dernier tiret) :
- l'abriter alors (étape 14) et laisser l'appareil en marche jusqu'à ce que quelqu'un arrive (ch. 14, étape 3).
- Sinon, le sortir de l'une des façons qui suivent, sans attendre de réponse, avec l'appareil allumé sur soi et le
- SOS en marche.
+ secours viennent, si on ne peut pas le sortir avant la nuit, ou s'il n'y a pas assez de monde pour le tirer et se
+ relayer (dernier tiret). L'abriter alors (étape 14) et laisser l'appareil en marche jusqu'à ce que quelqu'un
+ arrive (ch. 14, étape 3). Sinon, le sortir de l'une des façons qui suivent, sans attendre de réponse, en gardant
+ sur soi l'appareil allumé et le SOS en marche.
  - S'il peut marcher sans aggraver sa blessure, le faire marcher sans rien porter, avec quelqu'un à côté de lui
  pour le soutenir.
  - Si une machine peut se rendre jusqu'à lui (l'hiver, une motoneige avec un traîneau ; l'été, un VTT avec une
@@ -439,10 +440,10 @@ prendre du fil de fer tordu à la pince (repère 8) ; le ruban adhésif durcit a
 contreplaqué, une tôle de toit. Le capot est le meilleur : il est bombé, et ses bords relevés ne poussent pas la neige
 devant lui (repères 12 et 13).
 
-*L'été, sans neige.* Tirer le même cadre en travois : une ou deux personnes lèvent l'avant par les brancards, et le
-bout des perches traîne au sol, la tête du blessé du côté des brancards. Sur les racines et les roches, le travois
-secoue : aller au pas, et caler la tête du blessé. Quand il doit rester à l'horizontale (étape 13), arrêter de le
-tirer en travois, qui le tient incliné, et l'abriter sur place (étape 14).
+*L'été, sans neige.* Tirer le même cadre en travois : lever l'avant par les brancards, à une ou deux personnes, et
+laisser le bout des perches traîner au sol. Coucher le blessé la tête du côté des brancards. Sur les racines et les
+roches, le travois secoue : aller au pas, et caler la tête du blessé. Le travois tient le blessé incliné : quand il
+doit rester à l'horizontale (étape 13), arrêter de le tirer en travois et l'abriter sur place (étape 14).
 
 ### Ce qu'on perd
 
