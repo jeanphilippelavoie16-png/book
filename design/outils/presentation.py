@@ -4,8 +4,9 @@ professionnel dans le style du livre, avec les différents tomes et ce qu'ils tr
 
     python3 design/outils/presentation.py
 
-Lettre US, 13 pages : la couverture, le projet, la règle du livre, un chapitre, des pages du tome 1, les six tomes, une
-page par tome, la fabrication et les auteurs. Les textes des tomes viennent de là où le livre les tient déjà : le
+Lettre US, 19 pages : la couverture, le projet, la règle du livre, un chapitre, des pages du tome 1, les six tomes, puis
+pour chaque tome sa couverture entière (quatrième, tranche et devant, sur une page à l'italienne ; JP, 19 octobre 2026 :
+« je veux qu'on voie les pages de couvertures aussi ») et sa page, et enfin la fabrication et les auteurs. Les textes des tomes viennent de là où le livre les tient déjà : le
 sommaire (build_couvertures_6.py, SOMMAIRE), le résumé de la quatrième (couverture.py, QUATRIEME) et le sous-titre de
 la page de titre (assembler-tome.py, SOUS_TITRES). Les pages d'exemple sont tirées du tome 1 au format Lulu
 (livre/tome-1-lulu/), qui doit être assemblé. Sortie : livre/presentation/presentation-manuel-du-nord.pdf ; le
@@ -72,6 +73,7 @@ def prep_images():
         c = Image.open(os.path.join(ROOT, 'images/tomes/couvertures/couverture-tome-%d-C.png' % k)).convert('RGB')
         w, h = c.size
         wrap, planche = round(0.625 * 150), round(8.75 * 150)
+        c.crop((wrap, wrap, w - wrap, h - wrap)).save(os.path.join(TRAV, 'couv-%d.jpg' % k), quality=88)
         c = c.crop((w - wrap - planche, wrap, w - wrap, h - wrap))
         c.thumbnail((700, 900))
         c.save(os.path.join(TRAV, 'avant-%d.jpg' % k), quality=88)
@@ -290,6 +292,17 @@ def les_six(n):
     return page(''.join(t))
 
 
+def couverture_tome(k, n):
+    """La couverture entière du tome, sans le wrap qui se replie sur le carton : quatrième, tranche, devant."""
+    T = D['TOMES'][k]
+    return page(entete('Tome %d · la couverture' % k)
+                + '<div class="cz"><img src="couv-%d.jpg"></div>'
+                  '<div class="cz-leg"><b>Tome %d · %s</b>%s</div>'
+                % (k, k, ty(T['titre']), ty("De gauche à droite : la quatrième, avec le résumé du tome, ses chapitres "
+                                            "et les auteurs ; la tranche ; le devant.") if k == 1 else '')
+                + pied(n, k), 'paysage t%d' % k)
+
+
 def tome(k, n):
     T = D['TOMES'][k]
     resume = D['QUATRIEME'][k].split('. ', 1)[1]          # sans « Le Manuel du Nord compte six tomes… »
@@ -350,6 +363,7 @@ def fabrication(n):
 
 CSS = r'''
 @page{size:8.5in 11in;margin:0}
+@page paysage{size:11in 8.5in;margin:0}
 *{box-sizing:border-box}
 html,body{margin:0;padding:0}
 body{font-family:'IBM Plex Serif',Georgia,serif;font-size:10pt;line-height:1.4;color:#1A1A1A;
@@ -456,6 +470,17 @@ ol.sept li strong{display:block;font-family:'IBM Plex Sans Condensed',sans-serif
 .tome .tomes i{border-color:var(--ta);color:var(--ta)}
 .tome .tomes i.on{color:#fff}
 
+/* la couverture entière, à l'italienne */
+.page.paysage{page:paysage;width:11in;height:8.5in;background:#EEF0F1}
+.cz{position:absolute;top:.9in;left:.5in;right:.5in;height:6.25in;display:flex;align-items:center;justify-content:center}
+.cz img{max-width:100%;max-height:100%;display:block;box-shadow:0 3pt 12pt rgba(21,34,43,.35)}
+.cz-leg{position:absolute;top:7.3in;left:.75in;right:.75in;text-align:center;font-size:9.4pt;color:#333}
+.cz-leg b{font-family:'IBM Plex Sans Condensed',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.03em;
+          color:var(--ta);margin-right:8pt}
+.paysage .tomes i{border-color:var(--ta);color:var(--ta)}
+.paysage .tomes i.on{color:#fff}
+.paysage .rh span:last-child{color:var(--ta)}
+
 /* auteurs */
 .auteurs{display:grid;grid-template-columns:1fr 1fr;gap:16pt;margin-top:4pt}
 .aut{display:flex;gap:12pt;align-items:flex-start;font-size:9.8pt;line-height:1.42}
@@ -492,8 +517,9 @@ POLICES = ('<link href="https://fonts.googleapis.com/css2?family=Barlow+Condense
 def main():
     prep_images()
     pages = [couverture(), le_projet(2), la_regle(3), un_chapitre(4), exemples(5), les_six(6)]
-    pages += [tome(k, 6 + k) for k in range(1, 7)]
-    pages.append(fabrication(13))
+    for k in range(1, 7):
+        pages += [couverture_tome(k, 5 + 2 * k), tome(k, 6 + 2 * k)]
+    pages.append(fabrication(19))
     doc = ('<!doctype html><html lang="fr"><head><meta charset="utf-8"><title>Le Manuel du Nord</title>%s'
            '<style>%s</style></head><body>%s</body></html>' % (POLICES, CSS, ''.join(pages)))
     f = os.path.join(TRAV, 'presentation.html')
