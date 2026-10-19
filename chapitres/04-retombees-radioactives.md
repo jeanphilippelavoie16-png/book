@@ -376,8 +376,8 @@ l'épaisseur au-dessus des têtes.
  de plus le coupe encore de moitié : cinq épaisseurs le divisent par 32, six par 64.
 - Dormir sous le refuge chargé, ou sous un étage ou un grenier plein.
 
-*Les sacs de terre, sans sacs.* Remplir aux deux tiers de terre ou de sable (repère 9) des taies d'oreiller, des sacs
-de farine vides ou des jambes de pantalon nouées à un bout (repère 10). Les corder comme des briques, en croisant les
+*Les sacs de terre, sans sacs.* Remplir aux deux tiers de terre ou de sable (repère 10) des taies d'oreiller, des sacs
+de farine vides ou des jambes de pantalon nouées à un bout (repère 9). Les corder comme des briques, en croisant les
 joints d'un rang à l'autre (repère 11). L'hiver, le sol est gelé, et la neige fond dans une pièce chauffée : monter
 plutôt la neige dehors, en banc contre les murs (repère 2).
 

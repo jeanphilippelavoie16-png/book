@@ -57,7 +57,7 @@ module.exports = (h) => {
     o.push(r1(-400, yFerme, 400, yb, A.blanc));
     // les reflets du plastique tendu : deux paires de traits courts en biais
     for (const [x, y] of [[-150, yFerme + 120], [170, yFerme + 110]])
-      for (const d of [0, 26]) o.push(l1(x + d, y + 40, x + d + 40, y, A.detail));
+      for (const d of [0, 24]) o.push(l1(x + d, y + 48, x + d + 24, y, A.detail));
     // le bâton en écharpe, qui part du coin du haut ; puis les bâtons de côté, coupés par le bas de la vue
     const e0 = -400 + B, ec = (yb - yFerme - B) * 0.58, eb = 35;
     o.push(h.chemin([p1(e0, yFerme + B), p1(e0 + eb, yFerme + B), p1(e0 + eb + ec, yb), p1(e0 + ec, yb)], A.blanc, true));
@@ -257,66 +257,43 @@ module.exports = (h) => {
   };
 
   // ════════════════════════════════════════════════════════════════════════════════════════════
-  // Les entailles de l'ourlet, vues de la pièce : le volet du haut, au bout du cadre et au montant du milieu
-  // (à l'échelle ; la vue est coupée entre les deux)
+  // L'entaille de l'ourlet, vue de la pièce : le volet du haut sur le montant du milieu, à l'échelle
+  // (aux deux bouts du cadre, l'entaille est la même, ouverte sur le bord du volet)
   // ════════════════════════════════════════════════════════════════════════════════════════════
-  const s8 = 0.62, Y8 = 24;
+  const s8 = 1, YA = -4;                                             // la vue commence 4 mm au-dessus du cadre
   const MIL = LC / 2;                                                // l'axe du montant du milieu, depuis le bord du cadre
-  const DEB = 6, ENT = 6, PROF = 13;                                  // le volet dépasse le cadre ; l'entaille passe le montant ; sa profondeur
-  const HAUT_V = FILS[0] - RH, BAS_V = FILS[0] + 90;                 // le haut de l'ourlet ; le bas du volet (9 cm sous le fil)
-  const TROUS = [                                                    // les deux morceaux de la vue
-    { x0: -12.5, x1: 100, X: 6, bout: true, m0: 0, m1: RAIL },
-    { x0: 330, x1: 445, X: 94.4, bout: false, m0: MIL - RAIL / 2, m1: MIL + RAIL / 2 },
-  ];
+  const XA = MIL - 173 / 2 / s8;                                     // le bord gauche de la vue, en mm
+  const ENT = 6, PROF = 13;                                          // l'entaille passe le montant de 6 mm ; sa profondeur
+  const HAUT_V = FILS[0] - RH;                                       // le haut de l'ourlet
+  const q8 = (x, y) => [(x - XA) * s8, (y - YA) * s8];
   const entaille = z => {
     const o = [];
-    const yb = (z.h - Y8) / s8;                                      // le bas de la vue, en mm
-    for (const T of TROUS) {
-      const q = (x, y) => [T.X + (x - T.x0) * s8, Y8 + y * s8];
-      const r8 = (x0, y0, x1, y1, at) => { const a = q(x0, y0), b = q(x1, y1); return h.rect(a[0], a[1], b[0] - a[0], b[1] - a[1], at); };
-      const l8 = (x0, y0, x1, y1, at) => { const a = q(x0, y0), b = q(x1, y1); return h.ligne(a[0], a[1], b[0], b[1], at); };
-      const e0 = T.bout ? -DEB : T.m0 - ENT, e1 = T.m1 + ENT;       // l'entaille, d'un bord à l'autre
-      const xf = T.bout ? 0 : T.x0;                                  // le bord gauche du cadre dans ce morceau
-      // au-delà : l'ouverture, en gris loin
-      o.push(r8(T.x0, 0, T.x1, yb, A.loin));
-      if (T.bout) o.push(l8(T.x0, 0, T.x0, yb, A.arete));            // le jambage
-      // la deuxième latte du montant, puis la traverse du haut, en blanc
-      o.push(r8(T.m0, RAIL, T.m1, yb, W(A.arete)));
-      o.push(r8(xf, 0, T.x1, RAIL, A.blanc));
-      o.push(l8(xf, 0, T.x1, 0, T.bout ? A.contour : A.arete), l8(xf, RAIL, T.x1, RAIL, A.arete));
-      if (T.bout) o.push(l8(0, 0, 0, RAIL, A.contour), l8(0, RAIL, 0, yb, A.contour));
-      o.push(l8(T.m0, RAIL, T.m1, RAIL, A.detail));
-      for (const dx of [12, 26]) o.push(h.cercle(...q(T.m0 + dx, RAIL / 2), 1.1, A.plein));
-      // le volet du dessous dépasse sous celui-ci
-      o.push(r8(Math.max(T.x0, -DEB), BAS_V, T.x1, yb, A.blanc));
-      if (T.bout) o.push(l8(-DEB, BAS_V, -DEB, yb, A.arete));
-      // le volet du haut : son ourlet entaillé sur le montant, le ruban sous l'entaille
-      const xg = T.bout ? -DEB : T.x0;
-      const contourV = T.bout
-        ? [[xg, BAS_V], [xg, HAUT_V + PROF], [e1, HAUT_V + PROF], [e1, HAUT_V], [T.x1, HAUT_V], [T.x1, BAS_V]]
-        : [[xg, HAUT_V], [e0, HAUT_V], [e0, HAUT_V + PROF], [e1, HAUT_V + PROF], [e1, HAUT_V], [T.x1, HAUT_V], [T.x1, BAS_V], [xg, BAS_V]];
-      o.push(h.chemin(contourV.map(([x, y]) => q(x, y)), A.blanc, true));
-      const bordsV = T.bout
-        ? [[[xg, BAS_V], [xg, HAUT_V + PROF], [e1, HAUT_V + PROF], [e1, HAUT_V], [T.x1, HAUT_V]]]
-        : [[[xg, HAUT_V], [e0, HAUT_V], [e0, HAUT_V + PROF], [e1, HAUT_V + PROF], [e1, HAUT_V], [T.x1, HAUT_V]]];
-      for (const c of bordsV) o.push(h.chemin(c.map(([x, y]) => q(x, y)), A.arete));
-      o.push(l8(xg, BAS_V, T.x1, BAS_V, A.arete));
-      for (const y of [HAUT_V + PROF + 2, HAUT_V + PROF + 12]) o.push(l8(xg, y, T.x1, y, A.detail));
-      // le fil : caché dans l'ourlet, à nu dans l'entaille, cloué sur le montant (le clou rabattu sur le fil)
-      const fa = T.bout ? 3 : T.x0;
-      if (T.bout) o.push(l8(fa, FILS[0], e1, FILS[0], A.arete), l8(e1, FILS[0], T.x1, FILS[0], A.cache));
-      else o.push(l8(T.x0, FILS[0], e0, FILS[0], A.cache), l8(e0, FILS[0], e1, FILS[0], A.arete), l8(e1, FILS[0], T.x1, FILS[0], A.cache));
-      const xc = (T.m0 + T.m1) / 2;
-      o.push(h.cercle(...q(xc - 3, FILS[0] + 5), 1.4, W(A.arete)));
-      o.push(l8(xc - 3, FILS[0] + 5, xc + 3, FILS[0] - 4, A.arete));
-      // les coupures de la vue : un trait en zigzag sur chaque bord coupé
-      const coupes = T.bout ? [T.x1] : [T.x0, T.x1];
-      for (const xk of coupes) {
-        const pts = [];
-        for (let y = 0, k = 0; y <= yb; y += 9, k++) pts.push(q(xk + (k % 2 ? 2.5 : -2.5), Math.min(y, yb)));
-        o.push(h.chemin(pts, A.detail));
-      }
-    }
+    const xd = XA + z.l / s8, yb = YA + z.h / s8;                    // le bord droit et le bas de la vue, en mm
+    const r8 = (x0, y0, x1, y1, at) => { const a = q8(x0, y0), b = q8(x1, y1); return h.rect(a[0], a[1], b[0] - a[0], b[1] - a[1], at); };
+    const l8 = (x0, y0, x1, y1, at) => { const a = q8(x0, y0), b = q8(x1, y1); return h.ligne(a[0], a[1], b[0], b[1], at); };
+    const m0 = MIL - RAIL / 2, m1 = MIL + RAIL / 2, e0 = m0 - ENT, e1 = m1 + ENT;
+    // au-delà : l'ouverture, en gris loin
+    o.push(r8(XA, YA, xd, yb, A.loin));
+    // la deuxième latte du montant du milieu, sous la traverse : à nu dans l'entaille, cachée plus bas par le volet
+    o.push(r8(m0, RAIL, m1, yb, A.blanc));
+    // la traverse du haut, son joint avec la latte du montant, et les deux clous du montant
+    o.push(r8(XA, 0, xd, RAIL, A.blanc), l8(XA, 0, xd, 0, A.contour));
+    o.push(l8(XA, RAIL, m0, RAIL, A.arete), l8(m1, RAIL, xd, RAIL, A.arete), l8(m0, RAIL, m1, RAIL, A.detail));
+    for (const dx of [-8, 8]) o.push(h.cercle(...q8(MIL + dx, RAIL / 2), 1.2, A.plein));
+    // le volet du haut : l'ourlet entaillé sur le montant ; le ruban plus bas, entier
+    const ent = [[XA, HAUT_V], [e0, HAUT_V], [e0, HAUT_V + PROF], [e1, HAUT_V + PROF], [e1, HAUT_V], [xd, HAUT_V]];
+    o.push(h.chemin([...ent, [xd, yb], [XA, yb]].map(([x, y]) => q8(x, y)), A.blanc, true));
+    o.push(h.chemin(ent.map(([x, y]) => q8(x, y)), A.arete));
+    for (const y of [HAUT_V + PROF + 3, HAUT_V + PROF + 13]) o.push(l8(XA, y, xd, y, A.detail));
+    // les reflets du plastique du volet
+    for (const d of [0, 8]) o.push(l8(XA + 24 + d, HAUT_V + PROF + 54, XA + 34 + d, HAUT_V + PROF + 34, A.detail));
+    // les bords de la latte : vus dans l'entaille, en tirets sous le volet
+    for (const x of [m0, m1]) o.push(l8(x, RAIL, x, HAUT_V + PROF, A.arete), l8(x, HAUT_V + PROF + 16, x, yb, A.cache));
+    // le fil : caché dans l'ourlet, à nu dans l'entaille, tenu sur la latte par un clou rabattu
+    o.push(l8(XA, FILS[0], e0, FILS[0], A.cache), l8(e1, FILS[0], xd, FILS[0], A.cache));
+    o.push(l8(e0, FILS[0], e1, FILS[0], A.contour));
+    o.push(h.path(`M${q8(MIL - 5, FILS[0] + 6).join(' ')} L${q8(MIL + 2, FILS[0] - 3.5).join(' ')} Q${q8(MIL + 4.5, FILS[0] - 6).join(' ')} ${q8(MIL + 6, FILS[0] - 2.5).join(' ')}`, A.arete));
+    o.push(h.cercle(...q8(MIL - 5, FILS[0] + 6), 2.4, W(A.arete)));
     return o.join('\n');
   };
 
@@ -398,7 +375,7 @@ module.exports = (h) => {
     return P(TH_RETOUR, FX + 60 * Math.sin(phi), y + 60 * Math.cos(phi));
   })();
   const yFilGap = k => p1(0, HAUT + FILS[k])[1];                     // une hauteur sans ficelle, là où ira un fil
-  const filMilieu = [TROUS[1].X + (MIL + 6 - TROUS[1].x0) * s8, Y8 + FILS[0] * s8];
+  const filMilieu = q8(MIL + 11, FILS[0] + 0.6);                  // le fil à nu, à droite du clou
 
   return {
     ref: '04-01b',
@@ -449,10 +426,10 @@ module.exports = (h) => {
         ],
       },
       entaille: {
-        titre: 'Les entailles du volet',
+        titre: 'L’entaille du volet',
         dessin: entaille,
         renvois: z => [
-          { n: 11, rond: [filMilieu[0] + 12, 12], cible: filMilieu, texte: 'ourlet entaillé, fil cloué' },
+          { n: 11, rond: [150, 90], cible: filMilieu, texte: 'ourlet entaillé, fil cloué' },
         ],
       },
       filtre: {
