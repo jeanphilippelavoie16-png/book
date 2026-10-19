@@ -351,9 +351,8 @@ et se sortir vivant de la glace qui cède ou de la machine qui s'arrête loin de
 | Le moteur tousse et meurt par grand froid, et repart au redoux | Diesel figé dans le filtre, ou eau gelée dans la conduite d'essence | Section 7, « Le diesel qui fige » |
 | Eau claire au fond du bidon, essence trouble au-dessus | L'éthanol a capté l'humidité : la couche du fond est de l'eau et de l'alcool | Ne pas verser le fond dans un moteur ; tirer l'essence du dessus au siphon (section 7) et la brûler dans l'auto |
 | La machine démarre mal chaque matin | Batterie affaiblie par le froid | Rentrer la batterie la nuit (section 7) |
-| Glace grise ou foncée sur le trajet habituel | De l'eau dans la glace ou dessus | Demi-tour ; marquer l'endroit et le dire aux voisins (ch. 16) |
-| L'eau monte dans le trou percé à côté de l'auto | La glace s'enfonce sous l'auto | Déplacer l'auto tout de suite |
-| Carburant brûlé plus vite que prévu deux sorties de suite | La mesure est fausse, ou on puise dans une autre part | Refaire les mesures de l'étape 20, réduire les sorties |
+| Glace grise ou foncée sur le trajet habituel | De l'eau dans la glace ou dessus | Faire demi-tour, marquer l'endroit et avertir les voisins (ch. 16) |
+| Carburant brûlé plus vite que prévu deux sorties de suite | La mesure est fausse, ou quelqu'un puise dans une autre part | Refaire les mesures de l'étape 20, réduire les sorties |
 
 ---
 
@@ -365,19 +364,19 @@ Il reste presque toujours de l'essence ailleurs que dans le baril : dans les ré
 à gazon, de la souffleuse, du moteur hors-bord, du VTT et de la scie. Le mazout du réservoir de la maison est
 un proche parent du diesel : un moteur diesel peut le brûler en dépannage ; un moteur à essence, non.
 
-{!poison} **Amorcer sans la bouche** (planche 15-02). Poser d'abord le bidon au sol, nettement plus bas que le
-niveau de l'essence dans le réservoir (repère 1).
+{!poison} **Amorcer le siphon sans la bouche** (planche 15-02). Poser d'abord le bidon au sol, nettement plus bas
+que le niveau de l'essence dans le réservoir (repère 1).
 
-**À deux boyaux et une pompe à vélo.**
+**Avec deux boyaux et une pompe à vélo.**
 
 - Pousser un boyau long jusqu'au fond du réservoir, et mettre son autre bout dans le bidon (repère 2).
-- Glisser un boyau court qui s'arrête dans l'air du réservoir, au-dessus de l'essence (repère 3).
+- Glisser dans le goulot un boyau court, qui s'arrête au-dessus de l'essence (repère 3).
 - Bourrer un chiffon autour des deux boyaux, dans le goulot (repère 4), pour que l'air qu'on pousse reste dans
  le réservoir.
 - Pomper doucement dans le boyau court, avec une pompe à vélo ou à matelas (repère 5) : l'air pousse l'essence
- dans le boyau long. Un réservoir n'est pas fait pour tenir de la pression : s'il ouvre à une couture,
+ dans le boyau long. Un réservoir n'est pas fait pour tenir de la pression : s'il fend à une couture,
  l'essence gicle par la fente.
-- Arrêter de pomper quand l'essence coule dans le bidon : le boyau plein continue seul (repère 6).
+- Arrêter de pomper quand l'essence coule dans le bidon : le boyau plein continue de couler seul (repère 6).
 
 **Autre façon, sans pompe : le boyau à bille** (repère 7, au lieu des repères 3 à 5).
 
@@ -385,7 +384,7 @@ niveau de l'essence dans le réservoir (repère 1).
 - Glisser une bille dans le boyau (une bille de jeu ou une bille de roulement), plus grosse que le trou du tube
  (repère 9).
 - Passer un clou en travers du boyau, un peu au-dessus de la bille, pour qu'elle ne monte pas plus haut
- (repère 10). Monté dans l'autre sens, le tube étroit au-dessus de la bille, le clapet ne retient rien.
+ (repère 10). Si on monte le tube étroit au-dessus de la bille, la bille ne retient rien.
 - Plonger le bout à bille au fond du réservoir et secouer le boyau de haut en bas, sans arrêt (repère 11).
  Quand on plonge, l'essence soulève la bille et monte dans le boyau (repère 12) ; quand on remonte, la bille
  retombe sur le tube étroit, et l'essence au-dessus ne redescend plus (repère 13). L'essence monte par
