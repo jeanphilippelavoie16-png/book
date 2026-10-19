@@ -1,12 +1,31 @@
 """Tome 2 : la n° 1 du troisième tour, retouchée et enrichie (JP, 18 octobre 2026 : « finalement, pimp celle-là, je l'aime
 plus »). On retire ce qui fait IA : les taches roses qui flottent sur le mur comme des nuages, le rectangle clair coupé
-d'un trait sur le flanc de la bouilloire. Puis on ajoute, dans les trois encres de l'image (le mur sang de bœuf, le
-brun presque noir des meubles, le crème) et seulement sous le titre : le tuyau du poêle, qui manquait, avec ses joints
-et sa clé ; une tablette sous la table, avec du linge plié, un panier de plantes séchées et une cruche ; une chaudière
-d'eau au pied de la table ; des bûches devant le poêle ; un bouquet de plantes qui sèche, pendu au bord de la table.
+d'un trait sur le flanc de la bouilloire. Puis on ajoute, dans les encres de l'image (le mur sang de bœuf, le brun presque
+noir des meubles, le crème, l'ocre) et seulement sous le titre : le tuyau du poêle, qui manquait, avec ses joints et sa
+clé ; trois bouquets de plantes qui sèchent, pendus sous le bord de la table ; une tablette sous la table, avec du linge
+plié, un panier d'achillée séchée et une cruche de grès ; une chaudière d'eau au pied de la table ; une corde de bois
+sous le poêle ; le feu dans le poêle.
     python3 pimp_soin1.py SOURCE SORTIE
-Les coordonnées sont celles de l'image 768 × 960 ; elles se multiplient par K (4 sur l'image agrandie)."""
-import sys, math, random
+Les coordonnées sont celles de l'image 768 × 960 ; elles se multiplient par K (4 sur l'image agrandie).
+
+Le bas refait (JP, 19 octobre 2026 : « le bois en dessous du foyer, l'étage du bas et le seau ne sont pas assez de
+qualité à mon goût ») : les sections 4 à 7 posent six PNG transparents, rangés à côté de ce script, à 8 points par unité.
+Chacun se pose à sa boîte (coin en haut à gauche, coin en bas à droite) :
+    objet-bouquets.png    206,740.5 à 260,794.5     les trois bouquets pendus à leur corde      généré
+    objet-linge.png       90,754.625 à 190,805      le linge plié                               généré
+    objet-panier.png      301,747.625 à 373,805.5   le panier d'achillée séchée                 généré
+    objet-cruche.png      430,755.125 à 463,805.5   la cruche de grès                           généré
+    objet-chaudiere.png   30,794 à 136,916          la chaudière d'eau, en bois cerclé de fer   dessin vectoriel
+    objet-corde.png       596,812 à 768,926         la corde de bois fendu                      dessin vectoriel
+Les objets générés le sont un par un par AI Horde (Flux.1-Schnell, le modèle de l'image) sur un fond rouge uni, puis
+détourés et ramenés aux encres de l'image. La chaudière et la corde sont dessinées à la main, en vectoriel, et rendues
+par Chromium ; leurs cernes sont amincis à l'épaisseur de ceux des objets générés. Tous passent par le même léger flou,
+celui des bords du générateur. objets-bas/objets_bas.py les refait (il garde les images générées, le texte de chaque
+demande, les dessins et leurs SVG). La planche de la tablette, les ombres plates et les deux clous se dessinent ici.
+Le titre ne doit pas cacher le cadre (JP, même jour) : les sections 4 à 7 ne touchent rien au-dessus de la table ; le
+cadre au mur est posé ensuite par cadre_mur.py, et le titre de la couverture est remonté au-dessus de lui (CENTRE_BAS de
+essais-ia/tome-1/couverture.py)."""
+import sys, os, math, random
 import numpy as np
 from PIL import Image, ImageDraw
 from scipy import ndimage
@@ -86,101 +105,46 @@ ligne((x0 + 1, 548.5), (x1 - 1, 550), fill=MOYEN, w=1.6)                        
 ligne((x0 - 8, 548), (x0 + 1, 548.5), fill=CERNE, w=2.6)
 d.ellipse(P([(x0 - 13, 544), (x0 - 6, 552)]), fill=FONCE, outline=CERNE, width=max(1, int(k(1.6) / 1.6)))
 
-# 4. un bouquet de plantes qui sèche, pendu au bord de la table, la tête en bas
-for j, bx in enumerate((150, 158, 165)):
-    ligne((bx, 738), (bx + R.uniform(-2, 2), 744), fill=CERNE, w=1.2)                 # la ficelle
-    for i in range(7):
-        tx = bx + R.uniform(-8, 8); ty = 744 + R.uniform(16, 28)
-        ligne((bx, 744), (tx, ty), fill=OCRE, w=1.3)
-        for t in (0.45, 0.75):
-            px, py = bx + (tx - bx) * t, 744 + (ty - 744) * t
-            sg = 1 if i % 2 else -1
-            poly([(px, py), (px + sg * 4.5, py + 1.5), (px + sg * 1, py + 3)], OCRE, cerne=None)
+# 4 à 7. Le bas de l'image, refait (JP, 19 octobre 2026 : « le bois en dessous du foyer, l'étage du bas et le seau ne
+#    sont pas assez de qualité à mon goût »). Les objets sont des PNG transparents à 8 points par unité (la taille du
+#    dessin ici), faits par objets-bas/objets_bas.py et rangés à côté de ce script ; chacun se pose à sa boîte, le coin
+#    en haut à gauche en coordonnées 768 × 960. Sur une source d'une autre taille, ils se mettent à l'échelle.
+ICI = os.path.dirname(os.path.abspath(__file__))
+def poser(nom, x0, y0):
+    o = Image.open(os.path.join(ICI, nom)).convert('RGBA')
+    if abs(K * S - 8) > 1e-6:
+        o = o.resize((round(o.width * K * S / 8), round(o.height * K * S / 8)), Image.LANCZOS)
+    im.paste(o, (round(k(x0)), round(k(y0))), o)
 
-# 5. la tablette sous la table, entre les pieds
-poly([(34, 806), (516, 806), (516, 818), (34, 818)], FONCE)
-ligne((38, 809.5), (512, 809.5), fill=MOYEN, w=1.0)
-for i, (xa, xb) in enumerate(((52, 150), (56, 146))):                                  # le linge plié, deux serviettes
-    yb = 806 - i * 13; ya = yb - 13
-    poly([(xa + 3, ya), (xb - 3, ya), (xb, ya + 3), (xb, yb), (xa, yb), (xa, ya + 3)], CREME, w=1.8)
-    ligne((xa + 4, ya + 4.5), (xb - 4, ya + 4.5), fill=ORANGE if i == 1 else MOYEN, w=1.4)
-for j in range(9):                                                                    # le panier de plantes séchées
-    bx = 222 + j * 8 + R.uniform(-2, 2); tx = bx + R.uniform(-9, 9); ty = 738 + R.uniform(-6, 8)
-    ligne((bx, 770), (tx, ty), fill=OCRE, w=1.4)
-    for t in (0.35, 0.6, 0.85):
-        px, py = bx + (tx - bx) * t, 770 + (ty - 770) * t
-        sg = 1 if j % 2 else -1
-        poly([(px, py), (px + sg * 6, py - 3), (px + sg * 1.5, py + 2)], OCRE, cerne=None)
-poly([(208, 768), (310, 768), (302, 806), (216, 806)], CREME, w=2.0)
-for t in np.linspace(0.12, 0.88, 7):
-    ligne((208 + 102 * t, 769), (216 + 86 * t, 805), fill=MOYEN, w=1.0)
-for y in (778, 789, 799):
-    ligne((210 + (y - 768) * 0.2, y), (308 - (y - 768) * 0.2, y), fill=MOYEN, w=1.0)
-poly([(206, 763), (312, 763), (312, 770), (206, 770)], MOYEN, w=1.6)
+# 4. trois bouquets de plantes qui sèchent, la tête en bas, sur une corde tendue sous le bord de la table. La corde est
+#    nouée à deux clous plantés par en dessous dans le tablier : la tige du clou, sa tête en bas, un tour de corde
+poser('objet-bouquets.png', 206, 740.5)
+for x in (211, 255.5):
+    poly([(x - 0.55, 740.6), (x + 0.55, 740.6), (x + 0.55, 744.4), (x - 0.55, 744.4)], FONCE, w=0.6)
+    d.ellipse(P([(x - 1.6, 743.9), (x + 1.6, 745.3)]), fill=FONCE, outline=CERNE, width=max(1, int(k(0.6) / 1.6)))
+    ligne((x - 0.9, 741.9), (x + 0.9, 742.6), fill=OCRE, w=0.7)
 
-# 6. la chaudière d'eau au pied de la table, à gauche
-poly([(44, 838), (122, 838), (114, 900), (52, 900)], MOYEN, w=2.2)
-for t in np.linspace(0.18, 0.82, 5):
-    ligne((44 + 78 * t, 840), (52 + 62 * t, 898), fill=FONCE, w=1.0)
-for y in (852, 886):
-    xa = 44 + (y - 838) * 8 / 62; xb = 122 - (y - 838) * 8 / 62
-    poly([(xa - 1, y - 3), (xb + 1, y - 3), (xb + 1, y + 3), (xa - 1, y + 3)], FONCE, w=1.4)
-    ligne((xa + 2, y), (xb - 2, y), fill=CREME, w=0.8)
-d.ellipse(P([(44, 833), (122, 844)]), fill=(178, 160, 140), outline=CERNE, width=max(1, int(k(2) / 1.6)))
-d.arc(P([(52, 804), (114, 864)]), 200, 340, fill=CERNE, width=max(1, int(k(2.4) / 1.6)))
+# 5. la tablette sous la table, entre les pieds : la planche (le dessus en brique, le chant en brun), le linge plié, le
+#    panier d'achillée séchée et la cruche de grès. Sous chacun, une ombre plate, un aplat net qui déborde à droite
+#    (la lampe est à gauche)
+poly([(34, 802), (516, 802), (516, 818), (34, 818)], FONCE)
+poly([(34, 802), (516, 802), (516, 806), (34, 806)], MOYEN, w=1.2)
+for y_, xa, xb in ((810.5, 60, 300), (814, 220, 490)):
+    ligne((xa, y_), (xb, y_), fill=MOYEN, w=0.7)
+for xa, xb in ((92, 196), (311, 381), (436, 468)):
+    d.ellipse(P([(xa, 803.3), (xb, 806.3)]), fill=FONCE)
+poser('objet-linge.png', 90, 754.625)
+poser('objet-panier.png', 301, 747.625)
+poser('objet-cruche.png', 430, 755.125)
 
-# 7. la corde de bois devant le poêle (JP : « les bûches mieux faites aussi ») : du bois fendu, vu par les bouts. Une
-#    bûche ronde, un quartier ou une demie ; l'écorce en bande foncée sur le côté rond ; le bout du bois en ocre avec ses
-#    cernes autour du cœur et une fente ; empilées en rangs croisés
-BOIS = (214, 160, 92); BOIS2 = (186, 124, 62)
-def bout(cx, cy, r, sorte, rot):
-    """Un bout de bûche. sorte : 'rond', 'demi' (le cœur au milieu du côté plat) ou 'quartier' (le cœur à la pointe)."""
-    if sorte == 'rond':
-        a0, a1, coeur = 0, 360, (cx, cy)
-    elif sorte == 'demi':
-        a0, a1 = rot, rot + 180; coeur = (cx, cy)
-    else:
-        a0, a1 = rot, rot + 95; coeur = (cx, cy)
-    ang = np.radians(np.linspace(a0, a1, 40))
-    ext = [(coeur[0] + r * (1 + R.uniform(-0.04, 0.03)) * math.cos(t), coeur[1] + r * 0.94 * math.sin(t)) for t in ang]
-    inn = [(coeur[0] + r * 0.80 * math.cos(t), coeur[1] + r * 0.80 * 0.94 * math.sin(t)) for t in ang]
-    if sorte == 'rond':
-        poly(ext, FONCE, w=2.0); poly(inn, BOIS, cerne=None)
-    else:
-        poly(ext + [coeur], FONCE, w=2.0)                                                   # l'écorce, puis le bois
-        poly(inn + [coeur], BOIS, cerne=None)
-        poly([(coeur[0] + (x - coeur[0]) * 1.0, coeur[1] + (y - coeur[1]) * 1.0) for x, y in [ext[0], coeur, ext[-1]]], BOIS, cerne=None)
-        d.line(P([ext[0], coeur, ext[-1]]), fill=CERNE, width=max(1, int(k(2.0) / 1.6)), joint='curve')   # les faces fendues
-    for f in (0.62, 0.42, 0.22):                                                            # les cernes, autour du cœur
-        rr = r * f
-        d.arc(P([(coeur[0] - rr, coeur[1] - rr * 0.94), (coeur[0] + rr, coeur[1] + rr * 0.94)]),
-              a0 + R.uniform(5, 25), a1 - R.uniform(5, 25), fill=BOIS2, width=max(1, int(k(1.1) / 1.6)))
-    t = math.radians(R.uniform(a0 + 20, a1 - 20))                                            # une fente qui part du cœur
-    ligne(coeur, (coeur[0] + r * 0.72 * math.cos(t), coeur[1] + r * 0.68 * math.sin(t)), fill=CERNE, w=1.1)
-    for _ in range(3):                                                                      # l'écorce, à la gouge
-        t = math.radians(R.uniform(a0 + 5, a1 - 5))
-        ligne((coeur[0] + r * 0.86 * math.cos(t), coeur[1] + r * 0.81 * math.sin(t)),
-              (coeur[0] + r * 0.97 * math.cos(t), coeur[1] + r * 0.91 * math.sin(t)), fill=MOYEN, w=0.9)
-# la corde, serrée : trois rangs qui se touchent ; les quartiers et les demies sont plus grands que les ronds (même
-# bois), tournés pour se caser ; le fond de la pile en ombre, pour que les vides se lisent comme des creux
-corde = []
-for j, (y, xs) in enumerate(((894, (632, 664, 697, 730, 762)), (869, (648, 681, 714, 747)), (845, (664, 697, 730)))):
-    for i, x in enumerate(xs):
-        sorte = ('rond', 'quartier', 'demi', 'quartier', 'rond', 'demi')[(i + j * 2) % 6]
-        r = {'rond': 15.5, 'demi': 19, 'quartier': 23}[sorte]
-        rot = {'rond': 0, 'demi': R.choice((150, 190, 200)), 'quartier': R.choice((205, 225, 240, 250))}[sorte]
-        cx, cy = x, y
-        if sorte == 'demi':                                      # le centre de masse de la demie revient sur la case
-            cx -= r * 0.42 * math.cos(math.radians(rot + 90)); cy -= r * 0.42 * 0.94 * math.sin(math.radians(rot + 90))
-        if sorte == 'quartier':
-            cx -= r * 0.6 * math.cos(math.radians(rot + 47.5)); cy -= r * 0.6 * 0.94 * math.sin(math.radians(rot + 47.5))
-        corde.append((cx, cy, r, sorte, rot, x, y))
-from scipy.spatial import ConvexHull
-pts_c = np.array([(x + 16 * math.cos(t), y + 15 * math.sin(t)) for *_, x, y in corde for t in np.linspace(0, 6.28, 12)])
-hull = pts_c[ConvexHull(pts_c).vertices]
-poly([tuple(p_) for p_ in hull], CERNE, cerne=None)
-for cx, cy, r, sorte, rot, *_ in corde:
-    bout(cx, cy, r, sorte, rot)
+# 6. la chaudière d'eau au pied de la table, à gauche, avec son ombre sur le plancher ; descendue de 4 unités par
+#    rapport au dessin de départ, pour que la poignée de l'anse passe sous le chant de la tablette
+poser('objet-chaudiere.png', 30, 794)
+
+# 7. la corde de bois fendu sous le poêle, vue de trois quarts : les bouts (écorce, cernes, fentes), le côté qui fuit et
+#    l'ombre au fond de la pile
+poser('objet-corde.png', 596, 812)
+BOIS = (214, 160, 92); BOIS2 = (186, 124, 62)                    # les bouts des bûches du feu (section 8) les reprennent
 
 # 8. le feu dans le poêle (JP : « le foyer mieux fait ») : le fond du foyer, la lueur, deux bûches en croix, les braises,
 #    des flammes en langues, la grille devant ; tout est coupé à la fenêtre du poêle

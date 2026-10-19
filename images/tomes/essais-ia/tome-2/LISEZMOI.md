@@ -1,5 +1,12 @@
 # Tome 2, Le corps : l'image de la page de titre et de la couverture
 
+**Le bas refait** (JP, 19 octobre 2026 : « le bois en dessous du foyer, l'étage du bas et le seau ne sont pas assez de
+qualité à mon goût »). Trois façons essayées (dessin à la main, repeint en place par AI Horde, objets générés un par
+un), un juge par objet : la corde de bois et la chaudière sont dessinées en vectoriel (`objets-bas/corde.py`,
+`seau.py`) ; le linge, les bouquets pendus à deux clous, le panier d'achillée et la cruche de grès sont générés par
+Flux.1-Schnell, détourés et ramenés aux encres de l'image. Les six PNG (`objet-*.png`) se posent par `pimp_soin1.py`
+(sections 4 à 7) ; `objets-bas/objets_bas.py` les refait.
+
 **Le cadre au mur, la photo de JP** (18 octobre 2026 : « mets un cadre sur le mur, que c'est cette photo, mais dans le
 style de la photo » ; puis, des trois gravures, « celle-là c'est ma préférée »). La photo du lac (le drapeau, les deux
 enfants sur le sentier) est repeinte en linogravure par AI Horde (Juggernaut XL, img2img 0,51, sans personnages), puis

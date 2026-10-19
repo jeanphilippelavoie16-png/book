@@ -9,7 +9,8 @@ from scipy import ndimage as ndi
 BRUN = (40, 13, 9)          # le tuyau, le cadre, le clou, la fougère du bocal
 CREME = (243, 219, 197)     # les bocaux, la lampe, le bassin
 OR = (205, 142, 72)         # les herbes qui sèchent sous la table et dans le panier
-OMBRE = 0.70                # l'ombre portée du cadre : le mur multiplié par 0,70 (69, 18, 14 sur 98, 27, 22)
+OMBRE = 0.76                # l'ombre portée : celle du cadre est le mur à 0,70 (69, 18, 14 sur 98, 27, 22) ; à 0,76,
+                            # le mur entre une feuille et son ombre ne se lit pas comme une étoile au nettoyage
 FILET = (150, 92, 78)       # le liseré clair du bord de la table et des couvercles
 
 S = 4                       # on dessine à quatre fois la taille, puis on réduit
@@ -65,15 +66,17 @@ class Calque:
             d.ellipse([p[0] - w / 2, p[1] - w / 2, p[0] + w / 2, p[1] + w / 2], fill=v)
 
     def attacher(self, nom, appui):
-        """Retire de la couche nom les éclats que la gouge a détachés : ce qui ne touche plus la couche appui."""
-        a = np.asarray(self.c[nom]) > 96
-        b = np.asarray(self.c[appui]) > 96
+        """Retire de la couche nom les éclats que la gouge a détachés de la couche appui, jugés à la taille du fond
+        (ce qui ne tient que par un fil plus mince qu'un pixel tombe aussi) : un éclat seul sur le mur, le nettoyage
+        des étoiles le prendrait pour une étoile et le brouillerait."""
+        a, b = self.alpha(nom) > 0.45, self.alpha(appui) > 0.45
         lab, n = ndi.label(a | b)
         bons = np.unique(lab[b])
         perdu = a & ~np.isin(lab, bons[bons > 0])
         if perdu.any():
+            gros = np.kron(ndi.binary_dilation(perdu, iterations=1), np.ones((S, S), bool))
             m = np.asarray(self.c[nom]).copy()
-            m[ndi.binary_dilation(perdu, iterations=2) & ~b] = 0
+            m[gros[:m.shape[0], :m.shape[1]] & ~(np.asarray(self.c[appui]) > 96)] = 0
             self.c[nom] = Image.fromarray(m)
 
     def image(self, rgba, x, y):
@@ -353,8 +356,7 @@ def guirlande(cal, x0, x1, y0, y1, graine=8):
         yc = corde(xb)
         nd = yc + 0.07
         k = (y1 - nd - 0.03) / (max(L for _, L in tiges) + 0.17)
-        cal.trait('fil', [(xb - 0.02, yc - 0.004), (xb - 0.006, nd)], 0.01)
-        cal.trait('fil', [(xb + 0.02, yc - 0.004), (xb + 0.006, nd)], 0.01)
+        cal.trait('fil', [(xb, yc), (xb, nd)], 0.01)
         bouquet(cal, (xb, nd), k, graine=graine + i, tiges=tiges)
 
 
