@@ -390,28 +390,27 @@ que le niveau de l'essence dans le réservoir (repère 1).
  retombe sur le tube étroit, et l'essence au-dessus ne redescend plus (repère 13). L'essence monte par
  à-coups jusqu'à ce qu'elle passe le bord du réservoir ; ensuite, elle coule seule vers le bidon.
 
-**Autre façon, s'il reste un peu d'essence : le boyau rempli d'avance.** Remplir le boyau d'essence à
-l'entonnoir, avec un peu d'essence d'un autre bidon, jusqu'à ce qu'il n'y reste plus d'air, et pincer les deux
-bouts. Plonger un bout au fond du réservoir, descendre l'autre dans le bidon, et lâcher les deux bouts :
+**Autre façon, avec un peu d'essence d'un autre bidon : le boyau rempli d'avance.** Remplir le boyau de cette
+essence à l'entonnoir, jusqu'à ce qu'il n'y reste plus d'air, et pincer les deux bouts. Plonger un bout au fond du réservoir, descendre l'autre dans le bidon, et lâcher les deux bouts :
 l'essence qui descend dans le boyau tire celle du réservoir.
 
 **Le bidon contre la machine.** Appuyer le bec du bidon contre le métal nu de la machine avant que l'essence
 coule, pour qu'une étincelle de statique ne parte pas au goulot (étape 24). Sur beaucoup d'autos récentes, le
-boyau bute contre un clapet au fond du goulot : on tire alors l'essence des petits moteurs et des bidons.
+boyau bute contre un clapet au fond du goulot : il faut alors tirer l'essence des petits moteurs et des bidons.
 
 {!vapeurs} Ne jamais percer ni meuler un réservoir pour le vider, même presque vide : la vapeur qui reste
 dedans prend feu à l'étincelle de la mèche ou de la meule.
 
 ### Étirer ce qui reste
 
-Quand la réserve baisse, les derniers litres vont à la scie à chaîne : dans la scie, un litre devient du bois
-de chauffage (ch. 83) ; dans la motoneige, il devient quelques kilomètres. Le dernier plein de la motoneige
-reste dans la part *intouchable*, pour un départ imprévu (étape 21).
+Quand la réserve baisse, on garde les derniers litres pour la scie à chaîne, qui coupe le bois de chauffage
+(ch. 83) ; dans la motoneige, un litre ne fait que quelques kilomètres. On garde le dernier plein de la
+motoneige dans la part *intouchable*, pour un départ imprévu (étape 21).
 
 On fait le mélange deux temps au rapport inscrit sur le bouchon du réservoir ou dans le manuel de la machine
-(ch. 106). Sans huile deux temps, de l'huile à moteur propre, au même rapport, vaut mieux que de l'essence
-pure : sans huile, le piston d'un moteur deux temps grippe. Elle encrasse la bougie et l'échappement plus
-vite, et on les nettoie plus souvent.
+(ch. 106). Sans huile deux temps, on met de l'huile à moteur propre, au même rapport, plutôt que de faire
+tourner le moteur à l'essence pure : sans huile, le piston d'un moteur deux temps grippe. L'huile à moteur
+encrasse la bougie et l'échappement plus vite : il faut les nettoyer plus souvent.
 
 ### Le diesel qui fige
 
@@ -439,17 +438,18 @@ quelques degrés plus bas. Le moteur manque de carburant, tousse et s'arrête.
 - {!projection} **Ne jamais charger ni survolter une batterie gelée** : la rentrer et la laisser dégeler
  d'abord.
 - **Réchauffer l'huile.** Le soir, vidanger l'huile du moteur pendant qu'elle est chaude, dans une chaudière
- propre gardée à l'intérieur, et la reverser tiède le matin, avant de démarrer. Autre façon : coucher un
- bidon d'eau chaude contre le bas du moteur, plus lent.
-- **Partir à la corde.** Un lanceur cassé n'immobilise pas un petit moteur : enlever le capot du lanceur,
+ propre gardée à l'intérieur, et la reverser tiède le matin, avant de démarrer. Autre façon, plus lente :
+ coucher un bidon d'eau chaude contre le bas du moteur.
+- **Partir à la corde.** Avec un lanceur cassé, on peut quand même faire partir un petit moteur : enlever le capot du lanceur,
  enrouler une corde sur la poulie dans le sens où le moteur tourne, et tirer d'un coup sec. Ne jamais nouer
  la corde à la main ni au poignet : le moteur peut donner un coup en sens inverse et arracher la corde.
-- **Partir en poussant.** Une auto à transmission manuelle démarre si on la pousse, en deuxième, l'embrayage
- relâché d'un coup. Une transmission automatique ne démarre pas de cette façon, ni une motoneige.
-- **Pas d'éther sur un diesel à bougies de préchauffage** : l'éther s'allume sur la bougie chaude avant le
- bon moment et peut briser le moteur.
-- **Deux batteries en série**, c'est pour souder (ch. 107) : sur une machine de 12 V, le 24 V brûle le
- démarreur et le câblage de la machine dont on dépend pour rentrer.
+- **Partir en poussant.** Une auto à transmission manuelle démarre si on la pousse en deuxième vitesse et
+ qu'on relâche l'embrayage d'un coup. Une auto à transmission automatique ne démarre pas de cette façon, ni
+ une motoneige.
+- **Ne pas utiliser d'éther sur un diesel à bougies de préchauffage** : l'éther s'allume sur la bougie chaude
+ avant le bon moment et peut briser le moteur.
+- **Ne pas démarrer avec deux batteries en série** : ce montage sert à souder (ch. 107) ; sur une machine de
+ 12 V, les 24 V brûlent le démarreur et le câblage.
 
 ### Réparer sur le chemin
 
