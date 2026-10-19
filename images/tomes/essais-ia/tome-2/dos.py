@@ -379,7 +379,7 @@ def _trou_quatrieme(occ, xt, ppp, h_min, l_min, bord=0.375, x_max=None, y_max=No
     g[:m], g[-m:], g[:, :m] = False, False, False
     g[:, W - int(0.15 * r):] = False
     if x_max is not None:
-        g[:, int(x_max / k):] = False
+        g[:, int(np.ceil(x_max / k)):] = False     # la case du bout des filets reste : la corde s'y cale au px près
     if y_max is not None:
         g[int(y_max / k):] = False
     meilleur, h = None, np.zeros(W, int)
