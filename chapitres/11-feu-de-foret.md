@@ -274,18 +274,16 @@ sèches.
 
 49. {!feu-de-foret} **Ne rien laisser qui brûle dans les 1,5 m autour des murs** : seulement du gravier ou
  le sol minéral ; pas de paillis, pas de haie contre le mur, pas de bois cordé contre le revêtement, aucun
- arbre ni arbuste ligneux. Les
- braises tombent dans ce qui est fin, sec et aéré contre le mur, et le bâtiment brûle sans que les flammes
- du front l'aient touché.
+ arbre ni arbuste ligneux. Les braises tombent dans ce qui est fin, sec et aéré contre le mur, et le
+ bâtiment brûle sans que les flammes du front l'aient touché.
 50. **Vider les gouttières et les noues du toit (les creux où deux pans du toit se rejoignent), et nettoyer
- le dessous des galeries**, au printemps et à l'automne.
- Une gouttière pleine d'aiguilles d'épinette noire fait un allume-feu tout le tour du toit. Ça prend une
- demi-journée.
+ le dessous des galeries**, au printemps et à l'automne. Une gouttière pleine d'aiguilles d'épinette noire
+ fait un allume-feu tout le tour du toit. Ça prend une demi-journée.
 51. **Débarrasser le toit et le revêtement** de tout débris qui brûle.
 52. **Ne rien ranger sous une galerie** : ni bois, ni bouteille de propane. Le dessous d'une galerie est à
  l'ombre, plein de feuilles et ouvert à l'air : une braise y prend et le feu part sous le plancher, hors
- de vue. Fermer le dessous de la galerie une fois pour toutes avec ce qui ne brûle pas : de la tôle, du solin ou un panneau de
- fibrociment (planche 11-03, repère 3).
+ de vue. Fermer le dessous de la galerie une fois pour toutes avec ce qui ne brûle pas : de la tôle, du
+ solin ou un panneau de fibrociment (planche 11-03, repère 3).
 53. **De 1,5 à 10 m, sortir ce qui brûle** : pas de corde de bois, pas de paillis, pas de débris de bois.
  Mettre les remorques, les roulottes et les remises au-delà de 10 m.
 54. **Mettre le bois de chauffage, les matériaux et la bouteille de propane à plus de 10 m de tout

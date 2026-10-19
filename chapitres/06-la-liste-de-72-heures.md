@@ -99,18 +99,18 @@ Monter d'avance une trousse qu'une personne sort de la maison en 2 minutes, avec
 
 ### La nourriture
 
-13. **Mettre trois jours d'aliments qu'on peut manger sans les cuire** : le réchaud peut manquer, et ce qu'on réchauffe vient en plus. Les quantités et l'ordre d'achat sont au ch. 00b ; les calories dont un adulte et un enfant ont besoin l'hiver, au ch. 21.
+13. **Mettre trois jours d'aliments qu'on peut manger sans les cuire** : le réchaud peut manquer, et les aliments à réchauffer s'ajoutent à ces trois jours. Les quantités et l'ordre d'achat sont au ch. 00b ; les calories dont un adulte et un enfant ont besoin l'hiver, au ch. 21.
 
  | Aliment | Pourquoi | À savoir |
  | --- | --- | --- |
  | Conserves, avec l'ouvre-boîte manuel | On peut les manger froides | Les garder dans la maison, à l'abri du gel (étape 16) |
- | Viande séchée d'orignal | Elle est sèche, salée et légère | À la température de la pièce, dans un contenant fermé, elle reste bonne deux semaines : la garder au congélateur, et la mettre dans la trousse au moment de partir (ch. 71 et 72) |
+ | Viande séchée d'orignal | Elle est salée et légère | À la température de la pièce, dans un contenant fermé, elle reste bonne deux semaines : la garder au congélateur, et la mettre dans la trousse au moment de partir (ch. 71 et 72) |
  | Beurre d'arachide, saindoux, noix | Le gras donne le plus d'énergie pour son poids | Quand on rationne : section 7, « Le gras » |
  | Biscuits soda, gruau instantané | On peut les manger froids s'il le faut | |
  | Lait en poudre, boisson chocolatée | On les boit chauds quand on a du feu | |
  | Ce que les enfants mangent d'habitude | Pas d'aliment nouveau pour eux pendant l'urgence | Ch. 40 |
 
-14. {!cuisson} {!trichine} **Cuire à 74 °C à cœur tout gibier qui entre dans la trousse**, en ragoût, en pot ou en viande séchée, et mesurer au thermomètre. Ni le sel, ni la fumée, ni le séchage, ni le gel ne tuent la trichine de l'ours : mettre la viande d'ours dans la trousse en ragoût ou en pot seulement, jamais en viande séchée (ch. 71).
+14. {!cuisson} {!trichine} **Cuire à 74 °C à cœur tout gibier qui entre dans la trousse**, en ragoût, en pot ou en viande séchée, et mesurer au thermomètre. Ni le sel, ni le fumage, ni le séchage, ni le gel domestique ne tuent la trichine de l'ours : mettre la viande d'ours dans la trousse en ragoût ou en pot seulement, jamais en viande séchée (ch. 71).
 15. {!abats} **Ne mettre ni le foie ni les reins d'un orignal, d'un caribou ou d'un cerf dans la trousse** : ils accumulent le cadmium (ch. 22).
 16. {!botulisme} **Garder les conserves dans la maison, à l'abri du gel, et sortir de la trousse une conserve qui a gelé.** En gelant, une boîte peut éclater et un pot peut perdre son vide[^1], et le gel ne détruit pas la toxine du botulisme. Le botulisme ne change ni l'odeur, ni le goût, ni l'apparence de la conserve (section 6). Les conserves maison : ch. 78.
 
@@ -119,7 +119,7 @@ Monter d'avance une trousse qu'une personne sort de la maison en 2 minutes, avec
 17. **Donner à chaque personne une lampe frontale** plutôt qu'une lampe de poche : on garde les deux mains libres.
 18. **Garder les piles de rechange hors des appareils, dans leur emballage, et les remplacer à date fixe** (section 5), sans attendre que la lampe faiblisse. En vieillissant, une pile alcaline coule et abîme l'appareil où elle est restée. Une pile au lithium marche jusqu'à −40 °C ; une alcaline s'arrête vers −18 °C. L'hiver, garder les piles de rechange dans une poche intérieure, contre le corps (section 7, « Les piles qu'on croit mortes »).
 19. **Ajouter une lampe à manivelle ou à panneau solaire, même quand on a des piles** : elle ne se périme pas, et elle éclaire encore quand on a oublié de vérifier la trousse.
-20. **Mettre une radio à piles ou à manivelle** : elle donne les nouvelles du dehors sans user la charge du téléphone. Ce qu'on ajoute pour s'informer et pour joindre quelqu'un : ch. 14 ; sans radio : section 7.
+20. **Mettre une radio à piles ou à manivelle** : elle donne les nouvelles sans user la charge du téléphone. Ce qu'on ajoute pour s'informer et pour joindre quelqu'un : ch. 14 ; sans radio : section 7.
 21. **Mettre les allumettes dans deux contenants étanches, rangés à deux endroits, avec un briquet.** Les allumettes prennent l'humidité et ne s'allument plus, souvent sans que ça se voie. Avec deux contenants, l'eau qui entre dans l'un n'atteint pas l'autre. Allumer un feu sans allumettes : ch. 13.
 
 ### Les soins
