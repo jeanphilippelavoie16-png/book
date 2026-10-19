@@ -463,6 +463,27 @@ def composer(v, m, img, pal, ppp):
     return can, bandes
 
 
+def motif_dos(k, v, can, rects, m, ppp, img):
+    """Des éléments de l'image du devant qui reviennent au dos, comme les étoiles du tome 1 (JP, 19 octobre 2026 :
+    « j'aime que pour le tome 1 on retrouve des éléments de la couverture en arrière, les étoiles ; fais-le pour les
+    autres »). Chaque tome a son module images/tomes/essais-ia/tome-N/dos.py, avec une fonction motif(can, info) qui
+    dessine sur la quatrième et la tranche (colonnes 0 à info['xf'] du fond) et rend le fond. info : xf, xt (début de la
+    tranche), H, ppp, rects (les boîtes du texte en px CSS : x0, y0, x1, y1, taille ; 1 px CSS = ppp / 96 px du fond),
+    image (le PIL de l'image du devant), tome, variante. Pas de module : le fond ne change pas."""
+    f = os.path.join(ROOT, 'images', 'tomes', 'essais-ia', 'tome-%d' % k, 'dos.py')
+    if VARIANTES[v]['dos'] != 'etoiles' or not os.path.exists(f):
+        return can
+    import importlib.util
+    spec = importlib.util.spec_from_file_location('dos_tome_%d' % k, f)
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    info = dict(xf=round(m['x_devant'] * ppp), xt=round(m['x_tranche'] * ppp), H=can.shape[0], ppp=ppp,
+                rects=list(rects), image=img, tome=k, variante=v)
+    out = mod.motif(can.copy(), info)
+    print('    dos : motif de %s' % os.path.relpath(f, ROOT))
+    return out
+
+
 def nettoyer(can, rects, ppp):
     """Retire les étoiles qui touchent une lettre ou un filet : petites taches claires sur fond sombre (chapeau haut
     de forme), dont la tache entière touche la boîte d'un texte élargie d'une marge. Les crêtes, la lune et les traits
@@ -637,6 +658,7 @@ def main():
             open(f, 'w', encoding='utf-8').write(page_html(v, k, m, pal, fichiers, None, accent))
             rects = mesurer(f, m)
             can, bandes = composer(v, m, img, pal, o.fond_ppp)
+            can = motif_dos(k, v, can, rects, m, o.fond_ppp, img)
             can, n = nettoyer(can, rects + bandes, o.fond_ppp)
             fond = 'fond-%s.jpg' % v
             Image.fromarray(can).save(os.path.join(travail, fond), quality=92, subsampling=0)
