@@ -213,27 +213,20 @@ function placerNotes(){
     if(finitSurTitre(c.fr)) return false;
     const avant = c.fr.querySelector('.extra');
     if(c.ouvert) c.fr.classList.add('auto');
-    c.fr.appendChild(x);
+    // la note entre dans une enveloppe dont l'air du dessus est un rembourrage, pas une marge : une marge tombe à la
+    // coupure de colonne, et le haut du « i » à cheval sur le coin de la note passait au bas de la colonne d'avant (un
+    // demi-rond vert sous le texte, le « i » coupé ; p02-2, p12-2, p09-1, 19 octobre 2026)
+    const env = document.createElement('div'); env.className = 'extra-env'; env.appendChild(x);
+    c.fr.appendChild(env);
     const ok = () => {
       const b = c.p.bl.getBoundingClientRect().bottom + 0.5;
-      return !OVER(c.fr) && x.getBoundingClientRect().bottom <= b && [...c.fr.children].every(e => e.getBoundingClientRect().bottom <= b)
+      return !OVER(c.fr) && env.getBoundingClientRect().bottom <= b && [...c.fr.children].every(e => e.getBoundingClientRect().bottom <= b)
         && c.p.bl.lastElementChild.getBoundingClientRect().bottom <= b && dansLeBloc(c.p);
     };
-    const non = () => { c.fr.removeChild(x); if(c.ouvert && !avant) c.fr.classList.remove('auto'); return false; };
-    if(!ok()) return non();
-    // la note qui ouvre la deuxième colonne : sa marge du haut tombe à la coupure de colonne, et le haut du « i » à cheval
-    // sur son coin passait au bas de la première colonne (un demi-rond vert sous le texte, le « i » coupé ; p02-2 et
-    // p12-2, 19 octobre 2026). Une cale d'un pixel ouvre la colonne : la marge reste, le « i » tient dans sa colonne.
-    const fb = c.fr.getBoundingClientRect(), xb = x.getBoundingClientRect();
-    if(xb.left > fb.left + fb.width / 3 && xb.top - fb.top < 14){   // la bulle dépasse de 7 pt (9,3 px) : p09-1 encore coupée à 6
-      const cale = document.createElement('div'); cale.className = 'extra-cale'; c.fr.insertBefore(cale, x);
-      if(!ok()){ c.fr.removeChild(cale); return non(); }
-    }
+    if(!ok()){ env.remove(); if(c.ouvert && !avant) c.fr.classList.remove('auto'); return false; }
     EXTRAS.splice(EXTRAS.indexOf(x), 1);
     return true;
   };
-  // une note au plus par page : quatre l'une sous l'autre au bas de la fin du ch. 5, « trop de notes vertes, c'est pas
-  // beau non plus » (JP, 19 octobre 2026) ; le reste du vide reçoit une vignette (vignettes())
   choix.sort((a, b) => idx(a[1]) - idx(b[1])).forEach(([x, c]) => poser(x, c));
 }
 function nextPage(){
@@ -817,7 +810,7 @@ function teteSeule(p){
 }
 // le dernier élément visible d'un cadre, avant les notes : une note ne se pose jamais sous un titre
 function finitSurTitre(fr){
-  const v = [...fr.children].filter(e => !e.classList.contains('extra') && !e.classList.contains('extra-cale') && e.getBoundingClientRect().height > 1);
+  const v = [...fr.children].filter(e => !e.classList.contains('extra') && !e.classList.contains('extra-cale') && !e.classList.contains('extra-env') && e.getBoundingClientRect().height > 1);
   const l = v[v.length - 1];
   return !l || /^H[234]$/.test(l.tagName) || l.classList.contains('kh');
 }
