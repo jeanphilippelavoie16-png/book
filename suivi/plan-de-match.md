@@ -31,7 +31,14 @@ Trois phases, une à la suite de l'autre (≈ 18 à 20 M au total) :
 1b. **Texte fini le 19 octobre** (les six lots ; sorties dans `_reprise/scratchpad/tome1-final/lot-*.json`). En cours :
    trancher les points soulevés (un rédacteur par lot) puis intégrer les fichiers communs (`trancher-integrer.js`).
    Il en sortira une seule liste de questions pour JP.
-2. **Planches** (dont 18-01, la crémaillère, et 18-02, l'auge de neige : oui de JP, appelées dans le texte) : celles
+1c. **Décisions de JP** (19 octobre, ses 12 réponses) : en cours, `_reprise/scratchpad/tome1-final/decisions-jp.js`
+   (rédacteur, vérificateur du nouveau, éditeur). Restent à appliquer après lui, dans les logigrammes 16 et 17 : « Un
+   seul adulte doit parler. », « Emmener tout le monde dans la pièce du fond, bloquer la porte de l'intérieur et y
+   rester. », « travois » hors du _note du 16.
+2. **Planches** (en cours depuis le 19 octobre : `planches-nouvelles.js` pour 01-02, 06-01, 18-01, 18-02 et les 13-40
+   et 13-09 refaites ; `planches-corrections.js` pour les corrections de `planches-t1.txt` et l'eau en bleu sur toutes
+   les planches du tome 1, JP : « oublie pas de mettre toute l'eau en bleu »). Les changements de texte qu'elles rendent
+   (appels, repères des 03-10 et 11-04, légende de la photo 05) s'appliquent après, avec les ancres. (dont 18-01, la crémaillère, et 18-02, l'auge de neige : oui de JP, appelées dans le texte) : celles
    que les rédacteurs disent manquantes ou décalées, plus les priorités de
    `images/audit-planches/` pour le tome 1 ; les 28 planches du tome 1 dans `images/a-valider/` attendent JP.
 3. **Montage** : chaque chapitre monté et regardé page par page (notes posées, rien qui déborde, planches près de
