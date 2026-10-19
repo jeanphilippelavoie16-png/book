@@ -362,3 +362,49 @@ le moteur les place donc par écart entre les pages, sans viser une étape.
   voir plus haut) ; « 10 min » (la ligne du tuyau d'échappement passée au paragraphe du scénario 9) ; renvois ch. 2,
   ch. 14, ch. 19 (une occurrence de moins chacun, les autres restent).
 - **Fins de ligne** : LF, comme avant.
+
+## Corrections après la vérification technique, 19 octobre 2026
+
+Quatorze remarques du vérificateur technique sur la refonte (cinq « erreur », neuf « à préciser »). Aucune page captée
+de nouveau (JP, 19 octobre : « on a pas déjà fait ce travail-là ? ») : chaque correction s'appuie sur un fichier déjà au
+dossier, sur une page des dangers ou sur un autre chapitre, nommés ci-dessous. Toutes appliquées ; quatre avec une
+retouche de forme ou un ajout, dit et justifié.
+
+| # | Où | Remarque | Ce qui est fait | Appui |
+| --- | --- | --- | --- | --- |
+| 1 | Scénario 8, `{!cuisson} {!trichine}` | Le gel domestique perdu du rappel de `CLAUDE.md` | Appliquée : « porte encore la trichine après des mois au congélateur, et aussi après qu'on l'a salée, fumée ou séchée pour la sauver du dégel » (« quand on la sale » mis au passé : le geste est fait) | Page `trichine` ; `63-acia-trichinella-salaison-sechage-fumage.md`, l. 102-103 |
+| 2 | Scénario 2, `{!mal-de-caribou}` | « À partir de la deuxième semaine » laissait une semaine de maigre seul | Appliquée mot pour mot : « Mettre du gras à chaque repas de viande maigre, dès le premier » | Ch. 19, section 5 ; page `mal-de-caribou` |
+| 3 | Section 7, « La lampe à gras » | L'huile de cuisson est un gras qui se mange | Appliquée, dite par ce qui marche : « du gras qui a ranci, ou le surplus quand la réserve dépasse ce que la famille mangera. Tant que la famille manque de gras, l'huile de cuisson et la graisse de bête vont dans les repas, pas dans la lampe (scénario 2) ». Remplace la « contradiction corrigée » de la refonte (plus haut), qui était fausse | Ch. 112, section 2 ; page `mal-de-caribou` |
+| 4 | Scénario 1, `{!generatrice} {!co}` | « De la maison » au lieu de « tout bâtiment » ; « un bâtiment » perdu du rappel | Appliquée : « dehors, à 6 m ou plus de tout bâtiment… : jamais dans un bâtiment, ni dans le garage ou la remise, ni sous un auvent, même porte ouverte » | `10-sante-canada-generatrice-distance.md`, l. 15 ; page `generatrice` |
+| 5 | Section 6, ligne du CO | L'exception des retombées perdue | Appliquée en renvoi court, parce que le fait entier est dit au scénario 6 (correction 6) et qu'un fait garde une place : « Sortir tout le monde à l'air libre tout de suite, sauf pendant des retombées (voir le scénario 6) » | Page `co`, point 1 ; ch. 4, étape 18 |
+| 6 | Scénario 6 | L'avertisseur avant de boucher ; « un appareil », pas seulement le poêle ; rien au caveau ; aucun `{!co}` | Appliquée : la ligne du tableau (« Poser l'avertisseur de CO dans la pièce d'abri, puis boucher…, jamais si un appareil y brûle ») et un paragraphe `{!co}` sous le tableau. **Ajout** au texte proposé : la phrase du caveau (« ces signes viennent d'abord de l'air qui manque, et l'avertisseur de CO ne le détecte pas : enlever les bouchons des conduits d'aération du caveau et l'aérer tout de suite ») et le pictogramme `espace-clos`. Sans elle, le paragraphe faisait chercher au caveau une source de monoxyde qui n'y est pas, alors que le ch. 4 y pense d'abord à l'air qui manque | Ch. 4, étape 18 (puces 1, 3, 5 et 6) ; page `espace-clos` |
+| 7 | Section 7, « Désinfecter sans feu », 1re puce | « Le double » généralisé à l'eau trouble ; « température de la pièce » | Appliquée : 30 min au-dessus de 20 °C ; le double (0,4 mL par litre) pour une eau froide, un peu trouble ou un peu colorée ; plus froide que 20 °C, au moins 1 h, et 2 h sous 10 °C. L'eau franchement trouble n'est pas nommée : la puce suivante la fait déposer et passer au linge, faute de feu | Ch. 10, étapes 19 à 21 |
+| 8 | Section 7, « Désinfecter sans feu », 2e puce | « La javel tue les microbes » contredit le ch. 10 | Appliquée : « la javel tue les bactéries et les virus », et une puce nouvelle `{!selles}` : « La javel ne fait presque rien contre un des parasites de l'eau de lac, de ruisseau ou de neige. Passer cette eau au filtre à 1 µm avant la javel, si on en a un (ch. 10, étape 19) ; sans filtre ni feu, ce parasite reste dans l'eau. » Le pictogramme suit le ch. 10, étape 19 ; la fin de phrase nomme ce qu'on perd sans filtre (gabarit, section 7) | Ch. 10, étape 19 ; section 6 du ch. 10 (« Diarrhée alors que l'eau a été chlorée comme il faut ») |
+| 9 | Section 5, avertisseurs de CO | « Date de remplacement écrite » ; « remplacer l'appareil » avant la pile | Appliquée, redite pour l'oral : la date de fabrication imprimée au dos ; cible « chacun fabriqué il y a moins de 7 à 10 ans, selon le modèle » ; « Si l'essai ne sonne pas, mettre une pile neuve ; s'il ne sonne toujours pas, ou si l'appareil a dépassé son âge, le remplacer (ch. 6) ». Le renvoi au ch. 6 porte la date écrite au marqueur | `09-avertisseurs-co-duree-de-vie.md` ; `15b-kidde-avertisseur-co-bouton-et-temperature.md` ; ch. 6, section 5 |
+| 10 | Section 6, mal de caribou | « Après une semaine ou plus » fait écarter les premiers jours | Appliquée, en deux phrases : « Après quelques jours de viande maigre : … puis la diarrhée, en général au bout d'une semaine à dix jours. Sur une viande sans aucun gras, les signes peuvent commencer dès le deuxième jour » | `21-speth-spielmann-1983-stefansson-mal-de-caribou.md` (« for the first few days », « from a week to 10 days ») ; page `mal-de-caribou` |
+| 11 | Scénario 8, `{!abats}` | Le cerf laissé dehors | Appliquée : « d'orignal, de caribou ou de cerf » | Page `abats` |
+| 12 | En plus, « Ce qu'on peut recongeler dégelé » | Liste raccourcie | Appliquée : « la viande, la volaille, le poisson, le lait et les autres produits laitiers, les œufs, et les plats qui en contiennent » (48 mots) | `11-quebec-aliments-panne-courant.md`, l. 28-30 |
+| 13 | Section 5, tablette ; section 6 | Les médicaments rangés sur les trois tablettes, auto comprise | Appliquée, avec un ajout : « sauf les médicaments **et le bois** ». Le bois sec de la section 3 ne va pas sur une tablette dans l'auto, et il a sa propre ligne en section 5 (« sous abri, à part du bois de tous les jours »). Section 6 : « ne remettre que les articles prévus pour la tablette (section 5) » au lieu de « les articles de la section 3 » | Section 3 du chapitre (« gardée dans le sac qui part avec la famille ») |
+| 14 | Section 7, « Le 12 volts de l'auto » | −18 °C, la moitié de la capacité : absent du tableau des chiffres nouveaux | Rien à changer dans le texte. Ajouté au tableau « Chiffres nouveaux dans le chapitre » plus haut et à `sources/08-reprises-sources-deja-enregistrees.md` | `18b-trojan-batteries-plomb-froid-et-charge.md`, l. 22-24 |
+
+**Ce que les corrections remplacent plus haut dans cette fiche.** « Où est allé l'ancien DANGER », ligne du mal de
+caribou : « à partir de la deuxième semaine » devient « dès le premier repas ». Ligne de la génératrice : « 6 m de tout
+bâtiment ; jamais dans un bâtiment, le garage, la remise ni sous un auvent ». Ligne de la trichine : le gel domestique
+s'ajoute au sel, au fumage et au séchage. « Contradiction corrigée dans le chapitre » : la lampe ne prend plus l'huile de
+cuisson, voir la correction 3.
+
+**Pictogrammes ajoutés :** `co` et `espace-clos` (scénario 6, paragraphe sous le tableau) ; `selles` (section 7,
+« Désinfecter sans feu », 3e puce). Les quinze ids du chapitre ont leur SVG dans `images/pictos-dangers/`.
+
+**Chiffres nouveaux :** 7 à 10 ans (avertisseur de CO), 0,4 mL par litre, 1 h et 2 h sous 10 °C (javel), le deuxième
+jour (mal de caribou) ; tous repris de fichiers déjà au dossier (tableau plus haut). `[À VÉRIFIER]` : aucun.
+
+**Signalé, sans rien changer :** la colonne « Si c'est hors cible » de la section 5 met « Chaque automne » pour l'essai
+des avertisseurs, le ch. 6 « Deux fois par année » : les deux tiennent (le ch. 8 fait la tournée annuelle des deux
+lieux), mais l'éditeur peut les aligner.
+
+**controle.py :** avant les corrections (la refonte, HEAD) 6 439 mots ; après, 6 726 mots, 2 tirets (titre et ligne de
+tome, comme avant), 0 « § », 0 tournure, 0 maxime, 0 pronominal ; « au niveau de la mer » gardé (une vraie mesure) ;
+43 mots vides jugés, dont deux nouveaux qui portent le sens (« tout bâtiment », « porte encore la trichine »).
+Invariants contre la refonte : rien n'a disparu. Contre le texte d'avant la refonte (commit `17bf592`) : la même liste
+que dans la section de la refonte, justifiée là.

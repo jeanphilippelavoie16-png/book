@@ -431,3 +431,77 @@ Aucun dans le texte.
   construction) ; « 50 m » (sans source) ; ch. 39 (respiration de l'enfant : page), ch. 82 et ch. 87 (anciens renvois
   du Danger, points 4 et 5 : pages `vapeurs` et `generatrice`), un ch. 15 (le même renvoi reste aux étapes 2 et dans
   les Points de contrôle) ; « génératrice » 4 → 2 (le rappel de CLAUDE.md est entier à l'étape 45).
+
+## Corrections après la vérification technique, 19 octobre 2026
+
+Rédacteur (rôle 2). Dix-sept points du vérificateur technique : 5 erreurs, 12 à préciser. JP, pour cette passe :
+« fuck les sources, on a pas déjà fait ce travail-là ? » Rien n'a été cherché de nouveau : chaque point a été relu
+dans la source déjà au dépôt que le vérificateur cite, et rien d'autre n'a été rouvert. Les numéros d'étapes n'ont
+pas changé (1 à 58).
+
+### Appliqué dans le chapitre
+
+| # | Où | Avant | Après | Source relue |
+| --- | --- | --- | --- | --- |
+| 1 | Étape 23 | « S'il y a du terrain déjà brûlé dehors, ne pas rester dans un bâtiment qui brûle : sortir sous la laine vers ce terrain. » | « Sortir sous la laine vers le terrain déjà brûlé dès que le dehors est moins dangereux que le dedans. » La condition de moment revient | `11-cfa-abri-dans-la-maison-texte.txt`, l. 54 à 59 (« Stay inside unless it's safer to be outside » ; « delay going outside until the risks outside reduce ») |
+| 2 | Étape 45 | `{!generatrice}` seul ; « jamais dans la maison, le garage, la remise » ; rien sur le disjoncteur | `{!generatrice} {!electrocution}` ; « jamais dans un bâtiment, un garage, une remise ni sous un auvent » (le rappel de CLAUDE.md, qui vaut aussi au chalet) ; « Mettre le disjoncteur principal à OFF, brancher les appareils directement sur la génératrice par des rallonges (ch. 3) » : le fait propre de l'ancien point 5 du Danger revient | `01-hydro-quebec-generatrice-et-pannes.md` ; formulation des ch. 1 (étape 10), 2 (étape 9) et 3 (étape 17) |
+| 3 | Note « Le brûlage de printemps des Cris et des Dénés » | Trois faits de trois groupes mis au compte du groupe de l'Alberta ; « avant les mois chauds et secs » | Chaque fait avec son groupe : la neige en lisière et le feu bas (Dénés et Cris des bois, nord de l'Alberta) ; le brûlage autour des communautés « pour réduire le danger de feu des mois chauds et secs » ; « Plus à l'ouest, à Fort Nelson, la neige servait de coupe-feu ». Le feu qui s'échappe sort (voir plus bas). 80 mots | `99-christianson-2022-feu-autochtone-boreal.html` (passages relus dans la page enregistrée) ; tableau de `11-en-plus-notes-et-photo.md` mis à jour |
+| 4 | Étape 16 | « encombre beaucoup moins » ; « le service d'appel est coupé » | « encombre moins » ; « le service téléphonique est interrompu », les mots de la page | `11-isde-rester-connecte-messages-texte.md` (tableau mis à jour) |
+| 7 | Étape 6 | Rien ne disait plus qu'on n'attend pas les flammes pour partir (l'ancien point 2 du Danger était devenu une consigne de chargement, étape 3) | Après « Un seul adulte décide du départ (ch. 2). » : « On n'attend pas de voir les flammes pour partir : une des deux raisons suffit. » L'étape 3 garde sa phrase | Ancien point 2 du Danger (`git show 068110e:chapitres/11-feu-de-foret.md`) |
+| 8 | Section 7, « Le filtre n'arrête pas les gaz » | « Le filtre n'arrête pas le monoxyde de carbone, qui est un gaz. » | « Le filtre n'arrête pas les gaz : ni ceux de la fumée du feu, ni le monoxyde de carbone. » Le fait propre de l'ancien point 1 du Danger (les gaz de la fumée elle-même) revient | `11-epa-guide-fumee-sante-publique-2019-texte.txt`, l. 1422 ; `00b-sante-canada-masque-respiratoire-fumee-feux-foret.md` |
+| 9 | Étape 21 | « Fermer les rideaux contre la chaleur du front (étape 13). » Le renvoi menait au geste contraire (décrocher) | « Fermer les rideaux ou les stores : ils protègent de la chaleur du front. » Sans renvoi | `11-cfa-abri-dans-la-maison-texte.txt`, l. 34 (« Close curtains or blinds to protect yourself from radiant heat ») |
+| 10 | Étape 12, et étape 21 | « des bottes ou des souliers fermés » ; « avec des bottes » | « des bottes de cuir » aux deux étapes, comme la page `feu-de-foret` | `11-cfa-abri-dans-la-maison-texte.txt`, l. 32 (« sturdy leather boots (not thongs, sandals or runners) ») |
+| 11 | Étape 20 | « comme un gros coup de soleil » | « plus qu'un gros coup de soleil » : au seuil, le chapitre et la page disent maintenant la même chose | `11-cfa-abri-dans-l-auto-texte.txt`, l. 53 (« hotter than when skin is badly sunburned ») |
+| 13 | Note « Sept-Îles, juin 2023 » | « Vers l'est, la route était coupée : un pont était fermé. […] un autre feu brûlait au nord de la ville. » | « Vers l'est, on ne pouvait pas évacuer. Vers l'ouest, on pouvait encore partir, mais un feu brûlait au nord de la ville. » 72 mots | `00-radio-canada-sept-iles-evacuation-anniversaire-texte.txt`, l. 144 à 156 |
+| 14 | Note « Les bleuets du brûlis » | « la deuxième » | « la deuxième ou la troisième, selon l'espèce » ; 62 mots | `99-bleuetiere-taille-par-le-feu.md`, section 1 (A.2.0 : l'airelle fausse-myrtille « a tendance à produire davantage la 3e année ») |
+| 15 | Section 7, « Le baril en hauteur » | « un filet continu, sans pression » (faux : la hauteur du baril fait une pression faible) | « un filet continu, pas un jet » | Aucun chiffre ; le texte d'avant la refonte |
+| 16 | Étape 40 | `{!ecrasement}` seul : sa page ne parle ni d'arbre ni de chicot | `{!ecrasement} {!projection}` : l'arbre encroué et le bois sous tension sont à la page `projection` (point 5) | `dangers/partie-1.md` |
+
+### Appliqué autrement que proposé, et pourquoi
+
+- **Point 3, la note des Cris et des Dénés.** « contre le danger des mois chauds et secs » devient « pour réduire le
+  danger de feu des mois chauds et secs » : le but se dit en clair (règle 0), et c'est celui de la source (« to
+  mitigate future wildfire risk »). Le feu qui s'échappe parfois sort : il vient des Cris des marais et des Métis du
+  nord de la Saskatchewan, et le nommer faisait passer la note au-dessus de 80 mots. « L'été, sans neige en lisière »
+  devient « L'été, sans cette neige » (un mot de moins).
+- **Point 9, l'étape 21.** Sans « qui traverse les vitres » : la chaleur qui traverse les vitres est dite à
+  l'étape 13, et JP l'a nommée parmi les faits redits du ch. 11 (skill `ecriture`, « La répétition »).
+- **Point 10, l'étape 12.** Sans « pas d'espadrilles ni de sandales » : on dit ce qui va (skill, règle 8) ; « des
+  bottes de cuir » écarte l'espadrille, et l'étape dit déjà que le synthétique fond sur la peau. « Avec des bottes de
+  cuir » est aussi mis à l'étape 21, dont la source (CFA, abri dans la maison) est la même ligne.
+- **Point 8, le filtre.** « n'arrête pas les gaz » plutôt que « n'arrête aucun gaz » : l'EPA dit « Most air
+  cleaners are not effective at removing gases », et des appareils au charbon actif existent ; le filtre de fournaise
+  du montage n'en arrête pas, mais « aucun » dirait plus que la source.
+
+### Rendu à l'orchestrateur (fichiers communs, que le rédacteur ne touche pas)
+
+- **Point 5, crédit de la photo** : la ligne de `images/credits.md` pour `extras/11-pessiere-a-cladonie.jpg`
+  (LBM1948, CC BY-SA 4.0).
+- **Points 6 et 12, page `feu-de-foret`** (`dangers/partie-1.md`) : le N95 de l'enfant (« n'est pas fait pour le
+  visage d'un enfant et ne le protège pas ; avant 2 ans, l'enfant ne doit jamais en porter ») et la fumée jugée à la
+  vue (« à la vue, on n'en a qu'une estimation, de jour et par temps sec (ch. 11, étape 36) »). L'étape 33 garde sa
+  phrase.
+- **Point 16, « Où il revient »** des pages `ecrasement`, `projection`, `incendie`, `generatrice` et
+  `electrocution`, et la colonne « Chapitres » de `plan/dangers-inventaire.md`, section 1, pour `ecrasement`,
+  `projection` et `incendie` ; le paragraphe du ch. 11 de la section 3 refait sur les étapes d'aujourd'hui.
+- **Point 17, renvois des autres chapitres** : ch. 96 (« ch. 11 §9 », deux fois), ch. 99 (« ch. 11, §9 », trois
+  fois) → « ch. 11, section 7 » ; ch. 37 (« la règle du ch. 11 (section 5-B) ») → « la règle du ch. 11 (étape 57) ».
+- **Points 4 et 18, le message texte ailleurs** : ch. 3 (étape 10) et ch. 7 (étape 5) disent « beaucoup moins » et
+  « le service d'appel est coupé » (le ch. 3 a été retouché depuis la vérification : la formule « là où un appel ne
+  passe pas » n'y est plus, mais « beaucoup moins » y est) ; ch. 14 (étape 25) dit déjà « moins ». Le skill
+  `ecriture`, tableau, l. 259, prescrit encore le mécanisme sans source (signal faible, renvoi automatique) : à
+  remplacer par la phrase de l'ISDE, avec sa source.
+
+### Ancres
+
+- 11-03 : « 7. **Remplir tout ce qui tient l'eau** » (l'ancienne ancre, « **L'eau et le pourtour (étapes 7 à 9).** »,
+  n'existe plus depuis la refonte) ; 11-04, 11-05, la photo des colonnes : inchangées ; le logigramme :
+  « **Râteau à feu** », dernier item du Matériel. Aucune phrase d'ancre touchée par ces corrections.
+- Le logigramme n'est pas touché : aucune de ses boîtes ne dit ce qui a changé.
+
+### controle.py, après les corrections
+
+7 760 mots environ (7 747 avant les deux remises en ligne), 2 tirets (titre et ligne de tome, forme commune), 1
+tournure jugée (« les coucher dans la pièce la mieux fermée », inchangée), 0 maxime, 0 pronominal, 42 mots vides
+jugés, 5 redites jugées (les mêmes qu'à la refonte), invariants : rien n'a disparu par rapport à HEAD. Ancre
+introuvable : 11-03, l'ancienne, rendue à l'orchestrateur avec la nouvelle.
