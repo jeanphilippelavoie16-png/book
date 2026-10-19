@@ -651,3 +651,7 @@ cette passe : commit `f515e01`.
 ## Planches, 19 octobre 2026
 
 **La pastille de la seconde série du CO, « Tout le monde est dehors : couper la source et rentrer » : pas posée.** Le constructeur avertit qu'elle n'a pas d'heure lisible. Le texte des étapes 5 à 8 ne donne pas le temps qu'on a pour la série : il donne « en quelques secondes » (atteindre la source, étape 5) et « dans les 6 minutes » (l'avertisseur qui se remet à sonner, étape 7), qui sont des durées de gestes, pas le temps dont on dispose une fois tout le monde dehors. Aucune fiche de `sources/` ne le donne non plus (voir plus haut, « Les séries orange et leurs pastilles »). Règle 1 : rien d'inventé ; le marqueur reste `{.orange}`. Question à JP, ou une source sur le temps qu'on peut passer dehors l'hiver avec les enfants dans l'auto. Chapitre non touché.
+
+## Pastille de la série « Tout le monde est dehors » (19 octobre 2026)
+
+10 min, donnée par JP (« 10 minutes ») : le temps de couper la source et de rentrer. Pas de source chiffrée ; c'est la décision de JP, pas une donnée de terrain.

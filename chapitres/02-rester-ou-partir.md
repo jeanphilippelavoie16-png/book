@@ -67,7 +67,7 @@ mal à la tête, la nausée ou des étourdissements en même temps, avec ou sans
 
 [^1]: Chez certains fabricants, la série revient toutes les 5 secondes. L'alarme de fumée, elle, fait trois bips longs. Un bip seul toutes les 30 secondes ou toutes les minutes annonce une pile faible ; un groupe de deux à cinq bips à la même cadence annonce la fin de vie de l'appareil. Ces deux signaux ne sont pas des alarmes. Un appareil en fin de vie ne mesure plus de façon fiable.
 
-### Tout le monde est dehors : couper la source et rentrer {.orange}
+### Tout le monde est dehors : couper la source et rentrer {.orange 10 min}
 
 5. **Couper la source, si on sait laquelle et qu'on l'atteint en quelques secondes.** Y envoyer une personne qui n'a
  pas eu mal à la tête ; elle doit y aller en marchant.
