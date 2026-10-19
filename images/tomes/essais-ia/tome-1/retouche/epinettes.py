@@ -653,7 +653,8 @@ def _zone(a, nom, K):
 
     # -- le fond rebouché
     fond = z.copy()
-    rang = np.zeros((h, w), np.float32)          # la rangée d'arbres continuée (elle déborde un peu de l'ancienne)
+    rang = np.zeros((h, w), np.float32)          # ce qui est refait hors de l'ancienne épinette (la rangée continuée,
+                                                 # le bout des deux grands traits blancs)
     # la neige : chaque pixel prend la neige valide la plus proche, puis un léger lissage
     # (la trace de raquettes, plus foncée que la neige, ne se recopie pas dans le trou : elle s'y étirerait)
     valide_n = champ & ~ancien & (L > 212)
@@ -690,7 +691,10 @@ def _zone(a, nom, K):
         # la trace de raquettes, derrière la petite du milieu et jusque sous la grande de droite : recopiée de deux
         # empreintes plus à gauche, décalée en hauteur comme son tracé
         if nom == 'droite':
-            cible = (_raster([_ruban(FILS[0], 4.5)], boite, K, 2) > 0.5) & ancien & champ & (xs[None, :] >= 556)
+            # (les miettes noires de l'ancienne épinette restées sur la trace, que le rebouchage épargne, en sont aussi :
+            # recopiées plus loin, elles feraient des taches)
+            cible = ((_raster([_ruban(FILS[0], 4.5)], boite, K, 2) > 0.5) & champ & (xs[None, :] >= 556)
+                     & (ancien | (zone_bas & (L < 100))))
             dx = int(round(PAS_TRACE * K))
             fx, fy = np.array(FILS[0]).T
             for j in np.nonzero(cible.any(0))[0]:
@@ -698,6 +702,7 @@ def _zone(a, nom, K):
                     dy = int(round((np.interp(xs[j], fx, fy) - np.interp(xs[j - dx], fx, fy)) * K))
                     ii = np.nonzero(cible[:, j])[0]
                     fond[ii, j] = fond[np.clip(ii - dy, 0, h - 1), j - dx]
+                    rang[ii, j] = 1.0
         # les deux grands traits blancs de la colline de gauche (collines.py) s'arrêtaient net au bord de l'ancienne
         # épinette : ils continuent dans leur sens jusque sous la nouvelle, recopiés sur leur propre tracé au-delà de
         # 6 unités du bord (le bout coupé et son ergot partent avec) ; rien d'autre ne bouge à plus de 3 unités d'eux
@@ -715,10 +720,15 @@ def _zone(a, nom, K):
                 sx[dedans] += u[0]; sy[dedans] += u[1]
                 ry = np.clip(np.round(sy).astype(int), 0, h - 1); rx = np.clip(np.round(sx).astype(int), 0, w - 1)
                 dedans = marge[ry, rx] & (rx < w - 1) & (ry < h - 1)
-            src = fond[ry, rx]
+            # la source lue entre les pixels (bilinéaire) : le bord du trait garde son lissé, sans marches
+            y0_ = np.clip(np.floor(sy).astype(int), 0, h - 2); x0_ = np.clip(np.floor(sx).astype(int), 0, w - 2)
+            fy_ = np.clip(sy - y0_, 0, 1)[:, None]; fx_ = np.clip(sx - x0_, 0, 1)[:, None]
+            src = ((fond[y0_, x0_] * (1 - fx_) + fond[y0_, x0_ + 1] * fx_) * (1 - fy_)
+                   + (fond[y0_ + 1, x0_] * (1 - fx_) + fond[y0_ + 1, x0_ + 1] * fx_) * fy_)
             Lb = pb_[iy, jx].mean(1)
             al = np.clip((src.mean(1) - Lb) / (230.0 - Lb), 0, 1)[:, None]      # la part de blanc de la source
             fond[iy, jx] = pb_[iy, jx] * (1 - al) + src * al
+            rang[iy, jx] = 1.0                     # refait aussi hors de l'ancienne : il compte dans la zone
         # la rangée d'arbres, derrière la nouvelle épinette : les petites épinettes de collines.py
         au_dessus = (~champ).astype(np.float32)
         for sil_r, neiges_r in _rangee(ancien & ~champ, hn, hz, boite, K, 17 if nom == 'gauche' else 29):
