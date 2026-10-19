@@ -472,7 +472,7 @@ def motif_dos(k, v, can, rects, m, ppp, img):
     dessine sur la quatrième et la tranche (colonnes 0 à info['xf'] du fond) et rend le fond. info : xf, xt (début de la
     tranche), H, ppp, rects (les boîtes du texte en px CSS : x0, y0, x1, y1, taille ; 1 px CSS = ppp / 96 px du fond),
     image (le PIL de l'image du devant), tome, variante. Pas de module : le fond ne change pas."""
-    f = os.path.join(ROOT, 'images', 'tomes', 'essais-ia', 'tome-%d' % k, 'dos.py')
+    f = os.environ.get('DOS_MODULE') or os.path.join(ROOT, 'images', 'tomes', 'essais-ia', 'tome-%d' % k, 'dos.py')   # DOS_MODULE : un essai
     if VARIANTES[v]['dos'] != 'etoiles' or not os.path.exists(f):
         return can
     import importlib.util
