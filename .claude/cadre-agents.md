@@ -196,8 +196,9 @@ Le cadre complet est `.claude/skills/planches/references/brief-agent.md`. En bre
 - [ ] **Rien ne reste blanc** (JP, 19 octobre 2026 : « de la place pour du stock, genre photo ou note verte » ; « manque
   de photos dans le livre, utilisons ces espaces pour en mettre » ; « tu commences à comprendre le principe ? ») :
   une note verte au plus par page (« trop de notes vertes, c'est pas beau non plus ») ; le vide qui reste au bas d'une
-  page reçoit une photo (`images/vides/NN-*.jpg`, ce dont le chapitre parle, puis `images/pleine-page/tome-N/`) s'il
-  est grand, sinon une vignette gravée tirée de l'image du tome (`design/outils/vignettes.py`) ; une page blanche
+  page reçoit une photo (`images/vides/NN-*.jpg`, ce dont le chapitre parle, puis `images/pleine-page/tome-N/`), en
+  bande sur toute la largeur ; pas de pastilles tirées de l'image du tome (JP : « non, j'aime pas ça les pastilles
+  finalement, mets des photos ») ; une page blanche
   devient une photo de la nature du Québec en pleine page, fond perdu (« genre pleine page, pas de blanc »). Une note
   ne se pose jamais sous un titre resté seul (« note verte pour remplir un trou qui existe pas ») : le titre suit son
   texte. JP aime les notes vertes avec des photos pour reconnaître (le sapin, l'épinette noire, le cèdre).

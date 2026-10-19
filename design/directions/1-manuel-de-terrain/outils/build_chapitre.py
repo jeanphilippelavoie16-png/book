@@ -800,14 +800,13 @@ def build(num):
                 fmt=dict(nom=FORMAT, logi=dict(fmt()["logi"], fpi=fmt()["fp_rel_pt"] / 72, pw=fmt()["page_pt"][0] / 72)))
     if n_or:
         meta["flux"] = flux     # [id de l'histoire, genre (main, o, d, e), 1 si c'est la suite d'une histoire coupée]
-    # ce qui remplit les vides du bas des pages (chapitre.js, remplirVides) : les photos de la nature du tome et ses
-    # vignettes gravées (JP, 19 octobre 2026 : « de la place pour du stock, genre photo ou note verte »)
+    # ce qui remplit les vides du bas des pages (chapitre.js, remplirVides) : des photos (JP, 19 octobre 2026 : « de la
+    # place pour du stock, genre photo ou note verte » ; « j'aime pas ça les pastilles finalement, mets des photos »)
     rel = lambda f: REL_ROOT + os.path.relpath(f, ROOT).replace("\\", "/")
     # d'abord les photos du chapitre (images/vides/NN-*.jpg : ce dont il parle), puis celles du tome (JP : « manque de
     # photos dans le livre, utilisons ces espaces pour en mettre »)
     meta["stock"] = dict(chapitre=[rel(f) for f in sorted(glob.glob(os.path.join(ROOT, "images", "vides", f"{num}-*.jpg")))],
-                         photos=[rel(f) for f in sorted(glob.glob(os.path.join(ROOT, "images", "pleine-page", f"tome-{tn}", "*.jpg")))],
-                         vignettes=[rel(f) for f in sorted(glob.glob(os.path.join(ROOT, "images", "tomes", "vignettes", f"tome-{tn}-*.png")))])
+                         photos=[rel(f) for f in sorted(glob.glob(os.path.join(ROOT, "images", "pleine-page", f"tome-{tn}", "*.jpg")))])
     lieu_opts = "".join(f'<span{" class=\"on\"" if o == meta["lieu"] else ""}>{o}</span>' for o in ("Maison", "Chalet", "Les deux"))
     toc = "".join(
         f'<li class="{"d" if k == nd else "h" if k == nv else ""}" data-n="{k}"><span class="n">{k}</span>'

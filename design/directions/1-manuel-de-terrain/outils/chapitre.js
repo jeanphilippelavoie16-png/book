@@ -539,13 +539,14 @@ function veuvesPage(f, q){   // pendant la mise en pages, quand la page continue
 // plus, faut trouver une autre solution pour remplir les vides » ; « de la place pour du stock, genre photo ou note
 // verte » ; « tu commences à comprendre le principe ? »). Après les notes (une au plus par page) : le dernier cadre qui
 // finit avant le bas s'équilibre sur ses deux colonnes, et le vide qui reste dessous, sur toute la largeur, reçoit une
-// photo de la nature du tome s'il est grand, sinon une vignette gravée tirée de l'image du tome.
+// photo : d'abord celles du chapitre, puis celles de la nature du tome. Plus de pastilles tirées de l'image du tome (JP,
+// même jour : « non, j'aime pas ça les pastilles finalement, mets des photos »).
 const PO = 96;                                   // px par pouce
 function remplirVides(){
-  const S = C.stock || {}, propres = (S.chapitre || []).slice(), photos = S.photos || [], vign = S.vignettes || [];
-  if(!propres.length && !photos.length && !vign.length) return;
+  const S = C.stock || {}, propres = (S.chapitre || []).slice(), photos = S.photos || [];
+  if(!propres.length && !photos.length) return;
   const n0 = parseInt(String(C.num).replace(/\D/g, ''), 10) || 0;
-  let ip = n0 * 3, iv = n0;                      // d'un chapitre à l'autre, on ne recommence pas par la même image
+  let ip = n0 * 3;                               // d'un chapitre à l'autre, on ne recommence pas par la même image
   const prochaine = () => propres.length ? propres.shift() : photos[ip++ % photos.length];
   PAGES.forEach(p => {
     if(p.kind !== 'text' && p.kind !== 'open') return;
@@ -564,15 +565,12 @@ function remplirVides(){
     }
     const bas = (fnz ? fnz.getBoundingClientRect().top : p.bl.getBoundingClientRect().bottom) - 4;
     const vide = bas - Math.max(...kids.map(e => e.getBoundingClientRect().bottom)) - 10;
-    if(vide < 1.15 * PO) return;
+    if(vide < 1.0 * PO || (!propres.length && !photos.length)) return;   // une bande de photo d'un pouce au moins
     const d = document.createElement('div');
-    const photo = vide >= 3.0 * PO && (propres.length || photos.length);
-    d.className = 'stock ' + (photo ? 'photo' : 'vign');
+    d.className = 'stock photo';
     d.style.height = Math.floor(vide) + 'px';
     const img = document.createElement('img'); img.alt = '';
-    if(!photo && !vign.length) return;
-    img.src = photo ? prochaine() : vign[iv++ % vign.length];
-    if(!photo) img.style.maxHeight = Math.min(vide - 0.2 * PO, 1.9 * PO) + 'px';
+    img.src = prochaine();
     d.appendChild(img);
     if(fnz) p.bl.insertBefore(d, fnz); else p.bl.appendChild(d);
     if(!dansLeBloc(p)) d.remove();
