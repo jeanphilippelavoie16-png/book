@@ -345,10 +345,9 @@ et se sortir vivant de la glace qui cède ou de la machine qui s'arrête loin de
 
 | Observation | Diagnostic | Action |
 | --- | --- | --- |
-| Odeur d'essence dans un local fermé | De la vapeur accumulée au ras du sol | Ne rien allumer ni éteindre : sortir, ouvrir de l'extérieur, aérer, chercher la fuite de jour |
-| Flaque ou trace sombre sous un bidon | Bidon percé ou bouchon qui fuit | Transvider dehors ; absorber la flaque avec du sable ou de la terre, jamais de la sciure ; jeter le contenant |
+| Odeur d'essence dans un local fermé | De la vapeur accumulée au ras du sol | Ne rien allumer ni éteindre : sortir, ouvrir les portes depuis l'extérieur, laisser aérer, et chercher la fuite de jour |
+| Flaque ou trace sombre sous un bidon | Bidon percé ou bouchon qui fuit | Transvider dehors ; absorber la flaque avec du sable ou de la terre, jamais de la sciure ; jeter le bidon |
 | Mal de tête, nausée ou envie de dormir dans une auto arrêtée, moteur en marche | Monoxyde de carbone : le tuyau d'échappement est bouché | Couper le moteur, ouvrir grand les portières, faire sortir tout le monde, dégager le tuyau avant de redémarrer (étape 13) |
-| L'avertisseur de CO affiche un chiffre, même bas | Il y a du monoxyde | Sortir, puis chercher ce qui le produit |
 | Le moteur tousse et meurt par grand froid, et repart au redoux | Diesel figé dans le filtre, ou eau gelée dans la conduite d'essence | Section 7, « Le diesel qui fige » |
 | Eau claire au fond du bidon, essence trouble au-dessus | L'éthanol a capté l'humidité : la couche du fond est de l'eau et de l'alcool | Ne pas verser le fond dans un moteur ; tirer l'essence du dessus au siphon (section 7) et la brûler dans l'auto |
 | La machine démarre mal chaque matin | Batterie affaiblie par le froid | Rentrer la batterie la nuit (section 7) |
