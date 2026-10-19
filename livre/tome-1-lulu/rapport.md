@@ -1,6 +1,6 @@
 # Tome 1 · Tenir — rapport d'assemblage
 
-- **Produit le :** 2026-10-19 17:42, par `design/outils/assembler-tome.py 1 --hors-ligne --refaire --sortie livre/tome-1-lulu`
+- **Produit le :** 2026-10-19 18:11, par `design/outils/assembler-tome.py 1 --hors-ligne --sortie livre/tome-1-lulu`
 - **Fichier :** `livre/tome-1-lulu/interieur.pdf` — 352 pages, 112.1 Mo
 - **Ouvertures :** au recto ou au verso (--verso)
 - **Placements :** design/epreuves-livre/placements.json, design/epreuves-livre/placements-tome-1.json
@@ -196,7 +196,6 @@ Photos téléchargées pour ces chapitres et non posées (images de référence 
 - ch. 02, paginateur : encadré « En plus » pas imprimé, aucun trou dans le chapitre : Les Innus, en petits groupes sur le territoire
 - ch. 02, paginateur : encadré « En plus » pas imprimé, aucun trou dans le chapitre : L’onde AM, la nuit
 - ch. 02, paginateur : p02-2 : page à moitié vide
-- ch. 02, constructeur : série orange : aucune heure lisible dans « Tout le monde est dehors : couper la source et rentrer » (la donner dans le marqueur : {.orange 15 min})
 - ch. 03, paginateur : encadré « En plus » pas imprimé, aucun trou dans le chapitre : Reconnaître le mât de branchement
 - ch. 04, paginateur : encadré « En plus » pas imprimé, aucun trou dans le chapitre : La baisse du rayonnement
 - ch. 04, paginateur : encadré « En plus » pas imprimé, aucun trou dans le chapitre : L’estomac du caribou
