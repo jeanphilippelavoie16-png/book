@@ -480,8 +480,8 @@ région, et il faut juger soi-même si ce qu'elle annonce touche la maison.
 
 Sans propane ni génératrice, il reste le poêle à bois, et on ne chauffe plus qu'une seule pièce (ch. 83, ch. 87).
 
-- Fermer d'abord la cage d'escalier : un escalier ouvert fait cheminée. L'air chaud y monte et se refroidit contre
- les fenêtres de l'étage, pendant que la pièce du poêle tire l'air froid par le plancher. Une couverture clouée en
+- Fermer d'abord la cage d'escalier : l'air chaud y monte et se refroidit contre les fenêtres de l'étage, pendant que
+ la pièce du poêle tire l'air froid par le plancher. Une couverture clouée en
  haut de l'escalier garde plus de chaleur que toutes les portes de chambre fermées.
 - Tendre ensuite une couverture dans chaque cadre de porte de la pièce, et couvrir ses fenêtres pour la nuit : la
  vitre, même double, est le point le plus froid du mur.

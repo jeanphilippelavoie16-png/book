@@ -47,8 +47,8 @@ d'heure jusqu'au printemps.
  l'avertisseur de CO, puis choisir l'appareil.**
  - Appuyer sur le bouton d'essai de l'avertisseur et vérifier sa pile. Le bouton teste la pile et la
  sirène, pas l'air de la pièce. L'avertisseur ne sonne pas pour une petite quantité de CO, même respirée
- pendant des jours : quand le chauffage improvisé dure plusieurs jours, son silence ne prouve pas que
- l'air est bon (section 6).
+ pendant des jours : quand on chauffe avec un appareil improvisé, son silence ne prouve pas que l'air
+ est bon (section 6).
  - Regarder la date écrite sur l'avertisseur : s'il a été installé il y a plus de 7 ans, faire comme si
  on n'en avait pas.
  - Si l'avertisseur ne répond pas au bouton, ou si on n'en a pas, n'allumer dans la maison que le poêle

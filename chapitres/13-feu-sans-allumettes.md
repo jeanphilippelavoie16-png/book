@@ -238,13 +238,13 @@ Sans tige de ferrocérium, on peut allumer au briquet à pierre, à la batterie,
 | --- | --- | --- |
 | Étincelles jaunes et rares, qui s'éteignent dans l'air | Grattoir émoussé ou tenu trop à plat ; tige neuve encore couverte de son vernis | Meuler une arête d'équerre (ch. 105) ; gratter la tige neuve pour enlever le vernis |
 | Le nid fume, puis s'éteint dès qu'on arrête de souffler | Amadou humide au cœur, ou trop serré | L'effilocher et le sécher sous les vêtements ; le refermer sans le serrer |
-| La braise grossit, puis noircit sans faire de flamme | Souffle par à-coups | Souffler en continu, sans à-coups (étape 16) |
+| La braise grossit, puis noircit sans faire de flamme | On a soufflé par à-coups | Souffler en continu, sans à-coups (étape 16) |
 | Le nid s'envole à la première étincelle | On a poussé le couteau sur la tige | Tenir le couteau immobile et tirer la tige vers soi (étape 15) |
 | Flamme vive quelques secondes, puis plus rien | On est passé du bois fin aux bûches sans le bois de 2 à 5 cm | Remonter le tipi en bois fin, puis ajouter le bois de 2 à 5 cm |
 | Sifflement et bulles au bout des bûches, fumée épaisse | Bois vert ou mouillé : l'eau du bois bout | Changer de bois ; fendre du bois mort debout (étapes 11 et 12 ; ch. 83) |
 | La laine d'acier rougit à peine, ou pas du tout | Laine trop grosse, ou pile vide | Prendre une laine plus fine ; essayer une autre pile, ou la batterie (étape 20) |
 | Poussière brun pâle, et non noire, dans l'encoche de l'arc à feu | Pas assez de vitesse ou de pression, ou bois trop dur pour la planchette | Appuyer plus fort, aller plus vite ; changer de bois (section 7) |
-| Fumée qui refoule dans la pièce, flamme jaune et lente | Pas assez d'air, ou cheminée bouchée : le feu fait du monoxyde | Ouvrir au maximum la clé du tuyau, aérer (ch. 83) |
+| Fumée qui refoule du poêle dans la pièce, flamme jaune et lente | Pas assez d'air, ou cheminée bouchée : le feu fait du monoxyde | Ouvrir au maximum la clé du tuyau, aérer (ch. 83) |
 | Mal de tête, nausée ou étourdissements chez plus d'une personne près d'un feu | Intoxication au monoxyde de carbone | Sortir tout le monde dehors, puis soigner selon le ch. 26 |
 | Doigts blancs, cireux, insensibles pendant l'allumage | Gelure qui commence | Arrêter, réchauffer les doigts contre le corps, ne pas frotter (ch. 25) |
 | Fumée blanche qui sort du sol à côté du foyer | Le feu est descendu dans l'humus et avance sous la mousse | Arroser beaucoup et creuser jusqu'à la terre minérale (étape 29) |
