@@ -226,7 +226,7 @@ module.exports = (h) => {
       { n: 2, rond: [cBC[0] + 84, cBC[1] - 22], cible: [cBC[0] + 1, cBC[1]], texte: 'corde tendue au ras du sol' },
       { n: 3, rond: [qh[0] + 92, qh[1] + 34], cible: [qh[0] + 16, qh[1] + 34], texte: 'un quartier, à l’aplomb du sommet' },
       { n: 4, rond: [brin[0] - 52, brin[1] - 22], cible: [brin[0] - 3, brin[1] - 1], texte: 'brin halé le long d’une patte' },
-      { n: 5, rond: [piedPoulie[0] - 30, piedPoulie[1] - 44], cible: [piedPoulie[0] - 3, piedPoulie[1] - 6], texte: 'poulie au pied : on hale de là' },
+      { n: 5, rond: [piedPoulie[0] - 30, piedPoulie[1] - 44], cible: [piedPoulie[0] - 3, piedPoulie[1] - 6], texte: 'haler depuis la poulie du pied' },
     ];
   };
 
@@ -358,6 +358,5 @@ module.exports = (h) => {
       pieds: { titre: 'Les pieds, en coupe', dessin: vuePieds, renvois: renvoisPieds },
       rate: { titre: 'Le raté', dessin: vueRate, renvois: renvoisRate },
     },
-    danger: 'Le trépied ne casse pas, il s’ouvre, sans prévenir. Il tient à trois conditions : des pieds calés et reliés, une charge à l’aplomb du sommet, un poids de quartier. On travaille à côté de la charge, jamais dessous ni entre les pattes.',
   };
 };
