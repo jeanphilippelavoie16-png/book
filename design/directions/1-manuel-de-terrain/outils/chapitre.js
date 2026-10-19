@@ -398,6 +398,16 @@ function pour(f, q, p){
       }
     }
     syncNotes(f);
+    // une planche pleine page dont l'appel vient de passer à la page suivante (titre et début de section reportés,
+    // ligne seule) tombait avant son appel : elle repasse dans la file, juste après le bloc qui l'appelle (p12-17 et
+    // p13-15, 19 octobre 2026)
+    pendingPlates = pendingPlates.filter(pl => {
+      const sel = '.appel[data-pl="' + pl.dataset.id + '"]';
+      if(p.bl.querySelector(sel)) return true;
+      const j = q.findIndex(e => e.matches && (e.matches(sel) || e.querySelector(sel)));
+      if(j < 0) return true;
+      q.splice(j + 1, 0, pl); return false;
+    });
   }
   if(p.deferred.length){   // après la fin du paragraphe coupé, jamais au milieu
     const k = (q[0] && q[0].classList && q[0].classList.contains('cont')) ? 1 : 0;

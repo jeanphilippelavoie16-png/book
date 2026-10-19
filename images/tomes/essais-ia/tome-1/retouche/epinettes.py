@@ -43,7 +43,7 @@ EPINETTES = {
                 (720, 40.0), (750, 45.0), (790, 48.0), (850, 53.0), (900, 56.0), (985, 60.0)],
              G=[(563, 0), (600, 10), (985, 40)]),
         # la plus haute des deux de gauche
-        dict(nom='A', coeur=0.2, cx=73.2, cx_bas=72.0, pointe=704.0, fleche=8.0, pied=990, tronc=2.4, graine=23,
+        dict(nom='A', coeur=0.2, cime_nuit=752, cx=73.2, cx_bas=72.0, pointe=704.0, fleche=8.0, pied=990, tronc=2.4, graine=23,
              pas=(6.0, 18.0), pente=0.40, bas=985, dedans=True,
              G=[(704, 0), (716, 3.4), (730, 6.5), (745, 11.0), (760, 17.0), (775, 21.0), (790, 25.0), (810, 29.0),
                 (830, 32.0), (860, 35.0), (900, 37.0), (985, 40.0)],
@@ -105,6 +105,10 @@ BOITES = {'gauche': (0, 560, 160, 960), 'droite': (495, 585, 768, 960)}
 # le bas de la rangée d'arbres (au-dessus : la nuit et les collines ; au-dessous : le champ de neige)
 HORIZON = {'gauche': [(0, 756), (60, 754), (100, 752), (140, 750), (160, 747)],
            'droite': [(495, 749), (560, 744), (600, 740), (640, 735.5), (680, 733.5), (768, 733.5)]}
+
+# le haut de la nuit de la rangée d'arbres, derrière les grandes épinettes (au-dessus : le bleu des collines)
+HAUT_NUIT = {'gauche': [(0, 652), (40, 650), (160, 645)],
+             'droite': [(495, 650), (640, 645), (680, 641), (728, 637), (768, 636)]}
 
 # au-dessus de l'horizon, l'ancienne épinette est ce que la retouche des collines a laissé tel quel (PREMIER_PLAN de
 # collines.py, repris ici) : ce contour est rebouché en entier
@@ -279,6 +283,12 @@ def epinette(sp):
                                      _quad((cxf(tip) - wf, tip + lf), (cxf(tip) - wf * 0.35, tip + lf * 0.5),
                                            (cxf(tip), tip), 10)]))
 
+    if sp.get('cime_nuit'):
+        # la cime posée sur la nuit de la rangée : un filet de neige le long de la flèche, côté lune, la dessine
+        fl = np.array([(cxf(tip) + 0.05, tip + 1.2), (cxf(tip) + wf * 0.55, tip + lf * 0.62),
+                       (cxf(tip) + wf * 0.75, tip + lf * 1.05)])
+        devant[1].append(_croissant(_quad(fl[0], fl[1], fl[2], 16), 0.0, 1.0, 0.18, 0.55, n=24))
+
     def neige(couche, hauts, L, ep, part=0.9, fin=False, doigt=False):
         """La neige posée sur l'étage : un croissant franc sous le bord du dessus de la lame du haut, plus épais au
         milieu, sur une partie de la branche (le bout reste souvent noir), et parfois une tache sur la lame du
@@ -336,8 +346,8 @@ def epinette(sp):
                 cx = cxf(y)
                 polys, hauts = etage(cx, twf(y), s, y, L, ch, ep, R)
                 devant[0].extend(polys)
-                if k >= 2 and L > 4:
-                    neige(devant, hauts, L, ep, 0.95)
+                if (k >= 2 and L > 4) or (sp.get('cime_nuit') and L > 1.5):
+                    neige(devant, hauts, L, ep, 1.0 if sp.get('cime_nuit') and y < sp['cime_nuit'] else 0.95)
                 # un étage du fond entre deux étages de devant : la masse se remplit, de la neige dedans
                 if sp.get('dedans') and L > 10 and R.random() < 0.85:
                     yb = y + pas * u(0.40, 0.60)
@@ -501,17 +511,20 @@ def _zone(a, nom, K):
         _, (iy, ix) = ndi.distance_transform_edt(~valide_n, return_indices=True)
         pn = z[iy, ix]
         pn = np.stack([ndi.gaussian_filter(pn[..., c], 0.8 * K) for c in range(3)], -1)
-        # la nuit et les collines : chaque pixel prend la classe (la nuit de la rangée, ou le bleu des collines avec
-        # ses traits sombres) du pixel valide le plus proche, puis la couleur moyenne de cette classe autour : la
-        # limite entre les deux reste nette, sans flou ni traînée
+        # la nuit et les collines : sous le haut de la rangée, la nuit (le noir de l'épinette s'y confond) ; au-dessus,
+        # le bleu des collines, en aplat (la couleur moyenne des collines autour, sans leurs traits) ; la limite entre
+        # les deux est une ligne nette
+        hn = np.interp(xs, [p[0] for p in HAUT_NUIT[nom]], [p[1] for p in HAUT_NUIT[nom]])
+        sous = (ys[:, None] > hn[None, :]).astype(np.float32)
+        sous = ndi.gaussian_filter(sous, 0.3 * K)[..., None]
         haut_ok = ~champ & ~ancien
-        nuit = ndi.binary_opening(haut_ok & (L < 30), _disque(2.5 * K))
-        bleu = haut_ok & (L < 130) & ~nuit
-        _, (jy, jx) = ndi.distance_transform_edt(~(nuit | bleu), return_indices=True)
-        cl_nuit = ndi.gaussian_filter(nuit[jy, jx].astype(np.float32), 0.35 * K)[..., None]
-        pn_, _ = _normconv(z, nuit.astype(np.float32), 6 * K)
-        pb_, _ = _normconv(z, (bleu & (L > 30)).astype(np.float32), 6 * K)
-        ps = cl_nuit * pn_ + (1 - cl_nuit) * pb_
+        nuit = haut_ok & (L < 30) & (sous[..., 0] > 0.5)
+        bleu = haut_ok & (L > 30) & (L < 110) & (sous[..., 0] < 0.5)
+        c_nuit = np.median(z[nuit], 0) if nuit.sum() > 50 else NOIR
+        pb_, den = _normconv(z, bleu.astype(np.float32), 6 * K)
+        if bleu.sum() > 50:
+            pb_ = np.where((den < 0.02)[..., None], np.median(z[bleu], 0), pb_)
+        ps = sous * c_nuit + (1 - sous) * pb_
         m = ancien & champ
         fond[m] = pn[m]
         m = ancien & ~champ
