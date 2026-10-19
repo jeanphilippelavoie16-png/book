@@ -1,5 +1,6 @@
 // Planche 04-01a — La pièce d'abri chargée (chapitre 4, variante « Sans sous-sol et sans caveau »)
 // Cotes : 2/3 (sacs remplis aux deux tiers, variante).
+// Repères 9 et 10 échangés le 18 octobre 2026 (suivi/04-edition.md, point 8) : le texte nomme la taie avant la terre.
 module.exports = (h) => {
   const A = h.a;
   const W = at => at.replace('fill="none"', 'fill="#FFFFFF"');
@@ -150,8 +151,8 @@ module.exports = (h) => {
         titre: 'Les sacs de terre, sans sacs',
         dessin: sacs,
         renvois: z => [
-          { n: 9, rond: [78, 16], cible: [84, 42.4], texte: 'terre ou sable aux deux tiers' },
-          { n: 10, rond: [208, 36], cible: [178.8, 58.4], texte: 'taie ou jambe de pantalon nouée' },
+          { n: 9, rond: [208, 36], cible: [178.8, 58.4], texte: 'taie ou jambe de pantalon nouée' },
+          { n: 10, rond: [78, 16], cible: [84, 42.4], texte: 'terre ou sable aux deux tiers' },
           { n: 11, rond: [212, 112], cible: [145, 130], texte: 'joints croisés d’un rang à l’autre' },
         ],
       },

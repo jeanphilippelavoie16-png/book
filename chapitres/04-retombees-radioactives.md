@@ -244,11 +244,12 @@ y rester 24 à 48 heures, protéger la thyroïde avec des comprimés d'iode, pui
  Ensuite, sortir peu de temps à la fois : laisser ses bottes et ses vêtements de dehors à l'entrée, et se laver les mains et le
  visage en rentrant (ch. 31). Laver les planchers à l'eau au lieu de les balayer : le balai soulève la poussière.
  Jeter l'eau de lavage à l'égout à la maison, et loin du puits et du jardin au chalet.
-26. **Traiter la première pluie et la première neige comme de la poussière radioactive qui se déplace.** La pluie
- entraîne la poussière du toit et du terrain vers les gouttières et le bas des descentes de gouttière, l'endroit où
- l'eau tombe du toit, les fossés, les flaques et les creux, et le pied des arbres : ne pas y jardiner, et ne pas y
- laisser jouer les enfants. Le ruisseau qui coule boueux après les premières grosses pluies est le plus chargé : ne
- pas y puiser.
+26. **Dès la première pluie, ne pas jardiner ni laisser jouer les enfants aux endroits où l'eau amène la
+ poussière.** La pluie entraîne la poussière du toit et du terrain vers les gouttières et le bas des descentes de
+ gouttière, l'endroit où l'eau tombe du toit, les fossés, les flaques et les creux, et le pied des arbres. Le
+ ruisseau qui coule boueux après les premières grosses pluies est le plus chargé : ne pas y puiser. L'hiver, ne pas
+ laisser les enfants jouer dans la neige qui était au sol quand les retombées sont tombées, ni dans celle tombée
+ pendant le passage : elle porte la poussière (étape 22).
 27. **Jeter les légumes-feuilles du jardin qui étaient dehors au passage des retombées ; laver et peler les légumes
  qui se pèlent.** Juste après le passage, la poussière est en surface, et une partie part au lavage. Les
  légumes-racines, qui étaient sous terre, sont moins exposés (ch. 95).
@@ -308,11 +309,11 @@ y rester 24 à 48 heures, protéger la thyroïde avec des comprimés d'iode, pui
 | Secondes 0 à 30, après un éclair | Tout le monde couché à couvert, loin des vitres | Personne debout près d'une fenêtre | Se coucher là où on est |
 | Minutes 0 à 10 | Tout le monde et les animaux à portée dans un bâtiment, vêtements du dessus laissés à la porte | Toutes les têtes comptées | Une personne abritée ailleurs doit y rester : écrire où elle est |
 | Minute 10 | L'air du dehors coupé | Aucun appareil qui fait entrer l'air du dehors | Le couper au disjoncteur |
-| Minute 30, maison de bois sans sous-sol | Parti vers un meilleur abri, s'il y en a un à moins de 15 minutes (étape 9) | Avant la 30e minute après l'éclair | Rester et empiler autour de soi ce qui est lourd (section 7) |
+| Minute 30, maison de bois sans sous-sol | Parti vers un meilleur abri, s'il y en a un à moins de 15 minutes (étape 9) | Avant la 30e minute après l'éclair | Rester et faire comme à l'étape 8 |
 | Heure 2 après l'arrivée du panache ou des retombées | Iode donné à chacun (étapes 13 à 16) | La dose du tableau de l'étape 13 | Jusqu'à 8 h, la donner quand même ; passé 24 h, ne plus la donner |
 | Quelques heures après le bouchage | Plastique et ruban enlevés, pièce aérée (étape 18) | Quelques heures au plus | Aérer tout de suite |
 | Avant chaque sommeil et à chaque réveil | Avertisseur de CO de la pièce d'abri | 0 ppm affiché, aucune alarme | Faire l'étape 18 tout de suite |
-| Toutes les 24 heures | Iode redonné tant que le risque dure | Une dose par 24 h au plus, sauf dose unique (étape 16) | Ne pas doubler pour rattraper un oubli |
+| Toutes les 24 heures | Iode redonné tant que le risque dure | Une dose par 24 h au plus, sauf dose unique (étape 16) | Ne pas doubler la dose (étape 14) |
 | Heure 24 | Fin de l'abri | 24 h depuis l'heure de l'éclair écrite sur le cadre de porte | Prolonger jusqu'à 48 h (étape 24) |
 | Chaque sortie, ensuite | Bottes et vêtements de dehors laissés à l'entrée, mains et visage lavés | Toutes les sorties | Reprendre la routine avec les enfants (ch. 39, ch. 40) |
 | Pendant le trempage | Température du bain | Entre 0 et 4 °C pour la viande ; sous 3 °C pour le poisson | Remettre au froid ; si on ne sait pas combien d'heures le bain est resté chaud, jeter la viande |
@@ -324,18 +325,17 @@ y rester 24 à 48 heures, protéger la thyroïde avec des comprimés d'iode, pui
 
 | Observation | Diagnostic | Action |
 | --- | --- | --- |
-| Tout est blanc après l'éclair, puis une tache sombre reste dans la vue | Éblouissement par l'éclair (étape 3) | Ne pas conduire ni traverser une route avant de voir clair. Une tache aveugle qui ne part pas est une brûlure de la rétine, qui reste (ch. 35) |
-| Peau rouge ou brûlée du côté tourné vers l'éclair, dans les minutes qui suivent | Brûlure par la chaleur de l'éclair | La soigner comme une brûlure (ch. 26) |
-| Poussière ou traces de pas poudreuses dans la pièce d'abri | La poussière est entrée : une ouverture mal bouchée, ou quelqu'un est entré habillé | Laver les surfaces à l'eau, sans balayer. Les gens qui arrivent du dehors doivent enlever leurs vêtements du dessus à l'entrée (étape 20). Passer dans la pièce voisine la mieux protégée |
-| La peau démange et brûle là où la poussière est restée, puis, quelques jours plus tard, elle brûle et change de couleur | La poussière fraîche est restée des dizaines de minutes sur la peau | Laver tout de suite à l'eau et au savon ; sans eau, brosser et frotter la poussière. La brûlure est peu profonde, mais elle met des semaines à guérir : la garder propre |
-| Nausées, vomissements, mal de tête et étourdissements quelques heures après l'exposition | Le début d'une irradiation, ou la peur, qui donne les mêmes signes | Rester à l'abri, faire boire la personne et la faire reposer. Ces premiers signes passent en un ou deux jours. S'ils commencent dans la demi-heure, la dose reçue peut être mortelle. Soigner une personne irradiée n'expose pas celle qui la soigne |
-| Dans les deux semaines qui suivent, les cheveux tombent en touffes, de petites taches de sang apparaissent sous la peau ou dans la bouche, ou une diarrhée commence | Forte dose reçue, pas forcément mortelle : la vie est en jeu pendant un à deux mois | Faire reposer la personne, lui donner des repas complets et garder propre l'endroit où elle est couchée. Garder les antibiotiques pour cette période, où les infections prennent facilement (ch. 32, ch. 35) |
+| Tout est blanc après l'éclair, puis une tache sombre reste dans la vue | Éblouissement par l'éclair | Attendre de voir clair pour conduire ou traverser une route (étape 3). Une tache aveugle qui ne part pas est une brûlure de la rétine, qui reste |
+| Peau rouge ou brûlée du côté tourné vers l'éclair, dans les minutes qui suivent | La chaleur de l'éclair | La soigner comme une brûlure (ch. 26) |
+| Poussière ou traces de pas poudreuses dans la pièce d'abri | Une ouverture mal bouchée, ou quelqu'un est entré avec ses vêtements du dehors | Laver à l'eau, sans balayer (étape 25). Faire passer les gens qui arrivent du dehors par le coin de l'entrée (étape 20). Passer dans la pièce voisine la mieux protégée |
+| La peau démange et brûle là où la poussière est restée, puis, quelques jours plus tard, elle brûle et change de couleur | La poussière fraîche est restée des dizaines de minutes sur la peau | Laver tout de suite (étape 10). La brûlure est peu profonde, mais elle met des semaines à guérir : la garder propre |
+| Nausées, vomissements, mal de tête et étourdissements quelques heures après l'exposition | Le début d'une irradiation, ou la peur | Rester à l'abri, faire boire la personne et la faire reposer. Ces signes passent en un ou deux jours. S'ils commencent dans la demi-heure, la dose peut être mortelle. La soigner n'expose pas la personne qui la soigne |
+| Dans les deux semaines qui suivent, les cheveux tombent en touffes, de petites taches de sang apparaissent sous la peau ou dans la bouche, ou une diarrhée commence | Forte dose, pas forcément mortelle : la vie est en jeu pendant un à deux mois | La personne prend facilement une infection (ch. 35) : la faire reposer, lui donner des repas complets et garder propre l'endroit où elle est couchée |
 | Alarme de CO, mal de tête, somnolence ou confusion chez plusieurs personnes à la fois | Monoxyde de carbone dans l'abri fermé | Faire l'étape 18 tout de suite |
-| Poêle qui tire mal, fumée qui revient dans l'abri | Le bouchage a coupé l'air du poêle | Ouvrir une entrée d'air au même étage que le poêle, du côté d'où vient le vent, et tendre dessus un filtre de fournaise ou deux épaisseurs de serviette de bain |
-| Un enfant a reçu deux doses d'iode en moins de 24 heures | Une dose de trop | Ne pas le faire vomir. À partir de 4 ans, deux doses font 130 mg, la dose d'un adulte, sans danger pour l'enfant. Écrire l'heure et la quantité sur le cadre de porte. À un bébé de moins d'un mois, ne plus en donner (étape 16) |
-| Comprimés d'iode jaunis, ou mouillés dans une plaquette ouverte | L'humidité de l'air les a abîmés | Ne pas donner un comprimé jauni : sa dose n'est plus sûre. On peut donner un comprimé intact, seulement périmé, resté dans sa plaquette fermée : l'iodure de potassium ne se dégrade pas. S'il fond mal, l'écraser dans la boisson (étape 15) |
-| Le gibier a l'air normal, sent bon et goûte bon | La contamination ne se voit pas, ne se sent pas et ne se goûte pas | On mesure le césium d'une viande au laboratoire, avec un détecteur blindé de plomb ; au chalet, on ne peut pas le mesurer. Faire tremper, jeter le bouillon et s'en tenir aux bêtes les moins exposées (étapes 29 à 32) |
-| Champignons beaux, nombreux et propres | Le césium ne se voit pas | Ne pas les cueillir (étape 28) |
+| Poêle qui tire mal, fumée qui revient dans l'abri | Le bouchage a coupé l'air du poêle | Ouvrir une entrée d'air au même étage que le poêle, du côté du vent, et tendre dessus un filtre de fournaise ou deux épaisseurs de serviette de bain |
+| Un enfant a reçu deux doses d'iode en moins de 24 heures | Une dose de trop | Ne pas le faire vomir. À partir de 4 ans, deux doses font 130 mg, la dose d'un adulte, sans danger. Écrire l'heure et la quantité sur le cadre de porte. Ne plus en donner à un bébé de moins d'un mois (étape 16) |
+| Comprimés d'iode jaunis, ou mouillés dans une plaquette ouverte | L'humidité de l'air les a abîmés | Ne pas donner un comprimé jauni : sa dose n'est plus sûre. On peut donner un comprimé intact resté dans sa plaquette fermée, même périmé : l'iodure de potassium ne se dégrade pas. S'il fond mal, l'écraser dans la boisson (étape 15) |
+| Le gibier a l'air normal, sent bon et goûte bon ; les champignons sont beaux et nombreux | Le césium ne se voit pas, ne se sent pas et ne se goûte pas | Seul le détecteur blindé de plomb d'un laboratoire peut le mesurer. Faire le tri, le trempage et la cuisson des étapes 28 à 32 |
 
 ---
 
@@ -382,7 +382,7 @@ joints d'un rang à l'autre (repère 11). L'hiver, le sol est gelé, et la neige
 plutôt la neige dehors, en banc contre les murs (repère 2).
 
 **Ce qu'on perd :** une protection beaucoup plus faible qu'un sous-sol de béton, qu'on ne peut pas chiffrer sans
-appareil, et des heures de travail pour la monter.
+compteur, et des heures de travail pour la monter.
 
 ### Sans radio à piles
 
@@ -425,7 +425,7 @@ coûte du poids et du moral, ou pas assez au mauvais moment (ch. 14).
 
 ### Sans compteur : l'électroscope
 
-Sans appareil, on ne sait pas si la poussière reçue est négligeable ou grave, si la pièce d'abri vaut mieux que la
+Sans compteur, on ne sait pas si la poussière reçue est négligeable ou grave, si la pièce d'abri vaut mieux que la
 cuisine, ni quand le rayonnement a assez baissé pour sortir : tout repose sur la radio. On peut monter un
 électroscope avec ce qu'il y a dans la maison (planche 04-41).
 
@@ -461,7 +461,7 @@ on croit à un danger qui n'existe pas.
 *Lire.* Éclairer les feuilles de côté, en lumière rasante (repère 8), lire leur écartement sur l'échelle
 (repère 9), attendre un temps fixe, et le lire de nouveau : on lit la vitesse à laquelle les feuilles se referment.
 Chronométrer de la même façon chaque jour (repère 10). Une mesure de référence prise avant l'événement, avec le même
-pot, la même charge et le même temps, montre aussi si l'appareil fuit : dans une pièce sans retombées, les feuilles
+pot, la même charge et le même temps, montre aussi si l'électroscope fuit : dans une pièce sans retombées, les feuilles
 doivent garder presque le même écartement pendant 3 heures. Avec cette référence et la même mesure refaite chaque
 jour, on sait si le rayonnement monte ou baisse, et à peu près dans quel rapport : assez pour décider de rester une
 journée de plus ou de sortir. On ne peut pas convertir ces lectures en débit de dose : les tables qui le font ne
@@ -469,7 +469,7 @@ valent que pour l'appareil qu'elles décrivent, construit à ses dimensions exac
 
 **Ce qu'on perd :** un électroscope maison ne voit que les débits élevés. Il ne dira jamais
 si un lichen, un champignon ou un quartier d'orignal est chargé, et c'est la question des années suivantes : pour
-elle, il faut l'appareil d'un laboratoire.
+elle, il faut le détecteur d'un laboratoire.
 
 ### Ventiler la pièce d'abri
 
@@ -480,23 +480,32 @@ faut faire entrer l'air du dehors même pendant les retombées, en arrêtant la 
 sans électricité (planche 04-01b). Ses volets se ferment quand on tire et s'ouvrent au retour : l'air avance dans
 un seul sens.
 
-- Choisir, pour la pompe, l'ouverture par où l'air entre déjà dans la pièce.
-- Faire un cadre de lattes, ou de bâtons d'environ 3 cm liés avec des bandes de tissu, 2,5 cm plus étroit que
- l'ouverture. Le doubler : un cadre trop léger ne revient pas assez loin tout seul.
-- Clouer une planche en travers du haut de l'ouverture, et y pendre le cadre par le haut, à deux pentures ou à des
- boucles de cuir, de sangle ou de corde. Le cadre doit passer à environ 1 cm du bas de l'ouverture et à 1 à 2,5 cm
- des côtés.
-- Tendre des ficelles en travers de la face du cadre tournée vers la pièce : elles arrêtent les volets.
-- Tailler les volets dans un grand sac à ordures, 9 cm de large. Replier un ourlet sur le haut de chacun, le fermer
- au ruban, et y enfiler un fil de cintre redressé.
-- Fixer les fils de cintre en travers du cadre, tous les 7,5 cm, devant les ficelles, du côté de la pièce : chaque
- volet doit tourner librement et couvrir un peu celui du dessous.
-- Nouer la corde au cadre, un peu sous les pentures. Assis dans la pièce, tirer la corde jusqu'à ce que le cadre
- monte presque à l'horizontale : les volets se plaquent contre les ficelles et poussent l'air vers soi. Laisser la
- corde lâche pendant tout le retour : le cadre revient seul, les volets s'ouvrent, et l'air continue d'avancer.
+- Choisir, pour la pompe, l'ouverture par où l'air entre déjà dans la pièce (repère 1). Dans une porte, fermer le
+ bas, sous la pompe, avec un cadre de bâtons couvert de plastique qu'on peut enlever vite (repère 2) : sinon, une
+ partie de l'air pompé revient en arrière par le bas.
+- Faire un cadre de lattes 2,5 cm plus étroit que l'ouverture, avec un troisième montant au milieu (repère 3).
+- Doubler les trois montants : clouer une deuxième latte sur chacun, entre la traverse du haut et celle du bas, sur
+ la face tournée vers la pièce (repère 4). La face devient plate, et les volets ferment bien contre elle ; le cadre
+ devient assez lourd pour revenir loin, tout seul, quand on lâche la corde.
+- Clouer une planche en travers du haut de l'ouverture (repère 5), et y pendre le cadre par le haut, à deux
+ pentures (repère 6). Le cadre doit passer à environ 1 cm du bas de l'ouverture et à 1 à 2,5 cm des côtés.
+- Tendre des ficelles d'un côté à l'autre du cadre, sur la face tournée vers la pièce, en les fixant aussi au
+ montant du milieu : elles arrêtent les volets (repère 7).
+- Tailler les volets dans un grand sac à ordures, 9 cm de large (repère 8). Replier un ourlet sur le haut de
+ chacun, le fermer au ruban (repère 9), et y enfiler un fil de cintre redressé (repère 10).
+- Entailler l'ourlet de chaque volet aux deux bouts et au milieu, là où le fil sera fixé aux montants
+ (repère 11) : le volet doit tourner librement sur son fil. Fixer les fils aux trois montants, tous les 7,5 cm,
+ devant les ficelles, en clouant ou en attachant le fil seulement, jamais le plastique. Chaque volet doit couvrir
+ un peu celui du dessous (repère 12).
+- Nouer la corde au montant du milieu, un peu sous les pentures (repère 13). Assis dans la pièce, tirer la corde
+ jusqu'à ce que le cadre monte presque à l'horizontale : les volets se plaquent contre les ficelles et poussent
+ l'air vers soi (repère 14). Laisser la corde lâche pendant tout le retour : le cadre revient seul, les volets
+ s'ouvrent, et l'air continue d'avancer (repère 15).
 - À l'entrée d'air, tendre sur un cadre de lattes un filtre de fournaise neuf, ou deux épaisseurs de serviette de
- bain, sur la plus grande surface possible : un petit filtre étouffe la pompe.
+ bain, sur la plus grande surface possible (repère 16) : un petit filtre étouffe la pompe.
 - Une pompe de 60 cm de haut suffit pour quelques personnes ; par temps froid, elle suffit pour plus de monde.
+- Sans lattes ni pentures : faire le cadre et son montant du milieu avec des bâtons d'environ 3 cm liés par des
+ bandes de tissu (repère 17), et le pendre à des boucles de cuir, de sangle ou de corde (repère 18).
 
 **Autre façon, sans rien monter : l'éventail de carton.**
 

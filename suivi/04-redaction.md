@@ -1078,3 +1078,136 @@ touchent rien. « Le sortir » couvre la braise du poêle (point 2) : rien d'aut
   « se couvrir », « se réveille », « se fier », « se laver » (verbes réfléchis, pas une consigne au pronominal).
 - `dangers/partie-1.md` : 9 039 mots avant, 9 065 après ; invariants : rien n'a disparu ; les avis du script
   (l. 65, l. 328) sont sur d'autres pages et existaient avant.
+
+## Passe de rédaction, 18 octobre 2026 (soir) : les points restés ouverts
+
+Commande de l'orchestrateur : les points 6, 7, 9 et 10 de `suivi/04-edition.md`, le P19 de `suivi/04-technique.md`, et
+les tableaux des sections 5 et 6, qui débordaient de deux rangées au montage. Étape 18 et série orange pas touchées.
+Les deux points laissés à JP (P2, couper les cheveux aux ciseaux ; P9, la dose suivante à l'heure prévue) ne sont pas
+écrits. Fichier en LF, gardé en LF. Copie d'avant pour `controle.py` : le texte de HEAD (dernier commit du chapitre : `78b809c`).
+Extraits nouveaux, avec leur page : `sources/04-ornl-kearny-pompe-a-volets-dessechant-neige.md` (copie du livre :
+`sources/06-ornl-kearny-nwss-1987.pdf`).
+
+### Point 6 de l'éditeur, le sel et le chlorure de calcium de l'électroscope : la phrase reste
+
+L'ORNL interdit le chlorure de calcium et tout sel comme desséchant du KFM (annexe C, p. 215 : « Do not use calcium
+chloride or other salt » ; p. 219 : « Do NOT use calcium chloride »), **sans dire pourquoi**. Cherché dans tout le
+livre, dans les instructions du KFM tirées à part et par une recherche web : aucune raison donnée par une source. Le
+mécanisme n'est pas écrit (règle 1) ; la phrase « Jamais de sel ni de chlorure de calcium » reste telle quelle, comme
+le prévoyait l'éditeur.
+
+### Point 7 de l'éditeur, « le doubler » : dit d'après l'annexe B
+
+- **Avant :** « Faire un cadre de lattes, ou de bâtons d'environ 3 cm liés avec des bandes de tissu, 2,5 cm plus étroit
+  que l'ouverture. Le doubler : un cadre trop léger ne revient pas assez loin tout seul. »
+- **Après :** « Faire un cadre de lattes 2,5 cm plus étroit que l'ouverture, avec un troisième montant au milieu
+  (repère 3). » ; « Doubler les trois montants : clouer une deuxième latte sur chacun, entre la traverse du haut et celle
+  du bas, sur la face tournée vers la pièce (repère 4). La face devient plate, et les volets ferment bien contre elle ;
+  le cadre devient assez lourd pour revenir loin, tout seul, quand on lâche la corde. »
+- **Source :** ORNL, annexe B, p. 196 (point 1.a, le montant du milieu ; point 1.b, les lattes de remplissage clouées
+  sur les côtés et sur le montant du milieu, entre les traverses, pour que la face soit plate et que les volets ferment
+  bien ; « If the frame is made of only one thickness of board […] it will not be sufficiently heavy to swing back far
+  enough »).
+
+Ce que le doublage entraîne, dans les mêmes puces (même source) :
+- **Le montant du milieu** : c'est là que l'ORNL double, fixe les ficelles et les fils, et noue la corde. « Pumps with
+  improvised hinges and large pumps must be pulled from a connection point on their center vertical brace » (p. 205) :
+  « Nouer la corde au cadre » devient « Nouer la corde au montant du milieu » ; les ficelles se fixent « aussi au
+  montant du milieu » (p. 199 et 200).
+- **Les entailles des volets et le fil seulement cloué** : « Entailler l'ourlet de chaque volet aux deux bouts et au
+  milieu, là où le fil sera fixé aux montants » ; « en clouant ou en attachant le fil seulement, jamais le plastique »
+  (p. 198, fig. 6 ; p. 200, « DO NOT NAIL ANY PLASTIC DIRECTLY TO THE WOOD »). Sans les entailles, on ne peut pas fixer
+  aux montants un fil qui est dans l'ourlet.
+- **Le bas de la porte fermé** : « Dans une porte, fermer le bas, sous la pompe, avec un cadre de bâtons couvert de
+  plastique qu'on peut enlever vite (repère 2) : sinon, une partie de l'air pompé revient en arrière par le bas. »
+  (ORNL, annexe A, p. 173 : « block the lower half of the doorway in which the KAP is installed with a quickly removable
+  covering, such as a plastic-covered frame made of sticks » ; annexe B, p. 205 : l'air qui « flow[s] back around the
+  pump frame, opposite to the pumped direction »). Sans elle, la phrase « Le cadre doit passer à environ 1 cm du bas de
+  l'ouverture » ne pouvait pas se faire avec une pompe de 60 cm dans une porte ; l'auteur de la planche l'avait déjà
+  relevé dans le commentaire de tête de `images/planches-src/04-01b.js`.
+- **Les bâtons et les boucles** deviennent une autre façon, à la fin des puces : « Sans lattes ni pentures : faire le
+  cadre et son montant du milieu avec des bâtons d'environ 3 cm liés par des bandes de tissu (repère 17), et le pendre
+  à des boucles de cuir, de sangle ou de corde (repère 18). » (ORNL, p. 195 et 206 ; cadre des agents, « une autre façon
+  se dit comme une autre façon »). L'ORNL ne dit pas de doubler un cadre de bâtons : le texte ne le dit pas non plus.
+- **Les repères** reviennent dans le texte, de 1 à 18, dans l'ordre des puces. La planche 04-01b se refait sur cette
+  liste (rapport à l'orchestrateur, champ « planches »).
+
+### Point 10 de l'éditeur, l'étape 26 et « la première neige »
+
+- **Avant :** « **Traiter la première pluie et la première neige comme de la poussière radioactive qui se déplace.** La
+  pluie entraîne […] : ne pas y jardiner, et ne pas y laisser jouer les enfants. Le ruisseau […] : ne pas y puiser. »
+- **Après :** « **Dès la première pluie, ne pas jardiner ni laisser jouer les enfants aux endroits où l'eau amène la
+  poussière.** La pluie entraîne […] et le pied des arbres. Le ruisseau […] : ne pas y puiser. L'hiver, ne pas laisser
+  les enfants jouer dans la neige qui était au sol quand les retombées sont tombées, ni dans celle tombée pendant le
+  passage : elle porte la poussière (étape 22). »
+- **Source :** ORNL, chap. 8, p. 72 (la neige tombée dans l'air chargé et la neige au sol qui a reçu les retombées ; déjà
+  la source de l'étape 22) ; chap. 1, p. 12, et fig. 1.4, p. 15 (la neige ramène la poussière au sol). Ce que l'étape
+  promettait sans le dire, le trajet de la poussière à la fonte des neiges, n'a pas de source : une recherche web n'a
+  trouvé que des études sur le césium de l'eau de fonte de bassins versants, rien sur les endroits où la fonte le
+  concentre autour d'une maison. La « première neige » sort du titre ; la neige reste pour ce que la source dit. Le
+  geste (ne pas laisser les enfants y jouer) applique à la neige la règle de la pluie, comme l'étape la donne déjà pour
+  les flaques et les creux. Le gras devient un geste, à l'infinitif.
+
+### Point 9 de l'éditeur, l'ancre de la planche 04-41
+
+- **Avant :** « Sans appareil, on ne sait pas si la poussière reçue est négligeable ou grave » (texte et
+  `design/epreuves-livre/placements-tome-1.json`).
+- **Après :** « Sans compteur, on ne sait pas si la poussière reçue est négligeable ou grave », changé dans les deux
+  fichiers ensemble ; l'ancre est retrouvée une fois dans le chapitre.
+- Même règle 6, dans la même sous-section et à côté : « montre aussi si l'appareil fuit » devient « si l'électroscope
+  fuit » ; « il faut l'appareil d'un laboratoire » devient « le détecteur d'un laboratoire » (le mot de la section 6) ;
+  « qu'on ne peut pas chiffrer sans appareil » (« Sans sous-sol ni caveau ») devient « sans compteur ». « L'appareil
+  qu'elles décrivent » reste : c'est le KFM, une autre chose, que le chapitre ne nomme pas.
+
+### P19 du vérificateur, les antibiotiques et la rétine
+
+- **Le ch. 32** refuse tout stock d'antibiotiques sans ordonnance en cours et fait rapporter les restes (section 5-B,
+  ligne « Ce que le chapitre refuse de mettre au stock » ; encadré 4, « Un antibiotique gardé en réserve tue en donnant
+  l'impression de soigner »). Le ch. 4 s'aligne : la phrase « Garder les antibiotiques pour cette période » sort. Le fait
+  qui reste vient de la même page de l'ORNL (p. 110, « reduced resistance to infections » ; repos, repas complets,
+  « clean surroundings ») : « La personne prend facilement une infection (ch. 35) : la faire reposer, lui donner des
+  repas complets et garder propre l'endroit où elle est couchée. »
+- **Le ch. 35** ne parle ni de l'œil ni de la rétine : le renvoi « (ch. 35) » de la ligne de l'éblouissement sort. Il
+  traite par contre l'infection qui gagne (« l'horloge en jours », section 3 ; ligne « Une plaie ou une infection
+  stagne… », section 7) : le renvoi reste sur la ligne de l'infection, où il sert. Le renvoi au ch. 32 sort avec la
+  phrase des antibiotiques (`controle.py` le signale aux invariants : voulu).
+
+### Les tableaux des sections 5 et 6
+
+Section 6 : 600 mots avant, 538 après (−10 %) ; 3 615 signes avant, 3 196 après (−12 %) ; 12 rangées avant, 11 après.
+Aucun fait perdu ; ce qui redisait une étape devient un renvoi.
+
+| Ligne | Avant | Après |
+| --- | --- | --- |
+| Éblouissement | « Éblouissement par l'éclair (étape 3) » ; « Ne pas conduire ni traverser une route avant de voir clair. […] qui reste (ch. 35) » | « Éblouissement par l'éclair » ; « Attendre de voir clair pour conduire ou traverser une route (étape 3). […] qui reste » |
+| Brûlure de l'éclair | « Brûlure par la chaleur de l'éclair » | « La chaleur de l'éclair » (l'observation dit déjà la brûlure) |
+| Poussière dans l'abri | « La poussière est entrée : une ouverture mal bouchée, ou quelqu'un est entré habillé » ; « Laver les surfaces à l'eau, sans balayer. Les gens qui arrivent du dehors doivent enlever leurs vêtements du dessus à l'entrée (étape 20). » | « Une ouverture mal bouchée, ou quelqu'un est entré avec ses vêtements du dehors » (« habillé » ne dit pas lesquels) ; « Laver à l'eau, sans balayer (étape 25). Faire passer les gens qui arrivent du dehors par le coin de l'entrée (étape 20). » |
+| Brûlure de la poussière | « Laver tout de suite à l'eau et au savon ; sans eau, brosser et frotter la poussière. » | « Laver tout de suite (étape 10). » (l'étape 10 et « Sans eau courante ni savon » disent comment) |
+| Premiers signes | « Le début d'une irradiation, ou la peur, qui donne les mêmes signes » ; « Ces premiers signes » ; « la dose reçue » ; « Soigner une personne irradiée n'expose pas celle qui la soigne » | « Le début d'une irradiation, ou la peur » ; « Ces signes » ; « la dose » ; « La soigner n'expose pas la personne qui la soigne » |
+| Forte dose | « Forte dose reçue » ; les antibiotiques (P19) | « Forte dose » ; l'infection (P19) |
+| Poêle | « du côté d'où vient le vent » | « du côté du vent » (le mot de RNCan, p. 40) |
+| Deux doses d'iode | « sans danger pour l'enfant » ; « À un bébé de moins d'un mois, ne plus en donner (étape 16) » | « sans danger » ; « Ne plus en donner à un bébé de moins d'un mois (étape 16) » |
+| Comprimés jaunis | « un comprimé intact, seulement périmé, resté dans sa plaquette fermée » | « un comprimé intact resté dans sa plaquette fermée, même périmé » |
+| Gibier et champignons | deux lignes : le gibier (« On mesure le césium d'une viande au laboratoire, avec un détecteur blindé de plomb ; au chalet, on ne peut pas le mesurer. Faire tremper, jeter le bouillon et s'en tenir aux bêtes les moins exposées (étapes 29 à 32) ») et les champignons (« Ne pas les cueillir (étape 28) ») | une ligne : « Le gibier a l'air normal, sent bon et goûte bon ; les champignons sont beaux et nombreux » ; « Le césium ne se voit pas, ne se sent pas et ne se goûte pas » ; « Seul le détecteur blindé de plomb d'un laboratoire peut le mesurer. Faire le tri, le trempage et la cuisson des étapes 28 à 32. » |
+
+Section 5, plus léger (357 mots avant, 351 après) : « Rester et empiler autour de soi ce qui est lourd (section 7) »
+devient « Rester et faire comme à l'étape 8 » (les mots de l'étape 9) ; « Ne pas doubler pour rattraper un oubli » devient
+« Ne pas doubler la dose (étape 14) ». Les autres cellules donnent une cible chiffrée ou le contrôle lui-même : c'est leur
+travail (skill `ecriture`, « La répétition »). Les lignes qui disent « Faire l'étape 18 » ne sont pas touchées.
+
+Le chapitre gagne des mots ailleurs (la pompe, environ 100 ; l'étape 26, environ 25) : à surveiller au montage.
+
+### controle.py, avant et après
+
+- **Avant** (`78b809c`) : 9 661 mots, 2 tirets (titre et ligne de tome), 48 mots vides, 17 redites.
+- **Après** : 9 784 mots, 2 tirets (les mêmes), 0 « § », 0 mot banni, 0 tournure, 0 mise en relief, 0 maxime, 0
+  pronominal ; 1 âge (« À partir de 4 ans », une dose : reste) ; ancres de la planche 04-41 et des autres retrouvées
+  une fois chacune dans le texte.
+- **Invariants** : « renvoi : ch. 32, ch. 35 » ; voulu (P19 : le ch. 32 sort avec les antibiotiques, le ch. 35 sort de
+  la ligne de la rétine et reste sur celle de l'infection).
+- **Mots vides** : 49 ; les nouveaux portent le sens (« tout seul », le cadre qui revient sans qu'on tire ; « ferment
+  bien », serré ; « tous les 7,5 cm »).
+- **Redites** : 20 ; trois nouvelles, jugées : « la neige qui était au sol » (étapes 22 et 26 : la même neige, nommée
+  pareil, avec le renvoi) ; « la face tournée vers la pièce » deux fois dans la pompe (la même face, règle 6).
+- **Pronominaux** relus à la main : « les volets se plaquent », « le cadre revient seul » (la chose le fait seule) ;
+  aucune consigne au pronominal.
