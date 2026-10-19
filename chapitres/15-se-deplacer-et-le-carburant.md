@@ -457,19 +457,21 @@ quelques degrés plus bas. Le moteur manque de carburant, tousse et s'arrête.
  corde à piano. Sans câble de rechange, visser la vis de ralenti du carburateur jusqu'à ce que la machine avance seule,
  lentement, et conduire en coupant et en remettant le contact.
 - **Conduite d'essence percée.** Enfiler un bout de boyau pris ailleurs sur la machine par-dessus les deux
- bouts, et le serrer au fil de fer. Le tube de vinyle transparent ramollit dans l'essence : il sert le temps
- de rentrer.
+ bouts de la conduite, et le serrer au fil de fer. Un tube de vinyle transparent ramollit dans l'essence : il
+ tient seulement le temps de rentrer.
 - **Joint usé.** Tailler un joint dans du cuir gras pour une bride froide, ou dans du carton huilé pour un
- couvercle. Pas de chambre à air du côté de l'essence : le caoutchouc gonfle dans l'essence et se défait.
+ couvercle. Ne pas prendre de chambre à air pour un joint qui touche l'essence : le caoutchouc gonfle dans
+ l'essence et se défait.
 - **Trou d'épingle dans un réservoir.** Frotter du savon dur dans le trou, ou visser une vis à tôle avec une
- rondelle de cuir. Ni l'un ni l'autre ne tient sur une pièce chaude ni sous pression : on répare au retour.
+ rondelle de cuir. Ces réparations ne tiennent pas sur une pièce chaude ni sous pression : faire la vraie
+ réparation au retour.
 - **Ski ou patin cassé.** Boulonner une éclisse de plat d'acier de part et d'autre de la cassure ; un montant
  de sommier fait l'affaire (planche 15-06, repères 1 et 2). Sans acier, ligaturer une perche de bois vert sous
  le ski pour rejoindre la rive (repères 3 et 4).
 - **Bougie encrassée.** La gratter à la pointe du couteau, jamais à l'abrasif, et la remettre. Si l'électrode
- a bougé, remettre l'écartement de la machine (beaucoup de petits moteurs demandent 0,76 mm) en pliant
- doucement l'électrode courbe : la cale accroche légèrement quand c'est bon. Porcelaine fendue ou électrode
- rongée : la bougie est perdue. Le test d'étincelle et l'ordre dans lequel chercher la panne sont au
+ a bougé, remettre l'écartement que demande la machine (beaucoup de petits moteurs demandent 0,76 mm) en
+ pliant doucement l'électrode courbe : quand c'est bon, la cale d'épaisseur passe entre les électrodes en
+ accrochant légèrement. Si la porcelaine est fendue ou l'électrode rongée, la bougie est perdue. Le test d'étincelle et l'ordre dans lequel chercher la panne sont au
  ch. 106.
 
 ### Faire des pics à glace
@@ -484,8 +486,8 @@ Il faut deux bouts de manche à balai, deux gros clous et un cordon (planche 15-
  tournevis coupé fait aussi un pic, à condition que la pointe ne dépasse que de 2,5 à 3,8 cm : plus longue,
  elle mord moins et peut blesser la personne qui la porte.
 - Percer à côté du clou un second trou, moins profond, qui reçoit la pointe de l'autre pic (repère 3) :
- emboîtés, les deux pics se couvrent la pointe. Plier un peu les clous jusqu'à ce que les deux pics se
- séparent d'un coup sec.
+ emboîtés, les deux pics se couvrent la pointe. Plier un peu les clous, jusqu'à ce qu'on puisse séparer les
+ deux pics d'un coup sec.
 - Percer l'autre bout de chaque manche en travers et y nouer un cordon solide, un pic à chaque bout (repère
  4).
 - Passer le cordon autour du cou, assez court pour que la paire pende au milieu de la poitrine, par-dessus le
