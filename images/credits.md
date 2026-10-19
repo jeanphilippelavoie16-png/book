@@ -1200,3 +1200,5 @@ un livre privé, à remplacer si le livre se vend. La page de chaque photo, avec
 | `pleine-page/tome-1/06-givre-sur-feuille.jpg` | Icy frost arrow shapes on leaf macro | Aron n Alisons | CC BY-NC-SA 2.0 | https://www.flickr.com/photos/59920975@N02/31424138885/ | 5399 × 3600 |
 | `pleine-page/tome-1/07-neige-sculptee-par-le-vent.jpg` | The Winds That Carve - Monochrome | MikoFox | CC BY-NC-SA 2.0 | https://www.flickr.com/photos/28648755@N07/52756404546/ | 4020 × 2466 |
 | `pleine-page/tome-1/08-givre-bleu.jpg` | Blue Frost - Givre bleu | Monteregina (Nicole) | CC BY-NC-SA 2.0 | https://www.flickr.com/photos/7196003@N02/25229571122/ | 2460 × 2460 |
+| `bandes/tome-1/orignal-brume-aube.jpg` | moose dawn | Steve Wall | CC BY-NC-SA 2.0 | https://www.flickr.com/photos/61779926@N00/2285060690/ | 3600 × 2400 |
+| `bandes/tome-1/orignal-brume.jpg` | Photo of the Week - Moose in mist (ME) | U.S. Fish and Wildlife Service Northeast Region | Marque du domaine public | https://www.flickr.com/photos/43322816@N08/12637633223/ | 3072 × 2048 |
