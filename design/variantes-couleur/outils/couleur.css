@@ -17,18 +17,18 @@
    --tp  teinte pâle (encadrés)   --tp2 teinte d'en-tête de tableau   --tx trame sur aplat
    Tome 2 : le bordeaux ne va qu'aux aplats, aux filets et aux teintes ; les carrés et
    le bandeau 9 restent noirs, pour que rien de petit et de plein ne ressemble au rouge. */
-body.t1{--tf:#E2E7EA;--tfi:#15222B;--tfn:#2B5876;--ta:#2B5876;--tsq:#2B5876;--t9:#2B5876;--tp:#E8EDF0;--tp2:#D5DEE4;--tx:rgba(21,34,43,.075);--tx9:rgba(255,255,255,.07)}
-body.t2{--tf:#5C1A15;--tfi:#F3ECE5;--tfn:#F3ECE5;--ta:#5C1A15;--tsq:#000;--t9:#000;--tp:#F3ECE5;--tp2:#E8DBD0;--tx:rgba(243,236,229,.07);--tx9:rgba(255,255,255,.07)}
-body.t3{--tf:#1D392E;--tfi:#E9F0EA;--tfn:#E9F0EA;--ta:#2B5A45;--tsq:#2B5A45;--t9:#1D392E;--tp:#E9F0EA;--tp2:#D5E3D8;--tx:rgba(233,240,234,.07);--tx9:rgba(255,255,255,.07)}
-body.t4{--tf:#25414F;--tfi:#EDF2F5;--tfn:#EDF2F5;--ta:#25414F;--tsq:#25414F;--t9:#25414F;--tp:#EDF2F5;--tp2:#D6E2E9;--tx:rgba(237,242,245,.07);--tx9:rgba(255,255,255,.07)}
+body.t1{--tf:#E2E7EA;--tfi:#15222B;--tfn:#2B5876;--ta:#2B5876;--tsq:#2B5876;--t9:#2B5876;--tp:#E8EDF0;--tp2:#D5DEE4;--txc:#15222B;--txp:7.5%}
+body.t2{--tf:#5C1A15;--tfi:#F3ECE5;--tfn:#F3ECE5;--ta:#5C1A15;--tsq:#000;--t9:#000;--tp:#F3ECE5;--tp2:#E8DBD0;--txc:#F3ECE5;--txp:7%}
+body.t3{--tf:#1D392E;--tfi:#E9F0EA;--tfn:#E9F0EA;--ta:#2B5A45;--tsq:#2B5A45;--t9:#1D392E;--tp:#E9F0EA;--tp2:#D5E3D8;--txc:#E9F0EA;--txp:7%}
+body.t4{--tf:#25414F;--tfi:#EDF2F5;--tfn:#EDF2F5;--ta:#25414F;--tsq:#25414F;--t9:#25414F;--tp:#EDF2F5;--tp2:#D6E2E9;--txc:#EDF2F5;--txp:7%}
 /* Tomes 5 et 6 (design/choix.md, décisions des 27 et 28 septembre 2026).
    Tome 5, écorce : l'aplat est trop sombre pour les petits éléments, qui prennent un brun plus clair (comme le tome 1).
    Tome 6, fonte (#363432, encre pâle #EEEBE6), choisie par JP à la place de la rouille (#7A4424) : un gris de fer
    chaud, loin du rouge danger, qui va donc partout comme le bleu du tome 4 (aplats, filets, carrés, bandeau 9).
    Teintes pâles dérivées comme pour les autres tomes : --tp = l'encre de couverture, --tp2 = l'encre mêlée
    d'environ 9 % de l'aplat (#DDDAD5). */
-body.t5{--tf:#4B3A28;--tfi:#F2EBDF;--tfn:#F2EBDF;--ta:#6B5238;--tsq:#6B5238;--t9:#4B3A28;--tp:#F2EBDF;--tp2:#E3D6C3;--tx:rgba(242,235,223,.07);--tx9:rgba(255,255,255,.07)}
-body.t6{--tf:#363432;--tfi:#EEEBE6;--tfn:#EEEBE6;--ta:#363432;--tsq:#363432;--t9:#363432;--tp:#EEEBE6;--tp2:#DDDAD5;--tx:rgba(238,235,230,.07);--tx9:rgba(255,255,255,.07)}
+body.t5{--tf:#4B3A28;--tfi:#F2EBDF;--tfn:#F2EBDF;--ta:#6B5238;--tsq:#6B5238;--t9:#4B3A28;--tp:#F2EBDF;--tp2:#E3D6C3;--txc:#F2EBDF;--txp:7%}
+body.t6{--tf:#363432;--tfi:#EEEBE6;--tfn:#EEEBE6;--ta:#363432;--tsq:#363432;--t9:#363432;--tp:#EEEBE6;--tp2:#DDDAD5;--txc:#EEEBE6;--txp:7%}
 
 /* =============================== A — DISCRÈTE =============================== */
 .vA .rh{border-bottom-color:var(--ta)}
@@ -92,16 +92,17 @@ body.t6{--tf:#363432;--tfi:#EEEBE6;--tfn:#EEEBE6;--ta:#363432;--tsq:#363432;--t9
    rognage ; 12 pt, comme dans les tomes assemblés (28 septembre 2026) */
 .vB.chn3 .page::after{font-size:12pt;letter-spacing:-.01em}
 /* page qui porte la série des premières minutes (chapitre.js pose .or) : onglet orange plein, chiffre noir, sans la
-   trame de la variante C (rgba) ; livre fermé, la série fait une encoche orange dans la bande de tête de la gouttière */
+   trame de la variante C (des traits de couleur pleine, mêlée par color-mix : pas de transparence, que Lulu signalait
+   aux pages 7, 11, 37 à 40 et 70 du tome 1, 19 octobre 2026) ; livre fermé, la série fait une encoche orange dans la bande de tête de la gouttière */
 .vB .page.or::after,.vC .page.or::after{background:var(--or);color:#000}
 .vB.chn3 .recto::after{padding-left:2pt}
 .vB.chn3 .verso::after{padding-right:2pt}
 
 /* =============================== C — CARACTÈRE =============================== */
 /* trame fine sur les aplats : hachure au trait, comme dans les planches */
-.vC .open-title::before{background:repeating-linear-gradient(135deg,var(--tx) 0 1.1px,transparent 1.1px 5px),var(--tf)}
-.vC h2.sec.s9{background:repeating-linear-gradient(135deg,var(--tx9) 0 1.1px,transparent 1.1px 5px),var(--t9)}
-.vC .page::after{background:repeating-linear-gradient(135deg,var(--tx9) 0 1.1px,transparent 1.1px 5px),var(--ta)}
+.vC .open-title::before{background:repeating-linear-gradient(135deg,color-mix(in srgb,var(--txc) var(--txp),var(--tf)) 0 1.1px,var(--tf) 1.1px 5px),var(--tf)}
+.vC h2.sec.s9{background:repeating-linear-gradient(135deg,color-mix(in srgb,#fff 7%,var(--t9)) 0 1.1px,var(--t9) 1.1px 5px),var(--t9)}
+.vC .page::after{background:repeating-linear-gradient(135deg,color-mix(in srgb,#fff 7%,var(--ta)) 0 1.1px,var(--ta) 1.1px 5px),var(--ta)}
 
 /* pictogrammes : SVG au trait posés en image de fond, déjà dans leur couleur d'impression (variante.py, icon_vars :
    --i-NOM-k noir, -g gris --k70, -w blanc, -ta et -tsq couleur du tome, -red). Plus de masque CSS (15 octobre 2026) :

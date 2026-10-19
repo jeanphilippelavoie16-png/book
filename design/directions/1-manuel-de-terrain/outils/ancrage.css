@@ -25,7 +25,7 @@
   background:var(--ta,#000);color:#fff;font:700 15pt/1 var(--sans);letter-spacing:-.01em}
 .recto .ak-tab{right:0;justify-content:flex-start;padding-left:6pt}
 .verso .ak-tab{left:0;justify-content:flex-end;padding-right:6pt}
-.vC .ak-tab{background:repeating-linear-gradient(135deg,var(--tx9) 0 1.1px,transparent 1.1px 5px),var(--ta)}
+.vC .ak-tab{background:repeating-linear-gradient(135deg,color-mix(in srgb,#fff 7%,var(--ta)) 0 1.1px,var(--ta) 1.1px 5px),var(--ta)}
 
 /* pied : le lieu de la page porte son pictogramme (00 : celui du bloc, pas celui du chapitre) */
 .page.anc .ft .lieu-ft::before{content:none;display:none}
@@ -68,7 +68,7 @@ table.ak-index th:last-child{text-align:right}
 .bk-head{flex:none;display:grid;grid-template-columns:auto 1fr auto;align-items:end;gap:0 12pt;padding-bottom:8pt;border-bottom:5pt solid var(--ta,#000)}
 .bk-num{width:1.08in;height:1.08in;background:var(--tsq,#000);color:#fff;font:700 82pt/1.08in var(--sans);text-align:center;letter-spacing:-.03em}
 .bk-num.deux{font-size:62pt;letter-spacing:-.05em}
-.vC .bk-num{background:repeating-linear-gradient(135deg,var(--tx9) 0 1.1px,transparent 1.1px 5px),var(--tsq)}
+.vC .bk-num{background:repeating-linear-gradient(135deg,color-mix(in srgb,#fff 7%,var(--tsq)) 0 1.1px,var(--tsq) 1.1px 5px),var(--tsq)}
 .bk-tt h1{margin:0;font:700 calc(35pt*var(--kt))/1.05 var(--sans);text-transform:uppercase;letter-spacing:.005em;hyphens:manual}
 .bk-lieu .lieu-b{flex-direction:column;gap:4pt;padding:6pt 8pt 5pt;background:var(--ta,#000);color:#fff;font-size:9pt;letter-spacing:.07em}
 .bk-lieu .ak{--h:24pt}
@@ -100,7 +100,7 @@ ol.gestes .gr{font:700 10.5pt/1 var(--sans);border:1.2pt solid var(--ta,#000);co
 
 /* ---------- page « Quand il n'y a rien » (recto, en face du bloc) ---------- */
 .sr-head{flex:none;background:var(--t9,#000);color:#fff;padding:7pt 10pt 9pt}
-.vC .sr-head{background:repeating-linear-gradient(135deg,var(--tx9) 0 1.1px,transparent 1.1px 5px),var(--t9)}
+.vC .sr-head{background:repeating-linear-gradient(135deg,color-mix(in srgb,#fff 7%,var(--t9)) 0 1.1px,var(--t9) 1.1px 5px),var(--t9)}
 .sr-k{font:600 8pt/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;margin-bottom:6pt}
 .sr-t{display:flex;align-items:center;gap:10pt}
 .sr-n{flex:none;width:32pt;height:32pt;background:#fff;color:var(--t9,#000);font:700 23pt/32pt var(--sans);text-align:center}
@@ -160,7 +160,7 @@ table.subst td:nth-child(2){font-weight:600}
 p.lead0{text-indent:0}
 h2.palier{column-span:all;display:flex;align-items:stretch;margin:14pt 0 8pt;background:var(--pc);color:var(--pci);break-after:avoid}
 h2.palier:first-child{margin-top:0}
-.vC h2.palier.pal1,.vC h2.palier.pal2{background:repeating-linear-gradient(135deg,var(--tx9) 0 1.1px,transparent 1.1px 5px),var(--pc)}
+.vC h2.palier.pal1,.vC h2.palier.pal2{background:repeating-linear-gradient(135deg,color-mix(in srgb,#fff 7%,var(--pc)) 0 1.1px,var(--pc) 1.1px 5px),var(--pc)}
 h2.palier.pal4{background:#fff;box-shadow:inset 0 0 0 2.5pt var(--ta,#000)}
 h2.palier .pn{flex:none;width:0.95in;display:flex;align-items:center;justify-content:center;font:700 60pt/1 var(--sans);padding:4pt 0 2pt}
 h2.palier .pt2{display:flex;flex-direction:column;justify-content:center;padding:9pt 12pt 9pt 2pt;font:700 25pt/1 var(--sans);text-transform:uppercase;letter-spacing:.02em}
@@ -233,4 +233,4 @@ em.perd{font-family:var(--sans);font-style:normal;font-weight:700;font-size:.92e
 .rh .minus{text-transform:none}
 .toc .nw{white-space:nowrap}
 .ak-tab.pal1,.ak-tab.pal2,.ak-tab.pal3,.ak-tab.pal4{background:var(--pt);color:var(--pci)}
-.vC .ak-tab.pal1,.vC .ak-tab.pal2{background:repeating-linear-gradient(135deg,var(--tx9) 0 1.1px,transparent 1.1px 5px),var(--pt)}
+.vC .ak-tab.pal1,.vC .ak-tab.pal2{background:repeating-linear-gradient(135deg,color-mix(in srgb,#fff 7%,var(--pt)) 0 1.1px,var(--pt) 1.1px 5px),var(--pt)}
