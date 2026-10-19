@@ -1204,3 +1204,20 @@ un livre privé, à remplacer si le livre se vend. La page de chaque photo, avec
 | `bandes/tome-1/orignal-brume.jpg` | Photo of the Week - Moose in mist (ME) | U.S. Fish and Wildlife Service Northeast Region | Marque du domaine public | https://www.flickr.com/photos/43322816@N08/12637633223/ | 3072 × 2048 |
 | `bandes/tome-1/orignal-tete-givre.jpg` | A Moose Hidden in the Snow (le bas rogné : la signature) | Chase Dekker | CC BY-NC-SA 2.0 | https://www.flickr.com/photos/87288449@N08/8299758266/ | 2382 × 1158 |
 | `bandes/tome-1/aurore-lac-epinettes.jpg` | Solar Storm over Twin Lakes | Keith Williams | CC BY-NC 2.0 | https://www.flickr.com/photos/46306125@N03/21910291690/ | 2048 × 1367 |
+
+Réserve des pages pleines (`images/pleine-page/reserve/`), choisies par JP le 19 octobre 2026 ; « ppp » = la résolution une fois recadrée en page pleine portrait (8,75 po de large) : sous 200, trop molle pour une page pleine.
+
+| Fichier | Sujet | Auteur | Licence | Lien | Taille | ppp en page pleine |
+| --- | --- | --- | --- | --- | --- | --- |
+| `pleine-page/reserve/P24-arc-en-ciel-taiga.jpg` | Nowitna National Wildlife Refuge | Alaska Region U.S. Fish & Wildlife Service | Marque du domaine public | https://www.flickr.com/photos/54775250@N07/55424786975/ | 2700 × 1801 | 160 |
+| `pleine-page/reserve/P629-huards-brume.jpg` | loons in the mist | Steve Wall | CC BY-NC-SA 2.0 | https://www.flickr.com/photos/61779926@N00/2744334778/ | 3600 × 2400 | 213 |
+| `pleine-page/reserve/P180-epinettes-brouillard.jpg` | Trees, Snow, Cloud | Dru! | CC BY-NC 2.0 | https://www.flickr.com/photos/36543076@N00/24827719762/ | 3264 × 2448 | 218 |
+| `pleine-page/reserve/P484-rayons-foret-enneigee.jpg` | Shine On | Audun Bie | CC BY-NC-SA 2.0 | https://www.flickr.com/photos/144547954@N08/32788311090/ | 5393 × 3600 | 320 |
+| `pleine-page/reserve/A146-ourson-noir-arbre.jpg` | Bennington VT - near Walloomsac River - black bear baby 08 | Daniel Mennerich | CC BY-NC-SA 2.0 | https://www.flickr.com/photos/29858421@N04/54565570407/ | 1944 × 1296 | 115 |
+| `pleine-page/reserve/A64-renard-couche-neige.jpg` | Red Fox Just Uncurled | MikoFox | CC BY-NC-SA 2.0 | https://www.flickr.com/photos/28648755@N07/13441815265/ | 2582 × 1936 | 172 |
+| `pleine-page/reserve/A373-chouette-lapone-neige.jpg` | Great Gray Owl | Sunny | CC BY-NC-SA 2.0 | https://www.flickr.com/photos/42478987@N07/50811626348/ | 2048 × 1463 | 130 |
+| `pleine-page/reserve/A522-tetras-neige.jpg` | Spruce grouse realizing there's no female and letting himsel | Claudine Lamothe | CC BY-NC 2.0 | https://www.flickr.com/photos/47094939@N07/29792998292/ | 2000 × 1179 | 105 |
+| `pleine-page/reserve/A87-renard-rocher-montagnes.jpg` | Red Fox (Vulpes vulpes) Surveys The Landscape | Lake Clark National Park & Preserve | Marque du domaine public | https://www.flickr.com/photos/93799642@N07/23484121868/ | 2288 × 1712 | 152 |
+| `pleine-page/reserve/A303-caribous-combat-givre.jpg` | Caribou combat | frostnip907 | CC BY-NC-SA 2.0 | https://www.flickr.com/photos/135422841@N07/23798229394/ | 1350 × 900 | 80 |
+| `pleine-page/reserve/P23-meandre-taiga-automne.jpg` | Nowitna National Wildlife Refuge | Alaska Region U.S. Fish & Wildlife Service | Marque du domaine public | https://www.flickr.com/photos/54775250@N07/55424790140/ | 2700 × 1801 | 160 |
+| `pleine-page/reserve/P442-riviere-gelee-brume-bleue.jpg` | Geothermal Reflections | Terry Lawson | CC BY-NC 2.0 | https://www.flickr.com/photos/59719397@N08/39358722331/ | 5000 × 2922 | 260 |
