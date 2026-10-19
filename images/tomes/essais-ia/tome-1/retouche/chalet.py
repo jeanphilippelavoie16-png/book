@@ -41,16 +41,17 @@ BOITE = (335, 684, 522, 803)                       # le dessin (unités) : la zo
 # l'ancien chalet (toit, murs, cheminée, bosse), rebouché en entier
 ANCIENNE_MAISON = [(359.5, 773.0), (361.5, 779.0), (370.5, 779.0), (370.5, 797.5), (429.0, 798.0), (453.5, 797.0),
                    (456.0, 793.0), (456.0, 775.0), (459.5, 770.5), (459.5, 763.0), (456.5, 756.0), (448.0, 744.5),
-                   (439.0, 737.0), (430.5, 735.5), (430.5, 710.5), (412.5, 710.5), (412.5, 731.0), (401.0, 729.0),
-                   (389.5, 732.0), (384.0, 738.5)]
+                   (439.0, 737.0), (430.5, 735.5), (430.5, 710.5), (412.5, 710.5), (412.5, 730.0), (401.0, 728.4),
+                   (389.0, 730.2), (385.6, 733.0), (384.4, 739.0), (382.6, 742.6)]
 # la nuit autour de la cheminée et du toit, que la retouche des collines laisse telle quelle (CHALET de collines.py) :
 # elle est refaite avec la nuit d'à côté, pour qu'aucune marche ne se voie
 NUIT_CHALET = [(406, 703), (438, 703), (438, 728), (470, 728), (470, 765), (370, 765), (370, 728), (406, 728)]
 # la clôture : dans ce contour, tout ce qui est foncé est l'ancienne clôture (la trace commence à gauche de 337)
 ANCIENNE_CLOTURE = [(337.5, 776.0), (372.0, 776.0), (372.0, 800.0), (337.5, 800.0)]
 ANCIENNE_CLOTURE_D = [(451.0, 777.0), (521.0, 777.0), (521.0, 800.5), (451.0, 800.5)]
-# l'horizon derrière le chalet : au-dessus, la nuit de la rangée ; au-dessous, le champ
-HORIZON = [(335, 734.5), (360, 736.0), (387, 739.5), (420, 742.0), (440, 744.0), (460, 749.5), (522, 751.0)]
+# l'horizon derrière le chalet (au-dessus, la nuit de la rangée ; au-dessous, le champ) : relevé colonne par colonne
+# sur l'image reçue, hors du chalet (entre ces deux x, il est tiré droit d'un côté à l'autre)
+HORIZON_CACHE = (383.4, 461.5)
 # l'ombre au pied du chalet : le tracé de neige.py, remonté jusqu'au bas des murs (sinon le chalet flotte)
 OMBRE = [(372.0, 796.0), (453.0, 795.4), (455.4, 796.4), (452.0, 798.4), (420.0, 800.2), (380.0, 800.8),
          (362.0, 800.0), (366.0, 797.4)]
@@ -59,7 +60,7 @@ OMBRE = [(372.0, 796.0), (453.0, 795.4), (455.4, 796.4), (452.0, 798.4), (420.0,
 BAS = 796.6                  # le bas des murs
 MUR_G, MUR_D = 373.2, 427.6  # le mur de devant (le pignon)
 SABLIERE = 770.2             # le haut du mur de devant, le bas du pignon
-SOMMET = (398.0, 744.2)      # la pointe du pignon (dedans)
+SOMMET = (398.0, 737.0)      # la pointe du pignon, sous la jonction des rives
 FOND_X = 452.6               # le coin du fond du mur de côté
 POTEAUX = [(340.5, 781.0), (352.5, 780.7), (364.4, 781.2), (466.4, 781.1), (482.2, 780.7), (498.0, 781.0),
            (514.0, 781.3)]
@@ -158,7 +159,7 @@ def dessin():
         noir.append(np.concatenate([[(FOND_X - 0.5, ya)], _quad((FOND_X + 0.6, ya), (FOND_X + 2.0, (ya + yb) / 2),
                                                                 (FOND_X + 0.6, yb), 10), [(FOND_X - 0.5, yb)]]))
     # -- le mur de devant et le pignon (un seul noir)
-    noir.append([(MUR_G, BAS), (MUR_G, SABLIERE), SOMMET, (MUR_D + 0.6, SABLIERE + 1.2), (MUR_D + 0.6, BAS)])
+    noir.append([(MUR_G, BAS), (MUR_G, SABLIERE), (372.4, SABLIERE), SOMMET, (428.4, 771.6), (MUR_D + 0.6, BAS)])
     # -- les rives du toit : la rive gauche (épaisse, avec son bout de chevron) et la rive droite
     noir.append([(396.6, 734.4), (399.3, 736.6), (366.0, 777.4), (364.0, 777.6), (362.4, 776.4), (362.6, 774.9)])
     noir.append([(396.6, 734.4), (399.3, 736.6), (430.0, 773.4), (428.4, 775.2), (426.6, 774.9)])
@@ -180,35 +181,32 @@ def dessin():
                             0.8, (0.05, 0.08)))
     # la sablière, sous le pignon
     creme.append(_trait([(MUR_G + 1.4, SABLIERE + 0.1), (MUR_D - 1.2, SABLIERE + 0.1)], 0.7, (0.03, 0.03)))
-    # les planches debout du pignon, dans le triangle (à 1,3 unité des rives)
-    gx = lambda y, cote: SOMMET[0] + (MUR_G - SOMMET[0] if cote < 0 else MUR_D - SOMMET[0]) * (y - SOMMET[1]) / (
-        SABLIERE - SOMMET[1])
+    # le bord du dessous des deux rives (x selon y), et le filet crème qui le suit, 0,9 unité en dedans
+    rive_g = lambda y: 399.3 - 0.816 * (y - 736.6) + 0.9
+    rive_d = lambda y: 396.6 + 0.741 * (y - 734.4) - 0.9
+    creme.append(_trait([(rive_g(739.4), 739.4), (rive_g(769.4), 769.4)], 0.6, (0.04, 0.12)))
+    creme.append(_trait([(rive_d(740.2), 740.2), (rive_d(769.8), 769.8)], 0.55, (0.04, 0.12)))
+    # les planches debout du pignon, du filet à la sablière
     for x in np.arange(380.0, 425.0, 4.4):
-        # le haut de la planche : là où elle touche la rive (moins une marge)
-        if x <= SOMMET[0]:
-            yh = SOMMET[1] + (x - SOMMET[0]) / (MUR_G - SOMMET[0]) * (SABLIERE - SOMMET[1])
+        if x <= 398.4:
+            yh = 736.6 + (399.3 + 0.9 - x) / 0.816
         else:
-            yh = SOMMET[1] + (x - SOMMET[0]) / (MUR_D - SOMMET[0]) * (SABLIERE - SOMMET[1])
-        yh += 2.4
+            yh = 734.4 + (x + 0.9 - 396.6) / 0.741
+        yh += 1.5
         if SABLIERE - 1.4 - yh > 1.5:
             creme.append(_trait([(x + j(0.08), yh), (x + j(0.08), SABLIERE - 1.4)], 0.6, (0.12, 0.04)))
-    # le filet sous les rives (le bord du pignon taillé en crème)
-    creme.append(_trait([(397.6, 740.7), (380.0, 760.2), (368.4, 773.3)], 0.6, (0.04, 0.2)))
-    creme.append(_trait([(399.0, 741.6), (414.0, 759.5), (426.4, 773.4)], 0.55, (0.04, 0.2)))
     # le filet de neige sur la rive gauche (le pan de gauche, qu'on voit par la tranche)
-    creme.append(_trait([(395.6, 734.4), (385.0, 746.0), (372.0, 760.6)], 1.0, (0.08, 0.5)))
+    creme.append(_trait([(396.35, 735.6), (385.2, 748.6), (374.1, 762.0)], 0.8, (0.08, 0.5)))
     # les bouts ronds des rondins aux deux coins de devant : des anneaux crème sur le noir
-    for k in range(6):
+    coins = [(k, x) for k in range(6) for x in (MUR_G - 0.2, MUR_D + 0.5) if not (k == 0 and x > 400)]
+    for k, x in coins:
         y = SABLIERE + (k + 0.5) * hauteur
-        for x in (MUR_G - 0.2, MUR_D + 0.5):
-            noir.append(_ellipse(x, y, 1.95, 1.85))
+        noir.append(_ellipse(x, y, 1.95, 1.85))
     couches.append(('creme', creme)); creme = []
     couches.append(('noir', noir)); noir = []
-    for k in range(6):
+    for k, x in coins:
         y = SABLIERE + (k + 0.5) * hauteur
-        for x in (MUR_G - 0.2, MUR_D + 0.5):
-            anneau = np.concatenate([_ellipse(x, y, 1.3, 1.22), _ellipse(x, y, 0.82, 0.76)[::-1]])
-            creme.append(anneau)
+        creme.append(np.concatenate([_ellipse(x, y, 1.3, 1.22), _ellipse(x, y, 0.82, 0.76)[::-1]]))
 
     # -- la porte : le cadre noir cerné de crème, l'orange, les planches, les traverses, la poignée
     px0, py0, px1, py1 = PORTE
@@ -276,16 +274,18 @@ def dessin():
 
 
 def lueur():
-    """La lueur de la porte sur la neige : quelques traits orange plats et taillés, en éventail court devant le
-    seuil, de plus en plus fins et espacés en s'éloignant."""
+    """La lueur de la porte sur la neige : des traits orange taillés à la gouge, couchés, en rangs qui s'élargissent
+    devant le seuil et s'amincissent en s'éloignant (comme le reflet orange sur le lac du tome 4)."""
     cx = (PORTE[0] + PORTE[2]) / 2
-    traits = [(-3.4, 797.7, 5.2, 0.95), (3.0, 797.9, 4.6, 0.9),
-              (-7.4, 799.3, 5.0, 0.8), (0.4, 799.4, 4.4, 0.85), (7.6, 799.6, 4.0, 0.75),
-              (-4.6, 800.9, 4.2, 0.6), (5.0, 801.0, 3.6, 0.55)]
+    rangs = [(797.7, [(-3.0, 4.8), (2.8, 4.4)], 0.62),
+             (799.0, [(-7.2, 4.6), (-0.6, 5.2), (6.4, 4.2)], 0.55),
+             (800.3, [(-4.4, 4.6), (3.8, 4.0), (10.2, 2.6)], 0.46),
+             (801.4, [(-9.6, 2.8), (0.2, 3.4)], 0.38)]
     polys = []
-    for dx, y, L, ep in traits:
-        m = cx + dx
-        polys.append(_trait([(m - L / 2, y + 0.12), (m - L / 6, y - 0.05), (m + L / 2, y + 0.08)], ep, (0.3, 0.45)))
+    for y, traits, ep in rangs:
+        for dx, L in traits:
+            m = cx + dx
+            polys.append(_trait([(m - L / 2, y + 0.06), (m, y - 0.04), (m + L / 2, y + 0.04)], ep, (0.18, 0.28)))
     return polys
 
 
@@ -315,6 +315,24 @@ def _normconv(img, poids, sigma):
     return num / np.maximum(den, 1e-4)[..., None], den
 
 
+def _horizon(L, xs, ys, K):
+    """Le haut du champ de neige, colonne par colonne : le premier pixel clair, entre 725 et 762, sous lequel la
+    neige continue sur 2,5 unités ; sous le chalet, une droite d'un côté à l'autre."""
+    clair = L > 150
+    n = int(2.5 * K)
+    suite = ndi.minimum_filter1d(clair.astype(np.uint8), n, axis=0, origin=-(n // 2)) > 0
+    fen = (ys >= 725) & (ys <= 762)
+    hz = np.full(len(xs), np.nan)
+    for j in range(len(xs)):
+        k = np.nonzero(suite[:, j] & fen)[0]
+        if len(k):
+            hz[j] = ys[k[0]] - 0.5 / K
+    a, b = HORIZON_CACHE
+    ok = ~np.isnan(hz) & ((xs < a) | (xs > b))
+    hz = np.interp(xs, xs[ok], hz[ok])
+    return ndi.median_filter(hz, int(1.5 * K) | 1, mode='nearest')
+
+
 def appliquer(a, K=4):
     a = np.asarray(a)
     x0, y0, x1, y1 = BOITE
@@ -324,7 +342,7 @@ def appliquer(a, K=4):
     L = z.mean(2)
     xs = x0 + (np.arange(w) + 0.5) / K
     ys = y0 + (np.arange(h) + 0.5) / K
-    hz = np.interp(xs, [p[0] for p in HORIZON], [p[1] for p in HORIZON])
+    hz = _horizon(L, xs, ys, K)
     champ = ys[:, None] > hz[None, :]
 
     # -- l'ancien chalet : la maison en entier, le foncé de la clôture, et le liseré clair autour
@@ -352,7 +370,8 @@ def appliquer(a, K=4):
     if nuit.sum() > 50:
         c_nuit = np.where((den < 0.05)[..., None], np.median(z[nuit], 0), c_nuit)
     sous = ndi.gaussian_filter(champ.astype(np.float32), 0.3 * K)[..., None]
-    remplace = sous * pn + (1 - sous) * c_nuit
+    lisse = np.where(ndi.gaussian_filter(loin.astype(np.float32), 8 * K)[..., None] > 0.02, base, pn)
+    remplace = sous * lisse + (1 - sous) * c_nuit
     fond[ancien] = remplace[ancien]
 
     # -- le nouveau chalet
