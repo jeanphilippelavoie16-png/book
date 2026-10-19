@@ -263,8 +263,8 @@ thermomètre dans la caisse, la règle des 2 heures s'y applique comme sur le co
 
 ### L'eau pour douze, l'hiver
 
-Faire fondre de la neige pour les 48 L d'eau par jour de l'étape 1 coûte du bois tous les jours. {!glace} On prend d'abord
-l'eau sous la glace d'un lac ou d'un ruisseau, puis la glace, et la neige en dernier (ch. 10, étapes 36 à 39 ;
+Faire fondre de la neige pour les 48 L d'eau par jour de l'étape 1 coûte du bois tous les jours. {!glace} On prend
+d'abord l'eau sous la glace d'un lac ou d'un ruisseau, puis la glace, et la neige en dernier (ch. 10, étapes 36 à 39 ;
 ch. 10, section 7, « Fondre sans gaspiller de bois »). Deux personnes avec des chaudières et un traîneau
 rapportent en un voyage ce que le poêle mettrait la journée à fondre. On retaille le trou de puisage au même endroit
 tous les jours, on le couvre, et on le marque d'une branche plantée haute : après une bordée, on le retrouve sans
@@ -276,8 +276,8 @@ Douze personnes qui respirent, des mitaines et des bas qui sèchent, un chaudron
 cette eau passe dans l'air et se condense sur la première surface froide, les têtes de clous, les têtes de vis,
 l'intérieur des murs, le dessous du toit. À douze, on voit du givre sur les clous, des cernes bruns au plafond, et
 l'isolant qui s'affaisse et n'isole plus. L'aération à heures fixes (« Cuire dehors, sans avertisseur ») sert aussi
-contre l'humidité. {!incendie} On fait sécher le linge sur une corde, hors du mètre autour du poêle, jamais sur le poêle : un bas
-oublié sur une tôle chaude peut mettre le feu au chalet.
+contre l'humidité. {!incendie} On fait sécher le linge sur une corde, hors du mètre autour du poêle, jamais sur le
+poêle : un bas oublié sur une tôle chaude peut mettre le feu au chalet.
 
 ### Chauffer une seule pièce
 
