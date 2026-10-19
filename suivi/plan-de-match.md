@@ -22,8 +22,11 @@ Trois phases, une à la suite de l'autre (≈ 18 à 20 M au total) :
 1. **Texte** (en cours) : les ch. 01, 02, 03, 05 à 09, 11, 13 à 18 refaits au gabarit final comme les ch. 04 et 12
    (sept sections, pictogrammes de danger dans les étapes, séries orange en tête, logigramme, planches appelées, 4 à 8
    notes En plus) ; le ch. 10 reçoit ses notes En plus ; le ch. 00b, la passe d'écriture. Chaîne par chapitre :
-   rédacteur, vérificateur technique, corrections, éditeur. Les agents ne touchent pas aux fichiers communs ; un
-   intégrateur applique à la fin les ancres, l'inventaire des dangers, les crédits et les renvois entre chapitres.
+   rédacteur, vérificateur technique (le nouveau et ce qui change de sens seulement : JP, « on a pas déjà fait ce
+   travail-là ? »), corrections ; puis un éditeur par lot. Six lots en parallèle (01-02-03, 05-06-07, 08-09-00b,
+   11-13-14, 15-16-17, 18-10), un workflow chacun : `_reprise/scratchpad/tome1-final/tome1-lot.js`, args = la liste des
+   chapitres du lot. Les agents ne touchent pas aux fichiers communs ; un intégrateur applique à la fin les ancres,
+   l'inventaire des dangers, les crédits et les renvois entre chapitres, à partir de ce que les lots rendent.
    Fiches : section « Refonte au gabarit final, 19 octobre 2026 » de chaque suivi/NN-redaction.md.
 2. **Planches** : celles que les rédacteurs disent manquantes ou décalées, plus les priorités de
    `images/audit-planches/` pour le tome 1 ; les 28 planches du tome 1 dans `images/a-valider/` attendent JP.
