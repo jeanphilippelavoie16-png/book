@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 """Couverture imprimée d'un tome, autour de l'image de sa page de titre (essai du 18 octobre 2026).
 
-Trois mises en page de la couverture complète (quatrième | tranche | devant), aux mesures de Blurb du tome :
+Trois mises en page de la couverture complète (quatrième | tranche | devant), aux mesures de l'imprimeur (FORMATS :
+Lulu, couverture rigide Case Wrap, par défaut ; Blurb, couverture souple 8 × 10, avec --format blurb) :
   A  l'affiche : le devant de la page de titre ; la nuit continue en aplat sur la tranche et la quatrième
   B  le gros chiffre : le numéro du tome en grand dans le ciel ; tranche et quatrième à la couleur du tome
   C  le ciel fait le tour : titre centré ; le ciel étoilé de l'image, recadré en miroir, couvre la tranche et
@@ -12,14 +13,22 @@ Trois mises en page de la couverture complète (quatrième | tranche | devant), 
   --ppp N        résolution des PNG (150)
   --fond-ppp N   résolution de l'image de fond composée (300 ; 375 garde l'image du tome 1 à sa pleine définition)
   --accent HEX   couleur du gros chiffre (variante B) : une couleur forte de l'image du tome (cuivre des crêtes, tome 1)
-  --guides       trace le rognage, les plis, la zone sûre et la tolérance de coupe (pour vérifier)
+  --format F     lulu (défaut) ou blurb
+  --guides       trace les bords des planches, les plis, la zone sûre, la tolérance de coupe et la zone du code-barres
+  --pdf DIR      le PDF à téléverser chez l'imprimeur, de la première variante : DIR/couverture-tome-N.pdf (une page à la
+                 taille exacte, RVB, le texte en vectoriel, polices incorporées, sans transparence)
+  --controle     l'image de contrôle : la couverture sous le gabarit de Lulu du tome (sources/lulu-captures/
+                 gabarit-couverture-tome-N-*.pdf), dans le dossier de --pdf ou de --sortie
+  --six          refait les-six-couvertures.png avec les six couverture-tome-N-C.png de --sortie, et rien d'autre
   --garder DIR   garde le HTML, les fonds et les portraits dans DIR (sinon : dossier temporaire, effacé)
   --sortie DIR   où écrire les PNG (ce dossier par défaut)
 
-Les dimensions (tranche lue au tableau de Blurb pour le nombre de pages du tome), les textes de la quatrième, le
-sommaire et les auteurs viennent de design/directions/1-manuel-de-terrain/outils/build_couvertures_6.py, importé
-tel quel : rien n'y est écrit. Le sous-titre du devant (variante A) vient de SOUS_TITRES dans
-design/outils/assembler-tome.py. Il faut Chromium (/opt/pw-browsers) et l'accès à Google Fonts.
+La tranche : Lulu, au tableau de la couverture rigide (LULU_RIGIDE) pour le nombre de pages de PAGES_LULU (le tome 1 :
+354 pages, l'intérieur téléversé) ou, faute de gabarit, de build_couvertures_6.PAGES (provisoire) ; Blurb, au tableau
+de Blurb (build_couvertures_6.SPINE). Les textes de la quatrième, le sommaire et les auteurs viennent de
+design/directions/1-manuel-de-terrain/outils/build_couvertures_6.py, importé tel quel : rien n'y est écrit.
+Le sous-titre du devant (variante A) vient de SOUS_TITRES dans design/outils/assembler-tome.py. Il faut Chromium
+(/opt/pw-browsers), l'accès à Google Fonts, pypdf et pdftoppm (--pdf, --controle).
 
 Les étoiles : aucune étoile derrière une lettre ni collée contre elle (JP, 18 octobre 2026). On mesure dans Chromium la
 boîte de chaque texte, puis on retire de l'image composée les étoiles qui touchent ces boîtes (avec une marge) ; les
@@ -49,12 +58,84 @@ import build_couvertures_6 as bc        # noqa: E402
 Image.MAX_IMAGE_PIXELS = None
 
 # ------------------------------------------------------------------ mesures (pouces)
-FP = 0.125                              # fond perdu, les quatre bords (Blurb, couverture souple)
+# Deux formats (--format). Par défaut, Lulu : couverture rigide Case Wrap, US Letter (JP, 19 octobre 2026), aux mesures
+# du gabarit que Lulu a donné pour l'intérieur du tome 1 (sources/lulu-captures/gabarit-couverture-tome-1-354p.pdf,
+# 354 pages) : le wrap, ce qui se replie sur le carton, remplace le fond perdu (0,625 po sur les quatre bords) ; les
+# planches (cartons) font 8,75 × 11,5 po ; la zone sûre est à 0,625 po en dedans du bord de chaque planche, du côté de
+# la tranche aussi ; la zone du code-barres (facultative, 3,622 × 1,26 po) est en bas à droite de la quatrième, collée
+# au coin de la zone sûre, du côté de la tranche : rien d'écrit n'y va, Lulu peut y poser un code-barres.
+# Blurb (--format blurb) : couverture souple 8 × 10, fond perdu 0,125 po, zone sûre 0,25 po (le rendu d'avant).
+#   fp       wrap (Lulu) ou fond perdu (Blurb), sur les quatre bords
+#   pw, ph   une planche (Lulu) ou un plat rogné (Blurb)
+#   surete   la zone sûre, en dedans du bord de la planche
+#   marge    le bloc de texte de la quatrième, en dedans du bord de la planche (Lulu : la zone sûre ; le bas du bloc
+#            s'arrête sur la zone du code-barres, ce qui lui laisse la hauteur du bloc de Blurb, 9 po)
+#   devant   les côtés du titre du devant, en dedans du bord de la planche, et la descente du haut du devant (Lulu :
+#            0,75 po, 0,25 po plus bas que Blurb : le titre du tome 1 tombe au même point de l'image qu'en Blurb)
+#   cb       la zone du code-barres (largeur, hauteur), ou None
+FORMATS = {
+    'lulu': dict(nom='Lulu, couverture rigide Case Wrap', fp=0.625, pw=8.75, ph=11.5, surete=0.625, marge=0.625,
+                 devant=0.75, cb=(3.622, 1.26)),
+    'blurb': dict(nom='Blurb, couverture souple 8 × 10', fp=0.125, pw=8.0, ph=10.0, surete=0.25, marge=0.5,
+                  devant=0.5, cb=None),
+}
+FP = FORMATS['blurb']['fp']             # les cotes du gabarit CSS de base sont celles de Blurb ; Lulu les remplace
+                                        # (css_format)
+
+# La tranche de la couverture rigide, au tableau de Lulu (sources/lulu-specifications.md §3, guide de création, p. 14) :
+# (nombre de pages au plus, tranche en po). De 24 à 84 pages : 0,25 po.
+LULU_RIGIDE = [(84, .25), (140, .5), (168, .625), (194, .688), (222, .75), (250, .813), (278, .875), (306, .938),
+               (334, 1.0), (360, 1.063), (388, 1.125), (416, 1.188), (444, 1.25), (472, 1.313), (500, 1.375),
+               (528, 1.438), (556, 1.5), (582, 1.563), (610, 1.625), (638, 1.688), (666, 1.75), (694, 1.813),
+               (722, 1.875), (750, 1.938), (778, 2.0), (799, 2.063), (800, 2.125)]
+# Les pages de l'intérieur téléversé chez Lulu, tome par tome, quand Lulu a donné le gabarit de sa couverture
+# (sources/lulu-captures/gabarit-couverture-tome-N-*.pdf). Un tome absent d'ici prend le compte de
+# build_couvertures_6.PAGES (les intérieurs Blurb 8 × 10) : sa tranche est provisoire jusqu'à son propre gabarit.
+PAGES_LULU = {1: 354}
 
 
-def mesures(k):
-    tr = bc.SPINE[k]
-    return dict(tranche=tr, W=16.25 + tr, H=10.25, x_tranche=FP + 8.0, x_devant=FP + 8.0 + tr)
+def tranche_lulu(pages):
+    if not 24 <= pages <= 800:
+        raise ValueError('%d pages : la couverture rigide de Lulu va de 24 à 800 pages' % pages)
+    return next(t for n, t in LULU_RIGIDE if pages <= n)
+
+
+def mesures(k, fmt='lulu'):
+    f = FORMATS[fmt]
+    if fmt == 'blurb':
+        pages, tr, prov = bc.PAGES[k], bc.SPINE[k], bc.PROV[k]
+    else:
+        pages = PAGES_LULU.get(k, bc.PAGES[k])
+        tr = tranche_lulu(pages)
+        prov = ('gabarit de Lulu' if k in PAGES_LULU else
+                'PROVISOIRE : compte Blurb de build_couvertures_6.PAGES, en attendant le gabarit de Lulu')
+    fp, pw, ph = f['fp'], f['pw'], f['ph']
+    return dict(f, format=fmt, pages=pages, prov=prov, tranche=tr, W=2 * fp + 2 * pw + tr, H=ph + 2 * fp,
+                x_tranche=fp + pw, x_devant=fp + pw + tr)
+
+
+def y_devant(m, y):
+    """Une cote du devant prise sur la couverture Blurb (po depuis le haut du plat rogné) ramenée au même point de
+    l'image du tome sur la couverture de m : l'image est calée en haut et couvre toute la hauteur, fond perdu ou wrap
+    compris, dans les deux formats. La crête ou l'objet sous le titre restent ainsi sous lui."""
+    if m['format'] == 'blurb':
+        return y
+    b = FORMATS['blurb']
+    iw, ih = m['image']
+    s_b = max((b['pw'] + b['fp']) / iw, (b['ph'] + 2 * b['fp']) / ih)       # po par px de l'image (composer)
+    s_m = max((m['pw'] + m['fp']) / iw, m['H'] / ih)
+    return round((y + b['fp']) / s_b * s_m - m['fp'], 3)
+
+
+def x_quatrieme(m, x):
+    """Une cote de la quatrième prise sur la couverture Blurb (po depuis le bord du fond perdu) ramenée au même point du
+    bloc de texte de la quatrième de m (pour les modules des dos)."""
+    if m['format'] == 'blurb':
+        return x
+    b = FORMATS['blurb']
+    g_b, d_b = b['fp'] + b['marge'], b['fp'] + b['pw'] - b['marge']
+    g_m, d_m = m['fp'] + m['marge'], m['fp'] + m['pw'] - m['marge']
+    return g_m + (x - g_b) * (d_m - g_m) / (d_b - g_b)
 
 
 # ------------------------------------------------------------------ la bulle des photos des auteurs
@@ -188,18 +269,18 @@ def tranche(k):
             f'<div class="vt"><b data-fit-v>{esc(d["titre"])}</b><span>Le Manuel du Nord</span></div></div>')
 
 
-def devant(v, k):
+def devant(v, k, m):
     d = bc.TOMES[k]
     titre = '<br>'.join(esc(l) for l in d['h1'])
     if VARIANTES[v]['devant'] == 'affiche':
         st = sous_titre(k)
         return (f'<div class="hd hd-a"><span>Le Manuel du Nord</span><span>Tome {k}</span></div>'
-                f'<div class="haut" data-boite><h1 class="titre" data-fit data-bas="3.95">{titre}</h1>'
+                f'<div class="haut" data-boite><h1 class="titre" data-fit data-bas="{y_devant(m, 3.95)}">{titre}</h1>'
                 + (f'<p class="sous">{typo(st)}</p>' if st else '') + '</div>')
     if VARIANTES[v]['devant'] == 'chiffre':
         return (f'<div class="hd hd-b"><span>Le Manuel du Nord</span><span>Tome {k} sur 6</span></div>'
                 f'<div class="duo"><div class="num">{k}</div><h1 class="titre" data-fit data-haut=".hd-b">{titre}</h1></div>')
-    bas = CENTRE_BAS.get(k, 3.95)
+    bas = y_devant(m, CENTRE_BAS.get(k, 3.95))
     return (f'<div class="marque">Le Manuel du Nord</div>'
             f'<div class="centre"><div class="tome"><i></i><span>Tome {k}</span><i></i></div>'
             f'<h1 class="titre" data-fit data-haut=".marque" data-sommet=".tome" data-bas="{bas}">{titre}</h1></div>')
@@ -208,7 +289,8 @@ def devant(v, k):
 # « Tome N » est toujours à la même distance sous « Le Manuel du Nord » (JP, 19 octobre 2026 : « colle-le toujours à la
 # même distance »), et le titre suit dessous ; il rapetisse s'il descend plus bas que 3,95 po depuis le haut du devant
 # rogné, ou plus haut quand l'image monte (tome 6 : la colline enneigée, sur laquelle le titre crème ne se lit pas ;
-# tome 2 : le cadre au mur)
+# tome 2 : le cadre au mur). Les cotes sont celles de la couverture Blurb ; y_devant() les ramène au même point de l'image
+# sur la couverture Lulu (3,95 po devient 4,44 po du haut de la planche).
 CENTRE_BAS = {2: 3.1, 6: 3.3}
 
 
@@ -301,7 +383,53 @@ body{-webkit-print-color-adjust:exact;print-color-adjust:exact}
 .g.pli{border-left:1px dashed #FF00D4}
 .g.tol{border-left:1px dotted #FFD000}
 .g.sur{border:1px dashed #7CFF4A}
+.g.cb{border:1px dashed #FFD000}
 '''
+
+
+def css_format(m):
+    """Les cotes du gabarit CSS pour un format autre que Blurb. Le bloc de texte de la quatrième et la tranche
+    descendent de d = marge − 0,5 po (la marge de Blurb), le haut du devant de dv = devant − 0,5 po : chacun garde les
+    écarts de Blurb. Le bas de la quatrième s'arrête sur la zone du code-barres. Les bas des titres du devant (data-bas) suivent l'image,
+    par y_devant(). Le titre du devant part d'une taille agrandie comme la largeur de la planche (e : 8,75 / 8) ; il
+    rapetisse ensuite comme avant s'il manque de place (data-fit). Le reste du texte garde sa taille."""
+    if m['format'] == 'blurb':
+        return ''
+    fp, pw, ph, mg, su = m['fp'], m['pw'], m['ph'], m['marge'], m['surete']
+    # les boîtes des lettres (la hauteur de la police) débordent de leur ligne d'environ 0,02 po : 0,03 po d'air en haut et
+    # en bas du bloc, pour qu'aucune ne passe la ligne de sûreté ni ne touche la zone du code-barres
+    air = 0.03
+    d = round(mg + air - FORMATS['blurb']['marge'], 4)
+    dv, mv = round(m['devant'] - FORMATS['blurb']['devant'], 4), m['devant']
+    e = pw / FORMATS['blurb']['pw']
+    bas = round(su + m['cb'][1] + air, 4) if m['cb'] else mg + air
+    return f'''
+/* ---------- format {m['format']} : {m['nom']} ---------- */
+.panel{{top:{fp}in;height:{ph}in}}
+.back{{left:{fp}in;width:{pw}in}}
+.front{{width:{pw}in}}
+.back .in{{inset:{mg + air:.4g}in {mg}in {bas}in {mg}in}}
+.spine .sp{{inset:{0.42 + d:.4g}in 0 {max(0.45 + d, su):.4g}in 0}}
+.hd-a{{top:calc(52px + {dv}in);left:calc(56px + {dv}in);right:calc(56px + {dv}in)}}
+.haut{{top:calc(104px + {dv}in);left:calc(50px + {dv}in);right:calc(56px + {dv}in);height:calc({y_devant(m, 4.45)}in - 104px - {dv}in)}}
+.hd-b{{top:calc(50px + {dv}in);left:calc(56px + {dv}in);right:calc(56px + {dv}in)}}
+.duo{{left:calc(40px + {dv}in);right:calc(56px + {dv}in);bottom:calc({ph}in - {y_devant(m, 3.92)}in)}}
+.marque{{top:{0.58 + dv:.4g}in;left:{mv}in;right:{mv}in}}
+.centre{{top:{1.17 + dv:.4g}in;left:{mv - 0.05:.4g}in;right:{mv - 0.05:.4g}in}}
+.haut .titre{{font-size:{236 * e:.1f}px}}
+.duo .num{{font-size:{372 * e:.1f}px}}
+.duo .titre{{font-size:{196 * e:.1f}px}}
+.centre .titre{{font-size:{250 * e:.1f}px}}
+'''
+
+
+# Le PDF de l'imprimeur (--pdf) : la couverture en deux couches, sans aucune transparence (Lulu : « Flatten any
+# transparent layers », « Vector images should be rasterized »). D'abord une capture à 300 ppp de tout sauf les lettres
+# (le fond, les filets, les photos, les ombres des médaillons, l'étincelle de Claude) ; puis Chromium imprime le texte
+# seul, en vectoriel, polices incorporées, par-dessus cette capture posée en fond, à la taille exacte de la page.
+CSS_SANS_LETTRES = '.sheet *{color:transparent!important;text-shadow:none!important}'
+CSS_LETTRES_SEULES = ('.sheet *{border-color:transparent!important;background:none!important;box-shadow:none!important}'
+                      '.sheet img,.sheet .g{visibility:hidden!important}')
 
 SCRIPT = r'''<script>
 (function(){
@@ -363,28 +491,42 @@ SCRIPT = r'''<script>
 </script>'''
 
 
-def page_html(v, k, m, pal, fichiers, fond, accent, guides=False):
+def page_html(v, k, m, pal, fichiers, fond, accent, guides=False, couche=None):
+    """couche : None (la couverture), 'fond' (tout sauf les lettres) ou 'lettres' (les lettres seules, pour le PDF)."""
     vars_ = '--encre:%s;--douce:%s;--filet:%s;--fort:%s;--fond:%s;--disque:%s;--accent:%s;--tr:%gin' % (
         pal['encre'], pal['douce'], pal['filet'], pal['fort'], pal['fond'], fichiers['disque'], accent, m['tranche'])
+    fp, su = m['fp'], m['surete']
     g = ''
     if guides:
-        xs = [FP, m['x_tranche'], m['x_devant'], m['W'] - FP]
+        xs = [fp, m['x_tranche'], m['x_devant'], m['W'] - fp]
         g += ''.join('<div class="g v%s" style="left:%gin"></div>' % (' pli' if x in xs[1:3] else '', x) for x in xs)
-        g += ''.join('<div class="g h" style="top:%gin"></div>' % y for y in (FP, m['H'] - FP))
+        g += ''.join('<div class="g h" style="top:%gin"></div>' % y for y in (fp, m['H'] - fp))
         g += ''.join('<div class="g v tol" style="left:%gin"></div>' % x for x in
                      (m['x_tranche'] - 1 / 16, m['x_tranche'] + 1 / 16, m['x_devant'] - 1 / 16, m['x_devant'] + 1 / 16))
-        g += ''.join('<div class="g sur" style="left:%gin;top:%gin;width:%gin;height:%gin"></div>' % (x + .25, FP + .25, 7.5, 9.5)
-                     for x in (FP, m['x_devant']))
+        g += ''.join('<div class="g sur" style="left:%gin;top:%gin;width:%gin;height:%gin"></div>' % (
+            x + su, fp + su, m['pw'] - 2 * su, m['ph'] - 2 * su) for x in (fp, m['x_devant']))
+        if m['cb']:
+            g += '<div class="g cb" style="left:%gin;top:%gin;width:%gin;height:%gin"></div>' % (
+                m['x_tranche'] - su - m['cb'][0], m['H'] - fp - su - m['cb'][1], m['cb'][0], m['cb'][1])
+    css = CSS + css_format(m)
+    if m['format'] != 'blurb' or couche:
+        # Chromium pose la feuille au 1/64 de px CSS : le bout de pixel qui reste au bord droit prend la couleur du fond
+        css += 'html,body{background:%s}' % pal['fond']
+    if couche == 'fond':
+        css += CSS_SANS_LETTRES
+    elif couche == 'lettres':
+        css += CSS_LETTRES_SEULES + '@page{size:%.4fin %gin;margin:0}html,body{width:%.4fin;height:%gin;overflow:hidden}' % (
+            m['W'], m['H'], m['W'], m['H'])
     return f'''<!DOCTYPE html>
 <html lang="fr-CA"><head><meta charset="utf-8">
 <title>Le Manuel du Nord, tome {k} : couverture {v}</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-{POLICES}<style>{CSS}.back .ph{{{BULLES[BULLE]}}}</style></head>
+{POLICES}<style>{css}.back .ph{{{BULLES[BULLE]}}}</style></head>
 <body>
 <div class="sheet v{v}" style="width:{m['W']:.4f}in;height:{m['H']}in;background-color:{pal['fond']};{('background-image:url(' + fond + ');') if fond else ''}{vars_}">
   <div class="panel back">{quatrieme(k, fichiers)}</div>
   <div class="panel spine" style="left:{m['x_tranche']:.4f}in;width:{m['tranche']}in">{tranche(k)}</div>
-  <div class="panel front" style="left:{m['x_devant']:.4f}in">{devant(v, k)}</div>
+  <div class="panel front" style="left:{m['x_devant']:.4f}in">{devant(v, k, m)}</div>
   {g}
 </div>
 {SCRIPT}
@@ -413,8 +555,9 @@ def portraits(v, k, pal, ciel, dest):
 
 # ------------------------------------------------------------------ l'image de fond, composée à plat
 def composer(v, m, img, pal, ppp):
-    """Le fond de toute la couverture, fond perdu compris : la quatrième et la tranche (aplat ou ciel étoilé), l'image
-    du tome sur le devant (8,125 × 10,25 po, centrée en largeur, calée en haut comme sur la page de titre)."""
+    """Le fond de toute la couverture, fond perdu ou wrap compris : la quatrième et la tranche (aplat ou ciel étoilé),
+    l'image du tome sur le devant (Blurb : 8,125 × 10,25 po, centrée en largeur ; Lulu : 9,375 × 12,75 po, centrée sur
+    la planche), calée en haut comme sur la page de titre."""
     Wp, Hp = round(m['W'] * ppp), round(m['H'] * ppp)
     xf = round(m['x_devant'] * ppp)
     can = np.empty((Hp, Wp, 3), np.uint8)
@@ -425,6 +568,9 @@ def composer(v, m, img, pal, ppp):
     rw, rh = round(iw * s), round(ih * s)
     grande = np.asarray(img.resize((rw, rh), Image.LANCZOS))
     cx0 = (rw - fw) // 2
+    if m['format'] != 'blurb':
+        # le milieu de l'image au milieu de la planche, sous le titre centré (le wrap de droite prend le reste)
+        cx0 = max(0, min(rw - fw, (rw - round(m['pw'] * ppp)) // 2))
     can[:, xf:] = grande[:Hp, cx0:cx0 + fw]
     bandes = []
     if VARIANTES[v]['dos'] == 'etoiles':
@@ -487,7 +633,10 @@ def motif_dos(k, v, can, rects, m, ppp, img):
     autres »). Chaque tome a son module images/tomes/essais-ia/tome-N/dos.py, avec une fonction motif(can, info) qui
     dessine sur la quatrième et la tranche (colonnes 0 à info['xf'] du fond) et rend le fond. info : xf, xt (début de la
     tranche), H, ppp, rects (les boîtes du texte en px CSS : x0, y0, x1, y1, taille ; 1 px CSS = ppp / 96 px du fond),
-    image (le PIL de l'image du devant), tome, variante. Pas de module : le fond ne change pas."""
+    image (le PIL de l'image du devant), tome, variante ; et pour le format : format ('lulu' ou 'blurb'), fp (wrap ou
+    fond perdu, po), bord (po du bord du fond jusqu'à la zone sûre : 0,375 en Blurb, 1,25 en Lulu), x_po (une cote de la
+    quatrième prise sur la couverture Blurb, en po depuis le bord du fond perdu, ramenée au même point du bloc de texte
+    de ce format : l'identité en Blurb). Pas de module : le fond ne change pas."""
     f = os.environ.get('DOS_MODULE') or os.path.join(ROOT, 'images', 'tomes', 'essais-ia', 'tome-%d' % k, 'dos.py')   # DOS_MODULE : un essai
     if VARIANTES[v]['dos'] != 'etoiles' or not os.path.exists(f):
         return can
@@ -496,7 +645,8 @@ def motif_dos(k, v, can, rects, m, ppp, img):
     mod = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(mod)
     info = dict(xf=round(m['x_devant'] * ppp), xt=round(m['x_tranche'] * ppp), H=can.shape[0], ppp=ppp,
-                rects=list(rects), image=img, tome=k, variante=v)
+                rects=list(rects), image=img, tome=k, variante=v, format=m['format'], fp=m['fp'],
+                bord=m['fp'] + m['surete'], x_po=lambda x: x_quatrieme(m, x))
     out = mod.motif(can.copy(), info)
     print('    dos : motif de %s' % os.path.relpath(f, ROOT))
     return out
@@ -612,8 +762,10 @@ def capturer(fichier, png, m, ppp):
 
 # ------------------------------------------------------------------ planche de choix
 def planche(k, m, pngs, ppp, sortie, travail):
-    """Les variantes côte à côte, rognées (sans le fond perdu), la lettre au-dessus ; une coche aux deux plis."""
-    rog = round(FP * ppp)
+    """Les variantes côte à côte, rognées (sans le fond perdu ni le wrap), la lettre au-dessus ; une coche aux deux
+    plis."""
+    fp, pw = m['fp'], m['pw']
+    rog = round(fp * ppp)
     cols = []
     for v, f in pngs:
         im = Image.open(f)
@@ -622,8 +774,8 @@ def planche(k, m, pngs, ppp, sortie, travail):
         im = im.resize((L, round(im.height * L / im.width)), Image.LANCZOS)
         nom = 'p-%s.png' % v
         im.save(os.path.join(travail, nom))
-        g = 8.0 / (m['W'] - 2 * FP) * 100
-        dr = (8.0 + m['tranche']) / (m['W'] - 2 * FP) * 100
+        g = pw / (m['W'] - 2 * fp) * 100
+        dr = (pw + m['tranche']) / (m['W'] - 2 * fp) * 100
         cols.append(f'''<div class="col"><div class="let">{v}</div><div class="nom">{esc(VARIANTES[v]['nom'])}</div>
 <div class="cv"><img src="{nom}" alt="">{''.join('<i class="%s" style="left:%.3f%%"></i>' % (c, x) for x in (g, dr) for c in ('h', 'b'))}</div>
 <div class="res">{esc(VARIANTES[v]['resume'][0].upper() + VARIANTES[v]['resume'][1:])}.</div></div>''')
@@ -644,9 +796,137 @@ html,body{{margin:0;background:#D5D9DC}}
     f = os.path.join(travail, 'planche.html')
     open(f, 'w', encoding='utf-8').write(doc)
     out = os.path.join(sortie, 'tome-%d-couvertures.png' % k)
-    h = 56 + 96 + 6 + 36 + 22 + round(1150 * 10 / (m['W'] - 2 * FP)) + 24 + 70 + 60
+    h = 56 + 96 + 6 + 36 + 22 + round(1150 * m['ph'] / (m['W'] - 2 * fp)) + 24 + 70 + 60
     chrome(['--window-size=%d,%d' % (w, h + 200), '--screenshot=' + out, 'file://' + f])
     Image.open(out).convert('RGB').crop((0, 0, w, h)).save(out, optimize=True)
+    return out
+
+
+# ------------------------------------------------------------------ contrôles du format
+def hors_zone(m, rects):
+    """Les lignes de texte (boîtes mesurées dans Chromium) qui sortent de la zone sûre de leur planche, entrent dans la
+    zone du code-barres, ou passent à moins de 1/16 po d'un bord de la tranche. Rend une liste de messages."""
+    po = 96.0
+    fp, su, W, H = m['fp'], m['surete'], m['W'], m['H']
+    xt, xd = m['x_tranche'], m['x_devant']
+    haut, bas = fp + su, H - fp - su
+    cb = None
+    if m['cb']:
+        cb = (xt - su - m['cb'][0], H - fp - su - m['cb'][1], xt - su, H - fp - su)
+    e = 0.005                                  # po : l'arrondi des boîtes
+    out = []
+    for x0, y0, x1, y1, fs in rects:
+        if fs <= 0:
+            continue
+        a, b, c, d = x0 / po, y0 / po, x1 / po, y1 / po
+        if c <= xt + e:
+            zone, g, dr = 'quatrième', fp + su, xt - su
+        elif a >= xd - e:
+            zone, g, dr = 'devant', xd + su, W - fp - su
+        else:
+            zone, g, dr = 'tranche', xt + 1 / 16, xd - 1 / 16
+        if a < g - e or c > dr + e or b < haut - e or d > bas + e:
+            out.append('%s : boîte %.3f, %.3f à %.3f, %.3f po hors de la zone sûre' % (zone, a, b, c, d))
+        if cb and zone == 'quatrième' and a < cb[2] - e and c > cb[0] + e and b < cb[3] - e and d > cb[1] + e:
+            out.append('quatrième : boîte %.3f, %.3f à %.3f, %.3f po dans la zone du code-barres' % (a, b, c, d))
+    return out
+
+
+def controle_gabarit(png, gabarit, out, ppp):
+    """L'image de contrôle : la couverture, avec le gabarit de Lulu par-dessus en transparence (le wrap bleu clair, la
+    bande de sûreté bleu foncé, la tranche violette, la zone du code-barres jaune ; le blanc de la zone sûre ne couvre
+    rien). Le gabarit doit avoir la taille de la couverture, au pixel près."""
+    tmp = tempfile.mkdtemp(prefix='gab-')
+    try:
+        subprocess.run(['pdftoppm', '-r', '%g' % ppp, '-png', '-singlefile', gabarit, os.path.join(tmp, 'g')], check=True)
+        g = np.asarray(Image.open(os.path.join(tmp, 'g.png')).convert('RGB')).astype(np.float32)
+    finally:
+        shutil.rmtree(tmp, ignore_errors=True)
+    c = np.asarray(Image.open(png).convert('RGB')).astype(np.float32)
+    if abs(g.shape[0] - c.shape[0]) > 1 or abs(g.shape[1] - c.shape[1]) > 1:
+        sys.exit('le gabarit (%d × %d px) n\'a pas la taille de la couverture (%d × %d px)' % (
+            g.shape[1], g.shape[0], c.shape[1], c.shape[0]))
+    h, w = min(g.shape[0], c.shape[0]), min(g.shape[1], c.shape[1])
+    g, c = g[:h, :w], c[:h, :w]
+    # les deux zones sûres sont les grands rectangles blancs : rien de ce qui est dedans (le logo, les notes de Lulu) ne
+    # se pose sur la couverture, sauf la zone du code-barres, jaune
+    lab, n = ndi.label(g.min(2) > 235)
+    dedans = np.zeros((h, w), bool)
+    for sl in ndi.find_objects(lab):
+        if (sl[0].stop - sl[0].start) * (sl[1].stop - sl[1].start) > (ppp * 1.0) ** 2:
+            dedans[sl] = True
+    jaune, n = ndi.label((g[..., 0] > 200) & (g[..., 1] > 190) & (g[..., 2] < 80))
+    taille = np.bincount(jaune.ravel())
+    jaune = np.isin(jaune, [i for i in range(1, n + 1) if taille[i] > (ppp * 0.5) ** 2])   # pas le petit trait jaune
+    a = np.where(~dedans | jaune, 0.42, 0.0)[..., None]                                   # de la légende de Lulu
+    o = c * (1 - a) + g * a
+    Image.fromarray(np.clip(np.rint(o), 0, 255).astype(np.uint8)).save(out, optimize=True)
+    return out
+
+
+def imprimer_pdf(v, k, m, pal, fichiers, fond, accent, travail, pdf):
+    """Le PDF à téléverser : une page à la taille exacte de la couverture (wrap compris), RVB, sans transparence. La
+    couche sans les lettres est capturée à 300 ppp et posée en fond ; Chromium imprime les lettres par-dessus, en
+    vectoriel, polices incorporées (voir CSS_SANS_LETTRES). La boîte de la page est ramenée au centième de point, comme
+    celle du gabarit de Lulu (19,813 po : 1426,54 pt)."""
+    ppp = 300
+    f_fond = os.path.join(travail, 'pdf-fond-%s.html' % v)
+    open(f_fond, 'w', encoding='utf-8').write(page_html(v, k, m, pal, fichiers, fond, accent, couche='fond'))
+    png = os.path.join(travail, 'pdf-fond-%s.png' % v)
+    capturer(f_fond, png, m, ppp)
+    jpg = 'pdf-fond-%s.jpg' % v
+    Image.open(png).convert('RGB').save(os.path.join(travail, jpg), quality=95, subsampling=0, dpi=(ppp, ppp))
+    f_let = os.path.join(travail, 'pdf-lettres-%s.html' % v)
+    open(f_let, 'w', encoding='utf-8').write(page_html(v, k, m, pal, fichiers, jpg, accent, couche='lettres'))
+    os.makedirs(os.path.dirname(os.path.abspath(pdf)), exist_ok=True)
+    brut = os.path.join(travail, 'brut-%s.pdf' % v)
+    for essai in range(3):
+        if os.path.exists(brut):
+            os.remove(brut)
+        chrome(['--no-pdf-header-footer', '--print-to-pdf=' + brut, 'file://' + f_let], timeout=300)
+        if os.path.exists(brut):
+            break
+    else:
+        sys.exit('impression impossible : ' + pdf)
+    import pypdf
+    r = pypdf.PdfReader(brut)
+    if len(r.pages) != 1:
+        sys.exit('le PDF a %d pages au lieu d\'une : %s' % (len(r.pages), brut))
+    # Chromium arrondit la largeur de la page au centième de pouce supérieur (19,813 po : 19,82 po, 1427,04 pt) ; la
+    # couverture est posée depuis le coin en haut à gauche, à l'échelle 1 : la bande de trop, à droite, est vide, et la
+    # boîte de la page la retire
+    w, h = round(m['W'] * 72, 2), round(m['H'] * 72, 2)
+    p = r.pages[0]
+    dw, dh = float(p.mediabox.width) - w, float(p.mediabox.height) - h
+    if not (-0.01 <= dw <= 1.0 and -0.01 <= dh <= 1.0) or float(p.mediabox.left) or float(p.mediabox.bottom):
+        sys.exit('page de %.3f × %.3f pt au lieu de %.2f × %.2f' % (p.mediabox.width, p.mediabox.height, w, h))
+    wr = pypdf.PdfWriter(clone_from=r)
+    for b in ('mediabox', 'cropbox', 'trimbox', 'bleedbox'):
+        setattr(wr.pages[0], b, pypdf.generic.RectangleObject([0, round(dh, 3), w, round(dh + h, 3)]))
+    wr.add_metadata({'/Title': 'Le Manuel du Nord, tome %d : couverture (%s)' % (k, m['nom'])})
+    with open(pdf, 'wb') as fo:
+        wr.write(fo)
+    return pdf
+
+
+def planche_des_six(dossier, out):
+    """La planche des six couvertures (LISEZMOI) : fond blanc, chaque couverture entière (wrap ou fond perdu compris)
+    ramenée à 1300 px de large, « Tome N » au-dessus en DejaVu Sans Bold 30 px."""
+    from PIL import ImageDraw, ImageFont
+    L = 1300
+    ims = []
+    for k in range(1, 7):
+        im = Image.open(os.path.join(dossier, 'couverture-tome-%d-C.png' % k)).convert('RGB')
+        ims.append(im.resize((L, round(im.height * L / im.width)), Image.LANCZOS))
+    p = Image.new('RGB', (L + 40, sum(56 + im.height for im in ims) + 20), 'white')
+    d = ImageDraw.Draw(p)
+    police = ImageFont.truetype('/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf', 30)
+    y = 0
+    for k, im in enumerate(ims, 1):
+        d.text((20, y + 12), 'Tome %d' % k, font=police, fill='black')
+        p.paste(im, (20, y + 56))
+        y += 56 + im.height
+    p.save(out, optimize=True)
     return out
 
 
@@ -654,6 +934,7 @@ html,body{{margin:0;background:#D5D9DC}}
 def main():
     ap = argparse.ArgumentParser(description=__doc__.split('\n')[0])
     ap.add_argument('--tome', type=int, default=1)
+    ap.add_argument('--format', choices=sorted(FORMATS), default='lulu')
     ap.add_argument('--image')
     ap.add_argument('--variantes', default='ABC')
     ap.add_argument('--ppp', type=float, default=150)
@@ -661,21 +942,35 @@ def main():
     ap.add_argument('--accent', default=CUIVRE)
     ap.add_argument('--bulle', choices=sorted(BULLES), help='la bulle des photos des auteurs (BULLE par défaut)')
     ap.add_argument('--guides', action='store_true')
+    ap.add_argument('--pdf', metavar='DIR', help='le PDF de l\'imprimeur de la première variante : DIR/couverture-tome-N.pdf')
+    ap.add_argument('--controle', action='store_true',
+                    help='l\'image de contrôle, la couverture sous le gabarit de Lulu du tome (sources/lulu-captures/)')
+    ap.add_argument('--six', action='store_true', help='refait les-six-couvertures.png dans --sortie, puis s\'arrête')
     ap.add_argument('--garder')
     ap.add_argument('--sortie', default=ICI)
     o = ap.parse_args()
+    if o.six:
+        print('planche des six :', os.path.relpath(planche_des_six(o.sortie, os.path.join(o.sortie, 'les-six-couvertures.png')), ROOT))
+        return
     global BULLE
     BULLE = o.bulle or BULLE
     k = o.tome
-    m = mesures(k)
+    m = mesures(k, o.format)
     image = o.image or os.path.join(ROOT, 'images', 'tomes', 'titre-tome-%d.jpg' % k)
     img = Image.open(image).convert('RGB')
+    m['image'] = img.size
     ciel = couleur_du_ciel(img)
+    gabarit = None
+    if o.controle:
+        g = sorted(glob.glob(os.path.join(ROOT, 'sources', 'lulu-captures', 'gabarit-couverture-tome-%d-*.pdf' % k)))
+        if o.format != 'lulu' or not g:
+            sys.exit('--controle : pas de gabarit de Lulu pour le tome %d (sources/lulu-captures/)' % k)
+        gabarit = g[-1]
     travail = os.path.abspath(o.garder) if o.garder else tempfile.mkdtemp(prefix='couv-')
     os.makedirs(travail, exist_ok=True)
     os.makedirs(o.sortie, exist_ok=True)
-    print('tome %d : %d p., tranche %s po (%s) ; couverture %.3f × %.2f po ; ciel %s' % (
-        k, bc.PAGES[k], m['tranche'], bc.PROV[k], m['W'], m['H'], ciel))
+    print('tome %d, %s : %d p., tranche %s po (%s) ; couverture %.3f × %.2f po ; ciel %s' % (
+        k, m['nom'], m['pages'], m['tranche'], m['prov'], m['W'], m['H'], ciel))
     pngs = []
     try:
         for v in o.variantes:
@@ -685,6 +980,8 @@ def main():
             f = os.path.join(travail, 'couverture-%s.html' % v)
             open(f, 'w', encoding='utf-8').write(page_html(v, k, m, pal, fichiers, None, accent))
             rects = mesurer(f, m)
+            for msg in hors_zone(m, rects):
+                print('    ATTENTION, ' + msg)
             can, bandes = composer(v, m, img, pal, o.fond_ppp)
             can, n = nettoyer(can, rects + bandes, o.fond_ppp, serre=(k == 1))
             can = motif_dos(k, v, can, rects, m, o.fond_ppp, img)     # après : le nettoyage ne rogne pas les motifs
@@ -695,6 +992,14 @@ def main():
             capturer(f, png, m, o.ppp)
             pngs.append((v, png))
             print('  %s : %s (%d étoiles retirées contre le texte)' % (v, os.path.relpath(png, ROOT), n))
+            if gabarit and not o.guides:
+                out = os.path.join(o.pdf or o.sortie, 'controle-tome-%d-%s-gabarit.png' % (k, v))
+                os.makedirs(os.path.dirname(out), exist_ok=True)
+                print('  contrôle sous le gabarit de Lulu :', os.path.relpath(controle_gabarit(png, gabarit, out, o.ppp), ROOT))
+            if o.pdf and len(pngs) == 1:
+                pdf = imprimer_pdf(v, k, m, pal, fichiers, fond, accent, travail,
+                                   os.path.join(o.pdf, 'couverture-tome-%d.pdf' % k))
+                print('  PDF de l\'imprimeur :', os.path.relpath(pdf, ROOT))
         if len(pngs) > 1 and not o.guides:
             print('  planche :', os.path.relpath(planche(k, m, pngs, o.ppp, o.sortie, travail), ROOT))
     finally:

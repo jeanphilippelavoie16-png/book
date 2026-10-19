@@ -1,0 +1,105 @@
+{
+ "fichier": "14-aurore-boreale.jpg",
+ "titre": "File:2016-09 Aurora Saguenay 06.jpg",
+ "pageid": 52036398,
+ "requete": "https://commons.wikimedia.org/w/api.php?action=query&format=json&prop=imageinfo&iiprop=url%7Csize%7Csha1%7Cmime%7Cextmetadata&titles=File%3A2016-09+Aurora+Saguenay+06.jpg&formatversion=2",
+ "lu_le": "2026-10-19",
+ "imageinfo": {
+  "size": 13326655,
+  "width": 6000,
+  "height": 4000,
+  "url": "https://upload.wikimedia.org/wikipedia/commons/5/5d/2016-09_Aurora_Saguenay_06.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+  "descriptionurl": "https://commons.wikimedia.org/wiki/File:2016-09_Aurora_Saguenay_06.jpg",
+  "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=52036398",
+  "sha1": "c6fe48c04fad661421cabe4e59d8eb89592240bc",
+  "extmetadata": {
+   "DateTime": {
+    "value": "2016-10-03 18:37:45",
+    "source": "mediawiki-metadata",
+    "hidden": ""
+   },
+   "ObjectName": {
+    "value": "2016-09 Aurora Saguenay 06",
+    "source": "mediawiki-metadata"
+   },
+   "CommonsMetadataExtension": {
+    "value": 1.2,
+    "source": "extension",
+    "hidden": ""
+   },
+   "Categories": {
+    "value": "Monts Valin|Uploaded with VicuñaUploader|Aurora in Quebec|Files with coordinates missing SDC location of creation|Images taken in Quebec by 0x010C",
+    "source": "commons-categories",
+    "hidden": ""
+   },
+   "Assessments": {
+    "value": "",
+    "source": "commons-categories",
+    "hidden": ""
+   },
+   "GPSLatitude": {
+    "value": "48.596660",
+    "source": "commons-desc-page"
+   },
+   "GPSLongitude": {
+    "value": "-70.837210",
+    "source": "commons-desc-page"
+   },
+   "GPSMapDatum": {
+    "value": "WGS-84",
+    "source": "commons-desc-page",
+    "hidden": ""
+   },
+   "ImageDescription": {
+    "value": "An <a rel=\"mw:WikiLink/Interwiki\" href=\"https://en.wikipedia.org/wiki/aurora\" title=\"en:aurora\" class=\"extiw\">aurora</a> at the <a rel=\"mw:WikiLink/Interwiki\" href=\"https://en.wikipedia.org/wiki/Mount%20Valin\" title=\"en:Mount Valin\" class=\"extiw\">Mount Valin</a> (Saguenay, Quebec, Canada).",
+    "source": "commons-desc-page"
+   },
+   "DateTimeOriginal": {
+    "value": "2016-09-29 07:38",
+    "source": "commons-desc-page"
+   },
+   "Credit": {
+    "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+    "source": "commons-desc-page"
+   },
+   "Artist": {
+    "value": "<a rel=\"mw:WikiLink\" href=\"https://commons.wikimedia.org/wiki/User:0x010C\" title=\"User:0x010C\">0x010C</a>",
+    "source": "commons-desc-page"
+   },
+   "LicenseShortName": {
+    "value": "CC BY-SA 4.0",
+    "source": "commons-desc-page",
+    "hidden": ""
+   },
+   "UsageTerms": {
+    "value": "Creative Commons Attribution-Share Alike 4.0",
+    "source": "commons-desc-page"
+   },
+   "AttributionRequired": {
+    "value": "true",
+    "source": "commons-desc-page",
+    "hidden": ""
+   },
+   "LicenseUrl": {
+    "value": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "commons-desc-page"
+   },
+   "Copyrighted": {
+    "value": "True",
+    "source": "commons-desc-page",
+    "hidden": ""
+   },
+   "Restrictions": {
+    "value": "",
+    "source": "commons-desc-page",
+    "hidden": ""
+   },
+   "License": {
+    "value": "cc-by-sa-4.0",
+    "source": "commons-templates",
+    "hidden": ""
+   }
+  },
+  "mime": "image/jpeg"
+ }
+}

@@ -51,6 +51,7 @@ RELIEF = 0.45                    # la hauteur de la crête, de la grande colline
 LUNE_H = 0.50                    # la hauteur du croissant
 LUNE_X = 7.00                    # le centre du croissant, depuis le bord perdu
 FIN = 7.45                       # po du bord perdu : la colline redescend jusqu'au pied de la lisière
+                                 # (LUNE_X et FIN : cotes de la couverture Blurb, info['x_po'] les ramène au format)
 DESCENTE = 1.60                  # po : sur cette longueur
 LARGE = 1.30                     # les collines sont étirées en largeur d'autant (les épinettes, non)
 GRAINE = 11
@@ -266,7 +267,8 @@ def motif(can, info):
     ys_ = ys_ + np.where(np.arange(ww) < j0, marche, -marche) * np.clip(1 - d, 0, 1) ** 2 * 0.5
     ys_ = ndi.gaussian_filter1d(ys_, 0.03 * ppp * SS)
     crete = (ys_ - ys_.min()) * RELIEF * ppp * SS / (ys_.max() - ys_.min())     # px de la toile
-    fin = FIN * ppp * SS
+    x_po = info.get('x_po', lambda x: x)
+    fin = x_po(FIN) * ppp * SS
     t = np.clip((np.arange(ww) - fin + DESCENTE * ppp * SS) / (DESCENTE * ppp * SS), 0, 1)
     crete = crete + (sol_c - 0.16 * ppp * SS - crete) * (1 - np.cos(np.pi * t)) / 2
     marge_c = 0.05 * ppp * SS                                  # une pointe reste à cette distance sous la crête
@@ -382,7 +384,7 @@ def motif(can, info):
     # ---- le croissant de lune, en haut à droite du trou
     lune = _lune(src, L)
     Le = _echelle(lune, LUNE_H * ppp * SS / lune.shape[0])
-    ly, lx = 0, int(LUNE_X * ppp * SS - Le.shape[1] / 2)
+    ly, lx = 0, int(x_po(LUNE_X) * ppp * SS - Le.shape[1] / 2)
     a[ly:ly + Le.shape[0], lx:lx + Le.shape[1]] = np.maximum(a[ly:ly + Le.shape[0], lx:lx + Le.shape[1]], Le)
 
     # ---- sur le fond : d'abord les étoiles qui tomberaient dans la forêt ou contre la lune, puis le crème

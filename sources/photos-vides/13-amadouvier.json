@@ -1,0 +1,105 @@
+{
+ "fichier": "13-amadouvier.jpg",
+ "titre": "File:Fomes fomentarius UL 01.jpg",
+ "pageid": 93451633,
+ "requete": "https://commons.wikimedia.org/w/api.php?action=query&format=json&prop=imageinfo&iiprop=url%7Csize%7Csha1%7Cmime%7Cextmetadata&titles=File%3AFomes+fomentarius+UL+01.jpg&formatversion=2",
+ "lu_le": "2026-10-19",
+ "imageinfo": {
+  "size": 11677794,
+  "width": 5289,
+  "height": 3526,
+  "url": "https://upload.wikimedia.org/wikipedia/commons/d/d9/Fomes_fomentarius_UL_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+  "descriptionurl": "https://commons.wikimedia.org/wiki/File:Fomes_fomentarius_UL_01.jpg",
+  "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=93451633",
+  "sha1": "f1b2558b0b8b14410134f48d65af3e74df45c73c",
+  "extmetadata": {
+   "DateTime": {
+    "value": "2020-08-23 22:52:03",
+    "source": "mediawiki-metadata",
+    "hidden": ""
+   },
+   "ObjectName": {
+    "value": "Fomes fomentarius UL 01",
+    "source": "mediawiki-metadata"
+   },
+   "CommonsMetadataExtension": {
+    "value": 1.2,
+    "source": "extension",
+    "hidden": ""
+   },
+   "Categories": {
+    "value": "Self-published work|Files with coordinates missing SDC location of creation|Fomes fomentarius in Canada|Fungi of Canada in August|Nature on Université Laval campus",
+    "source": "commons-categories",
+    "hidden": ""
+   },
+   "Assessments": {
+    "value": "",
+    "source": "commons-categories",
+    "hidden": ""
+   },
+   "GPSLatitude": {
+    "value": "46.777247",
+    "source": "commons-desc-page"
+   },
+   "GPSLongitude": {
+    "value": "-71.272919",
+    "source": "commons-desc-page"
+   },
+   "GPSMapDatum": {
+    "value": "WGS-84",
+    "source": "commons-desc-page",
+    "hidden": ""
+   },
+   "ImageDescription": {
+    "value": "Amadouvier (<i>Fomes fomentarius</i>) dans un boisé du campus de l'Université Laval.",
+    "source": "commons-desc-page"
+   },
+   "DateTimeOriginal": {
+    "value": "2020-08-23 16:37:36",
+    "source": "commons-desc-page"
+   },
+   "Credit": {
+    "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+    "source": "commons-desc-page"
+   },
+   "Artist": {
+    "value": "<a href=\"//commons.wikimedia.org/wiki/User:Cephas\" title=\"User:Cephas\">Cephas</a>",
+    "source": "commons-desc-page"
+   },
+   "LicenseShortName": {
+    "value": "CC BY-SA 4.0",
+    "source": "commons-desc-page",
+    "hidden": ""
+   },
+   "UsageTerms": {
+    "value": "Creative Commons Attribution-Share Alike 4.0",
+    "source": "commons-desc-page"
+   },
+   "AttributionRequired": {
+    "value": "true",
+    "source": "commons-desc-page",
+    "hidden": ""
+   },
+   "LicenseUrl": {
+    "value": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "commons-desc-page"
+   },
+   "Copyrighted": {
+    "value": "True",
+    "source": "commons-desc-page",
+    "hidden": ""
+   },
+   "Restrictions": {
+    "value": "",
+    "source": "commons-desc-page",
+    "hidden": ""
+   },
+   "License": {
+    "value": "cc-by-sa-4.0",
+    "source": "commons-templates",
+    "hidden": ""
+   }
+  },
+  "mime": "image/jpeg"
+ }
+}

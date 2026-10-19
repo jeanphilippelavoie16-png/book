@@ -49,6 +49,7 @@ DEVANT = 0.27                             # po : les entailles finissent au moin
 POINTES = (0.0, 0.16, 0.07, 0.24)         # po : le retrait de la pointe de chaque entaille, pour qu'elles ne
                                           # finissent pas en colonne
 X_LIEVRE = 6.6                            # po du bord perdu : le lièvre, assis sur l'horizon, à droite du soleil
+                                          # (cote de la couverture Blurb : info['x_po'] la ramène au format)
 
 
 # ---------------------------------------------------------------- les pièces de l'image
@@ -272,7 +273,7 @@ def motif(can, info):
     # le lièvre, en miroir : il regarde le soleil, et son liséré orange est du côté du soleil ; aussi haut que le soleil
     la, lc = _lievre(src)
     la, lc = la[:, ::-1], lc[:, ::-1]
-    lx = int(X_LIEVRE * ppp)
+    lx = int(info.get('x_po', lambda x: x)(X_LIEVRE) * ppp)
     lbase = np.nanmax(centre[lx - int(0.25 * ppp):lx + int(0.25 * ppp)]) + 1
     ls = (lbase - haut_soleil) / la.shape[0]
     lw, lh = int(round(la.shape[1] * ls)), int(round(la.shape[0] * ls))

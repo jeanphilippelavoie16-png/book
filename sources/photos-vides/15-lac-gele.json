@@ -1,0 +1,105 @@
+{
+ "fichier": "15-lac-gele.jpg",
+ "titre": "File:Lac Gravel Sainte-Sabine.jpg",
+ "pageid": 158744263,
+ "requete": "https://commons.wikimedia.org/w/api.php?action=query&format=json&prop=imageinfo&iiprop=url%7Csize%7Csha1%7Cmime%7Cextmetadata&titles=File%3ALac+Gravel+Sainte-Sabine.jpg&formatversion=2",
+ "lu_le": "2026-10-19",
+ "imageinfo": {
+  "size": 27914240,
+  "width": 8064,
+  "height": 4536,
+  "url": "https://upload.wikimedia.org/wikipedia/commons/7/70/Lac_Gravel_Sainte-Sabine.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+  "descriptionurl": "https://commons.wikimedia.org/wiki/File:Lac_Gravel_Sainte-Sabine.jpg",
+  "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=158744263",
+  "sha1": "f7d69a45828753e4b7bfdf5cd978b5423818d3a6",
+  "extmetadata": {
+   "DateTime": {
+    "value": "2025-01-29 13:55:52",
+    "source": "mediawiki-metadata",
+    "hidden": ""
+   },
+   "ObjectName": {
+    "value": "Lac Gravel Sainte-Sabine",
+    "source": "mediawiki-metadata"
+   },
+   "CommonsMetadataExtension": {
+    "value": 1.2,
+    "source": "extension",
+    "hidden": ""
+   },
+   "Categories": {
+    "value": "Sainte-Sabine, Chaudière-Appalaches, Quebec|Self-published work|Frozen lakes of Quebec|Files with coordinates missing SDC location of creation|Photos and videos from unmanned aerial vehicles|January 2025 in Quebec|Aerial photographs of lakes of Quebec|Aerial photographs of Chaudière-Appalaches|Lakes of Les Etchemins",
+    "source": "commons-categories",
+    "hidden": ""
+   },
+   "Assessments": {
+    "value": "",
+    "source": "commons-categories",
+    "hidden": ""
+   },
+   "GPSLatitude": {
+    "value": "46.512717",
+    "source": "commons-desc-page"
+   },
+   "GPSLongitude": {
+    "value": "-70.357091",
+    "source": "commons-desc-page"
+   },
+   "GPSMapDatum": {
+    "value": "WGS-84",
+    "source": "commons-desc-page",
+    "hidden": ""
+   },
+   "ImageDescription": {
+    "value": "Aerial view of Lake Gravel in Sainte-Sabine-de-Bellechasse.",
+    "source": "commons-desc-page"
+   },
+   "DateTimeOriginal": {
+    "value": "2025-01-26 01:45:26",
+    "source": "commons-desc-page"
+   },
+   "Credit": {
+    "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+    "source": "commons-desc-page"
+   },
+   "Artist": {
+    "value": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:IrksomeBuccaneer2635&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:IrksomeBuccaneer2635 (page does not exist)\">IrksomeBuccaneer2635</a>",
+    "source": "commons-desc-page"
+   },
+   "LicenseShortName": {
+    "value": "CC BY-SA 4.0",
+    "source": "commons-desc-page",
+    "hidden": ""
+   },
+   "UsageTerms": {
+    "value": "Creative Commons Attribution-Share Alike 4.0",
+    "source": "commons-desc-page"
+   },
+   "AttributionRequired": {
+    "value": "true",
+    "source": "commons-desc-page",
+    "hidden": ""
+   },
+   "LicenseUrl": {
+    "value": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "commons-desc-page"
+   },
+   "Copyrighted": {
+    "value": "True",
+    "source": "commons-desc-page",
+    "hidden": ""
+   },
+   "Restrictions": {
+    "value": "",
+    "source": "commons-desc-page",
+    "hidden": ""
+   },
+   "License": {
+    "value": "cc-by-sa-4.0",
+    "source": "commons-templates",
+    "hidden": ""
+   }
+  },
+  "mime": "image/jpeg"
+ }
+}

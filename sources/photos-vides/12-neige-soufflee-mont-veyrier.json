@@ -1,0 +1,92 @@
+{
+ "fichier": "12-neige-soufflee-mont-veyrier.jpg",
+ "titre": "File:Mont Veyrier (Québec).jpg",
+ "pageid": 157589745,
+ "requete": "https://commons.wikimedia.org/w/api.php?action=query&format=json&prop=imageinfo&iiprop=url%7Csize%7Csha1%7Cmime%7Cextmetadata&titles=File%3AMont+Veyrier+%28Qu%C3%A9bec%29.jpg&formatversion=2",
+ "lu_le": "2026-10-19",
+ "imageinfo": {
+  "size": 3835994,
+  "width": 4896,
+  "height": 3264,
+  "url": "https://upload.wikimedia.org/wikipedia/commons/f/fc/Mont_Veyrier_%28Qu%C3%A9bec%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+  "descriptionurl": "https://commons.wikimedia.org/wiki/File:Mont_Veyrier_(Qu%C3%A9bec).jpg",
+  "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=157589745",
+  "sha1": "4a2755e7235fdf4bcd09a9482d68cf1fabb40508",
+  "extmetadata": {
+   "DateTime": {
+    "value": "2025-01-06 17:07:39",
+    "source": "mediawiki-metadata",
+    "hidden": ""
+   },
+   "ObjectName": {
+    "value": "Mont Veyrier (Québec)",
+    "source": "mediawiki-metadata"
+   },
+   "CommonsMetadataExtension": {
+    "value": 1.2,
+    "source": "extension",
+    "hidden": ""
+   },
+   "Categories": {
+    "value": "Monts Groulx|Self-published work|Mont Veyrier (Québec)",
+    "source": "commons-categories",
+    "hidden": ""
+   },
+   "Assessments": {
+    "value": "",
+    "source": "commons-categories",
+    "hidden": ""
+   },
+   "ImageDescription": {
+    "value": "Vue du versant sud en hiver.",
+    "source": "commons-desc-page"
+   },
+   "DateTimeOriginal": {
+    "value": "2018-01-03 14:32:53",
+    "source": "commons-desc-page"
+   },
+   "Credit": {
+    "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+    "source": "commons-desc-page"
+   },
+   "Artist": {
+    "value": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:C.Canadian&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:C.Canadian (page does not exist)\">P. Davignon</a>",
+    "source": "commons-desc-page"
+   },
+   "LicenseShortName": {
+    "value": "CC BY-SA 4.0",
+    "source": "commons-desc-page",
+    "hidden": ""
+   },
+   "UsageTerms": {
+    "value": "Creative Commons Attribution-Share Alike 4.0",
+    "source": "commons-desc-page"
+   },
+   "AttributionRequired": {
+    "value": "true",
+    "source": "commons-desc-page",
+    "hidden": ""
+   },
+   "LicenseUrl": {
+    "value": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "commons-desc-page"
+   },
+   "Copyrighted": {
+    "value": "True",
+    "source": "commons-desc-page",
+    "hidden": ""
+   },
+   "Restrictions": {
+    "value": "",
+    "source": "commons-desc-page",
+    "hidden": ""
+   },
+   "License": {
+    "value": "cc-by-sa-4.0",
+    "source": "commons-templates",
+    "hidden": ""
+   }
+  },
+  "mime": "image/jpeg"
+ }
+}

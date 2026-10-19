@@ -466,8 +466,9 @@ def scene_tranche(can, img, info, m, y_horizon):
     ppp, xt, xf = info['ppp'], info['xt'], info['xf']
     H = can.shape[0]
     libre = ~m[:, xt:xf].any(1)
-    libre[:int(0.375 * ppp)] = False
-    libre[H - int(0.375 * ppp):] = False
+    bord = info.get('bord', 0.375)        # po du bord du fond jusqu'à la zone sûre (Blurb 0,375 ; Lulu 1,25)
+    libre[:int(bord * ppp)] = False
+    libre[H - int(bord * ppp):] = False
     lab, n = ndi.label(libre)
     if not n:
         return None, 'pas de trou sur la tranche'

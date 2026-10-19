@@ -1,0 +1,92 @@
+{
+ "fichier": "17-chemin-enneige.jpg",
+ "titre": "File:2016-12 rang saint louis road snow.jpg",
+ "pageid": 59990721,
+ "requete": "https://commons.wikimedia.org/w/api.php?action=query&format=json&prop=imageinfo&iiprop=url%7Csize%7Csha1%7Cmime%7Cextmetadata&titles=File%3A2016-12+rang+saint+louis+road+snow.jpg&formatversion=2",
+ "lu_le": "2026-10-19",
+ "imageinfo": {
+  "size": 11403702,
+  "width": 5786,
+  "height": 3255,
+  "url": "https://upload.wikimedia.org/wikipedia/commons/f/fe/2016-12_rang_saint_louis_road_snow.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+  "descriptionurl": "https://commons.wikimedia.org/wiki/File:2016-12_rang_saint_louis_road_snow.jpg",
+  "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=59990721",
+  "sha1": "a7d69889917767d09143b366fb8ed79858aa976f",
+  "extmetadata": {
+   "DateTime": {
+    "value": "2017-06-16 12:26:04",
+    "source": "mediawiki-metadata",
+    "hidden": ""
+   },
+   "ObjectName": {
+    "value": "2016-12 rang saint louis road snow",
+    "source": "mediawiki-metadata"
+   },
+   "CommonsMetadataExtension": {
+    "value": 1.2,
+    "source": "extension",
+    "hidden": ""
+   },
+   "Categories": {
+    "value": "Monts Valin|Roads in Quebec|Uploaded with VicuñaUploader|December 2016 in Quebec|Snowy roads in Quebec|Images taken in Quebec by 0x010C",
+    "source": "commons-categories",
+    "hidden": ""
+   },
+   "Assessments": {
+    "value": "",
+    "source": "commons-categories",
+    "hidden": ""
+   },
+   "ImageDescription": {
+    "value": "The <i>rang Saint-Louis</i> road covered by snow in winter in the <a href=\"https://en.wikipedia.org/wiki/Mount_Valin\" class=\"extiw\" title=\"en:Mount Valin\">Mount Valin</a>, Quebec, Canada.",
+    "source": "commons-desc-page"
+   },
+   "DateTimeOriginal": {
+    "value": "2016-12-28",
+    "source": "commons-desc-page"
+   },
+   "Credit": {
+    "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+    "source": "commons-desc-page"
+   },
+   "Artist": {
+    "value": "<a href=\"//commons.wikimedia.org/wiki/User:0x010C\" title=\"User:0x010C\">0x010C</a>",
+    "source": "commons-desc-page"
+   },
+   "LicenseShortName": {
+    "value": "CC BY-SA 4.0",
+    "source": "commons-desc-page",
+    "hidden": ""
+   },
+   "UsageTerms": {
+    "value": "Creative Commons Attribution-Share Alike 4.0",
+    "source": "commons-desc-page"
+   },
+   "AttributionRequired": {
+    "value": "true",
+    "source": "commons-desc-page",
+    "hidden": ""
+   },
+   "LicenseUrl": {
+    "value": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "commons-desc-page"
+   },
+   "Copyrighted": {
+    "value": "True",
+    "source": "commons-desc-page",
+    "hidden": ""
+   },
+   "Restrictions": {
+    "value": "",
+    "source": "commons-desc-page",
+    "hidden": ""
+   },
+   "License": {
+    "value": "cc-by-sa-4.0",
+    "source": "commons-templates",
+    "hidden": ""
+   }
+  },
+  "mime": "image/jpeg"
+ }
+}

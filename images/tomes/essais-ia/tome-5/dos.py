@@ -85,7 +85,8 @@ LISSE_CRETE = 90              # px : le lissage de la crête aux bouts
 # ---- au dos (pouces)
 MARGE = 0.13                  # autour de ce qui est écrit
 AIR = 0.03                    # sous le bas de la dernière ligne du texte d'ouverture : le haut du trou
-X_DROITE = 7.60               # le pied droit de la colline (le filet finit à 7,62 po)
+X_DROITE = 7.60               # le pied droit de la colline (le filet finit à 7,62 po) ; cote de la couverture Blurb,
+                              # info['x_po'] la ramène au format
 MIETTE = 4000                 # px de l'image : un morceau détaché plus petit part (les traits de gouge du ciel)
 
 
@@ -496,7 +497,7 @@ def motif(can, info):
 
     rgb, al = scene(w, cr, haut)
     C, A = _reduire(rgb, al, s)
-    x0, y0 = int(round(X_DROITE * ppp)) - A.shape[1], filet - A.shape[0]
+    x0, y0 = int(round(info.get('x_po', lambda x: x)(X_DROITE) * ppp)) - A.shape[1], filet - A.shape[0]
     # garde : rien dans la marge du texte (la scène est faite pour ne pas y entrer ; on le vérifie)
     zone = occ[y0:y0 + A.shape[0], x0:x0 + A.shape[1]]
     pris = int(((A > 0.02) & zone).sum())

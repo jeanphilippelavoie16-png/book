@@ -362,18 +362,26 @@ def _bois(src):
     return al[sl], coul[sl].astype(np.float32)
 
 
-def _trou_quatrieme(occ, xt, ppp, h_min, l_min):
+def _trou_quatrieme(occ, xt, ppp, h_min, l_min, bord=0.375, x_max=None, y_max=None):
     """Le plus haut rectangle libre de la quatrième d'au moins h_min de haut et l_min de large (px du fond), loin des
-    bords du rognage et du pli : (x0, y0, x1, y1), ou None. On cherche sur une grille au centième de pouce."""
+    bords du rognage et du pli (bord : po du bord du fond jusqu'à la zone sûre, info['bord']), à gauche de x_max (px du
+    fond : le bout des filets, où la corde se cale) et au-dessus de y_max (le bas du texte) : (x0, y0, x1, y1), ou None.
+    On cherche sur une grille au centième de pouce. Sur la couverture Lulu, sans ces deux bornes, le plus haut trou
+    était à droite du texte d'ouverture (le bloc de texte y est plus large que le texte) ou sous la barre des tomes (la
+    zone du code-barres), deux places où la corde ne se pose sur aucun filet."""
     r = 100
     k = ppp / r
     H, W = int(occ.shape[0] / k), int(xt / k)
     ys, xs = (np.arange(H + 1) * k).astype(int), (np.arange(W + 1) * k).astype(int)
     g = ~np.logical_or.reduceat(np.logical_or.reduceat(occ[:ys[-1], :xs[-1]], ys[:-1], 0), xs[:-1], 1)
     # une case est libre si aucun de ses points n'est pris
-    m = int((0.125 + 0.25) * r)
+    m = int(bord * r)
     g[:m], g[-m:], g[:, :m] = False, False, False
     g[:, W - int(0.15 * r):] = False
+    if x_max is not None:
+        g[:, int(x_max / k):] = False
+    if y_max is not None:
+        g[int(y_max / k):] = False
     meilleur, h = None, np.zeros(W, int)
     for y in range(H):
         h = np.where(g[y], h + 1, 0)
@@ -428,8 +436,9 @@ def motif(can, info):
 
     # le trou de la tranche : les rangées où rien n'est écrit entre les plis, la plus longue suite
     libre = ~occ[:, xt:xf].any(1)
-    libre[:int(0.125 * ppp + 0.25 * ppp)] = False
-    libre[H - int(0.125 * ppp + 0.25 * ppp):] = False
+    bord = info.get('bord', 0.375)        # po du bord du fond jusqu'à la zone sûre (Blurb 0,375 ; Lulu 1,25)
+    libre[:int(bord * ppp)] = False
+    libre[H - int(bord * ppp):] = False
     lab, k = ndi.label(libre)
     if not k:
         print('    dos 2 : pas de trou sur la tranche, rien au dos')
@@ -476,7 +485,9 @@ def motif(can, info):
     # d'ouverture) : posée au bas du trou, au-dessus du filet du titre, et calée à droite sur le bout des filets
     bois = ''
     posee = []
-    trou = _trou_quatrieme(occ, xt, ppp, BOIS_H[0] * ppp, BOIS_L * ppp)
+    droite = int(max(r[2] for r in info['rects'] if r[4] == 0 and r[2] * q < xt) * q)    # le bout des filets
+    bas_texte = int(max(r[3] for r in info['rects'] if r[4] >= 0 and r[0] * q < xt) * q)    # le bas de la barre des tomes
+    trou = _trou_quatrieme(occ, xt, ppp, BOIS_H[0] * ppp, BOIS_L * ppp, bord, droite, bas_texte)
     if trou:
         qx0, qy0, qx1, qy1 = trou
         oa, oc = _bois(src)
@@ -487,7 +498,6 @@ def motif(can, info):
         hb = BOIS_H[1] * ppp
         sb = min(1.0, hb / oa.shape[0], (qx1 - qx0) / oa.shape[1])
         OA, OC = _reduire(oa, oc, sb)
-        droite = int(max(r[2] for r in info['rects'] if r[4] == 0 and r[2] * q < xt) * q)    # le bout des filets
         bx = min(qx1, droite) - OA.shape[1]
         if bx >= qx0:
             # posée SUR le filet du titre « Dans ce tome » : son dessous est coupé droit, il touche la ligne (JP, 19 octobre

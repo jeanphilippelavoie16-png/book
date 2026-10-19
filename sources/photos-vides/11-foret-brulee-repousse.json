@@ -1,0 +1,105 @@
+{
+ "fichier": "11-foret-brulee-repousse.jpg",
+ "titre": "File:Burnt forest GJ.jpg",
+ "pageid": 15713377,
+ "requete": "https://commons.wikimedia.org/w/api.php?action=query&format=json&prop=imageinfo&iiprop=url%7Csize%7Csha1%7Cmime%7Cextmetadata&titles=File%3ABurnt+forest+GJ.jpg&formatversion=2",
+ "lu_le": "2026-10-19",
+ "imageinfo": {
+  "size": 8347720,
+  "width": 3888,
+  "height": 2592,
+  "url": "https://upload.wikimedia.org/wikipedia/commons/e/e9/Burnt_forest_GJ.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+  "descriptionurl": "https://commons.wikimedia.org/wiki/File:Burnt_forest_GJ.jpg",
+  "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=15713377",
+  "sha1": "9426fd5fa79e9d572385ed94f11e510168038ae2",
+  "extmetadata": {
+   "DateTime": {
+    "value": "2011-07-05 21:19:01",
+    "source": "mediawiki-metadata",
+    "hidden": ""
+   },
+   "ObjectName": {
+    "value": "Burnt forest GJ",
+    "source": "mediawiki-metadata"
+   },
+   "CommonsMetadataExtension": {
+    "value": 1.2,
+    "source": "extension",
+    "hidden": ""
+   },
+   "Categories": {
+    "value": "Taken with Canon EOS 40D|Burnt vegetation|Parc national des Grands-Jardins|Self-published work|Files with coordinates missing SDC location of creation",
+    "source": "commons-categories",
+    "hidden": ""
+   },
+   "Assessments": {
+    "value": "",
+    "source": "commons-categories",
+    "hidden": ""
+   },
+   "GPSLatitude": {
+    "value": "47.725122",
+    "source": "commons-desc-page"
+   },
+   "GPSLongitude": {
+    "value": "-70.763797",
+    "source": "commons-desc-page"
+   },
+   "GPSMapDatum": {
+    "value": "WGS-84",
+    "source": "commons-desc-page",
+    "hidden": ""
+   },
+   "ImageDescription": {
+    "value": "Ten years old burnt forest, <a href=\"https://en.wikipedia.org/wiki/Grands-Jardins_National_Park\" class=\"extiw\" title=\"en:Grands-Jardins National Park\">Grands-Jardins National Park</a>,  Quebec, Canada.",
+    "source": "commons-desc-page"
+   },
+   "DateTimeOriginal": {
+    "value": "2011-07-05",
+    "source": "commons-desc-page"
+   },
+   "Credit": {
+    "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+    "source": "commons-desc-page"
+   },
+   "Artist": {
+    "value": "<a href=\"//commons.wikimedia.org/wiki/User:Cephas\" title=\"User:Cephas\">Cephas</a>",
+    "source": "commons-desc-page"
+   },
+   "LicenseShortName": {
+    "value": "CC BY-SA 3.0",
+    "source": "commons-desc-page",
+    "hidden": ""
+   },
+   "UsageTerms": {
+    "value": "Creative Commons Attribution-Share Alike 3.0",
+    "source": "commons-desc-page"
+   },
+   "AttributionRequired": {
+    "value": "true",
+    "source": "commons-desc-page",
+    "hidden": ""
+   },
+   "LicenseUrl": {
+    "value": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "commons-desc-page"
+   },
+   "Copyrighted": {
+    "value": "True",
+    "source": "commons-desc-page",
+    "hidden": ""
+   },
+   "Restrictions": {
+    "value": "",
+    "source": "commons-desc-page",
+    "hidden": ""
+   },
+   "License": {
+    "value": "cc-by-sa-3.0",
+    "source": "commons-templates",
+    "hidden": ""
+   }
+  },
+  "mime": "image/jpeg"
+ }
+}

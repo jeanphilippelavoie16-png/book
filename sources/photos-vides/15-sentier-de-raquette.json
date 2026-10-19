@@ -1,0 +1,105 @@
+{
+ "fichier": "15-sentier-de-raquette.jpg",
+ "titre": "File:2016-12 Monts Valin winter - sunset 12.jpg",
+ "pageid": 59990915,
+ "requete": "https://commons.wikimedia.org/w/api.php?action=query&format=json&prop=imageinfo&iiprop=url%7Csize%7Csha1%7Cmime%7Cextmetadata&titles=File%3A2016-12+Monts+Valin+winter+-+sunset+12.jpg&formatversion=2",
+ "lu_le": "2026-10-19",
+ "imageinfo": {
+  "size": 15236351,
+  "width": 6000,
+  "height": 4000,
+  "url": "https://upload.wikimedia.org/wikipedia/commons/d/d2/2016-12_Monts_Valin_winter_-_sunset_12.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+  "descriptionurl": "https://commons.wikimedia.org/wiki/File:2016-12_Monts_Valin_winter_-_sunset_12.jpg",
+  "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=59990915",
+  "sha1": "6adcef8d9a6c9c43ee57731d9d134aedc1972142",
+  "extmetadata": {
+   "DateTime": {
+    "value": "2017-06-16 12:30:10",
+    "source": "mediawiki-metadata",
+    "hidden": ""
+   },
+   "ObjectName": {
+    "value": "2016-12 Monts Valin winter - sunset 12",
+    "source": "mediawiki-metadata"
+   },
+   "CommonsMetadataExtension": {
+    "value": 1.2,
+    "source": "extension",
+    "hidden": ""
+   },
+   "Categories": {
+    "value": "Parc national des Monts-Valin|Lens flares|Uploaded with VicuñaUploader|Sunsets of Quebec|Plants and trees at golden hour|Files with coordinates missing SDC location of creation|Forests in Canada in winter|Canada photographs taken on 2016-12-28|Golden hour landscapes|Bare trees in Canada|Mountains with snow in Canada|December 2016 in Quebec|Clouds at sunset in Canada|Snowy landscapes in Quebec|Orange sunsets of Quebec|Mountains at sunset in Canada|Images taken in Quebec by 0x010C|Snowshoe tracks in Canada",
+    "source": "commons-categories",
+    "hidden": ""
+   },
+   "Assessments": {
+    "value": "",
+    "source": "commons-categories",
+    "hidden": ""
+   },
+   "GPSLatitude": {
+    "value": "48.591215",
+    "source": "commons-desc-page"
+   },
+   "GPSLongitude": {
+    "value": "69.138270",
+    "source": "commons-desc-page"
+   },
+   "GPSMapDatum": {
+    "value": "WGS-84",
+    "source": "commons-desc-page",
+    "hidden": ""
+   },
+   "ImageDescription": {
+    "value": "Landscape completely frozen at the sunset in Winter in the <a href=\"https://en.wikipedia.org/wiki/Monts-Valin_National_Park\" class=\"extiw\" title=\"en:Monts-Valin National Park\">Monts-Valin National Park</a>, Quebec, Canada.",
+    "source": "commons-desc-page"
+   },
+   "DateTimeOriginal": {
+    "value": "2016-12-28",
+    "source": "commons-desc-page"
+   },
+   "Credit": {
+    "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+    "source": "commons-desc-page"
+   },
+   "Artist": {
+    "value": "<a href=\"//commons.wikimedia.org/wiki/User:0x010C\" title=\"User:0x010C\">0x010C</a>",
+    "source": "commons-desc-page"
+   },
+   "LicenseShortName": {
+    "value": "CC BY-SA 4.0",
+    "source": "commons-desc-page",
+    "hidden": ""
+   },
+   "UsageTerms": {
+    "value": "Creative Commons Attribution-Share Alike 4.0",
+    "source": "commons-desc-page"
+   },
+   "AttributionRequired": {
+    "value": "true",
+    "source": "commons-desc-page",
+    "hidden": ""
+   },
+   "LicenseUrl": {
+    "value": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "commons-desc-page"
+   },
+   "Copyrighted": {
+    "value": "True",
+    "source": "commons-desc-page",
+    "hidden": ""
+   },
+   "Restrictions": {
+    "value": "",
+    "source": "commons-desc-page",
+    "hidden": ""
+   },
+   "License": {
+    "value": "cc-by-sa-4.0",
+    "source": "commons-templates",
+    "hidden": ""
+   }
+  },
+  "mime": "image/jpeg"
+ }
+}
