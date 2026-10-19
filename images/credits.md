@@ -1177,3 +1177,26 @@ Linogravures générées par le réseau AI Horde à partir d'une image de dépar
 | `images/tomes/titre-tome-4.jpg` | Flux.1-Schnell (img2img 0,62 sur la version d'été de la candidate 2, `t4e-flux62-1`) | Apache 2.0 | soleil en aplat sans liseré ; reflet regravé en morceaux ; deux bêtes couchées dans l'herbe et un oiseau retirés ; poissons de tailles variées (`ete/retouche_ete.py`) |
 | `images/tomes/titre-tome-5.jpg` | Juggernaut XL (img2img 0,50 sur la version d'été de la candidate 4, `t5e-jug50-1`) | CreativeML Open RAIL++-M | rangée de fausse écriture au pied du bâtiment remplacée par des pierres (`ete/retouche_ete.py`) ; ciel regravé avec des bancs de nuages (`ete/ciel_ete.py`) |
 | `images/tomes/titre-tome-6.jpg` | Flux.1-Schnell (img2img 0,88, `t6-fA88-1`) | Apache 2.0 | croissant de lune déplacé hors du titre ; intérieur de l'atelier redessiné (`retouche_atelier.py`) |
+
+## Photos des pages pleines et des vides (tome 1)
+
+JP, 19 octobre 2026 : « rien ne reste blanc » ; « je veux des belles photos » ; « même si ce n'est pas de la Côte-Nord, pour
+des pages pleines, je veux des beaux paysages de forêt boréale ». Choisies par JP sur les planches contact de Flickr
+(`design/outils/flickr_candidates.py`, licences Creative Commons sans « ND »). Licences non commerciales : correctes pour
+un livre privé, à remplacer si le livre se vend. La page de chaque photo, avec sa licence, est dans `sources/photos-flickr/`. Le bas des trois photos de MikoFox est rogné de 4,5 % (la ligne de signature).
+
+| Fichier | Sujet | Auteur | Licence | Lien | Taille |
+| --- | --- | --- | --- | --- | --- |
+| `bandes/tome-1/aurore-iles-riviere.jpg` | Islands in the Stream | Keith Williams | CC BY-NC 2.0 | https://www.flickr.com/photos/46306125@N03/19654263529/ | 1200 × 718 |
+| `bandes/tome-1/berges-saint-laurent-hiver.jpg` | Berges du Saint-Laurent en hiver | abdallahh | CC BY 2.0 | https://www.flickr.com/photos/22168167@N00/7204391702/ | 1733 × 1151 |
+| `bandes/tome-1/caribou-alpenglow.jpg` | Alpenglow, caribou, frost | frostnip907 | CC BY-NC-SA 2.0 | https://www.flickr.com/photos/135422841@N07/25208439302/ | 2700 × 1800 |
+| `bandes/tome-1/etang-de-castor-automne.jpg` | Beaver Pond Below Fold Mountain | MikoFox | CC BY-NC-SA 2.0 | https://www.flickr.com/photos/28648755@N07/49699381662/ | 3000 × 2000 |
+| `bandes/trop-petites/aurore-reservoir-gouin.jpg` | Aurora Borealis over Gouin Reservoir, Québec | Axel Drainville | CC BY-NC 2.0 | https://www.flickr.com/photos/8250978@N04/5208209944/ | 567 × 850 |
+| `pleine-page/tome-1/01-chateaux-de-nuages-brume.jpg` | Castles in the Clouds | Alex Berger | CC BY-NC 2.0 | https://www.flickr.com/photos/32368927@N02/54496957564/ | 6400 × 3600 |
+| `pleine-page/tome-1/02-laponie-soleil-de-midi.jpg` | Mid-day Sunset | Lauri Sten | CC BY-NC 2.0 | https://www.flickr.com/photos/28839353@N03/50765089768/ | 6400 × 3600 |
+| `pleine-page/tome-1/03-brume-sur-le-ruisseau.jpg` | PermaLiv__DSC3357_22-09-22 | Øyvind Holmstad | CC BY-SA 2.0 | https://www.flickr.com/photos/78304219@N06/52393477430/ | 5400 × 3600 |
+| `pleine-page/tome-1/04-epinettes-givrees-soleil.jpg` | Winter landscape | Sonja Laukkanen | CC BY-NC-SA 2.0 | https://www.flickr.com/photos/40056159@N05/54263861393/ | 4912 × 2760 |
+| `pleine-page/tome-1/05-aurore-lac-fox.jpg` | Aurora Borealis Over Fox Lake | MikoFox | CC BY-NC-SA 2.0 | https://www.flickr.com/photos/28648755@N07/54396647438/ | 3921 × 2614 |
+| `pleine-page/tome-1/06-givre-sur-feuille.jpg` | Icy frost arrow shapes on leaf macro | Aron n Alisons | CC BY-NC-SA 2.0 | https://www.flickr.com/photos/59920975@N02/31424138885/ | 5399 × 3600 |
+| `pleine-page/tome-1/07-neige-sculptee-par-le-vent.jpg` | The Winds That Carve - Monochrome | MikoFox | CC BY-NC-SA 2.0 | https://www.flickr.com/photos/28648755@N07/52756404546/ | 4020 × 2466 |
+| `pleine-page/tome-1/08-givre-bleu.jpg` | Blue Frost - Givre bleu | Monteregina (Nicole) | CC BY-NC-SA 2.0 | https://www.flickr.com/photos/7196003@N02/25229571122/ | 2460 × 2460 |

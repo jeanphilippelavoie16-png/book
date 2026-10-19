@@ -806,7 +806,8 @@ def build(num):
     # d'abord les photos du chapitre (images/vides/NN-*.jpg : ce dont il parle), puis celles du tome (JP : « manque de
     # photos dans le livre, utilisons ces espaces pour en mettre »)
     meta["stock"] = dict(chapitre=[rel(f) for f in sorted(glob.glob(os.path.join(ROOT, "images", "vides", f"{num}-*.jpg")))],
-                         photos=[rel(f) for f in sorted(glob.glob(os.path.join(ROOT, "images", "pleine-page", f"tome-{tn}", "*.jpg")))])
+                         photos=[rel(f) for f in sorted(glob.glob(os.path.join(ROOT, "images", "bandes", f"tome-{tn}", "*.jpg")))
+                                 + sorted(glob.glob(os.path.join(ROOT, "images", "pleine-page", f"tome-{tn}", "*.jpg")))])
     lieu_opts = "".join(f'<span{" class=\"on\"" if o == meta["lieu"] else ""}>{o}</span>' for o in ("Maison", "Chalet", "Les deux"))
     toc = "".join(
         f'<li class="{"d" if k == nd else "h" if k == nv else ""}" data-n="{k}"><span class="n">{k}</span>'
