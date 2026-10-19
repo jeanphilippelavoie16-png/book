@@ -1,16 +1,23 @@
 """Tome 1, page de titre : les épinettes du premier plan (zones 0,560 à 160,960 et 495,585 à 768,960 en 768 x 960).
 Retouche demandée par JP le 19 octobre 2026 : « la même image, avec la rigueur des autres tomes ».
 
-Les mêmes épinettes, aux mêmes places, de la même hauteur et de la même largeur, redessinées en vectoriel comme
-celles du tome 6 et de scene_titre.py : une seule pointe nette, des étages de branches qui tombent, taillés net en
-noir (#06111F), la neige posée en croissants francs sur le dessus de chaque étage, dans le blanc du champ, et le tronc
-au pied des deux petites de droite. Les grandes coupées par les bords gardent leur masse noire ; leurs blancs (vers,
-lettres, haricot, taches en C) deviennent la neige des étages. Les blancs de la grande de gauche qui montaient dans
-les collines deviennent ses premières branches.
-
+Les mêmes épinettes, aux mêmes places, de la même hauteur et de la même largeur (demi-largeurs relevées sur l'image),
+refaites comme celles du tome 6 et de scene_titre.py :
+- les cinq grandes (la grande coupée par le bord gauche, les deux de gauche, la grande de droite et celle du bord
+  droit) sont redessinées en vectoriel : une seule pointe nette, un cœur noir autour du tronc, des étages qui tombent,
+  chacun fait d'une ou deux lames d'aiguilles taillées net en noir (#06111F), le dessous dentelé de pointes
+  d'aiguilles, et des étages du fond entre ceux de devant pour garder la masse noire des grandes ; sur le dessus de
+  chaque étage, une ou deux plaques de neige franches, dans le blanc du champ, au bord du dessous dentelé, avec un
+  filet noir au-dessus ; plus de vers, de lettres, de haricot ni de taches en C ; les blancs de la grande de gauche
+  qui montaient dans les collines deviennent ses premières branches enneigées ; la cime de la plus haute de gauche,
+  posée sur la nuit, porte un filet de neige le long de la flèche ;
+- les deux petites de droite gardent leur silhouette d'origine, recoupée net (seuil pris sur l'image agrandie quatre
+  fois : bord franc, sans flou ni liseré ; fentes bouchées, miettes et bouts de branches voisines retirés ; cime
+  recoupée en cône sous une flèche nette), avec un peu de neige sur le dessus de leurs étages et le tronc au pied.
 Ce qui part : tout ce qui était l'ancienne épinette (le noir, ses blancs, le liseré clair de l'agrandissement autour)
-est d'abord rebouché avec le fond voisin (la neige du champ, la nuit de la rangée, le bleu des collines), puis les
-nouvelles épinettes sont posées par-dessus. Rien ne bouge hors des deux zones ; hors de l'ancienne épinette et de la
+est d'abord rebouché avec le fond voisin (la neige du champ sans la trace, la nuit de la rangée, le bleu des collines,
+la limite entre ces deux-là relevée sur l'image, colonne par colonne), puis les nouvelles épinettes sont posées
+par-dessus, de l'arrière vers l'avant. Rien ne bouge hors des deux zones ; hors de l'ancienne épinette et de la
 nouvelle, les pixels reçus restent.
 
     from epinettes import appliquer ; b = appliquer(a, 4)      (a : numpy RVB uint8, 3072 x 3840 ; K pixels par unité)
@@ -72,8 +79,8 @@ EPINETTES = {
              D=[(586, 0), (598, 5.0), (612, 9.5), (628, 15.0), (645, 20.5), (665, 27.0), (690, 36.0), (715, 43.0),
                 (742, 47.0), (790, 56.0), (860, 66.0), (985, 82.0)]),
         # la petite du milieu : ses étages relevés (côté, bout x, bout y, haut de l'attache, épaisseur)
-        dict(nom='S2', coeur=0.24, cx=602.3, cx_bas=602.0, pointe=808.5, fleche=10.0, fleche_l=1.5, pied=962, tronc=2.0, graine=71,
-             neige=0.75, masque=dict(contour=[(556, 812), (637, 812), (637, 961), (556, 961)], haut=817.5, bas=961),
+        dict(nom='S2', coeur=0.24, cx=602.3, cx_bas=602.0, pointe=808.5, fleche=10.0, fleche_l=2.0, pied=962, tronc=2.0, graine=71,
+             neige=0.75, masque=dict(contour=[(556, 812), (637, 812), (637, 961), (556, 961)], haut=808.0, bas=961, cone=0.25),
              etages=[
                  (-1, 594.5, 836.0, 829.0, 5.0), (1, 612.0, 840.0, 830.5, 5.5),
                  (-1, 590.5, 851.0, 843.0, 5.5), (1, 613.5, 855.0, 845.5, 6.0),
@@ -87,8 +94,8 @@ EPINETTES = {
                  (-1, 573.5, 944.5, 937.5, 6.0),
                  (-1, 563.0, 953.0, 942.0, 8.0)]),
         # la petite de gauche
-        dict(nom='S1', coeur=0.24, cx=524.6, cx_bas=524.2, pointe=878.0, fleche=6.0, fleche_l=1.9, pied=962, tronc=1.8, graine=83,
-             neige=0.7, masque=dict(contour=[(497, 880), (552, 880), (552, 953.8), (497, 953.8)], haut=882.5, bas=953.8),
+        dict(nom='S1', coeur=0.24, cx=524.6, cx_bas=524.2, pointe=878.0, fleche=8.0, fleche_l=1.6, pied=962, tronc=1.8, graine=83,
+             neige=0.7, masque=dict(contour=[(497, 880), (552, 880), (552, 953.8), (497, 953.8)], haut=877.0, bas=953.8, cone=0.25),
              etages=[
                  (-1, 519.3, 895.8, 890.0, 3.8), (1, 532.6, 897.2, 891.0, 3.6),
                  (-1, 517.4, 903.4, 898.5, 4.2), (1, 534.8, 906.4, 900.0, 4.4),
@@ -305,7 +312,7 @@ def epinette(sp):
         if R.random() > part or L < 2:
             return
         bt = (1.2 if doigt else 0.62) * ep               # l épaisseur de la lame du haut, au tronc
-        e = (max(0.30 * bt, 0.8) if doigt else min(max(0.52 * bt, 1.0), 3.4)) * u(0.85, 1.15) * (0.9 if fin else 1.0)
+        e = (max(0.30 * bt, 0.8) if doigt else min(max(0.62 * bt, 1.0), 3.8)) * u(0.85, 1.15) * (0.9 if fin else 1.0)
         r0 = (max(0.16 * bt + 0.3, 0.75) * 0.8 if doigt else max(0.10 * bt + 0.3, 0.6)) * u(0.85, 1.15)
         if doigt:
             c, dl = u(0.34, 0.55), u(0.20, 0.32)
@@ -314,19 +321,19 @@ def epinette(sp):
             return
         # une ou deux plaques de neige posées sur le dessus, à des places inégales ; leur bord du dessous est dentelé
         # (les bouts d'aiguilles qui dépassent de la neige), comme au tome 6
-        n = 1 if L < 14 else 2
-        if n == 2 and R.random() < 0.25:
+        n = 1 if L < 11 else 2
+        if n == 2 and R.random() < 0.2:
             n = 1
         bornes = np.linspace(0.05, 0.93, n + 1)
         for i in range(n):
-            lg = (u(0.36, 0.56) if n == 1 else u(0.24, 0.36))
+            lg = (u(0.42, 0.62) if n == 1 else u(0.28, 0.40))
             a_, b_ = bornes[i] + lg / 2, bornes[i + 1] - lg / 2
             c = u(a_, max(a_, b_))
             ee = e * u(0.85, 1.15) * (1.1 if i == 0 else 0.9)
             couche[1].append(_croissant(hauts[0], max(0.04, c - lg / 2), min(0.95, c + lg / 2),
                                         lambda v, r=r0 * u(0.85, 1.15): r * (1 - 0.3 * v), ee, n=40,
                                         dents=(R, min(2.4, max(1.1, 0.07 * L + 0.8)), ee * 0.45)))
-        if len(hauts) > 1 and L > 8 and R.random() < 0.55:  # une plaque sur la lame du dessous
+        if len(hauts) > 1 and L > 8 and R.random() < 0.65:  # une plaque sur la lame du dessous
             c2 = u(0.40, 0.66); lg = u(0.22, 0.34)
             couche[1].append(_croissant(hauts[1], c2 - lg / 2, c2 + lg / 2, r0 * 0.9, e * 0.7, n=28,
                                         dents=(R, 1.2, e * 0.3)))
@@ -425,6 +432,9 @@ def _masque_ancien(L, m, boite, K, ys, cx):
     les petits trous blancs fermés (fentes de l'agrandissement) se bouchent, les miettes coupées partent."""
     env = _raster([m['contour']], boite, K, 2) > 0.5
     env &= ((ys >= m['haut']) & (ys <= m['bas']))[:, None]
+    if 'cone' in m:                                   # la cime recoupée en pointe : rien hors du cône sous la flèche
+        xs_ = boite[0] + (np.arange(L.shape[1]) + 0.5) / K
+        env &= np.abs(xs_[None, :] - cx) <= m['cone'] * (ys[:, None] - m['pointe'])
     sombre = (L < 150) & env
     epais = ndi.binary_opening(sombre, _disque(1.1 * K))
     garde = ndi.binary_dilation(epais, _disque(1.0 * K)) & env
@@ -597,7 +607,7 @@ def _zone(a, nom, K):
                 continue
             an = _raster(noirs, boite, K)
             if 'masque' in sp:
-                mo = _masque_ancien(L, sp['masque'], boite, K, ys, sp['cx'])
+                mo = _masque_ancien(L, dict(sp['masque'], pointe=sp['pointe']), boite, K, ys, sp['cx'])
                 an = np.maximum(an, mo)
                 dedans = ndi.binary_erosion(mo > 0.5, _disque(0.6 * K)).astype(np.float32)
                 ab = np.minimum(_raster(_neige_doigts(sp, mo, boite, K), boite, K), dedans)

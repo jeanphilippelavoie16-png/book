@@ -4,22 +4,29 @@ autres tomes ».
 
 Le même chalet, au même endroit, avec la même silhouette et les mêmes encres, redessiné en vectoriel à pleine taille,
 comme l'intérieur de l'atelier du tome 6 (retouche_atelier.py), avec un peu de main dans le trait :
-- les rondins : des lignes crème taillées sur le noir, horizontales et régulières, six rondins par mur ; leurs bouts
-  ronds sortent aux deux coins de devant (anneaux crème) et au coin du fond (bouts noirs qui dépassent sur la neige) ;
-- le pignon : en planches debout, sous une sablière ;
-- la neige du toit : une forme nette, épaisse au bord, un peu en débord de l'avant-toit, sans la bosse de gauche ; un
-  filet de neige sur la rive de gauche ; une ombre noire sous l'avant-toit ;
-- la cheminée : un tuyau, son chapeau sur deux pattes et un peu de neige dessus ; une fumée courte, trois volutes
-  crème bleuté (la leçon du tome 6 : une fumée longue tourne à l'éclair) ;
-- la porte : à sa place et dans son orange, avec son cadre noir cerné de crème, trois planches, deux traverses, une
-  poignée ; devant elle, une lueur courte en traits orange taillés sur la neige ;
+- les rondins : des lignes crème taillées sur le noir, horizontales et régulières (parfois en deux reprises de gouge),
+  six rondins par mur ; leurs bouts ronds sortent aux deux coins de devant (anneaux crème) et au coin du fond (bouts
+  noirs qui dépassent sur la neige) ;
+- le pignon : en planches debout, sous une sablière, cerné d'un filet crème sous les deux rives ;
+- la neige du toit : une forme nette, épaisse au bord, un peu en débord de l'avant-toit, sans la bosse de gauche,
+  avec trois traits de gouge bleu pâle qui suivent le dos du toit ; un filet de neige sur la rive de gauche ; une
+  bordure noire sous l'avant-toit ;
+- la cheminée : un tuyau, son chapeau sur deux pattes et un peu de neige dessus ; une fumée courte (25 unités), une
+  colonne de bouffées crème bleuté qui grossit en montant et penche à gauche (la leçon du tome 6 : une fumée longue
+  tourne à l'éclair) ;
+- la porte : à sa place et dans son orange, avec son cadre noir cerné de crème, quatre planches et une poignée ;
+  devant elle, une lueur courte : quatre rangs de traits orange taillés sur la neige, qui s'élargissent et
+  s'amincissent en s'éloignant du seuil ;
 - la clôture : des poteaux réguliers coiffés de neige, deux perches nettes, une fin propre (plus de poteau détaché ni
   de fil) ;
-- une ombre nette au pied du chalet (le même bleu pâle et le même tracé que les ombres de neige.py).
+- une ombre nette au pied du chalet (le même bleu pâle que les ombres de neige.py, son tracé remonté jusqu'au bas des
+  murs).
 
-L'ancien chalet (son noir, ses blancs, le liseré clair de l'agrandissement autour) est d'abord rebouché avec le fond
-voisin : la nuit de la rangée au-dessus de l'horizon, la neige du champ au-dessous. Rien ne bouge hors de l'ancien
-chalet et du nouveau.
+L'ancien chalet (son noir, ses blancs, le liseré clair de l'agrandissement autour, et la nuit autour de la cheminée
+que collines.py laisse telle quelle) est d'abord rebouché avec le fond voisin : la nuit de la rangée au-dessus de
+l'horizon, la neige du champ au-dessous ; l'horizon est relevé colonne par colonne de part et d'autre du chalet. Rien
+ne bouge hors de l'ancien chalet et du nouveau. Le module passe après neige.py dans la chaîne (ciel, cretes,
+collines, neige, chalet, epinettes) ; il marche aussi seul sur titre-tome-1-original.jpg.
 
     from chalet import appliquer ; b = appliquer(a, 4)      (a : numpy RVB uint8, 3072 x 3840 ; K pixels par unité)
     python3 chalet.py entree.png sortie.png
@@ -100,11 +107,6 @@ def _trait(pts, ep, effile=(0.25, 0.25), n=40):
     return np.concatenate([np.stack([x + nx * w, y + ny * w], 1), np.stack([x - nx * w, y - ny * w], 1)[::-1]])
 
 
-def _croissant(courbe, ep, n=40):
-    """Une volute de fumée : un trait courbe, épais au milieu, pointu aux deux bouts."""
-    return _trait(courbe, ep, (0.5, 0.5), n)
-
-
 def _ellipse(cx, cy, rx, ry, n=36):
     t = np.linspace(0, 2 * np.pi, n, endpoint=False)
     return np.stack([cx + rx * np.cos(t), cy + ry * np.sin(t)], 1)
@@ -118,7 +120,7 @@ def dessin():
     """Le chalet, en couches de polygones (unités) : [(couleur, [polygones])], dans l'ordre où on les pose."""
     R = random.Random(1907)
     j = lambda a=0.12: R.uniform(-a, a)                 # un peu de main dans le trait
-    noir, creme, orange, fumee = [], [], [], []
+    noir, creme, orange, fumee, ombre_toit = [], [], [], [], []
     couches = []
 
     # -- la cheminée : le tuyau (sous la neige du toit), son reflet, le chapeau sur deux pattes, la neige dessus
@@ -243,6 +245,16 @@ def dessin():
     toit = np.concatenate([np.array(faite), np.array(tuyau_g), dos, bout, rive, np.array(pied)])
     creme.append(toit)
     couches.append(('creme', creme)); creme = []
+    # trois traits de gouge dans la neige du toit, en bleu pâle, qui suivent le dos du toit vers l'avant-toit
+    dd = np.diff(dos, axis=0); dd = np.vstack([dd, dd[-1:]])
+    dd /= np.hypot(dd[:, 0], dd[:, 1])[:, None]
+    nin = np.stack([dd[:, 1], -dd[:, 0]], 1)                     # vers l'intérieur du toit (en bas à gauche)
+    nin = np.where(nin[:, :1] > 0, -nin, nin)
+    for off, a0, a1 in ((3.2, 0.28, 0.86), (6.6, 0.42, 0.9), (10.2, 0.6, 0.93)):
+        i0, i1 = int(a0 * (len(dos) - 1)), int(a1 * (len(dos) - 1))
+        ligne_ = dos[i0:i1 + 1] + nin[i0:i1 + 1] * off
+        ombre_toit.append(_trait(ligne_, 0.5, (0.3, 0.2)))
+    couches.append(('ombre_toit', ombre_toit)); ombre_toit = []
     # le contour noir du dos du toit (sur le champ, la neige du toit ne se verrait pas)
     noir.append(_trait(np.concatenate([dos[8:], bout]), 1.1, (0.12, 0.04)))
     # l'avant-toit : la bordure noire sous la neige, et son ombre sur le haut du mur
@@ -385,7 +397,8 @@ def appliquer(a, K=4):
 
     # -- le nouveau chalet
     neige = np.median(z[loin], 0) if loin.any() else np.array([219, 228, 234], np.float32)
-    couleurs = {'noir': NOIR, 'creme': neige, 'orange': ORANGE, 'fumee': FUMEE}
+    couleurs = {'noir': NOIR, 'creme': neige, 'orange': ORANGE, 'fumee': FUMEE,
+                'ombre_toit': (1 - 0.22) * neige + 0.22 * COLLINE}
     out = fond
     # l'ombre au pied, sur la neige seulement (le même bleu pâle que neige.py)
     a_om = _raster([OMBRE], K) * champ
