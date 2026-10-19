@@ -17,11 +17,12 @@ module.exports = (h) => {
   const P = pts => pts.map(p => `${r1(p[0])} ${r1(p[1])}`);
   const poly = pts => 'M' + P(pts).join(' L') + ' Z';
   const alea = graine => { let s = graine; return () => { s = (s * 16807) % 2147483647; return (s - 1) / 2147483646; }; };
+  const tasChou = require('./_chou-tranche.js')(h);
 
   // ─── Vue 1 : vu de dessus ────────────────────────────────────────────────────────────────────
   const G = z => {
     const Lmm = 900, Wmm = 225;
-    const k = Math.min((z.l - 160) / Lmm, (z.h - 70) / Wmm);
+    const k = Math.min((z.l - 160) / Lmm, (z.h - 60) / Wmm);   // 22 en haut pour la cote des deux tiers, 38 en bas pour celle de la longueur
     const L = Lmm * k, W = Wmm * k;
     const x0 = 100, y0 = 22;
     const xF = x0 + L * 2 / 3;                    // la fente, aux deux tiers
@@ -123,14 +124,14 @@ module.exports = (h) => {
       + ` C${r1(xFil + 4 * q)} ${r1(yC - 3)} ${r1(xFil + 7 * q)} ${r1(yC - 18)} ${r1(xFil + 7 * q)} ${r1(yC - 40)}`
       + ` C${r1(xFil + 7 * q)} ${r1(yC - 80)} ${r1(xFil - 20)} ${r1(yS - 150)} ${r1(xFil - 60)} 0`;
     const dChou = `M0 ${r1(yS)} L${r1(xFil)} ${r1(yS)} L` + front.slice(1) + ' L0 0 Z';
+    // les feuilles serrées du chou coupé, découpées par le contour du chou : aucune ne sort dans le blanc
     const clip = `vue-80-41-chou`;
-    out.push(`<clipPath id="${clip}"><rect x="0" y="0" width="${r1(z.l)}" height="${r1(z.h)}"/></clipPath>`);
-    out.push(`<g clip-path="url(#${clip})">`);
     out.push(h.path(dChou, A.blanc));
-    // les feuilles serrées du chou coupé
+    out.push(`<clipPath id="${clip}">${h.path(dChou, A.blanc)}</clipPath>`);
+    out.push(`<g clip-path="url(#${clip})">`);
     [0, 1, 2, 3, 4].forEach(i => out.push(h.path(`M0 ${r1(yS - 18 - i * 24)} C${r1(xA * 0.5)} ${r1(yS - 22 - i * 26)} ${r1(xFil - 20 + i * 4)} ${r1(yS - 30 - i * 30)} ${r1(xFil - 40 + i * 2)} ${r1(yS - 80 - i * 40)}`, A.fin)));
-    out.push(h.path(front, A.contour));
     out.push('</g>');
+    out.push(h.path(front, A.contour));
     // la tranche : elle naît au fil, sa face du haut au fil, sa face du bas dans le plan de la face où glisse
     // le chou ; elle passe sous la lame, puis se courbe dans la fente. On suit son axe et on l'épaissit.
     const t = yS - yC, yc0 = (yS + yC) / 2, Lh = 1.6 * q, Rm = 3.4 * q;
@@ -173,33 +174,10 @@ module.exports = (h) => {
     const e = 8;
     // la cuve en coupe : la paroi d'en face en gris loin, le chou tranché en tas au fond
     out.push(h.rect(cx - R + e, yr, 2 * (R - e), Hc - e, A.loin));
-    // le chou tranché, au fond : un tas de lanières fines et courbes, comme celles qui tombent, posées en
-    // désordre les unes sur les autres ; elles restent dans la cuve
+    // le chou tranché, au fond : des lanières plates en arc simple, couchées en rangs à peu près horizontaux, le dessus
+    // tassé presque plat (module _chou-tranche.js, retenu sur la feuille d'essai _essai-chou-tranche.js)
     const yTas = yb - e - 56;
-    const xi0 = cx - R + e, xi1 = cx + R - e;
-    const dessusTas = x => { const t_ = (x - xi0) / (xi1 - xi0); return (1 - t_) * (1 - t_) * (yTas + 12) + 2 * t_ * (1 - t_) * (yTas - 12) + t_ * t_ * (yTas + 10); };
-    const lanieres = [];
-    const r = alea(9);
-    for (let essai = 0; lanieres.length < 200 && essai < 9000; essai++) {
-      const x = xi0 - 6 + r() * (xi1 - xi0 + 12);
-      // une sur trois le long du dessus du tas, pour que ce soient les lanières qui en font le bord
-      const y = lanieres.length % 3 === 0 ? dessusTas(x) + 2 + r() * 9 : yTas - 6 + r() * (yb - e - yTas + 8);
-      if (y < dessusTas(x) + 2) continue;
-      // à peu près à plat, comme elles tombent et se tassent ; chacune tordue à sa façon (arc ou S)
-      const l = 14 + r() * 16;
-      lanieres.push([x, y, (r() - 0.5) * 1.5 + (r() < 0.5 ? 0 : Math.PI), l, (r() - 0.5) * 0.7 * l, (r() - 0.5) * 0.7 * l, 1.3 + r() * 0.6]);
-    }
-    const laniere = ([x, y, a, l, c1, c2, w]) => {
-      const co = Math.cos(a), si = Math.sin(a), T_ = (u, v) => [x + u * co - v * si, y + u * si + v * co];
-      const p = [T_(-l / 2, -w / 2), T_(-l / 6, c1 - w / 2), T_(l / 6, c2 - w / 2), T_(l / 2, -w / 2),
-        T_(l / 2, w / 2), T_(l / 6, c2 + w / 2), T_(-l / 6, c1 + w / 2), T_(-l / 2, w / 2)].map(q_ => q_.map(r1));
-      return `<path d="M${p[0][0]} ${p[0][1]} C${p[1][0]} ${p[1][1]} ${p[2][0]} ${p[2][1]} ${p[3][0]} ${p[3][1]} L${p[4][0]} ${p[4][1]} C${p[5][0]} ${p[5][1]} ${p[6][0]} ${p[6][1]} ${p[7][0]} ${p[7][1]} Z" ${blanc(A.detail)}/>`;
-    };
-    const clipTas = 'vue-80-41-tas';
-    out.push(`<clipPath id="${clipTas}"><rect x="${r1(xi0)}" y="${r1(yr)}" width="${r1(xi1 - xi0)}" height="${r1(yb - e - yr)}"/></clipPath>`);
-    const tasBlanc = `M${r1(xi0)} ${r1(yb - e)} L${r1(xi0)} ${r1(yTas + 16)} Q${r1(cx)} ${r1(yTas - 8)} ${r1(xi1)} ${r1(yTas + 14)} L${r1(xi1)} ${r1(yb - e)} Z`;
-    out.push(h.path(tasBlanc, A.blanc));
-    out.push(`<g clip-path="url(#${clipTas})">`, ...lanieres.map(laniere), '</g>');
+    out.push(tasChou({ x0: cx - R + e, x1: cx + R - e, yHaut: yTas, yBas: yb - e, id: 'vue-80-41-tas' }));
     out.push(h.path(poly([[cx - R, yr], [cx - R, yb], [cx + R, yb], [cx + R, yr], [cx + R - e, yr], [cx + R - e, yb - e], [cx - R + e, yb - e], [cx - R + e, yr]]), A.hachure('bois', 'contour')));
     // la planche en travers, posée sur les deux bords ; la fente au-dessus de l'ouverture
     const ep = 9, tH = 8;
@@ -230,7 +208,7 @@ module.exports = (h) => {
   const placeRenvois = z => {
     const p = place(z);
     return [
-      { n: 9, rond: [p.xd - 8, p.yP - 44], cible: [p.xd - 16, p.yP - 9], texte: 'planche posée en travers de la cuve' },
+      { n: 9, rond: [p.xd - 10, p.yP + 40], cible: [p.xd - 16, p.yP + 4.5], texte: 'planche posée en travers de la cuve' },
       { n: 10, rond: [p.g0[0] + 4, p.g0[1] - 38], cible: [p.g0[0] + 20, p.g0[1] - 2.5], texte: 'pousser le quartier de chou vers la lame' },
     ];
   };
@@ -245,7 +223,7 @@ module.exports = (h) => {
       + 'En place : la planche posée en travers de la cuve, la fente au-dessus de l’ouverture ; le quartier de chou poussé vers la lame, les tranches tombent dans la cuve.',
     format: 'pleine',
     disposition: [['dessus'], ['coupe', 'place']],
-    hauteurs: [0.8, 1.55],
+    hauteurs: [192, 462],                         // la vue de dessus au plus juste : pas de blanc sous sa cote
     largeurs: [[1], [1, 1.05]],
     vues: {
       dessus: { titre: 'Vu de dessus', dessin: z => dessus(z).svg, renvois: dessusRenvois },

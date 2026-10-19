@@ -32,6 +32,12 @@ Coût indicatif en tokens : un chapitre neuf complet ≈ 1 M ; une planche dessi
   (JP montre le tome 3 : « ça j'aime ça le style ») : les modules `essais-ia/tome-N/dos.py`, à finir pour les tomes 2
   et 6, puis les six couvertures à refaire.
 
+- **Couvertures, fin de journée** : dos 2 et 6 gardés (JP : « j'aime le tome 2 et 6 à date ») ; au tome 2, la corde
+  de bois deux fois plus longue (objets-bas/corde_dos.py) posée sur le filet ; au tome 1, les étoiles entre les lignes
+  (nettoyer(serre=True)) ; dos 4 et 5 en reprise (`dos-tomes-4-5-ame`, « ils manquent d'âme ») ; l'image du tome 1
+  retouchée zone par zone (`tome1-image-titre-rigueur`, JP : « reprends exactement la même image mais applique la même
+  rigueur de qualité que les autres tomes ») ; original gardé : essais-ia/tome-1/titre-tome-1-original.jpg.
+
 ## ▶ LANCÉ le 19 octobre : le tome 1 final (JP : « monte le reste du tome 1 final »)
 
 Trois phases, une à la suite de l'autre (≈ 18 à 20 M au total) :

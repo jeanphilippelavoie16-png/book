@@ -15,11 +15,27 @@
 // Aucune main : le boyau repose sur le bord et la taie est attachée ; rien n'est tenu.
 // Le rouge : le bout du boyau au-dessus du dépôt (repère 3) ; la surface qui roule (repère 4).
 // Toute l'eau liquide en bleu, h.a.hachure('eau'), jusqu'aux gouttes qui passent le tissu (JP, 19 octobre 2026).
+//
+// Reprise le 19 octobre 2026 (second regard) : le motif de l'eau est calé pour qu'aucune vaguelette ne soit coupée.
+// Une forme calée est tracée décalée de (−tx, −ty) dans un groupe déplacé de (tx, ty) : elle reste en place, seules les
+// vaguelettes bougent. La chaudière du haut est peinte en deux morceaux, de part et d'autre du boyau (ils se
+// chevauchent sous le boyau), chacun calé : aucune vaguelette ne passe sous le boyau, ne touche une paroi, la flèche,
+// le cercle rouge ni le liseré du renvoi 3. Le dépôt est peint en trois morceaux qui se chevauchent, calés pour
+// qu'aucune vaguelette n'y paraisse entre les points. Dans « Bouillir », le motif est calé et deux grappes de bulles
+// descendent un peu (la première va aussi un peu à droite) : chaque bulle tombe dans un vide entre les vaguelettes.
 
 module.exports = (h) => {
   const A = h.a;
   const f = v => Math.round(v * 10) / 10;
   const blanc = at => at.replace('fill="none"', 'fill="#FFFFFF"');
+  const cale = ([tx, ty], dessin) => `<g transform="translate(${tx} ${ty})">\n${dessin(-tx, -ty)}\n</g>`;
+  // Les calages, cherchés par calcul puis regardés de près : la chaudière du haut à gauche et à droite du boyau, les
+  // trois morceaux du dépôt, la chaudière du dessous, la marmite.
+  const CALE_HAUT_G = [-28.5, 1.5], CALE_HAUT_D = [-9.5, 1.5];
+  const CALE_DEPOT = [[-22.5, -7], [12, -7], [-17, -7]];
+  const CALE_BAS = [0, 8], CALE_MARMITE = [7.5, 7];
+  // Le décalage de chaque grappe de bulles, en x et en y, pour qu'elle tombe dans un vide du motif calé.
+  const DECAL_BULLES = [[5.5, 5], [0, 0], [0, 2]];
 
   // hasard reproductible et point dans un polygone, pour le pointillé du dépôt
   const alea = graine => {
@@ -63,11 +79,14 @@ module.exports = (h) => {
     out.push(h.ligne(c.xt0 - 3, c.yt, c.xt0 + 3, c.yt, A.contour), h.ligne(c.xt1 - 3, c.yt, c.xt1 + 3, c.yt, A.contour));
     return out;
   };
-  // l'eau dans une chaudière, du niveau y au fond (ou jusqu'à yBas)
-  const eau = (c, y, yBas = c.yb) => {
-    const pts = [[paroi(c, y, 'g') + 1.2, y], [paroi(c, y, 'd') - 1.2, y], [paroi(c, yBas, 'd') - 1.2, yBas], [paroi(c, yBas, 'g') + 1.2, yBas]];
-    return [h.chemin(pts, A.hachure('eau', 'aucun'), true), h.ligne(pts[0][0], y, pts[1][0], y, A.arete)];
-  };
+  // l'eau dans une chaudière, du niveau y au fond (ou jusqu'à yBas), calée de cal ; xa, xb : un morceau seulement,
+  // coupé à la verticale (null : jusqu'à la paroi)
+  const nappe = (c, y, yBas, cal, xa = null, xb = null) => cale(cal, (dx, dy) => {
+    const G = yy => (xa === null ? paroi(c, yy, 'g') + 1.2 : xa), D = yy => (xb === null ? paroi(c, yy, 'd') - 1.2 : xb);
+    const pts = [[G(y), y], [D(y), y], [D(yBas), yBas], [G(yBas), yBas]].map(([px, py]) => [f(px + dx), f(py + dy)]);
+    return h.chemin(pts, A.hachure('eau', 'aucun'), true);
+  });
+  const surface = (c, y) => h.ligne(paroi(c, y, 'g') + 1.2, y, paroi(c, y, 'd') - 1.2, y, A.arete);
   // un boyau : un trait noir épais, le cœur blanc
   const boyau = d => [
     h.path(d, 'fill="none" stroke="#1A1A1A" stroke-width="7" stroke-linecap="butt" stroke-linejoin="round"'),
@@ -98,15 +117,21 @@ module.exports = (h) => {
     out.push(h.ligne(bil.x0 + 30, bil.y0 + 10, bil.x0 + 30, g.yS - 12, A.detail));
     out.push(h.ligne(bil.x0 + 74, bil.y0 + 22, bil.x0 + 74, g.yS - 4, A.detail));
     out.push(h.rect(bil.x0, bil.y0, bil.x1 - bil.x0, g.yS - bil.y0, A.contour));
-    // la première chaudière : l'eau reposée, le dépôt au fond
-    out.push(...eau(c1, g.yEau1, g.yDep));
+    // la première chaudière : l'eau reposée, en deux morceaux de part et d'autre du boyau, puis le dépôt au fond
+    out.push(nappe(c1, g.yEau1, g.yDep, CALE_HAUT_G, null, g.xIn + 2), nappe(c1, g.yEau1, g.yDep, CALE_HAUT_D, g.xIn - 2, null));
+    out.push(surface(c1, g.yEau1));
     const dep = [[paroi(c1, g.yDep, 'g') + 1.2, g.yDep], [paroi(c1, g.yDep, 'd') - 1.2, g.yDep], [c1.xb1 - 1.2, c1.yb - 1], [c1.xb0 + 1.2, c1.yb - 1]];
-    out.push(h.chemin(dep, A.hachure('eau', 'aucun'), true));
+    // le dépôt en trois morceaux qui se chevauchent : à gauche jusqu'à 72, au milieu de 68 à 108, à droite depuis 104
+    const coupe = [[null, 72], [68, 108], [104, null]];
+    coupe.forEach(([xa, xb], i) => out.push(cale(CALE_DEPOT[i], (dx, dy) => {
+      const P = [[xa === null ? dep[0][0] : xa, g.yDep], [xb === null ? dep[1][0] : xb, g.yDep], [xb === null ? dep[2][0] : xb, dep[2][1]], [xa === null ? dep[3][0] : xa, dep[3][1]]];
+      return h.chemin(P.map(([px, py]) => [f(px + dx), f(py + dy)]), A.hachure('eau', 'aucun'), true);
+    })));
     out.push(...pointille(dep, 11, 7));
     out.push(h.path(`M${f(dep[0][0])},${f(g.yDep)} Q${f(70)},${f(g.yDep - 2)} ${f(90)},${f(g.yDep)} T${f(dep[1][0])},${f(g.yDep)}`, A.detail));
     out.push(...chaudiere(c1));
     // la seconde chaudière, au sol : l'eau passée qui s'y ramasse
-    out.push(...eau(c2, c2.yb - 30));
+    out.push(nappe(c2, c2.yb - 30, c2.yb, CALE_BAS), surface(c2, c2.yb - 30));
     out.push(...chaudiere(c2));
     // la taie d'oreiller pliée en deux sur la seconde chaudière : les pans pendent dehors, le creux dedans
     const xg = c2.xt0, xd = c2.xt1, yt = c2.yt;
@@ -156,20 +181,21 @@ module.exports = (h) => {
     });
     out.push(h.path(pierre(-1), A.hachure('pierre')), h.path(pierre(1), A.hachure('pierre')));
     // l'eau qui bout : la surface en dômes, des bulles qui montent en grossissant
-    const dome = [];
     const n = 6, lg = (m.x1 - m.x0 - 2.4) / n;
-    let dS = `M${f(m.x0 + 1.2)},${f(g.ySurf)}`;
-    for (let i = 0; i < n; i++) {
-      const xa = m.x0 + 1.2 + i * lg, hb = i % 2 ? 7 : 10;
-      dS += ` Q${f(xa + lg / 2)},${f(g.ySurf - hb)} ${f(xa + lg)},${f(g.ySurf)}`;
-    }
-    dome.push(dS);
-    out.push(h.path(`${dS} L${f(m.x1 - 1.2)},${f(m.yb)} L${f(m.x0 + 1.2)},${f(m.yb)} Z`, A.hachure('eau', 'aucun')));
-    out.push(h.path(dS, A.arete));
+    const domes = (dx, dy) => {
+      let d = `M${f(m.x0 + 1.2 + dx)},${f(g.ySurf + dy)}`;
+      for (let i = 0; i < n; i++) {
+        const xa = m.x0 + 1.2 + i * lg + dx, hb = i % 2 ? 7 : 10;
+        d += ` Q${f(xa + lg / 2)},${f(g.ySurf - hb + dy)} ${f(xa + lg)},${f(g.ySurf + dy)}`;
+      }
+      return d;
+    };
+    out.push(cale(CALE_MARMITE, (dx, dy) => h.path(`${domes(dx, dy)} L${f(m.x1 - 1.2 + dx)},${f(m.yb + dy)} L${f(m.x0 + 1.2 + dx)},${f(m.yb + dy)} Z`, A.hachure('eau', 'aucun'))));
+    out.push(h.path(domes(0, 0), A.arete));
     [-40, -4, 32].forEach((dx, k) => {
       [[m.yb - 12, 2], [m.yb - 34, 3], [m.yb - 58, 4], [g.ySurf + 14, 5.2]].forEach(([y, r], j) => {
-        const x = cx + dx + ((j + k) % 2 ? 4 : -3);
-        out.push(h.cercle(x, y, r, blanc(A.detail)));
+        const x = cx + dx + DECAL_BULLES[k][0] + ((j + k) % 2 ? 4 : -3);
+        out.push(h.cercle(x, y + DECAL_BULLES[k][1], r, blanc(A.detail)));
       });
     });
     // la marmite, ses poignées et son couvercle

@@ -11,7 +11,8 @@
 // dépassait du poing se lisait comme un pouce levé) : h.formes.mainStock 1-09 « poing-manche-debout », le poing vu de
 // côté, l'avant-bras à plat qui vient de la gauche, sans l'objet du fichier ; les deux brins de l'anse entrent dans le
 // poing par le bas, sur l'axe de l'objet, et la main les cache. Rien n'est redessiné ni déformé ; l'avant-bras
-// continue les deux bords de la main jusqu'au bord de la vue.
+// continue tout droit les deux bords de la main jusqu'au bord de la vue (sans courbe de raccord : second regard du
+// 19 octobre 2026).
 
 module.exports = (h) => {
   const f = v => Math.round(v * 10) / 10;
@@ -96,27 +97,21 @@ module.exports = (h) => {
   const M109_HAUT = 378, M109_BAS = 646;           // le dessus et le dessous du poing sur l'axe de l'objet (relevés sur 1-09)
   const optsMain = P => ({ id: 'poing-manche-debout', objet: false, taille: TAILLE_MAIN, x: P.x, y: P.y });
   const versVue = P => ([px, py]) => [P.x + K109 * (px - M109.objet.x), P.y + K109 * (py - M109.objet.y)];
-  // l'avant-bras : chaque bord part dans la direction du bord de la main (le dessus de (5363,8 ; 440,7), le dessous de
-  // (5364,4 ; 639,9), relevés sur le dessin de 1-09), se courbe sur Lc jusqu'à l'axe de l'avant-bras, puis file droit
-  // hors de la vue ; un fond blanc couvre la coupe du fichier
-  const avantBras = (P, Lc = 14, L = 200) => {
+  // l'avant-bras : chaque bord continue tout droit dans la direction du bord de la main (le dessus de (5363,8 ; 440,7),
+  // le dessous de (5364,4 ; 639,9), relevés sur le dessin de 1-09) jusqu'hors de la vue, sans courbe de raccord : la
+  // coupe du fichier tombe à quelques unités du bord de la vue, et une courbe y faisait un crochet. Un fond blanc
+  // couvre la coupe du fichier.
+  const avantBras = (P, L = 200) => {
     const T = versVue(P);
     const dir = (p, d) => { const a = T(p), b = T([p[0] + d[0], p[1] + d[1]]), n = Math.hypot(b[0] - a[0], b[1] - a[1]); return [a, [(b[0] - a[0]) / n, (b[1] - a[1]) / n]]; };
     // les deux départs, pris 2 unités en dedans de la coupe : le fond blanc couvre le trait droit de la coupe du fichier
     const [t1, dt] = dir([5363.75, 440.741], [-52.5, -7.8]), [b1, db] = dir([5364.38, 639.884], [-109.4, 12.7]);
     const t0 = [t1[0] - dt[0] * 2, t1[1] - dt[1] * 2], b0 = [b1[0] - db[0] * 2, b1[1] - db[1] * 2];
-    let ax = [dt[0] + db[0], dt[1] + db[1]]; const na = Math.hypot(ax[0], ax[1]); ax = [ax[0] / na, ax[1] / na];
-    const w = [t0[0] - b0[0], t0[1] - b0[1]], s = w[0] * ax[0] + w[1] * ax[1], np = [w[0] - ax[0] * s, w[1] - ax[1] * s];
-    const lw = Math.hypot(np[0], np[1]), n = [np[0] / lw, np[1] / lw], ev = lw * 0.04;
-    const bord = (p0, d, sg) => {
-      const e = [p0[0] + ax[0] * Lc + sg * n[0] * ev, p0[1] + ax[1] * Lc + sg * n[1] * ev];
-      return { c1: [p0[0] + d[0] * Lc / 2, p0[1] + d[1] * Lc / 2], c2: [e[0] - ax[0] * Lc / 2, e[1] - ax[1] * Lc / 2], e, fin: [e[0] + ax[0] * L, e[1] + ax[1] * L] };
-    };
-    const Hd = bord(t0, dt, 1), Bd = bord(b0, db, -1), Q = p => `${f(p[0])} ${f(p[1])}`;
+    const tf = [t0[0] + dt[0] * L, t0[1] + dt[1] * L], bf = [b0[0] + db[0] * L, b0[1] + db[1] * L], Q = p => `${f(p[0])} ${f(p[1])}`;
     const trait = 'fill="none" stroke="#1A1A1A" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"';
     return [
-      h.path(`M ${Q(t0)} C ${Q(Hd.c1)} ${Q(Hd.c2)} ${Q(Hd.e)} L ${Q(Hd.fin)} L ${Q(Bd.fin)} L ${Q(Bd.e)} C ${Q(Bd.c2)} ${Q(Bd.c1)} ${Q(b0)} Z`, h.a.blanc),
-      h.path(`M ${Q(t0)} C ${Q(Hd.c1)} ${Q(Hd.c2)} ${Q(Hd.e)} L ${Q(Hd.fin)} M ${Q(b0)} C ${Q(Bd.c1)} ${Q(Bd.c2)} ${Q(Bd.e)} L ${Q(Bd.fin)}`, trait),
+      h.path(`M ${Q(t0)} L ${Q(tf)} L ${Q(bf)} L ${Q(b0)} Z`, h.a.blanc),
+      h.path(`M ${Q(t0)} L ${Q(tf)} M ${Q(b0)} L ${Q(bf)}`, trait),
     ].join('\n');
   };
 
