@@ -48,10 +48,10 @@ congélateur. Au chalet, la panne vient de la génératrice ou du propane qui s'
 
 | Quand | Geste | Repère chiffré |
 | --- | --- | --- |
-| 0 à 15 min | Garder le frigo et le congélateur fermés : coller un ruban sur les portes pour que personne ne les ouvre | Frigo fermé : environ 4 h. Congélateur : scénario 8 |
-| 0 à 15 min | Chauffer sans électricité s'il y a un poêle (ch. 83), fermer les pièces qu'on n'habite pas et rassembler tout le monde dans la plus petite | 19 °C ou plus dans la pièce habitée |
+| 0 à 15 min | Garder le frigo et le congélateur fermés : coller un ruban sur les portes pour que personne ne les ouvre | Le frigo fermé garde le froid environ 4 h. Pour le congélateur : scénario 8 |
+| 0 à 15 min | Chauffer sans électricité s'il y a un poêle (ch. 83), fermer les pièces qu'on n'habite pas et rassembler tout le monde dans la plus petite pièce | 19 °C ou plus dans la pièce habitée |
 | 0 à 30 min | Remplir les contenants d'eau pendant qu'il reste de la pression (section 7, « L'eau du bâtiment ») | |
-| 0 à 30 min | Essayer l'avertisseur de CO au bouton et le poser dans la pièce où on va dormir | |
+| 0 à 30 min | Appuyer sur le bouton d'essai de l'avertisseur de CO, puis le poser dans la pièce où on va dormir | |
 | 0 à 30 min | Installer la génératrice dehors, s'il y en a une | |
 | 1 à 2 h | Sortir les lampes frontales, la radio et les piles. N'allumer qu'un appareil à la fois | 2 jeux de piles par lampe |
 | 2 à 4 h | Mettre à l'abri du gel la tuyauterie, le réservoir de la toilette et les bidons d'eau rangés dans un bâtiment non chauffé, et prévoir l'heure de la vidange | Vidanger quand la pièce la plus froide descend à 5 °C (ch. 3, étapes 21 à 24) |
