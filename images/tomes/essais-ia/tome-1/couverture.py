@@ -110,7 +110,7 @@ def mesures(k, fmt='lulu'):
         prov = ('gabarit de Lulu' if k in PAGES_LULU else
                 'PROVISOIRE : compte Blurb de build_couvertures_6.PAGES, en attendant le gabarit de Lulu')
     fp, pw, ph = f['fp'], f['pw'], f['ph']
-    return dict(f, format=fmt, pages=pages, prov=prov, tranche=tr, W=2 * fp + 2 * pw + tr, H=ph + 2 * fp,
+    return dict(f, format=fmt, tome=k, pages=pages, prov=prov, tranche=tr, W=2 * fp + 2 * pw + tr, H=ph + 2 * fp,
                 x_tranche=fp + pw, x_devant=fp + pw + tr)
 
 
@@ -292,6 +292,14 @@ def devant(v, k, m):
 # tome 2 : le cadre au mur). Les cotes sont celles de la couverture Blurb ; y_devant() les ramène au même point de l'image
 # sur la couverture Lulu (3,95 po devient 4,44 po du haut de la planche).
 CENTRE_BAS = {2: 3.1, 6: 3.3}
+
+# Le cadrage de l'image en largeur sur la planche de Lulu : l'image couvre la hauteur de la couverture, wrap compris, et
+# déborde alors de 0,8 po en largeur ; 0 la cale à gauche, 0,5 la centre sur la planche (le défaut), 1 la cale à droite.
+# Les 0,1 po du bord droit de l'image ne servent jamais (celle du tome 6 y a un trait sombre) ; le wrap de droite que
+# l'image ne couvre plus prolonge le bord de la planche (voir composer). Tome 6 : calée à droite, sinon le croissant de
+# lune du coin du ciel passait le bord de la planche et se repliait sur le carton ; il reste à 0,18 po du bord.
+CADRE_X = {6: 1.0}
+BORD_IMAGE = 0.1                        # po de l'image, au bord droit, qui ne servent pas
 
 
 # ------------------------------------------------------------------ gabarit
@@ -569,9 +577,27 @@ def composer(v, m, img, pal, ppp):
     grande = np.asarray(img.resize((rw, rh), Image.LANCZOS))
     cx0 = (rw - fw) // 2
     if m['format'] != 'blurb':
-        # le milieu de l'image au milieu de la planche, sous le titre centré (le wrap de droite prend le reste)
-        cx0 = max(0, min(rw - fw, (rw - round(m['pw'] * ppp)) // 2))
-    can[:, xf:] = grande[:Hp, cx0:cx0 + fw]
+        # le milieu de l'image au milieu de la planche, sous le titre centré, ou calée selon CADRE_X ; ce qui manque au
+        # wrap de droite est l'image en miroir
+        pwp, utile = round(m['pw'] * ppp), rw - int(BORD_IMAGE * ppp)
+        cx0 = max(0, min(utile - pwp, int((rw - pwp) * CADRE_X.get(m['tome'], 0.5))))
+        dev = grande[:Hp, cx0:min(cx0 + fw, utile)]
+        n = fw - dev.shape[1]
+        if n > 0:
+            # le wrap de droite que l'image ne couvre plus : le ciel s'étire depuis le bord de la planche (en miroir, le
+            # croissant du tome 6 y revenait en double), le paysage s'y reflète ; le ciel s'arrête à la première ligne
+            # où le bord de la planche s'écarte de sa couleur (le haut de la colline)
+            bord = ndi.median_filter(dev[:, -1].astype(np.float32), size=(int(0.05 * ppp) | 1, 1))
+            Lb = bord @ np.array([.2126, .7152, .0722], np.float32)
+            Lc = float(np.array(rgb(pal['fond']), np.float32) @ np.array([.2126, .7152, .0722], np.float32))
+            hors = np.nonzero(np.abs(Lb - Lc) > 40)[0]
+            y_p = int(hors[0]) if len(hors) else Hp
+            ajout = dev[:, -n:][:, ::-1].copy()
+            ajout[:y_p] = np.clip(np.rint(bord[:y_p]), 0, 255).astype(np.uint8)[:, None, :]
+            dev = np.concatenate([dev, ajout], axis=1)
+        can[:, xf:] = dev
+    else:
+        can[:, xf:] = grande[:Hp, cx0:cx0 + fw]
     bandes = []
     if VARIANTES[v]['dos'] == 'etoiles':
         # le ciel de l'image, reflété au pli du devant (le ciel passe le pli sans raccord), puis en miroir : les étoiles
