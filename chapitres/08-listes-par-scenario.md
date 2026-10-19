@@ -93,8 +93,8 @@ donnent une saison de jardin.
 
 ### Scénario 3. Évacuation avec préavis de quelques heures (**maison**)
 
-*Un feu de forêt qui s'en vient (ch. 7 ; le feu de forêt : ch. 11). L'évacuation part le plus souvent de la maison.
-Le chalet est une destination possible si ni lui ni la route pour s'y rendre ne sont du côté du feu.*
+*Par exemple, un feu de forêt qui s'en vient. Le départ avec préavis est au ch. 7, le feu de forêt au ch. 11. On part
+le plus souvent de la maison, et on peut aller au chalet si ni lui ni la route pour s'y rendre ne sont du côté du feu.*
 
 | Quand | Geste | Repère chiffré |
 | --- | --- | --- |
@@ -106,18 +106,18 @@ Le chalet est une destination possible si ni lui ni la route pour s'y rendre ne 
 | Dernières minutes | Laisser un mot bien en vue : qui est parti, quand, vers où, et combien de personnes | |
 
 {!feu-de-foret} Partir avec un seul chargement. Du congélateur, prendre seulement ce qui tient dans une glacière : le
-reste dégèle en route, et le charger prend les minutes qui servent à partir.
+reste dégèle en route, et le charger prend des minutes dont on a besoin pour partir.
 
 ### Scénario 4. Feu dans le bâtiment, évacuation immédiate (**les deux**)
 
-*Détaillé au ch. 82. Personne ne vient éteindre : le bâtiment est perdu dès les premières minutes. En ville, on finit
-la nuit chez un voisin ; au chalet, la famille est dehors, l'hiver à −35 °C.*
+*Le détail est au ch. 82. Personne ne vient éteindre : le bâtiment est perdu dès les premières minutes. En ville, on
+finit la nuit chez un voisin. Au chalet, la famille passe la nuit dehors, à −35 °C l'hiver.*
 
 | Quand | Geste | Repère chiffré |
 | --- | --- | --- |
-| 0 à 3 s | Décider : éteindre un feu plus petit qu'une poubelle si on a l'extincteur en main et la sortie dans le dos (ch. 82, « Le départ de feu »). Sinon, sortir | |
-| 0 à 60 s | Réveiller tout le monde, sortir, et compter les personnes au point de rassemblement, pas dans la porte, pour ne pas rentrer chercher quelqu'un qui est déjà dehors | Toutes les têtes, comptées à voix haute |
-| 1 à 5 min | Prévenir les voisins en ville ; au chalet, prévenir par la radio, le téléphone satellite ou un voisin (ch. 14) | |
+| 0 à 3 s | Éteindre le feu s'il est plus petit qu'une poubelle, qu'on a l'extincteur en main et la sortie dans le dos (ch. 82, « Le départ de feu »). Sinon, sortir | |
+| 0 à 60 s | Réveiller tout le monde, sortir, et compter les personnes au point de rassemblement, pas dans la porte, pour ne pas rentrer chercher quelqu'un qui est déjà dehors | Compter chaque personne à voix haute |
+| 1 à 5 min | En ville, prévenir les voisins ; au chalet, donner l'alerte par la radio, le téléphone satellite ou un voisin (ch. 14) | |
 | 5 à 30 min | Mettre tout le monde au chaud, les enfants d'abord : dans l'auto démarrée **dehors**, la remise, la maison ou le chalet du voisin | |
 | Après 30 min | Passer au scénario 3 pour partir, au scénario 7 s'il y a un blessé | |
 

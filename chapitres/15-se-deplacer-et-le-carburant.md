@@ -78,8 +78,8 @@ et se sortir vivant de la glace qui cède ou de la machine qui s'arrête loin de
  - Battre des jambes sans arrêter, comme pour nager, pour ramener le corps à l'horizontale derrière soi
  (repère 6). À plat, le corps glisse sur la glace ; à la verticale, il faut le soulever à la force des
  bras.
- - Tirer en glissant vers l'avant, puis replanter les pics un peu plus loin (repère 7), et recommencer jusqu'à ce que
- les jambes sortent de l'eau.
+ - Tirer en glissant vers l'avant, puis replanter les pics un peu plus loin (repère 7), et recommencer jusqu'à
+ ce que les jambes sortent de l'eau.
  - **Autre façon, à mains nues.** Étendre les bras le plus loin possible sur la glace qui a porté, les
  avant-bras et les mains à plat. Battre des jambes jusqu'à ce que le corps soit à l'horizontale, puis se
  tirer sur les avant-bras et les coudes pendant que les jambes battent, un peu à la fois. Les mains mouillées
@@ -175,8 +175,8 @@ et se sortir vivant de la glace qui cède ou de la machine qui s'arrête loin de
 
 ### La réserve de carburant
 
-19. **Faire la liste des moteurs avant de compter les litres.** Faire le tour des moteurs de la maison et du chalet : l'auto,
- la motoneige, le VTT, la scie à chaîne, la génératrice, la pompe. Noter pour chacun le carburant exact
+19. **Faire la liste des moteurs avant de compter les litres.** Y mettre ceux de la maison et du chalet :
+ l'auto, la motoneige, le VTT, la scie à chaîne, la génératrice, la pompe. Noter pour chacun le carburant exact
  (essence, diesel, mélange deux temps) et l'endroit où la machine passe l'hiver, à la maison ou au
  chalet : le carburant de chaque machine doit être au même endroit qu'elle.
 20. **Mesurer la consommation réelle de chaque moteur.** Faire le plein, noter le compteur ou l'heure,
