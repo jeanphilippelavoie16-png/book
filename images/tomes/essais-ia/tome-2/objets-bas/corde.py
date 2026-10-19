@@ -1,4 +1,5 @@
-"""La corde de bois sous le poêle : du bois fendu (ronds, demies, quartiers) empilé par gravité, vu de trois quarts ;
+"""La corde de bois sous le poêle, rangée dessous, entre ses pattes (JP, 19 octobre 2026 : « le bois, mets-le en dessous
+du foyer ») : deux rangs bas qui restent sous le corps du poêle ; du bois fendu (ronds, demies, quartiers) empilé par gravité, vu de trois quarts ;
 les bouts devant (écorce, cernes autour du cœur, fentes), le côté de l'écorce et des faces fendues qui fuit vers le
 haut et la gauche, et l'ombre au fond de la pile. Un seul bout reste crème (la demie du deuxième rang) : le bouleau
 du bas garde son écorce blanche mais son bois passe en ocre, et le rond du bord droit, près de la porte du poêle,
@@ -9,8 +10,8 @@ from PIL import Image, ImageDraw
 from svgkit import *
 
 D = (-9.0, -5.6)                  # la fuite : le bout arrière de la bûche, vu d'en haut à gauche
-SOL = 911.0                       # le bas des bouts, sur le plancher
-X0, Y0, X1, Y1 = 596, 812, 768, 926
+SOL = 897.0                       # le bas des bouts, sur le plancher, sous le poêle
+X0, Y0, X1, Y1 = 588, 836, 768, 902
 TRAIT = 0.65                      # l'épaisseur des cernes : celle du linge, du panier et de la cruche, générés
 
 def contour(p, R0):
@@ -237,24 +238,21 @@ def flanc_svg(p, cid, ombre=False):
     return '\n'.join(s)
 
 PIECES = [
-    # la rangée du bas, de gauche à droite
-    dict(t='demi', x=626, R=17, th=-95),
-    dict(t='rond', x=657, R=14, bouleau=True),         # le bouleau : l'écorce blanche, le bois en ocre
-    dict(t='quart', x=686, R=25, th=-55, al=95),
-    dict(t='demi', x=722, R=18, th=-100),
-    dict(t='rond', x=756, R=16),
-    # deuxième rang
-    dict(t='quart', x=641, R=23, th=-125, al=90),
-    dict(t='rond', x=672, R=13),
-    dict(t='demi', x=700, R=17, th=-75, pale=True),
-    dict(t='quart', x=735, R=24, th=-95, al=95),
-    dict(t='rond', x=765, R=12),
-    # le dessus
-    dict(t='rond', x=655, R=12),
-    dict(t='quart', x=684, R=21, th=-115, al=90),
-    dict(t='demi', x=713, R=16, th=-85),
-    dict(t='rond', x=744, R=14),
-    dict(t='quart', x=768, R=20, th=-100, al=90),
+    # la rangée du bas, de gauche à droite, entre la patte du poêle et le bord de l'image
+    dict(t='rond', x=602, R=12),
+    dict(t='demi', x=628, R=13, th=-95),
+    dict(t='quart', x=655, R=16, th=-60, al=95),
+    dict(t='rond', x=681, R=12, bouleau=True),          # le bouleau : l'écorce blanche, le bois en ocre
+    dict(t='demi', x=707, R=13, th=-100),
+    dict(t='quart', x=734, R=16, th=-55, al=95),
+    dict(t='rond', x=761, R=12),
+    # deuxième rang, plus petit : il reste sous le bas du poêle
+    dict(t='quart', x=615, R=12, th=-120, al=90),
+    dict(t='rond', x=641, R=10),
+    dict(t='demi', x=667, R=11, th=-80, pale=True),
+    dict(t='quart', x=694, R=12, th=-100, al=90),
+    dict(t='rond', x=720, R=10),
+    dict(t='demi', x=746, R=11, th=-85),
 ]
 
 def construire(pieces=PIECES, seed=3):

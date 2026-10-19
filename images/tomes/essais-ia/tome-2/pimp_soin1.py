@@ -141,9 +141,9 @@ poser('objet-cruche.png', 430, 755.125)
 #    rapport au dessin de départ, pour que la poignée de l'anse passe sous le chant de la tablette
 poser('objet-chaudiere.png', 30, 794)
 
-# 7. la corde de bois fendu sous le poêle, vue de trois quarts : les bouts (écorce, cernes, fentes), le côté qui fuit et
-#    l'ombre au fond de la pile
-poser('objet-corde.png', 596, 812)
+# 7. la corde de bois fendu rangée sous le poêle, entre ses pattes (JP : « le bois, mets-le en dessous du foyer »), vue
+#    de trois quarts : les bouts (écorce, cernes, fentes), le côté qui fuit et l'ombre au fond de la pile
+poser('objet-corde.png', 588, 836)
 BOIS = (214, 160, 92); BOIS2 = (186, 124, 62)                    # les bouts des bûches du feu (section 8) les reprennent
 
 # 8. le feu dans le poêle (JP : « le foyer mieux fait ») : le fond du foyer, la lueur, deux bûches en croix, les braises,
