@@ -127,3 +127,12 @@ Ce que le script ne fait pas encore : le PDF pour Blurb. Une fois la variante ch
 Ce que B fait mieux, et qui peut se greffer sur A : la couleur du tome sur la tranche, pour que les six se
 distinguent sur une tablette si les six ciels se ressemblent, et le gros chiffre. Si JP veut retrouver ses couleurs de
 tomes, le bon assemblage est le devant de A avec la tranche et la quatrième de B.
+
+## La retouche du 19 octobre 2026
+
+JP : « reprends exactement la même image, mais applique la même rigueur de qualité que les autres tomes » ; puis, sur
+la retouche : « c'est parfait tome 1, let's go ». L'image de titre (`images/tomes/titre-tome-1.jpg`) est la sortie de
+`retouche_tome1.py` (modules de `retouche/` : ciel, crêtes, collines, neige, chalet, épinettes) appliqué à
+`titre-tome-1-original.jpg` ; une copie est dans `essais/titre-tome-1-retouche-19oct.jpg`.
+
+    python3 retouche_tome1.py titre-tome-1-original.jpg ../../titre-tome-1.jpg
