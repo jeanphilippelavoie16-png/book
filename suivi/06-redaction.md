@@ -373,3 +373,51 @@ Invariants signalés, chacun justifié :
   10 ans selon le modèle, comptés depuis la **date de fabrication** inscrite au dos
   (`sources/09-avertisseurs-co-duree-de-vie.md`, Kidde). À aligner au ch. 1.
 - Ch. 10, l. 320 : « Pour le vider, voir le ch. 6. » peut devenir « voir le ch. 6, section 7 ».
+
+## Corrections après la vérification technique, 19 octobre 2026
+
+Rédacteur (rôle 2). Neuf signalements du vérificateur technique : huit appliqués (deux avec une forme différente de
+celle proposée, dite plus bas), un sans changement au ch. 6 (n° 9, il touche les ch. 1 et 3). Aucune recherche
+nouvelle (JP, 19 octobre 2026 : « fuck les sources, on a pas déjà fait ce travail-là ? ») : chaque correction
+s'appuie sur une page déjà enregistrée ou sur un chapitre qui a sa source.
+
+| # | Où | Ce qui a changé | Appuyé sur |
+| --- | --- | --- | --- |
+| 1 | Section 7, « Le combustible de fortune » | « le carton ciré » sort de la liste de ce qu'on ne brûle jamais : le rouleau de carton trempé dans la cire, deux phrases plus haut, est du carton ciré. | `dangers/partie-1.md`, `pas-au-feu`, « Ce qu'on fait », point 1 (ne nomme pas le carton ciré) ; ch. 83, l. 492 (carton d'œufs noyé de gras ou de cire comme allume-feu) |
+| 2 | Même paragraphe | « planches brutes d'une remise » sort de la liste de ce qui va au poêle. Ajouté à la fin du paragraphe : « Ne pas brûler non plus le bois de démolition dont on ne connaît pas l'origine : en vieillissant, le bois traité d'une remise, d'une clôture ou d'une terrasse devient gris comme du bois ordinaire, et on ne le reconnaît pas à sa couleur. » Placée après « Ils encrassent aussi le tuyau… (ch. 82) », et non juste après « Ne jamais brûler… » comme proposé, pour que « Ils » garde son sujet (la liste). C'est un fait de la page, mais c'est le piège de ce paragraphe-là : le texte d'avant demandait de juger le bois à l'œil. | `dangers/partie-1.md`, `pas-au-feu`, « Ce qui arrive » et « Ce qu'on fait », point 1 |
+| 3 | Étape 14 | « une viande d'ours séchée ou fumée qui n'est pas montée à 74 °C à cœur n'entre pas dans la trousse » devient « mettre la viande d'ours dans la trousse en ragoût ou en pot seulement, jamais en viande séchée (ch. 71) ». Forme plus courte que la proposition (« cuite à 74 °C à cœur, en ragoût ou en pot ») : la première phrase de la même étape dit déjà « Cuire à 74 °C à cœur tout gibier qui entre dans la trousse, en ragoût, en pot… » ; le 74 °C n'est pas redit deux fois dans l'étape. Le désaccord du ch. 52 (ours séché après cuisson) est à régler à sa migration. | `dangers/partie-2.md`, `trichine`, « Ce qu'on fait » ; ch. 71, section 2 ; ch. 72, l. 34 |
+| 4 | Étape 6, la javel | Réécrite dans l'ordre des gestes : d'abord l'eau d'un lac, d'un ruisseau ou de la neige au filtre à 1 µm, sinon la bouillir (ch. 10, étape 19) ; puis 2 gouttes (0,2 mL) par litre, et le double, 4 gouttes (0,4 mL), dans une eau froide, un peu trouble ou un peu colorée (ch. 10, étape 20) ; puis 30 minutes au-dessus de 20 °C, au moins 1 heure en eau plus froide, 2 heures ou plus sous 10 °C (ch. 10, étape 21). La condition avant le geste (règle 3 du skill) : le filtre passe en premier, pas en dernier comme dans la proposition. « 4 gouttes » : le double des 2 gouttes de Santé Canada. | Ch. 10, étapes 19 à 21 ; `sources/09-sante-canada-eau-aliments-urgence.md` (« environ 2 gouttes (0,2 millilitre) ») ; provenance des 0,4 mL et des temps en eau froide : `suivi/10-redaction.md` (INSPQ, `sources/10-cawst-2011-fiches-traitement-eau-domicile.md`) |
+| 4 bis | Étape 7 | Coupé : « Traiter l'eau de neige comme l'eau d'un lac (ch. 10, étape 41). » L'étape 6 nomme maintenant la neige dans ses deux façons (javel et ébullition) : la phrase redisait l'étape d'avant. | Répétition (skill `ecriture`) |
+| 5 | Section 7, « Doser la javel sans compte-gouttes » | Ajouté : « Quand on double la dose (étape 6), mettre 8 mL pour 20 L. » Forme plus courte que la proposition : la règle du double est à l'étape 6, ici seulement la mesure à la cuillère. Le renvoi « L'attente et l'odeur de chlore : ch. 10, étapes 21 et 22 » est gardé tel quel. | Ch. 10, étape 20 ; arithmétique (0,4 mL × 20) |
+| 6 | Section 7, « Faire fondre la neige… » | « Pour la faire fondre plus vite sur le poêle, toujours mettre un fond d'eau » devient « Sur le poêle, toujours mettre un fond d'eau dans le chaudron avant d'y mettre la neige : sans eau, le métal surchauffe et la neige roussit au fond (ch. 10, étape 39). » Le texte de la proposition, mot pour mot. | Ch. 10, étape 39, troisième puce |
+| 7 | Section 7, « La courroie de front » | Ajouté après « si on tombe » : « Un adulte qui n'a jamais porté au front commence avec une charge légère, sur de courtes distances. Ne pas porter à la courroie de front avec un cou douloureux, des fourmis dans les bras, ou après un coup reçu au cou, et ne jamais mettre une charge d'adulte au front d'un enfant (ch. 24, étapes 17 et 19). » La consigne à l'infinitif plutôt qu'en « Pas de… » (règle 0 : un verbe qui dit le geste). | Ch. 24, étapes 17 et 19 |
+| 8 | En plus, « Le pemmican » | « …en ravitaillait ses voyageurs l'hiver » devient « …en ravitaillait ses voyageurs dans les prairies, surtout l'hiver ». Pour garder la note sous 80 mots, « Le pemmican est dense et riche en énergie ; on le gardait et on le transportait facilement, et » devient « Dense et riche en énergie, le pemmican était facile à garder et à transporter : » (même fait). | `sources/67-encyclopedie-canadienne-pemmican.md`, deuxième extrait |
+| 9 | Section 5, l'avertisseur de CO | Ch. 6 inchangé. L'alignement va aux ch. 1 et 3 (rapport, « renvois »). | `sources/09-avertisseurs-co-duree-de-vie.md`, sections 1 et 2 |
+
+Aucun chiffre nouveau sans source : 0,4 mL, 30 min, 1 h, 2 h, 10 °C, 20 °C et 1 µm viennent du ch. 10 (sourcés dans
+`suivi/10-redaction.md`) ; 4 gouttes et 8 mL sont de l'arithmétique sur des chiffres sourcés.
+
+### controle.py après les corrections
+
+6 537 mots au compte de `wc` (6 664 au compte du script ; 6 480 avant ces corrections au compte du script). Tirets : 2
+(titre et ligne de tome, les mêmes). Mots bannis, « § », vocabulaire d'IA, mises en relief, maximes, redites : 0. Une
+tournure (« la personne qui la monte oublie… », faux positif déjà jugé). 25 mots vides, les mêmes qu'avant, tous
+jugés. Invariants signalés, justifiés :
+- « 74 °C » 2 → 1 (sécurité) : la deuxième mention redisait la première dans la même étape 14 ; le rappel du tableau
+  de `CLAUDE.md` reste entier dans la phrase en gras de l'étape 14, et la trichine reste dans sa phrase.
+- « 41 » disparu : le renvoi « ch. 10, étape 41 » de la phrase coupée à l'étape 7 (n° 4 bis).
+
+### Signalé, pas changé
+
+- Ch. 10, note 16 de sa fiche : le ch. 10 a sorti « 2 gouttes » au profit de 0,2 mL à la seringue, parce que la
+  taille d'une goutte change d'un compte-gouttes à l'autre (on compte les gouttes de son compte-gouttes dans 1 mL). Le
+  ch. 6 garde « 2 gouttes (0,2 mL) », la formule de Santé Canada (« environ 2 gouttes »). Le vérificateur ne l'a pas
+  relevé ; à trancher si on aligne le ch. 6 sur le ch. 10 (« mesurer 0,2 mL ; compter d'avance combien de gouttes de
+  son compte-gouttes font 1 mL »).
+- Ch. 1 (l. 52 et 204) et ch. 3 (l. 75 et 283) : la durée de vie de l'avertisseur de CO, à aligner sur le ch. 6
+  (n° 9 ; textes dans le rapport).
+- Ch. 10, l. 321 : « Pour le vider, voir le ch. 6. » devient « voir le ch. 6, section 7, « Tirer l'eau du
+  chauffe-eau » ».
+- Ch. 37, l. 344 et 750 : « (ch. 06, section 9) » devient « (ch. 6, section 7) ».
+- Ch. 52 : l'ours séché après une cuisson à 74 °C contredit la page `trichine` et les ch. 71 et 72 (n° 3), à régler à
+  sa migration.

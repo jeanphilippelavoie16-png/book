@@ -213,13 +213,42 @@ def poser(can, m, decoupe, trou, haut_max=None, ou='centre'):
             break
         s *= 0.97
     coller(can, fg2, al2, x, y)
+    PROTEGE.append((y, x, al2 > 0))
     return x, y, w, h
+
+
+PROTEGE = []          # (y, x, masque) de chaque découpe posée
+
+
+def proteger(xf):
+    """couverture.py passe nettoyer() APRÈS motif_dos() : elle retire du fond les petites taches claires près du texte,
+    et prendrait pour des étoiles le bout des flammes, la queue des truites, le haut de la perche. On enveloppe la
+    nettoyer() du script en cours pour remettre, après elle, les pixels des découpes posées ici. Rien ne change si
+    le script nettoie avant d'appeler le motif."""
+    import sys
+    principal = sys.modules.get('__main__')
+    orig = getattr(principal, 'nettoyer', None)
+    if orig is None or getattr(orig, 'protege_dos', False):
+        return
+    masques = list(PROTEGE)
+
+    def nettoyer(can, rects, ppp):
+        avant = can.copy()
+        out, n = orig(can, rects, ppp)
+        for y, x, mq in masques:
+            mq = ndi.binary_dilation(mq, iterations=6)
+            h, w = mq.shape
+            out[y:y + h, x:x + w][mq] = avant[y:y + h, x:x + w][mq]
+        return out, n
+    nettoyer.protege_dos = True
+    principal.nettoyer = nettoyer
 
 
 def motif(can, info):
     img = info['image']
     ppp, xf, xt = info['ppp'], info['xf'], info['xt']
     k = ppp / 96
+    del PROTEGE[:]
     m, filets = interdit(info)
     libre = ~m
     x_g = min(r[0] for r in filets) * k                 # la colonne de la quatrième
@@ -240,4 +269,5 @@ def motif(can, info):
         poses.append(('feu', poser(can, m, feu(img), tr)))
     for nom, (x, y, w, h) in poses:
         print('    %s : %.2f × %.2f po, à %.2f, %.2f po' % (nom, w / ppp, h / ppp, x / ppp, y / ppp))
+    proteger(xf)
     return can

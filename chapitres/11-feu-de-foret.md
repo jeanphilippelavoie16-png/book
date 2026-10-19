@@ -511,7 +511,8 @@ purificateur à filtre HEPA, mais beaucoup mieux que rien (planche 11-04).
 
 Le 2 juin 2023, deux feux avançaient vers Sept-Îles à 35 ou 40 m à la minute, et plus de 5 000 personnes
 ont dû quitter leur maison. Vers l'est, on ne pouvait pas évacuer. Vers l'ouest, on pouvait encore partir,
-mais un feu brûlait au nord de la ville. Si ce chemin se fermait aussi, il ne restait que la mer. Les gens sont rentrés quatre jours plus tard (étape 6).
+mais un feu brûlait au nord de la ville. Si ce chemin se fermait aussi, il ne restait que la mer. Les gens
+sont rentrés quatre jours plus tard (étape 6).
 
 ### Les autos de Lara, 1969
 
@@ -531,8 +532,8 @@ servait de coupe-feu. L'été, sans cette neige et sur un humus sec, le même fe
 
 Après un feu, le bleuet repart de ses tiges qui courent sous terre, dans l'humus. La première année, il ne
 fait que des feuilles ; la deuxième ou la troisième, selon l'espèce, ses tiges neuves donnent la plus grosse
-récolte. Là où le feu a brûlé
-l'humus jusqu'au sol minéral, ces tiges ont brûlé aussi, et le bleuet repart mal (étape 46).
+récolte. Là où le feu a brûlé l'humus jusqu'au sol minéral, ces tiges ont brûlé aussi, et le bleuet repart
+mal (étape 46).
 
 ### Reconnaître la pessière à cladonie
 
