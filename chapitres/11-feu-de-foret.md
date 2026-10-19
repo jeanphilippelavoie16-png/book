@@ -58,8 +58,8 @@ suite à l'étape 11.
  un sac à part, de l'eau et de quoi manger pour trois jours, une couverture de laine par personne, les
  bidons d'essence. Charger sans attendre l'odeur de la fumée ni la vue des flammes. Laisser la réserve de
  nourriture au chalet (ch. 5) : on n'a pas le temps de la charger.
-4. **Au chalet, mettre le canot ou la chaloupe à l'eau**, avec les gilets de sauvetage et une pagaie de rechange. Le lac
- devient le deuxième chemin quand le chemin de terre se ferme (section 7).
+4. **Au chalet, mettre le canot ou la chaloupe à l'eau**, avec les gilets de sauvetage et une pagaie de
+ rechange. Le lac devient le deuxième chemin quand le chemin de terre se ferme (section 7).
 5. **Décider quel adulte prend quel enfant, et le dire aux enfants.** L'adulte qui prend un enfant le garde
  jusqu'à l'arrivée (ch. 82).
 6. {!feu-de-foret} **Partir dès qu'une de ces deux choses arrive :**
@@ -79,9 +79,9 @@ suite à l'étape 11.
  fond (planche 11-03, repère 5 ; section 7).
 8. {!vapeurs} **Dégager autour du bâtiment** : vider les gouttières, ramasser ce qui traîne dans les 1,5 m
  autour des murs, rentrer les chaises de galerie, les coussins et les bâches, et éloigner le bois de
- chauffage à plus de 10 m. Porter la bouteille de propane à plus de 10 m, à un endroit sans végétation sur 3 m
- autour : contre un mur qui chauffe, la bouteille relâche du gaz par sa soupape, et ce gaz prend feu. Sortir
- aussi les bidons d'essence du bâtiment (étape 3).
+ chauffage à plus de 10 m. Porter la bouteille de propane à plus de 10 m, à un endroit sans végétation
+ sur 3 m autour : contre un mur qui chauffe, la bouteille relâche du gaz par sa soupape, et ce gaz prend
+ feu. Sortir aussi les bidons d'essence du bâtiment (étape 3).
 9. **Si on a le matériel, fermer les évents avec une maille de métal, et visser de la tôle ou du
  contreplaqué sur les fenêtres qui font face au feu** (planche 11-03, repères 4 et 8 à 12). Sans ce matériel :
  section 7.
@@ -110,8 +110,8 @@ déjà le chemin, rester au bâtiment (étape 21).
 14. **S'il reste du temps, arroser le toit, le pourtour et le bas des murs, puis fermer l'eau.** Au chalet,
  mouiller aussi la mousse, l'humus et la cladonie (le lichen gris-blanc en tapis) autour du bâtiment : les
  braises y prennent, et ce tapis garde l'eau moins longtemps qu'un bardeau. Un boyau laissé ouvert après
- le départ vide la pression de l'aqueduc. Le baril en hauteur, lui, peut couler pendant
- qu'on est parti (étape 7).
+ le départ vide la pression de l'aqueduc. Le baril en hauteur, lui, peut couler pendant qu'on est parti
+ (étape 7).
 15. **En sortant, couper le courant au disjoncteur principal et afficher PARTIS sur la porte.** Couper le
  courant en dernier, une fois l'arrosage fini : la pompe du puits en a besoin. Un panneau sous tension
  dans une maison brûlée et mouillée blesse la personne qui revient. Écrire la feuille au marqueur et la
@@ -162,7 +162,8 @@ déjà le chemin, rester au bâtiment (étape 21).
 
 26. **Éteindre ce qui reste.** Les braises continuent de tomber et d'allumer des départs de feu pendant
  des heures. Prendre les 200 L d'eau, le râteau et la pelle : gratter chaque départ de feu jusqu'au sol
- minéral, retourner ce qui brûle, puis le noyer ou le couvrir de terre. Chercher les points chauds[^1] du dos de la main (section 7).
+ minéral, retourner ce qui brûle, puis le noyer ou le couvrir de terre. Chercher les points chauds[^1] du
+ dos de la main (section 7).
 
 [^1]: Un point chaud est une braise qui couve dans l'humus épais, sans flamme et souvent sans fumée. On le
 trouve à la chaleur : passer le dos de la main au ras du sol, puis la glisser doucement sous la surface
@@ -190,15 +191,14 @@ trouve à la chaleur : passer le dos de la main au ras du sol, puis la glisser d
  dans la chambre des enfants, porte fermée : il nettoie l'air d'une pièce, pas celui de toute la maison.
  Ne rien brûler dans la maison pendant l'épisode : ni poêle à bois, ni chandelle, ni friture.
 33. {!feu-de-foret} **Laisser les enfants dehors ou les garder dedans selon les particules fines.** Les
- enfants de 5 ans et
- moins sont parmi les plus sensibles. À partir de 30 µg/m³, les laisser jouer dehors sans s'essouffler ;
- à partir de 100, ne plus les laisser faire d'effort dehors ; au-dessus de 250, garder tout le monde à
- l'intérieur.
+ enfants de 5 ans et moins sont parmi les plus sensibles. À partir de 30 µg/m³, les laisser jouer dehors
+ sans s'essouffler ; à partir de 100, ne plus les laisser faire d'effort dehors ; au-dessus de 250,
+ garder tout le monde à l'intérieur.
  Les masques N95 ne sont pas faits pour le visage d'un enfant et ne le protègent pas : pour le protéger,
  il faut la pièce d'air propre (étapes 32 et 35), ou partir.
-34. **Quand la maison devient trop chaude, s'occuper de la chaleur avant la fumée.** Dans la pièce des enfants,
- le risque monte au-dessus de 26 °C et devient dangereux au-dessus de 31 °C : ouvrir les fenêtres, même
- s'il entre de la fumée. Au-dessus de 35 °C, un ventilateur ne refroidit plus le corps, il souffle de
+34. **Quand la maison devient trop chaude, s'occuper de la chaleur avant la fumée.** Dans la pièce des
+ enfants, le risque monte au-dessus de 26 °C et devient dangereux au-dessus de 31 °C : ouvrir les
+ fenêtres, même s'il entre de la fumée. Au-dessus de 35 °C, un ventilateur ne refroidit plus le corps, il souffle de
  l'air chaud. Si on ne peut ni rafraîchir la pièce ni ouvrir, partir vers un air plus frais et plus
  propre.
 35. **Au chalet, l'été, faire une pièce d'air propre pour les enfants** avec un ventilateur et un filtre

@@ -8,7 +8,7 @@
 
 ## 1. En une ligne
 
-Monter d'avance une trousse qu'une personne sort de la maison en deux minutes, avec l'eau, la chaleur, la lumière, la nourriture, les soins et les papiers dont la famille a besoin les trois premiers jours, qu'elle reste à la maison ou qu'elle parte.
+Monter d'avance une trousse qu'une personne sort de la maison en 2 minutes, avec l'eau, la chaleur, la lumière, la nourriture, les soins et les papiers dont la famille a besoin les trois premiers jours, qu'elle reste à la maison ou qu'elle parte.
 
 ---
 
@@ -27,8 +27,8 @@ Monter d'avance une trousse qu'une personne sort de la maison en deux minutes, a
 ## 3. Matériel
 
 - **Deux bacs rigides d'environ 60 L** : le bac 1 part toujours ; le bac 2 part seulement quand on part en auto (sans bac : section 7).
-- **Un sac à dos par personne** : il porte ce qui part à pied ; ce qui part en auto va dans les bacs (sans sac : section 7).
-- **Boîte étanche à joint** : elle garde au sec les papiers, l'argent et la liste des médicaments (sans boîte : section 7).
+- **Un sac à dos par personne** : on y met ce qu'on emporte à pied ; ce qui part en auto va dans les bacs (sans sac : section 7).
+- **Boîte étanche à joint** : elle garde les papiers, l'argent et la liste des médicaments au sec (sans boîte : section 7).
 
 ---
 
@@ -38,10 +38,10 @@ Monter d'avance une trousse qu'une personne sort de la maison en deux minutes, a
 
 1. **Ranger la trousse dans la maison, près de la porte qui sert le plus, à l'abri du gel.** Une seule personne doit pouvoir sortir le bac 1 en moins de 2 minutes (section 5). La trousse sert d'abord quand on reste à la maison ; elle part avec la famille seulement quand on décide de partir (ch. 2).
 2. **Répartir le contenu selon le moment où il sert et selon ce qu'il pèse.**
- - Dans les sacs à dos : ce qui sert dans la première heure et pèse peu, comme les vêtements chauds, la lampe frontale et la gourde.
- - Dans le sac d'un adulte : la boîte étanche (étape 26). On la sort de la maison en premier.
- - Dans le bac 1 : ce qui sert dans la journée et qui pèse, comme l'eau, la nourriture et les soins.
- - Dans le bac 2 : ce qui est lourd ou encombrant et ne part qu'en auto, comme les sacs de couchage et ce qu'on ajoute pour le chalet (étape 4).
+ - Mettre dans les sacs à dos ce qui sert dans la première heure et pèse peu : les vêtements chauds, la lampe frontale et la gourde.
+ - Mettre la boîte étanche (étape 26) dans le sac d'un adulte, et la sortir de la maison en premier.
+ - Mettre dans le bac 1 ce qui sert dans la journée et qui pèse : l'eau, la nourriture et les soins.
+ - Mettre dans le bac 2 ce qui est lourd ou encombrant et ne part qu'en auto : les sacs de couchage et ce qu'on ajoute pour le chalet (étape 4).
 3. **Mettre d'abord les sept articles de la liste de base.**
 
  | Article | Quantité |
@@ -55,7 +55,7 @@ Monter d'avance une trousse qu'une personne sort de la maison en deux minutes, a
  | Trousse de premiers soins : antiseptiques, analgésiques, pansements adhésifs, compresses de gaze stériles, ciseaux | 1 |
 
  Ajouter ensuite les médicaments (étapes 22 à 25), les articles d'hygiène, des vêtements de rechange, des couvertures, l'argent comptant, les pièces d'identité et les doubles des clés (étape 26), et des jeux pour les enfants (étape 27). Ce qu'on achète pour remplir ces lignes, et dans quel ordre, est au ch. 00b.
-4. **Au chalet, ajouter ce que la liste de base ne prévoit pas.** La liste de base suppose une maison chauffée, l'eau au robinet, une route qui rouvre et un magasin ouvert. À la maison, il n'y manque qu'une chose l'hiver : de quoi dormir au froid quand le chauffage lâche (étapes 8 et 9). Au chalet, les quatre peuvent manquer en même temps.
+4. **Au chalet, ajouter ce que la liste de base ne prévoit pas.** La liste de base suppose une maison chauffée, l'eau au robinet, une route qui rouvre et un magasin ouvert. À la maison, l'hiver, il ne manque à cette liste que de quoi dormir au froid quand le chauffage lâche (étapes 8 et 9). Au chalet, les quatre peuvent manquer en même temps.
 
  | La liste suppose | Au chalet | Ce qu'on ajoute |
  | --- | --- | --- |
@@ -68,18 +68,18 @@ Monter d'avance une trousse qu'une personne sort de la maison en deux minutes, a
 
 ### L'eau
 
-5. **Compter 4 L d'eau par personne et par jour** : 2 L pour boire, et 2 L pour cuisiner et se laver. Pour trois jours, ça fait 12 L par personne. Les 6 L par personne de la liste de base (étape 3) ne couvrent donc que l'eau à boire des trois jours. Pour une famille de quatre, il faut 24 L pour boire et 24 L pour le reste : 48 L, qui pèsent 48 kg. On ne porte pas ce poids à pied : répartir l'eau en trois.
+5. **Compter 4 L d'eau par personne et par jour** : 2 L pour boire, et 2 L pour cuisiner et se laver. Pour trois jours, ça fait 12 L par personne. Les 6 L par personne de la liste de base (étape 3) ne couvrent donc que l'eau à boire des trois jours. Pour une famille de quatre, il faut 24 L pour boire et 24 L pour le reste : 48 L, qui pèsent 48 kg. On ne porte pas ce poids à pied : répartir l'eau en trois parts.
 
  | L'eau | Combien | Où |
  | --- | --- | --- |
  | La réserve à boire | 24 L pour quatre, dans deux bidons de 20 L qu'on ne remplit pas à ras bord (étape 7) | Dans la maison, à l'abri du gel ; elle part seulement en auto |
  | L'eau qu'on porte | 1 L par personne, dans une gourde isolée | Dans les sacs ; on la remplit en chemin |
- | De quoi faire de l'eau | Un chaudron, de quoi faire du feu, un filtre à 1 µm, de la javel non parfumée et un compte-gouttes | Dans le bac 1 ; ça remplace l'eau qu'on ne peut pas porter |
+ | De quoi rendre l'eau buvable | Un chaudron, de quoi faire du feu, un filtre à 1 µm, de la javel non parfumée et un compte-gouttes | Dans le bac 1 ; ça remplace l'eau qu'on ne peut pas porter |
 
 6. **Rendre buvable l'eau qu'on trouve en chemin ou au chalet** avec ce que contient le bac 1 (le détail : ch. 10).
  - À la javel : passer d'abord l'eau d'un lac, d'un ruisseau ou de la neige au filtre à 1 µm, sinon la faire bouillir : la javel ne tue presque pas certains parasites de cette eau (ch. 10, étape 19). Mettre ensuite 2 gouttes (0,2 mL) de javel à 5,25 % non parfumée par litre d'eau, mesurées au compte-gouttes, et le double, 4 gouttes (0,4 mL), dans une eau froide, un peu trouble ou un peu colorée (ch. 10, étape 20). Brasser, puis attendre 30 minutes dans une eau à plus de 20 °C, au moins 1 heure dans une eau plus froide, et 2 heures ou plus sous 10 °C (ch. 10, étape 21). Sans compte-gouttes : section 7.
  - À l'ébullition : faire bouillir l'eau du robinet 1 minute à gros bouillons, et l'eau d'un lac, d'un ruisseau ou de la neige 5 minutes (ch. 10, étape 14). On peut garder l'eau bouillie 24 heures à la température de la pièce, ou 3 jours au réfrigérateur, dans un contenant propre et fermé.
-7. **Remplir les bidons aux quatre cinquièmes et les coucher sur le côté.** L'eau prend environ 9 % de volume en gelant, et un bidon rigide plein à ras bord fend dans un bac qui gèle. Un bidon gelé ne donne pas d'eau pendant des heures, et il faut du combustible pour faire fondre de la neige.
+7. **Remplir les bidons aux quatre cinquièmes et les coucher sur le côté.** L'eau prend environ 9 % de volume en gelant, et un bidon rigide plein à ras bord fend dans un bac qui gèle. Un bidon gelé ne donne pas d'eau pendant des heures : il faut du combustible pour le faire dégeler.
 
 ### Le chaud
 
