@@ -74,7 +74,7 @@ Monter d'avance une trousse qu'une personne sort de la maison en deux minutes, a
  | --- | --- | --- |
  | La réserve à boire | 24 L pour quatre, dans deux bidons de 20 L qu'on ne remplit pas à ras bord (étape 7) | Dans la maison, à l'abri du gel ; elle part seulement en auto |
  | L'eau qu'on porte | 1 L par personne, dans une gourde isolée | Dans les sacs ; on la remplit en chemin |
- | De quoi faire de l'eau | Un chaudron, de quoi faire du feu, un filtre, de la javel non parfumée et un compte-gouttes | Dans le bac 1 ; ça remplace l'eau qu'on ne peut pas porter |
+ | De quoi faire de l'eau | Un chaudron, de quoi faire du feu, un filtre à 1 µm, de la javel non parfumée et un compte-gouttes | Dans le bac 1 ; ça remplace l'eau qu'on ne peut pas porter |
 
 6. **Rendre buvable l'eau qu'on trouve en chemin ou au chalet** avec ce que contient le bac 1 (le détail : ch. 10).
  - À la javel : passer d'abord l'eau d'un lac, d'un ruisseau ou de la neige au filtre à 1 µm, sinon la faire bouillir : la javel ne tue presque pas certains parasites de cette eau (ch. 10, étape 19). Mettre ensuite 2 gouttes (0,2 mL) de javel à 5,25 % non parfumée par litre d'eau, mesurées au compte-gouttes, et le double, 4 gouttes (0,4 mL), dans une eau froide, un peu trouble ou un peu colorée (ch. 10, étape 20). Brasser, puis attendre 30 minutes dans une eau à plus de 20 °C, au moins 1 heure dans une eau plus froide, et 2 heures ou plus sous 10 °C (ch. 10, étape 21). Sans compte-gouttes : section 7.
@@ -240,7 +240,7 @@ Si on part, écrire le nom et un numéro de téléphone au stylo, à l'intérieu
 
 **Doser la javel sans compte-gouttes.** Faire un compte-gouttes avec une paille : la tremper dans la javel, boucher le bout du haut avec le doigt, la sortir, puis soulever le doigt un peu pour laisser tomber une goutte à la fois. Pour un grand volume, mesurer à la cuillère : la dose est de 0,2 mL de javel non parfumée à 5,25 % par litre, soit 4 mL pour un bidon de 20 L, un peu moins d'une cuillère à thé rase (5 mL). Quand on double la dose (étape 6), mettre 8 mL pour 20 L. Lire la concentration sur la bouteille : une javel plus forte ou plus faible change la dose. Une javel parfumée, épaissie ou qui contient du savon ne convient pas. L'attente et l'odeur de chlore : ch. 10, étapes 21 et 22.
 
-**Filtrer l'eau trouble avant de la désinfecter.** La passer dans un linge serré, un filtre à café ou un bas propre, ou dans un bas rempli de sable et de charbon de bois du poêle. Ça n'enlève aucun microbe ; ça enlève la boue, qui cache les microbes au chlore et l'use. Si l'eau reste trouble, la faire bouillir plutôt que de la chlorer (ch. 10, étape 19).
+**Filtrer l'eau trouble avant de la désinfecter.** La passer dans un linge serré, un filtre à café ou un bas propre, ou dans un bas rempli de sable et de charbon de bois du poêle. Ça n'enlève aucun microbe ; ça enlève la boue, qui cache les microbes au chlore et l'use. Si l'eau reste trouble, la faire bouillir plutôt que de la chlorer (ch. 10, étape 19). Le linge, le filtre à café et le bas ne remplacent pas le filtre à 1 µm de l'étape 6.
 
 ### Se garder au chaud sans chauffage
 

@@ -564,3 +564,35 @@ dit. Aucun `[À VÉRIFIER]` au chapitre. Aucun fichier nouveau dans `sources/`.
   Même chapitre, l. 294 : « village ».
 - ch. 9, étape 16 (javel périmée « un an après sa date d'achat ») contre ch. 10, étape 18 (un an après la date de
   fabrication) : le 00b suit le ch. 10.
+
+## Corrections après la vérification technique, 19 octobre 2026
+
+Sept signalements du vérificateur technique sur la passe finale. Chacun a été relu dans le chapitre qu'il cite avant
+d'être appliqué. **Tous appliqués, aucun écarté.** Aucune source nouvelle : chaque fait vient d'un chapitre dont la
+provenance est notée dans sa fiche, ou de la fiche de source déjà enregistrée. Mots : 17 007 avant, 17 121 après.
+Contrôle (`controle.py --avant`, contre le commit `de8aac6`) : 4 tirets, ceux des titres « Palier N — » que le moteur
+lit (voir plus haut) ; 0 « § » ; 0 mot banni.
+
+| Ligne du 00b | Avant | Après | Vérifié dans |
+| --- | --- | --- | --- |
+| A, javel sans seringue de 1 mL | 4 mL pour 20 L ; « 30 minutes… et plus longtemps dans une eau froide (ch. 10, étape 21) » | 4 mL, ou 8 mL si l'eau est froide, un peu trouble ou un peu colorée ; 30 min au-dessus de 20 °C, au moins 1 h dans une eau plus froide, 2 h ou plus sous 10 °C (ch. 10, étapes 20 et 21). Au chalet, l'eau d'un bidon est presque toujours sous 20 °C : avec l'ancien texte, on la dosait à moitié | ch. 10, étape 20 (« Pour une eau un peu trouble, un peu colorée ou froide, mettre le double : 0,4 mL par litre ») et étape 21 |
+| A, même paragraphe | « Une mesure de 4 mL se lit mieux… que vingt gouttes comptées » | « Une seule mesure à la seringue se lit mieux… que des dizaines de gouttes comptées ». Le « vingt » n'avait plus de base depuis que les « 2 gouttes (0,2 mL) » sont sorties de 1.B (4 mL font 40 à 80 gouttes selon la goutte). « Une seule mesure à la seringue » plutôt que « de 4 mL » du vérificateur : la dose peut maintenant être de 8 mL | ch. 10, Matériel et étape 20 |
+| C, thermomètre à sonde | « coupée mince dans un liquide qui bout à gros bouillons, la viande dépasse 74 °C » | on coupe la viande mince, on la met dans un liquide qui bout à gros bouillons, on attend après le dernier morceau que le liquide bouille de nouveau franchement, puis on cuit jusqu'à ce que le centre soit brûlant. La phrase du vérificateur est coupée en trois (règle 1 du skill : une phrase, une information). Le contrôle des invariants signale 74 °C : 5 → 4 ; le « dépasse 74 °C » sorti disait une conclusion fausse sans sa condition, et les 74 °C à cœur restent deux fois dans le paragraphe, en 1.D et au tableau G | ch. 18, section 7 (« Après le dernier morceau ajouté, on attend que le liquide recommence à bouillir franchement ») ; ch. 1, section 7 (« assez longtemps pour être brûlante au centre ») |
+| 1.E, sachets de réhydratation | « le sel à 2,5 mL près » (marge de 100 % sur une dose de 2,5 mL : le contraire du sens voulu) | « et le sel, 2,5 mL, à la seringue graduée » | ch. 30, étape 20 et section 9 (« la seule mesure délicate est le sel : 2,5 mL ») ; ch. 32, section 9 (« le sel en dernier, à la graduation ») |
+| 2.C, sel nitrité, Quantité | « à la dose de l'emballage » (la cuillerée de l'emballage est ce que le ch. 67 écarte) | « multiplié par la dose par kilogramme que donne la formule du ch. 67 (étape 21) à partir de la teneur écrite sur l'emballage ». « Par kilogramme » ajouté à la phrase du vérificateur : la formule donne une masse de mélange par kilogramme de viande (20 ÷ T) | ch. 67, étapes 19 à 22 (« jamais par une cuillerée trouvée ailleurs » ; 20 × M ÷ T) ; ch. 69, étape 5 |
+| 1.A, avertisseur de CO, Quantité ; et la phrase de la fin | « 1 près du poêle » | « 1 dans la pièce du poêle, à au moins 2 m de lui », aux deux endroits | ch. 1, étape 2 ; ch. 3, étape 5 (« à au moins 2 m du poêle et de tout appareil de cuisson ») ; ch. 5, étape 34 ; ch. 12, étape 50 |
+| 1.A, avertisseur de CO, Item | « (7 à 10 ans selon le modèle) » | « (7 à 10 ans après la date de fabrication inscrite au dos, selon le modèle, ou 7 ans quand on ne connaît pas le modèle) » : un appareil de 8 ans dont on ignore le modèle recevait deux consignes | ch. 9, étape 22 ; `sources/09-avertisseurs-co-duree-de-vie.md` (INSPQ : 84 mois ; Kidde : « seven to ten years, depending on the model type ») ; ch. 1, étape 2 et ch. 3 (« plus de 7 ans ») |
+
+### Vu en vérifiant, hors de ce chapitre (non touché)
+
+- **Ch. 1, section 7, contre ch. 18, section 7.** Le ch. 1 dit : « Pour l'ours et le phoque, le bain d'eau bouillante
+  est la seule méthode sans thermomètre. » Le ch. 18 dit : « Sans thermomètre, on ne sert ni ours (étape 14) ni gibier
+  haché. » Le 00b (partie C) suit le ch. 18. Question pour JP.
+- **Renvois au 00b qui ne tombent sur rien** : ch. 3, l. 219-220 (« le clapet antiretour et la batterie de secours de
+  la pompe… (ch. 00b) ») ; ch. 9, l. 214 (« Le godendard fait donc partie du stock du ch. 00b ») ; ch. 107, l. 56
+  (« Les électrodes, baguettes, gaz et disques… : le chapitre d'achat (00b) »). Aucune de ces lignes n'est au 00b.
+  Pas ajoutées ici : une ligne nouvelle demande sa provenance et une vérification. Question pour JP.
+- **Renvois au 00b qui disent autre chose que lui** : ch. 105, l. 588 (limes « au premier palier » ; elles sont en
+  2.B) ; ch. 65, l. 297 (sel « Chalet » ; au 00b, « Maison → chalet ») et l. 294 (« village ») ; ch. 78, l. 429
+  (la soupape à masse « décide de l'achat (ch. 00b) » ; la ligne 2.C dit « avec manomètre ou soupape calibrée », sans
+  préférence) ; ch. 80, l. 458 (bandelettes de pH « en double au stock » ; la ligne 2.C dit « 1 rouleau par saison »).

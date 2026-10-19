@@ -207,3 +207,68 @@ Aucune page nouvelle : les faits remis ou précisés viennent de pages déjà da
   fournisseurs sans fil sont raccordés au système et diffusent ses messages. La phrase « celle qu'on entend à la radio
   est celle du téléphone » sort (pas dans la source). L'obligation imposée par le CRTC (« sont tenus ») ne s'écrit pas
   (CLAUDE.md, « Pas de municipalité, pas de code légal ») : la note dit le fait, « sont branchés ».
+
+## 4. Corrections après la deuxième relecture technique, 19 octobre 2026
+
+Aucune page nouvelle captée : les extraits viennent des fiches déjà au dossier, relues pour cette passe.
+
+### Étape 21 : un avertisseur dans chaque pièce où il y a une source, à 2 m de l'appareil
+
+- `sources/07-quebec-monoxyde-de-carbone.md` (Québec.ca, santé) : « Installez un avertisseur de monoxyde de carbone dans
+  les endroits où il y a des sources de ce gaz. » Les sources nommées par la même page : « les appareils de chauffage
+  non électriques » (fournaises au mazout, foyers au bois), « les appareils fonctionnant au gaz naturel ou au
+  propane ». D'où, dans l'étape, « un poêle, une fournaise ou un appareil au gaz ».
+- `sources/15b-quebec-avertisseurs-monoxyde-plage-temperature.md` (Québec.ca, sécurité incendie) : où l'installer,
+  « dans le corridor près des chambres » ; où ne pas l'installer, « à moins de 2 mètres de tout appareil de cuisson et
+  de combustion ». D'où « à au moins 2 m de l'appareil ».
+
+### Section 7, « Chauffer une seule pièce » : l'avertisseur apporté dans la pièce où on dort
+
+- `sources/15b-quebec-avertisseurs-monoxyde-plage-temperature.md` : ne pas l'installer « dans les pièces dont la
+  température est de plus de 37,8 °C ou de moins de 4,4 °C ». La page ne dit pas que l'appareil cesse de détecter sous
+  4,4 °C : le texte dit qu'« on ne peut plus se fier à lui », comme la page `co` (`dangers/partie-1.md`).
+
+### Section 5, l'avertisseur muet : la chaufferette, même conçue pour l'intérieur
+
+- `sources/02-quebec-fiche-technique-panne-plomberie.md` : « Utilisez seulement des appareils de chauffage ou
+  d'éclairage d'appoint à combustible ou des poêles portatifs conçus pour l'intérieur ». La seule chaufferette
+  d'appoint permise dans la maison est celle-là, et sans avertisseur qui sonne, on ne la fait pas marcher. Le réchaud
+  et le barbecue sortent de la ligne : l'interdit vaut sans condition (`07-quebec-monoxyde-de-carbone.md`, « N'utilisez
+  pas les appareils ou véhicules pouvant dégager du monoxyde de carbone à l'intérieur d'une pièce, d'un abri ou d'un
+  véhicule »), et il n'est pas redit (CLAUDE.md, le barbecue dans la maison : « on le sait, on l'a déjà dit »).
+
+### Étape 1 et section 1 : « habituellement » 6 à 24 heures ; l'avis météo ; le bulletin
+
+- `sources/10-environnement-canada-alertes-meteo.md` : avertissement, « Habituellement diffusés de 6 à 24 heures à
+  l'avance, mais le délai préalable peut être plus long » ; **avis**, « Agissez maintenant pour vous protéger des
+  phénomènes météorologiques importants » ; avertissement, « Agissez maintenant pour vous protéger du temps
+  violent » ; veille, « Préparez-vous » ; bulletin spécial, « ils ne constituent pas des alertes ». Que l'avis se
+  traite comme une veille (les gestes qu'on peut défaire) est un choix du chapitre, pas de la source.
+- Complément meteo.gc.ca, même fiche : orages et tornades, « avec un avis de moins d'une demi-heure ». La page ne dit
+  pas quoi faire devant une tornade : l'étape 1 ne fait faire, dans ce délai, que des gestes à l'intérieur.
+
+### Section 6 : l'eau tirée pendant que la pression baisse
+
+- `sources/10-reseau-depressurise-intrusion-par-les-fuites.md` (EPA) : « a low pressure can cause intrusion under
+  certain circumstances ». Même consigne au ch. 10, étape 42 (« dès que la pression baisse franchement au robinet,
+  même sans avis, faire bouillir ») et au ch. 2, étape 28.
+
+### Note « Une courte panne peut contaminer l'aqueduc »
+
+- `sources/10-reseau-depressurise-intrusion-par-les-fuites.md` : « fecal indicators and culturable human viruses are
+  present in the soil and groundwater exterior to the distribution system ». Deux choses : des indicateurs de
+  contamination fécale (des bactéries) et des virus humains. La source ne dit pas d'où viennent les virus : la note dit
+  « des bactéries venues des selles et des virus humains ».
+
+### Étape 13 : le foie et les reins de l'ours noir
+
+- `sources/46-cadmium-reins-foie-castor.md`, section E (CISSS de l'Abitibi-Témiscamingue, « Saison de chasse : Adoptez
+  les bons réflexes santé ») : « Le foie et plus particulièrement les reins de certains animaux (orignaux, ours noirs,
+  autres cervidés) contiennent des quantités importantes de cadmium ». C'est la page officielle qui nomme l'ours ; la
+  page `abats` (`dangers/partie-2.md`) le dit aussi.
+
+### Étape 3 : le renvoi au ch. 2
+
+- `chapitres/02-rester-ou-partir.md`, étape 32 (« Choisir où aller ») : rester tant que l'événement est court et le
+  délai connu ; aller au chalet quand on ne sait plus combien de temps ça va durer ; partir pendant que la route est
+  ouverte. Les étapes 25 à 31 mesurent une panne déjà commencée.

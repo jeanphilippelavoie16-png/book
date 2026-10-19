@@ -18,9 +18,9 @@ viande, qu'elle dure six heures ou cinq semaines.
 - **Le courant manque à la maison, l'hiver** (étapes 1 à 13).
 - **La rue est rebranchée, et la maison reste sans courant** (étape 1).
 - **Au chalet, la génératrice ou le banc de batteries lâche, l'hiver** : le chauffage, la plomberie et les aliments
- (étapes 6 à 9 et 21 à 34).
+ (étapes 5 à 9, 14 et 21 à 34).
 - **La famille part au chalet pendant la panne** : vidanger la maison avant de partir (étapes 21 à 25).
-- **Le courant manque l'été** : la génératrice, l'eau et les aliments (étapes 2 à 4, 16 à 20 et 27 à 34).
+- **Le courant manque l'été** : la génératrice, l'eau et les aliments (étapes 1 à 5, 16 à 20 et 27 à 34).
 - **Le courant revient après une longue panne** (étapes 35 à 40).
 - **Il manque l'avertisseur, la génératrice, le thermomètre, l'antigel ou les piles** (section 7).
 
@@ -70,8 +70,9 @@ viande, qu'elle dure six heures ou cinq semaines.
  deuxième, le poser près de la porte du garage attenant : le gaz d'un moteur qui tourne dans le garage entre par
  cette porte.
  - Lire le chiffre affiché matin et soir, sans attendre la sirène : à faible dose, l'avertisseur peut ne pas sonner
- avant des jours, alors que le mal de tête, la nausée et la fatigue qu'on met sur le compte du froid ont commencé. Un chiffre
- qui ne redescend pas de la journée montre qu'un appareil fait du monoxyde.
+ avant des jours, alors que le mal de tête, la nausée et la fatigue qu'on met sur le compte du froid ont commencé. Dès
+ que l'écran affiche un chiffre, l'avertisseur détecte du monoxyde ; si le chiffre ne redescend pas de la journée, un
+ appareil de la maison en fait.
  - Un avertisseur installé depuis plus de 7 ans peut répondre au bouton sans plus mesurer le gaz : faire comme si on
  n'en avait pas.
  - Ne jamais rentrer dans la maison ce qui est fait pour l'extérieur ou le camping : le barbecue, le réchaud, la
@@ -89,7 +90,8 @@ ajouter une couverture et une tuque aux enfants, les laisser dormir, et faire la
 6. **Allumer le poêle à bois, s'il y en a un**, avec du bois sec en petites bûches et assez d'air pour que les flammes
  restent vives. La fournaise au mazout ou au gaz s'arrête aussi : son brûleur, son ventilateur et son thermostat
  marchent à l'électricité.
- - Au besoin, brûler aussi du bois de démolition brut, sans peinture ni traitement, dont on connaît la provenance.
+ - {!pas-au-feu} Au besoin, brûler aussi du bois de démolition brut, sans peinture ni traitement, dont on connaît la
+ provenance.
  - Si la fumée sort par la porte du poêle à l'allumage, la cheminée refoule : après quelques heures sans feu par grand
  froid, l'air de la cheminée est plus froid et plus lourd que celui de la maison, et il descend. Rouler une feuille de
  papier en torche, l'allumer et la tenir haute dans le poêle, au plus près de la sortie de fumée, jusqu'à ce que le
@@ -122,11 +124,11 @@ ajouter une couverture et une tuque aux enfants, les laisser dormir, et faire la
  - Fermer les deux bouts de l'abri jusqu'au plancher (repère 7).
  - Faire le lit en couches, en partant du plancher : des cartons aplatis ou un tapis roulé (repère 8), puis des
  branches de sapin, un matelas ou des coussins (repère 9), puis une couverture sous le corps (repère 10). Par-dessus
- les dormeurs, mettre du papier journal froissé entre deux couvertures (repère 11).
+ les dormeurs, mettre une couche de papier journal entre deux couvertures (repère 11).
  - Deux cartons et une couverture sous le corps gardent plus chaud que quatre couvertures à même le plancher.
 10. **Envoyer un message texte à un proche : où on est, combien on est, ce qu'on va faire.** Les tours cellulaires
  tiennent quelques heures sur leurs batteries : donner des nouvelles dans les premières heures. Un message texte ou
- un courriel encombre beaucoup moins le réseau qu'un appel : il peut passer quand les appels saturent le réseau, ou
+ un courriel encombre moins le réseau qu'un appel : il peut passer quand les appels saturent le réseau, ou
  quand le service d'appel est coupé. Quand le cellulaire ne passe plus, il reste la radio (section 7).
 11. **Décider si la famille reste à la maison, au réveil et assez tôt pour partir de jour** (ch. 2).
  - Rester si la maison a un poêle raccordé à une cheminée, si on a assez de bois sec pour la durée de la panne et un
@@ -153,30 +155,32 @@ ou sans alarme.
 
 ### Le bois, les cendres et les sorties
 
-14. **Vider les cendres à la pelle de métal dans la chaudière de métal**, mettre le couvercle, et poser la chaudière
- dehors, sur la neige ou sur le sol, à au moins 1 m de tout objet. Attendre au moins 7 jours avant de transvider les
- cendres.
+14. {!incendie} **Vider les cendres à la pelle de métal dans la chaudière de métal**, mettre le couvercle, et poser
+ la chaudière dehors, sur la neige ou sur le sol, à au moins 1 m de tout objet. Attendre au moins 7 jours avant de
+ transvider les cendres.
 15. {!froid} **Préparer chaque sortie dehors (le bois, les cendres, le plein d'essence) d'après l'indice de
  refroidissement éolien que donne la radio.** Mettre les gants et la cagoule avant d'ouvrir la porte, et tout faire
  en un seul voyage. **La nuit**, dire avant de sortir combien de temps on sera dehors.
 
 ### La génératrice, s'il y en a une
 
-16. {!generatrice} **Installer la génératrice dehors, à au moins 6 m (20 pi) de la maison**, l'échappement tourné à
- l'opposé des portes, des fenêtres et des prises d'air, jamais sous la galerie ni dans le tambour d'entrée.
+16. {!generatrice} **Installer la génératrice dehors, à au moins 6 m (20 pi) de tout bâtiment**, l'échappement tourné
+ à l'opposé des portes, des fenêtres et des prises d'air, jamais au garage, même porte ouverte, ni sous la galerie, ni
+ dans le tambour d'entrée.
  **La nuit**, attendre le jour pour l'installer : le congélateur fermé tient jusqu'au matin.
 17. {!electrocution} **Mettre le disjoncteur principal à OFF avant de démarrer la génératrice, et brancher les
- appareils directement dans ses prises.** Ne rien raccorder au panneau électrique sans commutateur de transfert : ce
- commutateur coupe la maison de la ligne d'Hydro-Québec avant de la relier à la génératrice, et on ne peut pas être
- relié aux deux en même temps.
+ appareils directement dans ses prises.** Ne jamais brancher la génératrice dans une prise de la maison, ni dans celle
+ de la sécheuse, ni avec un câble à deux fiches mâles, et ne rien raccorder au panneau électrique sans commutateur de
+ transfert : ce commutateur coupe la maison de la ligne d'Hydro-Québec avant de la relier à la génératrice, et avec
+ lui, la maison ne peut pas être reliée aux deux en même temps.
 18. **Démarrer un appareil à la fois.** Un moteur à compresseur demande beaucoup plus de courant au démarrage qu'une
  fois lancé, et ce pic fait caler la génératrice ou déclencher son disjoncteur : brancher un appareil, attendre que
  le moteur tourne rond, puis brancher le suivant. La puissance de chaque appareil est écrite sur sa plaque.
 19. **Brancher le congélateur d'abord, tant qu'il est plein.** Le faire tourner jusqu'à ce que son thermomètre revienne
  à la normale, le débrancher, et le rebrancher quand le thermomètre remonte. En janvier, une fois la viande dehors
  (étape 29), la génératrice sert au réfrigérateur, à la pompe de puisard et à recharger les lampes et les téléphones.
-20. **Arrêter la génératrice 1 h toutes les 8 h de marche, et faire le plein moteur froid**, dehors, loin de toute
- flamme. Laisser le bidon dehors.
+20. {!vapeurs} **Arrêter la génératrice 1 h toutes les 8 h de marche, et faire le plein moteur froid**, dehors, loin
+ de toute flamme. Laisser le bidon dehors.
 
 ### La plomberie
 
@@ -254,9 +258,9 @@ ou sans alarme.
  froid. Pour une insuline, ou un médicament qu'on ne peut pas interrompre, s'en passer est aussi un danger (ch. 32).
 34. {!trichine} {!mal-de-caribou} **Si la panne s'étire et que le congélateur est perdu, transformer la viande au lieu
  de la jeter** : salaison à sec (ch. 68), saumure (ch. 69), fumage (ch. 70, ch. 71). Le décider avant que la
- température à cœur monte. L'ours et le phoque, même salés ou fumés, restent à cuire à 74 °C à cœur au moment de les
- manger. Garder le gras des pièces et le faire fondre (ch. 72) : la viande maigre seule mène au mal de caribou
- (ch. 19).
+ température à cœur monte. L'ours et le phoque, même congelés, salés ou fumés, restent à cuire à 74 °C à cœur au
+ moment de les manger. Garder le gras des pièces et le faire fondre (ch. 72) : la viande maigre seule mène au mal de
+ caribou (ch. 19).
 
 ### Le rétablissement
 
@@ -427,9 +431,9 @@ remplisse d'eau pendant que la famille est ailleurs.
 
 **Le puisard sans pompe.** Le vider à la chaudière au bout d'une corde, et jeter l'eau loin de la fondation, vers le
 bas de la pente : jetée au pied du mur, elle revient par le même chemin. Un siphon au boyau d'arrosage marche aussi,
-mais il gèle dès qu'on l'arrête : le vider complètement entre deux usages. Dehors, la conduite de refoulement de la
-pompe est bouchée par la glace : même au retour du courant, la pompe pousse dans un tuyau fermé et se détruit. Tant
-que le dehors est gelé, laisser la pompe débranchée et continuer à la chaudière.
+mais il gèle dès qu'on l'arrête : le vider complètement entre deux usages. Si la conduite de refoulement est prise
+dans la glace dehors, la pompe pousse dans un tuyau fermé et se détruit, même au retour du courant : tant que cette
+conduite est gelée, laisser la pompe débranchée et continuer à la chaudière.
 
 ### Les aliments
 
@@ -566,10 +570,17 @@ haut, et font une boucle avant de rejoindre le câble de la rue, retenu plus bas
 
 ### La lampe de pierre des Inuits
 
-Dans la maison de neige, les Inuits de l'Ungava se chauffaient et s'éclairaient avec une seule lampe : un bol de
-pierre à savon rempli d'huile, et une mèche de mousse sèche, pressée et taillée, au bord. La mousse
-fait monter l'huile comme une mèche de coton : une mèche éclairait presque autant qu'une lampe à pétrole, et on en
-allumait deux pour cuire. Dans une pièce fermée sans cheminée, le monoxyde de cette flamme reste dans l'air (étape 5).
+Dans la maison de neige, les Inuits se chauffaient et s'éclairaient seulement à la lampe : un bol de pierre à savon
+rempli d'huile, avec une mèche de mousse sèche posée au bord. Un petit trou près du sommet faisait tirer la
+lampe : l'air froid entrait par la porte, se réchauffait en montant vers la lampe et sortait par ce trou. Sans ce
+courant d'air, dans une maison fermée, le monoxyde de la flamme reste dans la pièce (étape 5).
+
+### La doublure de peaux de la maison de neige
+
+Sur la côte est de la terre de Baffin, les Inuits doublaient l'intérieur de la maison de neige avec des peaux,
+attachées au dôme par de petites cordes. En haut, les peaux faisaient un plafond plat, 60 à 90 cm sous le sommet :
+au-dessus, il restait une couche d'air froid, et la neige du toit ne fondait pas. Sous la doublure, il faisait souvent
+10 à 20 °C ; sans doublure, 2 ou 3 °C au plus (étape 9).
 
 ### Les tours cellulaires pendant une panne
 
@@ -577,10 +588,3 @@ Une tour cellulaire tient de 2 à 4 h sur des batteries ordinaires, et de 16 à 
 opérateur annonce de 4 à 10 h pour ses tours, entre les batteries et les génératrices. Après les tornades d'Ottawa, en
 septembre 2018, les batteries des tours ont commencé à se vider, des milliers de gens ont perdu le cellulaire, et il a
 fallu apporter des génératrices aux tours (étape 10).
-
-### La pression qui tombe dans l'aqueduc
-
-Dans des réseaux d'aqueduc où on enregistrait la pression sans arrêt, chaque fois qu'on l'a vue tomber sous zéro,
-c'était pendant une panne de courant ou l'arrêt d'une pompe : 24 secondes à la panne d'une station de pompage, et
-51 secondes sans pression à la panne d'une usine de traitement. Pendant ces quelques secondes, l'eau du sol peut entrer
-par les fuites des conduites (étape 4).

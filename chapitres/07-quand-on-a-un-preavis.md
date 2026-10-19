@@ -8,9 +8,9 @@
 
 ## 1. En une ligne
 
-Se servir des 6 à 24 heures entre l'alerte et l'événement pour ajouter trois à sept jours d'autonomie à la maison :
-remplir l'eau, le congélateur et les réservoirs, tout charger, préparer la génératrice, et décider tout de suite si on
-monte au chalet.
+Se servir du temps entre l'alerte et l'événement, habituellement 6 à 24 heures, pour ajouter trois à sept jours
+d'autonomie à la maison : remplir l'eau, le congélateur et les réservoirs, tout charger, préparer la génératrice, et
+décider tout de suite si on monte au chalet.
 
 ---
 
@@ -18,7 +18,7 @@ monte au chalet.
 
 - **Un avertissement météo est émis pour le secteur** : tempête hivernale, pluie verglaçante, vents violents, blizzard
  (étapes 1 à 38).
-- **Une veille météo est en vigueur, ou un bulletin météorologique spécial vient de sortir** (étape 1).
+- **Une veille ou un avis météo est en vigueur, ou un bulletin météorologique spécial vient de sortir** (étape 1).
 - **Hydro-Québec annonce une interruption de service planifiée**, ou une panne s'étend vers le secteur (étapes 1 à
  38).
 - **Un feu de forêt est déclaré dans le secteur** (étapes 1 à 5 ; ch. 11).
@@ -49,17 +49,20 @@ monte au chalet.
 
 1. **Lire l'alerte au complet et noter son type** : chaque type demande des gestes différents.
  - Un **avertissement** annonce du temps violent qui s'en vient : faire toutes les étapes qui suivent. Il sort
- habituellement 6 à 24 heures avant l'événement, parfois plus tôt. Pour un orage violent ou une tornade, il peut arriver moins
- d'une demi-heure avant : ne pas prendre la route, et faire tout de suite l'étape 26.
+ habituellement 6 à 24 heures avant l'événement, parfois plus tôt. Pour un orage violent ou une tornade, il peut
+ arriver moins d'une demi-heure avant : ne pas prendre la route ni sortir, remplir tout de suite l'eau (étapes 6 à 8)
+ et le congélateur (étapes 10 et 11), et préparer l'avertisseur (étape 21).
  - Une **veille** annonce des conditions qui peuvent tourner au temps violent. Faire les gestes qu'on peut défaire
  sans rien perdre (remplir l'eau, charger, rentrer du bois), et attendre l'avertissement pour ceux qui dépensent
  la réserve, comme cuire la viande du congélateur.
- - Un **bulletin météorologique spécial** donne de l'information ; ce n'est pas une alerte. On le lit, et on garde
- la réserve pour la veille et l'avertissement.
+ - Un **avis** demande d'agir tout de suite contre un phénomène important, moins grave que le temps violent d'un
+ avertissement : faire comme pour une veille.
+ - Un **bulletin météorologique spécial** donne de l'information ; ce n'est pas une alerte. On le lit, et on ne touche
+ pas à la réserve.
 2. **Écrire l'heure d'arrivée prévue sur une feuille collée sur la porte.** On compte toute la suite à partir de cette
  heure : il reste plus de 6 heures (étapes 6 à 25), moins de 6 heures (étapes 26 à 34), ou une heure (étapes 35 à
  38).
-3. **Décider tout de suite si on reste à la maison ou si on monte au chalet** (ch. 2, étapes 25 à 42).
+3. **Décider tout de suite si on reste à la maison ou si on monte au chalet** (ch. 2, étape 32).
  - Rester à la maison pour un événement de trois jours ; monter au chalet pour un événement qui va durer plus
  longtemps.
  - Pour monter, partir pendant que la route est ouverte : le chemin du chalet ferme avant la grand-route, et on ne
@@ -125,7 +128,7 @@ monte au chalet.
 
 16. **Rentrer trois jours de bois sec** dans la maison ou sous un abri sec et déneigé, si la maison a un poêle
  (ch. 83). Le bois laissé dehors sera enterré et mouillé par la tempête.
-17. **Faire les pleins tôt dans la journée** : les autos, la motoneige, les bidons et les bouteilles de propane (ch. 15,
+17. **Faire les pleins dès le début du préavis** : les autos, la motoneige, les bidons et les bouteilles de propane (ch. 15,
  ch. 87). Les pompes à essence marchent à l'électricité : quand le courant manque, toutes les stations du secteur
  arrêtent de vendre en même temps.
 18. {!generatrice} {!electrocution} **Préparer l'emplacement de la génératrice pendant qu'il fait clair.**
@@ -158,8 +161,9 @@ monte au chalet.
 
 #### La maison
 
-21. {!co} **Mettre des piles neuves dans l'avertisseur de monoxyde et l'essayer au bouton.** En poser au moins un dans
- le couloir des chambres, pour qu'il réveille les gens qui dorment. Un modèle à affichage montre les faibles
+21. {!co} **Mettre des piles neuves dans chaque avertisseur de monoxyde et l'essayer au bouton.** En poser au moins un
+ dans le couloir des chambres, pour qu'il réveille les gens qui dorment, et un dans chaque pièce où il y a un poêle,
+ une fournaise ou un appareil au gaz, à au moins 2 m de l'appareil. Un modèle à affichage montre les faibles
  concentrations : quand un chiffre apparaît, on éloigne la génératrice ou on éteint l'appareil avant que l'alarme
  sonne.
 22. **Si une pluie forte ou une crue est annoncée, boucher les entrées d'égout au lieu de remplir.**
@@ -251,7 +255,8 @@ monte au chalet.
  temps, et celui dont la veilleuse s'est éteinte remplit la pièce.
  - Fermer d'abord la valve de chaque appareil.
  - Ouvrir les fenêtres, puis rouvrir l'entrée lentement.
- - Attendre, et sentir l'air près des appareils et du plancher.
+ - Attendre, et sentir l'air près des appareils et du plancher. Si ça sent le gaz, refermer l'entrée du gaz, ne rien
+ allumer ni éteindre, et laisser aérer avant de recommencer.
  - Rallumer un seul appareil à la fois, et vérifier qu'il a sa flamme avant de passer au suivant.
 44. **Refaire la réserve dans la semaine** : remplacer ce qui a servi dans la trousse, refaire les pleins des bidons,
  recharger les blocs-piles, remettre des bidons d'eau au congélateur (ch. 6, ch. 9), et acheter ce qui manque dans
@@ -263,7 +268,7 @@ monte au chalet.
 
 | Moment | Ce qu'on vérifie | Cible chiffrée | Si c'est hors cible |
 | --- | --- | --- | --- |
-| À l'alerte | Type d'alerte | Avertissement : 6 à 24 h avant l'événement | Bulletin spécial : le lire et garder la réserve. Veille : seulement les gestes qu'on peut défaire (étape 1) |
+| À l'alerte | Type d'alerte | Avertissement : 6 à 24 h avant l'événement | Bulletin spécial : le lire et garder la réserve. Veille ou avis : seulement les gestes qu'on peut défaire (étape 1) |
 | 24 h avant | Appareils en charge | 100 % sur les téléphones et les blocs-piles | Charger un téléphone au complet plutôt que quatre à moitié |
 | 12 h avant | Eau à boire | 2 L par personne et par jour visé ; au moins 6 L par personne | Garder les contenants propres pour l'eau à boire, et remplir la baignoire et les chaudières pour le service |
 | 12 h avant | Eau de service | 6 L de plus par personne, dans des contenants d'une autre couleur | La baignoire sert au service, jamais à boire |
@@ -275,7 +280,7 @@ monte au chalet.
 | 12 h avant | Viande cuite d'avance | 74 °C à cœur le gibier, 82 °C l'oiseau entier, 70 °C le poisson, au thermomètre | Remettre à cuire ; la couleur et le jus ne prouvent rien |
 | 12 h avant | Carburant | Pleins faits, consommation de la génératrice écrite sur elle en L/h | Réduire les heures de marche prévues |
 | 12 h avant | Génératrice | Elle démarre et porte la charge réelle | La réparer maintenant (section 7), ou faire le plan sans elle |
-| 12 h avant | Avertisseur de CO | Le bouton d'essai fait sonner l'alarme | Changer les piles. S'il reste muet, rien ne le remplace (section 7) : ne rentrer dans la maison aucun appareil qui brûle un carburant, ni réchaud, ni barbecue, ni chaufferette d'appoint |
+| 12 h avant | Avertisseur de CO | Le bouton d'essai fait sonner l'alarme | Changer les piles. S'il reste muet, rien ne le remplace (section 7) : ne faire marcher dans la maison aucune chaufferette d'appoint, même conçue pour l'intérieur |
 | 6 h avant | Déplacements | Aucune sortie prévue | Sortir seulement pour une urgence |
 | 1 h avant | Électronique | Débranchée | Accepter de la perdre au retour du courant |
 | 1 h avant | Lampe témoin | Une lampe allumée par étage | Sinon, le retour du courant passe inaperçu la nuit |
@@ -297,12 +302,12 @@ monte au chalet.
 | Lait, crème, fromage à pâte molle, œufs, pâtes cuites, salades avec viande, volaille ou poisson, desserts à la crème, mayonnaise maison, qui ont dépassé 4 °C | Aliments du réfrigérateur à jeter sans les examiner | Les jeter. Dans le doute, jeter |
 | L'avertisseur de CO sonne, ou plusieurs personnes ont mal à la tête, la nausée ou des étourdissements en même temps | Du monoxyde entre dans la maison : une génératrice ou une auto trop près d'une ouverture, ou un appareil qui brûle à l'intérieur | Sortir tout le monde à l'air libre, puis arrêter la source si on peut l'atteindre sans rester à l'intérieur. Éloigner la génératrice ou l'auto à 6 m du bâtiment, l'échappement tourné à l'opposé des portes et des fenêtres (étape 18) |
 | Le robinet ne donne plus rien | Station de pompage sans courant, ou conduite gelée | Passer à la réserve. Dégeler la conduite à l'eau chaude, jamais à la flamme (ch. 3) |
-| Le filet du robinet faiblit d'heure en heure | La pression du réseau s'épuise ; il reste des minutes | Remplir tout de suite ce qui est encore vide, eau de service comprise |
+| Le filet du robinet faiblit d'heure en heure | La pression du réseau s'épuise ; il reste des minutes | Remplir tout de suite ce qui est encore vide, eau de service comprise. Faire bouillir ou javelliser cette eau avant de la boire (étape 8) |
 | Eau trouble, colorée ou avec une odeur nouvelle au retour du service | Le réseau a perdu sa pression pendant la panne : une conduite sans pression aspire l'eau du sol par ses fuites et ses joints | Faire bouillir ou javelliser l'eau comme à l'étape 8 pendant tout le retour du service, même quand elle est redevenue claire |
 | Le téléphone n'affiche aucune barre | Les alertes d'urgence n'arrivent plus au téléphone | Écouter la radio à piles (ch. 14) |
 | Le sous-sol sent l'égout pendant une pluie forte | L'égout refoule par le drain de plancher | Boucher le drain tout de suite (étape 22 ; section 7) et monter ce qui est au sol |
 | On cherche le matériel à la lampe frontale en pleine nuit | La dernière heure n'a pas été faite | La faire au premier moment de calme, avant de dormir (étapes 35 à 38) |
-| La réserve a été entamée deux fois cet hiver pour des bulletins spéciaux | Le préavis part trop bas | Ne la toucher que pour une veille ou un avertissement (étape 1 ; ch. 8) |
+| La réserve a été entamée deux fois cet hiver pour des bulletins spéciaux | Le préavis part trop bas | Ne la dépenser que pour un avertissement ; pour une veille ou un avis, faire seulement les gestes qu'on peut défaire (étape 1 ; ch. 8) |
 | Au troisième jour, personne ne veut boire l'eau des bidons | Les contenants n'ont pas été datés | Refaire la réserve et la dater (étape 9) |
 | Au préavis suivant, il manque ce qui manquait au précédent | La réserve n'a pas été refaite | La refaire maintenant (étape 44 ; ch. 9) |
 
@@ -480,7 +485,9 @@ Sans propane ni génératrice, il reste le poêle à bois, et on ne chauffe plus
  haut de l'escalier garde plus de chaleur que toutes les portes de chambre fermées.
 - Tendre ensuite une couverture dans chaque cadre de porte de la pièce, et couvrir ses fenêtres pour la nuit : la
  vitre, même double, est le point le plus froid du mur.
-- Faire dormir tout le monde dans cette pièce : quatre personnes dans une pièce fermée la réchauffent.
+- {!co} Faire dormir tout le monde dans cette pièce : quatre personnes dans une pièce fermée la réchauffent. Y apporter
+ l'avertisseur de monoxyde du couloir des chambres (étape 21) : dans un couloir qu'on ne chauffe plus, la température
+ peut descendre sous 4,4 °C, et on ne peut plus se fier à lui.
 
 ### La plomberie hors gel sans antigel
 
@@ -529,8 +536,8 @@ système et diffusent ses messages, en français d'abord, puis en anglais (étap
 
 Dans les réseaux d'aqueduc où on a suivi la pression, chaque fois qu'elle est tombée sous zéro, c'était pendant une
 panne de courant ou l'arrêt d'une pompe. Lors d'une panne à une station de pompage, elle est restée sous zéro
-24 secondes. Tant que la pression est sous zéro, l'eau du sol autour des conduites, où on a trouvé des virus venus des
-selles, peut entrer par leurs fuites (étape 42).
+24 secondes. Tant que la pression est sous zéro, l'eau du sol autour des conduites, où on a trouvé des bactéries venues
+des selles et des virus humains, peut entrer par leurs fuites (étape 42).
 
 ### La cache de pierres des Inuits de la Koksoak
 

@@ -207,7 +207,15 @@ function placerNotes(){
     if(e.length){
       const d = el => Math.min(...e.map(a => Math.abs(a - num(el))));
       enf.filter(el => !isNaN(num(el))).forEach(el => { if(!apres || d(el) < d(apres)) apres = el; });
-    } else if(enf.length > 3) apres = enf[Math.floor(enf.length * 0.45)];
+      // après toute l'étape : ses puces, ses tableaux et ses figures ne se séparent pas de son premier paragraphe
+      if(apres) while(apres.nextElementSibling && isNaN(num(apres.nextElementSibling)) && !estTitre(apres.nextElementSibling)) apres = apres.nextElementSibling;
+    } else {
+      // une note qui ne nomme pas d'étape : à la fin d'une partie, juste avant un intertitre, le plus près du milieu du
+      // cadre ; jamais au milieu d'une liste (ch. 10, 19 octobre 2026 : la note coupait « Ce qui ne se remplace pas »)
+      const mi = enf.length * 0.45, fins = enf.map((el, i) => i).filter(i => i < enf.length - 1 && estTitre(enf[i + 1]) && !estTitre(enf[i]));
+      if(fins.length) apres = enf[fins.sort((a, b) => Math.abs(a - mi) - Math.abs(b - mi))[0]];
+      else if(enf.length > 3) apres = enf[Math.floor(mi)];
+    }
     if(apres && apres.nextElementSibling && /^H[1-6]$/.test(apres.tagName)) apres = apres.nextElementSibling;
     if(apres && apres !== enf[enf.length - 1]) c.fr.insertBefore(x, apres.nextElementSibling); else c.fr.appendChild(x);
     const ok = () => {
@@ -358,7 +366,7 @@ function pour(f, q, p){
     if(b.classList.contains('fig')){ p.deferred.push(b); if(!p.figRepoussee) p.figRepoussee = b; continue; }   // la figure attend, le texte continue
     if(b.classList.contains('extra')){ attenteNotes.unshift(b); continue; }   // la note aussi : page suivante
     let parts = null;
-    if(b.tagName === 'P') parts = splitPara(b, f); else if(b.tagName === 'TABLE') parts = splitTableBal(b, f);
+    if(b.tagName === 'P') parts = coupePara(b, f); else if(b.tagName === 'TABLE') parts = splitTableBal(b, f);
     // une planche pleine page attend la fin de cette page : le paragraphe ne se coupe pas de part et d'autre
     // de la planche (JP, 15 octobre 2026 : « là on l'insère pis ça coupe le texte en deux »). Il passe entier
     // après la planche, sauf s'il laisserait plus du tiers de la colonne vide.
@@ -367,6 +375,9 @@ function pour(f, q, p){
     break;
   }
   if(q.length){
+    // une ligne seule entre les deux colonnes : la fin du cadre passe à la page suivante (jamais quand la page se ferme
+    // sur l'ancre du logigramme : la suite attend la double page)
+    if(!pendingSpreads.length) veuvesPage(f, q);
     // pas de titre ni d'amorce seule en bas de page : ni l'intertitre en italique (« Le montage. ») ni la ligne qui
     // annonce une liste (« Au retour, dans l'ordre : »)
     const amorce = el => el.tagName === 'P' && !el.classList.contains('cont') && (
@@ -406,6 +417,119 @@ function ligne(f){      // interligne du texte courant, en px
   return (t && parseFloat(getComputedStyle(t).lineHeight)) || 17;
 }
 function colH(f){ return f.getBoundingClientRect().height || P.bl.getBoundingClientRect().height; }
+
+/* ---------- jamais une ligne seule en haut ou en bas d'une colonne ----------
+   Chromium n'applique ni orphans ni widows dans les colonnes (vérifié le 19 octobre 2026 : ch. 04, page 1, « (étape
+   22). » seul en haut de la colonne de droite ; ch. 10, page 6, l'étape 9 coupée une ligne à gauche, une à droite, puis
+   la page suivante). JP, 18 octobre 2026 : « il y a juste une ligne, c'est pas beau ». Le moteur compte les lignes
+   lui-même : à la coupure de page (coupePara) et entre les deux colonnes d'un cadre (veuves, après la mise en pages). */
+function lignesCols(el, f){   // le nombre de lignes du paragraphe dans chaque colonne du cadre, débordement compris
+  const fr = f.getBoundingClientRect(), cs = getComputedStyle(f);
+  const n = parseInt(cs.columnCount, 10) || 1, gap = parseFloat(cs.columnGap) || 0;
+  const pas = n > 1 ? (fr.width + gap) / n : Infinity, cols = [];
+  const w = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, {acceptNode: t =>
+    t.parentElement.closest('.pmarge, .sn') ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT});
+  const r = document.createRange();
+  while(w.nextNode()){
+    r.selectNodeContents(w.currentNode);
+    for(const x of r.getClientRects()){
+      if(x.width < 0.5 || x.height < 3) continue;
+      const c = Math.max(0, Math.floor((x.left + x.width / 2 - fr.left) / pas)), m = x.top + x.height / 2;
+      cols[c] = cols[c] || []; if(!cols[c].some(v => Math.abs(v - m) < 6)) cols[c].push(m);
+    }
+  }
+  return Array.from(cols, a => a ? a.length : 0);
+}
+function finLigne(el, f, col, rang){   // l'indice (dans stops(el)) de la dernière espace de la ligne « rang » de la colonne
+  const fr = f.getBoundingClientRect(), cs = getComputedStyle(f);
+  const n = parseInt(cs.columnCount, 10) || 1, gap = parseFloat(cs.columnGap) || 0;
+  const pas = n > 1 ? (fr.width + gap) / n : Infinity, r = document.createRange();
+  const st = stops(el), pos = st.map(([t, i]) => {   // la lettre avant l'espace : elle se voit toujours
+    r.setStart(t, Math.max(0, i - 1)); r.setEnd(t, i > 0 ? i : 1);
+    const x = r.getClientRects()[0]; if(!x) return null;
+    return {c: Math.max(0, Math.floor((x.left + x.width / 2 - fr.left) / pas)), m: x.top + x.height / 2};
+  });
+  const lg = []; pos.forEach(p => { if(p && p.c === col && !lg.some(v => Math.abs(v - p.m) < 6)) lg.push(p.m); });
+  lg.sort((a, b) => a - b); if(rang < 0 || rang >= lg.length) return -1;
+  let j = -1; pos.forEach((p, k) => { if(p && p.c === col && Math.abs(p.m - lg[rang]) < 6) j = k; });
+  return j;
+}
+function coupePara(b, f){   // splitPara, sans ligne seule de part et d'autre de la coupure de page
+  const parts = splitPara(b, f); if(!parts) return null;
+  f.appendChild(parts[0]); f.appendChild(parts[1]);
+  const L0 = lignesCols(parts[0], f), L1 = lignesCols(parts[1], f);
+  const c = L0.length - 1, der = L0[c] || 0, apres = L1.reduce((s, x) => s + x, 0);
+  const j = (der >= 3 && apres < 2) ? finLigne(parts[0], f, c, der - 2) : -1;
+  f.removeChild(parts[1]); f.removeChild(parts[0]);
+  if(der < 2) return null;                  // une ligne seule au bas de la page : le paragraphe passe entier
+  if(apres >= 2) return parts;
+  if(j < 1) return null;                    // deux lignes, puis une seule en haut de la page suivante : il passe entier
+  const st = stops(b);                      // la dernière ligne du bas de la page passe avec la suite
+  return [part(b, st[j], true), part(b, st[j], false)];
+}
+const seule = (e, f) => { const l = lignesCols(e, f); return (l.length === 2 && l[0] && l[1] && (l[0] === 1 || l[1] === 1)) ? l : null; };
+function corrigeVeuve(el, L, f, vus){   // rend la fonction qui défait la correction
+  // un long paragraphe : sa dernière ligne de gauche passe à droite avec la suite ; sinon il passe entier à droite
+  const j = (L[1] === 1 && L[0] >= 3) ? finLigne(el, f, 0, L[0] - 2) : -1;
+  vus.add(el);
+  if(j >= 1){
+    const st = stops(el), a = part(el, st[j], true), z = part(el, st[j], false);
+    z.style.breakBefore = 'column'; f.replaceChild(a, el); a.after(z); vus.add(a); vus.add(z); syncNotes(f);
+    return () => { if(a.parentNode === f){ f.replaceChild(el, a); z.remove(); } syncNotes(f); };
+  }
+  el.style.breakBefore = 'column'; syncNotes(f);
+  return () => { el.style.breakBefore = ''; syncNotes(f); };
+}
+const resteSeule = (f, vus) => [...f.children].some(e => e.tagName === 'P' && vus.has(e) && seule(e, f));
+function veuvesPage(f, q){   // pendant la mise en pages, quand la page continue : la fin du cadre passe à la page suivante
+  if((parseInt(getComputedStyle(f).columnCount, 10) || 1) !== 2) return;
+  const vus = new Set();
+  for(let it = 0; it < 4; it++){
+    const el = [...f.children].find(e => e.tagName === 'P' && !vus.has(e) && seule(e, f)); if(!el) return;
+    const kids = [...f.children], sQ = q.slice();
+    const annule = () => { while(f.firstChild) f.removeChild(f.firstChild); kids.forEach(k => f.appendChild(k));
+      q.splice(0, q.length, ...sQ); el.style.breakBefore = ''; syncNotes(f); };
+    corrigeVeuve(el, seule(el, f), f, vus);
+    let pousse = false;
+    while(OVER(f)){   // ce qui ne tient plus passe en tête de la page suivante, recollé à sa suite s'il était coupé
+      const last = f.lastElementChild;
+      if(!last || vus.has(last) || !(last.tagName === 'P' || /^H[234]$/.test(last.tagName))) break;
+      f.removeChild(last); pousse = true;
+      if(last.tagName === 'P' && q[0] && q[0].tagName === 'P' && q[0].classList.contains('cont') && q[0].dataset.k && q[0].dataset.k === last.dataset.k){
+        const m = last.cloneNode(true), rest = q.shift();
+        m.appendChild(document.createTextNode(' ')); rest.childNodes.forEach(n => m.appendChild(n.cloneNode(true)));
+        q.unshift(m);
+      } else q.unshift(last);
+      syncNotes(f);
+    }
+    if(OVER(f)){ annule(); continue; }
+    // le bas de la colonne se remplit avec le début du paragraphe repoussé
+    if(pousse && q[0] && q[0].tagName === 'P'){
+      const parts = coupePara(q[0], f);
+      if(parts){ q.shift(); f.appendChild(parts[0]); syncNotes(f); q.unshift(parts[1]); if(OVER(f)){ annule(); continue; } }
+    }
+    if(resteSeule(f, vus)) annule();
+  }
+}
+function veuves(){   // entre les deux colonnes d'un cadre, après la mise en pages (rien ne peut plus changer de page)
+  PAGES.forEach(p => {
+    if(p.kind !== 'text' && p.kind !== 'open') return;
+    const tient = f => {
+      const b = p.bl.getBoundingClientRect().bottom + 0.5;
+      return !(!f.classList.contains('auto') && OVER(f)) && f.scrollWidth <= f.clientWidth + 1
+        && [...p.bl.children, ...p.bl.querySelectorAll('.frame > *')].every(e => e.getBoundingClientRect().bottom <= b);
+    };
+    p.bl.querySelectorAll('.frame').forEach(f => {
+      if((parseInt(getComputedStyle(f).columnCount, 10) || 1) !== 2) return;
+      const vus = new Set();
+      for(let it = 0; it < 8; it++){
+        const el = [...f.children].find(e => e.tagName === 'P' && !vus.has(e) && seule(e, f)); if(!el) break;
+        const defaire = corrigeVeuve(el, seule(el, f), f, vus);
+        if(!tient(f) || resteSeule(f, vus)) defaire();
+      }
+    });
+  });
+}
 
 /* ---------- l'appel de planche : une flèche rouge qui pointe vers le dessin ---------- */
 const FLECHE = '<svg viewBox="0 0 18 10" aria-hidden="true"><path d="M0 3.4 H10.2 V0 L18 5 L10.2 10 V6.6 H0 Z"/></svg>';
@@ -704,12 +828,35 @@ Promise.all(faces.map(f => document.fonts.load(f, 'aéÀ§«»—'))).then(() =>
     if(!sans.length || passe > NOTES_X.length) break;
     sans.forEach(x => INLINE.set(+x.dataset.xi, ANCRES[+x.dataset.xi]));
   }
+  // une note qui n'a toujours pas de page (elle attendait encore à la fin du chapitre, toutes les pages qui suivent son
+  // étape portant déjà une note, ou elle ne nomme rien qui se retrouve) : elle entre dans le fil sur la page de texte
+  // sans note la plus proche de son étape, après un paragraphe de cette page ; une note se pose toujours (JP, 19 octobre
+  // 2026)
+  const essayes = new Set();
+  for(let essai = 0; EXTRAS.length && essai < 3 * NOTES_X.length; essai++){
+    const x = EXTRAS[0], xi = +x.dataset.xi, k0 = INLINE.get(xi) || ANCRES[xi];
+    const el0 = k0 && BOOK.querySelector('[data-k="' + k0 + '"]');
+    const i0 = el0 ? PAGES.findIndex(p => p.el.contains(el0)) : Math.floor(PAGES.length / 2);
+    const bloc = p => { const l = [...p.bl.querySelectorAll('.frame > p[data-k]')].filter(e => !e.closest('.orange, .danger') && !essayes.has(e.dataset.k));
+      return l[Math.floor((l.length - 1) / 2)]; };   // un paragraphe du milieu de la page : la note y reste
+    const cand = PAGES.map((p, i) => i).filter(i => (PAGES[i].kind === 'text' || PAGES[i].kind === 'open') && !aUneNote(PAGES[i]) && bloc(PAGES[i]))
+      .sort((a, b) => Math.abs(a - i0) - Math.abs(b - i0) || a - b);
+    if(!cand.length) break;
+    const k = bloc(PAGES[cand[0]]).dataset.k; essayes.add(k);
+    INLINE.set(xi, k); mettreEnPages();
+  }
   EXTRAS.forEach(x => WARN.push('encadré « En plus » sans place où se poser : ' + ((x.querySelector('.xtit') || {}).textContent || '')));
+  veuves();
   finishPages(); edges(); orienteAppels(); checks();
-  // où chaque note s'est posée : page, étapes de la page, dans un trou ou dans le fil
+  // où chaque note s'est posée : page, étapes de la page, l'étape et l'intertitre qui la précèdent, dans un trou ou dans
+  // le fil
+  const SN = [...BOOK.querySelectorAll('.sn')], TT = [...BOOK.querySelectorAll('.block h2, .block h3, .block h4, .block .kh')];
+  const avant = (l, x) => l.filter(e => e.compareDocumentPosition(x) & Node.DOCUMENT_POSITION_FOLLOWING).pop();
   const notesPosees = [...document.querySelectorAll('.page .extra')].map(x => { const pg = x.closest('.page'); const p = PAGES.find(q => q.el === pg);
+    const sn = avant(SN, x), tt = avant(TT, x);
     return {titre: (x.querySelector('.xtit') || {}).textContent || '', page: p ? p.n : null, fil: INLINE.has(+x.dataset.xi),
-            etapes: p ? [...p.bl.querySelectorAll('.sn')].map(e => +e.textContent) : []}; });
+            etapes: p ? [...p.bl.querySelectorAll('.sn')].map(e => +e.textContent) : [], renvoie: renvois(x),
+            apres: sn ? +sn.textContent : null, sous: tt ? (tt.querySelector('.t') || tt).textContent.replace(/\s+/g, ' ').trim().slice(0, 60) : ''}; });
   const st = {pages: PAGES.length, reste: 0, warn: WARN, mots: {}, notes: notesPosees};
   PAGES.forEach(p => st.mots[p.n] = words(p.bl.innerText));
   document.getElementById('stats').textContent = JSON.stringify(st);

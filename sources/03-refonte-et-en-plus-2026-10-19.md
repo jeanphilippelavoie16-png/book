@@ -32,6 +32,12 @@ de la mèche, ch. 85, « Le principe qui commande tout le reste ») ; le monoxyd
 (page du danger `co`, `dangers/partie-1.md`). Turner ne dit rien de l'aération de la maison de neige : la note ne dit
 pas pourquoi la lampe y était sûre, seulement ce qui la rend dangereuse dans une maison fermée.
 
+**Après la vérification technique du 19 octobre 2026 :** la note est refaite. « Une seule lampe » et « on en allumait
+deux » sortent (Turner ne dit ni l'un ni l'autre : la lampe est la seule source de chaleur et de lumière, et pour
+cuire on prend une plus grosse mèche ou deux petites) ; « la mousse fait monter l'huile » et la lumière d'une lampe à
+pétrole sortent aussi, pour la place. Ce qui renouvelait l'air vient de Boas 1888 (le petit trou près du sommet, le
+courant d'air de la porte au trou) : `sources/03-boas-1888-maison-de-neige-aeration-et-doublure.md`.
+
 ## 2. Les tours cellulaires pendant une panne (note « En plus »)
 
 - **Fichier :** `sources/19-cbc-2018-batteries-tours-cellulaires.md` (et `.html`), CBC News, 30 septembre 2018.
@@ -66,6 +72,11 @@ La note ne nomme ni le chercheur ni l'opérateur (pas d'attribution dans le text
 
 Le même mécanisme est déjà dit au ch. 7 (section 6) et au ch. 10 (« une conduite qui perd sa pression aspire l'eau du
 sol par ses joints et ses fuites »).
+
+**Après la vérification technique du 19 octobre 2026 :** la note « La pression qui tombe dans l'aqueduc » est coupée.
+Elle montrait que la pression tombe dans les secondes où la station perd le courant, donc avant que la famille ait
+rempli la baignoire, alors que l'étape 4 dit que l'eau remplie avant la baisse n'a pas besoin de bouillir ; elle ne
+changeait aucun geste. Le passage de l'EPA reste la source de l'étape 4 (l'eau du sol aspirée par les fuites).
 
 ## 4. Le message texte (étape 10)
 

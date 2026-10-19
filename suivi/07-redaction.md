@@ -225,8 +225,8 @@ ajoutés et les notes « En plus » viennent de pages déjà dans `/sources`, ra
 | 1, CO : mécanisme, 200 à 250 fois, carboxyhémoglobine, courbe de dissociation | Sort : page `co` |
 | 1, génératrice dehors, 6 m du bâtiment, pas de la porte ; la rallonge achetée pour la distance | Étape 18, `{!generatrice}` |
 | 1, échappement tourné à l'opposé, fermer les ouvertures sous le vent ; véhicule ou motoneige au ralenti | Sort : page `generatrice` (le dit déjà). L'échappement et « jamais dans un bâtiment, un garage ou sous un auvent » sont remis à l'étape 18 après la vérification technique (rappel du tableau de `CLAUDE.md`) |
-| 1, réchauds, barbecues, chaufferettes, lampes à l'huile à l'intérieur | Sort : page `co`. Remis après la vérification technique dans la section 5, ligne de l'avertisseur, pour le cas où il reste muet |
-| 1, avertisseur à pile de secours, couloirs des chambres ; modèle à affichage | Étape 21, `{!co}` |
+| 1, réchauds, barbecues, chaufferettes, lampes à l'huile à l'intérieur | Sort : page `co`. Remis après la vérification technique dans la section 5, ligne de l'avertisseur, pour le cas où il reste muet ; à la deuxième relecture, la ligne ne garde que la chaufferette d'appoint, même conçue pour l'intérieur (le réchaud et le barbecue, interdits sans condition, ne sont pas redits) |
+| 1, avertisseur à pile de secours, couloirs des chambres ; modèle à affichage | Étape 21, `{!co}` ; « dans chaque zone où il y a une source » remis à la deuxième relecture (« chaque pièce où il y a un poêle, une fournaise ou un appareil au gaz, à au moins 2 m de l'appareil ») |
 | 1, délais 400, 70 et 30 ppm ; signes ; l'enfant qui a l'air fatigué ; tout le monde dehors ; le sauveteur ; la moitié du CO 3 à 5 h | Sort : page `co` (tous les chiffres y sont). La ligne des Signes d'échec garde le diagnostic propre au chapitre (une génératrice ou une auto trop près d'une ouverture) |
 | 2, la route : aller-retour à H-2, la voiture prise qui refroidit plus vite qu'une maison (ni masse, ni isolant, vitres) | Étape 27, `{!froid}` ; « 90 minutes » et « les remorqueuses ne sortent plus » sortent (sans source ; un service) ; « le dernier tiers est toujours le pire » sort (formule) |
 | 3, gibier à 74 °C au thermomètre, sans toucher l'os ni le gras | Étape 13, `{!cuisson}` (la façon de planter la sonde est à la page `cuisson`) |
@@ -243,13 +243,14 @@ ajoutés et les notes « En plus » viennent de pages déjà dans `/sources`, ra
 | 15 | `botulisme` | Le poisson du congélateur cuit à 70 °C ou jeté, jamais gardé pour le fumoir |
 | 18 | `generatrice`, `electrocution` | Dehors, à découvert, 6 m du bâtiment, pas de la porte ; l'échappement tourné à l'opposé des portes et des fenêtres ; jamais dans un bâtiment, un garage ou sous un auvent (remis après la vérification technique) ; la rallonge à la longueur ; l'emplacement dégagé avant la neige ; l'interrupteur principal à OFF ; la génératrice raccordée renvoie son courant dans la ligne |
 | 19 | `vapeurs` | Le plein moteur arrêté et refroidi : l'essence sur un échappement chaud s'enflamme |
-| 21 | `co` | L'avertisseur dans le couloir des chambres ; le modèle à affichage, pour éloigner la génératrice avant l'alarme |
+| 21 | `co` | L'avertisseur dans le couloir des chambres et dans chaque pièce où il y a un poêle, une fournaise ou un appareil au gaz, à 2 m de l'appareil (deuxième relecture) ; le modèle à affichage, pour éloigner la génératrice avant l'alarme |
 | 23 | `incendie` | La créosote cuite qu'on ne brosse plus, avant de chauffer fort |
 | 27 | `froid` | L'aller-retour des dernières heures ; l'auto prise refroidit plus vite qu'une maison |
 | 37 | `zone-de-danger` | L'heure de la panne écrite sur la porte du congélateur |
 | 43 | `vapeurs` | Le gaz rouvert appareil par appareil (le seuil de l'odeur est à la page `vapeurs`) |
 | Section 7, la batterie | `vapeurs`, `generatrice` | La pince noire sur le bloc moteur (hydrogène) ; le moteur ne tourne que dehors |
 | Section 7, la génératrice qui ne part pas | `vapeurs` | Le trou de la bougie tourné vers l'extérieur pendant l'essai d'étincelle |
+| Section 7, chauffer une seule pièce | `co` | Toute la famille dort dans la pièce fermée du poêle : y apporter l'avertisseur du couloir des chambres, qui descend sous 4,4 °C (deuxième relecture) |
 
 `incendie`, `vapeurs` et `zone-de-danger` ne sont pas dans le paragraphe du ch. 7 de `plan/dangers-inventaire.md` :
 ils sont posés là où le danger se présente (rendu à l'orchestrateur pour l'inventaire et les « Où il revient »).
@@ -512,3 +513,155 @@ au pronominal.
 Aucune phrase d'ancre touchée : le logigramme garde « **Obturateur de drain de plancher** » (dernier item du Matériel),
 la planche 07-01 garde « On fabrique l'obturateur avec un bouchon de bois ». Les notes « En plus » se placent par leur
 étape entre parenthèses (étape 1, étape 42, section 7 deux fois).
+
+## Corrections après la vérification technique, 19 octobre 2026 (deuxième relecture)
+
+Rôle : rédacteur. Le vérificateur technique a relu les corrections ci-dessus contre le texte d'avant (git `8626938`) et
+signale treize points : deux erreurs, onze « à préciser ». **Treize sont appliqués** (cinq avec une retouche de phrase,
+dite plus bas), **aucun n'est écarté**. Le point 8 ne change pas le texte du ch. 7 : il ajoute une source à cette fiche
+et rend une correction du ch. 52 à l'orchestrateur. Aucune page nouvelle captée : les extraits sont dans
+`sources/07-refonte-et-en-plus-2026-10-19.md`, section 4. Copie d'avant pour `controle.py` : le texte de HEAD au début
+de cette passe (`da1d84e`), identique au disque.
+
+### 1. Erreur : où poser l'avertisseur (étape 21) : appliqué, phrase retouchée
+
+- **Avant :** « **Mettre des piles neuves dans l'avertisseur de monoxyde et l'essayer au bouton.** En poser au moins un
+  dans le couloir des chambres, pour qu'il réveille les gens qui dorment. »
+- **Après :** « **Mettre des piles neuves dans chaque avertisseur de monoxyde et l'essayer au bouton.** En poser au moins
+  un dans le couloir des chambres, pour qu'il réveille les gens qui dorment, et un dans chaque pièce où il y a un poêle,
+  une fournaise ou un appareil au gaz, à au moins 2 m de l'appareil. »
+- Retouches : la fiche proposait « un poêle ou un appareil au propane » ; la page de Québec.ca nomme aussi la fournaise
+  au mazout et le gaz naturel, d'où « une fournaise ou un appareil au gaz ». « À au moins 2 m de l'appareil » vient de
+  la page des avertisseurs (`15b-quebec-avertisseurs-monoxyde-plage-temperature.md`) : sans lui, la consigne « un dans
+  chaque pièce où il y a un poêle » fait poser l'avertisseur au-dessus du poêle. Le titre de l'étape passe au pluriel
+  (« chaque avertisseur »), puisque l'étape en pose plusieurs.
+- **Sources :** `07-quebec-monoxyde-de-carbone.md` ; `15b-quebec-avertisseurs-monoxyde-plage-temperature.md`.
+
+### 2. Erreur : la pièce où tout le monde dort (section 7, « Chauffer une seule pièce ») : appliqué, phrase retouchée
+
+- **Avant :** « - Faire dormir tout le monde dans cette pièce : quatre personnes dans une pièce fermée la réchauffent. »
+- **Après :** « - {!co} Faire dormir tout le monde dans cette pièce : quatre personnes dans une pièce fermée la réchauffent.
+  Y apporter l'avertisseur de monoxyde du couloir des chambres (étape 21) : dans un couloir qu'on ne chauffe plus, la
+  température peut descendre sous 4,4 °C, et on ne peut plus se fier à lui. »
+- Retouches : « Y mettre » devient « Y apporter » (on le déplace) ; « sous 4,4 °C, on ne peut pas se fier à lui »
+  devient « la température peut descendre sous 4,4 °C » : la page dit de ne pas l'installer sous 4,4 °C, sans dire quand
+  le couloir y arrive. Le pictogramme `co` est nouveau dans cette sous-section (rendu à l'orchestrateur pour
+  l'inventaire). La pièce du poêle a aussi son propre avertisseur depuis le point 1.
+- **Sources :** `dangers/partie-1.md`, page `co` ; `15b-quebec-avertisseurs-monoxyde-plage-temperature.md`.
+
+### 3. Section 5, l'avertisseur muet : appliqué
+
+- **Avant :** « … ne rentrer dans la maison aucun appareil qui brûle un carburant, ni réchaud, ni barbecue, ni chaufferette
+  d'appoint ». **Après :** « … ne faire marcher dans la maison aucune chaufferette d'appoint, même conçue pour
+  l'intérieur ».
+- Le réchaud et le barbecue sortent de la ligne : leur interdit vaut sans condition, et il n'est pas redit (CLAUDE.md,
+  sur le barbecue dans la maison : « on le sait, on l'a déjà dit »). La condition de l'avertisseur ne touche plus que
+  la chaufferette conçue pour l'intérieur, la seule qui est permise.
+- **Sources :** `07-quebec-monoxyde-de-carbone.md` ; `02-quebec-fiche-technique-panne-plomberie.md`.
+
+### 4. Section 6, le filet qui faiblit : appliqué
+
+- **Après :** « Remplir tout de suite ce qui est encore vide, eau de service comprise. Faire bouillir ou javelliser cette
+  eau avant de la boire (étape 8) ».
+- Plus de contradiction avec le ch. 10, étape 42, le ch. 2, étape 28, et la note « Une courte panne peut contaminer
+  l'aqueduc ». **Source :** `10-reseau-depressurise-intrusion-par-les-fuites.md`.
+
+### 5. Étape 1, l'orage ou la tornade (série orange) : appliqué, phrase retouchée
+
+- **Avant :** « … il peut arriver moins d'une demi-heure avant : ne pas prendre la route, et faire tout de suite
+  l'étape 26. »
+- **Après :** « … il peut arriver moins d'une demi-heure avant : ne pas prendre la route ni sortir, remplir tout de suite
+  l'eau (étapes 6 à 8) et le congélateur (étapes 10 et 11), et préparer l'avertisseur (étape 21). »
+- Retouche (règle 0) : la fiche proposait « faire tout de suite l'eau, le congélateur et l'avertisseur » ; chaque geste
+  prend son verbe. L'emplacement de la génératrice (étape 18, dehors) n'est plus dans ce délai. Aucun abri contre la
+  tornade n'est ajouté : aucune page de `/sources` ne le dit. Scène jouée : moins de 30 minutes, à l'intérieur, rien de
+  préparé ; remplir des contenants, monter le thermostat et changer des piles tiennent dans ce temps.
+- **Source :** `10-environnement-canada-alertes-meteo.md`, complément meteo.gc.ca.
+
+### 6. Étape 43, l'odeur de gaz : appliqué, une précision
+
+- **Après :** « - Attendre, et sentir l'air près des appareils et du plancher. Si ça sent le gaz, refermer l'entrée du
+  gaz, ne rien allumer ni éteindre, et laisser aérer avant de recommencer. »
+- Précision : « l'entrée » devient « l'entrée du gaz » (l'étape 42 parle de l'entrée d'eau et de l'entrée électrique).
+- **Source :** `dangers/partie-1.md`, page `vapeurs`, « Ce qu'on fait », points 1 et 2 ; texte d'avant, étape 42.
+
+### 7. La veille et le bulletin (étape 1, section 6) : appliqué
+
+- **Étape 1, avant :** « On le lit, et on garde la réserve pour la veille et l'avertissement. » **Après :** « On le lit,
+  et on ne touche pas à la réserve. »
+- **Section 6, avant :** « Ne la toucher que pour une veille ou un avertissement (étape 1 ; ch. 8) ». **Après :** « Ne la
+  dépenser que pour un avertissement ; pour une veille ou un avis, faire seulement les gestes qu'on peut défaire
+  (étape 1 ; ch. 8) » (l'avis, point 12, y entre).
+- Le logigramme (nœuds `veille` et `bulletin`) disait déjà la même chose. **Source :**
+  `10-environnement-canada-alertes-meteo.md`.
+
+### 8. Le foie et les reins de l'ours (étape 13) : texte inchangé, source ajoutée, ch. 52 rendu
+
+- Le texte du ch. 7 reste. La provenance de « ni de l'ours » est la page officielle qui nomme l'ours noir :
+  `sources/46-cadmium-reins-foie-castor.md`, section E (CISSS de l'Abitibi-Témiscamingue), en plus de la page `abats`.
+- **Rendu à l'orchestrateur :** le ch. 52, l. 303 et 304, dit que l'interdit du cadmium « vise les **cervidés** et non
+  l'ours ». Remplacer par « le foie et les reins de l'ours noir contiennent aussi du cadmium, comme ceux des cervidés :
+  on ne les mange pas (ch. 22). »
+
+### 9. Section 1, « habituellement » : appliqué, phrase retouchée
+
+- **Avant :** « Se servir des 6 à 24 heures entre l'alerte et l'événement pour ajouter… »
+- **Après :** « Se servir du temps entre l'alerte et l'événement, habituellement 6 à 24 heures, pour ajouter… »
+- Retouche : la fiche proposait « des heures entre l'alerte et l'événement, habituellement 6 à 24 » ; « 6 à 24 » sans
+  son unité accroche à voix haute. **Source :** `10-environnement-canada-alertes-meteo.md`.
+
+### 10. Étape 3, le renvoi au ch. 2 : appliqué
+
+- « (ch. 2, étapes 25 à 42) » devient « (ch. 2, étape 32) ». Les étapes 25 à 31 du ch. 2 mesurent une panne déjà
+  commencée ; l'étape 32 porte la règle que l'étape 3 applique.
+
+### 11. Note « Une courte panne peut contaminer l'aqueduc » : appliqué
+
+- « où on a trouvé des virus venus des selles » devient « où on a trouvé des bactéries venues des selles et des virus
+  humains ». 74 mots. **Source :** `10-reseau-depressurise-intrusion-par-les-fuites.md`.
+
+### 12. L'avis météo (étape 1) : appliqué, raccourci
+
+- **Nouvelle puce, après la veille :** « - Un **avis** demande d'agir tout de suite contre un phénomène important, moins
+  grave que le temps violent d'un avertissement : faire comme pour une veille. »
+- La fiche proposait « faire les gestes qu'on peut défaire, comme pour une veille » : `controle.py` le relevait comme
+  redite de la puce de la veille, qui dit ces gestes ; « faire comme pour une veille » suffit. Le geste est un choix
+  du chapitre (la source ne le donne pas), noté comme tel dans la fiche des sources.
+- Suites : section 2, « Une veille ou un avis météo est en vigueur » ; section 5, ligne « À l'alerte », « Veille ou
+  avis : seulement les gestes qu'on peut défaire » ; section 6 (point 7). **Logigramme :** la branche « Veille »
+  devient « Veille ou avis » (nœud `veille` inchangé). Rendus refaits (`logigramme.py`, puis `--sans-entete --svg`) :
+  `07-preavis.svg`, `.pdf`, `.png`, `07-preavis-livre.svg` ; contrôle **0 erreur, 0 avis** ; regardé à l'image : la
+  pastille tient sur une ligne, au-dessus de sa boîte, sans toucher les deux autres.
+- **Source :** `10-environnement-canada-alertes-meteo.md`.
+
+### 13. Étape 17, les pleins : appliqué
+
+- « **Faire les pleins tôt dans la journée** » devient « **Faire les pleins dès le début du préavis** ». Le moment
+  vient de la raison donnée (les stations qui arrêtent de vendre quand le courant manque), pas de l'heure du jour.
+
+### Pictogrammes et inventaire
+
+Le tableau « Pictogrammes » plus haut est mis à jour (étape 21 ; nouvelle ligne : section 7, « Chauffer une seule
+pièce », `co`). Rendu à l'orchestrateur : le paragraphe du ch. 7 dans `plan/dangers-inventaire.md`, section 3, aux
+étapes d'aujourd'hui ; le 7 dans la colonne « Chapitres » de `electrocution`, `vapeurs`, `incendie` et
+`zone-de-danger` (section 1) ; les « Où il revient » des pages concernées.
+
+### `controle.py`, avant et après
+
+| | Avant (`da1d84e`) | Après |
+| --- | --- | --- |
+| Mots | 7 622 | 7 772 (+150 : l'avis, l'orage, l'avertisseur, l'odeur de gaz, l'eau à faire bouillir) |
+| Tirets | 2 (titre et ligne de tome) | 2 (les mêmes) |
+| « § », mots bannis, vocabulaire d'IA, mises en relief, maximes, pronominaux signalés | 0 | 0 |
+| Tournures | 1, jugée (« on les oublie ») | 1, la même |
+| Mots vides | 46 | 48 : deux « tout de suite » nouveaux (l'orage, l'avis), qui portent le sens ; la ligne de la section 1, coupée en deux, compte deux fois le même « tout » |
+| Redites | 6 | 7 ; nouvelle : « le congélateur (étapes 10 et 11) » (étapes 1 et 26 : deux listes différentes pour deux délais, l'une sans le geste dehors) |
+
+Invariants (`--avant`) : rien n'a disparu. Chiffres nouveaux : « 2 m » et « 4,4 °C », sourcés (points 1 et 2).
+
+Pronominaux relus à la main : aucun nouveau. Phrases nouvelles lues à voix haute, une à une.
+
+### Ancres
+
+Aucune phrase d'ancre touchée : le logigramme garde « **Obturateur de drain de plancher** », la planche 07-01 garde « On
+fabrique l'obturateur avec un bouchon de bois ». Les notes « En plus » gardent leur étape entre parenthèses.

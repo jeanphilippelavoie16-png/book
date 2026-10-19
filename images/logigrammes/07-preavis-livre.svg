@@ -152,7 +152,7 @@
 </g>
 <g id="pastilles">
 <rect x="75.81" y="196.52" width="71.58" height="15.00" rx="7.50" fill="#2B5876"/><text x="82.31" y="207.37" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="9.5" fill="#fff" xml:space="preserve" data-max="60.08">Avertissement</text>
-<rect x="259.36" y="196.52" width="35.68" height="15.00" rx="7.50" fill="#2B5876"/><text x="265.86" y="207.37" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="9.5" fill="#fff" xml:space="preserve" data-max="24.18">Veille</text>
+<rect x="244.24" y="196.52" width="65.91" height="15.00" rx="7.50" fill="#2B5876"/><text x="250.74" y="207.37" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="9.5" fill="#fff" xml:space="preserve" data-max="54.41">Veille ou avis</text>
 <rect x="411.31" y="196.52" width="75.59" height="15.00" rx="7.50" fill="#2B5876"/><text x="417.81" y="207.37" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="9.5" fill="#fff" xml:space="preserve" data-max="64.09">Bulletin spécial</text>
 <rect x="260.60" y="312.90" width="26.72" height="15.00" rx="7.50" fill="#2B5876"/><text x="267.10" y="323.75" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="9.5" fill="#fff" xml:space="preserve" data-max="15.22">Oui</text>
 <rect x="131.22" y="349.15" width="29.17" height="15.00" rx="7.50" fill="#fff" stroke="#2B5876" stroke-width="1.25"/><text x="137.72" y="360.00" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="9.5" fill="#2B5876" xml:space="preserve" data-max="17.67">Non</text>

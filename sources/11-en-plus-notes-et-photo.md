@@ -27,6 +27,13 @@ rien d'autre.
 - **Date de la prise de vue :** 2010-10-03 12:14:51
 - **Auteur :** LBM1948 (utilisateur de Commons)
 - **Licence lue sur l'API de Commons le 19 octobre 2026 (`extmetadata`, `LicenseShortName`) :** CC BY-SA 4.0
+- **Réponse de l'API enregistrée** (relue le 19 octobre 2026, après la vérification technique, quand Commons a
+  répondu) : `sources/11-commons-grands-jardins-np-09-2026-10-19.json`. On y lit `LicenseShortName` « CC BY-SA 4.0 »,
+  `License` « cc-by-sa-4.0 », `LicenseUrl` https://creativecommons.org/licenses/by-sa/4.0, `AttributionRequired`
+  « true », `Artist` LBM1948, `Credit` « Own work », `DateTimeOriginal` 2010-10-03 12:14:51, `thumbwidth` 1 280 et
+  `thumbheight` 850 (les dimensions du fichier du livre), catégories « Parc national des Grands-Jardins », « Boreal
+  forest of Canada », « Lichens on soil ». La vignette n'a pas pu être retéléchargée pour comparer les octets
+  (upload.wikimedia.org répondait encore 429).
 - **Ce que la note en dit :** des épinettes noires espacées, leurs branches jusqu'au sol, sur un tapis gris-blanc de
   cladonie ; aucun autre fait que ceux du chapitre (étapes 14, 55, 57).
 - **Crédit :** la ligne de `images/credits.md` (section « Encadrés « En plus » du chapitre 11, le feu de forêt

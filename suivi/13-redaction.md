@@ -587,3 +587,50 @@ pictogramme.
   0 « § », 0 mot banni, 0 tournure, 0 maxime, 0 pronominal ; 22 mots vides et 11 redites, les mêmes qu'avant, jugés
   (un « tout » qui veut dire tout, un renvoi « souffler (étape 16) ») ; invariants : rien n'a disparu.
 - Le `[À VÉRIFIER]` de l'étape 8 (le feu pour se réchauffer quand le vent dépasse 20 km/h) reste : question à JP.
+
+### Deuxième vérification technique (sept points), 19 octobre 2026
+
+Rédacteur (rôle 2). Aucune source cherchée de nouveau : chaque point se règle avec une page déjà enregistrée ou avec un
+autre chapitre. Fichiers touchés : le chapitre et cette fiche. Le logigramme n'est pas touché (u3 dit seulement où
+faire le feu ; le vérificateur ne le met pas en cause), donc pas de nouveau rendu. Les fichiers communs (crédits,
+LISEZMOI des extras, inventaire des dangers, pages `vapeurs`, `projection` et `brulure`) ne sont pas touchés : les
+changements sont rendus à l'orchestrateur, mot pour mot.
+
+| Point du vérificateur | Ce que j'ai fait |
+| --- | --- |
+| 1. Erreur : l'étape 4 interdit le feu dans toute tente, ce qui contredit le ch. 12, étape 75 (le cône de bâches) | **Appliqué, en nommant les trois conditions** au lieu de les laisser au renvoi : la série orange se lit sans le ch. 12 sous les yeux. « …ne jamais faire de feu dans une tente fermée, un abri de neige, une cabane de pêche ou la cabine d'un camion : sans tuyau, le monoxyde du feu reste dedans. Sous un cône de bâches, on peut faire un feu à trois conditions : le sommet reste grand ouvert, la flamme reste claire, et quelqu'un reste éveillé toute la nuit pour la garder (ch. 12, étape 75). » « Ouvert au sommet » et « feu ouvert » de la correction proposée sortent : la première condition le dit déjà. Les conditions sont celles du ch. 12, étape 75, mot pour mot ou presque ; leur source est dans `suivi/12-redaction.md` |
+| 2. Erreur : la photo de l'amadouvier n'a pas de ligne dans `images/credits.md` ni dans `images/extras/LISEZMOI.md` | **Rendu de nouveau à l'orchestrateur** (fichiers communs, que je ne touche pas). Relu ce soir dans `sources/13-inaturalist-amadouvier-2026-10-19.json` : photo 102445923, `license_code` `cc-by`, « (c) scaup, some rights reserved (CC BY) », 1 775 × 2 048 ; observation 63794378 en `cc0`, « research », New Glasgow (N.-É.), 28 octobre 2020. Copie imprimée : 1 775 × 2 048, profil sRGB joint ; original en Display P3 dans `extras/originaux/` |
+| 3. À préciser : la page `vapeurs` range le ch. 13 sous « l'éclairage » | **Rendu de nouveau à l'orchestrateur** (page commune), tel que proposé |
+| 4. À préciser : le bloc du ch. 13 dans `plan/dangers-inventaire.md` décrit le chapitre d'avant la refonte | **Rendu à l'orchestrateur**, à jour avec les points 1 et 7 (`co` à l'étape 4 avec le cône, `projection` à l'étape 8, `brulure` à l'étape 16). `generatrice`, `cuisson` et `trichine` sortent du ch. 13 dans la section 1 : le chapitre ne cuit rien, ne nomme ni ours ni phoque et ne fait tourner aucune génératrice (tableau de `CLAUDE.md`, colonne « Où elle s'applique »). La question à JP sur `cuisson` et `trichine` se ferme : aucune étape de cuisson, donc aucun pictogramme |
+| 5. À préciser : « Couvrir le feu pour la nuit, dehors ou dans un foyer ouvert » contredit le poêle qu'on ne couvre pas (page `co` : la braise ; ch. 3, étape 6) | **Appliqué** : « **Couvrir le feu pour la nuit**, dehors. » Aucune source enregistrée ne dit qu'un feu couvert dans un foyer ouvert est sans danger la nuit, et le ch. 3, étape 6, dit que le feu réduit à la braise renvoie son monoxyde dans la pièce. Le foyer ouvert n'apparaît dans aucun autre chapitre ; je l'ai coupé plutôt que de le garder `[À VÉRIFIER]`. Dans la foulée, « **Autre façon, dehors : le feu en pyramide** » perd son « dehors » (les deux façons sont maintenant dehors) |
+| 6. À préciser : l'aulne n'est pas dans la liste des hôtes de la fiche RNCan 183 | **Appliqué** : « On le trouve surtout sur le bouleau à papier, aussi sur l'érable et le peuplier faux-tremble, et il est commun dans les vieilles aulnaies (section 7, l'amadouvier). » Source : `59-rncan-carie-blanche-spongieuse-amadouvier.md`, « particulièrement commun dans les forêts de bouleaux et d'aulnes (*Alnus*) surannés » ; hôtes principaux, les bouleaux ; autres hôtes, les érables et le peuplier faux-tremble. La note fait 66 mots (30 à 80). Le ch. 93 (l. 491) dit aussi « et l'aulne » : rendu à l'orchestrateur, ce n'est pas mon fichier |
+| 7. À préciser : les pierres qui éclatent (étape 8) et la manche synthétique qui fond (étape 16) n'ont pas de pictogramme, alors que le ch. 12 pose `projection` et `brulure` sur les mêmes faits | **Appliqué** : `{!projection}` en tête de la sous-étape des pierres (étape 8), `{!brulure}` en tête de la sous-étape de la laine ou du coton (étape 16). Le texte de l'étape ne change pas : il dit ce qui est propre au chapitre (une pierre mouillée ou poreuse éclate en chauffant ; la manche synthétique fond et colle à la peau). La page `brulure` dit déjà « Le synthétique fond et colle dans la brûlure » et « porter de la laine plutôt que du synthétique ». La page `projection` ne parle pas des pierres du foyer : son « Où il revient » et une phrase de mécanisme sont rendus à l'orchestrateur (le mécanisme, l'eau de la pierre qui se change en vapeur d'un coup, est au ch. 12, étape 14, sourcé au ch. 83 ; l'avertissement seul, au FM 21-76 : « Do not use wet or porous rocks as they may explode when heated », `17-us-army-fm21-76-feu.md`, l. 87) |
+
+### Pictogrammes, état final du 19 octobre (remplace les deux tableaux « Pictogrammes » plus haut)
+
+| Où | Id |
+| --- | --- |
+| Étape 4 (série orange) | `co` |
+| Étape 7 (série orange) | `froid` |
+| Étape 8, sous-étape des pierres | `projection` |
+| Étape 12, dernière sous-étape | `vapeurs` |
+| Étape 16, dernière sous-étape | `brulure` |
+| Étape 20, troisième sous-étape | `vapeurs` |
+| Section 7, « Garder le feu », paragraphe du poêle | `co` |
+| Section 7, « L'amadou qu'on ramasse », ligne du cèdre | `thuyone` |
+
+Vérifié au montage d'essai (`build_chapitre.py` importé avec `OUTD` dans le scratchpad, rien écrit dans
+`design/epreuves-livre/`) : co, froid, projection, vapeurs, brulure, vapeurs, co, thuyone, dans cet ordre, avec les noms
+courts Monoxyde, Froid, Projection, Vapeurs, Brûlure, Vapeurs, Monoxyde, Cèdre.
+
+### Le reste
+
+- Ancres de `placements-tome-1.json` (clé « 13 ») : aucune ne touche les passages modifiés ; les neuf sont encore
+  présentes une seule fois.
+- Renvois d'autres chapitres : aucun à refaire. Les étapes gardent leurs numéros ; ch. 12, l. 60 et 85 → étapes 11 et
+  29 ; ch. 15, l. 121 → étapes 1 à 7 : tous justes.
+- `controle.py --avant` (HEAD) : 5 624 → 5 664 mots (`wc -w` : 5 535 → 5 574) ; 2 tirets (titre et ligne de tome, lus
+  par l'assembleur) ; 0 « § », 0 mot banni, 0 vocabulaire d'IA, 0 tournure, 0 maxime, 0 pronominal ; 23 mots vides
+  (le nouveau est « toute la nuit », qui veut dire toute la nuit) et 11 redites, les mêmes qu'avant, jugées ;
+  invariants : rien n'a disparu. Fins de ligne LF.
+- Le `[À VÉRIFIER]` de l'étape 8 (le feu pour se réchauffer quand le vent dépasse 20 km/h) reste : question à JP.

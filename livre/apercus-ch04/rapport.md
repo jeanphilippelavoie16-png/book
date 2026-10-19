@@ -1,6 +1,6 @@
 # Tome 1 · Tenir — rapport d'assemblage
 
-- **Produit le :** 2026-10-19 01:39, par `design/outils/assembler-tome.py 1 --chapitres 04 --hors-ligne --sortie livre/apercus-ch04`
+- **Produit le :** 2026-10-19 02:01, par `design/outils/assembler-tome.py 1 --chapitres 04 --hors-ligne --sortie livre/apercus-ch04`
 - **Fichier :** `livre/tome-1/interieur.pdf` — 42 pages, 18.7 Mo
 - **Ouvertures :** au recto ou au verso (--verso)
 - **Placements :** design/epreuves-livre/placements.json, design/epreuves-livre/placements-tome-1.json
@@ -29,6 +29,15 @@ Marqueur `{.orange}` sur l'intertitre ### de la série, dans le Markdown (CLAUDE
 | Ch. | Pages du tome |
 | --- | --- |
 | 04 | 22, 23, 24, 25 |
+
+## Notes « En plus »
+
+| Ch. | Note | Page du tome (du chapitre) | Renvoie à | Posée après | Où |
+| --- | --- | --- | --- | --- | --- |
+| 04 | La baisse du rayonnement | 26 (04-8) | étape(s) 18, 24 | étape 18 (Les heures d’abri) | dans le fil du texte |
+| 04 | L’argile grise de l’ancienne mer | 27 (04-9) | étape(s) 22 | étape 22 (Les heures d’abri) | dans le fil du texte |
+| 04 | L’estomac du caribou | 28 (04-10) | étape(s) 29 | étape 29 (Les mois et les années, au chalet) | dans le fil du texte |
+| 04 | Les rennes de Norvège après Tchornobyl | 29 (04-11) | étape(s) 29 | étape 31 (Les mois et les années, au chalet) | dans le fil du texte |
 
 ## Contrôle Blurb
 

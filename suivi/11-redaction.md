@@ -505,3 +505,36 @@ pas changé (1 à 58).
 tournure jugée (« les coucher dans la pièce la mieux fermée », inchangée), 0 maxime, 0 pronominal, 42 mots vides
 jugés, 5 redites jugées (les mêmes qu'à la refonte), invariants : rien n'a disparu par rapport à HEAD. Ancre
 introuvable : 11-03, l'ancienne, rendue à l'orchestrateur avec la nouvelle.
+
+### Deuxième relecture du vérificateur (huit points), 19 octobre 2026
+
+Rédacteur (rôle 2). Huit points : 4 erreurs, 4 à préciser. Un seul touche le chapitre ; les sept autres sont dans des
+fichiers communs que le rédacteur ne modifie pas (chapitres 37, 96 et 99, `dangers/partie-1.md`, `images/credits.md`) :
+chacun a été relu à la ligne citée, et la correction est rendue à l'orchestrateur mot pour mot. Rien n'est écarté.
+
+| # | Où | Ce qui est fait | Vérifié dans |
+| --- | --- | --- | --- |
+| 1 | Ch. 96, l. 133 et l. 558, « ch. 11 §9 » | Rendu : « ch. 11, section 7, » aux deux lignes. La lecture du combustible au pied est à la section 7, « Lire le danger et le feu sur le terrain » | `chapitres/96-faire-la-terre.md`, les deux lignes relues telles quelles |
+| 2 | Ch. 99, l. 383, 590 et 637, « ch. 11, §9 » | Rendu : « ch. 11, section 7 » aux trois lignes (« Fabriquer les outils » et « Au retour, trouver le feu qui reste sans instrument » sont à la section 7). La l. 57 (« §8, ch. 11 ») vise la section 8 du ch. 99 lui-même : pas touchée ; la l. 631 ne donne pas de section | `chapitres/99-les-facons-d-autrefois.md` |
+| 3 | Ch. 37, l. 103, « section 5-B » | Rendu : « la règle du ch. 11 (étape 57) : aucun feu sans pare-étincelles » | `chapitres/37-le-sauna-et-le-bien-etre.md` ; étape 57, dernière puce |
+| 4 | Page `feu-de-foret`, le N95 de l'enfant | Rendu : « Le masque filtrant (N95) n'est pas fait pour le visage d'un enfant et ne le protège pas ; avant 2 ans, il ne faut jamais lui en mettre. » L'étape 33 garde sa phrase | `11-epa-guide-fumee-sante-publique-2019-texte.txt`, l. 1610 et 1611 ; `00b-sante-canada-masque-respiratoire-fumee-feux-foret.md`, l. 23 |
+| 5 | Page `feu-de-foret`, la fumée jugée à la vue | Rendu : « On ne peut pas juger à l'odeur combien on en respire, et la vue n'en donne qu'une estimation, de jour et par air sec (ch. 11, étape 36). » Même retouche proposée à la section 2.7 de l'inventaire | `11-epa-guide-fumee-nuit-visibilite-linge.md`, tableau 3 (de jour, hors lever et coucher du soleil, sous 65 % d'humidité) |
+| 6 | Page `generatrice`, « Ce qu'on fait », point 3 | Rendu : « Faire le plein moteur arrêté et froid, dehors, à la lampe de poche (pictogramme des vapeurs). » Le fait de l'ancien point 5 du Danger (« Le plein se fait moteur froid ») revient dans la page, comme aux ch. 3 et 15 et à la section 2.2 de l'inventaire ; l'étape 45 n'a pas à le redire | `04-quebec-ca-panne-de-courant.md`, l. 47 (« Cool generator before refueling ») |
+| 7 | Crédit de la photo `extras/11-pessiere-a-cladonie.jpg` | Rendu : la section « Encadrés « En plus » du chapitre 11 » de `images/credits.md`, avec sa ligne. **La réponse de l'API de Commons est maintenant enregistrée** : Commons a répondu le 19 octobre 2026 (HTTP 200), `sources/11-commons-grands-jardins-np-09-2026-10-19.json` : `LicenseShortName` CC BY-SA 4.0, `Artist` LBM1948, « Own work », prise de vue le 2010-10-03, vignette de 1 280 × 850 (les dimensions du fichier du livre). La vignette n'a pas pu être retéléchargée pour comparer les octets (upload.wikimedia.org répondait 429). Note ajoutée à `sources/11-en-plus-notes-et-photo.md` | La réponse de l'API, enregistrée |
+| 8 | Étape 9, « (planche 11-03, repères 8 à 12) » | **Appliqué** : « (planche 11-03, repères 4 et 8 à 12) ». Le repère 4 (« tôle vissée sur la vitre ») est le geste de la fenêtre dans la vue d'ensemble, que la section 7 cite déjà (« repères 4 et 11 ») | `images/planches-src/11-03.js`, l. 251 et l. 268 à 277 |
+
+**En passant, dans les fichiers du chapitre.** Dans le logigramme, le champ `source` d'une boîte (traçabilité, que le
+moteur ne dessine pas) disait « étape 11, chapeau ; section 6 », un renvoi à l'ancienne numérotation ; il dit maintenant
+« chapeau de la série des étapes 1 à 10 ; chapeau de l'étape 11 ; section 2 ». Rendu de contrôle dans le dossier de
+travail : SVG identique octet pour octet à celui du dépôt, contrôle 0 erreur, 0 avis ; les rendus du dépôt ne changent
+donc pas.
+
+**Rendu aussi à l'orchestrateur** (fichiers communs) : « 11 section 9 » dans `images/photos/registre-manquantes.md`
+(l. 56 à 58) et dans le commentaire d'en-tête de `images/planches-src/11-04.js` et `11-05.js` ; l'ordre des repères de
+la planche 11-04, inverse de l'ordre des gestes de la section 7 (le texte va de la pièce, repères 10 et 11, au filtre
+seul, 8 et 9, puis au cube, 1 à 7).
+
+**controle.py** : 7 749 mots (7 747 avant ces corrections : « 4 et » à l'étape 9), 2 tirets (titre et ligne de tome,
+forme commune), 1 tournure jugée (« les coucher dans la pièce la mieux fermée », inchangée), 0 maxime, 0 pronominal,
+42 mots vides jugés, 5 redites jugées (les mêmes), invariants : rien n'a disparu. Ancre introuvable : 11-03, l'ancienne ;
+la nouvelle (« 7. **Remplir tout ce qui tient l'eau** ») est rendue à l'orchestrateur avec celle du logigramme.

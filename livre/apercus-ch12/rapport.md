@@ -1,6 +1,6 @@
 # Tome 1 · Tenir — rapport d'assemblage
 
-- **Produit le :** 2026-10-19 01:46, par `design/outils/assembler-tome.py 1 --chapitres 12 --hors-ligne --sortie livre/apercus-ch12`
+- **Produit le :** 2026-10-19 02:02, par `design/outils/assembler-tome.py 1 --chapitres 12 --hors-ligne --sortie livre/apercus-ch12`
 - **Fichier :** `livre/tome-1/interieur.pdf` — 44 pages, 24.0 Mo
 - **Ouvertures :** au recto ou au verso (--verso)
 - **Placements :** design/epreuves-livre/placements.json, design/epreuves-livre/placements-tome-1.json
@@ -29,6 +29,16 @@ Marqueur `{.orange}` sur l'intertitre ### de la série, dans le Markdown (CLAUDE
 | Ch. | Pages du tome |
 | --- | --- |
 | 12 | 22, 23 |
+
+## Notes « En plus »
+
+| Ch. | Note | Page du tome (du chapitre) | Renvoie à | Posée après | Où |
+| --- | --- | --- | --- | --- | --- |
+| 12 | Reconnaître le sapin, l’épinette noire et le cèdre | 19 (12-2) | étape(s) 13 |  (Matériel) | dans un trou de la page |
+| 12 | Reconnaître le mélèze, l’hiver | 24 (12-7) | étape(s) 15 | étape 15 (Choisir la place) | dans le fil du texte |
+| 12 | Pendre la literie aux murs de la tente, le jour | 28 (12-11) | étape(s) 29, 37, 30 | étape 37 (Poser le poêle et passer le tuyau) | dans un trou de la page |
+| 12 | Une fenêtre de glace dans la maison de blocs | 37 (12-20) | étape(s) 102 | étape 98 (La maison de blocs) | dans un trou de la page |
+| 12 | Planter ses raquettes debout près de la porte | 44 (12-27) | étape(s) — | étape 102 (La tente à poêle faite avec ce qui traîne) | dans un trou de la page |
 
 ## Contrôle Blurb
 

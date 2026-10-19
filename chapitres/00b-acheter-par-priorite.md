@@ -36,7 +36,7 @@ famille tient quand même.
 
 | Item | Quantité | Lieu | Sans ça | Ch. |
 | --- | --- | --- | --- | --- |
-| Avertisseur de **monoxyde de carbone** à pile, **à affichage numérique en ppm**, remplacé à la date donnée par le fabricant (7 à 10 ans selon le modèle) | 1 par étage habité, 1 par chambre où l'on dort porte fermée, 1 près du poêle | **Les deux** | Rien d'autre ne détecte le monoxyde, et chaque façon de continuer sans le réseau en ajoute une source : le poêle qui remplace le propane, la génératrice, la chaufferette, le fumoir adossé au mur. Un avertisseur ne sonne pas avant 30 jours à 30 ppm, alors que l'air d'une maison ne devrait pas dépasser 10 ppm sur 24 h : seul le chiffre affiché montre la faible dose qui donne mal à la tête, et s'il monte ou baisse quand on ouvre la porte | 1, 3, 4, 12, 82, 83, 87 |
+| Avertisseur de **monoxyde de carbone** à pile, **à affichage numérique en ppm**, remplacé à la date donnée par le fabricant (7 à 10 ans après la date de fabrication inscrite au dos, selon le modèle, ou 7 ans quand on ne connaît pas le modèle) | 1 par étage habité, 1 par chambre où l'on dort porte fermée, 1 dans la pièce du poêle, à au moins 2 m de lui | **Les deux** | Rien d'autre ne détecte le monoxyde, et chaque façon de continuer sans le réseau en ajoute une source : le poêle qui remplace le propane, la génératrice, la chaufferette, le fumoir adossé au mur. Un avertisseur ne sonne pas avant 30 jours à 30 ppm, alors que l'air d'une maison ne devrait pas dépasser 10 ppm sur 24 h : seul le chiffre affiché montre la faible dose qui donne mal à la tête, et s'il monte ou baisse quand on ouvre la porte | 1, 3, 4, 12, 82, 83, 87 |
 | Piles neuves pour les avertisseurs, rangées **à part**, au chaud | 1 jeu par appareil, par saison | **Les deux** | Rangées avec les autres, elles finissent dans une lampe ou un jouet, et l'avertisseur se tait | 9, 85 |
 | Avertisseur de **fumée**, remplacé **10 ans après sa date de fabrication** | 1 par chambre, 1 au corridor, 1 par étage, sous-sol compris | **Les deux** | Il réveille les gens qui dorment : dans un bâtiment en feu, on a moins de 3 minutes pour sortir. La date de fabrication est imprimée au dos de l'appareil, et sa cellule vieillit sans signe, même s'il sonne au bouton d'essai | 9, 82 |
 
@@ -85,7 +85,7 @@ famille tient quand même.
 | Auto-injecteur d'épinéphrine, **si une allergie grave est connue dans la maisonnée** | Selon l'ordonnance | **Les deux** | Rien d'autre ne retient une réaction allergique grave le temps d'un trajet de deux heures | 26, 32 |
 | Réserve d'alcool d'un adulte qui en dépend, **si c'est le cas dans la maisonnée** | Assez pour finir une descente, pas jusqu'à la dernière bouteille : à 10 verres par jour, **250 verres sur 43 jours**, au moins (ch. 38, étape 57) | **Les deux**, la réserve voyage avec la personne | Chez une personne qui dépend de l'alcool, le sevrage commence quelques heures après le dernier verre, et il peut tuer. Il arrive le jour où la réserve finit : la réserve décide donc si l'arrêt se fait en descente, avec les verres versés par l'autre adulte, ou d'un coup | 38 |
 | Armoire ou coffre qui barre, pour les armes et la pharmacie, verrou de pontet pour chaque arme, contenant à part pour les munitions, et **deux jeux de clés** | 1 armoire, 1 verrou par arme, 2 jeux de clés | **Les deux** | Quand un adulte va mal, l'autre garde les clés des armes et de la pharmacie, comme ils l'ont convenu par écrit avant l'hiver : chaque minute mise entre l'intention et l'arme compte (ch. 36). Le deuxième jeu de clés sert le jour où la personne qui porte le premier est blessée, ou n'est pas revenue | 16, 36 |
-| Sachets de **solution de réhydratation orale**, datés, et jus d'orange non sucré en conserve pour la recette de rechange | Une réserve pour toute la maisonnée | **Les deux** | Une gastro chez tout le monde, sans eau courante, déshydrate un jeune enfant en une journée. On mesure la recette de rechange au millilitre, le sel à 2,5 mL près (dernière partie, E) : la nuit, quand toute la maison est malade, les sachets évitent l'erreur de mesure | 26, 30, 31, 32, 39 |
+| Sachets de **solution de réhydratation orale**, datés, et jus d'orange non sucré en conserve pour la recette de rechange | Une réserve pour toute la maisonnée | **Les deux** | Une gastro chez tout le monde, sans eau courante, déshydrate un jeune enfant en une journée. On mesure la recette de rechange au millilitre, et le sel, 2,5 mL, à la seringue graduée (dernière partie, E) : la nuit, quand toute la maison est malade, les sachets évitent l'erreur de mesure | 26, 30, 31, 32, 39 |
 | Thermomètre médical numérique, et piles de rechange | 2 | **Les deux** | La fièvre sépare un enfant qui couve quelque chose d'un enfant avec qui il faut partir tout de suite. Sous 35 °C, le thermomètre montre l'hypothermie avant que ses signes se voient. On en garde deux parce qu'on ne peut pas le fabriquer | 1, 2, 26, 30 |
 | **Savon** ordinaire, sans le rationner | 1 pain ou 1 bouteille par point d'eau, et une réserve de 12 mois | **Les deux** | Le savon décolle de la peau les microbes de la tularémie, de l'échinococcose et de la gastro, sans les tuer, et le rinçage les emporte. On peut le fabriquer (dernière partie, E ; ch. 112), mais il faut du gras, des cendres et des jours : d'ici là, on l'achète et on ne le rationne pas | 31, 48, 55, 112 |
 | **Gants jetables** de nitrile, en boîte | Une boîte pleine par lieu | **Les deux** | La tularémie entre par une éraflure de la peau, et le lièvre est la seule viande fraîche de janvier : on porte des gants pour dépouiller et vider une bête | 22, 48 |
@@ -192,7 +192,7 @@ réserves.
 | Coton à fromage (étamine), ficelle de boucher, crochets en S | À compter **par carcasse**, pas par année | **Chalet** | L'étamine laisse passer l'air et arrête les mouches | 9, 62 |
 | Glacières isolées, et bacs de plastique opaques de 20 L à couvercle | 2 glacières, 4 à 6 bacs | **Les deux** | Un poisson se gâte en quelques heures, un quartier d'orignal en une journée | 57, 75 |
 | Contenants **non réactifs** de qualité alimentaire : plastique alimentaire, acier inoxydable, grès vernissé | 2 grands, 2 petits, et 1 par fournée de fermentation | **Chalet** | Le sel humide attaque l'aluminium, le fer galvanisé et le cuivre : le métal passe dans la saumure, puis dans la viande | 67, 69, 80 |
-| **Sel nitrité** : un mélange de sel et de nitrite de sodium, avec sa teneur écrite sur l'emballage | Le poids de viande prévu en salaison longue ou en fumage à froid, à la dose de l'emballage | **Maison → chalet** | Il est la deuxième barrière contre le botulisme dans la salaison longue ; sans lui, pas de fumage à froid (ch. 69). Le salpêtre ne le remplace pas : on ne dose pas les deux de la même façon (ch. 67) | 5, 9, 67, 68, 69 |
+| **Sel nitrité** : un mélange de sel et de nitrite de sodium, avec sa teneur écrite sur l'emballage | Le poids de viande prévu en salaison longue ou en fumage à froid, multiplié par la dose par kilogramme que donne la formule du ch. 67 (étape 21) à partir de la teneur écrite sur l'emballage | **Maison → chalet** | Il est la deuxième barrière contre le botulisme dans la salaison longue ; sans lui, pas de fumage à froid (ch. 69). Le salpêtre ne le remplace pas : on ne dose pas les deux de la même façon (ch. 67) | 5, 9, 67, 68, 69 |
 | Balance **au 0,1 g** | 1 | **Maison → chalet** | La dose de nitrite d'un lot tient en quelques grammes : sans cette balance, on ne met pas de nitrite (ch. 67) | 67, 69 |
 | **Autoclave** (marmite à pression pour les conserves) avec manomètre ou soupape calibrée, son livret de temps de traitement éprouvés, et **un joint et une soupape de rechange** | 1, du plus grand volume que le poêle peut porter | **Maison → chalet** | Sans lui, on ne peut pas mettre en conserve la viande, le poisson et les légumes, qui sont peu acides (ch. 78). Il sauve aussi un congélateur qui dégèle (ch. 74) | 74, 78 |
 | Pots de type Mason à épaulement, **couvercles plats neufs**, marmite haute avec une grille au fond, pince à pots, minuteries dont une **mécanique** | 1 couvercle neuf par pot à remplir, **plus 20 %** | **Maison → chalet** | On réutilise les bagues ; le couvercle plat ne sert qu'une fois. Un pot posé sur le métal chaud éclate. Le botulisme ne change ni l'odeur, ni le goût, ni l'apparence d'une conserve | 78 |
@@ -330,10 +330,11 @@ qui est dissous. L'ébullition ne retire ni l'arsenic, ni le manganèse, ni le p
 **concentre**, parce que l'eau s'en va et qu'eux restent. Une eau qu'on soupçonne d'un produit chimique, on ne la
 fait pas bouillir : on change de source.
 
-**La javel sans seringue de 1 mL.** On dose un bidon de 20 L d'un coup : **4 mL de javel à 5,25 %**, mesurés avec
-une seringue de pharmacie de 5 ou 10 mL qu'on réserve ensuite à la javel. On brasse, puis on attend 30 minutes dans
-une eau à plus de 20 °C, et plus longtemps dans une eau froide (ch. 10, étape 21). Une mesure de 4 mL se lit mieux
-à la lampe frontale que vingt gouttes comptées.
+**La javel sans seringue de 1 mL.** On dose un bidon de 20 L d'un coup : **4 mL de javel à 5,25 %**, ou **8 mL**
+si l'eau est froide, un peu trouble ou un peu colorée. On mesure la javel avec une seringue de pharmacie de 5 ou
+10 mL, qu'on réserve ensuite à la javel. On brasse, puis on attend 30 minutes dans une eau à plus de 20 °C, au moins
+1 heure dans une eau plus froide, et 2 heures ou plus sous 10 °C (ch. 10, étapes 20 et 21). Une seule mesure à la
+seringue se lit mieux à la lampe frontale que des dizaines de gouttes comptées.
 
 **La javel qui ne sent plus rien à l'ouverture a perdu son chlore.** On ne la rattrape pas en doublant la dose,
 parce qu'on ne connaît plus sa force : on fait bouillir l'eau. Sans javel du tout, on fait du chlore avec de
@@ -399,10 +400,11 @@ deux de la même façon.
 
 **Rien ne mesure 74 °C à cœur à la place du thermomètre à sonde.** Le jus clair, la couleur et la fermeté sous le
 doigt sont des indices, pas une mesure, et rien ne se voit quand le gibier atteint **74 °C à cœur**. Sans
-thermomètre, on cuit au bouilli : coupée mince dans un liquide qui bout à gros bouillons, la viande dépasse 74 °C ;
-le rôti, le grillé, l'ours et le gibier haché sortent du menu (ch. 18, section 7). Et on vérifie le thermomètre
-qu'on a : dans l'eau glacée brassée, il doit lire 0 °C ; dans l'eau qui bout à gros bouillons, 100 °C. Quand on
-connaît son écart, on corrige de tête un thermomètre décalé.
+thermomètre, on cuit au bouilli : on coupe la viande mince et on la met dans un liquide qui bout à gros bouillons.
+Après le dernier morceau, on attend que le liquide bouille de nouveau franchement, puis on laisse cuire jusqu'à ce
+que le centre soit brûlant. Le rôti, le grillé, l'ours et le gibier haché sortent du menu (ch. 18, section 7). Et on
+vérifie le thermomètre qu'on a : dans l'eau glacée brassée, il doit lire 0 °C ; dans l'eau qui bout à gros
+bouillons, 100 °C. Quand on connaît son écart, on corrige de tête un thermomètre décalé.
 
 **La potence et le gambrel.** Une perche de bois franc de la grosseur du bras, une encoche en V à chaque bout pour
 les jarrets, une entaille au milieu pour la corde. On lève la bête au palan, à la moufle improvisée du ch. 109, ou
@@ -557,6 +559,6 @@ On achète ces lignes pendant que les magasins sont ouverts.
 
 ## Si on n'achète qu'une chose ce mois-ci
 
-**L'avertisseur de monoxyde de carbone à pile, à affichage numérique en ppm : un par étage habité, un par chambre où l'on dort porte fermée, un près du poêle.**
+**L'avertisseur de monoxyde de carbone à pile, à affichage numérique en ppm : un par étage habité, un par chambre où l'on dort porte fermée, un dans la pièce du poêle, à au moins 2 m de lui.**
 
 Il fonctionne pendant que tout le monde dort, et rien ne le remplace (ligne 1.A).

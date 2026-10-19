@@ -169,7 +169,7 @@ RAPPORT_JS = r"""<script>
     if(document.documentElement.dataset.ready !== '1') return; clearInterval(t);
     const st = JSON.parse(document.getElementById('stats').textContent);
     const num = el => { const p = el.closest('.page'); return p ? +p.id.slice(p.id.lastIndexOf('-') + 1) : null; };
-    const out = {pages: st.pages || document.querySelectorAll('#book > .page').length, warn: st.warn || [], mots: st.mots || {}, figs: [], secs: {}, cotes: ''};
+    const out = {pages: st.pages || document.querySelectorAll('#book > .page').length, warn: st.warn || [], mots: st.mots || {}, figs: [], secs: {}, cotes: '', notes: st.notes || []};
     document.querySelectorAll('#book > .page').forEach(p => out.cotes += p.classList.contains('recto') ? 'r' : 'v');
     document.querySelectorAll('.page img.planche').forEach(i => out.figs.push({id: (i.alt || '').replace(/^Planche\s*/, ''), page: num(i), taille: 'pleine', src: i.getAttribute('src')}));
     document.querySelectorAll('.page figure.fig.pl').forEach(f => { const i = f.querySelector('img'); out.figs.push({id: f.dataset.id, page: num(f), taille: 'demi', src: i ? i.getAttribute('src') : ''}); });
@@ -1337,6 +1337,18 @@ def main():
         for c, so in series:
             if so:
                 L.append(f"| {c['num']} | {', '.join(str(c['debut'] + x - 1) for x in so)} |")
+        L.append("")
+    # où chaque note « En plus » s'est posée (chapitre.js, stats.notes) : la page, l'étape qui la précède, dans le fil du
+    # texte ou dans un trou de la page (JP, 18-19 octobre 2026 : une par page, près de l'étape qu'elle nomme)
+    lignes_notes = [(c, x) for c in chaps for x in c["rapport"].get("notes") or []]
+    if lignes_notes:
+        L.append("## Notes « En plus »\n")
+        L.append("| Ch. | Note | Page du tome (du chapitre) | Renvoie à | Posée après | Où |\n| --- | --- | --- | --- | --- | --- |")
+        for c, x in lignes_notes:
+            ren = ", ".join(map(str, x.get("renvoie") or [])) or "—"
+            apr = (f"étape {x['apres']}" if x.get("apres") else "") + (f" ({x['sous']})" if x.get("sous") else "")
+            L.append(f"| {c['num']} | {x.get('titre', '')} | {c['debut'] + x['page'] - 1} ({c['num']}-{x['page']}) | étape(s) {ren} | "
+                     f"{apr or '—'} | {'dans le fil du texte' if x.get('fil') else 'dans un trou de la page'} |")
         L.append("")
     L.append("## Contrôle Blurb\n")
     ok = lambda b: "oui" if b else "**NON**"

@@ -28,13 +28,13 @@ et se sortir vivant de la glace qui cède ou de la machine qui s'arrête loin de
 
 ## 3. Matériel
 
-- **Pics à glace, au cou par-dessus le manteau** : deux poignées à pointe qui mordent la glace où les mains glissent (section 7).
+- **Pics à glace, au cou par-dessus le manteau** : deux poignées à pointe qu'on plante dans la glace pour se hisser hors de l'eau (pour les faire : section 7).
 - **Corde qui flotte, 15 m au moins** : on la lance à la personne dans l'eau sans s'approcher du trou (étape 8).
-- **Tarière ou ciseau à glace, et ruban** : percer la glace et lire son épaisseur (étape 40 ; ciseau : ch. 111).
-- **Pelle** : dégager le tuyau d'échappement et les roues d'une auto prise dans la neige (étapes 11 et 17).
+- **Tarière ou ciseau à glace, et ruban à mesurer** : pour percer la glace et mesurer son épaisseur (étape 40 ; pour fabriquer le ciseau : ch. 111).
+- **Pelle** : pour dégager le tuyau d'échappement et les roues d'une auto prise dans la neige (étapes 11 et 17).
 - **Avertisseur de CO à pile, à affichage** : le seul moyen de savoir que l'auto, l'abri ou la maison se remplit de monoxyde.
 - **Bidons à essence, bouchon vissé** : ils ferment sans laisser sortir la vapeur ; on y écrit la date et la part.
-- **Trousse d'allumage, sur soi** : pour le feu qui suit une chute à l'eau ou une nuit dehors (ch. 13).
+- **Trousse d'allumage, sur soi** : pour faire un feu après une chute à l'eau ou pour passer une nuit dehors (ch. 13).
 
 ---
 
@@ -43,18 +43,18 @@ et se sortir vivant de la glace qui cède ou de la machine qui s'arrête loin de
 ### On passe à travers la glace {.orange 10 min}
 
 1. **Si l'auto passe à travers la glace, en sortir tout de suite, par une fenêtre de côté.** Une
- auto flotte de quelques secondes à quelques minutes, puis elle coule : on sort pendant qu'elle flotte. La
+ auto flotte de quelques secondes à quelques minutes avant de couler. La
  pression de l'eau retient souvent les portières ; ouvrir les fenêtres de côté, ou casser une vitre avec un
  objet dur pris dans l'auto, ou la défoncer à coups de pied, et faire passer tout le monde par là. Ne pas
  retourner dans l'auto chercher quoi que ce soit. Dans l'eau, faire les étapes 2 à 7.
  - Si l'auto coule avant qu'on soit sorti, continuer d'essayer d'ouvrir une portière ou une vitre : à mesure
- que l'eau remplit l'auto, la portière s'ouvre un peu plus facilement.
+ que l'eau remplit l'auto, on ouvre la portière un peu plus facilement.
  - L'auto a pu se retourner en coulant. Pour trouver la surface, se laisser remonter : le corps flotte vers le
  haut, et on nage dans ce sens.
 2. {!eau-froide} **Dans l'eau, pendant la première minute, garder la tête hors de l'eau et ralentir son
  souffle.** Pendant cette minute, on respire très vite sans pouvoir s'en empêcher ; si la tête passe sous
- l'eau, on avale de l'eau. Ne pas essayer de sortir ni de nager : garder le visage hors de l'eau, s'appuyer au
- bord et souffler lentement jusqu'à ce que le souffle se calme.
+ l'eau, on avale de l'eau. Ne pas essayer de sortir ni de nager : s'appuyer au bord de la glace et souffler
+ lentement jusqu'à ce que la respiration se calme.
  - **Garder ses vêtements d'hiver**, même lourds : ils retiennent de l'air qui tient chaud et aide à
  flotter, surtout un habit de motoneige.
  - **Lâcher la motoneige** et ce qui y est attaché : elle coule.
@@ -62,7 +62,7 @@ et se sortir vivant de la glace qui cède ou de la machine qui s'arrête loin de
  les forces.
 3. **Prendre les pics à glace, s'il y en a au cou** (planche 15-01, repère 1). Ce sont deux poignées de
  bois à pointe de métal, reliées par un cordon et portées sur la poitrine, la pointe de l'une rentrée dans
- l'autre (section 7 pour les faire). Tirer les deux poignées chacune de son côté pour les séparer. Sans
+ l'autre (pour les faire : section 7). Tirer les deux poignées chacune de son côté pour les séparer. Sans
  pics, serrer dans chaque poing ce qu'on a de pointu : une clé, un couteau, un tournevis, un gros clou. Sans
  rien de pointu, faire l'étape 5 à mains nues (dernier point de l'étape).
 4. **Se tourner vers le côté par où on est arrivé** (repère 2). La glace de ce côté vient de porter : c'est
@@ -70,7 +70,7 @@ et se sortir vivant de la glace qui cède ou de la machine qui s'arrête loin de
  - Poser les avant-bras à plat sur la glace (repère 3).
  - Tenir un pic dans chaque poing, la pointe qui sort sous le petit doigt et touche la glace (repère 4).
  - Si les vêtements sont pleins d'eau, se soulever un peu sur les coudes et attendre quelques secondes que
- l'eau s'en égoutte avant de tirer : l'eau des vêtements alourdit le corps qu'il faut hisser.
+ l'eau s'égoutte des vêtements avant de tirer.
 5. **Se hisser à plat ventre.**
  - Planter les pics près du bord, environ 30 cm plus près que le bout des bras (repère 5). Le réflexe est
  de les planter le plus loin possible ; plus près, le poids passe sur les pics et les coudes, et le haut du
@@ -78,46 +78,46 @@ et se sortir vivant de la glace qui cède ou de la machine qui s'arrête loin de
  - Battre des jambes sans arrêter, comme pour nager, pour ramener le corps à l'horizontale derrière soi
  (repère 6). À plat, le corps glisse sur la glace ; à la verticale, il faut le soulever à la force des
  bras.
- - Tirer en glissant vers l'avant, puis replanter un peu plus loin (repère 7), et recommencer jusqu'à ce que
+ - Tirer en glissant vers l'avant, puis replanter les pics un peu plus loin (repère 7), et recommencer jusqu'à ce que
  les jambes sortent de l'eau.
  - **Autre façon, à mains nues.** Étendre les bras le plus loin possible sur la glace qui a porté, les
- avant-bras et les mains à plat. Battre des jambes jusqu'à ce que le corps soit à l'horizontale, puis tirer
- sur les avant-bras et les coudes en même temps que les jambes poussent, un peu à la fois. Les mains mouillées
+ avant-bras et les mains à plat. Battre des jambes jusqu'à ce que le corps soit à l'horizontale, puis se
+ tirer sur les avant-bras et les coudes pendant que les jambes battent, un peu à la fois. Les mains mouillées
  glissent sur la glace : on avance par petites poussées, en gardant les coudes au sol, pas en tirant d'un
  seul coup.
-6. **Une fois sorti, rester couché et rouler pour s'éloigner du trou** (repère 8). Couché, le poids
+6. **Une fois sorti, rester couché et rouler pour s'éloigner du trou** (repère 8). Quand on est couché, le poids
  s'étale sur toute la longueur du corps, et la glace risque moins de céder une deuxième fois. Rouler ou
  ramper jusqu'à ses propres traces : cette glace a porté à l'aller. Se relever seulement là, ou
  sur la rive, puis se mettre au chaud (étape 10).
 7. **Si on n'est pas sorti au bout d'une dizaine de minutes, arrêter de forcer.** Après la première minute,
  les bras, les jambes et les doigts gardent leur force une dizaine de minutes, puis ils ne répondent plus.
- Sortir de l'eau le plus de corps possible, garder les avant-bras posés sur la glace et la tête hors de
+ Sortir le plus possible du corps hors de l'eau, garder les avant-bras posés sur la glace et la tête hors de
  l'eau, ne plus bouger, et siffler. Même dans l'eau glacée, on peut mettre une heure à perdre connaissance
  par le froid : bien avant, on meurt noyé si la tête passe sous l'eau. Ne pas nager pour se réchauffer.
 
 ### Quelqu'un d'autre passe à travers la glace {.orange 10 min}
 
 8. {!glace} **Ne pas courir jusqu'au trou.** Autour du trou, la glace est aussi mince : la personne qui court
- à son secours passe à travers à son tour, et on a deux personnes dans l'eau. Rester sur la glace qui a porté,
+ à son secours passe à travers à son tour. Rester sur la glace qui a porté,
  s'approcher couché s'il le faut, et crier à la personne dans l'eau de se tourner vers le côté par où elle est
  arrivée, de poser les avant-bras sur la glace et de battre des jambes (étapes 4 et 5).
  - Lui tendre ou lui lancer quelque chose (planche 15-03, repère 1) : une corde, une perche, une branche,
  une échelle, les câbles de survoltage de l'auto. Un bidon vide, bouché serré et noué au bout de la corde, la
  fait flotter et lui donne du poids pour la lancer loin (repère 2).
- - Lui faire passer la corde autour du corps, sous les bras, et la nouer (repère 3) pendant que ses mains
- serrent encore : au bout de quelques minutes dans l'eau, elles ne tiennent plus rien.
- - Tirer pendant qu'elle bat des jambes, en la gardant à plat ventre sur la glace (repère 4). Si elle
- entraîne le sauveteur vers le trou, lâcher la corde et recommencer.
+ - Lui faire passer la corde autour du corps, sous les bras, et la lui faire nouer (repère 3) pendant que ses
+ mains ont encore de la force (étape 7).
+ - Tirer pendant qu'elle bat des jambes, en la gardant à plat ventre sur la glace (repère 4). Si on se sent
+ entraîné vers le trou, lâcher la corde et recommencer.
 9. **Si rien ne l'atteint, aller la chercher couché, en poussant quelque chose devant soi** (repère 5) : le
  toboggan, une chaloupe légère, une échelle ou une longue branche. Mettre ses pics au cou et s'attacher à une
  corde que tient un autre adulte resté sur la glace qui a porté : si la glace cède, il tire le sauveteur
- hors de l'eau. Arrivé près du trou, tendre le bout de ce qu'on pousse à la personne ; avec une chaloupe,
+ hors de l'eau. Une fois près du trou, tendre le bout de ce qu'on pousse à la personne ; avec une chaloupe,
  monter dedans et la hisser à bord par l'avant. Un sauveteur seul, sans personne pour tenir sa corde, n'a
  que ses pics si la glace cède sous lui (étapes 2 à 7).
 10. {!froid} **Hors de l'eau, mettre la personne au chaud et au sec tout de suite.**
  - La garder couchée, et la traîner ou la porter jusqu'à l'abri le plus proche : l'auto, le chalet ou un
- feu. Debout ou en marchant, le sang froid des jambes remonte vers le cœur, et un cœur refroidi peut
- s'arrêter. Une personne seule n'a pas ce choix : elle marche jusqu'à l'abri, ou elle fait un feu sur place
+ feu. Quand elle se tient debout ou qu'elle marche, le sang froid des jambes remonte vers le cœur, et un
+ cœur refroidi peut s'arrêter. Une personne seule doit marcher jusqu'à l'abri, ou faire un feu sur place
  (ch. 13, étapes 1 à 7).
  - À l'abri, lui enlever doucement ses vêtements mouillés, lui mettre des vêtements secs et la coucher dans
  un sac de couchage fermé jusqu'en haut, avec quelque chose d'épais dessous.
@@ -126,7 +126,7 @@ et se sortir vivant de la glace qui cède ou de la machine qui s'arrête loin de
  - Si elle est éveillée et alerte, qu'elle frissonne et qu'elle avale sans peine, lui donner à boire chaud et
  sucré, sans alcool.
  - S'occuper d'un enfant en premier.
- - La suite du réchauffement, et les signes qui disent que c'est grave : ch. 25, étapes 5 à 14.
+ - Pour la suite du réchauffement, et les signes qui montrent que c'est grave : ch. 25, étapes 5 à 14.
 
 ### La machine s'arrête loin de tout, l'hiver {.orange 30 min}
 
@@ -142,16 +142,16 @@ et se sortir vivant de la glace qui cède ou de la machine qui s'arrête loin de
  ralenti brûlent de 0,25 à 0,5 L : à ce rythme, l'auto consomme de 0,5 à 1 L par heure d'attente, et 10 L
  donnent de 10 à 20 heures de chauffage. Lire la jauge et compter les heures qui restent. Si quelqu'un a mal
  à la tête, mal au cœur ou s'endort pendant que le moteur tourne, couper le moteur, ouvrir grand les
- portières et faire sortir tout le monde à l'air tout de suite : la personne qui s'endort dans l'auto,
+ portières et faire sortir tout le monde dehors tout de suite : la personne qui s'endort dans l'auto,
  moteur en marche, est en danger de mort. Dégager l'échappement avant de redémarrer.
-14. **Allumer les feux de détresse, et ménager la batterie** : la lumière, le chauffage et la radio à tour
- de rôle, jamais ensemble. La batterie doit garder assez de charge pour redémarrer le moteur à chaque
+14. **Allumer les feux de détresse, et ménager la batterie** : faire marcher la lumière, le chauffage et la
+ radio à tour de rôle, jamais ensemble. La batterie doit garder assez de charge pour redémarrer le moteur à chaque
  demi-heure.
 15. **Rester dans l'auto.** Elle coupe le vent, on la voit de loin, et si quelqu'un connaît le trajet et
- l'heure d'arrivée (étape 32), il viendra par ce chemin. On la quitte seulement pour un bâtiment qu'on voit
- depuis l'auto.
+ l'heure d'arrivée (étape 32), il viendra par ce chemin. La quitter seulement pour aller à un bâtiment qu'on
+ voit depuis l'auto.
 16. **Garder la chaleur.**
- - Regrouper tout le monde sous les couvertures, avec tuques et mitaines.
+ - Faire mettre à chacun sa tuque et ses mitaines, et regrouper tout le monde sous les couvertures.
  - Glisser quelque chose d'épais entre le corps et le plancher ou les parois de métal (un tapis, un sac, un
  manteau) : un corps perd beaucoup de chaleur par ce qu'il touche.
  - Bouger les doigts, les orteils et le visage de temps en temps, pour sentir les endroits qui
@@ -170,36 +170,35 @@ et se sortir vivant de la glace qui cède ou de la machine qui s'arrête loin de
  - Si la machine ne repart pas et qu'on peut arriver avant la nuit, revenir à pied dans sa propre trace, en
  raquettes si la neige est profonde (ch. 89). La neige y est tassée, et si quelqu'un attend le retour, il
  viendra par là.
- - Sinon, s'installer pour la nuit au bord de la trace, avec un feu et un abri (ch. 12 et ch. 13), et y
- attendre.
+ - Sinon, faire un abri et un feu au bord de la trace (ch. 12 et ch. 13), et y passer la nuit.
  - En marchant, se regarder le visage l'un l'autre à chaque arrêt (étape 38).
 
 ### La réserve de carburant
 
-19. **Compter les usages avant les litres.** Faire le tour des moteurs de la maison et du chalet : l'auto,
+19. **Faire la liste des moteurs avant de compter les litres.** Faire le tour des moteurs de la maison et du chalet : l'auto,
  la motoneige, le VTT, la scie à chaîne, la génératrice, la pompe. Noter pour chacun le carburant exact
  (essence, diesel, mélange deux temps) et l'endroit où la machine passe l'hiver, à la maison ou au
- chalet : son carburant doit être au même endroit qu'elle.
+ chalet : le carburant de chaque machine doit être au même endroit qu'elle.
 20. **Mesurer la consommation réelle de chaque moteur.** Faire le plein, noter le compteur ou l'heure,
  rouler ou travailler, refaire le plein et diviser les litres par les kilomètres ou par les heures. Faire
- trois mesures par machine, l'hiver et chargé, et garder la plus forte. Les consommations publiées sont
- mesurées au chaud et à vide : le froid seul fait monter celle d'une auto en ville de 12 à 28 % dès 7 °C,
- une route enneigée en ajoute de 7 à 35 %, et rien n'est publié pour une motoneige chargée à −30 °C.
+ trois mesures par machine, l'hiver, la machine chargée, et garder la plus forte. Les consommations publiées
+ sont mesurées au chaud et à vide : quand la température passe de 24 à 7 °C, le froid seul fait monter celle
+ d'une auto en ville de 12 à 28 %, une route enneigée en ajoute de 7 à 35 %, et rien n'est publié pour une motoneige chargée à −30 °C.
 21. **Séparer la réserve en parts nommées**, et écrire le nom sur chaque bidon au crayon gras : *scie*,
  *génératrice*, *déplacement*, *intouchable*. La part *intouchable* sert au départ pour faire soigner
  quelqu'un (ch. 35), et on ne l'ouvre que si deux adultes le décident ensemble. À la maison, la part
  *déplacement* a un seul usage : le transfert au chalet avec la famille et la charge, tant que la route est
  ouverte (ch. 2). Sans nom sur les bidons, on puise d'abord dans la part du déplacement, pour des
  commissions.
-22. {!vapeurs} **Sortir l'essence du bâtiment où on dort.** Dans ce bâtiment, il ne reste que l'essence des
- réservoirs des machines ; le reste va dans un dépôt à part. La vapeur des bidons coule au ras du sol jusqu'au
+22. {!vapeurs} **Sortir l'essence du bâtiment où on dort.** Ne garder dans ce bâtiment que l'essence qui est
+ dans le réservoir des machines, et mettre le reste dans un dépôt à part. La vapeur des bidons coule au ras du sol jusqu'au
  point le plus bas du bâtiment, le plancher du chalet ou le sous-sol.
 23. **Monter le dépôt au bon endroit.**
- - Plus haut que le chalet ou la maison, jamais en contrebas : la vapeur et l'essence qui coule descendent la
- pente.
- - Non chauffé, à l'ombre, aéré au ras du sol, là où la vapeur s'accumule : un abri de planches espacées,
- ouvert dans le bas, garde moins la vapeur qu'un cabanon fermé.
- - Rien dedans qui fait une flamme ou une étincelle : ni lampe, ni moteur, ni interrupteur, ni prise.
+ - Le placer plus haut que le chalet ou la maison, jamais en contrebas : la vapeur et l'essence qui coule
+ descendent la pente.
+ - Le choisir non chauffé, à l'ombre, et aéré au ras du sol, là où la vapeur s'accumule : un abri de planches
+ espacées, ouvert dans le bas, garde moins la vapeur qu'un cabanon fermé.
+ - Ne rien y mettre qui fait une flamme ou une étincelle : ni lampe, ni moteur, ni interrupteur, ni prise.
 24. **Remplir et ranger les bidons.**
  - Remplir chaque bidon posé au sol, jamais dans la boîte de la camionnette : posé sur la doublure de
  plastique, le bidon peut faire une étincelle de statique au goulot pendant qu'on le remplit.
@@ -212,27 +211,27 @@ et se sortir vivant de la glace qui cède ou de la machine qui s'arrête loin de
  en laissant des dépôts collants qui bouchent les petits passages du carburateur. L'éthanol de l'essence
  capte aussi l'humidité de l'air, qui finit en une couche d'eau et d'alcool au fond du bidon, celle que le
  moteur aspire en premier. Avec le stabilisateur versé au remplissage, l'essence reste bonne jusqu'à 24 mois.
- Aucun stabilisateur ne répare une essence vieillie. La dose est celle qui est écrite sur le contenant
- du stabilisateur.
+ Verser du stabilisateur dans une essence déjà vieillie ne la répare pas. Verser la dose écrite sur le
+ contenant du stabilisateur.
 26. **Faire tourner la réserve.** Brûler la plus vieille essence en premier, dans l'auto ou la génératrice,
  et garder la plus fraîche pour la scie et la motoneige : les dépôts bouchent d'abord les petits
  carburateurs, et on dépend de ces deux machines pour se chauffer et pour rentrer.
-27. **Inspecter les bidons chaque mois.** Une trace sombre dessous, un bouchon qui suinte, un bidon gonflé
- par la chaleur : transvider l'essence dehors dans un bidon sain, et jeter le contenant.
+27. **Inspecter les bidons chaque mois.** S'il y a une trace sombre dessous, un bouchon qui suinte ou un
+ bidon gonflé par la chaleur, transvider l'essence dehors dans un bidon sain, et jeter le bidon abîmé.
 
 ### Décider de partir
 
 28. **Écrire en une phrase pourquoi on part** : ce qu'on va chercher (ch. 9) ou faire, et pourquoi ça ne
- peut pas attendre. Si on n'arrive pas à l'écrire, on remet la sortie : l'ennui et l'envie de bouger se règlent
- autrement (ch. 36).
-29. **Savoir si le chemin est ouvert.** Sur un chemin forestier, personne ne donne l'état : on se fie à la
- date du dernier passage connu et à ce qu'en dit la personne qui l'a fait (ch. 14 et ch. 16). Sans nouvelle
- récente, on fait comme si le chemin était fermé.
+ peut pas attendre. Si on n'arrive pas à l'écrire, remettre la sortie : l'ennui et l'envie de bouger, on les
+ règle autrement (ch. 36).
+29. **Savoir si le chemin est ouvert.** Sur un chemin forestier, personne ne donne l'état du chemin : se fier
+ à la date du dernier passage connu et à ce qu'en dit la personne qui l'a fait (ch. 14 et ch. 16). Sans
+ nouvelle récente, faire comme si le chemin était fermé.
 30. **Partir avec au moins deux fois le carburant que prend le trajet.** Multiplier la consommation mesurée
  (étape 20) par la distance : pour une sortie, deux fois l'aller-retour ; pour un départ sans retour (le
  transfert au chalet, une évacuation), deux fois l'aller. La marge couvre la route enneigée, le détour et le
- moteur qu'on fait tourner pour se chauffer (étape 13). Si la réserve ne permet pas cette marge, on ne part
- pas.
+ moteur qu'on fait tourner pour se chauffer (étape 13). Si la réserve ne permet pas cette marge, ne pas
+ partir.
 31. **Fixer l'heure de demi-tour, pas l'heure d'arrivée** : l'heure du coucher du soleil, moins deux fois le
  temps qu'a pris l'aller. À cette heure-là, on revient, qu'on ait fini ou non. La nuit, on répare une panne à
  la lampe, et on ne voit pas qu'on s'est trompé de trajet.

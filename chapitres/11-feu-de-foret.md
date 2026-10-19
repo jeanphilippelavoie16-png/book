@@ -83,7 +83,7 @@ suite à l'étape 11.
  autour : contre un mur qui chauffe, la bouteille relâche du gaz par sa soupape, et ce gaz prend feu. Sortir
  aussi les bidons d'essence du bâtiment (étape 3).
 9. **Si on a le matériel, fermer les évents avec une maille de métal, et visser de la tôle ou du
- contreplaqué sur les fenêtres qui font face au feu** (planche 11-03, repères 8 à 12). Sans ce matériel :
+ contreplaqué sur les fenêtres qui font face au feu** (planche 11-03, repères 4 et 8 à 12). Sans ce matériel :
  section 7.
 10. **Fixer l'heure du prochain contact avec quelqu'un à l'extérieur**, avant de raccrocher (ch. 14). Si on
  ne donne pas de nouvelles à cette heure-là, cette personne saura qu'il se passe quelque chose.

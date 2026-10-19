@@ -546,3 +546,49 @@ son mot apparaît dans l'id d'un pictogramme (dictionnaire `SECURITE`, l. 52 : l
 `{!mal-de-caribou}` ; « trichin », « thuyone » et « botulisme » attrapent de même `{!trichine}`, `{!thuyone}` et
 `{!botulisme}`). Le contrôle des rappels devrait ignorer le texte entre `{!` et `}`, sinon un rappel qui perd son fait
 n'est jamais signalé.
+
+## Corrections après la vérification technique, 19 octobre 2026 : deuxième relecture
+
+Rôle : rédacteur. Le vérificateur technique a relu les corrections du premier tour (section précédente) et signale
+neuf points : deux erreurs (l'étape 7 et la boîte « entre » du logigramme, qui disent la même chose) et sept « à
+préciser ». **Les neuf sont appliqués, aucun n'est écarté** ; trois le sont avec une autre formulation ou un ajout,
+pour la raison donnée. **Aucune page nouvelle téléchargée** : chaque correction s'appuie sur un fichier déjà au dossier
+ou sur un autre chapitre. Aucune étape renumérotée.
+
+| # | Où | Ce que le vérificateur signale | Ce qui est fait |
+| --- | --- | --- | --- |
+| 1 | Étape 7 (erreur) | « Si elle ne frissonne plus, la porter couchée » laisse marcher jusqu'à la porte une personne qui parle mal, titube ou est confuse mais frissonne encore. Contraire au ch. 25, étape 5 (« Ne pas la faire marcher, ne pas la faire s'asseoir ») et ligne 300 des Signes d'échec (« La personne frissonne **et** répond mal ») ; à la page `froid` (32,2 à 28 °C ; « Ce qu'on fait », point 2) | Appliqué, avec un ajout : « Avec un seul de ces signes, la porter couchée, ou la coucher sur un traîneau ou une couverture et la traîner, sans la faire marcher, jusque dans la maison ou dans un abri dehors (section 7, « Réchauffer quelqu'un sans le faire entrer »). On parlera ensuite. » Le critère est le signe, plus l'arrêt des frissons. **L'ajout** (le traîneau ou la couverture) : une famille ne porte pas un adulte à bras (JP, sur le ch. 16 : « c'est beaucoup de monde », d'où « on le tire en traîneau » au tableau du skill `ecriture`) ; le ch. 25, étape 5, dit « Utiliser une civière improvisée plutôt que de la faire avancer », et le ch. 16, étape 7, sangle le blessé « sur ce qui glisse » (un toboggan, un traîneau à bois, un capot retourné, une porte). La couverture traînée sur la neige ou le plancher est un geste, sans chiffre. « La traîner » et non « la tirer » : dans un chapitre où il est question d'arme, « tirer » se lit de travers |
+| 2 | Logigramme, boîte « entre » (erreur) | La même erreur que l'étape 7 | Appliqué mot pour mot : « **Le porter couché**, sans le faire marcher, dans la maison ou dans un abri dehors. Lui enlever ses vêtements mouillés et mettre de la chaleur sur son tronc. Lui donner à boire seulement s'il est bien éveillé et avale bien. » Le traîneau n'y entre pas : le logigramme est la version courte. La question « Il est blessé, ou il gèle ? » ne change pas : sa précision liste les signes, et la boîte qui suit dit maintenant de porter la personne dans tous les cas. Rendus refaits (`env -u TMPDIR python3 design/outils/logigramme.py images/logigrammes/17-qui-cogne.json`, puis `… --sans-entete --svg`) : 0 erreur, 0 avis chacun ; la boîte passe de six à cinq lignes et tient dans sa colonne (regardée au rendu) |
+| 3 | Section 7, « Réchauffer quelqu'un sans le faire entrer », tirets « Le sol avant tout » et « Les pierres » | L'abri, où l'étape 7 renvoie maintenant la personne qui a les signes du froid, la fait asseoir sur un banc : contraire au ch. 25 (étape 5, ligne 300) et à la page `froid`, point 2 | Appliqué, la phrase nouvelle mise après le lit de branches pour qu'elle ait son antécédent : « Couché ou assis, le corps perd plus de chaleur par le sol que par l'air. Mettre entre la personne et la neige un lit épais […] : ça compte plus qu'une couverture posée sur elle. Une personne qui a les signes de l'étape 7 doit rester couchée sur ce lit, pas assise (étape 8). » (« doit rester » : une consigne, pas le présent qui décrit.) **Les pierres**, que la correction proposée ne touchait pas mais que le vérificateur cite : « les glisser sous le banc ou aux pieds » devient « les poser contre le tronc de la personne (étape 8) ». Il n'y a plus de banc, et l'étape 8 comme la page `froid` (« Ce qu'on fait », point 4 : « Mettre la chaleur (bouillottes, pierres chaudes enveloppées) sur les aisselles, la poitrine et le dos, jamais sur les bras et les jambes ») excluent les pieds ; la bouillotte, deux tirets plus bas, disait déjà « pas sur les mains ni les pieds ». La phrase d'entrée de la sous-section renvoie aux étapes 7 et 10 au lieu de la seule étape 10 |
+| 4 | Étape 11 | Le lien de cause de l'ancienne étape 25 (« l'autre décide avant nous ») s'est perdu : la phrase dit ce que le visiteur voit, plus ce qui s'ensuit | Appliqué mot pour mot : « Pendant la conversation, le visiteur voit l'adulte se retourner pour aller la chercher, et il peut agir le premier, avant que l'adulte revienne. » Source : ancien texte, déjà vérifié |
+| 5 | Étape 18 | « Bâtiment » a sauté de la liste, et la maison n'y est plus, alors que l'étape est dans « Si quelqu'un entre ou reste » | Appliqué mot pour mot : « jamais dans la maison, le hangar, le garage ou un véhicule, ni sous une toile ou un auvent ». Sources : tableau des rappels de `CLAUDE.md` ; page `generatrice` |
+| 6 | Étape 7, « agressive » | Mot nouveau, plus fort que les sources (« irritabilité », « comportement inhabituel ou bizarre ») ; il touche le déclencheur de l'étape 12 (« si le visiteur menace ») | Appliqué autrement : la fin de la phrase (« : à travers une porte, la personne a l'air ivre ou agressive ») sort au complet, au lieu de devenir « ivre ou de mauvaise foi ». Le titre de l'étape dit déjà « même chez une personne qui a l'air ivre ou de mauvaise foi » : la correction proposée l'aurait redit deux lignes plus bas (un fait, une place). La phrase garde les quatre signes (« on parle mal, on titube, on devient confus et on s'obstine sans logique ») ; « agressive » ne reste nulle part dans le chapitre ni dans le logigramme |
+| 7 | Étape 21 | Le poisson fumé gardé à 4 °C ou moins mais plus de 14 jours passait | Appliqué mot pour mot : « …dont on ne sait pas s'il a été gardé à 4 °C ou moins depuis le fumage, et pendant 14 jours au plus. » Relu : `54-sante-canada-poisson-fume-botulisme-type-e.md`, l. 25 et 26 (« maintenu continuellement à une température égale ou inférieure à 4 °C », « n'excédant pas 14 jours ») ; `34-quebec-poisson-fume-conservation.md`, l. 23 et 27 |
+| 8 | Points de contrôle, durée de la conversation dehors | La règle « sans thermomètre, décider tout de suite, par la fenêtre » est partie avec le thermomètre du Matériel ; les bornes de −28, −40 et −48 restent sans moyen de les connaître | Appliqué, à une autre place que « à la fin de la cible » : la cellule commence par ce qui vaut à l'année, puis l'hiver, et finit sur la règle sans thermomètre : « À moins de 2 m, moins de 15 min. L'hiver, 10 min au plus à partir de −28 de refroidissement éolien, 5 min au plus à partir de −40 ; à partir de −48, aucune conversation dehors : décider par la fenêtre ; sans thermomètre, décider tout de suite, par la fenêtre ». Mise après « à moins de 2 m », la règle n'aurait plus dit si elle valait l'hiver seulement. Source : ancien Matériel et anciens Points de contrôle, déjà vérifiés |
+| 9 | En plus, « La place de l'invité chez les Inuits de l'Ungava » | La note fait une règle de ce que Turner donne comme fréquent (« often ») | Appliqué mot pour mot : « souvent derrière une pièce de bois couchée en travers du plancher ». Relu : `autochtones/turner-1894-ethnologie-ungava-gutenberg.txt`, l. 2963 et 2964. La note a 80 mots |
+
+**Rappels du tableau de `CLAUDE.md`, après correction** : inchangés, chacun avec son fait à côté de son pictogramme ;
+la génératrice nomme maintenant la maison (étape 18), et le poisson fumé porte ses 14 jours (étape 21).
+
+### controle.py, avant et après la deuxième relecture
+
+`python3 .claude/skills/ecriture/scripts/controle.py chapitres/17-qui-cogne-a-la-porte.md --avant <copie d'avant>`
+
+| | Avant (premier tour de corrections) | Après |
+| --- | --- | --- |
+| Mots | 5 700 | 5 747 |
+| Tirets | 2 (titre, ligne de tome) | 2 (les mêmes) |
+| « § », tournures, maximes, pronominaux | 0 | 0 |
+| Mises en relief | 2 | 2 (les mêmes, jugées à la refonte) |
+| Mots vides | 18 | 19 : le nouveau est « décider tout de suite » (Points de contrôle), la consigne même |
+| Redites | 3 | 3 (les mêmes renvois de section 7, jugés à la refonte) |
+| Invariants | | Rien n'a disparu |
+
+Les 47 mots de plus : le traîneau ou la couverture (étape 7), la conséquence du geste vers l'arme (étape 11), la
+personne qui reste couchée sur le lit de branches, la règle sans thermomètre, les 14 jours. Fins de ligne CRLF gardées
+dans le chapitre ; quatre paragraphes remis à la largeur (étapes 18 et 21, les pierres, la note de l'Ungava), sans
+autre changement.
+
+**Pour l'orchestrateur (fichiers communs, non touchés)** : dans `design/epreuves-livre/placements-tome-1.json`, clé
+« 17 », le logigramme a encore `apres` = « Régler une visite imprévue sur le seuil », qui n'existe plus dans le
+chapitre : le remplacer par « **Barre de porte** » (dernier item du Matériel). La planche 17-06 garde son ancre.

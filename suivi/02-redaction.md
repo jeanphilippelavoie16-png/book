@@ -577,3 +577,27 @@ Mots vides : 38, jugés (le nouveau « Tout le monde est dehors » porte le sens
 démarrer l'auto », qui porte les chiffres. Invariants : seul « ch. 82 » disparaît (renvoi faux, remplacé par ch. 11).
 
 **`[À VÉRIFIER]`** dans le texte : 1 (la pastille de la seconde série du CO).
+
+### Repassé le 19 octobre 2026 (seconde remise du même rapport)
+
+Le rapport du vérificateur (12 points) est revenu tel quel. Chaque point relu contre le chapitre tel qu'il est
+commité : les points 1, 3 à 10 sont dans le texte (tableau « Appliqué »), le point 2 reste coupé (« Appliqué
+autrement »), le logigramme porte déjà les deux séries du CO et « le bâtiment qu'on quitte ». Rien de neuf à appliquer.
+
+- **Seul changement au chapitre** : trois paragraphes remis à la ligne (étape 27, 1re puce ; étape 37 ; section 7,
+  « Sans radio à piles »), où une ligne avait été coupée au milieu par la correction précédente. Aucun mot changé.
+- **Renvois des autres chapitres, revus sur les fichiers d'aujourd'hui** : ch. 3 juste (l. 139 « étape 43 », l. 150
+  « étapes 4 à 8 », l. 307 « étape 4 ») ; ch. 7 juste (étapes 25 à 42, 16 à 24, 20) ; ch. 14 sans renvoi à la note
+  « L'onde AM, la nuit » (le fait est écrit l. 146). Restent à corriger par l'intégrateur : ch. 11, l. 118 ; ch. 40,
+  l. 283 ; ch. 84, l. 389, 421, 452, 458, 548, 627 et 723 (mot pour mot dans la réponse de l'agent).
+- **Fichiers communs** (rendus, non touchés) : l'ancre du logigramme (dernier item du Matériel), le paragraphe du
+  ch. 02 de `plan/dangers-inventaire.md` (section 3) aux étapes d'aujourd'hui, la colonne « Chapitres » de la
+  section 1 (2 ajouté à `electrocution`, `vapeurs`, `feu-de-foret`, `projection`, `cuisson`, `abats`), la section 2.1
+  (la chandelle n'est plus au ch. 2), les « Où il revient » des pages concernées, et le point 4 de la page
+  `projection`, qui dit encore « Dégeler une batterie avant de la charger ou de la survolter » sans la batterie aux
+  parois bombées (même défaut que le point 1 du vérificateur).
+- **controle.py** (contre `git show 17487ee^:chapitres/02-rester-ou-partir.md`) : 6 524 mots ; 2 tirets (titre et
+  ligne de tome) ; 0 « § » ; 0 tournure, 0 maxime, 0 pronominal, 0 mise en relief ; 38 mots vides jugés ; 5 redites
+  jugées (les mêmes qu'à la correction) ; invariants : seul « ch. 82 » disparaît (renvoi faux, remplacé par ch. 11).
+
+**`[À VÉRIFIER]`** dans le texte : 1, la pastille de la seconde série du CO. Question à JP.

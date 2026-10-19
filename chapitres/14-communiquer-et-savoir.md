@@ -61,13 +61,15 @@ elles n'arrivent pas.
 3. **Laisser la balise ou le SOS en marche jusqu'à ce que quelqu'un arrive, et rester sur place.** Ne pas éteindre
  la balise puis la rallumer pour ménager la pile : un signal qui s'arrête et reprend donne une position moins
  précise et gêne les sauveteurs qui se guident sur lui. Une balise dont la pile est en bon état émet au moins 24 h.
- Rester aussi près de la machine, de l'auto ou du traîneau : d'un avion, on repère une machine plus facilement
- qu'une personne. Garder l'appareil satellite allumé, au chaud sous le manteau, et le sortir sous un ciel dégagé à
- l'heure des messages pour envoyer et recevoir (étape 7).
+ Rester aussi près de la machine, de l'auto ou du traîneau, et la dégager de la neige : d'un avion, on repère une
+ machine plus facilement qu'une personne. Garder l'appareil satellite allumé et au chaud sous le manteau. Pendant un
+ SOS, le sortir sous un ciel dégagé aussi souvent que le froid le permet : sous le manteau, ce qu'il envoie reste en
+ file, et il ne reçoit pas les réponses (étapes 7 et 22).
 4. {!froid} **Se préparer à attendre longtemps, et à être vu.** Une recherche peut prendre jusqu'à 24 h avant que
  quelqu'un arrive.
- - Monter un abri (ch. 12, étapes 1 à 14) et faire un feu (ch. 13) près de la machine, ou dans l'ouverture la plus
- proche (un lac, une coupe, une clairière), pour qu'on voie le feu d'en haut.
+ - Monter un abri (ch. 12, étapes 1 à 14) et faire un feu (ch. 13) près de la machine, ou au bord de l'ouverture la
+ plus proche (un lac, une coupe, une clairière). Garder l'abri sous les arbres, à l'écart du vent, et faire le feu du
+ côté ouvert, pour qu'on le voie d'en haut.
  - Ramasser une grosse brassée de branches vertes et la garder à côté du feu. Dès qu'on voit ou qu'on entend un
  avion, la jeter sur le feu : elle fait une colonne de fumée. Sur la neige, garder aussi à côté du feu de quoi faire
  de la fumée noire : du caoutchouc, de l'huile ou du plastique (section 7, « La fumée »).
@@ -137,8 +139,8 @@ elles n'arrivent pas.
  s'il est connecté à un réseau cellulaire LTE au moment où l'alerte part. Les mêmes alertes passent à la radio et à la télévision, et la
  radio à piles les reçoit.
  - À la maison, le téléphone reçoit les alertes tant que la tour cellulaire a du courant. Pendant une panne, les
- batteries d'une tour la font marcher le plus souvent de 2 à 10 h, parfois jusqu'à une journée ; certaines tours ont une
- génératrice, d'autres non, et on ne sait pas laquelle dessert la maison.
+ batteries d'une tour la font marcher le plus souvent de 2 à 4 h, parfois jusqu'à une journée ; certaines tours ont
+ aussi une génératrice, d'autres non, et on ne sait pas laquelle dessert la maison.
  - Le réseau Radio-Météo n'est plus en service : un récepteur météo à tonalité d'alerte ne recevra plus ses alertes.
 15. **Mesurer la réception, la radio à la main, le jour et le soir.**
  - Au chalet, faire le tour du terrain avec la radio, et noter quelles stations AM et FM entrent, à quelle heure et
@@ -147,7 +149,7 @@ elles n'arrivent pas.
  n'entendait pas le jour.
  - Écrire au feutre, sur la radio, les fréquences qui entrent.
  - Noter les endroits où l'appareil satellite trouve vite le satellite et ceux où il cherche longtemps, et s'il y a
- la moindre barre de réseau cellulaire, et où. Aucune carte ne donne ces renseignements pour le chalet.
+ la moindre barre de réseau cellulaire, et où.
  - À la maison, faire le même relevé dans le bâtiment, une fois : quelles stations entrent, dans quelle pièce, avec
  les appareils électroniques débranchés.
 16. **Monter l'antenne de réception.**
@@ -281,7 +283,7 @@ station, et le poste la trie et la change en son. On le monte sur une planche, a
 - **La bobine.** Enrouler du fil de cuivre fin et isolé en une seule couche, chaque spire (chaque tour de fil)
  serrée contre la précédente (repère 1), sur un cylindre qui n'a aucun métal : une bouteille, un rouleau de carton,
  une boîte de gruau (repère 2). Sur un cylindre de 10 cm (4 po) de diamètre, faire 80 spires en tout ; il faut
- environ 60 g de fil. Prendre le fil dans un transformateur, un moteur brûlé ou une bobine d'allumage morte : le
+ environ 25 m de fil. Prendre le fil dans un transformateur, un moteur brûlé ou une bobine d'allumage morte : le
  bobinage d'un moteur grillé donne beaucoup de fil de cuivre émaillé.
 - **L'accord.** Gratter l'émail pour faire une prise toutes les 10 spires sur les 70 premières (repère 3), puis une
  prise à chaque spire sur les 10 dernières. Promener une pince crocodile de prise en prise (repère 4) : on trouve la
@@ -404,9 +406,10 @@ l'attention.
 
 **Le son.** Un sifflet porte plus loin qu'une voix et ne coûte pas de souffle : une voix s'éteint après quelques
 minutes de cris, alors qu'on peut siffler pendant des heures. Un coup de carabine porte encore plus loin, mais il
-coûte une cartouche, et en saison de chasse, personne n'y prête attention. Pour appeler à l'aide, un signal sonore
-sert seulement s'il a été convenu d'avance avec les gens qui peuvent l'entendre : convenir du code avec le camp voisin
-(ch. 16, étape 19).
+coûte une cartouche, et en saison de chasse, personne n'y prête attention. Pour appeler à l'aide, faire le
+signal que les chercheurs au sol connaissent : souffler trois coups de sifflet, faire une pause, puis trois autres
+coups, et recommencer, en se taisant de temps en temps pour écouter la réponse. Convenir du même signal avec le camp
+voisin (ch. 16, étape 19).
 
 ### Écrire quand il n'y a plus de papier
 
@@ -483,8 +486,7 @@ ou 24 h après son arrivée prévue s'il n'en a pas écrit (étape 29).
 
 ### Le téléphone de campagne au grand froid
 
-En 1945, le téléphone de campagne de l'armée américaine parlait à 18 à 27 km sur son fil de campagne, selon la météo
-et la
+Le téléphone de campagne de l'armée américaine parlait à 18 à 27 km sur son fil de campagne, selon la météo et la
 façon de monter la ligne ; la portée changeait selon que le fil était sec ou mouillé, au sol ou en l'air. Par grand
-froid, ses piles perdaient une grande partie de leur force, puis ne donnaient plus rien, et l'humidité de l'haleine
-gelait sur la membrane du micro (section 7).
+froid, ses piles perdaient une grande partie de leur force, puis ne donnaient plus rien, et l'humidité gelait sur la
+membrane du micro (section 7).

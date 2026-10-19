@@ -52,8 +52,10 @@ ou une braise qu'on a gardée, aussi longtemps qu'il reste de l'amadou sec.
  l'écorce de bouleau, de la barbe de vieillard (section 7, « L'amadou qu'on ramasse »). L'amadou qu'on avait sur soi sert en premier.
 4. {!co} **Faire le feu dehors, ou dans un poêle raccordé à son tuyau** (la tente à poêle : ch. 12). Dehors, le
  faire à l'abri du vent, et sur un lit de branches vertes s'il y a de la neige (étape 8). Même pour se réchauffer
- vite, ne jamais faire de feu dans une tente, un abri de neige, une cabane de pêche ou la cabine d'un camion :
- sans tuyau, le monoxyde du feu reste dedans.
+ vite, ne jamais faire de feu dans une tente fermée, un abri de neige, une cabane de pêche ou la cabine d'un
+ camion : sans tuyau, le monoxyde du feu reste dedans. Sous un cône de bâches, on peut faire un feu à trois
+ conditions : le sommet reste grand ouvert, la flamme reste claire, et quelqu'un reste éveillé toute la nuit pour
+ la garder (ch. 12, étape 75).
 5. **Choisir la méthode selon les mains.**
  - S'il fait plus froid que −17,5 °C, ou si les doigts font mal ou ne sentent plus rien : allumer à la pile
  ou à la batterie, avec de la laine d'acier (étapes 18 à 21). On touche la laine avec les deux bornes de
@@ -81,8 +83,8 @@ ou une braise qu'on a gardée, aussi longtemps qu'il reste de l'amadou sec.
  la couche brune. Le feu peut descendre dans l'humus, y avancer sans flamme et ressortir plus loin.
  - Sur la neige, poser côte à côte des branches vertes grosses comme le poignet, puis un ou deux autres
  rangs, chacun en travers de celui du dessous. Le feu brûle sur ce fond sec, au-dessus de la neige.
- - Pour entourer le feu, prendre des pierres sèches et dures : une pierre mouillée ou poreuse éclate en
- chauffant.
+ - {!projection} Pour entourer le feu, prendre des pierres sèches et dures : une pierre mouillée ou poreuse
+ éclate en chauffant.
  - Faire un feu de 1 m sur 1 m au plus.
  - Allumer dehors seulement quand le vent reste sous 20 km/h : à 16 km/h, un drapeau léger est déployé ;
  à 24 km/h, une feuille de papier journal se soulève du sol. Quand le vent est plus fort, ou que la mousse
@@ -140,8 +142,8 @@ ou une braise qu'on a gardée, aussi longtemps qu'il reste de l'amadou sec.
  s'enflamme, il faut lui envoyer de l'air sans arrêt : chaque fois qu'on arrête pour reprendre son
  souffle, elle refroidit. La fumée passe de grise et mince à blanche et épaisse, puis la boule flambe d'un
  coup (repère 16).
- - Porter de la laine ou du coton pour allumer : au-dessus d'un nid en flammes, une manche synthétique fond
- et colle à la peau.
+ - {!brulure} Porter de la laine ou du coton pour allumer : au-dessus d'un nid en flammes, une manche
+ synthétique fond et colle à la peau.
 17. **Glisser le nid sous le tipi, par l'ouverture** (repère 17), et ajouter le bois de 2 à 5 cm seulement
  quand le bois fin crépite seul (repère 18).
 
@@ -250,7 +252,7 @@ Sans tige de ferrocérium : le briquet à pierre, la batterie, le soleil ou l'ar
 
 ### Garder le feu
 
-**Couvrir le feu pour la nuit**, dehors ou dans un foyer ouvert.
+**Couvrir le feu pour la nuit**, dehors.
 
 - Ramasser les braises en un tas serré.
 - Poser par-dessus deux grosses bûches fendues, l'une contre l'autre, les faces fendues vers le bas.
@@ -258,7 +260,7 @@ Sans tige de ferrocérium : le briquet à pierre, la batterie, le soleil ou l'ar
  reçoivent peu d'air et brûlent lentement, sans s'éteindre.
 - Au matin, écarter la cendre du bout d'un bâton, souffler sur le cœur orange et poser des copeaux dessus.
 
-**Autre façon, dehors : le feu en pyramide**, qui dure la nuit sans qu'on le recharge. Coucher deux bûches
+**Autre façon : le feu en pyramide**, qui dure la nuit sans qu'on le recharge. Coucher deux bûches
 parallèles sur le sol, puis un rang de bûches serrées en travers sur elles. Monter par-dessus trois ou quatre
 autres rangs : chaque rang est fait de bûches plus petites que celles du rang d'en dessous, et posé en travers
 de lui. Allumer un petit feu sur le dessus : il brûle vers le bas, d'un rang à l'autre.
@@ -445,8 +447,8 @@ dehors (section 7, l'amadouvier).
 
 Le dessus est dur, lisse et mat, marqué de sillons en rond de plusieurs gris, et il brunit vers le bas. Le
 champignon peut atteindre 20 cm de haut et grossir pendant 30 ans et plus sur le même tronc. On le trouve surtout
-sur le bouleau à papier, et aussi sur l'aulne, l'érable et le peuplier faux-tremble (section 7,
-l'amadouvier).
+sur le bouleau à papier, aussi sur l'érable et le peuplier faux-tremble, et il est commun dans les vieilles
+aulnaies (section 7, l'amadouvier).
 
 ### La pyrite au lieu de l'acier
 

@@ -1,7 +1,7 @@
 # Tome 1 · Tenir — rapport d'assemblage
 
-- **Produit le :** 2026-10-19 01:45, par `design/outils/assembler-tome.py 1 --chapitres 03 --hors-ligne --sortie livre/apercus-ch03`
-- **Fichier :** `livre/tome-1/interieur.pdf` — 40 pages, 13.5 Mo
+- **Produit le :** 2026-10-19 02:02, par `design/outils/assembler-tome.py 1 --chapitres 03 --hors-ligne --sortie livre/apercus-ch03`
+- **Fichier :** `livre/tome-1/interieur.pdf` — 44 pages, 13.6 Mo
 - **Ouvertures :** au recto ou au verso (--verso)
 - **Placements :** design/epreuves-livre/placements.json, design/epreuves-livre/placements-tome-1.json
 - **Exigences de Blurb :** `sources/blurb-specifications.md` (relevées le 27 septembre 2026)
@@ -15,10 +15,10 @@
 | 5 | Sommaire | 1 |
 | 6 | Comment le livre fonctionne (1) | 1 |
 | 7 | Comment le livre fonctionne (2) | 1 |
-| 8–18 | Les dangers | 11 |
-| 19–40 | ch. 03 — Panne majeure d’Hydro en janvier | 22 |
-| | Pages blanches (verso de la page de titre, avant les ouvertures, fin du tome) | 2 |
-| | **Total** | **40** |
+| 8–21 | Les dangers | 14 |
+| 23–44 | ch. 03 — Panne majeure d’Hydro en janvier | 22 |
+| | Pages blanches (verso de la page de titre, avant les ouvertures, fin du tome) | 3 |
+| | **Total** | **44** |
 
 Aucune page de crédits (JP, 28 septembre 2026) : copie hors du livre dans `livre/apercus-ch03/credits/tome-1-credits.md` et `livre/apercus-ch03/credits/tome-1-credits.pdf`.
 
@@ -28,7 +28,16 @@ Marqueur `{.orange}` sur l'intertitre ### de la série, dans le Markdown (CLAUDE
 
 | Ch. | Pages du tome |
 | --- | --- |
-| 03 | 22, 23, 24, 25 |
+| 03 | 26, 27, 28, 29 |
+
+## Notes « En plus »
+
+| Ch. | Note | Page du tome (du chapitre) | Renvoie à | Posée après | Où |
+| --- | --- | --- | --- | --- | --- |
+| 03 | Reconnaître le mât de branchement | 23 (03-1) | étape(s) 1 |  (En une ligne) | dans un trou de la page |
+| 03 | Les tours cellulaires pendant une panne | 30 (03-8) | étape(s) 10 | étape 14 (Le bois, les cendres et les sorties) | dans le fil du texte |
+| 03 | La doublure de peaux de la maison de neige | 31 (03-9) | étape(s) 9 | étape 23 (La plomberie) | dans le fil du texte |
+| 03 | La lampe de pierre des Inuits | 32 (03-10) | étape(s) 5 | étape 27 (Les aliments et les médicaments) | dans le fil du texte |
 
 ## Contrôle Blurb
 
@@ -36,10 +45,10 @@ Marqueur `{.orange}` sur l'intertitre ### de la série, dans le Markdown (CLAUDE
 | --- | --- | --- | --- |
 | Taille de chaque page | 585 × 738 pt (8,125 × 10,25 po) | 585.0 × 738.0 pt | oui |
 | Rognage (TrimBox) | 8 × 10 po, fond perdu au bord extérieur | recto : reliure à gauche ; verso : à droite | oui |
-| Nombre de pages | pair, de 20 à 440 (papier Standard) | 40 | oui |
+| Nombre de pages | pair, de 20 à 440 (papier Standard) | 44 | oui |
 | Page 1 | à droite | page de titre | oui |
 | Polices incorporées | toutes | 25 police(s), 0 non incorporée(s) | oui |
-| Taille du fichier | 2 Go au plus | 13.5 Mo | oui |
+| Taille du fichier | 2 Go au plus | 13.6 Mo | oui |
 | Marques d'imprimeur | aucune | aucune | oui |
 | Couleur | CMJN ou sRVB, sans ton direct | sRVB (Edge) | oui |
 | Noir du texte | 100 % K | noir sRVB (0, 0, 0) : la conversion est faite chez Blurb | à juger sur épreuve |
@@ -55,7 +64,7 @@ Polices du fichier : BarlowCondensed-Bold, BarlowCondensed-ExtraBold, BarlowCond
 
 ## Tranche et couverture
 
-Calculateur non interrogé (--hors-ligne). Relevé du 27 septembre 2026 dans `sources/blurb-specifications.md` §2 ; pour 40 pages, prendre la ligne du tableau dont le palier couvre ce nombre, et revérifier au calculateur. [À VÉRIFIER]
+Calculateur non interrogé (--hors-ligne). Relevé du 27 septembre 2026 dans `sources/blurb-specifications.md` §2 ; pour 44 pages, prendre la ligne du tableau dont le palier couvre ce nombre, et revérifier au calculateur. [À VÉRIFIER]
 
 ## Figures
 
@@ -63,7 +72,7 @@ Les planches de `images/a-valider/` sont posées comme les validées (JP les rel
 
 | Ch. | Posées (page du tome) | Mentionnées dans le texte sans planche dessinée | À valider, non posées | Photos demandées encore à acquérir (credits.md) |
 | --- | --- | --- | --- | ---: |
-| 03 | 03-08 (29, pleine, à valider), 03-09 (30, pleine, à valider), 03-10 (31, pleine), 03-12 (35, pleine, à valider), 03-11 (37, pleine, à valider), 03-panne-hydro-livre (20, double page) | — | — | 7 (ancien 04) |
+| 03 | 03-08 (34, pleine, à valider), 03-09 (35, pleine, à valider), 03-10 (36, pleine), 03-12 (39, pleine, à valider), 03-11 (41, pleine, à valider), 03-panne-hydro-livre (24, double page) | — | — | 7 (ancien 04) |
 
 ## Crédits des images — hors du livre
 

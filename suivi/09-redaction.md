@@ -416,3 +416,14 @@ travail-là ? »).
 **Pour l'éditeur :** « faire court, à l'air, séché » quand on n'a ni nitrite ni balance au 0,1 g revient trois fois en
 section 7 (le fléau, le sel du fleuve, le sel nitrité de « Ce qui ne se remplace pas »). C'était déjà là avant la
 vérification ; une seule place suffirait, avec des renvois.
+
+**Pour l'éditeur, aussi :** la note « Combien de temps on garde une pile » (10 ans pour une AA alcaline, 25 ans au
+lithium, à 21 °C) donne le même fait que la note « La pile au lithium » du ch. 6 (l. 306), écrite le même jour par
+l'agent du ch. 6. Deux notes vertes de suite dans le tome pour un même fait : une des deux suffit. Si celle du ch. 9
+sort, l'étape 24 reste juste (les piles se gardent au chalet ; source inchangée).
+
+Contrôle repassé après les corrections (deuxième envoi du même jour) : les six points sont en place dans le chapitre,
+dans cette fiche et dans `sources/09-refonte-et-en-plus-2026-10-19.md` ; `controle.py` donne le même résultat que le
+tableau plus haut (7 060 mots, 2 tirets au titre et à la ligne de tome, 0 « § », 0 tournure, 19 mots vides jugés,
+2 redites gardées). La note de la babiche fait 80 mots (un compte aux espaces en donne 82, parce qu'il prend le « ; »
+et le « : » isolés pour des mots).

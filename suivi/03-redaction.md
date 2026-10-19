@@ -387,11 +387,11 @@ dans `sources/03-refonte-et-en-plus-2026-10-19.md`. Fichier gardé en LF.
 | Le CO : tout ce qui brûle en fait, ni vu ni senti, prend la place de l'oxygène dans le sang, l'enfant « fatigué ou de mauvais caractère », tue la nuit | Rien dans le chapitre : tout est à la page `co` | Tout le bloc |
 | L'avertisseur qui ne sonne pas (30 ppm, 30 jours) ; seul le chiffre de l'affichage le montre | Étape 5, `{!co}`, deuxième puce : lire le chiffre matin et soir ; les malaises qu'on met sur le compte du froid ; le chiffre qui ne redescend pas de la journée | « 30 ppm, 30 jours » (page `co`) ; le chapitre dit « des jours » |
 | Le poêle étouffé pour la nuit refoule fumée et CO, même porte fermée | Étape 6, `{!co}`, puce « La nuit » | « La braise fait du CO en ne montrant qu'une lueur rouge » (page `co` : la braise) |
-| Génératrice dehors à 6 m (20 pi), échappement à l'opposé ; ni maison, garage, remise, tambour, véhicule, tente, auvent, galerie | Étape 16, `{!generatrice}` : 6 m, l'échappement, « jamais sous la galerie ni dans le tambour d'entrée » | Le garage même porte ouverte, la remise, la tente, l'auvent, le véhicule (page `generatrice`) |
+| Génératrice dehors à 6 m (20 pi), échappement à l'opposé ; ni maison, garage, remise, tambour, véhicule, tente, auvent, galerie | Étape 16, `{!generatrice}` : 6 m (20 pi) de tout bâtiment, l'échappement, « jamais au garage, même porte ouverte, ni sous la galerie, ni dans le tambour d'entrée » (le garage et « tout bâtiment » remis après la vérification technique du 19 octobre) | La remise, la tente, l'auvent, le véhicule (page `generatrice`) |
 | Aucun appareil d'extérieur ou de camping dans la maison, même peu de temps, même fenêtre entrouverte ; densité du CO ; maison fermée à −35 °C | Étape 5, `{!co}`, quatrième puce | « Le CO a presque la densité de l'air » (page `co`) |
-| Le courant renvoyé dans la ligne : commutateur, câble à deux fiches mâles, prise de la sécheuse, transformateur, monteur | Étape 17, `{!electrocution}` : disjoncteur à OFF, commutateur de transfert | Le câble à deux fiches mâles, la sécheuse, le monteur (page `electrocution`) |
+| Le courant renvoyé dans la ligne : commutateur, câble à deux fiches mâles, prise de la sécheuse, transformateur, monteur | Étape 17, `{!electrocution}` : disjoncteur à OFF, ni prise de la maison, ni prise de la sécheuse, ni câble à deux fiches mâles (remis après la vérification technique du 19 octobre), commutateur de transfert | Le transformateur, le monteur (page `electrocution`) |
 | Botulisme de type E : dès 3 °C, réfrigérateur en panne à 6 ou 8 °C, poisson cru, fumé à froid ou sous vide ; la pourriture n'avertit pas sous vide ; la truite à jeter ; ch. 77 | Étape 27, `{!botulisme}`, troisième puce : jeter le poisson fumé ou sous vide même s'il a l'air bon, 3 °C, 6 ou 8 °C, ch. 77 | La pourriture qui n'avertit pas sous vide, « ni l'odeur ni le goût » (page `botulisme`) |
-| 74 °C à cœur, sonde au centre de la pièce la plus épaisse ; trichine de l'ours et du phoque ; la panne qui fait tricher sur la sonde | Étape 31, `{!cuisson}` (74 °C, la sonde, la panne qui force à cuire vite) ; étape 34, `{!trichine}` (l'ours et le phoque salés ou fumés restent à cuire à 74 °C) | « 71 °C est la valeur du bœuf haché » (étape 31, page `cuisson`) ; le mécanisme de la trichine (page `trichine`) |
+| 74 °C à cœur, sonde au centre de la pièce la plus épaisse ; trichine de l'ours et du phoque ; la panne qui fait tricher sur la sonde | Étape 31, `{!cuisson}` (74 °C, la sonde, la panne qui force à cuire vite) ; étape 34, `{!trichine}` (l'ours et le phoque congelés, salés ou fumés restent à cuire à 74 °C ; « congelés » remis après la vérification technique du 19 octobre) | « 71 °C est la valeur du bœuf haché » (étape 31, page `cuisson`) ; le mécanisme de la trichine (page `trichine`) |
 
 ### Pictogrammes posés (étape → id)
 
@@ -399,16 +399,19 @@ dans `sources/03-refonte-et-en-plus-2026-10-19.md`. Fichier gardé en LF.
 | --- | --- | --- |
 | 1, troisième puce | `electrocution` | Rester loin du fil tombé en allant voir le mât |
 | 5 | `co` | 2 m du poêle, la chambre sous 4,4 °C, la porte du garage, lire le chiffre, 7 ans, rien de camping dans la maison à −35 °C |
+| 6, puce du bois de démolition | `pas-au-feu` | Du bois de démolition brut dont on connaît la provenance (posé après la vérification technique du 19 octobre) |
 | 6, puce « La nuit » | `co` | L'air du poêle ouvert la nuit, la relève ou le feu qu'on laisse mourir |
 | 8 | `froid` | Les joues, le nez et les oreilles des enfants deux fois par jour |
 | 12 | `co` | Sortir tout le monde (série orange de 1 min) |
+| 14 | `incendie` | La chaudière de cendres dehors, à 1 m de tout, 7 jours (posé après la vérification technique du 19 octobre) |
 | 15 | `froid` | Les sorties préparées sur l'indice éolien, en un voyage ; la nuit, dire combien de temps |
-| 16 | `generatrice` | 6 m, sous la galerie, le tambour d'entrée, la nuit |
-| 17 | `electrocution` | Disjoncteur principal à OFF, commutateur de transfert |
+| 16 | `generatrice` | 6 m de tout bâtiment, le garage même porte ouverte, la galerie, le tambour d'entrée, la nuit |
+| 17 | `electrocution` | Disjoncteur principal à OFF ; ni prise de la maison, ni prise de la sécheuse, ni câble à deux fiches mâles ; commutateur de transfert |
+| 20 | `vapeurs` | Le plein moteur froid, dehors, loin de toute flamme, le bidon dehors (posé après la vérification technique du 19 octobre) |
 | 24, dernière puce | `poison` | L'antigel de moteur reste dans la tuyauterie d'eau potable |
 | 27, troisième puce | `botulisme` | Le poisson fumé ou sous vide du réfrigérateur en panne |
 | 31 | `cuisson` | 74 °C à la sonde, même quand la panne force à cuire vite |
-| 34 | `trichine`, `mal-de-caribou` | L'ours et le phoque salés ou fumés ; garder le gras des pièces transformées |
+| 34 | `trichine`, `mal-de-caribou` | L'ours et le phoque congelés, salés ou fumés ; garder le gras des pièces transformées |
 | Section 7, « Les pierres chaudes » | `projection` | La pierre de ruisseau qui éclate |
 | Section 7, « La marmite norvégienne » | `zone-de-danger` | La marmite qui reste tiède dans la boîte |
 | Section 7, « L'éclairage » | `co` | La lampe à graisse seulement dans la pièce du poêle, éteinte avant de dormir |
@@ -419,7 +422,9 @@ mettait pas `mal-de-caribou`), `projection`, `zone-de-danger` et `co` à la sect
 « aucun appareil de camping dans la maison » à l'étape 7 : il reste à l'étape 5, où l'avertisseur se teste et où la
 règle était déjà. Le rappel du mal de caribou, qui était à l'ancienne étape 11 (« Au chalet, la viande maigre de
 gibier seule… »), passe à l'étape 34, avec le gras qu'on garde quand on transforme la viande. Le cendrier (étape 14)
-n'a pas de pictogramme : l'étape est le geste lui-même, et la page `incendie` le redit.
+n'avait pas de pictogramme ; il porte `incendie` depuis la vérification technique du 19 octobre (le pourquoi des
+7 jours, « des cendres qui ont l'air froides gardent des braises plusieurs jours », est à la page `incendie`), comme
+`vapeurs` à l'étape 20 et `pas-au-feu` à l'étape 6.
 
 Pas de pictogramme sur le lave-glace (section 7, « Vidanger sans antigel ») : l'étape 24 porte déjà `poison` pour la
 même famille, et la phrase dit le geste.
@@ -464,7 +469,7 @@ Passages recopiés dans `sources/03-refonte-et-en-plus-2026-10-19.md`.
 | Fait | Où | Source |
 | --- | --- | --- |
 | Une conduite sans pression aspire l'eau du sol par ses joints et ses fuites | Étape 4 | `10-reseau-depressurise-intrusion-par-les-fuites.md` (EPA) ; déjà dit aux ch. 7 et 10 |
-| Un message texte encombre moins le réseau ; il passe quand les appels saturent ou que le service d'appel est coupé | Étape 10 | `11-isde-rester-connecte-messages-texte.md` |
+| Un message texte encombre moins le réseau ; il passe quand les appels saturent ou que le service d'appel est coupé (le texte disait « beaucoup moins » jusqu'à la vérification technique du 19 octobre : corrigé) | Étape 10 | `11-isde-rester-connecte-messages-texte.md`, l. 18-19 |
 | Au chalet, arrêter la pompe du puits et vider le réservoir sous pression | Étape 23 | `04-purdue-extension-plomberie-panne-hiver.md` |
 | Les circuits à eau chaude se vident mal ; défaire un raccord pour les points bas | Étape 23 | Même fiche |
 | Dans un siphon, autant d'antigel qu'il y a d'eau | Étape 24 (« un peu » avant) | Même fiche |
@@ -472,6 +477,9 @@ Passages recopiés dans `sources/03-refonte-et-en-plus-2026-10-19.md`.
 | À −18 °C, une batterie au plomb donne la moitié de sa capacité | Section 7, « Le 12 V » | `18b-trojan-batteries-plomb-froid-et-charge.md` |
 | 1 h d'arrêt toutes les 8 h de génératrice (provenance demandée, PAUSE, point 15) | Étape 20, section 5 | `04-quebec-ca-panne-de-courant.md` (l. 86) ; `01-quebec-panne-courant.md` (l. 17) |
 | Le siphon se vide par son bouchon de nettoyage | Section 7 | JP, 16 octobre 2026 (plan de match, PAUSE, point 14) ; geste, sans chiffre |
+| 0 ppm affiché : tout chiffre affiché veut dire du monoxyde | Section 5 ; étape 5 | `15-kidde-reentree-et-affichage-co.md`, l. 44 |
+| Une couche de papier journal entre deux couvertures, par-dessus les dormeurs (planche 03-09, repère 11) | Étape 9 | `03-mcdonald-1933-journal-entre-deux-couvertures.md` (nouvelle, 19 octobre 2026) |
+| La maison de neige : un petit trou près du sommet fait tirer la lampe, l'air entre par la porte et sort par le trou ; la doublure de peaux, plafond plat 60 à 90 cm sous le sommet, 10 à 20 °C dessous, 2 ou 3 °C au plus sans doublure | En plus | `03-boas-1888-maison-de-neige-aeration-et-doublure.md` (nouvelle, 19 octobre 2026) |
 
 **Chiffres retirés parce que la page du danger les porte** (le contrôle des invariants les signale) : 30 ppm et
 30 jours (page `co`), 37,8 °C (page `co` ; le 4,4 °C reste à l'étape 5), 71 °C (page `cuisson`), les temps de gelure
@@ -485,9 +493,12 @@ l'étape 15 garde le geste et le pictogramme), une des deux occurrences de « 6 
 | Note | Genre | Étape | Provenance |
 | --- | --- | --- | --- |
 | Reconnaître le mât de branchement | Photo | 1 | `images/extras/03-mat-de-branchement.jpg`, Wikimedia Commons, `File:Weatherhead.JPG`, Chetvorno (Chris Burks), CC0 ; licence lue sur l'API de Commons (champs recopiés dans la fiche de sources) ; original de la réduction dans `images/extras/originaux/` |
-| La lampe de pierre des Inuits | La façon d'une nation du Nord | 5 | Turner 1894, l. 3024 à 3058 (`sources/autochtones/`) ; ce qui la rend dangereuse dans une maison fermée : page `co` |
+| La lampe de pierre des Inuits | La façon d'une nation du Nord | 5 | Turner 1894, l. 3024 à 3058 (`sources/autochtones/`) ; le trou près du sommet et le courant d'air : Boas 1888 (`03-boas-1888-maison-de-neige-aeration-et-doublure.md`) ; ce qui la rend dangereuse dans une maison fermée : page `co`. Refaite après la vérification technique du 19 octobre |
+| La doublure de peaux de la maison de neige | La façon d'une nation du Nord | 9 | Boas 1888, l. 5881 à 5909 ; ajoutée le 19 octobre pour remplacer la note de la pression |
 | Les tours cellulaires pendant une panne | Fait | 10 | `19-cbc-2018-batteries-tours-cellulaires.md` |
-| La pression qui tombe dans l'aqueduc | Fait | 4 | `10-reseau-depressurise-intrusion-par-les-fuites.md` (EPA) |
+
+La note « La pression qui tombe dans l'aqueduc » (étape 4) est coupée après la vérification technique du 19 octobre :
+elle faisait conclure que l'eau de la baignoire de l'étape 4 est à faire bouillir.
 
 Pistes regardées et laissées : la maison qui refroidit vite puis lentement (SCHL, verglas de 1998) est déjà une note du
 ch. 1 ; l'onde AM la nuit est une note du ch. 2 et le texte du ch. 3 la dit ; l'igunaq du Nunavik (botulisme de type E)
@@ -517,3 +528,48 @@ Justes tels quels : ch. 8, l. 57 et 328 (« étapes 21 à 24 ») et l. 103 (« �
 | Redites | 8 | 5, gardées : « faire bouillir au moins 1 minute » (étape 4, après la baisse de pression ; étape 39, au retour : deux moments), « verre à la pièce de monnaie » et « la pièce la plus froide » (le nom de la chose), « vidanger la maison (étapes 21 à 25) » (renvois des étapes 6 et 11) |
 | Ancres introuvables | 0 | 2 (03-08, 03-09 : nouvelles ancres rendues à l'orchestrateur, plus haut) |
 | Invariants | | Chiffres retirés : voir « Chiffres retirés » plus haut ; aucune étape, aucun rappel de sécurité, aucune note ni planche perdus |
+
+## Corrections après la vérification technique, 19 octobre 2026
+
+Rédacteur (rôle 2). Quinze points du vérificateur technique sur la refonte ; quatorze appliqués, un appliqué en partie
+(le 14 : la source trouvée ne dit pas « froissé »). Numéros d'étapes inchangés (1 à 40).
+
+| # | Point | Ce qui est fait | Source |
+| --- | --- | --- | --- |
+| 1 | Étape 10, « encombre beaucoup moins » | Appliqué : « encombre moins », les mots de la page | `11-isde-rester-connecte-messages-texte.md`, l. 18-19 |
+| 2 | Étape 16, « 6 m de la maison », le garage qui manque | Appliqué : « 6 m (20 pi) de tout bâtiment » ; « jamais au garage, même porte ouverte, ni sous la galerie, ni dans le tambour d'entrée » | `10-sante-canada-generatrice-distance.md`, l. 15 (« entre toute habitation ou tout bâtiment ») ; `04-sante-canada-generatrice-monoxyde.md` ; page `generatrice` ; ancienne section 8 (`bd1b3f1`) |
+| 3 | La photo du mât sans ligne dans `images/credits.md` | Appliqué en partie : `images/credits.md` et `images/extras/LISEZMOI.md` sont des fichiers communs ; les deux lignes sont rendues à l'orchestrateur (sortie « crédits ») | `03-refonte-et-en-plus-2026-10-19.md`, section 9 |
+| 4 | Étape 17, la prise murale, la sécheuse et le câble à deux fiches mâles perdus ; « on ne peut pas » | Appliqué, phrase du vérificateur : « Ne jamais brancher la génératrice dans une prise de la maison, ni dans celle de la sécheuse, ni avec un câble à deux fiches mâles… et avec lui, la maison ne peut pas être reliée aux deux en même temps » | Ancienne section 8 (`bd1b3f1`) ; page `electrocution` |
+| 5 | Section 2, les plages d'étapes | Appliqué : chalet l'hiver, « étapes 5 à 9, 14 et 21 à 34 » ; l'été, « étapes 1 à 5, 16 à 20 et 27 à 34 » | Le chapitre lui-même |
+| 6 | Étape 34, le gel qui manque | Appliqué : « même congelés, salés ou fumés » | Page `trichine` ; tableau des rappels de `CLAUDE.md` |
+| 7 | Étape 14, le pourquoi des 7 jours | Appliqué : `{!incendie}` en tête de l'étape | Page `incendie`, deuxième paragraphe |
+| 8 | Section 7, le puisard : « laisser la pompe débranchée » contre les étapes 19 et 26 et la section 6 | Appliqué, phrase du vérificateur : « Si la conduite de refoulement est prise dans la glace dehors… tant que cette conduite est gelée, laisser la pompe débranchée » ; les étapes 19 et 26 et la section 6 restent | Ancienne section 9 (`bd1b3f1`) |
+| 9 | Étape 20, le plein sans pictogramme | Appliqué : `{!vapeurs}` en tête de l'étape | Page `generatrice`, point 3 ; page `vapeurs` |
+| 10 | Étape 6, le bois de démolition sans pictogramme | Appliqué : `{!pas-au-feu}` en tête de la puce | Page `pas-au-feu`, point 1 |
+| 11 | Note « La pression qui tombe dans l'aqueduc » contre l'étape 4 | Appliqué : la note est coupée (elle ne changeait aucun geste). Remplacée, pour garder 4 notes, par « La doublure de peaux de la maison de neige » (étape 9) | Boas 1888, `03-boas-1888-maison-de-neige-aeration-et-doublure.md` (nouvelle) |
+| 12 | Note « La lampe de pierre des Inuits » : « une seule lampe », « on en allumait deux », ce qui la rendait sûre | Appliqué : la note est refaite. « Seulement à la lampe » (Turner : la seule source de chaleur et de lumière) ; « on en allumait deux » sort ; ce qui renouvelait l'air est trouvé chez Boas 1888 (un petit trou près du sommet fait tirer la lampe ; l'air froid entre par la porte, se réchauffe en montant vers la lampe et sort par le trou), donc pas de `[À VÉRIFIER]` ; l'avertissement : « Sans ce courant d'air, dans une maison fermée, le monoxyde de la flamme reste dans la pièce (étape 5) ». La mèche de pétrole et la mousse qui fait monter l'huile sortent pour tenir sous 80 mots (79) | Turner 1894, l. 3024-3027 et 3048-3058 ; Boas 1888, l. 5881-5893 et 11193 |
+| 13 | « 0 ppm » sans provenance ; deux critères (tout chiffre, ou un chiffre qui ne redescend pas) | Appliqué : ligne ajoutée au tableau « Chiffres et faits nouveaux » ; étape 5 : « Dès que l'écran affiche un chiffre, l'avertisseur détecte du monoxyde ; si le chiffre ne redescend pas de la journée, un appareil de la maison en fait » (la phrase du vérificateur, redite sans « le chiffre veut dire » ; « with or without an alert » de la page est porté par « sans attendre la sirène », juste avant) | `15-kidde-reentree-et-affichage-co.md`, l. 44 |
+| 14 | Étape 9, le papier journal froissé entre deux couvertures, NON RETROUVÉ | Appliqué en partie : source trouvée et enregistrée (McDonald, *The Bush Boy's Book*, 1933 : « A layer of newspapers between a pair of blankets »). Elle dit « une couche », pas « froissé » : le texte dit maintenant « une couche de papier journal entre deux couvertures (repère 11) ». La légende du repère 11 de la planche 03-09 (« journal froissé entre deux couvertures ») est signalée à l'orchestrateur | `03-mcdonald-1933-journal-entre-deux-couvertures.md` et `.pdf` (nouvelles) |
+| 15 | Étape 24, « autant d'antigel qu'il y a d'eau dans le siphon » contre les 0,5 L du ch. 84 | Gardé tel quel au ch. 3 (sourcé). L'écart est signalé pour le ch. 84 (étape 7 et section 5), qui n'est pas à moi | `04-purdue-extension-plomberie-panne-hiver.md`, section « Sewage » |
+
+**Pictogrammes nouveaux hors de l'inventaire** (à reporter dans `plan/dangers-inventaire.md` et dans les « Où il
+revient » des pages, par l'agent qui applique les fichiers communs) : `incendie` (étape 14), `vapeurs` (étape 20),
+`pas-au-feu` (étape 6).
+
+**Sources nouvelles :** `sources/03-boas-1888-maison-de-neige-aeration-et-doublure.md` (passages recopiés) et
+`sources/03-boas-1888-central-eskimo-gutenberg.txt` (texte intégral, Project Gutenberg n° 42084, domaine public) ;
+`sources/03-mcdonald-1933-journal-entre-deux-couvertures.md` et `sources/03-mcdonald-1933-bush-boys-book-extrait.pdf`.
+`sources/03-refonte-et-en-plus-2026-10-19.md`, sections 1 et 3, dit ce qui a changé dans les deux notes.
+
+### controle.py, après les corrections
+
+| | Avant (HEAD) | Après |
+| --- | --- | --- |
+| Mots (script) | 8 291 | 8 358 |
+| Tirets | 2 (titre et ligne de tome) | 2 (les mêmes) |
+| « § », mots bannis, tournures, maximes, pronominaux | 0 | 0 |
+| Vocabulaire d'IA | 1 (« au niveau de la mer », au sens propre) | 1 (le même) |
+| Mots vides | 48 | 49 : « tout bâtiment » (étape 16) veut dire « n'importe quel bâtiment » : gardé ; les autres sont ceux d'avant, déjà jugés |
+| Redites | 5 | 5, les mêmes, gardées (voir plus haut) |
+| Ancres introuvables | 3 (03-08, 03-09, 03-10 : `placements-tome-1.json` n'a pas encore reçu les ancres de la refonte) | Les mêmes ; les ancres sont rendues à l'orchestrateur |
+| Invariants | | « 51 » disparu : les 51 secondes de la note de la pression, coupée (point 11). Aucune étape, aucun rappel de sécurité, aucune planche perdus |

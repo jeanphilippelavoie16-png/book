@@ -71,11 +71,11 @@ destination.
  carburant, puis le reste.** Une personne blessée ou qui gèle passe avant la conversation : on la soigne d'abord
  (le froid : étapes 7 et 8 ; une blessure : ch. 26).
 7. {!froid} **Chercher les signes du froid, même chez une personne qui a l'air ivre ou de mauvaise foi.** En
- hypothermie, on parle mal, on titube, on devient confus et on s'obstine sans logique : à travers une porte, la
- personne a l'air ivre ou agressive. Avec un seul de ces signes, la faire entrer, ou la mettre à l'abri dehors
- (section 7, « Réchauffer quelqu'un sans le faire entrer ») ; si elle ne frissonne plus, la porter couchée, sans
- la faire marcher. On parlera ensuite. L'hiver, décider vite : à partir de −28 de refroidissement éolien, la peau
- exposée de la personne qui attend peut geler en 10 à 30 minutes, et plus vite quand il fait plus froid.
+ hypothermie, on parle mal, on titube, on devient confus et on s'obstine sans logique. Avec un seul de ces signes,
+ la porter couchée, ou la coucher sur un traîneau ou une couverture et la traîner, sans la faire marcher, jusque
+ dans la maison ou dans un abri dehors (section 7, « Réchauffer quelqu'un sans le faire entrer »). On parlera
+ ensuite. L'hiver, décider vite : à partir de −28 de refroidissement éolien, la peau exposée de la personne qui
+ attend peut geler en 10 à 30 minutes, et plus vite quand il fait plus froid.
 8. **La réchauffer** (ch. 25, étapes 5 à 14) : la coucher à l'abri du vent, sans gestes brusques, et lui enlever
  ses vêtements mouillés. Mettre la chaleur sur la tête, le cou, le tronc et l'aine, et les bouillottes sous les
  aisselles et sur le ventre ; rien sur les bras ni les jambes. Lui donner à boire chaud et sucré, à petites
@@ -104,11 +104,12 @@ destination.
 11. {!arme} **Si le visiteur ne part pas : rentrer, fermer et barrer la porte, et rester dedans.** Sans barre, caler une
  perche en biais sous la poignée (section 7, « La porte, et l'endroit où elle cède »). Noter l'heure. Prévenir
  les voisins ou le groupe par radio (ch. 14). Ne pas aller chercher l'arme, et ne pas la montrer. Pendant la
- conversation, le visiteur voit l'adulte se retourner pour aller la chercher. Devant une arme montrée, il ne sait
- pas si elle est chargée, et il réagit comme si elle l'était, sans qu'on puisse prévoir comment. Il apprend aussi
- qu'il y a une arme dans la maison, et jusqu'où la famille est prête à aller. Une personne qu'on a fait reculer
- avec une arme peut revenir à une autre heure, et pas forcément seule. Au chalet, chemin fermé, retenir le visiteur
- sous la menace oblige à le nourrir, à le surveiller pendant qu'on dort et à le faire dormir près des enfants.
+ conversation, le visiteur voit l'adulte se retourner pour aller la chercher, et il peut agir le premier, avant
+ que l'adulte revienne. Devant une arme montrée, il ne sait pas si elle est chargée, et il réagit comme si elle
+ l'était, sans qu'on puisse prévoir comment. Il apprend aussi qu'il y a une arme dans la maison, et jusqu'où la
+ famille est prête à aller. Une personne qu'on a fait reculer avec une arme peut revenir à une autre heure, et pas
+ forcément seule. Au chalet, chemin fermé, retenir le visiteur sous la menace oblige à le nourrir, à le surveiller
+ pendant qu'on dort et à le faire dormir près des enfants.
 12. **À tout moment, si le visiteur montre une arme, menace ou force la porte : arrêter de parler, emmener tout
  le monde dans la pièce du fond, bloquer la porte de cette pièce de l'intérieur et y rester.** S'il entre et exige
  quelque chose, le lui donner, sans discuter ni résister : résister peut empirer les choses.
@@ -132,21 +133,21 @@ destination.
  personnes passent un long moment, les virus respiratoires peuvent passer à plus de 2 m. Sinon, séparer au moins
  le couchage des enfants, et dire pourquoi (section 7, « Se séparer, et tenir la nuit »).
 18. {!co} {!generatrice} **Laisser dehors, à l'air libre, la génératrice, le réchaud et la chaufferette du
- visiteur** : jamais dans le hangar, le garage ou un véhicule, ni sous une toile ou un auvent. Les premiers signes
- du monoxyde (le mal de tête, la fatigue, la nausée, les étourdissements) sont ceux qu'on attend d'une personne qui
- arrive d'une longue route en motoneige par grand froid. Si on les prend pour la fatigue du voyage et qu'on la
- laisse dormir dans le hangar avec son réchaud allumé, le monoxyde peut la tuer pendant son sommeil. Un abri de
- toile retient le gaz comme une pièce fermée, surtout quand la neige en bouche les ouvertures pendant la nuit.
+ visiteur** : jamais dans la maison, le hangar, le garage ou un véhicule, ni sous une toile ou un auvent. Les premiers signes du
+ monoxyde (le mal de tête, la fatigue, la nausée, les étourdissements) sont ceux qu'on attend d'une personne qui
+ arrive d'une longue route en motoneige par grand froid. Si on les prend pour la fatigue du voyage et qu'on la laisse
+ dormir dans le hangar avec son réchaud allumé, le monoxyde peut la tuer pendant son sommeil. Un abri de toile
+ retient le gaz comme une pièce fermée, surtout quand la neige en bouche les ouvertures pendant la nuit.
 19. **Partager le travail dès le premier jour : le bois, l'eau, la neige, la vaisselle.** Quand un hébergement
  tourne mal, la dispute porte d'abord sur le travail, avant la nourriture (ch. 18, ch. 36).
 20. {!cuisson} **Prendre au thermomètre à sonde la température de chaque pièce de viande des repas partagés** :
  74 °C à cœur pour le gibier sauvage, orignal compris, en pièce comme haché.
 21. {!botulisme} {!trichine} **Refuser poliment deux aliments qu'on reçoit en échange : une conserve maison faite
- d'une façon qu'on ne connaît pas, et un poisson fumé dont on ne sait pas s'il a été gardé à 4 °C ou moins depuis
- le fumage.** Le botulisme ne change ni l'odeur, ni le goût, ni l'apparence d'un pot : on ne peut pas le juger
- en l'ouvrant ou en y goûtant. La bactérie du botulisme du poisson fabrique sa toxine dès 3 °C, donc au frigo.
- La viande sauvage qu'on reçoit, même salée, séchée, fumée ou gelée, peut porter la trichine : on doit la cuire
- à 74 °C à cœur (étape 20 ; l'ours : ch. 52).
+ d'une façon qu'on ne connaît pas, et un poisson fumé dont on ne sait pas s'il a été gardé à 4 °C ou moins depuis le
+ fumage, et pendant 14 jours au plus.** Le botulisme ne change ni l'odeur, ni le goût, ni l'apparence d'un pot : on
+ ne peut pas le juger en l'ouvrant ou en y goûtant. La bactérie du botulisme du poisson fabrique sa toxine dès 3 °C,
+ donc au frigo. La viande sauvage qu'on reçoit, même salée, séchée, fumée ou gelée, peut porter la trichine : on doit
+ la cuire à 74 °C à cœur (étape 20 ; l'ours : ch. 52).
 
 ### Avant, une fois
 
@@ -183,7 +184,7 @@ destination.
 | Premières phrases | Les frissons | Présents chez une personne qui arrive du froid | Plus de frissons et somnolence : hypothermie grave, la vie est en jeu. La porter couchée à l'abri, sans la faire marcher, et la réchauffer (étapes 7 et 8 ; ch. 25) |
 | Toute la visite | Les adultes de la maison qui parlent | **1** | Le deuxième adulte doit se taire et retourner à la fenêtre |
 | Toute la visite | La distance de la conversation dehors | Le repère, jamais à moins de 2 m | Reprendre la distance en nommant le repère, ou rentrer et parler par la fenêtre |
-| Toute la visite | La durée de la conversation dehors | L'hiver, 10 min au plus à partir de −28 de refroidissement éolien, 5 min au plus à partir de −40 ; à partir de −48, aucune conversation dehors : décider par la fenêtre ; à moins de 2 m, moins de 15 min | Conclure : on met la personne à l'abri ou on la loge, ou on donne et la visite se termine |
+| Toute la visite | La durée de la conversation dehors | À moins de 2 m, moins de 15 min. L'hiver, 10 min au plus à partir de −28 de refroidissement éolien, 5 min au plus à partir de −40 ; à partir de −48, aucune conversation dehors : décider par la fenêtre ; sans thermomètre, décider tout de suite, par la fenêtre | Conclure : on met la personne à l'abri ou on la loge, ou on donne et la visite se termine |
 | À l'entrée | Le lavage des mains au savon | **20 s**, toutes les surfaces | Recommencer. Sur des mains sales, la solution hydroalcoolique à 60 % ne remplace pas le savon |
 | Repas partagé | Le gibier à cœur, au thermomètre à sonde | **74 °C** | Remettre au feu |
 | Après le départ | Les surfaces touchées, désinfectées | Javel à **0,1 %**, **1 min** de contact | Refaire avec une solution fraîche : une dilution vieillie n'a plus sa concentration |
@@ -287,21 +288,22 @@ arriver à pied sans un bruit.
 
 ### Réchauffer quelqu'un sans le faire entrer
 
-Pour l'aide à distance (étape 10), la personne reste dehors, mais à l'abri et au chaud, dans un abri monté avec
+Pour l'aide à distance (étapes 7 et 10), la personne reste dehors, mais à l'abri et au chaud, dans un abri monté avec
 ce qui traîne.
 
 - **L'abri.** Monter un appentis : une toile, une bâche ou quelques planches appuyées contre le mur du hangar,
  **ouvert d'un côté**, le dos au vent. Sans toile, monter en L un mur de blocs de neige découpés à la pelle ou à
  la scie, l'ouverture à l'abri du vent dominant.
-- **Le sol avant tout.** Assis, le corps perd plus de chaleur par le sol que par l'air. Mettre entre la personne
- et la neige un lit épais de branches de sapin baumier croisées, un vieux matelas de mousse, des planches ou un
- tapis de traîneau : ça compte plus qu'une couverture posée sur elle.
+- **Le sol avant tout.** Couché ou assis, le corps perd plus de chaleur par le sol que par l'air. Mettre entre la
+ personne et la neige un lit épais de branches de sapin baumier croisées, un vieux matelas de mousse, des planches
+ ou un tapis de traîneau : ça compte plus qu'une couverture posée sur elle. Une personne qui a les signes de
+ l'étape 7 doit rester couchée sur ce lit, pas assise (étape 8).
 - **Le feu et son mur.** Faire le feu devant l'ouverture, pas dedans, et dresser derrière lui un empilement de
  billots qui renvoie la chaleur vers l'abri. Sans mur réflecteur, la moitié de la chaleur part vers la forêt.
 - {!projection} **Les pierres.** Chauffer des pierres dans le feu, les rouler dans un vieux sac de jute ou une
- couverture et les glisser sous le banc ou aux pieds : elles tiennent des heures. Prendre des **pierres sèches**,
- dans un talus : une pierre de ruisseau ou prise dans la neige mouillée garde de l'eau, qui se change en vapeur
- dans le feu et la fait éclater. Ne pas se pencher au-dessus du feu pendant qu'elles chauffent.
+ couverture et les poser contre le tronc de la personne (étape 8) : elles tiennent des heures. Prendre des **pierres
+ sèches**, dans un talus : une pierre de ruisseau ou prise dans la neige mouillée garde de l'eau, qui se change en
+ vapeur dans le feu et la fait éclater. Ne pas se pencher au-dessus du feu pendant qu'elles chauffent.
 - **La bouillotte.** Remplir d'eau chaude une bouteille de métal ou de plastique épais, l'enrouler dans un bas ou
  un linge, et la poser sur le tronc, le cou, les aisselles et l'aine, pas sur les mains ni les pieds (étape 8).
 - {!thuyone} **La boisson chaude et sucrée**, seulement à une personne qui avale bien (étape 8). Sans thé ni sucre,
@@ -395,6 +397,6 @@ longtemps que les adultes. La gastro se transmet tant que durent les signes, et 
 ### La place de l'invité chez les Inuits de l'Ungava
 
 À la fin du 19e siècle, chez les Inuits de l'Ungava, le maître de la grande tente de peaux dormait au fond avec sa
-famille, derrière une pièce de bois couchée en travers du plancher. Les autres couchaient le long des côtés, selon
-leur parenté. Le maître choisissait la place de l'invité ; pour lui faire honneur, il lui donnait la sienne. Avec un
-inconnu, lui céder sa place, c'est le faire dormir au fond, près des enfants (étape 17).
+famille, souvent derrière une pièce de bois couchée en travers du plancher. Les autres couchaient le long des côtés,
+selon leur parenté. Le maître choisissait la place de l'invité ; pour lui faire honneur, il lui donnait la sienne.
+Avec un inconnu, lui céder sa place, c'est le faire dormir au fond, près des enfants (étape 17).

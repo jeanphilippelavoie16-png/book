@@ -1,6 +1,6 @@
 # Tome 1 · Tenir — rapport d'assemblage
 
-- **Produit le :** 2026-10-19 01:46, par `design/outils/assembler-tome.py 1 --chapitres 15 --hors-ligne --sortie livre/apercus-ch15`
+- **Produit le :** 2026-10-19 02:02, par `design/outils/assembler-tome.py 1 --chapitres 15 --hors-ligne --sortie livre/apercus-ch15`
 - **Fichier :** `livre/tome-1/interieur.pdf` — 36 pages, 6.1 Mo
 - **Ouvertures :** au recto ou au verso (--verso)
 - **Placements :** design/epreuves-livre/placements.json, design/epreuves-livre/placements-tome-1.json
@@ -29,6 +29,15 @@ Marqueur `{.orange}` sur l'intertitre ### de la série, dans le Markdown (CLAUDE
 | Ch. | Pages du tome |
 | --- | --- |
 | 15 | 20, 21, 23, 24, 25 |
+
+## Notes « En plus »
+
+| Ch. | Note | Page du tome (du chapitre) | Renvoie à | Posée après | Où |
+| --- | --- | --- | --- | --- | --- |
+| 15 | Ne pas laisser la machine geler au sol | 25 (15-9) | étape(s) 18 | étape 19 (La réserve de carburant) | dans le fil du texte |
+| 15 | L’essence d’hiver | 26 (15-10) | étape(s) 20 | étape 25 (La réserve de carburant) | dans le fil du texte |
+| 15 | Les oiseaux et les poissons qui ouvrent la glace | 27 (15-11) | étape(s) 42 | étape 42 (Traverser un lac ou une rivière gelée) | dans le fil du texte |
+| 15 | Le bâton à sonder de la côte de l’Alaska | 29 (15-13) | étape(s) 42 | étape 48 (La génératrice) | dans le fil du texte |
 
 ## Contrôle Blurb
 

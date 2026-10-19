@@ -533,3 +533,62 @@ l'orchestrateur).
 Les renvois du ch. 16 et de `16-sortir-un-blesse.json` sont déjà justes dans le fichier de travail (étapes 1 et 2, 3, 5
 et 6, 6 et 8, 26). Reste `chapitres/86-l-electricite-du-chalet.md`, l. 88 et 89 : « (ch. 14, étape 7) » → « (ch. 14,
 étape 20) ».
+
+## Corrections après la vérification technique, 19 octobre 2026 (deuxième passe)
+
+Rôle 2, rédacteur, sur le deuxième rapport du vérificateur technique (10 points : 2 erreurs, 8 à préciser), qui ne
+portait que sur ce que la première passe de corrections avait ajouté ou changé de sens. Relu avant : le cadre des agents,
+`CLAUDE.md`, le skill `ecriture`, `gabarit-chapitre.md`, `roles.md`, le ch. 12 (étape 2), le ch. 16 (étape 19), les
+ch. 1 (étape 6) et 3 (section 7) pour les tours cellulaires. **Aucune page nouvelle cherchée** : chaque correction
+s'appuie sur une page déjà au dossier, relue ici, et recopiée dans `sources/14-refonte-2026-10-19-balise-et-en-plus.md`
+(section 1, 4.7.1 et « Ce que le chapitre en tire » ; section 3, lignes des tours, de la bobine, du téléphone de
+campagne, et une ligne nouvelle pour le sifflet). Numéros d'étapes inchangés (1 à 30). Logigramme inchangé : ses boîtes
+`n3` (« rester près de la machine ») et `n4` (« un feu qu'on voit d'en haut ») restent justes ; rien à refaire.
+
+### Appliqué
+
+| # | Où | Avant | Après | Page |
+| --- | --- | --- | --- | --- |
+| 1 | Section 7, « Le son » | « Pour appeler à l'aide, un signal sonore sert seulement s'il a été convenu d'avance avec les gens qui peuvent l'entendre : convenir du code avec le camp voisin (ch. 16, étape 19). » | « Pour appeler à l'aide, faire le signal que les chercheurs au sol connaissent : souffler trois coups de sifflet, faire une pause, puis trois autres coups, et recommencer, en se taisant de temps en temps pour écouter la réponse. Convenir du même signal avec le camp voisin (ch. 16, étape 19). » Le texte du vérificateur, remis dans l'ordre pour éviter la mise en relief « c'est le signal que » | `21-adventuresmart-signaux-detresse.md` ; ch. 16, étape 19 |
+| 2 | Étape 14, troisième puce | « de 2 à 10 h, parfois jusqu'à une journée ; certaines tours ont une génératrice » | « de 2 à 4 h, parfois jusqu'à une journée ; certaines tours ont aussi une génératrice ». Les 4 à 10 h de l'opérateur comptaient les génératrices ; le chiffre rejoint les ch. 1, étape 6, et 3, section 7 | `19-cbc-2018-batteries-tours-cellulaires.md` |
+| 3 | Étape 4, première puce | « …près de la machine, ou dans l'ouverture la plus proche (un lac, une coupe, une clairière), pour qu'on voie le feu d'en haut. » | « …près de la machine, ou au bord de l'ouverture la plus proche (un lac, une coupe, une clairière). Garder l'abri sous les arbres, à l'écart du vent, et faire le feu du côté ouvert, pour qu'on le voie d'en haut. » Plus de contradiction avec le ch. 12, étape 2, ni avec le pictogramme `froid` de l'étape | Ch. 12, étape 2 ; AIM SAR 4.7.1, p. 387 |
+| 4 | Étape 3 | « Garder l'appareil satellite allumé, au chaud sous le manteau, et le sortir sous un ciel dégagé à l'heure des messages pour envoyer et recevoir (étape 7). » | « Garder l'appareil satellite allumé et au chaud sous le manteau. Pendant un SOS, le sortir sous un ciel dégagé aussi souvent que le froid le permet : sous le manteau, ce qu'il envoie reste en file, et il ne reçoit pas les réponses (étapes 7 et 22). » Le « et pas seulement à l'heure des messages » du vérificateur est coupé : « aussi souvent que le froid le permet » le dit, et l'opposition n'ajoute pas de fait. Le mécanisme vient de l'étape 7, déjà vérifiée (le message part sous un ciel dégagé) ; aucune page au dossier ne décrit le mode SOS d'un appareil de messagerie, et le texte n'en dit rien de plus | Étape 7 (ancien texte : « Se déplacer vers un ciel dégagé, renvoyer ») ; AIM SAR 3.5, p. 379 (signal irrégulier, pour la balise) ; étape 22 (−20 °C) |
+| 5 | Étape 3 | « Rester aussi près de la machine, de l'auto ou du traîneau : d'un avion, on repère une machine plus facilement qu'une personne. » | « Rester aussi près de la machine, de l'auto ou du traîneau, et la dégager de la neige : d'un avion, on repère une machine plus facilement qu'une personne. » | AIM SAR 3.5, note, p. 380 ; 4.7.1, p. 387 (« La neige qui pourrait s'accumuler sur l'aéronef devrait être dégagée ») |
+| 6 | Étape 15, troisième puce | « Aucune carte ne donne ces renseignements pour le chalet. » | Coupé. NON RETROUVÉ, et le relevé dit déjà ce qu'on fait | Aucune |
+| 7 | Section 7, « La bobine » | « il faut environ 60 g de fil » | « il faut environ 25 m de fil ». La masse de la page vaut pour du fil n° 24 sous gaine de coton ; le fil récupéré est émaillé, de calibre inconnu, et on mesure sa longueur en le déroulant. 3,14 × 0,10 m × 80 spires = 25,1 m | `19-nbs-circulaire-120-poste-recepteur.md` (4 inches, 80 turns, 2 ounces of No. 24) ; calcul |
+| 8 | En plus, « Le téléphone de campagne au grand froid » | « En 1945, le téléphone… » ; « l'humidité de l'haleine gelait » | « Le téléphone… » ; « l'humidité gelait ». La portée vient du manuel de mars 1945, le froid de la section 21.1 ajoutée le 9 juin 1960, et la page parle de l'humidité des écarts de température, pas de l'haleine. 72 mots | `19-us-army-tm11-333-telephone-ee8-texte-integral.txt`, l. 108 à 125 et 1227 |
+
+### Rendu à l'orchestrateur (fichiers communs, non touchés)
+
+| # | Fichier | Correction |
+| --- | --- | --- |
+| 9 | `chapitres/86-l-electricite-du-chalet.md`, l. 88 et 89 | « (ch. 14, étape 7) » → « (ch. 14, étape 20) » |
+| 10 | `plan/dangers-inventaire.md`, l. 47 (ligne `froid`) | Ajouter 14 entre 13 et 17 dans la liste des chapitres |
+
+La fiche `sources/19-us-army-tm11-333-telephone-ee8.md` ne date pas la section 21.1 (changement de 1960) : la date est
+notée dans `sources/14-refonte-2026-10-19-balise-et-en-plus.md`, section 3 ; la fiche 19 n'est pas touchée.
+
+### Remplace, dans la refonte plus haut
+
+Dans le tableau « Chiffres nouveaux et leurs sources » de la refonte : la ligne « 2 à 10 h, rarement une journée » devient
+« 2 à 4 h, parfois jusqu'à une journée » ; la ligne « Environ 60 g de fil » devient « Environ 25 m de fil (calcul sur
+10 cm et 80 spires) » ; la ligne « 18 à 27 km, 1945 » perd « 1945 ».
+
+### Chiffres nouveaux
+
+| Chiffre | Où | Page |
+| --- | --- | --- |
+| Environ 25 m de fil | Section 7, la bobine | Calcul sur `19-nbs-circulaire-120-poste-recepteur.md` (10 cm, 80 spires) |
+| Trois coups, une pause, trois coups | Section 7, « Le son » | `21-adventuresmart-signaux-detresse.md` |
+
+Disparus : 10 h (remplacé par 4 h), 60 g (remplacé par 25 m), 1945. **`[À VÉRIFIER]`** dans le texte : aucun.
+
+### controle.py
+
+Comparé au texte d'avant ces corrections (`git show HEAD:chapitres/14-communiquer-et-savoir.md`) : 6 968 mots avant,
+7 019 après (`wc -w` : 6 865) ; 2 tirets (titre et ligne de tome, lus par l'assembleur) ; 0 « § » ; 0 tournure, 0 maxime,
+0 pronominal ; 2 mises en relief (la condition de l'étape 5, gardée ; « c'est le signal que » de la correction 1 réécrit).
+Mots vides : 43, comme avant ; aucun nouveau (« trois autres coups » évite un « encore »).
+Redites : 3, les mêmes qu'à la passe précédente, jugées. Invariants : 10 h, 60 g, 60, 1945, justifiés plus haut. Ancre
+introuvable : 14-01, « Côté terre, la règle qui surprend », l'ancienne ancre encore dans `placements-tome-1.json`
+(nouvelle ancre rendue à l'orchestrateur).

@@ -376,7 +376,7 @@ Invariants signalés, chacun justifié :
 
 ## Corrections après la vérification technique, 19 octobre 2026
 
-Rédacteur (rôle 2). Neuf signalements du vérificateur technique : huit appliqués (deux avec une forme différente de
+Rédacteur (rôle 2). Neuf signalements du vérificateur technique : huit appliqués (cinq avec une forme différente de
 celle proposée, dite plus bas), un sans changement au ch. 6 (n° 9, il touche les ch. 1 et 3). Aucune recherche
 nouvelle (JP, 19 octobre 2026 : « fuck les sources, on a pas déjà fait ce travail-là ? ») : chaque correction
 s'appuie sur une page déjà enregistrée ou sur un chapitre qui a sa source.
@@ -393,6 +393,7 @@ s'appuie sur une page déjà enregistrée ou sur un chapitre qui a sa source.
 | 7 | Section 7, « La courroie de front » | Ajouté après « si on tombe » : « Un adulte qui n'a jamais porté au front commence avec une charge légère, sur de courtes distances. Ne pas porter à la courroie de front avec un cou douloureux, des fourmis dans les bras, ou après un coup reçu au cou, et ne jamais mettre une charge d'adulte au front d'un enfant (ch. 24, étapes 17 et 19). » La consigne à l'infinitif plutôt qu'en « Pas de… » (règle 0 : un verbe qui dit le geste). | Ch. 24, étapes 17 et 19 |
 | 8 | En plus, « Le pemmican » | « …en ravitaillait ses voyageurs l'hiver » devient « …en ravitaillait ses voyageurs dans les prairies, surtout l'hiver ». Pour garder la note sous 80 mots, « Le pemmican est dense et riche en énergie ; on le gardait et on le transportait facilement, et » devient « Dense et riche en énergie, le pemmican était facile à garder et à transporter : » (même fait). | `sources/67-encyclopedie-canadienne-pemmican.md`, deuxième extrait |
 | 9 | Section 5, l'avertisseur de CO | Ch. 6 inchangé. L'alignement va aux ch. 1 et 3 (rapport, « renvois »). | `sources/09-avertisseurs-co-duree-de-vie.md`, sections 1 et 2 |
+| 4 ter | Étape 5 (tableau) et section 7, « Filtrer l'eau trouble… » | Deux retouches qui suivent du n° 4, faites au second passage (le texte avait déjà les neuf corrections) : au tableau de l'étape 5, « un filtre » devient « un filtre à 1 µm », le filtre que l'étape 6 demande pour l'eau de lac. En section 7, après « Si l'eau reste trouble, la faire bouillir plutôt que de la chlorer (ch. 10, étape 19). », ajouté : « Le linge, le filtre à café et le bas ne remplacent pas le filtre à 1 µm de l'étape 6. » Sans ça, la variante d'urgence menait à chlorer une eau de lac passée au linge, ce que le ch. 10 (étape 19) interdit. Un renvoi plutôt que la condition redite (une première forme, « ou si elle vient d'un lac, d'un ruisseau ou de la neige », redisait l'étape 6 : le script l'a signalée). | Ch. 10, étape 19 ; aucun chiffre nouveau (1 µm est déjà à l'étape 6) |
 
 Aucun chiffre nouveau sans source : 0,4 mL, 30 min, 1 h, 2 h, 10 °C, 20 °C et 1 µm viennent du ch. 10 (sourcés dans
 `suivi/10-redaction.md`) ; 4 gouttes et 8 mL sont de l'arithmétique sur des chiffres sourcés.
@@ -406,6 +407,11 @@ jugés. Invariants signalés, justifiés :
 - « 74 °C » 2 → 1 (sécurité) : la deuxième mention redisait la première dans la même étape 14 ; le rappel du tableau
   de `CLAUDE.md` reste entier dans la phrase en gras de l'étape 14, et la trichine reste dans sa phrase.
 - « 41 » disparu : le renvoi « ch. 10, étape 41 » de la phrase coupée à l'étape 7 (n° 4 bis).
+
+Repassé après le n° 4 ter : 6 557 mots au compte de `wc` (6 687 au compte du script). Tirets : 2 (titre et ligne de
+tome). Mots bannis, « § », vocabulaire d'IA, mises en relief, maximes, redites : 0. Tournure : 1, le même faux positif.
+Mots vides : 25, les mêmes. Invariants contre le texte d'avant la vérification : les trois mêmes, déjà justifiés.
+Fins de ligne LF, 0 CR.
 
 ### Signalé, pas changé
 
