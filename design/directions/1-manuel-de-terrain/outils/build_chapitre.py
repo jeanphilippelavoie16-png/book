@@ -388,11 +388,12 @@ def extras_html(s):
                       f'<span class="xtit">{il(x["t"])}</span></div>{fig}<div class="xtxt">{texte}</div></div>')
     return boites
 
-# le pictogramme des encadrés « En plus », en haut à gauche : un « i » blanc dans un carré vert, de la famille des
-# pictogrammes de danger (même carré aux coins ronds), pour dire que c'est une note d'information (JP, 19 octobre
-# 2026 : « ajoute un pictogramme dans le haut gauche du texte vert pour dire que c'est une bulle informative »)
-XICO = ('<svg class="xico" viewBox="0 0 20 20" aria-hidden="true"><rect width="20" height="20" rx="2.8" fill="#6F9A64"/>'
-        '<circle cx="10" cy="5.3" r="1.75" fill="#fff"/><path d="M7.6 8.6h3.6v6.9h1.5v1.6H7.3v-1.6h1.5v-5.3H7.6z" fill="#fff"/></svg>')
+# le pictogramme des encadrés « En plus » : un « i » blanc dans une petite bulle verte posée à cheval sur le coin en haut
+# à gauche de l'encadré, pour dire que c'est une note d'information (JP, 19 octobre 2026 : « ajoute un pictogramme dans
+# le haut gauche du texte vert pour dire que c'est une bulle informative » ; puis : « le i genre dans une petite bulle
+# par-dessus notre bulle, en haut à gauche, de quoi de cool »). chapitre.css, .extra .xico
+XICO = ('<span class="xico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="7.1" r="1.9" fill="#fff"/>'
+        '<path d="M9.8 10.2H13.2V16.9H14.5V18.6H9.5V16.9H10.8V11.9H9.8Z" fill="#fff"/></svg></span>')
 
 def h2(n, title):
     if n is None:

@@ -767,12 +767,10 @@ def mode_emploi(tome, titre_t, plan):
         # les encadrés « En plus » (JP, 18 octobre 2026 : « ajoute-le dans la page d'explication comme pour le orange et
         # le rouge ») : chapitre.css, .extra
         # le pictogramme « i » (JP, 19 octobre 2026 : « ajoute-le à la page d'explication »)
-        rang('<span style="display:flex;align-items:center;gap:3pt;padding:4pt 8pt 5pt;background:#EFF5EA;border-radius:2pt;line-height:1.2">'
-             + bc.XICO.replace('class="xico"', 'class="xico" style="width:12pt;height:12pt;flex:none"')
-             + '<b style="font:700 6pt var(--sans);letter-spacing:.14em;text-transform:uppercase;color:#6F9A64">En plus</b> '
-             '<b style="font:600 8.8pt var(--sans);color:#2F4A2B">La façon des Innus</b></span>',
+        rang('<div class="extra" style="margin:7pt 4pt 2pt 7pt;padding:6pt 9pt 6pt"><div class="xhead">' + bc.XICO
+             + '<span class="xlab">En plus</span> <span class="xtit">La façon des Innus</span></div></div>',
              "En plus",
-             p("Une note **vert pâle**, marquée du **i** vert et des mots **En plus**, est une note d'information : ce qui "
+             p("Une note **vert pâle**, marquée des mots **En plus** et du **i** dans sa bulle, en haut à gauche, est une note d'information : ce qui "
                "est bon à savoir sans être nécessaire au geste, comme une façon de faire des Innus ou d'une autre nation du "
                "Nord, un fait, une photo pour reconnaître un arbre ou une plante. Elle se pose là où la page a de la place, "
                "près de l'étape dont elle parle. On peut la sauter sans rien manquer de la procédure.")),

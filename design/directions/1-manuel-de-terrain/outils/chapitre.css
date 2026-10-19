@@ -122,8 +122,11 @@ p.pc .pmarge svg.picto{display:block;width:26pt;height:26pt;margin:0}
    par page (« pas cordés ») */
 .extra{position:relative;display:block;break-inside:avoid;margin:11pt 6pt 9pt;padding:7pt 10pt 8pt;background:#EDF4E6;
   border-radius:3pt;box-shadow:0 3pt 8pt rgba(36,58,30,.22),0 0.7pt 1.8pt rgba(36,58,30,.20)}
-.extra .xhead{margin:0 0 2.5pt;line-height:1.2;display:flex;align-items:center;flex-wrap:wrap;column-gap:3pt}
-.extra .xico{flex:none;width:10.5pt;height:10.5pt;margin-right:1.5pt}
+.extra .xhead{margin:0 0 2.5pt;line-height:1.2}
+/* le « i » dans sa petite bulle, à cheval sur le coin en haut à gauche (JP, 19 octobre 2026) */
+.extra .xico{position:absolute;top:-7pt;left:-7pt;width:16pt;height:16pt;box-sizing:border-box;border-radius:50%;
+  background:#5F8C55;border:1.3pt solid #fff;box-shadow:0 1.5pt 3pt rgba(36,58,30,.32),0 .5pt 1pt rgba(36,58,30,.25)}
+.extra .xico svg{display:block;width:100%;height:100%}
 .extra .xlab{font:700 6pt/1 "IBM Plex Sans Condensed",sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#6F9A64;margin-right:3pt}
 .extra .xtit{font:600 8.8pt/1.2 "IBM Plex Sans Condensed",sans-serif;color:#2F4A2B}
 .extra .xtxt p{text-indent:0;margin:0 0 2pt;font:400 8.4pt/11pt "IBM Plex Sans Condensed",sans-serif;color:#31452C}
