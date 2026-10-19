@@ -80,7 +80,8 @@ viande, qu'elle dure six heures ou cinq semaines.
  chaufferette de camping, la génératrice), même pour peu de temps, même avec une fenêtre entrouverte : une maison
  fermée à −35 °C ne change pas assez d'air pour sortir le monoxyde d'un appareil qui en fait sans arrêt.
  - Si l'avertisseur ne répond pas au bouton, ou si on n'en a pas, n'allumer dans la maison que le poêle raccordé
- à sa cheminée.
+ à sa cheminée. Seule exception : la lampe à graisse (section 7, « L'éclairage »), qu'on allume seulement dans la
+ pièce du poêle et qu'on éteint avant de dormir. Ne pas allumer de chaufferette ni de chandelle.
 
 ### Le courant ne revient pas {.orange 6 h}
 

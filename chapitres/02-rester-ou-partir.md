@@ -83,8 +83,7 @@ mal à la tête, la nausée ou des étourdissements en même temps, avec ou sans
  dire qu'il reste du CO. L'avertisseur n'est fait pour fonctionner qu'au-dessus de 4,4 °C : si la maison aérée est
  descendue plus bas, refermer et laisser la pièce remonter avant de se fier à son silence.
 8. **Ne rien rallumer avant d'avoir réglé ce qui a fait le CO** (pour un conduit bouché par la neige ou le givre :
- ch. 84). Si la source était le chauffage, l'horloge de la chaleur vient de raccourcir : reprendre la décision à
- l'étape 25.
+ ch. 84). Si la source était le chauffage, la chaleur durera moins longtemps : reprendre la décision à l'étape 25.
 
 ### On reste : la première heure {.orange 1 h}
 
@@ -134,13 +133,13 @@ tôt que prévu, le plus important est fait.
  sens ; à la fenêtre, il veut dire qu'une personne est prise à l'intérieur.
 24. **Partir avec le réservoir plein.**
 
-### Mesurer : la radio et les quatre horloges
+### La radio et les quatre mesures
 
 25. **Ouvrir la radio à piles.** On y apprend ce qu'on ne voit pas de la fenêtre : un feu qui tourne, un pont fermé,
  un panache de fumée. Au chalet, si la radio ne dit rien de la région, ça ne prouve pas que tout va bien : la
  nouvelle ne s'est peut-être pas rendue jusqu'à la station.
-26. **Écrire quatre chiffres sur papier, montre en main : la chaleur, l'eau, la nourriture et le lien**, chacun en
- heures ou en jours. Sous stress, on arrondit de mémoire dans le sens de ce qu'on a envie de faire.
+26. **Écrire les quatre mesures sur papier, montre en main : la chaleur, l'eau, la nourriture et le lien**, chacune
+ en heures ou en jours. Sous stress, on arrondit de mémoire dans le sens de ce qu'on a envie de faire.
 27. **Chaleur : mesurer la température intérieure, puis la remesurer 2 heures plus tard.** L'écart entre les deux
  relevés, divisé par 2, donne le nombre de degrés que la maison perd à l'heure : une maison qui perd 4 °C à l'heure
  laisse quatre fois moins de temps qu'une maison qui en perd 1, même quand les deux affichent la même température.
@@ -149,8 +148,8 @@ tôt que prévu, le plus important est fait.
  dehors avait diminué, et le béton, le gypse, les meubles et la terre autour du sous-sol rendaient leur chaleur
  lentement. Plus il fait froid dehors, plus la maison perd vite. Refaire la mesure à chaque reprise de la décision
  (étape 43).
- - Dans une maison chauffée à l'électricité, on compte l'horloge de la chaleur avec ces degrés perdus à l'heure. Au
- chalet, on la compte en jours de bois sec qu'on peut aller chercher sans machine, au rythme où on chauffe (ch. 83).
+ - Dans une maison chauffée à l'électricité, on calcule la mesure de la chaleur à partir de ces degrés perdus à
+ l'heure. Au chalet, on la compte en jours de bois sec qu'on peut aller chercher sans machine, au rythme où on chauffe (ch. 83).
  - Entre 18 et 24 °C, le risque est minimal pour une personne sédentaire. Il n'existe aucune température reconnue à
  partir de laquelle on doit quitter une maison : partir à la température écrite d'avance sur la fiche de décision,
  choisie en pensant au plus jeune. Sans fiche, les deux adultes doivent la fixer maintenant.
@@ -167,16 +166,16 @@ tôt que prévu, le plus important est fait.
  restant à 4 °C ou moins (ch. 1). Dans les deux cas, ces aliments sortent du calcul.
 30. **Lien : répondre à trois questions.** Peut-on joindre quelqu'un ? Quelqu'un sait-il où on est ? À quelle heure
  va-t-il s'inquiéter ? Si la réponse est non aux deux premières et qu'on ne connaît pas la troisième, le lien est
- l'horloge la plus courte, même si tout le reste va bien. À la maison, les voisins comptent dans le lien.
+ la plus courte des quatre mesures, même si tout le reste va bien. À la maison, les voisins comptent dans le lien.
 
 ### Choisir : rester ou partir, et où aller
 
-31. **Comparer la plus courte des quatre horloges à 72 heures et à la durée du trajet.**
+31. **Comparer la plus courte des quatre mesures à 72 heures et à la durée du trajet.**
  - Elle dure plus de 72 h : rester, et continuer à mesurer.
- - Elle dure moins de 72 h : rester seulement avec un plan écrit pour faire durer cette horloge avec ce qu'on a sur
- place.
- - Elle dure moins que le trajet : partir maintenant, ou décider de rester pour de bon. Si on attend, l'horloge finira
- avant qu'on arrive.
+ - Elle dure moins de 72 h : rester seulement avec un plan écrit pour faire durer ce qui va manquer en premier, avec
+ ce qu'on a sur place.
+ - Elle dure moins que le trajet : partir maintenant, ou décider de rester pour de bon. Si on attend, on en manquera
+ avant d'arriver.
 32. **Choisir où aller.** Quand l'événement est court et que le délai de réparation est connu, rester à la maison, ou
  aller chez un proche en ville, où il y a les voisins et l'hôpital. Quand on ne sait plus combien de temps ça va
  durer, aller au chalet : la maison devient un bâtiment sans services parmi d'autres, et le chalet a le bois, l'eau et
@@ -241,8 +240,8 @@ tôt que prévu, le plus important est fait.
 ### Reprendre la décision à heure fixe
 
 43. **L'hiver, reprendre la décision deux fois par jour** : au réveil, et assez tôt pour pouvoir faire le trajet de
- jour. La reprendre aussi chaque fois qu'une des quatre horloges change de chiffre. Remesurer les quatre horloges
- chaque fois, même quand la décision ne change pas.
+ jour. La reprendre aussi chaque fois qu'une des quatre mesures change de chiffre. Refaire les quatre mesures chaque
+ fois, même quand la décision ne change pas.
 
 ### En route
 
@@ -263,7 +262,7 @@ tôt que prévu, le plus important est fait.
 | 0 à 5 min | Avertisseur de CO | Silencieux | S'il sonne : étapes 1 à 8 |
 | Première heure, puis 2 h plus tard | Température intérieure, et les degrés perdus entre les deux relevés | 18 à 24 °C, risque minimal pour une personne sédentaire ; degrés perdus à l'heure | Sous la température de départ écrite sur la fiche, ou en voie d'y arriver avant la fin de la nuit : regrouper tout le monde dans une pièce et trancher avant la noirceur |
 | Première heure | Bois sec qu'on atteint sans machine | Nombre de jours écrit sur la fiche (ch. 83) | Moins que ce nombre : partir pendant que la route est ouverte |
-| Première heure | Eau | 4 L par personne et par jour en réserve, et l'accès à la source | Pas d'accès à la source : l'eau devient l'horloge la plus courte |
+| Première heure | Eau | 4 L par personne et par jour en réserve, et l'accès à la source | Pas d'accès à la source : l'eau devient la plus courte des quatre mesures |
 | Première heure, à la maison | Eau du robinet | Ni panne de courant, ni bris, ni baisse de pression | Un des trois : faire bouillir l'eau à gros bouillons 1 min (étape 28) |
 | Chaque jour, à la maison | Heure de rétablissement prévue par Hydro-Québec | Une heure annoncée qui tient | Repoussée deux fois : on ne connaît plus le délai ; choisir où aller (étape 32) |
 | Première heure | Aliments réfrigérés et congelés | Réfrigérateur 4 à 6 h (compter 4 h) ; congélateur plein 48 h, à moitié plein 24 h | Au-delà : ne plus compter ces aliments (étape 29 ; ch. 74) |
@@ -274,7 +273,7 @@ tôt que prévu, le plus important est fait.
 | Avant de quitter le bâtiment l'hiver | Plomberie vidangée, antigel versé | Tous les appareils, de 0,5 à 2 L selon l'appareil | Pas le temps de tout faire : fermer l'entrée d'eau et ouvrir les robinets d'abord, verser l'antigel dans les renvois ensuite |
 | En route, aux 30 min | Chacun parle, répond, bouge | Réponses cohérentes de tous | Un des signes de l'étape 40 : premier abri chauffé (ch. 25) |
 | Auto immobilisée | Échappement, fenêtre, moteur | Échappement dégagé ; fenêtre entrouverte du côté opposé au vent ; moteur une dizaine de minutes par période de 30 minutes | Échappement bouché qu'on ne peut pas dégager : couper le moteur |
-| Deux fois par jour | Les quatre horloges et la décision | Quatre horloges remesurées, décision reprise | Pas de mesure neuve : remesurer avant de garder la décision de la veille |
+| Deux fois par jour | Les quatre mesures et la décision | Quatre mesures refaites, décision reprise | Pas de mesure neuve : remesurer avant de garder la décision de la veille |
 
 ---
 
@@ -283,7 +282,7 @@ tôt que prévu, le plus important est fait.
 | Observation | Diagnostic | Action |
 | --- | --- | --- |
 | « On verra demain » dit deux fois | On repousse la décision parce qu'on est fatigué, pas à cause des chiffres | Trancher maintenant, même avec une information incomplète |
-| Personne ne sait l'heure ni depuis combien de temps ça dure | Plus de repère : on sous-estime toutes les horloges | Écrire l'heure et les quatre chiffres avant tout autre geste |
+| Personne ne sait l'heure ni depuis combien de temps ça dure | Plus de repère : on ne peut plus faire les quatre mesures | Écrire l'heure et les quatre mesures avant tout autre geste |
 | Le plan pour rester commence par « j'irais chercher » | Le plan dépend d'un déplacement qu'on n'a pas fait, dans des conditions qui empirent | Faire le déplacement tout de suite, ou partir |
 | Maux de tête, fatigue, nausées, vomissements ou étourdissements chez plus d'une personne | Monoxyde de carbone jusqu'à preuve du contraire | Étapes 1 à 8 |
 | Un enfant devient silencieux et maladroit en auto | Hypothermie modérée possible | L'amener tout de suite dans un abri chauffé (ch. 25) |
@@ -354,7 +353,7 @@ pas partir pour le chalet : on ne peut plus chiffrer le trajet.
 
 ### Si on reste : vider le congélateur dans la neige
 
-Sortir ce qui est encore gelé avant la fin de l'horloge du congélateur (étape 29) : le mettre dans une caisse fermée,
+Sortir ce qui est encore gelé avant que le congélateur arrête de tenir le froid (étape 29) : le mettre dans une caisse fermée,
 posée sur deux bûches pour que l'air passe dessous, à l'ombre du côté nord, et mettre un poids sur le couvercle contre
 les bêtes (ch. 73). Deux choses font perdre ce qu'il y a dans la caisse : le soleil de midi d'une journée douce, qui
 fait dégeler, et la pluie verglaçante, qui recongèle les paquets en bloc. Trier ce qui dégèle selon l'étape 29.

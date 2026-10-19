@@ -1,5 +1,5 @@
 {
-  "_note": "Logigramme du chapitre 2 (rester ou partir), double page, fait le 15 octobre 2026 sur le chapitre réécrit, sur le modèle du 04-retombees. Page de gauche : l'alarme de CO (étape 1, en orange), puis la décision (étapes 2 à 4). Page de droite : la route, la destination, la première heure (étapes 8 et 9, en orange), la reprise à heure fixe (étape 10). Rendu : python3 design/outils/logigramme.py images/logigrammes/02-rester-ou-partir.json ; version du livre : --sans-entete --svg. « source » : les étapes du chapitre d'où vient chaque geste (ignoré au rendu). Réécrit le 15 octobre en phrases complètes, comme on le dirait à voix haute (JP : « personne parle comme ça »). Refait le 19 octobre 2026 sur le chapitre remis au gabarit à sept sections (étapes numérotées de 1 à 45) : renvois aux nouvelles étapes, plus de « § » ; pastille « 1 min » sur la série du CO, comme au ch. 3 et au chapitre ; « 1 h » gardé sur les deux séries de la première heure ; les pastilles « 2 min » et « 15 min » des boîtes non orange retirées (le chapitre ne les donne plus) ; la boîte « Si on reste » ne redit plus l'avertissement de la génératrice et des appareils à combustible (étapes 9 et 10, pictogrammes) ; la boîte « En panne sur la route » garde la décision (rester dans l'auto) et le geste du moteur, sans redire le mécanisme. Colonnes et rangs inchangés. Corrigé le 19 octobre 2026 après la vérification technique : la série du CO est coupée en deux, comme au chapitre ; « 1 min » reste sur co1 (étapes 1 à 4), et co4 ouvre la seconde série « Tout le monde est dehors » (étapes 5 à 8), dont la pastille est [À VÉRIFIER] (aucune source ne donne ce temps) ; la boîte « Avant de partir » dit « vidanger le bâtiment qu'on quitte » (étape 20).",
+  "_note": "Logigramme du chapitre 2 (rester ou partir), double page, fait le 15 octobre 2026 sur le chapitre réécrit, sur le modèle du 04-retombees. Page de gauche : l'alarme de CO (étape 1, en orange), puis la décision (étapes 2 à 4). Page de droite : la route, la destination, la première heure (étapes 8 et 9, en orange), la reprise à heure fixe (étape 10). Rendu : python3 design/outils/logigramme.py images/logigrammes/02-rester-ou-partir.json ; version du livre : --sans-entete --svg. « source » : les étapes du chapitre d'où vient chaque geste (ignoré au rendu). Réécrit le 15 octobre en phrases complètes, comme on le dirait à voix haute (JP : « personne parle comme ça »). Refait le 19 octobre 2026 sur le chapitre remis au gabarit à sept sections (étapes numérotées de 1 à 45) : renvois aux nouvelles étapes, plus de « § » ; pastille « 1 min » sur la série du CO, comme au ch. 3 et au chapitre ; « 1 h » gardé sur les deux séries de la première heure ; les pastilles « 2 min » et « 15 min » des boîtes non orange retirées (le chapitre ne les donne plus) ; la boîte « Si on reste » ne redit plus l'avertissement de la génératrice et des appareils à combustible (étapes 9 et 10, pictogrammes) ; la boîte « En panne sur la route » garde la décision (rester dans l'auto) et le geste du moteur, sans redire le mécanisme. Colonnes et rangs inchangés. Corrigé le 19 octobre 2026 après la vérification technique : la série du CO est coupée en deux, comme au chapitre ; « 1 min » reste sur co1 (étapes 1 à 4), et co4 ouvre la seconde série « Tout le monde est dehors » (étapes 5 à 8), dont la pastille est [À VÉRIFIER] (aucune source ne donne ce temps) ; la boîte « Avant de partir » dit « vidanger le bâtiment qu'on quitte » (étape 20). Décisions de JP du 19 octobre 2026 : les « quatre horloges » du ch. 2 deviennent « les quatre mesures » (nœuds mesures, qd, b1, b2, reprendre ; le ch. 1 garde ses quatre horloges, qui ne sont pas les mêmes) ; la pastille [À VÉRIFIER] de co4 est retirée, comme dans le chapitre (la série « Tout le monde est dehors » n'a pas de temps sourcé) ; radio : « on y apprend ce qu'on ne voit pas de la fenêtre » (étape 25) ; part : « mettre des vêtements de rechange pour chacun dans un sac à part » (étape 16).",
   "format": "double",
   "tome": 1,
   "urgent": true,
@@ -152,8 +152,7 @@
       "texte": "**Couper la source**, si on sait laquelle : un adulte sans symptômes y va. Ouvrir les portes de l'extérieur.",
       "renvoi": "ch. 2, étapes 5 et 6",
       "source": "étapes 5 et 6",
-      "taille": 10,
-      "temps": "[À VÉRIFIER]"
+      "taille": 10
     },
     {
       "id": "co5",
@@ -172,18 +171,18 @@
       "col": "mn",
       "rang": "m1",
       "ancre": "haut",
-      "texte": "**Allumer la radio** : elle dit ce qu'on ne voit pas de la fenêtre, comme un feu, un pont fermé ou de la fumée.",
+      "texte": "**Allumer la radio** : on y apprend ce qu'on ne voit pas de la fenêtre, comme un feu, un pont fermé ou de la fumée.",
       "renvoi": "ch. 2, étape 25",
       "source": "étape 25",
       "taille": 10
     },
     {
-      "id": "horloges",
+      "id": "mesures",
       "type": "geste",
       "col": "mn",
       "rang": "m2",
       "ancre": "haut",
-      "texte": "**Écrire les quatre horloges** : combien de temps il reste de chaleur, d'eau, de nourriture et de contact avec l'extérieur. Pour la chaleur, noter combien de degrés la maison perd en 2 h.",
+      "texte": "**Écrire les quatre mesures** : combien de temps il reste de chaleur, d'eau, de nourriture et de contact avec l'extérieur. Pour la chaleur, noter combien de degrés la maison perd en 2 h.",
       "renvoi": "ch. 2, étapes 26 à 30",
       "source": "étapes 26 à 30",
       "taille": 10
@@ -216,7 +215,7 @@
       "type": "question",
       "col": "qd",
       "rang": "qd",
-      "texte": "Combien de temps tient la plus courte des quatre horloges ?",
+      "texte": "Combien de temps tient la plus courte des quatre mesures ?",
       "precision": "La comparer à 72 h et à la durée du trajet",
       "source": "étape 31"
     },
@@ -237,7 +236,7 @@
       "col": "b2",
       "rang": "br",
       "ancre": "haut",
-      "texte": "**Rester, avec un plan écrit** pour faire durer cette horloge avec ce qu'on a sur place.",
+      "texte": "**Rester, avec un plan écrit** pour faire durer ce qui va manquer en premier, avec ce qu'on a sur place.",
       "renvoi": "ch. 2, étape 31",
       "source": "étape 31",
       "taille": 10
@@ -248,7 +247,7 @@
       "col": "b3",
       "rang": "br",
       "ancre": "haut",
-      "texte": "**Rester**, et continuer à mesurer les horloges.",
+      "texte": "**Rester**, et continuer à faire les quatre mesures.",
       "renvoi": "ch. 2, étape 31",
       "source": "étape 31",
       "taille": 10
@@ -323,7 +322,7 @@
       "rang": "pp",
       "ancre": "haut",
       "temps": "1 h",
-      "texte": "**Avant de partir** : habiller les enfants et garder des vêtements de rechange pour chacun à portée de main. Prendre la trousse et les papiers. Prévenir des proches et prévoir deux chemins. L'hiver, vidanger le bâtiment qu'on quitte. Écrire « PARTIS » sur la porte et faire le plein.",
+      "texte": "**Avant de partir** : habiller les enfants et mettre des vêtements de rechange pour chacun dans un sac à part. Prendre la trousse et les papiers. Prévenir des proches et prévoir deux chemins. L'hiver, vidanger le bâtiment qu'on quitte. Écrire « PARTIS » sur la porte et faire le plein.",
       "renvoi": "ch. 2, étapes 16 à 24",
       "source": "étapes 16 à 24",
       "taille": 10
@@ -346,7 +345,7 @@
       "col": "bas",
       "rang": "bas",
       "ancre": "haut",
-      "texte": "**Reprendre la décision à heure fixe** : au réveil, assez tôt pour pouvoir partir de jour, et chaque fois qu'une horloge change. Un seul adulte a le dernier mot.",
+      "texte": "**Reprendre la décision à heure fixe** : au réveil, assez tôt pour pouvoir partir de jour, et chaque fois qu'une des quatre mesures change. Un seul adulte a le dernier mot.",
       "renvoi": "ch. 2, étapes 41 à 43",
       "source": "étapes 41 à 43"
     }
@@ -378,10 +377,10 @@
     },
     {
       "de": "radio",
-      "vers": "horloges"
+      "vers": "mesures"
     },
     {
-      "de": "horloges",
+      "de": "mesures",
       "vers": "qd",
       "sx": 4.3,
       "ex": 4.3
