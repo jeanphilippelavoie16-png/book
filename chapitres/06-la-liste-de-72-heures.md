@@ -155,7 +155,7 @@ Monter d'avance une trousse qu'une personne sort de la maison en 2 minutes, avec
 29. **Avant les déplacements d'hiver, équiper l'auto** : un balai à neige et un grattoir, du lave-glace, une pelle, un téléphone chargé, de l'eau, de la nourriture, des couvertures et les médicaments. Les quantités : ch. 00b. Se déplacer et le carburant : ch. 15.
 30. **Mettre l'eau dans des contenants souples, dans l'habitacle plutôt que dans le coffre, et choisir des aliments qu'on peut manger gelés** : une auto arrêtée n'est pas chauffée, et l'eau y gèle.
 31. {!co} **Faire brûler la chandelle de survie dans son contenant de métal, une fenêtre entrouverte** : dans une auto fermée, elle prend l'oxygène et fait du monoxyde.
- - {!generatrice} Dégager le tuyau d'échappement de la neige avant de faire tourner le moteur pour chauffer l'auto.
+ - {!generatrice} Dégager la neige autour du tuyau d'échappement avant de faire tourner le moteur pour chauffer l'auto.
 
 [^1]: Quand un pot tient son vide, le centre du couvercle est creusé vers le bas et il ne bouge pas sous le doigt. Le vide est perdu si le couvercle est plat ou bombé, si son centre remonte quand on enlève le doigt, ou s'il fait un son sourd sous un petit coup de cuillère.
 
@@ -165,7 +165,7 @@ Monter d'avance une trousse qu'une personne sort de la maison en 2 minutes, avec
 
 | Moment | Ce qu'on vérifie | Cible chiffrée | Si c'est hors cible |
 | --- | --- | --- | --- |
-| Au montage | Le sac de chaque adulte, pesé | Au plus 30 % du poids de la personne, et moins de 23 kg quel que soit son poids | Mettre de l'eau dans le bac : l'eau est ce qui pèse le plus |
+| Au montage | Le sac de chaque adulte, pesé | Au plus 30 % du poids de la personne, et moins de 23 kg quel que soit son poids | Passer de l'eau du sac au bac : l'eau est ce qui pèse le plus |
 | Au montage | Le sac de chaque enfant, à l'essai | Il le porte 10 minutes sans se plaindre | Enlever des choses jusqu'à ce qu'il le porte |
 | Au montage | Le bac 1, sorti par une seule personne | Dehors en moins de 2 minutes | Rapprocher le bac de la porte, ou l'alléger |
 | Deux fois par année, aux changements d'heure | Les piles : date, traces de fuite | Aucune trace blanche ou verte | Remplacer tout le jeu, pas seulement la pile qui a coulé |
@@ -174,7 +174,7 @@ Monter d'avance une trousse qu'une personne sort de la maison en 2 minutes, avec
 | Une fois par année | Tout le contenu, et les dates de péremption | Aliments pas périmés ; piles et eau remplacées | Remplacer ce qui est périmé |
 | Une fois par année | Les médicaments d'ordonnance | Quelques semaines d'avance, pas périmés | Faire renouveler l'ordonnance tout de suite |
 | Une fois par année | Les papiers | Cartes valides, numéros à jour | Les refaire |
-| Une fois par année, un soir d'automne | Un souper et une nuit avec la trousse seulement | Personne n'a eu à ouvrir une armoire | Mettre dans la trousse, dès le lendemain, ce qui a manqué |
+| Une fois par année, un soir d'automne | Un souper et une nuit avec la trousse seulement | Personne n'a eu à ouvrir une armoire | Mettre ce qui a manqué dans la trousse dès le lendemain |
 | Après chaque usage, même partiel | Ce qu'on a pris dans la trousse | Tout est remplacé | Le remplacer le lendemain |
 
 ---
@@ -201,17 +201,17 @@ Quand il faut une trousse le soir même, pour rester ou pour partir, on la monte
 
 ### Porter et traîner sans sac
 
-**Le rouleau de couverture.** Étendre la couverture de laine à plat. Coucher ce qui part en ligne le long d'un bord : les vêtements de rechange en laine, les aliments secs, la boîte des papiers. Rouler serré en partant de ce bord : un rouleau lâche se défait au premier arbre, et il faut le refaire à genoux dans la neige. L'attacher aux deux bouts et au milieu avec de la corde, de la ficelle à balles ou des lacets. Nouer ensuite les deux bouts ensemble et porter le rouleau en fer à cheval, en travers de la poitrine, la charge sur une épaule et la boucle sous l'autre bras. On l'enlève d'un seul geste si on tombe à l'eau ou s'il faut courir.
+**Le rouleau de couverture.** Étendre la couverture de laine à plat. Coucher les choses à emporter en ligne, le long d'un bord : les vêtements de rechange en laine, les aliments secs, les papiers. Rouler serré en partant de ce bord : un rouleau lâche se défait au premier arbre. L'attacher aux deux bouts et au milieu avec de la corde, de la ficelle à balles ou des lacets. Nouer ensuite les deux bouts ensemble et porter le rouleau en fer à cheval, en travers de la poitrine, la charge sur une épaule et la boucle sous l'autre bras. On l'enlève d'un seul geste si on tombe à l'eau ou s'il faut courir.
 
 **La chaudière en sac à dos.** Percer deux trous de chaque côté d'une chaudière de 20 L, sous le rebord, passer une corde dans chaque paire de trous et la nouer par en dedans : ce sont les bretelles. Le rebord fait vite mal à l'épaule : glisser un linge plié sous la corde. Une chaudière à couvercle vissé est étanche, on peut l'empiler, et on peut s'asseoir dessus en attendant.
 
-**La courroie de front.** Passer une sangle large comme la paume (une ceinture de robe de chambre, une courroie de sac de hockey, une lanière de babiche : ch. 103) sur le haut du front, et nouer ses bouts à la charge, qui s'appuie au creux des reins. Le poids descend par le cou et la colonne au lieu de tirer les épaules vers l'arrière, et les gens qui en ont l'habitude portent ainsi plus lourd qu'au sac à dos (ch. 24). Attacher la charge de façon que la tête puisse sortir de la courroie si on tombe. Un adulte qui n'a jamais porté au front commence avec une charge légère, sur de courtes distances. Ne pas porter à la courroie de front avec un cou douloureux, des fourmis dans les bras, ou après un coup reçu au cou, et ne jamais mettre une charge d'adulte au front d'un enfant (ch. 24, étapes 17 et 19). **Ce qu'on perd :** le cou porte toute la charge, on ne regarde que devant soi, et on se rattrape mal quand on tombe.
+**La courroie de front.** Passer une sangle large comme la paume (une ceinture de robe de chambre, une courroie de sac de hockey, une lanière de babiche : ch. 103) sur le haut du front, et nouer ses bouts à la charge, qui s'appuie au creux des reins. Le poids descend par le cou et la colonne au lieu de tirer les épaules vers l'arrière, et les gens qui en ont l'habitude portent ainsi plus lourd qu'au sac à dos (ch. 24). Attacher la charge de façon que la tête puisse sortir de la courroie si on tombe. Un adulte qui n'a jamais porté au front doit commencer avec une charge légère, sur de courtes distances. Ne pas porter à la courroie de front avec un cou douloureux, des fourmis dans les bras, ou après un coup reçu au cou, et ne jamais mettre une charge d'adulte au front d'un enfant (ch. 24, étapes 17 et 19). **Ce qu'on perd :** le cou porte toute la charge, on ne regarde que devant soi, et on se rattrape mal quand on tombe.
 
-**Traîner au lieu de porter.** Sur la neige, on traîne ce qu'on ne peut pas porter. Prendre un traîneau d'enfant, un capot d'auto, une feuille de plastique ondulé, une porte sortie de ses pentures, un canot ou une tôle.
+**Traîner au lieu de porter.** Sur la neige, traîner ce qu'on ne peut pas porter sur un traîneau d'enfant, un capot d'auto, une feuille de plastique ondulé, une porte sortie de ses pentures, un canot ou une tôle.
 
-- Attacher deux traits à l'avant, aux deux coins, jamais au centre : attachée au centre, la charge se met en travers et verse à la première pente.
+- Attacher deux cordes de tirage à l'avant, aux deux coins, jamais au centre : attachée au centre, la charge se met en travers et verse à la première pente.
 - Mettre deux barres rigides entre le traîneau et la taille : deux bouts de bois, des bâtons de ski ou des tuyaux. Sans elles, le traîneau rattrape la personne qui tire dans la première descente et lui frappe les talons ; avec elles, il pousse sur les barres et reste derrière.
-- Faire une ceinture de tirage avec une couverture pliée en bande large, et y nouer les traits et les barres : on tire avec les hanches, pas avec les bras.
+- Faire une ceinture de tirage avec une couverture pliée en bande large, et y nouer les cordes et les barres : on tire avec les hanches, pas avec les bras.
 
 **Ce qu'on perd :** le traîneau ne passe pas dans le bois serré, il verse quand la pente est de travers, et sur le sol nu, il ne sert plus.
 
@@ -221,30 +221,30 @@ Mettre les papiers roulés dans un pot Mason à couvercle vissé : il est étanc
 
 Écrire aussi à la main ce qu'on ne pourrait pas retrouver autrement : les numéros des polices d'assurance et des comptes, la liste des médicaments (étape 23), et les numéros de téléphone qu'on ne connaît que parce qu'un écran les affiche.
 
-Si on part, écrire le nom et un numéro de téléphone au stylo, à l'intérieur de l'avant-bras de chaque enfant. L'écriture reste si l'enfant perd son manteau ou son sac, et un jeune enfant qui pleure ne récite pas un numéro de téléphone.
+Si on part, écrire le nom de chaque enfant et un numéro de téléphone à l'intérieur de son avant-bras, au stylo. L'écriture reste si l'enfant perd son manteau ou son sac, et un jeune enfant qui pleure ne récite pas un numéro de téléphone.
 
 ### L'eau quand il n'y a plus de pression
 
-**Remplir tout ce qui tient l'eau pendant qu'elle coule encore** : gourdes, chaudrons, bidons, le bain, la cuve de la laveuse, les chaudières. Au chalet, le faire dès qu'on comprend que le courant ne reviendra pas : la pompe du puits s'arrête avec lui, et il ne reste que quelques minutes de pression.
+**Remplir tout ce qui tient l'eau pendant qu'elle coule encore** : les gourdes, les chaudrons, les bidons, le bain, la cuve de la laveuse et les chaudières. Au chalet, le faire dès qu'on comprend que le courant ne reviendra pas : la pompe du puits s'arrête avec lui, et il ne reste que quelques minutes de pression.
 
 **Tirer l'eau du chauffe-eau.** Le chauffe-eau reste plein quand la pression tombe.
 
-- Couper le disjoncteur du chauffe-eau électrique, et ne le remettre sous tension que quand le chauffe-eau est de nouveau plein (ch. 3).
+- Couper le disjoncteur du chauffe-eau électrique, et ne remettre le chauffe-eau sous tension que quand il est de nouveau plein (ch. 3).
 - Fermer la valve d'eau froide, sur le tuyau qui entre par le dessus du chauffe-eau.
 - Ouvrir un robinet d'eau chaude à l'étage, pour que l'air entre dans le chauffe-eau : sans air, l'eau ne sort pas.
-- Ouvrir le robinet de vidange, au bas du chauffe-eau, au-dessus de contenants propres. La première eau sort tiède et trouble : c'est le dépôt du fond, et elle s'éclaircit ensuite. La désinfecter avant de la boire (ch. 10).
+- Mettre des contenants propres sous le robinet de vidange, au bas du chauffe-eau, et l'ouvrir. La première eau sort tiède et trouble : c'est le dépôt du fond, et elle s'éclaircit ensuite. La désinfecter avant de la boire (ch. 10).
 
-**Le sac à ordures comme contenant.** Déposer un sac à ordures épais dans une chaudière, une boîte de carton ou un sac à dos : il devient un bidon souple qui prend la forme de son support. On ne peut pas le porter plein, parce qu'il ne tient pas sa forme ; il garde une réserve qui ne bouge pas, et il ne fend pas en gelant.
+**Le sac à ordures comme contenant.** Déposer un sac à ordures épais dans une chaudière, une boîte de carton ou un sac à dos : il devient un bidon souple qui prend la forme de son support. Sorti de son support, il ne tient pas sa forme, et on ne peut pas le porter plein ; il garde une réserve qui ne bouge pas, et il ne fend pas en gelant.
 
 **Faire fondre la neige sans brûler plus de bois.** Remplir de neige une taie d'oreiller ou un linge, et l'accrocher au-dessus d'un chaudron, près du poêle qui chauffe la maison : la neige fond et coule dans le chaudron. Sur le poêle, toujours mettre un fond d'eau dans le chaudron avant d'y mettre la neige : sans eau, le métal surchauffe et la neige roussit au fond (ch. 10, étape 39).
 
 **Doser la javel sans compte-gouttes.** Faire un compte-gouttes avec une paille : la tremper dans la javel, boucher le bout du haut avec le doigt, la sortir, puis soulever le doigt un peu pour laisser tomber une goutte à la fois. Pour un grand volume, mesurer à la cuillère : la dose est de 0,2 mL de javel non parfumée à 5,25 % par litre, soit 4 mL pour un bidon de 20 L, un peu moins d'une cuillère à thé rase (5 mL). Quand on double la dose (étape 6), mettre 8 mL pour 20 L. Lire la concentration sur la bouteille : une javel plus forte ou plus faible change la dose. Une javel parfumée, épaissie ou qui contient du savon ne convient pas. L'attente et l'odeur de chlore : ch. 10, étapes 21 et 22.
 
-**Filtrer l'eau trouble avant de la désinfecter.** La passer dans un linge serré, un filtre à café ou un bas propre, ou dans un bas rempli de sable et de charbon de bois du poêle. Ça n'enlève aucun microbe ; ça enlève la boue, qui cache les microbes au chlore et l'use. Si l'eau reste trouble, la faire bouillir plutôt que de la chlorer (ch. 10, étape 19). Le linge, le filtre à café et le bas ne remplacent pas le filtre à 1 µm de l'étape 6.
+**Filtrer l'eau trouble avant de la désinfecter.** La passer dans un linge serré, un filtre à café ou un bas propre, ou dans un bas rempli de sable et de charbon de bois du poêle. Ça n'enlève aucun microbe ; ça enlève la boue, qui protège les microbes de la javel et l'use. Si l'eau reste trouble, la faire bouillir plutôt que d'y mettre de la javel (ch. 10, étape 19). Le linge, le filtre à café et le bas ne remplacent pas le filtre à 1 µm de l'étape 6.
 
 ### Se garder au chaud sans chauffage
 
-**Chauffer le lit plutôt que la pièce.** Fermer toutes les portes et ramener la famille dans la plus petite pièce, celle du poêle s'il y en a un. Bloquer le bas des portes avec des serviettes roulées, et couvrir la grande fenêtre d'une couverture le soir (ch. 3). Monter ensuite une tente dans la pièce : une couverture par-dessus la table, deux draps tendus entre des chaises, un matelas debout contre le mur pour fermer un côté. La chaleur des corps reste dans ce petit volume. Faire dormir tout le monde ensemble : deux personnes sous la même couverture perdent moins de chaleur que sous deux couvertures séparées.
+**Chauffer le lit plutôt que la pièce.** Fermer toutes les portes et ramener la famille dans la plus petite pièce, celle du poêle s'il y en a un. Bloquer le bas des portes avec des serviettes roulées, et couvrir la grande fenêtre d'une couverture le soir (ch. 3). Monter ensuite une tente dans la pièce : étendre une couverture par-dessus la table, tendre deux draps entre des chaises, et dresser un matelas contre le mur pour fermer un côté. La chaleur des corps reste dans ce petit volume. Faire dormir tout le monde ensemble : deux personnes sous la même couverture perdent moins de chaleur que sous deux couvertures séparées.
 
 **Mettre l'isolant sous le corps.** Sous le matelas ou le sac de couchage, étendre du carton, des journaux, un tapis roulé, des branches de sapin ou un tapis de mousse (étape 8). Une épaisseur de carton sous le matelas fait plus qu'une couverture de plus par-dessus.
 

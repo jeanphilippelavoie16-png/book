@@ -403,16 +403,15 @@ porte arrive (étape 47).
  faire pivoter l'arbre dans le fossé (ch. 109). La scie ne sert que si le tronc est trop gros pour
  pivoter ; couper alors le côté comprimé en dernier (ch. 106).
 - **Sonder un ponceau avant de rouler dessus.** Un ponceau de bois brûle par en dessous et, vu du chemin,
- il a l'air intact. Descendre, regarder dessous et frapper le dessus du ponceau avec une barre : s'il sonne creux,
- passer par le fossé si la pente le permet, ou combler avec ce qu'on trouve (billots en travers, roches,
- terre).
-- **Partir par le lac.** Garder un canot ou une chaloupe à l'eau toute la saison de feu,
- prêt à partir (étape 4). Les matins calmes, la fumée se couche sur l'eau, et une rive qui brûle chauffe
- loin : longer la rive où le vent souffle de la terre vers le lac.
+ il a l'air intact. Descendre, regarder dessous et frapper le dessus du ponceau avec une barre : s'il
+ sonne creux, passer par le fossé si la pente le permet, ou combler avec ce qu'on trouve (billots en
+ travers, roches, terre).
+- **Partir par le lac.** Garder un canot ou une chaloupe à l'eau toute la saison de feu, prêt à partir
+ (étape 4). Les matins calmes, la fumée se couche sur l'eau, et une rive qui brûle chauffe loin : longer
+ la rive où le vent souffle de la terre vers le lac.
 - **À pied, marcher vers le brûlis.** Derrière le front, le brûlis n'a plus rien à brûler : y aller, même
  si le réflexe est de fuir devant le feu. Choisir un brûlis large et refroidi : les souches y couvent et
- les arbres morts tombent. Marcher sur le chemin, pas dans le bois, et descendre plutôt
- que monter.
+ les arbres morts tombent. Marcher sur le chemin, pas dans le bois, et descendre plutôt que monter.
 
 ### Protéger le bâtiment des braises avec ce qu'on a
 
@@ -426,18 +425,18 @@ la sortie de la sécheuse et l'ouverture sous la galerie (planche 11-03).
  plastique : elle fond et tombe en gouttes enflammées.
 - **Les vitres.** Elles cassent sous la chaleur du feu avant que la flamme arrive, et la braise entre par
  le trou dans une pièce meublée. Visser de la tôle, du solin ou un panneau de contreplaqué par-dessus la
- vitre, de l'extérieur (repères 4 et 11), dans le chambranle, loin du verre (repère 12). Le
- contreplaqué brûle, mais plus tard que le rideau derrière la vitre.
+ vitre, de l'extérieur (repères 4 et 11), dans le chambranle, loin du verre (repère 12). Le contreplaqué
+ brûle, mais plus tard que le rideau derrière la vitre.
 - **Le baril en hauteur.** Monter un baril sur le toit d'une remise, sur un échafaud ou dans la boîte du
  pick-up, avec un boyau d'arrosage piqué au fond (repère 5). Par gravité, le boyau donne un filet continu,
  pas un jet (repère 6). Ça suffit pour garder mouillés un bas de mur, un dessous de galerie ou une
  gouttière, et ça coule tout seul pendant qu'on charge l'auto.
 - **Autre façon : la pompe de cale en 12 V.** Une pompe de cale de chaloupe, une pompe de transfert
  d'essence ou la pompe à eau d'une roulotte, branchée sur une batterie d'auto, donne un débit faible mais
- continu, sans essence, sans amorçage et sans surveillance. Mettre la crépine (le bout qui aspire) dans une
- chaudière ou au bout du quai, prendre un fil assez gros pour la longueur, et poser un fusible à la borne. Deux batteries
- montées en parallèle durent deux fois plus longtemps, sans donner plus de pression ; montées en série,
- elles brûlent la pompe.
+ continu, sans essence, sans amorçage et sans surveillance. Mettre la crépine (le bout qui aspire) dans
+ une chaudière ou au bout du quai, prendre un fil assez gros pour la longueur, et poser un fusible à la
+ borne. Deux batteries montées en parallèle durent deux fois plus longtemps, sans donner plus de
+ pression ; montées en série, elles brûlent la pompe.
 - **Les évents.** Poser une maille de métal de 3 mm sous l'évent (repère 8), plus grande que lui
  (repère 9), et l'agrafer ou la visser tout le tour (repère 10). Une moustiquaire de nylon fond avant que
  la braise arrive, et le trou s'agrandit. Sans maille, prendre une tôle percée de petits trous, un
@@ -456,8 +455,9 @@ la sortie de la sécheuse et l'ouverture sous la galerie (planche 11-03).
  mieux qu'un balai, et sans eau.
 - **La perche d'élagage.** Glisser une lame d'égoïne, les dents en bas (repère 8), dans une fente sciée au
  bout d'une perche d'épinette (repère 9). La fixer avec deux boulons passés dans les trous de l'ancienne
- poignée (repère 10), et serrer du fil de fer autour de la perche, derrière la fente (repère 11). La perche coupe les branches
- basses jusqu'à hauteur d'homme, lentement, sans qu'on monte dans l'arbre (étape 55).
+ poignée (repère 10), et serrer du fil de fer autour de la perche, derrière la fente (repère 11). La
+ perche coupe les branches basses jusqu'à hauteur d'homme, lentement, sans qu'on monte dans l'arbre
+ (étape 55).
 
 ### De l'air pour les enfants, sans purificateur
 
@@ -466,22 +466,22 @@ purificateur à filtre HEPA, mais beaucoup mieux que rien (planche 11-04).
 
 - **Choisir une seule pièce.** Prendre la plus petite et la mieux fermée, sans porte extérieure, et sans
  poêle si possible. Agrafer du polythène sur le cadre de la fenêtre (repère 10), rouler une couverture au
- bas de la porte (repère 11), fermer la clé d'air du poêle. L'été, on n'a pas à chauffer, et la pièce peut rester
- fermée (étape 35). Au-dessus de 31 °C dans la pièce, l'ouvrir (étape 34).
+ bas de la porte (repère 11), fermer la clé d'air du poêle. L'été, on n'a pas à chauffer, et la pièce
+ peut rester fermée (étape 35). Au-dessus de 31 °C dans la pièce, l'ouvrir (étape 34).
 - **Un ventilateur et un filtre.** Fixer au ruban gommé un filtre de fournaise fin contre la grille d'un
  ventilateur-boîte, la flèche du filtre tournée vers le ventilateur (repère 8). Un seul filtre traite une
  pièce d'environ 10 m². Un carton posé sur la face qui souffle, percé au diamètre des pales, augmente de
  40 % l'air nettoyé (repère 9).
 - **Le cube de quatre filtres**, pour une pièce plus grande. Monter quatre filtres en cube, les plis à la
  verticale (repère 1), et fermer tous les joints au ruban gommé (repère 2). Poser un fond de carton
- (repère 3), puis poser le ventilateur sur le cube, tourné pour souffler vers le haut (repère 4), dans un carton percé
- au diamètre des pales (repère 5). Vu de dessus, la flèche de chaque filtre pointe vers le centre
+ (repère 3), puis poser le ventilateur sur le cube, tourné pour souffler vers le haut (repère 4), dans un
+ carton percé au diamètre des pales (repère 5). Vu de dessus, la flèche de chaque filtre pointe vers le centre
  (repère 6), et chaque filtre bute contre le suivant (repère 7). Le cube traite environ 37 m². Changer les
  filtres dès qu'ils sont bruns ou gris, ou qu'ils sentent la fumée.
 - {!incendie} **Le ventilateur chauffe.** Avec un filtre chargé de poussière, la température à l'intérieur
- du moteur a monté de près de 60 °C pendant des essais. Un ventilateur fabriqué depuis 2012 a une fiche à fusible et une
- coupure thermique. Ne pas faire tourner un ventilateur plus vieux la nuit, ni sans un adulte éveillé à
- côté.
+ du moteur a monté de près de 60 °C pendant des essais. Un ventilateur fabriqué depuis 2012 a une fiche
+ à fusible et une coupure thermique. Ne pas faire tourner un ventilateur plus vieux la nuit, ni sans un
+ adulte éveillé à côté.
 - **Hors réseau**, le ventilateur de la chaufferette d'une vieille auto ou un ventilateur d'ordinateur,
  branchés sur une batterie d'auto, font le même travail plus lentement. Ils n'ont pas été mesurés : ils
  font moins, et on ne sait pas combien. Le débit doit suivre la taille de la pièce : plus la pièce est
