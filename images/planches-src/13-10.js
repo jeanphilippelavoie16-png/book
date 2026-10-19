@@ -27,53 +27,15 @@ module.exports = (h) => {
   const blanc = a => a.replace('fill="none"', 'fill="#ffffff"');
   const gen = s => { let g = s; return () => (g = (g * 16807) % 2147483647) / 2147483647; };
 
-  // Courbe lisse (Catmull-Rom) passant par chaque point.
-  const lisse = (pts, ferme) => {
-    const n = pts.length;
-    const p = i => ferme ? pts[(i + n) % n] : pts[Math.max(0, Math.min(n - 1, i))];
-    let d = `M ${f(pts[0][0])} ${f(pts[0][1])}`;
-    const segs = ferme ? n : n - 1;
-    for (let i = 0; i < segs; i++) {
-      const p0 = p(i - 1), p1 = p(i), p2 = p(i + 1), p3 = p(i + 2);
-      const c1 = [p1[0] + (p2[0] - p0[0]) / 6, p1[1] + (p2[1] - p0[1]) / 6];
-      const c2 = [p2[0] - (p3[0] - p1[0]) / 6, p2[1] - (p3[1] - p1[1]) / 6];
-      d += ` C ${f(c1[0])} ${f(c1[1])} ${f(c2[0])} ${f(c2[1])} ${f(p2[0])} ${f(p2[1])}`;
-    }
-    return ferme ? d + ' Z' : d;
-  };
-
-  // Le nid de fibres, creusé au centre (vu un peu d'en haut) : le creux est une ellipse.
-  const nid = (cx, yG, w, H, graine) => {
-    const r = gen(graine), out = [], x0 = cx - w / 2, pts = [];
-    for (let i = 0; i <= 16; i++) {
-      const t = i / 16, bosse = Math.min(1, 1.55 * Math.pow(Math.sin(Math.PI * t), 0.8));
-      pts.push([x0 + w * t + (r() - 0.5) * 3, yG - H * bosse + (i && i < 16 ? (r() - 0.5) * 4 : 0)]);
-    }
-    out.push(h.path(lisse(pts, false) + ' Z', blanc(A.arete)));
-    let brins = '';
-    for (let i = 0; i < Math.round(w * H / 70); i++) {
-      const t = 0.08 + r() * 0.84, x = x0 + w * t;
-      const top = yG - H * Math.min(1, 1.55 * Math.pow(Math.sin(Math.PI * t), 0.8));
-      const y = top + 10 + r() * (yG - top - 12);
-      if (y > yG - 3) continue;
-      const L = 7 + r() * 9, o = (r() - 0.5) * 0.9;
-      brins += `M ${f(x - Math.cos(o) * L / 2)} ${f(y - Math.sin(o) * L / 2)} Q ${f(x)} ${f(y + (r() - 0.5) * 5)} ${f(x + Math.cos(o) * L / 2)} ${f(y + Math.sin(o) * L / 2)} `;
-    }
-    out.push(h.path(brins, A.fin));
-    // Les mèches sur le bord du nid, sauf dans la largeur du creux : là, elles tomberaient sur le bas des flancs de la
-    // boule de laine et feraient deux frisettes « ( ) » dans les fils droits (second regard, 19 octobre 2026). Le tirage
-    // se fait quand même, pour que le reste du nid ne bouge pas.
-    const cy = yG - H + 7, rx = w * 0.3, ry = 7;
-    let m = '';
-    pts.forEach(([x, y], i) => {
-      if (i === 0 || i === 16 || i % 2) return;
-      const e = 3 + r() * 4, qx = (r() - 0.5) * 6, ex = (r() - 0.5) * 8;
-      if (Math.abs(x - cx) <= rx + 4) return;
-      m += `M ${f(x)} ${f(y)} q ${f(qx)} ${f(-e)} ${f(ex)} ${f(-e * 1.5)} `;
-    });
-    out.push(h.path(m, A.fin));
-    out.push(h.ellipse(cx, cy, rx, ry, blanc(A.detail)));
-    return { svg: out.join('\n'), creux: [cx, cy], rx, ry };
+  // Le nid : celui de la planche 13-40 (vue « Faire le nid »), que JP a trouvé réussi (19 octobre 2026 : « prends le
+  // nid qui est réussi »), importé du module commun, sans la poudre au fond. Le nid est posé sur la ligne de sol : un
+  // premier tirage mesure le bas de sa silhouette, le second le descend jusqu'à la ligne.
+  const { nid: nidReussi } = require('./_communs/nid.js')(h, '1310');
+  const THETA = 25;
+  const poserNid = (cx, yG, R, graine, o = {}) => {
+    const essai = nidReussi(cx, 0, R, graine, { poudre: false, theta: THETA, ...o });
+    const bas = Math.max(...essai.sil.map(p => p[1]));
+    return nidReussi(cx, yG - bas + 0.6, R, graine, { poudre: false, theta: THETA, ...o });
   };
 
   // La laine d'acier : le module partagé avec la feuille d'essai (images/planches-src/_laine-acier.js, façon D). Des fils
@@ -91,13 +53,19 @@ module.exports = (h) => {
     return h.path(d, A.detail);
   };
 
-  // La boule posée dans le creux du nid : la laine est découpée par le bord avant du creux (la moitié basse de son
-  // ellipse), pour que le bas de la boule passe derrière le bord du nid au lieu de pendre devant.
+  // La boule posée dans le creux du nid : la laine est découpée par le bord avant du creux, pour que le bas de la boule
+  // passe derrière le bord du nid au lieu de pendre devant. Le bord avant est la moitié de devant de la courbe de
+  // l'ouverture que le nid dessine (N.ouv : 40 points, de l'angle 0 à droite, par le devant, jusqu'à l'angle π à
+  // gauche, à l'indice 20), avec les mêmes segments (Catmull-Rom fermée) : la découpe tombe exactement sur le trait.
   const dansLeCreux = (N, z, id, contenu) => {
-    const [ex, ey] = N.creux, pts = [[0, 0], [z.l, 0], [z.l, ey]];
-    for (let k = 0; k <= 24; k++) { const a = k / 24 * Math.PI; pts.push([ex + Math.cos(a) * N.rx, ey + Math.sin(a) * N.ry]); }
-    pts.push([0, ey]);
-    return `<clipPath id="${id}"><path d="${pts.map((q, i) => `${i ? 'L' : 'M'} ${f(q[0])} ${f(q[1])}`).join(' ')} Z" fill="#FFFFFF"/></clipPath>\n<g clip-path="url(#${id})">\n${contenu}\n</g>`;
+    const o = N.ouv, n = o.length, p = i => o[(i + n) % n], ey = o[0][1];
+    let d = `M 0 0 L ${f(z.l)} 0 L ${f(z.l)} ${f(ey)} L ${f(o[0][0])} ${f(o[0][1])}`;
+    for (let i = 0; i < n / 2; i++) {
+      const p0 = p(i - 1), p1 = p(i), p2 = p(i + 1), p3 = p(i + 2);
+      d += ` C ${f(p1[0] + (p2[0] - p0[0]) / 6)} ${f(p1[1] + (p2[1] - p0[1]) / 6)} ${f(p2[0] - (p3[0] - p1[0]) / 6)} ${f(p2[1] - (p3[1] - p1[1]) / 6)} ${f(p2[0])} ${f(p2[1])}`;
+    }
+    d += ` L 0 ${f(ey)} Z`;
+    return `<clipPath id="${id}"><path d="${d}" fill="#FFFFFF"/></clipPath>\n<g clip-path="url(#${id})">\n${contenu}\n</g>`;
   };
   // Le point qui rougit, au contact : un rond blanc sous ses rayons, pour qu'il se lise dans les fils de la laine.
   const lueur = (x, y, rayon) => h.cercle(x, y, rayon, A.blanc);
@@ -192,7 +160,9 @@ module.exports = (h) => {
     const n = { cx: z.l - w / 2 - 8, yG, w, H };
     const tampon = { cx: 52, cy: 46, rx: 38, ry: 20 };
     const boule = { cx: n.cx, cy: yG - H - 14, rx: 46, ry: 30 };
-    return { n, tampon, boule };
+    // le nid de la 13-40, posé sur le sol sous la boule : son ouverture (0,6 R) un peu plus large que la boule
+    const nidR = 72;
+    return { n, tampon, boule, nidR };
   };
   const vB = z => {
     const yG = z.h - 12, w = Math.min(240, z.l * 0.72), H = 50;
@@ -202,17 +172,19 @@ module.exports = (h) => {
     // la boule, presque entière au-dessus du bord du creux (comme la boule de la vue « Préparer la laine ») ; la pile
     // debout au-dessus, les bornes en bas, qui touchent le dessus de la boule
     const boule = { cx: n.cx, cy: yG - H - 28, rx: 66, ry: 44 };
+    const nidR = 98;                                    // le nid de la 13-40 : l'ouverture (0,6 R) de la largeur de la boule
     const bx = n.cx - W / 2 + 6, bB = boule.cy - boule.ry + 8;
     const xc = bx + W * 0.3;                             // le point qui rougit, sous la borne ronde
     const xF = bx + W + D + 14;                          // la flèche du geste, à droite de la pile, sous l'avant-bras
-    return { n, k, L, W, D, bx, bB, bT: bB - L, boule, xc, xF, xAxe: bx + (W + D) / 2, sort: 46 };
+    return { n, k, L, W, D, bx, bB, bT: bB - L, boule, xc, xF, xAxe: bx + (W + D) / 2, sort: 46, nidR };
   };
   const vC = z => {
     const yG = z.h - 10, w = 120, H = 40;
     const n = { cx: z.l - 92, yG, w, H };
     const bat = { x: 14, y: 130, l: 112, ht: 84, ox: 22, oy: -14 };
     const boule = { cx: n.cx, cy: yG - H - 8, rx: 34, ry: 20 };
-    return { n, bat, boule };
+    const nidR = 56;                                     // le nid de la 13-40 : l'ouverture (0,6 R) un peu plus large que la boule
+    return { n, bat, boule, nidR };
   };
   const vD = z => ({ y1: Math.round(z.h * 0.3), y2: Math.round(z.h * 0.76), cx: Math.round(z.l / 2) });
 
@@ -228,24 +200,26 @@ module.exports = (h) => {
       etirer: {
         titre: 'Préparer la laine',
         dessin: z => {
-          const { n, tampon, boule } = vA(z), out = [];
+          const { n, tampon, boule, nidR } = vA(z), out = [];
           // règle 10 : un filet sur toute la largeur sépare la méthode, en haut, des autres façons, en bas
           out.push(h.ligne(0, z.h + 11, 600, z.h + 11, A.fin));
           out.push(h.ligne(0, n.yG, z.l, n.yG, A.arete));
           out.push(laine(tampon.cx, tampon.cy, tampon.rx, tampon.ry, 4, { lache: 0 }));
           // étirer : du tampon serré à la boule lâche
           out.push(h.fleche(`M ${tampon.cx + tampon.rx + 10} ${tampon.cy + 6} Q ${f((tampon.cx + boule.cx) / 2 + 10)} ${f(tampon.cy - 4)} ${f(boule.cx - boule.rx * 0.7)} ${f(boule.cy - boule.ry - 6)}`, A.arete));
-          const N = nid(n.cx, n.yG, n.w, n.H, 3);
+          const N = poserNid(n.cx, n.yG, nidR, 3);
           out.push(N.svg);
           out.push(dansLeCreux(N, z, 'creux-1310a', laine(boule.cx, boule.cy, boule.rx, boule.ry, 7, { posee: true })));
           return out.join('\n');
         },
         renvois: z => {
-          const { n, tampon, boule } = vA(z);
+          const { n, tampon, boule, nidR } = vA(z);
+          // le repère 3 vise la paroi du nid, devant à gauche, sous le bord
+          const N = poserNid(n.cx, n.yG, nidR, 3), a3 = 152 * Math.PI / 180, c3 = N.pr(Math.cos(a3) * nidR, Math.sin(a3) * nidR, N.Hb * 0.62);
           return [
             { n: 1, rond: [tampon.cx - 20, tampon.cy + tampon.ry + 30], cible: [tampon.cx - 10, tampon.cy + tampon.ry - 2], texte: 'la laine d’acier la plus fine' },
             { n: 2, rond: [boule.cx + boule.rx + 8, boule.cy - boule.ry - 22], cible: [boule.cx + boule.rx * 0.6, boule.cy - boule.ry * 0.6], texte: 'étirée en boule lâche, grosse comme le poing' },
-            { n: 3, rond: [n.cx - n.w / 2 - 6, n.yG - 46], cible: [n.cx - n.w / 2 + 22, n.yG - 22], texte: 'posée dans le creux du nid' },
+            { n: 3, rond: [c3[0] - 30, c3[1] + 34], cible: c3, texte: 'posée dans le creux du nid' },
           ];
         },
       },
@@ -253,9 +227,9 @@ module.exports = (h) => {
       pile: {
         titre: 'Toucher avec la pile de 9 V',
         dessin: z => {
-          const g = vB(z), { n, k, L, W, D, bx, bB, bT, boule, xc } = g, out = [];
+          const g = vB(z), { n, k, L, W, D, bx, bB, bT, boule, xc, nidR } = g, out = [];
           out.push(h.ligne(0, n.yG, z.l, n.yG, A.arete));
-          const N = nid(n.cx, n.yG, n.w, n.H, 5);
+          const N = poserNid(n.cx, n.yG, nidR, 5);
           out.push(N.svg);
           out.push(dansLeCreux(N, z, 'creux-1310b', laine(boule.cx, boule.cy, boule.rx, boule.ry, 9, { posee: true })));
           // la laine rougit sous les bornes
@@ -291,7 +265,7 @@ module.exports = (h) => {
       batterie: {
         titre: 'Sans pile de 9 V : la batterie',
         dessin: z => {
-          const g = vC(z), { n, bat, boule } = g, out = [];
+          const g = vC(z), { n, bat, boule, nidR } = g, out = [];
           // règle 10 : un filet sépare la batterie (au lieu de la pile) de la mine (au lieu de la laine), à droite
           out.push(h.ligne(z.l + 11, 0, z.l + 11, z.h, A.fin));
           out.push(h.ligne(0, n.yG, z.l, n.yG, A.arete));
@@ -310,7 +284,7 @@ module.exports = (h) => {
           const yBas = boule.cy - boule.ry + 3;                   // les bouts nus, sur la laine
           const fA = [[bornes[0][0], bornes[0][1] - 6], [bornes[0][0] + 6, y - 44], [pz[0] - 30, y - 44], [pz[0] - 5, pz[1] - 40], [pz[0] - 5, yBas - 7]];
           const fB = [[bornes[1][0], bornes[1][1] - 6], [bornes[1][0] + 8, y - 30], [pz[0] - 14, y - 30], [pz[0] + 5, pz[1] - 40], [pz[0] + 5, yBas - 7]];
-          const N = nid(n.cx, n.yG, n.w, n.H, 7);
+          const N = poserNid(n.cx, n.yG, nidR, 7);
           out.push(N.svg);
           out.push(dansLeCreux(N, z, 'creux-1310c', laine(boule.cx, boule.cy, boule.rx, boule.ry, 11, { posee: true })));
           out.push(lueur(pz[0], yBas + 1, 8));

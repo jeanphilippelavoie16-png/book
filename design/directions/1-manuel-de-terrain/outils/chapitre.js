@@ -314,6 +314,13 @@ function pour(f, q, p){
     // une note du fil sur une page qui en porte déjà une : elle attend la page suivante
     if(b.classList && b.classList.contains('extra') && (horsNotes || aUneNote(p))){ attenteNotes.push(b); continue; }
     if(b.dataset && b.dataset.plate === 'full'){
+      // l'ancre précède l'appel (« apres » sur le début de l'étape, l'appel dans le bloc suivant) : la planche passe après
+      // le bloc qui l'appelle, s'il n'est encore posé nulle part (ch. 12, planche 12-05a, 19 octobre 2026)
+      const selAp = '.appel[data-pl="' + b.dataset.id + '"]';
+      if(!BOOK.querySelector(selAp)){
+        const j = q.findIndex(e => e.matches && (e.matches(selAp) || e.querySelector(selAp)));
+        if(j >= 0){ q.splice(j + 1, 0, b); continue; }
+      }
       // deux planches pleine page appelées sur la même page : la seconde tomberait deux pages après son appel. Le
       // paragraphe qui l'appelle, et ce qui le suit, passent après la première planche, si ça ne vide pas plus de la
       // moitié d'une colonne (sinon on le signale)
