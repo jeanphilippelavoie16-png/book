@@ -76,8 +76,11 @@ Fichier enregistré le 23 septembre 2026 : `sources/19-transports-canada-aim-sar
 pas éteindre et rallumer la balise ; elle émet au moins 24 h ; rester près de la machine, qu'on repère plus facilement
 qu'une personne. Étape 4 : jusqu'à 24 h ; la verdure jetée sur le feu ; la lampe frontale et le flash la nuit. Étape 8 :
 la balise partie par erreur se coupe, et on signale l'heure, la durée et la position (par le correspondant : il n'y a
-pas de téléphone au chalet). Étapes 10 et 29, pastille 1 h : l'heure limite à une heure après le retour prévu, le
-délai du plan de vol. Section 7 : les chercheurs repèrent ce qui sort de l'ordinaire. En plus : « Comment la balise est
+pas de téléphone au chalet). La section 3.7 ne parle que de la balise : rien n'est écrit sur le SOS d'un appareil de
+messagerie parti par erreur (correction du 19 octobre, après la vérification technique). Étapes 10 et 29, pastille 1 h : l'heure limite à une heure après le retour prévu, le
+délai du plan de vol. La série des étapes 9 à 13 commence à l'heure de retour prévue (étape 29), et le correspondant
+que le chalet avertit à l'heure limite donne l'alerte tout de suite (étapes 12 et 18) : à l'heure limite, les
+recherches d'un avion commencent. Section 7 : les chercheurs repèrent ce qui sort de l'ordinaire. En plus : « Comment la balise est
 entendue » (minutes, 90 min, 121,5 MHz) et « Une heure ou une journée » (1 h, heure SAR, 24 h).
 
 ---
@@ -99,10 +102,15 @@ surveillance des fréquences de détresse par les centres des SCTM.
 
 | Fait | Où | Page enregistrée |
 | --- | --- | --- |
-| Batteries d'une tour cellulaire : 2 à 4 h (batteries ordinaires), 4 à 10 h (un fournisseur), 16 à 24 h pour les grosses batteries | Étape 14 : « le plus souvent de 2 à 10 h, rarement une journée » | `19-cbc-2018-batteries-tours-cellulaires.md` |
+| Batteries d'une tour cellulaire : 2 à 4 h (batteries ordinaires), 4 à 10 h (un fournisseur), « Sometimes […] 16 hours or 24 hours » | Étape 14 : « le plus souvent de 2 à 10 h, parfois jusqu'à une journée » | `19-cbc-2018-batteries-tours-cellulaires.md` |
 | Le message texte encombre moins le réseau et peut passer quand le service téléphonique est interrompu | Étape 25 | `11-isde-rester-connecte-messages-texte.md` |
 | « About 2 ounces of No. 24 (or No. 26) » de fil pour la bobine : 2 oz = 56,7 g, écrit « environ 60 g » | Section 7, la bobine | `19-nbs-circulaire-120-poste-recepteur.md` |
 | « high-power stations within 50 miles » (80 km), « much greater distances […] especially at night » | Section 7, ce qu'on perd avec le poste à galène | `19-nbs-circulaire-120-poste-recepteur.md` |
 | Téléphone de campagne : 11 à 17 milles (18 à 27 km) sur le fil W-110-B ; portée selon le fil, sec ou mouillé, au sol ou en l'air ; au froid, piles qui perdent leur capacité puis deviennent inutilisables, humidité qui gèle sur la membrane du micro | En plus, « Le téléphone de campagne au grand froid » | `19-us-army-tm11-333-telephone-ee8.md` |
-| Radio portative : 26 km d'un sommet vers une vallée, 4,8 km sur l'eau, 0,8 km entre des maisons, en ligne de vue | En plus, « La portée d'une radio portative » | `19-motorola-talkabout-portee.md` |
-| L'appareil satellite fonctionne de −20 à 60 °C ; il ne se charge pas hors de 0 à 45 °C | Étape 22 | `19-lithium-ion-recharge-au-froid.md` |
+| Walkie-talkie (Motorola Talkabout T110) : 26 km d'un sommet vers une vallée, 4,8 km sur l'eau, 0,8 km entre des maisons, en ligne de vue ; « terrain, weather conditions […] obstructions » | En plus, « La portée d'un walkie-talkie » ; étape 9 | `19-motorola-talkabout-portee.md` |
+| Un appareil satellite (Garmin inReach Mini 2) fonctionne de −20 à 60 °C ; il ne se charge pas hors de 0 à 45 °C. Plage d'un modèle : le chapitre écrit « un appareil satellite courant » et fait lire la notice du sien | Étape 22 | `19-lithium-ion-recharge-au-froid.md`, `19-garmin-inreach-mini2-specifications.html` |
+| Les alertes du téléphone : « Connecté à un réseau cellulaire LTE lors de l'émission de l'alerte » | Étape 14 : « Au chalet hors réseau cellulaire » | `19-en-alerte-conditions-et-types.md` |
+| Génératrice : au moins 6 m (20 pi) de tout bâtiment | Étape 21 | `10-sante-canada-generatrice-distance.md` |
+| Moteur dans un garage « même si la porte du garage est ouverte […] garage intégré à votre maison ou situé à côté, garage en toile » ; génératrice jamais dans la maison ni le garage | Étape 21 : « dans un bâtiment, sous un auvent ni dans un garage, même porte ouverte » (l'auvent : tableau de `CLAUDE.md` et page `generatrice`) | `19-quebec-monoxyde-de-carbone.md` |
+| « Ouvrez légèrement la fenêtre du côté opposé au vent avant d'allumer le moteur » ; « une dizaine de minutes par période de 30 minutes » | Étape 21 | `19-quebec-trousse-urgence-et-auto.md`, l. 43 et 44 |
+| Pastille 10 min de la série « Il faut de l'aide, loin de tout » : par −30 °C et un vent de 10 km/h, refroidissement de −39 et peau exposée gelée en 10 à 30 min ; un gros saignement vide le corps en quelques minutes | Pastille, étapes 1 à 8 (même fondement que la pastille du ch. 16) | `20-environnement-canada-refroidissement-eolien.md` ; page `froid` ; page `coupure` |
