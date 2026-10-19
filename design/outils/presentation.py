@@ -4,15 +4,15 @@ professionnel dans le style du livre, avec les différents tomes et ce qu'ils tr
 
     python3 design/outils/presentation.py
 
-Lettre US, 19 pages : la couverture, le projet, la règle du livre, un chapitre, des pages du tome 1, les six tomes, puis
-pour chaque tome sa couverture entière (quatrième, tranche et devant, sur une page à l'italienne ; JP, 19 octobre 2026 :
-« je veux qu'on voie les pages de couvertures aussi ») et sa page, et enfin la fabrication et les auteurs. Les textes des tomes viennent de là où le livre les tient déjà : le
-sommaire (build_couvertures_6.py, SOMMAIRE), le résumé de la quatrième (couverture.py, QUATRIEME) et le sous-titre de
-la page de titre (assembler-tome.py, SOUS_TITRES). Les pages d'exemple sont tirées du tome 1 au format Lulu
+Lettre US, 11 pages : la couverture, le projet, un chapitre, les six tomes, la couverture entière de chaque tome
+(quatrième, tranche et devant, à l'italienne ; JP : « je veux qu'on voie les pages de couvertures aussi ») avec ce
+qu'il traite en une ligne, et le livre et ses auteurs. Peu de texte, des images en grand (JP, 19 octobre 2026 :
+« trop lourd, trop de texte »). Ce que chaque tome traite vient du sous-titre de sa page de titre
+(assembler-tome.py, SOUS_TITRES). Les pages d'exemple sont tirées du tome 1 au format Lulu
 (livre/tome-1-lulu/), qui doit être assemblé. Sortie : livre/presentation/presentation-manuel-du-nord.pdf ; le
 travail (images réduites, HTML) dans livre/presentation/travail/, qui ne se versionne pas.
 """
-import ast, glob, html, os, re, subprocess, sys
+import ast, glob, os, re, subprocess, sys
 from PIL import Image
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -33,17 +33,9 @@ def litteraux(chemin, noms):
 
 
 D = {}
-D.update(litteraux(os.path.join(ROOT, 'design/directions/1-manuel-de-terrain/outils/build_couvertures_6.py'),
-                   ['SOMMAIRE', 'TOMES']))
-D.update(litteraux(os.path.join(ROOT, 'images/tomes/essais-ia/tome-1/couverture.py'), ['QUATRIEME']))
+D.update(litteraux(os.path.join(ROOT, 'design/directions/1-manuel-de-terrain/outils/build_couvertures_6.py'), ['TOMES']))
 D.update(litteraux(os.path.join(ROOT, 'design/outils/assembler-tome.py'), ['SOUS_TITRES']))
 
-# la couleur de chaque tome à l'intérieur du livre (design/variantes-couleur/outils/couleur.css, --ta et --tp)
-TA = {1: '#2B5876', 2: '#5C1A15', 3: '#2B5A45', 4: '#25414F', 5: '#6B5238', 6: '#363432'}
-TP = {1: '#E8EDF0', 2: '#F3ECE5', 3: '#E9F0EA', 4: '#EDF2F5', 5: '#F2EBDF', 6: '#EEEBE6'}
-# la bande de l'image de titre : la tranche de l'image qu'on garde, en % de la hauteur qui dépasse
-BANDE_Y = {1: 74, 2: 66, 3: 64, 4: 78, 5: 63, 6: 58}
-ORDINAL = {1: 'premier', 2: 'deuxième', 3: 'troisième', 4: 'quatrième', 5: 'cinquième', 6: 'sixième'}
 
 
 # ------------------------------------------------------------------ typographie
@@ -58,17 +50,18 @@ def ty(s):
     return s
 
 
-def p(s):
-    return '<p>%s</p>' % ty(s)
-
-
 # ------------------------------------------------------------------ images
 def prep_images():
     os.makedirs(TRAV, exist_ok=True)
+    im = Image.open(os.path.join(ROOT, 'images/tomes/titre-tome-1.jpg')).convert('RGB')
+    im.thumbnail((1700, 2200))
+    im.save(os.path.join(TRAV, 'titre-1.jpg'), quality=86)
+    # les photos du bas de page (images/pleine-page/tome-1/, crédits dans images/credits.md)
+    for src, nom in (('02-laponie-soleil-de-midi', 'photo-projet'), ('05-aurore-lac-fox', 'photo-livre')):
+        im = Image.open(os.path.join(ROOT, 'images/pleine-page/tome-1/%s.jpg' % src)).convert('RGB')
+        im.thumbnail((2200, 2200))
+        im.save(os.path.join(TRAV, nom + '.jpg'), quality=86)
     for k in range(1, 7):
-        im = Image.open(os.path.join(ROOT, 'images/tomes/titre-tome-%d.jpg' % k)).convert('RGB')
-        im.thumbnail((1700, 2200))
-        im.save(os.path.join(TRAV, 'titre-%d.jpg' % k), quality=86)
         # le devant de la couverture : la planche avant, sans le wrap (150 ppp ; images/tomes/couvertures/LISEZMOI.md)
         c = Image.open(os.path.join(ROOT, 'images/tomes/couvertures/couverture-tome-%d-C.png' % k)).convert('RGB')
         w, h = c.size
@@ -93,18 +86,21 @@ def entete(droite, sombre=False):
             % (' sombre' if sombre else '', ty(droite)))
 
 
-def pied(n, tome=None):
+def pied(n, tome=None, clair=False):
     cases = ''.join('<i class="%s">%d</i>' % ('on' if k == tome else '', k) for k in range(1, 7))
-    return ('<div class="ft"><span class="tomes">%s</span><span class="pg">%d</span></div>' % (cases, n))
+    return ('<div class="ft%s"><span class="tomes">%s</span><span class="pg">%d</span></div>'
+            % (' clair' if clair else '', cases, n))
+
+
+def photo_bas(nom, haut, y=50):
+    """Une photo d'un bord à l'autre au bas de la page, sous le pied."""
+    return ('<div class="photo-bas" style="height:%.2fin"><img src="%s.jpg" style="object-position:50%% %d%%"></div>'
+            % (haut, nom, y))
 
 
 def ouverture(titre, chapeau=''):
     return ('<div class="ouv"><div class="trame"></div><h1>%s</h1>%s</div>'
             % (ty(titre), '<div class="chapeau">%s</div>' % ty(chapeau) if chapeau else ''))
-
-
-def section(n, titre):
-    return '<h2><b>%s</b>%s</h2>' % (n, ty(titre))
 
 
 def page(contenu, classe=''):
@@ -125,150 +121,38 @@ def couverture():
 
 
 def le_projet(n):
-    t = [entete('Le projet'), ouverture('Le projet',
-         "Un ouvrage de référence en six tomes et 113 chapitres sur la conservation des aliments, la subsistance "
-         "et l'autonomie, écrit pour la Côte-Nord.")]
+    t = [entete('Le projet'), ouverture('Le projet', "Vivre sans courant, sans magasin et sans personne à appeler.")]
     t.append('<div class="corps">')
-    t.append(section(1, "Ce que c'est"))
-    t.append(p("Le Manuel du Nord est un manuel pour survivre et s'adapter après une catastrophe, quand on n'a plus "
-               "rien. Il est écrit pour un terrain précis : la forêt boréale, des hivers à −35 °C, une saison de jardin "
-               "de 90 à 100 jours, l'orignal, la truite et le fleuve salé."))
-    t.append(p("Chaque page passe le même test : <strong>il n'y a personne à appeler.</strong> Pas d'entrepreneur, pas "
-               "de concession, pas de quincaillerie ouverte, pas de pièce en commande. Une phrase qui suppose le "
-               "contraire ne sert à rien le jour où on ouvre le livre, alors elle n'y est pas."))
-    t.append(section(2, 'Pour qui'))
-    t.append(p("Une famille avec de jeunes enfants. Le lecteur sait souder, câbler du 12 V et abattre un orignal, mais "
-               "il n'a jamais salé une cuisse ni tanné une peau. Le livre est écrit pour quelqu'un de compétent de ses "
-               "mains et débutant en conservation : il donne tout le détail là où le geste est nouveau, et il "
-               "n'explique pas ce qu'un parent sait déjà."))
-    t.append(p("On n'y lit pas de ranger le poison ni de surveiller les enfants près du poêle. On y lit ce qui "
-               "surprendrait un parent attentif : un enfant intoxiqué au monoxyde de carbone a l'air fatigué ou de "
-               "mauvaise humeur, et le réflexe normal est de croire que c'est son caractère."))
-    t.append(section(3, 'Les deux lieux'))
-    t.append('<table class="lieux"><tr><th></th><th>La maison</th><th>Le chalet</th></tr>'
-             '<tr><td>Services</td><td>Hydro, aqueduc, égout</td><td>Hors réseau</td></tr>'
-             '<tr><td>Situation</td><td>En ville, voisins proches</td><td>Isolé</td></tr>'
-             '<tr><td>Réserves</td><td>%s</td><td>%s</td></tr>'
-             '<tr><td>Territoire</td><td>Aucun</td><td>Chasse, pêche, bois, jardin, caveau</td></tr></table>'
-             % (ty('La trousse de 72 heures et le congélateur'),
-                ty('La réserve de trois mois : denrées sèches, gras, sel')))
-    t.append(p("<strong>Ce qui est court se vit à la maison :</strong> une panne de trois jours, une tempête, une "
-               "alerte qui se lève. <strong>Ce qui dure finit au chalet :</strong> quand l'événement s'étire, la maison "
-               "devient un lieu sans services au milieu d'autres gens sans services, et c'est le chalet qui a le bois, "
-               "l'eau et le territoire. Chaque chapitre dit quel lieu il vise, et le chapitre 2, <em>Rester ou "
-               "partir</em>, sert à décider quand on monte."))
+    t.append('<div class="stats">'
+             '<div><b>6</b><span>tomes</span></div>'
+             '<div><b>113</b><span>chapitres</span></div>'
+             '<div><b>%s</b><span>%s</span></div></div>' % (ty('−35 °C'), ty("l'hiver en forêt boréale")))
+    lignes = [('Pour qui', "Une famille avec de jeunes enfants, habile de ses mains, débutante en conservation."),
+              ('Le test', "Il n'y a personne à appeler : chaque page dit comment faire soi-même, avec ce qu'on a."),
+              ('Les chiffres', "Chacun est vérifié à la source avant d'être écrit.")]
+    t.append('<div class="lignes">%s</div>' % ''.join(
+        '<div><b>%s</b><span>%s</span></div>' % (ty(a), ty(b)) for a, b in lignes))
+    t.append('<div class="lieux2">'
+             '<div class="maison"><b>La maison</b><span>%s</span></div>'
+             '<div class="chalet"><b>Le chalet</b><span>%s</span></div></div>'
+             % (ty("Ce qui est court : une panne de trois jours, une tempête."),
+                ty("Ce qui dure : le bois, l'eau, la chasse, la pêche et le jardin.")))
     t.append('</div>')
-    t.append(pied(n))
-    return page(''.join(t))
-
-
-def la_regle(n):
-    t = [entete('La règle du livre'), ouverture('La règle du livre',
-         "Le geste, son mécanisme et la façon de le faire avec rien. La conformité, les normes et les numéros à "
-         "appeler restent dehors.")]
-    t.append('<div class="corps">')
-    t.append(section(1, 'Ce qui reste, ce qui sort'))
-    lignes = [("« Faire appel à un professionnel certifié »", 'Comment le faire soi-même'),
-              ('Tout numéro de norme', 'Ce que la pièce doit faire'),
-              ("« Ne tentez pas ceci vous-même »", "Ce qui arrive si on s'y prend mal, et comment s'y prendre bien"),
-              ('« Remplacer la pièce »', 'Comment réparer la pièce, ou la fabriquer'),
-              ("« Porter l'équipement de protection réglementaire »",
-               'Ce que le geste fait au corps, et quoi mettre entre les deux')]
-    t.append('<table class="rs"><tr><th>Ça sort</th><th>Ça reste</th></tr>%s</table>'
-             % ''.join('<tr><td>%s</td><td>%s</td></tr>' % (ty(a), ty(b)) for a, b in lignes))
-    t.append(p("La débrouille est le sujet du livre : souder avec deux batteries d'auto montées en série, remplacer un "
-               "joint par du cuir gras, fabriquer l'outil qu'on n'a pas. Quand il existe une façon de faire la chose "
-               "avec rien, elle prend plus de place que la façon propre avec le bon matériel."))
-    t.append(section(2, 'Chaque chiffre vient d\u2019une source'))
-    t.append(p("Aucun chiffre n'est inventé. Avant d'écrire, on cherche la source officielle (MAPAQ, Santé Canada, "
-               "ACIA, INSPQ, gouvernement du Québec), on enregistre la page elle-même dans le dossier des sources et on "
-               "note la provenance dans la fiche du chapitre. Ce qu'on ne trouve pas porte la mention [À VÉRIFIER] "
-               "jusqu'à ce qu'on le trouve ou qu'on le coupe. Le premier jet du chapitre pilote donnait 71 °C pour "
-               "cuire le gibier ; la vraie valeur est 74 °C, et seule la vérification à la source l'a attrapé."))
-    t.append(p("La provenance ne s'imprime pas : la page donne le chiffre, sans attribution, sans numéro de norme et "
-               "sans numéro de téléphone. La trace reste dans les dossiers de travail."))
-    t.append(section(3, 'Neuf rappels qui reviennent partout'))
-    t.append(p("On ouvre ce livre à une page, pas à la première. Ces rappels se redisent dans chaque chapitre où ils "
-               "s'appliquent, dans l'étape qui les concerne."))
-    rappels = [("Cuire le gibier sauvage à 74 °C à cœur", 'Ours, phoque, lièvre, orignal, castor'),
-               ('Jamais le foie ni les reins des cervidés : le cadmium', 'Abats, orignal'),
-               ('La trichinellose : ni le sel, ni le fumage, ni le gel domestique ne la détruisent', 'Ours, phoque'),
-               ('La tularémie : des gants pour manipuler la bête', 'Lièvre'),
-               ('La thuyone du cèdre est toxique : sapin baumier ou épinette pour la vitamine C',
-                'Scorbut, tisanes, plantes'),
-               ('Le botulisme de type E produit sa toxine dès 3 °C, donc au frigo', 'Tout le poisson, surtout fumé'),
-               ("Le botulisme ne change ni l'odeur, ni le goût, ni l'apparence", 'Salaison, conserves, poisson'),
-               ('La viande maigre seule donne le mal de caribou, mortel en quelques semaines',
-                'Lièvre, orignal, rationnement'),
-               ('La génératrice ne tourne jamais dans un bâtiment, un garage ou sous un auvent',
-                'Stock, carburant, électricité')]
-    t.append('<table class="rappels"><tr><th>Le rappel</th><th>Où il revient</th></tr>%s</table>'
-             % ''.join('<tr><td>%s</td><td>%s</td></tr>' % (ty(a), ty(b)) for a, b in rappels))
-    t.append('</div>')
-    t.append(pied(n))
+    t.append(photo_bas('photo-projet', 3.0, 60))
+    t.append(pied(n, clair=True))
     return page(''.join(t))
 
 
 def un_chapitre(n):
-    t = [entete('Un chapitre'), ouverture('Un chapitre',
-         "Tous les chapitres techniques suivent le même ordre, pour que la même chose soit à la même place d'un "
-         "chapitre à l'autre.")]
+    t = [entete('Un chapitre'), ouverture('Un chapitre', 'Sept sections, toujours dans le même ordre.')]
     t.append('<div class="corps">')
-    secs = [('En une ligne', 'Ce que la procédure fait, en une phrase.'),
-            ("Quand l'utiliser", 'Les situations qui la déclenchent.'),
-            ('Matériel', "L'indispensable de cette procédure, une ligne par item, avec ce que l'item fait."),
-            ('Procédure', "Les étapes numérotées, dans l'ordre où on les fait."),
-            ('Points de contrôle', "Ce qu'on mesure ou ce qu'on regarde pour savoir que ça marche."),
-            ("Signes d'échec", "Ce qui dit que ça ne marche pas, et ce qu'on fait alors."),
-            ("Variante d'urgence", "La même chose avec rien. C'est le cœur du chapitre : le jour où on ouvre le "
-                                   "livre, le bon matériel n'est pas là.")]
-    t.append('<ol class="sept">%s</ol>' % ''.join(
-        '<li><b>%d</b><span><strong>%s</strong>%s</span></li>' % (i + 1, ty(a), ty(b)) for i, (a, b) in enumerate(secs)))
-    t.append('<div class="deux">')
-    t.append('<div class="bloc orange"><h3><span class="pastille">10 min</span>Les premières minutes, en orange</h3>%s</div>'
-             % p("Un chapitre qui a des gestes urgents (retombées, feu, monoxyde, blessure, eau froide) ouvre sa "
-                 "procédure sur la série des premières minutes, imprimée en orange pour qu'on tombe dessus en "
-                 "feuilletant. La pastille dit le temps qu'on a pour la faire, à partir de ce qui la déclenche. Chaque "
-                 "étape donne le geste, le pourquoi et le détail qui sert à le faire."))
-    t.append('<div class="bloc"><h3>Le logigramme</h3>%s</div>'
-             % p("L'arbre de décision du chapitre, sur une double page, juste après le matériel : une question à la "
-                 "fois, et chaque case renvoie à l'étape qui la détaille."))
-    t.append('<div class="bloc"><h3>Les dangers en pictogrammes</h3>%s<div class="pictos">%s</div></div>'
-             % (p("Trente-cinq dangers ont chacun leur pictogramme, expliqué une fois à fond au début de chaque tome. "
-                  "Dans un chapitre, le pictogramme s'affiche dans l'étape où le danger se présente, avec ce qui est "
-                  "propre à ce chapitre : la distance, l'épaisseur, la durée."),
-                ''.join('<img src="%s">' % os.path.join(ROOT, 'images/pictos-dangers/%s.svg' % x) for x in
-                        ['co', 'generatrice', 'froid', 'eau-froide', 'glace', 'feu-de-foret', 'botulisme',
-                         'trichine', 'abats', 'cuisson', 'mal-de-caribou', 'thuyone', 'tularemie', 'ours',
-                         'coupure', 'vie-en-jeu'])))
-    t.append('<div class="bloc"><h3>Les planches</h3>%s</div>'
-             % p("Des dessins techniques faits pour le livre, en coupe et de près, numérotés et appelés dans le texte "
-                 "(planche 04-01A). La planche s'imprime sur la page qui l'appelle ou sur la suivante."))
-    t.append('<div class="bloc vert"><h3>En plus : les notes vertes</h3>%s</div>'
-             % p("Après la variante d'urgence, des encadrés vert pâle gardent ce qui s'ajoute au geste : la façon "
-                 "des Innus, une photo pour reconnaître, un petit dessin. Ils se posent dans les espaces libres en bas "
-                 "de page, un seul par page, jamais au travers du texte."))
-    t.append('<div class="bloc"><h3>Les photos pleine page</h3>%s</div>'
-             % p("Les pages qui resteraient blanches, au dos de la page de titre ou devant l'ouverture d'un "
-                 "chapitre, deviennent une photo de la forêt boréale, d'un bord à l'autre."))
-    t.append('</div></div>')
-    t.append(pied(n))
-    return page(''.join(t))
-
-
-def exemples(n):
-    t = [entete('Des pages du tome 1')]
-    t.append('<div class="corps ex-corps"><h1 class="petit">Des pages du tome 1</h1>')
-    t.append('<p class="ex-intro">%s</p>' % ty("Tirées du tome 1 tel qu'il part à l'impression. Les quatre premières "
-                                              "viennent du chapitre 4, Retombées radioactives."))
-    ex = [('ex-ouverture', "L'ouverture : le lieu visé, les sept sections et leurs pages, puis les trois premières "
-                           "sections."),
-          ('ex-logigramme', "Le logigramme : la décision dans l'ordre réel, chaque case renvoie à son étape."),
-          ('ex-orange', "Les premières minutes : la pastille du temps qu'on a, puis les gestes dans l'ordre."),
-          ('ex-planche', "Une planche de la variante d'urgence : la pompe à volets qui aère l'abri sans courant."),
-          ('ex-danger', "Une page des dangers, au début du tome : ce qui arrive, comment le reconnaître, ce qu'on "
-                        "fait."),
-          ('ex-photo', 'Une page restée blanche devient une photo pleine page.')]
+    secs = ['En une ligne', "Quand l'utiliser", 'Matériel', 'Procédure', 'Points de contrôle', "Signes d'échec",
+            "Variante d'urgence"]
+    t.append('<div class="sept2">%s</div>' % ''.join(
+        '<div><b>%d</b><span>%s</span></div>' % (i + 1, ty(x)) for i, x in enumerate(secs)))
+    ex = [('ex-ouverture', "L'ouverture"), ('ex-logigramme', 'Le logigramme'),
+          ('ex-orange', 'Les premières minutes, en orange'), ('ex-planche', 'Les planches'),
+          ('ex-danger', 'Les dangers, un pictogramme chacun'), ('ex-photo', 'Les pages vides deviennent des photos')]
     t.append('<div class="grille">%s</div>' % ''.join(
         '<figure><img src="%s.jpg"><figcaption>%s</figcaption></figure>' % (f, ty(c)) for f, c in ex))
     t.append('</div>')
@@ -277,16 +161,12 @@ def exemples(n):
 
 
 def les_six(n):
-    t = [entete('Les six tomes'), ouverture('Les six tomes',
-         "Le livre suit l'ordre des besoins : tenir les premiers jours, garder le corps en état, prélever sur le "
-         "territoire, conserver ce qu'on a pris, vivre au chalet, puis fabriquer et réparer ce qu'on ne peut plus "
-         "acheter.")]
+    t = [entete('Les six tomes'), ouverture('Les six tomes', "Dans l'ordre des besoins.")]
     t.append('<div class="corps"><div class="six">')
     for k in range(1, 7):
         T = D['TOMES'][k]
-        t.append('<figure><img src="avant-%d.jpg"><figcaption><b>Tome %d · %s</b>'
-                 '<span>Chapitres %s à %s · %d chapitres</span></figcaption></figure>'
-                 % (k, k, ty(T['titre']), T['ch'][0], T['ch'][1], T['n']))
+        t.append('<figure><img src="avant-%d.jpg"><figcaption><b>%d · %s</b><span>%d chapitres</span></figcaption></figure>'
+                 % (k, k, ty(T['titre']), T['n']))
     t.append('</div></div>')
     t.append(pied(n))
     return page(''.join(t))
@@ -295,69 +175,31 @@ def les_six(n):
 def couverture_tome(k, n):
     """La couverture entière du tome, sans le wrap qui se replie sur le carton : quatrième, tranche, devant."""
     T = D['TOMES'][k]
-    return page(entete('Tome %d · la couverture' % k)
+    return page(entete('Tome %d' % k)
                 + '<div class="cz"><img src="couv-%d.jpg"></div>'
-                  '<div class="cz-leg"><b>Tome %d · %s</b>%s</div>'
-                % (k, k, ty(T['titre']), ty("De gauche à droite : la quatrième, avec le résumé du tome, ses chapitres "
-                                            "et les auteurs ; la tranche ; le devant.") if k == 1 else '')
+                  '<div class="cz-leg"><b>Tome %d · %s</b><span>%s</span></div>'
+                % (k, k, ty(T['titre']), ty(D['SOUS_TITRES'][k]))
                 + pied(n, k), 'paysage t%d' % k)
 
 
-def tome(k, n):
-    T = D['TOMES'][k]
-    resume = D['QUATRIEME'][k].split('. ', 1)[1]          # sans « Le Manuel du Nord compte six tomes… »
-    chap = D['SOMMAIRE'][k]
-    moitie = (len(chap) + 1) // 2
-    col = lambda L: ''.join('<li><b>%s</b>%s</li>' % (a, html.escape(b)) for a, b in L)
-    t = ['<div class="bande"><img src="titre-%d.jpg" style="object-position:50%% %d%%"></div>' % (k, BANDE_Y[k]),
-         entete('Tome %d' % k, sombre=True),
-         '<div class="t-ouv"><div class="t-num">%d</div><div><div class="t-sur">Tome %d</div>'
-         '<h1 class="t-titre">%s</h1><div class="t-sous">%s</div></div></div>'
-         % (k, k, ty(T['titre']), ty(D['SOUS_TITRES'][k])),
-         '<div class="corps t-corps">',
-         section(1, 'Ce que le tome traite'), p(resume),
-         section(2, 'Les %d chapitres · %s à %s' % (T['n'], T['ch'][0], T['ch'][1])),
-         '<div class="chap"><ul>%s</ul><ul>%s</ul></div>' % (col(chap[:moitie]), col(chap[moitie:])),
-         '</div>', pied(n, k)]
-    return page(''.join(t), 'tome t%d' % k)
-
-
 def fabrication(n):
-    t = [entete('La fabrication et les auteurs'), ouverture('La fabrication et les auteurs')]
+    t = [entete('Le livre'), ouverture('Le livre')]
     t.append('<div class="corps">')
-    t.append(section(1, 'Le livre imprimé'))
-    t.append('<table class="fiche">'
-             '<tr><td>Format</td><td>%s</td></tr>'
-             '<tr><td>Reliure</td><td>Couverture rigide, imprimée d\u2019un seul tenant</td></tr>'
-             '<tr><td>Intérieur</td><td>%s</td></tr>'
-             '<tr><td>Imprimeur</td><td>Lulu, à la commande, tome par tome</td></tr>'
-             '<tr><td>Tome 1</td><td>%s</td></tr></table>'
-             % (ty('8,5 × 11 po (lettre US)'), ty('Couleur Premium, papier blanc couché, fini mat'),
-                ty('352 pages, monté au format d\'impression et prêt à commander')))
-    t.append(p("Les 113 chapitres des six tomes sont écrits. Les tomes 2 à 6 passent au format d'impression après le "
-               "tome 1, avec la même mise en pages."))
-    t.append(section(2, 'Comment un chapitre est fait'))
-    t.append(p("Chaque chapitre passe par quatre mains, dans l'ordre : le rédacteur, le vérificateur technique, "
-               "l'éditeur et le metteur en pages. Le vérificateur signale ce qui ne tient pas à la source, il ne "
-               "réécrit pas. Les images viennent de licences vérifiées, avec leur auteur et leur lien notés dans un "
-               "registre tenu hors du livre."))
-    t.append(section(3, 'Les auteurs'))
+    specs = [('8,5 × 11 po', 'lettre US'), ('Couverture rigide', 'imprimée chez Lulu'),
+             ('Couleur Premium', 'papier blanc mat'), ('352 pages', 'pour le tome 1, prêt à imprimer')]
+    t.append('<div class="specs">%s</div>' % ''.join(
+        '<div><b>%s</b><span>%s</span></div>' % (ty(a), ty(b)) for a, b in specs))
     jp = os.path.join(ROOT, 'design/directions/1-manuel-de-terrain/auteur-jp-neige.png')
     cl = os.path.join(ROOT, 'design/directions/1-manuel-de-terrain/auteur-claude-neige.svg')
-    aut = [(jp, 'Jean-Philippe Lavoie', '',
-            "Jean-Philippe vit à Baie-Comeau et il est père de deux enfants. Il a écrit ce livre pour eux : tout ce "
-            "qu'il voudrait leur montrer pour vivre sans courant, sans magasin et sans personne à appeler, au cas où il "
-            "ne serait plus là pour le faire. Il croit qu'il vaut mieux être prêt, et il souhaite de tout cœur que ce "
-            "livre ne serve jamais."),
-           (cl, 'Claude', '(intelligence artificielle, Anthropic)',
-            "Claude a fait la recherche, a écrit les chapitres et a dessiné les planches. Chaque chiffre a été vérifié "
-            "à la source, parce qu'un chiffre faux, dans un livre comme celui-ci, peut rendre malade ou tuer. Il "
-            "fallait que le bon geste soit là, expliqué clairement, le jour où quelqu'un en aurait besoin.")]
-    t.append('<div class="auteurs">%s</div>' % ''.join(
-        '<div class="aut"><div class="rond"><img src="%s"></div><div><div class="nom">%s <span>%s</span></div>%s</div></div>'
-        % (img, nom, ty(q), p(txt)) for img, nom, q, txt in aut))
+    aut = [(jp, 'Jean-Philippe Lavoie', "A écrit ce livre pour ses enfants."),
+           (cl, 'Claude', "A fait la recherche, écrit les chapitres et dessiné les planches.")]
+    t.append('<h2 class="h2-aut">Les auteurs</h2>')
+    t.append('<div class="auteurs2">%s</div>' % ''.join(
+        '<div><div class="rond"><img src="%s"></div><b>%s</b><span>%s</span></div>' % (img, nom, ty(txt))
+        for img, nom, txt in aut))
     t.append('</div>')
-    t.append(pied(n))
+    t.append(photo_bas('photo-livre', 3.3, 55))
+    t.append(pied(n, clair=True))
     return page(''.join(t))
 
 
@@ -481,6 +323,51 @@ ol.sept li strong{display:block;font-family:'IBM Plex Sans Condensed',sans-serif
 .paysage .tomes i.on{color:#fff}
 .paysage .rh span:last-child{color:var(--ta)}
 
+/* pages allégées (JP, 19 octobre 2026 : « trop lourd, trop de texte ») */
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14pt;margin:14pt 0 22pt}
+.stats div{border-top:3pt solid #2B5876;padding-top:8pt}
+.stats b{display:block;font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:58pt;line-height:.9;color:#2B5876}
+.stats span{font-family:'IBM Plex Sans Condensed',sans-serif;font-size:11pt;font-weight:600;text-transform:uppercase;
+            letter-spacing:.06em}
+.lignes div{display:grid;grid-template-columns:1.4in 1fr;gap:10pt;padding:9pt 0;border-bottom:.8pt solid #C9D3DA;
+            font-size:12pt;line-height:1.35;align-items:baseline}
+.lignes div:first-child{border-top:.8pt solid #C9D3DA}
+.lignes b{font-family:'IBM Plex Sans Condensed',sans-serif;font-weight:700;text-transform:uppercase;font-size:10.5pt;
+          letter-spacing:.04em;color:#2B5876}
+.lieux2{display:grid;grid-template-columns:1fr 1fr;gap:14pt;margin-top:24pt}
+.lieux2 div{padding:16pt 16pt 18pt;min-height:1.7in}
+.lieux2 b{display:block;font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:30pt;line-height:1;
+          text-transform:uppercase;margin-bottom:8pt}
+.lieux2 span{font-size:12pt;line-height:1.35}
+.lieux2 .maison{background:#E8EDF0;color:#15222B}
+.lieux2 .chalet{background:#15222B;color:#E2E7EA}
+.sept2{display:grid;grid-template-columns:repeat(7,1fr);gap:4pt;margin:6pt 0 16pt}
+.sept2 div{display:flex;flex-direction:column;align-items:center;text-align:center;gap:4pt;
+           font-family:'IBM Plex Sans Condensed',sans-serif;font-size:8.4pt;font-weight:600;line-height:1.15;
+           text-transform:uppercase;letter-spacing:.02em}
+.sept2 b{width:20pt;height:20pt;background:#2B5876;color:#fff;display:flex;align-items:center;justify-content:center;
+         font-size:11pt}
+.sept2 div:last-child b{background:#EE7219;color:#1A1A1A}
+.grille figcaption{font-family:'IBM Plex Sans Condensed',sans-serif;font-size:9.6pt;font-weight:600}
+.six figcaption span{display:block}
+.cz-leg b{display:block;font-size:12pt;margin:0 0 3pt}
+.cz-leg span{font-size:10.5pt}
+.specs{display:grid;grid-template-columns:repeat(2,1fr);gap:14pt;margin:14pt 0 26pt}
+.specs div{border-top:3pt solid #2B5876;padding-top:8pt}
+.specs b{display:block;font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:30pt;line-height:1;
+         text-transform:uppercase;color:#15222B}
+.specs span{font-size:11pt;color:#444}
+.h2-aut{margin-top:6pt}
+.photo-bas{position:absolute;left:0;right:0;bottom:0;overflow:hidden}
+.photo-bas img{width:100%;height:100%;object-fit:cover;display:block}
+.ft.clair{color:#fff;z-index:2}
+.ft.clair .tomes i{border-color:#fff;color:#fff}
+.auteurs2{display:grid;grid-template-columns:1fr 1fr;gap:20pt;margin-top:12pt}
+.auteurs2>div{display:flex;flex-direction:column;align-items:center;text-align:center;gap:6pt}
+.auteurs2 .rond{width:1.6in;height:1.6in}
+.auteurs2 b{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:20pt;margin-top:4pt}
+.auteurs2 span{font-size:11pt;max-width:2.8in}
+
 /* auteurs */
 .auteurs{display:grid;grid-template-columns:1fr 1fr;gap:16pt;margin-top:4pt}
 .aut{display:flex;gap:12pt;align-items:flex-start;font-size:9.8pt;line-height:1.42}
@@ -516,10 +403,9 @@ POLICES = ('<link href="https://fonts.googleapis.com/css2?family=Barlow+Condense
 
 def main():
     prep_images()
-    pages = [couverture(), le_projet(2), la_regle(3), un_chapitre(4), exemples(5), les_six(6)]
-    for k in range(1, 7):
-        pages += [couverture_tome(k, 5 + 2 * k), tome(k, 6 + 2 * k)]
-    pages.append(fabrication(19))
+    pages = [couverture(), le_projet(2), un_chapitre(3), les_six(4)]
+    pages += [couverture_tome(k, 4 + k) for k in range(1, 7)]
+    pages.append(fabrication(11))
     doc = ('<!doctype html><html lang="fr"><head><meta charset="utf-8"><title>Le Manuel du Nord</title>%s'
            '<style>%s</style></head><body>%s</body></html>' % (POLICES, CSS, ''.join(pages)))
     f = os.path.join(TRAV, 'presentation.html')
