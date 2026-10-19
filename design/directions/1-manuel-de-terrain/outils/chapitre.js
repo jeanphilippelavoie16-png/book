@@ -899,10 +899,12 @@ Promise.all(faces.map(f => document.fonts.load(f, 'aéÀ§«»—'))).then(() =>
   // 2026 : « celles qui ont juste genre une phrase dans une page, regarde pour compresser »)
   const presqueVide = () => {
     const p = [...PAGES].reverse().find(q => q.kind === 'text' || q.kind === 'open');
-    if(!p || p.kind === 'open' || p.bl.querySelector('.fig, figure, .extra')) return false;
-    const b = p.bl.getBoundingClientRect(), kids = [...p.bl.children];
-    if(!kids.length) return false;
-    return Math.max(...kids.map(e => e.getBoundingClientRect().bottom)) - b.top < 0.3 * b.height;
+    if(!p || p.kind === 'open' || p.bl.querySelector('.fig, figure')) return false;
+    // le texte seul : une note verte posée dans le trou ne compte pas (p18-11, 19 octobre 2026), elle ira ailleurs
+    const b = p.bl.getBoundingClientRect();
+    const txt = [...p.bl.querySelectorAll('.frame > *, h2.sec, .fnz > *')].filter(e => !e.closest('.extra, .extra-env, .extra-cale'));
+    if(!txt.length) return false;
+    return Math.max(...txt.map(e => e.getBoundingClientRect().bottom)) - b.top < 0.3 * b.height;
   };
   if(presqueVide()){
     const n0 = PAGES.length, racine = document.documentElement.style;
