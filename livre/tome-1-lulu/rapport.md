@@ -1,7 +1,7 @@
 # Tome 1 · Tenir — rapport d'assemblage
 
-- **Produit le :** 2026-10-19 17:33, par `design/outils/assembler-tome.py 1 --hors-ligne --refaire --sortie livre/tome-1-lulu`
-- **Fichier :** `livre/tome-1-lulu/interieur.pdf` — 354 pages, 199.8 Mo
+- **Produit le :** 2026-10-19 17:39, par `design/outils/assembler-tome.py 1 --hors-ligne --refaire --sortie livre/tome-1-lulu`
+- **Fichier :** `livre/tome-1-lulu/interieur.pdf` — 354 pages, 113.8 Mo
 - **Ouvertures :** au recto ou au verso (--verso)
 - **Placements :** design/epreuves-livre/placements.json, design/epreuves-livre/placements-tome-1.json
 - **Format :** `lulu-letter` : Lulu, US Letter 8,5 × 11 po, couverture rigide Case Wrap
@@ -188,11 +188,15 @@ Photos téléchargées pour ces chapitres et non posées (images de référence 
 
 ## Avertissements
 
+- ch. 00b, paginateur : p00b-6 : page à moitié vide
+- ch. 00b, paginateur : p00b-18 : page à moitié vide
+- ch. 00b, paginateur : p00b-28 : page à moitié vide
 - ch. 01, paginateur : encadré « En plus » pas imprimé, aucun trou dans le chapitre : La viande en poudre des Innus
 - ch. 01, paginateur : encadré « En plus » pas imprimé, aucun trou dans le chapitre : Le temps qu’il faut pour geler la viande
 - ch. 02, paginateur : encadré « En plus » pas imprimé, aucun trou dans le chapitre : Trois feux en triangle
 - ch. 02, paginateur : encadré « En plus » pas imprimé, aucun trou dans le chapitre : Les Innus, en petits groupes sur le territoire
 - ch. 02, paginateur : encadré « En plus » pas imprimé, aucun trou dans le chapitre : L’onde AM, la nuit
+- ch. 02, paginateur : p02-2 : page à moitié vide
 - ch. 02, constructeur : série orange : aucune heure lisible dans « Tout le monde est dehors : couper la source et rentrer » (la donner dans le marqueur : {.orange 15 min})
 - ch. 03, paginateur : encadré « En plus » pas imprimé, aucun trou dans le chapitre : Reconnaître le mât de branchement
 - ch. 04, paginateur : encadré « En plus » pas imprimé, aucun trou dans le chapitre : La baisse du rayonnement
@@ -203,7 +207,9 @@ Photos téléchargées pour ces chapitres et non posées (images de référence 
 - ch. 05, paginateur : encadré « En plus » pas imprimé, aucun trou dans le chapitre : Le pemmican
 - ch. 05, paginateur : encadré « En plus » pas imprimé, aucun trou dans le chapitre : Ranger les bocaux sans leur bague
 - ch. 06, paginateur : encadré « En plus » pas imprimé, aucun trou dans le chapitre : L’essai de Stefansson
+- ch. 06, paginateur : p06-3 : page à moitié vide
 - ch. 07, paginateur : encadré « En plus » pas imprimé, aucun trou dans le chapitre : Une courte panne peut contaminer l’aqueduc
+- ch. 07, paginateur : p07-2 : page à moitié vide
 - ch. 08, paginateur : encadré « En plus » pas imprimé, aucun trou dans le chapitre : Ce qu’on peut recongeler dégelé
 - ch. 09, paginateur : encadré « En plus » pas imprimé, aucun trou dans le chapitre : La babiche des raquettes, chez les Innus
 - ch. 09, paginateur : encadré « En plus » pas imprimé, aucun trou dans le chapitre : Reconnaître une pile qui a coulé
@@ -214,9 +220,13 @@ Photos téléchargées pour ces chapitres et non posées (images de référence 
 - ch. 11, paginateur : encadré « En plus » pas imprimé, aucun trou dans le chapitre : Sept-Îles, juin 2023
 - ch. 11, paginateur : encadré « En plus » pas imprimé, aucun trou dans le chapitre : Le brûlage de printemps des Cris et des Dénés
 - ch. 11, paginateur : encadré « En plus » pas imprimé, aucun trou dans le chapitre : Les bleuets du brûlis
+- ch. 12, paginateur : p12-2 : page à moitié vide
+- ch. 12, paginateur : p12-17 : page à moitié vide
+- ch. 12, paginateur : p12-20 : page à moitié vide
 - ch. 14, paginateur : encadré « En plus » pas imprimé, aucun trou dans le chapitre : Comment la balise est entendue
 - ch. 14, paginateur : encadré « En plus » pas imprimé, aucun trou dans le chapitre : La portée d’un walkie-talkie
 - ch. 15, paginateur : encadré « En plus » pas imprimé, aucun trou dans le chapitre : Reconnaître la glace en chandelles
+- ch. 15, paginateur : p15-5 : page à moitié vide
 - ch. 16, paginateur : encadré « En plus » pas imprimé, aucun trou dans le chapitre : Le canot d’écorce
 - ch. 16, paginateur : encadré « En plus » pas imprimé, aucun trou dans le chapitre : Deux par deux aux collets
 - ch. 16, paginateur : encadré « En plus » pas imprimé, aucun trou dans le chapitre : Le maître de trappe cri
