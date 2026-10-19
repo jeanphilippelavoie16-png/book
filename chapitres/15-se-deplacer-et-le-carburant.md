@@ -335,7 +335,7 @@ et se sortir vivant de la glace qui cède ou de la machine qui s'arrête loin de
 | Auto arrêtée sur la glace | Le trou percé à côté | Pas d'eau qui monte | Déplacer l'auto tout de suite |
 | Auto prise dans la neige, à chaque démarrage | Le tuyau d'échappement et la fenêtre | Tuyau dégagé jusqu'au sol ; fenêtre entrouverte du côté opposé au vent | Couper le moteur, dégager le tuyau et entrouvrir la fenêtre |
 | Auto prise dans la neige, chaque heure | Le carburant qui reste | **0,5 à 1 L** par heure, moteur **10 min** par demi-heure | Allonger les arrêts du moteur, se serrer sous les couvertures |
-| À chaque arrêt, plus souvent que le délai de gelure | Les visages et les doigts | Peau souple, colorée, sensible | Peau jaunâtre ou gris blanc : une main chaude dessus ; la gelure : ch. 25 |
+| À chaque arrêt, plus souvent que le temps que met la peau à geler | Les visages et les doigts | Peau souple, colorée, sensible | Peau jaunâtre ou gris blanc : la couvrir d'une main chaude ; pour soigner la gelure : ch. 25 |
 | Génératrice en marche | La distance | **6 m** au moins de tout bâtiment | L'arrêter et l'éloigner avant de la redémarrer |
 | Génératrice en marche | L'avertisseur de CO dans la maison | **0 ppm** affiché | Tout chiffre veut dire du CO : sortir, puis chercher ce qui le produit |
 
