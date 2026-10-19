@@ -281,7 +281,7 @@ magasin : trois mois visés, et au moins un mois même l'année où personne n'a
 32. {!vapeurs} **Garder les bouteilles de propane debout, dehors**, jamais dans un bâtiment ni dans un cabanon fermé
  (ch. 87).
 33. {!generatrice} **Faire tourner la génératrice dehors, à découvert, à au moins 6 m du chalet et du cabanon.**
- Jamais dans le cabanon ni dans un autre bâtiment, même porte ouverte, ni sous un auvent.
+ Ne jamais la mettre en marche dans le cabanon ni dans un autre bâtiment, même porte ouverte, ni sous un auvent.
 34. {!co} **Poser les avertisseurs de CO.**
  - En mettre un à chaque étage, dans le corridor près des chambres, et un dans chaque chambre où on dort porte
  fermée : la porte fermée sépare la personne qui dort de l'avertisseur du corridor.

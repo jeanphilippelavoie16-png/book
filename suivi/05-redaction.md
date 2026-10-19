@@ -235,7 +235,7 @@ enregistrée dans `/sources` (aucune recherche nouvelle sur le Web ; aucun fichi
 - **Le texte s'ouvre à toute famille** : le tableau des calories passe de « Homme 19-30 / Femme 19-30 / Enfant de 6 ans /
   Enfant de 4 ans » à un tableau par tranche d'âge (4-5, 6-7, 8-9, 19-30, 31-50 ans, fille ou femme, garçon ou homme),
   tiré du même tableau 1 de `sources/08-msss-besoins-energetiques.md` ; l'exemple de la famille de quatre reste
-  (« un homme et une femme de 19 à 30 ans et deux enfants de 4 à 7 ans », 8 550 à 8 800 kcal). « Les deux enfants »
+  (« un homme et une femme de 19 à 30 ans et deux enfants de 4 à 7 ans », 8 550 à 8 800 kcal ; corrigé après la vérification : « un enfant de 4 ou 5 ans et un enfant de 6 ou 7 ans », plus bas, point 1). « Les deux enfants »
   devient « les enfants ». Le contrôle des âges ne relève plus rien.
 - **Les mots** : « village » ×2 (le congélateur « au village ») → « à la maison » ; « Hydro » → « sur le réseau » ;
   « courir un trapline » → « faire la tournée des pièges » ; les noms latins sortent (orignal, souris sylvestre,
@@ -256,7 +256,7 @@ enregistrée dans `/sources` (aucune recherche nouvelle sur le Web ; aucun fichi
 - **Corrigé** : Points de contrôle, bois empilé, « Consommation mesurée de l'hiver précédent + 1 corde » → « plus une
   marge ». Le « + 1 corde » avait été retiré du texte le 24 septembre (introuvable, plus haut) et était resté dans le
   tableau.
-- **Le 9 000 kcal** : « Le ch. 21 fixe la majoration ; d'ici là… » était périmé, le ch. 21 l'a fixée (9 500 kcal par
+- **Le 9 000 kcal** (remplacé après la vérification par 9 500 kcal et 855 000 kcal, plus bas, point 3) : « Le ch. 21 fixe la majoration ; d'ici là… » était périmé, le ch. 21 l'a fixée (9 500 kcal par
   jour pour un hiver de travail, `chapitres/21-…`, l. 112 ; provenance dans `suivi/21-redaction.md`). Le stock reste
   bâti sur 9 000 kcal comme minimum, et l'étape 8 renvoie au 9 500 du ch. 21. Les 810 000 kcal de l'étape 11 ne
   changent pas.
@@ -281,7 +281,7 @@ enregistrée dans `/sources` (aucune recherche nouvelle sur le Web ; aucun fichi
 | Bloc | Où il est allé | Pictogramme |
 | --- | --- | --- |
 | CO : incolore, inodore, hémoglobine, signes de grippe, le dormeur qui ne se réveille pas | Page `co` (dangers/partie-1.md) | |
-| Génératrice jamais dans un bâtiment, un garage, un cabanon, une tente ni sous un auvent ; « au moins 3 mètres » | Étape 33, **à 6 m** du chalet et du cabanon, jamais dans le cabanon où est le carburant (le reste : page `generatrice`) | `generatrice` |
+| Génératrice jamais dans un bâtiment, un garage, un cabanon, une tente ni sous un auvent ; « au moins 3 mètres » | Étape 33, **à 6 m** du chalet et du cabanon, à découvert ; jamais dans le cabanon ni dans un autre bâtiment, même porte ouverte, ni sous un auvent (corrigé après la vérification, plus bas, point 5 ; le reste : page `generatrice`) | `generatrice` |
 | La même règle pour le barbecue, le réchaud, la chaufferette, la laveuse à pression, la scie | Pages `co` et `generatrice` | |
 | Avertisseur à chaque étage, dans le corridor, et dans chaque chambre où on dort porte fermée ; 2 m d'un appareil ; pas de pièce humide ; lithium 10 ans ; la cellule meurt avant le boîtier ; date au dos | Étape 34 | `co` |
 | Le bouton test ne vérifie pas la cellule | Page `co` ; la ligne des Points de contrôle ne garde que « remplacer l'appareil qui a passé sa date (étape 34) » | |
@@ -357,7 +357,7 @@ n'existait (`images/logigrammes/05-*`), aucun n'est fait ; pas de clé `logigram
 | --- | --- | --- |
 | Génératrice à au moins 6 m du bâtiment (remplace les 3 m de Santé Montérégie) | Étape 33 | `sources/10-sante-canada-generatrice-distance.md` (« au moins 6 mètres (20 pieds) entre toute habitation ou tout bâtiment ») ; concorde avec la page `generatrice` ; demandé par `plan/dangers-inventaire.md` (ch. 05 et section 5) |
 | Besoins de 8-9 ans (1 850 / 2 000 kcal) et de 31-50 ans (2 250 / 2 900 kcal) | Étape 8, tableau | `sources/08-msss-besoins-energetiques.md`, tableau 1, niveau « actif » (même tableau que les autres lignes) |
-| Hiver de travail : environ 9 500 kcal par jour pour la famille | Étape 8 | Ch. 21, l. 112 (« Chiffre de planification : 9 500 kcal/jour ») ; provenance dans `suivi/21-redaction.md` |
+| Hiver de travail : environ 9 500 kcal par jour pour la famille ; depuis la vérification, la base du stock (étapes 8 et 11 : 855 000 kcal pour trois mois) | Étapes 8 et 11 | Ch. 21, l. 112 (« Chiffre de planification : 9 500 kcal/jour ») ; provenance dans `suivi/21-redaction.md` |
 | Une souris passe par une fente de la taille d'une pièce de 10 ¢ | Étape 51 | `sources/15b-parcs-canada-souris-sylvestres.md` (« toute ouverture de la taille d'une pièce de 10 ¢ ») et `sources/15b-sante-canada-rats-souris.md` (« as small as a dime ») ; remplace « passe partout où son crâne passe », sans source |
 | La plupart des bois donnent la même énergie à masse sèche égale ; une corde d'épinette pèse moins qu'une corde de bouleau | Étape 29 | `sources/08-rncan-classes-bois-chauffage.md` (« La plupart des types de bois de chauffage affichent le même contenu en énergie lorsque l'on tient compte de la masse anhydre ») ; ch. 83, l. 86 (« une corde d'épinette et une corde de bouleau ne pèsent pas la même chose ») |
 | Le sel nitrité se pèse au dixième de gramme | Section 7, « Peser sans balance » | Page `poison` (dangers/partie-2.md : « le peser au dixième de gramme ») |
@@ -377,9 +377,9 @@ moins » (la fiche du 24 septembre confirme la plage de fonctionnement, pas une 
 
 | Note | Genre | Mots | Étape | Source |
 | --- | --- | --- | --- | --- |
-| La bannique des Innus | Façon d'une nation du Nord : pourquoi elle marche (le sable sec garde la chaleur de la braise et cuit lentement, sans four ni chaudron) ; ce qui la rend dangereuse (un galet pris dans l'eau éclate) | 75 | 14 | `sources/14b-bannique-sable-innue.md` (Radio-Canada, Mme Bégin de Mashteuiatsh, trois quarts d'heure ; Tourisme Autochtone Québec ; OQLF) ; le galet qui éclate : ch. 88, section 9-C |
-| Le pemmican | Fait | 73 | 19 | `sources/67-encyclopedie-canadienne-pemmican.md` (*pimikan*, « graisse préparée » ; parts égales ; orignal et caribou ; « facilement conservée et expédiée » ; voyageurs de la traite, l'hiver) ; le pemmican d'ours aussi dangereux que la viande crue : page `trichine` |
-| Ranger les bocaux sans leur bague | Fait | 64 | 48 | `sources/08-nchfp-entreposage-conserves-maison.md` (« stored without ring bands to keep them dry as well as to allow for easier detection of any broken vacuum seals » ; « Dampness may corrode metal lids ») |
+| La bannique des Innus | Façon d'une nation du Nord : pourquoi elle marche (le sable sec garde la chaleur de la braise et cuit lentement, sans four ni chaudron) ; ce qui la rend dangereuse (un galet pris dans l'eau éclate) | 76 | 14 | `sources/14b-bannique-sable-innue.md` (Radio-Canada, Mme Bégin de Mashteuiatsh, trois quarts d'heure ; Tourisme Autochtone Québec ; OQLF) ; le galet qui éclate : ch. 88, section 9-C |
+| Le pemmican | Fait, avec ce qui le rend dangereux aujourd'hui | 79 | 19 | `sources/67-encyclopedie-canadienne-pemmican.md` (*pimikan*, « graisse préparée » ; parts égales ; orignal et caribou ; « facilement conservée et expédiée » ; voyageurs de la traite des fourrures) ; 71 °C à cœur pendant 15 s avant le séchage : `chapitres/72-pemmican-et-graisses.md`, étape 15 ; jamais d'ours, le séchage ne tue pas la trichine : page `trichine` |
+| Ranger les bocaux sans leur bague | Fait | 64 | 23 | `sources/08-nchfp-entreposage-conserves-maison.md` (« stored without ring bands to keep them dry as well as to allow for easier detection of any broken vacuum seals » ; « Dampness may corrode metal lids ») |
 | L'avertisseur qui bipe au froid | Fait | 50 | 34 | `sources/15b-kidde-avertisseur-co-bouton-et-temperature.md` (« the battery… may be affected by the cooler temperature. This can cause the alarm to chirp, indicating a 'Low' battery status » ; plage de 4,4 à 37,8 °C) |
 
 Quatre notes, sans photo. **Écartée** : « Le bocal qui risque de geler » (NCHFP : un bocal qui gèle ne se gâte pas s'il
@@ -435,10 +435,23 @@ déjà fait ce travail-là ? ») : chaque correction s'appuie sur une page déj�
 | 10 | Étape 34, les piles au lithium | **Appliqué** : « Choisir un modèle dont la pile au lithium dure 10 ans. Dans un modèle dont on change les piles, mettre des piles au lithium. » Les deux phrases exactes de la page, relevées par le vérificateur le 19 octobre : « Privilégiez les modèles avec des piles au lithium qui ont une durée de vie de 10 ans » ; « Privilégiez des piles longue durée comme celles au lithium et n'utilisez pas de piles rechargeables à moins qu'elles soient recommandées par le fabricant ». L'extrait de la fiche source (« [piles au lithium] durée de vie de 10 ans ») reste ambigu : la fiche gagnerait à porter ces deux phrases (pas touchée ici, rendue à l'orchestrateur) | `sources/08-quebec-avertisseurs-monoxyde-carbone.md` |
 | 11 | En plus, « Ranger les bocaux sans leur bague » | **Appliqué** : le renvoi passe de l'étape 48 à l'étape 23 (ce qu'on jette à chaque visite) ; la note se placera près de l'étape 23 | `sources/08-nchfp-entreposage-conserves-maison.md` ; ch. 78, étape 23 |
 
-Tableau des notes « En plus » (plus haut) : la bannique a maintenant 75 mots, le pemmican 80 (« l'hiver » sort ; la
-viande chauffée à 71 °C pendant 15 secondes : ch. 72), la note des bagues renvoie à l'étape 23.
+Tableau des notes « En plus » (plus haut, mis à jour à la reprise) : la bannique a maintenant 76 mots, le pemmican 79
+(comptés avec `wc -w`, renvoi compris ; « l'hiver » sort ; la viande chauffée à 71 °C pendant 15 secondes : ch. 72),
+la note des bagues renvoie à l'étape 23.
 
-**controle.py après les corrections** : 8 303 mots, 2 tirets (titre et ligne de tome), 0 mot banni, 0 « § »,
+**Reprise du même jour (après le redémarrage du conteneur).** Les onze points étaient déjà appliqués dans le texte
+commité ; vérifié un par un contre `git diff 40920d1`. Une retouche de forme : à l'étape 33, la deuxième phrase
+n'avait pas de verbe (« Jamais dans le cabanon ni dans un autre bâtiment… ») ; elle devient « Ne jamais la mettre
+en marche dans le cabanon ni dans un autre bâtiment, même porte ouverte, ni sous un auvent. » (règle 0). Les
+lignes de la refonte que ces corrections rendent fausses (la famille de l'exemple, le 9 000 kcal, l'étape 33 dans le
+tableau de l'ancienne section 8, la ligne du 9 500 dans « Chiffres nouveaux », les mots et les étapes des notes
+« En plus ») portent maintenant un renvoi à ce tableau.
+
+**controle.py après la reprise** : 8 308 mots, 2 tirets (titre et ligne de tome), 0 mot banni, 0 « § », 0 âge, 0
+maxime, 1 tournure (« On les oublie », étape 44 : faux positif), 42 mots vides jugés comme avant, 2 redites (même nom
+pour le même tour) ; contre le texte commité, « rien n'a disparu ».
+
+**controle.py après les corrections** (avant la reprise) : 8 303 mots, 2 tirets (titre et ligne de tome), 0 mot banni, 0 « § »,
 0 âge, 0 maxime, 1 tournure (« On les oublie », étape 44 : faux positif), 42 mots vides jugés comme avant, 2 redites
 (« tour du printemps et de l'automne », même nom pour le même tour). Ancre signalée : la photo 05-boite-bombee, dont
 la nouvelle ancre (étape 23) est rendue à l'orchestrateur. Invariants contre la refonte : « ch. 77 » (l'étape 24 dit

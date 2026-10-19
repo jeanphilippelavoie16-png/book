@@ -408,3 +408,33 @@ tome, comme avant), 0 « § », 0 tournure, 0 maxime, 0 pronominal ; « au nivea
 43 mots vides jugés, dont deux nouveaux qui portent le sens (« tout bâtiment », « porte encore la trichine »).
 Invariants contre la refonte : rien n'a disparu. Contre le texte d'avant la refonte (commit `17bf592`) : la même liste
 que dans la section de la refonte, justifiée là.
+
+### Reprise après le redémarrage du conteneur, 19 octobre 2026
+
+Les quatorze corrections ci-dessus étaient déjà au chapitre et à cette fiche (commit `4ed97c7`). Vérifiées une à une
+contre la remarque du vérificateur et contre leur appui (ch. 4, étape 18 ; ch. 10, étapes 19 à 22 ; pages `co`,
+`generatrice`, `trichine`, `abats`, `mal-de-caribou`, `selles`, `espace-clos` ; `sources/08-reprises-sources-deja-enregistrees.md`,
+lignes de la javel, de l'avertisseur, de la batterie et du deuxième jour) : rien à reprendre sur le fond. Relecture à
+voix haute des phrases corrigées, avec le tableau de l'éditeur du ch. 4 sous les yeux ; huit retouches de forme, aucun
+fait ni chiffre changé :
+
+| Où | Avant | Après | Règle |
+| --- | --- | --- | --- |
+| Scénario 6, paragraphe `{!co} {!espace-clos}` | « Une fois la pièce d'abri bouchée, et au caveau, ne rien y faire brûler » | « Dans la pièce d'abri bouchée et au caveau, ne rien faire brûler » (la forme proposée par le vérificateur) | Règle 0 : le moment et le lieu mêlés dans le même complément |
+| Même paragraphe, phrase du caveau | « ces signes viennent d'abord de l'air qui manque, et l'avertisseur de CO ne le détecte pas » | « le mal de tête et l'envie de dormir viennent d'abord du manque d'air, que l'avertisseur de CO ne détecte pas » | « Ces signes » comprenait l'avertisseur qui sonne, qui n'est pas un signe du manque d'air ; « le » ne renvoyait à rien de clair |
+| Section 5, avertisseurs de CO | « mettre une pile neuve » ; « si l'appareil a dépassé son âge » | « mettre des piles neuves » ; « si l'appareil est trop vieux » | Règle 6 : le Matériel dit « à piles » ; règle 0 : les mots de tous les jours |
+| Section 6, ligne du CO | « sans rester dedans » | « sans rester à l'intérieur » | « Dedans » pouvait se lire « dans l'appareil » ; mot de la page `co` |
+| Section 7, « Désinfecter sans feu », 1re puce | « Une eau froide, un peu trouble ou un peu colorée demande le double de javel » | « Pour une eau froide, un peu trouble ou un peu colorée, mettre le double » | La consigne dite comme une consigne ; la chose sujet de « demander » (cadre, « Pas de chose qui pense ») |
+| Même sous-section, puce `{!selles}` | Le fait d'abord (« La javel ne fait presque rien contre… »), le geste ensuite | Le geste d'abord (« Passer l'eau de lac, de ruisseau ou de neige au filtre à 1 µm avant la javel, si on en a un »), la raison ensuite | Règle 2 ; le pictogramme se pose au début de la phrase de l'étape |
+| Section 7, « La lampe à gras » | « l'huile de cuisson et la graisse de bête vont dans les repas, pas dans la lampe » | « garder l'huile de cuisson et la graisse de bête pour les repas » | Règle 11 : consigne au présent qui décrit ; règle 8 : ce qui marche |
+| En plus, « Ce qu'on peut recongeler dégelé » | « Le pain… peuvent retourner au congélateur… : ils risquent peu » | « On peut recongeler le pain… : ils présentent peu de risque » | Le geste a son sujet ; la chose ne « risque » pas |
+
+**Rendu** (`build_chapitre.py 08`) : 17 paragraphes à marge rose (`pc`), soit les 15 de la refonte et les deux de la
+correction (scénario 6 ; `selles`) ; aucun `{!` resté brut ; aucune planche (clé « 08 » de `placements-tome-1.json`
+vide). Le script signale « 3 photos sous l'ancien numéro 11 » : ce sont `images/photos/manquantes/11-colonne-*` et
+`images/photos/58/11-pissenlit-*`, qui appartiennent au ch. 11 d'aujourd'hui (feu de forêt) et au ch. 58 ; rien pour
+le ch. 8.
+
+**controle.py :** 6 723 mots, 2 tirets (titre et ligne de tome), 0 « § », 0 tournure, 0 maxime, 0 pronominal,
+« au niveau de la mer » gardé, 43 mots vides jugés (les mêmes). Invariants contre la refonte (`40920d1`) et contre
+`4ed97c7` : rien n'a disparu. Notes En plus : 80, 55, 36 et 53 mots. Fins de ligne LF.

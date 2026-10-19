@@ -539,7 +539,7 @@ dépannage.
 ### Le bâton à sonder de la côte de l'Alaska
 
 Sur la glace de mer, les chasseurs autochtones de la côte de l'Alaska marchent avec un long bâton à pointe
-d'os, l'unghaq en yupik. On frappe la glace là où on va mettre le pied : si la pointe passe, on n'y marche pas.
+d'os, l'unghaq en yupik. On frappe la glace où on va mettre le pied : si la pointe passe, on n'y marche pas.
 Si on passe à travers, on se hisse en tirant sur le bâton. Ces chasseurs connaissent leur glace de mer. Sur la
 glace de marée du fleuve, on ne passe pas, même avec un bâton (étape 42).
 

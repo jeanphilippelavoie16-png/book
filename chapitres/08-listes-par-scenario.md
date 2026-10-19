@@ -161,11 +161,11 @@ champignons et l'orignal, pendant des dizaines d'années (ch. 4).*
 | À la sortie | Remplacer les filtres de la fournaise et de l'échangeur d'air, et porter les vieux filtres dans un sac fermé loin du bâtiment | ch. 4, étape 25 |
 | À la sortie | Trier ce qui vient du jardin, du lac et de la chasse : la poussière radioactive reste sur ce qui pousse et dans l'eau de surface | ch. 4, étapes 22 et 26 à 32 |
 
-{!co} {!espace-clos} Une fois la pièce d'abri bouchée, et au caveau, ne rien y faire brûler : ni lampe à l'huile, ni
+{!co} {!espace-clos} Dans la pièce d'abri bouchée et au caveau, ne rien faire brûler : ni lampe à l'huile, ni
 fanal, ni chaufferette, ni chandelle. Si l'avertisseur sonne, ou si plusieurs personnes ont mal à la tête ou envie de
 dormir en même temps, chercher d'abord la source du monoxyde et l'éliminer, puis juger s'il faut sortir (ch. 4,
-étape 18). Au caveau, où rien ne brûle, ces signes viennent d'abord de l'air qui manque, et l'avertisseur de CO ne le
-détecte pas : enlever les bouchons des conduits d'aération du caveau et l'aérer tout de suite.
+étape 18). Au caveau, où rien ne brûle, le mal de tête et l'envie de dormir viennent d'abord du manque d'air, que
+l'avertisseur de CO ne détecte pas : enlever les bouchons des conduits d'aération du caveau et l'aérer tout de suite.
 
 **L'iode.** Personne n'en distribue d'avance sur la Côte-Nord : il faut acheter la boîte (ch. 00b). Le comprimé ne
 protège que la thyroïde, contre l'iode radioactif ; l'abri protège tout le corps. Doses et délai : ch. 4, étapes 13
@@ -247,7 +247,7 @@ s'arrêtent, puis la personne perd conscience ; un blessé qui cesse de frissonn
 | Chaque printemps | Réserve d'eau potable | 4 L × le nombre de personnes × 3 jours, au moins | La compléter avant le reste |
 | Chaque automne | Médicaments d'ordonnance en réserve | 2 à 3 semaines | Les renouveler avant la première neige |
 | Chaque automne | Bois sec de la réserve, sous abri, à part du bois de tous les jours : au chalet, et à la maison si elle a un poêle | Volume mesuré | Fendre et mettre à l'abri avant le gel |
-| Chaque automne | Avertisseurs de CO : le bouton d'essai, et la date de fabrication imprimée au dos | 1 par étage habité, 1 près du poêle ; chacun fabriqué il y a moins de 7 à 10 ans, selon le modèle | Si l'essai ne sonne pas, mettre une pile neuve ; s'il ne sonne toujours pas, ou si l'appareil a dépassé son âge, le remplacer (ch. 6) |
+| Chaque automne | Avertisseurs de CO : le bouton d'essai, et la date de fabrication imprimée au dos | 1 par étage habité, 1 près du poêle ; chacun fabriqué il y a moins de 7 à 10 ans, selon le modèle | Si l'essai ne sonne pas, mettre des piles neuves ; s'il ne sonne toujours pas, ou si l'appareil est trop vieux, le remplacer (ch. 6) |
 | Chaque automne | Thermomètres à sonde, plantés dans l'eau qui bout | 100 °C ± 1 °C au niveau de la mer | Les régler, ou les jeter |
 | Chaque automne | Argent comptant en petites coupures | 2 à 3 semaines de besoins de base | Compléter |
 | Chaque mois, l'hiver | Thermomètre laissé dans le congélateur | −18 °C ou moins | Passer au scénario 8 sans attendre |
@@ -265,7 +265,7 @@ s'arrêtent, puis la personne perd conscience ; un blessé qui cesse de frissonn
 | --- | --- | --- |
 | Il faut plus de deux minutes pour trouver un article de la tablette | La tablette est devenue un rangement | Tout sortir, et ne remettre que les articles prévus pour la tablette (section 5) ; ranger le reste ailleurs |
 | L'article existe, mais il est dans l'autre bâtiment | Une tablette au lieu de trois | Acheter en double les articles bon marché (ch. 00b) |
-| Mal de tête, fatigue, nausée ou envie de dormir chez plusieurs personnes à la fois, un enfant somnolent sans raison, ou l'avertisseur de CO qui sonne | Du monoxyde de carbone, même si l'alarme se tait ensuite | Sortir tout le monde à l'air libre tout de suite, sauf pendant des retombées (voir le scénario 6) ; arrêter l'appareil seulement si on l'atteint sans rester dedans, et ne rien rallumer avant d'avoir trouvé la cause |
+| Mal de tête, fatigue, nausée ou envie de dormir chez plusieurs personnes à la fois, un enfant somnolent sans raison, ou l'avertisseur de CO qui sonne | Du monoxyde de carbone, même si l'alarme se tait ensuite | Sortir tout le monde à l'air libre tout de suite, sauf pendant des retombées (voir le scénario 6) ; arrêter l'appareil seulement si on l'atteint sans rester à l'intérieur, et ne rien rallumer avant d'avoir trouvé la cause |
 | Le congélateur ne fait plus de bruit et sa porte est tiède | Il est arrêté depuis un moment | Passer au scénario 8 tout de suite, sans ouvrir |
 | Un paquet de viande a coulé, et la glace s'est refaite au fond du sac | La viande a dégelé puis regelé, pendant un temps qu'on ne connaît pas | La jeter |
 | Le poisson fumé ou salé sent bon, a l'air normal et est resté au-dessus de 3 °C | Le botulisme de type E ne change ni l'odeur, ni le goût, ni l'apparence | Le jeter sans y goûter (scénario 8 ; ch. 77) |
@@ -308,15 +308,14 @@ Au chalet, prendre l'eau du lac sous la glace, ou faire fondre de la neige (ch. 
 ### Désinfecter sans feu, et clarifier avant
 
 - S'il n'y a rien pour faire bouillir l'eau, mettre environ 2 gouttes (0,2 mL) d'eau de Javel non parfumée à 5,25 %
- par litre, brasser et laisser reposer 30 minutes, pour une eau à plus de 20 °C. Une eau froide, un peu trouble ou
- un peu colorée demande le double de javel : 0,4 mL par litre. Dans une eau plus froide que 20 °C, attendre au moins
+ par litre, brasser et laisser reposer 30 minutes, pour une eau à plus de 20 °C. Pour une eau froide, un peu trouble
+ ou un peu colorée, mettre le double : 0,4 mL par litre. Dans une eau plus froide que 20 °C, attendre au moins
  1 heure, et 2 heures sous 10 °C (ch. 10, étapes 19 à 22).
 - Une eau trouble use la javel sur la terre en suspension avant qu'elle atteigne les microbes. La laisser déposer dans
  une chaudière, tirer le clair par-dessus sans remuer le fond, et le passer dans un linge serré ou dans un bas de laine
  avant de mettre la javel : le linge enlève la terre, et la javel tue les bactéries et les virus.
-- {!selles} La javel ne fait presque rien contre un des parasites de l'eau de lac, de ruisseau ou de neige. Passer
- cette eau au filtre à 1 µm avant la javel, si on en a un (ch. 10, étape 19) ; sans filtre ni feu, ce parasite reste
- dans l'eau.
+- {!selles} Passer l'eau de lac, de ruisseau ou de neige au filtre à 1 µm avant la javel, si on en a un : la javel ne
+ tue presque pas un des parasites de cette eau (ch. 10, étape 19). Sans filtre ni feu, ce parasite reste dans l'eau.
 - Si l'eau a pu recevoir un produit chimique, prendre l'eau ailleurs : ni l'ébullition ni la javel n'enlèvent un
  produit chimique.
 
@@ -353,8 +352,7 @@ On la monte en trois minutes, et elle éclaire comme une chandelle tant qu'il re
 
 - Le contenant : une boîte de métal ou un pot de verre épais, qui ne casse pas à la chaleur.
 - {!mal-de-caribou} Le gras : du gras qui a ranci, ou le surplus quand la réserve dépasse ce que la famille mangera.
- Tant que la famille manque de gras, l'huile de cuisson et la graisse de bête vont dans les repas, pas dans la lampe
- (scénario 2).
+ Tant que la famille manque de gras, garder l'huile de cuisson et la graisse de bête pour les repas (scénario 2).
 - La mèche : une lanière de guenille de coton roulée serré, un lacet de botte ou une ficelle, tenue au bord par un bout
  de fil de métal plié en crochet. Elle trempe dans le gras et dépasse à peine : plus elle dépasse, plus la flamme est
  grosse, et une mèche trop longue fume et charbonne.
@@ -466,6 +464,6 @@ l'auto, qui passe l'hiver au froid, mettre des piles au lithium (scénario 9).
 
 ### Ce qu'on peut recongeler dégelé
 
-Le pain, les fromages fermes et les jus de fruits peuvent retourner au congélateur même complètement dégelés : ils
-risquent peu. La règle des 4 °C du scénario 8 vaut pour la viande, la volaille, le poisson, le lait et les autres
+On peut recongeler le pain, les fromages fermes et les jus de fruits même complètement dégelés : ils présentent peu
+de risque. La règle des 4 °C du scénario 8 vaut pour la viande, la volaille, le poisson, le lait et les autres
 produits laitiers, les œufs, et les plats qui en contiennent.

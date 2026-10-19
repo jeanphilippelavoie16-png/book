@@ -518,3 +518,9 @@ comme génératrice » → `generatrice`.
 | Redites signalées | 0 | 0 (une, réglée : la règle du poêle à la section 7 devient un renvoi) |
 | Mots vides à juger | 32 | 33 (« tout de suite » de l'étape 6 : il porte le sens) |
 | Invariants disparus | | rien |
+
+Repassé le même soir, après le redémarrage du conteneur : les quatre corrections sont dans le chapitre tel qu'il est
+commité (de8aac6), `controle.py --avant` (texte de la refonte, 40920d1) donne les mêmes chiffres (5 418 → 5 514 mots,
+2 tirets du titre et de la ligne de tome, 33 mots vides à juger, rien n'a disparu). Notes « En plus » : 70, 79, 60 et
+70 mots (sans compter « °C » ni la ponctuation). Aucun renvoi d'un autre chapitre, d'un logigramme, d'une page de danger ni de `placements-tome-1.json` ne
+vise une étape renumérotée (`grep` refait).

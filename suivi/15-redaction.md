@@ -723,3 +723,12 @@ controle.py après ces corrections : 7 734 mots (7 679 avant), 2 tirets (titre e
 marée du fleuve » (étape 42 et note du bâton), est l'avertissement de la note avec son renvoi, exigé pour une façon d'une
 nation du Nord. Invariants : rien n'a disparu. Ancres introuvables : 15-03 et 15-05, toujours en attente de leur report
 dans `placements-tome-1.json` (nouvelles ancres dans « Ancres », plus haut).
+
+**Reprise après le redémarrage du conteneur (19 octobre 2026).** Les dix corrections étaient déjà dans le chapitre et
+dans cette fiche (commit `de8aac6`) ; relues une à une contre le texte, les sources citées retrouvées (TP 511, « il faut
+parfois une heure » ; Santé Canada, « garage ou votre remise » ; Québec, « garage en toile », « même si la porte du garage
+est ouverte »). Un seul changement de plus : la note du bâton faisait 81 mots au compte des espaces ; « là où on va
+mettre le pied » devient « où on va mettre le pied » (80). controle.py : 7 733 mots, 2 tirets (titre et ligne de tome),
+0 « § », 0 mot banni, 0 tournure, 0 maxime, 0 pronominal ; 27 mots vides et 5 redites, les mêmes, jugés plus haut ;
+invariants contre la version d'avant les corrections (`40920d1`) : rien n'a disparu. Ancres introuvables : 15-03 et
+15-05, en attente du report dans `placements-tome-1.json`.
