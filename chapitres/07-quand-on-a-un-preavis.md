@@ -365,9 +365,9 @@ passer dans un linge serré : les particules abritent les microbes, et une eau b
 
 La neige fondue coûte le plus de bois : la neige fraîche contient 4 à 10 % d'eau, soit 10 à 25 L de neige pour 1 L
 d'eau. Mettre toujours un fond d'eau dans le chaudron, ajouter la neige par poignées et ne jamais laisser le chaudron
-se vider : jetée dans un chaudron sec, la neige brûle le fond avant de fondre, parce qu'elle ne touche le métal qu'en
-quelques points. La glace de lac donne beaucoup plus d'eau que le même volume de neige, pour le même bois, et un seau
-d'eau puisée au lac en coûte encore moins (ch. 10).
+se vider : quand on jette la neige dans un chaudron sec, le fond brûle avant que la neige fonde, parce qu'elle ne
+touche le métal qu'en quelques points. La glace de lac donne beaucoup plus d'eau que le même volume de neige, pour le
+même bois, et une chaudière d'eau puisée au lac en coûte encore moins (ch. 10).
 
 ### La toilette quand l'égout ne pompe plus
 

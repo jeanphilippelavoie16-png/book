@@ -331,9 +331,8 @@ Battu et séché, ce feutre prend l'étincelle. Pour qu'il la prenne mieux et ga
 longtemps, on le fait bouillir d'abord dans de la lessive de cendre de bois (ch. 112), puis on le bat et
 on le fait sécher encore. Si on le trempe dans une solution de salpêtre (le nitrate de potassium), puis
 qu'on le fait sécher, il couve seul, lentement, comme une mèche. On trouve la bonne force de la lessive et
-du salpêtre par essai : on trempe un bout de
-feutre, on le fait sécher, on lui donne une étincelle, et on regarde s'il prend et combien de temps il
-garde le point rouge.
+du salpêtre par essai : on trempe un bout de feutre, on le fait sécher, on lui donne une étincelle, et on
+regarde s'il prend et combien de temps il garde le point rouge.
 
 ### Le briquet à pierre
 
