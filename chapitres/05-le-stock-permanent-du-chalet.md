@@ -59,9 +59,9 @@ trois mois, et elle doit tenir au moins un mois, même l'année où personne n'a
  poêle, la réserve se gâte en quelques semaines ou quelques mois. Poser le thermomètre min-max sur une tablette : il
  garde en mémoire la température la plus froide et la plus chaude de l'absence (section 5).
  - Quand une boîte de conserve gèle et dégèle, son serti[^1] travaille. Jeter un bocal de conserve maison qui a gelé,
- même s'il n'est pas fendu. Si le local gèle, descendre les conserves et les bocaux à la maison avant
- les gels (ch. 84, étape 9). Ne pas les mettre au caveau : son humidité rouille les couvercles et les boîtes
- jusqu'à défaire le scellé (ch. 79).
+ même s'il n'est pas fendu. Si le local gèle, descendre les conserves et les bocaux à la maison avant les gels
+ (ch. 84, étape 9). Ne pas les mettre au caveau : son humidité rouille les couvercles et les boîtes jusqu'à défaire
+ le scellé (ch. 79).
  - La péremption, l'humidité, les souris et le gel font perdre plus de réserve que la famille n'en mange : on les
  surveille aux étapes 47 à 51.
  - Avec un rangement qui ne change pas, un frère, un voisin ou le groupe de chasse trouve ce qu'il lui faut sans

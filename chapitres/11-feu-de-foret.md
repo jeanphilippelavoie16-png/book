@@ -485,9 +485,9 @@ purificateur à filtre HEPA, mais beaucoup mieux que rien (planche 11-04).
  du moteur a monté de près de 60 °C pendant des essais. Un ventilateur fabriqué depuis 2012 a une fiche à fusible et une
  coupure thermique. Ne pas faire tourner un ventilateur plus vieux la nuit, ni sans un adulte éveillé à
  côté.
-- **Hors réseau**, le pulseur de chaufferette d'une vieille auto ou un ventilateur d'ordinateur, branchés
- sur une batterie d'auto, font le même travail plus lentement. Ils n'ont pas été mesurés : ils font moins,
- on ne sait pas combien. Ce qui compte, c'est le débit pour la taille de la pièce : plus la pièce est
+- **Hors réseau**, le ventilateur de la chaufferette d'une vieille auto ou un ventilateur d'ordinateur,
+ branchés sur une batterie d'auto, font le même travail plus lentement. Ils n'ont pas été mesurés : ils
+ font moins, et on ne sait pas combien. Le débit doit suivre la taille de la pièce : plus la pièce est
  petite, plus un petit ventilateur suffit.
 - {!co} **Le filtre n'arrête pas les gaz** : ni ceux de la fumée du feu, ni le monoxyde de carbone. Si un
  poêle ou une flamme brûle dans le chalet fermé, la pièce d'air propre ne protège pas de son monoxyde.
