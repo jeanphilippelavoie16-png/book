@@ -72,8 +72,8 @@ EPINETTES = {
              D=[(586, 0), (598, 5.0), (612, 9.5), (628, 15.0), (645, 20.5), (665, 27.0), (690, 36.0), (715, 43.0),
                 (742, 47.0), (790, 56.0), (860, 66.0), (985, 82.0)]),
         # la petite du milieu : ses étages relevés (côté, bout x, bout y, haut de l'attache, épaisseur)
-        dict(nom='S2', coeur=0.24, cx=602.3, cx_bas=602.0, pointe=808.5, fleche=6.5, fleche_l=2.0, pied=962, tronc=2.0, graine=71,
-             neige=0.75, masque=dict(contour=[(556, 812), (637, 812), (637, 961), (556, 961)], haut=813.5, bas=961),
+        dict(nom='S2', coeur=0.24, cx=602.3, cx_bas=602.0, pointe=808.5, fleche=10.0, fleche_l=1.5, pied=962, tronc=2.0, graine=71,
+             neige=0.75, masque=dict(contour=[(556, 812), (637, 812), (637, 961), (556, 961)], haut=817.5, bas=961),
              etages=[
                  (-1, 594.5, 836.0, 829.0, 5.0), (1, 612.0, 840.0, 830.5, 5.5),
                  (-1, 590.5, 851.0, 843.0, 5.5), (1, 613.5, 855.0, 845.5, 6.0),
@@ -160,7 +160,7 @@ def _quad(p0, c, p1, n=16):
     return (1 - t) ** 2 * p0 + 2 * (1 - t) * t * c + t ** 2 * p1
 
 
-def _croissant(courbe, v0, v1, rim, epais, vers_bas=True, n=40, coussin=False):
+def _croissant(courbe, v0, v1, rim, epais, vers_bas=True, n=40, coussin=False, dents=None):
     """Un croissant de neige posé sous une courbe (le dessus d'une branche) : de la fraction v0 à v1 de sa longueur,
     rim sous la courbe, épaisseur max epais, pointu aux deux bouts."""
     d = np.diff(courbe, axis=0)
@@ -181,6 +181,18 @@ def _croissant(courbe, v0, v1, rim, epais, vers_bas=True, n=40, coussin=False):
         ep = epais * np.sin(np.pi * v) ** 0.75
     r = rim(v) if callable(rim) else np.full(n, rim)
     haut = np.stack([x + nx * r, y + ny * r], 1)
+    if dents is not None:                                # le bord du dessous dentelé : des pointes vers le bas
+        R_, per, prof = dents
+        sl = np.concatenate([[0], np.cumsum(np.hypot(np.diff(x), np.diff(y)))])
+        off = np.zeros(n)
+        pos = per * R_.uniform(0.1, 0.6)
+        while pos < sl[-1]:
+            p = per * R_.uniform(0.8, 1.25)
+            k = (sl >= pos) & (sl < pos + p)
+            f = (sl[k] - pos) / p
+            off[k] = prof * R_.uniform(0.5, 1.1) * np.clip(1 - np.abs(f - 0.3) / 0.7, 0, 1) ** 1.6
+            pos += p
+        ep = ep + off * np.sin(np.pi * v) ** 0.5
     bas = np.stack([x + nx * (r + ep), y + ny * (r + ep)], 1)
     return np.concatenate([haut, bas[::-1]])
 
@@ -293,28 +305,31 @@ def epinette(sp):
         if R.random() > part or L < 2:
             return
         bt = (1.2 if doigt else 0.62) * ep               # l épaisseur de la lame du haut, au tronc
-        e = (max(0.30 * bt, 0.8) if doigt else min(max(0.36 * bt, 1.0), 2.8)) * u(0.85, 1.15) * (0.9 if fin else 1.0)
-        r0 = max(0.16 * bt + 0.3, 0.75) * u(0.85, 1.15) * (0.8 if doigt else 1.0)
+        e = (max(0.30 * bt, 0.8) if doigt else min(max(0.52 * bt, 1.0), 3.4)) * u(0.85, 1.15) * (0.9 if fin else 1.0)
+        r0 = (max(0.16 * bt + 0.3, 0.75) * 0.8 if doigt else max(0.10 * bt + 0.3, 0.6)) * u(0.85, 1.15)
         if doigt:
             c, dl = u(0.34, 0.55), u(0.20, 0.32)
             couche[1].append(_croissant(hauts[0], max(0.08, c - dl), min(0.9, c + dl), lambda v: r0 * (1 - 0.35 * v),
                                         e, coussin=True))
             return
-        # des taches franches et courtes posées sur le dessus, à des places inégales (comme au tome 6), pas un
-        # croissant le long de toute la branche
-        n = 1 if L < 10 else (2 if L < 22 else 3)
-        if n > 1 and R.random() < 0.3:
-            n -= 1
-        bornes = np.linspace(0.06, 0.92, n + 1)
+        # une ou deux plaques de neige posées sur le dessus, à des places inégales ; leur bord du dessous est dentelé
+        # (les bouts d'aiguilles qui dépassent de la neige), comme au tome 6
+        n = 1 if L < 14 else 2
+        if n == 2 and R.random() < 0.25:
+            n = 1
+        bornes = np.linspace(0.05, 0.93, n + 1)
         for i in range(n):
-            lg = min(0.5, max(0.14, u(4.0, 9.0) / max(L, 1e-3)))
-            c = u(bornes[i] + lg / 2, max(bornes[i] + lg / 2, bornes[i + 1] - lg / 2))
-            ee = e * u(0.8, 1.2) * (1.12 if i == 0 else 1.0)
+            lg = (u(0.36, 0.56) if n == 1 else u(0.24, 0.36))
+            a_, b_ = bornes[i] + lg / 2, bornes[i + 1] - lg / 2
+            c = u(a_, max(a_, b_))
+            ee = e * u(0.85, 1.15) * (1.1 if i == 0 else 0.9)
             couche[1].append(_croissant(hauts[0], max(0.04, c - lg / 2), min(0.95, c + lg / 2),
-                                        lambda v, r=r0 * u(0.85, 1.15): r * (1 - 0.3 * v), ee, n=24))
-        if len(hauts) > 1 and L > 8 and R.random() < 0.5:   # une tache sur la lame du dessous
-            c2 = u(0.40, 0.70); lg = min(0.4, max(0.12, u(2.0, 4.0) / L))
-            couche[1].append(_croissant(hauts[1], c2 - lg / 2, c2 + lg / 2, r0 * 0.9, e * 0.75, n=20))
+                                        lambda v, r=r0 * u(0.85, 1.15): r * (1 - 0.3 * v), ee, n=40,
+                                        dents=(R, min(2.4, max(1.1, 0.07 * L + 0.8)), ee * 0.45)))
+        if len(hauts) > 1 and L > 8 and R.random() < 0.55:  # une plaque sur la lame du dessous
+            c2 = u(0.40, 0.66); lg = u(0.22, 0.34)
+            couche[1].append(_croissant(hauts[1], c2 - lg / 2, c2 + lg / 2, r0 * 0.9, e * 0.7, n=28,
+                                        dents=(R, 1.2, e * 0.3)))
 
     if 'etages' in sp:                                  # la demi-largeur, tirée des étages relevés
         for cle, sg in (('D', 1), ('G', -1)):
@@ -404,7 +419,7 @@ def _normconv(img, poids, sigma):
     return num / np.maximum(den, 1e-4)[..., None], den
 
 
-def _masque_ancien(L, m, boite, K, ys):
+def _masque_ancien(L, m, boite, K, ys, cx):
     """Le noir d'origine d'une épinette, recoupé net : seuil pris sur l'image agrandie quatre fois (bord sans flou ni
     liseré, crénelage doux), dans son contour, entre m['haut'] et m['bas'] ; les fils minces qui la touchent partent,
     les petits trous blancs fermés (fentes de l'agrandissement) se bouchent, les miettes coupées partent."""
@@ -422,10 +437,12 @@ def _masque_ancien(L, m, boite, K, ys):
     if n:
         t = ndi.sum(np.ones_like(lab), lab, range(1, n + 1))
         b |= np.isin(lab, 1 + np.nonzero(t < 3 * (K * r) ** 2)[0])
+    # seuls les morceaux qui touchent le tronc restent : un bout de branche d'une voisine coupé par le contour part
     lab, n = ndi.label(b)
     if n:
-        t = ndi.sum(np.ones_like(lab), lab, range(1, n + 1))
-        b &= ~np.isin(lab, 1 + np.nonzero(t < 4 * (K * r) ** 2)[0])
+        j0 = int((cx - 2.5 - boite[0]) * K * r); j1 = int((cx + 2.5 - boite[0]) * K * r)
+        garde_ = np.unique(lab[:, max(0, j0):max(0, j1)])
+        b = np.isin(lab, garde_[garde_ > 0])
     h, w = L.shape
     return b.astype(np.float32).reshape(h, r, w, r).mean((1, 3))
 
@@ -545,7 +562,8 @@ def _zone(a, nom, K):
     # -- le fond rebouché
     fond = z.copy()
     # la neige : chaque pixel prend la neige valide la plus proche, puis un léger lissage
-    valide_n = champ & ~ancien & (L > 150)
+    # (la trace de raquettes, plus foncée que la neige, ne se recopie pas dans le trou : elle s'y étirerait)
+    valide_n = champ & ~ancien & (L > 212)
     if ancien.any():
         _, (iy, ix) = ndi.distance_transform_edt(~valide_n, return_indices=True)
         pn = z[iy, ix]
@@ -579,7 +597,7 @@ def _zone(a, nom, K):
                 continue
             an = _raster(noirs, boite, K)
             if 'masque' in sp:
-                mo = _masque_ancien(L, sp['masque'], boite, K, ys)
+                mo = _masque_ancien(L, sp['masque'], boite, K, ys, sp['cx'])
                 an = np.maximum(an, mo)
                 dedans = ndi.binary_erosion(mo > 0.5, _disque(0.6 * K)).astype(np.float32)
                 ab = np.minimum(_raster(_neige_doigts(sp, mo, boite, K), boite, K), dedans)

@@ -1,7 +1,7 @@
 # Tome 1 · Tenir — rapport d'assemblage
 
-- **Produit le :** 2026-10-19 13:39, par `design/outils/assembler-tome.py 1 --hors-ligne --sortie livre/tome-1-lulu`
-- **Fichier :** `livre/tome-1-lulu/interieur.pdf` — 354 pages, 93.1 Mo
+- **Produit le :** 2026-10-19 14:01, par `design/outils/assembler-tome.py 1 --hors-ligne --refaire --sortie livre/tome-1-lulu`
+- **Fichier :** `livre/tome-1-lulu/interieur.pdf` — 354 pages, 98.2 Mo
 - **Ouvertures :** au recto ou au verso (--verso)
 - **Placements :** design/epreuves-livre/placements.json, design/epreuves-livre/placements-tome-1.json
 - **Format :** `lulu-letter` : Lulu, US Letter 8,5 × 11 po, couverture rigide Case Wrap
@@ -68,12 +68,20 @@ Marqueur `{.orange}` sur l'intertitre ### de la série, dans le Markdown (CLAUDE
 | 01 | Le refroidissement d’une maison sans chauffage | 73 (01-4) | étape(s) 13 | étape 19 (L’eau de l’aqueduc) | dans un trou de la page |
 | 02 | Le reste du code sol-air | 81 (02-2) | étape(s) — |  (Matériel) | dans un trou de la page |
 | 03 | La lampe de pierre des Inuits | 93 (03-1) | étape(s) 5 |  (Matériel) | dans un trou de la page |
+| 03 | Les tours cellulaires pendant une panne | 105 (03-13) | étape(s) 6 | étape 40 (Signes d’échec) | dans un trou de la page |
+| 03 | La doublure de peaux de la maison de neige | 112 (03-20) | étape(s) 10 | étape 40 (Ce qui ne se remplace pas) | dans un trou de la page |
+| 05 | L’avertisseur qui bipe au froid | 147 (05-14) | étape(s) 34 | étape 51 (Ce qu’on perd) | dans un trou de la page |
+| 05 | La bannique des Innus | 147 (05-14) | étape(s) 14 | étape 51 (Ce qu’on perd) | dans un trou de la page |
+| 05 | Le pemmican | 147 (05-14) | étape(s) 19 | étape 51 (Ce qu’on perd) | dans un trou de la page |
+| 05 | Ranger les bocaux sans leur bague | 147 (05-14) | étape(s) 23 | étape 51 (Ce qu’on perd) | dans un trou de la page |
 | 06 | La peau qui gèle au vent | 150 (06-3) | étape(s) 12 | étape 7 (L’eau) | dans un trou de la page |
 | 06 | La pile au lithium | 152 (06-5) | étape(s) 18 | étape 25 (Les soins) | dans un trou de la page |
 | 06 | Un toboggan par personne | 159 (06-12) | étape(s) — | étape 31 (Ce qu’on perd à monter la trousse le soir même) | dans un trou de la page |
+| 06 | L’essai de Stefansson | 159 (06-12) | étape(s) — | étape 31 (Ce qu’on perd à monter la trousse le soir même) | dans un trou de la page |
 | 07 | L’alerte à la radio et au téléphone | 160 (07-1) | étape(s) 1 |  (Quand l’utiliser) | dans un trou de la page |
 | 07 | Lire la charge d’une batterie au voltmètre | 161 (07-2) | étape(s) — |  (Matériel) | dans un trou de la page |
 | 07 | La cache de pierres des Inuits de la Koksoak | 175 (07-16) | étape(s) — | étape 44 (Ce qui ne se remplace pas) | dans un trou de la page |
+| 07 | Une courte panne peut contaminer l’aqueduc | 175 (07-16) | étape(s) 42 | étape 44 (Ce qui ne se remplace pas) | dans un trou de la page |
 | 08 | Sécher la viande au-dessus du feu de la tente | 176 (08-1) | étape(s) — |  (Matériel) | dans un trou de la page |
 | 08 | Les piles au froid | 177 (08-2) | étape(s) — |  (Scénario 1. Panne majeure d’Hydro en janvier, on reste (mais) | dans un trou de la page |
 | 08 | Le caribou et sa moelle | 179 (08-4) | étape(s) — |  (Scénario 5. Épidémie, on se ferme (maison ou chalet)) | dans un trou de la page |
@@ -81,21 +89,45 @@ Marqueur `{.orange}` sur l'intertitre ### de la série, dans le Markdown (CLAUDE
 | 09 | Le gras fondu, chez les Naskapis | 190 (09-4) | étape(s) — | étape 26 (Répartir entre la maison et le chalet) | dans un trou de la page |
 | 10 | La sève de bouleau, en mai | 199 (10-1) | étape(s) 1 |  (Quand l’utiliser) | dans un trou de la page |
 | 10 | Ce que retient le filtre à sable | 211 (10-13) | étape(s) — | étape 49 (Puiser un puits quand la pompe est morte) | dans un trou de la page |
+| 10 | Le rat musqué sous la glace | 217 (10-19) | étape(s) 2, 36 | étape 49 (Ce qu’on perd) | dans un trou de la page |
+| 10 | Reconnaître un étang de castor | 217 (10-19) | étape(s) 2 | étape 49 (Ce qu’on perd) | dans un trou de la page |
+| 10 | La chaudière d’épinette des Naskapis | 217 (10-19) | étape(s) 7 | étape 49 (Ce qu’on perd) | dans un trou de la page |
 | 11 | Les autos de Lara, 1969 | 226 (11-8) | étape(s) 19 | étape 39 (Après le feu) | dans un trou de la page |
+| 11 | Reconnaître la pessière à cladonie | 235 (11-17) | étape(s) 14, 57 | étape 58 (Ce qui ne se remplace pas) | dans un trou de la page |
+| 11 | Sept-Îles, juin 2023 | 235 (11-17) | étape(s) 6 | étape 58 (Ce qui ne se remplace pas) | dans un trou de la page |
+| 11 | Le brûlage de printemps des Cris et des Dénés | 235 (11-17) | étape(s) 56 | étape 58 (Ce qui ne se remplace pas) | dans un trou de la page |
+| 11 | Les bleuets du brûlis | 235 (11-17) | étape(s) 46 | étape 58 (Ce qui ne se remplace pas) | dans un trou de la page |
 | 12 | Reconnaître le sapin, l’épinette noire et le cèdre | 237 (12-2) | étape(s) 13 |  (Matériel) | dans un trou de la page |
 | 12 | Pendre la literie aux murs de la tente, le jour | 244 (12-9) | étape(s) 29, 37, 30 | étape 39 (Poser le poêle et passer le tuyau) | dans un trou de la page |
 | 12 | Une fenêtre de glace dans la maison de blocs | 253 (12-18) | étape(s) 102 | étape 94 (La maison de blocs) | dans un trou de la page |
 | 12 | Planter ses raquettes debout près de la porte | 255 (12-20) | étape(s) — | étape 98 (La maison de blocs) | dans un trou de la page |
+| 12 | Reconnaître le mélèze, l’hiver | 262 (12-27) | étape(s) 15 | étape 102 (Ce qui ne se remplace pas) | dans un trou de la page |
 | 13 | La pyrite au lieu de l’acier | 263 (13-1) | étape(s) — |  (Matériel) | dans un trou de la page |
 | 13 | Quatre fois plus de coups avec la grosse tige | 269 (13-7) | étape(s) 15 | étape 24 (Allumer au soleil) | dans un trou de la page |
 | 13 | Reconnaître l’amadouvier | 276 (13-14) | étape(s) — | étape 29 (L’amadou qu’on ramasse) | dans un trou de la page |
 | 13 | La fumée d’amadouvier contre les moustiques | 279 (13-17) | étape(s) — | étape 29 (Ce qu’on ne peut pas remplacer) | dans un trou de la page |
 | 14 | Une heure ou une journée | 290 (14-10) | étape(s) 29 | étape 30 (Écouter sans pile : le poste à galène) | dans un trou de la page |
 | 14 | Le téléphone de campagne au grand froid | 294 (14-14) | étape(s) — | étape 30 (Ce qu’on perd) | dans un trou de la page |
+| 14 | Comment la balise est entendue | 294 (14-14) | étape(s) 3 | étape 30 (Ce qu’on perd) | dans un trou de la page |
+| 14 | La portée d’un walkie-talkie | 294 (14-14) | étape(s) 9 | étape 30 (Ce qu’on perd) | dans un trou de la page |
 | 15 | Ne pas laisser la machine geler au sol | 302 (15-8) | étape(s) 18 | étape 10 (10minQuelqu’un d’autre passe à travers la glace) | dans un trou de la page |
 | 15 | Les oiseaux et les poissons qui ouvrent la glace | 307 (15-13) | étape(s) 42 | étape 48 (Points de contrôle) | dans un trou de la page |
+| 15 | L’essence d’hiver | 312 (15-18) | étape(s) 20 | étape 48 (Quand il n’y a plus de moteur) | dans un trou de la page |
+| 15 | Le bâton à sonder de la côte de l’Alaska | 313 (15-19) | étape(s) 42 | étape 48 (Ce qu’on ne peut pas remplacer) | dans un trou de la page |
+| 15 | Reconnaître la glace en chandelles | 313 (15-19) | étape(s) 42 | étape 48 (Ce qu’on ne peut pas remplacer) | dans un trou de la page |
 | 16 | Le toboggan long et étroit | 315 (16-1) | étape(s) 7 |  (Quand l’utiliser) | dans un trou de la page |
+| 16 | Le partage au campement d’automne | 329 (16-15) | étape(s) 39 | étape 47 (Ce qui ne se remplace pas) | dans un trou de la page |
+| 16 | Le canot d’écorce | 329 (16-15) | étape(s) 11 | étape 47 (Ce qui ne se remplace pas) | dans un trou de la page |
+| 16 | Deux par deux aux collets | 329 (16-15) | étape(s) 26 | étape 47 (Ce qui ne se remplace pas) | dans un trou de la page |
+| 16 | Le maître de trappe cri | 329 (16-15) | étape(s) 22 | étape 47 (Ce qui ne se remplace pas) | dans un trou de la page |
 | 17 | Le refroidissement éolien | 331 (17-1) | étape(s) 7 |  (Matériel) | dans un trou de la page |
+| 17 | La place de l’invité chez les Inuits de l’Ungava | 342 (17-12) | étape(s) 17 | étape 29 (Ce qui ne se remplace pas) | dans un trou de la page |
+| 17 | Fermer un œil devant la lumière | 342 (17-12) | étape(s) 2 | étape 29 (Ce qui ne se remplace pas) | dans un trou de la page |
+| 17 | Contagieux avant d’avoir l’air malade | 342 (17-12) | étape(s) 16 | étape 29 (Ce qui ne se remplace pas) | dans un trou de la page |
+| 18 | Prendre ce que le groupe peut préparer | 350 (18-8) | étape(s) 17 | étape 21 (Refroidir vingt litres sans réfrigérateur) | dans un trou de la page |
+| 18 | Les enfants ont leurs tâches | 353 (18-11) | étape(s) 12 | étape 21 (Ce qui ne se remplace pas) | dans un trou de la page |
+| 18 | La place de chacun dans la tente innue | 353 (18-11) | étape(s) 11 | étape 21 (Ce qui ne se remplace pas) | dans un trou de la page |
+| 18 | Quatre ou cinq familles sous la même tente | 353 (18-11) | étape(s) 7 | étape 21 (Ce qui ne se remplace pas) | dans un trou de la page |
 
 ## Contrôle Lulu
 
@@ -107,12 +139,12 @@ Marqueur `{.orange}` sur l'intertitre ### de la série, dans le Markdown (CLAUDE
 | Page 1 | à droite ; les impaires à droite | page de titre | oui |
 | Zone sûre | 0,5 po du rognage pour le texte, les images et les numéros de page | bloc, titre courant, pied et numéro du tome à 0,5 po au moins ; seuls les aplats de bord (onglets, repères de section, page de titre) vont au fond perdu | oui (grille) |
 | Petit fond | 0,2 po au moins ; 1 po recommandé de 151 à 400 pages | bloc à 1 po du rognage au petit fond | oui (grille) |
-| Polices incorporées | toutes | 59 police(s), 0 non incorporée(s) | oui |
-| Transparence | aplatie (« Flatten all transparent layers ») ; Lulu en répare une partie | 49 page(s) avec transparence | à surveiller au téléversement |
+| Polices incorporées | toutes | 63 police(s), 0 non incorporée(s) | oui |
+| Transparence | aplatie (« Flatten all transparent layers ») ; Lulu en répare une partie | 61 page(s) avec transparence | à surveiller au téléversement |
 | Une page par page, sans marques de coupe ni mot de passe | oui | oui | oui |
 | Couleur | sRVB préféré, CMJN accepté ; noir plein à 100 % ; teintes de moins de 20 % à éviter | sRVB (Edge) ; aplats pâles (rose des étapes de danger, orange pâle, vert des notes) | à juger sur épreuve |
 
-Pages avec transparence (ombre douce des notes « En plus », trames ou dessins à opacité) : 7, 11, 70, 73, 81, 92, 93, 100, 140, 150, 152, 159, 160, 161, 166, 168, 172, 174, 175, 176, 177, 179, 187, 189, 190, 195, 199, 211, 213, 222, 226, 237, 244, 253, 255, 263, 267, 269, 276, 279, 290, 294, 302, 304, 306, 307, 310, 315, 331.
+Pages avec transparence (ombre douce des notes « En plus », trames ou dessins à opacité) : 7, 11, 70, 73, 81, 92, 93, 100, 105, 112, 140, 147, 150, 152, 159, 160, 161, 166, 168, 172, 174, 175, 176, 177, 179, 187, 189, 190, 195, 199, 211, 213, 217, 222, 226, 235, 237, 244, 253, 255, 262, 263, 267, 269, 276, 279, 290, 294, 302, 304, 306, 307, 310, 312, 313, 315, 329, 331, 342, 350, 353.
 
 Polices du fichier : BarlowCondensed-Bold, BarlowCondensed-ExtraBold, BarlowCondensed-Medium, BarlowCondensed-SemiBold, IBMPlexSansCond-Bold, IBMPlexSansCond-Italic, IBMPlexSansCond-Medium, IBMPlexSansCond-Regular, IBMPlexSansCond-SemiBold, IBMPlexSansCond-SemiBoldItalic, IBMPlexSerif-Bold, IBMPlexSerif-Italic, IBMPlexSerif-Regular, IBMPlexSerif-SemiBold, IBMPlexSerif-SemiBoldItalic, LiberationSerif, LiberationSerif-Italic, NotoSerif-Regular, Type 3 sans nom (texte des planches)
 
@@ -145,7 +177,7 @@ Les planches de `images/a-valider/` sont posées comme les validées (JP les rel
 | 10 | 10-02 (212, pleine), 10-07 (214, pleine), 10-01 (203), 10-08 (204), 10-03 (215), 10-eau-livre (200, double page), 10-hutte-castor.jpg (202) | — | — | 6 (ancien 13) |
 | 11 | 11-03 (224, pleine), 11-04 (227, pleine), 11-05 (234, pleine), 11-feu-de-foret-livre (220, double page), 11-colonnes-de-fumee.jpg (232) | — | — | 0 (ancien 16b) |
 | 12 | 12-01b (243, pleine), 12-01a (245, pleine), 12-02 (247, pleine), 12-03 (249, pleine), 12-04 (251, pleine), 12-06a (254, pleine), 12-05a (256, pleine), 12-05b (258, pleine), 12-06b (261, pleine), 12-tente-d-hiver-livre (238, double page) | — | — | 0 (ancien 16c) |
-| 13 | 13-40 (268, pleine, à valider), 13-10 (270, pleine, à valider), 13-07 (272, pleine), 13-08 (275, pleine), 13-09 (278, pleine, à valider), 13-01 (280, pleine), 13-11 (277), 13-feu-sans-allumettes-livre (264, double page), 13-amadou-ecorce-et-gomme.jpg (276) | — | — | 6 (ancien 17) |
+| 13 | 13-40 (268, pleine), 13-10 (270, pleine), 13-07 (272, pleine), 13-08 (275, pleine), 13-09 (278, pleine), 13-01 (280, pleine), 13-11 (277), 13-feu-sans-allumettes-livre (264, double page), 13-amadou-ecorce-et-gomme.jpg (276) | — | — | 6 (ancien 17) |
 | 14 | 14-01 (291, pleine), 14-communiquer-livre (282, double page) | — | — | 7 (ancien 19) |
 | 15 | 15-01 (300, pleine), 15-02 (309, pleine), 15-03 (302), 15-05 (306), 15-06 (311), 15-04 (312), 15-se-deplacer-livre (296, double page) | — | — | 8 (ancien 20) |
 | 16 | 16-08 (320, pleine), 16-07 (327, pleine), 16-sortir-un-blesse-livre (316, double page) | — | — | 7 (ancien 21) |
@@ -176,59 +208,27 @@ Photos téléchargées pour ces chapitres et non posées (images de référence 
 
 ## Avertissements
 
-- ch. 01, paginateur : encadré « En plus » pas imprimé, aucun trou près de son étape : La viande en poudre des Innus
-- ch. 01, paginateur : encadré « En plus » pas imprimé, aucun trou près de son étape : Le temps qu’il faut pour geler la viande
-- ch. 02, paginateur : encadré « En plus » pas imprimé, aucun trou près de son étape : Trois feux en triangle
-- ch. 02, paginateur : encadré « En plus » pas imprimé, aucun trou près de son étape : Les Innus, en petits groupes sur le territoire
-- ch. 02, paginateur : encadré « En plus » pas imprimé, aucun trou près de son étape : L’onde AM, la nuit
+- ch. 01, paginateur : encadré « En plus » pas imprimé, aucun trou dans le chapitre : La viande en poudre des Innus
+- ch. 01, paginateur : encadré « En plus » pas imprimé, aucun trou dans le chapitre : Le temps qu’il faut pour geler la viande
+- ch. 02, paginateur : encadré « En plus » pas imprimé, aucun trou dans le chapitre : Trois feux en triangle
+- ch. 02, paginateur : encadré « En plus » pas imprimé, aucun trou dans le chapitre : Les Innus, en petits groupes sur le territoire
+- ch. 02, paginateur : encadré « En plus » pas imprimé, aucun trou dans le chapitre : L’onde AM, la nuit
 - ch. 02, paginateur : p02-2 : page à moitié vide
 - ch. 02, constructeur : série orange : aucune heure lisible dans « Tout le monde est dehors : couper la source et rentrer » (la donner dans le marqueur : {.orange 15 min})
-- ch. 03, paginateur : encadré « En plus » pas imprimé, aucun trou près de son étape : Reconnaître le mât de branchement
-- ch. 03, paginateur : encadré « En plus » pas imprimé, aucun trou près de son étape : La doublure de peaux de la maison de neige
-- ch. 03, paginateur : encadré « En plus » pas imprimé, aucun trou près de son étape : Les tours cellulaires pendant une panne
-- ch. 04, paginateur : encadré « En plus » pas imprimé, aucun trou près de son étape : La baisse du rayonnement
-- ch. 04, paginateur : encadré « En plus » pas imprimé, aucun trou près de son étape : L’estomac du caribou
-- ch. 04, paginateur : encadré « En plus » pas imprimé, aucun trou près de son étape : Les rennes de Norvège après Tchornobyl
-- ch. 04, paginateur : encadré « En plus » pas imprimé, aucun trou près de son étape : L’argile grise de l’ancienne mer
-- ch. 05, paginateur : encadré « En plus » pas imprimé, aucun trou près de son étape : La bannique des Innus
-- ch. 05, paginateur : encadré « En plus » pas imprimé, aucun trou près de son étape : Le pemmican
-- ch. 05, paginateur : encadré « En plus » pas imprimé, aucun trou près de son étape : Ranger les bocaux sans leur bague
-- ch. 05, paginateur : encadré « En plus » pas imprimé, aucun trou près de son étape : L’avertisseur qui bipe au froid
-- ch. 06, paginateur : encadré « En plus » pas imprimé, aucun trou près de son étape : L’essai de Stefansson
+- ch. 03, paginateur : encadré « En plus » pas imprimé, aucun trou dans le chapitre : Reconnaître le mât de branchement
+- ch. 04, paginateur : encadré « En plus » pas imprimé, aucun trou dans le chapitre : La baisse du rayonnement
+- ch. 04, paginateur : encadré « En plus » pas imprimé, aucun trou dans le chapitre : L’estomac du caribou
+- ch. 04, paginateur : encadré « En plus » pas imprimé, aucun trou dans le chapitre : Les rennes de Norvège après Tchornobyl
+- ch. 04, paginateur : encadré « En plus » pas imprimé, aucun trou dans le chapitre : L’argile grise de l’ancienne mer
 - ch. 06, paginateur : p06-3 : page à moitié vide
-- ch. 07, paginateur : encadré « En plus » pas imprimé, aucun trou près de son étape : Une courte panne peut contaminer l’aqueduc
 - ch. 07, paginateur : p07-2 : page à moitié vide
-- ch. 08, paginateur : encadré « En plus » pas imprimé, aucun trou près de son étape : Ce qu’on peut recongeler dégelé
-- ch. 09, paginateur : encadré « En plus » pas imprimé, aucun trou près de son étape : La babiche des raquettes, chez les Innus
-- ch. 09, paginateur : encadré « En plus » pas imprimé, aucun trou près de son étape : Reconnaître une pile qui a coulé
-- ch. 10, paginateur : encadré « En plus » pas imprimé, aucun trou près de son étape : Reconnaître un étang de castor
-- ch. 10, paginateur : encadré « En plus » pas imprimé, aucun trou près de son étape : La chaudière d’épinette des Naskapis
-- ch. 10, paginateur : encadré « En plus » pas imprimé, aucun trou près de son étape : Le manganèse et l’arsenic du roc
-- ch. 10, paginateur : encadré « En plus » pas imprimé, aucun trou près de son étape : Le rat musqué sous la glace
-- ch. 11, paginateur : encadré « En plus » pas imprimé, aucun trou près de son étape : Sept-Îles, juin 2023
-- ch. 11, paginateur : encadré « En plus » pas imprimé, aucun trou près de son étape : Le brûlage de printemps des Cris et des Dénés
-- ch. 11, paginateur : encadré « En plus » pas imprimé, aucun trou près de son étape : Les bleuets du brûlis
-- ch. 11, paginateur : encadré « En plus » pas imprimé, aucun trou près de son étape : Reconnaître la pessière à cladonie
-- ch. 12, paginateur : encadré « En plus » pas imprimé, aucun trou près de son étape : Reconnaître le mélèze, l’hiver
+- ch. 08, paginateur : encadré « En plus » pas imprimé, aucun trou dans le chapitre : Ce qu’on peut recongeler dégelé
+- ch. 09, paginateur : encadré « En plus » pas imprimé, aucun trou dans le chapitre : La babiche des raquettes, chez les Innus
+- ch. 09, paginateur : encadré « En plus » pas imprimé, aucun trou dans le chapitre : Reconnaître une pile qui a coulé
+- ch. 10, paginateur : encadré « En plus » pas imprimé, aucun trou dans le chapitre : Le manganèse et l’arsenic du roc
 - ch. 12, paginateur : p12-2 : page à moitié vide
 - ch. 12, paginateur : p12-20 : page à moitié vide
-- ch. 14, paginateur : encadré « En plus » pas imprimé, aucun trou près de son étape : Comment la balise est entendue
-- ch. 14, paginateur : encadré « En plus » pas imprimé, aucun trou près de son étape : La portée d’un walkie-talkie
-- ch. 15, paginateur : encadré « En plus » pas imprimé, aucun trou près de son étape : Le bâton à sonder de la côte de l’Alaska
-- ch. 15, paginateur : encadré « En plus » pas imprimé, aucun trou près de son étape : Reconnaître la glace en chandelles
-- ch. 15, paginateur : encadré « En plus » pas imprimé, aucun trou près de son étape : L’essence d’hiver
 - ch. 15, paginateur : p15-5 : page à moitié vide
-- ch. 16, paginateur : encadré « En plus » pas imprimé, aucun trou près de son étape : Le canot d’écorce
-- ch. 16, paginateur : encadré « En plus » pas imprimé, aucun trou près de son étape : Deux par deux aux collets
-- ch. 16, paginateur : encadré « En plus » pas imprimé, aucun trou près de son étape : Le partage au campement d’automne
-- ch. 16, paginateur : encadré « En plus » pas imprimé, aucun trou près de son étape : Le maître de trappe cri
-- ch. 17, paginateur : encadré « En plus » pas imprimé, aucun trou près de son étape : Fermer un œil devant la lumière
-- ch. 17, paginateur : encadré « En plus » pas imprimé, aucun trou près de son étape : Contagieux avant d’avoir l’air malade
-- ch. 17, paginateur : encadré « En plus » pas imprimé, aucun trou près de son étape : La place de l’invité chez les Inuits de l’Ungava
-- ch. 18, paginateur : encadré « En plus » pas imprimé, aucun trou près de son étape : La place de chacun dans la tente innue
-- ch. 18, paginateur : encadré « En plus » pas imprimé, aucun trou près de son étape : Les enfants ont leurs tâches
-- ch. 18, paginateur : encadré « En plus » pas imprimé, aucun trou près de son étape : Prendre ce que le groupe peut préparer
-- ch. 18, paginateur : encadré « En plus » pas imprimé, aucun trou près de son étape : Quatre ou cinq familles sous la même tente
 
 ## À savoir avant de téléverser
 
