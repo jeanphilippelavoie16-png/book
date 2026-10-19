@@ -235,15 +235,16 @@ module.exports = (h) => {
 
     // ── le panneau, posé sur les bords, et la bûche qui le leste ──
     const PN = { x0: -4, x1: 108, y1: 86, ep: 2.4 };
+    const panneauSvg = [];
     if (couverte) {
       const dessusP = [p3(PN.x0, 0, PN.ep), p3(PN.x1, 0, PN.ep), p3(PN.x1, PN.y1, PN.ep), p3(PN.x0, PN.y1, PN.ep)];
       const tranche = [p3(PN.x0, 0, 0), p3(PN.x1, 0, 0), p3(PN.x1, 0, PN.ep), p3(PN.x0, 0, PN.ep)];
       const coteP = [p3(PN.x1, 0, 0), p3(PN.x1, PN.y1, 0), p3(PN.x1, PN.y1, PN.ep), p3(PN.x1, 0, PN.ep)];
-      out.push(h.chemin(P(dessusP), blanc(h.a.arete), true));
+      panneauSvg.push(h.chemin(P(dessusP), blanc(h.a.arete), true));
       // les joints des planches du panneau
-      for (const X of [24, 52, 80]) out.push(h.chemin(P([p3(X, 0, PN.ep), p3(X, PN.y1, PN.ep)]), h.a.detail));
-      out.push(h.chemin(P(coteP), h.a.ombre, true), h.chemin(P(coteP), h.a.arete, true));
-      out.push(h.chemin(P(tranche), h.a.hachure('bois', 'arete'), true));
+      for (const X of [24, 52, 80]) panneauSvg.push(h.chemin(P([p3(X, 0, PN.ep), p3(X, PN.y1, PN.ep)]), h.a.detail));
+      panneauSvg.push(h.chemin(P(coteP), h.a.ombre, true), h.chemin(P(coteP), h.a.arete, true));
+      panneauSvg.push(h.chemin(P(tranche), h.a.hachure('bois', 'arete'), true));
     }
 
     // ── le bloc de neige tassée : le dessus, la coupe de l'avant, le flanc droit ──
@@ -265,12 +266,8 @@ module.exports = (h) => {
     blocSvg.push(h.chemin(P([p3(BL.x0, 0, 0), p3(x0, 0, 0)]), h.a.arete), h.chemin(P([p3(x1, 0, 0), p3(BL.x1, 0, 0)]), h.a.arete));
     blocSvg.push(h.chemin(P([p3(x0, 0, 0), p3(x0, 0, fond), p3(x1, 0, fond), p3(x1, 0, 0)]), h.a.contour));
     blocSvg.push(h.chemin(P([p3(BL.x0, 0, BL.bas), p3(BL.x0, 0, 0), p3(BL.x0, BL.y1, 0), p3(BL.x1, BL.y1, 0), p3(BL.x1, BL.y1, BL.bas), p3(BL.x1, 0, BL.bas), p3(BL.x0, 0, BL.bas)]), h.a.contour, true));
-    // le panneau couvre le dessus du bloc : il se peint après
-    if (couverte) {
-      const pan = out.splice(out.findIndex(x => x.includes('data-panneau')) >= 0 ? 0 : out.length);
-      out.push(...pan);
-    }
-    out.push(...blocSvg);
+    // le panneau est posé sur le bloc : il se peint après lui
+    out.push(...blocSvg, ...panneauSvg);
 
     const reperes = {};
     if (!couverte) {
@@ -346,10 +343,10 @@ module.exports = (h) => {
           renvois: z => {
             const r = O(z).reperes;
             return [
-              { n: 1, rond: [12, r.auge[1] + 4], cible: r.auge, texte: 'creuser une auge dans la neige tassée' },
+              { n: 1, rond: [12, r.auge[1] + 22], cible: r.auge, texte: 'creuser une auge dans la neige tassée' },
               { n: 2, rond: [z.l - 12, r.plat[1] - 6], cible: r.plat, texte: 'coucher les plats les plus larges dans l’auge' },
               { n: 3, rond: [r.ragout[0] - 22, 12], cible: r.ragout, texte: 'verser le ragoût en couche mince' },
-              { n: 4, rond: [12, r.brasser[1] - 4], cible: r.brasser, texte: 'brasser deux ou trois fois' },
+              { n: 4, rond: [12, r.brasser[1] - 18], cible: r.brasser, texte: 'brasser deux ou trois fois' },
               { n: 5, rond: [r.neige[0] + 38, 12], cible: r.neige, texte: 'remplacer la neige mouillée par de la sèche' },
             ];
           },

@@ -312,7 +312,7 @@ module.exports = (h) => {
   // Un pied glisse : le sommet descend, les pattes se couchent, la charge tombe à l'aplomb du
   // sommet. En tireté, le trépied debout et son quartier ; en plein, le trépied ouvert.
   const R = z => {
-    const yg = z.h - 16, cx = z.l * 0.40, L = (yg - 12) / 0.96;
+    const yg = z.h - 16, cx = z.l * 0.40, L = Math.min((yg - 12) / 0.96, (z.l * 0.6 - 16) / 0.72);   // le pied glissé reste dans la vue
     return { yg, cx, L, e0: 0.30 * L, gl: 0.42 * L, k: L / LP };
   };
   const vueRate = z => {
@@ -350,7 +350,7 @@ module.exports = (h) => {
     desc: 'Un trépied de trois perches de 4 m, vu de trois quarts. Les trois pieds sont calés, l’un dans un trou, les autres contre un piquet chassé du côté extérieur, et reliés par une corde tendue au ras du sol ; l’écartement d’un pied à l’autre va de la moitié aux deux tiers de la longueur des pattes. Un quartier arrière pend par le jarret au palan, à l’aplomb du sommet. Le brin halé descend le long d’une patte jusqu’à une poulie amarrée à son pied ; l’homme hale de là, à côté du trépied. Au sommet, l’élingue passe par-dessus le croisement des perches, au-dessus du brêlage. En coupe, un pied dans un trou creusé jusqu’au sol ferme, l’autre contre un piquet du côté extérieur ; chaque pied pousse vers l’extérieur et la corde reprend la poussée. Le raté : un pied glisse, le sommet descend, la charge tombe à l’aplomb du sommet.',
     format: 'pleine',
     disposition: [['monte'], ['sommet', 'pieds', 'rate']],
-    hauteurs: [1.75, 1],
+    hauteurs: [2.2, 1],
     largeurs: [[1], [0.85, 1.1, 1.1]],
     vues: {
       monte: { titre: 'Monté, de trois quarts', dessin: vueMonte, renvois: renvoisMonte },
