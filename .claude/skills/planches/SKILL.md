@@ -11,6 +11,8 @@ qu'il n'a jamais fait. Tout ce qui suit découle de ça.
 
 **Une main qui appuie ou frotte à plat a la paume vers la surface** (JP, 18 octobre 2026, planche 04-41 : « la main est à l'envers, paume vers le sol il faut ») : on voit le dos de la main. Avec `mainStock`, c'est la main `1-08` sans son objet (`objet: false`), penchée de quelques degrés, l'avant-bras prolongé jusqu'au bord de la vue (voir `frotter` dans `images/planches-src/04-41.js`). **Une main de la bibliothèque ne se déforme jamais** (ni écrasée ni étirée : JP, « laid en tabarnak ») ; on prend la main qui a déjà la pose.
 
+**Ce que le personnage porte suit la taille du pictogramme** (JP, 19 octobre 2026, planche 04-40 : « bottes trop grosses dans petite image ») : une botte a une tige à peine plus large que le mollet et un pied à peine plus long que le sien (la `BOTTE` de `images/planches-src/04-40.js`) ; un gant, un casque, pareil. Dans une petite vignette, un objet porté trop gros se voit avant le geste.
+
 **Jamais de cheveux, et le visage seulement quand il sert** (JP, 18 octobre 2026 : « on met jamais les cheveux, je veux plus les voir ; le visage est affiché seulement quand le visage fait une action ou qu'il y a une interaction »). Le moteur des têtes ne dessine plus de cheveux. `visage: true` seulement si la bouche, les yeux ou le nez font le geste (souffler, boire, regarder un point) ou si deux personnes interagissent ; sinon la tête reste nue.
 
 **Les mains, les corps et les têtes viennent des moteurs validés** (`h.formes.mainStock`, `h.formes.corps`,

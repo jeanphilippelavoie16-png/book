@@ -104,18 +104,20 @@ module.exports = (h) => {
     return [h.path(lisse([p(xf - 0.12, -0.26), p(xf + 0.1, -0.27), p(xf + 0.2, -0.14), p(xf + 0.22, 0), p(xf + 0.2, 0.14), p(xf + 0.1, 0.27), p(xf - 0.12, 0.26), p(xf - 0.16, 0)], true), W(A.arete)),
       h.path(lisse([p(xf + 0.12, -0.18), p(xf + 0.15, 0), p(xf + 0.12, 0.18)]), A.fin)].join('\n');
   };
-  // La botte de caoutchouc, de profil, pointe vers +x (mm, depuis la cheville, au sol).
-  const BOTTE = [[-62, -330], [-66, -200], [-68, -90], [-66, -26], [-56, -2], [60, -2], [172, -2], [208, -6], [215, -24],
-    [205, -48], [170, -68], [110, -88], [72, -120], [56, -175], [58, -250], [60, -330]];
+  // La botte de caoutchouc, de profil, pointe vers +x (mm, depuis la cheville, au sol). Ajustée à la jambe du
+  // pictogramme : une tige à peine plus large que le mollet, un pied à peine plus long que le sien (JP, 19 octobre
+  // 2026 : « bottes trop grosses dans petite image »).
+  const BOTTE = [[-44, -270], [-46, -180], [-48, -80], [-46, -22], [-38, -2], [50, -2], [146, -2], [174, -5], [180, -19],
+    [172, -36], [144, -50], [98, -64], [60, -90], [44, -132], [42, -200], [44, -270]];
   const botte = (T, dx, gris = false) => {
     const B = BOTTE.map(([x, y]) => T([x + dx, y]));
     const out = [h.path(lisse(B, true), gris ? 'fill="#E6E6E6" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round"' : W(A.arete)),
-      h.path(lisse([[-66, -16], [60, -14], [172, -14], [212, -14]].map(([x, y]) => T([x + dx, y]))), A.detail)];
+      h.path(lisse([[-46, -14], [50, -12], [146, -12], [178, -12]].map(([x, y]) => T([x + dx, y]))), A.detail)];
     return out.join('\n');
   };
   // La botte vide : l'ouverture de la tige se voit (une ellipse à plat, vue un peu de haut).
   const botteVide = (T, dx, gris = false) => [botte(T, dx, gris),
-    h.ellipse(...T([dx - 1, -330]), 61 * Math.abs(T([1, 0])[0] - T([0, 0])[0]), 3.2, gris ? 'fill="#E6E6E6" stroke="#1A1A1A" stroke-width="0.7"' : W(A.detail))].join('\n');
+    h.ellipse(...T([dx, -270]), 44 * Math.abs(T([1, 0])[0] - T([0, 0])[0]), 2.6, gris ? 'fill="#E6E6E6" stroke="#1A1A1A" stroke-width="0.7"' : W(A.detail))].join('\n');
   // Une bande de ruban serrée : un anneau vu de côté, deux tours marqués.
   const ruban = (c, u, lg, la) => {
     const v = [-u[1], u[0]];
@@ -258,7 +260,7 @@ module.exports = (h) => {
     o.push(h.path(lisse([[60, -1200], [66, -980], [70, -640]].map(T)), A.fin));
     // les bottes de caoutchouc, le ruban au haut de la tige
     const ch = pers.pieds.P.cheville, TB = repere(ch[0], yF, e);
-    o.push(botte(TB, -14, true), botte(TB, 0), ruban(TB([0, -332]), [0, 1], 38 * e, 140 * e));
+    o.push(botte(TB, -14, true), botte(TB, 0), ruban(TB([0, -272]), [0, 1], 34 * e, 100 * e));
     // le ruban au poignet, serré sur la manche
     const pw = pers.poignetP, pc = pers.articulations.coudeP;
     const L = Math.hypot(pw[0] - pc[0], pw[1] - pc[1]), u = [(pw[0] - pc[0]) / L, (pw[1] - pc[1]) / L];
@@ -282,8 +284,8 @@ module.exports = (h) => {
         { n: 1, rond: [170, 112], cible: [149, 141], texte: 'dehors : essuyer et rincer le costume' },
         { n: 9, rond: [154, 18], cible: [tc[0] + 1.18 * r, tc[1] + 0.05 * r], texte: 'lunettes de ski' },
         { n: 10, rond: [16, 96], cible: [poncho.arriere(yP) - 1, yP], texte: 'poncho à capuchon, un sac à ordures' },
-        { n: 11, rond: [16, 140], cible: TB([-70, -335]), texte: 'poignets et chevilles rubanés serré' },
-        { n: 12, rond: [16, 178], cible: TB([-66, -90]), texte: 'bottes de caoutchouc' },
+        { n: 11, rond: [16, 140], cible: TB([-50, -272]), texte: 'poignets et chevilles rubanés serré' },
+        { n: 12, rond: [16, 178], cible: TB([-48, -90]), texte: 'bottes de caoutchouc' },
       ],
     };
   };
@@ -352,7 +354,7 @@ module.exports = (h) => {
     // le geste : le pied sort par la tige
     const xg = TP([0, 0])[0];
     o.push(h.geste(`M${f1(xg)} ${f1(yF - 14)} L${f1(xg)} ${f1(pers.pieds.P.bas[1] + 1)}`));
-    return { svg: o.join('\n'), r: [{ n: 4, rond: [168, 150], cible: TP([196, -44]), texte: 'sortir des bottes, les laisser au bac' }] };
+    return { svg: o.join('\n'), r: [{ n: 4, rond: [168, 150], cible: TP([168, -36]), texte: 'sortir des bottes, les laisser au bac' }] };
   };
 
   // ─── 5. Se laver les mains et le visage, avant la deuxième bâche ──────────────────────────────

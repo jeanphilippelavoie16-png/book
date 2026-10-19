@@ -127,6 +127,10 @@ Le cadre complet est `.claude/skills/planches/references/brief-agent.md`. En bre
   (JP, 18 octobre 2026, sur une main écrasée pour la poser à plat : « laid en tabarnak, t'es-tu sérieux? »). On cherche
   dans la feuille des mains (`images/_palette-mains-stock.svg`) celle qui a déjà la pose (pour une main à plat paume
   vers le bas, vue de côté : `1-08` sans son objet), et on regarde le rendu de près avant de l'envoyer.
+- [ ] **Ce que le personnage porte suit la taille du pictogramme** : une botte a une tige à peine plus large que le
+  mollet et un pied à peine plus long que le sien ; un gant, une mitaine, un casque, pareil (JP, 19 octobre 2026,
+  planche 04-40 : « bottes trop grosses dans petite image »). Dans une petite vignette, un objet porté trop gros se
+  voit avant le geste : regarder chaque vignette de près, à la taille d'impression.
 - [ ] Une planche du tableau des signalées se refait au complet, jamais par retouche.
 - [ ] **Jamais de cheveux, et le visage seulement quand il sert** (JP, 18 octobre 2026 : « on met jamais les cheveux, je veux plus les voir ; le visage est affiché seulement quand le visage fait une action ou qu'il y a une interaction »). Le moteur des têtes ne dessine plus de cheveux. `visage: true` seulement si la bouche, les yeux ou le nez font le geste (souffler, boire, regarder un point) ou si deux personnes interagissent ; sinon la tête reste nue.
 - [ ] L'eau par `h.a.hachure('eau')` seulement : le bleu pâle et ses vaguelettes (JP, 18 octobre : « fais l'eau plus belle »).
