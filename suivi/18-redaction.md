@@ -390,18 +390,23 @@ ce travail-là ? ») : aucune recherche nouvelle sur le web ; les chiffres d'ava
 | Étape | Id | Ce qui est propre au chapitre |
 | --- | --- | --- |
 | 5 | `arme` | Armes désarmées avant de décharger le camion ; un seul contenant, une seule personne ; le nombre sur le couvercle, dit à voix haute, refait au départ |
-| 6 | `co`, `generatrice` | Les appareils que chaque ménage apporte ; la deuxième génératrice qui finit sous l'appentis ; 6 m du chalet ; la place écrite au mur |
+| 6 | `co`, `generatrice` | Les appareils que chaque ménage apporte ; la deuxième génératrice qui finit sous l'appentis ; 6 m de tout bâtiment ; la place écrite au mur |
 | 9 | `selles` | Trois seaux, la louche, le traitement selon le ch. 10 |
+| 10 | `selles` | Le poste de lavage des mains entre la latrine et la cuisine ; 20 secondes ; la solution hydroalcoolique seulement sur des mains qui ne sont pas visiblement sales (ajouté après la vérification technique) |
 | 11 | `incendie` | Rien à moins de 1 m du poêle dans un chalet plein ; une personne nommée pour les cendres, 7 jours dehors |
 | 14 | `cuisson`, `trichine` | 74 °C, restes compris ; le 71 °C ne vaut pas pour le gibier ; pas d'ours au groupe sans sonde |
 | 15 | `zone-de-danger` | Tout le groupe malade en même temps, soignants compris ; chaudron de 20 L en plats ; 2 h |
 | 16 (sous-étape du poisson) | `botulisme` | Poisson gelé ; le faire sentir à plusieurs ne prouve rien |
 | 17 | `abats`, `mal-de-caribou` | La règle dite à voix haute au partage ; le gras partagé avant la viande |
-| 18 | `tularemie`, `coupure` | Une personne nommée ; gants pour le lièvre ; jamais seul à la scie, un adulte à portée de voix |
+| 18 | `tularemie`, `coupure` | Une personne nommée ; gants pour ramasser et dépouiller le lièvre ; jamais seul à la scie, un adulte à portée de voix |
 | 20 | `selles` | Malades et proches hors de la cuisine ; un seul soignant ; règles gardées deux semaines ; la déshydratation des jeunes enfants |
+| Section 7, « Cuire dehors, sans avertisseur » | `co` | Sans avertisseur qui marche, rien ne brûle à l'intérieur que le poêle raccordé ; on cuisine dehors (ajouté après la vérification technique) |
+| Section 7, « L'eau pour douze, l'hiver » | `glace` | Deux personnes et un traîneau sur la glace pour puiser ; renvoi au ch. 10, étape 36 (ajouté après la vérification technique) |
+| Section 7, « L'humidité de douze personnes » | `incendie` | Le linge à sécher hors du mètre autour du poêle, jamais sur le poêle (ajouté après la vérification technique) |
 
-Hors de l'inventaire (section 1, colonne « Chapitres ») : `incendie`, `tularemie`, `coupure` et `mal-de-caribou` ; les
-lignes à changer sont rendues à l'orchestrateur. Aucun pictogramme en section 7.
+Hors de l'inventaire (section 1, colonne « Chapitres ») : `incendie`, `glace`, `tularemie`, `coupure` et `mal-de-caribou` ;
+les lignes à changer sont rendues à l'orchestrateur. En section 7 : `co`, `glace` et `incendie` (posés après la vérification
+technique, voir plus bas).
 
 ### Séries orange et logigramme
 
@@ -424,7 +429,7 @@ l'orchestrateur (rien dessiné).
 
 | Fait | Où | Source |
 | --- | --- | --- |
-| Génératrice à 6 m ou plus du chalet | Étape 6 | `sources/10-sante-canada-generatrice-distance.md` (« au moins 6 mètres (20 pieds) entre toute habitation ou tout bâtiment ») ; concorde avec la page `generatrice` et le ch. 12, étape 31 |
+| Génératrice à 6 m ou plus de tout bâtiment (« du chalet » avant la vérification technique) | Étape 6 | `sources/10-sante-canada-generatrice-distance.md` (« au moins 6 mètres (20 pieds) entre toute habitation ou tout bâtiment ») ; concorde avec la page `generatrice` et le ch. 12, étape 31 |
 | Deux semaines de contagiosité, dites à l'étape 20 | Étape 20 | Déjà au chapitre (ancien §6 et §8) : `sources/23-quebec-gastro-enterite.md` ; concorde avec la page `selles` |
 | « 11 fois plus » de paires | Étape 10 | Arithmétique (66 ÷ 6) |
 
@@ -447,11 +452,10 @@ exclut une recherche nouvelle.
 
 | Note | Genre | Mots | Étape | Source |
 | --- | --- | --- | --- | --- |
-| La place de chacun dans la tente innue | La façon des Innus, avec ce qui change au chalet (le mètre autour du poêle) | 71 | 11 | `sources/autochtones/nametau-campement-automne-role-de-chacun.html` (Marie-Clara Jourdain) |
-| La viande sous un linge | La façon des Innus, avec ce qui la rend dangereuse dans un chalet chauffé (le linge ne refroidit pas ; 2 h) | 67 | 15 | même page (narration) ; la raison donnée (le respect, la chance) ne s'imprime pas |
+| La place de chacun dans la tente innue | La façon des Innus (au campement d'automne), avec ce qui change au chalet (au moins 1 m autour du poêle) | 75 | 11 | `sources/autochtones/nametau-campement-automne-role-de-chacun.html` (Marie-Clara Jourdain) |
 | Les enfants ont leurs tâches | La façon des Innus | 53 | 12 | même page (Marie-Josette Bellefleur ; narration : les enfants font la distribution) |
 | Prendre ce que le groupe peut préparer | La façon des Cris (le maître de trappe de Chisasibi) | 69 | 17 | `sources/autochtones/the-tallyman.html` (*Cree Trappers Speak*, 1989) |
-| Quatre ou cinq familles sous la même tente | Un fait | 46 | 7 | `sources/16c-shaputuan-nametau-tipatshimuna-archeophone-ili.md` (Tipatshimuna, Shimun Michel ; plusieurs foyers : Archéophone, ILI) |
+| Quatre ou cinq familles sous la même tente | Un fait ; la tente à deux poêles de l'étape 7 en reprend la forme (adaptation, pas citation) | 56 | 7 | `sources/16c-shaputuan-nametau-tipatshimuna-archeophone-ili.md` (Tipatshimuna, Shimun Michel ; plusieurs foyers : Archéophone, ILI) |
 
 ### controle.py, avant et après
 
@@ -467,3 +471,33 @@ exclut une recherche nouvelle.
   4 °C », « 4 et 60 °C », « 2 heures ») ; « 2 semaines » (écrit « deux semaines », étape 20) ; ch. 17 (phrase-frontière
   de la section 2, sortie) ; un ch. 5, un ch. 30, un ch. 31, un ch. 52 et un ch. 56 (le même renvoi dit une fois de
   moins).
+
+## Corrections après la vérification technique, 19 octobre 2026
+
+Rédacteur (rôle 2). Onze signalements du vérificateur technique sur la refonte ; **onze appliqués, aucun écarté**. Chaque
+signalement a été revu contre la source qu'il cite (aucune recherche nouvelle : les pages sont déjà au dossier). Texte
+d'avant ces corrections : `git show 40920d1:chapitres/18-s-organiser-a-plusieurs.md`.
+
+| # | Classe | Où | Ce qui a été fait | Source revue |
+| --- | --- | --- | --- | --- |
+| 1 | erreur | En plus, « La viande sous un linge » | **Note retirée au complet**, titre et paragraphe. La source présente le linge comme un geste de respect envers la bête (cérémoniel : `suivi/idees-savoirs-autochtones.md`, 4.1, « On peut dire que ces pratiques existent, pas les décrire ») ; la raison imprimée à sa place (« le linge garde la poussière loin de la viande sans la refroidir ») n'avait aucune source (règle 1). Sa ligne est retirée du tableau « Notes En plus et leur provenance » plus haut et du tableau de la section 1 de `sources/18-en-plus-campement-innu-et-trappeur-cri.md`. Il reste quatre notes (fourchette de 4 à 8) | `sources/autochtones/nametau-campement-automne-role-de-chacun.html`, narration : « Cette forme de respect garantissait aux Innus que leur chasse serait couronnée de chance » |
+| 2 | erreur | En plus, « La place de chacun dans la tente innue » | « Dans la tente d'hiver des Innus » devient « Dans la tente des Innus, au campement d'automne » ; « à 1 m du poêle » devient « à au moins 1 m du poêle » (la règle de l'étape 11 est « rien à moins de 1 m ») | Même page : c'est la vidéo 2 de 4 du **campement d'automne** (« Accueil > Nomadisme > Automne > Campement d'automne > Le rôle de chacun ») ; aucune mention de tente d'hiver |
+| 3 | à préciser | Étape 17 | « ni le foie ni les reins de l'orignal » devient « ni le foie ni les reins d'un cervidé (orignal, caribou, cerf) », comme le tableau de `CLAUDE.md` et la page `abats` | `dangers/partie-2.md`, `abats` : « Le foie et les reins de cervidés (orignal, caribou, cerf) : le cadmium » |
+| 4 | à préciser | Section 6, première ligne (monoxyde) | L'action dit maintenant « Ouvrir grand les portes et les fenêtres en restant dehors, arrêter la source si on l'atteint sans rester à l'intérieur, et ne rien rallumer avant d'avoir trouvé la cause ». L'arrêt de la source était tombé à la refonte (l'ancien texte disait « Couper toute combustion ») | `dangers/partie-1.md`, `co`, « Ce qu'on fait », points 2, 3 et 5 |
+| 5 | à préciser | Étape 6 | « à 6 m ou plus du chalet » devient « à 6 m ou plus de tout bâtiment » : le chapitre loge des gens dans un bâtiment voisin (étapes 1 et 7) | `sources/10-sante-canada-generatrice-distance.md` : « au moins 6 mètres (20 pieds) entre toute habitation ou tout bâtiment » ; page `generatrice` : « à au moins 6 m (20 pi) de tout bâtiment » |
+| 6 | à préciser | Étape 7, la tente à deux poêles | Ajout : « avec un avertisseur près des dormeurs de chaque famille (ch. 12, étape 50) ». L'étape 50 du ch. 12 porte le fait propre à la tente (l'avertisseur n'est pas fiable sous 4,4 °C, et la tente y descend vite quand le poêle s'éteint) : renvoi, sans redire le chiffre | `chapitres/12-la-tente-d-hiver.md`, étape 50 ; page `co` (plage de 4,4 à 37,8 °C) |
+| 7 | à préciser | Section 7 | Pictogrammes posés au début de la phrase où le danger se présente : `{!co}` dans « Cuire dehors, sans avertisseur » ; `{!glace}` dans « L'eau pour douze, l'hiver » (deux personnes et un traîneau sur la glace ; le ch. 10, étape 36, où le paragraphe renvoie, porte `{!glace}`) ; `{!incendie}` dans « L'humidité de douze personnes » (le texte nomme le feu au chalet). Le vérificateur laissait le troisième au choix : posé, parce que la phrase dit elle-même le risque d'incendie et que le cadre veut le pictogramme là où le danger se présente. Les modèles en posent en section 7 (ch. 10, `{!co}` ; ch. 12, `{!ecrasement}`) | `plan/dangers-inventaire.md`, section 1 ; `dangers/partie-1.md` (`co`, `glace`, `incendie`) |
+| 8 | à préciser | Étape 10 | `{!selles}` posé au début de l'étape, comme l'inventaire le demande (« étapes 9 et 10 ») | `plan/dangers-inventaire.md`, section 3, « Ch. 18 » ; page `selles`, « Les mains » |
+| 9 | à préciser | Étape 18 | « Dépouiller le lièvre avec des gants » devient « Ramasser et dépouiller le lièvre avec des gants » | `dangers/partie-2.md`, `tularemie` : « Mettre des gants imperméables avant de ramasser la bête, pas seulement avant de la dépouiller » ; tableau de `CLAUDE.md` : « gants obligatoires à la manipulation » |
+| 10 | à préciser | En plus, « Quatre ou cinq familles sous la même tente » | « C'est la tente à deux poêles de l'étape 7 » devient « La tente à deux poêles de l'étape 7 en reprend la forme, avec un poêle à chaque bout » : un poêle par bout est une adaptation, pas la tente innue | `sources/16c-shaputuan-nametau-tipatshimuna-archeophone-ili.md`, sections 3 et 4 (3 à 5 foyers dans l'axe ; « room enough for four fire rings ») et la note du rédacteur (« une adaptation et non une citation ») |
+| 11 | à préciser | Étape 10, solution hydroalcoolique | « dépanne sur des mains propres » devient « dépanne quand les mains ne sont pas visiblement sales » ; la phrase suivante est resserrée pour ne pas redire la condition : « Au chalet, elles le sont la plupart du temps : prendre alors l'eau et le savon » | `sources/23-quebec-lavage-des-mains.md` : « Si les mains sont visiblement sales, la solution hydroalcoolique ne sera pas efficace » ; la note du même fichier sur les mains au chalet |
+
+**Mises en forme sans changement de sens** : les lignes de l'étape 6 et des paragraphes « L'eau pour douze, l'hiver » et
+« L'humidité de douze personnes » sont recoupées après les ajouts (fichier en LF, gardé en LF).
+
+**controle.py**, avant (`40920d1`) et après : 5 535 → 5 503 mots ; 2 tirets (titre et ligne de tome) avant et après ;
+0 « § », 0 tournure, 0 mise en relief, 0 maxime, 0 pronominal, 0 mot banni ; 45 mots vides (44 avant) jugés un par un :
+le nouveau, « de tout bâtiment » (étape 6), porte le sens. **Invariant signalé** : un « 2 heures » de moins, celui de la
+note retirée ; la règle des 2 heures reste à l'étape 15, à la section 5 et à la section 7.
+
+**Chiffres** : aucun chiffre nouveau. Le 6 m change de référence (de tout bâtiment) sans changer de valeur ni de source.

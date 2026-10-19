@@ -350,8 +350,12 @@ function pour(f, q, p){
     break;
   }
   if(q.length){
-    // pas de titre ni d'amorce seule en bas de page
-    while(f.lastElementChild && (/^H[234]$/.test(f.lastElementChild.tagName) || f.lastElementChild.classList.contains('kh')))
+    // pas de titre ni d'amorce seule en bas de page : ni l'intertitre en italique (« Le montage. ») ni la ligne qui
+    // annonce une liste (« Au retour, dans l'ordre : »)
+    const amorce = el => el.tagName === 'P' && !el.classList.contains('cont') && (
+      (el.children.length === 1 && el.firstElementChild.tagName === 'EM' && el.textContent.trim() === el.firstElementChild.textContent.trim())
+      || (/:\s*$/.test(el.textContent) && el.getClientRects().length && el.getBoundingClientRect().height < 1.6 * ligne(f)));
+    while(f.lastElementChild && (/^H[234]$/.test(f.lastElementChild.tagName) || f.lastElementChild.classList.contains('kh') || amorce(f.lastElementChild)))
       q.unshift(f.removeChild(f.lastElementChild));
     // ni un début de section coupé : un titre suivi de moins de six lignes en bas du cadre passe à la page
     // suivante avec ce qui le suit, et le cadre garde son vide (JP, 16 octobre 2026 : « laisser un vide et
@@ -618,7 +622,9 @@ function checks(){
     p.bl.querySelectorAll('.frame').forEach(f => { if(!f.classList.contains('auto') && OVER(f)) WARN.push(p.el.id + ' : cadre qui déborde'); });
     const last = p.bl.lastElementChild;
     if(last && last.getBoundingClientRect().bottom > br.bottom + 1) WARN.push(p.el.id + ' : sort de la zone utile');
-    if(p.kind === 'text' && p !== PAGES[PAGES.length - 1] && free(p) > 0.4 * br.height) WARN.push(p.el.id + ' : page à moitié vide');
+    // la dernière page de texte du chapitre finit où le texte finit, même suivie des planches de la fin
+    const derniere = !PAGES.slice(PAGES.indexOf(p) + 1).some(q => q.kind === 'text');
+    if(p.kind === 'text' && !derniere && free(p) > 0.4 * br.height) WARN.push(p.el.id + ' : page à moitié vide');
   });
 }
 function views(){

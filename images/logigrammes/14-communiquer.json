@@ -1,0 +1,315 @@
+{
+  "_note": "Logigramme du chapitre 14 (communiquer et savoir), double page, fait le 19 octobre 2026 sur le chapitre refait au gabarit final (sept sections), sur le modèle des ch. 4 et 12. Page de gauche : la série orange « Il faut de l'aide, loin de tout » (étapes 1 à 8), pastille 10 min (le temps des gestes : décider et envoyer le premier appel ; voir suivi/14-redaction.md). La fourche « La vie de quelqu'un est en jeu maintenant ? » sépare la détresse (SOS, balise, MAYDAY : étapes 2 à 4) de l'avis donné tôt au correspondant (PAN PAN, message dans l'ordre, réponse, message suivant : étapes 5 à 8) ; dans le doute, on avertit. Page de droite : la série orange « Quelqu'un n'est pas revenu à l'heure prévue » (étapes 9 à 13), pastille 1 h (l'heure limite, une heure après le retour prévu, comme les recherches d'un avion qui a déposé un plan de vol : sources/19-transports-canada-aim-sar-2025-fr.pdf, AIM SAR 3.5). Aucun avertissement redit (ni le monoxyde de la recharge, ni le froid : ils restent dans leur étape, à côté de leur pictogramme). Colonnes de droite de 8,625 à 15,5 po (cadre des agents). Rendu : env -u TMPDIR python3 design/outils/logigramme.py images/logigrammes/14-communiquer.json ; version du livre : --sans-entete --svg. « source » : les étapes du chapitre d'où vient chaque geste (ignoré au rendu). Se place après la section 3, Matériel.",
+  "format": "double",
+  "tome": 1,
+  "urgent": true,
+  "entete": {
+    "chapitre": "14 · Communiquer et savoir",
+    "tome": "Tome 1 · Tenir",
+    "onglet": "14",
+    "folios": [
+      null,
+      null
+    ]
+  },
+  "colonnes": {
+    "plein": [
+      0.5,
+      7.375
+    ],
+    "L": [
+      0.5,
+      3.75
+    ],
+    "R": [
+      4.125,
+      7.375
+    ],
+    "large2": [
+      8.625,
+      15.5
+    ],
+    "q": [
+      8.625,
+      11.876
+    ],
+    "r": [
+      12.249,
+      15.5
+    ]
+  },
+  "rangs": {
+    "g1": 1.11,
+    "g2": 1.6,
+    "g3": 3.05,
+    "g4": 4.15,
+    "g5": 5.3,
+    "g6": 6.3,
+    "d1": 1.11,
+    "d2": 1.6,
+    "d3": 2.5,
+    "d4": 3.4,
+    "d5": 4.3,
+    "d6": 5.3,
+    "d7": 6.5
+  },
+  "noeuds": [
+    {
+      "id": "dep",
+      "type": "depart",
+      "col": "plein",
+      "rang": "g1",
+      "taille": 15,
+      "texte": "Quelqu'un est blessé, malade ou pris loin de tout",
+      "source": "titre de la série orange, étapes 1 à 8"
+    },
+    {
+      "id": "q1",
+      "type": "question",
+      "col": "plein",
+      "rang": "g2",
+      "ancre": "haut",
+      "texte": "La vie de quelqu'un est en jeu maintenant ?",
+      "precision": "Il respire mal, saigne sans qu'on arrive à l'arrêter, se réveille mal, ou ne pourra pas passer la nuit à l'endroit où il est",
+      "source": "étape 1"
+    },
+    {
+      "id": "a1",
+      "type": "urgent",
+      "col": "L",
+      "rang": "g3",
+      "ancre": "haut",
+      "taille": 10,
+      "temps": "10 min",
+      "texte": "**Déclencher la détresse sans attendre** : le bouton SOS de l'appareil satellite, la balise de 406 MHz, ou MAYDAY sur la voie 16 de la VHF.",
+      "renvoi": "ch. 14, étape 2",
+      "source": "étape 2"
+    },
+    {
+      "id": "a2",
+      "type": "urgent",
+      "col": "L",
+      "rang": "g4",
+      "ancre": "haut",
+      "taille": 10,
+      "texte": "**Laisser la balise ou le SOS en marche** jusqu'à ce que quelqu'un arrive, et rester près de la machine.",
+      "renvoi": "ch. 14, étape 3",
+      "source": "étape 3"
+    },
+    {
+      "id": "a3",
+      "type": "urgent",
+      "col": "L",
+      "rang": "g5",
+      "ancre": "haut",
+      "taille": 10,
+      "texte": "**Monter un abri et faire un feu qu'on voit d'en haut**, avec des branches vertes à jeter dessus dès qu'on entend un avion.",
+      "renvoi": "ch. 14, étape 4",
+      "source": "étape 4"
+    },
+    {
+      "id": "b1",
+      "type": "urgent",
+      "col": "R",
+      "rang": "g3",
+      "ancre": "haut",
+      "taille": 10,
+      "temps": "10 min",
+      "texte": "**Avertir tout de suite le correspondant** par message satellite. Sur le fleuve, appeler à la VHF en commençant par PAN PAN.",
+      "renvoi": "ch. 14, étape 5",
+      "source": "étape 5"
+    },
+    {
+      "id": "b2",
+      "type": "urgent",
+      "col": "R",
+      "rang": "g4",
+      "ancre": "haut",
+      "taille": 10,
+      "texte": "**Écrire le message dans l'ordre** : qui écrit, où, combien de personnes, ce qui arrive, ce qu'on fait, ce qu'on demande, l'heure du prochain message.",
+      "renvoi": "ch. 14, étape 6",
+      "source": "étape 6"
+    },
+    {
+      "id": "b3",
+      "type": "urgent",
+      "col": "R",
+      "rang": "g5",
+      "ancre": "haut",
+      "taille": 10,
+      "texte": "**Attendre la réponse.** S'il n'en vient pas, aller sous un ciel dégagé et renvoyer le message.",
+      "renvoi": "ch. 14, étape 7",
+      "source": "étape 7"
+    },
+    {
+      "id": "b4",
+      "type": "urgent",
+      "col": "R",
+      "rang": "g6",
+      "ancre": "haut",
+      "taille": 10,
+      "texte": "**Envoyer le message suivant à l'heure annoncée.** Si la situation empire, déclencher la détresse ; si elle s'arrange, l'écrire.",
+      "renvoi": "ch. 14, étape 8",
+      "source": "étape 8"
+    },
+    {
+      "id": "depB",
+      "type": "depart",
+      "col": "large2",
+      "rang": "d1",
+      "taille": 15,
+      "texte": "Quelqu'un n'est pas revenu à l'heure prévue",
+      "source": "titre de la série orange, étapes 9 à 13"
+    },
+    {
+      "id": "r1",
+      "type": "urgent",
+      "col": "large2",
+      "rang": "d2",
+      "ancre": "haut",
+      "taille": 10.5,
+      "temps": "1 h",
+      "texte": "**Écrire l'heure, puis essayer de le joindre** sur son appareil satellite ou à la radio portative, jusqu'à l'heure limite.",
+      "renvoi": "ch. 14, étape 9",
+      "source": "étape 9"
+    },
+    {
+      "id": "r2",
+      "type": "urgent",
+      "col": "large2",
+      "rang": "d3",
+      "ancre": "haut",
+      "taille": 10.5,
+      "texte": "**Relire la fiche de sortie** : son chemin, sa machine, l'heure limite. Sans fiche, l'heure limite est une heure après l'heure où il devait rentrer.",
+      "renvoi": "ch. 14, étape 10",
+      "source": "étape 10"
+    },
+    {
+      "id": "r3",
+      "type": "urgent",
+      "col": "large2",
+      "rang": "d4",
+      "ancre": "haut",
+      "taille": 10.5,
+      "texte": "**Allumer une lumière à la fenêtre et un feu devant le chalet**, et souffler dans un sifflet à intervalles réguliers en écoutant la réponse.",
+      "renvoi": "ch. 14, étape 11",
+      "source": "étape 11"
+    },
+    {
+      "id": "r4",
+      "type": "urgent",
+      "col": "large2",
+      "rang": "d5",
+      "ancre": "haut",
+      "taille": 10.5,
+      "texte": "**À l'heure limite, sans nouvelles, avertir le correspondant** : qui manque, depuis quand, ce que dit la fiche de sortie.",
+      "renvoi": "ch. 14, étape 12",
+      "source": "étape 12"
+    },
+    {
+      "id": "q2",
+      "type": "question",
+      "col": "large2",
+      "rang": "d6",
+      "ancre": "haut",
+      "texte": "Deux adultes peuvent partir sans laisser les enfants seuls ?",
+      "source": "étape 13"
+    },
+    {
+      "id": "v1",
+      "type": "urgent",
+      "col": "q",
+      "rang": "d7",
+      "ancre": "haut",
+      "taille": 10,
+      "texte": "**Partir le chercher à deux, par le chemin de la fiche.** S'il fait noir, partir au premier jour et suivre sa trace.",
+      "renvoi": "ch. 14, étape 13",
+      "source": "étape 13"
+    },
+    {
+      "id": "v2",
+      "type": "urgent",
+      "col": "r",
+      "rang": "d7",
+      "ancre": "haut",
+      "taille": 10,
+      "texte": "**Rester au chalet**, garder la lumière et le feu, et écrire au correspondant à chaque heure convenue.",
+      "renvoi": "ch. 14, étape 13",
+      "source": "étape 13"
+    }
+  ],
+  "liens": [
+    {
+      "de": "dep",
+      "vers": "q1"
+    },
+    {
+      "de": "q1",
+      "vers": "a1",
+      "etiquette": "Oui",
+      "coude": 2.5,
+      "pos": "palier"
+    },
+    {
+      "de": "q1",
+      "vers": "b1",
+      "etiquette": "Non, ou dans le doute",
+      "coude": 2.5,
+      "pos": "palier"
+    },
+    {
+      "de": "a1",
+      "vers": "a2"
+    },
+    {
+      "de": "a2",
+      "vers": "a3"
+    },
+    {
+      "de": "b1",
+      "vers": "b2"
+    },
+    {
+      "de": "b2",
+      "vers": "b3"
+    },
+    {
+      "de": "b3",
+      "vers": "b4"
+    },
+    {
+      "de": "depB",
+      "vers": "r1"
+    },
+    {
+      "de": "r1",
+      "vers": "r2"
+    },
+    {
+      "de": "r2",
+      "vers": "r3"
+    },
+    {
+      "de": "r3",
+      "vers": "r4"
+    },
+    {
+      "de": "r4",
+      "vers": "q2"
+    },
+    {
+      "de": "q2",
+      "vers": "v1",
+      "etiquette": "Oui",
+      "coude": 5.97,
+      "pos": "palier"
+    },
+    {
+      "de": "q2",
+      "vers": "v2",
+      "etiquette": "Non",
+      "coude": 5.97,
+      "pos": "palier"
+    }
+  ]
+}

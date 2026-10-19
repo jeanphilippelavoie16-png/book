@@ -1,8 +1,9 @@
 # Ch. 18, notes « En plus » : le campement innu, le trappeur cri, le shaputuan
 
 Extraits recopiés le 19 octobre 2026 de pages **déjà enregistrées** dans `/sources` (aucune recherche nouvelle) pour
-les cinq notes « En plus » du chapitre 18 (refonte au gabarit final). Numéro de chapitre : le nouveau (18, S'organiser
-à plusieurs familles).
+les notes « En plus » du chapitre 18 (refonte au gabarit final) : cinq à la refonte, quatre après la vérification
+technique du 19 octobre 2026 (la note « La viande sous un linge » est retirée, voir plus bas). Numéro de chapitre : le
+nouveau (18, S'organiser à plusieurs familles).
 
 ---
 
@@ -32,12 +33,17 @@ Extraits de la transcription, mot pour mot :
 
 | Note | Fait | Extrait |
 | --- | --- | --- |
-| « La place de chacun dans la tente innue » | Aînés à l'entrée près du poêle, pour le feu ; place du visiteur au sapinage épais ; une jeune fille range ses affaires, il sait où dormir | 1er extrait |
-| « La viande sous un linge » | Cuire, puis partager entre les membres du groupe ; porc-épic, poisson et castor couverts d'un linge, jamais à l'air libre | 3e extrait. La raison donnée (le respect, la chance à la chasse) ne s'imprime pas : cérémoniel (`suivi/idees-savoirs-autochtones.md`, 4.1) |
+| « La place de chacun dans la tente innue » | Au campement d'automne (la page ne parle pas de tente d'hiver) : aînés à l'entrée près du poêle, pour le feu ; place du visiteur au sapinage épais ; une jeune fille range ses affaires, il sait où dormir | 1er extrait |
 | « Les enfants ont leurs tâches » | Les enfants s'occupent des plus jeunes, vont chercher le sapinage et le bois ; ils font la distribution au partage | 2e et 3e extraits |
 
 **Ce qui est du chapitre, pas de la source :** le lien au chalet de chaque note (le mètre autour du poêle, étape 11 ;
-la règle des 2 heures, étape 15 ; la tâche écrite au mur, étape 12). Ce sont des règles déjà sourcées du chapitre
+la tâche écrite au mur, étape 12).
+
+**Ce qui n'est pas repris :** le linge sur le porc-épic, le poisson et le castor (3e extrait). La page le donne comme
+une forme de respect envers la bête, qui garantit la chance à la chasse : c'est du cérémoniel
+(`suivi/idees-savoirs-autochtones.md`, 4.1 : « On peut dire que ces pratiques existent, pas les décrire »). La note qui
+le décrivait a été retirée après la vérification technique du 19 octobre 2026 ; la raison qu'elle imprimait à la place
+(la poussière) n'avait pas de source. Du 3e extrait, le chapitre ne garde que les enfants qui font la distribution. Ce sont des règles déjà sourcées du chapitre
 (fiche `suivi/18-redaction.md`), appliquées à la façon décrite.
 
 ---

@@ -1,5 +1,5 @@
 {
-  "_note": "Logigramme du chapitre 17 (qui cogne à la porte), double page, fait le 15 octobre 2026 sur le chapitre réécrit. Page de gauche : la première minute et les dix premières minutes (étapes 1 à 9), et ce qui vaut à tout moment (étape 13). Page de droite : la réponse (étapes 10 à 12), l'après (14 et 15), l'hébergement (16 à 21). Le monoxyde n'y est pas : il est dit à l'étape 19 et dans l'encadré danger (JP : « on l'a dit 1000 fois »). Réécrit le 15 octobre en phrases complètes (JP : « personne parle comme ça »). Aucune branche ne mène à l'arme de la maison (§8, point 1). Rendu : python3 design/outils/logigramme.py images/logigrammes/17-qui-cogne.json. « source » : les étapes du chapitre d'où vient chaque geste (ignoré au rendu).",
+  "_note": "Logigramme du chapitre 17 (qui cogne à la porte), double page. Fait le 15 octobre 2026, remis d'accord avec le chapitre refait au gabarit final le 19 octobre 2026. Page de gauche : la série « Quelqu'un cogne à la porte » (1 min, étapes 1 à 3), la série « La personne attend dehors » (10 min, étapes 4 à 8) et ce qui vaut à tout moment (étape 12). Page de droite : la réponse (étapes 9 à 11), l'après (13 et 14), l'hébergement (15 à 21), le lendemain (22 à 29). Le monoxyde n'y est pas : il est à l'étape 18, avec son pictogramme (JP : « on l'a dit 1000 fois »). Phrases complètes (JP : « personne parle comme ça »). Aucune branche ne mène à l'arme de la maison (étape 11). Rendu : python3 design/outils/logigramme.py images/logigrammes/17-qui-cogne.json. « source » : les étapes du chapitre d'où vient chaque geste (ignoré au rendu).",
   "format": "double",
   "tome": 1,
   "urgent": true,
@@ -89,7 +89,7 @@
       "ancre": "haut",
       "taille": 15,
       "texte": "Quelqu'un cogne à la porte",
-      "source": "§2"
+      "source": "section 2"
     },
     {
       "id": "ouvrir",
@@ -129,7 +129,7 @@
       "taille": 10.5,
       "texte": "**Envoyer les enfants dans la pièce du fond, et ne pas sortir.** Parler à travers la porte et donner par une fenêtre entrouverte.",
       "renvoi": "ch. 17, étape 3",
-      "source": "étape 3 ; §9, le deuxième adulte"
+      "source": "étape 3 ; section 7, le deuxième adulte"
     },
     {
       "id": "compter",
@@ -140,7 +140,7 @@
       "temps": "10 min",
       "texte": "**Compter à voix haute les personnes, les véhicules et les traces.** S'il y a plus de traces ou de véhicules que de monde en vue, ne pas ouvrir.",
       "renvoi": "ch. 17, étape 4",
-      "source": "étapes 4 et 5"
+      "source": "étape 4"
     },
     {
       "id": "parler",
@@ -149,8 +149,8 @@
       "rang": "g6",
       "ancre": "haut",
       "texte": "**Lui parler à travers la porte** : lui dire où s'arrêter, à un repère qu'il voit, comme le poteau ou le bas de l'escalier, puis lui demander ce qu'il lui faut. Une seule question à la fois.",
-      "renvoi": "ch. 17, étape 6",
-      "source": "étape 6"
+      "renvoi": "ch. 17, étape 5",
+      "source": "étape 5 ; étape 25"
     },
     {
       "id": "qfroid",
@@ -159,7 +159,7 @@
       "rang": "g7",
       "texte": "Il est blessé, ou il gèle ?",
       "precision": "L'hiver : il parle mal, il est maladroit ou confus, ou il ne frissonne plus",
-      "source": "étapes 7 et 8"
+      "source": "étapes 6 et 7"
     },
     {
       "id": "entre",
@@ -167,9 +167,9 @@
       "col": "tronc",
       "rang": "g8",
       "ancre": "haut",
-      "texte": "**Le faire entrer**, ou le mettre à l'abri dehors. Le coucher, lui enlever ses vêtements mouillés et mettre de la chaleur sur son tronc. Lui donner à boire seulement s'il avale bien.",
-      "renvoi": "ch. 17, étapes 8 et 9 ; ch. 25",
-      "source": "étapes 8 et 9"
+      "texte": "**Le faire entrer**, ou le mettre à l'abri dehors. Le coucher, lui enlever ses vêtements mouillés et mettre de la chaleur sur son tronc. Lui donner à boire seulement s'il est bien éveillé et avale bien.",
+      "renvoi": "ch. 17, étapes 7 et 8 ; ch. 25",
+      "source": "étapes 7 et 8"
     },
     {
       "id": "arme",
@@ -179,8 +179,8 @@
       "ancre": "haut",
       "titre": "S'il montre une arme ou s'il menace",
       "texte": "**Tout le monde va dans la pièce du fond**, on bloque la porte de l'intérieur et on y reste. S'il entre et exige quelque chose, le lui donner sans discuter ni résister.",
-      "renvoi": "ch. 17, étape 13 ; §8",
-      "source": "étape 13 ; §8, point 1"
+      "renvoi": "ch. 17, étape 12",
+      "source": "étape 12"
     },
     {
       "id": "qrep",
@@ -188,7 +188,7 @@
       "col": "qr",
       "rang": "d1",
       "texte": "On peut lui donner ce qu'il demande ?",
-      "source": "étapes 10 et 11"
+      "source": "étapes 9 et 10"
     },
     {
       "id": "donner",
@@ -198,8 +198,8 @@
       "ancre": "haut",
       "taille": 10.5,
       "texte": "**Lui donner dehors**, sans le faire entrer : un repas chaud dans un de nos bols, qu'on reprend ensuite, de l'eau, du bois fendu. Jamais dans l'emballage du magasin : ça montre qu'on en a d'autres.",
-      "renvoi": "ch. 17, étape 10",
-      "source": "étape 10 ; §9"
+      "renvoi": "ch. 17, étape 9",
+      "source": "étape 9 ; section 7, donner sans renseigner"
     },
     {
       "id": "q2",
@@ -208,7 +208,7 @@
       "rang": "d2",
       "ancre": "haut",
       "texte": "Il a un endroit où aller ?",
-      "source": "étape 11"
+      "source": "étape 10"
     },
     {
       "id": "refuser",
@@ -218,8 +218,8 @@
       "ancre": "haut",
       "taille": 10.5,
       "texte": "**Refuser une seule fois**, sans mentir. Lui dire où aller, à quelle distance, et comment s'y rendre.",
-      "renvoi": "ch. 17, étape 11",
-      "source": "étape 11"
+      "renvoi": "ch. 17, étape 10",
+      "source": "étape 10"
     },
     {
       "id": "accueil",
@@ -229,8 +229,8 @@
       "ancre": "haut",
       "taille": 10.5,
       "texte": "**On ne le renvoie pas.** Lui faire un abri, un feu et lui donner à boire chaud dehors, ou le loger.",
-      "renvoi": "ch. 17, étape 11 ; §9",
-      "source": "étape 11 ; §9, réchauffer sans faire entrer"
+      "renvoi": "ch. 17, étape 10 ; section 7",
+      "source": "étape 10 ; section 7, réchauffer quelqu'un sans le faire entrer"
     },
     {
       "id": "qpart",
@@ -247,8 +247,8 @@
       "ancre": "haut",
       "taille": 10.5,
       "texte": "**Si on le loge**, lui dire d'avance combien de temps il peut rester. Il se lave les mains 20 s en entrant, il dort à l'écart des enfants et il aide aux corvées.",
-      "renvoi": "ch. 17, étapes 16 à 21",
-      "source": "étapes 16 à 20"
+      "renvoi": "ch. 17, étapes 15 à 21",
+      "source": "étapes 15 à 19"
     },
     {
       "id": "barrer",
@@ -258,8 +258,8 @@
       "ancre": "haut",
       "taille": 10.5,
       "texte": "**Rentrer, fermer et barrer la porte**, et rester dedans. Noter l'heure et prévenir les voisins par radio.",
-      "renvoi": "ch. 17, étape 12",
-      "source": "étape 12"
+      "renvoi": "ch. 17, étape 11",
+      "source": "étape 11"
     },
     {
       "id": "apres",
@@ -269,8 +269,8 @@
       "ancre": "haut",
       "taille": 10.5,
       "texte": "**Dire aux autres adultes** ce qu'on lui a donné et ce qu'on lui a promis. Désinfecter ce qu'il a touché.",
-      "renvoi": "ch. 17, étapes 14 et 15",
-      "source": "étapes 14 et 15"
+      "renvoi": "ch. 17, étapes 13 et 14",
+      "source": "étapes 13 et 14"
     },
     {
       "id": "lendemain",
@@ -278,8 +278,8 @@
       "rang": "d5",
       "ancre": "haut",
       "texte": "**Le lendemain, se préparer pour la prochaine fois** : décider ensemble ce qu'on répond, planter un poteau à quelques pas de la porte pour dire au visiteur où s'arrêter, choisir la pièce du fond et poser une barre sur la porte.",
-      "renvoi": "ch. 17, étapes 23 à 29 ; §9",
-      "source": "étapes 23 à 29 ; §7 ; §9, la porte",
+      "renvoi": "ch. 17, étapes 22 à 29 ; section 7",
+      "source": "étapes 22 à 29 ; section 7, la porte",
       "col": "large2"
     }
   ],
