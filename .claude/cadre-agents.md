@@ -146,6 +146,16 @@ Le cadre complet est `.claude/skills/planches/references/brief-agent.md`. En bre
   poil de pubis ») : la laine d'acier, ce sont des fibres de métal longues et presque droites, croisées en couches, avec du
   jour au travers ; jamais des boucles ni des frisettes. Avant de poser une matière (laine d'acier, poil, herbe, copeaux,
   corde), on la regarde en vrai ou en photo et on fait une feuille d'essai.
+- [ ] **Le bois se dessine comme du bois** (JP, 19 octobre 2026, 13-40 : « le bois pas beau, refais ça ») : écorce,
+  nœuds, bout scié aux cernes décentrés avec une fente, quartiers aux faces nettes, pièces de grosseurs et d'angles
+  variés ; jamais des tubes identiques empilés comme des crayons.
+- [ ] **Une coupe suit le contour de l'objet** (JP, 19 octobre 2026, 13-09 : « la coupe est pas bonne de la roche, c'est
+  offset ») : la face cassée ou sciée est découpée dans la silhouette, sans décalage ni débord.
+- [ ] **Un objet qui revient reprend le dessin réussi** (JP, 19 octobre 2026, 13-10 : « prends le nid [de la 13-40] qui
+  est réussi ») : on importe la fonction de la planche réussie, on ne redessine pas l'objet autrement.
+- [ ] **Quand la tête n'apprend rien, on cadre sur les mains** (JP, 19 octobre 2026, 13-40 : « dégueulasse la main et
+  tout ; au pire fais le zoom sur une main, montre pas le visage ») : gros plan des mains et de l'objet, le souffle ou
+  la flamme qui entre par le bord ; ça passe avant la règle du visage qui souffle.
 - [ ] Une planche du tableau des signalées se refait au complet, jamais par retouche.
 - [ ] **Jamais de cheveux, et le visage seulement quand il sert** (JP, 18 octobre 2026 : « on met jamais les cheveux, je veux plus les voir ; le visage est affiché seulement quand le visage fait une action ou qu'il y a une interaction »). Le moteur des têtes ne dessine plus de cheveux. `visage: true` seulement si la bouche, les yeux ou le nez font le geste (souffler, boire, regarder un point) ou si deux personnes interagissent ; sinon la tête reste nue.
 - [ ] L'eau par `h.a.hachure('eau')` seulement : le bleu pâle et ses vaguelettes (JP, 18 octobre : « fais l'eau plus belle »).

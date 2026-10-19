@@ -442,6 +442,20 @@ chauve « laid en tabarnak » : chaque fois, c'était une forme dessinée planch
   poil de pubis ») : la laine d'acier, ce sont des fibres de métal longues et presque droites, croisées en couches, avec du
   jour au travers ; jamais des boucles ni des frisettes. On regarde la matière en vrai ou en photo, on fait une feuille
   d'essai (`images/planches-src/_essai-*.js`), puis on la pose.
+- **Le bois se dessine comme du bois** (JP, 19 octobre 2026, planche 13-40 : « le bois pas beau, refais ça ») : une
+  branche ou une bûche a son écorce (un trait irrégulier, des nœuds, des gerçures), un bout scié avec ses cernes
+  décentrés et une fente de séchage, un quartier fendu a ses faces nettes ; les pièces d'un tas varient de grosseur,
+  de longueur et d'angle. Jamais des tubes identiques empilés comme des crayons.
+- **Une coupe suit le contour de l'objet** (JP, 19 octobre 2026, planche 13-09 : « la coupe est pas bonne de la roche,
+  c'est offset ») : la face cassée ou sciée partage la silhouette de la pierre, de la bûche ou de l'os, sans décalage
+  ni débord ; on la découpe dans la forme (`clipPath`), on ne la pose pas à côté.
+- **Un objet qui revient d'une planche à l'autre reprend le dessin réussi** (JP, 19 octobre 2026, planche 13-10 : « le
+  nid est pas beau, prends le nid [de la 13-40] qui est réussi ») : on importe la fonction de la planche réussie, on ne
+  redessine pas le même objet autrement.
+- **Quand la tête n'apprend rien, on cadre sur les mains** (JP, 19 octobre 2026, planche 13-40, souffler sur le nid :
+  « dégueulasse la main et tout ; au pire fais le zoom sur une main, montre pas le visage ») : un gros plan des mains
+  qui tiennent l'objet, le geste (le souffle, la flamme) qui entre par le bord de la vignette ; pas de tête de face
+  ou de profil tracée pour l'occasion.
 - **Les gros plans de mains** passent par `h.formes.mainStock` : les mains Adobe Stock 116570613 que JP a choisies (18 octobre 2026 : « les bonnes mains »), tracés exacts de l'illustratrice au style du livre ; `scripts/mains/stock.js`, catalogue `scripts/mains/stock/catalogue.json`, noms `stock/noms.json`, feuille des ids `images/planches-src/_palette-mains-stock.js` (aperçu `livre/apercus-palette/mains-stock-ids.png`). Seules les mains gardées servent (nommées dans `noms.json`,
   sans « exclue » : JP, 18 octobre, « y a des mains vraiment weird » ; le moteur refuse les autres). On choisit la prise, on la
   place (`x`, `y`, `ancre`), on la tourne (`angle`), on la retourne (`miroir`) ; `objet: false` enlève l'objet du fichier et
