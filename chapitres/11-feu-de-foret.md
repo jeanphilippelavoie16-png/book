@@ -208,9 +208,8 @@ trouve à la chaleur : passer le dos de la main au ras du sol, puis la glisser d
 36. **Sans capteur, juger la fumée à la distance qu'on voit**, sur un repère sombre dont on connaît la
  distance, comme une rive boisée ou une montagne. Si on ne voit plus un repère à 16 km, ne plus laisser
  les jeunes enfants jouer dehors ; si on ne voit plus un repère à 8 km, les garder dans la pièce d'air
- propre, ou partir. Le repère
- ne vaut qu'en plein jour, loin du lever et du coucher du soleil, et quand l'air est sec : moins de 65 %
- d'humidité à l'hygromètre, pas de brume.
+ propre, ou partir. Le repère ne vaut qu'en plein jour, loin du lever et du coucher du soleil, et quand
+ l'air est sec : moins de 65 % d'humidité à l'hygromètre, pas de brume.
 37. **Surveiller les enfants, qui ne disent pas bien ce qu'ils ressentent** (ch. 39, ch. 40). Les signes
  légers : les yeux qui piquent, le nez bouché ou qui coule, une petite toux, le mal de gorge, le mal de
  tête. Les signes graves : une grosse toux, le souffle court, une respiration sifflante, des
@@ -227,9 +226,8 @@ trouve à la chaleur : passer le dos de la main au ras du sol, puis la glisser d
  déjà près d'un fil, s'en éloigner à très petits pas, en traînant les pieds sans les lever.
 40. {!ecrasement} {!projection} **Ne pas travailler ni stationner sous un arbre brûlé.** Un tronc brûlé à
  la base tient debout jusqu'au premier vent, des jours ou des semaines après le feu. Pour faire tomber un
- chicot brûlé, un arbre encroué ou un arbre sous tension, le tirer au treuil, au levier ou au câble, de loin
- et hors de l'axe de chute
- (section 7 ; ch. 106, ch. 109).
+ chicot brûlé, un arbre encroué ou un arbre sous tension, le tirer au treuil, au levier ou au câble, de
+ loin et hors de l'axe de chute (section 7 ; ch. 106, ch. 109).
 41. **Se méfier des pentes et des talus.** Le feu a brûlé l'humus et les racines fines qui tenaient le
  sol : les ornières, les bords de chemin et les talus cèdent à la première grosse pluie, qui charrie aussi
  la cendre dans les ruisseaux.
@@ -266,8 +264,8 @@ trouve à la chaleur : passer le dos de la main au ras du sol, puis la glisser d
  a pas d'autre. On le décide en mai parce que, le jour du feu, on a envie de rester. Partir trop tôt coûte
  quelques jours ailleurs et du carburant ; partir trop tard peut piéger la famille sur le chemin
  (étape 6).
-48. **Faire chaque année le trajet des deux chemins de sortie, montre en main**, et élargir le tournant où une auto
- avec une remorque doit faire demi-tour.
+48. **Faire chaque année le trajet des deux chemins de sortie, montre en main**, et élargir le tournant où
+ une auto avec une remorque doit faire demi-tour.
 
 ### Avant : la zone défendable, sur des années
 
