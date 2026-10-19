@@ -71,7 +71,7 @@ SOMMAIRE = {
         ('31', 'Hygiène et eaux usées'), ('32', 'Bâtir la pharmacie'), ('33', 'Plantes médicinales boréales'),
         ('34', 'Soigner avec la forêt, par symptôme'), ('35', 'Ce qu’on ne peut pas soigner'),
         ('36', 'Tenir le moral tout un hiver'), ('37', 'Le sauna et le bien-être'),
-        ('38', 'Le deuil, le choc et la peur des adultes'), ('39', 'Des enfants de 4 et 6 ans'),
+        ('38', 'Le deuil, le choc et la peur des adultes'), ('39', 'Les jeunes enfants'),
         ('40', 'Les enfants, la peur et la routine')],
     3: [('41', 'Calendrier annuel de prélèvement'), ('42', 'Lire le territoire autour du chalet'),
         ('43', 'Les traces et les signes des animaux'), ('44', 'Pister et retracer une bête'),

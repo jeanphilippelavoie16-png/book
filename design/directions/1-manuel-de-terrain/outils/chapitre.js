@@ -58,13 +58,11 @@ function orPages(){   // les planches de l'orange : pleine page sur leur propre 
 // Le placement ne change rien à la suite (la page se ferme de toute façon) : pendant la mise en pages, fillExtras
 // relève seulement les pages qui ont de la place et les notes qui y tiennent ; placerNotes choisit à la fin, pour que
 // chaque note tombe près de l'étape dont elle parle et loin des autres.
-// Une note qui ne trouve aucun trou ne se perd plus (JP, 19 octobre 2026 : le ch. 04, dense, n'en posait aucune) : la
-// mise en pages recommence, et cette note entre dans le fil du texte, après la fin de l'étape qu'elle nomme (INLINE,
-// ANCRES) ; la pagination pousse le texte qui suit. Une seule note par page : celle qui arrive sur une page qui en porte
-// déjà une attend la page suivante (attenteNotes), où elle se glisse après la fin du paragraphe coupé. Celle qui attend
-// encore à la fin du chapitre entre dans le fil de la page sans note la plus proche de son étape (après la boucle des
-// passes) : une note se pose toujours ; l'avertissement « sans place où se poser » ne reste que si aucune page de
-// texte n'est libre.
+// JAMAIS AU TRAVERS DU TEXTE (JP, 19 octobre 2026 : « les encadrés verts JAMAIS au travers du texte, c'est du
+// remplissage quand il reste de la place dans la page ») : une note se pose seulement dans un trou, à la fin du texte de
+// la page, après son dernier paragraphe ; jamais entre deux paragraphes, et jamais dans le fil (la mise en pages ne
+// pousse pas le texte pour elle). Une note qui ne trouve pas de trou près de son étape ne s'imprime pas : c'est de
+// l'extra. (Le fil, INLINE et attenteNotes, du matin du 19 octobre, ne sert plus : INLINE reste vide.)
 const NOTE_PLACES = [];
 let NOTES_X = [];             // les notes de la section En plus, dans l'ordre du chapitre
 let ANCRES = [];              // pour chaque note, la clé (data-k) du bloc après lequel elle entre dans le fil
@@ -158,8 +156,8 @@ function placerNotes(){
   });
   const idx = c => PAGES.indexOf(c.p);
   // un trou ne reçoit une note que près de son étape : sur la page de l'étape, ou à deux pages de texte au plus (les
-  // planches et le logigramme ne comptent pas) ; plus loin, la note passe dans le fil du texte, après son étape (JP :
-  // « près de l'étape qu'elles nomment »)
+  // planches et le logigramme ne comptent pas) ; plus loin, la note ne s'imprime pas (JP : « près de l'étape qu'elles
+  // nomment »)
   const TX = PAGES.filter(p => p.kind === 'text' || p.kind === 'open');
   NOTE_PLACES.forEach(c => { c.tient = c.tient.filter(x => {
     const e = renvois(x); if(!e.length) return true;
@@ -201,31 +199,13 @@ function placerNotes(){
   }
   choix.sort((a, b) => idx(a[1]) - idx(b[1])).forEach(([x, c]) => {
     if(c.ouvert) c.fr.classList.add('auto');
-    // la note se glisse après le paragraphe de l'étape dont elle parle (ou vers le milieu du texte si elle ne renvoie à
-    // rien), pas toujours au bas de la colonne ; si le texte ne tient plus, elle va à la fin
-    const enf = [...c.fr.children], e = renvois(x);
-    const num = el => { const t = el.querySelector('.sn'); return t ? parseInt(t.textContent, 10) : NaN; };
-    let apres = null;
-    if(e.length){
-      const d = el => Math.min(...e.map(a => Math.abs(a - num(el))));
-      enf.filter(el => !isNaN(num(el))).forEach(el => { if(!apres || d(el) < d(apres)) apres = el; });
-      // après toute l'étape : ses puces, ses tableaux et ses figures ne se séparent pas de son premier paragraphe
-      if(apres) while(apres.nextElementSibling && isNaN(num(apres.nextElementSibling)) && !estTitre(apres.nextElementSibling)) apres = apres.nextElementSibling;
-    } else {
-      // une note qui ne nomme pas d'étape : à la fin d'une partie, juste avant un intertitre, le plus près du milieu du
-      // cadre ; jamais au milieu d'une liste (ch. 10, 19 octobre 2026 : la note coupait « Ce qui ne se remplace pas »)
-      const mi = enf.length * 0.45, fins = enf.map((el, i) => i).filter(i => i < enf.length - 1 && estTitre(enf[i + 1]) && !estTitre(enf[i]));
-      if(fins.length) apres = enf[fins.sort((a, b) => Math.abs(a - mi) - Math.abs(b - mi))[0]];
-      else if(enf.length > 3) apres = enf[Math.floor(mi)];
-    }
-    if(apres && apres.nextElementSibling && /^H[1-6]$/.test(apres.tagName)) apres = apres.nextElementSibling;
-    if(apres && apres !== enf[enf.length - 1]) c.fr.insertBefore(x, apres.nextElementSibling); else c.fr.appendChild(x);
+    // la note va à la fin du texte de la page, dans le trou : jamais entre deux paragraphes (JP, 19 octobre 2026)
+    c.fr.appendChild(x);
     const ok = () => {
       const b = c.p.bl.getBoundingClientRect().bottom + 0.5;
       return !OVER(c.fr) && x.getBoundingClientRect().bottom <= b && [...c.fr.children].every(e => e.getBoundingClientRect().bottom <= b)
         && c.p.bl.lastElementChild.getBoundingClientRect().bottom <= b;
     };
-    if(!ok()){ c.fr.appendChild(x); }
     if(!ok()){ c.fr.removeChild(x); if(c.ouvert) c.fr.classList.remove('auto'); return; }
     EXTRAS.splice(EXTRAS.indexOf(x), 1);
   });
@@ -823,31 +803,9 @@ Promise.all(faces.map(f => document.fonts.load(f, 'aéÀ§«»—'))).then(() =>
       mkSpread(pendingSpreads.shift(), 'e');
     }
   };
-  // d'abord les trous ; chaque note qui n'en trouve pas passe dans le fil du texte, et la mise en pages recommence
-  for(let passe = 0; ; passe++){
-    mettreEnPages();
-    const sans = EXTRAS.filter(x => !INLINE.has(+x.dataset.xi) && ANCRES[+x.dataset.xi]);
-    if(!sans.length || passe > NOTES_X.length) break;
-    sans.forEach(x => INLINE.set(+x.dataset.xi, ANCRES[+x.dataset.xi]));
-  }
-  // une note qui n'a toujours pas de page (elle attendait encore à la fin du chapitre, toutes les pages qui suivent son
-  // étape portant déjà une note, ou elle ne nomme rien qui se retrouve) : elle entre dans le fil sur la page de texte
-  // sans note la plus proche de son étape, après un paragraphe de cette page ; une note se pose toujours (JP, 19 octobre
-  // 2026)
-  const essayes = new Set();
-  for(let essai = 0; EXTRAS.length && essai < 3 * NOTES_X.length; essai++){
-    const x = EXTRAS[0], xi = +x.dataset.xi, k0 = INLINE.get(xi) || ANCRES[xi];
-    const el0 = k0 && BOOK.querySelector('[data-k="' + k0 + '"]');
-    const i0 = el0 ? PAGES.findIndex(p => p.el.contains(el0)) : Math.floor(PAGES.length / 2);
-    const bloc = p => { const l = [...p.bl.querySelectorAll('.frame > p[data-k]')].filter(e => !e.closest('.orange, .danger') && !essayes.has(e.dataset.k));
-      return l[Math.floor((l.length - 1) / 2)]; };   // un paragraphe du milieu de la page : la note y reste
-    const cand = PAGES.map((p, i) => i).filter(i => (PAGES[i].kind === 'text' || PAGES[i].kind === 'open') && !aUneNote(PAGES[i]) && bloc(PAGES[i]))
-      .sort((a, b) => Math.abs(a - i0) - Math.abs(b - i0) || a - b);
-    if(!cand.length) break;
-    const k = bloc(PAGES[cand[0]]).dataset.k; essayes.add(k);
-    INLINE.set(xi, k); mettreEnPages();
-  }
-  EXTRAS.forEach(x => WARN.push('encadré « En plus » sans place où se poser : ' + ((x.querySelector('.xtit') || {}).textContent || '')));
+  // les notes vont dans les trous seulement ; celles qui n'en trouvent pas ne s'impriment pas (JP, 19 octobre 2026)
+  mettreEnPages();
+  EXTRAS.forEach(x => WARN.push('encadré « En plus » pas imprimé, aucun trou près de son étape : ' + ((x.querySelector('.xtit') || {}).textContent || '')));
   veuves();
   finishPages(); edges(); orienteAppels(); checks();
   // où chaque note s'est posée : page, étapes de la page, l'étape et l'intertitre qui la précèdent, dans un trou ou dans

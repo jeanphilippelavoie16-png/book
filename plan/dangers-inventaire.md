@@ -1033,7 +1033,7 @@ posés.
   paragraphe sous le tableau. `co` seul : personne ne dort seul dans une pièce fermée où brûle un appareil →
   section 7, « Le CO sans avertisseur ».
 - `mal-de-caribou` : compter le gras du stock au jour 1, du gras à chaque repas de viande maigre dès le premier →
-  scénario 2 ; la lampe ne brûle que le gras rance ou le surplus → section 7, « La lampe à gras ».
+  scénario 2 ; la lampe ne brûle que le gras rance ou le surplus → section 7, « La lampe à graisse ».
 - `thuyone` : sapin baumier ou épinette, jamais le cèdre → scénario 2.
 - `feu-de-foret` : un seul chargement ; du congélateur, seulement la glacière → scénario 3.
 - `incendie` + `froid` : clés, vêtements chauds et de quoi faire du feu gardés hors du chalet → scénario 4.
@@ -1505,7 +1505,7 @@ actuelles.
 - `mal-de-caribou`, `cuisson`, `abats`, `tularemie` : le deuil coupe l'appétit et fait sauter des gestes → sous-section
   C. `thuyone` → étape 41, déjà là.
 
-**Ch. 39, Des enfants de 4 et 6 ans.**
+**Ch. 39, Les jeunes enfants.**
 - `co` : l'enfant absorbe plus vite ; coucher les enfants au sol ou en mezzanine ne change rien → étape 2 (« Poser les
   avertisseurs »), déjà là.
 - `eau-froide` + `glace` : noyade silencieuse ; 69 % sans adulte proche ; glace 10, 12, et 25 cm en motoneige avec un
@@ -2516,7 +2516,7 @@ projet n'a aucune source officielle là-dessus » ; `sources/30-cdc-mmwr-1994-ci
 `30-usda-fs-cicutaire-maculee.html` et `58-herbier-du-quebec-cicutaire-maculee.md` sont enregistrées.
 
 **Renvois à des numéros périmés.** L'encadré du ch. 81 suit la numérotation d'avant le 24 septembre (section 3) ; le
-ch. 63 renvoie aux « chapitres 39 et 109 » pour le gréement (le 39 est Des enfants de 4 et 6 ans).
+ch. 63 renvoie aux « chapitres 39 et 109 » pour le gréement (le 39 est Les jeunes enfants).
 
 **Mots que `CLAUDE.md` a sortis, vus en passant** (pas dans le mandat, notés pour la passe de style) : « village »
 (ch. 23, 38, 65, 78, 109) ; Baie-Comeau et Sept-Îles nommés (ch. 110) ; « enfants de 4 et 6 ans » dans la plupart des sections

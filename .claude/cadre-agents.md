@@ -57,8 +57,10 @@ L'urgence
   est trop invasive ») : une feuille vert pâle droite (JP : « mets-les pas croches »), avec une ombre douce, sans bordure ni pastille, dans
   une colonne ; **une seule par page**, jamais empilées (JP : « je veux pas qu'ils soient cordés »), et **dispersées**
   (JP : « plus naturel, plus beau, plus d'ombre, dispersé ») : le moteur relève les pages qui ont de la place, place le
-  plus de notes possible, met chacune sur la page de l'étape dont elle parle ou la plus proche, et la glisse après le
-  paragraphe de cette étape. Une note dit donc son étape entre parenthèses quand elle en a une (« (étape 29) »). Une réserve de **4 à 8** par chapitre ; une note qui ne trouve pas de page ne
+  plus de notes possible, met chacune sur la page de l'étape dont elle parle ou la plus proche. **Jamais au travers du
+  texte** (JP, 19 octobre 2026 : « les encadrés verts JAMAIS au travers du texte, c'est du remplissage quand il reste
+  de la place dans la page ») : la note va dans le trou, à la fin du texte de la page, jamais entre deux paragraphes,
+  et la mise en pages ne pousse jamais le texte pour elle. Une note dit son étape entre parenthèses quand elle en a une (« (étape 29) »). Une réserve de **4 à 8** par chapitre ; une note qui ne trouve pas de page ne
   s'imprime pas ; jamais une page qui ne porte que des notes (JP : « un encadré qui occupe une page tout seul, c'est
   inutile ») ; jamais une note qui touche le pied de page (JP : « l'encadré vert embarque sur les chiffres en bas » :
   le moteur vérifie la note elle-même, pas seulement son cadre).

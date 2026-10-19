@@ -1,4 +1,4 @@
-# Chapitre 39 — Des enfants de 4 et 6 ans
+# Chapitre 39 — Les jeunes enfants
 
 *Tome 2 — Le corps*
 

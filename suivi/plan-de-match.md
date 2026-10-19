@@ -16,6 +16,19 @@ Coût indicatif en tokens : un chapitre neuf complet ≈ 1 M ; une planche dessi
 - Plus de loi, de municipalité, de relecteur, de numéro de téléphone ni de service qui répond
   (exceptions dans CLAUDE.md).
 
+## Décisions de JP du 19 octobre, en cours de journée
+
+- **Le ch. 39 s'appelle « Les jeunes enfants »** (JP : « oui pour les enfants ») : titre du chapitre, sommaire des
+  couvertures (`build_couvertures_6.py`), `plan/tomes-6-proposition.md`. Le nom de fichier ne change pas. À la grande
+  passe des tomes 2 à 6 : les « enfants de 4 et 6 ans » d'une trentaine de chapitres deviennent « de jeunes enfants »,
+  sauf là où l'âge change le geste (une dose, un seuil) (CLAUDE.md, « Un livre ouvert »).
+- **Les encadrés verts JAMAIS au travers du texte** (JP : « c'est du remplissage quand il reste de la place dans la
+  page ») : `chapitre.js` ne les pose plus que dans les trous, à la fin du texte de la page ; une note sans trou près
+  de son étape ne s'imprime pas (ch. 04 : une note sur quatre). Règle dans CLAUDE.md et le cadre.
+- **Le mur du tome 2 en planches** (texture_mur.py), et **le dos des couvertures : les éléments dans les trous**
+  (JP montre le tome 3 : « ça j'aime ça le style ») : les modules `essais-ia/tome-N/dos.py`, à finir pour les tomes 2
+  et 6, puis les six couvertures à refaire.
+
 ## ▶ LANCÉ le 19 octobre : le tome 1 final (JP : « monte le reste du tome 1 final »)
 
 Trois phases, une à la suite de l'autre (≈ 18 à 20 M au total) :
