@@ -29,12 +29,9 @@ d'heure jusqu'au printemps.
 
 ## 3. Matériel
 
-- **Avertisseur de CO à pile** : le seul moyen de savoir qu'un appareil qui brûle remplit la pièce de
- monoxyde (étape 2).
-- **Thermomètre à sonde** : planté au cœur de l'aliment, il donne le 4 °C du tri et le 74 °C de la cuisson
- (étapes 20 et 21 ; sans sonde : section 7).
-- **Thermomètre médical** : mis dans la bouche, il montre l'hypothermie avant que ses signes se voient
- (étape 8 ; sans thermomètre : section 7).
+- **Avertisseur de CO à pile** : le seul moyen de savoir qu'un appareil qui brûle remplit la pièce de monoxyde (étape 2).
+- **Thermomètre à sonde** : planté au cœur de l'aliment, il donne le 4 °C du tri et le 74 °C de la cuisson (étapes 20 et 21 ; sans sonde : section 7).
+- **Thermomètre médical** : mis dans la bouche, il montre l'hypothermie avant que ses signes se voient (étape 8 ; sans thermomètre : section 7).
 - **Montre à pile** : elle compte les heures depuis la panne sans user la batterie du téléphone (étape 1).
 
 ---

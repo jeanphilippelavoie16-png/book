@@ -35,13 +35,10 @@ nourriture et le lien), puis reprendre la décision à heure fixe tant que la si
 
 - **Avertisseur de CO à piles** : posé là où on dort, il est le seul moyen de savoir qu'il y a du monoxyde (étape 11).
 - **Radio à piles et piles de rechange** : elle donne l'état de la route, du feu et de la panne (étape 25 ; sans radio : section 7).
-- **Messagerie satellite ou radio VHF** : pour dire qu'on reste ou qu'on part, et où nous chercher, quand le téléphone
- ne passe plus (étapes 14 et 18 ; sans elles : section 7).
-- **Thermomètre d'intérieur** : deux relevés à 2 h d'écart donnent la vitesse à laquelle la maison refroidit (étape 27 ;
- sans thermomètre : section 7).
+- **Messagerie satellite ou radio VHF** : pour dire qu'on reste ou qu'on part, et où nous chercher, quand le téléphone ne passe plus (étapes 14 et 18 ; sans elles : section 7).
+- **Thermomètre d'intérieur** : deux relevés à 2 h d'écart donnent la vitesse à laquelle la maison refroidit (étape 27 ; sans thermomètre : section 7).
 - **Thermomètre médical** : il montre l'hypothermie sous 35 °C, avant les signes de l'étape 40. On ne peut pas le fabriquer.
-- **Fiche de décision remplie d'avance** : la durée du trajet en janvier, le nombre de jours de bois, la température
- intérieure à laquelle on part. En garder une copie à la maison, une au chalet et une dans l'auto.
+- **Fiche de décision remplie d'avance** : la durée du trajet en janvier, le nombre de jours de bois, la température intérieure à laquelle on part. En garder une copie à la maison, une au chalet et une dans l'auto.
 
 ---
 

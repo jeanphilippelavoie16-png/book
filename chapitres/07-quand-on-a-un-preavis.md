@@ -320,10 +320,10 @@ la génératrice, et décider tout de suite si on monte au chalet.
 ### Une deuxième tempête sur une maison déjà en panne
 
 La maison est en panne depuis deux jours, et une deuxième tempête s'annonce. Décider tout de suite si on monte au
-chalet, sans attendre le cinquième jour (ch. 2). Avant de monter, vérifier
-trois choses : assez de carburant pour l'aller sans faire le plein en route, du bois fendu là-haut, et une route
-encore ouverte. S'il en manque une, rester et fermer les pièces qu'on ne chauffe pas (ch. 2). Pour la suite, on n'a
-que ce qu'il y a dans la maison : les commerces sont fermés ou vides.
+chalet, sans attendre le cinquième jour. Avant de monter, vérifier trois choses : assez de carburant pour l'aller sans
+faire le plein en route, du bois fendu là-haut, et une route encore ouverte. S'il en manque une, rester et fermer les
+pièces qu'on ne chauffe pas (ch. 2). Pour la suite, on n'a que ce qu'il y a dans la maison : les commerces sont
+fermés ou vides.
 
 ### L'eau qui reste dans la maison
 
@@ -373,14 +373,14 @@ même bois, et une chaudière d'eau puisée au lac en coûte encore moins (ch. 1
 
 L'égout de la ville coule par gravité jusqu'aux stations de pompage ; quand elles s'arrêtent, il se remplit.
 
-- Pour tirer la chasse, verser d'un coup un seau d'eau de service dans la cuvette : la vitesse de l'eau amorce le
- siphon de la toilette, et un filet versé lentement ne fait que remplir la cuvette. Chaque chasse envoie son eau dans
- un égout qui ne pompe plus.
+- Pour tirer la chasse, verser d'un coup une chaudière d'eau de service dans la cuvette : la vitesse de l'eau amorce
+ le siphon de la toilette, et un filet versé lentement ne fait que remplir la cuvette. Chaque chasse remplit un peu
+ plus l'égout, qui ne pompe plus.
 - Si le sous-sol sent l'égout, l'égout refoule : arrêter d'y envoyer quoi que ce soit, et boucher le drain de plancher
  (plus bas).
-- Ensuite, se servir d'un seau doublé d'un sac, avec un couvercle, et jeter de la cendre de poêle ou du bran de scie
- par-dessus après chaque usage. La cendre absorbe l'eau libre, qui fait l'odeur, et une matière sèche arrête la
- fermentation. Avec deux seaux, garder l'urine à part : le mélange des deux sent le plus (ch. 31).
+- Ensuite, se servir d'une chaudière doublée d'un sac, avec un couvercle, et jeter de la cendre de poêle ou du bran
+ de scie par-dessus après chaque usage. La cendre absorbe l'eau libre, qui fait l'odeur, et une matière sèche arrête
+ la fermentation. Avec deux chaudières, garder l'urine à part : le mélange des deux sent le plus (ch. 31).
 
 ### Boucher le drain de plancher sans obturateur
 
@@ -398,8 +398,7 @@ On fabrique l'obturateur avec un bouchon de bois et un 2 × 4 coincé contre la 
 
 ### Faire de la glace dehors
 
-Sans courant, le congélateur ne fait plus de froid : il perd celui qu'il a. Dehors, il gèle. Remplir aux quatre
-cinquièmes tout ce qui ferme (des bidons, des bouteilles, des chaudières, des sacs doublés), le sortir pour la nuit et
+Quand il gèle dehors, on peut garder froid le congélateur arrêté. Remplir aux quatre cinquièmes tout ce qui ferme (des bidons, des bouteilles, des chaudières, des sacs doublés), le sortir pour la nuit et
 rentrer les blocs au matin dans le congélateur, qui sert alors de glacière. Un bloc entier fond beaucoup plus
 lentement que la même masse en morceaux, parce qu'il a moins de surface : faire geler l'eau en gros contenants. Avec
 deux jeux de bidons, un dehors et un dedans, on garde un congélateur fermé froid aussi longtemps qu'il gèle dehors.
