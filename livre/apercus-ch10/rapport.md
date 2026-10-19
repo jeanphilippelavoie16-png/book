@@ -1,7 +1,7 @@
 # Tome 1 · Tenir — rapport d'assemblage
 
-- **Produit le :** 2026-10-18 18:34, par `design/outils/assembler-tome.py 1 --chapitres 10 --hors-ligne --sortie livre/apercus-ch10`
-- **Fichier :** `livre/tome-1/interieur.pdf` — 40 pages, 10.1 Mo
+- **Produit le :** 2026-10-19 01:00, par `design/outils/assembler-tome.py 1 --chapitres 10 --hors-ligne --sortie livre/apercus-ch10`
+- **Fichier :** `livre/tome-1/interieur.pdf` — 40 pages, 12.3 Mo
 - **Ouvertures :** au recto ou au verso (--verso)
 - **Placements :** design/epreuves-livre/placements.json, design/epreuves-livre/placements-tome-1.json
 - **Exigences de Blurb :** `sources/blurb-specifications.md` (relevées le 27 septembre 2026)
@@ -10,8 +10,8 @@
 
 | Pages du tome | Contenu | Pages |
 | --- | --- | ---: |
-| 1 | Dédicace | 1 |
-| 3 | Page de titre | 1 |
+| 1 | Page de titre | 1 |
+| 3 | Dédicace | 1 |
 | 5 | Sommaire | 1 |
 | 6 | Comment le livre fonctionne (1) | 1 |
 | 7 | Comment le livre fonctionne (2) | 1 |
@@ -29,15 +29,15 @@ Aucune page de crédits (JP, 28 septembre 2026) : copie hors du livre dans `livr
 | Taille de chaque page | 585 × 738 pt (8,125 × 10,25 po) | 585.0 × 738.0 pt | oui |
 | Rognage (TrimBox) | 8 × 10 po, fond perdu au bord extérieur | recto : reliure à gauche ; verso : à droite | oui |
 | Nombre de pages | pair, de 20 à 440 (papier Standard) | 40 | oui |
-| Page 1 | à droite | ouverture du chapitre 00 | oui |
-| Polices incorporées | toutes | 25 police(s), 0 non incorporée(s) | oui |
-| Taille du fichier | 2 Go au plus | 10.1 Mo | oui |
+| Page 1 | à droite | page de titre | oui |
+| Polices incorporées | toutes | 29 police(s), 0 non incorporée(s) | oui |
+| Taille du fichier | 2 Go au plus | 12.3 Mo | oui |
 | Marques d'imprimeur | aucune | aucune | oui |
 | Couleur | CMJN ou sRVB, sans ton direct | sRVB (Edge) | oui |
 | Noir du texte | 100 % K | noir sRVB (0, 0, 0) : la conversion est faite chez Blurb | à juger sur épreuve |
 | PDF/X | plus exigé en 2026 (le guide de 2010 le demandait) | PDF 1.4 d'Edge, pas PDF/X | à surveiller au téléversement |
 
-Polices du fichier : BarlowCondensed-Bold, BarlowCondensed-ExtraBold, BarlowCondensed-Medium, BarlowCondensed-SemiBold, IBMPlexSansCond-Bold, IBMPlexSansCond-Medium, IBMPlexSansCond-SemiBold, IBMPlexSansCond-SemiBoldItalic, IBMPlexSerif-Bold, IBMPlexSerif-Italic, IBMPlexSerif-Regular, IBMPlexSerif-SemiBold, IBMPlexSerif-SemiBoldItalic, LiberationSerif, LiberationSerif-Italic, Type 3 sans nom (texte des planches)
+Polices du fichier : BarlowCondensed-Bold, BarlowCondensed-ExtraBold, BarlowCondensed-Medium, BarlowCondensed-SemiBold, IBMPlexSansCond-Bold, IBMPlexSansCond-Italic, IBMPlexSansCond-Medium, IBMPlexSansCond-Regular, IBMPlexSansCond-SemiBold, IBMPlexSansCond-SemiBoldItalic, IBMPlexSerif-Bold, IBMPlexSerif-Italic, IBMPlexSerif-Regular, IBMPlexSerif-SemiBold, IBMPlexSerif-SemiBoldItalic, LiberationSerif, LiberationSerif-Italic, Type 3 sans nom (texte des planches)
 
 **Caractères tombés hors des polices du livre** (IBM Plex, et les Noto chargées pour ce que Plex n'a pas) : le navigateur les a pris dans une police de secours (incorporée, donc imprimable, mais d'un autre dessin que le texte) :
 
@@ -55,7 +55,7 @@ Les planches de `images/a-valider/` sont posées comme les validées (JP les rel
 
 | Ch. | Posées (page du tome) | Mentionnées dans le texte sans planche dessinée | À valider, non posées | Photos demandées encore à acquérir (credits.md) |
 | --- | --- | --- | --- | ---: |
-| 10 | 10-02 (36, pleine), 10-07 (38, pleine), 10-01 (25), 10-08 (26, à valider), 10-03 (39), 10-eau-livre (22, double page), 10-hutte-castor.jpg (24) | — | — | 6 (ancien 13) |
+| 10 | 10-02 (35, pleine), 10-07 (37, pleine), 10-08 (25, à valider), 10-01 (26), 10-03 (39), 10-eau-livre (22, double page), 10-hutte-castor.jpg (24) | — | — | 6 (ancien 13) |
 
 ## Crédits des images — hors du livre
 

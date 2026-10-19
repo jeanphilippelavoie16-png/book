@@ -1,7 +1,7 @@
 # Tome 1 · Tenir — rapport d'assemblage
 
-- **Produit le :** 2026-10-18 16:43, par `design/outils/assembler-tome.py 1 --chapitres 03 --hors-ligne --sortie livre/apercus-ch03`
-- **Fichier :** `livre/tome-1/interieur.pdf` — 30 pages, 10.8 Mo
+- **Produit le :** 2026-10-19 01:00, par `design/outils/assembler-tome.py 1 --chapitres 03 --hors-ligne --sortie livre/apercus-ch03`
+- **Fichier :** `livre/tome-1/interieur.pdf` — 30 pages, 12.3 Mo
 - **Ouvertures :** au recto ou au verso (--verso)
 - **Placements :** design/epreuves-livre/placements.json, design/epreuves-livre/placements-tome-1.json
 - **Exigences de Blurb :** `sources/blurb-specifications.md` (relevées le 27 septembre 2026)
@@ -10,8 +10,8 @@
 
 | Pages du tome | Contenu | Pages |
 | --- | --- | ---: |
-| 1 | Dédicace | 1 |
-| 3 | Page de titre | 1 |
+| 1 | Page de titre | 1 |
+| 3 | Dédicace | 1 |
 | 5 | Sommaire | 1 |
 | 6 | Comment le livre fonctionne (1) | 1 |
 | 7 | Comment le livre fonctionne (2) | 1 |
@@ -36,9 +36,9 @@ Marqueur `{.orange}` sur l'intertitre ### de la série, dans le Markdown (CLAUDE
 | Taille de chaque page | 585 × 738 pt (8,125 × 10,25 po) | 585.0 × 738.0 pt | oui |
 | Rognage (TrimBox) | 8 × 10 po, fond perdu au bord extérieur | recto : reliure à gauche ; verso : à droite | oui |
 | Nombre de pages | pair, de 20 à 440 (papier Standard) | 30 | oui |
-| Page 1 | à droite | ouverture du chapitre 00 | oui |
+| Page 1 | à droite | page de titre | oui |
 | Polices incorporées | toutes | 22 police(s), 0 non incorporée(s) | oui |
-| Taille du fichier | 2 Go au plus | 10.8 Mo | oui |
+| Taille du fichier | 2 Go au plus | 12.3 Mo | oui |
 | Marques d'imprimeur | aucune | aucune | oui |
 | Couleur | CMJN ou sRVB, sans ton direct | sRVB (Edge) | oui |
 | Noir du texte | 100 % K | noir sRVB (0, 0, 0) : la conversion est faite chez Blurb | à juger sur épreuve |
@@ -62,7 +62,7 @@ Les planches de `images/a-valider/` sont posées comme les validées (JP les rel
 
 | Ch. | Posées (page du tome) | Mentionnées dans le texte sans planche dessinée | À valider, non posées | Photos demandées encore à acquérir (credits.md) |
 | --- | --- | --- | --- | ---: |
-| 03 | 03-09 (15, pleine, à valider), 03-10 (18, pleine), 03-12 (24, pleine, à valider), 03-11 (26, pleine, à valider), 03-08 (28, pleine, à valider), 03-panne-hydro-livre (10, double page) | — | — | 7 (ancien 04) |
+| 03 | 03-09 (15, pleine, à valider), 03-10 (18, pleine), 03-12 (23, pleine, à valider), 03-11 (25, pleine, à valider), 03-08 (27, pleine, à valider), 03-panne-hydro-livre (10, double page) | — | — | 7 (ancien 04) |
 
 ## Crédits des images — hors du livre
 
@@ -76,7 +76,7 @@ Photos téléchargées pour ces chapitres et non posées (images de référence 
 
 ## Avertissements
 
-- ch. 03, paginateur : p03-13 : page à moitié vide
+- aucun
 
 ## À savoir avant de téléverser
 
