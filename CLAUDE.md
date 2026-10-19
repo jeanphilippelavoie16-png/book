@@ -421,7 +421,11 @@ Commons filtré par licence, iNaturalist, planches du domaine public d'avant 193
 agences fédérales américaines, figures de revues scientifiques publiées sous CC BY
 (accepté par JP le 24 septembre 2026), et les photos de JP. Les licences non commerciales
 sont correctes pour un usage privé et à remplacer si le livre se vend un jour.
-Chaque image entre dans `credits.md` avec son auteur, sa licence et son lien.
+Chaque image entre dans `credits.md` avec son auteur, sa licence et son lien. **Pour les photos, la beauté d'abord**
+(JP, 19 octobre 2026 : « vu que c'est un livre privé, pas besoin de prendre des photos libres ; je veux des belles
+photos ») : les licences non commerciales sont bonnes (Flickr compris), et on cherche dans les meilleures (les
+« Featured pictures » et « Quality images » de Commons, les photographes de Flickr) ; une photo ordinaire ne passe pas
+parce qu'elle est libre.
 
 ## Ce qui est déjà fait
 
