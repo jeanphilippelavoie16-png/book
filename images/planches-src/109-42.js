@@ -145,7 +145,7 @@ module.exports = (h) => {
     return [
       { n: 6, rond: [t2[0] - 46, t2[1] - 8], cible: [t2[0] - 4, t2[1]], texte: 'pieux inclinés en arrière, en file' },
       { n: 7, rond: [m1[0] - 6, 14], cible: [m1[0] + 8, m1[1] - 9], texte: 'tête amarrée au pied du suivant' },
-      { n: 8, rond: [m0[0] + 46, yg + 36], cible: [m0[0] + 22, yg + 8], texte: 'tordu au bâton, puis planté' },
+      { n: 8, rond: [m0[0] + 46, yg + 36], cible: [m0[0] + 22, yg + 8], texte: 'tordre au bâton, puis le planter' },
       { n: 9, rond: [pieux[0].x + 40, 16], cible: [pieux[0].x + 6, yg - 7], texte: 'câble au pied du premier' },
     ];
   };

@@ -7,7 +7,7 @@
 // 1911 (sources/109-sciam-1911-matrice-cuir-coupelle.md) : le mandrin s'enfonce dans un trou
 // percé au diamètre du cylindre, le cuir pressé entre les deux. Le godet est tenu sous le piston
 // par une rondelle et une vis, comme sur toute coupelle de piston. Aucune cote (le chapitre n'en
-// donne pas). Vues en coupe ; le cuir en noir plein, l'huile en trame de liquide.
+// donne pas). Vues en coupe ; le cuir en noir plein, l'huile en trame de liquide noire (pas en bleu : le bleu est l'eau).
 module.exports = (h) => {
   const A = h.a;
   const BL = '#FFFFFF';
@@ -43,7 +43,7 @@ module.exports = (h) => {
     return [
       { n: 1, rond: [cx + Rm + 26, 40], cible: [cx + Rm + 1, 52], texte: 'mandrin au diamètre du piston' },
       { n: 2, rond: [cx + Rt + 26, yF + 18], cible: [cx + Rt + 1, yF - 10], texte: 'trou au diamètre du cylindre' },
-      { n: 3, rond: [cx - Rt - 30, yT - 26], cible: [cx - Rt + 2, yT - 6], texte: 'cuir gras chaud, pressé en godet' },
+      { n: 3, rond: [cx - Rt - 30, yT - 26], cible: [cx - Rt + 2, yT - 6], texte: 'presser le cuir gras chaud en godet' },
     ];
   };
 
@@ -58,7 +58,12 @@ module.exports = (h) => {
     const { cx, Rc, t } = q, yb = z.h - 4;
     for (const s of [-1, 1]) out.push(h.path(poly([[cx + s * Rc, 4], [cx + s * (Rc + t), 4], [cx + s * (Rc + t), yb], [cx + s * Rc, yb]]), A.hachure('metal', 'contour')));
   };
-  const huile = (q, out, y0, y1, x0, x1) => out.push(h.rect(x0, y0, x1 - x0, y1 - y0, A.hachure('eau', 'aucun')));
+  // L'huile garde sa trame de liquide en traits noirs : le bleu est réservé à l'eau (JP, 19 octobre 2026 : « toute l'eau
+  // en bleu sur les planches » ; l'huile n'en est pas). Un motif par vue, posé en remplissage du rectangle d'huile.
+  const huile = (q, out, y0, y1, x0, x1, id) => {
+    out.push(`<defs><pattern id="${id}" width="16" height="7" patternUnits="userSpaceOnUse"><line x1="1" y1="2" x2="8" y2="2" stroke="#1A1A1A" stroke-width="0.5"/><line x1="9" y1="5.5" x2="15" y2="5.5" stroke="#1A1A1A" stroke-width="0.5"/></pattern></defs>`);
+    out.push(h.rect(x0, y0, x1 - x0, y1 - y0, `fill="url(#${id})" stroke="none"`));
+  };
   // un godet en coupe, noir plein : fond d'épaisseur e, lèvres de hauteur hl qui s'amincissent ;
   // sens = -1 : la lèvre descend (ouvert vers le bas) ; +1 : elle monte. ext : demi-largeur extérieure
   const godet = (cx, yFond, ext, e, hl, sens) => {
@@ -69,7 +74,7 @@ module.exports = (h) => {
   const vueBon = z => {
     const q = C(z), { cx, Rc, Rp, yP, e, hl } = q, out = [], yb = z.h - 4;
     // l'huile sous pression : sous le piston, et dans le godet
-    huile(q, out, yP + e, yb, cx - Rc, cx + Rc);
+    huile(q, out, yP + e, yb, cx - Rc, cx + Rc, 'h-huile-109-44-bon');
     cylindre(z, q, out);
     // le piston, en coupe
     out.push(h.path(poly([[cx - Rp, 4], [cx + Rp, 4], [cx + Rp, yP], [cx - Rp, yP]]), A.hachure('metal', 'contour')));
@@ -89,7 +94,7 @@ module.exports = (h) => {
     // le godet monté à l'envers : le fond face à l'huile, la lèvre qui monte vers le piston ;
     // l'huile la décolle de la paroi et passe
     const yF = yP + hl, ext = Rc - jeu;
-    huile(q, out, yP - 30, yb, cx - Rc, cx + Rc);
+    huile(q, out, yP - 30, yb, cx - Rc, cx + Rc, 'h-huile-109-44-rate');
     cylindre(z, q, out);
     // le piston : son bout, plus mince, est pris dans le godet
     const rn = ext - e - 0.5;

@@ -145,7 +145,7 @@ module.exports = (h) => {
   const AN = { A: 210, B: 330, C: 90 };
   const pied3 = n => [RP * Math.cos(AN[n] * RAD), RP * Math.sin(AN[n] * RAD), 0];
   const M = z => {
-    const k = (z.h - 34) / 4500, yg = z.h - 30 - KY * (RP / 2) * k, x0 = z.l * 0.6 - 30;
+    const k = (z.h - 34) / 4500, yg = z.h - 30 - KY * (RP / 2) * k, x0 = z.l * 0.6 - 2;
     const P = (X, Y, Z) => [x0 + k * (X + KX * Y), yg - k * (Z + KY * Y)];
     const S3 = [0, 0, HS];
     const pieds = { A: pied3('A'), B: pied3('B'), C: pied3('C') };
@@ -222,7 +222,7 @@ module.exports = (h) => {
     const brin = lerp(piedPoulie, ph, 0.4);
     const cBC = lerp(pB, pC, 0.55);
     return [
-      { n: 1, rond: [pB[0] + 62, pB[1] - 4], cible: [pB[0] + 13, pB[1] - 14], texte: 'pied calé : trou ou piquet' },
+      { n: 1, rond: [pB[0] + 62, pB[1] - 4], cible: [pB[0] + 13, pB[1] - 14], texte: 'pied dans un trou ou contre un piquet' },
       { n: 2, rond: [cBC[0] + 84, cBC[1] - 22], cible: [cBC[0] + 1, cBC[1]], texte: 'corde tendue au ras du sol' },
       { n: 3, rond: [qh[0] + 92, qh[1] + 34], cible: [qh[0] + 16, qh[1] + 34], texte: 'un quartier, à l’aplomb du sommet' },
       { n: 4, rond: [brin[0] - 52, brin[1] - 22], cible: [brin[0] - 3, brin[1] - 1], texte: 'brin halé le long d’une patte' },

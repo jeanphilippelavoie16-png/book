@@ -142,7 +142,7 @@ module.exports = (h) => {
     const q = Fa(z), { cy, x0, xE, ec, lm, Rb, xb } = q;
     return [
       { n: 5, rond: [x0 + 24, cy], cible: [x0 + 40, cy + ec - lm / 2 + 1], texte: 'une corde par madrier' },
-      { n: 6, rond: [xE + 22, cy + 2], cible: [xE + 22, cy + ec - 18], texte: 'les deux tirées ensemble' },
+      { n: 6, rond: [xE + 22, cy + 2], cible: [xE + 22, cy + ec - 18], texte: 'tirer les deux bouts ensemble' },
     ];
   };
 

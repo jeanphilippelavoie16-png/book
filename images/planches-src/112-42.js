@@ -61,9 +61,9 @@ module.exports = (h) => {
   const renvoisPeler = z => {
     const q = P1(z), { y, r, xa, xb, x1, e } = q;
     return [
-      { n: 1, rond: [xa + 2 + (xb - xa + 40) * 0.55 - 30, z.h - 14], cible: [xa + 2 + (xb - xa + 40) * 0.55, y + r - 2 + 50 * 0.3025 + 2.2], texte: 'écorce verte pelée en lanières' },
+      { n: 1, rond: [xa + 2 + (xb - xa + 40) * 0.55 - 30, z.h - 14], cible: [xa + 2 + (xb - xa + 40) * 0.55, y + r - 2 + 50 * 0.3025 + 2.2], texte: 'peler l’écorce verte en lanières' },
       { n: 2, rond: [x1 - 90, y - r - 26], cible: [x1 - 110, y - r + 1], texte: 'une seule bande, d’un bout à l’autre' },
-      { n: 3, rond: [x1 - 40, y + r + 28], cible: [x1 - 60, y + 6], texte: 'la moelle : la mèche' },
+      { n: 3, rond: [x1 - 40, y + r + 28], cible: [x1 - 60, y + 6], texte: 'la moelle sert de mèche' },
     ];
   };
 
@@ -84,8 +84,10 @@ module.exports = (h) => {
   // ─── Vue 4 : tremper ────────────────────────────────────────────────────────────────────
   const vueTremper = z => {
     const out = [], y0 = z.h * 0.42, y1 = z.h - 18, x0 = 16, x1 = z.l - 16, yG = y0 + 12;
-    // un plat long, en coupe, le gras fondu dedans
-    out.push(h.rect(x0 + 6, yG, x1 - x0 - 12, y1 - yG - 6, A.hachure('eau', 'aucun')));
+    // un plat long, en coupe, le gras fondu dedans : il garde sa trame de liquide en traits noirs, le bleu est
+    // réservé à l'eau (JP, 19 octobre 2026 : « toute l'eau en bleu sur les planches » ; le gras n'en est pas)
+    out.push(`<defs><pattern id="h-gras-112-42" width="16" height="7" patternUnits="userSpaceOnUse"><line x1="1" y1="2" x2="8" y2="2" stroke="#1A1A1A" stroke-width="0.5"/><line x1="9" y1="5.5" x2="15" y2="5.5" stroke="#1A1A1A" stroke-width="0.5"/></pattern></defs>`);
+    out.push(h.rect(x0 + 6, yG, x1 - x0 - 12, y1 - yG - 6, 'fill="url(#h-gras-112-42)" stroke="none"'));
     out.push(h.ligne(x0 + 6, yG, x1 - 6, yG, A.detail));
     out.push(h.path(poly([[x0, y0], [x0 + 6, y0], [x0 + 6, y1 - 6], [x1 - 6, y1 - 6], [x1 - 6, y0], [x1, y0], [x1, y1], [x0, y1]]), A.hachure('metal', 'contour')));
     // le jonc couché dans le gras, un bout qui dépasse ; on le tire de long
@@ -96,7 +98,7 @@ module.exports = (h) => {
   };
   const renvoisTremper = z => {
     const y0 = z.h * 0.42, yG = y0 + 12, x1 = z.l - 16;
-    return [{ n: 4, rond: [x1 - 40, y0 - 30], cible: [x1 - 50, yG + 6], texte: 'trempé dans le gras fondu' }];
+    return [{ n: 4, rond: [x1 - 40, y0 - 30], cible: [x1 - 50, yG + 6], texte: 'tremper le jonc dans le gras fondu' }];
   };
 
   // ─── Vue 5 : brûler, presque couché ─────────────────────────────────────────────────────
@@ -142,7 +144,7 @@ module.exports = (h) => {
     const q = P5(z), { xb, hb, hs, yg, tete, u, debut, fin } = q;
     const mi = add(debut, u, 230);
     return [
-      { n: 5, rond: [xb - 70, tete[1] - 22], cible: [xb - 8, tete[1] - 4], texte: 'pincé dans un bâton fendu' },
+      { n: 5, rond: [xb - 70, tete[1] - 22], cible: [xb - 8, tete[1] - 4], texte: 'pincer le jonc dans un bâton fendu' },
       { n: 6, rond: [mi[0] + 14, mi[1] - 36], cible: [mi[0], mi[1] - 4], texte: 'presque couché' },
     ];
   };

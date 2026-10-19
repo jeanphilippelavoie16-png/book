@@ -49,7 +49,7 @@ module.exports = (h) => {
   // 19 (sa face côté vitre à 18,5 : 2,5 cm du verre, la distance du chapitre) ; la toile de plastique à 20,4 ;
   // les lattes de 20,9 à 22,9. Ouverte : la couverture pend d'une tringle à 28,5, loin du mur, et ses bords
   // du haut et du bas restent ouverts.
-  const XMIN = -5, LCM = 60;
+  const XMIN = -5, LCM = 57;
   const coupe = (z, ouverte) => {
     const R = repere(z, LCM, XMIN), { X, Y, L, s } = R, o = [];
     const B = (x1, y1, x2, y2, at) => boite(R, x1, y1, x2, y2, at);
@@ -112,8 +112,8 @@ module.exports = (h) => {
       o.push(h.path(`M${X(27.1)} ${Y(222)} L${X(27.1)} ${Y(228.1)} Q${X(27.1)} ${Y(229.9)} ${X(28.5)} ${Y(229.9)} Q${X(29.9)} ${Y(229.9)} ${X(29.9)} ${Y(228.1)} L${X(29.9)} ${Y(60)} Q${X(29.9)} ${Y(56)} ${X(29.4)} ${Y(54)}`, A.contour));
       // l'air de la pièce entre par le haut, descend le long de la vitre, ressort par le bas et coule au
       // plancher ; dans la pièce, il remonte : la boucle
-      o.push(h.fleche(`M${X(50)} ${Y(238.6)} L${X(25)} ${Y(238.6)} Q${X(22.6)} ${Y(238.6)} ${X(22.6)} ${Y(235)} L${X(22.6)} ${Y(14)} Q${X(22.6)} ${Y(6)} ${X(29)} ${Y(6)} L${X(44)} ${Y(6)}`, tirete));
-      o.push(h.fleche(`M${X(51.5)} ${Y(14)} L${X(51.5)} ${Y(226)}`, tirete));
+      o.push(h.fleche(`M${X(48.5)} ${Y(238.6)} L${X(25)} ${Y(238.6)} Q${X(22.6)} ${Y(238.6)} ${X(22.6)} ${Y(235)} L${X(22.6)} ${Y(14)} Q${X(22.6)} ${Y(6)} ${X(29)} ${Y(6)} L${X(44)} ${Y(6)}`, tirete));
+      o.push(h.fleche(`M${X(50)} ${Y(14)} L${X(50)} ${Y(226)}`, tirete));
       o.push(h.controle(X(23.4), Y(232.4), 12), h.controle(X(25.6), Y(54), 12));
     }
     // dehors, la pièce
@@ -125,7 +125,7 @@ module.exports = (h) => {
   // ─── La vue de la pièce : la couverture, les quatre lattes, la fenêtre derrière en tireté ──────────
   // x en cm, 0 au milieu de la fenêtre. Ouverture de -45 à 45, chambranle de 9 cm (jusqu'à ±54), couverture
   // jusqu'à ±55, lattes de 4 cm sur le chambranle : en haut et en bas sur toute la largeur, les côtés entre elles.
-  const FX = 60;
+  const FX = 57;
   const face = z => {
     const R = repere(z, 2 * FX, -FX), { X, Y, L } = R, o = [];
     const B = (x1, y1, x2, y2, at) => boite(R, x1, y1, x2, y2, at);
