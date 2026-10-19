@@ -50,7 +50,8 @@ d'heure jusqu'au printemps.
  sirène, pas l'air de la pièce. L'avertisseur ne sonne pas pour une petite quantité de CO, même respirée
  pendant des jours : quand on chauffe avec un appareil improvisé, son silence ne prouve pas que l'air
  est bon (section 6).
- - Regarder la date écrite sur l'avertisseur : s'il a été installé il y a plus de 7 ans, faire comme si
+ - Regarder la date de fabrication inscrite au dos de l'avertisseur : s'il a passé la durée de vie que
+ donne le fabricant (7 à 10 ans selon le modèle ; 7 ans quand on ne connaît pas le modèle), faire comme si
  on n'en avait pas.
  - Si l'avertisseur ne répond pas au bouton, ou si on n'en a pas, n'allumer dans la maison que le poêle
  raccordé à sa cheminée (section 7, « Ce qu'on perd »).
@@ -93,8 +94,8 @@ dormir, et faire le reste de la série au réveil.
 8. {!froid} **L'hiver, habiller tout le monde en couches, avec une tuque, avant d'avoir froid.** Prendre la
  température dans la bouche d'une personne qui a été dehors ou qui frissonne, et d'un enfant qui devient
  tranquille (section 5).
-9. {!generatrice} **Si on a une génératrice, la faire tourner dehors, à au moins 6 m du bâtiment**, loin
- des portes, des fenêtres et des prises d'air. Ne jamais la faire tourner dans un bâtiment, un
+9. {!generatrice} **Si on a une génératrice, la faire tourner dehors, à au moins 6 m de tout bâtiment**,
+ loin des portes, des fenêtres et des prises d'air. Ne jamais la faire tourner dans un bâtiment, un
  garage, un abri ni sous un auvent, même porte ouverte, même le temps de la démarrer.
 10. {!electrocution} **Avant de brancher quoi que ce soit sur la génératrice, mettre le disjoncteur
  principal à OFF**, et coller dessus un bout de ruban avec un mot au marqueur, pour que personne ne le
@@ -203,7 +204,7 @@ dormir, et faire le reste de la série au réveil.
 | --- | --- | --- | --- |
 | Les 15 premières minutes | Avertisseur de CO, au bouton d'essai | Une alarme franche | N'allumer dans la maison que le poêle raccordé à sa cheminée (étape 2) |
 | Les 15 premières minutes | Place de l'avertisseur de CO | Dans la pièce chauffée où on dort, à au moins **2 m** de tout appareil qui brûle ; s'il y en a un deuxième, près de la porte du garage attenant | Le déplacer avant d'allumer quoi que ce soit |
-| Les 15 premières minutes | Date de l'avertisseur de CO | Installé depuis moins de **7 ans** | N'allumer dans la maison que le poêle raccordé à sa cheminée (étape 2) |
+| Les 15 premières minutes | Date de fabrication de l'avertisseur de CO, au dos | Moins de **7 à 10 ans** selon le modèle, **7 ans** si on ne connaît pas le modèle | N'allumer dans la maison que le poêle raccordé à sa cheminée (étape 2) |
 | Chaque heure | Température de la pièce chauffée | Repère : **18 à 24 °C**, risque minimal pour une personne qui bouge peu. Personne ne frissonne, personne ne dort en manteau | Réduire encore le volume chauffé, fermer une pièce de plus, rapprocher les lits. Décider du départ avec le ch. 2 |
 | Chaque heure | L'écart avec la température de l'heure d'avant | L'écart en °C | Le multiplier par les heures qui restent jusqu'au matin (étape 13). Si la pièce doit devenir trop froide, regrouper la famille pendant qu'il fait clair |
 | Chaque heure, si quelqu'un a été dehors ou a froid | Température dans la bouche | **35 °C ou plus**. Sous 35 °C, hypothermie | Le réchauffer doucement, au sec, à l'abri. Sous **32,2 °C**, la vie est en jeu (ch. 25, ch. 26) |
@@ -288,8 +289,8 @@ température. On coupe donc la viande en morceaux d'égale épaisseur au lieu de
 entier. Le test de la lame donne une indication : pousser une lame mince au centre, la laisser le temps
 qu'elle prenne la température de la viande, puis la poser contre l'intérieur du poignet. Si elle est
 tiède, le centre est froid. Si elle est brûlante, le centre est chaud, mais pas forcément à 74 °C. Pour
-l'ours et le phoque (étape 27), le bain d'eau bouillante est la seule méthode sans thermomètre : une pièce
-rôtie près du feu peut être cuite en surface et crue au centre.
+l'ours et le phoque (étape 27), sans thermomètre, on ne les sert pas : rien d'autre ne montre que le cœur a
+atteint 74 °C, et une pièce rôtie près du feu peut être cuite en surface et crue au centre (ch. 18, section 7).
 
 ### Remplir le congélateur arrêté
 
@@ -316,7 +317,7 @@ une lampe et une radio 12 V toute une nuit sans essence. On la recharge le lende
 l'auto et en roulant. Une batterie déchargée gèle : on ne la laisse dehors que pleine. Le montage est celui
 du 12 V du chalet (ch. 85, ch. 15).
 
-{!generatrice} **Réchauffer les enfants dans l'auto, moteur en marche, seulement si elle est stationnée
+{!co} {!generatrice} **Réchauffer les enfants dans l'auto, moteur en marche, seulement si elle est stationnée
 dehors**, jamais dans le garage ni sous un abri. Dégager le tuyau d'échappement de la neige avant chaque
 démarrage ; en tempête, la neige le rebouche vite. Chaque heure de moteur au ralenti use de l'essence qui
 servira au départ (ch. 2, ch. 15).

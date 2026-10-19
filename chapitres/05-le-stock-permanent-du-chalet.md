@@ -48,8 +48,8 @@ trois mois, et elle doit tenir au moins un mois, même l'année où personne n'a
  (ch. 1). Avec un petit budget, compléter d'abord le bois, les moyens d'allumage, l'eau et le gras, avant d'ajouter de
  la nourriture.
 2. **Garder le stock au chalet, toute l'année.** Quand l'événement dure, la famille finit au chalet (ch. 2), et le
- jour où on décide d'y monter, la route peut déjà être coupée. La trousse qu'on emporte est au ch. 6, le sac de
- départ au ch. 7.
+ jour où on décide d'y monter, la route peut déjà être coupée. La trousse qu'on emporte est au ch. 6, et ce qu'on
+ fait en partant, au ch. 2 (étapes 16 à 24).
 3. **Prévoir pour chaque besoin deux moyens qui ne tombent pas en panne pour la même raison** : deux façons de puiser
  l'eau, deux de la désinfecter (étape 6), trois d'allumer le feu (étape 38). Trois boîtes d'allumettes rangées dans
  le même tiroir brûlent, se perdent ou prennent l'humidité ensemble : elles comptent pour un seul moyen.
@@ -107,10 +107,10 @@ trois mois, et elle doit tenir au moins un mois, même l'année où personne n'a
  | 19 à 30 ans | 2 350 | 3 000 |
  | 31 à 50 ans | 2 250 | 2 900 |
 
- Pour un homme et une femme de 19 à 30 ans, un enfant de 4 ou 5 ans et un enfant de 6 ou 7 ans, le total est de 8 550
- à 8 800 kcal par jour. Ces valeurs sont des moyennes pour la taille et le poids médians au Canada, sans rien pour le
- froid ni pour le travail d'hiver. Fendre, pelleter, faire la tournée des pièges et se garder au chaud à −35 °C
- demandent plus d'énergie : la neige alourdit chaque pas, la charge qu'on porte s'ajoute, et le frisson fait dépenser
+ Pour un homme et une femme de 19 à 30 ans et deux enfants de 4 à 7 ans, le total est de 8 350 à 8 950 kcal par
+ jour. Ces valeurs sont des moyennes pour la taille et le poids médians au Canada, sans rien pour le froid ni pour
+ le travail d'hiver. Fendre, pelleter, faire la tournée des pièges et se garder au chaud à −35 °C demandent plus
+ d'énergie : la neige alourdit chaque pas, la charge qu'on porte s'ajoute, et le frisson fait dépenser
  de l'énergie même au repos. De jeunes hommes entraînés, en opérations d'hiver, dépensent 5 000 à 7 000 kcal par
  jour, le double du tableau, et ils mangent beaucoup moins qu'ils ne dépensent, parce que la nourriture gèle et qu'il
  faut faire fondre de la neige pour la préparer. Au froid, une partie du stock doit donc être **prête à manger**.
@@ -210,8 +210,8 @@ trois mois, et elle doit tenir au moins un mois, même l'année où personne n'a
  calcule toujours les pourcentages de sel (salaison à sec, saumure, poisson) sur **le poids de la viande**, jamais sur
  le volume d'eau ni sur celui du contenant.
 21. {!poison} **Garder du sel nitrité du commerce, jamais de salpêtre.** On ne dose pas le salpêtre (nitrate de
- potassium) comme le sel nitrité, sa forme moderne, et on ne remplace pas l'un par l'autre cuillère pour cuillère. Le
- ch. 67 donne les doses et la raison.
+ potassium) comme le sel nitrité, sa forme moderne, et on ne remplace pas l'un par l'autre cuillère pour cuillère. On
+ pèse le sel nitrité au dixième de gramme ; le ch. 67 donne les doses et la raison.
 
 ### Les conserves, le poisson et le congélateur
 
@@ -256,7 +256,7 @@ trois mois, et elle doit tenir au moins un mois, même l'année où personne n'a
  | Poste | Cible | Remarque |
  | --- | --- | --- |
  | Bois de chauffage sec | Ce que le chalet a brûlé l'hiver d'avant, plus une marge (étape 29) | Couper et fendre le bois de l'hiver suivant, et le laisser sécher au moins six mois pendant qu'on brûle celui-ci |
- | Humidité du bois | **20 % ou moins** quand on le rentre ; environ **25 %** est l'humidité idéale pour la combustion | Le fendre, l'empiler en laissant passer l'air, et le garder à l'abri de la pluie et de la neige |
+ | Humidité du bois | **20 % ou moins** quand on le rentre | Le fendre, l'empiler en laissant passer l'air, et le garder à l'abri de la pluie et de la neige |
  | Diamètre des bûches | Moins de **15 cm** pour un poêle à bois | **5 cm et moins** pour le bois d'allumage |
  | Bois d'allumage et écorce de bouleau à papier | Un bac plein en tout temps | L'écorce de bouleau s'allume même mouillée |
  | Essence | De quoi faire le prochain plein de la scie à chaîne et de la génératrice | Dehors (étape 31) |
@@ -283,7 +283,7 @@ trois mois, et elle doit tenir au moins un mois, même l'année où personne n'a
  et le kérosène au cabanon pour la saison.
 32. {!vapeurs} **Garder les bouteilles de propane debout, dehors**, jamais dans un bâtiment ni dans un cabanon fermé
  (ch. 87).
-33. {!generatrice} **Faire tourner la génératrice dehors, à découvert, à au moins 6 m du chalet et du cabanon.**
+33. {!generatrice} **Faire tourner la génératrice dehors, à découvert, à au moins 6 m de tout bâtiment.**
  Ne jamais la mettre en marche dans le cabanon ni dans un autre bâtiment, même porte ouverte, ni sous un auvent.
 34. {!co} **Poser les avertisseurs de CO.**
  - En mettre un à chaque étage, dans le corridor près des chambres, et un dans chaque chambre où on dort porte
@@ -305,7 +305,7 @@ trois mois, et elle doit tenir au moins un mois, même l'année où personne n'a
  avant de partir.
 37. **Garder une lampe et une radio à manivelle.** La manivelle ne dépend ni des piles ni du carburant. Communiquer :
  ch. 14.
-38. **Ranger trois moyens d'allumage à trois endroits** : un sur soi, un dans la cuisine, un dans la remise
+38. **Ranger trois moyens d'allumage à trois endroits** : un sur soi, un dans la cuisine, un dans le cabanon
  (étape 3).
 39. **Compter l'huile à lampe dans le même total que le diesel et le kérosène, et la ranger au même endroit**
  (étape 31 ; ch. 85). Avec une lampe par pièce et un petit bidon d'appoint dans l'armoire, le carburant s'accumule
@@ -458,8 +458,8 @@ salaisons courtes, au froid (ch. 67).
 serti des boîtes de conserve a travaillé, les bocaux de conserve maison sont à jeter (étape 4), et les bidons remplis à
 ras bord ont pu fendre. Pour savoir si le local a dégelé puis regelé pendant l'absence, laisser le pot geler une fois,
 poser une pièce de monnaie sur la glace et refermer le local. Si on retrouve la pièce en surface, rien n'a dégelé. Si
-elle est prise au milieu ou au fond du bloc, elle a coulé pendant un redoux, et tout ce qui était congelé dehors a
-dégelé en même temps qu'elle.
+elle est prise au milieu ou au fond du bloc, elle a coulé pendant un redoux : le local a dégelé, puis regelé. Pour la
+viande du coffre dehors, faire le même essai avec un deuxième pot posé dans le coffre (étape 25).
 
 **Le témoin de chaleur.** Poser un morceau de suif dans une soucoupe. S'il est affaissé ou s'il a coulé, le local a eu
 des jours chauds : les huiles, les noix et le lait en poudre ont vieilli plus vite que leur date. Les passer tout de

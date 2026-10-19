@@ -472,8 +472,9 @@ repasser dans un lit de cendres neuves, deux ou trois fois — chaque passe le f
 aussi au chaudron de fonte, à feu doux, sans couvercle ; à gros bouillon, il projette, et ce qu'il
 projette est corrosif.
 
-**Mesurer sa force.** Le vieux test : la lessive est assez forte quand un œuf frais y flotte. Il
-ne dit que «assez fort » ou «pas assez fort ». Le test qui vaut vraiment quelque chose est la **fournée
+**Mesurer sa force.** Le vieux test : la lessive est assez forte quand un œuf frais y flotte. S'il
+coule sous la surface, la lessive est trop faible ; s'il flotte à moitié hors de la lessive, elle est trop forte, et
+le savon brûlera la peau. Le test qui vaut vraiment quelque chose est la **fournée
 d'essai à la cuillerée** : une cuillerée de gras fondu dans une boîte de conserve, quelques gouttes
 de lessive, brassées au bâton sur le coin du poêle. Si ça épaissit et vient en pâte, la lessive
 travaille ; si ça reste deux liquides côte à côte, elle est trop faible et elle retourne aux

@@ -592,3 +592,33 @@ autre changement.
 **Pour l'orchestrateur (fichiers communs, non touchés)** : dans `design/epreuves-livre/placements-tome-1.json`, clé
 « 17 », le logigramme a encore `apres` = « Régler une visite imprévue sur le seuil », qui n'existe plus dans le
 chapitre : le remplacer par « **Barre de porte** » (dernier item du Matériel). La planche 17-06 garde son ancre.
+
+## Points réglés après l'édition, 19 octobre 2026
+
+Passe « trancher » (rédacteur du lot 15-16-17) : les questions laissées à JP par le rédacteur et les faits signalés par
+l'éditeur (`_reprise/scratchpad/tome1-final/lot-15-16-17.json`). Règle de JP pour la passe : rien de déjà vérifié n'est
+rouvert ; une source ne s'ouvre que pour trancher un point neuf. Fichier en CRLF, gardé en CRLF. Aucune étape
+renumérotée (1 à 29), aucune ancre déplacée.
+
+| Point | Ce qui est fait | La règle ou la source |
+| --- | --- | --- |
+| Boire en hypothermie : la page `froid` contre le ch. 25 (question à JP, ouverte depuis le 15 octobre) | **Réglé.** Les deux disent la même chose : la page fait boire seulement la personne « bien éveillée » qui « avale bien » ; le ch. 25 ne fait rien boire en hypothermie modérée parce que « la conscience altérée fait avaler de travers ». Le risque était au ch. 17 : l'étape 7 envoie à l'étape 8 une personne confuse, et « bien éveillée » pouvait se lire « les yeux ouverts ». L'étape 8 dit maintenant « seulement si elle est bien éveillée, qu'elle n'est pas confuse et qu'elle avale bien (ch. 25, étapes 10 et 11) ». Section 7, la boisson : « seulement à une personne qui peut boire (étape 8) », au lieu de la moitié de la condition. Rien à changer au ch. 25 | Page `froid`, point 5 ; ch. 25, étapes 10 et 11 |
+| Les bornes −28, −40, −48 dans les Points de contrôle, quand JP a dit « oublie ça le thermomètre » (question à JP) | **Réglé, gardées.** La remarque visait la série orange (on se fait réveiller la nuit) ; la règle qui en est sortie dit qu'un geste qu'on ne fera pas à ce moment-là sort de l'orange et va là où il se fait. Les bornes sont hors de l'orange, avec la règle « sans thermomètre, décider tout de suite, par la fenêtre » | Skill `ecriture`, tableau du 15 octobre (ligne du thermomètre) |
+| Note « Le refroidissement éolien » : « chaque plage de valeurs donne le temps… » renvoyait à un tableau absent du chapitre | **Réglé** : la phrase sort ; la note dit « Par un vent soutenu de plus de 50 km/h, la peau exposée peut geler plus vite que le temps donné pour la valeur de l'indice (étape 7). » Les plages sont sur la page `froid` | Contradiction interne ; page `froid` |
+| Section 7, « Donner sans renseigner » : « souffler dans le boyau court », juste avant « Ne jamais amorcer le siphon à la bouche », et « une poire de pompe », qui n'est pas le nom du ch. 15 | **Réglé** : « Pour donner du carburant, le siphonner avec deux boyaux et une pompe à vélo ou à matelas, ou avec un boyau à bille (ch. 15, section 7, « Amorcer le siphon sans la bouche »). » Le geste est celui du ch. 15, dit une fois là-bas | Ch. 15, section 7 ; skill `ecriture`, « La répétition » |
+| Section 7, la bouillotte : « pas sur les mains ni les pieds » contre « rien sur les bras ni les jambes » à l'étape 8, et la liste des endroits redite | **Réglé** : « la poser là où l'étape 8 place les bouillottes » | Contradiction interne ; page `froid`, point 4 |
+| Mal de caribou : « ch. 19, ch. 21 » ici, « ch. 19, ch. 72 » au ch. 16 | **Gardé** : donner du gras à un visiteur renvoie au ch. 21 (ce qu'un corps demande l'hiver) ; le ch. 16, qui partage le gras d'un orignal, renvoie au ch. 72 (graisses) | Renvois |
+| Étape 15 : « on n'arrive plus à faire partir la personne » | **Vérifié, rien à changer** : même sens que l'ancien texte | |
+| Étape 3 (l'adulte seul ne sort pas) et étape 7 (porter ou traîner couchée la personne qui a un signe du froid) | **Gardé pour JP** : un choix de famille que rien ne tranche | |
+| Étape 12 : donner sans résister quand quelqu'un force la porte (page de la GRC sur le vol dans la rue) | **Gardé pour JP** : un choix de famille, ouvert depuis le 15 octobre | Plan de match, PAUSE du 15 octobre, point 2 |
+
+Rendu à l'intégrateur et à l'agent des planches, sans y toucher : trois boîtes du logigramme 17 (« **Ne pas ouvrir**,
+mais faire savoir… », opposition ; « **Un seul adulte parle.** », présent de constat ; « **Tout le monde va dans la pièce
+du fond**, on bloque… », consigne au présent), et la planche 17-07 proposée (l'abri pour réchauffer quelqu'un dehors).
+
+Ancres à reporter dans `placements-tome-1.json` : logigramme « **Barre de porte** » (l'ancienne, « Régler une visite
+imprévue sur le seuil », n'existe plus) ; 17-06 inchangée, « Une porte cède au chambranle, presque jamais au pêne ».
+
+controle.py : 5 776 mots (5 795 avant), 2 tirets (titre et ligne de tome), 0 « § », 0 mot banni, 0 tournure, 0 maxime,
+0 pronominal ; 1 mise en relief (« n'éblouit pas, mais », note En plus, déjà jugée), 18 mots vides et 5 redites, jugés ;
+invariants contre la version d'avant cette passe : rien n'a disparu.

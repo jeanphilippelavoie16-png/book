@@ -438,3 +438,28 @@ le ch. 8.
 **controle.py :** 6 723 mots, 2 tirets (titre et ligne de tome), 0 « § », 0 tournure, 0 maxime, 0 pronominal,
 « au niveau de la mer » gardé, 43 mots vides jugés (les mêmes). Invariants contre la refonte (`40920d1`) et contre
 `4ed97c7` : rien n'a disparu. Notes En plus : 80, 55, 36 et 53 mots. Fins de ligne LF.
+
+## Points réglés après l'édition, 19 octobre 2026
+
+Les six faits que l'éditeur a signalés sans les changer (`suivi/08-edition.md`). Aucune source nouvelle ouverte (JP,
+19 octobre : « on a pas déjà fait ce travail-là ? ») : chaque correction s'appuie sur une source déjà au dossier, sur un
+autre chapitre qui porte sa provenance, ou sur une règle de `CLAUDE.md`.
+
+| Où | Avant | Après | Ce qui tranche |
+| --- | --- | --- | --- |
+| Section 5, avertisseurs de CO | « le bouton d'essai, et la date de fabrication » ; « 1 par étage habité, 1 près du poêle » ; « moins de 7 à 10 ans, selon le modèle » | « leur nombre, la date de fabrication imprimée au dos, et le bouton d'essai (on l'essaie aussi chaque mois : ch. 9) » ; « 1 par étage, sous-sol compris, 1 par chambre où l'on dort porte fermée, 1 dans la pièce du poêle, à au moins 2 m de lui » ; « ou moins de 7 ans quand on ne connaît pas le modèle » | Emplacements : `sources/08-quebec-avertisseurs-monoxyde-carbone.md` (chaque étage, sous-sol compris ; chaque chambre où l'on dort la porte fermée ; pas à moins de 2 m d'un appareil de combustion). Essai chaque mois : `sources/85-quebec-avertisseurs-fumee-et-monoxyde.md`, `sources/14-inspq-avertisseurs-co.md`, ch. 9 section 5. Repli de 7 ans : `sources/09-avertisseurs-co-duree-de-vie.md`, ch. 9 étape 22, ch. 00b ligne 1.A. Les ch. 8, 9 et 00b disent maintenant la même chose |
+| Section 7, « Le sang qui coule sans trousse » | « une sangle large : une ceinture de nylon, une sangle à cliquet, une bretelle de sac. Une corde, un fil ou un lacet coupent la peau au lieu de serrer » ; « Passer la sangle » | « une bande large : une sangle à cliquet, une bretelle de sac, une manche de chemise fendue. La largeur répartit la pression ; une corde, un fil, un lacet ou une ceinture étroite écrasent les nerfs et les muscles sous eux (ch. 26) » ; « Passer la bande » | Ch. 26, « Le garrot » (« jamais une ceinture étroite, parce que la largeur est ce qui répartit la pression »). Le ch. 00b, partie E, disait qu'une ceinture ne serre pas assez : aligné sur le ch. 26 lui aussi |
+| Section 7, « Le 12 volts de l'auto » | « Deux batteries montées en série donnent 24 V, de quoi tirer un arc de soudure » | « Des batteries d'auto montées en série soudent l'acier. Avec deux (24 V), l'arc s'amorce mal et ne tient que très court ; avec trois (36 V), on a la tension d'un arc de travail (ch. 107) » | `sources/00b-us-army-tc9-237-tension-a-vide-et-arc.md` (levée du 24 septembre, ch. 00b partie D : 24 V est sous la tension d'un arc de travail, 25 à 35 V) ; ch. 107, A (« on commence à deux, et on en ajoute une tant que l'arc colle ou s'éteint ») |
+| Section 7, « La lampe à gras » | mèche « d'un lacet de botte ou d'une ficelle » | « d'un lacet ou d'une ficelle de coton » | Ch. 85, étape 3 (« rien de synthétique : ça fond ») ; ch. 112, Matériel ; ch. 00b, B |
+| Section 7, « Ce qu'on perd » de l'eau | après « Désinfecter sans feu », où on ne dépense ni le temps ni le bois de l'ébullition | à la fin de « La neige et le lac », où on fait bouillir ; aucun mot changé | Logique du texte. « Désinfecter sans feu » dit déjà ce qu'on perd sans feu ni filtre (le parasite) |
+| Scénario 2, chapeau | « coupe la route… si la route reste coupée… pendant que le chemin du chalet passe encore » | « coupe la route qui ravitaille la ville… si cette route reste coupée… » | La lecture de l'éditeur est confirmée : la route coupée est celle du ravitaillement, le chemin du chalet en est un autre. Ch. 2, étape 32 : partir pendant que la route est ouverte |
+
+**Inventaire des dangers** (rendu à l'intégrateur) : à la puce `coupure` du paragraphe du ch. 08, « garrot à sangle
+large » devient « garrot à bande large, jamais une ceinture étroite (ch. 26) ».
+
+**Rien pour JP** dans ce chapitre.
+
+**controle.py --avant** (contre `HEAD`) : 6 867 mots avant, 6 944 après ; 2 tirets (titre et ligne de tome, format de
+l'assembleur) ; 0 « § », 0 tournure, 0 pronominal ; la maxime signalée est la note 1, déjà jugée (un fait qui
+surprend) ; « au niveau de la mer » gardé ; invariants : rien n'a disparu. Aucune ancre (clé « 08 » vide). Fins de
+ligne LF.

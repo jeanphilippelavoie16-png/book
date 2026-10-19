@@ -731,3 +731,35 @@ blessé dans un sac de couchage fermé (rendu à l'agent des planches, légende 
 bloc », deux gestes différents ; « l'heure du prochain message », le même mot pour la même chose). Invariants : rien n'a
 disparu. Ancres 16-07 et 16-08 de `placements-tome-1.json` toujours introuvables, par construction (les nouvelles ancres
 sont rendues à l'intégrateur depuis la refonte).
+
+## Points réglés après l'édition, 19 octobre 2026
+
+Passe « trancher » (rédacteur du lot 15-16-17) : les questions laissées à JP par le rédacteur et les faits signalés par
+l'éditeur (`_reprise/scratchpad/tome1-final/lot-15-16-17.json`). Règle de JP pour la passe : rien de déjà vérifié n'est
+rouvert ; une source ne s'ouvre que pour trancher un point neuf. Fichier en CRLF, gardé en CRLF. Aucune étape
+renumérotée (1 à 47), aucune ancre déplacée.
+
+| Point | Ce qui est fait | La règle ou la source |
+| --- | --- | --- |
+| Le travois de l'été, `[À VÉRIFIER]` (question à JP) | **Coupé.** Section 7, le paragraphe « *L'été, sans neige.* » sort ; étape 5 : « L'été, le sortir en canot (étape 11). » ; étape 11, dernier tiret : « Sans eau qui mène au camp, prendre un VTT avec une remorque. Sans VTT, l'abriter sur place et envoyer chercher une machine ou des bras (étape 14). » La sortie de l'été tient sans lui (canot, VTT, abri sur place). Le travois venait de la liste à chercher et à sourcer du point 2 de la PAUSE du 15 octobre, pas d'une demande de JP ; une première recherche (15 octobre) et une seconde (19 octobre, web : forums et blogues seulement, rien d'officiel) n'ont rien donné. Il peut revenir avec une source. La planche candidate du travois tombe | Règle 1 et règle 2 de `CLAUDE.md` ; règle de la passe (phrase sans source coupée quand la consigne tient sans elle, comme au ch. 10) |
+| Étape 13 : « sans avoir été réchauffé » (question à JP) | **Réglé, gardé.** La condition vient du ch. 25, étape 3 (« leur arrêt sans réchauffement est une aggravation ») ; la page `froid` ne la contredit pas. Les Points de contrôle (ligne « à chaque relève ») disaient la règle sans la condition : alignés sur l'étape 13 | Ch. 25, étape 3 ; contradiction interne |
+| Boire pendant la sortie | **Réglé** : l'étape 13 dit d'abord le cas grave (confus, ou plus de frissons sans réchauffement : à l'horizontale, doucement, **rien par la bouche**, ch. 25, étape 11), puis « Sinon, ne lui donner à boire chaud et sucré que s'il est bien éveillé et avale bien (ch. 25, étape 10) ». Avant, la boisson venait en premier et un blessé confus mais éveillé pouvait la recevoir. Même ajout dans la ligne des Points de contrôle | Page `froid`, point 5 ; ch. 25, étapes 10 et 11 (la page et le ch. 25 disent la même chose : la conscience altérée exclut la boisson) |
+| « La sortie » et « Chaque heure de la sortie » en orange ? (question à JP) | **Réglé, pas d'orange** : la série orange est celle des premières minutes, d'abord ce qui sauve, ensuite ce qui organise ; la sortie dure des heures, et aucune source ne donne un temps pour une pastille | `CLAUDE.md`, « Les premières minutes » ; cadre des agents (« ce temps est sourcé ») |
+| Étape 29, épidémie : les petits services (l'éditeur y voyait un contact rapproché) | **Réglé, le sens d'origine remis** : la phrase était un avertissement (« Le piège n'est pas le rassemblement, qui se voit ; c'est la chaîne de petits services… », texte d'avant la passe, `ef62be7`) et se lisait comme un conseil. Elle devient une consigne : « Refuser aussi les petits services, comme garder les enfants d'un autre foyer quelques heures ou passer prendre quelque chose chez lui : sans que personne ait l'impression de se rassembler, ils remettent tous les foyers en contact (ch. 30). » | Texte d'avant la passe ; ch. 30 |
+| Étape 19 (trois feux en triangle, la détresse) et section 7 (deux feux alignés, un message) : un lecteur peut les confondre | **Réglé** : la section 7 ajoute « Trois feux en triangle restent le signal de détresse (étape 19). » | Renvoi interne |
+| Étapes 17 et 23 : l'autonomie mesurée ou écrite | **Vérifié, rien à changer** : l'étape 23 et la section 5 disent maintenant « mesurée (étape 17) et écrite sur l'appareil » | Contradiction interne réglée par l'éditeur |
+| Mal de caribou : « ch. 19, ch. 72 » ici, « ch. 19, ch. 21 » au ch. 17 | **Gardé** : chaque renvoi mène au chapitre qui sert le geste. Ici, partager le gras d'un orignal (ch. 72, pemmican et graisses) ; au ch. 17, donner du gras à un visiteur (ch. 21, ce qu'un corps demande l'hiver) | Renvois |
+| « ch. 35, section 9 », « ch. 26, section 9 » | **Rien à changer aujourd'hui** : ces chapitres ont encore neuf sections ; « section 7 » à leur migration (tome 2), ici et dans les champs source du logigramme 16 | Gabarit |
+| Le SOS : rester sur place ou sortir le blessé ; ce qui compte comme « vie en jeu » | **Gardé pour JP**, en une seule question : rien ne tranche entre le ch. 14 (étapes 1 à 3 : SOS, rester sur place, la définition large de la vie en jeu) et le principe du livre (« si quelqu'un répond, tant mieux ») | `CLAUDE.md`, exceptions du 24 septembre |
+
+Rendu à l'intégrateur et à l'agent des planches, sans y toucher : la légende du repère 5 de la 16-08 (« puis la
+couverture » devient « puis le sac de couchage »), la boîte « marche » du logigramme 16 (« soutenu », participe) et la
+mention du travois dans son `_note`.
+
+Ancres à reporter dans `placements-tome-1.json` (inchangées depuis l'édition) : 16-08 « 6. **L'emballer avant de
+partir.** », 16-07 « Deux haut-parleurs et deux fils font un téléphone qui ne demande aucune source de courant »,
+logigramme « **Toboggan ou traîneau** ».
+
+controle.py : 7 362 mots (7 430 avant), 2 tirets (titre et ligne de tome), 0 « § », 0 mot banni, 0 tournure, 0 maxime,
+0 pronominal ; 43 mots vides et 3 redites, jugés (les mêmes qu'à l'édition) ; invariants contre la version d'avant cette
+passe : rien n'a disparu. Le seul `[À VÉRIFIER]` du chapitre est sorti avec le travois.

@@ -32,3 +32,17 @@
 et devient dangereux au-dessus de 31 °C ; on ouvre, même s'il entre de la fumée. Au-dessus de 35 °C, un
 ventilateur ne refroidit plus. Concorde avec Québec.ca (`16b-quebec-fumee-feux-foret-sante.md`) : « la chaleur
 est généralement plus dommageable pour la santé que la mauvaise qualité de l'air ».
+
+## Ajout du 19 octobre 2026 (points réglés après l'édition)
+
+Le seuil où l'on ouvre la pièce des enfants : les enfants sont parmi les « groups at higher risk » (premier
+passage), et pour eux « the risk increases at indoor temperatures over 26°C » ; on donne la priorité à la chaleur
+(« prioritize cooling down »). Le chapitre fait donc ouvrir dès 26 °C, aux trois endroits (étape 34, section 5,
+section 7) ; 31 °C reste le seuil où la maison « can make our homes dangerous » pour tout le monde.
+
+Même page, même encadré « Of Special Note », pour la condition d'ouverture :
+
+> « When outdoor air temperatures are cooler than indoor air temperatures, use fans in windows to blow cooler air
+> from outside into a room »
+
+Sert à : ch. 11, étape 34 et section 5 (« si l'air du dehors est plus frais »).

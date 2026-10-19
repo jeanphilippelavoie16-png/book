@@ -55,7 +55,7 @@ mal à la tête, la nausée ou des étourdissements en même temps, avec ou sans
  les chambres.
 2. **Compter les gens dehors, à voix haute.** S'il manque quelqu'un, ouvrir grand la porte en restant dehors. Puis
  un adulte qui n'a ni mal de tête ni nausée doit aller le chercher en marchant, droit à lui, et ressortir avec lui.
-3. {!co} **Mettre les enfants à l'abri du froid avec un adulte** : à la maison, chez un voisin ; au chalet, dans l'auto.
+3. {!co} {!generatrice} **Mettre les enfants à l'abri du froid avec un adulte** : à la maison, chez un voisin ; au chalet, dans l'auto.
  Avant de démarrer le moteur, dégager le tuyau d'échappement à la pelle, jusqu'au sol, et entrouvrir une fenêtre du
  côté opposé au vent. Faire tourner le moteur une dizaine de minutes par période de 30 minutes, et dégager
  l'échappement avant chaque redémarrage : la neige que le vent accumule derrière l'auto rebouche le tuyau pendant
@@ -67,7 +67,7 @@ mal à la tête, la nausée ou des étourdissements en même temps, avec ou sans
 
 [^1]: Chez certains fabricants, la série revient toutes les 5 secondes. L'alarme de fumée, elle, fait trois bips longs. Un bip seul toutes les 30 secondes ou toutes les minutes annonce une pile faible ; un groupe de deux à cinq bips à la même cadence annonce la fin de vie de l'appareil. Ces deux signaux ne sont pas des alarmes. Un appareil en fin de vie ne mesure plus de façon fiable.
 
-### Tout le monde est dehors : couper la source et rentrer {.orange [À VÉRIFIER]}
+### Tout le monde est dehors : couper la source et rentrer {.orange}
 
 5. **Couper la source, si on sait laquelle et qu'on l'atteint en quelques secondes.** Y envoyer une personne qui n'a
  pas eu mal à la tête ; elle doit y aller en marchant.
@@ -89,10 +89,10 @@ mal à la tête, la nausée ou des étourdissements en même temps, avec ou sans
 ### On reste : la première heure {.orange 1 h}
 
 9. {!generatrice} {!electrocution} **Mettre la génératrice dehors, jamais dans un bâtiment, un garage ou sous un
- auvent**, à au moins 6 m du bâtiment, loin des portes et des fenêtres. Mettre le disjoncteur principal de la maison
- à OFF avant de la démarrer, et brancher les appareils directement dans les prises de la génératrice (ch. 3).
-10. {!co} **Ne rentrer aucun appareil qui brûle un carburant** : chaufferette d'appoint, barbecue au charbon de bois
- ou au propane, réchaud de camping.
+ auvent**, à au moins 6 m de tout bâtiment, loin des portes et des fenêtres. Mettre le disjoncteur principal de la
+ maison à OFF avant de la démarrer, et brancher les appareils directement dans les prises de la génératrice (ch. 3).
+10. {!co} **Ne rentrer aucun appareil fait pour l'extérieur ou le camping** : barbecue au charbon de bois ou au
+ propane, réchaud de camping, chaufferette de camping.
 11. **Tester l'avertisseur de CO au bouton**, dans la pièce où on dort.
 12. **Vivre dans une seule pièce chauffée, et fermer les autres** (ch. 25, ch. 83).
 13. **Remplir tous les contenants d'eau pendant qu'on a accès à la source** ; à la maison, pendant que le robinet a
@@ -119,8 +119,8 @@ tôt que prévu, le plus important est fait.
  - Vidanger les calorifères, les bouilloires et les réservoirs d'expansion du chauffage à eau chaude.
  - Verser de l'antigel de plomberie, qui n'est pas toxique : 0,5 L dans le réservoir de la toilette et 1 L dans la
  cuvette ; 0,5 L dans chaque évier, lavabo, baignoire, douche, drain de plancher et siphon de laveuse ; 2 L dans la
- laveuse ; 1 L dans le lave-vaisselle. Ne jamais mettre d'antigel à moteur : il est toxique et reste dans la
- tuyauterie d'eau potable.
+ laveuse ; 1 L dans le lave-vaisselle.
+ - {!poison} Ne jamais mettre d'antigel à moteur : il est toxique et reste dans la tuyauterie d'eau potable.
  - Au retour, ne rien remettre en eau avant que la pièce soit à au moins 18 °C : l'eau qu'on remet dans un tuyau
  encore gelé le fend.
 21. **Décider quoi faire du congélateur avant de fermer la porte** : il ne tiendra pas jusqu'au retour (étape 29). Si
@@ -139,18 +139,18 @@ tôt que prévu, le plus important est fait.
 25. **Ouvrir la radio à piles.** On y apprend ce qu'on ne voit pas de la fenêtre : un feu qui tourne, un pont fermé,
  un panache de fumée. Au chalet, si la radio ne dit rien de la région, ça ne prouve pas que tout va bien : la
  nouvelle ne s'est peut-être pas rendue jusqu'à la station.
-26. **Écrire quatre chiffres sur papier, montre en main : la chaleur, l'eau, la nourriture et le lien** (ch. 1),
- chacun en heures ou en jours. Sous stress, on arrondit de mémoire dans le sens de ce qu'on a envie de faire.
+26. **Écrire quatre chiffres sur papier, montre en main : la chaleur, l'eau, la nourriture et le lien**, chacun en
+ heures ou en jours. Sous stress, on arrondit de mémoire dans le sens de ce qu'on a envie de faire.
 27. **Chaleur : mesurer la température intérieure, puis la remesurer 2 heures plus tard.** L'écart entre les deux
- relevés, ramené à une heure, donne la pente en degrés par heure : une maison qui perd 4 °C à l'heure laisse quatre
- fois moins de temps qu'une maison qui en perd 1, même quand les deux affichent la même température.
- - La pente des premières heures est la plus forte. Dans des maisons sans chauffage, mesurées par environ −8 °C
- dehors, l'air est passé de 20 à 14 °C dans les premières heures, puis il a baissé beaucoup plus lentement : l'écart
- avec le dehors avait diminué, et le béton, le gypse, les meubles et la terre autour du sous-sol rendaient leur chaleur
+ relevés, divisé par 2, donne le nombre de degrés que la maison perd à l'heure : une maison qui perd 4 °C à l'heure
+ laisse quatre fois moins de temps qu'une maison qui en perd 1, même quand les deux affichent la même température.
+ - La maison perd ses degrés le plus vite au début. Dans des maisons sans chauffage, mesurées par environ −8 °C dehors,
+ l'air est passé de 20 à 14 °C dans les premières heures, puis il a baissé beaucoup plus lentement : l'écart avec le
+ dehors avait diminué, et le béton, le gypse, les meubles et la terre autour du sous-sol rendaient leur chaleur
  lentement. Plus il fait froid dehors, plus la maison perd vite. Refaire la mesure à chaque reprise de la décision
  (étape 43).
- - Dans une maison chauffée à l'électricité, l'horloge de la chaleur est cette pente. Au chalet, on la compte en jours
- de bois sec qu'on peut aller chercher sans machine, au rythme où on chauffe (ch. 83).
+ - Dans une maison chauffée à l'électricité, on compte l'horloge de la chaleur avec ces degrés perdus à l'heure. Au
+ chalet, on la compte en jours de bois sec qu'on peut aller chercher sans machine, au rythme où on chauffe (ch. 83).
  - Entre 18 et 24 °C, le risque est minimal pour une personne sédentaire. Il n'existe aucune température reconnue à
  partir de laquelle on doit quitter une maison : partir à la température écrite d'avance sur la fiche de décision,
  choisie en pensant au plus jeune. Sans fiche, les deux adultes doivent la fixer maintenant.
@@ -161,11 +161,10 @@ tôt que prévu, le plus important est fait.
  une baisse de pression suffisent, et rien ne se voit au robinet. Faire alors bouillir l'eau à gros bouillons au
  moins 1 minute pour la boire, faire les breuvages, la glace et le lait maternisé, se brosser les dents et laver les
  aliments qu'on mange crus.
-29. **Nourriture : ne compter que ce qui se garde sans courant.** Le réfrigérateur reste froid environ 4 à 6 heures.
- Un congélateur en bon état, fermé et plein tient jusqu'à 48 heures ; à moitié plein, 24 heures (ch. 74). Le
- congélateur plein d'orignal ne compte donc que pour 48 heures. Jeter ce qui a passé plus de 2 heures au-dessus de 4 °C ;
- cuire tout de suite ce qui a dégelé en restant à 4 °C ou moins (ch. 1). Dans les deux cas, ces aliments sortent du
- calcul.
+29. **Nourriture : ne compter que ce qui se garde sans courant.** Le réfrigérateur reste froid environ 4 à 6 heures : compter 4 heures. Un
+ congélateur en bon état, fermé et plein tient jusqu'à 48 heures ; à moitié plein, 24 heures (ch. 74). Le congélateur
+ plein d'orignal ne compte donc que pour 48 heures. Jeter ce qui a dépassé 4 °C ; cuire tout de suite ce qui a dégelé en
+ restant à 4 °C ou moins (ch. 1). Dans les deux cas, ces aliments sortent du calcul.
 30. **Lien : répondre à trois questions.** Peut-on joindre quelqu'un ? Quelqu'un sait-il où on est ? À quelle heure
  va-t-il s'inquiéter ? Si la réponse est non aux deux premières et qu'on ne connaît pas la troisième, le lien est
  l'horloge la plus courte, même si tout le reste va bien. À la maison, les voisins comptent dans le lien.
@@ -262,12 +261,12 @@ tôt que prévu, le plus important est fait.
 | Moment | Ce qu'on vérifie | Cible chiffrée | Si c'est hors cible |
 | --- | --- | --- | --- |
 | 0 à 5 min | Avertisseur de CO | Silencieux | S'il sonne : étapes 1 à 8 |
-| Première heure, puis 2 h plus tard | Température intérieure, et la pente entre les deux relevés | 18 à 24 °C, risque minimal pour une personne sédentaire ; pente en °C par heure | Sous la température de départ écrite sur la fiche, ou en voie d'y arriver avant la fin de la nuit : regrouper tout le monde dans une pièce et trancher avant la noirceur |
+| Première heure, puis 2 h plus tard | Température intérieure, et les degrés perdus entre les deux relevés | 18 à 24 °C, risque minimal pour une personne sédentaire ; degrés perdus à l'heure | Sous la température de départ écrite sur la fiche, ou en voie d'y arriver avant la fin de la nuit : regrouper tout le monde dans une pièce et trancher avant la noirceur |
 | Première heure | Bois sec qu'on atteint sans machine | Nombre de jours écrit sur la fiche (ch. 83) | Moins que ce nombre : partir pendant que la route est ouverte |
 | Première heure | Eau | 4 L par personne et par jour en réserve, et l'accès à la source | Pas d'accès à la source : l'eau devient l'horloge la plus courte |
 | Première heure, à la maison | Eau du robinet | Ni panne de courant, ni bris, ni baisse de pression | Un des trois : faire bouillir l'eau à gros bouillons 1 min (étape 28) |
 | Chaque jour, à la maison | Heure de rétablissement prévue par Hydro-Québec | Une heure annoncée qui tient | Repoussée deux fois : on ne connaît plus le délai ; choisir où aller (étape 32) |
-| Première heure | Aliments réfrigérés et congelés | Réfrigérateur 4 à 6 h ; congélateur plein 48 h, à moitié plein 24 h | Au-delà : ne plus compter ces aliments (étape 29 ; ch. 74) |
+| Première heure | Aliments réfrigérés et congelés | Réfrigérateur 4 à 6 h (compter 4 h) ; congélateur plein 48 h, à moitié plein 24 h | Au-delà : ne plus compter ces aliments (étape 29 ; ch. 74) |
 | Avant de charger | État de la route | 138 ouverte, aucun avertissement météo en vigueur | Fermée ou entravée : rester. Ne pas partir « pour voir » |
 | Avant de charger | Refroidissement éolien annoncé | Au-dessus de −28 | Plus froid : compter le temps de gel de la peau (étape 34) |
 | Avant de charger | Carburant | Plein | Faire le plein d'abord, ou rester |
@@ -307,8 +306,9 @@ information, la route est peut-être coupée et personne ne sait qu'on est là.
 
 - **Sans thermomètre d'intérieur** : poser un thermomètre à viande à cadran sur la table, loin du poêle et d'un mur
  extérieur. Sans thermomètre du tout, poser un verre d'eau sur le plancher, là où dorment les enfants : quand une
- pellicule de glace s'y forme, le plancher est à 0 °C, et l'épaisseur de la glace d'un relevé au suivant donne la
- pente. Mesurer au plancher : l'air chaud monte, et le plancher est plus froid qu'à hauteur d'adulte.
+ pellicule de glace s'y forme, le plancher est à 0 °C, et l'épaisseur de la glace d'un relevé au suivant montre si la
+ pièce refroidit vite ou lentement. Mesurer au plancher : l'air chaud monte, et le plancher est plus froid qu'à hauteur
+ d'adulte.
 - **Sans montre** : se fier à l'ombre. Reprendre la décision au lever du soleil, puis quand l'ombre recommence à
  s'allonger : il reste alors assez de clarté pour le trajet.
 - **Sans thermomètre médical** : vérifier les signes de l'étape 40 par une tâche plutôt que par une question :

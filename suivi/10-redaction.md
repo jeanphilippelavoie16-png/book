@@ -947,3 +947,33 @@ touchée.
   métal [À VÉRIFIER] » est coupée (aucune source) ; la consigne des électrodes de carbone tient sans elle. Le chapitre
   n'a plus de [À VÉRIFIER].
 - Étape 49 : « (40 ou 60 gallons) » reste : c'est ce qu'on lit sur l'étiquette du chauffe-eau.
+
+## Points réglés après l'édition, 19 octobre 2026
+
+Rédacteur (rôle 2), sur les points que l'éditeur a laissés parce qu'ils touchent un fait (lot 18-10, `edition.faits`).
+Aucune recherche nouvelle ; une page déjà au dossier rouverte pour trancher (désinfection du puits). Fichier en LF, gardé
+en LF. Aucune étape renumérotée, aucune ancre touchée (les sept débuts de paragraphe ancrés sont intacts), logigramme
+non touché (sa boîte « Il ne reste que le fleuve » dit déjà l'alambic ou le gel).
+
+| # | Où | Ce qui a changé | Règle ou source |
+| --- | --- | --- | --- |
+| 1 | Étape 1 | Contradiction interne : « seuls l'alambic et l'osmose inverse l'enlèvent », alors que la même étape et la section 7 (« Dessaler par le gel ») enlèvent aussi le sel par le gel. La phrase s'arrête à « n'enlève pas le sel », et la dernière dit les trois façons : « on enlève le sel avec un appareil d'osmose inverse, sinon on passe l'eau à l'alambic ou on la dessale par le gel (section 7) » | Section 7 du chapitre ; aucun chiffre |
+| 2 | Section 7, « Ce qu'on perd », « Ce qui est dissous » | Même contradiction : « Seul l'alambic enlève ce qui est dissous » devient « À part le sel, que le gel enlève aussi, seul l'alambic enlève ce qui est dissous » | Section 7, « Dessaler par le gel » |
+| 3 | Étape 6 | « à au moins 6 m du chalet ou de la maison » devient « à au moins 6 m de tout bâtiment », comme au ch. 18, étape 6, corrigé le même jour d'après la même source | `sources/10-sante-canada-generatrice-distance.md` (« entre toute habitation ou tout bâtiment ») ; page `generatrice` (« à au moins 6 m (20 pi) de tout bâtiment ») |
+| 4 | Étape 35, titre | « une semaine après la désinfection, puis quatre semaines plus tard » (on pouvait lire 1 et 5 semaines) devient « une semaine, puis quatre semaines après la désinfection », comme la section 5 (« une après 1 semaine, une après 4 semaines ») | `sources/10-melcc-desinfection-puits-procedure.md`, en-tête : « analyses à 1 et 4 semaines » (la lecture du dossier ; la phrase du ministère, « une semaine suivant la désinfection et quatre semaines plus tard », est reprise mot pour mot par la municipalité des Éboulements) |
+| 5 | Étape 49, « (40 ou 60 gallons) » | Rien : JP l'a gardé (« Décisions de JP, 19 octobre 2026 », plus haut) | Décision de JP |
+
+**Pour l'intégrateur** (fichiers communs, pas touchés) :
+- `design/epreuves-livre/placements-tome-1.json`, clé `"10"`, photo `10-hutte-castor`, légende : « Hutte de castor en
+  hiver : un dôme de branches sous la neige. Faire bouillir cinq minutes toute eau prise en aval, glace comprise. »
+  devient « Hutte de castor en hiver : un dôme de branches sous la neige. » La consigne des 5 minutes est aux étapes 14
+  et 41 ; la légende dit ce qu'on voit.
+- `images/planches-src/10-07.js`, champ `desc` et en-tête (pas imprimés) : « une main de grosse pierre » devient « une
+  couche de grosses pierres » ; « seau » devient « chaudière » ; le sable se lave jusqu'à ce que l'eau soit « encore un
+  peu sale » (pas « claire ») ; quand le débit tombe, on frotte le dessus à peine, la paume à plat, en rond (pas « gratter
+  à plat sur 20 à 30 mm ») ; plus d'« encadré danger ». Les légendes imprimées collent déjà au texte.
+
+**controle.py** contre `HEAD` (17487ee) : 9 284 → 9 290 mots ; 2 tirets (titre et ligne de tome) ; 0 « § », 0 mot banni.
+Les avis à juger sont ceux d'avant, déjà jugés le 18 et à l'édition ; aucun n'est sur une ligne touchée. Invariants :
+rien n'a disparu. **Chiffres** : aucun chiffre nouveau ; le 6 m change de référence (de tout bâtiment) sans changer de
+valeur ni de source.

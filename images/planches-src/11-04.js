@@ -1,5 +1,5 @@
 // Planche 11-04. La pièce d'air propre : le cube de quatre filtres, le sens des filtres vu de dessus, le
-// filtre seul sur le ventilateur, la pièce fermée (chapitre 11, section 9, « De l'air pour les enfants, sans
+// filtre seul sur le ventilateur, la pièce fermée (chapitre 11, section 7, « De l'air pour les enfants, sans
 // purificateur »). Dessinée le 15 octobre 2026 (inventaire des planches, priorité haute) ; refaite le même
 // jour après la relecture « niveau notice » : flèches d'air qui traversaient les plis, ventilateur de profil
 // qu'on ne reconnaissait pas, carton de face hachuré comme une coupe de bois, sens des filtres invisible.

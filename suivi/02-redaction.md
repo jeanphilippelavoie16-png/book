@@ -601,3 +601,34 @@ autrement »), le logigramme porte déjà les deux séries du CO et « le bâtim
   jugées (les mêmes qu'à la correction) ; invariants : seul « ch. 82 » disparaît (renvoi faux, remplacé par ch. 11).
 
 **`[À VÉRIFIER]`** dans le texte : 1, la pastille de la seconde série du CO. Question à JP.
+
+## Points réglés après l'édition, 19 octobre 2026
+
+Rédacteur du lot 01-02-03, après l'éditeur (texte d'avant : `bcd05b1`). Rien n'est revérifié à la source de ce qui
+l'était déjà (JP, 19 octobre 2026) ; une source n'est ouverte que pour trancher un point neuf.
+
+| Où | Avant → après | Règle ou source |
+| --- | --- | --- |
+| Intertitre de la seconde série du CO | `{.orange [À VÉRIFIER]}` → `{.orange}` | Aucune fiche ne donne le temps qu'on a une fois tout le monde dehors. Cadre (« L'urgence ») : la pastille dit un temps sourcé ; CLAUDE.md : un `[À VÉRIFIER]` se lève ou se coupe avant l'impression ; consigne de la passe : ce qui n'a pas de source se coupe quand la consigne tient sans lui. Le moteur pose l'intertitre sans pastille, dans le même encadré que la série d'avant (`build_chapitre.py`, « deux parties marquées qui se suivent font un seul encadré »). Plus aucun `[À VÉRIFIER]` dans le chapitre. Au logigramme, `co4` perd son « temps » (rendu à l'orchestrateur, avec les planches) |
+| Étape 9 | « à au moins 6 m du bâtiment » → « de tout bâtiment » | `10-sante-canada-generatrice-distance.md` (« toute habitation ou tout bâtiment ») ; page `generatrice` ; ch. 1 et 3 |
+| Étape 10 | « Ne rentrer aucun appareil qui brûle un carburant : chaufferette d'appoint, barbecue…, réchaud de camping » → « Ne rentrer aucun appareil fait pour l'extérieur ou le camping : barbecue…, réchaud de camping, chaufferette de camping » | La même page de Québec.ca permet les appareils d'appoint « conçus pour l'intérieur » (`02-quebec-fiche-technique-panne-plomberie.md`, « Chauffage et éclairage d'appoint ») et nomme le risque des « appareils pour l'extérieur ou le camping » (`01-avertisseurs-co-et-chauffage-appoint.md`) ; c'est la règle des ch. 1 (étapes 2 et 7) et 3 (étape 5). Point de l'éditeur réglé |
+| Étape 20 | L'antigel de moteur passe dans une puce à lui, avec `{!poison}` | Cadre : le pictogramme dans l'étape où le danger se présente ; même puce au ch. 3, étape 24 |
+| Étape 26 | « … la nourriture et le lien** (ch. 1), » → « … la nourriture et le lien**, » | Le ch. 1 ne nomme pas ces quatre horloges (il dit le corps, l'eau, le stock périssable, les calories et le combustible) : l'attribution était fausse. Un seul jeu ou deux : question à JP |
+| Étape 27, section 5, section 7 (« Sans thermomètre d'intérieur ») | « pente » (6 fois) → « le nombre de degrés que la maison perd à l'heure », « les degrés perdus », « montre si la pièce refroidit vite ou lentement » ; « ramené à une heure » → « divisé par 2 » ; « La pente des premières heures est la plus forte » → « La maison perd ses degrés le plus vite au début » | Skill `ecriture`, les mots de tous les jours (le ch. 1 a déjà retiré « pente » de ses titres, le ch. 3 dit « le nombre de degrés perdus à l'heure »). Le point de l'éditeur (« ramené à une heure ») : c'est bien le sens, deux relevés à 2 h d'écart ; « divisé par 2 » le dit en clair. Aucun chiffre ne change |
+| Étape 29 | « Jeter ce qui a passé plus de 2 heures au-dessus de 4 °C » → « Jeter ce qui a dépassé 4 °C » | La page de Québec.ca sur les aliments après une panne, la seule des deux qui traite de salubrité : « Les jeter s'ils ont été exposés à une température supérieure à 4 °C » (`01-quebec-panne-courant-aliments.md` ; `04-quebec-ca-aliments-panne-courant.md`). La fiche technique d'habitation (`02-quebec-fiche-technique-panne-plomberie.md`, « plus de 2 heures ») est une page de bâtiment. C'est aussi la règle des ch. 1 (étape 20) et 3 (étape 30), et après une panne on ne sait pas depuis combien de temps l'aliment a passé 4 °C. Point de l'éditeur réglé |
+
+Questions et points réglés sans changer le texte :
+
+- **La chandelle devant le CO** (question à JP de la correction) : la coupe tient (fait `NON RETROUVÉ`,
+  `suivi/12-technique.md`, point 84 ; la consigne tient sans lui). Le même fait sort du ch. 3 (section 7) ; le ch. 12 ne
+  le dit plus. Reste la ligne de `plan/dangers-inventaire.md`, section 2.1, rendue à l'orchestrateur.
+- **L'antigel** (étape 20 contre ch. 3, étape 24) : le ch. 3 prend les doses de la même page de Québec.ca que l'étape
+  20 ; les ch. 2, 3 et 84 disent maintenant tous 0,5 L par siphon.
+- **Étape 39, « longue panne de courant »** : c'est le sens (la phrase parle du congélateur plein). Rien à changer.
+- **Logigramme** (pas touché, rendu avec les planches) : `co4` sans pastille ; `radio`, « elle dit ce qu'on ne voit
+  pas » devient « on y apprend ce qu'on ne voit pas de la fenêtre » ; `part`, « à portée de main » devient « dans un
+  sac à part », comme l'étape 16.
+
+controle.py (contre le texte d'avant ces corrections) : 6 568 → 6 578 mots ; 2 tirets (titre et ligne de tome) ;
+0 « § », mot banni, tournure, maxime ou pronominal ; 38 mots vides et 5 redites, celles d'avant ; disparus : « 2 heures »
+(la règle du tri, voulu) et un « ch. 1 » (l'attribution fausse de l'étape 26, voulu).

@@ -488,8 +488,8 @@ au poids frais écrit sur le pot.
 
 **Le champignon qui ne se mange pas et qui sert quand même.** L'amadouvier
 (*Fomes fomentarius*) du ch. 13 est un champignon : dur, ligneux, en sabot sur les feuillus
-**vivants ou morts**, surtout le bouleau — à papier et jaune — et l'aulne, aussi l'érable et le
-peuplier faux-tremble, rarement un conifère. Il vit des années sur le même tronc, et là où il
+**vivants ou morts**, surtout le bouleau (à papier et jaune), aussi l'érable et le
+peuplier faux-tremble, rarement un conifère ; il est commun dans les vieilles aulnaies. Il vit des années sur le même tronc, et là où il
 pousse, l'arbre est pourri en dedans. Il ne se mange pas, et c'est justement ce qui en
 fait la seule récolte de ce chapitre où se tromper de nom ne tue personne. Sa chair intérieure,
 battue et séchée, prend l'étincelle et garde le point rouge ; un bloc entier posé sur un lit de

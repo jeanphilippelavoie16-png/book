@@ -538,3 +538,33 @@ seul, 8 et 9, puis au cube, 1 à 7).
 forme commune), 1 tournure jugée (« les coucher dans la pièce la mieux fermée », inchangée), 0 maxime, 0 pronominal,
 42 mots vides jugés, 5 redites jugées (les mêmes), invariants : rien n'a disparu. Ancre introuvable : 11-03, l'ancienne ;
 la nouvelle (« 7. **Remplir tout ce qui tient l'eau** ») est rendue à l'orchestrateur avec celle du logigramme.
+
+## Points réglés après l'édition, 19 octobre 2026
+
+Rédacteur du lot 11-13-14, passe « trancher » (JP : « monte le reste du tome 1 final » ; « on a pas déjà fait ce
+travail-là ? »). Rien n'est revérifié à la source ; une source n'est ouverte que pour trancher un point neuf. Les trois
+points de l'éditeur (`suivi/11-edition.md`, « Faits à signaler ») et un renvoi cassé trouvé en vérifiant les renvois
+du chapitre. Aucune question à JP : le chapitre n'en avait pas, et les trois points se règlent par la source ou la
+règle.
+
+| Point | Où | Ce qui a changé | Règle ou source |
+| --- | --- | --- | --- |
+| 1. Le seuil où l'on ouvre la pièce des enfants n'était pas le même aux trois endroits (étape 34 : 26 et 31 °C sans dire auquel on ouvre ; section 5 : dès 26 °C ; section 7 : au-dessus de 31 °C) | Étape 34 ; section 5, ligne « La température de la pièce des enfants » ; section 7, « Choisir une seule pièce » | On ouvre dès 26 °C partout, et seulement si l'air du dehors est plus frais : « Dès que la pièce des enfants dépasse 26 °C et que l'air du dehors est plus frais, ouvrir les fenêtres, même s'il entre de la fumée : à partir de là, la chaleur devient un risque pour un enfant. Au-dessus de 31 °C, la maison peut devenir dangereuse pour tout le monde. » Section 7 : « Au-dessus de 26 °C dans la pièce, l'ouvrir (étape 34). » Section 5 : « Si l'air du dehors est plus frais, ouvrir les fenêtres… » | `sources/11-interior-health-chaleur-et-fumee.md` (passages déjà au dossier) : les enfants sont un groupe à risque, et pour eux « the risk increases at indoor temperatures over 26°C » ; « prioritize cooling down » ; 31 °C « can make our homes dangerous » ; « When outdoor air temperatures are cooler than indoor air temperatures, use fans in windows ». Ajout noté dans la fiche de source |
+| 2. « Un petit tas de service près de la porte pour l'hiver », dans une étape de la saison de feu | Étape 54 ; section 5, ligne « Bois de chauffage, matériaux, propane » | « près de la porte, un petit tas pour les jours où le poêle chauffe, qu'on éloigne quand un feu est déclaré (étape 8) ; le reste, à plus de 10 m » ; section 5 : « garder seulement le petit tas près de la porte (étape 54) ». Le poêle chauffe aussi au printemps et à l'automne, pendant la saison de feu (étape 35) ; « de service » sort (mot de métier) | Aucun fait changé ; cohérence avec l'étape 35 |
+| 3. « Un panneau sous tension dans une maison brûlée et mouillée blesse la personne qui revient », dit comme une certitude | Étape 15 | Phrase coupée. Aucune source au dossier (ni la page de Québec.ca sur le retour, ni CAL FIRE) ; la consigne, couper le courant au disjoncteur principal, tient sans elle, et le lecteur sait ce que fait un panneau sous tension dans l'eau | Règle de la passe : une phrase sans source se coupe si la consigne tient sans elle (comme au ch. 10) ; CLAUDE.md, « la justification que le lecteur connaît déjà » |
+| 4. Renvoi cassé : « (ch. 2, étape 9) » pour la feuille PARTIS | Étape 15 | « (ch. 2, étape 23) » : au ch. 2, la feuille PARTIS est l'étape 23 (« Afficher que la maison est vide »), au dernier commit comme dans l'arbre ; l'étape 9 est la génératrice | `chapitres/02-rester-ou-partir.md`, l. 132 |
+
+**Invariant** : un « 31 °C » de moins (la section 7 dit maintenant 26 °C, comme l'étape 34 et la section 5) ; 31 °C
+reste à l'étape 34 et à la section 5.
+
+**Ancres** : aucune ne bouge (les paragraphes touchés ne portent pas d'ancre).
+
+**controle.py** (`--avant` HEAD) : 7 863 → 7 885 mots ; 2 tirets (titre et ligne de tome, forme commune) ; 1 tournure,
+la même, jugée (« les coucher dans la pièce la mieux fermée ») ; 0 maxime, 0 pronominal ; 41 mots vides et 7 redites,
+les mêmes, jugées ; invariants : « 31 °C » une fois de moins, justifié plus haut. Ancre introuvable : l'ancienne de
+11-03, la nouvelle est rendue dans le JSON du lot. Fins de ligne LF.
+
+**Planche 11-04, ce qui suivra** : quand la planche sera renumérotée dans l'ordre des gestes (pièce 1 et 2, filtre seul
+3 et 4, cube 5 à 11), les appels de la section 7, « De l'air pour les enfants, sans purificateur », changent ainsi :
+repère 10 → 1, 11 → 2, 8 → 3, 9 → 4, 1 → 5, 2 → 6, 3 → 7, 4 → 8, 5 → 9, 6 → 10, 7 → 11. Le texte n'est pas touché
+avant la planche, pour que les deux restent d'accord.

@@ -48,9 +48,9 @@ jamais la désinfection.
 
 1. **Prendre de l'eau douce** : un lac, un ruisseau, un puits, la neige ou la glace d'un lac. Face à la Côte-Nord,
  le fleuve est de l'eau de mer, avec de 27 à 29 g de sel par litre, un peu moins en surface au printemps, à la
- fonte. Faire bouillir l'eau, la chlorer ou la filtrer n'enlève pas le sel ; seuls l'alambic et l'osmose inverse
- l'enlèvent. Boire de l'eau salée oblige les reins à rejeter plus d'eau qu'elle n'en apporte, et on se déshydrate
- plus vite. Quand il ne reste que le fleuve, on passe son eau à l'alambic ou on la dessale par le gel (section 7).
+ fonte. Faire bouillir l'eau, la chlorer ou la filtrer n'enlève pas le sel. Boire de l'eau salée oblige les reins à
+ rejeter plus d'eau qu'elle n'en apporte, et on se déshydrate plus vite. Quand il ne reste que le fleuve, on enlève
+ le sel avec un appareil d'osmose inverse, sinon on passe l'eau à l'alambic ou on la dessale par le gel (section 7).
  Après des retombées radioactives, faire bouillir ou chlorer l'eau n'enlève rien de ce qui est radioactif. Après une
  détonation, on en enlève presque tout en décantant l'eau avec de l'argile et en la passant au filtre de terre ;
  après le panache d'une centrale, la terre retient le césium, mais mal l'iode radioactif (ch. 4, étape 22 et
@@ -73,8 +73,8 @@ jamais la désinfection.
 ### Puiser et rentrer l'eau
 
 5. **Descendre la chaudière lestée l'ouverture vers le bas, et la retourner une fois sous l'eau.**
-6. {!generatrice} **Si la pompe tourne sur une génératrice, faire tourner la génératrice dehors**, à au moins 6 m du
- chalet ou de la maison, l'échappement tourné à l'opposé des portes et des fenêtres ; jamais dans un bâtiment, un
+6. {!generatrice} **Si la pompe tourne sur une génératrice, faire tourner la génératrice dehors**, à au moins 6 m de
+ tout bâtiment, l'échappement tourné à l'opposé des portes et des fenêtres ; jamais dans un bâtiment, un
  garage ou sous un auvent.
 7. **Rentrer l'eau brute (l'eau qui n'est pas encore traitée) dans des contenants marqués « eau brute »**, qui ne
  servent jamais à l'eau traitée : un fond d'eau brute laissé dans un bidon suffit à contaminer l'eau traitée qu'on y
@@ -245,7 +245,7 @@ jamais la désinfection.
  plus le chlore et que la bandelette ne montre plus rien. Ouvrir ensuite chaque robinet pour rincer la plomberie.
  La fosse septique traite les eaux usées avec des bactéries vivantes ; l'eau chlorée les tue, et la fosse cesse de
  traiter les eaux usées (ch. 31). L'eau chlorée fait le même tort au ruisseau.
-35. **Refaire analyser l'eau une semaine après la désinfection, puis quatre semaines plus tard** : la première montre
+35. **Refaire analyser l'eau une semaine, puis quatre semaines après la désinfection** : la première montre
  si la désinfection a marché, la seconde si le puits reste propre. Si l'analyse redevient positive, chercher la
  cause et la réparer avant de désinfecter de nouveau : un couvercle ou un scellement qui laisse entrer l'eau, un
  terrain sans butte autour du puits pour éloigner l'eau de ruissellement, une fosse septique qui fuit, du fumier
@@ -318,7 +318,7 @@ jamais la désinfection.
  - Ne pas faire bouillir l'eau pour enlever le plomb : l'ébullition le concentre (étape 27).
 49. **Quand l'eau ne coule plus** (conduite gelée, bris majeur, pompes du réseau arrêtées par une panne), boire la
  réserve de l'étape 26, puis l'eau du chauffe-eau : il en contient de 180 à 280 L (40 ou 60 gallons). Pour le vider,
- voir le ch. 6. Si la coupure dure, partir au chalet (ch. 2).
+ voir le ch. 6, section 7, « Tirer l'eau du chauffe-eau ». Si la coupure dure, partir au chalet (ch. 2).
 
 [^1]: Chez le nourrisson, la peau et les lèvres prennent une teinte bleutée. Si ça s'aggrave, il respire avec
  difficulté et réagit de moins en moins, puis il tombe dans le coma. Son sang, quand on le voit, est brun chocolat
@@ -582,7 +582,8 @@ l'été.
  du chauffage. On réduit d'abord l'eau de l'hygiène (ch. 31).
 - **La protection dans le bidon.** Sans javel, l'eau traitée n'a plus de chlore pour la protéger dans le bidon
  (étape 25).
-- **Ce qui est dissous.** Seul l'alambic enlève ce qui est dissous, et il donne très peu d'eau.
+- **Ce qui est dissous.** À part le sel, que le gel enlève aussi, seul l'alambic enlève ce qui est dissous, et il
+ donne très peu d'eau.
 - **Le goût.** L'eau reste teintée par les tanins, et elle est plate (étape 17). Un enfant qui ne la boit pas se
  déshydrate, même l'hiver (ch. 39 et 40).
 - **La marge d'erreur.** Quand on traite l'eau de deux façons, l'une rattrape une erreur sur l'autre. Avec une seule

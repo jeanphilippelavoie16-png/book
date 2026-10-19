@@ -72,7 +72,7 @@ Chez la personne, les signes arrivent de 3 à 6 jours après le contact, parfois
 - Ne pas toucher une bête trouvée morte ou qui a l'air malade, gants ou pas. Si le foie ou la rate ont des points blancs, ne pas manger la bête, même en coupant autour. Ne rien donner de cru au chien, ni aucun abat de bête sauvage.
 - Un oiseau sauvage qui tremble, tourne en rond, a la tête enflée ou la diarrhée peut porter l'influenza aviaire : ne pas le ramasser ni le plumer, même après l'avoir abattu.
 
-**Où il revient.** À la chasse au petit gibier, aux collets et aux pièges, au dépeçage, au travail des peaux et à la cuisine du gibier (ch. 41 à 56, 61, 69, 71, 102 à 104).
+**Où il revient.** À la chasse au petit gibier, aux collets et aux pièges, au dépeçage, au travail des peaux et à la cuisine du gibier (ch. 1, 9, 18, 41 à 56, 61, 69, 71, 102 à 104).
 
 ## {!hantavirus} Crottes de souris : le hantavirus
 
@@ -88,7 +88,7 @@ Chez la personne, les signes arrivent de 3 à 6 jours après le contact, parfois
 4. Ramasser les crottes et les nids pendant qu'ils sont mouillés, avec des chiffons ou du papier, et fermer le tout dans un sac. Ne jamais passer le balai, l'aspirateur ni le souffleur sur des crottes sèches.
 5. Si une fièvre arrive dans les semaines qui suivent un ménage de ce genre, puis un souffle court, partir vers l'hôpital et dire au médecin qu'on a nettoyé des crottes de souris.
 
-**Où il revient.** À l'ouverture du chalet, au caveau et au cabanon, aux semences et au stock de pièces (ch. 79, 84, 100, 108).
+**Où il revient.** Au tour du stock du chalet, à l'ouverture du chalet, au caveau et au cabanon, aux semences et au stock de pièces (ch. 5, 79, 84, 100, 108).
 
 ## {!tetanos} Petite plaie profonde : le tétanos
 
@@ -145,7 +145,7 @@ Ne pas servir de poisson cru ou fumé à froid à une femme enceinte, à une per
 - Congeler cette viande ne la rend pas sûre, même pendant les durées qui protègent du ver du poisson.
 - En conserve, l'autoclave à 116 °C tue la larve en même temps qu'il conserve.
 
-**Où il revient.** À la chasse à l'ours et au phoque, au piégeage des carnivores, et dans chaque façon de conserver la viande : salaison, saumure, fumoir, séchage, pemmican, congélateur (ch. 52, 55, 56, 66 à 74, 78).
+**Où il revient.** À la chasse à l'ours et au phoque, au piégeage des carnivores, dans chaque façon de conserver la viande (salaison, saumure, fumoir, séchage, pemmican, congélateur, trousse d'urgence) et à la viande sauvage reçue en échange (ch. 1, 3, 5 à 9, 17, 18, 52, 55, 56, 66 à 74, 78).
 
 ## {!abats} Foie, reins, cervelle : les abats qu'on ne mange pas
 
@@ -159,7 +159,7 @@ Ne pas servir de poisson cru ou fumé à froid à une femme enceinte, à une per
 
 **Ce qu'on fait.** À l'éviscération, mettre le foie et les reins de cervidé de côté avec les restes qu'on ne mange pas, et prendre le suif sans garder le rein. Ne pas ouvrir le crâne ni scier la colonne : désosser au couteau, et ne mettre ni la colonne ni la tête au chaudron à bouillon. Ne jamais donner de foie de phoque, d'ours, de morse ou de lotte à un enfant. Ne pas donner ces abats au chien non plus.
 
-**Où il revient.** À l'éviscération et à la découpe des cervidés, de l'ours et du phoque, au partage du gibier, au bouillon d'os, au pemmican et à la ration d'hiver quand le gras manque (ch. 19, 21, 22, 23, 56, 61 à 65).
+**Où il revient.** À l'éviscération et à la découpe des cervidés, de l'ours et du phoque, au partage du gibier, au bouillon d'os, au pemmican, à la trousse d'urgence, au congélateur qui dégèle et à la ration d'hiver quand le gras manque (ch. 1, 2, 5 à 7, 9, 18, 19, 21 à 23, 56, 61 à 65).
 
 ## {!botulisme} Botulisme
 
@@ -179,7 +179,7 @@ Ne pas servir de poisson cru ou fumé à froid à une femme enceinte, à une per
 - Jamais de miel à un bébé de moins d'un an : les spores germent dans son intestin.
 - Aux premiers signes, partir vers l'hôpital sans attendre la suite (pictogramme de la vie en jeu) : le traitement est une antitoxine, et elle marche mieux quand on la donne tôt. Apporter le pot ou l'emballage, fermé, et noter qui en a mangé : comme les signes arrivent tard, souvent toute la table a mangé du même plat.
 
-**Où il revient.** Aux conserves, aux marinades, aux huiles, aux ferments, à la salaison, au fumage, au poisson frais ou fumé, à la viande de phoque, aux caches, au caveau et au réfrigérateur (ch. 5, 59, 66 à 81, 91 à 93).
+**Où il revient.** Aux conserves, aux marinades, aux huiles, aux ferments, à la salaison, au fumage, au poisson frais ou fumé, à la viande de phoque, aux caches, au caveau, au réfrigérateur, à la trousse d'urgence et à la nourriture reçue en échange (ch. 1, 3, 5 à 9, 17, 18, 59, 66 à 81, 91 à 93).
 
 ## {!zone-de-danger} Les heures entre 4 et 60 °C
 
@@ -199,7 +199,7 @@ Une grosse masse, comme une marmite de ragoût, une épaule ou une carcasse, ref
 - Faire dégeler au froid, ou dans une eau à 21 °C ou moins, jamais sur le comptoir.
 - Après une panne, on peut remettre au congélateur un aliment qui a encore des cristaux de glace. Une viande crue dégelée restée à 4 °C ou moins, on la cuit tout de suite, ou on la recongèle une fois cuite. Un aliment périssable dégelé qui a dépassé 4 °C, on le jette, même s'il a l'air bon et sent bon. Si on ne sait pas combien d'heures une pièce a passé au chaud, on la jette.
 
-**Où il revient.** À l'éviscération et au refroidissement de la carcasse, au congélateur en panne, au fumoir et au séchoir, à la saumure, à la cuisine en grand volume, au poisson sorti de l'eau (ch. 1, 18, 60, 64, 66, 68, 69, 71 à 74, 81).
+**Où il revient.** À l'éviscération et au refroidissement de la carcasse, au congélateur en panne, au fumoir et au séchoir, à la saumure, à la cuisine en grand volume, au poisson sorti de l'eau (ch. 1, 3, 5, 7, 16, 18, 60, 64, 66, 68, 69, 71 à 74, 81).
 
 ## {!mal-de-caribou} Viande maigre seule : le mal de caribou
 
@@ -217,7 +217,7 @@ Le gibier du territoire est très maigre. La viande d'orignal, de caribou, de li
 - Composer la portion d'un enfant avec plus de gras et de glucides que celle d'un adulte, pas seulement moins de viande.
 - Quand le gras manque, ne pas faire de chandelles de suif : c'est du gras qu'on aurait pu manger.
 
-**Où il revient.** À la chasse au lièvre et à l'orignal, à la découpe, au rationnement d'hiver, au pemmican et à la table des enfants (ch. 19, 21, 36, 41 à 53, 58 à 66, 71 à 76, 81, 92, 93, 101, 103, 112).
+**Où il revient.** À la chasse au lièvre et à l'orignal, à la découpe, au gras du stock, au rationnement d'hiver, au pemmican, à la table des enfants et à ce qu'on donne à un visiteur (ch. 1, 3, 5, 6, 8, 9, 17 à 19, 21, 36, 41 à 53, 58 à 66, 71 à 76, 81, 92, 93, 101, 103, 112).
 
 ## {!thuyone} Cèdre : la thuyone
 
@@ -231,7 +231,7 @@ Chez la personne, les convulsions : le corps se raidit, puis les bras et les jam
 
 **Ce qu'on fait.** Pour la vitamine C, prendre des aiguilles de sapin baumier ou d'épinette, jamais de thuya. Ne pas utiliser le cèdre pour ce qui touche un aliment : planche à découper, cuillère, saloir, baquet, claie, copeaux de fumoir.
 
-**Où il revient.** Aux tisanes et au scorbut, aux plantes qui soignent, au fumoir et au saloir, à l'atelier du bois et au savon (ch. 9, 13, 20, 21, 32 à 36, 38, 39, 42, 78, 92, 94, 95, 98, 103, 110, 112).
+**Où il revient.** Aux tisanes et au scorbut, à la boisson chaude d'une personne qui a froid, aux plantes qui soignent, au fumoir et au saloir, à l'atelier du bois et au savon (ch. 5, 9, 13, 17, 20, 21, 32 à 36, 38, 39, 42, 78, 92, 94, 95, 98, 103, 110, 112).
 
 ## {!plante} Plante, champignon ou coquillage qui empoisonne
 
@@ -322,7 +322,7 @@ Chez la personne : nausées, vomissements, crampes, diarrhée, et selon la plant
 
 Lire l'ingrédient actif de chaque boîte avant de donner un médicament. Le sel nitrité ressemble au sel de table : le peser au dixième de gramme, et jeter toute poudre blanche dont le contenant n'a pas d'étiquette lisible.
 
-**Où il revient.** À la pharmacie, aux dents, au carburant, à l'éclairage, à l'atelier, au stock de pièces, à la salaison et au savon (ch. 4, 10, 15, 27, 32 à 34, 38, 39, 49, 67 à 70, 85, 106, 108, 111, 112).
+**Où il revient.** À la pharmacie et à la trousse d'urgence, aux dents, à l'antigel de la plomberie, au carburant, à l'éclairage, à l'atelier, au stock de pièces, à la salaison et au savon (ch. 2 à 6, 9, 10, 15, 17, 27, 32 à 34, 38, 39, 49, 67 à 70, 85, 106, 108, 111, 112).
 
 ## {!vie-en-jeu} Le signe qui force le départ
 

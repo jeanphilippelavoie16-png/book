@@ -36,7 +36,7 @@ famille tient quand même.
 
 | Item | Quantité | Lieu | Sans ça | Ch. |
 | --- | --- | --- | --- | --- |
-| Avertisseur de **monoxyde de carbone** à pile, **à affichage numérique en ppm**, remplacé à la date donnée par le fabricant (7 à 10 ans après la date de fabrication inscrite au dos, selon le modèle, ou 7 ans quand on ne connaît pas le modèle) | 1 par étage habité, 1 par chambre où l'on dort porte fermée, 1 dans la pièce du poêle, à au moins 2 m de lui | **Les deux** | Rien d'autre ne détecte le monoxyde, et chaque façon de continuer sans le réseau en ajoute une source : le poêle qui remplace le propane, la génératrice, la chaufferette, le fumoir adossé au mur. Un avertisseur ne sonne pas avant 30 jours à 30 ppm, alors que l'air d'une maison ne devrait pas dépasser 10 ppm sur 24 h : seul le chiffre affiché montre la faible dose qui donne mal à la tête, et s'il monte ou baisse quand on ouvre la porte | 1, 3, 4, 12, 82, 83, 87 |
+| Avertisseur de **monoxyde de carbone** à pile, **à affichage numérique en ppm**, remplacé à la date donnée par le fabricant (7 à 10 ans après la date de fabrication inscrite au dos, selon le modèle, ou 7 ans quand on ne connaît pas le modèle) | 1 par étage, sous-sol compris, 1 par chambre où l'on dort porte fermée, 1 dans la pièce du poêle, à au moins 2 m de lui | **Les deux** | Rien d'autre ne détecte le monoxyde, et chaque façon de continuer sans le réseau en ajoute une source : le poêle qui remplace le propane, la génératrice, la chaufferette, le fumoir adossé au mur. Un avertisseur ne sonne pas avant 30 jours à 30 ppm, alors que l'air d'une maison ne devrait pas dépasser 10 ppm sur 24 h : seul le chiffre affiché montre la faible dose qui donne mal à la tête, et s'il monte ou baisse quand on ouvre la porte | 1, 3, 4, 12, 82, 83, 87 |
 | Piles neuves pour les avertisseurs, rangées **à part**, au chaud | 1 jeu par appareil, par saison | **Les deux** | Rangées avec les autres, elles finissent dans une lampe ou un jouet, et l'avertisseur se tait | 9, 85 |
 | Avertisseur de **fumée**, remplacé **10 ans après sa date de fabrication** | 1 par chambre, 1 au corridor, 1 par étage, sous-sol compris | **Les deux** | Il réveille les gens qui dorment : dans un bâtiment en feu, on a moins de 3 minutes pour sortir. La date de fabrication est imprimée au dos de l'appareil, et sa cellule vieillit sans signe, même s'il sonne au bouton d'essai | 9, 82 |
 
@@ -71,8 +71,8 @@ famille tient quand même.
 | **Sel sans additif** : un seul ingrédient sur l'étiquette (sel à marinade, gros sel de salaison) | Le poids de viande et de poisson à saler, multiplié par le pourcentage de la méthode, puis doublé pour le sel de surface qui coule ; plus **250 g par litre** de la saumure qui trie l'ergot du grain de semence (ch. 98) | **Maison → chalet**, en chaudières de 5 kg | Le sel est le premier consommable à manquer. Quand le congélateur lâche en novembre avec 200 kg de viande, la salaison sauve la viande sans courant, sans pots et sans appareil (ch. 74). On peut tirer du sel du fleuve, au prix de beaucoup de bois et de travail (dernière partie, C) | 9, 67, 74, 98 |
 | Gras acheté : saindoux, shortening, huile végétale | **1 kg et 1 L par personne et par mois** avec la réserve sèche ; pour vivre de gibier, **environ 370 g par jour pour quatre personnes, 55 kg pour 150 jours** (ch. 19) | **Maison → chalet** | Une famille qui vit de lièvre et d'orignal maigre sans gras fait le mal de caribou, qui tue en quelques semaines | 5, 9, 19 |
 | Réserve sèche : riz étuvé, farine, avoine, légumineuses, pâtes, sucre, lait en poudre | Par personne et par mois : 4 kg de riz, 4 kg de farine, 2 kg d'avoine, 3 kg de légumineuses, 2 kg de pâtes, 1 kg de sucre, 1 kg de lait en poudre, pour trois mois. Avec le gras de la ligne précédente, environ 2 650 kcal par personne et par jour | **Maison** | C'est la réserve de fond. Le riz brun, la farine de blé entier et les noix gardent un gras qui rancit : on les achète en petite quantité et on les fait tourner vite, hors de la réserve de fond | 5 |
-| Contenants hermétiques **opaques** pour les denrées sèches | 1 par denrée de base | **Les deux** | Une souris passe à travers le carton, le bois mince et le sac de plastique, et elle gâte trois mois de farine en une semaine. La lumière fait rancir le gras | 5, 100 |
-| **Ouvre-boîte manuel** | 2 | **Les deux** | Il casse bêtement, et sans lui on n'ouvre plus aucune conserve : on en garde deux | 5, 6 |
+| Contenants hermétiques **opaques** pour les denrées sèches | 1 par denrée de base | **Les deux** | Une souris passe à travers le carton, le bois mince et le sac de plastique, et on doit jeter tout ce qu'elle a touché (ch. 5). La lumière fait rancir le gras | 5, 100 |
+| **Ouvre-boîte manuel** | 2 | **Les deux** | Il casse bêtement : on en garde deux. Sans ouvre-boîte, on ouvre une boîte en usant son serti sur une pierre plate (ch. 8) | 5, 6, 8 |
 | Aliments que les enfants mangent **déjà** | 2 semaines au moins | **Les deux** | Un jeune enfant qui refuse de manger pendant 48 h, c'est un deuxième problème par-dessus le premier | 5, 39, 40 |
 
 ### 1.E Le corps
@@ -96,7 +96,7 @@ famille tient quand même.
 | Item | Quantité | Lieu | Sans ça | Ch. |
 | --- | --- | --- | --- | --- |
 | Lampe frontale | 1 par personne, **plus 2**, à la taille des enfants pour les leurs | **Les deux** | En décembre, la noirceur dure 15 à 16 heures. La frontale laisse les deux mains libres pour travailler ou tenir un enfant | 9, 85 |
-| Piles de rechange, **d'un seul format pour tout le bâtiment** | Une réserve pour une saison, rangée **hors des appareils** | **Les deux** | On compte les piles par format, pas par nombre : une réserve de piles AA ne sert à rien si l'appareil qui compte prend une pile CR2032. Les piles alcalines coulent en vieillissant et abîment l'appareil où on les a laissées | 9, 85 |
+| Piles de rechange aux formats des appareils qui comptent ; on choisit ces appareils **au même format** autant que possible | Une réserve pour une saison, par format, rangée **hors des appareils** | **Les deux** | On compte les piles par format, pas par nombre : une réserve de piles AA ne sert à rien si l'appareil qui compte prend une pile CR2032. Les piles alcalines coulent en vieillissant et abîment l'appareil où on les a laissées | 9, 85 |
 | Récepteur radio **à piles ou à manivelle, avec la bande AM** | 2 | **Les deux** | Dans un abri, la radio donne la seule nouvelle qu'on a : l'état de la route, du feu, de la panne, et le moment où on peut sortir de l'abri. L'AM porte loin le soir, et elle passe encore quand les autres moyens sont tombés | 2, 4, 14 |
 | Appareil de **messagerie satellite à deux sens, avec SOS**, et son abonnement payé | 1 | **Chalet** | Au chalet, loin des voisins, rien d'autre ne fait venir de l'aide pour sortir un blessé. Il faut un appareil chargé et un abonnement en vigueur, pas un appareil oublié au fond d'un tiroir | 2, 14, 35 |
 | Trois moyens d'allumer le feu, rangés à **trois endroits différents** : allumettes dans un contenant étanche, briquet à long bec, tige de ferrocérium | 2 boîtes, 2 briquets, 1 tige par sac et 3 au chalet | **Les deux** | Par grand froid, un briquet au butane ne donne plus de flamme tant qu'on ne l'a pas réchauffé contre le ventre. Rangés au même endroit, les trois brûlent ou se perdent ensemble | 13, 15 |
@@ -194,12 +194,12 @@ réserves.
 | Contenants **non réactifs** de qualité alimentaire : plastique alimentaire, acier inoxydable, grès vernissé | 2 grands, 2 petits, et 1 par fournée de fermentation | **Chalet** | Le sel humide attaque l'aluminium, le fer galvanisé et le cuivre : le métal passe dans la saumure, puis dans la viande | 67, 69, 80 |
 | **Sel nitrité** : un mélange de sel et de nitrite de sodium, avec sa teneur écrite sur l'emballage | Le poids de viande prévu en salaison longue ou en fumage à froid, multiplié par la dose par kilogramme que donne la formule du ch. 67 (étape 21) à partir de la teneur écrite sur l'emballage | **Maison → chalet** | Il est la deuxième barrière contre le botulisme dans la salaison longue ; sans lui, pas de fumage à froid (ch. 69). Le salpêtre (nitrate de potassium) ne le remplace pas : on ne dose pas les deux de la même façon (ch. 67) | 5, 9, 67, 68, 69 |
 | Balance **au 0,1 g** | 1 | **Maison → chalet** | La dose de nitrite d'un lot tient en quelques grammes : sans cette balance, on ne met pas de nitrite (ch. 67) | 67, 69 |
-| **Autoclave** (marmite à pression pour les conserves) avec manomètre ou soupape calibrée, son livret de temps de traitement éprouvés, et **un joint et une soupape de rechange** | 1, du plus grand volume que le poêle peut porter | **Maison → chalet** | Sans lui, on ne peut pas mettre en conserve la viande, le poisson et les légumes, qui sont peu acides (ch. 78). Il sauve aussi un congélateur qui dégèle (ch. 74) | 74, 78 |
+| **Autoclave** (marmite à pression pour les conserves) **à soupape à masse**, son livret de temps de traitement éprouvés, et **un joint et une soupape de rechange** | 1, du plus grand volume que le poêle peut porter | **Maison → chalet** | Sans lui, on ne peut pas mettre en conserve la viande, le poisson et les légumes, qui sont peu acides (ch. 78). Il sauve aussi un congélateur qui dégèle (ch. 74). On prend la soupape à masse plutôt que le manomètre : le poids règle la pression par sa propre masse et ne dérive pas, alors que l'aiguille d'un manomètre dérive sans que rien ne se voie (ch. 78) | 74, 78 |
 | Pots de type Mason à épaulement, **couvercles plats neufs**, marmite haute avec une grille au fond, pince à pots, minuteries dont une **mécanique** | 1 couvercle neuf par pot à remplir, **plus 20 %** | **Maison → chalet** | On réutilise les bagues ; le couvercle plat ne sert qu'une fois. Un pot posé sur le métal chaud éclate. Le botulisme ne change ni l'odeur, ni le goût, ni l'apparence d'une conserve | 78 |
 | Vinaigre dont l'acidité est écrite sur l'étiquette, **5 %**, et jus de citron du commerce | Le nombre de pots prévus multiplié par le volume de la recette | **Maison → chalet** | Un vinaigre maison, dont on ne connaît pas l'acidité, ne remplace pas un vinaigre à 5 % : la conserve doit descendre à un **pH de 4,6** ou moins | 78, 80 |
-| Bandelettes de **pH** qui couvrent **3,2 à 4,6**, ou pH-mètre étalonné | 1 rouleau par saison | **Les deux** | Elles prouvent que la choucroute est assez acide pour se garder, et en janvier, la choucroute fournit la vitamine C | 80 |
+| Bandelettes de **pH** qui couvrent **3,2 à 4,6**, ou pH-mètre étalonné | 2 rouleaux rangés au sec, un qui sert et un de rechange : ils durent des années (ch. 80) | **Les deux** | Elles prouvent que la choucroute est assez acide pour se garder, et en janvier, la choucroute fournit la vitamine C | 80 |
 | Baril ou pots de fermentation **à joint d'eau**, avec un poids pour garder le chou sous la saumure | 60 à 100 L en tout, 1 poids par contenant | **Chalet** | Le chou qui dépasse de la saumure grisit et se gâte | 20, 80 |
-| Sel de table **iodé**, gardé **à part** du sel de salaison | **Un peu plus de 2 kg par an pour quatre personnes** : environ 6 g par jour, ce qui couvre l'iode de chacun | **Maison → chalet** | Il ne conserve rien et il change le goût d'une saumure. Il sert à la thyroïde | 21, 67 |
+| Sel de table **iodé**, gardé **à part** du sel de salaison | Pour couvrir l'iode de chacun : **environ 0,7 kg par an par personne de 14 ans et plus**, 0,6 kg de 9 à 13 ans, 0,4 kg de 1 à 8 ans | **Maison → chalet** | Il ne conserve rien et il change le goût d'une saumure. Il sert à la thyroïde | 21, 67 |
 
 ### 2.D Le corps, la tête, les enfants
 
@@ -218,7 +218,7 @@ réserves.
 | Gourde, une par enfant | 1 par enfant | **Chalet** | Si l'adulte seul ne se relève pas, l'enfant boit sans lui. On garde la gourde dans le sac de couchage de l'enfant : si le poêle s'éteint, l'eau d'un pichet gèle, celle du sac ne gèle pas (ch. 38) | 38 |
 | **Coupe menstruelle** | 1 par femme ; elle dure **5 à 10 ans** | **Les deux**, elle voyage avec la personne | Au chalet, le dernier paquet finit un jour. On vide la coupe aux 6 à 12 heures, et on la fait bouillir 5 à 10 minutes à la fin de chaque cycle. Sans elle, on coud des serviettes de flanelle, et on met de la sphaigne pâle en sachet (ch. 29, section 9). Une serviette qui n'a pas fini de sécher irrite la peau, et l'hiver, on n'en a que ce que le poêle arrive à sécher | 29 |
 | **Condoms** en latex, et comprimés de **contraception d'urgence** achetés d'avance | Selon la durée d'isolement prévue (ch. 29) | **Les deux** | Une grossesse commencée au chalet en janvier finit par un accouchement au chalet en octobre, sans salle d'opération. **Tout corps gras abîme le latex** (saindoux, graisse d'ours, vaseline, onguent), et au chalet, il y a du gras partout : on lubrifie à l'eau ou à la salive. On prend la contraception d'urgence jusqu'à 5 jours après le rapport. Seule une méthode posée d'avance ne dépend d'aucun stock : le stérilet au cuivre dure 12 ans, le stérilet hormonal et l'implant, 3 à 5 ans (ch. 29, étape 10) | 29 |
-| Guide illustré pour reconnaître la flore du Québec, **sur papier** | 1, et 1 par cueilleur pour les champignons | **Chalet** | Aucune application ne marche sans réseau, et on cueille loin du réseau | 33, 92, 93 |
+| Guide illustré pour reconnaître la flore du Québec, **sur papier** | 1, et 1 par cueilleur pour les champignons | **Chalet** | Sur papier, il marche sans pile ni réseau, là où on cueille | 33, 92, 93 |
 
 ### 2.E Le feu de forêt et la fumée
 
@@ -226,7 +226,7 @@ réserves.
 | --- | --- | --- | --- | --- |
 | **Grillage de métal aux mailles de 3 mm**, posé sur ou derrière chaque évent, chaque soffite et chaque ouverture | Tous les évents des deux bâtiments | **Les deux** | Un bâtiment prend feu le plus souvent par une braise entrée par un évent, pendant que le front est encore loin. La moustiquaire de fenêtre, en fibre de verre ou en nylon, fond sous la braise : il faut du métal. Une maille plus fine que 3 mm se bouche de poussière, et l'air ne passe plus | 2, 11, 82 |
 | Réserve d'eau d'au moins **200 L** près du bâtiment, râteau à feu à lame droite et dentée, pelle | 1 baril par bâtiment, 1 râteau, 1 pelle | **Les deux** | Après le passage du feu, les braises allument des départs de feu pendant des heures : on les éteint avec cette eau, sans puits ni courant, et on gratte au râteau jusqu'au sol minéral. Un râteau à feuilles plie dans l'humus ; on peut fabriquer le râteau à feu (ch. 11, section 7) | 11 |
-| Boyau d'arrosage assez long pour atteindre **le faîte du toit**, avec son raccord et sa lance | 1 jeu par bâtiment | **Maison** | Avant de partir, on arrose le terrain et le toit (ch. 7) ; un boyau trop court mouille les murs, pas le toit | 7, 11 |
+| Boyau d'arrosage assez long pour atteindre **le faîte du toit**, avec son raccord et sa lance | 1 jeu par bâtiment | **Maison** | Avant de partir, on arrose le terrain et le toit (ch. 2, étape 22) ; un boyau trop court mouille les murs, pas le toit | 2, 11 |
 | Échelle qui monte au toit, **dégagée de la neige l'hiver** | 1 | **Les deux** | Elle sert au ramonage, aux gouttières et à l'arrosage du toit | 11, 82 |
 | **Purificateur d'air portatif à filtre HEPA**, choisi pour la taille de la pièce, et des filtres de rechange | 1 pour la chambre des enfants | **Maison** | Un épisode de fumée dure des jours. Il nettoie l'air d'une pièce fermée, pas celui de toute la maison, et il arrête les particules fines, pas les gaz. Au chalet, sans courant, il descend au palier 4 | 2, 11, 39 |
 | Deuxième jeu de clés de l'auto, et carte routière sur papier avec deux chemins de sortie | 2 jeux, 1 carte | **Les deux** | Un feu de forêt peut fermer une route : avec un seul chemin de sortie, on n'a pas de plan pour partir | 2, 7, 11, 42 |
@@ -249,7 +249,7 @@ qu'aujourd'hui.
 
 | Item | Quantité | Lieu | Sans ça | Ch. |
 | --- | --- | --- | --- | --- |
-| Laine d'acier, tôle mince, mousse expansive, pièges à souris | Autant qu'il y a de passages | **Les deux** | Une souris passe par une fente de la taille d'une pièce de 10 ¢ (ch. 5) et gâte trois mois de réserve en une saison. On bouche le trou dès qu'on le voit | 5, 108 |
+| Laine d'acier, tôle mince, mousse expansive, pièges à souris | Autant qu'il y a de passages | **Les deux** | Une souris passe par une fente de la taille d'une pièce de 10 ¢ (ch. 5) : on bouche le trou dès qu'on le voit | 5, 108 |
 | Quincaillerie par **famille complète** : vis en 2 ou 3 longueurs, boulons **avec leurs écrous et leurs rondelles dans le même bac**, clous ordinaires et clous à toiture, goupilles et clavettes aux mesures des machines, assortiment de joints toriques, colliers de serrage, ruban électrique et ruban toilé, fil de fer recuit, corde de nylon | Une famille à la fois, puis on la complète | **Les deux** | Un boulon sans son écrou ne sert à rien. Pour les joints toriques, l'assortiment bon marché est un bon achat | 9, 108, 109 |
 | Bougies d'allumage, filtres à air et à essence, corde de démarreur du bon diamètre, conduite d'essence au mètre, jeu de joints de carburateur | 1 jeu **par machine** | **Chalet** | Ce sont les pièces qui lâchent le plus souvent, et celles qu'on n'a jamais. Une bougie coûte le prix d'un café et peut arrêter une génératrice pour six semaines | 9, 106, 108 |
 | Bidons de carburant **à bec et à bouchon vissé étanche**, avec la date et le contenu écrits au marqueur, siphon à main, entonnoir à grille, stabilisateur de carburant | 2 bidons par usage : un pour le mélange deux temps, un pour l'essence | **Les deux** | Un bidon mal fermé laisse sortir la vapeur d'essence, et on ne garde jamais le carburant dans le bâtiment où on dort. Du mélange deux temps encrasse la génératrice, et de l'essence sans huile fait serrer le moteur de la scie : c'est pour ça qu'on a deux bidons | 9, 15, 108 |
@@ -260,7 +260,7 @@ qu'aujourd'hui.
 | Comprimés d'**iodure de potassium de 65 mg** | Une boîte, avec assez de comprimés pour donner chaque jour la dose de chacun (ch. 4, étape 13) | **Maison → chalet**, dans la trousse qui part avec la famille | Ils protègent la thyroïde contre l'iode radioactif, et contre lui seulement. On les donne le plus tôt possible : le mieux, dans les 2 heures après l'arrivée des retombées ; après 24 heures, ils ne protègent plus (ch. 4, étape 14). Aucun autre iode ne les remplace. On les garde entre 15 et 30 °C, dans une maison chauffée. Un comprimé intact, dans sa plaquette fermée, reste bon après sa date (ch. 4, section 6) | 4 |
 | Plastique épais (6 mil) ou sacs à ordures épais, ruban adhésif large, et un jeu de filtres de rechange pour la fournaise et l'échangeur d'air | 20 m² de plastique, 2 rouleaux de ruban, 1 jeu de filtres | **Les deux** | Pendant le passage des retombées, on bouche les courants d'air de la pièce d'abri pour quelques heures, pas plus (ch. 4, étape 18). Avec deux bâches, on monte l'entrée en chicane, et un sac à ordures fait le poncho de sortie. En quittant l'abri, on remplace les filtres de la fournaise et de l'échangeur, qui ont retenu la poussière (ch. 4) | 4 |
 | Élagueuse à perche et scie d'élagage | 1 de chaque | **Les deux** | Elles servent à dégager autour des bâtiments contre le feu de forêt : conifères espacés d'au moins **3 m**, branches basses coupées jusqu'à **2 m du sol**. En hauteur, la scie à chaîne n'est pas sûre | 2, 11, 82 |
-| Pompe 12 V ou à essence, avec son boyau, qui puise au lac | 1 | **Chalet** | Elle monte l'eau du lac au bâtiment, et elle arrose le terrain et le toit avant le départ. À la maison, le boyau d'arrosage fait ce travail | 7, 10, 11 |
+| Pompe 12 V ou à essence, avec son boyau, qui puise au lac | 1 | **Chalet** | Elle monte l'eau du lac au bâtiment, et elle arrose le terrain et le toit avant le départ. À la maison, le boyau d'arrosage fait ce travail | 2, 10, 11 |
 | Pour le caveau : isolant rigide posé **à l'extérieur** de la structure, hygromètre, deux conduits d'aération avec leurs registres et un **grillage de métal à mailles fines**, porte isolée à joint, pierre nette pour le drainage | 1 ensemble | **Chalet** | Le caveau garde **0 °C et 98 à 100 % d'humidité** sans électricité, à condition de ne jamais descendre sous zéro, même d'une fraction de degré. Il faut deux conduits : un seul ne fait pas circuler l'air | 4, 79 |
 | Semences à **pollinisation libre**, à saison courte, avec la date de récolte | Selon la surface | **Chalet** | Les hybrides ne donnent pas des plants pareils l'année suivante. La saison sans gel dure 90 à 100 jours : on choisit au nombre de jours jusqu'à la maturité, écrit sur le sachet | 95, 100 |
 | Semence du champ : **pommes de terre de semence**, **orge nue**, **gourganes** ou pois secs entiers | La première année (ch. 98, section 9) : pommes de terre à 0,2 à 0,25 kg/m², en morceaux de 40 à 60 g ; une planche de 100 m² d'orge nue à 12 à 15 g/m², soit 1,2 à 1,5 kg ; gourganes ou pois à 17 à 20 g/m² | **Maison → chalet** | Rien ne fabrique en mai la semence qu'on n'a pas gardée en octobre. Le grain vendu pour manger la remplace s'il lève au test de 20 graines (ch. 100) ; l'orge perlée, l'avoine roulée et les pois cassés ne lèvent plus. **On ne mange jamais une semence achetée, même quand on a faim** : elle est souvent enrobée d'un fongicide ou d'un insecticide, que le rinçage n'enlève pas | 98, 100 |
@@ -380,8 +380,7 @@ deux billes sèches frappées l'une contre l'autre sonnent clair, deux billes ve
 un bois sec fend en étoile à partir du cœur, et son écorce se détache. La bulle : on mouille de savon liquide un bout
 de la bille et on souffle de toutes ses forces par l'autre bout ; un bois sec laisse passer l'air et fait des bulles,
 un bois vert non.
-*Ce qu'on perd :* le chiffre. Avec ces tests, on sait si le bois est sec ou non, pas s'il est à 20 %. Pour la salaison et le caveau,
-où le chiffre compte, ils ne suffisent pas.
+*Ce qu'on perd :* le chiffre. Avec ces tests, on sait si le bois est sec ou non, pas s'il est à 20 %.
 
 ### C. La viande, le sel et le froid
 
@@ -428,7 +427,8 @@ de marteau, en deux tours : un crochet à un seul pli s'ouvre sous la charge.
 **Le sel du fleuve** (ch. 67) ne s'épuise pas. Pour le tirer, on puise l'eau au large, dans un courant, jamais près
 d'un quai ni d'un égout, on la laisse reposer, on la fait évaporer au feu, et on **arrête avant la fin**. Les
 derniers sels à cristalliser sont ceux du magnésium et du calcium : si on pousse jusqu'à sec, le sel devient amer
-et collant, et il reprend l'eau. On ne connaît pas le rendement : il dépend du sel que contient l'eau puisée.
+et collant, et il reprend l'eau. Le rendement dépend de l'eau puisée : on le mesure la première fois, en pesant le sel obtenu
+(ch. 67).
 *Ce qu'on perd :* l'évaporation ne retire ni les métaux ni les hydrocarbures dissous : elle les concentre aussi.
 
 ### D. Le métal, l'outil et la réparation
@@ -482,7 +482,7 @@ problème.
 ### E. Le corps
 
 **Le garrot improvisé.** On prend une bande **large** : un bandage triangulaire, une manche de chemise fendue, une
-courroie de sac. Une corde, un fil ou une ceinture ne serrent pas assez et coupent la peau sans arrêter le sang. On
+courroie de sac, jamais une corde, un fil ou une ceinture étroite (ch. 26). On
 noue la bande au-dessus de la plaie, on passe un bâton solide dans le nœud et on le tourne jusqu'à ce que le
 saignement s'arrête complètement ; on bloque le bâton et on écrit l'heure sur le front du blessé (ch. 26). Si la
 plaie suinte encore, on serre davantage.
@@ -526,7 +526,8 @@ en septembre couvre l'hiver.
 (ch. 15, section 7). On les porte comme ceux du commerce, **au cou, par-dessus le manteau**, avant le premier pas
 sur la glace (ligne 1.I).
 
-**Sans écumoire**, on prend une louche percée, ou une boîte de conserve trouée et clouée sur un manche. **Sans perche
+**L'écumoire**, on la fait avec une boîte de conserve trouée au clou et clouée sur un manche (ch. 58), ou on prend une
+louche percée. **Sans perche
 de sondage**, on prend un manche de hache ou une perche d'épinette. **Sans perche de sauvetage** de 4 m, on prend une
 jeune épinette ébranchée, à condition qu'elle soit **déjà au bord du trou** : quand quelqu'un est dans l'eau, on n'a pas le temps
 d'aller la couper.
@@ -558,6 +559,6 @@ On achète ces lignes pendant que les magasins sont ouverts.
 
 ## Si on n'achète qu'une chose ce mois-ci
 
-**L'avertisseur de monoxyde de carbone à pile, à affichage numérique en ppm : un par étage habité, un par chambre où l'on dort porte fermée, un dans la pièce du poêle, à au moins 2 m de lui.**
+**L'avertisseur de monoxyde de carbone à pile, à affichage numérique en ppm : un par étage, sous-sol compris, un par chambre où l'on dort porte fermée, un dans la pièce du poêle, à au moins 2 m de lui.**
 
 Il fonctionne pendant que tout le monde dort, et rien ne le remplace (ligne 1.A).

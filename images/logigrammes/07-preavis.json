@@ -73,7 +73,7 @@
     "d2": 2.85,
     "d3": 4.3,
     "d4": 5.3,
-    "d5": 6.5,
+    "d5": 6.6,
     "d6": 7.45,
     "d7": 8.4
   },
@@ -116,7 +116,7 @@
       "rang": "g3",
       "ancre": "haut",
       "taille": 10,
-      "texte": "**Remplir l'eau, charger et rentrer du bois.** Attendre l'avertissement pour le reste.",
+      "texte": "**Faire des réserves d'eau, charger et rentrer du bois.** Attendre l'avertissement pour le reste.",
       "renvoi": "ch. 7, étape 1",
       "source": "étape 1"
     },
@@ -193,7 +193,7 @@
       "col": "cote2",
       "rang": "d1",
       "taille": 10,
-      "texte": "**Boucher le drain de plancher**, et monter à l'étage ce qui est au sous-sol, les bidons d'abord.",
+      "texte": "**Boucher le drain de plancher**, sortir dehors les bidons d'essence et de solvant, et monter le reste à l'étage.",
       "renvoi": "ch. 7, étape 22",
       "source": "étape 22"
     },
@@ -231,7 +231,7 @@
       "rang": "d4",
       "ancre": "haut",
       "taille": 10,
-      "texte": "**Remplir l'eau et le congélateur**, cuire la viande qui ne tiendra pas, faire les pleins, préparer la génératrice et l'avertisseur.",
+      "texte": "**Faire des réserves d'eau et remplir le congélateur**, cuire la viande qui ne tiendra pas, faire les pleins, préparer la génératrice et l'avertisseur.",
       "renvoi": "ch. 7, étapes 6 à 25",
       "source": "étapes 6 à 25"
     },
@@ -242,7 +242,7 @@
       "rang": "d4",
       "ancre": "haut",
       "taille": 10,
-      "texte": "**Faire d'abord l'eau et le congélateur**, puis l'emplacement de la génératrice et l'avertisseur.",
+      "texte": "**Faire d'abord les réserves d'eau et le congélateur**, puis l'emplacement de la génératrice et l'avertisseur.",
       "renvoi": "ch. 7, étape 26",
       "source": "étape 26"
     },

@@ -206,7 +206,7 @@ moi », «je suis inutile ». Les comportements aussi : «s'isoler et préférer
 soudain regain d'énergie ou paraître apaisée » après une période de découragement. Un mieux
 subit après des semaines sombres n'est pas toujours un mieux. Les
 armes se verrouillent et les munitions se rangent ailleurs, tout de suite, sans
-discussion (ch. 16, ch. 17).
+discussion (ch. 36).
 
 ### 5-F. Quand quelqu'un meurt
 

@@ -384,7 +384,7 @@ ne nourrit pas un hiver à lui seul ; il porte la moitié que la forêt ne porte
     façon qui donne le champ le plus égal, et elle laisse passer la binette. **À la volée, 13,5 à
     15 g/m²** : la profondeur est inégale, le grain mûrit inégalement et rend 5 à 10 % de moins.
     L'avoine semée trop clair rouille. On pèse la semence d'une planche une fois, à la balance du
-    ch. 5 §9, et on marque au couteau le niveau dans le contenant qui servira toujours.
+    ch. 5 (section 7), et on marque au couteau le niveau dans le contenant qui servira toujours.
 33. **Semer à la volée.** Diviser le carré en bandes au cordeau (ch. 95). Peser la semence de chaque
     bande ; en semer la moitié en marchant dans un sens, l'autre moitié en travers, à pleine main,
     d'un geste égal[^4]. Enterrer au râteau, puis raffermir : une bûche roulée ou le pied à plat,
@@ -423,7 +423,7 @@ ne nourrit pas un hiver à lui seul ; il porte la moitié que la forêt ne porte
 41. **Nettoyer le jour même.** La balle humide laissée dans le grain le fait chauffer et le gâte en
     quelques jours.
 42. **Sécher à 13-15 % d'eau** — l'avoine nue sous 10 % —, en couche mince, retournée chaque jour.
-    Le grain de table sèche sur la claie au-dessus du poêle (ch. 5 §9) et ne doit jamais dépasser
+    Le grain de table sèche sur la claie au-dessus du poêle (ch. 5, section 7) et ne doit jamais dépasser
     60 °C, sinon la farine perd sa qualité. **La semence, non** : elle sèche à l'air, loin du poêle,
     en semaines plutôt qu'en heures, et n'est jamais plus chaude que la main qui la touche ; au-dessus
     de 35 °C d'air, le germe s'abîme sans que rien ne paraisse (ch. 100 §5-G, étape 30). La mesure et
@@ -720,7 +720,7 @@ moustiquaire, même doublée, ne laisse passer que la poussière.
 **Sécher, et savoir que c'est sec, sans instrument.**
 
 - **La claie au-dessus du poêle**, pour le grain de table seulement : en couche mince, brassé à la
-  main (ch. 5 §9).
+  main (ch. 5, section 7).
 - **La semence, loin du poêle.** Sur une moustiquaire tendue à l'air, dans la pièce du poêle mais
   loin de lui, retournée à la main chaque jour, pendant des semaines (ch. 100 §9). Elle n'est jamais
   plus chaude que la main qui la touche : une claie tiède au toucher est déjà trop chaude pour elle.
@@ -728,7 +728,7 @@ moustiquaire, même doublée, ne laisse passer que la poussière.
   60-65 °C, le repeser : la différence divisée par le poids de départ, fois 100, donne le
   pourcentage d'eau. On vise 13 à 15 %. Sur 1 kg, l'écart entre 13 et 15 % est de 20 g : il faut
   des masses divisées jusqu'à une quinzaine de grammes, six divisions d'un sac de 1 kg à la balance
-  du ch. 5 §9. Sans elles, la pesée dit seulement si le grain est encore franchement mouillé. Si le
+  du ch. 5 (section 7). Sans elles, la pesée dit seulement si le grain est encore franchement mouillé. Si le
   four du poêle ne tient pas une chaleur aussi basse, on garde le test de l'ongle du ch. 88 : un
   grain sec casse net, un grain humide s'écrase.
 

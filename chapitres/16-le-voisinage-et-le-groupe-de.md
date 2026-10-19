@@ -83,8 +83,8 @@ règles du groupe de chasse, et sortir un blessé du bois à plusieurs : en tra�
  - Si une machine peut se rendre jusqu'à lui (l'hiver, une motoneige avec un traîneau ; l'été, un VTT avec une
  remorque), envoyer deux personnes la chercher maintenant, pendant que les autres l'emballent (étape 6) :
  l'aller-retour de la machine est le trajet le plus long.
- - Sinon, l'hiver, le sortir couché sur un traîneau tiré sur la neige (étapes 6 à 10). L'été, le sortir en canot, ou
- le tirer en travois sur un sentier (étape 11).
+ - Sinon, l'hiver, le sortir couché sur un traîneau tiré sur la neige (étapes 6 à 10). L'été, le sortir en canot
+ (étape 11).
  - Sur un traîneau, un blessé couché sort en quatre à six fois le temps qu'on met à faire le même trajet à pied, et
  plus en terrain difficile. S'il ne peut pas arriver avant la noirceur, ou s'il n'y a pas assez de monde pour tirer et se
  relayer, l'abriter sur place (étape 14).
@@ -126,8 +126,7 @@ règles du groupe de chasse, et sortir un blessé du bois à plusieurs : en tra�
  - Ne pas l'attacher au canot : si le canot chavire, il reste pris sous la coque retournée, la tête dans l'eau
  (ch. 15, étape 37 ; ch. 90, étape 34).
  - Suivre la rive (ch. 90, étape 33).
- - Sans eau qui mène au camp, prendre un VTT avec une remorque, ou tirer le traîneau de perches en travois sur le
- sentier (section 7, « L'été, sans neige »). Si rien de cela ne marche, l'abriter sur place et envoyer chercher une
+ - Sans eau qui mène au camp, prendre un VTT avec une remorque. Sans VTT, l'abriter sur place et envoyer chercher une
  machine ou des bras (étape 14).
 
 ### Chaque heure de la sortie
@@ -136,10 +135,10 @@ règles du groupe de chasse, et sortir un blessé du bois à plusieurs : en tra�
  prochain message (ch. 14, étapes 6 et 8). Si un message n'arrive pas à l'heure annoncée, les gens qui l'attendent
  savent qu'il y a un problème ; sans heure fixée, ils ne s'aperçoivent de rien (ch. 14, étape 26).
 13. {!froid} **Faire une halte courte.** Resserrer les sangles et refermer le sac, sauf en canot (étape 11).
- Vérifier que le blessé répond clairement, et que les doigts sous une attelle restent roses et chauds (ch. 26). Ne
- lui donner à boire chaud et sucré que s'il est bien éveillé et avale bien (ch. 25, étape 10). S'il devient confus ou arrête de
- frissonner sans avoir été réchauffé, le garder à l'horizontale et le bouger
- doucement (ch. 25, étape 5).
+ Vérifier que le blessé répond clairement, et que les doigts sous une attelle restent roses et chauds (ch. 26).
+ S'il devient confus ou arrête de frissonner sans avoir été réchauffé, le garder à l'horizontale, le bouger
+ doucement (ch. 25, étape 5) et ne rien lui donner par la bouche (ch. 25, étape 11). Sinon, ne lui donner à boire
+ chaud et sucré que s'il est bien éveillé et avale bien (ch. 25, étape 10).
 14. **S'arrêter avant la nuit, ou avant que les porteurs soient à bout.** Faire un abri et un feu sur place, et
  garder le blessé emballé sur un sol isolé (ch. 12, étapes 1 à 14). Envoyer deux personnes chercher la machine ou des
  bras, avec le message écrit et une heure de retour (ch. 35). Continuer de nuit avec des porteurs épuisés, c'est
@@ -207,9 +206,9 @@ règles du groupe de chasse, et sortir un blessé du bois à plusieurs : en tra�
 28. **Quand on décide de partir, le dire aux voisins, sans attendre leur accord** : un groupe met du temps à décider,
  et la route peut se fermer pendant ce temps (ch. 2).
 29. **Pendant une épidémie, garder le contact sans entrer chez personne.** Déposer ce qu'on donne dehors, à un endroit
- convenu, et tenir la veille aux heures fixées. Les petits services, comme garder des enfants quelques heures ou passer
- prendre quelque chose, remettent tout le monde en contact sans que personne ait l'impression de se rassembler
- (ch. 30).
+ convenu, et tenir la veille aux heures fixées. Refuser aussi les petits services, comme garder les enfants d'un autre
+ foyer quelques heures ou passer prendre quelque chose chez lui : sans que personne ait l'impression de se rassembler,
+ ils remettent tous les foyers en contact (ch. 30).
 30. {!coupure} **Ne jamais bûcher seul.** Ne partir avec une scie à chaîne que si un autre foyer connaît le secteur et
  l'heure de retour, et qu'une personne est chargée de lancer la recherche passé cette heure (ch. 106). Laisser
  l'heure de retour par écrit.
@@ -284,7 +283,7 @@ règles du groupe de chasse, et sortir un blessé du bois à plusieurs : en tra�
 
 | Moment | Ce qu'on vérifie | Cible chiffrée | Si c'est hors cible |
 | --- | --- | --- | --- |
-| Sortie d'un blessé, à chaque relève | Le visage, les doigts et la réponse du blessé | Aucune plaque blanche ou cireuse sur le visage ; il répond clairement | Plaque blanche : la couvrir et la réchauffer contre une peau saine. S'il est confus ou ne frissonne plus : le garder à l'horizontale, sans le secouer (ch. 25) |
+| Sortie d'un blessé, à chaque relève | Le visage, les doigts et la réponse du blessé | Aucune plaque blanche ou cireuse sur le visage ; il répond clairement | Plaque blanche : la couvrir et la réchauffer contre une peau saine. S'il est confus, ou s'il ne frissonne plus sans avoir été réchauffé : le garder à l'horizontale, sans le secouer, et rien par la bouche (étape 13) |
 | Sortie d'un blessé, chaque heure | Le message | Envoyé à l'heure dite, avec la position et l'heure du suivant | L'envoyer tout de suite ; sans réponse, garder l'horaire (ch. 14) |
 | Chaque automne | La tournée des foyers | Chaque foyer occupé l'hiver vu en personne depuis l'automne dernier | Refaire la tournée avant les neiges : ce qu'on savait d'un voisin il y a quelques années a changé |
 | Chaque automne | L'essai radio avec chaque foyer | Chaque foyer entendu, et il a répondu au moins une fois | Régler le matériel avant décembre (ch. 14) |
@@ -395,7 +394,8 @@ le reflet sur la main jusqu'à ce qu'il traverse le V. Il faut du soleil, et en 
 est courte. Sans soleil, faire de la fumée : des branches de conifère vertes ou de la mousse mouillée jetées sur un feu
 bien pris donnent une colonne blanche et épaisse, qu'on voit de loin même quand on ne voit pas la flamme. La nuit,
 faire un feu clair et haut, ou deux feux à quelques pas l'un de l'autre : un feu seul peut passer pour un feu de camp,
-et deux feux alignés montrent qu'on envoie un message.
+et deux feux alignés montrent qu'on envoie un message. Trois feux en triangle restent le signal de détresse
+(étape 19).
 
 ### La corde de tempête et le balisage
 
@@ -434,11 +434,6 @@ prendre du fil de fer tordu à la pince (repère 8) ; le ruban adhésif durcit a
 *Autre façon : ce qui glisse déjà.* Un capot de vieux véhicule retourné, une porte pleine, un panneau de
 contreplaqué, une tôle de toit. Le capot est le meilleur : il est bombé, et ses bords relevés ne poussent pas la neige
 devant lui (repères 12 et 13).
-
-*L'été, sans neige.* [À VÉRIFIER] Tirer le même cadre en travois : une ou deux personnes lèvent l'avant par les
-brancards, et le bout des perches traîne au sol, la tête du blessé du côté des brancards. Sur les racines et les roches, le travois
-secoue : aller au pas, et caler la tête du blessé. Quand il doit rester à l'horizontale (étape 13), arrêter de le
-tirer en travois, qui le tient incliné, et l'abriter sur place (étape 14).
 
 ### Ce qu'on perd
 

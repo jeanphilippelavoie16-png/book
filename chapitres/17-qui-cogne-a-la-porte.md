@@ -79,7 +79,8 @@ destination.
 8. **La réchauffer** (ch. 25, étapes 5 à 14) : la coucher à l'abri du vent, sans gestes brusques, et lui enlever
  ses vêtements mouillés. Mettre la chaleur sur la tête, le cou, le tronc et l'aine, et les bouillottes sous les
  aisselles et sur le ventre ; rien sur les bras ni les jambes. Lui donner à boire chaud et sucré, à petites
- gorgées, seulement si elle est bien éveillée et avale bien. Ne pas la masser, et ne lui donner ni alcool ni
+ gorgées, seulement si elle est bien éveillée, qu'elle n'est pas confuse et qu'elle avale bien (ch. 25, étapes 10
+ et 11). Ne pas la masser, et ne lui donner ni alcool ni
  cigarette : l'alcool et la cigarette font baisser la température du corps.
 9. **Pour un besoin matériel, donner dehors, sans faire entrer le visiteur.** Le visiteur racontera ce qu'il a
  reçu, et la façon dont on donne lui en apprend plus sur nos réserves que la quantité. Donner un repas chaud dans
@@ -307,8 +308,8 @@ ce qui traîne.
  sèches**, dans un talus : une pierre de ruisseau ou prise dans la neige mouillée garde de l'eau, qui se change en
  vapeur dans le feu et la fait éclater. Ne pas se pencher au-dessus du feu pendant qu'elles chauffent.
 - **La bouillotte.** Remplir d'eau chaude une bouteille de métal ou de plastique épais, l'enrouler dans un bas ou
- un linge, et la poser sur le tronc, le cou, les aisselles et l'aine, pas sur les mains ni les pieds (étape 8).
-- {!thuyone} **La boisson chaude et sucrée**, seulement à une personne qui avale bien (étape 8). Sans thé ni sucre,
+ un linge, et la poser là où l'étape 8 place les bouillottes.
+- {!thuyone} **La boisson chaude et sucrée**, seulement à une personne qui peut boire (étape 8). Sans thé ni sucre,
  faire bouillir des aiguilles de sapin baumier ou d'épinette, et servir l'infusion chaude. **Jamais de cèdre** : la thuyone du
  cèdre est toxique (ch. 20).
 
@@ -318,9 +319,8 @@ Transvider ce qu'on donne dans le contenant du visiteur. Prendre le bois dans la
 dehors, pas dans celle du fond. Donner l'eau chaude dans la bouteille du visiteur : glissée dans un bas, elle le
 réchauffe sur le chemin du retour en plus de l'abreuver.
 
-Pour donner du carburant, le siphonner avec un boyau. Avec deux boyaux et un chiffon serré autour du goulot,
-souffler dans le boyau court : la pression pousse le carburant par le long. Une poire de pompe fait la même chose
-(ch. 15).
+Pour donner du carburant, le siphonner avec deux boyaux et une pompe à vélo ou à matelas, ou avec un boyau à bille
+(ch. 15, section 7, « Amorcer le siphon sans la bouche »).
 
 {!poison} **Ne jamais amorcer le siphon à la bouche** : on avale de l'essence de travers, et elle passe dans les
 poumons.
@@ -386,8 +386,8 @@ couleurs (étape 2).
 ### Le refroidissement éolien
 
 Le refroidissement éolien est un indice sans unité : on écrit −28, pas −28 °C, pour ne pas le confondre avec la
-température de l'air. À partir de −28, chaque plage de valeurs donne le temps que met la peau exposée à geler.
-Par un vent soutenu de plus de 50 km/h, la peau peut geler plus vite que ce temps (étape 7).
+température de l'air. Par un vent soutenu de plus de 50 km/h, la peau exposée peut geler plus vite que le temps
+donné pour la valeur de l'indice (étape 7).
 
 ### Contagieux avant d'avoir l'air malade
 

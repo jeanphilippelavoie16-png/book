@@ -592,3 +592,36 @@ Mots vides : 43, comme avant ; aucun nouveau (« trois autres coups » évite un
 Redites : 3, les mêmes qu'à la passe précédente, jugées. Invariants : 10 h, 60 g, 60, 1945, justifiés plus haut. Ancre
 introuvable : 14-01, « Côté terre, la règle qui surprend », l'ancienne ancre encore dans `placements-tome-1.json`
 (nouvelle ancre rendue à l'orchestrateur).
+
+## Points réglés après l'édition, 19 octobre 2026
+
+Rédacteur du lot 11-13-14, passe « trancher » (JP : « on a pas déjà fait ce travail-là ? ») : rien n'est revérifié ; une
+source déjà au dossier n'est ouverte que pour trancher un point neuf. Les quatre questions laissées à JP se ferment
+par une règle ; les cinq points de l'éditeur (`suivi/14-edition.md`, « Faits à signaler ») sont réglés.
+
+### Les questions à JP
+
+| Question | Réglée comment | Règle |
+| --- | --- | --- |
+| La pastille « 10 min » de « Il faut de l'aide, loin de tout » | Gardée. Elle dit le temps qu'on a dans le pire cas de la série (la peau exposée gèle en 10 à 30 min par −30 °C et un vent de 10 km/h ; un gros saignement vide le corps en quelques minutes), sourcé, comme au ch. 16 et maintenant au ch. 13. Une pastille par série, donc le pire cas de la série | CLAUDE.md, « La pastille dit le temps qu'on a pour faire la série, à partir de ce qui la déclenche » ; cadre, « ce temps est sourcé » ; point 16 plus haut |
+| Le mode SOS de l'appareil (rythme d'envoi, annuler un SOS parti par erreur) | Rien à changer : le texte n'affirme rien du mode SOS, et la notice de l'appareil de JP ne ferait pas un livre ouvert. Si on veut écrire l'annulation d'un SOS, c'est une recherche sur la page publique d'un fabricant, pas une question à JP | CLAUDE.md, « Un livre ouvert, pas centré sur JP » ; règle 1 |
+| Aucune façon des Innus dans les notes En plus | Les notes En plus sont « un mélange de trois sortes seulement », pas une de chaque ; quatre notes, c'est la réserve minimale (4 à 8). Rien à ajouter | Cadre, « Les encadrés En plus » |
+| Une photo pour reconnaître une pastille piézo ou une diode au germanium | Pas une question à JP : la photo se cherche sous licence (Wikimedia Commons filtré par licence) à la phase des images ; Commons répondait 429 le 19 octobre. Une photo de JP reste possible s'il en offre une | CLAUDE.md, « Les images » |
+
+### Les points de l'éditeur
+
+| Point | Où | Ce qui a changé | Règle ou source |
+| --- | --- | --- | --- |
+| 1. Le logigramme n'avait plus les mots du chapitre | `images/logigrammes/14-communiquer.json` : boîtes a1 et b4, précision de q1 ; et r4 | « Déclencher la détresse » → « Lancer l'appel de détresse » (a1, b4) ; « se réveille mal » → « est difficile à réveiller » (q1) ; et, vu en relisant, « ce que dit la fiche de sortie » → « ce qui est écrit sur la fiche de sortie » (r4, comme l'étape 12). Le `_note` donne le nouveau fondement de la pastille. Rendus refaits (`env -u TMPDIR python3 design/outils/logigramme.py …`, puis `--sans-entete --svg`) : 0 erreur, 0 avis les deux fois ; regardé à l'image, rien ne déborde | Skill `ecriture`, règle 6 (le même mot pour la même chose) ; « la chose qui parle » |
+| 2. « Dans le doute, avertir quand même (étape 5) » se lisait de deux façons | Étape 1 | « Sinon, ou dans le doute, avertir le correspondant (étape 5), et lancer l'appel de détresse si la situation empire (étape 8). » Même chose que la branche « Non, ou dans le doute » du logigramme | `sources/19-transports-canada-aim-sar-2025-fr.pdf`, AIM SAR 3.5 (« s'il n'existe aucune situation d'urgence, il ne doit pas déclencher son ELT ») et 3.8.1 (les balises de 406 MHz « ne devraient jamais être activées à moins qu'il ne s'agisse réellement d'une urgence ») ; extraits ajoutés à `sources/14-refonte-2026-10-19-balise-et-en-plus.md`, section 4 |
+| 3. La section 5 (« Ensuite, compter sur le correspondant pour suivre sa consigne ») tirait contre l'étape 7 (« Ne rien décider en se disant que le correspondant est au courant ») | Section 5, ligne « Chaque message envoyé » | « Aller sous un ciel dégagé et renvoyer. Tant que la réponse ne vient pas, faire comme si le message n'était pas arrivé (étape 7). » | L'étape 7, déjà vérifiée, tranche |
+| 4. « Dévisser le mât de l'antenne de l'auto et le rentrer » : le texte ne dit pas comment le brancher au poste | Section 7, « Le poste d'auto sorti du tableau de bord » | Coupé ; reste « coincer le bout d'un long fil dans le centre de la prise d'antenne » | Phrase sans source (la fiche des fils du poste, `04-verification-technique-2026-10-18.md`, section 10, ne parle pas du mât) ; la consigne tient sans elle |
+| 5. « Autre façon de régler plus fin » avec deux tubes de papier d'aluminium : le texte ne dit pas où les brancher | Section 7, « L'accord » | Coupé. Aucune page au dossier ne décrit ce condensateur (la circulaire NBS 120 dit seulement qu'on accorde « by a variable inductor or by a variable condenser », et son poste s'accorde par les prises) ; la planche 14-01 ne le montre pas ; l'accord par les prises tient seul | Règle de la passe : une phrase sans source se coupe si la consigne tient sans elle |
+
+**Ancres** : aucune ne bouge (« **Radio VHF maritime portative, sur le fleuve** » et « Le poste à galène n'a besoin
+d'aucune pile » sont intactes).
+
+**controle.py** (`--avant` HEAD) : 7 024 → 6 989 mots ; 2 tirets (titre et ligne de tome) ; 0 « § », 0 tournure,
+0 maxime, 0 pronominal ; 2 mises en relief, les mêmes (la condition de l'étape 5) ; 44 mots vides et 6 redites, jugés
+(des renvois) ; invariants : rien n'a disparu. Ancre introuvable : l'ancienne de 14-01 dans `placements-tome-1.json`,
+la nouvelle est rendue dans le JSON du lot. Fins de ligne LF.

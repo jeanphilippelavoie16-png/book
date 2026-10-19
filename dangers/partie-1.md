@@ -18,7 +18,7 @@ On ne peut détecter le gaz qu'avec un avertisseur de monoxyde. L'avertisseur me
 4. Garder les personnes intoxiquées au repos et au chaud, loin de toute flamme. À l'air libre, la moitié du monoxyde est encore dans le sang 3 à 5 h plus tard, même si la personne se sent mieux. Si elle est confuse ou ne se réveille pas bien, sa vie est en jeu.
 5. Ne rien rallumer avant d'avoir trouvé la cause : tuyau déboîté, conduit bouché, sortie prise dans la neige, appareil d'extérieur rentré.
 
-**Où il revient.** Partout où une flamme ou un moteur brûle dans un volume fermé : la panne (ch. 3), la pièce d'abri des retombées (ch. 4), la tente, l'auto prise dans la neige, le sauna (ch. 37), le fumoir et l'atelier.
+**Où il revient.** Partout où une flamme ou un moteur brûle dans un volume fermé : la panne (ch. 1, 3, 7, 8, 10), la pièce qu'on ferme pendant les retombées ou un feu de forêt (ch. 4, 8, 11), la tente, l'auto prise dans la neige (ch. 2, 6, 8, 15), le réchaud d'un visiteur (ch. 17), le sauna (ch. 37), le fumoir et l'atelier.
 
 ## {!generatrice} Génératrice et moteur sous un toit
 
@@ -34,11 +34,11 @@ On est tenté de mettre la génératrice au garage, dans la remise ou sous l'auv
 
 1. Poser la génératrice dehors, à 6 m ou plus du bâtiment, sur une surface sèche, à découvert, sans toit ni bâche au-dessus.
 2. Tourner l'échappement à l'opposé du bâtiment et fermer les ouvertures de ce côté.
-3. Faire le plein moteur arrêté, dehors, à la lampe de poche (pictogramme des vapeurs). Ne jamais faire le plein à la lumière d'une chandelle ou d'un fanal.
+3. Faire le plein moteur arrêté et froid, dehors, à la lampe de poche (pictogramme des vapeurs). Ne jamais faire le plein à la lumière d'une chandelle ou d'un fanal.
 4. Sortir l'auto, la motoneige, la scie ou la souffleuse du garage avant de la démarrer. Dans une auto prise dans la neige, dégager le tuyau d'échappement avant chaque démarrage : un tuyau bouché renvoie le gaz dans l'habitacle.
 5. Ne jamais brancher la génératrice sur une prise ni sur le panneau électrique de la maison (pictogramme du courant renvoyé).
 
-**Où il revient.** Chaque fois qu'une génératrice ou un moteur sert : la panne d'électricité (ch. 3), le stock de carburant (ch. 5), l'électricité du chalet, le transport et l'atelier (ch. 104 à 112).
+**Où il revient.** Chaque fois qu'une génératrice ou un moteur sert : la panne d'électricité (ch. 1 à 3, 7, 8), le stock de carburant (ch. 5, 9, 15), la pompe du puits (ch. 10), le retour après un feu de forêt (ch. 11), l'auto prise dans la neige (ch. 2, 6, 8, 15), la génératrice d'un visiteur qu'on loge (ch. 17), l'électricité du chalet, le transport et l'atelier (ch. 104 à 112).
 
 ## {!electrocution} Courant renvoyé ou fil tombé
 
@@ -56,7 +56,7 @@ Un fil tombé au sol peut rester alimenté sans faire de bruit, sans étincelle 
 4. Dans une auto qui touche une ligne : rester dedans. S'il faut sortir parce que l'auto prend feu, sauter le plus loin possible les pieds joints, sans toucher l'auto et le sol en même temps, puis s'éloigner à petits pas.
 5. Ne pas toucher une personne électrocutée tant qu'elle touche au fil ou à ce qui est sous tension. Une fois qu'elle ne touche plus rien de sous tension, la réanimer si elle ne respire pas, et couvrir ses brûlures d'un linge propre et sec.
 
-**Où il revient.** La génératrice branchée pendant une panne (ch. 1, 3, 15), le fil tombé après une tempête, le verglas ou un feu de forêt (ch. 11, 16).
+**Où il revient.** La génératrice branchée pendant une panne ou au retour après un feu de forêt (ch. 1 à 3, 7, 11, 15), le fil tombé après une tempête, le verglas ou un feu de forêt (ch. 11, 16).
 
 ## {!vapeurs} Vapeurs qui prennent feu
 
@@ -81,7 +81,7 @@ Un bidon ou un réservoir qu'on croit vide garde des vapeurs sur ses parois. Ava
 5. Charger les batteries dans un local aéré, loin de toute flamme et de toute étincelle.
 6. Éteindre une flaque de carburant en feu avec la poudre de l'extincteur, du sable ou de la terre. Ne jamais lancer d'eau au seau : l'essence flotte sur l'eau, et le feu s'étend avec elle.
 
-**Où il revient.** Le carburant (ch. 5), l'éclairage (ch. 13, 15), le propane, les batteries et l'atelier (ch. 103 à 112).
+**Où il revient.** Le carburant et le plein de la génératrice (ch. 3, 5, 9, 15), la conduite d'essence gelée (ch. 2), le gaz qu'on rouvre après une panne et les bidons sortis du sous-sol avant une crue (ch. 7), le chlore fait par électrolyse (ch. 10), le propane (ch. 11), le feu qu'on allume (ch. 13), l'éclairage (ch. 85), les batteries et l'atelier (ch. 103 à 112).
 
 ## {!huile-en-feu} Huile ou gras en feu
 
@@ -126,11 +126,11 @@ La créosote, ce dépôt noir qui colle dans le tuyau, brûle très fort. Elle v
 4. Après un feu de cheminée : le soir même et pendant la nuit, passer la main sur les murs et le plafond autour du tuyau pour sentir s'ils chauffent, et ne pas rallumer avant d'avoir regardé le conduit.
 5. Si le feu commence à peine : le couvrir ou l'éteindre à l'extincteur en balayant la base des flammes. S'il grandit quand même, sortir.
 
-**Où il revient.** Le chauffage au bois (ch. 82, 83), l'éclairage à la flamme, le sauna (ch. 37), le foin (ch. 99), la chaux (ch. 102) et l'atelier (ch. 105, 108, 112).
+**Où il revient.** Le chauffage au bois et ses cendres (ch. 3, 7, 18, 82, 83), l'éclairage à la flamme, le chlore en granules (ch. 10), le ventilateur monté avec un filtre (ch. 11), le sauna (ch. 37), le foin (ch. 99), la chaux (ch. 102) et l'atelier (ch. 105, 108, 112).
 
 ## {!feu-de-foret} Feu de forêt
 
-**Ce qui arrive.** La fumée arrive bien avant les flammes. Ses particules fines font le plus de tort aux poumons, et on ne peut pas juger à l'odeur ou à la vue combien on en respire. Un enfant respire plus d'air qu'un adulte pour son poids. Le masque filtrant (N95) ne convient pas aux enfants de moins de 2 ans.
+**Ce qui arrive.** La fumée arrive bien avant les flammes. Ses particules fines font le plus de tort aux poumons. On ne peut pas juger à l'odeur combien on en respire, et la vue n'en donne qu'une estimation, de jour et par air sec (ch. 11, étape 36). Un enfant respire plus d'air qu'un adulte pour son poids. Le masque filtrant (N95) n'est pas fait pour le visage d'un enfant et ne le protège pas ; avant 2 ans, il ne faut jamais lui en mettre.
 
 Dans un feu de forêt, beaucoup de morts sont des gens partis trop tard : la fumée épaisse cache la route, les phares n'aident presque pas, des arbres tombent, et le seul chemin peut être fermé avant que le feu arrive. Les gens qui restent pour défendre la maison et qui partent à la dernière minute meurent sur la route.
 
@@ -149,7 +149,7 @@ Un feu de sol avance dans l'humus sans flamme et presque sans fumée. Dans un hu
 3. Habiller tout le monde de laine, de coton épais ou de jean, et leur mettre des bottes de cuir.
 4. Après un brûlis, ou en revenant après un feu de forêt : gratter jusqu'à la terre minérale, chercher les points chauds, creuser et éteindre partout où c'est chaud, et refaire le tour au dégel.
 
-**Où il revient.** Le feu de forêt (ch. 11), le brûlis du jardin (ch. 96) et le foin (ch. 99).
+**Où il revient.** Le feu de forêt (ch. 2, 11), le brûlis du jardin (ch. 96) et le foin (ch. 99).
 
 ## {!espace-clos} L'air qui manque au fond
 
@@ -170,7 +170,7 @@ Environ 60 % des gens qui meurent dans un espace clos sont des sauveteurs : ils 
 3. Travailler du haut quand c'est possible, avec des outils à long manche.
 4. Si quelqu'un tombe au fond : ne pas descendre le chercher. Aérer le trou et l'aider du haut, avec une corde ou une échelle s'il peut s'en servir. Un masque à poussière ou un linge mouillé n'arrête aucun gaz.
 
-**Où il revient.** Le caveau (ch. 79), la pièce d'abri bouchée pendant les retombées (ch. 4), la fosse et les eaux usées (ch. 31), le puits, le tannage dans un baril (ch. 102), la soudure dans une cuve (ch. 107).
+**Où il revient.** Le caveau (ch. 79), la pièce d'abri bouchée pendant les retombées (ch. 4, 8), la fosse et les eaux usées (ch. 31), le puits, le tannage dans un baril (ch. 102), la soudure dans une cuve (ch. 107).
 
 ## {!chimie} Produit qui brûle ou qui gaze
 
@@ -200,7 +200,7 @@ Quand le chlore atteint les poumons, les signes peuvent n'apparaître qu'après 
 3. Si c'est de l'acide de batterie : rincer au moins 30 minutes.
 4. Si quelqu'un a respiré du gaz : le sortir à l'air, le garder au repos et le surveiller 48 h. Un essoufflement qui arrive pendant ce temps veut dire que sa vie est en jeu.
 
-**Où il revient.** La lessive et le savon (ch. 112), le tannage (ch. 102, 103), la chaux au jardin (ch. 96, 99), l'eau de Javel (ch. 10, 30, 31) et les batteries (ch. 108).
+**Où il revient.** La lessive et le savon (ch. 9, 112), le tannage (ch. 102, 103), la chaux au jardin (ch. 96, 99), l'eau de Javel (ch. 10, 30, 31) et les batteries (ch. 108).
 
 ## {!pas-au-feu} Ce qui empoisonne en brûlant
 
@@ -220,7 +220,7 @@ Quand on brûle de l'herbe à puce, son huile passe dans la fumée. Respirée, c
 4. Mettre les résidus de cueillette au compost, jamais au feu.
 5. Si quelqu'un a respiré des fumées de cadmium, le garder au repos et le surveiller 48 h ; un essoufflement veut dire que sa vie est en jeu.
 
-**Où il revient.** Le fumoir (ch. 71), le caveau et les bâtiments (ch. 79, 110), le jardin (ch. 92, 95), la cueillette (ch. 33), la soudure et la forge (ch. 107, 111).
+**Où il revient.** Le bois qu'on brûle au poêle pendant une panne ou quand le bois manque (ch. 3, 6), le contenant pour faire bouillir l'eau (ch. 10), le fumoir (ch. 71), le caveau et les bâtiments (ch. 79, 110), le jardin (ch. 92, 95), la cueillette (ch. 33), la soudure et la forge (ch. 107, 111).
 
 ## {!projection} Ce qui éclate ou part d'un coup
 
@@ -229,6 +229,8 @@ Quand on brûle de l'herbe à puce, son huile passe dans la fumée. Respirée, c
 Une meule est faite de grains d'abrasif collés ensemble. Elle peut se fissurer sans qu'on le voie, après une chute ou un serrage trop fort, et elle éclate alors en tournant ; elle éclate aussi quand elle tourne plus vite que la vitesse marquée dessus. Les morceaux partent dans le plan où elle tourne.
 
 Un contenant fermé qu'on chauffe éclate : le bidon, la bonbonne, la cartouche, le tuyau bouché aux deux bouts, l'amortisseur, le ressort à gaz, la conserve fermée. L'air ou le gaz à l'intérieur prend du volume en chauffant et, comme il ne peut pas sortir, le contenant finit par céder. La batterie gelée qu'on survolte ou qu'on charge peut exploser et projeter de l'acide et du plastique au visage.
+
+Une pierre ramassée dans l'eau ou sur une rive, ou une pierre poreuse, éclate dans le feu : l'eau prise dans la pierre se change en vapeur d'un coup, et les éclats partent à hauteur de visage.
 
 Un arbre encroué (tombé sur un autre arbre) et le bois sous tension se détendent d'un coup, sans prévenir, comme un ressort, dans le sens où ils ont été pliés. Un câble ou une corde tendus réagissent de la même façon : quand une pièce lâche, le bout libre fouette tout le long de la ligne de traction.
 
@@ -241,12 +243,12 @@ Quand on frappe un outil trempé (ciseau à froid, marteau) contre un autre acie
 1. Avant de monter une meule de plus de 10 cm : la tapoter avec un manche de tournevis en plastique ou un maillet de bois, à 3 à 5 cm du bord, en tournant de 45° entre chaque coup. Elle doit sonner clair ; si le son est sourd, la jeter.
 2. Serrer la bride juste assez pour que la meule ne glisse pas, et la faire tourner au moins 1 minute avant de s'en servir, en se tenant sur le côté, hors du plan où elle tourne.
 3. Percer ou ouvrir tout contenant avant de le chauffer ; ne rien mettre de fermé au feu.
-4. Dégeler une batterie avant de la charger ou de la survolter.
+4. Dégeler une batterie avant de la charger ou de la survolter. Si ses parois sont bombées, ondulées ou fendues, elle a gelé : ne plus la charger ni la survolter, même une fois dégelée.
 5. Ne jamais entrer dans la zone où un arbre encroué peut tomber : le faire tomber de loin, avec un treuil ou un moyen mécanique, et ne jamais le laisser accroché pour revenir plus tard.
 6. Se tenir hors de la ligne d'un câble tendu, des deux côtés et sur toute sa longueur.
 7. Porter des lunettes qui ferment sur les côtés pour meuler, frapper et casser.
 
-**Où il revient.** La meule et l'atelier (ch. 105, 108, 109, 111), l'abattage (ch. 106), la conserve à l'autoclave (ch. 78), les batteries (ch. 86), l'arc et le lance-pierre (ch. 45), les pierres du sauna (ch. 37).
+**Où il revient.** La meule et l'atelier (ch. 105, 108, 109, 111), l'abattage et le chicot brûlé en travers du chemin (ch. 11, 106), la conserve à l'autoclave et celle qu'on réchauffe (ch. 6, 78), les batteries (ch. 2, 15, 86), l'arc et le lance-pierre (ch. 45), les pierres qu'on chauffe pour se réchauffer, pour faire bouillir l'eau ou autour du feu (ch. 3, 6, 10, 12, 13, 17), et celles du sauna (ch. 37).
 
 ## {!ecrasement} Ce qui tombe ou s'effondre
 
@@ -271,7 +273,7 @@ D'autres choses s'effondrent sur les gens sans prévenir :
 5. Laisser durcir la neige d'un abri avant de le creuser, et en sortir quand le toit s'affaisse ou dégoutte.
 6. Se tenir loin du bas des toits quand on chauffe après une grosse neige.
 
-**Où il revient.** La bête qu'on hisse et qu'on découpe (ch. 62, 63, 64), le levage et le treuil (ch. 109), le caveau et la tranchée (ch. 79), l'abri de neige (ch. 12), les bâtiments sous la neige (ch. 84, 110).
+**Où il revient.** La bête qu'on hisse et qu'on découpe (ch. 62, 63, 64), le levage et le treuil (ch. 109), le caveau et la tranchée (ch. 79), l'abri de neige (ch. 12), les bâtiments sous la neige (ch. 84, 110), l'arbre brûlé après un feu de forêt (ch. 11).
 
 ## {!coupure} Coupure qui vide le sang
 
@@ -294,7 +296,7 @@ On peut aussi mourir d'un saignement qu'on ne voit pas : une cuisse cassée, un 
 5. Si le sang d'un bras ou d'une jambe gicle et que la pression ne l'arrête pas : poser un garrot au-dessus de la plaie et le serrer jusqu'à ce que le sang arrête. Ne pas le desserrer pour voir.
 6. Garder la personne couchée et au chaud.
 
-**Où il revient.** L'abattage et la scie à chaîne (ch. 105, 106), la découpe de la viande (ch. 62) et les soins (ch. 26).
+**Où il revient.** L'abattage et la scie à chaîne (ch. 16, 18, 105, 106), la découpe de la viande (ch. 62) et les soins (ch. 26).
 
 ## {!brulure} Brûlure qui colle
 
@@ -317,7 +319,7 @@ Un vêtement ample, avec de l'air des deux côtés du tissu, prend feu plus faci
 5. Une fois la peau refroidie, la couvrir d'un pansement humide ou d'un linge propre.
 6. Près du poêle et de l'évaporateur, ne rien porter d'ample qui flotte à la hauteur de la porte, porter de la laine plutôt que du synthétique, et prendre des gants secs pour travailler dans la vapeur.
 
-**Où il revient.** Le sirop et la poix (ch. 94), l'autoclave (ch. 78), les soins de l'enfant (ch. 34), le poêle et la couture (ch. 104), le feu de forêt (ch. 11) et la forge (ch. 111).
+**Où il revient.** Le sirop et la poix (ch. 94), l'autoclave (ch. 78), les soins de l'enfant (ch. 34), le poêle et la couture (ch. 104), le feu de forêt (ch. 11), la tente et le feu qu'on allume (ch. 12, 13) et la forge (ch. 111).
 
 ## {!froid} Hypothermie et gelure
 
@@ -343,7 +345,7 @@ La peau exposée gèle en 10 à 30 minutes quand le refroidissement éolien est 
 6. Si elle ne respire pas ou n'a pas de pouls : chercher le pouls au cou une minute complète, puis commencer la réanimation. Des pupilles fixes ou un corps raide ne sont pas des raisons d'arrêter.
 7. Pour une gelure : ne pas frotter, ni avec de la neige ni avec la main. La dégeler seulement si elle ne risque pas de regeler, dans de l'eau à 37 à 39 °C, pendant environ 30 minutes, jusqu'à ce que la peau soit souple et rouge violacé. Sans thermomètre, on prend une eau où on peut garder la main 30 secondes. Ne jamais la réchauffer près du feu ou d'un poêle : la peau insensible brûle. Traiter l'hypothermie avant la gelure.
 
-**Où il revient.** L'hiver dehors et dans une maison sans chauffage : la panne (ch. 1 à 3), le feu (ch. 13), le blessé à sortir (ch. 16), les soins (ch. 25), la chasse, la pêche et le transport (ch. 89).
+**Où il revient.** L'hiver dehors et dans une maison sans chauffage : la panne (ch. 1 à 3, 6), la route avant la tempête (ch. 7), la neige qu'on fait fondre pour boire (ch. 10), le feu (ch. 13), l'attente des secours (ch. 14), le blessé à sortir (ch. 16), la personne qui gèle à la porte (ch. 17), les soins (ch. 25), la chasse, la pêche et le transport (ch. 15, 89).
 
 ## {!eau-froide} Eau froide
 
@@ -372,7 +374,7 @@ Tout ce qu'on a attaché sur soi et qui coule nous entraîne au fond : une corde
 5. Avoir un couteau qu'on ouvre d'une main, et ne rien attacher à soi qui pourrait couler.
 6. Une fois sorti : se mettre à l'abri du vent et enlever le linge mouillé tout de suite, parce qu'il continue de refroidir le corps (pictogramme du froid).
 
-**Où il revient.** Le canot et le bateau (ch. 57, 60, 90), la pêche (ch. 47, 50, 56), la glace (ch. 42, 58, 59), les enfants près de l'eau (ch. 39) et le transport l'hiver (ch. 89).
+**Où il revient.** Le canot et le bateau (ch. 16, 57, 60, 90), la pêche (ch. 47, 50, 56), la glace (ch. 42, 58, 59), les enfants près de l'eau (ch. 39) et le transport l'hiver (ch. 15, 89).
 
 ## {!glace} Glace mince
 
@@ -402,7 +404,7 @@ Si un animal a laissé des pistes sur la glace, on sait seulement qu'elle l'a po
 2. Si on tombe à l'eau (pictogramme de l'eau froide) : se tourner vers l'endroit par où on est arrivé, parce que la glace y a porté. Poser les bras sur la glace, planter les pics, battre des pieds pour se coucher dessus, puis rouler loin du trou sans se relever.
 3. Pour sauver quelqu'un : rester sur la rive ou sur la bonne glace, et lui tendre une perche ou une branche, ou lui lancer une corde ou quelque chose qui flotte. Ne pas s'avancer sur la glace près du trou.
 
-**Où il revient.** La pêche sous la glace (ch. 50, 59), la chasse et les déplacements l'hiver (ch. 41 à 44, 89), le sauvetage (ch. 58), la récolte de glace (ch. 73) et les enfants (ch. 39).
+**Où il revient.** La pêche sous la glace et l'eau qu'on y puise (ch. 10, 18, 50, 59), la chasse et les déplacements l'hiver (ch. 15, 41 à 44, 89), le sauvetage (ch. 58), la récolte de glace (ch. 73) et les enfants (ch. 39).
 
 ## {!ours} Ours
 

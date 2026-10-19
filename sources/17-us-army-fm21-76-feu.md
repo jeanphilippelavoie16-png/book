@@ -145,3 +145,20 @@ allume les grosseurs suivantes ; tout doit être sec).
 | Le feu peut brûler sous terre et ressortir plus loin | Étapes 8 et 29 |
 | Barbe de quenouille, écorce de cèdre, bois gras de pin, gomme figée : amadou | Section 9 |
 | Le foret en bois dur, la planchette en bois tendre (déjà plus haut) | Section 9, l'arc à feu |
+
+## Extrait ajouté le 19 octobre 2026 (ch. 13, étape 8 : le feu dans le vent)
+
+Tiré du même PDF enregistré (`17-us-army-fm21-76-survie.pdf`, chapitre 7, « Site Selection and Preparation »,
+p. 63 et 64 du PDF, `pdftotext -layout`) :
+
+> « Look for a dry spot that-- • Is protected from the wind. »
+
+> « If time allows, construct a fire wall using logs or rocks. This wall will help to reflect or direct the heat
+> where you want it (Figure 7-1). It will also reduce flying sparks and cut down on the amount of wind blowing into
+> the fire. However, you will need enough wind to keep the fire burning. »
+
+Sert à : ch. 13, étape 8, dernière sous-étape. Quand il faut un feu pour se réchauffer et que le vent dépasse
+20 km/h (la limite de la SOPFEU, `17-sopfeu-feux-de-camp.md`), le faire derrière une butte ou un rocher, ou monter un
+mur de bûches ou de pierres sèches du côté du vent : il coupe le vent qui entre dans le feu, retient les étincelles
+et renvoie la chaleur. Remplace la phrase marquée `[À VÉRIFIER]` (« le plus petit possible, derrière une butte, un
+rocher ou un mur de neige, et dégager plus large autour »), dont rien n'était sourcé.

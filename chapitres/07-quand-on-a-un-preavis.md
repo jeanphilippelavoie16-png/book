@@ -49,8 +49,8 @@ la génératrice, et décider tout de suite si on monte au chalet.
 
 1. **Lire l'alerte au complet et noter son type** : chaque type demande des gestes différents.
  - Un **avertissement** annonce du temps violent qui s'en vient : faire toutes les étapes qui suivent. Il sort
- habituellement 6 à 24 heures avant l'événement, parfois plus tôt. Pour un orage violent ou une tornade, il peut
- arriver moins d'une demi-heure avant : ne pas prendre la route ni sortir, faire tout de suite les réserves d'eau
+ habituellement 6 à 24 heures avant l'événement, parfois plus tôt. Pour un orage violent, il peut arriver moins
+ d'une demi-heure avant : ne pas prendre la route ni sortir, faire tout de suite les réserves d'eau
  (étapes 6 à 8), remplir le congélateur (étapes 10 et 11) et préparer l'avertisseur de CO (étape 21).
  - Une **veille** annonce des conditions qui peuvent tourner au temps violent. Faire les gestes qu'on peut défaire
  sans rien perdre (faire les réserves d'eau, charger, rentrer du bois), et attendre l'avertissement pour les gestes
@@ -74,7 +74,7 @@ la génératrice, et décider tout de suite si on monte au chalet.
 4. **Mettre à charger tout ce qui se charge** : les téléphones, les blocs-piles, les outils sans fil, la radio
  rechargeable et les appareils médicaux.
 5. **Prévenir les proches et les voisins par message texte** (ch. 14, ch. 16). Un message texte encombre moins le
- réseau qu'un appel : il peut passer quand les appels saturent le réseau, ou quand le service d'appel est coupé.
+ réseau qu'un appel : il peut passer quand les appels saturent le réseau, ou quand le service téléphonique est interrompu.
 
 ### Il reste plus de 6 heures
 
@@ -85,16 +85,17 @@ la génératrice, et décider tout de suite si on monte au chalet.
  jamais contenu de produit chimique : un bidon de lave-glace garde du produit même rincé.
 7. **Faire une réserve d'eau de service à part : au moins 6 L de plus par personne**, pour la cuisine et pour se
  laver. Pour quatre personnes et trois jours, il faut donc au moins 48 L en tout, eau à boire comprise.
- - Pour la vaisselle et la chasse d'eau, remplir la baignoire, après l'avoir tapissée d'un sac à ordures neuf et
- épais : sans sac, elle se vide autour du bouchon en deux jours. Remplir aussi les marmites et les chaudières de
+ - Mettre l'eau de service dans des contenants d'une autre couleur que ceux de l'eau à boire, et écrire « boisson »
+ ou « service » au feutre sur chacun avant de le remplir.
+ - Pour la vaisselle et la chasse d'eau, remplir en plus la baignoire, après l'avoir tapissée d'un sac à ordures neuf
+ et épais : sans sac, elle se vide autour du bouchon en deux jours. Remplir aussi les marmites et les chaudières de
  20 L.
- - L'eau de service n'a pas besoin d'être potable. La mettre dans des contenants d'une autre couleur que ceux de
- l'eau à boire, et écrire « boisson » ou « service » au feutre sur chacun avant de le remplir.
 8. **Si un avis touche l'eau du robinet, lire lequel avant de remplir** : les deux avis demandent des gestes
  contraires.
  - **Avis d'ébullition** : remplir, puis faire bouillir l'eau 1 minute à gros bouillons avant de la boire (ch. 10,
- étapes 42 et 44). Sans moyen de la faire bouillir, verser 2 gouttes (0,2 mL) de javel à 5,25 % non parfumée par
- litre, brasser et attendre 30 minutes.
+ étapes 42 et 44). Sans moyen de la faire bouillir, verser 0,2 mL de javel à 5,25 % non parfumée par litre,
+ mesurés à la seringue (ch. 10, étape 20). Brasser, puis attendre 30 minutes dans une eau à plus de 20 °C, au moins
+ 1 heure dans une eau plus froide, et 2 heures ou plus sous 10 °C (ch. 10, étape 21).
  - **Avis de non-consommation** : ne pas faire bouillir. Le contaminant visé n'est pas un microbe et il ne s'évapore
  pas : l'eau part en vapeur, et il reste dans le chaudron, plus concentré. Boire l'eau en bouteille ou la réserve,
  et garder l'eau du robinet pour la chasse d'eau (ch. 10, étape 43).
@@ -154,9 +155,11 @@ la génératrice, et décider tout de suite si on monte au chalet.
  faut pour remplir le réservoir de nouveau : c'est sa consommation en litres à l'heure. La fiche du fabricant donne
  un autre chiffre, calculé pour une autre charge. Écrire la consommation mesurée au feutre sur la génératrice.
  - Pendant l'essai, arrêter la génératrice et noter en combien de temps le thermomètre du congélateur remonte
- jusqu'à −18 °C : il faut la redémarrer avant ce moment. Ce temps donne le nombre d'heures de marche par jour. La
- génératrice sert à refroidir le congélateur et à recharger : elle n'a pas besoin de tourner sans arrêt.
- - Calculer : **jours d'autonomie = litres en réserve ÷ (litres à l'heure × heures de marche par jour)**.
+ jusqu'à −18 °C : c'est le temps d'arrêt. La redémarrer, et noter en combien de temps le thermomètre redescend à sa
+ température de départ : c'est le temps de marche. La génératrice sert à refroidir le congélateur et à recharger :
+ elle n'a pas besoin de tourner sans arrêt.
+ - Calculer : **heures de marche par jour = 24 × temps de marche ÷ (temps de marche + temps d'arrêt)**, puis
+ **jours d'autonomie = litres en réserve ÷ (litres à l'heure × heures de marche par jour)**.
  - Si le résultat est plus court que l'événement annoncé, réduire les heures de marche : à quelques heures de
  l'événement, on ne trouve plus d'essence à acheter.
 
@@ -167,13 +170,14 @@ la génératrice, et décider tout de suite si on monte au chalet.
  fournaise ou un appareil au gaz, à au moins 2 m de l'appareil. Un modèle à affichage montre les faibles
  concentrations : quand un chiffre apparaît, éloigner la génératrice ou éteindre l'appareil avant que l'alarme
  sonne.
-22. **Si une pluie forte ou une crue est annoncée, boucher les entrées d'égout au lieu de remplir.**
+22. **Si une pluie forte ou une crue est annoncée, boucher les entrées d'égout du sous-sol.**
  - S'il n'y a pas de clapet antiretour, boucher le drain de plancher et les autres conduites d'égout du sous-sol avec
  l'obturateur (sans obturateur : section 7). Quand l'égout de la rue déborde, il se vide par les maisons les plus
  basses, et l'eau remonte par le drain de plancher.
- - Monter à l'étage ce qui est au sous-sol, en commençant par les bidons d'essence, d'huile usée, d'antigel et de
- solvant : dans l'eau, un bidon flotte, se couche et se vide, et l'eau répand le produit sur tout ce qu'elle
- touche. L'essence imbibe le béton et le bois du sous-sol, et on ne peut plus l'enlever.
+ - {!vapeurs} Sortir d'abord du sous-sol les bidons d'essence, d'huile usée, d'antigel et de solvant, et les attacher
+ dehors, en hauteur, jamais à l'étage : dans l'eau, un bidon flotte, se couche et se vide, et l'eau répand le
+ produit sur tout ce qu'elle touche. L'essence imbibe le béton et le bois du sous-sol, et on ne peut plus l'enlever.
+ - Monter ensuite le reste de ce qui est au sous-sol à l'étage.
  - Fermer les valves des bouteilles et du réservoir de propane.
  - Pour une digue de sacs de sable, glisser une membrane de polyéthylène souple entre les sacs du côté de l'eau :
  sans elle, l'eau passe entre les sacs.
@@ -229,8 +233,9 @@ la génératrice, et décider tout de suite si on monte au chalet.
 37. {!zone-de-danger} **Écrire l'heure exacte du début de la panne sur la porte du congélateur**, dès qu'elle arrive.
  Sans elle, on ne peut pas compter les 4 heures du réfrigérateur ni les 48 heures du congélateur, et on trie les
  aliments à l'aveugle.
-38. **Ne plus ouvrir le réfrigérateur ni le congélateur.** Fermé, le réfrigérateur garde les aliments froids environ
- 4 heures ; le congélateur plein, 48 heures, et à moitié plein, 24 heures. Chaque ouverture raccourcit ces durées.
+38. **Ne plus ouvrir le réfrigérateur ni le congélateur.** Fermé, le réfrigérateur garde les aliments froids 4 à
+ 6 heures : compter 4 heures. Fermé, le congélateur plein les garde congelés 48 heures, et à moitié plein,
+ 24 heures. Chaque ouverture raccourcit ces durées.
 
 ### Quand il faut évacuer
 
@@ -274,7 +279,7 @@ la génératrice, et décider tout de suite si on monte au chalet.
 | 24 h avant | Appareils en charge | 100 % sur les téléphones et les blocs-piles | Charger un téléphone au complet plutôt que quatre à moitié |
 | 12 h avant | Eau à boire | 2 L par personne et par jour visé ; au moins 6 L par personne | Garder les contenants propres pour l'eau à boire, et remplir la baignoire et les chaudières pour le service |
 | 12 h avant | Eau de service | 6 L de plus par personne, dans des contenants d'une autre couleur | Ne jamais boire l'eau de la baignoire |
-| 12 h avant | Contenants d'eau bouillie | Datés au feutre | 3 jours au réfrigérateur, 24 h à la température de la pièce ; sans date, refaire la réserve au troisième jour |
+| 12 h avant | Contenants d'eau bouillie | Datés au feutre | Sans date, refaire la réserve tout de suite et la dater : on garde l'eau bouillie 24 h à la température de la pièce, 3 jours au réfrigérateur |
 | 12 h avant | Autonomie de la génératrice | Litres en réserve ÷ (L/h mesurés × heures de marche par jour) égal ou plus long que l'événement | Réduire les heures de marche (étape 20) |
 | 12 h avant | Emplacement de la génératrice | À 6 m du bâtiment, dégagé, marqué, la rallonge déroulée | Le dégager avant que la neige tombe |
 | 12 h avant | Congélateur | Plein, à −18 °C ou moins | Combler avec des bidons remplis aux quatre cinquièmes |
@@ -360,8 +365,10 @@ perd :** ce n'est pas du plastique alimentaire ; l'eau qu'il garde sert au servi
 
 ### L'eau du dehors
 
-Faire bouillir l'eau ou la javelliser comme à l'étape 8. Avant l'un ou l'autre, laisser reposer l'eau trouble et la
-passer dans un linge serré : les particules abritent les microbes, et une eau brune javellisée reste mal désinfectée.
+Faire bouillir l'eau d'un lac, d'un ruisseau ou de la neige 5 minutes à gros bouillons (ch. 10, étape 14). Pour la
+javelliser comme à l'étape 8, la passer d'abord au filtre à 1 µm : la javel ne tue presque pas certains parasites de
+cette eau (ch. 10, étape 19). Avant l'un ou l'autre, laisser reposer l'eau trouble et la passer dans un linge serré :
+les particules abritent les microbes, et une eau brune javellisée reste mal désinfectée.
 
 La neige fondue coûte le plus de bois : la neige fraîche contient 4 à 10 % d'eau, soit 10 à 25 L de neige pour 1 L
 d'eau. Mettre toujours un fond d'eau dans le chaudron, ajouter la neige par poignées et ne jamais laisser le chaudron

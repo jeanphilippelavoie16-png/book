@@ -573,3 +573,49 @@ revient » des pages, par l'agent qui applique les fichiers communs) : `incendie
 | Redites | 5 | 5, les mêmes, gardées (voir plus haut) |
 | Ancres introuvables | 3 (03-08, 03-09, 03-10 : `placements-tome-1.json` n'a pas encore reçu les ancres de la refonte) | Les mêmes ; les ancres sont rendues à l'orchestrateur |
 | Invariants | | « 51 » disparu : les 51 secondes de la note de la pression, coupée (point 11). Aucune étape, aucun rappel de sécurité, aucune planche perdus |
+
+## Points réglés après l'édition, 19 octobre 2026
+
+Rédacteur du lot 01-02-03, après l'éditeur (texte d'avant : `bcd05b1`). Rien n'est revérifié à la source de ce qui
+l'était déjà (JP, 19 octobre 2026) ; une source n'est ouverte que pour trancher un point neuf (ici, la fiche de
+Cornell sur les fenêtres).
+
+### Changé dans le chapitre
+
+| Où | Avant → après | Règle ou source |
+| --- | --- | --- |
+| Série « Le courant ne revient pas » | Le message à un proche monte en tête (étape 6) : « L'envoyer tout de suite, avant les autres gestes de cette série : les tours cellulaires tiennent souvent de 2 à 4 heures sur leurs batteries après le début de la panne. » Les étapes 6 à 9 deviennent 7 à 10. Le chapeau « La nuit » envoie le message avant de laisser dormir | La série a 6 h et le message venait en dixième geste (vérificateur du ch. 1, éditeur du ch. 3). Même correction qu'au ch. 1, étape 6. `19-cbc-2018-batteries-tours-cellulaires.md` (« two hours to four hours ») |
+| Renvois internes de la renumérotation | Matériel (poêle : étape 7) ; section 2 (au chalet : « étapes 5, 7 à 10, 14 et 21 à 34 », le message n'y sert pas) ; étape 7, « Sans poêle » (abri : étape 10) ; section 5 (« étapes 5 et 7 ») ; section 6 (torche : étape 7) ; section 7, « La cheminée » (« étape 7, « Sans poêle » ») ; notes En plus (doublure : étape 10 ; tours : étape 6) | |
+| Note En plus « Les tours cellulaires pendant une panne » | Le « 2 à 4 h sur des batteries ordinaires » sort : il est maintenant à l'étape 6. La note garde les grosses batteries (16 à 24 h), l'opérateur (4 à 10 h) et Ottawa 2018 (65 mots) | Cadre : une note ne redit rien du chapitre |
+| Étape 10 (l'abri, ancienne 9) | L'ordre des gestes : monter l'abri (repères 1 à 3), faire le lit en couches (4 à 6), coucher tout le monde (7 à 9), le journal par-dessus (10), fermer les bouts (11). Avant, on couchait tout le monde avant de faire le lit | Contradiction interne signalée par l'éditeur ; cadre : l'ordre des repères suit l'ordre des gestes. La planche 03-09 est à renuméroter (rendu à l'orchestrateur) |
+| Étape 24 | Toilette « 0,5 à 1 L dans la cuvette et dans le réservoir » → « 0,5 L dans le réservoir et 1 L dans la cuvette » ; siphons « autant d'antigel qu'il y a d'eau dans le siphon » → « 0,5 L dans chaque évier, lavabo, baignoire, douche et drain de plancher, et dans le siphon de la laveuse » | CLAUDE.md, règle 2 : la source officielle québécoise prime. Le tableau de la fiche technique de Québec.ca (`02-quebec-fiche-technique-panne-plomberie.md`, même page que `04-quebec-ca-plomberie-et-avertisseurs.md`) donne ces doses ; Purdue (`04-purdue-extension-plomberie-panne-hiver.md`) est une université américaine. Les ch. 2 (étape 20) et 84 disent la même chose : le signalement au ch. 84 tombe |
+| Section 7, « Fermer les fenêtres », repère 7 | « parce que » → « surtout parce que » | Ouvert pour trancher le lien ajouté par l'éditeur : Cornell, « This is due primarily to the movement of air by convection through the "tunnel" » (`03-cornell-cce-traitements-fenetres-economie-energie.md`). Le lien est juste ; « primarily » donne « surtout » |
+| Section 7, « Vidanger sans antigel », repère 11 | « verser une tasse d'huile de cuisson dans le siphon vidé » → « remplir le coude du siphon vidé avec de l'huile de cuisson » | CLAUDE.md, règle 3 (métrique) ; la quantité n'avait pas de source (« Sans source enregistrée », passe du 16 octobre) : le coude plein est le repère, et la consigne tient sans chiffre |
+| Section 7, lave-glace | `{!poison}` posé | Cadre : le pictogramme dans l'étape où le danger se présente (le méthanol est un poison avalé, page `poison`). Point de l'éditeur ; remplace la note de la refonte qui s'en passait |
+| Section 7, « Le verre à la pièce de monnaie » | « On le prépare en cinq minutes, le premier soir » sort ; « Le premier soir, faire geler un verre d'eau dehors » | Un verre d'eau ne gèle pas en cinq minutes ; c'est la façon du ch. 1, étape 15. Point de l'éditeur |
+| Section 7, « Ce qui ne se remplace pas » | « La détection du monoxyde de carbone. Une chandelle brûle normalement… » → « L'avertisseur de CO. Il n'y en a pas de version maison, et aucun sens ne le remplace. » | Le fait de la chandelle est `NON RETROUVÉ` (`suivi/12-technique.md`, point 84), et coupé au ch. 2 pour la même raison ; la phrase gardée est celle du ch. 2 (`01-quebec-monoxyde-carbone.md` : « Seul un avertisseur de monoxyde de carbone peut détecter la présence de ce gaz ») |
+
+### Questions et points réglés sans changer le texte
+
+- **Planche 03-09, « journal froissé »** (question à JP du rédacteur) : le texte suit la seule source (McDonald 1933,
+  « a layer of newspapers ») ; la légende de la planche suit le texte (CLAUDE.md, règle 1). Rendu avec les planches.
+- **Deux notes vertes sur la maison de neige** (question à JP du rédacteur) : elles restent. Le cadre prévoit la façon
+  des Innus ou d'une autre nation du Nord ; le bouchon de nettoyage du siphon va dans la planche 03-10, comme JP l'a
+  demandé (plan de match, PAUSE, point 14), pas dans une note.
+- **« (20 pi) » retiré à l'étape 16 par l'éditeur** : correct (CLAUDE.md, règle 3 : l'impérial seulement pour une
+  dimension de construction ; une distance de sécurité n'en est pas une).
+- **L'antigel au ch. 84** : plus rien à signaler, les doses sont les mêmes.
+
+### Les étapes, ancien → nouveau
+
+6 → 7 ; 7 → 8 ; 8 → 9 ; 9 → 10 ; 10 → 6. Les étapes 1 à 5 et 11 à 40 ne bougent pas. Pictogrammes : `pas-au-feu` et
+`co` (poêle la nuit) à l'étape 7, `froid` à l'étape 9, `poison` ajouté à la section 7 (lave-glace). Hors du chapitre
+(rendu à l'orchestrateur) : l'ancre de 03-09, le ch. 13 (l. 272, « ch. 3, étape 6 » → 7), le logigramme 03 et
+l'inventaire des dangers.
+
+### controle.py
+
+8 425 → 8 424 mots ; 2 tirets (titre et ligne de tome) ; 0 « § », mot banni, tournure, maxime ou pronominal ; « au
+niveau de la mer » gardé (sens propre) ; 48 mots vides (le nouveau, « tout de suite » de l'étape 6, porte le sens) ;
+3 redites, celles d'avant ; disparu : « 4 h » (le 2 à 4 h de la note, dit à l'étape 6 en « 2 à 4 heures ») ; ancres
+introuvables 03-08, 03-09, 03-10 : `placements-tome-1.json` n'a pas encore reçu les ancres (rendues).

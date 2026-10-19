@@ -427,3 +427,31 @@ Fins de ligne LF, 0 CR.
 - Ch. 37, l. 344 et 750 : « (ch. 06, section 9) » devient « (ch. 6, section 7) ».
 - Ch. 52 : l'ours séché après une cuisson à 74 °C contredit la page `trichine` et les ch. 71 et 72 (n° 3), à régler à
   sa migration.
+
+## Points réglés après l'édition, 19 octobre 2026
+
+Passe « trancher » du lot 05-06-07 : les trois questions que le rédacteur laissait à JP et les six faits que l'éditeur a
+signalés sans les changer. Aucune source rouverte pour ce qui était déjà vérifié ; les pages citées sont au dossier.
+Rien ne reste pour JP dans ce chapitre.
+
+| N° | Point | Ce qui change | Règle ou source |
+| --- | --- | --- | --- |
+| 1 | Question à JP : le ch. 6 sans série orange ni logigramme | Rien. | `plan/premieres-minutes-inventaire.md` classe le ch. 6 dans « Aucun geste urgent » (un geste en minutes, qui arrive sans prévenir). Le départ pressé a sa série au ch. 2 (« On part : la première heure », étapes 16 à 24), où renvoie la section 2. |
+| 2 | Question à JP : dessiner la planche 06-01 (traîner) | On la dessine. Appel posé dans la section 7, « Traîner au lieu de porter » : « (planche 06-01) » à la fin de la phrase d'ouverture, puis les repères 1 à 4 dans l'ordre des gestes (les cordes aux coins, les barres, la barre qui retient le traîneau dans la descente, la ceinture). | Priorité moyenne de l'audit (`images/audit-planches/tomes-1-2.md`, ligne 06) ; JP a lancé les priorités haute et moyenne (plan de match, PAUSE du 15 octobre, point 1) et le 19 octobre, la phase 2 du tome 1 final reprend « les priorités de images/audit-planches/ pour le tome 1 ». Ancre et brief de la planche rendus à l'orchestrateur. |
+| 3 | Question à JP : la javel en gouttes ou à la seringue | Étape 5, tableau : « une seringue de 1 mL » au lieu d'« un compte-gouttes ». Étape 6 : « 0,2 mL… et le double, 0,4 mL » ; « Mesurer la javel à la seringue ; avec un compte-gouttes, compter d'avance combien de ses gouttes font 1 mL » ; « Sans seringue : section 7 ». Section 7 : « Doser la javel sans seringue » ; la paille, avec une ligne de plus : compter les gouttes qui remplissent une cuillère à thé rase (5 mL) et diviser par 25. | Le ch. 10 est le chapitre de référence de la désinfection (le ch. 6 y renvoie pour le détail) ; sa fiche a déjà tranché (`suivi/10-redaction.md`, écart 16 : « Les « 2 gouttes » sortent du texte et du logigramme » ; Matériel du ch. 10 : seringue de 1 mL, ou un compte-gouttes dont on a compté les gouttes dans 1 mL). La dose ne change pas : Santé Canada, « environ 2 gouttes (0,2 millilitre) » (`sources/09-sante-canada-eau-aliments-urgence.md`). 5 mL ÷ 0,2 mL = 25 : arithmétique. |
+| 4 | Éditeur 1 : « elle garde sa chaleur plus longtemps que l'eau » (la roche du poêle) | Coupé. | Sans source, et faux à masse égale (l'eau garde environ quatre fois plus de chaleur par kilo). La consigne tient sans elle : une phrase sans source sort quand la consigne tient seule (JP, ch. 10). |
+| 5 | Éditeur 2 : remplir au chalet « dès qu'on comprend que le courant ne reviendra pas » | « Au chalet, le faire dès que le courant manque » | Contradiction interne : la même phrase dit que la pompe s'arrête avec le courant et qu'il ne reste que quelques minutes de pression. |
+| 6 | Éditeur 3 : la note « Le pemmican » en double avec le ch. 5 | La note sort du ch. 6. Elle est remplacée par « La peau qui gèle au vent » (57 mots, étape 12). | La note redisait l'étape 14 (« jamais en viande séchée » : la trichine), ce que le cadre interdit (« rien de ce que le chapitre dit déjà »), et doublait celle du ch. 5, qui porte en plus l'étape à 71 °C du ch. 72. La nouvelle note vient d'une page déjà au dossier pour ce chapitre : `sources/09-environnement-canada-refroidissement-eolien.md` (« any exposed skin can freeze in 10 to 30 minutes », 5 à 10, 2 à 5, moins de 2 minutes). Le tableau de l'étape 12 donne les gestes ; la note donne le temps. Réserve de la fiche source : le tableau a été relevé sur la version anglaise de la page. |
+| 7 | Éditeur 4 : l'attente de la javel, sans condition au ch. 7 | Réglé au ch. 7, étape 8, sur le ch. 10, étape 21 (`suivi/07-redaction.md`). | Ch. 10, étape 21. |
+| 8 | Éditeur 5 : le linge plié protège de la corde, pas du rebord | « La corde fait vite mal à l'épaule : glisser un linge plié sous chaque corde. » | Contradiction interne. |
+| 9 | Éditeur 6 : étape 7, « il faut du combustible pour le faire dégeler » | La phrase sort (« Un bidon gelé ne donne pas d'eau pendant des heures : il faut du combustible pour le faire dégeler »). | « Pendant des heures » n'a pas de source, et le reste est la conséquence évidente de la phrase d'avant (skill `ecriture`, « la conséquence évidente »). La consigne des quatre cinquièmes tient avec les 9 %. |
+| 10 | Cadre : une note dit son étape entre parenthèses | « Un toboggan par personne » finit sur « (section 7, « Traîner au lieu de porter ») » ; « L'essai de Stefansson », sur « (section 7, « Le gras ») ». | `.claude/cadre-agents.md`, les encadrés « En plus » ; les places viennent du tableau des notes plus haut. |
+
+**Signalé pour un autre chapitre** : la note « Combien de temps on garde une pile » du ch. 9 redit « La pile au
+lithium » du ch. 6 (25 ans et 10 ans à 21 °C), comme le rédacteur du ch. 9 l'a lui-même noté : rendu à l'intégrateur.
+
+**Ancres.** Nouvelle : la planche 06-01, sur « **Traîner au lieu de porter.** ». Aucune autre planche ni photo.
+
+**controle.py** (contre le texte d'avant cette passe) : 6 656 → 6 680 mots ; 2 tirets (titre et ligne de tome) ; 0 « § »,
+0 mot banni, 0 tournure, 0 maxime, 0 redite ; 25 mots vides jugés. Invariants : « trichinellose » 3 → 2 (la note du
+pemmican, point 6) ; le rappel reste entier à l'étape 14.

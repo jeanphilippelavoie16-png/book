@@ -438,7 +438,7 @@ quelques degrés plus bas. Le moteur manque de carburant, tousse et s'arrête.
  La garder près du poêle, pas dessus, et la remonter juste avant de démarrer. Une batterie pleine gèle vers
  −69 °C ; à moitié vide, elle gèle entre −15 et −27 °C, et une batterie gelée est souvent perdue.
 - {!projection} **Ne jamais charger ni survolter une batterie gelée** : la rentrer et la laisser dégeler
- d'abord.
+ d'abord. Si ses parois sont bombées, ondulées ou fendues, ne plus la charger ni la survolter, même dégelée.
 - **Réchauffer l'huile.** Le soir, vidanger l'huile du moteur pendant qu'elle est chaude, dans une chaudière
  propre gardée à l'intérieur, et la reverser tiède le matin, avant de démarrer. Autre façon, plus lente :
  coucher un bidon d'eau chaude contre le bas du moteur.
@@ -470,7 +470,7 @@ quelques degrés plus bas. Le moteur manque de carburant, tousse et s'arrête.
  réparation au retour.
 - **Ski ou patin cassé.** Boulonner une éclisse de plat d'acier de part et d'autre de la cassure ; un montant
  de sommier fait l'affaire (planche 15-06, repères 1 et 2). Sans acier, ligaturer une perche de bois vert sous
- le ski pour rejoindre la rive (repères 3 et 4).
+ le ski (repères 3 et 4).
 - **Bougie encrassée.** La gratter à la pointe du couteau, jamais à l'abrasif, et la remettre. Si l'électrode
  a bougé, remettre l'écartement que demande la machine (beaucoup de petits moteurs demandent 0,76 mm) en
  pliant doucement l'électrode courbe : quand c'est bon, la cale d'épaisseur passe entre les électrodes en

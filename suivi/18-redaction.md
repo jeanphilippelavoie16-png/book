@@ -509,3 +509,38 @@ note retirée ; la règle des 2 heures reste à l'étape 15, à la section 5 et 
   bas sur des braises, le mur de neige du côté du vent) ; 18-02, refroidir la marmite dans une auge de neige (l'auge
   dans la neige tassée, des plats larges et plats couchés dedans, une couche mince, la neige mouillée remplacée par de
   la neige sèche, un panneau lesté par-dessus). Ancres à poser au montage.
+
+## Points réglés après l'édition, 19 octobre 2026
+
+Rédacteur (rôle 2), sur les points que l'éditeur a laissés parce qu'ils touchent un fait (lot 18-10, `edition.faits`) et
+sur les trois questions que la refonte posait à JP. Aucune recherche nouvelle (JP : « on a pas déjà fait ce
+travail-là ? ») ; deux pages déjà au dossier rouvertes pour trancher (gastro, chauffage au bois). Fichier en LF, gardé
+en LF. Aucune étape renumérotée, aucun intertitre renommé : les renvois du ch. 38 (étapes 8 et 12) tiennent.
+
+| # | Où | Ce qui a changé | Règle ou source |
+| --- | --- | --- | --- |
+| 1 | Section 7, « L'ordre sur le dessus du poêle » | Contradiction avec « L'humidité de douze personnes » (linge « jamais sur le poêle ») : « les mitaines et les bottes en dernier, sur la partie tiède, à l'écart » sort. Le dessus du poêle ne porte plus que l'eau, la marmite, le pain et les galettes ; le linge sèche sur la corde, à plus de 1 m | Étape 11 (« rien à moins de 1 m ») ; `sources/23-quebec-chauffage-au-bois.md` (« à une distance d'au moins 1 m de tout objet ») ; page `incendie` |
+| 2 | Étape 1, première sous-étape | Renvoi faible : le ch. 10 ne dit pas comment mesurer le débit. « Mesurer le débit de la source avant d'inviter (ch. 10) » devient le geste : chronométrer le remplissage d'une chaudière sous le filet d'une source ; dans un puits, mesurer la colonne d'eau (ch. 10, étape 30), tirer ce qu'il faut au groupe pour une journée et remesurer le lendemain matin, l'eau devant être revenue à son niveau | Aucun chiffre : volume divisé par le temps, et la mesure de la colonne d'eau du ch. 10, étape 30 (ficelle lestée) |
+| 3 | Étape 5 et section 5 (ligne des armes) | Contradiction interne : l'étape refaisait le compte « au départ », la section 5 « chaque jour », et la raison de l'étape parle de l'arme rentrée le soir. L'étape dit maintenant « Refaire le compte à voix haute chaque soir : on voit si une arme est restée dans le camion, ou si une arme sortie pour la chasse est rentrée sans qu'on le dise » ; la section 5 dit « À l'arrivée, puis chaque soir tant qu'il y a des enfants » | La section 5 tranche (compte quotidien) ; le soir, parce que c'est le moment que nomme la raison. Section 7, « Les armes sans contenant fermé », renvoie à l'étape 5 et tient |
+| 4 | Étape 16, titre | « avec la liste » devient « avec la liste de ce qu'il faut en sortir » | L'étape veut une seule ouverture par jour ; c'est la liste du jour qui la permet. Règle 0 (le but dit en clair) |
+| 5 | Étape 20, troisième sous-étape | La raison parlait de « la semaine où tout le monde va mieux » sous une règle de deux semaines. Devient « pendant ces deux semaines, les gens qui vont mieux peuvent encore transmettre la gastro » | `sources/23-quebec-gastro-enterite.md` : « tant qu'elle a des symptômes et même jusqu'à deux semaines après leur disparition » |
+| 6 | Section 7, « L'eau de cendre à la place du savon » | « cendre franche de bois dur » devient « cendre tamisée d'un feu de bois franc » | Mot de tous les jours (cadre) ; « tamisée » et « bois franc » comme au ch. 112 (lessive de cendres, et « Sans savon du tout ») |
+| 7 | Section 5, ligne de la créosote | La colonne « Moment » ne redit plus la cible : « Pendant la saison de chauffage ». La raison (à douze, plus de bois ; un poêle étouffé la nuit dépose beaucoup plus de créosote) passe dans la cible, à côté du « plus souvent » qu'elle explique ; l'action dit seulement « Ramoner (ch. 83) » | `sources/23-quebec-chauffage-au-bois.md` : « au moins une fois par année et selon la qualité et la quantité du bois brûlé ». Aucun chiffre changé |
+
+**Les questions de la refonte à JP, réglées sans lui :**
+- Pas de série orange ni de logigramme : `plan/premieres-minutes-inventaire.md` met le ch. 18 dans la ligne « Aucun geste
+  urgent ». Décision déjà prise ; le geste urgent du monoxyde a sa marche à suivre dans la page `co`.
+- Les planches : oui de JP (« Décisions de JP, 19 octobre 2026 », plus haut). 18-01 et 18-02 sont appelées ; à dessiner.
+- Les notes En plus : quatre, dans la réserve de 4 à 8 du cadre ; en trouver d'autres demanderait une recherche nouvelle,
+  que JP a écartée pour cette passe. On reste à quatre.
+
+**Pour l'intégrateur** (fichiers communs, pas touchés) :
+- `plan/dangers-inventaire.md`, section 3, « Ch. 18 », ligne `arme` (texte rendu par la refonte) : « compté à voix haute à
+  l'arrivée et au départ » devient « compté à voix haute à l'arrivée, puis chaque soir ».
+- Ancres des deux planches dans `design/epreuves-livre/placements-tome-1.json`, clé `"18"` : 18-01 après « Sans
+  avertisseur qui marche, on ne fait du feu à l'intérieur » ; 18-02 après « Quand il reste de la marmite malgré tout ».
+  Sans ancre, le constructeur pose déjà chaque planche au paragraphe qui l'appelle.
+
+**controle.py** contre `HEAD` (17487ee) : 5 614 → 5 658 mots ; 2 tirets (titre et ligne de tome) ; 0 « § », 0 mot banni,
+0 tournure, 0 maxime, 0 redite ; 43 mots vides (44 avant), jugés : sur les lignes touchées, seul « Tout arrêter » (section 5,
+ligne des armes) est relevé, et il porte le sens. Invariants : rien n'a disparu. **Chiffres** : aucun chiffre nouveau.

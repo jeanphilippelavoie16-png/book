@@ -67,8 +67,9 @@ devant une porte envoie ses gaz à l'intérieur comme si elle y était. Ne jamai
 
 ### Scénario 2. Route coupée, isolement de 2 à 8 semaines (**la bascule**)
 
-*Une débâcle, un glissement de terrain ou un verglas qui dure coupe la route. On vit le début à la maison ; si la
-route reste coupée, on finit au chalet : décider de monter (ch. 2) pendant que le chemin du chalet passe encore.*
+*Une débâcle, un glissement de terrain ou un verglas qui dure coupe la route qui ravitaille la ville. On vit le début
+à la maison ; si cette route reste coupée, on finit au chalet : décider de monter (ch. 2) pendant que le chemin du
+chalet passe encore.*
 
 | Quand | Geste | Repère chiffré |
 | --- | --- | --- |
@@ -226,7 +227,7 @@ accumulent le cadmium.
 | Tout le temps | Bouger les doigts, les orteils et le visage | |
 | Tout le temps | Se faire voir et entendre avec le sifflet, le feu de signalisation et la lampe | |
 
-{!generatrice} Avant chaque démarrage, faire le tour du véhicule et dégager le tuyau d'échappement : la neige qui le
+{!co} {!generatrice} Avant chaque démarrage, faire le tour du véhicule et dégager le tuyau d'échappement : la neige qui le
 bouche renvoie les gaz dans l'habitacle. Faire tourner le moteur par périodes, une fenêtre entrouverte du côté sous le
 vent.
 
@@ -248,7 +249,7 @@ cesse de frissonner sans avoir été réchauffé ne va pas mieux : il vient de p
 | Chaque printemps | Réserve d'eau potable | 4 L × le nombre de personnes × 3 jours, au moins | La compléter avant le reste |
 | Chaque automne | Médicaments d'ordonnance en réserve | 2 à 3 semaines | Les renouveler avant la première neige |
 | Chaque automne | Bois sec de la réserve, sous abri, à part du bois de tous les jours : au chalet, et à la maison si elle a un poêle | Volume mesuré | Fendre et mettre à l'abri avant le gel |
-| Chaque automne | Avertisseurs de CO : le bouton d'essai, et la date de fabrication imprimée au dos | 1 par étage habité, 1 près du poêle ; chacun fabriqué il y a moins de 7 à 10 ans, selon le modèle | Si l'essai ne sonne pas, mettre des piles neuves ; s'il ne sonne toujours pas, ou si l'appareil est trop vieux, le remplacer (ch. 6) |
+| Chaque automne | Avertisseurs de CO : leur nombre, la date de fabrication imprimée au dos, et le bouton d'essai (on l'essaie aussi chaque mois : ch. 9) | 1 par étage, sous-sol compris, 1 par chambre où l'on dort porte fermée, 1 dans la pièce du poêle, à au moins 2 m de lui ; chacun fabriqué il y a moins de 7 à 10 ans selon le modèle, ou moins de 7 ans quand on ne connaît pas le modèle | Si l'essai ne sonne pas, mettre des piles neuves ; s'il ne sonne toujours pas, ou si l'appareil est trop vieux, le remplacer (ch. 6) |
 | Chaque automne | Thermomètres à sonde, plantés dans l'eau qui bout | 100 °C ± 1 °C au niveau de la mer | Les régler, ou les jeter |
 | Chaque automne | Argent comptant en petites coupures | 2 à 3 semaines de besoins de base | Compléter |
 | Chaque mois, l'hiver | Thermomètre laissé dans le congélateur | −18 °C ou moins | Passer au scénario 8 sans attendre |
@@ -307,6 +308,8 @@ Au chalet, prendre l'eau du lac sous la glace, ou faire fondre de la neige (ch. 
 - Faire bouillir l'eau de neige ou de lac comme au scénario 2, et en faire chaque jour plutôt qu'une grosse quantité
  d'un coup : hors du froid, on ne la garde que 24 h.
 
+**Ce qu'on perd :** le temps et le bois de l'ébullition de chaque jour, et la marge d'une réserve faite d'avance.
+
 ### Désinfecter sans feu, et clarifier avant
 
 - S'il n'y a rien pour faire bouillir l'eau, mettre environ 2 gouttes (0,2 mL) d'eau de Javel non parfumée à 5,25 %
@@ -320,8 +323,6 @@ Au chalet, prendre l'eau du lac sous la glace, ou faire fondre de la neige (ch. 
  tue presque pas un des parasites de cette eau (ch. 10, étape 19). Sans filtre ni feu, ce parasite reste dans l'eau.
 - Si l'eau a pu recevoir un produit chimique, prendre l'eau ailleurs : ni l'ébullition ni la javel n'enlèvent un
  produit chimique.
-
-**Ce qu'on perd :** le temps et le bois de l'ébullition de chaque jour, et la marge d'une réserve faite d'avance.
 
 ### Chauffer une seule pièce
 
@@ -355,7 +356,7 @@ On la monte en trois minutes, et elle éclaire comme une chandelle tant qu'il re
 - Prendre comme contenant une boîte de métal ou un pot de verre épais, qui ne casse pas à la chaleur.
 - {!mal-de-caribou} Comme combustible, prendre du gras qui a ranci, ou le surplus quand la réserve dépasse ce que la famille mangera.
  Tant que la famille manque de gras, garder l'huile de cuisson et la graisse de bête pour les repas (scénario 2).
-- Faire la mèche d'une lanière de guenille de coton roulée serré, d'un lacet de botte ou d'une ficelle, et la tenir au
+- Faire la mèche d'une lanière de guenille de coton roulée serré, ou d'un lacet ou d'une ficelle de coton, et la tenir au
  bord avec un bout de fil de métal plié en crochet. La laisser tremper dans le gras et dépasser à peine : plus elle
  dépasse, plus la flamme est grosse, et une mèche trop longue fume et charbonne.
 
@@ -370,7 +371,8 @@ L'auto stationnée à côté est une réserve d'électricité, avec un alternate
 - Vérifier la batterie au voltmètre, moteur arrêté depuis au moins six heures : vers 12,7 V, elle est pleine ; à
  12,1 V, elle est à moitié vide. Sous 12,4 V, faire tourner le moteur avant de tirer encore dessus : l'hiver, une
  batterie à moitié vide peut geler dès −20 °C, et à −18 °C, une batterie ne rend que la moitié de sa capacité.
-- Deux batteries montées en série donnent 24 V, de quoi tirer un arc de soudure (ch. 107).
+- Des batteries d'auto montées en série soudent l'acier. Avec deux (24 V), l'arc s'amorce mal et ne tient que très
+ court ; avec trois (36 V), on a la tension d'un arc de travail (ch. 107).
 
 ### La frontale sur un bidon d'eau
 
@@ -411,10 +413,11 @@ gras qu'on a (scénario 2).
 ### Le sang qui coule sans trousse
 
 {!coupure} Appuyer à pleine main sur la plaie, avec le tissu le plus propre qu'on a. Si la pression ne suffit pas,
-faire un garrot avec une sangle large : une ceinture de nylon, une sangle à cliquet, une bretelle de sac. Une corde, un
-fil ou un lacet coupent la peau au lieu de serrer.
+faire un garrot avec une bande large : une sangle à cliquet, une bretelle de sac, une manche de chemise fendue. La
+largeur répartit la pression ; une corde, un fil, un lacet ou une ceinture étroite écrasent les nerfs et les muscles
+sous eux (ch. 26).
 
-- Passer la sangle autour du membre, au-dessus de la plaie, et la nouer.
+- Passer la bande autour du membre, au-dessus de la plaie, et la nouer.
 - Glisser un bâton solide dans le nœud et le tourner jusqu'à ce que le saignement arrête.
 - Attacher le bâton pour qu'il ne se dévire pas.
 - Écrire l'heure de pose sur la peau du blessé, avec les autres heures (scénario 7). Le reste est au ch. 26.

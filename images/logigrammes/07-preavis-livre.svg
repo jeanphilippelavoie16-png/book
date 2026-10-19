@@ -20,15 +20,15 @@
 <path d="M145.80,519.55 L145.80,645.60 Q145.80,651.60 151.80,651.60 L620.40,651.60 Q626.40,651.60 626.40,645.60 L626.40,86.50 Q626.40,82.80 630.10,82.80 L633.80,82.80" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
 <path d="M872.88,82.80 L917.44,82.80" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
 <path d="M756.84,106.55 L756.84,175.45" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
-<path d="M1020.22,108.50 L1020.22,134.40 Q1020.23,140.40 1014.23,140.40 L904.56,140.40 Q898.56,140.40 898.56,146.40 L898.56,184.80 Q898.56,190.80 892.56,190.80 L879.88,190.80" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M1020.22,112.50 L1020.22,134.40 Q1020.23,140.40 1014.23,140.40 L904.56,140.40 Q898.56,140.40 898.56,146.40 L898.56,184.80 Q898.56,190.80 892.56,190.80 L879.88,190.80" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
 <path d="M872.88,212.40 L917.44,212.40" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
 <path d="M756.84,227.95 L756.84,278.85" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
 <path d="M1020.22,237.05 L1020.22,303.60 Q1020.22,309.60 1014.22,309.60 L879.88,309.60" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
 <path d="M756.84,333.35 L756.84,352.92 Q756.84,354.24 755.52,354.24 L755.52,354.24 Q754.20,354.24 754.20,355.56 L754.20,374.60" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
 <path d="M756.84,333.35 L756.84,348.24 Q756.84,354.24 762.84,354.24 L996.60,354.24 Q1002.60,354.24 1002.60,360.24 L1002.60,374.60" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
-<path d="M754.20,433.00 L754.20,444.50 Q754.20,450.50 760.20,450.50 L873.15,450.50 Q878.40,450.50 878.40,455.75 L878.40,461.00" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
-<path d="M1002.60,428.70 L1002.60,442.35 Q1002.60,448.35 996.60,448.35 L884.40,448.35 Q878.40,448.35 878.40,454.35 L878.40,461.00" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
-<path d="M878.40,507.10 L878.40,529.40" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M754.20,445.30 L754.20,454.25 Q754.20,460.25 760.20,460.25 L874.43,460.25 Q878.40,460.25 878.40,464.23 L878.40,468.20" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M1002.60,433.00 L1002.60,448.10 Q1002.60,454.10 996.60,454.10 L884.40,454.10 Q878.40,454.10 878.40,460.10 L878.40,468.20" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M878.40,514.30 L878.40,529.40" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
 <path d="M878.40,575.50 L878.40,597.80" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
 </g>
 <g id="noeuds">
@@ -45,12 +45,12 @@
 <text x="115.08" y="268.70" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="8.5" fill="#000" xml:space="preserve" data-max="69.37">ch. 7, étapes 1 et 2</text>
 <rect x="44.00" y="209.00" width="36.12" height="14.00" fill="#EE7219"/>
 <text x="49.00" y="219.20" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="9" fill="#000" xml:space="preserve" data-max="27.62">30 min</text>
-<rect x="198.00" y="216.00" width="158.40" height="51.40" rx="0" fill="#E8EDF0" stroke="#2B5876" stroke-width="1.5"/>
-<text data-max="141.90" x="207.00" y="232.65" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">Remplir l’eau, charger et rentrer</tspan></text>
-<text data-max="141.90" x="207.00" y="244.95" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">du bois.</tspan><tspan font-weight="500"> Attendre l’avertissement</tspan></text>
-<text data-max="141.90" x="207.00" y="257.25" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">pour le reste.</tspan></text>
-<rect x="298.56" y="255.15" width="58.59" height="13.00" fill="#2B5876"/>
-<text x="303.56" y="264.70" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="8.5" fill="#fff" xml:space="preserve" data-max="50.09">ch. 7, étape 1</text>
+<rect x="198.00" y="216.00" width="158.40" height="59.40" rx="0" fill="#E8EDF0" stroke="#2B5876" stroke-width="1.5"/>
+<text data-max="141.90" x="207.00" y="232.65" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">Faire des réserves d’eau, charger</tspan></text>
+<text data-max="141.90" x="207.00" y="244.95" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">et rentrer du bois.</tspan><tspan font-weight="500"> Attendre</tspan></text>
+<text data-max="141.90" x="207.00" y="257.25" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">l’avertissement pour le reste.</tspan></text>
+<rect x="298.56" y="263.15" width="58.59" height="13.00" fill="#2B5876"/>
+<text x="303.56" y="272.70" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="8.5" fill="#fff" xml:space="preserve" data-max="50.09">ch. 7, étape 1</text>
 <rect x="367.20" y="216.00" width="163.80" height="47.10" rx="0" fill="#E8EDF0" stroke="#2B5876" stroke-width="1.5"/>
 <text data-max="147.30" x="376.20" y="232.65" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">Lire le bulletin et garder la</tspan></text>
 <text data-max="147.30" x="376.20" y="244.95" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">réserve.</tspan><tspan font-weight="500"> Ce n’est pas une alerte.</tspan></text>
@@ -80,12 +80,12 @@
 <rect x="640.80" y="59.05" width="232.08" height="47.50" rx="10" fill="#fff" stroke="#2B5876" stroke-width="1.75"/>
 <text data-max="209.58" x="756.84" y="79.35" font-family="IBM Plex Sans Condensed" font-size="13" fill="#000" text-anchor="middle" xml:space="preserve"><tspan font-weight="700">Une pluie forte ou une</tspan></text>
 <text data-max="209.58" x="756.84" y="94.85" font-family="IBM Plex Sans Condensed" font-size="13" fill="#000" text-anchor="middle" xml:space="preserve"><tspan font-weight="700">crue est annoncée ?</tspan></text>
-<rect x="924.44" y="57.10" width="191.56" height="51.40" rx="0" fill="#E8EDF0" stroke="#2B5876" stroke-width="1.5"/>
-<text data-max="175.06" x="933.44" y="73.75" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">Boucher le drain de plancher</tspan><tspan font-weight="500">, et monter</tspan></text>
-<text data-max="175.06" x="933.44" y="86.05" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">à l’étage ce qui est au sous-sol, les bidons</tspan></text>
-<text data-max="175.06" x="933.44" y="98.35" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">d’abord.</tspan></text>
-<rect x="1053.57" y="96.25" width="63.18" height="13.00" fill="#2B5876"/>
-<text x="1058.57" y="105.80" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="8.5" fill="#fff" xml:space="preserve" data-max="54.68">ch. 7, étape 22</text>
+<rect x="924.44" y="53.10" width="191.56" height="59.40" rx="0" fill="#E8EDF0" stroke="#2B5876" stroke-width="1.5"/>
+<text data-max="175.06" x="933.44" y="69.75" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">Boucher le drain de plancher</tspan><tspan font-weight="500">, sortir</tspan></text>
+<text data-max="175.06" x="933.44" y="82.05" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">dehors les bidons d’essence et de</tspan></text>
+<text data-max="175.06" x="933.44" y="94.35" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">solvant, et monter le reste à l’étage.</tspan></text>
+<rect x="1053.57" y="100.25" width="63.18" height="13.00" fill="#2B5876"/>
+<text x="1058.57" y="109.80" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="8.5" fill="#fff" xml:space="preserve" data-max="54.68">ch. 7, étape 22</text>
 <rect x="640.80" y="182.45" width="232.08" height="45.50" rx="10" fill="#fff" stroke="#2B5876" stroke-width="1.75"/>
 <text data-max="209.58" x="756.84" y="202.75" font-family="IBM Plex Sans Condensed" font-size="13" fill="#000" text-anchor="middle" xml:space="preserve"><tspan font-weight="700">Un avis touche l’eau du robinet ?</tspan></text>
 <text data-max="209.58" x="756.84" y="217.03" font-family="IBM Plex Serif" font-size="9.5" font-style="italic" fill="#000" text-anchor="middle" xml:space="preserve"><tspan font-weight="400">Ébullition ou non-consommation</tspan></text>
@@ -99,22 +99,24 @@
 <rect x="640.80" y="285.85" width="232.08" height="47.50" rx="10" fill="#fff" stroke="#2B5876" stroke-width="1.75"/>
 <text data-max="209.58" x="756.84" y="306.15" font-family="IBM Plex Sans Condensed" font-size="13" fill="#000" text-anchor="middle" xml:space="preserve"><tspan font-weight="700">Il reste plus de 6 heures</tspan></text>
 <text data-max="209.58" x="756.84" y="321.65" font-family="IBM Plex Sans Condensed" font-size="13" fill="#000" text-anchor="middle" xml:space="preserve"><tspan font-weight="700">avant l’événement ?</tspan></text>
-<rect x="640.80" y="381.60" width="226.80" height="51.40" rx="0" fill="#E8EDF0" stroke="#2B5876" stroke-width="1.5"/>
-<text data-max="210.30" x="649.80" y="398.25" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">Remplir l’eau et le congélateur</tspan><tspan font-weight="500">, cuire la viande</tspan></text>
-<text data-max="210.30" x="649.80" y="410.55" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">qui ne tiendra pas, faire les pleins, préparer la</tspan></text>
-<text data-max="210.30" x="649.80" y="422.85" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">génératrice et l’avertisseur.</tspan></text>
-<rect x="788.73" y="420.75" width="79.62" height="13.00" fill="#2B5876"/>
-<text x="793.73" y="430.30" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="8.5" fill="#fff" xml:space="preserve" data-max="71.12">ch. 7, étapes 6 à 25</text>
-<rect x="889.20" y="381.60" width="226.80" height="47.10" rx="0" fill="#E8EDF0" stroke="#2B5876" stroke-width="1.5"/>
-<text data-max="210.30" x="898.20" y="398.25" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">Faire d’abord l’eau et le congélateur</tspan><tspan font-weight="500">, puis</tspan></text>
-<text data-max="210.30" x="898.20" y="410.55" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">l’emplacement de la génératrice et l’avertisseur.</tspan></text>
-<rect x="1053.57" y="416.45" width="63.18" height="13.00" fill="#2B5876"/>
-<text x="1058.57" y="426.00" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="8.5" fill="#fff" xml:space="preserve" data-max="54.68">ch. 7, étape 26</text>
-<rect x="640.80" y="468.00" width="475.20" height="39.10" rx="0" fill="#E8EDF0" stroke="#2B5876" stroke-width="1.5"/>
-<text data-max="458.70" x="649.80" y="484.65" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">Arrêter les déplacements</tspan><tspan font-weight="500">, remplir ce qui reste vide, débrancher l’électronique et attacher ce que le vent peut</tspan></text>
-<text data-max="458.70" x="649.80" y="496.95" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">emporter.</tspan></text>
-<rect x="1032.54" y="494.85" width="84.21" height="13.00" fill="#2B5876"/>
-<text x="1037.54" y="504.40" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="8.5" fill="#fff" xml:space="preserve" data-max="75.71">ch. 7, étapes 27 à 34</text>
+<rect x="640.80" y="381.60" width="226.80" height="63.70" rx="0" fill="#E8EDF0" stroke="#2B5876" stroke-width="1.5"/>
+<text data-max="210.30" x="649.80" y="398.25" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">Faire des réserves d’eau et remplir le</tspan></text>
+<text data-max="210.30" x="649.80" y="410.55" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">congélateur</tspan><tspan font-weight="500">, cuire la viande qui ne tiendra pas,</tspan></text>
+<text data-max="210.30" x="649.80" y="422.85" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">faire les pleins, préparer la génératrice et</tspan></text>
+<text data-max="210.30" x="649.80" y="435.15" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">l’avertisseur.</tspan></text>
+<rect x="788.73" y="433.05" width="79.62" height="13.00" fill="#2B5876"/>
+<text x="793.73" y="442.60" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="8.5" fill="#fff" xml:space="preserve" data-max="71.12">ch. 7, étapes 6 à 25</text>
+<rect x="889.20" y="381.60" width="226.80" height="51.40" rx="0" fill="#E8EDF0" stroke="#2B5876" stroke-width="1.5"/>
+<text data-max="210.30" x="898.20" y="398.25" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">Faire d’abord les réserves d’eau et le</tspan></text>
+<text data-max="210.30" x="898.20" y="410.55" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">congélateur</tspan><tspan font-weight="500">, puis l’emplacement de la génératrice</tspan></text>
+<text data-max="210.30" x="898.20" y="422.85" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">et l’avertisseur.</tspan></text>
+<rect x="1053.57" y="420.75" width="63.18" height="13.00" fill="#2B5876"/>
+<text x="1058.57" y="430.30" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="8.5" fill="#fff" xml:space="preserve" data-max="54.68">ch. 7, étape 26</text>
+<rect x="640.80" y="475.20" width="475.20" height="39.10" rx="0" fill="#E8EDF0" stroke="#2B5876" stroke-width="1.5"/>
+<text data-max="458.70" x="649.80" y="491.85" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">Arrêter les déplacements</tspan><tspan font-weight="500">, remplir ce qui reste vide, débrancher l’électronique et attacher ce que le vent peut</tspan></text>
+<text data-max="458.70" x="649.80" y="504.15" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">emporter.</tspan></text>
+<rect x="1032.54" y="502.05" width="84.21" height="13.00" fill="#2B5876"/>
+<text x="1037.54" y="511.60" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="8.5" fill="#fff" xml:space="preserve" data-max="75.71">ch. 7, étapes 27 à 34</text>
 <rect x="640.80" y="536.40" width="475.20" height="39.10" rx="0" fill="#E8EDF0" stroke="#2B5876" stroke-width="1.5"/>
 <text data-max="458.70" x="649.80" y="553.05" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">Dans la dernière heure, manger chaud et tout mettre en place.</tspan><tspan font-weight="500"> Écrire l’heure de la panne sur la porte du</tspan></text>
 <text data-max="458.70" x="649.80" y="565.35" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">congélateur, puis ne plus l’ouvrir.</tspan></text>
@@ -146,7 +148,7 @@
 <path d="M872.88,309.60 L880.88,305.80 L880.88,313.40 Z" fill="#000"/>
 <path d="M754.20,381.60 L750.40,373.60 L758.00,373.60 Z" fill="#000"/>
 <path d="M1002.60,381.60 L998.80,373.60 L1006.40,373.60 Z" fill="#000"/>
-<path d="M878.40,468.00 L874.60,460.00 L882.20,460.00 Z" fill="#000"/>
+<path d="M878.40,475.20 L874.60,467.20 L882.20,467.20 Z" fill="#000"/>
 <path d="M878.40,536.40 L874.60,528.40 L882.20,528.40 Z" fill="#000"/>
 <path d="M878.40,604.80 L874.60,596.80 L882.20,596.80 Z" fill="#000"/>
 </g>

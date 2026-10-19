@@ -300,8 +300,8 @@ tombe malade, et le diagnostic de la trichinellose se fait longtemps après le r
 > crues donnée au chien met toute la famille dans la chaîne.
 
 **Deux rappels qui ne sont pas des dangers de cet encadré, mais qui appartiennent à ce
-chapitre :** l'interdit du foie et des reins pour cause de cadmium vise les **cervidés** et non
-l'ours (ch. 22) — le livre n'a **aucune** donnée sur le foie d'ours et n'en recommande donc pas la consommation. Et à l'inverse : le gras de cet ours est ce qui empêche le mal de
+chapitre :** le foie et les reins de l'ours noir contiennent aussi du cadmium, comme ceux des
+cervidés : on ne les mange pas (ch. 22). Et à l'inverse : le gras de cet ours est ce qui empêche le mal de
 caribou[^2] (ch. 19), la maladie qui tue en quelques semaines au milieu d'une réserve de viande
 maigre. Un ours dont on jette le gras pour ne garder que le muscle est un ours à moitié perdu.
 

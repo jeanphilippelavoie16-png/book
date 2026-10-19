@@ -74,12 +74,12 @@ Monter d'avance une trousse qu'une personne sort de la maison en 2 minutes, avec
  | --- | --- | --- |
  | La réserve à boire | 24 L pour quatre, dans deux bidons de 20 L qu'on ne remplit pas à ras bord (étape 7) | Dans la maison, à l'abri du gel ; elle part seulement en auto |
  | L'eau qu'on porte | 1 L par personne, dans une gourde isolée | Dans les sacs ; on la remplit en chemin |
- | De quoi rendre l'eau buvable | Un chaudron, de quoi faire du feu, un filtre à 1 µm, de la javel non parfumée et un compte-gouttes | Dans le bac 1 ; ça remplace l'eau qu'on ne peut pas porter |
+ | De quoi rendre l'eau buvable | Un chaudron, de quoi faire du feu, un filtre à 1 µm, de la javel non parfumée et une seringue de 1 mL | Dans le bac 1 ; ça remplace l'eau qu'on ne peut pas porter |
 
 6. **Rendre buvable l'eau qu'on trouve en chemin ou au chalet** avec ce que contient le bac 1 (le détail : ch. 10).
- - À la javel : passer d'abord l'eau d'un lac, d'un ruisseau ou de la neige au filtre à 1 µm, sinon la faire bouillir : la javel ne tue presque pas certains parasites de cette eau (ch. 10, étape 19). Mettre ensuite 2 gouttes (0,2 mL) de javel à 5,25 % non parfumée par litre d'eau, mesurées au compte-gouttes, et le double, 4 gouttes (0,4 mL), dans une eau froide, un peu trouble ou un peu colorée (ch. 10, étape 20). Brasser, puis attendre 30 minutes dans une eau à plus de 20 °C, au moins 1 heure dans une eau plus froide, et 2 heures ou plus sous 10 °C (ch. 10, étape 21). Sans compte-gouttes : section 7.
+ - À la javel : passer d'abord l'eau d'un lac, d'un ruisseau ou de la neige au filtre à 1 µm, sinon la faire bouillir : la javel ne tue presque pas certains parasites de cette eau (ch. 10, étape 19). Mettre ensuite 0,2 mL de javel à 5,25 % non parfumée par litre d'eau, et le double, 0,4 mL, dans une eau froide, un peu trouble ou un peu colorée (ch. 10, étape 20). Mesurer la javel à la seringue ; avec un compte-gouttes, compter d'avance combien de ses gouttes font 1 mL. Brasser, puis attendre 30 minutes dans une eau à plus de 20 °C, au moins 1 heure dans une eau plus froide, et 2 heures ou plus sous 10 °C (ch. 10, étape 21). Sans seringue : section 7.
  - À l'ébullition : faire bouillir l'eau du robinet 1 minute à gros bouillons, et l'eau d'un lac, d'un ruisseau ou de la neige 5 minutes (ch. 10, étape 14). On peut garder l'eau bouillie 24 heures à la température de la pièce, ou 3 jours au réfrigérateur, dans un contenant propre et fermé.
-7. **Remplir les bidons aux quatre cinquièmes et les coucher sur le côté.** L'eau prend environ 9 % de volume en gelant, et un bidon rigide plein à ras bord fend dans un bac qui gèle. Un bidon gelé ne donne pas d'eau pendant des heures : il faut du combustible pour le faire dégeler.
+7. **Remplir les bidons aux quatre cinquièmes et les coucher sur le côté.** L'eau prend environ 9 % de volume en gelant, et un bidon rigide plein à ras bord fend dans un bac qui gèle.
 
 ### Le chaud
 
@@ -155,7 +155,7 @@ Monter d'avance une trousse qu'une personne sort de la maison en 2 minutes, avec
 29. **Avant les déplacements d'hiver, équiper l'auto** : un balai à neige et un grattoir, du lave-glace, une pelle, un téléphone chargé, de l'eau, de la nourriture, des couvertures et les médicaments. Les quantités : ch. 00b. Se déplacer et le carburant : ch. 15.
 30. **Mettre l'eau dans des contenants souples, dans l'habitacle plutôt que dans le coffre, et choisir des aliments qu'on peut manger gelés** : une auto arrêtée n'est pas chauffée, et l'eau y gèle.
 31. {!co} **Faire brûler la chandelle de survie dans son contenant de métal, une fenêtre entrouverte** : dans une auto fermée, elle prend l'oxygène et fait du monoxyde.
- - {!generatrice} Dégager la neige autour du tuyau d'échappement avant de faire tourner le moteur pour chauffer l'auto.
+ - {!co} {!generatrice} Dégager la neige autour du tuyau d'échappement avant de faire tourner le moteur pour chauffer l'auto.
 
 [^1]: Quand un pot tient son vide, le centre du couvercle est creusé vers le bas et il ne bouge pas sous le doigt. Le vide est perdu si le couvercle est plat ou bombé, si son centre remonte quand on enlève le doigt, ou s'il fait un son sourd sous un petit coup de cuillère.
 
@@ -170,7 +170,7 @@ Monter d'avance une trousse qu'une personne sort de la maison en 2 minutes, avec
 | Au montage | Le bac 1, sorti par une seule personne | Dehors en moins de 2 minutes | Rapprocher le bac de la porte, ou l'alléger |
 | Deux fois par année, aux changements d'heure | Les piles : date, traces de fuite | Aucune trace blanche ou verte | Remplacer tout le jeu, pas seulement la pile qui a coulé |
 | Deux fois par année | Les bidons et l'eau embouteillée | Contenants intacts, pas bombés | Vider, rincer, remplir aux quatre cinquièmes |
-| Deux fois par année | L'avertisseur de CO | Il sonne quand on appuie sur le bouton d'essai, et il n'a pas atteint sa fin de vie | Changer la pile. Remplacer l'avertisseur 7 à 10 ans après la date de fabrication inscrite au dos, selon le modèle ; écrire cette date au marqueur sur le devant. Un bip toutes les 30 secondes annonce sa fin de vie |
+| Deux fois par année | L'avertisseur de CO : la date de fabrication au dos (le bouton d'essai, chaque mois : ch. 9) | Il sonne quand on appuie sur le bouton d'essai, et il n'a pas atteint sa fin de vie | Changer la pile. Remplacer l'avertisseur 7 à 10 ans après la date de fabrication inscrite au dos, selon le modèle ; écrire cette date au marqueur sur le devant. Un bip toutes les 30 secondes annonce sa fin de vie |
 | Une fois par année | Tout le contenu, et les dates de péremption | Aliments pas périmés ; piles et eau remplacées | Remplacer ce qui est périmé |
 | Une fois par année | Les médicaments d'ordonnance | Quelques semaines d'avance, pas périmés | Faire renouveler l'ordonnance tout de suite |
 | Une fois par année | Les papiers | Cartes valides, numéros à jour | Les refaire |
@@ -203,15 +203,15 @@ Quand il faut une trousse le soir même, pour rester ou pour partir, on la monte
 
 **Le rouleau de couverture.** Étendre la couverture de laine à plat. Coucher les choses à emporter en ligne, le long d'un bord : les vêtements de rechange en laine, les aliments secs, les papiers. Rouler serré en partant de ce bord : un rouleau lâche se défait au premier arbre. L'attacher aux deux bouts et au milieu avec de la corde, de la ficelle à balles ou des lacets. Nouer ensuite les deux bouts ensemble et porter le rouleau en fer à cheval, en travers de la poitrine, la charge sur une épaule et la boucle sous l'autre bras. On l'enlève d'un seul geste si on tombe à l'eau ou s'il faut courir.
 
-**La chaudière en sac à dos.** Percer deux trous de chaque côté d'une chaudière de 20 L, sous le rebord, passer une corde dans chaque paire de trous et la nouer par en dedans : ce sont les bretelles. Le rebord fait vite mal à l'épaule : glisser un linge plié sous la corde. Une chaudière à couvercle vissé est étanche, on peut l'empiler, et on peut s'asseoir dessus en attendant.
+**La chaudière en sac à dos.** Percer deux trous de chaque côté d'une chaudière de 20 L, sous le rebord, passer une corde dans chaque paire de trous et la nouer par en dedans : ce sont les bretelles. La corde fait vite mal à l'épaule : glisser un linge plié sous chaque corde. Une chaudière à couvercle vissé est étanche, on peut l'empiler, et on peut s'asseoir dessus en attendant.
 
 **La courroie de front.** Passer une sangle large comme la paume (une ceinture de robe de chambre, une courroie de sac de hockey, une lanière de babiche : ch. 103) sur le haut du front, et nouer ses bouts à la charge, qui s'appuie au creux des reins. Le poids descend par le cou et la colonne au lieu de tirer les épaules vers l'arrière, et les gens qui en ont l'habitude portent ainsi plus lourd qu'au sac à dos (ch. 24). Attacher la charge de façon que la tête puisse sortir de la courroie si on tombe. Un adulte qui n'a jamais porté au front doit commencer avec une charge légère, sur de courtes distances. Ne pas porter à la courroie de front avec un cou douloureux, des fourmis dans les bras, ou après un coup reçu au cou, et ne jamais mettre une charge d'adulte au front d'un enfant (ch. 24, étapes 17 et 19). **Ce qu'on perd :** le cou porte toute la charge, on ne regarde que devant soi, et on se rattrape mal quand on tombe.
 
-**Traîner au lieu de porter.** Sur la neige, traîner ce qu'on ne peut pas porter sur un traîneau d'enfant, un capot d'auto, une feuille de plastique ondulé, une porte sortie de ses pentures, un canot ou une tôle.
+**Traîner au lieu de porter.** Sur la neige, traîner ce qu'on ne peut pas porter sur un traîneau d'enfant, un capot d'auto, une feuille de plastique ondulé, une porte sortie de ses pentures, un canot ou une tôle (planche 06-01).
 
-- Attacher deux cordes de tirage à l'avant, aux deux coins, jamais au centre : attachée au centre, la charge se met en travers et verse à la première pente.
-- Mettre deux barres rigides entre le traîneau et la taille : deux bouts de bois, des bâtons de ski ou des tuyaux. Sans elles, le traîneau rattrape la personne qui tire dans la première descente et lui frappe les talons ; avec elles, il pousse sur les barres et reste derrière.
-- Faire une ceinture de tirage avec une couverture pliée en bande large, et y nouer les cordes et les barres : on tire avec les hanches, pas avec les bras.
+- Attacher deux cordes de tirage à l'avant, aux deux coins, jamais au centre : attachée au centre, la charge se met en travers et verse à la première pente (repère 1).
+- Mettre deux barres rigides entre le traîneau et la taille : deux bouts de bois, des bâtons de ski ou des tuyaux (repère 2). Sans elles, le traîneau rattrape la personne qui tire dans la première descente et lui frappe les talons ; avec elles, il pousse sur les barres et reste derrière (repère 3).
+- Faire une ceinture de tirage avec une couverture pliée en bande large, et y nouer les cordes et les barres : on tire avec les hanches, pas avec les bras (repère 4).
 
 **Ce qu'on perd :** le traîneau ne passe pas dans le bois serré, il verse quand la pente est de travers, et sur le sol nu, il ne sert plus.
 
@@ -225,7 +225,7 @@ Si on part, écrire le nom de chaque enfant et un numéro de téléphone à l'in
 
 ### L'eau quand il n'y a plus de pression
 
-**Remplir tout ce qui tient l'eau pendant qu'elle coule encore** : les gourdes, les chaudrons, les bidons, le bain, la cuve de la laveuse et les chaudières. Au chalet, le faire dès qu'on comprend que le courant ne reviendra pas : la pompe du puits s'arrête avec lui, et il ne reste que quelques minutes de pression.
+**Remplir tout ce qui tient l'eau pendant qu'elle coule encore** : les gourdes, les chaudrons, les bidons, le bain, la cuve de la laveuse et les chaudières. Au chalet, le faire dès que le courant manque : la pompe du puits s'arrête avec lui, et il ne reste que quelques minutes de pression.
 
 **Tirer l'eau du chauffe-eau.** Le chauffe-eau reste plein quand la pression tombe.
 
@@ -238,7 +238,7 @@ Si on part, écrire le nom de chaque enfant et un numéro de téléphone à l'in
 
 **Faire fondre la neige sans brûler plus de bois.** Remplir de neige une taie d'oreiller ou un linge, et l'accrocher au-dessus d'un chaudron, près du poêle qui chauffe la maison : la neige fond et coule dans le chaudron. Sur le poêle, toujours mettre un fond d'eau dans le chaudron avant d'y mettre la neige : sans eau, le métal surchauffe et la neige roussit au fond (ch. 10, étape 39).
 
-**Doser la javel sans compte-gouttes.** Faire un compte-gouttes avec une paille : la tremper dans la javel, boucher le bout du haut avec le doigt, la sortir, puis soulever le doigt un peu pour laisser tomber une goutte à la fois. Pour un grand volume, mesurer à la cuillère : la dose est de 0,2 mL de javel non parfumée à 5,25 % par litre, soit 4 mL pour un bidon de 20 L, un peu moins d'une cuillère à thé rase (5 mL). Quand on double la dose (étape 6), mettre 8 mL pour 20 L. Lire la concentration sur la bouteille : une javel plus forte ou plus faible change la dose. Une javel parfumée, épaissie ou qui contient du savon ne convient pas. L'attente et l'odeur de chlore : ch. 10, étapes 21 et 22.
+**Doser la javel sans seringue.** Faire un compte-gouttes avec une paille : la tremper dans la javel, boucher le bout du haut avec le doigt, la sortir, puis soulever le doigt un peu pour laisser tomber une goutte à la fois. Compter combien de ces gouttes remplissent une cuillère à thé rase (5 mL), et diviser ce nombre par 25 : c'est le nombre de gouttes pour 1 L d'eau. Pour un grand volume, mesurer à la cuillère : la dose est de 0,2 mL de javel non parfumée à 5,25 % par litre, soit 4 mL pour un bidon de 20 L, un peu moins d'une cuillère à thé rase (5 mL). Quand on double la dose (étape 6), mettre 8 mL pour 20 L. Lire la concentration sur la bouteille : une javel plus forte ou plus faible change la dose. Une javel parfumée, épaissie ou qui contient du savon ne convient pas. L'attente et l'odeur de chlore : ch. 10, étapes 21 et 22.
 
 **Filtrer l'eau trouble avant de la désinfecter.** La passer dans un linge serré, un filtre à café ou un bas propre, ou dans un bas rempli de sable et de charbon de bois du poêle. Ça n'enlève aucun microbe ; ça enlève la boue, qui protège les microbes de la javel et l'use. Si l'eau reste trouble, la faire bouillir plutôt que d'y mettre de la javel (ch. 10, étape 19). Le linge, le filtre à café et le bas ne remplacent pas le filtre à 1 µm de l'étape 6.
 
@@ -254,7 +254,7 @@ Si on part, écrire le nom de chaque enfant et un numéro de téléphone à l'in
 
 **La bouteille d'eau chaude.** Remplir d'eau chaude une bouteille de métal ou de plastique rigide, l'enrouler dans un linge et la mettre aux pieds, dans le sac de couchage. Elle chauffe la nuit, et le matin, elle donne de l'eau qui n'a pas gelé. Sans le linge, elle brûle la peau de la personne qui dort : la peau engourdie par le froid ne sent pas la brûlure (ch. 25).
 
-{!projection} **La roche du poêle.** Prendre une roche sèche, dans un champ, loin de l'eau, jamais dans le lit d'une rivière, sur une grève ou au bord d'un lac : l'eau prise dans une roche mouillée se change en vapeur quand on la chauffe, et la roche éclate en projetant des éclats coupants. La chauffer sur le poêle, l'enrouler dans une serviette et la mettre au fond du lit : elle garde sa chaleur plus longtemps que l'eau.
+{!projection} **La roche du poêle.** Prendre une roche sèche, dans un champ, loin de l'eau, jamais dans le lit d'une rivière, sur une grève ou au bord d'un lac : l'eau prise dans une roche mouillée se change en vapeur quand on la chauffe, et la roche éclate en projetant des éclats coupants. La chauffer sur le poêle, l'enrouler dans une serviette et la mettre au fond du lit.
 
 {!pas-au-feu} **Le combustible de fortune.** Mettre au poêle du bois sec et propre : des branches mortes, des meubles de bois massif sans peinture ni vernis. Un rouleau de carton ondulé serré, trempé dans de la cire fondue, brûle longtemps, et on le rallume facilement. Ne jamais brûler de palettes, de bois traité, peint, verni ou collé, de contreplaqué ni de plastique. Ils encrassent aussi le tuyau, et un tuyau encrassé peut prendre feu (ch. 82). Ne pas brûler non plus le bois de démolition dont on ne connaît pas l'origine : en vieillissant, le bois traité d'une remise, d'une clôture ou d'une terrasse devient gris comme du bois ordinaire, et on ne le reconnaît pas à sa couleur.
 
@@ -297,9 +297,9 @@ Pour être capable de monter une trousse en une soirée le jour où il le faut, 
 
 ## En plus
 
-### Le pemmican
+### La peau qui gèle au vent
 
-Le mot vient du cri *pimikan*, « graisse préparée ». C'est de la viande séchée réduite en poudre et mêlée à parts égales de gras, parfois de petits fruits. Dense et riche en énergie, le pemmican était facile à garder et à transporter : il ravitaillait les voyageurs de la traite des fourrures dans les prairies, surtout l'hiver. Fait avec de l'ours, il est aussi dangereux que de la viande crue : le séchage ne tue pas la trichine (étape 14).
+Le refroidissement éolien donne, sous la forme d'une température, le froid que la peau ressent avec le vent. De −28 à −39, la peau exposée peut geler en 10 à 30 minutes ; de −40 à −47, en 5 à 10 minutes ; de −48 à −54, en 2 à 5 minutes ; à −55 et moins, en moins de 2 minutes (étape 12).
 
 ### La pile au lithium
 
@@ -307,8 +307,8 @@ Une pile AA au lithium pèse 15 g ; une alcaline, 23 g. Dans son emballage, à 2
 
 ### Un toboggan par personne
 
-Chez les Innus, au 18e siècle, chaque personne qui marchait tirait son toboggan, plus petit pour un enfant ; les bébés voyageaient dessus, emmaillotés dans des peaux. Les hommes ouvraient la trace en se relayant, et les enfants marchaient derrière : en raquettes, la troisième ou la quatrième personne trouve la piste tassée. Un bébé refroidit plus vite qu'un adulte qui tire, sans pouvoir le dire : regarder ses joues et son nez à chaque arrêt.
+Chez les Innus, au 18e siècle, chaque personne qui marchait tirait son toboggan, plus petit pour un enfant ; les bébés voyageaient dessus, emmaillotés dans des peaux. Les hommes ouvraient la trace en se relayant, et les enfants marchaient derrière : en raquettes, la troisième ou la quatrième personne trouve la piste tassée. Un bébé refroidit plus vite qu'un adulte qui tire, sans pouvoir le dire : regarder ses joues et son nez à chaque arrêt (section 7, « Traîner au lieu de porter »).
 
 ### L'essai de Stefansson
 
-L'explorateur canadien Vilhjalmur Stefansson, qui avait vécu des années chez les peuples autochtones du Nord canadien, a fait l'essai dans un hôpital de New York, suivi par des médecins. Nourri seulement de viande maigre, il a eu les premiers signes du mal de caribou au bout de trois ou quatre jours, et le gras les a fait passer. Il a ensuite vécu un an de viande, de poisson et de gras, et il est resté en santé.
+L'explorateur canadien Vilhjalmur Stefansson, qui avait vécu des années chez les peuples autochtones du Nord canadien, a fait l'essai dans un hôpital de New York, suivi par des médecins. Nourri seulement de viande maigre, il a eu les premiers signes du mal de caribou au bout de trois ou quatre jours, et le gras les a fait passer. Il a ensuite vécu un an de viande, de poisson et de gras, et il est resté en santé (section 7, « Le gras »).

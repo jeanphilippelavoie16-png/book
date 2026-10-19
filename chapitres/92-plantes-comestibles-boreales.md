@@ -554,7 +554,7 @@ qu'on a devant soi, sous la pluie, sont plissées ou lisses. Là où le doute s'
  gravier et du sable brassés à pleines mains avec les rhizomes dans une chaudière : c'est l'abrasif
  qui nettoie, pas la brosse.
 - **La balance.** Un fléau de fortune étalonné à l'eau, **1 L d'eau pèse 1 kg** (montage au
- ch. 9 §9.1). Il suffit largement ici : les seules pesées du chapitre sont du sel sur un poids de
+ ch. 9, section 7). Il suffit largement ici : les seules pesées du chapitre sont du sel sur un poids de
  légume pour la lacto-fermentation, jamais un nitrite.
 - **Les claies.** Un cadre de perches et un lacis de racine d'épinette ou de babiche (ch. 103,
  ch. 110). À défaut, des bottes suspendues tête en bas à un fil, **à côté** du poêle dans l'air qui

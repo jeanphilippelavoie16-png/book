@@ -732,3 +732,28 @@ mettre le pied » devient « où on va mettre le pied » (80). controle.py : 7 7
 0 « § », 0 mot banni, 0 tournure, 0 maxime, 0 pronominal ; 27 mots vides et 5 redites, les mêmes, jugés plus haut ;
 invariants contre la version d'avant les corrections (`40920d1`) : rien n'a disparu. Ancres introuvables : 15-03 et
 15-05, en attente du report dans `placements-tome-1.json`.
+
+## Points réglés après l'édition, 19 octobre 2026
+
+Passe « trancher » (rédacteur du lot 15-16-17) : les questions laissées à JP par le rédacteur et les faits signalés par
+l'éditeur (`_reprise/scratchpad/tome1-final/lot-15-16-17.json`). Règle de JP pour la passe : rien de déjà vérifié n'est
+rouvert ; une source ne s'ouvre que pour trancher un point neuf. Fichier en LF, gardé en LF. Aucune étape renumérotée,
+aucune ancre déplacée.
+
+| Point | Ce qui est fait | La règle ou la source |
+| --- | --- | --- |
+| Étape 11, `{!co} {!generatrice}` ou `{!generatrice}` seul (question à JP) | **Réglé, gardé tel quel** : les deux pictogrammes. Le geste (dégager l'échappement avant chaque démarrage) est au point 4 de la page `generatrice` ; le gaz qui entre dans l'habitacle est le danger de la page `co`, qui nomme « l'auto prise dans la neige ». L'harmonisation des ch. 01 (l. 318), 02 (étape 3, `{!co}` seul), 06 (l. 158) et 08 (l. 230) est rendue à l'intégrateur | Cadre des agents : le pictogramme se pose dans l'étape où le danger se présente ; pages `co` et `generatrice` |
+| Pastille « 30 min » de « La machine s'arrête loin de tout, l'hiver » (question à JP) | **Réglé, gardée** : c'est le temps des gestes de la série (dégager l'échappement, ouvrir la fenêtre, s'installer) avant le deuxième démarrage, et la demi-heure est le cycle sourcé de l'étape 13 (moteur une dizaine de minutes par demi-heure) | Skill `ecriture`, tableau du 15 octobre : « Pas de durée inventée : la pastille est le temps des gestes, ou un ordre de grandeur qui a sa source » |
+| Étape 8 : l'éditeur a sorti « quelques minutes » et renvoie à l'étape 7 | **Réglé, rien à changer** : la durée (une dizaine de minutes) a une seule place, l'étape 7 ; la page MN DNR de l'étape 8 n'en donne pas | Skill `ecriture`, « La répétition » |
+| Étape 7 : « on peut mettre une heure » ou « souvent une heure » | **Réglé, gardé « on peut mettre »** : c'est ce que dit la source | `03-transports-canada-eau-froide.md` (TP 511) : « il faut parfois une heure » |
+| Étape 40 : « le perçage va si vite… » | **Réglé, rien à changer** : fidèle à la page | `54-mndnr-check-ice-thickness.html` : « It happens so quickly that it's easy to overestimate the thickness » |
+| Section 7, « Ski ou patin cassé » : « pour rejoindre la rive » (l'éditeur s'en étonnait) | **Coupé** : « ligaturer une perche de bois vert sous le ski (repères 3 et 4) ». Le but n'a pas de source (le geste est « sans source écrite, gardé ») et la consigne tient sans lui. Les légendes de la planche 15-06 ne disent pas « rive » ; seul le commentaire d'en-tête de `15-06.js` le dit (non imprimé) | Règle de la passe (phrase sans source coupée quand la consigne tient sans elle, comme au ch. 10) |
+| Note En plus de plus : la glace en chandelles du printemps, en photo | **Gardé pour JP** (choix de contenu). Le chapitre a 4 notes, le bas de la réserve de 4 à 8 | Cadre des agents, « Les encadrés En plus » |
+
+Ancres à reporter dans `placements-tome-1.json` (inchangées depuis l'édition) : 15-02 « {!poison} **Amorcer le siphon sans
+la bouche** », 15-03 « 8. {!glace} **Ne pas courir jusqu'au trou », 15-05 « 40. {!glace} **Mesurer la glace avant d'y
+engager une machine, le jour même.** ». Les autres ne bougent pas.
+
+controle.py : 7 744 mots (7 748 avant), 2 tirets (titre et ligne de tome), 0 « § », 0 mot banni, 0 tournure, 0 maxime,
+0 pronominal ; 26 mots vides et 6 redites, jugés (la sixième, « se regarder le visage l'un l'autre », étapes 18 et 38,
+est un renvoi avec son geste) ; invariants contre la version d'avant cette passe : rien n'a disparu.

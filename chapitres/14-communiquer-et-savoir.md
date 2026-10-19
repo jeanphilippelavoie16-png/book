@@ -44,9 +44,9 @@ elles n'arrivent pas.
 1. **Décider tout de suite si la vie de quelqu'un est en jeu.** Elle l'est quand une personne respire mal, saigne
  sans qu'on arrive à l'arrêter, est difficile à réveiller ou devient confuse, ou ne pourra pas passer la nuit à
  l'endroit où elle est : dans le froid sans abri, ou avec une jambe cassée loin du chalet. Dans ce cas, lancer
- l'appel de détresse (étape 2). Sinon, avertir le correspondant (étape 5). Pour les soins en attendant les
- secours : ch. 26 ; pour décider quand partir vers l'hôpital : ch. 35. Dans le doute, avertir quand même
- (étape 5).
+ l'appel de détresse (étape 2). Sinon, ou dans le doute, avertir le correspondant (étape 5), et lancer l'appel
+ de détresse si la situation empire (étape 8). Pour les soins en attendant les secours : ch. 26 ; pour décider
+ quand partir vers l'hôpital : ch. 35.
 2. **Si la vie est en jeu, lancer l'appel de détresse, sans attendre.**
  - Avec l'appareil satellite, appuyer sur le bouton SOS. Avec une balise de détresse de 406 MHz, la mettre en
  marche. Ne pas attendre l'heure limite de la fiche de sortie (étape 29) ni l'heure du prochain message.
@@ -242,7 +242,7 @@ elles n'arrivent pas.
 | Moment | Ce qu'on vérifie | Cible chiffrée | Si c'est hors cible |
 | --- | --- | --- | --- |
 | Chaque écoute | Un bulletin entendu | Au moins une écoute sur deux par jour | Essayer l'AM le soir ; vérifier l'antenne et la terre (étape 16) |
-| Chaque message envoyé | La réponse du correspondant | Reçue avant l'heure convenue | Aller sous un ciel dégagé et renvoyer une fois. Ensuite, compter sur le correspondant pour suivre sa consigne (étape 18) |
+| Chaque message envoyé | La réponse du correspondant | Reçue avant l'heure convenue | Aller sous un ciel dégagé et renvoyer. Tant que la réponse ne vient pas, faire comme si le message n'était pas arrivé (étape 7) |
 | Chaque jour | La charge de la radio et de l'appareil satellite | Au-dessus du niveau que le fabricant indique sur l'appareil | Recharger au mur tant qu'il y a du courant, puis au panneau solaire, ou au moteur, dehors (étape 21) |
 | Chaque semaine | Les piles de rechange | Un jeu complet par appareil, au chaud, pas entamé | Remplacer le jeu avant d'entamer le dernier |
 | Chaque mois | Le bouton d'essai de l'avertisseur de CO ; un message d'essai au correspondant | L'avertisseur sonne ; le correspondant répond | Changer la pile de l'avertisseur, puis l'avertisseur s'il reste muet. Relire la consigne avec le correspondant |
@@ -284,9 +284,7 @@ station, et le poste la trie et la change en son. On le monte sur une planche, a
  bobinage d'un moteur grillé donne beaucoup de fil de cuivre émaillé.
 - **L'accord.** Gratter l'émail pour faire une prise toutes les 10 spires sur les 70 premières (repère 3), puis une
  prise à chaque spire sur les 10 dernières. Promener une pince crocodile de prise en prise (repère 4) : on trouve la
- station avec les prises des dizaines, puis on la règle avec les dernières spires. Autre façon de régler plus fin :
- rouler deux feuilles de papier d'aluminium en tubes, glisser un tube dans l'autre avec une feuille de plastique
- entre les deux, et les enfoncer plus ou moins l'un dans l'autre.
+ station avec les prises des dizaines, puis on la règle avec les dernières spires.
 - **Les bornes.** Visser deux bornes sur la planche : l'antenne arrive sur la première (repère 5), et le fil de
  terre part de la deuxième (repère 6).
 - **Le détecteur.** Prendre une diode au germanium sur un vieil appareil électronique. Sans diode, prendre une lame
@@ -326,9 +324,9 @@ Le poste de l'auto est souvent le meilleur récepteur sur place. Il a trois fils
 fil qui a du 12 V même clé enlevée et celui qui a du 12 V seulement clé tournée, et les brancher sur le positif d'une
 batterie de 12 V ; brancher la masse sur le négatif (pour reconnaître les fils au multimètre : ch. 4, section 7).
 Relier une paire de fils de haut-parleur du poste à n'importe quel haut-parleur : celui de la portière, dévissé, fait
-l'affaire. Pour l'antenne, dévisser le mât de l'antenne de l'auto et le rentrer, ou coincer un long fil dans le
-centre de la prise d'antenne. Le poste tire beaucoup plus qu'une radio de poche et vide la batterie
-réservée à la radio (étape 20), mais il capte un bulletin au fond d'une vallée quand la radio de poche ne capte rien.
+l'affaire. Pour l'antenne, coincer le bout d'un long fil dans le centre de la prise d'antenne. Le poste tire
+beaucoup plus qu'une radio de poche et vide la batterie réservée à la radio (étape 20), mais il capte un bulletin
+au fond d'une vallée quand la radio de poche ne capte rien.
 Si on l'écoute dans l'auto, l'écouter moteur coupé (ch. 15).
 
 ### Faire durer les piles qu'on a

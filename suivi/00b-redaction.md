@@ -596,3 +596,48 @@ lit (voir plus haut) ; 0 « § » ; 0 mot banni.
   2.B) ; ch. 65, l. 297 (sel « Chalet » ; au 00b, « Maison → chalet ») et l. 294 (« village ») ; ch. 78, l. 429
   (la soupape à masse « décide de l'achat (ch. 00b) » ; la ligne 2.C dit « avec manomètre ou soupape calibrée », sans
   préférence) ; ch. 80, l. 458 (bandelettes de pH « en double au stock » ; la ligne 2.C dit « 1 rouleau par saison »).
+
+## Points réglés après l'édition, 19 octobre 2026
+
+Les faits que l'éditeur a signalés sans les changer (`suivi/00b-edition.md`) et les questions du rédacteur qu'une règle
+ou un autre chapitre tranche. Aucune source nouvelle ouverte : chaque correction s'appuie sur une source déjà au
+dossier, sur un autre chapitre qui porte sa provenance, ou sur une règle de `CLAUDE.md`.
+
+| Où | Avant | Après | Ce qui tranche |
+| --- | --- | --- | --- |
+| 1.A et la phrase de la fin, avertisseur de CO | « 1 par étage habité » | « 1 par étage, sous-sol compris » | `sources/08-quebec-avertisseurs-monoxyde-carbone.md` (« à chaque étage, y compris le sous-sol ») ; ch. 9, étape 22. Les ch. 8 et 9 sont alignés sur la même formule |
+| 1.D, contenants | « elle gâte trois mois de farine en une semaine » | « on doit jeter tout ce qu'elle a touché (ch. 5) » | Ni ce délai ni celui du palier 3 (« en une saison ») n'avaient de source, et ils se contredisaient. Ch. 5, étape 51 |
+| Palier 3, laine d'acier | « … (ch. 5) et gâte trois mois de réserve en une saison. On bouche… » | « … (ch. 5) : on bouche le trou dès qu'on le voit » | Même raison |
+| 1.D, ouvre-boîte | « sans lui on n'ouvre plus aucune conserve » | « Sans ouvre-boîte, on ouvre une boîte en usant son serti sur une pierre plate (ch. 8) » ; renvoi 8 ajouté | Ch. 8, section 7, « Manger dans l'ordre, et ouvrir les boîtes sans ouvre-boîte ». Palier inchangé |
+| 1.F, piles | « d'un seul format pour tout le bâtiment » ; « Une réserve pour une saison » | « aux formats des appareils qui comptent ; on choisit ces appareils au même format autant que possible » ; « … par format » | La ligne se contredisait (sa propre pile CR2032) et le ch. 9 disait « trois plutôt que six » : aucun chiffre n'a de source, la consigne tient sans lui |
+| 2.C, autoclave | « avec manomètre ou soupape calibrée » | « à soupape à masse », et la raison dans « Sans ça » | Ch. 78, « Quand le manomètre ment » (« C'est l'argument qui décide de l'achat (ch. 00b) ») : question 8 du rédacteur réglée |
+| 2.C, bandelettes de pH | « 1 rouleau par saison » | « 2 rouleaux rangés au sec, un qui sert et un de rechange : ils durent des années (ch. 80) » | Ch. 80, l. 458 (« durent des années… en avoir en double au stock (ch. 00b) ») |
+| 2.C, sel iodé | « Un peu plus de 2 kg par an pour quatre personnes : environ 6 g par jour » | « Pour couvrir l'iode de chacun : environ 0,7 kg par an par personne de 14 ans et plus, 0,6 kg de 9 à 13 ans, 0,4 kg de 1 à 8 ans » | `CLAUDE.md`, « Un livre ouvert » (JP, 15 octobre) : le total supposait deux adultes et deux enfants de 4 et 6 ans. Calcul sur `sources/00b-sante-canada-sel-iode-teneur-et-besoins.md` (76 µg d'iode par gramme de sel) : 150 µg ÷ 76 × 365 = 720 g ; 120 µg, 576 g ; 90 µg, 432 g. Les invariants « 2 kg » et « 6 g » sortent : voulu |
+| 2.D, guide de la flore | « Aucune application ne marche sans réseau, et on cueille loin du réseau » | « Sur papier, il marche sans pile ni réseau, là où on cueille » | Phrase sans source et trop forte (des applications marchent hors ligne) : coupée, la raison d'acheter tient |
+| B, bois sec | « … pas s'il est à 20 %. Pour la salaison et le caveau, où le chiffre compte, ils ne suffisent pas. » | « … pas s'il est à 20 %. » | La salaison et le caveau demandent l'humidité de l'air, pas celle du bois : la phrase mêlait deux mesures |
+| C, sel du fleuve | « On ne connaît pas le rendement : il dépend du sel que contient l'eau puisée. » | « Le rendement dépend de l'eau puisée : on le mesure la première fois, en pesant le sel obtenu (ch. 67). » | Ch. 67 (« Le vrai rendement se mesure la première fois ») ; le ch. 9 donne la salinité, et suit maintenant le « arrêter avant la fin » d'ici |
+| E, garrot improvisé | « Une corde, un fil ou une ceinture ne serrent pas assez et coupent la peau sans arrêter le sang. » | « …, jamais une corde, un fil ou une ceinture étroite (ch. 26). » | Ch. 26, « Le garrot ». « Ne serrent pas assez » n'avait pas de source ; le « Ce qu'on perd » dit déjà ce que fait une bande étroite. Le ch. 8 est aligné |
+| F, écumoire | « Sans écumoire, on prend une louche percée, ou une boîte… » (l'écumoire n'est sur aucune ligne) | « L'écumoire, on la fait avec une boîte de conserve trouée au clou et clouée sur un manche (ch. 58), ou on prend une louche percée. » | Ch. 58, l. 402 ; règle du 27 septembre : ce qui se fabrique ne s'achète pas |
+
+**Questions du rédacteur réglées sans JP**
+
+- **5, la chaufferette faite pour l'intérieur** : plus de contradiction. Le ch. 2 refait dit à l'étape 10 « Ne rentrer
+  aucun appareil fait pour l'extérieur ou le camping : … chaufferette de camping », comme la ligne 2.A.
+- **8, l'autoclave** : le ch. 78 tranche (tableau plus haut).
+- **9, l'ours sans thermomètre** : les pages des dangers tranchent pour le ch. 18 (`cuisson` : « Seulement avec un
+  thermomètre » ; `trichine` : « à 74 °C au cœur, mesurés au thermomètre »). Le 00b suit déjà le ch. 18 ; la phrase du
+  ch. 1, section 7, est rendue à l'agent suivant.
+- **4, en partie** : les calculs « pour quatre personnes » restent quand ils sont des exemples d'une famille (l'eau,
+  le gras du ch. 19, la vitamine D). Le sel iodé, dont le total cachait l'âge des enfants, passe par personne.
+
+**Restent pour JP**, en quatre questions : où vit la réserve de fond (ancienne 1) ; les paliers à confirmer (anciennes
+2 et 3) ; les cartouches de carabine, calibres nommés et tableau G (anciennes 4 et 6) ; les lignes que d'autres
+chapitres disent acheter (ancienne 7 ; le godendard du ch. 9 en fait partie).
+
+**Gardé** : les renvois vers les tomes 2 à 6 (« ch. 27, section 8 », « section 9 ») suivent la numérotation actuelle de
+ces chapitres ; le script de migration (plan de match, point 21) les décalera avec les autres.
+
+**controle.py --avant** (contre `HEAD`) : 17 104 mots avant, 17 171 après ; 4 tirets (titres « Palier N — », lus par
+`ancrage.py`) ; 0 « § », 0 mot banni ; « moins de 6 ans » (plomb) est un fait ; la redite « on les fait sécher près
+du » porte sur deux objets ; invariants « 2 kg » et « 6 g » sortis (sel iodé, voulu). Pas d'ancre (clé « 00b » vide).
+Fins de ligne LF.

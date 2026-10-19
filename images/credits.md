@@ -72,7 +72,7 @@ Les licences non commerciales sont correctes pour un usage privé et à remplace
 | 08 | 1 | pleine page | La réserve du chalet : l'étagère complète, chargée, en service, contenants étiquetés lisibles à l'impression.  | | | | à acquérir |
 | 08 | 2 | demi-page | Le coin carburant extérieur : bidons d'essence homologués et étiquetés, bouteilles de propane debout, à distan | | | | à acquérir |
 | 08 | 3 | demi-page | Séquence de rotation en trois vues : nouveau contenant étiqueté, insertion par l'arrière de la tablette, conte | | | | à acquérir |
-| 08 | 4 | quart de page | Conserves à rejeter : une boîte bombée et une boîte rouillée sur le serti, côte à côte avec une boîte saine. U | | | | à acquérir |
+| 08 | 4 | quart de page | Conserves à rejeter : une boîte bombée et une boîte rouillée sur le serti, côte à côte avec une boîte saine. U | Kat1100 | CC BY 4.0 | https://commons.wikimedia.org/wiki/File:Surstr%C3%B6mming_bulged_can.jpg | téléchargée en partie : la boîte bombée, `photos/tri/05-boite-bombee.jpg` (posée au ch. 5, étape 23) ; la boîte rouillée, `photos/manquantes/05-boites-rouillees-serti.jpg` (High Contrast, CC BY 3.0 de), n'est pas posée |
 | 08 | 5 | quart de page | Thermomètre min-max du local de réserve montrant un relevé réel d'hiver. À prendre en janvier, lié au thermomè | | | | à acquérir |
 | 09 | 1 | pleine page | La trousse complete etalee : les 2 bacs, les 4 sacs a dos et tout le contenu sorti, range par poste (eau, chal | | | | à acquérir |
 | 09 | 2 | quart de page | Le sac a dos d'un enfant de 4 ans, contenu etale | | | | à acquérir |
@@ -1064,6 +1064,53 @@ recadrage, sans texte ni retouche.
 | `extras/originaux/12-meleze-arbre-inat-470590126.jpg` | Mélèze laricin (*Larix laricina*) en hiver, sans aiguilles, parmi des conifères verts ; Sainte-Béatrix, Québec, 15 février 2025 | Patrice Dupont (patrice_dupont), « (c) Patrice Dupont, some rights reserved (CC BY) » | CC BY | https://www.inaturalist.org/observations/261887656 (photo 470590126) |
 | `extras/originaux/12-meleze-rameau-inat-480749975.jpg` | Mélèze laricin (*Larix laricina*), rameau nu avec ses rameaux nains et un cône ouvert, tenu dans la main ; Rouyn-Noranda, Québec, 28 mars 2025 | Pierre Cartier (pcartier), « no rights reserved » | CC0 (licence de la photo ; l'observation est en CC BY-NC) | https://www.inaturalist.org/observations/267511623 (photo 480749975) |
 | `extras/12-meleze-hiver.jpg` | Les deux photos précédentes côte à côte, l'arbre à gauche, le rameau à droite (montage du 18 octobre 2026, celui qui s'imprime) | Patrice Dupont ; Pierre Cartier | CC BY (volet de gauche) ; CC0 (volet de droite) | voir les deux lignes précédentes |
+
+## Encadré « En plus » du chapitre 3, la panne majeure d'Hydro (19 octobre 2026)
+
+Une photo de Wikimedia Commons, la réduction de 1 280 × 1 707 px que sert Commons, sans recadrage ni retouche. Licence
+lue sur l'API de Commons ; les champs sont recopiés dans la fiche de sources (`suivi/03-redaction.md`, notes « En
+plus »). Original de la réduction dans `extras/originaux/`.
+
+| Fichier | Sujet | Auteur | Licence | Lien |
+| --- | --- | --- | --- | --- |
+| `extras/03-mat-de-branchement.jpg` (original : `extras/originaux/03-mat-de-branchement-commons-weatherhead.jpg`) | Mât de branchement qui sort d'un toit de bardeaux, col-de-cygne en haut, isolateur qui retient le câble du poteau ; Mount Vernon (Washington), 17 juillet 2011 ; réduction de Commons à 1 280 × 1 707 px | Chetvorno (Chris Burks) | CC0 | https://commons.wikimedia.org/wiki/File:Weatherhead.JPG |
+
+## Encadrés « En plus » du chapitre 9, ce qui manque toujours (19 octobre 2026)
+
+Une photo de Wikimedia Commons. Auteur et licence relus sur l'API de Commons au téléchargement ; la réponse est enregistrée dans `sources/09-commons-pile-coulee-metadonnees-2026-10-19.json` (page 85254910). L'original gardé dans `extras/originaux/` est la vignette de 1 280 × 720 que sert Commons (le fichier source fait 1 920 × 1 080) ; l'image imprimée en est un recadrage carré sur le compartiment, sans texte ni retouche.
+
+| Fichier | Sujet | Auteur | Licence | Lien |
+| --- | --- | --- | --- | --- |
+| `extras/originaux/09-pile-coulee-commons-binarysequence.png` | Piles AA alcalines dans le compartiment d'un appareil : deux intactes en haut, deux qui ont coulé en bas (vignette 1 280 × 720 de Commons) | Binarysequence | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Alkaline_Battery_Leakage_Inside_a_Product.png |
+| `extras/09-pile-coulee.jpg` | Recadrage de 720 × 720 de la photo précédente sur le compartiment, sans retouche (adaptation) ; celle qui s'imprime | Binarysequence | CC BY-SA 4.0 | voir la ligne précédente |
+
+## Notes « En plus » du chapitre 10, l'eau (19 octobre 2026)
+
+Deux photos déjà au dossier, licence relue au téléchargement (`photos/registre-manquantes.md`, ligne `10-barrage-castor.jpg` ; `photos/registre-35c.md`, ligne `35c-35-rat-musque-hutte.jpg`). Les originaux restent au chemin donné dans la colonne Sujet ; pas de copie dans `extras/originaux/`.
+
+| Fichier | Sujet | Auteur | Licence | Lien |
+| --- | --- | --- | --- | --- |
+| `extras/10-etang-castor.jpg` | Barrage de castor au premier plan et l'étang qu'il retient, comté de St. Louis, Minnesota ; photo entière ramenée à 1 500 px de haut (copie de `photos/manquantes/10-barrage-castor.jpg`) | Courtney Celley, U.S. Fish and Wildlife Service, Midwest Region | Domaine public | https://commons.wikimedia.org/wiki/File:Beaver_dam_(53718655489).jpg |
+| `extras/10-hutte-rat-musque.jpg` | Hutte de rat musqué dans un marais de quenouilles gelé, Russie, 9 mars 2014 ; recadrée (horodatage hors du cadre) et ramenée à 2 250 × 1 500 px (copie de `photos/35c/35c-35-rat-musque-hutte.jpg`) | Игорь Орлов (Igor Orlov) | CC BY 3.0 | https://commons.wikimedia.org/wiki/File:%D0%A5%D0%B0%D1%82%D0%BA%D0%B0_%D0%9E%D0%BD%D0%B4%D0%B0%D1%82%D1%80%D1%8B,_House_Muskrat_-_panoramio.jpg |
+
+## Encadrés « En plus » du chapitre 11, le feu de forêt (19 octobre 2026)
+
+Une photo de Wikimedia Commons, la vignette de 1 280 px, sans recadrage ni retouche. Licence relue sur l'API de
+Commons (`extmetadata`, `LicenseShortName`) ; réponse de l'API enregistrée dans
+`sources/11-commons-grands-jardins-np-09-2026-10-19.json`.
+
+| Fichier | Sujet | Auteur | Licence | Lien |
+| --- | --- | --- | --- | --- |
+| `extras/11-pessiere-a-cladonie.jpg` | Pessière à cladonie : épinettes espacées, branches jusqu'au sol, sur un tapis de lichen ; parc national des Grands-Jardins, Charlevoix, Québec, 3 octobre 2010 (vignette de 1 280 px de Commons, sans recadrage) | LBM1948 (Wikimedia Commons), « Own work » | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Grands-Jardins_NP_09.jpg |
+
+## Encadré « En plus » du chapitre 13, le feu sans allumettes (19 octobre 2026)
+
+Une photo d'iNaturalist, identification confirmée par la communauté (« research »). Licence de la photo relue sur l'API (`license_code` de la photo, pas de l'observation) ; réponse enregistrée dans `sources/13-inaturalist-amadouvier-2026-10-19.json`. Original dans `extras/originaux/` ; la copie imprimée n'est ni recadrée ni retouchée, seulement convertie de Display P3 en sRGB.
+
+| Fichier | Sujet | Auteur | Licence | Lien |
+| --- | --- | --- | --- | --- |
+| `extras/originaux/13-amadouvier-inat-102445923.jpg` | Amadouvier (*Fomes fomentarius*), deux champignons en sabot sur un tronc de bouleau ; New Glasgow, Nouvelle-Écosse, 28 octobre 2020 | scaup, « (c) scaup, some rights reserved (CC BY) » | CC BY (licence de la photo ; l'observation est en CC0) | https://www.inaturalist.org/observations/63794378 (photo 102445923) |
+| `extras/13-amadouvier-bouleau.jpg` | La photo précédente, 1 775 × 2 048, convertie en sRGB (celle qui s'imprime) | scaup | CC BY | voir la ligne précédente |
 
 ## Pages de titre des tomes (images/tomes/)
 

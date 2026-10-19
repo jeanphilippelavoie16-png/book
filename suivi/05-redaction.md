@@ -456,3 +456,33 @@ pour le même tour) ; contre le texte commité, « rien n'a disparu ».
 (« tour du printemps et de l'automne », même nom pour le même tour). Ancre signalée : la photo 05-boite-bombee, dont
 la nouvelle ancre (étape 23) est rendue à l'orchestrateur. Invariants contre la refonte : « ch. 77 » (l'étape 24 dit
 « aux ch. 76 et 77 ») ; « 810 » (devenu 855 000 kcal, correction 3).
+
+## Points réglés après l'édition, 19 octobre 2026
+
+Passe « trancher » du lot 05-06-07 : les deux questions que le rédacteur laissait à JP et les huit faits que l'éditeur
+a signalés sans les changer. Aucune source rouverte pour ce qui était déjà vérifié ; les pages citées sont au dossier.
+Rien ne reste pour JP dans ce chapitre.
+
+| N° | Point | Ce qui change | Règle ou source |
+| --- | --- | --- | --- |
+| 1 | Question à JP : bâtir le stock sur 9 500 ou sur 9 000 kcal | Rien : 9 500 reste (étapes 8 et 11). | Le 9 000 était un « chiffre de travail » en attendant la majoration du ch. 21 (`plan/chiffres-a-valider.md`, ch. 08, point 2). Le ch. 21 l'a fixée : chiffre de planification 9 500 kcal/jour (l. 112 et 113), et sa ligne de contrôle exige 9 500 au tiers et aux deux tiers de l'hiver (l. 286). Les renvois rendus pour les ch. 21 et 88 s'appliquent tels quels (intégrateur). |
+| 2 | Question à JP : le bocal de conserve maison qui a gelé | Rien : il se jette, fendu ou non (étape 4). | Règle du ch. 78 (étape 25 et tableau des signes d'échec), le chapitre de référence des conserves, suivie au ch. 84 (étapes 9 et 42). La raison est notée dans `sources/15b-nchfp-entreposer-conserves-maison.md` : le livre dit une seule chose, et au chalet personne ne sait combien de temps un bocal gelé est resté descellé avant qu'on le trouve. La page du NCHFP, plus souple, reste notée dans `sources/08-nchfp-entreposage-conserves-maison.md`. |
+| 3 | Éditeur 1 : étape 7, l'eau à l'autre bout de la tablette ou du local | Rien. | La source dit « éloignée des solvants » (`sources/08-sante-canada-eau-embouteillee.md`) ; le chapitre garde déjà le carburant et l'huile à lampe hors du local (étapes 31 et 39), et la ligne des Points de contrôle vérifie la tablette. La lecture de l'éditeur est la bonne. |
+| 4 | Éditeur 2 : étape 28, « 20 % ou moins » et « environ 25 % » côte à côte | « environ 25 % est l'humidité idéale pour la combustion » sort ; reste « 20 % ou moins quand on le rentre », la cible de la section 5. | Une cible par ligne : le lecteur ne savait pas laquelle viser, et la consigne tient sans la deuxième. Les deux valeurs restent dans `sources/08-rncan-classes-bois-chauffage.md` ; le détail est au ch. 83. |
+| 5 | Éditeur 3 : la balance au gramme et le sel nitrité au dixième de gramme | Étape 21 : « On pèse le sel nitrité au dixième de gramme ; le ch. 67 donne les doses et la raison. » Le renvoi « (étape 21) » de la section 7, « Peser sans balance », pointe donc juste. | Ch. 67, Matériel (« Balance au 0,1 g ») et étape 22 (« Peser le nitrite au 0,1 g »). La balance au gramme du Matériel reste : elle sert à ce chapitre (les calories d'un sac, le sel sur le poids de la viande) ; la balance fine est au Matériel du ch. 67. |
+| 6 | Éditeur 4 : étape 2, « le sac de départ au ch. 7 » | « La trousse qu'on emporte est au ch. 6, et ce qu'on fait en partant, au ch. 2 (étapes 16 à 24). » | Le ch. 7 n'a pas de sac de départ ; la série « On part : la première heure » est au ch. 2, étapes 16 à 24 (renvoi rendu par le rédacteur du ch. 7, vérifié dans le ch. 2). |
+| 7 | Éditeur 5 : l'exemple d'un enfant de 4 ou 5 ans et d'un enfant de 6 ou 7 ans | Étape 8 : « Pour un homme et une femme de 19 à 30 ans et deux enfants de 4 à 7 ans, le total est de 8 350 à 8 950 kcal par jour. » | CLAUDE.md, « Un livre ouvert » : pas l'âge des enfants de JP ; l'âge reste comme tranche du tableau, parce que c'est un besoin nutritionnel. Calcul sur le tableau de l'étape 8 (`sources/08-msss-besoins-energetiques.md`, niveau « actif ») : 5 350 + 1 500 + 1 500 = 8 350 ; 5 350 + 1 800 + 1 800 = 8 950, la fourchette que le vérificateur avait donnée pour deux enfants quelconques de 4 à 7 ans. Le stock reste bâti sur 9 500. |
+| 8 | Éditeur 6 : étape 38, « un dans la remise » | « un dans le cabanon » | Règle 6 du skill : un objet garde son nom (le cabanon des étapes 31 à 33). Un moyen d'allumage hors du chalet reste disponible si le chalet brûle : c'est le sens des trois endroits. |
+| 9 | Éditeur 7 : la note « Le pemmican » aux ch. 5 et 6 | La note reste ici et sort du ch. 6 (voir `suivi/06-redaction.md`). | La note du ch. 6 redisait son étape 14 (l'ours jamais en viande séchée) ; celle du ch. 5 porte l'étape à 71 °C du ch. 72 et sert l'étape 19 (le gras). |
+| 10 | Éditeur 8 : le témoin de gel, une conclusion sur la viande dehors tirée d'un pot posé dans le local | Section 7 : « Si elle est prise au milieu ou au fond du bloc, elle a coulé pendant un redoux : le local a dégelé, puis regelé. Pour la viande du coffre dehors, faire le même essai avec un deuxième pot posé dans le coffre (étape 25). » | Contradiction interne : le pot du local ne dit rien du coffre. Le même essai sert à la caisse dehors au ch. 7 (section 7, « La caisse froide dehors ») et au ch. 3 (« Le verre à la pièce de monnaie »). |
+
+**Ancres.** Aucun paragraphe ancré n'a bougé : la planche 05-01 reste sur « **La chaudière à bascule** (planche 05-01). » ;
+la photo 05-boite-bombee prend l'ancre déjà rendue par le rédacteur et l'éditeur (« **Manger les conserves maison dans
+l'année qui suit la mise en conserve.** », étape 23). `controle.py` la signale introuvable tant que
+`placements-tome-1.json` garde l'ancienne ancre (intégrateur).
+
+**controle.py** (contre le texte d'avant cette passe) : 8 129 → 8 142 mots ; 2 tirets (titre et ligne de tome) ; 0 « § »,
+0 mot banni, 0 maxime ; 2 tournures, les faux positifs déjà jugés (« les légumineuses demande », « On les oublie ») ;
+37 mots vides jugés ; 4 redites jugées (le même nom pour la même vérification ; « deux enfants de 4 à » aux étapes 5 et
+8, deux faits différents). Invariants : « 5 ans » et « 550 » (l'exemple de l'étape 8, point 7) et « ch. 7 » (le renvoi
+faux de l'étape 2, point 6) disparaissent, comme voulu.

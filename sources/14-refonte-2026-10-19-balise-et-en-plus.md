@@ -123,3 +123,21 @@ surveillance des fréquences de détresse par les centres des SCTM.
 | « Ouvrez légèrement la fenêtre du côté opposé au vent avant d'allumer le moteur » ; « une dizaine de minutes par période de 30 minutes » | Étape 21 | `19-quebec-trousse-urgence-et-auto.md`, l. 43 et 44 |
 | Pastille 10 min de la série « Il faut de l'aide, loin de tout » : par −30 °C et un vent de 10 km/h, refroidissement de −39 et peau exposée gelée en 10 à 30 min ; un gros saignement vide le corps en quelques minutes | Pastille, étapes 1 à 8 (même fondement que la pastille du ch. 16) | `20-environnement-canada-refroidissement-eolien.md` ; page `froid` ; page `coupure` |
 | Signal de détresse au sifflet : « blast it 3 times, take a break, blast 3 times again and continue to do this. If there are ground search and rescue members within hearing distance, they will locate you. Remember, to stop blasting occasionally » | Section 7, « Le son » (deuxième passe du 19 octobre) ; même signal qu'au ch. 16, étape 19 | `21-adventuresmart-signaux-detresse.md` |
+
+---
+
+## 4. Points réglés après l'édition, 19 octobre 2026
+
+Tirés du PDF déjà enregistré (`19-transports-canada-aim-sar-2025-fr.pdf`, `pdftotext -layout`), pour l'étape 1
+(« Sinon, ou dans le doute, avertir le correspondant ») :
+
+> « Si un pilote se pose à cause du mauvais temps ou pour toute autre raison, mais qu'il n'existe aucune situation
+> d'urgence, il ne doit pas déclencher son ELT. » (AIM SAR 3.5)
+
+> « Comme les signaux numériques d'urgence des ELT émettant sur 406 MHz sont détectés presque instantanément par les
+> satellites du COSPAS-SARSAT, ces ELT ne devraient jamais être activées à moins qu'il ne s'agisse réellement d'une
+> urgence. » (AIM SAR 3.8.1)
+
+Lecture : la balise et le SOS vont à la détresse réelle ; dans le doute, on avertit tôt, et on lance l'appel de
+détresse si la situation empire (étape 8). Le chapitre et le logigramme (branche « Non, ou dans le doute ») disent
+la même chose.

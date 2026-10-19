@@ -75,7 +75,7 @@ orignal. Vérifier la respiration au flanc avant de poser le couteau.
 
 **3. Coup de grâce s'il y a lieu, puis arme vidée et rangée hors du chantier.** À partir du
 moment où le couteau sort, plus personne ne porte une arme chargée. Voir ch. 16 pour les
-règles du groupe, ch. 17 pour l'entreposage.
+règles du groupe, ch. 36 pour l'entreposage.
 
 **4. Écrire l'heure de la mort sur la bête avant de la toucher**, au crayon, sur un bout de
 ruban à conduits enroulé autour d'une patte, pendant que les mains sont encore propres et

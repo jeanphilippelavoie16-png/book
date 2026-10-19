@@ -634,3 +634,29 @@ courts Monoxyde, Froid, Projection, Vapeurs, Brûlure, Vapeurs, Monoxyde, Cèdre
   (le nouveau est « toute la nuit », qui veut dire toute la nuit) et 11 redites, les mêmes qu'avant, jugées ;
   invariants : rien n'a disparu. Fins de ligne LF.
 - Le `[À VÉRIFIER]` de l'étape 8 (le feu pour se réchauffer quand le vent dépasse 20 km/h) reste : question à JP.
+
+## Points réglés après l'édition, 19 octobre 2026
+
+Rédacteur du lot 11-13-14, passe « trancher » (JP : « on a pas déjà fait ce travail-là ? ») : rien n'est revérifié ; une
+source déjà au dossier n'est ouverte que pour trancher un point neuf. Les deux questions laissées à JP se ferment ; les
+trois points de l'éditeur (`suivi/13-edition.md`) sont appliqués.
+
+| Point | Où | Ce qui a changé | Règle ou source |
+| --- | --- | --- | --- |
+| Question à JP 1 : le seul `[À VÉRIFIER]`, le feu dont on a besoin pour se réchauffer quand le vent dépasse 20 km/h | Étape 8, dernière sous-étape ; section 5, ligne « Le vent » | « Sans poêle, quand il faut un feu pour se réchauffer (étapes 1 à 7), le faire derrière une butte ou un rocher, ou monter un mur de bûches ou de pierres sèches du côté du vent : le mur coupe le vent qui entre dans le feu, retient les étincelles et renvoie la chaleur vers soi. » Sortent, faute de source : « le plus petit possible » (le 1 m sur 1 m de la même étape suffit), « un mur de neige », « dégager plus large autour ». Section 5, hors cible : « S'il faut un feu pour se réchauffer, monter un mur du côté du vent (étape 8). » **`[À VÉRIFIER]` levé ; question fermée** | `sources/17-us-army-fm21-76-feu.md`, extrait ajouté (PDF déjà enregistré, p. 63 et 64 : « protected from the wind » ; « construct a fire wall using logs or rocks […] reflect or direct the heat […] reduce flying sparks and cut down on the amount of wind blowing into the fire ») ; les pierres sèches, comme la sous-étape `{!projection}` juste au-dessus |
+| Question à JP 2 : la pastille « 10 min » était le temps des mains (CNESST), pas le temps qu'on a depuis le déclencheur | Pastille de la série « Il faut un feu tout de suite, par grand froid » | Pastille inchangée ; son fondement devient le temps qu'on a depuis le déclencheur : par −30 °C et un vent de 10 km/h, la peau exposée gèle en 10 à 30 minutes ; la pastille prend le bas de la fourchette, comme aux ch. 14 et 16. La limite de 10 minutes à mains nues de l'étape 7 tombe sur le même chiffre. **Question fermée** | CLAUDE.md, « La pastille dit le temps qu'on a pour faire la série, à partir de ce qui la déclenche » ; cadre, « ce temps est sourcé » ; `sources/20-environnement-canada-refroidissement-eolien.md` (déjà au dossier, même fondement que `suivi/16-redaction.md` et `suivi/14-redaction.md`, point 16) |
+| Éditeur 1 : renvoi circulaire, « creuser jusqu'à la terre minérale (étape 29) », alors que c'est l'étape 8 qui fait creuser | Section 6, dernière ligne | « (étapes 8 et 29) » | Renvoi juste |
+| Éditeur 2 : « Le feu brûle sur ce fond sec », sur un fond de branches vertes | Étape 8, sous-étape de la neige | « Le feu brûle sur ce lit de branches, au-dessus de la neige. » (« lit de branches vertes » est le mot des étapes 4 et 29) | Règle 6 du skill : le même mot pour la même chose ; « sec » voulait dire « hors de la neige » (FM 21-76 : « dry base ») |
+| Éditeur 3 : la tige de ferrocérium trop courte n'avait pas de rapport avec le titre « Les briquets vides » | Section 7, « Le briquet à pierre » | Titre : « **Les briquets vides et la tige trop courte.** » ; aucun texte déplacé | Le titre nomme ce que dit le paragraphe |
+
+**À suivre, hors de mes fichiers** : le lot 01-02-03 a inséré dans l'arbre une étape 6 au ch. 3 (le message texte) ;
+le poêle y passe à l'étape 7. Si ce changement tient, la section 7 du ch. 13 (« on garde l'air du poêle ouvert et on
+recharge à tour de rôle (ch. 3, étape 6) ») doit dire « (ch. 3, étape 7) ». Rendu à l'orchestrateur (contradictions) ;
+je ne change pas le renvoi tant que le ch. 3 n'est pas fixé.
+
+**Ancres** : aucune ne bouge (les neuf sont intactes ; aucun paragraphe touché ne porte d'ancre).
+
+**controle.py** (`--avant` HEAD) : 5 756 → 5 799 mots ; 2 tirets (titre et ligne de tome) ; 0 « § », 0 tournure,
+0 maxime, 0 pronominal ; 24 mots vides et 9 redites, jugés (des renvois, ou le même mot pour la même chose ;
+« sur un lit de branches vertes » aux étapes 4 et 29 est voulu) ; invariants : rien n'a disparu. Aucun
+`[À VÉRIFIER]` dans le chapitre. Fins de ligne LF.

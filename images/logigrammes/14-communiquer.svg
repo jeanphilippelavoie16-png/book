@@ -20,7 +20,7 @@
 <path d="M283.50,99.62 L283.50,108.20" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
 <path d="M283.50,172.20 L283.50,176.10 Q283.50,180.00 279.60,180.00 L159.00,180.00 Q153.00,180.00 153.00,186.00 L153.00,212.60" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
 <path d="M283.50,172.20 L283.50,176.10 Q283.50,180.00 287.40,180.00 L408.00,180.00 Q414.00,180.00 414.00,186.00 L414.00,212.60" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
-<path d="M153.00,275.00 L153.00,291.80" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M153.00,283.00 L153.00,291.80" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
 <path d="M153.00,345.90 L153.00,374.60" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
 <path d="M414.00,275.00 L414.00,291.80" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
 <path d="M414.00,358.20 L414.00,374.60" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
@@ -38,14 +38,14 @@
 <text data-max="468.50" x="50.00" y="84.67" font-family="IBM Plex Sans Condensed" font-size="15" fill="#fff" text-anchor="start" xml:space="preserve"><tspan font-weight="700">Il faut de l’aide, loin de tout</tspan></text>
 <rect x="36.00" y="115.20" width="495.00" height="57.00" rx="10" fill="#fff" stroke="#2B5876" stroke-width="1.75"/>
 <text data-max="472.50" x="283.50" y="135.50" font-family="IBM Plex Sans Condensed" font-size="13" fill="#000" text-anchor="middle" xml:space="preserve"><tspan font-weight="700">La vie de quelqu’un est en jeu maintenant ?</tspan></text>
-<text data-max="472.50" x="283.50" y="149.77" font-family="IBM Plex Serif" font-size="9.5" font-style="italic" fill="#000" text-anchor="middle" xml:space="preserve"><tspan font-weight="400">Il respire mal, saigne sans qu’on arrive à l’arrêter, se réveille mal ou</tspan></text>
-<text data-max="472.50" x="283.50" y="161.27" font-family="IBM Plex Serif" font-size="9.5" font-style="italic" fill="#000" text-anchor="middle" xml:space="preserve"><tspan font-weight="400">devient confus, ou ne pourra pas passer la nuit à l’endroit où il est</tspan></text>
-<rect x="36.00" y="219.60" width="234.00" height="55.40" rx="0" fill="#FDE8D8" stroke="#EE7219" stroke-width="1.5"/>
-<text data-max="217.50" x="45.00" y="240.25" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">Déclencher la détresse sans attendre</tspan><tspan font-weight="500"> : le bouton</tspan></text>
-<text data-max="217.50" x="45.00" y="252.55" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">SOS de l’appareil satellite, la balise de 406 MHz, ou</tspan></text>
-<text data-max="217.50" x="45.00" y="264.85" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">MAYDAY sur la voie 16 de la VHF.</tspan></text>
-<rect x="207.57" y="262.75" width="63.18" height="13.00" fill="#EE7219"/>
-<text x="212.57" y="272.30" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="8.5" fill="#000" xml:space="preserve" data-max="54.68">ch. 14, étape 2</text>
+<text data-max="472.50" x="283.50" y="149.77" font-family="IBM Plex Serif" font-size="9.5" font-style="italic" fill="#000" text-anchor="middle" xml:space="preserve"><tspan font-weight="400">Il respire mal, saigne sans qu’on arrive à l’arrêter, est difficile à réveiller</tspan></text>
+<text data-max="472.50" x="283.50" y="161.27" font-family="IBM Plex Serif" font-size="9.5" font-style="italic" fill="#000" text-anchor="middle" xml:space="preserve"><tspan font-weight="400">ou devient confus, ou ne pourra pas passer la nuit à l’endroit où il est</tspan></text>
+<rect x="36.00" y="219.60" width="234.00" height="63.40" rx="0" fill="#FDE8D8" stroke="#EE7219" stroke-width="1.5"/>
+<text data-max="217.50" x="45.00" y="240.25" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">Lancer l’appel de détresse sans attendre</tspan><tspan font-weight="500"> : le</tspan></text>
+<text data-max="217.50" x="45.00" y="252.55" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">bouton SOS de l’appareil satellite, la balise de 406</tspan></text>
+<text data-max="217.50" x="45.00" y="264.85" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">MHz, ou MAYDAY sur la voie 16 de la VHF.</tspan></text>
+<rect x="207.57" y="270.75" width="63.18" height="13.00" fill="#EE7219"/>
+<text x="212.57" y="280.30" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="8.5" fill="#000" xml:space="preserve" data-max="54.68">ch. 14, étape 2</text>
 <rect x="44.00" y="212.60" width="36.12" height="14.00" fill="#EE7219"/>
 <text x="49.00" y="222.80" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="9" fill="#000" xml:space="preserve" data-max="27.62">10 min</text>
 <rect x="36.00" y="298.80" width="234.00" height="47.10" rx="0" fill="#FDE8D8" stroke="#EE7219" stroke-width="1.5"/>
@@ -80,8 +80,8 @@
 <text x="473.57" y="426.00" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="8.5" fill="#000" xml:space="preserve" data-max="54.68">ch. 14, étape 7</text>
 <rect x="297.00" y="453.60" width="234.00" height="51.40" rx="0" fill="#FDE8D8" stroke="#EE7219" stroke-width="1.5"/>
 <text data-max="217.50" x="306.00" y="470.25" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">Envoyer le message suivant à l’heure annoncée.</tspan><tspan font-weight="500"> Si</tspan></text>
-<text data-max="217.50" x="306.00" y="482.55" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">la situation empire, déclencher la détresse ; si elle</tspan></text>
-<text data-max="217.50" x="306.00" y="494.85" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">s’arrange, l’écrire.</tspan></text>
+<text data-max="217.50" x="306.00" y="482.55" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">la situation empire, lancer l’appel de détresse ; si</tspan></text>
+<text data-max="217.50" x="306.00" y="494.85" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">elle s’arrange, l’écrire.</tspan></text>
 <rect x="468.57" y="492.75" width="63.18" height="13.00" fill="#EE7219"/>
 <text x="473.57" y="502.30" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="8.5" fill="#000" xml:space="preserve" data-max="54.68">ch. 14, étape 8</text>
 <rect x="621.00" y="60.22" width="495.00" height="39.40" rx="0" fill="#2B5876"/>
@@ -103,8 +103,8 @@
 <rect x="1048.98" y="272.85" width="67.77" height="13.00" fill="#EE7219"/>
 <text x="1053.98" y="282.40" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="8.5" fill="#000" xml:space="preserve" data-max="59.27">ch. 14, étape 11</text>
 <rect x="621.00" y="309.60" width="495.00" height="40.30" rx="0" fill="#FDE8D8" stroke="#EE7219" stroke-width="1.5"/>
-<text data-max="478.50" x="630.00" y="326.72" font-family="IBM Plex Sans Condensed" font-size="10.5" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">À l’heure limite, sans nouvelles, avertir le correspondant</tspan><tspan font-weight="500"> : qui manque, depuis quand, ce que dit la fiche de</tspan></text>
-<text data-max="478.50" x="630.00" y="339.62" font-family="IBM Plex Sans Condensed" font-size="10.5" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">sortie.</tspan></text>
+<text data-max="478.50" x="630.00" y="326.72" font-family="IBM Plex Sans Condensed" font-size="10.5" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">À l’heure limite, sans nouvelles, avertir le correspondant</tspan><tspan font-weight="500"> : qui manque, depuis quand, ce qui est écrit sur la</tspan></text>
+<text data-max="478.50" x="630.00" y="339.62" font-family="IBM Plex Sans Condensed" font-size="10.5" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">fiche de sortie.</tspan></text>
 <rect x="1048.98" y="337.65" width="67.77" height="13.00" fill="#EE7219"/>
 <text x="1053.98" y="347.20" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="8.5" fill="#000" xml:space="preserve" data-max="59.27">ch. 14, étape 12</text>
 <rect x="621.00" y="381.60" width="495.00" height="32.00" rx="10" fill="#fff" stroke="#2B5876" stroke-width="1.75"/>

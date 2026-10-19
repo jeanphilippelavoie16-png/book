@@ -6,7 +6,7 @@
 mai, et c'est ce double geste qui décide de l'état de tout le reste : une plomberie fendue, un
 conduit bouché ou un nid de souris dans les matelas ne se voient qu'au retour. La maison au
 village n'a qu'une version courte de l'opération, la vidange quand on la quitte l'hiver (ch. 2,
-étape 9 ; ch. 3), et le même ordre de remise en service la rouvre au retour (fin de la section
+étape 20 ; ch. 3), et le même ordre de remise en service la rouvre au retour (fin de la section
 5-B). Le cas qui compte le plus n'est ni l'automne ni le printemps : c'est le jour de la bascule
 du ch. 2, quand la famille arrive de la maison à un chalet fermé et gelé, en janvier, en fin de
 journée. Il est à la section 9, et il commence à la fermeture d'octobre.
@@ -90,7 +90,7 @@ du départ, le dernier feu éteint depuis la veille au moins (étape 17).
 
 1. **Couper ce qui pompe et ce qui chauffe.** Pompe à son interrupteur ou à son disjoncteur.
    Chauffe-eau électrique à son disjoncteur **avant** de le vider : un élément qui chauffe à sec se
-   détruit (ch. 3, étape 22). Chauffe-eau au propane : robinet de gaz de
+   détruit (ch. 3, étape 23). Chauffe-eau au propane : robinet de gaz de
    l'appareil fermé, veilleuse éteinte.
 2. **Ouvrir tous les robinets**, chauds et froids, du plus haut au plus bas, et le robinet
    extérieur. Tirer une dernière fois la chasse de la toilette pour vider le réservoir.
@@ -144,7 +144,7 @@ du départ, le dernier feu éteint depuis la veille au moins (étape 17).
    l'humidité rouille les couvercles et les boîtes jusqu'à défaire le scellé.
 10. **La caisse hors gel du ch. 108 descend** : colles, scellants, peintures, piles, abrasifs,
     électrodes, semences, films. Les médicaments d'ordonnance descendent avec la famille (ch. 5,
-    5.9). Les piles au lithium sortent des outils et descendent à la charge que dit le ch. 108.
+    étape 43). Les piles au lithium sortent des outils et descendent à la charge que dit le ch. 108.
 
 **Ce qui attire**
 
@@ -157,7 +157,7 @@ du départ, le dernier feu éteint depuis la veille au moins (étape 17).
     il se rouvre moisi.
 14. **La literie** : draps lavés, tout rangé en bacs fermés, matelas debout contre un mur. Debout, on
     voit dessous et derrière au retour, avant d'y toucher.
-15. **Les pièges** : la chaudière à bascule du ch. 5 (§9), laissée **sèche**, parce que l'eau
+15. **Les pièges** : la chaudière à bascule du ch. 5 (section 7), laissée **sèche**, parce que l'eau
     gèlerait. Au retour, ce qu'elle a pris se traite comme les crottes (étape 30).
 
 **L'enveloppe**
@@ -291,7 +291,7 @@ dehors vers le dedans, et de l'air vers l'eau.
     sur le réservoir. L'antigel des siphons part au drain à la première eau.
 39. **Chercher la fuite pendant la première heure.** Sous chaque évier, autour de la pompe, du
     réservoir, du chauffe-eau, et là où un tuyau passe dans un mur extérieur. Une fente faite par le
-    gel en février ne coule qu'au moment où l'eau revient. Elle se ferme à froid (ch. 3, §9).
+    gel en février ne coule qu'au moment où l'eau revient. Elle se ferme à froid (ch. 3, section 7).
 40. **Le chauffe-eau se remplit avant de chauffer.** Robinet d'eau chaude ouvert jusqu'à ce que
     l'eau coule sans air ; seulement là, le gaz ou le courant.
 41. **L'eau se traite.** L'eau du lac est une eau de surface et le reste (ch. 10). Un puits qui a
@@ -314,7 +314,7 @@ chercher la fuite (ch. 2, ch. 3).
 | --- | --- | --- | --- |
 | Fermeture, après la vidange | Robinets et drains ouverts | Plus une goutte, nulle part | Souffler de nouveau ; chercher la boucle sous le plancher ou le coude oublié |
 | Fermeture | Chauffe-eau, réservoir, pompe, filtres, conduite du lac | Les cinq vidés par leur point bas, bouchons collés sur la pompe | Le point bas qui reste plein est celui qui fend |
-| Fermeture | Siphons et toilette | 0,5 L par siphon et par réservoir, 1 L par cuvette ; laveuse 2 L, lave-vaisselle 1 L s'il y en a | Sans antigel : siphons vidés, huile de cuisson (ch. 3, §9) |
+| Fermeture | Siphons et toilette | 0,5 L par siphon et par réservoir, 1 L par cuvette ; laveuse 2 L, lave-vaisselle 1 L s'il y en a | Sans antigel : siphons vidés, huile de cuisson (ch. 3, section 7) |
 | Fermeture | Ouvertures de l'enveloppe | Aucune de la taille d'une pièce de 10 ¢ | Laine d'acier puis calfeutrant ; grillage ; tôle |
 | Fermeture | Liquides en verre ou en boîte | Aucun dans un local qui gèle | À la maison, jamais au caveau |
 | Fermeture | Cendres du dernier feu | Contenant fermé, cendres arrosées, sur sol nu, à 3 m ou plus de tout bâtiment ; foyer brassé, sans braise | Déplacer le contenant ; brasser et arroser encore |
@@ -330,7 +330,7 @@ chercher la fuite (ch. 2, ch. 3).
 | Premier feu | Porte du poêle entrouverte | 15 min au plus, un adulte devant | Refermer ; si ça refoule porte fermée, c'est le conduit |
 | Avant de remettre l'eau | Pièce où est l'appareil | Au moins 18 °C | Attendre |
 | Remise en eau | Pompe | Amorcée avant la mise en marche ; pression qui monte et qui s'arrête | Couper tout de suite si rien ne monte : elle tourne à sec |
-| Première heure d'eau | Joints, dessous d'évier, pompe, réservoir, chauffe-eau | Aucun suintement | Couper l'eau, réparer à froid (ch. 3, §9) |
+| Première heure d'eau | Joints, dessous d'évier, pompe, réservoir, chauffe-eau | Aucun suintement | Couper l'eau, réparer à froid (ch. 3, section 7) |
 | Chauffe-eau | Réservoir | Eau sans air au robinet chaud avant le gaz ou le courant | Laisser couler encore |
 
 ---
@@ -339,7 +339,7 @@ chercher la fuite (ch. 2, ch. 3).
 
 | Observation | Diagnostic | Action |
 | --- | --- | --- |
-| Eau au plancher près de la pompe ou sous un évier au retour | Point bas oublié qui a gelé : corps de pompe, boîtier de filtre, coude, tuyau | Couper la pompe, trouver la fente sous faible pression, fermer à froid à la chambre à air et aux colliers (ch. 3, §9). Un corps de pompe en fonte fendu se brase (ch. 107) |
+| Eau au plancher près de la pompe ou sous un évier au retour | Point bas oublié qui a gelé : corps de pompe, boîtier de filtre, coude, tuyau | Couper la pompe, trouver la fente sous faible pression, fermer à froid à la chambre à air et aux colliers (ch. 3, section 7). Un corps de pompe en fonte fendu se brase (ch. 107) |
 | La pompe tourne et la pression ne monte pas | Pompe non amorcée, ou la conduite aspire de l'air par le clapet de pied ou un joint | Couper tout de suite. Réamorcer par le bouchon du haut ; sortir le clapet et le nettoyer, ou le refaire en cuir (ch. 108, §9) |
 | La pompe repart seule sans qu'aucun robinet ne soit ouvert | Fuite quelque part, ou clapet qui laisse redescendre la colonne | Chercher le suintement ; nettoyer le clapet, ou le refaire d'une languette de cuir épais (ch. 108, §9) |
 | Fumée dans la pièce au premier allumage, qui cesse une fois la torche passée | Conduit froid, sans tirage | Normal. Air grand ouvert, porte entrouverte sous surveillance, feu vif |
@@ -386,7 +386,7 @@ chercher la fuite (ch. 2, ch. 3).
 > - **Le véhicule qui sert d'abri** : la neige poussée par le vent rebouche l'échappement pendant
 >   qu'on est assis dedans, le monoxyde entre par le plancher, et on s'endort. Échappement dégagé
 >   avant **chaque** redémarrage, un adulte éveillé, l'avertisseur de voyage dans l'habitacle
->   (ch. 2, §9 ; ch. 15, étapes 11 à 13).
+>   (ch. 2, étape 3 ; ch. 15, étapes 11 à 13).
 > - **Une fois le chalet chauffé, personne sous le versant qui porte le conduit**, ni à la perche,
 >   ni à la ronde de nuit : la tôle réchauffée lâche sa neige d'un coup, sur celui qui est seul
 >   dehors pendant que l'autre dort. On regarde le chapeau depuis le côté du pignon.
@@ -418,7 +418,7 @@ chercher la fuite (ch. 2, ch. 3).
 
 ## 9. Variante d'urgence — Arriver en plein hiver à un chalet fermé et gelé
 
-C'est le moment de la bascule du ch. 2. La maison est vidangée et fermée derrière (ch. 2, étape 9 ;
+C'est le moment de la bascule du ch. 2. La maison est vidangée et fermée derrière (ch. 2, étape 20 ;
 ch. 3), la route a pris plus de temps que prévu, la fin du trajet s'est faite en motoneige, la
 clarté baisse, il fait -30 °C, deux enfants de 4 et 6 ans ont froid et faim. Le chalet est à la
 température du dehors depuis des semaines. Personne ne viendra. Ce qui suit
@@ -449,13 +449,13 @@ regardé. Si le véhicule s'est rendu à la porte, ils attendent dedans, avec l'
 c'est le seul endroit chaud, donc le seul où il est dans sa plage. La neige qui bouche le tuyau
 d'échappement renvoie le monoxyde dans l'habitacle par le plancher, et un enfant qui s'endort
 après la route, c'est justement ce qu'on s'attend à voir. Donc : tuyau dégagé à la pelle avant
-**chaque** redémarrage, pas seulement le premier (ch. 2, §9 ; ch. 15, étape 11) ; l'arrière du
+**chaque** redémarrage, pas seulement le premier (ch. 2, étape 3 ; ch. 15, étape 11) ; l'arrière du
 véhicule tourné loin des portes et des fenêtres qu'on vient d'ouvrir au chalet ; fenêtre
 entrouverte du côté opposé au vent ; moteur une dizaine de minutes par période de 30 minutes.
 Si la fin du trajet s'est faite en motoneige, ils restent dans leur sac, dans le
 toboggan, à l'abri du vent du côté sous le vent du chalet ou dans la galerie fermée, habits de neige sur le dos, avec l'adulte qui
 surveille le toit. Ils bougent les orteils sur commande et on leur fait attacher une botte plutôt
-que de leur demander s'ils ont froid (ch. 2, §9 ; ch. 39). Si le travail sur le conduit s'étire —
+que de leur demander s'ils ont froid (ch. 2, section 7, « Mesurer sans instrument » ; ch. 39). Si le travail sur le conduit s'étire —
 une perche à fabriquer de nuit, un bonnet de glace qui résiste —, un feu long s'allume dehors, à
 l'écart du toit, et les enfants s'installent à côté avant que le froid les prenne (ch. 82, §9).
 
@@ -545,7 +545,7 @@ reste :
 - **Le véhicule.** C'est l'abri où l'on s'endort, et c'est là que le monoxyde tue : la neige
   s'accumule sous le vent et rebouche le tuyau pendant la nuit, le gaz entre par le
   plancher, rien ne se sent, et personne ne se réveille. L'échappement se dégage avant **chaque**
-  redémarrage (ch. 2, §9 ; ch. 15, étapes 11 à 13), moteur une dizaine de minutes par période de
+  redémarrage (ch. 2, étape 3 ; ch. 15, étapes 11 à 13), moteur une dizaine de minutes par période de
   30 minutes, un adulte reste éveillé, et l'avertisseur de voyage passe dans l'habitacle : il y
   fait chaud, il y est dans sa plage.
 - **L'abri de neige et le feu long** (ch. 82, §9).
@@ -586,7 +586,7 @@ ouverts, pompe coupée, et on la laisse comme ça. L'eau du premier soir vient d
 neige ou de la glace fondue sur le poêle, dans un chaudron où l'on a laissé un fond d'eau pour que
 le fond ne roussisse pas, et elle passe par l'ébullition comme toute eau de surface (ch. 10, étapes 39 à
 41). La glace de lac donne plus d'eau que la neige à volume égal. Le sac de neige suspendu à
-côté du poêle fond sans prendre de place sur la plaque (ch. 3, §9).
+côté du poêle fond sans prendre de place sur la plaque (ch. 3, section 7).
 
 **Si elle ne l'a pas été** — la fermeture a été bâclée, ou quelqu'un a remis l'eau en novembre —,
 le mal est fait, et il ne faut pas l'aggraver. La glace tient les fentes fermées ; c'est au dégel
@@ -596,7 +596,7 @@ que l'eau de fonte ait une sortie, des chaudrons sous les joints qu'on voit. Pui
 tuyaux dégeler au rythme du bâtiment, sans les chauffer. Jamais de flamme sur un tuyau : dans un
 mur, elle allume la charpente derrière, et sur le cuivre elle défait les soudures en amont. Si un
 tuyau doit dégeler plus vite, c'est du robinet ouvert vers le bouchon de glace, jamais au milieu,
-avec des guenilles et de l'eau chaude (ch. 3, §9) : chauffé au milieu, l'eau fondue et la vapeur
+avec des guenilles et de l'eau chaude (ch. 3, section 7) : chauffé au milieu, l'eau fondue et la vapeur
 restent coincées entre deux glaces, et le tuyau fend. Les fentes se trouvent au dégel et se ferment à
 froid, à la chambre à air et aux colliers.
 
@@ -624,7 +624,7 @@ vide sanitaire**, qui est le dernier endroit du chalet à dégeler. Puis l'ordre
   toit.
 - **Le temps que met le chalet à se réchauffer ne se devine pas.** Il se mesure une fois, une fin de
   semaine de février, du moment où on ouvre la porte au moment où la pièce du poêle est tiède, et
-  il s'écrit au crayon gras sur le mur à côté du poêle, et sur la fiche de décision du ch. 2 (§4),
+  il s'écrit au crayon gras sur le mur à côté du poêle, et sur la fiche de décision du ch. 2 (section 3),
   à côté de la durée du trajet. Le jour de la bascule, c'est ce chiffre qui dit, à la maison, s'il
   faut partir à midi ou à huit heures.
 
@@ -720,7 +720,7 @@ façon. L'aération est déjà faite, à la porte. Le reste change :
   sur le support et mouille la bûche du dessous.
 - **La génératrice**, s'il y en a une, dehors et loin des ouvertures (ch. 15). Les batteries du banc,
   si elles sont gelées, dégèlent avant qu'on les charge.
-- **Faire savoir qu'on est là** : ceux qu'on a prévenus au départ (ch. 2, étape 9, point 3), le
+- **Faire savoir qu'on est là** : ceux qu'on a prévenus au départ (ch. 2, étape 18), le
   voisin, le groupe de chasse (ch. 14 ; ch. 16).
 - **Le reste du chalet**, une pièce par jour, en ouvrant la porte de la pièce voisine quand celle du
   poêle tient sa chaleur. La décision de l'eau courante, selon le type de système (plus haut).

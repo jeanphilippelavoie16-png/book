@@ -30,40 +30,40 @@ flèche, flocon).
 
 | # | Identifiant | Nom | Ce qu'il signale | L'image | Chapitres |
 | --- | --- | --- | --- | --- | --- |
-| 1 | `co` | Monoxyde de carbone | Tout ce qui brûle dans un volume fermé endort et tue sans odeur | Une flamme sous un toit, un « Z » de sommeil | 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 25 26 28 29 30 31 32 35 36 37 38 39 40 41 58 70 71 77 79 81 82 83 84 85 86 87 88 94 97 99 100 101 102 104 105 106 107 108 109 110 111 112 |
-| 2 | `generatrice` | Génératrice et moteur sous un toit | La génératrice, l'auto, la scie ne tournent jamais dans un bâtiment, un garage, un abri ni sous un auvent | Une génératrice sous un auvent, barrée | 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 25 26 30 31 32 35 36 37 38 39 40 41 58 64 66 69 73 74 75 78 79 81 82 83 84 85 86 87 97 100 101 104 105 106 107 108 109 110 111 112 |
-| 3 | `electrocution` | Courant renvoyé ou fil tombé | Le courant tue à distance : génératrice branchée sur la maison, fil au sol | Un éclair entre une prise et un poteau | 1 3 11 15 16 |
-| 4 | `vapeurs` | Vapeurs qui prennent feu | Essence, naphte, propane, hydrogène, colle : la vapeur coule ou s'accumule et va chercher la flamme | Un bidon, une traînée au sol, une flamme au bout | 5 11 13 15 82 85 86 87 103 104 106 107 108 111 112 |
-| 5 | `huile-en-feu` | Huile ou gras en feu | Jamais d'eau sur ni dans l'huile chaude : couvercle, et le chaudron ne bouge pas | Un chaudron en flammes, un couvercle, une goutte barrée | 5 15 72 82 90 111 112 |
-| 6 | `incendie` | Le bâtiment brûle | Flamme nue, cheminée, feu qui couve : on sort en moins de 3 minutes et on ne rentre pas | Une maison, une flamme à la fenêtre | 12 37 82 83 85 99 101 102 105 108 112 |
-| 7 | `feu-de-foret` | Feu de forêt | La fumée, les braises et le chemin qui se ferme avant le front ; le brûlis qui s'échappe | Un conifère en flammes | 11 96 99 |
-| 8 | `espace-clos` | L'air qui manque au fond | Fosse, caveau, cuve, cave : un gaz lourd ou un air sans oxygène fait tomber sans prévenir | Une silhouette au fond d'un trou, une flèche vers le bas barrée | 4 12 31 79 87 102 107 |
-| 9 | `chimie` | Produit qui brûle ou qui gaze | Lessive, soude, chaux, cendre, acide, javel : brûlure qui travaille en profondeur, gaz de mélange | Un œil et une goutte | 10 30 31 96 99 102 103 107 108 112 |
-| 10 | `pas-au-feu` | Ce qui empoisonne en brûlant | Bois traité, pièce galvanisée ou peinte, brasure au cadmium, herbe à puce : jamais au feu | Une planche dans une flamme, barrée | 33 71 79 92 95 107 110 111 |
-| 11 | `projection` | Ce qui éclate ou part d'un coup | Meule, acier trempé, contenant fermé chauffé, câble tendu, arbre encroué, arc | Un éclat qui part vers un visage | 12 37 45 78 86 96 105 106 108 109 111 |
-| 12 | `ecrasement` | Ce qui tombe ou s'effondre | Charge suspendue, quartier de viande, abri de neige, paroi de tranchée, neige du toit | Une charge au-dessus d'une silhouette | 12 37 62 63 64 79 84 89 103 109 110 |
-| 13 | `coupure` | Coupure qui vide le sang | Scie, couteau, rebond : la cuisse se vide en minutes ; le saignement qu'on ne voit pas | Une lame et une goutte | 26 62 105 106 |
-| 14 | `brulure` | Brûlure qui colle | Sirop, poix, vapeur, eau bouillante, vêtement qui fond ou qui flotte près du feu | Une main sous une coulée | 11 12 34 78 94 104 111 |
-| 15 | `froid` | Hypothermie et gelure | Le jugement part avant la force ; les frissons qui cessent ne sont pas un mieux | Un thermomètre et un flocon | 1 2 6 7 12 13 17 25 29 31 35 36 42 44 58 62 73 82 89 104 |
-| 16 | `eau-froide` | Eau froide | Le choc de la première minute noie ; les mains lâchent en dix minutes | Une tête à la surface, des vagues | 39 42 47 50 56 57 58 59 60 89 90 |
-| 17 | `glace` | Glace mince | La glace casse là où on ne savait pas qu'elle était mince | Une silhouette sur une glace fendue | 15 39 41 42 43 44 50 58 59 73 89 |
+| 1 | `co` | Monoxyde de carbone | Tout ce qui brûle dans un volume fermé endort et tue sans odeur | Une flamme sous un toit, un « Z » de sommeil | 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 17 18 25 26 28 29 30 31 32 35 36 37 38 39 40 41 58 70 71 77 79 81 82 83 84 85 86 87 88 94 97 99 100 101 102 104 105 106 107 108 109 110 111 112 |
+| 2 | `generatrice` | Génératrice et moteur sous un toit | La génératrice, l'auto, la scie ne tournent jamais dans un bâtiment, un garage, un abri ni sous un auvent | Une génératrice sous un auvent, barrée | 1 2 3 4 5 6 7 8 9 10 11 12 14 15 16 17 18 25 26 30 31 32 35 36 37 38 39 40 41 58 64 66 69 73 74 75 78 79 81 82 83 84 85 86 87 97 100 101 104 105 106 107 108 109 110 111 112 |
+| 3 | `electrocution` | Courant renvoyé ou fil tombé | Le courant tue à distance : génératrice branchée sur la maison, fil au sol | Un éclair entre une prise et un poteau | 1 2 3 7 11 15 16 |
+| 4 | `vapeurs` | Vapeurs qui prennent feu | Essence, naphte, propane, hydrogène, colle : la vapeur coule ou s'accumule et va chercher la flamme | Un bidon, une traînée au sol, une flamme au bout | 2 3 5 7 9 10 11 13 15 82 85 86 87 103 104 106 107 108 111 112 |
+| 5 | `huile-en-feu` | Huile ou gras en feu | Jamais d'eau sur ni dans l'huile chaude : couvercle, et le chaudron ne bouge pas | Un chaudron en flammes, un couvercle, une goutte barrée | 72 82 90 111 112 |
+| 6 | `incendie` | Le bâtiment brûle | Flamme nue, cheminée, feu qui couve : on sort en moins de 3 minutes et on ne rentre pas | Une maison, une flamme à la fenêtre | 3 7 8 10 11 12 18 37 82 83 85 99 101 102 105 108 112 |
+| 7 | `feu-de-foret` | Feu de forêt | La fumée, les braises et le chemin qui se ferme avant le front ; le brûlis qui s'échappe | Un conifère en flammes | 2 8 11 96 99 |
+| 8 | `espace-clos` | L'air qui manque au fond | Fosse, caveau, cuve, cave : un gaz lourd ou un air sans oxygène fait tomber sans prévenir | Une silhouette au fond d'un trou, une flèche vers le bas barrée | 4 8 12 31 79 87 102 107 |
+| 9 | `chimie` | Produit qui brûle ou qui gaze | Lessive, soude, chaux, cendre, acide, javel : brûlure qui travaille en profondeur, gaz de mélange | Un œil et une goutte | 9 10 30 31 96 99 102 103 107 108 112 |
+| 10 | `pas-au-feu` | Ce qui empoisonne en brûlant | Bois traité, pièce galvanisée ou peinte, brasure au cadmium, herbe à puce : jamais au feu | Une planche dans une flamme, barrée | 3 6 10 33 71 79 92 95 107 110 111 |
+| 11 | `projection` | Ce qui éclate ou part d'un coup | Meule, acier trempé, contenant fermé chauffé, câble tendu, arbre encroué, arc | Un éclat qui part vers un visage | 2 3 6 8 10 11 12 13 15 17 37 45 78 86 96 105 106 108 109 111 |
+| 12 | `ecrasement` | Ce qui tombe ou s'effondre | Charge suspendue, quartier de viande, abri de neige, paroi de tranchée, neige du toit | Une charge au-dessus d'une silhouette | 11 12 37 62 63 64 79 84 89 103 109 110 |
+| 13 | `coupure` | Coupure qui vide le sang | Scie, couteau, rebond : la cuisse se vide en minutes ; le saignement qu'on ne voit pas | Une lame et une goutte | 8 16 18 26 62 105 106 |
+| 14 | `brulure` | Brûlure qui colle | Sirop, poix, vapeur, eau bouillante, vêtement qui fond ou qui flotte près du feu | Une main sous une coulée | 11 12 13 34 78 94 104 111 |
+| 15 | `froid` | Hypothermie et gelure | Le jugement part avant la force ; les frissons qui cessent ne sont pas un mieux | Un thermomètre et un flocon | 1 2 3 6 7 8 10 12 13 14 15 16 17 25 29 31 35 36 42 44 58 62 73 82 89 104 |
+| 16 | `eau-froide` | Eau froide | Le choc de la première minute noie ; les mains lâchent en dix minutes | Une tête à la surface, des vagues | 15 16 39 42 47 50 56 57 58 59 60 89 90 |
+| 17 | `glace` | Glace mince | La glace casse là où on ne savait pas qu'elle était mince | Une silhouette sur une glace fendue | 10 15 18 39 41 42 43 44 50 58 59 73 89 |
 | 18 | `bete-qui-charge` | Ours ou orignal | La bête qui garde une carcasse, la bête blessée, la femelle et son veau : deux conduites opposées | Une tête d'ours et un panache | 23 42 43 44 52 56 61 95 96 |
 | 19 | `arme` | Arme et tir | Où pointe le canon, ce qu'il y a dedans, et ce qu'il y a derrière la cible | Un canon et une cible | 16 17 18 36 38 42 43 44 45 47 |
 | 20 | `rage` | Morsure, griffure, bête enragée | La rage déclarée ne se traite pas : laver 10 à 15 minutes et partir | Une gueule ouverte | 26 43 50 51 53 55 102 103 |
-| 21 | `tularemie` | Gants sur la bête crue | Lièvre, castor, rat musqué : gants ; la bête malade ou trouvée morte ne se touche pas | Une main gantée sur un lièvre | 1 9 16 19 22 23 35 38 39 41 42 43 44 45 46 47 48 49 50 51 53 54 56 61 69 71 72 101 102 103 104 |
-| 22 | `hantavirus` | Crottes de souris | Le balai met le virus dans l'air : on mouille, on ne balaie pas | Une souris et un balai barré | 79 84 100 108 |
+| 21 | `tularemie` | Gants sur la bête crue | Lièvre, castor, rat musqué : gants ; la bête malade ou trouvée morte ne se touche pas | Une main gantée sur un lièvre | 1 9 16 18 19 22 23 35 38 39 41 42 43 44 45 46 47 48 49 50 51 53 54 56 61 69 71 72 101 102 103 104 |
+| 22 | `hantavirus` | Crottes de souris | Le balai met le virus dans l'air : on mouille, on ne balaie pas | Une souris et un balai barré | 5 79 84 100 108 |
 | 23 | `tetanos` | Petite plaie profonde | La piqûre étroite qui ne saigne pas : le vaccin se règle avant la saison | Une alêne qui pique un doigt | 26 27 51 61 97 103 104 105 111 |
-| 24 | `cuisson` | Cuire à cœur, mesuré | 74 °C le gibier, 82 °C l'oiseau entier, 70 °C le poisson ; ce qui se mange cuit | Un thermomètre à sonde | 3 4 6 7 8 9 13 16 17 18 19 20 21 29 36 38 39 40 41 42 44 46 47 48 49 50 51 52 54 57 60 62 63 64 65 69 70 71 74 75 76 77 81 83 87 88 93 100 101 |
-| 25 | `trichine` | Ours et phoque : ni sel, ni fumée, ni gel | La larve est dans le muscle ; seule la chaleur à cœur la tue | Une tête d'ours, un flocon et un grain de sel barrés | 1 3 4 6 7 8 9 13 16 17 18 19 20 21 22 23 35 39 40 41 42 44 46 52 55 56 61 62 64 65 66 67 68 69 70 71 72 73 74 77 78 80 81 83 102 112 |
-| 26 | `abats` | Abats qui ne se mangent pas | Foie et reins de cervidés (cadmium), cerveau, moelle et ganglions de cervidés (prion), foie d'ours et de phoque (vitamine A) | Un foie barré | 4 6 7 9 16 18 19 20 21 22 23 35 36 38 39 40 41 42 44 46 56 61 62 63 64 65 66 68 69 71 72 73 74 77 78 96 102 |
+| 24 | `cuisson` | Cuire à cœur, mesuré | 74 °C le gibier, 82 °C l'oiseau entier, 70 °C le poisson ; ce qui se mange cuit | Un thermomètre à sonde | 1 2 3 4 5 6 7 8 9 16 17 18 19 20 21 29 36 38 39 40 41 42 44 46 47 48 49 50 51 52 54 57 60 62 63 64 65 69 70 71 74 75 76 77 81 83 87 88 93 100 101 |
+| 25 | `trichine` | Ours et phoque : ni sel, ni fumée, ni gel | La larve est dans le muscle ; seule la chaleur à cœur la tue | Une tête d'ours, un flocon et un grain de sel barrés | 1 3 4 5 6 7 8 9 16 17 18 19 20 21 22 23 35 39 40 41 42 44 46 52 55 56 61 62 64 65 66 67 68 69 70 71 72 73 74 77 78 80 81 83 102 112 |
+| 26 | `abats` | Abats qui ne se mangent pas | Foie et reins de cervidés (cadmium), cerveau, moelle et ganglions de cervidés (prion), foie d'ours et de phoque (vitamine A) | Un foie barré | 1 2 4 5 6 7 8 9 16 18 19 20 21 22 23 35 36 38 39 40 41 42 44 46 56 61 62 63 64 65 66 68 69 71 72 73 74 77 78 96 102 |
 | 27 | `botulisme` | Botulisme | Sans air, la toxine se fait sans rien changer à l'aliment ; celle du poisson, dès 3 °C | Un bocal fermé, une tête de poisson | 1 3 4 5 6 7 8 9 16 17 18 21 22 23 29 33 34 35 39 40 41 46 49 52 54 56 57 58 59 60 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 86 87 91 92 93 97 |
-| 28 | `zone-de-danger` | Les heures entre 4 et 60 °C | Les heures s'additionnent ; certaines toxines restent après la cuisson | Un thermomètre entre deux traits | 1 4 18 60 64 66 68 69 71 72 73 74 81 |
-| 29 | `mal-de-caribou` | Viande maigre seule | La viande sans gras tue en quelques semaines, le ventre plein, les enfants d'abord | Un morceau maigre et une goutte de gras | 4 8 9 16 19 20 21 35 36 38 39 40 41 42 44 45 46 47 48 49 51 52 53 58 59 61 62 63 64 66 71 73 74 75 76 81 92 93 101 103 112 |
-| 30 | `thuyone` | Le cèdre ne se boit pas | La thuyone du cèdre donne des convulsions : sapin baumier ou épinette | Un rameau en écailles, une tasse barrée | 9 12 13 20 21 32 33 34 35 36 38 39 42 78 92 94 95 98 103 110 112 |
+| 28 | `zone-de-danger` | Les heures entre 4 et 60 °C | Les heures s'additionnent ; certaines toxines restent après la cuisson | Un thermomètre entre deux traits | 1 3 4 5 7 16 18 60 64 66 68 69 71 72 73 74 81 |
+| 29 | `mal-de-caribou` | Viande maigre seule | La viande sans gras tue en quelques semaines, le ventre plein, les enfants d'abord | Un morceau maigre et une goutte de gras | 1 3 4 5 6 8 9 16 17 18 19 20 21 35 36 38 39 40 41 42 44 45 46 47 48 49 51 52 53 58 59 61 62 63 64 66 71 73 74 75 76 81 92 93 101 103 112 |
+| 30 | `thuyone` | Le cèdre ne se boit pas | La thuyone du cèdre donne des convulsions : sapin baumier ou épinette | Un rameau en écailles, une tasse barrée | 5 8 9 12 13 17 20 21 32 33 34 35 36 38 39 42 78 92 94 95 98 103 110 112 |
 | 31 | `plante` | Plante, graine ou coquillage qui empoisonne | Ni le goût ni la cuisson ne protègent : identifier à l'espèce, jamais goûter | Une feuille et une baie, un point d'exclamation | 20 33 34 41 59 88 91 92 93 94 95 96 97 98 100 |
 | 32 | `plomb` | Plomb | Grenaille, balle, soudure d'étain, vieux métal : invisible, sans goût, pour les enfants d'abord | Une bille et un enfant | 10 47 49 54 62 85 94 107 |
-| 33 | `selles` | Des selles à la bouche | Eau claire contaminée, mains, jardin au fumier cru, crottes de canidés, chien nourri cru | Une goutte et une main | 10 18 22 23 31 43 50 52 55 63 91 95 96 97 103 |
-| 34 | `poison` | Poison avalé | Médicament, nitrite, antigel, essence, huile à lampe, pile bouton : on ne fait pas vomir et on part | Une bouteille et une bouche | 4 10 15 27 32 33 34 38 39 49 67 68 69 70 85 106 108 111 112 |
+| 33 | `selles` | Des selles à la bouche | Eau claire contaminée, mains, jardin au fumier cru, crottes de canidés, chien nourri cru | Une goutte et une main | 8 10 18 22 23 31 43 50 52 55 63 91 95 96 97 103 |
+| 34 | `poison` | Poison avalé | Médicament, nitrite, antigel, essence, huile à lampe, pile bouton : on ne fait pas vomir et on part | Une bouteille et une bouche | 2 3 4 5 6 9 10 15 17 27 32 33 34 38 39 49 67 68 69 70 85 106 108 111 112 |
 | 35 | `vie-en-jeu` | Le signe qui ne s'attend pas | Le signe veut dire que la vie est en jeu : on part pendant que la personne a l'air correcte | Une croix et une flèche vers la route | 24 26 27 28 29 30 32 33 35 37 38 66 76 77 78 80 91 93 98 |
 
 **Ce qui ne rentre dans aucune famille** est à la section 4.
@@ -107,8 +107,7 @@ fait. Les faits propres à un chapitre n'y sont pas : ils sont à la section 3, 
   ne veut pas dire guéri (ch. 7).
 - **L'auto immobilisée.** La neige bouche l'échappement pendant qu'on est assis dedans : dégager avant
   **chaque** redémarrage, entrouvrir du côté opposé au vent, faire tourner une dizaine de minutes par
-  demi-heure (ch. 2, 14, 15). Une chandelle n'est pas un test : elle brûle normalement dans un air chargé de CO
-  (ch. 2, 12, 109).
+  demi-heure (ch. 2, 14, 15).
 - **Provenance.** `01-quebec-monoxyde-carbone.md` (et ses copies 02 à 07) ; `02-inspq-avertisseurs-co-delais.md`
   et `02-inspq-avertisseurs-co-tableau1.jpg` (délais 70 et 30 ppm) ; `08-quebec-avertisseurs-monoxyde-carbone.md` ;
   `09-avertisseurs-co-duree-de-vie.md` ; `16c-etudes-monoxyde-tentes-et-abris-de-neige.md` (réchaud, tente,
@@ -212,8 +211,9 @@ fait. Les faits propres à un chapitre n'y sont pas : ils sont à la section 3, 
 
 ### 2.7 `feu-de-foret` : Feu de forêt
 
-- **La fumée agit avant les flammes.** Les particules fines font le plus de tort et ne se jugent ni à l'odeur
-  ni à la vue ; l'enfant respire plus vite par kilo, et il n'existe pas de N95 à sa taille (ch. 11).
+- **La fumée agit avant les flammes.** Les particules fines font le plus de tort ; elles ne se jugent pas à l'odeur,
+  et la vue n'en donne qu'une estimation, de jour et par air sec (ch. 11, étape 36) ; l'enfant respire plus vite par
+  kilo, et il n'existe pas de N95 à sa taille (ch. 11).
 - **Le chemin se ferme par la fumée avant le feu**, souvent sur un chemin unique ; beaucoup de morts sont des
   gens partis trop tard (ch. 11).
 - **Les braises allument plus de 90 % des maisons**, en avant du front, et un lac ne les arrête pas (ch. 11).
@@ -820,43 +820,112 @@ là » : il suffit d'y poser le pictogramme et de couper la redite.
 
 **Ch. 00b, Acheter par priorité.** Pas de section Danger (chapitre d'achat). Rien à faire.
 
-**Ch. 01, Les quatre horloges.**
-- `co` + `generatrice` : jamais même le temps de la démarrer ; chez l'enfant, fatigue ou mauvais caractère →
-  étape 3 (« Avant d'allumer quoi que ce soit, régler le CO »), déjà en partie là.
-- `electrocution` : entrée principale à OFF, pas d'adaptateur mâle-mâle → étape 6 (« Si une génératrice entre en
-  service »), déjà là.
-- `zone-de-danger` : resté à 4 °C ou moins, on cuit tout de suite ; au-dessus de 4 °C, on jette ; l'odeur ne
-  tranche pas → étape 19 (« Trier au thermomètre »).
-- `botulisme` : le poisson fumé et sous vide du congélateur, même sans signe → étape 20 (« Cuire d'abord ce qui
-  a le moins de marge »).
-- `trichine` : saler ou fumer l'ours d'un congélateur arrêté ne règle rien → étape 20 ou 26 (« Convertir le sauvé
-  en conservé »).
-- `froid` : 35 °C buccal, frissons qui cessent sous 28 °C, pas de friction, d'alcool ni d'eau chaude → aucune
-  étape ne porte l'hypothermie ; à mettre à l'étape 13 (« Habiller tout le monde en couches ») ou renvoyer au
-  ch. 25.
+**Ch. 01, Les quatre horloges.** Fait à la refonte du 19 octobre 2026, corrigé le même jour après la vérification
+technique : treize poses, aux étapes actuelles.
+- `co` → étape 2 (« Avant d'allumer quoi que ce soit pour s'éclairer, chauffer ou cuire, vérifier et placer
+  l'avertisseur de CO, puis choisir l'appareil ») : le bouton d'essai teste la pile et la sirène, pas l'air ;
+  l'avertisseur ne sonne pas pour une petite quantité respirée pendant des jours ; passé la date que donne le
+  fabricant (7 à 10 ans après la date de fabrication inscrite au dos, 7 ans quand on ne connaît pas le modèle, comme
+  au ch. 9, étape 22), faire comme sans avertisseur ; s'il ne répond pas, ou sans avertisseur, ne rien brûler dans la
+  maison d'autre que le poêle raccordé à sa cheminée (comme au ch. 3, étape 5) ; l'avertisseur dans la pièce chauffée
+  où la famille dort, à au moins 2 m de tout appareil qui brûle ; dans la maison et dans le garage, seulement un
+  appareil fait pour l'intérieur : le barbecue, le réchaud et la chaufferette de tente y remplissent l'air de
+  monoxyde, même porte ouverte. Sans pictogramme : la pièce chauffée gardée aérée (étape 7) ; le jeune enfant fatigué
+  ou de mauvais caractère (Signes d'échec, rangée 1).
+- `froid` → étape 8 (« L'hiver, habiller tout le monde en couches, avec une tuque, avant d'avoir froid ») : la
+  température dans la bouche d'une personne qui a été dehors ou qui frissonne, et d'un enfant qui devient tranquille.
+  Les 35 °C et 32,2 °C sont aux Points de contrôle, les 28 °C (les frissons qui s'arrêtent) aux Signes d'échec.
+- `generatrice` → étape 9 (« Si on a une génératrice, la faire tourner dehors, à au moins 6 m de tout bâtiment ») :
+  loin des portes, des fenêtres et des prises d'air ; jamais dans un bâtiment, un garage, un abri ni sous un auvent,
+  même porte ouverte, même le temps de la démarrer. `co` + `generatrice` → section 7, « L'auto comme génératrice »
+  (« Réchauffer les enfants dans l'auto ») : l'auto stationnée dehors, jamais dans le garage ni sous un abri ;
+  l'échappement dégagé de la neige avant chaque démarrage. Le `co` y est ajouté à l'intégration du 19 octobre 2026 :
+  le geste de l'échappement porte les deux pictogrammes dans tous les chapitres, comme au ch. 15, étape 11.
+- `electrocution` → étape 10 (« Avant de brancher quoi que ce soit sur la génératrice, mettre le disjoncteur
+  principal à OFF ») : un ruban écrit au marqueur sur le disjoncteur ; les appareils branchés dans les prises de la
+  génératrice, avec des rallonges ; le commutateur de transfert ; revérifier à chaque démarrage.
+- `zone-de-danger` → étape 20 (« Passé 6 heures de panne, trier le réfrigérateur en plantant le thermomètre au cœur
+  de chaque aliment ») : cuire tout de suite le cru dégelé resté à 4 °C ou moins, jeter le périssable qui a dépassé
+  4 °C ; le thermomètre d'air du congélateur ne sert pas au tri.
+- `cuisson` → étape 21 (« Cuire d'abord ce qui se gâte le plus vite ») : les abats qu'on mange, le poisson, la viande
+  hachée avant le rôti ; tout le gibier sauvage à 74 °C à cœur.
+- `botulisme` → étape 22 (« Jeter le poisson fumé et le poisson sous vide qui ont dégelé ou passé la panne au
+  réfrigérateur ») : la toxine dès 3 °C ; ni l'odeur, ni le goût, ni l'apparence.
+- `abats` → étape 23 (« Jeter le foie et les reins d'orignal et de tout cervidé ») : le cadmium.
+- `tularemie` → étape 24 (« Mettre des gants pour toucher le lièvre du congélateur, gelé ou dégelé ») : le gel ne tue
+  pas la bactérie.
+- `trichine` → étape 27 (« Saler ce qu'on a sauvé pour le garder ») : ne pas saler ni fumer l'ours ou le phoque d'un
+  congélateur arrêté ; les cuire à 74 °C à cœur et les manger d'abord. La section 7, « Le 74 °C sans sonde », renvoie
+  à l'étape 27 : sans thermomètre, on ne sert ni ours ni phoque (aligné sur le ch. 18 le 19 octobre 2026).
+- `mal-de-caribou` → étape 28 (« Compter les réserves en gras, pas en kilos de viande »).
+- Sorti parce que la page du danger le dit : les 30 ppm pendant 30 jours, l'adaptateur mâle-mâle, le « cent fois la
+  quantité tolérable » du cadmium, la sonde loin de l'os et du gras, les portes d'entrée de la tularémie, la
+  friction, l'alcool et le bain chaud.
+- Aucun pictogramme dans les notes « En plus ».
 
-**Ch. 02, Rester ou partir.**
-- `co` : avertisseur fait pour se taire (70 ppm, 1 h à 4 h ; 30 ppm, 30 jours) → Étape 1 (« l'avertisseur de CO
-  sonne »), point 7 (« Rentrer quand la source est coupée »).
-- `generatrice` : dehors, à 6 m, loin des portes → Étape 8, point 1 (« Génératrice dehors »), déjà là.
-- `co` (auto) : dégager l'échappement avant chaque redémarrage, fenêtre opposée au vent, 10 minutes par
-  30 minutes, pas de chandelle → Étape 5 (« mesurer la route »), ou renvoi au ch. 15, étapes 11 à 13.
-- `froid` : celui qui décide de laisser l'auto pour marcher décide le plus mal ; rester dans l'auto, feux de
-  détresse, lumière intérieure la nuit → Étape 5 (« mesurer la route ») ; la variante 9, point 3 (« Le
-  trajet ») le dit déjà en partie.
+**Ch. 02, Rester ou partir.** Fait le 19 octobre 2026 ; étapes numérotées de 1 à 45.
+- `co` : sortir tout le monde sans chercher la source, compter les gens → étape 1 (« Sortir tout le monde, tout de
+  suite, sans chercher la source »). L'avertisseur fait pour fonctionner au-dessus de 4,4 °C, le bouton et les
+  6 minutes → étape 7 (« Rentrer quand la source est coupée »), dans la même série, sans second pictogramme.
+- `co` + `generatrice` (l'auto) : dégager l'échappement avant chaque redémarrage, entrouvrir une fenêtre du côté
+  opposé au vent, faire tourner le moteur une dizaine de minutes par période de 30 minutes → étape 3 (« Mettre les
+  enfants à l'abri du froid avec un adulte ») ; l'étape 45 et la section 7 (« Le trajet avec rien ») y renvoient. Le
+  `generatrice` y est ajouté à l'intégration du 19 octobre 2026 : le geste de l'échappement porte les deux
+  pictogrammes dans tous les chapitres, comme au ch. 15, étape 11.
+- `generatrice` + `electrocution` : dehors, à 6 m de tout bâtiment, loin des portes et des fenêtres ; disjoncteur
+  principal à OFF, appareils branchés dans les prises de la génératrice → étape 9 (« Mettre la génératrice dehors »).
+- `co` : aucun appareil fait pour l'extérieur ou le camping dans la maison où on reste → étape 10 (« Ne rentrer aucun
+  appareil fait pour l'extérieur ou le camping »).
+- `poison` : jamais d'antigel à moteur dans la plomberie, en puce à part → étape 20 (« L'hiver, vidanger le bâtiment
+  qu'on quitte »).
+- `froid` : sous −28, la peau exposée gèle en moins de 30 minutes au bord de la route → étape 34 (« Lire le
+  refroidissement éolien annoncé »).
+- `feu-de-foret` : rester seulement derrière les trois zones dégagées d'avance (0 à 1,5 m, 1,5 à 10 m, 10 à 30 m),
+  sinon partir tôt → étape 37 (« Devant un feu de forêt, rester au chalet seulement si le pourtour a été dégagé
+  d'avance »).
+- `froid` : une personne maladroite, confuse ou qui parle mal ne prend plus la route sans abri chauffé et ne
+  participe plus à la décision ; chez l'enfant, regarder les signes → étape 40 (« Compter ce que chaque passager peut
+  faire »).
+- `froid` + `co` : rester dans l'auto prise, feux de détresse, lumière intérieure la nuit ; ni chandelle ni réchaud
+  dans l'auto → étape 45 (« Si l'auto reste prise, rester dans l'auto »).
+- `cuisson` + `abats` : l'orignal du congélateur à 74 °C à cœur ; jamais le foie ni les reins d'un cervidé →
+  section 7, « Si on reste : vider le congélateur dans la neige ».
+- `projection` : batterie aux parois bombées, ondulées ou fendues : ni survoltage ni charge, même dégelée ; aux
+  parois intactes, la dégeler au chaud d'abord → section 7, « Si on part quand même : faire démarrer l'auto ».
+- `vapeurs` : réchauffer la conduite d'essence sans approcher de flamme → section 7, « Si on part quand même : faire
+  démarrer l'auto ».
 
 **Ch. 03, Panne majeure d'Hydro en janvier.**
-- `co` : le poêle qu'on étouffe pour la nuit refoule son CO, la braise en fait sans flamme → étape 6 (« Allumer
-  le poêle à bois ») ; avertisseur à 30 ppm, lire l'affichage → étape 5 (« Tester l'avertisseur »).
+- `co` : le poêle qu'on étouffe pour la nuit refoule son CO, la braise en fait sans flamme → étape 7 (« Allumer le
+  poêle à bois ») ; avertisseur à 30 ppm, lire l'affichage → étape 5 (« Tester l'avertisseur »).
 - `generatrice` : 6 m (20 pi), ni garage même ouvert, ni tambour d'entrée, ni galerie → étape 16 (« Installer la
-  génératrice dehors »), déjà là. Aucun appareil de camping dans la maison, même fenêtre entrouverte → étape 7
+  génératrice dehors »), déjà là. Aucun appareil de camping dans la maison, même fenêtre entrouverte → étape 8
   (« Vivre dans une seule pièce »).
-- `electrocution` : câble à deux fiches mâles, prise de la sécheuse → étape 17 (« Mettre le disjoncteur principal
-  à OFF »), déjà là.
-- `botulisme` : réfrigérateur en panne à 6 ou 8 °C, poisson cru, fumé ou sous vide → étape 27 (« Après 6 h,
-  trier le réfrigérateur »).
+- `electrocution` : câble à deux fiches mâles, prise de la sécheuse → étape 17 (« Mettre le disjoncteur principal à
+  OFF »), déjà là.
+- `botulisme` : réfrigérateur en panne à 6 ou 8 °C, poisson cru, fumé ou sous vide → étape 27 (« Après 6 h, trier le
+  réfrigérateur »).
 - `cuisson` + `trichine` : la panne qui force à cuire beaucoup est le moment où on triche sur la sonde → étape 31
   (« Cuire le gibier à 74 °C à cœur »), déjà là.
+- **Posés à la refonte du 19 octobre 2026, avec les corrections du vérificateur technique du même jour**
+  (`suivi/03-redaction.md`, « Corrections après la vérification technique, 19 octobre 2026 ») ; les étapes sont
+  renumérotées le même jour (l'ancienne étape 10, le message texte, monte à l'étape 6 ; les anciennes étapes 6 à 9
+  deviennent 7 à 10 ; `suivi/03-redaction.md`, « Les étapes, ancien → nouveau ») : `electrocution` à l'étape 1 (le
+  fil tombé, quand on va voir le mât) et à l'étape 17 (disjoncteur principal à OFF ; ni prise de la maison, ni prise
+  de la sécheuse, ni câble à deux fiches mâles ; commutateur de transfert) ; `co` aux étapes 5 (l'avertisseur à 2 m
+  du poêle, la chambre sous 4,4 °C, la porte du garage, le chiffre de l'écran, la date du fabricant, et aucun
+  appareil d'extérieur ou de camping dans la maison, que l'inventaire mettait à l'étape 8), 7 (l'air du poêle ouvert
+  la nuit) et 12 (sortir tout le monde), et à la section 7, « L'éclairage » (la lampe à graisse seulement dans la
+  pièce du poêle) ; `pas-au-feu` à l'étape 7 (le bois de démolition brut dont on connaît la provenance) ; `froid` aux
+  étapes 9 et 15 ; `incendie` à l'étape 14 (la chaudière de cendres dehors, 1 m, 7 jours) ; `generatrice` à
+  l'étape 16 (6 m de tout bâtiment, ni garage même porte ouverte, ni galerie, ni tambour d'entrée ; la nuit, attendre
+  le jour) ; `vapeurs` à l'étape 20 (le plein moteur froid, dehors, le bidon dehors) ; `poison` à l'étape 24
+  (l'antigel de moteur dans la tuyauterie d'eau potable) et à la section 7, « Vidanger sans antigel » (le lave-glace,
+  du méthanol, seulement dans les siphons et le réservoir de la toilette) ; `botulisme` à l'étape 27 (le poisson fumé
+  ou sous vide du réfrigérateur en panne) ; `cuisson` à l'étape 31 ; `trichine` et `mal-de-caribou` à l'étape 34
+  (l'ours et le phoque congelés, salés ou fumés ; le gras des pièces transformées ; l'inventaire mettait `trichine` à
+  l'étape 31) ; `projection` à la section 7, « Les pierres chaudes » (la pierre de ruisseau qui éclate) ;
+  `zone-de-danger` à la section 7, « La marmite norvégienne » (la marmite qui reste tiède dans la boîte).
 
 **Ch. 04, Retombées radioactives.**
 - `poison` : aucun iode autre que le comprimé de KI ; contre-indications (goitre, Basedow, allergie…) avec leur
@@ -878,45 +947,105 @@ là » : il suffit d'y poser le pictogramme et de couper la redite.
   deux conduits et on aère), après la relecture de l'étape 18 du 18 octobre 2026 (`suivi/04-redaction.md`).
 
 **Ch. 05, Le stock permanent du chalet** (chapitre de référence, tableaux).
-- `co` + `generatrice` : avertisseur dans chaque chambre où on dort porte fermée, à plus de 2 m d'un appareil,
-  pas dans une pièce humide, piles au lithium 10 ans, la cellule meurt avant le boîtier → tableau 5.6 (« Chaleur
-  et carburant »). **Distance de 3 m à corriger : 6 m** (section 5).
-- `vapeurs` : ce qui entre dans le bâtiment habité, c'est ce qui se brûle dans la journée ; le reste dort dehors
-  en bidons pleins ; regarder sous le fond ; propane debout dehors → tableau 5.6.
-- `huile-en-feu` (carburant) : flaque en feu, jamais d'eau → tableau 5.6.
-- `botulisme` : conserves maison mangées dans l'année ; végétaux dans l'huile jetés après 7 jours ; boîte bombée,
-  rouillée ou bosselée au serti → tableau 5.5 (« Les conserves et le congélateur »). **7 jours ici, 10 jours aux
-  ch. 78 et 92** (section 5).
+- `co` + `generatrice` : avertisseur dans chaque chambre où on dort porte fermée, à plus de 2 m d'un appareil, pas
+  dans une pièce humide, modèle à pile au lithium de 10 ans, la cellule dure moins longtemps que le boîtier →
+  étape 34. Génératrice dehors, à découvert, à au moins 6 m de tout bâtiment, jamais dans le cabanon ni dans un autre
+  bâtiment, même porte ouverte, ni sous un auvent → étape 33 (les 3 m sont corrigés ; « du chalet et du cabanon » est
+  devenu « de tout bâtiment » à l'intégration du 19 octobre 2026, comme aux ch. 10 et 18 et à la page `generatrice`).
+- `vapeurs` : dans le chalet, seulement le carburant qu'on brûle dans la journée ; le reste dehors en bidons pleins ;
+  regarder sous le fond ; propane debout dehors → étapes 31 et 32.
+- `huile-en-feu` (carburant) : pas posé ; la flaque de carburant en feu est à la page `vapeurs`, point 6.
+- `botulisme` : conserves maison mangées dans l'année ; l'huile maison n'entre pas au stock ; boîte bombée, rouillée
+  ou bosselée au serti → étape 23. Poisson fumé ou salé gelé, ou sous 3 °C, jamais sur les tablettes du stock →
+  étape 24. La viande sous la graisse reste au froid → section 7, « Le gras remplace le couvercle ».
+- **Posés à la refonte du 19 octobre 2026** (numérotation nouvelle du chapitre) : `mal-de-caribou` à l'étape 19 ;
+  `poison` à l'étape 21 ; `botulisme` aux étapes 23 et 24 et en section 7 (« Le gras remplace le couvercle ») ;
+  `zone-de-danger` à l'étape 25 ; `cuisson` à l'étape 26 ; `abats` à l'étape 27 ; `vapeurs` aux étapes 31 et 32 ;
+  `generatrice` à l'étape 33 ; `co` à l'étape 34 ; `hantavirus` à l'étape 51 ; `thuyone` en section 7 (« Les
+  fermentés remplacent les fruits en conserve ») ; `trichine` en section 7 (« Ce qui ne se remplace pas »).
+  `huile-en-feu` n'est pas posé. Corrections du vérificateur du 19 octobre 2026 : `suivi/05-redaction.md`.
 
-**Ch. 06, La liste de 72 heures** (chapitre de référence).
-- `co` + `generatrice` : avertisseur avec pile dans chaque pièce où on dort ou chauffe ; compter les têtes dehors ;
-  chandelle de survie dans le véhicule → sous-section 5.4 (« Chaleur et abri ») et 5.10 (« La trousse du
-  véhicule »).
-- `froid` : tableau du refroidissement éolien ; l'enfant qui devient tranquille → 5.9 (« Les enfants »), ou
-  renvoi au ch. 25.
-- `botulisme` : pot qui a perdu son vide (note) ; conserve gelée puis dégelée dans un bac non chauffé sort de la
-  trousse → 5.5 (« Calories »).
-- `cuisson`, `trichine`, `abats` : gibier dans la trousse → 5.5.
+**Ch. 06, La liste de 72 heures** (chapitre de référence). Section Danger retirée le 19 octobre 2026 ; pictogrammes
+posés.
+- `co` : appareil fait pour l'intérieur, avertisseur à pile dans chaque pièce où on dort ou chauffe → étape 11 ;
+  chandelle de survie dans l'auto, fenêtre entrouverte → étape 31 ; réchaud de fortune dehors seulement → section 7,
+  « Cuire sans cuisinière ».
+- `co` + `generatrice` : dégager le tuyau d'échappement de l'auto avant de faire tourner le moteur → étape 31 (puce).
+  Le `co` y est ajouté à l'intégration du 19 octobre 2026 : le geste de l'échappement porte les deux pictogrammes
+  dans tous les chapitres, comme au ch. 15, étape 11.
+- `froid` : les sorties réglées sur le refroidissement éolien (tableau des gestes ; les temps de gel sont dans la
+  page) → étape 12.
+- `cuisson` + `trichine` : tout gibier de la trousse cuit à 74 °C, mesuré ; l'ours en ragoût ou en pot seulement,
+  jamais en viande séchée → étape 14.
+- `abats` : ni foie ni reins de cervidés dans la trousse → étape 15.
+- `botulisme` : conserves à l'abri du gel, conserve gelée sortie de la trousse, pot qui a perdu son vide (note 1) →
+  étape 16.
+- `poison` : la dose d'un enfant selon son poids, pas son âge → étape 24.
+- `projection` : la roche prise au bord de l'eau éclate en chauffant → section 7, « La roche du poêle » ; ouvrir la
+  conserve avant de la chauffer → section 7, « Cuire sans cuisinière ».
+- `pas-au-feu` : ce qui va au poêle quand le bois manque ; jamais palettes, bois traité, peint ou verni,
+  contreplaqué, plastique, ni bois de démolition d'origine inconnue → section 7, « Le combustible de fortune ».
+- `mal-de-caribou` : quand on rationne, réduire tout le reste avant le gras → section 7, « Le gras ».
 
 **Ch. 07, Quand on a un préavis.**
-- `generatrice` : 6 m du bâtiment, pas de la porte ; la rallonge s'achète pour la distance ; fermer les portes
-  et fenêtres sous le vent ; véhicule ou motoneige au ralenti près d'une porte → étape 18 (« Préparer
-  l'emplacement de la génératrice »).
-- `co` : avertisseur à affichage, couloirs des chambres, délais 400, 70 et 30 ppm ; plusieurs personnes avec les
-  mêmes signes ; le sauveteur n'est jamais celui qui avait mal à la tête ; la moitié du CO reste 3 à 5 h → étape 19
-  (« Piles neuves dans l'avertisseur »).
-- `froid` (la route) : la fenêtre se referme par le mauvais bout ; un aller-retour à H-2 → étape 24 (« Arrêter les
-  déplacements »).
-- `cuisson`, `trichine`, `abats`, `botulisme` : le congélateur qui dégèle pousse à cuire vite ; une cuisse d'ours
-  salée reste dangereuse ; le poisson dégelé se cuit à 70 °C ou se jette, jamais « à fumer demain » → étape 13
-  (« Cuire d'avance ce qui ne survivra pas au dégel »).
+- `cuisson`, `abats` : la viande qui ne tiendra pas au dégel, cuite d'avance à 74 °C à cœur, l'oiseau entier à 82 °C
+  ; le foie et les reins d'un cervidé (orignal, caribou, cerf) et de l'ours jetés → étape 13 (« Cuire d'avance la
+  viande qui ne tiendra pas si le congélateur dégèle »).
+- `trichine` : l'ours et le phoque cuits à 74 °C au lieu d'être salés ou fumés pour sauver la viande ; une cuisse
+  d'ours salée parce que le congélateur a lâché reste dangereuse → étape 14 (« Cuire l'ours et le phoque à 74 °C à
+  cœur »).
+- `botulisme` : le poisson du congélateur cuit à 70 °C et mangé, ou jeté, jamais gardé pour le fumer le lendemain →
+  étape 15 (« Cuire à 70 °C le poisson qui sort du congélateur »).
+- `generatrice`, `electrocution` : dehors, à découvert, à 6 m du bâtiment, pas de la porte ; l'échappement à l'opposé
+  des portes et des fenêtres ; jamais dans un bâtiment, un garage ou sous un auvent ; la rallonge prise à la longueur
+  de la distance et déroulée ; l'emplacement dégagé avant la neige ; l'interrupteur principal à OFF ; la génératrice
+  raccordée renvoie son courant dans la ligne de la rue → étape 18 (« Préparer l'emplacement de la génératrice
+  pendant qu'il fait clair »). L'auto qui recharge une batterie : le moteur ne tourne que dehors → section 7, « La
+  batterie de l'auto à la place de la génératrice ».
+- `vapeurs` : le plein moteur arrêté et refroidi → étape 19 (« Essayer la génératrice à son emplacement ») ; les
+  bidons d'essence et de solvant sortis du sous-sol avant une crue, attachés dehors, en hauteur, jamais à l'étage →
+  étape 22 (« Si une pluie forte ou une crue est annoncée, boucher les entrées d'égout du sous-sol ») ; le gaz
+  rouvert appareil par appareil, rien rallumé tant que ça sent le gaz → étape 43 (« Rouvrir le gaz appareil par
+  appareil ») ; la pince noire sur le bloc moteur (hydrogène) → section 7, « La batterie de l'auto à la place de la
+  génératrice » ; le trou de la bougie tourné vers l'extérieur → section 7, « La génératrice qui ne part pas ».
+- `co` : un avertisseur dans le couloir des chambres et un dans chaque pièce où il y a un poêle, une fournaise ou un
+  appareil au gaz, à 2 m de l'appareil ; le modèle à affichage, pour éloigner la génératrice avant l'alarme →
+  étape 21 (« Mettre des piles neuves dans chaque avertisseur de CO et l'essayer au bouton ») ; toute la famille dort
+  dans la pièce fermée du poêle, et l'avertisseur du couloir, qui peut descendre sous 4,4 °C, y est apporté →
+  section 7, « Chauffer une seule pièce ».
+- `incendie` : la créosote cuite, qu'on ne brosse plus, avant de chauffer fort → étape 23 (« Regarder dans la
+  cheminée avant de chauffer fort »).
+- `froid` (la route) : l'aller-retour des dernières heures ; l'auto prise refroidit plus vite qu'une maison →
+  étape 27 (« Arrêter les déplacements »).
+- `zone-de-danger` : l'heure du début de la panne écrite sur la porte du congélateur, pour compter les 4 heures du
+  réfrigérateur et les 48 heures du congélateur → étape 37 (« Écrire l'heure exacte du début de la panne sur la porte
+  du congélateur »).
 
-**Ch. 08, Listes par scénario** (référence).
-- `co` + `generatrice` : le bâtiment chauffé tire l'air par ses fentes basses ; les piles de l'avertisseur ne vont
-  jamais dans une lampe ; véhicule immobilisé → scénarios 1 et 9.
-- `botulisme` : tout poisson salé, fumé, mariné ou sous vide passé au-dessus de 3 °C, y compris dans un dégel de
-  congélateur → scénario 8 (« Le congélateur ou le propane lâche »).
-- `cuisson`, `trichine` → scénario 8. `mal-de-caribou` → scénario 2 (« Route coupée »).
+**Ch. 08, Listes par scénario** (référence ; pictogrammes posés le 19 octobre 2026, section Danger retirée).
+- `generatrice` + `co` : 6 m ou plus de tout bâtiment, jamais dans un bâtiment, le garage ou la remise, ni sous un
+  auvent ; la maison chauffée tire l'air par ses fentes du bas ; les piles de l'avertisseur ne vont jamais dans une
+  lampe → scénario 1, paragraphe sous le tableau. `generatrice` + `co` : tuyau d'échappement dégagé avant chaque
+  démarrage, fenêtre entrouverte sous le vent → scénario 9 (le `co` y est ajouté à l'intégration du 19 octobre 2026 :
+  le geste de l'échappement porte les deux pictogrammes dans tous les chapitres, comme au ch. 15, étape 11) ; l'auto
+  qui recharge la batterie, dehors → section 7, « Le 12 volts de l'auto ».
+- `co` + `espace-clos` : rien ne brûle dans la pièce d'abri bouchée ni au caveau ; pendant les retombées, chercher la
+  source avant de juger s'il faut sortir ; au caveau, le manque d'air que l'avertisseur ne détecte pas → scénario 6,
+  paragraphe sous le tableau. `co` seul : personne ne dort seul dans une pièce fermée où brûle un appareil →
+  section 7, « Le CO sans avertisseur ».
+- `mal-de-caribou` : compter le gras du stock au jour 1, du gras à chaque repas de viande maigre dès le premier →
+  scénario 2 ; la lampe ne brûle que le gras rance ou le surplus → section 7, « La lampe à gras ».
+- `thuyone` : sapin baumier ou épinette, jamais le cèdre → scénario 2.
+- `feu-de-foret` : un seul chargement ; du congélateur, seulement la glacière → scénario 3.
+- `incendie` + `froid` : clés, vêtements chauds et de quoi faire du feu gardés hors du chalet → scénario 4.
+- `froid` : pas d'alcool au blessé ni à la personne qui le soigne → scénario 7.
+- `cuisson` + `trichine` : l'ours ou le phoque garde la trichine après le congélateur, le sel, le fumage ou le
+  séchage ; 74 °C ou autoclave → scénario 8. `botulisme` : poisson salé, fumé, mariné ou sous vide resté au-dessus de
+  3 °C pendant le dégel, jeté sans y goûter → scénario 8. `abats` : foie et reins d'orignal, de caribou ou de cerf →
+  scénario 8.
+- `projection` : pierres gardées au sec, bouchons desserrés → section 7, « La chaleur gardée pour la nuit ».
+- `selles` : filtre à 1 µm avant la javel → section 7, « Désinfecter sans feu ».
+- `coupure` : garrot à bande large, jamais une ceinture étroite (ch. 26) → section 7, « Le sang qui coule sans
+  trousse ».
 
 **Ch. 09, Ce qui manque toujours** (référence).
 - `co` : porte de garage ouverte ne ventile rien ; avertisseur par chambre ; plusieurs maux de tête → 5.4 (« Ce qui
@@ -926,32 +1055,83 @@ là » : il suffit d'y poser le pictogramme et de couper la redite.
   sel manque, on traite moins de viande au même taux → 5.1, ligne du sel.
 - `abats`, `trichine`, `thuyone`, `tularemie`, `cuisson` (les « faux dépannages ») : rappels en liste, sans
   étape propre ; garder une ligne dans 9.2 (« Fabriquer le consommable ») pour le cèdre, couper le reste.
+- **Posés à la refonte du 19 octobre 2026** (numérotation nouvelle du chapitre) : `botulisme` à l'étape 2 (puce
+  « Quand le sel manque » : moins de viande au même taux, le poisson dès 3 °C) et dans la section 7 (« L'acide des
+  conserves : rien ne le remplace ») ; `mal-de-caribou` à l'étape 4 (puce du gras, calculé comme la famille 3) ;
+  `vapeurs` et `generatrice` à l'étape 10 (carburant dans une remise détachée, jamais dans un cabanon attenant ;
+  génératrice à 6 m de tout bâtiment, la remise comprise) ; `co` à l'étape 22 (avertisseur remplacé 7 à 10 ans après
+  la date de fabrication inscrite au dos, 7 ans quand on ne connaît pas le modèle ; un par étage et un par chambre
+  fermée) et dans la section 7, « La lumière, avec du suif » (aérer la pièce) ; `poison` dans la section 7, « La
+  balance à fléau », à « Ce qu'on perd » (jamais le nitrite sur une balance improvisée ni au gramme : au 0,1 g) ;
+  `cuisson` dans la section 7, « Le thermomètre » (les deux points fixes, l'écart reporté à 74 °C) ; `abats`,
+  `trichine` et `tularemie` dans la section 7, « Le gras, dans l'animal » (la graisse autour des reins, sans les
+  reins ; le gras d'ours, et la viande attachée cuite à 74 °C ; des gants imperméables pour le castor) ; `thuyone`
+  dans la section 7, « La vitamine C, dans les aiguilles » ; `chimie` dans la section 7, « Le savon, à la cendre »
+  (reconnaître le savon caustique en se lavant une main, de l'eau à portée ; le recuire avec du gras, ch. 112) ;
+  `vapeurs` dans la section 7, « Les joints, dans le cuir gras », à « Ce qu'on perd » (aucun joint de fortune sur le
+  gaz ni le carburant). La porte de garage ouverte est dans la page `generatrice`, et les maux de tête à plusieurs
+  dans la page `co` ; « 5.1 », « 5.4 » et « 9.2 » n'existent plus.
 
-**Ch. 10, Eau : puiser, filtrer, désinfecter.**
-- `generatrice` → étape 5 (« Si la pompe tourne sur une génératrice »), déjà là.
-- `selles` : 10 kystes suffisent, un lac clair ne prouve rien → étape 1 (« Puiser en amont ») ou 11 (« Viser une
-  eau limpide »). Le chlore ne protège pas contre *Cryptosporidium* (CT 7 000) → étape 10 (« Passer au filtre à
-  1 µm ») et 16 (javel).
-- `poison` + `plomb` : bouillir une eau chimiquement contaminée la concentre ; nitrate du puits (10 mg/L en azote,
-  méthémoglobinémie avant 3 mois, note) ; pas de biberon avec un puits jamais analysé → étape 25 (« faire analyser
-  l'eau du puits ») ; plomb : purger le robinet froid, filtre qui fixe le plomb, jamais la marmite → étape 42
-  (« Le plomb, quand la maison est vieille »), déjà là.
-- `chimie` : la javel ne se mélange à rien ; chlore et chloramines, poumons 24 à 48 h plus tard ; javel dans l'eau,
-  jamais l'inverse, jamais dans un contenant qui a servi → étape 16 (« Utiliser de l'eau de Javel non
-  parfumée »).
-- Hors famille : l'eau du fleuve ne se boit pas (section 4) → étape 43 (« Quand l'eau ne coule plus ») ou
-  sous-section I (neige, glace, alambic).
+**Ch. 10, Eau : puiser, filtrer, désinfecter.** Fait à la refonte du 18 octobre 2026 : douze poses, aux étapes
+actuelles.
+- `selles` → étape 2 (« Puiser en amont de tout ce qui peut salir l'eau ») : dix kystes de *Giardia* peuvent suffire,
+  un kyste mesure 8 × 14 µm, une eau claire ne prouve rien. Et étape 19, puce « Passer une eau de lac, de ruisseau ou
+  de neige au filtre à 1 µm avant de la chlorer » : le chlore ne fait presque rien contre *Cryptosporidium* (7
+  000 mg-min/L).
+- `generatrice` → étape 6 (« Si la pompe tourne sur une génératrice ») : dehors, à au moins 6 m de tout bâtiment,
+  l'échappement tourné à l'opposé des portes et des fenêtres.
+- `chimie` → étape 20 (« Mesurer la dose à la seringue ») : la javel avec rien d'autre que de l'eau, seringue et
+  contenant qui ne servent qu'à elle. Section 7, « Faire du chlore quand il n'y a plus de javel » : les granules
+  jamais avec un acide, de l'urine ou de l'ammoniaque. Électrolyse : ne pas se pencher au-dessus.
+- `poison` → étape 27, puce « Ne préparer aucun biberon avec l'eau d'un puits jamais analysé » : nitrate 10 mg/L en
+  azote (45 en nitrate), surtout avant 3 mois, note de bas de page ; bouillir concentre le nitrate, l'arsenic et
+  l'uranium.
+- `plomb` → étape 48 (« Dans une vieille maison, laisser couler le robinet d'eau froide ») : 0,005 mg/L ; enfants de
+  moins de 6 ans et femmes enceintes ; l'eau froide seulement ; un filtre fait pour retenir le plomb ; jamais
+  bouillir pour l'enlever.
+- `glace` → étape 36 (« Percer la glace à l'écart des courants ») : mesurer la glace du chemin (ch. 15, étapes 40 à
+  42).
+- `froid` → étape 40 (« Faire fondre la neige et la glace avant de les boire »).
+- `co` → section 7, « Bouillir à la maison sans cuisinière » : le barbecue et le réchaud dehors, même pour une longue
+  ébullition par grand froid.
+- `pas-au-feu` → section 7, « Bouillir quand il n'y a pas de marmite » : pas de métal galvanisé ou peint sur le feu.
+- `projection` → section 7, « Les pierres chaudes » : des pierres denses et sèches ; une pierre mouillée, poreuse ou
+  feuilletée éclate.
+- `incendie` → section 7, « Faire du chlore quand il n'y a plus de javel » : les granules rangés seuls, loin du bois,
+  du papier, de l'huile, des guenilles et du carburant.
+- `vapeurs` → section 7, l'électrolyse : contenant ouvert, dehors, au vent ; l'hydrogène explose sous un couvercle.
+- Hors famille : l'eau du fleuve (27 à 29 g de sel par litre) ne se boit pas → étape 1 ; l'alambic et le dessalage
+  par le gel en section 7.
+- Aucun pictogramme dans les notes « En plus ».
 
-**Ch. 11, Le feu de forêt.**
-- `feu-de-foret` : particules fines, pas de N95 d'enfant → étapes 33 (« Régler les sorties des enfants sur les
-  particules fines ») et 35 (« une pièce d'air propre »). Le chemin unique réussit ou piège ; on n'attend ni
-  l'odeur ni les flammes → étape 6 (« Partir dès qu'une de ces deux choses arrive »). Plus de 90 % des maisons
-  allumées par les braises, un lac ne les arrête pas → étapes 49 à 56 (zone défendable). Chaleur rayonnante,
-  laine sèche, synthétique, rester dans l'auto → étapes 12 (« Habiller les enfants de coton ou de laine ») et 18
-  à 20, déjà là.
-- `vapeurs` : bouteille de propane près d'un mur qui chauffe → étapes 8 et 54, déjà là.
-- `generatrice` + `electrocution` : le soir du retour ; interrupteur principal à OFF ; plein moteur froid à la
-  lampe → étape 45 (« Le soir du retour, sans courant »). Fil au sol → étape 39 (« Faire le tour à pied »), déjà là.
+**Ch. 11, Le feu de forêt.** Fait le 19 octobre 2026 : la section Danger est sortie, les pictogrammes sont posés.
+- `feu-de-foret` : sur un chemin étroit bordé de résineux, l'auto arrêtée ne peut plus avancer ni reculer ; on
+  n'attend pas de voir les flammes → étape 6 (« Partir dès qu'une de ces deux choses arrive »). Laine sèche, tout le
+  monde sous le niveau des vitres, moteur coupé quand le feu est proche, rester dans l'auto → étape 19 (« Fermer les
+  vitres et les entrées d'air, et se coucher au plancher »). Sorties des enfants à 30, 100 et 250 µg/m³ ; le N95 ne
+  protège pas un enfant → étape 33 (« Régler les sorties des enfants sur les particules fines »). Les braises tombent
+  dans ce qui est fin, sec et aéré contre le mur → étape 49 (« Du mur à 1,5 m, rien qui brûle »). Les 90 %, les 2 km,
+  le lac, les 100 m de la chaleur rayonnante et la laine mouillée restent dans la page, sans redite.
+- `vapeurs` : la bouteille de propane à plus de 10 m, avec 3 m sans végétation ; contre un mur qui chauffe, sa
+  soupape relâche le gaz ; les bidons hors du bâtiment → étape 8 (« Dégager autour du bâtiment »).
+- `brulure` : coton ou laine ; le synthétique prend feu vite et fond sur la peau → étape 12 (« Habiller les enfants
+  de coton ou de laine »).
+- `electrocution` : faire le tour avant d'entrer ; ne jamais marcher vers un fil tombé, s'en éloigner à très petits
+  pas traînés → étape 39 (« Faire le tour à pied avant d'entrer »).
+- `ecrasement` + `projection` : un tronc brûlé à la base tient jusqu'au premier vent ; on tire le chicot, l'arbre
+  encroué ou l'arbre sous tension au treuil, au levier ou au câble, hors de l'axe de chute → étape 40 (« Ne pas
+  travailler ni stationner sous un arbre brûlé »).
+- `generatrice` + `electrocution` : le soir du retour ; 6 m ; jamais dans un bâtiment, un garage, une remise ni sous
+  un auvent ; disjoncteur principal à OFF, appareils branchés directement sur la génératrice par des rallonges →
+  étape 45 (« Le soir du retour, s'il n'y a pas de courant »). Le plein moteur arrêté et froid, à la lampe : page
+  `generatrice`.
+- `projection` : le chicot sous tension casse au lieu de pivoter sur sa charnière ; on le fait pivoter avec l'auto →
+  section 7 (« Tirer un arbre en travers du chemin plutôt que le couper »).
+- `incendie` : avec un filtre chargé, l'intérieur du moteur du ventilateur a monté de près de 60 °C ; un ventilateur
+  d'avant 2012 ne tourne pas la nuit ni sans adulte éveillé → section 7 (« Le ventilateur chauffe »).
+- `co` : le filtre n'arrête ni les gaz de la fumée ni le monoxyde ; la pièce d'air propre ne protège pas du monoxyde
+  d'une flamme dans le chalet fermé → section 7 (« Le filtre n'arrête pas les gaz »).
+- Sans pictogramme : le point chaud de l'étape 26 (le feu de sol est dans la page `feu-de-foret`).
 
 **Ch. 12, La tente d'hiver et l'abri de neige.**
 - `co` (poêle) : le tirage s'inverse quand le feu tombe en braise ; le cas des campeurs québécois vers 2 h du matin ;
@@ -969,64 +1149,139 @@ là » : il suffit d'y poser le pictogramme et de couper la redite.
 - `incendie` : couteau à la tête du lit, sortie par le mur du fond ; feu de cheminée sous la toile ; le sac
   synthétique fond → 5D, point 6 (« La traversée de la toile ») et 5E, point 7.
 
-**Ch. 13, Feu sans allumettes** (Danger en section 7).
-- `co` : densité 0,96, avertisseur entre 4,4 et 37,8 °C → étape 8 (« Choisir l'endroit »).
-- `vapeurs` : jamais d'accélérant ; l'essence fait sa vapeur jusqu'à −43 °C ; jamais de bidon entre soi et le feu
-  → étape 9 (« Mettre de l'eau, du sable ou de la terre à portée ») ou nouvelle phrase dans « Monter le feu ».
-- `froid` : la personne en hypothermie s'obstine ; l'autre adulte arrête l'essai à 10 minutes → étape 7, déjà là.
-- `cuisson` + `trichine` : la braise ne donne aucun repère → section 8 (« Garder le feu ») ou renvoi.
-- `thuyone` : bon amadou, bonne planchette, jamais en tisane → section 8 (« L'amadou qu'on ramasse »).
+**Ch. 13, Feu sans allumettes** (section Danger sortie le 19 octobre 2026).
+- `co` : faire le feu dehors ou dans un poêle raccordé à son tuyau ; jamais dans une tente fermée, un abri de neige,
+  une cabane de pêche ou la cabine d'un camion ; sous un cône de bâches, trois conditions (le sommet grand ouvert, la
+  flamme claire, quelqu'un éveillé toute la nuit ; ch. 12, étape 75) → étape 4 (« Faire le feu dehors, ou dans un
+  poêle raccordé à son tuyau »), déjà là. Le poêle la nuit, l'air ouvert, sans couvrir le feu → section 7 (« Garder
+  le feu », renvoi au ch. 3, étape 7), déjà là ; le feu qu'on couvre pour la nuit se fait dehors seulement.
+- `froid` : la personne qui se refroidit s'obstine ; l'autre adulte arrête l'essai à 10 minutes → étape 7, déjà là.
+- `projection` : des pierres sèches et dures pour entourer le feu ; une pierre mouillée ou poreuse éclate en
+  chauffant → étape 8 (« Choisir l'endroit »), sous-étape des pierres, déjà là.
+- `vapeurs` : jamais d'essence ni d'allume-feu liquide ou en gel, rien sur une braise, pas de bidon entre soi et le
+  feu → étape 12, dernière sous-étape, déjà là. L'hydrogène de la batterie → étape 20, troisième sous-étape, déjà là.
+- `brulure` : de la laine ou du coton pour allumer ; une manche synthétique fond et colle à la peau → étape 16
+  (« Faire flamber le nid »), dernière sous-étape, déjà là.
+- `thuyone` : jamais en tisane → section 7 (« L'amadou qu'on ramasse »), ligne du cèdre, déjà là.
 
 **Ch. 14, Communiquer et savoir.**
-- `co` + `generatrice` : recharger dix minutes comme une nuit ; le camion qu'on fait tourner avec des gens à bord →
-  étape 7 (« Décider du budget d'énergie »).
-- Hors famille : la confiance que l'appareil donne (section 4) → étape 12 (« Remplir une fiche de sortie ») ou 13.
+- `co` + `generatrice` : même une recharge de dix minutes ; génératrice à 6 m, jamais dans un bâtiment, sous un
+  auvent ni dans un garage, même porte ouverte ; l'auto qu'on fait tourner avec des gens à bord (renvoi au ch. 15,
+  étapes 11 à 13) ; l'avertisseur là où sont les gens → étape 21, déjà là.
+- `froid` : une recherche peut prendre jusqu'à 24 h ; l'abri sous les arbres, à l'écart du vent, et le feu du côté
+  ouvert ; de quoi faire de la fumée noire sur la neige → étape 4, déjà là.
+- Hors famille : la confiance que l'appareil donne → étape 30, déjà là, sans pictogramme.
 
-**Ch. 15, Se déplacer et le carburant** (Danger en section 7).
-- `co` : 1 600 ppm, 20 min et 2 h ; 20 000 ppm, 4 min ; démarreur à distance ; personne endormie dans l'auto
-  moteur en marche → étapes 11 à 13 (orange « La machine s'arrête »), déjà en partie là.
-- `generatrice` : abri d'auto en toile → étapes 45 et 46, déjà là.
-- `vapeurs` : −43 °C ; dans un local qui sent l'essence, on n'allume ni n'éteint rien ; bidon fermé chauffé →
-  étapes 22 (« Sortir l'essence du bâtiment où on dort ») et 48 (plein), déjà en partie là.
-- `huile-en-feu` (carburant) : pas d'eau sur une flaque d'essence → étape 23 (« Monter le dépôt »).
-- `electrocution` : rallonges seulement → étape 47, déjà là.
-- `poison` : jamais de siphon à la bouche → section 8 (« Tirer le carburant de là où il est »).
-- `glace` : la neige ralentit le gel et son poids réduit ce que la glace porte ; mesurer le jour même → étapes 40 à
-  42, déjà là.
+**Ch. 15, Se déplacer et le carburant.**
+- `eau-froide` : la première minute, la tête hors de l'eau ; garder ses vêtements d'hiver, lâcher la motoneige,
+  siffler → étape 2 (« Dans l'eau, pendant la première minute »).
+- `glace` : le sauveteur qui court au trou passe à travers à son tour → étape 8 (« Ne pas courir jusqu'au trou ») ;
+  mesurer le jour même, près de la rive d'abord, au moins tous les 45 m → étape 40 (« Mesurer la glace avant d'y
+  engager une machine »). Les épaisseurs, la couleur et les endroits minces (la neige épaisse, la glace de marée du
+  fleuve, la glace en colonnes du printemps) → étapes 41 et 42, sans pictogramme.
+- `froid` : sortir la personne de l'eau couchée, traînée ou portée ; la personne seule marche jusqu'à l'abri ou fait
+  un feu → étape 10 (« Hors de l'eau, mettre la personne au chaud ») ; la gelure du visage en motoneige, que l'autre
+  voit → étape 38 (« Se regarder les visages à deux »).
+- `co` + `generatrice` : le tuyau d'échappement bouché par la neige → étape 11 (« En auto, avant de laisser tourner
+  le moteur »). Sans pictogramme, dans la même série : l'avertisseur posé à l'endroit le plus chaud de l'auto (4,4 à
+  37,8 °C) → étape 12 ; mal de tête, mal au cœur ou sommeil, moteur en marche : couper le moteur et faire sortir tout
+  le monde → étape 13 ; ni réchaud, ni fanal, ni chaufferette faits pour l'extérieur dans l'auto → étape 16.
+- `vapeurs` : sortir l'essence du bâtiment où on dort ; la vapeur coule jusqu'au plancher du chalet ou au sous-sol →
+  étape 22 (« Sortir l'essence du bâtiment où on dort ») ; faire le plein moteur arrêté et refroidi → étape 48 ; ne
+  jamais percer ni meuler un réservoir → section 7 (« Tirer le carburant de là où il est », après « Le bidon contre
+  la machine »).
+- `generatrice` : dehors, à découvert, à 6 m ou plus de tout bâtiment ; jamais dans un bâtiment, un garage ou une
+  remise, même porte ouverte, ni sous un auvent ou dans un abri d'auto en toile → étape 45. La génératrice placée
+  sous le vent, l'échappement à l'opposé des portes et des fenêtres, les 6 m comptés aussi vers la maison du voisin →
+  étape 46, sans pictogramme.
+- `electrocution` : rallonges seulement ; ni adaptateur mâle-mâle, ni panneau, ni prise murale → étape 47.
+- `poison` : amorcer le siphon sans la bouche → section 7 (« Amorcer le siphon sans la bouche »).
+- `projection` : ne jamais charger ni survolter une batterie gelée ; si ses parois sont bombées, ondulées ou fendues,
+  ne plus la charger ni la survolter, même dégelée → section 7 (« Faire partir un moteur gelé »).
+- `huile-en-feu` : pas posé ; la flaque d'essence en feu est sur la page `vapeurs`.
+- Sortis du livre avec l'ancien Danger : 20 000 ppm (mort en 4 min) et les vertiges en 20 min à 1 600 ppm. La page
+  `co` garde la densité 0,96 et la mort en 2 h à 1 600 ppm.
 
-**Ch. 16, Le voisinage et le groupe de chasse.**
-- `arme` : chambre ouverte, vue par les deux, à chaque passage → étape 29, déjà là.
-- `cuisson`, `abats`, `trichine`, `tularemie`, `botulisme` : la viande reçue n'a pas d'historique ; le voisin qui
-  offre un foie ; le saucisson d'ours séché ; dépouiller les lièvres d'un autre ; poisson fumé dont on ignore le sel
-  → étape 28 (« Dire ce qu'on donne »).
-- `mal-de-caribou` : le gras se divise avant la viande → étape 25 (« Diviser le travail avant de diviser la
-  viande »).
-- `generatrice` + `electrocution` : la génératrice qu'on se prête, mise sous l'appentis ; branchée sur une prise
-  murale → nouvelle étape dans « Travailler et vivre à plusieurs », ou étape 34.
-- `electrocution` : fil au sol après un verglas, 10 m, ne pas le déplacer → étape 34 (« Dégager un arbre chez le
-  voisin après un verglas »).
+**Ch. 16, Le voisinage et le groupe de chasse.** Refait au gabarit final le 19 octobre 2026 (numérotation nouvelle,
+étapes 1 à 47 ; section Danger retirée) ; corrigé après la vérification technique du même jour
+(`suivi/16-redaction.md`).
+- `coupure` : le deuxième blessé (la scie qui tourne encore, l'arbre resté en tension, la glace mince), la pression
+  puis le garrot → étape 1 ; ne jamais bûcher seul, l'heure de retour laissée par écrit chez un autre foyer →
+  étape 30.
+- `froid` : le blessé couché sur la neige perd sa chaleur par le dessous ; −30 °C et 10 km/h, la peau gèle en 10 à
+  30 minutes ; l'été aussi, mouillé ou la nuit → étape 2. À la halte de chaque heure, confus ou sans frissons sans
+  avoir été réchauffé : le garder à l'horizontale → étape 13.
+- `eau-froide` : le blessé sorti en canot : veste de flottaison attachée sur lui, le sac de couchage ouvert, les bras
+  dehors, jamais attaché au canot, le long de la rive → étape 11.
+- `generatrice` + `electrocution` : la génératrice prêtée mise sous l'appentis, porte fermée à cause du bruit ; à au
+  moins 6 m de toute maison ; rallonges, jamais une prise de la maison → étape 31. La ligne de la section 6 (« Le
+  bruit de la génératrice du voisin change de place le soir ») suit la page `co` : faire sortir les gens, arrêter la
+  génératrice sans rester à l'intérieur.
+- `electrocution` : l'arbre tombé chez un voisin après un verglas : 10 m d'un fil tombé et de l'arbre ou des branches
+  qui le touchent, 3 m des fils restés en place, perche, échelle et branche comprises → étape 32.
+- `arme` : le dossard de tout le groupe, l'accompagnateur et l'adolescent sans arme compris → étape 35 ; la chambre
+  ouverte devant les deux personnes chaque fois qu'une arme change de main, le propriétaire nommé → étape 36.
+- `zone-de-danger` : éviscérer tout de suite, 7 °C au cœur en 24 h, tout le groupe s'y met → étape 38.
+- `mal-de-caribou` : le gras se partage avant la viande → étape 40.
+- `cuisson` + `trichine` : la viande de gibier reçue, 74 °C mesurés à la sonde ; le saucisson d'ours séché offert →
+  étape 44.
+- `abats` : le foie et les reins d'orignal ou d'un autre cervidé (caribou, chevreuil) offerts de bonne foi →
+  étape 45.
+- `tularemie` : dépouiller les lièvres d'un autre foyer → étape 46.
+- `botulisme` : le poisson fumé reçu sans son sel, sa température ni sa date → étape 47.
+- `co` : aucun pictogramme posé ; le monoxyde ne vient ici que de la génératrice (étape 31). Le 16 sort de la colonne
+  « Chapitres » de `co` (section 1).
 
-**Ch. 17, Qui cogne à la porte.**
-- `arme` : l'arme montrée à la porte → étape 25 (« Régler la question des armes »), déjà là.
-- `froid` : la peau gèle en 2 à 30 min ; la personne renvoyée s'assoit ; pas de refus sans destination → étapes 5
-  (« Lire le thermomètre et le vent ») et 11 (« Refuser »), déjà là.
-- `co` + `generatrice` : le réchaud du visiteur dans le hangar ; ses signes passent pour le voyage ; la neige ferme
-  l'abri de toile → étape 19 (« Les appareils à combustion du visiteur restent dehors »), déjà là.
-- `botulisme`, `trichine`, `cuisson` : nourriture reçue en troc → étape 22, déjà là.
+**Ch. 17, Qui cogne à la porte.** (numérotation du 19 octobre 2026)
+- `froid` : les signes du froid pris pour l'ivresse ou la mauvaise foi ; avec un seul signe, porter ou traîner la
+  personne couchée, sans la faire marcher ; la peau exposée de la personne qui attend gèle en 10 à 30 min à partir de
+  −28 → étape 7 (« Chercher les signes du froid »). Pas de refus sans destination : la personne renvoyée peut geler
+  en route → étape 10 (« Refuser »).
+- `mal-de-caribou` : donner du gras quand on en a, jamais le dernier → étape 9, tiret.
+- `arme` : ne pas aller chercher l'arme ni la montrer ; le visiteur voit le geste et peut agir le premier ; il ne
+  sait pas si elle est chargée ; retenir quelqu'un sous la menace → étape 11 (« Si le visiteur ne part pas »). La
+  préparation (aucune arme dans la pièce où l'on reçoit) : étape 24, sans pictogramme.
+- `co` + `generatrice` : la génératrice, le réchaud et la chaufferette du visiteur jamais dans la maison, le hangar,
+  le garage, un véhicule, sous une toile ou un auvent ; ses signes passent pour la fatigue du voyage ; la neige
+  bouche l'abri de toile → étape 18.
+- `cuisson` : 74 °C au thermomètre à sonde aux repas partagés → étape 20.
+- `botulisme` + `trichine` : refuser la conserve maison de méthode inconnue et le poisson fumé dont on ne sait pas
+  s'il a été gardé à 4 °C ou moins, 14 jours au plus ; type E dès 3 °C ; viande sauvage reçue, même salée, séchée,
+  fumée ou gelée : 74 °C → étape 21.
+- `projection` : la pierre de ruisseau qui éclate au feu → section 7, « Réchauffer quelqu'un sans le faire entrer »,
+  tiret « Les pierres ».
+- `thuyone` : jamais de cèdre dans la boisson chaude → section 7, même sous-section.
+- `poison` : ne jamais amorcer le siphon à la bouche → section 7, « Donner sans renseigner, avec ce qu'on a ».
 
 **Ch. 18, S'organiser à plusieurs familles.**
-- `zone-de-danger` : la marmite commune ; plats peu profonds ; 2 h ; rebouillir ne détruit pas la toxine ; une
-  erreur couche tout le camp → étape 15 (« Sortir les restes de la marmite »), déjà là.
-- `cuisson` : 74 °C restes compris ; le 71 °C du bœuf ne s'applique pas → étape 14, déjà là.
-- `abats` : la règle se dit à voix haute au partage → étape 17 (« Refroidir d'abord, partager ensuite »).
-- `trichine` + `botulisme` : pas d'ours servi à douze sans sonde → étape 14.
-- `co` + `generatrice` : chaque famille arrive avec ses appareils ; la deuxième génératrice finit sous l'appentis :
-  sa place s'écrit au mur → étape 6 (« Recenser les appareils à combustion apportés »). Avertisseurs par lieu de
-  couchage porte fermée, essai chaque mois → étape 7, déjà là.
-- `selles` : contagiosité jusqu'à deux semaines ; trois seaux, louche réservée, latrine plus bas, 20 secondes,
-  48 h sans signe → étapes 9 et 10, déjà là ; déshydratation de l'enfant (note) → étape 19 (« Une réunion courte
-  chaque soir ») ou renvoi au ch. 30.
-- `arme` : verrou, culasse ou percuteur ; compte à voix haute → étape 5, déjà là.
+- `arme` : verrou, culasse ou percuteur retiré avant de décharger le camion ; un seul contenant ; le nombre écrit sur
+  le couvercle, compté à voix haute à l'arrivée et au départ → étape 5 (« Rendre les armes inutilisables avant de
+  décharger le camion »).
+- `co` + `generatrice` : chaque famille arrive avec ses appareils, qui restent dehors ; la génératrice à 6 m ou plus
+  de tout bâtiment ; la deuxième finit sous l'appentis : sa place s'écrit au mur → étape 6 (« Faire la liste des
+  appareils à combustion »). Avertisseurs par lieu de couchage porte fermée, essai chaque mois, un près des dormeurs
+  de chaque famille dans la tente à deux poêles → étape 7, sans pictogramme.
+- `selles` : trois seaux, louche réservée, eau traitée selon le ch. 10 → étape 9 ; poste de lavage, 20 secondes,
+  solution hydroalcoolique seulement sur des mains qui ne sont pas visiblement sales → étape 10 ; malades et proches
+  hors de la cuisine, un seul soignant, règles gardées deux semaines, déshydratation du jeune enfant (note) →
+  étape 20 (« Quand quelqu'un vomit ou a la diarrhée »). 48 h sans signe avant la cuisine commune → étape 4, sans
+  pictogramme.
+- `incendie` : rien à moins de 1 m du poêle dans un chalet plein ; une personne nommée pour les cendres, 7 jours
+  dehors dans un contenant de métal → étape 11 ; le linge à sécher hors du mètre, jamais sur le poêle → section 7,
+  « L'humidité de douze personnes ».
+- `cuisson` + `trichine` : 74 °C, restes compris ; le 71 °C du bœuf et du porc ne vaut pas pour le gibier ; pas
+  d'ours servi au groupe sans sonde → étape 14.
+- `zone-de-danger` : la marmite commune ; plats peu profonds ; 2 h ; une erreur rend malade tout le groupe, soignants
+  compris → étape 15 (« Sortir les restes de la marmite »).
+- `botulisme` : poisson gelé ; le faire sentir à plusieurs ne prouve rien → étape 16, sous-étape du poisson.
+- `abats` + `mal-de-caribou` : la règle du foie et des reins de cervidé se dit à voix haute au partage ; le gras se
+  partage avant la viande → étape 17 (« Refroidir la carcasse d'abord, partager ensuite »).
+- `tularemie` + `coupure` : une personne nommée pour chaque tâche à risque ; gants pour ramasser et dépouiller le
+  lièvre ; jamais seul à la scie à chaîne → étape 18.
+- `co` : sans avertisseur qui marche, rien ne brûle à l'intérieur que le poêle raccordé ; on cuisine dehors →
+  section 7, « Cuire dehors, sans avertisseur ».
+- `glace` : deux personnes et un traîneau vont puiser sous la glace → section 7, « L'eau pour douze, l'hiver »
+  (renvoi au ch. 10, étape 36).
 
 ### Tome 2
 
@@ -2233,8 +2488,10 @@ du chapitre.
 
 **Chiffres qui diffèrent d'un chapitre à l'autre.** L'explication d'un pictogramme ne peut porter qu'un chiffre.
 
-- Distance de la génératrice : 3 m au ch. 5, 6 m (20 pi) partout ailleurs.
-- Végétaux dans l'huile : jetés après 7 jours de réfrigération au ch. 5 ; 10 jours après l'ouverture aux ch. 78 et 92.
+- Distance de la génératrice : 6 m (20 pi) partout ; le ch. 5 est passé de 3 à 6 m à sa refonte du 19 octobre 2026, et dit
+  « de tout bâtiment » depuis l'intégration du même jour, comme la page `generatrice`.
+- Végétaux dans l'huile : 7 jours de réfrigération à la page `botulisme` ; 10 jours après l'ouverture aux ch. 78 et 92. Le
+  ch. 5 ne donne plus de durée depuis le 19 octobre 2026 : l'huile maison n'entre pas au stock (étape 23).
 - Poisson fumé : « se garde congelé, pas au froid » au ch. 35 ; 14 jours à 4 °C ou moins, dans ce qui respire, aux
   ch. 41, 59, 75, 77.
 - Vitamine A du foie de phoque annelé : 3 710 µg par 100 g (ch. 22), environ 3 700 (ch. 21), 36 600 UI soit environ
@@ -2262,7 +2519,7 @@ projet n'a aucune source officielle là-dessus » ; `sources/30-cdc-mmwr-1994-ci
 ch. 63 renvoie aux « chapitres 39 et 109 » pour le gréement (le 39 est Des enfants de 4 et 6 ans).
 
 **Mots que `CLAUDE.md` a sortis, vus en passant** (pas dans le mandat, notés pour la passe de style) : « village »
-(ch. 23, 78, 109) ; Baie-Comeau et Sept-Îles nommés (ch. 110) ; « enfants de 4 et 6 ans » dans la plupart des sections
+(ch. 23, 38, 65, 78, 109) ; Baie-Comeau et Sept-Îles nommés (ch. 110) ; « enfants de 4 et 6 ans » dans la plupart des sections
 Danger ; des tirets dans les sections Danger des ch. 5, 6, 7, 20, 41, 102 à 111 et d'autres ; « § » dans plusieurs
 renvois. Les sections Danger vont sortir : ces formes ne doivent pas passer dans les étapes avec les faits.
 

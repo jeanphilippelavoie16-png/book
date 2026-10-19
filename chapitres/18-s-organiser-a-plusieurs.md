@@ -44,9 +44,11 @@ est trop tard pour dire non.
 
 1. **Compter l'eau avant de compter les lits.** Multiplier le nombre de personnes par 4 L par jour : 2 L pour boire et
  2 L pour la cuisine et l'hygiène, soit 48 L par jour pour douze personnes.
- - Mesurer le débit de la source avant d'inviter (ch. 10). Un puits de surface en fin d'hiver, un trou dans la glace
- ou une source qui coule au goutte-à-goutte donnent la même quantité d'eau à douze qu'à quatre, et la latrine se
- remplit plus vite.
+ - Mesurer avant d'inviter combien de litres la source donne par jour. Sous le filet d'une source, chronométrer le
+ temps qu'il met à remplir une chaudière. Dans un puits, mesurer la colonne d'eau (ch. 10, étape 30), tirer ce qu'il
+ faut au groupe pour une journée, et mesurer de nouveau le lendemain matin : l'eau doit être revenue à son niveau.
+ Un puits de surface en fin d'hiver, un trou dans la glace ou une source qui coule au goutte-à-goutte donnent la même
+ quantité d'eau à douze qu'à quatre, et la latrine se remplit plus vite.
  - Si la source ne suffit pas, rester dans deux bâtiments voisins et se visiter tous les jours, ou se relayer au
  chalet. Chaque famille garde alors son eau, sa latrine et sa cuisine, et une gastro a moins de chemins pour passer
  d'une famille à l'autre ; en retour, il faut chauffer deux bâtiments (ch. 83).
@@ -74,8 +76,9 @@ est trop tard pour dire non.
  faire entrer : sans cette pièce, l'arme ne tire pas.
  - Ranger les armes dans un seul contenant fermé, dont une seule personne a la responsabilité, et mettre les
  munitions dans une autre pièce.
- - Écrire le nombre d'armes sur le couvercle du contenant et le dire à voix haute. Refaire le compte à voix haute au
- départ, pour voir si une arme est restée dans le camion, ou si elle est rentrée le soir sans qu'on le dise.
+ - Écrire le nombre d'armes sur le couvercle du contenant et le dire à voix haute. Refaire le compte à voix haute
+ chaque soir : on voit si une arme est restée dans le camion, ou si une arme sortie pour la chasse est rentrée sans
+ qu'on le dise.
 6. {!co} {!generatrice} **Faire la liste des appareils à combustion que chaque famille apporte** : génératrice,
  chaufferette d'appoint, réchaud, barbecue, poêle de tente. Chaque famille arrive avec ses appareils et les installe
  là où il reste de la place : les laisser dehors jusqu'à ce qu'on ait décidé de leur place.
@@ -143,8 +146,8 @@ est trop tard pour dire non.
  descende le plus vite possible à 4 °C ou moins.
  - Ne rien laisser plus de 2 heures hors du froid. Le matin, jeter la marmite oubliée sur le comptoir pendant la
  nuit, quelle que soit son odeur.
-16. **Confier le congélateur à une seule personne, qui l'ouvre une fois par jour, avec la liste.** Il tourne sur la
- génératrice, ou pas du tout. Une fois arrêté, un congélateur plein garde les aliments gelés 48 heures, et un
+16. **Confier le congélateur à une seule personne, qui l'ouvre une fois par jour, avec la liste de ce qu'il faut en
+ sortir.** Il tourne sur la génératrice, ou pas du tout. Une fois arrêté, un congélateur plein garde les aliments gelés 48 heures, et un
  congélateur à demi plein 24 heures, si on n'ouvre pas la porte ; un réfrigérateur les garde froids 4 à 6 heures.
  Dans un groupe, chacun y cherche quelque chose et personne ne se sent responsable d'un appareil qui n'est pas le
  sien : on ouvre la porte souvent, et chaque ouverture raccourcit les 48 heures pour tout le groupe.
@@ -173,8 +176,8 @@ est trop tard pour dire non.
  - Retirer de la cuisine tous les malades et les personnes qui ont été proches d'eux, et nommer un seul soignant
  (ch. 30, étape 18).
  - Désinfecter la cuvette et les surfaces souillées, et faire bouillir toute l'eau à boire (ch. 10).
- - Garder les règles des mains et de la louche jusqu'à deux semaines après la fin des signes du dernier malade : le
- groupe est encore contagieux pendant la semaine où tout le monde va mieux et où on relâche les règles.
+ - Garder les règles des mains et de la louche jusqu'à deux semaines après la fin des signes du dernier malade :
+ pendant ces deux semaines, les gens qui vont mieux peuvent encore transmettre la gastro.
  - Surveiller la déshydratation[^1] des jeunes enfants, même quand les adultes qui s'en occupent sont malades eux
  aussi : chez un jeune enfant, elle peut tuer (ch. 30, étape 20 ; ch. 26).
 21. **Décider, à partir des chiffres, si on reste ensemble ou si on se sépare.** Au rythme de consommation mesuré à
@@ -194,7 +197,7 @@ est trop tard pour dire non.
 | --- | --- | --- | --- |
 | Avant d'accepter le regroupement | L'eau que la source donne par jour, contre le besoin | Au moins **4 L par personne par jour** : 2 L pour boire, 2 L pour la cuisine et l'hygiène, soit 48 L pour douze personnes | Refuser le regroupement, le limiter au nombre de personnes pour qui la source donne assez d'eau, ou rester dans deux bâtiments (étape 1) |
 | À l'arrivée, puis chaque mois | Avertisseurs de CO : où ils sont, et le bouton d'essai | Un par endroit où quelqu'un dort porte fermée et un par étage, à plus de **2 m** de tout appareil de combustion | Ne laisser personne dormir dans un endroit sans avertisseur qui marche. Regrouper les lits plutôt que de les disperser |
-| À l'arrivée, puis chaque jour tant qu'il y a des enfants | Armes déchargées, pièce mobile retirée ou bloquée, munitions dans une autre pièce | Le compte des armes donne le nombre écrit sur le couvercle | Tout arrêter jusqu'à ce que le compte soit bon (étape 5) |
+| À l'arrivée, puis chaque soir tant qu'il y a des enfants | Armes déchargées, pièce mobile retirée ou bloquée, munitions dans une autre pièce | Le compte des armes donne le nombre écrit sur le couvercle | Tout arrêter jusqu'à ce que le compte soit bon (étape 5) |
 | Chaque cuisson de gibier, chaque réchauffage de restes | Température à cœur, la sonde dans la partie la plus épaisse, loin de l'os et du gras | **74 °C** | Remettre au feu |
 | Chaque fin de repas | Le temps avant que les restes soient au froid | **4 °C ou moins**, le plus vite possible, dans des plats peu profonds ; rien plus de **2 h** hors du froid | Jeter, sans goûter pour décider |
 | Une fois par jour | Réfrigérateur, congélateur | **0 à 4 °C** ; **−18 °C ou moins** | Mettre les aliments dehors ou au caveau (ch. 73, ch. 79), et cuire d'abord le plus périssable |
@@ -202,7 +205,7 @@ est trop tard pour dire non.
 | Chaque jour | Qui a vomi ou eu la diarrhée, et quand | **48 h** sans signe avant de retoucher à la cuisine commune | Retirer la personne de la cuisine (étape 20) |
 | Chaque jour | Dégagement autour du poêle | Rien à moins de **1 m** | Dégager, et réexpliquer pourquoi (étape 11) |
 | Chaque retrait de cendres | Contenant de métal, couvercle, fond décollé du sol, dehors | **7 jours** avant de le vider | Laisser les cendres dans le contenant fermé jusqu'au bout des 7 jours |
-| Selon la quantité de bois brûlé | Créosote dans la cheminée | **Au moins une fois par année**, et plus souvent selon la qualité et la quantité du bois brûlé | Ramoner (ch. 83). À douze, on brûle plus de bois, et un poêle qu'on étouffe la nuit pour économiser dépose beaucoup plus de créosote |
+| Pendant la saison de chauffage | Créosote dans la cheminée | Un ramonage **au moins une fois par année**, plus souvent selon la qualité et la quantité du bois brûlé : à douze, on brûle plus de bois, et un poêle qu'on étouffe la nuit pour économiser dépose beaucoup plus de créosote | Ramoner (ch. 83) |
 | Chaque jour | Température de la pièce commune | Repère de **18 à 24 °C** | Réduire le volume chauffé avant d'augmenter le feu (section 7 ; ch. 25, ch. 3) |
 | Chaque soir | Bois rentré contre bois brûlé, à l'œil sur la corde | L'avance de bois ne recule pas d'un jour à l'autre | Réduire le volume chauffé et mettre des bras au bois (ch. 83) |
 
@@ -297,9 +300,8 @@ plateforme en une journée avec une hache, une scie et de la corde (ch. 110).
 
 Avec un seul poêle pour douze personnes, il faut partager le dessus, qui est bouillant au-dessus du foyer et tiède aux
 bouts. On fixe l'ordre une fois et on l'écrit au mur : l'eau à bouillir au centre pendant que le feu est vif, la
-marmite ensuite, le pain et les galettes quand le feu baisse, les mitaines et les bottes en dernier, sur la partie
-tiède, à l'écart. Sans cet ordre, chacun tasse la marmite du précédent : elle passe l'après-midi sur le bord tiède,
-entre 4 et 60 °C, et personne ne sait depuis quand elle y est.
+marmite ensuite, le pain et les galettes quand le feu baisse. Sans cet ordre, chacun tasse la marmite du précédent :
+elle passe l'après-midi sur le bord tiède, entre 4 et 60 °C, et personne ne sait depuis quand elle y est.
 
 ### La relève de nuit, sans horloge
 
@@ -319,8 +321,8 @@ cône monte vite. On casse le cône au bâton. On creuse le trou suivant d'avanc
 
 ### L'eau de cendre à la place du savon
 
-On fait tremper de la cendre franche de bois dur dans l'eau chaude, on la laisse déposer et on ne garde que le
-liquide clair du dessus : il est alcalin, et il dégraisse. Il lave la vaisselle et, allongé d'eau, les mains. Il est
+On fait tremper de la cendre tamisée d'un feu de bois franc dans l'eau chaude, on la laisse déposer et on ne garde
+que le liquide clair du dessus : il est alcalin, et il dégraisse. Il lave la vaisselle et, allongé d'eau, les mains. Il est
 dur pour la peau, et à douze au milieu de l'hiver, des mains crevassées finissent en infections : on le garde pour
 la vaisselle et les mains les plus sales, et on fait du vrai savon dès qu'on a du gras à y mettre (ch. 112). Sans
 rien du tout, on se lave les mains à l'eau chaude et à la brosse, les ongles courts, en frottant 20 secondes. Le

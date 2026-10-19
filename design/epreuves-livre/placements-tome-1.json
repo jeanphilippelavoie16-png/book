@@ -18,7 +18,7 @@
     "photos": [],
     "logigramme": {
       "fichier": "images/logigrammes/02-rester-ou-partir-livre.svg",
-      "apres": "Décider en moins d'une heure",
+      "apres": "**Fiche de décision remplie d'avance**",
       "orange": true
     }
   },
@@ -26,15 +26,15 @@
     "planches": [
       {
         "id": "03-08",
-        "apres": "La marmite part pleine : la masse d'eau chaude fait la réserve"
+        "apres": "**La marmite norvégienne.**"
       },
       {
         "id": "03-09",
-        "apres": "**L'abri (étape 9).**"
+        "apres": "10. **Avant la nuit, monter un abri dans la pièce**"
       },
       {
         "id": "03-10",
-        "apres": "23. **Vidanger dans l'ordre.**"
+        "apres": "23. **Vidanger dans l'ordre**"
       },
       {
         "id": "03-11",
@@ -48,7 +48,7 @@
     "photos": [],
     "logigramme": {
       "fichier": "images/logigrammes/03-panne-hydro-livre.svg",
-      "apres": "Traverser une panne d'Hydro sans intoxication",
+      "apres": "**Thermomètre à sonde**",
       "orange": true
     }
   },
@@ -90,24 +90,45 @@
     ]
   },
   "05": {
-    "planches": [],
+    "planches": [
+      {
+        "id": "05-01",
+        "apres": "**La chaudière à bascule** (planche 05-01)."
+      }
+    ],
     "photos": [
       {
         "fichier": "images/photos/tri/05-boite-bombee.jpg",
-        "apres": "Toute boîte bombée, rouillée ou bosselée sur le serti se jette",
+        "apres": "23. {!botulisme} **Manger les conserves maison dans l'année qui suit la mise en conserve.**",
         "taille": "quart",
-        "legende": "Boîte bombée : le gaz formé dedans pousse le couvercle. Elle se jette sans être ouverte et sans être goûtée."
+        "legende": "Boîte bombée : le gaz formé dedans pousse le couvercle. On la jette sans l'ouvrir et sans la goûter."
       }
     ],
-    "_photos": "La photo va sous l'encadré du botulisme (section 8) et non sous le tableau de la section 7, qui la demandait : le constructeur ne peut pas ancrer sur un tableau (source vide dans render()), et la section 7 n'a que ce tableau. L'étiquette de la boîte (hareng fermenté suédois, bombé exprès) se voit : à recadrer sur le couvercle ou à remplacer par une boîte ordinaire. 05-boites-rouillees-serti (images/photos/manquantes/, 29 septembre 2026) n'est pas posée : une palette de boîtes rouillées de partout, marques lisibles ; la rouille se reconnaît sans photo et l'image n'apprend rien que « rouillée » ne dise déjà."
+    "_photos": "La photo va sous l'étape 23 (les conserves maison, la boîte bombée) depuis la refonte du 19 octobre 2026 ; le constructeur ne peut pas ancrer sur un tableau (source vide dans render()). L'étiquette de la boîte (hareng fermenté suédois, bombé exprès) se voit : à recadrer sur le couvercle ou à remplacer par une boîte ordinaire. 05-boites-rouillees-serti (images/photos/manquantes/, 29 septembre 2026) n'est pas posée : une palette de boîtes rouillées de partout, marques lisibles ; la rouille se reconnaît sans photo et l'image n'apprend rien que « rouillée » ne dise déjà."
   },
   "06": {
-    "planches": [],
-    "photos": []
+    "planches": [
+      {
+        "id": "06-01",
+        "apres": "**Traîner au lieu de porter.**"
+      }
+    ],
+    "photos": [],
+    "_planches": "06-01 (traîner au lieu de porter) est appelée dans le texte (section 7) mais n'est pas encore dessinée : l'ancre attend la planche, le constructeur ne pose que les planches qui existent."
   },
   "07": {
-    "planches": [],
-    "photos": []
+    "planches": [
+      {
+        "id": "07-01",
+        "apres": "On fabrique l'obturateur avec un bouchon de bois"
+      }
+    ],
+    "photos": [],
+    "logigramme": {
+      "fichier": "images/logigrammes/07-preavis-livre.svg",
+      "apres": "**Obturateur de drain de plancher**",
+      "orange": true
+    }
   },
   "08": {
     "planches": [],
@@ -163,7 +184,7 @@
     "planches": [
       {
         "id": "11-03",
-        "apres": "**L'eau et le pourtour (étapes 7 à 9).**"
+        "apres": "7. **Remplir tout ce qui tient l'eau**"
       },
       {
         "id": "11-04",
@@ -184,7 +205,7 @@
     ],
     "logigramme": {
       "fichier": "images/logigrammes/11-feu-de-foret-livre.svg",
-      "apres": "Partir pendant que le chemin est ouvert",
+      "apres": "**Râteau à feu**",
       "orange": true
     }
   },
@@ -283,10 +304,15 @@
     "planches": [
       {
         "id": "14-01",
-        "apres": "Côté terre, la règle qui surprend"
+        "apres": "Le poste à galène n'a besoin d'aucune pile"
       }
     ],
-    "photos": []
+    "photos": [],
+    "logigramme": {
+      "fichier": "images/logigrammes/14-communiquer-livre.svg",
+      "apres": "**Radio VHF maritime portative, sur le fleuve**",
+      "orange": true
+    }
   },
   "15": {
     "planches": [
@@ -296,15 +322,15 @@
       },
       {
         "id": "15-03",
-        "apres": "8. **Ne pas courir jusqu'au trou"
+        "apres": "8. {!glace} **Ne pas courir jusqu'au trou"
       },
       {
         "id": "15-05",
-        "apres": "40. **Mesurer la glace avant d'y engager une machine, le jour même.**"
+        "apres": "40. {!glace} **Mesurer la glace avant d'y engager une machine, le jour même.**"
       },
       {
         "id": "15-02",
-        "apres": "**Amorcer sans la bouche**"
+        "apres": "{!poison} **Amorcer le siphon sans la bouche**"
       },
       {
         "id": "15-04",
@@ -326,17 +352,17 @@
     "planches": [
       {
         "id": "16-07",
-        "apres": "**Où se prend le fil.**"
+        "apres": "Deux haut-parleurs et deux fils font un téléphone qui ne demande aucune source de courant"
       },
       {
         "id": "16-08",
-        "apres": "*Deux brancards rigides valent mieux qu'une corde.*"
+        "apres": "6. **L'emballer avant de partir.**"
       }
     ],
     "photos": [],
     "logigramme": {
       "fichier": "images/logigrammes/16-sortir-un-blesse-livre.svg",
-      "apres": "Quelqu'un est blessé dans le bois",
+      "apres": "**Toboggan ou traîneau**",
       "orange": true
     }
   },
@@ -350,12 +376,22 @@
     "photos": [],
     "logigramme": {
       "fichier": "images/logigrammes/17-qui-cogne-livre.svg",
-      "apres": "Régler une visite imprévue sur le seuil",
+      "apres": "**Barre de porte**",
       "orange": true
     }
   },
   "18": {
-    "planches": [],
-    "photos": []
+    "planches": [
+      {
+        "id": "18-01",
+        "apres": "{!co} Sans avertisseur qui marche, on ne fait du feu à l'intérieur"
+      },
+      {
+        "id": "18-02",
+        "apres": "Quand il reste de la marmite malgré tout"
+      }
+    ],
+    "photos": [],
+    "_planches": "18-01 (la crémaillère pour cuire dehors) et 18-02 (l'auge de neige pour refroidir la marmite) sont appelées dans le texte (section 7) mais ne sont pas encore dessinées : les ancres attendent les planches."
   }
 }

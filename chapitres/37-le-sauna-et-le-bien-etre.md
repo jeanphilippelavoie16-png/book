@@ -100,7 +100,7 @@ presque pas.
  bâtiment qu'on accepte de perdre : le sauna est ce bâtiment-là. S'il brûle, il ne prend pas le
  chalet avec lui. La forêt, elle, est à côté : en été, un sauna qui brûle ou un tuyau qui crache
  des escarbilles l'allume, et un feu de forêt revient au chalet (ch. 11). D'où le pare-étincelles
- (étape 6), et les jours où le combustible est sec, la règle du ch. 11 (section 5-B) : aucun feu
+ (étape 6), et les jours où le combustible est sec, la règle du ch. 11 (étape 57) : aucun feu
  sans pare-étincelles.
 2. **Petit, bas, et deux pièces.** Plus la pièce chaude est grande, plus elle mange de bois, et
  une surface nue qui boit la chaleur en coûte encore : chaque mètre carré de brique, de béton, de
@@ -341,7 +341,7 @@ de l'arrêt.
  autres soirs, un bain chaud à 40-42,5 °C, au thermomètre, dix minutes suffisent (étape 60).
 50. **Chauffer le lit, pas la chambre.** Pour un adulte bien couvert, une chambre froide ne gâte
  pas le sommeil : c'est le creux sous les couvertures qui doit être chaud. La roche du poêle ou
- la bouteille d'eau chaude, enveloppée, **au pied du lit** (ch. 06, section 9) : des pieds
+ la bouteille d'eau chaude, enveloppée, **au pied du lit** (ch. 6, section 7) : des pieds
  chauds aident à s'endormir. Autant d'épaisseur sous soi que sur soi : le matelas froid vole la
  chaleur par en dessous.
 51. **La tuque la nuit, et la chambre au-dessus de 10 °C.** La tête est la seule partie qui
@@ -747,7 +747,7 @@ pièce :
 - **autant sous soi que sur soi** : couvertures pliées sous le corps, sapinage sous le matelas, ou
  le matelas monté sur des planches plutôt que posé au plancher froid ;
 - **la roche du poêle ou la bouteille d'eau chaude** au pied du lit, enveloppée
- (ch. 06, section 9) : des pieds chauds font s'endormir ;
+ (ch. 6, section 7) : des pieds chauds font s'endormir ;
 - **la tuque**, toute la nuit ;
 - **les deux enfants dans le même lit**, dans la pièce la plus chaude, près de la cible de 19 °C
  du ch. 39 ; les adultes dorment dans la pièce plus froide, dans un lit chaud.

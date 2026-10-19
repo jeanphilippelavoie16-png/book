@@ -1,5 +1,5 @@
 // Planche 11-05. Les outils de feu qu'on fabrique : le râteau, le battoir, la perche d'élagage
-// (chapitre 11, section 9, « Fabriquer les outils »). Dessinée le 15 octobre 2026 (inventaire des
+// (chapitre 11, section 7, « Fabriquer les outils »). Dessinée le 15 octobre 2026 (inventaire des
 // planches, `images/audit-planches/tomes-1-2.md` : « chaque outil entier et sa fixation au manche ; le
 // battoir abattu à plat »). Une rangée par outil : l'outil monté, en vues alignées, puis son geste.
 //

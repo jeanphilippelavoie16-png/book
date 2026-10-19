@@ -380,7 +380,7 @@ productive au lieu d'en chercher une autre.
     - on brûle une partie de la talle à la fois, jamais tout ;
     - le feu doit seulement **faire éclater les bourgeons**. Un feu chaud brûle l'humus, et c'est
       dans l'humus que vit le rhizome : on tue la talle qu'on voulait sauver ;
-    - avant d'allumer, le battoir et le râteau à feu sont en main, et l'eau à portée (ch. 11, §9,
+    - avant d'allumer, le battoir et le râteau à feu sont en main, et l'eau à portée (ch. 11, section 7,
       « Fabriquer les outils ») : c'est avec eux qu'on rabat une lisière qui part.
 50. **Compter deux ou trois ans.** Le bleuet à feuilles étroites (*Vaccinium angustifolium*) donne
     sa plus grosse récolte la deuxième année après la coupe ; le bleuet fausse-myrtille
@@ -587,7 +587,7 @@ pour un pré naturel du Nord : une seule coupe par été.
 | Topinambour partout, y compris là où on n'en veut plus | Normal : le moindre bout de racine repousse | Le confiner dans un coin à lui ; déterrer ce qui dépasse chaque automne |
 | Gaz et ballonnements après un plat de topinambour | Sa réserve, l'inuline, ne se digère pas | Pas un signe d'altération. En manger peu à la fois, cuit |
 | Talle envahie de jeunes bouleaux et de framboisiers | Talle qui se referme et décline | Rajeunir (étapes 48 à 50) |
-| Talle coupée ou brûlée qui repart mal | Feu trop chaud qui a brûlé l'humus et les rhizomes ; coupe trop hâtive à l'automne, qui a privé les rhizomes de leurs réserves ; ou coupe trop tardive au printemps | Si le feu a touché l'humus, y revenir d'abord : un feu de sol avance sans flamme ni fumée et peut ressortir plus loin, même après l'hiver. Gratter jusqu'au sol minéral et noyer partout où le dos de la main sent de la chaleur, et refaire le tour au dégel (ch. 11, §9). Puis laisser la partie morte se refaire d'elle-même ; brûler plus léger, ou couper à la lame, dans la fenêtre de l'étape 48 |
+| Talle coupée ou brûlée qui repart mal | Feu trop chaud qui a brûlé l'humus et les rhizomes ; coupe trop hâtive à l'automne, qui a privé les rhizomes de leurs réserves ; ou coupe trop tardive au printemps | Si le feu a touché l'humus, y revenir d'abord : un feu de sol avance sans flamme ni fumée et peut ressortir plus loin, même après l'hiver. Gratter jusqu'au sol minéral et noyer partout où le dos de la main sent de la chaleur, et refaire le tour au dégel (ch. 11, section 7). Puis laisser la partie morte se refaire d'elle-même ; brûler plus léger, ou couper à la lame, dans la fenêtre de l'étape 48 |
 | Foin blanchi, décoloré | A pris la pluie en séchant | Il se donne, mais il vaut moins ; ne pas compter sur lui seul |
 | Foin poussiéreux, poudre blanche, grise ou noire au cœur des brassées | Foin moisi, rentré trop humide | Ne pas le donner au lapin (ch. 101, §9, étape 9). Le défaire dehors, jamais dans un bâtiment fermé, dos au vent, la poussière mouillée avant d'être brassée : elle donne le poumon du fermier (§8) |
 | Tas qui s'affaisse au centre, pluie entrée | Cœur mal tassé | Refaire le tas, cœur serré ; l'humide au soleil |
@@ -634,7 +634,7 @@ pour un pré naturel du Nord : une seule coupe par été.
 > brûlée avant d'avoir passé le dos de la main au ras du sol partout où le feu est passé — le dos,
 > parce qu'une main à plat se referme sur ce qui brûle. Un brûlis qui a touché l'humus se revisite,
 > au dégel aussi : un feu de sol peut passer l'hiver et ressortir plus loin. On gratte jusqu'au sol
-> minéral et on noie (ch. 11, §9).
+> minéral et on noie (ch. 11, section 7).
 >
 > **3. La lessive du maïs rend aveugle.** La cendre bouillie dans l'eau fait une lessive, de la même
 > famille que celle du savon, et la chaux éteinte aussi. **Le mécanisme :** une base dissout les

@@ -18,7 +18,7 @@ viande, qu'elle dure six heures ou cinq semaines.
 - **Le courant manque à la maison, l'hiver** (étapes 1 à 13).
 - **La rue est rebranchée, et la maison reste sans courant** (étape 1).
 - **Au chalet, la génératrice ou le banc de batteries lâche, l'hiver** : le chauffage, la plomberie et les aliments
- (étapes 5 à 9, 14 et 21 à 34).
+ (étapes 5, 7 à 10, 14 et 21 à 34).
 - **La famille part au chalet pendant la panne** : vidanger la maison avant de partir (étapes 21 à 25).
 - **Le courant manque l'été** : la génératrice, l'eau et les aliments (étapes 1 à 5, 16 à 20 et 27 à 34).
 - **Le courant revient après une longue panne** (étapes 35 à 40).
@@ -29,7 +29,7 @@ viande, qu'elle dure six heures ou cinq semaines.
 ## 3. Matériel
 
 - **Avertisseur de CO à pile, à affichage** : rien d'autre ne détecte le monoxyde, et son chiffre monte des heures avant la sirène (étape 5).
-- **Poêle à bois raccordé à une cheminée ramonée** : il chauffe la pièce et il cuit sans courant (étape 6 ; sans cheminée : section 7).
+- **Poêle à bois raccordé à une cheminée ramonée** : il chauffe la pièce et il cuit sans courant (étape 7 ; sans cheminée : section 7).
 - **Chaudière de métal à couvercle de métal** : on y vide les cendres du poêle, et on la garde dehors (étape 14).
 - **Thermomètres** : un dans la pièce la plus froide, un dans le réfrigérateur, un dans le congélateur ; on vidange à 5 °C et on trie à 4 °C (sans thermomètre : section 7).
 - **Thermomètre à sonde** : il porte les 74 °C à cœur du gibier (étape 31 ; sans sonde : section 7).
@@ -73,8 +73,9 @@ viande, qu'elle dure six heures ou cinq semaines.
  ne pas sonner pendant des jours, alors que le mal de tête, la nausée et la fatigue qu'on met sur le compte du froid
  ont commencé. Dès que l'écran affiche un chiffre, l'avertisseur détecte du monoxyde ; si le chiffre ne redescend pas
  de la journée, un appareil de la maison en fait.
- - Un avertisseur installé depuis plus de 7 ans peut répondre au bouton sans plus mesurer le gaz : faire comme si on
- n'en avait pas.
+ - Un avertisseur qui a passé la durée de vie que donne le fabricant (7 à 10 ans après la date de fabrication inscrite
+ au dos, selon le modèle ; 7 ans quand on ne connaît pas le modèle) peut répondre au bouton sans plus mesurer le gaz :
+ faire comme si on n'en avait pas.
  - Ne jamais rentrer dans la maison ce qui est fait pour l'extérieur ou le camping (le barbecue, le réchaud, la
  chaufferette de camping, la génératrice), même pour peu de temps, même avec une fenêtre entrouverte : une maison
  fermée à −35 °C ne change pas assez d'air pour sortir le monoxyde d'un appareil qui en fait sans arrêt.
@@ -85,9 +86,15 @@ viande, qu'elle dure six heures ou cinq semaines.
 
 Faire cette série dès que la rue entière est noire, ou que le mât est brisé, sans attendre de savoir combien de temps
 la panne va durer. **La nuit**, si la panne commence pendant que tout le monde dort et que la maison est encore chaude,
-ajouter une couverture et une tuque aux enfants, les laisser dormir, et faire la série au réveil.
+envoyer le message de l'étape 6, ajouter une couverture et une tuque aux enfants, les laisser dormir, et faire le reste
+de la série au réveil.
 
-6. **Allumer le poêle à bois, s'il y en a un**, avec du bois sec en petites bûches et assez d'air pour que les flammes
+6. **Envoyer un message texte à un proche : où on est, combien on est, ce qu'on va faire.** L'envoyer tout de suite,
+ avant les autres gestes de cette série : les tours cellulaires tiennent souvent de 2 à 4 heures sur leurs batteries
+ après le début de la panne. Un message texte ou un courriel encombre moins le réseau cellulaire qu'un appel : il peut
+ passer quand les appels saturent le réseau, ou quand le service téléphonique est interrompu. Quand le cellulaire ne passe plus,
+ il reste la radio (section 7).
+7. **Allumer le poêle à bois, s'il y en a un**, avec du bois sec en petites bûches et assez d'air pour que les flammes
  restent vives. La fournaise au mazout ou au gaz s'arrête aussi : son brûleur, son ventilateur et son thermostat
  marchent à l'électricité.
  - {!pas-au-feu} Au besoin, brûler aussi du bois de démolition brut, sans peinture ni traitement, dont on connaît la
@@ -100,35 +107,31 @@ ajouter une couverture et une tuque aux enfants, les laisser dormir, et faire la
  - {!co} **La nuit**, garder l'air du poêle ouvert ; le recharger à tour de rôle entre adultes, ou le laisser
  s'éteindre et le rallumer au réveil. Ne pas fermer l'air pour que le feu dure jusqu'au matin : le feu étouffé, ou
  réduit à la braise, peut renvoyer sa fumée et son monoxyde dans la pièce, même quand la porte du poêle est fermée.
- - **Sans poêle**, réunir la famille dans la plus petite pièce, sous un abri (étape 9), suivre la température
+ - **Sans poêle**, réunir la famille dans la plus petite pièce, sous un abri (étape 10), suivre la température
  (étape 22), vidanger la maison (étapes 21 à 25), puis partir de jour, pendant que la route est ouverte (ch. 2).
-7. **Vivre dans une seule pièce : celle du poêle**, ou, sans poêle, la plus petite pièce qui a le moins de murs
+8. **Vivre dans une seule pièce : celle du poêle**, ou, sans poêle, la plus petite pièce qui a le moins de murs
  extérieurs. Fermer les autres pièces, boucher le bas des portes avec une couverture roulée, et fermer les rideaux au
  coucher du soleil. La perte de chaleur d'une maison est proportionnelle à l'écart de température avec l'extérieur et
  à la surface exposée : en regroupant la famille dans une seule pièce et en fermant les autres, on réduit la surface à
  chauffer. Choisir la pièce pour garder les gens au chaud : la plomberie, on la protège en la vidangeant (étapes 21 à
  25), ce qui coûte moins de bois que de chauffer une pièce de plus. Le jour, rouvrir les rideaux des fenêtres qui
  reçoivent le soleil. Pour fermer une fenêtre avec une couverture : section 7.
-8. {!froid} **Habiller tout le monde en couches, avec une tuque, avant d'avoir froid.** Regarder les joues, le nez
+9. {!froid} **Habiller tout le monde en couches, avec une tuque, avant d'avoir froid.** Regarder les joues, le nez
  et les oreilles des enfants deux fois par jour, sans attendre qu'ils disent avoir froid (section 5 ; ch. 39).
-9. **Avant la nuit, monter un abri dans la pièce** (planche 03-09). La tente ou la table couverte garde la chaleur des
+10. **Avant la nuit, monter un abri dans la pièce** (planche 03-09). La tente ou la table couverte garde la chaleur des
  corps dans un petit volume. Un corps couché perd sa chaleur beaucoup plus vite vers le plancher que vers l'air, parce
  que le bois et le contreplaqué la conduisent et que l'air immobile la conduit très peu : il faut plus d'épaisseur
  sous les corps que par-dessus.
  - Monter l'abri contre un mur, autour d'une table : dresser un matelas debout contre le mur (repère 1), étendre une
  couverture sur la table (repère 2), et tendre un drap de la table jusqu'au dossier d'une chaise, puis jusqu'au
  plancher (repère 3). Autre façon : monter une tente de camping dans la pièce.
- - Coucher tout le monde côte à côte sous une même couverture (repère 4), sur des coussins de divan (repère 5) : les
- enfants au milieu, un adulte à chaque bout (repère 6).
- - Fermer les deux bouts de l'abri jusqu'au plancher (repère 7).
- - Faire le lit en couches, en partant du plancher : des cartons aplatis ou un tapis roulé (repère 8), puis des
- branches de sapin, un matelas ou des coussins (repère 9), puis une couverture sous le corps (repère 10). Par-dessus
- les dormeurs, mettre une couche de papier journal entre deux couvertures (repère 11).
+ - Faire le lit sous l'abri, en couches, en partant du plancher : des cartons aplatis ou un tapis roulé (repère 4),
+ puis des branches de sapin, un matelas ou des coussins (repère 5), puis une couverture sous le corps (repère 6).
+ - Coucher tout le monde côte à côte sous une même couverture (repère 7), sur le lit (repère 8) : les enfants au
+ milieu, un adulte à chaque bout (repère 9).
+ - Par-dessus les dormeurs, mettre une couche de papier journal entre deux couvertures (repère 10).
+ - Fermer les deux bouts de l'abri jusqu'au plancher (repère 11).
  - Deux cartons et une couverture sous le corps gardent plus chaud que quatre couvertures à même le plancher.
-10. **Envoyer un message texte à un proche : où on est, combien on est, ce qu'on va faire.** Les tours cellulaires
- tiennent quelques heures sur leurs batteries : donner des nouvelles dans les premières heures. Un message texte ou
- un courriel encombre moins le réseau cellulaire qu'un appel : il peut passer quand les appels saturent le réseau, ou
- quand le service d'appel est coupé. Quand le cellulaire ne passe plus, il reste la radio (section 7).
 11. **Au réveil, assez tôt pour pouvoir partir de jour, décider si la famille reste à la maison** (ch. 2).
  - Rester si la maison a un poêle raccordé à une cheminée, si on a assez de bois sec pour la durée de la panne et un
  avertisseur de CO qui répond au bouton, et si la pièce chauffée reste au-dessus de 5 °C.
@@ -210,10 +213,10 @@ ou sans alarme.
  - **Vider les circuits de chauffage à eau chaude**, s'il y en a. Ils se vident mal : il faut parfois défaire un
  raccord pour vider les points bas.
 24. **Verser de l'antigel à plomberie non toxique partout où il reste de l'eau.**
- - Dans la toilette : tirer la chasse pour vider le réservoir, puis verser 0,5 à 1 L d'antigel dans la cuvette et
- dans le réservoir.
+ - Dans la toilette : tirer la chasse pour vider le réservoir, puis verser 0,5 L d'antigel dans le réservoir et 1 L
+ dans la cuvette.
  - Verser 2 L dans la laveuse et 1 L dans le lave-vaisselle.
- - Dans chaque siphon d'évier et de baignoire, verser autant d'antigel qu'il y a d'eau dans le siphon.
+ - Verser 0,5 L dans chaque évier, lavabo, baignoire, douche et drain de plancher, et dans le siphon de la laveuse.
  - {!poison} Prendre seulement de l'antigel à plomberie : l'antigel de moteur est toxique et reste dans la tuyauterie
  d'eau potable. Sans antigel : section 7.
 25. **Fermer la maison à clé une fois vidangée.** Elle ne risque plus de dégâts de gel, et la famille peut partir
@@ -286,9 +289,9 @@ ou sans alarme.
 
 | Moment | Ce qu'on vérifie | Cible chiffrée | Si c'est hors cible |
 | --- | --- | --- | --- |
-| Au début de la panne | L'avertisseur de CO | Il répond au bouton d'essai, et il est installé depuis moins de **7 ans** | Faire comme si on n'en avait pas (étape 5) |
+| Au début de la panne | L'avertisseur de CO | Il répond au bouton d'essai, et sa date de fabrication, au dos, a moins de **7 à 10 ans** selon le modèle (**7 ans** si on ne connaît pas le modèle) | Faire comme si on n'en avait pas (étape 5) |
 | Au début de la panne | L'heure écrite sur la porte du congélateur | Au quart d'heure près | Étape 3 |
-| Matin et soir | Le chiffre de l'avertisseur de CO | **0 ppm** affiché | Chercher l'appareil qui fait du monoxyde (étapes 5 et 6) |
+| Matin et soir | Le chiffre de l'avertisseur de CO | **0 ppm** affiché | Chercher l'appareil qui fait du monoxyde (étapes 5 et 7) |
 | Toutes les 2 h | La température de la pièce la plus froide, et l'écart avec le relevé d'avant | Au-dessus de **5 °C** | Calculer l'heure d'arrivée à 5 °C et vidanger avant, de jour (étapes 22 et 23) |
 | Heure 4 à 6 | Le thermomètre du réfrigérateur | **0 °C à 4 °C** | Au-dessus de 4 °C : trier tout de suite (étape 27) |
 | Heure 6 | Le réfrigérateur | Tri fait | Dans le doute, jeter |
@@ -313,7 +316,7 @@ ou sans alarme.
 | Une personne perd sa coordination, se réveille mal ou perd connaissance, quand quelque chose brûle dans la maison | Intoxication grave au CO : la vie est en jeu | Étapes 12 et 13 ; ch. 2, étape 4 |
 | Une personne cesse de frissonner, parle mal, ne coordonne plus ses gestes | Hypothermie grave (sous 28 °C de température buccale) | La vie est en jeu (ch. 25). Ne pas frotter la peau ; ne lui donner ni alcool ni cigarette |
 | Tache blanche sur la joue, le nez ou l'oreille, avec perte de sensation | Engelure débutante | Rentrer, réchauffer peu à peu sans frotter |
-| La fumée sort par la porte du poêle à l'allumage | La cheminée froide refoule | Allumer une torche de papier, ou entrouvrir une fenêtre du côté du vent (étape 6) |
+| La fumée sort par la porte du poêle à l'allumage | La cheminée froide refoule | Allumer une torche de papier, ou entrouvrir une fenêtre du côté du vent (étape 7) |
 | Rugissement dans la cheminée, étincelles au chapeau, tuyau qui rougit | Feu de cheminée alimenté par la créosote | Fermer les entrées d'air, sortir tout le monde (ch. 82) |
 | Odeur d'essence dans la maison | Bidon ou génératrice trop près, ou essence renversée | Sortir le bidon et aérer ; n'allumer aucune flamme et ne toucher à aucun interrupteur |
 | La rue se rallume, la maison reste noire, le disjoncteur principal est enclenché | Entrée électrique endommagée : mât, col-de-cygne ou support d'isolateurs | Vidanger et décider du départ (étape 1) |
@@ -341,8 +344,8 @@ ne bouge plus, et il isole (planche 03-12).
  (repère 5).
 - Clouer aussi la latte du bas, comme sur les trois autres côtés (repère 6).
 - Fermer les quatre côtés : avec les bords ouverts, une couverture accrochée réduit la perte de la fenêtre de 10 %
- au plus (repère 7), parce que l'air de la pièce entre par le haut, se refroidit sur la vitre, descend et ressort
- par le bas dans la pièce, en boucle (repère 8).
+ au plus (repère 7), surtout parce que l'air de la pièce entre par le haut, se refroidit sur la vitre, descend et
+ ressort par le bas dans la pièce, en boucle (repère 8).
 - Fermer un rideau de la même façon : le fermer en haut, le tenir sur les côtés, le laisser toucher le rebord ou le
  plancher, et croiser les deux pans d'environ 10 cm au milieu.
 
@@ -391,11 +394,12 @@ plaque toute la journée.
 - Vider chaque siphon d'évier par son bouchon de nettoyage (le bouchon vissé au bas du coude, sous l'évier), avec
  une chaudière dessous. Sans bouchon, et pour la baignoire, vider le siphon à la poire (repère 9).
 - Boucher chaque siphon vidé de la même façon (repère 10).
-- Autre façon, au lieu du chiffon : verser une tasse d'huile de cuisson dans le siphon vidé (repère 11). L'huile
+- Autre façon, au lieu du chiffon : remplir le coude du siphon vidé avec de l'huile de cuisson (repère 11). L'huile
  épaissit au froid sans gonfler : elle ne fend rien, et tant qu'elle reste dans le coude, elle bouche le passage des
  gaz.
-- Le lave-glace fait le même travail que l'huile et résiste mieux au froid, mais c'est du méthanol : le verser
- seulement dans les siphons et dans le réservoir de la toilette, jamais dans un tuyau où passera de l'eau à boire.
+- {!poison} Le lave-glace fait le même travail que l'huile et résiste mieux au froid, mais c'est du méthanol : le
+ verser seulement dans les siphons et dans le réservoir de la toilette, jamais dans un tuyau où passera de l'eau à
+ boire.
 
 **Ce qu'on perd :** le joint d'eau du siphon, la seule barrière contre les gaz d'égout, ceux de la ville comme ceux de
 la fosse septique du chalet. Le chiffon ralentit les gaz sans les arrêter : il tient quelques semaines, et quand il
@@ -442,11 +446,11 @@ courant : tant que cette conduite est gelée, laisser la pompe débranchée et c
 périssables du réfrigérateur. Après 24 h pour un congélateur à moitié plein, et 48 h pour un plein, couper chaque
 paquet : s'il n'est plus dur au centre, on doit le cuire tout de suite ou le jeter.
 
-**Le verre à la pièce de monnaie.** Faire geler un verre d'eau, poser une pièce de monnaie sur la glace, et laisser le
-verre dans le congélateur ou dans la boîte de viande dehors : il montre s'il y a eu un dégel entre deux ouvertures. La
-pièce reste en surface tant que rien n'a fondu. Elle est prise au milieu du bloc si l'eau a fondu à moitié et regelé,
-et elle est au fond si tout a fondu. On le prépare en cinq minutes, le premier soir. Un thermomètre donne la
-température au moment où on ouvre ; le verre montre ce qui s'est passé depuis la dernière ouverture.
+**Le verre à la pièce de monnaie.** Le premier soir, faire geler un verre d'eau dehors, poser une pièce de monnaie sur
+la glace, et laisser le verre dans le congélateur ou dans la boîte de viande dehors : il montre s'il y a eu un dégel
+entre deux ouvertures. La pièce reste en surface tant que rien n'a fondu. Elle est prise au milieu du bloc si l'eau a
+fondu à moitié et regelé, et elle est au fond si tout a fondu. Un thermomètre donne la température au moment où on
+ouvre ; le verre montre ce qui s'est passé depuis la dernière ouverture.
 
 Sans pièce de monnaie, un verre d'eau posé dans la pièce la plus froide montre si elle descend sous 0 °C : quand une
 pellicule de glace se forme dessus, il faut vidanger tout de suite (étape 23).
@@ -550,12 +554,11 @@ nouvelles. Pour rétablir les communications : ch. 14.
 
 ### Ce qui ne se remplace pas
 
-**La détection du monoxyde de carbone.** Une chandelle brûle normalement dans une pièce chargée de monoxyde : le gaz ne
-prend pas la place de l'oxygène dans l'air, il la prend dans le sang.
+**L'avertisseur de CO.** Il n'y en a pas de version maison, et aucun sens ne le remplace.
 
 **La cheminée.** On peut improviser un poêle : couper un baril, y découper une porte, colmater la fonte. On ne peut pas
 improviser la cheminée : il faut un conduit qui traverse le mur ou le toit sans toucher au bois, et qui monte assez
-haut pour tirer. Une maison sans cheminée n'a pas de chauffage d'urgence (étape 6, « Sans poêle »).
+haut pour tirer. Une maison sans cheminée n'a pas de chauffage d'urgence (étape 7, « Sans poêle »).
 
 ---
 
@@ -580,11 +583,11 @@ courant d'air, dans une maison fermée, le monoxyde de la flamme reste dans la p
 Sur la côte est de la terre de Baffin, les Inuits doublaient l'intérieur de la maison de neige avec des peaux,
 attachées au dôme par de petites cordes. En haut, les peaux faisaient un plafond plat, 60 à 90 cm sous le sommet :
 au-dessus, il restait une couche d'air froid, et la neige du toit ne fondait pas. Sous la doublure, il faisait souvent
-10 à 20 °C ; sans doublure, 2 ou 3 °C au plus (étape 9).
+10 à 20 °C ; sans doublure, 2 ou 3 °C au plus (étape 10).
 
 ### Les tours cellulaires pendant une panne
 
-Une tour cellulaire tient de 2 à 4 h sur des batteries ordinaires, et de 16 à 24 h sur de grosses batteries ; un
-opérateur annonce de 4 à 10 h pour ses tours, entre les batteries et les génératrices. Après les tornades d'Ottawa, en
-septembre 2018, les batteries des tours ont commencé à se vider, des milliers de gens ont perdu le cellulaire, et il a
-fallu apporter des génératrices aux tours (étape 10).
+Sur de grosses batteries, une tour cellulaire tient de 16 à 24 h ; un opérateur annonce de 4 à 10 h pour ses tours,
+entre les batteries et les génératrices. Après les tornades d'Ottawa, en septembre 2018, les batteries des tours ont
+commencé à se vider, des milliers de gens ont perdu le cellulaire, et il a fallu apporter des génératrices aux tours
+(étape 6).

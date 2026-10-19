@@ -524,3 +524,45 @@ commité (de8aac6), `controle.py --avant` (texte de la refonte, 40920d1) donne l
 2 tirets du titre et de la ligne de tome, 33 mots vides à juger, rien n'a disparu). Notes « En plus » : 70, 79, 60 et
 70 mots (sans compter « °C » ni la ponctuation). Aucun renvoi d'un autre chapitre, d'un logigramme, d'une page de danger ni de `placements-tome-1.json` ne
 vise une étape renumérotée (`grep` refait).
+
+## Points réglés après l'édition, 19 octobre 2026
+
+Rédacteur du lot 01-02-03, après l'éditeur (texte d'avant : `bcd05b1`). Rien n'est revérifié à la source de ce qui
+l'était déjà (JP, 19 octobre 2026) ; une source n'est ouverte que pour trancher un point neuf.
+
+### Changé dans le chapitre
+
+| Où | Avant → après | Règle ou source |
+| --- | --- | --- |
+| Étape 9 | « à au moins 6 m du bâtiment » → « à au moins 6 m de tout bâtiment » | `10-sante-canada-generatrice-distance.md` (« toute habitation ou tout bâtiment ») ; page `generatrice` ; même mot aux ch. 2 (étape 9) et 3 (étape 16) |
+
+### Questions de la refonte réglées sans JP
+
+| Question | Réponse | Règle |
+| --- | --- | --- |
+| « Compter les têtes à voix haute » (ancienne étape 1), coupé à la refonte | La coupe tient | CLAUDE.md, « Le lecteur est un parent compétent » : ni supervision ni précaution de bon sens parental |
+| Le chapitre n'a pas de logigramme | Il n'en a pas besoin : la série est une suite dans le temps, sans branche | Plan de match, PAUSE du 15 octobre, point 2 : « son logigramme est rendu si l'urgence se décide en branches » |
+| 4 notes « En plus », sans photo | On en reste à 4 | Cadre : réserve de 4 à 8 ; pas de source nouvelle dans cette passe (JP, 19 octobre) |
+| Formulaire 01-01 | Reste hors du livre | Le chapitre ne demande aucune feuille à remplir (skill `formulaires`) et la bande du haut porte un numéro de téléphone (CLAUDE.md) |
+
+### Points de l'éditeur réglés dans les chapitres voisins du lot
+
+- **Le tri à 4 °C** (étape 20 contre ch. 2, étape 29) : le ch. 2 prend la règle du ch. 1 (voir `suivi/02-redaction.md`).
+- **La chaufferette faite pour l'intérieur** (étape 7 contre ch. 2, étape 10) : le ch. 2 prend la règle des ch. 1 et 3
+  (n'interdire que les appareils faits pour l'extérieur ou le camping).
+- **Les noms des quatre horloges** (ch. 2, étape 26, « (ch. 1) ») : l'attribution fausse sort du ch. 2 ; un seul jeu
+  ou deux, c'est une question à JP.
+- **Le ruban sur le disjoncteur** (étape 10) : rien à faire, ce n'est pas un fait.
+- **Le message avant que les tours lâchent**, signalé ici pour le ch. 3 : fait au ch. 3 (son étape 6).
+
+### Reste à JP
+
+- Sans avertisseur qui répond, n'allumer que le poêle (étape 2) : la lampe à graisse du ch. 3 (section 7) s'allume
+  pourtant dans la pièce du poêle. Exception ou pas.
+- Les planches proposées 01-02 (verre témoin de dégel) et 01-03 (congélateur arrêté rempli et couvert).
+- Un seul jeu de quatre horloges pour les ch. 1 et 2, ou deux.
+
+### controle.py
+
+5 631 → 5 632 mots ; 2 tirets (titre et ligne de tome) ; 0 « § », mot banni, tournure, maxime ou pronominal ;
+35 mots vides, ceux d'avant ; rien n'a disparu.

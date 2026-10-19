@@ -585,7 +585,7 @@ roue sous tension. Les deux ne se remplacent pas l'une l'autre.
  même : c'est de ranger la scie, de prendre le godendard et la hache — qui, eux, s'entretiennent
  avec tout ce qui précède — et de ne ressortir la scie qu'avec des limes du bon diamètre. C'est
  pour ça que ces limes-là montent au chalet plutôt que de rester à la maison, et qu'elles figurent
- au premier palier du chapitre d'achat (ch. 00b) : trois morceaux d'acier de rien du tout dont
+ au deuxième palier du chapitre d'achat (ch. 00b) : trois morceaux d'acier de rien du tout dont
  dépend tout l'hiver de bois. Six limes rondes coûtent moins cher qu'un plein de génératrice et
  pèsent moins qu'un litre d'huile.
 - **Le froid.** Toute cette variante se fait en dedans, l'acier ramené à la température de la

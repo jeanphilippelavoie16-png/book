@@ -427,3 +427,47 @@ dans cette fiche et dans `sources/09-refonte-et-en-plus-2026-10-19.md` ; `contro
 tableau plus haut (7 060 mots, 2 tirets au titre et à la ligne de tome, 0 « § », 0 tournure, 19 mots vides jugés,
 2 redites gardées). La note de la babiche fait 80 mots (un compte aux espaces en donne 82, parce qu'il prend le « ; »
 et le « : » isolés pour des mots).
+
+## Points réglés après l'édition, 19 octobre 2026
+
+Les faits que l'éditeur a signalés sans les changer (`suivi/09-edition.md`), et la contradiction trouvée en les
+réglant (le savon). Aucune source nouvelle ouverte : chaque correction s'appuie sur une source déjà au dossier, sur un
+autre chapitre qui porte sa provenance, ou sur une règle de `CLAUDE.md`.
+
+| Où | Avant | Après | Ce qui tranche |
+| --- | --- | --- | --- |
+| Étape 15 | « stabilisant » (×3) | « stabilisateur » | Le mot du ch. 15 (étape 25) et du ch. 00b (palier 3) ; skill `ecriture`, règle 6 |
+| Étape 16 | « périmée un an après sa date d'achat » | « un an après sa date de fabrication, lue dans le code imprimé sur le contenant (ch. 10, étape 18) » | Ch. 10, étape 18 et section 5 ; ch. 00b, 1.B |
+| Étape 17 | « on voit la poudre blanche aux bornes quand l'appareil est déjà perdu » | « Quand on voit la poudre blanche aux bornes, le liquide est déjà sorti ; l'appareil est perdu si les contacts sont rongés jusqu'au métal (section 6) » | Contradiction interne : la section 6 ne juge l'appareil perdu que si les contacts sont rongés |
+| Étape 22 et section 5, « En continu » | un par étage, sous-sol compris, et un par pièce où l'on dort la porte fermée | + un dans la pièce du poêle, à au moins 2 m de lui | `sources/08-quebec-avertisseurs-monoxyde-carbone.md` (2 m) ; ch. 1, étape 2 ; ch. 3, étape 5 ; ch. 00b, 1.A ; le ch. 8, section 5, est aligné |
+| Section 5, germination | « Mai, avant les semis » ; « 10 graines… comptées à 10 jours » ; « 5 sur 10… 2 sur 10 » | « L'hiver, avant les semis » (ligne remontée avant avril) ; « 20 graines… comptées quand il n'en lève plus depuis plusieurs jours (ch. 100) » ; « 10 sur 20… 4 sur 20 » | Ch. 100, étapes 44 à 47 et section 5 (chaque hiver ; 20 graines ; sous 20 à 25 %, remplacer le lot) ; ch. 00b, palier 3 (test de 20 graines). L'invariant « 10 jours » (×2) sort : voulu |
+| Section 5, ramonage | « un hérisson d'acier » | « une brosse de ramonage » | Le mot du ch. 83 (Matériel) et du ch. 00b (2.A) |
+| Section 6, graines | « au test des 10 jours » | « au test de germination » | Suit la ligne précédente |
+| Section 7, la romaine | rien sur l'équilibre à vide | « À vide, le bras long penche : attacher une pierre au bout court, près de la boîte vide, jusqu'à ce que le bâton soit à niveau, et la laisser en place pendant les pesées. La pierre enlève un peu de sensibilité au bâton, ce qui ne compte pas quand on pèse des kilos. Le rapport des deux bras multiplie alors… » | Mécanique du levier, aucun chiffre nouveau : pivot décentré, le bras long pèse plus et penche ; sans remise à niveau, le rapport 3 pour 1 ne vaut pas. La phrase sur la sensibilité dit pourquoi la romaine fait exception au « jamais en ajoutant du poids » du fléau |
+| Section 7, le thermomètre | « au bord de la mer » | « au niveau de la mer » | Le mot des ch. 3 et 8 |
+| Section 7, le sel du fleuve | « 27 à 29 g de sel » ; « la faire évaporer et récolter le dépôt » ; « il faut le bois d'une évaporation complète : plusieurs brassées de bois par kilo » | « 27 à 29 g de sels » ; « la faire bouillir et récolter les cristaux à mesure qu'ils se forment. Arrêter avant la fin : le fond de liquide qui reste, amer, porte les sels de magnésium et de calcium, et on le jette (ch. 67) » ; « chaque litre puisé doit partir en vapeur, au bois » | Ch. 67, « Tirer du sel du fleuve » (troisième étage ; « dont le sel de table n'est que la plus grosse part ») ; ch. 00b, C. « Plusieurs brassées » n'avait pas de source : coupé, la phrase tient sans lui |
+| Section 7, le savon | « tant qu'on n'a pas de moyen de mesurer la force de la lessive, on garde ce savon pour le linge et les planchers (ch. 112) » | « le test de l'œuf dit seulement si elle est trop faible ou trop forte (ch. 112)… Pour le reconnaître, se laver une main avec, de l'eau à portée : s'il chauffe, démange ou laisse la peau glissante après un bon rinçage, il est caustique. On le recuit alors avec du gras, sans le jeter (ch. 112) » | Ch. 112, étapes 37 et 40 : la barre caustique « n'est pas bonne pour le linge » et « se recuit avec du gras ». Le chapitre citait le ch. 112 pour le contraire. Test de l'œuf : ch. 112, l. 475 ; ch. 00b, E (`sources/00b-child-1832-frugal-housewife-lessive-oeuf.md`). Le fait propre du pictogramme `chimie` change (inventaire rendu à l'intégrateur) |
+| Section 7, les joints | « du cuir de botte, une semelle ou une vieille chambre à air (repère 5) » | « du cuir de botte ou une vieille semelle de cuir (repère 5) » | La sous-section fait un joint de cuir gras, trempé dans le suif ; une chambre à air est du caoutchouc. Planche 09-08, repère 5, à corriger (rendu à l'orchestrateur) |
+| Section 7, les électrodes | « **Les électrodes, avec deux batteries.** Deux batteries… donnent 24 V continus, assez pour tirer un arc » | « **Les électrodes, avec des batteries d'auto.** … Avec deux (24 V), l'arc s'amorce mal et ne tient que très court ; avec trois (36 V), on a la tension d'un arc de travail » | `sources/00b-us-army-tc9-237-tension-a-vide-et-arc.md` (ch. 00b, D) ; ch. 107, A. Le ch. 8 est aligné |
+| « Ce qui ne se remplace pas », la pile | « Garder trois formats de piles plutôt que six » | « Choisir les appareils pour garder le moins de formats de piles possible » | « Trois plutôt que six » n'avait pas de source, et le ch. 00b disait « un seul format » : la consigne tient sans les chiffres. Le ch. 00b, 1.F, dit maintenant la même chose |
+
+**Gardé, avec la règle qui le garde**
+
+- Étape 23, « Le dépôt ne remplit pas une bouteille… qui n'a pas été requalifiée » (l'éditeur la renvoyait à JP).
+  `CLAUDE.md`, exception tranchée par JP le 24 septembre : « la préparation faite pendant que tout marche reste ». La
+  phrase ne cite aucune loi ; elle sert au calcul de couverture avant la fermeture du chemin (section 6 : compter la
+  bouteille comme perdue), et le mécanisme est dit (la rouille amincit la paroi au pied). Au ch. 87, la même règle a
+  été coupée le 23 septembre parce que ce chapitre parle de l'usage au chalet, où personne ne remplit la bouteille.
+- « Le godendard fait donc partie du stock du ch. 00b » : le ch. 00b n'a pas la ligne. C'est la question pour JP sur
+  les lignes manquantes du ch. 00b. Si la ligne n'entre pas, la phrase devient « Le godendard fait donc partie du
+  stock. »
+- Les redites que signale le script (« sans balance au 0,1 g », « on fait seulement des salaisons courtes »,
+  « section 7, Le gras, dans l'animal ») : renvois voulus, déjà jugés.
+- La note « Combien de temps on garde une pile » donne le même fait que la note du ch. 6 : la règle d'une seule
+  place vaut dans un chapitre. Ici, la note sert l'étape 5, et le chapitre garde ses quatre notes (le minimum).
+
+**Rien pour JP** dans ce chapitre (le godendard est dans la question du ch. 00b).
+
+**controle.py --avant** (contre `HEAD`) : 7 042 mots avant, 7 217 après ; 2 tirets (titre et ligne de tome) ; 0 « § »,
+0 tournure, 0 pronominal, 0 maxime ; « au niveau de la mer » gardé ; invariant « 10 jours » (×2) sorti, voulu (ligne
+de germination). L'ancre 09-08 (« **Les joints, dans le cuir gras.** ») n'a pas bougé. Fins de ligne LF.

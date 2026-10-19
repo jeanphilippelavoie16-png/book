@@ -113,10 +113,10 @@ déjà le chemin, rester au bâtiment (étape 21).
  le départ vide la pression de l'aqueduc. Le baril en hauteur, lui, peut couler pendant qu'on est parti
  (étape 7).
 15. **En sortant, couper le courant au disjoncteur principal et afficher PARTIS sur la porte.** Couper le
- courant en dernier, une fois l'arrosage fini : la pompe du puits en a besoin. Un panneau sous tension
- dans une maison brûlée et mouillée blesse la personne qui revient. Écrire la feuille au marqueur et la
- glisser sous plastique : PARTIS, les noms, le nombre de personnes, la date, l'heure, la destination et
- le chemin pris (ch. 2, étape 9). Au chalet, en laisser une deuxième à l'intérieur de la porte.
+ courant en dernier, une fois l'arrosage fini : la pompe du puits en a besoin. Écrire la feuille au
+ marqueur et la glisser sous plastique : PARTIS, les noms, le nombre de personnes, la date, l'heure, la
+ destination et le chemin pris (ch. 2, étape 23). Au chalet, en laisser une deuxième à l'intérieur de la
+ porte.
 16. **Envoyer un message texte qui dit où on va.** Un message texte ou un courriel encombre moins le réseau
  qu'un appel : il peut passer quand les appels saturent le réseau, ou quand le service téléphonique est
  interrompu.
@@ -196,11 +196,12 @@ trouve à la chaleur : passer le dos de la main au ras du sol, puis la glisser d
  garder tout le monde à l'intérieur.
  Les masques N95 ne sont pas faits pour le visage d'un enfant et ne le protègent pas : pour le protéger,
  il faut la pièce d'air propre (étapes 32 et 35), ou partir.
-34. **Quand la maison devient trop chaude, s'occuper de la chaleur avant la fumée.** Dans la pièce des
- enfants, le risque monte au-dessus de 26 °C et devient dangereux au-dessus de 31 °C : ouvrir les
- fenêtres, même s'il entre de la fumée. Au-dessus de 35 °C, un ventilateur ne refroidit plus le corps, il souffle de
- l'air chaud. Si on ne peut ni rafraîchir la pièce ni ouvrir, partir vers un air plus frais et plus
- propre.
+34. **Quand la maison devient trop chaude, s'occuper de la chaleur avant la fumée.** Dès que la pièce des
+ enfants dépasse 26 °C et que l'air du dehors est plus frais, ouvrir les fenêtres, même s'il entre de la
+ fumée : à partir de là, la chaleur devient un risque pour un enfant. Au-dessus de 31 °C, la maison peut
+ devenir dangereuse pour tout le monde. Au-dessus de 35 °C, un ventilateur ne refroidit plus le corps, il
+ souffle de l'air chaud. Si on ne peut ni rafraîchir la pièce ni ouvrir, partir vers un air plus frais et
+ plus propre.
 35. **Au chalet, l'été, faire une pièce d'air propre pour les enfants** avec un ventilateur et un filtre
  (section 7, planche 11-04). Au printemps et à l'automne, quand le poêle chauffe, on ne peut pas fermer le
  chalet et le chauffer en même temps (ch. 2) : quand on sent la fumée dans le chalet, c'est une raison
@@ -287,9 +288,9 @@ sèches.
 53. **De 1,5 à 10 m, sortir ce qui brûle** : pas de corde de bois, pas de paillis, pas de débris de bois.
  Mettre les remorques, les roulottes et les remises au-delà de 10 m.
 54. **Mettre le bois de chauffage, les matériaux et la bouteille de propane à plus de 10 m de tout
- bâtiment**, et dégager 3 m de végétation autour du propane. Au chalet, faire deux tas : un petit tas de
- service près de la porte pour l'hiver, qu'on éloigne quand un feu est déclaré (étape 8), et le reste à
- plus de 10 m.
+ bâtiment**, et dégager 3 m de végétation autour du propane. Au chalet, faire deux tas : près de la
+ porte, un petit tas pour les jours où le poêle chauffe, qu'on éloigne quand un feu est déclaré
+ (étape 8) ; le reste, à plus de 10 m.
 55. **De 10 à 30 m, éclaircir et élaguer** : espacer les conifères pour laisser au moins 3 m entre les
  cimes, et couper les branches jusqu'à 2 m du sol (ch. 106). L'épinette noire garde ses branches mortes
  jusqu'au sol, et le feu monte par elles jusqu'aux cimes : couper ces branches l'empêche de monter, et
@@ -324,13 +325,13 @@ La saison de feu va du printemps à la fin de l'automne.
 | Chaque semaine de la saison | Le carburant | Plein, et au moins **2 fois** ce que prend l'aller (ch. 15) | Faire le plein avant toute autre tâche |
 | Chaque printemps | Les 1,5 m autour des murs | Rien qui brûle, jusqu'au sol minéral | Dégager avant la saison |
 | Chaque printemps et chaque automne | Gouttières, noues, dessous des galeries | Aucune aiguille, aucune feuille | Vider |
-| Chaque printemps | Bois de chauffage, matériaux, propane | À plus de **10 m** de tout bâtiment | Déplacer ; garder un seul petit tas de service |
+| Chaque printemps | Bois de chauffage, matériaux, propane | À plus de **10 m** de tout bâtiment | Déplacer ; garder seulement le petit tas près de la porte (étape 54) |
 | Chaque printemps | Végétation autour de la bouteille de propane | **3 m** dégagés | Faucher et râteler |
 | Chaque année | La zone de 10 à 30 m | Au moins **3 m** entre les cimes des conifères, branches coupées jusqu'à **2 m** du sol | Reprendre l'éclaircie |
 | Chaque année | Les deux chemins de sortie | Le trajet fait sur les deux, montre en main | Un seul chemin praticable : c'est une raison de partir dès qu'un feu est déclaré (étape 6) |
 | Chaque année, en mai | Les raisons de partir | Écrites sur la porte du chalet et sur celle du frigo | Les écrire avant la saison (étape 47) |
 | Épisode de fumée, maison | Les particules fines | Fermer dès **30 µg/m³** ; tout le monde à l'intérieur au-dessus de **250 µg/m³** | Fermer la maison, mettre l'air en recirculation, faire tourner le purificateur dans la chambre des enfants |
-| Épisode de fumée, maison ou chalet | La température de la pièce des enfants | Sous **26 °C** ; danger au-dessus de **31 °C** | Ouvrir les fenêtres, même s'il entre de la fumée (étape 34) |
+| Épisode de fumée, maison ou chalet | La température de la pièce des enfants | Sous **26 °C** ; danger au-dessus de **31 °C** | Si l'air du dehors est plus frais, ouvrir les fenêtres, même s'il entre de la fumée (étape 34) |
 | Épisode de fumée, chalet | L'odeur de fumée à l'intérieur, portes et fenêtres fermées | Aucune, ou les enfants dans une pièce d'air propre | Partir (étape 6) ; la nuit, étape 11 |
 | Toutes les 12 h, feu dans le secteur | La décision de rester ou de partir, reprise à neuf (ch. 2) | Deux fois par jour, et chaque fois que le vent tourne | La reprendre (étape 27) |
 | Au retour | Le tour à pied, de jour, avant d'entrer | Aucun fil au sol, aucune odeur de gaz, aucun point chaud | Ne pas entrer (étape 39) |
@@ -467,7 +468,7 @@ purificateur à filtre HEPA, mais beaucoup mieux que rien (planche 11-04).
 - **Choisir une seule pièce.** Prendre la plus petite et la mieux fermée, sans porte extérieure, et sans
  poêle si possible. Agrafer du polythène sur le cadre de la fenêtre (repère 10), rouler une couverture au
  bas de la porte (repère 11), fermer la clé d'air du poêle. L'été, on n'a pas à chauffer, et la pièce
- peut rester fermée (étape 35). Au-dessus de 31 °C dans la pièce, l'ouvrir (étape 34).
+ peut rester fermée (étape 35). Au-dessus de 26 °C dans la pièce, l'ouvrir (étape 34).
 - **Un ventilateur et un filtre.** Fixer au ruban gommé un filtre de fournaise fin contre la grille d'un
  ventilateur-boîte, la flèche du filtre tournée vers le ventilateur (repère 8). Un seul filtre traite une
  pièce d'environ 10 m². Un carton posé sur la face qui souffle, percé au diamètre des pales, augmente de

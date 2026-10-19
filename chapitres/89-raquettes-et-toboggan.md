@@ -3,8 +3,8 @@
 *Tome 5 — La forêt, le jardin et le chalet*
 
 **Lieu : Chalet.** Le bouleau, l'épinette, la peau et la neige profonde sont là-bas. Au village,
-les rues se déneigent et on marche ; au chalet, quand le moteur est mort (ch. 15, « Quand il n'y a
-plus de moteur du tout »), la raquette et le toboggan sont le seul déplacement qui reste. Le
+les rues se déneigent et on marche ; au chalet, quand le moteur est mort (ch. 15, section 7, « Quand il n'y
+a plus de moteur »), la raquette et le toboggan sont le seul déplacement qui reste. Le
 travail se fait à l'automne : une paire lacée demande une semaine, et en février il est trop tard
 pour commencer par une peau.
 
@@ -393,7 +393,7 @@ pour tirer les deux planches du tronc.
     filer. Pente en travers : ceux qui tiennent restent **au-dessus** du toboggan, le plus loin que la
     corde le permet. Très raide : on le descend au bout d'une longue corde. En descente, des
     brancards rigides valent mieux qu'une corde : une corde laisse la charge frapper les jambes
-    (ch. 15).
+    (ch. 16, étape 8).
 65. **En file, celui qui ouvre la trace (étape 42) tire peu ou rien** ; les charges lourdes suivent
     sur la trace déjà tapée.
 
@@ -523,7 +523,7 @@ d'environ **30 cm** au plus large. Ligaturer deux traverses en travers du milieu
 pied porte sur l'une, le talon sur l'autre. Tendre de la corde en diagonale d'un côté à l'autre du
 cadre, en croisillons, et nouer deux cordes à chaque traverse pour attacher la botte. Deux
 branches d'épinette noire pliées en boucle et ligaturées sous la botte font la même chose en plus
-grossier (ch. 15).
+grossier.
 
 **La raquette de trois perches.** Celle qui se fait sans rien cintrer. Pour chaque raquette, trois
 perches **aussi longues que la personne est grande**, grosses comme le pouce au gros bout et comme
@@ -686,8 +686,8 @@ trous et une ligature, comme à l'étape 50.
   on ouvre le paquet dès l'arrivée. Un quartier encore chaud roulé dans sa peau et traîné des heures
   garde sa chaleur au cœur du cuissot, et le 7 °C en 24 heures est manqué (ch. 61, §3 et §9). Le
   prix : une peau traînée ne fait plus un bon cuir (ch. 61, ch. 102).
-- **Le capot, la tôle roulée, les deux skis, la bâche entre deux perches, la porte** : ch. 15 et
-  ch. 26.
+- **Le capot, la tôle roulée, les deux skis, la bâche entre deux perches, la porte** : ch. 16,
+  section 7, et ch. 26.
 
 ### Tirer sans harnais
 
@@ -697,7 +697,7 @@ double de la corde, répartit la traction sur le haut du corps. **Sur la glace**
 une boucle fermée autour du torse et ne tombe pas : la corde se tient à la main ou se pose sur une
 seule épaule (§8, point 2). Une corde mince qui scie l'épaule se double d'une mitaine repliée. Pour
 un blessé ou une charge lourde en descente, deux perches liées aux coins du toboggan font des
-brancards qui empêchent la charge de rattraper celui qui tire (ch. 15) ; sur la glace, ils se
+brancards qui empêchent la charge de rattraper celui qui tire (ch. 16, étape 8) ; sur la glace, ils se
 tiennent à la main et ne se lient pas à la ceinture.
 
 ### Réparer sur la piste
