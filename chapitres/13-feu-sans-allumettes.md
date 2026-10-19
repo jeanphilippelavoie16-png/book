@@ -62,17 +62,17 @@ ou une braise qu'on a gardée, aussi longtemps qu'il reste de l'amadou sec.
  la pile ou avec deux fils, et on peut le faire sans enlever les mitaines.
  - Sinon : allumer au ferrocérium (étapes 14 à 17), ou au briquet s'il a repris. Ces deux façons demandent
  des doigts qui sentent ce qu'ils tiennent.
- - Sans aucun des trois : section 7.
+ - S'il n'y a ni pile, ni ferrocérium, ni briquet : section 7.
 
  Les doigts perdent leur adresse quand la peau des mains descend sous 16 °C. Sans thermomètre, le repère
- est la douleur : les doigts commencent à faire mal au froid vers 15 °C de peau, et c'est aussi là qu'ils
- s'engourdissent et que les gestes deviennent lents et imprécis.
+ est la douleur : les doigts commencent à faire mal au froid quand la peau descend vers 15 °C, et c'est
+ aussi là qu'ils s'engourdissent et que les gestes deviennent lents et imprécis.
 6. **Enlever les mitaines seulement pour le geste fin** (effilocher l'amadou, tenir la tige et le couteau), et
  les remettre dès que le nid flambe.
 7. {!froid} **Après 10 minutes à mains nues sans feu, remettre les mitaines et réchauffer les mains sous les
  aisselles** avant d'essayer encore, pour que les mains retrouvent leur adresse. Une personne qui se refroidit
- continue d'essayer d'allumer, avec assurance, sans voir qu'elle doit arrêter : si on est deux, l'autre adulte
- doit lui faire arrêter l'essai au bout de 10 minutes.
+ continue d'essayer d'allumer, sûre d'elle, sans voir qu'elle doit arrêter : si on est deux, l'autre adulte
+ doit la faire arrêter au bout de 10 minutes.
 
 ### Monter le feu avant la première étincelle
 
