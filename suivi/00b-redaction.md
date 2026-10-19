@@ -691,3 +691,13 @@ Corrections du rédacteur sur les points du vérificateur de la passe « décisi
 | Décision 4, hors décision : CLAUDE.md | Tableau « Les deux lieux », case Réserves de la maison | La case remise au texte de JP d'avant la passe : « Le rangement et le congélateur ». La décision ne visait que la case du chalet ; la ligne datée sous le tableau (« la maison garde la trousse de 72 h et le congélateur ») reste | Correction proposée par le vérificateur (« Le rangement de ce qui monte au chalet, la trousse de 72 h et le congélateur ») non écrite : un agent ne met pas de nouveau texte dans CLAUDE.md ; on remet celui de JP. À lui de dire s'il veut la formule longue |
 
 Contrôle : `controle.py --avant` (HEAD) : 17 561 → 17 563 mots ; 4 tirets, ceux d'avant (titres des paliers) ; rien n'a disparu. Fins de ligne LF.
+
+## Baguettes de brasage et disques (JP, 19 octobre 2026 : « oui »)
+
+- Palier 4, nouvelle ligne après le poste à souder : baguettes de brasage sans cadmium et leur fondant (Chalet). Faits
+  repris du ch. 107 (fumées de cadmium mortelles, premiers signes 4 à 10 h après, comme une grippe ; laiton et borax
+  quand on n'a pas de baguettes), sources du ch. 107.
+- Palier 4, ligne du touret et de la meuleuse : les disques à meuler et à tronçonner, gardés au sec (ch. 108, l. 113 :
+  le disque qui a bu d'un côté tourne déséquilibré et éclate). Renvois 107 et 108 ajoutés.
+- À régler à la grande passe : le ch. 105 dit que le touret et la meuleuse restent à la maison (Hydro), la ligne du 00b
+  dit Chalet.
