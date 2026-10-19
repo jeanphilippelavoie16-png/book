@@ -619,3 +619,19 @@ l'inventaire des dangers.
 niveau de la mer » gardé (sens propre) ; 48 mots vides (le nouveau, « tout de suite » de l'étape 6, porte le sens) ;
 3 redites, celles d'avant ; disparu : « 4 h » (le 2 à 4 h de la note, dit à l'étape 6 en « 2 à 4 heures ») ; ancres
 introuvables 03-08, 03-09, 03-10 : `placements-tome-1.json` n'a pas encore reçu les ancres (rendues).
+
+## Décisions de JP, 19 octobre 2026
+
+Rédacteur de la passe « décisions de JP » (les douze réponses de JP du 19 octobre ; le libellé des décisions est dans
+`_reprise/scratchpad/tome1-final/decisions-jp.js`). Aucune recherche refaite sur ce qui était déjà vérifié ; texte d'avant
+cette passe : commit `f515e01`.
+
+| Décision | Où | Ce qui a changé | Source ou règle |
+| --- | --- | --- | --- |
+| 1. Seule exception à « que le poêle » sans avertisseur : la lampe à graisse | Étape 5, dernier tiret | Ajouté : « Seule exception : la lampe à graisse (section 7, « L'éclairage »), qu'on allume seulement dans la pièce du poêle et qu'on éteint avant de dormir. Ne pas allumer de chaufferette ni de chandelle. » La ligne `{!co}` de la section 7 (« Allumer la lampe seulement dans la pièce du poêle, où la cheminée tire l'air, et l'éteindre avant de dormir ») reste : elle porte le mécanisme, là où on fait la lampe. Redite signalée par le script (« seulement dans la pièce du poêle »), jugée : la décision demande la règle à l'étape 5 | Décision 1 |
+| 6. Renvoi au chapitre d'achat | Étape 26 | Rien à changer : le clapet antiretour et la batterie de secours de la pompe de puisard ont maintenant leur ligne au ch. 00b, palier 3 | Décision 6 |
+| Logigramme 03 | `images/logigrammes/03-panne-hydro.json` | Le message à un proche (étape 6) passe avant la question du poêle, dans une boîte à lui (`msg`), commune aux deux branches ; il porte la pastille « 6 h » de la série « Le courant ne revient pas » (retirée de fA et fB). Nœud « nuit » : « Envoyer un message texte à un proche, ajouter une couverture et une tuque aux enfants, et les laisser dormir. » q1 : source « étape 7 » ; fA : « Habiller tout le monde en couches et monter un abri pour la nuit », renvoi « ch. 3, étapes 7 à 10 » ; fB : renvoi « ch. 3, étape 7 », source « étape 7, « Sans poêle » ». Rangs g5 à g7 décalés. Rendu et version du livre : 0 erreur, 0 avis | Logigrammes ; chapeau de la série « Le courant ne revient pas » |
+
+`controle.py --avant` (f515e01) : 8 471 → 8 505 mots ; 2 tirets (titre et ligne de tome) ; 0 « § », 0 mot banni,
+0 tournure, 0 maxime, 0 pronominal ; vocabulaire d'IA et 48 mots vides, ceux d'avant ; 4 redites (la nouvelle est jugée
+ci-dessus) ; rien n'a disparu. Aucune ancre touchée. Fins de ligne LF.

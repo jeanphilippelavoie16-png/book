@@ -1,4 +1,4 @@
-// Planche 12-04 — le cône de deux bâches (ch. 12, section 5H).
+// Planche 12-04. Le cône de deux bâches (ch. 12, section 5H).
 // Côté porte : la bâche du bas autour de la base, la bâche du haut par-dessus, la porte lestée
 // d'une bille, les perches cachées sous la toile. En coupe dans l'axe du vent : la base renchaussée
 // côté vent, l'air qui entre en bas côté porte, le feu sur ses billes vertes, la fumée qui sort par
@@ -7,6 +7,7 @@
 // Le joint : le haut par-dessus, l'eau coule dehors ; dans l'autre ordre, il verse dans la tente.
 // Seule cote : 30 à 50 cm (5H, point 5). Proportions du cône : perches de 3,5 à 4,5 m (point 1),
 // base au plus large des anciennes tentes (point 3), pour qu'un adulte s'y couche.
+// L'eau liquide en bleu, h.a.hachure('eau') : la pluie et les gouttes qui tombent dans la tente (JP, 19 octobre 2026).
 
 module.exports = (h) => {
   const f = v => Math.round(v * 10) / 10;
@@ -99,7 +100,7 @@ module.exports = (h) => {
     const JW = 0.22 * 222 * k;
     return { Ls, Pt, JB: Ls / 2 - JW / 2, JH: Ls / 2 + JW / 2, W: 6 * k, O1: 6 * k + 1.5, T: 4.5, O2: 6 * k + 9, D: 7, k };
   };
-  const goutte = (x, y) => h.path(`M ${f(x)} ${f(y - 5)} Q ${f(x + 3)} ${f(y + 1)} ${f(x)} ${f(y + 2.2)} Q ${f(x - 3)} ${f(y + 1)} ${f(x)} ${f(y - 5)} Z`, h.a.plein);
+  const goutte = (x, y) => h.path(`M ${f(x)} ${f(y - 5)} Q ${f(x + 3)} ${f(y + 1)} ${f(x)} ${f(y + 2.2)} Q ${f(x - 3)} ${f(y + 1)} ${f(x)} ${f(y - 5)} Z`, h.a.hachure('eau', 'fin'));
   // Brisure : le dessin est coupé là, perche et bâches comprises.
   const brisure = (g, s, o0, o1) => { const o = []; const N = 8; for (let i = 0; i <= N; i++) o.push(g.Pt(s + (i % 2 ? 3 : -3), o0 + (o1 - o0) * i / N)); return o; };
   const perchePleine = (g) => {
@@ -273,7 +274,7 @@ module.exports = (h) => {
           const rx = dO * TA, yE = yQ + dO, yc = Math.max(...casse.map(p => p[1])) + 14;
           for (const sx of [-1, 1]) out.push(h.ligne(cx + sx * rx, yE + 3, cx + sx * rx, yc + 6, h.a.detail));
           out.push(h.rect(cx - rx - 4, yc - 4, 2 * rx + 8, 24, 'fill="#ffffff" stroke="none"'));
-          out.push(h.cote(cx - rx, yc, cx + rx, yc, '300–500', { cote: 'dessous' }));
+          out.push(h.cote(cx - rx, yc, cx + rx, yc, '30 à 50 cm', { cote: 'dessous' }));
           return out.join('\n');
         },
         renvois: z => {
@@ -334,6 +335,6 @@ module.exports = (h) => {
         renvois: () => [],
       },
     },
-    danger: 'Danger — sommet grand ouvert, flamme claire et quelqu’un d’éveillé toute la nuit. Qu’il en manque un, et c’est un abri fermé avec un feu dedans.',
+    danger: 'Sommet grand ouvert, flamme claire et quelqu’un d’éveillé toute la nuit. Qu’il en manque un, et c’est un abri fermé avec un feu dedans.',
   };
 };

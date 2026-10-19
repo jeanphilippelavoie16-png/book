@@ -1,4 +1,4 @@
-// Planche 15-01. Sortir d'un trou dans la glace (ch. 15, étape 34 ; matériel : les pics à glace).
+// Planche 15-01. Sortir d'un trou dans la glace (ch. 15, étapes 3 à 6 ; matériel : les pics à glace).
 // Refaite au complet le 18 octobre 2026 : les corps par h.formes.corps (de profil, visage de la bibliothèque des
 // têtes), la main du gros plan par h.formes.mainStock (poing-manche-debout, objet: false, le pic posé sur son axe).
 // Rien n'est dessiné à la main pour un corps, une main ou une tête. Les faits du geste :
@@ -99,8 +99,8 @@ module.exports = (h) => {
   // ── 8 : vu de dessus, sorti, rouler loin du trou vers ses traces, sans se relever ──
   // Le trou en haut, plus long que le corps (l'eau, le bord cassé, des fissures qui partent du bord, deux morceaux qui
   // flottent) ; la personne couchée (le corps simple vu de dessus, pose couche-face, couché par la planche, la tête à
-  // gauche ; pieds 'nu' : à cette taille, la botte vue de dessus fait un crochet) en trois positions, la première
-  // collée au bord du trou, les deux plus anciennes en gris, la dernière en blanc. Le corps roule de côté : il avance
+  // gauche ; pieds 'nu' : à cette taille, la botte vue de dessus fait un crochet) en cinq positions, la première
+  // collée au bord du trou, les quatre plus anciennes en gris, la dernière en blanc. Le corps roule de côté : il avance
   // en travers de sa longueur, vers le bas, le long des traces de bottes de l'aller qui montent jusqu'au bord du trou.
   const SD = 0.052;
   const vDessus = z => {
@@ -235,7 +235,7 @@ module.exports = (h) => {
   return {
     ref: '15-01',
     titre: 'Sortir d’un trou dans la glace',
-    desc: 'Six vues, dans l’ordre des gestes. Avant d’aller sur la glace, la paire de pics, la pointe de l’une rentrée dans l’autre, pend au cou par-dessus le manteau, au milieu de la poitrine. Dans l’eau, on se tourne vers le côté d’où l’on vient et on pose les avant-bras à plat sur la glace. De près, le pic tenu au poing, la pointe vers la glace. On plante les pics près du bord, on bat des jambes jusqu’à ce que le corps soit à l’horizontale, on tire en glissant sur le ventre et on replante plus loin. Vu de dessus, sorti, on roule loin du trou vers ses traces, sans se relever : trois positions successives, la flèche vers les traces de bottes de l’aller.',
+    desc: 'Six vues, dans l’ordre des gestes. Avant d’aller sur la glace, la paire de pics, la pointe de l’une rentrée dans l’autre, pend au cou par-dessus le manteau, au milieu de la poitrine. Dans l’eau, on se tourne vers le côté d’où l’on vient et on pose les avant-bras à plat sur la glace. De près, le pic tenu au poing, la pointe vers la glace. On plante les pics près du bord, on bat des jambes jusqu’à ce que le corps soit à l’horizontale, on tire en glissant sur le ventre et on replante plus loin. Vu de dessus, sorti, on roule loin du trou vers ses traces, sans se relever : cinq positions successives, un quart de tour chacune, la flèche vers les traces de bottes de l’aller.',
     format: 'pleine',
     disposition: [['porter', 'eau'], ['poing', 'jambes'], ['tirer', 'dessus']],
     hauteurs: [246, 170, 234],

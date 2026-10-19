@@ -566,3 +566,19 @@ l'était déjà (JP, 19 octobre 2026) ; une source n'est ouverte que pour tranch
 
 5 631 → 5 632 mots ; 2 tirets (titre et ligne de tome) ; 0 « § », mot banni, tournure, maxime ou pronominal ;
 35 mots vides, ceux d'avant ; rien n'a disparu.
+
+## Décisions de JP, 19 octobre 2026
+
+Rédacteur de la passe « décisions de JP » (les douze réponses de JP du 19 octobre ; le libellé des décisions est dans
+`_reprise/scratchpad/tome1-final/decisions-jp.js`). Aucune recherche refaite sur ce qui était déjà vérifié ; texte d'avant
+cette passe : commit `f515e01`.
+
+| Décision | Où | Ce qui a changé | Source ou règle |
+| --- | --- | --- | --- |
+| 1. Sans avertisseur de CO qui répond, on ne brûle que le poêle raccordé ; seule exception, la lampe à graisse | Étape 2, quatrième tiret | Ajouté : « Seule exception : la lampe à graisse (ch. 3, section 7), qu'on allume seulement dans la pièce du poêle et qu'on éteint avant de dormir. Ne pas allumer de chaufferette ni de chandelle. » | Décision 1 ; ch. 3, section 7, « L'éclairage » (la cheminée tire l'air de la pièce du poêle) |
+| 3. Les quatre horloges | — | Rien : le ch. 1 garde ses quatre horloges, qui ne sont pas les quatre mesures du ch. 2 | Décision 3 |
+
+La section 7, « Ce qu'on perd » (« En plus de n'allumer que le poêle (étape 2) ») et la ligne de la section 5 (« N'allumer
+dans la maison que le poêle raccordé à sa cheminée (étape 2) ») renvoient à l'étape 2, qui porte l'exception : pas
+touchées. `controle.py --avant` (f515e01) : 5 683 → 5 716 mots ; 2 tirets (titre et ligne de tome) ; 0 « § », 0 mot
+banni, 0 tournure, 0 maxime, 0 pronominal ; 35 mots vides, ceux d'avant ; rien n'a disparu. Fins de ligne LF.

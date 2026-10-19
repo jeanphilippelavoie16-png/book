@@ -59,9 +59,9 @@ règles du groupe de chasse, et sortir un blessé du bois à plusieurs : en tra�
  (ch. 26, étape 19).
  - Écrire l'heure de l'accident : on compte à partir de cette heure les délais des soins qui suivent
  (ch. 26, étape 14).
-3. **Donner l'alerte tôt.** Si la vie du blessé est en jeu (il respire mal, saigne sans qu'on arrive à l'arrêter, se
- réveille mal ou devient confus) et qu'on a un appareil satellite ou une balise, déclencher le SOS sans attendre
- (ch. 14, étapes 1 et 2). Sinon, par radio ou par message satellite, envoyer un message court : où on est, qui est blessé, ce
+3. **Donner l'alerte tôt.** Si la vie du blessé est en jeu (il respire mal, saigne sans qu'on arrive à l'arrêter, est
+ difficile à réveiller ou devient confus, ou ne pourra pas passer la nuit là où il est) et qu'on a un appareil
+ satellite ou une balise, déclencher le SOS sans attendre (ch. 14, étapes 1 et 2). Sinon, par radio ou par message satellite, envoyer un message court : où on est, qui est blessé, ce
  qu'il a, ce qu'on fait, et l'heure du prochain message (ch. 14, étapes 5 et 6). Sans radio, envoyer deux personnes
  porter le message écrit, jamais une seule : si une personne seule se blesse en route, le message
  n'arrive pas (ch. 35, section 9).
@@ -76,15 +76,17 @@ règles du groupe de chasse, et sortir un blessé du bois à plusieurs : en tra�
  Pour le sortir couché, le coucher sur une surface ferme, la tête calée entre deux rouleaux de vêtements (ch. 26,
  section 9). Ne pas lui fabriquer de collet rigide : rien ne montre qu'il protège, et il gêne la respiration.
 5. **Décider comment il sort, et envoyer chercher la machine tout de suite.**
- - Si on a déclenché le SOS ou la balise, rester sur place avec le blessé, l'abriter (étape 14) et laisser l'appareil
- en marche jusqu'à ce que quelqu'un arrive (ch. 14, étape 3).
+ - Si on a déclenché le SOS ou la balise, rester sur place avec le blessé seulement si une réponse confirme que des
+ secours viennent : l'abriter alors (étape 14) et laisser l'appareil en marche jusqu'à ce que quelqu'un arrive
+ (ch. 14, étape 3). Sinon, le sortir de l'une des façons qui suivent, sans attendre de réponse, avec l'appareil
+ allumé sur soi et le SOS en marche.
  - S'il peut marcher sans aggraver sa blessure, le faire marcher sans rien porter, avec quelqu'un à côté de lui
  pour le soutenir.
  - Si une machine peut se rendre jusqu'à lui (l'hiver, une motoneige avec un traîneau ; l'été, un VTT avec une
  remorque), envoyer deux personnes la chercher maintenant, pendant que les autres l'emballent (étape 6) :
  l'aller-retour de la machine est le trajet le plus long.
- - Sinon, l'hiver, le sortir couché sur un traîneau tiré sur la neige (étapes 6 à 10). L'été, le sortir en canot
- (étape 11).
+ - Sinon, l'hiver, le sortir couché sur un traîneau tiré sur la neige (étapes 6 à 10). L'été, le sortir en canot, ou
+ le tirer en travois sur un sentier (étape 11).
  - Sur un traîneau, un blessé couché sort en quatre à six fois le temps qu'on met à faire le même trajet à pied, et
  plus en terrain difficile. S'il ne peut pas arriver avant la noirceur, ou s'il n'y a pas assez de monde pour tirer et se
  relayer, l'abriter sur place (étape 14).
@@ -126,7 +128,8 @@ règles du groupe de chasse, et sortir un blessé du bois à plusieurs : en tra�
  - Ne pas l'attacher au canot : si le canot chavire, il reste pris sous la coque retournée, la tête dans l'eau
  (ch. 15, étape 37 ; ch. 90, étape 34).
  - Suivre la rive (ch. 90, étape 33).
- - Sans eau qui mène au camp, prendre un VTT avec une remorque. Sans VTT, l'abriter sur place et envoyer chercher une
+ - Sans eau qui mène au camp, prendre un VTT avec une remorque, ou tirer le traîneau de perches en travois sur le
+ sentier (section 7, « L'été, sans neige »). Si rien de cela ne marche, l'abriter sur place et envoyer chercher une
  machine ou des bras (étape 14).
 
 ### Chaque heure de la sortie
@@ -434,6 +437,11 @@ prendre du fil de fer tordu à la pince (repère 8) ; le ruban adhésif durcit a
 *Autre façon : ce qui glisse déjà.* Un capot de vieux véhicule retourné, une porte pleine, un panneau de
 contreplaqué, une tôle de toit. Le capot est le meilleur : il est bombé, et ses bords relevés ne poussent pas la neige
 devant lui (repères 12 et 13).
+
+*L'été, sans neige.* Tirer le même cadre en travois : une ou deux personnes lèvent l'avant par les brancards, et le
+bout des perches traîne au sol, la tête du blessé du côté des brancards. Sur les racines et les roches, le travois
+secoue : aller au pas, et caler la tête du blessé. Quand il doit rester à l'horizontale (étape 13), arrêter de le
+tirer en travois, qui le tient incliné, et l'abriter sur place (étape 14).
 
 ### Ce qu'on perd
 

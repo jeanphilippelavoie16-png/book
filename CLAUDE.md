@@ -119,8 +119,11 @@ Il y a **deux endroits**, pas un. Chaque chapitre dit lequel il vise.
 | --- | --- | --- |
 | Services | Hydro, aqueduc, égout | Hors réseau |
 | Situation | En ville, voisins proches | Isolé |
-| Réserves | Le rangement et le congélateur | Le minimum |
+| Réserves | La trousse de 72 h et le congélateur | La réserve de trois mois : denrées sèches, gras, sel (ch. 5) |
 | Territoire | Aucun | Chasse, pêche, bois, jardin, caveau |
+
+La réserve de trois mois est au chalet, comme le stock du ch. 5 ; la maison garde la trousse de 72 h et le
+congélateur (JP, 19 octobre 2026). Au ch. 00b, ses lignes (1.D) portent « Chalet ».
 
 **La règle de bascule, et c'est elle qui décide du cadrage :**
 

@@ -58,15 +58,20 @@ elles n'arrivent pas.
  quelqu'un peut écouter.
  - Sur l'eau, prendre la VHF plutôt que le téléphone : le téléphone ne joint qu'une personne, alors que l'appel à la
  VHF est entendu par les bateaux qui sont assez proches pour aider tout de suite.
-3. **Laisser la balise ou le SOS en marche jusqu'à ce que quelqu'un arrive, et rester sur place.** Ne pas éteindre
- la balise puis la rallumer pour ménager la pile : un signal qui s'arrête et reprend donne une position moins
- précise et gêne les sauveteurs qui se guident sur lui. Une balise dont la pile est en bon état émet au moins 24 h.
- Rester aussi près de la machine (la motoneige ou le VTT), de l'auto ou du traîneau, et la dégager de la neige :
- d'un avion, on repère une machine plus facilement qu'une personne. Garder l'appareil satellite allumé et au chaud
- sous le manteau. Pendant un SOS, le sortir sous un ciel dégagé aussi souvent que le froid le permet : sous le
- manteau, ce qu'il envoie reste en attente, et il ne reçoit pas les réponses (étapes 7 et 22).
-4. {!froid} **Se préparer à attendre longtemps, et à être vu.** Une recherche peut prendre jusqu'à 24 h avant que
- quelqu'un arrive.
+3. **Laisser la balise ou le SOS en marche jusqu'à ce que quelqu'un arrive.** Ne pas éteindre la balise puis la
+ rallumer pour ménager la pile : un signal qui s'arrête et reprend donne une position moins précise et gêne les
+ sauveteurs qui se guident sur lui. Une balise dont la pile est en bon état émet au moins 24 h. Garder l'appareil
+ satellite allumé et au chaud sous le manteau. Pendant un SOS, le sortir sous un ciel dégagé aussi souvent que le
+ froid le permet : sous le manteau, ce qu'il envoie reste en attente, et il ne reçoit pas les réponses (étapes 7
+ et 22).
+ - Rester sur place seulement si une réponse confirme que des secours viennent, ou si on ne peut pas arriver au
+ chalet ou à la route avant la nuit (ch. 16, étape 14). Rester alors près de la machine (la motoneige ou le VTT), de
+ l'auto ou du traîneau, et la dégager de la neige : d'un avion, on repère une machine plus facilement qu'une
+ personne.
+ - Sinon, sortir le blessé (ch. 16, étape 5), sans attendre de réponse, avec l'appareil allumé sur soi et le SOS en
+ marche.
+4. {!froid} **Si on reste sur place, se préparer à attendre longtemps, et à être vu.** Une recherche peut prendre
+ jusqu'à 24 h avant que quelqu'un arrive.
  - Monter un abri (ch. 12, étapes 1 à 14) et faire un feu (ch. 13) près de la machine, ou au bord de l'ouverture la
  plus proche (un lac, une coupe, une clairière). Garder l'abri sous les arbres, à l'écart du vent, et faire le feu du
  côté ouvert, pour qu'on le voie d'en haut.

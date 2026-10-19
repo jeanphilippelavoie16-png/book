@@ -105,7 +105,7 @@ module.exports = (h) => {
   return {
     ref: '16-08',
     titre: 'Le traîneau-civière de perches',
-    desc: 'Deux perches d’épinette plus longues qu’un homme couché, quatre traverses posées dessus et ligaturées à chaque croisée, un brancard lié le long de chaque perche à l’avant, puis couché par-dessus le bout de la première traverse, qui le relève vers les mains du porteur. En coupe à la poitrine : les perches sur la neige, une traverse, trois couches de sapin croisées, la couverture autour du blessé, une sangle par-dessus qui fait le tour des perches. En détail, une croisée ligaturée en babiche, et la même au fil de fer, bouts tordus en queue de cochon. En descente, un homme devant tient les brancards à bout de bras et se retient, un deuxième derrière freine à la corde ; le blessé est sanglé à la poitrine, au bassin et aux cuisses. En variante, un capot de véhicule retourné, bombé, ses bords relevés.',
+    desc: 'Deux perches d’épinette plus longues qu’un homme couché, quatre traverses posées dessus et ligaturées à chaque croisée, un brancard lié le long de chaque perche à l’avant, puis couché par-dessus le bout de la première traverse, qui le relève vers les mains du porteur. En coupe à la poitrine : les perches sur la neige, une traverse, trois couches de sapin croisées, le sac de couchage autour du blessé, une sangle par-dessus qui fait le tour des perches. En détail, une croisée ligaturée en babiche, et la même au fil de fer, bouts tordus en queue de cochon. En descente, un homme devant tient les brancards à bout de bras et se retient, un deuxième derrière freine à la corde ; le blessé est sanglé à la poitrine, au bassin et aux cuisses. En variante, un capot de véhicule retourné, bombé, ses bords relevés.',
     format: 'pleine',
     disposition: [['plan'], ['coupe', 'ligature'], ['descente', 'capot']],
     hauteurs: [2, 2, 3],
@@ -184,13 +184,13 @@ module.exports = (h) => {
           }
           o.push(h.path(d.trim(), h.a.fin));
           o.push(aiguilles(yp - 44, cx - 86, cx + 86));
-          // couverture : dessous et autour du blessé
+          // le sac de couchage : dessous et autour du blessé
           const yc = yp - 50;
           o.push(h.path(`M${f(cx - 72)},${f(yc)} C${f(cx - 72)},${f(yc - 40)} ${f(cx - 40)},${f(yc - 48)} ${f(cx)},${f(yc - 48)} C${f(cx + 40)},${f(yc - 48)} ${f(cx + 72)},${f(yc - 40)} ${f(cx + 72)},${f(yc)} Z`, h.a.hachure('isolant', 'arete')));
           // le blessé : torse et bras
           o.push(h.ellipse(cx, yc - 22, 38, 16, W(h.a.arete)));
           for (const sg of [-1, 1]) o.push(h.cercle(cx + sg * 52, yc - 16, 9, W(h.a.arete)));
-          // sangle : par-dessus la couverture, puis autour de chaque perche
+          // sangle : par-dessus le sac de couchage, puis autour de chaque perche
           const sangle = `M${f(cx - 70.9)},${f(yp + 5.25)} A10.5,10.5 0 0 1 ${f(cx - 90.5)},${f(yp)} L${f(cx - 75)},${f(yc)} C${f(cx - 75)},${f(yc - 43)} ${f(cx - 41)},${f(yc - 51)} ${f(cx)},${f(yc - 51)} C${f(cx + 41)},${f(yc - 51)} ${f(cx + 75)},${f(yc - 43)} ${f(cx + 75)},${f(yc)} L${f(cx + 90.5)},${f(yp)} A10.5,10.5 0 0 1 ${f(cx + 70.9)},${f(yp + 5.25)}`;
           o.push(h.path(sangle, halo), h.path(sangle, h.a.contour));
           return o.join('\n');
@@ -201,7 +201,7 @@ module.exports = (h) => {
             { n: 4, rond: [18, yp - 44], cible: [cx - 82, yp - 34] },
             { n: 5, rond: [22, 22], cible: [cx - 66, yc - 8] },
             { n: 6, rond: [z.l - 18, yc - 20], cible: [cx + 83.5, yc + 25] },
-          ].map((r, i) => ({ ...r, texte: ['sapin en couches croisées', 'puis la couverture', 'sangle autour des perches'][i] }));
+          ].map((r, i) => ({ ...r, texte: ['sapin en couches croisées', 'puis le sac de couchage', 'sangle autour des perches'][i] }));
         },
       },
 
@@ -288,8 +288,8 @@ module.exports = (h) => {
           for (let a = 4; a < 162; a += 4) d += ` M${P([T(a, 15)])} L${P([T(a + 3, 24)])}`;
           o.push(h.path(d.trim(), h.a.fin));
           o.push(h.chemin([T(3, 15), T(163, 15)], h.a.detail));
-          // le blessé dans sa couverture, les pieds à l'avant, sanglé à la poitrine, au bassin et aux
-          // cuisses : le corps simple couché sur le dos sert de gabarit à la couverture (hachure d'isolant,
+          // le blessé dans son sac de couchage, les pieds à l'avant, sanglé à la poitrine, au bassin et aux
+          // cuisses : le corps simple couché sur le dos sert de gabarit au sac (hachure d'isolant,
           // comme dans la coupe). Dessiné dans le repère du traîneau (a le long de la pente, y = −n), puis
           // tourné de la pente.
           const bl = h.formes.corps({ pose: 'couche-dos', cote: 'gauche', echelle: E_P, x: 154 - 877 * E_P, y: -24 - 55 * E_P,

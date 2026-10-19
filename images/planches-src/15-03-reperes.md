@@ -11,7 +11,7 @@ droite, de près, le bidon au bout de la corde ; en bas, l'autre façon (chapitr
    au-dessus, avant de la lancer.
 3. **lui nouer la corde sous les bras** : une boucle de corde fait le tour du torse, sous les aisselles, avec son
    nœud sur le dos ; la corde part de la boucle, derrière le bras proche, et va en ligne droite aux mains du sauveteur.
-4. **tirer pendant qu'il bat des jambes** (flèche rouge) : le sauveteur tire la corde vers lui ; la personne garde la
+4. **tirer pendant qu'elle bat des jambes** (flèche rouge) : le sauveteur tire la corde vers lui ; la personne garde la
    poitrine sur le bord et bat des jambes dans l'eau (les deux petites flèches noires près des pieds).
 
 ## Autre façon, si rien ne l'atteint

@@ -55,7 +55,8 @@ destination.
 3. **Envoyer les enfants dans la pièce du fond, la plus loin de l'entrée. Un seul adulte doit parler ; l'autre
  reste avec les enfants et surveille dehors par une autre fenêtre.** Quand deux adultes répondent en même temps,
  ils finissent par se contredire devant le visiteur. Un adulte seul avec les enfants ne doit pas sortir : il parle
- à travers la porte et donne ce qu'il donne par une fenêtre entrouverte.
+ à travers la porte et donne ce qu'il donne par une fenêtre entrouverte. Seule exception : une personne seule qui a
+ un signe du froid (étape 7).
 
 ### La personne attend dehors {.orange 10 min}
 
@@ -76,6 +77,10 @@ destination.
  dans la maison ou dans un abri dehors (section 7, « Réchauffer quelqu'un sans le faire entrer »). Parler
  ensuite. L'hiver, décider vite : à partir de −28 de refroidissement éolien, la peau exposée de la personne qui
  attend peut geler en 10 à 30 minutes, et plus vite quand il fait plus froid.
+ - Un adulte seul avec les enfants : si le compte de l'étape 4 concorde (une seule personne, aucune trace de plus que
+ la sienne), ouvrir, coucher la personne sur une couverture et la traîner à l'intérieur. Sinon, ne pas sortir : lui
+ passer par la fenêtre un sac de couchage et une couverture, et lui dire d'étendre la couverture pliée en deux sur
+ la neige, contre le mur, à l'abri du vent, de se coucher dessus, puis d'entrer dans le sac et de le fermer.
 8. **La réchauffer** (ch. 25, étapes 5 à 14) : la coucher à l'abri du vent, sans gestes brusques, et lui enlever
  ses vêtements mouillés. Mettre la chaleur sur la tête, le cou, le tronc et l'aine, et les bouillottes sous les
  aisselles et sur le ventre ; rien sur les bras ni les jambes. Lui donner à boire chaud et sucré, à petites
@@ -359,7 +364,7 @@ garde sa louche et sa tasse, on sert le visiteur soi-même, et il a son bol.
 ### Ce qui ne se remplace pas
 
 **Le deuxième adulte.** Quand un adulte est seul avec les enfants, personne ne regarde ni ne compte pendant qu'il
-parle, et il ne peut rien régler dehors (étape 3).
+parle, et il ne peut rien régler dehors, sauf faire entrer une personne seule qui gèle (étapes 3 et 7).
 
 **Les communications.** Sans radio ni téléphone, on ne peut ni vérifier une histoire auprès des voisins, ni les
 prévenir qu'une personne est repartie à pied. À la maison, les voisins sont à côté : on vérifie une histoire en marchant

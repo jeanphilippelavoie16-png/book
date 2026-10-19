@@ -299,3 +299,15 @@ brasure, avec renvoi au ch. 84.
   officielle : aucun ministère ne traite de la réparation d'une mire.
 
 Compression §3 et §4 — 27 septembre 2026 : 1 793 mots → 303 mots (§3 : 613 → 117 ; §4 : 1 180 → 186, tableau de 19 lignes → 9 lignes à puces) ; matériel coupé : gants à crispin, veste et tablier de cuir, bottes et pantalon sans revers, ventilation (étape 8, §6), extincteur-seau-pelle (étape 13), chariot et chaîne des bouteilles (étapes 27 et 40), meuleuse-disques-brosse, marteau à piquer, étau et serre-joints (étape 19, §9 G), eau pour rincer l'œil, paragraphe « Les deux trous du chapitre » ; §3 : spectre de l'arc en nm, taille des particules, préchauffages à l'électrode de cuivre, de nickel et à la baguette de fonte. Déplacé : fibre synthétique qui colle à la peau → étape 21 ; neige qui projette le métal en fusion → étape 13 ; bouteille couchée, détendeur arraché, projectile → étape 27 ; bâton de pin (260 à 425 °C) et électrode d'acier ordinaire sur fonte (cordons de 2 à 2,5 cm martelés) → §7, ligne « Fissure fine », dont le renvoi « §3 : » est retiré.
+
+## Décisions de JP, 19 octobre 2026
+
+Rédacteur de la passe « décisions de JP » (les douze réponses de JP du 19 octobre ; le libellé des décisions est dans
+`_reprise/scratchpad/tome1-final/decisions-jp.js`). Aucune recherche refaite sur ce qui était déjà vérifié ; texte d'avant
+cette passe : commit `f515e01`.
+
+| Décision | Où | Ce qui a changé | Source ou règle |
+| --- | --- | --- | --- |
+| 6. Les renvois vers le 00b pointent vers des lignes qui existent | Section 2 ou 3, « Ce qui n'est pas dans ce chapitre » (l. 56) | « Les électrodes, baguettes, gaz et disques à acheter et à garder en stock : le chapitre d'achat (00b) » devient « Le poste, ses électrodes et le chalumeau à acheter : le chapitre d'achat (00b), seul inventaire du livre. » Les électrodes sont maintenant sur la ligne du poste (palier 4) ; les baguettes et les disques n'ont pas de ligne au 00b (rendu à JP dans `suivi/00b-redaction.md`) | Décision 6 |
+
+`controle.py --avant` (f515e01) : celui d'avant ; rien n'a disparu.

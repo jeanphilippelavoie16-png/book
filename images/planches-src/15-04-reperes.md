@@ -1,7 +1,7 @@
 # Planche 15-04. Faire des pics à glace : les repères
 
 Demi-page, objets seuls, sans main. En haut, un pic en coupe dans l'axe, couché, la pointe à droite ; en bas à gauche,
-les deux pics emboîtés ; en bas à droite, après un filet, l'autre façon (chapitre 15, section 8).
+les deux pics emboîtés ; en bas à droite, après un filet, l'autre façon (chapitre 15, section 7).
 
 1. **couper deux bouts de manche à balai de 10 cm** : le manche en coupe, hachuré, la cote de 10 cm (4 po) dessous.
 2. **enfoncer le clou sans sa tête, côté coupé au fond** : le trou percé dans l'axe, profond ; le clou (en noir) a son

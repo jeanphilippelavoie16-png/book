@@ -1,5 +1,5 @@
 {
-  "_note": "Logigramme du chapitre 3 (panne majeure d'Hydro en janvier), double page, fait le 16 octobre 2026 sur le chapitre réécrit, sur le modèle du 11 ; mis d'accord le 19 octobre 2026 avec le chapitre refait au gabarit final (sept sections, plus de parties « le détail », plus de section Danger : les pictogrammes sont dans les étapes). Les pastilles suivent celles du chapitre : 15 min pour « Le courant vient de manquer » (étapes 1 à 5), 6 h pour « Le courant ne revient pas » (étapes 6 à 11), 1 min pour « L'avertisseur de CO sonne » (étapes 12 et 13). Page de gauche : la panne, la nuit, le poêle. Page de droite : rester ou partir, et l'avertisseur qui sonne. Le premier geste arrive sans question. Aucun avertissement redit (ni la génératrice, ni les appareils de camping, ni le poêle étouffé la nuit, ni le fil tombé : ils restent dans leur étape, avec leur pictogramme). Rendu : env -u TMPDIR python3 design/outils/logigramme.py images/logigrammes/03-panne-hydro.json ; version du livre : --sans-entete --svg. « source » : les étapes du chapitre d'où vient chaque geste (ignoré au rendu).",
+  "_note": "Logigramme du chapitre 3 (panne majeure d'Hydro en janvier), double page, fait le 16 octobre 2026 sur le chapitre réécrit, sur le modèle du 11 ; mis d'accord le 19 octobre 2026 avec le chapitre refait au gabarit final (sept sections, plus de parties « le détail », plus de section Danger : les pictogrammes sont dans les étapes). Les pastilles suivent celles du chapitre : 15 min pour « Le courant vient de manquer » (étapes 1 à 5), 6 h pour « Le courant ne revient pas » (étapes 6 à 11), 1 min pour « L'avertisseur de CO sonne » (étapes 12 et 13). Page de gauche : la panne, la nuit, le poêle. Page de droite : rester ou partir, et l'avertisseur qui sonne. Le premier geste arrive sans question. Aucun avertissement redit (ni la génératrice, ni les appareils de camping, ni le poêle étouffé la nuit, ni le fil tombé : ils restent dans leur étape, avec leur pictogramme). Rendu : env -u TMPDIR python3 design/outils/logigramme.py images/logigrammes/03-panne-hydro.json ; version du livre : --sans-entete --svg. « source » : les étapes du chapitre d'où vient chaque geste (ignoré au rendu). Décisions du 19 octobre 2026 (ch. 3 renuméroté : le message à un proche est l'étape 6, le poêle l'étape 7) : le message passe avant la question du poêle, dans une boîte à lui (msg), commune aux deux branches, et porte la pastille 6 h de la série « Le courant ne revient pas » (retirée de fA et fB) ; la nuit, le message s'envoie avant la couverture et la tuque (chapeau de la série) ; q1 et fB renvoient à l'étape 7 (« Sans poêle »), fA aux étapes 7 à 10. Rangs g5 à g7 décalés pour la place de msg.",
   "format": "double",
   "tome": 1,
   "urgent": true,
@@ -55,14 +55,15 @@
     "g2": 1.6,
     "g3": 2.4,
     "g4": 3.18,
-    "g5": 4.6,
-    "g6": 5.95,
-    "g7": 7.0,
+    "g5": 4.3,
+    "g6": 6.52,
+    "g7": 7.45,
     "d1": 0.85,
     "d2": 2.75,
     "d4": 4.9,
     "d5": 5.95,
-    "d6": 7.25
+    "d6": 7.25,
+    "gm": 5.22
   },
   "noeuds": [
     {
@@ -124,9 +125,21 @@
       "col": "cote",
       "rang": "g5",
       "taille": 10,
-      "texte": "**Ajouter une couverture et une tuque aux enfants, et les laisser dormir.** Faire la suite au réveil.",
+      "texte": "**Envoyer un message texte à un proche, ajouter une couverture et une tuque aux enfants, et les laisser dormir.** Faire la suite au réveil.",
       "renvoi": "ch. 3, étapes 6 à 11",
       "source": "chapeau de la série « Le courant ne revient pas »"
+    },
+    {
+      "id": "msg",
+      "type": "urgent",
+      "col": "tronc",
+      "rang": "gm",
+      "ancre": "haut",
+      "temps": "6 h",
+      "taille": 10,
+      "texte": "**Envoyer un message texte à un proche** : où on est, combien on est, ce qu'on va faire.",
+      "renvoi": "ch. 3, étape 6",
+      "source": "étape 6"
     },
     {
       "id": "q1",
@@ -135,7 +148,7 @@
       "rang": "g6",
       "texte": "La maison a un poêle à bois raccordé à une cheminée ?",
       "precision": "Une fournaise au mazout ou au gaz s'arrête avec le courant",
-      "source": "étape 6"
+      "source": "étape 7"
     },
     {
       "id": "fA",
@@ -143,11 +156,10 @@
       "col": "fA",
       "rang": "g7",
       "ancre": "haut",
-      "temps": "6 h",
       "taille": 10,
-      "texte": "**Allumer le poêle et vivre dans sa pièce.** Habiller tout le monde en couches, monter un abri pour la nuit et envoyer un message texte à un proche.",
-      "renvoi": "ch. 3, étapes 6 à 10",
-      "source": "étapes 6 à 10"
+      "texte": "**Allumer le poêle et vivre dans sa pièce.** Habiller tout le monde en couches et monter un abri pour la nuit.",
+      "renvoi": "ch. 3, étapes 7 à 10",
+      "source": "étapes 7 à 10"
     },
     {
       "id": "fB",
@@ -155,11 +167,10 @@
       "col": "fB",
       "rang": "g7",
       "ancre": "haut",
-      "temps": "6 h",
       "taille": 10,
       "texte": "**Vivre dans la plus petite pièce, sous un abri.** Suivre la température, vidanger avant 5 °C et partir de jour, pendant que la route est ouverte.",
-      "renvoi": "ch. 3, étape 6",
-      "source": "étape 6, « Sans poêle »"
+      "renvoi": "ch. 3, étape 7",
+      "source": "étape 7, « Sans poêle »"
     },
     {
       "id": "q3",
@@ -255,8 +266,14 @@
     },
     {
       "de": "qnuit",
-      "vers": "q1",
+      "vers": "msg",
       "etiquette": "Non",
+      "sx": 2.025,
+      "ex": 2.025
+    },
+    {
+      "de": "msg",
+      "vers": "q1",
       "sx": 2.025,
       "ex": 2.025
     },
@@ -272,7 +289,7 @@
       "de": "q1",
       "vers": "fA",
       "etiquette": "Oui",
-      "coude": 6.55,
+      "coude": 7.1,
       "pos": "palier",
       "sx": 3.94
     },
@@ -280,7 +297,7 @@
       "de": "q1",
       "vers": "fB",
       "etiquette": "Non",
-      "coude": 6.55,
+      "coude": 7.1,
       "pos": "palier",
       "sx": 3.94
     },

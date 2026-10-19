@@ -1,7 +1,9 @@
 // Planche 15-05 (petite planche, une colonne). Mesurer l'épaisseur de la glace au trou percé.
-// Le texte : ch. 15, section 2 (« son épaisseur n'a pas été mesurée ce jour-là, au vilebrequin, à plusieurs
-// endroits ») et étape 20 (« Sur la glace, mesurer avant d'engager. Percer à plusieurs endroits du trajet »),
-// matériel : la tarière à glace.
+// Le texte : ch. 15, étape 40 (« Mesurer la glace avant d'y engager une machine, le jour même » ; « Pelleter la neige
+// jusqu'à la glace » ; « Percer à la tarière ou au ciseau jusqu'à l'eau » ; « Glisser le ruban dans le trou et passer
+// son crochet sous la glace » ; « Tirer le ruban vers le haut jusqu'à ce que le crochet accroche le dessous de la
+// glace, et le garder tendu » ; « Lire l'épaisseur au ras du dessus de la glace, pas à la hauteur de l'eau dans le
+// trou »), matériel : « Tarière ou ciseau à glace, et ruban à mesurer ».
 //
 // Une coupe, dans l'ordre des gestes : la neige pelletée jusqu'à la glace, le trou percé jusqu'à l'eau, le crochet du
 // ruban pris sous le bord du dessous de la glace, le ruban tiré vers le haut, la lecture au ras du dessus de la glace.

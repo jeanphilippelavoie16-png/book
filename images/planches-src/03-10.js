@@ -1,10 +1,18 @@
-// Planche 03-10 — vidanger la maison dans le bon ordre (chapitre 4, étapes 22-23 et
-// « La plomberie » de la variante d'urgence ; « Le chauffe-eau est une réserve d'eau »).
+// Planche 03-10. Vidanger la maison dans le bon ordre (chapitre 3, étape 23, « Vidanger dans l'ordre », et section 7,
+// « Vidanger sans antigel »).
 //
 // La charte : la face de droite du chauffe-eau à l'ombre ; le réservoir vide de la toilette,
 // vu par la coupe, en gris loin. Le rouge : deux points à contrôler, ceux qui cassent sur un
-// raté — le disjoncteur du chauffe-eau (un élément à sec se détruit) et le robinet chaud de
+// raté : le disjoncteur du chauffe-eau (un élément à sec se détruit) et le robinet chaud de
 // l'étage (sans lui, le réservoir ne se vide pas). La flèche d'air reste noire.
+//
+// 19 octobre 2026 (OUI de JP) : le bouchon de nettoyage du siphon s'ajoute en bas, avant la poire : le bouchon vissé
+// au bas du coude, dévissé, une chaudière dessous, l'eau qui coule (repère 9) ; la poire devient « Sans bouchon »
+// (10), le chiffon 11, l'huile 12, marquée « Autre façon » et séparée par un filet (règle 10). Règle 11 : les deux
+// cercles rouges ont leur repère, et la légende dit ce qu'on y voit (le disjoncteur baissé, l'air qui entre).
+// Toute l'eau en bleu (JP, 19 octobre) : le jet du robinet de vidange et les gouttes du robinet de la cuisine aussi.
+// L'huile n'est pas de l'eau : gris clair. Les cinq vignettes du bas sont dessinées à leur échelle d'origine puis
+// réduites d'un même facteur (géométrie seulement : les traits et les trames gardent leur épaisseur).
 module.exports = (h) => {
   const blancArete = h.a.arete.replace('fill="none"', 'fill="#ffffff"');
   const blancContour = h.a.contour.replace('fill="none"', 'fill="#ffffff"');
@@ -63,12 +71,13 @@ module.exports = (h) => {
   const interieur = [[62, 50], ...arc(10), [82, 104]];
   const bras = 'M82,104 A16,16 0 0 1 98,88 L124,88 M94,104 A4,4 0 0 1 98,100 L124,100';
   const cavite = [...exterieur, ...[...interieur].reverse()];
-  const liquide = L => {
+  const HUILE = 'fill="#E6E6E6" stroke="none"';      // l'huile : gris clair, le bleu est réservé à l'eau
+  const liquide = (L, remplissage = h.a.hachure('eau', 'aucun')) => {
     const demi = Math.sqrt(Math.max(0, 484 - (L - 118) ** 2));
     const surface = L <= 118
       ? [h.ligne(50, L, 62, L, h.a.detail), h.ligne(82, L, 94, L, h.a.detail)]
       : [h.ligne(72 - demi, L, 72 + demi, L, h.a.detail)];
-    return [h.path(`M${P(sous(cavite, L))} Z`, h.a.hachure('eau', 'aucun')), ...surface].join('\n');
+    return [h.path(`M${P(sous(cavite, L))} Z`, remplissage), ...surface].join('\n');
   };
   const siphon = (garde) => [
     // le mur où rentre le bras
@@ -92,6 +101,55 @@ module.exports = (h) => {
 
   const TY = -36;   // la toilette remonte dans sa vue
 
+  // ─── La réduction des vignettes du bas ─────────────────────────────────────────────
+  // Cinq vignettes de 102 de large : le dessin, fait à son échelle d'origine (environ 130 de large), est réduit d'un
+  // même facteur S dans les cinq, pour que les siphons se comparent. On réduit la géométrie (coordonnées, longueurs,
+  // rayons) ; les épaisseurs de trait et les trames ne bougent pas.
+  const r1 = v => String(Math.round(v * 10) / 10);
+  const echelle = (svg, S, ox, oy) => {
+    const X = v => r1(ox + S * v), Y = v => r1(oy + S * v), Lg = v => r1(S * v);
+    const chemin = d => {
+      const tk = d.match(/[a-zA-Z]|-?\d*\.?\d+/g), out = [];
+      let cmd = 'M', i = 0;
+      const num = () => +tk[i++];
+      while (i < tk.length) {
+        if (/[a-zA-Z]/.test(tk[i])) { cmd = tk[i++]; out.push(cmd); if (/[zZ]/.test(cmd)) continue; }
+        const rel = cmd !== cmd.toUpperCase();
+        const pt = () => { const x = num(), y = num(); return rel ? `${Lg(x)} ${Lg(y)}` : `${X(x)} ${Y(y)}`; };
+        switch (cmd.toUpperCase()) {
+          case 'M': case 'L': case 'T': out.push(pt()); break;
+          case 'H': { const x = num(); out.push(rel ? Lg(x) : X(x)); break; }
+          case 'V': { const y = num(); out.push(rel ? Lg(y) : Y(y)); break; }
+          case 'C': out.push(pt(), pt(), pt()); break;
+          case 'S': case 'Q': out.push(pt(), pt()); break;
+          case 'A': { const rx = num(), ry = num(), rot = num(), la = num(), sw = num(); out.push(`${Lg(rx)} ${Lg(ry)} ${rot} ${la} ${sw}`, pt()); break; }
+          default: throw new Error(`commande de chemin inconnue : ${cmd}`);
+        }
+      }
+      return out.join(' ');
+    };
+    const conv = { x: X, x1: X, x2: X, cx: X, y: Y, y1: Y, y2: Y, cy: Y, width: Lg, height: Lg, r: Lg, rx: Lg, ry: Lg, d: chemin };
+    return svg.replace(/<(rect|line|circle|ellipse|path)\b[^>]*>/g, el =>
+      el.replace(/(\s)(x|y|x1|y1|x2|y2|cx|cy|width|height|r|rx|ry|d)="([^"]*)"/g, (m, sp, nom, v) =>
+        `${sp}${nom}="${nom === 'd' ? chemin(v) : conv[nom](+v)}"`));
+  };
+  // Le cadre commun des vignettes du bas, à l'échelle d'origine : x de 6 à 135, y de 0 à 200.
+  const CADRE = { x0: 6, x1: 135, y0: 0, y1: 200 };
+  const reduction = z => {
+    const S = Math.min(z.l / (CADRE.x1 - CADRE.x0), z.h / (CADRE.y1 - CADRE.y0));
+    const ox = (z.l - (CADRE.x1 - CADRE.x0) * S) / 2 - CADRE.x0 * S, oy = (z.h - (CADRE.y1 - CADRE.y0) * S) / 2 - CADRE.y0 * S;
+    return { S, ox, oy, M: ([x, y]) => [ox + S * x, oy + S * y] };
+  };
+  const vignette = (z, svg) => { const { S, ox, oy } = reduction(z); return echelle(svg, S, ox, oy); };
+  // Un renvoi des vignettes : la pastille et la cible données à l'échelle d'origine, la pastille gardée dans la vue.
+  const renvoi = (z, n, rond, cible, texte) => {
+    const { M } = reduction(z), b = v => Math.max(11, v);
+    const [rx, ry] = M(rond);
+    return { n, rond: [Math.min(z.l - 11, b(rx)), Math.min(z.h - 11, b(ry))], cible: M(cible), texte };
+  };
+  // Une goutte d'eau, en bleu, cernée d'un trait fin.
+  const goutteEau = (x, y) => h.ellipse(x, y, 1.6, 2.3, h.a.hachure('eau', 'fin'));
+
   // ─── La maison ─────────────────────────────────────────────────────────────────────
   const robinet = (x, y) => [
     h.rect(x - 4, y - 3, 8, 3, blancArete),
@@ -104,7 +162,6 @@ module.exports = (h) => {
     const a = -50 * Math.PI / 180, dx = +x - 80, dy = +y - 20;
     return `${(80 + dx * Math.cos(a) - dy * Math.sin(a)).toFixed(1)},${(20 + dx * Math.sin(a) + dy * Math.cos(a)).toFixed(1)}`;
   });
-  const goutte = (x, y) => h.ellipse(x, y, 1.4, 2.1, h.a.plein);
   const chaudiere = x0 => [
     h.path(`M${x0},348 L${x0 + 30},348 L${x0 + 27},388 L${x0 + 3},388 Z`, h.a.hachure('eau')),
     h.path(`M${x0 + 2},346 Q${x0 + 15},330 ${x0 + 28},346`, h.a.detail),
@@ -114,9 +171,9 @@ module.exports = (h) => {
   return {
     ref: '03-10',
     titre: 'Vidanger la maison dans le bon ordre',
-    desc: 'Coupe d’une maison à étage avec sous-sol : l’entrée d’eau fermée par une vanne à levier mis en travers du tuyau ; le chauffe-eau électrique mis hors tension au panneau ; le robinet d’eau chaude de l’étage ouvert, par où l’air entre ; deux chaudières couvertes remplies d’eau à boire au robinet de vidange avant tout ; puis le boyau du robinet de vidange conduit au drain de plancher ; le robinet de la cuisine ouvert. En bas, la toilette en coupe, réservoir vide et fond épongé, cuvette épongée puis bouchée d’un chiffon dans un sac ; puis le siphon d’évier vidé à la poire, bouché au chiffon ensaché, ou refait avec une tasse d’huile de cuisson.',
+    desc: 'Coupe d’une maison à étage avec sous-sol : l’entrée d’eau fermée par une vanne à levier mis en travers du tuyau ; le chauffe-eau électrique mis hors tension au panneau ; le robinet d’eau chaude de l’étage ouvert, par où l’air entre ; deux chaudières couvertes remplies d’eau à boire au robinet de vidange avant tout ; puis le boyau du robinet de vidange conduit au drain de plancher ; le robinet de la cuisine ouvert. Le jet du robinet de vidange et les gouttes du robinet de la cuisine sont en bleu. En bas, cinq vignettes : la toilette en coupe, réservoir vide et fond épongé, cuvette épongée puis bouchée d’un chiffon dans un sac ; le siphon d’évier vidé par son bouchon de nettoyage, dévissé au bas du coude, l’eau qui coule en bleu dans une chaudière posée dessous ; sans bouchon, le siphon vidé à la poire ; puis le siphon bouché au chiffon ensaché ; après un filet, l’autre façon : le coude rempli d’huile de cuisson (en gris), versée d’une tasse.',
     format: 'pleine',
-    disposition: [['maison'], ['toilette', 'vider', 'boucher', 'huile']],
+    disposition: [['maison'], ['toilette', 'bouchon', 'poire', 'boucher', 'huile']],
     hauteurs: [3.35, 1.4],
     vues: {
       maison: {
@@ -177,7 +234,8 @@ module.exports = (h) => {
           h.rect(348, 350, 9, 8, blancArete),
           h.ligne(352, 350, 352, 344, h.a.detail),
           h.rect(353, 358, 4, 4, blancArete),
-          h.ligne(355, 362, 355, 372, h.a.contour),
+          // le jet d'eau du robinet de vidange, en bleu, jusqu'à l'eau de la chaudière
+          h.rect(353, 362, 4, 10, h.a.hachure('eau', 'fin')),
           h.path('M354,370 L380,370 L378,388 L356,388 Z', h.a.hachure('eau', 'aucun')),
           h.path('M352,364 L382,364 L379,388 L355,388 Z', h.a.arete),
           // le boyau, posé pour l'étape d'après, son bout libre au plancher
@@ -190,7 +248,7 @@ module.exports = (h) => {
           h.rect(430, 222, 98, 6, blancArete),
           h.path('M452,228 L452,240 Q452,248 460,248 L496,248 Q504,248 504,240 L504,228', blancArete),
           robinet(500, 222),
-          goutte(484, 210), goutte(484, 217),
+          goutteEau(484, 210), goutteEau(484, 217),
           // le lavabo
           h.rect(458, 116, 70, 6, blancArete),
           h.path('M470,122 L470,128 Q470,134 478,134 L502,134 Q510,134 510,128 L510,122', blancArete),
@@ -206,8 +264,8 @@ module.exports = (h) => {
         ].join('\n'),
         renvois: z => [
           { n: 1, rond: [126, 334], cible: [147, 306], texte: 'entrée d’eau fermée' },
-          { n: 2, rond: [224, 306], cible: [198, 314], texte: 'chauffe-eau hors tension' },
-          { n: 3, rond: [452, 84], cible: [503, 102], texte: 'robinet chaud ouvert à l’étage' },
+          { n: 2, rond: [224, 306], cible: [196.9, 323], texte: 'disjoncteur du chauffe-eau baissé' },
+          { n: 3, rond: [452, 84], cible: [503, 102], texte: 'robinet chaud ouvert à l’étage : l’air entre' },
           { n: 4, rond: [392, 330], cible: [368, 366], texte: 'eau à boire tirée d’abord' },
           { n: 5, rond: [446, 352], cible: [414, 385], texte: 'puis le boyau au drain' },
           { n: 6, rond: [452, 196], cible: [484, 208], texte: 'tous les robinets ouverts' },
@@ -221,74 +279,110 @@ module.exports = (h) => {
             [[56, 142], [62, 162], [74, 164], [78, 148]],
             [[78, 148], [82, 132], [92, 132], [92, 148]],
             [[92, 148], [92, 164], [86, 174], [86, 186]],
-          ]);
+          ]).map(([x, y]) => [x, y + TY]);
           const [g, d] = tube(voie, 8);
           const plug = 'M43,137 C43,130 52,129 56,133 C61,137 63,144 61,149 C58,153 51,151 48,147 C45,144 43,141 43,137 Z';
-          return `<g transform="translate(0,${TY})">` + [
-            h.rect(0, 186, 133, 8, h.a.hachure('bois')),
+          // la toilette remonte de TY dans sa vue : les chemins écrits à la main sont décalés ici
+          const haut = svg => svg.replace(/(-?[\d.]+),(-?[\d.]+)/g, (m, x, y) => `${x},${+y + TY}`);
+          return vignette(z, [
+            h.rect(CADRE.x0, 186 + TY, 133 - CADRE.x0, 8, h.a.hachure('bois')),
             // la porcelaine, avec le creux de la cuvette
-            h.path('M8,112 C8,134 20,148 38,152 C41,160 41,172 34,186 L100,186 C102,166 106,150 110,112 L70,112 C64,138 56,146 46,146 C30,146 16,134 16,112 Z', h.a.hachure('metal', 'contour')),
+            h.path(haut('M8,112 C8,134 20,148 38,152 C41,160 41,172 34,186 L100,186 C102,166 106,150 110,112 L70,112 C64,138 56,146 46,146 C30,146 16,134 16,112 Z'), h.a.hachure('metal', 'contour')),
             // la voie du siphon, taillée dans la porcelaine
             h.path(`M${P(g)} L${P([...d].reverse())} Z`, 'fill="#ffffff" stroke="none"'),
             h.path(`M${P(g)}`, h.a.arete), h.path(`M${P(d)}`, h.a.arete),
             // le siège
-            h.path('M6,112 L6,108 Q6,105 10,105 L76,105 L76,112', blancArete),
+            h.path(haut('M6,112 L6,108 Q6,105 10,105 L76,105 L76,112'), blancArete),
             // le réservoir, vide
-            h.rect(76, 50, 38, 62, blancContour),
-            h.rect(74, 46, 42, 4, blancArete),
-            h.rect(79, 53, 32, 56, h.a.loin),
-            h.rect(79, 53, 32, 56, h.a.detail),
-            h.path('M88,109 L88,68 M92,109 L92,68', h.a.detail),
-            h.path('M84,109 Q90,103 96,109', h.a.detail),
+            h.rect(76, 50 + TY, 38, 62, blancContour),
+            h.rect(74, 46 + TY, 42, 4, blancArete),
+            h.rect(79, 53 + TY, 32, 56, h.a.loin),
+            h.rect(79, 53 + TY, 32, 56, h.a.detail),
+            h.path(haut('M88,109 L88,68 M92,109 L92,68'), h.a.detail),
+            h.path(haut('M84,109 Q90,103 96,109'), h.a.detail),
             // l'éponge au fond du réservoir
-            h.rect(99, 100, 11, 8, h.a.hachure('gravier')),
+            h.rect(99, 100 + TY, 11, 8, h.a.hachure('gravier')),
             // le chiffon ensaché dans le fond de la cuvette
-            bouchon(plug, 'M47,133 L43,126 L51,128 Z'),
-          ].join('\n') + '</g>';
+            bouchon(haut(plug), haut('M47,133 L43,126 L51,128 Z')),
+          ].join('\n'));
         },
         renvois: z => [
-          { n: 7, rond: [40, 62 + TY], cible: [100, 104 + TY], texte: 'réservoir vidé, fond épongé' },
-          { n: 8, rond: [16, 172 + TY], cible: [52, 142 + TY], texte: 'cuvette épongée, puis bouchée' },
+          renvoi(z, 7, [34, 62 + TY], [100, 104 + TY], 'réservoir vidé, fond épongé'),
+          renvoi(z, 8, [14, 172 + TY], [52, 142 + TY], 'cuvette épongée, puis bouchée'),
         ],
       },
 
-      vider: {
+      bouchon: {
         titre: 'Vider le siphon',
-        dessin: z => [
+        dessin: z => vignette(z, [
+          // l'eau qui reste au fond du coude, et qui sort par le bas
+          siphon([liquide(131)]),
+          // le collet fileté au bas du coude, ouvert : le bouchon est dévissé ; l'eau passe dedans
+          h.rect(63, 137, 18, 9, blancArete),
+          h.rect(67.5, 137, 9, 9, h.a.hachure('eau', 'aucun')),
+          h.ligne(67.5, 137, 67.5, 146, h.a.detail), h.ligne(76.5, 137, 76.5, 146, h.a.detail),
+          // le jet, du collet à l'eau de la chaudière
+          h.path('M67.5,146 L76.5,146 L74.5,160 L74,181 L70,181 L69.5,160 Z', h.a.hachure('eau', 'fin')),
+          // la chaudière posée dessous, un fond d'eau
+          h.path('M50,176 L94,176 L91,198 L53,198 Z', h.a.hachure('eau', 'aucun')),
+          h.ligne(50, 176, 94, 176, h.a.detail),
+          h.path('M44,164 L100,164 L96,198 L48,198 Z', h.a.arete),
+          h.rect(42, 161, 60, 4, blancArete),
+          // le bouchon dévissé, tenu à côté : son filet et sa tête
+          h.rect(36, 146, 16, 6, blancArete),
+          h.rect(38, 140, 12, 6, blancArete),
+          h.ligne(40, 141, 40, 145, h.a.fin), h.ligne(44, 141, 44, 145, h.a.fin), h.ligne(48, 141, 48, 145, h.a.fin),
+          h.fleche('M58,140 Q50,132 44,137', h.a.detail),
+        ].join('\n')),
+        renvois: z => [
+          renvoi(z, 9, [14, 118], [36, 148], 'bouchon du coude dévissé, chaudière dessous'),
+        ],
+      },
+
+      poire: {
+        titre: 'Sans bouchon',
+        dessin: z => vignette(z, [
           siphon([liquide(130)]),
           // la poire : bulbe au-dessus de l'évier, tube jusqu'au fond du coude
           h.path('M54,24 L54,133 Q56,136 58,133 L58,24', blancArete),
           h.ellipse(56, 13, 9, 12, blancArete),
           h.rect(52, 22, 8, 4, blancArete),
-        ].join('\n'),
+        ].join('\n')),
         renvois: z => [
-          { n: 9, rond: [26, 92], cible: [54, 100], texte: 'siphon vidé à la poire' },
+          renvoi(z, 10, [24, 92], [54, 100], 'siphon vidé à la poire'),
         ],
       },
 
       boucher: {
         titre: 'Puis le boucher',
         dessin: z => [
+          // règle 10 : un filet, dans la gouttière, sépare l'autre façon (la vignette suivante) de la suite des gestes
+          h.ligne(z.l + 11, 0, z.l + 11, z.h, h.a.fin),
+          vignette(z, [
           siphon(),
           bouchon('M50,82 L50,50 C42,48 40,38 50,36 C54,30 60,30 63,36 C72,38 70,48 62,50 L62,82 C58,86 54,86 50,82 Z',
             'M54,32 L50,24 L58,27 Z'),
+          ].join('\n')),
         ].join('\n'),
         renvois: z => [
-          { n: 10, rond: [24, 76], cible: [50, 66], texte: 'chiffon et sac, bien tassés' },
+          renvoi(z, 11, [22, 76], [50, 66], 'chiffon et sac, bien tassés'),
         ],
       },
 
       huile: {
-        titre: 'Ou à l’huile',
+        titre: 'Autre façon : l’huile',
         dessin: z => [
-          siphon([liquide(101)]),
-          // la tasse penchée qui verse dans la bonde
-          h.path(tasse('M70,10 L92,10 L90,30 Q81,34 72,30 Z'), blancArete),
-          h.path(tasse('M91,15 Q99,16 98,22 Q97,27 90,26'), h.a.arete),
-          goutte(60, 34), goutte(58, 42),
+          vignette(z, [
+            siphon([liquide(101, HUILE)]),
+            // la tasse penchée qui verse dans la bonde ; les gouttes d'huile, en gris
+            h.path(tasse('M70,10 L92,10 L90,30 Q81,34 72,30 Z'), blancArete),
+            h.path(tasse('M91,15 Q99,16 98,22 Q97,27 90,26'), h.a.arete),
+            h.ellipse(60, 34, 1.6, 2.3, HUILE.replace('stroke="none"', 'stroke="#1A1A1A" stroke-width="0.5"')),
+            h.ellipse(58, 42, 1.6, 2.3, HUILE.replace('stroke="none"', 'stroke="#1A1A1A" stroke-width="0.5"')),
+          ].join('\n')),
         ].join('\n'),
         renvois: z => [
-          { n: 11, rond: [24, 96], cible: [56, 112], texte: 'ou une tasse d’huile de cuisson' },
+          renvoi(z, 12, [24, 96], [56, 112], 'ou de l’huile de cuisson dans le coude'),
         ],
       },
     },

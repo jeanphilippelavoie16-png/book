@@ -550,6 +550,14 @@ Même sans courant, la glace d'un lac peut s'amincir et s'ouvrir : un banc de po
 remonter l'eau plus chaude du fond, et des oiseaux d'eau posés sur la glace en réchauffent la surface. On
 contourne l'endroit où des oiseaux d'eau se tiennent sur un lac gelé (étape 42).
 
+### Reconnaître la glace en chandelles
+
+![Un bloc de glace de printemps sur la rive, fait de colonnes debout serrées les unes contre les autres](images/extras/15-glace-chandelles.jpg)
+
+Au printemps, la glace qui fond se défait en colonnes debout, perpendiculaires à la surface, comme des chandelles
+serrées. Les colonnes qui se détachent flottent et tintent en se cognant. Elles ne sont plus liées entre elles :
+quand on passe à travers, le bord du trou se défait sous les mains, et on n'a rien pour se hisser (étape 42).
+
 ### Ne pas laisser la machine geler au sol
 
 Après une longue route, la chenille et les pneus sont chauds : arrêtés sur la neige, ils la font fondre, et le

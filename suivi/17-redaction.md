@@ -622,3 +622,20 @@ imprévue sur le seuil », n'existe plus) ; 17-06 inchangée, « Une porte cède
 controle.py : 5 776 mots (5 795 avant), 2 tirets (titre et ligne de tome), 0 « § », 0 mot banni, 0 tournure, 0 maxime,
 0 pronominal ; 1 mise en relief (« n'éblouit pas, mais », note En plus, déjà jugée), 18 mots vides et 5 redites, jugés ;
 invariants contre la version d'avant cette passe : rien n'a disparu.
+
+## Décisions de JP, 19 octobre 2026
+
+Rédacteur de la passe « décisions de JP » (les douze réponses de JP du 19 octobre ; le libellé des décisions est dans
+`_reprise/scratchpad/tome1-final/decisions-jp.js`). Aucune recherche refaite sur ce qui était déjà vérifié ; texte d'avant
+cette passe : commit `f515e01`.
+
+| Décision | Où | Ce qui a changé | Source ou règle |
+| --- | --- | --- | --- |
+| 8. Un adulte seul avec les enfants, un inconnu avec un signe du froid | Étape 3 ; étape 7, nouveau tiret ; section 7, « Le deuxième adulte » | Étape 3 : « …par une fenêtre entrouverte. Seule exception : une personne seule qui a un signe du froid (étape 7). » Étape 7 : « Un adulte seul avec les enfants : si le compte de l'étape 4 concorde (une seule personne, aucune trace de plus que la sienne), ouvrir, coucher la personne sur une couverture et la traîner à l'intérieur. Sinon, ne pas sortir : lui passer par la fenêtre un sac de couchage et une couverture, et lui dire d'étendre la couverture pliée en deux sur la neige, contre le mur, à l'abri du vent, de se coucher dessus, puis d'entrer dans le sac et de le fermer. » Section 7 : « il ne peut rien régler dehors, sauf faire entrer une personne seule qui gèle (étapes 3 et 7) ». La couverture sous le corps : section 7, « Le lit sous la personne » (le corps perd plus de chaleur par le sol que par l'air), déjà au chapitre | Décision 8 |
+| 9. Étape 12, « le lui donner, sans discuter ni résister » | Étape 12 | Gardé tel quel | Décision 9 |
+| Logigramme 17 | `images/logigrammes/17-qui-cogne.json` | « ouvrir » : « **Répondre à travers la porte, sans ouvrir**, pour que la personne sache qu'il y a quelqu'un. » ; « seul » : « …et ne pas sortir, sauf pour une personne seule qui gèle (étape 7) » ; « entre » : « **Seul avec les enfants** : si le compte concorde, ouvrir et le traîner dans la maison sur une couverture ; sinon, lui passer par la fenêtre un sac de couchage et une couverture pour se coucher dessus. » La boîte « entre » prend la largeur de la page ; l'encadré de l'arme (étape 12, à tout moment) passe au bas de la page de droite. Rendu et version du livre : 0 erreur, 0 avis | Décisions 8 et logigrammes |
+
+`controle.py --avant` (f515e01) : 5 776 → 5 886 mots ; 2 tirets (titre et ligne de tome) ; 0 « § », 0 mot banni,
+0 tournure, 0 maxime, 0 pronominal ; 1 mise en relief et 18 mots vides, ceux d'avant ; 6 redites : la nouvelle (« un adulte
+seul avec les enfants », étapes 3 et 7) est le même mot pour la même chose ; rien n'a disparu. Ancre 17-06 intacte. Fins de
+ligne CRLF gardées.

@@ -585,3 +585,18 @@ scratchpad de la session ; les passages utiles sont recopiés mot à mot dans le
   in the genus Falcipennis ») : `sources/glossaire-aos-checklist-tetras-du-canada.md`.
 
 Compression §3 et §4 — 27 septembre 2026 : 1852 mots → 178 mots ; matériel coupé : chiffons, nettoyant à canon, huile légère, tournevis au profil, cible et appui, ruban électrique, caisse à munitions à joint et dessiccatif, hache et coins, couteau et racloir, râpe, matériel de pointe large, tendon et babiche, poix, plumes, élastique, cuir de pochette (tout ce qui sert à l'arc et au lance-pierre est décrit en §9). §3 : coupés les 65 °C des amorces, la vitesse perdue au froid et le zéro froid (reste à l'étape 34), le brouillard de glace sous -38 °C, l'acier cassant au froid, les chiffres de réglage (minute d'angle, milliradian), la pente de fil et les résistances du bois vert, le cèdre qui ne fait pas un arc, la flèche mousse, le caoutchouc au froid. Déplacés : la semi-automatique qui vide son chargeur à la fermeture → §8 bloc 2 ; l'essai du plomb du cordon seul dans l'âme vide → étape 22 ; la description du cordon → §9 « Entretenir avec rien ». Renvois corrigés : §2 (étape 34 ; §9), tableau §5-A (§8, bloc 3), étape 34 (étapes 30 à 32).
+
+## Décisions de JP, 19 octobre 2026
+
+Rédacteur de la passe « décisions de JP » (les douze réponses de JP du 19 octobre ; le libellé des décisions est dans
+`_reprise/scratchpad/tome1-final/decisions-jp.js`). Aucune recherche refaite sur ce qui était déjà vérifié ; texte d'avant
+cette passe : commit `f515e01`.
+
+| Décision | Où | Ce qui a changé | Source ou règle |
+| --- | --- | --- | --- |
+| 5. Les calibres de la famille sortent ; l'avertissement reste, en général | Section 5-A (tableau des bêtes, « Le compte », paragraphe qui suit) ; étape 39 ; section 8, bloc 1 | Tableau des bêtes : « Une carabine de chasse au gros gibier ; à courte distance, le 12 à balle unique » ; « La même carabine ». « Le compte, arme par arme. Six armes, cinq cartouches » devient « Le compte, calibre par calibre. On fait une ligne par calibre qu'on a » ; la colonne « Armes » sort ; les trois lignes .308, 7 mm Rem. Mag. et .303 deviennent une ligne « Chaque calibre de carabine » (12 par carabine ; une cartouche d'un autre calibre peut entrer dans la chambre sans pouvoir y partir ; l'amorce corrosive d'un vieux surplus). Le paragraphe dit 12 cartouches par carabine, et la règle de la boîte partagée en général (« Quand deux carabines tirent le même calibre… »). Étape 39 : « À la carabine, une cartouche d'un autre calibre peut entrer dans la chambre : sa balle, plus grosse que l'âme, s'y force… l'arme cède à hauteur du visage. … Lire le calibre gravé sur le canon de chaque carabine, et ne mettre dans sa poche ou sa caisse que des boîtes qui portent ce calibre. » Le tri au toucher reste, sans nom de calibre (bourrelet, ceinture, ni l'un ni l'autre). Bloc 1 : « une cartouche d'un autre calibre glissée dans la chambre peut pousser une balle plus grosse que l'âme » | Décision 5 ; SAAMI (`sources/35b-calibres-de-jp-saami-et-cartouches.md`) pour le mécanisme ; Wikipédia (même fichier) pour le bourrelet et la ceinture. Sortent avec les calibres : les 48 cartouches des quatre carabines, les 24 des deux .308, les « six à sept dixièmes de millimètre » |
+
+Le ch. 47 (l. 713) nommait aussi les trois calibres : « Les dernières cartouches de carabine vont à l'orignal (ch. 45 §5-A). »
+Le reste du chapitre (§, tirets, « maison du village ») attend la grande passe du tome 3 : pas touché. `controle.py --avant`
+(f515e01) : 11 278 → 11 161 mots ; 42 tirets (44 avant) ; le mot banni, les 72 « § », les tournures, mises en relief,
+maximes : ceux d'avant ; invariants disparus, voulus : « 7 mm » (×9), « 303 », « 308 ».

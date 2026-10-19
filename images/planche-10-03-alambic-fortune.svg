@@ -47,8 +47,8 @@
 <path d="M96,62 C118,50 138,44 158,46 C172,40 196,43 212,48 C232,52 244,56 250,62 Q173,98 96,62 Z" fill="url(#h-neige)" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round"/>
 <path d="M90,62 L96,62 Q173,98 250,62 L256,62" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M166,80 L180,80 L177,90 Q173,92 169,90 Z" fill="#ffffff" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
-<ellipse cx="173" cy="95" rx="1.5" ry="2.3" fill="#1A1A1A" stroke="none"/>
-<ellipse cx="173" cy="102" rx="1.4" ry="2.2" fill="#1A1A1A" stroke="none"/>
+<path d="M173,92.94 C173.51,94.47 174.7,95.66 174.7,96.85 A1.7,1.7 0 0 1 171.3,96.85 C171.3,95.66 172.49,94.47 173,92.94 Z" fill="url(#h-eau)" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round"/>
+<path d="M173,100.44 C173.51,101.97 174.7,103.16 174.7,104.35 A1.7,1.7 0 0 1 171.3,104.35 C171.3,103.16 172.49,101.97 173,100.44 Z" fill="url(#h-eau)" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round"/>
 <circle cx="90" cy="63" r="5.5" fill="url(#h-paille)" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round"/>
 <circle cx="256" cy="63" r="5.5" fill="url(#h-paille)" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round"/>
 <path d="M118,142 C112,130 124,118 118,106 C112,94 114,80 126,77 L150,83" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="5 3.5" marker-end="url(#fl)"/>
@@ -86,7 +86,7 @@
 <path d="M174,188 L206,192 Q212,193 212,198" fill="none" stroke="#ffffff" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M174,188 L206,192 Q212,193 212,198" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
 <ellipse cx="56" cy="106" rx="5" ry="2.5" fill="url(#h-paille)" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round"/>
-<ellipse cx="212" cy="202.5" rx="1.5" ry="2.3" fill="#1A1A1A" stroke="none"/>
+<path d="M212,199.94 C212.51,201.47 213.7,202.66 213.7,203.85 A1.7,1.7 0 0 1 210.3,203.85 C210.3,202.66 211.49,201.47 212,199.94 Z" fill="url(#h-eau)" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round"/>
 <path d="M200,207 Q201,218 207,218 L217,218 Q223,218 224,207" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 </g>
 <line x1="343" y1="171.1" x2="238.5" y2="160" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>

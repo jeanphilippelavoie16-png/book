@@ -279,6 +279,11 @@ module.exports = (h) => {
     const sx0 = 132, sx1 = 166, sH = 34;
     o.push(h.path(`M${f1(sx0 + 2)} ${f1(yF - sH)} C${f1(sx0 + 4)} ${f1(yF - sH - 26)} ${f1(sx1 - 4)} ${f1(yF - sH - 26)} ${f1(sx1 - 2)} ${f1(yF - sH)}`, A.detail));
     o.push(h.chemin([[sx0 + 4, yF], [sx1 - 4, yF], [sx1, yF - sH], [sx0, yF - sH]], W(A.arete), true));
+    // l'eau du seau, en bleu (JP, 19 octobre 2026) : du flanc gauche à la ride, puis au flanc droit et au fond
+    const ySe = yF - sH + 7, dSe = 4 * 7 / sH;
+    o.push(h.path(`M${f1(sx0 + dSe)} ${f1(ySe)} L` + lisse(onde(sx0 + 3, ySe, sx1 - 3, ySe, 1.1, 5)).slice(1)
+      + ` L${f1(sx1 - dSe)} ${f1(ySe)} L${f1(sx1 - 4)} ${f1(yF)} L${f1(sx0 + 4)} ${f1(yF)} Z`, A.hachure('eau', 'aucun')));
+    o.push(h.chemin([[sx0 + 4, yF], [sx1 - 4, yF], [sx1, yF - sH], [sx0, yF - sH]], A.arete, true));
     o.push(h.path(lisse(onde(sx0 + 3, yF - sH + 7, sx1 - 3, yF - sH + 7, 1.1, 5)), A.detail));
     const yP = T([0, -1150])[1];
     return {
@@ -369,13 +374,18 @@ module.exports = (h) => {
     o.push(h.rect(cx0, yF - cH, cx1 - cx0, cH, W(A.arete)), h.ligne(cx0 + 5, yF - cH + 8, cx1 - 5, yF - cH + 8, A.fin));
     const by = yF - cH;
     o.push(h.chemin([[cx0 + 6, by], [cx1 - 6, by], [cx1 - 1, by - 13], [cx0 + 1, by - 13]], W(A.arete), true));
+    // l'eau du bassin, en bleu (JP, 19 octobre 2026)
+    const dBa = 1 + 5 * 4 / 13;
+    o.push(h.path(`M${f1(cx0 + dBa)} ${f1(by - 9)} L` + lisse(onde(cx0 + 3, by - 9, cx1 - 3, by - 9, 1.1, 6)).slice(1)
+      + ` L${f1(cx1 - dBa)} ${f1(by - 9)} L${f1(cx1 - 6)} ${f1(by)} L${f1(cx0 + 6)} ${f1(by)} Z`, A.hachure('eau', 'aucun')));
+    o.push(h.chemin([[cx0 + 6, by], [cx1 - 6, by], [cx1 - 1, by - 13], [cx0 + 1, by - 13]], A.arete, true));
     o.push(h.path(lisse(onde(cx0 + 3, by - 9, cx1 - 3, by - 9, 1.1, 6)), A.detail));
     const pers = F.corps({ x: x0, y: yF, pose: 'debout-penche-lit', echelle: e, mains: { P: 'plat', L: 'plat' }, pieds: 'nu',
       angles: { tronc: 44, cou: 46, tete: 58, brasP: 52, avantbrasP: 150, mainP: 170, brasL: 48, avantbrasL: 146, mainL: 166 } });
     o.push(String(pers));
     // les gouttes qui retombent dans le bassin
     const m = pers.mainP;
-    for (const [dx, dy] of [[4, 14], [9, 24], [2, 30]]) o.push(h.path(`M${f1(m.x + dx)} ${f1(m.y + dy)} q1.6 3 0 4.2 q-1.6 -1.2 0 -4.2 Z`, A.detail));
+    for (const [dx, dy] of [[4, 14], [9, 24], [2, 30]]) o.push(h.path(`M${f1(m.x + dx)} ${f1(m.y + dy)} q1.6 3 0 4.2 q-1.6 -1.2 0 -4.2 Z`, A.hachure('eau', 'detail')));
     return { svg: o.join('\n'), r: [{ n: 5, rond: [158, 76], cible: [cx1 - 1, by - 13], texte: 'se laver les mains et le visage' }] };
   };
 

@@ -1,13 +1,13 @@
 // Planche 15-06 (petite planche, une colonne). Le ski cassé, réparé sur le chemin.
-// Le texte : ch. 15, section 9, « Réparer sur le chemin », ligne « Ski ou patin cassé » : « Une éclisse de plat
-// d'acier (un montant de sommier fait très bien) boulonnée de part en part. À défaut, une perche verte ligaturée sous
-// le ski le porte jusqu'à la rive. »
+// Le texte : ch. 15, section 7, « Réparer sur le chemin », ligne « Ski ou patin cassé » : « Boulonner une éclisse de
+// plat d'acier de part et d'autre de la cassure ; un montant de sommier fait l'affaire (planche 15-06, repères 1 et 2).
+// Sans acier, ligaturer une perche de bois vert sous le ski (repères 3 et 4). »
 //
 // Deux vignettes au même cadrage, le ski de motoneige vu de côté, la spatule à droite, la cassure en avant de la
 // selle où s'attache la jambe de direction :
 //   1. le plat d'acier (ou un montant de sommier) centré sur la cassure, boulonné de part en part de chaque côté (les tiges dans le ski en tireté,
 //      les écrous dessous) ;
-//   2. « Sans acier », au lieu de 1 et 2 : une perche verte couchée sous le ski, ligaturée de chaque côté de la
+//   2. « Sans acier », au lieu de 1 et 2 : une perche de bois vert couchée sous le ski, ligaturée de chaque côté de la
 //      cassure.
 // Aucune cote, aucun chiffre : le texte n'en donne pas (geste sans source écrite, gardé : suivi/15-redaction.md,
 // « Gestes sans source écrite et sans chiffre, gardés », « les réparations de chemin (câble, conduite, cuir, savon,
@@ -109,7 +109,7 @@ module.exports = (h) => {
   return {
     ref: '15-06',
     titre: 'Le ski cassé, réparé sur le chemin',
-    desc: 'Deux vignettes au même cadrage : un ski de motoneige vu de côté, la spatule relevée à droite avec sa boucle, la selle et la jambe de direction au tiers arrière, et une cassure à travers le ski en avant de la selle. En haut, un plat d’acier (un montant de sommier fait l’affaire) posé sur le dessus du ski, centré sur la cassure, tenu par quatre boulons qui traversent le plat et le ski, deux de chaque côté de la cassure, les écrous dessous. En bas, séparée par un filet et marquée comme une autre façon : une perche verte couchée sous le ski, attachée par deux ligatures de corde, une de chaque côté de la cassure.',
+    desc: 'Deux vignettes au même cadrage : un ski de motoneige vu de côté, la spatule relevée à droite avec sa boucle, la selle et la jambe de direction au tiers arrière, et une cassure à travers le ski en avant de la selle. En haut, un plat d’acier (un montant de sommier fait l’affaire) posé sur le dessus du ski, centré sur la cassure, tenu par quatre boulons qui traversent le plat et le ski, deux de chaque côté de la cassure, les écrous dessous. En bas, séparée par un filet et marquée comme une autre façon : une perche de bois vert couchée sous le ski, attachée par deux ligatures de corde, une de chaque côté de la cassure.',
     format: 'quart',
     disposition: [['eclisse'], ['perche']],
     vues: {

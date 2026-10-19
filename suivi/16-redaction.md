@@ -763,3 +763,20 @@ logigramme « **Toboggan ou traîneau** ».
 controle.py : 7 362 mots (7 430 avant), 2 tirets (titre et ligne de tome), 0 « § », 0 mot banni, 0 tournure, 0 maxime,
 0 pronominal ; 43 mots vides et 3 redites, jugés (les mêmes qu'à l'édition) ; invariants contre la version d'avant cette
 passe : rien n'a disparu. Le seul `[À VÉRIFIER]` du chapitre est sorti avec le travois.
+
+## Décisions de JP, 19 octobre 2026
+
+Rédacteur de la passe « décisions de JP » (les douze réponses de JP du 19 octobre ; le libellé des décisions est dans
+`_reprise/scratchpad/tome1-final/decisions-jp.js`). Aucune recherche refaite sur ce qui était déjà vérifié ; texte d'avant
+cette passe : commit `f515e01`.
+
+| Décision | Où | Ce qui a changé | Source ou règle |
+| --- | --- | --- | --- |
+| 7. Le SOS sans réponse | Étape 3 ; étape 5, premier tiret | Étape 3 : la vie en jeu se dit comme au ch. 14, étape 1 (« est difficile à réveiller ou devient confus, ou ne pourra pas passer la nuit là où il est »). Étape 5 : « Si on a déclenché le SOS ou la balise, rester sur place avec le blessé seulement si une réponse confirme que des secours viennent : l'abriter alors (étape 14)… Sinon, le sortir de l'une des façons qui suivent, sans attendre de réponse, avec l'appareil allumé sur soi et le SOS en marche. » La nuit qui tombe avant l'arrivée reste au dernier tiret de l'étape 5 et à l'étape 14 | Décision 7 ; ch. 14, étapes 1 et 3 |
+| 11. Le travois de l'été : garder le geste, retirer `[À VÉRIFIER]` | Étape 5, quatrième tiret ; étape 11, dernier tiret ; section 7, « Le traîneau qu'on fabrique » | Le travois, coupé le 19 octobre au matin faute de source, revient sans `[À VÉRIFIER]` (JP : « pas besoin de source ») : « L'été, le sortir en canot, ou le tirer en travois sur un sentier (étape 11). » ; « prendre un VTT avec une remorque, ou tirer le traîneau de perches en travois sur le sentier (section 7, « L'été, sans neige »). Si rien de cela ne marche, l'abriter sur place… » ; et le paragraphe *L'été, sans neige.* (une ou deux personnes lèvent l'avant par les brancards, le bout des perches au sol, la tête du blessé du côté des brancards ; aller au pas et caler la tête ; à l'horizontale, arrêter le travois et l'abriter). Aucun chiffre dans le passage | Décision 11 ; texte d'avant la coupe (f515e01^) |
+| Logigramme 16 | `images/logigrammes/16-sortir-un-blesse.json` | « marche » : « **Le faire marcher** sans rien porter, avec quelqu'un à côté de lui pour le soutenir. » (sans participe) ; « alerter » : « …déclencher le SOS. Rester sur place seulement si une réponse dit que des secours viennent ; sinon, le sortir avec l'appareil allumé sur soi. Sans SOS, dire où on est… » ; q4 : « En traîneau, ou l'été en canot ou en travois, on peut arriver avant la noirceur ? ». Rangs g4 à g7 descendus de 0,22 po. Rendu et version du livre : 0 erreur, 0 avis | Décisions 7 et 11 |
+
+La planche du travois (candidate du lot 15-16-17) n'est pas dessinée : à l'agent des planches, s'il la veut. `controle.py
+--avant` (f515e01) : 7 362 → 7 516 mots ; 2 tirets (titre et ligne de tome) ; 0 « § », 0 mot banni, 0 tournure,
+0 maxime, 0 pronominal ; 43 mots vides et 3 redites, celles d'avant ; rien n'a disparu. Ancres 16-07 et 16-08 intactes.
+Fins de ligne CRLF gardées.

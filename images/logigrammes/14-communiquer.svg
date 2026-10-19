@@ -21,7 +21,7 @@
 <path d="M283.50,172.20 L283.50,176.10 Q283.50,180.00 279.60,180.00 L159.00,180.00 Q153.00,180.00 153.00,186.00 L153.00,212.60" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
 <path d="M283.50,172.20 L283.50,176.10 Q283.50,180.00 287.40,180.00 L408.00,180.00 Q414.00,180.00 414.00,186.00 L414.00,212.60" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
 <path d="M153.00,283.00 L153.00,291.80" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
-<path d="M153.00,345.90 L153.00,374.60" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M153.00,382.80 L153.00,392.60" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
 <path d="M414.00,275.00 L414.00,291.80" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
 <path d="M414.00,358.20 L414.00,374.60" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
 <path d="M414.00,428.70 L414.00,446.60" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
@@ -48,17 +48,20 @@
 <text x="212.57" y="280.30" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="8.5" fill="#000" xml:space="preserve" data-max="54.68">ch. 14, étape 2</text>
 <rect x="44.00" y="212.60" width="36.12" height="14.00" fill="#EE7219"/>
 <text x="49.00" y="222.80" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="9" fill="#000" xml:space="preserve" data-max="27.62">10 min</text>
-<rect x="36.00" y="298.80" width="234.00" height="47.10" rx="0" fill="#FDE8D8" stroke="#EE7219" stroke-width="1.5"/>
+<rect x="36.00" y="298.80" width="234.00" height="84.00" rx="0" fill="#FDE8D8" stroke="#EE7219" stroke-width="1.5"/>
 <text data-max="217.50" x="45.00" y="315.45" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">Laisser la balise ou le SOS en marche</tspan><tspan font-weight="500"> jusqu’à ce</tspan></text>
-<text data-max="217.50" x="45.00" y="327.75" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">que quelqu’un arrive, et rester près de la machine.</tspan></text>
-<rect x="207.57" y="333.65" width="63.18" height="13.00" fill="#EE7219"/>
-<text x="212.57" y="343.20" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="8.5" fill="#000" xml:space="preserve" data-max="54.68">ch. 14, étape 3</text>
-<rect x="36.00" y="381.60" width="234.00" height="51.40" rx="0" fill="#FDE8D8" stroke="#EE7219" stroke-width="1.5"/>
-<text data-max="217.50" x="45.00" y="398.25" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">Monter un abri et faire un feu qu’on voit d’en haut</tspan><tspan font-weight="500">,</tspan></text>
-<text data-max="217.50" x="45.00" y="410.55" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">avec des branches vertes à jeter dessus dès qu’on</tspan></text>
-<text data-max="217.50" x="45.00" y="422.85" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">entend un avion.</tspan></text>
-<rect x="207.57" y="420.75" width="63.18" height="13.00" fill="#EE7219"/>
-<text x="212.57" y="430.30" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="8.5" fill="#000" xml:space="preserve" data-max="54.68">ch. 14, étape 4</text>
+<text data-max="217.50" x="45.00" y="327.75" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">que quelqu’un arrive. Rester près de la machine</tspan></text>
+<text data-max="217.50" x="45.00" y="340.05" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">seulement si une réponse dit que des secours</tspan></text>
+<text data-max="217.50" x="45.00" y="352.35" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">viennent, ou si on ne peut pas arriver avant la nuit.</tspan></text>
+<text data-max="217.50" x="45.00" y="364.65" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">Sinon, sortir le blessé avec l’appareil allumé sur soi.</tspan></text>
+<rect x="179.42" y="370.55" width="91.33" height="13.00" fill="#EE7219"/>
+<text x="184.42" y="380.10" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="8.5" fill="#000" xml:space="preserve" data-max="82.83">ch. 14, étape 3 ; ch. 16</text>
+<rect x="36.00" y="399.60" width="234.00" height="51.40" rx="0" fill="#FDE8D8" stroke="#EE7219" stroke-width="1.5"/>
+<text data-max="217.50" x="45.00" y="416.25" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">Si on reste, monter un abri et faire un feu qu’on</tspan></text>
+<text data-max="217.50" x="45.00" y="428.55" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">voit d’en haut</tspan><tspan font-weight="500">, avec des branches vertes à jeter</tspan></text>
+<text data-max="217.50" x="45.00" y="440.85" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">dessus dès qu’on entend un avion.</tspan></text>
+<rect x="207.57" y="438.75" width="63.18" height="13.00" fill="#EE7219"/>
+<text x="212.57" y="448.30" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="8.5" fill="#000" xml:space="preserve" data-max="54.68">ch. 14, étape 4</text>
 <rect x="297.00" y="219.60" width="234.00" height="55.40" rx="0" fill="#FDE8D8" stroke="#EE7219" stroke-width="1.5"/>
 <text data-max="217.50" x="306.00" y="240.25" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">Avertir tout de suite le correspondant</tspan><tspan font-weight="500"> par message</tspan></text>
 <text data-max="217.50" x="306.00" y="252.55" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">satellite. Sur le fleuve, appeler à la VHF en</tspan></text>
@@ -125,7 +128,7 @@
 <path d="M153.00,219.60 L149.20,211.60 L156.80,211.60 Z" fill="#000"/>
 <path d="M414.00,219.60 L410.20,211.60 L417.80,211.60 Z" fill="#000"/>
 <path d="M153.00,298.80 L149.20,290.80 L156.80,290.80 Z" fill="#000"/>
-<path d="M153.00,381.60 L149.20,373.60 L156.80,373.60 Z" fill="#000"/>
+<path d="M153.00,399.60 L149.20,391.60 L156.80,391.60 Z" fill="#000"/>
 <path d="M414.00,298.80 L410.20,290.80 L417.80,290.80 Z" fill="#000"/>
 <path d="M414.00,381.60 L410.20,373.60 L417.80,373.60 Z" fill="#000"/>
 <path d="M414.00,453.60 L410.20,445.60 L417.80,445.60 Z" fill="#000"/>

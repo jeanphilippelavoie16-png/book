@@ -1,5 +1,5 @@
 {
-  "_note": "Logigramme du chapitre 14 (communiquer et savoir), double page, fait le 19 octobre 2026 sur le chapitre refait au gabarit final (sept sections), sur le modèle des ch. 4 et 12. Page de gauche : la série orange « Il faut de l'aide, loin de tout » (étapes 1 à 8), pastille 10 min (le pire cas de la série : par −30 °C et un vent de 10 km/h, la peau exposée gèle en 10 à 30 min, même fondement qu'au ch. 16 ; voir suivi/14-redaction.md). La fourche « La vie de quelqu'un est en jeu maintenant ? » sépare la détresse (SOS, balise, MAYDAY : étapes 2 à 4) de l'avis donné tôt au correspondant (PAN PAN, message dans l'ordre, réponse, message suivant : étapes 5 à 8) ; dans le doute, on avertit. Page de droite : la série orange « Quelqu'un n'est pas revenu à l'heure prévue » (étapes 9 à 13), pastille 1 h (l'heure limite, une heure après le retour prévu, comme les recherches d'un avion qui a déposé un plan de vol : sources/19-transports-canada-aim-sar-2025-fr.pdf, AIM SAR 3.5). Aucun avertissement redit (ni le monoxyde de la recharge, ni le froid : ils restent dans leur étape, à côté de leur pictogramme). Colonnes de droite de 8,625 à 15,5 po (cadre des agents). Rendu : env -u TMPDIR python3 design/outils/logigramme.py images/logigrammes/14-communiquer.json ; version du livre : --sans-entete --svg. « source » : les étapes du chapitre d'où vient chaque geste (ignoré au rendu). Se place après la section 3, Matériel.",
+  "_note": "Logigramme du chapitre 14 (communiquer et savoir), double page, fait le 19 octobre 2026 sur le chapitre refait au gabarit final (sept sections), sur le modèle des ch. 4 et 12. Page de gauche : la série orange « Il faut de l'aide, loin de tout » (étapes 1 à 8), pastille 10 min (le pire cas de la série : par −30 °C et un vent de 10 km/h, la peau exposée gèle en 10 à 30 min, même fondement qu'au ch. 16 ; voir suivi/14-redaction.md). La fourche « La vie de quelqu'un est en jeu maintenant ? » sépare la détresse (SOS, balise, MAYDAY : étapes 2 à 4) de l'avis donné tôt au correspondant (PAN PAN, message dans l'ordre, réponse, message suivant : étapes 5 à 8) ; dans le doute, on avertit. Page de droite : la série orange « Quelqu'un n'est pas revenu à l'heure prévue » (étapes 9 à 13), pastille 1 h (l'heure limite, une heure après le retour prévu, comme les recherches d'un avion qui a déposé un plan de vol : sources/19-transports-canada-aim-sar-2025-fr.pdf, AIM SAR 3.5). Aucun avertissement redit (ni le monoxyde de la recharge, ni le froid : ils restent dans leur étape, à côté de leur pictogramme). Colonnes de droite de 8,625 à 15,5 po (cadre des agents). Rendu : env -u TMPDIR python3 design/outils/logigramme.py images/logigrammes/14-communiquer.json ; version du livre : --sans-entete --svg. « source » : les étapes du chapitre d'où vient chaque geste (ignoré au rendu). Se place après la section 3, Matériel. Décision de JP du 19 octobre 2026 (le SOS sans réponse) : a2 ne dit plus « rester près de la machine » sans condition : on reste seulement si une réponse dit que des secours viennent, ou si on ne peut pas arriver avant la nuit (ch. 16, étape 14) ; sinon, on sort le blessé avec l'appareil allumé sur soi (étape 3, ch. 16, étape 5). a3 commence par « Si on reste » (étape 4) et descend au rang g5a.",
   "format": "double",
   "tome": 1,
   "urgent": true,
@@ -51,7 +51,8 @@
     "d4": 3.4,
     "d5": 4.3,
     "d6": 5.3,
-    "d7": 6.5
+    "d7": 6.5,
+    "g5a": 5.55
   },
   "noeuds": [
     {
@@ -92,18 +93,18 @@
       "rang": "g4",
       "ancre": "haut",
       "taille": 10,
-      "texte": "**Laisser la balise ou le SOS en marche** jusqu'à ce que quelqu'un arrive, et rester près de la machine.",
-      "renvoi": "ch. 14, étape 3",
-      "source": "étape 3"
+      "texte": "**Laisser la balise ou le SOS en marche** jusqu'à ce que quelqu'un arrive. Rester près de la machine seulement si une réponse dit que des secours viennent, ou si on ne peut pas arriver avant la nuit. Sinon, sortir le blessé avec l'appareil allumé sur soi.",
+      "renvoi": "ch. 14, étape 3 ; ch. 16",
+      "source": "étape 3 ; ch. 16, étapes 5 et 14"
     },
     {
       "id": "a3",
       "type": "urgent",
       "col": "L",
-      "rang": "g5",
+      "rang": "g5a",
       "ancre": "haut",
       "taille": 10,
-      "texte": "**Monter un abri et faire un feu qu'on voit d'en haut**, avec des branches vertes à jeter dessus dès qu'on entend un avion.",
+      "texte": "**Si on reste, monter un abri et faire un feu qu'on voit d'en haut**, avec des branches vertes à jeter dessus dès qu'on entend un avion.",
       "renvoi": "ch. 14, étape 4",
       "source": "étape 4"
     },

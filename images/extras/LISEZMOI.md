@@ -14,6 +14,7 @@ des planches de la procédure.
 | `12-trois-coniferes.jpg` | 12, encadré « Reconnaître le sapin, l'épinette noire et le cèdre » | Montage de trois photos, 3 435 × 1 500 : le sapin baumier, l'épinette noire, le cèdre | iNaturalist, originaux dans `originaux/`, crédits dans `images/credits.md` |
 | `12-meleze-hiver.jpg` | 12, encadré « Reconnaître le mélèze, l'hiver » | Montage de deux photos, 3 343 × 1 500 : un mélèze nu l'hiver, puis un rameau et un cône | iNaturalist, originaux dans `originaux/`, crédits dans `images/credits.md` |
 | `13-amadouvier-bouleau.jpg` | 13, encadré « Reconnaître l'amadouvier » | Une photo, 1 775 × 2 048, sans recadrage : deux amadouviers sur le tronc d'un bouleau | iNaturalist, original dans `originaux/`, crédits dans `images/credits.md` |
+| `15-glace-chandelles.jpg` | 15, encadré « Reconnaître la glace en chandelles » | Photo, 1 080 × 690, recadrée sur le bloc : de la glace de printemps faite de colonnes debout, et des colonnes détachées au pied | Wikimedia Commons (CC BY 2.0), original dans `originaux/`, crédits dans `images/credits.md` |
 
 Pas de planche ni de dessin dans un encadré (JP, 18 octobre 2026 : « je veux pas de planche dans les affaires vertes :
 photo, ou faits, ou façon ») : seulement des photos (`.jpg`). Le petit dessin du corps mort (ch. 12) et celui de

@@ -1,19 +1,19 @@
-// Planche 15-04. Faire des pics à glace (chapitre 15, section 8, « Faire des pics à glace »). Planche neuve,
+// Planche 15-04. Faire des pics à glace (chapitre 15, section 7, « Faire des pics à glace »). Planche neuve,
 // 18 octobre 2026. Objets seuls, sans main.
 //
-// À gauche, un pic en coupe dans l'axe : le bout de manche à balai de 10 cm, le gros clou dans le trou percé dans
+// En haut, un pic en coupe dans l'axe : le bout de manche à balai de 10 cm, le gros clou dans le trou percé dans
 // l'axe, la tête coupée et le côté coupé au fond du trou ; à côté, le second trou, moins profond, qui recevra la
-// pointe de l'autre pic ; à l'autre bout, le trou en travers et le cordon noué. Au milieu, les deux pics emboîtés,
-// chaque pointe dans le second trou de l'autre, le cordon qui fait le tour du cou. À droite, après un filet, l'autre
-// façon (règle 10) : le clou planté pointe première, la tête limée en pointe.
+// pointe de l'autre pic ; à l'autre bout, le trou en travers et le cordon noué. En bas à gauche, les deux pics
+// emboîtés, chaque pointe dans le second trou de l'autre, le cordon qui fait le tour du cou. En bas à droite, après un
+// filet, l'autre façon (règle 10) : le clou planté pointe première, la tête limée en pointe.
 //
-// Ce que dit le texte (copie de travail, chapitre 15, section 8) : « Couper deux bouts de manche à balai de 10 cm
-// (4 po) » ; « Percer un bout de chaque manche dans l'axe, le plus profond possible, et y enfoncer un gros clou : la
-// tête coupée à la scie à métaux, côté coupé au fond du trou, et la pointe du clou dehors ; ou le clou planté pointe
-// première et sa tête limée en pointe » ; « Percer à côté du clou un second trou, moins profond, qui reçoit la pointe
-// de l'autre pic : emboîtés, les deux pics se couvrent la pointe » ; « Percer l'autre bout de chaque manche en travers
-// et y nouer un cordon solide, un pic à chaque bout » ; « Passer le cordon autour du cou, assez court pour que la
-// paire pende au milieu de la poitrine, par-dessus le manteau ».
+// Ce que dit le texte (chapitre 15, section 7) : « Couper deux bouts de manche à balai de 10 cm (4 po) » ; « Percer un
+// bout de chaque manche dans l'axe, le plus profond possible. Couper la tête d'un gros clou à la scie à métaux et
+// enfoncer le clou dans le trou, le bout coupé en premier, pour que la pointe sorte » ; « Autre façon : planter le clou
+// pointe première et limer sa tête en pointe » ; « Percer à côté du clou un second trou, moins profond, qui reçoit la
+// pointe de l'autre pic : emboîtés, les deux pics se couvrent la pointe » ; « Percer l'autre bout de chaque manche en
+// travers et y nouer un cordon solide, un pic à chaque bout » ; « Passer le cordon autour du cou, assez court pour que
+// la paire pende au milieu de la poitrine, par-dessus le manteau ».
 // Sources : sources/20-wisconsin-dnr-pics-a-glace.md (4 po, bois qui flotte, clou pointe première et tête limée,
 // second trou, cordon à l'autre bout) ; sources/20-lakeice-pics-a-glace.md (tête coupée, clou « aussi long qu'on peut
 // percer », cordon au cou). La seule cote est les 10 cm (4 po) du texte ; le diamètre du manche, la longueur du clou

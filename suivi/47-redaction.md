@@ -497,3 +497,16 @@ Winchester, une .303 British ; aucune arme ne s'achète. Le petit gibier se tire
   Falcipennis ») : `sources/glossaire-aos-checklist-tetras-du-canada.md`. ITIS et Cornell concordent.
 
 Compression §3 et §4 — 27 septembre 2026 : 1241 mots → 203 mots (§3 : 544 → 117 ; §4 : 697 → 86) ; matériel coupé : appelants (les premiers oiseaux sur bâton fourchu restent à l'étape 32), cache (étape 31), moyen de récupérer sur l'eau (étape 36 ; VFI en §8, bloc 6), jumelles, bâtons de jet (§9), de quoi porter à l'air (« jamais dans un sac fermé » déplacé à l'étape 40), grenaille de plomb pour le bois (numéros au tableau de l'étape 1 et à l'étape 14), colonnes quantité/substitution/négociable, paragraphe d'introduction (renvois ch. 00b et 45) ; perdus : n° 4 à 7½ pour le lièvre au fusil, acier un tiers plus léger que le plomb, 2 paires de gants par sortie et leurs substituts (ch. 48 §9). §3 : superficies des domaines (2 à 12 ha, 4 ha, 0,2 à 2,4 ha), plongée de quinze minutes du rat musqué (reste à l'étape 38), horaires bête par bête (§2, étapes 5, 7, 37, tableau de §6), paragraphe de la viande perdue par le coup (étapes 9 et 14, §8 bloc 3), cinq cartouches par canard, exception du lagopède (§5-E) coupés. Renvoi « (§4) » de l'étape 34 retiré.
+
+## Décisions de JP, 19 octobre 2026
+
+Rédacteur de la passe « décisions de JP » (les douze réponses de JP du 19 octobre ; le libellé des décisions est dans
+`_reprise/scratchpad/tome1-final/decisions-jp.js`). Aucune recherche refaite sur ce qui était déjà vérifié ; texte d'avant
+cette passe : commit `f515e01`.
+
+| Décision | Où | Ce qui a changé | Source ou règle |
+| --- | --- | --- | --- |
+| 5. Les calibres de la famille sortent | Section 9, liste du stock fini (l. 713) | « Les dernières cartouches de carabine — .308, 7 mm, .303 — vont à l'orignal (ch. 45 §5-A). » devient « Les dernières cartouches de carabine vont à l'orignal (ch. 45 §5-A). » | Décision 5 |
+
+`controle.py --avant` (f515e01) : 37 tirets (38 avant) ; le reste, celui d'avant ; disparus, voulus : « 7 mm », « 303 »,
+« 308 ».

@@ -13,7 +13,9 @@
 // les deux réparations sont deux fois plus grandes, et le collier a son boîtier et sa vis, qui le font reconnaître.
 //
 // La charte : la flèche rouge, le sens où l'on avance ; le cercle rouge, la fente du raté. Les guenilles des places
-// d'avant, en tireté.
+// d'avant, en tireté. Toute l'eau liquide en bleu, h.a.hachure('eau') (JP, 19 octobre 2026) : l'eau de fonte dans le
+// tuyau, le filet d'eau chaude, le filet et les gouttes du robinet, les jets et les gouttes de la fente. La glace
+// garde son pointillé.
 module.exports = (h) => {
   const A = h.a;
   const f1 = v => Math.round(v * 10) / 10;
@@ -76,11 +78,13 @@ module.exports = (h) => {
       h.cercle(...P(L0 + 37, 5), 1.8, A.arete),
     ].join('\n');
   };
-  // Le filet d'eau chaude, en ruban, du bec (x0, y0) jusqu'à (x1, y1).
+  // Le filet d'eau chaude, en ruban bleu, du bec (x0, y0) jusqu'à (x1, y1).
   const filet = (x0, y0, x1, y1) => {
     const mx = x0 - 4, e0 = 2.4, e1 = 1.4;
-    return h.path(`M${x0 - e0} ${y0} C${mx - e0} ${y0 + 14} ${x1 - e1} ${y1 - 26} ${x1 - e1} ${y1} L${x1 + e1} ${y1} C${x1 + e1} ${y1 - 26} ${mx + e0} ${y0 + 14} ${x0 + e0} ${y0} Z`, W(A.arete));
+    return h.path(`M${x0 - e0} ${y0} C${mx - e0} ${y0 + 14} ${x1 - e1} ${y1 - 26} ${x1 - e1} ${y1} L${x1 + e1} ${y1} C${x1 + e1} ${y1 - 26} ${mx + e0} ${y0 + 14} ${x0 + e0} ${y0} Z`, A.hachure('eau', 'detail'));
   };
+  // Une goutte d'eau, en bleu, cernée d'un trait fin (la pointe en haut).
+  const goutte = (x, y, r = 2.6) => h.path(`M${f1(x)} ${f1(y - 1.4 * r)} Q${f1(x + r)} ${f1(y + 0.6 * r)} ${f1(x)} ${f1(y + r)} Q${f1(x - r)} ${f1(y + 0.6 * r)} ${f1(x)} ${f1(y - 1.4 * r)} Z`, A.hachure('eau', 'fin'));
   const vapeur = (x, y) => [-6, 4].map(dx => h.path(`M${x + dx} ${y} q-4 -5 0 -10 q4 -5 0 -10`, A.fin)).join('\n');
 
   // ─── Dégeler : du robinet vers la glace ─────────────────────────────────────────────────────────
@@ -93,8 +97,8 @@ module.exports = (h) => {
     o.push(h.rect(XG + 1, YT + 1, XR - XG - 1, R - EP - 1, A.hachure('eau', 'aucun')));
     o.push(parois(XM, XR), robinet());
     // l'eau qui sort : un filet, puis des gouttes
-    o.push(h.ligne(XR + 21, YT + 36, XR + 21, YT + 56, A.arete));
-    for (const dy of [66, 77]) o.push(h.path(`M${XR + 21} ${YT + dy - 4} Q${XR + 24} ${YT + dy + 2} ${XR + 21} ${YT + dy + 3} Q${XR + 18} ${YT + dy + 2} ${XR + 21} ${YT + dy - 4} Z`, A.plein));
+    o.push(h.rect(XR + 19.6, YT + 34.5, 2.8, 21.5, A.hachure('eau', 'fin')));
+    for (const dy of [66, 77]) o.push(goutte(XR + 21, YT + dy));
     // les guenilles : les places d'avant en tireté, puis la place de maintenant, contre la glace
     o.push(guenilles(...RAGS[2], true), guenilles(...RAGS[1], true), guenilles(...RAGS[0]));
     // la casserole qui verse sur les guenilles
@@ -119,8 +123,14 @@ module.exports = (h) => {
     // les lèvres de la fente, ouvertes vers le dehors, et l'eau qui en gicle
     const yb = YT + R;
     o.push(h.path(`M${XC - 6} ${yb} L${XC - 4} ${yb + 5} L${XC - 2} ${yb + 4}`, A.arete), h.path(`M${XC + 6} ${yb} L${XC + 4} ${yb + 6} L${XC + 2} ${yb + 5}`, A.arete));
-    for (const a of [-18, 0, 18]) { const t = a * Math.PI / 180; o.push(h.ligne(XC + 5 * Math.sin(t), yb + 10, XC + 18 * Math.sin(t), yb + 10 + 14 * Math.cos(t), A.detail)); }
-    for (const [dx, dy] of [[-8, 34], [7, 38], [0, 46]]) o.push(h.path(`M${XC + dx} ${yb + dy - 3.5} Q${XC + dx + 2.6} ${yb + dy + 1.6} ${XC + dx} ${yb + dy + 2.6} Q${XC + dx - 2.6} ${yb + dy + 1.6} ${XC + dx} ${yb + dy - 3.5} Z`, A.plein));
+    // les jets : de minces fuseaux bleus qui s'évasent en s'éloignant de la fente
+    for (const a of [-18, 0, 18]) {
+      const t = a * Math.PI / 180, u = [Math.sin(t), Math.cos(t)], n = [Math.cos(t), -Math.sin(t)];
+      const p0 = [XC + 5 * u[0], yb + 10], p1 = [XC + 18 * u[0], yb + 10 + 14 * u[1]];
+      const e0 = 0.25, e1 = 1.3;
+      o.push(h.chemin([[p0[0] + n[0] * e0, p0[1] + n[1] * e0], [p1[0] + n[0] * e1, p1[1] + n[1] * e1], [p1[0] - n[0] * e1, p1[1] - n[1] * e1], [p0[0] - n[0] * e0, p0[1] - n[1] * e0]].map(q => q.map(f1)), A.hachure('eau', 'fin'), true));
+    }
+    for (const [dx, dy] of [[-8, 34], [7, 38], [0, 46]]) o.push(goutte(XC + dx, yb + dy));
     o.push(h.controle(XC, yb + 10, 17));
     // la chaleur au milieu : la même casserole, qui verse sur le milieu du bouchon
     const xb = XC + 12, ybec = 46;

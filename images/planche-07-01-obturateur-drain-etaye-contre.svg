@@ -1,10 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="680" height="826" viewBox="0 0 680 826" role="img">
 <title>Planche 07-01. L’obturateur de drain, étayé contre la solive</title>
-<desc>À gauche, en coupe, le drain de plancher : la grille ôtée, un bouchon de bois effilé enveloppé d’un chiffon est enfoncé dans la gorge du drain et dépasse un peu du plancher de béton ; sous lui, dans le tuyau et le siphon, l’eau qui refoule pousse vers le haut (flèches noires). Le pied d’une pièce de bois est posé sur le bouchon, cerclé de rouge. Au milieu, le sous-sol en entier : l’étai, coupé juste trop long, est posé sur le bouchon et penché, le haut contre le dessous de la solive ; un marteau frappe le haut vers l’aplomb (flèche rouge). À droite, l’étai d’aplomb, coincé en force entre le bouchon et la solive ; le contact sous la solive est cerclé de rouge.</desc>
+<desc>À gauche, en coupe, le drain de plancher : la grille ôtée, un bouchon de bois effilé enveloppé d’un chiffon est enfoncé dans la gorge du drain et dépasse un peu du plancher de béton ; sous lui, dans le tuyau et le siphon, l’eau qui refoule pousse vers le haut (flèches noires). Le pied d’une pièce de bois est posé sur le bouchon, cerclé de rouge. Au milieu, le sous-sol en entier : l’étai, un 2 × 4 coupé à peine plus long que la hauteur, est posé sur le bouchon et penché, le haut contre le dessous de la solive ; un marteau, la panne contre le chant de l’étai et le manche qui descend en biais, frappe le haut vers l’aplomb (flèche rouge). À droite, l’étai d’aplomb, coincé en force entre le bouchon et la solive ; le contact sous la solive est cerclé de rouge.</desc>
 <defs>
 <pattern id="h-bois" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" stroke="#1A1A1A" stroke-width="0.7"/></pattern>
 <pattern id="h-gravier" width="10" height="9" patternUnits="userSpaceOnUse"><circle cx="2.5" cy="2.5" r="1.7" fill="none" stroke="#1A1A1A" stroke-width="0.5"/><circle cx="7.5" cy="7" r="1.3" fill="none" stroke="#1A1A1A" stroke-width="0.5"/></pattern>
-<pattern id="h-eau" width="16" height="7" patternUnits="userSpaceOnUse"><line x1="1" y1="2" x2="8" y2="2" stroke="#1A1A1A" stroke-width="0.5"/><line x1="9" y1="5.5" x2="15" y2="5.5" stroke="#1A1A1A" stroke-width="0.5"/></pattern>
+<pattern id="h-eau" width="64" height="22" patternUnits="userSpaceOnUse"><rect width="64" height="22" fill="#DCEAF2"/><path d="M4 7 q4 -2.4 8 0 t8 0 M36 18 q4 -2.4 8 0 t8 0" fill="none" stroke="#4F7A93" stroke-width="0.6" stroke-linecap="round"/></pattern>
 <pattern id="h-pierre" width="14" height="10" patternUnits="userSpaceOnUse"><path d="M1 3 L5 1 L9 3 L8 7 L3 8 Z M10 9 L13 7" fill="none" stroke="#1A1A1A" stroke-width="0.5"/></pattern>
 <marker id="fl" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#1A1A1A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker>
 <marker id="fl-r" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9 Z" fill="#9B2C1E" stroke="#9B2C1E" stroke-width="1" stroke-linejoin="round"/></marker>
@@ -12,16 +12,16 @@
 <rect x="0" y="0" width="680" height="826" fill="#FFFFFF"/>
 <text x="40" y="38" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#1A1A1A">Le bouchon, en coupe</text>
 <g transform="translate(40 46)" data-vue="detail">
-<rect x="0" y="400" width="61" height="221" fill="url(#h-gravier)" stroke="none"/>
-<rect x="147" y="400" width="61" height="221" fill="url(#h-gravier)" stroke="none"/>
+<rect x="0" y="400" width="61" height="238" fill="url(#h-gravier)" stroke="none"/>
+<rect x="147" y="400" width="61" height="238" fill="url(#h-gravier)" stroke="none"/>
 <path d="M0 300 L34 300 L60 326 L60 400 L0 400 Z" fill="url(#h-pierre)" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round"/>
 <path d="M208 300 L174 300 L148 326 L148 400 L208 400 Z" fill="url(#h-pierre)" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round"/>
 <path d="M34 300 L42 300 L66 326 L66 408 L60 408 L60 326 L36 301 Z" fill="#1A1A1A" stroke="none"/>
 <path d="M174 300 L166 300 L142 326 L142 408 L148 408 L148 326 L172 301 Z" fill="#1A1A1A" stroke="none"/>
-<rect x="66" y="404" width="76" height="217" fill="#FFFFFF" stroke="none"/>
-<rect x="66" y="404" width="76" height="217" fill="url(#h-eau)" stroke="none"/>
-<rect x="61" y="408" width="5" height="213" fill="#1A1A1A" stroke="none"/>
-<rect x="142" y="408" width="5" height="213" fill="#1A1A1A" stroke="none"/>
+<rect x="66" y="404" width="76" height="234" fill="#FFFFFF" stroke="none"/>
+<rect x="66" y="404" width="76" height="234" fill="url(#h-eau)" stroke="none"/>
+<rect x="61" y="408" width="5" height="230" fill="#1A1A1A" stroke="none"/>
+<rect x="142" y="408" width="5" height="230" fill="#1A1A1A" stroke="none"/>
 <path d="M104 486 L104 418" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl)"/>
 <path d="M84 482 L84 426" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl)"/>
 <path d="M124 482 L124 426" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl)"/>
@@ -50,11 +50,11 @@
 <path d="M80.6 588.5 L136.8 63.9 L115.6 61.6 L59.4 586.2 Z" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
 <line x1="69.2" y1="544.8" x2="116.4" y2="104.1" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
 <line x1="79.8" y1="546" x2="127" y2="105.3" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M145.5 96 C145.5 98.6 145.7 105.4 145.8 111.6 C145.9 117.8 146 126 146 133.2 C146 140.4 145.9 148.4 145.8 154.8 C145.6 161.2 145.2 167.6 145.2 171.6 C145.3 175.5 145.9 177.4 146 178.6 Q148.2 181.8 150.4 178.6 L150.4 178.6C150.5 177.4 151.2 175.5 151.2 171.6 C151.1 167.6 150.4 161.2 150.1 154.8 C149.8 148.4 149.4 140.4 149.3 133.2 C149.2 126 149.5 117.8 149.5 111.6 C149.6 105.4 149.8 98.6 149.8 96" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M134.2 89.5 L136.6 89.5 L137.4 90.3 L141.2 90.3 L142.8 89.2 L151.4 89.2 L157.4 90 L162.2 91.9 L166 94.9 L167.6 98.1 L165.5 96.5 L161.7 94.6 L157.4 94.1 L153.1 95.2 L151.4 96.2 L142.8 96.2 L141.2 95.2 L137.4 95.2 L136.6 96 L134.2 96 Z" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/>
-<line x1="136.6" y1="89.5" x2="136.6" y2="96" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M153.1 93 C153.9 92.9 156.3 92.3 157.9 92.5 C159.5 92.6 161.4 93.1 162.8 93.8 C164.1 94.5 165.5 96.1 166 96.5" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M168.2 75.7 L137.2 75.7" fill="none" stroke="#9B2C1E" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl-r)"/>
+<path d="M146.6 96 C147.4 98.1 149.6 103.8 151.6 109 C153.6 114.1 156.2 120.9 158.4 126.9 C160.6 133 162.9 139.7 164.7 145.1 C166.6 150.4 168.1 155.9 169.4 159.2 C170.6 162.5 171.7 163.9 172.2 164.8 Q175 166.9 175.8 163.5 L175.8 163.5C175.6 162.5 175.6 160.7 174.3 157.4 C173.1 154.1 170.6 149 168.3 143.7 C166.1 138.5 163.4 131.9 161.1 126 C158.8 120 156.6 113 154.8 107.8 C152.9 102.6 151 96.9 150.2 94.7" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M135.2 94 L137.2 93.3 L138.1 93.7 L141.3 92.6 L142.3 91.2 L149.5 88.5 L154.7 87.4 L159.4 87.5 L163.4 88.8 L165.8 91.1 L163.5 90.4 L159.7 89.9 L156 90.8 L152.7 93 L151.7 94.4 L144.4 97 L142.8 96.6 L139.6 97.8 L139.2 98.7 L137.1 99.4 Z" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="137.2" y1="93.3" x2="139.2" y2="98.7" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M152 91.2 C152.7 90.9 154.5 89.7 155.9 89.3 C157.3 88.9 159.1 88.8 160.4 88.9 C161.7 89.1 163.3 90 163.9 90.2" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M169.1 79.5 L140.1 79.5" fill="none" stroke="#9B2C1E" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl-r)"/>
 </g>
 <text x="466.3" y="38" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#1A1A1A">D’aplomb, coincé</text>
 <g transform="translate(466.3 46)" data-vue="aplomb">
@@ -72,9 +72,9 @@
 <line x1="75.3" y1="545.4" x2="75.3" y2="104.7" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
 <circle cx="70" cy="63.7" r="11" fill="none" stroke="#9B2C1E" stroke-width="1.6"/>
 </g>
-<line x1="228.1" y1="292.8" x2="190" y2="336" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
-<line x1="228.1" y1="292.8" x2="190" y2="336" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
-<circle cx="190" cy="336" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
+<line x1="226" y1="290.1" x2="153" y2="328" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+<line x1="226" y1="290.1" x2="153" y2="328" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
+<circle cx="153" cy="328" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
 <circle cx="234" cy="286" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="detail"/>
 <text x="234" y="290" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">1</text>
 <line x1="59.1" y1="488.6" x2="107" y2="420" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
@@ -92,9 +92,9 @@
 <circle cx="379.2" cy="372.2" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
 <circle cx="413.5" cy="376" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="biais"/>
 <text x="413.5" y="380" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">4</text>
-<line x1="427.6" y1="229.9" x2="419.8" y2="192.7" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
-<line x1="427.6" y1="229.9" x2="419.8" y2="192.7" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
-<circle cx="419.8" cy="192.7" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
+<line x1="430.5" y1="229.8" x2="435.7" y2="183.2" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+<line x1="430.5" y1="229.8" x2="435.7" y2="183.2" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
+<circle cx="435.7" cy="183.2" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
 <circle cx="429.5" cy="238.7" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="biais"/>
 <text x="429.5" y="242.7" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">5</text>
 <line x1="606.6" y1="162.7" x2="549.3" y2="110.7" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
@@ -102,17 +102,16 @@
 <circle cx="549.3" cy="110.7" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
 <circle cx="613.3" cy="168.7" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="aplomb"/>
 <text x="613.3" y="172.7" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">6</text>
-<text x="40" y="698" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">Planche 07-01. L’obturateur de drain, étayé contre la solive.</text>
-<text x="50" y="723" text-anchor="end" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">1</text>
-<text x="56" y="723" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">grille ôtée, bouchon de bois enfoncé</text>
-<text x="50" y="740" text-anchor="end" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">2</text>
-<text x="56" y="740" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">chiffon autour du bouchon</text>
-<text x="50" y="757" text-anchor="end" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">3</text>
-<text x="56" y="757" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">le refoulement pousse par en dessous</text>
-<text x="50" y="774" text-anchor="end" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">4</text>
-<text x="56" y="774" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">étai : un 2 × 4 juste trop long</text>
-<text x="50" y="791" text-anchor="end" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">5</text>
-<text x="56" y="791" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">frapper le haut vers l’aplomb</text>
-<text x="50" y="808" text-anchor="end" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">6</text>
-<text x="56" y="808" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">il porte sous la solive</text>
+<text x="50" y="719" text-anchor="end" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">1</text>
+<text x="56" y="719" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">bouchon enfoncé, qui dépasse du plancher</text>
+<text x="50" y="736" text-anchor="end" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">2</text>
+<text x="56" y="736" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">chiffon autour du bouchon</text>
+<text x="50" y="753" text-anchor="end" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">3</text>
+<text x="56" y="753" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">le refoulement pousse par en dessous</text>
+<text x="50" y="770" text-anchor="end" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">4</text>
+<text x="56" y="770" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">un 2 × 4 à peine plus long que la hauteur</text>
+<text x="50" y="787" text-anchor="end" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">5</text>
+<text x="56" y="787" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">frapper le haut vers l’aplomb</text>
+<text x="50" y="804" text-anchor="end" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">6</text>
+<text x="56" y="804" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">il porte sous la solive</text>
 </svg>

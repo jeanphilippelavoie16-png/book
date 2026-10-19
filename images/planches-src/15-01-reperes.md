@@ -1,6 +1,6 @@
 # Planche 15-01. Sortir d'un trou dans la glace : les repères
 
-Pleine page, six vues dans l'ordre des gestes (chapitre 15, ligne « Pics à glace » du Matériel et étape 34). Les
+Pleine page, six vues dans l'ordre des gestes (chapitre 15, ligne « Pics à glace » du Matériel et étapes 3 à 6). Les
 trois coupes de la séquence (2 et 3, 5 et 6, 7) sont à la même échelle, la glace à gauche, le trou à droite ; la
 dernière vue (8) est vue de dessus.
 

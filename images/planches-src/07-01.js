@@ -1,17 +1,22 @@
-// Planche 07-01. L'obturateur de drain, étayé contre la solive (chapitre 7, §9, « L'égout »).
+// Planche 07-01. L'obturateur de drain, étayé contre la solive (chapitre 7, section 7, « Boucher le drain de plancher
+// sans obturateur »).
 // Dessinée le 15 octobre 2026 (inventaire des planches, priorité moyenne).
-// Le texte : un bouchon de bois enveloppé d'un chiffon, enfoncé dans le renvoi ; une pièce de bois coupée juste
-// trop longue, coincée en force entre le bouchon et la solive du plafond ; le refoulement pousse vers le haut.
+// Le texte : un bouchon de bois enveloppé d'un chiffon, enfoncé dans le renvoi ; un 2 × 4 coupé à peine plus
+// long que la hauteur, coincé en force entre le bouchon et la solive du plafond ; le refoulement pousse vers le haut.
 // Aucune cote : le chapitre n'en donne pas. Le sous-sol est dessiné à ses proportions ordinaires (environ 2,2 m du
 // plancher de béton au dessous des solives, un 2 × 4 pour l'étai, une solive de 2 × 8), sans les chiffrer.
 // Ce que la planche tranche par la géométrie : une pièce plus longue que l'écart ne passe que penchée ; posée sur
 // le bouchon, le haut contre la solive, on frappe le haut le long de la solive jusqu'à l'aplomb, et elle se coince.
 // Le bouchon dépasse un peu du plancher : sinon l'étai porte sur le béton et non sur le bouchon.
 // Pas de main : à l'échelle de la scène, la main ferait un centimètre ; le marteau seul et la flèche rouge.
+// 19 octobre 2026 : le marteau pendait à côté du haut de l'étai sans le toucher. Il frappe : la panne contre le
+// chant de l'étai, le manche qui descend en biais vers la droite (la tête est perpendiculaire au manche ; pour un coup
+// vers la gauche, le manche ne peut pas être horizontal dans cette vue). Le marteau est à l'échelle de la scène.
 // Le marteau (refait le 15 octobre : un rectangle et un bâton) : un marteau de charpentier de côté, construit sur ses
 // proportions (tête, panne, pied-de-biche recourbé, manche galbé). Le chiffon se lit en coupe : une bande tissée
 // entre le bois du bouchon et la fonte du drain.
 // Le raté du texte (le sac de sable posé dessus) n'est pas dessiné : la planche montre ce qui tient.
+// Règle 11 (19 octobre) : le cercle rouge sur le bouchon a son repère (1) : le bouchon dépasse, l'étai porte dessus.
 module.exports = (h) => {
   const A = h.a;
   const f1 = v => Math.round(v * 10) / 10;
@@ -87,8 +92,10 @@ module.exports = (h) => {
     }
     return ferme ? d + ' Z' : d;
   };
-  const marteau = (xF, yA, k) => {
-    const T = ([u, v]) => [xF + u * k, yA + v * k];       // u : de la panne vers le pied-de-biche ; v : vers le bas
+  const marteau = (xF, yA, k, a = 0) => {
+    // u : de la panne vers le pied-de-biche ; v : vers le bas ; a : tourné de a degrés (négatif : le manche part à droite)
+    const ca = Math.cos(a * RAD), sa = Math.sin(a * RAD);
+    const T = ([u, v]) => [xF + (u * ca - v * sa) * k, yA + (u * sa + v * ca) * k];
     const o = [];
     // le manche : il part de l'œil, s'amincit, puis s'élargit dans la main et finit arrondi
     const g = [[42, 12], [43, 70], [44, 150], [43, 230], [41, 292], [44, 318]], dr = [[58, 12], [57, 70], [56, 150], [59, 230], [63, 292], [60, 318]];
@@ -99,7 +106,7 @@ module.exports = (h) => {
     o.push(h.chemin(tete.map(T), W(A.contour).replace('stroke-width="2.4"', 'stroke-width="1.6"'), true));
     o.push(h.ligne(...T([9, -12]), ...T([9, 12]), A.detail));                 // le bord de la panne
     o.push(h.path(lisse([[70, 1], [88, -1], [106, 4], [118, 14]].map(T)), A.fin));   // la fente du pied-de-biche
-    return { svg: o.join('\n'), manche: T([56, 200]) };
+    return { svg: o.join('\n'), manche: T([56, 200]), coin: T([0, -12]), dessus: T([64, -13]) };
   };
 
   // ─── La scène : le sous-sol, la solive vue de côté (0,24 unité par mm) ─────────────────────────
@@ -137,11 +144,16 @@ module.exports = (h) => {
     }
     const P = { top, pied, etaiMilieu: [pied[0] + u[0] * 0.5 + nn[0], pied[1] + u[1] * 0.5 + nn[1]] };
     if (penche) {
-      // le marteau frappe le haut de l'étai vers l'aplomb ; la flèche rouge du coup
-      const yM = yJb + 30, xM = top[0] - (yM - yJb) * d / H + eE / 2 + 0.5;   // le bord droit de l'étai à cette hauteur
-      const mt = marteau(xM, yM, 0.27);
+      // le marteau frappe le haut de l'étai vers l'aplomb : le coin du haut de la panne posé sur le chant droit de
+      // l'étai (les deux traits se touchent) ; la flèche rouge du coup, au-dessus de la tête
+      const bord = y => top[0] + nn[0] - (y - top[1] - nn[1]) * d / H;     // le chant droit de l'étai à la hauteur y
+      const k = 0.24, a = -20, yM = yJb + 34;
+      const essai = marteau(0, yM, k, a), c0 = essai.coin;
+      const xM = bord(c0[1]) + 1.6 - c0[0];
+      const mt = marteau(xM, yM, k, a);
       o.push(mt.svg);
-      o.push(h.geste(`M${f1(xM + 34)} ${f1(yJb + 13)} L${f1(xM + 3)} ${f1(yJb + 13)}`));
+      const yG = mt.dessus[1] - 9;
+      o.push(h.geste(`M${f1(bord(yG) + 34)} ${f1(yG)} L${f1(bord(yG) + 5)} ${f1(yG)}`));
       P.marteau = mt.manche;
     } else {
       o.push(h.controle(top[0], yJb + 1, 11));
@@ -152,7 +164,7 @@ module.exports = (h) => {
   return {
     ref: '07-01',
     titre: 'L’obturateur de drain, étayé contre la solive',
-    desc: 'À gauche, en coupe, le drain de plancher : la grille ôtée, un bouchon de bois effilé enveloppé d’un chiffon est enfoncé dans la gorge du drain et dépasse un peu du plancher de béton ; sous lui, dans le tuyau et le siphon, l’eau qui refoule pousse vers le haut (flèches noires). Le pied d’une pièce de bois est posé sur le bouchon, cerclé de rouge. Au milieu, le sous-sol en entier : l’étai, coupé juste trop long, est posé sur le bouchon et penché, le haut contre le dessous de la solive ; un marteau frappe le haut vers l’aplomb (flèche rouge). À droite, l’étai d’aplomb, coincé en force entre le bouchon et la solive ; le contact sous la solive est cerclé de rouge.',
+    desc: 'À gauche, en coupe, le drain de plancher : la grille ôtée, un bouchon de bois effilé enveloppé d’un chiffon est enfoncé dans la gorge du drain et dépasse un peu du plancher de béton ; sous lui, dans le tuyau et le siphon, l’eau qui refoule pousse vers le haut (flèches noires). Le pied d’une pièce de bois est posé sur le bouchon, cerclé de rouge. Au milieu, le sous-sol en entier : l’étai, un 2 × 4 coupé à peine plus long que la hauteur, est posé sur le bouchon et penché, le haut contre le dessous de la solive ; un marteau, la panne contre le chant de l’étai et le manche qui descend en biais, frappe le haut vers l’aplomb (flèche rouge). À droite, l’étai d’aplomb, coincé en force entre le bouchon et la solive ; le contact sous la solive est cerclé de rouge.',
     format: 'pleine',
     disposition: [['detail', 'biais', 'aplomb']],
     largeurs: [[1.2, 1, 1]],
@@ -164,7 +176,7 @@ module.exports = (h) => {
           const { g } = detail(z);
           const { cx, yB, rT, yF, yBb } = g;
           return [
-            { n: 1, rond: [z.l - 14, yF - 60], cible: [cx + rT + 8, yB + 4], texte: 'grille ôtée, bouchon de bois enfoncé' },
+            { n: 1, rond: [z.l - 14, yF - 60], cible: [cx + 9, yB - 4], texte: 'bouchon enfoncé, qui dépasse du plancher' },
             { n: 2, rond: [14, yF + 150], cible: [cx - g.wB - g.c / 2 - 6, yBb - 22], texte: 'chiffon autour du bouchon' },
             { n: 3, rond: [14, yB + 240], cible: [cx - 20, yB + 196], texte: 'le refoulement pousse par en dessous' },
           ];
@@ -176,7 +188,7 @@ module.exports = (h) => {
         renvois: z => {
           const { g, P } = scene(z, true);
           return [
-            { n: 4, rond: [z.l - 30, 330], cible: P.etaiMilieu, texte: 'étai : un 2 × 4 juste trop long' },
+            { n: 4, rond: [z.l - 30, 330], cible: P.etaiMilieu, texte: 'un 2 × 4 à peine plus long que la hauteur' },
             { n: 5, rond: [z.l - 14, g.yJb + 130], cible: P.marteau, texte: 'frapper le haut vers l’aplomb' },
           ];
         },

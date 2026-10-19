@@ -1,15 +1,16 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="680" height="826" viewBox="0 0 680 826" role="img">
-<title>Planche 09-08 — Le joint de cuir gras et l’emporte-pièce de tuyau</title>
-<desc>Cinq vues. En coupe, un bout de tuyau dont l’extrémité est limée en biseau par l’extérieur, le tranchant restant au bord intérieur, la lime posée à plat sur le biseau et le tuyau qu’on tourne à mesure. La frappe : le tuyau tenu d’aplomb sur un morceau de cuir posé sur le bois de bout d’une bille debout, le marteau au-dessus ; en coupe, les pastilles déjà découpées empilées dans le tuyau. Vu de dessus, le cuir : le petit trou du milieu percé d’abord au petit tuyau, puis le grand cercle coupé au gros tuyau centré sur le trou. La rondelle pendue à un fil de fer dans une boîte de suif fondu, sur le poêle. En coupe, la rondelle graissée serrée entre la tête d’un bouchon de vidange et le bossage d’un réservoir d’eau. L’encadré danger rappelle qu’aucun joint improvisé ne va sur une ligne de gaz ou de carburant.</desc>
+<title>Planche 09-08. Le joint de cuir gras et l’emporte-pièce de tuyau</title>
+<desc>Cinq vues. En coupe, un bout de tuyau dont l’extrémité est limée en biseau par l’extérieur, le tranchant restant au bord intérieur, la lime posée à plat sur le biseau et le tuyau qu’on tourne à mesure. La frappe : le tuyau tenu d’aplomb sur un morceau de cuir posé sur le bois de bout d’une bille debout, le marteau au-dessus ; en coupe, les pastilles déjà découpées empilées dans le tuyau. Vu de dessus, le cuir : le petit trou du milieu percé d’abord au petit tuyau, puis le grand cercle coupé au gros tuyau centré sur le trou. La rondelle pendue à un fil de fer dans une boîte de suif fondu, sur le poêle. En coupe, la rondelle graissée serrée entre la tête d’un bouchon de vidange et le bossage d’un réservoir d’eau.</desc>
 <defs>
 <pattern id="h-bois" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" stroke="#1A1A1A" stroke-width="0.7"/></pattern>
 <pattern id="h-metal" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="10" stroke="#1A1A1A" stroke-width="0.7"/></pattern>
-<pattern id="h-eau" width="16" height="7" patternUnits="userSpaceOnUse"><line x1="1" y1="2" x2="8" y2="2" stroke="#1A1A1A" stroke-width="0.5"/><line x1="9" y1="5.5" x2="15" y2="5.5" stroke="#1A1A1A" stroke-width="0.5"/></pattern>
+<pattern id="h-eau" width="64" height="22" patternUnits="userSpaceOnUse"><rect width="64" height="22" fill="#DCEAF2"/><path d="M4 7 q4 -2.4 8 0 t8 0 M36 18 q4 -2.4 8 0 t8 0" fill="none" stroke="#4F7A93" stroke-width="0.6" stroke-linecap="round"/></pattern>
 <marker id="fl-r" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9 Z" fill="#9B2C1E" stroke="#9B2C1E" stroke-width="1" stroke-linejoin="round"/></marker>
 </defs>
 <rect x="0" y="0" width="680" height="826" fill="#FFFFFF"/>
 <text x="40" y="38" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#1A1A1A">Le tuyau limé en biseau</text>
 <g transform="translate(40 46)" data-vue="tuyau">
+<g transform="translate(0 24)">
 <rect x="65" y="25" width="60" height="175" fill="#E6E6E6" stroke="none"/>
 <path d="M57,26 Q61,20 65,24 L65,200 L57,172 Z" fill="url(#h-metal)" stroke="none"/>
 <path d="M125,26 Q129,20 133,24 L133,172 L125,200 Z" fill="url(#h-metal)" stroke="none"/>
@@ -46,8 +47,10 @@
 <path d="M163.8 76.8 L167.1 67.3 L169.9 68.2 L167.7 77.9 Z" fill="#ffffff" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M160.8 65.5 L172.4 25.2 L187.7 29.6 L176.2 69.9 Z" fill="url(#h-bois)" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round"/>
 </g>
+</g>
 <text x="293.2" y="38" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#1A1A1A">La frappe, sur du bois de bout</text>
 <g transform="translate(293.2 46)" data-vue="frappe">
+<g transform="translate(0 24)">
 <path d="M196 169.4 L198 168.9 L200 168.4 L202 167.9 L204 167.3 L206 166.7 L208 166 L210 165.3 L212 164.6 L214 163.7 L216 162.8 L218 161.8 L220 160.6 L222 159.2 L224 157.6 L226 155.4 L228 150 L228 214 L226 219.4 L224 221.6 L222 223.2 L220 224.6 L218 225.8 L216 226.8 L214 227.7 L212 228.6 L210 229.3 L208 230 L206 230.7 L204 231.3 L202 231.9 L200 232.4 L198 232.9 L196 233.4 Z" fill="#CFCFCF" stroke="none"/>
 <path d="M72,150 L72,214 A78,24 0 0 0 228,214 L228,150" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
 <ellipse cx="150" cy="150" rx="78" ry="24" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
@@ -88,25 +91,32 @@
 <line x1="172" y1="38" x2="184" y2="36" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M126,14 L126,54" fill="none" stroke="#9B2C1E" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl-r)"/>
 </g>
-<text x="40" y="324" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#1A1A1A">Le trou, puis le tour</text>
-<g transform="translate(40 332)" data-vue="rondelle">
+</g>
+<text x="40" y="379" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#1A1A1A">Le trou, puis le tour</text>
+<g transform="translate(40 387)" data-vue="rondelle">
+<g transform="translate(0 24)">
 <path d="M22,62 Q44,46 72,46 Q112,44 138,52 Q158,66 156,100 Q156,148 148,172 Q138,200 112,206 Q76,210 50,202 Q22,190 18,156 Q12,110 22,62 Z" fill="#ffffff" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
 <circle cx="86" cy="128" r="44" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <circle cx="86" cy="128" r="11" fill="#1A1A1A" stroke="none"/>
 </g>
-<text x="235.8" y="324" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#1A1A1A">Au suif</text>
-<g transform="translate(235.8 332)" data-vue="suif">
+</g>
+<text x="235.8" y="379" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#1A1A1A">Au suif</text>
+<g transform="translate(235.8 387)" data-vue="suif">
+<g transform="translate(0 24)">
 <rect x="8" y="212" width="157" height="10" fill="url(#h-metal)" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round"/>
 <rect x="47.2" y="100" width="79.6" height="50" fill="#E6E6E6" stroke="none"/>
-<rect x="47.2" y="150" width="79.6" height="61" fill="url(#h-eau)" stroke="none"/>
+<rect x="47.2" y="150" width="79.6" height="61" fill="#CFCFCF" stroke="none"/>
 <line x1="47" y1="150" x2="127" y2="150" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M46 100 L46 212 L128 212 L128 100" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
 <circle cx="87" cy="180" r="20" fill="#ffffff" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
-<circle cx="87" cy="180" r="7" fill="url(#h-eau)" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round"/>
+<circle cx="87" cy="180" r="7" fill="#CFCFCF" stroke="none"/>
+<circle cx="87" cy="180" r="7" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M90.5,173.5 Q90.5,177.5 87,177.5 Q83.5,177.5 83.5,173.5 L83.5,108 Q83.5,98.5 93,98.5 L126,98.5 Q130,98.5 130,102.5 L130,116" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 </g>
-<text x="431.5" y="324" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#1A1A1A">Sous un bouchon de vidange</text>
-<g transform="translate(431.5 332)" data-vue="place">
+</g>
+<text x="431.5" y="379" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#1A1A1A">Sous un bouchon de vidange</text>
+<g transform="translate(431.5 387)" data-vue="place">
+<g transform="translate(0 24)">
 <rect x="8" y="30" width="192" height="58" fill="url(#h-eau)" stroke="none"/>
 <rect x="90" y="88" width="28" height="24" fill="url(#h-eau)" stroke="none"/>
 <line x1="8" y1="30" x2="200" y2="30" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
@@ -130,93 +140,89 @@
 <path d="M118,148 L128,148 Q132,152 128,156 L118,156 Z" fill="#1A1A1A" stroke="none"/>
 <path d="M82,196 Q104,208 126,196" fill="none" stroke="#9B2C1E" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl-r)"/>
 </g>
-<line x1="70.8" y1="225.9" x2="100" y2="232" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
-<line x1="70.8" y1="225.9" x2="100" y2="232" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
-<circle cx="100" cy="232" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
-<circle cx="62" cy="224" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="tuyau"/>
-<text x="62" y="228" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">1</text>
-<line x1="77.3" y1="266.7" x2="106" y2="246" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
-<line x1="77.3" y1="266.7" x2="106" y2="246" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
-<circle cx="106" cy="246" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
-<circle cx="70" cy="272" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="tuyau"/>
-<text x="70" y="276" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">2</text>
-<line x1="243" y1="165.4" x2="195" y2="162" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
-<line x1="243" y1="165.4" x2="195" y2="162" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
-<circle cx="195" cy="162" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
-<circle cx="252" cy="166" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="tuyau"/>
-<text x="252" y="170" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">3</text>
-<line x1="576.6" y1="219.2" x2="505.2" y2="196" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
-<line x1="576.6" y1="219.2" x2="505.2" y2="196" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
-<circle cx="505.2" cy="196" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
-<circle cx="585.2" cy="222" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="frappe"/>
-<text x="585.2" y="226" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">4</text>
-<line x1="336" y1="179.8" x2="418.2" y2="197" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
-<line x1="336" y1="179.8" x2="418.2" y2="197" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
-<circle cx="418.2" cy="197" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
-<circle cx="327.2" cy="178" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="frappe"/>
-<text x="327.2" y="182" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">5</text>
-<line x1="516.2" y1="144.3" x2="469.2" y2="146" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
-<line x1="516.2" y1="144.3" x2="469.2" y2="146" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
-<circle cx="469.2" cy="146" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
-<circle cx="525.2" cy="144" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="frappe"/>
-<text x="525.2" y="148" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">6</text>
-<line x1="377.2" y1="154" x2="445.2" y2="188" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
-<line x1="377.2" y1="154" x2="445.2" y2="188" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
-<circle cx="445.2" cy="188" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
-<circle cx="369.2" cy="150" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="frappe"/>
-<text x="369.2" y="154" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">7</text>
-<line x1="185.3" y1="367.7" x2="134" y2="452" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
-<line x1="185.3" y1="367.7" x2="134" y2="452" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
-<circle cx="134" cy="452" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
-<circle cx="190" cy="360" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="rondelle"/>
-<text x="190" y="364" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">8</text>
-<line x1="66" y1="549.9" x2="95" y2="491" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
-<line x1="66" y1="549.9" x2="95" y2="491" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
-<circle cx="95" cy="491" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
-<circle cx="62" cy="558" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="rondelle"/>
-<text x="62" y="562" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">9</text>
-<line x1="265.2" y1="509.2" x2="291.8" y2="528" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
-<line x1="265.2" y1="509.2" x2="291.8" y2="528" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
-<circle cx="291.8" cy="528" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
-<circle cx="257.8" cy="504" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="suif"/>
-<text x="257.8" y="508" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">10</text>
-<line x1="379.3" y1="503" x2="341.8" y2="516" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
-<line x1="379.3" y1="503" x2="341.8" y2="516" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
-<circle cx="341.8" cy="516" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
-<circle cx="387.8" cy="500" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="suif"/>
-<text x="387.8" y="504" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">11</text>
-<line x1="468.4" y1="520.2" x2="510.5" y2="485" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
-<line x1="468.4" y1="520.2" x2="510.5" y2="485" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
-<circle cx="510.5" cy="485" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
-<circle cx="461.5" cy="526" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="place"/>
-<text x="461.5" y="530" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">12</text>
-<rect x="40" y="592" width="600" height="77" fill="none" stroke="#9B2C1E" stroke-width="2"/>
-<text x="54" y="615.4" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#9B2C1E">Jamais de joint de cuir ou de caoutchouc improvisé sur une ligne de gaz ou de carburant : l’essence</text>
-<text x="54" y="633.3" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#9B2C1E">et le propane dessèchent le cuir. Le propane, plus lourd que l’air, coule au plancher, s’accumule dans</text>
-<text x="54" y="651.2" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#9B2C1E">le creux et attend l’étincelle. Une ligne de gaz qui fuit se ferme au robinet de la bouteille.</text>
-<text x="40" y="698" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">Planche 09-08 — Le joint de cuir gras et l’emporte-pièce de tuyau.</text>
-<text x="56" y="723" text-anchor="end" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">1</text>
-<text x="62" y="723" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">biseau limé par l’extérieur</text>
-<text x="56" y="740" text-anchor="end" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">2</text>
-<text x="62" y="740" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">tranchant au bord intérieur du tuyau</text>
-<text x="56" y="757" text-anchor="end" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">3</text>
-<text x="62" y="757" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">lime à plat, en tournant le tuyau</text>
-<text x="56" y="774" text-anchor="end" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">4</text>
-<text x="62" y="774" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">bille de bois debout, bois de bout dessus</text>
-<text x="56" y="791" text-anchor="end" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">5</text>
-<text x="62" y="791" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">cuir de botte, semelle ou chambre à air</text>
-<text x="56" y="808" text-anchor="end" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">6</text>
-<text x="62" y="808" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">tuyau d’aplomb, frappé au marteau</text>
-<text x="368" y="723" text-anchor="end" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">7</text>
-<text x="374" y="723" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">la pastille remonte dans le tuyau</text>
-<text x="368" y="740" text-anchor="end" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">8</text>
-<text x="374" y="740" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">petit tuyau d’abord : le trou du milieu</text>
-<text x="368" y="757" text-anchor="end" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">9</text>
-<text x="374" y="757" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">puis le gros tuyau, centré sur le trou</text>
-<text x="368" y="774" text-anchor="end" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">10</text>
-<text x="374" y="774" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">suif fondu</text>
-<text x="368" y="791" text-anchor="end" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">11</text>
-<text x="374" y="791" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">rondelle pendue à un fil de fer</text>
-<text x="368" y="808" text-anchor="end" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">12</text>
-<text x="374" y="808" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">cuir gras serré, que l’eau fait gonfler</text>
+</g>
+<line x1="70.8" y1="249.9" x2="100" y2="256" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+<line x1="70.8" y1="249.9" x2="100" y2="256" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
+<circle cx="100" cy="256" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
+<circle cx="62" cy="248" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="tuyau"/>
+<text x="62" y="252" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">1</text>
+<line x1="77.3" y1="290.7" x2="106" y2="270" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+<line x1="77.3" y1="290.7" x2="106" y2="270" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
+<circle cx="106" cy="270" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
+<circle cx="70" cy="296" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="tuyau"/>
+<text x="70" y="300" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">2</text>
+<line x1="243" y1="189.4" x2="195" y2="186" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+<line x1="243" y1="189.4" x2="195" y2="186" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
+<circle cx="195" cy="186" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
+<circle cx="252" cy="190" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="tuyau"/>
+<text x="252" y="194" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">3</text>
+<line x1="576.6" y1="243.2" x2="505.2" y2="220" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+<line x1="576.6" y1="243.2" x2="505.2" y2="220" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
+<circle cx="505.2" cy="220" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
+<circle cx="585.2" cy="246" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="frappe"/>
+<text x="585.2" y="250" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">4</text>
+<line x1="336" y1="203.8" x2="418.2" y2="221" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+<line x1="336" y1="203.8" x2="418.2" y2="221" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
+<circle cx="418.2" cy="221" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
+<circle cx="327.2" cy="202" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="frappe"/>
+<text x="327.2" y="206" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">5</text>
+<line x1="516.2" y1="168.3" x2="469.2" y2="170" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+<line x1="516.2" y1="168.3" x2="469.2" y2="170" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
+<circle cx="469.2" cy="170" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
+<circle cx="525.2" cy="168" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="frappe"/>
+<text x="525.2" y="172" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">6</text>
+<line x1="377.2" y1="178" x2="445.2" y2="212" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+<line x1="377.2" y1="178" x2="445.2" y2="212" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
+<circle cx="445.2" cy="212" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
+<circle cx="369.2" cy="174" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="frappe"/>
+<text x="369.2" y="178" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">7</text>
+<line x1="185.3" y1="446.7" x2="134" y2="531" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+<line x1="185.3" y1="446.7" x2="134" y2="531" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
+<circle cx="134" cy="531" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
+<circle cx="190" cy="439" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="rondelle"/>
+<text x="190" y="443" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">8</text>
+<line x1="66" y1="628.9" x2="95" y2="570" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+<line x1="66" y1="628.9" x2="95" y2="570" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
+<circle cx="95" cy="570" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
+<circle cx="62" cy="637" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="rondelle"/>
+<text x="62" y="641" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">9</text>
+<line x1="265.2" y1="588.2" x2="291.8" y2="607" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+<line x1="265.2" y1="588.2" x2="291.8" y2="607" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
+<circle cx="291.8" cy="607" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
+<circle cx="257.8" cy="583" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="suif"/>
+<text x="257.8" y="587" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">10</text>
+<line x1="379.3" y1="582" x2="341.8" y2="595" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+<line x1="379.3" y1="582" x2="341.8" y2="595" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
+<circle cx="341.8" cy="595" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
+<circle cx="387.8" cy="579" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="suif"/>
+<text x="387.8" y="583" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">11</text>
+<line x1="468.4" y1="599.2" x2="510.5" y2="564" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+<line x1="468.4" y1="599.2" x2="510.5" y2="564" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
+<circle cx="510.5" cy="564" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
+<circle cx="461.5" cy="605" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="place"/>
+<text x="461.5" y="609" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">12</text>
+<text x="56" y="719" text-anchor="end" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">1</text>
+<text x="62" y="719" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">biseau limé par l’extérieur</text>
+<text x="56" y="736" text-anchor="end" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">2</text>
+<text x="62" y="736" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">tranchant au bord intérieur du tuyau</text>
+<text x="56" y="753" text-anchor="end" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">3</text>
+<text x="62" y="753" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">lime à plat, en tournant le tuyau</text>
+<text x="56" y="770" text-anchor="end" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">4</text>
+<text x="62" y="770" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">bille de bois debout, bois de bout dessus</text>
+<text x="56" y="787" text-anchor="end" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">5</text>
+<text x="62" y="787" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">cuir de botte ou semelle de cuir</text>
+<text x="56" y="804" text-anchor="end" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">6</text>
+<text x="62" y="804" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">tuyau d’aplomb, frappé au marteau</text>
+<text x="368" y="719" text-anchor="end" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">7</text>
+<text x="374" y="719" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">la pastille remonte dans le tuyau</text>
+<text x="368" y="736" text-anchor="end" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">8</text>
+<text x="374" y="736" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">petit tuyau d’abord : le trou du milieu</text>
+<text x="368" y="753" text-anchor="end" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">9</text>
+<text x="374" y="753" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">puis le gros tuyau, centré sur le trou</text>
+<text x="368" y="770" text-anchor="end" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">10</text>
+<text x="374" y="770" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">suif fondu</text>
+<text x="368" y="787" text-anchor="end" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">11</text>
+<text x="374" y="787" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">rondelle pendue à un fil de fer</text>
+<text x="368" y="804" text-anchor="end" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">12</text>
+<text x="374" y="804" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">cuir gras serré, que l’eau fait gonfler</text>
 </svg>

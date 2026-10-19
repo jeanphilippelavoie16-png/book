@@ -660,3 +660,17 @@ je ne change pas le renvoi tant que le ch. 3 n'est pas fixé.
 0 maxime, 0 pronominal ; 24 mots vides et 9 redites, jugés (des renvois, ou le même mot pour la même chose ;
 « sur un lit de branches vertes » aux étapes 4 et 29 est voulu) ; invariants : rien n'a disparu. Aucun
 `[À VÉRIFIER]` dans le chapitre. Fins de ligne LF.
+
+## Décisions de JP, 19 octobre 2026
+
+Rédacteur de la passe « décisions de JP » (les douze réponses de JP du 19 octobre ; le libellé des décisions est dans
+`_reprise/scratchpad/tome1-final/decisions-jp.js`). Aucune recherche refaite sur ce qui était déjà vérifié ; texte d'avant
+cette passe : commit `f515e01`.
+
+| Décision | Où | Ce qui a changé | Source ou règle |
+| --- | --- | --- | --- |
+| 11. Le feu par vent de plus de 20 km/h : couper la phrase, le chiffre n'a pas de source pour ce geste | Étape 8, avant-dernière sous-étape ; section 5, ligne « Le vent » | Sort : « Allumer dehors seulement quand le vent reste sous 20 km/h : à 16 km/h, un drapeau léger est déployé ; à 24 km/h, une feuille de papier journal se soulève du sol. » La suite commence par « Quand il vente fort, ou que la mousse craque sous le pied (ch. 11, section 7), faire le feu dans le poêle. » Le geste du feu pour se réchauffer derrière une butte, un rocher ou un mur reste (FM 21-76, déjà au dossier). La ligne « Le vent » de la section 5 sort avec son chiffre | Décision 11. **Lecture à faire confirmer** : la décision dit « couper la phrase (le chiffre n'a pas de source) » ; la phrase qui porte un chiffre est celle des 20 km/h (règle de la SOPFEU pour un feu de camp, pas un mécanisme), et c'est elle qui sort. La phrase du feu pour se réchauffer n'a pas de chiffre et a sa source : gardée |
+
+Le logigramme 13 ne parlait pas du vent en chiffres : pas touché. `controle.py --avant` (f515e01) : 5 799 → 5 718 mots ;
+2 tirets (titre et ligne de tome) ; 0 « § », 0 mot banni, 0 tournure, 0 maxime, 0 pronominal ; 24 mots vides et
+9 redites, celles d'avant ; disparus : « 16 km », « 20 km » (×2), « 24 km », voulus. Aucune ancre touchée. Fins de ligne LF.

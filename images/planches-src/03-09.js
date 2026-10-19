@@ -1,10 +1,12 @@
-// Planche 03-09. L’abri dans la pièce (ch. 3, section 9, « Le chauffage » : couverture sur la table,
+// Planche 03-09. L’abri dans la pièce (ch. 3, étape 10, « Avant la nuit, monter un abri dans la pièce » : couverture sur la table,
 // drap jusqu'aux chaises, matelas debout au mur ; les enfants au milieu, les adultes aux bouts).
 // Coupes en cm : en travers, x = distance au mur ; en long, x = le long du mur.
 // 13 oct. : plus de corps vus de dessus (JP) ; la vue de dessus devient une coupe en long, où le
 // dormeur est de profil (corps simple sous sa couverture) et où les deux bouts descendent au plancher.
 // 16 oct. : dans la comparaison du bas, le dormeur est sous sa couverture, comme dans la vue en long (son bras
 // et sa main, dessinés à cette taille, n'étaient pas nets).
+// 19 oct. : repères renumérotés dans l'ordre des gestes de l'étape 10 du ch. 3 (monter l'abri 1 à 3, faire le lit
+// 4 à 6, coucher tout le monde 7 à 9, le papier journal 10, fermer les bouts 11).
 module.exports = (h) => {
   const blanc = a => a.replace('fill="none"', h.a.blanc.split(' ')[0]);
   const r1 = v => Math.round(v * 10) / 10;
@@ -283,7 +285,7 @@ module.exports = (h) => {
     const ds = pieces.map(([pc, pa, pb]) => { const py = L - pb;
       return `M ${r1(pc - pa)},${r1(py)} A ${pa},${pb} 0 1 0 ${r1(pc + pa)},${r1(py)} A ${pa},${pb} 0 1 0 ${r1(pc - pa)},${r1(py)} Z`; });
     out.push(peindre([ds[1], ds[2], ds[0]]));
-    // par-dessus : couverture, journal froissé, couverture
+    // par-dessus : couverture, papier journal (dessiné en boules), couverture
     const xe = fin - 6;
     const nap = (d1, d2) => {
       const hauts = [], bas = [];
@@ -342,7 +344,7 @@ module.exports = (h) => {
   return {
     ref: '03-09',
     titre: 'L’abri dans la pièce : la tente de table et le lit en couches',
-    desc: 'En coupe : contre le mur, un matelas debout ; une couverture part du haut du matelas et couvre la table ; un drap, pris sous la couverture sur la table, continue jusqu’au dossier d’une chaise, puis descend au plancher. Dessous, sur des cartons et des coussins de divan, les quatre dormeurs, coupés à la poitrine (le tronc et un bras de chaque côté, la tête qui dépasse au fond), sous une même couverture. Vu de dessus, en pictogrammes couchés sur le dos : un adulte contre le matelas, les deux enfants au milieu, l’autre adulte côté drap ; aux deux bouts, couverture et drap descendent jusqu’au plancher. De près : cartons, branches de sapin, couverture, le corps, puis couverture, journal froissé et couverture. En bas : un dormeur sur quatre couvertures écrasées à même le plancher, la chaleur qui part dans le bois ; un autre sur deux cartons et une couverture.',
+    desc: 'En coupe : contre le mur, un matelas debout ; une couverture part du haut du matelas et couvre la table ; un drap, pris sous la couverture sur la table, continue jusqu’au dossier d’une chaise, puis descend au plancher. Dessous, sur des cartons et des coussins de divan, les quatre dormeurs, coupés à la poitrine (le tronc et un bras de chaque côté, la tête qui dépasse au fond), sous une même couverture. En long : un dormeur couché sur le dos sous sa couverture, la table au fond ; aux deux bouts, le drap descend jusqu’au plancher. De près : cartons, branches de sapin, couverture, le corps, puis couverture, papier journal et couverture. En bas : un dormeur sur quatre couvertures écrasées à même le plancher, la chaleur qui part dans le bois ; un autre sur deux cartons et une couverture.',
     format: 'pleine',
     disposition: [['coupe'], ['long', 'couches'], ['rate', 'bon']],
     hauteurs: [5, 5, 2],
@@ -357,9 +359,9 @@ module.exports = (h) => {
             { n: 1, rond: [X(23), Y(100) - 22], cible: [X(23), Y(92)], texte: 'matelas debout contre le mur' },
             { n: 2, rond: [X(80), Y(95)], cible: [X(84), Y(80.2)], texte: 'couverture par-dessus la table' },
             { n: 3, rond: [X(186), Y(101)], cible: [X(180), Y(drapY(180))], texte: 'drap tendu jusqu’au dossier et au plancher' },
-            { n: 4, rond: [X(150), Y(58)], cible: [X(166), dessus(X(166)) - 3], texte: 'une même couverture pour les quatre' },
-            { n: 5, rond: [X(214), Y(30)], cible: [X(200), (K + C) / 2], texte: 'coussins de divan' },
-            { n: 6, rond: [X(101), Y(64)], cible: [X(101), B - 23.6 * s - 0.8], texte: 'les enfants au milieu, un adulte aux bouts' },
+            { n: 7, rond: [X(150), Y(58)], cible: [X(166), dessus(X(166)) - 3], texte: 'une même couverture pour les quatre' },
+            { n: 8, rond: [X(214), Y(30)], cible: [X(200), (K + C) / 2], texte: 'le lit de coussins' },
+            { n: 9, rond: [X(101), Y(64)], cible: [X(101), B - 23.6 * s - 0.8], texte: 'les enfants au milieu, un adulte aux bouts' },
           ];
         },
       },
@@ -369,7 +371,7 @@ module.exports = (h) => {
         renvois: z => {
           const { X, Y, G, DRAP } = geoLong(z);
           return [
-            { n: 7, rond: [X(186), Y(DRAP) - 26], cible: [X(208) + 1, Y(DRAP / 2)], texte: 'les deux bouts fermés jusqu’au plancher' },
+            { n: 11, rond: [X(186), Y(DRAP) - 26], cible: [X(208) + 1, Y(DRAP / 2)], texte: 'les deux bouts fermés jusqu’au plancher' },
           ];
         },
       },
@@ -380,10 +382,10 @@ module.exports = (h) => {
           const { G, e, S, L, fin, rx, cx, nappe } = geoCouches(z);
           const xt = cx + rx * 0.7;
           return [
-            { n: 8, rond: [z.l - 13, G - 2 * e - 11], cible: [z.l - 34, G - 1.5 * e], texte: 'cartons aplatis ou tapis roulé' },
-            { n: 9, rond: [z.l - 28, S - 5], cible: [z.l - 58, S + 16], texte: 'branches de sapin, ou matelas, ou coussins' },
-            { n: 10, rond: [z.l - 40, L - 26], cible: [fin - 3, L + 3.5], texte: 'couverture sous le corps' },
-            { n: 11, rond: [z.l - 30, nappe(23, xt) - 24], cible: [xt, (nappe(5, xt) + nappe(18, xt)) / 2], texte: 'journal froissé entre deux couvertures' },
+            { n: 4, rond: [z.l - 13, G - 2 * e - 11], cible: [z.l - 34, G - 1.5 * e], texte: 'cartons aplatis ou tapis roulé' },
+            { n: 5, rond: [z.l - 28, S - 5], cible: [z.l - 58, S + 16], texte: 'branches de sapin, ou matelas, ou coussins' },
+            { n: 6, rond: [z.l - 40, L - 26], cible: [fin - 3, L + 3.5], texte: 'couverture sous le corps' },
+            { n: 10, rond: [z.l - 30, nappe(23, xt) - 24], cible: [xt, (nappe(5, xt) + nappe(18, xt)) / 2], texte: 'papier journal entre deux couvertures' },
           ];
         },
       },

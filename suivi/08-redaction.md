@@ -463,3 +463,17 @@ large » devient « garrot à bande large, jamais une ceinture étroite (ch. 26)
 l'assembleur) ; 0 « § », 0 tournure, 0 pronominal ; la maxime signalée est la note 1, déjà jugée (un fait qui
 surprend) ; « au niveau de la mer » gardé ; invariants : rien n'a disparu. Aucune ancre (clé « 08 » vide). Fins de
 ligne LF.
+
+## Décisions de JP, 19 octobre 2026
+
+Rédacteur de la passe « décisions de JP » (les douze réponses de JP du 19 octobre ; le libellé des décisions est dans
+`_reprise/scratchpad/tome1-final/decisions-jp.js`). Aucune recherche refaite sur ce qui était déjà vérifié ; texte d'avant
+cette passe : commit `f515e01`.
+
+| Décision | Où | Ce qui a changé | Source ou règle |
+| --- | --- | --- | --- |
+| 7. Le SOS sans réponse | Scénario 7, lignes « 0 à 10 min » (l'alerte) et « 10 à 30 min » (l'accès) | L'alerte : « Si la vie est en jeu (ch. 14, étape 1), déclencher le SOS de l'appareil satellite ou la balise ; sinon, avertir par message satellite, par la radio ou par un voisin (ch. 14). » L'accès : « Si une réponse confirme que des secours viennent, préparer l'accès… Sinon, sortir le blessé soi-même, l'appareil satellite allumé sur soi et le SOS en marche (ch. 16, étape 5) ; si on ne peut pas arriver avant la nuit, l'abriter sur place (ch. 16, étape 14). » « téléphone satellite » devient « appareil satellite », le mot du ch. 14 | Décision 7 ; ch. 14, étapes 1 à 3 ; ch. 16, étapes 5 et 14 |
+
+`controle.py --avant` (f515e01) : 6 945 → 7 000 mots ; 2 tirets (titre et ligne de tome) ; 0 « § », 0 mot banni,
+0 tournure, 0 pronominal ; la maxime et « au niveau de la mer », ceux d'avant ; 40 mots vides ; rien n'a disparu. Fins de
+ligne LF.

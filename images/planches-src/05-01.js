@@ -1,6 +1,8 @@
-// Planche 05-01. La chaudière à bascule contre les souris (chapitre 5, §9, « Les rongeurs sans pièges et sans
-// laine d'acier » : « La chaudière à bascule » et « Boucher »). Dessinée le 15 octobre 2026 (inventaire des
+// Planche 05-01. La chaudière à bascule contre les souris (chapitre 5, section 7, « Les souris, sans piège ni laine
+// d'acier » : « La chaudière à bascule » et « Boucher les trous »). Dessinée le 15 octobre 2026 (inventaire des
 // planches, priorité moyenne).
+// 19 octobre 2026 : dans la vue « Montée », le dessus se lisait comme un couvercle fermé (une ellipse grise pleine) ;
+// l'ouverture se montre : le rebord en anneau, la paroi intérieure plus foncée. Pas d'eau : le texte la veut sèche.
 // Tout vient du texte : chaudière de 20 L, broche raide tendue en travers du haut et fixée aux deux bords, canette
 // vide enfilée sur la broche qui tourne librement, un doigt de gras ou de beurre d'arachide au milieu de la
 // canette, planche du sol au rebord ; la chaudière reste sèche l'hiver ; le trou bouché d'un bout de conserve
@@ -41,8 +43,14 @@ module.exports = (h) => {
     const { cx, yR, rx, ry, yB, rbx, rby, yW, cl, cr } = g;
     // le sol
     o.push(h.ligne(0, yB + 2, z.l, yB + 2, A.arete));
-    // l'intérieur de la chaudière (le dedans du rebord, loin) et l'arrière du rebord
-    o.push(h.ellipse(cx, yR, rx, ry, A.loin));
+    // l'ouverture : le rebord en anneau (blanc), et dedans la paroi intérieure, plus foncée (la chaudière est vide
+    // et sèche : pas d'eau). Le fond ne se voit pas à cet angle : la paroi d'avant le cache.
+    const ea = 7;                                   // la largeur du rebord roulé
+    o.push(h.ellipse(cx, yR, rx, ry, A.blanc));
+    o.push(h.ellipse(cx, yR, rx - ea, ry - ea * 0.6, A.ombre));
+    // la paroi du fond, éclairée en haut à gauche : un croissant plus clair sous le rebord arrière
+    o.push(h.path(`M${cx - rx + ea} ${yR} A${rx - ea} ${ry - ea * 0.6} 0 0 1 ${cx + rx - ea} ${yR} A${rx - ea} ${f1((ry - ea * 0.6) * 0.42)} 0 0 0 ${cx - rx + ea} ${yR} Z`, A.loin));
+    o.push(h.ellipse(cx, yR, rx - ea, ry - ea * 0.6, A.arete));
     o.push(h.path(`M${cx - rx} ${yR} A${rx} ${ry} 0 0 1 ${cx + rx} ${yR}`, A.arete));
     // la broche, d'un bord à l'autre, et ses tortillons dehors
     o.push(h.ligne(cx - rx - 2, yW, cx + rx + 2, yW, A.arete));

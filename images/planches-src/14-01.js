@@ -1,7 +1,10 @@
-// Planche 14-01 — le poste à galène (chapitre 19, section 9, « Écouter sans une seule pile »).
+// Planche 14-01. Le poste à galène (chapitre 14, section 7, « Écouter sans pile : le poste à galène »).
 // Trois vues : le poste monté sur sa planche (le circuit), la branche détecteur-écouteur de près,
-// l'antenne et le contrepoids dehors. Aucun chiffre : le chapitre n'en donne pas qui ne soit
-// [À VÉRIFIER] (spires, diamètre du support, longueur d'antenne).
+// l'antenne et le contrepoids dehors. Aucune cote sur la planche : les chiffres du chapitre (80 spires
+// sur un support de 10 cm, une prise toutes les 10 spires, l'antenne) sont sourcés depuis le 24 septembre
+// 2026 (sources/19-nbs-circulaire-120-poste-recepteur.md ; suivi/14-redaction.md, levée du 24 septembre).
+// Le 19 octobre 2026 : recomposée sans la ligne « Planche 14-01. … » dans le dessin (le moteur de pages
+// pose le numéro et le titre).
 //
 // La charte : les deux épinettes, qui portent l'antenne sans être le sujet, en gris loin ; pas
 // de gris sur le poste ni sur le détecteur, vus à plat. Le rouge : la pointe qu'on promène sur

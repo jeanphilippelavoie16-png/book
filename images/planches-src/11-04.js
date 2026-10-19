@@ -17,6 +17,9 @@
 // clé d'air n'est pas dessinée : la pièce choisie est sans poêle si possible.
 // Pas de pulseur de chaufferette : le chapitre ne dit pas comment on lui tient un filtre.
 // La charte : le cercle rouge sur la flèche imprimée du filtre seul (le sens qui se rate).
+// Renumérotée le 19 octobre 2026 dans l'ordre des gestes de la section 7 : la pièce 1 et 2, le filtre seul 3 et 4,
+// le cube 5 à 11 (vue de dessus comprise). Ancien → nouveau : 10→1, 11→2, 8→3, 9→4, 1→5, 2→6, 3→7, 4→8, 5→9, 6→10,
+// 7→11. Les vues gardent leur place ; la légende se lit dans l'ordre des gestes.
 module.exports = (h) => {
   const A = h.a;
   const f1 = v => Math.round(v * 10) / 10;
@@ -220,11 +223,11 @@ module.exports = (h) => {
         renvois: z => {
           const c = cube(z);
           return [
-            { n: 1, rond: [14, z.h - 96], cible: c.QG(9, 14), texte: 'quatre filtres, plis à la verticale' },
-            { n: 2, rond: [z.l / 2 - 64, z.h - 12], cible: c.QG(L - 14, 1.3), texte: 'tous les joints au ruban gommé' },
-            { n: 3, rond: [z.l - 16, z.h - 40], cible: c.P([L + 1, 14, -0.6]), texte: 'fond de carton' },
-            { n: 4, rond: [z.l - 14, c.P([c.a1, 0, c.z0])[1] - 10], cible: c.P([c.a1, L * 0.22, (c.z0 + c.z1) / 2]), texte: 'ventilateur posé dessus, qui souffle en haut' },
-            { n: 5, rond: [16, c.P([c.a0, c.a1, c.z2])[1] - 30], cible: c.P([c.a0 + 3.5, L * 0.62, c.z2]), texte: 'carton percé au diamètre des pales' },
+            { n: 5, rond: [14, z.h - 96], cible: c.QG(9, 14), texte: 'quatre filtres, plis à la verticale' },
+            { n: 6, rond: [z.l / 2 - 64, z.h - 12], cible: c.QG(L - 14, 1.3), texte: 'tous les joints au ruban gommé' },
+            { n: 7, rond: [z.l - 16, z.h - 40], cible: c.P([L + 1, 14, -0.6]), texte: 'fond de carton' },
+            { n: 8, rond: [z.l - 14, c.P([c.a1, 0, c.z0])[1] - 10], cible: c.P([c.a1, L * 0.22, (c.z0 + c.z1) / 2]), texte: 'ventilateur posé dessus, qui souffle en haut' },
+            { n: 9, rond: [16, c.P([c.a0, c.a1, c.z2])[1] - 30], cible: c.P([c.a0 + 3.5, L * 0.62, c.z2]), texte: 'carton percé au diamètre des pales' },
           ];
         },
       },
@@ -234,8 +237,8 @@ module.exports = (h) => {
         renvois: z => {
           const g = plan(z);
           return [
-            { n: 6, rond: g.Q(L / 2 + 13, -9.5), cible: g.Q(L / 2 + 1.6, g.E / 2 - 0.8), texte: 'flèche du filtre vers le centre' },
-            { n: 7, rond: [g.Q(L, 0)[0] + 4, g.Q(0, g.T)[1] + 24], cible: g.Q(L + g.E / 2, L + 0.1), texte: 'chaque filtre bute contre le suivant' },
+            { n: 10, rond: g.Q(L / 2 + 13, -9.5), cible: g.Q(L / 2 + 1.6, g.E / 2 - 0.8), texte: 'flèche du filtre vers le centre' },
+            { n: 11, rond: [g.Q(L, 0)[0] + 4, g.Q(0, g.T)[1] + 24], cible: g.Q(L + g.E / 2, L + 0.1), texte: 'chaque filtre bute contre le suivant' },
           ];
         },
       },
@@ -245,8 +248,8 @@ module.exports = (h) => {
         renvois: z => {
           const g = seul(z);
           return [
-            { n: 8, rond: [14, g.V(0, g.pied + g.H + 2)[1]], cible: g.V(-g.ep + 0.3, g.pied + g.H - 12), texte: 'filtre au ruban, flèche vers le ventilateur' },
-            { n: 9, rond: [g.V(g.prof + 7, 0)[0], g.V(0, g.pied + g.H + 3)[1]], cible: g.V(g.prof + EPC + 0.4, g.pied + g.H - 6), texte: 'carton sur la face qui souffle' },
+            { n: 3, rond: [14, g.V(0, g.pied + g.H + 2)[1]], cible: g.V(-g.ep + 0.3, g.pied + g.H - 12), texte: 'filtre au ruban, flèche vers le ventilateur' },
+            { n: 4, rond: [g.V(g.prof + 7, 0)[0], g.V(0, g.pied + g.H + 3)[1]], cible: g.V(g.prof + EPC + 0.4, g.pied + g.H - 6), texte: 'carton sur la face qui souffle' },
           ];
         },
       },
@@ -256,8 +259,8 @@ module.exports = (h) => {
         renvois: z => {
           const g = piece(z);
           return [
-            { n: 10, rond: [g.poly[0] + 12, 22], cible: [g.poly[0], g.poly[1] - 22], texte: 'polythène agrafé sur le cadre' },
-            { n: 11, rond: [g.porte[0] + 30, g.couv[1] - 40], cible: g.couv, texte: 'couverture roulée au bas de la porte' },
+            { n: 1, rond: [g.poly[0] + 12, 22], cible: [g.poly[0], g.poly[1] - 22], texte: 'polythène agrafé sur le cadre' },
+            { n: 2, rond: [g.porte[0] + 30, g.couv[1] - 40], cible: g.couv, texte: 'couverture roulée au bas de la porte' },
           ];
         },
       },

@@ -1112,6 +1112,20 @@ Une photo d'iNaturalist, identification confirmée par la communauté (« resear
 | `extras/originaux/13-amadouvier-inat-102445923.jpg` | Amadouvier (*Fomes fomentarius*), deux champignons en sabot sur un tronc de bouleau ; New Glasgow, Nouvelle-Écosse, 28 octobre 2020 | scaup, « (c) scaup, some rights reserved (CC BY) » | CC BY (licence de la photo ; l'observation est en CC0) | https://www.inaturalist.org/observations/63794378 (photo 102445923) |
 | `extras/13-amadouvier-bouleau.jpg` | La photo précédente, 1 775 × 2 048, convertie en sRGB (celle qui s'imprime) | scaup | CC BY | voir la ligne précédente |
 
+## Encadré « En plus » du chapitre 15, se déplacer et le carburant (19 octobre 2026)
+
+Une photo de Wikimedia Commons, venue de Flickr et vérifiée par FlickreviewR (3 décembre 2016, cc-by-2.0). Auteur et
+licence relus sur l'API de Commons (`extmetadata`, `LicenseShortName` ; texte de la page du fichier) ; réponse enregistrée
+dans `sources/15-commons-candle-ice-5877950711-2026-10-19.json` (page 53748019). L'original gardé dans
+`extras/originaux/` est la vignette de 1 280 × 960 que sert Commons (le fichier source fait 2 880 × 2 160 ; Commons a
+refusé de servir l'original, erreur 429, pendant une quinzaine de minutes) ; l'image imprimée en est un recadrage sur le
+bloc de glace, sans retouche.
+
+| Fichier | Sujet | Auteur | Licence | Lien |
+| --- | --- | --- | --- | --- |
+| `extras/originaux/15-glace-chandelles-commons-5877950711.jpg` | Glace en chandelles : un bloc de glace de printemps fait de colonnes debout, sur la rive, Canada, 20 juin 2011 (vignette 1 280 × 960 de Commons) | US Embassy Canada (Flickr, us_mission_canada) | CC BY 2.0 | https://commons.wikimedia.org/wiki/File:Candle_Ice_(5877950711).jpg (Flickr : https://www.flickr.com/photos/us_mission_canada/5877950711/) |
+| `extras/15-glace-chandelles.jpg` | Recadrage de 1 080 × 690 de la photo précédente sur le bloc de glace, sans retouche (adaptation) ; celle qui s'imprime | US Embassy Canada | CC BY 2.0 | voir la ligne précédente |
+
 ## Pages de titre des tomes (images/tomes/)
 
 - Champignon atomique, forêt en feu : Game-icons.net (Lorc, Delapouite), CC BY 3.0, https://game-icons.net

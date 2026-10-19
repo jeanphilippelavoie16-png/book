@@ -53,7 +53,7 @@ maison (ch. 109).
 
 **Ce qui n'est pas dans ce chapitre.** La forge, la chauffe au rouge, la trempe et le revenu :
 ch. 111. Quand il n'y a ni Hydro, ni génératrice, ni bouteille, c'est le §9 qui s'ouvre en premier, et le ch. 111 ensuite. L'affûtage et la remise en état d'un tranchant abîmé par une réparation :
-ch. 105. Les moteurs, leurs réservoirs et leurs carburants : ch. 106. Les électrodes, baguettes, gaz et disques à acheter et à garder en stock : le chapitre d'achat (00b), seul inventaire du livre.
+ch. 105. Les moteurs, leurs réservoirs et leurs carburants : ch. 106. Le poste, ses électrodes et le chalumeau à acheter : le chapitre d'achat (00b), seul inventaire du livre.
 Le cuir des gants et du tablier : ch. 102. La lessive et le savon qui remplacent le solvant pour
 dégraisser : ch. 112.
 

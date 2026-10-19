@@ -166,7 +166,7 @@ tôt que prévu, le plus important est fait.
  restant à 4 °C ou moins (ch. 1). Dans les deux cas, ces aliments sortent du calcul.
 30. **Lien : répondre à trois questions.** Peut-on joindre quelqu'un ? Quelqu'un sait-il où on est ? À quelle heure
  va-t-il s'inquiéter ? Si la réponse est non aux deux premières et qu'on ne connaît pas la troisième, le lien est
- la plus courte des quatre mesures, même si tout le reste va bien. À la maison, les voisins comptent dans le lien.
+ la mesure la plus courte, même si tout le reste va bien. À la maison, les voisins comptent dans le lien.
 
 ### Choisir : rester ou partir, et où aller
 

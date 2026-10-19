@@ -1,5 +1,5 @@
-// Planche 15-03. Sortir quelqu'un d'autre de l'eau (chapitre 15, étapes 8 et 9, série orange « Quelqu'un passe à
-// travers la glace »). Planche neuve, 18 octobre 2026.
+// Planche 15-03. Sortir quelqu'un d'autre de l'eau (chapitre 15, étapes 8 et 9, série orange « Quelqu'un d'autre passe
+// à travers la glace »). Planche neuve, 18 octobre 2026.
 //
 // En haut, la scène en coupe de profil : le sauveteur couché à gauche, sur la glace qui a porté ; la corde qui va
 // jusqu'à la personne dans le trou, à droite, nouée autour de son corps sous les bras ; on tire pendant qu'elle bat
@@ -7,17 +7,17 @@
 // lancer. En bas, après un filet, l'autre façon (règle 10) : y aller couché en poussant le toboggan, attaché à une
 // corde que tient un autre adulte resté sur la glace qui a porté.
 //
-// Ce que dit le texte (copie de travail, chapitre 15, étapes 8 et 9) : « Rester sur la glace qui a porté, s'approcher
-// couché s'il le faut » ; « Lui tendre ou lui lancer quelque chose : une corde, une perche… » ; « Un bidon vide, bouché
-// serré et noué au bout de la corde, la fait flotter et lui donne du poids pour la lancer loin » ; « Lui faire passer
-// la corde autour du corps, sous les bras, et la nouer » ; « Tirer pendant qu'il bat des jambes, en le gardant à plat
-// ventre sur la glace » ; « aller le chercher couché, en poussant quelque chose devant soi : le toboggan… s'attacher à
-// une corde que tient un autre adulte resté sur la glace qui a porté ».
+// Ce que dit le texte (chapitre 15, étapes 8 et 9) : « Rester sur la glace qui a porté, s'approcher couché s'il le
+// faut » ; « Lui tendre ou lui lancer quelque chose : une corde, une perche… » ; « Un bidon vide, bouché serré et noué
+// au bout de la corde, la fait flotter et lui donne du poids pour la lancer loin » ; « Lui faire passer la corde autour
+// du corps, sous les bras, et la lui faire nouer » ; « Tirer pendant qu'elle bat des jambes, en la gardant à plat ventre
+// sur la glace » ; « aller la chercher couché, en poussant quelque chose devant soi : le toboggan… s'attacher à une
+// corde que tient un autre adulte resté sur la glace qui a porté ».
 // Sources : suivi/15-redaction.md, ligne « Sauver quelqu'un » (sources/15-mndnr-glace-sortie-sauvetage-deplacements.md,
 // sources/54-mndnr-glace-blanche-double-sondage-corde.md). Aucune cote : la planche ne porte ni distance ni longueur.
 //
 // Les corps : h.formes.corps, de profil (le visage de la bibliothèque des têtes). La main du gros plan :
-// h.formes.mainStock « poing-tige-face » (2-09), l'objet du fichier enlevé (objet: false) ; la corde est posée sur son
+// h.formes.mainStock « poing-barre » (1-01), l'objet du fichier enlevé (objet: false) ; la corde est posée sur son
 // axe, avant la main. Rien n'est dessiné à la main pour un corps, une main ou une tête.
 module.exports = (h) => {
   const F = h.formes, NOIR = '#1A1A1A';
@@ -244,7 +244,7 @@ module.exports = (h) => {
         renvois: z => { const v = vTirer(z), A = v.s.articulations; return [
           { n: 1, rond: [Math.max(16, A.epauleP[0]), v.yG + 34], cible: [Math.max(16, A.epauleP[0]), v.yG + 1], texte: 'rester sur la glace qui a porté, lancer la corde' },
           { n: 3, rond: [v.bc.noeud[0] + 34, 10], cible: [v.bc.noeud[0] + 3, v.bc.noeud[1] - 2], texte: 'lui nouer la corde sous les bras' },
-          { n: 4, rond: [v.mP[0] + 42, v.yG - 36], cible: [v.mP[0] + 42, v.yG - 16], texte: 'tirer pendant qu’il bat des jambes' },
+          { n: 4, rond: [v.mP[0] + 42, v.yG - 36], cible: [v.mP[0] + 42, v.yG - 16], texte: 'tirer pendant qu’elle bat des jambes' },
         ]; },
       },
       bidon: {

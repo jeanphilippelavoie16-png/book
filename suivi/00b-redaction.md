@@ -641,3 +641,40 @@ ces chapitres ; le script de migration (plan de match, point 21) les décalera a
 `ancrage.py`) ; 0 « § », 0 mot banni ; « moins de 6 ans » (plomb) est un fait ; la redite « on les fait sécher près
 du » porte sur deux objets ; invariants « 2 kg » et « 6 g » sortis (sel iodé, voulu). Pas d'ancre (clé « 00b » vide).
 Fins de ligne LF.
+
+## Décisions de JP, 19 octobre 2026
+
+Rédacteur de la passe « décisions de JP » (les douze réponses de JP du 19 octobre ; le libellé des décisions est dans
+`_reprise/scratchpad/tome1-final/decisions-jp.js`). Aucune recherche refaite sur ce qui était déjà vérifié ; texte d'avant
+cette passe : commit `f515e01`.
+
+| Décision | Où | Ce qui a changé | Source ou règle |
+| --- | --- | --- | --- |
+| 4. La réserve de trois mois est au chalet, comme le ch. 5 | 1.D : sel sans additif, gras acheté, réserve sèche | Lieu : « Maison → chalet » (sel, gras) et « Maison » (réserve sèche) deviennent « Chalet ». La réserve sèche dit : « C'est la réserve de fond, au chalet comme le stock du ch. 5 ; à la maison, il y a la trousse de 72 heures (ch. 6) et le congélateur. » L'exemple de l'introduction (« quatre chaudières de 5 kg de sel plutôt qu'un sac de 20 kg ») ne parle plus du sel, qui n'est plus « Maison → chalet » : « des chaudières et des caisses qu'on soulève seul, plutôt qu'un sac de 20 kg posé sur une palette au sous-sol » | Décision 4 ; ch. 5 (« Bâtir au chalet une réserve… on vise trois mois ») ; CLAUDE.md, « Les deux lieux », mis à jour le même jour |
+| 5. Les calibres de la famille sortent | 2.B, ligne des cartouches de carabine ; tableau G | « .308 Winchester, 7 mm Remington Magnum, .303 British » devient « au calibre de chaque carabine ». Le gros du stock va « dans le calibre que plusieurs carabines partagent, s'il y en a un » ; l'avertissement reste, en général : une cartouche d'un autre calibre peut entrer dans la chambre, et sa balle, plus grosse que l'intérieur du canon, fait céder l'arme (ch. 45, étape 39). Nouvelle ligne au tableau G, palier 2 : les cartouches de carabine ne se refont pas au chalet, rien ne remplace la balle sur le gros gibier, et une cartouche d'un autre calibre ne remplace pas la bonne | Décision 5 ; `sources/35b-calibres-de-jp-saami-et-cartouches.md` (SAAMI, combinaisons dangereuses) pour le mécanisme, déjà au dossier ; ch. 45, section 9 |
+| 5. « Pour quatre personnes » | 1.B (eau embouteillée, bidons de 20 L), 1.D (gras), 2.D (vitamine D) | « pour quatre personnes », « à quatre » deviennent « pour une famille de quatre », donné comme exemple. Les chiffres ne changent pas (48 L, 120 L, 370 g par jour, 55 kg pour 150 jours, 600 gouttes) | Décision 5 ; les calculs et leurs sources sont plus haut dans cette fiche |
+| 6. Ce que d'autres chapitres disent d'acheter | 1.E, après les médicaments d'ordonnance | Nouvelle ligne : **lunettes de rechange** faites à l'ordonnance à jour, et l'ordonnance écrite ; une paire de rechange par personne, à l'autre endroit ; « On ne fabrique pas de verre correcteur » | Ch. 9, étape 26 (en double, un à chaque endroit : l'ordonnance écrite, les lunettes de rechange) |
+| 6. | Palier 3 | Nouvelle ligne, **Maison** : **clapet antiretour** sur l'égout du sous-sol et **batterie de secours** de la pompe de puisard ; le mécanisme du refoulement, le puisard qui se remplit au redoux, et l'achat avant la panne | Ch. 7, étape 22 ; ch. 3, étape 26 (les deux déjà sourcés) |
+| 6. | Palier 4 | Nouvelle ligne, **Chalet** : **godendard**, lime tiers-point et avoyeuse ; il double la scie à chaîne quand la dernière chaîne est morte ou que l'essence a vieilli ; il coûte du temps et du gras ; il se lime au tiers-point et sa voie se refait à l'avoyeuse ; sans lui, la hache (ligne 2.B) | Ch. 9 (« La chaîne finie, le godendard » ; « Ce qu'on perd »), ch. 105 (tableau des outils, l. 70), ch. 24 |
+| 6. | Palier 4, ligne du poste à souder | « Poste à souder à l'arc **et ses électrodes** » ; quantité « 1 poste, et les électrodes du travail prévu » ; « On garde les électrodes au sec : un enrobage humide donne un cordon criblé de petits trous (ch. 107). » La suite commence par « On peut se passer du poste » | Ch. 107, section 6 (porosité : enrobage humide ; sécher les électrodes) |
+| 6. Pas de ligne pour le poêle | — | Rien | Décision 6 |
+
+Paliers ajoutés plus tôt le 19 octobre, gardés tels quels : sachets de réhydratation (1.E), trousse d'hiver de l'auto (1.G),
+tente d'hiver (2.A), réserve de 200 L et râteau à feu (2.E), sel nitrité et balance au 0,1 g (2.C).
+
+Renvois des autres chapitres vers le 00b, vérifiés : ch. 3, étape 26 (« On doit acheter le clapet antiretour et la batterie
+de secours de la pompe avant la panne (ch. 00b) ») trouve sa ligne au palier 3 ; ch. 9, « Ce qui ne se remplace pas » (« Le
+godendard fait donc partie du stock du ch. 00b ») trouve la sienne au palier 4 ; ch. 78 (« C'est l'argument qui décide de
+l'achat (ch. 00b) ») pointe vers l'autoclave à soupape à masse de la ligne 2.C, qui existait ; ch. 107, l. 56, disait « Les
+électrodes, baguettes, gaz et disques à acheter » : les baguettes et les disques n'ont pas de ligne ici, et la décision ne
+les ajoute pas ; le renvoi dit maintenant « Le poste, ses électrodes et le chalumeau à acheter : le chapitre d'achat (00b) ».
+**À trancher par JP, si on veut** : une ligne pour les baguettes de brasage « sans cadmium » et le fondant (ch. 107,
+Matériel), et pour les disques de la meuleuse (ligne du touret).
+
+Ch. 65 (l. 297) : le renvoi dit maintenant « la ligne du sel sans additif, au chapitre d'achat (ch. 00b, section 1.D), porte
+la mention **Chalet** », ce qui est vrai depuis la décision 4.
+
+`controle.py --avant` (f515e01) : 17 173 → 17 561 mots ; 4 tirets, ceux d'avant (titres « Palier N — … » lus par
+l'assembleur) ; 0 « § », 0 mot banni, 0 tournure, 0 maxime, 0 pronominal ; vocabulaire d'IA, âge et mises en relief :
+ceux d'avant ; 57 mots vides et 1 redite, ceux d'avant ; invariants disparus, tous voulus : « 303 », « 308 », « 7 mm »
+(décision 5) et un « 5 kg » (l'exemple de l'introduction). Pas d'ancre (clé « 00b » vide). Fins de ligne LF.

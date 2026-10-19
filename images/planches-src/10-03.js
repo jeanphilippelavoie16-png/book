@@ -12,8 +12,11 @@
 // La charte : le dedans de la marmite, au-dessus de l'eau, vu par la coupe, en gris loin ; le bol reste blanc, c'est
 // lui qu'on regarde. Le rouge : un seul point à contrôler, le point bas du couvercle à l'aplomb du bol (repère 3).
 // Pas de geste : les flèches de vapeur restent noires. Aucune main : rien n'est tenu.
+// Toute l'eau liquide en bleu, h.a.hachure('eau'), jusqu'aux gouttes qui tombent dans le bol (JP, 19 octobre 2026).
 module.exports = (h) => {
   const blancArete = h.a.arete.replace('fill="none"', 'fill="#ffffff"');
+  // Une goutte en larme, la pointe en haut, en bleu cernée d'un trait fin.
+  const goutte = (x, y, r = 1.7) => h.path(`M${x},${y - 1.8 * r} C${x + 0.3 * r},${y - 0.9 * r} ${x + r},${y - 0.2 * r} ${x + r},${y + 0.5 * r} A${r},${r} 0 0 1 ${x - r},${y + 0.5 * r} C${x - r},${y - 0.2 * r} ${x - 0.3 * r},${y - 0.9 * r} ${x},${y - 1.8 * r} Z`, h.a.hachure('eau', 'fin'));
   const halo = 'fill="none" stroke="#ffffff" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"';
 
   // Le feu entre deux pierres, sous une marmite dont le fond est à y = 182 ; sol à y = 218.
@@ -73,7 +76,7 @@ module.exports = (h) => {
           h.path('M90,62 L96,62 Q173,98 250,62 L256,62', h.a.contour),
           h.path('M166,80 L180,80 L177,90 Q173,92 169,90 Z', blancArete),
           // les gouttes
-          h.ellipse(173, 95, 1.5, 2.3, h.a.plein), h.ellipse(173, 102, 1.4, 2.2, h.a.plein),
+          goutte(173, 96), goutte(173, 103.5),
           // le joint de guenille
           h.cercle(90, 63, 5.5, h.a.hachure('paille')), h.cercle(256, 63, 5.5, h.a.hachure('paille')),
           // le trajet de la vapeur
@@ -121,7 +124,7 @@ module.exports = (h) => {
             h.path(sortie, halo), h.path(sortie, h.a.contour),
             h.ellipse(56, 106, 5, 2.5, h.a.hachure('paille')),
             // la goutte et le bol
-            h.ellipse(212, 202.5, 1.5, 2.3, h.a.plein),
+            goutte(212, 203),
             h.path('M200,207 Q201,218 207,218 L217,218 Q223,218 224,207', h.a.arete),
           ].join('\n');
         },

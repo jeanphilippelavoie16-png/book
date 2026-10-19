@@ -625,3 +625,18 @@ d'aucune pile » sont intactes).
 0 maxime, 0 pronominal ; 2 mises en relief, les mêmes (la condition de l'étape 5) ; 44 mots vides et 6 redites, jugés
 (des renvois) ; invariants : rien n'a disparu. Ancre introuvable : l'ancienne de 14-01 dans `placements-tome-1.json`,
 la nouvelle est rendue dans le JSON du lot. Fins de ligne LF.
+
+## Décisions de JP, 19 octobre 2026
+
+Rédacteur de la passe « décisions de JP » (les douze réponses de JP du 19 octobre ; le libellé des décisions est dans
+`_reprise/scratchpad/tome1-final/decisions-jp.js`). Aucune recherche refaite sur ce qui était déjà vérifié ; texte d'avant
+cette passe : commit `f515e01`.
+
+| Décision | Où | Ce qui a changé | Source ou règle |
+| --- | --- | --- | --- |
+| 7. Le SOS sans réponse : déclencher le SOS dès que la vie est en jeu (étape 1) ; rester sur place seulement si une réponse confirme que des secours viennent, ou si on ne peut pas arriver avant la nuit ; sinon, sortir le blessé avec l'appareil allumé sur soi | Étape 3 ; étape 4 | Étape 3 : le titre perd « et rester sur place » ; deux tirets s'ajoutent : « Rester sur place seulement si une réponse confirme que des secours viennent, ou si on ne peut pas arriver au chalet ou à la route avant la nuit (ch. 16, étape 14). Rester alors près de la machine… » et « Sinon, sortir le blessé (ch. 16, étape 5), sans attendre de réponse, avec l'appareil allumé sur soi et le SOS en marche. » Étape 4 : « **Si on reste sur place**, se préparer à attendre longtemps, et à être vu. » Rien d'autre ne bouge (la balise qu'on n'éteint pas, la pile, l'appareil sous le manteau) | Décision 7 |
+| Logigramme 14 | `images/logigrammes/14-communiquer.json` | a2 : « Laisser la balise ou le SOS en marche jusqu'à ce que quelqu'un arrive. Rester près de la machine seulement si une réponse dit que des secours viennent, ou si on ne peut pas arriver avant la nuit. Sinon, sortir le blessé avec l'appareil allumé sur soi. » (renvoi « ch. 14, étape 3 ; ch. 16 ») ; a3 : « Si on reste, monter un abri… » (rang g5a). Le logigramme 14 n'était pas dans la liste du jour, mais il disait encore « rester près de la machine » sans condition. Rendu et version du livre : 0 erreur, 0 avis | Décision 7 |
+
+`controle.py --avant` (f515e01) : 6 989 → 7 046 mots ; 2 tirets (titre et ligne de tome) ; 0 « § », 0 mot banni,
+0 tournure, 0 maxime, 0 pronominal ; 2 mises en relief, 44 mots vides et 6 redites, ceux d'avant ; rien n'a disparu.
+Aucune ancre touchée. Fins de ligne LF.

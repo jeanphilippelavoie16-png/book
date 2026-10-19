@@ -181,10 +181,10 @@ sont au ch. 4, étapes 13 à 16.
 | --- | --- | --- |
 | 0 à 2 min | Avant de toucher au blessé, arrêter ou écarter ce qui l'a blessé (une scie qui tourne, un arbre qui peut encore tomber), pour ne pas faire un deuxième blessé | |
 | 0 à 5 min | Arrêter le saignement d'abord : appuyer directement sur la plaie, puis poser un garrot si la pression ne suffit pas | Sans trousse : section 7, « Le sang qui coule sans trousse » |
-| 0 à 10 min | Lancer l'alerte avant de finir les soins, par le téléphone satellite, la radio ou un voisin (ch. 14). Donner la position du chalet : ses coordonnées, le nom du lac, le kilomètre du chemin | |
+| 0 à 10 min | Lancer l'alerte avant de finir les soins. Si la vie est en jeu (ch. 14, étape 1), déclencher le SOS de l'appareil satellite ou la balise ; sinon, avertir par message satellite, par la radio ou par un voisin (ch. 14). Donner la position du chalet : ses coordonnées, le nom du lac, le kilomètre du chemin | |
 | 0 à 10 min | Écrire l'heure de la blessure, de l'alerte et de chaque médicament donné sur la peau du blessé, au front ou sur l'avant-bras | Au feutre, au crayon ou au charbon |
 | 10 à 30 min | Garder le blessé au chaud : il perd sa chaleur beaucoup plus vite qu'une personne en santé. L'isoler du sol, le couvrir et l'abriter du vent | En hypothermie modérée ou grave[^1], la vie est en jeu : le bouger le moins possible (ch. 25) |
-| 10 à 30 min | Si quelqu'un répond à l'alerte, préparer l'accès : déneiger, ouvrir la barrière, éclairer le chemin et poster quelqu'un pour guider les gens qui viennent. Sinon, sortir le blessé soi-même (ch. 16) | |
+| 10 à 30 min | Si une réponse confirme que des secours viennent, préparer l'accès : déneiger, ouvrir la barrière, éclairer le chemin et poster quelqu'un pour guider les gens qui viennent. Sinon, sortir le blessé soi-même, l'appareil satellite allumé sur soi et le SOS en marche (ch. 16, étape 5) ; si on ne peut pas arriver avant la nuit, l'abriter sur place (ch. 16, étape 14) | |
 | Tout le temps | Garder un adulte avec les enfants, à l'écart, et leur donner une tâche précise (ch. 40) | |
 
 {!froid} Ne donner d'alcool ni au blessé ni à la personne qui le soigne : l'alcool fait baisser la température du

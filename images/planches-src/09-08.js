@@ -1,9 +1,15 @@
-// Planche 09-08 — le joint de cuir gras et son emporte-pièce de tuyau (chapitre 12,
-// « Les joints, dans le cuir gras »).
+// Planche 09-08. Le joint de cuir gras et son emporte-pièce de tuyau (chapitre 9, section 7,
+// « Fabriquer ce qui manque », « Les joints, dans le cuir gras »).
 //
 // La charte : l'intérieur des tuyaux et de la boîte de suif, vu par la coupe, en gris loin ;
-// la face de droite de la bille et du six-pans du bouchon à l'ombre. Le rouge : les trois
-// gestes, un par vue — tourner le tuyau sous la lime, frapper, serrer le bouchon.
+// la face de droite de la bille et du six-pans du bouchon à l'ombre. Le suif fondu n'est pas de
+// l'eau : il ne prend pas le bleu (JP, 18 et 19 octobre 2026 : le bleu ne sert qu'à l'eau) ; il est
+// en aplat gris foncé, sous le gris loin du dedans de la boîte. L'eau du réservoir, elle, est en
+// bleu. Le rouge : les trois gestes, un par vue : tourner le tuyau sous la lime, frapper, serrer
+// le bouchon.
+// Le 19 octobre 2026 : le repère 5 dit le cuir du texte (« cuir de botte ou semelle de cuir ») ;
+// l'encadré danger sort (plus de section Danger, JP, 18 octobre 2026), et chaque vue est centrée
+// en hauteur dans la place qu'il laisse.
 module.exports = (h) => {
   const blanc = a => a.replace('fill="none"', 'fill="#ffffff"');
   const halo = 'fill="none" stroke="#ffffff" stroke-width="6" stroke-linecap="round"';
@@ -46,10 +52,19 @@ module.exports = (h) => {
   })();
   const cuir = 'M124,150 Q126,142 144,141 Q168,139 188,143 Q198,148 192,155 Q178,162 150,162 Q126,161 124,150 Z';
 
-  return {
+  // Les vues sont dessinées pour une hauteur de 250 ; on centre chaque dessin, et ses renvois, dans la vue rendue.
+  const H0 = 250;
+  const dec = z => Math.max(0, Math.round((z.h - H0) / 2));
+  const centrer = v => ({
+    ...v,
+    dessin: z => `<g transform="translate(0 ${dec(z)})">\n${v.dessin(z)}\n</g>`,
+    renvois: z => v.renvois(z).map(r => ({ ...r, rond: [r.rond[0], r.rond[1] + dec(z)], cible: [r.cible[0], r.cible[1] + dec(z)] })),
+  });
+
+  const spec = {
     ref: '09-08',
     titre: 'Le joint de cuir gras et l’emporte-pièce de tuyau',
-    desc: 'Cinq vues. En coupe, un bout de tuyau dont l’extrémité est limée en biseau par l’extérieur, le tranchant restant au bord intérieur, la lime posée à plat sur le biseau et le tuyau qu’on tourne à mesure. La frappe : le tuyau tenu d’aplomb sur un morceau de cuir posé sur le bois de bout d’une bille debout, le marteau au-dessus ; en coupe, les pastilles déjà découpées empilées dans le tuyau. Vu de dessus, le cuir : le petit trou du milieu percé d’abord au petit tuyau, puis le grand cercle coupé au gros tuyau centré sur le trou. La rondelle pendue à un fil de fer dans une boîte de suif fondu, sur le poêle. En coupe, la rondelle graissée serrée entre la tête d’un bouchon de vidange et le bossage d’un réservoir d’eau. L’encadré danger rappelle qu’aucun joint improvisé ne va sur une ligne de gaz ou de carburant.',
+    desc: 'Cinq vues. En coupe, un bout de tuyau dont l’extrémité est limée en biseau par l’extérieur, le tranchant restant au bord intérieur, la lime posée à plat sur le biseau et le tuyau qu’on tourne à mesure. La frappe : le tuyau tenu d’aplomb sur un morceau de cuir posé sur le bois de bout d’une bille debout, le marteau au-dessus ; en coupe, les pastilles déjà découpées empilées dans le tuyau. Vu de dessus, le cuir : le petit trou du milieu percé d’abord au petit tuyau, puis le grand cercle coupé au gros tuyau centré sur le trou. La rondelle pendue à un fil de fer dans une boîte de suif fondu, sur le poêle. En coupe, la rondelle graissée serrée entre la tête d’un bouchon de vidange et le bossage d’un réservoir d’eau.',
     format: 'pleine',
     disposition: [['tuyau', 'frappe'], ['rondelle', 'suif', 'place']],
     largeurs: [[2, 3], [1, 1, 1.2]],
@@ -108,7 +123,7 @@ module.exports = (h) => {
         ].join('\n'),
         renvois: z => [
           { n: 4, rond: [292, 176], cible: [212, 150], texte: 'bille de bois debout, bois de bout dessus' },
-          { n: 5, rond: [34, 132], cible: [125, 151], texte: 'cuir de botte, semelle ou chambre à air' },
+          { n: 5, rond: [34, 132], cible: [125, 151], texte: 'cuir de botte ou semelle de cuir' },
           { n: 6, rond: [232, 98], cible: [176, 100], texte: 'tuyau d’aplomb, frappé au marteau' },
           { n: 7, rond: [76, 104], cible: [152, 142], texte: 'la pastille remonte dans le tuyau' },
         ],
@@ -132,12 +147,13 @@ module.exports = (h) => {
           h.rect(8, 212, 157, 10, h.a.hachure('metal')),
           // la boîte et le suif fondu ; le dedans, au-dessus du suif, vu par la coupe
           h.rect(47.2, 100, 79.6, 50, h.a.loin),
-          h.rect(47.2, 150, 79.6, 61, h.a.hachure('eau', 'aucun')),
+          h.rect(47.2, 150, 79.6, 61, h.a.ombre),
           h.ligne(47, 150, 127, 150, h.a.arete),
           h.chemin([[46, 100], [46, 212], [128, 212], [128, 100]], h.a.contour),
           // la rondelle et son fil
           h.cercle(87, 180, 20, blanc(h.a.arete)),
-          h.cercle(87, 180, 7, h.a.hachure('eau')),
+          h.cercle(87, 180, 7, h.a.ombre),
+          h.cercle(87, 180, 7, h.a.arete),
           // le crochet porte la rondelle par le haut du trou ; le fil repose sur le bord de la boîte
           h.path('M90.5,173.5 Q90.5,177.5 87,177.5 Q83.5,177.5 83.5,173.5 L83.5,108 Q83.5,98.5 93,98.5 L126,98.5 Q130,98.5 130,102.5 L130,116', h.a.arete),
         ].join('\n'),
@@ -173,6 +189,7 @@ module.exports = (h) => {
         ],
       },
     },
-    danger: 'Jamais de joint de cuir ou de caoutchouc improvisé sur une ligne de gaz ou de carburant : l’essence et le propane dessèchent le cuir. Le propane, plus lourd que l’air, coule au plancher, s’accumule dans le creux et attend l’étincelle. Une ligne de gaz qui fuit se ferme au robinet de la bouteille.',
   };
+  for (const id of Object.keys(spec.vues)) spec.vues[id] = centrer(spec.vues[id]);
+  return spec;
 };

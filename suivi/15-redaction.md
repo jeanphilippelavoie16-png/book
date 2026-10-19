@@ -757,3 +757,21 @@ engager une machine, le jour même.** ». Les autres ne bougent pas.
 controle.py : 7 744 mots (7 748 avant), 2 tirets (titre et ligne de tome), 0 « § », 0 mot banni, 0 tournure, 0 maxime,
 0 pronominal ; 26 mots vides et 6 redites, jugés (la sixième, « se regarder le visage l'un l'autre », étapes 18 et 38,
 est un renvoi avec son geste) ; invariants contre la version d'avant cette passe : rien n'a disparu.
+
+## Décisions de JP, 19 octobre 2026
+
+Rédacteur de la passe « décisions de JP » (libellé des décisions : `_reprise/scratchpad/tome1-final/decisions-jp.js`).
+Texte d'avant cette passe : commit `f515e01`.
+
+| Décision | Où | Ce qui a changé | Source ou règle |
+| --- | --- | --- | --- |
+| 10. Une cinquième note En plus : la photo de la glace en chandelles du printemps | Section « En plus », après « Les oiseaux et les poissons qui ouvrent la glace » | Nouvelle note « Reconnaître la glace en chandelles » (60 mots) : la photo `images/extras/15-glace-chandelles.jpg`, puis « Au printemps, la glace qui fond se défait en colonnes debout, perpendiculaires à la surface, comme des chandelles serrées. Les colonnes qui se détachent flottent et tintent en se cognant. Elles ne sont plus liées entre elles : quand on passe à travers, le bord du trou se défait sous les mains, et on n'a rien pour se hisser (étape 42). » La réserve passe à cinq notes | Photo : Wikimedia Commons, `File:Candle_Ice_(5877950711).jpg`, US Embassy Canada, CC BY 2.0, vérifiée FlickreviewR ; réponse de l'API dans `sources/15-commons-candle-ice-5877950711-2026-10-19.json` ; crédits dans `images/credits.md`. Faits : `sources/15-wikipedia-rotten-ice-candle-ice-2026-10-19.md` (Wikipédia, **source non officielle**) : colonnes perpendiculaires à la surface (Glossary of Meteorology, AMS) ; « candles » détachées qui flottent et tintent (Bailey, Oke et Rouse, 1997) ; dangereuse quelle que soit l'épaisseur, sans structure horizontale, aucun bord où s'agripper (Tawrell, 2006 ; Lifesaving Society, Ice Safety Tips) |
+
+La photo : vignette de 1 280 × 960 de Commons (l'original de 2 880 × 2 160 a été refusé par Commons, erreur 429, une
+quinzaine de minutes ; la vignette standard passait), gardée dans `images/extras/originaux/` ; la copie imprimée en est un
+recadrage de 1 080 × 690 sur le bloc, fait avec PIL, sans retouche, profil de couleur gardé. Ligne ajoutée à
+`images/extras/LISEZMOI.md`.
+
+`controle.py --avant` (f515e01) : 7 761 → 7 847 mots ; 2 tirets (titre et ligne de tome) ; 0 « § », 0 mot banni,
+0 tournure, 0 maxime, 0 pronominal ; 26 mots vides et 6 redites, ceux d'avant ; rien n'a disparu. Aucune ancre touchée
+(la note n'a pas d'ancre : le moteur la place près de l'étape 42). Fins de ligne LF.

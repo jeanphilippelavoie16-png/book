@@ -1,16 +1,19 @@
 // Planche 10-07. Le filtre à sable en baril.
 // Le texte : ch. 10, variante d'urgence, « Le filtre à sable » (texte corrigé le 18 octobre 2026 après la vérification
 // technique) : un trou au bas du baril avec un bout de boyau (1), la sortie coupée 5 cm plus haut que le dessus du
-// sable (2) ; au fond une main de grosse pierre (3), puis du gravier lavé jusqu'à ce que l'eau de rinçage sorte
+// sable (2) ; au fond une couche de grosses pierres (3), puis du gravier lavé jusqu'à ce que l'eau de rinçage sorte
 // claire (4) ; le sable versé en couche épaisse (5), lavé moins que le gravier : brassé à la main, l'eau sale vidée (6),
 // et on arrête quand l'eau de lavage est encore un peu sale (7) ; l'eau versée sur une assiette percée (8) ; le charbon
-// dans un second seau, sous la sortie (9) ; bouillir l'eau qui sort (10) ; quand le débit tombe, frotter à peine le
+// dans une seconde chaudière percée, sous la sortie (9) ; bouillir l'eau qui sort (10) ; quand le débit tombe, frotter à peine le
 // dessus du sable, la paume à plat, en rond, sous un peu d'eau (11), puis puiser l'eau sale avec un petit contenant
 // (12). Le lit de sable reste en place.
 //
 // Refaite le 18 octobre 2026. Le film vivant ne se dessine pas (« The biolayer is NOT visible »,
-// sources/13-cawst-couche-biologique-filtre-a-sable.md) : seul le dessus du sable qui fonce se voit. Pas d'encadré
-// danger : « faire bouillir cette eau ensuite » est le repère 10. La gratte est sortie avec le texte corrigé.
+// sources/13-cawst-couche-biologique-filtre-a-sable.md) : seul le dessus du sable qui fonce se voit. Aucun encadré :
+// le sable et le charbon ne désinfectent pas, et c'est le repère 10, « faire bouillir cette eau ensuite », qui le dit.
+// La gratte est sortie avec le texte corrigé : on frotte à peine le dessus, la paume à plat, en rond.
+// Le 19 octobre 2026 : en-tête et desc alignés sur le texte (couche de grosses pierres, chaudière, sable lavé jusqu'à
+// une eau encore un peu sale, frottement en rond, plus d'encadré) ; l'eau est déjà en bleu ; le dessin ne change pas.
 // Aucune main : la main à plat paume en bas manque dans les mains gardées (la 8-01 retournée replie les doigts) ; le
 // geste du repère 11 est porté par la flèche rouge en rond sur le dessus du sable, comme le permet la consigne.
 //
@@ -278,7 +281,7 @@ module.exports = (h) => {
   return {
     ref: '10-07',
     titre: 'Le filtre à sable en baril',
-    desc: 'Coupe d’un baril debout posé sur deux blocs de bois : du fond vers le haut, une main de grosse pierre, du gravier, une couche épaisse de sable lavé, le film vivant à sa surface, et de l’eau par-dessus ; une assiette percée sur le sable, sous le seau qu’on penche doucement. Un bout de boyau part du bas, remonte le long du baril et finit, bouche en bas, plus haut que le sable, pour que le lit reste noyé ; l’eau en tombe dans un second seau percé plein de charbon de poêle concassé, posé sur deux bâtons en travers d’une chaudière. À droite, ce second seau en grand. En bas, le lavage du sable : on brasse, on laisse tomber, on vide l’eau trouble, jusqu’à ce qu’elle sorte claire ; et le dessus du lit qu’on gratte à plat sur 20 à 30 mm quand le débit tombe, sans brasser le dessous. Encadré danger : le sable et le charbon clarifient l’eau, ils ne la désinfectent pas.',
+    desc: 'Coupe d’un baril debout posé sur deux blocs de bois : du fond vers le haut, une couche de grosses pierres, du gravier, une couche épaisse de sable lavé, et de l’eau par-dessus ; une assiette percée sur le sable, sous la chaudière qu’on penche doucement. Un bout de boyau part du bas, remonte le long du baril et finit, bouche en bas, 5 cm plus haut que le sable, pour que le lit reste noyé ; l’eau en tombe dans une seconde chaudière percée pleine de charbon de poêle concassé, posée sur deux bâtons en travers d’une autre chaudière. À droite, cette chaudière de charbon en grand, et l’eau qu’on fera bouillir ensuite. En bas, le lavage du sable : on le brasse, on vide l’eau sale, et on arrête quand elle est encore un peu sale ; puis, quand le débit tombe, le dessus du sable sous un peu d’eau, qu’on frotte à peine, la paume à plat, en rond, et l’eau sale qu’on puise avec un petit contenant.',
     format: 'pleine',
     disposition: [['coupe', 'charbon'], ['lavage', 'grattage']],
     hauteurs: [3, 2],

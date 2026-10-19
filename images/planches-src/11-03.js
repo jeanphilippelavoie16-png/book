@@ -8,11 +8,13 @@
 // La charte : la porte, derrière la galerie, en gris loin (les barreaux passent devant) ; dans
 // le bord du toit en coupe, le creux sous le chevron, là où l'évent laisse entrer l'air et la
 // braise, en gris loin. Pas de rouge : aucune flèche n'est un geste (l'eau, l'air, le
-// rayonnement restent noirs) et le chapitre ne donne pas de point à contrôler.
+// rayonnement restent noirs) et le chapitre ne donne pas de point à contrôler. L'eau liquide en
+// bleu, h.a.hachure('eau') : le baril, le bas de mur tenu mouillé, les gouttes du boyau et du jute.
 module.exports = (h) => {
   const wf = at => at.replace('fill="none"', 'fill="#ffffff"');
   const n1 = v => Math.round(v * 10) / 10;
-  const goutte = (x, y) => h.ellipse(x, y, 1.1, 1.8, h.a.plein);
+  // Une goutte en larme, la pointe en haut, en bleu cernée d'un trait fin (toute l'eau en bleu, JP, 19 octobre 2026).
+  const goutte = (x, y, r = 1.3) => h.path(`M${n1(x)},${n1(y - 1.8 * r)} C${n1(x + 0.3 * r)},${n1(y - 0.9 * r)} ${n1(x + r)},${n1(y - 0.2 * r)} ${n1(x + r)},${n1(y + 0.5 * r)} A${r},${r} 0 0 1 ${n1(x - r)},${n1(y + 0.5 * r)} C${n1(x - r)},${n1(y - 0.2 * r)} ${n1(x - 0.3 * r)},${n1(y - 0.9 * r)} ${n1(x)},${n1(y - 1.8 * r)} Z`, h.a.hachure('eau', 'fin'));
 
   // Hasard reproductible.
   const alea = graine => {
@@ -109,8 +111,8 @@ module.exports = (h) => {
     for (let x = 84; x < 226; x += 4) o.push(h.ligne(x, 268.6, x, 290.4, h.a.fin));
     // jute trempé sur le rebord de la galerie
     o.push(...drap(96, 148, 256, 278, 21));
-    // le bas de mur tenu mouillé
-    o.push(h.rect(350, 271, 62, 20, h.a.hachure('eau', 'aucun')));
+    // le bas de mur tenu mouillé : une nappe d'eau au pied du mur, plus haute près de la bouche du boyau
+    o.push(h.path('M412,291 L412,272 Q404,269.5 396,272.5 T380,273.5 T365,276 Q354,277.5 352,283 Q350.5,287.5 351,291 Z', h.a.hachure('eau', 'aucun')));
     // échafaud
     const brace = (x1, y1, x2, y2) => {
       const dx = x2 - x1, dy = y2 - y1, L = Math.hypot(dx, dy), nx = (-dy / L) * 1.6, ny = (dx / L) * 1.6;

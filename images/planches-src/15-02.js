@@ -5,16 +5,19 @@
 // poussé dans le réservoir fait monter l'essence dans le long, qui la mène au bidon posé au sol, plus bas. En bas, après
 // un filet, l'autre façon (règle 10) : sans pompe, le boyau à bille qu'on secoue ; « au lieu de 3 à 5 ».
 //
-// Ce que dit le texte (HEAD, chapitre 15, section 9) : le bidon « franchement plus bas que le réservoir » ; « un long qui
-// descend au fond et sort vers le bidon, un court qui reste dans le ciel du réservoir. On bourre le goulot d'un chiffon
-// autour des deux, et on souffle dans le court avec une pompe à vélo ou une pompe de matelas, à la main et lentement » ;
-// « une bille ou un roulement laissé libre dans le bout du boyau, retenu par un clou traversé en croix : il se soulève
-// quand le liquide monte et retombe quand il voudrait redescendre. On plonge et on secoue de haut en bas » ; « le
-// contenant est posé au sol ».
+// Ce que dit le texte (chapitre 15, section 7, « Tirer le carburant de là où il est ») : « Poser d'abord le bidon au sol,
+// nettement plus bas que le niveau de l'essence dans le réservoir » ; « Pousser un boyau long jusqu'au fond du
+// réservoir, et mettre son autre bout dans le bidon » ; « Glisser un boyau court dans le goulot : il doit s'arrêter
+// au-dessus de l'essence » ; « Bourrer un chiffon autour des deux boyaux, dans le goulot » ; « Pomper doucement dans le
+// boyau court, avec une pompe à vélo ou à matelas » ; « Arrêter de pomper quand l'essence coule dans le bidon : le boyau
+// plein continue de couler seul » ; « Autre façon, sans pompe : le boyau à bille (repère 7, au lieu des repères 3 à 5) » ;
+// « Enfoncer un bout de tube plus étroit dans le bout du boyau : c'est le siège de la bille » ; « Glisser une bille dans
+// le boyau […], plus grosse que le trou du tube » ; « Passer un clou en travers du boyau, un peu au-dessus de la bille » ;
+// « Plonger le bout à bille au fond du réservoir et secouer le boyau de haut en bas, sans arrêt ».
 // Sources : le bidon au sol, sources/83-cchst-garages-securite-essence.md (« Placer le contenant sur le sol ») ; le boyau
 // à clapet qu'on secoue, le récipient plus bas, le siège en bas, l'élément libre au-dessus et la butée au-dessus de
-// l'élément, sources/15-brevet-us4414997-siphon-clapet.html. Le texte ne nomme pas le siège ; sans lui la bille ne
-// retient rien : la planche le dessine (un bout de tube plus étroit enfoncé dans le bout du boyau), d'après le brevet.
+// l'élément, sources/15-brevet-us4414997-siphon-clapet.html. Le siège (un bout de tube plus étroit enfoncé dans le bout
+// du boyau) vient du brevet ; le texte le nomme à l'étape du repère 8.
 // La méthode à deux boyaux et la pompe n'ont pas de source enregistrée : la planche ne dessine que la géométrie que le
 // texte décrit (le long au fond, le court hors de l'essence, le chiffon, la pompe), sans cote ni chiffre.
 // Proportions dessinées, sans cote (le chapitre n'en donne pas) : baril de 205 L (57 × 88 cm), bidon de 20 L, pompe

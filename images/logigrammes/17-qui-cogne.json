@@ -1,5 +1,5 @@
 {
-  "_note": "Logigramme du chapitre 17 (qui cogne à la porte), double page. Fait le 15 octobre 2026, remis d'accord avec le chapitre refait au gabarit final le 19 octobre 2026. Page de gauche : la série « Quelqu'un cogne à la porte » (1 min, étapes 1 à 3), la série « La personne attend dehors » (10 min, étapes 4 à 8) et ce qui vaut à tout moment (étape 12). Page de droite : la réponse (étapes 9 à 11), l'après (13 et 14), l'hébergement (15 à 21), le lendemain (22 à 29). Le monoxyde n'y est pas : il est à l'étape 18, avec son pictogramme (JP : « on l'a dit 1000 fois »). Phrases complètes (JP : « personne parle comme ça »). Aucune branche ne mène à l'arme de la maison (étape 11). Rendu : python3 design/outils/logigramme.py images/logigrammes/17-qui-cogne.json. « source » : les étapes du chapitre d'où vient chaque geste (ignoré au rendu).",
+  "_note": "Logigramme du chapitre 17 (qui cogne à la porte), double page. Fait le 15 octobre 2026, remis d'accord avec le chapitre refait au gabarit final le 19 octobre 2026. Page de gauche : la série « Quelqu'un cogne à la porte » (1 min, étapes 1 à 3), la série « La personne attend dehors » (10 min, étapes 4 à 8) et ce qui vaut à tout moment (étape 12). Page de droite : la réponse (étapes 9 à 11), l'après (13 et 14), l'hébergement (15 à 21), le lendemain (22 à 29). Le monoxyde n'y est pas : il est à l'étape 18, avec son pictogramme (JP : « on l'a dit 1000 fois »). Phrases complètes (JP : « personne parle comme ça »). Aucune branche ne mène à l'arme de la maison (étape 11). Rendu : python3 design/outils/logigramme.py images/logigrammes/17-qui-cogne.json. « source » : les étapes du chapitre d'où vient chaque geste (ignoré au rendu). Décisions de JP du 19 octobre 2026 : la première boîte dit « Répondre à travers la porte, sans ouvrir » (étape 1) ; l'adulte seul avec les enfants (décision 8) : la boîte « seul » garde l'exception de la personne seule qui gèle (étape 3), et la boîte « entre » dit le geste de l'étape 7 (si le compte concorde, ouvrir et la traîner dans la maison sur une couverture ; sinon, passer par la fenêtre un sac de couchage et une couverture). La boîte « entre » prend toute la largeur ; l'encadré de l'arme (à tout moment, étape 12) passe au bas de la page de droite, sous « Le lendemain » ; rangs g3 à g8 descendus.",
   "format": "double",
   "tome": 1,
   "urgent": true,
@@ -65,20 +65,21 @@
   "rangs": {
     "g1": 0.85,
     "g2": 1.6,
-    "g3": 2.7,
-    "g4": 3.55,
-    "g5": 4.6,
-    "g6": 5.53,
-    "g7": 6.67,
-    "g8": 7.43,
+    "g3": 2.8,
+    "g4": 3.62,
+    "g5": 4.85,
+    "g6": 5.78,
+    "g7": 7.0,
+    "g8": 7.75,
     "d1": 1.15,
     "d2": 2.1,
     "d3": 3.2,
     "d3b": 4.5,
     "d4": 5.85,
-    "d5": 7.3,
+    "d5": 7.15,
     "dco": 7.55,
-    "d3q": 4.85
+    "d3q": 4.85,
+    "darme": 8.15
   },
   "noeuds": [
     {
@@ -98,7 +99,7 @@
       "rang": "g2",
       "ancre": "haut",
       "temps": "1 min",
-      "texte": "**Ne pas ouvrir**, mais faire savoir à travers la porte qu'il y a quelqu'un. **La nuit, éteindre la lampe de la pièce** avant de s'approcher de la fenêtre, puis éclairer le sol devant la personne.",
+      "texte": "**Répondre à travers la porte, sans ouvrir**, pour que la personne sache qu'il y a quelqu'un. **La nuit, éteindre la lampe de la pièce** avant de s'approcher de la fenêtre, puis éclairer le sol devant la personne.",
       "renvoi": "ch. 17, étapes 1 et 2",
       "source": "étapes 1 et 2"
     },
@@ -127,7 +128,7 @@
       "rang": "g4",
       "ancre": "haut",
       "taille": 10.5,
-      "texte": "**Envoyer les enfants dans la pièce du fond, et ne pas sortir.** Parler à travers la porte et donner par une fenêtre entrouverte.",
+      "texte": "**Envoyer les enfants dans la pièce du fond, et ne pas sortir**, sauf pour une personne seule qui gèle (étape 7). Parler à travers la porte et donner par une fenêtre entrouverte.",
       "renvoi": "ch. 17, étape 3",
       "source": "étape 3 ; section 7, le deuxième adulte"
     },
@@ -164,18 +165,18 @@
     {
       "id": "entre",
       "type": "urgent",
-      "col": "tronc",
+      "col": "large",
       "rang": "g8",
       "ancre": "haut",
-      "texte": "**Le porter couché**, sans le faire marcher, dans la maison ou dans un abri dehors. Lui enlever ses vêtements mouillés et mettre de la chaleur sur son tronc. Lui donner à boire seulement s'il est bien éveillé et avale bien.",
+      "texte": "**Le porter couché**, sans le faire marcher, dans la maison ou dans un abri dehors. Lui enlever ses vêtements mouillés et mettre de la chaleur sur son tronc. Lui donner à boire seulement s'il est bien éveillé et avale bien. **Seul avec les enfants** : si le compte concorde, ouvrir et le traîner dans la maison sur une couverture ; sinon, lui passer par la fenêtre un sac de couchage et une couverture pour se coucher dessus.",
       "renvoi": "ch. 17, étapes 7 et 8 ; ch. 25",
       "source": "étapes 7 et 8"
     },
     {
       "id": "arme",
       "type": "danger",
-      "col": "cote",
-      "rang": "g8",
+      "col": "large2",
+      "rang": "darme",
       "ancre": "haut",
       "titre": "S'il montre une arme ou s'il menace",
       "texte": "**Tout le monde va dans la pièce du fond**, on bloque la porte de l'intérieur et on y reste. S'il entre et exige quelque chose, le lui donner sans discuter ni résister.",
@@ -296,14 +297,14 @@
       "de": "qad",
       "vers": "deux",
       "etiquette": "Oui",
-      "coude": 3.1,
+      "coude": 3.2,
       "pos": "palier"
     },
     {
       "de": "qad",
       "vers": "seul",
       "etiquette": "Non",
-      "coude": 3.1,
+      "coude": 3.2,
       "pos": "palier"
     },
     {
@@ -330,7 +331,8 @@
     {
       "de": "qfroid",
       "vers": "entre",
-      "etiquette": "Oui"
+      "etiquette": "Oui",
+      "ex": 2.175
     },
     {
       "de": "qfroid",
@@ -341,7 +343,7 @@
       "via": [
         [
           8.7,
-          6.67
+          7.0
         ],
         [
           8.7,

@@ -14,6 +14,7 @@
 // d'après l'étape 8 (« les deux ou trois derniers centimètres »).
 // Aucune main : le boyau repose sur le bord et la taie est attachée ; rien n'est tenu.
 // Le rouge : le bout du boyau au-dessus du dépôt (repère 3) ; la surface qui roule (repère 4).
+// Toute l'eau liquide en bleu, h.a.hachure('eau'), jusqu'aux gouttes qui passent le tissu (JP, 19 octobre 2026).
 
 module.exports = (h) => {
   const A = h.a;
@@ -72,7 +73,7 @@ module.exports = (h) => {
     h.path(d, 'fill="none" stroke="#1A1A1A" stroke-width="7" stroke-linecap="butt" stroke-linejoin="round"'),
     h.path(d, 'fill="none" stroke="#FFFFFF" stroke-width="3.8" stroke-linecap="butt" stroke-linejoin="round"'),
   ];
-  const goutte = (x, y) => h.path(`M${f(x)},${f(y - 3.2)} C${f(x + 0.6)},${f(y - 1.6)} ${f(x + 1.9)},${f(y - 0.4)} ${f(x + 1.9)},${f(y + 0.9)} A1.9,1.9 0 0 1 ${f(x - 1.9)},${f(y + 0.9)} C${f(x - 1.9)},${f(y - 0.4)} ${f(x - 0.6)},${f(y - 1.6)} ${f(x)},${f(y - 3.2)} Z`, A.plein);
+  const goutte = (x, y) => h.path(`M${f(x)},${f(y - 3.2)} C${f(x + 0.6)},${f(y - 1.6)} ${f(x + 1.9)},${f(y - 0.4)} ${f(x + 1.9)},${f(y + 0.9)} A1.9,1.9 0 0 1 ${f(x - 1.9)},${f(y + 0.9)} C${f(x - 1.9)},${f(y - 0.4)} ${f(x - 0.6)},${f(y - 1.6)} ${f(x)},${f(y - 3.2)} Z`, A.hachure('eau', 'fin'));
 
   // ── Décanter, puis passer au tissu ─────────────────────────────────────────
   const geoA = z => {

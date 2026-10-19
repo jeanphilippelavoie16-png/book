@@ -218,8 +218,8 @@
 <rect x="228" y="134" width="6" height="4" fill="#1A1A1A" stroke="none"/>
 <rect x="366" y="134" width="6" height="4" fill="#1A1A1A" stroke="none"/>
 <path d="M372,136 q6,2 8,10 M372,136 q9,-1 12,6" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M300,180.8 C300.6,182.4 301.9,183.6 301.9,184.9 A1.9,1.9 0 0 1 298.1,184.9 C298.1,183.6 299.4,182.4 300,180.8 Z" fill="#1A1A1A" stroke="none"/>
-<path d="M300,196.8 C300.6,198.4 301.9,199.6 301.9,200.9 A1.9,1.9 0 0 1 298.1,200.9 C298.1,199.6 299.4,198.4 300,196.8 Z" fill="#1A1A1A" stroke="none"/>
+<path d="M300,180.8 C300.6,182.4 301.9,183.6 301.9,184.9 A1.9,1.9 0 0 1 298.1,184.9 C298.1,183.6 299.4,182.4 300,180.8 Z" fill="url(#h-eau)" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round"/>
+<path d="M300,196.8 C300.6,198.4 301.9,199.6 301.9,200.9 A1.9,1.9 0 0 1 298.1,200.9 C298.1,199.6 299.4,198.4 300,196.8 Z" fill="url(#h-eau)" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round"/>
 <path d="M72,124 L72,32 Q72,8 98,8 Q164,8 188,40 C224,84 280,106 294,158" fill="none" stroke="#1A1A1A" stroke-width="7" stroke-linecap="butt" stroke-linejoin="round"/>
 <path d="M72,124 L72,32 Q72,8 98,8 Q164,8 188,40 C224,84 280,106 294,158" fill="none" stroke="#FFFFFF" stroke-width="3.8" stroke-linecap="butt" stroke-linejoin="round"/>
 <path d="M84,128 L84,90" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl)"/>

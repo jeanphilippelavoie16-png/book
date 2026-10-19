@@ -632,3 +632,18 @@ Questions et points réglés sans changer le texte :
 controle.py (contre le texte d'avant ces corrections) : 6 568 → 6 578 mots ; 2 tirets (titre et ligne de tome) ;
 0 « § », mot banni, tournure, maxime ou pronominal ; 38 mots vides et 5 redites, celles d'avant ; disparus : « 2 heures »
 (la règle du tri, voulu) et un « ch. 1 » (l'attribution fausse de l'étape 26, voulu).
+
+## Décisions de JP, 19 octobre 2026
+
+Rédacteur de la passe « décisions de JP » (les douze réponses de JP du 19 octobre ; le libellé des décisions est dans
+`_reprise/scratchpad/tome1-final/decisions-jp.js`). Aucune recherche refaite sur ce qui était déjà vérifié ; texte d'avant
+cette passe : commit `f515e01`.
+
+| Décision | Où | Ce qui a changé | Source ou règle |
+| --- | --- | --- | --- |
+| 3. Au ch. 2 seulement, « les quatre horloges » deviennent « les quatre mesures » | Étape 8 ; titre « La radio et les quatre mesures » (avant : « Mesurer : la radio et les quatre horloges ») ; étapes 26, 27, 30, 31, 43 ; section 5 (deux lignes) ; section 6 (une ligne) ; section 7, « Si on reste : vider le congélateur dans la neige » | Étape 26 : « Écrire les quatre mesures sur papier… chacune en heures ou en jours ». Étape 8 : « la chaleur durera moins longtemps ». Étape 27 : « on calcule la mesure de la chaleur à partir de ces degrés perdus à l'heure ». Étape 30 : « le lien est la mesure la plus courte ». Étape 31 : « la plus courte des quatre mesures » ; « faire durer ce qui va manquer en premier » ; « Si on attend, on en manquera avant d'arriver ». Étape 43 : « une des quatre mesures change de chiffre. Refaire les quatre mesures ». Section 7 : « avant que le congélateur arrête de tenir le froid (étape 29) ». Aucun chiffre ne change | Décision 3 |
+| Logigramme 02 | `images/logigrammes/02-rester-ou-partir.json` | Nœud `horloges` renommé `mesures` (« Écrire les quatre mesures ») ; qd, b1, b2, reprendre : les quatre mesures ; co4 : la pastille `[À VÉRIFIER]` sort, comme dans le chapitre (la série « Tout le monde est dehors » n'a pas de temps) ; radio : « on y apprend ce qu'on ne voit pas de la fenêtre » (étape 25) ; part : « mettre des vêtements de rechange pour chacun dans un sac à part » (étape 16). Rendu et version du livre : 0 erreur, 3 avis, les mêmes qu'avant (pointes à l'étroit co1→co2, b2 et b3→qroute) | Décisions 3 et logigrammes |
+
+`controle.py --avant` (f515e01) : 6 586 → 6 598 mots ; 2 tirets (titre et ligne de tome) ; 0 « § », 0 mot banni,
+0 tournure, 0 maxime, 0 pronominal ; 37 mots vides et 5 redites, celles d'avant ; rien n'a disparu. Aucune ancre touchée
+(la seule ancre du chapitre est celle du logigramme, « **Fiche de décision remplie d'avance** »). Fins de ligne LF.

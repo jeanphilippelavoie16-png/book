@@ -86,12 +86,10 @@ ou une braise qu'on a gardée, aussi longtemps qu'il reste de l'amadou sec.
  - {!projection} Pour entourer le feu, prendre des pierres sèches et dures : une pierre mouillée ou poreuse
  éclate en chauffant.
  - Faire un feu de 1 m sur 1 m au plus.
- - Allumer dehors seulement quand le vent reste sous 20 km/h : à 16 km/h, un drapeau léger est déployé ;
- à 24 km/h, une feuille de papier journal se soulève du sol. Quand le vent est plus fort, ou que la mousse
- craque sous le pied (ch. 11, section 7), faire le feu dans le poêle. Sans poêle, quand il faut un feu
- pour se réchauffer (étapes 1 à 7), le faire derrière une butte ou un rocher, ou monter un mur de bûches
- ou de pierres sèches du côté du vent : le mur coupe le vent qui entre dans le feu, retient les
- étincelles et renvoie la chaleur vers soi.
+ - Quand il vente fort, ou que la mousse craque sous le pied (ch. 11, section 7), faire le feu dans le
+ poêle. Sans poêle, quand il faut un feu pour se réchauffer (étapes 1 à 7), le faire derrière une butte
+ ou un rocher, ou monter un mur de bûches ou de pierres sèches du côté du vent : le mur coupe le vent qui
+ entre dans le feu, retient les étincelles et renvoie la chaleur vers soi.
 9. **Mettre de l'eau, du sable ou de la terre à portée de main** avant d'allumer.
 10. **Trier le bois en quatre tas, au complet, avant la première étincelle** : l'amadou fin
  (planche 13-40, repère 1), le bois fin, de moins de 2 cm (repère 2), le bois de 2 à 5 cm (repère 3) et les
@@ -221,7 +219,6 @@ Sans tige de ferrocérium, on peut allumer au briquet à pierre, à la batterie,
 | --- | --- | --- | --- |
 | Avant d'allumer | Le bois | Il sonne clair au choc ; environ 25 % d'humidité ou moins, si on a un humidimètre | Fendre jusqu'au cœur ; prendre du bois mort debout (étapes 11 et 12) |
 | Avant d'allumer | Les grosseurs | Deux tas de petit bois : moins de **2 cm**, et **2 à 5 cm** ; bûches de moins de **15 cm** | Refendre ; ne pas passer à la grosseur suivante |
-| Avant d'allumer dehors | Le vent | Moins de **20 km/h** : la feuille de papier journal reste au sol | Faire le feu dans le poêle, ou attendre. S'il faut un feu pour se réchauffer, monter un mur du côté du vent (étape 8) |
 | Avant d'allumer dehors | Le foyer | **1 m sur 1 m** au plus, pourtour dégagé, terre minérale | Le réduire ; creuser jusqu'à la terre minérale |
 | Le nid | L'amadou | On voit le jour au travers ; il craque sous les doigts | L'effilocher encore ; le sécher sous les vêtements |
 | L'étincelle | La gerbe | Une gerbe orange et serrée qui tombe dans le creux | Rapprocher la pointe ; tirer la tige au lieu de pousser le couteau |

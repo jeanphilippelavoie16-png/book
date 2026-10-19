@@ -977,3 +977,9 @@ non touché (sa boîte « Il ne reste que le fleuve » dit déjà l'alambic ou l
 Les avis à juger sont ceux d'avant, déjà jugés le 18 et à l'édition ; aucun n'est sur une ligne touchée. Invariants :
 rien n'a disparu. **Chiffres** : aucun chiffre nouveau ; le 6 m change de référence (de tout bâtiment) sans changer de
 valeur ni de source.
+
+## Décisions de JP, 19 octobre 2026 (suite) : la légende de la hutte de castor
+
+Rédacteur de la passe « décisions de JP ». `design/epreuves-livre/placements-tome-1.json`, clé « 10 », photo
+`10-hutte-castor` : la légende devient « Hutte de castor en hiver : un dôme de branches sous la neige. », comme demandé
+plus haut à l'intégrateur. La consigne des 5 minutes reste aux étapes 14 et 41. Le chapitre n'est pas touché.
