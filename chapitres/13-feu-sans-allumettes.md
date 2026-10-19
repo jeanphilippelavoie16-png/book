@@ -303,10 +303,10 @@ sous ses vêtements en sortant : sous la pluie verglaçante, on ne trouve pas d'
  en crevant les cloques de l'écorce à la pointe du couteau (ch. 94).
 - Le bois gras de pin gris (étape 12).
 - La barbe de quenouille, sur les têtes qui dépassent la neige au bord des marais.
-- La barbe de vieillard, le lichen en filaments gris-vert des branches basses, qui reste sec sous
- le couvert des arbres.
-- {!thuyone} L'écorce intérieure d'un cèdre mort (le thuya), roulée entre les paumes jusqu'à ce qu'elle soit
- douce comme de l'ouate. Le cèdre ne va jamais dans une tisane : pour la vitamine C, prendre les aiguilles
+- La barbe de vieillard, le lichen en filaments gris-vert des branches basses, qui reste sec sous le
+ couvert des arbres.
+- {!thuyone} L'écorce intérieure d'un cèdre mort (le thuya), roulée entre les paumes jusqu'à ce qu'elle
+ soit douce comme de l'ouate. Le cèdre ne va jamais dans une tisane : pour la vitamine C, prendre les aiguilles
  de sapin baumier ou d'épinette (ch. 20).
 - Une chandelle de suif (ch. 112) : sa flamme dure assez pour sécher du petit bois tenu au-dessus.
 

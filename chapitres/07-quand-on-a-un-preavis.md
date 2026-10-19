@@ -354,7 +354,7 @@ boire.
 
 ### Des contenants faits de sacs à ordures
 
-Un sac à ordures neuf et épais, ouvert dans un bac à linge, une poubelle propre ou une baignoire, tient plusieurs
+Un sac à ordures neuf et épais, déplié dans un bac à linge, une poubelle propre ou une baignoire, tient plusieurs
 dizaines de litres s'il est soutenu de tous les côtés : sans paroi autour, il se déchire à sa couture. **Ce qu'on
 perd :** ce n'est pas du plastique alimentaire ; l'eau qu'il garde sert au service, pas à boire.
 
