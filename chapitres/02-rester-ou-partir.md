@@ -163,9 +163,9 @@ tôt que prévu, le plus important est fait.
  aliments qu'on mange crus.
 29. **Nourriture : ne compter que ce qui se garde sans courant.** Le réfrigérateur reste froid environ 4 à 6 heures.
  Un congélateur en bon état, fermé et plein tient jusqu'à 48 heures ; à moitié plein, 24 heures (ch. 74). Le
- congélateur plein d'orignal ne compte donc que pour 48 heures. Jeter ce qui a passé plus de
- 2 heures au-dessus de 4 °C ; cuire tout de suite ce qui a dégelé en restant à 4 °C ou moins (ch. 1). Dans les deux
- cas, ces aliments sortent du calcul.
+ congélateur plein d'orignal ne compte donc que pour 48 heures. Jeter ce qui a passé plus de 2 heures au-dessus de 4 °C ;
+ cuire tout de suite ce qui a dégelé en restant à 4 °C ou moins (ch. 1). Dans les deux cas, ces aliments sortent du
+ calcul.
 30. **Lien : répondre à trois questions.** Peut-on joindre quelqu'un ? Quelqu'un sait-il où on est ? À quelle heure
  va-t-il s'inquiéter ? Si la réponse est non aux deux premières et qu'on ne connaît pas la troisième, le lien est
  l'horloge la plus courte, même si tout le reste va bien. À la maison, les voisins comptent dans le lien.

@@ -351,9 +351,9 @@ d'acier ou des pierres de champ : ils chauffent toute la soirée et redonnent le
 quand le feu tombe. Envelopper une pierre chaude dans une serviette et la glisser au pied du lit : elle le garde
 chaud jusqu'à ce que les corps le réchauffent.
 
-{!projection} Prendre des pierres sèches, ramassées sur un terrain haut, loin de l'eau : une pierre de ruisseau ou de rive est
-pleine d'eau, qui devient de la vapeur en chauffant, et la pierre éclate en projetant des morceaux à hauteur de
-visage. Ne pas se pencher au-dessus d'une pierre qui chauffe pour la première fois.
+{!projection} Prendre des pierres sèches, ramassées sur un terrain haut, loin de l'eau : une pierre de ruisseau ou de
+rive est pleine d'eau, qui devient de la vapeur en chauffant, et la pierre éclate en projetant des morceaux à hauteur
+de visage. Ne pas se pencher au-dessus d'une pierre qui chauffe pour la première fois.
 
 **Le poêle qui fuit.** On peut colmater un joint de porte usé, une fissure dans la fonte ou un joint de tuyau qui
 fume.
@@ -370,15 +370,14 @@ fume.
 
 Après l'eau remplie à l'étape 4 et celle du chauffe-eau (étape 23), il reste la neige.
 
-**Le sac à fonte.** Pour faire fondre la neige sans occuper le dessus du poêle, prendre une taie
-d'oreiller, un sac de toile ou un bas de laine, le remplir de neige tassée et le suspendre près du poêle,
-assez près pour recevoir sa chaleur, assez loin pour que le tissu ne roussisse pas : la neige fond, et l'eau goutte
-dans une chaudière posée dessous. On remplit le sac en allant chercher le bois. Cette
-eau n'est pas désinfectée (ch. 10).
+**Le sac à fonte.** Pour faire fondre la neige sans occuper le dessus du poêle, prendre une taie d'oreiller, un sac de
+toile ou un bas de laine, le remplir de neige tassée et le suspendre près du poêle, assez près pour recevoir sa
+chaleur, assez loin pour que le tissu ne roussisse pas : la neige fond, et l'eau goutte dans une chaudière posée
+dessous. On remplit le sac en allant chercher le bois. Cette eau n'est pas désinfectée (ch. 10).
 
-Si on fait fondre la neige dans une marmite sur la plaque, garder toujours de l'eau au fond, pour ne pas le brûler. La
-neige fraîche ne contient que 4 à 10 % d'eau : il en faut 10 à 25 L pour faire 1 L d'eau. À volume égal, la neige
-tassée et grenue du fond d'un banc en donne beaucoup plus que la neige folle du dessus.
+Si on fait fondre la neige dans une marmite sur la plaque, garder toujours de l'eau au fond de la marmite, pour ne pas
+la brûler. La neige fraîche ne contient que 4 à 10 % d'eau : il en faut 10 à 25 L pour faire 1 L d'eau. À volume égal,
+la neige tassée et grenue du fond d'un banc en donne beaucoup plus que la neige folle du dessus.
 
 **Ce qu'on perd :** du bois, du temps et de la place sur le poêle : l'eau d'une famille occupe une bonne part de la
 plaque toute la journée.
@@ -411,8 +410,8 @@ lâche, on sent l'odeur d'égout.
 - Commencer au robinet, et avancer d'une largeur de main à la fois vers le bouchon de glace (repères 4 et 5).
 - Ne jamais chauffer le milieu du bouchon : l'eau de fonte reste prise entre deux bouts de glace (repère 6), et la
  pression fend le tuyau (repère 7).
-- Ne jamais chauffer à la flamme : sur un tuyau dans un mur, la flamme allume la charpente
- derrière, et sur un tuyau de cuivre, elle défait les joints de soudure plus loin.
+- Ne jamais chauffer à la flamme : sur un tuyau dans un mur, la flamme allume la charpente derrière, et sur un tuyau
+ de cuivre, elle défait les joints de soudure plus loin.
 
 **Réparer un tuyau fendu.** On peut colmater un tuyau de cuivre fendu sans le souder.
 
@@ -468,10 +467,10 @@ feu pendant des heures, seulement de rester chauds.
  pas de couvercle, la couverture sert de couvercle (repère 7).
 - Ne pas rouvrir la boîte pour voir : chaque ouverture laisse partir de la chaleur.
 
-{!zone-de-danger} **Ce qu'on perd :** on ne contrôle plus le temps ni la température de cuisson. En refroidissant dans la
-boîte, la marmite reste longtemps tiède, d'autant plus que la boîte isole bien : manger tout de suite ce qui en sort,
-ou le remettre au feu jusqu'au bouillon avant de le garder ; ne jamais le laisser passer la nuit tiède dans la boîte.
-Cuire le rôti au feu, à la sonde (étape 31) : la marmite sert au mijoté, au bouilli et au bouillon.
+{!zone-de-danger} **Ce qu'on perd :** on ne contrôle plus le temps ni la température de cuisson. En refroidissant dans
+la boîte, la marmite reste longtemps tiède, d'autant plus que la boîte isole bien : manger tout de suite ce qui en
+sort, ou le remettre au feu jusqu'au bouillon avant de le garder ; ne jamais le laisser passer la nuit tiède dans la
+boîte. Cuire le rôti au feu, à la sonde (étape 31) : la marmite sert au mijoté, au bouilli et au bouillon.
 
 **Cuire sans sonde.** On ne peut pas deviner les 74 °C à cœur : le jus clair, la couleur au centre et la fermeté sous
 le doigt peuvent tromper tous les trois à la fois sur une pièce épaisse. Il reste l'eau bouillante, qui est à 100 °C
@@ -534,8 +533,8 @@ brûle la graisse plusieurs fois plus vite. La raccourcir dès que la flamme fil
 pas dans la mèche : amorcer avec un peu d'huile versée à sa base, le temps que la flamme fasse fondre un petit bassin
 de graisse autour de la mèche.
 
-{!co} Allumer la lampe seulement dans la pièce du poêle, où la cheminée tire l'air, et l'éteindre avant de
-dormir. **Ce qu'on perd :** une lumière sans flamme. Le suif et les chandelles sont au ch. 112.
+{!co} Allumer la lampe seulement dans la pièce du poêle, où la cheminée tire l'air, et l'éteindre avant de dormir.
+**Ce qu'on perd :** une lumière sans flamme. Le suif et les chandelles sont au ch. 112.
 
 ### Les voisins et les nouvelles
 

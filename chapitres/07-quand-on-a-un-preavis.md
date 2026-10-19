@@ -113,11 +113,11 @@ la génératrice, et décider tout de suite si on monte au chalet.
 12. **Regrouper les aliments.** Mettre au congélateur ce qu'on peut congeler. Mettre ce qu'on mangera les deux
  premiers jours sur une seule tablette du réfrigérateur, à hauteur de main : on ouvre la porte une fois au lieu de
  six. Serrer les paquets les uns contre les autres : une masse compacte se réchauffe plus lentement.
-13. {!cuisson} {!abats} **Cuire d'avance la viande qui ne tiendra pas si le congélateur dégèle, les abats et la
- viande hachée en premier.** Cuire le gibier à 74 °C à cœur, mesurés au thermomètre à sonde : l'orignal, le lièvre,
- les oiseaux en morceaux ; un oiseau entier, à 82 °C. On peut manger froide une viande cuite, et elle ne demande plus
- de feu pendant la panne. Ne pas cuire le foie ni les reins d'un cervidé (orignal, caribou, cerf) ni de l'ours, et les jeter : ils
- accumulent le cadmium, et la cuisson ne l'enlève pas (ch. 22).
+13. {!cuisson} {!abats} **Cuire d'avance la viande qui ne tiendra pas si le congélateur dégèle, les abats et la viande
+ hachée en premier.** Cuire le gibier à 74 °C à cœur, mesurés au thermomètre à sonde : l'orignal, le lièvre, les
+ oiseaux en morceaux ; un oiseau entier, à 82 °C. On peut manger froide une viande cuite, et elle ne demande plus de
+ feu pendant la panne. Ne pas cuire le foie ni les reins d'un cervidé (orignal, caribou, cerf) ni de l'ours, et les
+ jeter : ils accumulent le cadmium, et la cuisson ne l'enlève pas (ch. 22).
 14. {!trichine} **Cuire l'ours et le phoque à 74 °C à cœur, au lieu de les saler ou de les fumer pour sauver la
  viande.** Ni le sel, ni le fumage, ni le gel domestique ne tuent la trichine : une cuisse d'ours salée parce que le
  congélateur a lâché reste dangereuse (ch. 52, ch. 56).
@@ -152,7 +152,7 @@ la génératrice, et décider tout de suite si on monte au chalet.
 20. **Mesurer ce que la génératrice consomme, et en tirer le nombre de jours.**
  - Remplir le réservoir à ras, faire tourner la génératrice une heure sous la charge réelle, puis mesurer ce qu'il
  faut pour remplir le réservoir de nouveau : c'est sa consommation en litres à l'heure. La fiche du fabricant donne
- un autre chiffre, calculé pour une autre charge. Écrire ce chiffre-ci au feutre sur la génératrice.
+ un autre chiffre, calculé pour une autre charge. Écrire la consommation mesurée au feutre sur la génératrice.
  - Pendant l'essai, arrêter la génératrice et noter en combien de temps le thermomètre du congélateur remonte
  jusqu'à −18 °C : il faut la redémarrer avant ce moment. Ce temps donne le nombre d'heures de marche par jour. La
  génératrice sert à refroidir le congélateur et à recharger : elle n'a pas besoin de tourner sans arrêt.
@@ -186,8 +186,8 @@ la génératrice, et décider tout de suite si on monte au chalet.
 24. **Sortir la pharmacie et les médicaments sur ordonnance**, compter ce qui reste, et mettre des piles neuves dans
  les appareils médicaux (ch. 32).
 25. **Dire aux enfants ce qui s'en vient, en une phrase chacun.** Un jeune enfant a surtout peur quand il voit les
- adultes s'agiter et qu'il ne sait pas pourquoi. Sortir la lampe frontale de chacun et les jeux qui marchent sans courant
- (ch. 39, ch. 40).
+ adultes s'agiter et qu'il ne sait pas pourquoi. Sortir la lampe frontale de chacun et les jeux qui marchent sans
+ courant (ch. 39, ch. 40).
 
 ### Il reste moins de 6 heures
 
@@ -398,10 +398,11 @@ On fabrique l'obturateur avec un bouchon de bois et un 2 × 4 coincé contre la 
 
 ### Faire de la glace dehors
 
-Quand il gèle dehors, on peut garder froid le congélateur arrêté. Remplir aux quatre cinquièmes tout ce qui ferme (des bidons, des bouteilles, des chaudières, des sacs doublés), le sortir pour la nuit et
-rentrer les blocs au matin dans le congélateur, qui sert alors de glacière. Un bloc entier fond beaucoup plus
-lentement que la même masse en morceaux, parce qu'il a moins de surface : faire geler l'eau en gros contenants. Avec
-deux jeux de bidons, un dehors et un dedans, on garde un congélateur fermé froid aussi longtemps qu'il gèle dehors.
+Quand il gèle dehors, on peut garder froid le congélateur arrêté. Remplir aux quatre cinquièmes tout ce qui ferme (des
+bidons, des bouteilles, des chaudières, des sacs doublés), le sortir pour la nuit et rentrer les blocs au matin dans
+le congélateur, qui sert alors de glacière. Un bloc entier fond beaucoup plus lentement que la même masse en morceaux,
+parce qu'il a moins de surface : faire geler l'eau en gros contenants. Avec deux jeux de bidons, un dehors et un
+dedans, on garde un congélateur fermé froid aussi longtemps qu'il gèle dehors.
 
 ### La caisse froide dehors
 
@@ -412,9 +413,9 @@ le vent doux loin de la caisse : l'ombre compte plus que la température de l'ai
 balcon arrière ou dans le cabanon, pas en avant, à la vue des passants (ch. 17). Le froid naturel et ses limites :
 ch. 73 ; le congélateur plein qui dégèle : ch. 74.
 
-**Ce qu'on perd :** le contrôle de la température. Un redoux à +5 °C en février peut tout dégeler en une journée. Mettre un thermomètre
-d'extérieur dans la caisse, ou, à défaut, un verre d'eau gelée avec une pièce de monnaie posée sur la glace : si on
-retrouve la pièce au fond du verre, la caisse a dégelé puis regelé pendant la nuit.
+**Ce qu'on perd :** le contrôle de la température. Un redoux à +5 °C en février peut tout dégeler en une journée.
+Mettre un thermomètre d'extérieur dans la caisse, ou, à défaut, un verre d'eau gelée avec une pièce de monnaie posée
+sur la glace : si on retrouve la pièce au fond du verre, la caisse a dégelé puis regelé pendant la nuit.
 
 ### La batterie de l'auto à la place de la génératrice
 
@@ -445,12 +446,12 @@ réchauffer la pièce. La caisse dehors prend le relais du congélateur.
 Une génératrice passe presque toute l'année arrêtée. Quand elle ne part pas, c'est souvent pour une de ces quatre
 raisons, qu'on règle sans pièce neuve (ch. 106).
 
-- **Elle tourne au lanceur, mais ne part pas** : c'est souvent l'essence. L'essence restée tout l'été dans le réservoir
- a laissé une gomme dans la cuve du carburateur. Fermer la valve d'essence, dévisser le bouchon de vidange sous la cuve
- et vider la cuve dans un pot. Si ce qui sort est verni, orangé ou plein de dépôt, le gicleur est bouché aussi. Le déboucher
- avec un brin de cuivre tiré d'un fil multibrins, jamais avec une mèche ni une broche d'acier : le gicleur est en
- laiton tendre, et un gicleur agrandi change le mélange pour de bon. Remplir avec de l'essence fraîche, pas avec
- celle qu'on vient de vider.
+- **Elle tourne au lanceur, mais ne part pas** : c'est souvent l'essence. L'essence restée tout l'été dans le
+ réservoir a laissé une gomme dans la cuve du carburateur. Fermer la valve d'essence, dévisser le bouchon de vidange
+ sous la cuve et vider la cuve dans un pot. Si ce qui sort est verni, orangé ou plein de dépôt, le gicleur est bouché
+ aussi. Le déboucher avec un brin de cuivre tiré d'un fil multibrins, jamais avec une mèche ni une broche d'acier : le
+ gicleur est en laiton tendre, et un gicleur agrandi change le mélange pour de bon. Remplir avec de l'essence fraîche,
+ pas avec celle qu'on vient de vider.
 - **Elle part et s'arrête aussitôt** : c'est souvent le coupe-circuit d'huile. Beaucoup de petits moteurs ont un
  flotteur qui coupe l'allumage quand l'huile manque. Sur un banc de neige ou une pente, le flotteur penche et coupe
  l'allumage même quand l'huile est là. Mettre la génératrice de niveau sur une planche, vérifier l'huile à la jauge,
@@ -462,13 +463,14 @@ raisons, qu'on règle sans pièce neuve (ch. 106).
  l'écart entre les électrodes d'après l'étiquette du moteur.
 - **Elle tourne bien, mais ne donne pas de courant** : pendant les mois d'arrêt, l'alternateur a perdu le reste
  d'aimantation dont il a besoin pour produire. Pendant que la génératrice tourne, sans rien d'autre de branché,
- brancher une perceuse à fil dans sa prise, tenir la gâchette enfoncée et faire tourner le mandrin à la main, dans le sens
- contraire de sa rotation : la perceuse devient une petite génératrice et renvoie assez de courant dans les bobines
- pour les réaimanter. Ça ne marche pas sur une génératrice à onduleur ; sur les autres, quand ça marche, c'est en
- quelques secondes.
+ brancher une perceuse à fil dans sa prise, tenir la gâchette enfoncée et faire tourner le mandrin à la main, dans le
+ sens contraire de sa rotation : la perceuse devient une petite génératrice et renvoie assez de courant dans les
+ bobines pour les réaimanter. Ça ne marche pas sur une génératrice à onduleur ; sur les autres, quand ça marche, c'est
+ en quelques secondes.
 
 Quand la corde du lanceur casse, la remplacer par une corde de même grosseur, avec un nœud simple au bout et un nœud
-dans la poignée. Réarmer le ressort en tournant la poulie à la main de quelques tours avant de passer la corde dans l'œillet.
+dans la poignée. Réarmer le ressort en tournant la poulie à la main de quelques tours avant de passer la corde dans
+l'œillet.
 
 ### Les nouvelles sans réseau cellulaire
 
@@ -481,8 +483,8 @@ région, et il faut juger soi-même si ce qu'elle annonce touche la maison.
 Sans propane ni génératrice, il reste le poêle à bois, et on ne chauffe plus qu'une seule pièce (ch. 83, ch. 87).
 
 - Fermer d'abord la cage d'escalier : l'air chaud y monte et se refroidit contre les fenêtres de l'étage, pendant que
- la pièce du poêle tire l'air froid par le plancher. Une couverture clouée en
- haut de l'escalier garde plus de chaleur que toutes les portes de chambre fermées.
+ la pièce du poêle tire l'air froid par le plancher. Une couverture clouée en haut de l'escalier garde plus de
+ chaleur que toutes les portes de chambre fermées.
 - Tendre ensuite une couverture dans chaque cadre de porte de la pièce, et couvrir les fenêtres de la pièce pour la
  nuit : la vitre, même double, est le point le plus froid du mur.
 - {!co} Faire dormir tout le monde dans cette pièce : quatre personnes dans une pièce fermée la réchauffent. Y apporter
@@ -541,9 +543,10 @@ des selles et des virus humains, peut entrer par leurs fuites (étape 42).
 ### La cache de pierres des Inuits de la Koksoak
 
 Les Inuits de la rivière Koksoak, en Ungava, gardaient pour l'hiver le caribou tué à l'automne : ils posaient la bête
-sur des pierres et montaient un mur de pierres par-dessus contre les corbeaux, les renards, les loups et le carcajou. Ils marquaient
-l'endroit pour le retrouver sous la neige, et souvent ne le retrouvaient pas. Le froid garde la viande ; les premières
-bêtes, tuées par temps chaud, se gâtaient et allaient aux chiens (section 7, « La caisse froide dehors »).
+sur des pierres et montaient un mur de pierres par-dessus contre les corbeaux, les renards, les loups et le carcajou.
+Ils marquaient l'endroit pour le retrouver sous la neige, et souvent ne le retrouvaient pas. Le froid garde la
+viande ; les premières bêtes, tuées par temps chaud, se gâtaient et allaient aux chiens (section 7, « La caisse
+froide dehors »).
 
 ### Lire la charge d'une batterie au voltmètre
 

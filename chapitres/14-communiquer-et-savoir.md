@@ -80,8 +80,9 @@ elles n'arrivent pas.
  correspondant est la personne choisie d'avance, loin de l'urgence, qui garde la fiche de position et sait quoi
  faire quand un message manque (étape 18). Si personne n'a été choisi, écrire à quelqu'un qu'on sait joindre et qui
  ne vit pas la même urgence. Avertir tôt n'oblige à rien, sauf à écrire ensuite que la situation s'est arrangée, et
- ça permet de préparer les secours au cas où elle empirerait. Sur le fleuve, faire la même chose à la VHF, sur la voie 16, en commençant par « PAN PAN » dit trois
- fois : ces mots annoncent un message très urgent sur la sécurité d'une personne ou d'une embarcation.
+ ça permet de préparer les secours au cas où elle empirerait. Sur le fleuve, faire la même chose à la VHF, sur la
+ voie 16, en commençant par « PAN PAN » dit trois fois : ces mots annoncent un message très urgent sur la sécurité
+ d'une personne ou d'une embarcation.
 6. **Écrire le message toujours dans le même ordre**, celui des messages d'urgence à la VHF :
 
  | Ordre | Ce qu'on écrit | Exemple |
@@ -116,8 +117,8 @@ elles n'arrivent pas.
  devant le chalet dès que le jour baisse. Souffler dans un sifflet à intervalles réguliers, puis se taire pour
  écouter la réponse (section 7, « Se faire voir et se faire entendre »).
 12. **À l'heure limite, sans nouvelles, avertir le correspondant** par message satellite, dans l'ordre de
- l'étape 6 : qui manque, depuis quand, ce qui est écrit sur la fiche de sortie. Le correspondant donne alors l'alerte tout de
- suite (étape 18). Ne pas attendre le lendemain pour écrire.
+ l'étape 6 : qui manque, depuis quand, ce qui est écrit sur la fiche de sortie. Le correspondant donne alors
+ l'alerte tout de suite (étape 18). Ne pas attendre le lendemain pour écrire.
 13. **Partir le chercher seulement à deux, sans l'adulte qui garde les enfants.** Une personne qui part seule, ou
  qui part de nuit, risque de se perdre ou de se blesser à son tour, et il y a alors deux personnes à chercher.
  - Laisser au chalet, par écrit, le chemin qu'on prend et l'heure du retour.
@@ -169,34 +170,33 @@ elles n'arrivent pas.
  - Afficher une copie plastifiée au mur, près de la radio, et en donner une au correspondant.
  - À la maison, l'adresse remplace les coordonnées.
 18. **Choisir un correspondant, et lui donner sa consigne par écrit.** Choisir une personne qui ne vivra pas la
- même urgence que nous, et une deuxième personne pour la remplacer. Lui remettre sur papier la fiche
- de position, la liste des personnes au chalet avec leur âge, l'heure des messages convenus, et une consigne de
- quatre lignes : *si aucun message n'arrive à l'heure convenue, écrire ; si toujours rien une heure plus tard, donner
- l'alerte ; si le chalet écrit que quelqu'un n'est pas rentré à son heure limite, donner l'alerte tout de suite ; lire
- alors la fiche de position et la dernière fiche de sortie aux gens qui viendront.* Relire la
- consigne avec lui, à voix haute. Pour la maison, le choisir hors de la région touchée : une personne de la même
+ même urgence que nous, et une deuxième personne pour la remplacer. Lui remettre sur papier la fiche de position,
+ la liste des personnes au chalet avec leur âge, l'heure des messages convenus, et une consigne de quatre lignes :
+ *si aucun message n'arrive à l'heure convenue, écrire ; si toujours rien une heure plus tard, donner l'alerte ; si
+ le chalet écrit que quelqu'un n'est pas rentré à son heure limite, donner l'alerte tout de suite ; lire alors la
+ fiche de position et la dernière fiche de sortie aux gens qui viendront.* Relire la consigne avec lui, à voix
+ haute. Pour la maison, le choisir hors de la région touchée : une personne de la même
  ville a la même panne, perd le même réseau et ne peut rien faire de plus que nous.
 19. **Enregistrer la balise de détresse, si on en a une**, au Registre canadien des balises. Le signal de la balise
- porte un numéro qui lui est propre : sans enregistrement, la balise donne l'alerte sans dire à qui elle appartient,
- combien de personnes sont là, ni qui joindre. Refaire l'enregistrement quand le numéro de téléphone du
- correspondant change.
+ porte un numéro qui lui est propre : sans enregistrement, les secours reçoivent l'alerte sans savoir à qui
+ appartient la balise, combien de personnes sont là, ni qui joindre. Refaire l'enregistrement quand le numéro de
+ téléphone du correspondant change.
 20. **Réserver une source d'énergie à la communication.** Au chalet, donner à la radio et à l'appareil satellite
- leur propre batterie et leur propre panneau solaire (ch. 86), et n'y brancher rien d'autre : une batterie vidée par
- les outils ne fait plus marcher la radio. À la maison, garder un jeu de piles pour la radio seulement, dans une
- boîte à part, et ne jamais l'entamer pour une lampe ou un jouet.
+ leur propre batterie et leur propre panneau solaire (ch. 86), et n'y brancher rien d'autre. À la maison, garder
+ un jeu de piles pour la radio seulement, dans une boîte à part, et ne jamais l'entamer pour une lampe ou un jouet.
 21. {!generatrice} {!co} **Recharger au moteur ou à la génératrice seulement dehors, même pour dix minutes.**
  Poser la génératrice à au moins 6 m du bâtiment, l'échappement tourné à l'opposé des portes et des fenêtres, et faire
  entrer seulement la rallonge. Ne jamais faire tourner la génératrice ni l'auto dans un bâtiment, sous un auvent ni
  dans un garage, même porte ouverte. Pour recharger dans l'auto avec des gens à bord : dégager l'échappement, ouvrir
  un peu la fenêtre du côté opposé au vent et faire tourner le moteur une dizaine de minutes par demi-heure (ch. 15,
- étapes 11 à 13). Pendant toute la recharge, poser l'avertisseur de CO dans la pièce ou dans
- l'auto où sont les gens.
-22. **Garder les appareils et les piles au chaud.** Une pile froide donne moins, et ce qu'elle affiche à −30 °C ne
- dit pas ce qu'elle vaut une fois réchauffée. Un appareil au lithium-ion ne se recharge pas sous 0 °C, et certaines
- piles pas sous 10 °C : le brancher au froid ne sert à rien, et forcer la recharge abîme la pile. Un appareil
- satellite courant est donné pour fonctionner jusqu'à −20 °C seulement : lire la plage de température dans la notice
- du sien. Ranger les appareils et les piles de rechange à
- l'intérieur, et les porter dehors sous le manteau, contre le corps.
+ étapes 11 à 13). Pendant toute la recharge, poser l'avertisseur de CO dans la pièce ou dans l'auto où sont les
+ gens.
+22. **Garder les appareils et les piles au chaud.** Une pile froide donne moins, et la charge qu'elle affiche à
+ −30 °C est trompeuse : la réchauffer avant de lire sa charge. On ne peut pas recharger un appareil au lithium-ion
+ sous 0 °C, ni certaines piles sous 10 °C : le brancher au froid ne sert à rien, et forcer la recharge abîme la
+ pile. Un appareil satellite courant est donné pour fonctionner jusqu'à −20 °C seulement : lire la plage de
+ température dans la notice du sien. Ranger les appareils et les piles de rechange à l'intérieur, et les porter
+ dehors sous le manteau, contre le corps.
 23. **Faire l'essai complet pendant que tout marche.** Envoyer un message au correspondant et attendre sa réponse.
  Appuyer sur le bouton d'essai de l'avertisseur de CO. Presser le bouton `TEST` de la balise, et écrire la date de
  l'essai au feutre sur la balise. Refaire l'essai de la balise tous les six mois.
@@ -210,8 +210,8 @@ elles n'arrivent pas.
  message manque : un message oublié lance une recherche pour rien. À l'inverse, un « tout va bien » envoyé par
  habitude quand ça va mal retarde les secours. Écrire toujours la même formule courte : *tout le monde va bien, rien
  de neuf, prochain message demain à la même heure.* À la maison, envoyer les nouvelles par message texte plutôt que
- par appel : le message texte encombre moins le réseau qu'un appel, et il peut passer quand le service d'appel est
- coupé.
+ par appel : le message texte encombre moins le réseau qu'un appel, et il peut passer quand le service téléphonique
+ est interrompu.
 26. **Fixer d'avance l'heure de chaque message**, jamais « quand ça adonne ». Le correspondant remarque qu'un
  message manque seulement s'il l'attendait à une heure précise.
 27. **Séparer ce qu'on sait de ce qu'on suppose.** Sur une feuille, à côté de la radio, ranger chaque nouvelle dans
@@ -226,10 +226,10 @@ elles n'arrivent pas.
 
 29. **Remplir une fiche de sortie avant de partir**, et la laisser au mur : qui part, avec quoi (la machine,
  l'appareil satellite, la radio), où exactement et par quel chemin, l'heure de retour prévue, et l'heure limite, une
- heure après. Si la personne partie n'est pas rentrée à l'heure de retour prévue, la personne qui reste suit les
- étapes 9 à 13. Envoyer une copie au
- correspondant. L'heure à laquelle on doit faire demi-tour : ch. 15, étape 31. À la maison, remplir la même fiche
- pour la personne qui part à pied pendant une tempête, chercher de l'eau ou voir un proche.
+ heure après. Envoyer une copie au correspondant. Si la personne partie n'est pas rentrée à l'heure de retour
+ prévue, la personne qui reste doit suivre les étapes 9 à 13. Pour l'heure à laquelle faire demi-tour : ch. 15,
+ étape 31. À la maison, remplir la même fiche pour la personne qui part à pied pendant une tempête, chercher de
+ l'eau ou voir un proche.
 30. **Ne pas faire une sortie qu'on ne ferait pas sans l'appareil satellite.** L'appareil fait venir de l'aide en
  heures, parfois en une journée (étape 4), alors que l'eau froide et le vent à −35 °C blessent en minutes (ch. 25,
  ch. 58). Avec l'appareil dans la poche, on est tenté d'aller plus loin, de partir plus tard, seul, ou sur une glace
@@ -242,11 +242,11 @@ elles n'arrivent pas.
 | Moment | Ce qu'on vérifie | Cible chiffrée | Si c'est hors cible |
 | --- | --- | --- | --- |
 | Chaque écoute | Un bulletin entendu | Au moins une écoute sur deux par jour | Essayer l'AM le soir ; vérifier l'antenne et la terre (étape 16) |
-| Chaque message envoyé | La réponse du correspondant | Reçue avant l'heure convenue | Aller sous un ciel dégagé et renvoyer une fois. Ensuite, compter que le correspondant suit sa consigne (étape 18) |
+| Chaque message envoyé | La réponse du correspondant | Reçue avant l'heure convenue | Aller sous un ciel dégagé et renvoyer une fois. Ensuite, compter sur le correspondant pour suivre sa consigne (étape 18) |
 | Chaque jour | La charge de la radio et de l'appareil satellite | Au-dessus du niveau que le fabricant indique sur l'appareil | Recharger au mur tant qu'il y a du courant, puis au panneau solaire, ou au moteur, dehors (étape 21) |
 | Chaque semaine | Les piles de rechange | Un jeu complet par appareil, au chaud, pas entamé | Remplacer le jeu avant d'entamer le dernier |
 | Chaque mois | Le bouton d'essai de l'avertisseur de CO ; un message d'essai au correspondant | L'avertisseur sonne ; le correspondant répond | Changer la pile de l'avertisseur, puis l'avertisseur s'il reste muet. Relire la consigne avec le correspondant |
-| Tous les 6 mois | Le bouton `TEST` de la balise de 406 MHz | Le voyant d'essai répond ; la date de l'essai est écrite sur la balise | Ne pas partir avec une balise qui n'a pas répondu à l'essai |
+| Tous les 6 mois | Le bouton `TEST` de la balise de 406 MHz | Le voyant d'essai s'allume ; la date de l'essai est écrite sur la balise | Ne pas partir avec une balise qui n'a pas répondu à l'essai |
 | Chaque année | L'enregistrement de la balise, le numéro du correspondant, les piles | À jour ; piles changées | Refaire l'enregistrement (étape 19) |
 | Avant chaque sortie | La fiche de sortie | Écrite et au mur, avec l'heure limite | Ne pas partir sans elle (étape 29) |
 
@@ -256,8 +256,8 @@ elles n'arrivent pas.
 
 | Observation | Diagnostic | Action |
 | --- | --- | --- |
-| Le message est marqué « envoyé », mais aucune réponse ne revient | Rien ne prouve qu'il est arrivé : l'appareil l'a seulement mis en file | Aller sous un ciel dégagé, renvoyer, attendre la réponse (étape 7) |
-| L'heure limite est passée et le correspondant n'a rien fait | Sa consigne n'a pas marché : mal comprise, absence, téléphone fermé | Écrire à la personne qui le remplace. Au retour, réécrire la consigne et la relire avec lui à voix haute |
+| Le message est marqué « envoyé », mais aucune réponse ne revient | Rien ne prouve qu'il est arrivé : l'appareil l'a seulement mis en attente | Aller sous un ciel dégagé, renvoyer, attendre la réponse (étape 7) |
+| L'heure limite est passée et le correspondant n'a rien fait | Il n'a pas suivi sa consigne : il l'a mal comprise, il est absent, ou son téléphone est fermé | Écrire à la personne qui le remplace. Au retour, réécrire la consigne et la relire avec lui à voix haute |
 | Plus rien en FM le jour, mais des stations lointaines en AM le soir | L'onde AM porte loin le soir ; la radio n'est pas brisée | Faire l'écoute du soir en AM, et écrire sur la radio les fréquences qui entrent |
 | Un grésillement couvre tout, surtout près des appareils | Le bruit électrique de l'onduleur, du contrôleur solaire ou d'un chargeur | Écouter avec l'onduleur coupé, et éloigner l'antenne des câbles. Si le bruit disparaît, la station n'est pas en cause |
 | Des piles neuves ne durent que quelques minutes dehors | Le froid | Garder la radio et les piles sous le manteau ; juger une pile seulement quand elle est réchauffée (étape 22) |
@@ -289,10 +289,10 @@ station, et le poste la trie et la change en son. On le monte sur une planche, a
  entre les deux, et les enfoncer plus ou moins l'un dans l'autre.
 - **Les bornes.** Visser deux bornes sur la planche : l'antenne arrive sur la première (repère 5), et le fil de
  terre part de la deuxième (repère 6).
-- **Le détecteur.** Une diode au germanium récupérée sur une vieille électronique. Sans diode : une lame de rasoir
- bleuie au feu ou rouillée (repère 7) et la pointe d'une mine de crayon posée dessus (repère 8), tenue par un fil
- plié (repère 9). Promener la pointe sur la lame jusqu'à ce qu'on entende la station, et la caler là. Un coup sur la
- table la déplace : la recaler.
+- **Le détecteur.** Prendre une diode au germanium sur un vieil appareil électronique. Sans diode, prendre une lame
+ de rasoir bleuie au feu ou rouillée (repère 7) et poser dessus la pointe d'une mine de crayon (repère 8), tenue
+ par un fil plié (repère 9). Promener la pointe sur la lame jusqu'à ce qu'on entende la station, et la caler
+ là. Un coup sur la table la déplace : la recaler.
 - **L'écouteur.** Il doit être à haute impédance : un écouteur de cellulaire ou un haut-parleur ordinaire ne donne
  aucun son, même avec un montage parfait. Prendre la capsule d'écoute d'un vieux combiné de téléphone à fil, un
  écouteur piézo, ou la pastille piézo qu'on dévisse d'un avertisseur de fumée mort ou d'une carte de souhaits
@@ -302,59 +302,55 @@ station, et le poste la trie et la change en son. On le monte sur une planche, a
  mesure. Sans résistance, le poste marche parfois avec une diode au germanium, parce que cette diode laisse fuir un
  peu de courant, mais on ne peut pas compter dessus.
  - Prendre la résistance sur n'importe quelle carte électronique morte : un chargeur, une vieille radio, un appareil
- ménager. Pour la valeur, prendre le multimètre, ou lire les bandes de couleur : sur une résistance à quatre bandes,
- tenir la bande dorée à droite ; la troisième bande compte les zéros, et une troisième bande orange donne entre 10
- et 99 kΩ.
+ ménager. Pour connaître sa valeur, la mesurer au multimètre, ou lire les bandes de couleur : sur une résistance
+ à quatre bandes, tenir la bande dorée à droite ; la troisième bande compte les zéros, et une troisième bande
+ orange donne entre 10 et 99 kΩ.
  - La capsule d'un combiné est une bobine : elle laisse passer le courant, et on la branche seule, sans résistance.
 - **L'antenne et la terre.** Plus l'antenne est longue et haute, et meilleure est la terre, plus le poste capte de
  stations. Tendre le fil entre deux arbres comme à l'étape 16 (repère 12), et l'isoler à ses deux bouts avec un
- goulot de bouteille de plastique ou un bout de bois bien sec (repère 13). La descente ne doit toucher ni le mur ni
- un clou (repère 14).
+ goulot de bouteille de plastique ou un bout de bois bien sec (repère 13). Le fil qui descend vers le poste ne doit
+ toucher ni le mur ni un clou (repère 14).
 
-Le tuyau du poêle ne fait pas une terre, et l'hiver, la tige ne s'enfonce plus dans le sol gelé. Relier alors la
-borne de terre au tubage du puits, à un tuyau de métal enfoncé plus bas que le gel, ou à un **contrepoids** : un fil
-déroulé sur le sol ou sur la neige sous l'antenne, dans le même axe et à peu près de la même longueur, et relié à la
-borne de terre (repère 15). Le contrepoids capte moins bien qu'une tige dans la terre humide, l'été, mais il garde
-la
-réception quand on ne peut pas creuser.
+Le tuyau du poêle ne fait pas une terre. Quand le sol est gelé, relier la borne de terre au tubage du puits, à un
+tuyau de métal enfoncé plus bas que le gel, ou à un **contrepoids** : un fil déroulé sur le sol ou sur la neige sous
+l'antenne, dans le même axe et à peu près de la même longueur, et relié à la borne de terre (repère 15). Le contrepoids capte moins bien qu'une tige dans la terre humide, l'été, mais il
+permet de capter quand on ne peut pas creuser.
 
 **Ce qu'on perd avec le poste à galène.** Il prend seulement la bande AM, et seulement les stations puissantes,
-jusqu'à environ 80 km, parfois beaucoup plus loin le soir. On ne règle pas le volume, et une seule personne écoute à
-la
-fois. En échange, il n'a rien à recharger et aucune pièce qui s'use.
+jusqu'à environ 80 km, parfois beaucoup plus loin le soir. On ne règle pas le volume, et une seule personne peut
+écouter à la fois. En échange, il n'a rien à recharger et aucune pièce qui s'use.
 
 ### Le poste d'auto sorti du tableau de bord
 
-Le poste de l'auto est souvent le meilleur récepteur sur place. Il a trois fils d'alimentation : brancher ensemble
-le
-fil qui garde le 12 V clé enlevée et celui qui a le 12 V clé tournée sur le positif d'une batterie de 12 V, et la
-masse sur le négatif (pour reconnaître les fils au multimètre : ch. 4, section 7). Relier deux autres fils à
-n'importe quel haut-parleur : celui de la portière, dévissé, fait l'affaire. Pour l'antenne, dévisser le mât et le
-rentrer, ou coincer un long fil dans le centre de la prise d'antenne. Le poste tire beaucoup plus qu'une radio de
-poche et vide la batterie de communication (ch. 86), mais il capte un bulletin au fond d'une vallée quand la radio
-de poche ne capte rien. Si on l'écoute dans l'auto, l'écouter moteur coupé : faire tourner le moteur pour l'écouter
-brûle le carburant (ch. 15).
+Le poste de l'auto est souvent le meilleur récepteur sur place. Il a trois fils d'alimentation : relier ensemble le
+fil qui a du 12 V même clé enlevée et celui qui a du 12 V seulement clé tournée, et les brancher sur le positif d'une
+batterie de 12 V ; brancher la masse sur le négatif (pour reconnaître les fils au multimètre : ch. 4, section 7).
+Relier une paire de fils de haut-parleur du poste à n'importe quel haut-parleur : celui de la portière, dévissé, fait
+l'affaire. Pour l'antenne, dévisser le mât de l'antenne de l'auto et le rentrer, ou coincer un long fil dans le
+centre de la prise d'antenne. Le poste tire beaucoup plus qu'une radio de poche et vide la batterie
+réservée à la radio (étape 20), mais il capte un bulletin au fond d'une vallée quand la radio de poche ne capte rien.
+Si on l'écoute dans l'auto, l'écouter moteur coupé (ch. 15).
 
 ### Faire durer les piles qu'on a
 
-- Une radio qui prend deux piles AA marche pareil sur deux piles plus grosses de 1,5 V, câblées jusqu'aux bornes de
- son boîtier : la tension est la même, et elles durent plusieurs fois plus longtemps. Fabriquer le porte-pile avec
- un bloc de bois, deux clous, et une lamelle découpée dans une canne pour faire ressort.
+- Une radio qui prend deux piles AA marche pareil sur deux piles plus grosses de 1,5 V, reliées par des fils aux
+ bornes de son boîtier à piles : la tension est la même, et elles durent plusieurs fois plus longtemps.
+ Fabriquer le porte-pile avec un bloc de bois, deux clous, et une lamelle découpée dans une canne pour faire
+ ressort.
 - Gratter les contacts jusqu'au métal brillant : une pile neuve sur un contact vert ne donne rien.
-- Neutraliser une coulée de pile alcaline au vinaigre, puis sécher complètement avant de remonter.
+- Neutraliser une coulée de pile alcaline au vinaigre, puis bien sécher les contacts avant de remettre les piles.
 - Trier la boîte des piles qu'on croyait mortes : une pile trop faible pour une lampe ou un moteur fait encore
  marcher une radio pendant des semaines, parce qu'une radio tire très peu.
 
 ### Se parler d'un bâtiment à l'autre sans radio
 
 **Le téléphone de campagne.** Relier deux vieux combinés de téléphone à fil par une paire de fils, et mettre des
-piles sèches dans la boucle : on peut se parler. Le micro à charbon d'un vieux combiné travaille sur 3 V, soit deux
-piles de lampe de poche en série, comme dans chaque appareil des téléphones de campagne de l'armée. Prendre
-le fil qui traîne : du câble de haut-parleur, du fil de lampe, du vieux fil de téléphone, deux brins d'un câble à
-quatre fils. Plus le fil est long, plus le son faiblit, parce que le fil oppose une résistance au courant : tendre
-le
-fil, écouter, et le raccourcir si on n'entend pas. Au froid, garder la paire de piles de rechange dans une poche
-intérieure. Sans pile, deux haut-parleurs reliés par deux fils font aussi un téléphone (ch. 16, section 7).
+piles sèches dans la boucle : on peut se parler. Le micro à charbon d'un vieux combiné marche sur 3 V, soit deux
+piles de lampe de poche en série, comme dans les téléphones de campagne de l'armée. Prendre le fil qui traîne : du
+câble de haut-parleur, du fil de lampe, du vieux fil de téléphone, deux brins d'un câble à quatre fils. Plus le fil
+est long, plus le son faiblit, parce que le fil oppose une résistance au courant : tendre le fil, écouter, et le
+raccourcir si on n'entend pas. Au froid, garder la paire de piles de rechange dans une poche intérieure. Sans
+pile, deux haut-parleurs reliés par deux fils font aussi un téléphone (ch. 16, section 7).
 
 Seules les personnes branchées sur le fil entendent ce qui s'y dit, alors que tout ce qu'on dit à la radio s'entend
 partout (étape 28). On s'en sert entre le chalet et le camp d'à côté, ou entre la maison et le garage où quelqu'un
@@ -363,14 +359,14 @@ travaille seul.
 ### Se faire voir et se faire entendre
 
 **D'un avion, on remarque d'abord ce qui bouge, puis ce qui tranche sur le fond, puis les formes régulières.** Une
-bâche ou un drap qu'on agite se voit de beaucoup plus loin qu'un bras. Pour le contraste, répandre à la pelle la
-cendre du poêle sur la neige, ou coucher des branches de sapin sur un lac gelé : la marque noire se voit de loin.
+bâche ou un drap qu'on agite se voit de beaucoup plus loin qu'un bras. Pour le contraste, répandre la cendre du
+poêle à la pelle sur la neige, ou coucher des branches de sapin sur un lac gelé : la marque noire se voit de loin.
 Pour la forme, se servir de la ligne droite et de l'angle droit, qu'on ne trouve pas dans le bois : un V piétiné, un
 triangle de branches, une piste de motoneige tracée en boucle fermée autour du bâtiment. Les gens qui cherchent d'un
 avion regardent tout ce qui sort de l'ordinaire.
 
-Le code sol-air se lit comme un message. Les cinq premiers signes sont compris partout ; les quatre derniers, au
-Canada.
+Le code sol-air sert à dire quelque chose aux avions avec des signes tracés au sol. Les cinq premiers signes sont
+compris partout ; les quatre derniers, au Canada.
 
 | Signe au sol | Ce qu'il veut dire |
 | --- | --- |
@@ -385,14 +381,15 @@ Canada.
 | W | Nous avons besoin de réparations |
 
 Faire chaque signe d'au moins 2,4 m (8 pi) de long, dans la matière qui tranche le plus sur le fond, et exactement
-dans sa forme : un X fait au hasard demande un médecin. Le faire dans une ouverture, sur un lac, dans une coupe ou
-une clairière, jamais sous les arbres, et de façon qu'il reste en place quand personne ne le surveille.
+dans sa forme : un X tracé sans le vouloir se lit comme une demande de médecin. Le faire dans une ouverture, sur
+un lac, dans une coupe ou une clairière, jamais sous les arbres, et de façon qu'il reste en place quand personne ne
+le surveille.
 
 **Le miroir.** Faire un miroir avec n'importe quoi de brillant et de plat : un couvercle de chaudron en acier
 inoxydable, un disque compact, du papier d'aluminium collé bien à plat sur un carton, l'écran noir d'un téléphone
 mort. La visée s'apprend en trente secondes : tendre deux doigts en V devant soi, placer l'avion entre les deux
 doigts, amener sur ses doigts la tache de lumière que renvoie le miroir, puis la promener d'avant en arrière à
-travers le V. Sans soleil, le miroir ne sert à rien : faire de la fumée.
+travers le V. Par temps couvert, faire de la fumée à la place.
 
 **La fumée.** Choisir sa couleur selon le fond. Devant une forêt sombre, faire de la fumée blanche avec des branches
 vertes, de la mousse humide ou des rameaux de sapin jetés sur un lit de braises chaudes. Sur un fond de neige ou de
@@ -412,9 +409,9 @@ voisin (ch. 16, étape 19).
 
 Le crayon de bois et le charbon écrivent sur du papier mouillé et par grand froid, alors que l'encre coule et que le
 stylo à bille n'écrit plus. Un tison éteint sorti du poêle écrit sur une planche, sur l'endos d'une boîte de
-carton ou sur de l'écorce de bouleau. Graver au couteau, dans le bois du cadre de la porte, ce qui doit résister à
-l'eau et au temps : les coordonnées, l'heure limite d'une sortie, le numéro du correspondant. On ne les perd pas, et
-chacun sait où les lire.
+carton ou sur de l'écorce de bouleau. Ce qui doit résister à l'eau et au temps (les coordonnées, l'heure limite
+d'une sortie, le numéro du correspondant), le graver au couteau dans le bois du cadre de la porte. On ne les perd
+pas, et chacun sait où les lire.
 
 ### Le relais humain
 
@@ -425,25 +422,26 @@ la personne en difficulté ne peut plus rien envoyer.
 Quand tout le monde quitte le chalet, clouer une note sur la porte : la date et l'heure du départ, combien de
 personnes sont parties, puis les lignes de la fiche de sortie (étape 29). Mettre la même note sur le tableau de bord
 de l'auto garée au bout du chemin, lisible à travers le pare-brise. Les gens qui cherchent commencent par l'endroit
-que dit la note.
+écrit sur la note.
 
-En ville, deux maisons voisines font la même chose à cent mètres : elles conviennent d'un signe qu'on voit de chez
-soi, comme un rideau ouvert le matin ou une lumière dans la même fenêtre le soir, et chacune va cogner chez l'autre
-quand le signe manque (ch. 16, ch. 17).
+En ville, deux familles qui habitent à cent mètres l'une de l'autre peuvent faire la même chose : elles conviennent
+d'un signe qu'on voit de chez soi, comme un rideau ouvert le matin ou une lumière dans la même fenêtre le soir, et
+chacune va cogner chez l'autre quand le signe manque (ch. 16, ch. 17).
 
 **Envoyer quelqu'un porter un message.** C'est le dernier moyen, et il coûte cher : une personne exposée au froid,
 une personne de moins au chalet pour tenir le feu et garder les enfants, et le risque d'avoir deux urgences au lieu
-d'une. Envoyer seulement deux personnes, de jour, avec la destination écrite et laissée au chalet (étape 13), et
+d'une. Envoyer deux personnes ensemble, de jour, avec la destination écrite et laissée au chalet (étape 13), et
 seulement après avoir décidé que le problème ne peut pas attendre le matin (ch. 2, ch. 15).
 
 ### Ce qui ne se remplace pas
 
-- **Le lien satellite.** Rien ne l'improvise : aucun montage de récupération n'atteint un satellite. Quand
+- **Le lien satellite.** On ne peut pas l'improviser : aucun montage de récupération n'atteint un satellite. Quand
  l'appareil est mort ou l'abonnement échu, on ne peut plus demander d'aide de loin ni être trouvé par satellite.
-- **La portée en émission.** Recevoir s'improvise avec une lame de rasoir et un bout de fil, parce que la station
- fournit l'énergie. Émettre loin demande de la puissance, une vraie antenne et quelqu'un à l'écoute de l'autre côté.
+- **La portée en émission.** On peut improviser un récepteur avec une lame de rasoir et un bout de fil, parce que la
+ station fournit l'énergie. Émettre loin demande de la puissance, une vraie antenne et quelqu'un à l'écoute de
+ l'autre côté.
 - **Le correspondant qui attend.** On ne peut pas le trouver après coup : le jour où on en a besoin, il est trop
- tard pour lui expliquer quoi faire d'un silence (étape 18).
+ tard pour lui expliquer quoi faire quand un message manque (étape 18).
 
 ### Ce qu'on perd
 
@@ -451,10 +449,10 @@ seulement après avoir décidé que le problème ne peut pas attendre le matin (
  personne ne venait.
 - **Les alertes.** Sans radio qui marche, on n'apprend rien de ce qui s'en vient : une tempête annoncée, un feu de
  forêt qui avance, des retombées qui arrivent (ch. 2, ch. 4, ch. 7, ch. 11).
-- **Le délai.** Un relais humain se compte en jours, pas en heures. Il faut alors soigner sur place tout ce qui peut
- l'être (ch. 26), et décider tôt de partir quand on ne peut pas soigner (ch. 35).
-- **La correction.** On ne peut plus annuler une fausse alerte ni dire que ça va mieux : une recherche peut se faire
- pour rien, avec des gens sur la route par mauvais temps.
+- **Le délai.** Avec un relais humain, l'aide arrive en jours, pas en heures. Il faut alors soigner sur place tout
+ ce qui peut l'être (ch. 26), et décider tôt de partir quand on ne peut pas soigner (ch. 35).
+- **La correction.** On ne peut plus annuler une fausse alerte ni dire que ça va mieux : des gens peuvent partir
+ chercher pour rien, sur la route, par mauvais temps.
 - **Le lien.** Pour un jeune enfant, recevoir une réponse de sa grand-mère ou d'un proche aide à garder la routine
  pendant des semaines (ch. 40).
 
@@ -473,7 +471,7 @@ signal de la balise, sur 121,5 MHz (étape 3).
 
 Le fabricant d'un walkie-talkie courant le donne pour 26 km d'un sommet vers une vallée, 4,8 km sur l'eau et 0,8 km
 entre des maisons. Le chiffre de la boîte est mesuré en ligne de vue, sans obstacle : le relief, la forêt et la météo
-le réduisent. Ce qu'il porte jusqu'au camp voisin, on le sait seulement en l'essayant (étape 9).
+le réduisent. Pour savoir s'il porte jusqu'au camp voisin, il faut l'essayer (étape 9).
 
 ### Une heure ou une journée
 

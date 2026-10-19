@@ -108,12 +108,11 @@ dormir, et faire le reste de la série au réveil.
 12. **Mettre le combustible à couvert pendant qu'il fait clair** : empiler le bois près de la porte, et
  ranger les bonbonnes et les bidons dehors, sous un abri. Le bois enneigé qu'on va chercher à la noirceur
  brûle mal toute la nuit (ch. 83).
-13. **L'hiver, prendre la température de la pièce chauffée chaque heure, et noter l'écart avec le relevé
- de l'heure d'avant.** Multiplier cet écart par le nombre d'heures qui restent jusqu'au matin : on voit si
- la pièce restera assez chaude pour la nuit. Si elle doit devenir trop froide, regrouper la famille
- pendant qu'il fait clair. Entre 18 et 24 °C, le risque est minimal pour
- une personne qui bouge peu. Il n'existe aucune température reconnue à partir de laquelle il faut
- partir : la famille en décide avec le ch. 2.
+13. **L'hiver, prendre la température de la pièce chauffée chaque heure, et noter l'écart avec le relevé de
+ l'heure d'avant.** Multiplier cet écart par le nombre d'heures qui restent jusqu'au matin : on voit si la
+ pièce restera assez chaude pour la nuit. Si elle doit devenir trop froide, regrouper la famille pendant
+ qu'il fait clair. Entre 18 et 24 °C, le risque est minimal pour une personne qui bouge peu. Il n'existe
+ aucune température reconnue à partir de laquelle il faut partir : la famille en décide avec le ch. 2.
 14. **Faire l'inventaire du réfrigérateur et du congélateur sans ouvrir les portes.** Le faire de mémoire,
  appareil par appareil : ce qui est cru, ce qui est cuit, ce qui est du poisson, ce qui est du gras.
  Écrire sur le ruban de la porte, en trois mots, ce qu'on triera en premier (étape 20).
@@ -266,10 +265,10 @@ descendue à 0 °C pendant la nuit, ce qu'un thermomètre ordinaire ne montre pa
 contenant, d'eau très salée, gèle plus bas : s'il prend en glace, la pièce est descendue nettement sous
 zéro.
 
-**Le refroidissement sans thermomètre.** Remplir un chaudron d'eau chaude, le poser dans la pièce et
-noter combien de temps il met à devenir tiède. Refaire la mesure plus tard avec le même chaudron, rempli
-à la même hauteur et posé à la même place. Si l'eau devient tiède nettement plus vite que la première
-fois, la pièce perd plus de chaleur qu'avant (une vitre brisée, un joint de porte qui laisse passer
+**Le refroidissement sans thermomètre.** Remplir un chaudron d'eau chaude, le poser dans la pièce et noter
+combien de temps il met à devenir tiède. Refaire la mesure plus tard avec le même chaudron, rempli à la même
+hauteur et posé à la même place. Si l'eau devient tiède nettement plus vite que la première fois, la pièce
+perd plus de chaleur qu'avant (une fenêtre qui laisse entrer le froid, un joint de porte qui laisse passer
 l'air, un feu qui baisse) : chercher la cause avant d'ajouter une couverture.
 
 **L'hypothermie sans thermomètre.** Les signes arrivent dans cet ordre. D'abord, la personne frissonne fort

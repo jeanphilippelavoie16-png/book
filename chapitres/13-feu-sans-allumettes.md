@@ -115,8 +115,8 @@ ou une braise qu'on a gardée, aussi longtemps qu'il reste de l'amadou sec.
  un bidon entre soi et le feu.
 13. **Monter le tipi** (planche 13-40, repères 5 et 6). Il brûle même avec du bois humide : en brûlant, le
  bois de l'extérieur tombe vers le centre, sur le feu.
- - Dresser le bois fin en cône lâche, avec du vide entre les morceaux pour que l'air arrive jusqu'à la
- flamme.
+ - Dresser le bois fin (moins de 2 cm) en cône lâche, avec du vide entre les morceaux pour que l'air arrive
+ jusqu'à la flamme.
  - Laisser une ouverture du côté du vent. On y glissera le nid, et l'air entrera par là.
 
 ### Allumer au ferrocérium
@@ -240,7 +240,7 @@ Sans tige de ferrocérium, on peut allumer au briquet à pierre, à la batterie,
 | Le nid fume, puis s'éteint dès qu'on arrête de souffler | Amadou humide au cœur, ou trop serré | L'effilocher et le sécher sous les vêtements ; le refermer sans le serrer |
 | La braise grossit, puis noircit sans faire de flamme | On a soufflé par à-coups | Souffler en continu, sans à-coups (étape 16) |
 | Le nid s'envole à la première étincelle | On a poussé le couteau sur la tige | Tenir le couteau immobile et tirer la tige vers soi (étape 15) |
-| Flamme vive quelques secondes, puis plus rien | On est passé du bois fin aux bûches sans le bois de 2 à 5 cm | Remonter le tipi en bois fin, puis ajouter le bois de 2 à 5 cm |
+| Flamme vive quelques secondes, puis plus rien | On est passé du bois fin aux bûches sans le bois de 2 à 5 cm | Remonter le tipi en bois fin (moins de 2 cm), puis ajouter le bois de 2 à 5 cm |
 | Sifflement et bulles au bout des bûches, fumée épaisse | Bois vert ou mouillé : l'eau du bois bout | Changer de bois ; fendre du bois mort debout (étapes 11 et 12 ; ch. 83) |
 | La laine d'acier rougit à peine, ou pas du tout | Laine trop grosse, ou pile vide | Prendre une laine plus fine ; essayer une autre pile, ou la batterie (étape 20) |
 | Poussière brun pâle, et non noire, dans l'encoche de l'arc à feu | Pas assez de vitesse ou de pression, ou bois trop dur pour la planchette | Appuyer plus fort, aller plus vite ; changer de bois (section 7) |
