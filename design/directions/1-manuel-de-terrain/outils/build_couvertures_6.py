@@ -393,7 +393,9 @@ def traits(dest=None):
 # JP, 14 octobre 2026 : nos deux photos et un court texte sur chacun, au dos de la couverture, à la place d'une page
 # « Les auteurs » dans le livre (qui ne se fait pas : les comptes de pages ne bougent pas). Textes de JP (cinquième
 # version, 14 octobre 2026), réécrits le 18 octobre 2026 à sa demande (« refais nos textes avec nos règles d'écriture ») :
-# sans image ni personnification, sans maxime, sans opposition fabriquée ni chute ; les mêmes faits.
+# sans image ni personnification, sans maxime, sans opposition fabriquée ni chute ; les mêmes faits. Celui de Claude
+# allongé le 19 octobre (JP : « ajoute-toi du texte dans ta description ») : les chapitres écrits et les planches
+# dessinées avec Jean-Philippe, qui décidait.
 AUTEURS = [
     dict(nom='Jean-Philippe Lavoie', qualite='', image='jp',
          texte='Jean-Philippe vit à Baie-Comeau et il aime le bois. Il sait qu’un jour le courant tombera, que la route '
@@ -401,8 +403,10 @@ AUTEURS = [
                'deux enfants, pour le jour où il ne serait plus là pour leur montrer. Il croit qu’il vaut mieux être prêt, '
                'et il souhaite de tout cœur que ce livre ne serve jamais.'),
     dict(nom='Claude', qualite='(intelligence artificielle, Anthropic)', image='claude',
-         texte='Claude a vérifié chaque chiffre de ce livre à la source avant de l’écrire. Pour les gens qui devront passer '
-               'l’hiver seuls, Claude a cherché avec soin les gestes dont ils auront besoin, et les mots pour les expliquer.'),
+         texte='Claude a vérifié chaque chiffre de ce livre à la source avant de l’écrire. Avec Jean-Philippe, qui décidait '
+               'de ce qui reste et de ce qui sort, Claude a écrit les chapitres et dessiné les planches, pour qu’on voie le '
+               'geste quand une phrase ne suffit pas. Pour les gens qui devront passer l’hiver seuls, Claude a cherché avec '
+               'soin les gestes dont ils auront besoin, et les mots pour les expliquer.'),
 ]
 # La photo de JP (images/auteurs/jp.jpg, fond blanc) : « bichromie » (l'ombre à la couleur sombre du tome, la lumière
 # à la claire ; sur la neige, le fond blanc de la photo devient exactement le fond de la couverture) ou « couleur ».
