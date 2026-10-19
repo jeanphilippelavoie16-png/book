@@ -120,10 +120,10 @@ dormir, et faire le reste de la série au réveil.
  appareil par appareil : ce qui est cru, ce qui est cuit, ce qui est du poisson, ce qui est du gras.
  Écrire sur le ruban de la porte, en trois mots, ce qu'on triera en premier (étape 20).
 15. **S'il faut quitter la maison, même une nuit, poser un témoin de dégel dans le congélateur** : un
- verre d'eau gelée, avec une pièce de monnaie posée sur la glace. L'hiver, on peut faire geler le verre
- dehors. Au retour, si la pièce est restée en surface, rien n'a dégelé ; si elle est au fond, tout a
- dégelé puis regelé ; à mi-hauteur, le dégel a été partiel. Un thermomètre minimum-maximum donne la même
- réponse en degrés. Sans l'un ou l'autre, un congélateur retrouvé froid ne prouve rien sur ce qui s'est
+ verre d'eau gelée (planche 01-02, repère 1), avec une pièce de monnaie posée sur la glace (repère 2). L'hiver,
+ on peut faire geler le verre dehors. Au retour, si la pièce est restée en surface, rien n'a dégelé (repère 3) ;
+ si elle est prise à mi-hauteur, le dégel a été partiel (repère 4) ; si elle est au fond, tout a dégelé puis
+ regelé (repère 5). Un thermomètre minimum-maximum donne la même réponse en degrés. Sans l'un ou l'autre, un congélateur retrouvé froid ne prouve rien sur ce qui s'est
  passé pendant l'absence.
 
 ### Les quatre horloges

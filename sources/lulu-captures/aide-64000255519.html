@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+       
+        <!--[if lt IE 7]><html class="no-js ie6 theme-switcher-launched dew-dsm-theme " lang="en" dir="ltr" data-date-format="us"><![endif]-->       
+        <!--[if IE 7]><html class="no-js ie7 theme-switcher-launched dew-dsm-theme " lang="en" dir="ltr" data-date-format="us"><![endif]-->       
+        <!--[if IE 8]><html class="no-js ie8 theme-switcher-launched dew-dsm-theme " lang="en" dir="ltr" data-date-format="us"><![endif]-->       
+        <!--[if IE 9]><html class="no-js ie9 theme-switcher-launched dew-dsm-theme " lang="en" dir="ltr" data-date-format="us"><![endif]-->       
+        <!--[if IE 10]><html class="no-js ie10 theme-switcher-launched dew-dsm-theme " lang="en" dir="ltr" data-date-format="us"><![endif]-->       
+        <!--[if (gt IE 10)|!(IE)]><!--><html class="no-js  theme-switcher-launched dew-dsm-theme " lang="en" dir="ltr" data-date-format="us"><!--<![endif]-->
+	<head>
+		
+		<!-- Metadata -->
+
+    <title>PDF Creation Settings | Lulu</title>
+    <meta name="description" content="Tips to create a PDF with the proper settings ">
+    <meta property="og:title" content="PDF Creation Settings | Lulu">
+    <meta property="og:description" content="Tips to create a PDF with the proper settings ">
+    <meta property="og:image" content="https://assets.lulu.com/media/help-center/images/png/lulu-og-image.png" />
+    <meta name="twitter:title" content="PDF Creation Settings | Lulu">
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:image" content="https://assets.lulu.com/media/help-center/images/png/lulu-twitter-image.png" />
+    <link rel="canonical" href="https://help.lulu.com/en/support/solutions/articles/64000255519-pdf-creation-settings" />
+
+
+<!-- Responsive setting -->
+<link rel="apple-touch-icon" href="https://s3.amazonaws.com/cdn.freshdesk.com/data/helpdesk/attachments/production/64047520245/fav_icon/2fqP6pik6kUBUxFuWsX7tWR2NP5qL2ADyw.png" />
+        <link rel="apple-touch-icon" sizes="72x72" href="https://s3.amazonaws.com/cdn.freshdesk.com/data/helpdesk/attachments/production/64047520245/fav_icon/2fqP6pik6kUBUxFuWsX7tWR2NP5qL2ADyw.png" />
+        <link rel="apple-touch-icon" sizes="114x114" href="https://s3.amazonaws.com/cdn.freshdesk.com/data/helpdesk/attachments/production/64047520245/fav_icon/2fqP6pik6kUBUxFuWsX7tWR2NP5qL2ADyw.png" />
+        <link rel="apple-touch-icon" sizes="144x144" href="https://s3.amazonaws.com/cdn.freshdesk.com/data/helpdesk/attachments/production/64047520245/fav_icon/2fqP6pik6kUBUxFuWsX7tWR2NP5qL2ADyw.png" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" /> 
+
+<!-- Lulu Fonts -->
+<link rel="stylesheet" href="https://use.typekit.net/lnq2xzc.css">
+
+<!-- Custom Icons -->
+<link rel="stylesheet" href="https://assets.lulu.com/media/help-center/icon-fonts/help-center-icons-v1/style.css">
+<link rel="stylesheet" href="https://assets.lulu.com/media/help-center/icon-fonts/iconfont/icons.css">
+
+<!-- Tealium -->
+<script type="text/javascript">
+  window.utag_cfg_ovrd = window.utag_cfg_ovrd || {};
+  window.utag_cfg_ovrd.gdprDLRef = "language";
+  var utag_data = {
+    account_id: "", // logged in user's account id
+    language: "en", // Language of the site the user is on
+    email: "", // logged in user's email address
+    page_type: "", // The page type names defined by us
+    account_type: "", // User selected on account page
+    bisac_1: "", // Top level BISAC passed in wizard when user selects and on bookshop,cart,and checkout. Persists for project.
+    bisac_2: "", // Second level BISAC
+    bisac_3: "", // Third level BISAC
+    cart_contains_physical: "", // Boolean indicating if physical items exist on cart page
+    cart_id: "", // ID unique to a single cart
+    cart_product_image_url: "", // URL for the product image displayed
+    cart_product_url: "", // Product page URL
+    cart_promotion_code: "", // String of cart level promotion codes
+    context: "", // May Not Need. seen on current site's utag_data on account sign-in page
+    customer_city: "", // Contains the customer city at account level.
+    customer_country: "", // Contains the customer country at account level.
+    customer_name: "", // Name user enters for their account
+    customer_state: "", // Contains the customer state at account level.
+    explicit_content: "", // flag
+    first_visit: "", // Date of first visit
+    internal_draft_order: "", // Boolean,indicates a cart created by an internal employee emailed to the user who then completes the purchase
+    last_visit: "", // Date of last visit
+    login_status: "", // Notes if user is logged in
+    maxmind_country_code: "", // Two digit country code determined by Maxmind service on all pages. If cannot fetch, pass 'unknown'
+    order_coupon_code: "", // Contains the order coupon code beginning in the cart. (e-commerce ext)
+    order_coupon_discount: "", // Contains the order coupon discount. (e-commerce ext)
+    order_currency: "", // Contains the order currency
+    order_discount: "", // contains the order discount if any
+    order_id: "", // Contains the order or transaction ID.
+    order_payment_type: "", // Contains the order payment type.
+    order_quantity: "", // Total quantity of items in cart and order. Passed on all cart pages and Order Confirmation Page
+    order_shipping: "", // Contains the order shipping value. (e-commerce ext)
+    order_shipping_discount: "", // Shipping Discount Amount Fired at Purchase on Order Confirmation Page
+    order_store: "", // Contains identification information for a store.
+    order_subtotal: "", // Contains the order subtotal,discounts already applied.
+    order_tax: "", // Contains the order tax amount. (e-commerce ext)
+    order_total: "", // Contains the order total
+    page_name: "", // Page Name
+    product_category: "", // Contains product category(s) - multiple values should be comma-separated.
+    product_coupon_code: "", // Item level string of promotion codes for each product (same order as product_ids): ['product1_promotion_code',product2_promotion_code',etc…..] fired at time of purchase
+    product_discount: "", // Contains product discount(s) - multiple values should be comma-separated.
+    product_list_price: "", // Contains product list price(s) before discount - multiple values should be comma-separated.
+    product_name: "", // Contains product name(s) - multiple values should be comma-separated.
+    product_quantity: "", // Contains product quantity(s) - multiple values should be comma-separated.
+    product_subcategory: "", // Contains product subcategory(s) - multiple values should be comma-separated.
+    product_total_price: "", // Contains product_quantity x product_unit_price
+    product_unit_price: "", // Contains product unit price(s) - multiple values should be comma-separated.
+    project_book_specs: "", // Book specification selected on Design step (Trim size,Page count,Interior Color,etc). Persists for project.
+    project_id: "", // Project / content ID passed in the wizard,product page,and cart.
+    project_type: "", // Wizard project type user selected to create (Print Book,Photo Book,Magazine,Calendar,Yearbook,eBook). Persists for project and in cart.
+    project_version: "", // Project published version number. If draft project has never been published then version 0.
+    purchase_order: "", // Purchase order number when a PO. Empty if not a purchase order.
+    purchase_order_eligible: "", // Account level boolean that displays when a logged in user's account is approved for purchase orders
+    search_keyword: "", // Keyword that the user entered on site
+    self_purchase: "", // Boolean,passing in cart and checkout when one or more products is self purchase
+    sell_or_print_only: "", // Passes at project level when user selects to sell or print only.
+    ship_country: "", // Ship to Country ISO Code,passed to Tealium as soon as ship to step completed
+    ship_method: "", // The Ship Method the user selected for their order. Set as soon as customer chooses a ship Method
+    ship_state: "", // Ship-to state ISO code,set in the cart when known.
+    ship_zip: "", // Ship-to zip ISO code,set in the cart when known.
+    site_currency: "", // Display the currency for the store: Fired on all product pages,cart,and checkout pages
+    store_language: "", // language codes for store language
+    tealium_event: "", // 
+    product_id: "", // Contains product ID(s) - multiple values should be comma-separated.
+    product_sku: "", // Contains product SKU(s) - multiple values should be comma-separated.
+    product_brand: "", // Contains product brand(s) - multiple values should be comma-separated.
+    order_type: "", // Contains type of order/cart.
+    customer_id: "", // Contains the customer ID.
+    customer_zip: "", // Contains the customer zip/postal code.
+    customer_type: "", // Contains the customer type.
+    adwords_conversion_label: "", // 
+    adwords_pagetype: "", // 
+    gua_tracking_id: "", // 
+    event_action: "", // 
+    event_category: "", // 
+    event_label: "" // 
+  }
+</script>
+
+<!-- Loading script asynchronously -->
+<script type="text/javascript">
+  (function (a, b, c, d) {
+    a = 'https://tags.tiqcdn.com/utag/lulu/lulu2.0/prod/utag.js';
+    b = document; c = 'script'; d = b.createElement(c); d.src = a; d.type = 'text/java' + c; d.async = true;
+    a = b.getElementsByTagName(c)[0]; a.parentNode.insertBefore(d, a);
+  })();
+</script>
+
+<!-- Required Yext Scripts & Styles -->
+
+  <!-- Yext Answers CSS-->
+  <link rel="stylesheet" type="text/css" href="https://assets.sitescdn.net/answers-search-bar/v1.0/answers.css" />
+
+  <script src="https://assets.sitescdn.net/answers-search-bar/v1.0/answerstemplates.compiled.min.js"></script>
+
+  
+      <script>
+        function initAnswers() {
+          ANSWERS.init({
+            apiKey: "1e74413e57120a25a7e6fc474b1a27ec",
+            experienceKey: "answers-help-site",
+            experienceVersion: "PRODUCTION",
+            locale: "en", // e.g. en
+            businessId: "3621850",
+            templateBundle: TemplateBundle.default,
+            onReady: function () {
+              ANSWERS.addComponent("SearchBar", {
+                container: ".nav_search_bar_container",
+                name: "nav-search-bar", //Must be unique for every search bar on the same page
+                redirectUrl: "/en/support/search",
+                placeholderText: "Search the Knowledge Base",
+                customIconUrl: "https://assets.lulu.com/media/help-center/images/svg/yext-magnifying-glass.svg",
+                clearButton: false,
+              });
+            },
+          });
+        }
+      </script>
+      <!-- Answers JS-->
+      <script src="https://assets.sitescdn.net/answers-search-bar/v1.0/answers.min.js" onload="ANSWERS.domReady(initAnswers)" async defer></script>
+  
+
+
+<!-- Custom placeholder in search_form snippet -->
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const searchForms = document.querySelectorAll("form.hc-search-form.print--remove");
+
+    searchForms?.forEach(element => {
+      const searchInput = element.querySelector("#support-search-input");
+      const searchInputLabel = element.querySelector("label");
+
+      if(searchInput && searchInputLabel) {
+        
+      }
+    });
+  });
+</script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    if (!localStorage.getItem('showTicketSubmitNotification')) return;
+
+    const notification = document.createElement("div");
+    notification.classList.add("ticket-submission-notification");
+
+    const closeButton = document.createElement("span");
+    closeButton.innerText = "✕";
+    closeButton.classList.add("ticket-submission-notification-close-button");
+    closeButton.addEventListener("click", () => {
+      notification.remove();
+    });
+
+    const sentence1 = document.createElement("div");
+    sentence1.innerText = "You will hear from our support team within two business days.";
+
+    const sentence2 = document.createElement("div");
+    sentence2.innerText = "Please be sure to check your spam or junk mail folders if you don't see our response in your inbox.";
+    sentence2.classList.add("ticket-submission-notification-message-margin");
+
+    const seeYourTicketsBtn = document.createElement("a");
+    seeYourTicketsBtn.innerText = 'See your tickets';
+    seeYourTicketsBtn.classList.add("ticket-submission-notification-see-tickets-button");
+    seeYourTicketsBtn.href = "https://help.lulu.com/en/support/tickets";
+
+    notification.appendChild(sentence1);
+    notification.appendChild(sentence2);
+    notification.appendChild(seeYourTicketsBtn);
+    notification.appendChild(closeButton);
+
+    document.body.appendChild(notification);
+
+    localStorage.removeItem('showTicketSubmitNotification');
+  });
+</script>
+
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+		
+		<!-- Adding meta tag for CSRF token -->
+		<meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="VlQV9T+s9VIhjEzYaGNgvtNplzPNcSrV9IAgz7EbJXRl+sFi4poK1i1ochopDNKVjty26EewfeAadlx+SJXvCA==" />
+		<!-- End meta tag for CSRF token -->
+		
+		<!-- Fav icon for portal -->
+		<link rel='shortcut icon' href='https://s3.amazonaws.com/cdn.freshdesk.com/data/helpdesk/attachments/production/64047520245/fav_icon/2fqP6pik6kUBUxFuWsX7tWR2NP5qL2ADyw.png' />
+
+		<!-- Base stylesheet -->
+ 
+		<link rel="stylesheet" media="print" href="https://assets10.freshdesk.com/assets/cdn/portal_print-6e04b27f27ab27faab81f917d275d593fa892ce13150854024baaf983b3f4326.css" />
+	  		<link rel="stylesheet" media="screen" href="https://assets3.freshdesk.com/assets/cdn/falcon_portal_utils-10c0138f0f2c628c135fccf6d8ab6fbc44623b9a1f67863ca02ef4dc11571817.css" />	
+
+		
+		<!-- Theme stylesheet -->
+
+		<link href="/support/theme.css?v=4&amp;d=1781786664" media="screen" rel="stylesheet" type="text/css">
+
+		<!-- Google font url if present -->
+		
+
+		<!-- Including default portal based script framework at the top -->
+		<script src="https://assets1.freshdesk.com/assets/cdn/portal_head_v2-42db32fda0d580ef2a2696d2a5027d91fc5799709f745764cc90fe00971eae55.js"></script>
+		<!-- Including syntexhighlighter for portal -->
+		<script src="https://assets10.freshdesk.com/assets/cdn/prism-96c3735a6ff19327135da540127d6909048554034f47dd1901366ba2f1c038e9.js"></script>
+
+		
+
+		<!-- Access portal settings information via javascript -->
+		 <script type="text/javascript">     var portal = {"language":"en","name":"","contact_info":"","current_page_name":"article_view","current_tab":"solutions","vault_service":{"url":"https://vault-service.freshworks.com/data","max_try":2,"product_name":"fd"},"current_account_id":1516692,"preferences":{"bg_color":"#f2f4fa","header_color":"#ffffff","help_center_color":"#f2f4fa","footer_color":"#18263d","tab_color":"#ffffff","tab_hover_color":"#000083","btn_background":"#22b5f0","btn_primary_background":"#000083","base_font":"Helvetica Neue","text_color":"#0a101a","headings_font":"Trebuchet MS","headings_color":"#0a101a","link_color":"#000083","link_color_hover":"#00004f","input_focus_ring_color":"#d1d6e0","non_responsive":"false"},"image_placeholders":{"spacer":"https://assets1.freshdesk.com/assets/misc/spacer.gif","profile_thumb":"https://assets1.freshdesk.com/assets/misc/profile_blank_thumb-4a7b26415585aebbd79863bd5497100b1ea52bab8df8db7a1aecae4da879fd96.jpg","profile_medium":"https://assets4.freshdesk.com/assets/misc/profile_blank_medium-1dfbfbae68bb67de0258044a99f62e94144f1cc34efeea73e3fb85fe51bc1a2c.jpg"},"falcon_portal_theme":true,"current_object_id":64000255519};     var attachment_size = 20;     var blocked_extensions = "";     var allowed_extensions = "";     var store = { 
+        ticket: {},
+        portalLaunchParty: {} };    store.portalLaunchParty.ticketFragmentsEnabled = true;    store.portalLaunchParty.channelIdentifierFieldsEnabled = true;    store.portalLaunchParty.localeWeekStartDatePickersEnabled = false;    store.pod = "us-east-1";    store.region = "US"; </script> 
+
+
+			
+	</head>
+	<body class="">
+            	
+		
+		
+		
+	<div id="help-center-container">
+		
+
+
+
+  <!-- Custom Header -->
+  <header>
+    <div class="header">
+      <div class="header__top-bar">
+        <div class="header__top-bar--gray"></div>
+        <div class="header__top-bar__content">
+          <div class="header__announcement header__top-bar--yellow">
+            
+          </div>
+          <div class="header__account_navigation header__top-bar--gray">
+            
+          </div>
+        </div>
+        <div class="header__top-bar--gray"></div>
+      </div>
+      <nav role="navigation" class="header__navigation max-width-container">
+        <ul class="header__navigation__left">
+          <li class="header__navigation__item">
+            
+                <a target="_self" class="header__logo active" href="https://www.lulu.com/">
+                  <img src="https://assets.lulu.com/media/help-center/logos/svg/lulu-logo-h-full-color-rgb.svg" alt="Lulu Logo">
+                </a>
+            
+          </li>
+          <div class="header__navigation__menu-icon">
+            <div class="header__navigation__menu-icon__content">
+              
+                  <i class="hc-navigation-menu"></i>Menu
+              
+            </div>
+          </div>
+          <div class="header__navigation__menu-items">
+            <li class="menu-item menu-item--main">
+              
+                  <a target="_self" class="menu-item__title  active " href="/en/support/home">Knowledge Base</a>
+              
+            </li>
+            <li class="menu-item menu-item--main">
+              
+                  <a target="_self" class="menu-item__title " href="/en/support/tickets/new">Contact Support</a>
+              
+            </li>
+            <li class="menu-item menu-item--main">
+              
+                  <a target="_self" class="menu-item__title " href="/en/support/tickets">Tickets</a>
+              
+            </li>
+            <li class="menu-item menu-item--main">
+              
+                  <a target="_blank" class="menu-item__title" href="https://www.lulu.com/order-lookup">Order Lookup</a>
+              
+            </li>
+        </ul>
+        <ul class="header__navigation__right">
+          <li class="header__navigation__item header__navigation__item--account">
+            <div class="menu-item account-bar__wrapper account-menu-item">
+              <a class="menu-item__title header__navigation__item--icon">
+                
+                  <i class="hc-navigation-signed-out"></i>
+                  
+              </a>
+              <div class="menu-item__dropdown-menu account-bar">
+              
+                  
+                      <a target="_self" href="https://lulu-org.freshworks.com/login/auth/LoginWithLulu?client_id=41441690836303948&redirect_uri=https://help.lulu.com/freshid/customer_authorize_callback">Sign In</a>
+                  
+              
+              </div>
+            </div>
+          </li>
+        </ul>
+      </nav>
+      <div class="header__search-bar header__search-bar--active">
+        <div class="max-width-container">
+          <div class="header__search-bar__content">
+            
+              
+                  
+                  <p class="caption">Search</p>
+                  <div class="field__input-wrapper">
+                    <label>
+                      <div class="nav_search_bar_container"></div>
+                    </label>
+                  </div>
+              
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- /Custom Header -->
+
+<!-- Logic to redirect user to Lulu Login Page -->
+<script type='text/javascript'>
+  const pathArray = window.location.href.split("/");
+  if (pathArray[4] === "support" && pathArray[5] === "login") {
+    window.location.replace("https://lulu-org.freshworks.com/login/auth/LoginWithLulu?client_id=41441690836303948&redirect_uri=https://help.lulu.com/freshid/customer_authorize_callback");
+  };
+</script>
+
+		
+				<main id="portal-home-container" class="full-height-container white-gray-background ">
+					<section id="article-view-container" class="res-bottom-padding-56">
+  <div class="max-width-container">
+    <div class="grid-12">
+      <!-- Article Content -->
+      <div class="col-7 col-start-2 col-xl-7 col-start-xl-1 col-l-12 col-start-l-1 col-m-big-12 col-start-m-big-1">
+        <div class="main-content-wrapper">
+          <div class="breadcrumb">
+            <a href="/en/support/home">
+            
+                Knowledge Base
+            
+            </a>
+            <a href="/en/support/solutions/64000176461">Create</a>
+            <a href="/en/support/solutions/folders/64000255079">Print Book</a>
+          </div>
+          <b class="page-stamp page-stamp-article">
+            <b class="icon-page-article"></b>
+          </b>
+          <h1 class="article-heading">PDF Creation Settings
+            <a href="javascript:print();"
+                   class="solution-print--icon print--remove"
+              title="Print this Article"
+              arial-role="link"
+              arial-label="Print this Article"
+            >
+             <span class="icon-print"></span>
+             <span class="text-print">Print</span>
+            </a>
+          </h1>
+          <div class="modified-date">
+            Modified on: Fri, Sep 25, 2026 at  2:55 PM
+          </div>
+          <article class="article-body" id="article-body" rel="image-enlarge">
+            <p data-identifyelement="489" dir="ltr">When creating a PDF with Adobe Acrobat Pro, use Lulu's Adobe Job Options (attached below). After downloading the Job Options to your computer, double-click the icon to install them into your Adobe Acrobat Pro products.</p><p data-identifyelement="490"><br data-identifyelement="491"></p><p data-identifyelement="492"><span class="fr-video fr-deletable fr-fvc fr-dvb fr-draggable"><iframe width="640" height="360" src="https://www.youtube.com/embed/hEPjYaR-TlE?&amp;wmode=opaque" frameborder="0" allowfullscreen="" class="fr-draggable" sandbox="allow-scripts allow-forms allow-same-origin allow-presentation allow-popups allow-popups-to-escape-sandbox"></iframe></span></p><h3 data-identifyelement="496" id="Lulu-Book-Creation-Guide"><a data-identifyelement="497" href="https://assets.lulu.com/media/guides/en/lulu-book-creation-guide.pdf"></a><a href="https://assets.lulu.com/media/guides/en/lulu-book-creation-guide.pdf" rel="noreferrer" target="_blank"></a></h3><p data-identifyelement="496"><br></p><h3 data-identifyelement="496"><a dir="ltr" href="https://assets.lulu.com/media/guides/en/lulu-book-creation-guide.pdf" rel="noreferrer" target="_blank">Lulu Book Creation Guide</a></h3><p data-identifyelement="498" dir="ltr">This guide for book creation is a great starting point for your project.</p><p data-identifyelement="498" dir="ltr"><br></p><p data-identifyelement="498" dir="ltr">If you don't have access to Adobe InDesign, or any of the Adobe Suite, please check out this article for other programs that we recommend:&nbsp;<a href="https://help.lulu.com/en/support/solutions/articles/64000255613" rel="noopener noreferrer" target="_blank">Recommended PDF Creation Programs</a>.</p><hr><p class="fd-toc"><strong dir="ltr">TABLE OF CONTENTS</strong></p><ul><li><a href="#Interior-File-Specifications-&amp;-Layout">Interior File Specifications &amp; Layout</a></li><li><a href="#Cover-File-Specifications-&amp;-Layout">Cover File Specifications &amp; Layout</a></li><li><a href="#Color-Space-Guidelines">Color Space Guidelines</a></li><li><a href="#Color-Variance">Color Variance</a></li></ul><hr><h2 data-identifyelement="501" dir="ltr" id="Interior-File-Specifications-&amp;-Layout">Interior File Specifications &amp; Layout</h2><p data-identifyelement="504" dir="ltr">All content for the interior of your book should be in a single PDF. This includes the copyright page and any blank pages.</p><p data-identifyelement="505"><br></p><pre class="fd-callout fd-callout--note" dir="ltr"><strong dir="ltr">Pro Tip</strong>: Lulu template bundles include an interior PDF export preset. The Lulu Interior Job Options files can also be downloaded in this article for your convenience.</pre><p><br></p><p data-identifyelement="510" dir="ltr"><strong>When creating your PDF file, follow these guidelines:</strong></p><ul data-identifyelement="511"><li data-identifyelement="512" dir="ltr">Images should be 300 ppi resolution</li><li data-identifyelement="513" dir="ltr"><a data-identifyelement="514" href="https://help.lulu.com/en/support/solutions/articles/64000255580" rel="noopener noreferrer" target="_blank">All fonts should be embedded</a> or converted to outlines</li><li data-identifyelement="515" dir="ltr">Flatten all transparent layers and vector objects</li><li data-identifyelement="516" dir="ltr">Your PDF should be a single-page layout</li><li data-identifyelement="517" dir="ltr">Ensure that your page spreads are lined up properly in your source file. The first page of your print-ready PDF will be on the right-hand side of your book, opposite the inside of the front cover. Accordingly, odd-numbered pages in your file will be printed on the right side of the book, and even-numbered pages on the left.</li><li data-identifyelement="518">Size your PDF pages to match the book you’re creating. Include the <a data-identifyelement="519" href="https://help.lulu.com/en/support/solutions/articles/64000255584" rel="noopener noreferrer" target="_blank">bleed dimensions</a> of 0.125 in for your document. For example – a 6 x 9 in book requires a PDF with pages sized 6.25 x 9.25 in.</li><li data-identifyelement="520" dir="ltr">Allow a 0.50 in Safety Margin for all content</li><li data-identifyelement="521" dir="ltr">Allow a minimum 0.20 in Gutter margin for the inner edge of all pages</li><li data-identifyelement="522" dir="ltr">Do NOT include trim or bleed marks in your PDF</li><li data-identifyelement="523" dir="ltr">Do NOT use any security/password file protection</li></ul><hr><h2 data-identifyelement="526" dir="ltr" id="Cover-File-Specifications-&amp;-Layout">Cover File Specifications &amp; Layout</h2><p><br></p><p data-identifyelement="529"><span class="fr-video fr-deletable fr-fvc fr-dvb fr-draggable fr-active"><iframe width="640" height="360" src="https://www.youtube.com/embed/S2i-VGZdHlU?&amp;wmode=opaque" frameborder="0" allowfullscreen="" class="fr-draggable" sandbox="allow-scripts allow-forms allow-same-origin allow-presentation allow-popups allow-popups-to-escape-sandbox"></iframe></span><br data-identifyelement="532"></p><p data-identifyelement="533" dir="ltr">Your cover file should be a one-piece PDF that includes the back cover, spine, and front cover content in a single-page spread. We recommend using the<a href="https://www.lulu.com/publishing-toolkit" rel="noopener noreferrer" target="_blank">&nbsp;template&nbsp;</a>we provide during the publishing process that is custom-sized based on your interior file.</p><p data-identifyelement="535"><br></p><pre class="fd-callout fd-callout--note" dir="ltr"><strong>Pro Tip</strong>: Lulu template bundles include a cover PDF export preset.</pre><p data-identifyelement="538"><br data-identifyelement="539"></p><p data-identifyelement="540"><strong>When creating your cover file, follow these guidelines:</strong></p><ul data-identifyelement="541"><li data-identifyelement="542">Images must be 300 PPI resolution minimum, not exceeding 600 PPI resolution</li><li data-identifyelement="543" dir="ltr">Vector images should be rasterized</li><li data-identifyelement="544" dir="ltr"><a data-identifyelement="545" href="https://help.lulu.com/en/support/solutions/articles/64000255580" rel="noopener noreferrer" target="_blank">All fonts should be embedded</a> or converted to outlines</li><li data-identifyelement="546" dir="ltr">Flatten any transparent layers and vector objects</li><li data-identifyelement="547" dir="ltr">Your PDF should be single-page layout</li><li data-identifyelement="548" dir="ltr">Size your PDF to match the specifications provided for your book. The spine width is relative based on the number of pages in your book. (See Spine Width Calculator PDF)</li><li data-identifyelement="549" dir="ltr">Include the <a data-identifyelement="550" href="https://help.lulu.com/en/support/solutions/articles/64000255584" rel="noopener noreferrer" target="_blank">bleed dimensions</a> of 0.125 in and allow a minimum 0.25 in Safety Margin for all content (0.75 in for Hardcover Casewrap)</li><li data-identifyelement="551" dir="ltr">Do NOT include trim or bleed marks in your PDF</li><li data-identifyelement="552" dir="ltr">Do NOT use any security/password file protection</li></ul><p data-identifyelement="553"><br data-identifyelement="554"></p><p data-identifyelement="555"><span class="fr-video fr-deletable fr-fvc fr-dvb fr-draggable"><iframe width="640" height="360" src="https://www.youtube.com/embed/HM410PAhnAg?&amp;wmode=opaque" frameborder="0" allowfullscreen="" class="fr-draggable" sandbox="allow-scripts allow-forms allow-same-origin allow-presentation allow-popups allow-popups-to-escape-sandbox"></iframe></span><br data-identifyelement="558"></p><hr><h2 data-identifyelement="559" dir="ltr" id="Color-Space-Guidelines">Color Space Guidelines</h2><p data-identifyelement="562" dir="ltr">Lulu's printers use sRGB and CMYK color space for all color printing.</p><ul data-identifyelement="565"><li data-identifyelement="566">sRGB - Our printers prefer files created using sRGB color space and can convert this to rich CMYK. If you create your file using RGB color space, be sure to export with sRGB color space selected.</li><li data-identifyelement="567"><strong data-identifyelement="568">CMYK - Works well for almost all printing needs. If your file was created in CMYK, we recommend keeping this color space when exporting.</strong></li><li data-identifyelement="569">Changing color space settings after finalizing your file may result in undesirable color variance.</li><li data-identifyelement="570">Solid blacks will print solid at 100% with no other colors added. If you do add colors to improve the richness of the black, TAC (total area coverage) should never exceed 270%.</li><li data-identifyelement="571">Avoid very light color builds of less than 20%. Below 20% tint variation is very difficult to control on a consistent basis.</li><li data-identifyelement="572">If you are printing a color book that includes black &amp; white images, the black &amp; white images should have the colorspace set to grayscale.</li><li data-identifyelement="573">The gamma of grayscale images should be between 2.2 and 2.4.</li></ul><hr><h2 data-identifyelement="576" dir="ltr" id="Color-Variance">Color Variance</h2><p data-identifyelement="579">Printing books will result in slight color differences (called ‘variance’) between your file on the screen and the printed version.&nbsp;</p><p data-identifyelement="580"><br data-identifyelement="581"></p><p data-identifyelement="582">When creating original content for print, the sRGB color space and a Gracol ICC profile are recommended. Converting from CMYK to RGB will not prevent color variations. We can’t guarantee that using sRGB and Gracol ICC will produce the file exactly as you see it on screen, but it is the best way to achieve a close match.</p><p data-identifyelement="583"><br data-identifyelement="584"></p><p data-identifyelement="585">Each order is completed at a specific printer and press. Some variances in color may occur from order to order. When shipping to multiple regions where multiple printers are used this variance can be more pronounced. Color variance between orders is a physical limitation of digital printing technology.&nbsp;</p><p data-identifyelement="586"><br data-identifyelement="587"></p><p data-identifyelement="588" dir="ltr">The Lulu Print Support Team is capable of determining if your color variance is outside of our acceptable levels. If you receive an order that you believe exceeds normal tolerances for color variance, please notify us within 30 days of your order’s shipment date through our online Customer support form.</p>
+          </article>
+          <hr />	
+            <div class="cs-g-c attachments" id="article-64000255519-attachments"><div class="attachment"><div class="attachment-type"> <span> </span> </div><div class="attach_content"><div class="ellipsis"><a href="/helpdesk/attachments/64003647194" class="filename" target="_blank" data-toggle='tooltip' title='Lulu-Interior-Job-Options.joboptions'
+                >Lulu-Interio... </a></div><div>(7.79 KB) </div></div></div><div class="attachment"><div class="attachment-type"> <span> </span> </div><div class="attach_content"><div class="ellipsis"><a href="/helpdesk/attachments/64003647195" class="filename" target="_blank" data-toggle='tooltip' title='Lulu-Cover-Job-Options.joboptions'
+                >Lulu-Cover-J... </a></div><div>(7.75 KB) </div></div></div></div>
+            <p class="article-vote" id="voting-container" 
+											data-user-id="" 
+											data-article-id="64000255519"
+											data-language="en">
+										Did you find it helpful?<span data-href="/en/support/solutions/articles/64000255519/thumbs_up" class="vote-up a-link" id="article_thumbs_up" 
+									data-remote="true" data-method="put" data-update="#voting-container" 
+									data-user-id=""
+									data-article-id="64000255519"
+									data-language="en"
+									data-update-with-message="Glad we could be helpful. Thanks for the feedback.">
+								Yes</span><span class="vote-down-container"><span data-href="/en/support/solutions/articles/64000255519/thumbs_down" class="vote-down a-link" id="article_thumbs_down" 
+									data-remote="true" data-method="put" data-update="#vote-feedback-form" 
+									data-user-id=""
+									data-article-id="64000255519"
+									data-language="en"
+									data-hide-dom="#voting-container" data-show-dom="#vote-feedback-container">
+								No</span></span></p><a class="hide a-link" id="vote-feedback-form-link" data-hide-dom="#vote-feedback-form-link" data-show-dom="#vote-feedback-container">Send feedback</a><div id="vote-feedback-container"class="hide">	<div class="lead">Sorry we couldn't be helpful. Help us improve this article with your feedback.</div>	<div id="vote-feedback-form">		<div class="sloading loading-small loading-block"></div>	</div></div>
+          <br>
+          
+              <p><h3 style="color: #0a101a;">Have more questions? <a style="text-decoration: underline; color: #000083;" href="/en/support/tickets/new">Submit a new ticket.</a></h3>
+            </p>
+          
+        </div>
+      </div>
+      <!-- /Article Content -->
+      <!-- Actions Section -->
+      <div class="col-3 col-start-10 col-xl-4 col-start-xl-9 col-l-12 col-start-l-1 col-m-big-12 col-start-m-big-1">
+        <div class="sidebar-content-wrapper">
+          <div id="related_articles"><div class="cs-g-c"><section class="article-list"><h3 class="list-lead">Related Articles</h3><ul rel="remote" 
+			data-remote-url="/en/support/search/articles/64000255519/related_articles?container=related_articles&limit=10" 
+			id="related-article-list"></ul></section></div></div>
+        </div>
+      </div>
+      <!-- /Actions Section -->
+    </div>
+  </div>
+</section>
+
+				</main>
+		
+		<footer class="footer-container white-text-80">
+  <div class="max-width-container footer-top-row">
+    <div class="links-and-social-container">
+      <div class="main-nav-links">
+        
+            <div class="footer-select">
+              <div class="footer-selected">
+                <a class="footer-link main-nav-link">Our Team</a>
+                <i class="icon-nav-arrow-down"></i>
+              </div>
+              <div class="menu-item__dropdown-menu">
+                <a href="https://www.lulu.com/about-us/" class="menu-item__dropdown-menu__link">About Us</a>
+                <a href="https://www.lulu.com/careers" class="menu-item__dropdown-menu__link">Careers</a>
+              </div>
+            </div>
+            <a href="https://lulu.com/newsroom" target="_self" class="footer-link main-nav-link">Newsroom</a>
+            <div class="footer-select">
+              <div class="footer-selected">
+                <a class="footer-link main-nav-link">Community</a>
+                <i class="icon-nav-arrow-down"></i>
+              </div>
+              <div class="menu-item__dropdown-menu">
+                <a href="https://blog.lulu.com/" class="menu-item__dropdown-menu__link">Blog</a>
+                <a href="https://www.youtube.com/@luludotcom" class="menu-item__dropdown-menu__link">Videos</a>
+                <a href="https://www.publishprosperpodcast.com/" class="menu-item__dropdown-menu__link">Podcast</a>
+              </div>
+            </div>
+            <div class="footer-select">
+              <div class="footer-selected">
+                <a class="footer-link main-nav-link">Help</a>
+                <i class="icon-nav-arrow-down"></i>
+              </div>
+              <div class="menu-item__dropdown-menu">
+                <a href="https://www.lulu.com/order-lookup?" class="menu-item__dropdown-menu__link">Order Lookup</a>
+                <a href="https://help.lulu.com/en/support/home" class="menu-item__dropdown-menu__link">Knowledge Base</a>
+                <a href="/en/support/tickets/new" class="menu-item__dropdown-menu__link">Contact Support</a>
+              </div>
+            </div>
+            <a href="https://developers.lulu.com/home" class="footer-link main-nav-link">Developers</a>
+        
+        <div class="footer-select">
+          <div class="footer-selected">
+            <a class="footer-link main-nav-link">
+              
+                  <span class="mobile-only">Language: </span>
+              
+              English
+            </a>
+            <i class="icon-nav-arrow-down"></i>
+          </div>
+          <div class="menu-item__dropdown-menu">
+            
+                <div class="menu-item__dropdown-menu__label">Change language</div>
+            
+            <div class="menu-item__dropdown-menu__link" onclick="changeLanguage('en')" role="link">English</div>
+            <div class="menu-item__dropdown-menu__link" onclick="changeLanguage('de')" role="link">Deutsch</div>
+            <div class="menu-item__dropdown-menu__link" onclick="changeLanguage('fr')" role="link">Français</div>
+            <div class="menu-item__dropdown-menu__link" onclick="changeLanguage('it')" role="link">Italiano</div>
+            <div class="menu-item__dropdown-menu__link" onclick="changeLanguage('es')" role="link">Español</div>
+          </div>
+        </div>
+      </div>
+      <script>
+        const components = document.getElementsByClassName("footer-select");
+
+        for (let i = 0; i < components.length; i++) {
+          components[i].addEventListener("click", function () {
+            this.classList.toggle("active");
+          });
+        }
+      </script>
+      <div class="social-links-container">
+        <div class="social-links">
+          <a href="https://www.facebook.com/Luludotcom/" target="_blank" aria-label="Facebook">
+            <i class="icon-social-facebook"></i>
+          </a>
+          <a href="https://www.instagram.com/luludotcom/" target="_blank" aria-label="Instagram">
+            <i class="icon-social-instagram"></i>
+          </a>
+          <a href="https://www.linkedin.com/company/luludotcom" target="_blank" aria-label="LinkedIn">
+            <i class="icon-social-linked-in"></i>
+          </a>
+          <a href="https://www.youtube.com/channel/UCZXTbif2bO8DdgMIDLMZjwQ" target="_blank" aria-label="Youtube">
+            <i class="icon-social-youtube"></i>
+          </a>
+          <a href="https://twitter.com/Luludotcom" target="_blank" aria-label="Twitter">
+            <i class="icon-social-twitter"></i>
+          </a>
+          <a href="https://tiktok.com/@lulupublishing" target="_blank" aria-label="TikTok">
+            <i class="icon-social-tik-tok"></i>
+          </a>
+          <a href="https://www.pinterest.com/luludotcom/" target="_blank" aria-label="Pinterest">
+            <i class="icon-social-pinterest"></i>
+          </a>
+          <a href="https://blog.lulu.com/" target="_blank" aria-label="Blog">
+            <i class="icon-social-blog"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+    
+        <div class="subscribe-container">
+          <div class="subscribe">
+            <div>Get exclusive Publishing &amp; Marketing tips to help you create and sell your books more effectively! You
+              can unsubscribe at any time.</div>
+            <form class="js-cm-form" id="subForm">
+              <div class="field">
+                <div class="field__input-wrapper field__input-btn-wrapper">
+                  <label><input placeholder="Your Email" autocomplete="Email" aria-label="Email"
+                      class="field__input js-cm-email-input qa-input-email" id="fieldEmail" maxlength="200"
+                      name="cm-wotkr-wotkr" required="" type="email"></label>
+                </div>
+                <input type="hidden" aria-label="language" maxlength="200" id="language" value="en">
+                <button type="submit" class="secondary-medium">Submit</button>
+              </div>
+              <div id="newsletter-form-feedback"></div>
+            </form>
+          </div>
+        </div>
+    
+    <div class="social-links-container mobile-social-links-container">
+      <div class="social-links">
+        <a href="https://www.facebook.com/Luludotcom/" target="_blank">
+          <i class="icon-social-facebook"></i>
+        </a>
+        <a href="https://www.instagram.com/luludotcom/" target="_blank">
+          <i class="icon-social-instagram"></i>
+        </a>
+        <a href="https://www.linkedin.com/company/luludotcom" target="_blank">
+          <i class="icon-social-linked-in"></i>
+        </a>
+        <a href="https://www.youtube.com/channel/UCZXTbif2bO8DdgMIDLMZjwQ" target="_blank">
+          <i class="icon-social-youtube"></i>
+        </a>
+        <a href="https://twitter.com/Luludotcom" target="_blank">
+          <i class="icon-social-twitter"></i>
+        </a>
+        <a href="https://tiktok.com/@lulupublishing" target="_blank">
+          <i class="icon-social-tik-tok"></i>
+        </a>
+        <a href="https://www.pinterest.com/luludotcom/" target="_blank">
+          <i class="icon-social-pinterest"></i>
+        </a>
+        <a href="https://blog.lulu.com/" target="_blank">
+          <i class="icon-social-blog"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom-row">
+    <div class="max-width-container bottom-row-content">
+      <div class="platform-links">
+        <a aria-label="Lulu" href="https://www.lulu.com/" target="_blank" rel="noopener noreferrer">
+          <svg xmlns="http://www.w3.org/2000/svg" aria-labelledby="luluTitle" class="lulu-logo svg-link" viewBox="0 0 550 225"><path d="m163.462 172.212 15.084-100.276a4.233 4.233 0 0 1 3.007-3.436l30.147-8.74a2.822 2.822 0 0 1 3.576 3.129L200.19 163.467c-.583 4.859 1.36 6.801 6.024 6.801a27.531 27.531 0 0 0 4.566-.416 3.031 3.031 0 0 1 3.52 3.424l-3.112 20.653a5.013 5.013 0 0 1-3.84 4.138A65.037 65.037 0 0 1 191.638 200c-20.987 0-30.897-9.716-28.177-27.788ZM376.138 200a65.037 65.037 0 0 0 15.707-1.933 5.013 5.013 0 0 0 3.841-4.138l3.113-20.653a3.031 3.031 0 0 0-3.52-3.424 27.53 27.53 0 0 1-4.567.416c-4.663 0-6.607-1.942-6.024-6.801l15.087-100.578a2.822 2.822 0 0 0-3.576-3.13l-30.147 8.74a4.233 4.233 0 0 0-3.007 3.437l-15.084 100.276C345.24 190.284 355.15 200 376.138 200Zm-39.431-30.177a23.055 23.055 0 0 1-4.362.445c-4.858 0-6.801-2.137-6.023-6.801l8.815-59.685a3.028 3.028 0 0 0-2.996-3.47H302.89a3.028 3.028 0 0 0-2.994 2.58l-7.386 49.304c-1.555 11.077-9.133 17.684-19.82 17.684-10.494 0-15.353-6.996-13.603-18.267l7.065-47.83a3.028 3.028 0 0 0-2.995-3.471h-29.245a3.028 3.028 0 0 0-2.995 2.585l-8.168 55.323c-3.692 24.874 10.299 41.78 35.56 41.78 13.408 0 25.651-4.859 33.813-12.048C295.618 195.53 304.169 200 317.77 200a69.087 69.087 0 0 0 15.948-1.994 4.602 4.602 0 0 0 3.542-3.828l3.014-20.953a3.034 3.034 0 0 0-3.568-3.402Zm184.693 0a23.055 23.055 0 0 1-4.361.445c-4.858 0-6.802-2.137-6.024-6.801l8.815-59.685a3.028 3.028 0 0 0-2.995-3.47h-29.252a3.028 3.028 0 0 0-2.994 2.58l-7.387 49.304c-1.554 11.077-9.132 17.684-19.82 17.684-10.493 0-15.352-6.996-13.603-18.267l7.066-47.83a3.028 3.028 0 0 0-2.995-3.47h-29.246a3.028 3.028 0 0 0-2.995 2.585l-8.168 55.322c-3.692 24.874 10.3 41.78 35.56 41.78 13.409 0 25.652-4.859 33.814-12.048 3.497 7.578 12.047 12.048 25.65 12.048a71.216 71.216 0 0 0 17.004-2.235 3.042 3.042 0 0 0 2.333-2.523l3.166-22.017a3.034 3.034 0 0 0-3.568-3.402Zm-439.316-.537a121.947 121.947 0 0 0-30.764-10.493 10.677 10.677 0 0 1-8.626-12.125l13.124-87.2a127.843 127.843 0 0 0-13.202-.081 1.642 1.642 0 0 0-1.53 1.4L25.018 167.538a1.641 1.641 0 0 0 1.662 1.89c9.94-.245 55.318-.296 79.312 17.87-5.96-6.935-13.942-12.966-23.91-18.013Zm47.898 25.661s7.028-46.19 15.426-102.463c7.529-50.441-39.2-64.965-48.967-67.433a1.643 1.643 0 0 0-2.028 1.352L83.879 96.602a20.915 20.915 0 0 0-.264 3.096c-.002 12.122 10.606 14.438 15.854 14.843a1.64 1.64 0 0 1 1.28 2.486c-3.37 5.554-10.27 19.485-2.027 29.513 0 0 27.603 24.929 31.26 48.407ZM92.644 153.27a9.092 9.092 0 0 1-.927-.972c-6.74-8.2-7.771-19.2-3.156-31.075-8.842-3.715-14.015-11.386-14.014-21.525a29.44 29.44 0 0 1 .365-4.442l8.152-54.33a98.43 98.43 0 0 0-13.654-1.32 1.638 1.638 0 0 0-1.644 1.4L51.661 148.019a1.646 1.646 0 0 0 1.327 1.862c8.455 1.584 48.91 10.606 66.641 40.941-5.15-15.281-20.735-31.888-26.985-37.551Z"/></svg>
+        </a>
+        <a aria-label="Lulu API" href="https://developers.lulu.com" target="_blank" rel="noopener noreferrer">
+          <svg xmlns="http://www.w3.org/2000/svg" aria-labelledby="apiTitle" class="api-logo svg-link" viewBox="0 0 812.532 261.422"><path d="M772.623 100.342h8.744a2.185 2.185 0 0 1 2.16 2.511l-14.439 95.372a2.185 2.185 0 0 1-2.16 1.858h-8.742a2.185 2.185 0 0 1-2.16-2.511l14.437-95.372a2.185 2.185 0 0 1 2.16-1.858Zm-25.648 36.777c-1.048-24.002-14.676-39.1-37.71-39.1-16.338 0-27.975 9.14-34.368 19.544l2.163-14.718a2.185 2.185 0 0 0-2.161-2.503h-8.17a2.185 2.185 0 0 0-2.161 1.861L644.836 233.91a2.185 2.185 0 0 0 2.16 2.509h8.546a2.185 2.185 0 0 0 2.161-1.867l7.943-54.045c5.034 13.143 17.304 19.522 31.424 19.522 26.906 0 51.526-25.744 49.905-62.909Zm-51.582 51.101c-16.645 0-24.946-12.775-25.614-28.067-1.047-24.001 14.072-50.132 37.88-50.132 15.486 0 25.048 10.646 25.807 28.066 1.37 31.357-19.104 50.133-38.073 50.133Zm-56.147-62.52c-.836-19.164-13.983-27.68-33.34-27.68a65.203 65.203 0 0 0-32.794 9.03 2.185 2.185 0 0 0-.878 2.732l2.993 6.97a2.18 2.18 0 0 0 3.129 1.012c4.3-2.578 14.704-7.937 26.904-7.937 14.904 0 20.275 7.743 20.698 17.42a43.64 43.64 0 0 1-.908 10.26h-6.194c-26.905 0-65.339 6.387-63.962 37.938.684 15.679 14.622 24.583 30.301 24.583 20.79 0 32.134-16.946 34.287-21.002l-2.83 18.544a2.185 2.185 0 0 0 2.16 2.513h8.162a2.185 2.185 0 0 0 2.16-1.856l9.416-61.882a53.598 53.598 0 0 0 .696-10.646Zm-16.086 26.13c-3.128 17.034-17.163 36.972-35.358 36.972-12.97 0-19.088-7.162-19.435-15.1-1.03-23.614 33.542-25.356 49.801-25.356h5.614Zm163.018-66.509 1.33-8.793a2.185 2.185 0 0 0-2.16-2.511h-8.744a2.185 2.185 0 0 0-2.16 1.858l-1.33 8.793a2.185 2.185 0 0 0 2.16 2.512h8.744a2.185 2.185 0 0 0 2.16-1.859Zm-622.716 86.89 15.084-100.275a4.233 4.233 0 0 1 3.007-3.436l30.147-8.74a2.822 2.822 0 0 1 3.576 3.129L200.19 163.467c-.583 4.859 1.36 6.801 6.024 6.801a27.531 27.531 0 0 0 4.566-.416 3.031 3.031 0 0 1 3.52 3.424l-3.112 20.653a5.013 5.013 0 0 1-3.84 4.138A65.037 65.037 0 0 1 191.638 200c-20.987 0-30.897-9.716-28.177-27.788ZM376.138 200a65.037 65.037 0 0 0 15.707-1.933 5.013 5.013 0 0 0 3.841-4.138l3.113-20.653a3.031 3.031 0 0 0-3.52-3.424 27.53 27.53 0 0 1-4.567.416c-4.663 0-6.607-1.942-6.024-6.801l15.087-100.578a2.822 2.822 0 0 0-3.576-3.13l-30.147 8.74a4.233 4.233 0 0 0-3.007 3.437l-15.084 100.276C345.24 190.284 355.15 200 376.138 200Zm-39.431-30.177a23.055 23.055 0 0 1-4.362.445c-4.858 0-6.801-2.137-6.023-6.801l8.815-59.685a3.028 3.028 0 0 0-2.996-3.47H302.89a3.028 3.028 0 0 0-2.994 2.58l-7.386 49.304c-1.555 11.077-9.133 17.684-19.82 17.684-10.494 0-15.353-6.996-13.603-18.267l7.065-47.83a3.028 3.028 0 0 0-2.995-3.471h-29.245a3.028 3.028 0 0 0-2.995 2.585l-8.168 55.323c-3.692 24.874 10.299 41.78 35.56 41.78 13.408 0 25.651-4.859 33.813-12.048C295.618 195.53 304.169 200 317.77 200a69.087 69.087 0 0 0 15.948-1.994 4.602 4.602 0 0 0 3.542-3.828l3.014-20.953a3.034 3.034 0 0 0-3.568-3.402Zm184.693 0a23.055 23.055 0 0 1-4.361.445c-4.858 0-6.802-2.137-6.024-6.801l8.815-59.685a3.028 3.028 0 0 0-2.995-3.47h-29.252a3.028 3.028 0 0 0-2.994 2.58l-7.387 49.304c-1.554 11.077-9.132 17.684-19.82 17.684-10.493 0-15.352-6.996-13.603-18.267l7.066-47.83a3.028 3.028 0 0 0-2.995-3.47h-29.246a3.028 3.028 0 0 0-2.995 2.585l-8.168 55.322c-3.692 24.874 10.3 41.78 35.56 41.78 13.409 0 25.652-4.859 33.814-12.048 3.497 7.578 12.047 12.048 25.65 12.048a71.216 71.216 0 0 0 17.004-2.235 3.042 3.042 0 0 0 2.333-2.523l3.166-22.017a3.034 3.034 0 0 0-3.568-3.402Zm-439.316-.537a121.947 121.947 0 0 0-30.764-10.493 10.677 10.677 0 0 1-8.626-12.125l13.124-87.2a127.843 127.843 0 0 0-13.202-.081 1.642 1.642 0 0 0-1.53 1.4L25.018 167.538a1.641 1.641 0 0 0 1.662 1.89c9.94-.245 55.318-.296 79.312 17.87-5.96-6.935-13.942-12.966-23.91-18.013Zm47.898 25.661s7.028-46.19 15.426-102.463c7.529-50.441-39.2-64.965-48.967-67.433a1.643 1.643 0 0 0-2.028 1.352L83.879 96.602a20.915 20.915 0 0 0-.264 3.096c-.002 12.122 10.606 14.438 15.854 14.843a1.64 1.64 0 0 1 1.28 2.486c-3.37 5.554-10.27 19.485-2.027 29.513 0 0 27.603 24.929 31.26 48.407ZM92.644 153.27a9.092 9.092 0 0 1-.927-.972c-6.74-8.2-7.771-19.2-3.156-31.075-8.842-3.715-14.015-11.386-14.014-21.525a29.44 29.44 0 0 1 .365-4.442l8.152-54.33a98.43 98.43 0 0 0-13.654-1.32 1.638 1.638 0 0 0-1.644 1.4L51.661 148.019a1.646 1.646 0 0 0 1.327 1.862c8.455 1.584 48.91 10.606 66.641 40.941-5.15-15.281-20.735-31.888-26.985-37.551Z"/></svg>
+        </a>
+      </div>
+      <div class="legal-info-container">
+        
+        <div class="legal-info">
+          <div class="legal-links">
+            <a target="_blank" class="footer-link" href="https://www.lulu.com/privacy-policy">Privacy Policy</a>
+            <a target="_blank" class="footer-link" href="https://www.lulu.com/terms-and-conditions">Terms &amp;
+              Conditions</a>
+          </div>
+          <div class="copyright-message">Copyright © <span id="current-year"></span> Lulu Press, Inc. All rights
+            reserved.</div>
+        </div>
+        
+        <div>
+          <a class="footer-link" href="https://bcorporation.net/en-us/find-a-b-corp/company/lulu-press-inc"
+            rel="noopener noreferrer" target="_blank">
+            <svg xmlns="http://www.w3.org/2000/svg" aria-labelledby="bCorpTitle" class="b-corp-logo svg-link" viewBox="0 0 39 60"><path d="M2.574 46.29a.831.831 0 0 0-.184-.207.854.854 0 0 0-.25-.14.866.866 0 0 0-.292-.05.963.963 0 0 0-.474.108.892.892 0 0 0-.316.29 1.267 1.267 0 0 0-.176.413 2.056 2.056 0 0 0-.055.48 1.913 1.913 0 0 0 .055.46 1.243 1.243 0 0 0 .176.403.9.9 0 0 0 .316.287.963.963 0 0 0 .474.108.765.765 0 0 0 .592-.232 1.07 1.07 0 0 0 .26-.61h.8a1.911 1.911 0 0 1-.162.636 1.52 1.52 0 0 1-.348.484 1.477 1.477 0 0 1-.505.306 1.857 1.857 0 0 1-.637.105 1.934 1.934 0 0 1-.777-.15 1.667 1.667 0 0 1-.581-.413 1.831 1.831 0 0 1-.364-.619A2.262 2.262 0 0 1 0 47.183a2.342 2.342 0 0 1 .126-.781 1.879 1.879 0 0 1 .364-.63 1.665 1.665 0 0 1 .581-.42 1.9 1.9 0 0 1 .777-.154 1.896 1.896 0 0 1 .587.09 1.594 1.594 0 0 1 .495.26 1.404 1.404 0 0 1 .36.424 1.519 1.519 0 0 1 .18.58h-.8a.68.68 0 0 0-.096-.261M4.654 48.007a.85.85 0 0 0 .108.28.576.576 0 0 0 .203.197.62.62 0 0 0 .315.073.637.637 0 0 0 .32-.073.572.572 0 0 0 .204-.198.85.85 0 0 0 .108-.279 1.59 1.59 0 0 0 .032-.318 1.626 1.626 0 0 0-.032-.321.818.818 0 0 0-.108-.28.601.601 0 0 0-.205-.197.616.616 0 0 0-.319-.076.575.575 0 0 0-.518.274.818.818 0 0 0-.108.279 1.627 1.627 0 0 0-.032.32 1.59 1.59 0 0 0 .032.32m-.68-.912a1.244 1.244 0 0 1 .727-.742 1.55 1.55 0 0 1 .58-.102 1.57 1.57 0 0 1 .581.102 1.239 1.239 0 0 1 .729.742 1.672 1.672 0 0 1 .1.593 1.65 1.65 0 0 1-.1.59 1.276 1.276 0 0 1-.284.45 1.246 1.246 0 0 1-.445.286 1.613 1.613 0 0 1-.582.1 1.592 1.592 0 0 1-.579-.1 1.25 1.25 0 0 1-.442-.286 1.276 1.276 0 0 1-.284-.45 1.65 1.65 0 0 1-.1-.59 1.672 1.672 0 0 1 .1-.593M7.86 46.325v.505h.01a.908.908 0 0 1 .143-.234.931.931 0 0 1 .205-.184 1.01 1.01 0 0 1 .247-.118.888.888 0 0 1 .274-.043.589.589 0 0 1 .163.027v.695a1.694 1.694 0 0 0-.126-.019 1.307 1.307 0 0 0-.142-.008.796.796 0 0 0-.347.069.6.6 0 0 0-.23.187.749.749 0 0 0-.123.276 1.508 1.508 0 0 0-.037.342v1.227h-.748v-2.722ZM10.853 48.484a.603.603 0 0 0 .2-.192.792.792 0 0 0 .108-.277 1.627 1.627 0 0 0 .031-.321 1.511 1.511 0 0 0-.034-.321.858.858 0 0 0-.113-.282.63.63 0 0 0-.203-.2.57.57 0 0 0-.302-.076.58.58 0 0 0-.308.076.616.616 0 0 0-.2.197.812.812 0 0 0-.108.28 1.655 1.655 0 0 0-.032.326 1.51 1.51 0 0 0 .034.321.828.828 0 0 0 .111.277.638.638 0 0 0 .816.192m-.971-2.159v.348h.01a.82.82 0 0 1 .348-.321 1.067 1.067 0 0 1 .463-.1 1.18 1.18 0 0 1 .553.12 1.143 1.143 0 0 1 .384.322 1.358 1.358 0 0 1 .227.466 2.08 2.08 0 0 1 .073.555 1.88 1.88 0 0 1-.073.527 1.342 1.342 0 0 1-.224.447 1.11 1.11 0 0 1-.374.31 1.123 1.123 0 0 1-.524.116 1.055 1.055 0 0 1-.466-.102.874.874 0 0 1-.35-.303h-.01V50H9.17v-3.675ZM13.056 48.007a.85.85 0 0 0 .108.28.572.572 0 0 0 .203.197.62.62 0 0 0 .316.073.637.637 0 0 0 .318-.073.572.572 0 0 0 .205-.198.85.85 0 0 0 .109-.279 1.59 1.59 0 0 0 .031-.318 1.626 1.626 0 0 0-.031-.321.818.818 0 0 0-.109-.28.601.601 0 0 0-.205-.197.616.616 0 0 0-.318-.076.574.574 0 0 0-.519.274.818.818 0 0 0-.108.279 1.627 1.627 0 0 0-.032.32 1.59 1.59 0 0 0 .032.32m-.679-.912a1.244 1.244 0 0 1 .727-.742 1.55 1.55 0 0 1 .579-.102 1.57 1.57 0 0 1 .581.102 1.24 1.24 0 0 1 .73.742 1.681 1.681 0 0 1 .1.593 1.659 1.659 0 0 1-.1.59 1.283 1.283 0 0 1-.285.45 1.246 1.246 0 0 1-.445.286 1.613 1.613 0 0 1-.581.1 1.592 1.592 0 0 1-.58-.1 1.25 1.25 0 0 1-.442-.286 1.282 1.282 0 0 1-.284-.45 1.65 1.65 0 0 1-.1-.59 1.672 1.672 0 0 1 .1-.593M16.262 46.325v.505h.011a.908.908 0 0 1 .142-.234.932.932 0 0 1 .205-.184 1.01 1.01 0 0 1 .248-.118.89.89 0 0 1 .274-.043.589.589 0 0 1 .163.027v.695a1.694 1.694 0 0 0-.127-.019 1.307 1.307 0 0 0-.142-.008.796.796 0 0 0-.347.069.6.6 0 0 0-.23.187.749.749 0 0 0-.123.276 1.508 1.508 0 0 0-.037.342v1.227h-.747v-2.722ZM19.268 47.715a.336.336 0 0 1-.118.066 1.255 1.255 0 0 1-.153.04c-.054.01-.111.019-.17.026-.06.007-.12.016-.18.026a1.424 1.424 0 0 0-.166.042.485.485 0 0 0-.142.07.335.335 0 0 0-.097.114.36.36 0 0 0-.037.174.349.349 0 0 0 .037.169.282.282 0 0 0 .1.108.423.423 0 0 0 .147.055.951.951 0 0 0 .174.015.66.66 0 0 0 .342-.073.487.487 0 0 0 .18-.177.57.57 0 0 0 .07-.208 1.424 1.424 0 0 0 .013-.168Zm-1.726-.553a.863.863 0 0 1 .131-.437.892.892 0 0 1 .295-.279 1.284 1.284 0 0 1 .403-.15 2.289 2.289 0 0 1 .45-.045 3.027 3.027 0 0 1 .416.03 1.262 1.262 0 0 1 .384.113.757.757 0 0 1 .285.234.656.656 0 0 1 .11.397v1.417a2.837 2.837 0 0 0 .021.352.638.638 0 0 0 .074.253h-.758a1.058 1.058 0 0 1-.035-.13 1.078 1.078 0 0 1-.018-.133.978.978 0 0 1-.421.258 1.687 1.687 0 0 1-.495.073 1.34 1.34 0 0 1-.363-.047.833.833 0 0 1-.295-.147.687.687 0 0 1-.198-.253.856.856 0 0 1-.07-.364.794.794 0 0 1 .08-.381.686.686 0 0 1 .212-.24.955.955 0 0 1 .295-.134 3.12 3.12 0 0 1 .334-.07q.168-.028.331-.043a2.02 2.02 0 0 0 .29-.047.502.502 0 0 0 .2-.093.2.2 0 0 0 .068-.176.395.395 0 0 0-.039-.192.294.294 0 0 0-.105-.11.425.425 0 0 0-.153-.053 1.258 1.258 0 0 0-.187-.014.569.569 0 0 0-.347.095.424.424 0 0 0-.148.316ZM22.064 46.325v.5h-.547v1.348a.253.253 0 0 0 .316.316c.041 0 .082-.002.12-.005a1.111 1.111 0 0 0 .111-.016v.579a1.87 1.87 0 0 1-.21.021q-.116.005-.227.005a2.191 2.191 0 0 1-.33-.023.777.777 0 0 1-.273-.092.485.485 0 0 1-.187-.195.695.695 0 0 1-.068-.332v-1.606h-.453v-.5h.453v-.816h.748v.816ZM23.164 49.047h-.747v-2.722h.747Zm-.747-3.76h.747v.617h-.747ZM24.423 48.007a.85.85 0 0 0 .107.28.576.576 0 0 0 .203.197.62.62 0 0 0 .316.073.637.637 0 0 0 .319-.073.572.572 0 0 0 .205-.198.85.85 0 0 0 .108-.279 1.62 1.62 0 0 0 .031-.318 1.658 1.658 0 0 0-.031-.321.818.818 0 0 0-.108-.28.601.601 0 0 0-.205-.197.616.616 0 0 0-.32-.076.575.575 0 0 0-.518.274.818.818 0 0 0-.107.279 1.627 1.627 0 0 0-.032.32 1.59 1.59 0 0 0 .032.32m-.68-.912a1.244 1.244 0 0 1 .727-.742 1.55 1.55 0 0 1 .579-.102 1.57 1.57 0 0 1 .582.102 1.239 1.239 0 0 1 .729.742 1.672 1.672 0 0 1 .1.593 1.65 1.65 0 0 1-.1.59 1.276 1.276 0 0 1-.284.45 1.246 1.246 0 0 1-.445.286 1.613 1.613 0 0 1-.582.1 1.592 1.592 0 0 1-.58-.1 1.25 1.25 0 0 1-.442-.286 1.276 1.276 0 0 1-.284-.45 1.65 1.65 0 0 1-.1-.59 1.672 1.672 0 0 1 .1-.593M27.629 46.325v.38h.015a.858.858 0 0 1 .369-.345 1.064 1.064 0 0 1 .463-.109 1.27 1.27 0 0 1 .492.082.73.73 0 0 1 .303.227.876.876 0 0 1 .155.352 2.197 2.197 0 0 1 .045.461v1.674h-.747V47.51a.956.956 0 0 0-.106-.503.408.408 0 0 0-.374-.166.52.52 0 0 0-.442.182 1.012 1.012 0 0 0-.137.597v1.427h-.747v-2.722ZM3.588 1.502a1.149 1.149 0 0 0-.254-.286 1.186 1.186 0 0 0-.745-.26 1.326 1.326 0 0 0-.652.148 1.228 1.228 0 0 0-.434.398 1.754 1.754 0 0 0-.243.568 2.839 2.839 0 0 0-.076.66 2.638 2.638 0 0 0 .076.633 1.715 1.715 0 0 0 .243.553 1.238 1.238 0 0 0 .434.395 1.325 1.325 0 0 0 .652.148 1.05 1.05 0 0 0 .814-.318 1.47 1.47 0 0 0 .358-.84h1.1a2.63 2.63 0 0 1-.224.876 2.1 2.1 0 0 1-.477.666 2.04 2.04 0 0 1-.695.42 2.547 2.547 0 0 1-.876.145A2.65 2.65 0 0 1 1.52 5.2a2.295 2.295 0 0 1-.8-.568 2.525 2.525 0 0 1-.5-.85 3.129 3.129 0 0 1-.173-1.054A3.238 3.238 0 0 1 .22 1.654a2.592 2.592 0 0 1 .5-.865 2.29 2.29 0 0 1 .8-.579A2.61 2.61 0 0 1 2.589 0a2.62 2.62 0 0 1 .807.123 2.192 2.192 0 0 1 .68.359 1.94 1.94 0 0 1 .496.582 2.082 2.082 0 0 1 .246.796h-1.1a.933.933 0 0 0-.13-.358M7.79 2.425a.724.724 0 0 0-.561-.203.894.894 0 0 0-.41.084.783.783 0 0 0-.26.206.763.763 0 0 0-.137.26 1.191 1.191 0 0 0-.048.247h1.673a1.19 1.19 0 0 0-.257-.594m-1.162 1.97a.92.92 0 0 0 .666.224.916.916 0 0 0 .536-.156.647.647 0 0 0 .275-.33h.905a1.718 1.718 0 0 1-.666.963 1.958 1.958 0 0 1-1.086.29 2.14 2.14 0 0 1-.797-.141 1.662 1.662 0 0 1-.6-.402 1.81 1.81 0 0 1-.38-.622 2.276 2.276 0 0 1-.135-.797 2.187 2.187 0 0 1 .138-.782A1.809 1.809 0 0 1 6.48 1.6a1.942 1.942 0 0 1 .778-.152 1.78 1.78 0 0 1 .832.185 1.66 1.66 0 0 1 .583.495 2.037 2.037 0 0 1 .33.71 2.651 2.651 0 0 1 .072.832h-2.7a1.039 1.039 0 0 0 .253.724M10.66 1.55v.694h.014a1.246 1.246 0 0 1 .196-.322 1.273 1.273 0 0 1 .282-.253 1.374 1.374 0 0 1 .34-.163 1.23 1.23 0 0 1 .377-.058.808.808 0 0 1 .224.036v.956a1.964 1.964 0 0 0-.174-.026 1.776 1.776 0 0 0-.195-.01 1.097 1.097 0 0 0-.478.093.833.833 0 0 0-.315.257 1.027 1.027 0 0 0-.17.38 2.055 2.055 0 0 0-.05.471v1.687H9.681V1.549ZM14.989 1.55v.687h-.753V4.09a.502.502 0 0 0 .087.348.502.502 0 0 0 .347.087q.087 0 .167-.008a1.397 1.397 0 0 0 .152-.021v.796a2.379 2.379 0 0 1-.29.029q-.159.007-.311.007a2.968 2.968 0 0 1-.452-.033 1.058 1.058 0 0 1-.377-.126.673.673 0 0 1-.257-.268.96.96 0 0 1-.094-.456V2.237h-.623v-.688h.623V.427h1.028V1.55ZM16.538 5.292H15.51V1.549h1.028ZM15.51.123h1.028V.97H15.51ZM16.958 2.237v-.688h.615v-.29a1.122 1.122 0 0 1 .311-.817 1.263 1.263 0 0 1 .941-.319c.092 0 .184.004.276.011l.268.018v.767a3.165 3.165 0 0 0-.377-.021.395.395 0 0 0-.3.097.48.48 0 0 0-.091.33v.224h.71v.688h-.71v3.055h-1.028V2.237ZM20.816 5.292h-1.028V1.549h1.028ZM19.788.123h1.028V.97h-1.028ZM23.889 2.425a.722.722 0 0 0-.561-.203.894.894 0 0 0-.41.084.783.783 0 0 0-.26.206.763.763 0 0 0-.137.26 1.165 1.165 0 0 0-.047.247h1.672a1.19 1.19 0 0 0-.257-.594m-1.162 1.97a1.053 1.053 0 0 0 1.201.068.641.641 0 0 0 .275-.33h.905a1.714 1.714 0 0 1-.666.963 1.957 1.957 0 0 1-1.085.29 2.14 2.14 0 0 1-.796-.141 1.662 1.662 0 0 1-.601-.402 1.817 1.817 0 0 1-.38-.622 2.286 2.286 0 0 1-.134-.797 2.187 2.187 0 0 1 .137-.782A1.809 1.809 0 0 1 22.58 1.6a1.94 1.94 0 0 1 .778-.152 1.78 1.78 0 0 1 .832.185 1.664 1.664 0 0 1 .583.495 2.037 2.037 0 0 1 .33.71 2.64 2.64 0 0 1 .071.832h-2.7a1.039 1.039 0 0 0 .254.724M28.395 2.964a1.085 1.085 0 0 0-.148-.376.838.838 0 0 0-.272-.264.8.8 0 0 0-.42-.101.84.84 0 0 0-.427.1.807.807 0 0 0-.279.269 1.186 1.186 0 0 0-.152.38 2.058 2.058 0 0 0-.046.445 1.892 1.892 0 0 0 .05.434 1.18 1.18 0 0 0 .163.387.905.905 0 0 0 .282.276.763.763 0 0 0 .41.104.812.812 0 0 0 .423-.101.764.764 0 0 0 .271-.271 1.222 1.222 0 0 0 .145-.388 2.283 2.283 0 0 0 .043-.449 2.227 2.227 0 0 0-.043-.445m.043 1.85a1.059 1.059 0 0 1-.474.438 1.574 1.574 0 0 1-.662.134 1.6 1.6 0 0 1-.738-.163 1.486 1.486 0 0 1-.525-.441 2.002 2.002 0 0 1-.312-.641 2.69 2.69 0 0 1-.104-.753 2.526 2.526 0 0 1 .104-.728 1.884 1.884 0 0 1 .312-.618 1.511 1.511 0 0 1 1.241-.594 1.475 1.475 0 0 1 .634.14 1.105 1.105 0 0 1 .474.418h.014V.123h1.028v5.169h-.977v-.478ZM.225 40.982h29.22v1.91H.225zM16.725 29.777a3.258 3.258 0 0 0 2.35-.811 2.958 2.958 0 0 0 .847-2.243 2.785 2.785 0 0 0-.31-1.383 2.411 2.411 0 0 0-.823-.871 3.454 3.454 0 0 0-1.181-.453 7.165 7.165 0 0 0-1.384-.132h-5.177v5.893Zm-1.145-7.8a4.468 4.468 0 0 0 2.78-.681 2.459 2.459 0 0 0 .846-2.04 3.005 3.005 0 0 0-.286-1.43 2.034 2.034 0 0 0-.787-.812 3.1 3.1 0 0 0-1.157-.37 11.021 11.021 0 0 0-1.396-.083h-4.533v5.415Zm-.62-7.325q.548 0 1.18.012.632.013 1.253.072a9.64 9.64 0 0 1 1.157.179 2.922 2.922 0 0 1 .918.357 4.45 4.45 0 0 1 1.42 1.384 3.85 3.85 0 0 1 .585 2.171 4.16 4.16 0 0 1-.656 2.35 3.869 3.869 0 0 1-1.873 1.467v.048a3.923 3.923 0 0 1 2.41 1.431 4.287 4.287 0 0 1 .834 2.672 5.08 5.08 0 0 1-.334 1.813 4.548 4.548 0 0 1-.99 1.563 4.95 4.95 0 0 1-1.622 1.097 5.573 5.573 0 0 1-2.23.417h-8.23V14.652Z"/><path d="M14.88 8.38a14.73 14.73 0 1 0 14.73 14.729 14.73 14.73 0 0 0-14.73-14.73m12.672 14.737a12.671 12.671 0 1 1-12.673-12.67 12.67 12.67 0 0 1 12.673 12.67M28.331 37.542a.441.441 0 0 0 .176-.03c.045-.019.067-.066.067-.142a.125.125 0 0 0-.023-.08.163.163 0 0 0-.061-.046.307.307 0 0 0-.083-.021.655.655 0 0 0-.087-.007h-.208v.326Zm.004-.518a.65.65 0 0 1 .36.083.314.314 0 0 1 .126.284.386.386 0 0 1-.026.147.265.265 0 0 1-.07.1.325.325 0 0 1-.103.058.532.532 0 0 1-.127.027l.33.542h-.256l-.303-.53h-.154v.53h-.245v-1.24Zm-.797.971a.874.874 0 0 0 .178.277.803.803 0 0 0 .265.182.824.824 0 0 0 .327.066.815.815 0 0 0 .324-.066.799.799 0 0 0 .265-.182.892.892 0 0 0 .18-.277.903.903 0 0 0 .066-.35.89.89 0 0 0-.067-.347.872.872 0 0 0-.179-.274.822.822 0 0 0-.59-.246.817.817 0 0 0-.326.066.806.806 0 0 0-.265.18.854.854 0 0 0-.178.274.905.905 0 0 0-.065.348.918.918 0 0 0 .065.35m-.274-.806a1.066 1.066 0 0 1 .25-.348 1.128 1.128 0 0 1 .363-.222 1.22 1.22 0 0 1 .862 0 1.127 1.127 0 0 1 .363.222 1.066 1.066 0 0 1 .25.348 1.094 1.094 0 0 1-.613 1.487 1.25 1.25 0 0 1-.862 0 1.075 1.075 0 0 1-.706-1.031 1.08 1.08 0 0 1 .093-.456"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- Custom Logic -->
+<script>
+  document.getElementById("current-year").innerText = new Date().getFullYear();
+
+  function changeLanguage(language) {
+    let currentLanguage = window.location.pathname.split("/")[1] ?? "en";
+
+    if (language == currentLanguage) {
+      return;
+    }
+
+    window.location.replace(
+      window.location.pathname.replace(`/${currentLanguage}/support`,
+        `/${language}/support`)
+    );
+  }
+
+  function removeMenuItemBorderBottom() {
+    let menuItems;
+    menuItems = jQuery(".menu-item__title").get();
+    menuItems.forEach(menuItem => {
+      jQuery(menuItem).removeClass("active");
+    });
+  }
+
+  // Show/Hide 'Header Navigation' via 'Menu' icon @media (max-width: $m-big-screen)
+  jQuery(".header__navigation__menu-icon").on("click", function (event) {
+    removeMenuItemBorderBottom();
+    if (jQuery(this).hasClass("header__navigation__menu-icon--active")) {
+      jQuery(".header__navigation__menu-icon").removeClass("header__navigation__menu-icon--active");
+      jQuery(".header__navigation__menu-items").removeClass("header__navigation__menu-items--active");
+    } else {
+      jQuery(".header__navigation__menu-icon").addClass("header__navigation__menu-icon--active");
+      jQuery(".header__navigation__menu-items").addClass("header__navigation__menu-items--active");
+      jQuery(".header__navigation__item--icon").removeClass("header__navigation__menu-icon--active");
+      jQuery(".account-bar").removeClass("account-bar--active");
+    }
+  });
+
+  // Show/Hide 'Account Menu' via 'User' icon @media (max-width: $m-big-screen)
+  jQuery(".header__navigation__item--icon").on("click", function (event) {
+    removeMenuItemBorderBottom();
+    if (jQuery(this).hasClass("header__navigation__menu-icon--active")) {
+      jQuery(".header__navigation__item--icon").removeClass("header__navigation__menu-icon--active");
+      jQuery(".account-bar").removeClass("account-bar--active");
+    } else {
+      jQuery(".header__navigation__item--icon").addClass("header__navigation__menu-icon--active");
+      jQuery(".account-bar").addClass("account-bar--active");
+      jQuery(".header__navigation__menu-icon").removeClass("header__navigation__menu-icon--active");
+      jQuery(".header__navigation__menu-items").removeClass("header__navigation__menu-items--active");
+    }
+  });
+
+  // Newsletter form submission handler
+  jQuery.ajaxPrefilter(function (options, originalOptions, jqXHR) {
+    if (options.url.includes('lulu.com/graphql/')) {
+      delete options.headers['X-CSRF-Token'];
+    }
+  });
+
+  jQuery("#subForm").on("submit", function (event) {
+    event.preventDefault();
+    jQuery("#newsletter-form-feedback").html("");
+    const email = jQuery("#fieldEmail").val().trim().toLowerCase();
+    const language = jQuery("#language").val();
+    jQuery.ajaxPrefilter({}, {}, { headers: null })
+    jQuery.ajax({
+      type: "POST",
+      url: "https://api.lulu.com/graphql/",
+      headers: {
+        "content-type": "application/json",
+      },
+      data: JSON.stringify({
+        operationName: "updateEmailPreferences",
+        query: "mutation updateEmailPreferences($input: EmailPreferencesInput!) {updateEmailPreferences(input: $input) {luluMarketingEmails luluNewsletter}}",
+        variables: {
+          input: {
+            email: email,
+            language: language,
+            subscriberSource: "footer",
+            emailPreferences: {
+              luluNewsletter: true,
+              luluMarketingEmails: true
+            }
+          }
+        },
+      }),
+      dataType: "json",
+    })
+      .fail(function (response) {
+        jQuery("#newsletter-form-feedback").html('There was an error processing your request. Please try again later.');
+      })
+      .success(function (response) {
+        jQuery("#newsletter-form-feedback").html('Success. You are now subscribed.');
+      });
+  });
+</script>
+<!-- Chatbot -->
+
+<script>
+  function initFreshChat() {
+    window.fcWidget.init({
+      token: "d3246a2b-c546-4d75-8c71-7d618c0c6a91",
+      host: "https://lulu-org.freshchat.com",
+      widgetUuid: "b58e8456-a297-4f27-8bba-b66c00d66e42"
+    });
+  }
+  function initialize(i, t) {
+    var e; i.getElementById(t) ?
+      initFreshChat() : ((e = i.createElement("script")).id = t, e.async = !0,
+        e.src = "https://lulu-org.freshchat.com/js/widget.js", e.onload = initFreshChat, i.head.appendChild(e))
+  }
+  function initiateCall() { initialize(document, "Freshchat-js-sdk") }
+  window.addEventListener ? window.addEventListener("load", initiateCall, !1) :
+    window.attachEvent("load", initiateCall, !1);
+</script>
+
+
+	</div>
+
+
+
+
+
+			<script src="https://assets1.freshdesk.com/assets/cdn/portal_bottom_v2-299dbe4afb80d1679c915d8881a4d1b1a04a32b29b2d9124bf4198f4bff7bb47.js"></script>
+
+		<script src="https://assets6.freshdesk.com/assets/cdn/redactor-eef0d60809765e5c12fb5df79e77faec248cc5f349dbeb7e46f29345562d4462.js"></script> 
+		<script src="https://assets10.freshdesk.com/assets/cdn/lang/en-4a75f878b88f0e355c2d9c4c8856e16e0e8e74807c9787aaba7ef13f18c8d691.js"></script>
+		<!-- Realign jQuery UI's per-locale firstDay default with CLDR. Must stay after cdn/lang. -->
+		
+		<!-- for i18n-js translations -->
+  		<script src="https://assets7.freshdesk.com/assets/cdn/i18n/portal/en-29627a12b788171ce22b27ff0d75f59ed16b93ed0d25d8ff8cc1050d1ebb377b.js"></script>
+		<!-- Including default portal based script at the bottom -->
+		<script nonce="ICKBnK/6wohEpsrFsChy7g==">
+//<![CDATA[
+	
+	jQuery(document).ready(function() {
+					
+		// Setting the locale for moment js
+		moment.lang('en');
+
+		var validation_meassages = {"required":"This field is required.","remote":"Please fix this field.","email":"Please enter a valid email address.","url":"Please enter a valid URL.","date":"Please enter a valid date.","dateISO":"Please enter a valid date ( ISO ).","number":"Please enter a valid number.","digits":"Please enter only digits.","creditcard":"Please enter a valid credit card number.","equalTo":"Please enter the same value again.","two_decimal_place_warning":"Value cannot have more than 2 decimal digits","select2_minimum_limit":"Please type %{char_count} or more letters","select2_maximum_limit":"You can only select %{limit} %{container}","maxlength":"Please enter no more than {0} characters.","minlength":"Please enter at least {0} characters.","rangelength":"Please enter a value between {0} and {1} characters long.","range":"Please enter a value between {0} and {1}.","max":"Please enter a value less than or equal to {0}.","min":"Please enter a value greater than or equal to {0}.","select2_maximum_limit_jq":"You can only select {0} {1}","facebook_limit_exceed":"Your Facebook reply was over 8000 characters. You'll have to be more clever.","messenger_limit_exceeded":"Oops! You have exceeded Messenger Platform's character limit. Please modify your response.","not_equal_to":"This element should not be equal to","email_address_invalid":"One or more email addresses are invalid.","twitter_limit_exceed":"Oops! You have exceeded Twitter's character limit. You'll have to modify your response.","password_does_not_match":"The passwords don't match. Please try again.","valid_hours":"Please enter a valid hours.","reply_limit_exceed":"Your reply was over 2000 characters. You'll have to be more clever.","url_format":"Invalid URL format","url_without_slash":"Please enter a valid URL without '/'","link_back_url":"Please enter a valid linkback URL","requester_validation":"Please enter a valid requester details or <a href=\"#\" id=\"add_requester_btn_proxy\">add new requester.</a>","agent_validation":"Please enter valid agent details","email_or_phone":"Please enter a Email or Phone Number","upload_mb_limit":"Upload exceeds the available 15MB limit","invalid_image":"Invalid image format","atleast_one_role":"At least one role is required for the agent","invalid_time":"Invalid time.","remote_fail":"Remote validation failed","trim_spaces":"Auto trim of leading & trailing whitespace","hex_color_invalid":"Please enter a valid hex color value.","name_duplication":"The name already exists.","invalid_value":"Invalid value","invalid_regex":"Invalid Regular Expression","same_folder":"Cannot move to the same folder.","maxlength_255":"Please enter less than 255 characters","decimal_digit_valid":"Value cannot have more than 2 decimal digits","atleast_one_field":"Please fill at least {0} of these fields.","atleast_one_portal":"Select atleast one portal.","custom_header":"Please type custom header in the format -  header : value","same_password":"Should be same as Password","select2_no_match":"No matching %{container} found","integration_no_match":"no matching data...","time":"Please enter a valid time","valid_contact":"Please add a valid contact","field_invalid":"This field is invalid","select_atleast_one":"Select at least one option.","ember_method_name_reserved":"This name is reserved and cannot be used. Please choose a different name."}	
+
+		jQuery.extend(jQuery.validator.messages, validation_meassages );
+
+
+		jQuery(".call_duration").each(function () {
+			var format,time;
+			if (jQuery(this).data("time") === undefined) { return; }
+			if(jQuery(this).hasClass('freshcaller')){ return; }
+			time = jQuery(this).data("time");
+			if (time>=3600) {
+			 format = "hh:mm:ss";
+			} else {
+				format = "mm:ss";
+			}
+			jQuery(this).html(time.toTime(format));
+		});
+	});
+
+	// Shortcuts variables
+	var Shortcuts = {"global":{"help":"?","save":"mod+return","cancel":"esc","search":"/","status_dialog":"mod+alt+return","save_cuctomization":"mod+shift+s"},"app_nav":{"dashboard":"g d","tickets":"g t","social":"g e","solutions":"g s","forums":"g f","customers":"g c","reports":"g r","admin":"g a","ticket_new":"g n","compose_email":"g m"},"pagination":{"previous":"alt+left","next":"alt+right","alt_previous":"j","alt_next":"k"},"ticket_list":{"ticket_show":"return","select":"x","select_all":"shift+x","search_view":"v","show_description":"space","unwatch":"w","delete":"#","pickup":"@","spam":"!","close":"~","silent_close":"alt+shift+`","undo":"z","reply":"r","forward":"f","add_note":"n","scenario":"s"},"ticket_detail":{"toggle_watcher":"w","reply":"r","forward":"f","add_note":"n","close":"~","silent_close":"alt+shift+`","add_time":"m","spam":"!","delete":"#","show_activities_toggle":"}","properties":"p","expand":"]","undo":"z","select_watcher":"shift+w","go_to_next":["j","down"],"go_to_previous":["k","up"],"scenario":"s","pickup":"@","collaboration":"d"},"social_stream":{"search":"s","go_to_next":["j","down"],"go_to_previous":["k","up"],"open_stream":["space","return"],"close":"esc","reply":"r","retweet":"shift+r"},"portal_customizations":{"preview":"mod+shift+p"},"discussions":{"toggle_following":"w","add_follower":"shift+w","reply_topic":"r"}};
+	
+	// Date formats
+	var DATE_FORMATS = {"non_us":{"moment_date_with_week":"ddd, D MMM, YYYY","datepicker":"d M, yy","datepicker_escaped":"d M yy","datepicker_full_date":"D, d M, yy","mediumDate":"d MMM, yyyy"},"us":{"moment_date_with_week":"ddd, MMM D, YYYY","datepicker":"M d, yy","datepicker_escaped":"M d yy","datepicker_full_date":"D, M d, yy","mediumDate":"MMM d, yyyy"}};
+
+	var lang = { 
+		loadingText: "Please Wait...",
+		viewAllTickets: "View all tickets"
+	};
+
+
+//]]>
+</script> 
+
+		
+
+		<img src='/en/support/solutions/articles/64000255519-pdf-creation-settings/hit' alt='Article views count' aria-hidden='true'/>
+		<script type="text/javascript">
+     		I18n.defaultLocale = "en";
+     		I18n.locale = "en";
+		</script>
+			
+    	
+
+
+		<!-- Include dynamic input field script for signup and profile pages (Mint theme) -->
+
+		<!-- Include portal disallowed links -->
+		
+	</body>
+</html>

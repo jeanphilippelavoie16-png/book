@@ -422,7 +422,7 @@ ch. 73 ; le congélateur plein qui dégèle : ch. 74.
 
 **Ce qu'on perd :** le contrôle de la température. Un redoux à +5 °C en février peut tout dégeler en une journée.
 Mettre un thermomètre d'extérieur dans la caisse, ou, à défaut, un verre d'eau gelée avec une pièce de monnaie posée
-sur la glace : si on retrouve la pièce au fond du verre, la caisse a dégelé puis regelé pendant la nuit.
+sur la glace (ch. 1, planche 01-02) : si on retrouve la pièce au fond du verre, la caisse a dégelé puis regelé pendant la nuit.
 
 ### La batterie de l'auto à la place de la génératrice
 

@@ -145,7 +145,7 @@ Pour les gros poids, faire du même bâton une romaine : déplacer le pivot vers
 
 **Ce qu'on perd :** la mesure. On sait quelle pile est la meilleure, pas si elle est encore assez forte. On les répartit donc en cascade : les meilleures aux avertisseurs, les moyennes à la radio et à la lampe frontale, les plus faibles aux jouets.
 
-**L'enregistreur de température : un pot d'eau gelée et une pièce de monnaie.** Laisser geler un pot d'eau, poser une pièce de monnaie sur la glace, et mettre le pot au congélateur ou dans le caveau. Au retour, si la pièce est restée en surface, rien n'a dégelé ; si elle est au fond, tout a dégelé, puis regelé pendant l'absence. Mettre un pot dans chaque congélateur et un dans le caveau.
+**L'enregistreur de température : un pot d'eau gelée et une pièce de monnaie.** Laisser geler un pot d'eau, poser une pièce de monnaie sur la glace, et mettre le pot au congélateur ou dans le caveau. Au retour, si la pièce est restée en surface, rien n'a dégelé ; si elle est au fond, tout a dégelé, puis regelé pendant l'absence (ch. 1, planche 01-02). Mettre un pot dans chaque congélateur et un dans le caveau.
 
 **Ce qu'on perd :** la durée et la température du dégel. Le pot montre qu'il y a eu un dégel, pas combien de temps il a duré, et il faut cette durée pour savoir si on peut garder la viande ou s'il faut la cuire tout de suite (ch. 74).
 

@@ -388,14 +388,14 @@ plaque toute la journée.
 
 ### La plomberie
 
-**Vidanger sans antigel** (planche 03-10, repères 7 à 11). Faire d'abord la vidange complète de l'étape 23.
+**Vidanger sans antigel** (planche 03-10, repères 7 à 12). Faire d'abord la vidange complète de l'étape 23.
 
 - Vider le réservoir de la toilette en tirant la chasse, et éponger l'eau qui reste au fond (repère 7).
 - Éponger l'eau de la cuvette, puis la boucher au fond avec un chiffon et un sac de plastique bien tassés (repère 8).
 - Vider chaque siphon d'évier par son bouchon de nettoyage (le bouchon vissé au bas du coude, sous l'évier), avec
- une chaudière dessous. Sans bouchon, et pour la baignoire, vider le siphon à la poire (repère 9).
-- Boucher chaque siphon vidé de la même façon (repère 10).
-- Autre façon, au lieu du chiffon : remplir le coude du siphon vidé avec de l'huile de cuisson (repère 11). L'huile
+ une chaudière dessous (repère 9). Sans bouchon, et pour la baignoire, vider le siphon à la poire (repère 10).
+- Boucher chaque siphon vidé de la même façon (repère 11).
+- Autre façon, au lieu du chiffon : remplir le coude du siphon vidé avec de l'huile de cuisson (repère 12). L'huile
  épaissit au froid sans gonfler : elle ne fend rien, et tant qu'elle reste dans le coude, elle bouche le passage des
  gaz.
 - {!poison} Le lave-glace fait le même travail que l'huile et résiste mieux au froid, mais c'est du méthanol : le
@@ -450,7 +450,7 @@ paquet : s'il n'est plus dur au centre, on doit le cuire tout de suite ou le jet
 **Le verre à la pièce de monnaie.** Le premier soir, faire geler un verre d'eau dehors, poser une pièce de monnaie sur
 la glace, et laisser le verre dans le congélateur ou dans la boîte de viande dehors : il montre s'il y a eu un dégel
 entre deux ouvertures. La pièce reste en surface tant que rien n'a fondu. Elle est prise au milieu du bloc si l'eau a
-fondu à moitié et regelé, et elle est au fond si tout a fondu. Un thermomètre donne la température au moment où on
+fondu à moitié et regelé, et elle est au fond si tout a fondu (ch. 1, planche 01-02). Un thermomètre donne la température au moment où on
 ouvre ; le verre montre ce qui s'est passé depuis la dernière ouverture.
 
 Sans pièce de monnaie, un verre d'eau posé dans la pièce la plus froide montre si elle descend sous 0 °C : quand une

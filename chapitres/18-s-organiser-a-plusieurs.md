@@ -233,10 +233,10 @@ est trop tard pour dire non.
 
 {!co} Sans avertisseur qui marche, on ne fait du feu à l'intérieur que dans le poêle raccordé à sa cheminée. Seule
 exception : la lampe à graisse, qu'on allume seulement dans la pièce du poêle et qu'on éteint avant de dormir (ch. 3,
-section 7, « L'éclairage »). On cuisine dehors, sur un feu bas et des braises, derrière un mur de neige tassée
-du côté du vent. À douze, les marmites sont lourdes : on plante deux branches fourchues, on pose une barre dessus
-et on y pend des crochets de branche à différentes hauteurs (planche 18-01). On monte ou on descend la marmite d'un
-cran au lieu de la soulever. Une personne nommée doit aérer le chalet par deux ouvertures opposées, quelques
+section 7, « L'éclairage »). On cuisine dehors, sur un feu bas et des braises (planche 18-01, repère 1), derrière
+un mur de neige tassée du côté du vent (repère 2). À douze, les marmites sont lourdes : on plante deux branches
+fourchues (repère 3), on pose une barre dans les fourches (repère 4) et on y pend des crochets de branche à
+différentes hauteurs (repère 5). On monte ou on descend la marmite d'un cran au lieu de la soulever (repère 6). Une personne nommée doit aérer le chalet par deux ouvertures opposées, quelques
 minutes, à heures fixes (étape 8).
 
 ### Cuire au bouilli, sans thermomètre

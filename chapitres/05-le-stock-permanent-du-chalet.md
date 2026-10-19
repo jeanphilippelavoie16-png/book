@@ -458,7 +458,7 @@ salaisons courtes, au froid (ch. 67).
 serti des boîtes de conserve a travaillé, les bocaux de conserve maison sont à jeter (étape 4), et les bidons remplis à
 ras bord ont pu fendre. Pour savoir si le local a dégelé puis regelé pendant l'absence, laisser le pot geler une fois,
 poser une pièce de monnaie sur la glace et refermer le local. Si on retrouve la pièce en surface, rien n'a dégelé. Si
-elle est prise au milieu ou au fond du bloc, elle a coulé pendant un redoux : le local a dégelé, puis regelé. Pour la
+elle est prise au milieu ou au fond du bloc, elle a coulé pendant un redoux : le local a dégelé, puis regelé (ch. 1, planche 01-02). Pour la
 viande du coffre dehors, faire le même essai avec un deuxième pot posé dans le coffre (étape 25).
 
 **Le témoin de chaleur.** Poser un morceau de suif dans une soucoupe. S'il est affaissé ou s'il a coulé, le local a eu
