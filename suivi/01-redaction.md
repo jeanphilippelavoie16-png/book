@@ -592,3 +592,16 @@ Corrections du rédacteur sur les points du vérificateur de la passe « décisi
 | Décision 1, renvoi imprécis | Étape 2, troisième tiret | « la lampe à graisse (ch. 3, section 7) » devient « (ch. 3, section 7, « L'éclairage ») » | La section 7 du ch. 3 a neuf sous-sections ; le ch. 3 renvoie lui-même à « L'éclairage » |
 
 Contrôle : `controle.py --avant` (HEAD) : 5 716 → 5 719 mots ; 2 tirets (titre et ligne de tome) ; rien n'a disparu. Fins de ligne LF.
+
+## Planches, 19 octobre 2026
+
+Les changements rendus par les agents des planches (`_reprise/scratchpad/tome1-final/changements-texte-planches.json`), vérifiés contre `images/a-valider/planche-01-02-temoin-degel.png` (repères 1 faire geler un verre d'eau, 2 poser une pièce sur la glace, 3 en surface, 4 à mi-hauteur, 5 au fond).
+
+| Où | Avant | Après | Pourquoi |
+| --- | --- | --- | --- |
+| Étape 15 (série « Le courant ne revient pas ») | « un verre d'eau gelée, avec une pièce de monnaie posée sur la glace. […] si elle est au fond, tout a dégelé puis regelé ; à mi-hauteur, le dégel a été partiel. » | « un verre d'eau gelée (planche 01-02, repère 1), avec une pièce de monnaie posée sur la glace (repère 2). […] rien n'a dégelé (repère 3) ; si elle est prise à mi-hauteur, le dégel a été partiel (repère 4) ; si elle est au fond, tout a dégelé puis regelé (repère 5). » | L'appel de la planche ; les trois cas dans l'ordre des repères 3, 4, 5 (entrée la plus récente, n° 19) ; les repères posés comme aux ch. 3, 11 et 18 (cadre, « La procédure »). Aucun chiffre ni fait nouveau |
+| `placements-tome-1.json`, clé « 01 » | `"planches": []` | `{"id": "01-02", "apres": "15. **S'il faut quitter la maison, même une nuit, poser un témoin de dégel"}` | Le constructeur disait « aucun ancrage trouvé ». Ancre unique dans le chapitre ; planche petite (340 × 413), sortie de l'orange par le moteur. Essai du constructeur avec les planches à valider : 0 avertissement |
+
+La planche ne s'imprime qu'ici ; les ch. 3, 5, 7 et 9 y renvoient par « (ch. 1, planche 01-02) ».
+
+Contrôle : `controle.py --avant` (HEAD) : 5 719 → 5 735 mots ; 2 tirets (titre et ligne de tome) ; aucun avis nouveau ; rien n'a disparu. Fins de ligne LF.

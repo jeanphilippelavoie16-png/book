@@ -635,3 +635,16 @@ cette passe : commit `f515e01`.
 `controle.py --avant` (f515e01) : 8 471 → 8 505 mots ; 2 tirets (titre et ligne de tome) ; 0 « § », 0 mot banni,
 0 tournure, 0 maxime, 0 pronominal ; vocabulaire d'IA et 48 mots vides, ceux d'avant ; 4 redites (la nouvelle est jugée
 ci-dessus) ; rien n'a disparu. Aucune ancre touchée. Fins de ligne LF.
+
+## Planches, 19 octobre 2026
+
+Les changements rendus par les agents des planches, vérifiés contre `images/a-valider/planche-03-10-vidanger-maison-dans-bon.png` (repères 7 réservoir, 8 cuvette, 9 bouchon du coude et chaudière, 10 poire, 11 chiffon et sac, 12 huile) et `planche-01-02-temoin-degel.png`.
+
+| Où | Avant | Après | Pourquoi |
+| --- | --- | --- | --- |
+| Section 7, « Vidanger sans antigel » | « (planche 03-10, repères 7 à 11) » ; « une chaudière dessous. Sans bouchon […] à la poire (repère 9) » ; « de la même façon (repère 10) » ; « huile de cuisson (repère 11) » | « repères 7 à 12 » ; « une chaudière dessous (repère 9). Sans bouchon […] à la poire (repère 10) » ; « (repère 11) » ; « (repère 12) » | La planche refaite a un repère de plus (le bouchon du coude dévissé, 9). L'étape 23 (repères 1 à 6) était déjà juste |
+| Section 7, « Le verre à la pièce de monnaie » | « …et elle est au fond si tout a fondu. » | « …et elle est au fond si tout a fondu (ch. 1, planche 01-02). » | Renvoi à la planche du ch. 1 (choix de JP : l'appel de la 01-02 aux ch. 3, 5, 7 et 9) |
+
+Étape 10 (planche 03-09) : rien à changer, les repères 1 à 11 suivent la planche.
+
+Contrôle : `controle.py --avant` (HEAD) : 8 505 → 8 511 mots ; 2 tirets (titre et ligne de tome) ; aucun avis nouveau ; rien n'a disparu. Fins de ligne LF.

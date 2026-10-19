@@ -384,7 +384,7 @@ Renvois : les numéros d'étapes n'ont pas changé, tous justes. Pastilles ident
 | Planche | Ancre (`apres`) | Repères appelés |
 | --- | --- | --- |
 | 11-03 | « 7. **Remplir tout ce qui tient l'eau** » (l'ancienne ancre, « **L'eau et le pourtour (étapes 7 à 9).** », n'existe plus) | 5 (étape 7), 8 à 12 (étape 9), 3 (étape 52) ; section 7 : 1, 2, 7 (jute), 4, 11, 12 (vitres), 5, 6 (baril), 8, 9, 10 (évents) |
-| 11-04 | « 35. **Au chalet, l'été, faire une pièce d'air propre » (inchangée) | Section 7 : 10, 11 (la pièce), 8, 9 (un filtre), 1 à 7 (le cube) |
+| 11-04 | « 35. **Au chalet, l'été, faire une pièce d'air propre » (inchangée) | Section 7 : 1, 2 (la pièce), 3, 4 (un filtre), 5 à 11 (le cube) |
 | 11-05 | « **Le râteau à feu.** » (inchangée) | 1 à 4 (râteau), 5 à 7 (battoir), 8 à 11 (perche), dans l'ordre |
 | Photo des colonnes | « **Une colonne qui monte droit et s'élargit en chou-fleur** » (inchangée) | |
 | Logigramme | « **Râteau à feu** », dernier item du Matériel (l'ancienne ancre était la ligne de la section 1) | |
@@ -568,3 +568,9 @@ les mêmes, jugées ; invariants : « 31 °C » une fois de moins, justifié plu
 3 et 4, cube 5 à 11), les appels de la section 7, « De l'air pour les enfants, sans purificateur », changent ainsi :
 repère 10 → 1, 11 → 2, 8 → 3, 9 → 4, 1 → 5, 2 → 6, 3 → 7, 4 → 8, 5 → 9, 6 → 10, 7 → 11. Le texte n'est pas touché
 avant la planche, pour que les deux restent d'accord.
+
+## Planches, 19 octobre 2026
+
+La planche 11-04 est renumérotée dans l'ordre des gestes (vérifiée sur `images/a-valider/planche-11-04-piece-air-propre.png` : 1 polythène, 2 couverture, 3 filtre et flèche, 4 carton sur la face qui souffle, 5 plis à la verticale, 6 joints, 7 fond de carton, 8 ventilateur dessus, 9 carton percé, 10 flèches vers le centre, 11 filtre contre le suivant). Les onze appels de la section 7, « De l'air pour les enfants, sans purificateur », sont changés d'un coup : 10 → 1, 11 → 2, 8 → 3, 9 → 4, 1 → 5, 2 → 6, 3 → 7, 4 → 8, 5 → 9, 6 → 10, 7 → 11. Aucun mot d'autre ne change. La note « Planche 11-04, ce qui suivra » plus haut est faite ; la ligne 11-04 du tableau des ancrages dit la nouvelle numérotation.
+
+Contrôle : `controle.py --avant` (HEAD) : 7 885 → 7 885 mots ; 2 tirets (titre et ligne de tome) ; aucun avis nouveau ; rien n'a disparu. Fins de ligne LF.

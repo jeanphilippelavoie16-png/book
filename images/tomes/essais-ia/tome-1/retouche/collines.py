@@ -303,7 +303,7 @@ def _rangee_pointes(ybase, xmin, xmax, x_de, pas, haut, larg, rng, limite=None):
 
 # ---------------------------------------------------------------- la retouche
 
-def appliquer(a, K=4):
+def appliquer(a, K=4, _debug=None):
     a = np.asarray(a)
     H, W = a.shape[:2]
     q = K / 4.0                                       # les rayons en pixels sont donnés pour K = 4
@@ -616,6 +616,25 @@ def appliquer(a, K=4):
     else:
         y_masse = yb
     y_masse = ndi.gaussian_filter1d(y_masse, 4 * K)
+    # aucun bout de la masse noire sans épinettes : dans un trou de la rangée (aux deux bouts surtout), on en ajoute
+    # dont la pointe dépasse le haut de la masse
+    xs_arbres = np.array(sorted(t[0] for t in arbres)) if arbres else np.array([-1e9])
+    x = 0.0
+    while x < W:
+        i = int(x)
+        libre_x = np.min(np.abs(xs_arbres - x)) > 5.5 * K
+        ym = int(np.clip(y_masse[i], 0, h - 1))
+        visible = garde_pp[ym, i] < 0.5 and y_masse[i] < y_neige[i] - 3 * K
+        if libre_x and visible:
+            hh = rng.uniform(22, 34) * K
+            yt = y_masse[i] - rng.uniform(4, 9) * K
+            hh = min(hh, y_neige[i] - 5 * K - yt)
+            if hh >= 12 * K:
+                arbres.append([x, yt, hh])
+                xs_arbres = np.append(xs_arbres, x)
+                x += rng.uniform(4.5, 6.5) * K
+                continue
+        x += 1 * K
     # les collines descendent jusqu'au pied de la masse (pas de trou sombre entre le bleu et les arbres)
     for a_c, m_c in ((a_g, gauche_m), (a_d, droite_m)):
         has = m_c[int(Y(600)):].any(0)
@@ -639,6 +658,9 @@ def appliquer(a, K=4):
     # -- la zone : sous l'orange, hors du premier plan et du chalet, au-dessus de la neige du champ
     zone = np.clip((yy - (yo[None, :] + 2 * q)) / (2 * q), 0, 1) * (yy >= Y(470)) * (yy < Y(760))
     zone = zone * (1 - garde) * (1 - a_neige)
+    if _debug is not None:
+        _debug.update(c=c, zone=zone, garde=garde, droite_m=droite_m, gauche_m=gauche_m, y_masse=y_masse,
+                      arbres=arbres, r0=r0)
     out = a.copy()
     sl = out[r0:r1].astype(np.float32)
     sl = sl * (1 - zone[..., None]) + c * zone[..., None]

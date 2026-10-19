@@ -496,3 +496,18 @@ Rédacteur de la passe « décisions de JP », après la vérification technique
 | Décision 5, « pour quatre personnes » | Étape 5 | « Pour quatre personnes, ça fait 16 L par jour » devient « Pour une famille de quatre, ça fait 16 L par jour » | Décision 5 (« une famille de quatre » comme exemple), étendue du ch. 00b aux calculs du tome 1 que le vérificateur a relevés : ils supposaient la famille de JP. Les chiffres ne changent pas |
 
 Contrôle : `controle.py --avant` (HEAD) : 8 140 → 8 142 mots ; 2 tirets (titre et ligne de tome) ; rien n'a disparu. Gardé tel quel, section 4, « Ce qui n'est pas de la nourriture » : « trois semaines à quatre personnes dans un chalet » (pas un calcul). Fins de ligne LF.
+
+## Planches, 19 octobre 2026
+
+Les changements rendus par les agents des planches.
+
+| Où | Avant | Après | Pourquoi |
+| --- | --- | --- | --- |
+| Section 7, « Le témoin de gel » | « …le local a dégelé, puis regelé. » | « …le local a dégelé, puis regelé (ch. 1, planche 01-02). » | Renvoi à la planche du ch. 1 (vérifiée : surface, mi-hauteur, fond) |
+| `placements-tome-1.json`, photo `05-boite-bombee.jpg`, légende | « Boîte bombée : le gaz formé dedans pousse le couvercle. On la jette sans l'ouvrir et sans la goûter. » | « Boîte bombée : le gaz formé dedans pousse le couvercle. » | La consigne est à l'étape 23, juste au-dessus (« les jeter sans les ouvrir ni les goûter ») : un fait, une place ; et « On la jette » était une consigne au présent qui décrit (entrée la plus récente, n° 52) |
+| `placements-tome-1.json`, note `_photos` | « …à recadrer sur le couvercle ou à remplacer par une boîte ordinaire. » | « La photo est recadrée sur le couvercle bombé le 19 octobre 2026 (1740 × 890 ; l'original 1920 × 1920 est dans git, f9026fe) : aucun texte de l'étiquette ne se lit… » | Fait : photo regardée, tailles vérifiées |
+| `images/credits.md`, ligne Kat1100 (CC BY 4.0) | « (posée au ch. 5, étape 23) » | « (posée au ch. 5, étape 23 ; recadrée sur le couvercle, 19 octobre 2026) » | La CC BY 4.0 demande d'indiquer la modification |
+
+Section 7, « Les souris » (planche 05-01) : rien à changer.
+
+Contrôle : `controle.py --avant` (HEAD) : 8 142 → 8 146 mots ; 2 tirets (titre et ligne de tome) ; aucun avis nouveau ; rien n'a disparu. Fins de ligne LF.

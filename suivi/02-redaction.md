@@ -647,3 +647,7 @@ cette passe : commit `f515e01`.
 `controle.py --avant` (f515e01) : 6 586 → 6 598 mots ; 2 tirets (titre et ligne de tome) ; 0 « § », 0 mot banni,
 0 tournure, 0 maxime, 0 pronominal ; 37 mots vides et 5 redites, celles d'avant ; rien n'a disparu. Aucune ancre touchée
 (la seule ancre du chapitre est celle du logigramme, « **Fiche de décision remplie d'avance** »). Fins de ligne LF.
+
+## Planches, 19 octobre 2026
+
+**La pastille de la seconde série du CO, « Tout le monde est dehors : couper la source et rentrer » : pas posée.** Le constructeur avertit qu'elle n'a pas d'heure lisible. Le texte des étapes 5 à 8 ne donne pas le temps qu'on a pour la série : il donne « en quelques secondes » (atteindre la source, étape 5) et « dans les 6 minutes » (l'avertisseur qui se remet à sonner, étape 7), qui sont des durées de gestes, pas le temps dont on dispose une fois tout le monde dehors. Aucune fiche de `sources/` ne le donne non plus (voir plus haut, « Les séries orange et leurs pastilles »). Règle 1 : rien d'inventé ; le marqueur reste `{.orange}`. Question à JP, ou une source sur le temps qu'on peut passer dehors l'hiver avec les enfants dans l'auto. Chapitre non touché.

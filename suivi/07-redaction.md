@@ -702,3 +702,13 @@ Rédacteur de la passe « décisions de JP », après la vérification technique
 | Décision 5, « pour quatre personnes » | Étapes 6 et 7 | « Pour quatre personnes et sept jours » et « Pour quatre personnes et trois jours » deviennent « Pour une famille de quatre et sept jours » et « … et trois jours » | Décision 5 (« une famille de quatre » comme exemple), étendue du ch. 00b aux calculs du tome 1 que le vérificateur a relevés : ils supposaient la famille de JP. Les chiffres ne changent pas |
 
 Contrôle : `controle.py --avant` (HEAD) : 7 928 → 7 932 mots ; 2 tirets (titre et ligne de tome) ; rien n'a disparu. Gardé tel quel, section 7, « Chauffer une seule pièce » : « quatre personnes dans une pièce fermée la réchauffent » (pas un calcul). Fins de ligne LF.
+
+## Planches, 19 octobre 2026
+
+| Où | Avant | Après | Pourquoi |
+| --- | --- | --- | --- |
+| « La caisse froide dehors », « Ce qu'on perd » | « …une pièce de monnaie posée sur la glace : si on retrouve… » | « …une pièce de monnaie posée sur la glace (ch. 1, planche 01-02) : si on retrouve… » | Renvoi à la planche du ch. 1, accroché au verre que la planche montre (entrée la plus récente, n° 22) |
+
+« Boucher le drain de plancher sans obturateur » (planche 07-01) : rien à changer, le texte va avec la nouvelle légende 1.
+
+Contrôle : `controle.py --avant` (HEAD) : 7 932 → 7 936 mots ; 2 tirets (titre et ligne de tome) ; aucun avis nouveau ; rien n'a disparu. Fins de ligne LF.

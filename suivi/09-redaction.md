@@ -481,3 +481,13 @@ Rédacteur de la passe « décisions de JP », après la vérification technique
 | Décision 1, un objet, deux noms | Section 7, « Fabriquer ce qui manque », paragraphe « La lumière, avec du suif » | « faire une lampe à gras » devient « faire une lampe à graisse », le nom des ch. 1, 3 et 8 | Règle 6 du skill `ecriture` |
 
 Contrôle : `controle.py --avant` (HEAD) : 7 221 → 7 221 mots ; 2 tirets (titre et ligne de tome) ; rien n'a disparu. Fins de ligne LF.
+
+## Planches, 19 octobre 2026
+
+| Où | Avant | Après | Pourquoi |
+| --- | --- | --- | --- |
+| Section 7, « L'enregistreur de température » | « …tout a dégelé, puis regelé pendant l'absence. » | « …tout a dégelé, puis regelé pendant l'absence (ch. 1, planche 01-02). » | Renvoi à la planche du ch. 1 |
+
+« Les joints, dans le cuir gras » (planche 09-08) : rien à changer, le repère 5 va avec la nouvelle légende.
+
+Contrôle : `controle.py --avant` (HEAD) : 7 221 → 7 225 mots ; 2 tirets (titre et ligne de tome) ; aucun avis nouveau ; rien n'a disparu. Fins de ligne LF.

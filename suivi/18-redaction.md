@@ -555,3 +555,14 @@ Corrections du rédacteur sur les points du vérificateur de la passe « décisi
 | Décision 5, « pour quatre personnes » | Étape 2 | « des réserves prévues pour quatre personnes » devient « des réserves prévues pour une famille de quatre » | Décision 5 (« une famille de quatre » comme exemple), étendue du ch. 00b aux calculs du tome 1 que le vérificateur a relevés : ils supposaient la famille de JP. Les chiffres ne changent pas |
 
 Contrôle : `controle.py --avant` (HEAD) : 5 658 → 5 689 mots ; 2 tirets (titre et ligne de tome) ; rien n'a disparu. Gardé tel quel, étape 10 : « À quatre personnes, il y a 6 paires… » (un calcul sur un groupe, pas la famille). Fins de ligne LF.
+
+## Planches, 19 octobre 2026
+
+Vérifié sur `images/a-valider/planche-18-01-cremaillere-pour-cuire-dehors.png` (1 feu bas et braises, 2 mur de neige du côté du vent, 3 deux branches fourchues, 4 barre dans les fourches, 5 crochets, 6 monter ou descendre d'un cran).
+
+| Où | Avant | Après | Pourquoi |
+| --- | --- | --- | --- |
+| Section 7, « Cuire dehors, sans avertisseur » | « On cuisine dehors, sur un feu bas et des braises, derrière un mur de neige […] on pose une barre dessus et on y pend des crochets […] (planche 18-01). On monte ou on descend la marmite d'un cran au lieu de la soulever. » | « …sur un feu bas et des braises (planche 18-01, repère 1), derrière un mur de neige tassée du côté du vent (repère 2). […] deux branches fourchues (repère 3), on pose une barre dans les fourches (repère 4) et on y pend des crochets […] (repère 5). On monte ou on descend la marmite d'un cran au lieu de la soulever (repère 6). » | Point 13 du plan de match : le texte renvoie aux repères dans leur ordre ; « dans les fourches » dit ce que montrent le dessin et la légende 4. L'ancre (« {!co} Sans avertisseur qui marche… ») ne change pas. Aucun chiffre ni fait nouveau |
+| `placements-tome-1.json`, note `_planches` | « …ne sont pas encore dessinées : les ancres attendent les planches. » | « …sont dessinées (images/a-valider/, 19 octobre 2026) ; leurs ancres n'ont pas changé. » | Les deux planches existent |
+
+Contrôle : `controle.py --avant` (HEAD) : 5 687 → 5 701 mots ; 2 tirets (titre et ligne de tome) ; aucun avis nouveau ; rien n'a disparu. Fins de ligne LF.

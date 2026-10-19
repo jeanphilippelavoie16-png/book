@@ -9,7 +9,12 @@
     "photos": []
   },
   "01": {
-    "planches": [],
+    "planches": [
+      {
+        "id": "01-02",
+        "apres": "15. **S'il faut quitter la maison, même une nuit, poser un témoin de dégel"
+      }
+    ],
     "photos": [],
     "_planches": "01-01 (fiche des quatre horloges) non posée : c'est un formulaire (images/formulaires/01-01.pdf), le chapitre ne demande plus de feuille à remplir, et la bande du haut porte un numéro de téléphone. Si JP la garde : après « 1. **Écrire l'heure sur la porte du congélateur.** »."
   },
@@ -101,10 +106,10 @@
         "fichier": "images/photos/tri/05-boite-bombee.jpg",
         "apres": "23. {!botulisme} **Manger les conserves maison dans l'année qui suit la mise en conserve.**",
         "taille": "quart",
-        "legende": "Boîte bombée : le gaz formé dedans pousse le couvercle. On la jette sans l'ouvrir et sans la goûter."
+        "legende": "Boîte bombée : le gaz formé dedans pousse le couvercle."
       }
     ],
-    "_photos": "La photo va sous l'étape 23 (les conserves maison, la boîte bombée) depuis la refonte du 19 octobre 2026 ; le constructeur ne peut pas ancrer sur un tableau (source vide dans render()). L'étiquette de la boîte (hareng fermenté suédois, bombé exprès) se voit : à recadrer sur le couvercle ou à remplacer par une boîte ordinaire. 05-boites-rouillees-serti (images/photos/manquantes/, 29 septembre 2026) n'est pas posée : une palette de boîtes rouillées de partout, marques lisibles ; la rouille se reconnaît sans photo et l'image n'apprend rien que « rouillée » ne dise déjà."
+    "_photos": "La photo va sous l'étape 23 (les conserves maison, la boîte bombée) depuis la refonte du 19 octobre 2026 ; le constructeur ne peut pas ancrer sur un tableau (source vide dans render()). La photo est recadrée sur le couvercle bombé le 19 octobre 2026 (1740 × 890 ; l'original 1920 × 1920 est dans git, f9026fe) : aucun texte de l'étiquette ne se lit ; restent le code de lot embouti dans le couvercle et deux traits rouges du décor, illisibles. 05-boites-rouillees-serti (images/photos/manquantes/, 29 septembre 2026) n'est pas posée : une palette de boîtes rouillées de partout, marques lisibles ; la rouille se reconnaît sans photo et l'image n'apprend rien que « rouillée » ne dise déjà."
   },
   "06": {
     "planches": [
@@ -392,6 +397,6 @@
       }
     ],
     "photos": [],
-    "_planches": "18-01 (la crémaillère pour cuire dehors) et 18-02 (l'auge de neige pour refroidir la marmite) sont appelées dans le texte (section 7) mais ne sont pas encore dessinées : les ancres attendent les planches."
+    "_planches": "18-01 (la crémaillère pour cuire dehors) et 18-02 (l'auge de neige pour refroidir la marmite) sont dessinées (images/a-valider/, 19 octobre 2026) ; leurs ancres n'ont pas changé."
   }
 }
