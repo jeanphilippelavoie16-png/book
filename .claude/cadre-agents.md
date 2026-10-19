@@ -171,6 +171,8 @@ Le cadre complet est `.claude/skills/planches/references/brief-agent.md`. En bre
 - [ ] Légendes en mots de tous les jours, sans tiret, sans pronominal.
 - [ ] La taille selon le besoin : pleine page, demi-page (format `demi`) ou petite planche (format `quart`).
 - [ ] Pas de ligne « Planche NN. Titre. » dans le dessin : le moteur pose le bandeau ; le `titre:` est court et juste.
+- [ ] **Le regard qualité, c'est JP** (JP, 19 octobre 2026 : « c'est moi le regard qualité ») : l'orchestrateur lui
+  montre l'image dès qu'elle est faite, sans tour de relecture d'agents de plus ; JP dit ce qui reste à faire.
 - [ ] Second regard par un relecteur qui n'a pas dessiné la planche : **un seul tour**, cinq points au plus, ce qui
   était demandé et ce qui casse vraiment, pas une nouvelle critique de toute la planche (JP, 19 octobre 2026 : « 4 M de
   jetons pour 6 planches, sérieusement ? ») ; JP voit le reste en validant. PNG dans `images/a-valider/`.
