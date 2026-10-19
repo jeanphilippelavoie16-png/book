@@ -16,6 +16,21 @@ Coût indicatif en tokens : un chapitre neuf complet ≈ 1 M ; une planche dessi
 - Plus de loi, de municipalité, de relecteur, de numéro de téléphone ni de service qui répond
   (exceptions dans CLAUDE.md).
 
+## ▶ LANCÉ le 19 octobre : le tome 1 final (JP : « monte le reste du tome 1 final »)
+
+Trois phases, une à la suite de l'autre (≈ 18 à 20 M au total) :
+1. **Texte** (en cours) : les ch. 01, 02, 03, 05 à 09, 11, 13 à 18 refaits au gabarit final comme les ch. 04 et 12
+   (sept sections, pictogrammes de danger dans les étapes, séries orange en tête, logigramme, planches appelées, 4 à 8
+   notes En plus) ; le ch. 10 reçoit ses notes En plus ; le ch. 00b, la passe d'écriture. Chaîne par chapitre :
+   rédacteur, vérificateur technique, corrections, éditeur. Les agents ne touchent pas aux fichiers communs ; un
+   intégrateur applique à la fin les ancres, l'inventaire des dangers, les crédits et les renvois entre chapitres.
+   Fiches : section « Refonte au gabarit final, 19 octobre 2026 » de chaque suivi/NN-redaction.md.
+2. **Planches** : celles que les rédacteurs disent manquantes ou décalées, plus les priorités de
+   `images/audit-planches/` pour le tome 1 ; les 28 planches du tome 1 dans `images/a-valider/` attendent JP.
+3. **Montage** : chaque chapitre monté et regardé page par page (notes posées, rien qui déborde, planches près de
+   leur appel), puis le tome 1 entier (`design/outils/assembler-tome.py 1 --hors-ligne`), avec les pages du début
+   (titre, dédicace, sommaire, comment le livre fonctionne, dangers).
+
 ## ⏸ PAUSE du 15 octobre (JP : « à 96 % d'utilisation, pause ; on reprend samedi ») : COMMENT REPRENDRE
 
 Deux chantiers tournaient, lancés le 15 octobre. Les briefs sont copiés dans `_reprise/scratchpad/` (le
