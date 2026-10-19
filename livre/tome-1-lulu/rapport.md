@@ -1,7 +1,7 @@
 # Tome 1 · Tenir — rapport d'assemblage
 
-- **Produit le :** 2026-10-19 17:39, par `design/outils/assembler-tome.py 1 --hors-ligne --refaire --sortie livre/tome-1-lulu`
-- **Fichier :** `livre/tome-1-lulu/interieur.pdf` — 354 pages, 113.8 Mo
+- **Produit le :** 2026-10-19 17:42, par `design/outils/assembler-tome.py 1 --hors-ligne --refaire --sortie livre/tome-1-lulu`
+- **Fichier :** `livre/tome-1-lulu/interieur.pdf` — 352 pages, 112.1 Mo
 - **Ouvertures :** au recto ou au verso (--verso)
 - **Placements :** design/epreuves-livre/placements.json, design/epreuves-livre/placements-tome-1.json
 - **Format :** `lulu-letter` : Lulu, US Letter 8,5 × 11 po, couverture rigide Case Wrap
@@ -35,9 +35,9 @@
 | 295–313 | ch. 15 — Se déplacer et le carburant | 19 |
 | 315–329 | ch. 16 — Le voisinage et le groupe de chasse | 15 |
 | 331–342 | ch. 17 — Qui cogne à la porte | 12 |
-| 343–353 | ch. 18 — S’organiser à plusieurs familles | 11 |
-| | Pages blanches (verso de la page de titre, avant les ouvertures, fin du tome) | 8 |
-| | **Total** | **354** |
+| 343–352 | ch. 18 — S’organiser à plusieurs familles | 10 |
+| | Pages blanches (verso de la page de titre, avant les ouvertures, fin du tome) | 7 |
+| | **Total** | **352** |
 
 Aucune page de crédits (JP, 28 septembre 2026) : copie hors du livre dans `livre/tome-1-lulu/credits/tome-1-credits.md` et `livre/tome-1-lulu/credits/tome-1-credits.pdf`.
 
@@ -106,8 +106,7 @@ Marqueur `{.orange}` sur l'intertitre ### de la série, dans le Markdown (CLAUDE
 | 17 | Le refroidissement éolien | 331 (17-1) | étape(s) 7 |  (Matériel) | dans un trou de la page |
 | 17 | La place de l’invité chez les Inuits de l’Ungava | 342 (17-12) | étape(s) 17 | étape 29 (Ce qui ne se remplace pas) | dans un trou de la page |
 | 18 | Quatre ou cinq familles sous la même tente | 343 (18-1) | étape(s) 7 |  (Matériel) | dans un trou de la page |
-| 18 | Prendre ce que le groupe peut préparer | 350 (18-8) | étape(s) 17 | étape 21 (Refroidir vingt litres sans réfrigérateur) | dans un trou de la page |
-| 18 | Les enfants ont leurs tâches | 353 (18-11) | étape(s) 12 | étape 21 (Ce qui ne se remplace pas) | dans un trou de la page |
+| 18 | Prendre ce que le groupe peut préparer | 352 (18-10) | étape(s) 17 | étape 21 (Ce qui ne se remplace pas) | dans un trou de la page |
 
 ## Contrôle Lulu
 
@@ -115,16 +114,16 @@ Marqueur `{.orange}` sur l'intertitre ### de la série, dans le Markdown (CLAUDE
 | --- | --- | --- | --- |
 | Taille de chaque page | 630 × 810 pt (8,75 × 11,25 po) | 630.0 × 810.0 pt | oui |
 | Rognage (TrimBox) | 8,5 × 11 po, fond perdu de 0,125 po sur les quatre côtés | 9 pt de chaque bord, recto et verso | oui |
-| Nombre de pages | de 24 à 800 (couverture rigide Case Wrap) ; pair par choix du livre | 354 | oui |
+| Nombre de pages | de 24 à 800 (couverture rigide Case Wrap) ; pair par choix du livre | 352 | oui |
 | Page 1 | à droite ; les impaires à droite | page de titre | oui |
 | Zone sûre | 0,5 po du rognage pour le texte, les images et les numéros de page | bloc, titre courant, pied et numéro du tome à 0,5 po au moins ; seuls les aplats de bord (onglets, repères de section, page de titre) vont au fond perdu | oui (grille) |
 | Petit fond | 0,2 po au moins ; 1 po recommandé de 151 à 400 pages | bloc à 1 po du rognage au petit fond | oui (grille) |
-| Polices incorporées | toutes | 60 police(s), 0 non incorporée(s) | oui |
-| Transparence | aplatie (« Flatten all transparent layers ») ; Lulu en répare une partie | 61 page(s) avec transparence | à surveiller au téléversement |
+| Polices incorporées | toutes | 59 police(s), 0 non incorporée(s) | oui |
+| Transparence | aplatie (« Flatten all transparent layers ») ; Lulu en répare une partie | 60 page(s) avec transparence | à surveiller au téléversement |
 | Une page par page, sans marques de coupe ni mot de passe | oui | oui | oui |
 | Couleur | sRVB préféré, CMJN accepté ; noir plein à 100 % ; teintes de moins de 20 % à éviter | sRVB (Edge) ; aplats pâles (rose des étapes de danger, orange pâle, vert des notes) | à juger sur épreuve |
 
-Pages avec transparence (ombre douce des notes « En plus », trames ou dessins à opacité) : 7, 11, 70, 73, 81, 92, 93, 100, 105, 112, 140, 147, 150, 152, 159, 160, 161, 166, 168, 172, 174, 175, 176, 177, 179, 187, 189, 195, 199, 211, 213, 217, 222, 226, 235, 237, 244, 253, 255, 262, 263, 267, 269, 276, 279, 290, 294, 302, 304, 306, 307, 310, 312, 313, 315, 329, 331, 342, 343, 350, 353.
+Pages avec transparence (ombre douce des notes « En plus », trames ou dessins à opacité) : 7, 11, 70, 73, 81, 92, 93, 100, 105, 112, 140, 147, 150, 152, 159, 160, 161, 166, 168, 172, 174, 175, 176, 177, 179, 187, 189, 195, 199, 211, 213, 217, 222, 226, 235, 237, 244, 253, 255, 262, 263, 267, 269, 276, 279, 290, 294, 302, 304, 306, 307, 310, 312, 313, 315, 329, 331, 342, 343, 352.
 
 Polices du fichier : BarlowCondensed-Bold, BarlowCondensed-ExtraBold, BarlowCondensed-Medium, BarlowCondensed-SemiBold, IBMPlexSansCond-Bold, IBMPlexSansCond-Italic, IBMPlexSansCond-Medium, IBMPlexSansCond-Regular, IBMPlexSansCond-SemiBold, IBMPlexSansCond-SemiBoldItalic, IBMPlexSerif-Bold, IBMPlexSerif-Italic, IBMPlexSerif-Regular, IBMPlexSerif-SemiBold, IBMPlexSerif-SemiBoldItalic, LiberationSerif, LiberationSerif-Italic, NotoSerif-Regular, Type 3 sans nom (texte des planches)
 
@@ -136,7 +135,7 @@ Polices du fichier : BarlowCondensed-Bold, BarlowCondensed-ExtraBold, BarlowCond
 
 ## Tranche et couverture
 
-Couverture rigide Case Wrap, **354 pages** : tranche de **1,063 po** au tableau du guide de Lulu (p. 14 ; `sources/lulu-specifications.md`, §3). Le PDF de couverture est un seul fichier (plat arrière, tranche, plat avant), fond perdu de 0,125 po, **zone sûre de 0,75 po** en Case Wrap ; Lulu donne le gabarit à la taille exacte après le téléversement de l'intérieur. La couverture se fait **après** le dernier assemblage.
+Couverture rigide Case Wrap, **352 pages** : tranche de **1,063 po** au tableau du guide de Lulu (p. 14 ; `sources/lulu-specifications.md`, §3). Le PDF de couverture est un seul fichier (plat arrière, tranche, plat avant), fond perdu de 0,125 po, **zone sûre de 0,75 po** en Case Wrap ; Lulu donne le gabarit à la taille exacte après le téléversement de l'intérieur. La couverture se fait **après** le dernier assemblage.
 
 ## Figures
 
@@ -232,7 +231,9 @@ Photos téléchargées pour ces chapitres et non posées (images de référence 
 - ch. 16, paginateur : encadré « En plus » pas imprimé, aucun trou dans le chapitre : Le maître de trappe cri
 - ch. 17, paginateur : encadré « En plus » pas imprimé, aucun trou dans le chapitre : Fermer un œil devant la lumière
 - ch. 17, paginateur : encadré « En plus » pas imprimé, aucun trou dans le chapitre : Contagieux avant d’avoir l’air malade
+- ch. 18, paginateur : chapitre resserré (interligne 12.8pt) : une page de moins
 - ch. 18, paginateur : encadré « En plus » pas imprimé, aucun trou dans le chapitre : La place de chacun dans la tente innue
+- ch. 18, paginateur : encadré « En plus » pas imprimé, aucun trou dans le chapitre : Les enfants ont leurs tâches
 
 ## À savoir avant de téléverser
 
