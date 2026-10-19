@@ -508,10 +508,10 @@ def _zone(a, nom, K):
         nuit = ndi.binary_opening(haut_ok & (L < 30), _disque(2.5 * K))
         bleu = haut_ok & (L < 130) & ~nuit
         _, (jy, jx) = ndi.distance_transform_edt(~(nuit | bleu), return_indices=True)
-        cl_nuit = nuit[jy, jx]
+        cl_nuit = ndi.gaussian_filter(nuit[jy, jx].astype(np.float32), 0.35 * K)[..., None]
         pn_, _ = _normconv(z, nuit.astype(np.float32), 6 * K)
         pb_, _ = _normconv(z, (bleu & (L > 30)).astype(np.float32), 6 * K)
-        ps = np.where(cl_nuit[..., None], pn_, pb_)
+        ps = cl_nuit * pn_ + (1 - cl_nuit) * pb_
         m = ancien & champ
         fond[m] = pn[m]
         m = ancien & ~champ
