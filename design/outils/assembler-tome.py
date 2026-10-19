@@ -1336,7 +1336,7 @@ def main():
     n_photo = 0
     def page_photo(f):
         from PIL import Image
-        dst = os.path.join(work, "pdf", "photo-" + os.path.splitext(os.path.basename(f))[0] + f"-{PAGE_W:.0f}x{PAGE_H:.0f}.pdf")
+        dst = os.path.join(work, "pdf", "photo-" + os.path.splitext(os.path.basename(f))[0] + f"-{PAGE_W:.0f}x{PAGE_H:.0f}-encre.pdf")
         if not os.path.exists(dst) or os.path.getmtime(dst) < os.path.getmtime(f):
             im = Image.open(moins_d_encre(f, os.path.join(work, "pdf", "encre-" + os.path.basename(f)))).convert("RGB")
             r = PAGE_W / PAGE_H

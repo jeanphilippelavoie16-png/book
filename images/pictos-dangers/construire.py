@@ -466,6 +466,17 @@ CHOIX = {'co': 'a', 'generatrice': 'a', 'abats': 'a', 'mal-de-caribou': 'a', 'th
          'botulisme': 'a', 'plante': 'a'}
 
 
+def sans_masque(svg, fond):
+    """Un masque SVG devient un masque doux dans le PDF, et Lulu le signale comme de la transparence (tome 1, page 11,
+    19 octobre 2026). Le masque d'une icône pleine (le blanc garde, le noir découpe) se remplace par ses formes
+    peintes : le blanc reste blanc, le noir prend la couleur du fond du pictogramme."""
+    def un(m):
+        corps = re.search(r'<mask id="[^"]+">(.*?)</mask>', m.group(0), re.S).group(1)
+        return re.sub(r'(fill|stroke)="#000(?:000)?"', lambda k: f'{k.group(1)}="{fond}"', corps)
+    return re.sub(r'<defs><mask id="[^"]+">.*?</mask></defs><path fill="#FFFFFF" d="M0 0h48v48H0z" '
+                  r'mask="url\(#[^)]+\)"/>', un, svg, flags=re.S)
+
+
 def construire(dossier, ident):
     if ident in CHOIX:
         return construire_recette(dossier, ident, PROPOSITIONS[ident][CHOIX[ident]])
@@ -612,7 +623,7 @@ def main():
     dossier = os.path.abspath(sys.argv[1])
     for ident in ORDRE:
         with open(os.path.join(ICI, ident + '.svg'), 'w', encoding='utf-8') as f:
-            f.write(construire(dossier, ident))
+            f.write(sans_masque(construire(dossier, ident), '#9B2C1E'))
     print(f'{len(ORDRE)} pictogrammes écrits dans {ICI}')
     if '--propositions' in sys.argv:
         os.makedirs(os.path.join(ICI, 'propositions'), exist_ok=True)
