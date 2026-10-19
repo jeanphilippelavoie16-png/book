@@ -29,9 +29,12 @@ d'heure jusqu'au printemps.
 
 ## 3. Matériel
 
-- **Avertisseur de CO à pile** : le seul moyen de savoir qu'un appareil qui brûle remplit la pièce de monoxyde (étape 2).
-- **Thermomètre à sonde** : planté au cœur de l'aliment, il donne le 4 °C du tri et le 74 °C de la cuisson (étapes 20 et 21 ; sans sonde : section 7).
-- **Thermomètre médical** : mis dans la bouche, il montre l'hypothermie avant que ses signes se voient (étape 8 ; sans thermomètre : section 7).
+- **Avertisseur de CO à pile** : le seul moyen de savoir qu'un appareil qui brûle remplit la pièce de
+ monoxyde (étape 2).
+- **Thermomètre à sonde** : planté au cœur de l'aliment, il donne le 4 °C du tri et le 74 °C de la cuisson
+ (étapes 20 et 21 ; sans sonde : section 7).
+- **Thermomètre médical** : mis dans la bouche, il montre l'hypothermie avant que ses signes se voient
+ (étape 8 ; sans thermomètre : section 7).
 - **Montre à pile** : elle compte les heures depuis la panne sans user la batterie du téléphone (étape 1).
 
 ---
@@ -84,10 +87,11 @@ dormir, et faire le reste de la série au réveil.
  sur leurs batteries après le début de la panne. Quand les piles et les batteries de la maison baissent,
  les garder d'abord pour la radio et la messagerie satellite (ch. 14). À la maison, aller voir les
  voisins pour savoir lequel a un poêle à bois, lequel a une génératrice et lequel vit seul (ch. 16, ch. 18).
-7. **Vivre dans une seule pièce**, celle qui a la source de chaleur, même si les lits sont ailleurs.
- Fermer les portes des autres pièces et boucher le bas des portes avec une couverture roulée : un
- chauffage d'appoint ne chauffe qu'une pièce fermée (ch. 83). Si on chauffe la pièce avec un poêle ou un
- appareil d'appoint, la garder aérée, par exemple en entrouvrant une fenêtre : une pièce bien fermée garde le monoxyde (étape 2).
+7. **Vivre dans une seule pièce**, celle qui a la source de chaleur, même si les lits sont ailleurs. Fermer
+ les portes des autres pièces et boucher le bas des portes avec une couverture roulée : un chauffage
+ d'appoint ne chauffe qu'une pièce fermée (ch. 83). Si on chauffe la pièce avec un poêle ou un appareil
+ d'appoint, la garder aérée, par exemple en entrouvrant une fenêtre : une pièce bien fermée garde le
+ monoxyde (étape 2).
 8. {!froid} **L'hiver, habiller tout le monde en couches, avec une tuque, avant d'avoir froid.** Prendre la
  température dans la bouche d'une personne qui a été dehors ou qui frissonne, et d'un enfant qui devient
  tranquille (section 5).
@@ -95,17 +99,17 @@ dormir, et faire le reste de la série au réveil.
  des portes, des fenêtres et des prises d'air. Ne jamais la faire tourner dans un bâtiment, un
  garage, un abri ni sous un auvent, même porte ouverte, même le temps de la démarrer.
 10. {!electrocution} **Avant de brancher quoi que ce soit sur la génératrice, mettre le disjoncteur
- principal à OFF**, et coller dessus un bout de ruban avec un mot au marqueur, pour que personne ne le remonte. Brancher ensuite les appareils
- directement dans les prises de la génératrice, avec des rallonges. Sans commutateur de transfert, le
- disjoncteur principal à OFF est la seule chose qui empêche le courant de la génératrice de remonter dans
- la ligne de la rue. Un commutateur de transfert fait le même travail mécaniquement : il empêche de relier
- la maison à la ligne de la rue et à la génératrice en même temps. Revérifier le disjoncteur à chaque démarrage, même
- à 2 h du matin (ch. 3, ch. 15).
+ principal à OFF**, et coller dessus un bout de ruban avec un mot au marqueur, pour que personne ne le
+ remonte. Brancher ensuite les appareils directement dans les prises de la génératrice, avec des rallonges.
+ Sans commutateur de transfert, le disjoncteur principal à OFF est la seule chose qui empêche le courant de
+ la génératrice de remonter dans la ligne de la rue. Un commutateur de transfert fait le même travail
+ mécaniquement : il empêche de relier la maison à la ligne de la rue et à la génératrice en même temps.
+ Revérifier le disjoncteur à chaque démarrage, même à 2 h du matin (ch. 3, ch. 15).
 11. **Arrêter la génératrice 1 heure toutes les 8 heures**, et, pendant l'arrêt, vérifier le niveau
  d'huile et la réserve de carburant (ch. 15). Laisser le moteur refroidir avant de faire le plein.
 12. **Mettre le combustible à couvert pendant qu'il fait clair** : empiler le bois près de la porte, et
- ranger les bonbonnes et les bidons dehors, sous un abri. Le bois enneigé qu'on va chercher à la noirceur brûle mal
- toute la nuit (ch. 83).
+ ranger les bonbonnes et les bidons dehors, sous un abri. Le bois enneigé qu'on va chercher à la noirceur
+ brûle mal toute la nuit (ch. 83).
 13. **L'hiver, prendre la température de la pièce chauffée chaque heure, et noter l'écart avec le relevé
  de l'heure d'avant.** Multiplier cet écart par le nombre d'heures qui restent jusqu'au matin : on voit si
  la pièce restera assez chaude pour la nuit. Si elle doit devenir trop froide, regrouper la famille
@@ -156,9 +160,9 @@ dormir, et faire le reste de la série au réveil.
 ### Heure 6 à heure 48 : le tri
 
 20. {!zone-de-danger} **Passé 6 heures de panne, trier le réfrigérateur en plantant le thermomètre au cœur
- de chaque aliment.** Cuire tout de suite un aliment cru dégelé resté à 4 °C ou moins. Jeter un aliment périssable
- qui a dépassé 4 °C. Trier le congélateur de la même façon au bout de ses 24 ou 48 heures
- (étape 3). Le thermomètre qui mesure l'air du congélateur ne sert pas au tri : quand on ouvre, l'air se réchauffe
+ de chaque aliment.** Cuire tout de suite un aliment cru dégelé resté à 4 °C ou moins. Jeter un aliment
+ périssable qui a dépassé 4 °C. Trier le congélateur de la même façon au bout de ses 24 ou 48 heures (étape
+ 3). Le thermomètre qui mesure l'air du congélateur ne sert pas au tri : quand on ouvre, l'air se réchauffe
  bien avant le cœur d'une pièce épaisse, et quand on referme, il se refroidit avant elle.
 21. {!cuisson} **Cuire d'abord ce qui se gâte le plus vite** : les abats qu'on mange, le poisson, la viande
  hachée. La viande hachée passe avant le rôti, même si le rôti coûte plus cher : le hachage a mêlé la surface
@@ -172,8 +176,8 @@ dormir, et faire le reste de la série au réveil.
 24. {!tularemie} **Mettre des gants pour toucher le lièvre du congélateur, gelé ou dégelé** : le gel ne tue pas
  la bactérie de la tularémie (ch. 48).
 25. **L'hiver, sortir dans la neige ce qui est encore gelé** au lieu de laisser un congélateur arrêté se
- réchauffer : le mettre dans des bacs fermés et surélevés, à l'ombre, du côté nord. Tant qu'il gèle dehors, ce froid
- ne coûte ni courant ni carburant (ch. 73). En ville, un couvercle qui tient suffit contre les
+ réchauffer : le mettre dans des bacs fermés et surélevés, à l'ombre, du côté nord. Tant qu'il gèle dehors,
+ ce froid ne coûte ni courant ni carburant (ch. 73). En ville, un couvercle qui tient suffit contre les
  animaux. Le tri complet d'un congélateur plein est au ch. 74.
 
 ### Après 48 heures : l'horloge longue
@@ -270,14 +274,14 @@ noter combien de temps il met à devenir tiède. Refaire la mesure plus tard ave
 fois, la pièce perd plus de chaleur qu'avant (une vitre brisée, un joint de porte qui laisse passer
 l'air, un feu qui baisse) : chercher la cause avant d'ajouter une couverture.
 
-**L'hypothermie sans thermomètre.** Les signes arrivent dans cet ordre. D'abord, la personne
-frissonne fort et parle bien. Ensuite, elle perd ses gestes fins avant sa force : elle n'arrive plus à attacher un bouton,
-à gratter une allumette ou à ouvrir une fermeture éclair, alors qu'elle marche droit. Ce test des gestes fins est le plus
-fiable sans thermomètre, et on le fait sans le lui dire : on lui tend une allumette et une boîte. Après
-viennent la parole et le jugement : une personne qui répond à côté, qui rit ou qui veut enlever son
-manteau est plus atteinte qu'une personne qui grelotte. On ne peut pas voir le moment où elle passe sous 35 °C :
-dans le doute, on la traite comme si elle était en hypothermie. On peut aussi mettre la main sur son ventre, sous les
-vêtements : un ventre froid est un signe d'alarme, des mains froides non.
+**L'hypothermie sans thermomètre.** Les signes arrivent dans cet ordre. D'abord, la personne frissonne fort
+et parle bien. Ensuite, elle perd ses gestes fins avant sa force : elle n'arrive plus à attacher un bouton,
+à gratter une allumette ou à ouvrir une fermeture éclair, alors qu'elle marche droit. Ce test des gestes
+fins est le plus fiable sans thermomètre, et on le fait sans le lui dire : on lui tend une allumette et une
+boîte. Après viennent la parole et le jugement : une personne qui répond à côté, qui rit ou qui veut enlever
+son manteau est plus atteinte qu'une personne qui grelotte. On ne peut pas voir le moment où elle passe sous
+35 °C : dans le doute, on la traite comme si elle était en hypothermie. On peut aussi mettre la main sur son
+ventre, sous les vêtements : un ventre froid est un signe d'alarme, des mains froides non.
 
 **Le 74 °C sans sonde.** Seule la cuisson dans l'eau bouillante permet de savoir que le cœur a assez
 chauffé. Tant que l'eau bout, elle est à 100 °C. Une pièce de viande plongée dans l'eau qui bout, à
@@ -292,13 +296,13 @@ rôtie près du feu peut être cuite en surface et crue au centre.
 
 ### Remplir le congélateur arrêté
 
-Un congélateur plein garde le froid deux fois plus longtemps qu'un congélateur à moitié rempli (étape 3).
-On remplit donc tout de suite un congélateur à moitié vide avec ce qui ne se mange pas : des sacs de neige
+Un congélateur plein garde le froid deux fois plus longtemps qu'un congélateur à moitié rempli (étape 3). On
+remplit donc tout de suite un congélateur à moitié vide avec ce qui ne se mange pas : des sacs de neige
 tassée, des blocs de glace taillés au lac, des cruches et des pots d'eau gelés dehors puis rentrés, des
-vêtements d'hiver roulés pour boucher les vides. À chaque ouverture, l'air froid des vides
-s'échappe, alors qu'un bloc de glace garde son froid. On couvre le dessus et les côtés de couvertures, de sacs de couchage ou de tapis :
-un appareil arrêté n'a besoin d'aucune ventilation. On enlève cet isolant au retour du courant : sinon, le
-compresseur repart sans pouvoir évacuer sa chaleur, et il surchauffe.
+vêtements d'hiver roulés pour boucher les vides. À chaque ouverture, l'air froid des vides s'échappe, alors
+qu'un bloc de glace garde son froid. On couvre le dessus et les côtés de couvertures, de sacs de couchage ou
+de tapis : un appareil arrêté n'a besoin d'aucune ventilation. On enlève cet isolant au retour du courant :
+sinon, le compresseur repart sans pouvoir évacuer sa chaleur, et il surchauffe.
 
 **Faire geler la viande dehors.** La neige isole : une viande encore molle qu'on enterre dans un banc
 de neige ne gèle pas dur. Pour la faire geler, on la laisse à l'air, dans des bacs ouverts du côté nord,
@@ -310,24 +314,25 @@ ne retrouve plus le banc de neige ni ce qu'il contient (ch. 73).
 
 Une auto dans l'entrée, c'est une batterie de 12 V, un alternateur, un chauffage et une radio.
 
-**Rentrer la batterie.** On sort la batterie de l'auto et on la rentre dans la maison : elle fait
-marcher une lampe et une radio 12 V toute une nuit sans essence. On la recharge le lendemain en la
-remettant dans l'auto et en roulant. Une batterie déchargée gèle : on ne la laisse dehors que pleine. Le montage est celui du 12 V
-du chalet (ch. 85, ch. 15).
+**Rentrer la batterie.** On sort la batterie de l'auto et on la rentre dans la maison : elle fait marcher
+une lampe et une radio 12 V toute une nuit sans essence. On la recharge le lendemain en la remettant dans
+l'auto et en roulant. Une batterie déchargée gèle : on ne la laisse dehors que pleine. Le montage est celui
+du 12 V du chalet (ch. 85, ch. 15).
 
 {!generatrice} **Réchauffer les enfants dans l'auto, moteur en marche, seulement si elle est stationnée
-dehors**, jamais dans le garage ni sous un abri. Dégager le tuyau d'échappement de la neige avant chaque démarrage ; en tempête, la
-neige le rebouche vite. Chaque heure de moteur au ralenti use de l'essence qui servira au départ (ch. 2, ch. 15).
+dehors**, jamais dans le garage ni sous un abri. Dégager le tuyau d'échappement de la neige avant chaque
+démarrage ; en tempête, la neige le rebouche vite. Chaque heure de moteur au ralenti use de l'essence qui
+servira au départ (ch. 2, ch. 15).
 
 ### L'eau quand la pression tombe
 
 Quand la pression tombe, il reste de l'eau dans les tuyaux de la maison, et on la récupère par gravité :
 ouvrir le robinet le plus haut pour laisser entrer l'air, puis le plus bas pour vider les tuyaux dans une
-chaudière. Le chauffe-eau est le plus gros contenant de la maison, et il est toujours plein ; le robinet
-de vidange du chauffe-eau est au bas du réservoir. Couper le disjoncteur du chauffe-eau avant de le vider : si le courant
-revient pendant qu'il est vide, l'élément chauffe à sec et brûle, et on n'a plus d'eau chaude pour le reste
-de l'hiver. Prendre ensuite l'eau du réservoir de la toilette (le réservoir, pas la cuvette) et le jus des
-conserves de légumes.
+chaudière. Le chauffe-eau est le plus gros contenant de la maison, et il est toujours plein ; le robinet de
+vidange du chauffe-eau est au bas du réservoir. Couper le disjoncteur du chauffe-eau avant de le vider : si
+le courant revient pendant qu'il est vide, l'élément chauffe à sec et brûle, et on n'a plus d'eau chaude
+pour le reste de l'hiver. Prendre ensuite l'eau du réservoir de la toilette (le réservoir, pas la cuvette)
+et le jus des conserves de légumes.
 
 **Faire fondre la neige.** Mettre d'abord un fond d'eau dans le chaudron, puis la neige, par poignées,
 sans jamais laisser le fond à sec : la neige seule ne touche le métal qu'en quelques points, et le fond

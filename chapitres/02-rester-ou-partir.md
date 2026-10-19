@@ -35,10 +35,13 @@ nourriture et le lien), puis reprendre la décision à heure fixe tant que la si
 
 - **Avertisseur de CO à piles** : posé là où on dort, il est le seul moyen de savoir qu'il y a du monoxyde (étape 11).
 - **Radio à piles et piles de rechange** : elle donne l'état de la route, du feu et de la panne (étape 25 ; sans radio : section 7).
-- **Messagerie satellite ou radio VHF** : pour dire qu'on reste ou qu'on part, et où nous chercher, quand le téléphone ne passe plus (étapes 14 et 18 ; sans elles : section 7).
-- **Thermomètre d'intérieur** : deux relevés à 2 h d'écart donnent la vitesse à laquelle la maison refroidit (étape 27 ; sans thermomètre : section 7).
+- **Messagerie satellite ou radio VHF** : pour dire qu'on reste ou qu'on part, et où nous chercher, quand le téléphone
+ ne passe plus (étapes 14 et 18 ; sans elles : section 7).
+- **Thermomètre d'intérieur** : deux relevés à 2 h d'écart donnent la vitesse à laquelle la maison refroidit (étape 27 ;
+ sans thermomètre : section 7).
 - **Thermomètre médical** : il montre l'hypothermie sous 35 °C, avant les signes de l'étape 40. On ne peut pas le fabriquer.
-- **Fiche de décision remplie d'avance** : la durée du trajet en janvier, le nombre de jours de bois, la température intérieure à laquelle on part. En garder une copie à la maison, une au chalet et une dans l'auto.
+- **Fiche de décision remplie d'avance** : la durée du trajet en janvier, le nombre de jours de bois, la température
+ intérieure à laquelle on part. En garder une copie à la maison, une au chalet et une dans l'auto.
 
 ---
 
@@ -129,8 +132,8 @@ tôt que prévu, le plus important est fait.
  tôt possible : le bois mouillé prend feu moins vite seulement s'il a eu le temps d'absorber l'eau avant que le front
  du feu arrive.
 23. **Afficher que la maison est vide** : coller sur la porte principale une feuille sous plastique, écrite au
- marqueur : PARTIS, les noms, le nombre de personnes, la date et l'heure. Un tissu blanc attaché à la porte veut dire
- la même chose ; à la fenêtre, il veut dire qu'une personne est prise à l'intérieur.
+ marqueur : PARTIS, les noms, le nombre de personnes, la date et l'heure. Un tissu blanc attaché à la porte a le même
+ sens ; à la fenêtre, il veut dire qu'une personne est prise à l'intérieur.
 24. **Partir avec le réservoir plein.**
 
 ### Mesurer : la radio et les quatre horloges
@@ -140,9 +143,9 @@ tôt que prévu, le plus important est fait.
  nouvelle ne s'est peut-être pas rendue jusqu'à la station.
 26. **Écrire quatre chiffres sur papier, montre en main : la chaleur, l'eau, la nourriture et le lien** (ch. 1),
  chacun en heures ou en jours. Sous stress, on arrondit de mémoire dans le sens de ce qu'on a envie de faire.
-27. **Chaleur : mesurer la température intérieure, puis la remesurer 2 heures plus tard.** L'écart entre les deux relevés,
- ramené à une heure, donne la pente en degrés par heure : une maison qui perd 4 °C à l'heure laisse quatre fois moins de temps qu'une maison qui en perd 1,
- même quand les deux affichent la même température.
+27. **Chaleur : mesurer la température intérieure, puis la remesurer 2 heures plus tard.** L'écart entre les deux
+ relevés, ramené à une heure, donne la pente en degrés par heure : une maison qui perd 4 °C à l'heure laisse quatre
+ fois moins de temps qu'une maison qui en perd 1, même quand les deux affichent la même température.
  - La pente des premières heures est la plus forte. Dans des maisons sans chauffage, mesurées par environ −8 °C
  dehors, l'air est passé de 20 à 14 °C dans les premières heures, puis il a baissé beaucoup plus lentement : l'écart
  avec le dehors avait diminué, et le béton, le gypse, les meubles et la terre autour du sous-sol rendaient leur chaleur
@@ -166,9 +169,8 @@ tôt que prévu, le plus important est fait.
  2 heures au-dessus de 4 °C ; cuire tout de suite ce qui a dégelé en restant à 4 °C ou moins (ch. 1). Dans les deux
  cas, ces aliments sortent du calcul.
 30. **Lien : répondre à trois questions.** Peut-on joindre quelqu'un ? Quelqu'un sait-il où on est ? À quelle heure
- va-t-il s'inquiéter ? Si la réponse est non aux deux premières et qu'on ne connaît pas la troisième, le lien est l'horloge la plus courte,
- même si tout le reste va bien. À la maison,
- les voisins comptent dans le lien.
+ va-t-il s'inquiéter ? Si la réponse est non aux deux premières et qu'on ne connaît pas la troisième, le lien est
+ l'horloge la plus courte, même si tout le reste va bien. À la maison, les voisins comptent dans le lien.
 
 ### Choisir : rester ou partir, et où aller
 
@@ -179,10 +181,10 @@ tôt que prévu, le plus important est fait.
  - Elle dure moins que le trajet : partir maintenant, ou décider de rester pour de bon. Si on attend, l'horloge finira
  avant qu'on arrive.
 32. **Choisir où aller.** Quand l'événement est court et que le délai de réparation est connu, rester à la maison, ou
- aller chez un proche en ville, où il y a les voisins et l'hôpital. Quand on ne sait plus combien de temps ça va durer, aller au chalet : la maison
- devient un bâtiment sans services parmi d'autres, et le chalet a le bois, l'eau et le territoire. Partir pendant que la
- route est ouverte et qu'on peut charger l'auto : chaque jour d'attente use du carburant et du bois, et la route
- peut fermer. Trois signes montrent que l'événement s'étire, même s'il n'empire pas :
+ aller chez un proche en ville, où il y a les voisins et l'hôpital. Quand on ne sait plus combien de temps ça va
+ durer, aller au chalet : la maison devient un bâtiment sans services parmi d'autres, et le chalet a le bois, l'eau et
+ le territoire. Partir pendant que la route est ouverte et qu'on peut charger l'auto : chaque jour d'attente use du
+ carburant et du bois, et la route peut fermer. Trois signes montrent que l'événement s'étire, même s'il n'empire pas :
  - l'eau du robinet n'a plus de pression ;
  - l'heure de rétablissement prévue par Hydro-Québec a été repoussée deux fois : on ne connaît plus le délai, même
  si la maison est encore habitable ;
@@ -236,9 +238,9 @@ tôt que prévu, le plus important est fait.
  « Si on reste et que ça tourne mal, voici ce qui arrive, et voilà ce que je fais. » « Si on part et que ça tourne
  mal, voici ce qui arrive, et voilà ce que je fais. » Retenir l'option dont la phrase finit par une action possible.
  Si aucune ne finit ainsi, retenir celle qui laisse au chaud, dans un endroit connu, avec de l'eau.
-42. **Prendre les mesures à deux adultes, puis laisser un seul décider**, et garder la décision jusqu'à l'heure
- fixée pour la reprendre (étape 43). Trancher dans l'heure : l'hiver, chaque heure d'attente enlève de la clarté pour le trajet, et la neige
- et le froid peuvent fermer la route.
+42. **Prendre les mesures à deux adultes, puis laisser un seul décider**, et garder la décision jusqu'à l'heure fixée
+ pour la reprendre (étape 43). Trancher dans l'heure : l'hiver, chaque heure d'attente enlève de la clarté pour le
+ trajet, et la neige et le froid peuvent fermer la route.
 
 ### Reprendre la décision à heure fixe
 
@@ -386,10 +388,10 @@ le congélateur en une journée de cuisson, on a des repas froids pour les jours
  avril. L'antigel de conduite est de l'alcool : l'alcool à brûler du réchaud ou l'alcool isopropylique de la
  pharmacie font le même travail. Ils se mêlent à l'eau au fond du réservoir et l'empêchent de prendre en glace. La
  dose est d'environ **350 mL pour un plein de 75 L**, un demi pour cent, à chaque plein l'hiver. Prendre
- l'isopropylique **à 99 %** : celui à 70 % contient 30 % d'eau, et c'est l'eau qu'on veut enlever du réservoir.
+ l'isopropylique **à 99 %** : celui à 70 % contient 30 % d'eau, et il en ajouterait au réservoir.
 - {!vapeurs} Sans alcool, réchauffer la conduite d'essence sans approcher de flamme ; il faut d'abord savoir où elle
  passe.
-- Sur la neige, le cric s'enfonce : glisser sous le cric une planche courte et large, qu'on garde dans le coffre.
+- Sur la neige, le cric s'enfonce : glisser une planche courte et large sous le cric, et en garder une dans le coffre.
 
 ### Si on part quand même : le trajet avec rien
 

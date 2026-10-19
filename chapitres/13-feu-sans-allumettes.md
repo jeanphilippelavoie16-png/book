@@ -39,30 +39,30 @@ ou une braise qu'on a gardée, aussi longtemps qu'il reste de l'amadou sec.
 
 1. **Si quelqu'un est mouillé, le mettre au sec avant d'allumer** : lui enlever ses vêtements mouillés, lui
  mettre des vêtements secs et le coucher dans un sac de couchage fermé, avec quelque chose d'épais sous
- lui (ch. 25, étapes 5 à 9). S'il y a deux adultes, l'un s'occupe de la personne mouillée pendant que
- l'autre fait le feu. Une personne seule et mouillée doit mettre des vêtements secs avant d'allumer.
+ lui (ch. 25, étapes 5 à 9). S'il y a deux adultes, l'un doit s'occuper de la personne mouillée pendant
+ que l'autre fait le feu. Une personne seule et mouillée doit mettre des vêtements secs avant d'allumer.
 2. **S'il y a un briquet au butane qui ne fait plus de flamme, le mettre sous ses vêtements, contre le
- ventre.** Sous 0 °C environ, le butane n'a plus assez de pression pour sortir du briquet (sous −11 °C pour un briquet à
- l'isobutane). Contre le ventre, le briquet se réchauffe et redonne une flamme. Dès qu'il en donne une,
+ ventre.** Sous 0 °C environ, le butane n'a plus assez de pression pour sortir du briquet (sous −11 °C
+ pour un briquet à l'isobutane). Contre le ventre, le briquet se réchauffe et redonne une flamme. Dès qu'il en donne une,
  allumer le nid tout de suite, avant que le briquet refroidisse dans la main.
 3. **Garder les mitaines et ramasser le bois.** Ramasser les branches mortes du bas des épinettes
  (étape 11), les casser et les trier en tas par grosseur (étape 10), et ramasser quelques bûches. On peut
  faire tout ce travail avec les mitaines, même fendre le bois : les mains restent chaudes pour le geste fin
  de l'étape 6. Ramasser l'amadou en même temps : de l'écorce de bouleau, de la barbe de vieillard
  (section 7, « L'amadou qu'on ramasse »). Se servir d'abord de l'amadou qu'on avait sur soi.
-4. {!co} **Faire le feu dehors, ou dans un poêle raccordé à son tuyau** (la tente à poêle : ch. 12). Dehors, le
- faire à l'abri du vent, et sur un lit de branches vertes s'il y a de la neige (étape 8). Même pour se réchauffer
- vite, ne jamais faire de feu dans une tente fermée, un abri de neige, une cabane de pêche ou la cabine d'un
- camion : sans tuyau, le monoxyde du feu reste dedans. Sous un cône de bâches, on peut faire un feu à trois
- conditions : le sommet reste grand ouvert, la flamme reste claire, et quelqu'un reste éveillé toute la nuit pour
- la garder (ch. 12, étape 75).
+4. {!co} **Faire le feu dehors, ou dans un poêle raccordé à son tuyau** (la tente à poêle : ch. 12).
+ Dehors, le faire à l'abri du vent, et sur un lit de branches vertes s'il y a de la neige (étape 8). Même
+ pour se réchauffer vite, ne jamais faire de feu dans une tente fermée, un abri de neige, une cabane de
+ pêche ou la cabine d'un camion : sans tuyau, le monoxyde du feu reste dedans. Sous un cône de bâches, on
+ peut faire un feu à trois conditions : le sommet doit rester grand ouvert, la flamme doit rester claire,
+ et quelqu'un doit rester éveillé toute la nuit pour la surveiller (ch. 12, étape 75).
 5. **Choisir la méthode selon l'état des mains.**
  - S'il fait plus froid que −17,5 °C, ou si les doigts font mal ou ne sentent plus rien : allumer à la pile
  ou à la batterie, avec de la laine d'acier (étapes 18 à 21). On touche la laine avec les deux bornes de
  la pile ou avec deux fils, et on peut le faire sans enlever les mitaines.
  - Sinon : allumer au ferrocérium (étapes 14 à 17), ou au briquet s'il a repris. Ces deux façons demandent
  des doigts qui sentent ce qu'ils tiennent.
- - S'il n'y a ni pile, ni ferrocérium, ni briquet : section 7.
+ - Sans pile ni batterie, sans ferrocérium et sans briquet : section 7.
 
  Les doigts perdent leur adresse quand la peau des mains descend sous 16 °C. Sans thermomètre, le repère
  est la douleur : les doigts commencent à faire mal au froid quand la peau descend vers 15 °C, et c'est
@@ -77,8 +77,8 @@ ou une braise qu'on a gardée, aussi longtemps qu'il reste de l'amadou sec.
 ### Monter le feu avant la première étincelle
 
 8. **Choisir l'endroit.**
- - Dehors, faire le feu à l'abri du vent, sur du sable, du gravier ou de la terre battue, et enlever autour
- tout ce qui brûle.
+ - Dehors, faire le feu à l'abri du vent, sur du sable, du gravier ou de la terre battue, et enlever tout
+ ce qui brûle autour.
  - Sur de la mousse et de l'humus, creuser jusqu'à la terre minérale, le sable ou le gravier qui est sous
  la couche brune. Le feu peut descendre dans l'humus, y avancer sans flamme et ressortir plus loin.
  - Sur la neige, poser côte à côte des branches vertes grosses comme le poignet, puis un ou deux autres
@@ -93,16 +93,16 @@ ou une braise qu'on a gardée, aussi longtemps qu'il reste de l'amadou sec.
  mur de neige, et dégager plus large autour [À VÉRIFIER].
 9. **Mettre de l'eau, du sable ou de la terre à portée de main** avant d'allumer.
 10. **Trier le bois en quatre tas, au complet, avant la première étincelle** : l'amadou fin
- (planche 13-40, repère 1), le petit bois de moins de 2 cm (repère 2), celui de 2 à 5 cm (repère 3) et les
+ (planche 13-40, repère 1), le bois fin, de moins de 2 cm (repère 2), le bois de 2 à 5 cm (repère 3) et les
  bûches de moins de 15 cm (repère 4). L'étincelle allume l'amadou ; la flamme de l'amadou allume le bois
- de moins de 2 cm, qui allume à son tour le bois de 2 à 5 cm, puis les bûches. Chaque tas doit être prêt
- au moment où la grosseur d'avant flambe : le feu qui vient de prendre meurt pendant qu'on va chercher le
- tas qui manque.
+ fin, qui allume à son tour le bois de 2 à 5 cm, puis les bûches. Chaque tas doit être prêt au moment où
+ la grosseur d'avant flambe : le feu qui vient de prendre s'éteint pendant qu'on va chercher le tas qui
+ manque.
 11. **Choisir du bois sec.** Cogner deux morceaux l'un contre l'autre : le bois sec sonne clair, le bois
  vert ou mouillé sonne mat. Prendre le bois mort debout : les chicots d'épinette noire et les branches
  mortes encore attachées au tronc. Le bois couché au sol garde l'eau de la pluie et de la neige, même quand
  il a l'air sec.
-12. **Fendre pour trouver le sec.**
+12. **Fendre le bois pour atteindre le cœur sec.**
  - Fendre et refendre une bûche mouillée en surface, jusqu'à avoir des éclisses grosses comme un doigt :
  le cœur de la bûche est sec. Le bois mouillé use la chaleur de la petite flamme du nid à sécher son eau,
  et la flamme s'éteint avant que le bois prenne.
@@ -115,8 +115,8 @@ ou une braise qu'on a gardée, aussi longtemps qu'il reste de l'amadou sec.
  un bidon entre soi et le feu.
 13. **Monter le tipi** (planche 13-40, repères 5 et 6). Il brûle même avec du bois humide : en brûlant, le
  bois de l'extérieur tombe vers le centre, sur le feu.
- - Dresser le bois de moins de 2 cm en cône lâche, avec du vide entre les morceaux pour que l'air arrive
- jusqu'à la flamme.
+ - Dresser le bois fin en cône lâche, avec du vide entre les morceaux pour que l'air arrive jusqu'à la
+ flamme.
  - Laisser une ouverture du côté du vent. On y glissera le nid, et l'air entrera par là.
 
 ### Allumer au ferrocérium
@@ -124,12 +124,12 @@ ou une braise qu'on a gardée, aussi longtemps qu'il reste de l'amadou sec.
 14. **Faire le nid.**
  - Prendre une bonne poignée de fibres fines et sèches, et les effilocher entre les doigts jusqu'à voir le
  jour au travers (repère 7).
- - Creuser un creux au centre.
+ - Faire un creux au centre.
  - Mettre au fond du creux une pincée de matière très fine (poudre grattée sur l'écorce de bouleau, duvet
- de quenouille), puis un peu de poudre de ferrocérium : quelques passes douces du couteau sur la tige,
- sans faire d'étincelle (repère 8). Cette poudre prend feu à la première gerbe.
+ de quenouille), puis un peu de poudre de ferrocérium, grattée en passant doucement le couteau sur la tige
+ quelques fois, sans faire d'étincelle (repère 8). Cette poudre prend feu à la première gerbe.
 15. **Faire l'étincelle.**
- - Poser la pointe de la tige dans le nid, à un doigt au-dessus de l'amadou, sans le toucher (repère 9).
+ - Tenir la pointe de la tige au-dessus du creux du nid, à un doigt de l'amadou, sans le toucher (repère 9).
  - Appuyer le dos du couteau sur la tige, presque d'équerre, et le tenir immobile (repère 10).
  - Tirer la tige vers soi, d'un coup, sans bouger le couteau (repère 11). Si on pousse le couteau vers le
  bas, il finit sa course dans le nid et l'éparpille.
@@ -147,7 +147,8 @@ ou une braise qu'on a gardée, aussi longtemps qu'il reste de l'amadou sec.
 17. **Glisser le nid sous le tipi, par l'ouverture** (repère 17), et ajouter le bois de 2 à 5 cm seulement
  quand le bois fin crépite seul (repère 18).
 
-Sans tige de ferrocérium : le briquet à pierre, la batterie, le soleil ou l'arc à feu (section 7).
+Sans tige de ferrocérium, on peut allumer au briquet à pierre, à la batterie, au soleil ou à l'arc à feu
+(section 7).
 
 ### Allumer à la pile ou à la batterie, quand les doigts ne suivent plus
 
@@ -155,13 +156,14 @@ Sans tige de ferrocérium : le briquet à pierre, la batterie, le soleil ou l'ar
  la taille du poing (planche 13-10, repères 1 et 2), et la poser dans le creux du nid (repère 3).
 19. **Avec une pile de 9 V, toucher la laine avec les deux bornes de la pile**, à un endroit, puis à un autre
  (repère 4). Les fils de la laine rougissent, et le rouge s'étend seul dans la boule (repère 5). Une pile
- trop faible pour faire marcher un avertisseur peut encore suffire. Pour transporter la pile, garder son
- capuchon ou couvrir les bornes de ruban : un objet de métal qui touche les deux bornes chauffe assez pour
- mettre le feu au sac.
+ trop faible pour faire marcher un avertisseur de fumée peut encore suffire. Pour transporter la pile,
+ garder son capuchon ou couvrir les bornes de ruban : un objet de métal qui touche les deux bornes chauffe
+ assez pour mettre le feu au sac.
 20. **Avec la batterie de l'auto, de la motoneige ou du VTT :**
  - Attacher un fil de cuivre à chaque borne, ou prendre les câbles de survoltage (repère 6).
- - Tenir les deux autres bouts par leur gaine, à un bras de la batterie, et toucher la laine avec (repères 7
- et 8). Quand le courant passe, le fil chauffe sur toute sa longueur, pas seulement au bout.
+ - Tenir les deux autres bouts par leur gaine, à une longueur de bras de la batterie, et toucher la laine
+ avec ces deux bouts (repères 7 et 8). Quand le courant passe, le fil chauffe sur toute sa longueur, pas
+ seulement au bout.
  - {!vapeurs} Faire l'étincelle au bout des fils, jamais au-dessus de la batterie, et ne jamais poser un outil
  d'une borne à l'autre : une batterie au plomb dégage de l'hydrogène, et l'étincelle peut le faire exploser,
  faire éclater le bac et projeter l'acide.
@@ -172,7 +174,8 @@ Sans tige de ferrocérium : le briquet à pierre, la batterie, le soleil ou l'ar
 ### Allumer au soleil
 
 22. **Choisir une cible sombre et sèche** : de l'amadou carbonisé (étape 25), du bois pourri sec et brun,
- de l'écorce intérieure noircie. Le point de lumière fait fumer une matière sombre ; sur une matière blanche, il ne fait presque rien.
+ de l'écorce intérieure noircie. Le point de lumière fait fumer une matière sombre ; sur une matière
+ blanche, il ne fait presque rien.
 23. **Faire le plus petit point de lumière possible et le tenir immobile** sur la cible, avec une loupe ou
  une des lentilles de la section 7 : avancer ou reculer la lentille jusqu'à ce que le point soit le plus
  petit et le plus brillant, puis caler la lentille et les mains sur un appui. Il faut un soleil franc.
@@ -184,17 +187,17 @@ Sans tige de ferrocérium : le briquet à pierre, la batterie, le soleil ou l'ar
  - Prendre une boîte de métal à couvercle serré, comme une boîte de pastilles ou de thé (repère 1).
  - La remplir de carrés de coton pur, coupés dans de vieux jeans ou une guenille (repère 2). Du coton
  seulement : un tissu synthétique fond au lieu de noircir.
- - Percer un seul trou d'un clou dans le couvercle (repère 3).
+ - Percer un seul trou dans le couvercle avec un clou (repère 3).
 26. **Chauffer la boîte.**
  - La poser sur les braises : un jet de fumée sort du trou.
  - Quand le jet cesse, retirer la boîte du feu (repère 4).
  - Boucher le trou avec un bout de bois (repère 5), et laisser la boîte refroidir fermée (repère 6) : si
  on l'ouvre chaude, l'air entre et le coton flambe.
 27. **Regarder le résultat.** Le coton doit être noir et souple, et on doit pouvoir le déchirer sans qu'il
- tombe en poussière (repère 7). S'il est brun, le remettre au feu ; s'il tombe en poussière, sortir la boîte plus tôt la
- prochaine fois.
+ tombe en poussière (repère 7). S'il est brun, le remettre au feu ; s'il tombe en poussière, sortir la
+ boîte plus tôt la prochaine fois.
 28. **S'en servir.** Une seule étincelle de ferrocérium ou de pierre (section 7), ou le point de la lentille,
- fait sur l'amadou carbonisé un point rouge, sans flamme. Mettre l'amadou dans le nid et souffler
+ fait un point rouge sur l'amadou carbonisé, sans flamme. Mettre l'amadou dans le nid et souffler
  (étape 16). Garder l'amadou carbonisé dans une boîte fermée, au sec.
 
 ### Éteindre
@@ -207,7 +210,7 @@ Sans tige de ferrocérium : le briquet à pierre, la batterie, le soleil ou l'ar
  - Sur un lit de branches vertes, arroser aussi les branches : elles peuvent couver sous ce qu'on a
  éteint.
 
- Le feu qui a gagné l'humus : étape 8 et section 6. Les cendres du poêle : ch. 82.
+ Si le feu est descendu dans l'humus : étape 8 et section 6. Pour les cendres du poêle : ch. 82.
 
 ---
 
@@ -218,13 +221,13 @@ Sans tige de ferrocérium : le briquet à pierre, la batterie, le soleil ou l'ar
 | Avant d'allumer | Le bois | Il sonne clair au choc ; environ 25 % d'humidité ou moins, si on a un humidimètre | Fendre jusqu'au cœur ; prendre du bois mort debout (étapes 11 et 12) |
 | Avant d'allumer | Les grosseurs | Deux tas de petit bois : moins de **2 cm**, et **2 à 5 cm** ; bûches de moins de **15 cm** | Refendre ; ne pas passer à la grosseur suivante |
 | Avant d'allumer dehors | Le vent | Moins de **20 km/h** : la feuille de papier journal reste au sol | Faire le feu dans le poêle, ou attendre |
-| Avant d'allumer dehors | Le foyer | **1 m sur 1 m** au plus, pourtour dégagé, terre minérale | Réduire ; creuser jusqu'à la terre minérale |
+| Avant d'allumer dehors | Le foyer | **1 m sur 1 m** au plus, pourtour dégagé, terre minérale | Le réduire ; creuser jusqu'à la terre minérale |
 | Le nid | L'amadou | On voit le jour au travers ; il craque sous les doigts | L'effilocher encore ; le sécher sous les vêtements |
 | L'étincelle | La gerbe | Une gerbe orange et serrée qui tombe dans le creux | Rapprocher la pointe ; tirer la tige au lieu de pousser le couteau |
 | La braise | La fumée | Blanche, épaisse et continue après le premier souffle | Souffler plus longtemps et plus doucement ; ajouter de la matière fine |
 | Le nid a fini de brûler | Le tipi | Le bois fin crépite seul, sans souffle | Ajouter du bois fin, pas de gros bois |
 | Feu établi | La flamme | Vive, peu de fumée, aucun sifflement au bout des bûches | Changer de bois (ch. 83) |
-| Amadou carbonisé | Le coton | Noir, souple ; on le déchire sans qu'il s'effrite | Brun : le remettre au feu. En poussière : le sortir plus tôt |
+| Amadou carbonisé | Le coton | Noir, souple ; on le déchire sans qu'il s'effrite | Brun : le remettre au feu. En poussière : sortir la boîte plus tôt la prochaine fois |
 | Extinction | Les cendres | Aucune chaleur sous la main, au ras des cendres et des branches | Arroser et brasser encore ; rester sur place |
 
 ---
@@ -233,17 +236,17 @@ Sans tige de ferrocérium : le briquet à pierre, la batterie, le soleil ou l'ar
 
 | Observation | Diagnostic | Action |
 | --- | --- | --- |
-| Étincelles jaunes et rares, qui meurent dans l'air | Grattoir émoussé ou tenu trop à plat ; tige neuve encore couverte de son vernis | Meuler une arête d'équerre (ch. 105) ; gratter la tige neuve pour enlever le vernis |
+| Étincelles jaunes et rares, qui s'éteignent dans l'air | Grattoir émoussé ou tenu trop à plat ; tige neuve encore couverte de son vernis | Meuler une arête d'équerre (ch. 105) ; gratter la tige neuve pour enlever le vernis |
 | Le nid fume, puis s'éteint dès qu'on arrête de souffler | Amadou humide au cœur, ou trop serré | L'effilocher et le sécher sous les vêtements ; le refermer sans le serrer |
 | La braise grossit, puis noircit sans faire de flamme | Souffle par à-coups | Souffler en continu, sans à-coups (étape 16) |
 | Le nid s'envole à la première étincelle | On a poussé le couteau sur la tige | Tenir le couteau immobile et tirer la tige vers soi (étape 15) |
-| Flamme vive quelques secondes, puis plus rien | On est passé du bois fin aux bûches sans le bois de 2 à 5 cm | Remonter le tipi en bois de moins de 2 cm, puis ajouter le 2 à 5 cm |
+| Flamme vive quelques secondes, puis plus rien | On est passé du bois fin aux bûches sans le bois de 2 à 5 cm | Remonter le tipi en bois fin, puis ajouter le bois de 2 à 5 cm |
 | Sifflement et bulles au bout des bûches, fumée épaisse | Bois vert ou mouillé : l'eau du bois bout | Changer de bois ; fendre du bois mort debout (étapes 11 et 12 ; ch. 83) |
 | La laine d'acier rougit à peine, ou pas du tout | Laine trop grosse, ou pile vide | Prendre une laine plus fine ; essayer une autre pile, ou la batterie (étape 20) |
 | Poussière brun pâle, et non noire, dans l'encoche de l'arc à feu | Pas assez de vitesse ou de pression, ou bois trop dur pour la planchette | Appuyer plus fort, aller plus vite ; changer de bois (section 7) |
-| Fumée qui refoule dans la pièce, flamme jaune et lente | Pas assez d'air, ou cheminée bouchée : le feu fait du CO | Ouvrir la clé au maximum, aérer (ch. 83) |
-| Mal de tête, nausée ou étourdissements chez plus d'une personne près d'un feu | Intoxication au monoxyde de carbone | Sortir tout le monde dehors, puis ch. 26 |
-| Doigts blancs, cireux, insensibles pendant l'allumage | Gelure qui commence | Arrêter, réchauffer contre le corps, ne pas frotter (ch. 25) |
+| Fumée qui refoule dans la pièce, flamme jaune et lente | Pas assez d'air, ou cheminée bouchée : le feu fait du monoxyde | Ouvrir au maximum la clé du tuyau, aérer (ch. 83) |
+| Mal de tête, nausée ou étourdissements chez plus d'une personne près d'un feu | Intoxication au monoxyde de carbone | Sortir tout le monde dehors, puis soigner selon le ch. 26 |
+| Doigts blancs, cireux, insensibles pendant l'allumage | Gelure qui commence | Arrêter, réchauffer les doigts contre le corps, ne pas frotter (ch. 25) |
 | Fumée blanche qui sort du sol à côté du foyer | Le feu est descendu dans l'humus et avance sous la mousse | Arroser beaucoup et creuser jusqu'à la terre minérale (étape 29) |
 
 ---
@@ -265,39 +268,39 @@ parallèles sur le sol, puis un rang de bûches serrées en travers sur elles. M
 autres rangs : chaque rang est fait de bûches plus petites que celles du rang d'en dessous, et posé en travers
 de lui. Allumer un petit feu sur le dessus : il brûle vers le bas, d'un rang à l'autre.
 
-{!co} Dans le poêle, on garde l'air ouvert la nuit et on recharge à tour de rôle, sans couvrir le feu ni
-fermer l'air (ch. 3, étape 6).
+{!co} Dans le poêle, on ne couvre pas le feu pour la nuit : on garde l'air du poêle ouvert et on recharge
+à tour de rôle (ch. 3, étape 6).
 
-**Le relais.** On charge une personne du feu, jour et nuit, et on change de personne à heure fixe. La
-personne de garde ne part pas pêcher avant que la relève soit debout. Il faut du bois fendu d'avance en
-tout temps : on coupe la veille le bois du lendemain, tout l'hiver.
+**Le relais.** On confie le feu à une personne, jour et nuit, et on change de personne à heure fixe. La
+personne de garde ne doit pas partir pêcher avant que la relève soit debout. Il faut du bois fendu d'avance
+en tout temps : on coupe le bois du lendemain la veille, tout l'hiver.
 
 **La boîte à braise, pour se déplacer** (planche 13-08).
 
-- Percer au clou une boîte de conserve, tout autour et dans le couvercle, en glissant un bout de bûche
- dans la boîte pour appuyer (repères 1 et 2).
+- Percer des trous au clou dans une boîte de conserve, tout autour et dans le couvercle, en glissant un
+ bout de bûche dans la boîte pour appuyer (repères 1 et 2).
 - Mettre au fond un lit de cendre sèche ou de sable (repère 3).
 - Poser une braise vive au centre (repère 4).
-- La couvrir d'un bloc d'amadouvier ou de bois pourri sec (repère 5), puis de cendre
- (repère 6), et fermer le couvercle (repère 7).
+- La couvrir d'un bloc d'amadouvier ou de bois pourri sec (repère 5), puis de cendre (repère 6), et fermer
+ le couvercle (repère 7).
 - Passer une anse de fil de broche (repère 8), et porter la boîte au bout du fil, loin du corps : elle
- chauffe assez pour traverser une mitaine (repère 9).
+ chauffe assez pour brûler à travers une mitaine (repère 9).
 
 Le bois pourri sec et l'amadouvier couvent sans faire de flamme, et ils gardent la braise allumée pendant
 le trajet. À chaque arrêt, regarder les trous : tant que de la fumée en sort, la braise est allumée
 (repère 10). S'il n'en sort plus, ouvrir la boîte et remettre une braise. La braise tient plus ou moins
-longtemps selon la braise qu'on a mise, le bois pourri et le vent : on essaie la boîte de jour, sur un court trajet,
-avant de compter dessus pour un long.
+longtemps selon la braise qu'on a mise, le bois pourri et le vent : on essaie la boîte de jour, sur un
+court trajet, avant de compter dessus pour un long.
 
 ### L'amadou qu'on ramasse
 
 On ramasse ce qui reçoit l'étincelle toute l'année, et on le garde au sec, dans un sac fermé qu'on porte
 sous ses vêtements en sortant : sous la pluie verglaçante, on ne trouve pas d'amadou sec dehors.
 
-- L'écorce extérieure du bouleau à papier, levée sur un arbre mort, debout ou couché.
- Elle brûle même humide.
-- La gomme figée d'épinette noire, sur les blessures des troncs, et la gomme de sapin baumier, crevée à la
- pointe du couteau dans les cloques de l'écorce (ch. 94).
+- L'écorce extérieure du bouleau à papier, levée sur un arbre mort, debout ou couché. Elle brûle même
+ humide.
+- La gomme figée d'épinette noire, sur les blessures des troncs, et la gomme de sapin baumier, qu'on prend
+ en crevant les cloques de l'écorce à la pointe du couteau (ch. 94).
 - Le bois gras de pin gris (étape 12).
 - La barbe de quenouille, sur les têtes qui dépassent la neige au bord des marais.
 - La barbe de vieillard, le lichen en filaments gris-vert des branches basses, qui reste sec sous
@@ -308,11 +311,11 @@ sous ses vêtements en sortant : sous la pluie verglaçante, on ne trouve pas d'
 - Une chandelle de suif (ch. 112) : sa flamme dure assez pour sécher du petit bois tenu au-dessus.
 
 **L'amadou carbonisé sans boîte de métal** (planche 13-07, repères 8 à 12 ; avec la boîte, étapes 25
-à 27). Rouler des carrés de coton serrés dans un cornet d'écorce de bouleau (repères 8 et 9), et le
+à 27). Rouler serré des carrés de coton dans un cornet d'écorce de bouleau (repères 8 et 9), et le
 ficeler avec une hart, une branche mince et souple qu'on tord pour s'en servir comme lien (repère 10).
 Enfouir le cornet sous les braises, attendre que le jet de fumée cesse, puis le sortir (repère 11) et
-l'enfouir dans le sable pour l'étouffer (repère 12). On y trouve du brun et de la poussière à côté du bon
-noir : on garde le noir.
+l'enfouir dans le sable pour l'étouffer (repère 12). Dans le cornet, on trouve du coton brun et de la
+poussière à côté du bon coton noir : garder seulement le noir.
 
 **L'amadouvier** donne le vrai amadou (planche 13-07, repères 13 à 19).
 
@@ -326,8 +329,9 @@ noir : on garde le noir.
 
 Battu et séché, ce feutre prend l'étincelle. Pour qu'il la prenne mieux et garde le point rouge plus
 longtemps, on le fait bouillir d'abord dans de la lessive de cendre de bois (ch. 112), puis on le bat et
-on le fait sécher encore. Trempé dans une solution de salpêtre (le nitrate de potassium), puis séché, il
-couve seul, lentement, comme une mèche. On règle la lessive et le salpêtre par essai : on trempe un bout de
+on le fait sécher encore. Si on le trempe dans une solution de salpêtre (le nitrate de potassium), puis
+qu'on le fait sécher, il couve seul, lentement, comme une mèche. On trouve la bonne force de la lessive et
+du salpêtre par essai : on trempe un bout de
 feutre, on le fait sécher, on lui donne une étincelle, et on regarde s'il prend et combien de temps il
 garde le point rouge.
 
@@ -352,15 +356,15 @@ carbonisé ou de l'amadouvier pour la recevoir. Une touffe d'ouate sèche, qui p
 prend pas à cette étincelle.
 
 **Les briquets vides.** La molette et la pierre d'un briquet jetable sans gaz donnent encore des étincelles
-pendant des mois. On les fait tomber sur de l'amadou carbonisé. Quand une tige de ferrocérium devient trop
-courte pour la tenir, on la colle dans un manche de bois percé avec de la gomme d'épinette chauffée
-(ch. 94).
+pendant des mois. On fait tomber ces étincelles sur de l'amadou carbonisé. Quand une tige de ferrocérium
+devient trop courte pour la tenir, on la colle dans un manche de bois percé, avec de la gomme d'épinette
+chauffée (ch. 94).
 
 ### Le feu à la batterie, sans laine d'acier
 
-Il reste presque toujours une batterie : dans l'auto, la motoneige, le VTT, la chaloupe ou le banc du
-panneau solaire. On branche les fils comme à l'étape 20, et on touche avec les deux bouts ce qu'on veut
-faire chauffer.
+Il reste presque toujours une batterie : dans l'auto, la motoneige, le VTT, la chaloupe ou le banc de
+batteries du panneau solaire. On branche les fils comme à l'étape 20, et on touche ce qu'on veut faire
+chauffer avec les deux bouts.
 
 - **Une mine de crayon** posée en travers des deux fils (planche 13-10, repère 9) : elle fait un arc et un
  point très chaud qui dure assez pour poser l'amadou dessus.
@@ -422,8 +426,8 @@ habiles.
 
 ### Ce qu'on ne peut pas remplacer
 
-**Les allumettes.** On ne peut pas les fabriquer au chalet : il faut, pour la tête et le grattoir, des
-produits chimiques (du chlorate, du phosphore rouge) qu'on n'y trouve pas.
+**Les allumettes.** On ne peut pas les fabriquer au chalet : il faut des produits chimiques pour la tête
+et le grattoir (du chlorate, du phosphore rouge), et on n'en trouve pas au chalet.
 
 ---
 
@@ -438,8 +442,8 @@ Chez un même fabricant, on peut gratter la grosse tige de ferrocérium jusqu'à
 
 Les Métis faisaient brûler l'amadouvier entier pour chasser les moustiques et les mouches. Le champignon
 couve longtemps sans flamme, et sa fumée éloigne les insectes. Dehors, la fumée se disperse dans l'air. Sous
-une toile ou dans un abri fermé, le champignon qui couve fait du monoxyde comme une braise : on le laisse
-dehors (section 7, l'amadouvier).
+une toile ou dans un abri fermé, le champignon qui couve fait du monoxyde comme une braise : il faut le
+laisser dehors (section 7, l'amadouvier).
 
 ### Reconnaître l'amadouvier
 

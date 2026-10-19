@@ -44,11 +44,11 @@ viande, qu'elle dure six heures ou cinq semaines.
  - Si la rue est éclairée et pas la maison, regarder d'abord le disjoncteur principal du panneau électrique. S'il est
  enclenché, le bris est à l'entrée électrique de la maison : le mât de branchement, le tuyau de métal qui sort du toit
  ou qui monte le long du mur ; le col-de-cygne, le capuchon recourbé au bout du mât, par où sortent les fils ; ou le
- support d'isolateurs, où s'attache le câble qui vient du poteau. On voit de la rue un mât arraché par la glace : il
+ support d'isolateurs, où s'attache le câble qui vient du poteau. De la rue, on voit un mât arraché par la glace : il
  penche, ou le câble qui y entre pend.
  - Hydro-Québec ne répare pas ces pièces, et elle ne rebranche pas la maison tant qu'elles ne sont pas réparées : la
- maison reste sans courant, même quand la rue est rebranchée. Dès qu'on voit le mât brisé, on traite la maison comme
- une maison sans courant pour longtemps : on vidange (étapes 21 à 25) et on décide du départ (étape 11).
+ maison reste sans courant, même quand la rue est rebranchée. Dès qu'on voit le mât brisé, traiter la maison comme
+ une maison sans courant pour longtemps : vidanger (étapes 21 à 25) et décider du départ (étape 11).
  - {!electrocution} Dehors, rester loin de tout fil tombé, et de tout ce qu'il touche.
 2. **Éteindre la cuisinière et les appareils qui marchaient, et débrancher l'électronique.** Le courant revient d'un
  coup, parfois pendant qu'on dort : une cuisinière restée allumée chauffe alors sans personne devant, et la surtension
@@ -56,12 +56,12 @@ viande, qu'elle dure six heures ou cinq semaines.
  revenu.
 3. **Écrire l'heure sur la porte du congélateur, puis n'ouvrir ni le congélateur ni le réfrigérateur.** On compte le
  temps des aliments à partir de cette heure-là (étapes 27 à 31). L'écrire au crayon ou au marqueur, sur un bout de
- ruban ou de papier collé. Sans elle, on doit traiter tout le congélateur comme décongelé.
+ ruban ou de papier collé. Sans cette heure, on doit traiter tout le congélateur comme décongelé.
 4. **Remplir la baignoire et des chaudrons d'eau, tout de suite.** Sur l'aqueduc, la pression vient des pompes de la
- ville et tient tant qu'elles ont du courant, du réseau ou d'une génératrice ; rien n'annonce le moment où elle tombe.
- Quand elle tombe, la conduite peut aspirer l'eau du sol par ses joints et ses fuites, et l'eau du réseau peut devenir
- impropre à boire sans qu'on le voie ni qu'on le goûte. On doit donc faire bouillir au moins 1 minute l'eau qui coule
- après la baisse de pression ; l'eau remplie avant n'a pas besoin de bouillir (ch. 10). Le chauffe-eau est une
+ ville et tient tant qu'elles ont du courant, celui d'Hydro-Québec ou celui d'une génératrice ; rien n'annonce le moment où elle tombe.
+ Quand elle tombe, la conduite peut aspirer l'eau du sol par ses joints et ses fuites, et l'eau de l'aqueduc peut devenir
+ impropre à boire sans qu'on le voie ni qu'on le goûte. Il faut donc faire bouillir l'eau qui coule après la baisse de
+ pression, au moins 1 minute ; l'eau tirée avant n'a pas besoin de bouillir (ch. 10). Le chauffe-eau est une
  réserve de plus (étape 23). Au chalet, la pompe du puits s'arrête avec le courant, et il reste quelques minutes de
  pression.
 5. {!co} **Tester l'avertisseur de CO au bouton, et le poser dans la pièce chauffée où la famille va dormir.**
@@ -69,16 +69,16 @@ viande, qu'elle dure six heures ou cinq semaines.
  et on finit par l'enlever. Dans une chambre qui descend sous 4,4 °C, on ne peut plus se fier à lui. S'il y en a un
  deuxième, le poser près de la porte du garage attenant : le gaz d'un moteur qui tourne dans le garage entre par
  cette porte.
- - Lire le chiffre affiché matin et soir, sans attendre la sirène : à faible dose, l'avertisseur peut ne pas sonner
- avant des jours, alors que le mal de tête, la nausée et la fatigue qu'on met sur le compte du froid ont commencé. Dès
+ - Lire le chiffre affiché matin et soir, sans attendre la sirène : quand il y a peu de monoxyde, l'avertisseur peut ne pas
+ sonner pendant des jours, alors que le mal de tête, la nausée et la fatigue qu'on met sur le compte du froid ont commencé. Dès
  que l'écran affiche un chiffre, l'avertisseur détecte du monoxyde ; si le chiffre ne redescend pas de la journée, un
  appareil de la maison en fait.
  - Un avertisseur installé depuis plus de 7 ans peut répondre au bouton sans plus mesurer le gaz : faire comme si on
  n'en avait pas.
- - Ne jamais rentrer dans la maison ce qui est fait pour l'extérieur ou le camping : le barbecue, le réchaud, la
- chaufferette de camping, la génératrice. Pas même pour peu de temps, ni avec une fenêtre entrouverte : une maison
+ - Ne jamais rentrer dans la maison ce qui est fait pour l'extérieur ou le camping (le barbecue, le réchaud, la
+ chaufferette de camping, la génératrice), même pour peu de temps, même avec une fenêtre entrouverte : une maison
  fermée à −35 °C ne change pas assez d'air pour sortir le monoxyde d'un appareil qui en fait sans arrêt.
- - Si l'avertisseur ne répond pas au bouton, ou si on n'en a pas, ne faire brûler dans la maison que le poêle raccordé
+ - Si l'avertisseur ne répond pas au bouton, ou si on n'en a pas, n'allumer dans la maison que le poêle raccordé
  à sa cheminée.
 
 ### Le courant ne revient pas {.orange 6 h}
@@ -94,21 +94,20 @@ ajouter une couverture et une tuque aux enfants, les laisser dormir, et faire la
  provenance.
  - Si la fumée sort par la porte du poêle à l'allumage, la cheminée refoule : après quelques heures sans feu par grand
  froid, l'air de la cheminée est plus froid et plus lourd que celui de la maison, et il descend. Rouler une feuille de
- papier en torche, l'allumer et la tenir haute dans le poêle, au plus près de la sortie de fumée, jusqu'à ce que le
+ papier en torche, l'allumer et la tenir le plus haut possible dans le poêle, au plus près de la sortie de fumée, jusqu'à ce que le
  tirage aspire la flamme ; allumer le petit bois seulement à ce moment-là. Autre façon : entrouvrir une fenêtre de la
  pièce, du côté du vent. Refaire la torche à chaque rallumage, tant que la cheminée est froide.
  - {!co} **La nuit**, garder l'air du poêle ouvert ; le recharger à tour de rôle entre adultes, ou le laisser
  s'éteindre et le rallumer au réveil. Ne pas fermer l'air pour que le feu dure jusqu'au matin : le feu étouffé, ou
- réduit à la braise, peut renvoyer sa fumée et son monoxyde dans la pièce, même porte du poêle fermée.
+ réduit à la braise, peut renvoyer sa fumée et son monoxyde dans la pièce, même quand la porte du poêle est fermée.
  - **Sans poêle**, réunir la famille dans la plus petite pièce, sous un abri (étape 9), suivre la température
- (étape 22), vidanger la maison (étapes 21 à 25), puis partir de jour, pendant que la route est ouverte (ch. 2). La maison vidangée peut rester froide sans dégâts pendant que la famille
- est au chalet.
+ (étape 22), vidanger la maison (étapes 21 à 25), puis partir de jour, pendant que la route est ouverte (ch. 2).
 7. **Vivre dans une seule pièce : celle du poêle**, ou, sans poêle, la plus petite pièce qui a le moins de murs
  extérieurs. Fermer les autres pièces, boucher le bas des portes avec une couverture roulée, et fermer les rideaux au
  coucher du soleil. La perte de chaleur d'une maison est proportionnelle à l'écart de température avec l'extérieur et
  à la surface exposée : en regroupant la famille dans une seule pièce et en fermant les autres, on réduit la surface
- à chauffer. Choisir la pièce pour la chaleur des gens : on protège la plomberie en la vidangeant (étapes 21 à 25),
- ce qui coûte moins de bois que de chauffer une pièce de plus. Le jour, rouvrir les rideaux des fenêtres qui reçoivent
+ à chauffer. Choisir la pièce pour garder les gens au chaud : la plomberie, on la protège en la vidangeant (étapes 21
+ à 25), ce qui coûte moins de bois que de chauffer une pièce de plus. Le jour, rouvrir les rideaux des fenêtres qui reçoivent
  le soleil. Pour fermer une fenêtre avec une couverture : section 7.
 8. {!froid} **Habiller tout le monde en couches, avec une tuque, avant d'avoir froid.** Regarder les joues, le nez
  et les oreilles des enfants deux fois par jour, sans attendre qu'ils disent avoir froid (section 5 ; ch. 39).
@@ -128,13 +127,13 @@ ajouter une couverture et une tuque aux enfants, les laisser dormir, et faire la
  - Deux cartons et une couverture sous le corps gardent plus chaud que quatre couvertures à même le plancher.
 10. **Envoyer un message texte à un proche : où on est, combien on est, ce qu'on va faire.** Les tours cellulaires
  tiennent quelques heures sur leurs batteries : donner des nouvelles dans les premières heures. Un message texte ou
- un courriel encombre moins le réseau qu'un appel : il peut passer quand les appels saturent le réseau, ou
+ un courriel encombre moins le réseau cellulaire qu'un appel : il peut passer quand les appels saturent le réseau, ou
  quand le service d'appel est coupé. Quand le cellulaire ne passe plus, il reste la radio (section 7).
-11. **Décider si la famille reste à la maison, au réveil et assez tôt pour partir de jour** (ch. 2).
+11. **Au réveil, assez tôt pour pouvoir partir de jour, décider si la famille reste à la maison** (ch. 2).
  - Rester si la maison a un poêle raccordé à une cheminée, si on a assez de bois sec pour la durée de la panne et un
  avertisseur de CO qui répond au bouton, et si la pièce chauffée reste au-dessus de 5 °C.
- - Partir pendant que la maison est encore confortable quand la panne touche toute la région, que la tempête continue
- et que le chemin du chalet va fermer.
+ - Quand la panne touche toute la région, que la tempête continue et que le chemin du chalet va fermer, partir
+ pendant que la maison est encore confortable.
  - Partir dès le premier soir si quelqu'un dépend d'un appareil médical électrique, sauf si on l'a essayé avant la
  panne sur une batterie d'auto et un onduleur, et qu'il marchait.
  - Avant de partir, vidanger la maison (étapes 21 à 25). Tant que la panne dure, reprendre la décision deux fois par
@@ -145,7 +144,7 @@ ajouter une couverture et une tuque aux enfants, les laisser dormir, et faire la
 Faire la même série quand plusieurs personnes ont mal à la tête, la nausée ou des étourdissements en même temps, avec
 ou sans alarme.
 
-12. {!co} **Réveiller et sortir tout le monde, tout de suite, sans chercher la source.** Prendre au passage les
+12. {!co} **Réveiller et sortir tout le monde, tout de suite, sans chercher la source.** En passant, prendre les
  manteaux, les bottes et les couvertures qui sont sur le chemin, et laisser la porte ouverte derrière soi.
 13. **Mettre les enfants au chaud** chez un voisin, ou dans l'auto stationnée dehors. Avant de démarrer le moteur,
  dégager le tuyau d'échappement à la pelle : pris dans la neige, il renvoie les gaz dans l'auto. Ensuite, faire les
@@ -164,22 +163,22 @@ ou sans alarme.
 
 ### La génératrice, s'il y en a une
 
-16. {!generatrice} **Installer la génératrice dehors, à au moins 6 m (20 pi) de tout bâtiment**, l'échappement tourné
- à l'opposé des portes, des fenêtres et des prises d'air, jamais au garage, même porte ouverte, ni sous la galerie, ni
- dans le tambour d'entrée.
+16. {!generatrice} **Installer la génératrice dehors, à au moins 6 m de tout bâtiment**, et tourner l'échappement à
+ l'opposé des portes, des fenêtres et des prises d'air. Ne jamais l'installer au garage, même porte ouverte, ni sous
+ la galerie, ni dans le tambour d'entrée.
  **La nuit**, attendre le jour pour l'installer : le congélateur fermé tient jusqu'au matin.
 17. {!electrocution} **Mettre le disjoncteur principal à OFF avant de démarrer la génératrice, et brancher les
- appareils directement dans ses prises.** Ne jamais brancher la génératrice dans une prise de la maison, ni dans celle
+ appareils directement dans les prises de la génératrice.** Ne jamais brancher la génératrice dans une prise de la maison, ni dans celle
  de la sécheuse, ni avec un câble à deux fiches mâles, et ne rien raccorder au panneau électrique sans commutateur de
  transfert : ce commutateur coupe la maison de la ligne d'Hydro-Québec avant de la relier à la génératrice, et avec
  lui, la maison ne peut pas être reliée aux deux en même temps.
 18. **Démarrer un appareil à la fois.** Un moteur à compresseur demande beaucoup plus de courant au démarrage qu'une
- fois lancé, et ce pic fait caler la génératrice ou déclencher son disjoncteur : brancher un appareil, attendre que
+ fois lancé, et ce pic fait caler la génératrice ou déclencher le disjoncteur de la génératrice : brancher un appareil, attendre que
  le moteur tourne rond, puis brancher le suivant. La puissance de chaque appareil est écrite sur sa plaque.
-19. **Brancher le congélateur d'abord, tant qu'il est plein.** Le faire tourner jusqu'à ce que son thermomètre revienne
- à la normale, le débrancher, et le rebrancher quand le thermomètre remonte. En janvier, une fois la viande dehors
+19. **Brancher le congélateur d'abord, tant qu'il est plein.** Le faire tourner jusqu'à ce que le thermomètre du congélateur
+ revienne à la normale, le débrancher, et le rebrancher quand le thermomètre remonte. En janvier, une fois la viande dehors
  (étape 29), la génératrice sert au réfrigérateur, à la pompe de puisard et à recharger les lampes et les téléphones.
-20. {!vapeurs} **Arrêter la génératrice 1 h toutes les 8 h de marche, et faire le plein moteur froid**, dehors, loin
+20. {!vapeurs} **Arrêter la génératrice 1 h toutes les 8 h de marche, et faire le plein quand le moteur est froid**, dehors, loin
  de toute flamme. Laisser le bidon dehors.
 
 ### La plomberie
@@ -187,10 +186,11 @@ ou sans alarme.
 21. **Vidanger quand la pièce la plus froide descend à 5 °C.** Un tuyau fend parce que l'eau prend du volume en
  gelant : la glace bouche le tuyau, et l'eau prise entre la glace et le robinet fermé monte en pression, souvent
  jusqu'à fendre le tuyau là où il y a peu de glace. Les tuyaux des murs extérieurs sont plus froids que l'air de la
- pièce. D'ici la vidange, laisser couler un filet d'eau froide aux robinets des murs extérieurs : par le robinet
+ pièce. En attendant la vidange, laisser couler un filet d'eau froide aux robinets des murs extérieurs : par le robinet
  ouvert, l'eau sort au lieu de monter en pression.
-22. **Prévoir l'heure de la vidange.** Deux relevés du même thermomètre, à 2 h d'intervalle, donnent la pente, et la
- pente donne l'heure d'arrivée à 5 °C : une maison qui perd 1 °C à l'heure et qui affiche 14 °C laisse neuf heures.
+22. **Prévoir l'heure de la vidange.** Faire deux relevés du même thermomètre, à 2 h d'intervalle : on en tire le
+ nombre de degrés perdus à l'heure, et donc l'heure où la pièce arrivera à 5 °C. Une maison qui perd 1 °C à l'heure
+ et qui affiche 14 °C laisse neuf heures.
  Faire la vidange de jour, à deux, les mains chaudes.
 23. **Vidanger dans l'ordre** (planche 03-10).
  - **Fermer l'entrée d'eau** (repère 1). Elle est au sous-sol, là où le tuyau d'eau entre par le plancher ou par le
@@ -199,7 +199,7 @@ ou sans alarme.
  - **Mettre le chauffe-eau électrique hors tension** (repère 2) : baisser le disjoncteur du chauffe-eau au panneau
  électrique. Un élément qui chauffe à sec brûle.
  - **Ouvrir un robinet d'eau chaude à l'étage** (repère 3), le plus haut de la maison : l'air entre par là. Sans
- lui, le chauffe-eau ne se vide pas, et on croit que le robinet de vidange du chauffe-eau est bouché.
+ cette entrée d'air, le chauffe-eau ne se vide pas, et on croit que le robinet de vidange du chauffe-eau est bouché.
  - **Tirer d'abord l'eau à boire** (repère 4) : ouvrir le robinet de vidange du chauffe-eau, au bas de la cuve, et
  remplir des contenants propres qu'on couvre.
  - **Brancher ensuite un boyau d'arrosage sur le robinet de vidange du chauffe-eau, et vider le reste au drain de
@@ -218,8 +218,8 @@ ou sans alarme.
 25. **Fermer la maison à clé une fois vidangée.** Elle ne risque plus de dégâts de gel, et la famille peut partir
  (ch. 2). Tant qu'elle est pleine d'eau, il faut rester et chauffer.
 26. **Surveiller le puisard au redoux et au retour du chauffage.** La pompe de puisard est électrique, et la pompe dite
- « de secours » aussi : elles s'arrêtent ensemble. Le puisard reste calme tant que rien ne dégèle ; il se remplit
- quand la neige des toits fond pendant que la pompe est encore arrêtée. Le vider à la chaudière (section 7), ou
+ « de secours » aussi : elles s'arrêtent ensemble. Le puisard ne se remplit pas tant que rien ne dégèle ; il se
+ remplit quand la neige des toits fond pendant que la pompe est encore arrêtée. Le vider à la chaudière (section 7), ou
  brancher la pompe sur la génératrice. On doit acheter le clapet antiretour et la batterie de secours de la pompe
  avant la panne (ch. 00b).
 
@@ -241,24 +241,24 @@ ou sans alarme.
  - Tasser de la neige autour et par-dessus : elle isole et garde gelé ce qui l'est.
  - Couvrir d'une bâche ou d'un contreplaqué chargé de bûches, et mettre un thermomètre ou le verre à la pièce de
  monnaie dans la boîte (section 7).
- - Faire le tour chaque matin pour lire les traces de bêtes.
+ - Faire le tour chaque matin pour chercher des traces de bêtes.
  - Au redoux, la viande qui a dégelé puis regelé sans dépasser 4 °C perd son jus et durcit, sans devenir dangereuse :
  la manger en premier, et pas en rôti. Le froid naturel est au ch. 73, le congélateur qui dégèle pour de bon au
  ch. 74.
-30. **À l'ouverture, juger chaque paquet à la sonde, au centre :**
+30. **À l'ouverture du congélateur, planter la sonde au centre de chaque paquet :**
  - le cœur est encore dur : recongeler, ou garder dehors ;
  - décongelé mais à 4 °C ou moins : cuire tout de suite et manger vite, ou cuire puis recongeler ;
  - décongelé et passé au-dessus de 4 °C : jeter.
-31. {!cuisson} **Cuire le gibier à 74 °C à cœur**, mesuré à la sonde au centre de la pièce la plus épaisse, même quand
+31. {!cuisson} **Cuire le gibier à 74 °C à cœur**, en mesurant avec la sonde au centre de la pièce la plus épaisse, même quand
  la panne force à cuire beaucoup de viande vite.
 32. **Jeter le plat d'une mijoteuse dont la cuisson a été coupée par la panne**, même s'il a l'air correct.
 33. **Mettre les médicaments dans la pièce chauffée dès le premier jour**, contre un mur intérieur : dans une maison
- qui refroidit, le danger pour eux est le gel (ch. 32). Un médicament gardé au réfrigérateur suit la même horloge que
- les aliments : se fier à l'heure écrite sur la porte, et éviter de prendre un médicament qui n'a pas pu rester au
+ qui refroidit, le danger pour eux est le gel (ch. 32). Pour un médicament gardé au réfrigérateur, compter le
+ temps comme pour les aliments, à partir de l'heure écrite sur la porte, et éviter de prendre un médicament qui n'a pas pu rester au
  froid. Pour une insuline, ou un médicament qu'on ne peut pas interrompre, s'en passer est aussi un danger (ch. 32).
 34. {!trichine} {!mal-de-caribou} **Si la panne s'étire et que le congélateur est perdu, transformer la viande au lieu
  de la jeter** : salaison à sec (ch. 68), saumure (ch. 69), fumage (ch. 70, ch. 71). Le décider avant que la
- température à cœur monte. L'ours et le phoque, même congelés, salés ou fumés, restent à cuire à 74 °C à cœur au
+ température à cœur monte. L'ours et le phoque, même congelés, salés ou fumés, doivent être cuits à 74 °C à cœur au
  moment de les manger. Garder le gras des pièces et le faire fondre (ch. 72) : la viande maigre seule mène au mal de
  caribou (ch. 19).
 
@@ -272,8 +272,8 @@ ou sans alarme.
  d'eau chaude (étape 23).
 38. **Remettre le chauffage peu à peu, et l'électronique en dernier**, une fois les températures revenues à la normale.
 39. **Faire bouillir l'eau à boire au retour, tant qu'on ne sait pas qu'elle est bonne.** Sur l'aqueduc, une longue
- panne au poste de traitement peut rendre l'eau impropre à boire même si elle a l'air parfaite : faire bouillir au
- moins 1 minute l'eau à boire et celle des biberons. Sur un puits, s'il a été inondé ou si l'eau est douteuse, laisser
+ panne au poste de traitement peut rendre l'eau impropre à boire même si elle a l'air parfaite : faire bouillir
+ l'eau à boire et celle des biberons au moins 1 minute. Sur un puits, s'il a été inondé ou si l'eau est douteuse, laisser
  couler l'eau au moins 5 minutes et la faire bouillir au moins 1 minute, jusqu'à ce que la cause du doute soit trouvée
  et réglée (ch. 10).
 40. **Refaire le stock entamé** (ch. 5).
@@ -309,15 +309,15 @@ ou sans alarme.
 | --- | --- | --- |
 | L'avertisseur de CO sonne, ou plusieurs personnes ont en même temps mal à la tête, la nausée, des étourdissements ou de la fatigue, et ça va mieux dehors | Intoxication au monoxyde de carbone | Étapes 12 et 13 |
 | Une personne perd sa coordination, se réveille mal ou perd connaissance, quand quelque chose brûle dans la maison | Intoxication grave au CO : la vie est en jeu | Étapes 12 et 13 ; ch. 2, étape 4 |
-| Une personne cesse de frissonner, parle mal, ne coordonne plus ses gestes | Hypothermie grave (sous 28 °C de température buccale) | La vie est en jeu (ch. 25). Ne pas frotter la peau ; ni alcool ni cigarette |
+| Une personne cesse de frissonner, parle mal, ne coordonne plus ses gestes | Hypothermie grave (sous 28 °C de température buccale) | La vie est en jeu (ch. 25). Ne pas frotter la peau ; ne lui donner ni alcool ni cigarette |
 | Tache blanche sur la joue, le nez ou l'oreille, avec perte de sensation | Engelure débutante | Rentrer, réchauffer peu à peu sans frotter |
-| La fumée sort par la porte du poêle à l'allumage | La cheminée froide refoule | La torche de papier, ou une fenêtre entrouverte du côté du vent (étape 6) |
+| La fumée sort par la porte du poêle à l'allumage | La cheminée froide refoule | Allumer une torche de papier, ou entrouvrir une fenêtre du côté du vent (étape 6) |
 | Rugissement dans la cheminée, étincelles au chapeau, tuyau qui rougit | Feu de cheminée alimenté par la créosote | Fermer les entrées d'air, sortir tout le monde (ch. 82) |
-| Odeur d'essence dans la maison | Bidon ou génératrice trop près, ou essence renversée | Sortir le bidon, aérer ; aucune flamme, aucun interrupteur actionné |
+| Odeur d'essence dans la maison | Bidon ou génératrice trop près, ou essence renversée | Sortir le bidon et aérer ; n'allumer aucune flamme et ne toucher à aucun interrupteur |
 | La rue se rallume, la maison reste noire, le disjoncteur principal est enclenché | Entrée électrique endommagée : mât, col-de-cygne ou support d'isolateurs | Vidanger et décider du départ (étape 1) |
 | Plus d'eau à un robinet, ou un coup sourd dans un mur | Tuyau gelé, parfois déjà fendu | Le dégeler en partant du robinet (section 7) |
 | Odeur d'égout au sous-sol après la vidange | Siphon vidé : les gaz d'égout remontent | Reboucher le siphon avec un chiffon tassé et un sac, aérer, remettre de l'antigel dès que possible |
-| Eau au sol près du puisard | Puisard plein, pompe sans courant | Vider à la chaudière, ou brancher la pompe sur la génératrice avant le congélateur si l'eau monte |
+| Eau au sol près du puisard | Puisard plein, pompe sans courant | Le vider à la chaudière, ou brancher la pompe sur la génératrice avant le congélateur si l'eau monte |
 | Paquets mous en surface, durs à cœur à la sonde | Décongélation partielle | Recongeler, ou garder dehors |
 | Jus figé au fond du bac, paquets mous à cœur | Décongélation complète | Sonde à 4 °C ou moins : cuire tout de suite. Au-dessus de 4 °C : jeter |
 | Poisson resté plusieurs jours entre 3 °C et 10 °C, cru, fumé à froid ou sous vide | Risque de botulisme de type E | Jeter sans goûter (étape 27) |
@@ -333,48 +333,48 @@ On la ferme avec une couverture tendue à environ 2,5 cm (1 po) de la vitre : l'
 ne bouge plus, et il isole (planche 03-12).
 
 - Tendre la couverture sur le chambranle, le cadre de bois autour de la fenêtre (repère 1).
-- Clouer une latte de bois par-dessus la couverture, tout le long de chaque côté (repère 2), les lattes bout à bout
- aux coins (repère 3) : la lame d'air de 2,5 cm doit être fermée sur les quatre côtés (repère 4).
+- Clouer une latte de bois par-dessus la couverture, tout le long de chaque côté (repère 2), en mettant les lattes
+ bout à bout aux coins (repère 3) : la lame d'air de 2,5 cm doit être fermée sur les quatre côtés (repère 4).
 - Agrafer une toile de plastique sur la couverture, du côté de la pièce : elle arrête l'air que la laine laisse passer
  (repère 5).
-- Tenir le bas par sa latte, comme les trois autres côtés (repère 6).
-- Les quatre côtés comptent : avec les bords ouverts, une couverture accrochée réduit la perte de la fenêtre de 10 %
- au plus (repère 7). L'air de la pièce entre par le haut, se refroidit sur la vitre, descend et ressort par le bas
- dans la pièce, en boucle (repère 8).
-- Fermer un rideau de la même façon : fermé en haut, tenu sur les côtés, touchant le rebord ou le plancher, et les
- deux pans croisés d'environ 10 cm au milieu.
+- Clouer aussi la latte du bas, comme sur les trois autres côtés (repère 6).
+- Fermer les quatre côtés : avec les bords ouverts, une couverture accrochée réduit la perte de la fenêtre de 10 %
+ au plus (repère 7), parce que l'air de la pièce entre par le haut, se refroidit sur la vitre, descend et ressort
+ par le bas dans la pièce, en boucle (repère 8).
+- Fermer un rideau de la même façon : le fermer en haut, le tenir sur les côtés, le laisser toucher le rebord ou le
+ plancher, et croiser les deux pans d'environ 10 cm au milieu.
 
-**Les pierres chaudes.** Le poêle arrête de chauffer quand il s'éteint ; la masse posée dessus continue de chauffer
-après lui. Des briques, un morceau de fonte, un vieux fer à repasser, une plaque d'acier ou des pierres de champ
-chauffent toute la soirée et redonnent la chaleur une partie de la nuit, quand le feu tombe. Une pierre chaude
-enveloppée dans une serviette et glissée au pied du lit le garde chaud jusqu'à ce que les corps le réchauffent.
+**Les pierres chaudes.** Poser sur le poêle des briques, un morceau de fonte, un vieux fer à repasser, une plaque
+d'acier ou des pierres de champ : ils chauffent toute la soirée et redonnent leur chaleur une partie de la nuit,
+quand le feu tombe. Envelopper une pierre chaude dans une serviette et la glisser au pied du lit : elle le garde
+chaud jusqu'à ce que les corps le réchauffent.
 
-{!projection} Prendre des pierres sèches, ramassées en hauteur, loin de l'eau : une pierre de ruisseau ou de rive est
+{!projection} Prendre des pierres sèches, ramassées sur un terrain haut, loin de l'eau : une pierre de ruisseau ou de rive est
 pleine d'eau, qui devient de la vapeur en chauffant, et la pierre éclate en projetant des morceaux à hauteur de
 visage. Ne pas se pencher au-dessus d'une pierre qui chauffe pour la première fois.
 
-**Le poêle qui fuit.** On peut colmater un joint de porte mangé, une fissure dans la fonte ou un joint de tuyau qui
+**Le poêle qui fuit.** On peut colmater un joint de porte usé, une fissure dans la fonte ou un joint de tuyau qui
 fume.
 
-- Faire la pâte avec de la cendre de bois tamisée fine et de l'argile, la glaise grise des berges et des fonds de
- fossé, mouillées jusqu'à la consistance d'un mastic.
+- Faire la pâte avec de la cendre de bois tamisée fine et de l'argile (la glaise grise des berges et des fonds de
+ fossé), et les mouiller jusqu'à la consistance d'un mastic.
 - La pousser dans la fissure au pouce et à la lame ; elle sèche et durcit au premier feu.
-- Pour un joint de tuyau, enrouler par-dessus le joint une bande découpée dans une boîte de conserve, et la serrer au
+- Pour un joint de tuyau, enrouler une bande découpée dans une boîte de conserve par-dessus le joint, et la serrer au
  fil de fer : elle tient le temps de la panne.
-- Refaire le tour du poêle chaque matin : une fissure colmatée se rouvre, et la fumée fuit alors dans la pièce où on
+- Refaire le tour du poêle chaque matin : une fissure colmatée peut se rouvrir, et la fumée fuit alors dans la pièce où on
  dort.
 
 ### L'eau
 
 Après l'eau remplie à l'étape 4 et celle du chauffe-eau (étape 23), il reste la neige.
 
-**Le sac à fonte.** Faire fondre la neige dans une marmite occupe le dessus du poêle toute la journée. Prendre plutôt
-une taie d'oreiller, un sac de toile ou un bas de laine, le remplir de neige tassée et le suspendre près du poêle,
+**Le sac à fonte.** Pour faire fondre la neige sans occuper le dessus du poêle, prendre une taie
+d'oreiller, un sac de toile ou un bas de laine, le remplir de neige tassée et le suspendre près du poêle,
 assez près pour recevoir sa chaleur, assez loin pour que le tissu ne roussisse pas : la neige fond, et l'eau goutte
-dans une chaudière posée dessous. Le sac ne prend pas de place sur la plaque, et on le remplit en allant chercher le bois. Cette
+dans une chaudière posée dessous. On remplit le sac en allant chercher le bois. Cette
 eau n'est pas désinfectée (ch. 10).
 
-Sur la plaque, garder la marmite de neige toujours en partie pleine, pour ne pas brûler le fond. La neige fraîche ne
+Si on fait fondre la neige dans une marmite sur la plaque, garder toujours de l'eau au fond, pour ne pas le brûler. La neige fraîche ne
 contient que 4 à 10 % d'eau : il en faut 10 à 25 L pour faire 1 L d'eau. À volume égal, la neige tassée et grenue du
 fond d'un banc en donne beaucoup plus que la neige folle du dessus.
 
@@ -387,14 +387,14 @@ plaque toute la journée.
 
 - Vider le réservoir de la toilette en tirant la chasse, et éponger l'eau qui reste au fond (repère 7).
 - Éponger l'eau de la cuvette, puis la boucher au fond avec un chiffon et un sac de plastique bien tassés (repère 8).
-- Vider chaque siphon d'évier par son bouchon de nettoyage, le bouchon vissé au bas du coude, sous l'évier,
- avec un seau dessous. Sans bouchon, et pour la baignoire, vider le siphon à la poire (repère 9).
+- Vider chaque siphon d'évier par son bouchon de nettoyage (le bouchon vissé au bas du coude, sous l'évier), avec
+ une chaudière dessous. Sans bouchon, et pour la baignoire, vider le siphon à la poire (repère 9).
 - Boucher chaque siphon vidé de la même façon (repère 10).
 - Autre façon, au lieu du chiffon : verser une tasse d'huile de cuisson dans le siphon vidé (repère 11). L'huile
  épaissit au froid sans gonfler : elle ne fend rien, et tant qu'elle reste dans le coude, elle bouche le passage des
  gaz.
 - Le lave-glace fait le même travail que l'huile et résiste mieux au froid, mais c'est du méthanol : le verser
- seulement dans les siphons et dans le réservoir de la toilette, jamais dans un circuit qui reverra l'eau à boire.
+ seulement dans les siphons et dans le réservoir de la toilette, jamais dans un tuyau où passera de l'eau à boire.
 
 **Ce qu'on perd :** le joint d'eau du siphon, la seule barrière contre les gaz d'égout, ceux de la ville comme ceux de
 la fosse septique du chalet. Le chiffon ralentit les gaz sans les arrêter : il tient quelques semaines, et quand il
@@ -409,71 +409,71 @@ lâche, on sent l'odeur d'égout.
 - Commencer au robinet, et avancer d'une largeur de main à la fois vers le bouchon de glace (repères 4 et 5).
 - Ne jamais chauffer le milieu du bouchon : l'eau de fonte reste prise entre deux bouts de glace (repère 6), et la
  pression fend le tuyau (repère 7).
-- Chauffer à l'eau chaude seulement, jamais à la flamme : sur un tuyau dans un mur, la flamme allume la charpente
+- Ne jamais chauffer à la flamme : sur un tuyau dans un mur, la flamme allume la charpente
  derrière, et sur un tuyau de cuivre, elle défait les joints de soudure plus loin.
 
-**Réparer un tuyau fendu.** On peut fermer à froid un tuyau de cuivre fendu.
+**Réparer un tuyau fendu.** On peut colmater un tuyau de cuivre fendu sans le souder.
 
-- Couper l'eau, puis limer les arêtes de la fente.
+- Fermer l'entrée d'eau, puis limer les arêtes de la fente.
 - Enrouler un morceau de chambre à air autour de la fente, ou un bout de boyau d'arrosage fendu sur sa longueur
  (planche 03-11, repère 8).
 - Serrer par-dessus deux ou trois colliers de boyau, l'un contre l'autre, qui mordent de chaque côté de la fente
  (repère 9). Ça tient la pression d'une maison.
 - Si la branche ne sert plus, couper le tuyau, écraser le bout au marteau sur quelque chose de dur et replier
- l'écrasé sur lui-même (repère 10), puis serrer un collier sur le pli (repère 11).
-- Pour souder, le filet d'eau qui reste dans la ligne fait rater le joint : l'eau bout, et la vapeur chasse l'étain.
+ la partie écrasée sur elle-même (repère 10), puis serrer un collier sur le pli (repère 11).
+- Quand on soude, le filet d'eau qui reste dans le tuyau fait rater le joint : l'eau bout, et la vapeur chasse l'étain.
  Tasser de la mie de pain blanc dans le tuyau, du côté de l'arrivée d'eau : elle retient le suintement le temps de
- souder. Rouvrir ensuite l'eau : la mie se défait et sort par le robinet, qu'on laisse couler longtemps, l'aérateur
- dévissé.
+ souder. Ensuite, rouvrir l'eau : la mie se défait et sort par le robinet. Dévisser l'aérateur du robinet et laisser
+ couler longtemps.
 
-**Ce qu'on perd :** un tuyau serré au collier est colmaté, pas réparé. Le refaire au dégel, avant que la maison se
+**Ce qu'on perd :** un tuyau serré au collier n'est que colmaté. Le refaire au dégel, avant que la maison se
 remplisse d'eau pendant que la famille est ailleurs.
 
 **Le puisard sans pompe.** Le vider à la chaudière au bout d'une corde, et jeter l'eau loin de la fondation, vers le
-bas de la pente : jetée au pied du mur, elle revient par le même chemin. Un siphon au boyau d'arrosage marche aussi,
-mais il gèle dès qu'on l'arrête : le vider complètement entre deux usages. Si la conduite de refoulement est prise
+bas de la pente : jetée au pied du mur, elle revient par le même chemin. On peut aussi siphonner l'eau avec un boyau
+d'arrosage, mais le boyau gèle dès qu'on arrête : le vider complètement entre deux usages. Si la conduite de refoulement est prise
 dans la glace dehors, la pompe pousse dans un tuyau fermé et se détruit, même au retour du courant : tant que cette
 conduite est gelée, laisser la pompe débranchée et continuer à la chaudière.
 
 ### Les aliments
 
-**Sans thermomètre.** Remplacer la règle des 4 °C par celle du temps, plus sévère. Après 6 h, jeter le périssable du
+**Sans thermomètre.** Remplacer la règle des 4 °C par celle du temps, plus sévère. Après 6 h, jeter les aliments périssables du
 réfrigérateur. Après 24 h pour un congélateur à moitié plein, et 48 h pour un plein, couper chaque paquet : s'il
 n'est plus dur au centre, on doit le cuire tout de suite ou le jeter.
 
-**Le verre à la pièce de monnaie.** Un verre d'eau gelé, avec une pièce de monnaie posée sur la glace, laissé dans le
-congélateur ou dans la boîte de viande dehors, montre s'il y a eu un dégel entre deux ouvertures. La pièce reste en
+**Le verre à la pièce de monnaie.** Faire geler un verre d'eau, poser une pièce de monnaie sur la glace, et laisser le
+verre dans le congélateur ou dans la boîte de viande dehors : il montre s'il y a eu un dégel entre deux ouvertures. La pièce reste en
 surface tant que rien n'a fondu. Elle est prise au milieu du bloc si l'eau a fondu à moitié et regelé, et elle est au
 fond si tout a fondu. On le prépare en cinq minutes, le premier soir. Un thermomètre donne la température au moment
 où on ouvre ; le verre montre ce qui s'est passé depuis la dernière ouverture.
 
-Le même verre, sans pièce, posé dans la pièce la plus froide : si une pellicule de glace se forme dessus, la pièce est
-sous 0 °C, et il faut vidanger tout de suite (étape 23).
+Sans pièce de monnaie, un verre d'eau posé dans la pièce la plus froide montre si elle descend sous 0 °C : quand une
+pellicule de glace se forme dessus, il faut vidanger tout de suite (étape 23).
 
 **La marmite norvégienne.** On la fabrique en dix minutes, et elle économise le bois, qui manque plus que la
 nourriture (planche 03-08). Un ragoût, un bouilli de gibier, des fèves au lard ou un bouillon d'os n'ont pas besoin de
 feu pendant des heures, seulement de rester chauds.
 
-- Préparer le nid dans une boîte, une glacière ou un tiroir : un lit épais au fond (repère 1), et, tout autour de la
- place de la marmite, de la laine, du foin, du papier journal froissé ou du linge d'hiver, bien tassés (repère 2).
-- Amener la marmite pleine à plein bouillon sur le poêle, couvercle mis (repère 3).
+- Préparer le nid dans une boîte, une glacière ou un tiroir : mettre un lit épais au fond (repère 1), et tasser de la
+ laine, du foin, du papier journal froissé ou du linge d'hiver tout autour de la place de la marmite (repère 2).
+- Amener la marmite pleine à plein bouillon sur le poêle, avec son couvercle (repère 3).
 - L'enfoncer tout de suite dans le nid, pour que l'isolant l'entoure de tous les côtés, dessous compris. Poser une
  couverture pliée sur le couvercle (repère 4), et refermer. La marmite finit de cuire seule pendant que le poêle sert
  à autre chose.
 - Toujours la remplir : la masse d'eau chaude fait la réserve de chaleur, et à moitié pleine, la marmite refroidit
  beaucoup plus vite (repère 5).
-- Dans une glacière, garder une couverture roulée pour la tirer par-dessus (repère 6). Un tiroir n'a pas de
- couvercle : la couverture en tient lieu (repère 7).
+- Dans une glacière, garder une couverture roulée pour la tirer par-dessus (repère 6). Dans un tiroir, qui n'a
+ pas de couvercle, la couverture sert de couvercle (repère 7).
 - Ne pas rouvrir la boîte pour voir : chaque ouverture laisse partir de la chaleur.
 
-{!zone-de-danger} **Ce qu'on perd :** la maîtrise du temps et la garantie de température. En refroidissant dans la
+{!zone-de-danger} **Ce qu'on perd :** on ne contrôle plus le temps ni la température de cuisson. En refroidissant dans la
 boîte, la marmite reste longtemps tiède, d'autant plus que la boîte isole bien : manger tout de suite ce qui en sort,
 ou le remettre au feu jusqu'au bouillon avant de le garder ; ne jamais le laisser passer la nuit tiède dans la boîte.
 Cuire le rôti au feu, à la sonde (étape 31) : la marmite sert au mijoté, au bouilli et au bouillon.
 
 **Cuire sans sonde.** On ne peut pas deviner les 74 °C à cœur : le jus clair, la couleur au centre et la fermeté sous
-le doigt peuvent tromper tous les trois à la fois sur une pièce épaisse. Il reste l'eau bouillante, qui marque 100 °C
-au niveau de la mer. Couper la viande petite et la tenir à plein bouillon dans du liquide : elle finit par dépasser
+le doigt peuvent tromper tous les trois à la fois sur une pièce épaisse. Il reste l'eau bouillante, qui est à 100 °C
+au niveau de la mer. Couper la viande en petits morceaux et la tenir à plein bouillon dans du liquide : elle finit par dépasser
 74 °C à cœur si on lui en laisse le temps. Sans sonde, faire du bouilli ou du ragoût, et garder les gros rôtis pour le
 jour où on aura une sonde.
 
@@ -482,35 +482,34 @@ jour où on aura une sonde.
 ### Le 12 V, la seule électricité qui reste
 
 La batterie de l'auto est la plus grosse réserve d'énergie sur place, et il y en a souvent une deuxième dans la
-motoneige ou le VTT. On la sort, on la rentre dans la pièce chauffée, et on la pose sur une planche, les bornes
-dégagées, rien de métallique dessus. Au froid, elle donne moins : à −18 °C, une batterie au plomb ne donne que la
-moitié de sa capacité. Elle alimente :
+motoneige ou le VTT. On la sort, on la rentre dans la pièce chauffée, et on la pose sur une planche, sans rien de
+métallique sur les bornes. À −18 °C, une batterie au plomb ne donne que la moitié de sa capacité. Elle alimente :
 
-- **l'éclairage** : brancher directement dessus un ruban ou une ampoule DEL de 12 V. Une ampoule de phare tirée de
+- **l'éclairage** : brancher un ruban ou une ampoule DEL de 12 V directement sur la batterie. Une ampoule de phare tirée de
  l'auto éclaire aussi une pièce, mais elle consomme beaucoup pour ce qu'elle éclaire, et elle chauffe ;
 - **les téléphones et les lampes frontales** : brancher l'adaptateur USB de l'allume-cigarette sur la batterie, avec
  deux pinces crocodile, ou en dénudant ses deux fils : le rouge au +, le noir au − ;
 - **la radio** : brancher de la même façon la radio de l'auto, ou une radio d'auto récupérée ; on a alors un vrai
  récepteur dans la maison.
 
-Pour la recharger, la remettre sous le capot et faire tourner le moteur, l'auto dehors. L'alternateur charge peu au
+Pour la recharger, la remettre sous le capot et faire tourner le moteur, l'auto stationnée dehors. L'alternateur charge peu au
 ralenti : monter le régime et le tenir.
 
-**Ce qu'on perd :** une batterie au plomb tirée à fond ne revient jamais complètement, et déchargée, elle gèle beaucoup
+**Ce qu'on perd :** une batterie au plomb vidée à fond ne se recharge jamais complètement, et déchargée, elle gèle beaucoup
 plus haut : chargée à 85 %, elle tient jusqu'à −52 °C ; à 40 %, elle gèle vers −15 °C. Une batterie gelée se fend et
 ne repart pas. On la garde donc au chaud et on ne la vide pas à fond : c'est aussi elle qui fait démarrer l'auto le
 jour du départ. Vider d'abord celle du deuxième véhicule.
 
 ### La génératrice qui ne part pas
 
-Quatre causes, qu'on règle sans pièce neuve :
+Elle a souvent l'une de ces quatre causes, qu'on règle sans pièce neuve :
 
 - **L'essence de l'an passé.** Ses parties légères se sont évaporées, et ce qui reste s'allume mal, encore plus mal à
- froid. Vider le bol du carburateur par sa vis de vidange, vider le réservoir, et repartir avec de l'essence fraîche
+ froid. Vider le bol du carburateur par sa vis de vidange, vider le réservoir, et remplir avec de l'essence fraîche,
  siphonnée au boyau dans le réservoir de l'auto.
-- **Le gicleur gommé.** Le vieux carburant laisse un vernis qui bouche le trou du gicleur principal, la petite pièce
+- **Le gicleur gommé.** La vieille essence laisse un vernis qui bouche le trou du gicleur principal, la petite pièce
  percée qu'on voit une fois le bol enlevé. Démonter le bol, sortir le gicleur, le déboucher avec un poil de brosse
- métallique ou un fil de guitare, et vérifier à contre-jour qu'on voit le jour au travers. Le trou est calibré : une
+ métallique ou un fil de guitare, et vérifier à contre-jour qu'on voit le jour au travers. Le trou a une taille précise : une
  mèche de perceuse ou une épingle forcée l'agrandit, et le mélange devient trop riche pour de bon.
 - **La bougie noyée et froide.** La sortir, l'essuyer, la réchauffer dans la maison, nettoyer les électrodes à la
  toile d'émeri et la remettre. Une bougie mouillée dans un moteur froid ne donne pas d'étincelle assez forte pour
@@ -526,27 +525,27 @@ Allumer les lampes frontales une à la fois, et garder les piles des autres au c
 piles, faire une lampe à graisse avec ce qui traîne : une boîte de conserve ou un pot de verre trapu, de la graisse
 (gras de bacon fondu, saindoux, gras d'orignal fondu, huile de cuisson) et une mèche de coton, comme un lacet de botte
 ou une bande de t-shirt roulée serrée. Tenir la mèche debout dans un bout de fil de fer enroulé en spirale, ou la
-coucher dans la graisse, le bout seulement dehors.
+coucher dans la graisse en laissant seulement le bout dépasser.
 
-Laisser dépasser la mèche à peine de la graisse : trop longue, elle n'éclaire pas plus, elle fume noir, salit tout et
+La mèche doit dépasser à peine de la graisse : trop longue, elle n'éclaire pas plus, elle fume noir, salit tout et
 brûle la graisse plusieurs fois plus vite. La raccourcir dès que la flamme file et fume. La graisse froide ne monte pas
-dans la mèche : amorcer avec un peu d'huile versée à sa base, le temps que la flamme creuse son bassin de graisse
-fondue.
+dans la mèche : amorcer avec un peu d'huile versée à sa base, le temps que la flamme fasse fondre un petit bassin de graisse
+autour de la mèche.
 
-{!co} Faire brûler la lampe seulement dans la pièce du poêle, où la cheminée tire l'air, et l'éteindre avant de
+{!co} Allumer la lampe seulement dans la pièce du poêle, où la cheminée tire l'air, et l'éteindre avant de
 dormir. **Ce qu'on perd :** une lumière sans flamme. Le suif et les chandelles sont au ch. 112.
 
 ### Les voisins et les nouvelles
 
 **Les voisins.** En se regroupant avec les voisins, on partage le bois entre les familles, et on peut garder une
 personne éveillée la nuit. Dans une rue de maisons froides, il y a souvent un poêle, une génératrice ou un congélateur
-encore plein. Le proposer dès le premier jour. Le voisinage est au ch. 16.
+encore plein. Proposer le regroupement dès le premier jour. Le voisinage est au ch. 16.
 
 **Les nouvelles.** Écouter la radio de l'auto, moteur arrêté, ou celle qu'on a branchée sur la batterie dans la maison
 (« Le 12 V », plus haut). La nuit, la bande AM porte beaucoup plus loin que le jour : le signal se réfléchit dans le haut de
-l'atmosphère, et une station à des centaines de kilomètres, qu'on n'entend pas à midi, entre après le coucher du
-soleil. Quand les stations de la région sont en panne, c'est souvent la seule façon d'avoir des nouvelles. Retrouver
-le lien : ch. 14.
+l'atmosphère, et après le coucher du soleil, on capte une station à des centaines de kilomètres, qu'on n'entend
+pas à midi. Quand les stations de la région sont en panne, c'est souvent la seule façon d'avoir des nouvelles. Pour rétablir les
+communications : ch. 14.
 
 ### Ce qui ne se remplace pas
 
