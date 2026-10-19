@@ -176,9 +176,10 @@ ou sans alarme.
  fois lancé, et ce pic fait caler la génératrice ou déclencher le disjoncteur de la génératrice : brancher un
  appareil, attendre que le moteur tourne rond, puis brancher le suivant. La puissance de chaque appareil est écrite
  sur sa plaque.
-19. **Brancher le congélateur d'abord, tant qu'il est plein.** Le faire tourner jusqu'à ce que le thermomètre du congélateur
- revienne à la normale, le débrancher, et le rebrancher quand le thermomètre remonte. En janvier, une fois la viande dehors
- (étape 29), la génératrice sert au réfrigérateur, à la pompe de puisard et à recharger les lampes et les téléphones.
+19. **Brancher le congélateur d'abord, tant qu'il est plein.** Le faire tourner jusqu'à ce que le thermomètre du
+ congélateur revienne à la normale, le débrancher, et le rebrancher quand le thermomètre remonte. En janvier, une fois
+ la viande dehors (étape 29), la génératrice sert au réfrigérateur, à la pompe de puisard et à recharger les lampes et
+ les téléphones.
 20. {!vapeurs} **Arrêter la génératrice 1 h toutes les 8 h de marche, et faire le plein quand le moteur est froid**,
  dehors, loin de toute flamme. Laisser le bidon dehors.
 
@@ -273,8 +274,8 @@ ou sans alarme.
  d'eau chaude (étape 23).
 38. **Remettre le chauffage peu à peu, et l'électronique en dernier**, une fois les températures revenues à la normale.
 39. **Faire bouillir l'eau à boire au retour, tant qu'on ne sait pas qu'elle est bonne.** Sur l'aqueduc, une longue
- panne au poste de traitement peut rendre l'eau impropre à boire même si elle a l'air parfaite : faire bouillir
- l'eau à boire et celle des biberons au moins 1 minute. Sur un puits, s'il a été inondé ou si l'eau est douteuse, laisser
+ panne au poste de traitement peut rendre l'eau impropre à boire même si elle a l'air parfaite : faire bouillir l'eau
+ à boire et celle des biberons au moins 1 minute. Sur un puits, s'il a été inondé ou si l'eau est douteuse, laisser
  couler l'eau au moins 5 minutes et la faire bouillir au moins 1 minute, jusqu'à ce que la cause du doute soit trouvée
  et réglée (ch. 10).
 40. **Refaire le stock entamé** (ch. 5).
@@ -362,8 +363,8 @@ fume.
 - La pousser dans la fissure au pouce et à la lame ; elle sèche et durcit au premier feu.
 - Pour un joint de tuyau, enrouler une bande découpée dans une boîte de conserve par-dessus le joint, et la serrer au
  fil de fer : elle tient le temps de la panne.
-- Refaire le tour du poêle chaque matin : une fissure colmatée peut se rouvrir, et la fumée fuit alors dans la pièce où on
- dort.
+- Refaire le tour du poêle chaque matin : une fissure colmatée peut se rouvrir, et la fumée fuit alors dans la pièce
+ où on dort.
 
 ### L'eau
 
@@ -486,8 +487,8 @@ La batterie de l'auto est la plus grosse réserve d'énergie sur place, et il y 
 motoneige ou le VTT. On la sort, on la rentre dans la pièce chauffée, et on la pose sur une planche, sans rien de
 métallique sur les bornes. À −18 °C, une batterie au plomb ne donne que la moitié de sa capacité. Elle alimente :
 
-- **l'éclairage** : brancher un ruban ou une ampoule DEL de 12 V directement sur la batterie. Une ampoule de phare tirée de
- l'auto éclaire aussi une pièce, mais elle consomme beaucoup pour ce qu'elle éclaire, et elle chauffe ;
+- **l'éclairage** : brancher un ruban ou une ampoule DEL de 12 V directement sur la batterie. Une ampoule de phare
+ tirée de l'auto éclaire aussi une pièce, mais elle consomme beaucoup pour ce qu'elle éclaire, et elle chauffe ;
 - **les téléphones et les lampes frontales** : brancher l'adaptateur USB de l'allume-cigarette sur la batterie, avec
  deux pinces crocodile, ou en dénudant ses deux fils : le rouge au +, le noir au − ;
 - **la radio** : brancher de la même façon la radio de l'auto, ou une radio d'auto récupérée ; on a alors un vrai
@@ -496,10 +497,10 @@ métallique sur les bornes. À −18 °C, une batterie au plomb ne donne que la 
 Pour la recharger, la remettre sous le capot et faire tourner le moteur, l'auto stationnée dehors. L'alternateur
 charge peu au ralenti : monter le régime et le tenir.
 
-**Ce qu'on perd :** une batterie au plomb vidée à fond ne se recharge jamais complètement, et déchargée, elle gèle beaucoup
-plus haut : chargée à 85 %, elle tient jusqu'à −52 °C ; à 40 %, elle gèle vers −15 °C. Une batterie gelée se fend et
-ne repart pas. On la garde donc au chaud et on ne la vide pas à fond : c'est aussi elle qui fait démarrer l'auto le
-jour du départ. Vider d'abord celle du deuxième véhicule.
+**Ce qu'on perd :** une batterie au plomb vidée à fond ne se recharge jamais complètement, et déchargée, elle gèle
+beaucoup plus haut : chargée à 85 %, elle tient jusqu'à −52 °C ; à 40 %, elle gèle vers −15 °C. Une batterie gelée se
+fend et ne repart pas. On la garde donc au chaud et on ne la vide pas à fond : c'est aussi elle qui fait démarrer
+l'auto le jour du départ. Vider d'abord celle du deuxième véhicule.
 
 ### La génératrice qui ne part pas
 
@@ -529,9 +530,9 @@ ou une bande de t-shirt roulée serrée. Tenir la mèche debout dans un bout de 
 coucher dans la graisse en laissant seulement le bout dépasser.
 
 La mèche doit dépasser à peine de la graisse : trop longue, elle n'éclaire pas plus, elle fume noir, salit tout et
-brûle la graisse plusieurs fois plus vite. La raccourcir dès que la flamme file et fume. La graisse froide ne monte pas
-dans la mèche : amorcer avec un peu d'huile versée à sa base, le temps que la flamme fasse fondre un petit bassin de graisse
-autour de la mèche.
+brûle la graisse plusieurs fois plus vite. La raccourcir dès que la flamme file et fume. La graisse froide ne monte
+pas dans la mèche : amorcer avec un peu d'huile versée à sa base, le temps que la flamme fasse fondre un petit bassin
+de graisse autour de la mèche.
 
 {!co} Allumer la lampe seulement dans la pièce du poêle, où la cheminée tire l'air, et l'éteindre avant de
 dormir. **Ce qu'on perd :** une lumière sans flamme. Le suif et les chandelles sont au ch. 112.

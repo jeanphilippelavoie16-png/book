@@ -145,7 +145,7 @@ elles n'arrivent pas.
  à quel endroit. La FM et la VHF vont en ligne droite : une colline entre l'émetteur et la radio les coupe. Le soir,
  l'onde AM rebondit sur le haut de l'atmosphère et redescend très loin : on entend alors des stations qu'on
  n'entendait pas le jour.
- - Écrire les fréquences qui entrent sur la radio, au feutre.
+ - Écrire au feutre, sur la radio, les fréquences qui entrent.
  - Noter les endroits où l'appareil satellite trouve vite le satellite et ceux où il cherche longtemps, et s'il y a
  la moindre barre de réseau cellulaire, et où.
  - À la maison, faire le même relevé dans le bâtiment, une fois : quelles stations entrent, dans quelle pièce, avec
