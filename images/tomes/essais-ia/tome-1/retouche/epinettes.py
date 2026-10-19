@@ -501,11 +501,17 @@ def _zone(a, nom, K):
         _, (iy, ix) = ndi.distance_transform_edt(~valide_n, return_indices=True)
         pn = z[iy, ix]
         pn = np.stack([ndi.gaussian_filter(pn[..., c], 0.8 * K) for c in range(3)], -1)
-        # la nuit et les collines : la moyenne locale de ce qui n'est pas un trait blanc
-        valide_s = ~champ & ~ancien & (L < 130)
-        ps, den = _normconv(z, valide_s.astype(np.float32), 2.5 * K)
-        ps2, _ = _normconv(z, valide_s.astype(np.float32), 9 * K)
-        ps = np.where((den < 0.02)[..., None], ps2, ps)
+        # la nuit et les collines : chaque pixel prend la classe (la nuit de la rangée, ou le bleu des collines avec
+        # ses traits sombres) du pixel valide le plus proche, puis la couleur moyenne de cette classe autour : la
+        # limite entre les deux reste nette, sans flou ni traînée
+        haut_ok = ~champ & ~ancien
+        nuit = ndi.binary_opening(haut_ok & (L < 30), _disque(2.5 * K))
+        bleu = haut_ok & (L < 130) & ~nuit
+        _, (jy, jx) = ndi.distance_transform_edt(~(nuit | bleu), return_indices=True)
+        cl_nuit = nuit[jy, jx]
+        pn_, _ = _normconv(z, nuit.astype(np.float32), 6 * K)
+        pb_, _ = _normconv(z, (bleu & (L > 30)).astype(np.float32), 6 * K)
+        ps = np.where(cl_nuit[..., None], pn_, pb_)
         m = ancien & champ
         fond[m] = pn[m]
         m = ancien & ~champ
