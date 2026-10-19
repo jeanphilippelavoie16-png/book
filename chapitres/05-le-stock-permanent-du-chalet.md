@@ -8,8 +8,8 @@
 
 ## 1. En une ligne
 
-Bâtir au chalet une réserve qui y reste toute l'année et qui fait vivre la famille plusieurs semaines sans route ni
-magasin : trois mois visés, et au moins un mois même l'année où personne n'a fait la rotation.
+Bâtir au chalet une réserve qui y reste toute l'année et qui fait vivre la famille sans route ni magasin : on vise
+trois mois, et elle doit tenir au moins un mois, même l'année où personne n'a fait la rotation.
 
 ---
 
@@ -20,9 +20,9 @@ magasin : trois mois visés, et au moins un mois même l'année où personne n'a
  coupée par le verglas, une tempête ou un chemin emporté, ou qu'une panne régionale d'électricité s'étire (ch. 3 ;
  étapes 5 à 13).
 - **On choisit quoi acheter et où le ranger** : les denrées sèches, le gras, le sel, les conserves, le bois, le
- carburant, l'éclairage, ce qui n'est pas de la nourriture (étapes 14 à 46).
-- **On arrive au chalet après une absence**, ou c'est le tour du printemps ou de l'automne (étapes 47 à 51 ;
- section 5).
+ carburant, l'éclairage et ce qui n'est pas de la nourriture (étapes 14 à 46).
+- **On arrive au chalet après une absence**, ou c'est le moment de la vérification du printemps ou de l'automne
+ (étapes 47 à 51 ; section 5).
 - **Quelqu'un d'autre doit pouvoir se servir du chalet sans qu'on lui explique où sont les choses** : un frère, un
  voisin, le groupe de chasse (étape 4).
 - **Il manque le contenant, la balance, le thermomètre, le piège ou l'ouvre-boîte** (section 7).
@@ -32,10 +32,10 @@ magasin : trois mois visés, et au moins un mois même l'année où personne n'a
 ## 3. Matériel
 
 - **Local hors gel, sec et sombre** : le gel abîme les boîtes de conserve, et l'humidité gâte les farines (étape 4).
-- **Contenants hermétiques et opaques** : contre l'humidité, les insectes et la lumière, qui fait rancir le gras (sans : section 7).
-- **Thermomètre min-max** : il montre si le local a gelé ou chauffé pendant l'absence (sans : section 7).
-- **Balance au gramme** : pour chiffrer les calories d'un sac et doser le sel sur le poids de la viande (sans : section 7).
-- **Deux thermomètres à sonde** : ils mesurent la cuisson du gibier à cœur (étape 26), et on ne peut pas les fabriquer.
+- **Contenants hermétiques et opaques** : ils arrêtent l'humidité, les insectes et la lumière, qui fait rancir le gras (sans contenant neuf : section 7).
+- **Thermomètre min-max** : il montre si le local a gelé ou chauffé pendant l'absence (sans thermomètre : section 7).
+- **Balance au gramme** : elle sert à chiffrer les calories d'un sac et à doser le sel sur le poids de la viande (sans balance : section 7).
+- **Deux thermomètres à sonde** : ils mesurent la température du gibier à cœur (étape 26), et on ne peut pas les fabriquer.
 - **Avertisseur de CO** : aucun sens ne détecte le monoxyde, et on ne peut pas le fabriquer (étape 34).
 
 ---
@@ -44,58 +44,59 @@ magasin : trois mois visés, et au moins un mois même l'année où personne n'a
 
 ### L'ordre et la place
 
-1. **Bâtir le stock dans l'ordre où le corps lâche : la chaleur, l'eau, puis les calories** (ch. 1). Avec un petit
- budget, compléter d'abord le bois, les moyens d'allumage, l'eau et le gras, avant d'ajouter de la nourriture.
+1. **Bâtir le stock dans l'ordre de ce qui tue le plus vite quand il manque : la chaleur, l'eau, puis les calories**
+ (ch. 1). Avec un petit budget, compléter d'abord le bois, les moyens d'allumage, l'eau et le gras, avant d'ajouter de
+ la nourriture.
 2. **Garder le stock au chalet, toute l'année.** Quand l'événement dure, la famille finit au chalet (ch. 2), et le
- jour où on décide d'y monter, la route peut déjà être coupée : ce qui n'est pas au chalet ce jour-là n'y arrivera
- pas. Le stock ne voyage pas. La trousse qu'on emporte est au ch. 6, le sac de départ au ch. 7.
-3. **Donner à chaque fonction deux moyens qui ne tombent pas en panne pour la même raison** : deux façons de puiser
+ jour où on décide d'y monter, la route peut déjà être coupée. La trousse qu'on emporte est au ch. 6, le sac de
+ départ au ch. 7.
+3. **Prévoir pour chaque besoin deux moyens qui ne tombent pas en panne pour la même raison** : deux façons de puiser
  l'eau, deux de la désinfecter (étape 6), trois d'allumer le feu (étape 38). Trois boîtes d'allumettes rangées dans
  le même tiroir brûlent, se perdent ou prennent l'humidité ensemble : elles comptent pour un seul moyen.
 4. **Choisir un local qui ne gèle pas, sec, sombre et loin du poêle, et y ranger chaque chose à la même place d'une
  année à l'autre.**
  - Le local ne doit jamais descendre sous 0 °C, et il doit idéalement rester sous 20 °C. Au-dessus de 35 °C, ou près du
  poêle, la réserve se gâte en quelques semaines ou quelques mois. Poser le thermomètre min-max sur une tablette : il
- garde le plus froid et le plus chaud de l'absence (section 5).
- - Une boîte de conserve qui gèle et dégèle fait travailler son serti[^1], et un bocal de conserve maison qui a gelé
- doit être jeté, même s'il n'est pas fendu. Si le local gèle, descendre les conserves et les bocaux à la maison avant
+ garde en mémoire la température la plus froide et la plus chaude de l'absence (section 5).
+ - Quand une boîte de conserve gèle et dégèle, son serti[^1] travaille. Un bocal de conserve maison qui a gelé doit
+ être jeté, même s'il n'est pas fendu. Si le local gèle, descendre les conserves et les bocaux à la maison avant
  les gels (ch. 84, étape 9). Ne pas les mettre au caveau : son humidité rouille les couvercles et les boîtes
  jusqu'à défaire le scellé (ch. 79).
- - La date, l'humidité, les souris et le gel détruisent plus de réserve que ce que la famille mange : les étapes 47 à
- 51 les surveillent.
- - Garder ce rangement d'une année à l'autre : un frère, un voisin ou le groupe de chasse trouve alors ce qu'il lui
- faut sans liste.
+ - La péremption, l'humidité, les souris et le gel font perdre plus de réserve que la famille n'en mange : on les
+ surveille aux étapes 47 à 51.
+ - Avec un rangement qui ne change pas, un frère, un voisin ou le groupe de chasse trouve ce qu'il lui faut sans
+ liste.
 
 [^1]: Le serti est le repli de métal du pourtour, là où le couvercle rejoint le corps de la boîte ; la fermeture verticale est la ligne de métal qui court sur toute la hauteur du corps et qui le ferme. Ce sont les deux joints de la boîte.
 
 ### Calculer l'eau, les calories et la durée
 
-5. **Compter 4 L d'eau par personne et par jour** : 2 L à boire, et 2 L pour préparer les aliments et se laver. Le
+5. **Compter 4 L d'eau par personne et par jour** : 2 L pour boire, et 2 L pour préparer les aliments et se laver. Le
  « 2 litres par jour » qu'on voit partout ne compte que la boisson (ch. 6). Pour quatre personnes, ça fait 16 L par
- jour, et 48 L pour 72 heures. C'est un plancher. Un homme, une femme et deux enfants de 4 à 8 ans ont besoin de
- 9,8 L d'eau par jour, eau des aliments comprise (ch. 21). Un hiver de viande séchée, de poisson salé et de galette
- n'apporte presque pas d'eau : il faut alors boire presque tout ce 9,8 L, et il ne reste que 6,2 L par jour pour la
- cuisine et l'hygiène des quatre.
-6. **Dimensionner la réserve d'eau, puis les moyens de puiser.**
+ jour. C'est un minimum : un homme, une femme et deux enfants de 4 à 8 ans ont besoin de 9,8 L d'eau par jour, eau
+ des aliments comprise (ch. 21). Un hiver de viande séchée, de poisson salé et de galette n'apporte presque pas
+ d'eau : il faut alors boire presque tous ces 9,8 L, et il ne reste que 6,2 L par jour pour la cuisine et l'hygiène
+ des quatre.
+6. **Calculer la réserve d'eau, puis les moyens de puiser.**
 
  | Poste | Cible | Remarque |
  | --- | --- | --- |
- | Plancher des 72 heures | 3 jours × 4 personnes × 4 L = **48 L** | Le minimum, pas la cible du chalet |
- | Réserve au chalet | 7 jours × 16 L = **112 L** ; deux semaines, **224 L** | Au-delà, la famille vit du moyen de puiser |
+ | Minimum pour 72 heures | 3 jours × 4 personnes × 4 L = **48 L** | Pas assez pour le chalet |
+ | Réserve au chalet | 7 jours × 16 L = **112 L** ; deux semaines, **224 L** | Au-delà, la famille boit l'eau qu'elle puise |
  | Moyens de puiser | **2 indépendants** | Puits et lac, ou puits et ruisseau (ch. 10) |
  | Moyens de filtrer et de désinfecter | **2 indépendants** | Filtre, désinfection chimique, ébullition ; les dosages sont au ch. 10 |
  | Neige et glace | On les compte en bois, pas en litres | Section 7, « Le bois remplace tout le reste » ; ch. 10 |
 
- Les contenants sont au ch. 00b. Passé deux semaines, aucune réserve qu'on peut entreposer ne suffit : la famille
- boit ce qu'elle puise.
+ Les contenants sont au ch. 00b.
 7. **Ranger l'eau au frais, loin des solvants, et la faire tourner.**
  - Laisser un peu d'air dans chaque bidon : un bidon rempli à ras bord fend s'il gèle.
  - Boire et remplacer l'eau embouteillée du commerce avant sa date : la plupart des producteurs canadiens donnent un à
  deux ans.
- - Ne jamais ranger l'eau sur la même tablette que l'essence, la peinture, le diluant ou l'huile à lampe, même
- bouchés, même à l'autre bout du local : les vapeurs des solvants traversent le plastique et contaminent l'eau.
- - Garder l'eau fermée au frais, dans un endroit propre et sombre. Une fois le bidon ouvert, l'eau devient périssable :
- la mettre au froid, comme un aliment entamé.
+ - Ne jamais ranger l'eau sur la même tablette que l'essence, la peinture, le diluant ou l'huile à lampe, même si
+ leurs bidons sont bouchés et à l'autre bout de la tablette : les vapeurs des solvants traversent le plastique et
+ contaminent l'eau.
+ - Garder l'eau fermée, dans un endroit propre et sombre. Une fois le bidon ouvert, l'eau devient périssable : la
+ mettre au froid, comme un aliment entamé.
 8. **Compter les calories de la famille.** Besoins d'une personne active, en kilocalories (kcal) par jour :
 
  | Âge | Fille ou femme | Garçon ou homme |
@@ -109,14 +110,13 @@ magasin : trois mois visés, et au moins un mois même l'année où personne n'a
  Pour un homme et une femme de 19 à 30 ans, un enfant de 4 ou 5 ans et un enfant de 6 ou 7 ans, le total est de 8 550
  à 8 800 kcal par jour. Ces valeurs sont des moyennes pour la taille et le poids médians au Canada, sans rien pour le
  froid ni pour le travail d'hiver. Fendre, pelleter, faire la tournée des pièges et se garder au chaud à −35 °C
- coûtent plus cher : la neige alourdit chaque pas, la charge s'ajoute, et le frisson fait dépenser de l'énergie même
- au repos. De jeunes hommes entraînés, en opérations d'hiver, dépensent 5 000 à 7 000 kcal par jour, le double du
- tableau, et ils mangent beaucoup moins qu'ils ne dépensent, parce que la nourriture gèle et qu'il faut faire fondre
- de la neige pour la préparer. Au froid, il faut donc un stock **prêt à manger**, pas seulement un gros stock. Bâtir
- le stock sur **9 500 kcal par jour pour la famille**, le besoin d'un hiver de travail dur (ch. 21), et prendre ce
- chiffre comme un minimum.
-9. **Équilibrer les calories.** Une seule denrée qui atteint le total de calories ne nourrit personne pendant trois
- mois. Chaque grande famille d'aliments a sa part de l'énergie totale :
+ demandent plus d'énergie : la neige alourdit chaque pas, la charge qu'on porte s'ajoute, et le frisson fait dépenser
+ de l'énergie même au repos. De jeunes hommes entraînés, en opérations d'hiver, dépensent 5 000 à 7 000 kcal par
+ jour, le double du tableau, et ils mangent beaucoup moins qu'ils ne dépensent, parce que la nourriture gèle et qu'il
+ faut faire fondre de la neige pour la préparer. Au froid, une partie du stock doit donc être **prête à manger**.
+ Bâtir le stock sur **9 500 kcal par jour pour la famille**, le besoin d'un hiver de travail dur (ch. 21), et prendre
+ ce chiffre comme un minimum.
+9. **Équilibrer les calories.** Chaque grande famille d'aliments doit fournir sa part de l'énergie totale :
 
  | | Adulte | Enfant de 4 à 18 ans |
  | --- | --- | --- |
@@ -124,7 +124,7 @@ magasin : trois mois visés, et au moins un mois même l'année où personne n'a
  | Lipides (le gras) | 20 à 35 % | 25 à 35 % |
  | Protéines | 10 à 35 % | 10 à 30 % |
 
- Le minimum de chaque jour se compte en grammes et en milligrammes :
+ Il faut aussi un minimum de protéines, de fer et de fibres chaque jour :
 
  | | Homme de 19 à 50 ans | Femme de 19 à 50 ans | Enfant de 4 à 8 ans |
  | --- | --- | --- | --- |
@@ -132,33 +132,35 @@ magasin : trois mois visés, et au moins un mois même l'année où personne n'a
  | Fer | 8 mg | 18 mg | 10 mg |
  | Fibres | 38 g | 26 g | 25 g |
 
- Un stock de riz et de farine atteint le total de calories et manque de tout le reste. Une tablette de denrées sèches
- manque d'abord de gras (étape 19), de fer et de fibres. Le reste du bilan d'hiver est au ch. 21.
+ Un stock de riz et de farine atteint le total de calories, mais une tablette de denrées sèches manque d'abord de
+ gras (étape 19), de fer et de fibres. Les autres besoins de l'hiver sont au ch. 21.
 10. **Lire les calories sur l'emballage.** Le tableau de la valeur nutritive est sur presque tout ce qui se vend
  emballé au Canada. Il donne les calories **par portion**, jamais pour l'emballage entier. La portion y est écrite en
  mesure de cuisine, puis en grammes entre parenthèses : on se sert des grammes, qu'on peut vérifier à la balance.
- Lire le chiffre du tableau comme s'il valait pour le sac fausse tout le calcul. Calculer plutôt :
+ Calculer les calories du sac :
 
  **calories de l'emballage = masse nette ÷ masse de la portion × calories de la portion**
 
- La farine de blé tout usage donne 240 kcal pour 66 g. Un sac de 2,5 kg porte donc 2 500 ÷ 66 × 240, soit environ
- 9 100 kcal : presque une journée de la famille. Le calcul reste juste quand la marque ou le format change, ce qu'aucune table
- de kilocalories par kilo ne garantit. Pour le vrac et ce qui n'a pas d'étiquette, chercher l'aliment dans le Fichier
- canadien sur les éléments nutritifs pendant qu'on y a accès, et écrire le chiffre sur le contenant (étape 48).
+ La farine de blé tout usage donne 240 kcal pour 66 g. Un sac de 2,5 kg contient donc 2 500 ÷ 66 × 240, soit environ
+ 9 100 kcal : presque une journée de la famille. Faire le calcul avec l'étiquette du sac qu'on a : il reste juste quand
+ la marque ou le format change, alors qu'une table de calories par kilo ne le garantit pas. Pour le vrac et ce qui n'a
+ pas d'étiquette, chercher l'aliment dans le Fichier canadien sur les éléments nutritifs pendant qu'on y a accès, et
+ écrire le chiffre sur le contenant (étape 48).
 11. **Calculer la durée de la réserve** : **jours d'autonomie = calories en réserve ÷ calories par jour de la
- famille**. Trois mois à 9 500 kcal font 855 000 kcal à loger, à garder au sec et à faire tourner : une réserve de
- trois mois prend une pièce, pas une étagère, et cette pièce ne doit pas geler (étape 4).
+ famille**. Trois mois à 9 500 kcal font 855 000 kcal à ranger au sec et à faire tourner : il faut y consacrer une
+ pièce entière.
 12. **Compter seulement ce qu'on pourra ouvrir et cuire.** Une conserve sans ouvre-boîte manuel, une légumineuse qui
- demande une heure d'ébullition quand le propane est fini, une viande gelée dans un congélateur sans courant : ces
- calories sont sur la tablette, mais pas dans l'assiette. Faire le calcul avec les moyens de cuisson qu'on aura, pas
- avec ceux de la cuisine d'été, et compter le combustible que chaque denrée demande (étape 16).
-13. **Ne jamais laisser la réserve descendre sous 30 jours d'autonomie calculée.** On vise trois mois, et on garantit
- un mois. Sans calcul, une réserve de trois mois baisse à cinq semaines sans que personne s'en aperçoive : refaire le
- calcul au tour du printemps et de l'automne (section 5).
+ demande une heure d'ébullition quand le propane est fini, une viande gelée dans un congélateur sans courant : retirer
+ ces calories du calcul. Faire le calcul avec les moyens de cuisson qu'on aura l'hiver, pas avec ceux de l'été, et
+ compter le combustible que chaque denrée demande (étape 16).
+13. **Ne jamais laisser la réserve descendre sous 30 jours d'autonomie calculée.** Sans calcul, une réserve de trois
+ mois baisse à cinq semaines sans que personne s'en aperçoive : refaire le calcul à la vérification du printemps et de
+ l'automne (section 5).
 
 ### Choisir les denrées sèches
 
-14. **Choisir les denrées au gras, au combustible et au goût, pas au prix.** Les masses à acheter sont au ch. 00b.
+14. **Choisir les denrées selon leur gras, le combustible qu'elles demandent et le goût de la famille, pas selon le
+ prix.** Les masses à acheter sont au ch. 00b.
 
  | Denrée | Ce qu'elle apporte | Ce qui la gâte | Place au stock |
  | --- | --- | --- | --- |
@@ -176,70 +178,71 @@ magasin : trois mois visés, et au moins un mois même l'année où personne n'a
  viennent d'un grain dont on a retiré le germe : il ne leur reste presque rien à rancir, et ils se gardent des années
  dans un contenant hermétique. Le grain entier garde son gras : le riz brun va donc en rotation rapide, quelle que
  soit sa valeur nutritive. La durée de conservation d'une denrée dépend des conditions d'entreposage, de son
- acidité, de son humidité, de son emballage, et du fait que le contenant soit ouvert ou non : un couvercle et un
- local frais règlent quatre de ces cinq facteurs.
+ acidité, de son humidité, de son emballage, et du fait que le contenant soit ouvert ou non. On ne change pas
+ l'acidité ; un couvercle et un local frais règlent les quatre autres.
 16. **Compter le combustible de chaque denrée.** Des pâtes cuisent en une dizaine de minutes ; des haricots secs qui
- n'ont pas trempé demandent des heures sur le poêle. Au chalet en janvier, ces heures se paient en bois fendu et en
- eau fondue, donc en corvées : une réserve bâtie surtout sur les légumineuses coûte plus cher qu'elle en a l'air.
- Les faire tremper la veille raccourcit la cuisson, à condition d'avoir de l'eau tiède en réserve (étape 6).
+ n'ont pas trempé demandent des heures sur le poêle. Au chalet en janvier, ces heures de cuisson demandent du bois
+ fendu et de l'eau de neige fondue, donc des corvées : une réserve bâtie surtout sur les légumineuses demande beaucoup
+ de bois et de travail. Faire tremper les haricots la veille raccourcit la cuisson, à condition d'avoir de l'eau tiède
+ en réserve (étape 6).
 17. **Acheter ce que la famille mange déjà.** Une denrée que personne ne mange prend de la place, se périme et fausse
- le calcul de l'étape 11 : la retirer du calcul, même si elle est sur la tablette. La règle vaut pour les adultes
- comme pour les enfants (étape 40).
+ le calcul de l'étape 11 : la retirer du calcul, même si elle est sur la tablette. La règle vaut pour les enfants
+ aussi : ne pas compter sur une panne pour leur faire découvrir les lentilles.
 
 ### Le gras et le sel
 
-18. **Dimensionner le gras et le sel, chacun sur ce qui le consomme.** Les quantités sont au ch. 00b.
+18. **Calculer le gras et le sel selon l'usage qu'on en fait.** Les quantités sont au ch. 00b.
 
  | Poste | Ce qui en fixe la quantité | Ce qui le gâte |
  | --- | --- | --- |
- | Huile végétale (canola, tournesol) | La part du gras dans l'énergie : 20 à 35 % chez l'adulte, 25 à 35 % chez l'enfant | La chaleur et la lumière : elle s'oxyde et prend une odeur de peinture |
- | Saindoux ou graisse fondue | La même part du gras ; on la fait fondre soi-même à l'automne (ch. 72) | La chaleur, puis le rance |
+ | Huile végétale (canola, tournesol) | La part du gras dans l'énergie (étape 9) | La chaleur et la lumière : elle s'oxyde et prend une odeur de peinture |
+ | Saindoux ou graisse fondue | La même part du gras ; on la fait fondre soi-même à l'automne (ch. 72) | La chaleur, qui la fait rancir |
  | Sel de table iodé | Ce qu'on mange tous les jours | L'humidité, qui le prend en bloc sans le rendre impropre |
- | Sel à salaison non iodé | **La viande et le poisson qu'on prévoit saler**, pas le nombre de personnes (ch. 41) | Rien |
+ | Sel à salaison non iodé | **La viande et le poisson qu'on prévoit saler** (étape 20 ; ch. 41) | Rien |
  | Sel nitrité (nitrite de sodium) | La viande qu'on prévoit mettre en salaison longue (ch. 67 ; étape 21) | |
 
 19. {!mal-de-caribou} **Garder du gras au stock, et le faire tourner.** Une famille qui vit de lièvre et d'orignal
  maigres sans autre gras fait le mal de caribou, mortel en quelques semaines. Le gras du stock la nourrit jusqu'à ce
- que la graisse de l'automne soit fondue (ch. 19, ch. 72). Contrairement au sel, il rancit : le mettre en rotation
- rapide, jamais en réserve de fond.
-20. **Calculer le sel à salaison sur la récolte attendue, pas sur le nombre de bouches.** Le sel ne se périme pas : ce
- qu'on en a de trop ne se perd jamais. Une bonne année de chasse en consomme beaucoup ; une année creuse le laisse pour
- la suivante. Tous les pourcentages de sel du livre (salaison à sec, saumure, poisson) se calculent sur **le poids de
- la viande**, jamais sur le volume d'eau ni sur celui du contenant.
-21. {!poison} **Garder du sel nitrité du commerce, jamais de salpêtre.** Le salpêtre (nitrate de potassium) et le sel
- nitrité, sa forme moderne, ne se dosent pas de la même façon et ne se remplacent pas cuillère pour cuillère. Le
+ que la graisse de l'automne soit fondue (ch. 19, ch. 72). Le gras rancit : le mettre en rotation rapide, jamais en
+ réserve de fond.
+20. **Calculer le sel à salaison sur la récolte attendue, pas sur le nombre de bouches.** Le sel ne se périme pas.
+ Une bonne année de chasse en consomme beaucoup ; ce qui reste après une année creuse sert l'année suivante. On
+ calcule toujours les pourcentages de sel (salaison à sec, saumure, poisson) sur **le poids de la viande**, jamais sur
+ le volume d'eau ni sur celui du contenant.
+21. {!poison} **Garder du sel nitrité du commerce, jamais de salpêtre.** On ne dose pas le salpêtre (nitrate de
+ potassium) comme le sel nitrité, sa forme moderne, et on ne remplace pas l'un par l'autre cuillère pour cuillère. Le
  ch. 67 donne les doses et la raison.
 
 ### Les conserves, le poisson et le congélateur
 
-22. **Mettre chaque réserve là où elle tient.**
+22. **Ranger chaque sorte de réserve à l'endroit où elle se garde.**
 
  | Poste | Où il est | Ce qui en fixe la quantité | Ce qui le gâte |
  | --- | --- | --- | --- |
- | Conserves du commerce (légumes, fruits, poisson, tomates) | Chalet | Les repas d'appoint des trois mois visés | Le gel du local, qui fait travailler le serti |
- | Conserves maison | Chalet | La récolte et le jardin de l'année | La date : à manger dans l'année (étape 23) |
+ | Conserves du commerce (légumes, fruits, poisson, tomates) | Chalet | Les repas d'appoint des trois mois qu'on vise | Le gel du local, qui fait travailler le serti |
+ | Conserves maison | Chalet | La récolte et le jardin de l'année | Le temps : à manger dans l'année (étape 23) |
  | Fermentés (choucroute, légumes lactofermentés) | Chalet | Une source de vitamine C pour l'hiver (ch. 20, ch. 80) | La chaleur |
  | Congélateur, viande de l'automne | **Maison**, sur le réseau | La capacité de l'appareil, plein en novembre | Une panne de plus de 48 h |
  | Coffre à viande extérieur | Chalet | Ce que le froid de décembre à mars peut garder | Le redoux (ch. 73, ch. 74) |
 
-23. {!botulisme} **Manger les conserves maison dans l'année qui suit la mise en conserve.** Un aliment peu acide
- (viande, poisson, gibier, légumes du jardin, champignons) ne se met en conserve qu'à l'autoclave (ch. 78). L'huile à
- l'ail ou aux herbes fraîches faite maison n'entre pas au stock. À chaque visite, jeter sans l'ouvrir ni la goûter
- une boîte bombée, rouillée, ou bosselée sur le serti ou sur la fermeture verticale ; les autres signes sont au
- tableau de la section 6. Une conserve peut avoir l'air, l'odeur et le goût d'une conserve normale et contenir la
- toxine : le botulisme ne change ni l'odeur, ni le goût, ni l'apparence.
+23. {!botulisme} **Manger les conserves maison dans l'année qui suit la mise en conserve.** On ne met en conserve un
+ aliment peu acide (viande, poisson, gibier, légumes du jardin, champignons) qu'à l'autoclave (ch. 78). Ne pas mettre
+ au stock d'huile à l'ail ou aux herbes fraîches faite maison. À chaque visite, chercher les boîtes bombées,
+ rouillées, ou bosselées sur le serti ou sur la fermeture verticale, et les jeter sans les ouvrir ni les goûter ; les
+ autres signes sont au tableau de la section 6. Le botulisme ne change ni l'odeur, ni le goût, ni l'apparence de la
+ conserve.
 24. {!botulisme} **Garder le poisson fumé ou salé gelé, ou sous 3 °C, jamais sur les tablettes du stock.** La
- bactérie du botulisme du poisson fait sa toxine dès 3 °C, à la température d'un réfrigérateur. La façon de le garder
- est aux ch. 76 et 77.
+ bactérie du botulisme du poisson (type E) fait sa toxine dès 3 °C, à la température d'un réfrigérateur. La façon de
+ le garder est aux ch. 76 et 77.
 25. {!zone-de-danger} **Garder la viande de l'automne au congélateur de la maison, et compter les heures quand le
  courant manque.**
- - Le congélateur dépend du courant : le garder à la maison, sur le réseau, où on le surveille chaque semaine sans
- faire deux heures de route. Au chalet, la viande gèle dehors, dans le coffre (ch. 73 ; section 7).
+ - Garder le congélateur à la maison, sur le réseau : on le surveille chaque semaine sans faire la route jusqu'au
+ chalet. Au chalet, l'hiver, faire geler la viande dehors, dans le coffre (ch. 73 ; section 7).
  - Porte fermée, un congélateur plein garde les aliments congelés 48 heures ; à moitié plein, 24 heures. Le
- réfrigérateur tient 4 à 6 heures : compter 4 heures. Quand la viande baisse, remplir le congélateur de cruches
- d'eau gelée pour qu'il reste plein.
- - Une panne de moins de deux jours se passe à la maison sans rien perdre. Si elle dépasse 48 heures en janvier,
- sortir la viande dehors, au froid. Si elle s'installe, partir au chalet (ch. 2).
+ réfrigérateur garde les aliments froids 4 à 6 heures : compter 4 heures. À mesure qu'on mange la viande, remplir le
+ congélateur de bidons d'eau gelée pour qu'il reste plein.
+ - Pendant une panne de moins de 48 heures, on reste à la maison sans rien perdre. Si la panne dépasse 48 heures en
+ janvier, sortir la viande dehors, au froid. Si elle dure, partir au chalet (ch. 2).
  - Régler le réfrigérateur à 4 °C ou moins, et le congélateur à −18 °C ou moins.
  - Après une panne, jeter tout aliment périssable dégelé qui est passé au-dessus de 4 °C (section 6).
 26. {!cuisson} **Cuire le gibier sauvage à 74 °C à cœur, et le poisson à 70 °C, mesurés au thermomètre à sonde.**
@@ -248,36 +251,36 @@ magasin : trois mois visés, et au moins un mois même l'année où personne n'a
 
 ### La chaleur et le carburant
 
-28. **Dimensionner le bois, le carburant et le propane.**
+28. **Calculer le bois, le carburant et le propane à garder.**
 
  | Poste | Cible | Remarque |
  | --- | --- | --- |
  | Bois de chauffage sec | Ce que le chalet a brûlé l'hiver d'avant, plus une marge (étape 29) | Couper et fendre le bois de l'hiver suivant, et le laisser sécher au moins six mois pendant qu'on brûle celui-ci |
- | Humidité du bois | **20 % ou moins** quand on le rentre ; environ **25 %** est l'humidité idéale pour la combustion | Fendu, empilé, aéré, à l'abri de la pluie et de la neige |
+ | Humidité du bois | **20 % ou moins** quand on le rentre ; environ **25 %** est l'humidité idéale pour la combustion | Le fendre, l'empiler en laissant passer l'air, et le garder à l'abri de la pluie et de la neige |
  | Diamètre des bûches | Moins de **15 cm** pour un poêle à bois | **5 cm et moins** pour le bois d'allumage |
  | Bois d'allumage et écorce de bouleau à papier | Un bac plein en tout temps | L'écorce de bouleau s'allume même mouillée |
- | Essence | De quoi faire le prochain plein de la scie à chaîne et de la génératrice | Dehors, hors du bâtiment habité (étape 31) |
+ | Essence | De quoi faire le prochain plein de la scie à chaîne et de la génératrice | Dehors (étape 31) |
  | Diesel, huile à lampe, kérosène | Le plein de la saison | Au cabanon (étape 31) |
  | Propane | Selon la mesure de la ligne suivante | Bouteilles debout, dehors (étape 32) |
- | Propane du réchaud | Le nombre de jours de cuisine que fait une bouteille pleine au chalet, mesuré | Sans cette mesure, on ne sait pas combien de bouteilles garder |
+ | Propane du réchaud | Mesurer combien de jours de cuisine fait une bouteille pleine au chalet | Cette mesure donne le nombre de bouteilles à garder |
 
 29. **Mesurer le bois qu'un hiver consomme, puis en couper autant, plus une marge.** La quantité dépend du chalet, du
- poêle et de l'hiver : un chiffre général serait faux pour ce chalet-là. La mesurer en une saison : empiler tout le
- bois de l'hiver en rangées de la même taille, et compter les rangées vides au printemps. L'année suivante, couper ce
- total plus une marge : elle couvre un janvier à −35 °C, un bois moins sec et deux visites de plus que prévu.
+ poêle et de l'hiver : la mesurer en une saison. Empiler tout le bois de l'hiver en rangées de la même taille, et
+ compter les rangées vides au printemps. L'année suivante, ajouter à ce total une marge qui couvre un janvier à
+ −35 °C, un bois moins sec et deux visites de plus que prévu.
  L'humidité change plus l'énergie du bois que l'espèce d'arbre. À masse sèche égale, la plupart des bois donnent à
  peu près la même énergie ; mais une corde d'épinette noire ou de sapin baumier pèse moins qu'une corde de bouleau,
  et on la brûle plus vite (ch. 83).
-30. **Compter en cordes, pas en piles.** Une corde est une pile de 4 × 4 × 8 pi, soit 128 pi³ (3,6 m³), dont environ
- 70 % de bois massif. Une pile de 4 pi de haut sur 8 pi de long, montée en bûches de 40 cm (la longueur d'un poêle de
- chalet), ne fait que 1,22 m × 2,44 m × 0,40 m, soit 1,2 m³ : le tiers d'une corde. Trois piles comme celle-là font
- une corde, pas trois. Le rendement du poêle est au ch. 83.
+30. **Convertir les rangées en cordes.** Une corde est une pile de 4 × 4 × 8 pi, soit 128 pi³ (3,6 m³), dont environ
+ 70 % de bois massif. Une pile de 4 pi de haut sur 8 pi de long, montée en bûches de 40 cm (la longueur qui entre
+ dans un poêle de chalet), ne fait que 1,22 m × 2,44 m × 0,40 m, soit 1,2 m³ : le tiers d'une corde. Le rendement du
+ poêle est au ch. 83.
 31. {!vapeurs} **Garder dans le chalet seulement le carburant qu'on brûle dans la journée, et le reste dehors, en
- bidons pleins et bouchés.** Un bidon à moitié vide respire : il se dilate au soleil, se contracte la nuit, et chaque
- fois il pousse de la vapeur par son évent. Un bidon plein n'a presque rien à pousser. Prendre des bidons à carburant,
- jamais de verre ni de plastique mince, et écrire le contenu dessus. À chaque visite, regarder sous le fond des
- bidons : une fuite lente fait un cerne sur le plancher bien avant qu'on la sente. Le diesel, l'huile à lampe et le
- kérosène passent la saison au cabanon.
+ bidons pleins et bouchés.** L'air d'un bidon à moitié vide se dilate au soleil et se contracte la nuit, et chaque
+ fois, il pousse de la vapeur par l'évent. Un bidon plein a peu d'air, et il pousse peu de vapeur. Prendre des bidons
+ à carburant, jamais de verre ni de plastique mince, et écrire le contenu dessus. À chaque visite, regarder le
+ plancher sous les bidons : une fuite lente fait un cerne bien avant qu'on la sente. Garder le diesel, l'huile à lampe
+ et le kérosène au cabanon pour la saison.
 32. {!vapeurs} **Garder les bouteilles de propane debout, dehors**, jamais dans un bâtiment ni dans un cabanon fermé
  (ch. 87).
 33. {!generatrice} **Faire tourner la génératrice dehors, à découvert, à au moins 6 m du chalet et du cabanon.**
@@ -286,7 +289,7 @@ magasin : trois mois visés, et au moins un mois même l'année où personne n'a
  - En mettre un à chaque étage, dans le corridor près des chambres, et un dans chaque chambre où on dort porte
  fermée : la porte fermée sépare la personne qui dort de l'avertisseur du corridor.
  - Les poser à au moins 2 m de tout appareil de cuisson ou de combustion, et hors des pièces humides : sinon ils
- sonnent pour la cuisson et la vapeur, et un avertisseur qui sonne pour rien finit débranché.
+ sonnent pour la cuisson et la vapeur, et on finit par les débrancher.
  - Choisir un modèle dont la pile au lithium dure 10 ans. Dans un modèle dont on change les piles, mettre des piles
  au lithium. La cellule qui détecte le gaz dure moins longtemps que le boîtier : remplacer l'appareil à la date
  écrite au dos du boîtier.
@@ -294,62 +297,62 @@ magasin : trois mois visés, et au moins un mois même l'année où personne n'a
 ### La lumière et le feu
 
 35. **S'éclairer avec des lampes frontales.** À −30 °C, avec des mitaines, une lampe de poche occupe la main qui
- devrait tenir la hache ou l'enfant. La frontale est le moyen ; la lampe de poche sert d'appoint.
+ devrait tenir la hache ou l'enfant. Garder les lampes de poche pour l'appoint.
 36. **Garder les piles dans leur propre boîte**, qu'on n'ouvre ni pour les jouets ni pour la télécommande. Au froid,
  une pile donne moins : l'alcaline n'est garantie par son fabricant que jusqu'à −18 °C, la pile au lithium du même
  format jusqu'à −40 °C. Mettre des piles au lithium dans tout ce qui sort dehors l'hiver, la frontale d'abord, et
  garder les alcalines pour ce qui reste à l'intérieur. Une pile à moitié vide a l'air d'une pile pleine : l'essayer
  avant de partir.
-37. **Garder une lampe et une radio à manivelle.** La manivelle ne dépend ni des piles ni du carburant, et elle ne
- tombe jamais à plat. La communication est au ch. 14.
-38. **Ranger trois moyens d'allumage à trois endroits** : un sur soi, un dans la cuisine, un dans la remise. Un
- incendie, un sac oublié ou l'humidité n'atteint pas les trois à la fois (étape 3).
-39. **Compter l'huile à lampe avec le diesel et le kérosène, dans le même total, au même endroit** (étape 31 ;
- ch. 85). Avec une lampe par pièce et un petit bidon d'appoint dans l'armoire, le carburant s'accumule dans le
- chalet sans que personne l'ait décidé.
+37. **Garder une lampe et une radio à manivelle.** La manivelle ne dépend ni des piles ni du carburant. Communiquer :
+ ch. 14.
+38. **Ranger trois moyens d'allumage à trois endroits** : un sur soi, un dans la cuisine, un dans la remise
+ (étape 3).
+39. **Compter l'huile à lampe dans le même total que le diesel et le kérosène, et la ranger au même endroit**
+ (étape 31 ; ch. 85). Avec une lampe par pièce et un petit bidon d'appoint dans l'armoire, le carburant s'accumule
+ dans le chalet sans que personne l'ait décidé.
 
 ### Le stock des enfants
 
 40. **Revoir le stock des enfants deux fois par année.** Il se périme par la taille et par le goût plus que par la
  date : un manteau de la bonne taille l'an dernier ne sert plus cette année, et une denrée que l'enfant refuse sort du
- calcul de l'étape 11, même si elle est sur la tablette.
-41. **Mettre au stock ce que les enfants mangent déjà.** Ne pas compter sur une panne pour leur faire découvrir les
- lentilles. Les aliments riches qu'ils acceptent sans discuter (lait en poudre, beurre d'arachide, fruits séchés)
- contiennent du gras : les mettre en rotation rapide, pas en réserve de fond (étape 15).
-42. **Garder un bac de jeux, de cahiers, de crayons et de lampes pour les enfants, fermé jusqu'à la panne.** Ouvert
- ce jour-là seulement, il leur donne du neuf pour passer la panne (ch. 40). Les médicaments des enfants se dosent au
- poids (ch. 32) ; le reste est au ch. 39.
+ calcul (étape 17).
+41. **Mettre en rotation rapide les aliments riches que les enfants acceptent sans discuter** (lait en poudre, beurre
+ d'arachide, fruits séchés) : ils contiennent du gras (étape 15).
+42. **Garder un bac de jeux, de cahiers, de crayons et de lampes pour les enfants, fermé jusqu'à la panne.** Si on
+ l'ouvre seulement ce jour-là, les enfants ont du neuf pour passer la panne (ch. 40). On dose les médicaments des
+ enfants selon leur poids (ch. 32) ; le reste de ce qu'il faut pour eux est au ch. 39.
 
 ### Ce qui n'est pas de la nourriture
 
 43. **Garder les médicaments d'ordonnance avec la famille**, pas au chalet : les comprimés ne passent pas l'été dans
- un local qui chauffe en juillet et gèle en novembre. La trousse de premiers soins est au ch. 32.
+ un chalet qui chauffe en juillet et gèle en novembre. La trousse de premiers soins est au ch. 32.
 44. **Compter le savon et le papier de toilette.** On les oublie souvent dans un stock de nourriture, et sans eux,
- trois semaines à quatre dans un chalet deviennent difficiles à vivre (ch. 31, ch. 112).
+ trois semaines à quatre personnes dans un chalet deviennent difficiles à vivre (ch. 31, ch. 112).
 45. **Garder de l'argent comptant en petites coupures.** Un terminal de paiement a besoin de courant, et le commerce
  resté ouvert pendant une panne régionale ne rend pas la monnaie sur un billet de cent.
 46. **Garder les pièces et les consommables** (lames, limes, fil, boulons, joints) : la liste est au ch. 108. Sans
  lime, on ne peut plus affûter la chaîne de la scie (ch. 105).
 
-### La rotation et le tour du stock
+### La rotation et la vérification du stock
 
-47. **Ranger le neuf derrière, et prendre devant.** Charger la tablette par l'arrière et la vider par l'avant, jamais
- les deux en désordre : le premier entré est le premier sorti.
+47. **Ranger le neuf derrière, et prendre devant.** Charger la tablette par l'arrière et la vider par l'avant : on
+ mange alors le plus vieux en premier.
 48. **Dater tout ce qui entre.**
- - Écrire au marqueur la date d'entrée sur le contenant, en plus de celle de l'emballage. Dans un local humide, une
- étiquette de papier décolle en deux hivers, et une conserve maison sans date sort de la rotation le jour où personne
- ne sait plus de quelle année elle est. Jeter une conserve sans étiquette (section 6).
- - Sur une denrée transvidée de son sac, écrire aussi sur le couvercle les calories du sac : l'emballage finit dans
- le poêle, et avec lui le seul chiffre qui dit combien de jours le contenant nourrit la famille (étape 10).
-49. **Sortir du stock ce qui est ouvert.** Descendre un pot ouvert de la tablette, et le manger. Mettre au froid une
- conserve ouverte : elle est devenue périssable.
+ - Écrire la date d'entrée sur le contenant, au marqueur, en plus de celle de l'emballage. Dans un local humide, une
+ étiquette de papier décolle en deux hivers, et il faut jeter une conserve sans étiquette ou sans date lisible
+ (section 6).
+ - Sur une denrée transvidée de son sac, écrire aussi les calories du sac sur le couvercle : l'emballage finit dans
+ le poêle, et le tableau de la valeur nutritive avec lui (étape 10).
+49. **Sortir du stock ce qui est ouvert.** Descendre un pot ouvert de la tablette, et le manger. Mettre une conserve
+ ouverte au froid : elle est devenue périssable.
 50. **Juger la date « meilleur avant ».** On peut manger un aliment non périssable (céréales sèches, conserves,
- confitures, condiments) après la date « meilleur avant » s'il n'est pas altéré : cette date parle de qualité, pas de
- sécurité. On mange un aliment périssable réfrigéré avant sa date. Quand rien ne permet de trancher, remplacer chaque
- réserve d'urgence chaque année, ou à la date de l'étiquette si elle arrive avant.
-51. {!hantavirus} **Au tour du printemps et de l'automne, chercher les traces de souris.** Regarder les couvercles, les
- joints, les sacs et les coins des tablettes. Jeter tout ce que les souris ont touché, sans tamiser ni rincer. Boucher
- leur passage : une souris passe par une fente de la taille d'une pièce de 10 ¢ (sans laine d'acier : section 7).
+ confitures, condiments) après la date « meilleur avant » s'il n'est pas altéré : cette date porte sur la qualité,
+ pas sur la sécurité. Manger un aliment périssable réfrigéré avant sa date. Quand rien ne permet de trancher,
+ remplacer les réserves d'urgence chaque année, ou à la date de l'étiquette si elle arrive avant.
+51. {!hantavirus} **À la vérification du printemps et de l'automne, chercher les traces de souris.** Regarder les
+ couvercles, les joints, les sacs et les coins des tablettes. Jeter tout ce que les souris ont touché, sans tamiser ni
+ rincer. Boucher leur passage : une souris passe par une fente de la taille d'une pièce de 10 ¢ (sans laine d'acier :
+ section 7).
 
 ---
 
@@ -367,7 +370,7 @@ magasin : trois mois visés, et au moins un mois même l'année où personne n'a
 | Printemps et automne | Couvercles, joints et traces de souris sur les denrées sèches | Aucun contenant entamé, aucune crotte | Faire l'étape 51 |
 | Printemps et automne | Étiquettes et dates des conserves et des bocaux | Aucune boîte sans étiquette | Jeter la conserve sans étiquette |
 | Printemps et automne | Jours d'autonomie calculés (étape 11) | **30 jours** ou plus | Compléter la réserve avant l'hiver |
-| Printemps et automne | Vêtements des enfants, doses des médicaments au poids | La taille de l'année, les doses à jour | Remplacer tout de suite : les enfants grandissent plus vite que le stock ne tourne |
+| Printemps et automne | Vêtements des enfants, doses des médicaments au poids | La taille de l'année, les doses à jour | Remplacer tout de suite |
 | Automne | Humidité du bois, à l'humidimètre ou au poids | **20 % ou moins** | Fendre plus mince, empiler plus aéré, brûler le bois sec en premier |
 | Automne | Bois empilé, compté en cordes de 3,6 m³ (étape 30) | La consommation de l'hiver précédent, plus une marge | Couper le manque en octobre, sans attendre janvier |
 | Après une panne de plus de 4 h, à la maison | Contenu du réfrigérateur | Rien de périssable resté plus de 2 heures au-dessus de 4 °C | Jeter (section 6) |
@@ -397,7 +400,7 @@ magasin : trois mois visés, et au moins un mois même l'année où personne n'a
 | Aliment cru dégelé resté **à 4 °C ou moins** | Il est encore sain | Le cuire tout de suite pour le manger vite, ou le recongeler une fois cuit |
 | Bidon d'essence gonflé ou qui suinte, odeur d'essence dans le chalet | Les vapeurs s'accumulent | Ne rien allumer ni éteindre, sortir le bidon dehors et aérer |
 
-[^2]: Un couvercle scellé est un peu creux au centre quand on le regarde à hauteur d'œil. On appuie au milieu avec le pouce : s'il remonte quand on relâche, le scellage a lâché. Frappé du dos d'une cuillère, un couvercle qui a lâché sonne sourd.
+[^2]: Un couvercle scellé est un peu creux au centre quand on le regarde à hauteur d'œil. On appuie au milieu avec le pouce : s'il remonte quand on relâche, le scellage a lâché. Quand on le frappe du dos d'une cuillère, un couvercle qui a lâché sonne sourd.
 
 ---
 
@@ -408,22 +411,22 @@ magasin : trois mois visés, et au moins un mois même l'année où personne n'a
 **Refaire le joint d'une chaudière.** Quand le joint du couvercle d'une chaudière de 20 L a durci, le refaire avec une
 bande découpée dans une vieille chambre à air.
 
-- Découper un ruban un peu plus large que la gorge du couvercle.
-- Le poser dans la gorge en le tendant un peu, le couper à longueur, et joindre les deux bouts en biseau plutôt qu'à
+- Découper un ruban un peu plus large que la rainure du couvercle.
+- Le poser dans la rainure en le tendant un peu, le couper à longueur, et joindre les deux bouts en biseau plutôt qu'à
  bout franc.
 - L'essayer : remplir la chaudière d'eau, la fermer et la retourner sur une planche sèche. Si rien ne perle au bout de
  quelques minutes, le joint est bon, et il arrête aussi l'humidité de l'air.
 
-**Sceller un bocal à la cire.** Remplir le pot, visser le couvercle, retourner le pot et tremper le col dans de la cire
-de chandelle fondue, sur deux ou trois centimètres. Laisser figer, puis tremper une deuxième fois. La cire épouse le
-filet et bouche le passage de l'air. Ça convient à la farine, au riz, au sel et aux graines. Un bocal scellé à la cire
-n'est pas une conserve : la cire arrête l'humidité et les insectes, pas la bactérie du botulisme, qui pousse dans ce
-qui est humide et fermé (étape 23).
+**Sceller un bocal à la cire.** Remplir le bocal, visser le couvercle, retourner le bocal et tremper le col dans de la
+cire de chandelle fondue, sur deux ou trois centimètres. Laisser figer, puis tremper une deuxième fois. La cire entre
+dans le filet et bouche le passage de l'air. Ça convient à la farine, au riz, au sel et aux graines. Un bocal scellé à
+la cire n'est pas une conserve : la cire arrête l'humidité et les insectes, pas la bactérie du botulisme, qui pousse
+dans ce qui est humide et fermé (étape 23).
 
 **Réutiliser les couvercles.** Le couvercle plat d'un bocal Mason ne sert qu'une fois pour une conserve : le joint mou
-du pourtour s'écrase et ne reprend pas sa forme. On peut le réutiliser sur une denrée sèche, où il ne fait pas le même
-travail. On recharge les bocaux à anneau de caoutchouc et à étrier avec un anneau neuf ; sans anneau, ils
-redeviennent des pots pour le sec.
+du pourtour s'écrase et ne reprend pas sa forme. On peut le réutiliser sur une denrée sèche, qui n'a pas besoin de
+vide. On recharge les bocaux à anneau de caoutchouc et à étrier avec un anneau neuf ; sans anneau, ils servent encore
+pour les denrées sèches.
 
 **Sécher avant de fermer.** Une denrée fermée avec un reste d'humidité moisit dans son propre contenant hermétique.
 Étendre les grains et les farines sur une toile, sur une claie au-dessus du poêle, et les brasser à la main jusqu'à ce
@@ -432,38 +435,37 @@ de suite : l'air chaud enfermé se contracte en refroidissant et tire le couverc
 
 ### Peser sans balance
 
-On monte le fléau en une demi-heure.
+On fabrique une balance à fléau en une demi-heure.
 
-- Suspendre une latte droite de bois sec par une ficelle, et déplacer la ficelle jusqu'à ce que la latte tienne
- d'aplomb toute seule : la ficelle est alors au centre de la latte.
-- Percer deux boîtes de conserve et les suspendre chacune par trois ficelles, de chaque côté, à la même distance de la
- ficelle du centre. Mesurer cette distance avec soin des deux côtés.
+- Suspendre une latte droite de bois sec par une ficelle, et déplacer la ficelle jusqu'à ce que la latte tienne de
+ niveau toute seule : la ficelle est alors au centre de la latte.
+- Percer deux boîtes de conserve vides et suspendre chacune par trois ficelles, une boîte de chaque côté de la latte,
+ à la même distance de la ficelle du centre. Mesurer cette distance avec soin des deux côtés.
 
 Les poids de référence sont au chalet : un sac de sel, de sucre ou de farine non ouvert porte sa masse écrite dessus.
-Verser le contenu du sac dans les deux plateaux jusqu'à l'équilibre : chaque côté vaut la moitié du sac. Partager une
-moitié de la même façon, puis encore une fois : trois partages donnent le huitième du sac. Ranger ces portions dans des
-pots marqués de leur masse, et peser le stock avec elles.
+Verser le contenu du sac dans les deux boîtes jusqu'à ce que la latte soit de niveau : chaque boîte contient alors la
+moitié du sac. Partager une moitié de la même façon, puis encore une fois : trois partages donnent le huitième du sac.
+Ranger ces portions dans des pots marqués de leur masse, et peser le stock avec elles.
 
-**Ce qu'on perd :** la petite masse. Un fléau fait au chalet suffit pour peser une cuisse d'orignal et calculer un
-pourcentage de sel sur le poids de la viande. Il ne sert pas pour le sel nitrité, qu'on doit peser au dixième de
-gramme (étape 21) : sans balance fine, on ne fait pas de salaison longue, et la viande reste en salaison courte, au froid
-(ch. 67).
+**Ce qu'on perd :** la précision sur les petites masses. Une balance à fléau faite au chalet suffit pour peser une
+cuisse d'orignal et calculer un pourcentage de sel sur le poids de la viande. Elle ne sert pas pour le sel nitrité,
+qu'on doit peser au dixième de gramme (étape 21) : sans balance fine, on ne fait pas de salaison longue, seulement des
+salaisons courtes, au froid (ch. 67).
 
-### Savoir ce que le local a fait pendant l'absence
+### Savoir si le local a gelé ou chauffé pendant l'absence
 
-**Le témoin de gel.** Poser un pot d'eau sur une tablette. S'il est pris en glace à l'arrivée, le local a gelé : les
-boîtes de conserve ont travaillé, les bocaux de conserve maison sont à jeter (étape 4), et les bidons remplis à ras
-bord ont pu fendre. Pour savoir si le local a dégelé puis regelé
-pendant l'absence, laisser le pot geler une fois, poser une pièce de monnaie sur la glace et refermer le local. Si on
-retrouve la pièce en surface, rien n'a dégelé. Si elle est prise au milieu ou au fond du bloc, elle a coulé pendant un
-redoux, et tout ce qui était congelé dehors a dégelé en même temps qu'elle.
+**Le témoin de gel.** Poser un pot d'eau sur une tablette. S'il est pris en glace à l'arrivée, le local a gelé : le
+serti des boîtes de conserve a travaillé, les bocaux de conserve maison sont à jeter (étape 4), et les bidons remplis à
+ras bord ont pu fendre. Pour savoir si le local a dégelé puis regelé pendant l'absence, laisser le pot geler une fois,
+poser une pièce de monnaie sur la glace et refermer le local. Si on retrouve la pièce en surface, rien n'a dégelé. Si
+elle est prise au milieu ou au fond du bloc, elle a coulé pendant un redoux, et tout ce qui était congelé dehors a
+dégelé en même temps qu'elle.
 
 **Le témoin de chaleur.** Poser un morceau de suif dans une soucoupe. S'il est affaissé ou s'il a coulé, le local a eu
-des jours chauds : les huiles, les noix et le lait en poudre ont vieilli plus vite que leur date, et on les passe tout
-de suite en rotation rapide.
+des jours chauds : les huiles, les noix et le lait en poudre ont vieilli plus vite que leur date. Les passer tout de
+suite en rotation rapide.
 
-Les deux témoins ne donnent pas de température : ils montrent seulement si le local a gelé, dégelé ou chauffé, et ça
-suffit pour décider ce qu'on jette et ce qu'on fait tourner.
+Les deux témoins ne donnent pas de température : ils montrent seulement si le local a gelé, dégelé ou chauffé.
 
 ### Les souris, sans piège ni laine d'acier
 
@@ -479,9 +481,9 @@ La souris monte la planche et marche sur la canette ; la canette roule sous elle
 chaudière.
 L'hiver, garder la chaudière sèche, parce que de l'eau y gèlerait, et la vider tous les jours ou tous les deux jours.
 
-**Boucher.** Une souris ronge ce qui est plus tendre que ses dents. Sans laine d'acier, clouer un bout de boîte de
-conserve aplati au marteau sur le trou (repères 6 et 7), ou enfoncer du grillage roulé, ou boucher au ciment. Le bois
-neuf, la mousse et la guenille ne bouchent rien.
+**Boucher les trous.** Une souris ronge ce qui est plus tendre que ses dents. Sans laine d'acier, aplatir au marteau un
+bout de boîte de conserve et le clouer sur le trou (repères 6 et 7), ou enfoncer du grillage roulé, ou boucher au
+ciment.
 
 ### Ouvrir une conserve sans ouvre-boîte
 
@@ -490,7 +492,7 @@ petits cercles en appuyant : la pierre use le serti, qui est plus mince que le r
 filet d'humidité paraît sur la pierre : le serti est percé. Prendre la boîte à deux mains et presser les côtés : le
 couvercle se décolle. Sans pierre, appuyer le bout d'une cuillère solide dans le creux qui longe le serti, sur le dessus
 de la boîte, et frotter d'avant en arrière au même endroit jusqu'à percer ; puis agrandir le trou tout le tour. Ne pas
-prendre une lame fine : elle casse, et on perd un couteau pour une boîte de tomates.
+prendre un couteau : la lame fine casse.
 
 ### Ce que le territoire remplace
 
@@ -503,26 +505,26 @@ fondue, se garde parce que le gras figé chasse l'air du dessus (ch. 72). Ce n'e
 froid, jamais sur une tablette tiède, et le traiter comme un aliment périssable dès qu'il est entamé.
 
 **Le sel remplace l'électricité.** La salaison à sec et la saumure gardent la viande et le poisson sans appareil
-(ch. 68, ch. 69, ch. 76). On perd la souplesse : une pièce salée est engagée, et on ne revient pas en arrière. Si le
-sel acheté manque, l'eau du fleuve en donne par évaporation, mais il faut du bois et de la surveillance, et le sel
-qu'on en tire est de pureté inconnue : les pourcentages deviennent des estimations (ch. 67).
+(ch. 68, ch. 69, ch. 76). On perd la souplesse : une fois la pièce mise au sel, il faut aller jusqu'au bout de la
+salaison. Si le sel acheté manque, on en tire de l'eau du fleuve par évaporation, mais il faut du bois et de la
+surveillance, et ce sel est de pureté inconnue : les pourcentages deviennent des estimations (ch. 67).
 
 **Le caveau remplace le garde-manger.** Un trou dans le sable, au-dessus de la nappe d'eau, fermé par un couvercle
-isolé, garde les légumes-racines près du point de congélation sans qu'ils gèlent (ch. 79). Les céréales et les farines
-n'y vont pas : elles pourrissent dans l'humidité du caveau.
+isolé, garde les légumes-racines près du point de congélation sans qu'ils gèlent (ch. 79). Ne pas y mettre les
+céréales ni les farines : elles pourrissent dans l'humidité du caveau.
 
 {!thuyone} **Les fermentés remplacent les fruits en conserve.** Pour la choucroute et les légumes lactofermentés, il
 faut du sel, de l'eau et un contenant (ch. 80), et ils donnent de la vitamine C l'hiver (ch. 20). L'autre vitamine C
 de la forêt vient des aiguilles de sapin baumier ou d'épinette, jamais du cèdre (thuya), dont la thuyone est toxique.
 
-**Le bois remplace tout le reste, et chaque usage coûte des cordes.** Le poêle chauffe, cuit, sèche les grains,
-fait fondre la neige et éclaire la pièce. Faire de l'eau coûte cher en bois.
+**Le bois remplace tout le reste.** Le poêle chauffe, cuit, sèche les grains, fait fondre la neige et éclaire la
+pièce, et chaque usage demande du bois. Faire de l'eau en demande beaucoup.
 
 - Un chaudron rempli de neige sèche, posé sur un poêle chaud, chauffe à vide : la neige du fond isole au lieu de
  conduire, le métal brûle et la première eau goûte le fer brûlé. Garder toujours un fond d'eau dans le chaudron, et
  ajouter la neige par poignées.
-- La neige fraîche ne contient que 4 à 10 % d'eau : il faut 10 à 25 L de neige pour 1 L d'eau, et dix pour un est le
- meilleur cas. La neige vieille et tassée rend davantage.
+- La neige fraîche ne contient que 4 à 10 % d'eau : il faut 10 à 25 L de neige pour 1 L d'eau. La neige vieille et
+ tassée rend davantage.
 - À chaudron égal, la glace cassée au lac rend plus d'eau que la neige, parce qu'elle est plus dense : elle demande
  moins de bois pour la même quantité d'eau. Quand on peut atteindre la glace, la prendre avant la neige (ch. 10).
 
@@ -533,16 +535,16 @@ fait fondre la neige et éclaire la pièce. Faire de l'eau coûte cher en bois.
 - **L'avertisseur de CO** (étape 34).
 - **Le sel nitrité** (étape 21).
 - **Les médicaments d'ordonnance et les lunettes.**
-- **Les calories elles-mêmes.** Tout ce qui précède garde, déplace ou étire ce qui existe ; rien n'en fabrique, et le
- territoire ne donne presque rien en février.
+- **Les calories elles-mêmes.** Le froid, le gras, le sel et le caveau gardent la nourriture qu'on a ; ils n'en font
+ pas, et le territoire ne donne presque rien en février.
 
 ### Ce qu'on perd
 
 La variété : on mange gras, salé, et toujours la même chose. Le contrôle : sans thermomètre ni date, on juge à l'œil
 et on jette davantage. La marge d'erreur : un stock d'urgence n'a pas de deuxième réserve derrière lui, et une erreur
-de salage ou un coffre ouvert par un ours noir enlève une semaine de nourriture d'un coup. Et le temps : ce stock se
-gagne en heures de travail plutôt qu'en argent, et ces heures se prennent à l'automne, quand tout se fait en même
-temps.
+de salage ou un coffre ouvert par un ours noir enlève une semaine de nourriture d'un coup. Et le temps : on bâtit ce
+stock avec des heures de travail plutôt qu'avec de l'argent, et on prend ces heures à l'automne, quand tous les
+travaux tombent en même temps.
 
 ---
 
@@ -551,7 +553,7 @@ temps.
 ### La bannique des Innus
 
 Les Innus cuisent la bannique, une galette épaisse de farine, enfouie dans le sable chaud sous la braise, environ trois
-quarts d'heure. Le sable sec garde la chaleur du feu et cuit la pâte lentement : la farine du stock devient du pain
+quarts d'heure. Le sable garde la chaleur du feu et cuit la pâte lentement : la farine du stock devient du pain
 sans four ni chaudron (étape 14). Le sable doit être sec, pris en hauteur, et sans galets ramassés dans l'eau autour
 du feu : une pierre gorgée d'eau éclate à la chaleur (ch. 88).
 
@@ -565,8 +567,8 @@ voyageurs de la traite des fourrures (étape 19). Aujourd'hui, on chauffe la via
 ### Ranger les bocaux sans leur bague
 
 Une fois le bocal scellé et refroidi, on peut enlever la bague vissée avant de le ranger. Le couvercle reste plus sec,
-et l'humidité ronge moins le métal. Surtout, rien ne tient plus en place un couvercle qui a perdu son vide : il bouge
-sous le doigt, et on le voit tout de suite au tour du printemps ou de l'automne (étape 23).
+et l'humidité ronge moins le métal. Surtout, sans la bague, plus rien ne tient un couvercle qui a perdu son vide : il
+bouge sous le doigt, et on le voit tout de suite à la vérification du printemps ou de l'automne (étape 23).
 
 ### L'avertisseur qui bipe au froid
 

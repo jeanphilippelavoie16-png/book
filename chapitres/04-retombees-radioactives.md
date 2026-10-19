@@ -32,7 +32,7 @@ y rester 24 à 48 heures, protéger la thyroïde avec des comprimés d'iode, pui
 
 - **Comprimés d'iodure de potassium de 65 mg** : ils protègent la thyroïde de l'iode radioactif en la remplissant d'iode ordinaire (étape 12).
 - **Radio à piles ou à manivelle** : la seule façon d'avoir des nouvelles dans l'abri (étape 17 ; sans radio : section 7).
-- **Eau dans des contenants fermés** : 4 L par personne et par jour, tirés avant le passage des retombées (étape 22).
+- **Eau dans des contenants fermés** : 4 L par personne et par jour, tirés avant les retombées (étape 22).
 - **Avertisseur de CO à pile, à affichage** : le seul moyen de savoir que la pièce d'abri fermée se remplit de monoxyde (étape 18).
 - **Compteur Geiger ou dosimètre à affichage** : mesure le rayonnement dans la pièce et dehors, et montre quand il a assez baissé pour sortir (sans compteur : section 7).
 

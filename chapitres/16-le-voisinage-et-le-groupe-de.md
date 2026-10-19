@@ -16,8 +16,8 @@ règles du groupe de chasse, et sortir un blessé du bois à plusieurs : en tra�
 ## 2. Quand l'utiliser
 
 - **Quelqu'un est blessé dans le bois**, au bûchage, à la chasse ou sur le sentier, loin du camp (étapes 1 à 14).
-- **Une panne ou une tempête de quelques jours se passe à la maison** : le voisinage, c'est la rue, à pied
- (étapes 15 et 26 ; section 7, la tournée).
+- **Une panne ou une tempête de quelques jours se passe à la maison** : le voisinage, c'est la rue, où on va
+ à pied (étapes 15 et 26 ; section 7, la tournée).
 - **L'événement dure plus de trois jours** : on compte alors sur le rang et le groupe de chasse (étape 15).
 - **Un orignal est à terre**, et la bête dépasse ce qu'un seul foyer peut garder au froid (étapes 35 à 47).
 - **Un travail demande plus de bras qu'un foyer n'en a** : sortir une bête de l'eau, lever un moteur, remonter une
@@ -26,7 +26,7 @@ règles du groupe de chasse, et sortir un blessé du bois à plusieurs : en tra�
 - **Les adultes d'un foyer sont pris du matin au soir**, et il faut que quelqu'un d'un autre foyer garde les
  enfants quelques heures (étape 34 ; ch. 39, ch. 40).
 - **On prête une génératrice à un voisin, ou un arbre est tombé près des fils chez lui** (étapes 31 et 32).
-- **L'automne, avant les neiges** : la tournée des foyers et l'essai radio (étapes 15 à 25).
+- **L'automne, avant les neiges** : on fait la tournée des foyers et l'essai radio (étapes 15 à 25).
 - **On n'a ni radio ni électricité pour se parler d'un foyer à l'autre** (section 7).
 
 ---
@@ -34,9 +34,9 @@ règles du groupe de chasse, et sortir un blessé du bois à plusieurs : en tra�
 ## 3. Matériel
 
 - **Moyen de contact convenu** : une radio par foyer et une heure de veille fixée d'avance ; sans radio : section 7.
-- **Thermomètre à sonde** : vérifie les 74 °C à cœur de la viande de gibier qu'on reçoit (étape 44). Ne se fabrique pas.
+- **Thermomètre à sonde** : pour vérifier les 74 °C à cœur de la viande de gibier qu'on reçoit (étape 44) ; on ne peut pas le fabriquer.
 - **Dossard orange fluorescent** : un pour chaque personne du groupe de chasse ; à défaut, une bâche orange fluo cousue sur le manteau (étape 35).
-- **Toboggan ou traîneau** : sort un blessé couché sur la neige ; pour le fabriquer avec des perches ou un capot : section 7.
+- **Toboggan ou traîneau** : pour sortir un blessé couché sur la neige ; pour le fabriquer avec des perches ou un capot : section 7.
 
 ---
 
@@ -57,13 +57,14 @@ règles du groupe de chasse, et sortir un blessé du bois à plusieurs : en tra�
  refroidissement éolien est d'environ −39, et la peau découverte gèle en 10 à 30 minutes.
  - L'été aussi, un blessé couché qui ne bouge pas se refroidit, surtout s'il est mouillé ou que la nuit vient
  (ch. 26, étape 19).
- - Écrire l'heure de l'accident : on compte tout ce qui suit à partir d'elle (ch. 26, étape 14).
+ - Écrire l'heure de l'accident : on compte à partir de cette heure les délais des soins qui suivent
+ (ch. 26, étape 14).
 3. **Donner l'alerte tôt.** Si la vie du blessé est en jeu (il respire mal, saigne sans qu'on arrive à l'arrêter, se
  réveille mal ou devient confus) et qu'on a un appareil satellite ou une balise, déclencher le SOS sans attendre
  (ch. 14, étapes 1 et 2). Sinon, par radio ou par message satellite, envoyer un message court : où on est, qui est blessé, ce
  qu'il a, ce qu'on fait, et l'heure du prochain message (ch. 14, étapes 5 et 6). Sans radio, envoyer deux personnes
  porter le message écrit, jamais une seule : si une personne seule se blesse en route, le message
- n'arrive pas et il y a deux blessés (ch. 35, section 9).
+ n'arrive pas (ch. 35, section 9).
 4. **Le laisser bouger seul, ou le sortir couché.** S'il est conscient, clair et n'a aucun des signes qui suivent, il
  peut se déplacer seul, lentement, en évitant tout mouvement du cou qui fait mal ; ne pas le tirer ni le soulever
  pour l'aider. Le sortir couché si un seul de ces signes est là :
@@ -75,13 +76,13 @@ règles du groupe de chasse, et sortir un blessé du bois à plusieurs : en tra�
  Pour le sortir couché, le coucher sur une surface ferme, la tête calée entre deux rouleaux de vêtements (ch. 26,
  section 9). Ne pas lui fabriquer de collet rigide : rien ne montre qu'il protège, et il gêne la respiration.
 5. **Décider comment il sort, et envoyer chercher la machine tout de suite.**
- - Si le SOS ou la balise est parti, rester sur place avec le blessé, l'abriter (étape 14) et laisser l'appareil
+ - Si on a déclenché le SOS ou la balise, rester sur place avec le blessé, l'abriter (étape 14) et laisser l'appareil
  en marche jusqu'à ce que quelqu'un arrive (ch. 14, étape 3).
- - S'il peut marcher sans aggraver sa blessure, le faire marcher, soutenu, sans rien porter, avec quelqu'un à côté
- de lui.
+ - S'il peut marcher sans aggraver sa blessure, le faire marcher sans rien porter, avec quelqu'un à côté de lui
+ pour le soutenir.
  - Si une machine peut se rendre jusqu'à lui (l'hiver, une motoneige avec un traîneau ; l'été, un VTT avec une
  remorque), envoyer deux personnes la chercher maintenant, pendant que les autres l'emballent (étape 6) :
- l'aller-retour de la machine est le trajet le plus long, et plus il commence tôt, plus le blessé sort tôt.
+ l'aller-retour de la machine est le trajet le plus long.
  - Sinon, l'hiver, le sortir couché sur un traîneau tiré sur la neige (étapes 6 à 10). L'été, le sortir en canot, ou
  le tirer en travois sur un sentier (étape 11).
  - Sur un traîneau, un blessé couché sort en quatre à six fois le temps qu'on met à faire le même trajet à pied, et
@@ -95,9 +96,9 @@ règles du groupe de chasse, et sortir un blessé du bois à plusieurs : en tra�
 ### La sortie
 
 6. **L'emballer avant de partir.** Mettre des branches de sapin en couches croisées ou un matelas sous lui, puis
- le coucher dans un sac de couchage fermé, avec une tuque, le visage dégagé, et un pare-vapeur autour (planche 16-08,
- repères 4 et 5 ; ch. 25, étape 8). Sur le traîneau, il ne bouge pas et ne fait aucun effort : il gèle avant les
- gens qui tirent (ch. 15, étape 37).
+ le coucher dans un sac de couchage fermé, une tuque sur la tête et le visage dégagé, et entourer le sac d'un
+ pare-vapeur (planche 16-08, repères 4 et 5 ; ch. 25, étape 8). Sur le traîneau, il ne bouge pas et ne fait aucun
+ effort : il gèle avant les gens qui tirent (ch. 15, étape 37).
 7. **Le sangler sur ce qui glisse** : un toboggan, un traîneau à bois, un capot retourné, une porte, ou le traîneau de
  perches de la section 7.
  - Passer les sangles autour des perches ou du traîneau (repère 6), en travers de la poitrine, du bassin et des
@@ -105,23 +106,23 @@ règles du groupe de chasse, et sortir un blessé du bois à plusieurs : en tra�
  - Bourrer les vides de linge roulé, pour qu'il ne glisse pas dans les descentes, et caler sa tête.
  - Deux personnes doivent pouvoir le rouler d'un bloc sur le côté : sanglé sur le dos, un blessé qui vomit
  s'étouffe (ch. 26, section 9).
-8. **Placer les porteurs.** Mettre devant une ou deux personnes, qui tirent par les deux brancards, et, dans les
- descentes, une personne derrière, qui retient à la corde (repères 10 et 11). Des brancards rigides retiennent le
- traîneau autant qu'ils le tirent ; une corde seule, devant, le laisse rattraper la personne qui tire dans les pentes
- et lui prendre les jambes. Faire ouvrir la piste en raquettes par quelqu'un, devant le traîneau. Changer de porteurs
- souvent, avant que les bras lâchent. À chaque relève, regarder le visage et les doigts du blessé, plus souvent que le
- délai de gelure du jour (étape 2 ; ch. 15, étape 38).
-9. **Choisir le chemin.** Prendre le sentier tapé plutôt que le plus court. Rester hors de la glace des lacs : sur la
- glace, on n'attache personne à ce qui peut couler (ch. 15, étape 37), et le blessé est sanglé. Éviter le gravier
- et la roche à nu : ce qui accroche renverse le traîneau.
-10. **Partir de jour, et laisser le camp tenu.** Nommer l'adulte qui reste avec les enfants et le poêle (ch. 35).
- Laisser une note sur la porte : qui est parti, à quelle heure, vers où, et dans quel état est le blessé. Épingler à
- ses vêtements un papier qui dit ce qu'on sait de lui : ses maladies, ses médicaments, ses allergies, et le nom de
- la personne à prévenir (ch. 26).
+8. **Placer les porteurs.** Mettre une ou deux personnes devant, qui tirent par les deux brancards, et, dans les
+ descentes, une personne derrière, qui retient le traîneau à la corde (repères 10 et 11). Des brancards rigides
+ retiennent le traîneau autant qu'ils le tirent ; avec une corde seule, devant, le traîneau rattrape la personne qui tire dans les
+ pentes et la frappe aux jambes. Faire ouvrir la piste en raquettes par quelqu'un, devant le traîneau. Changer de porteurs
+ souvent, avant que les bras lâchent, et plus souvent que le temps que met la peau à geler ce jour-là : à chaque
+ relève, regarder le visage et les doigts du blessé (étape 2 ; ch. 15, étape 38).
+9. **Choisir le chemin.** Prendre le sentier tapé plutôt que le chemin le plus court. Rester hors de la glace des
+ lacs : sur la glace, on n'attache personne à ce qui peut couler (ch. 15, étape 37), et le blessé est sanglé. Éviter le gravier
+ et la roche à nu : le traîneau y accroche et se renverse.
+10. **Partir de jour, et laisser un adulte au camp.** Nommer l'adulte qui reste avec les enfants et le poêle (ch. 35).
+ Laisser une note sur la porte : qui est parti, à quelle heure, vers où, et dans quel état est le blessé. Épingler
+ aux vêtements du blessé un papier qui dit ce qu'on sait de lui : ses maladies, ses médicaments, ses allergies, et
+ le nom de la personne à prévenir (ch. 26).
 11. {!eau-froide} **L'été, le sortir par l'eau quand un lac ou une rivière mène vers le camp.**
- - Le coucher au fond du canot, sur un matelas, la tête calée, avec une veste de flottaison attachée sur lui
- (ch. 90, étape 31). Ouvrir le sac de couchage et le poser sur lui comme une couverture, les bras dehors : le sac
- fermé sur ses bras l'entraîne au fond si le canot chavire.
+ - Le coucher au fond du canot, sur un matelas, lui caler la tête et lui attacher une veste de flottaison
+ (ch. 90, étape 31). Ouvrir le sac de couchage et le poser sur lui comme une couverture, en lui laissant les bras
+ dehors : le sac fermé sur ses bras l'entraîne au fond si le canot chavire.
  - Ne pas l'attacher au canot : si le canot chavire, il reste pris sous la coque retournée, la tête dans l'eau
  (ch. 15, étape 37 ; ch. 90, étape 34).
  - Suivre la rive (ch. 90, étape 33).
@@ -132,11 +133,11 @@ règles du groupe de chasse, et sortir un blessé du bois à plusieurs : en tra�
 ### Chaque heure de la sortie
 
 12. **Envoyer le message à l'heure dite** : la position, l'état du blessé, l'heure d'arrivée prévue et l'heure du
- prochain message (ch. 14, étapes 6 et 8). Un message manqué devient un signal seulement si son heure était fixée
- d'avance (ch. 14, étape 26).
+ prochain message (ch. 14, étapes 6 et 8). Si un message n'arrive pas à l'heure annoncée, les gens qui l'attendent
+ savent qu'il y a un problème ; sans heure fixée, ils ne s'aperçoivent de rien (ch. 14, étape 26).
 13. {!froid} **Faire une halte courte.** Resserrer les sangles et refermer le sac, sauf en canot (étape 11).
- Vérifier qu'il répond bien, et que les doigts sous une attelle restent roses et chauds (ch. 26). Ne lui donner à
- boire chaud et sucré que s'il est bien éveillé et avale bien (ch. 25, étape 10). S'il devient confus ou arrête de
+ Vérifier que le blessé répond clairement, et que les doigts sous une attelle restent roses et chauds (ch. 26). Ne
+ lui donner à boire chaud et sucré que s'il est bien éveillé et avale bien (ch. 25, étape 10). S'il devient confus ou arrête de
  frissonner sans avoir été réchauffé, le garder à l'horizontale et le bouger
  doucement (ch. 25, étape 5).
 14. **S'arrêter avant la nuit, ou avant que les porteurs soient à bout.** Faire un abri et un feu sur place, et
@@ -151,13 +152,12 @@ règles du groupe de chasse, et sortir un blessé du bois à plusieurs : en tra�
  voisines manquent rarement de la même chose en même temps, et on peut aller de l'une à l'autre à pied même à
  −35 °C : c'est le voisinage d'un événement court.
  - Le second est le rang : les camps et les maisons qu'on atteint dans la journée, en véhicule ou en motoneige.
- Quand l'événement dure, la maison de la ville n'a plus de services ni de territoire, et le voisinage utile devient
- le rang.
+ Quand l'événement dure, le voisinage utile devient le rang.
  - Noter chaque bâtiment sur la carte, occupé ou non, avec le nom du propriétaire quand on le connaît. Un camp vide
  compte : il a un poêle, parfois un puits, et il peut servir d'abri.
  - Noter aussi les maisons vides de la rue : on saura qu'il n'y a personne à secourir derrière leur porte.
-16. **Marquer d'un signe à part les foyers occupés l'hiver** : c'est la liste de janvier. Un rang de camps d'été peut
- n'avoir que quelques foyers occupés en février. En ville, presque tout le monde est là : marquer plutôt les gens qui
+16. **Marquer d'un signe à part les foyers occupés l'hiver** : ce sont ceux sur qui on peut compter en janvier. Un
+ rang de camps d'été peut n'avoir que quelques foyers occupés en février. En ville, presque tout le monde est là : marquer plutôt les gens qui
  vivent seuls, qui ne sortent plus ou qui n'ont qu'une source de chaleur.
 17. **Connaître chaque foyer occupé, en allant le demander** : les noms, le nombre de personnes, l'âge des enfants,
  les maladies qui changent ce qu'on fait (diabète, épilepsie, allergie grave), les appareils électriques dont une
@@ -167,39 +167,40 @@ règles du groupe de chasse, et sortir un blessé du bois à plusieurs : en tra�
  moyen de contact et l'heure de veille. Le redemander chaque automne, en personne. Ne pas répéter hors du réseau ce
  qu'on apprend des réserves d'un foyer, son carburant et ses armes : quand les gens du rang savent qu'un foyer a une
  réserve, des visiteurs viennent la demander (ch. 17).
-18. **Fixer la veille radio** : un horaire, une fréquence et une heure. Chaque jour en crise ; une fois par semaine
- hors crise, pour vérifier que le matériel marche (ch. 14).
+18. **Fixer la veille radio** : une fréquence et une heure. Tenir la veille chaque jour en crise, et une fois par
+ semaine hors crise, pour vérifier que le matériel marche (ch. 14).
 19. **Convenir d'un signal de détresse qu'on entend sans électronique, le même pour tous les foyers.** Prendre un
  sifflet ou une corne : un coup de feu s'entend comme de la chasse, ou comme du braconnage hors saison, et il coûte
- des munitions. Le signal que les chercheurs connaissent est trois coups, une pause, trois coups, et on recommence,
- en se taisant de temps en temps pour entendre la réponse. Pour un signal qui se voit de loin : trois feux en
- triangle. Les signaux visuels entre voisins et ceux qu'on fabrique sans rien sont à la section 7.
+ des munitions. Le signal que les chercheurs connaissent est de trois coups, une pause, puis trois coups ; on le
+ répète en se taisant de temps en temps pour entendre la réponse. Pour un signal qu'on voit de loin, faire trois feux
+ en triangle. Les signaux visuels entre voisins et ceux qu'on fabrique sans rien sont à la section 7.
 20. **Nommer d'avance la personne qui tranche** quand le groupe se divise et qu'attendre coûte cher, et la personne
  qui la remplace si elle est blessée.
 21. **Convenir des trois règles d'échange avant la crise** : ce qu'on donne, ce qu'on prête, et ce qui ne sort ni de
- la maison ni du chalet. Convenue en septembre, la règle vaut pour tout le monde ; improvisée en février, elle a
- l'air d'un refus fait à une personne.
+ la maison ni du chalet. Une règle convenue en septembre vaut pour tout le monde ; la même règle improvisée en
+ février a l'air d'un refus fait à une personne.
 22. **Convenir de qui chasse, trappe et pêche où**, quand plusieurs foyers partagent un secteur. Dire aux autres où
  sont ses collets, ses pièges et ses lignes, et ne jamais toucher à ceux d'un autre. Deux foyers qui prennent dans le
  même secteur sans s'entendre le vident, et il ne nourrit plus personne l'année suivante.
-23. **Repérer les foyers qui dépendent du réseau électrique pour vivre** : un concentrateur d'oxygène, un ventilateur,
- une pompe. Un tel appareil ne change rien à l'ordre des réparations sur le réseau : la maison n'est pas rebranchée
- avant les autres. Décider le plan d'avance, entre voisins : l'autonomie de la batterie en heures, écrite sur
- l'appareil ; chez qui la personne s'en va quand la moitié de cette autonomie est passée ; qui l'y amène ; qui
- vérifie qu'elle y est rendue. La moitié, parce qu'une batterie se vide plus vite au froid.
-24. **Nommer d'avance la machine, le conducteur et la garde des enfants pour sortir un blessé.** La machine est celle
- qui part à −35 °C sans discussion et dont le plein est fait (ch. 15), même si une autre du rang est plus puissante.
- Le conducteur est quelqu'un dont l'absence ne bloque rien : si on envoie le seul mécanicien chercher de l'aide, on
- n'a plus de mécanicien pendant des jours, au moment où une machine risque de lâcher. Nommer en même temps la personne qui garde les enfants
- (ch. 39, ch. 40).
-25. **Tenir une réunion d'automne, une fois par année**, avec deux points : ce qui a changé dans chaque foyer, et un
- vrai essai radio avec chaque foyer. Une heure au plus, pour que tout le monde revienne l'année suivante.
+23. **Repérer les foyers où une personne dépend d'un appareil électrique pour vivre** : un concentrateur d'oxygène,
+ un ventilateur, une pompe. Un tel appareil ne change rien à l'ordre des réparations sur le réseau : la maison n'est
+ pas rebranchée avant les autres. Décider le plan d'avance, entre voisins : l'autonomie de la batterie en heures, mesurée
+ (étape 17) et écrite sur l'appareil ; chez qui la personne s'en va quand la moitié de cette autonomie est passée ;
+ qui l'y amène ; qui vérifie qu'elle y est rendue. On prend la moitié parce qu'une batterie se vide plus vite au
+ froid.
+24. **Nommer d'avance la machine et le conducteur qui sortiront un blessé, et la personne qui gardera les
+ enfants** (ch. 39, ch. 40). Choisir la machine qui part à −35 °C à coup sûr et dont le plein est fait (ch. 15),
+ même si une autre du rang est plus puissante. Choisir comme conducteur quelqu'un dont l'absence ne bloque rien :
+ si on envoie le seul mécanicien chercher de l'aide, on n'a plus de mécanicien pendant des jours, au moment où une
+ machine risque de lâcher.
+25. **Tenir une réunion chaque automne**, avec deux points : ce qui a changé dans chaque foyer, et un vrai essai
+ radio avec chaque foyer. La garder à une heure au plus, pour que tout le monde revienne l'année suivante.
 
 ### Travailler et vivre à plusieurs
 
 26. **Tenir la veille chaque jour, à l'heure convenue.** Quand un foyer manque deux veilles de suite, aller le voir à
- deux, jamais seul, avec la trousse, un moyen de contact et une heure de retour laissée chez un troisième foyer.
- Pendant des retombées radioactives, ne pas aller voir un voisin : rester à l'abri (ch. 4, étape 6).
+ deux, jamais seul, avec la trousse de premiers soins, un moyen de contact et une heure de retour laissée chez un
+ troisième foyer. Pendant des retombées radioactives, ne pas aller voir un voisin : rester à l'abri (ch. 4, étape 6).
 27. **Tenir les réunions de crise en quinze minutes, debout, sur quatre points** : la situation, les ressources, les
  décisions, et qui fait quoi pour quand. Avant de se séparer, faire répéter à chacun, à voix haute, ce qu'il a à
  faire et pour quand.
@@ -212,11 +213,11 @@ règles du groupe de chasse, et sortir un blessé du bois à plusieurs : en tra�
 30. {!coupure} **Ne jamais bûcher seul.** Ne partir avec une scie à chaîne que si un autre foyer connaît le secteur et
  l'heure de retour, et qu'une personne est chargée de lancer la recherche passé cette heure (ch. 106). Laisser
  l'heure de retour par écrit.
-31. {!generatrice} {!electrocution} **Poser la génératrice qu'on prête ou qu'on reçoit dehors, à au moins 6 m de
- toute maison, sans toit ni bâche au-dessus.** L'erreur arrive avec le service rendu : le voisin apporte sa génératrice, on la met sous
- l'appentis pour l'abriter de la neige, et on ferme la porte à cause du bruit. Brancher les appareils directement sur
- la génératrice, un par un, avec des rallonges, jamais par une prise de la maison (ch. 3).
-32. {!electrocution} **Dégager un arbre tombé chez un voisin après un verglas : regarder les fils avant l'arbre.**
+31. {!generatrice} {!electrocution} **Poser dehors la génératrice qu'on prête ou qu'on reçoit, à au moins 6 m de
+ toute maison, sans toit ni bâche au-dessus.** On fait souvent l'erreur en rendant service : le voisin apporte sa
+ génératrice, on la met sous l'appentis pour l'abriter de la neige, et on ferme la porte à cause du bruit. Brancher
+ les appareils directement sur la génératrice, un par un, avec des rallonges, jamais par une prise de la maison (ch. 3).
+32. {!electrocution} **Avant de dégager un arbre tombé chez un voisin après un verglas, regarder où sont les fils.**
  Rester à au moins 10 m d'un fil tombé et de l'arbre ou des branches qui le
  touchent, et ne pas essayer de les déplacer. Près des fils restés en place, garder 3 m
  en tout temps, en comptant la perche, l'échelle et la branche qu'on manipule. Marquer le secteur pour la prochaine
@@ -224,9 +225,10 @@ règles du groupe de chasse, et sortir un blessé du bois à plusieurs : en tra�
 
 ### La dette
 
-33. **Ne pas convertir en argent.** Le froid d'un chalet est limité : le quartier qu'on donne au voisin va dans
- son froid à lui, et en échange, on garde une dette, qui ne se gâte pas. Une vente solde le compte au moment du paiement ; la dette garde les
- deux foyers liés jusqu'à ce qu'elle soit rendue. Répondre : « ça ne se vend pas, ça se remet ».
+33. **Donner la viande contre une dette, pas contre de l'argent.** Un chalet ne peut garder au froid qu'une
+ quantité limitée de viande : le quartier qu'on donne à un voisin, il le garde au froid chez lui, et on garde en
+ échange une dette, qui ne se gâte pas. Une vente solde le compte au moment du paiement ; la dette garde les deux
+ foyers liés jusqu'à ce qu'elle soit rendue. Répondre : « ça ne se vend pas, ça se remet ».
 34. **Régler les dettes en travail quand la viande manque** : une journée de bûchage, une réparation, une garde
  d'enfants.
 
@@ -238,23 +240,22 @@ règles du groupe de chasse, et sortir un blessé du bois à plusieurs : en tra�
  L'adolescent qui suit sans arme le porte aussi : on le remarque moins, et il est le seul à ne pas savoir où chacun
  est rendu.
 36. {!arme} **Ouvrir la chambre devant les deux personnes chaque fois qu'une arme change de main au camp, même quand
- c'est évident.** À plusieurs, chacun prend la carabine appuyée dans le coin pour celle d'un autre, et croit qu'un
- autre l'a vidée. Chaque arme du camp a un propriétaire connu de tous, qui en répond.
-37. **Prévenir le voisinage avant de chercher un gibier blessé la nuit.** Des lumières qui balaient le bois après la
- noirceur et un chien qui court libre se voient de loin et ont l'air de braconnage ; un mot au rendez-vous fixe,
- avant de partir, évite le malentendu. Chercher à la lampe de poche ou à la frontale, sans arme : la nuit,
- une personne qui porte une lampe et une carabine a l'air de braconner, pas de chercher une bête blessée. Garder le
- chien en laisse : un chien qui pousse une bête blessée la fait courir jusqu'à ce qu'on la perde.
+ on la croit vide.** Quand on est plusieurs, chacun croit que la carabine appuyée dans le coin est celle d'un autre,
+ et qu'un autre l'a vidée. Chaque arme du camp doit avoir un propriétaire connu de tous, qui en répond.
+37. **Prévenir le voisinage avant de chercher un gibier blessé la nuit.** Pour les voisins, des lumières qui
+ balaient le bois la nuit, une carabine et un chien qui court libre ont l'air de braconnage : le dire au rendez-vous
+ fixe avant de partir. Chercher à la lampe de poche ou à la frontale, sans arme. Garder le chien en laisse : un
+ chien qui pousse une bête blessée la fait courir jusqu'à ce qu'on la perde.
 38. {!zone-de-danger} **Éviscérer tout de suite**, sans percer ni déchirer les intestins, enlever les saletés sans
  rincer la carcasse à l'eau, et faire descendre la viande à 7 °C au cœur dans les 24 premières heures (ch. 61). Tout
  le groupe doit s'y mettre, pas seulement le tireur.
-39. **Diviser le travail avant de diviser la viande.** Décider du partage au camp, à froid, devant tout le monde : qui
- prend quel quartier, qui doit quoi à qui, qui rendra la prochaine fois. Le quartier arrière et le quartier avant ne
- servent pas aux mêmes choses (ch. 63, ch. 64, ch. 65) : changer de quartier d'une année à l'autre règle la question
- mieux qu'une discussion sur leur valeur.
-40. {!mal-de-caribou} **Partager le gras avant la viande.** Le gras d'un orignal est à quelques endroits seulement, et
- des quartiers partagés en parts égales ne le partagent pas. Chaque foyer doit repartir avec du gras : la viande
- maigre seule, sans gras, mène au mal de caribou, mortel en quelques semaines (ch. 19, ch. 72).
+39. **Décider du partage au camp, calmement, devant tout le monde, avant de découper** : qui prend quel quartier,
+ qui doit quoi à qui, qui rendra la prochaine fois. Le quartier arrière et le quartier avant ne
+ servent pas aux mêmes choses (ch. 63, ch. 64, ch. 65) : alterner les quartiers d'une année à l'autre règle la
+ question mieux qu'une discussion sur leur valeur.
+40. {!mal-de-caribou} **Partager le gras avant la viande.** Le gras d'un orignal est à quelques endroits seulement :
+ en partageant les quartiers en parts égales, on ne partage pas le gras également. Chaque foyer doit repartir avec du
+ gras : la viande maigre mangée seule mène au mal de caribou, mortel en quelques semaines (ch. 19, ch. 72).
 
 ### Donner et recevoir la viande
 
@@ -264,7 +265,7 @@ règles du groupe de chasse, et sortir un blessé du bois à plusieurs : en tra�
 42. **Garder la viande au froid jusque chez le foyer qui la reçoit** : la transporter et la garder entre 0 et 4 °C,
  et la congeler à −18 °C ou moins.
 43. **Dire ce qu'on donne** : l'espèce, la date d'abattage, comment la bête a été refroidie, et ce qui était anormal à
- l'éviscération. La personne qui la reçoit peut alors décider en connaissance de cause.
+ l'éviscération.
 44. {!cuisson} {!trichine} **Cuire à 74 °C à cœur toute viande de gibier qu'on reçoit, en mesurant à la sonde** : on ne
  sait pas comment elle a été gardée. Un saucisson d'ours séché, offert par un voisin, n'a pas été cuit ; le sel, le
  fumage, le séchage et le gel ne tuent pas la trichine. Le cuire à cœur, ou le refuser (ch. 52).
@@ -283,17 +284,17 @@ règles du groupe de chasse, et sortir un blessé du bois à plusieurs : en tra�
 
 | Moment | Ce qu'on vérifie | Cible chiffrée | Si c'est hors cible |
 | --- | --- | --- | --- |
-| Sortie d'un blessé, à chaque relève | Le visage, les doigts et la réponse du blessé | Aucune plaque blanche ou cireuse sur le visage ; il répond clairement | Plaque : la couvrir et la réchauffer contre une peau saine. Confus ou sans frissons : le garder à l'horizontale, sans le secouer (ch. 25) |
+| Sortie d'un blessé, à chaque relève | Le visage, les doigts et la réponse du blessé | Aucune plaque blanche ou cireuse sur le visage ; il répond clairement | Plaque blanche : la couvrir et la réchauffer contre une peau saine. S'il est confus ou ne frissonne plus : le garder à l'horizontale, sans le secouer (ch. 25) |
 | Sortie d'un blessé, chaque heure | Le message | Envoyé à l'heure dite, avec la position et l'heure du suivant | L'envoyer tout de suite ; sans réponse, garder l'horaire (ch. 14) |
 | Chaque automne | La tournée des foyers | Chaque foyer occupé l'hiver vu en personne depuis l'automne dernier | Refaire la tournée avant les neiges : ce qu'on savait d'un voisin il y a quelques années a changé |
 | Chaque automne | L'essai radio avec chaque foyer | Chaque foyer entendu, et il a répondu au moins une fois | Régler le matériel avant décembre (ch. 14) |
 | Chaque jour, en crise | Les foyers qui répondent à la veille | Tous les foyers qui ont répondu la veille | Deux veilles manquées de suite : étape 26 |
-| Panne en ville, foyer qui a un appareil de maintien de la vie | L'autonomie qui reste à la batterie | Départ vers le foyer d'accueil à la moitié de l'autonomie écrite sur l'appareil | Partir tout de suite |
-| Avant de toucher à un arbre tombé chez un voisin | La distance au fil le plus proche | 10 m d'un fil au sol, 3 m d'un fil resté en place | Personne ne travaille : marquer le secteur, avertir les voisins et attendre |
+| Panne en ville, foyer qui a un appareil de maintien de la vie | L'autonomie qui reste à la batterie | Départ vers le foyer d'accueil à la moitié de l'autonomie mesurée et écrite sur l'appareil | Partir tout de suite |
+| Avant de toucher à un arbre tombé chez un voisin | La distance au fil le plus proche | 10 m d'un fil au sol, 3 m d'un fil resté en place | Ne pas travailler : marquer le secteur, avertir les voisins et attendre |
 | Premier jour de la carcasse | Le refroidissement | 7 °C au cœur en 24 h | Couper la bête en morceaux pour qu'elle refroidisse plus vite, et la répartir entre les foyers plus tôt que prévu (ch. 73) |
-| Quand on reçoit un quartier ou un paquet | La température et l'étiquette | Entre 0 et 4 °C, ou gelé à −18 °C ou moins ; étiquette lisible : espèce, chasseur, date | Sans étiquette : la remplir avec le donneur, tout de suite. Tiède : section 6 |
-| Avant chaque sortie de bûchage ou de chasse | L'heure de retour laissée chez un autre foyer | Écrite, avec le secteur et l'heure où on lance la recherche | Pas d'heure laissée, pas de départ |
-| Chaque fois qu'une arme change de main au camp | La chambre | Ouverte et vue par les deux personnes, chaque fois, même quand c'est évident | Refaire le geste devant les deux personnes |
+| Quand on reçoit un quartier ou un paquet | La température et l'étiquette | Entre 0 et 4 °C, ou gelé à −18 °C ou moins ; étiquette lisible : espèce, chasseur, date | Sans étiquette : la remplir avec le donneur, tout de suite. S'il arrive tiède : section 6 |
+| Avant chaque sortie de bûchage ou de chasse | L'heure de retour laissée chez un autre foyer | Écrite, avec le secteur et l'heure où on lance la recherche | Ne pas partir sans l'avoir laissée |
+| Chaque fois qu'une arme change de main au camp | La chambre | Ouverte et vue par les deux personnes, chaque fois, même quand on la croit vide | Refaire le geste devant les deux personnes |
 | Au partage d'une bête entre foyers | Le gras | Chaque foyer repart avec du gras, pas seulement du muscle | Refaire les lots (étape 40) |
 
 ---
@@ -307,7 +308,7 @@ règles du groupe de chasse, et sortir un blessé du bois à plusieurs : en tra�
 | L'échange se fait en argent | La vente solde le compte, et la dette qui liait les foyers disparaît (étape 33) | Refuser l'argent et laisser une dette. Si l'autre insiste, arrêter l'échange |
 | Un quartier arrive tiède, sans étiquette, ou avec une histoire floue | On ne sait pas comment il a été gardé au froid : il peut avoir l'air normal et avoir passé des heures au-dessus de 4 °C | Remplir l'étiquette avec le donneur, ou refuser le quartier. Dans le doute sur le refroidissement, ne pas le servir aux enfants (ch. 66) |
 | Un pot ou un sac de poisson fumé offert, sans date ni méthode | On ne sait ni le sel, ni la température, ni la durée de garde | Le jeter (étape 47) |
-| Quelqu'un propose de chasser hors saison « vu les circonstances » | La bête prise au printemps emporte aussi le petit qu'elle porte, et le territoire se vide | Refuser net (étape 22 ; ch. 41, ch. 42) |
+| Quelqu'un propose de chasser hors saison « vu les circonstances » | Une femelle tuée au printemps porte son petit : on tue les deux, et le territoire se vide | Refuser net (étape 22 ; ch. 41, ch. 42) |
 | Le groupe discute deux heures et ne décide rien | Personne n'a été nommé pour trancher, ou la personne nommée n'ose pas | Nommer tout de suite qui tranche quoi. Dire la décision à voix haute et la faire répéter |
 | Deux versions de la même entente circulent | L'entente n'a pas été répétée devant les deux parties | La refaire devant les deux parties, à partir de zéro, sans chercher qui avait raison |
 | Personne ne sait à qui est la carabine appuyée dans le coin | Personne n'en répond, et personne ne sait si elle est chargée | Ouvrir la chambre et nommer le propriétaire à voix haute, devant le groupe (étape 36) |
@@ -320,28 +321,29 @@ règles du groupe de chasse, et sortir un blessé du bois à plusieurs : en tra�
 
 ### En ville : la tournée et la marque sur la porte
 
-En ville, on va d'une maison à l'autre à pied ; ce qui manque, c'est de savoir quelles maisons ont été visitées. Une
-marque convenue sur la porte ou sur la fenêtre (un ruban de couleur, une planche appuyée, un trait de craie de
-charpentier) dit trois choses : *visité aujourd'hui*, *maison vide, personne à l'intérieur*, *quelqu'un ici a besoin de
-quelque chose*. Sans marque, les mêmes maisons reçoivent plusieurs visites dans la journée, le bout de la rue n'en
-reçoit aucune, et personne ne s'en aperçoit avant plusieurs jours. Effacer la marque chaque matin : celle de la veille
-ne dit plus rien de vrai. Un tableau commun, au perron de l'église ou du dépanneur, dit le reste : qui est parti, où,
+En ville, on va d'une maison à l'autre à pied, mais on ne sait pas quelles maisons ont été visitées. On convient
+d'une marque à poser sur la porte ou sur la fenêtre (un ruban de couleur, une planche appuyée, un trait de craie de
+charpentier), avec trois sens : *visité aujourd'hui*, *maison vide, personne à l'intérieur*, *quelqu'un ici a besoin
+de quelque chose*. Sans marque, les mêmes maisons reçoivent plusieurs visites dans la journée, le bout de la rue n'en
+reçoit aucune, et personne ne s'en aperçoit avant plusieurs jours. On efface la marque chaque matin : celle de la veille
+n'est plus vraie. On écrit le reste sur un tableau commun, au perron de l'église ou du dépanneur : qui est parti, où,
 et pour combien de temps.
 
 ### Le rendez-vous fixe
 
 Convenir d'un lieu et d'une heure, tous les jours : le croisement du chemin, la clôture, le quai. Une personne de
-chaque foyer doit s'y présenter, même s'il n'y a rien à dire : une absence déclenche la visite (étape 26).
+chaque foyer doit s'y présenter, même s'il n'y a rien à dire : si personne ne vient d'un foyer, on va le voir
+(étape 26).
 
 ### Le téléphone à fil, sans pile
 
 Deux haut-parleurs et deux fils font un téléphone qui ne demande aucune source de courant (planche 16-07, repères 1
 et 2). Un haut-parleur, c'est une bobine suspendue dans le champ d'un aimant : la voix fait bouger la membrane, la
 membrane fait bouger la bobine, et la bobine, en bougeant dans le champ de l'aimant, fabrique elle-même son courant.
-Le même haut-parleur sert donc de micro d'un côté et d'écouteur de l'autre. Prendre deux petits haut-parleurs (radio
-d'auto, vieux casque d'écoute, haut-parleurs d'ordinateur) et les relier par deux fils, borne à borne. Le son est
-faible : il faut parler collé dans le cône et écouter l'oreille dessus. C'est assez pour « viens-t'en », « tout va
-bien » et « pars pas ».
+Un haut-parleur sert donc aussi de micro : on parle dans l'un, on écoute dans l'autre. Prendre deux petits
+haut-parleurs (radio d'auto, vieux casque d'écoute, haut-parleurs d'ordinateur) et les relier par deux fils, borne à
+borne. Le son est faible : il faut parler collé dans le cône et écouter l'oreille collée dessus. C'est assez pour
+« viens-t'en », « tout va bien » et « pars pas ».
 
 La voix se perd dans la résistance du fil : plus le fil est long et fin, moins elle porte. Le fil de calibre 14 a six
 fois moins de résistance que le calibre 22, et il porte la même voix six fois plus loin. Prendre le plus gros fil
@@ -352,25 +354,25 @@ un bouton d'un côté (repère 3) et, de l'autre, un klaxon de 12 V, sa batterie
 
 Sans le relais, le klaxon ne sonne pas. Un klaxon d'auto puissant tire 5,5 A : sous 12 V, il se comporte comme une
 résistance d'environ 2 Ω. Sur 300 m de fil de clôture galvanisé, l'aller-retour fait autour de 20 Ω, près de dix fois
-plus que le klaxon : le fil garde presque toute la tension, et le klaxon reste muet ou grésille. Le relais fait le
-même travail que sous le capot : le long fil ne porte plus que le courant de sa bobine, de 0,14 à 0,21 A, et un relais
+plus que le klaxon : presque toute la tension se perd dans le fil, et le klaxon reste muet ou grésille. Le relais
+fait le même travail que sous le capot : le long fil ne porte plus que le courant de sa bobine, de 0,14 à 0,21 A, et un relais
 de 12 V colle encore sous 7,5 V ; son contact, à deux pas de la batterie, passe les ampères au klaxon. Le relais du
-klaxon, ou n'importe quel relais à quatre broches de la boîte à fusibles d'une auto, fait l'affaire. Ses bornes sont
-numérotées sur le boîtier : 85 et 86 pour la bobine, en série avec la batterie, les deux fils de sonnerie et le
-bouton ; 30 et 87 pour le contact, entre la batterie et le klaxon, avec du fil court et gros. Au premier essai,
-écouter le relais : s'il claque et que le klaxon reste muet, la faute est dans le fil court ; s'il ne claque pas, elle
-est dans la ligne.
+klaxon, ou n'importe quel relais à quatre broches de la boîte à fusibles d'une auto, fait l'affaire. Les bornes du
+relais sont numérotées sur le boîtier. Brancher 85 et 86, les bornes de la bobine, en série avec la batterie, les deux
+fils de sonnerie et le bouton. Brancher 30 et 87, les bornes du contact, entre la batterie et le klaxon, avec du fil
+court et gros. Au premier essai, écouter le relais : s'il claque et que le klaxon reste muet, la faute est dans le
+fil court ; s'il ne claque pas, elle est dans la ligne.
 
 Ne pas faire revenir le courant de la sonnerie par un des fils du téléphone. Le courant de sonnerie fait une tension
 dans ce fil commun, et cette tension pousse du courant continu dans les deux haut-parleurs : la membrane saute d'un
 coup, et la personne qui écoute reçoit un grand clac dans l'oreille. Quand on manque de fil et qu'il faut partager,
-le relais ramène le courant du fil commun à celui de sa bobine, et le clac à un déclic.
+le relais réduit le courant du fil commun à celui de sa bobine, et on n'entend plus qu'un déclic.
 
 **Où prendre le fil.** Du fil de clôture, du fil de téléphone abandonné le long des vieux chemins, des câbles de
 démarrage qu'on sacrifie, une rallonge fendue en deux sur sa longueur, et surtout le bobinage d'un moteur électrique
 brûlé : le moteur d'une fournaise, d'un ventilateur ou d'une pompe, qu'on débobine, donne des dizaines de mètres de
-cuivre isolé. Son isolant est un vernis transparent, pas une gaine : le gratter au couteau ou le brûler au briquet aux
-deux bouts (repère 6), sinon le contact ne se fait pas, et le fil a l'air coupé alors qu'il est bon. Torsader les
+cuivre isolé. L'isolant de ce cuivre est un vernis transparent, pas une gaine : le gratter au couteau ou le brûler
+au briquet aux deux bouts (repère 6), sinon le contact ne se fait pas, et le fil a l'air coupé alors qu'il est bon. Torsader les
 épissures, les entourer de ruban, et pendre le fil assez haut pour qu'une motoneige ne l'accroche pas (repère 7). Couché
 au sol, le fil est coupé par la première pelle, et il disparaît sous la neige jusqu'au printemps.
 
@@ -379,7 +381,7 @@ gelé conduit mal et le retour par la terre se perd : tirer les deux fils pendan
 
 ### La cloche du rang
 
-Un morceau de métal pendu librement sonne ; posé sur quelque chose, il ne sonne pas, parce que le contact étouffe la
+On pend le morceau de métal librement : posé sur quelque chose, il ne sonne pas, parce que le contact étouffe la
 vibration. Une jante de roue, une bonbonne vide, un bout de rail ou une lame de godendard, pendus à une corde et
 frappés avec un morceau de fer, portent plus loin qu'une voix, sans fatiguer personne : crier dans une poudrerie
 épuise et refroidit. Convenir d'un sens pour chaque signal : un coup, deux coups espacés, une volée.
@@ -387,13 +389,13 @@ frappés avec un morceau de fer, portent plus loin qu'une voix, sans fatiguer pe
 ### Le miroir et la fumée
 
 De jour, un éclat de miroir, le fond d'une boîte de conserve poli à la cendre ou un disque compact renvoient le soleil
-assez loin pour qu'une personne n'y soit plus qu'une tache : l'œil voit l'éclat parce qu'il est plus brillant que tout
-le paysage. Pour viser, tendre le bras, encadrer le camp visé entre deux doigts ouverts en V, et promener le reflet sur
-la main jusqu'à ce qu'il traverse le V. Il faut du soleil, et en janvier, sur la Côte-Nord, il est bas et la journée
+assez loin pour qu'on voie l'éclat à une distance où une personne n'est plus qu'un point : l'éclat est plus brillant
+que tout le paysage. Pour viser, tendre le bras, encadrer le camp visé entre deux doigts ouverts en V, et promener
+le reflet sur la main jusqu'à ce qu'il traverse le V. Il faut du soleil, et en janvier, sur la Côte-Nord, il est bas et la journée
 est courte. Sans soleil, faire de la fumée : des branches de conifère vertes ou de la mousse mouillée jetées sur un feu
 bien pris donnent une colonne blanche et épaisse, qu'on voit de loin même quand on ne voit pas la flamme. La nuit,
-faire un feu clair et haut, ou deux feux à quelques pas l'un de l'autre : un feu seul peut être un feu de camp, deux
-feux alignés sont un message.
+faire un feu clair et haut, ou deux feux à quelques pas l'un de l'autre : un feu seul peut passer pour un feu de camp,
+et deux feux alignés montrent qu'on envoie un message.
 
 ### La corde de tempête et le balisage
 
@@ -401,27 +403,27 @@ Entre les bâtiments d'un même terrain (la maison, la remise, la bécosse, le h
 de main sur des piquets : dans une poudrerie, on manque une porte à quelques mètres et on se met à tourner en rond.
 Entre deux foyers, baliser le sentier : des perches plantées, des entailles de hache à hauteur des yeux, des bouts de
 tissu de couleur, des bouteilles de plastique claires enfilées sur une branche. N'importe quoi de régulier fait
-l'affaire, à une condition : faire l'entaille sur les deux faces de l'arbre, une pour chaque sens de la marche ; un
-balisage qu'on voit seulement à l'aller ne guide pas au retour.
+l'affaire, à condition qu'on le voie dans les deux sens : faire les entailles sur les deux faces de l'arbre, une pour
+chaque sens de la marche.
 
 ### La boîte aux lettres de forêt
 
 Cacher un contenant étanche (un pot de verre à joint, une boîte de métal) sous une pierre marquée, à un endroit connu
-de tous les foyers. On y laisse un papier daté : qui est passé, ce qui manque, ce qui est offert. Le crayon de plomb écrit
-sur du papier mouillé et par −35 °C. Quand le papier est fini, l'écorce de bouleau fait la feuille et un tison éteint
-fait le crayon : le trait ne coule pas, et on le lit même trempé.
+de tous les foyers. On y laisse un papier daté : qui est passé, ce qui manque, ce qui est offert. On écrit au crayon
+de plomb, qui écrit sur du papier mouillé et par −35 °C. Quand le papier est fini, on écrit sur de l'écorce de bouleau
+avec un tison éteint : le trait ne coule pas, et on le lit même trempé.
 
 ### Les signaux visuels
 
 Convenir de signaux qu'on voit du chemin : un drapeau de couleur au mât, une bâche sur un toit, une lampe allumée à
-une fenêtre choisie d'avance, la fumée du poêle. Chaque signal veut dire une seule chose, la même pour tous les foyers
+une fenêtre choisie d'avance, la fumée du poêle. On donne à chaque signal un seul sens, le même pour tous les foyers
 (étape 19).
 
 ### Le traîneau qu'on fabrique
 
 Ce traîneau sert à sortir un blessé couché quand aucune machine ne peut venir (étapes 5 à 9).
 
-*Le cadre.* Prendre deux perches d'épinette plus longues qu'un homme couché, et trois ou quatre traverses
+*Le cadre.* Prendre deux perches d'épinette plus longues qu'une personne couchée, et trois ou quatre traverses
 (planche 16-08, repères 1 et 2). Un traîneau étroit coupe la croûte et s'enfonce, et les porteurs le tirent comme une
 charrue : le faire large avant tout, quitte à le faire grossier. Lier un brancard le long de chaque perche, à l'avant
 (repère 3 ; étape 8).
@@ -433,8 +435,8 @@ prendre du fil de fer tordu à la pince (repère 8) ; le ruban adhésif durcit a
 contreplaqué, une tôle de toit. Le capot est le meilleur : il est bombé, et ses bords relevés ne poussent pas la neige
 devant lui (repères 12 et 13).
 
-*L'été, sans neige.* [À VÉRIFIER] Tirer le même cadre en travois : une ou deux personnes lèvent l'avant par les brancards, et le
-bout des perches traîne au sol, la tête du blessé du côté des brancards. Sur les racines et les roches, le travois
+*L'été, sans neige.* [À VÉRIFIER] Tirer le même cadre en travois : une ou deux personnes lèvent l'avant par les
+brancards, et le bout des perches traîne au sol, la tête du blessé du côté des brancards. Sur les racines et les roches, le travois
 secoue : aller au pas, et caler la tête du blessé. Quand il doit rester à l'horizontale (étape 13), arrêter de le
 tirer en travois, qui le tient incliné, et l'abriter sur place (étape 14).
 
@@ -443,20 +445,18 @@ tirer en travois, qui le tient incliné, et l'abriter sur place (étape 14).
 Un message prend une demi-journée au lieu d'une seconde. Les déplacements deviennent le principal risque : on peut se
 blesser en allant porter un mot. Il faut faire chaque trajet à deux, ou laisser une heure de retour chez un autre
 foyer (étapes 26 et 30). La recherche d'un absent commence des heures après sa disparition, et l'hiver, une personne
-blessée et immobile dehors se refroidit vite (ch. 25). En ville, marcher ne coûte rien, mais la marque sur la porte ne
-marche que si tous les foyers suivent la même convention : quand un seul foyer invente la sienne, une maison passe pour
-visitée sans l'avoir été.
+blessée et immobile dehors se refroidit vite (ch. 25).
 
 ### Ce qui ne se remplace pas
 
-- **La portée.** Rien de ce qui précède ne passe une colline. Un fil va où on peut le tirer, une cloche porte selon le
+- **La portée.** Aucun de ces moyens ne passe une colline. Un fil va où on peut le tirer, une cloche porte selon le
  vent, un miroir a besoin du soleil. Pour un rang large et accidenté, seule la radio porte assez loin (ch. 14).
-- **L'urgence de nuit.** Entre le moment où quelqu'un tombe et celui où l'autre foyer l'apprend, il y a le temps
- jusqu'au prochain rendez-vous fixe. Personne de l'extérieur ne viendra soigner : on sort le blessé au traîneau, à
- bras, en y mettant des heures (étapes 1 à 14).
+- **L'urgence de nuit.** Sans radio, l'autre foyer apprend qu'il y a un blessé seulement au prochain rendez-vous
+ fixe. Personne de l'extérieur ne viendra soigner : on sort le blessé au traîneau, à bras, en y mettant des heures
+ (étapes 1 à 14).
 - **La convention.** On la règle d'avance, et elle ne coûte rien. Un signal inventé pendant la crise ne sert pas :
- chaque foyer en invente un différent. Convenir en septembre, avec chaque foyer, du nombre de coups, de la couleur du
- drapeau et du sens de la marque sur la porte.
+ chaque foyer en invente un différent, et une maison passe pour visitée sans l'avoir été. Convenir en septembre,
+ avec chaque foyer, du nombre de coups, de la couleur du drapeau et du sens de la marque sur la porte.
 
 ---
 
@@ -473,15 +473,15 @@ toboggan, le traîneau large de la section 7 est plus stable (étape 7).
 
 Les Innus et les Naskapis voyageaient l'été en canot d'écorce de bouleau, assez grand pour la famille et ses
 affaires ; les grands canots appartenaient souvent à deux personnes ou plus. Le canot comptait plus que le toboggan
-pour gagner sa vie. Il partait avec de l'écorce, des racines et de la gomme : en quelques minutes, on réparait un trou
+pour gagner sa vie. On partait avec de l'écorce, des racines et de la gomme : en quelques minutes, on réparait un trou
 en route (étape 11).
 
 ### Deux par deux aux collets
 
 Chez les Innus, quand les hommes partaient chasser pour longtemps, les femmes allaient lever les collets et les lignes
 à pêche, souvent deux par deux, parfois avec des enfants en bas âge. Elles nettoyaient ensuite les prises et les
-faisaient sécher et boucaner jusqu'à ce qu'elles soient bien sèches. La veille d'un long trajet, on avertissait tout le monde de faire sécher ses bas et ses
-mocassins (étape 26).
+faisaient sécher et boucaner jusqu'à ce qu'elles soient bien sèches. La veille d'un long trajet, on avertissait tout
+le monde de faire sécher ses bas et ses mocassins (étape 26).
 
 ### Le partage au campement d'automne
 
@@ -492,7 +492,7 @@ croyait que la chasse resterait bonne (étape 39).
 
 ### Le maître de trappe cri
 
-Chez les Cris de Chisasibi, le maître de trappe compte les huttes de castor de son territoire, garde sa prise au
-nombre de huttes et laisse des adultes : un adulte se reproduit l'année suivante, un jeune de l'année, non. Il fait
+Chez les Cris de Chisasibi, le maître de trappe compte les huttes de castor de son territoire, limite sa prise selon
+le nombre de huttes et laisse des adultes : un adulte se reproduit l'année suivante, un jeune de l'année, non. Il fait
 reposer une partie du territoire deux ou trois ans, au plus quatre. Un autre groupe, à qui il avait prêté un secteur,
 y a tout tué : à son retour, il restait peu de castors (étape 22).

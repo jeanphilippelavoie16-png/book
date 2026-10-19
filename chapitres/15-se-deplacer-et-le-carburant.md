@@ -183,16 +183,17 @@ et se sortir vivant de la glace qui cède ou de la machine qui s'arrête loin de
  rouler ou travailler, refaire le plein et diviser les litres par les kilomètres ou par les heures. Faire
  trois mesures par machine, l'hiver, la machine chargée, et garder la plus forte. Les consommations publiées
  sont mesurées au chaud et à vide : quand la température passe de 24 à 7 °C, le froid seul fait monter celle
- d'une auto en ville de 12 à 28 %, une route enneigée en ajoute de 7 à 35 %, et rien n'est publié pour une motoneige chargée à −30 °C.
+ d'une auto en ville de 12 à 28 %, une route enneigée en ajoute de 7 à 35 %, et rien n'est publié pour une
+ motoneige chargée à −30 °C.
 21. **Séparer la réserve en parts nommées**, et écrire le nom sur chaque bidon au crayon gras : *scie*,
- *génératrice*, *déplacement*, *intouchable*. La part *intouchable* sert au départ pour faire soigner
+ *génératrice*, *déplacement*, *intouchable*. La part *intouchable* sert à partir pour faire soigner
  quelqu'un (ch. 35), et on ne l'ouvre que si deux adultes le décident ensemble. À la maison, la part
  *déplacement* a un seul usage : le transfert au chalet avec la famille et la charge, tant que la route est
  ouverte (ch. 2). Sans nom sur les bidons, on puise d'abord dans la part du déplacement, pour des
  commissions.
 22. {!vapeurs} **Sortir l'essence du bâtiment où on dort.** Ne garder dans ce bâtiment que l'essence qui est
- dans le réservoir des machines, et mettre le reste dans un dépôt à part. La vapeur des bidons coule au ras du sol jusqu'au
- point le plus bas du bâtiment, le plancher du chalet ou le sous-sol.
+ dans le réservoir des machines, et mettre le reste dans un dépôt à part. La vapeur des bidons coule au ras du
+ sol jusqu'au point le plus bas du bâtiment, le plancher du chalet ou le sous-sol.
 23. **Monter le dépôt au bon endroit.**
  - Le placer plus haut que le chalet ou la maison, jamais en contrebas : la vapeur et l'essence qui coule
  descendent la pente.
@@ -249,18 +250,18 @@ et se sortir vivant de la glace qui cède ou de la machine qui s'arrête loin de
 
 35. **Partir à deux machines quand c'est possible** : si l'une casse, l'autre ramène tout le monde. Avec une
  seule machine, ne pas aller plus loin qu'une distance qu'on peut refaire à pied, en raquettes, avant la nuit.
-36. **Porter sur soi ce qui sauve** : les pics à glace au cou par-dessus le manteau, le sifflet, la trousse d'allumage,
- une lampe, le téléphone ou la radio (ch. 14). Ce qui est attaché sur la machine coule avec elle, et reste
+36. **Porter sur soi ce qui sauve** : les pics à glace au cou par-dessus le manteau, le sifflet, la trousse
+ d'allumage, une lampe, le téléphone ou la radio (ch. 14). Ce qui est attaché sur la machine coule avec elle, et reste
  avec elle quand il faut marcher.
 37. **N'attacher personne à ce qui peut couler** : ni le passager au traîneau, ni le conducteur à la
  motoneige. Le passager du traîneau ne bouge pas et ne fait aucun effort : il se refroidit plus vite que le
  conducteur. L'habiller plus chaudement.
 38. {!froid} **Se regarder le visage l'un l'autre à chaque arrêt, et s'arrêter plus souvent que le temps que
- met la peau à geler ce jour-là** (étape 33). La personne qui gèle au nez ou aux joues ne s'en rend souvent pas compte : l'autre le voit
- à sa peau, qui devient jaunâtre ou gris blanc. Couvrir l'endroit d'une main chaude jusqu'à ce que la douleur
+ met la peau à geler ce jour-là** (étape 33). La personne qui gèle au nez ou aux joues ne s'en rend souvent
+ pas compte : l'autre le voit à sa peau, qui devient jaunâtre ou gris blanc. Couvrir l'endroit d'une main chaude jusqu'à ce que la douleur
  revienne. Regarder aussi le visage des enfants, sans attendre qu'ils se plaignent (ch. 25, étape 32).
-39. **La nuit, rouler assez lentement pour pouvoir s'arrêter dans la distance qu'éclaire le phare.** Vers 25 km/h, on a
- le temps de s'arrêter devant un trou ou une crête de glace qu'on voit apparaître ; vers 55 km/h, on ne l'a
+39. **La nuit, rouler assez lentement pour pouvoir s'arrêter dans la distance qu'éclaire le phare.** Vers
+ 25 km/h, on a le temps de s'arrêter devant un trou ou une crête de glace qu'on voit apparaître ; vers 55 km/h, on ne l'a
  pas.
 
 ### Traverser un lac ou une rivière gelée
@@ -276,7 +277,7 @@ et se sortir vivant de la glace qui cède ou de la machine qui s'arrête loin de
  - Lire l'épaisseur au ras du dessus de la glace, pas à la hauteur de l'eau dans le trou (repère 5).
  - Mesurer au moins tous les 45 m sur le trajet, puis passer seulement par le trajet mesuré.
  - À pied, au début et à la fin de l'hiver, frapper la glace au ciseau devant soi à chaque pas.
-41. **Comparer à ces épaisseurs, sur de la glace claire** (transparente ou bleu pâle) :
+41. **Comparer la mesure à ces épaisseurs, sur de la glace claire** (transparente ou bleu pâle) :
  - 15 cm pour une personne à pied ;
  - 25 cm pour une motoneige ou une auto ;
  - 33 cm pour une camionnette.
@@ -325,8 +326,8 @@ et se sortir vivant de la glace qui cède ou de la machine qui s'arrête loin de
 | --- | --- | --- | --- |
 | Au remplissage d'un bidon | Date, part, stabilisateur, niveau | Date et part écrites ; stabilisateur s'il ne sera pas vidé dans les **3 mois** ; environ **5 %** de vide en haut | Traiter un bidon sans date comme du vieux carburant : dans l'auto, pas dans la scie |
 | Chaque mois | L'essence dans le bâtiment où on dort | Aucune, hors des réservoirs des machines | La sortir au dépôt le jour même |
-| Chaque mois | Les bidons | Aucune trace, aucun suintement, aucun bidon gonflé | Transvider dehors, jeter le contenant |
-| Avant chaque départ | Le carburant | Au moins **2 fois** ce que prend le trajet (étape 30) | On ne part pas |
+| Chaque mois | Les bidons | Aucune trace, aucun suintement, aucun bidon gonflé | Transvider dehors, jeter le bidon abîmé |
+| Avant chaque départ | Le carburant | Au moins **2 fois** ce que prend le trajet (étape 30) | Ne pas partir |
 | Avant chaque départ | L'heure de demi-tour | Coucher du soleil moins **2 fois** le temps de l'aller | Partir plus tôt, ou le lendemain |
 | Avant chaque départ | Le refroidissement éolien du trajet | Au-dessus de **−40** | Partir seulement si la sortie ne peut pas attendre, le visage couvert |
 | Avant chaque départ | Le mot au mur | Destination, trajet, heures, ce qu'il faut faire | Ne pas partir avant de l'avoir écrit |
@@ -456,8 +457,8 @@ quelques degrés plus bas. Le moteur manque de carburant, tousse et s'arrête.
 ### Réparer sur le chemin
 
 - **Câble d'accélérateur cassé.** Le remplacer par un câble de frein de vélo, un brin de fil à collet ou une
- corde à piano. Sans câble de rechange, visser la vis de ralenti du carburateur jusqu'à ce que la machine avance seule,
- lentement, et conduire en coupant et en remettant le contact.
+ corde à piano. Sans rien pour le remplacer, visser la vis de ralenti du carburateur jusqu'à ce que la
+ machine avance seule, lentement, et conduire en coupant et en remettant le contact.
 - **Conduite d'essence percée.** Enfiler un bout de boyau pris ailleurs sur la machine par-dessus les deux
  bouts de la conduite, et le serrer au fil de fer. Un tube de vinyle transparent ramollit dans l'essence : il
  tient seulement le temps de rentrer.

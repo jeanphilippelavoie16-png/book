@@ -8,7 +8,7 @@
 
 ## 1. En une ligne
 
-Régler une visite imprévue à la porte, sans ouvrir et en une conversation courte, voisin compris : un seul adulte
+Régler une visite imprévue à la porte, même d'un voisin, sans ouvrir et en une conversation courte : un seul adulte
 parle, la personne qui gèle passe avant tout, on donne sans montrer ce qu'on a, et on ne refuse qu'en donnant une
 destination.
 
@@ -33,8 +33,8 @@ destination.
 ## 3. Matériel
 
 - **Fenêtre sur l'entrée, ou judas** : pour compter les visiteurs sans ouvrir ; prendre un judas qui voit sur 180° (sans judas : section 7).
-- **Lampe de poche puissante** : éclaire le sol devant la personne, tenue loin du corps, la lampe de la pièce éteinte (étape 2).
-- **Sac de couchage ou couverture de laine, et un thermos** : pour réchauffer une personne qui gèle, dedans ou dans un abri dehors (étape 8).
+- **Lampe de poche puissante** : pour éclairer le sol devant le visiteur ; on la tient loin du corps, après avoir éteint la lampe de la pièce (étape 2).
+- **Sac de couchage ou couverture de laine, et un thermos** : pour réchauffer une personne qui gèle, dans la maison ou dans un abri dehors (étape 8).
 - **Barre de porte** : du bois franc posé dans deux supports ancrés dans les montants du mur (pour la faire : section 7).
 
 ---
@@ -43,19 +43,19 @@ destination.
 
 ### Quelqu'un cogne à la porte {.orange 1 min}
 
-1. **Ne pas ouvrir, mais répondre à travers la porte, pour que la personne sache qu'il y a quelqu'un.** Certains
+1. **Répondre à travers la porte, sans ouvrir, pour que la personne sache qu'il y a quelqu'un.** Certains
  cambrioleurs cognent pour savoir si la maison est vide, et entrent quand personne ne répond. Tant que la porte
  reste fermée, on décide de la distance, du temps que dure la visite et de ce que la personne voit. Une fois
  entrée, elle est à un mètre, elle reste le temps qu'elle veut, et elle a vu la pièce, le poêle et les enfants.
-2. **La nuit, éteindre la lampe de la pièce avant de s'approcher de la fenêtre, puis éclairer dehors.** Une vitre
- éclairée du dedans montre la pièce à la personne qui est dehors, et ne renvoie à la personne qui est dedans que
+2. **La nuit, éteindre la lampe de la pièce avant de s'approcher de la fenêtre, puis éclairer dehors.** Quand la pièce
+ est éclairée, la personne qui est dehors voit l'intérieur par la vitre, et la personne qui est dedans ne voit que
  son propre reflet. Allumer la lumière extérieure, ou tenir une lampe loin du corps, et la diriger sur le sol
  devant la personne, pas sur son visage : on voit ses mains, et elle ne voit pas qui tient la lampe. Sans
  lumière extérieure : section 7, « Éclairer sans se désigner ».
-3. **Envoyer les enfants dans la pièce du fond, la pièce la plus loin de l'entrée. Un seul adulte parle ; l'autre
- reste avec les enfants et regarde dehors par une autre fenêtre.** Quand deux adultes répondent en même temps,
- ils finissent par se contredire devant le visiteur. Un adulte seul avec les enfants ne sort pas : il parle à
- travers la porte et donne par une fenêtre entrouverte.
+3. **Envoyer les enfants dans la pièce du fond, la plus loin de l'entrée. Un seul adulte doit parler ; l'autre
+ reste avec les enfants et surveille dehors par une autre fenêtre.** Quand deux adultes répondent en même temps,
+ ils finissent par se contredire devant le visiteur. Un adulte seul avec les enfants ne doit pas sortir : il parle
+ à travers la porte et donne ce qu'il donne par une fenêtre entrouverte.
 
 ### La personne attend dehors {.orange 10 min}
 
@@ -64,16 +64,16 @@ destination.
  « Vous êtes combien ? »
 5. **Parler au visiteur à travers la porte ou par une fenêtre entrouverte : lui dire où s'arrêter, puis lui
  demander ce qu'il lui faut.** Lui nommer un repère qu'il voit, à plus de 2 m de la porte : le bas de
- l'escalier, le baril, l'auto, ou le poteau planté d'avance pour ça (étape 25). « Reculez » ne dit pas jusqu'où.
- Ne pas se présenter, ne pas s'expliquer, et poser une seule question à la fois. Les virus respiratoires passent
- d'une personne à l'autre à moins de 2 m, quand le contact dure plus de 15 minutes.
+ l'escalier, le baril, l'auto, ou le poteau planté d'avance pour ça (étape 25). « Reculez » ne lui dit pas
+ jusqu'où. Les virus respiratoires passent d'une personne à l'autre à moins de 2 m, quand le contact dure plus de
+ 15 minutes. Ne pas se présenter, ne pas s'expliquer, et poser une seule question à la fois.
 6. **Trier, dans cet ordre : une blessure ou le froid, puis un besoin de nourriture, d'eau, de bois ou de
  carburant, puis le reste.** Une personne blessée ou qui gèle passe avant la conversation : on la soigne d'abord
  (le froid : étapes 7 et 8 ; une blessure : ch. 26).
 7. {!froid} **Chercher les signes du froid, même chez une personne qui a l'air ivre ou de mauvaise foi.** En
- hypothermie, on parle mal, on titube, on devient confus et on s'obstine sans logique. Avec un seul de ces signes,
- la porter couchée, ou la coucher sur un traîneau ou une couverture et la traîner, sans la faire marcher, jusque
- dans la maison ou dans un abri dehors (section 7, « Réchauffer quelqu'un sans le faire entrer »). On parlera
+ hypothermie, on parle mal, on titube, on devient confus et on s'obstine sans logique. Si elle a un seul de ces
+ signes, la porter couchée, ou la coucher sur un traîneau ou une couverture et la traîner, sans la faire marcher, jusque
+ dans la maison ou dans un abri dehors (section 7, « Réchauffer quelqu'un sans le faire entrer »). Parler
  ensuite. L'hiver, décider vite : à partir de −28 de refroidissement éolien, la peau exposée de la personne qui
  attend peut geler en 10 à 30 minutes, et plus vite quand il fait plus froid.
 8. **La réchauffer** (ch. 25, étapes 5 à 14) : la coucher à l'abri du vent, sans gestes brusques, et lui enlever
@@ -81,34 +81,35 @@ destination.
  aisselles et sur le ventre ; rien sur les bras ni les jambes. Lui donner à boire chaud et sucré, à petites
  gorgées, seulement si elle est bien éveillée et avale bien. Ne pas la masser, et ne lui donner ni alcool ni
  cigarette : l'alcool et la cigarette font baisser la température du corps.
-9. **Pour un besoin matériel, donner dehors, sans faire entrer le visiteur.** Il raconte ensuite ce qu'il a
+9. **Pour un besoin matériel, donner dehors, sans faire entrer le visiteur.** Le visiteur racontera ce qu'il a
  reçu, et la façon dont on donne lui en apprend plus sur nos réserves que la quantité. Donner un repas chaud dans
  un de nos bols, qu'on reprend ensuite, de l'eau traitée, du bois fendu, ou une quantité de carburant mesurée
  d'avance (ch. 15). Jamais dans l'emballage du magasin : la marque et le format montrent qu'on en a d'autres.
- Jamais une caisse, et jamais « prenez ce qu'il vous faut ». Pour donner avec ce qu'on a sans rien montrer :
+ Ne jamais donner une caisse entière, ni dire « prenez ce qu'il vous faut ». Pour donner avec ce qu'on a sans rien montrer :
  section 7, « Donner sans renseigner ».
- - {!mal-de-caribou} Donner du gras quand on en a, jamais le dernier : la viande maigre mangée sans gras donne le
+ - {!mal-de-caribou} Donner du gras quand on en a, sans donner le dernier : la viande maigre mangée sans gras donne le
  mal de caribou, mortel en quelques semaines (ch. 19, ch. 21).
-10. {!froid} **Refuser, quand c'est la réponse : une seule fois, sans se justifier et sans mentir, en disant à la
- personne où aller, à quelle distance, et comment s'y rendre.** L'hiver, une personne renvoyée sans destination
+10. {!froid} **Si on refuse, le dire une seule fois, sans se justifier et sans mentir, en disant à la personne où
+ aller, à quelle distance, et comment s'y rendre.** L'hiver, une personne renvoyée sans destination
  ni moyen d'y arriver peut geler en route.
- - À la maison, la destination existe presque toujours : son propre logement, un voisin. Le voisin qu'on refuse
+ - À la maison, la personne a presque toujours un endroit où aller : son propre logement, un voisin. Le voisin qu'on refuse
  sera encore là au printemps, et ce qu'on fait la première fois qu'il demande devient la règle entre les deux
  maisons.
- - Au chalet, le chemin est fermé. Sans destination réelle, on ne refuse pas : on choisit entre l'aide à
- distance (section 7, « Réchauffer quelqu'un sans le faire entrer ») et l'hébergement (étapes 15 à 21).
+ - Au chalet, quand le chemin est fermé et que la personne n'a nulle part où aller, ne pas refuser : choisir
+ entre l'aide à distance (section 7, « Réchauffer quelqu'un sans le faire entrer ») et l'hébergement (étapes 15
+ à 21).
  - Dire aussi ce qu'on fait malgré le refus : passer un message par radio (ch. 14), donner à boire chaud,
  laisser la personne se réchauffer dans un abri.
  - Si la famille a décidé de n'ouvrir à personne, le dire une fois par la fenêtre, et ne pas continuer la
- conversation ; ce qu'on donne passe par la fenêtre entrouverte.
-11. {!arme} **Si le visiteur ne part pas : rentrer, fermer et barrer la porte, et rester dedans.** Sans barre, caler une
+ conversation ; donner ce qu'on donne par la fenêtre entrouverte.
+11. {!arme} **Si le visiteur ne part pas, rentrer, fermer et barrer la porte, et rester dedans.** Sans barre, caler une
  perche en biais sous la poignée (section 7, « La porte, et l'endroit où elle cède »). Noter l'heure. Prévenir
- les voisins ou le groupe par radio (ch. 14). Ne pas aller chercher l'arme, et ne pas la montrer. Pendant la
- conversation, le visiteur voit l'adulte se retourner pour aller la chercher, et il peut agir le premier, avant
- que l'adulte revienne. Devant une arme montrée, il ne sait pas si elle est chargée, et il réagit comme si elle
+ les voisins ou le groupe par radio (ch. 14). Ne pas aller chercher l'arme, et ne pas la montrer. Si l'adulte va
+ la chercher pendant la conversation, le visiteur le voit se retourner, et il peut agir le premier, avant que
+ l'adulte revienne. Devant une arme montrée, il ne sait pas si elle est chargée, et il réagit comme si elle
  l'était, sans qu'on puisse prévoir comment. Il apprend aussi qu'il y a une arme dans la maison, et jusqu'où la
  famille est prête à aller. Une personne qu'on a fait reculer avec une arme peut revenir à une autre heure, et pas
- forcément seule. Au chalet, chemin fermé, retenir le visiteur sous la menace oblige à le nourrir, à le surveiller
+ forcément seule. Au chalet, quand le chemin est fermé, retenir le visiteur sous la menace oblige à le nourrir, à le surveiller
  pendant qu'on dort et à le faire dormir près des enfants.
 12. **À tout moment, si le visiteur montre une arme, menace ou force la porte : arrêter de parler, emmener tout
  le monde dans la pièce du fond, bloquer la porte de cette pièce de l'intérieur et y rester.** S'il entre et exige
@@ -125,22 +126,22 @@ destination.
 ### Si quelqu'un entre ou reste
 
 15. **Avant d'ouvrir, dire à voix haute jusqu'à quand la personne peut rester, et ce qui se passe ensuite, puis
- le répéter une fois.** Quand on ne dit pas de durée, le séjour n'a plus de fin.
+ le répéter une fois.** Si on ne dit pas de durée au départ, on n'arrive plus à faire partir la personne.
 16. **À l'entrée, dès que les soins de l'étape 8 le permettent, lui faire laver les mains au savon
- pendant 20 secondes**, faire porter un masque si une maladie circule (ch. 30), et ne laisser personne s'approcher des
- enfants avant.
-17. **Loger le visiteur dans un espace séparé si le bâtiment le permet.** Dans une pièce fermée où plusieurs
- personnes passent un long moment, les virus respiratoires peuvent passer à plus de 2 m. Sinon, séparer au moins
- le couchage des enfants, et dire pourquoi (section 7, « Se séparer, et tenir la nuit »).
-18. {!co} {!generatrice} **Laisser dehors, à l'air libre, la génératrice, le réchaud et la chaufferette du
- visiteur** : jamais dans la maison, le hangar, le garage ou un véhicule, ni sous une toile ou un auvent. Les premiers signes du
+ pendant 20 secondes**, lui faire porter un masque si une maladie circule (ch. 30), et ne pas la laisser
+ s'approcher des enfants avant.
+17. **Loger le visiteur dans un espace séparé si le bâtiment le permet ; sinon, séparer au moins le couchage des
+ enfants, et dire pourquoi** (section 7, « Se séparer, et tenir la nuit »). Dans une pièce fermée où plusieurs
+ personnes passent un long moment, les virus respiratoires peuvent passer à plus de 2 m.
+18. {!co} {!generatrice} **Laisser la génératrice, le réchaud et la chaufferette du visiteur dehors, à l'air
+ libre** : jamais dans la maison, le hangar, le garage ou un véhicule, ni sous une toile ou un auvent. Les premiers signes du
  monoxyde (le mal de tête, la fatigue, la nausée, les étourdissements) sont ceux qu'on attend d'une personne qui
  arrive d'une longue route en motoneige par grand froid. Si on les prend pour la fatigue du voyage et qu'on la laisse
  dormir dans le hangar avec son réchaud allumé, le monoxyde peut la tuer pendant son sommeil. Un abri de toile
  retient le gaz comme une pièce fermée, surtout quand la neige en bouche les ouvertures pendant la nuit.
 19. **Partager le travail dès le premier jour : le bois, l'eau, la neige, la vaisselle.** Quand un hébergement
  tourne mal, la dispute porte d'abord sur le travail, avant la nourriture (ch. 18, ch. 36).
-20. {!cuisson} **Prendre au thermomètre à sonde la température de chaque pièce de viande des repas partagés** :
+20. {!cuisson} **Prendre la température de chaque pièce de viande des repas partagés au thermomètre à sonde** :
  74 °C à cœur pour le gibier sauvage, orignal compris, en pièce comme haché.
 21. {!botulisme} {!trichine} **Refuser poliment deux aliments qu'on reçoit en échange : une conserve maison faite
  d'une façon qu'on ne connaît pas, et un poisson fumé dont on ne sait pas s'il a été gardé à 4 °C ou moins depuis le
@@ -161,8 +162,8 @@ destination.
 25. **Planter un poteau à quelques pas de la porte, pour dire au visiteur où s'arrêter.** Au chalet, le planter
  assez loin pour avoir le temps de refermer la porte si la personne avance, assez près pour se parler en haussant
  la voix, à plus de 2 m (étape 5), et à la vue de la fenêtre où guette l'autre adulte. Un baril peint ou un
- panneau font la même chose. Mesurer la distance une fois, à la voix, sur son terrain. À la maison, le repère est
- le bas de l'escalier, la galerie ou la limite du terrain.
+ panneau peuvent servir de repère. Mesurer la distance une fois, à la voix, sur son terrain. À la maison, prendre
+ comme repère le bas de l'escalier, la galerie ou la limite du terrain.
 26. **Choisir la pièce du fond** : celle où vont les enfants, qu'on peut bloquer de l'intérieur, avec une lampe
  dedans. Donner aux enfants une consigne d'une ligne, et la répéter jusqu'à ce qu'ils la disent sans y penser :
  personne n'ouvre, on va dans cette pièce, on attend (ch. 39, ch. 40).
@@ -228,13 +229,13 @@ porte.
 
 ### Éclairer sans se désigner
 
-Accrocher la lampe à l'écart de la porte plutôt que la tenir à la main. Clouée au poteau de coin, pendue à une
-branche ou posée sur une souche, elle éclaire l'arrivée depuis un endroit où personne ne se tient, et la personne
-dehors regarde la lumière, pas l'adulte qui parle. Dirigée sur la neige, la lumière éclaire la personne par en
-dessous, mains comprises. Ne pas regarder sa propre lampe : on perdrait sa vision de nuit.
+Accrocher la lampe à l'écart de la porte plutôt que la tenir à la main : la clouer au poteau de coin, la pendre à
+une branche ou la poser sur une souche. Elle éclaire alors l'arrivée depuis un endroit où personne ne se tient, et la
+personne dehors regarde la lumière, pas l'adulte qui parle. La diriger sur la neige : la lumière éclaire la personne
+par en dessous, mains comprises. Ne pas regarder sa propre lampe : on perdrait sa vision de nuit.
 
-Un réflecteur placé derrière la flamme renvoie la lumière vers l'avant, au lieu de la laisser partir vers l'arrière
-: un couvercle de conserve, une feuille d'aluminium collée sur un carton, une assiette blanche derrière une
+Un réflecteur placé derrière la flamme renvoie la lumière vers l'avant, au lieu de la laisser partir vers
+l'arrière : un couvercle de conserve, une feuille d'aluminium collée sur un carton, une assiette blanche derrière une
 chandelle. Il garde aussi la flamme hors des yeux de la personne qui la tient. Sans lampe du tout, **on n'ouvre pas
 la nuit** : on répond par la fenêtre, on donne par la fenêtre entrouverte ce qu'on peut donner, et on règle le reste
 au jour.
@@ -248,8 +249,8 @@ s'arrêtaient dans le chambranle (repère 2) ; les vis longues le traversent et 
 le chambranle, du plancher au linteau, en la prenant dans les montants : elle fait le même travail.
 
 Tailler la barre dans du bois franc, bouleau ou érable, équarri à la hache et dressé au rabot ou au couteau de
-tirage. Ancrer deux supports dans les montants du mur, de chaque côté de la porte, pas dans le cadre (repère 4) :
-la barre transmet la poussée au mur, et un support arraché ne tient plus rien. Poser la barre dans les supports,
+tirage. Ancrer deux supports dans les montants du mur, de chaque côté de la porte, pas dans le cadre (repère 4),
+pour que la barre transmette la poussée au mur. Poser la barre dans les supports,
 à hauteur d'adulte, hors de portée des enfants (repère 5). Faire les supports en blocs de bois entaillés en U
 (repère 6), cloués avec des clous longs qui entrent dans le montant (repère 7), ou en fer plat : une penture
 dépliée, un bout de ressort à lames, une bande de tôle épaisse pliée à froid. Faute de tire-fonds, des clous de
@@ -258,11 +259,12 @@ que des vis courtes. Pour le travail du bois : ch. 110.
 
 Le contrefort tient plus que la barre et ne demande qu'une perche d'épinette, coupée à la bonne longueur et
 appuyée en biais sous la poignée (repère 8), le pied calé dans une encoche taillée dans le plancher ou contre un
-bloc vissé au plancher (repère 9). Un coup d'épaule sur la porte se change en compression dans la perche, et une
-perche d'épinette en prend beaucoup. Pour une fenêtre coulissante, couper un bâton à la longueur du rail et le
+bloc vissé au plancher (repère 9). Quand quelqu'un donne un coup d'épaule dans la porte, la perche travaille en
+compression, et une perche d'épinette résiste bien à la compression. Pour une fenêtre coulissante, couper un bâton à la longueur du rail et le
 poser dans le rail.
 
-Si la porte ouvre vers l'extérieur, ses pentures sont dehors, et on peut chasser leurs broches par le bas. Sans
+Si la porte ouvre vers l'extérieur, ses pentures sont dehors, et quelqu'un dehors peut chasser leurs broches par
+le bas. Sans
 quincaillerie : dans chaque penture, remplacer une vis par un clou à tête coupée qui dépasse de l'aile
 (repère 10), et percer en face, dans l'autre aile, un trou qui reçoit le clou quand la porte est fermée
 (repère 11). Même sans ses broches, la porte ne peut plus être soulevée hors du cadre.
@@ -294,26 +296,26 @@ ce qui traîne.
 - **L'abri.** Monter un appentis : une toile, une bâche ou quelques planches appuyées contre le mur du hangar,
  **ouvert d'un côté**, le dos au vent. Sans toile, monter en L un mur de blocs de neige découpés à la pelle ou à
  la scie, l'ouverture à l'abri du vent dominant.
-- **Le sol avant tout.** Couché ou assis, le corps perd plus de chaleur par le sol que par l'air. Mettre entre la
- personne et la neige un lit épais de branches de sapin baumier croisées, un vieux matelas de mousse, des planches
- ou un tapis de traîneau : ça compte plus qu'une couverture posée sur elle. Une personne qui a les signes de
+- **Le lit sous la personne.** Couché ou assis, le corps perd plus de chaleur par le sol que par l'air. Mettre un
+ lit épais de branches de sapin baumier croisées, un vieux matelas de mousse, des planches ou un tapis de traîneau
+ entre la personne et la neige : ça compte plus qu'une couverture posée sur elle. Une personne qui a les signes de
  l'étape 7 doit rester couchée sur ce lit, pas assise (étape 8).
 - **Le feu et son mur.** Faire le feu devant l'ouverture, pas dedans, et dresser derrière lui un empilement de
  billots qui renvoie la chaleur vers l'abri. Sans mur réflecteur, la moitié de la chaleur part vers la forêt.
 - {!projection} **Les pierres.** Chauffer des pierres dans le feu, les rouler dans un vieux sac de jute ou une
- couverture et les poser contre le tronc de la personne (étape 8) : elles tiennent des heures. Prendre des **pierres
+ couverture et les poser contre le tronc de la personne (étape 8) : elles restent chaudes des heures. Prendre des **pierres
  sèches**, dans un talus : une pierre de ruisseau ou prise dans la neige mouillée garde de l'eau, qui se change en
  vapeur dans le feu et la fait éclater. Ne pas se pencher au-dessus du feu pendant qu'elles chauffent.
 - **La bouillotte.** Remplir d'eau chaude une bouteille de métal ou de plastique épais, l'enrouler dans un bas ou
  un linge, et la poser sur le tronc, le cou, les aisselles et l'aine, pas sur les mains ni les pieds (étape 8).
 - {!thuyone} **La boisson chaude et sucrée**, seulement à une personne qui avale bien (étape 8). Sans thé ni sucre,
- faire bouillir des aiguilles de sapin baumier ou d'épinette, et servir chaud. **Jamais de cèdre** : la thuyone du
+ faire bouillir des aiguilles de sapin baumier ou d'épinette, et servir l'infusion chaude. **Jamais de cèdre** : la thuyone du
  cèdre est toxique (ch. 20).
 
 ### Donner sans renseigner, avec ce qu'on a
 
 Transvider ce qu'on donne dans le contenant du visiteur. Prendre le bois dans la corde que le visiteur voit de
-dehors, pas dans celle du fond. Donner l'eau chaude, dans la bouteille du visiteur : glissée dans un bas, elle le
+dehors, pas dans celle du fond. Donner l'eau chaude dans la bouteille du visiteur : glissée dans un bas, elle le
 réchauffe sur le chemin du retour en plus de l'abreuver.
 
 Pour donner du carburant, le siphonner avec un boyau. Avec deux boyaux et un chiffon serré autour du goulot,
@@ -342,7 +344,7 @@ gèle.
 
 Quand le visiteur dort dans la pièce unique, pour des soins ou parce qu'il gèle, pendre une couverture sur une
 corde pour cacher le couchage des enfants, et dire la règle devant tout le monde, visiteur compris : personne ne
-passe la corde. Coucher les enfants au fond, jamais entre le visiteur et la porte. Un adulte veille, à tour de
+passe la corde. Coucher les enfants au fond, jamais entre le visiteur et la porte. Les adultes veillent à tour de
 rôle ; on change de veilleur à chaque recharge du feu, ce qui donne l'heure de relève sans réveil. Faire sécher
 les bottes et les mitaines du visiteur près du poêle : personne ne repart la nuit sans ses bottes, ni dans des
 bottes gelées.
@@ -352,22 +354,22 @@ bottes gelées.
 Sans savon, se laver à l'eau chaude, avec une brosse, en frottant longtemps : le frottement décolle la saleté
 (pour faire du savon : ch. 112). Sans eau de Javel, on n'a **pas** de désinfectant maison dont on connaît la
 force : on lave les surfaces à l'eau chaude savonneuse, et surtout on réduit ce que le visiteur touche. Chacun
-garde sa louche et sa tasse, on sert soi-même, et le visiteur a son bol.
+garde sa louche et sa tasse, on sert le visiteur soi-même, et il a son bol.
 
 ### Ce qui ne se remplace pas
 
-**Le deuxième adulte.** Seul avec les enfants, personne ne regarde ni ne compte pendant qu'on parle, et on ne peut
-rien régler dehors (étape 3).
+**Le deuxième adulte.** Quand un adulte est seul avec les enfants, personne ne regarde ni ne compte pendant qu'il
+parle, et il ne peut rien régler dehors (étape 3).
 
-**Les communications.** Sans radio ni téléphone, on ne peut ni vérifier une histoire, ni prévenir les voisins
-qu'une personne est repartie à pied. À la maison, les voisins sont à côté : on vérifie une histoire en marchant
-jusque chez eux. Au chalet, la réponse doit être plus **généreuse** : personne ne repart la nuit, parce que
-personne ne pourra aller le chercher.
+**Les communications.** Sans radio ni téléphone, on ne peut ni vérifier une histoire auprès des voisins, ni les
+prévenir qu'une personne est repartie à pied. À la maison, les voisins sont à côté : on vérifie une histoire en marchant
+jusque chez eux. Au chalet, la réponse doit être plus **généreuse** : ne laisser personne repartir la nuit, parce
+que personne ne pourra aller la chercher.
 
 **Le bâtiment séparé.** Sans pièce séparée, on ne peut pas à la fois héberger un inconnu en santé et protéger le
 couchage des enfants : on l'héberge dehors, avec l'abri, le lit de branches et les pierres chaudes.
 
-**L'évacuation.** On soigne une hypothermie grave, une hémorragie ou une infection qui monte avec ce qu'il y a
+**L'évacuation.** On soigne avec ce qu'on a une hypothermie grave, une hémorragie ou une infection qui monte
 (ch. 25, ch. 26) ; ce qu'on ne peut pas soigner au chalet est au ch. 35.
 
 ---
@@ -377,8 +379,8 @@ couchage des enfants : on l'héberge dehors, avec l'abri, le lit de branches et 
 ### Fermer un œil devant la lumière
 
 Dans le noir, l'œil met au moins 30 minutes à s'habituer complètement. Une lumière vive regardée une seconde ou
-plus lui fait perdre cette adaptation en quelques secondes. La personne qui guette à la fenêtre ferme un œil quand
-une lampe s'allume : cet œil garde sa vision de nuit. Une lumière rouge faible n'éblouit pas, mais elle fausse les
+plus lui fait perdre cette adaptation en quelques secondes. La personne qui guette à la fenêtre doit fermer un œil
+quand une lampe s'allume : cet œil garde sa vision de nuit. Une lumière rouge faible n'éblouit pas, mais elle fausse les
 couleurs (étape 2).
 
 ### Le refroidissement éolien
@@ -399,4 +401,4 @@ longtemps que les adultes. La gastro se transmet tant que durent les signes, et 
 À la fin du 19e siècle, chez les Inuits de l'Ungava, le maître de la grande tente de peaux dormait au fond avec sa
 famille, souvent derrière une pièce de bois couchée en travers du plancher. Les autres couchaient le long des côtés,
 selon leur parenté. Le maître choisissait la place de l'invité ; pour lui faire honneur, il lui donnait la sienne.
-Avec un inconnu, lui céder sa place, c'est le faire dormir au fond, près des enfants (étape 17).
+Céder sa place à un inconnu, c'est le faire dormir au fond, près des enfants (étape 17).

@@ -57,12 +57,14 @@ function orPages(){   // les planches de l'orange : pleine page sur leur propre 
 // du texte, dans sa colonne, une seule par page ; jamais sous une série orange, un encadré ou des notes de bas de page.
 // Le placement ne change rien à la suite (la page se ferme de toute façon) : pendant la mise en pages, fillExtras
 // relève seulement les pages qui ont de la place et les notes qui y tiennent ; placerNotes choisit à la fin, pour que
-// chaque note tombe près de l'étape dont elle parle et loin des autres. Une note sans page ne s'imprime pas
-// (avertissement).
+// chaque note tombe près de l'étape dont elle parle et loin des autres.
 // Une note qui ne trouve aucun trou ne se perd plus (JP, 19 octobre 2026 : le ch. 04, dense, n'en posait aucune) : la
 // mise en pages recommence, et cette note entre dans le fil du texte, après la fin de l'étape qu'elle nomme (INLINE,
 // ANCRES) ; la pagination pousse le texte qui suit. Une seule note par page : celle qui arrive sur une page qui en porte
-// déjà une attend la page suivante (attenteNotes), où elle se glisse après la fin du paragraphe coupé.
+// déjà une attend la page suivante (attenteNotes), où elle se glisse après la fin du paragraphe coupé. Celle qui attend
+// encore à la fin du chapitre entre dans le fil de la page sans note la plus proche de son étape (après la boucle des
+// passes) : une note se pose toujours ; l'avertissement « sans place où se poser » ne reste que si aucune page de
+// texte n'est libre.
 const NOTE_PLACES = [];
 let NOTES_X = [];             // les notes de la section En plus, dans l'ordre du chapitre
 let ANCRES = [];              // pour chaque note, la clé (data-k) du bloc après lequel elle entre dans le fil

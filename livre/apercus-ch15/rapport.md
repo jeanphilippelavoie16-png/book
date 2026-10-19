@@ -1,6 +1,6 @@
 # Tome 1 · Tenir — rapport d'assemblage
 
-- **Produit le :** 2026-10-19 02:07, par `design/outils/assembler-tome.py 1 --chapitres 15 --hors-ligne --sortie livre/apercus-ch15`
+- **Produit le :** 2026-10-19 02:16, par `design/outils/assembler-tome.py 1 --chapitres 15 --hors-ligne --sortie livre/apercus-ch15`
 - **Fichier :** `livre/tome-1/interieur.pdf` — 38 pages, 6.1 Mo
 - **Ouvertures :** au recto ou au verso (--verso)
 - **Placements :** design/epreuves-livre/placements.json, design/epreuves-livre/placements-tome-1.json
@@ -36,8 +36,8 @@ Marqueur `{.orange}` sur l'intertitre ### de la série, dans le Markdown (CLAUDE
 | --- | --- | --- | --- | --- | --- |
 | 15 | Ne pas laisser la machine geler au sol | 27 (15-10) | étape(s) 18 | étape 19 (La réserve de carburant) | dans le fil du texte |
 | 15 | L’essence d’hiver | 28 (15-11) | étape(s) 20 | étape 25 (La réserve de carburant) | dans le fil du texte |
-| 15 | Les oiseaux et les poissons qui ouvrent la glace | 29 (15-12) | étape(s) 42 | étape 42 (Traverser un lac ou une rivière gelée) | dans le fil du texte |
-| 15 | Le bâton à sonder de la côte de l’Alaska | 31 (15-14) | étape(s) 42 | étape 48 (La génératrice) | dans le fil du texte |
+| 15 | Le bâton à sonder de la côte de l’Alaska | 29 (15-12) | étape(s) 42 | étape 42 (Traverser un lac ou une rivière gelée) | dans le fil du texte |
+| 15 | Les oiseaux et les poissons qui ouvrent la glace | 32 (15-15) | étape(s) 42 | étape 48 (Points de contrôle) | dans le fil du texte |
 
 ## Contrôle Blurb
 
@@ -72,7 +72,7 @@ Les planches de `images/a-valider/` sont posées comme les validées (JP les rel
 
 | Ch. | Posées (page du tome) | Mentionnées dans le texte sans planche dessinée | À valider, non posées | Photos demandées encore à acquérir (credits.md) |
 | --- | --- | --- | --- | ---: |
-| 15 | 15-01 (24, pleine, à valider), 15-02 (34, pleine, à valider), 15-03 (30, à valider), 15-05 (31, à valider), 15-06 (36, à valider), 15-04 (37, à valider), 15-se-deplacer-livre (20, double page) | — | — | 8 (ancien 20) |
+| 15 | 15-01 (24, pleine, à valider), 15-02 (31, pleine, à valider), 15-05 (30, à valider), 15-03 (32, à valider), 15-06 (36, à valider), 15-04 (37, à valider), 15-se-deplacer-livre (20, double page) | — | — | 8 (ancien 20) |
 
 ## Crédits des images — hors du livre
 
@@ -83,6 +83,7 @@ Aucune photo posée dans ce tome. Les photos téléchargées sous les anciens nu
 ## Avertissements
 
 - ch. 15, paginateur : p15-6 : page à moitié vide
+- ch. 15, constructeur : 15-02 : aucun ancrage trouvé, placé à la fin de la procédure
 - ch. 15, constructeur : 15-03 : aucun ancrage trouvé, placé à la fin de la procédure
 - ch. 15, constructeur : 15-05 : aucun ancrage trouvé, placé à la fin de la procédure
 

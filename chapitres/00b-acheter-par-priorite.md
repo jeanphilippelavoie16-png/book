@@ -16,7 +16,7 @@ Chaque ligne dit où l'objet doit être, combien en acheter, et ce qui arrive qu
 | **Maison → chalet** | On l'achète et on le garde à la maison, où il y a de la place, et on le monte au chalet **quand l'événement dure** |
 
 On achète une réserve marquée « Maison → chalet » en formats qu'une personne charge seule dans l'auto : quatre
-seaux de 5 kg de sel plutôt qu'un sac de 20 kg posé sur une palette au sous-sol.
+chaudières de 5 kg de sel plutôt qu'un sac de 20 kg posé sur une palette au sous-sol.
 
 La colonne **Sans ça** dit ce qui arrive quand l'objet manque ; le palier en découle. La colonne **Ch.** donne les
 chapitres où l'objet sert. Une quantité qui n'est pas un chiffre est une façon de calculer la sienne, à partir de
@@ -48,7 +48,7 @@ famille tient quand même.
 | Bidons alimentaires **opaques** de 20 L | 6, soit 120 L | **Chalet** | Une semaine d'eau pour quatre personnes quand la pompe ne marche plus et que le lac est gelé. Dans un bidon opaque, les algues ne poussent pas | 5, 10 |
 | Eau de Javel non parfumée **à 5,25 %**, sans épaississant ni détergent | 4 L, remplacés avant qu'ils aient un an. On écrit en gros la date de fabrication sur le contenant | **Les deux** | Elle désinfecte l'eau sans feu ni courant, et l'eau chlorée reste bonne plus longtemps que l'eau bouillie. On ne peut pas doser une javel parfumée ou épaissie | 8, 10, 31 |
 | Seringue de 1 mL, **réservée à la javel**, ou compte-gouttes | 2 | **Les deux** | La dose est de 0,2 mL de javel à 5,25 % par litre, mesurée au dixième de millilitre. Un compte-gouttes ne convient que si on a compté combien de ses gouttes font 1 mL | 10 |
-| Marmite de 8 à 12 L, à couvercle, qui va sur le poêle | 1 | **Les deux** | Faire bouillir l'eau ne demande aucun produit qui s'épuise : 1 minute à gros bouillons pour l'eau du puits ou du robinet, 5 minutes pour l'eau de lac, de ruisseau, de neige ou de glace. Avec le couvercle, on perd moins d'eau et moins de bois | 10, 87 |
+| Marmite de 8 à 12 L, à couvercle, qui va sur le poêle | 1 | **Les deux** | Faire bouillir l'eau ne demande aucun produit qui s'épuise ; les durées d'ébullition sont à la dernière partie, A. Avec le couvercle, on perd moins d'eau et moins de bois | 10, 87 |
 
 ### 1.C Le froid
 
@@ -58,7 +58,7 @@ famille tient quand même.
 | Matelas de sol isolant | 1 par personne | **Les deux** | Couché, le corps perd sa chaleur plus vite dans le sol que dans l'air. Posé à même le plancher, un bon sac garde beaucoup moins chaud que sa cote | 6, 25 |
 | Bottes cotées pour le froid, mitaines, tuques, cache-cou, bas de **laine** | 2 jeux complets par personne ; pour les bas, **deux paires sèches par jour** de travail dehors, par personne | **Les deux** | La laine mouillée garde encore de la chaleur ; le coton mouillé refroidit. Par un refroidissement éolien de −28 à −39, la peau découverte gèle en **10 à 30 minutes**. Un bas mouillé donne des ampoules et le pied d'immersion | 24, 25, 104 |
 | Bâche ou toile de plastique d'environ 2 × 3 m | 2 | **Les deux** | Dans l'enveloppe d'une personne en hypothermie, elle garde l'isolant sec (ch. 25). Elle ferme aussi une pièce pour qu'on ne chauffe qu'elle, et elle fait le toit d'un appentis quand on doit passer la nuit dehors | 3, 12, 25 |
-| Bois sec fendu, **à 20 % d'humidité ou moins**, en bûches de **moins de 15 cm** | La consommation mesurée l'hiver d'avant, **plus une marge** : un hiver plus froid en brûle davantage, et le bois qui n'a pas fini de sécher ne compte pas. Une corde fait 3,6 m³ de bois empilé | **Chalet**, et la maison si elle a un poêle | Deux cordes à 20 % chauffent plus que trois cordes à 35 % : l'eau du bois compte plus que l'essence. Le bois vert encrasse la cheminée de créosote, qui peut prendre feu | 8, 83 |
+| Bois sec fendu, **à 20 % d'humidité ou moins**, en bûches de **moins de 15 cm** | La consommation mesurée l'hiver d'avant, **plus une marge** : un hiver plus froid en brûle davantage, et le bois qui n'a pas fini de sécher ne compte pas. Une corde fait 3,6 m³ de bois empilé | **Chalet**, et la maison si elle a un poêle | Deux cordes à 20 % chauffent plus que trois cordes à 35 % : l'eau du bois compte plus que l'espèce d'arbre. Le bois vert encrasse la cheminée de créosote, qui peut prendre feu | 8, 83 |
 | Contenant de métal pour les cendres, **à fond surélevé et à couvercle de métal**, et pelle de métal | 1 jeu | **Les deux**, partout où il y a un poêle | Des cendres qui ont l'air froides gardent des braises pendant des jours. Une chaudière de plastique ou une galerie de bois prend feu dessous | 3, 82, 83 |
 
 ### 1.D Manger
@@ -68,7 +68,7 @@ famille tient quand même.
 | **Thermomètre à sonde à lecture instantanée**, de 0 à 100 °C | 2 : un qui sert, un de rechange | **Les deux** | Il est le seul à mesurer les **74 °C à cœur** du gibier, les **82 °C** de la volaille entière et les **70 °C** du poisson, et on ne peut pas le fabriquer : le deuxième remplace le premier quand il se brise ou se perd dans la neige | 1, 5, 9, 46, 66 |
 | Thermomètres de réfrigérateur et de congélateur, laissés dans l'appareil | 1 par appareil | **Maison**, et le chalet s'il a un frigo ou un congélateur | Ils montrent si le frigo tient **4 °C** et le congélateur **−18 °C**. Un congélateur réglé au maximum n'est pas une mesure | 1, 3, 7, 66, 74 |
 | Balance de cuisine **de 0 à 5 kg, graduée au gramme** | 1, et 1 de rechange | **Maison → chalet** | On dose le sel de salaison en pourcentage du **poids de la viande** : sans balance, on ne peut pas le calculer, et une salaison ratée fait perdre un quartier d'orignal | 5, 9, 67, 68 |
-| **Sel sans additif** : un seul ingrédient sur l'étiquette (sel à marinade, gros sel de salaison) | Le poids de viande et de poisson à saler, multiplié par le pourcentage de la méthode, puis doublé pour le sel de surface qui coule ; plus **250 g par litre** de la saumure qui trie l'ergot du grain de semence (ch. 98) | **Maison → chalet**, en seaux de 5 kg | Le sel est le premier consommable à manquer. Quand le congélateur lâche en novembre avec 200 kg de viande, la salaison sauve la viande sans courant, sans pots et sans appareil (ch. 74). On peut tirer du sel du fleuve, au prix de beaucoup de bois et de travail (dernière partie, C) | 9, 67, 74, 98 |
+| **Sel sans additif** : un seul ingrédient sur l'étiquette (sel à marinade, gros sel de salaison) | Le poids de viande et de poisson à saler, multiplié par le pourcentage de la méthode, puis doublé pour le sel de surface qui coule ; plus **250 g par litre** de la saumure qui trie l'ergot du grain de semence (ch. 98) | **Maison → chalet**, en chaudières de 5 kg | Le sel est le premier consommable à manquer. Quand le congélateur lâche en novembre avec 200 kg de viande, la salaison sauve la viande sans courant, sans pots et sans appareil (ch. 74). On peut tirer du sel du fleuve, au prix de beaucoup de bois et de travail (dernière partie, C) | 9, 67, 74, 98 |
 | Gras acheté : saindoux, shortening, huile végétale | **1 kg et 1 L par personne et par mois** avec la réserve sèche ; pour vivre de gibier, **environ 370 g par jour pour quatre personnes, 55 kg pour 150 jours** (ch. 19) | **Maison → chalet** | Une famille qui vit de lièvre et d'orignal maigre sans gras fait le mal de caribou, qui tue en quelques semaines | 5, 9, 19 |
 | Réserve sèche : riz étuvé, farine, avoine, légumineuses, pâtes, sucre, lait en poudre | Par personne et par mois : 4 kg de riz, 4 kg de farine, 2 kg d'avoine, 3 kg de légumineuses, 2 kg de pâtes, 1 kg de sucre, 1 kg de lait en poudre, pour trois mois. Avec le gras de la ligne précédente, environ 2 650 kcal par personne et par jour | **Maison** | C'est la réserve de fond. Le riz brun, la farine de blé entier et les noix gardent un gras qui rancit : on les achète en petite quantité et on les fait tourner vite, hors de la réserve de fond | 5 |
 | Contenants hermétiques **opaques** pour les denrées sèches | 1 par denrée de base | **Les deux** | Une souris passe à travers le carton, le bois mince et le sac de plastique, et elle gâte trois mois de farine en une semaine. La lumière fait rancir le gras | 5, 100 |
@@ -81,12 +81,12 @@ famille tient quand même.
 | --- | --- | --- | --- | --- |
 | Trousse de premiers soins avec un **garrot artériel** : pansements compressifs, bandes larges, compresses, ruban, ciseaux, pince à écharde, couverture de survie | 1 par lieu, 1 dans l'auto, 1 sur la ligne de piégeage | **Les deux** | Le garrot arrête le saignement qui tue en trois minutes, et les trousses vendues toutes faites n'en ont pas : il faut l'acheter à part | 26 |
 | Réserve de **médicaments d'ordonnance** de chaque personne | **2 à 3 semaines** d'avance | **Les deux**, la réserve voyage avec la personne | Rien ne les remplace. On les compte en semaines, pas en 72 heures, et on fait renouveler les ordonnances d'avance, à date fixe : pendant une panne ou un départ, on ne peut plus le faire | 6, 8, 32 |
-| **Acétaminophène** et **ibuprofène**, en forme enfant (liquide, suppositoires) et en forme adulte | Les deux médicaments, chacun dans les deux formes, avec leur date vérifiée aux deux rotations de l'année. La dose est celle de l'étiquette (ch. 32) | **Les deux** | Rien de la forêt ne les remplace chez un enfant : l'écorce de saule est de la famille de l'aspirine, et donnée pendant une grippe ou une varicelle, elle peut faire enfler son cerveau et lâcher son foie (ch. 34). Sans comprimés, la fièvre ne devient pas plus dangereuse, mais une douleur forte ne se calme pas : l'otite de nuit, la fracture, l'abcès. On garde les deux médicaments : une rupture, une date passée ou un flacon gelé n'en enlève alors qu'un | 28, 32, 34 |
+| **Acétaminophène** et **ibuprofène**, en forme enfant (liquide, suppositoires) et en forme adulte | Les deux médicaments, chacun dans les deux formes, avec leur date vérifiée aux deux rotations de l'année. La dose est celle de l'étiquette (ch. 32) | **Les deux** | Rien de la forêt ne les remplace chez un enfant : l'écorce de saule est de la famille de l'aspirine, et si on la donne à un enfant pendant une grippe ou une varicelle, elle peut faire enfler son cerveau et lâcher son foie (ch. 34). Sans comprimés, la fièvre ne devient pas plus dangereuse, mais une douleur forte ne se calme pas : l'otite de nuit, la fracture, l'abcès. On garde les deux médicaments : si l'un manque, est périmé ou a gelé dans son flacon, il reste l'autre | 28, 32, 34 |
 | Auto-injecteur d'épinéphrine, **si une allergie grave est connue dans la maisonnée** | Selon l'ordonnance | **Les deux** | Rien d'autre ne retient une réaction allergique grave le temps d'un trajet de deux heures | 26, 32 |
-| Réserve d'alcool d'un adulte qui en dépend, **si c'est le cas dans la maisonnée** | Assez pour finir une descente, pas jusqu'à la dernière bouteille : à 10 verres par jour, **250 verres sur 43 jours**, au moins (ch. 38, étape 57) | **Les deux**, la réserve voyage avec la personne | Chez une personne qui dépend de l'alcool, le sevrage commence quelques heures après le dernier verre, et il peut tuer. Il arrive le jour où la réserve finit : la réserve décide donc si l'arrêt se fait en descente, avec les verres versés par l'autre adulte, ou d'un coup | 38 |
+| Réserve d'alcool d'un adulte qui en dépend, **si c'est le cas dans la maisonnée** | Assez pour mener une descente jusqu'au bout sans tomber à court : à 10 verres par jour, **250 verres sur 43 jours**, au moins (ch. 38, étape 57) | **Les deux**, la réserve voyage avec la personne | Chez une personne qui dépend de l'alcool, le sevrage commence quelques heures après le dernier verre, et il peut tuer. Il arrive le jour où la réserve finit : avec une réserve assez grande, l'arrêt se fait en descente, avec les verres versés par l'autre adulte ; sinon, il se fait d'un coup | 38 |
 | Armoire ou coffre qui barre, pour les armes et la pharmacie, verrou de pontet pour chaque arme, contenant à part pour les munitions, et **deux jeux de clés** | 1 armoire, 1 verrou par arme, 2 jeux de clés | **Les deux** | Quand un adulte va mal, l'autre garde les clés des armes et de la pharmacie, comme ils l'ont convenu par écrit avant l'hiver : chaque minute mise entre l'intention et l'arme compte (ch. 36). Le deuxième jeu de clés sert le jour où la personne qui porte le premier est blessée, ou n'est pas revenue | 16, 36 |
 | Sachets de **solution de réhydratation orale**, datés, et jus d'orange non sucré en conserve pour la recette de rechange | Une réserve pour toute la maisonnée | **Les deux** | Une gastro chez tout le monde, sans eau courante, déshydrate un jeune enfant en une journée. On mesure la recette de rechange au millilitre, et le sel, 2,5 mL, à la seringue graduée (dernière partie, E) : la nuit, quand toute la maison est malade, les sachets évitent l'erreur de mesure | 26, 30, 31, 32, 39 |
-| Thermomètre médical numérique, et piles de rechange | 2 | **Les deux** | La fièvre sépare un enfant qui couve quelque chose d'un enfant avec qui il faut partir tout de suite. Sous 35 °C, le thermomètre montre l'hypothermie avant que ses signes se voient. On en garde deux parce qu'on ne peut pas le fabriquer | 1, 2, 26, 30 |
+| Thermomètre médical numérique, et piles de rechange | 2 | **Les deux** | En mesurant la fièvre, on distingue un enfant qui couve quelque chose d'un enfant avec qui il faut partir tout de suite. Sous 35 °C, le thermomètre montre l'hypothermie avant que ses signes se voient. On en garde deux parce qu'on ne peut pas le fabriquer | 1, 2, 26, 30 |
 | **Savon** ordinaire, sans le rationner | 1 pain ou 1 bouteille par point d'eau, et une réserve de 12 mois | **Les deux** | Le savon décolle de la peau les microbes de la tularémie, de l'échinococcose et de la gastro, sans les tuer, et le rinçage les emporte. On peut le fabriquer (dernière partie, E ; ch. 112), mais il faut du gras, des cendres et des jours : d'ici là, on l'achète et on ne le rationne pas | 31, 48, 55, 112 |
 | **Gants jetables** de nitrile, en boîte | Une boîte pleine par lieu | **Les deux** | La tularémie entre par une éraflure de la peau, et le lièvre est la seule viande fraîche de janvier : on porte des gants pour dépouiller et vider une bête | 22, 48 |
 | **Masques N95**, à deux élastiques qui passent derrière la tête et à pince pour le nez | Assez pour changer de masque à chaque sortie | **Les deux** | Ils servent pendant une épidémie et dans la fumée d'un feu de forêt. Ils arrêtent les particules fines, pas les gaz de la fumée. Ils ne ferment pas serré sur une barbe, et ils ne sont pas faits pour le visage d'un enfant : ils ne le protègent pas (ch. 11) | 2, 11, 30 |
@@ -97,7 +97,7 @@ famille tient quand même.
 | --- | --- | --- | --- | --- |
 | Lampe frontale | 1 par personne, **plus 2**, à la taille des enfants pour les leurs | **Les deux** | En décembre, la noirceur dure 15 à 16 heures. La frontale laisse les deux mains libres pour travailler ou tenir un enfant | 9, 85 |
 | Piles de rechange, **d'un seul format pour tout le bâtiment** | Une réserve pour une saison, rangée **hors des appareils** | **Les deux** | On compte les piles par format, pas par nombre : une réserve de piles AA ne sert à rien si l'appareil qui compte prend une pile CR2032. Les piles alcalines coulent en vieillissant et abîment l'appareil où on les a laissées | 9, 85 |
-| Récepteur radio **à piles ou à manivelle, avec la bande AM** | 2 | **Les deux** | Dans un abri, la radio donne la seule nouvelle qu'on a : l'état de la route, du feu, de la panne, et quand l'abri finit. L'AM porte loin le soir, et elle passe encore quand les autres moyens sont tombés | 2, 4, 14 |
+| Récepteur radio **à piles ou à manivelle, avec la bande AM** | 2 | **Les deux** | Dans un abri, la radio donne la seule nouvelle qu'on a : l'état de la route, du feu, de la panne, et le moment où on peut sortir de l'abri. L'AM porte loin le soir, et elle passe encore quand les autres moyens sont tombés | 2, 4, 14 |
 | Appareil de **messagerie satellite à deux sens, avec SOS**, et son abonnement payé | 1 | **Chalet** | Au chalet, loin des voisins, rien d'autre ne fait venir de l'aide pour sortir un blessé. Il faut un appareil chargé et un abonnement en vigueur, pas un appareil oublié au fond d'un tiroir | 2, 14, 35 |
 | Trois moyens d'allumer le feu, rangés à **trois endroits différents** : allumettes dans un contenant étanche, briquet à long bec, tige de ferrocérium | 2 boîtes, 2 briquets, 1 tige par sac et 3 au chalet | **Les deux** | Par grand froid, un briquet au butane ne donne plus de flamme tant qu'on ne l'a pas réchauffé contre le ventre. Rangés au même endroit, les trois brûlent ou se perdent ensemble | 13, 15 |
 
@@ -105,11 +105,11 @@ famille tient quand même.
 
 | Item | Quantité | Lieu | Sans ça | Ch. |
 | --- | --- | --- | --- | --- |
-| Extincteur à poudre **ABC**, en gros format, pas le modèle de cuisine | 1 près de chaque sortie, 1 près du poêle, 1 près de l'abri de la génératrice | **Les deux** | Les trois lettres disent ce qu'il éteint : **A** le bois et le tissu, **B** l'essence et l'huile, **C** ce qui est sous tension. Un extincteur qui ne porte que le A projette le carburant en feu au lieu de l'étouffer. Le petit modèle se vide en quelques secondes | 82 |
-| **Cache d'évacuation, hors du bâtiment** : bottes, habits de neige, tuques, mitaines, sacs de couchage, lampes, allumettes dans un contenant étanche, un sifflet | 1 jeu complet par personne | **Les deux** | À −35 °C, on ne survit pas longtemps dehors en pyjama : la cache donne les vêtements et les sacs de couchage quand le bâtiment brûle. On la range dehors, loin du bâtiment, pour qu'elle ne brûle pas avec lui. Le sifflet sert aux enfants : si l'adulte seul ne se relève pas, ils appellent le voisin à portée d'oreille avec trois coups, une pause, trois coups (ch. 38) | 12, 38, 82 |
-| Bacs rigides d'environ 60 L à couvercle clipsé, et sacs à dos : la **trousse d'évacuation montée d'avance** | 2 bacs ; 1 sac à dos par personne, de 45 à 60 L pour un adulte, de 15 à 20 L pour un enfant | **Les deux** | Une trousse montée, on la prend et on part ; une trousse à remplir le jour même ne part pas. Une seule personne doit pouvoir sortir le bac 1 en moins de 2 minutes (ch. 6). On charge dans cet ordre : les personnes, les médicaments, les papiers, l'eau, les vêtements chauds, la nourriture | 6, 7, 8, 11 |
+| Extincteur à poudre **ABC**, en gros format, pas le modèle de cuisine | 1 près de chaque sortie, 1 près du poêle, 1 près de l'abri de la génératrice | **Les deux** | Chaque lettre désigne ce qu'il éteint : **A** le bois et le tissu, **B** l'essence et l'huile, **C** ce qui est sous tension. Un extincteur qui ne porte que le A projette le carburant en feu au lieu de l'étouffer. Le petit modèle se vide en quelques secondes | 82 |
+| **Cache d'évacuation, hors du bâtiment** : bottes, habits de neige, tuques, mitaines, sacs de couchage, lampes, allumettes dans un contenant étanche, un sifflet | 1 jeu complet par personne | **Les deux** | Quand le bâtiment brûle, l'hiver à −35 °C, la cache donne les vêtements et les sacs de couchage. On la range dehors, loin du bâtiment, pour qu'elle ne brûle pas avec lui. Le sifflet sert aux enfants : si l'adulte seul ne se relève pas, ils appellent le voisin à portée d'oreille avec trois coups, une pause, trois coups (ch. 38) | 12, 38, 82 |
+| Bacs rigides d'environ 60 L à couvercle clipsé, et sacs à dos : la **trousse d'évacuation montée d'avance** | 2 bacs ; 1 sac à dos par personne, de 45 à 60 L pour un adulte, de 15 à 20 L pour un enfant | **Les deux** | Une trousse montée, on la prend et on part ; le jour même, on n'a pas le temps de la remplir. Une seule personne doit pouvoir sortir le bac 1 en moins de 2 minutes (ch. 6). On charge dans cet ordre : les personnes, les médicaments, les papiers, l'eau, les vêtements chauds, la nourriture | 6, 7, 8, 11 |
 | Boîte étanche à joint, format lettre | 1 | **Les deux** | Elle garde au sec les papiers, l'argent et la liste des médicaments ; des papiers mouillés ne servent plus | 6 |
-| Trousse d'hiver de l'auto : pelle, balai à neige et grattoir, une **couverture de laine par personne**, de l'eau dans des contenants souples, de la nourriture qu'on peut manger gelée | 1 trousse par auto, 1 couverture de laine par personne | **Les deux**, dans l'auto | La pelle dégage le tuyau d'échappement et les roues d'une auto prise dans la neige (ch. 15). Si un feu de forêt rattrape l'auto sur la route, la couverture de laine arrête la chaleur sur la peau ; une couverture synthétique ne le fait pas (ch. 11). Dans une auto arrêtée, l'eau gèle : on la garde dans l'habitacle, dans des contenants souples (ch. 6) | 6, 11, 15 |
+| Trousse d'hiver de l'auto : pelle, balai à neige et grattoir, une **couverture de laine par personne**, de l'eau dans des contenants souples, de la nourriture qu'on peut manger gelée | 1 trousse par auto, 1 couverture de laine par personne | **Les deux**, dans l'auto | La pelle dégage le tuyau d'échappement et les roues d'une auto prise dans la neige (ch. 15). Si un feu de forêt rattrape l'auto sur la route, la couverture de laine protège la peau de la chaleur ; une couverture synthétique ne la protège pas (ch. 11). Dans une auto arrêtée, l'eau gèle : on la garde dans l'habitacle, dans des contenants souples (ch. 6) | 6, 11, 15 |
 
 ### 1.H Les papiers et l'argent
 
@@ -117,7 +117,7 @@ famille tient quand même.
 | --- | --- | --- | --- | --- |
 | Pièces d'identité de **toute la famille**, cartes d'assurance maladie, copies des polices d'assurance, du titre de propriété et des actes, avec un jeu gardé **hors du bâtiment** | 2 jeux | **Les deux** | On ne peut pas les refaire le jour même, et un incendie ou un feu de forêt les détruit | 6, 82 |
 | Argent comptant en **petites coupures**, et de la monnaie | De quoi payer **2 à 3 semaines** de dépenses de base | **Maison** | Sans courant, les terminaux de paiement ne marchent pas, et toute la ville en manque en même temps | 6, 8 |
-| Fiche médicale de chaque personne : allergies, médicaments et doses, maladies, numéro d'assurance maladie | 1 par personne | **Les deux** | Les doses et les allergies de toute la famille sont souvent dans la tête d'une seule personne, et le jour où elles servent, c'est parfois elle qu'on soigne. Écrites, n'importe qui peut les lire | 32, 35 |
+| Fiche médicale de chaque personne : allergies, médicaments et doses, maladies, numéro d'assurance maladie | 1 par personne | **Les deux** | Les doses et les allergies de toute la famille sont souvent dans la tête d'une seule personne, et le jour où elles servent, c'est parfois elle qu'on soigne. Si elles sont écrites, n'importe qui peut les lire | 32, 35 |
 
 ### 1.I Pour la scie à chaîne, la glace et l'eau
 
@@ -137,8 +137,8 @@ Si la famille fait l'activité, son équipement est au palier 1 ; sinon, on ne l
 
 - **La génératrice** est au palier 2. Elle sauve un congélateur et rend une panne plus confortable ; elle ne garde personne en vie. Au palier 1, il y a l'avertisseur de CO, qui détecte son monoxyde.
 - **Le filtre à eau** est au palier 2. Faire bouillir l'eau la rend buvable sans cartouche ; le filtre est le deuxième moyen.
-- **L'iodure de potassium** est au palier 3 : les retombées radioactives sont le moins probable des événements du tome.
-- **Le fumoir, l'autoclave et le jardin** produisent et transforment. Le palier 1 sert à traverser l'événement.
+- **L'iodure de potassium** est au palier 3 : les retombées radioactives sont le moins probable des sinistres.
+- **Le fumoir, l'autoclave et le jardin** servent à produire et à transformer la nourriture ; le palier 1 sert à traverser l'événement.
 
 ---
 
@@ -153,16 +153,16 @@ réserves.
 | --- | --- | --- | --- | --- |
 | Filtre à eau aux trous de **1 µm ou moins** (le chiffre est écrit sur l'emballage), et des cartouches de rechange | 1 filtre et 2 cartouches | **Chalet** | C'est le deuxième moyen de traiter l'eau. À 1 µm, il arrête les parasites ; une partie des bactéries et les virus (0,03 µm) passent : après le filtre, on fait bouillir l'eau ou on la chlore. On change la cartouche selon la quantité d'eau passée, pas selon le temps | 10 |
 | Bandelettes de **chlore libre**, de 0 à 200 mg/L | 1 boîte | **Chalet** | Elles mesurent le chlore dans le puits qu'on désinfecte et dans le chlore fait maison : sans elles, on ne sait pas combien il y en a | 10 |
-| Analyse de l'eau du puits par un laboratoire | 2 analyses microbiologiques et 1 analyse chimique par année | **Chalet** | Les coliformes, l'arsenic et le manganèse ne changent ni le goût ni l'aspect de l'eau. On fait faire l'analyse maintenant, tant qu'un laboratoire reçoit des échantillons : on ne peut pas la faire soi-même. Sans elle : dernière partie, A | 10 |
+| Analyse de l'eau du puits par un laboratoire | 2 analyses microbiologiques et 1 analyse chimique par année | **Chalet** | Les coliformes, l'arsenic et le manganèse ne changent ni le goût ni l'aspect de l'eau. On fait faire l'analyse maintenant, tant qu'un laboratoire reçoit des échantillons : on ne peut pas la faire soi-même. Sans elle, voir la dernière partie, A | 10 |
 | Batterie de service 12 V, contrôleur de charge, panneau solaire **très incliné pour l'hiver**, voltmètre qu'on lit sans se lever, fusibles en double de chaque valeur, balai à long manche | 1 ensemble, 2 fusibles par valeur | **Chalet** | Elle fournit l'éclairage pendant des semaines. En décembre, la neige couvre un panneau posé à plat : on l'incline fort, et on le balaie | 85, 86, 108 |
-| Génératrice, rallonges **de gros calibre, d'un seul tenant**, assez longues pour poser la génératrice à 6 m du bâtiment, bidons étiquetés | Selon l'autonomie visée | **Maison** | Elle sert pendant une panne d'hiver à la maison, avec le congélateur plein et la plomberie qui gèle. Une rallonge trop mince sur 30 m chauffe sur toute sa longueur et perd de la tension au bout : le moteur du congélateur force et grille. La génératrice tourne dehors, **jamais dans un bâtiment, un garage ou sous un auvent** | 1, 3, 7, 15 |
+| Génératrice, rallonges **de gros calibre, d'un seul tenant**, assez longues pour poser la génératrice à 6 m du bâtiment, bidons étiquetés | Selon l'autonomie visée | **Maison** | Elle sert pendant une panne d'hiver à la maison, avec le congélateur plein et la plomberie qui gèle. Une rallonge trop mince sur 30 m chauffe sur toute sa longueur et perd de la tension au bout : le moteur du congélateur force et grille. On fait tourner la génératrice dehors, **jamais dans un bâtiment, un garage ou sous un auvent** | 1, 3, 7, 15 |
 | Chaufferette **faite pour l'intérieur**, et son combustible | 1 | **Les deux** | Les chaufferettes de camping ou de chantier, le barbecue et le réchaud remplissent une pièce de monoxyde. Celle-ci n'a pas de tuyau non plus : on la fait marcher avec l'avertisseur de CO dans la même pièce, et jamais sous une tente (ch. 12). Sous 0 °C, le butane ne se vaporise plus (il bout à −0,5 °C), et la chaufferette s'éteint ; le propane, qui bout à −42 °C, continue de chauffer | 1, 3, 6, 12, 87 |
-| Antigel de plomberie **non toxique** | Toilette 0,5 à 1 L, laveuse 2 L, lave-vaisselle 1 L | **Maison**, et le chalet qu'on ferme l'hiver | Une plomberie qui éclate fait d'une panne de trois jours trois mois de travaux | 3, 7, 84 |
+| Antigel de plomberie **non toxique** | Toilette 0,5 à 1 L, laveuse 2 L, lave-vaisselle 1 L | **Maison**, et le chalet qu'on ferme l'hiver | Si la plomberie éclate, une panne de trois jours laisse trois mois de travaux | 3, 7, 84 |
 | Brosse de ramonage **au diamètre exact du tuyau**, avec ses tiges, et petit miroir d'inspection | 1 jeu | **Les deux**, où il y a un poêle | On ramone au moins une fois par année, selon la quantité et la qualité du bois brûlé. Une brosse trop petite polit la créosote au lieu de l'enlever | 82, 83 |
 | Humidimètre à broches | 1 | **Chalet** | Il vérifie les 20 % d'humidité du bois au lieu de les supposer | 83 |
 | Thermomètre d'ambiance **minimum-maximum** | 1 par local qui compte : la pièce où on vit, le stock, la chambre froide, la cache, le caveau | **Les deux** | Il montre si le local a gelé ou chauffé pendant l'absence. Dans la pièce où on vit, deux relevés à 2 h d'écart montrent à quelle vitesse la maison refroidit (ch. 2) | 2, 5, 73 |
 | Thermomètre **enregistreur** pour la cave et le congélateur | 1 | **Chalet** | Il faut une année de relevés de la cave avant de commencer la salaison longue (ch. 68) et le caveau (ch. 79) | 9, 68, 79 |
-| Hache de fendage ou masse de fendeur de 2,5 à 3,5 kg, et 2 coins d'acier | 1 jeu | **Chalet** | La scie à chaîne coupe, elle ne fend pas. Le jour où elle ne démarre pas, on chauffe le chalet à la hache | 83 |
+| Hache de fendage ou masse de fendeur de 2,5 à 3,5 kg, et 2 coins d'acier | 1 jeu | **Chalet** | La scie à chaîne coupe, elle ne fend pas. Le jour où elle ne démarre pas, on fait tout le bois du chalet à la hache | 83 |
 | **Tente de toile de coton**, **poêle de tôle** et assez de **tuyau** pour dépasser le faîte, **collerette** de tôle, **pare-étincelles** aux mailles d'au plus 1 cm, **pelle à neige**, rangés ensemble hors du chalet | 1 ensemble | **Chalet** | Si le chalet brûle, ou s'il reçoit plus de monde qu'il n'en peut coucher, on vit sous cette tente. La toile de coton roussit sans fondre : c'est la seule qu'on peut chauffer au poêle. On range le tout hors du chalet pour qu'il ne brûle pas avec lui. Sans tente : un appentis de bâche et un feu, ou un abri de neige (ch. 12) | 12, 82 |
 
 ### 2.B Le tranchant, le levage, la bête
@@ -179,9 +179,9 @@ réserves.
 | Balance de 0 à 50 kg au 100 g, et peson de 0 à 200 kg | 1 de chaque | **Chalet** | On pèse la viande pour doser le sel en pourcentage de son poids | 46, 62 |
 | Table de travail qu'on peut laver, ou contreplaqué scellé | 1 | **Chalet** | On ne pose jamais la viande au sol, et on ne peut pas désinfecter une table de cuisine en bois | 48, 62 |
 | Lunettes de protection, masque, tablier imperméable, gants de travail, gants de cuir | 1 jeu par personne qui travaille la bête | **Les deux** | La tularémie entre par une peau éraflée **et par l'œil** : en dépouillant, on projette des gouttelettes à la hauteur du visage pendant deux heures | 46, 48, 50 |
-| **Cartouches de .22** à percussion annulaire | Le compte du ch. 45 (section 5) : **1 par bête prise à la .22** (lièvre, porc-épic, oiseau perché, écureuil, rat musqué, bête vivante au piège), plus le réglage à 25 m et la pratique | **Maison → chalet** | On tire la .22 plus que les autres cartouches, et elle fait le plus de repas : une boîte de .22 tirée à la tête sur des bêtes immobiles fait bien plus de repas qu'une boîte de cartouches de fusil tirées au vol. Son amorce est logée dans le bourrelet de la douille, et elle craint l'humidité bien plus que les autres. On ne peut pas la refaire au chalet | 45, 47 |
+| **Cartouches de .22** à percussion annulaire | Le compte du ch. 45 (section 5) : **1 par bête prise à la .22** (lièvre, porc-épic, oiseau perché, écureuil, rat musqué, bête vivante au piège), plus le réglage à 25 m et la pratique | **Maison → chalet** | On tire la .22 plus que les autres cartouches, et elle fait le plus de repas : une boîte de .22 tirée à la tête sur des bêtes immobiles fait bien plus de repas qu'une boîte de cartouches de fusil tirées au vol. Son amorce est logée dans le bourrelet de la douille, et l'humidité l'abîme bien plus que les autres cartouches. On ne peut pas la refaire au chalet | 45, 47 |
 | **Cartouches de carabine, à balle de chasse : .308 Winchester, 7 mm Remington Magnum, .303 British** | Le compte du ch. 45 (section 5) : **12 par carabine** pour le réglage et le zéro au froid, **3 de plus par chute**, puis le coup qui tue et le coup de grâce par bête. Le gros du stock en **.308** | **Maison → chalet** | Rien ne remplace la balle sur l'orignal, l'ours et le phoque : un arc de fortune ne donne pas la force qu'il faut (ch. 45, section 9). Deux des carabines tirent la .308 : une boîte sert deux armes et deux tireurs, et si une carabine casse, ses cartouches passent à l'autre. La 7 mm et la .303 ont chacune la leur, qui ne sert à rien d'autre. **Un seul calibre par caisse** : la .308 et la .303 entrent dans la chambre de la 7 mm, et leur balle, plus grosse que l'intérieur de son canon, fait céder l'arme (ch. 45, étape 39) | 45, 61 |
-| Cartouches de **calibre 12**, grenaille pour le **petit gibier du bois** : **n° 7½ ou 8** pour la gélinotte, **n° 6** quand les feuilles sont tombées ; **n° 6 à 8** pour l'écureuil ; **n° 4 à 7½** pour le lièvre, le n° 6 d'abord | Selon la boîte (ch. 47) : au vol, une prise coûte plus d'une cartouche (ch. 45, section 5) | **Maison → chalet** | Sur l'oiseau qui vole et le lièvre qui court, rien ne remplace le fusil. Pour ce qui ira dans l'assiette des enfants, on prend de l'acier plutôt que du plomb, et alors un ou deux numéros plus gros (ligne suivante). Une seule sorte de grenaille par veste : le plomb de la gélinotte ne voyage jamais avec l'acier du canard | 47, 49 |
+| Cartouches de **calibre 12**, grenaille pour le **petit gibier du bois** : **n° 7½ ou 8** pour la gélinotte, **n° 6** quand les feuilles sont tombées ; **n° 6 à 8** pour l'écureuil ; **n° 4 à 7½** pour le lièvre, le n° 6 d'abord | Selon la boîte (ch. 47) : au vol, une prise coûte plus d'une cartouche (ch. 45, section 5) | **Maison → chalet** | Sur l'oiseau qui vole et le lièvre qui court, rien ne remplace le fusil. Pour ce qui ira dans l'assiette des enfants, on prend de l'acier plutôt que du plomb, et alors un ou deux numéros plus gros (ligne suivante). On garde une seule sorte de grenaille par veste, pour ne jamais mêler le plomb de la gélinotte à l'acier du canard | 47, 49 |
 | Cartouches de **calibre 12**, grenaille **non toxique** pour la sauvagine : acier **n° 2 ou 3** pour le canard, **BB, 1 ou 2** pour l'outarde ; bismuth pour un vieux fusil à choke plein | De l'ordre de **5 cartouches par canard abattu** (ch. 45, section 5), et rien d'autre dans le sac | **Maison → chalet** | Les grains de plomb restent dans la chair, et on ne les retrouve pas tous au découpage : c'est du plomb dans l'assiette des enfants. L'acier pèse environ **un tiers de moins** que le plomb au même numéro et porte moins loin : on le prend **un ou deux numéros plus gros** que le plomb pour le même usage (plus gros, c'est un numéro plus petit). Pas plus : trop gros, la gerbe se vide et l'oiseau passe entre les grains. L'acier, plus dur, bat et gonfle un vieux canon à choke plein ; le bismuth, plus mou, y passe | 45, 47, 54 |
 
 ### 2.C Garder ce qui a été pris
@@ -192,12 +192,12 @@ réserves.
 | Coton à fromage (étamine), ficelle de boucher, crochets en S | À compter **par carcasse**, pas par année | **Chalet** | L'étamine laisse passer l'air et arrête les mouches | 9, 62 |
 | Glacières isolées, et bacs de plastique opaques de 20 L à couvercle | 2 glacières, 4 à 6 bacs | **Les deux** | Un poisson se gâte en quelques heures, un quartier d'orignal en une journée | 57, 75 |
 | Contenants **non réactifs** de qualité alimentaire : plastique alimentaire, acier inoxydable, grès vernissé | 2 grands, 2 petits, et 1 par fournée de fermentation | **Chalet** | Le sel humide attaque l'aluminium, le fer galvanisé et le cuivre : le métal passe dans la saumure, puis dans la viande | 67, 69, 80 |
-| **Sel nitrité** : un mélange de sel et de nitrite de sodium, avec sa teneur écrite sur l'emballage | Le poids de viande prévu en salaison longue ou en fumage à froid, multiplié par la dose par kilogramme que donne la formule du ch. 67 (étape 21) à partir de la teneur écrite sur l'emballage | **Maison → chalet** | Il est la deuxième barrière contre le botulisme dans la salaison longue ; sans lui, pas de fumage à froid (ch. 69). Le salpêtre ne le remplace pas : on ne dose pas les deux de la même façon (ch. 67) | 5, 9, 67, 68, 69 |
+| **Sel nitrité** : un mélange de sel et de nitrite de sodium, avec sa teneur écrite sur l'emballage | Le poids de viande prévu en salaison longue ou en fumage à froid, multiplié par la dose par kilogramme que donne la formule du ch. 67 (étape 21) à partir de la teneur écrite sur l'emballage | **Maison → chalet** | Il est la deuxième barrière contre le botulisme dans la salaison longue ; sans lui, pas de fumage à froid (ch. 69). Le salpêtre (nitrate de potassium) ne le remplace pas : on ne dose pas les deux de la même façon (ch. 67) | 5, 9, 67, 68, 69 |
 | Balance **au 0,1 g** | 1 | **Maison → chalet** | La dose de nitrite d'un lot tient en quelques grammes : sans cette balance, on ne met pas de nitrite (ch. 67) | 67, 69 |
 | **Autoclave** (marmite à pression pour les conserves) avec manomètre ou soupape calibrée, son livret de temps de traitement éprouvés, et **un joint et une soupape de rechange** | 1, du plus grand volume que le poêle peut porter | **Maison → chalet** | Sans lui, on ne peut pas mettre en conserve la viande, le poisson et les légumes, qui sont peu acides (ch. 78). Il sauve aussi un congélateur qui dégèle (ch. 74) | 74, 78 |
 | Pots de type Mason à épaulement, **couvercles plats neufs**, marmite haute avec une grille au fond, pince à pots, minuteries dont une **mécanique** | 1 couvercle neuf par pot à remplir, **plus 20 %** | **Maison → chalet** | On réutilise les bagues ; le couvercle plat ne sert qu'une fois. Un pot posé sur le métal chaud éclate. Le botulisme ne change ni l'odeur, ni le goût, ni l'apparence d'une conserve | 78 |
 | Vinaigre dont l'acidité est écrite sur l'étiquette, **5 %**, et jus de citron du commerce | Le nombre de pots prévus multiplié par le volume de la recette | **Maison → chalet** | Un vinaigre maison, dont on ne connaît pas l'acidité, ne remplace pas un vinaigre à 5 % : la conserve doit descendre à un **pH de 4,6** ou moins | 78, 80 |
-| Bandelettes de **pH** qui couvrent **3,2 à 4,6**, ou pH-mètre étalonné | 1 rouleau par saison | **Les deux** | Elles prouvent que la choucroute est assez acide pour se garder, et la choucroute est la vitamine C de janvier | 80 |
+| Bandelettes de **pH** qui couvrent **3,2 à 4,6**, ou pH-mètre étalonné | 1 rouleau par saison | **Les deux** | Elles prouvent que la choucroute est assez acide pour se garder, et en janvier, la choucroute fournit la vitamine C | 80 |
 | Baril ou pots de fermentation **à joint d'eau**, avec un poids pour garder le chou sous la saumure | 60 à 100 L en tout, 1 poids par contenant | **Chalet** | Le chou qui dépasse de la saumure grisit et se gâte | 20, 80 |
 | Sel de table **iodé**, gardé **à part** du sel de salaison | **Un peu plus de 2 kg par an pour quatre personnes** : environ 6 g par jour, ce qui couvre l'iode de chacun | **Maison → chalet** | Il ne conserve rien et il change le goût d'une saumure. Il sert à la thyroïde | 21, 67 |
 
@@ -211,14 +211,14 @@ réserves.
 | Pèse-personne **mécanique, sans pile** | 1 | **Les deux** | La perte de poids est le premier signe fiable du mal de caribou et d'un hiver où on mange trop peu. On la voit trois semaines avant que la personne s'en plaigne | 19, 21 |
 | **Brosses à dents à soies souples** | 1 par personne, et une neuve **aux 3 mois** : 4 par personne par année | **Les deux** | La brosse enlève la plaque en frottant, et c'est presque tout le soin. Au chalet, une carie qui atteint le nerf devient un abcès qu'on ne peut pas soigner sur place, et un abcès qui sort de la mâchoire peut fermer la gorge en quelques heures. Une brosse aux soies couchées ne frotte plus ; la brosse de branche la remplace, et on la refait sans arrêt (ch. 27, section 9) | 27 |
 | **Dentifrice au fluorure** | La consommation observée multipliée par la durée d'isolement prévue. La dose : un petit pois de 3 à 6 ans, environ 1 cm pour un adulte | **Les deux** | La brosse fait le travail ; le dentifrice ajoute le fluorure, qui rend l'émail plus résistant. Le petit pois n'est pas une économie : l'enfant en avale, et trop de fluorure avalé lui tache les dents de blanc. Pour faire durer le dernier tube, on ne met du dentifrice qu'un brossage par semaine (ch. 27, section 9) | 27 |
-| Papier hygiénique, produits d'hygiène menstruelle, couches ou culottes d'entraînement | La consommation d'un mois multipliée par la durée d'isolement prévue, **puis par 1,5** | **Maison → chalet** | On l'oublie presque toujours. Le tissu remplace les trois, comme le faisaient les générations d'avant, mais il faut alors laver du linge souillé tout l'hiver : de l'eau chaude, du savon et une corde à linge dans la maison (dernière partie, E). On multiplie par 1,5 par prudence : la consommation monte quand tout le reste se dégrade (ch. 9) | 9, 31 |
+| Papier hygiénique, produits d'hygiène menstruelle, couches ou culottes d'entraînement | La consommation d'un mois multipliée par la durée d'isolement prévue, **puis par 1,5** | **Maison → chalet** | On l'oublie presque toujours. Le tissu remplace les trois, mais il faut alors laver du linge souillé tout l'hiver (dernière partie, E). On multiplie par 1,5 par prudence : la consommation monte quand tout le reste se dégrade (ch. 9) | 9, 31 |
 | Seau de nuit de 20 L à couvercle étanche, pelle et pic réservés à la bécosse, bran de scie ou tourbe | 2 seaux, 1 baril de 200 L de bran de scie | **Chalet** | À −35 °C, personne ne sort la nuit. Le couvercle garde l'odeur dans le seau | 31 |
 | Réveil ou horloge **mécanique à remonter, avec trotteuse**, calendrier mural pour tout l'hiver, tableau de la journée en images à la hauteur des enfants | 2 réveils, 1 calendrier, 1 tableau | **Les deux** | Une journée qui garde la même forme quand tout le reste change aide un jeune enfant à tenir des semaines. Sans pile, le réveil compte les heures depuis le début d'une panne (ch. 1). La trotteuse sert à compter les respirations et le pouls d'un malade quand le téléphone est mort : compter à voix haute va trop vite quand on a peur (ch. 26, ch. 28) | 1, 26, 28, 36, 40 |
 | Objet de réconfort de chaque enfant, **et son double caché** | 1 paire par enfant | **Les deux** | Le double sert la nuit où on perd le premier | 40 |
-| Gourde, une par enfant | 1 par enfant | **Chalet** | Si l'adulte seul ne se relève pas, l'enfant boit sans lui. On garde la gourde dans son sac de couchage : si le poêle s'éteint, l'eau d'un pichet gèle, celle du sac ne gèle pas (ch. 38) | 38 |
+| Gourde, une par enfant | 1 par enfant | **Chalet** | Si l'adulte seul ne se relève pas, l'enfant boit sans lui. On garde la gourde dans le sac de couchage de l'enfant : si le poêle s'éteint, l'eau d'un pichet gèle, celle du sac ne gèle pas (ch. 38) | 38 |
 | **Coupe menstruelle** | 1 par femme ; elle dure **5 à 10 ans** | **Les deux**, elle voyage avec la personne | Au chalet, le dernier paquet finit un jour. On vide la coupe aux 6 à 12 heures, et on la fait bouillir 5 à 10 minutes à la fin de chaque cycle. Sans elle, on coud des serviettes de flanelle, et on met de la sphaigne pâle en sachet (ch. 29, section 9). Une serviette qui n'a pas fini de sécher irrite la peau, et l'hiver, on n'en a que ce que le poêle arrive à sécher | 29 |
 | **Condoms** en latex, et comprimés de **contraception d'urgence** achetés d'avance | Selon la durée d'isolement prévue (ch. 29) | **Les deux** | Une grossesse commencée au chalet en janvier finit par un accouchement au chalet en octobre, sans salle d'opération. **Tout corps gras abîme le latex** (saindoux, graisse d'ours, vaseline, onguent), et au chalet, il y a du gras partout : on lubrifie à l'eau ou à la salive. On prend la contraception d'urgence jusqu'à 5 jours après le rapport. Seule une méthode posée d'avance ne dépend d'aucun stock : le stérilet au cuivre dure 12 ans, le stérilet hormonal et l'implant, 3 à 5 ans (ch. 29, étape 10) | 29 |
-| Guide illustré pour reconnaître la flore du Québec, **sur papier** | 1, et 1 par cueilleur pour les champignons | **Chalet** | Aucune application ne marche sans réseau, et les plantes poussent loin du réseau | 33, 92, 93 |
+| Guide illustré pour reconnaître la flore du Québec, **sur papier** | 1, et 1 par cueilleur pour les champignons | **Chalet** | Aucune application ne marche sans réseau, et on cueille loin du réseau | 33, 92, 93 |
 
 ### 2.E Le feu de forêt et la fumée
 
@@ -285,8 +285,8 @@ qu'aujourd'hui.
 
 ## Palier 4 — S'il reste du temps et de l'argent
 
-Le confort, ce qui double un autre objet, et ce qu'on peut bricoler autrement. Rien ici ne manque à personne
-pendant un hiver.
+Ce sont les objets de confort, ceux qui doublent un autre objet, et ceux qu'on peut bricoler autrement. Aucun ne
+manque à personne pendant un hiver.
 
 | Item | Quantité | Lieu | Ce qu'on gagne, et ce qui le remplace | Ch. |
 | --- | --- | --- | --- | --- |
@@ -297,13 +297,13 @@ pendant un hiver.
 | Purificateur d'air portatif **au chalet** | 1 | **Chalet** | Il marche sur la batterie 12 V ou sur la génératrice : tant qu'elles ne sont pas assez grosses, il prend le courant de l'éclairage | 2, 85 |
 | **Lampe de luminothérapie** | 1 | **Chalet** | Environ 10 000 lux à une trentaine de centimètres, 30 minutes au réveil, les jours où le froid empêche de sortir. Elle marche sur la batterie 12 V ou la génératrice (ch. 86). Rien de ce qui brûle ne la remplace : il faudrait environ 900 chandelles. Une sortie d'une heure dans l'heure qui suit le réveil fait mieux contre la déprime de l'hiver, et ne coûte rien (ch. 37) | 37 |
 | **Poêle de sauna** à bois, et son thermomètre | 1 | **Chalet** | Il permet de se laver l'hiver avec la chaleur d'un seul feu. On peut le bricoler, et chaque bricolage ajoute un danger : la truie du ch. 83 sous une cage à pierres, le poêle de la tente d'hiver, ou des pierres chauffées dehors et portées sous une bâche (ch. 37, section 9). Dans le vestiaire, on met l'avertisseur de CO du palier 1 | 12, 37 |
-| Arbustes et vivaces qui donnent des années : **camerisiers**, **pommetiers**, **argousiers**, gadelliers, rhubarbe, topinambour | Camerisiers : au moins deux variétés non apparentées, qui fleurissent en même temps ; pommetiers : deux variétés à 30 m l'une de l'autre au plus ; argousiers : plusieurs, dont environ un mâle sur dix ; gadelliers : 2 à 4 (ch. 99) | **Chalet** | Ce qui n'est pas en terre trois ans avant la crise ne nourrit personne pendant la crise ; seuls la rhubarbe et le topinambour donnent dès la première ou la deuxième saison. Un camerisier seul, ou deux de la même variété, fleurit chaque année sans donner de fruit, quoi qu'on fasse. On peut aussi prendre la rhubarbe, le gadellier et l'amélanchier dans une vieille talle ou dans le bois (ch. 99) | 99 |
+| Arbustes et vivaces qui donnent des années : **camerisiers**, **pommetiers**, **argousiers**, gadelliers, rhubarbe, topinambour | Camerisiers : au moins deux variétés non apparentées, qui fleurissent en même temps ; pommetiers : deux variétés à 30 m l'une de l'autre au plus ; argousiers : plusieurs, dont environ un mâle sur dix ; gadelliers : 2 à 4 (ch. 99) | **Chalet** | Il faut mettre ces plantes en terre au moins trois ans avant la crise pour en manger pendant la crise ; seuls la rhubarbe et le topinambour donnent dès la première ou la deuxième saison. Un camerisier seul, ou deux de la même variété, fleurit chaque année sans donner de fruit, quoi qu'on fasse. On peut aussi prendre la rhubarbe, le gadellier et l'amélanchier dans une vieille talle ou dans le bois (ch. 99) | 99 |
 | Deuxième congélateur | 1 | **Maison** | Un congélateur plein garde les aliments congelés environ **48 h** porte fermée ; à moitié plein, **24 h**. Deux appareils à moitié pleins tiennent moins longtemps qu'un seul plein | 1, 74 |
 | Abreuvoir chauffant 12 V pour le petit élevage | 1 | **Chalet** | Il garde l'eau des bêtes liquide l'hiver (ch. 101). Avant de l'acheter, on vérifie au tableau que l'installation fournit son ampérage. Sans lui : deux jeux de seaux qu'on alterne | 101 |
 | **Faux** et sa pierre à faux, fourche à foin, thermomètre à longue tige pour le fenil | 1 de chaque | **Chalet** | Pour le foin des bêtes l'hiver (ch. 101). La faucille coupe environ cinq fois moins vite, la machette deux fois moins vite, et le foin d'arbre ne demande aucune lame (ch. 99, section 9). On taille une fourche dans une branche fourchue de bouleau. En touchant une tige de fer enfoncée au cœur du tas, on sait s'il faut sortir le foin qui chauffe ; le thermomètre donne la température | 98, 99 |
 | **Agrotextile**, et **plastique transparent** fait pour le soleil, pour le tunnel et le paillis | La surface à protéger | **Chalet** | Quelques degrés au début et à la fin de la saison : l'agrotextile donne de 1 à 4 °C selon son poids ; le tunnel fermé, de 1 à 5 °C ; le paillis transparent, de 4 à 8 °C dans le sol. Des draps secs, du sapinage, des paillassons, un rideau de douche ou une bâche claire les remplacent (ch. 97, section 9), mais un plastique qui n'est pas fait pour le soleil vieillit vite et se déchire au premier gros vent. **Jamais de plastique transparent sur les pommes de terre** : la lumière y fait une toxine, et la cuisson ne la détruit pas | 97 |
 | Semence de **maïs très hâtif** (maïs de Gaspé, ou un autre aussi hâtif) | Quelques centaines de grains | **Chalet** | Le maïs sucré ordinaire demande une saison plus longue que la nôtre : sans variété très hâtive, pas de maïs, et la butte des Trois Sœurs reste un pari de belle année, sous plastique ou contre le mur sud (ch. 99) | 99, 100 |
-| Poste à souder à l'arc, chalumeau oxygaz complet avec **pare-retours de flamme**, chariot pour attacher les bouteilles | 1 poste | **Chalet** | On peut s'en passer : des batteries d'auto montées en série soudent (dernière partie, D), et une éclisse boulonnée répare sans souder (ch. 107). On ne se passe pas du masque à verre filtrant, avec des lunettes dessous, des gants à crispin, un tablier de cuir et un écran opaque autour du poste. Quelques secondes d'arc brûlent l'œil, et la douleur arrive plusieurs heures après : on a le coup d'arc au souper, pas à l'atelier, et **la personne qui passait dans la pièce l'a aussi**. La nuit, un enfant qui a mal aux yeux ne parle pas de l'arc qu'il a regardé l'après-midi : il faut y penser pour lui. Le pare-retours empêche la flamme de remonter le boyau jusqu'à la bouteille ; on range l'oxygène et le gaz inflammable à au moins **6,1 m** l'un de l'autre | 107 |
+| Poste à souder à l'arc, chalumeau oxygaz complet avec **pare-retours de flamme**, chariot pour attacher les bouteilles | 1 poste | **Chalet** | On peut s'en passer : des batteries d'auto montées en série soudent (dernière partie, D), et une éclisse boulonnée répare sans souder (ch. 107). On ne se passe pas du masque à verre filtrant, avec des lunettes dessous, des gants à crispin, un tablier de cuir et un écran opaque autour du poste. Quelques secondes d'arc brûlent l'œil (le coup d'arc), et la douleur arrive plusieurs heures après ; **la personne qui passait dans la pièce l'a aussi**. La nuit, un enfant qui a mal aux yeux ne parle pas de l'arc qu'il a regardé l'après-midi : il faut y penser pour lui. Le pare-retours empêche la flamme de remonter le boyau jusqu'à la bouteille ; on range l'oxygène et le gaz inflammable à au moins **6,1 m** l'un de l'autre | 107 |
 | Foyer de forge, soufflerie **à débit réglable**, enclume ou masse d'appui | 1 ensemble | **Chalet** | La forge fait un outil d'un ressort de camion (ch. 111). On n'en a pas besoin pour passer l'hiver | 111 |
 | Machine à coudre mécanique, à manivelle ou à pédalier | 0 ou 1 | **Chalet** | On peut faire tout le ch. 104 à l'aiguille. La machine fait vite les coutures droites ; elle ne fait pas le mocassin | 104 |
 | Réfractomètre de 44 à 77 °Brix, avec correcteur de température | 1 | **Chalet** | Il distingue un sirop qui se garde d'un sirop qui moisit. On peut aussi ne pas faire de sirop | 94 |
@@ -317,12 +317,11 @@ pendant un hiver.
 
 ## Ce qui remplace ce qu'on n'a pas acheté
 
-Pour chaque objet qui manque : le geste qui le remplace, et ce qu'on y perd en rendement, en durée de garde ou en
-marge d'erreur. Le tableau G, à la fin, donne ce que rien ne remplace.
+Le tableau G, à la fin, donne ce que rien ne remplace.
 
 ### A. L'eau
 
-**Faire bouillir remplace le filtre, la javel et les bandelettes contre les microbes.** On compte 1 minute à gros
+**Faire bouillir l'eau remplace le filtre et la javel contre les microbes, et on n'a plus besoin des bandelettes.** On compte 1 minute à gros
 bouillons pour l'eau du puits ou du robinet, 5 minutes pour l'eau de lac, de ruisseau, de neige ou de glace, à
 partir du moment où toute la surface roule, la marmite couverte (ch. 10, étape 14).
 *Ce qu'on perd :* le bois, parce que toute l'eau de la journée passe par la marmite, et toute protection contre ce
@@ -340,10 +339,10 @@ seringue se lit mieux à la lampe frontale que des dizaines de gouttes comptées
 parce qu'on ne connaît plus sa force : on fait bouillir l'eau. Sans javel du tout, on fait du chlore avec de
 l'hypochlorite de calcium en granules, ou avec une batterie et de l'eau salée (ch. 10, section 7).
 
-**Le filtre à sable** (ch. 10, section 7) rend l'eau claire et enlève une partie du goût. Il sert avant l'ébullition,
+**Le filtre à sable** (ch. 10, section 7) rend l'eau claire et enlève une partie du goût. On le passe avant l'ébullition,
 jamais à sa place. Le charbon de bois du poêle retient trois à cinq fois moins que le charbon actif.
 *Ce qu'on gagne quand même :* une eau de tourbière filtrée demande beaucoup moins de javel, parce que la matière
-organique consomme le chlore avant les microbes.
+organique consomme le chlore avant qu'il atteigne les microbes.
 
 **Les bidons opaques.** On peint un bidon transparent, ou on le range dans un sac de jute, sous une bâche ou dans
 une boîte : les algues ne poussent qu'à la lumière, et n'importe quelle ombre les arrête.
@@ -356,59 +355,60 @@ qui est dissous, seul l'alambic marche, et il donne très peu d'eau (ch. 10, sec
 
 **La lampe à graisse remplace la lampe à l'huile, la chandelle et la pile.** On prend un contenant peu profond qui
 ne brûle pas (une boîte de conserve aux bords rabattus, une écuelle de tôle, une pierre creusée) et on le remplit
-de graisse animale figée. On pose dedans une mèche de coton torsadé, un bout qui sort de quelques millimètres,
-appuyé sur le bord. Pour l'allumer la première fois, on réchauffe le fond du contenant entre les mains ou près du poêle ;
-ensuite, la flamme fait fondre le gras autour d'elle, le gras monte dans la mèche, et on règle la flamme en sortant
-ou en rentrant la mèche (ch. 85). Le suif d'orignal et la graisse d'ours noir font une flamme courte et régulière.
-*Ce qu'on perd :* de la suie sur les murs, sur le linge et dans les poumons, une flamme nue dans un bâtiment de bois,
-et la lumière : une lampe à graisse éclaire assez pour circuler et manger, pas pour lire une étiquette de
-médicament. **Une mèche trop grosse tire plus de gras que la flamme n'en brûle : la lampe fume noir et coule, et
-quand la suie se voit, il y a du monoxyde, qui ne se voit pas.**
+de graisse animale figée. On pose dedans une mèche de coton, appuyée sur le bord, et on en laisse sortir un bout de
+quelques millimètres. Pour l'allumer la première fois, on réchauffe le fond du contenant entre les mains ou près du
+poêle ; ensuite, la flamme fait fondre la graisse autour d'elle, la graisse fondue monte dans la mèche, et on règle la
+flamme en sortant ou en rentrant la mèche (ch. 85). Le suif d'orignal et la graisse d'ours noir font une flamme courte et régulière.
+*Ce qu'on perd :* la lampe à graisse fait de la suie, qui se dépose sur les murs, sur le linge et dans les poumons ;
+elle met une flamme nue dans un bâtiment de bois ; et elle éclaire assez pour circuler et manger, pas pour lire une
+étiquette de médicament. **Une mèche trop grosse tire plus de graisse que la flamme n'en
+brûle : la lampe fume noir et coule, et quand on voit de la suie, il y a aussi du monoxyde.**
 
-**La mèche.** Du coton tressé, sans fil de métal au centre : un lacet de coton sans son embout, une bande de vieux
-drap roulée serré, trois brins de ficelle de coton tressés. La ficelle synthétique fond et fait une boule qui bouche
+**La mèche.** On la fait en coton tressé, sans fil de métal au centre : un lacet de coton sans son embout, une bande
+de vieux drap roulée serré, trois brins de ficelle de coton tressés. La ficelle synthétique fond et fait une boule qui bouche
 la mèche.
 
 **L'allumage.** On gratte la tige de ferrocérium avec le dos d'une lame, un bout de lame de scie à métaux ou un
 éclat de verre : il faut une arête vive, n'importe laquelle. Pour le briquet à pierre et les étincelles faibles, on
-fait de l'amadou carbonisé : des retailles de coton dans une boîte de conserve fermée, posée sur les braises jusqu'à
-ce que la fumée cesse de sortir, puis refroidie fermée. Une étincelle suffit dessus (ch. 13).
+fait de l'amadou carbonisé : on met des retailles de coton dans une boîte de conserve fermée, on la pose sur les
+braises jusqu'à ce que la fumée cesse de sortir, puis on la laisse refroidir sans l'ouvrir. Une étincelle suffit
+dessus (ch. 13).
 
-**Le bois sec sans humidimètre.** Quatre tests qui ne coûtent rien. Le poids : on soupèse deux billes de la même
+**Le bois sec sans humidimètre.** On fait quatre tests, qui ne coûtent rien. Le poids : on soupèse deux billes de la même
 essence et de la même grosseur, l'une de l'an passé, l'autre de cette année ; la plus lourde a plus d'eau. Le son :
 deux billes sèches frappées l'une contre l'autre sonnent clair, deux billes vertes font un bruit sourd. Les bouts :
 un bois sec fend en étoile à partir du cœur, et son écorce se détache. La bulle : on mouille de savon liquide un bout
 de la bille et on souffle de toutes ses forces par l'autre bout ; un bois sec laisse passer l'air et fait des bulles,
 un bois vert non.
-*Ce qu'on perd :* le chiffre. Ces tests disent « sec » ou « pas sec », jamais 20 %. Pour la salaison et le caveau,
+*Ce qu'on perd :* le chiffre. Avec ces tests, on sait si le bois est sec ou non, pas s'il est à 20 %. Pour la salaison et le caveau,
 où le chiffre compte, ils ne suffisent pas.
 
 ### C. La viande, le sel et le froid
 
 **On peut fabriquer la balance**, et on la fait en premier : tous les pourcentages de sel en dépendent. On fait un
-fléau : une latte de bois franc droite, percée en son milieu et pendue à un fil, avec deux plateaux pareils
+fléau avec une latte de bois franc droite, percée en son milieu et pendue à un fil, et deux plateaux pareils
 accrochés à la même distance des deux bouts. On règle l'équilibre à vide en rabotant le bras le plus lourd.
 Pour les poids : **un litre d'eau pèse un kilogramme.** Une bouteille remplie à ras bord et bouchée fait une masse
-connue de 1 kg, et une seringue de pharmacie en tire des masses de 100 g et de 10 g aussi exactes que l'eau versée.
-On coule ces masses dans du plomb de pêche ou on les taille dans de l'acier, on les marque au poinçon, et le chalet
-a un jeu de poids pour la vie. **Les masses de plomb restent sur le plateau des poids et ne touchent jamais
-l'aliment** : on ne voit ni ne goûte le plomb, et les enfants de moins de 6 ans y sont les plus sensibles.
-*Ce qu'on perd :* la vitesse et la petite pesée. Un fléau de fortune ne lit pas le gramme, donc on ne peut pas y
-peser le sel nitrité (nitrite de sodium), dont la dose se mesure en grammes par kilogramme de viande : il faut la
-balance au 0,1 g du palier 2 (ch. 67). Le salpêtre (nitrate de potassium) ne le remplace pas : on ne dose pas les
-deux de la même façon.
+connue de 1 kg ; avec une seringue de pharmacie, on mesure 100 mL et 10 mL d'eau, qui font des masses de 100 g et de
+10 g aussi exactes que l'eau versée.
+On coule ces masses dans du plomb de pêche ou on les taille dans de l'acier, et on les marque au poinçon : on a alors
+un jeu de poids qui ne s'use pas. **On laisse les masses de plomb sur le plateau des poids, et on ne les met jamais en
+contact avec l'aliment** : on ne voit ni ne goûte le plomb, et les enfants de moins de 6 ans y sont les plus sensibles.
+*Ce qu'on perd :* la vitesse et la petite pesée. Un fléau de fortune ne pèse pas au gramme près, donc on ne peut pas
+y peser le sel nitrité (nitrite de sodium), dont la dose se mesure en grammes par kilogramme de viande : il faut la
+balance au 0,1 g du palier 2 (ch. 67).
 
 **Rien ne mesure 74 °C à cœur à la place du thermomètre à sonde.** Le jus clair, la couleur et la fermeté sous le
-doigt sont des indices, pas une mesure, et rien ne se voit quand le gibier atteint **74 °C à cœur**. Sans
+doigt sont des indices, pas une mesure : rien ne change à l'œil quand le gibier atteint 74 °C. Sans
 thermomètre, on cuit au bouilli : on coupe la viande mince et on la met dans un liquide qui bout à gros bouillons.
 Après le dernier morceau, on attend que le liquide bouille de nouveau franchement, puis on laisse cuire jusqu'à ce
 que le centre soit brûlant. Le rôti, le grillé, l'ours et le gibier haché sortent du menu (ch. 18, section 7). Et on
 vérifie le thermomètre qu'on a : dans l'eau glacée brassée, il doit lire 0 °C ; dans l'eau qui bout à gros
 bouillons, 100 °C. Quand on connaît son écart, on corrige de tête un thermomètre décalé.
 
-**La potence et le gambrel.** Une perche de bois franc de la grosseur du bras, une encoche en V à chaque bout pour
-les jarrets, une entaille au milieu pour la corde. On lève la bête au palan, à la moufle improvisée du ch. 109, ou
-par un tour mort autour d'un arbre, avec un levier passé dans la corde. **Personne sous la charge**, même une
+**La potence et le gambrel.** On taille le gambrel dans une perche de bois franc de la grosseur du bras : une encoche
+en V à chaque bout pour les jarrets, une entaille au milieu pour la corde. On lève la bête au palan, à la moufle improvisée du ch. 109, ou
+par un tour mort autour d'un arbre, avec un levier passé dans la corde. **Personne ne passe sous la charge**, même une
 fraction de seconde : une corde qui a gelé et dégelé casse sans prévenir.
 *Ce qu'on perd :* rien sur le refroidissement, qui est le but. Sous une bête, ce qui lâche est presque toujours la
 corde, le nœud ou la branche où on l'a accrochée, rarement la perche : on voit une perche fendue, on ne voit pas une
@@ -419,14 +419,14 @@ passer la lumière quand on le tient à bout de bras et qui n'accroche pas. On l
 colle à la viande et lui fait la surface humide qu'on veut éviter.
 
 **Les contenants non réactifs.** On choisit, parmi ce qu'on a, le grès vernissé, l'inox, le plastique alimentaire,
-ou un baril de bois franc doublé d'un sac de plastique alimentaire neuf, comme faisaient les vieux. Le sel humide
-attaque l'aluminium, le galvanisé, le cuivre et la fonte nue, et ce qui passe dans la saumure passe dans la viande.
+ou on double un baril de bois franc d'un sac de plastique alimentaire neuf. On ne prend pas de fonte nue : le sel
+humide l'attaque comme l'aluminium, le fer galvanisé et le cuivre (ligne 2.C).
 
 **Les crochets en S**, on les plie à froid dans du fil de fer recuit ou de la broche de clôture, autour d'un manche
 de marteau, en deux tours : un crochet à un seul pli s'ouvre sous la charge.
 
-**Le sel du fleuve** (ch. 67) ne s'épuise pas. Pour le tirer, il faut un chantier : puiser au large, dans un courant,
-jamais près d'un quai ni d'un égout, laisser reposer, faire évaporer au feu, et **arrêter avant la fin**. Les
+**Le sel du fleuve** (ch. 67) ne s'épuise pas. Pour le tirer, on puise l'eau au large, dans un courant, jamais près
+d'un quai ni d'un égout, on la laisse reposer, on la fait évaporer au feu, et on **arrête avant la fin**. Les
 derniers sels à cristalliser sont ceux du magnésium et du calcium : si on pousse jusqu'à sec, le sel devient amer
 et collant, et il reprend l'eau. On ne connaît pas le rendement : il dépend du sel que contient l'eau puisée.
 *Ce qu'on perd :* l'évaporation ne retire ni les métaux ni les hydrocarbures dissous : elle les concentre aussi.
@@ -437,10 +437,10 @@ et collant, et il reprend l'eau. On ne connaît pas le rendement : il dépend du
 borne négative de la suivante. Deux batteries donnent 24 V en courant continu : c'est moins que la tension d'un arc
 de travail (25 à 35 V), et un poste lui-même amorce mal sous 60 V. Avec deux batteries, l'arc s'amorce difficilement
 et ne tient que très court ; **avec trois batteries, 36 V, on a la tension d'un arc de travail, et c'est le montage
-à préférer**, même si l'amorçage reste plus dur qu'au poste. On pince la masse sur la pièce ; le porte-électrode est
-une pince-étau aux mâchoires isolées par un chiffon sec, ou un vrai porte-électrode s'il en traîne un.
+à préférer**, même si l'amorçage reste plus dur qu'au poste. On pince la masse sur la pièce ; on fait le porte-électrode
+d'une pince-étau aux mâchoires isolées par un chiffon sec, ou on prend un vrai porte-électrode s'il en traîne un.
 
-Quatre règles séparent la réparation de l'accident :
+On suit quatre règles pour ne pas avoir d'accident :
 
 1. **Placer les batteries loin du travail**, avec de longs câbles, et jamais sous la pièce. Une batterie au plomb
  dégage de l'hydrogène, qui s'accumule sous le couvercle : une étincelle sur le dessus fait sauter le bac et lance
@@ -449,13 +449,13 @@ Quatre règles séparent la réparation de l'accident :
 3. **Ne compter sur aucun réglage d'intensité** : l'arc prend ce que les batteries donnent. Une électrode collée fait
  un court-circuit franc : la décrocher tout de suite en la tordant, sinon les câbles chauffent sur toute leur
  longueur et l'isolant fond.
-4. **Garder le masque.** L'arc est le même qu'au poste, il brûle l'œil de la même façon, et les yeux des enfants qui
+4. **Porter le masque.** L'arc est le même qu'au poste, il brûle l'œil de la même façon, et les yeux des enfants qui
  sont dans la pièce le reçoivent aussi.
 
 *Ce qu'on perd :* le contrôle du cordon, une pénétration régulière, et les batteries : deux soudures sérieuses
 vident un banc qu'il faudra recharger, et une batterie vidée à fond par un court-circuit ne revient pas toujours.
-Cette soudure est une réparation d'urgence : jamais sur une pièce sous pression ni sur une pièce qui porte une
-charge suspendue.
+On ne fait jamais cette soudure d'urgence sur une pièce sous pression ni sur une pièce qui porte une charge
+suspendue.
 
 **Souvent, on répare mieux sans souder.** On peut démonter l'éclisse boulonnée (une plaque percée posée à cheval
 sur la cassure, deux boulons de chaque côté, jamais alignés), la contrôler à l'œil et la refaire avec ce qu'on a
@@ -463,7 +463,7 @@ sur la cassure, deux boulons de chaque côté, jamais alignés), la contrôler �
 
 **Rien ne remplace une lime de chaîne du bon diamètre.** Une lime plus petite creuse sous le tranchant et laisse un
 crochet : la chaîne mord, tire, et la scie saute. Une lime trop grosse arrondit le tranchant, et la chaîne ne coupe
-plus. Le diamètre est marqué par le fabricant de la chaîne.
+plus.
 *Ce qu'on peut remplacer :* le porte-lime. Deux traits de scie dans un bout de bois franc, à l'angle voulu, tiennent
 la lime aussi bien qu'un guide acheté.
 
@@ -484,38 +484,37 @@ problème.
 **Le garrot improvisé.** On prend une bande **large** : un bandage triangulaire, une manche de chemise fendue, une
 courroie de sac. Une corde, un fil ou une ceinture ne serrent pas assez et coupent la peau sans arrêter le sang. On
 noue la bande au-dessus de la plaie, on passe un bâton solide dans le nœud et on le tourne jusqu'à ce que le
-saignement s'arrête complètement ; on bloque le bâton et on écrit l'heure sur le front du blessé (ch. 26). S'il
-suinte encore, on serre davantage.
+saignement s'arrête complètement ; on bloque le bâton et on écrit l'heure sur le front du blessé (ch. 26). Si la
+plaie suinte encore, on serre davantage.
 *Ce qu'on perd :* les tissus et les nerfs du membre. Une bande étroite concentre la pression sur une ligne et
 écrase ce qui est dessous. Un garrot improvisé sauve la vie, mais il abîme plus le bras ou la jambe que le garrot
 du commerce : c'est pour ça que celui-ci est au palier 1.
 
-**Sans gants jetables**, on prend des gants de caoutchouc de ménage, lavés à l'eau savonneuse puis rincés à l'eau
-javellisée entre deux bêtes. Un gant percé ne protège de rien, et la tularémie entre par une éraflure qu'on ne sent
+**Sans gants jetables**, on prend des gants de caoutchouc de ménage, qu'on lave à l'eau savonneuse puis qu'on rince à
+l'eau javellisée entre deux bêtes. Un gant percé ne protège de rien, et la tularémie entre par une éraflure qu'on ne sent
 pas.
 
-**On peut fabriquer le savon** (ch. 112). Des cendres de bois franc lessivées à l'eau chaude donnent une lessive de
-potasse ; cuite avec du suif fondu et lavé, elle donne du savon. On juge la force de la lessive à l'ancienne : un
-œuf ou une petite patate y flotte en montrant un rond de la largeur d'une petite pièce de monnaie. S'il coule sous
-la surface, la lessive est trop faible et ne fera jamais de savon ; s'il flotte à moitié hors de la lessive, elle
-est trop forte, et le savon brûlera la peau.
-*Ce qu'on perd, et il faut le savoir avant de commencer :* la lessive de cendres est une lessive de potassium, pas de sodium :
+**On peut fabriquer le savon** (ch. 112). On fait passer de l'eau chaude à travers des cendres de bois franc pour
+obtenir une lessive de potasse, puis on la cuit avec du suif fondu et lavé pour faire le savon. On juge la force de
+la lessive avec un œuf ou une petite patate : dans une lessive de bonne force, il flotte, et un rond de la largeur
+d'une petite pièce de monnaie dépasse de la surface. S'il coule sous la surface, la lessive est trop faible
+et ne fera jamais de savon ; s'il flotte à moitié hors de la lessive, elle est trop forte, et le savon brûlera la peau.
+*Ce qu'on perd :* la barre. La lessive de cendres est une lessive de potassium, pas de sodium :
 **elle donne un savon mou, jamais une barre**. Une personne qui attend une barre croit avoir raté sa fournée, alors
 que son savon est bon. Le savon mou lave le corps, le linge et la vaisselle ; on ne le transporte pas dans une poche.
-La lessive brûle la peau comme la soude achetée : c'est le même produit, en plus incertain.
+La lessive brûle la peau comme la soude achetée, et on connaît moins bien sa force.
 
 **On remplace les sachets de réhydratation par une recette mesurée** : 360 mL de jus d'orange non sucré, 600 mL
 d'eau bouillie refroidie et 2,5 mL de sel (ch. 30, étape 20) ; sans jus, 1 L d'eau bouillie refroidie, 30 mL de
 sucre et 2,5 mL de sel (ch. 32, section 9). On mesure le sel en dernier, à la seringue graduée. Une solution trop
-salée ou trop sucrée aggrave la diarrhée : on mesure, on ne devine pas.
-*Ce qu'on perd :* rien, si la mesure est exacte. La nuit, quand toute la maison est malade, on se trompe plus
-facilement de mesure.
+salée ou trop sucrée aggrave la diarrhée.
+*Ce qu'on perd :* rien, si la mesure est exacte (ligne 1.E).
 
-**Sans papier hygiénique**, on coupe du tissu en carrés. Après usage, on les met dans un seau à couvercle avec de
+**Sans papier hygiénique**, on coupe du tissu en carrés. Après usage, on les met dans une chaudière à couvercle avec de
 l'eau, on les lave à part à l'eau chaude savonneuse et on les fait sécher près du poêle.
-*Ce qu'on perd :* de l'eau chaude, du savon et une corde à linge dans la maison, tous les jours, tout l'hiver. Le papier
-hygiénique a l'air facile à remplacer, mais son remplacement demande plus de travail chaque jour que tous les
-autres de cette partie.
+*Ce qu'on perd :* de l'eau chaude, du savon et une corde à linge dans la maison, tous les jours, tout l'hiver. De tous
+les remplacements de cette partie, celui du papier hygiénique demande le plus de travail chaque jour, même s'il a
+l'air facile.
 
 **Sans chaux pour la bécosse**, on prend de la cendre de bois, qui assèche et coupe l'odeur, du bran de scie, de la
 tourbe sèche, ou des aiguilles ramassées sous les épinettes à l'automne et gardées au sec. Un baril de 200 L rempli
@@ -524,12 +523,12 @@ en septembre couvre l'hiver.
 ### F. Sur la glace et sur l'eau
 
 **On fabrique des pics à glace en une demi-heure** avec deux bouts de manche à balai, deux gros clous et un cordon
-(ch. 15, section 7). On les porte **au cou, par-dessus le manteau**, avant le premier pas sur la glace : dans l'eau,
-après quelques minutes, les mains ne trouvent plus des pics rangés dans un sac.
+(ch. 15, section 7). On les porte comme ceux du commerce, **au cou, par-dessus le manteau**, avant le premier pas
+sur la glace (ligne 1.I).
 
 **Sans écumoire**, on prend une louche percée, ou une boîte de conserve trouée et clouée sur un manche. **Sans perche
-de sondage**, un manche de hache ou une perche d'épinette. **Sans perche de sauvetage** de 4 m, une jeune épinette
-ébranchée, à condition qu'elle soit **déjà au bord du trou** : quand quelqu'un est dans l'eau, on n'a pas le temps
+de sondage**, on prend un manche de hache ou une perche d'épinette. **Sans perche de sauvetage** de 4 m, on prend une
+jeune épinette ébranchée, à condition qu'elle soit **déjà au bord du trou** : quand quelqu'un est dans l'eau, on n'a pas le temps
 d'aller la couper.
 
 ### G. Ce que rien ne remplace
@@ -549,7 +548,7 @@ On achète ces lignes pendant que les magasins sont ouverts.
 | Couvercles plats de pots | 2 | Ils ne servent qu'une fois : un couvercle réutilisé peut sceller, puis lâcher |
 | Vinaigre à acidité déclarée | 2 | Avec un vinaigre maison dont on ne connaît pas l'acidité, rien ne prouve que la conserve descend à un **pH de 4,6** ou moins |
 | Analyse d'eau | 2 | On ne peut pas la faire soi-même |
-| Verre de lampe | 3 | Sans verre, la lampe fume, on ne peut plus la régler, et elle éclaire moins du tiers |
+| Verre de lampe | 3 | Sans verre, la lampe fume, on ne peut plus la régler, et elle donne moins du tiers de sa lumière |
 | Iodure de potassium | 3 | Aucun autre iode ne protège la thyroïde : la teinture d'iode et les comprimés pour l'eau sont des poisons quand on les avale (ch. 4) |
 | Soufre précipité, contre la gale | 3 | Le linge et la chaleur arrêtent la contagion, pas la gale : seul un produit qui tue l'acarien la guérit (ch. 34) |
 | Semence du champ | 3 | Rien ne fabrique en mai la semence qu'on a mangée l'hiver (ch. 98) |
