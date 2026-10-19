@@ -50,14 +50,33 @@ module.exports = (h) => {
     return [h.path(`${lisse(bord)} L ${z.l} ${z.h - 2} L 0 ${z.h - 2} Z`, neige), h.path(lisse(bord), h.a.contour)].join('\n');
   };
   // le piquet, fiché dans le bord, le crochet taillé dans la face qui regarde le sentier
+  // Le cran, comme dans la vue de près : une entaille en coin dans le bord gauche, la lèvre horizontale
+  // en haut (le dessus du bâtonnet bute dessous), puis la face en pente qui redescend au bord ; la face en
+  // pente, vue un peu de biais, est à l'ombre (elle regarde vers le bas). Le contour du piquet est ouvert sur
+  // la hauteur du cran, et les deux arêtes du cran sont au trait d'arête, comme les arêtes de la vue de près à
+  // leur échelle : au trait de contour, le cran se lisait comme un « 7 ».
+  const cran = (g) => {
+    const { xP, rP, yH } = g, xg = xP - rP;
+    const yL = yH - K, xs = xg + 11, yP = yL + 25;      // la lèvre (au dessus du bâtonnet), le fond du coin, le pied de la pente
+    return { xg, yL, xs, yP, pente: (y) => xs - (xs - xg) * (y - yL) / (yP - yL) };
+  };
   const piquet = (g) => {
-    const { xP, rP, yS, yH } = g, top = yH - 9 * K, e = 4;
-    const xg = xP - rP, xd = xP + rP;
-    const forme = [[xg, top], [xd, top], [xd, yS + 3], [xg, yS + 3], [xg, yH + 15], [xg + 6, yH - e + 1], [xg + 6, yH - e], [xg, yH - e]];
+    const { xP, rP, yS, yH } = g, top = yH - 9 * K;
+    const xd = xP + rP, { xg, yL, xs, yP } = cran(g);
+    const forme = [[xg, top], [xd, top], [xd, yS + 3], [xg, yS + 3], [xg, yP], [xs, yL], [xg, yL]];
+    // la face en pente : une surface grise entre l'arête de devant (le profil) et l'arête de derrière, plus à droite
+    const f = 6, face = [[xs, yL], [xs + f, yL], [xg + f, yP + 2.5], [xg, yP + 2.5], [xg, yP]];
     return [
       h.chemin(forme, h.a.blanc, true),
       h.chemin([[xP + rP * 0.35, top + 1], [xd - 0.8, top + 1], [xd - 0.8, yS + 2], [xP + rP * 0.35, yS + 2]], h.a.ombre, true),
-      h.chemin(forme, h.a.contour, true),
+      h.chemin(face, h.a.ombre, true),
+      // l'arête du fond du coin, qui part vers l'arrière, et l'arête de derrière de la face en pente
+      h.chemin([[xs, yL], [xs + f, yL], [xg + f, yP + 2.5]], h.a.fin),
+      // le fil du bois, comme à la vue de près
+      h.path(`M ${r1(xP - 2)} ${r1(top + 8)} C ${r1(xP - 3.5)} ${r1(top + 18)} ${r1(xP - 0.5)} ${r1(yL - 14)} ${r1(xP - 2)} ${r1(yL - 4)}`
+        + ` M ${r1(xP + 1)} ${r1(yP + 8)} C ${r1(xP - 0.5)} ${r1(yP + 16)} ${r1(xP + 2)} ${r1(yS - 16)} ${r1(xP + 0.5)} ${r1(yS - 4)}`, h.a.fin),
+      h.chemin([[xg, yL], [xg, top], [xd, top], [xd, yS + 3], [xg, yS + 3], [xg, yP]], h.a.contour),
+      h.chemin([[xg - 0.6, yL], [xs, yL], [xg - 0.6, yP + 1.4]], h.a.arete),
       h.ellipse(xP, top, rP, 2.6, h.a.detail),
     ].join('\n');
   };
@@ -105,7 +124,10 @@ module.exports = (h) => {
     o.push(corde(tip, [xC, yH - 1]));
     o.push(arbre(A));
     // le bâtonnet : son bout droit sous le crochet, son bout gauche au-dessus du sentier
-    o.push(baton([xP - rP + 4, yH], [c - 12, yH]));
+    // (le bâtonnet a 2 K d'épaisseur : son dessus est à yH - K, sous la lèvre ; son bout, coupé là où son dessous
+    // touche la pente)
+    const cr = cran(g);
+    o.push(baton([cr.pente(yH + K) - 0.6, yH], [c - 12, yH]));
     // les ligatures : la corde et le fil, sur le bâtonnet
     o.push(h.path([-2, 0, 2].map((k) => `M ${r1(xC + k - 1.4)} ${r1(yH - 5)} L ${r1(xC + k + 1.4)} ${r1(yH + 5)}`).join(' '), h.a.detail));
     // le fil et la boucle, au-dessus du milieu du sentier
@@ -140,7 +162,9 @@ module.exports = (h) => {
     // le mouvement de l'arbre : son bout, d'où il était armé jusqu'en haut
     const g0 = geo(z);
     o.push(h.fleche(`M ${r1(g0.xC + 16)} ${r1(g0.yH - 20 * K - 8)} C ${r1(g0.xC + 40)} ${r1(g0.yH - 160)} ${r1(tip[0] + 90)} 40 ${r1(tip[0] + 22)} 14`));
-    o.push(h.controle(xP - rP + 2, yH, 11));
+    // le cercle autour de l'entaille entière, vide
+    const cr = cran(g);
+    o.push(h.controle((cr.xg + cr.xs) / 2 + 1, (cr.yL + cr.yP) / 2 + 1, 16));
     return o.join('\n');
   };
 
@@ -206,7 +230,7 @@ module.exports = (h) => {
         renvois: (z) => {
           const g = geo(z);
           return [
-            { n: 6, rond: [g.xP - 40, g.yH + 34], cible: [g.xP - g.rP + 3, g.yH + 4], texte: 'le bâtonnet a lâché le crochet' },
+            { n: 6, rond: [g.xP - 40, g.yH + 34], cible: [r1(cran(g).pente((cran(g).yL + cran(g).yP) / 2 + 3) - 2.8), r1((cran(g).yL + cran(g).yP) / 2 + 3)], texte: 'le bâtonnet a lâché le crochet' },
             { n: 7, rond: [bordArbreDe(courbeDecl(z), 0.42, -1)[0] + 42, bordArbreDe(courbeDecl(z), 0.42, -1)[1] + 80], cible: bordArbreDe(courbeDecl(z), 0.42, -1), texte: 'l’arbre redressé lève la bête' },
           ];
         },
@@ -218,7 +242,8 @@ module.exports = (h) => {
           const ox = Math.round(z.l / 2 - 140), oy = Math.round((z.h - 210) / 2);
           return [
             { n: 8, rond: [ox + 250, oy + 60], cible: [ox + 186, oy + 70], texte: 'crochet taillé dans le piquet' },
-            { n: 9, rond: [ox + 250, oy + 120], cible: [ox + 170, oy + 112], texte: 'le point qui gèle : retailler à sec' },
+            // le point au contact de la lèvre et du dessus du bâtonnet, sous l'épaulement
+          { n: 9, rond: [ox + 250, oy + 120], cible: [ox + 156, oy + 99], texte: 'le point qui gèle : retailler à sec' },
           ];
         },
       },

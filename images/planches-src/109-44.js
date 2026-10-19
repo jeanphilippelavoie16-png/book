@@ -93,9 +93,11 @@ module.exports = (h) => {
   // Le raté : le même godet que dans « Bon », au même diamètre, monté à l'envers sous le même piston : le fond vers
   // l'huile, contre la paroi par son coin ; les lèvres montent vers le piston. L'huile pousse les lèvres vers
   // l'intérieur, les décolle de la paroi et passe entre la lèvre et la paroi.
+  // g : le jour entre le haut de la lèvre et la paroi, assez large pour qu'une flèche y tienne sans rien toucher.
+  // Le cercle rouge est sur le bas du jour, là où la lèvre a quitté la paroi.
   const R_ = z => {
-    const q = C(z), yF = q.yP + q.hl, g = 15, rc = 3;
-    return Object.assign(q, { yF, g, rc, yC: (q.yP + yF - 12) / 2 });
+    const q = C(z), yF = q.yP + q.hl, g = 26, rc = 3;
+    return Object.assign(q, { yF, g, rc, kC: [q.cx + q.Rc - 6, yF - 20], rC: 11 });
   };
   const vueRate = z => {
     const q = R_(z), { cx, Rc, Rp, yP, e, yF, g, rc } = q, out = [], yb = z.h - 4;
@@ -122,19 +124,18 @@ module.exports = (h) => {
     out.push(h.ligne(cx - 3.5, yP - 20, cx - 3.5, yP, A.cache), h.ligne(cx + 3.5, yP - 20, cx + 3.5, yP, A.cache));
     out.push(h.rect(cx - Rc * 0.5, yF, Rc, 6, blanc('arete')));
     out.push(h.rect(cx - 6, yF + 6, 12, 5, blanc('arete')));
-    // l'huile passe au coin du fond, puis file au milieu de l'écart entre la lèvre décollée et la paroi, jusque sous
-    // le piston
+    // l'huile file au milieu du jour entre la lèvre décollée et la paroi, jusque sous le piston : la flèche part là où
+    // le jour est assez large pour elle et s'arrête sous le piston, sans toucher ni la lèvre ni la paroi
     for (const s_ of [-1, 1]) {
-      const S_ = cote(s_), P_ = [[cx + s_ * (Rc - 1.4), yF - 3]];
-      for (let i = 1; i <= 10; i++) {
-        const t = 0.12 + 0.8 * i / 10, m = (1 - t) * (1 - t), b = 2 * t * (1 - t), n = t * t;
+      const S_ = cote(s_), P_ = [];
+      for (let i = 0; i <= 12; i++) {
+        const t = 0.45 + 0.45 * i / 12, m = (1 - t) * (1 - t), b = 2 * t * (1 - t), n = t * t;
         const xl = m * S_.coin1[0] + b * S_.ctrl[0] + n * S_.haut[0], yl = m * S_.coin1[1] + b * S_.ctrl[1] + n * S_.haut[1];
-        if (yl < yP + 6) break;
-        P_.push([(xl + cx + s_ * Rc) / 2, yl]);
+        P_.push([(xl + cx + s_ * (Rc - 1.2)) / 2, yl]);
       }
       out.push(h.fleche('M ' + P_.map(pt).join(' L '), A.arete));
     }
-    out.push(h.controle(cx + Rc - g / 2 - 1, q.yC, 12));
+    out.push(h.controle(q.kC[0], q.kC[1], q.rC));
     return out.join('\n');
   };
   const renvoisBon = z => {
@@ -145,10 +146,10 @@ module.exports = (h) => {
     ];
   };
   const renvoisRate = z => {
-    const q = R_(z), { cx, Rc, g } = q, c0 = [cx + Rc - g / 2 - 1, q.yC], p0 = [cx + Rc + 26, q.yC + 44];
+    const q = R_(z), { cx, Rc, kC: c0, rC } = q, p0 = [cx + Rc + 26, c0[1] + 36];
     const u = [p0[0] - c0[0], p0[1] - c0[1]], l = Math.hypot(...u);
     return [
-      { n: 7, rond: p0, cible: [c0[0] + u[0] / l * 12.5, c0[1] + u[1] / l * 12.5], texte: 'à l’envers, l’huile décolle la lèvre' },
+      { n: 7, rond: p0, cible: [c0[0] + u[0] / l * (rC + 0.5), c0[1] + u[1] / l * (rC + 0.5)], texte: 'à l’envers, l’huile décolle la lèvre' },
     ];
   };
 

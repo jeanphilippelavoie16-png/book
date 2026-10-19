@@ -226,7 +226,8 @@ module.exports = (h) => {
     for (let i = 0; i <= 10; i++) { const a = (0 + 180 * i / 10) * RAD; tour.push([piedPoulie[0] + rr * Math.cos(a), piedPoulie[1] + rr * Math.sin(a) * 1.4]); }
     const sortie = add(ph, uni(sub(tour[0], ph)), 6);
     out.push(h.path('M ' + [sortie, ...tour].map(pt).join(' L ') + ` L ${pt(fL)}`, A.arete));
-    out.push(h.path(`M ${pt(fL)} C ${pt([fL[0] - 6, fL[1] + 8])} ${pt([fL[0] - 2, fL[1] + 22])} ${pt([fL[0] - 6, fL[1] + 34])}`, A.arete));
+    // le bout libre qui pend de la main : court et en trait fin, pour ne pas se lire comme un bras
+    out.push(h.path(`M ${pt(fL)} C ${pt([fL[0] - 4, fL[1] + 6])} ${pt([fL[0] - 1, fL[1] + 14])} ${pt([fL[0] - 4, fL[1] + 21])}`, A.detail));
     out.push(poulie(piedPoulie, rp, 0));
     const dirR = uni(sub(fP, piedPoulie)), nR = nor(dirR);
     out.push(String(homme));
@@ -346,9 +347,12 @@ module.exports = (h) => {
   // ─── Vue 4 : le raté, de côté ───────────────────────────────────────────────────────────
   // Un pied glisse : le sommet descend, les pattes se couchent, la charge tombe à l'aplomb du
   // sommet. En tireté, le trépied debout et son quartier ; en plein, le trépied ouvert.
+  // Le glissement est long (0,9 de la patte) : le sommet descend d'environ un tiers et se voit bien plus bas que le
+  // sommet en tireté ; tout le raté tient dans la vue, du pied resté en place au pied glissé.
   const R = z => {
-    const yg = z.h - 16, cx = z.l * 0.40, L = Math.min((yg - 12) / 0.96, (z.l * 0.6 - 16) / 0.72);   // le pied glissé reste dans la vue
-    return { yg, cx, L, e0: 0.30 * L, gl: 0.42 * L, k: L / LP };
+    const yg = z.h - 16, L = Math.min((yg - 12) / 0.96, (z.l - 16) / 1.5);
+    const e0 = 0.30 * L, gl = 0.9 * L, cx = 8 + e0;
+    return { yg, cx, L, e0, gl, k: L / LP, dz: 20 };
   };
   const vueRate = z => {
     const q = R(z), { yg, cx, L, e0, gl, k } = q, out = [];
@@ -358,26 +362,29 @@ module.exports = (h) => {
     const S0 = [cx, yg - Math.sqrt(L * L - e0 * e0)];
     out.push(h.ligne(cx - e0, yg, S0[0], S0[1], A.cache), h.ligne(cx + e0, yg, S0[0], S0[1], A.cache));
     out.push(quartier([cx, S0[1] + 1260 * k], k, { ombre: false, at: A.cache }));
-    // ouvert : le pied de droite a glissé sur la glace, le sommet est descendu
+    // ouvert : le pied de droite a glissé, le sommet est descendu
     const gA = cx - e0, gB = cx + e0 + gl;
     const hS = Math.sqrt(L * L - ((gB - gA) / 2) ** 2), S1 = [(gA + gB) / 2, yg - hS];
-    out.push(h.rect(cx + e0 - 6, yg - 3, gl + 18, 3, blanc('detail')));
     // le quartier tombé à l'aplomb du sommet, couché
     out.push(quartier([cx - 520 * k, yg - 262 * k - 2], k, { ombre: false, rot: -90 }));
     out.push(perche([gA, yg], add(S1, uni(sub(S1, [gA, yg])), 6), 7, 5, blanc('contour'), { ecorce: false }));
     out.push(perche([gB, yg - 1.5], add(S1, uni(sub(S1, [gB, yg])), 6), 7, 5, blanc('contour'), { ecorce: false }));
     // la zone sous le sommet : là où la charge tombe
-    out.push(h.path(`M ${f(cx - 26)} ${f(yg - 2)} L ${f(cx - 26)} ${f(S0[1] + 1260 * k + Q_BAS * k + 6)} L ${f(cx + 26)} ${f(S0[1] + 1260 * k + Q_BAS * k + 6)} L ${f(cx + 26)} ${f(yg - 2)}`, A.zone));
+    const yZ = S0[1] + 1260 * k + Q_BAS * k + 6, dz = q.dz;
+    out.push(h.path(`M ${f(cx - dz)} ${f(yg - 2)} L ${f(cx - dz)} ${f(yZ)} L ${f(cx + dz)} ${f(yZ)} L ${f(cx + dz)} ${f(yg - 2)}`, A.zone));
     // le pied qui glisse : la flèche s'arrête avant la patte de droite
     const yF = yg - 10, xPatte = gB + (S1[0] - gB) * (yg - yF) / (yg - S1[1]);
     out.push(h.fleche(`M ${f(cx + e0 + 4)} ${f(yF)} L ${f(xPatte - 3.5 - 7)} ${f(yF)}`, A.arete));
     return out.join('\n');
   };
   const renvoisRate = z => {
-    const q = R(z), { yg, cx, e0, gl } = q;
+    const q = R(z), { yg, cx, e0, gl, dz } = q;
+    const xF = cx + e0 + 4 + (gl - 18) * 0.45;               // le milieu de la flèche du pied
     return [
-      { n: 12, rond: [cx + e0 + gl - 6, yg - 46], cible: [cx + e0 + gl / 2, yg - 12], texte: 'un pied glisse, le sommet descend' },
-      { n: 13, rond: [cx - 58, yg - 44], cible: [cx - 27, yg - 30], texte: 'la charge tombe à l’aplomb' },
+      { n: 12, rond: [xF, yg - 36], cible: [xF, yg - 12.5], texte: 'un pied glisse, le sommet descend' },
+      // sur le montant de droite de la zone, à mi-hauteur, le rappel à l'horizontale : loin des pattes, au-dessus du
+      // quartier tombé
+      { n: 13, rond: [cx + dz + 36, yg - 27], cible: [cx + dz + 0.8, yg - 27], texte: 'la charge tombe à l’aplomb' },
     ];
   };
 

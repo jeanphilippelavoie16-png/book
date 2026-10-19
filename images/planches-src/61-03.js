@@ -25,7 +25,7 @@ module.exports = (h) => {
   // ── La vue du ventre ──────────────────────────────────────────────────────────────────
   const C = 214;                       // axe de la carcasse
   const A = [62, 196];                 // la corde touche le tronc
-  const D0 = [206, 19];                // la corde repart de derrière la branche
+  const D0 = [194, 19];                // la corde repart de derrière la branche (assez à gauche pour passer loin du bout du palonnier)
   const L0 = Math.hypot(D0[0] - A[0], D0[1] - A[1]);
   const u = [(A[0] - D0[0]) / L0, (A[1] - D0[1]) / L0];   // vers l'ancrage
   const n = [-u[1], u[0]];                                 // perpendiculaire
@@ -45,34 +45,36 @@ module.exports = (h) => {
 
   // Le bâton du guindeau, perpendiculaire à la corde, un bout calé contre le tronc.
   const G = P(42);
-  const b1 = [G[0] + 34 * n[0], G[1] + 34 * n[1]], b2 = [G[0] - 26 * n[0], G[1] - 26 * n[1]];
+  const b1 = [G[0] + 32.5 * n[0], G[1] + 32.5 * n[1]], b2 = [G[0] - 26 * n[0], G[1] - 26 * n[1]];
   const e = 2.6;
   const baton = h.chemin([
     [b1[0] + e * u[0], b1[1] + e * u[1]], [b2[0] + e * u[0], b2[1] + e * u[1]],
     [b2[0] - e * u[0], b2[1] - e * u[1]], [b1[0] - e * u[0], b1[1] - e * u[1]],
   ].map(q => [f(q[0]), f(q[1])]), blancArete, true);
 
-  // La carcasse, vue du ventre, tête en bas : moitié droite (dx, y), puis miroir.
-  const dehors = [[26, 74], [27, 80], [26, 92], [23, 105], [21, 118], [20, 132], [18, 146], [17, 160],
-    [18, 172], [20, 182], [23, 197], [24, 211], [20, 213], [15, 199], [11, 192], [8, 196], [7, 206], [5, 214], [0, 218]];
-  const dedans = [[0, 106], [6, 102], [13, 93], [18, 82], [20, 74]];   // de l'enfourchure au jarret
+  // La carcasse, vue du ventre, tête en bas : moitié droite (dx, y), puis miroir. Elle pend haut, à DY au-dessus
+  // de sa première place : la viande ne touche jamais la terre (ch. 61), et il reste un vide franc sous elle.
+  const DY = 18, monte = P => P.map(([x, y]) => [x, y - DY]);
+  const dehors = monte([[26, 74], [27, 80], [26, 92], [23, 105], [21, 118], [20, 132], [18, 146], [17, 160],
+    [18, 172], [20, 182], [23, 197], [24, 211], [20, 213], [15, 199], [11, 192], [8, 196], [7, 206], [5, 214], [0, 218]]);
+  const dedans = monte([[0, 106], [6, 102], [13, 93], [18, 82], [20, 74]]);   // de l'enfourchure au jarret
   const X = ([dx, y], s = 1) => [C + s * dx, y];
   const tourDehors = [...dehors.map(p => X(p)), ...dehors.slice(0, -1).reverse().map(p => X(p, -1))];
   const tourDedans = [...dedans.slice().reverse().map(p => X(p, -1)), ...dedans.slice(1).map(p => X(p))];
   const silhouette = `M${f(tourDehors[0][0])},${tourDehors[0][1]}` + courbe(tourDehors)
     + ` L${tourDedans[0][0]},${tourDedans[0][1]}` + courbe(tourDedans) + ' Z';
 
-  const levre = [[0, 114], [5, 128], [8, 144], [9, 160], [7, 174], [0, 188]];
+  const levre = monte([[0, 114], [5, 128], [8, 144], [9, 160], [7, 174], [0, 188]]);
   const cavite = trait([...levre.map(p => X(p)), ...levre.slice(1, -1).reverse().map(p => X(p, -1))], true);
   // Les côtes qui bordent l'ouverture, de chaque côté, et le bas des deux cuissots.
   const cotes = [];
-  [[134, 6.5], [143, 8], [152, 8.8], [161, 9], [170, 7.8]].forEach(([y, x0]) => [1, -1].forEach(s => {
+  [[134, 6.5], [143, 8], [152, 8.8], [161, 9], [170, 7.8]].map(([y, x0]) => [y - DY, x0]).forEach(([y, x0]) => [1, -1].forEach(s => {
     cotes.push(h.path(`M${f(C + s * x0)},${y} Q${f(C + s * (x0 + 5))},${y - 3} ${f(C + s * (x0 + 9))},${y + 1}`, h.a.fin));
   }));
-  const cuissots = [1, -1].map(s => h.path(`M${f(C + s * 2)},${110} Q${f(C + s * 10)},${122} ${f(C + s * 21)},${120}`, h.a.fin));
+  const cuissots = [1, -1].map(s => h.path(`M${f(C + s * 2)},${110 - DY} Q${f(C + s * 10)},${122 - DY} ${f(C + s * 21)},${120 - DY}`, h.a.fin));
 
   // Le palonnier : traverse les deux jarrets, une gorge à chaque bout.
-  const py = 83, pb = 89, g = 40;
+  const py = 83 - DY, pb = 89 - DY, g = 40;
   const palonnier = h.chemin([
     [C - 44, py], [C - g - 2.5, py], [C - g - 1, py + 1.6], [C - g + 1, py + 1.6], [C - g + 2.5, py],
     [C + g - 2.5, py], [C + g - 1, py + 1.6], [C + g + 1, py + 1.6], [C + g + 2.5, py], [C + 44, py],
@@ -80,13 +82,16 @@ module.exports = (h) => {
     [C - g + 2.5, pb], [C - g + 1, pb - 1.6], [C - g - 1, pb - 1.6], [C - g - 2.5, pb], [C - 44, pb],
   ], blancArete, true);
 
-  // Les brins qui descendent de la branche et s'écartent vers les gorges.
-  const descente = o => h.path(`M${C + g * Math.sign(o)},${py + 1} L${C + o},42 L${C + o},14 Q${C + o},${f(9 - o)} ${C - 8},${f(10 - o)}`, h.a.arete);
+  // Les brins qui descendent de la branche et s'écartent vers les gorges : le triangle de corde, raccourci, part
+  // plus haut sous la branche.
+  const descente = o => h.path(`M${C + g * Math.sign(o)},${py + 1} L${C + o},36 L${C + o},14 Q${C + o},${f(9 - o)} ${C - 8},${f(10 - o)}`, h.a.arete);
 
   const tronc = [
     h.path('M34,0 L34,150 Q35,200 26,222 L70,222 Q61,200 60,150 L60,0 Z', h.a.blanc),
     // la charte : la face à l'ombre du tronc, à droite, peinte avant le trait
-    h.path('M51,0 L60,0 L60,150 Q61,200 70,222 L60,222 Q55,200 51,150 Z', h.a.ombre),
+    // son bord droit court sous le trait du contour (0,8 plus loin que le tracé, que le trait de 2,4 couvre), du
+    // haut jusqu'au sol : aucun fil blanc ne s'ouvre entre le gris et le trait dans l'évasement
+    h.path('M51,0 L60.8,0 L60.8,150 Q61.8,200 70.8,222 L60,222 Q55,200 51,150 Z', h.a.ombre),
     h.path('M34,0 L34,150 Q35,200 26,222', h.a.contour),
     h.path('M60,0 L60,150 Q61,200 70,222', h.a.contour),
     h.path('M44,30 Q45,52 43,70', h.a.fin), h.path('M51,96 Q50,118 52,136', h.a.fin),
@@ -100,7 +105,7 @@ module.exports = (h) => {
     h.path('M62,190 Q47,195 33,190.5 L33,194 Q47,198.5 62,193.5 Z', blancArete),
     h.path('M62,197.5 Q47,202.5 33,198 L33,201.5 Q47,206 62,201 Z', blancArete),
   ];
-  const sonde = X([13, 103]);   // au milieu du cuissot, entre l'enfourchure et le bord
+  const sonde = X([13, 103 - DY]);   // au milieu du cuissot, entre l'enfourchure et le bord
 
   const vueGreement = {
     titre: 'Vu du ventre',
@@ -119,7 +124,7 @@ module.exports = (h) => {
       h.path(silhouette, h.a.contour),
       h.path(cavite, h.a.arete),
       ...cotes, ...cuissots,
-      h.rect(C - 12.5, 157.8, 25, 4.4, blancArete),
+      h.rect(C - 12.5, 157.8 - DY, 25, 4.4, blancArete),
       h.ligne(sonde[0] - 3, sonde[1] - 3, sonde[0] + 3, sonde[1] + 3, h.a.arete),
       h.ligne(sonde[0] - 3, sonde[1] + 3, sonde[0] + 3, sonde[1] - 3, h.a.arete),
       descente(1.6), descente(-1.6),
@@ -127,9 +132,9 @@ module.exports = (h) => {
     renvois: z => [
       { n: 1, rond: [14, 176], cible: [40, 196], texte: 'ancrage : deux tours au pied du tronc' },
       { n: 2, rond: [132, 200], cible: [f(G[0] - 14 * n[0]), f(G[1] - 14 * n[1])], texte: 'guindeau : tourner le bâton, le bloquer au tronc' },
-      { n: 3, rond: [292, 160], cible: [C + 4, 160], texte: 'écarteur de bois vert en travers des côtes' },
+      { n: 3, rond: [292, 160 - DY], cible: [C + 4, 160 - DY], texte: 'écarteur de bois vert en travers des côtes' },
       // le repère s'accroche au bord droit du cercle rouge : la croix reste seule dedans
-      { n: 4, rond: [292, 104], cible: [sonde[0] + 10 * 230 / z.h, sonde[1]], texte: 'sonde au centre du cuissot, sans toucher l’os' },
+      { n: 4, rond: [292, 104 - DY], cible: [sonde[0] + 10 * 230 / z.h, sonde[1]], texte: 'sonde au centre du cuissot, sans toucher l’os' },
     ].map(r => ({ ...r, rond: r.rond.map(v => f(v * z.h / 230)), cible: r.cible.map(v => f(v * z.h / 230)) })),
   };
   // La charte, hors de l'échelle de la vue pour garder l'épaisseur du rouge : le geste (on tord le

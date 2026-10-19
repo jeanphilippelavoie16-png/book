@@ -87,10 +87,11 @@ module.exports = (h) => {
     const coupe = [[0, yS], [c - w - 18, yS], [c - w - 6, yS + 8], [c - w, yT - 10], [c - w + 10, yT], [c + w - 10, yT], [c + w, yT - 10], [c + w + 6, yS + 8], [c + w + 18, yS], [z.l, yS]];
     o.push(h.path(`${lisse(coupe)} L ${z.l} ${z.h - 2} L 0 ${z.h - 2} Z`, neige));
     o.push(h.path(lisse(coupe), h.a.contour));
-    // le tronc vivant, sur le bord du sentier, qui sort par le haut
-    o.push(h.rect(xSap - rSap, 2, 2 * rSap, yS - 2, blanc(h.a.contour)));
-    o.push(h.rect(xSap + rSap * 0.3, 3.2, rSap * 0.7 - 1.2, yS - 4.4, h.a.ombre));
-    o.push(h.ligne(xSap - rSap, 2, xSap - rSap, yS, h.a.contour), h.ligne(xSap + rSap, 2, xSap + rSap, yS, h.a.contour));
+    // le tronc vivant, sur le bord du sentier, qui sort par le haut : un aplat blanc et ses deux côtés, sans
+    // trait en haut (fermé, il se lisait comme un poteau scié)
+    o.push(h.rect(xSap - rSap, 0, 2 * rSap, yS, h.a.blanc));
+    o.push(h.rect(xSap + rSap * 0.3, 0, rSap * 0.7, yS, h.a.ombre));
+    o.push(h.ligne(xSap - rSap, 0, xSap - rSap, yS, h.a.contour), h.ligne(xSap + rSap, 0, xSap + rSap, yS, h.a.contour));
     // la brindille, plantée au bord du sentier, fendue en haut
     const yF = yC - R - 4;
     // le fil : du tronc (tours) à la fente de la brindille, puis à l'œillet en haut de la boucle
@@ -109,14 +110,17 @@ module.exports = (h) => {
   // ─── Pour le renard : la même boucle, plus grande et plus haute ──────────────────────────
   const renard = (z) => {
     const o = [];
-    const K = 3.0, c = 150, yS = Math.round(z.h * 0.74), R = 8.75 * K, yC = yS - 17.5 * K - R;
+    // la neige à la même hauteur que dans la vue voisine (geo2 : yS = 118), pour que les deux vues de côté se
+    // lisent ensemble
+    const K = 2.7, c = 150, yS = 118, R = 8.75 * K, yC = yS - 17.5 * K - R;
     o.push(h.rect(0, yS, z.l, z.h - 2 - yS, neige), h.ligne(0, yS, z.l, yS, h.a.contour));
     const xBr = c + R + 18;
     o.push(h.chemin([[c, yC - R], [c + 10, yC - R - 6], [xBr, yC - R - 6], [z.l - 4, yC - R - 8]], h.a.arete));
     o.push(brindille(xBr, yS + FICHE, yC - R - 15));
     o.push(h.cercle(c, yC, R, h.a.contour), h.cercle(c, yC - R, 2.6, blanc(h.a.arete)));
     const xc = c - R - 20;
-    o.push(h.ligne(c - R - 4, yC - R, xc - 4, yC - R, h.a.fin), h.ligne(c - 4, yC + R, xc - 4, yC + R, h.a.fin));
+    // les deux lignes d'attache vont jusqu'à la boucle, en haut comme en bas
+    o.push(h.ligne(c - 4, yC - R, xc - 4, yC - R, h.a.fin), h.ligne(c - 4, yC + R, xc - 4, yC + R, h.a.fin));
     o.push(h.cote(xc, yC - R, xc, yC + R, '15 à 20 cm', { cote: 'gauche' }));
     o.push(h.cote(xc, yC + R, xc, yS, '15 à 20 cm', { cote: 'gauche' }));
     return o.join('\n');

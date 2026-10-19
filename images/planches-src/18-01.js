@@ -10,7 +10,8 @@
 // La géométrie : la barre passe dans la fourche des piquets, devant la branche de derrière et derrière celle d'avant.
 // Chaque crochet est une fourche de branche renversée qui enjambe la barre : la tige descend devant, la branche
 // courte derrière, la barre coincée dans le creux. En bas de la tige, un chicot fait un second creux où l'anse se
-// pose. Fourches et crochets sont tournés vers le spectateur pour qu'on les voie ouverts. Le mur de neige est vu de
+// pose : la moitié gauche de l'anse passe devant la base du chicot et finit au fond du cran, la moitié droite repart
+// derrière la tige. Les braises sont toutes noires, fendues de blanc, comme à la 88-02. Fourches et crochets sont tournés vers le spectateur pour qu'on les voie ouverts. Le mur de neige est vu de
 // biais pour qu'on voie qu'il est long. La neige en pointillé ; en gris d'ombre, le flanc du mur tourné vers le feu,
 // la face droite des piquets, le dessous de la barre et le côté droit de la marmite (lumière en haut à gauche). Un
 // seul rouge : la flèche du geste, qui va de la hauteur du crochet court à celle du crochet long.
@@ -47,22 +48,27 @@ module.exports = (h) => {
     const prof = [[36, GY], [44, 160], [48, 126], [51, 116], [56, 110.5], [63, 108.5], [72, 108.5], [79, 110.5], [84, 116],
       [87, 126], [90, 160], [96, GY]];
     const fond = prof.map(p => add(p, recul));
-    const facettes = [];
-    let premier = -1, dernier = -1;
+    let premier = -1, dernier = -1, o0 = -1, o1 = -1;
     for (let i = 0; i < prof.length - 1; i++) {
       const a = prof[i], b = prof[i + 1];
       const nrm = uni([b[1] - a[1], -(b[0] - a[0])]);                 // normale vers l'extérieur du profil
       if (nrm[0] * recul[0] + nrm[1] * recul[1] > 0) {
         if (premier < 0) premier = i;
         dernier = i + 1;
-        facettes.push({ pts: [a, b, fond[i + 1], fond[i]], ombre: nrm[0] > 0.55 });
+        if (nrm[0] > 0.55) {                                          // une facette tournée vers la droite : à l'ombre
+          if (o0 < 0) o0 = i;
+          else if (i !== o1) throw new Error('18-01 : le flanc à l’ombre du mur n’est pas d’un seul tenant');
+          o1 = i + 1;
+        }
       }
     }
     const silhouette = [...prof.slice(0, premier + 1), ...fond.slice(premier, dernier + 1), prof[dernier]];
+    // le flanc à l'ombre d'un seul polygone : des facettes posées bord à bord laissent des joints clairs à l'anticrénelage
+    const flanc = [...prof.slice(o0, o1 + 1), ...fond.slice(o0, o1 + 1).reverse()];
     return [
       h.chemin(P(silhouette), blancSans, true),
       h.chemin(P(prof), blancSans, true),
-      ...facettes.filter(x => x.ombre).map(x => h.chemin(P(x.pts), h.a.ombre, true)),
+      h.chemin(P(flanc), h.a.ombre, true),
       h.chemin(P(silhouette), h.a.hachure('neige', 'aucun'), true),
       h.chemin(P(prof), h.a.hachure('neige', 'aucun'), true),
       h.chemin(P(prof.slice(premier, dernier + 1)), h.a.arete),
@@ -85,30 +91,28 @@ module.exports = (h) => {
     [[-1, -0.2], [-0.45, -1], [0.6, -0.9], [1, -0.1], [0.8, 0.8], [-0.15, 1], [-0.9, 0.7]],
     [[-1, 0.1], [-0.6, -0.85], [0.3, -1], [1, -0.45], [0.9, 0.6], [0.1, 1], [-0.75, 0.85]],
   ];
-  const morceau = (cx, cy, rx, ry, noir, k) => {
+  // Une braise : un morceau noir, irrégulier, fendu de blanc (comme la 88-02). Un liseré blanc le détache du morceau
+  // de derrière, sinon le lit se lit comme une seule tache noire.
+  const morceau = (cx, cy, rx, ry, k) => {
     const pts = formes[k % 3].map(([u, v]) => [cx + u * rx, cy + v * ry]);
-    if (noir) return [
-      h.chemin(P(pts), h.a.plein, true),
-      h.path(`M${f(cx - rx * 0.6)} ${f(cy + ry * 0.1)} L${f(cx - rx * 0.15)} ${f(cy - ry * 0.3)} L${f(cx + rx * 0.25)} ${f(cy + ry * 0.2)} L${f(cx + rx * 0.62)} ${f(cy - ry * 0.25)}`, fente),
-      h.path(`M${f(cx - rx * 0.15)} ${f(cy - ry * 0.3)} L${f(cx - rx * 0.05)} ${f(cy - ry * 0.75)}`, fente),
-    ].join('\n');
+    const sens = k % 2 ? -1 : 1;
     return [
-      h.chemin(P(pts), h.a.blanc, true), h.chemin(P(pts), h.a.arete, true),
-      h.path(`M${f(cx - rx * 0.55)} ${f(cy + ry * 0.05)} L${f(cx + rx * 0.5)} ${f(cy - ry * 0.05)}`, h.a.detail),
-      h.path(`M${f(cx + rx * 0.05)} ${f(cy)} L${f(cx + rx * 0.15)} ${f(cy + ry * 0.7)}`, h.a.detail),
+      h.chemin(P(pts), `fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.9" stroke-linejoin="round"`, true),
+      h.path(`M${f(cx - rx * 0.6)} ${f(cy + sens * ry * 0.1)} L${f(cx - rx * 0.15)} ${f(cy - sens * ry * 0.3)} L${f(cx + rx * 0.25)} ${f(cy + sens * ry * 0.2)} L${f(cx + rx * 0.62)} ${f(cy - sens * ry * 0.25)}`, fente),
+      h.path(`M${f(cx - rx * 0.15)} ${f(cy - sens * ry * 0.3)} L${f(cx - rx * 0.05)} ${f(cy - sens * ry * 0.75)}`, fente),
     ].join('\n');
   };
   const flamme = (x, yb, hf, w, pen = 0) => h.path(
     `M${f(x - w)} ${f(yb)} C${f(x - w - 1)} ${f(yb - hf * 0.5)} ${f(x + pen - 2)} ${f(yb - hf * 0.65)} ${f(x + pen)} ${f(yb - hf)} C${f(x + pen + 2)} ${f(yb - hf * 0.6)} ${f(x + w + 1)} ${f(yb - hf * 0.45)} ${f(x + w)} ${f(yb)} Z`,
     blancArete);
-  const arriere = [[246, 211, 11, 6, true], [268, 210, 12, 6.5, true], [292, 211, 11, 6, false], [316, 209.5, 12, 7, true],
-    [340, 211, 11, 6, true], [364, 210, 12, 6.5, false], [387, 211, 11, 6, true], [405, 212, 9, 5, true]];
-  const avant = [[257, 215.5, 12, 5, false], [281, 215, 12, 5.5, true], [305, 215.5, 12, 5, false], [329, 215, 12, 5.5, true],
-    [353, 215.5, 12, 5, false], [377, 215, 12, 5.5, true], [399, 215.5, 11, 5, false]];
+  const arriere = [[246, 211, 11, 6], [268, 210, 12, 6.5], [292, 211, 11, 6], [316, 209.5, 12, 7],
+    [340, 211, 11, 6], [364, 210, 12, 6.5], [387, 211, 11, 6], [405, 212, 9, 5]];
+  const avant = [[257, 215.5, 12, 5], [281, 215, 12, 5.5], [305, 215.5, 12, 5], [329, 215, 12, 5.5],
+    [353, 215.5, 12, 5], [377, 215, 12, 5.5], [399, 215.5, 11, 5]];
   const feu = [
-    ...arriere.map(([x, y, rx, ry, n], i) => morceau(x, y, rx, ry, n, i)),
+    ...arriere.map(([x, y, rx, ry], i) => morceau(x, y, rx, ry, i)),
     flamme(281, 209, 14, 4.5, -2), flamme(304, 208, 20, 5.5, 1), flamme(328, 209, 16, 5, 2), flamme(352, 209, 12, 4.5, -1),
-    ...avant.map(([x, y, rx, ry, n], i) => morceau(x, y, rx, ry, n, i + 1)),
+    ...avant.map(([x, y, rx, ry], i) => morceau(x, y, rx, ry, i + 1)),
   ];
 
   // ── Les deux branches fourchues, plantées ────────────────────────────────────────────
@@ -193,7 +197,8 @@ module.exports = (h) => {
 
   // ── La marmite, pendue par son anse au crochet du milieu ─────────────────────────────
   const R = 34, ry = 7, HM = 46;
-  const pc = cr[1].creux[0], ya = cr[1].creux[1] + 1.2, rim = ya + 30, bas = rim + HM;
+  // le haut de l'anse est le creux même du chicot : le bout du fil se perd dans le coin du cran, sans le dépasser
+  const pc = cr[1].creux[0], ya = cr[1].creux[1], rim = ya + 30, bas = rim + HM;
   const oreilleG = [pc - R * 0.72, rim + ry * 0.7], oreilleD = [pc + R * 0.72, rim - ry * 0.7];
   const marmite = [
     h.path(`M${f(pc - R)} ${f(rim)} L${f(pc - R)} ${f(bas)} A${R} ${ry} 0 0 0 ${f(pc + R)} ${f(bas)} L${f(pc + R)} ${f(rim)} A${R} ${ry} 0 0 0 ${f(pc - R)} ${f(rim)} Z`, blancSans),
@@ -202,9 +207,15 @@ module.exports = (h) => {
     h.ellipse(pc, rim, R - 3, ry - 1.6, h.a.detail),
     h.path(`M${f(pc - R)} ${f(rim)} L${f(pc - R)} ${f(bas)} A${R} ${ry} 0 0 0 ${f(pc + R)} ${f(bas)} L${f(pc + R)} ${f(rim)}`, h.a.contour),
     h.ellipse(pc, rim, R, ry, h.a.arete),
-    h.path(`M${f(oreilleG[0])} ${f(oreilleG[1])} C${f(oreilleG[0] - 4)} ${f(ya + 6)} ${f(pc - 12)} ${f(ya)} ${f(pc)} ${f(ya)} C${f(pc + 12)} ${f(ya)} ${f(oreilleD[0] + 3)} ${f(ya + 8)} ${f(oreilleD[0])} ${f(oreilleD[1])}`, h.a.arete),
-    h.cercle(oreilleG[0], oreilleG[1], 2.6, blancArete),
+    // la moitié arrière de l'anse, du creux à l'oreille de droite : elle passe derrière la tige du crochet
+    h.path(`M${f(pc)} ${f(ya)} C${f(pc + 12)} ${f(ya)} ${f(oreilleD[0] + 3)} ${f(ya + 8)} ${f(oreilleD[0])} ${f(oreilleD[1])}`, h.a.arete),
     h.cercle(oreilleD[0], oreilleD[1], 2.6, blancArete),
+  ];
+  // la moitié avant de l'anse, de l'oreille de gauche au creux : elle passe devant la base du chicot et se couche au
+  // fond du cran ; on la peint après les crochets
+  const anseAvant = [
+    h.path(`M${f(oreilleG[0])} ${f(oreilleG[1])} C${f(oreilleG[0] - 4)} ${f(ya + 6)} ${f(pc - 12)} ${f(ya)} ${f(pc)} ${f(ya)}`, h.a.arete),
+    h.cercle(oreilleG[0], oreilleG[1], 2.6, blancArete),
   ];
 
   // ── Le geste : monter ou descendre d'un cran, de la hauteur du crochet court à celle du crochet long ─────────
@@ -224,6 +235,7 @@ module.exports = (h) => {
           ...fG.dessous, ...fD.dessous,
           ...marmite,
           ...cr.flatMap(c => c.dessous),
+          ...anseAvant,
           ...barre,
           ...fG.dessus, ...fD.dessus,
           ...cr.flatMap(c => c.dessus),

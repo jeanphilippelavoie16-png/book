@@ -18,9 +18,14 @@ Deux petites scènes, découpées dans l'image du devant (images/tomes/titre-tom
   Le groupe est en miroir, comme le ciel du dos : le feu passe à gauche du séchoir.
 
   sur la tranche, entre le titre et « Le Manuel du Nord » : le soleil orange qui se couche derrière sa colline
-  sombre, et ses reflets orange sur le lac, sous elle. La colline est celle du devant, lue autour du soleil ; ses deux
-  bouts descendent jusqu'à l'eau (une île basse), pour qu'aucun bord de découpe ne se voie. Les épinettes de droite ne
-  passent pas : à leur place, la colline continue de son ton.
+  sombre, et ses reflets orange sur le lac, sous elle, aussi large que la tranche le permet. La crête est celle du
+  devant, lue autour du soleil ; la colline est coupée plus haut que l'eau du devant (son bas n'a pas de dessin) et
+  ses deux bouts descendent jusqu'à l'eau : une île basse, sans bord de découpe. L'épinette de droite ne passe pas : à
+  sa place, la colline continue en recopiant ses colonnes voisines, en miroir. L'eau de l'île est à la hauteur du dessus du pré de la quatrième : la rive
+  du dos et le lac de la tranche font un seul horizon.
+
+Les étoiles du ciel du dos qui tomberaient entre les truites, contre le feu ou dans le lac sous l'île partent (une
+étoile dans l'eau ou collée à une truite se lit comme une poussière).
 
 Tout est réduit depuis l'image d'origine, rien n'est agrandi. Rien ne touche le texte : chaque ligne, chaque filet,
 chaque photo et la barre des tomes, élargis de MARGE (MARGE_FILET pour un filet), sont interdits, sauf le filet des
@@ -49,12 +54,16 @@ POTEAUX = ((116, 262), (1048, 1174))   # les colonnes de la fenêtre où l'on ch
 TETE_POTEAU = 1920                # le haut du poteau de gauche, qui dépasse de la perche
 BAS_TRUITES = 2400                # le bas de la rangée du haut (la queue la plus longue)
 FEU = (1150, 2700, 1800, 3430)
-RIVE = ((0, 272, 2950), (410, 1200, 2860), (1780, 1858, 2700))   # les colonnes où la rive du pré se voit (sans poteau,
-                                  # feu ni épinette), et la ligne où l'on commence à la chercher (sous les queues)
+RIVE = ((130, 272, 2950), (410, 900, 2860), (990, 1200, 2860), (1780, 1858, 2700))   # les colonnes où la rive du
+                                  # pré se voit (sans poteau, feu, épinette, fougère ni fleur rouge), et la ligne où l'on
+                                  # commence à la chercher (sous les queues des truites)
 DESSUS_RIVE = 70                  # les brins qui dépassent sur l'eau : jusqu'à cette hauteur au-dessus de la rive
-SOLEIL = (1560, 1715, 2250, 2490) # x0, y0, x1, y1 : le soleil, sa colline et ses reflets
-EAU = 2078                        # la ligne de l'eau sous la colline
-EPINETTE = 2100                   # dès cette colonne, l'épinette de droite : la colline y est prolongée de son ton
+SOLEIL = (1560, 1715, 2330, 2490) # x0, y0, x1, y1 : le soleil, sa colline et ses reflets
+EAU_DOS = 1990                    # la colline est coupée à cette ligne (au devant, l'eau est à 2078)
+REFLETS = 2080                    # les reflets commencent à cette ligne du devant
+ECART_REFLETS = 4                 # px de l'image entre la nouvelle eau et le premier reflet
+PENTE_G = 110                     # px : le bout gauche de la colline descend à l'eau sur cette longueur
+EPINETTE = 2100                   # dès cette colonne, l'épinette de droite : la colline y recopie ses voisines
 
 # ---- au dos (po)
 MARGE = 0.14                      # autour d'un texte, d'une photo
@@ -64,10 +73,9 @@ BUTTE = 0.10                      # l'épaisseur du pré sous le séchoir
 FEU_X = 0.62                      # le feu, à cette fraction de l'échelle du séchoir
 DROITE = 0.16                     # le séchoir finit à cette distance du bout du filet des auteurs
 PIED_D = 0.12                     # la butte redescend au filet sur cette longueur, à droite du séchoir
-PIED_G = 0.55                     # et sur celle-ci, à gauche du feu
+PIED_G = 1.30                     # et sur celle-ci, à gauche du feu (une rive longue, comme au devant)
 ECART_FEU = 0.02                  # entre le feu et le poteau
-PLI = 0.085                       # la colline du soleil s'arrête à cette distance des plis de la tranche
-HAUT_TRANCHE = 0.46               # le soleil se place à 46 % du trou de la tranche
+PLI = 0.06                        # la colline du soleil s'arrête à cette distance des plis de la tranche
 MIROIR = True
 
 
@@ -199,10 +207,15 @@ def rive(img):
     morceaux = []
     prof = 260                                           # px sous la rive
     for c0, c1, depart in RIVE:
-        S = L[depart:depart + 500, c0:c1]
-        noir = ndi.binary_opening(S < 61, structure=np.ones((31, 15)))
-        yS = np.where(noir.any(0), np.argmax(noir, axis=0), 0).astype(np.float32) + depart
-        yS = ndi.gaussian_filter1d(ndi.median_filter(yS, 21, mode='nearest'), 4, mode='nearest')
+        # la rive : la première ligne où le pré couvre la plupart d'une fenêtre de 41 px (une tige est trop mince pour
+        # compter), et le reste sur 12 lignes ; puis lissée (la rive du devant est une courbe douce)
+        g0, g1 = max(0, c0 - 20), min(a.shape[1], c1 + 20)
+        S = a[depart:depart + 500, g0:g1]
+        pre = np.sqrt(((S - LAC) ** 2).sum(-1)) > 18
+        part = ndi.uniform_filter1d(pre.astype(np.float32), 41, axis=1) > 0.6
+        part = ndi.minimum_filter1d(part.astype(np.uint8), 12, axis=0, origin=-5).astype(bool)
+        yS = np.where(part.any(0), np.argmax(part, axis=0), 0).astype(np.float32)[c0 - g0:c1 - g0] + depart
+        yS = ndi.gaussian_filter1d(ndi.median_filter(yS, 31, mode='nearest'), 12, mode='nearest')
         bloc = np.zeros((DESSUS_RIVE + prof, c1 - c0, 3), np.float32)
         alb = np.zeros((DESSUS_RIVE + prof, c1 - c0), np.float32)
         for j in range(c1 - c0):
@@ -221,40 +234,53 @@ def rive(img):
 
 def soleil(img):
     """Le soleil qui se couche derrière sa colline, et ses reflets sur le lac : alpha de l'orange (le soleil, les
-    reflets) et du sombre (la colline, au-dessus de l'eau). Les deux bouts de la colline descendent à l'eau ; à droite
-    de EPINETTE, l'épinette ne passe pas : la colline continue à la hauteur de sa dernière colonne lue, de son ton,
-    puis descend."""
+    reflets) et du sombre (la colline). La colline est coupée à EAU_DOS (son bas, sans dessin, ne passe pas : elle est
+    plus basse, une île), ses deux bouts descendent à cette eau ; à droite de EPINETTE, l'épinette ne passe pas : la
+    colline continue à la hauteur de sa dernière colonne lue, en recopiant ses colonnes voisines, puis descend. Les reflets (de REFLETS au bas
+    de la fenêtre) remontent juste sous la nouvelle eau. Rend aussi la ligne de l'eau dans la découpe."""
     x0, y0, x1, y1 = SOLEIL
     a = np.asarray(img, np.float32)[y0:y1, x0:x1]
-    H, W = a.shape[:2]
+    W = a.shape[1]
     L = _lum(a)
     orange = np.clip((a[..., 0] - a[..., 1] - 40) / 70, 0, 1)
-    yy = np.arange(H)[:, None]
-    eau = EAU - y0
-    sombre = (L < 48) & (orange < 0.2)
-    sombre = ndi.binary_opening(sombre, structure=np.ones((5, 5)))
-    crete = np.where(sombre[:eau].any(0), np.argmax(sombre[:eau], axis=0), eau).astype(np.float64)
+    eau = EAU_DOS - y0
+    cols = np.arange(W, dtype=np.float64)
     e = EPINETTE - x0
+    # la colline et le soleil, au-dessus de l'eau
+    h = eau
+    yy = np.arange(h)[:, None]
+    sombre = ndi.binary_opening((L[:h] < 48) & (orange[:h] < 0.2), structure=np.ones((5, 5)))
+    crete = np.where(sombre.any(0), np.argmax(sombre, axis=0), h).astype(np.float64)
     crete = ndi.median_filter(crete, 5, mode='nearest')
     crete[e:] = crete[e - 1]
-    # les deux bouts descendent à l'eau : à gauche sur 110 px, à droite après 30 px de palier, sur le reste
-    cols = np.arange(W, dtype=np.float64)
-    g = np.clip(1 - cols / 110, 0, 1)
+    # les deux bouts descendent à l'eau : à gauche sur PENTE_G px, à droite après 30 px de palier, sur le reste
+    g = np.clip(1 - cols / PENTE_G, 0, 1)
     dd = np.clip((cols - (e + 30)) / max(1, W - (e + 30)), 0, 1)
     pente = np.maximum(g, dd)
     pente = pente * pente * (3 - 2 * pente)
-    crete = crete + (eau - crete) * pente
-    # la colline : le sombre de l'image sous la crête, au-dessus de l'eau ; à droite de l'épinette, le ton de la colline
-    col_h = np.clip((yy + 0.5 - crete[None, :]), 0, 1) * (yy < eau)
-    al_h = np.where(cols[None, :] < e, col_h * np.clip((70 - L) / 30, 0, 1), col_h)
-    al_h = np.where(yy < eau, np.maximum(al_h, col_h * (yy > crete[None, :] + 3)), 0)   # le cœur de la colline, plein
-    coul = np.where(((cols[None, :] >= e) | (L > 70))[..., None] & (al_h[..., None] > 0) & (orange[..., None] < 0.5),
-                    COLLINE, a)
-    # le soleil et ses reflets : l'orange ; à droite de l'épinette, seul l'orange du soleil (au-dessus de l'eau)
-    al_o = orange * ((cols[None, :] < e + 30) | (yy < eau))
+    crete = crete + (h - crete) * pente
+    col_h = np.clip(yy + 0.5 - crete[None, :], 0, 1)
+    al_h = np.where(cols[None, :] < e, col_h * np.clip((70 - L[:h]) / 30, 0, 1), col_h)
+    al_h = np.maximum(al_h, col_h * (yy > crete[None, :] + 3))          # le cœur de la colline, plein
+    # à droite de l'épinette, la colline recopie ses colonnes voisines de gauche, en miroir (jamais un aplat) ; un
+    # point clair égaré dans la colline (une étoile au ras de la crête) prend le ton de la colline
+    src = a[:h].copy()
+    miroir_c = np.clip(2 * e - 1 - np.arange(e, W), 0, e - 1)
+    voisin = a[:h][:, miroir_c]
+    pas_colline = (_lum(voisin) > 50) | (voisin[..., 0] - voisin[..., 1] > 40)
+    src[:, e:] = np.where(pas_colline[..., None], COLLINE, voisin)
+    coul = np.where(((L[:h] > 70) & (cols[None, :] < e))[..., None] & (orange[:h, :, None] < 0.5), COLLINE, src)
+    coul = np.where((orange[:h, :, None] >= 0.5), a[:h], coul)
+    al_o = orange[:h]
     al = np.maximum(al_h, al_o)
-    fg = coul * al[..., None]
-    return fg, al.astype(np.float32)
+    haut_fg, haut_al = coul * al[..., None], al
+    # les reflets : l'orange sous l'eau du devant, remonté sous la nouvelle eau
+    r0 = REFLETS - y0
+    bas_al = orange[r0:] * (cols[None, :] < e)
+    bas_fg = a[r0:] * bas_al[..., None]
+    fg = np.concatenate([haut_fg, np.zeros((ECART_REFLETS, W, 3), np.float32), bas_fg], 0)
+    al = np.concatenate([haut_al, np.zeros((ECART_REFLETS, W), np.float32), bas_al], 0)
+    return fg.astype(np.float32), al.astype(np.float32), h
 
 
 # ------------------------------------------------------------------ outils
@@ -283,6 +309,36 @@ def poser(can, fg, al, x, y):
 
 def miroir(fg, al):
     return fg[:, ::-1], al[:, ::-1]
+
+
+def sans_etoiles(can, masque, ppp, seuil=8):
+    """Retire les étoiles du ciel du dos (petites taches claires) qui touchent le masque, bouchées à la moyenne du ciel
+    voisin. Rend leur nombre."""
+    ys, xs = np.nonzero(masque)
+    if not len(ys):
+        return 0
+    p = int(0.2 * ppp)
+    a, b = max(0, ys.min() - p), min(can.shape[0], ys.max() + p)
+    c, d = max(0, xs.min() - p), min(can.shape[1], xs.max() + p)
+    z = can[a:b, c:d].astype(np.float32)
+    L = _lum(z)
+    t = int(0.09 * ppp) | 1
+    ouvert = ndi.grey_opening(L, size=(t, t))
+    cand = ((L - ouvert) > seuil) & (ouvert < 90)
+    lab, n = ndi.label(cand)
+    ids = np.unique(lab[cand & masque[a:b, c:d]])
+    ids = ids[ids > 0]
+    if not len(ids):
+        return 0
+    mq = ndi.binary_dilation(np.isin(lab, ids), iterations=max(2, round(0.012 * ppp)))
+    poids = (~(cand | mq)).astype(np.float32)
+    sig = 0.04 * ppp
+    den = np.maximum(ndi.gaussian_filter(poids, sig), 1e-3)
+    for ch in range(3):
+        moy = ndi.gaussian_filter(z[..., ch] * poids, sig) / den
+        z[..., ch][mq] = moy[mq]
+    can[a:b, c:d] = np.clip(np.rint(z), 0, 255).astype(np.uint8)
+    return len(ids)
 
 
 # ------------------------------------------------------------------ les trous
@@ -341,7 +397,6 @@ def scene_quatrieme(can, img, info, m, aut):
     bas_interdit = np.where(zone.any(0), zone.shape[0] - np.argmax(zone[::-1], axis=0), 0)
     # l'échelle : le séchoir, de la tête du poteau à SOUS_TRUITES sous les truites, tient entre le sommaire et le pré
     x_d = int(x_bout - DROITE * ppp)
-    haut_dispo = None
     s = None
     for _ in range(6):                                  # la largeur dépend de l'échelle, le plafond de la largeur
         larg = (SECHOIR[2] - SECHOIR[0]) * (s or 0.3)
@@ -388,10 +443,15 @@ def scene_quatrieme(can, img, info, m, aut):
     sous = rr > y_filet + 3                              # rien sous le filet
     P_al = np.where(sous, 0, P_al).astype(np.float32)
     P_fg = np.where(sous[..., None], 0, P_fg).astype(np.float32)
+    # une étoile du ciel du dos entre les truites ou contre le feu se lirait comme une poussière : elle part
+    zone = np.zeros(can.shape[:2], bool)
+    zone[max(0, min(sy, fy) - int(0.05 * ppp)):int(y_filet), max(0, xg):min(xd, m.shape[1])] = True
+    zone[:, :m.shape[1]] &= ~m                           # jamais dans la marge d'un texte
+    sans_etoiles(can, zone, ppp)
     poser(can, S_fg, S_al, sx, sy)
     poser(can, P_fg, P_al, xg, y0b)
     poser(can, F_fg, F_al, fx, fy)
-    boite = (min(xg, fx, sx), min(sy, fy), max(xd, sx + S_al.shape[1]), int(y_filet + 4))
+    boite = (min(xg, fx, sx), min(sy, fy), max(xd, sx + S_al.shape[1]), int(y_filet + 4), crete)
     res = ('séchoir de %.2f × %.2f po (échelle %.3f), feu de %.2f × %.2f po, pré de %.2f à %.2f po du bord perdu, '
            'posé sur le filet des auteurs à %.2f po du haut' % (S_al.shape[1] / ppp, (y_filet - sy) / ppp, s,
                                                                 F_al.shape[1] / ppp, F_al.shape[0] / ppp, xg / ppp,
@@ -399,8 +459,10 @@ def scene_quatrieme(can, img, info, m, aut):
     return boite, res
 
 
-def scene_tranche(can, img, info, m):
-    """Le soleil, sa colline et ses reflets, dans le trou de la tranche, aussi large que la tranche le permet."""
+def scene_tranche(can, img, info, m, y_horizon):
+    """Le soleil, sa colline et ses reflets, dans le trou de la tranche, aussi large que la tranche le permet. L'eau
+    de l'île est à la hauteur du dessus du pré de la quatrième (y_horizon) : la rive du dos et le lac de la tranche
+    font un seul horizon ; si le trou ne le permet pas, le groupe se centre dans le trou."""
     ppp, xt, xf = info['ppp'], info['xt'], info['xf']
     H = can.shape[0]
     libre = ~m[:, xt:xf].any(1)
@@ -411,7 +473,7 @@ def scene_tranche(can, img, info, m):
         return None, 'pas de trou sur la tranche'
     t = max(ndi.find_objects(lab), key=lambda s_: s_[0].stop - s_[0].start)[0]
     ga, gb = t.start, t.stop
-    fg, al = soleil(img)
+    fg, al, h_eau = soleil(img)
     if MIROIR:
         fg, al = miroir(fg, al)
     x_g, x_d = xt + PLI * ppp, xf - PLI * ppp
@@ -419,7 +481,14 @@ def scene_tranche(can, img, info, m):
     T_fg, T_al = reduire(fg, al, s)
     h, w = T_al.shape
     x = int(round((xt + xf) / 2 - w / 2))
-    y = int(round(ga + HAUT_TRANCHE * (gb - ga - h)))
+    y = int(round(y_horizon - h_eau * s))
+    if y < ga or y + h > gb:
+        y = int(round(ga + 0.5 * (gb - ga - h)))
+    # une étoile du ciel du dos sous l'île serait dans le lac : elle part (toute la largeur de la tranche, de l'eau de
+    # l'île jusqu'à « Le Manuel du Nord », dans la marge du texte s'il le faut, jamais dans sa boîte)
+    lac = np.zeros(can.shape[:2], bool)
+    lac[int(y + h_eau * s):int(gb + MARGE * ppp - 0.03 * ppp), xt:xf] = True
+    sans_etoiles(can, lac, ppp)
     poser(can, T_fg, T_al, x, y)
     return (x, y, x + w, y + h), ('soleil, colline et reflets de %.2f × %.2f po, de %.2f à %.2f po du haut (trou : '
                                   '%.2f à %.2f po)' % (w / ppp, h / ppp, y / ppp, (y + h) / ppp, ga / ppp, gb / ppp))
@@ -438,14 +507,14 @@ def motif(can, info):
         return can
     aut = filets[2]                                     # l'en-tête, le titre du sommaire, le titre des auteurs
     b4, r4 = scene_quatrieme(can, img, info, m, aut)
-    bt, rt = scene_tranche(can, img, info, m)
+    bt, rt = scene_tranche(can, img, info, m, b4[4])
     print('    dos 4 : ' + r4)
     print('    dos 4 : ' + rt)
     # contrôle : rien sur le devant ; rien dans la marge du texte, sauf la butte sur le filet des auteurs
     chg = (can != avant).any(2)
     k = ppp / 96
     permis = np.zeros_like(m)
-    permis[int((aut[3] - 1.67) * k - MARGE_FILET * ppp) - 2:int(np.ceil(aut[3] * k + MARGE_FILET * ppp)) + 2,
+    permis[int((aut[3] - 3.4) * k - MARGE_FILET * ppp) - 2:int(np.ceil(aut[3] * k + MARGE_FILET * ppp)) + 2,
            int(aut[0] * k):int(np.ceil(aut[2] * k))] = True
     if chg[:, xf:].any() or (chg[:, :xf] & m & ~permis).any():
         print('    dos 4 : ATTENTION, le motif touche le devant ou la marge du texte')

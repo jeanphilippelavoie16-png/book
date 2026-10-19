@@ -8,6 +8,7 @@
 // Seule cote : 30 à 50 cm (5H, point 5). Proportions du cône : perches de 3,5 à 4,5 m (point 1),
 // base au plus large des anciennes tentes (point 3), pour qu'un adulte s'y couche.
 // L'eau liquide en bleu, h.a.hachure('eau') : la pluie et les gouttes qui tombent dans la tente (JP, 19 octobre 2026).
+// Reprise le 19 octobre 2026 : chaque goutte a son motif calé, pour qu'aucun bout de vaguelette n'y paraisse.
 
 module.exports = (h) => {
   const f = v => Math.round(v * 10) / 10;
@@ -100,7 +101,13 @@ module.exports = (h) => {
     const JW = 0.22 * 222 * k;
     return { Ls, Pt, JB: Ls / 2 - JW / 2, JH: Ls / 2 + JW / 2, W: 6 * k, O1: 6 * k + 1.5, T: 4.5, O2: 6 * k + 9, D: 7, k };
   };
-  const goutte = (x, y) => h.path(`M ${f(x)} ${f(y - 5)} Q ${f(x + 3)} ${f(y + 1)} ${f(x)} ${f(y + 2.2)} Q ${f(x - 3)} ${f(y + 1)} ${f(x)} ${f(y - 5)} Z`, h.a.hachure('eau', 'fin'));
+  // Une goutte, son motif d'eau calé pour qu'elle tombe au milieu d'une bande sans vaguelette (19 octobre 2026, second
+  // regard : un bout de vaguelette dans une goutte se lit comme une rayure). La goutte reste en place ; le groupe déplace
+  // le motif de tx en x, la goutte est tracée décalée d'autant.
+  const goutte = (x, y) => {
+    const tx = Math.round((((x - 28) % 32) + 32) % 32 * 2) / 2, X = x - tx;
+    return `<g transform="translate(${tx} 0)">\n${h.path(`M ${f(X)} ${f(y - 5)} Q ${f(X + 3)} ${f(y + 1)} ${f(X)} ${f(y + 2.2)} Q ${f(X - 3)} ${f(y + 1)} ${f(X)} ${f(y - 5)} Z`, h.a.hachure('eau', 'fin'))}\n</g>`;
+  };
   // Brisure : le dessin est coupé là, perche et bâches comprises.
   const brisure = (g, s, o0, o1) => { const o = []; const N = 8; for (let i = 0; i <= N; i++) o.push(g.Pt(s + (i % 2 ? 3 : -3), o0 + (o1 - o0) * i / N)); return o; };
   const perchePleine = (g) => {

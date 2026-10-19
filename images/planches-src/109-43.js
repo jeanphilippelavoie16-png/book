@@ -55,22 +55,21 @@ module.exports = (h) => {
     for (const [t0, t1, o] of [[0.08, 0.3, 0.5], [0.52, 0.7, 0.45], [0.8, 0.94, 0.55]]) out.push(h.ligne(...add(lerp(bas, haut, t0), n, em * o), ...add(lerp(bas, haut, t1), n, em * o), A.fin));
     // le point fixe : un anneau sur le plancher
     out.push(h.path(`M ${pt([ancre[0] - 6, yP])} C ${pt([ancre[0] - 6, yP - 11])} ${pt([ancre[0] + 6, yP - 11])} ${pt([ancre[0] + 6, yP])}`, `fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linecap="round"`));
-    // la corde. Le brin fixe : de l'anneau au haut de la rampe, puis sur le madrier jusque sous la bille
     const rc = R + rr;
     const sous = add(C, n, -rc), dessus = add(C, n, rc);
     const aSous = Math.atan2(-n[1], -n[0]) / RAD;
     const autour = arc(C, rc, aSous, aSous + 180, 48);              // par l'aval, du dessous au dessus
     const hautRampe = add(haut, n, em + rr);
-    out.push(corde(`M ${pt([ancre[0] - 4, yP - 6])} L ${pt(hautRampe)} L ${pt(sous)}`));
     // la bille, coupée par le bout : cernes ; l'ombre en bas à droite
     out.push(h.cercle(C[0], C[1], R, A.blanc));
     out.push(h.path(poly(arc(C, R, -30, 150, 30)), A.ombre));
     out.push(h.cercle(C[0], C[1], R, A.contour));
     out.push(h.cercle(C[0], C[1], R * 0.62, A.fin), h.cercle(C[0], C[1], R * 0.28, A.fin));
-    // le tour par l'aval, puis le bout remonté par-dessus, parallèle à la rampe, vers celui qui tire
+    // la corde, d'un seul tracé du point fixe au bout tiré : de l'anneau au haut de la rampe, sur le madrier jusque sous
+    // la bille, le tour par l'aval, puis le bout remonté par-dessus, parallèle à la rampe, vers celui qui tire
     const passe = add(add(haut, n, em + 2 * rc + rr), u, 14);
     const fin = add(passe, u, (z.l - 60 - passe[0]) / u[0]);
-    out.push(corde('M ' + autour.map(pt).join(' L ') + ` L ${pt(passe)} L ${pt(fin)}`));
+    out.push(corde(`M ${pt([ancre[0] - 4, yP - 6])} L ${pt(hautRampe)} L ` + autour.map(pt).join(' L ') + ` L ${pt(passe)} L ${pt(fin)}`));
     // on tire : la flèche du geste sur le bout remonté
     const g0 = add(add(fin, u, -64), n, 11), g1 = add(add(fin, u, -18), n, 11);
     out.push(h.geste(`M ${pt(g0)} L ${pt(g1)}`));
@@ -86,13 +85,15 @@ module.exports = (h) => {
     const fin = add(passe, u, (z.l - 60 - passe[0]) / u[0]);
     const gm = lerp(add(add(fin, u, -64), n, 11), add(add(fin, u, -18), n, 11), 0.5);
     const rc = R + rr, aSous = Math.atan2(-n[1], -n[0]) / RAD;
-    const aval = add(C, [Math.cos((aSous + 90) * RAD), Math.sin((aSous + 90) * RAD)], rc + 1);
+    // le repère 4 vient de la gauche, à peu près à la hauteur du centre de la bille : son rappel arrive en travers de la
+    // corde qui fait le tour, et reste sous la queue de la flèche de rotation
+    const yQ = C[1] + 6, aval = [C[0] - Math.sqrt((rc + rr) ** 2 - 36), yQ];
     const brF = lerp(add(haut, n, em + rr), add(C, n, -rc), 0.5);
     return [
       { n: 1, rond: [m[0] + 4, yg - 19], cible: [m[0] + 4, m[1] - 4 * Math.tan(q.ang) + 1.5], texte: 'madrier en rampe, du sol au plancher' },
       { n: 2, rond: [ancre[0] + 30, yP - 34], cible: [ancre[0] + 4, yP - 8], texte: 'corde frappée sur un point fixe' },
       { n: 3, rond: [brF[0] + 22, brF[1] + 32], cible: [brF[0] + 1, brF[1] + 3], texte: 'descendue sous la pièce' },
-      { n: 4, rond: [aval[0] - 22, aval[1] - 44], cible: [aval[0] - 1, aval[1] - 3], texte: 'remontée par-devant' },
+      { n: 4, rond: [aval[0] - 34, yQ], cible: [aval[0] - 0.4, yQ], texte: 'remontée par-devant' },
       { n: 5, rond: [gm[0] + n[0] * 30, gm[1] + n[1] * 30], cible: [gm[0] + n[0] * 3, gm[1] + n[1] * 3], texte: 'tirer le bout remonté' },
     ];
   };
@@ -102,16 +103,15 @@ module.exports = (h) => {
   // couchée en travers, une corde par madrier : le brin fixe, de l'anneau à la bille, passe sous
   // elle (caché, en tireté) ; le bout remonté repart par-dessus vers la droite.
   const Fa = z => {
-    const k = 0.068, cy = z.h / 2 - 4, run = 2130 * k, x0 = 8, xE = x0 + run;
+    const k = 0.054, cy = z.h / 2 - 4, run = 2130 * k, x0 = 8, xE = x0 + run;   // assez petit pour laisser au bout de chaque corde la place de sa flèche
     const ec = 1250 * k / 2, lm = 240 * k;
     const Rb = 190 * k, xb = x0 + 0.42 * run, Lb = 2300 * k;
     return { k, cy, run, x0, xE, ec, lm, Rb, xb, Lb };
   };
   const vueFace = z => {
     const q = Fa(z), { k, cy, x0, xE, ec, lm, Rb, xb, Lb } = q, out = [];
-    // le plancher de la boîte, à droite, entre ses deux côtés
+    // le plancher de la boîte, à droite, entre ses deux côtés ; sans hachure : la vue n'est pas une coupe
     const lb = 1650 * k / 2;
-    out.push(h.path(poly([[xE, cy - lb], [z.l - 2, cy - lb], [z.l - 2, cy + lb], [xE, cy + lb]]), A.hachure('metal', 'aucun')));
     out.push(h.path(poly([[z.l - 2, cy - lb], [xE, cy - lb], [xE, cy + lb], [z.l - 2, cy + lb]], false), A.contour));
     // les madriers
     for (const s_ of [-1, 1]) out.push(h.rect(x0, cy + s_ * ec - lm / 2, xE + 8 - x0, lm, blanc('contour')));
@@ -130,23 +130,26 @@ module.exports = (h) => {
     out.push(h.rect(xb - Rb, cy - Lb / 2, 2 * Rb, Lb, A.contour));
     // le brin fixe sous la bille, caché
     for (const s_ of [-1, 1]) out.push(h.ligne(xb + Rb - 1, cy + s_ * ec - 2.6, xb - Rb + 2, cy + s_ * ec - 2.6, A.cache));
-    // le tour par l'aval et le bout remonté par-dessus, qui repart vers la droite
+    // le tour par l'aval et le bout remonté par-dessus, qui repart vers la droite, passe l'anneau et s'arrête
+    const xBout = ax + 12;
     for (const s_ of [-1, 1]) {
       const y = cy + s_ * ec + 2.6;
-      out.push(corde(`M ${pt([xb - Rb - 3, y - 5.2])} Q ${pt([xb - Rb - 7, y - 2.6])} ${pt([xb - Rb - 3, y])} L ${pt([z.l - 14, y])}`));
+      out.push(corde(`M ${pt([xb - Rb - 3, y - 5.2])} Q ${pt([xb - Rb - 7, y - 2.6])} ${pt([xb - Rb - 3, y])} L ${pt([xBout, y])}`));
     }
-    // on tire les deux ensemble
+    // on tire les deux ensemble : chaque flèche dans l'axe de son bout tiré, juste après lui
     for (const s_ of [-1, 1]) {
-      const y = cy + s_ * (ec - 15);
-      out.push(h.geste(`M ${pt([xE + 4, y])} L ${pt([xE + 40, y])}`));
+      const y = cy + s_ * ec + 2.6;
+      out.push(h.geste(`M ${pt([xBout + 5, y])} L ${pt([z.l - 6, y])}`));
     }
     return out.join('\n');
   };
   const renvoisFace = z => {
-    const q = Fa(z), { cy, x0, xE, ec, lm, Rb, xb } = q;
+    const q = Fa(z), { k, cy, x0, xE, ec, lm, Rb, xb } = q;
+    const xBout = xE + 330 * k + 12, xm = (xBout + 5 + z.l - 6) / 2 - 3, x6 = (xb + Rb + xE) / 2;
     return [
-      { n: 6, rond: [x0 + 24, cy], cible: [x0 + 40, cy + ec - lm / 2 + 1], texte: 'une corde par madrier' },
-      { n: 7, rond: [xE + 22, cy + 2], cible: [xE + 22, cy + ec - 18], texte: 'tirer les deux bouts ensemble' },
+      // sur la corde du madrier du bas, entre la bille et le plancher
+      { n: 6, rond: [x6, cy + 4], cible: [x6, cy + ec - 2.6 - 2.5], texte: 'une corde par madrier' },
+      { n: 7, rond: [xm, cy + 2], cible: [xm, cy + ec + 2.6 - 2.2], texte: 'tirer les deux bouts ensemble' },
     ];
   };
 

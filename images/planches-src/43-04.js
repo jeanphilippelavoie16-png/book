@@ -142,7 +142,7 @@ module.exports = (h) => {
     const o = [];
     const { e1, e2, e3, e4 } = enc2;
     o.push(ecorceMotif('ecorce-43-04-baton'), baton(XB2, XT2, YC2, E2, [e1, e2, e3, e4], { motif: 'ecorce-43-04-baton', fen: 2 * K2 }));
-    const yH = YC2 - E2 / 2, yB = YC2 + E2 / 2, yc1 = 34, yc2 = 102, yc3 = 136;
+    const yH = YC2 - E2 / 2, yB = YC2 + E2 / 2, yc1 = 34, yc2 = 102, yc3 = 130;
     // les rappels : des encoches vers les cotes du dessus, de la pointe et des encoches vers celles du dessous
     [XT2, e1, e2, e4, e3].forEach((x) => o.push(h.ligne(x, x === XT2 ? YC2 - 3 : yH - 2, x, yc1 - 4, h.a.fin)));
     [XT2, e3].forEach((x) => o.push(h.ligne(x, x === XT2 ? YC2 + 3 : yB + 2, x, yc2 + 4, h.a.fin)));
@@ -151,7 +151,8 @@ module.exports = (h) => {
     o.push(h.cote(e2, yc1, e1, yc1, 'largeur'));
     o.push(h.cote(e3, yc1, e4, yc1, 'largeur de piste'));
     o.push(h.cote(e3, yc2, XT2, yc2, 'pas', { cote: 'dessous' }));
-    o.push(h.cote(XB2, yc3, XT2, yc3, 'environ 90 cm'));
+    // les deux mots sous leur ligne : « pas » sous la sienne, « environ 90 cm » sous la sienne
+    o.push(h.cote(XB2, yc3, XT2, yc3, 'environ 90 cm', { cote: 'dessous' }));
     return o.join('\n');
   };
 
@@ -171,9 +172,10 @@ module.exports = (h) => {
     const caillou = (cx, cy, rx, ry, a) => {
       const P = [];
       for (let i = 0; i < 9; i++) { const t = i / 9 * 2 * Math.PI, rr = 1 + 0.12 * Math.sin(3 * t + a); P.push([cx + rx * rr * Math.cos(t), cy + ry * rr * Math.sin(t)]); }
-      return [h.path(boucle(P.map(([x, y]) => [x + 1.6, y + 1.6])), h.a.ombre), h.path(boucle(P), h.a.arete.replace('fill="none"', 'fill="#FFFFFF"'))].join('\n');
+      // un caillou blanc au trait d'arête, sans ombre portée (la charte)
+      return h.path(boucle(P), h.a.arete.replace('fill="none"', 'fill="#FFFFFF"'));
     };
-    o.push(caillou(sure[0] - 52, sure[1] - 30, 9, 6.5, 0.4), caillou(sure[0] - 34, sure[1] - 42, 7.5, 6, 1.9), caillou(sure[0] - 66, sure[1] - 12, 8, 6, 3.1));
+    o.push(caillou(sure[0] - 52, sure[1] - 30, 9, 6.5, 0.4), caillou(sure[0] - 34, sure[1] - 42, 7.5, 6, 1.9), caillou(sure[0] - 66, sure[1] - 16, 8, 6, 3.1));
     // la suivante, à peine visible : là où on cherche
     o.push(sabot(...suiv, K3, 'trace'));
     o.push(h.controle(suiv[0], suiv[1], 52));
@@ -195,7 +197,7 @@ module.exports = (h) => {
     desc: 'En haut, une piste de cervidé au pas vue de dessus : trois empreintes de sabot, alternées de part et d’autre, et les quatre mesures qu’on prend sur la meilleure : sa longueur, sa largeur, le pas de centre à centre jusqu’à l’empreinte de l’autre pied, la largeur de la piste d’un bord à l’autre. Au milieu, le bâton d’environ 90 cm, pointu au bout, écorcé par endroits, ses quatre encoches comptées depuis la pointe : longueur, puis largeur depuis la première ; le pas depuis la pointe ; la largeur de piste reportée depuis l’encoche du pas vers la pointe. En bas, la piste perdue : la dernière empreinte sûre, marquée de trois cailloux, et le bâton couché dessus dans le sens de la marche, l’encoche du pas sur son centre ; la pointe tombe à la hauteur de l’empreinte suivante, à peine visible, décalée sur le côté : on cherche là.',
     format: 'pleine',
     disposition: [['marquer'], ['baton'], ['chercher']],
-    hauteurs: [3, 2.1, 3.3],
+    hauteurs: [2.78, 2.27, 3.35],
     largeurs: [[1], [1], [1]],
     vues: {
       marquer: {

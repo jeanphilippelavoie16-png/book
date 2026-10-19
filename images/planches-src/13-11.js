@@ -8,16 +8,21 @@
 //   la paume qui polit   1-08 « tige-a-plat » sans son objet, en miroir (les doigts vers la gauche) : la main à plat,
 //                        paume vers le bas, posée sur le haut du bombé (comme frotter dans 04-41) ; l'avant-bras
 //                        continue ses deux bords et sort par le bord droit de la vue.
-//   la main qui tient    2-06 « carte-pincee » sans son objet, en miroir, tournée de 118° : le bord du disque pris entre
-//                        le pouce, devant, et les doigts ; le disque se place où était la carte du fichier, sur son axe.
-//                        L'avant-bras, à plat vers la gauche, continue les deux bords de la main, couché sur une bûche
-//                        vue par le bout, et sort par le bord de la vue.
-//   (1-05 « pince-cylindre » écartée : l'écart entre le pouce et l'index est celui d'un bouchon, trois fois l'épaisseur
-//   du bord du disque ; le disque y flottait.)
+//   la main qui tient    2-06 « carte-pincee » sans son objet, en miroir (elle vient de la droite), penchée de -40°,
+//                        presque la pose de la feuille des mains : le pouce dessus, l'index replié dessous ; le bout du
+//                        disque est pris entre les deux, et le disque se place où était la carte du fichier, sur son
+//                        axe. L'avant-bras continue les deux bords de la main (les segments du dessin qui finissent à la
+//                        coupe, pris à 2,5 unités de la coupe, sans marche), descend vers la droite, couché sur une
+//                        bûche vue par le bout, et sort par le bord de la vue.
+//   (Second regard du 19 octobre 2026 : la même 2-06 tournée de 118° pour coucher l'avant-bras à gauche faisait une
+//   crête de doigts mous, un index en griffe et un pouce en boudin ; la 2-04 « plaque-cote » mettait le pouce le long
+//   du disque, du côté du soleil, dans le chemin des rayons. 1-05 « pince-cylindre » écartée : l'écart entre le pouce et
+//   l'index est celui d'un bouchon, trois fois l'épaisseur du bord du disque ; le disque y flottait.)
 // L'optique : le disque vu de biais (une ellipse), perpendiculaire aux rayons ; l'axe de la carte de 2-06, tourné avec
-// la main, donne le grand axe de l'ellipse, et le soleil vient d'en haut à gauche, perpendiculaire à cet axe (28° au-
-// dessus de l'horizon : un soleil bas). Le cône part de la face de l'autre côté, dans l'axe des rayons, jusqu'au point
-// sur la cible. Aucune cote : « large comme la main » se lit par la main posée dessus.
+// la main, donne le grand axe de l'ellipse, et le soleil vient d'en haut à gauche, perpendiculaire à cet axe (50° au-
+// dessus de l'horizon). Les rayons arrivent sur la partie libre du disque, hors de la main ; le cône part de la face de
+// l'autre côté, dans l'axe des rayons, et passe sous l'avant-bras jusqu'au point sur la cible. Aucune cote : « large
+// comme la main » se lit par la main posée dessus.
 
 module.exports = (h) => {
   const A = h.a, F = h.formes;
@@ -38,11 +43,26 @@ module.exports = (h) => {
     const c = Math.cos(deg(o.angle || 0)), s = Math.sin(deg(o.angle || 0));
     return ([px, py]) => { const u = sx * k * (px - A0[0]), v = k * (py - A0[1]); return [o.x + c * u - s * v, o.y + s * u + c * v]; };
   };
-  // L'avant-bras prolongé jusqu'au bord de la vue : chaque bord part, 2 unités en dedans de la coupe du fichier, dans
-  // la direction du bord de la main (haut, bas : [point, direction vers le coude], relevés sur le dessin de la main), se
-  // courbe sur Lc jusqu'à l'axe de l'avant-bras et file droit ; un fond blanc couvre la coupe du fichier.
+  // L'avant-bras prolongé jusqu'au bord de la vue : chaque bord part un peu en dedans de la coupe du fichier, dans la
+  // direction du bord de la main (haut, bas : [point, direction vers le coude] relevés sur le dessin de la main, ou le
+  // segment de Bézier du dessin qui finit à la coupe), se courbe sur Lc jusqu'à l'axe de l'avant-bras et file droit ;
+  // un fond blanc couvre la coupe du fichier.
   const avantBras = (T, haut, bas, Lc = 16, L = 300) => {
-    const dir = ([p, d]) => { const a = T(p), b = T([p[0] + d[0], p[1] + d[1]]), n = Math.hypot(b[0] - a[0], b[1] - a[1]); const u = [(b[0] - a[0]) / n, (b[1] - a[1]) / n]; return [[a[0] - u[0] * 2, a[1] - u[1] * 2], u]; };
+    const dir = bord => {
+      // un bord donné par le segment de Bézier du dessin de la main qui finit à la coupe ({ bez, bout } : bout = 0 ou 1,
+      // le bout du segment à la coupe) : on part du point du segment à 2,5 unités de la coupe, dans la direction du
+      // segment en ce point ; le nouveau trait se raccorde au trait du fichier sans marche
+      if (bord.bez) {
+        const Q = bord.bez.map(T), at = t => { const u = 1 - t; return [0, 1].map(k => u * u * u * Q[0][k] + 3 * u * u * t * Q[1][k] + 3 * u * t * t * Q[2][k] + t * t * t * Q[3][k]); };
+        const der = t => { const u = 1 - t; return [0, 1].map(k => 3 * u * u * (Q[1][k] - Q[0][k]) + 6 * u * t * (Q[2][k] - Q[1][k]) + 3 * t * t * (Q[3][k] - Q[2][k])); };
+        const fin = at(bord.bout); let t = bord.bout;
+        for (let i = 0; i < 400; i++) { const tt = bord.bout ? 1 - i / 400 : i / 400; const q = at(tt); if (Math.hypot(q[0] - fin[0], q[1] - fin[1]) >= 2.5) { t = tt; break; } }
+        const p = at(t), dv = der(t), sg = bord.bout ? 1 : -1, n = Math.hypot(dv[0], dv[1]);
+        return [p, [sg * dv[0] / n, sg * dv[1] / n]];
+      }
+      const [p, d] = bord;
+      const a = T(p), b = T([p[0] + d[0], p[1] + d[1]]), n = Math.hypot(b[0] - a[0], b[1] - a[1]); const u = [(b[0] - a[0]) / n, (b[1] - a[1]) / n]; return [[a[0] - u[0] * 2, a[1] - u[1] * 2], u];
+    };
     const [t0, dt] = dir(haut), [b0, db] = dir(bas);
     let ax = add(dt, db); ax = mul(ax, 1 / Math.hypot(ax[0], ax[1]));
     const B = (p0, d0) => { const e = add(p0, mul(ax, Lc)); return { c1: add(p0, mul(d0, Lc / 2)), c2: add(e, mul(ax, -Lc / 2)), e, fin: add(e, mul(ax, L)) }; };
@@ -102,43 +122,38 @@ module.exports = (h) => {
   };
 
   // ── Vue 2 : au soleil ──
-  // La main : 2-06 sans sa carte, en miroir, tournée de 118°. Le disque prend la place de la carte : son centre sur
-  // l'axe de la carte, à S du centre de la carte, vers le haut à droite ; son grand axe suit l'axe de la carte. Le
-  // soleil arrive perpendiculaire à ce grand axe.
-  const MAIN_SOLEIL = { id: 'carte-pincee', objet: false, miroir: true, angle: 118, taille: 110 };
+  // La main : 2-06 « carte-pincee » sans sa carte, en miroir (elle vient de la droite), penchée de SOLEIL_ANGLE : le
+  // pouce dessus, l'index replié dessous, comme sur la feuille des mains. Le disque prend la place de la carte, sur son
+  // axe : son bout pris entre le pouce et l'index, le reste qui dépasse vers le bas à gauche ; son grand axe suit l'axe
+  // de la carte. Le soleil arrive perpendiculaire à ce grand axe, d'en haut à gauche, et le cône part vers le bas à
+  // droite, sous l'avant-bras. L'avant-bras continue les deux bords de la main et descend vers la droite sur une bûche.
+  const SOLEIL_ANGLE = -40, SOLEIL_TAILLE = 85, SOLEIL_S = 12, XL_BUCHE = 40, XM_MAIN = 150;
+  const CONE = [0.45, -0.86], RAYONS = [0.2, -0.2, -0.6];   // le long du grand axe (+ vers la main) : les bords du cône, les rayons
   const RAPPORT = 0.38;                                     // le petit axe de l'ellipse sur le grand : le disque de biais
   const soleil = z => {
-    const yS = z.h - 4, e = 0.42, D = 110 * e, ep = 15 * e, S = 15, xl = 19, RL = 13;
-    // le dessous de l'avant-bras, tel que 2-06 le dessine : les deux premiers segments de son contour (de la coupe vers
-    // le poignet), échantillonnés dans la vue ; on y lit la hauteur à l'abscisse x
-    const BORD = [[[2252.88, 1329.26], [2272.9, 1300.29], [2293.93, 1269.7], [2310.59, 1238.67]],
-      [[2310.59, 1238.67], [2343.26, 1177.86], [2335.07, 1196.7], [2346.27, 1114.42]]];
-    const HAUT = [[[2367.77, 1392.43], [2374.31, 1378.42], [2444.91, 1262.17], [2450.44, 1252.49]],
-      [[2450.44, 1252.49], [2460.54, 1234.81], [2471.77, 1237.97], [2483.63, 1215.15]]];
-    const dessous = (T, x, segs = BORD) => {
-      const pts = [];
-      segs.forEach(([p0, c1, c2, p1]) => { for (let i = 0; i <= 20; i++) { const t = i / 20, u = 1 - t;
-        pts.push(T([u * u * u * p0[0] + 3 * u * u * t * c1[0] + 3 * u * t * t * c2[0] + t * t * t * p1[0], u * u * u * p0[1] + 3 * u * u * t * c1[1] + 3 * u * t * t * c2[1] + t * t * t * p1[1]])); } });
-      for (let i = 1; i < pts.length; i++) { const [a, b] = [pts[i - 1], pts[i]]; if ((a[0] - x) * (b[0] - x) <= 0 && a[0] !== b[0]) return a[1] + (b[1] - a[1]) * (x - a[0]) / (b[0] - a[0]); }
-      return null;
+    const yS = z.h - 4, e = 0.42, D = 110 * e, ep = 15 * e, S = SOLEIL_S, RL = 13, xl = z.l - XL_BUCHE, XM = XM_MAIN;
+    // la main posée d'abord en y = 0, puis descendue pour que le dessous de l'avant-bras touche le dessus de la bûche
+    const pose = y => {
+      const o = { id: 'carte-pincee', objet: false, miroir: true, angle: SOLEIL_ANGLE, taille: SOLEIL_TAILLE, x: XM, y };
+      const T = versVue('2-06', o);
+      return { o, T, ab: avantBras(T, { bez: [[2252.88, 1329.26], [2272.9, 1300.29], [2293.93, 1269.7], [2310.59, 1238.67]], bout: 0 },
+        { bez: [[2450.44, 1252.49], [2444.91, 1262.17], [2374.31, 1378.42], [2367.77, 1392.43]], bout: 1 }) };
     };
-    // la main posée d'abord en y = 0, puis descendue pour que le dessous de l'avant-bras touche une bûche de rayon RL
-    const pose = y => { const o = Object.assign({}, MAIN_SOLEIL, { x: 88, y }); const T = versVue('2-06', o);
-      return { o, T, ab: avantBras(T, [[2252.88, 1329.26], [-20.0, 29.0]], [[2367.77, 1392.43], [-6.5, 14.0]]) }; };
-    const y0 = pose(0), P = pose(yS - 2 * RL - dessous(y0.T, xl));
+    const y0 = pose(0), P = pose(yS - 2 * RL - y0.ab.dessous(xl));
     const m = F.mainStock(P.o);
-    const ax = [Math.cos(deg(m.objet.angle)), Math.sin(deg(m.objet.angle))];      // le grand axe, vers le haut à droite
+    const loinMain = [Math.cos(deg(m.objet.angle)), Math.sin(deg(m.objet.angle))];   // l'axe de la carte, vers le bout libre
+    const ax = mul(loinMain, -1);                                                    // le grand axe, vers le haut à droite
     const d = [-ax[1], ax[0]];                                                       // les rayons, vers le bas à droite
-    const Lc = add([m.objet.x, m.objet.y], mul(ax, S));
+    const Lc = add([m.objet.x, m.objet.y], mul(loinMain, S));
     const fz = ((yS - 2) - Lc[1]) / d[1];
     const Fp = add(Lc, mul(d, fz));
-    return { yS, e, D, ep, o: P.o, m, ax, d, Lc, ab: P.ab, xl, rl: RL, contact: [xl, yS - 2 * RL], Fp, dessus: x => dessous(P.T, x, HAUT) };
+    return { yS, e, D, ep, o: P.o, m, ax, d, Lc, ab: P.ab, xl, rl: RL, Fp, dessus: P.ab.dessus };
   };
 
   return {
     ref: '13-11',
     titre: 'La lentille de glace',
-    desc: 'Deux vues. En haut, le disque de glace vu par la tranche, plus épais au centre qu’au bord, la paume nue posée à plat dessus qui le frotte d’avant en arrière, et le même disque retourné pour frotter l’autre côté. En bas, un soleil bas d’hiver : les rayons parallèles arrivent sur le disque, tenu par le bord entre le pouce, devant, et les doigts, l’avant-bras couché à plat sur une bûche ; le disque, vu de biais, est perpendiculaire aux rayons, et le cône de lumière part de sa face de l’autre côté jusqu’à un petit point sur une cible sombre posée au sol, qui fume.',
+    desc: 'Deux vues. En haut, le disque de glace vu par la tranche, plus épais au centre qu’au bord, la paume nue posée à plat dessus qui le frotte d’avant en arrière, et le même disque retourné pour frotter l’autre côté. En bas, le soleil en haut à gauche : les rayons parallèles arrivent sur le disque, tenu par le bout entre le pouce, dessus, et l’index replié, dessous, la main qui vient de la droite et l’avant-bras couché sur une bûche ; le disque, vu de biais, est perpendiculaire aux rayons, et le cône de lumière part de sa face de l’autre côté, passe sous l’avant-bras et se resserre jusqu’à un petit point sur une cible sombre posée au sol, qui fume.',
     format: 'quart',
     disposition: [['polir'], ['soleil']],
     hauteurs: [0.8, 1.2],
@@ -195,13 +210,13 @@ module.exports = (h) => {
           // le cône : des deux bouts du disque, dans l'axe des rayons, jusqu'au point ; peint d'abord, le disque et la
           // main cachent ce qui est derrière eux
           const a = g.D / 2, b = a * RAPPORT;
-          [0.86, -0.7].forEach(s => { const q = add(g.Lc, mul(g.ax, s * a)); out.push(h.ligne(q[0], q[1], g.Fp[0], g.Fp[1], A.detail)); });
+          CONE.forEach(s => { const q = add(g.Lc, mul(g.ax, s * a)); out.push(h.ligne(q[0], q[1], g.Fp[0], g.Fp[1], A.detail)); });
           out.push(h.ligne(g.Lc[0], g.Lc[1], g.Fp[0], g.Fp[1], A.fin));
           // le disque, vu de biais ; puis la main qui le tient par le bord, et son avant-bras couché sur la bûche
           out.push(lentille(g.Lc, g.ax, g.D, g.ep, b - g.ep / 2));
           out.push(String(g.m.svg), g.ab.svg);
           // les rayons du soleil, parallèles, jusqu'à la face du disque qui regarde le soleil
-          [0.62, 0.3, -0.02].forEach(s => {
+          RAYONS.forEach(s => {
             const q = add(add(g.Lc, mul(g.ax, s * a)), mul(g.d, -b * Math.sqrt(1 - s * s) - 0.8));
             const p0 = add(q, mul(g.d, -40));
             out.push(h.fleche(`M ${f(p0[0])} ${f(p0[1])} L ${f(q[0])} ${f(q[1])}`, A.fin));
@@ -218,8 +233,8 @@ module.exports = (h) => {
           const g = soleil(z), C = g.Fp;
           return [
             { n: 4, rond: [C[0] - 44, g.yS - 12], cible: [C[0] - 10, g.yS - 1.5], texte: 'une cible sombre et sèche' },
-            { n: 5, rond: [Math.min(z.l - 12, C[0] + 22), C[1] - 46], cible: [C[0] + 3.5, C[1] - 8], texte: 'cercle : le plus petit point' },
-            { n: 6, rond: [14, g.dessus(14) - 22], cible: [g.xl + 6, g.dessus(g.xl + 6) + 0.6], texte: 'avant-bras calé sur une bûche' },
+            { n: 5, rond: [C[0] + 30, g.yS - 16], cible: [C[0] + 5.5, C[1] - 4], texte: 'cercle : le plus petit point' },
+            { n: 6, rond: [z.l - 14, g.dessus(z.l - 14) - 22], cible: [g.xl - 6, g.dessus(g.xl - 6) + 0.6], texte: 'avant-bras calé sur une bûche' },
           ];
         },
       },

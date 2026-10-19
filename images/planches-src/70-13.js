@@ -105,19 +105,32 @@ module.exports = (h) => {
       dents.push([fa[0] + (fb[0] - fa[0]) * t + (i % 2 ? 3 : -1), fa[1] + (fb[1] - fa[1]) * t]);
     }
     out.push(h.path(ligne(dents), A.arete));
-    const pf = auPoint(m, sF);
-    out.push(volute(pf[0] - 4, pf[1] - 2, 0.7, 1), volute(pf[0] + 5, pf[1] + 4, 0.6, -1));
+    // pas de fumée dessinée sur le front : vue de dessus, elle monte vers l'œil, et deux filets frisés au travers
+    // de la cloison se lisaient comme des poils. Le front dentelé et la flèche suffisent.
     // le sens du front, le long du couloir
     const a1 = auPoint(m, sF + 18), a2 = auPoint(m, sF + 56);
     out.push(h.fleche(`M${r1(a1[0])} ${r1(a1[1])} L${r1(a2[0])} ${r1(a2[1])}`, A.arete));
     // la vitesse, écrite au crayon gras sur le fond du plateau : deux lignes d'écriture
-    const ecriture = (x, y, L) => {
-      const pts = [];
-      for (let i = 0; i <= L; i += 2) pts.push([x + i, y + Math.sin(i * 0.9) * 2.2 - (i % 9 < 2 ? 2.5 : 0)]);
-      return h.path(ligne(pts), A.detail);
+    // un mot en cursive illisible, au crayon : une suite de lettres liées sur la ligne de base ; la plupart sont
+    // des « e » (une boucle basse, en haut de la lettre), quelques « u » (un jambage sans boucle) et, de temps en
+    // temps, une lettre haute à boucle ; L, la longueur du mot ; graine, pour que deux mots ne soient pas pareils
+    const ecriture = (x, y, L, graine = 1) => {
+      const lettres = { e: [2.7, 2.4, 1.15], u: [2.9, 2.3, 0.15], l: [2.6, 4.6, 1.0] };   // largeur, hauteur, boucle
+      const suite = 'eueeleuee ueleeuel'.replace(/ /g, '');
+      const pts = [[x, y]];
+      let xc = x, j = graine * 5;
+      while (xc < x + L - 2) {
+        const [w, H, c] = lettres[suite[j++ % suite.length]], r = w / (2 * Math.PI);
+        for (let k = 1; k <= 20; k++) {
+          const t = k / 20 * 2 * Math.PI;
+          pts.push([xc + r * t + c * Math.sin(t), y - H * (1 - Math.cos(t)) / 2]);
+        }
+        xc += w;
+      }
+      return h.path('M' + pts.map(p => `${r1(p[0])} ${r1(p[1])}`).join(' L'), A.detail);
     };
     const xn = g.x0 + g.bord + 14;
-    out.push(ecriture(xn, g.yNote, 46), ecriture(xn + 52, g.yNote, 22), ecriture(xn, g.yNote + 9, 34));
+    out.push(ecriture(xn, g.yNote, 40, 1), ecriture(xn + 48, g.yNote, 22, 2), ecriture(xn, g.yNote + 10, 30, 3));
     return {
       svg: out.join('\n'), g, m, sF, Ltot, tout,
     };
@@ -125,14 +138,17 @@ module.exports = (h) => {
   const planRenvois = z => {
     const r = plan(z), g = r.g;
     const xr = z.l - 11;
-    const p0 = auPoint(r.m, 2), pRun = auPoint(r.m, r.Ltot * 0.42), pf = auPoint(r.m, r.sF);
+    const p0 = auPoint(r.m, 2), pf = auPoint(r.m, r.sF);
+    const a = 25 * Math.PI / 180, Rc = g.p / 2 + g.w + 1.2;
+    const coude = [r1(g.xb + Rc * Math.cos(a)), r1(g.ya + 2.5 * g.p + Rc * Math.sin(a))];
     return [
       { n: 1, rond: [g.x0 + g.S * 0.5, g.y0 + g.S + 26], cible: [g.x0 + g.S * 0.5, g.y0 + g.S + 1], texte: 'plateau de tôle' },
-      { n: 2, rond: [xr, pRun[1] - g.w - 4], cible: [g.xb + g.p / 2 + g.w + 1, pRun[1] - g.p / 2], texte: 'grillage plié en U, monté en labyrinthe' },
+      // le coude du bas à droite du labyrinthe (le demi-tour entre le 3ᵉ et le 4ᵉ couloir), sur sa paroi de dehors
+      { n: 2, rond: [xr, coude[1]], cible: coude, texte: 'grillage plié en U, monté en labyrinthe' },
       // le point sur le bout de la bande, la paroi de grillage repliée qui ferme le couloir (la médiane part à s = 0)
       { n: 4, rond: [12, p0[1] + 30], cible: [p0[0] - 2, p0[1] + 4], texte: 'allumer à un seul bout' },
       { n: 5, rond: [xr, g.y0 + 16], cible: [pf[0] + 6, pf[1] - g.w + 4], texte: 'le front couve d’un bout à l’autre' },
-      { n: 6, rond: [xr, g.yNote - 14], cible: [g.x0 + g.bord + 14 + 76, g.yNote + 1], texte: 'noter la vitesse au crayon gras' },
+      { n: 6, rond: [xr, g.yNote + 4], cible: [g.x0 + g.bord + 14 + 72, g.yNote + 1], texte: 'noter la vitesse au crayon gras' },
     ];
   };
 
@@ -141,16 +157,20 @@ module.exports = (h) => {
     const out = [];
     const cx = z.l / 2;
     // en haut : un bout de bande pliée en U, en perspective cavalière
-    const u = 26, hu = 26, dx = 56, dy = -30;         // demi-largeur, hauteur, fuite
+    // le U assez large pour que le coin du fond, en bas à gauche, passe à plus de 8 du coin de devant de la paroi
+    // de droite (à 52 de large, les deux coins se touchaient et faisaient un nœud de traits)
+    const u = 33, hu = 26, dx = 56, dy = -30;         // demi-largeur, hauteur, fuite
     const y0 = 96;                                     // le bas du U, devant
-    const xL = cx - u - dx / 2 + 6, xR = xL + 2 * u;
+    const xL = cx - u - dx / 2 + 2, xR = xL + 2 * u;
     const Uf = [[xL, y0 - hu], [xL, y0], [xR, y0], [xR, y0 - hu]];
     const Ub = Uf.map(([x, y]) => [x + dx, y + dy]);
     // la paroi du fond (gauche, vue de l'intérieur), le fond, la paroi de droite vue de dehors
     out.push(h.path(poly([Uf[0], Ub[0], Ub[1], Uf[1]]), A.hachure('grillage', 'detail')));
     out.push(h.path(poly([Uf[1], Ub[1], Ub[2], Uf[2]]), A.hachure('grillage', 'detail')));
+    // le bord du fond, derrière : tracé avant la paroi de droite, qui en cache la partie qu'elle couvre
+    out.push(h.path(ligne(Ub), A.detail));
     out.push(h.path(poly([Uf[2], Ub[2], Ub[3], Uf[3]]), A.blanc), h.path(poly([Uf[2], Ub[2], Ub[3], Uf[3]]), A.hachure('grillage', 'detail')));
-    out.push(h.path(ligne(Uf), A.arete), h.path(ligne(Ub), A.detail));
+    out.push(h.path(ligne(Uf), A.arete), h.path(ligne([Ub[2], Ub[3]]), A.detail));
     out.push(h.path(ligne([Uf[0], Ub[0]]), A.arete), h.path(ligne([Uf[3], Ub[3]]), A.arete), h.path(ligne([Uf[2], Ub[2]]), A.arete));
     // la bande à plat, avant le pli, et le pli : deux flèches qui relèvent les bords
     const yP = y0 + 30;

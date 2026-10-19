@@ -135,14 +135,19 @@ module.exports = (h) => {
     out.push(h.rect(xb - wb / 2, yg - hb, wb, hb, A.contour));
     out.push(h.ellipse(xb, yg - hb, wb / 2, 6, blanc('contour')));
     out.push(h.ellipse(xb, yg - hb, wb * 0.3, 3.5, A.fin));
-    // le jonc d'abord : il passe dans la fente, derrière la moitié de devant du bâton
+    // le jonc d'abord : le bâton passe par-dessus, et on le voit dans le jour de la fente
     const n = nor(u), e = 2.6;
     out.push(h.path(poly([add(debut, n, e), add(fin, n, e), add(fin, n, -e), add(debut, n, -e)]), blanc('arete')));
-    // le bâton planté dans la bûche, fendu en haut
-    const w = 30 * k, yH = tete[1] - 16;
-    out.push(h.path(poly([[xb - w / 2, yg - hb + 3], [xb - w / 2, yH], [xb - 1.5, yH - 3], [xb + 1.5, yH - 3], [xb + w / 2, yH], [xb + w / 2, yg - hb + 3]]), blanc('contour')));
-    out.push(h.ligne(xb, yH - 2, xb, tete[1] + 22, A.detail));
-    out.push(h.ligne(xb - 3.5, tete[1] + 32, xb - 3.5, yg - hb - 4, A.fin));
+    // le bâton planté dans la bûche, fendu du haut jusque sous le jonc : la fente s'ouvre en un jour étroit, de la
+    // largeur du jonc qu'elle pince ; ses deux moitiés tiennent le jonc de part et d'autre
+    const w = 44 * k, yH = tete[1] - 16, gs = 6, yFd = tete[1] + e + 9, yBas = yg - hb + 3;
+    const baton = [[xb - w / 2, yBas], [xb - w / 2, yH + 1.5], [xb - w / 2 + 1.5, yH], [xb - gs / 2, yH], [xb - gs / 2, yFd],
+      [xb, yFd + 4], [xb + gs / 2, yFd], [xb + gs / 2, yH], [xb + w / 2 - 1.5, yH], [xb + w / 2, yH + 1.5], [xb + w / 2, yBas]];
+    out.push(h.path(poly(baton), A.blanc));
+    out.push(h.path(poly(baton.slice(0, 4), false) + ' ' + poly(baton.slice(7), false).replace('M', 'M'), A.contour));
+    out.push(h.path(poly(baton.slice(3, 8), false), A.arete));
+    out.push(h.ligne(xb - w / 2, yBas, xb + w / 2, yBas, A.contour));
+    out.push(h.ligne(xb - 5, tete[1] + 30, xb - 5, yg - hb - 4, A.fin));
     // la flamme, debout au bout du jonc
     const fl = add(fin, u, -3);
     const F = (x, y) => [fl[0] + x, fl[1] + y];
@@ -159,9 +164,11 @@ module.exports = (h) => {
   const renvoisBruler = z => {
     const q = P5(z), { xb, hb, hs, yg, tete, u, debut, fin } = q;
     const mi = add(debut, u, 230);
+    const w = 44 * q.k, xc = xb - w / 2 - 4;
     return [
-      { n: 5, rond: [xb - 70, tete[1] - 22], cible: [xb - 8, tete[1] - 4], texte: 'pincer le jonc dans un bâton fendu' },
-      { n: 6, rond: [mi[0] + 14, mi[1] - 36], cible: [mi[0], mi[1] - 4], texte: 'presque couché' },
+      // sur le bord du haut du jonc, juste avant qu'il entre dans la fente
+      { n: 5, rond: [xb - 70, tete[1] - 22], cible: [xc, tete[1] + (xb - xc) * Math.tan(q.ang) - 3.2], texte: 'pincer le jonc dans un bâton fendu' },
+      { n: 6, rond: [mi[0] + 14, mi[1] - 36], cible: [mi[0], mi[1] - 4], texte: 'brûler le jonc presque couché' },
     ];
   };
 
@@ -175,8 +182,8 @@ module.exports = (h) => {
     largeurs: [[1], [1, 1, 1.5], [1]],
     vues: {
       peler: { titre: 'Peler, en gardant une bande (grossi)', dessin: vuePeler, renvois: renvoisPeler },
-      une: { titre: 'Une bande : claire', dessin: z => coupe(z, [-90]), renvois: [] },
-      deux: { titre: 'Deux bandes : sombre', dessin: z => coupe(z, [-90, 90]), renvois: [] },
+      une: { titre: 'Une bande : éclaire bien', dessin: z => coupe(z, [-90]), renvois: [] },
+      deux: { titre: 'Deux bandes : éclaire mal', dessin: z => coupe(z, [-90, 90]), renvois: [] },
       tremper: { titre: 'Tremper, une fois sec', dessin: vueTremper, renvois: renvoisTremper },
       bruler: { titre: 'Brûler, presque couché', dessin: vueBruler, renvois: renvoisBruler },
     },

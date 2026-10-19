@@ -27,11 +27,22 @@
 // 164° cachait le pouce : écartées.)
 // Le bout resté dans l'eau n'a pas besoin du pouce pour rester plein : il n'est pas dessiné avec une main.
 // Le rouge : la flèche du geste, descendre le bout sur le coton (repère 3).
+//
+// L'eau (reprise le 19 octobre 2026, comme les planches 10-01 et 10-03) : le motif est calé pour qu'aucune vaguelette ne
+// soit coupée. Une forme calée est tracée décalée de (−tx, −ty) dans un groupe déplacé de (tx, ty) : elle reste en place,
+// seules les vaguelettes bougent. Dans chaque chaudière, l'eau du dessus et le dépôt sont deux morceaux (le joint passe
+// juste sous la ligne ondulée, au-dessus des points) ; le dépôt est calé entre deux rangées de vaguelettes, il n'en
+// montre aucune. Dans la deuxième vignette, l'eau du dessus est peinte en deux morceaux, de part et d'autre du boyau.
 
 module.exports = (h) => {
   const A = h.a, F = h.formes;
   const f = v => Math.round(v * 10) / 10;
   const blanc = at => at.replace('fill="none"', 'fill="#FFFFFF"');
+  const cale = ([tx, ty], dessin) => `<g transform="translate(${tx} ${ty})">\n${dessin(-tx, -ty)}\n</g>`;
+  // Les calages, cherchés par calcul puis regardés de près : l'eau du dessus et le dépôt de la première vignette ; l'eau
+  // du dessus à gauche et à droite du boyau, puis le dépôt, dans la deuxième.
+  const CALE_1 = { haut: [0, 0], depot: [0, -1.4] };
+  const CALE_2 = { gauche: [0, 0], droite: [0, 0], depot: [0, -6.4] };
   // la main : 1-01 « poing-barre », en miroir, sa taille et son angle dans la vue
   const M101 = require('../../.claude/skills/planches/scripts/mains/stock.js').catalogue['1-01'];
   const TAILLE = 80, ANGLE = 10;
@@ -49,16 +60,20 @@ module.exports = (h) => {
     h.path(d, `fill="none" stroke="#1A1A1A" stroke-width="${LB}" stroke-linecap="butt" stroke-linejoin="round"`),
     h.path(d, `fill="none" stroke="#FFFFFF" stroke-width="${f(LB - 2 * MUR)}" stroke-linecap="butt" stroke-linejoin="round"`),
   ];
-  // une chaudière évasée, son eau
-  const chaudiere = (c, yEau) => {
+  // une chaudière évasée, son eau : des morceaux [y0, y1, calage, xa, xb] (xa, xb : coupé à la verticale ; null : jusqu'à
+  // la paroi), puis la ligne de surface
+  const chaudiere = (c, yEau, morceaux = []) => {
     const px = (y, cote) => {
       const t = (c.yb - y) / (c.yb - c.yt);
       return cote === 'g' ? c.xb0 + (c.xt0 - c.xb0) * t : c.xb1 + (c.xt1 - c.xb1) * t;
     };
     const out = [];
     if (yEau != null) {
-      const pts = [[px(yEau, 'g') + 1.2, yEau], [px(yEau, 'd') - 1.2, yEau], [c.xb1 - 1.2, c.yb - 1.2], [c.xb0 + 1.2, c.yb - 1.2]];
-      out.push(h.chemin(pts, A.hachure('eau', 'aucun'), true), h.ligne(pts[0][0], yEau, pts[1][0], yEau, A.arete));
+      for (const [y0, y1, cal, xa = null, xb = null] of morceaux) out.push(cale(cal, (dx, dy) => {
+        const G = y => (xa === null ? px(y, 'g') + 1.2 : xa), D = y => (xb === null ? px(y, 'd') - 1.2 : xb);
+        return h.chemin([[G(y0), y0], [D(y0), y0], [D(y1), y1], [G(y1), y1]].map(([x, y]) => [f(x + dx), f(y + dy)]), A.hachure('eau', 'aucun'), true);
+      }));
+      out.push(h.ligne(px(yEau, 'g') + 1.2, yEau, px(yEau, 'd') - 1.2, yEau, A.arete));
     }
     return { eau: out, bord: [
       h.chemin([[c.xt0, c.yt], [c.xb0, c.yb], [c.xb1, c.yb], [c.xt1, c.yt]], A.contour),
@@ -105,7 +120,9 @@ module.exports = (h) => {
     return { yS, cx, c, yEau: c.yt + 12 };
   };
   const remplir = z => {
-    const g = geo1(z), out = [], ch = chaudiere(g.c, g.yEau);
+    const g = geo1(z), out = [];
+    const yJ = g.yS - 10 + 1.4;                             // le joint de l'eau et du dépôt, sous la ligne ondulée
+    const ch = chaudiere(g.c, g.yEau, [[g.yEau, yJ, CALE_1.haut], [yJ, g.c.yb - 1.2, CALE_1.depot]]);
     out.push(...sol(z, g.yS), ...ch.eau);
     // le dépôt au fond, qu'on ne touche pas
     const yD = g.yS - 10, xg = g.c.xb0 + 1.5 + 2, xd = g.c.xb1 - 1.5 - 2;
@@ -220,7 +237,9 @@ module.exports = (h) => {
     out.push(h.rect(g.bil.x1 - 14, g.bil.y0, 14, g.yS - g.bil.y0, A.ombre));
     out.push(h.ligne(g.bil.x0 + 26, g.bil.y0 + 10, g.bil.x0 + 26, g.yS - 10, A.detail));
     out.push(h.rect(g.bil.x0, g.bil.y0, g.bil.x1 - g.bil.x0, g.yS - g.bil.y0, A.contour));
-    const ch = chaudiere(g.c, g.c.yt + 11), se = chaudiere(g.s, null);
+    const yJ = g.c.yb - 8 + 1.4;                            // le joint de l'eau et du dépôt, sous la ligne ondulée
+    const ch = chaudiere(g.c, g.c.yt + 11, [[g.c.yt + 11, yJ, CALE_2.gauche, null, g.xIn + 2], [g.c.yt + 11, yJ, CALE_2.droite, g.xIn - 2, null],
+      [yJ, g.c.yb - 1.2, CALE_2.depot]]), se = chaudiere(g.s, null);
     out.push(...ch.eau);
     // le dépôt au fond de la chaudière du haut
     const yD = g.c.yb - 8;
