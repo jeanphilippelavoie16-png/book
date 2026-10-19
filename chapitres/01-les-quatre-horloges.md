@@ -20,7 +20,7 @@ jusqu'au printemps.
 - **La génératrice ou le propane lâche par temps froid** (étapes 2 et 6 à 16).
 - **La route ferme, ou le pont de glace ne tient plus**, et on ne sait pas pour combien de temps (étapes 16
  et 26 à 29).
-- **Le congélateur a coulé pendant une absence**, et il faut décider quoi sauver (étapes 14 et 20 à 27).
+- **Le congélateur a coulé pendant une absence**, et il faut décider quoi sauver (étapes 15 et 20 à 27).
 - **L'eau du réseau devient suspecte** (étapes 17 à 19).
 - **On hésite entre rester et partir** (étapes 16 et 29 ; ch. 2).
 - **Il n'y a ni génératrice, ni thermomètre, ni eau embouteillée** (section 7).
@@ -31,7 +31,7 @@ jusqu'au printemps.
 
 - **Avertisseur de CO à pile** : le seul moyen de savoir qu'un appareil qui brûle remplit la pièce de monoxyde (étape 2).
 - **Thermomètre à sonde** : planté au cœur de l'aliment, il donne le 4 °C du tri et le 74 °C de la cuisson (étapes 20 et 21 ; sans sonde : section 7).
-- **Thermomètre médical** : pris dans la bouche, il montre l'hypothermie avant que ses signes se voient (étape 7 ; sans thermomètre : section 7).
+- **Thermomètre médical** : pris dans la bouche, il montre l'hypothermie avant que ses signes se voient (étape 8 ; sans thermomètre : section 7).
 - **Montre à pile** : elle compte les heures depuis la panne sans user la batterie du téléphone (étape 1).
 
 ---
@@ -48,14 +48,17 @@ jusqu'au printemps.
  - Appuyer sur le bouton d'essai de l'avertisseur et vérifier sa pile. Le bouton teste la pile et la
  sirène, pas l'air de la pièce. L'avertisseur ne sonne pas pour une petite quantité de CO respirée
  pendant des jours : pendant des jours de chauffage improvisé, son silence ne prouve pas que l'air est
- bon (section 6). Sans avertisseur : section 7, « Ce qu'on perd ».
+ bon (section 6).
  - Regarder la date écrite sur l'avertisseur : s'il a été installé il y a plus de 7 ans, faire comme si
  on n'en avait pas.
+ - Si l'avertisseur ne répond pas au bouton, ou si on n'en a pas, ne rien brûler dans la maison d'autre
+ que le poêle raccordé à sa cheminée (section 7, « Ce qu'on perd »).
  - Poser l'avertisseur dans la pièce chauffée où la famille va dormir, à au moins 2 m de tout appareil
  qui brûle.
- - N'allumer dans la maison qu'un appareil fait pour l'intérieur. Le réchaud et la chaufferette de tente
- qu'on garde au garage pour la chasse sont faits pour l'extérieur : allumés dans la maison, ils
- remplissent la pièce de monoxyde.
+ - N'allumer dans la maison et dans le garage qu'un appareil fait pour l'intérieur. Le barbecue est un
+ appareil d'extérieur, et le réchaud et la chaufferette de tente qu'on garde au garage pour la chasse
+ sont des appareils de camping : allumés dans la maison ou dans le garage, même porte ouverte, ils
+ remplissent l'air de monoxyde.
 3. **Poser du ruban à masquer en travers des portes du réfrigérateur et du congélateur**, pour que
  personne ne les ouvre. Chaque ouverture fait entrer de l'air chaud. Fermé, le réfrigérateur garde les
  aliments froids environ 4 à 6 heures ; un congélateur plein les garde congelés environ 48 heures, et un
@@ -73,50 +76,50 @@ jusqu'au printemps.
 
 Faire ces gestes pendant les premières heures : passé 6 heures de panne, il faut trier le réfrigérateur
 (étape 20). **La nuit**, si la panne commence pendant que tout le monde dort et que la maison est encore
-chaude, ajouter une couverture et une tuque aux enfants, les laisser dormir, et faire cette série au
-réveil.
+chaude, envoyer le message de l'étape 6, ajouter une couverture et une tuque aux enfants, les laisser
+dormir, et faire le reste de la série au réveil.
 
-6. **Vivre dans une seule pièce**, celle qui a la source de chaleur, même si les lits sont ailleurs.
+6. **Envoyer un message court à un proche** : où on est, combien on est, ce qui manque. L'envoyer tout de
+ suite, avant les autres gestes de cette série : les tours cellulaires tiennent souvent de 2 à 4 heures
+ sur leurs batteries après le début de la panne. Quand les piles et les batteries de la maison baissent,
+ les garder d'abord pour la radio et la messagerie satellite (ch. 14). À la maison, aller voir les
+ voisins : savoir lequel a un poêle à bois, lequel a une génératrice et lequel vit seul (ch. 16, ch. 18).
+7. **Vivre dans une seule pièce**, celle qui a la source de chaleur, même si les lits sont ailleurs.
  Fermer les portes des autres pièces et rouler une couverture au bas des portes : un chauffage d'appoint
  ne chauffe qu'une pièce fermée (ch. 83). Si un poêle ou un appareil d'appoint brûle dans la pièce, la
  garder aérée, par exemple en entrouvrant une fenêtre : une pièce bien fermée garde le monoxyde (étape 2).
-7. {!froid} **L'hiver, habiller tout le monde en couches, avec une tuque, avant d'avoir froid.** Prendre la
+8. {!froid} **L'hiver, habiller tout le monde en couches, avec une tuque, avant d'avoir froid.** Prendre la
  température dans la bouche d'une personne qui a été dehors ou qui frissonne, et d'un enfant qui devient
  tranquille (section 5).
-8. {!generatrice} **Si on a une génératrice, la faire tourner dehors, à au moins 6 m du bâtiment**, loin
+9. {!generatrice} **Si on a une génératrice, la faire tourner dehors, à au moins 6 m du bâtiment**, loin
  des portes, des fenêtres et des prises d'air. Jamais dans un bâtiment, un garage, un abri ni sous un
  auvent, même porte ouverte, même le temps de la démarrer.
-9. {!electrocution} **Avant de brancher quoi que ce soit sur la génératrice, mettre le disjoncteur
+10. {!electrocution} **Avant de brancher quoi que ce soit sur la génératrice, mettre le disjoncteur
  principal à OFF**, et coller dessus un ruban écrit au marqueur. Brancher ensuite les appareils
  directement dans les prises de la génératrice, avec des rallonges. Sans commutateur de transfert, le
  disjoncteur principal à OFF est la seule chose qui empêche le courant de la génératrice de remonter dans
  la ligne de la rue. Un commutateur de transfert fait le même travail mécaniquement : il empêche de relier
  la maison au réseau et à la génératrice en même temps. Revérifier le disjoncteur à chaque démarrage, même
  à 2 h du matin (ch. 3, ch. 15).
-10. **Arrêter la génératrice 1 heure toutes les 8 heures**, et vérifier pendant l'arrêt le niveau d'huile
+11. **Arrêter la génératrice 1 heure toutes les 8 heures**, et vérifier pendant l'arrêt le niveau d'huile
  et la réserve de carburant (ch. 15). Laisser le moteur refroidir avant de faire le plein.
-11. **Mettre le combustible à couvert pendant qu'il fait clair** : le bois à portée de la porte, les
+12. **Mettre le combustible à couvert pendant qu'il fait clair** : le bois à portée de la porte, les
  bonbonnes et les bidons dehors, sous un abri. Le bois enneigé qu'on va chercher à la noirceur brûle mal
  toute la nuit (ch. 83).
-12. **L'hiver, prendre la température de la pièce chauffée chaque heure, et noter l'écart avec l'heure
+13. **L'hiver, prendre la température de la pièce chauffée chaque heure, et noter l'écart avec l'heure
  d'avant.** En prolongeant cet écart jusqu'au matin, on voit si la pièce restera assez chaude pour la
  nuit ; sinon, regrouper la famille pendant qu'il fait clair. Entre 18 et 24 °C, le risque est minimal pour
  une personne qui bouge peu. Il n'existe aucune température reconnue à partir de laquelle il faut
  partir : la famille en décide avec le ch. 2.
-13. **Faire l'inventaire du froid sans ouvrir les portes.** De mémoire, appareil par appareil : ce qui est
+14. **Faire l'inventaire du froid sans ouvrir les portes.** De mémoire, appareil par appareil : ce qui est
  cru, ce qui est cuit, ce qui est du poisson, ce qui est du gras. Écrire en trois mots, sur le ruban de la
  porte, ce qui passera en premier au tri (étape 20).
-14. **S'il faut quitter la maison, même une nuit, poser un témoin de dégel dans le congélateur** : un
+15. **S'il faut quitter la maison, même une nuit, poser un témoin de dégel dans le congélateur** : un
  verre d'eau gelée, avec une pièce de monnaie posée sur la glace. L'hiver, on peut faire geler le verre
  dehors. Au retour, si la pièce est restée en surface, rien n'a dégelé ; si elle est au fond, tout a
  dégelé puis regelé ; à mi-hauteur, le dégel a été partiel. Un thermomètre minimum-maximum donne la même
  réponse en degrés. Sans l'un ou l'autre, un congélateur retrouvé froid ne prouve rien sur ce qui s'est
  passé pendant l'absence.
-15. **Envoyer un message court à un proche** : où on est, combien on est, ce qui manque. Les tours
- cellulaires tiennent quelques heures sur leurs batteries : envoyer le message dans les premières heures.
- Quand les batteries baissent, les garder d'abord pour la radio et la messagerie satellite (ch. 14). À la
- maison, aller voir les voisins : savoir lequel a un poêle à bois, lequel a une génératrice et lequel vit
- seul (ch. 16, ch. 18).
 
 ### Les quatre horloges
 
@@ -196,9 +199,9 @@ réveil.
 
 | Moment | Ce qu'on vérifie | Cible chiffrée | Si c'est hors cible |
 | --- | --- | --- | --- |
-| Les 15 premières minutes | Avertisseur de CO, au bouton d'essai | Une alarme franche | Faire comme sans avertisseur (section 7, « Ce qu'on perd ») |
+| Les 15 premières minutes | Avertisseur de CO, au bouton d'essai | Une alarme franche | Ne brûler dans la maison que le poêle raccordé à sa cheminée (étape 2) |
 | Les 15 premières minutes | Place de l'avertisseur de CO | Dans la pièce chauffée où on dort, à au moins **2 m** de tout appareil qui brûle ; s'il y en a un deuxième, près de la porte du garage attenant | Le déplacer avant d'allumer quoi que ce soit |
-| Les 15 premières minutes | Date de l'avertisseur de CO | Installé depuis moins de **7 ans** | Faire comme sans avertisseur (section 7) |
+| Les 15 premières minutes | Date de l'avertisseur de CO | Installé depuis moins de **7 ans** | Ne brûler dans la maison que le poêle raccordé à sa cheminée (étape 2) |
 | Chaque heure | Température de la pièce chauffée | Repère : **18 à 24 °C**, risque minimal pour une personne qui bouge peu. Personne ne frissonne, personne ne dort en manteau | Réduire encore le volume chauffé, fermer une pièce de plus, rapprocher les lits. Décider du départ avec le ch. 2 |
 | Chaque heure | L'écart avec la température de l'heure d'avant | L'écart en °C | Le prolonger jusqu'au matin. Si la pièce ne restera pas assez chaude, regrouper la famille pendant qu'il fait clair |
 | Chaque heure, si quelqu'un a été dehors ou a froid | Température dans la bouche | **35 °C ou plus**. Sous 35 °C, hypothermie | Le réchauffer doucement, au sec, à l'abri. Sous **32,2 °C**, la vie est en jeu (ch. 25, ch. 26) |
@@ -242,7 +245,7 @@ réveil.
 
 **À la maison, sans électricité, sans génératrice, sans thermomètre, sans eau embouteillée.**
 
-On vit dans la pièce de l'étape 6, les lits rapprochés, et on ferme les pièces vides : elles isolent la
+On vit dans la pièce de l'étape 7, les lits rapprochés, et on ferme les pièces vides : elles isolent la
 pièce habitée du froid du dehors. Quand le robinet ne donne plus, il reste l'eau des tuyaux et du
 chauffe-eau (plus bas), et les voisins (ch. 16, ch. 18), qui en manquent en même temps : c'est une raison
 de partir au chalet (ch. 2). On cuit tout de suite ce qui ne peut pas attendre, puis on le sale (ch. 67,
@@ -335,9 +338,9 @@ robinet (étape 17) : en tombant, la neige ramasse ce qu'il y a dans l'air.
  plus large, et on jette de la nourriture encore bonne.
 - **La certitude sur le 74 °C, sauf dans l'eau bouillante.** Le bain qui bout règle le cas des morceaux,
  pas celui des grosses pièces rôties, du fumage et de ce qui cuit à sec : là, on juge la cuisson à l'œil.
-- **L'alerte au CO.** Sans avertisseur, rien n'avertit avant les symptômes. On ouvre plus grand la
- fenêtre de l'étape 6, du côté du vent, et on accepte de chauffer moins. Personne ne doit dormir seul
- dans une pièce chauffée à la flamme.
+- **L'alerte au CO.** Sans avertisseur, rien n'avertit avant les symptômes. En plus de ne brûler que
+ le poêle (étape 2), on ouvre plus grand la fenêtre de l'étape 7, du côté du vent, et on accepte de
+ chauffer moins. Personne ne doit dormir seul dans une pièce chauffée à la flamme.
 - **Le rendement du congélateur.** Le froid naturel suit la météo et ne garde pas les -18 °C : un redoux de
  trois jours fait dégeler la réserve, et il faut passer au sel et à la fumée.
 - **Le sommeil.** Un enfant qui a froid dort mal ; les adultes dorment mal à leur tour, et ils prennent de
@@ -359,8 +362,8 @@ l'ours ou du phoque, la façon devient dangereuse : le séchage ne tue pas la tr
 Pendant le verglas de 1998, on a mesuré la température de 31 maisons restées sans chauffage, par environ
 -8 °C dehors. L'air a perdu ses premiers degrés en quelques heures, de 20 à 14 °C, puis il a refroidi
 beaucoup plus lentement : les murs, les meubles et la terre autour du sous-sol rendaient leur chaleur.
-Les maisons ont mis des jours, parfois des semaines, à passer sous zéro. Par grand froid, ça va plus vite
-(étape 12).
+D'après ces mesures, une maison peut mettre des jours, parfois des semaines, à passer sous zéro. Par grand
+froid, ça va plus vite (étape 13).
 
 ### La glace qui fond
 

@@ -45,8 +45,7 @@ magasin : trois mois visés, et au moins un mois même l'année où personne n'a
 ### L'ordre et la place
 
 1. **Bâtir le stock dans l'ordre où le corps lâche : la chaleur, l'eau, puis les calories** (ch. 1). Avec un petit
- budget, compléter d'abord le bois, les moyens d'allumage, l'eau et le gras, avant d'ajouter de la nourriture. Un
- stock à moitié bâti, mais complet sur ces quatre postes, fait vivre la famille.
+ budget, compléter d'abord le bois, les moyens d'allumage, l'eau et le gras, avant d'ajouter de la nourriture.
 2. **Garder le stock au chalet, toute l'année.** Quand l'événement dure, la famille finit au chalet (ch. 2), et le
  jour où on décide d'y monter, la route peut déjà être coupée : ce qui n'est pas au chalet ce jour-là n'y arrivera
  pas. Le stock ne voyage pas. La trousse qu'on emporte est au ch. 6, le sac de départ au ch. 7.
@@ -58,8 +57,10 @@ magasin : trois mois visés, et au moins un mois même l'année où personne n'a
  - Le local ne doit jamais descendre sous 0 °C, et il doit idéalement rester sous 20 °C. Au-dessus de 35 °C, ou près du
  poêle, la réserve se gâte en quelques semaines ou quelques mois. Poser le thermomètre min-max sur une tablette : il
  garde le plus froid et le plus chaud de l'absence (section 5).
- - Une boîte de conserve qui gèle et dégèle fait travailler son serti[^1]. Si le local gèle, mettre les conserves au
- caveau (ch. 79) ou au congélateur.
+ - Une boîte de conserve qui gèle et dégèle fait travailler son serti[^1], et un bocal de conserve maison qui a gelé
+ doit être jeté, même s'il n'est pas fendu. Si le local gèle, descendre les conserves et les bocaux à la maison avant
+ les gels (ch. 84, étape 9). Ne pas les mettre au caveau : son humidité rouille les couvercles et les boîtes
+ jusqu'à défaire le scellé (ch. 79).
  - La date, l'humidité, les souris et le gel détruisent plus de réserve que ce que la famille mange : les étapes 47 à
  51 les surveillent.
  - Garder ce rangement d'une année à l'autre : un frère, un voisin ou le groupe de chasse trouve alors ce qu'il lui
@@ -71,10 +72,10 @@ magasin : trois mois visés, et au moins un mois même l'année où personne n'a
 
 5. **Compter 4 L d'eau par personne et par jour** : 2 L à boire, et 2 L pour préparer les aliments et se laver. Le
  « 2 litres par jour » qu'on voit partout ne compte que la boisson (ch. 6). Pour quatre personnes, ça fait 16 L par
- jour, et 48 L pour 72 heures. C'est un plancher. Deux adultes et deux jeunes enfants ont besoin de 9,8 L d'eau par
- jour, eau des aliments comprise (ch. 21). Un hiver de viande séchée, de poisson salé et de galette n'apporte presque
- pas d'eau : il faut alors boire presque tout ce 9,8 L, et il ne reste que 6,2 L par jour pour la cuisine et
- l'hygiène des quatre.
+ jour, et 48 L pour 72 heures. C'est un plancher. Un homme, une femme et deux enfants de 4 à 8 ans ont besoin de
+ 9,8 L d'eau par jour, eau des aliments comprise (ch. 21). Un hiver de viande séchée, de poisson salé et de galette
+ n'apporte presque pas d'eau : il faut alors boire presque tout ce 9,8 L, et il ne reste que 6,2 L par jour pour la
+ cuisine et l'hygiène des quatre.
 6. **Dimensionner la réserve d'eau, puis les moyens de puiser.**
 
  | Poste | Cible | Remarque |
@@ -105,15 +106,15 @@ magasin : trois mois visés, et au moins un mois même l'année où personne n'a
  | 19 à 30 ans | 2 350 | 3 000 |
  | 31 à 50 ans | 2 250 | 2 900 |
 
- Pour un homme et une femme de 19 à 30 ans et deux enfants de 4 à 7 ans, le total est de 8 550 à 8 800 kcal par
- jour. Ces valeurs sont des moyennes pour la taille et le poids médians au Canada, sans rien pour le froid ni pour le
- travail d'hiver. Fendre, pelleter, faire la tournée des pièges et se garder au chaud à −35 °C coûtent plus cher : la
- neige alourdit chaque pas, la charge s'ajoute, et le frisson fait dépenser de l'énergie même au repos. De jeunes
- hommes entraînés, en opérations d'hiver, dépensent 5 000 à 7 000 kcal par jour, le double du tableau, et ils mangent
- beaucoup moins qu'ils ne dépensent, parce que la nourriture gèle et qu'il faut faire fondre de la neige pour la
- préparer. Au froid, il faut donc un stock **prêt à manger**, pas seulement un gros stock. Bâtir le stock sur
- **9 000 kcal par jour pour la famille**, et prendre ce chiffre comme un minimum : un hiver de travail dur en demande
- environ 9 500 (ch. 21).
+ Pour un homme et une femme de 19 à 30 ans, un enfant de 4 ou 5 ans et un enfant de 6 ou 7 ans, le total est de 8 550
+ à 8 800 kcal par jour. Ces valeurs sont des moyennes pour la taille et le poids médians au Canada, sans rien pour le
+ froid ni pour le travail d'hiver. Fendre, pelleter, faire la tournée des pièges et se garder au chaud à −35 °C
+ coûtent plus cher : la neige alourdit chaque pas, la charge s'ajoute, et le frisson fait dépenser de l'énergie même
+ au repos. De jeunes hommes entraînés, en opérations d'hiver, dépensent 5 000 à 7 000 kcal par jour, le double du
+ tableau, et ils mangent beaucoup moins qu'ils ne dépensent, parce que la nourriture gèle et qu'il faut faire fondre
+ de la neige pour la préparer. Au froid, il faut donc un stock **prêt à manger**, pas seulement un gros stock. Bâtir
+ le stock sur **9 500 kcal par jour pour la famille**, le besoin d'un hiver de travail dur (ch. 21), et prendre ce
+ chiffre comme un minimum.
 9. **Équilibrer les calories.** Une seule denrée qui atteint le total de calories ne nourrit personne pendant trois
  mois. Chaque grande famille d'aliments a sa part de l'énergie totale :
 
@@ -141,11 +142,11 @@ magasin : trois mois visés, et au moins un mois même l'année où personne n'a
  **calories de l'emballage = masse nette ÷ masse de la portion × calories de la portion**
 
  La farine de blé tout usage donne 240 kcal pour 66 g. Un sac de 2,5 kg porte donc 2 500 ÷ 66 × 240, soit environ
- 9 100 kcal : une journée de la famille. Le calcul reste juste quand la marque ou le format change, ce qu'aucune table
+ 9 100 kcal : presque une journée de la famille. Le calcul reste juste quand la marque ou le format change, ce qu'aucune table
  de kilocalories par kilo ne garantit. Pour le vrac et ce qui n'a pas d'étiquette, chercher l'aliment dans le Fichier
  canadien sur les éléments nutritifs pendant qu'on y a accès, et écrire le chiffre sur le contenant (étape 48).
 11. **Calculer la durée de la réserve** : **jours d'autonomie = calories en réserve ÷ calories par jour de la
- famille**. Trois mois à 9 000 kcal font 810 000 kcal à loger, à garder au sec et à faire tourner : une réserve de
+ famille**. Trois mois à 9 500 kcal font 855 000 kcal à loger, à garder au sec et à faire tourner : une réserve de
  trois mois prend une pièce, pas une étagère, et cette pièce ne doit pas geler (étape 4).
 12. **Compter seulement ce qu'on pourra ouvrir et cuire.** Une conserve sans ouvre-boîte manuel, une légumineuse qui
  demande une heure d'ébullition quand le propane est fini, une viande gelée dans un congélateur sans courant : ces
@@ -227,9 +228,9 @@ magasin : trois mois visés, et au moins un mois même l'année où personne n'a
  une boîte bombée, rouillée, ou bosselée sur le serti ou sur la fermeture verticale ; les autres signes sont au
  tableau de la section 6. Une conserve peut avoir l'air, l'odeur et le goût d'une conserve normale et contenir la
  toxine : le botulisme ne change ni l'odeur, ni le goût, ni l'apparence.
-24. {!botulisme} **Ne pas ranger le poisson fumé ou salé avec les conserves et les denrées sèches.** La bactérie du
- botulisme du poisson fait sa toxine dès 3 °C, à la température d'un réfrigérateur. La façon de le garder est au
- ch. 77.
+24. {!botulisme} **Garder le poisson fumé ou salé gelé, ou sous 3 °C, jamais sur les tablettes du stock.** La
+ bactérie du botulisme du poisson fait sa toxine dès 3 °C, à la température d'un réfrigérateur. La façon de le garder
+ est aux ch. 76 et 77.
 25. {!zone-de-danger} **Garder la viande de l'automne au congélateur de la maison, et compter les heures quand le
  courant manque.**
  - Le congélateur dépend du courant : le garder à la maison, sur le réseau, où on le surveille chaque semaine sans
@@ -279,15 +280,16 @@ magasin : trois mois visés, et au moins un mois même l'année où personne n'a
  kérosène passent la saison au cabanon.
 32. {!vapeurs} **Garder les bouteilles de propane debout, dehors**, jamais dans un bâtiment ni dans un cabanon fermé
  (ch. 87).
-33. {!generatrice} **Faire tourner la génératrice dehors, à au moins 6 m du chalet et du cabanon**, jamais dans le
- cabanon où est le carburant, même porte ouverte.
+33. {!generatrice} **Faire tourner la génératrice dehors, à découvert, à au moins 6 m du chalet et du cabanon.**
+ Jamais dans le cabanon ni dans un autre bâtiment, même porte ouverte, ni sous un auvent.
 34. {!co} **Poser les avertisseurs de CO.**
  - En mettre un à chaque étage, dans le corridor près des chambres, et un dans chaque chambre où on dort porte
  fermée : la porte fermée sépare la personne qui dort de l'avertisseur du corridor.
  - Les poser à au moins 2 m de tout appareil de cuisson ou de combustion, et hors des pièces humides : sinon ils
  sonnent pour la cuisson et la vapeur, et un avertisseur qui sonne pour rien finit débranché.
- - Y mettre des piles au lithium, qui durent 10 ans. La cellule qui détecte le gaz dure moins longtemps que le
- boîtier : remplacer l'appareil à la date écrite au dos du boîtier.
+ - Choisir un modèle dont la pile au lithium dure 10 ans. Dans un modèle dont on change les piles, mettre des piles
+ au lithium. La cellule qui détecte le gaz dure moins longtemps que le boîtier : remplacer l'appareil à la date
+ écrite au dos du boîtier.
 
 ### La lumière et le feu
 
@@ -355,7 +357,7 @@ magasin : trois mois visés, et au moins un mois même l'année où personne n'a
 
 | Moment | Ce qu'on vérifie | Cible chiffrée | Si c'est hors cible |
 | --- | --- | --- | --- |
-| Chaque visite au chalet | Température du local, au thermomètre min-max | Jamais sous **0 °C** ; idéalement sous **20 °C** ; jamais au-dessus de 35 °C | Sous 0 °C : sortir les conserves et les liquides, isoler le local ou déplacer la réserve. Au-dessus de 20 °C : passer les huiles et le lait en poudre en rotation rapide |
+| Chaque visite au chalet | Température du local, au thermomètre min-max | Jamais sous **0 °C** ; idéalement sous **20 °C** ; jamais au-dessus de 35 °C | Sous 0 °C : jeter les bocaux de conserve maison (étape 4), sortir les conserves et les liquides, isoler le local ou déplacer la réserve. Au-dessus de 20 °C : passer les huiles et le lait en poudre en rotation rapide |
 | Chaque visite au chalet | Avertisseurs de CO et de fumée : bouton d'essai, et date de fabrication au dos du boîtier | Un son franc, et un appareil plus jeune que la durée de vie écrite dessus | Mettre des piles neuves ; remplacer l'appareil qui a passé sa date (étape 34) |
 | Chaque visite au chalet | Dessous des bidons de carburant, odeur | Aucun cerne, aucune odeur | Sortir le bidon du bâtiment tout de suite (étape 31) |
 | Chaque visite au chalet | Ce qui partage la tablette de l'eau | Aucun bidon d'essence, de peinture, de diluant ni d'huile à lampe | Déplacer l'eau, pas le solvant (étape 7) |
@@ -450,7 +452,8 @@ gramme (étape 21) : sans balance fine, on ne fait pas de salaison longue, et la
 ### Savoir ce que le local a fait pendant l'absence
 
 **Le témoin de gel.** Poser un pot d'eau sur une tablette. S'il est pris en glace à l'arrivée, le local a gelé : les
-conserves ont travaillé, et les bidons remplis à ras bord ont pu fendre. Pour savoir si le local a dégelé puis regelé
+boîtes de conserve ont travaillé, les bocaux de conserve maison sont à jeter (étape 4), et les bidons remplis à ras
+bord ont pu fendre. Pour savoir si le local a dégelé puis regelé
 pendant l'absence, laisser le pot geler une fois, poser une pièce de monnaie sur la glace et refermer le local. Si on
 retrouve la pièce en surface, rien n'a dégelé. Si elle est prise au milieu ou au fond du bloc, elle a coulé pendant un
 redoux, et tout ce qui était congelé dehors a dégelé en même temps qu'elle.
@@ -549,21 +552,21 @@ temps.
 
 Les Innus cuisent la bannique, une galette épaisse de farine, enfouie dans le sable chaud sous la braise, environ trois
 quarts d'heure. Le sable sec garde la chaleur du feu et cuit la pâte lentement : la farine du stock devient du pain
-sans four ni chaudron, avec le feu qu'on fait déjà (étape 14). Le sable doit être sec, pris en hauteur : un galet
-ramassé dans l'eau éclate à la chaleur (ch. 88).
+sans four ni chaudron (étape 14). Le sable doit être sec, pris en hauteur, et sans galets ramassés dans l'eau autour
+du feu : une pierre gorgée d'eau éclate à la chaleur (ch. 88).
 
 ### Le pemmican
 
-Le mot vient du cri *pimikan*, « graisse préparée ». On réduisait en poudre de la viande séchée, parfois d'orignal ou
-de caribou, et on la mêlait à parts égales avec du gras fondu. Dense en énergie, le mélange se conservait et se
-transportait facilement, et il ravitaillait l'hiver les voyageurs de la traite des fourrures (étape 19). Fait avec de
-l'ours, il est aussi dangereux que la viande crue : le séchage ne tue pas la trichine.
+Le mot vient du cri *pimikan*, « graisse préparée ». On mêlait à parts égales de la viande séchée en poudre, parfois
+d'orignal ou de caribou, et du gras fondu. Le mélange, dense en énergie, se conservait facilement et ravitaillait les
+voyageurs de la traite des fourrures (étape 19). Aujourd'hui, on chauffe la viande à 71 °C à cœur pendant
+15 secondes avant de la sécher (ch. 72). On n'en fait jamais avec de l'ours : le séchage ne tue pas la trichine.
 
 ### Ranger les bocaux sans leur bague
 
 Une fois le bocal scellé et refroidi, on peut enlever la bague vissée avant de le ranger. Le couvercle reste plus sec,
 et l'humidité ronge moins le métal. Surtout, rien ne tient plus en place un couvercle qui a perdu son vide : il bouge
-sous le doigt, et on le voit tout de suite au tour du printemps ou de l'automne (étape 48).
+sous le doigt, et on le voit tout de suite au tour du printemps ou de l'automne (étape 23).
 
 ### L'avertisseur qui bipe au froid
 

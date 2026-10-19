@@ -33,7 +33,7 @@ elles n'arrivent pas.
 - **Radio AM/FM à piles** : donne les nouvelles quand le téléphone ne capte plus ; le soir, la bande AM porte loin (étape 24 ; sans radio : section 7).
 - **Appareil de messagerie satellite avec bouton SOS, et son abonnement** : envoie et reçoit des messages de partout, sans tour cellulaire (étapes 2 et 5 ; sans lui : section 7, « Le relais humain »).
 - **Avertisseur de CO à piles** : le seul moyen de savoir qu'une recharge au moteur remplit l'air de monoxyde (étape 21).
-- **Radio VHF maritime portative, sur le fleuve** : son appel de détresse est entendu par tous les bateaux et tous les postes à portée, pas par une seule personne (étape 2).
+- **Radio VHF maritime portative, sur le fleuve** : appelle à l'aide sur la voie 16, que les bateaux et la Garde côtière écoutent (étape 2).
 
 ---
 
@@ -43,7 +43,7 @@ elles n'arrivent pas.
 
 1. **Décider tout de suite si la vie de quelqu'un est en jeu.** Elle l'est quand une personne respire mal, saigne
  sans qu'on arrive à l'arrêter, se réveille mal ou devient confuse, ou ne pourra pas passer la nuit à l'endroit où
- elle est : dans l'eau, dans le froid sans abri, ou avec une jambe cassée loin du chalet. Dans ce cas, déclencher la
+ elle est : dans le froid sans abri, ou avec une jambe cassée loin du chalet. Dans ce cas, déclencher la
  détresse (étape 2). Sinon, avertir le correspondant (étape 5). Les soins en attendant : ch. 26 ; quand partir vers
  l'hôpital : ch. 35. Dans le doute, avertir quand même (étape 5).
 2. **Si la vie est en jeu, déclencher la détresse, sans attendre.**
@@ -64,11 +64,13 @@ elles n'arrivent pas.
  Rester aussi près de la machine, de l'auto ou du traîneau : d'un avion, on repère une machine plus facilement
  qu'une personne. Garder l'appareil satellite allumé, sous le manteau, pour lire les messages qui arrivent.
 4. {!froid} **Se préparer à attendre longtemps, et à être vu.** Une recherche peut prendre jusqu'à 24 h avant que
- quelqu'un arrive. Monter un abri (ch. 12, étapes 1 à 14) et faire un feu (ch. 13) près de la machine, ou dans
- l'ouverture la plus proche (un lac, une coupe, une clairière), pour qu'on voie le feu d'en haut. Ramasser une
- grosse brassée de branches vertes et la garder à côté du feu : dès qu'on voit ou qu'on entend un avion, la jeter
- sur le feu pour faire une colonne de fumée. La nuit, allumer une lampe frontale ou une lampe de poche vers le bruit
- de l'avion ; le flash d'un appareil photo se voit aussi.
+ quelqu'un arrive.
+ - Monter un abri (ch. 12, étapes 1 à 14) et faire un feu (ch. 13) près de la machine, ou dans l'ouverture la plus
+ proche (un lac, une coupe, une clairière), pour qu'on voie le feu d'en haut.
+ - Ramasser une grosse brassée de branches vertes et la garder à côté du feu. Dès qu'on voit ou qu'on entend un
+ avion, la jeter sur le feu : elle fait une colonne de fumée.
+ - La nuit, allumer une lampe frontale ou une lampe de poche vers le bruit de l'avion ; le flash d'un appareil photo
+ se voit aussi.
 5. **Si la vie n'est pas en jeu mais que ça peut mal tourner, avertir tout de suite le correspondant** par message
  satellite : un blessé stable, une motoneige en panne à 10 km du chalet, un enfant fiévreux pendant une tempête. Le
  correspondant est la personne choisie d'avance, loin de l'urgence, qui garde la fiche de position et sait quoi
@@ -111,15 +113,17 @@ elles n'arrivent pas.
 11. **Faire voir et entendre le chalet.** Allumer une lumière à la fenêtre qui donne sur le chemin, et faire un feu
  devant le chalet dès que le jour baisse. Souffler dans un sifflet à intervalles réguliers, puis se taire pour
  écouter la réponse (section 7, « Se faire voir et se faire entendre »).
-12. **À l'heure limite, sans nouvelles, avertir le correspondant** par message satellite, dans l'ordre de l'étape 6
- : qui manque, depuis quand, ce que dit la fiche de sortie. Le correspondant suit alors sa consigne (étape 18). Ne
- pas attendre le lendemain pour écrire.
+12. **À l'heure limite, sans nouvelles, avertir le correspondant** par message satellite, dans l'ordre de
+ l'étape 6 : qui manque, depuis quand, ce que dit la fiche de sortie. Le correspondant suit alors sa consigne
+ (étape 18). Ne pas attendre le lendemain pour écrire.
 13. **Partir le chercher seulement à deux, sans l'adulte qui garde les enfants.** Une personne qui part seule, ou
  qui part de nuit, risque de se perdre ou de se blesser à son tour, et il y a alors deux personnes à chercher.
- Laisser au chalet le chemin qu'on prend et l'heure du retour. S'il fait noir, partir au premier jour et suivre sa
- trace : une personne qui ne peut pas rentrer avant la nuit passe la nuit au bord de sa trace (ch. 15, étape 18).
- S'il n'y a pas deux adultes pour partir, rester au chalet, garder la lumière et le feu, et écrire au correspondant
- à chaque heure convenue. Comment chercher et sortir quelqu'un : ch. 16.
+ - Laisser au chalet le chemin qu'on prend et l'heure du retour.
+ - S'il fait noir, partir au premier jour et suivre sa trace : une personne qui ne peut pas rentrer avant la nuit
+ passe la nuit au bord de sa trace (ch. 15, étape 18).
+ - S'il n'y a pas deux adultes pour partir, rester au chalet, garder la lumière et le feu, et écrire au
+ correspondant à chaque heure convenue.
+ - Pour chercher et sortir quelqu'un du bois : ch. 16.
 
 ### Avant, une fois : monter le plan
 
@@ -131,14 +135,14 @@ elles n'arrivent pas.
  réseau cellulaire LTE au moment où l'alerte part. Les mêmes alertes passent à la radio et à la télévision, et la
  radio à piles les reçoit.
  - À la maison, le téléphone reçoit les alertes tant que la tour cellulaire a du courant. Pendant une panne, les
- batteries d'une tour la font marcher de 2 à 10 h selon la tour ; certaines tours ont une génératrice, d'autres non,
- et on ne sait pas laquelle dessert la maison.
+ batteries d'une tour la font marcher le plus souvent de 2 à 10 h, rarement une journée ; certaines tours ont une
+ génératrice, d'autres non, et on ne sait pas laquelle dessert la maison.
  - Le réseau Radio-Météo n'est plus en service : un récepteur météo à tonalité d'alerte ne recevra plus ses alertes.
 15. **Mesurer la réception, la radio à la main, le jour et le soir.**
  - Au chalet, faire le tour du terrain avec la radio, et noter quelles stations AM et FM entrent, à quelle heure et
  à quel endroit. La FM et la VHF vont en ligne droite : une colline entre l'émetteur et la radio les coupe. Le soir,
  l'onde AM rebondit sur le haut de l'atmosphère et redescend très loin : on entend alors des stations qu'on
- n'entendait pas le jour (ch. 2, « L'onde AM, la nuit »).
+ n'entendait pas le jour.
  - Écrire au feutre, sur la radio, les fréquences qui entrent.
  - Noter les endroits où l'appareil satellite trouve vite le satellite et ceux où il cherche longtemps, et s'il y a
  la moindre barre de réseau cellulaire, et où. Aucune carte ne donne ces renseignements pour le chalet.
@@ -164,8 +168,8 @@ elles n'arrivent pas.
  - Afficher une copie plastifiée au mur, près de la radio, et en donner une au correspondant. Pendant une urgence,
  on lit mal des coordonnées qu'il faut d'abord chercher.
  - À la maison, l'adresse remplace les coordonnées.
-18. **Choisir un correspondant, et lui donner sa consigne par écrit.** Le correspondant est une personne qui ne
- vivra pas la même urgence que nous, avec une deuxième personne pour le remplacer. Lui remettre sur papier la fiche
+18. **Choisir un correspondant, et lui donner sa consigne par écrit.** Choisir une personne qui ne vivra pas la
+ même urgence que nous, et une deuxième personne pour la remplacer. Lui remettre sur papier la fiche
  de position, la liste des personnes au chalet avec leur âge, l'heure des messages convenus, et une consigne de
  trois lignes : *si aucun message n'arrive à l'heure convenue, écrire ; si toujours rien une heure plus tard, donner
  l'alerte ; lire alors la fiche de position et la dernière fiche de sortie aux gens qui viendront.* Relire la

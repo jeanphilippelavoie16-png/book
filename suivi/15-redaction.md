@@ -602,8 +602,8 @@ autres chapitres vers le ch. 15 restent justes.
 
 | Ancien point | Ce qui reste dans le chapitre, et où | Ce qui sort (la page du danger le dit) |
 | --- | --- | --- |
-| 1. Le monoxyde dans l'auto, le garage et l'abri | Étape 11 `{!co}` : le tuyau bouché par la neige fait entrer le gaz dans l'auto. Étape 13 : mal de tête ou mal au cœur, moteur en marche, couper le moteur et faire sortir tout le monde ; « une personne qui s'endort dans l'auto, moteur en marche, est en danger de mort : la sortir tout de suite » (la phrase de l'ancien point 1) | Densité 0,96, 1 600 ppm (vertiges en 20 min, mort en 2 h), 20 000 ppm (mort en 4 min), les signes et l'enfant qu'on croit de mauvaise humeur, le garage même ouvert, le garage de toile et le démarreur à distance, le réchaud ou la chaufferette dans une auto ou une tente : pages `co` et `generatrice`. **La page `co` garde 0,96 et 1 600 ppm en 2 h ; le 20 000 ppm et les 20 min de vertiges sortent du livre** (source : `20-cnesst-reptox-monoxyde-de-carbone.md`) |
-| 2. La génératrice dans un bâtiment | Étapes 45 et 46, `{!generatrice}` | Le garage, la remise, l'auvent, l'abri de toile, le même gaz qu'une auto : page `generatrice` |
+| 1. Le monoxyde dans l'auto, le garage et l'abri | Étape 11 `{!co}` : le tuyau bouché par la neige fait entrer le gaz dans l'auto. Étape 13 : mal de tête, mal au cœur ou sommeil, moteur en marche : couper le moteur et faire sortir tout le monde tout de suite ; « la personne qui s'endort dans l'auto, moteur en marche, est en danger de mort » (la phrase de l'ancien point 1 ; corrigée après la vérification technique, voir plus bas). Étape 16 : dans l'auto, ni réchaud, ni fanal, ni chaufferette faits pour l'extérieur (remis après la vérification technique) | Densité 0,96, 1 600 ppm (vertiges en 20 min, mort en 2 h), 20 000 ppm (mort en 4 min), les signes et l'enfant qu'on croit de mauvaise humeur, le garage même ouvert, le garage de toile et le démarreur à distance, le réchaud ou la chaufferette dans une auto ou une tente : pages `co` et `generatrice`. **La page `co` garde 0,96 et 1 600 ppm en 2 h ; le 20 000 ppm et les 20 min de vertiges sortent du livre** (source : `20-cnesst-reptox-monoxyde-de-carbone.md`) |
+| 2. La génératrice dans un bâtiment | Étapes 45 et 46, `{!generatrice}` ; depuis la vérification technique, l'étape 45 redit le rappel de `CLAUDE.md` : jamais dans un bâtiment, un garage ou une remise, même porte ouverte, ni sous un auvent ou dans un abri d'auto en toile | Le même gaz qu'une auto, le démarreur à distance : page `generatrice` |
 | 3. La vapeur d'essence | Étape 22 `{!vapeurs}` : la vapeur des bidons coule jusqu'au plancher du chalet ou au sous-sol. Étape 48 `{!vapeurs}` : le plein moteur refroidi. Section 7 `{!vapeurs}` : ne jamais percer ni meuler un réservoir | −43 °C, la flamme qui revient au bidon, l'interrupteur, « on n'allume ni n'éteint rien », la flaque en feu (pas d'eau, poudre, sable, terre) : page `vapeurs` ; le bidon fermé qu'on chauffe : page `projection`. La ligne « Odeur d'essence » des Signes d'échec garde son action (c'est le travail du tableau) |
 | 4. La génératrice branchée au panneau | Étape 47 `{!electrocution}` : rallonges, jamais d'adaptateur mâle-mâle, ni panneau, ni prise | Le courant renvoyé, le transformateur, les monteurs : page `electrocution` |
 | 5. L'essence à la bouche | Section 7, « Amorcer sans la bouche » `{!poison}` | L'aspiration dans les poumons : page `poison` (« 2 mL suffisent pour brûler le poumon ») |
@@ -616,16 +616,16 @@ autres chapitres vers le ch. 15 restent justes.
 | 2 | `eau-froide` | La première minute, la tête hors de l'eau, garder l'habit de motoneige, lâcher la motoneige, siffler |
 | 8 | `glace` | Le sauveteur qui court au trou passe à travers à son tour |
 | 10 | `froid` | Sortir de l'eau couché, traîné ou porté ; la personne seule qui marche ou fait un feu |
-| 11 | `co` | Le tuyau d'échappement bouché par la neige |
+| 11 | `co`, `generatrice` | Le tuyau d'échappement bouché par la neige (deux pictogrammes depuis la vérification technique, comme au ch. 02, étape 9 : le geste est au point 4 de la page `generatrice`) |
 | 22 | `vapeurs` | L'essence hors du bâtiment où on dort |
 | 38 | `froid` | La gelure du visage en motoneige, vue par l'autre |
 | 40 | `glace` | Mesurer le jour même, tous les 45 m |
-| 45 | `generatrice` | Dehors, à découvert, 6 m |
+| 45 | `generatrice` | Dehors, à découvert, 6 m ; jamais dans un bâtiment, un garage ou une remise, même porte ouverte, ni sous un auvent ou dans un abri d'auto en toile |
 | 47 | `electrocution` | Rallonges seulement |
 | 48 | `vapeurs` | Le plein sur un moteur chaud |
 | Section 7, « Amorcer sans la bouche » | `poison` | Le siphon |
 | Section 7, après « Le bidon contre la machine » | `vapeurs` | Le réservoir qu'on perce ou qu'on meule |
-| Section 7, « Faire partir un moteur gelé » | `projection` | La batterie gelée qu'on charge ou qu'on survolte (« survolter » vient de la page `projection` ; « charger » : `18b-trojan-batteries-plomb-froid-et-charge.md`) |
+| Section 7, « Faire partir un moteur gelé » | `projection` | La batterie gelée qu'on charge ou qu'on survolte (« charger ni survolter », « dégeler d'abord » : `15b-travail-securitaire-nb-batterie-gelee.md` ; « charger » : `18b-trojan-batteries-plomb-froid-et-charge.md`) |
 
 `huile-en-feu` n'est pas posé : l'inventaire le proposait à l'étape 23 pour la flaque d'essence, qui est sur la page
 `vapeurs`. Inventaire et pages des dangers : les changements à faire sont rendus à l'orchestrateur (fichiers communs).
@@ -648,13 +648,15 @@ Aucun chiffre nouveau dans la procédure. Dans les notes En plus : **1,5 à 3 %*
 **11 %** d'air plus dense, **1,3 %** de consommation en plus sur la route (`20-rncan-temps-froid-consommation-carburant.md`).
 Aucun `[À VÉRIFIER]` dans le texte.
 
+Étape 40, sous-étapes : crochet sous la glace et ruban tendu : `54-mndnr-check-ice-thickness.html` ; lire au ras du dessus de la glace : geste sans source écrite et sans chiffre (définition de l'épaisseur), gardé.
+
 ### Notes En plus (4) et leur provenance
 
 | Note | Genre | Étape | Mots | Source |
 | --- | --- | --- | --- | --- |
-| Le bâton à sonder de la côte de l'Alaska | La façon d'une nation du Nord (Yupik et autres peuples de la côte de l'Alaska) : pourquoi elle marche (on frappe là où le pied va se poser) ; ce qui la rend dangereuse si on change ses conditions (le bâton dit ce qui porte un piéton, pas une machine) | 40 | 75 | **Page nouvelle** : Alaska Public Media, 2014, enregistrée `sources/15-alaska-public-media-baton-unghaq-2014.html`, extraits et lecture dans `sources/15-en-plus-baton-unghaq-et-reprises.md`. L'avertissement « pour une machine, on mesure » est du livre (étapes 40 et 41), pas de la page |
+| Le bâton à sonder de la côte de l'Alaska | La façon d'une nation du Nord (Yupik et autres peuples de la côte de l'Alaska) : pourquoi elle marche (on frappe là où le pied va se poser) ; ce qui la rend dangereuse si on change ses conditions (ces chasseurs connaissent leur glace de mer ; sur la glace de marée du fleuve, on ne passe pas, même avec un bâton) | 42 | 80 | **Page nouvelle** : Alaska Public Media, 2014, enregistrée `sources/15-alaska-public-media-baton-unghaq-2014.html`, extraits et lecture dans `sources/15-en-plus-baton-unghaq-et-reprises.md`. L'avertissement est du livre (étape 42 et page `glace`), pas de la page ; « coastal communities, that spend a good portion of their lives out on the ice » porte « ces chasseurs connaissent leur glace de mer » |
 | Les oiseaux et les poissons qui ouvrent la glace | Fait | 42 | 52 | Brochure MN DNR 2017 (`15-mndnr-danger-glace-mince-2017-texte.txt`) |
-| Ne pas laisser la machine geler au sol | Fait | 18 | 71 | US Army FM 31-70, ch. 3, l. 507 et 508 (`20b-fm31-70-ch3-texte-integral.txt`) |
+| Ne pas laisser la machine geler au sol | Fait | 18 | 74 | US Army FM 31-70, ch. 3, l. 507 et 508 (`20b-fm31-70-ch3-texte-integral.txt`) |
 | L'essence d'hiver | Fait | 20 | 58 | RNCan, « Le bon $ens au volant », fiche 3 (`20-rncan-temps-froid-consommation-carburant.md`) |
 
 **Pas de photo.** Proposée : la glace en chandelles du printemps (étape 42), sur Wikimedia Commons :
@@ -687,3 +689,37 @@ et 15-06 inchangées ; logigramme « **Trousse d'allumage, sur soi** » (inchang
 | Redites à juger | 8 | 5, jugées : « si la tête passe sous l'eau » (étapes 2 et 7, deux moments différents) ; « se tourner vers le côté par » (étape 8 dit ce qu'on crie, avec renvoi aux étapes 4 et 5) ; « pics à glace au cou par » (Matériel et étape 36, l'objet puis le geste) ; « ces épaisseurs sur de la glace » (dans la même étape 41) ; « nuit au bord de la trace » (étape 18 et la note qui y renvoie) |
 | Ancres introuvables | 0 | 2 (15-03 et 15-05 : le pictogramme ouvre maintenant le paragraphe ; nouvelles ancres plus haut) |
 | Invariants disparus | | « 0,96 », « 1 600 ppm », « 20 000 ppm », « 20 minutes », « 4 minutes », « 2 heures », « −43 °C », un « 6 m », « génératrice » 14 → 9 : l'ancien Danger, voir le tableau plus haut. Tous sur les pages des dangers, sauf le 20 000 ppm et les 20 min de vertiges |
+
+## Corrections après la vérification technique, 19 octobre 2026
+
+Dix signalements du vérificateur technique sur la refonte au gabarit final. Demande de JP relayée pour cette passe : « fuck
+les sources, on a pas déjà fait ce travail-là ? » : **aucune recherche nouvelle**. Chaque correction s'appuie sur une
+page déjà au dossier, citée par le vérificateur et relue au passage (citation retrouvée dans le fichier). Aucune étape
+renumérotée (1 à 48), aucune ancre de planche touchée, logigramme inchangé (aucune de ses boîtes ne porte les phrases
+changées).
+
+| # | Signalement | Fait | Source au dossier |
+| --- | --- | --- | --- |
+| 1 | Étape 45 : le rappel de `CLAUDE.md` « Génératrice : jamais dans un bâtiment, un garage ou sous un auvent » ne se lisait plus (ch. 84 et 111 renvoient au ch. 15 pour lui) | **Appliqué** mot pour mot : « Jamais dans un bâtiment, un garage ou une remise, même porte ouverte, ni sous un auvent ou dans un abri d'auto en toile. » Ça revient sur la coupe de la refonte (« la liste des lieux fermés sort ») : le tableau des rappels de `CLAUDE.md` passe avant la règle des pages des dangers, comme aux ch. 01, 02, 10 et 11 | `20-sante-canada-monoxyde-generatrice.md` (garage, remise) ; `20-quebec-monoxyde-de-carbone-vehicules.md` (même si la porte est ouverte, garage en toile) |
+| 2 | Note En plus du bâton : « pour une machine, on mesure » laissait croire qu'une machine passe sur la glace de mer | **Appliqué** : « Ces chasseurs connaissent leur glace de mer. Sur la glace de marée du fleuve, on ne passe pas, même avec un bâton (étape 42). » « bâton ou pas » du vérificateur devient « même avec un bâton » (étiquette en raccourci, règle 0). « on ne marche pas là » devient « on n'y marche pas » pour tenir sous 80 mots (80). Renvoi à l'étape 42 au lieu de 40 : la note se place maintenant près de la glace de marée | `15-alaska-public-media-baton-unghaq-2014.html` (« coastal communities, that spend a good portion of their lives out on the ice ») ; étape 42 et page `glace` |
+| 3 | Étape 46 : la génératrice elle-même n'était plus placée sous le vent, seul l'échappement était tourné | **Appliqué** mot pour mot : « La placer du côté où le vent emporte le gaz loin des bâtiments, et tourner son échappement à l'opposé des portes et des fenêtres. » La phrase sur le voisin reste | `10-sante-canada-generatrice-distance.md` (« dirigez le tuyau d'évacuation dans le sens opposé de toute porte ou fenêtre ouverte ») ; la règle du vent, note de `20-sante-canada-monoxyde-generatrice.md` |
+| 4 | Étape 7 : « on se noie seulement si la tête passe sous l'eau » était une tautologie et perdait « la noyade tue avant le froid » | **Appliqué, reformulé** : « Même dans l'eau glacée, on peut mettre une heure à perdre connaissance par le froid : bien avant, on meurt noyé si la tête passe sous l'eau. » « Bien avant » dit que la noyade tue d'abord, sans la tournure « on meurt noyé avant de mourir de froid ». **« souvent une heure » devient « on peut mettre une heure »**, ce que dit TP 511 (« il faut parfois une heure ») : la phrase était réécrite de toute façon ; l'orchestrateur peut remettre « souvent » s'il le veut | `03-transports-canada-eau-froide.md` (TP 511) |
+| 5 | Étape 16 : le réchaud, le fanal ou la chaufferette d'extérieur allumés dans l'auto (ancien Danger, point 1) avaient disparu | **Appliqué**, ordre de phrase repris (règle 11 : le lieu ne se glisse pas entre « faits pour l'extérieur » et l'objet) : « - Dans l'auto, ne jamais allumer de réchaud, de fanal ni de chaufferette faits pour l'extérieur. » Pas de second pictogramme : celui de l'étape 11 couvre la série | `20-sante-canada-monoxyde-generatrice.md` (« N'utilisez jamais d'appareils pour l'extérieur fonctionnant à combustion […] à l'intérieur, notamment dans une habitation, un véhicule ») ; `19-quebec-trousse-urgence-et-auto.md` (briquet et chandelles dans la trousse) |
+| 6 | Étape 13 : « la sortir tout de suite » perdait le moteur coupé et les autres passagers | **Appliqué, fondu** dans la phrase d'avant pour ne pas dire deux fois « couper le moteur et faire sortir tout le monde » : « Si quelqu'un a mal à la tête, mal au cœur ou s'endort pendant que le moteur tourne, couper le moteur, ouvrir grand les portières et faire sortir tout le monde à l'air tout de suite : la personne qui s'endort dans l'auto, moteur en marche, est en danger de mort. Dégager l'échappement avant de redémarrer. » Rien ne se perd : moteur coupé, tout le monde, tout de suite, danger de mort, échappement dégagé | `20-quebec-monoxyde-de-carbone-vehicules.md` (« Dirigez-vous à l'extérieur ») ; page `co`, point 1 |
+| 7 | Note En plus « Ne pas laisser la machine geler au sol » : elle renvoyait à la nuit de l'étape 18, où la machine ne repart pas | **Appliqué** mot pour mot : « Pour une nuit d'arrêt en chemin, avec une machine qui roule encore (étape 18), la garer… ». Le renvoi à l'étape 18 reste : on y répare la panne, et une machine réparée tard s'arrête pour la nuit au bord de la trace (74 mots) | `20b-fm31-70-ch3-texte-integral.txt`, l. 507 et 508 |
+| 8 | Étape 11 : `{!co}` seul, alors que le geste est au point 4 de la page `generatrice` et porte `{!generatrice}` aux ch. 01, 06 et 08 | **Appliqué** : `{!co} {!generatrice}`, comme au ch. 02, étape 9. La cohérence avec les ch. 01, 06 et 08 (qui n'ont que `{!generatrice}`) est rendue à l'orchestrateur | Page `generatrice`, « Ce qu'on fait », point 4 |
+| 9 | Fiche : la source de « charger ni survolter » et « dégeler d'abord » | **Appliqué** dans le tableau des pictogrammes (ligne « Faire partir un moteur gelé ») ; texte du chapitre inchangé | `15b-travail-securitaire-nb-batterie-gelee.md` ; `18b-trojan-batteries-plomb-froid-et-charge.md` |
+| 10 | Fiche : la traçabilité des sous-étapes de l'étape 40 | **Appliqué** dans « Chiffres nouveaux et leurs sources » ; texte inchangé | `54-mndnr-check-ice-thickness.html` ; brochure 2017, l. 76 |
+
+Tableaux mis à jour plus haut dans cette fiche : « Où chaque bloc de l'ancien Danger est allé » (points 1 et 2),
+« Pictogrammes » (étapes 11 et 45, batterie gelée), « Notes En plus » (bâton : étape 42, 80 mots, avertissement ; machine :
+74 mots).
+
+**Écarté** : rien.
+
+controle.py après ces corrections : 7 734 mots (7 679 avant), 2 tirets (titre et ligne de tome), 0 « § », 0 mot banni,
+0 tournure, 0 maxime, 0 pronominal, 0 vocabulaire d'IA. Mots vides : 27, tous portent le sens (le nouveau : « bien avant »
+à l'étape 7 ; « encore » de la note de la machine = elle roule toujours). Redites : 5, jugées ; la nouvelle, « la glace de
+marée du fleuve » (étape 42 et note du bâton), est l'avertissement de la note avec son renvoi, exigé pour une façon d'une
+nation du Nord. Invariants : rien n'a disparu. Ancres introuvables : 15-03 et 15-05, toujours en attente de leur report
+dans `placements-tome-1.json` (nouvelles ancres dans « Ancres », plus haut).

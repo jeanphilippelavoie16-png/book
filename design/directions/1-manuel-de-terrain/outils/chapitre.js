@@ -68,14 +68,15 @@ let NOTES_X = [];             // les notes de la section En plus, dans l'ordre d
 let ANCRES = [];              // pour chaque note, la clé (data-k) du bloc après lequel elle entre dans le fil
 const INLINE = new Map();     // notes posées dans le fil : indice → clé du bloc
 let attenteNotes = [];        // notes du fil qui attendent la page suivante
-const aUneNote = p => !!p.bl.querySelector('.extra');
+// une page qui a cédé sa note du fil à une planche (story) compte comme si elle en portait une
+const aUneNote = p => !!p.sansNote || !!p.bl.querySelector('.extra');
 const renvois = x => (x.dataset.etapes || '').split(' ').filter(Boolean).map(Number);
 const estTitre = el => /^H[1-6]$/.test(el.tagName) || (el.classList && el.classList.contains('kh'));
 function ancresNotes(flux){
   // chaque bloc des histoires porte sa clé (histoire:rang), gardée par les clones et par les deux moitiés d'un
   // paragraphe coupé
   const blocs = [];
-  flux.forEach(([id, kind]) => { const t = document.getElementById('story-' + id); if(t) [...t.content.children].forEach((n, i) => { n.dataset.k = id + ':' + i; blocs.push({kind, el: n, id}); }); });
+  flux.forEach(([id, kind]) => { kind = kind || id; const t = document.getElementById('story-' + id); if(t) [...t.content.children].forEach((n, i) => { n.dataset.k = id + ':' + i; blocs.push({kind, el: n, id}); }); });
   const num = el => { const s = el.querySelector && el.querySelector('.sn'); return s ? parseInt(s.textContent, 10) : NaN; };
   const texte = b => (b.kind === 'main' || b.kind === 'e') && b.el.tagName === 'P' && !b.el.classList.contains('kh');
   // la fin de l'étape : ses sous-étapes, ses tableaux et ses planches, jusqu'à l'étape ou au titre suivant
@@ -144,12 +145,14 @@ function placerNotes(){
     pos.set(p, s.length ? s : [vu]); if(s.length) vu = Math.max(vu, ...s);
   });
   const idx = c => PAGES.indexOf(c.p);
-  // un trou ne reçoit une note que près de son étape : sur la page de l'étape, ou à deux pages au plus ; plus loin, la
-  // note passe dans le fil du texte, après son étape (JP : « près de l'étape qu'elles nomment »)
+  // un trou ne reçoit une note que près de son étape : sur la page de l'étape, ou à deux pages de texte au plus (les
+  // planches et le logigramme ne comptent pas) ; plus loin, la note passe dans le fil du texte, après son étape (JP :
+  // « près de l'étape qu'elles nomment »)
+  const TX = PAGES.filter(p => p.kind === 'text' || p.kind === 'open');
   NOTE_PLACES.forEach(c => { c.tient = c.tient.filter(x => {
     const e = renvois(x); if(!e.length) return true;
-    const pe = PAGES.map((p, i) => [...p.bl.querySelectorAll('.sn')].some(s => e.includes(+s.textContent)) ? i : -1).filter(i => i >= 0);
-    return !pe.length || Math.min(...pe.map(i => Math.abs(i - idx(c)))) <= 2;
+    const pe = TX.map((p, i) => [...p.bl.querySelectorAll('.sn')].some(s => e.includes(+s.textContent)) ? i : -1).filter(i => i >= 0);
+    return !pe.length || Math.min(...pe.map(i => Math.abs(i - TX.indexOf(c.p)))) <= 2;
   }); });
   const choix = [];                      // [note, page]
   // les notes du fil comptent dans l'écart : les notes posées dans les trous se tiennent loin d'elles aussi
@@ -279,12 +282,15 @@ function region(p, kind, first){
 function pour(f, q, p){
   if(orTop.length && !f.children.length && !pendingOr.length){ q.unshift(...orTop); orTop = []; }
   const horsNotes = !!f.closest('.orange, .danger');   // jamais de note dans la série orange ni dans un encadré
-  // la note du fil qui attendait : sur cette page si elle n'en porte pas, après la fin du paragraphe coupé, ou après
-  // le premier titre et son paragraphe
+  // la note du fil qui attendait : sur cette page si elle n'en porte pas, après la fin du paragraphe coupé et après les
+  // figures repoussées de la page d'avant (elles passent avant la note), ou après le premier titre et son paragraphe
   if(attenteNotes.length && !horsNotes && !aUneNote(p)){
     let k = 0;
     if(q[0] && q[0].classList && q[0].classList.contains('cont')) k = 1;
-    else { while(q[k] && estTitre(q[k])) k++; if(k) k++; }
+    while(q[k] && q[k].classList && q[k].classList.contains('fig')) k++;
+    const t0 = k; while(q[k] && estTitre(q[k])) k++; if(k > t0) k++;
+    // la note ne coupe pas la liste d'une étape : elle vient après ses puces
+    for(let n = 0; n < 10 && q[k] && q[k].tagName === 'P' && q[k].classList.contains('li') && !q[k].querySelector('.sn'); n++) k++;
     q.splice(k, 0, attenteNotes.shift());
   }
   while(q.length){
@@ -338,7 +344,7 @@ function pour(f, q, p){
       b.classList.add('serre'); syncNotes(f); if(!OVER(f)) continue; b.classList.remove('serre'); syncNotes(f);
     }
     f.removeChild(b); syncNotes(f);
-    if(b.classList.contains('fig')){ p.deferred.push(b); continue; }   // la figure attend, le texte continue
+    if(b.classList.contains('fig')){ p.deferred.push(b); if(!p.figRepoussee) p.figRepoussee = b; continue; }   // la figure attend, le texte continue
     if(b.classList.contains('extra')){ attenteNotes.unshift(b); continue; }   // la note aussi : page suivante
     let parts = null;
     if(b.tagName === 'P') parts = splitPara(b, f); else if(b.tagName === 'TABLE') parts = splitTableBal(b, f);
@@ -544,7 +550,8 @@ function story(id, kind, suite){   // kind : main, o, d, e ; suite : histoire re
       nextPage(); continue;
     }
     P.story = kind;
-    const snapQ = q.slice(), snapPl = pendingPlates.slice(), snapSp = pendingSpreads.slice(), snapOr = pendingOr.slice(), snapOT = orTop.slice();
+    const snapQ = q.slice(), snapPl = pendingPlates.slice(), snapSp = pendingSpreads.slice(), snapOr = pendingOr.slice(), snapOT = orTop.slice(), snapAt = attenteNotes.slice();
+    P.figRepoussee = null;
     const R = region(P, kind, first);
     const r = pour(R.frame, q, P);
     if(!R.frame.children.length){
@@ -561,6 +568,18 @@ function story(id, kind, suite){   // kind : main, o, d, e ; suite : histoire re
     // l'encadré danger ne se coupe pas s'il tiendrait entier sur la page suivante
     if(kind === 'd' && first && r === 'full' && !fresh && fr < 0.62 * H){
       R.box.remove(); q.splice(0, q.length, ...snapQ); pendingPlates = snapPl; pendingSpreads = snapSp; pendingOr = snapOr; orTop = snapOT; nextPage(); continue;
+    }
+    // la note du fil cède sa place à une planche : la page a dû repousser une figure appelée après la note ; la note
+    // passe à la page suivante et la page se refait, pour que la figure reste près de son appel
+    if(r === 'full' && P.figRepoussee && !P.sansNote){
+      const x = R.frame.querySelector(':scope > .extra'), fg = snapQ.indexOf(P.figRepoussee);
+      if(x && (snapAt.includes(x) || (snapQ.includes(x) && (fg < 0 || snapQ.indexOf(x) < fg)))){
+        R.box.remove(); const z = R.frame.nextElementSibling; if(z && z.classList.contains('fnz')) z.remove();
+        q.splice(0, q.length, ...snapQ.filter(e => e !== x)); pendingPlates = snapPl; pendingSpreads = snapSp; pendingOr = snapOr; orTop = snapOT;
+        attenteNotes = [x, ...snapAt.filter(e => e !== x)];
+        P.sansNote = true; P.deferred = [];
+        continue;
+      }
     }
     first = false;
     if(r === 'done'){ finish(R, kind); break; }

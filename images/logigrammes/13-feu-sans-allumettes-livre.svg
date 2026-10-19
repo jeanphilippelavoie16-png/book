@@ -10,7 +10,7 @@
 <path d="M283.50,100.60 L283.50,108.20" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
 <path d="M283.50,158.30 L283.50,173.00" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
 <path d="M283.50,231.40 L283.50,237.80" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
-<path d="M283.50,271.60 L283.50,301.45" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M283.50,283.90 L283.50,301.45" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
 <path d="M283.68,353.95 L283.68,372.00 Q283.68,378.00 277.68,378.00 L160.80,378.00 Q154.80,378.00 154.80,384.00 L154.80,425.00" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
 <path d="M283.68,353.95 L283.68,372.00 Q283.68,378.00 289.68,378.00 L406.20,378.00 Q412.20,378.00 412.20,384.00 L412.20,425.00" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
 <path d="M412.20,491.40 L412.20,529.40" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
@@ -39,10 +39,11 @@
 <text data-max="478.50" x="45.00" y="221.25" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">l’écorce de bouleau.</tspan></text>
 <rect x="449.29" y="219.15" width="82.46" height="13.00" fill="#EE7219"/>
 <text x="454.29" y="228.70" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="8.5" fill="#000" xml:space="preserve" data-max="73.96">ch. 13, étapes 2 et 3</text>
-<rect x="36.00" y="244.80" width="495.00" height="26.80" rx="0" fill="#FDE8D8" stroke="#EE7219" stroke-width="1.5"/>
-<text data-max="478.50" x="45.00" y="261.45" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">Faire le feu à l’abri du vent</tspan><tspan font-weight="500">, sur un lit de branches vertes s’il y a de la neige.</tspan></text>
-<rect x="449.29" y="259.35" width="82.46" height="13.00" fill="#EE7219"/>
-<text x="454.29" y="268.90" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="8.5" fill="#000" xml:space="preserve" data-max="73.96">ch. 13, étapes 4 et 8</text>
+<rect x="36.00" y="244.80" width="495.00" height="39.10" rx="0" fill="#FDE8D8" stroke="#EE7219" stroke-width="1.5"/>
+<text data-max="478.50" x="45.00" y="261.45" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">Faire le feu dehors, à l’abri du vent, ou dans un poêle raccordé à son tuyau.</tspan><tspan font-weight="500"> S’il y a de la neige, le faire sur un lit de</tspan></text>
+<text data-max="478.50" x="45.00" y="273.75" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">branches vertes.</tspan></text>
+<rect x="449.29" y="271.65" width="82.46" height="13.00" fill="#EE7219"/>
+<text x="454.29" y="281.20" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="8.5" fill="#000" xml:space="preserve" data-max="73.96">ch. 13, étapes 4 et 8</text>
 <rect x="36.00" y="308.45" width="495.00" height="45.50" rx="10" fill="#fff" stroke="#2B5876" stroke-width="1.75"/>
 <text data-max="472.50" x="283.50" y="328.75" font-family="IBM Plex Sans Condensed" font-size="13" fill="#000" text-anchor="middle" xml:space="preserve"><tspan font-weight="700">Il fait plus froid que −17,5 °C, ou les doigts font mal ?</tspan></text>
 <text data-max="472.50" x="283.50" y="343.02" font-family="IBM Plex Serif" font-size="9.5" font-style="italic" fill="#000" text-anchor="middle" xml:space="preserve"><tspan font-weight="400">Des doigts qui ne sentent plus rien comptent aussi</tspan></text>

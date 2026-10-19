@@ -1,6 +1,6 @@
 # Tome 1 · Tenir — rapport d'assemblage
 
-- **Produit le :** 2026-10-19 01:00, par `design/outils/assembler-tome.py 1 --chapitres 10 --hors-ligne --sortie livre/apercus-ch10`
+- **Produit le :** 2026-10-19 01:17, par `design/outils/assembler-tome.py 1 --chapitres 10 --hors-ligne --sortie livre/apercus-ch10`
 - **Fichier :** `livre/tome-1/interieur.pdf` — 40 pages, 12.3 Mo
 - **Ouvertures :** au recto ou au verso (--verso)
 - **Placements :** design/epreuves-livre/placements.json, design/epreuves-livre/placements-tome-1.json
@@ -30,7 +30,7 @@ Aucune page de crédits (JP, 28 septembre 2026) : copie hors du livre dans `livr
 | Rognage (TrimBox) | 8 × 10 po, fond perdu au bord extérieur | recto : reliure à gauche ; verso : à droite | oui |
 | Nombre de pages | pair, de 20 à 440 (papier Standard) | 40 | oui |
 | Page 1 | à droite | page de titre | oui |
-| Polices incorporées | toutes | 29 police(s), 0 non incorporée(s) | oui |
+| Polices incorporées | toutes | 28 police(s), 0 non incorporée(s) | oui |
 | Taille du fichier | 2 Go au plus | 12.3 Mo | oui |
 | Marques d'imprimeur | aucune | aucune | oui |
 | Couleur | CMJN ou sRVB, sans ton direct | sRVB (Edge) | oui |
@@ -55,7 +55,7 @@ Les planches de `images/a-valider/` sont posées comme les validées (JP les rel
 
 | Ch. | Posées (page du tome) | Mentionnées dans le texte sans planche dessinée | À valider, non posées | Photos demandées encore à acquérir (credits.md) |
 | --- | --- | --- | --- | ---: |
-| 10 | 10-02 (35, pleine), 10-07 (37, pleine), 10-08 (25, à valider), 10-01 (26), 10-03 (39), 10-eau-livre (22, double page), 10-hutte-castor.jpg (24) | — | — | 6 (ancien 13) |
+| 10 | 10-02 (35, pleine), 10-07 (37, pleine), 10-01 (25), 10-08 (26, à valider), 10-03 (39), 10-eau-livre (22, double page), 10-hutte-castor.jpg (24) | — | — | 6 (ancien 13) |
 
 ## Crédits des images — hors du livre
 
@@ -71,7 +71,7 @@ Photos téléchargées pour ces chapitres et non posées (images de référence 
 
 ## Avertissements
 
-- aucun
+- ch. 10, paginateur : p10-2 : page à moitié vide
 
 ## À savoir avant de téléverser
 

@@ -411,3 +411,110 @@ section 2 et des rangées de la génératrice ; chaque fait garde une place) ; 3
 la rangée de la génératrice) ; ch. 00b, ch. 10 (×1), ch. 73 (×1) (section 2 et rangée « dans la neige », qui
 renvoie maintenant à l'étape 25) ; ch. 39, ch. 40 (l'étape « compter les têtes ») ; « 6 s » est « l'heure 6
 s'écrit » de l'ancienne étape 10. Le nombre d'étapes reste 29 ; tularémie 1 → 1.
+
+## Corrections après la vérification technique, 19 octobre 2026
+
+Rédacteur. Quatre points du vérificateur (deux erreurs, deux à préciser) ; les quatre sont appliqués, deux avec
+une forme un peu différente de celle qu'il proposait (dite plus bas, avec la raison). Aucune recherche nouvelle
+(JP, 19 octobre : « fuck les sources, on a pas déjà fait ce travail-là ? ») : tout vient de pages déjà enregistrées.
+
+### 1. Erreur, étape 2 : le garage et le barbecue (appliqué, forme adaptée)
+
+- **Avant** : « N'allumer dans la maison qu'un appareil fait pour l'intérieur. Le réchaud et la chaufferette de
+  tente qu'on garde au garage pour la chasse sont faits pour l'extérieur : allumés dans la maison, ils remplissent
+  la pièce de monoxyde. »
+- **Après** : « N'allumer dans la maison et dans le garage qu'un appareil fait pour l'intérieur. Le barbecue est un
+  appareil d'extérieur, et le réchaud et la chaufferette de tente qu'on garde au garage pour la chasse sont des
+  appareils de camping : allumés dans la maison ou dans le garage, même porte ouverte, ils remplissent l'air de
+  monoxyde. »
+- **Pourquoi la forme change** : la phrase proposée (« Le barbecue, le réchaud et la chaufferette de tente qu'on
+  garde au garage pour la chasse ») faisait du barbecue un appareil de chasse. Le barbecue a sa propre phrase ; le
+  fait est le même. « Sont faits pour l'extérieur » devient « appareils d'extérieur » et « appareils de camping » :
+  une chaufferette de tente n'a pas d'étiquette « extérieur ».
+- **Sources** : `01-quebec-monoxyde-carbone.md` (« une chaufferette au propane, à l'intérieur de votre maison ou de
+  votre garage » ; « un barbecue ou un gril au propane à l'intérieur de votre maison ») ;
+  `01-avertisseurs-co-et-chauffage-appoint.md` (« l'utilisation d'appareils pour l'extérieur ou le camping présente
+  un risque ») ; texte d'avant la refonte (40920d1^), étape 3 (« dehors, jamais dans un bâtiment, un garage […] Un
+  garage attenant reste un garage, porte entrouverte ou non »). Le barbecue revient dans le chapitre (une fois) ;
+  l'ancienne ligne « 3 → 2 (appareils et gril) » est maintenant vraie.
+
+### 2. Erreur, En plus, « La maison refroidit vite, puis lentement » (appliqué, forme adaptée)
+
+- **Avant** : « Les maisons ont mis des jours, parfois des semaines, à passer sous zéro. »
+- **Après** : « D'après ces mesures, une maison peut mettre des jours, parfois des semaines, à passer sous zéro. »
+- Le vérificateur proposait « Selon cette étude » ; « D'après ces mesures » dit la même chose sans parler d'une
+  étude qu'on ne nomme pas, et renvoie aux 31 maisons de la phrase d'avant. Le conditionnel du résumé (« houses can
+  take days or weeks to fall below freezing ») est rendu par « peut mettre ». La phrase suivante reste. Source :
+  `10-schl-refroidissement-maisons-panne-verglas-1998.md`. Note : 79 mots.
+
+### 3. À préciser, l'avertisseur qui ne répond pas (appliqué, la règle placée dans l'orange)
+
+La consigne du ch. 3, étape 5, est retenue : sans avertisseur qui répond, rien ne brûle dans la maison d'autre que
+le poêle raccordé à sa cheminée. Les deux chapitres disent la même chose pour la même scène.
+
+- **Étape 2**, une puce nouvelle, après la date : « Si l'avertisseur ne répond pas au bouton, ou si on n'en a pas,
+  ne rien brûler dans la maison d'autre que le poêle raccordé à sa cheminée (section 7, « Ce qu'on perd »). » La
+  règle va dans la série orange, au moment où on choisit l'appareil (cadre : « tout est dans l'encadré orange »),
+  au lieu de vivre seulement à la section 7 comme le proposait le vérificateur. L'ancien renvoi « Sans avertisseur :
+  section 7, « Ce qu'on perd » » sort de la première puce.
+- **Points de contrôle**, rangées « Avertisseur de CO, au bouton d'essai » et « Date de l'avertisseur de CO » :
+  « Ne brûler dans la maison que le poêle raccordé à sa cheminée (étape 2) ».
+- **Section 7, « L'alerte au CO »** : « Sans avertisseur, rien n'avertit avant les symptômes. En plus de ne brûler
+  que le poêle (étape 2), on ouvre plus grand la fenêtre de l'étape 7, du côté du vent, et on accepte de chauffer
+  moins. Personne ne doit dormir seul dans une pièce chauffée à la flamme. » La règle entière, redite ici,
+  faisait une redite signalée par `controle.py` (« le poêle raccordé à sa cheminée », l. 55 et 342) : elle devient
+  un renvoi court.
+- Sources : `chapitres/03-panne-majeure-d-hydro-en.md`, étape 5 (dernière puce) ; texte d'avant la refonte,
+  Points de contrôle, rangée « Heure 0 » (« ne rien rallumer avant d'avoir un avertisseur qui fonctionne »).
+
+### 4. À préciser, étape 15 : le message part avant que les tours lâchent (appliqué, l'étape déplacée)
+
+- Le vérificateur proposait de dire, dans l'étape 15, « envoyer ce message au début de cette série ». Une série
+  orange se lit dans l'ordre où on fait les gestes : l'étape **monte en tête de la série de 6 h et devient
+  l'étape 6**. Les étapes 6 à 14 deviennent 7 à 15. Rien ne change à partir de l'étape 16.
+- **Après** : « 6. **Envoyer un message court à un proche** : où on est, combien on est, ce qui manque. L'envoyer
+  tout de suite, avant les autres gestes de cette série : les tours cellulaires tiennent souvent de 2 à 4 heures
+  sur leurs batteries après le début de la panne. Quand les piles et les batteries de la maison baissent, les
+  garder d'abord pour la radio et la messagerie satellite (ch. 14). […] »
+- « Quand les batteries baissent » devient « Quand les piles et les batteries de la maison baissent » : collée aux
+  batteries des tours, la phrase se lisait comme si c'étaient elles.
+- **La nuit** : l'introduction de la série disait de tout faire au réveil, ce qui pouvait faire partir le message
+  après les 2 à 4 heures. Elle dit maintenant : « envoyer le message de l'étape 6, ajouter une couverture et une
+  tuque aux enfants, les laisser dormir, et faire le reste de la série au réveil ». Même source, même fenêtre.
+- Source : `19-cbc-2018-batteries-tours-cellulaires.md` (« You would expect two hours to four hours » des
+  batteries ordinaires ; 4 à 10 h chez TELUS avec génératrices). Le texte garde le bas de la fourchette, celui des
+  batteries seules.
+- **Le ch. 3, étape 10**, a le même ordre (message à la 10e étape d'une série de 6 h, « dans les premières
+  heures ») : la même correction y vaudrait. Pas touché (fichier d'un autre agent) ; signalé dans le rapport.
+
+### Les étapes, ancien → nouveau (remplace la table de la refonte)
+
+Numéros d'avant la refonte → numéros d'aujourd'hui : ancien 1 (compter les têtes) → coupé ; 2 → 1 ; 3 → 2
+(appareils, barbecue) et 9 (génératrice) ; 4 → 2 ; 5 → 2 ; 6 → 10 ; 7 → 3 ; 8 → 7 ; 9 → 4 ; 10 → 14 ; 11 → 15 ;
+12 → 13 ; 13 → 8 ; 14 → 12 (« laisser refroidir avant le plein » → 11) ; 15 → 11 ; 16 → 5 ; 17 → 6 ; 18 et 19 →
+20 ; 20 → 21 ; 21 → 18 ; 22 → 23 ; 23 → 24 ; 24 → 25 ; 25 → 26 ; 26 → 27 ; 27 → 28 ; 28 → 17 et 19 ; 29 → 29 ; le
+tableau → 16. Toujours 29 étapes.
+
+Depuis la refonte du matin : 15 → 6 ; 6 → 7 ; 7 → 8 ; 8 → 9 ; 9 → 10 ; 10 → 11 ; 11 → 12 ; 12 → 13 ; 13 → 14 ;
+14 → 15. Renvois internes corrigés : section 2 (« étapes 15 et 20 à 27 »), Matériel (thermomètre médical,
+« étape 8 »), section 7 (« la pièce de l'étape 7 », « la fenêtre de l'étape 7 »), En plus (« étape 13 »). Les
+renvois « étapes 1 à 15 » et « étapes 2 et 6 à 16 » tiennent. **Aucun autre chapitre, logigramme ou page de danger
+ne vise une étape du ch. 1** (`grep` refait ce soir ; la seule mention, `suivi/00b-redaction.md`, vise l'étape 2,
+qui ne bouge pas). La note de `placements-tome-1.json` (01-01, « après 1. **Écrire l'heure… ») tient.
+
+### Pictogrammes (remplace la liste de la refonte)
+
+Étape 2 → `co` ; 8 → `froid` ; 9 → `generatrice` ; 10 → `electrocution` ; 20 → `zone-de-danger` ; 21 → `cuisson` ;
+22 → `botulisme` ; 23 → `abats` ; 24 → `tularemie` ; 27 → `trichine` ; 28 → `mal-de-caribou` ; section 7, « L'auto
+comme génératrice » → `generatrice`.
+
+### controle.py
+
+| | Avant (HEAD) | Après |
+| --- | --- | --- |
+| Mots | 5 418 | 5 514 |
+| Tirets | 2 (titre et ligne de tome) | 2 (les mêmes) |
+| « § », mots bannis, vocabulaire d'IA, tournures, maximes, pronominal | 0 | 0 |
+| Redites signalées | 0 | 0 (une, réglée : la règle du poêle à la section 7 devient un renvoi) |
+| Mots vides à juger | 32 | 33 (« tout de suite » de l'étape 6 : il porte le sens) |
+| Invariants disparus | | rien |

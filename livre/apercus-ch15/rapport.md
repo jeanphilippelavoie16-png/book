@@ -1,6 +1,6 @@
 # Tome 1 · Tenir — rapport d'assemblage
 
-- **Produit le :** 2026-10-19 01:01, par `design/outils/assembler-tome.py 1 --chapitres 15 --hors-ligne --sortie livre/apercus-ch15`
+- **Produit le :** 2026-10-19 01:16, par `design/outils/assembler-tome.py 1 --chapitres 15 --hors-ligne --sortie livre/apercus-ch15`
 - **Fichier :** `livre/tome-1/interieur.pdf` — 36 pages, 6.1 Mo
 - **Ouvertures :** au recto ou au verso (--verso)
 - **Placements :** design/epreuves-livre/placements.json, design/epreuves-livre/placements-tome-1.json
@@ -16,8 +16,8 @@
 | 6 | Comment le livre fonctionne (1) | 1 |
 | 7 | Comment le livre fonctionne (2) | 1 |
 | 8–16 | Les dangers | 9 |
-| 17–35 | ch. 15 — Se déplacer et le carburant | 19 |
-| | Pages blanches (verso de la page de titre, avant les ouvertures, fin du tome) | 3 |
+| 17–36 | ch. 15 — Se déplacer et le carburant | 20 |
+| | Pages blanches (verso de la page de titre, avant les ouvertures, fin du tome) | 2 |
 | | **Total** | **36** |
 
 Aucune page de crédits (JP, 28 septembre 2026) : copie hors du livre dans `livre/apercus-ch15/credits/tome-1-credits.md` et `livre/apercus-ch15/credits/tome-1-credits.pdf`.
@@ -63,7 +63,7 @@ Les planches de `images/a-valider/` sont posées comme les validées (JP les rel
 
 | Ch. | Posées (page du tome) | Mentionnées dans le texte sans planche dessinée | À valider, non posées | Photos demandées encore à acquérir (credits.md) |
 | --- | --- | --- | --- | ---: |
-| 15 | 15-01 (22, pleine, à valider), 15-02 (32, pleine, à valider), 15-05 (28, à valider), 15-03 (29, à valider), 15-06 (34, à valider), 15-04 (35, à valider), 15-se-deplacer-livre (18, double page) | — | — | 8 (ancien 20) |
+| 15 | 15-01 (22, pleine, à valider), 15-02 (32, pleine, à valider), 15-03 (28, à valider), 15-05 (29, à valider), 15-06 (34, à valider), 15-04 (35, à valider), 15-se-deplacer-livre (18, double page) | — | — | 8 (ancien 20) |
 
 ## Crédits des images — hors du livre
 

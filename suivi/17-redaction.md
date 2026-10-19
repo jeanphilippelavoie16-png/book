@@ -309,3 +309,187 @@ seuil » (§1), orange, comme au ch. 4.
   rédacteur.
 - §9 : « Sans mur réflecteur, la moitié de la chaleur part vers la forêt » : géométrie (le feu rayonne de tous
   côtés), pas une mesure.
+
+## Refonte au gabarit final, 19 octobre 2026
+
+Numéros de chapitre et d'étapes **nouveaux** dans cette section (ch. 17 = ancien 22). Rôle : rédacteur. Lu avant :
+`.claude/cadre-agents.md` au complet, `CLAUDE.md`, le skill `ecriture` avec ses tableaux, `gabarit-chapitre.md`,
+`roles.md`, les ch. 4 et 12 et leurs fiches (`suivi/04-*`, `suivi/12-*`), `plan/dangers-inventaire.md` (section 1, et le
+paragraphe du ch. 17 à la section 3), `dangers/partie-1.md` et `partie-2.md`, `plan/premieres-minutes-inventaire.md`
+(ligne 17), `suivi/plan-de-match.md` (PAUSE du 15 octobre, points de JP sur le ch. 17 : le thermomètre sort de l'orange,
+le poteau s'explique là où il apparaît, le logigramme ne redit pas les avertissements).
+
+**Aucune page nouvelle téléchargée** (JP, 19 octobre 2026 : « fuck les sources, on a pas déjà fait ce travail-là ? »).
+Les chiffres déjà sourcés ne sont pas rouverts ; les faits nouveaux (le judas de 180°, les quatre notes En plus) viennent
+de pages déjà enregistrées, recopiées dans `sources/17-en-plus-extraits-deja-au-dossier.md`.
+
+### Ce qui a changé
+
+- **Sept sections et « En plus »**, séparées par `---` comme aux ch. 4 et 12. « Pourquoi ça marche » et l'encadré
+  Danger sortent (détail plus bas). Tous les « § » deviennent « section N » ou un numéro d'étape.
+- **Sous le titre, seulement `**Les deux**`.** La note de lieu sort : la maison (la destination existe, mais le voisin
+  refusé sera encore là au printemps) et le chalet (chemin fermé, la personne renvoyée peut geler) vont aux tirets de
+  l'étape 10.
+- **Section 2 : seulement quand l'utiliser.** La liste « C'est un mauvais choix quand » sort. « La décision est prise de
+  n'ouvrir à personne » devient le dernier tiret de l'étape 10 (le dire une fois, ne pas continuer, donner par la
+  fenêtre) ; « la visite était attendue (ch. 16 et 18) » et « le bâtiment sert de point de regroupement (ch. 18) » sont
+  des contre-exemples évidents : coupés.
+- **Matériel** : « Thermomètre extérieur, lu du dedans » sort (JP, 15 octobre : « on se fait réveiller, oublie ça le
+  thermomètre ») ; « Trousse de seuil » devient « Sac de couchage ou couverture de laine, et un thermos » (rien à
+  préparer d'avance) ; « Fenêtre ou judas » prend le judas grand-angle de 180° (Houston PD, déjà au dossier). La barre
+  de porte est le dernier item : c'est l'ancre du logigramme.
+- **Deux séries orange, un sujet chacune, le titre nomme le déclencheur** : « Quelqu'un cogne à la porte »
+  `{.orange 1 min}` (étapes 1 à 3) ; « La personne attend dehors » `{.orange 10 min}` (étapes 4 à 12). Tout le détail
+  est dans l'orange.
+- **Le thermomètre et le tableau du refroidissement éolien sortent de l'orange** (ancienne étape 5). Les durées de gel
+  de la peau sont dans la page `froid` ; l'étape 7 garde le seul chiffre qui sert la décision (la peau exposée de la
+  personne qui attend peut geler en 10 à 30 minutes à partir de −28), et les Points de contrôle la durée de la
+  conversation dehors (10 min au plus à partir de −28, moins quand il fait plus froid).
+- **Le poteau s'explique là où il apparaît** : étape 5 (« le poteau planté d'avance pour ça (étape 25) ») ; étape 25
+  (« Planter un poteau à quelques pas de la porte, pour dire au visiteur où s'arrêter »).
+- **Étape 29, nouvelle** : « Renforcer la porte d'entrée et y poser une barre » (renvoi à la section 7). Le logigramme
+  (« Le lendemain… poser une barre sur la porte ») le demandait, et « Avant, une fois » ne le disait pas.
+- **Règle 0 et tournures** : « S'il ne part pas » devient « Si le visiteur ne part pas » (le « il » n'avait pas
+  d'antécédent clair) ; « Ni massage, ni alcool, ni cigarette » devient « Ne pas la masser, et ne lui donner ni alcool
+  ni cigarette » ; « la conversation attend » devient « on parlera ensuite » ; « l'autre décide avant nous » et « Celui
+  qui » sortent ; « Le don est devenu un revenu » (étiquette) devient « Elle compte maintenant sur ce qu'on lui
+  donne » ; « Une durée non dite devient indéfinie » (maxime) devient « Quand on ne dit pas de durée, le séjour n'a
+  plus de fin » ; « la neige sur les épaules dit » devient « montre » ; « une machine vide et une machine brisée ne se
+  racontent pas pareil » devient « si la personne dit que sa motoneige est en panne, aller voir si elle est vide ou
+  brisée » ; « Ces trois outils changent ce qu'on donne » devient une consigne ; « Le bois se prend dans la corde qui
+  se voit » (JP : « personne parle comme ça ») devient « Prendre le bois dans la corde que le visiteur voit de
+  dehors » ; pronominaux de consigne redits (« il s'en perce un », « se regratte », « se garde », « se règle »,
+  « se transvide », « se siphonne », « se soignent »…).
+- **Noms latins retirés** (cadre des agents) : *Alces americanus*, *Abies balsamea*, *Salvelinus fontinalis*, *Ursus
+  americanus*, *Trichinella*.
+- **Variante d'urgence : rien de raccourci.** La liste numérotée 1 à 6 de « Réchauffer quelqu'un sans le faire
+  entrer » devient des tirets (les numéros d'étapes vont d'un bout à l'autre, sans recommencer). « La porte, et
+  l'endroit où elle cède » appelle la planche 17-06 repère par repère, de 1 à 11, dans l'ordre (gâche 1 à 3, barre 4
+  et 5, bloc 6 et 7, contrefort 8 et 9, penture 10 et 11) ; la phrase d'ancrage garde son début. « L'évacuation »
+  renvoie au ch. 35 (ce qu'on ne peut pas soigner) au lieu d'une chute (« un point où le chalet ne peut plus rien »).
+
+**Correspondance des étapes (15 octobre → 19 octobre)** : 1 → 1 ; 2 → 2 ; 3 → 3 ; 4 → 4 ; 5 → sortie (tableau : page
+`froid` ; chiffre de décision : 7) ; 6 → 5 ; 7 → 6 ; 8 → 7 ; 9 → 8 ; 10 → 9 ; 11 → 10 ; 12 → 11 ; 13 → 12 ; 14 → 13 ;
+15 → 14 ; 16 → 15 ; 17 → 16 ; 18 → 17 ; 19 → 18 ; 20 → 19 ; 21 → 20 ; 22 → 21 ; 23 → 22 ; 24 → 23 ; 25 → 24 (le
+mécanisme du geste passe à 11) ; 26 → 25 ; 27 → 26 ; 28 → 27 ; 29 → 28 ; nouvelle 29. Aucun autre chapitre ne
+renvoie à une étape du ch. 17 (grep du 19 octobre) ; le logigramme est mis à jour.
+
+### Où est allé l'ancien « Pourquoi ça marche » (section 3)
+
+| Bloc | Où il est |
+| --- | --- |
+| « Au seuil, trois choses se décident encore : la distance, la durée et ce que le visiteur voit. Une fois entré… » | Étape 1, comme raison de ne pas ouvrir |
+| « Le froid fait d'un refus une durée : la personne renvoyée peut geler en route » | Étape 10 (`{!froid}`) |
+| « Il brouille aussi la lecture : un homme en hypothermie articule mal, titube, insiste… comme un homme ivre » | Étape 7 (`{!froid}`) |
+| « Ce qui est donné se raconte, et la forme du don renseigne plus que sa quantité » | Étape 9, redit en clair |
+
+### Où est allé l'ancien Danger (section 8)
+
+| Point | Où il est | Ce qui sort, parce que la page du danger le dit |
+| --- | --- | --- |
+| 1, l'arme montrée à la porte | Étape 11 (`{!arme}`) : le visiteur voit le geste, ne sait pas si l'arme est chargée, apprend qu'il y en a une et jusqu'où va la famille, peut revenir pas seul ; le retenir sous la menace oblige à le nourrir, le surveiller, le faire dormir près des enfants. La préparation (aucune arme dans la pièce où l'on reçoit) : étape 24, sans pictogramme, avec renvoi à 11 | « Garder l'arme hors de la vue du visiteur » (page `arme`, dernier point) |
+| 2, la personne renvoyée dans le froid | Étape 10 (`{!froid}`) : pas de refus sans destination réelle ; étape 7 (`{!froid}`) : la durée de gel | Les bornes 35, 32,2 et 28 °C ; « elle ne fait pas demi-tour, s'assoit » ; la peau qui gèle en 2 à 30 minutes selon l'indice (page `froid`) |
+| 3, le réchaud ou la génératrice du visiteur | Étape 18 (`{!co}` `{!generatrice}`) : jamais dans le hangar, le garage, un véhicule, sous une toile ou un auvent ; les signes pris pour la fatigue du voyage ; l'abri de toile que la neige ferme la nuit | L'absence d'odeur et d'irritation ; « au moindre doute, tout le monde dehors » (page `co` ; la ligne des signes d'échec le garde comme action) |
+| 4, la nourriture reçue en troc | Étape 21 (`{!botulisme}` `{!trichine}`) : refuser la conserve maison de méthode inconnue et le poisson fumé dont on ne sait pas s'il est resté à 4 °C ou moins ; le botulisme ne change ni l'odeur, ni le goût, ni l'apparence ; type E dès 3 °C ; viande reçue salée, séchée, fumée ou gelée : 74 °C. Étape 20 (`{!cuisson}`) : 74 °C au thermomètre aux repas partagés | Le 71 °C qui suffit contre la trichine, le 71 °C du haché qui n'est pas du gibier, le 70 °C du poisson, le micro-ondes, la congélation (pages `cuisson` et `trichine`) |
+
+Les rappels du tableau de `CLAUDE.md` qui s'appliquent restent, chacun à une place : 74 °C (étapes 20 et 21, Points de
+contrôle) ; botulisme sans odeur ni goût et type E dès 3 °C (étape 21) ; trichine que ni le sel, ni le fumage, ni le gel
+ne détruisent (étape 21) ; mal de caribou (étape 9) ; thuyone (section 7) ; génératrice jamais sous un toit (étape 18).
+
+### Pictogrammes (étape → id)
+
+| Où | Id |
+| --- | --- |
+| Étape 7, les signes du froid | `froid` |
+| Étape 9, tiret du gras | `mal-de-caribou` |
+| Étape 10, refuser | `froid` |
+| Étape 11, si le visiteur ne part pas | `arme` |
+| Étape 18, les appareils du visiteur | `co`, `generatrice` |
+| Étape 20, les repas partagés | `cuisson` |
+| Étape 21, la nourriture reçue | `botulisme`, `trichine` |
+| Section 7, « Réchauffer quelqu'un sans le faire entrer », les pierres | `projection` |
+| Section 7, même sous-section, la boisson chaude | `thuyone` |
+| Section 7, « Donner sans renseigner », le siphon | `poison` |
+
+Nouveaux pour le ch. 17 par rapport à l'inventaire : `mal-de-caribou`, `projection`, `thuyone`, `poison` (la colonne
+« Chapitres » de la section 1 de l'inventaire et les « Où il revient » des pages sont rendus à l'orchestrateur).
+
+### Séries orange et leurs pastilles
+
+- **« Quelqu'un cogne à la porte » `{.orange 1 min}`** (étapes 1 à 3) : le temps des gestes (règle du skill : « la
+  pastille est le temps des gestes, ou un ordre de grandeur qui a sa source ») ; répondre, éteindre, envoyer les enfants
+  se fait en moins d'une minute. La seule source sur le moment (Houston PD, `22-houston-pd-securite-maison.md` : « Some
+  burglars ring the door bell, and if there is no answer, they break in ») dit de répondre tout de suite, sans délai
+  chiffré. Même pastille qu'au logigramme depuis le 15 octobre.
+- **« La personne attend dehors » `{.orange 10 min}`** (étapes 4 à 12) : Environnement Canada
+  (`22-environnement-canada-refroidissement-eolien.md`), borne basse de la plage −28 à −39 (la peau exposée peut geler
+  en 10 à 30 minutes). L'étape 7 dit d'où vient le chiffre.
+
+### Logigramme
+
+`images/logigrammes/17-qui-cogne.json` : renvois mis aux nouvelles étapes (parler 6 → 5 ; entrer 8 et 9 → 7 et 8 ; arme
+13 → 12 ; donner 10 → 9 ; refuser et accueil 11 → 10 ; reste 16 à 21 → 15 à 21 ; barrer 12 → 11 ; après 14 et 15 → 13
+et 14 ; lendemain 23 à 29 → 22 à 29) ; « § » remplacés par « section » dans les renvois et les sources ; `_note`
+refaite ; boîte « entre » : « s'il est bien éveillé et avale bien » (comme l'étape 8 et la page `froid`). Pastilles
+« 1 min » et « 10 min » identiques aux titres orange. Aucun avertissement redit. Colonnes et rangs non touchés. Rendus :
+`env -u TMPDIR python3 design/outils/logigramme.py images/logigrammes/17-qui-cogne.json` (svg, pdf, png) et
+`… --sans-entete --svg` (`17-qui-cogne-livre.svg`) : 0 erreur, 0 avis chacun. Ancre proposée : « **Barre de porte** »
+(dernier item du Matériel) ; l'ancienne ancre (« Régler une visite imprévue sur le seuil ») n'existe plus.
+
+### Chiffres et faits nouveaux, et leur source
+
+| Fait | Où | Source |
+| --- | --- | --- |
+| Judas grand-angle : 180° | Section 3 | `22-houston-pd-securite-maison.md` |
+| Œil : au moins 30 min pour s'habituer au noir ; une seconde de lumière vive la fait perdre en quelques secondes ; fermer un œil ; lumière rouge | En plus | `18-faa-vision-de-nuit-adaptation-lumiere-rouge.md` |
+| Indice sans unité ; vent soutenu de plus de 50 km/h | En plus | `22-environnement-canada-refroidissement-eolien.md` |
+| Grippe : un jour avant les signes ; COVID : 48 h avant ; enfants plus longtemps ; gastro : jusqu'à deux semaines après | En plus | `22-incubation-et-contact-rapproche.md` |
+| La place de l'invité sous la tente de peaux des Inuits de l'Ungava | En plus | `autochtones/turner-1894-ethnologie-ungava-gutenberg.txt`, l. 2958 à 2973 |
+
+Le détail mot pour mot est dans `sources/17-en-plus-extraits-deja-au-dossier.md`. **Aucun `[À VÉRIFIER]` nouveau.**
+Les trois points ouverts du 15 octobre restent : l'étape 12 transpose la consigne de la GRC (vol qualifié) à la porte
+forcée ; « elle s'assoit » est sorti du chapitre (la page `froid` le porte avec sa propre source) ; « la moitié de la
+chaleur part vers la forêt » (section 7) reste une géométrie, pas une mesure.
+
+### Notes « En plus » (4)
+
+1. **Fermer un œil devant la lumière** (fait, étape 2 ; 63 mots) : FAA.
+2. **Le refroidissement éolien** (fait, étape 7 ; 58 mots) : Environnement Canada.
+3. **Contagieux avant d'avoir l'air malade** (fait, étape 16 ; 59 mots) : ASPC, Québec.ca.
+4. **La place de l'invité chez les Inuits de l'Ungava** (façon d'une nation du Nord, étape 17 ; 77 mots) : Turner 1894.
+   Pourquoi elle marche (le maître décide de la place) et ce qui la rend dangereuse si on change ses conditions (avec un
+   inconnu, céder sa place le fait dormir au fond, près des enfants) : du rédacteur, signalé dans la fiche de source.
+
+Pas de photo : l'API de Wikimedia Commons répondait « too many requests » le 19 octobre (plusieurs agents en même
+temps). La piste, pour une prochaine passe : une gelure au visage (joues, nez blancs ou cireux), pour l'étape 7. Pas de
+façon innue : aucune page déjà au dossier ne parle de l'accueil d'un visiteur sans être déjà prise par le ch. 18 (la
+place du visiteur dans la tente, Nametau) ; une recherche rapide n'a rien donné de solide.
+
+### controle.py, avant et après
+
+| | Avant (15 octobre) | Après |
+| --- | --- | --- |
+| Mots | 5 297 | 5 624 |
+| Tirets | 2 (titre, ligne de tome) | 2 (les mêmes, forme commune) |
+| « § » | 17 | 0 |
+| Tournures | 6 | 0 |
+| Mises en relief | 2 | 2, jugées : « Ne pas ouvrir, mais répondre » (la consigne même) ; « n'éblouit pas, mais elle fausse les couleurs » (deux faits) |
+| Mots vides | 23 | 18, jugés un par un (« tout le monde », « toute la visite », « encore là au printemps », « bien éveillée et avale bien », « tout l'hiver ») |
+| Redites | 0 | 3, toutes des renvois de section 7 (« Réchauffer quelqu'un sans le faire entrer », « La porte, et l'endroit où elle cède ») ou deux gestes voisins (séparer le couchage des enfants et le dire) |
+
+Invariants signalés et justifiés : 2 min, 5 min, 30 min et « 15 minutes » (une des deux) : le tableau du refroidissement
+éolien de l'ancienne étape 5, dont les durées sont dans la page `froid` ; 28, 32,2 et 35 °C : les stades de
+l'hypothermie, dans la page `froid` ; 70 et 71 °C : pages `cuisson` et `trichine` ; « ch. 16 » : la liste « mauvais
+choix » coupée ; « ch. 18 » et « ch. 87 » : une occurrence chacun reste ; « 3 °C » 2 → 1 et « génératrice » 3 → 1 : un
+fait, une place. Le chapitre a 327 mots de plus : l'ancien Danger est entré dans les étapes avec son fait propre, et
+l'orange porte son détail. Fins de ligne CRLF gardées.
+
+### Pour l'orchestrateur (fichiers communs, non touchés)
+
+- `placements-tome-1.json`, clé « 17 » : logigramme `apres` = « **Barre de porte** » ; planche 17-06 `apres` inchangé
+  (« Une porte cède au chambranle, presque jamais au pêne ») ; aucune photo.
+- `plan/dangers-inventaire.md` (section 1, colonne « Chapitres », et le paragraphe du ch. 17 à la section 3) et les
+  « Où il revient » des pages `co`, `generatrice`, `froid`, `projection`, `botulisme`, `trichine`, `mal-de-caribou`,
+  `thuyone`, `poison` : texte rendu dans le rapport.
+- Ch. 61, l. 78 : « ch. 17 pour l'entreposage » ne pointe plus à rien (le chapitre ne parle pas d'entreposage des
+  armes depuis la passe légale du 23 septembre).

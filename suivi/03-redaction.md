@@ -309,3 +309,211 @@ tient ? » et l'avertisseur qui sonne (1 min). Contrôle : 0 erreur, 0 avis.
 gelé, §9 « La plomberie »), 03-12 (couverture scellée, §9 « Le chauffage »). Un seul appel par planche ; §9 est
 réordonné pour éloigner 03-12, 03-11 et 03-08. Photo proposée : le mât arraché, au détail de l'étape 1. Ancrages :
 `scratchpad/demo-03/ancrages-texte.json`.
+
+## Refonte au gabarit final, 19 octobre 2026
+
+Rédacteur (rôle 2), numéros **actuels**. Texte d'avant : `HEAD:chapitres/03-panne-majeure-d-hydro-en.md` (commit
+`bd1b3f1`). Lus avant d'écrire : `.claude/cadre-agents.md`, `CLAUDE.md`, le skill `ecriture` et ses tableaux,
+`gabarit-chapitre.md`, `roles.md`, les ch. 4 et 12 et leurs fiches, `plan/dangers-inventaire.md` (section 1, et le
+ch. 3 à la section 3), `dangers/partie-1.md`, `dangers/partie-2.md`, `plan/premieres-minutes-inventaire.md` (ligne du
+ch. 3), `suivi/plan-de-match.md` (PAUSE du 15 octobre). Aucun chiffre déjà sourcé n'a été rouvert (JP, 19 octobre
+2026 : « fuck les sources, on a pas déjà fait ce travail-là ? ») ; seuls les faits nouveaux ont leur passage recopié,
+dans `sources/03-refonte-et-en-plus-2026-10-19.md`. Fichier gardé en LF.
+
+### Ce qui a changé
+
+- **Sept sections, plus « En plus »** : 1 En une ligne, 2 Quand l'utiliser, 3 Matériel, 4 Procédure, 5 Points de
+  contrôle, 6 Signes d'échec, 7 Variante d'urgence. « Pourquoi ça marche » et « Danger » sortent ; les renvois
+  « section 6, 7, 9 » deviennent 5, 6, 7, et « section 3, 8 » deviennent des étapes.
+- **La note de lieu sous le titre sort** (PAUSE, point 8) : il reste **Maison**. Ce qu'elle disait va à la section 2,
+  en situations : « Au chalet, la génératrice ou le banc de batteries lâche, l'hiver » (étapes 6 à 9, 21 à 34), « La
+  famille part au chalet » (étapes 21 à 25), « Le courant manque l'été » (étapes 2 à 4, 16 à 20, 27 à 34). « Ce qui
+  change la nuit est marqué « La nuit » » sort (phrase sur le livre) ; les marques **La nuit** restent dans les
+  étapes 6, 15, 16 et le chapeau de la série de 6 h. Ligne ajoutée : « Il manque l'avertisseur, la génératrice, le
+  thermomètre, l'antigel ou les piles » (section 7).
+- **Les trois parties « … : le détail » entrent dans leur étape orange** (PAUSE, point 22) : mât, fil tombé (étape 1),
+  appareils (2), heure (3), eau (4), avertisseur (5), poêle et refoulement (6), « Sans poêle » (6), pièce (7),
+  vêtements (8), abri (9), message (10), décision (11), suite du CO (13).
+- **Numérotation des étapes inchangée (1 à 40).** Aucune étape ajoutée ni coupée : les sous-étapes sont des puces.
+- **Les procédures tassées sont découpées** (PAUSE, point 13), chaque puce sur le repère de sa planche, dans l'ordre
+  des repères : l'abri (étape 9, planche 03-09, repères 1 à 11), la vidange (étape 23, planche 03-10, repères 1 à
+  6), l'antigel (étape 24), « Fermer les fenêtres » (planche 03-12, repères 1 à 8), « Le poêle qui fuit »,
+  « Vidanger sans antigel » (planche 03-10, repères 7 à 11), « Dégeler un tuyau » et « Réparer un tuyau fendu »
+  (planche 03-11, repères 1 à 11), « La marmite norvégienne » (planche 03-08, repères 1 à 7). L'entrée d'eau est dite
+  où elle est et à quoi elle ressemble ; « son robinet » devient « le robinet de vidange du chauffe-eau ».
+- **Le siphon par son bouchon de nettoyage** (PAUSE, point 14, JP) : section 7, « Vidanger sans antigel » ; la poire
+  reste pour les siphons sans bouchon et la baignoire ; l'huile est marquée « Autre façon, au lieu du chiffon ». La
+  planche 03-10 ne montre pas le bouchon : signalé à l'orchestrateur.
+- **« Un message texte passe là où un appel ne passe pas »** (PAUSE, point 12) devient la phrase du ch. 11, étape 16,
+  sur la même source (`sources/11-isde-rester-connecte-messages-texte.md`).
+- **« Carter »** (PAUSE, point 15) : section 5, « Le moteur est encore chaud quand on pose la main dessus après
+  l'heure : attendre plus longtemps » ; section 7, « On démonte le carter » du lanceur devient « Démonter le couvercle
+  du lanceur ». « Le gicleur principal » garde son nom (on ouvre la pièce), expliqué : « la petite pièce percée qu'on
+  voit une fois le bol enlevé ».
+- **Le pronominal** (PAUSE, point 16) : « il se cuit tout de suite ou se jette », « se fait bouillir », « se font
+  bouillir », « se traite comme absent », « se jette », « se dégage à la pelle », « s'achètent », « se ferme à froid »,
+  « se colmatent », « la pâte se fait », « se fabrique », « ne se rouvre pas », « se mange », « se cuit », « ne
+  s'estiment pas », « se prépare », « s'improvise, se coupe, se découpe », « se remplace », « se tient debout, se
+  couche », « se raccorde », « se lit », « se branche » (×3), « se voit de la rue », « qui se dévisse » : tous dits
+  avec qui fait le geste. Restent les « se » où la chose le fait seule (le puisard se remplit, le chauffe-eau ne se
+  vide pas, la mie se défait, la fissure se rouvre…).
+- **Tournures** : « d'où vient le vent » et « d'où sortent les fils » (« du côté du vent », « par où sortent ») ; « le
+  gros rôti attend la sonde » (chose qui attend) ; « l'odeur d'égout dit quand il lâche » (chose qui parle) ; « Un
+  litre frais dans un réservoir vide vaut mieux que dix litres vieux » (maxime, coupée) ; « C'est presque toujours une
+  de ces quatre choses » (« Quatre causes, qu'on règle sans pièce neuve ») ; l'introduction de la section 7 (« on
+  passe quand même la panne, mais plus mal ») coupée ; « Le danger vient presque toujours de ce qu'on brûle » (chute,
+  coupée avec la section 3).
+- **Une contradiction réglée avec la page `pas-au-feu`** (`dangers/partie-1.md`) : l'étape 6 disait « Les planches de
+  démolition et les palettes de bois brut, sans peinture ni traitement, brûlent aussi » ; la page met les palettes et
+  le bois de démolition d'origine inconnue dans ce qu'on ne brûle jamais. L'étape dit maintenant : « du bois de
+  démolition brut, sans peinture ni traitement, dont on connaît la provenance » ; les palettes sortent.
+- **Matériel** : la ligne des thermomètres nomme les trois (la pièce la plus froide, le réfrigérateur, le
+  congélateur), parce que l'étape 22 se fait au thermomètre ; la cheminée « ne s'improvise pas » ne s'y redit plus
+  (section 7, « Ce qui ne se remplace pas »).
+
+### Où sont allés les blocs de l'ancien « Pourquoi ça marche » (section 3)
+
+| Bloc | Où |
+| --- | --- |
+| La perte de chaleur proportionnelle à l'écart et à la surface ; replier la famille dans une pièce | Étape 7, dit comme au tableau du skill (« en regroupant la famille… on réduit la surface à chauffer ») |
+| Le corps couché perd sa chaleur vers le plancher (le bois conduit, l'air immobile non) | Étape 9 : « il faut plus d'épaisseur sous les corps que par-dessus » |
+| Le tuyau fend : la glace bouche, l'eau prise entre la glace et le robinet fermé monte en pression | Étape 21 (avec « souvent là où il y a peu de glace », qui était à la section 9) ; la section 7 y renvoie |
+| « Le danger vient presque toujours de ce qu'on brûle pour se chauffer » | Coupé (chute en formule ; les pictogrammes `co` portent le danger) |
+
+### Où sont allés les blocs de l'ancienne section 8, Danger
+
+| Bloc | Où | Ce qui saute parce que la page du danger le dit |
+| --- | --- | --- |
+| Le CO : tout ce qui brûle en fait, ni vu ni senti, prend la place de l'oxygène dans le sang, l'enfant « fatigué ou de mauvais caractère », tue la nuit | Rien dans le chapitre : tout est à la page `co` | Tout le bloc |
+| L'avertisseur qui ne sonne pas (30 ppm, 30 jours) ; seul le chiffre de l'affichage le montre | Étape 5, `{!co}`, deuxième puce : lire le chiffre matin et soir ; les malaises qu'on met sur le compte du froid ; le chiffre qui ne redescend pas de la journée | « 30 ppm, 30 jours » (page `co`) ; le chapitre dit « des jours » |
+| Le poêle étouffé pour la nuit refoule fumée et CO, même porte fermée | Étape 6, `{!co}`, puce « La nuit » | « La braise fait du CO en ne montrant qu'une lueur rouge » (page `co` : la braise) |
+| Génératrice dehors à 6 m (20 pi), échappement à l'opposé ; ni maison, garage, remise, tambour, véhicule, tente, auvent, galerie | Étape 16, `{!generatrice}` : 6 m, l'échappement, « jamais sous la galerie ni dans le tambour d'entrée » | Le garage même porte ouverte, la remise, la tente, l'auvent, le véhicule (page `generatrice`) |
+| Aucun appareil d'extérieur ou de camping dans la maison, même peu de temps, même fenêtre entrouverte ; densité du CO ; maison fermée à −35 °C | Étape 5, `{!co}`, quatrième puce | « Le CO a presque la densité de l'air » (page `co`) |
+| Le courant renvoyé dans la ligne : commutateur, câble à deux fiches mâles, prise de la sécheuse, transformateur, monteur | Étape 17, `{!electrocution}` : disjoncteur à OFF, commutateur de transfert | Le câble à deux fiches mâles, la sécheuse, le monteur (page `electrocution`) |
+| Botulisme de type E : dès 3 °C, réfrigérateur en panne à 6 ou 8 °C, poisson cru, fumé à froid ou sous vide ; la pourriture n'avertit pas sous vide ; la truite à jeter ; ch. 77 | Étape 27, `{!botulisme}`, troisième puce : jeter le poisson fumé ou sous vide même s'il a l'air bon, 3 °C, 6 ou 8 °C, ch. 77 | La pourriture qui n'avertit pas sous vide, « ni l'odeur ni le goût » (page `botulisme`) |
+| 74 °C à cœur, sonde au centre de la pièce la plus épaisse ; trichine de l'ours et du phoque ; la panne qui fait tricher sur la sonde | Étape 31, `{!cuisson}` (74 °C, la sonde, la panne qui force à cuire vite) ; étape 34, `{!trichine}` (l'ours et le phoque salés ou fumés restent à cuire à 74 °C) | « 71 °C est la valeur du bœuf haché » (étape 31, page `cuisson`) ; le mécanisme de la trichine (page `trichine`) |
+
+### Pictogrammes posés (étape → id)
+
+| Étape | Id | Ce qui est propre au chapitre |
+| --- | --- | --- |
+| 1, troisième puce | `electrocution` | Rester loin du fil tombé en allant voir le mât |
+| 5 | `co` | 2 m du poêle, la chambre sous 4,4 °C, la porte du garage, lire le chiffre, 7 ans, rien de camping dans la maison à −35 °C |
+| 6, puce « La nuit » | `co` | L'air du poêle ouvert la nuit, la relève ou le feu qu'on laisse mourir |
+| 8 | `froid` | Les joues, le nez et les oreilles des enfants deux fois par jour |
+| 12 | `co` | Sortir tout le monde (série orange de 1 min) |
+| 15 | `froid` | Les sorties préparées sur l'indice éolien, en un voyage ; la nuit, dire combien de temps |
+| 16 | `generatrice` | 6 m, sous la galerie, le tambour d'entrée, la nuit |
+| 17 | `electrocution` | Disjoncteur principal à OFF, commutateur de transfert |
+| 24, dernière puce | `poison` | L'antigel de moteur reste dans la tuyauterie d'eau potable |
+| 27, troisième puce | `botulisme` | Le poisson fumé ou sous vide du réfrigérateur en panne |
+| 31 | `cuisson` | 74 °C à la sonde, même quand la panne force à cuire vite |
+| 34 | `trichine`, `mal-de-caribou` | L'ours et le phoque salés ou fumés ; garder le gras des pièces transformées |
+| Section 7, « Les pierres chaudes » | `projection` | La pierre de ruisseau qui éclate |
+| Section 7, « La marmite norvégienne » | `zone-de-danger` | La marmite qui reste tiède dans la boîte |
+| Section 7, « L'éclairage » | `co` | La lampe à graisse seulement dans la pièce du poêle, éteinte avant de dormir |
+
+Hors de l'inventaire (section 3 du `plan/dangers-inventaire.md`) : `electrocution` à l'étape 1, `froid` (8, 15),
+`poison` (24), `trichine` et `mal-de-caribou` à l'étape 34 (l'inventaire mettait `trichine` à l'étape 31 et ne
+mettait pas `mal-de-caribou`), `projection`, `zone-de-danger` et `co` à la section 7. L'inventaire mettait aussi
+« aucun appareil de camping dans la maison » à l'étape 7 : il reste à l'étape 5, où l'avertisseur se teste et où la
+règle était déjà. Le rappel du mal de caribou, qui était à l'ancienne étape 11 (« Au chalet, la viande maigre de
+gibier seule… »), passe à l'étape 34, avec le gras qu'on garde quand on transforme la viande. Le cendrier (étape 14)
+n'a pas de pictogramme : l'étape est le geste lui-même, et la page `incendie` le redit.
+
+Pas de pictogramme sur le lave-glace (section 7, « Vidanger sans antigel ») : l'étape 24 porte déjà `poison` pour la
+même famille, et la phrase dit le geste.
+
+### Les séries orange
+
+Inchangées dans leur découpage et leurs pastilles (fiche plus haut, « Passe complète du 16 octobre ») : « Le courant
+vient de manquer » `{.orange 15 min}` (étapes 1 à 5 ; le temps des gestes, et la pression de l'aqueduc qui peut tomber
+à tout moment), « Le courant ne revient pas » `{.orange 6 h}` (étapes 6 à 11 ; tours cellulaires de quelques heures,
+`19-cbc-2018-batteries-tours-cellulaires.md`, et réfrigérateur de 4 à 6 h, `04-quebec-ca-panne-de-courant.md`),
+« L'avertisseur de CO sonne » `{.orange 1 min}` (étapes 12 et 13). Ce qui change : tout le détail est maintenant dans
+l'étape orange ; l'étape 13 renvoie au ch. 2, étapes 4 à 8 (le ch. 2 a été renuméroté : son étape 1 d'avant est
+maintenant la série 1 à 8), et « reprendre la décision deux fois par jour » renvoie au ch. 2, étape 43 (au lieu de
+l'étape 10).
+
+### Logigramme
+
+`images/logigrammes/03-panne-hydro.json` : renvois et sources mis d'accord avec le texte refait (« ch. 3, étape 6 : le
+détail » devient « ch. 3, étape 6 » ; « ch. 2, étape 1 » devient « ch. 2, étapes 4 à 8 » ; « §2 » devient « section
+2 ») ; la précision de la question « On peut rester à la maison ? » dite en phrase (« Il faut du bois sec pour toute la
+panne, … »). Pastilles identiques à l'orange (15 min, 6 h, 1 min) ; aucun avertissement redit ; colonnes et rangs
+inchangés (droite : 8,9 à 15,5 po, couloir à 8,7 po). Rendus refaits : `.svg`, `.pdf`, `.png` et
+`03-panne-hydro-livre.svg` (`--sans-entete --svg`) : 0 erreur, 0 avis, regardé à l'image. Ancre : le dernier item du
+Matériel, « **Thermomètre à sonde** ».
+
+### Planches : appels et ancrages
+
+| Planche | Appel | Ancre (`apres`) |
+| --- | --- | --- |
+| 03-09 | Étape 9, repères 1 à 11 | `9. **Avant la nuit, monter un abri dans la pièce**` (avant : « **L'abri (étape 9).** », paragraphe disparu) |
+| 03-10 | Étape 23, repères 1 à 6 ; section 7, « Vidanger sans antigel », repères 7 à 11 | `23. **Vidanger dans l'ordre**` (avant : « 23. **Vidanger dans l'ordre.** » ; le point est sorti pour que l'appel suive le titre) |
+| 03-12 | Section 7, « Fermer les fenêtres », repères 1 à 8 | `**Fermer les fenêtres.**` (inchangée) |
+| 03-11 | Section 7, « Dégeler un tuyau sans flamme », repères 1 à 7 ; « Réparer un tuyau fendu », repères 8 à 11 | `**Dégeler un tuyau sans flamme.**` (inchangée) |
+| 03-08 | Section 7, « La marmite norvégienne », repères 1 à 7 | `**La marmite norvégienne.**` (avant : « La marmite part pleine : la masse d'eau chaude fait la réserve », phrase réécrite) |
+
+Ancres vérifiées : chacune est le début d'un seul paragraphe du chapitre.
+
+### Chiffres et faits nouveaux, avec leur source
+
+Passages recopiés dans `sources/03-refonte-et-en-plus-2026-10-19.md`.
+
+| Fait | Où | Source |
+| --- | --- | --- |
+| Une conduite sans pression aspire l'eau du sol par ses joints et ses fuites | Étape 4 | `10-reseau-depressurise-intrusion-par-les-fuites.md` (EPA) ; déjà dit aux ch. 7 et 10 |
+| Un message texte encombre moins le réseau ; il passe quand les appels saturent ou que le service d'appel est coupé | Étape 10 | `11-isde-rester-connecte-messages-texte.md` |
+| Au chalet, arrêter la pompe du puits et vider le réservoir sous pression | Étape 23 | `04-purdue-extension-plomberie-panne-hiver.md` |
+| Les circuits à eau chaude se vident mal ; défaire un raccord pour les points bas | Étape 23 | Même fiche |
+| Dans un siphon, autant d'antigel qu'il y a d'eau | Étape 24 (« un peu » avant) | Même fiche |
+| Une couverture aux bords ouverts réduit la perte de la fenêtre de 10 % au plus ; rideaux croisés d'environ 10 cm au milieu | Section 7, « Fermer les fenêtres » | `03-cornell-cce-traitements-fenetres-economie-energie.md`, p. 4 |
+| À −18 °C, une batterie au plomb donne la moitié de sa capacité | Section 7, « Le 12 V » | `18b-trojan-batteries-plomb-froid-et-charge.md` |
+| 1 h d'arrêt toutes les 8 h de génératrice (provenance demandée, PAUSE, point 15) | Étape 20, section 5 | `04-quebec-ca-panne-de-courant.md` (l. 86) ; `01-quebec-panne-courant.md` (l. 17) |
+| Le siphon se vide par son bouchon de nettoyage | Section 7 | JP, 16 octobre 2026 (plan de match, PAUSE, point 14) ; geste, sans chiffre |
+
+**Chiffres retirés parce que la page du danger les porte** (le contrôle des invariants les signale) : 30 ppm et
+30 jours (page `co`), 37,8 °C (page `co` ; le 4,4 °C reste à l'étape 5), 71 °C (page `cuisson`), les temps de gelure
+selon le refroidissement éolien, −28 à −39, −40 à −47, −48 à −54, 10 à 30, 5 à 10 et 2 à 5 minutes (page `froid` ;
+l'étape 15 garde le geste et le pictogramme), une des deux occurrences de « 6 m (20 pi) » (celle de la section 8).
+
+**[À VÉRIFIER]** : aucun.
+
+### Notes « En plus »
+
+| Note | Genre | Étape | Provenance |
+| --- | --- | --- | --- |
+| Reconnaître le mât de branchement | Photo | 1 | `images/extras/03-mat-de-branchement.jpg`, Wikimedia Commons, `File:Weatherhead.JPG`, Chetvorno (Chris Burks), CC0 ; licence lue sur l'API de Commons (champs recopiés dans la fiche de sources) ; original de la réduction dans `images/extras/originaux/` |
+| La lampe de pierre des Inuits | La façon d'une nation du Nord | 5 | Turner 1894, l. 3024 à 3058 (`sources/autochtones/`) ; ce qui la rend dangereuse dans une maison fermée : page `co` |
+| Les tours cellulaires pendant une panne | Fait | 10 | `19-cbc-2018-batteries-tours-cellulaires.md` |
+| La pression qui tombe dans l'aqueduc | Fait | 4 | `10-reseau-depressurise-intrusion-par-les-fuites.md` (EPA) |
+
+Pistes regardées et laissées : la maison qui refroidit vite puis lentement (SCHL, verglas de 1998) est déjà une note du
+ch. 1 ; l'onde AM la nuit est une note du ch. 2 et le texte du ch. 3 la dit ; l'igunaq du Nunavik (botulisme de type E)
+appartient au ch. 80 et au ch. 77.
+
+### Renvois à corriger dans d'autres chapitres
+
+Les numéros d'étapes du ch. 3 ne changent pas. À corriger :
+- ch. 84, l. 93 : « (ch. 3, étape 22) » → « (ch. 3, étape 23) » (l'élément qui chauffe à sec est dit à l'étape 23) ;
+- ch. 84, l. 294, 317, 333, 342, 589, 599 : « (ch. 3, §9) » → « (ch. 3, section 7) » ;
+- ch. 86, l. 325 : « (ch. 3, étape 18) » → « (ch. 3, étape 19) » (le congélateur branché par cycles) ;
+- ch. 86, l. 545 : « ch. 3, §9 » → « ch. 3, section 7 ».
+
+Justes tels quels : ch. 8, l. 57 et 328 (« étapes 21 à 24 ») et l. 103 (« étapes 23 et 24 ») ; ch. 13, l. 267
+(« étape 6 »).
+
+### controle.py, avant et après
+
+| | Avant | Après |
+| --- | --- | --- |
+| Mots (script) | 8 010 | 8 291 |
+| Tirets | 2 (titre et ligne de tome) | 2 (les mêmes) |
+| « § », mots bannis | 0 | 0 |
+| Vocabulaire d'IA | 1 (« au niveau de la mer ») | 1 (le même, au sens propre : gardé) |
+| Tournures | 1 (« d'où vient le vent ») | 0 |
+| Mots vides | 49 | 48, jugés un par un : « tout de suite », « tout le monde », « bien tassés », « encore dur », « toutes les 8 h » portent le sens ; « déjà commencé » (étape 5) coupé |
+| Redites | 8 | 5, gardées : « faire bouillir au moins 1 minute » (étape 4, après la baisse de pression ; étape 39, au retour : deux moments), « verre à la pièce de monnaie » et « la pièce la plus froide » (le nom de la chose), « vidanger la maison (étapes 21 à 25) » (renvois des étapes 6 et 11) |
+| Ancres introuvables | 0 | 2 (03-08, 03-09 : nouvelles ancres rendues à l'orchestrateur, plus haut) |
+| Invariants | | Chiffres retirés : voir « Chiffres retirés » plus haut ; aucune étape, aucun rappel de sécurité, aucune note ni planche perdus |

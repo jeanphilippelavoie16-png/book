@@ -50,7 +50,10 @@ ou une braise qu'on a gardée, aussi longtemps qu'il reste de l'amadou sec.
  avec les mitaines : les mains restent chaudes pour le geste fin de l'étape 6. Ramasser les branches mortes du bas des épinettes (étape 11), les casser et les trier
  en tas, par grosseur (étape 10), et ramasser quelques bûches. Ramasser l'amadou en même temps : de
  l'écorce de bouleau, de la barbe de vieillard (section 7, « L'amadou qu'on ramasse »). L'amadou qu'on avait sur soi sert en premier.
-4. **Faire le feu à l'abri du vent, sur un lit de branches vertes s'il y a de la neige** (étape 8).
+4. {!co} **Faire le feu dehors, ou dans un poêle raccordé à son tuyau** (la tente à poêle : ch. 12). Dehors, le
+ faire à l'abri du vent, et sur un lit de branches vertes s'il y a de la neige (étape 8). Même pour se réchauffer
+ vite, ne jamais faire de feu dans une tente, un abri de neige, une cabane de pêche ou la cabine d'un camion :
+ sans tuyau, le monoxyde du feu reste dedans.
 5. **Choisir la méthode selon les mains.**
  - S'il fait plus froid que −17,5 °C, ou si les doigts font mal ou ne sentent plus rien : allumer à la pile
  ou à la batterie, avec de la laine d'acier (étapes 18 à 21). On touche la laine avec les deux bornes de
@@ -71,12 +74,9 @@ ou une braise qu'on a gardée, aussi longtemps qu'il reste de l'amadou sec.
 
 ### Monter le feu avant la première étincelle
 
-8. {!co} **Choisir l'endroit.**
- - Faire le feu dehors, ou dans un poêle raccordé à son tuyau (la tente à poêle : ch. 12). Même pour se
- réchauffer vite, ne jamais faire de feu dans une tente, un abri de neige, une cabane de pêche ou la cabine
- d'un camion : sans tuyau, le monoxyde du feu reste dedans.
- - Le faire à l'abri du vent, sur du sable, du gravier ou de la terre battue, et enlever autour tout ce qui
- brûle.
+8. **Choisir l'endroit.**
+ - Dehors, faire le feu à l'abri du vent, sur du sable, du gravier ou de la terre battue, et enlever autour
+ tout ce qui brûle.
  - Sur de la mousse et de l'humus, creuser jusqu'à la terre minérale, le sable ou le gravier qui est sous
  la couche brune. Le feu peut descendre dans l'humus, y avancer sans flamme et ressortir plus loin.
  - Sur la neige, poser côte à côte des branches vertes grosses comme le poignet, puis un ou deux autres

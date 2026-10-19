@@ -1,5 +1,5 @@
 {
-  "_note": "Logigramme du chapitre 3 (panne majeure d'Hydro en janvier), double page, fait le 16 octobre 2026 sur le chapitre réécrit, sur le modèle du 11. Les pastilles suivent celles du chapitre : 15 min pour « Le courant vient de manquer » (étapes 1 à 5), 6 h pour « Le courant ne revient pas » (étapes 6 à 11), 1 min pour « L'avertisseur de CO sonne » (étapes 12 et 13). Page de gauche : la panne, la nuit, le poêle. Page de droite : rester ou partir, et l'avertisseur qui sonne. Le premier geste arrive sans question. Aucun avertissement redit (ni la génératrice, ni les appareils de camping, ni le poêle étouffé la nuit, ni le fil tombé : ils restent dans l'étape et l'encadré danger). Rendu : env -u TMPDIR python3 design/outils/logigramme.py images/logigrammes/03-panne-hydro.json ; version du livre : --sans-entete --svg. « source » : les étapes du chapitre d'où vient chaque geste (ignoré au rendu).",
+  "_note": "Logigramme du chapitre 3 (panne majeure d'Hydro en janvier), double page, fait le 16 octobre 2026 sur le chapitre réécrit, sur le modèle du 11 ; mis d'accord le 19 octobre 2026 avec le chapitre refait au gabarit final (sept sections, plus de parties « le détail », plus de section Danger : les pictogrammes sont dans les étapes). Les pastilles suivent celles du chapitre : 15 min pour « Le courant vient de manquer » (étapes 1 à 5), 6 h pour « Le courant ne revient pas » (étapes 6 à 11), 1 min pour « L'avertisseur de CO sonne » (étapes 12 et 13). Page de gauche : la panne, la nuit, le poêle. Page de droite : rester ou partir, et l'avertisseur qui sonne. Le premier geste arrive sans question. Aucun avertissement redit (ni la génératrice, ni les appareils de camping, ni le poêle étouffé la nuit, ni le fil tombé : ils restent dans leur étape, avec leur pictogramme). Rendu : env -u TMPDIR python3 design/outils/logigramme.py images/logigrammes/03-panne-hydro.json ; version du livre : --sans-entete --svg. « source » : les étapes du chapitre d'où vient chaque geste (ignoré au rendu).",
   "format": "double",
   "tome": 1,
   "urgent": true,
@@ -73,7 +73,7 @@
       "ancre": "haut",
       "taille": 15,
       "texte": "Le courant vient de manquer",
-      "source": "§2 ; étape 1"
+      "source": "section 2 ; étape 1"
     },
     {
       "id": "u1",
@@ -85,7 +85,7 @@
       "taille": 10,
       "texte": "**Regarder si la rue est noire aussi.** Si elle est éclairée et pas la maison, regarder le disjoncteur principal, puis le mât de branchement : un mât brisé laisse la maison sans courant, même quand la rue est rebranchée.",
       "renvoi": "ch. 3, étape 1",
-      "source": "étape 1 et son détail"
+      "source": "étape 1"
     },
     {
       "id": "u2",
@@ -135,7 +135,7 @@
       "rang": "g6",
       "texte": "La maison a un poêle à bois raccordé à une cheminée ?",
       "precision": "Une fournaise au mazout ou au gaz s'arrête avec le courant",
-      "source": "étape 6 et son détail"
+      "source": "étape 6"
     },
     {
       "id": "fA",
@@ -158,8 +158,8 @@
       "temps": "6 h",
       "taille": 10,
       "texte": "**Vivre dans la plus petite pièce, sous un abri.** Suivre la température, vidanger avant 5 °C et partir de jour, pendant que la route est ouverte.",
-      "renvoi": "ch. 3, étape 6 : le détail",
-      "source": "étape 6, le détail « Sans poêle »"
+      "renvoi": "ch. 3, étape 6",
+      "source": "étape 6, « Sans poêle »"
     },
     {
       "id": "q3",
@@ -168,8 +168,8 @@
       "rang": "d1",
       "ancre": "haut",
       "texte": "On peut rester à la maison ?",
-      "precision": "Du bois sec pour la durée, un avertisseur qui répond, la pièce chauffée au-dessus de 5 °C, et personne ne dépend d'un appareil médical électrique",
-      "source": "étape 11 et son détail"
+      "precision": "Il faut du bois sec pour toute la panne, un avertisseur qui répond au bouton, la pièce chauffée au-dessus de 5 °C, et personne qui dépend d'un appareil médical électrique",
+      "source": "étape 11"
     },
     {
       "id": "partir",
@@ -223,8 +223,8 @@
       "ancre": "haut",
       "taille": 10,
       "texte": "**Couper la source, aérer, et rentrer quand l'avertisseur est revenu à la normale.**",
-      "renvoi": "ch. 2, étape 1",
-      "source": "détail des étapes 12 et 13 ; ch. 2, étape 1"
+      "renvoi": "ch. 2, étapes 4 à 8",
+      "source": "étape 13 ; ch. 2, étapes 4 à 8"
     }
   ],
   "liens": [

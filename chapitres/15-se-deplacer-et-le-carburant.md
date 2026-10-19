@@ -92,9 +92,8 @@ et se sortir vivant de la glace qui cède ou de la machine qui s'arrête loin de
 7. **Si on n'est pas sorti au bout d'une dizaine de minutes, arrêter de forcer.** Après la première minute,
  les bras, les jambes et les doigts gardent leur force une dizaine de minutes, puis ils ne répondent plus.
  Sortir de l'eau le plus de corps possible, garder les avant-bras posés sur la glace et la tête hors de
- l'eau, ne plus bouger, et siffler. Même dans l'eau glacée, on met souvent une heure à perdre connaissance
- par le froid : d'ici là, on se noie seulement si la tête passe sous l'eau. Ne pas nager pour se
- réchauffer.
+ l'eau, ne plus bouger, et siffler. Même dans l'eau glacée, on peut mettre une heure à perdre connaissance
+ par le froid : bien avant, on meurt noyé si la tête passe sous l'eau. Ne pas nager pour se réchauffer.
 
 ### Quelqu'un d'autre passe à travers la glace {.orange 10 min}
 
@@ -131,7 +130,7 @@ et se sortir vivant de la glace qui cède ou de la machine qui s'arrête loin de
 
 ### La machine s'arrête loin de tout, l'hiver {.orange 30 min}
 
-11. {!co} **En auto, avant de laisser tourner le moteur pour se chauffer, sortir et dégager le tuyau
+11. {!co} {!generatrice} **En auto, avant de laisser tourner le moteur pour se chauffer, sortir et dégager le tuyau
  d'échappement.** Le tuyau sort sous l'arrière de l'auto. Pelleter la neige autour du bout du tuyau et sous
  le pare-chocs, jusqu'au sol, pour que le gaz sorte à l'air libre : quand la neige bouche le tuyau, le gaz du
  moteur entre dans l'auto. Refaire ce geste après chaque bourrasque ou chute de neige, et avant chaque
@@ -142,9 +141,9 @@ et se sortir vivant de la glace qui cède ou de la machine qui s'arrête loin de
 13. **Faire tourner le moteur une dizaine de minutes par demi-heure, pas en continu.** Dix minutes de
  ralenti brûlent de 0,25 à 0,5 L : à ce rythme, l'auto consomme de 0,5 à 1 L par heure d'attente, et 10 L
  donnent de 10 à 20 heures de chauffage. Lire la jauge et compter les heures qui restent. Si quelqu'un a mal
- à la tête ou mal au cœur pendant que le moteur tourne, couper le moteur, ouvrir grand les portières, faire
- sortir tout le monde à l'air, et dégager l'échappement avant de redémarrer. Une personne qui s'endort dans
- l'auto, moteur en marche, est en danger de mort : la sortir tout de suite.
+ à la tête, mal au cœur ou s'endort pendant que le moteur tourne, couper le moteur, ouvrir grand les
+ portières et faire sortir tout le monde à l'air tout de suite : la personne qui s'endort dans l'auto,
+ moteur en marche, est en danger de mort. Dégager l'échappement avant de redémarrer.
 14. **Allumer les feux de détresse, et ménager la batterie** : la lumière, le chauffage et la radio à tour
  de rôle, jamais ensemble. La batterie doit garder assez de charge pour redémarrer le moteur à chaque
  demi-heure.
@@ -158,6 +157,7 @@ et se sortir vivant de la glace qui cède ou de la machine qui s'arrête loin de
  - Bouger les doigts, les orteils et le visage de temps en temps, pour sentir les endroits qui
  deviennent durs ou engourdis.
  - Toucher les joues et les doigts des enfants au lieu de leur demander s'ils ont froid (ch. 25, étape 32).
+ - Dans l'auto, ne jamais allumer de réchaud, de fanal ni de chaufferette faits pour l'extérieur.
 17. **Quand tout le monde est installé, essayer de sortir l'auto de la neige.**
  - Pelleter un chemin devant chaque roue qui tire l'auto, puis y coucher des planches ou des branches pour
  que les pneus mordent.
@@ -307,9 +307,11 @@ et se sortir vivant de la glace qui cède ou de la machine qui s'arrête loin de
 ### La génératrice
 
 45. {!generatrice} **La faire tourner dehors, à découvert, à au moins 6 m de toute maison ou de tout
- bâtiment**, loin des portes, des fenêtres et des prises d'air.
-46. **Tourner son échappement du côté où le vent emporte le gaz loin des bâtiments.** À la maison, compter
- aussi les 6 m vers la maison du voisin : le gaz entre chez lui par ses prises d'air.
+ bâtiment**, loin des portes, des fenêtres et des prises d'air. Jamais dans un bâtiment, un garage ou une
+ remise, même porte ouverte, ni sous un auvent ou dans un abri d'auto en toile.
+46. **La placer du côté où le vent emporte le gaz loin des bâtiments, et tourner son échappement à l'opposé
+ des portes et des fenêtres.** À la maison, compter aussi les 6 m vers la maison du voisin : le gaz entre
+ chez lui par ses prises d'air.
 47. {!electrocution} **Brancher les appareils directement sur la génératrice, avec des rallonges.** Jamais
  d'adaptateur mâle-mâle, jamais de branchement par le panneau électrique ni par une prise murale.
 48. {!vapeurs} **Faire le plein moteur arrêté et refroidi**, dehors, le bidon posé au sol, loin de toute
@@ -537,9 +539,9 @@ dépannage.
 ### Le bâton à sonder de la côte de l'Alaska
 
 Sur la glace de mer, les chasseurs autochtones de la côte de l'Alaska marchent avec un long bâton à pointe
-d'os, l'unghaq en yupik. On frappe la glace là où on va mettre le pied : si la pointe passe, on ne marche pas
-là. Si on passe à travers, on se hisse en tirant sur le bâton. Il dit seulement si la glace porte une personne
-à pied : pour une machine, on mesure (étape 40).
+d'os, l'unghaq en yupik. On frappe la glace là où on va mettre le pied : si la pointe passe, on n'y marche pas.
+Si on passe à travers, on se hisse en tirant sur le bâton. Ces chasseurs connaissent leur glace de mer. Sur la
+glace de marée du fleuve, on ne passe pas, même avec un bâton (étape 42).
 
 ### Les oiseaux et les poissons qui ouvrent la glace
 
@@ -550,9 +552,9 @@ contourne l'endroit où des oiseaux d'eau se tiennent sur un lac gelé (étape 4
 ### Ne pas laisser la machine geler au sol
 
 Après une longue route, la chenille et les pneus sont chauds : arrêtés sur la neige, ils la font fondre, et le
-gel de la nuit les soude au sol. Les patins d'un traîneau chargé laissé sur la neige y gèlent aussi. Pour la
-nuit au bord de la trace (étape 18), garer la machine sur des branches, des perches ou des billes, et glisser
-des perches sous les patins du traîneau.
+gel de la nuit les soude au sol. Les patins d'un traîneau chargé laissé sur la neige y gèlent aussi. Pour une
+nuit d'arrêt en chemin, avec une machine qui roule encore (étape 18), la garer sur des branches, des perches ou
+des billes, et glisser des perches sous les patins du traîneau.
 
 ### L'essence d'hiver
 

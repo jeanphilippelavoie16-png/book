@@ -25,7 +25,7 @@ jamais la désinfection.
  à 41).
 - **Le puits n'a jamais été analysé**, ou il vient d'y avoir une crue, une inondation, un dégel brusque ou des
  travaux d'excavation à côté, ou on vient de remplacer la pompe (étapes 27 à 35).
-- **On a rapporté de l'eau dans un contenant dont on ne connaît pas l'histoire**, même si l'eau était bonne
+- **On a rapporté de l'eau dans un contenant dont on ne sait pas ce qu'il a contenu**, même si l'eau était bonne
  (étapes 14 à 22).
 - **La pompe du puits ne marche plus**, et il faut puiser l'eau à la main (section 7, « Puiser un puits quand la pompe est
  morte »).
@@ -52,8 +52,9 @@ jamais la désinfection.
  l'enlèvent. Boire de l'eau salée oblige les reins à rejeter plus d'eau qu'elle n'en apporte, et on se déshydrate
  plus vite. Quand il ne reste que le fleuve, on passe son eau à l'alambic ou on la dessale par le gel (section 7).
  Après des retombées radioactives, faire bouillir ou chlorer l'eau n'enlève rien de ce qui est radioactif. Après une
- détonation, la décanter à l'argile et la passer au filtre de terre en enlèvent presque tout ; après le panache d'une
- centrale, la terre retient le césium, mais mal l'iode radioactif (ch. 4, étape 22 et section 7).
+ détonation, on en enlève presque tout en décantant l'eau avec de l'argile et en la passant au filtre de terre ;
+ après le panache d'une centrale, la terre retient le césium, mais mal l'iode radioactif (ch. 4, étape 22 et
+ section 7).
 2. **Puiser en amont de tout ce qui peut salir l'eau** : le camp, la fosse septique, l'enclos, le sentier de
  motoneige, la hutte de castor. {!selles} Il faut traiter toute eau de surface, même claire, froide et sans odeur.
  Le castor et le rat musqué portent *Giardia*. Avec l'orignal, ils vivent autour des lacs et des ruisseaux du chalet
@@ -87,7 +88,7 @@ jamais la désinfection.
  reste en suspension abrite les microbes, use la javel avant qu'elle les atteigne et bouche le filtre.
 9. **Tendre un linge de coton serré, plié en plusieurs épaisseurs, sur une seconde chaudière**, posée plus bas que
  la première : une taie d'oreiller pliée en deux et attachée sous le bord fait l'affaire (repère 2). Le coton retient ce qui
- n'est pas tombé au fond ; quand on passe ensuite l'eau au filtre fin, la cartouche dure plus longtemps.
+ n'est pas tombé au fond ; quand on passe ensuite l'eau au filtre à 1 µm, la cartouche dure plus longtemps.
 10. **Tirer l'eau claire par-dessus le dépôt, à travers le coton, sans remettre le dépôt en suspension** : tenir le
  bout du boyau au-dessus du dépôt, et arrêter quand le dépôt commence à monter vers le boyau (repère 3).
  - **Amorcer le siphon sans la bouche** (planche 10-08, repère 1). Plonger le boyau dans la chaudière pleine, sans
@@ -105,7 +106,7 @@ jamais la désinfection.
  (0,03 µm) passent les filtres portatifs courants ; seuls les filtres à membrane les plus fins (ultrafiltration,
  trous de 0,01 à 0,1 µm) les retiennent. Après un filtre à 1 µm, il faut donc désinfecter l'eau : la faire
  bouillir (étape 14) ou la chlorer (étape 19).
-12. **Viser une eau limpide avant le filtre.** Une eau trouble bouche vite le filtre, et la filtration retient le
+12. **Viser une eau limpide avant le filtre.** Une eau trouble bouche vite le filtre, et le filtre retient le
  mieux les kystes quand le trouble de l'eau ne dépasse pas 0,3 UNT (l'unité dans laquelle on mesure le trouble). Sans
  appareil de mesure, regarder une feuille imprimée à travers 20 cm d'eau : on ne doit voir aucun voile. On voit un
  voile à l'œil à partir d'environ 5 UNT ; une eau qui a l'air limpide peut donc être plusieurs fois au-dessus de
@@ -127,8 +128,8 @@ jamais la désinfection.
  - **Les cinq minutes.** On fait bouillir 5 minutes l'eau prise en forêt à cause de la tularémie, une maladie que
  portent le castor, le rat musqué et le lièvre. Sa bactérie survit des mois dans l'eau froide et au gel. Dans l'eau
  chaude, elle meurt en une minute à 56 °C, et il n'en reste aucune vivante après 45 secondes à 94 °C ; on garde
- quand même les 5 minutes, la durée donnée pour l'eau des endroits où la tularémie circule. Filtrer l'eau ne dispense pas de ces 5 minutes : le
- filtre à 1 µm laisse passer des bactéries (étape 11). Le ch. 50, sur le castor, donne la même durée.
+ quand même 5 minutes, la durée recommandée pour l'eau des endroits où la tularémie circule (ch. 50). Filtrer l'eau
+ ne dispense pas de ces 5 minutes : le filtre à 1 µm laisse passer des bactéries (étape 11).
 15. **Couvrir la marmite pendant l'ébullition** (repère 5) : on perd moins d'eau et moins de bois.
 16. **Laisser refroidir l'eau dans la marmite couverte**, puis la verser dans un contenant lavé, avec des ustensiles
  propres.
@@ -137,7 +138,7 @@ jamais la désinfection.
 
 ### Désinfecter à la javel
 
-18. **Prendre une javel titrée de 4 à 6 %, et lire sa date de fabrication** ; les doses qui suivent sont pour de la
+18. **Prendre une javel de 4 à 6 %, et lire sa date de fabrication** ; les doses qui suivent sont pour de la
  javel à 5,25 %.
  - Trouver la date de fabrication dans le code imprimé sur le contenant. Chez un grand fabricant, le code commence
  par les lettres de l'usine, suivies des deux derniers chiffres de l'année, puis du numéro du jour dans l'année
@@ -174,7 +175,7 @@ jamais la désinfection.
  d'iode à 2 %, ou un comprimé, par litre, puis attendre 30 minutes dans une eau à plus de 20 °C, 60 minutes entre
  15 et 20 °C, et 120 minutes entre 5 et 15 °C. Ne pas donner d'eau traitée à l'iode à une personne qui a une maladie
  de la thyroïde mal contrôlée ou une allergie à l'iode. N'en donner que peu de temps à une femme enceinte, à cause
- de la thyroïde du bébé, et pas plus de quelques semaines à personne. L'iode ne tue pas
+ de la thyroïde du bébé, et à personne pendant plus de quelques semaines. L'iode ne tue pas
  *Cryptosporidium*, même avec une attente plus longue : passer d'abord une eau de surface au filtre à 1 µm.
 
 ### Entreposer
@@ -190,8 +191,8 @@ jamais la désinfection.
  contenant. L'eau bouillie n'en a pas.
 26. **Viser 4 L par personne et par jour** : pour 72 heures, 6 L pour boire et 6 L pour cuisiner et se laver, soit
  12 L par personne (ch. 6). Pour quatre personnes, ça donne 16 L par jour, 48 L pour 72 heures, et environ 480 L
- pour un mois, soit 24 bidons de 20 L. On garde en réserve l'eau de 72 heures et on traite le reste chaque jour ; on choisit la taille de la marmite et
- la réserve de bois d'après ce volume de chaque jour.
+ pour un mois, soit 24 bidons de 20 L. Garder en réserve l'eau de 72 heures et traiter le reste chaque jour ;
+ choisir la taille de la marmite et la réserve de bois d'après ce volume de chaque jour.
 
 ### Le puits : analyser, puis désinfecter
 
@@ -214,7 +215,7 @@ jamais la désinfection.
  5 L par 1 000 L pour un puits neuf.
 30. **Calculer le volume d'eau du puits.**
  - Mesurer la colonne d'eau, c'est-à-dire la profondeur du puits moins la profondeur où commence l'eau.
- Attacher un poids au bout d'une ficelle par deux nœuds, descendre la ficelle jusqu'à ce que le poids touche le fond, puis la remonter : la longueur mouillée de la ficelle est la colonne d'eau. Un puits de 40 m dont l'eau
+ Attacher un poids au bout d'une ficelle avec deux nœuds, descendre la ficelle jusqu'à ce que le poids touche le fond, puis la remonter : la longueur mouillée de la ficelle est la colonne d'eau. Un puits de 40 m dont l'eau
  commence à 12 m contient une colonne de 28 m d'eau.
  - Multiplier la colonne par l'eau que contient chaque mètre :
 
@@ -253,8 +254,8 @@ jamais la désinfection.
 ### L'hiver
 
 36. {!glace} **Percer la glace à l'écart des courants et de l'embouchure des ruisseaux**, là où elle est la plus
- épaisse et la plus régulière. Mesurer la glace du chemin qui mène au trou avant d'y marcher (ch. 15, étapes 40
- à 42). Pour percer et entretenir le trou, voir le ch. 58.
+ épaisse et la plus régulière. Mesurer l'épaisseur de la glace sur le chemin qui mène au trou avant d'y marcher
+ (ch. 15, étapes 40 à 42). Pour percer et entretenir le trou, voir le ch. 58.
 37. **Garder le trou ouvert sous un couvercle isolé et un matelas de neige**, plutôt que de le repercer chaque jour.
 38. **Prendre la glace du lac plutôt que la neige** : à volume égal, elle donne plus d'eau, et on la transporte plus facilement.
 39. **Faire fondre la neige seulement quand il n'y a ni eau libre ni glace.**
@@ -284,7 +285,7 @@ jamais la désinfection.
 
  | Avec de l'eau bouillie | Avec l'eau du robinet |
  | --- | --- |
- | Boire, et les breuvages | Se laver les mains, avec du savon |
+ | Boire, et faire les breuvages | Se laver les mains, avec du savon |
  | Préparer le lait maternisé, les biberons | Prendre un bain ou une douche, sans avaler d'eau |
  | Laver les légumes et les fruits qu'on mange crus | Laver la vaisselle avec du détergent |
  | Faire des glaçons | Laver les vêtements |
@@ -304,8 +305,8 @@ jamais la désinfection.
  - Il n'est pas nécessaire de vider le chauffe-eau.
 48. {!plomb} **Dans une vieille maison, laisser couler le robinet d'eau froide avant de boire.** Des entrées de
  service en plomb (le tuyau qui amène l'eau de la rue à la maison) ont été posées dans des maisons unifamiliales et
- des immeubles de moins de 8 logements, surtout entre 1940 et 1955, et jusque dans les années 1970 ; on ne sait s'il
- y en a une que par une analyse. Le plomb se dissout dans l'eau qui reste la nuit dans l'entrée de service ; la
+ des immeubles de moins de 8 logements, surtout entre 1940 et 1955, et jusque dans les années 1970 ; il faut une
+ analyse pour savoir s'il y en a une. Le plomb se dissout dans l'eau qui reste la nuit dans l'entrée de service ; la
  concentration à ne pas dépasser est de 0,005 mg/L. Les enfants de moins de 6 ans et les femmes
  enceintes (pour l'enfant à naître) y sont les plus sensibles.
  - Laisser couler l'eau du robinet quelques minutes après qu'elle est devenue froide (fraîche l'été) avant de la
@@ -345,7 +346,7 @@ jamais la désinfection.
 | Volume à chlorer | Colonne d'eau × eau par mètre | **17,7 L/m** pour un tubage de 150 mm, ou rayon en cm au carré × 3,14 ÷ 10 | Refaire le calcul (étape 30) |
 | Après la désinfection du puits | Durée dans la plomberie | **24 h** | Attendre |
 | Vidange de l'eau chlorée | Chlore libre au robinet | Rien à la bandelette, rien à l'odeur | Continuer à faire couler l'eau avant de boire |
-| Après la désinfection du puits | Analyses de contrôle | Une à **1 semaine**, une à **4 semaines** | Faire les deux (étape 35) |
+| Après la désinfection du puits | Analyses de contrôle | Une après **1 semaine**, une après **4 semaines** | Faire les deux (étape 35) |
 | Maison d'avant les années 1970 | Robinet d'eau froide qu'on laisse couler avant de boire | Quelques minutes après que l'eau est devenue froide ; plomb **0,005 mg/L** ou moins à l'analyse | Laisser couler plus longtemps, prendre l'eau froide seulement, poser un filtre qui retient le plomb, faire analyser l'eau |
 
 ---
@@ -362,7 +363,7 @@ jamais la désinfection.
 | Taches noires sur la lessive et la porcelaine | Manganèse au-dessus de 0,02 mg/L | Faire analyser l'eau, et comparer le résultat aux cibles de santé de la section 5 (0,06 et 0,12 mg/L) |
 | Goût salé | Eau salée entrée dans le puits, ou sel de déglaçage | Alambic, osmose inverse ou une autre source |
 | Filtre à 1 µm bouché en quelques jours | Eau trop trouble avant le filtre | Laisser reposer l'eau plus longtemps et la passer au coton. Récurer la bougie de céramique (le cylindre qui filtre) ; rincer la cartouche plissée à l'envers (section 7) |
-| Filtre de céramique qui coule beaucoup plus vite qu'avant, sans qu'on l'ait nettoyé | Fêlure, souvent invisible : l'eau passe par la fente sans être filtrée | Changer la bougie, et aussi quand on y voit une fêlure |
+| Filtre de céramique qui coule beaucoup plus vite qu'avant, sans qu'on l'ait nettoyé | Fêlure, souvent invisible : l'eau passe par la fente sans être filtrée | Changer la bougie. La changer aussi dès qu'on y voit une fêlure |
 | Javel qui ne sent plus rien à l'ouverture | Elle a perdu son chlore | La remplacer |
 | Bandelette à zéro au bout de l'attente | La matière organique a consommé le chlore | Remettre la même dose une fois ; si ça recommence, faire bouillir |
 | Eau bouillie qui garde un goût métallique ou amer | Produit chimique, que l'ébullition a concentré | Changer de source ; faire faire une analyse chimique |
@@ -425,7 +426,7 @@ Dans un tubage de 150 mm, on puise avec une buse : un bout de tuyau rigide avec 
  plutôt que de puiser au fur et à mesure.
 - **Garder le puits propre.** Tout ce qu'on descend dans le tubage touche l'eau qu'on boit : la corde, la buse,
  les mains. Enrouler la corde sur un bâton posé en travers, hors du sol (repère 6). Attacher la corde au haut du
- tuyau par deux trous, pour ne pas perdre la buse (repère 7) : ce qui tombe au fond d'un puits y reste et y pourrit. Ranger la buse bouchée et
+ tuyau en la passant dans deux trous, pour ne pas perdre la buse (repère 7) : ce qui tombe au fond d'un puits y reste et y pourrit. Ranger la buse bouchée et
  suspendue, et remettre le couvercle du tubage entre deux voyages.
 
 ### Faire du chlore quand il n'y a plus de javel
@@ -439,7 +440,7 @@ Dans un tubage de 150 mm, on puise avec une buse : un bout de tuyau rigide avec 
 - **La dose.** Mettre 1 volume de solution mère pour 100 volumes d'eau à traiter : 100 mL pour 10 L. Brasser, puis
  attendre et contrôler comme aux étapes 21 et 22, à la bandelette si on en a.
 - {!incendie} Ranger les granules seuls, au sec et au frais, loin du bois, du papier, de l'huile, des guenilles et
- du carburant : les granules ne brûlent pas eux-mêmes, mais ils peuvent allumer ces matières, et ils activent un
+ du carburant : les granules ne brûlent pas eux-mêmes, mais ils peuvent allumer ces matières, et ils attisent un
  feu. {!chimie} Ne jamais les mettre
  en contact avec un acide, qui en dégage du chlore, ni avec de l'urine ou de l'ammoniaque.
 
@@ -479,8 +480,8 @@ Un baril debout, rempli de sable, que l'eau traverse lentement de haut en bas, f
  l'eau trop vite et filtre mal.
 - **Verser l'eau.** La verser doucement sur une assiette percée posée sur le sable (repère 8) : l'assiette empêche
  l'eau de creuser le sable.
-- **Le film vivant.** La plus grande partie du travail est faite par un film de microbes qui se forme dans le 1 ou
- 2 cm du dessus du sable et qui mange ce qui passe. Il met jusqu'à un mois à se former. On ne le voit pas : quand
+- **Le film vivant.** Un film de microbes se forme dans le 1 ou 2 cm du dessus du sable, mange ce qui passe et fait
+ la plus grande partie du travail. Il met jusqu'à un mois à se former. On ne le voit pas : quand
  le sable fonce, c'est seulement la saleté qu'il a retenue. Le film reste vivant tant que le sable reste mouillé et
  qu'il reçoit de l'eau neuve au moins tous les deux jours : on monte le filtre l'été ou l'automne, avant d'en avoir
  besoin, et on y verse de l'eau chaque jour.
@@ -524,9 +525,9 @@ produits, il faut changer de source.
 
 Deux façons de faire fondre la neige sans brûler de bois :
 
-- un prélart noir ou une bâche foncée étalée sur la neige par une journée claire de mars, avec une pente et une
- rigole vers une chaudière ;
-- un sac souple accroché près du poêle, où la neige fond à la chaleur du poêle pendant qu'on cuisine.
+- Étaler un prélart noir ou une bâche foncée sur la neige, par une journée claire de mars, en lui donnant une pente
+ et une rigole qui mène à une chaudière.
+- Accrocher un sac souple plein de neige près du poêle : la neige fond à la chaleur du poêle pendant qu'on cuisine.
 
 ### Dessaler par le gel, quand il n'y a que le fleuve
 
@@ -566,7 +567,7 @@ l'été.
 - **Un boyau crevé.** Le couper de part et d'autre du trou, et rabouter les deux bouts sur un manchon de tuyau rigide
  serré au fil de fer.
 - **Une pompe 12 V morte.** Monter un baril sur une plateforme : l'eau en descend toute seule dans les tuyaux. On
- monte l'eau du lac jusqu'au baril à bras.
+ monte l'eau du lac à bras jusqu'au baril.
 
 ### Ce qui ne se remplace pas
 
@@ -583,8 +584,8 @@ l'été.
 - **La protection dans le bidon.** Sans javel, l'eau traitée n'a plus de chlore pour la protéger dans le bidon
  (étape 25).
 - **Ce qui est dissous.** Seul l'alambic enlève ce qui est dissous, et il donne très peu d'eau.
-- **Le goût.** L'eau reste teintée par les tanins, et elle est plate (étape 17). Un enfant qui ne boit pas l'hiver se
- déshydrate (ch. 39 et 40).
+- **Le goût.** L'eau reste teintée par les tanins, et elle est plate (étape 17). Un enfant qui ne la boit pas se
+ déshydrate, même l'hiver (ch. 39 et 40).
 - **La marge d'erreur.** Quand on traite l'eau de deux façons, l'une rattrape une erreur sur l'autre. Avec une seule
  façon, une ébullition trop courte rend malades toutes les personnes qui boivent l'eau.
 
@@ -595,8 +596,8 @@ l'été.
 ### La sève de bouleau, en mai
 
 En mai, avant que les feuilles sortent, les Dénés de Fisherman Lake, dans les Territoires du Nord-Ouest, entaillaient
-le bouleau à papier et recueillaient la sève dans un panier d'écorce, pour la boire. La sève est presque toute de
-l'eau, avec 0,8 à 1,5 % de sucre. Elle se gâte vite : la garder sous 5 °C, la boire en six jours au plus, et la jeter
+le bouleau à papier et recueillaient la sève dans un panier d'écorce, pour la boire. La sève est presque entièrement
+de l'eau, avec 0,8 à 1,5 % de sucre. Elle se gâte vite : la garder sous 5 °C, la boire en six jours au plus, et la jeter
 si elle n'est plus claire (étape 1 ; entailler : ch. 94).
 
 ### Reconnaître un étang de castor
@@ -605,12 +606,12 @@ si elle n'est plus claire (étape 1 ; entailler : ch. 94).
 
 Le barrage du castor retient l'eau d'un cours d'eau en étang, parfois sur une grande étendue, et sa hutte est au
 milieu de l'étang ou sur la berge. Autour, on trouve des souches taillées en pointe, avec des traces de dents nettes
-et de gros copeaux au pied, et des bâtons écorcés dans l'eau ou sur le bord. L'été, l'orignal vient manger
-dans l'étang les plantes qui poussent sous l'eau (étape 2).
+et de gros copeaux au pied, et des bâtons écorcés dans l'eau ou sur le bord. L'été, l'orignal vient y manger les
+plantes qui poussent sous l'eau (étape 2).
 
-### Le seau d'épinette des Naskapis
+### La chaudière d'épinette des Naskapis
 
-Les Naskapis de l'Ungava faisaient leurs seaux à eau avec des planches d'épinette ou de mélèze, épaisses
+Les Naskapis de l'Ungava faisaient leurs chaudières à eau avec des planches d'épinette ou de mélèze, épaisses
 d'environ 8 mm (étape 7). Ils passaient les planches à la vapeur, les pliaient en rond en faisant chevaucher les
 bouts, et les cousaient avec des racines fendues. Le fond, un morceau de bois creusé en plat, entrait dans une
 rainure taillée près du bord du bas. La vapeur rend le bois environ dix fois plus souple que du bois sec, non chauffé.
@@ -636,5 +637,5 @@ trous (étape 36).
 
 Sans son film vivant, le sable retient de 30 à 70 % des microbes qui rendent malade : ils restent pris entre les
 grains ou collés à leur surface. Quand le film est formé, le filtre en retient jusqu'à 99 %. Quand on change de
-source d'eau, le film met plusieurs jours à s'adapter : il faut donc toujours remplir le filtre à la même source
-(section 7, « Le filtre à sable »).
+source d'eau, le film met plusieurs jours à s'adapter : il faut donc toujours remplir le filtre avec l'eau de la même
+source (section 7, « Le filtre à sable »).

@@ -312,14 +312,14 @@ section 7, « Ce qui ne se remplace pas » et « Les fermentés » ; le nitrite 
 | 19 (garder du gras au stock) | `mal-de-caribou` | Le gras du stock fait le lien jusqu'à la graisse de l'automne ; rotation rapide, jamais en réserve de fond |
 | 21 (sel nitrité, jamais de salpêtre) | `poison` | Le nitrite entre au stock à côté du sel de table ; il ne se remplace pas cuillère pour cuillère par le salpêtre (la page dit : peser au dixième de gramme, jeter la poudre sans étiquette) |
 | 23 (conserves maison dans l'année) | `botulisme` | L'année, l'huile maison hors du stock, la boîte du commerce rouillée ou bosselée sur le serti |
-| 24 (le poisson fumé ou salé) | `botulisme` | Hors des tablettes du stock ; dès 3 °C |
+| 24 (le poisson fumé ou salé) | `botulisme` | Gelé, ou sous 3 °C, jamais sur les tablettes du stock ; dès 3 °C ; ch. 76 et 77 (corrigé le 19 octobre, plus bas) |
 | 25 (le congélateur de la maison) | `zone-de-danger` | 48 h plein, 24 h à moitié, réfrigérateur 4 à 6 h (compter 4) ; sortir la viande dehors en janvier |
 | 26 (cuire le gibier) | `cuisson` | 74 °C le gibier, 70 °C le poisson (rappel de CLAUDE.md) |
 | 27 (foie et reins) | `abats` | Ni au congélateur ni en conserve (rappel de CLAUDE.md) |
 | 31 (le carburant dans le chalet) | `vapeurs` | Seulement le carburant de la journée ; bidons pleins ; regarder sous le fond |
 | 32 (les bouteilles de propane) | `vapeurs` | Debout, dehors, jamais dans un cabanon fermé |
-| 33 (la génératrice) | `generatrice` | 6 m du chalet et du cabanon ; jamais dans le cabanon où est le carburant |
-| 34 (les avertisseurs) | `co` | Une par chambre où on dort porte fermée ; 2 m ; pièce humide ; lithium 10 ans ; date au dos |
+| 33 (la génératrice) | `generatrice` | Dehors, à découvert, à 6 m du chalet et du cabanon ; jamais dans le cabanon ni dans un autre bâtiment, même porte ouverte, ni sous un auvent (corrigé le 19 octobre, plus bas) |
+| 34 (les avertisseurs) | `co` | Une par chambre où on dort porte fermée ; 2 m ; pièce humide ; modèle à pile au lithium de 10 ans ; date au dos |
 | 51 (le tour des souris) | `hantavirus` | Jeter ce que les souris ont touché ; fente de 10 ¢ |
 | Section 7, « Le gras remplace le couvercle » | `botulisme` | La viande sous la graisse reste au froid, jamais sur une tablette tiède (la page `botulisme` range « le confit ou la viande sous une couche de gras » parmi les risques) |
 | Section 7, « Les fermentés » | `thuyone` | Sapin baumier ou épinette, jamais le cèdre (rappel de CLAUDE.md) |
@@ -414,3 +414,32 @@ rouvrir la recherche.
   d'âge) ; « 8 pi » (la corde, dite une fois, étape 30) ; ch. 00b ×2, ch. 19, ch. 41 (renvois en double, et la liste
   « mauvais choix ») ; notes [^3] et [^4] (renumérotées [^1] et [^2] ; l'ancienne [^1], mal de caribou, et [^4], signes
   du botulisme, sont dans les pages des dangers) ; « 5.1 » à « 5.10 » (numéros des anciennes sous-sections).
+
+## Corrections après la vérification technique, 19 octobre 2026
+
+Rédacteur (rôle 2). Onze points du vérificateur technique sur la refonte ; dix appliqués (deux avec une retouche de
+forme), un écarté au profit d'une coupe. Aucune recherche nouvelle (JP, 19 octobre : « fuck les sources, on a pas
+déjà fait ce travail-là ? ») : chaque correction s'appuie sur une page déjà dans `/sources` ou sur un autre chapitre.
+
+| # | Où | Ce qui est fait | Appui |
+| --- | --- | --- | --- |
+| 1 | Étape 8, la famille de l'exemple | **Appliqué** : « un homme et une femme de 19 à 30 ans, un enfant de 4 ou 5 ans et un enfant de 6 ou 7 ans », 8 550 à 8 800 kcal. Avec « deux enfants de 4 à 7 ans », la fourchette allait de 8 350 à 8 950 | `sources/08-msss-besoins-energetiques.md`, tableau 1, « actif » : 3 000 + 2 350 + 1 500 à 1 650 + 1 700 à 1 800 |
+| 2 | Étape 4, le local qui gèle | **Appliqué, resserré** : le bocal maison qui a gelé doit être jeté, même s'il n'est pas fendu ; si le local gèle, descendre conserves et bocaux à la maison avant les gels (ch. 84, étape 9) ; ne pas les mettre au caveau, dont l'humidité rouille couvercles et boîtes (ch. 79). « Ni au congélateur, où ils gèlent » n'est pas écrit : la phrase d'avant dit déjà que le bocal gelé se jette, et le congélateur sort avec l'ancienne consigne. Par cohérence, la ligne « Température du local » des Points de contrôle (« jeter les bocaux de conserve maison (étape 4) ») et le témoin de gel de la section 7 (« les bocaux de conserve maison sont à jeter (étape 4) ») renvoient à l'étape 4 | `chapitres/84-ouvrir-et-fermer-le-chalet.md`, étapes 9 et 42 (« un bocal de conserve maison qui a gelé se jette, fendu ou non » ; « Pas au caveau… l'humidité rouille les couvercles et les boîtes jusqu'à défaire le scellé ») |
+| 3 | Étapes 8, 10 et 11, le chiffre du stock | **Appliqué** : le stock se bâtit sur **9 500 kcal par jour**, le besoin d'un hiver de travail dur (ch. 21), pris comme un minimum ; trois mois font **855 000 kcal** (90 × 9 500) au lieu de 810 000. Étape 10 : le sac de farine de 2,5 kg (environ 9 100 kcal) devient « presque une journée de la famille ». Question rendue à JP (garder 9 000 ? la phrase de repli du vérificateur est notée dans le rapport). Le ch. 21 (l. 115 à 121), le ch. 88 (l. 29 et 30) et `plan/chiffres-a-valider.md` (ch. 08, point 2) disent encore 9 000 : rendus à l'orchestrateur | `chapitres/21-ce-qu-un-corps-demande-l-hiver.md`, l. 112 et 113 (« Chiffre de planification : 9 500 kcal/jour ») et l. 286 (contrôle au tiers et aux deux tiers de l'hiver : 9 500) ; provenance dans `suivi/21-redaction.md` |
+| 4 | Étape 5, les 9,8 L | **Appliqué** : « Un homme, une femme et deux enfants de 4 à 8 ans » | Ch. 21, section 5.5, tableau de l'eau totale (3,7 + 2,7 + 1,7 + 1,7 L) |
+| 5 | Étape 33, la génératrice | **Appliqué, en deux phrases** : « Faire tourner la génératrice dehors, à découvert, à au moins 6 m du chalet et du cabanon. Jamais dans le cabanon ni dans un autre bâtiment, même porte ouverte, ni sous un auvent. » Le rappel de `CLAUDE.md` (bâtiment, garage, auvent) est complet ; le monoxyde reste la raison, sans redire la page | `sources/10-sante-canada-generatrice-distance.md` (6 m) ; page `generatrice` (dangers/partie-1.md : « à découvert, sans toit ni bâche au-dessus » ; remise, garage, auvent, porte ouverte) |
+| 6 | Étape 24, le poisson | **Appliqué** : « Garder le poisson fumé ou salé gelé, ou sous 3 °C, jamais sur les tablettes du stock » ; renvoi aux ch. 76 et 77 | `chapitres/76-saler-et-secher-la-truite.md`, section I, points 3 et 4 (produit court sous 3 °C, au plus 14 jours ; produit de garde le plus froid possible, de préférence congelé) ; page `botulisme` (type E dès 3 °C) |
+| 7 | En plus, « Le pemmican » | **Appliqué, réécrit pour tenir sous 80 mots** : « l'hiver » sort ; la viande est chauffée à 71 °C à cœur pendant 15 secondes avant d'être séchée (ch. 72) ; on n'en fait jamais avec de l'ours, parce que le séchage ne tue pas la trichine. 80 mots | `sources/67-encyclopedie-canadienne-pemmican.md` ; `chapitres/72-pemmican-et-graisses.md`, étape 15 et section 8, point 2 ; page `trichine` |
+| 8 | En plus, « La bannique des Innus » | **Appliqué** : « sans galets ramassés dans l'eau autour du feu : une pierre gorgée d'eau éclate à la chaleur (ch. 88) ». « Avec le feu qu'on fait déjà » coupé pour rester sous 80 mots (75) | `chapitres/88-le-pain.md`, section 9-C, étape 1 ; `sources/14b-bannique-sable-innue.md` |
+| 9 | Étape 1, « fait vivre la famille » | **Écarté au profit d'une coupe** : la phrase sort au lieu d'être réécrite. La phrase d'avant (« compléter d'abord le bois, les moyens d'allumage, l'eau et le gras, avant d'ajouter de la nourriture ») donne déjà la priorité ; la comparaison proposée (« vaut mieux qu'un gros stock de nourriture sans bois ni allumettes ») la redit en formule (skill `ecriture`, « Pas de redite d'une phrase à l'autre » et « la chute en formule »). L'affirmation sans source disparaît avec elle | Ch. 1 (l'ordre des horloges), déjà renvoyé dans la même étape |
+| 10 | Étape 34, les piles au lithium | **Appliqué** : « Choisir un modèle dont la pile au lithium dure 10 ans. Dans un modèle dont on change les piles, mettre des piles au lithium. » Les deux phrases exactes de la page, relevées par le vérificateur le 19 octobre : « Privilégiez les modèles avec des piles au lithium qui ont une durée de vie de 10 ans » ; « Privilégiez des piles longue durée comme celles au lithium et n'utilisez pas de piles rechargeables à moins qu'elles soient recommandées par le fabricant ». L'extrait de la fiche source (« [piles au lithium] durée de vie de 10 ans ») reste ambigu : la fiche gagnerait à porter ces deux phrases (pas touchée ici, rendue à l'orchestrateur) | `sources/08-quebec-avertisseurs-monoxyde-carbone.md` |
+| 11 | En plus, « Ranger les bocaux sans leur bague » | **Appliqué** : le renvoi passe de l'étape 48 à l'étape 23 (ce qu'on jette à chaque visite) ; la note se placera près de l'étape 23 | `sources/08-nchfp-entreposage-conserves-maison.md` ; ch. 78, étape 23 |
+
+Tableau des notes « En plus » (plus haut) : la bannique a maintenant 75 mots, le pemmican 80 (« l'hiver » sort ; la
+viande chauffée à 71 °C pendant 15 secondes : ch. 72), la note des bagues renvoie à l'étape 23.
+
+**controle.py après les corrections** : 8 303 mots, 2 tirets (titre et ligne de tome), 0 mot banni, 0 « § »,
+0 âge, 0 maxime, 1 tournure (« On les oublie », étape 44 : faux positif), 42 mots vides jugés comme avant, 2 redites
+(« tour du printemps et de l'automne », même nom pour le même tour). Ancre signalée : la photo 05-boite-bombee, dont
+la nouvelle ancre (étape 23) est rendue à l'orchestrateur. Invariants contre la refonte : « ch. 77 » (l'étape 24 dit
+« aux ch. 76 et 77 ») ; « 810 » (devenu 855 000 kcal, correction 3).

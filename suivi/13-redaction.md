@@ -545,3 +545,45 @@ commande était de ne pas refaire de recherche. Trois notes renvoient à la sect
 | Mots vides à juger | 23 | 22 (le « tout » de l'ancien danger 1 parti ; les autres portent le sens) |
 | Redites à juger | 11 | 11 (les mêmes : un même mot pour la même chose, ou « souffler (étape 16) », un renvoi) |
 | Invariants disparus | | 0,96, 4,4, 37,8 °C, 43 °C, 35 °C, 32,2 °C, 74 °C, ch. 52, génératrice, trichinellose : la section Danger, portée par les pages `co`, `vapeurs`, `froid`, `cuisson`, `trichine`, `generatrice`. Planche 13-11 : 3 → 2 appels, voulu (« Planches ») |
+
+## Corrections après la vérification technique, 19 octobre 2026
+
+Rédacteur (rôle 2), sur les quatre points du vérificateur technique. Aucune source cherchée de nouveau (JP, 19 octobre
+2026 : « fuck les sources, on a pas déjà fait ce travail-là ? ») : rien de ce qui suit n'apporte un chiffre ou un fait
+nouveau ; la licence de la photo se lit dans la réponse de l'API déjà enregistrée. Fichiers touchés : le chapitre, cette
+fiche, le logigramme et ses rendus, `images/extras/13-amadouvier-bouleau.jpg`. Les fichiers communs (crédits, LISEZMOI
+des extras, inventaire des dangers, page `vapeurs`) ne sont pas touchés : les changements sont rendus à l'orchestrateur.
+
+| Point du vérificateur | Ce que j'ai fait |
+| --- | --- |
+| 1. Erreur : la photo de l'amadouvier n'a pas de ligne dans `images/credits.md` ni dans `images/extras/LISEZMOI.md` | **Appliqué, rendu à l'orchestrateur** (fichiers communs) : le bloc de crédits et la ligne du LISEZMOI, mot pour mot, dans le rapport. Licence relue dans `sources/13-inaturalist-amadouvier-2026-10-19.json` : photo 102445923, `cc-by`, « (c) scaup, some rights reserved (CC BY) » ; observation 63794378 en `cc0`, « research », New Glasgow (N.-É.), 28 octobre 2020. En passant : la copie qui s'imprime avait perdu le profil de couleur de l'original (Display P3) sans être convertie, donc des couleurs un peu ternes. Elle est refaite depuis l'original, convertie en sRGB (profil joint), 1 775 × 2 048, sans recadrage ni retouche, JPEG qualité 92 |
+| 2. À préciser : la série orange et le logigramme disent « à l'abri du vent » sans dire « dehors » ; l'interdit du feu dans un abri fermé est à l'étape 8, hors de l'orange | **Appliqué, autrement que proposé.** Le vérificateur posait `{!co}` et « dehors ou dans un poêle » à l'étape 4 et gardait la liste des abris interdits à l'étape 8 : le même fait aurait été dit deux fois, avec deux pictogrammes, et l'orange aurait été redit plus loin (cadre : « Rien de l'orange ne se redit ailleurs » ; skill, « un fait garde une seule place »). J'ai **déplacé** tout l'ancien danger 1 dans l'étape 4 : `{!co}`, « Faire le feu dehors, ou dans un poêle raccordé à son tuyau (la tente à poêle : ch. 12) », puis « Dehors, le faire à l'abri du vent, et sur un lit de branches vertes s'il y a de la neige (étape 8) », puis la liste (tente, abri de neige, cabane de pêche, cabine d'un camion) et le mécanisme propre au chapitre (sans tuyau, le monoxyde du feu reste dedans). L'étape 8 perd son pictogramme et sa première sous-étape ; la suivante commence par « Dehors, faire le feu à l'abri du vent… », et la dernière sous-étape dit déjà quand faire le feu dans le poêle. Logigramme, u3 : « **Faire le feu dehors, à l'abri du vent, ou dans un poêle raccordé à son tuyau.** S'il y a de la neige, le faire sur un lit de branches vertes. » C'est le geste (où faire le feu), pas l'avertissement : celui-ci reste dans l'étape 4. Rendus : 0 erreur, 0 avis les deux fois ; la boîte tient sur deux lignes |
+| 3. À préciser : le bloc du ch. 13 dans `plan/dangers-inventaire.md` demande encore 0,96, 4,4 à 37,8 °C, −43 °C, `cuisson` et `trichine` | **Appliqué, rendu à l'orchestrateur**, avec l'étape 4 au lieu de l'étape 8 pour `co`. `generatrice` sort du ch. 13 tout de suite : le tableau de `CLAUDE.md` l'applique au stock, au carburant et à l'électricité, et le chapitre n'a aucune génératrice (l'ancien danger 1 la nommait seulement en passant). `cuisson` et `trichine` attendent le oui de JP (question gardée) |
+| 4. À préciser : la page `vapeurs` range le ch. 13 sous « l'éclairage » | **Appliqué tel quel, rendu à l'orchestrateur** (page commune) : « Le carburant (ch. 5, 15), le feu qu'on allume (ch. 13), l'éclairage (ch. 85), le propane, les batteries et l'atelier (ch. 103 à 112). » Vérifié : ch. 15 est « Se déplacer et le carburant », ch. 85 « Éclairage » |
+
+### Pictogrammes, état au soir du 19 octobre (remplace le tableau « Pictogrammes » plus haut)
+
+| Où | Id |
+| --- | --- |
+| Étape 4 (série orange) | `co` |
+| Étape 7 (série orange) | `froid` |
+| Étape 12, dernière sous-étape | `vapeurs` |
+| Étape 20, troisième sous-étape | `vapeurs` |
+| Section 7, « Garder le feu », paragraphe du poêle | `co` |
+| Section 7, « L'amadou qu'on ramasse », ligne du cèdre | `thuyone` |
+
+Vérifié au montage d'essai (`build_chapitre.py` importé avec `OUTD` dans le scratchpad, rien écrit dans
+`design/epreuves-livre/`) : co, froid, vapeurs, vapeurs, co, thuyone, dans cet ordre. L'étape 8 n'a plus de
+pictogramme.
+
+### Le reste
+
+- Ancres de `placements-tome-1.json` (clé « 13 ») : aucune ne touche les étapes 4 et 8 ; toutes encore présentes une
+  seule fois, en début de paragraphe.
+- Renvois d'autres chapitres : aucun à refaire (les étapes gardent leurs numéros ; ch. 12 → étapes 11 et 29, ch. 15 →
+  étapes 1 à 7). Le « ch. 11, section 7 » de l'étape 8 est juste : le ch. 11 est migré, la mousse qui craque est dans
+  sa section 7 (Variante d'urgence).
+- `controle.py --avant` (HEAD) : 5 622 → 5 624 mots ; 2 tirets (titre et ligne de tome, lus par l'assembleur) ;
+  0 « § », 0 mot banni, 0 tournure, 0 maxime, 0 pronominal ; 22 mots vides et 11 redites, les mêmes qu'avant, jugés
+  (un « tout » qui veut dire tout, un renvoi « souffler (étape 16) ») ; invariants : rien n'a disparu.
+- Le `[À VÉRIFIER]` de l'étape 8 (le feu pour se réchauffer quand le vent dépasse 20 km/h) reste : question à JP.
