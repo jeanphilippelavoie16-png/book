@@ -231,6 +231,7 @@ def proteger(g):
     poses = list(POSES)
 
     def nettoyer(can, rects, ppp):
+        g['nettoyer'] = orig                             # une seule fois : le fond qui suit ce motif
         avant = can.copy()
         out, n = orig(can, rects, ppp)
         for y, x, mq in poses:
