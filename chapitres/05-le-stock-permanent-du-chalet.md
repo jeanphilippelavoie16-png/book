@@ -173,7 +173,7 @@ trois mois, et elle doit tenir au moins un mois, même l'année où personne n'a
  | Lait en poudre | Protéines et calcium, que les enfants acceptent sans discuter | Lumière et chaleur | Rotation rapide |
  | Riz brun, farine de blé entier, noix | Les mêmes calories, avec une meilleure valeur nutritive | Le gras du germe, qui s'oxyde | Petite quantité, rotation rapide |
 
-15. **Mettre au fond de la réserve les grains sans germe, et en rotation rapide les grains entiers.** Le gras d'une
+15. **Mettre les grains sans germe au fond de la réserve, et les grains entiers en rotation rapide.** Le gras d'une
  denrée sèche rancit, et il fixe combien de temps elle se garde. Le riz blanc, la farine tout usage et les pâtes
  viennent d'un grain dont on a retiré le germe : il ne leur reste presque rien à rancir, et ils se gardent des années
  dans un contenant hermétique. Le grain entier garde son gras : le riz brun va donc en rotation rapide, quelle que

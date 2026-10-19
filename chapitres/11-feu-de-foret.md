@@ -492,11 +492,11 @@ purificateur à filtre HEPA, mais beaucoup mieux que rien (planche 11-04).
 - {!co} **Le filtre n'arrête pas les gaz** : ni ceux de la fumée du feu, ni le monoxyde de carbone. Si un
  poêle ou une flamme brûle dans le chalet fermé, la pièce d'air propre ne protège pas de son monoxyde.
 
-### Au retour, trouver le feu qui reste sans instrument
+### Au retour, trouver le feu qui reste, sans instrument
 
-- **Le dos de la main**, passé au-dessus du sol et le long des bas de mur. Il sent la chaleur avant la
+- **Passer le dos de la main** au-dessus du sol et le long des bas de mur. Il sent la chaleur avant la
  paume, et il se retire tout seul ; une main à plat se referme sur ce qui brûle.
-- **Creuser plutôt que regarder.** Un feu de sol avance sous la surface, dans la matière organique. Partout
+- **Creuser là où c'est chaud.** Un feu de sol avance sous la surface, dans la matière organique. Partout
  où le dos de la main sent de la chaleur, creuser jusqu'au sol minéral et éteindre comme à l'étape 26.
 - **Éteindre à la terre.** Sur un départ de feu dans la mousse, une pelletée de sable ou de terre minérale
  étouffe mieux qu'un fond de chaudière d'eau, et il y en a partout.
@@ -508,7 +508,8 @@ purificateur à filtre HEPA, mais beaucoup mieux que rien (planche 11-04).
 - **Le masque d'un enfant** (étape 33). Un linge sur le nez et la bouche, sec ou mouillé, n'arrête pas
  les particules fines.
 - **L'abri des pompiers forestiers.** Ils portent un abri de dernier recours ; il n'en existe pas pour une
- famille. Il reste l'étape 24, dans un creux de sol minéral, loin des arbres debout.
+ famille. Sans cet abri, faire comme à l'étape 24 : se coucher dans un creux de sol minéral, loin des
+ arbres debout.
 
 ---
 
