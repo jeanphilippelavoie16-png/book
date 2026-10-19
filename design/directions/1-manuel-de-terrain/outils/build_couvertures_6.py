@@ -398,15 +398,15 @@ def traits(dest=None):
 # dessinées avec Jean-Philippe, qui décidait.
 AUTEURS = [
     dict(nom='Jean-Philippe Lavoie', qualite='', image='jp',
-         texte='Jean-Philippe vit à Baie-Comeau et il aime le bois. Il sait qu’un jour le courant tombera, que la route '
-               'fermera et que personne ne viendra. Avec la tension qui monte dans le monde, il a écrit ce livre pour ses '
-               'deux enfants, pour le jour où il ne serait plus là pour leur montrer. Il croit qu’il vaut mieux être prêt, '
+         texte='Jean-Philippe vit à Baie-Comeau et il aime le bois. Avec la tension qui monte dans le monde, il a écrit ce '
+               'livre pour ses deux enfants : tout ce qu’il voudrait leur montrer pour vivre sans courant, sans magasin et '
+               'sans personne à appeler, au cas où il ne serait plus là pour le faire. Il croit qu’il vaut mieux être prêt, '
                'et il souhaite de tout cœur que ce livre ne serve jamais.'),
     dict(nom='Claude', qualite='(intelligence artificielle, Anthropic)', image='claude',
-         texte='Claude a vérifié chaque chiffre de ce livre à la source avant de l’écrire. Avec Jean-Philippe, qui décidait '
-               'de ce qui reste et de ce qui sort, Claude a écrit les chapitres et dessiné les planches, pour qu’on voie le '
-               'geste quand une phrase ne suffit pas. Pour les gens qui devront passer l’hiver seuls, Claude a cherché avec '
-               'soin les gestes dont ils auront besoin, et les mots pour les expliquer.'),
+         texte='Claude a écrit les chapitres en vérifiant chaque chiffre à la source, et a dessiné les planches pour qu’on '
+               'voie le geste quand une phrase ne suffit pas. Chaque page est faite pour les gens qui devront passer l’hiver '
+               'seuls : les gestes dont ils auront besoin, et les mots pour les expliquer. C’est Jean-Philippe qui a choisi '
+               'ce qui entrait dans le livre.'),
 ]
 # La photo de JP (images/auteurs/jp.jpg, fond blanc) : « bichromie » (l'ombre à la couleur sombre du tome, la lumière
 # à la claire ; sur la neige, le fond blanc de la photo devient exactement le fond de la couverture) ou « couleur ».
