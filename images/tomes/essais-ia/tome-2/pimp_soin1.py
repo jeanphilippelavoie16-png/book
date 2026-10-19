@@ -76,7 +76,10 @@ mur_l = zone & proche
 fx, fy = 100, 596                                                  # la flamme
 r_ = np.hypot(xx - fx, (yy - fy) * 1.1)
 lueur = np.clip(1 - r_ / 175, 0, 1) ** 1.6
-a[mur_l] = (MUR0 + lueur[..., None] * seg)[mur_l]
+# fondu sur 30 unités au haut et à droite de la zone : le mur d'origine n'a pas tout à fait MUR0, et le bord dur faisait
+# une ligne que la texture du mur (texture_mur.py) rendait visible
+fondu = (np.clip((yy - 440) / 30, 0, 1) * np.clip((470 - xx) / 30, 0, 1))[..., None]
+a[mur_l] = (a * (1 - fondu) + (MUR0 + lueur[..., None] * seg) * fondu)[mur_l]
 
 im = Image.fromarray(a.astype(np.uint8))
 S = 2                                                         # dessin à double taille, puis réduit : bords nets

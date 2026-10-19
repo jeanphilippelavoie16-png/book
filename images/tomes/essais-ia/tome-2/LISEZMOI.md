@@ -16,7 +16,14 @@ passe-partout crème, sur le mur à droite du sous-titre, au-dessus de la bouill
 est remonté pour le laisser libre (`CENTRE_BAS` de `essais-ia/tome-1/couverture.py`). La chaîne complète :
 
     python3 pimp_soin1.py tome-2-1-x4.png /tmp/t2.png
-    python3 cadre_mur.py /tmp/t2.png cadre-gravure/gravure-lac.png ../../titre-tome-2.jpg
+    python3 cadre_mur.py /tmp/t2.png cadre-gravure/gravure-lac.png /tmp/t2b.png
+    python3 texture_mur.py /tmp/t2b.png ../../titre-tome-2.jpg --style planches
+
+Le mur du fond est en planches verticales peintes (JP, 19 octobre 2026 : « ajoute juste de la texture au mur du fond,
+subtile mais présente » ; il a choisi les planches parmi l'enduit, les planches et la toile) : `texture_mur.py` module
+la clarté du mur seulement (les joints, le fil du bois), la lueur de la lampe reste entière, et les planches passent sous
+l'ombre du cadre. La lueur de `pimp_soin1.py` a maintenant un fondu au haut et à droite de sa zone : son bord dur faisait
+une ligne que les planches rendaient visible.
 
 **JP change d'avis : la n° 1 du troisième tour** (18 octobre 2026 : « finalement, pimp celle-là, je l'aime plus »),
 le mur sang de bœuf. Agrandie ×4 (`tome-2-1-x4.png`), puis `pimp_soin1.py` : les taches roses qui flottaient sur le
