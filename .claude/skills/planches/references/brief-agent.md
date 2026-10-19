@@ -33,8 +33,11 @@ mains »). Les gros plans de main reviennent dans les planches, par elle seuleme
 L'agent ne se juge pas seul (règle 12). Un relecteur qui n'a pas dessiné la planche la regarde à la taille
 d'impression puis de près (mains, matières, feu, bâtons), avec cette consigne : « les mains, corps et têtes
 viennent des moteurs validés ; une main dessinée à la main est un refus ; est-ce qu'un illustrateur professionnel
-publierait ça, oui ou non, et quoi corriger ». On corrige jusqu'au oui. Le rapport dit, pour chaque main, quelle
-pose du moteur elle utilise.
+publierait ça, oui ou non, et quoi corriger ». On corrige une fois, et c'est tout : **un seul tour** de regard et de correction (JP, 19 octobre 2026 : « 4 M de jetons
+pour 6 planches, sérieusement ? » ; « un cycle interminable de relecture »). Le relecteur ne refait pas la critique de
+toute la planche : il dit si ce qui était demandé est fait et ce qui casse vraiment (une main dessinée à la main, un
+repère faux, un texte qui chevauche, une matière qui ne se reconnaît pas), cinq points au plus, les plus graves d'abord.
+Le reste, c'est JP qui le voit en validant. Le rapport dit, pour chaque main, quelle pose du moteur elle utilise.
 
 ## Le rangement
 
