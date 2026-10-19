@@ -435,8 +435,8 @@ devant lui (repères 12 et 13).
 
 *L'été, sans neige.* [À VÉRIFIER] Tirer le même cadre en travois : une ou deux personnes lèvent l'avant par les brancards, et le
 bout des perches traîne au sol, la tête du blessé du côté des brancards. Sur les racines et les roches, le travois
-secoue : aller au pas, et caler la tête du blessé. Quand il doit rester à l'horizontale (étape 13), arrêter le
-travois, qui le tient incliné, et l'abriter sur place (étape 14).
+secoue : aller au pas, et caler la tête du blessé. Quand il doit rester à l'horizontale (étape 13), arrêter de le
+tirer en travois, qui le tient incliné, et l'abriter sur place (étape 14).
 
 ### Ce qu'on perd
 

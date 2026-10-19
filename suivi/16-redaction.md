@@ -669,7 +669,7 @@ touchée.
 | 5 | Étape 3 et logigramme : « ch. 14, étapes 14 et 15 » | « (ch. 14, étapes 5 et 6) » ; source du nœud « Donner l'alerte » mise à jour | Ch. 14 refait : étape 5 (avertir le correspondant), étape 6 (l'ordre du message) |
 | 6 | Étape 12 et logigramme : « ch. 14, étape 15 » et « étape 13 » | « (ch. 14, étapes 6 et 8) » ; « (ch. 14, étape 26) » ; source du nœud « Chaque heure » : « étapes 12 et 13 ; ch. 14, étapes 8 et 26 » | Ch. 14 refait : étape 8 (le message suivant à l'heure annoncée), étape 26 (l'heure fixée d'avance) |
 | 7 | Étapes 3 et 5 : le SOS que le ch. 14 fait déclencher, puis rester sur place | Étape 3 : « Si la vie du blessé est en jeu (il respire mal, saigne sans qu'on arrive à l'arrêter, se réveille mal ou devient confus) et qu'on a un appareil satellite ou une balise, déclencher le SOS sans attendre (ch. 14, étapes 1 et 2). Sinon, … » (sans appareil, on passe au message par radio ou porté à deux). Étape 5, premier tiret : « Si le SOS ou la balise est parti, rester sur place avec le blessé, l'abriter (étape 14) et laisser l'appareil en marche jusqu'à ce que quelqu'un arrive (ch. 14, étape 3). » Logigramme, « Donner l'alerte » : « Si sa vie est en jeu et qu'on a un appareil satellite ou une balise, déclencher le SOS et rester sur place. Sinon, … ». Appliqué pour que les deux chapitres disent la même chose ; le choix lui-même reste à JP (voir « Pour JP ») | Ch. 14, étapes 1 à 3 ; CLAUDE.md (la balise et le SOS restent) |
-| 8 | Section 7 : le travois tient le blessé incliné | « Quand il doit rester à l'horizontale (étape 13), arrêter le travois, qui le tient incliné, et l'abriter sur place (étape 14). » La condition n'est pas redite : renvoi à l'étape 13 (controle.py signalait la redite) | Ch. 25, étape 5 ; page `froid`, point 2 |
+| 8 | Section 7 : le travois tient le blessé incliné | « Quand il doit rester à l'horizontale (étape 13), arrêter de le tirer en travois, qui le tient incliné, et l'abriter sur place (étape 14). » La condition n'est pas redite : renvoi à l'étape 13 (controle.py signalait la redite). « Arrêter le travois » de la première reprise est devenu « arrêter de le tirer en travois » à la relecture (règle 0) | Ch. 25, étape 5 ; page `froid`, point 2 |
 | 9 | Étape 31 : « à 6 m de la maison » | « à au moins 6 m de toute maison » | `sources/10-sante-canada-generatrice-distance.md` ; page `generatrice` ; ch. 15, étapes 45 et 46 |
 | 10 | Étape 45 : l'orignal seul | « Refuser le foie et les reins d'orignal ou d'un autre cervidé (caribou, chevreuil), même offerts de bonne foi » | CLAUDE.md (cervidés) ; `sources/11-mapaq-gibier-cuisson-cadmium.md` (« cervids ») ; page `abats` |
 | 11 | Étape 11 : « il coule avec » | « Ne pas l'attacher au canot : si le canot chavire, il reste pris sous la coque retournée, la tête dans l'eau (ch. 15, étape 37 ; ch. 90, étape 34). » | Ch. 90, étape 34 (« rester avec le canot, qui flotte ») ; ch. 15, étape 37 |
@@ -704,15 +704,29 @@ Un dans le texte : le travois de l'été (section 7). Aucun chiffre.
   ch. 08 (l. 179) dit déjà la suite logique : « Si quelqu'un répond à l'alerte, préparer l'accès… Sinon, sortir le
   blessé soi-même (ch. 16) ». À trancher : combien de temps attendre sans réponse au SOS avant de sortir le blessé
   soi-même, et le dire aux deux chapitres.
+- **Ce qui compte comme « vie en jeu ».** Le ch. 14 (étape 1) compte aussi la personne qui « ne pourra pas passer la
+  nuit à l'endroit où elle est : dans le froid sans abri, ou avec une jambe cassée loin du chalet ». L'étape 3 du ch. 16
+  ne reprend que « respire mal, saigne sans qu'on arrive à l'arrêter, se réveille mal ou devient confus » : avec la
+  définition du ch. 14, presque tout blessé qu'on doit sortir couché déclencherait le SOS et resterait sur place, et la
+  sortie (étapes 6 à 14) ne servirait plus que sans appareil. À trancher avec la question précédente.
 - **Le travois de l'été** : `[À VÉRIFIER]`, sans source. Le garder (une recherche à faire, un jour) ou le couper ? Si on
   coupe : étape 5, « L'été, le sortir en canot, ou le tirer en travois sur un sentier (étape 11). » devient « L'été, le
   sortir en canot (étape 11). » ; étape 11, « prendre un VTT avec une remorque, ou tirer le traîneau de perches en travois
   sur le sentier (section 7, « L'été, sans neige ») » devient « prendre un VTT avec une remorque » ; la section 7 perd
   « L'été, sans neige » ; le logigramme ne nomme pas le travois.
 
+### Relecture du 19 octobre (reprise après le redémarrage du conteneur)
+
+Les 18 corrections ci-dessus étaient au texte, au logigramme et à ses rendus (rendus plus récents que le `.json`,
+regardés à l'image : aucune boîte ne déborde). Renvois revérifiés contre les chapitres d'aujourd'hui : ch. 14, étapes
+1, 2, 3, 5, 6, 8 et 26 ; ch. 15, étapes 37 et 38 ; ch. 90, étapes 31, 33 et 34 ; ch. 26, étapes 8, 14, 15 à 18 et 19 ;
+ch. 25, étapes 3, 5, 8 et 10 : tous justes. Une retouche : section 7, « arrêter le travois » devient « arrêter de le
+tirer en travois » (point 8). Planche 16-08 : le repère 5 dit « puis la couverture » alors que l'étape 6 couche le
+blessé dans un sac de couchage fermé (rendu à l'agent des planches, légende seulement).
+
 ### controle.py après les corrections
 
-7 411 mots (7 210 avant), 2 tirets (titre et ligne de tome), 0 « § », 0 mot banni, 0 tournure, 0 maxime, 0 pronominal,
+7 414 mots (7 210 avant la vérification, 7 411 à la première reprise), 2 tirets (titre et ligne de tome), 0 « § », 0 mot banni, 0 tournure, 0 maxime, 0 pronominal,
 46 mots vides (les deux nouveaux, « avale bien » et « bien sèches », portent le sens), 2 redites jugées (« le rouler d'un
 bloc », deux gestes différents ; « l'heure du prochain message », le même mot pour la même chose). Invariants : rien n'a
 disparu. Ancres 16-07 et 16-08 de `placements-tome-1.json` toujours introuvables, par construction (les nouvelles ancres
