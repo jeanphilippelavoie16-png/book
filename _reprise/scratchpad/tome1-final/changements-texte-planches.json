@@ -1,0 +1,277 @@
+[
+ {
+  "chapitre": "01",
+  "ou": "Étape 15 (série orange « Le courant ne revient pas »), phrase : « Au retour, si la pièce est restée en surface, rien n'a dégelé ; si elle est au fond, tout a dégelé puis regelé ; à mi-hauteur, le dégel a été partiel. »",
+  "changement": "La remplacer par : « Au retour, si la pièce est restée en surface, rien n'a dégelé ; si elle est à mi-hauteur, le dégel a été partiel ; si elle est au fond, tout a dégelé puis regelé (planche 01-02). » Les trois cas passent dans l'ordre des repères 3, 4, 5. Si JP ne veut pas changer l'ordre, il suffit d'ajouter « (planche 01-02) » avant le point final de la phrase actuelle, après « partiel »."
+ },
+ {
+  "chapitre": "03",
+  "ou": "Section 7, paragraphe « **Le verre à la pièce de monnaie.** », phrase : « Elle est prise au milieu du bloc si l'eau a fondu à moitié et regelé, et elle est au fond si tout a fondu. »",
+  "changement": "« … et elle est au fond si tout a fondu (planche 01-02). »"
+ },
+ {
+  "chapitre": "05",
+  "ou": "« Savoir si le local a gelé ou chauffé pendant l'absence », paragraphe « **Le témoin de gel.** », phrase : « Si elle est prise au milieu ou au fond du bloc, elle a coulé pendant un redoux : le local a dégelé, puis regelé. »",
+  "changement": "« … le local a dégelé, puis regelé (planche 01-02). »"
+ },
+ {
+  "chapitre": "07",
+  "ou": "Paragraphe « **Ce qu'on perd :** le contrôle de la température. », phrase : « Mettre un thermomètre d'extérieur dans la caisse, ou, à défaut, un verre d'eau gelée avec une pièce de monnaie posée sur la glace : si on retrouve la pièce au fond du verre, la caisse a dégelé puis regelé pendant la nuit. »",
+  "changement": "« … la caisse a dégelé puis regelé pendant la nuit (planche 01-02). »"
+ },
+ {
+  "chapitre": "09",
+  "ou": "Section 7, paragraphe « **L'enregistreur de température : un pot d'eau gelée et une pièce de monnaie.** », phrase : « Au retour, si la pièce est restée en surface, rien n'a dégelé ; si elle est au fond, tout a dégelé, puis regelé pendant l'absence. »",
+  "changement": "« … tout a dégelé, puis regelé pendant l'absence (planche 01-02). »"
+ },
+ {
+  "chapitre": "41 (tome 3, facultatif)",
+  "ou": "Paragraphe « **Le témoin de dégel, à défaut de thermomètre de cache.** », fin de phrase : « pièce au fond, tout a dégelé puis regelé (ch. 73, ch. 74). »",
+  "changement": "« (planche 01-02 ; ch. 73, ch. 74) ». Même usage que le ch. 39 qui renvoie à la planche 15-01 du tome 1 ; ajouter « tome 1 » si JP le veut pour les renvois entre tomes."
+ },
+ {
+  "chapitre": "59 (tome 3, facultatif)",
+  "ou": "Étape 14 (« Panne à la maison, l'hiver »), fin : « (ch. 3, ch. 73, ch. 74). »",
+  "changement": "« (planche 01-02 ; ch. 3, ch. 73, ch. 74). »"
+ },
+ {
+  "chapitre": "73 (tome 4, facultatif)",
+  "ou": "Paragraphe « **Le témoin de dégel.** », phrase : « … elle est au fond, tout a fondu et tout a regelé par-dessus. »",
+  "changement": "« … tout a regelé par-dessus (planche 01-02). »"
+ },
+ {
+  "chapitre": "74 (tome 4, facultatif)",
+  "ou": "Étape 33, phrase : « Pièce en surface, rien n'a bougé ; pièce au fond, tout a dégelé et regelé, et tout le contenu est suspect. »",
+  "changement": "« … et tout le contenu est suspect (planche 01-02). »"
+ },
+ {
+  "chapitre": "75 (tome 4, facultatif)",
+  "ou": "Puce « **Le thermomètre de congélateur.** », phrase : « La pièce retrouvée au fond veut dire que tout a fondu et regelé pendant l'absence. »",
+  "changement": "« … pendant l'absence (planche 01-02). »"
+ },
+ {
+  "chapitre": "placements",
+  "ou": "/home/user/book/images/planche-01-02-temoin-degel.svg",
+  "changement": "Ch. 01, entrée pour placements-tome-1.json : {\"id\": \"01-02\", \"apres\": \"15. **S'il faut quitter la maison, même une nuit, poser un témoin de dégel dans le congélateur**\"}. Format quart (340 × 413) : build_chapitre.py la classe « petite » parce que sa largeur est sous 400. L'étape 15 est dans la série orange « Le courant ne revient pas {.orange 6 h} ». Le moteur doit donc sortir la planche de l'orange et la poser sur la page d'en face ou sur la suivante. L'ancre est unique dans le chapitre (vérifié). La planche ne s'imprime qu'au ch. 1 ; les ch. 3, 5, 7 et 9 ne font qu'y renvoyer."
+ },
+ {
+  "chapitre": "chapitres/06-la-liste-de-72-heures.md",
+  "ou": "Section 7, « Traîner au lieu de porter » : le paragraphe d'appel et les trois puces des repères 1 à 4",
+  "changement": "Aucun changement obligatoire. L'appel « (planche 06-01) » est déjà à la fin de la phrase d'ouverture, et les repères 1 à 4 sont déjà posés dans l'ordre des gestes. La planche les suit mot pour mot : 1, une corde à chaque coin avant (avec le raté de la corde au centre, en travers, la charge versée) ; 2, les deux barres jusqu'à la taille ; 3, en descente, le traîneau pousse sur la barre et reste derrière les talons ; 4, la couverture pliée en bande, avec les cordes et les barres nouées dessus."
+ },
+ {
+  "chapitre": "chapitres/06-la-liste-de-72-heures.md",
+  "ou": "Section 7, « Traîner au lieu de porter », deuxième puce, qui commence par « - Mettre deux barres rigides entre le traîneau et la taille »",
+  "changement": "FACULTATIF. La planche montre comment la barre tient au traîneau : elle est liée à la corde, au coin. Le texte ne le dit pas, et l'audit l'avait relevé (« le texte dit quoi mettre, pas comment les barres s'attachent »). Puce proposée, mot pour mot : « - Mettre deux barres rigides entre le traîneau et la taille : deux bouts de bois, des bâtons de ski ou des tuyaux. Lier chaque barre à sa corde, au coin du traîneau (repère 2). Sans elles, le traîneau rattrape la personne qui tire dans la première descente et lui frappe les talons ; avec elles, il pousse sur les barres et reste derrière (repère 3). » Aucun chiffre ajouté. À faire passer par le skill ecriture si on la garde."
+ },
+ {
+  "chapitre": "placements",
+  "ou": "/home/user/book/images/planche-06-01-trainer-lieu-porter.svg",
+  "changement": "« **Traîner au lieu de porter.** » (le début du paragraphe d'appel, section 7). C'est déjà l'ancre de 06-01 dans placements-tome-1.json (« apres »), donc il n'y a rien à changer. Format : pleine page (680 × 826, quatre vues)."
+ },
+ {
+  "chapitre": "18",
+  "ou": "Section 7, « Cuire dehors, sans avertisseur », le paragraphe qui commence par « {!co} Sans avertisseur qui marche, on ne fait du feu à l'intérieur » (le même que l'ancre de la planche ; son début ne change pas). Proposition, pas une obligation : le point 13 du plan de match veut que le texte renvoie aux repères de la planche, dans leur ordre, comme aux ch. 12, 13, 15 et 16.",
+  "changement": "AVANT : {!co} Sans avertisseur qui marche, on ne fait du feu à l'intérieur que dans le poêle raccordé à sa cheminée, et on cuisine dehors, sur un feu bas et des braises, derrière un mur de neige tassée du côté du vent. À douze, les marmites sont lourdes : on plante deux branches fourchues, on pose une barre dessus et on y pend des crochets de branche à différentes hauteurs (planche 18-01). On monte ou on descend la marmite d'un cran au lieu de la soulever. Une personne nommée doit aérer le chalet par deux ouvertures opposées, quelques minutes, à heures fixes (étape 8).\n\nAPRÈS : {!co} Sans avertisseur qui marche, on ne fait du feu à l'intérieur que dans le poêle raccordé à sa cheminée, et on cuisine dehors, sur un feu bas et des braises (planche 18-01, repère 1), derrière un mur de neige tassée du côté du vent (repère 2). À douze, les marmites sont lourdes : on plante deux branches fourchues (repère 3), on pose une barre dans les fourches (repère 4) et on y pend des crochets de branche à différentes hauteurs (repère 5). On monte ou on descend la marmite d'un cran au lieu de la soulever (repère 6). Une personne nommée doit aérer le chalet par deux ouvertures opposées, quelques minutes, à heures fixes (étape 8).\n\nCe qui change : l'appel de planche avance à la première phrase, toujours une seule fois par phrase ; six renvois de repère ; « une barre dessus » devient « une barre dans les fourches », pour que le texte dise la même chose que la légende 4 et que le dessin (la barre repose au creux des fourches). Aucun chiffre ni fait nouveau."
+ },
+ {
+  "chapitre": "placements",
+  "ou": "/home/user/book/images/planche-18-01-cremaillere-pour-cuire-dehors.svg",
+  "changement": "apres : « {!co} Sans avertisseur qui marche, on ne fait du feu à l'intérieur » ; format : demi (680 × 413). Cette ancre est déjà inscrite telle quelle dans design/epreuves-livre/placements-tome-1.json, clé \"18\", entrée \"18-01\" : rien à y changer. On peut retirer la note \"_planches\" de cette clé (« pas encore dessinées »), puisque la 18-01 existe maintenant ; je n'ai pas touché au fichier."
+ },
+ {
+  "chapitre": "placements",
+  "ou": "/home/user/book/images/planche-18-02-refroidir-marmite-dans-auge.svg",
+  "changement": "« Quand il reste de la marmite malgré tout » (ch. 18, section 7, « Refroidir vingt litres sans réfrigérateur » ; le paragraphe porte déjà l'appel « (planche 18-02) »). Format : demi. Cette ancre est déjà inscrite telle quelle dans design/epreuves-livre/placements-tome-1.json, chapitre 18 ; il ne reste qu'à retirer la note « _planches » qui dit que la planche n'est pas dessinée. Je n'ai pas touché au fichier."
+ },
+ {
+  "chapitre": "placements",
+  "ou": "/home/user/book/images/planche-13-40-ferrocerium-tri-bois-flamme.svg",
+  "changement": "« 10. **Trier le bois en quatre tas, au complet, avant la première étincelle** » (le paragraphe qui appelle la planche à l'étape 10, ancre actuelle de placements-tome-1.json, inchangée). Format : pleine."
+ },
+ {
+  "chapitre": "placements",
+  "ou": "/home/user/book/images/planche-13-09-briquet-pierre.svg",
+  "changement": "« Il faut de l'acier au carbone et un caillou de grève (planche 13-09). » (début du paragraphe de la section 7, « Le briquet à pierre » ; c'est déjà l'ancre de placements-tome-1.json). Format : pleine."
+ },
+ {
+  "chapitre": "chapitres/01-les-quatre-horloges.md",
+  "ou": "Étape 15 de la série orange « Le courant ne revient pas {.orange 6 h} », lignes 122 à 127. Le paragraphe commence par « 15. **S'il faut quitter la maison, même une nuit, poser un témoin de dégel dans le congélateur** ». Phrase visée, lignes 124 et 125.",
+  "changement": "Remplacer « Au retour, si la pièce est restée en surface, rien n'a dégelé ; si elle est au fond, tout a dégelé puis regelé ; à mi-hauteur, le dégel a été partiel. » par « Au retour, si la pièce est restée en surface, rien n'a dégelé ; si elle est prise à mi-hauteur, le dégel a été partiel ; si elle est au fond, tout a dégelé puis regelé (planche 01-02). » La phrase prend l'ordre de la planche (surface 3, mi-hauteur 4, fond 5), qui est aussi celui des ch. 3, 5, 41 et 73, et porte l'appel."
+ },
+ {
+  "chapitre": "chapitres/03-panne-majeure-d-hydro-en.md",
+  "ou": "Paragraphe « **Le verre à la pièce de monnaie.** Le premier soir, faire geler un verre d'eau dehors… », lignes 450 à 454 (c'est le meilleur renvoi : il décrit les trois états).",
+  "changement": "Remplacer « …et elle est au fond si tout a fondu. » par « …et elle est au fond si tout a fondu (ch. 1, planche 01-02). » Aucun renvoi dans la ligne de tableau 301 ni à la ligne 247."
+ },
+ {
+  "chapitre": "chapitres/05-le-stock-permanent-du-chalet.md",
+  "ou": "Paragraphe « **Le témoin de gel.** Poser un pot d'eau sur une tablette… », lignes 457 à 462, phrase de la ligne 461 et 462.",
+  "changement": "Remplacer « …elle a coulé pendant un redoux : le local a dégelé, puis regelé. » par « …elle a coulé pendant un redoux : le local a dégelé, puis regelé (ch. 1, planche 01-02). »"
+ },
+ {
+  "chapitre": "chapitres/07-quand-on-a-un-preavis.md",
+  "ou": "« La caisse froide dehors », paragraphe « **Ce qu'on perd :** le contrôle de la température… », lignes 424 et 425.",
+  "changement": "Remplacer « …un verre d'eau gelée avec une pièce de monnaie posée sur la glace : si on retrouve la pièce au fond du verre… » par « …un verre d'eau gelée avec une pièce de monnaie posée sur la glace (ch. 1, planche 01-02) : si on retrouve la pièce au fond du verre… »"
+ },
+ {
+  "chapitre": "chapitres/09-ce-qui-manque-toujours.md",
+  "ou": "Paragraphe « **L'enregistreur de température : un pot d'eau gelée et une pièce de monnaie.** », ligne 148.",
+  "changement": "Remplacer « …si elle est au fond, tout a dégelé, puis regelé pendant l'absence. » par « …si elle est au fond, tout a dégelé, puis regelé pendant l'absence (ch. 1, planche 01-02). » Aucun renvoi dans la ligne de tableau 106."
+ },
+ {
+  "chapitre": "Hors du tome 1, seulement si JP accepte un renvoi vers une planche d'un autre tome : ch. 73, 41, 74, 59, 75",
+  "ou": "chapitres/73-froid-naturel.md, lignes 501 à 506 (« on pose une pièce de monnaie ou un caillou plat sur la glace », la description la plus complète) ; chapitres/41-calendrier-annuel-de.md, lignes 338 à 341 ; chapitres/74-un-congelateur-plein-qui.md, ligne 309 (« un gobelet d'eau gelée avec une pièce de monnaie posée sur la glace ») ; chapitres/59-eperlan-et-poisson-du-fleuve.md, ligne 473 ; chapitres/75-traiter-le-poisson-a-la-sortie.md, ligne 507.",
+  "changement": "Ajouter « (tome 1, ch. 1, planche 01-02) » à la fin de la phrase qui décrit la pièce. Le contenant change (pot, gobelet, tasse), mais la lecture reste la même et aucun ne contredit la planche. Pas de renvoi au ch. 32 : sa bouteille pleine est un autre témoin."
+ },
+ {
+  "chapitre": "placements",
+  "ou": "/home/user/book/images/planche-01-02-temoin-degel.svg",
+  "changement": "Dans design/epreuves-livre/placements-tome-1.json, ajouter à \"01\".planches (la liste est vide aujourd'hui) : {\"id\": \"01-02\", \"apres\": \"15. **S'il faut quitter la maison, même une nuit, poser un témoin de dégel\", \"format\": \"quart\"}. Ce début de paragraphe n'apparaît qu'une fois dans le chapitre (grep : 1). Format quart, 340 × 413. L'appel est dans la série orange, donc le moteur sort la planche de l'orange et la pose sur la page d'en face ou sur la suivante."
+ },
+ {
+  "chapitre": "18 (chapitres/18-s-organiser-a-plusieurs.md)",
+  "ou": "Section 7, « Cuire dehors, sans avertisseur », le paragraphe qui commence par « {!co} Sans avertisseur qui marche, on ne fait du feu à l'intérieur »",
+  "changement": "Aucun changement. L'appel est déjà en place, une seule fois : « …et on y pend des crochets de branche à différentes hauteurs (planche 18-01). » Les six repères suivent l'ordre des gestes du paragraphe : feu bas et braises, mur de neige du côté du vent, deux branches fourchues, la barre, les crochets, la marmite qu'on monte ou descend d'un cran."
+ },
+ {
+  "chapitre": "placements",
+  "ou": "/home/user/book/images/planche-18-01-cremaillere-pour-cuire-dehors.svg",
+  "changement": "« {!co} Sans avertisseur qui marche, on ne fait du feu à l'intérieur » (début unique du paragraphe, ch. 18, section 7), format demi. C'est déjà l'ancre de 18-01 dans placements-tome-1.json : elle ne change pas. Seule la note « _planches » du ch. 18 (« … ne sont pas encore dessinées : les ancres attendent les planches ») ne tient plus pour 18-01. C'est à l'agent qui tient ce fichier de la corriger."
+ },
+ {
+  "chapitre": "11",
+  "ou": "chapitres/11-feu-de-foret.md, section 7, sous-section « De l'air pour les enfants, sans purificateur », les trois puces « Choisir une seule pièce », « Un ventilateur et un filtre » et « Le cube de quatre filtres » (l. 468 à 481)",
+  "changement": "Remplacer les trois puces par ce texte, mot pour mot (seuls les numéros de repère changent) :\n\n- **Choisir une seule pièce.** Prendre la plus petite et la mieux fermée, sans porte extérieure, et sans\n poêle si possible. Agrafer du polythène sur le cadre de la fenêtre (repère 1), rouler une couverture au\n bas de la porte (repère 2), fermer la clé d'air du poêle. L'été, on n'a pas à chauffer, et la pièce\n peut rester fermée (étape 35). Au-dessus de 26 °C dans la pièce, l'ouvrir (étape 34).\n- **Un ventilateur et un filtre.** Fixer au ruban gommé un filtre de fournaise fin contre la grille d'un\n ventilateur-boîte, la flèche du filtre tournée vers le ventilateur (repère 3). Un seul filtre traite une\n pièce d'environ 10 m². Un carton posé sur la face qui souffle, percé au diamètre des pales, augmente de\n 40 % l'air nettoyé (repère 4).\n- **Le cube de quatre filtres**, pour une pièce plus grande. Monter quatre filtres en cube, les plis à la\n verticale (repère 5), et fermer tous les joints au ruban gommé (repère 6). Poser un fond de carton\n (repère 7), puis poser le ventilateur sur le cube, tourné pour souffler vers le haut (repère 8), dans un\n carton percé au diamètre des pales (repère 9). Vu de dessus, la flèche de chaque filtre pointe vers le centre\n (repère 10), et chaque filtre bute contre le suivant (repère 11). Le cube traite environ 37 m². Changer les\n filtres dès qu'ils sont bruns ou gris, ou qu'ils sentent la fumée.\n\nL'appel « (planche 11-04) » de l'étape 35 et celui du chapeau de la sous-section ne changent pas. Le même texte est dans /tmp/claude-0/-home-user-book/80bb7558-6215-51c7-adfd-516cb7afea55/scratchpad/ch11-sec7-nouveau.md (avant et après)."
+ },
+ {
+  "chapitre": "9",
+  "ou": "chapitres/09-ce-qui-manque-toujours.md, section 7, « Les joints, dans le cuir gras », l. 179",
+  "changement": "Aucun : le texte dit déjà « du cuir de botte ou une vieille semelle de cuir (repère 5) », et la nouvelle légende de la planche lui correspond."
+ },
+ {
+  "chapitre": "11 (suivi)",
+  "ou": "suivi/11-redaction.md, l. 387 (tableau des ancrages, ligne 11-04) et l. 567 à 570 (« Planche 11-04, ce qui suivra »)",
+  "changement": "Pas touché, ce n'est pas un fichier de planche. Pour l'orchestrateur : la colonne « Section 7 : 10, 11 (la pièce), 8, 9 (un filtre), 1 à 7 (le cube) » devient « Section 7 : 1, 2 (la pièce), 3, 4 (un filtre), 5 à 11 (le cube) », et la note « ce qui suivra » est faite, côté planche, le 19 octobre."
+ },
+ {
+  "chapitre": "03",
+  "ou": "Section 7, « La plomberie », paragraphe « Vidanger sans antigel » (lignes 391 à 400 de chapitres/03-panne-majeure-d-hydro-en.md)",
+  "changement": "Remplacer ce paragraphe par celui-ci, mot pour mot (les lignes repliées gardent leur espace de tête) :\n\n**Vidanger sans antigel** (planche 03-10, repères 7 à 12). Faire d'abord la vidange complète de l'étape 23.\n\n- Vider le réservoir de la toilette en tirant la chasse, et éponger l'eau qui reste au fond (repère 7).\n- Éponger l'eau de la cuvette, puis la boucher au fond avec un chiffon et un sac de plastique bien tassés (repère 8).\n- Vider chaque siphon d'évier par son bouchon de nettoyage (le bouchon vissé au bas du coude, sous l'évier), avec\n une chaudière dessous (repère 9). Sans bouchon, et pour la baignoire, vider le siphon à la poire (repère 10).\n- Boucher chaque siphon vidé de la même façon (repère 11).\n- Autre façon, au lieu du chiffon : remplir le coude du siphon vidé avec de l'huile de cuisson (repère 12). L'huile\n épaissit au froid sans gonfler : elle ne fend rien, et tant qu'elle reste dans le coude, elle bouche le passage des\n gaz.\n\nEn détail : « repères 7 à 11 » devient « repères 7 à 12 » ; « une chaudière dessous. Sans bouchon » devient « une chaudière dessous (repère 9). Sans bouchon » ; « à la poire (repère 9) » devient « à la poire (repère 10) » ; « de la même façon (repère 10) » devient « de la même façon (repère 11) » ; « de l'huile de cuisson (repère 11) » devient « de l'huile de cuisson (repère 12) ». L'étape 23 (repères 1 à 6) ne change pas : les légendes 2 et 3 réécrites disent ce que le texte dit déjà (« baisser le disjoncteur du chauffe-eau », « l'air entre par là »)."
+ },
+ {
+  "chapitre": "03",
+  "ou": "Étape 10, « Avant la nuit, monter un abri dans la pièce » (planche 03-09)",
+  "changement": "Aucun : le texte porte déjà les repères 1 à 11 dans l'ordre de la planche renumérotée."
+ },
+ {
+  "chapitre": "05",
+  "ou": "design/epreuves-livre/placements-tome-1.json, clé « 05 », photos[0].legende (photo 05-boite-bombee, sous l'étape 23)",
+  "changement": "Légende actuelle, celle que l'éditeur a proposée dans suivi/05-redaction.md : « Boîte bombée : le gaz formé dedans pousse le couvercle. On la jette sans l'ouvrir et sans la goûter. » Elle n'a pas de pronominal, mais « On la jette » est un présent qui décrit une consigne. Légende à appliquer : « Boîte bombée : le gaz formé dedans pousse le couvercle. La jeter sans l'ouvrir ni la goûter. » (même tournure que l'étape 23 : « les jeter sans les ouvrir ni les goûter »). La note « _photos » peut perdre « à recadrer sur le couvercle » : c'est fait."
+ },
+ {
+  "chapitre": "05",
+  "ou": "Section 7, « Les souris, sans piège ni laine d'acier » (planche 05-01)",
+  "changement": "Aucun : repères et légendes inchangés."
+ },
+ {
+  "chapitre": "07",
+  "ou": "Section 7, « Boucher le drain de plancher sans obturateur » (planche 07-01)",
+  "changement": "Aucun : le texte dit déjà « Couper un 2 × 4 à peine plus long que la hauteur… (repère 4) » et « Il doit dépasser un peu du plancher (repères 1 et 2) », ce qui va avec la nouvelle légende 1."
+ },
+ {
+  "chapitre": "credits",
+  "ou": "images/credits.md, ligne de la photo 05-boite-bombee (Kat1100, CC BY 4.0)",
+  "changement": "Pas touché (hors de mon lot). La CC BY 4.0 demande d'indiquer les modifications : ajouter « recadrée sur le couvercle (19 octobre 2026) » à cette ligne."
+ },
+ {
+  "chapitre": "11 (chapitres/11-feu-de-foret.md)",
+  "ou": "Section 7, « De l'air pour les enfants, sans purificateur », les trois puces des l. 468 à 480. Ce sont les 11 appels de la planche 11-04 ; aucun autre appel du chapitre ne vise la 11-04 par repère.",
+  "changement": "Remplacements, mot pour mot :\n« cadre de la fenêtre (repère 10) » → « cadre de la fenêtre (repère 1) »\n« au\n bas de la porte (repère 11) » → « (repère 2) »\n« la flèche du filtre tournée vers le ventilateur (repère 8) » → « (repère 3) »\n« 40 % l'air nettoyé (repère 9) » → « (repère 4) »\n« les plis à la\n verticale (repère 1) » → « (repère 5) »\n« tous les joints au ruban gommé (repère 2) » → « (repère 6) »\n« Poser un fond de carton\n (repère 3) » → « (repère 7) »\n« tourné pour souffler vers le haut (repère 4) » → « (repère 8) »\n« carton percé au diamètre des pales (repère 5) » → « (repère 9) »\n« pointe vers le centre\n (repère 6) » → « (repère 10) »\n« chaque filtre bute contre le suivant (repère 7) » → « (repère 11) »\n\nLes trois puces, telles qu'elles doivent se lire après le changement :\n- **Choisir une seule pièce.** Prendre la plus petite et la mieux fermée, sans porte extérieure, et sans\n poêle si possible. Agrafer du polythène sur le cadre de la fenêtre (repère 1), rouler une couverture au\n bas de la porte (repère 2), fermer la clé d'air du poêle. L'été, on n'a pas à chauffer, et la pièce\n peut rester fermée (étape 35). Au-dessus de 26 °C dans la pièce, l'ouvrir (étape 34).\n- **Un ventilateur et un filtre.** Fixer au ruban gommé un filtre de fournaise fin contre la grille d'un\n ventilateur-boîte, la flèche du filtre tournée vers le ventilateur (repère 3). Un seul filtre traite une\n pièce d'environ 10 m². Un carton posé sur la face qui souffle, percé au diamètre des pales, augmente de\n 40 % l'air nettoyé (repère 4).\n- **Le cube de quatre filtres**, pour une pièce plus grande. Monter quatre filtres en cube, les plis à la\n verticale (repère 5), et fermer tous les joints au ruban gommé (repère 6). Poser un fond de carton\n (repère 7), puis poser le ventilateur sur le cube, tourné pour souffler vers le haut (repère 8), dans un\n carton percé au diamètre des pales (repère 9). Vu de dessus, la flèche de chaque filtre pointe vers le centre\n (repère 10), et chaque filtre bute contre le suivant (repère 11). Le cube traite environ 37 m². Changer les\n filtres dès qu'ils sont bruns ou gris, ou qu'ils sentent la fumée.\n\nUne fois le texte appliqué, la personne qui l'applique note dans suivi/11-redaction.md (l. 567 à 570, « Planche 11-04, ce qui suivra ») que la correspondance est appliquée. Je n'ai touché ni au chapitre ni à la fiche : le brief me l'interdit pendant qu'un autre agent y écrit."
+ },
+ {
+  "chapitre": "03",
+  "ou": "chapitres/03-panne-majeure-d-hydro-en.md, section 7, « La plomberie », l. 391 (paragraphe « **Vidanger sans antigel** »)",
+  "changement": "Remplacer « **Vidanger sans antigel** (planche 03-10, repères 7 à 11). Faire d'abord la vidange complète de l'étape 23. » par « **Vidanger sans antigel** (planche 03-10, repères 7 à 12). Faire d'abord la vidange complète de l'étape 23. »"
+ },
+ {
+  "chapitre": "03",
+  "ou": "même section, l. 395 et 396 (la puce « Vider chaque siphon d'évier… »)",
+  "changement": "La puce devient, mot pour mot (deux lignes, la seconde garde son retrait d'une espace) : « - Vider chaque siphon d'évier par son bouchon de nettoyage (le bouchon vissé au bas du coude, sous l'évier), avec\n une chaudière dessous (repère 9). Sans bouchon, et pour la baignoire, vider le siphon à la poire (repère 10). »"
+ },
+ {
+  "chapitre": "03",
+  "ou": "même section, l. 397 (la puce « Boucher chaque siphon vidé… »)",
+  "changement": "« - Boucher chaque siphon vidé de la même façon (repère 10). » devient « - Boucher chaque siphon vidé de la même façon (repère 11). »"
+ },
+ {
+  "chapitre": "03",
+  "ou": "même section, l. 398 (la puce « Autre façon, au lieu du chiffon… »)",
+  "changement": "« (repère 11) » devient « (repère 12) ». La puce entière : « - Autre façon, au lieu du chiffon : remplir le coude du siphon vidé avec de l'huile de cuisson (repère 12). L'huile\n épaissit au froid sans gonfler : elle ne fend rien, et tant qu'elle reste dans le coude, elle bouche le passage des\n gaz. » Les repères 7 et 8 ne bougent pas. Aucun autre renvoi du chapitre ne vise la 03-10 : l'étape 23 (repères 1 à 6) est déjà juste."
+ },
+ {
+  "chapitre": "05",
+  "ou": "design/epreuves-livre/placements-tome-1.json, entrée du ch. 05, \"photos\"[0] (fichier images/photos/tri/05-boite-bombee.jpg), champ \"legende\"",
+  "changement": "« Boîte bombée : le gaz formé dedans pousse le couvercle. On la jette sans l'ouvrir et sans la goûter. » devient « Boîte bombée : le gaz formé dedans pousse le couvercle. » La consigne est déjà à l'étape 23, juste au-dessus (« les jeter sans les ouvrir ni les goûter »), et dans le tableau de la section 6. Si JP veut garder la consigne sous la photo, il faut l'écrire en consigne et non au présent qui décrit : « Boîte bombée : le gaz formé dedans pousse le couvercle. La jeter sans l'ouvrir et sans la goûter. »"
+ },
+ {
+  "chapitre": "05",
+  "ou": "design/epreuves-livre/placements-tome-1.json, entrée du ch. 05, champ \"_photos\" (note de travail, ne s'imprime pas)",
+  "changement": "Remplacer la phrase « L'étiquette de la boîte (hareng fermenté suédois, bombé exprès) se voit : à recadrer sur le couvercle ou à remplacer par une boîte ordinaire. » par « La photo est recadrée sur le couvercle bombé le 19 octobre 2026 (1740 × 890 ; l'original 1920 × 1920 est dans git, f9026fe) : aucun texte de l'étiquette ne se lit ; restent le code de lot embouti dans le couvercle et deux traits rouges du décor, illisibles. » Le reste de la note ne change pas."
+ },
+ {
+  "chapitre": "05",
+  "ou": "images/credits.md, l. 75 (ligne de Kat1100, CC BY 4.0, Surströmming_bulged_can.jpg), dernière colonne",
+  "changement": "« téléchargée en partie : la boîte bombée, `photos/tri/05-boite-bombee.jpg` (posée au ch. 5, étape 23) ; » devient « téléchargée en partie : la boîte bombée, `photos/tri/05-boite-bombee.jpg` (posée au ch. 5, étape 23 ; recadrée sur le couvercle le 19 octobre 2026) ; ». Le reste de la ligne ne change pas. La CC BY 4.0 demande d'indiquer la modification."
+ },
+ {
+  "chapitre": "chapitres/11-feu-de-foret.md",
+  "ou": "Section 7, « De l'air pour les enfants, sans purificateur », puce « Choisir une seule pièce » (l. 468 à 471)",
+  "changement": "« cadre de la fenêtre (repère 10) » → « cadre de la fenêtre (repère 1) » ; « bas de la porte (repère 11) » → « bas de la porte (repère 2) ». La puce après le changement, avec les retours de ligne du fichier :\n- **Choisir une seule pièce.** Prendre la plus petite et la mieux fermée, sans porte extérieure, et sans\n poêle si possible. Agrafer du polythène sur le cadre de la fenêtre (repère 1), rouler une couverture au\n bas de la porte (repère 2), fermer la clé d'air du poêle. L'été, on n'a pas à chauffer, et la pièce\n peut rester fermée (étape 35). Au-dessus de 26 °C dans la pièce, l'ouvrir (étape 34)."
+ },
+ {
+  "chapitre": "chapitres/11-feu-de-foret.md",
+  "ou": "Section 7, même sous-section, puce « Un ventilateur et un filtre » (l. 472 à 475)",
+  "changement": "« tournée vers le ventilateur (repère 8) » → « (repère 3) » ; « 40 % l'air nettoyé (repère 9) » → « (repère 4) ». La puce après :\n- **Un ventilateur et un filtre.** Fixer au ruban gommé un filtre de fournaise fin contre la grille d'un\n ventilateur-boîte, la flèche du filtre tournée vers le ventilateur (repère 3). Un seul filtre traite une\n pièce d'environ 10 m². Un carton posé sur la face qui souffle, percé au diamètre des pales, augmente de\n 40 % l'air nettoyé (repère 4)."
+ },
+ {
+  "chapitre": "chapitres/11-feu-de-foret.md",
+  "ou": "Section 7, même sous-section, puce « Le cube de quatre filtres » (l. 476 à 481)",
+  "changement": "« verticale (repère 1) » → « (repère 5) » ; « ruban gommé (repère 2) » → « (repère 6) » ; « Poser un fond de carton\\n (repère 3) » → « (repère 7) » ; « vers le haut (repère 4) » → « (repère 8) » ; « diamètre des pales (repère 5) » → « (repère 9) » ; « pointe vers le centre\\n (repère 6) » → « (repère 10) » ; « contre le suivant (repère 7) » → « (repère 11) ». Il faut les appliquer d'un seul coup ou en partant de 11, sinon un repère déjà changé est changé une deuxième fois. La puce après :\n- **Le cube de quatre filtres**, pour une pièce plus grande. Monter quatre filtres en cube, les plis à la\n verticale (repère 5), et fermer tous les joints au ruban gommé (repère 6). Poser un fond de carton\n (repère 7), puis poser le ventilateur sur le cube, tourné pour souffler vers le haut (repère 8), dans un\n carton percé au diamètre des pales (repère 9). Vu de dessus, la flèche de chaque filtre pointe vers le centre\n (repère 10), et chaque filtre bute contre le suivant (repère 11). Le cube traite environ 37 m². Changer les\n filtres dès qu'ils sont bruns ou gris, ou qu'ils sentent la fumée.\nAucun autre chapitre n'appelle un repère de la 11-04. Une fois le changement appliqué, il faut le noter dans suivi/11-redaction.md, l. 567 à 570 (paragraphe « Planche 11-04, ce qui suivra »). Je n'ai pas touché ce fichier : il n'est pas à moi."
+ },
+ {
+  "chapitre": "03 (chapitres/03-panne-majeure-d-hydro-en.md)",
+  "ou": "Section 7, « La plomberie », paragraphe « Vidanger sans antigel », ligne 391",
+  "changement": "Remplacer « **Vidanger sans antigel** (planche 03-10, repères 7 à 11). Faire d'abord la vidange complète de l'étape 23. » par « **Vidanger sans antigel** (planche 03-10, repères 7 à 12). Faire d'abord la vidange complète de l'étape 23. »"
+ },
+ {
+  "chapitre": "03 (chapitres/03-panne-majeure-d-hydro-en.md)",
+  "ou": "Même liste, troisième puce, lignes 395 et 396",
+  "changement": "Remplacer « une chaudière dessous. Sans bouchon, et pour la baignoire, vider le siphon à la poire (repère 9). » par « une chaudière dessous (repère 9). Sans bouchon, et pour la baignoire, vider le siphon à la poire (repère 10). » La première moitié de la puce ne change pas : « - Vider chaque siphon d'évier par son bouchon de nettoyage (le bouchon vissé au bas du coude, sous l'évier), avec »."
+ },
+ {
+  "chapitre": "03 (chapitres/03-panne-majeure-d-hydro-en.md)",
+  "ou": "Même liste, quatrième puce, ligne 397",
+  "changement": "Remplacer « - Boucher chaque siphon vidé de la même façon (repère 10). » par « - Boucher chaque siphon vidé de la même façon (repère 11). »"
+ },
+ {
+  "chapitre": "03 (chapitres/03-panne-majeure-d-hydro-en.md)",
+  "ou": "Même liste, cinquième puce, ligne 398",
+  "changement": "Remplacer « - Autre façon, au lieu du chiffon : remplir le coude du siphon vidé avec de l'huile de cuisson (repère 11). L'huile » par « - Autre façon, au lieu du chiffon : remplir le coude du siphon vidé avec de l'huile de cuisson (repère 12). L'huile ». La suite de la puce ne change pas."
+ },
+ {
+  "chapitre": "05 (design/epreuves-livre/placements-tome-1.json)",
+  "ou": "Clé \"05\", photos[0] (images/photos/tri/05-boite-bombee.jpg), champ \"legende\"",
+  "changement": "Remplacer \"Boîte bombée : le gaz formé dedans pousse le couvercle. On la jette sans l'ouvrir et sans la goûter.\" par \"Boîte bombée : le gaz formé dedans pousse le couvercle.\" La seconde phrase redit l'étape 23 (« les jeter sans les ouvrir ni les goûter »)."
+ },
+ {
+  "chapitre": "05 (design/epreuves-livre/placements-tome-1.json)",
+  "ou": "Clé \"05\", champ \"_photos\" (note, rien d'imprimé)",
+  "changement": "Remplacer « L'étiquette de la boîte (hareng fermenté suédois, bombé exprès) se voit : à recadrer sur le couvercle ou à remplacer par une boîte ordinaire. » par « La photo est recadrée sur le couvercle bombé (19 octobre 2026) : aucun texte de l'étiquette ne se lit. »"
+ },
+ {
+  "chapitre": "05 (images/credits.md)",
+  "ou": "Ligne 75 (Kat1100, Surströmming_bulged_can.jpg), dernière colonne",
+  "changement": "Remplacer « téléchargée en partie : la boîte bombée, `photos/tri/05-boite-bombee.jpg` (posée au ch. 5, étape 23) ; » par « téléchargée en partie : la boîte bombée, `photos/tri/05-boite-bombee.jpg` (posée au ch. 5, étape 23, recadrée sur le couvercle : l'étiquette ne se lit plus) ; »"
+ }
+]

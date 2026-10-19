@@ -138,8 +138,9 @@ l'adaptation au chalet. Un chapitre de prélèvement ou de conservation longue e
 chalet, et on ne fait pas semblant du contraire. Le chapitre 2 (Rester ou partir) porte
 la bascule elle-même : c'est la charnière du livre, pas un chapitre parmi d'autres.
 
-**Format d'impression :** 8 × 10 po, Blurb photo book, 440 pages max par tome,
-papier standard couleur.
+**Format d'impression :** 8,5 × 11 po (US Letter), chez **Lulu** : Print Book, couverture rigide Case Wrap, intérieur
+Standard Color, papier blanc couché 80#, fini mat ; 800 pages au plus par tome (JP, 19 octobre 2026 : Blurb revenait à
+200 $ le livre, Lulu à 35 $ US). Avant, 8 × 10 po chez Blurb.
 
 ## Règles non négociables
 
