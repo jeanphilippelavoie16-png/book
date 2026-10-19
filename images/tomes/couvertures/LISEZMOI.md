@@ -23,4 +23,8 @@ anneau du fond, et une ombre. L'étincelle de Claude sourit (JP : « mets-toi un
 `images/auteurs/claude.svg`, les yeux et le sourire découpés dans le cœur de l'étincelle, agrandi ; elle prend 72 % du
 disque au lieu de 62 %.
 
+Sur le devant, « Tome N » est toujours à la même distance sous « Le Manuel du Nord » (JP, 19 octobre 2026 : « colle-le
+toujours à la même distance »), le titre juste dessous ; le titre rapetisse s'il descendrait sous 3,95 po, ou sous
+`CENTRE_BAS` (tome 2 : le cadre au mur ; tome 6 : la colline enneigée).
+
 Planche : `les-six-couvertures.png`. À refaire à chaque changement d'image de titre ou du nombre de pages d'un tome.

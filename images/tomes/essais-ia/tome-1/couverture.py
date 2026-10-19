@@ -187,14 +187,16 @@ def devant(v, k):
     if VARIANTES[v]['devant'] == 'chiffre':
         return (f'<div class="hd hd-b"><span>Le Manuel du Nord</span><span>Tome {k} sur 6</span></div>'
                 f'<div class="duo"><div class="num">{k}</div><h1 class="titre" data-fit data-haut=".hd-b">{titre}</h1></div>')
-    bas = CENTRE_BAS.get(k)
+    bas = CENTRE_BAS.get(k, 3.95)
     return (f'<div class="marque">Le Manuel du Nord</div>'
-            f'<div class="centre"{f" style=\"height:{bas}in\"" if bas else ""}><div class="tome"><i></i><span>Tome {k}</span><i></i></div>'
-            f'<h1 class="titre" data-fit data-haut=".marque" data-sommet=".tome">{titre}</h1></div>')
+            f'<div class="centre"><div class="tome"><i></i><span>Tome {k}</span><i></i></div>'
+            f'<h1 class="titre" data-fit data-haut=".marque" data-sommet=".tome" data-bas="{bas}">{titre}</h1></div>')
 
 
-# le bas du titre centré (variante C), en pouces depuis le haut du devant rogné, quand l'image du tome monte plus haut
-# que 3,95 po (tome 6 : la colline enneigée, sur laquelle le titre crème ne se lit pas ; tome 2 : le cadre au mur)
+# « Tome N » est toujours à la même distance sous « Le Manuel du Nord » (JP, 19 octobre 2026 : « colle-le toujours à la
+# même distance »), et le titre suit dessous ; il rapetisse s'il descend plus bas que 3,95 po depuis le haut du devant
+# rogné, ou plus haut quand l'image monte (tome 6 : la colline enneigée, sur laquelle le titre crème ne se lit pas ;
+# tome 2 : le cadre au mur)
 CENTRE_BAS = {2: 3.1, 6: 3.3}
 
 
@@ -274,7 +276,7 @@ body{-webkit-print-color-adjust:exact;print-color-adjust:exact}
 /* ---------- devant : C, centré ---------- */
 .marque{position:absolute;left:0.5in;right:0.5in;top:0.58in;text-align:center;font-weight:700;font-size:30px;line-height:1;
   letter-spacing:.32em;text-indent:.32em;text-transform:uppercase;white-space:nowrap}
-.centre{position:absolute;left:0.45in;right:0.45in;top:0;height:3.95in;display:flex;flex-direction:column;justify-content:flex-end;align-items:center}
+.centre{position:absolute;left:0.45in;right:0.45in;top:1.17in;display:flex;flex-direction:column;justify-content:flex-start;align-items:center}
 .centre .tome{display:flex;align-items:center;gap:16px;margin-bottom:20px;font-weight:600;font-size:19px;letter-spacing:.3em;text-transform:uppercase;color:#B9C7D1}
 .centre .tome i{display:block;width:0.62in;border-top:1px solid #B9C7D1}
 .centre .tome span{padding-left:.3em}
