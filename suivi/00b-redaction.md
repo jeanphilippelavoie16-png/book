@@ -678,3 +678,16 @@ la mention **Chalet** », ce qui est vrai depuis la décision 4.
 l'assembleur) ; 0 « § », 0 mot banni, 0 tournure, 0 maxime, 0 pronominal ; vocabulaire d'IA, âge et mises en relief :
 ceux d'avant ; 57 mots vides et 1 redite, ceux d'avant ; invariants disparus, tous voulus : « 303 », « 308 », « 7 mm »
 (décision 5) et un « 5 kg » (l'exemple de l'introduction). Pas d'ancre (clé « 00b » vide). Fins de ligne LF.
+
+### Après la vérification technique (19 octobre 2026)
+
+Corrections du rédacteur sur les points du vérificateur de la passe « décisions de JP ».
+
+| Point | Où | Ce qui a changé | Source ou raison |
+| --- | --- | --- | --- |
+| Décision 5, mécanisme de la cartouche d'un autre calibre trop généralisé | 2.B, ligne des cartouches de carabine | « et sa balle, plus grosse que l'intérieur du canon, fait céder l'arme » devient « et si on la tire, la pression peut faire céder l'arme (ch. 45, étape 39) ». La ligne du tableau G (« elle peut entrer dans la chambre et faire céder l'arme ») est juste : gardée | `35b-calibres-de-jp-saami-et-cartouches.md` : « excessive build-up and/or release of high-pressure gas […] beyond which the firearm is designed to withstand » ; ses exemples comptent des balles plus petites ou de même diamètre (7.62x39 et .300 Savage dans une .308, 30-30 dans une .303) |
+| Décision 4, conséquence oubliée : la balance au gramme | 1.D, balance de cuisine de 0 à 5 kg | Lieu : « Maison → chalet » devient « **Chalet**, avec le sel » ; quantité gardée (1, et 1 de rechange) | Le sel est au chalet depuis la décision 4 ; le ch. 5 (stock du chalet) met la balance au gramme dans son Matériel, et les ch. 67 et 68 salent au chalet ; la balance de 0 à 50 kg (2.B) n'a pas la précision du sel. **À faire trancher par JP** : l'autre choix est « **Les deux**, 1 à chaque endroit » |
+| Décision 6, fait trop fort : la batterie de secours de la pompe de puisard | Palier 3, ligne du clapet antiretour | « la fait tourner pendant la panne (ch. 3, étape 26). On les achète avant : pendant la panne, on vide le puisard à la chaudière » devient « la fait tourner tant qu'elle a de la charge (ch. 3, étape 26). Sans elle, ou quand elle est vide, on vide le puisard à la chaudière » | Aucune durée sourcée ; ch. 3, étape 26 |
+| Décision 4, hors décision : CLAUDE.md | Tableau « Les deux lieux », case Réserves de la maison | La case remise au texte de JP d'avant la passe : « Le rangement et le congélateur ». La décision ne visait que la case du chalet ; la ligne datée sous le tableau (« la maison garde la trousse de 72 h et le congélateur ») reste | Correction proposée par le vérificateur (« Le rangement de ce qui monte au chalet, la trousse de 72 h et le congélateur ») non écrite : un agent ne met pas de nouveau texte dans CLAUDE.md ; on remet celui de JP. À lui de dire s'il veut la formule longue |
+
+Contrôle : `controle.py --avant` (HEAD) : 17 561 → 17 563 mots ; 4 tirets, ceux d'avant (titres des paliers) ; rien n'a disparu. Fins de ligne LF.

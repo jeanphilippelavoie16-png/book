@@ -77,9 +77,10 @@ règles du groupe de chasse, et sortir un blessé du bois à plusieurs : en tra�
  section 9). Ne pas lui fabriquer de collet rigide : rien ne montre qu'il protège, et il gêne la respiration.
 5. **Décider comment il sort, et envoyer chercher la machine tout de suite.**
  - Si on a déclenché le SOS ou la balise, rester sur place avec le blessé seulement si une réponse confirme que des
- secours viennent : l'abriter alors (étape 14) et laisser l'appareil en marche jusqu'à ce que quelqu'un arrive
- (ch. 14, étape 3). Sinon, le sortir de l'une des façons qui suivent, sans attendre de réponse, avec l'appareil
- allumé sur soi et le SOS en marche.
+ secours viennent, ou si on ne peut pas le sortir avant la nuit ou avec le monde qu'on a (dernier tiret) :
+ l'abriter alors (étape 14) et laisser l'appareil en marche jusqu'à ce que quelqu'un arrive (ch. 14, étape 3).
+ Sinon, le sortir de l'une des façons qui suivent, sans attendre de réponse, avec l'appareil allumé sur soi et le
+ SOS en marche.
  - S'il peut marcher sans aggraver sa blessure, le faire marcher sans rien porter, avec quelqu'un à côté de lui
  pour le soutenir.
  - Si une machine peut se rendre jusqu'à lui (l'hiver, une motoneige avec un traîneau ; l'été, un VTT avec une

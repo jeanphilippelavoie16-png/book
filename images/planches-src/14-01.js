@@ -1,10 +1,13 @@
 // Planche 14-01. Le poste à galène (chapitre 14, section 7, « Écouter sans pile : le poste à galène »).
 // Trois vues : le poste monté sur sa planche (le circuit), la branche détecteur-écouteur de près,
 // l'antenne et le contrepoids dehors. Aucune cote sur la planche : les chiffres du chapitre (80 spires
-// sur un support de 10 cm, une prise toutes les 10 spires, l'antenne) sont sourcés depuis le 24 septembre
+// sur un support de 10 cm, une prise toutes les 10 spires sur les 70 premières, puis une à chaque spire sur les 10
+// dernières, l'antenne) sont sourcés depuis le 24 septembre
 // 2026 (sources/19-nbs-circulaire-120-poste-recepteur.md ; suivi/14-redaction.md, levée du 24 septembre).
 // Le 19 octobre 2026 : recomposée sans la ligne « Planche 14-01. … » dans le dessin (le moteur de pages
-// pose le numéro et le titre).
+// pose le numéro et le titre). Le même jour, le renvoi 14 vise le cercle rouge de l'entrée de la descente (règle 11 :
+// chaque rouge a son repère). À soumettre à JP : le dessin montre 7 prises (les dizaines), pas la prise à chaque spire
+// sur les 10 dernières que demande le texte (« L'accord », repère 3).
 //
 // La charte : les deux épinettes, qui portent l'antenne sans être le sujet, en gris loin ; pas
 // de gris sur le poste ni sur le détecteur, vus à plat. Le rouge : la pointe qu'on promène sur
@@ -351,10 +354,11 @@ module.exports = (h) => {
           const tA = 44, tB = z.l - 36;
           const iA = [tA + 30, yA + 8], iB = [tB - 48, yA + 8];
           const xm = (iA[0] + iB[0]) / 2;
+          const fen = [416 + 6, G - 52];       // la fenêtre du chalet ; le cercle rouge de l'entrée est en (fen[0] + 2, fen[1] + 6)
           return [
             { n: 12, rond: [xm, yA - 12], cible: [xm, yA + 15], texte: 'fil long et haut, tendu' },
             { n: 13, rond: [iB[0] - 30, yA - 14], cible: [iB[0] - 4, iB[1] - 4], texte: 'isolateur : bout de bois sec' },
-            { n: 14, rond: [230, G - 30], cible: [245.5, 0.75 * G - 20.75], texte: 'descente qui ne touche rien' },
+            { n: 14, rond: [fen[0] - 40, fen[1] - 22], cible: [fen[0] + 2, fen[1] + 6], texte: 'descente qui ne touche rien' },
             { n: 15, rond: [140, G - 22], cible: [140, G - 3], texte: 'contrepoids sur la neige' },
           ];
         },

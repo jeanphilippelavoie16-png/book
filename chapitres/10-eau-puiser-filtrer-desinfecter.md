@@ -190,7 +190,7 @@ jamais la désinfection.
  étapes 20 à 22 reste bonne plus longtemps : il lui reste du chlore, qui tue les microbes qui entrent dans le
  contenant. L'eau bouillie n'en a pas.
 26. **Viser 4 L par personne et par jour** : pour 72 heures, 6 L pour boire et 6 L pour cuisiner et se laver, soit
- 12 L par personne (ch. 6). Pour quatre personnes, ça donne 16 L par jour, 48 L pour 72 heures, et environ 480 L
+ 12 L par personne (ch. 6). Pour une famille de quatre, ça donne 16 L par jour, 48 L pour 72 heures, et environ 480 L
  pour un mois, soit 24 bidons de 20 L. Garder en réserve l'eau de 72 heures et traiter le reste chaque jour ;
  choisir la taille de la marmite et la réserve de bois d'après ce volume de chaque jour.
 
@@ -338,7 +338,7 @@ jamais la désinfection.
 | Chloration, au bout de l'attente | Odeur, ou bandelette de chlore libre | Légère odeur de chlore | Remettre **0,2 mL/L**, attendre 15 min de plus ; sinon, faire bouillir |
 | À chaque achat de javel | Date de fabrication, dans le code du contenant | Moins d'**un an**, gardée au frais et à l'obscurité | La remplacer, même pleine |
 | Eau bouillie mise de côté | Âge de l'eau | **3 jours** au réfrigérateur, **24 h** à la température de la pièce | La faire bouillir de nouveau ; vider et laver le bidon avant d'y remettre de l'eau |
-| Avant l'hiver | Réserve traitée | **4 L** par personne et par jour, soit **6 L + 6 L** par personne pour 72 h ; **48 L** pour quatre personnes | La compléter avant que le lac prenne |
+| Avant l'hiver | Réserve traitée | **4 L** par personne et par jour, soit **6 L + 6 L** par personne pour 72 h ; **48 L** pour une famille de quatre | La compléter avant que le lac prenne |
 | Deux fois par année | Analyse microbiologique du puits | *E. coli* : aucun par 100 mL | Faire bouillir l'eau qui va à la bouche, désinfecter le puits, refaire analyser |
 | Au moins une fois | Analyse chimique, en mg/L | Nitrate **10** en azote ou **45** en nitrate ; nitrite **1** en azote ou **3** en nitrite ; arsenic **0,010** ; uranium **0,02** ; fluorure **1,5** ; plomb **0,005** ; baryum **2,0** | Changer de source ; pour le nitrate, l'arsenic et le plomb, l'alambic |
 | Au moins une fois | Manganèse | **0,12 mg/L** ; **0,06 mg/L** pour un bébé nourri au biberon ; taches sur la lessive dès **0,02 mg/L** | Au-dessus de 0,06 mg/L, pas d'eau du puits pour les biberons ; au-dessus de 0,12 mg/L, pour aucun nourrisson |
@@ -422,7 +422,7 @@ Dans un tubage de 150 mm, on puise avec une buse : un bout de tuyau rigide avec 
  le carré et entre dans le tuyau (repère 4) ; à la remontée, le poids de l'eau plaque le carré sur le trou (repère 5), et la
  buse remonte pleine.
 - **Ce qu'elle remonte.** Un tuyau de 40 mm contient environ 1,2 L par mètre, et une buse de 2 m remonte 2,5 L. Pour
- les 16 L d'une journée pour quatre personnes, il faut 7 voyages : on les fait d'un coup et on garde l'eau traitée,
+ les 16 L d'une journée pour une famille de quatre, il faut 7 voyages : on les fait d'un coup et on garde l'eau traitée,
  plutôt que de puiser au fur et à mesure.
 - **Garder le puits propre.** Tout ce qu'on descend dans le tubage touche l'eau qu'on boit : la corde, la buse,
  les mains. Enrouler la corde sur un bâton posé en travers, hors du sol (repère 6). Attacher la corde au haut du

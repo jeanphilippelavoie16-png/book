@@ -600,3 +600,14 @@ Le ch. 47 (l. 713) nommait aussi les trois calibres : « Les dernières cartouch
 Le reste du chapitre (§, tirets, « maison du village ») attend la grande passe du tome 3 : pas touché. `controle.py --avant`
 (f515e01) : 11 278 → 11 161 mots ; 42 tirets (44 avant) ; le mot banni, les 72 « § », les tournures, mises en relief,
 maximes : ceux d'avant ; invariants disparus, voulus : « 7 mm » (×9), « 303 », « 308 ».
+
+### Après la vérification technique (19 octobre 2026)
+
+Corrections du rédacteur sur les points du vérificateur de la passe « décisions de JP ».
+
+| Point | Où | Ce qui a changé | Source ou raison |
+| --- | --- | --- | --- |
+| Décision 5, fait inversé | Section 5-A, tableau « Le compte, calibre par calibre », ligne « Chaque calibre de carabine » | « peut entrer dans la chambre sans pouvoir y partir (étape 39) » devient « peut entrer dans la chambre, et l'arme cède si on la tire (étape 39) » | `35b-calibres-de-jp-saami-et-cartouches.md` |
+| Décision 5, mécanisme trop généralisé | Étape 39 | « sa balle, plus grosse que l'âme, s'y force, la pression monte au-delà de ce que l'arme tient » devient « si on la tire, la pression du gaz monte, ou le gaz s'échappe, au-delà de ce que l'arme tient » ; la phrase suivante « Qu'une cartouche entre ne veut pas dire qu'elle peut partir. » sort : elle redit la phrase nouvelle, avec l'ambiguïté du point précédent (« partir » lu comme « ne peut pas partir »). Section 8, bloc 1 (« peut pousser une balle plus grosse que l'âme ») gardé : il dit « peut » | SAAMI : « excessive build-up and/or release of high-pressure gas […] beyond which the firearm is designed to withstand » ; « just because a round of ammunition can fit into a firearm's chamber […] does not mean it is safe to use » |
+
+Contrôle : `controle.py --avant` (HEAD) : 11 161 → 11 156 mots ; 45 tirets, 81 « § », ceux d'avant (chapitre pas encore migré) ; rien n'a disparu. Fins de ligne LF.

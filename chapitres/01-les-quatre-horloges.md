@@ -54,9 +54,9 @@ d'heure jusqu'au printemps.
  donne le fabricant (7 à 10 ans selon le modèle ; 7 ans quand on ne connaît pas le modèle), faire comme si
  on n'en avait pas.
  - Si l'avertisseur ne répond pas au bouton, ou si on n'en a pas, n'allumer dans la maison que le poêle
- raccordé à sa cheminée (section 7, « Ce qu'on perd »). Seule exception : la lampe à graisse (ch. 3, section 7),
- qu'on allume seulement dans la pièce du poêle et qu'on éteint avant de dormir. Ne pas allumer de chaufferette ni
- de chandelle.
+ raccordé à sa cheminée (section 7, « Ce qu'on perd »). Seule exception : la lampe à graisse (ch. 3, section 7,
+ « L'éclairage »), qu'on allume seulement dans la pièce du poêle et qu'on éteint avant de dormir. Ne pas allumer
+ de chaufferette ni de chandelle.
  - Poser l'avertisseur dans la pièce chauffée où la famille va dormir, à au moins 2 m de tout appareil
  qui brûle.
  - N'allumer dans la maison et dans le garage qu'un appareil fait pour l'intérieur. Le barbecue est un

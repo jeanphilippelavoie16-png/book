@@ -13,9 +13,10 @@
 // le sable et le charbon ne désinfectent pas, et c'est le repère 10, « faire bouillir cette eau ensuite », qui le dit.
 // La gratte est sortie avec le texte corrigé : on frotte à peine le dessus, la paume à plat, en rond.
 // Le 19 octobre 2026 : en-tête et desc alignés sur le texte (couche de grosses pierres, chaudière, sable lavé jusqu'à
-// une eau encore un peu sale, frottement en rond, plus d'encadré) ; l'eau est déjà en bleu ; le dessin ne change pas.
-// Aucune main : la main à plat paume en bas manque dans les mains gardées (la 8-01 retournée replie les doigts) ; le
-// geste du repère 11 est porté par la flèche rouge en rond sur le dessus du sable, comme le permet la consigne.
+// une eau encore un peu sale, frottement en rond, plus d'encadré) ; les deux filets d'eau qui tombent (de la chaudière
+// dans le baril, et l'eau sale qui passe par-dessus le bord au lavage) passent en bandes bleues, comme toute l'eau.
+// Aucune main : le geste du repère 11 est porté par la flèche rouge en rond sur le dessus du sable. La main 1-08 sans
+// objet (paume vers le bas) existe depuis le 18 octobre et pourra s'ajouter à la passe finale si JP la veut.
 //
 // La charte : le haut vide du baril et de la chaudière, au-dessus de l'eau, en gris loin ; les couches en trame. Le
 // rouge : la sortie du boyau (2), le frottement en rond (11). L'eau sale : la teinte d'eau et un pointillé clairsemé.
@@ -112,7 +113,7 @@ module.exports = (h) => {
     }
     return h.chemin([...haut, ...bas], h.a.plein, true);
   };
-  // Un fond de seau percé : le trait s'interrompt à chaque trou.
+  // Un fond de chaudière percée : le trait s'interrompt à chaque trou.
   const fondPerce = (x0, x1, y, trous, at) => {
     const bouts = [], bords = [x0, ...trous.flatMap(t => [t - 1.6, t + 1.6]), x1];
     for (let i = 0; i < bords.length; i += 2) bouts.push(h.ligne(bords[i], y, bords[i + 1], y, at));
@@ -168,13 +169,13 @@ module.exports = (h) => {
       h.path(`M92,${y - 4} Q86,${y} 92,${y + 4}`, h.a.arete),
       h.path(`M232,${y - 4} Q238,${y} 232,${y + 4}`, h.a.arete),
     ]),
-    // le boyau : il sort au bas, remonte plus haut que le sable, puis redescend au seau
+    // le boyau : il sort au bas, remonte plus haut que le sable, puis redescend à la chaudière de charbon
     ...boyau('M230,266 L240,266 Q246,266 246,259 L246,124 Q246,116 254,116 L292,116 Q300,116 300,124 L300,128'),
     goutte(300, 137), goutte(300, 149),
     // la bouche du boyau, plus haute que le sable
     h.controle(300, 126, 11),
     h.fleche('M300,158 L300,202', h.a.cache),
-    // le seau de charbon, sur deux bâtons en travers de la chaudière
+    // la chaudière de charbon, sur deux bâtons en travers d'une autre chaudière
     h.rect(273.5, 268, 61, 24, h.a.hachure('eau', 'aucun')),
     h.ligne(273.2, 268, 334.8, 268, h.a.detail),
     h.chemin([[272, 244], [276, 293.5], [332, 293.5], [336, 244]], h.a.arete),
@@ -183,7 +184,8 @@ module.exports = (h) => {
     h.ligne(274, 190, 279, 238, h.a.arete), h.ligne(334, 190, 329, 238, h.a.arete),
     ...fondPerce(279, 329, 238, [292, 304, 316], h.a.arete),
     goutte(304, 252), goutte(292, 259),
-    // l'arrivée : un seau qu'on penche doucement sur l'assiette
+    // l'arrivée : une chaudière qu'on penche doucement sur l'assiette ; le filet d'eau, en bleu entre ses deux bords
+    h.path('M156.5,59 C158,72 158.5,86 158.5,98 L162,98 C162,86 161.5,72 160,58.5 Z', h.a.hachure('eau', 'aucun')),
     h.path('M156.5,59 C158,72 158.5,86 158.5,98', h.a.detail),
     h.path('M160,58.5 C161.5,72 162,86 162,98', h.a.detail),
     h.path('M160,102 L160,123', halo),
@@ -193,7 +195,7 @@ module.exports = (h) => {
     h.chemin(seauVerse, h.a.contour),
   ].join('\n');
 
-  // ── Le second seau, en grand ───────────────────────────────────────────────
+  // ── La chaudière de charbon, en grand ──────────────────────────────────────
   const seauC = [[55, 90], [175, 90], [163, 197], [67, 197]];
   const charbonVue = z => [
     ...sol(8, 223, 294),
@@ -204,7 +206,7 @@ module.exports = (h) => {
     h.chemin([[48, 206], [56, 293.5], [174, 293.5], [182, 206]], h.a.contour),
     // deux bâtons en travers du bord
     ...baton(40, 190, 197.5, 8),
-    // le seau et son charbon
+    // la chaudière percée et son charbon
     ...charbon([[57.5, 112], [172.5, 112], [162, 195.5], [68, 195.5]], 11, 11, 4.3),
     h.ligne(55, 90, 67, 197, h.a.contour), h.ligne(175, 90, 163, 197, h.a.contour),
     ...fondPerce(67, 163, 197, [85, 100, 115, 130, 145], h.a.contour),
@@ -226,18 +228,20 @@ module.exports = (h) => {
     const eauP = sousLigne(contenu, 142, false);
     return [
       ...sol(8, 338, 186),
-      // le seau penché : le sable reste au fond, l'eau trouble passe par-dessus le bord
+      // la chaudière penchée : le sable reste au fond, l'eau trouble passe par-dessus le bord
       h.chemin(eauP, h.a.hachure('eau', 'aucun'), true),
       ...pointille(eauP, 21, 70),
       ...pointille(sableP, 22, 20),
       h.ligne(sableP[0][0], 142, sableP[sableP.length - 1][0], 142, h.a.fin),
+      // le filet d'eau sale : la bande bleue entre ses deux bords, puis le pointillé de l'eau trouble
+      h.path(`M${n1(bec[0] - 2)},${n1(bec[1] + 1)} C${n1(bec[0] + 8)},${n1(bec[1] + 5)} 150,150 152,186 L163,186 C160,150 ${n1(bec[0] + 13)},${n1(bec[1] + 2)} ${n1(bec[0] + 1)},${n1(bec[1] - 1)} Z`, h.a.hachure('eau', 'aucun')),
+      ...pointille([[bec[0], bec[1] + 2], [bec[0] + 6, bec[1]], [158, 150], [162, 185], [153, 185], [149, 150]], 23, 45),
       h.path(`M${n1(bec[0] - 2)},${n1(bec[1] + 1)} C${n1(bec[0] + 8)},${n1(bec[1] + 5)} 150,150 152,186`, h.a.detail),
       h.path(`M${n1(bec[0] + 1)},${n1(bec[1] - 1)} C${n1(bec[0] + 13)},${n1(bec[1] + 2)} 160,150 163,186`, h.a.detail),
-      ...pointille([[bec[0], bec[1] + 2], [bec[0] + 6, bec[1]], [158, 150], [162, 185], [153, 185], [149, 150]], 23, 45),
       h.chemin([penche[0], penche[3], penche[2], penche[1]], h.a.contour),
       // on recommence
       h.fleche('M150,70 C176,40 214,40 238,78', h.a.arete),
-      // le seau debout : le sable au fond, l'eau claire dessus
+      // la chaudière debout : le sable au fond, l'eau encore un peu sale dessus
       h.rect(237.5, 126, 57, 34, h.a.hachure('eau', 'aucun')),
       ...pointille([[239, 128], [293, 128], [293, 158], [239, 158]], 25, 70),
       h.ligne(237.4, 126, 294.6, 126, h.a.detail),
@@ -247,8 +251,6 @@ module.exports = (h) => {
     ].join('\n');
   };
 
-  // ── Gratter le dessus ──────────────────────────────────────────────────────
-  // Paroi du baril à x 24 ; le dessus du sable à y 80, gratté jusqu'à y 102.
   // ── Quand le débit tombe : frotter le dessus du sable, puiser l'eau sale ──
   // Paroi du baril à x 16 ; un peu d'eau sale de y 78 à 112 ; le sable dessous, son dessus encrassé (112 à 119).
   const grattage = z => {

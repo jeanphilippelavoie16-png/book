@@ -983,3 +983,13 @@ valeur ni de source.
 Rédacteur de la passe « décisions de JP ». `design/epreuves-livre/placements-tome-1.json`, clé « 10 », photo
 `10-hutte-castor` : la légende devient « Hutte de castor en hiver : un dôme de branches sous la neige. », comme demandé
 plus haut à l'intégrateur. La consigne des 5 minutes reste aux étapes 14 et 41. Le chapitre n'est pas touché.
+
+### Après la vérification technique (19 octobre 2026)
+
+Corrections du rédacteur sur les points du vérificateur de la passe « décisions de JP ».
+
+| Point | Où | Ce qui a changé | Source ou raison |
+| --- | --- | --- | --- |
+| Décision 5, « pour quatre personnes » | Étape 26 ; section 5, ligne « Réserve traitée » ; section 7, « Puiser un puits quand la pompe est morte », tiret « Ce qu'elle remonte » | « Pour quatre personnes, ça donne 16 L par jour », « **48 L** pour quatre personnes » et « les 16 L d'une journée pour quatre personnes » disent « une famille de quatre » | Décision 5 (« une famille de quatre » comme exemple), étendue du ch. 00b aux calculs du tome 1 que le vérificateur a relevés : ils supposaient la famille de JP. Les chiffres ne changent pas |
+
+Contrôle : `controle.py --avant` (HEAD) : 9 298 → 9 304 mots ; 2 tirets (titre et ligne de tome) ; rien n'a disparu. Fins de ligne LF.

@@ -72,7 +72,7 @@ trois mois, et elle doit tenir au moins un mois, même l'année où personne n'a
 ### Calculer l'eau, les calories et la durée
 
 5. **Compter 4 L d'eau par personne et par jour** : 2 L pour boire, et 2 L pour préparer les aliments et se laver. Le
- « 2 litres par jour » qu'on voit partout ne compte que la boisson (ch. 6). Pour quatre personnes, ça fait 16 L par
+ « 2 litres par jour » qu'on voit partout ne compte que la boisson (ch. 6). Pour une famille de quatre, ça fait 16 L par
  jour. C'est un minimum : un homme, une femme et deux enfants de 4 à 8 ans ont besoin de 9,8 L d'eau par jour, eau
  des aliments comprise (ch. 21). Un hiver de viande séchée, de poisson salé et de galette n'apporte presque pas
  d'eau : il faut alors boire presque tous ces 9,8 L, et il ne reste que 6,2 L par jour pour la cuisine et l'hygiène

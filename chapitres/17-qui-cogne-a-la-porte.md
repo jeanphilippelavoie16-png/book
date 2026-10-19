@@ -80,7 +80,8 @@ destination.
  - Un adulte seul avec les enfants : si le compte de l'étape 4 concorde (une seule personne, aucune trace de plus que
  la sienne), ouvrir, coucher la personne sur une couverture et la traîner à l'intérieur. Sinon, ne pas sortir : lui
  passer par la fenêtre un sac de couchage et une couverture, et lui dire d'étendre la couverture pliée en deux sur
- la neige, contre le mur, à l'abri du vent, de se coucher dessus, puis d'entrer dans le sac et de le fermer.
+ la neige, contre le mur, à l'abri du vent, de poser le sac de couchage dessus, puis d'entrer dans le sac et de le
+ fermer.
 8. **La réchauffer** (ch. 25, étapes 5 à 14) : la coucher à l'abri du vent, sans gestes brusques, et lui enlever
  ses vêtements mouillés. Mettre la chaleur sur la tête, le cou, le tronc et l'aine, et les bouillottes sous les
  aisselles et sur le ventre ; rien sur les bras ni les jambes. Lui donner à boire chaud et sucré, à petites

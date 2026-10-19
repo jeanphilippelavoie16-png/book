@@ -72,7 +72,7 @@ Monter d'avance une trousse qu'une personne sort de la maison en 2 minutes, avec
 
  | L'eau | Combien | Où |
  | --- | --- | --- |
- | La réserve à boire | 24 L pour quatre, dans deux bidons de 20 L qu'on ne remplit pas à ras bord (étape 7) | Dans la maison, à l'abri du gel ; elle part seulement en auto |
+ | La réserve à boire | 24 L pour une famille de quatre, dans deux bidons de 20 L qu'on ne remplit pas à ras bord (étape 7) | Dans la maison, à l'abri du gel ; elle part seulement en auto |
  | L'eau qu'on porte | 1 L par personne, dans une gourde isolée | Dans les sacs ; on la remplit en chemin |
  | De quoi rendre l'eau buvable | Un chaudron, de quoi faire du feu, un filtre à 1 µm, de la javel non parfumée et une seringue de 1 mL | Dans le bac 1 ; ça remplace l'eau qu'on ne peut pas porter |
 

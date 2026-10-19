@@ -640,3 +640,13 @@ cette passe : commit `f515e01`.
 `controle.py --avant` (f515e01) : 6 989 → 7 046 mots ; 2 tirets (titre et ligne de tome) ; 0 « § », 0 mot banni,
 0 tournure, 0 maxime, 0 pronominal ; 2 mises en relief, 44 mots vides et 6 redites, ceux d'avant ; rien n'a disparu.
 Aucune ancre touchée. Fins de ligne LF.
+
+### Après la vérification technique (19 octobre 2026)
+
+Corrections du rédacteur sur les points du vérificateur de la passe « décisions de JP ».
+
+| Point | Où | Ce qui a changé | Source ou raison |
+| --- | --- | --- | --- |
+| Décision 7, « seulement si » qui excluait un cas du ch. 16 | Étape 3, deuxième tiret | « …ou si on ne peut pas arriver au chalet ou à la route avant la nuit (ch. 16, étape 14) » devient « …avant la nuit, ou avec le monde qu'on a (ch. 16, étapes 5 et 14) » | Ch. 16, étape 5 (pas assez de monde pour tirer et se relayer) et étape 14 |
+
+Contrôle : `controle.py --avant` (HEAD) : 7 046 → 7 054 mots ; 2 tirets (titre et ligne de tome) ; rien n'a disparu ; les deux « pas en jeu mais » de l'étape 5 sont d'avant. Fins de ligne LF.

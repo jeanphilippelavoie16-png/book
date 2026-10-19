@@ -108,7 +108,7 @@ module.exports = (h) => {
     const loc = q => T(add(s.c, tourne(q, extra)));
     const corpsSac = arrondi([[-s.l / 2 + 40, -s.w / 2 + 30, 120], [s.l / 2, -s.w / 2, 140], [s.l / 2, s.w / 2, 140], [-s.l / 2 + 40, s.w / 2 - 30, 120]]).map(loc);
     const cou = [[-s.l / 2 + 45, -45], [-s.l / 2 - 25, -22], [-s.l / 2 - 25, 22], [-s.l / 2 + 45, 45]].map(loc);
-    const oreille = sg => [[-s.l / 2 - 22, sg * 14], [-s.l / 2 - 95, sg * 62], [-s.l / 2 - 70, sg * 8]].map(loc);
+    const oreille = sg => [[-s.l / 2 - 20, sg * 10], [-s.l / 2 - 62, sg * 40], [-s.l / 2 - 50, sg * 4]].map(loc);
     return [h.path(chemin(oreille(-1), true), blanc(h.a.arete)), h.path(chemin(oreille(1), true), blanc(h.a.arete)),
       h.path(chemin(cou, true), blanc(h.a.arete)),
       h.path(chemin(corpsSac, true), blanc(h.a.arete)),
@@ -128,7 +128,7 @@ module.exports = (h) => {
   };
 
   // ─── vue « dessus » : le capot chargé, les deux cordes aux coins, les barres jusqu'à la taille ────
-  const S1 = 0.115;
+  const S1 = 0.124;
   const geoDessus = z => {
     // la ceinture est à 1,25 m devant les trous, ses côtés à 190 mm de l'axe : le bout des barres tombe au bord gauche
     const E = sg => [TROU(sg)[0] - 1250, sg * 190];
@@ -142,10 +142,10 @@ module.exports = (h) => {
     const { T, E } = geoDessus(z), o = [];
     o.push(...capotDessus(T, S1));
     o.push(chaudiereDessus(T, CHAUD, S1), bacDessus(T), sacDessus(T));
-    // de chaque côté : la corde nouée dans le trou du coin, et la barre couchée le long de la corde, du côté du capot,
+    // de chaque côté : la corde nouée dans le trou du coin, et la barre couchée le long de la corde, du côté du dehors,
     // liée à la corde au coin ; les deux vont jusqu'à la ceinture (le bord gauche de la vue)
     for (const sg of [-1, 1]) {
-      const t = T(TROU(sg)), e = T(E(sg)), u = uni(sub(e, t)), nn = mul(nor(u), sg > 0 ? 1 : -1);   // nn : vers l'extérieur
+      const t = T(TROU(sg)), e = T(E(sg)), u = uni(sub(e, t)), nn = mul(nor(u), sg > 0 ? 1 : -1);   // nn : vers l'axe du capot
       const c0 = add(t, mul(nn, 6)), c1 = auBord(c0, add(e, mul(nn, 6)), 2);
       const b0 = add(add(t, mul(nn, -3)), mul(u, -3)), b1 = auBord(b0, add(e, mul(nn, -3)), 2);
       o.push(h.path(barre(b0, b1, 6.2), blanc(h.a.arete)));
@@ -160,7 +160,7 @@ module.exports = (h) => {
   const renvoisDessus = z => {
     const { T, E } = geoDessus(z);
     const t = T(TROU(-1)), e = T(E(-1)), u = uni(sub(e, t)), nn = mul(nor(u), -1);
-    const noeud = add(t, mul(nn, 4.5)), milieu = add(add(add(t, mul(nn, -3)), mul(u, 0.5 * lon(sub(e, t)))), mul(nn, -3.1));
+    const noeud = add(t, mul(nn, 4.5)), milieu = add(add(t, mul(nn, -3)), mul(u, 0.5 * lon(sub(e, t))));   // sur l'axe de la barre
     return [
       { n: 1, rond: [noeud[0] + 34, 16], cible: add(noeud, [0.5, -3.2]), texte: 'attacher une corde à chaque coin avant' },
       { n: 2, rond: [milieu[0] - 30, milieu[1] + 46], cible: milieu, texte: 'mettre deux barres jusqu’à la taille' },
@@ -274,18 +274,24 @@ module.exports = (h) => {
   const geoDescente = z => {
     if (geoD && geoD.l === z.l && geoD.h === z.h) return geoD;
     const t = Math.tan(PENTE * RAD), yL = z.h - 24, ys = x => yL - x * t;
-    const pose = { pose: 'retient-derriere', cote: 'gauche', echelle: S2, ancrer: false, mains: { P: 'ouverte', L: 'ouverte' },
-      angles: { jambeL: -44, cuisseL: -8, brasP: 16, avantbrasP: 34, mainP: 34, brasL: -16, avantbrasL: -6, mainL: -6, tronc: -5 } };
-    const xP = 16;
-    // le pied de devant sur la pente ; le corps posé une première fois pour lire ses pieds
+    // la jambe arrière pliée de plus que dans la 16-08 (la pente est plus forte) : le pied arrière touche la neige
+    const pose = { pose: 'retient-derriere', cote: 'gauche', echelle: S2, ancrer: false, mains: { P: 'prise', L: 'prise' }, prise: { P: 10, L: 10 },
+      angles: { cuisseL: 0, jambeL: -58, piedL: 67, piedP: 90, brasP: 16, avantbrasP: 34, mainP: 34, brasL: -16, avantbrasL: -6, mainL: -6, tronc: -5 } };
+    // le corps posé une première fois ; puis déplacé pour que le bout du pied avant tombe à 4 du bord gauche et que le
+    // pied avant touche la pente (le point du pied le plus enfoncé sous la droite de la pente y est posé)
     const c0 = F.corps(Object.assign({}, pose, { x: 0, y: 0 }));
-    const pP = c0.pieds.P.bas, dx = xP - pP[0], dy = ys(xP) - pP[1];
+    const xm = (c0.pieds.P.cheville[0] + c0.pieds.L.cheville[0]) / 2;
+    let y0 = -Infinity;
+    for (const m of String(c0.svg).matchAll(/<path d="([^"]+)" fill="#(?:FFFFFF|E6E6E6)"/g)) {
+      const n = m[1].match(/-?[\d.]+/g); for (let i = 0; i + 1 < n.length; i += 2) if (+n[i] < xm) y0 = Math.max(y0, +n[i + 1] + t * +n[i]);
+    }
+    const dx = 4 - c0.boite.x0, dy = yL - y0 - t * dx;
     const O = Object.assign({}, pose, { x: dx, y: dy });
     const c1 = F.corps(Object.assign({}, O, { masquer: ['brasP', 'brasL'] }));
     const cb = ceinture(c1, S2);
     const A = cb.milieu;
     // le nez du traîneau : à la longueur de la barre de A, sur la pente en amont, son rebord avant à 150 mm de la neige
-    const Lb = 1200 * S2, hn = 150 * S2;
+    const Lb = 1150 * S2, hn = 150 * S2;
     const nez = x => { const g = [x, ys(x)], n = [-Math.sin(PENTE * RAD), -Math.cos(PENTE * RAD)]; return add(g, mul(n, hn)); };
     let x0 = A[0], x1 = z.l;
     for (let i = 0; i < 60; i++) { const xm = (x0 + x1) / 2; if (lon(sub(nez(xm), A)) < Lb) x0 = xm; else x1 = xm; }

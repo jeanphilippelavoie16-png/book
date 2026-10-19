@@ -54,7 +54,7 @@ est trop tard pour dire non.
  d'une famille à l'autre ; en retour, il faut chauffer deux bâtiments (ch. 83).
 2. **Demander à chaque famille ce qu'elle apporte, en quantités** : vivres, carburant, piles, médicaments, munitions,
  outils. Chaque famille doit compter ce qu'elle a en lisant ses tablettes, pas de mémoire (ch. 5). Faire ensuite
- l'addition pour tout le groupe : des réserves prévues pour quatre personnes pendant huit semaines nourrissent douze
+ l'addition pour tout le groupe : des réserves prévues pour une famille de quatre pendant huit semaines nourrissent douze
  personnes moins de trois semaines (ch. 8).
 3. **Fixer la durée prévue, ce qui mettra fin au regroupement et les règles communes.**
  - Dire en une phrase ce qui mettra fin au regroupement : « jusqu'à ce que la route rouvre », « quatre semaines,
@@ -231,11 +231,13 @@ est trop tard pour dire non.
 
 ### Cuire dehors, sans avertisseur
 
-{!co} Sans avertisseur qui marche, on ne fait du feu à l'intérieur que dans le poêle raccordé à sa cheminée, et on
-cuisine dehors, sur un feu bas et des braises, derrière un mur de neige tassée du côté du vent. À douze, les marmites
-sont lourdes : on plante deux branches fourchues, on pose une barre dessus et on y pend des crochets de branche à
-différentes hauteurs (planche 18-01). On monte ou on descend la marmite d'un cran au lieu de la soulever. Une personne nommée doit
-aérer le chalet par deux ouvertures opposées, quelques minutes, à heures fixes (étape 8).
+{!co} Sans avertisseur qui marche, on ne fait du feu à l'intérieur que dans le poêle raccordé à sa cheminée (seule
+exception : la lampe à graisse, qu'on allume seulement dans la pièce du poêle et qu'on éteint avant de dormir ; ch. 3,
+section 7, « L'éclairage »), et on cuisine dehors, sur un feu bas et des braises, derrière un mur de neige tassée
+du côté du vent. À douze, les marmites sont lourdes : on plante deux branches fourchues, on pose une barre dessus
+et on y pend des crochets de branche à différentes hauteurs (planche 18-01). On monte ou on descend la marmite d'un
+cran au lieu de la soulever. Une personne nommée doit aérer le chalet par deux ouvertures opposées, quelques
+minutes, à heures fixes (étape 8).
 
 ### Cuire au bouilli, sans thermomètre
 

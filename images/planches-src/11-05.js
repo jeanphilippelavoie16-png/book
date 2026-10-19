@@ -20,6 +20,8 @@
 // de 6 cm, tuyau de 3,4 cm, manche de 3,5 cm, bavette d'environ 40 × 34 cm, lame d'égoïne de 52 cm).
 // Le sol des deux gestes : mousse, humus, sol minéral, dessinés minces pour que l'outil reste lisible.
 // La charte : le rouge sert aux deux gestes (gratter, abattre) ; aucune main, les outils se lisent seuls.
+// Le 19 octobre 2026 : dans « Frapper à plat », la bavette tombait sur la terre nue entre les flammes ; elle tombe
+// maintenant dans la mousse qui flambe, une flamme écrasée sortant de dessous à chaque bord (repère 7).
 module.exports = (h) => {
   const A = h.a;
   const f1 = v => Math.round(v * 10) / 10;
@@ -94,6 +96,13 @@ module.exports = (h) => {
     const t = pen * w * 0.2;
     const langue = (H, w) => `M${f1(x - w / 2)} ${f1(y)} C${f1(x - w / 2)} ${f1(y - H * 0.45)} ${f1(x - w * 0.1 + t)} ${f1(y - H * 0.55)} ${f1(x + t * 1.4)} ${f1(y - H)} C${f1(x + w * 0.25 + t)} ${f1(y - H * 0.6)} ${f1(x + w / 2)} ${f1(y - H * 0.4)} ${f1(x + w / 2)} ${f1(y)}`;
     return [h.path(langue(H, w) + ' Z', W(A.arete)), h.path(langue(H * 0.5, w * 0.45), A.detail)].join('\n');
+  };
+  // Une flamme écrasée sous une bavette : elle part de dessous (x0) et sort couchée sur le sol, la pointe relevée ;
+  // sens 1 vers la droite, -1 vers la gauche ; hf est son épaisseur à la sortie, leve la hauteur de la pointe (en hf).
+  const flammeCouchee = (x0, y, Lf, hf, sens, leve = 1.7) => {
+    const X = d => f1(x0 + sens * d);
+    const langue = (Lf, hf) => `M${X(0)} ${f1(y)} C${X(Lf * 0.45)} ${f1(y)} ${X(Lf * 0.8)} ${f1(y - hf * 0.25)} ${X(Lf)} ${f1(y - hf * leve)} C${X(Lf * 0.7)} ${f1(y - hf * 0.95)} ${X(Lf * 0.35)} ${f1(y - hf * 1.15)} ${X(0)} ${f1(y - hf)}`;
+    return [h.path(langue(Lf, hf) + ' Z', W(A.arete)), h.path(langue(Lf * 0.55, hf * 0.5), A.detail)].join('\n');
   };
 
   // ─── Le râteau : de dos et de côté, à la même échelle ─────────────────────────────────────────
@@ -212,8 +221,11 @@ module.exports = (h) => {
     const haut = add(pli, u, 12 * S), libre = 22 * S;
     o.push(sol(z, yG));
     o.push(h.ligne(0, yG, z.l, yG, A.arete));
-    // les flammes qui restent
-    [[xP + libre + 22, 24, 13, 1], [xP + libre + 44, 34, 16, -1], [xP + libre + 68, 26, 13, 1], [xP + libre + 92, 18, 11, -1], [30, 16, 10, 1]].forEach(([x, H, w, pen]) => o.push(flamme(x, yG, H, w, pen)));
+    // la bavette tombe dans la mousse qui flambe : une flamme écrasée sort de dessous à chaque bord, couchée vers
+    // l'extérieur (la bavette est dessinée par-dessus), et les flammes qui restent brûlent de part et d'autre
+    o.push(flammeCouchee(xP + libre - 4, yG, 21, 5.5, 1), flammeCouchee(xP + 6, yG, 42, 3.2, -1, 2.6));
+    [[xP + libre + 26, 24, 13, 1], [xP + libre + 48, 34, 16, -1], [xP + libre + 72, 26, 13, 1], [xP + libre + 96, 18, 11, -1],
+      [xP - 44, 14, 11, -1], [30, 16, 10, 1]].forEach(([x, H, w, pen]) => o.push(flamme(x, yG, H, w, pen)));
     // levé, en gris : la bavette droite, dans l'axe du manche ; le manche s'arrête au bord de la vue
     const piv = add(haut, u, 150 * S), aL = -10 * RAD;
     const rot = p => { const dx = p[0] - piv[0], dy = p[1] - piv[1]; return [piv[0] + dx * Math.cos(aL) - dy * Math.sin(aL), piv[1] + dx * Math.sin(aL) + dy * Math.cos(aL)]; };
@@ -279,7 +291,7 @@ module.exports = (h) => {
     ref: '11-05',
     titre: 'Les outils de feu qu’on fabrique',
     fichier: 'planche-11-05-outils-de-feu.svg',
-    desc: 'Trois rangées, une par outil : l’outil monté, en vues alignées, puis son geste. En haut, le râteau à feu, de dos et de côté : une lame de fer plat aux dents entaillées en V à la meule ; sur son chant, au milieu, un bout de tuyau soudé, incliné vers l’arrière, où entre le manche, tenu par un boulon qui traverse tuyau et manche. À côté, sur un sol coupé (mousse, humus, sol minéral), le râteau tiré vers soi, les dents au sol minéral, la terre arrachée en tas contre la lame et le sol à nu derrière. Au milieu, le battoir, de face et de côté : une bavette de caoutchouc, le manche couché sur sa moitié haute, deux boulons au travers avec de grandes rondelles côté caoutchouc ; le bas de la bavette reste libre. À côté, sur le même sol, le battoir qui frappe : sa moitié libre couchée à plat sur la mousse qui flambe, sa position levée en gris et la flèche rouge du coup. En bas, la perche d’élagage, de côté et de dessus : une lame d’égoïne dents en bas, son talon pris dans une fente sciée au bout d’une perche d’épinette, deux boulons dans les trous de l’ancienne poignée, du fil de fer serré derrière la fente.',
+    desc: 'Trois rangées, une par outil : l’outil monté, en vues alignées, puis son geste. En haut, le râteau à feu, de dos et de côté : une lame de fer plat aux dents entaillées en V à la meule ; sur son chant, au milieu, un bout de tuyau soudé, incliné vers l’arrière, où entre le manche, tenu par un boulon qui traverse tuyau et manche. À côté, sur un sol coupé (mousse, humus, sol minéral), le râteau tiré vers soi, les dents au sol minéral, la terre arrachée en tas contre la lame et le sol à nu derrière. Au milieu, le battoir, de face et de côté : une bavette de caoutchouc, le manche couché sur sa moitié haute, deux boulons au travers avec de grandes rondelles côté caoutchouc ; le bas de la bavette reste libre. À côté, sur le même sol, le battoir qui frappe : sa moitié libre couchée à plat sur la mousse qui flambe, une flamme écrasée qui sort de dessous à chaque bord, d’autres flammes de part et d’autre, sa position levée en gris et la flèche rouge du coup. En bas, la perche d’élagage, de côté et de dessus : une lame d’égoïne dents en bas, son talon pris dans une fente sciée au bout d’une perche d’épinette, deux boulons dans les trous de l’ancienne poignée, du fil de fer serré derrière la fente.',
     format: 'pleine',
     disposition: [['rateau', 'gratter'], ['battoir', 'abattre'], ['perche']],
     hauteurs: [1, 1, 0.92],

@@ -471,3 +471,13 @@ autre chapitre qui porte sa provenance, ou sur une règle de `CLAUDE.md`.
 **controle.py --avant** (contre `HEAD`) : 7 042 mots avant, 7 217 après ; 2 tirets (titre et ligne de tome) ; 0 « § »,
 0 tournure, 0 pronominal, 0 maxime ; « au niveau de la mer » gardé ; invariant « 10 jours » (×2) sorti, voulu (ligne
 de germination). L'ancre 09-08 (« **Les joints, dans le cuir gras.** ») n'a pas bougé. Fins de ligne LF.
+
+## Décisions de JP, 19 octobre 2026
+
+Rédacteur de la passe « décisions de JP », après la vérification technique (libellé des décisions : `_reprise/scratchpad/tome1-final/decisions-jp.js`). Aucune recherche refaite sur ce qui était déjà vérifié.
+
+| Point | Où | Ce qui a changé | Source ou raison |
+| --- | --- | --- | --- |
+| Décision 1, un objet, deux noms | Section 7, « Fabriquer ce qui manque », paragraphe « La lumière, avec du suif » | « faire une lampe à gras » devient « faire une lampe à graisse », le nom des ch. 1, 3 et 8 | Règle 6 du skill `ecriture` |
+
+Contrôle : `controle.py --avant` (HEAD) : 7 221 → 7 221 mots ; 2 tirets (titre et ligne de tome) ; rien n'a disparu. Fins de ligne LF.

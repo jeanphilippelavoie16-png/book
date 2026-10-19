@@ -455,3 +455,13 @@ lithium » du ch. 6 (25 ans et 10 ans à 21 °C), comme le rédacteur du ch. 9 l
 **controle.py** (contre le texte d'avant cette passe) : 6 656 → 6 680 mots ; 2 tirets (titre et ligne de tome) ; 0 « § »,
 0 mot banni, 0 tournure, 0 maxime, 0 redite ; 25 mots vides jugés. Invariants : « trichinellose » 3 → 2 (la note du
 pemmican, point 6) ; le rappel reste entier à l'étape 14.
+
+## Décisions de JP, 19 octobre 2026
+
+Rédacteur de la passe « décisions de JP », après la vérification technique (libellé des décisions : `_reprise/scratchpad/tome1-final/decisions-jp.js`). Aucune recherche refaite sur ce qui était déjà vérifié.
+
+| Point | Où | Ce qui a changé | Source ou raison |
+| --- | --- | --- | --- |
+| Décision 5, « pour quatre » | Étape 5 (« L'eau »), tableau, ligne « La réserve à boire » | « 24 L pour quatre » devient « 24 L pour une famille de quatre » | Décision 5 (« une famille de quatre » comme exemple), étendue du ch. 00b aux calculs du tome 1 que le vérificateur a relevés : ils supposaient la famille de JP. Les chiffres ne changent pas |
+
+Contrôle : `controle.py --avant` (HEAD) : 6 696 → 6 699 mots ; 2 tirets (titre et ligne de tome) ; rien n'a disparu. Fins de ligne LF.

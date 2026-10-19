@@ -477,3 +477,15 @@ cette passe : commit `f515e01`.
 `controle.py --avant` (f515e01) : 6 945 → 7 000 mots ; 2 tirets (titre et ligne de tome) ; 0 « § », 0 mot banni,
 0 tournure, 0 pronominal ; la maxime et « au niveau de la mer », ceux d'avant ; 40 mots vides ; rien n'a disparu. Fins de
 ligne LF.
+
+### Après la vérification technique (19 octobre 2026)
+
+Corrections du rédacteur sur les points du vérificateur de la passe « décisions de JP ».
+
+| Point | Où | Ce qui a changé | Source ou raison |
+| --- | --- | --- | --- |
+| Décision 1, contradiction entre chapitres : la lampe à graisse | Section 7, « Le CO sans avertisseur » | Ajouté après « N'allumer à l'intérieur que le poêle raccordé à sa cheminée. » : « Seule exception : la lampe à graisse (« La lampe à graisse », plus haut), qu'on allume seulement dans la pièce du poêle et qu'on éteint avant de dormir. » | Décision 1 ; ch. 1, étape 2 ; ch. 3, étape 5 |
+| Décision 1, un objet, deux noms | Section 7, titre « La lampe à gras » | Devient « La lampe à graisse », le nom des ch. 1, 3, 00b, 36, 52, 85 et 112 ; le renvoi de `plan/dangers-inventaire.md` (section 3, ch. 8, `mal-de-caribou`) suit. Le ch. 9 aussi | Règle 6 du skill `ecriture` |
+| Décision 7, scénario mal aligné | Scénario 7, ligne « 10 à 30 min » | « l'appareil satellite allumé sur soi et le SOS en marche » devient « l'appareil satellite allumé sur soi, et le SOS en marche s'il a été déclenché » ; et « si on ne peut pas arriver avant la nuit » devient « si on ne peut pas arriver avant la nuit, ou avec le monde qu'on a », comme au ch. 16, étape 5, et au ch. 14, étape 3 | La ligne « 0 à 10 min » n'envoie le SOS que si la vie est en jeu ; ch. 16, étapes 5 et 14 |
+
+Contrôle : `controle.py --avant` (HEAD) : 7 000 → 7 039 mots ; 2 tirets (titre et ligne de tome) ; rien n'a disparu ; la maxime signalée (« Un blessé qui cesse de frissonner… ») est d'avant cette passe. Aucune ancre touchée. Fins de ligne LF.

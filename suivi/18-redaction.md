@@ -544,3 +544,14 @@ en LF. Aucune étape renumérotée, aucun intertitre renommé : les renvois du c
 **controle.py** contre `HEAD` (17487ee) : 5 614 → 5 658 mots ; 2 tirets (titre et ligne de tome) ; 0 « § », 0 mot banni,
 0 tournure, 0 maxime, 0 redite ; 43 mots vides (44 avant), jugés : sur les lignes touchées, seul « Tout arrêter » (section 5,
 ligne des armes) est relevé, et il porte le sens. Invariants : rien n'a disparu. **Chiffres** : aucun chiffre nouveau.
+
+### Après la vérification technique (19 octobre 2026)
+
+Corrections du rédacteur sur les points du vérificateur de la passe « décisions de JP ».
+
+| Point | Où | Ce qui a changé | Source ou raison |
+| --- | --- | --- | --- |
+| Décision 1, contradiction entre chapitres : la lampe à graisse | Section 7, « Cuire dehors, sans avertisseur » | « …que dans le poêle raccordé à sa cheminée (seule exception : la lampe à graisse, qu'on allume seulement dans la pièce du poêle et qu'on éteint avant de dormir ; ch. 3, section 7, « L'éclairage »), et on cuisine dehors… » ; le début du paragraphe, ancre de la planche 18-01, ne change pas | Décision 1 ; ch. 1, étape 2 ; ch. 3, étape 5 |
+| Décision 5, « pour quatre personnes » | Étape 2 | « des réserves prévues pour quatre personnes » devient « des réserves prévues pour une famille de quatre » | Décision 5 (« une famille de quatre » comme exemple), étendue du ch. 00b aux calculs du tome 1 que le vérificateur a relevés : ils supposaient la famille de JP. Les chiffres ne changent pas |
+
+Contrôle : `controle.py --avant` (HEAD) : 5 658 → 5 689 mots ; 2 tirets (titre et ligne de tome) ; rien n'a disparu. Gardé tel quel, étape 10 : « À quatre personnes, il y a 6 paires… » (un calcul sur un groupe, pas la famille). Fins de ligne LF.

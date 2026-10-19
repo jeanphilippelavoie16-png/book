@@ -780,3 +780,15 @@ La planche du travois (candidate du lot 15-16-17) n'est pas dessinée : à l'age
 --avant` (f515e01) : 7 362 → 7 516 mots ; 2 tirets (titre et ligne de tome) ; 0 « § », 0 mot banni, 0 tournure,
 0 maxime, 0 pronominal ; 43 mots vides et 3 redites, celles d'avant ; rien n'a disparu. Ancres 16-07 et 16-08 intactes.
 Fins de ligne CRLF gardées.
+
+### Après la vérification technique (19 octobre 2026)
+
+Corrections du rédacteur sur les points du vérificateur de la passe « décisions de JP ».
+
+| Point | Où | Ce qui a changé | Source ou raison |
+| --- | --- | --- | --- |
+| Décision 7, « seulement si » qui contredisait les tirets suivants | Étape 5, premier tiret | « …seulement si une réponse confirme que des secours viennent : l'abriter alors… » devient « …seulement si une réponse confirme que des secours viennent, ou si on ne peut pas le sortir avant la nuit ou avec le monde qu'on a (dernier tiret) : l'abriter alors (étape 14)… » | Étape 5, dernier tiret ; étape 14 ; ch. 14, étape 3 |
+| Décision 7, logigramme | `images/logigrammes/16-sortir-un-blesse.json`, boîte « alerter » | « Rester sur place seulement si une réponse dit que des secours viennent, ou si on ne peut pas arriver avant la nuit ; sinon, le sortir avec l'appareil allumé sur soi. » La boîte prend une ligne : rangs g4 à g7, paliers de q1 et q3, sy et ey de q4 vers abriter, et le bas des deux via descendus de 0,16 po ; `_note` mise à jour | Étapes 5 et 14 |
+| Décision 11, logigramme incomplet | Même logigramme, boîte « chemin » | « …ou l'été le canot ou le travois. » | Étape 11 et q4 nomment le travois |
+
+Rendus refaits (complet, et `--sans-entete --svg`) : 0 erreur, 0 avis ; image regardée. `controle.py --avant` (HEAD) : 7 516 → 7 535 mots ; 2 tirets (titre et ligne de tome) ; rien n'a disparu. Ancres 16-07 et 16-08 intactes. Fins de ligne CRLF gardées.

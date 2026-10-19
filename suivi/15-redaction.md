@@ -775,3 +775,13 @@ recadrage de 1 080 × 690 sur le bloc, fait avec PIL, sans retouche, profil de c
 `controle.py --avant` (f515e01) : 7 761 → 7 847 mots ; 2 tirets (titre et ligne de tome) ; 0 « § », 0 mot banni,
 0 tournure, 0 maxime, 0 pronominal ; 26 mots vides et 6 redites, ceux d'avant ; rien n'a disparu. Aucune ancre touchée
 (la note n'a pas d'ancre : le moteur la place près de l'étape 42). Fins de ligne LF.
+
+### Après la vérification technique (19 octobre 2026)
+
+Corrections du rédacteur sur les points du vérificateur de la passe « décisions de JP ».
+
+| Point | Où | Ce qui a changé | Source ou raison |
+| --- | --- | --- | --- |
+| Décision 10, source et redite | En plus, « Reconnaître la glace en chandelles » | La première phrase ne redit plus l'étape 42 (« Au printemps, la glace qui fond se défait en colonnes debout… ») : « La glace en chandelles est faite de colonnes perpendiculaires à la surface, serrées comme des chandelles. Les colonnes qui se détachent flottent et tintent en se cognant. Elles ne sont plus liées entre elles : quand on passe à travers, le bord du trou se défait sous les mains, et on n'a rien pour se hisser (étape 42). » (57 mots.) Pas « Celles qui se détachent » proposé par le vérificateur : sujet en pronom en tête de phrase (règle 11) | Nouvelle source publiée : `sources/15-awi-meereisportal-candle-ice-2026-10-19.md` (+ `.html`, et la page de l'éditeur `15-awi-meereisportal-site-notice-2026-10-19.html`) : Alfred Wegener Institute et Université de Brême, « forms perpendicular to the surface of a water body », « It clinks when the “candles” break up and collide as they float ». Le Glossary of Meteorology de l'AMS demandé n'a pas pu être enregistré (HTTP 403 Cloudflare, hôte introuvable par l'outil de récupération, web.archive.org coupé) ; la page de l'AWI le remplace. Le bord qui se défait garde sa source d'avant (Wikipédia : Tawrell, 2006 ; Lifesaving Society), à côté de la page de l'AWI |
+
+Contrôle : `controle.py --avant` (HEAD) : 7 847 → 7 844 mots ; 2 tirets (titre et ligne de tome) ; rien n'a disparu. Fins de ligne LF.

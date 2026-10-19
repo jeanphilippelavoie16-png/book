@@ -692,3 +692,13 @@ l'obturateur avec un bouchon de bois ».
 0 mot banni, 0 maxime ; 2 tournures, les faux positifs déjà jugés (« rester à la maison les premiers jours », « on les
 oublie ») ; 49 mots vides jugés ; 8 redites jugées (des renvois, ou le même nom pour la même chose). Invariants : rien
 n'a disparu.
+
+## Décisions de JP, 19 octobre 2026
+
+Rédacteur de la passe « décisions de JP », après la vérification technique (libellé des décisions : `_reprise/scratchpad/tome1-final/decisions-jp.js`). Aucune recherche refaite sur ce qui était déjà vérifié.
+
+| Point | Où | Ce qui a changé | Source ou raison |
+| --- | --- | --- | --- |
+| Décision 5, « pour quatre personnes » | Étapes 6 et 7 | « Pour quatre personnes et sept jours » et « Pour quatre personnes et trois jours » deviennent « Pour une famille de quatre et sept jours » et « … et trois jours » | Décision 5 (« une famille de quatre » comme exemple), étendue du ch. 00b aux calculs du tome 1 que le vérificateur a relevés : ils supposaient la famille de JP. Les chiffres ne changent pas |
+
+Contrôle : `controle.py --avant` (HEAD) : 7 928 → 7 932 mots ; 2 tirets (titre et ligne de tome) ; rien n'a disparu. Gardé tel quel, section 7, « Chauffer une seule pièce » : « quatre personnes dans une pièce fermée la réchauffent » (pas un calcul). Fins de ligne LF.

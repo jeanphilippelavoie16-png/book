@@ -669,8 +669,15 @@ cette passe : commit `f515e01`.
 
 | Décision | Où | Ce qui a changé | Source ou règle |
 | --- | --- | --- | --- |
-| 11. Le feu par vent de plus de 20 km/h : couper la phrase, le chiffre n'a pas de source pour ce geste | Étape 8, avant-dernière sous-étape ; section 5, ligne « Le vent » | Sort : « Allumer dehors seulement quand le vent reste sous 20 km/h : à 16 km/h, un drapeau léger est déployé ; à 24 km/h, une feuille de papier journal se soulève du sol. » La suite commence par « Quand il vente fort, ou que la mousse craque sous le pied (ch. 11, section 7), faire le feu dans le poêle. » Le geste du feu pour se réchauffer derrière une butte, un rocher ou un mur reste (FM 21-76, déjà au dossier). La ligne « Le vent » de la section 5 sort avec son chiffre | Décision 11. **Lecture à faire confirmer** : la décision dit « couper la phrase (le chiffre n'a pas de source) » ; la phrase qui porte un chiffre est celle des 20 km/h (règle de la SOPFEU pour un feu de camp, pas un mécanisme), et c'est elle qui sort. La phrase du feu pour se réchauffer n'a pas de chiffre et a sa source : gardée |
+| 11. Le feu par vent de plus de 20 km/h (JP : « pas besoin de source ok ») | Étape 8, avant-dernière sous-étape ; section 5, ligne « Le vent » | **Rien ne change au chapitre** : le texte de `f515e01` est remis mot pour mot après la vérification (voir plus bas). La coupe d'abord faite (la phrase des 20, 16 et 24 km/h, et la ligne « Le vent ») reposait sur une idée fausse, « le chiffre n'a pas de source » : les trois chiffres ont la leur. Le `[À VÉRIFIER]` visé par la question à JP portait sur le feu qu'on fait pour se réchauffer quand le vent dépasse 20 km/h ; il avait été levé avec FM 21-76, et ce geste reste | 20 km/h : SOPFEU, `17-sopfeu-feux-de-camp.md` (l. 19 et 57) ; 16 et 24 km/h : CNESST, `03-cnesst-travail-au-froid.md` ; le feu derrière un mur : `17-us-army-fm21-76-feu.md`. « Pas besoin de source » se lit : on garde, sans chercher plus. **Si JP voulait couper les 20 km/h, le lui faire confirmer en lui disant que le chiffre a sa source** |
 
-Le logigramme 13 ne parlait pas du vent en chiffres : pas touché. `controle.py --avant` (f515e01) : 5 799 → 5 718 mots ;
-2 tirets (titre et ligne de tome) ; 0 « § », 0 mot banni, 0 tournure, 0 maxime, 0 pronominal ; 24 mots vides et
-9 redites, celles d'avant ; disparus : « 16 km », « 20 km » (×2), « 24 km », voulus. Aucune ancre touchée. Fins de ligne LF.
+Le logigramme 13 ne parlait pas du vent en chiffres : pas touché.
+
+### Après la vérification technique (19 octobre 2026)
+
+Le vérificateur a signalé que la coupe de la décision 11 faisait perdre des chiffres sourcés. **Appliqué** : l'étape 8
+(« Allumer dehors seulement quand le vent reste sous 20 km/h : à 16 km/h, un drapeau léger est déployé ; à 24 km/h,
+une feuille de papier journal se soulève du sol. Quand le vent est plus fort, ou que la mousse craque sous le pied… »)
+et la ligne « Le vent » de la section 5 sont remises telles qu'au commit `f515e01` ; le chapitre est identique à
+`f515e01`. `controle.py --avant` (texte de la passe) : 5 718 → 5 799 mots ; 2 tirets (titre et ligne de tome) ;
+0 « § », 0 mot banni, 0 tournure, 0 maxime, 0 pronominal ; rien n'a disparu. Aucune ancre touchée. Fins de ligne LF.

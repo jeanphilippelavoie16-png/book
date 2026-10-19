@@ -126,9 +126,13 @@ module.exports = (h) => {
     // le plancher de béton, le drain dans le plancher, le bouchon qui dépasse
     o.push(h.rect(0, yF, z.l, 24, A.hachure('pierre', 'aucun')));
     o.push(h.ligne(0, yF, xD - 17, yF, A.contour), h.ligne(xD + 17, yF, z.l, yF, A.contour));
-    o.push(h.chemin([[xD - 17, yF], [xD - 10, yF + 7], [xD + 10, yF + 7], [xD + 17, yF]], A.arete));
+    // la cuvette du drain est un creux : blanche, pas de béton dedans ; le bouchon peint en blanc sous sa hachure,
+    // pour que les cailloux du béton ne se voient pas à travers le bois
+    const cuvette = [[xD - 17, yF], [xD - 10, yF + 7], [xD + 10, yF + 7], [xD + 17, yF]];
+    o.push(h.chemin(cuvette, A.blanc, true), h.chemin(cuvette, A.arete));
     const yBo = yF - 14 * s;
-    o.push(h.chemin([[xD - 12, yBo], [xD + 12, yBo], [xD + 9, yF + 10], [xD - 9, yF + 10]], A.hachure('bois', 'arete'), true));
+    const bouchon = [[xD - 12, yBo], [xD + 12, yBo], [xD + 9, yF + 10], [xD - 9, yF + 10]];
+    o.push(h.chemin(bouchon, A.blanc, true), h.chemin(bouchon, A.hachure('bois', 'arete'), true));
     // l'étai : le pied sur le bouchon ; penché, le haut contre la solive, décalé ; d'aplomb, droit
     const H = yBo - yJb, L = H + 3;                     // juste trop long : 3 unités, environ 12 mm
     const d = penche ? Math.sqrt(L * L - H * H) : 0;    // le décalage du haut quand il touche la solive

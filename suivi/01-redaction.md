@@ -582,3 +582,13 @@ La section 7, « Ce qu'on perd » (« En plus de n'allumer que le poêle (étape
 dans la maison que le poêle raccordé à sa cheminée (étape 2) ») renvoient à l'étape 2, qui porte l'exception : pas
 touchées. `controle.py --avant` (f515e01) : 5 683 → 5 716 mots ; 2 tirets (titre et ligne de tome) ; 0 « § », 0 mot
 banni, 0 tournure, 0 maxime, 0 pronominal ; 35 mots vides, ceux d'avant ; rien n'a disparu. Fins de ligne LF.
+
+### Après la vérification technique (19 octobre 2026)
+
+Corrections du rédacteur sur les points du vérificateur de la passe « décisions de JP ».
+
+| Point | Où | Ce qui a changé | Source ou raison |
+| --- | --- | --- | --- |
+| Décision 1, renvoi imprécis | Étape 2, troisième tiret | « la lampe à graisse (ch. 3, section 7) » devient « (ch. 3, section 7, « L'éclairage ») » | La section 7 du ch. 3 a neuf sous-sections ; le ch. 3 renvoie lui-même à « L'éclairage » |
+
+Contrôle : `controle.py --avant` (HEAD) : 5 716 → 5 719 mots ; 2 tirets (titre et ligne de tome) ; rien n'a disparu. Fins de ligne LF.

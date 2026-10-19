@@ -486,3 +486,13 @@ l'année qui suit la mise en conserve.** », étape 23). `controle.py` la signal
 37 mots vides jugés ; 4 redites jugées (le même nom pour la même vérification ; « deux enfants de 4 à » aux étapes 5 et
 8, deux faits différents). Invariants : « 5 ans » et « 550 » (l'exemple de l'étape 8, point 7) et « ch. 7 » (le renvoi
 faux de l'étape 2, point 6) disparaissent, comme voulu.
+
+## Décisions de JP, 19 octobre 2026
+
+Rédacteur de la passe « décisions de JP », après la vérification technique (libellé des décisions : `_reprise/scratchpad/tome1-final/decisions-jp.js`). Aucune recherche refaite sur ce qui était déjà vérifié.
+
+| Point | Où | Ce qui a changé | Source ou raison |
+| --- | --- | --- | --- |
+| Décision 5, « pour quatre personnes » | Étape 5 | « Pour quatre personnes, ça fait 16 L par jour » devient « Pour une famille de quatre, ça fait 16 L par jour » | Décision 5 (« une famille de quatre » comme exemple), étendue du ch. 00b aux calculs du tome 1 que le vérificateur a relevés : ils supposaient la famille de JP. Les chiffres ne changent pas |
+
+Contrôle : `controle.py --avant` (HEAD) : 8 140 → 8 142 mots ; 2 tirets (titre et ligne de tome) ; rien n'a disparu. Gardé tel quel, section 4, « Ce qui n'est pas de la nourriture » : « trois semaines à quatre personnes dans un chalet » (pas un calcul). Fins de ligne LF.

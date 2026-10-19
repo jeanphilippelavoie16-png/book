@@ -19,7 +19,9 @@
 // La charte : le cercle rouge sur la flèche imprimée du filtre seul (le sens qui se rate).
 // Renumérotée le 19 octobre 2026 dans l'ordre des gestes de la section 7 : la pièce 1 et 2, le filtre seul 3 et 4,
 // le cube 5 à 11 (vue de dessus comprise). Ancien → nouveau : 10→1, 11→2, 8→3, 9→4, 1→5, 2→6, 3→7, 4→8, 5→9, 6→10,
-// 7→11. Les vues gardent leur place ; la légende se lit dans l'ordre des gestes.
+// 7→11. Les vues suivent les numéros : la pièce et le filtre seul en haut, le cube et sa vue de dessus en bas. La
+// pastille 1 passe à gauche de sa cible, dans le blanc au-dessus de la fenêtre, pour ne plus cacher le coin de la
+// porte ; le renvoi 3 entre dans le cercle rouge et touche la queue de la flèche imprimée.
 module.exports = (h) => {
   const A = h.a;
   const f1 = v => Math.round(v * 10) / 10;
@@ -211,11 +213,11 @@ module.exports = (h) => {
   return {
     ref: '11-04',
     titre: 'La pièce d’air propre',
-    desc: 'En haut à gauche, en perspective : quatre filtres de fournaise montés en cube, les plis à la verticale, l’arête de devant, le pied et le haut fermés au ruban gommé, un fond de carton ; un ventilateur de boîte posé sur le cube, qui déborde un peu ; sur lui, un carton percé d’un rond au diamètre des pales, où l’on voit les pales derrière la grille. Une grosse flèche creuse entre dans chaque face vue ; trois flèches sortent par le haut. En haut à droite, le cube vu de dessus sans le ventilateur : les quatre filtres en moulinet, chacun buté contre le chant du suivant, la flèche imprimée sur chaque chant pointe vers le centre, l’air entre par les quatre côtés. En bas à gauche, un filtre seul, de côté : le filtre contre l’arrière du ventilateur, tenu par quelques bandes de ruban, sa flèche imprimée pointe vers le ventilateur (cercle rouge) ; sur la face qui souffle, le carton. En bas à droite, la pièce en coupe : la fenêtre couverte d’un polythène agrafé sur son cadre, la porte et une couverture roulée au bas, le cube au plancher.',
+    desc: 'En haut à gauche, la pièce en coupe : la fenêtre couverte d’un polythène agrafé sur son cadre, la porte et une couverture roulée au bas, le cube au plancher. En haut à droite, un filtre seul, de côté : le filtre contre l’arrière du ventilateur, tenu par quelques bandes de ruban, sa flèche imprimée pointe vers le ventilateur (cercle rouge) ; sur la face qui souffle, le carton. En bas à gauche, en perspective : quatre filtres de fournaise montés en cube, les plis à la verticale, l’arête de devant, le pied et le haut fermés au ruban gommé, un fond de carton ; un ventilateur de boîte posé sur le cube, qui déborde un peu ; sur lui, un carton percé d’un rond au diamètre des pales, où l’on voit les pales derrière la grille. Une grosse flèche creuse entre dans chaque face vue ; trois flèches sortent par le haut. En bas à droite, le cube vu de dessus sans le ventilateur : les quatre filtres en moulinet, chacun buté contre le chant du suivant, la flèche imprimée sur chaque chant pointe vers le centre, l’air entre par les quatre côtés.',
     format: 'pleine',
-    disposition: [['cube', 'plan'], ['seul', 'piece']],
-    hauteurs: [1.3, 1],
-    largeurs: [[1.12, 1], [1.05, 1]],
+    disposition: [['piece', 'seul'], ['cube', 'plan']],
+    hauteurs: [1, 1.3],
+    largeurs: [[1, 1.05], [1.12, 1]],
     vues: {
       cube: {
         titre: 'Le cube de quatre filtres',
@@ -248,7 +250,7 @@ module.exports = (h) => {
         renvois: z => {
           const g = seul(z);
           return [
-            { n: 3, rond: [14, g.V(0, g.pied + g.H + 2)[1]], cible: g.V(-g.ep + 0.3, g.pied + g.H - 12), texte: 'filtre au ruban, flèche vers le ventilateur' },
+            { n: 3, rond: [14, g.V(0, g.yF + 8)[1]], cible: g.V(-3.9, g.yF + 0.2), texte: 'filtre au ruban, flèche vers le ventilateur' },
             { n: 4, rond: [g.V(g.prof + 7, 0)[0], g.V(0, g.pied + g.H + 3)[1]], cible: g.V(g.prof + EPC + 0.4, g.pied + g.H - 6), texte: 'carton sur la face qui souffle' },
           ];
         },
@@ -259,7 +261,7 @@ module.exports = (h) => {
         renvois: z => {
           const g = piece(z);
           return [
-            { n: 1, rond: [g.poly[0] + 12, 22], cible: [g.poly[0], g.poly[1] - 22], texte: 'polythène agrafé sur le cadre' },
+            { n: 1, rond: [g.poly[0] - 12, 22], cible: [g.poly[0], g.poly[1] - 22], texte: 'polythène agrafé sur le cadre' },
             { n: 2, rond: [g.porte[0] + 30, g.couv[1] - 40], cible: g.couv, texte: 'couverture roulée au bas de la porte' },
           ];
         },

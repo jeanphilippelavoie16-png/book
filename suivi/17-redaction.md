@@ -639,3 +639,13 @@ cette passe : commit `f515e01`.
 0 tournure, 0 maxime, 0 pronominal ; 1 mise en relief et 18 mots vides, ceux d'avant ; 6 redites : la nouvelle (« un adulte
 seul avec les enfants », étapes 3 et 7) est le même mot pour la même chose ; rien n'a disparu. Ancre 17-06 intacte. Fins de
 ligne CRLF gardées.
+
+### Après la vérification technique (19 octobre 2026)
+
+Corrections du rédacteur sur les points du vérificateur de la passe « décisions de JP ».
+
+| Point | Où | Ce qui a changé | Source ou raison |
+| --- | --- | --- | --- |
+| Décision 8, ordre des gestes | Étape 7, tiret de l'adulte seul | « …de se coucher dessus, puis d'entrer dans le sac et de le fermer » devient « …de poser le sac de couchage dessus, puis d'entrer dans le sac et de le fermer » : la personne qui a des signes du froid ne se relève pas | Étape 7 (« sans la faire marcher ») ; la boîte « entre » du logigramme 17 (« une couverture pour se coucher dessus ») reste juste |
+
+Contrôle : `controle.py --avant` (HEAD) : 5 886 → 5 889 mots ; 2 tirets (titre et ligne de tome) ; rien n'a disparu. Fins de ligne CRLF gardées.

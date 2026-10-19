@@ -184,7 +184,7 @@ sont au ch. 4, étapes 13 à 16.
 | 0 à 10 min | Lancer l'alerte avant de finir les soins. Si la vie est en jeu (ch. 14, étape 1), déclencher le SOS de l'appareil satellite ou la balise ; sinon, avertir par message satellite, par la radio ou par un voisin (ch. 14). Donner la position du chalet : ses coordonnées, le nom du lac, le kilomètre du chemin | |
 | 0 à 10 min | Écrire l'heure de la blessure, de l'alerte et de chaque médicament donné sur la peau du blessé, au front ou sur l'avant-bras | Au feutre, au crayon ou au charbon |
 | 10 à 30 min | Garder le blessé au chaud : il perd sa chaleur beaucoup plus vite qu'une personne en santé. L'isoler du sol, le couvrir et l'abriter du vent | En hypothermie modérée ou grave[^1], la vie est en jeu : le bouger le moins possible (ch. 25) |
-| 10 à 30 min | Si une réponse confirme que des secours viennent, préparer l'accès : déneiger, ouvrir la barrière, éclairer le chemin et poster quelqu'un pour guider les gens qui viennent. Sinon, sortir le blessé soi-même, l'appareil satellite allumé sur soi et le SOS en marche (ch. 16, étape 5) ; si on ne peut pas arriver avant la nuit, l'abriter sur place (ch. 16, étape 14) | |
+| 10 à 30 min | Si une réponse confirme que des secours viennent, préparer l'accès : déneiger, ouvrir la barrière, éclairer le chemin et poster quelqu'un pour guider les gens qui viennent. Sinon, sortir le blessé soi-même, l'appareil satellite allumé sur soi, et le SOS en marche s'il a été déclenché (ch. 16, étape 5) ; si on ne peut pas arriver avant la nuit, ou avec le monde qu'on a, l'abriter sur place (ch. 16, étape 14) | |
 | Tout le temps | Garder un adulte avec les enfants, à l'écart, et leur donner une tâche précise (ch. 40) | |
 
 {!froid} Ne donner d'alcool ni au blessé ni à la personne qui le soigne : l'alcool fait baisser la température du
@@ -349,7 +349,7 @@ sinistre dure (ch. 3, étapes 21 à 24).
  sous la neige garde de l'eau dans ses fissures et peut éclater sur le poêle. Desserrer le bouchon des bouteilles et
  des bidons avant de les poser près du poêle.
 
-### La lampe à gras
+### La lampe à graisse
 
 On la monte en trois minutes, et elle éclaire comme une chandelle tant qu'il reste du gras (ch. 112).
 
@@ -384,10 +384,11 @@ seule lampe.
 
 ### Le CO sans avertisseur
 
-{!co} N'allumer à l'intérieur que le poêle raccordé à sa cheminée. Quand le poêle chauffe fort, entrouvrir une fenêtre
-du côté sous le vent dans la pièce où on dort. Ne jamais laisser une personne dormir seule dans une pièce fermée où
-brûle un appareil : la personne intoxiquée ne se réveille pas, et sans avertisseur, la seule alarme est quelqu'un
-d'autre dans la même pièce.
+{!co} N'allumer à l'intérieur que le poêle raccordé à sa cheminée. Seule exception : la lampe à graisse (« La lampe à
+graisse », plus haut), qu'on allume seulement dans la pièce du poêle et qu'on éteint avant de dormir. Quand le poêle
+chauffe fort, entrouvrir une fenêtre du côté sous le vent dans la pièce où on dort. Ne jamais laisser une personne
+dormir seule dans une pièce fermée où brûle un appareil : la personne intoxiquée ne se réveille pas, et sans
+avertisseur, la seule alarme est quelqu'un d'autre dans la même pièce.
 
 **Ce qu'on perd :** l'alarme qui réveille.
 

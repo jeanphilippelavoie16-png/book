@@ -335,7 +335,7 @@ module.exports = (h) => {
           h.fleche('M58,140 Q50,132 44,137', h.a.detail),
         ].join('\n')),
         renvois: z => [
-          renvoi(z, 9, [14, 118], [36, 148], 'bouchon du coude dévissé, chaudière dessous'),
+          renvoi(z, 9, [18, 172], [44, 149], 'bouchon du coude dévissé, chaudière dessous'),
         ],
       },
 

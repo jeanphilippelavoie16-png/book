@@ -1,5 +1,5 @@
 {
-  "_note": "Logigramme du chapitre 16 (le voisinage et le groupe de chasse) : sortir un blessé du bois. Double page, 15 octobre 2026, sur la série orange du chapitre réécrit. Réécrit le 15 octobre en phrases complètes, comme on le dirait à voix haute (JP : « personne parle comme ça »). Refait le 19 octobre 2026 sur le chapitre refait au gabarit final : renvois aux nouvelles étapes (série orange 1 à 5, la sortie 6 à 14), pastille 10 min identique à la série orange « Quelqu'un est blessé dans le bois », l'été ajouté (VTT, canot, travois), la page de droite en boîtes « geste » (la sortie n'est plus en orange dans le chapitre) ; colonnes de droite gardées telles quelles. Rendu : env -u TMPDIR python3 design/outils/logigramme.py images/logigrammes/16-sortir-un-blesse.json ; version du livre : --sans-entete --svg. « source » : les étapes du chapitre d'où vient chaque geste (ignoré au rendu). Corrigé le 19 octobre 2026 après la vérification technique : le SOS ou la balise dans l'alerte (on reste sur place s'il est parti, comme au ch. 14), le sac ouvert en canot, le 4 à 6 fois réservé au traîneau, « sans avoir été réchauffé » dans la relève, les sources au ch. 14 refait. Décisions de JP du 19 octobre 2026 : le SOS sans réponse (décision 7) : on déclenche le SOS dès que la vie est en jeu (ch. 14, étape 1), on reste sur place seulement si une réponse dit que des secours viennent, sinon on sort le blessé avec l'appareil allumé sur soi (la nuit qui tombe reste à q4 et q5, étape 14) ; la boîte « marche » sans participe (« pour le soutenir », étape 5). La boîte de l'alerte prend une ligne de plus : rangs g4 à g7 et paliers descendus d'autant. Le travois de l'été revient (décision 11 de JP : on garde le geste, sans [À VÉRIFIER]) : q4 le nomme avec le canot.",
+  "_note": "Logigramme du chapitre 16 (le voisinage et le groupe de chasse) : sortir un blessé du bois. Double page, 15 octobre 2026, sur la série orange du chapitre réécrit. Réécrit le 15 octobre en phrases complètes, comme on le dirait à voix haute (JP : « personne parle comme ça »). Refait le 19 octobre 2026 sur le chapitre refait au gabarit final : renvois aux nouvelles étapes (série orange 1 à 5, la sortie 6 à 14), pastille 10 min identique à la série orange « Quelqu'un est blessé dans le bois », l'été ajouté (VTT, canot, travois), la page de droite en boîtes « geste » (la sortie n'est plus en orange dans le chapitre) ; colonnes de droite gardées telles quelles. Rendu : env -u TMPDIR python3 design/outils/logigramme.py images/logigrammes/16-sortir-un-blesse.json ; version du livre : --sans-entete --svg. « source » : les étapes du chapitre d'où vient chaque geste (ignoré au rendu). Corrigé le 19 octobre 2026 après la vérification technique : le SOS ou la balise dans l'alerte (on reste sur place s'il est parti, comme au ch. 14), le sac ouvert en canot, le 4 à 6 fois réservé au traîneau, « sans avoir été réchauffé » dans la relève, les sources au ch. 14 refait. Décisions de JP du 19 octobre 2026 : le SOS sans réponse (décision 7) : on déclenche le SOS dès que la vie est en jeu (ch. 14, étape 1), on reste sur place seulement si une réponse dit que des secours viennent, sinon on sort le blessé avec l'appareil allumé sur soi (la nuit qui tombe reste à q4 et q5, étape 14) ; la boîte « marche » sans participe (« pour le soutenir », étape 5). La boîte de l'alerte prend une ligne de plus : rangs g4 à g7 et paliers descendus d'autant. Le travois de l'été revient (décision 11 de JP : on garde le geste, sans [À VÉRIFIER]) : q4 le nomme avec le canot. Corrigé le 19 octobre 2026 après la vérification des décisions : l'alerte nomme aussi la nuit comme raison de rester sur place (ch. 16, étape 5 ; ch. 14, étape 3), et la boîte « chemin » nomme le travois avec le canot (étape 11). L'alerte prend encore une ligne : rangs g4 à g7, paliers de q1 et q3, sy et ey de q4 vers abriter et le bas des deux via descendus de 0,16 po.",
   "format": "double",
   "tome": 1,
   "urgent": true,
@@ -58,10 +58,10 @@
     "g1": 1.11,
     "g2": 1.6,
     "g3": 2.45,
-    "g4": 3.62,
-    "g5": 4.9,
-    "g6": 6.07,
-    "g7": 7.29,
+    "g4": 3.78,
+    "g5": 5.06,
+    "g6": 6.23,
+    "g7": 7.45,
     "d1": 0.85,
     "d2": 2.12,
     "d3": 3.22,
@@ -99,7 +99,7 @@
       "col": "plein",
       "rang": "g3",
       "ancre": "haut",
-      "texte": "**Donner l'alerte tôt.** Si sa vie est en jeu et qu'on a un appareil satellite ou une balise, déclencher le SOS. Rester sur place seulement si une réponse dit que des secours viennent ; sinon, le sortir avec l'appareil allumé sur soi. Sans SOS, dire où on est, qui est blessé, ce qu'il a, ce qu'on fait et l'heure du prochain message. Sans radio, envoyer deux personnes porter le message écrit.",
+      "texte": "**Donner l'alerte tôt.** Si sa vie est en jeu et qu'on a un appareil satellite ou une balise, déclencher le SOS. Rester sur place seulement si une réponse dit que des secours viennent, ou si on ne peut pas arriver avant la nuit ; sinon, le sortir avec l'appareil allumé sur soi. Sans SOS, dire où on est, qui est blessé, ce qu'il a, ce qu'on fait et l'heure du prochain message. Sans radio, envoyer deux personnes porter le message écrit.",
       "renvoi": "ch. 16, étapes 3 et 5 ; ch. 14",
       "source": "étapes 3 et 5 ; ch. 14, étapes 1, 2, 3, 5 et 6 ; ch. 35, section 9"
     },
@@ -224,7 +224,7 @@
       "col": "tronc2",
       "rang": "d4",
       "ancre": "haut",
-      "texte": "**Prendre un sentier tapé, hors de la glace**, ou l'été le canot. Partir de jour, en laissant un adulte avec les enfants et une note sur la porte.",
+      "texte": "**Prendre un sentier tapé, hors de la glace**, ou l'été le canot ou le travois. Partir de jour, en laissant un adulte avec les enfants et une note sur la porte.",
       "renvoi": "ch. 16, étapes 9 à 11",
       "source": "étapes 9 à 11"
     },
@@ -306,14 +306,14 @@
       "de": "q1",
       "vers": "couche",
       "etiquette": "Oui",
-      "coude": 4.6,
+      "coude": 4.76,
       "pos": "palier"
     },
     {
       "de": "q1",
       "vers": "q2",
       "etiquette": "Non",
-      "coude": 4.6,
+      "coude": 4.76,
       "pos": "palier"
     },
     {
@@ -338,14 +338,14 @@
       "de": "q3",
       "vers": "machine",
       "etiquette": "Oui",
-      "coude": 6.81,
+      "coude": 6.97,
       "pos": "palier"
     },
     {
       "de": "q3",
       "vers": "q4",
       "etiquette": "Non",
-      "coude": 6.81,
+      "coude": 6.97,
       "pos": "palier"
     },
     {
@@ -354,8 +354,8 @@
       "etiquette": "Non",
       "sortie": "droite",
       "entree": "gauche",
-      "sy": 7.67,
-      "ey": 7.67
+      "sy": 7.83,
+      "ey": 7.83
     },
     {
       "de": "machine",
@@ -365,11 +365,11 @@
       "via": [
         [
           1.55,
-          9.05
+          9.21
         ],
         [
           8.7,
-          9.05
+          9.21
         ],
         [
           8.7,
@@ -387,11 +387,11 @@
       "via": [
         [
           3.725,
-          9.05
+          9.21
         ],
         [
           8.7,
-          9.05
+          9.21
         ],
         [
           8.7,

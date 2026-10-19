@@ -122,7 +122,7 @@ une cartouche ce qui précède : les bêtes du tableau, le réglage (étape 2), 
 | --- | --- | --- | --- |
 | .22 | Tout ce qui s'assoit : lièvre, porc-épic, gélinotte et tétras perchés, lagopède, écureuil, rat musqué ; la bête vivante au piège | Le zéro à 25 m, trois au froid (étapes 33 et 34), et toute la pratique | Une cartouche par bête assise. C'est celle qu'on tire le plus et la plus fragile (§8, bloc 3) : ce qui manque ici passe aux engins et à l'arc (§9) |
 | 12 | La gélinotte levée, le lagopède en bande, la sauvagine ; à courte distance, l'orignal à balle unique | — | Plusieurs cartouches par oiseau en vol, de l'ordre de cinq par canard. Plomb et acier jamais dans la même veste (ch. 54, étape 0) |
-| Chaque calibre de carabine | Orignal, ours, phoque | 12 par carabine | Une cartouche d'un autre calibre peut entrer dans la chambre sans pouvoir y partir (étape 39). Si la boîte est un vieux surplus militaire, l'amorce peut être corrosive (étape 24) |
+| Chaque calibre de carabine | Orignal, ours, phoque | 12 par carabine | Une cartouche d'un autre calibre peut entrer dans la chambre, et l'arme cède si on la tire (étape 39). Si la boîte est un vieux surplus militaire, l'amorce peut être corrosive (étape 24) |
 
 Le réglage coûte **12 cartouches par carabine** avant qu'un seul orignal soit vu. Quand deux
 carabines tirent le même calibre, une boîte sert deux armes et deux tireurs, et si une carabine
@@ -287,10 +287,10 @@ seule de son calibre reçoit son réglage et les coups des bêtes qu'on lui conf
 39. **Un seul calibre par poche, par veste, par caisse, au fusil comme à la carabine.** Même
     discipline que celle du plomb et de l'acier au ch. 54 (étape 0), pour d'autres raisons. Au
     fusil, c'est le canon bouché (§8, bloc 1). À la carabine, une cartouche d'un autre calibre peut
-    entrer dans la chambre : sa balle, plus grosse que l'âme, s'y force, la pression monte au-delà
-    de ce que l'arme tient, et l'arme cède à hauteur du visage. Qu'une cartouche entre ne veut pas
-    dire qu'elle peut partir. Lire le calibre gravé sur le canon de chaque carabine, et ne mettre
-    dans sa poche ou sa caisse que des boîtes qui portent ce calibre. Au toucher, à la mitaine, dans
+    entrer dans la chambre : si on la tire, la pression du gaz monte, ou le gaz s'échappe, au-delà
+    de ce que l'arme tient, et l'arme cède à hauteur du visage. Lire le calibre gravé sur le canon
+    de chaque carabine, et ne mettre dans sa poche ou sa caisse que des boîtes qui portent ce
+    calibre. Au toucher, à la mitaine, dans
     le noir : une cartouche à bourrelet a un rebord qui déborde au culot, une cartouche à ceinture
     un anneau juste au-dessus du culot, et les autres ni l'un ni l'autre.
 
