@@ -359,7 +359,7 @@ jamais la désinfection.
 | Diarrhée qui commence de 3 à 25 jours après avoir bu, le plus souvent de 7 à 10 jours | Giardiase (*Giardia*) | Soigner et réhydrater (ch. 26). Chercher le castor ou le rat musqué en amont (ch. 50). Passer à l'ébullition |
 | Diarrhée alors que l'eau a été chlorée comme il faut | *Cryptosporidium* | Faire bouillir, ou passer au filtre à 1 µm |
 | Eau claire au robinet qui brunit après quelques minutes à l'air | Fer ou manganèse dissous, qui s'oxyde | Faire faire une analyse chimique ; comparer à 0,12 mg/L pour le manganèse |
-| Taches noires sur la lessive et la porcelaine | Manganèse au-dessus de 0,02 mg/L | Faire analyser l'eau, et comparer le résultat aux cibles de la section 5 pour la santé (0,06 et 0,12 mg/L) |
+| Taches noires sur la lessive et la porcelaine | Manganèse au-dessus de 0,02 mg/L | Faire analyser l'eau, et comparer le résultat aux cibles de santé de la section 5 (0,06 et 0,12 mg/L) |
 | Goût salé | Eau salée entrée dans le puits, ou sel de déglaçage | Alambic, osmose inverse ou une autre source |
 | Filtre à 1 µm bouché en quelques jours | Eau trop trouble avant le filtre | Laisser reposer l'eau plus longtemps et la passer au coton. Récurer la bougie de céramique (le cylindre qui filtre) ; rincer la cartouche plissée à l'envers (section 7) |
 | Filtre de céramique qui coule beaucoup plus vite qu'avant, sans qu'on l'ait nettoyé | Fêlure, souvent invisible : l'eau passe par la fente sans être filtrée | Changer la bougie, et aussi quand on y voit une fêlure |

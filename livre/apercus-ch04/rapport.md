@@ -1,7 +1,7 @@
 # Tome 1 · Tenir — rapport d'assemblage
 
-- **Produit le :** 2026-10-19 00:50, par `design/outils/assembler-tome.py 1 --chapitres 04 --hors-ligne --sortie livre/apercus-ch04`
-- **Fichier :** `livre/tome-1/interieur.pdf` — 42 pages, 18.6 Mo
+- **Produit le :** 2026-10-19 00:55, par `design/outils/assembler-tome.py 1 --chapitres 04 --hors-ligne --sortie livre/apercus-ch04`
+- **Fichier :** `livre/tome-1/interieur.pdf` — 42 pages, 18.7 Mo
 - **Ouvertures :** au recto ou au verso (--verso)
 - **Placements :** design/epreuves-livre/placements.json, design/epreuves-livre/placements-tome-1.json
 - **Exigences de Blurb :** `sources/blurb-specifications.md` (relevées le 27 septembre 2026)
@@ -39,7 +39,7 @@ Marqueur `{.orange}` sur l'intertitre ### de la série, dans le Markdown (CLAUDE
 | Nombre de pages | pair, de 20 à 440 (papier Standard) | 42 | oui |
 | Page 1 | à droite | page de titre | oui |
 | Polices incorporées | toutes | 24 police(s), 0 non incorporée(s) | oui |
-| Taille du fichier | 2 Go au plus | 18.6 Mo | oui |
+| Taille du fichier | 2 Go au plus | 18.7 Mo | oui |
 | Marques d'imprimeur | aucune | aucune | oui |
 | Couleur | CMJN ou sRVB, sans ton direct | sRVB (Edge) | oui |
 | Noir du texte | 100 % K | noir sRVB (0, 0, 0) : la conversion est faite chez Blurb | à juger sur épreuve |
@@ -63,7 +63,7 @@ Les planches de `images/a-valider/` sont posées comme les validées (JP les rel
 
 | Ch. | Posées (page du tome) | Mentionnées dans le texte sans planche dessinée | À valider, non posées | Photos demandées encore à acquérir (credits.md) |
 | --- | --- | --- | --- | ---: |
-| 04 | 04-01a (32, pleine), 04-41 (35, pleine), 04-01b (36, pleine), 04-42 (39, pleine), 04-40 (41, pleine), 04-retombees-livre (20, double page), 04-lichen-caribous-tapis.jpg (28) | — | — | 6 (ancien 06) |
+| 04 | 04-01a (32, pleine), 04-41 (34, pleine), 04-01b (36, pleine), 04-42 (39, pleine), 04-40 (41, pleine), 04-retombees-livre (20, double page), 04-lichen-caribous-tapis.jpg (28) | — | — | 6 (ancien 06) |
 
 ## Crédits des images — hors du livre
 
@@ -75,7 +75,7 @@ Rien ne s'imprime (JP, 28 septembre 2026). Copie de sauvegarde : `livre/apercus-
 
 ## Avertissements
 
-- aucun
+- ch. 04, paginateur : p04-22 : page à moitié vide
 
 ## À savoir avant de téléverser
 

@@ -137,8 +137,10 @@ Fichier : `sources/13-quebec-manganese.md`, source 2.
 > 20 – 800 µg/L) et certains effets délétères subcliniques (effets sur le QI, comportement, performance scolaire,
 > mémoire à court terme, dextérité motrice, souplesse cognitive, etc.) chez des enfants »
 
-20 à 800 µg/L = 0,02 à 0,8 mg/L. « Subcliniques » est rendu par « que seuls des tests montrent » ; « exposition
-chronique » par « bue longtemps » ; la note garde « associé » (une association, pas une cause démontrée).
+20 à 800 µg/L = 0,02 à 0,8 mg/L. « Concentrations moyennes » est rendu par « en moyenne » (ajouté le 19 octobre 2026
+après la vérification technique : ce sont les moyennes de chaque étude, pas une valeur à partir de laquelle l'eau
+devient dangereuse). « Subcliniques » est rendu par « que seuls des tests montrent » ; « exposition chronique » par
+« bue longtemps » ; la note garde « associé » (une association, pas une cause démontrée).
 
 ---
 
@@ -162,6 +164,11 @@ Fichiers : `sources/49-hww-rat-musque-et-marmotte-biologie.md` (huttes de **0,5 
 
 > « L'épaisse couche glacée qui se forme en hiver confine le rat musqué à sa hutte (ou terrier) et à l'environnement
 > aquatique situé sous la glace. »
+
+**Ce que la note en tire** (corrigé le 19 octobre 2026 après la vérification technique). Le petit tas de boue et
+de plantes posé sur la glace d'une baie (la « cloche ») couvre un trou que le rat musqué a rongé dans la glace : la
+glace est ouverte dessous. Le rat musqué n'y vit pas : il y vient se reposer ou manger quand il sort sous la glace, et
+il vit dans sa hutte ou son terrier (l. 87 et 99).
 
 Le rat musqué porte *Giardia* : déjà dit à l'étape 2 (INSPQ, `13-inspq-giardia-lamblia.md`), pas redit dans la note.
 

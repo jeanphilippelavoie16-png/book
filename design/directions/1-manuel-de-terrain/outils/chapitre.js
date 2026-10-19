@@ -144,6 +144,13 @@ function placerNotes(){
     pos.set(p, s.length ? s : [vu]); if(s.length) vu = Math.max(vu, ...s);
   });
   const idx = c => PAGES.indexOf(c.p);
+  // un trou ne reçoit une note que près de son étape : sur la page de l'étape, ou à deux pages au plus ; plus loin, la
+  // note passe dans le fil du texte, après son étape (JP : « près de l'étape qu'elles nomment »)
+  NOTE_PLACES.forEach(c => { c.tient = c.tient.filter(x => {
+    const e = renvois(x); if(!e.length) return true;
+    const pe = PAGES.map((p, i) => [...p.bl.querySelectorAll('.sn')].some(s => e.includes(+s.textContent)) ? i : -1).filter(i => i >= 0);
+    return !pe.length || Math.min(...pe.map(i => Math.abs(i - idx(c)))) <= 2;
+  }); });
   const choix = [];                      // [note, page]
   // les notes du fil comptent dans l'écart : les notes posées dans les trous se tiennent loin d'elles aussi
   const fil = PAGES.map((p, i) => aUneNote(p) ? i : -1).filter(i => i >= 0);
@@ -285,7 +292,26 @@ function pour(f, q, p){
     if(b.dataset && b.dataset.orpl){ pendingOr.push(b); continue; }
     // une note du fil sur une page qui en porte déjà une : elle attend la page suivante
     if(b.classList && b.classList.contains('extra') && (horsNotes || aUneNote(p))){ attenteNotes.push(b); continue; }
-    if(b.dataset && b.dataset.plate === 'full'){ pendingPlates.push(b); continue; }
+    if(b.dataset && b.dataset.plate === 'full'){
+      // deux planches pleine page appelées sur la même page : la seconde tomberait deux pages après son appel. Le
+      // paragraphe qui l'appelle, et ce qui le suit, passent après la première planche, si ça ne vide pas plus de la
+      // moitié d'une colonne (sinon on le signale)
+      const avant = pendingPlates.length + pendingOr.filter(x => x.dataset.plate === 'full').length;
+      const ap = avant && !b.dataset.repousse ? f.querySelector('.appel[data-pl="' + b.dataset.id + '"]') : null;
+      if(ap){
+        b.dataset.repousse = '1';
+        let blk = ap; while(blk.parentElement && blk.parentElement !== f) blk = blk.parentElement;
+        const suite = []; for(let e = blk; e; e = e.nextElementSibling) suite.push(e);
+        const h = suite.reduce((s, e) => s + Array.from(e.getClientRects()).reduce((t, r) => t + r.height, 0), 0);
+        if(blk !== f.firstElementChild && h <= 0.5 * colH(f)){
+          suite.forEach(e => f.removeChild(e)); syncNotes(f);
+          q.unshift(...suite, b);
+          break;
+        }
+        WARN.push(p.el.id + ' : planches ' + pendingPlates.concat(pendingOr).map(x => x.dataset.id).concat(b.dataset.id).join(' et ') + ' appelées sur la même page');
+      }
+      pendingPlates.push(b); continue;
+    }
     // le logigramme vient tout de suite après le Matériel, et la procédure TOUJOURS après lui (JP, 18 octobre 2026 : « c'est
     // lui qu'on veut en premier » ; puis « la procédure va toujours APRÈS le diagramme ») : la page se ferme à l'ancre ;
     // nextPage() pose la double page sur la première page de gauche. L'assembleur choisit le côté d'ouverture du
@@ -293,6 +319,7 @@ function pour(f, q, p){
     if(b.dataset && b.dataset.plate === 'spread'){ pendingSpreads.push(b); if(f.children.length) break; continue; }
     if(pendingSpreads.length){ q.unshift(b); break; }   // le texte attend que la double page soit posée
     f.appendChild(b); syncNotes(f);
+    if(b.tagName === 'TABLE' && !b.dataset.cols){ colonnes(b); syncNotes(f); }
     // une figure qui saute en haut de la colonne suivante laisse un trou blanc dans la colonne d'avant (JP, 16 octobre
     // 2026 : « gros trou blanc vide ») : le paragraphe suivant passe d'abord et remplit la colonne, la figure le suit
     if(!OVER(f) && b.classList && b.classList.contains('fig') && !b.classList.contains('demi') && (+b.dataset.recule || 0) < 3 && q.length){
@@ -306,6 +333,10 @@ function pour(f, q, p){
       }
     }
     if(!OVER(f)) continue;
+    // un long tableau qui déborde de peu : ses rangées se resserrent, et il tient sur la page
+    if(b.tagName === 'TABLE' && !b.classList.contains('serre') && b.tBodies[0] && b.tBodies[0].rows.length >= 6){
+      b.classList.add('serre'); syncNotes(f); if(!OVER(f)) continue; b.classList.remove('serre'); syncNotes(f);
+    }
     f.removeChild(b); syncNotes(f);
     if(b.classList.contains('fig')){ p.deferred.push(b); continue; }   // la figure attend, le texte continue
     if(b.classList.contains('extra')){ attenteNotes.unshift(b); continue; }   // la note aussi : page suivante
@@ -417,11 +448,44 @@ function orienteAppels(){   // après la mise en pages : la flèche pointe vers 
     a.title = 'Planche ' + a.dataset.pl + ', page ' + C.num + '-' + PAGES[j].n;
   });
 }
-function splitTableBal(tb, f){   // jamais une rangée seule en haut de la page suivante
-  const parts = splitTable(tb, f); if(!parts) return null;
+function splitTableBal(tb, f){   // jamais une ni deux rangées seules en haut de la page suivante
+  // un long tableau coupé se resserre des deux côtés de la coupure : plus de rangées sur la première page
+  const long = tb.tBodies[0] && tb.tBodies[0].rows.length >= 6;
+  if(long) tb.classList.add('serre');
+  const parts = splitTable(tb, f); if(!parts){ if(long) tb.classList.remove('serre'); return null; }
   const A = parts[0].tBodies[0], B = parts[1].tBodies[0];
-  if(B.rows.length === 1 && A.rows.length >= 4) B.insertBefore(A.rows[A.rows.length - 1], B.firstChild);
+  // deux rangées ou moins après la coupure : un petit tableau passe entier à la page suivante ; un grand en laisse
+  // trois au moins à la suite (JP, 18 octobre 2026 : « il y a juste une ligne, c'est pas beau »)
+  if(B.rows.length <= 2){
+    if(A.rows.length + B.rows.length <= 6){ if(long) tb.classList.remove('serre'); return null; }
+    while(B.rows.length < 3 && A.rows.length > 3) B.insertBefore(A.rows[A.rows.length - 1], B.firstChild);
+  }
   return parts;
+}
+// la largeur des colonnes d'un tableau : celle qui le rend le moins haut (les cases du texte long s'élargissent, les
+// rangées se resserrent). On part des largeurs du constructeur et on déplace la largeur d'une colonne à l'autre tant
+// que le tableau baisse.
+const LARGEURS = new Map();   // d'une mise en pages à l'autre (les notes du fil la font recommencer) : le même calcul
+function colonnes(tb){
+  tb.dataset.cols = '1';
+  const cols = [...tb.querySelectorAll(':scope > colgroup > col')];
+  if(cols.length < 2 || !tb.tBodies[0] || tb.tBodies[0].rows.length < 3) return;
+  let w = cols.map(c => parseFloat(c.style.width) || 100 / cols.length);
+  const pose = v => cols.forEach((c, i) => { c.style.width = v[i].toFixed(1) + '%'; });
+  const cle = tb.dataset.k && (tb.dataset.k + '|' + Math.round(tb.getBoundingClientRect().width));
+  if(cle && LARGEURS.has(cle)){ pose(LARGEURS.get(cle)); return; }
+  const haut = () => tb.getBoundingClientRect().height;
+  let best = haut(), pas = 4;
+  for(let it = 0; it < 60 && pas >= 1; it++){
+    let mieux = null;
+    for(let i = 0; i < w.length; i++) for(let j = 0; j < w.length; j++){
+      if(i === j || w[i] - pas < 12) continue;
+      const v = w.slice(); v[i] -= pas; v[j] += pas; pose(v);
+      const h = haut(); if(h < best - 0.5){ best = h; mieux = v; }
+    }
+    if(mieux) w = mieux; else pas /= 2;
+  }
+  pose(w); if(cle) LARGEURS.set(cle, w);
 }
 function finish(R, kind){
   // une fin d'histoire de quelques lignes ne se partage pas entre deux colonnes : elle reste dans la première

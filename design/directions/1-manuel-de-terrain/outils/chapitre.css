@@ -130,3 +130,6 @@ p.pc .pmarge svg.picto{display:block;width:26pt;height:26pt;margin:0}
 .extra .xfig{margin:3pt 0 4pt}
 .extra .xfig img{display:block;width:100%;height:auto;max-height:1.8in;object-fit:cover;border-radius:2pt}
 .extra .xfig figcaption{font:italic 400 7pt/9pt "IBM Plex Sans Condensed",sans-serif;color:#4F7347;margin-top:2pt}
+/* un long tableau qui tient sur la page en resserrant ses rangées (chapitre.js, pour) : moins d'air au-dessus et
+   au-dessous du texte de chaque case, le même corps de texte */
+table.serre td{padding-top:1.7pt;padding-bottom:1.9pt}

@@ -902,7 +902,7 @@ aucun n'est écarté.
   comme si une eau à 0,02 mg/L était liée aux effets chez l'enfant. 76 mots.
 - **Section 6, ligne « Taches noires sur la lessive et la porcelaine ».** L'action « Faire analyser l'eau ; à ce
   niveau, le manganèse tache, sans danger pour la santé » devient « Faire analyser l'eau, et comparer le résultat aux
-  cibles de la section 5 pour la santé (0,06 et 0,12 mg/L) ». « Sans danger pour la santé » à 0,02 mg/L n'a pas de
+  cibles de santé de la section 5 (0,06 et 0,12 mg/L) ». « Sans danger pour la santé » à 0,02 mg/L n'a pas de
   source : le tableau « Trois seuils » de `sources/13-quebec-manganese.md` donne 0,02 mg/L comme objectif esthétique
   (les taches), et les valeurs de santé à 0,06 mg/L (le bébé au biberon) et 0,12 mg/L. Écart de forme avec la
   correction proposée (« Faire analyser l'eau ; à ce niveau, le manganèse tache ; pour la santé, comparer aux cibles
@@ -933,7 +933,10 @@ réduite), comme la CC BY 3.0 le demande. Tailles relues sur les fichiers : 2 24
 
 ### controle.py
 
-9 295 mots (9 289 avant ces corrections) ; 2 tirets (titre et ligne de tome, comme avant) ; 0 « § » ; 0 mot banni.
+9 294 mots (9 289 avant ces corrections) ; 2 tirets (titre et ligne de tome, comme avant) ; 0 « § » ; 0 mot banni.
 Aucun avis nouveau dans les trois lignes touchées ; les avis restants sont ceux déjà jugés aux passes d'avant.
 Invariants contre la version d'avant ces corrections : rien n'a disparu. Aucune étape renumérotée, aucune ancre
 touchée.
+
+`sources/10-en-plus-notes-2026-10-19.md` suit : note 4, « concentrations moyennes » rendu par « en moyenne » ; note 5,
+« Ce que la note en tire » (le petit tas couvre un trou, le rat musqué vit dans sa hutte ou son terrier).

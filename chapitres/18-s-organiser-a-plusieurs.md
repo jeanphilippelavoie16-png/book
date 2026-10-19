@@ -81,17 +81,17 @@ est trop tard pour dire non.
  là où il reste de la place : les laisser dehors jusqu'à ce qu'on ait décidé de leur place.
  - Garder dehors le barbecue, le réchaud de camping, la chaufferette au gaz et tous les moteurs, même pour une heure,
  même la porte ouverte. Ne pas allumer la cuisinière au gaz pour chauffer.
- - Choisir la place de chaque génératrice, dehors, à 6 m ou plus du chalet, l'échappement tourné à l'opposé des
- portes et des fenêtres, et l'écrire au mur (étape 12) : quand deux familles arrivent avec deux génératrices, la
- deuxième finit sous l'appentis parce que la bonne place est prise. Jamais dans un bâtiment, un garage ou un cabanon,
- ni sous l'appentis, sous un auvent ou dans un abri de toile.
+ - Choisir la place de chaque génératrice, dehors, à 6 m ou plus de tout bâtiment, l'échappement tourné à
+ l'opposé des portes et des fenêtres, et l'écrire au mur (étape 12) : quand deux familles arrivent avec deux
+ génératrices, la deuxième finit sous l'appentis parce que la bonne place est prise. Jamais dans un bâtiment, un
+ garage ou un cabanon, ni sous l'appentis, sous un auvent ou dans un abri de toile.
 7. **Compter les endroits où quelqu'un dort porte fermée, et poser un avertisseur de CO dans chacun**, plus un par
  étage, à plus de 2 m de tout appareil de cuisson ou de combustion. Le nombre d'avertisseurs change le jour où le
  groupe arrive, parce que des gens dorment alors au salon, sur la mezzanine ou dans un bâtiment voisin.
  - Dans une pièce unique, poser l'avertisseur près des lits, le plus loin possible du poêle.
  - Appuyer sur le bouton d'essai de chaque avertisseur devant un autre adulte, à l'arrivée, puis chaque mois.
  - Si le chalet ne peut pas coucher tout le monde, monter une longue tente à deux poêles, une famille à chaque bout
- (ch. 12, étapes 56 à 64).
+ (ch. 12, étapes 56 à 64), avec un avertisseur près des dormeurs de chaque famille (ch. 12, étape 50).
 
 ### Les premières heures
 
@@ -103,14 +103,14 @@ est trop tard pour dire non.
  seau de lavage et le seau d'eaux grises. Les marquer, ne jamais les interchanger, et ne laisser personne les déplacer
  pour faire du rangement. Traiter l'eau à boire selon le ch. 10 : la faire bouillir, ou la passer au filtre avant
  de la chlorer (ch. 10, étapes 11, 14 et 19).
-10. **Installer un poste de lavage des mains qui marche l'hiver, entre la latrine et la cuisine** : de l'eau tiède, du
- savon ordinaire et un linge propre.
+10. {!selles} **Installer un poste de lavage des mains qui marche l'hiver, entre la latrine et la cuisine** : de l'eau
+ tiède, du savon ordinaire et un linge propre.
  - Se laver les mains au moins 20 secondes avant, pendant et après la préparation des aliments, avant de manger,
  après la toilette, et après avoir touché une bête ou du gibier.
  - À quatre personnes, il y a 6 paires de personnes entre qui un microbe peut passer ; à douze, il y en a 66, onze
  fois plus.
- - La solution hydroalcoolique à 60 % ou plus dépanne sur des mains propres. Sur des mains visiblement sales, ce qui
- est le cas la plupart du temps au chalet, elle ne marche pas : prendre l'eau et le savon.
+ - La solution hydroalcoolique à 60 % ou plus dépanne quand les mains ne sont pas visiblement sales. Au chalet,
+ elles le sont la plupart du temps : prendre alors l'eau et le savon.
 11. {!incendie} **Dégager le poêle avant que les bagages s'empilent : rien à moins de 1 m.** Dans un chalet plein, on
  pose les sacs, le linge et le bois près du poêle, parce qu'il y fait chaud. Marquer le mètre au sol une fois pour
  toutes. Nommer une personne pour les cendres : elle les retire à la pelle de métal et les sort dehors dans un
@@ -154,13 +154,13 @@ est trop tard pour dire non.
  dans les 24 premières heures, avant de discuter de qui prend quoi. Garder ensuite la viande fraîche entre 0 et 4 °C,
  et la viande congelée à −18 °C ou moins (ch. 62).
  - Au partage, dire à voix haute, pour les gens qui n'ont pas lu le ch. 22, qu'on ne mange ni le foie ni les reins
- de l'orignal : ils accumulent le cadmium.
+ d'un cervidé (orignal, caribou, cerf) : ils accumulent le cadmium.
  - Partager le gras avant la viande : la viande maigre seule mène au mal de caribou, mortel en quelques semaines
  (ch. 19).
  - Écrire au feutre sur chaque paquet, le jour même, le nom du ménage qui le prend. Un partage qu'on ne peut pas lire
  sur les paquets, on le rediscute quand le stock baisse.
 18. {!tularemie} {!coupure} **Confier chaque tâche à risque à une personne nommée, pas au premier volontaire.**
- - Dépouiller le lièvre avec des gants : on attrape la tularémie en manipulant la bête (ch. 48).
+ - Ramasser et dépouiller le lièvre avec des gants : on attrape la tularémie en manipulant la bête (ch. 48).
  - Ne jamais bûcher seul à la scie à chaîne : un deuxième adulte reste à portée de voix (ch. 106).
 19. **Tenir une réunion courte chaque soir, debout, à heure fixe** : qui est malade, ce qui manque, qui fait quoi
  demain, et un coup d'œil à la corde de bois et aux tablettes. Debout et à heure fixe, elle reste courte et elle a
@@ -208,7 +208,7 @@ est trop tard pour dire non.
 
 | Observation | Diagnostic | Action |
 | --- | --- | --- |
-| Deux personnes ou plus ont mal à la tête, mal au cœur ou des étourdissements en même temps, et ça passe dehors | Monoxyde de carbone. Dans un chalet plein, on met ces signes sur le compte de la fatigue, du manque de sommeil ou d'un microbe rapporté par les enfants | Faire sortir tout le monde et compter les personnes. Ouvrir les portes et les fenêtres en restant dehors, et ne rien rallumer avant d'avoir trouvé la cause |
+| Deux personnes ou plus ont mal à la tête, mal au cœur ou des étourdissements en même temps, et ça passe dehors | Monoxyde de carbone. Dans un chalet plein, on met ces signes sur le compte de la fatigue, du manque de sommeil ou d'un microbe rapporté par les enfants | Faire sortir tout le monde et compter les personnes. Ouvrir grand les portes et les fenêtres en restant dehors, arrêter la source si on l'atteint sans rester à l'intérieur, et ne rien rallumer avant d'avoir trouvé la cause |
 | Un enfant est anormalement somnolent, ou il vomit sans fièvre | Monoxyde de carbone, tant qu'on ne l'a pas écarté | Même chose. Ne pas conclure à une gastro avant d'avoir écarté le monoxyde |
 | Deux personnes vomissent le même jour, alors que tout le monde allait bien | Une gastro qui passe d'une personne à l'autre, ou une intoxication partie de la marmite commune ; on les traite de la même façon pendant les 24 premières heures | Étape 20, pour tous les malades et les personnes qui ont été proches d'eux |
 | Le gros chaudron du souper est encore tiède au matin | Il est resté des heures entre 4 et 60 °C (étape 15) | Le jeter, sans le faire rebouillir |
@@ -224,7 +224,7 @@ est trop tard pour dire non.
 
 ### Cuire dehors, sans avertisseur
 
-Sans avertisseur qui marche, on ne brûle rien à l'intérieur sauf le poêle raccordé à sa cheminée, et on cuisine
+{!co} Sans avertisseur qui marche, on ne brûle rien à l'intérieur sauf le poêle raccordé à sa cheminée, et on cuisine
 dehors, sur un feu bas et des braises, derrière un mur de neige tassée du côté du vent. À douze, les chaudrons sont
 lourds : on plante deux fourches, on pose une barre dessus et on y pend des crochets de branche à différentes
 hauteurs. On monte ou on descend la marmite d'un cran au lieu de la soulever. Une personne nommée aère le chalet par
@@ -263,7 +263,7 @@ thermomètre dans la caisse, la règle des 2 heures s'y applique comme sur le co
 
 ### L'eau pour douze, l'hiver
 
-Faire fondre de la neige pour les 48 L d'eau par jour de l'étape 1 coûte du bois tous les jours. On prend d'abord
+Faire fondre de la neige pour les 48 L d'eau par jour de l'étape 1 coûte du bois tous les jours. {!glace} On prend d'abord
 l'eau sous la glace d'un lac ou d'un ruisseau, puis la glace, et la neige en dernier (ch. 10, étapes 36 à 39 ;
 ch. 10, section 7, « Fondre sans gaspiller de bois »). Deux personnes avec des chaudières et un traîneau
 rapportent en un voyage ce que le poêle mettrait la journée à fondre. On retaille le trou de puisage au même endroit
@@ -276,7 +276,7 @@ Douze personnes qui respirent, des mitaines et des bas qui sèchent, un chaudron
 cette eau passe dans l'air et se condense sur la première surface froide, les têtes de clous, les têtes de vis,
 l'intérieur des murs, le dessous du toit. À douze, on voit du givre sur les clous, des cernes bruns au plafond, et
 l'isolant qui s'affaisse et n'isole plus. L'aération à heures fixes (« Cuire dehors, sans avertisseur ») sert aussi
-contre l'humidité. On fait sécher le linge sur une corde, hors du mètre autour du poêle, jamais sur le poêle : un bas
+contre l'humidité. {!incendie} On fait sécher le linge sur une corde, hors du mètre autour du poêle, jamais sur le poêle : un bas
 oublié sur une tôle chaude peut mettre le feu au chalet.
 
 ### Chauffer une seule pièce
@@ -354,17 +354,10 @@ ligne de la section 6.
 
 ### La place de chacun dans la tente innue
 
-Dans la tente d'hiver des Innus, la place des aînés était à l'entrée, près du poêle : ils entretenaient le feu. Le
-visiteur avait sa place, là où le sapinage était épais, et une jeune fille rangeait ses affaires : il savait où il
-dormirait. Au chalet, la personne qui dort près du poêle pour le garder doit tenir son matelas et ses couvertures
-à 1 m du poêle (étape 11).
-
-### La viande sous un linge
-
-Au campement d'automne, les Innus faisaient cuire le porc-épic, le poisson ou le castor, puis partageaient la viande
-entre les membres du groupe. On couvrait ces viandes d'un linge, sans jamais les laisser à l'air libre. Dans un
-chalet chauffé, le linge garde la poussière loin de la viande sans la refroidir : une viande couverte qui attend
-doit être au froid avant 2 heures (étape 15).
+Dans la tente des Innus, au campement d'automne, la place des aînés était à l'entrée, près du poêle : ils
+entretenaient le feu. Le visiteur avait sa place, là où le sapinage était épais, et une jeune fille rangeait ses
+affaires : il savait où il dormirait. Au chalet, la personne qui dort près du poêle pour le garder doit tenir son
+matelas et ses couvertures à au moins 1 m du poêle (étape 11).
 
 ### Les enfants ont leurs tâches
 
@@ -382,5 +375,5 @@ familles, il y a plus de chasseurs : on règle la chasse sur ce que le groupe pe
 ### Quatre ou cinq familles sous la même tente
 
 Les Innus logeaient plusieurs familles sous le shaputuan, la longue tente d'hiver qui a une porte à chaque bout :
-quatre ou cinq familles partageaient la même tente, avec plusieurs feux en ligne entre les deux portes. C'est la
-tente à deux poêles de l'étape 7.
+quatre ou cinq familles partageaient la même tente, avec plusieurs feux en ligne entre les deux portes. La tente à
+deux poêles de l'étape 7 en reprend la forme, avec un poêle à chaque bout.
