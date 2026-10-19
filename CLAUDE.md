@@ -203,7 +203,10 @@ contrôle, 6 Signes d'échec, 7 Variante d'urgence. Tome 1 d'abord, puis les tom
 photo pour reconnaître, un petit dessin) que la mise en pages pose dans les trous des pages (JP, 18 octobre 2026),
 **jamais au travers du texte** : c'est du remplissage quand il reste de la place dans la page, à la fin du texte de
 cette page, jamais entre deux paragraphes (JP, 19 octobre 2026) ; faute de trou près de son étape, elle va dans un
-autre trou du chapitre, et le bas de la dernière page en prend plusieurs (JP, même jour : « ça c'est des belles places ») ;
+autre trou du chapitre, une seule par page (JP, même jour : « trop de notes vertes, c'est pas beau non plus ») ; **rien ne
+reste blanc** : le vide d'une page reçoit une photo de ce dont le chapitre parle ou de la nature du tome, sinon une vignette
+gravée tirée de l'image du tome, et une page blanche devient une photo de la nature du Québec en pleine page (JP, même jour :
+« manque de photos dans le livre, utilisons ces espaces pour en mettre ») ;
 c'est de l'extra, jamais ce que le geste exige. Un mécanisme qui apprend quelque chose va dans l'étape qu'il
 explique. La migration des 113 chapitres se fait à la grande passe (`suivi/plan-de-match.md`, point 21).
 Un chapitre de référence (listes, tableaux) peut remplacer la procédure numérotée par

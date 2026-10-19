@@ -132,7 +132,7 @@ function fillExtras(p){
   // la variante d'urgence a son enveloppe (titre de section, filet noir) : la note va dans son texte ; jamais dans une
   // série orange
   if(fr && fr.classList.contains('s9wrap')) fr = [...fr.children].filter(c => c.classList.contains('frame')).pop() || fr;
-  if(!fr || !fr.classList.contains('frame') || !fr.children.length) return false;
+  if(!fr || !fr.classList.contains('frame') || !fr.children.length || finitSurTitre(fr)) return false;
   const bas = p.bl.getBoundingClientRect().bottom + 0.5;
   // un cadre encore ouvert remplit la page et met tout son texte à gauche : on l'équilibre sur les deux colonnes, la
   // note vient à la fin
@@ -210,6 +210,7 @@ function placerNotes(){
   }
   // la note va à la fin du texte de la page, dans le trou : jamais entre deux paragraphes (JP, 19 octobre 2026)
   const poser = (x, c) => {
+    if(finitSurTitre(c.fr)) return false;
     const avant = c.fr.querySelector('.extra');
     if(c.ouvert) c.fr.classList.add('auto');
     c.fr.appendChild(x);
@@ -231,11 +232,9 @@ function placerNotes(){
     EXTRAS.splice(EXTRAS.indexOf(x), 1);
     return true;
   };
+  // une note au plus par page : quatre l'une sous l'autre au bas de la fin du ch. 5, « trop de notes vertes, c'est pas
+  // beau non plus » (JP, 19 octobre 2026) ; le reste du vide reçoit une vignette (vignettes())
   choix.sort((a, b) => idx(a[1]) - idx(b[1])).forEach(([x, c]) => poser(x, c));
-  // le bas de la dernière page du chapitre prend plusieurs notes, l'une sous l'autre, tant qu'elles tiennent (JP, 19
-  // octobre 2026, sur le bas de la dernière page du ch. 5 : « ça c'est des belles places pour mettre des encadrés verts »)
-  const fin = NOTE_PLACES.find(c => c.p === TX[TX.length - 1]);
-  if(fin) [...EXTRAS].forEach(x => poser(x, fin));
 }
 function nextPage(){
   fillExtras(P);
@@ -543,6 +542,42 @@ function veuvesPage(f, q){   // pendant la mise en pages, quand la page continue
     if(resteSeule(f, vus)) annule();
   }
 }
+// Les vides : rien ne reste blanc au bas d'une page (JP, 19 octobre 2026 : « trop de notes vertes, c'est pas beau non
+// plus, faut trouver une autre solution pour remplir les vides » ; « de la place pour du stock, genre photo ou note
+// verte » ; « tu commences à comprendre le principe ? »). Après les notes (une au plus par page) : le dernier cadre qui
+// finit avant le bas s'équilibre sur ses deux colonnes, et le vide qui reste dessous, sur toute la largeur, reçoit une
+// photo de la nature du tome s'il est grand, sinon une vignette gravée tirée de l'image du tome.
+const PO = 96;                                   // px par pouce
+function remplirVides(){
+  const S = C.stock || {}, propres = (S.chapitre || []).slice(), photos = S.photos || [], vign = S.vignettes || [];
+  if(!propres.length && !photos.length && !vign.length) return;
+  const n0 = parseInt(String(C.num).replace(/\D/g, ''), 10) || 0;
+  let ip = n0 * 3, iv = n0;                      // d'un chapitre à l'autre, on ne recommence pas par la même image
+  const prochaine = () => propres.length ? propres.shift() : photos[ip++ % photos.length];
+  PAGES.forEach(p => {
+    if(p.kind !== 'text' && p.kind !== 'open') return;
+    const kids = [...p.bl.children].filter(e => !e.classList.contains('fnz'));
+    const der = kids[kids.length - 1]; if(!der) return;
+    const fnz = [...p.bl.children].find(e => e.classList.contains('fnz'));
+    // un cadre ouvert qui ne remplit pas la page (son texte dans la colonne de gauche, la droite vide : p12-17)
+    const fr = der.classList.contains('frame') ? der : [...der.querySelectorAll('.frame')].pop();
+    if(fr && !fr.classList.contains('auto')){ fr.classList.add('auto'); if(OVER(fr) || !dansLeBloc(p)) fr.classList.remove('auto'); }
+    const bas = (fnz ? fnz.getBoundingClientRect().top : p.bl.getBoundingClientRect().bottom) - 4;
+    const vide = bas - Math.max(...kids.map(e => e.getBoundingClientRect().bottom)) - 10;
+    if(vide < 1.15 * PO) return;
+    const d = document.createElement('div');
+    const photo = vide >= 3.0 * PO && (propres.length || photos.length);
+    d.className = 'stock ' + (photo ? 'photo' : 'vign');
+    d.style.height = Math.floor(vide) + 'px';
+    const img = document.createElement('img'); img.alt = '';
+    if(!photo && !vign.length) return;
+    img.src = photo ? prochaine() : vign[iv++ % vign.length];
+    if(!photo) img.style.maxHeight = Math.min(vide - 0.2 * PO, 1.9 * PO) + 'px';
+    d.appendChild(img);
+    if(fnz) p.bl.insertBefore(d, fnz); else p.bl.appendChild(d);
+    if(!dansLeBloc(p)) d.remove();
+  });
+}
 function veuves(){   // entre les deux colonnes d'un cadre, après la mise en pages (rien ne peut plus changer de page)
   PAGES.forEach(p => {
     if(p.kind !== 'text' && p.kind !== 'open') return;
@@ -761,8 +796,23 @@ function story(id, kind, suite){   // kind : main, o, d, e ; suite : histoire re
     }
     first = false;
     if(r === 'done'){ finish(R, kind); break; }
+    // un titre resté seul au bas de la page (« 4 Procédure » à la p09-1, son texte à la page suivante) la suit, s'il
+    // reste autre chose sur la page ; une note verte s'y posait dessous, dans un trou qui n'en était pas un (JP, 19
+    // octobre 2026 : « note verte pour remplir un trou qui existe pas »)
+    { const tete = teteSeule(P); if(tete) q.unshift(tete); }
     nextPage();
   }
+}
+function teteSeule(p){
+  const frs = p.bl.querySelectorAll('.frame'), fr = frs[frs.length - 1], l = fr && fr.lastElementChild;
+  if(!l || !/^H[234]$/.test(l.tagName)) return null;
+  return p.bl.textContent.replace(l.textContent, '').trim().length > 40 ? derniereTete(p) : null;
+}
+// le dernier élément visible d'un cadre, avant les notes : une note ne se pose jamais sous un titre
+function finitSurTitre(fr){
+  const v = [...fr.children].filter(e => !e.classList.contains('extra') && !e.classList.contains('extra-cale') && e.getBoundingClientRect().height > 1);
+  const l = v[v.length - 1];
+  return !l || /^H[234]$/.test(l.tagName) || l.classList.contains('kh');
 }
 
 /* ---------- après la coulée : pieds de page, sommaire, renvois, tranche ---------- */
@@ -868,6 +918,7 @@ Promise.all(faces.map(f => document.fonts.load(f, 'aéÀ§«»—'))).then(() =>
   mettreEnPages();
   EXTRAS.forEach(x => WARN.push('encadré « En plus » pas imprimé, aucun trou dans le chapitre : ' + ((x.querySelector('.xtit') || {}).textContent || '')));
   veuves();
+  remplirVides();
   finishPages(); edges(); orienteAppels(); checks();
   // où chaque note s'est posée : page, étapes de la page, l'étape et l'intertitre qui la précèdent, dans un trou ou dans
   // le fil

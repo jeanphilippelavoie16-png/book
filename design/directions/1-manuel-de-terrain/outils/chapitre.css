@@ -139,3 +139,10 @@ p.pc .pmarge svg.picto{display:block;width:26pt;height:26pt;margin:0}
 /* un long tableau qui tient sur la page en resserrant ses rangées (chapitre.js, pour) : moins d'air au-dessus et
    au-dessous du texte de chaque case, le même corps de texte */
 table.serre td{padding-top:1.7pt;padding-bottom:1.9pt}
+
+/* ce qui remplit le vide du bas d'une page (chapitre.js, remplirVides ; JP, 19 octobre 2026) : une photo de la nature
+   du tome sur toute la largeur, ou une vignette gravée au centre */
+.stock{display:block;column-span:all;margin:10pt 0 0;break-inside:avoid;overflow:hidden}
+.stock.photo img{display:block;width:100%;height:100%;object-fit:cover}
+.stock.vign{display:flex;align-items:center;justify-content:center}
+.stock.vign img{display:block;max-width:60%;height:auto;width:auto}

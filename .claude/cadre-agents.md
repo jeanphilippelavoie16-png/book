@@ -193,6 +193,14 @@ Le cadre complet est `.claude/skills/planches/references/brief-agent.md`. En bre
   qui est nouveau ou qui change de sens : un chiffre ou un fait nouveau, une note En plus, une série orange réécrite,
   un danger déplacé qui perd son fait propre, une contradiction avec un autre chapitre ou les pages des dangers. Un
   chiffre qui ne fait que changer de section ne se rouvre pas. L'éditeur prend trois chapitres à la fois.
+- [ ] **Rien ne reste blanc** (JP, 19 octobre 2026 : « de la place pour du stock, genre photo ou note verte » ; « manque
+  de photos dans le livre, utilisons ces espaces pour en mettre » ; « tu commences à comprendre le principe ? ») :
+  une note verte au plus par page (« trop de notes vertes, c'est pas beau non plus ») ; le vide qui reste au bas d'une
+  page reçoit une photo (`images/vides/NN-*.jpg`, ce dont le chapitre parle, puis `images/pleine-page/tome-N/`) s'il
+  est grand, sinon une vignette gravée tirée de l'image du tome (`design/outils/vignettes.py`) ; une page blanche
+  devient une photo de la nature du Québec en pleine page, fond perdu (« genre pleine page, pas de blanc »). Une note
+  ne se pose jamais sous un titre resté seul (« note verte pour remplir un trou qui existe pas ») : le titre suit son
+  texte. JP aime les notes vertes avec des photos pour reconnaître (le sapin, l'épinette noire, le cèdre).
 - [ ] **Rien ne passe par-dessus le texte** (JP, 19 octobre 2026, p. 73 du tome 1 : « on dirait que le tableau est
   enligné sur l'autre texte ») : après chaque montage, `pdftotext -bbox` puis `python3 design/outils/chevauchements.py`
   doit dire « pages touchées : 0 ». Un tableau de cinq colonnes et plus prend toute la largeur, même sous une étape.

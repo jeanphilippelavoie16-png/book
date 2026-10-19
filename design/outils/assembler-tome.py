@@ -1311,8 +1311,31 @@ def main():
                 avert.append(f"ch. {c['num']} : la double page {f['id']} commence à la page {c['debut'] + f['page'] - 1}, "
                              f"une page de droite")
     w = pypdf.PdfWriter()
+    # les pages blanches prennent une photo de la nature du Québec, en pleine page, fond perdu compris (JP, 19 octobre
+    # 2026 : « les pages complètement blanches, les remplir avec des photos de la nature québécoise » ; « genre pleine
+    # page, pas de blanc ») ; images/pleine-page/tome-N/, dans l'ordre des fichiers
+    photos_pp = sorted(glob.glob(os.path.join(ROOT, "images", "pleine-page", f"tome-{tome}", "*.jpg")))
+    n_photo = 0
+    def page_photo(f):
+        from PIL import Image
+        dst = os.path.join(work, "pdf", "photo-" + os.path.splitext(os.path.basename(f))[0] + f"-{PAGE_W:.0f}x{PAGE_H:.0f}.pdf")
+        if not os.path.exists(dst) or os.path.getmtime(dst) < os.path.getmtime(f):
+            im = Image.open(f).convert("RGB")
+            r = PAGE_W / PAGE_H
+            if im.width / im.height > r:
+                lw = round(im.height * r); im = im.crop(((im.width - lw) // 2, 0, (im.width - lw) // 2 + lw, im.height))
+            else:
+                lh = round(im.width / r); im = im.crop((0, (im.height - lh) // 2, im.width, (im.height - lh) // 2 + lh))
+            im.save(dst, "PDF", resolution=im.width / (PAGE_W / 72), quality=92)
+        pg = pypdf.PdfReader(dst).pages[0]
+        sx, sy = PAGE_W / float(pg.mediabox.width), PAGE_H / float(pg.mediabox.height)
+        if abs(sx - 1) > 1e-3 or abs(sy - 1) > 1e-3:
+            pg.scale(sx, sy)
+        return pg
     for i, (kind, ref) in enumerate(seq):
-        if kind == "blanche":
+        if kind == "blanche" and n_photo < len(photos_pp):
+            pg = w.add_page(page_photo(photos_pp[n_photo])); n_photo += 1
+        elif kind == "blanche":
             pg = w.add_blank_page(PAGE_W, PAGE_H)
         else:
             if kind == "annexe":
