@@ -26,3 +26,6 @@ livre/apercus-*/planche-contact.png
 images/tomes/essais-ia/tome-*/log-*.txt
 images/tomes/essais-ia/tome-*/*.log
 images/tomes/essais-ia/**/log-*.txt
+
+# Présentation du projet : images réduites et HTML (design/outils/presentation.py)
+livre/presentation/travail/
