@@ -26,6 +26,7 @@ MARGE_HAUT = 0.25                               # po entre le dernier filet du s
 MARGE_BAS = 0.22                                # po entre la dernière tache de neige et « Les auteurs »
 GRAINE = 6
 DEBUG = False
+TOURS = 8
 
 
 def _lum(a):
@@ -103,6 +104,29 @@ def _source(img):
         neige = np.where(ndi.binary_erosion(plein, iterations=2), np.clip((1 - e - .3) / .45, 0, 1), 0)
         arbres.append((noirceur, neige.astype(np.float32)))
     return yS, traits, arbres
+
+
+# ------------------------------------------------------------------ couverture.py (lu, jamais écrit)
+def _couverture():
+    """Le module couverture.py qui nous appelle (ses fonctions, pour savoir ce que sa gomme à étoiles effacera)."""
+    import os, sys, importlib.util
+    m = sys.modules.get('__main__')
+    if m is not None and hasattr(m, 'nettoyer') and hasattr(m, 'composer'):
+        return m
+    f = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'tome-1', 'couverture.py')
+    spec = importlib.util.spec_from_file_location('couverture_lue', f)
+    m = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(m)
+    return m
+
+
+def _raccords(cv, info, img, ppp):
+    """Les bandes des raccords du miroir du ciel, telles que composer les rend à nettoyer."""
+    import io, contextlib
+    k, v = info['tome'], info['variante']
+    with contextlib.redirect_stdout(io.StringIO()):
+        _, bandes = cv.composer(v, cv.mesures(k), img, cv.palette(v, k, cv.couleur_du_ciel(img)), ppp)
+    return bandes
 
 
 # ------------------------------------------------------------------ outils
@@ -207,7 +231,6 @@ def motif(can, info):
     t_near = lecture(0, [(56, 560), (2320, 3057), (560, 56)], near)
     devant = YY >= near[None, :]                       # sous le profil de la colline de devant
     tr = np.where(devant, t_near, t_far)
-    a *= 1 - tr
 
     # la crête de la colline de devant, là où elle passe devant la grande colline : un trait de gouge effilé
     vis = (near > far + 2) & (near < Yt + .70 * H)
@@ -219,7 +242,6 @@ def motif(can, info):
         ep = (3.4 * SS) * np.sin(np.pi * tt) ** .35 * (1 + .18 * ndi.gaussian_filter1d(rng.normal(0, 1, ww), 30 * SS))
         ep[~vis] = 0
     dist = np.abs(YY - near[None, :]) * SS
-    a *= 1 - np.clip(ep[None, :] / 2 - dist + .5, 0, 1)
 
     # la forêt. Trois rangs : au pied des collines, de petites épinettes serrées qui ferment la forêt ; au milieu, des
     # bouquets d'épinettes de tailles variées ; devant, quelques grandes. Plus un arbre est proche, plus il est grand
@@ -259,59 +281,102 @@ def motif(can, info):
         g = min(rng.uniform(.72, .88), (pied_ - (dessus[col] + .14 * H)) / (arbres[choix][0].shape[0] * s_dev))
         poses.append((9, xi, pied_ - hauteur(choix, g), g, choix, rng.random() < .5, rng.uniform(.9, 1.1)))
     poses.sort(key=lambda p: p[0])
-    if DEBUG:
-        for p_ in poses:
-            if -50 < p_[1] < 300: print("pose", [round(float(v), 3) if not isinstance(v, (bool, np.bool_)) else v for v in p_])
 
-    neige_tot = np.zeros_like(a)
-    couv_fond = np.zeros_like(a)                       # ce que couvre le rang du fond
+    # chaque arbre, mis à l'échelle une fois
+    poses_ = []
     for ordre, xc, pointe, g, choix, mir, etir in poses:
         noirceur, neige = arbres[choix]
         f = s_dev * SS * g
         N = _echelle(noirceur, f, mir, etir)
-        G = _echelle(neige, f, mir, etir) if ordre > 0 else np.zeros_like(N)
-        h, w = N.shape
+        G = _echelle(neige, f, mir, etir) if ordre > 0 else None
         lo = int(np.nonzero(N.max(axis=1) > .5)[0][0])  # la première ligne de l'arbre
-        py, px = int((pointe - oy) * SS) - lo, int(xc * SS) - w // 2
-        _poser(a, N, py, px, lambda d, p: d * (1 - p))
-        _poser(neige_tot, N, py, px, lambda d, p: d * (1 - p))
-        _poser(neige_tot, G, py, px, np.maximum)
-        if ordre == 0:
-            _poser(couv_fond, N, py, px, np.maximum)
+        poses_.append((ordre, N, G, int((pointe - oy) * SS) - lo, int(xc * SS) - N.shape[1] // 2))
 
-    # le pied des collines : dans chaque colonne, là où le rang du fond devient plein ; plus bas, la forêt est
-    # noire (le crème ne passe pas entre les troncs). Une colonne sans arbre prend la hauteur de ses voisines.
+    a_coll = a                                         # les collines, avant les traits
+    lab_tr, _ = ndi.label(tr > .3)
     lim_dur = int((Yt + .86 * H - oy) * SS)
-    plein_ = couv_fond > .5
-    run = int(.06 * H * SS)
-    bloc = ndi.uniform_filter1d(plein_.astype(np.float32), run, axis=0, origin=-(run // 2)) > .999
-    bloc[lim_dur:] = True
-    debut = np.argmax(bloc, axis=0).astype(np.float32)
-    debut[debut >= lim_dur] = np.nan
-    ok = ~np.isnan(debut)
+    lim_neige = (Yt + H * rng.uniform(.86, .98, 4096) - oy) * SS
     cols = np.arange(ww)
-    pied = np.interp(cols, cols[ok], debut[ok]) if ok.any() else np.full(ww, lim_dur, np.float32)
-    pied = np.minimum(pied, lim_dur)
-    a[np.arange(hh)[:, None] >= pied[None, :]] = 0
 
-    # la neige des arbres : seulement dans le haut de la forêt
-    lab, n = ndi.label(neige_tot > .5)
-    if n:
-        cy = np.array(ndi.center_of_mass(neige_tot > .5, lab, range(1, n + 1)))
-        lim = (Yt + H * rng.uniform(.86, .98, n) - oy) * SS
-        ok = np.concatenate([[False], (cy[:, 0] < lim) & (cy[:, 1] < Xe * SS - .03 * ppp * SS)])
-        garde = ndi.binary_dilation(ok[lab], iterations=2)
-        a = np.maximum(a, np.where(garde, neige_tot, 0))
-    a[int((Yb - oy) * SS):] = 0
-    a[:, int(Xe * SS):] = 0
+    def peindre(sans_traits, sans_arbres, sans_neige):
+        """La bande (alpha du crème, à double taille), sans les traits, arbres et taches de neige écartés."""
+        t_ = tr
+        if sans_traits:
+            ote = ndi.binary_dilation(np.isin(lab_tr, list(sans_traits)), iterations=3)
+            t_ = np.where(ote, 0, tr)
+        a = a_coll * (1 - t_)
+        a *= 1 - np.clip(ep[None, :] / 2 - dist + .5, 0, 1)            # la crête
+        neige_tot = np.zeros_like(a)
+        couv_fond = np.zeros_like(a)                   # ce que couvre le rang du fond
+        for j, (ordre, N, G, py, px) in enumerate(poses_):
+            if j in sans_arbres:
+                continue
+            _poser(a, N, py, px, lambda d, p: d * (1 - p))
+            _poser(neige_tot, N, py, px, lambda d, p: d * (1 - p))
+            if G is not None:
+                _poser(neige_tot, G, py, px, np.maximum)
+            else:
+                _poser(couv_fond, N, py, px, np.maximum)
+        # le pied des collines : dans chaque colonne, là où le rang du fond devient plein ; plus bas, la forêt est
+        # noire (le crème ne passe pas entre les troncs). Une colonne sans arbre prend la hauteur de ses voisines.
+        run = int(.06 * H * SS)
+        bloc = ndi.uniform_filter1d((couv_fond > .5).astype(np.float32), run, axis=0, origin=-(run // 2)) > .999
+        bloc[lim_dur:] = True
+        debut = np.argmax(bloc, axis=0).astype(np.float32)
+        ok = debut < lim_dur
+        pied = np.interp(cols, cols[ok], debut[ok]) if ok.any() else np.full(ww, lim_dur, np.float32)
+        a[np.arange(hh)[:, None] >= np.minimum(pied, lim_dur)[None, :]] = 0
+        # la neige des arbres : seulement dans le haut de la forêt, et pas celle qu'on écarte
+        lab, n = ndi.label(neige_tot > .5)
+        if n:
+            cy = np.array(ndi.center_of_mass(neige_tot > .5, lab, range(1, n + 1)))
+            ok = (cy[:, 0] < lim_neige[np.arange(n) % len(lim_neige)]) & (cy[:, 1] < (Xe - .03 * ppp) * SS)
+            if sans_neige is not None:
+                touche = np.zeros(n + 1, bool)
+                touche[np.unique(lab[sans_neige])] = True
+                ok &= ~touche[1:]
+            garde = ndi.binary_dilation(np.concatenate([[False], ok])[lab], iterations=2)
+            a = np.maximum(a, np.where(garde, neige_tot, 0))
+        a[int((Yb - oy) * SS):] = 0
+        a[:, int(Xe * SS):] = 0
+        return a
 
-    # réduire, puis poser sur le fond : le ciel sans étoiles sous la bande, la crème des collines
-    A = np.asarray(Image.fromarray(np.ascontiguousarray(a, np.float32)).resize((ww // SS, hh // SS), Image.LANCZOS))
-    A = np.clip(A, 0, 1)[..., None]
-    zone = can[oy:oy + A.shape[0], :A.shape[1]].astype(np.float32)
+    # le ciel sans étoiles sous la bande (une étoile ne doit pas tomber dans un arbre)
+    hA, wA = hh // SS, ww // SS
+    zone = can[oy:oy + hA, :wA].astype(np.float32)
     plat = np.stack([ndi.grey_opening(zone[..., c], size=(9, 9)) for c in range(3)], -1)
-    d1 = dessus[:A.shape[1] * SS].reshape(-1, SS).mean(1)
-    ciel = ((oy + np.arange(A.shape[0]) + .5)[:, None] < d1[None, :] - 4)[..., None]
+    d1 = dessus[:wA * SS].reshape(-1, SS).mean(1)
+    ciel = ((oy + np.arange(hA) + .5)[:, None] < d1[None, :] - 4)[..., None]
     sous = np.where(ciel, zone, plat)
-    can[oy:oy + A.shape[0], :A.shape[1]] = np.clip(np.rint(sous * (1 - A) + CREME * A), 0, 255).astype(np.uint8)
-    return can
+
+    def poser_sur(a):
+        A = np.asarray(Image.fromarray(np.ascontiguousarray(a, np.float32)).resize((wA, hA), Image.LANCZOS))
+        A = np.clip(A, 0, 1)[..., None]
+        out = can.copy()
+        out[oy:oy + hA, :wA] = np.clip(np.rint(sous * (1 - A) + CREME * A), 0, 255).astype(np.uint8)
+        return out, A[..., 0]
+
+    # couverture.py passe ensuite sa gomme à étoiles (nettoyer) : elle efface toute petite tache claire sur fond sombre
+    # près du texte et dans les bandes des raccords du miroir, qui traversent tout le dos. Dans la bande, elle
+    # barbouillerait le crème serré entre deux traits ou la neige d'une épinette. On la passe d'avance sur la bande, et
+    # on retire proprement, en entier, chaque trait ou tache de neige qu'elle toucherait, jusqu'à ce qu'elle ne touche
+    # plus rien.
+    cv = _couverture()
+    zones = list(info['rects']) + _raccords(cv, info, img, ppp)
+    sans_traits, sans_arbres, sans_neige = set(), set(), np.zeros((hh, ww), bool)
+    for tour in range(TOURS):
+        a = peindre(sans_traits, sans_arbres, sans_neige)
+        out, A = poser_sur(a)
+        essai, _ = cv.nettoyer(out.copy(), zones, ppp)
+        diff = np.abs(essai[oy:oy + hA, :wA].astype(int) - out[oy:oy + hA, :wA].astype(int)).max(-1) > 6
+        diff &= ndi.binary_dilation(A > .03, iterations=3)
+        if DEBUG:
+            print('    tour %d : %d px touchés' % (tour, diff.sum()))
+        if not diff.any():
+            break
+        D2 = np.zeros((hh, ww), bool)
+        D2[:hA * SS, :wA * SS] = np.repeat(np.repeat(diff, SS, 0), SS, 1)
+        D2 = ndi.binary_dilation(D2, iterations=8 * SS)
+        sans_traits |= set(np.unique(lab_tr[D2]).tolist()) - {0}
+        sans_neige |= D2
+    return out

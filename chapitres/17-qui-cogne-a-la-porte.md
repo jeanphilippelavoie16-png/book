@@ -106,9 +106,9 @@ destination.
  les voisins ou le groupe par radio (ch. 14). Ne pas aller chercher l'arme, et ne pas la montrer. Pendant la
  conversation, le visiteur voit l'adulte se retourner pour aller la chercher. Devant une arme montrée, il ne sait
  pas si elle est chargée, et il réagit comme si elle l'était, sans qu'on puisse prévoir comment. Il apprend aussi
- qu'il y a une arme dans la maison, et jusqu'où la famille est prête à aller. Une personne qu'on a fait reculer avec une arme peut revenir à une
- autre heure, et pas forcément seule. Au chalet, chemin fermé, retenir le visiteur sous la menace oblige à le nourrir,
- à le surveiller pendant qu'on dort et à le faire dormir près des enfants.
+ qu'il y a une arme dans la maison, et jusqu'où la famille est prête à aller. Une personne qu'on a fait reculer
+ avec une arme peut revenir à une autre heure, et pas forcément seule. Au chalet, chemin fermé, retenir le visiteur
+ sous la menace oblige à le nourrir, à le surveiller pendant qu'on dort et à le faire dormir près des enfants.
 12. **À tout moment, si le visiteur montre une arme, menace ou force la porte : arrêter de parler, emmener tout
  le monde dans la pièce du fond, bloquer la porte de cette pièce de l'intérieur et y rester.** S'il entre et exige
  quelque chose, le lui donner, sans discuter ni résister : résister peut empirer les choses.
@@ -394,7 +394,7 @@ longtemps que les adultes. La gastro se transmet tant que durent les signes, et 
 
 ### La place de l'invité chez les Inuits de l'Ungava
 
-À la fin du 19e siècle, chez les Inuits de l'Ungava, le maître de la grande tente de peaux choisissait la place de
-l'invité ; pour lui faire honneur, il lui donnait la sienne, au fond, derrière une pièce de bois couchée en travers
-du plancher. Les autres couchaient le long des côtés, seuls ou en groupes, selon leur parenté. Avec un inconnu,
-lui céder sa place, c'est le faire dormir au fond, près des enfants (étape 17).
+À la fin du 19e siècle, chez les Inuits de l'Ungava, le maître de la grande tente de peaux dormait au fond avec sa
+famille, derrière une pièce de bois couchée en travers du plancher. Les autres couchaient le long des côtés, selon
+leur parenté. Le maître choisissait la place de l'invité ; pour lui faire honneur, il lui donnait la sienne. Avec un
+inconnu, lui céder sa place, c'est le faire dormir au fond, près des enfants (étape 17).

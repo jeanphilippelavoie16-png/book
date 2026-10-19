@@ -158,7 +158,7 @@
       "col": "tronc",
       "rang": "g7",
       "texte": "Il est blessé, ou il gèle ?",
-      "precision": "L'hiver : il parle mal, il est maladroit ou confus, ou il ne frissonne plus",
+      "precision": "Il parle mal, il est maladroit ou confus, ou il ne frissonne plus",
       "source": "étapes 6 et 7"
     },
     {
@@ -167,7 +167,7 @@
       "col": "tronc",
       "rang": "g8",
       "ancre": "haut",
-      "texte": "**Le faire entrer**, ou le mettre à l'abri dehors. Le coucher, lui enlever ses vêtements mouillés et mettre de la chaleur sur son tronc. Lui donner à boire seulement s'il est bien éveillé et avale bien.",
+      "texte": "**Le faire entrer**, ou le mettre à l'abri dehors ; s'il ne frissonne plus, le porter couché, sans le faire marcher. Le coucher, lui enlever ses vêtements mouillés et mettre de la chaleur sur son tronc. Lui donner à boire seulement s'il est bien éveillé et avale bien.",
       "renvoi": "ch. 17, étapes 7 et 8 ; ch. 25",
       "source": "étapes 7 et 8"
     },

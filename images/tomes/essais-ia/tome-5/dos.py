@@ -44,7 +44,7 @@ SOLEIL = (1600, 2240, 2020, 2680)      # boîte de recherche du soleil
 
 MARGE = 0.14                           # po : distance minimale entre un nuage et une boîte de texte ou un bloc
 PLI = 0.12                             # po : rien à moins de ça du pli du devant
-PROTEGER = True
+PROTEGER = True                        # simuler le nettoyage des étoiles et lui soustraire le motif
 SOLEIL_MAX = 0.46                      # po : diamètre du soleil de la tranche, au plus
 
 
@@ -72,6 +72,7 @@ def _nuage(arr, nom):
         sz = np.bincount(lab.ravel())
         sz[0] = 0
         al = al * ndi.binary_dilation(lab == int(np.argmax(sz)), iterations=4)
+    al[al < 0.1] = 0                    # un coup de gouge clair du ciel, collé au trait, n'est pas du nuage
     return al
 
 
@@ -230,6 +231,7 @@ def _couverture():
                 all(hasattr(m, a) for a in ('nettoyer', 'composer', 'mesures', 'palette', 'couleur_du_ciel')):
             return m
     f = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'tome-1', 'couverture.py')
+    sys.dont_write_bytecode = True              # aucun __pycache__ dans les outils partagés
     try:
         spec = importlib.util.spec_from_file_location('couverture_tome_1', f)
         m = importlib.util.module_from_spec(spec)

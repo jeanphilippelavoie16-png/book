@@ -78,16 +78,17 @@
 <text x="473.57" y="436.96" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="8.5" fill="#000" xml:space="preserve" data-max="54.68">ch. 17, étape 5</text>
 <rect x="36.00" y="451.74" width="241.20" height="57.00" rx="10" fill="#fff" stroke="#2B5876" stroke-width="1.75"/>
 <text data-max="218.70" x="156.60" y="472.04" font-family="IBM Plex Sans Condensed" font-size="13" fill="#000" text-anchor="middle" xml:space="preserve"><tspan font-weight="700">Il est blessé, ou il gèle ?</tspan></text>
-<text data-max="218.70" x="156.60" y="486.31" font-family="IBM Plex Serif" font-size="9.5" font-style="italic" fill="#000" text-anchor="middle" xml:space="preserve"><tspan font-weight="400">L’hiver : il parle mal, il est maladroit</tspan></text>
-<text data-max="218.70" x="156.60" y="497.81" font-family="IBM Plex Serif" font-size="9.5" font-style="italic" fill="#000" text-anchor="middle" xml:space="preserve"><tspan font-weight="400">ou confus, ou il ne frissonne plus</tspan></text>
-<rect x="36.00" y="534.96" width="241.20" height="82.00" rx="0" fill="#FDE8D8" stroke="#EE7219" stroke-width="1.5"/>
-<text data-max="224.70" x="45.00" y="552.56" font-family="IBM Plex Sans Condensed" font-size="11" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">Le faire entrer</tspan><tspan font-weight="500">, ou le mettre à l’abri dehors. Le</tspan></text>
-<text data-max="224.70" x="45.00" y="566.06" font-family="IBM Plex Sans Condensed" font-size="11" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">coucher, lui enlever ses vêtements mouillés et</tspan></text>
-<text data-max="224.70" x="45.00" y="579.56" font-family="IBM Plex Sans Condensed" font-size="11" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">mettre de la chaleur sur son tronc. Lui donner à</tspan></text>
-<text data-max="224.70" x="45.00" y="593.06" font-family="IBM Plex Sans Condensed" font-size="11" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">boire seulement s’il est bien éveillé et avale</tspan></text>
-<text data-max="224.70" x="45.00" y="606.56" font-family="IBM Plex Sans Condensed" font-size="11" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">bien.</tspan></text>
-<rect x="167.34" y="604.71" width="110.61" height="13.00" fill="#EE7219"/>
-<text x="172.34" y="614.26" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="8.5" fill="#000" xml:space="preserve" data-max="102.11">ch. 17, étapes 7 et 8 ; ch. 25</text>
+<text data-max="218.70" x="156.60" y="486.31" font-family="IBM Plex Serif" font-size="9.5" font-style="italic" fill="#000" text-anchor="middle" xml:space="preserve"><tspan font-weight="400">Il parle mal, il est maladroit ou</tspan></text>
+<text data-max="218.70" x="156.60" y="497.81" font-family="IBM Plex Serif" font-size="9.5" font-style="italic" fill="#000" text-anchor="middle" xml:space="preserve"><tspan font-weight="400">confus, ou il ne frissonne plus</tspan></text>
+<rect x="36.00" y="534.96" width="241.20" height="95.50" rx="0" fill="#FDE8D8" stroke="#EE7219" stroke-width="1.5"/>
+<text data-max="224.70" x="45.00" y="552.56" font-family="IBM Plex Sans Condensed" font-size="11" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">Le faire entrer</tspan><tspan font-weight="500">, ou le mettre à l’abri dehors ; s’il</tspan></text>
+<text data-max="224.70" x="45.00" y="566.06" font-family="IBM Plex Sans Condensed" font-size="11" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">ne frissonne plus, le porter couché, sans le faire</tspan></text>
+<text data-max="224.70" x="45.00" y="579.56" font-family="IBM Plex Sans Condensed" font-size="11" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">marcher. Le coucher, lui enlever ses vêtements</tspan></text>
+<text data-max="224.70" x="45.00" y="593.06" font-family="IBM Plex Sans Condensed" font-size="11" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">mouillés et mettre de la chaleur sur son tronc.</tspan></text>
+<text data-max="224.70" x="45.00" y="606.56" font-family="IBM Plex Sans Condensed" font-size="11" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">Lui donner à boire seulement s’il est bien éveillé</tspan></text>
+<text data-max="224.70" x="45.00" y="620.06" font-family="IBM Plex Sans Condensed" font-size="11" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">et avale bien.</tspan></text>
+<rect x="167.34" y="618.21" width="110.61" height="13.00" fill="#EE7219"/>
+<text x="172.34" y="627.76" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="8.5" fill="#000" xml:space="preserve" data-max="102.11">ch. 17, étapes 7 et 8 ; ch. 25</text>
 <rect x="309.60" y="534.96" width="221.40" height="87.50" rx="0" fill="#fff" stroke="#9B2C1E" stroke-width="1.5"/>
 <rect x="308.85" y="534.21" width="222.90" height="19.75" fill="#9B2C1E"/>
 <g transform="translate(316.60,537.96) scale(0.4333) translate(-0.0,-0.0)"><path d="M17 1.5 L32.5 28.5 H1.5 Z" fill="#fff"/><path d="M15.2 10 H18.8 L18.1 20.5 H15.9 Z" fill="#9B2C1E"/><rect x="15.4" y="22.3" width="3.2" height="3.2" fill="#9B2C1E"/></g>

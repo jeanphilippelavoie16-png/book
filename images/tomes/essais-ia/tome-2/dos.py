@@ -87,13 +87,13 @@ class Calque:
         im = self.c[nom].resize((self.w, self.h), Image.LANCZOS)
         return np.asarray(im, np.float32) / 255
 
-    def encre(self, sauf=()):
-        """Tout ce qui est posé, en alpha (pour l'ombre portée et la vérification)."""
+    def encre(self, noms):
+        """Les couches nommées (et les objets découpés, si 'images' y est), en alpha."""
         m = np.zeros((self.h, self.w), np.float32)
         for nom in self.c:
-            if nom not in sauf:
+            if nom in noms:
                 m = np.maximum(m, self.alpha(nom))
-        for rgba, x, y in self.images:
+        for rgba, x, y in (self.images if 'images' in noms else []):
             a = np.zeros_like(m)
             ox, oy = round((x - self.x0) * self.ppp), round((y - self.y0) * self.ppp)
             h, w = rgba.shape[:2]
@@ -101,15 +101,16 @@ class Calque:
             m = np.maximum(m, a)
         return m
 
-    def poser(self, can, ordre, decal=(0.035, 0.045), sans_ombre=('fil', 'clou', 'equerre')):
-        """Pose sur le fond : l'ombre portée (décalée en bas à droite, comme celle du cadre), puis les couches et les
-        objets dans l'ordre donné (un nom de couche avec sa couleur, ou 'images'). Les fils, les clous et les équerres
-        n'ont pas d'ombre, comme le fil du cadre : un trait foncé et son ombre laissent entre eux un filet de mur
-        clair que le nettoyage des étoiles prendrait pour une étoile."""
+    def poser(self, can, ordre, decal=(0.035, 0.045), ombre=('bois', 'images')):
+        """Pose sur le fond : l'ombre portée des couches nommées dans ombre (décalée en bas à droite, comme celle du
+        cadre au mur), puis les couches et les objets dans l'ordre donné (un nom de couche avec sa couleur, ou
+        'images'). Les herbes, les fils, les clous et les équerres n'ont pas d'ombre, comme les herbes sous la table
+        du devant : une ombre en lanières entre des feuilles laisse des points de mur clair que le nettoyage des
+        étoiles de couverture.py prendrait pour des étoiles et brouillerait."""
         ox, oy = round(self.x0 * self.ppp), round(self.y0 * self.ppp)
         zone = can[oy:oy + self.h, ox:ox + self.w].astype(np.float32)
         h, w = zone.shape[:2]
-        m = self.encre(sans_ombre)
+        m = self.encre(ombre)
         dx, dy = round(decal[0] * self.ppp), round(decal[1] * self.ppp)
         a = ndi.shift(m, (dy, dx), order=1)[:h, :w, None]
         zone = zone * (1 - a * (1 - OMBRE))

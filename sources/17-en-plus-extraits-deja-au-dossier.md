@@ -25,24 +25,39 @@
 > « Since any degree of dark adaptation is lost within a few seconds of viewing a bright light, a pilot should close
 > one eye when using a light to preserve some degree of night vision. » (AIM, § 8-1-6)
 
-**Ce que la note en tire :** au moins 30 minutes pour l'adaptation complète ; une seconde ou plus de lumière vive
+> « Although exposure to total darkness for at least 30 minutes is required for complete dark adaptation, a pilot can
+> achieve a moderate degree of dark adaptation within 20 minutes under dim red cockpit lighting. » (AIM, 8-1-6 ;
+> `18-faa-aim-chap8-section1-texte.txt`, l. 436)
+
+**Ce que la note en tire :** au moins 30 minutes pour l'adaptation complète (AIM ; l'AFH dit « jusqu'à 30 minutes ») ; une seconde ou plus de lumière vive
 la fait perdre en quelques secondes ; fermer un œil garde l'adaptation de cet œil ; la lumière rouge faible
 n'éblouit pas et fausse les couleurs. Le lien à la fenêtre où l'on guette est du chapitre.
 
 ## 2. Environnement Canada, refroidissement éolien (note « Le refroidissement éolien », étape 7)
 
-- **Fichier :** `sources/22-environnement-canada-refroidissement-eolien.md` (capté le 20 septembre 2026).
+- **Fichiers :** `sources/22-environnement-canada-refroidissement-eolien.md` (capté le 20 septembre 2026) ;
+  `sources/03-environnement-canada-refroidissement-eolien.md` et `sources/07-environnement-canada-refroidissement-eolien.md`
+  (la même page canada.ca, extraits mot pour mot) ; `sources/04-eccc-refroidissement-eolien.md` (tableau des risques).
 
 > Seuils : « -28 à -39 : La peau exposée peut geler en 10 à 30 minutes. » [...] « -55 et moins : [...] moins de
-> 2 minutes. »
+> 2 minutes. » (22-…)
 
-> « La page note aussi que par vent soutenu de plus de 50 km/h, les engelures peuvent apparaître plus vite que ces
-> durées ne l'indiquent. »
+> Note de la page : « en présence de vents soutenus de plus de 50 km/h, les engelures peuvent apparaître plus
+> rapidement qu'indiqué. » (03-…, l. 34 ; 07-…, l. 24)
 
-> « L'indice de refroidissement éolien est un nombre sans unité : la page l'écrit sans °C. »
+> Risque faible (0 à -9) : « Légère augmentation de l'inconfort » ; risque modéré (-10 à -27) : « Inconfortable »,
+> risques d'hypothermie et d'engelure lors d'exposition prolongée. Aucun temps de gel n'est donné sous -28. (03-…,
+> l. 15 à 19 ; 04-…, l. 12 et 13, « non spécifié »)
 
-**Ce que la note en tire :** l'indice sans unité ; à chaque valeur, un temps de gel de la peau exposée ; par vent
-soutenu de plus de 50 km/h, la peau gèle plus vite que ce temps. L'étape 7 et la pastille `{.orange 10 min}` prennent
+Note de captation, pas une citation de la page : l'indice est un nombre sans unité, et la page l'écrit sans °C
+(22-…, « Notes de captation » ; 07-…, l. 29).
+
+*Corrigé le 19 octobre 2026, après la vérification technique :* la première version de cette section mettait entre
+guillemets, comme des citations de la page, deux phrases qui sont des paraphrases de la fiche 22-… (le vent de
+50 km/h et l'indice sans unité). La citation exacte du vent est maintenant celle des fiches 03-… et 07-….
+
+**Ce que la note en tire :** l'indice sans unité ; à partir de −28, chaque plage de valeurs donne un temps de gel de
+la peau exposée (rien sous −28) ; par vent soutenu de plus de 50 km/h, la peau gèle plus vite que ce temps. L'étape 7 et la pastille `{.orange 10 min}` prennent
 la borne basse de la première plage (10 à 30 minutes à partir de −28).
 
 ## 3. Contagieux avant d'avoir l'air malade (note du même nom, étape 16) ; les 2 m dans une pièce fermée (étape 17)
@@ -65,9 +80,10 @@ la borne basse de la première plage (10 à 30 minutes à partir de −28).
 > plusieurs personnes étaient présentes pendant une période prolongée dans un endroit restreint. » (INSPQ)
 
 **Ce que le chapitre en tire :** la note (grippe un jour avant, COVID 48 heures avant, enfants plus longtemps pour la
-grippe, gastro jusqu'à deux semaines après) ; l'étape 17 (« dans une pièce fermée, pendant des heures, les virus
-respiratoires peuvent passer à plus de 2 m »). Cette phrase était déjà au chapitre (ancienne section 6) ; elle change
-seulement de place.
+grippe, gastro jusqu'à deux semaines après) ; l'étape 17 (« dans une pièce fermée où plusieurs personnes passent
+un long moment, les virus respiratoires peuvent passer à plus de 2 m »). Le fait était déjà au chapitre (ancienne
+section 6 : « dans une pièce fermée, les 2 m ne protègent plus ») ; il change de place. « Pendant des heures », écrit à
+la refonte, est sorti le 19 octobre après la vérification technique : la source ne donne aucune durée.
 
 ## 4. Turner, la place de l'invité (note « La place de l'invité chez les Inuits de l'Ungava », étape 17)
 
@@ -83,14 +99,20 @@ Lignes 2958 à 2973 :
 
 > « The interior of the skin tent is necessarily quite roomy on account of the number of occupants. The farther end
 > often has a stick of timber laid across the floor, and behind this is the bedding for the owner, his wives, and
-> children. [...] Guests and others temporarily abiding with the host are assigned any portion of the tent that the
-> host may choose to select, usually, if great honor is to be shown, the place lately occupied by himself. »
+> children. [...] Along the remainder of the sides within lie the other occupants, either in groups or singly,
+> depending on the degree of relationship existing between them. Guests and others temporarily abiding with the host
+> are assigned any portion of the tent that the host may choose to select, usually, if great honor is to be shown,
+> the place lately occupied by himself. »
 
 **Ce que la note en tire :** le maître de la tente de peaux choisit la place de l'invité ; pour lui faire honneur, il
 lui donne la sienne, au fond, derrière la pièce de bois couchée en travers du plancher, là où dorment sa famille et
-ses enfants. **Du rédacteur, pas de la source :** « ce qui rendait la façon sûre : le maître décidait de la place »
-et l'avertissement (avec un inconnu, céder sa place le fait dormir au fond, près des enfants), qui applique la façon
-à la règle du chapitre (section 7, « Se séparer, et tenir la nuit »).
+ses enfants ; les autres occupants couchent le long des côtés, seuls ou en groupes, selon leur parenté (l. 2966 à
+2968). **Du rédacteur, pas de la source :** l'avertissement (avec un inconnu, céder sa place le fait dormir au fond,
+près des enfants), qui applique la façon à la règle du chapitre (section 7, « Se séparer, et tenir la nuit »).
+
+*Corrigé le 19 octobre 2026, après la vérification technique :* la phrase « Ce qui rendait la façon sûre : le maître
+décidait de la place », du rédacteur et sans source, est sortie de la note ; elle est remplacée par ce que Turner dit
+de l'ordre de la tente (la place de chacun suit sa parenté).
 
 ## 5. Houston Police Department, le judas grand-angle (section 3, Matériel)
 
@@ -99,5 +121,7 @@ et l'avertissement (avec un inconnu, céder sa place le fait dormir au fond, pr�
 > « A peephole with a 180 degree viewing angle is excellent for you to verify who is on the other side of your
 > door. »
 
-**Ce que le chapitre en tire :** « un judas grand-angle voit sur 180° », à la ligne « Fenêtre sur l'entrée, ou
-judas » du Matériel.
+**Ce que le chapitre en tire :** « prendre un judas qui voit sur 180° », à la ligne « Fenêtre sur l'entrée, ou
+judas » du Matériel. *Corrigé le 19 octobre 2026, après la vérification technique :* la refonte écrivait « un judas
+grand-angle voit sur 180° », ce que la source ne dit pas (elle recommande un judas de 180° ; l'angle d'un grand-angle
+change d'un modèle à l'autre).

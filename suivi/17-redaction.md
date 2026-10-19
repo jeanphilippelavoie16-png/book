@@ -493,3 +493,56 @@ l'orange porte son détail. Fins de ligne CRLF gardées.
   `thuyone`, `poison` : texte rendu dans le rapport.
 - Ch. 61, l. 78 : « ch. 17 pour l'entreposage » ne pointe plus à rien (le chapitre ne parle pas d'entreposage des
   armes depuis la passe légale du 23 septembre).
+
+## Corrections après la vérification technique, 19 octobre 2026
+
+Rôle : rédacteur. Le vérificateur technique a relu la refonte contre le texte d'avant (`git show d4225e5^`) et signale
+onze points : une erreur, dix « à préciser ». **Les onze sont appliqués, aucun n'est écarté** ; trois le sont avec une
+autre formulation que celle proposée, pour la raison donnée. **Aucune page nouvelle téléchargée** (JP, 19 octobre
+2026 : « fuck les sources, on a pas déjà fait ce travail-là ? ») : chaque correction s'appuie sur un fichier déjà au
+dossier. Aucune étape renumérotée.
+
+| # | Où | Ce que le vérificateur signale | Ce qui est fait |
+| --- | --- | --- | --- |
+| 1 | Étape 9, tiret `{!mal-de-caribou}` (erreur) | Le rappel du tableau de `CLAUDE.md` a perdu son fait : « ne peut pas vivre de viande maigre seule » ne nomme ni la maladie, ni la mort, ni le délai | Appliqué, autre formulation : « Donner du gras quand on en a, jamais le dernier : la viande maigre mangée sans gras donne le mal de caribou, mortel en quelques semaines (ch. 19, ch. 21). » La phrase proposée (« sans gras, la viande maigre seule donne à la famille… ») disait deux fois la même chose (« sans gras », « maigre seule »). Sources : `CLAUDE.md`, tableau des rappels ; `dangers/partie-2.md`, page `mal-de-caribou` (« La mort vient après quelques semaines ») |
+| 2 | Étape 7 ; Points de contrôle, ligne des frissons | « La faire entrer » se lit « la faire marcher jusqu'à la porte », contre la page `froid` (couchée, bougée doucement, jamais à pied) | Appliqué. Étape 7 : « Avec un seul de ces signes, la faire entrer, ou la mettre à l'abri dehors (…) ; si elle ne frissonne plus, la porter couchée, sans la faire marcher. On parlera ensuite. » Points de contrôle : « La porter couchée à l'abri, sans la faire marcher, et la réchauffer (étapes 7 et 8 ; ch. 25) ». **Logigramme**, boîte « entre » : « s'il ne frissonne plus, le porter couché, sans le faire marcher ». Source : `dangers/partie-1.md`, page `froid`, « Ce qu'on fait », point 2 |
+| 3 | Section 7, « Vérifier une histoire… » | « Aller voir si [la motoneige] est vide ou brisée » est un geste nouveau, sans source, qui fait sortir un adulte avec un inconnu (contre les étapes 3 et 11 et les Signes d'échec) | Appliqué, autre formulation, pour garder les trois façons de vérifier : le titre devient « **Regarder la personne et ce qu'elle porte** » (le givre, la neige sur les épaules, les traces, qu'on voit de la fenêtre), et la motoneige s'écoute : « Si elle dit que sa motoneige est en panne, lui demander ce qui est arrivé : la personne qui a manqué d'essence ne raconte pas la même chose que la personne dont la motoneige a brisé. » Le titre proposé (« Écouter ce que la personne dit de sa motoneige ») laissait le givre, la neige et les traces sous un titre qui ne parle pas d'eux. Personne ne sort voir la machine |
+| 4 | Étape 7, « L'hiver » | Condition ajoutée : une personne mouillée par une pluie froide arrive aussi en hypothermie | Appliqué : le titre de l'étape perd « L'hiver » ; la marque de saison passe à la dernière phrase (« L'hiver, décider vite : à partir de −28… »). **Logigramme**, question « Il est blessé, ou il gèle ? » : la précision perd « L'hiver : » pour la même raison. Sources : `03-deshabillage-paradoxal-hypothermie.md` (Wedin 1979 : « cases were also reported at temperatures above 0 degree C ») ; `03-cchst-effets-du-froid-premiers-soins.md` (vêtements mouillés) |
+| 5 | Points de contrôle, durée de la conversation dehors | « Moins quand il fait plus froid » ne dit pas combien ; les bornes de −40 et −48 du tableau déjà vérifié ont disparu | Appliqué mot pour mot : « L'hiver, 10 min au plus à partir de −28 de refroidissement éolien, 5 min au plus à partir de −40 ; à partir de −48, aucune conversation dehors : décider par la fenêtre ; à moins de 2 m, moins de 15 min ». Hors de l'orange : la décision de JP (le thermomètre sort de la série orange) n'est pas touchée. Source : ancienne étape 5 (15 octobre) ; `22-environnement-canada-refroidissement-eolien.md` |
+| 6 | Étape 11, l'arme | La fusion fait dépendre « il ne sait pas si l'arme est chargée » du seul geste de se retourner | Appliqué : « Ne pas aller chercher l'arme, et ne pas la montrer. Pendant la conversation, le visiteur voit l'adulte se retourner pour aller la chercher. Devant une arme montrée, il ne sait pas si elle est chargée, et il réagit comme si elle l'était, sans qu'on puisse prévoir comment. » (« la chercher » au lieu de « la prendre » : le même verbe que le début de la phrase.) Source : ancienne étape 25 et ancien Danger, point 1 |
+| 7 | En plus, « Le refroidissement éolien » | « À chaque valeur correspond le temps… » est faux de 0 à −27 (« non spécifié ») | Appliqué : « À partir de −28, chaque plage de valeurs donne le temps que met la peau exposée à geler. » (« donne le temps que met la peau à geler » au lieu de « a son temps de gel de la peau exposée » : plus simple à dire.) Fiche `sources/17-en-plus-extraits-deja-au-dossier.md`, section 2 : les deux paraphrases que la première version mettait entre guillemets comme des citations de la page (le vent de plus de 50 km/h, l'indice sans unité) sont remplacées par la citation exacte (`03-…`, l. 34 ; `07-…`, l. 24) et par une note de captation ; le « non spécifié » de 0 à −27 est recopié (`03-…`, l. 15 à 19 ; `04-…`, l. 12 et 13) |
+| 8 | En plus, « La place de l'invité chez les Inuits de l'Ungava » | « Ce qui rendait la façon sûre : le maître décidait de la place » : du rédacteur, sans source (règle 1) | Appliqué, plus près de la source que la phrase proposée (« Chacun y couchait selon sa parenté avec les autres ») : « Les autres couchaient le long des côtés, seuls ou en groupes, selon leur parenté. » Turner, `autochtones/turner-1894-ethnologie-ungava-gutenberg.txt`, l. 2966 à 2968 : « Along the remainder of the sides within lie the other occupants, either in groups or singly, depending on the degree of relationship existing between them. » La note fait 78 mots. Fiche, section 4 : la citation complète, et la phrase du rédacteur retirée |
+| 9 | Étape 17 | « Pendant des heures » : la source ne donne aucune durée | Appliqué mot pour mot : « Dans une pièce fermée où plusieurs personnes passent un long moment, les virus respiratoires peuvent passer à plus de 2 m. » Source : `05-inspq-modes-transmission-ventilation.md`, l. 29 à 31. Fiche, section 3, mise à jour |
+| 10 | Matériel, judas | « Un judas grand-angle voit sur 180° » généralise la source | Appliqué mot pour mot : « prendre un judas qui voit sur 180° ». Source : `22-houston-pd-securite-maison.md`, l. 17. Fiche, section 5, mise à jour |
+| 11 | Fiche `sources/17-en-plus-extraits-deja-au-dossier.md`, section 1 | « Au moins 30 minutes » tiré d'une citation de l'AFH qui dit « jusqu'à 30 minutes » ; c'est l'AIM qui le porte | Appliqué : citation de l'AIM 8-1-6 ajoutée (`18-faa-aim-chap8-section1-texte.txt`, l. 436) ; « au moins 30 minutes pour l'adaptation complète (AIM ; l'AFH dit « jusqu'à 30 minutes ») ». Le texte du livre ne change pas |
+
+**Rappels du tableau de `CLAUDE.md`, après correction** : chacun garde son fait en toutes lettres à côté de son
+pictogramme : 74 °C (étapes 20 et 21, Points de contrôle) ; botulisme sans odeur, ni goût, ni apparence, et type E dès
+3 °C (étape 21) ; trichine que ni le sel, ni le fumage, ni le gel ne détruisent (étape 21) ; mal de caribou, mortel en
+quelques semaines (étape 9) ; thuyone du cèdre (section 7) ; génératrice jamais sous un toit (étape 18).
+
+**Logigramme** `images/logigrammes/17-qui-cogne.json` : deux textes changés (points 2 et 4 plus haut), colonnes et rangs
+non touchés. Rendus : `env -u TMPDIR python3 design/outils/logigramme.py images/logigrammes/17-qui-cogne.json` (svg,
+pdf, png) et `… --sans-entete --svg` (`17-qui-cogne-livre.svg`) : 0 erreur, 0 avis chacun. La boîte « entre » passe à
+six lignes et tient dans sa colonne (regardée au rendu).
+
+### controle.py, avant et après les corrections
+
+| | Refonte (19 octobre, avant) | Après |
+| --- | --- | --- |
+| Mots | 5 624 | 5 698 |
+| Tirets | 2 (titre, ligne de tome) | 2 (les mêmes) |
+| « § », tournures, maximes, pronominaux | 0 | 0 |
+| Mises en relief | 2 | 2 (les mêmes, jugées à la refonte) |
+| Mots vides | 18 | 18 (les mêmes) |
+| Redites | 3 | 3 (les mêmes renvois de section 7) |
+| Invariants | | Rien n'a disparu |
+
+Les 74 mots de plus : le fait du mal de caribou remis, les bornes de −40 et −48 remises, la personne qu'on porte
+couchée, la motoneige qu'on écoute au lieu d'aller la voir. Fins de ligne CRLF gardées.
+
+**Pour l'orchestrateur (outil commun, non touché)** : `controle.py` compte un rappel de sécurité comme présent quand
+son mot apparaît dans l'id d'un pictogramme (dictionnaire `SECURITE`, l. 52 : le motif « caribou » attrape
+`{!mal-de-caribou}` ; « trichin », « thuyone » et « botulisme » attrapent de même `{!trichine}`, `{!thuyone}` et
+`{!botulisme}`). Le contrôle des rappels devrait ignorer le texte entre `{!` et `}`, sinon un rappel qui perd son fait
+n'est jamais signalé.

@@ -13,18 +13,24 @@ Ce qui revient au dos, découpé dans l'image du devant elle-même (images/tomes
     le devant à 7 % près, en miroir comme le ciel. Elles partent du bord perdu, passent le pli et finissent en pointe
     sur la tranche, chacune à sa place, à plus de 0,27 po du devant ;
   - le soleil orange, qui se couche sur la dernière entaille : sa place est celle du devant, vue en miroir au pli du
-    devant ; les entailles du haut passent derrière lui, la dernière devant (c'est l'horizon).
+    devant ; les entailles du haut passent derrière lui, la dernière devant (c'est l'horizon) ;
+  - le lièvre de la grève, assis sur le même horizon à droite du soleil, en miroir : il regarde le soleil, et le
+    liséré orange que le couchant lui met sur le devant passe du côté du soleil. Il est découpé par la différence
+    entre l'image et celle d'avant le lièvre (lievre/titre-tome-3-sans-lievre.jpg), sans l'ombre ni la grève.
+Le soleil et le lièvre ont la hauteur du trou ; tout est réduit depuis l'image d'origine, rien n'est agrandi.
 Le ciel du devant est vide au-dessus des entailles : le dos l'est aussi (le texte d'ouverture, la tranche au-dessus de
 la bande).
 
 Rien ne touche le texte : on cherche le trou dans les boîtes mesurées par Chromium (info['rects']), élargies de MARGE,
 et on vérifie à la fin qu'aucun pixel changé n'y entre.
 """
+import os
 import numpy as np
 from PIL import Image
 from scipy import ndimage as ndi
 
 LUM = np.array([.2126, .7152, .0722], np.float32)
+ICI = os.path.dirname(os.path.abspath(__file__))
 
 # Dans l'image d'origine (3072 × 3840 px) :
 BANDE = (1690, 2018)                     # les lignes de l'image où les entailles crème coupent le ciel vert
@@ -33,6 +39,8 @@ ENTAILLES = {'l1': (1704, 1726),         # la ligne cassée du haut (quatre bout
              'l5': (1902, 1916),
              'l6': (1943, 1957)}         # (centre de chaque entaille entre a et b)
 SOLEIL = (2040, 2252, 1790, 2400)         # y0, y1 (coupé à plat juste au-dessus des collines), x0, x1
+LIEVRE = (3390, 3643, 430, 650)           # y0, y1 (coupé sous la croupe, avant l'ombre), x0, x1
+SANS_LIEVRE = 'lievre/titre-tome-3-sans-lievre.jpg'     # la même image avant le lièvre : la différence le découpe
 
 MARGE = 0.13                              # po, autour de tout ce qui est écrit ou tracé
 ECHELLE = 0.855                           # l'image en largeur couvre la quatrième et la tranche (0,80 au devant)
@@ -40,6 +48,7 @@ PAS = 38                                  # écart entre deux entailles, px de l
 DEVANT = 0.27                             # po : les entailles finissent au moins à cette distance du devant
 POINTES = (0.0, 0.16, 0.07, 0.24)         # po : le retrait de la pointe de chaque entaille, pour qu'elles ne
                                           # finissent pas en colonne
+X_LIEVRE = 6.6                            # po du bord perdu : le lièvre, assis sur l'horizon, à droite du soleil
 
 
 # ---------------------------------------------------------------- les pièces de l'image
@@ -81,6 +90,29 @@ def _soleil(src):
     ys, xs = np.nonzero(alpha > 0.5)
     sl = (slice(ys.min() - 2, None), slice(xs.min() - 2, xs.max() + 3))
     return alpha[sl], coul[sl], x0 + xs.min() - 2
+
+
+def _lievre(src):
+    """Le lièvre de la grève, découpé par la différence avec l'image d'avant le lièvre : sa silhouette (le corps
+    sombre, ses entailles crème, l'œil, le liséré orange du couchant), alpha et couleur, à la résolution d'origine."""
+    y0, y1, x0, x1 = LIEVRE
+    sans = np.asarray(Image.open(os.path.join(ICI, SANS_LIEVRE)).convert('RGB'))[y0:y1, x0:x1].astype(np.float32)
+    a = src[y0:y1, x0:x1].astype(np.float32)
+    d = np.abs(a - sans).max(2) > 45
+    d = ndi.binary_closing(d, structure=np.ones((13, 3)))      # les lignes de l'eau qui passaient derrière lui
+    lab, n = ndi.label(d)
+    i = 1 + int(np.argmax(ndi.sum(d, lab, index=np.arange(1, n + 1))))
+    L = a @ LUM
+    sombre = (L < 110) & (lab == i)
+    corps = ndi.binary_fill_holes(ndi.binary_opening(sombre, structure=np.ones((3, 3))))
+    lab2, n2 = ndi.label(corps)
+    corps = lab2 == 1 + int(np.argmax(ndi.sum(corps, lab2, index=np.arange(1, n2 + 1))))
+    orange = (a[..., 0] - a[..., 1] > 40) & ndi.binary_dilation(corps, iterations=6) & (lab == i)
+    sil = ndi.binary_fill_holes(corps | orange)
+    alpha = ndi.gaussian_filter(sil.astype(np.float32), 0.7)     # le bord, adouci d'un demi-pixel
+    ys, xs = np.nonzero(sil)
+    sl = (slice(ys.min(), ys.max() + 1), slice(max(0, xs.min() - 2), xs.max() + 3))
+    return alpha[sl], a[sl]
 
 
 def _effiler(A, fin, long_):
@@ -237,7 +269,15 @@ def motif(can, info):
 
     _poser(can, haut, creme, 0, y0)                # les entailles du haut, derrière le soleil
     _poser(can, sa_, sc_, sx, sy)
-    _poser(can, horizon, creme, 0, y0)             # l'horizon, devant
+    # le lièvre, en miroir : il regarde le soleil, et son liséré orange est du côté du soleil ; aussi haut que le soleil
+    la, lc = _lievre(src)
+    la, lc = la[:, ::-1], lc[:, ::-1]
+    lx = int(X_LIEVRE * ppp)
+    lbase = np.nanmax(centre[lx - int(0.25 * ppp):lx + int(0.25 * ppp)]) + 1
+    ls = (lbase - haut_soleil) / la.shape[0]
+    lw, lh = int(round(la.shape[1] * ls)), int(round(la.shape[0] * ls))
+    _poser(can, _reduire(la, lw, lh), _reduire_rvb(lc, lw, lh), lx - lw // 2, int(round(lbase)) - lh)
+    _poser(can, horizon, creme, 0, y0)             # l'horizon, devant le soleil et le lièvre
 
     # contrôle : rien sur le devant, rien dans la marge du texte
     chg = (can != avant).any(2)
