@@ -18,15 +18,15 @@
 </g>
 <g id="liens">
 <path d="M283.50,99.62 L283.50,108.20" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
-<path d="M283.50,160.70 L283.50,174.00 Q283.50,180.00 277.50,180.00 L159.00,180.00 Q153.00,180.00 153.00,186.00 L153.00,212.60" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
-<path d="M283.50,160.70 L283.50,174.00 Q283.50,180.00 289.50,180.00 L408.00,180.00 Q414.00,180.00 414.00,186.00 L414.00,212.60" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M283.50,172.20 L283.50,176.10 Q283.50,180.00 279.60,180.00 L159.00,180.00 Q153.00,180.00 153.00,186.00 L153.00,212.60" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M283.50,172.20 L283.50,176.10 Q283.50,180.00 287.40,180.00 L408.00,180.00 Q414.00,180.00 414.00,186.00 L414.00,212.60" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
 <path d="M153.00,275.00 L153.00,291.80" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
 <path d="M153.00,345.90 L153.00,374.60" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
 <path d="M414.00,275.00 L414.00,291.80" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
 <path d="M414.00,358.20 L414.00,374.60" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
 <path d="M414.00,428.70 L414.00,446.60" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
 <path d="M868.50,99.62 L868.50,108.20" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
-<path d="M868.50,159.50 L868.50,173.00" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M868.50,154.60 L868.50,173.00" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
 <path d="M868.50,220.30 L868.50,237.80" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
 <path d="M868.50,285.10 L868.50,302.60" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
 <path d="M868.50,349.90 L868.50,374.60" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
@@ -36,9 +36,10 @@
 <g id="noeuds">
 <rect x="36.00" y="60.22" width="495.00" height="39.40" rx="0" fill="#2B5876"/>
 <text data-max="468.50" x="50.00" y="84.67" font-family="IBM Plex Sans Condensed" font-size="15" fill="#fff" text-anchor="start" xml:space="preserve"><tspan font-weight="700">Il faut de l’aide, loin de tout</tspan></text>
-<rect x="36.00" y="115.20" width="495.00" height="45.50" rx="10" fill="#fff" stroke="#2B5876" stroke-width="1.75"/>
+<rect x="36.00" y="115.20" width="495.00" height="57.00" rx="10" fill="#fff" stroke="#2B5876" stroke-width="1.75"/>
 <text data-max="472.50" x="283.50" y="135.50" font-family="IBM Plex Sans Condensed" font-size="13" fill="#000" text-anchor="middle" xml:space="preserve"><tspan font-weight="700">La vie de quelqu’un est en jeu maintenant ?</tspan></text>
-<text data-max="472.50" x="283.50" y="149.77" font-family="IBM Plex Serif" font-size="9.5" font-style="italic" fill="#000" text-anchor="middle" xml:space="preserve"><tspan font-weight="400">Il respire mal, saigne sans qu’on arrive à l’arrêter, se réveille mal, ou ne pourra pas passer la nuit à l’endroit où il est</tspan></text>
+<text data-max="472.50" x="283.50" y="149.77" font-family="IBM Plex Serif" font-size="9.5" font-style="italic" fill="#000" text-anchor="middle" xml:space="preserve"><tspan font-weight="400">Il respire mal, saigne sans qu’on arrive à l’arrêter, se réveille mal ou</tspan></text>
+<text data-max="472.50" x="283.50" y="161.27" font-family="IBM Plex Serif" font-size="9.5" font-style="italic" fill="#000" text-anchor="middle" xml:space="preserve"><tspan font-weight="400">devient confus, ou ne pourra pas passer la nuit à l’endroit où il est</tspan></text>
 <rect x="36.00" y="219.60" width="234.00" height="55.40" rx="0" fill="#FDE8D8" stroke="#EE7219" stroke-width="1.5"/>
 <text data-max="217.50" x="45.00" y="240.25" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">Déclencher la détresse sans attendre</tspan><tspan font-weight="500"> : le bouton</tspan></text>
 <text data-max="217.50" x="45.00" y="252.55" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">SOS de l’appareil satellite, la balise de 406 MHz, ou</tspan></text>
@@ -85,11 +86,10 @@
 <text x="473.57" y="502.30" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="8.5" fill="#000" xml:space="preserve" data-max="54.68">ch. 14, étape 8</text>
 <rect x="621.00" y="60.22" width="495.00" height="39.40" rx="0" fill="#2B5876"/>
 <text data-max="468.50" x="635.00" y="84.67" font-family="IBM Plex Sans Condensed" font-size="15" fill="#fff" text-anchor="start" xml:space="preserve"><tspan font-weight="700">Quelqu’un n’est pas revenu à l’heure prévue</tspan></text>
-<rect x="621.00" y="115.20" width="495.00" height="44.30" rx="0" fill="#FDE8D8" stroke="#EE7219" stroke-width="1.5"/>
-<text data-max="478.50" x="630.00" y="136.33" font-family="IBM Plex Sans Condensed" font-size="10.5" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">Écrire l’heure, puis essayer de le joindre</tspan><tspan font-weight="500"> sur son appareil satellite ou à la radio portative, jusqu’à l’heure</tspan></text>
-<text data-max="478.50" x="630.00" y="149.22" font-family="IBM Plex Sans Condensed" font-size="10.5" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">limite.</tspan></text>
-<rect x="1053.57" y="147.25" width="63.18" height="13.00" fill="#EE7219"/>
-<text x="1058.57" y="156.80" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="8.5" fill="#000" xml:space="preserve" data-max="54.68">ch. 14, étape 9</text>
+<rect x="621.00" y="115.20" width="495.00" height="39.40" rx="0" fill="#FDE8D8" stroke="#EE7219" stroke-width="1.5"/>
+<text data-max="478.50" x="630.00" y="136.33" font-family="IBM Plex Sans Condensed" font-size="10.5" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">Écrire l’heure, puis essayer de le joindre</tspan><tspan font-weight="500"> sur son appareil satellite ou au walkie-talkie, jusqu’à l’heure limite.</tspan></text>
+<rect x="1053.57" y="142.35" width="63.18" height="13.00" fill="#EE7219"/>
+<text x="1058.57" y="151.90" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="8.5" fill="#000" xml:space="preserve" data-max="54.68">ch. 14, étape 9</text>
 <rect x="629.00" y="108.20" width="21.63" height="14.00" fill="#EE7219"/>
 <text x="634.00" y="118.40" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="9" fill="#000" xml:space="preserve" data-max="13.13">1 h</text>
 <rect x="621.00" y="180.00" width="495.00" height="40.30" rx="0" fill="#FDE8D8" stroke="#EE7219" stroke-width="1.5"/>

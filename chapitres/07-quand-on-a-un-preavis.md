@@ -50,7 +50,7 @@ monte au chalet.
 1. **Lire l'alerte au complet et noter son type** : chaque type demande des gestes différents.
  - Un **avertissement** annonce du temps violent qui s'en vient : faire toutes les étapes qui suivent. Il sort
  habituellement 6 à 24 heures avant l'événement, parfois plus tôt. Pour un orage violent ou une tornade, il peut arriver moins
- d'une demi-heure avant : faire alors tout de suite l'étape 26.
+ d'une demi-heure avant : ne pas prendre la route, et faire tout de suite l'étape 26.
  - Une **veille** annonce des conditions qui peuvent tourner au temps violent. Faire les gestes qu'on peut défaire
  sans rien perdre (remplir l'eau, charger, rentrer du bois), et attendre l'avertissement pour ceux qui dépensent
  la réserve, comme cuire la viande du congélateur.
@@ -69,9 +69,8 @@ monte au chalet.
  bois (étape 16).
 4. **Mettre à charger tout ce qui se charge** : les téléphones, les blocs-piles, les outils sans fil, la radio
  rechargeable et les appareils médicaux.
-5. **Prévenir les proches et les voisins par message texte** (ch. 14, ch. 16). Un message texte encombre beaucoup
- moins le réseau qu'un appel : il peut passer quand les appels saturent le réseau, ou quand le service d'appel est
- coupé.
+5. **Prévenir les proches et les voisins par message texte** (ch. 14, ch. 16). Un message texte encombre moins le
+ réseau qu'un appel : il peut passer quand les appels saturent le réseau, ou quand le service d'appel est coupé.
 
 ### Il reste plus de 6 heures
 
@@ -80,7 +79,7 @@ monte au chalet.
 6. **Remplir l'eau à boire : 2 L par personne et par jour.** Pour quatre personnes et sept jours, il faut 56 L. Le
  minimum est de 6 L par personne, soit trois jours. Prendre des contenants propres qui ferment et qui n'ont jamais
  contenu de produit chimique : un bidon de lave-glace garde du produit même rincé.
-7. **Remplir l'eau de service à part : au moins 6 L de plus par personne**, pour la cuisine et la toilette. Pour
+7. **Remplir l'eau de service à part : au moins 6 L de plus par personne**, pour la cuisine et pour se laver. Pour
  quatre personnes et trois jours, il faut donc au moins 48 L en tout, eau à boire comprise.
  - Pour la vaisselle et la chasse d'eau, remplir la baignoire, après l'avoir tapissée d'un sac à ordures neuf et
  épais : nue, elle se vide autour du bouchon en deux jours. Remplir aussi les chaudières, les marmites et les
@@ -113,8 +112,8 @@ monte au chalet.
 13. {!cuisson} {!abats} **Cuire d'avance la viande qui ne tiendra pas au dégel, les abats et la viande hachée en
  premier.** Cuire le gibier à 74 °C à cœur, mesurés au thermomètre à sonde : l'orignal, l'ours, le lièvre, les
  oiseaux en morceaux ; un oiseau entier, à 82 °C. Une viande cuite se mange froide et ne demande plus de feu pendant
- la panne. Ne pas cuire le foie ni les reins de l'orignal ou du caribou, et les jeter : ils accumulent le cadmium, et
- la cuisson ne l'enlève pas (ch. 22).
+ la panne. Ne pas cuire le foie ni les reins d'un cervidé (orignal, caribou, cerf) ni de l'ours, et les jeter : ils
+ accumulent le cadmium, et la cuisson ne l'enlève pas (ch. 22).
 14. {!trichine} **Cuire l'ours et le phoque à 74 °C à cœur, au lieu de les saler ou de les fumer pour sauver la
  viande.** Ni le sel, ni le fumage, ni le gel domestique ne tuent la trichine : une cuisse d'ours salée parce que le
  congélateur a lâché reste dangereuse (ch. 52, ch. 56).
@@ -130,15 +129,17 @@ monte au chalet.
  ch. 87). Les pompes à essence marchent à l'électricité : quand le courant manque, toutes les stations du secteur
  arrêtent de vendre en même temps.
 18. {!generatrice} {!electrocution} **Préparer l'emplacement de la génératrice pendant qu'il fait clair.**
- - Choisir l'endroit dehors, à au moins 6 m du bâtiment lui-même, pas de la porte : c'est plus loin que là où on la
- pose d'habitude, et plus loin que la longueur d'une rallonge ordinaire. Prendre la rallonge à la longueur de cette
- distance.
+ - Choisir l'endroit dehors, à découvert, à au moins 6 m du bâtiment lui-même, pas de la porte, et tourner
+ l'échappement à l'opposé des portes et des fenêtres. Jamais dans un bâtiment, un garage ou sous un auvent, même
+ porte ouverte. Ces 6 m sont plus loin que là où on la pose d'habitude, et plus loin que la longueur d'une rallonge
+ ordinaire : prendre la rallonge à la longueur de cette distance.
  - Dégager l'endroit à la pelle, le marquer d'un piquet et y monter une base surélevée avant que la neige tombe : la
  nuit de la tempête, on ne dégage pas 6 m de neige.
  - Dérouler la rallonge au complet jusqu'à la maison : enroulée, elle chauffe.
  - Mettre l'interrupteur principal de la maison à OFF avant de brancher quoi que ce soit, et brancher les appareils
- directement dans les prises de la génératrice. Si la génératrice est raccordée à la maison quand le courant
- revient, le courant du réseau entre dans la génératrice en marche et l'abîme.
+ directement dans les prises de la génératrice. Si la génératrice est raccordée à la maison, elle renvoie son
+ courant dans la ligne de la rue ; et quand le courant revient, le courant du réseau entre dans la génératrice en
+ marche et l'abîme.
 19. {!vapeurs} **Essayer la génératrice à son emplacement, avec la charge qu'elle devra porter** : la démarrer, la
  laisser monter en régime, puis brancher les appareils qu'elle fera marcher pendant la panne. La faire travailler
  selon sa puissance, et l'arrêter 1 heure toutes les 8 heures. Faire le plein seulement quand elle est arrêtée et
@@ -185,9 +186,8 @@ monte au chalet.
 
 ### Il reste moins de 6 heures
 
-26. **Si l'alerte arrive à moins de 6 heures de l'événement, faire d'abord** l'eau (étapes 6 à 8), les pleins
- (étape 17), le congélateur (étapes 10 et 11), l'emplacement de la génératrice (étape 18) et l'avertisseur (étape 21),
- puis continuer ici.
+26. **Si l'alerte arrive à moins de 6 heures de l'événement, faire d'abord** l'eau (étapes 6 à 8), le congélateur
+ (étapes 10 et 11), l'emplacement de la génératrice (étape 18) et l'avertisseur (étape 21), puis continuer ici.
 27. {!froid} **Arrêter les déplacements.** Passé ce moment, on ne sort que pour une urgence, jamais pour un oubli. Un
  aller-retour pendant les dernières heures met la famille sur la route au moment où la visibilité tombe. Si l'auto
  reste prise, elle refroidit beaucoup plus vite qu'une maison : elle n'a ni masse ni isolant, et elle perd sa chaleur
@@ -240,10 +240,11 @@ monte au chalet.
 ### Après l'événement
 
 42. **Remettre les services en marche dans l'ordre, un à la fois.**
- - Vérifier que le chauffe-eau est plein avant de rétablir le courant.
- - Remettre l'entrée principale d'électricité à ON.
+ - Couper le disjoncteur du chauffe-eau au panneau, puis remettre l'entrée principale d'électricité à ON.
+ - Remettre le chauffage en marche, un appareil à la fois, et attendre que les pièces où passent les tuyaux soient à
+ au moins 18 °C (ch. 2, étape 20).
  - Ouvrir l'entrée d'eau et les robinets pour laisser sortir l'air.
- - Remettre le chauffage en marche, un appareil à la fois.
+ - Remettre le disjoncteur du chauffe-eau quand l'eau coule au robinet d'eau chaude : il est plein.
  - Attendre que la maison soit revenue à sa température normale avant de rebrancher l'électronique : de l'eau
  condense sur un appareil froid, et sous tension, elle fait un court-circuit.
 43. {!vapeurs} **Rouvrir le gaz appareil par appareil.** Rouvrir l'entrée envoie le gaz vers tous les appareils en même
@@ -274,7 +275,7 @@ monte au chalet.
 | 12 h avant | Viande cuite d'avance | 74 °C à cœur le gibier, 82 °C l'oiseau entier, 70 °C le poisson, au thermomètre | Remettre à cuire ; la couleur et le jus ne prouvent rien |
 | 12 h avant | Carburant | Pleins faits, consommation de la génératrice écrite sur elle en L/h | Réduire les heures de marche prévues |
 | 12 h avant | Génératrice | Elle démarre et porte la charge réelle | La réparer maintenant (section 7), ou faire le plan sans elle |
-| 12 h avant | Avertisseur de CO | Le bouton d'essai fait sonner l'alarme | Changer les piles ; s'il reste muet, rien ne le remplace (section 7) |
+| 12 h avant | Avertisseur de CO | Le bouton d'essai fait sonner l'alarme | Changer les piles. S'il reste muet, rien ne le remplace (section 7) : ne rentrer dans la maison aucun appareil qui brûle un carburant, ni réchaud, ni barbecue, ni chaufferette d'appoint |
 | 6 h avant | Déplacements | Aucune sortie prévue | Sortir seulement pour une urgence |
 | 1 h avant | Électronique | Débranchée | Accepter de la perdre au retour du courant |
 | 1 h avant | Lampe témoin | Une lampe allumée par étage | Sinon, le retour du courant passe inaperçu la nuit |
@@ -294,7 +295,7 @@ monte au chalet.
 | Emballage sans givre, centre de l'aliment mou | Décongélation complète | Resté à 4 °C ou moins : le cuire tout de suite, ou le recongeler une fois cuit. Au-dessus de 4 °C : le jeter |
 | Cristaux de glace encore visibles, centre dur | Décongélation partielle | On peut le recongeler tel quel |
 | Lait, crème, fromage à pâte molle, œufs, pâtes cuites, salades avec viande, volaille ou poisson, desserts à la crème, mayonnaise maison, qui ont dépassé 4 °C | Aliments du réfrigérateur à jeter sans les examiner | Les jeter. Dans le doute, jeter |
-| L'avertisseur de CO sonne, ou plusieurs personnes ont mal à la tête, la nausée ou des étourdissements en même temps | Du monoxyde entre dans la maison : une génératrice, une auto ou un appareil qui brûle trop près d'une ouverture | Sortir tout le monde à l'air libre, puis éloigner la source à 6 m du bâtiment, l'échappement tourné à l'opposé (étape 18) |
+| L'avertisseur de CO sonne, ou plusieurs personnes ont mal à la tête, la nausée ou des étourdissements en même temps | Du monoxyde entre dans la maison : une génératrice ou une auto trop près d'une ouverture, ou un appareil qui brûle à l'intérieur | Sortir tout le monde à l'air libre, puis arrêter la source si on peut l'atteindre sans rester à l'intérieur. Éloigner la génératrice ou l'auto à 6 m du bâtiment, l'échappement tourné à l'opposé des portes et des fenêtres (étape 18) |
 | Le robinet ne donne plus rien | Station de pompage sans courant, ou conduite gelée | Passer à la réserve. Dégeler la conduite à l'eau chaude, jamais à la flamme (ch. 3) |
 | Le filet du robinet faiblit d'heure en heure | La pression du réseau s'épuise ; il reste des minutes | Remplir tout de suite ce qui est encore vide, eau de service comprise |
 | Eau trouble, colorée ou avec une odeur nouvelle au retour du service | Le réseau a perdu sa pression pendant la panne : une conduite sans pression aspire l'eau du sol par ses fuites et ses joints | Faire bouillir ou javelliser l'eau comme à l'étape 8 pendant tout le retour du service, même quand elle est redevenue claire |
@@ -520,33 +521,27 @@ fendent (étape 34).
 
 ### L'alerte à la radio et au téléphone
 
-Au Québec, seuls le ministère de la Sécurité publique et Environnement Canada peuvent lancer une alerte au public.
-Les stations de radio et de télévision et les réseaux cellulaires sont branchés sur le même système, et ils diffusent
-la même alerte, en français d'abord, puis en anglais : celle qu'on entend à la radio est celle du téléphone
-(étape 1).
-
-### Ce que l'ébullition n'enlève pas
-
-Le manganèse et l'arsenic, qu'on trouve naturellement dans l'eau de certains puits, ne partent pas à l'ébullition,
-comme le contaminant d'un avis de non-consommation (étape 8). Pour un puits qui en contient, faire bouillir l'eau ne
-sert à rien : on règle les microbes, pas ces métaux.
+Au Québec, seuls le ministère de la Sécurité publique et Environnement Canada peuvent lancer une alerte par le système
+d'alerte au public. Les stations de radio et de télévision et les fournisseurs de cellulaire sont branchés sur ce
+système et diffusent ses messages, en français d'abord, puis en anglais (étape 1).
 
 ### Une courte panne peut contaminer l'aqueduc
 
 Dans les réseaux d'aqueduc où on a suivi la pression, chaque fois qu'elle est tombée sous zéro, c'était pendant une
 panne de courant ou l'arrêt d'une pompe. Lors d'une panne à une station de pompage, elle est restée sous zéro
-24 secondes : assez pour que l'eau du sol, qui porte des virus venus des selles, entre par les fuites des conduites
-(étape 42).
+24 secondes. Tant que la pression est sous zéro, l'eau du sol autour des conduites, où on a trouvé des virus venus des
+selles, peut entrer par leurs fuites (étape 42).
 
 ### La cache de pierres des Inuits de la Koksoak
 
-Les Inuits de la rivière Koksoak, en Ungava, gardaient pour l'hiver le caribou tué avant les glaces : la bête posée sur
-quelques pierres, couverte d'un mur de pierres contre les corbeaux, les renards, les loups et le carcajou, et la
-place marquée d'un repère que la neige ne cache pas. Le froid garde la viande ; les premières bêtes, tuées quand il
-faisait encore chaud, se gâtaient et allaient aux chiens (section 7, « La caisse froide dehors »).
+Les Inuits de la rivière Koksoak, en Ungava, gardaient pour l'hiver le caribou tué à l'automne : la bête posée sur
+quelques pierres, sous un mur de pierres contre les corbeaux, les renards, les loups et le carcajou. Ils marquaient
+l'endroit pour le retrouver sous la neige, et souvent ne le retrouvaient pas. Le froid garde la viande ; les premières
+bêtes, tuées quand il faisait encore chaud, se gâtaient et allaient aux chiens (section 7, « La caisse froide
+dehors »).
 
 ### Lire la charge d'une batterie au voltmètre
 
 On lit la charge d'une batterie au plomb de 12 V au voltmètre, après au moins 6 heures de repos : environ 12,7 V quand
-elle est pleine, 12,5 V aux quatre cinquièmes, 12,1 V à moitié, un peu moins de 12 V à 40 %. Sous 12,1 V, la recharger avant
-de la laisser au froid (section 7, « La batterie de l'auto à la place de la génératrice »).
+elle est pleine, 12,5 V aux quatre cinquièmes, 12,1 V à moitié, un peu moins de 12 V à 40 %. Sous 12,4 V, la recharger
+avant de la laisser au froid (section 7, « La batterie de l'auto à la place de la génératrice »).

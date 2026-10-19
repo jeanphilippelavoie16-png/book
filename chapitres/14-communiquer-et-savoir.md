@@ -62,13 +62,15 @@ elles n'arrivent pas.
  la balise puis la rallumer pour ménager la pile : un signal qui s'arrête et reprend donne une position moins
  précise et gêne les sauveteurs qui se guident sur lui. Une balise dont la pile est en bon état émet au moins 24 h.
  Rester aussi près de la machine, de l'auto ou du traîneau : d'un avion, on repère une machine plus facilement
- qu'une personne. Garder l'appareil satellite allumé, sous le manteau, pour lire les messages qui arrivent.
+ qu'une personne. Garder l'appareil satellite allumé, au chaud sous le manteau, et le sortir sous un ciel dégagé à
+ l'heure des messages pour envoyer et recevoir (étape 7).
 4. {!froid} **Se préparer à attendre longtemps, et à être vu.** Une recherche peut prendre jusqu'à 24 h avant que
  quelqu'un arrive.
  - Monter un abri (ch. 12, étapes 1 à 14) et faire un feu (ch. 13) près de la machine, ou dans l'ouverture la plus
  proche (un lac, une coupe, une clairière), pour qu'on voie le feu d'en haut.
  - Ramasser une grosse brassée de branches vertes et la garder à côté du feu. Dès qu'on voit ou qu'on entend un
- avion, la jeter sur le feu : elle fait une colonne de fumée.
+ avion, la jeter sur le feu : elle fait une colonne de fumée. Sur la neige, garder aussi à côté du feu de quoi faire
+ de la fumée noire : du caoutchouc, de l'huile ou du plastique (section 7, « La fumée »).
  - La nuit, allumer une lampe frontale ou une lampe de poche vers le bruit de l'avion ; le flash d'un appareil photo
  se voit aussi.
 5. **Si la vie n'est pas en jeu mais que ça peut mal tourner, avertir tout de suite le correspondant** par message
@@ -83,7 +85,7 @@ elles n'arrivent pas.
 
  | Ordre | Ce qu'on écrit | Exemple |
  | --- | --- | --- |
- | 1 | Qui écrit, deux fois | `PAN PAN. Chalet du lac X, chalet du lac X` |
+ | 1 | Qui écrit, répété | `PAN PAN. Chalet du lac X, chalet du lac X` |
  | 2 | Où, en coordonnées et en mots | `<coordonnées de la fiche de position>, km <n> du chemin Y` |
  | 3 | Combien de personnes | `4 personnes, dont 2 jeunes enfants` |
  | 4 | Ce qui arrive | `un adulte, jambe cassée, conscient` |
@@ -98,15 +100,15 @@ elles n'arrivent pas.
  il l'a mis en file pour le satellite : seule la réponse prouve qu'il est arrivé. Sans réponse, aller sous un ciel
  dégagé et renvoyer le message. Ne rien décider en se disant que le correspondant est au courant.
 8. **Envoyer le message suivant à l'heure annoncée, même s'il n'y a rien de neuf.** Si la situation empire,
- déclencher la détresse (étape 2). Si elle s'arrange, l'écrire tout de suite. Si la balise ou le SOS est parti par
- erreur, éteindre la balise, puis écrire au correspondant l'heure où elle est partie, combien de temps elle a émis,
- où on est, et que tout va bien, pour qu'il fasse arrêter la recherche : une équipe qui cherche une famille rentrée
+ déclencher la détresse (étape 2). Si elle s'arrange, l'écrire tout de suite. Si la balise est partie par erreur,
+ l'éteindre, puis écrire au correspondant l'heure où elle est partie, combien de temps elle a émis, où on est, et que
+ tout va bien, pour qu'il fasse arrêter la recherche : une équipe qui cherche une famille rentrée
  chez elle ne cherche pas quelqu'un d'autre.
 
 ### Quelqu'un n'est pas revenu à l'heure prévue {.orange 1 h}
 
 9. **Écrire l'heure, puis essayer de le joindre.** Lui écrire sur son appareil satellite s'il en porte un, ou
- l'appeler à la radio portative. S'il ne répond pas, recommencer jusqu'à l'heure limite.
+ l'appeler au walkie-talkie. S'il ne répond pas, recommencer jusqu'à l'heure limite.
 10. **Relire la fiche de sortie** (étape 29) : où il allait, par quel chemin, avec quelle machine, et l'heure
  limite. Sans fiche, écrire tout de suite ce qu'on sait : l'heure de son départ, la direction prise, la machine, ce
  qu'il portait ; compter alors l'heure limite une heure après l'heure où il devait rentrer.
@@ -114,8 +116,8 @@ elles n'arrivent pas.
  devant le chalet dès que le jour baisse. Souffler dans un sifflet à intervalles réguliers, puis se taire pour
  écouter la réponse (section 7, « Se faire voir et se faire entendre »).
 12. **À l'heure limite, sans nouvelles, avertir le correspondant** par message satellite, dans l'ordre de
- l'étape 6 : qui manque, depuis quand, ce que dit la fiche de sortie. Le correspondant suit alors sa consigne
- (étape 18). Ne pas attendre le lendemain pour écrire.
+ l'étape 6 : qui manque, depuis quand, ce que dit la fiche de sortie. Le correspondant donne alors l'alerte tout de
+ suite (étape 18). Ne pas attendre le lendemain pour écrire.
 13. **Partir le chercher seulement à deux, sans l'adulte qui garde les enfants.** Une personne qui part seule, ou
  qui part de nuit, risque de se perdre ou de se blesser à son tour, et il y a alors deux personnes à chercher.
  - Laisser au chalet le chemin qu'on prend et l'heure du retour.
@@ -131,11 +133,11 @@ elles n'arrivent pas.
  route est-elle ouverte ? Le courant est-il revenu ? Est-ce que ça brûle, et où ? Est-ce que les nôtres vont bien ?*
  Pour les trois premières, écrire le nom et la fréquence de la station de radio qui donne ces nouvelles ; pour la
  dernière, le nom du correspondant (étape 18).
- - Au chalet, le téléphone ne reçoit pas les alertes d'urgence : il les reçoit seulement s'il est connecté à un
- réseau cellulaire LTE au moment où l'alerte part. Les mêmes alertes passent à la radio et à la télévision, et la
+ - Au chalet hors réseau cellulaire, le téléphone ne reçoit pas les alertes d'urgence : il les reçoit seulement
+ s'il est connecté à un réseau cellulaire LTE au moment où l'alerte part. Les mêmes alertes passent à la radio et à la télévision, et la
  radio à piles les reçoit.
  - À la maison, le téléphone reçoit les alertes tant que la tour cellulaire a du courant. Pendant une panne, les
- batteries d'une tour la font marcher le plus souvent de 2 à 10 h, rarement une journée ; certaines tours ont une
+ batteries d'une tour la font marcher le plus souvent de 2 à 10 h, parfois jusqu'à une journée ; certaines tours ont une
  génératrice, d'autres non, et on ne sait pas laquelle dessert la maison.
  - Le réseau Radio-Météo n'est plus en service : un récepteur météo à tonalité d'alerte ne recevra plus ses alertes.
 15. **Mesurer la réception, la radio à la main, le jour et le soir.**
@@ -152,8 +154,7 @@ elles n'arrivent pas.
  - Tendre un fil isolé entre deux arbres, le plus long et le plus haut possible : une vingtaine de mètres (75 pi)
  entre les isolateurs, à 9 m (30 pi) du sol au moins. Monter le plus haut possible le bout qu'on peut hisser à la
  corde.
- - Faire descendre le fil jusqu'à la borne d'antenne de la radio sans qu'il touche le mur ni un clou. Sur une radio
- sans borne d'antenne, enrouler le bout du fil sur l'antenne télescopique.
+ - Faire descendre le fil jusqu'à la borne d'antenne de la radio sans qu'il touche le mur ni un clou.
  - Relier la borne de terre de la radio à une tige ou à un tuyau de fer enfoncé de 1 à 2 m (3 à 6 pi) dans le sol,
  jusqu'à la terre humide. L'hiver, quand on ne peut plus enfoncer la tige : le contrepoids de la section 7.
  - Garder le fil loin des fils électriques et de tout ce qui conduit le courant.
@@ -171,8 +172,9 @@ elles n'arrivent pas.
 18. **Choisir un correspondant, et lui donner sa consigne par écrit.** Choisir une personne qui ne vivra pas la
  même urgence que nous, et une deuxième personne pour la remplacer. Lui remettre sur papier la fiche
  de position, la liste des personnes au chalet avec leur âge, l'heure des messages convenus, et une consigne de
- trois lignes : *si aucun message n'arrive à l'heure convenue, écrire ; si toujours rien une heure plus tard, donner
- l'alerte ; lire alors la fiche de position et la dernière fiche de sortie aux gens qui viendront.* Relire la
+ quatre lignes : *si aucun message n'arrive à l'heure convenue, écrire ; si toujours rien une heure plus tard, donner
+ l'alerte ; si le chalet écrit que quelqu'un n'est pas rentré à son heure limite, donner l'alerte tout de suite ; lire
+ alors la fiche de position et la dernière fiche de sortie aux gens qui viendront.* Relire la
  consigne avec lui, à voix haute. Pour la maison, le choisir hors de la région touchée : une personne de la même
  ville a la même panne, perd le même réseau et ne peut rien faire de plus que nous.
 19. **Enregistrer la balise de détresse, si on en a une**, au Registre canadien des balises. Le signal de la balise
@@ -183,15 +185,18 @@ elles n'arrivent pas.
  leur propre batterie et leur propre panneau solaire (ch. 86), et n'y brancher rien d'autre : une batterie vidée par
  les outils ne fait plus marcher la radio. À la maison, garder un jeu de piles pour la radio seulement, dans une
  boîte à part, et ne jamais l'entamer pour une lampe ou un jouet.
-21. {!generatrice} {!co} **Recharger au moteur ou à la génératrice seulement à l'air libre, même pour dix minutes.**
- Laisser la génératrice dehors et faire entrer seulement la rallonge. Pour recharger dans l'auto avec des gens à
- bord : dégager l'échappement, ouvrir un peu une fenêtre et faire tourner le moteur une dizaine de minutes par
- demi-heure (ch. 15, étapes 11 à 13). Pendant toute la recharge, poser l'avertisseur de CO dans la pièce ou dans
+21. {!generatrice} {!co} **Recharger au moteur ou à la génératrice seulement dehors, même pour dix minutes.**
+ Poser la génératrice à au moins 6 m du bâtiment, l'échappement tourné à l'opposé des portes et des fenêtres, et faire
+ entrer seulement la rallonge. Ne jamais faire tourner la génératrice ni l'auto dans un bâtiment, sous un auvent ni
+ dans un garage, même porte ouverte. Pour recharger dans l'auto avec des gens à bord : dégager l'échappement, ouvrir
+ un peu la fenêtre du côté opposé au vent et faire tourner le moteur une dizaine de minutes par demi-heure (ch. 15,
+ étapes 11 à 13). Pendant toute la recharge, poser l'avertisseur de CO dans la pièce ou dans
  l'auto où sont les gens.
 22. **Garder les appareils et les piles au chaud.** Une pile froide donne moins, et ce qu'elle affiche à −30 °C ne
  dit pas ce qu'elle vaut une fois réchauffée. Un appareil au lithium-ion ne se recharge pas sous 0 °C, et certaines
- piles pas sous 10 °C : le brancher au froid ne sert à rien, et forcer la recharge abîme la pile. L'appareil
- satellite est fait pour fonctionner jusqu'à −20 °C seulement. Ranger les appareils et les piles de rechange à
+ piles pas sous 10 °C : le brancher au froid ne sert à rien, et forcer la recharge abîme la pile. Un appareil
+ satellite courant est donné pour fonctionner jusqu'à −20 °C seulement : lire la plage de température dans la notice
+ du sien. Ranger les appareils et les piles de rechange à
  l'intérieur, et les porter dehors sous le manteau, contre le corps.
 23. **Faire l'essai complet pendant que tout marche.** Envoyer un message au correspondant et attendre sa réponse.
  Appuyer sur le bouton d'essai de l'avertisseur de CO. Presser le bouton `TEST` de la balise, et écrire la date de
@@ -222,7 +227,8 @@ elles n'arrivent pas.
 
 29. **Remplir une fiche de sortie avant de partir**, et la laisser au mur : qui part, avec quoi (la machine,
  l'appareil satellite, la radio), où exactement et par quel chemin, l'heure de retour prévue, et l'heure limite, une
- heure après. Passé l'heure limite, la personne qui reste suit les étapes 9 à 13. Envoyer une copie au
+ heure après. Si la personne partie n'est pas rentrée à l'heure de retour prévue, la personne qui reste suit les
+ étapes 9 à 13. Envoyer une copie au
  correspondant. L'heure à laquelle on doit faire demi-tour : ch. 15, étape 31. À la maison, remplir la même fiche
  pour la personne qui part à pied pendant une tempête, chercher de l'eau ou voir un proche.
 30. **Ne pas faire une sortie qu'on ne ferait pas sans l'appareil satellite.** L'appareil fait venir de l'aide en
@@ -398,8 +404,9 @@ l'attention.
 
 **Le son.** Un sifflet porte plus loin qu'une voix et ne coûte pas de souffle : une voix s'éteint après quelques
 minutes de cris, alors qu'on peut siffler pendant des heures. Un coup de carabine porte encore plus loin, mais il
-coûte une cartouche, et en saison de chasse, personne n'y prête attention. Un signal sonore sert seulement s'il a
-été convenu d'avance avec les gens qui peuvent l'entendre : convenir du code avec le camp voisin (ch. 16, étape 19).
+coûte une cartouche, et en saison de chasse, personne n'y prête attention. Pour appeler à l'aide, un signal sonore
+sert seulement s'il a été convenu d'avance avec les gens qui peuvent l'entendre : convenir du code avec le camp voisin
+(ch. 16, étape 19).
 
 ### Écrire quand il n'y a plus de papier
 
@@ -462,11 +469,11 @@ point de la Terre. D'autres satellites, qui passent au-dessus des pôles, le cap
 mise en marche et calculent la position de la balise. Une fois sur place, les sauveteurs se guident sur un deuxième
 signal de la balise, sur 121,5 MHz (étape 3).
 
-### La portée d'une radio portative
+### La portée d'un walkie-talkie
 
-Le fabricant d'une radio portative courante la donne pour 26 km d'un sommet vers une vallée, 4,8 km sur l'eau et
-0,8 km entre des maisons. Le chiffre de la boîte est mesuré en ligne de vue, sans obstacle : le relief, la forêt et
-la météo le réduisent. Ce qu'elle porte jusqu'au camp voisin, on le sait seulement en l'essayant (étape 15).
+Le fabricant d'un walkie-talkie courant le donne pour 26 km d'un sommet vers une vallée, 4,8 km sur l'eau et 0,8 km
+entre des maisons. Le chiffre de la boîte est mesuré en ligne de vue, sans obstacle : le relief, la forêt et la météo
+le réduisent. Ce qu'il porte jusqu'au camp voisin, on le sait seulement en l'essayant (étape 9).
 
 ### Une heure ou une journée
 

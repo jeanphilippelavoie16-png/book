@@ -70,7 +70,7 @@
       "rang": "g2",
       "ancre": "haut",
       "texte": "La vie de quelqu'un est en jeu maintenant ?",
-      "precision": "Il respire mal, saigne sans qu'on arrive à l'arrêter, se réveille mal, ou ne pourra pas passer la nuit à l'endroit où il est",
+      "precision": "Il respire mal, saigne sans qu'on arrive à l'arrêter, se réveille mal ou devient confus, ou ne pourra pas passer la nuit à l'endroit où il est",
       "source": "étape 1"
     },
     {
@@ -169,7 +169,7 @@
       "ancre": "haut",
       "taille": 10.5,
       "temps": "1 h",
-      "texte": "**Écrire l'heure, puis essayer de le joindre** sur son appareil satellite ou à la radio portative, jusqu'à l'heure limite.",
+      "texte": "**Écrire l'heure, puis essayer de le joindre** sur son appareil satellite ou au walkie-talkie, jusqu'à l'heure limite.",
       "renvoi": "ch. 14, étape 9",
       "source": "étape 9"
     },

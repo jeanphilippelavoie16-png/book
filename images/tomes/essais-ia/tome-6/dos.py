@@ -308,9 +308,13 @@ def motif(can, info):
         a *= 1 - np.clip(ep[None, :] / 2 - dist + .5, 0, 1)            # la crête
         neige_tot = np.zeros_like(a)
         couv_fond = np.zeros_like(a)                   # ce que couvre le rang du fond
+        vus = []
         for j, (ordre, N, G, py, px) in enumerate(poses_):
             if j in sans_arbres:
                 continue
+            sil = np.zeros((hh, ww), bool)
+            _poser(sil, N > .3, py, px, lambda d, p: d | p)
+            vus.append((j, sil))
             _poser(a, N, py, px, lambda d, p: d * (1 - p))
             _poser(neige_tot, N, py, px, lambda d, p: d * (1 - p))
             if G is not None:
@@ -337,9 +341,11 @@ def motif(can, info):
                 ok &= ~touche[1:]
             garde = ndi.binary_dilation(np.concatenate([[False], ok])[lab], iterations=2)
             a = np.maximum(a, np.where(garde, neige_tot, 0))
+        else:
+            garde = np.zeros((hh, ww), bool)
         a[int((Yb - oy) * SS):] = 0
         a[:, int(Xe * SS):] = 0
-        return a
+        return a, garde & (neige_tot > .5), vus
 
     # le ciel sans étoiles sous la bande (une étoile ne doit pas tomber dans un arbre)
     hA, wA = hh // SS, ww // SS
@@ -364,19 +370,73 @@ def motif(can, info):
     cv = _couverture()
     zones = list(info['rects']) + _raccords(cv, info, img, ppp)
     sans_traits, sans_arbres, sans_neige = set(), set(), np.zeros((hh, ww), bool)
+    aire_tr = np.bincount(lab_tr.ravel())
     for tour in range(TOURS):
-        a = peindre(sans_traits, sans_arbres, sans_neige)
+        a, neige, arbres_vus = peindre(sans_traits, sans_arbres, sans_neige)
         out, A = poser_sur(a)
-        essai, _ = cv.nettoyer(out.copy(), zones, ppp)
-        diff = np.abs(essai[oy:oy + hA, :wA].astype(int) - out[oy:oy + hA, :wA].astype(int)).max(-1) > 6
-        diff &= ndi.binary_dilation(A > .03, iterations=3)
+        taches = [m for m in _taches_gommees(out, zones, ppp, oy, oy + hA, wA) if (A[m] > .5).any()]
         if DEBUG:
-            print('    tour %d : %d px touchés' % (tour, diff.sum()))
-        if not diff.any():
+            print('    tour %d : %d taches' % (tour, len(taches)))
+        if not taches:
             break
-        D2 = np.zeros((hh, ww), bool)
-        D2[:hA * SS, :wA * SS] = np.repeat(np.repeat(diff, SS, 0), SS, 1)
-        D2 = ndi.binary_dilation(D2, iterations=8 * SS)
-        sans_traits |= set(np.unique(lab_tr[D2]).tolist()) - {0}
-        sans_neige |= D2
+        for m in taches:
+            M2 = np.zeros((hh, ww), bool)
+            M2[:hA * SS, :wA * SS] = np.repeat(np.repeat(m, SS, 0), SS, 1)
+            M2 = ndi.binary_dilation(M2, iterations=3 * SS)
+            if (M2 & neige).any():                     # une tache de neige : on l'ôte
+                sans_neige |= M2
+                continue
+            ids = [i for i in np.unique(lab_tr[M2]) if i and i not in sans_traits]
+            if ids:                                    # du crème serré par un trait : on ôte le plus petit trait
+                sans_traits.add(min(ids, key=lambda i: aire_tr[i]))
+                continue
+            proches = [j for j, sil in arbres_vus if (M2 & sil).any()]
+            if proches:                                # entre deux épinettes : on ôte la plus petite
+                sans_arbres.add(min(proches, key=lambda j: poses_[j][1].size))
+            elif DEBUG:
+                ys, xs = np.nonzero(m)
+                print('      tache sans cause : y %d-%d x %d-%d' % (ys.min() + oy, ys.max() + oy, xs.min(), xs.max()))
+    if DEBUG:
+        print('    ôtés : %d traits, %d arbres' % (len(sans_traits), len(sans_arbres)))
     return out
+
+
+def _taches_gommees(out, zones, ppp, r0, r1, c1):
+    """Les taches claires que la gomme à étoiles de couverture.py (nettoyer) effacerait dans les lignes r0:r1 et les
+    colonnes 0:c1 du fond : le même calcul, sur un morceau du fond. Rend leurs masques (lignes r0:r1, colonnes 0:c1)."""
+    pad = int(.3 * ppp)
+    a0, b0, d0 = max(0, r0 - pad), min(out.shape[0], r1 + pad), min(out.shape[1], c1 + pad)
+    H, W = b0 - a0, d0
+    k, po = 0.0104 * ppp, 96
+    zone = np.zeros((H, W), bool)
+    for x0, y0, x1, y1, fs in zones:
+        if fs < 0:
+            mx = my = 0
+        elif fs:
+            mx, my = min(max(1.0 * fs, .15 * po), .3 * po), min(max(.5 * fs, .12 * po), .2 * po)
+        else:
+            mx = my = .12 * po
+        a, b = max(0, int((y0 - my) * k) - a0), min(H, int(np.ceil((y1 + my) * k)) - a0)
+        c, d = max(0, int((x0 - mx) * k)), min(W, int(np.ceil((x1 + mx) * k)))
+        if a < b and c < d:
+            zone[a:b, c:d] = True
+    L = _lum(out[a0:b0, :d0])
+    t = int(0.09 * ppp) | 1
+    cand = ((L - ndi.grey_opening(L, size=(t, t))) > 12) & (ndi.grey_opening(L, size=(t, t)) < 80)
+    lab, n = ndi.label(cand)
+    if not n:
+        return []
+    taille = np.bincount(lab.ravel())
+    objets = ndi.find_objects(lab)
+    cote = 0.25 * ppp
+    res = []
+    for i in np.unique(lab[zone & cand]):
+        if not i or taille[i] > (0.12 * ppp) ** 2:
+            continue
+        s = objets[i - 1]
+        if s[0].stop - s[0].start > cote or s[1].stop - s[1].start > cote:
+            continue
+        m = (lab == i)[r0 - a0:r1 - a0, :c1]
+        if m.any():
+            res.append(m)
+    return res
