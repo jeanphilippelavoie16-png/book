@@ -1,7 +1,7 @@
 # Tome 1 · Tenir — rapport d'assemblage
 
-- **Produit le :** 2026-10-19 18:11, par `design/outils/assembler-tome.py 1 --hors-ligne --sortie livre/tome-1-lulu`
-- **Fichier :** `livre/tome-1-lulu/interieur.pdf` — 352 pages, 112.1 Mo
+- **Produit le :** 2026-10-19 19:09, par `design/outils/assembler-tome.py 1 --hors-ligne --refaire --sortie livre/tome-1-lulu`
+- **Fichier :** `livre/tome-1-lulu/interieur.pdf` — 352 pages, 111.7 Mo
 - **Ouvertures :** au recto ou au verso (--verso)
 - **Placements :** design/epreuves-livre/placements.json, design/epreuves-livre/placements-tome-1.json
 - **Format :** `lulu-letter` : Lulu, US Letter 8,5 × 11 po, couverture rigide Case Wrap
