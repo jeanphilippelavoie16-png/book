@@ -274,13 +274,13 @@ Si on part, écrire le nom de chaque enfant et un numéro de téléphone à l'in
 
 **L'ordre.** Manger d'abord ce qui va pourrir, puis ce qui commence à dégeler, puis les conserves, puis les aliments secs. Garder le congélateur fermé : plein, il garde les aliments congelés 48 heures ; à moitié plein, 24 heures. L'hiver, remplir un congélateur à moitié vide de contenants d'eau gelée dehors : la glace garde le froid, et elle redevient de l'eau à boire. Le réfrigérateur fermé garde les aliments froids 4 à 6 heures : compter 4 heures. Le congélateur qui dégèle : ch. 74.
 
-{!mal-de-caribou} **Le gras.** Avec la viande maigre, manger du gras à chaque repas : beurre, saindoux, beurre d'arachide, huile, moelle. De la viande maigre seule, comme le lièvre ou l'orignal paré de son gras, ne suffit pas : c'est le mal de caribou, mortel en quelques semaines (ch. 19). Quand on rationne, réduire tout le reste avant de réduire le gras.
+{!mal-de-caribou} **Le gras.** Avec la viande maigre, manger du gras à chaque repas : beurre, saindoux, beurre d'arachide, huile, moelle. De la viande maigre seule, comme le lièvre ou l'orignal paré de son gras, mène au mal de caribou, mortel en quelques semaines (ch. 19). Quand on rationne, réduire tout le reste avant de réduire le gras.
 
-{!co} {!projection} **Cuire sans cuisinière.** Le dessus du poêle à bois sert de plaque. Dehors, un feu et trois roches sèches tiennent le chaudron. Un réchaud de fortune, fait de carton ondulé roulé serré dans une boîte de conserve vide et noyé de cire fondue, chauffe une conserve longtemps : s'en servir dehors seulement. Ouvrir la conserve avant de la chauffer : une conserve fermée éclate.
+{!co} {!projection} **Cuire sans cuisinière.** Le dessus du poêle à bois sert de plaque. Dehors, poser le chaudron sur trois roches sèches, au-dessus d'un feu. Pour un réchaud de fortune, rouler serré du carton ondulé dans une boîte de conserve vide et le noyer de cire fondue : il chauffe une conserve longtemps. S'en servir dehors seulement. Ouvrir la conserve avant de la chauffer : une conserve fermée éclate.
 
 ### Ce qui ne se remplace pas
 
-- **Les médicaments d'ordonnance** (étape 22). Rien ne les remplace.
+- **Les médicaments d'ordonnance** (étape 22).
 - **L'avertisseur de CO.** On ne peut pas le fabriquer, et sans lui, rien ne signale le gaz.
 - **Les lunettes**, sauf pour lire de près. Un trou d'épingle percé dans un carton, tenu contre l'œil, rend l'image plus nette à une personne qui a perdu ses lunettes : le petit trou arrête les rayons obliques, qui font le flou. On y perd presque toute la lumière et tout le champ de vision : ça suffit pour lire l'étiquette d'un médicament, pas pour marcher dans le bois ni pour conduire.
 
