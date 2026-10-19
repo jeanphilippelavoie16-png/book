@@ -633,7 +633,7 @@ def appliquer(a, K=4):
             _poser(c, al, BLANC, y0_, x0_)
 
     # -- la zone : sous l'orange, hors du premier plan et du chalet, au-dessus de la neige du champ
-    zone = np.clip((yy - (yo[None, :] + 2 * q)) / (2 * q), 0, 1) * (yy >= Y(470))
+    zone = np.clip((yy - (yo[None, :] + 2 * q)) / (2 * q), 0, 1) * (yy >= Y(470)) * (yy < Y(760))
     zone = zone * (1 - garde) * (1 - a_neige)
     out = a.copy()
     sl = out[r0:r1].astype(np.float32)

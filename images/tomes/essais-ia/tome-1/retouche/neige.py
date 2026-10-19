@@ -53,6 +53,8 @@ OMBRES = [
     [(635, 955.5), (618, 960.5), (642, 960.5)],
 ]
 BLOC = (176, 830, 592, 925)                            # le bloc des tomes de la page de titre : rien de fin dessous
+# la neige du toit du chalet (elle est au chalet, pas au champ)
+TOIT = [(392, 726), (450, 726), (459, 748), (463, 760), (463, 772), (452, 772), (397, 737)]
 
 
 def _disque(r):
@@ -168,15 +170,17 @@ def appliquer(a, K=4):
     # dans la boucle, tout ce qui est fonce_ et mince est un reste du fil doublé
     effacer |= dans_boucle & ndi.binary_dilation(sombre & ~epais, _disque(3 * q)) & (xx_ > 250 * K)
 
-    # -- le champ : la neige qui touche le bas de l'image, une fois les deux fils enlevés. La neige posée sur le
-    # toit du chalet et sur les branches des épinettes est enfermée par leur contour fonce_ : elle n'est pas le
-    # champ, et elle ne bouge pas.
+    # -- le champ : la neige qui touche le bas de l'image, une fois les deux fils enlevés. La neige posée sur les
+    # branches des épinettes (le corps de l'arbre, refermé par un disque de 2 unités) et sur le toit du chalet n'est
+    # pas le champ : elle ne bouge pas.
     fonce_ = sombre & ~effacer
-    libre = ~ndi.binary_dilation(fonce_, _disque(3 * q))
-    lab, n = ndi.label(libre)
+    pad = int(9 * q) + 1
+    corps = ndi.binary_closing(np.pad(fonce_, pad, mode='edge'), _disque(8 * q))[pad:-pad, pad:-pad]
+    corps = ndi.binary_fill_holes(corps)
+    corps |= _raster([px(TOIT)], h, w) > 0.5
+    lab, n = ndi.label(~corps)
     v = lab[int(Y(900)), int(300 * K)]
-    _, (iy, ix) = ndi.distance_transform_edt(lab == 0, return_indices=True)
-    champ = (lab[iy, ix] == v) & ~fonce_
+    champ = (lab == v)
     neige_ok = (champ | effacer) & (yy >= Y(722))
 
     # -- la neige du fond : sa marbrure lente (estimée loin de tout ce qui est fonce_) et son grain
