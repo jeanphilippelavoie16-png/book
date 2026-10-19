@@ -246,7 +246,7 @@ Si on part, écrire le nom de chaque enfant et un numéro de téléphone à l'in
 
 **Chauffer le lit plutôt que la pièce.** Fermer toutes les portes et ramener la famille dans la plus petite pièce, celle du poêle s'il y en a un. Bloquer le bas des portes avec des serviettes roulées, et couvrir la grande fenêtre d'une couverture le soir (ch. 3). Monter ensuite une tente dans la pièce : étendre une couverture par-dessus la table, tendre deux draps entre des chaises, et dresser un matelas contre le mur pour fermer un côté. La chaleur des corps reste dans ce petit volume. Faire dormir tout le monde ensemble : deux personnes sous la même couverture perdent moins de chaleur que sous deux couvertures séparées.
 
-**Mettre l'isolant sous le corps.** Sous le matelas ou le sac de couchage, étendre du carton, des journaux, un tapis roulé, des branches de sapin ou un tapis de mousse (étape 8). Une épaisseur de carton sous le matelas fait plus qu'une couverture de plus par-dessus.
+**Mettre l'isolant sous le corps.** Étendre du carton, des journaux, un tapis roulé, des branches de sapin ou un tapis de mousse sous le matelas ou le sac de couchage (étape 8). Une épaisseur de carton sous le matelas fait plus qu'une couverture de plus par-dessus.
 
 **Le journal.** Froisser les feuilles une à une, les défroisser, et les glisser entre deux couches de vêtements : elles retiennent de l'air. Le journal isole tant qu'il reste sec et bouffant ; tassé, il n'isole plus.
 
