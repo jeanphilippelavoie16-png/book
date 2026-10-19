@@ -70,10 +70,10 @@ suite à l'étape 11.
  d'air propre (étapes 32 et 35).
 
  Sur un chemin étroit bordé de résineux, une auto arrêtée par la fumée ou par un arbre tombé ne peut plus
- avancer ni reculer. Un seul adulte décide du départ (ch. 2). On n'attend pas de voir les flammes pour partir :
- une des deux raisons suffit. Si la famille a écrit en mai ce qui la fait
- partir (étape 47), la feuille sur la porte s'ajoute à ces deux raisons. Si une des deux raisons est déjà
- là, passer à l'étape 11. Sinon, faire les étapes 7 à 10 en restant prêt à partir.
+ avancer ni reculer. Un seul adulte décide du départ (ch. 2). On n'attend pas de voir les flammes pour
+ partir : une des deux raisons suffit. Si la famille a écrit en mai ce qui la fait partir (étape 47), la
+ feuille sur la porte s'ajoute à ces deux raisons. Si une des deux raisons est déjà là, passer à
+ l'étape 11. Sinon, faire les étapes 7 à 10 en restant prêt à partir.
 7. **Remplir tout ce qui tient l'eau** : le bain, les barils, les chaudières. Les remplir pendant que le
  puits ou l'aqueduc donne de l'eau. Au chalet, monter aussi un baril en hauteur, avec un boyau piqué au
  fond (planche 11-03, repère 5 ; section 7).

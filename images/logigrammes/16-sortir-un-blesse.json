@@ -58,7 +58,7 @@
     "g1": 1.11,
     "g2": 1.6,
     "g3": 2.45,
-    "g4": 3.4,
+    "g4": 3.5,
     "g5": 4.68,
     "g6": 5.85,
     "g7": 7.07,
@@ -306,14 +306,14 @@
       "de": "q1",
       "vers": "couche",
       "etiquette": "Oui",
-      "coude": 4.38,
+      "coude": 4.46,
       "pos": "palier"
     },
     {
       "de": "q1",
       "vers": "q2",
       "etiquette": "Non",
-      "coude": 4.38,
+      "coude": 4.46,
       "pos": "palier"
     },
     {

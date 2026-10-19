@@ -304,8 +304,8 @@ ch. 12 et leurs fiches. Texte d'avant : `git show HEAD:chapitres/09-ce-qui-manqu
 | Étape 2, puce « Quand le sel manque » | `botulisme` | Moins de viande au même taux, jamais moins de sel ; 3 °C pour le poisson |
 | Étape 4, puce du gras | `mal-de-caribou` | Le gras se calcule comme la famille 3 |
 | Étape 10 | `vapeurs`, `generatrice` | Remise détachée ; bidon qui suinte dans un cabanon attenant ; génératrice à 6 m, la remise comprise |
-| Étape 22 | `co` | 7 ans ; un par étage et un par chambre fermée |
-| Section 7, fléau, « Ce qu'on perd » | `poison` | Jamais le nitrite sur une balance improvisée |
+| Étape 22 | `co` | 7 à 10 ans après la date de fabrication inscrite au dos, 7 ans quand on ne connaît pas le modèle ; un par étage et un par chambre fermée |
+| Section 7, fléau, « Ce qu'on perd » | `poison` | Jamais le nitrite sur une balance improvisée ni sur une balance au gramme : au 0,1 g |
 | Section 7, le thermomètre | `cuisson` | Les deux points fixes ; 74 °C |
 | Section 7, gras : orignal ; ours ; castor | `abats` ; `trichine` ; `tularemie` | La graisse des reins sans les reins ; le gras d'ours, 74 °C ; les gants pour le castor |
 | Section 7, la vitamine C | `thuyone` | Sapin baumier ou épinette |
@@ -326,8 +326,8 @@ Aucune : le chapitre n'a pas de geste urgent (`plan/premieres-minutes-inventaire
 
 ### Chiffres nouveaux
 
-- **27 à 29 g de sel par litre** face à la Côte-Nord, un peu moins en surface au printemps, et donc **35 à 37 L
-  d'eau pour 1 kg de sel** (section 7, le sel du fleuve) : `sources/13-universite-laval-salinite-saint-laurent.md`,
+- **27 à 29 g de sel par litre** face à la Côte-Nord, un peu moins en surface au printemps, et donc **au moins 34 à
+  37 L d'eau pour 1 kg de sel** (d'abord écrit « 35 à 37 L », corrigé après la vérification technique) (section 7, le sel du fleuve) : `sources/13-universite-laval-salinite-saint-laurent.md`,
   déjà la source du même chiffre au ch. 10, étape 1 ; extraits et calcul repris dans
   `sources/09-refonte-et-en-plus-2026-10-19.md`. Le « chiffre introuvable » de la levée du 24 septembre (salinité
   au point de puisage) reste ce qu'il était : on la mesure sur place.
@@ -342,9 +342,9 @@ Aucun dans le chapitre.
 
 | Note | Genre | Étape | Provenance |
 | --- | --- | --- | --- |
-| Le gras fondu, chez les Naskapis (65 mots) | Un fait (la façon d'une nation du Nord) | section 7 (« Le gras, dans l'animal ») | Turner 1894, `sources/autochtones/turner-1894-ethnologie-ungava-gutenberg.txt`, l. 5141 à 5150 (section « The Nenenot or Naskopie ») ; extraits dans `sources/09-refonte-et-en-plus-2026-10-19.md` |
-| La babiche des raquettes, chez les Innus (79 mots) | La façon des Innus | aucune (section 7) | `sources/20b-innu-raquettes-tipatshimuna-nametau.md` (Tipatshimuna : Manian Michel, VanStone d'après Strong ; Nametau innu : l'aboutage) |
-| Reconnaître une pile qui a coulé (49 mots, photo) | Photo pour reconnaître | 17 | Wikimedia Commons, Binarysequence, CC BY-SA 4.0 ; `sources/09-commons-pile-coulee-metadonnees-2026-10-19.json` ; `images/extras/09-pile-coulee.jpg` |
+| Le gras fondu, chez les Naskapis (63 mots) | Un fait (la façon d'une nation du Nord) | section 7 (« Le gras, dans l'animal ») | Turner 1894, `sources/autochtones/turner-1894-ethnologie-ungava-gutenberg.txt`, l. 5141 à 5150 (section « The Nenenot or Naskopie ») ; extraits dans `sources/09-refonte-et-en-plus-2026-10-19.md` |
+| La babiche des raquettes, chez les Innus (80 mots) | La façon des Innus | aucune (section 7) | `sources/20b-innu-raquettes-tipatshimuna-nametau.md` (Tipatshimuna : Manian Michel, VanStone d'après Strong ; Nametau innu : l'aboutage) |
+| Reconnaître une pile qui a coulé (48 mots, photo) | Photo pour reconnaître | 17 | Wikimedia Commons, Binarysequence, CC BY-SA 4.0 ; `sources/09-commons-pile-coulee-metadonnees-2026-10-19.json` ; `images/extras/09-pile-coulee.jpg` |
 | Combien de temps on garde une pile (42 mots) | Fait | 5 | Fiches techniques E91 et L91 : 10 et 25 ans à 21 °C (`sources/09-energizer-piles-lithium-alcaline-froid.md`) |
 
 Écartées : la moelle des os chez les Naskapis (le ch. 8 en a fait une note le même jour, « Le caribou et sa moelle », et le ch. 19 donne la composition de la moelle) ; l'annedda de Cartier (le ch. 20 porte son nom et le ch. 21 en parle) ; le niuaikanat, la viande séchée en
@@ -353,7 +353,9 @@ poudre et la graisse (c'est le pemmican du ch. 72) ; le froid des piles au lithi
 
 **À noter :** la note de la babiche dit, après la source, que des Innus jugent la babiche d'orignal peu résistante
 pour la raquette. Le ch. 103 bâtit sa babiche sur la peau d'orignal ; la contradiction est déjà relevée dans
-`suivi/idees-savoirs-autochtones.md` (section 4.3). La note ne parle que des raquettes.
+`suivi/idees-savoirs-autochtones.md` (section 4.3). La note ne parle que des raquettes ; depuis la vérification
+technique, elle dit ce que ça change (surveiller l'usure d'un laçage d'orignal, ch. 103). Le ch. 103 doit porter le
+même fait à sa migration (rendu à l'orchestrateur).
 
 ### Planche
 
@@ -382,3 +384,35 @@ Invariants signalés, tous voulus : **84 mois** (devient « 7 ans ») ; **30 ppm
 thermomètre, au gras d'ours et au nitrite) ; **génératrice, 4 → 3** (les deux mentions du DANGER deviennent une, à
 l'étape 10) ; **ch. 48** (le lièvre, absent du chapitre) ; les numéros de sous-section 5.1 à 9.3 (devenus des étapes et
 des titres).
+
+## Corrections après la vérification technique, 19 octobre 2026
+
+Rédacteur (rôle 2), sur les six points du vérificateur technique. Rien commité. Aucune recherche nouvelle : chaque
+correction s'appuie sur une source déjà enregistrée (cadre des agents, JP du 19 octobre : « on a pas déjà fait ce
+travail-là ? »).
+
+| # | Point | Fait | Source |
+| --- | --- | --- | --- |
+| 1 | Sel du fleuve, « de 35 à 37 L » présenté comme exact | **Appliqué** : « au moins 34 à 37 L d'eau pour obtenir 1 kg de sel ». Les 27 à 29 g/L comptent tous les sels dissous : c'est un plafond, et 1 000 ÷ 29 donne 34,5, pas 35. Même forme qu'au ch. 76. Corrigé aussi dans cette fiche (« Chiffres nouveaux ») et dans `sources/09-refonte-et-en-plus-2026-10-19.md` (le calcul) | `sources/13-universite-laval-salinite-saint-laurent.md`, « Ce que la fiche permet d'écrire » |
+| 2 | Avertisseur de CO compté depuis l'installation (étape 22), alors que les sections 5 et 6 et le ch. 6 comptent depuis la fabrication | **Appliqué** : étape 22, « 7 à 10 ans après la date de fabrication inscrite au dos, selon le modèle, ou 7 ans quand on ne connaît pas le modèle (ch. 1 et 6) » ; section 6, la ligne devient « mais qui a passé la date de remplacement des étapes 21 et 22, ou dont le boîtier ne porte aucune date lisible » (les 10 ans de cette ligne laissaient en service un avertisseur de CO de 7 ans). La section 5 (« Boîtier sans date de fabrication lisible ») compte déjà depuis la fabrication : inchangée. Les ch. 1 (l. 52 et 204) et 3 (l. 75 et 283) comptent encore depuis l'installation : rendu à l'orchestrateur | `sources/09-avertisseurs-co-duree-de-vie.md` (Kidde : « seven to ten years, depending on the model », « manufactured before 2013, it has a seven-year life », « check the back of the alarm for the manufactured date ») |
+| 3 | `poison` sans la précision de la pesée | **Appliqué** : « Ne jamais doser le nitrite sur une balance improvisée ni sur une balance au gramme : on le pèse au 0,1 g (ch. 67), parce qu'une erreur de dose sur le nitrite empoisonne la personne qui mange la viande. » « Sans balance juste » devient « Sans balance au 0,1 g » aux deux endroits (le fléau, « Ce qu'on perd », et « Ce qui ne se remplace pas », le sel nitrité) : « balance juste » ne disait pas ce que c'est | `dangers/partie-2.md`, page `poison` ; `chapitres/67-le-sel.md`, étapes 22 et 86 ; `chapitres/00b-acheter-par-priorite.md`, « Balance au 0,1 g » |
+| 4 | Étape 24 range les piles parmi ce qui se dégrade vite, contre la note « Combien de temps on garde une pile » (10 et 25 ans à 21 °C) | **Appliqué** : « les piles » sort de l'étape 24. Les piles des appareils importants restent aux deux endroits (étape 26) | `sources/09-energizer-e91-alcaline-fiche-technique.pdf`, `sources/09-energizer-l91-lithium-fiche-technique.pdf` |
+| 5 | Babiche d'orignal jugée peu résistante, contre le ch. 103 qui lace à l'orignal | **Appliqué, reformulé** : « Sur une raquette lacée à l'orignal (ch. 103), il faut surveiller l'usure du laçage. » La phrase du vérificateur (« sur une raquette, elle ne dure pas… » ; « on surveille donc ») redisait « raquette » juste après « Pour lacer les raquettes », et « on surveille » est une consigne au présent qui décrit (règle 11) ; le sens est le même. Pour tenir la note à 80 mots, la fin de la phrase de l'aboutage (« une fois sec, le raccord ne se voit presque plus ») sort ; elle reste dans la source. Le ch. 103 doit porter le même fait à sa migration : rendu à l'orchestrateur | `sources/20b-innu-raquettes-tipatshimuna-nametau.md`, section 1 (« is not resistant ») |
+| 6 | Aucune ligne de crédit pour la photo de la pile qui a coulé | **Rendu à l'orchestrateur** (fichier commun) : une section « Encadrés « En plus » du chapitre 9 » dans `images/credits.md`, avec la ligne de l'original et celle du recadrage (CC BY-SA 4.0, Binarysequence, recadrage mentionné), et la ligne de `images/extras/LISEZMOI.md` | `sources/09-commons-pile-coulee-metadonnees-2026-10-19.json`, page 85254910 |
+
+Écarté : rien.
+
+### controle.py après les corrections
+
+| | Avant (HEAD) | Après |
+| --- | --- | --- |
+| Mots | 7 057 | 7 060 |
+| Tirets | 2 (titre et ligne de tome) | 2 (les mêmes) |
+| « § », mots bannis, tournures, maximes, pronominaux | 0 | 0 |
+| Mots vides | 19 | 19, les mêmes, jugés comme à la refonte |
+| Redites | 1 | 2 : le renvoi « section 7, « Le gras, dans l'animal » » (inchangé) et « sans balance au 0,1 g », dans « Ce qu'on perd » du fléau et dans le sel nitrité de « Ce qui ne se remplace pas ». Gardée : le vérificateur demande la précision aux deux endroits, et la deuxième phrase nomme deux conditions (le nitrite et la balance) |
+| Invariants | | rien n'a disparu ; ancre de 09-08 intacte |
+
+**Pour l'éditeur :** « faire court, à l'air, séché » quand on n'a ni nitrite ni balance au 0,1 g revient trois fois en
+section 7 (le fléau, le sel du fleuve, le sel nitrité de « Ce qui ne se remplace pas »). C'était déjà là avant la
+vérification ; une seule place suffirait, avec des renvois.

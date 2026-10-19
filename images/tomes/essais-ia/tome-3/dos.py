@@ -208,7 +208,10 @@ def motif(can, info):
         return can
     couches = [c[ys.min():ys.max() + 1] for c in couches]
     hb = couches[0].shape[0]
-    y0 = int(round((ga + gb) / 2 - hb / 2))
+    # le soleil monte jusqu'au haut du trou, la bande descend : on centre le tout dans le trou
+    y0 = int(round(gb - hb - (gb - ga - hb) / 2))
+    haut_soleil = ga + (gb - ga - hb) // 4
+    y0 += (gb - ga - hb) // 4 - int(round((gb - ga - hb) / 2)) + (gb - ga - hb) // 2
     haut, horizon = np.maximum.reduce(couches[:-1]), couches[-1]
 
     # la ligne du centre de l'horizon, colonne par colonne (px du fond)

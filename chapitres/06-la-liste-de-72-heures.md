@@ -299,7 +299,7 @@ Pour que cette version marche le soir où on en a besoin, la répéter une fois 
 
 ### Le pemmican
 
-Le mot vient du cri *pimikan*, « graisse préparée ». C'est de la viande séchée réduite en poudre et mêlée à parts égales de gras, parfois de petits fruits. Le pemmican est dense et riche en énergie ; on le gardait et on le transportait facilement, et la traite des fourrures en ravitaillait ses voyageurs dans les prairies, où la nourriture pouvait manquer, surtout l'hiver. Fait avec de l'ours, il est aussi dangereux que de la viande crue : le séchage ne tue pas la trichine (étape 14).
+Le mot vient du cri *pimikan*, « graisse préparée ». C'est de la viande séchée réduite en poudre et mêlée à parts égales de gras, parfois de petits fruits. Dense et riche en énergie, le pemmican était facile à garder et à transporter : la traite des fourrures en ravitaillait ses voyageurs dans les prairies, surtout l'hiver. Fait avec de l'ours, il est aussi dangereux que de la viande crue : le séchage ne tue pas la trichine (étape 14).
 
 ### La pile au lithium
 
