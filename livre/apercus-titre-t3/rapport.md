@@ -1,7 +1,7 @@
 # Tome 3 · Prélever — rapport d'assemblage
 
-- **Produit le :** 2026-10-18 22:39, par `design/outils/assembler-tome.py 3 --chapitres 41 --hors-ligne --sortie livre/apercus-titre-t3`
-- **Fichier :** `livre/tome-3/interieur.pdf` — 20 pages, 2.6 Mo
+- **Produit le :** 2026-10-19 00:31, par `design/outils/assembler-tome.py 3 --chapitres 41 --hors-ligne --sortie livre/apercus-titre-t3`
+- **Fichier :** `livre/tome-3/interieur.pdf` — 20 pages, 2.7 Mo
 - **Ouvertures :** au recto ou au verso (--verso)
 - **Placements :** design/epreuves-livre/placements.json, design/epreuves-livre/placements-tome-3.json
 - **Exigences de Blurb :** `sources/blurb-specifications.md` (relevées le 27 septembre 2026)
@@ -28,7 +28,7 @@ Aucune page de crédits (JP, 28 septembre 2026) : copie hors du livre dans `livr
 | Nombre de pages | pair, de 20 à 440 (papier Standard) | 20 | oui |
 | Page 1 | à droite | page de titre | oui |
 | Polices incorporées | toutes | 19 police(s), 0 non incorporée(s) | oui |
-| Taille du fichier | 2 Go au plus | 2.6 Mo | oui |
+| Taille du fichier | 2 Go au plus | 2.7 Mo | oui |
 | Marques d'imprimeur | aucune | aucune | oui |
 | Couleur | CMJN ou sRVB, sans ton direct | sRVB (Edge) | oui |
 | Noir du texte | 100 % K | noir sRVB (0, 0, 0) : la conversion est faite chez Blurb | à juger sur épreuve |
