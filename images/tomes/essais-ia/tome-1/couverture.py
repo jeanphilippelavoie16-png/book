@@ -156,14 +156,26 @@ def auteurs(fichiers):
     return '<div class="auteurs"><h2>Les auteurs</h2><div class="aut">%s</div></div>' % ''.join(blocs)
 
 
+# Le texte du dos, un par tome (JP, 19 octobre 2026 : « un différent pour chaque livre, qui traite du livre ; mentionne
+# c'est quel tome de la séquence de 6 ; enlève la phrase en gras ») : deux rédacteurs, puis l'éditeur ; chaque geste
+# nommé est dans un chapitre du tome.
+QUATRIEME = {
+    1: "Le Manuel du Nord compte six tomes, et celui-ci est le premier. Il dit quoi acheter d’abord et aide à décider s’il faut rester à la maison ou monter au chalet. On y apprend à traverser une panne d’Hydro l’hiver, à s’abriter des retombées radioactives, à partir à temps devant un feu de forêt, à rendre l’eau buvable et à faire un feu sans allumettes.",
+    2: "Le Manuel du Nord compte six tomes, et celui-ci est le deuxième. On y apprend pourquoi la viande maigre seule peut tuer en quelques semaines, et comment nourrir la famille tout l’hiver sans manquer de gras ni de vitamine C. On y voit comment soigner une gelure, boucher le trou d’un plombage tombé, aider une femme à accoucher et rassurer les enfants avec une routine.",
+    3: "Le Manuel du Nord compte six tomes, et celui-ci est le troisième. Il dit quoi chasser et pêcher chaque mois. On y apprend à lire les traces d’une bête, à retracer un orignal blessé, à prendre le lièvre au collet et le porc-épic sans arme à feu, à pêcher sous la glace et à faire un arc de mélèze quand il reste peu de balles.",
+    4: "Le Manuel du Nord compte six tomes, et celui-ci est le quatrième. On y apprend à vider un orignal, à refroidir sa viande à 7 °C en 24 heures, à la découper muscle par muscle et à conserver chaque morceau jusqu’au printemps : salé, séché, gelé dehors ou en pemmican. On y voit comment fumer la truite, faire des conserves et garder les légumes au caveau.",
+    5: "Le Manuel du Nord compte six tomes, et celui-ci est le cinquième. On y apprend à chauffer le chalet au bois sans encrasser la cheminée, à faire le pain au levain, à fabriquer des raquettes et à réparer un canot à la gomme d’épinette. On y voit comment cueillir les petits fruits, enrichir la terre avec la cendre et le varech, et garder ses semences.",
+    6: "Le Manuel du Nord compte six tomes, et celui-ci est le sixième. On y apprend à fabriquer et à réparer ce qu’on ne peut plus acheter : tanner une peau d’orignal, coudre des mocassins, affûter la hache, faire repartir la scie à chaîne, souder avec des batteries d’auto, transformer un ressort de camion en outil, et faire du savon et des chandelles avec du gras.",
+}
+
+
 def quatrieme(k, fichiers):
     d = bc.TOMES[k]
     lis = ''.join('<li><b>%s</b><span>%s</span></li>' % (n, esc(t)) for n, t in bc.SOMMAIRE[k])
     return f'''<div class="in">
     <div class="hd"><span>Le Manuel du Nord</span><span>Tome {k} · {esc(d['titre'])}</span></div>
     <div class="txt">
-      <p>Six tomes, {nb_chapitres()} chapitres sur la conservation des aliments, la subsistance et l’autonomie, faits pour la Côte-Nord&#8239;: forêt boréale, hivers à −35&#8239;°C, saison de jardin de 90 à 100&nbsp;jours, orignal, truite, fleuve salé.</p>
-      <p><strong>Le test de chaque page&#8239;: il n’y a personne à appeler.</strong></p>
+      <p>{typo(QUATRIEME[k]).replace(' °C', '&#8239;°C')}</p>
     </div>
     <div class="toc"><h2>Dans ce tome · chapitres <span class="nc">{d['ch'][0]}</span> à {d['ch'][1]}</h2><ol>{lis}</ol></div>
     <div class="bas">{auteurs(fichiers)}{serie(k)}</div>
