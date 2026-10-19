@@ -3,19 +3,24 @@
 //
 // Le texte : ch. 1, étape 15 : « poser un témoin de dégel dans le congélateur : un verre d'eau gelée, avec une pièce
 // de monnaie posée sur la glace. […] Au retour, si la pièce est restée en surface, rien n'a dégelé ; si elle est au
-// fond, tout a dégelé puis regelé ; à mi-hauteur, le dégel a été partiel. » Le même témoin : ch. 3 (« Le verre à la
-// pièce de monnaie »), ch. 5 (« Le témoin de gel »), ch. 7, ch. 9 (« L'enregistreur de température »), ch. 41, 59,
-// 73, 74, 75.
+// fond, tout a dégelé puis regelé ; à mi-hauteur, le dégel a été partiel. » La planche suit l'ordre surface,
+// mi-hauteur, fond (comme les ch. 3, 5, 41 et 73) ; la phrase du ch. 1 est à remettre dans cet ordre (rendu au
+// rédacteur). Le même témoin : ch. 3 (« Le verre à la pièce de monnaie »), ch. 5 (« Le témoin de gel »), ch. 7,
+// ch. 9 (« L'enregistreur de température »), ch. 41, 59, 73, 74, 75.
 //
 // Deux vues au même cadrage de verre.
 //   En partant : le verre d'eau (bleu, h.a.hachure('eau')), puis le même verre gelé, la pièce au-dessus de la glace
 //                et la flèche rouge du geste qui la pose. L'ordre compte : on fait geler d'abord, on pose la pièce
 //                ensuite ; mise dans l'eau, elle coulerait au fond et le témoin ne dirait rien.
-//   Au retour  : trois verres pareils, alignés sur ceux du haut, la pièce en surface, à mi-hauteur, au fond ; un
-//                cercle rouge couché autour de chaque pièce, avec son repère, et la légende dit ce que chacune veut
-//                dire, avec les mots du texte.
-// Seule l'eau liquide est bleue (h.a.hachure('eau')). La glace est un bloc en gris clair (#E6E6E6) : blanche, elle se
-// lisait comme un verre vide, et la pièce prise à mi-hauteur avait l'air de flotter dans l'air (essais du 19 octobre).
+//   Au retour  : trois verres pareils, alignés sur ceux du haut, la pièce en surface, à mi-hauteur, au fond ; chaque
+//                repère touche le bord gauche de sa pièce, et la légende dit ce que chacune veut dire, avec les mots
+//                du texte. Pas de cercle rouge : couché autour de la pièce, il faisait des nœuds de traits avec le bord
+//                du verre, la surface de la glace et le plancher (relecture du 19 octobre) ; la pièce blanche sur la
+//                glace grise se voit seule. Le rouge reste sur la flèche du geste (repère 2).
+// Seule l'eau liquide est bleue (h.a.hachure('eau')). Son motif est décalé (EAU_D) sans bouger le verre : au cadrage
+// d'origine, une vaguelette touchait le bord avant de la surface et une autre était coupée par le bord arrière.
+// La glace est un bloc en gris clair (#E6E6E6) : blanche, elle se lisait comme un verre vide, et la pièce prise à
+// mi-hauteur avait l'air de flotter dans l'air (essais du 19 octobre).
 // La pièce : la face blanche, la tranche en gris d'ombre, sans anneau intérieur (il la faisait lire comme une rondelle).
 // Aucune main : poser une pièce ne demande aucune prise ; l'objet en place et la flèche du geste suffisent.
 // Aucune cote, aucun chiffre : le texte n'en donne pas (règle 1). Seule proportion : la pièce fait un peu plus du
@@ -60,13 +65,19 @@ module.exports = (h) => {
   // la glace : un bloc en gris clair (le blanc se lirait comme un verre vide) ; deux reflets courts à droite
   const glace = g => {
     const out = [contenu(g, A.loin)];
-    // les reflets, contre la paroi de droite, sous la surface : hors des places de la pièce et de ses cercles
+    // les reflets, contre la paroi de droite, sous la surface : hors des places de la pièce
     const y = g.yc + g.ri(g.yc) * K + 2.5, x = g.cx + g.ri(y) - 7;
     // un seul chemin : ce sont deux reflets, pas une hachure
     out.push(h.path(`M ${f(x - 3)} ${f(y + 7)} L ${f(x + 1.5)} ${f(y + 1)} M ${f(x + 0.5)} ${f(y + 9)} L ${f(x + 4)} ${f(y + 4.5)}`, A.detail));
     return out.join('\n');
   };
-  const eau = g => contenu(g, A.hachure('eau', 'aucun'));
+  // l'eau : le verre reste en place, seul le motif glisse (le groupe décalé de EAU_D, la forme ramenée d'autant) ;
+  // à ce décalage, les vaguelettes restent à plus de 5 unités de la surface, du reflet et du plancher
+  const EAU_D = [8, -7];
+  const eau = g => {
+    const [dx, dy] = EAU_D, gd = geoVerre(g.cx - dx, g.yb - dy, g.Wt, g.Wb, g.Ht);
+    return `<g transform="translate(${dx} ${dy})">\n${contenu(gd, A.hachure('eau', 'aucun'))}\n</g>`;
+  };
 
   // ── la pièce de monnaie, couchée : la face du dessus blanche, la tranche en gris d'ombre ──
   const piece = (cx, cy, d) => {
@@ -105,8 +116,7 @@ module.exports = (h) => {
     desc: 'En haut, en partant : un verre d’eau, puis le même verre gelé ; une pièce de monnaie, au-dessus de la glace, '
       + 'et une flèche rouge qui la pose sur la glace. En bas, au retour : trois verres de glace pareils. Dans le premier, '
       + 'la pièce est restée sur la glace : rien n’a dégelé. Dans le deuxième, elle est prise à mi-hauteur dans la glace : '
-      + 'le dégel a été partiel. Dans le troisième, elle est couchée au fond : tout a dégelé puis regelé. Un cercle rouge '
-      + 'entoure chaque pièce.',
+      + 'le dégel a été partiel. Dans le troisième, elle est couchée au fond : tout a dégelé puis regelé.',
     format: 'quart',
     disposition: [['partant'], ['retour']],
     hauteurs: [130, 108],
@@ -139,8 +149,6 @@ module.exports = (h) => {
           const g = geoRetour(z), out = [];
           g.gs.forEach((v, i) => {
             out.push(glace(v), surface(v), verre(v), piece(v.cx, g.ys[i], g.d));
-            // le cercle rouge du point à regarder, couché comme la pièce
-            out.push(h.ellipse(v.cx, g.ys[i] + 1, g.d / 2 + 5, (g.d / 2 + 5) * 0.6, A.controle));
           });
           return out.join('\n');
         },
@@ -148,7 +156,7 @@ module.exports = (h) => {
           const g = geoRetour(z);
           const textes = ['en surface : rien n’a dégelé', 'à mi-hauteur : le dégel a été partiel', 'au fond : tout a dégelé puis regelé'];
           return g.gs.map((v, i) => {
-            const r = g.d / 2 + 5, cy = g.ys[i] + 1;
+            const r = g.d / 2 + 0.5, cy = g.ys[i] + 1;          // la ligne de rappel touche le bord gauche de la pièce
             const yr = Math.max(11, Math.min(z.h - 11, cy - 6));
             return { n: 3 + i, rond: [v.cx - WT / 2 - 14, yr], cible: [v.cx - r, cy], texte: textes[i] };
           });

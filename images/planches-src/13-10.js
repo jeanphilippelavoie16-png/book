@@ -18,6 +18,8 @@
 // le dessus ; les deux mains par h.formes.mainStock (2-13 « poing-cylindre » pour la pile dans le poing, 1-09
 // « poing-manche-debout » en miroir pour les fils), mainSimple étant retiré ; la flèche du geste passe à droite de la
 // pile, sous l'avant-bras, et le filet du repère 5 descend par la gauche de la pile jusque dans les rayons.
+// 19 octobre 2026, deuxième second regard : plus de mèche du nid dans la largeur du creux (elles encadraient chaque
+// boule comme deux parenthèses frisées) ; le reste du nid ne change pas.
 
 module.exports = (h) => {
   const F = h.formes, A = h.a;
@@ -58,14 +60,18 @@ module.exports = (h) => {
       brins += `M ${f(x - Math.cos(o) * L / 2)} ${f(y - Math.sin(o) * L / 2)} Q ${f(x)} ${f(y + (r() - 0.5) * 5)} ${f(x + Math.cos(o) * L / 2)} ${f(y + Math.sin(o) * L / 2)} `;
     }
     out.push(h.path(brins, A.fin));
+    // Les mèches sur le bord du nid, sauf dans la largeur du creux : là, elles tomberaient sur le bas des flancs de la
+    // boule de laine et feraient deux frisettes « ( ) » dans les fils droits (second regard, 19 octobre 2026). Le tirage
+    // se fait quand même, pour que le reste du nid ne bouge pas.
+    const cy = yG - H + 7, rx = w * 0.3, ry = 7;
     let m = '';
     pts.forEach(([x, y], i) => {
       if (i === 0 || i === 16 || i % 2) return;
-      const e = 3 + r() * 4;
-      m += `M ${f(x)} ${f(y)} q ${f((r() - 0.5) * 6)} ${f(-e)} ${f((r() - 0.5) * 8)} ${f(-e * 1.5)} `;
+      const e = 3 + r() * 4, qx = (r() - 0.5) * 6, ex = (r() - 0.5) * 8;
+      if (Math.abs(x - cx) <= rx + 4) return;
+      m += `M ${f(x)} ${f(y)} q ${f(qx)} ${f(-e)} ${f(ex)} ${f(-e * 1.5)} `;
     });
     out.push(h.path(m, A.fin));
-    const cy = yG - H + 7, rx = w * 0.3, ry = 7;
     out.push(h.ellipse(cx, cy, rx, ry, blanc(A.detail)));
     return { svg: out.join('\n'), creux: [cx, cy], rx, ry };
   };

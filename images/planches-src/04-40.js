@@ -26,6 +26,12 @@ module.exports = (h) => {
   const W = at => at.replace('fill="none"', 'fill="#FFFFFF"');
   const GRIS_DEHORS = '#CFCFCF', GRIS_SALE = '#E6E6E6';
   const aplat = c => `fill="${c}" stroke="none"`;
+  // Le motif de l'eau calé de [tx, ty] : la forme est tracée décalée de (−tx, −ty) dans un groupe déplacé de (tx, ty) ;
+  // elle reste en place, seules les vaguelettes bougent (19 octobre 2026, second regard : une vaguelette coupée par une
+  // paroi se lit comme un trait égaré). Le seau de la vignette 1 : une vaguelette entière au milieu de l'eau ; le seau
+  // du plan : une vaguelette entière au centre, comme dans le bassin.
+  const cale = ([tx, ty], dessin) => `<g transform="translate(${tx} ${ty})">\n${dessin(-tx, -ty)}\n</g>`;
+  const CALE_SEAU_1 = [9, 4], CALE_SEAU_PLAN = [-32, -5];
   const solA = c => `fill="${c}" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round"`;
 
   // Courbe lisse (Catmull-Rom) par des points ; ferme = true pour une forme.
@@ -203,7 +209,7 @@ module.exports = (h) => {
     // le seau, dehors, et son linge
     const sx = 44, sy = y2 - 18, rs = 12;
     o.push(h.path(`M${f1(sx - rs - 3)} ${f1(sy)} A${rs + 3} ${f1(rs * 1.7)} 0 0 1 ${f1(sx + rs + 3)} ${f1(sy)}`, A.detail));
-    o.push(h.cercle(sx, sy, rs, W(A.arete)), h.cercle(sx, sy, rs - 3, A.hachure('eau', 'detail')));
+    o.push(h.cercle(sx, sy, rs, W(A.arete)), cale(CALE_SEAU_PLAN, (dx, dy) => h.cercle(sx + dx, sy + dy, rs - 3, A.hachure('eau', 'detail'))));
     o.push(h.path(lisse([[sx + 5, sy + 9], [sx + 12, sy + 4], [sx + rs + 8, sy + 9], [sx + 13, sy + rs + 6], [sx + 6, sy + rs + 3]], true), W(A.detail)));
     // le bac contre le mur du bas, le sac ouvert dedans, et les bottes à côté
     const bx = 282, bl = 58, bh = 34, by = y2 - bh - 2;
@@ -281,8 +287,8 @@ module.exports = (h) => {
     o.push(h.chemin([[sx0 + 4, yF], [sx1 - 4, yF], [sx1, yF - sH], [sx0, yF - sH]], W(A.arete), true));
     // l'eau du seau, en bleu (JP, 19 octobre 2026) : du flanc gauche à la ride, puis au flanc droit et au fond
     const ySe = yF - sH + 7, dSe = 4 * 7 / sH;
-    o.push(h.path(`M${f1(sx0 + dSe)} ${f1(ySe)} L` + lisse(onde(sx0 + 3, ySe, sx1 - 3, ySe, 1.1, 5)).slice(1)
-      + ` L${f1(sx1 - dSe)} ${f1(ySe)} L${f1(sx1 - 4)} ${f1(yF)} L${f1(sx0 + 4)} ${f1(yF)} Z`, A.hachure('eau', 'aucun')));
+    o.push(cale(CALE_SEAU_1, (dx, dy) => h.path(`M${f1(sx0 + dSe + dx)} ${f1(ySe + dy)} L` + lisse(onde(sx0 + 3 + dx, ySe + dy, sx1 - 3 + dx, ySe + dy, 1.1, 5)).slice(1)
+      + ` L${f1(sx1 - dSe + dx)} ${f1(ySe + dy)} L${f1(sx1 - 4 + dx)} ${f1(yF + dy)} L${f1(sx0 + 4 + dx)} ${f1(yF + dy)} Z`, A.hachure('eau', 'aucun'))));
     o.push(h.chemin([[sx0 + 4, yF], [sx1 - 4, yF], [sx1, yF - sH], [sx0, yF - sH]], A.arete, true));
     o.push(h.path(lisse(onde(sx0 + 3, yF - sH + 7, sx1 - 3, yF - sH + 7, 1.1, 5)), A.detail));
     const yP = T([0, -1150])[1];
@@ -383,9 +389,9 @@ module.exports = (h) => {
     const pers = F.corps({ x: x0, y: yF, pose: 'debout-penche-lit', echelle: e, mains: { P: 'plat', L: 'plat' }, pieds: 'nu',
       angles: { tronc: 44, cou: 46, tete: 58, brasP: 52, avantbrasP: 150, mainP: 170, brasL: 48, avantbrasL: 146, mainL: 166 } });
     o.push(String(pers));
-    // les gouttes qui retombent dans le bassin
+    // les gouttes qui retombent dans le bassin : entre la main et l'eau, la dernière touche la surface
     const m = pers.mainP;
-    for (const [dx, dy] of [[4, 14], [9, 24], [2, 30]]) o.push(h.path(`M${f1(m.x + dx)} ${f1(m.y + dy)} q1.6 3 0 4.2 q-1.6 -1.2 0 -4.2 Z`, A.hachure('eau', 'detail')));
+    for (const [dx, dy] of [[9, 0.5], [5.5, 5], [12.2, 12.2]]) o.push(h.path(`M${f1(m.x + dx)} ${f1(m.y + dy)} q1.6 3 0 4.2 q-1.6 -1.2 0 -4.2 Z`, A.hachure('eau', 'detail')));
     return { svg: o.join('\n'), r: [{ n: 5, rond: [158, 76], cible: [cx1 - 1, by - 13], texte: 'se laver les mains et le visage' }] };
   };
 

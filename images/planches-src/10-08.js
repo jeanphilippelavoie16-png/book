@@ -31,7 +31,10 @@ module.exports = (h) => {
   const blanc = at => at.replace('fill="none"', 'fill="#FFFFFF"');
   // la main : 1-01 « poing-barre », sa taille dans la vue, et la largeur de son objet à cette taille
   const M101 = require('../../.claude/skills/planches/scripts/mains/stock.js').catalogue['1-01'];
-  const TAILLE = 80, ANGLE = 164;
+  const TAILLE = 80, ANGLE = -4;
+  const DXP = 10, YP = yS => yS - 112;                     // le poing : décalé du milieu du seau, sa hauteur
+  const XD = 27, Q0 = 0.4, RU = 12, DEVANT = 0.17;
+  const POUCE = [512, 318], R2 = p => [p[0] + 30, p[1] - 6];   // le milieu du pouce, relevé sur le dessin de 1-01 ; sa pastille                       // le boyau : à gauche du poing, sous le talon, le rayon du U
   const KM = TAILLE / Math.max(M101.boite[2] - M101.boite[0], M101.boite[3] - M101.boite[1]);
   const LB = Math.round(M101.objet.largeur * KM * 10) / 10;      // la largeur du boyau : celle de l'objet tenu
   const boyau = d => [
@@ -119,18 +122,21 @@ module.exports = (h) => {
     const c = { xt0: 5, xt1: 99, yt: yS - 46 - 64, xb0: 14, xb1: 90, yb: bil.y0 };
     const s = { xt0: z.l - 110, xt1: z.l - 36, yt: yS - 54, xb0: z.l - 104, xb1: z.l - 42, yb: yS };   // le seau receveur
     const xIn = 43, yIn = c.yb - 17;                     // le bout resté dans la chaudière, au-dessus du dépôt
-    const xP = (s.xt0 + s.xt1) / 2, yP = yS - 90;        // le centre du poing, au-dessus du coton, plus bas que l'eau
     const yC = s.yt + 22;                                 // le creux du coton
+    const xP = (s.xt0 + s.xt1) / 2 + DXP, yP = YP(yS);    // le centre de l'objet de la main, au-dessus du coton
     return { yS, bil, c, s, xIn, yIn, xP, yP, yC };
   };
-  // le poing tenu d'en haut : l'axe de l'objet est vertical ; le pouce ferme le bas du poing
-  const optsMain = g => ({ id: 'poing-barre', objet: false, angle: ANGLE, taille: TAILLE, x: g.xP, y: g.yP });
+  // le poing tenu pouce en haut, l'avant-bras vers la droite : 1-01 en miroir, presque droit
+  const optsMain = g => ({ id: 'poing-barre', objet: false, miroir: true, angle: ANGLE, taille: TAILLE, x: g.xP, y: g.yP });
   const poing = g => F.mainStock(optsMain(g));
-  const bout = o => o.y + o.longueur * 0.27;              // le bout du boyau, caché sous le pouce
-  // du fichier de la main à la vue : le même passage que mainStock (ancre : le centre de l'objet du fichier)
+  // l'axe du boyau dans le poing : u vers le haut (vers le pouce) ; le bout est caché sous le pouce
+  const axe = o => { const a = o.angle * Math.PI / 180; return [Math.cos(a), Math.sin(a)]; };
+  const pt = (o, t) => { const u = axe(o); return [o.x + u[0] * t * o.longueur, o.y + u[1] * t * o.longueur]; };
+  const bout = o => pt(o, 0.27);
+  // du fichier de la main à la vue : le même passage que mainStock (miroir, angle, ancre : le centre de l'objet)
   const versVue = g => {
     const c = Math.cos(ANGLE * Math.PI / 180), s = Math.sin(ANGLE * Math.PI / 180), A0 = [M101.objet.x, M101.objet.y];
-    return ([px, py]) => { const u = KM * (px - A0[0]), v = KM * (py - A0[1]); return [g.xP + c * u - s * v, g.yP + s * u + c * v]; };
+    return ([px, py]) => { const u = -KM * (px - A0[0]), v = KM * (py - A0[1]); return [g.xP + c * u - s * v, g.yP + s * u + c * v]; };
   };
   // l'avant-bras : chaque bord part dans la direction du bord de la main (le dessus de (167,2 ; 434,3), le dessous de
   // (191,4 ; 596,1), relevés sur le dessin de 1-01), se courbe sur Lc jusqu'à l'axe de l'avant-bras en s'élargissant un
@@ -161,6 +167,41 @@ module.exports = (h) => {
     const dMain = M101.chemins.find(c => c.role === 'main').d;
     return `<clipPath id="poing-1008"><path d="${dMain}" transform="${tr}" fill="#FFFFFF" stroke="none"/></clipPath>\n<g clip-path="url(#poing-1008)">${m.svg}</g>`;
   };
+  // le trajet du boyau : de la chaudière, par-dessus le bord, puis il descend à gauche du poing, passe dessous en U et
+  // remonte dans le poing sur l'axe de l'objet du fichier, jusque sous le pouce
+  const trajet = g => {
+    const o = poing(g).objet, u = axe(o);
+    const yHaut = g.c.yt - 24, xD = o.x - XD;
+    const q = pt(o, -Q0);                                  // sous le talon de la main, sur l'axe
+    const yU = q[1] + RU;                                   // le bas du U
+    const e = bout(o);
+    const d = `M${f(g.xIn)},${f(g.yIn)} L${f(g.xIn)},${f(g.c.yt - 4)} Q${f(g.xIn)},${f(yHaut)} ${f(g.xIn + 22)},${f(yHaut)} `
+      + `L${f(xD - 16)},${f(yHaut)} Q${f(xD)},${f(yHaut)} ${f(xD)},${f(yHaut + 16)} L${f(xD)},${f(yU - RU)} `
+      + `C${f(xD)},${f(yU + RU * 0.3)} ${f(q[0] - u[0] * RU * 1.3)},${f(q[1] - u[1] * RU * 1.3)} ${f(q[0])},${f(q[1])} L${f(e[0])},${f(e[1])}`;
+    const c1 = [xD, yU + RU * 0.3], c2 = [q[0] - u[0] * RU * 1.3, q[1] - u[1] * RU * 1.3], a0 = [xD, yU - RU];
+    return { d, o, e, q, u, yU, xU: (xD + q[0]) / 2, U: [a0, c1, c2, q] };
+  };
+  // le morceau de boyau qui passe devant la main : de la pièce d'entre les doigts au bas du U, échantillonné, puis ses
+  // deux murs décalés de part et d'autre
+  const devant = t => {
+    const pts = [pt(t.o, -DEVANT), t.q];
+    const [p0, p1, p2, p3] = t.U;
+    for (let i = 1; i <= 24; i++) {
+      const s = 1 - i / 48, r = 1 - s;                      // de q (s = 1) vers le milieu du U (s = 0,5)
+      pts.push([r * r * r * p0[0] + 3 * r * r * s * p1[0] + 3 * r * s * s * p2[0] + s * s * s * p3[0],
+        r * r * r * p0[1] + 3 * r * r * s * p1[1] + 3 * r * s * s * p2[1] + s * s * s * p3[1]]);
+    }
+    const mur = sg => pts.map((p, i) => {
+      const a = pts[Math.max(0, i - 1)], b = pts[Math.min(pts.length - 1, i + 1)], l = Math.hypot(b[0] - a[0], b[1] - a[1]);
+      const k = sg * (LB / 2 - 0.8);
+      return [p[0] - (b[1] - a[1]) / l * k, p[1] + (b[0] - a[0]) / l * k];
+    });
+    const D = q => 'M' + q.map(p => `${f(p[0])},${f(p[1])}`).join(' L');
+    return [
+      h.path(D(pts), `fill="none" stroke="#FFFFFF" stroke-width="${f(LB - 2.4)}" stroke-linecap="butt" stroke-linejoin="round"`),
+      h.path(`${D(mur(1))} ${D(mur(-1))}`, `fill="none" stroke="#1A1A1A" stroke-width="1.6" stroke-linecap="butt" stroke-linejoin="round"`),
+    ];
+  };
   const amorcer = z => {
     const g = geo2(z), out = [];
     out.push(...sol(z, g.yS));
@@ -175,18 +216,19 @@ module.exports = (h) => {
     const yD = g.c.yb - 8;
     out.push(...pointille(g.c.xb0 + 3, g.c.xb1 - 3, yD + 1.5, g.c.yb - 2, 29, 7));
     out.push(h.path(`M${f(g.c.xb0 + 1.5)},${f(yD)} Q${f(g.c.xb0 + 30)},${f(yD - 2)} ${f((g.c.xb0 + g.c.xb1) / 2)},${f(yD)} T${f(g.c.xb1 - 1.5)},${f(yD)}`, A.detail));
-    // le boyau : de la chaudière, par-dessus le bord, puis tout droit vers le bas jusque dans le poing
-    const m = poing(g), o = m.objet;
-    const yHaut = g.c.yt - 24;
-    const d = `M${f(g.xIn)},${f(g.yIn)} L${f(g.xIn)},${f(g.c.yt - 4)} Q${f(g.xIn)},${f(yHaut)} ${f(g.xIn + 22)},${f(yHaut)} `
-      + `L${f(o.x - 22)},${f(yHaut)} Q${f(o.x)},${f(yHaut)} ${f(o.x)},${f(yHaut + 22)} L${f(o.x)},${f(bout(o))}`;
-    out.push(...boyau(d));
-    out.push(...ch.bord, ...se.bord, ...taie(g.s, g.yC, o.x));
-    // la main, le boyau entre ses doigts, l'avant-bras qui sort par le bord de la vue
+    out.push(...ch.bord, ...se.bord, ...taie(g.s, g.yC, (g.s.xt0 + g.s.xt1) / 2));
+    // le boyau, puis la main par-dessus (son blanc cache le boyau dans le poing), le boyau entre ses doigts, et
+    // l'avant-bras qui sort par le bord de la vue
+    const t = trajet(g);
+    out.push(...boyau(t.d));
     out.push(`<clipPath id="vue-amorcer-1008"><rect x="0" y="0" width="${z.l}" height="${z.h}" fill="#FFFFFF" stroke="none"/></clipPath>`);
-    out.push(`<g clip-path="url(#vue-amorcer-1008)">`, String(m.svg), entreDoigts(g), avantBras(g), '</g>');
-    // le geste : descendre le bout sur le coton
-    out.push(h.geste(`M${f(o.x)},${f(bout(o) + 6)} L${f(o.x)},${f(g.yC - 3)}`));
+    out.push(`<g clip-path="url(#vue-amorcer-1008)">`, String(poing(g).svg), entreDoigts(g), avantBras(g), '</g>');
+    // le boyau passe devant le talon de la main : on le redessine par-dessus la main, du bas de la pièce d'entre les
+    // doigts (DEVANT × longueur sous le centre de l'objet, sur l'axe) jusqu'au bas du U ; ses deux murs en traits
+    // séparés, pour que les bouts se fondent dans le boyau du dessous
+    out.push(...devant(t));
+    // le geste : descendre le poing et le bout bouché sur le coton
+    out.push(h.geste(`M${f(t.xU)},${f(t.yU + LB / 2 + 4)} L${f(t.xU)},${f(g.yC - 4)}`));
     return out.join('\n');
   };
 
@@ -196,7 +238,7 @@ module.exports = (h) => {
     desc: 'Deux vignettes. En haut, une chaudière pleine d’eau, un dépôt au fond et, au-dessus sans le toucher, un boyau enroulé tout entier sous l’eau ; les dernières bulles sortent de son bout. En bas, la chaudière posée sur un billot : un bout du boyau reste dans l’eau, au-dessus du dépôt ; le boyau plein passe par-dessus le bord et descend tout droit dans un poing fermé, tenu d’en haut, l’avant-bras qui vient de la droite : le bout des doigts serre le boyau et le pouce, refermé sous le poing, bouche le bout ; le poing est au-dessus du seau du bas, coiffé d’une taie d’oreiller pliée en deux et attachée sous le bord, plus bas que l’eau de la chaudière. Une flèche rouge descend du bout jusqu’au creux du coton : on le descend, puis on le lâche.',
     format: 'quart',
     disposition: [['remplir'], ['amorcer']],
-    hauteurs: [1.3, 2.1],
+    hauteurs: [1.15, 2.25],
     vues: {
       remplir: {
         titre: 'Remplir le boyau',
@@ -212,10 +254,10 @@ module.exports = (h) => {
         titre: 'Boucher, descendre, lâcher',
         dessin: amorcer,
         renvois: z => {
-          const g = geo2(z), o = poing(g).objet, yb = bout(o);
+          const g = geo2(z), pouce = versVue(g)(POUCE), xc = (g.s.xt0 + g.s.xt1) / 2;
           return [
-            { n: 2, rond: [o.x - 58, yb - 4], cible: [o.x - 6, yb - 1], texte: 'boucher le bout avec le pouce' },
-            { n: 3, rond: [o.x - 36, g.yS - 18], cible: [o.x, g.yC + 5], texte: 'le descendre sur le coton, et lâcher' },
+            { n: 2, rond: R2(pouce), cible: pouce, texte: 'boucher le bout avec le pouce' },
+            { n: 3, rond: [xc - 40, g.yS - 18], cible: [xc, g.yC + 5], texte: 'le descendre sur le coton, et lâcher' },
           ];
         },
       },
