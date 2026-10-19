@@ -20,7 +20,8 @@ d'heure jusqu'au printemps.
 - **La génératrice ou le propane lâche par temps froid** (étapes 2 et 6 à 16).
 - **La route ferme, ou le pont de glace ne tient plus**, et on ne sait pas pour combien de temps (étapes 16
  et 26 à 29).
-- **Le congélateur a dégelé pendant qu'on était parti**, et il faut décider quoi sauver (étapes 15 et 20 à 27).
+- **Le congélateur a dégelé pendant qu'on était parti**, et il faut décider quoi sauver (étapes 15 et 20 à
+ 27).
 - **L'eau de l'aqueduc devient suspecte** (étapes 17 à 19).
 - **On hésite entre rester et partir** (étapes 16 et 29 ; ch. 2).
 - **Il n'y a ni génératrice, ni thermomètre, ni eau embouteillée** (section 7).
@@ -170,8 +171,8 @@ dormir, et faire le reste de la série au réveil.
  même au réfrigérateur, et il ne change ni l'odeur, ni le goût, ni l'apparence de l'aliment.
 23. {!abats} **Jeter le foie et les reins d'orignal et de tout cervidé au lieu de les cuire avec le
  reste** : ils accumulent le cadmium (ch. 22).
-24. {!tularemie} **Mettre des gants pour toucher le lièvre du congélateur, gelé ou dégelé** : le gel ne tue pas
- la bactérie de la tularémie (ch. 48).
+24. {!tularemie} **Mettre des gants pour toucher le lièvre du congélateur, gelé ou dégelé** : le gel ne tue
+ pas la bactérie de la tularémie (ch. 48).
 25. **L'hiver, sortir dans la neige ce qui est encore gelé** au lieu de laisser un congélateur arrêté se
  réchauffer : le mettre dans des bacs fermés et surélevés, à l'ombre, du côté nord. Tant qu'il gèle dehors,
  ce froid ne coûte ni courant ni carburant (ch. 73). En ville, un couvercle qui tient suffit contre les

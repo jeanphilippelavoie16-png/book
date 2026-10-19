@@ -38,7 +38,7 @@ la génératrice, et décider tout de suite si on monte au chalet.
 - **Thermomètres de réfrigérateur et de congélateur** : ils montrent si le froid a tenu pendant la panne, et ils servent au tri des aliments (étape 11).
 - **Thermomètre à sonde** : il mesure les 74 °C à cœur du gibier qu'on cuit d'avance (étape 13). On ne peut pas le fabriquer.
 - **Rallonge de gros calibre, d'un seul tenant** : elle doit être assez longue pour garder la génératrice à 6 m du bâtiment ; un fil trop fin chauffe (étape 18).
-- **Avertisseur de CO à pile de secours, à affichage** : c'est le seul moyen de détecter le monoxyde, et son écran affiche un chiffre avant que l'alarme sonne (étape 21).
+- **Avertisseur de CO à pile de secours, à affichage** : il est le seul moyen de détecter le monoxyde, et son écran affiche un chiffre avant que l'alarme sonne (étape 21).
 - **Obturateur de drain de plancher** : il bouche le drain par où l'égout refoule au sous-sol pendant une crue (étape 22 ; sans obturateur : section 7).
 
 ---
@@ -483,43 +483,42 @@ Sans propane ni génératrice, il reste le poêle à bois, et on ne chauffe plus
 - Fermer d'abord la cage d'escalier : l'air chaud y monte et se refroidit contre les fenêtres de l'étage, pendant que
  la pièce du poêle tire l'air froid par le plancher. Une couverture clouée en
  haut de l'escalier garde plus de chaleur que toutes les portes de chambre fermées.
-- Tendre ensuite une couverture dans chaque cadre de porte de la pièce, et couvrir ses fenêtres pour la nuit : la
- vitre, même double, est le point le plus froid du mur.
+- Tendre ensuite une couverture dans chaque cadre de porte de la pièce, et couvrir les fenêtres de la pièce pour la
+ nuit : la vitre, même double, est le point le plus froid du mur.
 - {!co} Faire dormir tout le monde dans cette pièce : quatre personnes dans une pièce fermée la réchauffent. Y apporter
- l'avertisseur de monoxyde du couloir des chambres (étape 21) : dans un couloir qu'on ne chauffe plus, la température
- peut descendre sous 4,4 °C, et on ne peut plus se fier à lui.
+ l'avertisseur de CO du couloir des chambres (étape 21) : dans un couloir qu'on ne chauffe plus, la température peut
+ descendre sous 4,4 °C, et on ne peut plus se fier à l'avertisseur.
 
 ### La plomberie hors gel sans antigel
 
-Quand la pièce du poêle est la seule chaude, le reste de la maison refroidit, et les tuyaux qui gèlent les premiers
-fendent (étape 34).
+Quand la pièce du poêle est la seule chaude, le reste de la maison refroidit, et les tuyaux de l'étape 34 gèlent les
+premiers et fendent.
 
 - Fermer l'entrée d'eau. Ouvrir le robinet le plus haut pour laisser entrer l'air, puis le plus bas pour vider, puis
  tous les autres, et les laisser ouverts.
 - Tirer la chasse des toilettes pour vider les réservoirs.
-- Vider chaque siphon d'évier et de lavabo (étape 40) : par le bouchon de nettoyage, au bas du coude, quand il y en a
- un, avec un seau dessous ; sinon à la poire à jus, à l'aspirateur à eau, ou en dévissant l'écrou du siphon
- au-dessus d'une chaudière. Bourrer ensuite le renvoi d'un chiffon : sans son eau, le siphon ne bloque plus les gaz
- d'égout.
-- La cuvette de la toilette ne se vide pas. À la maison sur l'égout de la ville, un peu de lave-glace au méthanol y
- abaisse le point de congélation. Au chalet, le méthanol tue les bactéries de la fosse septique : écoper la cuvette à
- la tasse et finir à l'éponge.
+- Vider chaque siphon d'évier et de lavabo (étape 40). S'il a un bouchon de nettoyage au bas du coude, mettre une
+ chaudière dessous et dévisser le bouchon ; sinon, aspirer l'eau à la poire à jus ou à l'aspirateur à eau, ou
+ dévisser l'écrou du siphon au-dessus d'une chaudière. Bourrer ensuite le renvoi d'un chiffon : sans son eau, le
+ siphon ne bloque plus les gaz d'égout.
+- La cuvette de la toilette ne se vide pas. À la maison, sur l'égout de la ville, y verser un peu de lave-glace au
+ méthanol : il abaisse le point de congélation. Au chalet, le méthanol tue les bactéries de la fosse septique :
+ écoper la cuvette à la tasse et finir à l'éponge.
 
 ### Ce qu'on perd
 
-- **La recharge** : les lampes et les communications s'usent au lieu de se recharger, et chaque soir coûte quelque
- chose qu'on ne remet pas.
-- **Les pleins** : une pompe à essence sans courant ne vend rien, et la réserve de carburant ne fait que baisser.
+- **La recharge** : les piles des lampes, des téléphones et des radios se vident, et on ne peut plus les recharger.
+- **Les pleins** : on ne peut plus faire le plein, et la réserve de carburant ne fait que baisser.
 - **Une partie du préavis** : reçu en pleine panne, il sert seulement à rentrer du bois, à remplir des contenants
  d'eau, à mettre des bidons à geler dehors et à regrouper la famille dans une seule pièce.
 
 ### Ce qui ne se remplace pas
 
-- **L'avertisseur de monoxyde** : aucun sens et aucun montage ne détectent le gaz (étape 21).
-- **Le thermomètre à sonde** : on ne peut pas estimer les 74 °C à cœur, et quand un congélateur dégèle, on cuit
- de la viande sauvage à la hâte (étape 13).
+- **L'avertisseur de CO** : aucun sens et aucun montage ne détectent le gaz (étape 21).
+- **Le thermomètre à sonde** : on ne peut pas deviner les 74 °C à cœur à l'œil, et quand un congélateur dégèle, on
+ cuit de la viande sauvage à la hâte (étape 13).
 - **Les médicaments sur ordonnance** : il n'existe pas de version bricolée d'un anticonvulsivant ou d'une insuline ; la
- seule marge, on la prend avant, en les renouvelant tôt (ch. 32).
+ seule marge est de les faire renouveler tôt (ch. 32).
 - **Le carburant** : rien dans la maison ne remplace un bidon d'essence plein.
 
 ---
@@ -541,8 +540,8 @@ des selles et des virus humains, peut entrer par leurs fuites (étape 42).
 
 ### La cache de pierres des Inuits de la Koksoak
 
-Les Inuits de la rivière Koksoak, en Ungava, gardaient pour l'hiver le caribou tué à l'automne : la bête posée sur
-des pierres, sous un mur de pierres contre les corbeaux, les renards, les loups et le carcajou. Ils marquaient
+Les Inuits de la rivière Koksoak, en Ungava, gardaient pour l'hiver le caribou tué à l'automne : ils posaient la bête
+sur des pierres et montaient un mur de pierres par-dessus contre les corbeaux, les renards, les loups et le carcajou. Ils marquaient
 l'endroit pour le retrouver sous la neige, et souvent ne le retrouvaient pas. Le froid garde la viande ; les premières
 bêtes, tuées par temps chaud, se gâtaient et allaient aux chiens (section 7, « La caisse froide dehors »).
 

@@ -30,7 +30,7 @@ elles n'arrivent pas.
 
 ## 3. Matériel
 
-- **Radio AM/FM à piles** : donne les nouvelles quand le téléphone ne capte plus ; le soir, la bande AM porte loin (étape 24 ; sans radio : section 7).
+- **Radio AM/FM à piles** : donne les nouvelles quand le téléphone ne capte plus (étape 24 ; sans radio : section 7).
 - **Appareil de messagerie satellite avec bouton SOS, et son abonnement** : envoie et reçoit des messages de partout, sans tour cellulaire (étapes 2 et 5 ; sans lui : section 7, « Le relais humain »).
 - **Avertisseur de CO à piles** : le seul moyen de savoir qu'une recharge au moteur remplit l'air de monoxyde (étape 21).
 - **Radio VHF maritime portative, sur le fleuve** : appelle à l'aide sur la voie 16, que les bateaux et la Garde côtière écoutent (étape 2).
@@ -42,14 +42,14 @@ elles n'arrivent pas.
 ### Il faut de l'aide, loin de tout {.orange 10 min}
 
 1. **Décider tout de suite si la vie de quelqu'un est en jeu.** Elle l'est quand une personne respire mal, saigne
- sans qu'on arrive à l'arrêter, se réveille mal ou devient confuse, ou ne pourra pas passer la nuit à l'endroit où
- elle est : dans le froid sans abri, ou avec une jambe cassée loin du chalet. Dans ce cas, déclencher la
- détresse (étape 2). Sinon, avertir le correspondant (étape 5). Les soins en attendant : ch. 26 ; quand partir vers
- l'hôpital : ch. 35. Dans le doute, avertir quand même (étape 5).
-2. **Si la vie est en jeu, déclencher la détresse, sans attendre.**
+ sans qu'on arrive à l'arrêter, est difficile à réveiller ou devient confuse, ou ne pourra pas passer la nuit à
+ l'endroit où elle est : dans le froid sans abri, ou avec une jambe cassée loin du chalet. Dans ce cas, lancer
+ l'appel de détresse (étape 2). Sinon, avertir le correspondant (étape 5). Pour les soins en attendant les
+ secours : ch. 26 ; pour décider quand partir vers l'hôpital : ch. 35. Dans le doute, avertir quand même
+ (étape 5).
+2. **Si la vie est en jeu, lancer l'appel de détresse, sans attendre.**
  - Avec l'appareil satellite, appuyer sur le bouton SOS. Avec une balise de détresse de 406 MHz, la mettre en
- marche. Ne pas attendre l'heure limite de la fiche de sortie (étape 29) ni l'heure du prochain message : attendre
- ne fait que retarder les secours.
+ marche. Ne pas attendre l'heure limite de la fiche de sortie (étape 29) ni l'heure du prochain message.
  - Sur le fleuve, avec la VHF, se mettre sur la voie 16 (156,800 MHz). Dire « MAYDAY » trois fois, puis « ICI » et
  le nom de l'embarcation ou du chalet trois fois. Donner ensuite la position, ce qui arrive et le secours qu'on
  demande, et finir par « À VOUS ». Ne pas adresser l'appel à un poste ou à un bateau en particulier : les bateaux et
@@ -61,10 +61,10 @@ elles n'arrivent pas.
 3. **Laisser la balise ou le SOS en marche jusqu'à ce que quelqu'un arrive, et rester sur place.** Ne pas éteindre
  la balise puis la rallumer pour ménager la pile : un signal qui s'arrête et reprend donne une position moins
  précise et gêne les sauveteurs qui se guident sur lui. Une balise dont la pile est en bon état émet au moins 24 h.
- Rester aussi près de la machine, de l'auto ou du traîneau, et la dégager de la neige : d'un avion, on repère une
- machine plus facilement qu'une personne. Garder l'appareil satellite allumé et au chaud sous le manteau. Pendant un
- SOS, le sortir sous un ciel dégagé aussi souvent que le froid le permet : sous le manteau, ce qu'il envoie reste en
- file, et il ne reçoit pas les réponses (étapes 7 et 22).
+ Rester aussi près de la machine (la motoneige ou le VTT), de l'auto ou du traîneau, et la dégager de la neige :
+ d'un avion, on repère une machine plus facilement qu'une personne. Garder l'appareil satellite allumé et au chaud
+ sous le manteau. Pendant un SOS, le sortir sous un ciel dégagé aussi souvent que le froid le permet : sous le
+ manteau, ce qu'il envoie reste en attente, et il ne reçoit pas les réponses (étapes 7 et 22).
 4. {!froid} **Se préparer à attendre longtemps, et à être vu.** Une recherche peut prendre jusqu'à 24 h avant que
  quelqu'un arrive.
  - Monter un abri (ch. 12, étapes 1 à 14) et faire un feu (ch. 13) près de la machine, ou au bord de l'ouverture la
@@ -73,15 +73,14 @@ elles n'arrivent pas.
  - Ramasser une grosse brassée de branches vertes et la garder à côté du feu. Dès qu'on voit ou qu'on entend un
  avion, la jeter sur le feu : elle fait une colonne de fumée. Sur la neige, garder aussi à côté du feu de quoi faire
  de la fumée noire : du caoutchouc, de l'huile ou du plastique (section 7, « La fumée »).
- - La nuit, allumer une lampe frontale ou une lampe de poche vers le bruit de l'avion ; le flash d'un appareil photo
- se voit aussi.
+ - La nuit, pointer une lampe frontale ou une lampe de poche allumée vers le bruit de l'avion ; le flash d'un
+ appareil photo se voit aussi.
 5. **Si la vie n'est pas en jeu mais que ça peut mal tourner, avertir tout de suite le correspondant** par message
  satellite : un blessé stable, une motoneige en panne à 10 km du chalet, un enfant fiévreux pendant une tempête. Le
  correspondant est la personne choisie d'avance, loin de l'urgence, qui garde la fiche de position et sait quoi
  faire quand un message manque (étape 18). Si personne n'a été choisi, écrire à quelqu'un qu'on sait joindre et qui
  ne vit pas la même urgence. Avertir tôt n'oblige à rien, sauf à écrire ensuite que la situation s'est arrangée, et
- ça permet de préparer les secours au cas où elle empirerait : le temps perdu au début d'une recherche ne se
- rattrape pas. Sur le fleuve, faire la même chose à la VHF, sur la voie 16, en commençant par « PAN PAN » dit trois
+ ça permet de préparer les secours au cas où elle empirerait. Sur le fleuve, faire la même chose à la VHF, sur la voie 16, en commençant par « PAN PAN » dit trois
  fois : ces mots annoncent un message très urgent sur la sécurité d'une personne ou d'une embarcation.
 6. **Écrire le message toujours dans le même ordre**, celui des messages d'urgence à la VHF :
 
@@ -99,13 +98,12 @@ elles n'arrivent pas.
  chemin, le kilomètre, la couleur du bâtiment. Garder le même nom et le même ordre à chaque message : la personne
  qui ne lit que le troisième message sait quand même qui écrit, où on est et ce qui arrive.
 7. **Attendre la réponse avant de croire que le message est arrivé.** L'appareil marque un message « envoyé » quand
- il l'a mis en file pour le satellite : seule la réponse prouve qu'il est arrivé. Sans réponse, aller sous un ciel
+ il l'a mis en attente pour le satellite : seule la réponse prouve qu'il est arrivé. Sans réponse, aller sous un ciel
  dégagé et renvoyer le message. Ne rien décider en se disant que le correspondant est au courant.
 8. **Envoyer le message suivant à l'heure annoncée, même s'il n'y a rien de neuf.** Si la situation empire,
- déclencher la détresse (étape 2). Si elle s'arrange, l'écrire tout de suite. Si la balise est partie par erreur,
- l'éteindre, puis écrire au correspondant l'heure où elle est partie, combien de temps elle a émis, où on est, et que
- tout va bien, pour qu'il fasse arrêter la recherche : une équipe qui cherche une famille rentrée
- chez elle ne cherche pas quelqu'un d'autre.
+ lancer l'appel de détresse (étape 2). Si elle s'arrange, l'écrire tout de suite. Si la balise s'est mise en marche
+ par erreur, l'éteindre, puis écrire au correspondant l'heure où elle s'est mise en marche, combien de temps elle a
+ émis, où on est, et que tout va bien, pour qu'il fasse arrêter la recherche.
 
 ### Quelqu'un n'est pas revenu à l'heure prévue {.orange 1 h}
 
@@ -113,16 +111,16 @@ elles n'arrivent pas.
  l'appeler au walkie-talkie. S'il ne répond pas, recommencer jusqu'à l'heure limite.
 10. **Relire la fiche de sortie** (étape 29) : où il allait, par quel chemin, avec quelle machine, et l'heure
  limite. Sans fiche, écrire tout de suite ce qu'on sait : l'heure de son départ, la direction prise, la machine, ce
- qu'il portait ; compter alors l'heure limite une heure après l'heure où il devait rentrer.
+ qu'il portait ; fixer alors l'heure limite à une heure après l'heure où il devait rentrer.
 11. **Faire voir et entendre le chalet.** Allumer une lumière à la fenêtre qui donne sur le chemin, et faire un feu
  devant le chalet dès que le jour baisse. Souffler dans un sifflet à intervalles réguliers, puis se taire pour
  écouter la réponse (section 7, « Se faire voir et se faire entendre »).
 12. **À l'heure limite, sans nouvelles, avertir le correspondant** par message satellite, dans l'ordre de
- l'étape 6 : qui manque, depuis quand, ce que dit la fiche de sortie. Le correspondant donne alors l'alerte tout de
+ l'étape 6 : qui manque, depuis quand, ce qui est écrit sur la fiche de sortie. Le correspondant donne alors l'alerte tout de
  suite (étape 18). Ne pas attendre le lendemain pour écrire.
 13. **Partir le chercher seulement à deux, sans l'adulte qui garde les enfants.** Une personne qui part seule, ou
  qui part de nuit, risque de se perdre ou de se blesser à son tour, et il y a alors deux personnes à chercher.
- - Laisser au chalet le chemin qu'on prend et l'heure du retour.
+ - Laisser au chalet, par écrit, le chemin qu'on prend et l'heure du retour.
  - S'il fait noir, partir au premier jour et suivre sa trace : une personne qui ne peut pas rentrer avant la nuit
  passe la nuit au bord de sa trace (ch. 15, étape 18).
  - S'il n'y a pas deux adultes pour partir, rester au chalet, garder la lumière et le feu, et écrire au

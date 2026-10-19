@@ -46,8 +46,8 @@ nourriture et le lien), puis reprendre la décision à heure fixe tant que la si
 
 ### L'avertisseur de CO sonne {.orange 1 min}
 
-L'alarme fait quatre bips rapides, une pause, et ça recommence[^1]. Faire la même série quand plusieurs personnes ont mal à la tête,
-la nausée ou des étourdissements en même temps, avec ou sans alarme.
+L'alarme fait quatre bips rapides, une pause, et ça recommence[^1]. Faire la même série quand plusieurs personnes ont
+mal à la tête, la nausée ou des étourdissements en même temps, avec ou sans alarme.
 
 1. {!co} **Sortir tout le monde, tout de suite, sans chercher la source.** Réveiller les gens qui dorment, prendre
  les enfants et faire sortir les animaux. Ne pas s'arrêter pour ouvrir les fenêtres : laisser la porte ouverte derrière
@@ -119,12 +119,13 @@ tôt que prévu, le plus important est fait.
  - Vidanger les calorifères, les bouilloires et les réservoirs d'expansion du chauffage à eau chaude.
  - Verser de l'antigel de plomberie, qui n'est pas toxique : 0,5 L dans le réservoir de la toilette et 1 L dans la
  cuvette ; 0,5 L dans chaque évier, lavabo, baignoire, douche, drain de plancher et siphon de laveuse ; 2 L dans la
- laveuse ; 1 L dans le lave-vaisselle. Ne jamais mettre d'antigel à moteur : il est toxique et reste dans la tuyauterie d'eau
- potable.
+ laveuse ; 1 L dans le lave-vaisselle. Ne jamais mettre d'antigel à moteur : il est toxique et reste dans la
+ tuyauterie d'eau potable.
  - Au retour, ne rien remettre en eau avant que la pièce soit à au moins 18 °C : l'eau qu'on remet dans un tuyau
  encore gelé le fend.
-21. **Décider quoi faire du congélateur avant de fermer la porte** : il ne tiendra pas jusqu'au retour (étape 29). Si le trajet
- est court, mettre ce qui est gelé dans une glacière ; sinon, le cuire, le donner, ou accepter de le perdre (ch. 74).
+21. **Décider quoi faire du congélateur avant de fermer la porte** : il ne tiendra pas jusqu'au retour (étape 29). Si
+ le trajet est court, mettre ce qui est gelé dans une glacière ; sinon, le cuire, le donner, ou accepter de le perdre
+ (ch. 74).
 22. **Fermer les portes et les fenêtres.** Devant un feu, s'il reste du temps, arroser le terrain et le toit le plus
  tôt possible : le bois mouillé prend feu moins vite seulement s'il a eu le temps d'absorber l'eau avant que le front
  du feu arrive.
@@ -150,9 +151,9 @@ tôt que prévu, le plus important est fait.
  (étape 43).
  - Dans une maison chauffée à l'électricité, l'horloge de la chaleur est cette pente. Au chalet, on la compte en jours
  de bois sec qu'on peut aller chercher sans machine, au rythme où on chauffe (ch. 83).
- - Entre 18 et 24 °C, le risque est minimal pour une personne sédentaire. Il n'existe aucune température reconnue à partir de
- laquelle on doit quitter une maison : partir à la température écrite d'avance sur la fiche de décision, choisie en pensant au plus
- jeune. Sans fiche, les deux adultes doivent la fixer maintenant.
+ - Entre 18 et 24 °C, le risque est minimal pour une personne sédentaire. Il n'existe aucune température reconnue à
+ partir de laquelle on doit quitter une maison : partir à la température écrite d'avance sur la fiche de décision,
+ choisie en pensant au plus jeune. Sans fiche, les deux adultes doivent la fixer maintenant.
 28. **Eau : compter les litres qu'on a dans la maison, et vérifier qu'on a accès à une source et de quoi désinfecter
  l'eau** (ch. 10). La réserve de la trousse d'urgence est de 4 L par personne et par jour, dont 2 L à boire, pour au
  moins trois jours.
@@ -209,25 +210,24 @@ tôt que prévu, le plus important est fait.
  espacés d'au moins 3 m entre les cimes et élagués jusqu'à 2 m du sol (ch. 11, étapes 49 à 56). Sans ces trois
  zones, on ne peut pas défendre un chalet dans une forêt serrée d'épinettes noires : partir tôt, avant que le feu ou la
  fumée ferment le chemin. À la maison, décider selon l'avance du feu vers la ville (ch. 11).
-38. **Devant une fumée sans feu visible, rester à l'intérieur, fermer les portes et les fenêtres, et faire
- recirculer ou filtrer l'air** ; la radio donne la Cote air santé[^2]. L'été, s'il fait trop chaud dedans, ouvrir les fenêtres : la
- chaleur fait en général plus de tort que la fumée. Le poêle à bois tire son air de combustion de la pièce
- ou du dehors : on ne peut pas fermer le chalet à la fumée et le chauffer en même temps. Sous une fumée épaisse, quand il
+38. **Devant une fumée sans feu visible, rester à l'intérieur, fermer les portes et les fenêtres, et faire recirculer
+ ou filtrer l'air** ; la radio donne la Cote air santé[^2]. L'été, s'il fait trop chaud dedans, ouvrir les fenêtres :
+ la chaleur fait en général plus de tort que la fumée. Le poêle à bois tire son air de combustion de la pièce ou du
+ dehors : on ne peut pas fermer le chalet à la fumée et le chauffer en même temps. Sous une fumée épaisse, quand il
  faut chauffer, partir vers la maison, qu'on peut fermer sans couper le chauffage.
 39. **Pendant une longue panne de courant, reprendre la décision à heure fixe** (étape 43). Même quand le bâtiment
  tient, que le bois est cordé et que le congélateur est plein, les réserves baissent chaque jour sans qu'aucun
- événement oblige à décider. Manger
- d'abord ce qui dégèle (ch. 3, ch. 74).
+ événement oblige à décider. Manger d'abord ce qui dégèle (ch. 3, ch. 74).
 
 [^2]: De 1 à 3, le risque est faible ; de 4 à 6, modéré ; de 7 à 10, élevé ; au-dessus de 10, très élevé. À partir de 7, la consigne de réduire l'effort dehors ne vise plus seulement les personnes fragiles : elle vaut aussi pour les adultes en santé.
 
 ### Compter les passagers
 
-40. {!froid} **Compter ce que chaque passager peut faire.** Un jeune enfant ne marche pas plusieurs kilomètres dans la neige :
- compter qu'on le portera ou qu'on le tirera. Les nouveau-nés et les nourrissons sont parmi les plus à risque
+40. {!froid} **Compter ce que chaque passager peut faire.** Un jeune enfant ne marche pas plusieurs kilomètres dans la
+ neige : compter qu'on le portera ou qu'on le tirera. Les nouveau-nés et les nourrissons sont parmi les plus à risque
  d'hypothermie. Une personne maladroite, confuse, qui parle avec difficulté ou qui agit de façon inhabituelle a les
- signes de l'hypothermie modérée : elle ne doit plus faire de trajet sans abri chauffé (ch. 25), ni participer
- à la décision. Chez un enfant, regarder ces signes au lieu de lui demander s'il a froid (ch. 39, ch. 40).
+ signes de l'hypothermie modérée : elle ne doit plus faire de trajet sans abri chauffé (ch. 25), ni participer à la
+ décision. Chez un enfant, regarder ces signes au lieu de lui demander s'il a froid (ch. 39, ch. 40).
 
 ### Trancher
 
@@ -300,8 +300,8 @@ tôt que prévu, le plus important est fait.
 
 ## 7. Variante d'urgence
 
-**Sans électricité, sans réseau cellulaire, sans satellite et sans radio qui capte : présumer le pire.** Sans information, la
-route est peut-être coupée et personne ne sait qu'on est là.
+**Sans électricité, sans réseau cellulaire, sans satellite et sans radio qui capte : présumer le pire.** Sans
+information, la route est peut-être coupée et personne ne sait qu'on est là.
 
 ### Mesurer sans instrument
 
@@ -320,10 +320,9 @@ route est peut-être coupée et personne ne sait qu'on est là.
 ### Savoir, quand plus rien n'arrive
 
 - **Sans radio à piles** : écouter la radio de l'auto, moteur coupé, par tranches de quelques minutes, en alternant
- avec l'éclairage pour ménager la batterie (« Faire démarrer l'auto »,
- plus bas). Un fil de cuivre lancé dans un arbre et enroulé sur le brin d'antenne allonge la portée. La bande AM
- porte beaucoup plus loin après le coucher du soleil qu'à midi : on capte parfois à 22 h une station qu'on
- n'entendait pas à 14 h. Essayer le jour et le soir.
+ avec l'éclairage pour ménager la batterie (« Faire démarrer l'auto », plus bas). Un fil de cuivre lancé dans un
+ arbre et enroulé sur le brin d'antenne allonge la portée. La bande AM porte beaucoup plus loin après le coucher du
+ soleil qu'à midi : on capte parfois à 22 h une station qu'on n'entendait pas à 14 h. Essayer le jour et le soir.
 - **Sans nouvelles de la route** : faire un aller de reconnaissance jusqu'au premier endroit où on voit la route, à
  pied ou en motoneige, à deux, de jour, et sans l'adulte qui garde les enfants. Partager le carburant et la
  clarté en trois : un tiers pour l'aller, un tiers pour le retour, et un tiers de marge qu'on ne touche pas. Casser
@@ -333,19 +332,19 @@ route est peut-être coupée et personne ne sait qu'on est là.
  de contact convenue d'avance. L'aide met alors des demi-journées à venir au lieu de minutes, et ce délai change les
  soins (ch. 26, ch. 35).
 - **Sans nouvelles du tout** : demander aux voisins. À la maison, les nouvelles passent encore de porte en porte.
-- **Sans moyen de prévenir les proches** : écrire aussi la destination, le chemin et le chemin de
- rechange sur la feuille de la porte (étape 23). Faire deux feuilles : une à l'intérieur de la porte, une à l'extérieur sous
+- **Sans moyen de prévenir les proches** : écrire aussi la destination, le chemin et le chemin de rechange sur la
+ feuille de la porte (étape 23). Faire deux feuilles : une à l'intérieur de la porte, une à l'extérieur sous
  plastique.
 - **Pour se faire voir d'un avion ou d'une motoneige** : faire un feu, et garder à côté une bonne réserve de branches
- de conifère vertes, à jeter dessus dès qu'on voit ou qu'on entend l'avion. Le bois sec ne donne presque pas de
- fumée ; les branches vertes donnent une fumée blanche épaisse. Tracer aussi un signe en piétinant la neige, dans
- un endroit dégagé. Le code sol-air est international : **V** pour « besoin d'aide », **X** pour « besoin de soins médicaux »,
- chaque signe d'**au moins 2,4 m** de long, dans une matière qui tranche sur le terrain : des branches de sapin sur
- la neige, de la neige piétinée jusqu'au sol.
-- **Sans eau du robinet** : faire fondre de la neige coûte du bois et donne beaucoup moins d'eau que son volume le laisse
- croire ; la glace de lac en donne davantage pour le même feu. Mettre un fond d'eau dans le chaudron avant d'y jeter
- la neige : sinon, la neige du fond roussit et l'eau en prend le goût. Ne pas manger la neige : la fondre dans la
- bouche refroidit le corps (ch. 10).
+ de conifère vertes, à jeter dessus dès qu'on voit ou qu'on entend l'avion. Le bois sec ne donne presque pas de fumée ;
+ les branches vertes donnent une fumée blanche épaisse. Tracer aussi un signe en piétinant la neige, dans un endroit
+ dégagé. Le code sol-air est international : **V** pour « besoin d'aide », **X** pour « besoin de soins médicaux »,
+ chaque signe d'**au moins 2,4 m** de long, dans une matière qui tranche sur le terrain : des branches de sapin sur la
+ neige, de la neige piétinée jusqu'au sol.
+- **Sans eau du robinet** : faire fondre de la neige coûte du bois et donne beaucoup moins d'eau que son volume le
+ laisse croire ; la glace de lac en donne davantage pour le même feu. Mettre un fond d'eau dans le chaudron avant d'y
+ jeter la neige : sinon, la neige du fond roussit et l'eau en prend le goût. Ne pas manger la neige : la fondre dans
+ la bouche refroidit le corps (ch. 10).
 
 ### Décider tôt et une seule fois
 
@@ -357,21 +356,20 @@ pas partir pour le chalet : on ne peut plus chiffrer le trajet.
 
 Sortir ce qui est encore gelé avant la fin de l'horloge du congélateur (étape 29) : le mettre dans une caisse fermée,
 posée sur deux bûches pour que l'air passe dessous, à l'ombre du côté nord, et mettre un poids sur le couvercle contre
-les bêtes (ch. 73). Deux choses font perdre ce qu'il y a dans la caisse : le soleil
-de midi d'une journée douce, qui fait dégeler, et la pluie verglaçante, qui recongèle les paquets en bloc. Trier ce qui dégèle selon
-l'étape 29.
+les bêtes (ch. 73). Deux choses font perdre ce qu'il y a dans la caisse : le soleil de midi d'une journée douce, qui
+fait dégeler, et la pluie verglaçante, qui recongèle les paquets en bloc. Trier ce qui dégèle selon l'étape 29.
 
 {!cuisson} {!abats} Cuire la viande qui dégèle : cuite, elle se garde plus longtemps que crue et décongelée. Cuire
-l'orignal à **74 °C à cœur**. Ne jamais manger **le foie ni les reins d'un cervidé** : le cadmium s'y accumule. En vidant
-le congélateur en une journée de cuisson, on a des repas froids pour les jours suivants, sans feu (ch. 74).
+l'orignal à **74 °C à cœur**. Ne jamais manger **le foie ni les reins d'un cervidé** : le cadmium s'y accumule. En
+vidant le congélateur en une journée de cuisson, on a des repas froids pour les jours suivants, sans feu (ch. 74).
 
 ### Si on part quand même : faire démarrer l'auto
 
 - Le froid ralentit la chimie de la batterie au moment où l'huile épaissie demande plus au démarreur : à −18 °C, une
  batterie au plomb ne donne plus que la moitié de sa capacité. Souvent, il suffit de décrocher la batterie, de la
- rentrer quelques heures près du poêle et de la remonter juste avant de partir. Une fois rentrée, elle peut aussi éclairer la
- maison, mais elle ne fera pas les deux : le démarrage passe avant. Une batterie qu'on vide gèle plus facilement :
- pleine, elle gèle vers −69 °C ; chargée à 40 %, vers −15 °C ; à 20 %, vers −7 °C.
+ rentrer quelques heures près du poêle et de la remonter juste avant de partir. Une fois rentrée, elle peut aussi
+ éclairer la maison, mais elle ne fera pas les deux : le démarrage passe avant. Une batterie qu'on vide gèle plus
+ facilement : pleine, elle gèle vers −69 °C ; chargée à 40 %, vers −15 °C ; à 20 %, vers −7 °C.
 - {!projection} **Avant de survolter ou de charger une batterie à plat, la regarder.** Si ses parois sont bombées,
  ondulées ou fendues, elle a gelé : ne plus la survolter ni la charger, même une fois dégelée. Une batterie gelée aux
  parois intactes doit dégeler au chaud avant qu'on la survolte ou qu'on la charge.
@@ -380,9 +378,9 @@ le congélateur en une journée de cuisson, on a des repas froids pour les jours
  génératrice ou du chalet fait l'affaire, en parallèle.
 - Sur une transmission manuelle, une batterie trop faible pour le démarreur reste souvent assez bonne pour
  l'allumage : mettre le contact, engager la deuxième, faire pousser l'auto et relâcher l'embrayage d'un coup.
-- Un moteur qui tourne sans partir, avec de l'essence dans le réservoir, a souvent de l'eau gelée dans la conduite
- ou le filtre. Cette eau vient de la condensation dans un réservoir à moitié vide : garder le réservoir plein de novembre à
- avril. L'antigel de conduite est de l'alcool : l'alcool à brûler du réchaud ou l'alcool isopropylique de la
+- Un moteur qui tourne sans partir, avec de l'essence dans le réservoir, a souvent de l'eau gelée dans la conduite ou
+ le filtre. Cette eau vient de la condensation dans un réservoir à moitié vide : garder le réservoir plein de novembre
+ à avril. L'antigel de conduite est de l'alcool : l'alcool à brûler du réchaud ou l'alcool isopropylique de la
  pharmacie font le même travail. Ils se mêlent à l'eau au fond du réservoir et l'empêchent de prendre en glace. La
  dose est d'environ **350 mL pour un plein de 75 L**, un demi pour cent, à chaque plein l'hiver. Prendre
  l'isopropylique **à 99 %** : celui à 70 % contient 30 % d'eau, et il en ajouterait au réservoir.

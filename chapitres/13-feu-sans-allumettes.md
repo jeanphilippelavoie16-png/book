@@ -449,9 +449,9 @@ laisser dehors (section 7, l'amadouvier).
 ![Deux amadouviers en forme de sabot sur le tronc d'un bouleau](images/extras/13-amadouvier-bouleau.jpg)
 
 Le dessus est dur, lisse et mat, marqué de sillons en rond de plusieurs gris, et il brunit vers le bas. Le
-champignon peut atteindre 20 cm de haut et grossir pendant 30 ans et plus sur le même tronc. On le trouve surtout
-sur le bouleau à papier, aussi sur l'érable et le peuplier faux-tremble, et il est commun dans les vieilles
-aulnaies (section 7, l'amadouvier).
+champignon peut atteindre 20 cm de haut et grossir pendant 30 ans et plus sur le même tronc. On le trouve
+surtout sur le bouleau à papier, aussi sur l'érable et le peuplier faux-tremble, et il est commun dans les
+vieilles aulnaies (section 7, l'amadouvier).
 
 ### La pyrite au lieu de l'acier
 

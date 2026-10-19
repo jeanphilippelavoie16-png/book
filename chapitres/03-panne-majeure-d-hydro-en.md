@@ -191,8 +191,7 @@ ou sans alarme.
  ouvert, l'eau sort au lieu de monter en pression.
 22. **Prévoir l'heure de la vidange.** Faire deux relevés du même thermomètre, à 2 h d'intervalle : on en tire le
  nombre de degrés perdus à l'heure, et donc l'heure où la pièce arrivera à 5 °C. Une maison qui perd 1 °C à l'heure
- et qui affiche 14 °C laisse neuf heures.
- Faire la vidange de jour, à deux, les mains chaudes.
+ et qui affiche 14 °C laisse neuf heures. Faire la vidange de jour, à deux, les mains chaudes.
 23. **Vidanger dans l'ordre** (planche 03-10).
  - **Fermer l'entrée d'eau** (repère 1). Elle est au sous-sol, là où le tuyau d'eau entre par le plancher ou par le
  mur de fondation, souvent près du compteur : une vanne à poignée ronde ou à levier. La tourner jusqu'au bout. Au
