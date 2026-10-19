@@ -139,7 +139,8 @@ chalet, et on ne fait pas semblant du contraire. Le chapitre 2 (Rester ou partir
 la bascule elle-même : c'est la charnière du livre, pas un chapitre parmi d'autres.
 
 **Format d'impression :** 8,5 × 11 po (US Letter), chez **Lulu** : Print Book, couverture rigide Case Wrap, intérieur
-Standard Color, papier blanc couché 80#, fini mat ; 800 pages au plus par tome (JP, 19 octobre 2026 : Blurb revenait à
+**Premium Color** (JP, 19 octobre 2026 : Lulu trouvait trop d'encre dans les nuits et les photos sombres en couleur
+standard ; « on revient aux couleurs du début et je prends premium »), papier blanc couché 80#, fini mat ; 800 pages au plus par tome (JP, 19 octobre 2026 : Blurb revenait à
 200 $ le livre, Lulu à 35 $ US). Avant, 8 × 10 po chez Blurb.
 
 ## Règles non négociables

@@ -644,8 +644,6 @@ def annexe_html(tome, chaps, plan, work):
     if os.path.exists(jpg):
         scene = ""
     sous = SOUS_TITRES.get(tome, "")
-    if os.path.exists(jpg):
-        jpg = moins_d_encre(jpg, os.path.join(work, f"titre-tome-{tome}-encre.jpg"))
     fond = f'<img class="tp-img" src="{url(jpg)}" alt="">' if os.path.exists(jpg) else ""
     # les retraits mesurés sur chaque image (TP_HAUT_MAX, TP_MISE) sont en px de la page Blurb de 10,25 po de haut ;
     # l'image couvre la hauteur de la page, ils suivent son agrandissement (Lulu : 11,25 / 10,25)
@@ -1098,22 +1096,6 @@ def glyphes_de_secours(reader, pages_planche):
     return out
 
 # ------------------------------------------------------------------ programme
-def moins_d_encre(src, dst):
-    """Les ombres très sombres d'une image pleine page, un peu remontées : Lulu (couleur standard) refuse les grandes
-    zones où l'encre totale passe 270 % (« certaines zones nécessitent un volume d'encre très important », tome 1, 19
-    octobre 2026 : la page de titre, la brume de la page 2, l'aurore). Seules les ombres bougent : la clarté sous 140
-    (sur 255) remonte d'au plus 42, le noir devient un gris très sombre, les tons moyens et clairs ne changent pas."""
-    from PIL import Image
-    import numpy as np
-    if os.path.exists(dst) and os.path.getmtime(dst) >= os.path.getmtime(src):
-        return dst
-    a = np.asarray(Image.open(src).convert("RGB")).astype(np.float32)
-    lum = 0.2126 * a[..., 0] + 0.7152 * a[..., 1] + 0.0722 * a[..., 2]
-    d = 42.0 * np.clip(1 - lum / 140.0, 0, 1) ** 2
-    Image.fromarray(np.clip(a + d[..., None], 0, 255).round().astype(np.uint8)).save(dst, quality=93)
-    return dst
-
-
 def main():
     a = sys.argv[1:]
     if not a or not a[0].isdigit():
@@ -1336,9 +1318,9 @@ def main():
     n_photo = 0
     def page_photo(f):
         from PIL import Image
-        dst = os.path.join(work, "pdf", "photo-" + os.path.splitext(os.path.basename(f))[0] + f"-{PAGE_W:.0f}x{PAGE_H:.0f}-encre.pdf")
+        dst = os.path.join(work, "pdf", "photo-" + os.path.splitext(os.path.basename(f))[0] + f"-{PAGE_W:.0f}x{PAGE_H:.0f}-v3.pdf")
         if not os.path.exists(dst) or os.path.getmtime(dst) < os.path.getmtime(f):
-            im = Image.open(moins_d_encre(f, os.path.join(work, "pdf", "encre-" + os.path.basename(f)))).convert("RGB")
+            im = Image.open(f).convert("RGB")
             r = PAGE_W / PAGE_H
             if im.width / im.height > r:
                 lw = round(im.height * r); im = im.crop(((im.width - lw) // 2, 0, (im.width - lw) // 2 + lw, im.height))

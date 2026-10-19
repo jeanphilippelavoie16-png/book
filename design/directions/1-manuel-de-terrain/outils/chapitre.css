@@ -120,14 +120,16 @@ p.pc .pmarge svg.picto{display:block;width:26pt;height:26pt;margin:0}
 /* note « En plus » (JP, 18 octobre 2026 : « genre des notes laissées doucement dans le texte ; la bulle est trop
    invasive ») : un fond vert pâle sans bordure ni pastille, dans une colonne du texte ; chapitre.js en pose une au plus
    par page (« pas cordés ») */
+/* les ombres des notes en couleurs pleines, par paliers, sans flou ni transparence (Lulu signalait les pages 7, 70
+   et 99 du tome 1 pour l'ombre douce, 19 octobre 2026) */
 .extra{position:relative;display:block;break-inside:avoid;margin:11pt 6pt 9pt;padding:7pt 10pt 8pt;background:#EDF4E6;
-  border-radius:3pt;box-shadow:0 3pt 8pt rgba(36,58,30,.22),0 0.7pt 1.8pt rgba(36,58,30,.20)}
+  border-radius:3pt;box-shadow:0 1pt 0 #D2DCCB,0 2pt 0 #DEE6D9,0 3pt 0 #E9EFE5,0 4pt 0 #F3F6F1}
 .extra .xhead{margin:0 0 2.5pt;line-height:1.2}
 /* la cale qui ouvre la deuxième colonne devant une note (chapitre.js, placerNotes) : la marge du haut de la note reste */
 .extra-cale{display:block;height:1px;margin:0;break-before:column}
 /* le « i » dans sa petite bulle, à cheval sur le coin en haut à gauche (JP, 19 octobre 2026) */
 .extra .xico{position:absolute;top:-7pt;left:-7pt;width:16pt;height:16pt;box-sizing:border-box;border-radius:50%;
-  background:#5F8C55;border:1.3pt solid #fff;box-shadow:0 1.5pt 3pt rgba(36,58,30,.32),0 .5pt 1pt rgba(36,58,30,.25)}
+  background:#5F8C55;border:1.3pt solid #fff;box-shadow:0 1pt 0 #C9D4C2,0 2pt 0 #E2E9DD}
 .extra .xico svg{display:block;width:100%;height:100%}
 .extra .xlab{font:700 6pt/1 "IBM Plex Sans Condensed",sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#6F9A64;margin-right:3pt}
 .extra .xtit{font:600 8.8pt/1.2 "IBM Plex Sans Condensed",sans-serif;color:#2F4A2B}
