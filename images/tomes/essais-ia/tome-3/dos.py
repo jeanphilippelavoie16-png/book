@@ -43,7 +43,9 @@ LIEVRE = (3390, 3643, 430, 650)           # y0, y1 (coupé sous la croupe, avant
 SANS_LIEVRE = 'lievre/titre-tome-3-sans-lievre.jpg'     # la même image avant le lièvre : la différence le découpe
 
 MARGE = 0.13                              # po, autour de tout ce qui est écrit ou tracé
-ECHELLE = 0.855                           # l'image en largeur couvre la quatrième et la tranche (0,80 au devant)
+ECHELLE = 0.855                           # l'image en largeur couvre la quatrième et la tranche (0,80 au devant) ;
+                                          # sur la couverture Blurb (10,25 po de haut) : ailleurs, elle suit l'image du
+                                          # devant, agrandie comme la hauteur de la couverture (Lulu : 12,75 po)
 PAS = 38                                  # écart entre deux entailles, px de l'image d'origine
 DEVANT = 0.27                             # po : les entailles finissent au moins à cette distance du devant
 POINTES = (0.0, 0.16, 0.07, 0.24)         # po : le retrait de la pointe de chaque entaille, pour qu'elles ne
@@ -230,7 +232,7 @@ def motif(can, info):
     fins = [x_fin - int(d * ppp) for d in POINTES]
     pas = PAS
     while True:                           # un trou plus bas que la bande : les entailles se rapprochent un peu
-        couches = _bande(lignes, noms, pas, ECHELLE, x_fin, fins, int(0.3 * ppp))
+        couches = _bande(lignes, noms, pas, ECHELLE * H / round(10.25 * ppp), x_fin, fins, int(0.3 * ppp))
         tout = np.maximum.reduce(couches)
         ys = np.nonzero(tout.max(1) > 0.02)[0]
         if ys.max() - ys.min() + 1 <= gb - ga or pas <= 28:

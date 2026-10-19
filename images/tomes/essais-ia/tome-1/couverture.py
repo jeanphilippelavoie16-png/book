@@ -578,7 +578,12 @@ def composer(v, m, img, pal, ppp):
         # sont celles de l'image, à la même taille. Les autres raccords du miroir tombent sur une ligne et une colonne
         # sans étoile, sinon une étoile coupée par le raccord se dédouble (deux points collés).
         L = grande[:int(0.42 * rh)].astype(np.float32) @ np.array([.2126, .7152, .0722], np.float32)
-        t = int(0.09 * ppp) | 1
+        # les tailles de ce recadrage sont réglées sur l'image de la couverture Blurb ; sur une couverture où l'image
+        # est plus grande (Lulu : 1,24 fois), elles grandissent avec elle (zoom), sinon une cime d'épinette fine du
+        # tome 4 passait les filtres et revenait au dos en petits traits sombres, répétés par le miroir
+        b = FORMATS['blurb']
+        zoom = 1.0 if m['format'] == 'blurb' else s / max((b['pw'] + b['fp']) * ppp / iw, (b['ph'] + 2 * b['fp']) * ppp / ih)
+        t = int(0.09 * ppp * zoom) | 1
         ch = L - ndi.grey_opening(L, size=(t, t))
         lignes = ch[:, cx0:].max(axis=1)
         r_hi = int(0.33 * rh) + int(np.argmin(lignes[int(0.33 * rh):int(0.39 * rh)]))   # au-dessus de la lune et des crêtes
@@ -589,7 +594,7 @@ def composer(v, m, img, pal, ppp):
         ecarte = (np.abs(Lr[:, cx0:int(0.94 * rw)] - ciel_r) > 14).mean(axis=1) > 0.002
         pres = np.nonzero(ecarte[int(0.15 * rh):])[0]
         if len(pres):
-            lim = int(0.15 * rh) + int(pres[0]) - int(0.04 * ppp)
+            lim = int(0.15 * rh) + int(pres[0]) - int(0.04 * ppp * zoom)
             a_ = max(int(0.15 * rh), lim - int(0.05 * rh))
             if a_ < lim < r_hi:          # une cime d'épinette tout en haut (tome 4) : la règle des colonnes s'en charge
                 r_hi = a_ + int(np.argmin(lignes[a_:lim]))
@@ -604,7 +609,24 @@ def composer(v, m, img, pal, ppp):
         hors = (np.abs(Lf - ciel_L) > 14).mean(axis=0)
         mauvais = np.nonzero(hors[cx0 + int(0.25 * rw):] > 0.004)[0]
         if len(mauvais):
-            c_hi = min(c_hi, cx0 + int(0.25 * rw) + int(mauvais[0]) - int(0.06 * ppp))
+            c_hi = min(c_hi, cx0 + int(0.25 * rw) + int(mauvais[0]) - int(0.06 * ppp * zoom))
+        if m['format'] != 'blurb':
+            # une pointe sombre qui monte du bas du carré repris (la cime d'une épinette du tome 4, le clou du cadre du
+            # tome 2) reviendrait au dos en petits triangles, répétés par le miroir : le carré s'arrête au-dessus d'elle,
+            # sur une ligne sans étoile
+            for _ in range(3):
+                bloc = L[r_lo:r_hi, cx0:c_hi]
+                lab, n = ndi.label(bloc < float(np.median(bloc)) - 25)
+                pointes = [sl[0].start for sl in ndi.find_objects(lab) or [] if
+                           (sl[0].stop - sl[0].start) * (sl[1].stop - sl[1].start) > 4 and
+                           sl[0].stop >= bloc.shape[0] - int(0.15 * ppp * zoom)]
+                if not pointes:
+                    break
+                b_ = r_lo + min(pointes) - int(0.04 * ppp * zoom)
+                a_ = max(r_lo + 1, b_ - int(0.05 * rh))
+                if b_ <= a_:
+                    break
+                r_hi = a_ + int(np.argmin(lignes[a_:b_]))
         def aller_retour(z, a, b):            # a, a+1, … b-1, b-1, … a, a, … : miroir entre a et b
             p = b - a
             m_ = np.mod(z, 2 * p)
