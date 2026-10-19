@@ -1202,3 +1202,4 @@ un livre privé, à remplacer si le livre se vend. La page de chaque photo, avec
 | `pleine-page/tome-1/08-givre-bleu.jpg` | Blue Frost - Givre bleu | Monteregina (Nicole) | CC BY-NC-SA 2.0 | https://www.flickr.com/photos/7196003@N02/25229571122/ | 2460 × 2460 |
 | `bandes/tome-1/orignal-brume-aube.jpg` | moose dawn | Steve Wall | CC BY-NC-SA 2.0 | https://www.flickr.com/photos/61779926@N00/2285060690/ | 3600 × 2400 |
 | `bandes/tome-1/orignal-brume.jpg` | Photo of the Week - Moose in mist (ME) | U.S. Fish and Wildlife Service Northeast Region | Marque du domaine public | https://www.flickr.com/photos/43322816@N08/12637633223/ | 3072 × 2048 |
+| `bandes/tome-1/orignal-tete-givre.jpg` | A Moose Hidden in the Snow (le bas rogné : la signature) | Chase Dekker | CC BY-NC-SA 2.0 | https://www.flickr.com/photos/87288449@N08/8299758266/ | 2382 × 1158 |
