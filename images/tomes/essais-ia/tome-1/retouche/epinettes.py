@@ -293,7 +293,7 @@ def epinette(sp):
         if R.random() > part or L < 2:
             return
         bt = (1.2 if doigt else 0.62) * ep               # l épaisseur de la lame du haut, au tronc
-        e = (max(0.30 * bt, 0.8) if doigt else max(0.66 * bt, 1.0)) * u(0.85, 1.15) * (0.9 if fin else 1.0)
+        e = (max(0.30 * bt, 0.8) if doigt else min(max(0.36 * bt, 1.0), 2.8)) * u(0.85, 1.15) * (0.9 if fin else 1.0)
         r0 = max(0.16 * bt + 0.3, 0.75) * u(0.85, 1.15) * (0.8 if doigt else 1.0)
         if doigt:
             c, dl = u(0.34, 0.55), u(0.20, 0.32)
@@ -302,12 +302,12 @@ def epinette(sp):
             return
         # des taches franches et courtes posées sur le dessus, à des places inégales (comme au tome 6), pas un
         # croissant le long de toute la branche
-        n = 1 if L < 7 else (2 if L < 15 else 3)
+        n = 1 if L < 10 else (2 if L < 22 else 3)
         if n > 1 and R.random() < 0.3:
             n -= 1
         bornes = np.linspace(0.06, 0.92, n + 1)
         for i in range(n):
-            lg = min(0.45, max(0.12, u(3.0, 6.4) / max(L, 1e-3)))
+            lg = min(0.5, max(0.14, u(4.0, 9.0) / max(L, 1e-3)))
             c = u(bornes[i] + lg / 2, max(bornes[i] + lg / 2, bornes[i + 1] - lg / 2))
             ee = e * u(0.8, 1.2) * (1.12 if i == 0 else 1.0)
             couche[1].append(_croissant(hauts[0], max(0.04, c - lg / 2), min(0.95, c + lg / 2),
