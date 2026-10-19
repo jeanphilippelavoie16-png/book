@@ -225,7 +225,7 @@ function placerNotes(){
     // sur son coin passait au bas de la première colonne (un demi-rond vert sous le texte, le « i » coupé ; p02-2 et
     // p12-2, 19 octobre 2026). Une cale d'un pixel ouvre la colonne : la marge reste, le « i » tient dans sa colonne.
     const fb = c.fr.getBoundingClientRect(), xb = x.getBoundingClientRect();
-    if(xb.left > fb.left + fb.width / 3 && xb.top - fb.top < 6){
+    if(xb.left > fb.left + fb.width / 3 && xb.top - fb.top < 14){   // la bulle dépasse de 7 pt (9,3 px) : p09-1 encore coupée à 6
       const cale = document.createElement('div'); cale.className = 'extra-cale'; c.fr.insertBefore(cale, x);
       if(!ok()){ c.fr.removeChild(cale); return non(); }
     }
@@ -560,8 +560,15 @@ function remplirVides(){
     const der = kids[kids.length - 1]; if(!der) return;
     const fnz = [...p.bl.children].find(e => e.classList.contains('fnz'));
     // un cadre ouvert qui ne remplit pas la page (son texte dans la colonne de gauche, la droite vide : p12-17)
+    // (son enveloppe .rg remplit aussi le bas de la page tant qu'elle n'est pas finie : elle se ferme avec lui ; une série
+    // orange ou un encadré danger coupé garde sa pleine hauteur, « continue page … »)
+    if(der.querySelector('.danger.full, .orange.full')) return;
     const fr = der.classList.contains('frame') ? der : [...der.querySelectorAll('.frame')].pop();
-    if(fr && !fr.classList.contains('auto')){ fr.classList.add('auto'); if(OVER(fr) || !dansLeBloc(p)) fr.classList.remove('auto'); }
+    if(fr && !fr.classList.contains('auto')){
+      const rg = der.classList.contains('rg') && !der.classList.contains('fin') ? der : null;
+      fr.classList.add('auto'); if(rg) rg.classList.add('fin');
+      if(OVER(fr) || !dansLeBloc(p)){ fr.classList.remove('auto'); if(rg) rg.classList.remove('fin'); }
+    }
     const bas = (fnz ? fnz.getBoundingClientRect().top : p.bl.getBoundingClientRect().bottom) - 4;
     const vide = bas - Math.max(...kids.map(e => e.getBoundingClientRect().bottom)) - 10;
     if(vide < 1.15 * PO) return;
