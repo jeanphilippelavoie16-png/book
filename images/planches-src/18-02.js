@@ -91,32 +91,32 @@ module.exports = (h) => {
   };
   const neigeTas = d => [h.path(d, blancSans), h.path(d, h.a.hachure('neige', 'aucun')), h.path(d, h.a.arete)];
 
-  // ════ La vue de biais ════════════════════════════════════════════════════════════════
+  // ════ La scène, vue de biais ═══════════════════════════════════════════════════════
   // Projection oblique : X garde sa longueur, la profondeur Y monte et glisse un peu à droite, la hauteur Z est
   // raccourcie (on regarde d'en haut). Ce qu'on voit : les faces avant, le dessus, les faces de droite.
-  const KX = 0.22, KY = 0.92, KZ = 0.74;
+  const KX = 0.22, KY = 0.72, KZ = 0.7;
   const VUE = [-KX, 1, -KY / KZ];                        // le sens du regard : une face est vue si sa normale s'y oppose
-  const AUGE = { x0: 0, x1: 158, y1: 48, fond: -18 };     // l'auge, coupée en long à Y = 0
-  const BLOC = { x0: -6, x1: 166, y1: 62, bas: -27 };     // le bloc de neige tassée
+  const AUGE = { x0: 0, x1: 100, y1: 80, fond: -18 };     // l'auge, coupée par l'avant à Y = 0 pour qu'on voie le fond
+  const BLOC = { x0: -7, x1: 114, y1: 92, bas: -26 };     // le bloc de neige tassée
+  const LARGE = BLOC.x1 - BLOC.x0 + KX * BLOC.y1;          // l'encombrement du bloc à l'écran, en cm
 
-  const biais = z => {
-    const S = 1.9;
-    const OX = z.l - 6 - S * (BLOC.x1 + KX * BLOC.y1);
-    const OY = z.h - 4 - S * KZ * (-BLOC.bas);
+  const scene = ({ S, OX, OY, couverte = false }) => {
     const p3 = (X, Y, Z) => [OX + S * (X + KX * Y), OY - S * (KZ * Z + KY * Y)];
     const pz = (pts, Z) => pts.map(([X, Y]) => p3(X, Y, Z));
+    const neigeFace = (pts, ombre = false) => [h.chemin(P(pts), ombre ? h.a.ombre : blancSans, true), h.chemin(P(pts), h.a.hachure('neige', 'aucun'), true)];
     const out = [];
+    const { x0, x1, y1, fond } = AUGE;
+    const k = S / 2.4;                                    // le poids des petits détails suit l'échelle
 
     // ── l'intérieur de l'auge : le fond, la paroi du fond, la paroi de gauche (à l'ombre) ──
-    const { x0, x1, y1, fond } = AUGE;
-    out.push(h.chemin(P([p3(x0, 0, fond), p3(x1, 0, fond), p3(x1, y1, fond), p3(x0, y1, fond)]), blancSans, true));
-    out.push(h.chemin(P([p3(x0, y1, fond), p3(x1, y1, fond), p3(x1, y1, 0), p3(x0, y1, 0)]), blancSans, true));
-    out.push(h.chemin(P([p3(x0, 0, fond), p3(x0, y1, fond), p3(x0, y1, 0), p3(x0, 0, 0)]), h.a.ombre, true));
-    out.push(h.chemin(P([p3(x0, y1, fond), p3(x1 + 10, y1, fond)]), h.a.arete));
+    out.push(...neigeFace([p3(x0, 0, fond), p3(x1, 0, fond), p3(x1, y1, fond), p3(x0, y1, fond)]));
+    out.push(...neigeFace([p3(x0, y1, fond), p3(x1, y1, fond), p3(x1, y1, 0), p3(x0, y1, 0)]));
+    out.push(...neigeFace([p3(x0, 0, fond), p3(x0, y1, fond), p3(x0, y1, 0), p3(x0, 0, 0)], true));
+    out.push(h.chemin(P([p3(x0, y1, fond), p3(x1, y1, fond)]), h.a.arete));
     out.push(h.chemin(P([p3(x0, 0, fond), p3(x0, y1, fond)]), h.a.arete));
 
     // ── l'eau de fonte autour de la tôle : un bain tiède ──
-    const flaque = arrondi(53, 2.5, 111, 46, 7, 6).map(([X, Y], i) => [X + 1.2 * Math.sin(i * 1.7), Y + 0.8 * Math.cos(i * 2.3)]);
+    const flaque = arrondi(2, 39.5, 63, 79, 6, 6).map(([X, Y], i) => [X + 0.9 * Math.sin(i * 1.7), Math.min(79.3, Y + 0.6 * Math.cos(i * 2.3))]);
     out.push(h.chemin(P(pz(flaque, fond)), h.a.hachure('eau', 'detail'), true));
 
     // ── un plat : le bord, le fond, le niveau du ragoût ──
@@ -124,12 +124,9 @@ module.exports = (h) => {
     const plat = ({ haut, bas, zh, zb, zr, morceaux = [], anses = null }) => {
       const T = pz(haut, zh), B = pz(bas, zb);
       const t = (zr - zb) / (zh - zb);
-      const ragout = haut.map((p, i) => [bas[i][0] + (p[0] - bas[i][0]) * t, bas[i][1] + (p[1] - bas[i][1]) * t]);
-      const R = pz(ragout, zr);
+      const R = pz(haut.map((q, i) => [bas[i][0] + (q[0] - bas[i][0]) * t, bas[i][1] + (q[1] - bas[i][1]) * t]), zr);
       const coque = enveloppe(T.concat(B));
-      const res = [];
-      res.push(h.chemin(P(coque), blancSans, true));
-      // les parois vues de l'extérieur, et celles de l'intérieur au-dessus du ragoût
+      const res = [h.chemin(P(coque), blancSans, true)];
       const ombresExt = [], ombresInt = [];
       for (let i = 0; i < haut.length; i++) {
         const j = (i + 1) % haut.length;
@@ -139,213 +136,230 @@ module.exports = (h) => {
         if (n[0] * e1[1] - n[1] * e1[0] < 0) n = n.map(v => -v);          // normale vers l'extérieur
         const lxy = Math.hypot(n[0], n[1]) || 1;
         const vu = n[0] * VUE[0] + n[1] * VUE[1] + n[2] * VUE[2] < 0;
-        if (vu && n[0] / lxy > 0.45) ombresExt.push([T[i], T[j], B[j], B[i]]);
-        if (!vu && n[0] / lxy < -0.45) ombresInt.push([T[i], T[j], R[j], R[i]]);
+        if (vu && n[0] / lxy > 0.45) ombresExt.push([T[i], T[j], B[j], B[i]]);       // le flanc droit, dehors
+        if (!vu && n[0] / lxy < -0.45) ombresInt.push([T[i], T[j], R[j], R[i]]);     // la paroi gauche, dedans
       }
       ombresExt.forEach(q => res.push(h.chemin(P(q), h.a.ombre, true)));
       res.push(h.chemin(P(T), blancSans, true));
       ombresInt.forEach(q => { const c = decoupe(q, T); if (c.length > 2) res.push(h.chemin(P(c), h.a.ombre, true)); });
       const surface = decoupe(R, T);
       if (surface.length > 2) res.push(h.chemin(P(surface), blanc(h.a.detail).replace('#FFFFFF', '#E6E6E6'), true));
-      // les morceaux du ragoût, à plat sur la surface
-      for (const [mx, my, mr, k] of morceaux) {
+      for (const [mx, my, mr, kk] of morceaux) {          // les morceaux du ragoût, à plat sur la surface
         const forme = [[-1, 0.2], [-0.5, -0.9], [0.6, -0.8], [1, 0.1], [0.4, 0.9], [-0.6, 0.8]]
-          .map(([u, v]) => { const a = k * 1.1; return [mx + mr * (u * Math.cos(a) - v * Math.sin(a)), my + mr * (u * Math.sin(a) + v * Math.cos(a))]; });
+          .map(([uu, vv]) => { const an = kk * 1.1; return [mx + mr * (uu * Math.cos(an) - vv * Math.sin(an)), my + mr * (uu * Math.sin(an) + vv * Math.cos(an))]; });
         res.push(h.chemin(P(pz(forme, zr)), blanc(h.a.detail), true));
       }
       res.push(h.chemin(P(T), h.a.arete, true));
       res.push(h.chemin(P(coque), h.a.contour, true));
-      if (anses) res.push(...anses(p3));
-      return { svg: res, T, R, p3 };
+      if (anses) res.push(...anses);
+      return { svg: res, T, R };
     };
 
-    // le plat à rôtir, à anses
-    const pr = { x0: 5, x1: 50, y0: 9, y1: 37 };
-    const anse = (xa, sens) => p => {
-      const zA = fond + 5.4, ext = sens * 4.5;
-      const dehors = [[xa, 18], [xa + ext * 0.7, 18.4], [xa + ext, 20.5], [xa + ext, 25.5], [xa + ext * 0.7, 27.6], [xa, 28]];
-      const dedans = [[xa, 19.6], [xa + ext * 0.55, 19.9], [xa + ext * 0.72, 21.4], [xa + ext * 0.72, 24.6], [xa + ext * 0.55, 26.1], [xa, 26.4]];
-      const boucle = dehors.concat(dedans.slice().reverse()).map(([X, Y]) => p(X, Y, zA));
-      return [h.chemin(P(boucle), blanc(h.a.arete), true)];
+    // le plat à rôtir, à anses, devant à gauche
+    const pr = { x0: 7, x1: 52, y0: 6, y1: 34 }, ym = (pr.y0 + pr.y1) / 2;
+    const anse = (xa, sens) => {
+      const zA = fond + 5.4, e = sens * 4.5;
+      const dehors = [[xa, ym - 5], [xa + e * 0.7, ym - 4.6], [xa + e, ym - 2.5], [xa + e, ym + 2.5], [xa + e * 0.7, ym + 4.6], [xa, ym + 5]];
+      const dedans = [[xa, ym - 3.4], [xa + e * 0.55, ym - 3.1], [xa + e * 0.72, ym - 1.6], [xa + e * 0.72, ym + 1.6], [xa + e * 0.55, ym + 3.1], [xa, ym + 3.4]];
+      return h.chemin(P(dehors.concat(dedans.slice().reverse()).map(([X, Y]) => p3(X, Y, zA))), blanc(h.a.arete), true);
     };
+    const zrP = fond + 2.5;
     const platRotir = plat({
       haut: arrondi(pr.x0, pr.y0, pr.x1, pr.y1, 4), bas: arrondi(pr.x0 + 2.5, pr.y0 + 2.5, pr.x1 - 2.5, pr.y1 - 2.5, 2.5),
-      zh: fond + 6, zb: fond, zr: fond + 2.5,
-      morceaux: [[14, 30, 1.6, 1], [22, 31, 1.3, 3], [37, 30, 1.5, 2], [43, 23, 1.4, 5], [12, 21, 1.3, 4], [41, 15, 1.2, 0]],
-      anses: p => [...anse(pr.x0, -1)(p), ...anse(pr.x1, 1)(p)],
+      zh: fond + 6, zb: fond, zr: zrP,
+      morceaux: [[15, 28, 1.6, 1], [23, 30, 1.3, 3], [40, 29, 1.5, 2], [45, 21, 1.4, 5], [13, 18, 1.3, 4], [43, 13, 1.2, 0], [34, 14, 1.3, 3]],
+      anses: [anse(pr.x0, -1), anse(pr.x1, 1)],
     });
-    out.push(...platRotir.svg);
 
-    // la cuillère de bois, et le brassage
-    const zr1 = fond + 2.5;
-    const emerge = [26.5, 21.5, zr1];                       // où le manche sort du ragoût
-    const bout = [40, 33, 13];
-    const a = p3(...emerge), b = p3(...bout);
-    const dir = [b[0] - a[0], b[1] - a[1]], L = Math.hypot(...dir), u = [dir[0] / L, dir[1] / L], nn = [-u[1], u[0]];
-    const demi = 2.4;
-    const manche = [[a[0] + nn[0] * demi, a[1] + nn[1] * demi], [b[0] + nn[0] * demi * 1.2, b[1] + nn[1] * demi * 1.2],
-      [b[0] + u[0] * 2 + nn[0] * demi * 0.8, b[1] + u[1] * 2 + nn[1] * demi * 0.8], [b[0] + u[0] * 2.9, b[1] + u[1] * 2.9],
-      [b[0] + u[0] * 2 - nn[0] * demi * 0.8, b[1] + u[1] * 2 - nn[1] * demi * 0.8],
-      [b[0] - nn[0] * demi * 1.2, b[1] - nn[1] * demi * 1.2], [a[0] - nn[0] * demi, a[1] - nn[1] * demi]];
-    const ombreManche = [manche[0], manche[1], [b[0] + nn[0] * demi * 0.1, b[1] + nn[1] * demi * 0.1], [a[0] + nn[0] * demi * 0.1, a[1] + nn[1] * demi * 0.1]];
-    out.push(h.chemin(P(manche), blancSans, true), h.chemin(P(ombreManche), h.a.ombre, true), h.chemin(P(manche), h.a.arete, true));
-    // le ragoût remue autour du manche, là où il sort
-    out.push(h.ellipse(a[0], a[1] + 0.6, demi * 1.9, demi * 0.9, h.a.detail));
-    // la flèche du brassage : un cercle sur la surface du ragoût, autour du manche
-    const rB = 11, arc = [];
-    for (let k = 0; k <= 36; k++) {
-      const t = (205 + 285 * k / 36) * RAD;
-      arc.push(p3(emerge[0] + rB * Math.cos(t), emerge[1] + rB * 0.78 * Math.sin(t), zr1));
-    }
-    const dArc = 'M' + arc.map(p => `${f(p[0])} ${f(p[1])}`).join(' L');
-    out.push(h.geste(dArc));
-
-    // la tôle, dans son eau de fonte
-    const tl = { x0: 57, x1: 105, y0: 7, y1: 41 };
+    // la tôle, derrière à gauche, dans son eau de fonte
+    const tl = { x0: 6, x1: 58, y0: 43, y1: 76 };
+    const zrT = fond + 1.1;
     const tole = plat({
       haut: arrondi(tl.x0, tl.y0, tl.x1, tl.y1, 1.6), bas: arrondi(tl.x0 + 0.7, tl.y0 + 0.7, tl.x1 - 0.7, tl.y1 - 0.7, 1.2),
-      zh: fond + 2, zb: fond, zr: fond + 1,
-      morceaux: [[66, 33, 1.5, 2], [76, 35, 1.3, 4], [92, 34, 1.5, 1], [99, 26, 1.3, 3], [84, 24, 1.4, 0], [66, 21, 1.2, 5], [92, 15, 1.2, 2]],
+      zh: fond + 2, zb: fond, zr: zrT,
+      morceaux: [[14, 70, 1.5, 2], [26, 71, 1.3, 4], [43, 70, 1.5, 1], [51, 62, 1.3, 3], [34, 60, 1.4, 0], [15, 57, 1.2, 5], [44, 50, 1.2, 2], [24, 49, 1.3, 1]],
     });
-    out.push(...tole.svg);
 
     // la neige sèche, tassée contre la tôle à la place de la neige mouillée
     const mont = [];
-    for (const [Y, zt, l] of [[3.5, -14.8, 0], [10, -13.6, 0.6], [18, -12.6, -0.4], [27, -13.1, 0.5], [36, -12.9, -0.3], [44, -14.6, 0]]) {
-      mont.push([106 + l, Y, fond], [120.5 + l, Y, fond], [109 + l, Y, zt + 0.8], [113 + l, Y, zt], [117 + l, Y, zt + 0.7]);
+    for (const [Y, zt, l] of [[41, -14.6, 0], [47, -13.4, 0.5], [55, -12.6, -0.4], [63, -13.1, 0.4], [71, -12.9, -0.3], [78.5, -14.6, 0]]) {
+      mont.push([59 + l, Y, fond], [70 + l, Y, fond], [61.5 + l, Y, zt + 0.8], [64.5 + l, Y, zt], [67.5 + l, Y, zt + 0.7]);
     }
-    out.push(...neigeTas(bossele(enveloppe(mont.map(p => p3(...p))), 1.6, 7)));
+    const monticule = neigeTas(bossele(enveloppe(mont.map(q => p3(...q))), 1.4 * k, 7 * k));
 
-    // le couvercle de chaudière, retourné
-    const cv = { cx: 137, cy: 24, r: 16 };
+    // la gamelle, derrière à droite
+    const gm = { x0: 76, x1: 96, y0: 50, y1: 66 };
+    const gamelle = plat({
+      haut: arrondi(gm.x0, gm.y0, gm.x1, gm.y1, 3.5), bas: arrondi(gm.x0 + 1, gm.y0 + 1, gm.x1 - 1, gm.y1 - 1, 2.8),
+      zh: fond + 5, zb: fond, zr: fond + 2,
+      morceaux: [[81, 61, 1.3, 2], [90, 60, 1.2, 4], [86, 55, 1.2, 0]],
+    });
+    // son anse de fil, rabattue à plat le long du côté droit
+    const anseG = [[gm.x1 + 0.5, gm.y0 + 3], [gm.x1 + 3.2, gm.y0 + 4.5], [gm.x1 + 3.2, gm.y1 - 4.5], [gm.x1 + 0.5, gm.y1 - 3]].map(([X, Y]) => p3(X, Y, fond + 3.5));
+
+    // le couvercle de chaudière, retourné, devant à droite
+    const cv = { cx: 80, cy: 22, r: 16 };
+    const zrC = fond + 1.1;
     const couvercle = plat({
       haut: rond(cv.cx, cv.cy, cv.r), bas: rond(cv.cx, cv.cy, cv.r - 0.5),
-      zh: fond + 2.5, zb: fond, zr: fond + 1.1,
-      morceaux: [[131, 33, 1.4, 1], [140, 34, 1.3, 3], [146, 27, 1.5, 0], [128, 23, 1.3, 2], [138, 17, 1.2, 4]],
+      zh: fond + 2.5, zb: fond, zr: zrC,
+      morceaux: [[74, 31, 1.4, 1], [83, 33, 1.3, 3], [89, 26, 1.5, 0], [71, 21, 1.3, 2], [81, 15, 1.2, 4], [88, 17, 1.2, 1]],
     });
+
+    // l'ordre de peinture suit la profondeur : le fond de l'auge d'abord, de gauche à droite
+    out.push(...tole.svg, ...monticule, ...gamelle.svg, h.chemin(P(anseG), h.a.arete));
+    out.push(...platRotir.svg);
+
+    // la cuillère de bois, et le brassage
+    const emerge = [27.5, 19.5, zrP];                     // où le manche sort du ragoût
+    const bout = [41, 31, 14];
+    const a = p3(...emerge), b = p3(...bout);
+    const dir = [b[0] - a[0], b[1] - a[1]], L = Math.hypot(...dir), u = [dir[0] / L, dir[1] / L], nn = [-u[1], u[0]];
+    const demi = 2.5 * k;
+    const manche = [[a[0] + nn[0] * demi, a[1] + nn[1] * demi], [b[0] + nn[0] * demi * 1.2, b[1] + nn[1] * demi * 1.2],
+      [b[0] + u[0] * 2 * k + nn[0] * demi * 0.8, b[1] + u[1] * 2 * k + nn[1] * demi * 0.8], [b[0] + u[0] * 3 * k, b[1] + u[1] * 3 * k],
+      [b[0] + u[0] * 2 * k - nn[0] * demi * 0.8, b[1] + u[1] * 2 * k - nn[1] * demi * 0.8],
+      [b[0] - nn[0] * demi * 1.2, b[1] - nn[1] * demi * 1.2], [a[0] - nn[0] * demi, a[1] - nn[1] * demi]];
+    const ombreManche = [manche[0], manche[1], [b[0] + nn[0] * demi * 0.1, b[1] + nn[1] * demi * 0.1], [a[0] + nn[0] * demi * 0.1, a[1] + nn[1] * demi * 0.1]];
+    const rB = 11, arc = [];
+    for (let q = 0; q <= 36; q++) {
+      const t = (205 + 285 * q / 36) * RAD;
+      arc.push(p3(emerge[0] + rB * Math.cos(t), emerge[1] + rB * 0.78 * Math.sin(t), zrP));
+    }
+    if (!couverte) {
+      out.push(h.chemin(P(manche), blancSans, true), h.chemin(P(ombreManche), h.a.ombre, true), h.chemin(P(manche), h.a.arete, true));
+      out.push(h.ellipse(a[0], a[1] + 0.6, demi * 1.9, demi * 0.9, h.a.detail));
+      out.push(h.geste('M' + arc.map(q => `${f(q[0])} ${f(q[1])}`).join(' L')));
+    }
     out.push(...couvercle.svg);
 
-    // ── le bloc de neige tassée : le dessus, la coupe en long, le flanc droit ──
-    const B = BLOC;
-    const dessus = [[B.x0, 0], [x0, 0], [x0, y1], [x1, y1], [x1, 0], [B.x1, 0], [B.x1, B.y1], [B.x0, B.y1]].map(([X, Y]) => p3(X, Y, 0));
-    const coupe = [[B.x0, 0], [x0, 0], [x0, fond], [x1, fond], [x1, 0], [B.x1, 0], [B.x1, B.bas], [B.x0, B.bas]].map(([X, Z]) => p3(X, 0, Z));
-    const flanc = [p3(B.x1, 0, 0), p3(B.x1, B.y1, 0), p3(B.x1, B.y1, B.bas), p3(B.x1, 0, B.bas)];
-    out.push(h.chemin(P(dessus), blancSans, true));
-    out.push(h.chemin(P(flanc), h.a.ombre, true), h.chemin(P(flanc), h.a.hachure('neige', 'aucun'), true));
-    out.push(h.chemin(P(coupe), blancSans, true), h.chemin(P(coupe), h.a.hachure('neige', 'aucun'), true));
-    // les arêtes
-    out.push(h.chemin(P([p3(x0, 0, 0), p3(x0, y1, 0), p3(x1, y1, 0), p3(x1, 0, 0)]), h.a.arete));
-    out.push(h.chemin(P([p3(B.x1, 0, 0), p3(B.x1, B.y1, 0)]), h.a.arete));
-    out.push(h.chemin(P([p3(B.x1, 0, 0), p3(B.x1, 0, B.bas)]), h.a.arete));
-    out.push(h.chemin(P([p3(B.x0, 0, 0), p3(x0, 0, 0)]), h.a.arete), h.chemin(P([p3(x1, 0, 0), p3(B.x1, 0, 0)]), h.a.arete));
-    out.push(h.chemin(P([p3(x0, 0, 0), p3(x0, 0, fond), p3(x1, 0, fond), p3(x1, 0, 0)]), h.a.contour));
-    out.push(h.chemin(P([p3(B.x0, 0, B.bas), p3(B.x0, 0, 0), p3(B.x0, B.y1, 0), p3(B.x1, B.y1, 0), p3(B.x1, B.y1, B.bas), p3(B.x1, 0, B.bas), p3(B.x0, 0, B.bas)]), h.a.contour, true));
-
-    // ── le tas de neige sèche sur le bord, et le geste : en prendre pour remplacer la neige mouillée ──
-    const tas = { cx: 120, cy: 55, rx: 17, ry: 5.5, ht: 10 };
-    const pied = [], dos = [];
-    for (let k = 0; k <= 8; k++) {
-      const uu = -1 + 2 * k / 8, w = Math.sqrt(Math.max(0, 1 - uu * uu));
-      pied.push(p3(tas.cx + tas.rx * uu, tas.cy - tas.ry * w, 0));
+    // ── le panneau, posé sur les bords, et la bûche qui le leste ──
+    const PN = { x0: -4, x1: 108, y1: 86, ep: 2.4 };
+    if (couverte) {
+      const dessusP = [p3(PN.x0, 0, PN.ep), p3(PN.x1, 0, PN.ep), p3(PN.x1, PN.y1, PN.ep), p3(PN.x0, PN.y1, PN.ep)];
+      const tranche = [p3(PN.x0, 0, 0), p3(PN.x1, 0, 0), p3(PN.x1, 0, PN.ep), p3(PN.x0, 0, PN.ep)];
+      const coteP = [p3(PN.x1, 0, 0), p3(PN.x1, PN.y1, 0), p3(PN.x1, PN.y1, PN.ep), p3(PN.x1, 0, PN.ep)];
+      out.push(h.chemin(P(dessusP), blanc(h.a.arete), true));
+      // les joints des planches du panneau
+      for (const X of [24, 52, 80]) out.push(h.chemin(P([p3(X, 0, PN.ep), p3(X, PN.y1, PN.ep)]), h.a.detail));
+      out.push(h.chemin(P(coteP), h.a.ombre, true), h.chemin(P(coteP), h.a.arete, true));
+      out.push(h.chemin(P(tranche), h.a.hachure('bois', 'arete'), true));
     }
-    for (let k = 8; k >= 0; k--) {
-      const uu = -1 + 2 * k / 8, w = Math.sqrt(Math.max(0, 1 - uu * uu));
-      dos.push(p3(tas.cx + tas.rx * uu * 0.93, tas.cy + 1, tas.ht * Math.pow(w, 0.8)));
-    }
-    out.push(...neigeTas(bossele(pied.concat(dos), 2.2, 8)));
-    const g0 = p3(tas.cx - 9, tas.cy, 9), g1 = p3(113, 26, -12);
-    const gc = [g0[0] - 34, g0[1] + 4];
-    out.push(h.geste(`M${f(g0[0])} ${f(g0[1])} Q${f(gc[0])} ${f(gc[1])} ${f(g1[0])} ${f(g1[1] - 3)}`));
 
-    return {
-      svg: out.join('\n'),
-      p3,
-      reperes: {
-        auge: p3(x0, 0, fond * 0.45),
-        plat: p3(30, pr.y1, fond + 6),
-        brasser: arc[30],
-        mouillee: p3(80, 44, fond),
-        geste: [g1[0], g1[1] - 3],
-      },
-    };
+    // ── le bloc de neige tassée : le dessus, la coupe de l'avant, le flanc droit ──
+    const BL = BLOC;
+    const dessus = [[BL.x0, 0], [x0, 0], [x0, y1], [x1, y1], [x1, 0], [BL.x1, 0], [BL.x1, BL.y1], [BL.x0, BL.y1]].map(([X, Y]) => p3(X, Y, 0));
+    const coupe = [[BL.x0, 0], [x0, 0], [x0, fond], [x1, fond], [x1, 0], [BL.x1, 0], [BL.x1, BL.bas], [BL.x0, BL.bas]].map(([X, Z]) => p3(X, 0, Z));
+    const flanc = [p3(BL.x1, 0, 0), p3(BL.x1, BL.y1, 0), p3(BL.x1, BL.y1, BL.bas), p3(BL.x1, 0, BL.bas)];
+    const blocSvg = [];
+    if (!couverte) blocSvg.push(...neigeFace(dessus));
+    else {
+      // couverte : on ne voit du dessus que la bande derrière et à côté du panneau
+      const autour = [[BL.x0, 0], [PN.x0, 0], [PN.x0, PN.y1], [PN.x1, PN.y1], [PN.x1, 0], [BL.x1, 0], [BL.x1, BL.y1], [BL.x0, BL.y1]].map(([X, Y]) => p3(X, Y, 0));
+      blocSvg.push(...neigeFace(autour));
+    }
+    blocSvg.push(...neigeFace(flanc, true), ...neigeFace(coupe));
+    if (!couverte) blocSvg.push(h.chemin(P([p3(x0, 0, 0), p3(x0, y1, 0), p3(x1, y1, 0), p3(x1, 0, 0)]), h.a.arete));
+    blocSvg.push(h.chemin(P([p3(BL.x1, 0, 0), p3(BL.x1, BL.y1, 0)]), h.a.arete));
+    blocSvg.push(h.chemin(P([p3(BL.x1, 0, 0), p3(BL.x1, 0, BL.bas)]), h.a.arete));
+    blocSvg.push(h.chemin(P([p3(BL.x0, 0, 0), p3(x0, 0, 0)]), h.a.arete), h.chemin(P([p3(x1, 0, 0), p3(BL.x1, 0, 0)]), h.a.arete));
+    blocSvg.push(h.chemin(P([p3(x0, 0, 0), p3(x0, 0, fond), p3(x1, 0, fond), p3(x1, 0, 0)]), h.a.contour));
+    blocSvg.push(h.chemin(P([p3(BL.x0, 0, BL.bas), p3(BL.x0, 0, 0), p3(BL.x0, BL.y1, 0), p3(BL.x1, BL.y1, 0), p3(BL.x1, BL.y1, BL.bas), p3(BL.x1, 0, BL.bas), p3(BL.x0, 0, BL.bas)]), h.a.contour, true));
+    // le panneau couvre le dessus du bloc : il se peint après
+    if (couverte) {
+      const pan = out.splice(out.findIndex(x => x.includes('data-panneau')) >= 0 ? 0 : out.length);
+      out.push(...pan);
+    }
+    out.push(...blocSvg);
+
+    const reperes = {};
+    if (!couverte) {
+      // ── le tas de neige sèche sur le bord, et le geste : en prendre pour remplacer la neige mouillée ──
+      const tas = { cx: 66, cy: 86.5, rx: 17, ry: 4, ht: 10 };
+      const pied = [], dos = [];
+      for (let q = 0; q <= 8; q++) {
+        const uu = -1 + 2 * q / 8, w = Math.sqrt(Math.max(0, 1 - uu * uu));
+        pied.push(p3(tas.cx + tas.rx * uu, tas.cy - tas.ry * w, 0));
+      }
+      for (let q = 8; q >= 0; q--) {
+        const uu = -1 + 2 * q / 8, w = Math.sqrt(Math.max(0, 1 - uu * uu));
+        dos.push(p3(tas.cx + tas.rx * uu * 0.93, tas.cy + 1, tas.ht * Math.pow(w, 0.8)));
+      }
+      out.push(...neigeTas(bossele(pied.concat(dos), 2 * k, 9 * k)));
+      const g0 = p3(tas.cx - 4, tas.cy, 10), g1 = p3(65, 62, -12.4);
+      const gc = [g0[0] + 30 * k, (g0[1] + g1[1]) / 2 - 4 * k];
+      out.push(h.geste(`M${f(g0[0])} ${f(g0[1])} Q${f(gc[0])} ${f(gc[1])} ${f(g1[0] + 2 * k)} ${f(g1[1] - 3 * k)}`));
+      Object.assign(reperes, {
+        auge: p3(x0 - 3.5, 0, fond * 0.5),
+        plat: p3(cv.cx + cv.r * 0.96, cv.cy + 3, fond + 2.5),
+        ragout: p3(30, 64, zrT),
+        brasser: arc[3],
+        neige: [g1[0] + 2 * k, g1[1] - 3 * k],
+        flaque: p3(3.5, 62, fond),
+      });
+    } else {
+      // la bûche, couchée sur le panneau ; on voit son bout, à droite
+      const rb = 7.5, C0 = [12, 44, PN.ep + rb], C1 = [86, 44, PN.ep + rb];
+      const ell = C => Array.from({ length: 40 }, (_, q) => { const t = 2 * Math.PI * q / 40; return p3(C[0], C[1] + rb * Math.cos(t), C[2] + rb * Math.sin(t)); });
+      const e0 = ell(C0), e1 = ell(C1);
+      const corps = enveloppe(e0.concat(e1));
+      const cb = p3(...C1);
+      out.push(h.chemin(P(corps), blancSans, true));
+      // l'ombre sous la bûche, sur le flanc bas
+      const bas = e0.concat(e1).map(q => q[1]).reduce((m, v) => Math.max(m, v), -1e9);
+      out.push(h.chemin(P(corps), h.a.contour, true));
+      out.push(h.chemin(P(e1), blanc(h.a.arete), true));
+      const anneaux = r => Array.from({ length: 32 }, (_, q) => { const t = 2 * Math.PI * q / 32; return p3(C1[0] + 0.1, C1[1] + r * Math.cos(t), C1[2] + r * Math.sin(t)); });
+      out.push(h.chemin(P(anneaux(rb * 0.82)), h.a.detail, true), h.chemin(P(anneaux(rb * 0.5)), h.a.detail, true));
+      out.push(h.cercle(cb[0], cb[1], 1.1 * k, h.a.plein));
+      // l'écorce : deux ou trois traits le long de la bûche
+      for (const [t0, t1, tz] of [[18, 44, 0.55], [50, 78, -0.2], [26, 60, -0.7]]) {
+        out.push(h.chemin(P([p3(t0, C0[1] - rb * 0.35, C0[2] + rb * tz), p3(t1, C0[1] - rb * 0.35, C0[2] + rb * tz)]), h.a.detail));
+      }
+      void bas;
+      Object.assign(reperes, { panneau: p3(PN.x0 + 10, 0, PN.ep / 2), buche: p3(40, 44 - rb * 0.6, PN.ep + rb * 1.6) });
+    }
+    return { svg: out.join('\n'), reperes };
   };
 
-  // ════ La coupe en travers, au plat à rôtir ══════════════════════════════════════════
-  const coupe = z => {
-    const s = 2.62;
-    const Y0 = -9, Y1 = 57, BAS = -28;
-    const OX = (z.l - s * (Y1 - Y0)) / 2 - s * Y0;
-    const OY = z.h - 4 + s * BAS;
-    const q = (Y, Z) => [OX + s * Y, OY - s * Z];
-    const out = [];
-    const fond = AUGE.fond, l = AUGE.y1;
-    // la neige coupée
-    const neige = [[Y0, 0], [0, 0], [0, fond], [l, fond], [l, 0], [Y1, 0], [Y1, BAS], [Y0, BAS]].map(([Y, Z]) => q(Y, Z));
-    out.push(h.chemin(P(neige), h.a.hachure('neige', 'aucun'), true));
-    out.push(h.chemin(P([q(Y0, 0), q(0, 0), q(0, fond), q(l, fond), q(l, 0), q(Y1, 0)]), h.a.contour));
-    out.push(h.chemin(P([q(Y1, 0), q(Y1, BAS), q(Y0, BAS), q(Y0, 0)]), h.a.arete));
-    // le plat à rôtir, coupé : la tôle du plat en trait fort, le ragoût en gris clair
-    const ph = { a: 10, b: 38, z: fond + 6 }, pb = { a: 12.5, b: 35.5 };
-    const zr = fond + 2.5, t = 2.5 / 6;
-    const ra = pb.a + (ph.a - pb.a) * t, rb = pb.b + (ph.b - pb.b) * t;
-    const rag = [q(pb.a, fond), q(pb.b, fond), q(rb, zr), q(ra, zr)];
-    out.push(h.chemin(P(rag), blanc(h.a.detail).replace('#FFFFFF', '#E6E6E6'), true));
-    for (const [y, w] of [[16, 1.5], [21.5, 1.2], [27, 1.6], [32, 1.2]]) {
-      out.push(h.chemin(P([q(y - w, zr - 0.2), q(y - w * 0.6, zr + 0.9), q(y + w * 0.5, zr + 1), q(y + w, zr - 0.2)]), blanc(h.a.detail)));
-    }
-    out.push(h.chemin(P([q(ph.a - 1, ph.z + 0.4), q(ph.a, ph.z), q(pb.a, fond), q(pb.b, fond), q(ph.b, ph.z), q(ph.b + 1, ph.z + 0.4)]), h.a.contour));
-    // le panneau, posé sur les deux bords de l'auge, et la bûche qui le leste
-    const pan = { a: -5, b: 53, ep: 2.4 };
-    out.push(h.chemin(P([q(pan.a, 0), q(pan.b, 0), q(pan.b, pan.ep), q(pan.a, pan.ep)]), h.a.hachure('bois', 'contour'), true));
-    const rb2 = 8.2, cb = q(24, pan.ep + rb2), R = rb2 * s;
-    out.push(h.cercle(cb[0], cb[1], R, blancSans));
-    // l'ombre du côté droit de la bûche
-    const dd = R * 0.32, yy = Math.sqrt(R * R - (dd / 2) ** 2);
-    out.push(h.path(`M${f(cb[0] + dd / 2 - dd)} ${f(cb[1] - yy)} A${f(R)} ${f(R)} 0 0 1 ${f(cb[0] + dd / 2 - dd)} ${f(cb[1] + yy)} A${f(R)} ${f(R)} 0 0 0 ${f(cb[0] + dd / 2 - dd)} ${f(cb[1] - yy)} Z`, h.a.ombre));
-    out.push(h.cercle(cb[0], cb[1], R * 0.86, blanc(h.a.detail)));
-    out.push(h.cercle(cb[0] - R * 0.04, cb[1] + R * 0.03, R * 0.58, h.a.detail));
-    out.push(h.cercle(cb[0] - R * 0.06, cb[1] + R * 0.05, R * 0.3, h.a.detail));
-    out.push(h.cercle(cb[0] - R * 0.07, cb[1] + R * 0.06, 1.3, h.a.plein));
-    out.push(h.ligne(cb[0] + R * 0.1, cb[1] - R * 0.12, cb[0] + R * 0.62, cb[1] - R * 0.5, h.a.detail));
-    out.push(h.cercle(cb[0], cb[1], R, h.a.contour));
-    return {
-      svg: out.join('\n'),
-      reperes: { ragout: q(18.5, zr - 1.2), panneau: q(pan.b - 4, pan.ep * 0.5), buche: [cb[0] - R * 0.7, cb[1] - R * 0.7] },
-    };
+  const echelle = (z, marge) => {
+    const S = Math.min((z.l - 2 * marge) / LARGE, (z.h - 30) / (BLOC.y1 * KY + -BLOC.bas * KZ + 10 * KZ));
+    const OX = (z.l - S * LARGE) / 2 - S * BLOC.x0;
+    const OY = z.h - 4 - S * KZ * -BLOC.bas;
+    return { S, OX, OY };
   };
 
   return {
     ref: '18-02',
     titre: 'Refroidir la marmite dans une auge de neige',
-    desc: 'Deux vues. À gauche, de biais et d’en haut : une auge creusée dans un bloc de neige tassée, coupée en long pour qu’on voie le fond. Au fond, trois plats larges et plats couchés côte à côte : un plat à rôtir à anses, une tôle, un couvercle de chaudière retourné. Chacun porte une couche mince de ragoût, avec des morceaux. Une cuillère de bois est plantée dans le plat à rôtir, une flèche rouge tourne autour : on brasse. Autour de la tôle, la neige a fondu en eau, en bleu : un bain tiède. Contre la tôle, un monticule de neige sèche, et une flèche rouge qui vient d’un tas de neige sèche posé sur le bord de l’auge : on remplace la neige mouillée par de la neige sèche. À droite, en coupe en travers : la neige, l’auge, le plat à rôtir posé au fond avec sa couche mince de ragoût, et un panneau de bois posé sur les deux bords de l’auge, une bûche dessus pour le lester contre les animaux. Aucune cote ; les plats et la bûche donnent l’échelle.',
+    desc: 'Deux vues de biais, d’en haut. À gauche, l’auge ouverte : une auge creusée dans un bloc de neige tassée, coupée par l’avant pour qu’on voie le fond. Au fond, des plats larges et plats couchés sur deux rangs : devant, un plat à rôtir à anses et un couvercle de chaudière retourné ; derrière, une tôle et une gamelle. Chacun porte une couche mince de ragoût, avec des morceaux. Une cuillère de bois est plantée dans le plat à rôtir, une flèche rouge tourne autour : on brasse. Autour de la tôle, la neige a fondu en eau, en bleu : un bain tiède. Contre la tôle, un monticule de neige sèche, et une flèche rouge qui vient d’un tas de neige sèche posé sur le bord de l’auge : on remplace la neige mouillée par de la neige sèche. À droite, la même auge couverte : un panneau de planches posé sur les bords, une bûche couchée dessus pour le lester contre les animaux. Aucune cote ; les plats et la bûche donnent l’échelle.',
     format: 'demi',
-    disposition: [['biais', 'coupe']],
+    disposition: [['ouverte', 'couverte']],
     largeurs: [[2, 1]],
     vues: (() => {
       const memo = (fn, m = {}) => z => (m[`${z.l}x${z.h}`] = m[`${z.l}x${z.h}`] || fn(z));
-      const B = memo(biais), C = memo(coupe);
+      const O = memo(z => scene({ ...echelle(z, 26) }));
+      const C = memo(z => scene({ ...echelle(z, 4), couverte: true }));
       return {
-        biais: {
-          dessin: z => B(z).svg,
+        ouverte: {
+          dessin: z => O(z).svg,
           renvois: z => {
-            const r = B(z).reperes;
+            const r = O(z).reperes;
             return [
-              { n: 1, rond: [14, r.auge[1] - 30], cible: r.auge, texte: 'creuser une auge dans la neige tassée' },
-              { n: 2, rond: [r.plat[0] - 30, r.plat[1] - 70], cible: r.plat, texte: 'coucher les plats les plus larges dans l’auge' },
-              { n: 4, rond: [r.brasser[0] + 4, r.brasser[1] - 70], cible: r.brasser, texte: 'brasser deux ou trois fois' },
-              { n: 5, rond: [r.mouillee[0] + 10, r.mouillee[1] - 80], cible: r.mouillee, texte: 'remplacer la neige mouillée par de la sèche' },
+              { n: 1, rond: [12, r.auge[1] + 4], cible: r.auge, texte: 'creuser une auge dans la neige tassée' },
+              { n: 2, rond: [z.l - 12, r.plat[1] - 6], cible: r.plat, texte: 'coucher les plats les plus larges dans l’auge' },
+              { n: 3, rond: [r.ragout[0] - 22, 12], cible: r.ragout, texte: 'verser le ragoût en couche mince' },
+              { n: 4, rond: [12, r.brasser[1] - 4], cible: r.brasser, texte: 'brasser deux ou trois fois' },
+              { n: 5, rond: [r.neige[0] + 38, 12], cible: r.neige, texte: 'remplacer la neige mouillée par de la sèche' },
             ];
           },
         },
-        coupe: {
-          titre: 'En coupe',
+        couverte: {
+          titre: 'Couverte',
           dessin: z => C(z).svg,
           renvois: z => {
             const r = C(z).reperes;
-            return [
-              { n: 3, rond: [14, r.ragout[1] - 60], cible: r.ragout, texte: 'verser le ragoût en couche mince' },
-              { n: 6, rond: [z.l - 14, r.panneau[1] - 50], cible: r.panneau, texte: 'poser un panneau lesté contre les animaux' },
-            ];
+            return [{ n: 6, rond: [r.buche[0] - 10, 14], cible: r.buche, texte: 'poser un panneau lesté contre les animaux' }];
           },
         },
       };

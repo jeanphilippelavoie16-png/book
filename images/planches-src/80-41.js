@@ -74,8 +74,8 @@ module.exports = (h) => {
       { n: 1, rond: [g.x0 + g.L * 0.4, g.y0 + g.W + 48 > z.h - 10 ? z.h - 10 : g.y0 + g.W + 48], cible: [g.x0 + g.L * 0.4, g.y0 + g.W - g.tw - 6], texte: 'planche de bois franc' },
       { n: 2, rond: [g.xF - 70, g.ym + 2], cible: [g.xF - g.fl / 2 - 1, g.ym + 2], texte: 'fente en travers' },
       { n: 3, rond: [xr, g.ym - 14], cible: [d.xl + g.bw + 1, g.ym - 14], texte: 'lame en travers, biseau en haut' },
-      { n: 4, rond: [g.xF + 64, g.y0 - 12], cible: [d.xl + g.bw * 0.7 + 2, g.ym - g.bl / 2 + 8 * g.k - 2], texte: 'vissée ou rivée aux deux bouts' },
-      { n: 5, rond: [xr, g.y0 + g.W - 6], cible: [g.x0 + g.L + 1, g.y0 + g.W - g.tw / 2], texte: 'deux tasseaux cloués : le chemin' },
+      { n: 4, rond: [g.xF + 64, g.y0 - 12], cible: [d.xl + g.bw * 0.7 + 2, g.ym - g.bl / 2 + 8 * g.k - 2], texte: 'lame vissée ou rivée aux deux bouts' },
+      { n: 5, rond: [xr, g.y0 + g.W - 6], cible: [g.x0 + g.L + 1, g.y0 + g.W - g.tw / 2], texte: 'deux tasseaux cloués guident le chou' },
     ];
   };
 
@@ -190,8 +190,8 @@ module.exports = (h) => {
   const placeRenvois = z => {
     const p = place(z);
     return [
-      { n: 8, rond: [p.xd - 8, p.yP - 44], cible: [p.xd - 16, p.yP - 9], texte: 'en travers de la cuve' },
-      { n: 9, rond: [p.xc - 96, p.yP - 30], cible: [p.xc - 56, p.yP - 22], texte: 'chou en quartiers, poussé à pleine main' },
+      { n: 8, rond: [p.xd - 8, p.yP - 44], cible: [p.xd - 16, p.yP - 9], texte: 'planche posée en travers de la cuve' },
+      { n: 9, rond: [p.xc - 96, p.yP - 30], cible: [p.xc - 56, p.yP - 22], texte: 'pousser le quartier de chou vers la lame' },
     ];
   };
 
