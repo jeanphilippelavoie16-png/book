@@ -19,11 +19,49 @@ Le montant du milieu (p. 196, point 1.a) :
 > « Next, cut and nail to the frame a piece of 1 X 1-in. lumber 36 in. long, for a center vertical brace. […] Figure 3
 > shows the back side of the frame; the flap valves will be attached on the front (the opposite) side. »
 
+La bande et l'ourlet (p. 197 et 198, modèle de 36 po) :
+
+> « First cut 9 strips, making each strip 30 in. long by 5-1/2 in. wide (see Fig. 5). » (p. 197) ; « To form a hem along
+> one of the 30-in. sides of a 5-1/2 X 30-in. rectangular strip, fold in a 1-in. hem. This makes the finished flap
+> 4-1/2 in. wide. » (p. 198)
+
+Les volets d'une petite pompe (p. 206, « VII. B. Small KAPs ») :
+
+> « For pumps 24 inches or less in height, make the finished flaps only 3-1/2 inches wide and space their pivot-wires
+> 3 inches apart. The flaps should overlap no more than [1/2] inch. A KAP 24 inches high will pump enough outdoor air
+> for only a few people, except in cold weather. »
+
+(Le « 1/2 » manque dans la copie texte du PDF : « no more than inch ». Il se déduit des deux cotes de la même phrase,
+3½ po de volet pour 3 po entre les fils.)
+
+Le calcul du chapitre : l'ourlet prend 1 po sur la largeur de la bande (5½ − 1 = 4½). Pour un volet fini de 3½ po, la
+bande fait 3½ + 1 = 4½ po = 11,4 cm, écrit 11,5 cm ; l'ourlet, 1 po = 2,5 cm ; le volet fini, 3½ po = 8,9 cm, écrit
+9 cm ; les fils, 3 po = 7,6 cm, écrits 7,5 cm. Le volet couvre celui du dessous de 9 − 7,5 = 1,5 cm (½ po = 1,3 cm chez
+l'ORNL). L'ORNL ne donne pas d'ourlet propre aux petites pompes : on garde celui du modèle de 36 po.
+
+La pompe de 36 po, quand l'ouverture est assez haute (p. 205, « VII. A. Narrow KAPs ») :
+
+> « One of less height is not as efficient as a 36-in.-high model and has to be pulled uncomfortably fast. So, when
+> ventilation openings can be selected or made at least 38 in. high, make your pump 36 in. high. »
+
+Le chapitre garde la pompe de 60 cm (24 po) : la p. 206 dit qu'elle suffit pour quelques personnes (vérificateur
+technique, 19 octobre 2026 ; voir `suivi/04-redaction.md`).
+
 Les entailles des volets (p. 198) :
 
-> « After the hem has been made, cut a notch with scissors in each hemmed corner of the flap (Figs. 6 and 8). […] Also
-> cut a notch in the center of the flap (along the hem line) extending 1/2 in. downward and extending horizontally 1/4
-> in. beyond each of the two sides of the vertical brace (see Fig. 6). The notch MUST be wider than the brace. »
+> « After the hem has been made, cut a notch with scissors in each hemmed corner of the flap (Figs. 6 and 8). Avoid
+> cutting the tape holding the hem. Each notch should extend downward about 1/2 in. and should extend horizontally from
+> the outer edge of the flap to 1/4 in. inside the inner side of the frame, when the flap is positioned on the frames as
+> shown in Fig. 6. » ; « Also cut a notch in the center of the flap (along the hem line) extending 1/2 in. downward and
+> extending horizontally 1/4 in. beyond each of the two sides of the vertical brace (see Fig. 6). The notch MUST be
+> wider than the brace. »
+
+(½ po = 1,27 cm, écrit « environ 1,3 cm » ; ¼ po = 6,35 mm, écrit « environ 6 mm ».)
+
+Le montage du cadre, côté pièce (p. 196, points 1.a et 1.b, cités plus haut) : les deux côtés de 36 po et le montant du
+milieu sont au dos (« Figure 3 shows the back side of the frame ») ; les traverses de 29 po sont par-dessus les côtés, sur
+la face, puisque les lattes de remplissage vont « on top of the 36-in. sides of the frame between the top and bottom
+horizontal boards ».
 
 Les ficelles fixées aussi au montant du milieu (p. 199 et 200) :
 
@@ -41,8 +79,18 @@ Le fil seulement, jamais le plastique (p. 200, « Final assembly ») :
 La corde au montant du milieu (p. 200 et 205) :
 
 > « For this 3-ft model, tie the pull-cord to the center brace about 12-1/2 in. below the hinge line » (p. 200) ;
+> « Cut a slot in the flap above the connection of the pull-cord to the vertical brace, deep enough so that this flap
+> will close completely when the KAP is being pulled. Tape the end and edges of the slot. » (p. 200, point 5.c) ;
 > « (Pumps with improvised hinges and large pumps must be pulled from a connection point on their center vertical brace
 > to make them swing properly.) » (p. 205, « Narrow KAPs »).
+
+Le jeu autour de la pompe (p. 201, « V. A. Minimum open spaces around a KAP ») :
+
+> « To pump its maximum volume, an air-supply KAP with good metal hinges should be installed in its opening so that
+> it swings only about 1/2 in. above the bottom of the opening and only 1/2 in. to 1 in. from the sides of the opening. »
+
+Lecture du chapitre : dans une porte dont on a fermé le bas (annexe A, p. 173, plus bas), l'ouverture où la pompe
+balance s'arrête au haut de cette fermeture ; c'est d'elle que le cadre passe à environ 1 cm.
 
 L'air qui revient autour du cadre (p. 205, « Maintenance ») :
 
