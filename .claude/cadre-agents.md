@@ -156,6 +156,11 @@ Le cadre complet est `.claude/skills/planches/references/brief-agent.md`. En bre
 ## Le montage et la vérification (orchestrateur)
 
 - [ ] Aucun vérificateur sécurité : JP n'en veut jamais (18 octobre 2026).
+- [ ] **À une refonte, le vérificateur technique ne revérifie pas ce qui l'a déjà été** (JP, 19 octobre 2026 : « fuck les
+  sources, on a pas déjà fait ce travail-là ? »). Il compare au texte d'avant (git) et ne vérifie à la source que ce
+  qui est nouveau ou qui change de sens : un chiffre ou un fait nouveau, une note En plus, une série orange réécrite,
+  un danger déplacé qui perd son fait propre, une contradiction avec un autre chapitre ou les pages des dangers. Un
+  chiffre qui ne fait que changer de section ne se rouvre pas. L'éditeur prend trois chapitres à la fois.
 - [ ] Le logigramme tombe juste après le Matériel, et **la procédure toujours après lui** (JP, 18 octobre : « c'est lui
   qu'on veut en premier » ; « la procédure va toujours APRÈS le diagramme ») : son ancre est le dernier item du
   Matériel ; le moteur ferme la page à l'ancre et la procédure attend la double page.
