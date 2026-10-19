@@ -59,19 +59,20 @@ congélateur. Au chalet, la panne vient de la génératrice ou du propane qui s'
 | 24 à 48 h | Avant que le congélateur arrive au bout de son autonomie, passer au scénario 8 | |
 | Au retour du courant | Après une panne de plus de 6 h, trier le frigo et le congélateur | Jeter tout aliment resté 2 h ou plus à la température de la pièce |
 
-{!generatrice} {!co} Poser la génératrice dehors, à 6 m ou plus de tout bâtiment, l'échappement tourné à l'opposé :
+{!generatrice} {!co} Poser la génératrice dehors, à 6 m ou plus de tout bâtiment, l'échappement tourné du côté
+opposé aux bâtiments :
 jamais dans un bâtiment, ni dans le garage ou la remise, ni sous un auvent, même porte ouverte. Une maison chauffée
 aspire l'air du dehors par ses fentes du bas : une génératrice collée au mur ou posée devant une porte envoie ses gaz
 à l'intérieur comme si elle y était. Ne jamais prendre les piles de l'avertisseur de CO pour une lampe.
 
 ### Scénario 2. Route coupée, isolement de 2 à 8 semaines (**la bascule**)
 
-*Débâcle, glissement de terrain, verglas qui dure. Le scénario commence à la maison et, si la route reste coupée, il
-finit au chalet : décider de monter (ch. 2) pendant que la route passe encore.*
+*Une débâcle, un glissement de terrain ou un verglas qui dure coupe la route. On vit le début à la maison ; si la
+route reste coupée, on finit au chalet : décider de monter (ch. 2) pendant que le chemin du chalet passe encore.*
 
 | Quand | Geste | Repère chiffré |
 | --- | --- | --- |
-| Jour 1 | Compter la nourriture en jours-personnes : le nombre de jours qu'elle peut nourrir une personne | 4 personnes pendant 30 jours : 120 jours-personnes |
+| Jour 1 | Compter la nourriture en jours-personnes : le nombre de jours qu'elle peut nourrir une personne | 4 personnes pendant 30 jours, c'est 120 jours-personnes |
 | Jour 1 | Mesurer le combustible qui reste : les cordes de bois sec, les litres de propane et d'essence | |
 | Jour 1 | Parler au voisinage et au groupe de chasse pour savoir qui a quoi et qui manque de quoi (ch. 16, 18) | |
 | Jour 1 | Commencer à rationner tout de suite, sans attendre que le stock baisse | |

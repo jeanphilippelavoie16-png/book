@@ -211,7 +211,7 @@ et se sortir vivant de la glace qui cède ou de la machine qui s'arrête loin de
  en laissant des dépôts collants qui bouchent les petits passages du carburateur. L'éthanol de l'essence
  capte aussi l'humidité de l'air, qui finit en une couche d'eau et d'alcool au fond du bidon, celle que le
  moteur aspire en premier. Avec le stabilisateur versé au remplissage, l'essence reste bonne jusqu'à 24 mois.
- Verser du stabilisateur dans une essence déjà vieillie ne la répare pas. Verser la dose écrite sur le
+ Verser du stabilisateur dans une essence vieillie ne la répare pas. Verser la dose écrite sur le
  contenant du stabilisateur.
 26. **Faire tourner la réserve.** Brûler la plus vieille essence en premier, dans l'auto ou la génératrice,
  et garder la plus fraîche pour la scie et la motoneige : les dépôts bouchent d'abord les petits
@@ -370,7 +370,7 @@ que le niveau de l'essence dans le réservoir (repère 1).
 **Avec deux boyaux et une pompe à vélo.**
 
 - Pousser un boyau long jusqu'au fond du réservoir, et mettre son autre bout dans le bidon (repère 2).
-- Glisser dans le goulot un boyau court, qui s'arrête au-dessus de l'essence (repère 3).
+- Glisser un boyau court dans le goulot : il doit s'arrêter au-dessus de l'essence (repère 3).
 - Bourrer un chiffon autour des deux boyaux, dans le goulot (repère 4), pour que l'air qu'on pousse reste dans
  le réservoir.
 - Pomper doucement dans le boyau court, avec une pompe à vélo ou à matelas (repère 5) : l'air pousse l'essence
