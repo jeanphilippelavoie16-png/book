@@ -393,6 +393,9 @@ def motif(can, info):
             proches = [j for j, sil in arbres_vus if (M2 & sil).any()]
             if proches:                                # entre deux épinettes : on ôte la plus petite
                 sans_arbres.add(min(proches, key=lambda j: poses_[j][1].size))
+                if DEBUG:
+                    ys, xs = np.nonzero(m)
+                    print('      tache entre arbres : y %d-%d x %d-%d' % (ys.min() + oy, ys.max() + oy, xs.min(), xs.max()))
             elif DEBUG:
                 ys, xs = np.nonzero(m)
                 print('      tache sans cause : y %d-%d x %d-%d' % (ys.min() + oy, ys.max() + oy, xs.min(), xs.max()))

@@ -94,15 +94,25 @@ function ancresNotes(flux){
     blocs.forEach((b, k) => { const n = num(b.el); if(isNaN(n)) return; const d = Math.min(...e.map(a => Math.abs(a - n))); if(d < d0){ d0 = d; i = k; } });
     return i;
   });
-  // une note qui ne nomme aucune étape : le paragraphe de la procédure le plus loin des autres notes
+  // une note qui ne nomme aucune étape : si elle nomme une section (« section 7, « Remplir le congélateur arrêté » »),
+  // après le premier paragraphe de cette partie de la section ; sinon, le paragraphe de la procédure (ou de la section
+  // nommée) le plus loin des autres notes
   const debut = Math.max(0, blocs.findIndex(b => !isNaN(num(b.el))));
+  let sc = 0; const sec = blocs.map(b => { const h = b.el.matches && b.el.matches('h2.sec[data-n]') ? b.el : null; if(h) sc = +h.dataset.n; return b.kind === 'e' ? C.nv : sc; });
+  const norm = t => t.toLowerCase().replace(/[’']/g, "'").replace(/\s+/g, ' ').trim();
   rangs.forEach((r, n) => {
     if(r >= 0) return;
-    let best = -1, g0 = -1;
-    blocs.forEach((b, k) => { if(k < debut || !texte(b)) return;
-      const autres = rangs.filter(x => x >= 0); const g = autres.length ? Math.min(...autres.map(x => Math.abs(x - k))) : Math.abs(k - (debut + blocs.length) / 2) * -1;
-      if(g > g0){ g0 = g; best = k; } });
-    rangs[n] = best;
+    const m = ((NOTES_X[n].querySelector('.xtxt') || NOTES_X[n]).textContent || '').match(/section (\d+)(?:,\s*«\s*([^»]+?)\s*»)?/);
+    if(m && m[2]){
+      const h = blocs.findIndex((b, k) => sec[k] === +m[1] && estTitre(b.el) && norm(b.el.textContent) === norm(m[2]));
+      if(h >= 0){ let k = h; while(k < blocs.length && !texte(blocs[k])) k++; if(k < blocs.length){ rangs[n] = k; return; } }
+    }
+    const loin = hors => { let best = -1, g0 = -Infinity;
+      blocs.forEach((b, k) => { if(hors(k) || !texte(b)) return;
+        const autres = rangs.filter(x => x >= 0); const g = autres.length ? Math.min(...autres.map(x => Math.abs(x - k))) : Math.abs(k - (debut + blocs.length) / 2) * -1;
+        if(g > g0){ g0 = g; best = k; } });
+      return best; };
+    rangs[n] = (m && loin(k => sec[k] !== +m[1]) >= 0) ? loin(k => sec[k] !== +m[1]) : loin(k => k < debut);
   });
   return rangs.map(r => r < 0 ? null : blocs[fin(sortir(r))].el.dataset.k);
 }

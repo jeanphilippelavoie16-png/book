@@ -130,9 +130,9 @@ monte au chalet.
  arrêtent de vendre en même temps.
 18. {!generatrice} {!electrocution} **Préparer l'emplacement de la génératrice pendant qu'il fait clair.**
  - Choisir l'endroit dehors, à découvert, à au moins 6 m du bâtiment lui-même, pas de la porte, et tourner
- l'échappement à l'opposé des portes et des fenêtres. Jamais dans un bâtiment, un garage ou sous un auvent, même
- porte ouverte. Ces 6 m sont plus loin que là où on la pose d'habitude, et plus loin que la longueur d'une rallonge
- ordinaire : prendre la rallonge à la longueur de cette distance.
+ l'échappement à l'opposé des portes et des fenêtres. Ne jamais la mettre dans un bâtiment, un garage ou sous un
+ auvent, même porte ouverte. Ces 6 m sont plus loin que là où on la pose d'habitude, et plus loin que la longueur
+ d'une rallonge ordinaire : prendre la rallonge à la longueur de cette distance.
  - Dégager l'endroit à la pelle, le marquer d'un piquet et y monter une base surélevée avant que la neige tombe : la
  nuit de la tempête, on ne dégage pas 6 m de neige.
  - Dérouler la rallonge au complet jusqu'à la maison : enroulée, elle chauffe.

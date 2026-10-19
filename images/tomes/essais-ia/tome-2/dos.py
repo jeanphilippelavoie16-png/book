@@ -213,7 +213,7 @@ def tige(x0, y0, a, L, courbe=0.0, n=24):
     return pts
 
 
-def bouquet(cal, noeud, k=1.0, graine=5, tiges=None):
+def bouquet(cal, noeud, k=1.0, graine=5, tiges=None, feuilles=1.0):
     """Un bouquet d'herbes qui sèche la tête en bas, lié au point donné, gravé comme les plantes du cadre au mur :
     des feuilles ovales à nervure creusée, qui tombent vers la pointe de leur tige. Les tiges et les queues des
     feuilles sont sur leur propre couche, que la gouge ne coupe jamais : chaque feuille reste attachée."""
@@ -239,14 +239,14 @@ def bouquet(cal, noeud, k=1.0, graine=5, tiges=None):
             p = pts[int(round(t * 24))]
             at = a + courbe * t
             cote = 1 if (i + j) % 2 else -1
-            fl = (0.21 - 0.09 * t) * k * r.uniform(0.85, 1.1)
+            fl = (0.21 - 0.09 * t) * k * feuilles * r.uniform(0.85, 1.1)
             af = at + cote * r.uniform(0.55, 0.8)
             feuille(cal, 'or', p, af, fl, fl * r.uniform(0.38, 0.46), courbe=-cote * r.uniform(0.1, 0.35),
                     asym=r.uniform(-0.12, 0.12), gorge=0.007 if k > 0.6 else 0.005)
             cal.trait('tige', [p, (p[0] + math.sin(af) * fl * .24, p[1] + math.cos(af) * fl * .24)], et * 0.9)
         # la pointe : une petite feuille dans l'axe
         at = a + courbe
-        feuille(cal, 'or', pts[-1], at, 0.1 * k, 0.04 * k, courbe=r.uniform(-.2, .2), nervure=False,
+        feuille(cal, 'or', pts[-1], at, 0.1 * k * feuilles, 0.04 * k * feuilles, courbe=r.uniform(-.2, .2), nervure=False,
                 gorge=0.007 if k > 0.6 else 0.005)
         cal.trait('tige', [pts[-1], (pts[-1][0] + math.sin(at) * 0.03 * k, pts[-1][1] + math.cos(at) * 0.03 * k)], et)
     cal.attacher('or', 'tige')
@@ -348,9 +348,9 @@ def guirlande(cal, x0, x1, y0, y1, graine=8):
     for x in (x0, x1):
         cal.disque('clou', (x, yn), 0.024)
     sortes = [
-        [(-0.20, 1.0), (-0.06, 1.22), (0.08, 1.1), (0.21, 0.92)],
-        [(-0.24, 1.02), (-0.09, 1.3), (0.04, 1.42), (0.17, 1.2), (0.29, 0.95)],
-        [(-0.19, 0.95), (-0.05, 1.18), (0.09, 1.25), (0.22, 1.0)],
+        [(-0.30, 0.95), (-0.12, 1.2), (0.06, 1.12), (0.25, 0.9)],
+        [(-0.34, 1.0), (-0.15, 1.28), (0.03, 1.42), (0.19, 1.2), (0.36, 0.92)],
+        [(-0.27, 0.92), (-0.08, 1.16), (0.11, 1.24), (0.3, 0.98)],
     ]
     for i, tiges in enumerate(sortes):
         xb = x0 + (x1 - x0) * (i + 1) / 4
@@ -358,7 +358,7 @@ def guirlande(cal, x0, x1, y0, y1, graine=8):
         nd = yc + 0.07
         k = (y1 - nd - 0.03) / (max(L for _, L in tiges) + 0.17)
         cal.trait('fil', [(xb, yc), (xb, nd)], 0.01)
-        bouquet(cal, (xb, nd), k, graine=graine + i, tiges=tiges)
+        bouquet(cal, (xb, nd), k, graine=graine + i, tiges=tiges, feuilles=1.3)
 
 
 def nettoyer_mur(can, x1, ppp):
