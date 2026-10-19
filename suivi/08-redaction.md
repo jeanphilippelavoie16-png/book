@@ -399,8 +399,8 @@ cuisson, voir la correction 3.
 **Chiffres nouveaux :** 7 à 10 ans (avertisseur de CO), 0,4 mL par litre, 1 h et 2 h sous 10 °C (javel), le deuxième
 jour (mal de caribou) ; tous repris de fichiers déjà au dossier (tableau plus haut). `[À VÉRIFIER]` : aucun.
 
-**Signalé, sans rien changer :** la colonne « Si c'est hors cible » de la section 5 met « Chaque automne » pour l'essai
-des avertisseurs, le ch. 6 « Deux fois par année » : les deux tiennent (le ch. 8 fait la tournée annuelle des deux
+**Signalé, sans rien changer :** la colonne « Moment » de la section 5 met « Chaque automne » pour l'essai des
+avertisseurs, le ch. 6 « Deux fois par année » : les deux tiennent (le ch. 8 fait la tournée annuelle des deux
 lieux), mais l'éditeur peut les aligner.
 
 **controle.py :** avant les corrections (la refonte, HEAD) 6 439 mots ; après, 6 726 mots, 2 tirets (titre et ligne de

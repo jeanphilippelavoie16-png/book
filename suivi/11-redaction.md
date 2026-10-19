@@ -501,7 +501,7 @@ pas changé (1 à 58).
 
 ### controle.py, après les corrections
 
-7 760 mots environ (7 747 avant les deux remises en ligne), 2 tirets (titre et ligne de tome, forme commune), 1
+7 747 mots (7 717 à la refonte), 2 tirets (titre et ligne de tome, forme commune), 1
 tournure jugée (« les coucher dans la pièce la mieux fermée », inchangée), 0 maxime, 0 pronominal, 42 mots vides
 jugés, 5 redites jugées (les mêmes qu'à la refonte), invariants : rien n'a disparu par rapport à HEAD. Ancre
 introuvable : 11-03, l'ancienne, rendue à l'orchestrateur avec la nouvelle.

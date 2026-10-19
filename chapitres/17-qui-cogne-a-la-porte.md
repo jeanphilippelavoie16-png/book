@@ -32,7 +32,7 @@ destination.
 
 ## 3. Matériel
 
-- **Fenêtre sur l'entrée, ou judas** : pour compter les visiteurs sans ouvrir ; un judas grand-angle voit sur 180° (sans judas : section 7).
+- **Fenêtre sur l'entrée, ou judas** : pour compter les visiteurs sans ouvrir ; prendre un judas qui voit sur 180° (sans judas : section 7).
 - **Lampe de poche puissante** : éclaire le sol devant la personne, tenue loin du corps, la lampe de la pièce éteinte (étape 2).
 - **Sac de couchage ou couverture de laine, et un thermos** : pour réchauffer une personne qui gèle, dedans ou dans un abri dehors (étape 8).
 - **Barre de porte** : du bois franc posé dans deux supports ancrés dans les montants du mur (pour la faire : section 7).
@@ -70,12 +70,12 @@ destination.
 6. **Trier, dans cet ordre : une blessure ou le froid, puis un besoin de nourriture, d'eau, de bois ou de
  carburant, puis le reste.** Une personne blessée ou qui gèle passe avant la conversation : on la soigne d'abord
  (le froid : étapes 7 et 8 ; une blessure : ch. 26).
-7. {!froid} **L'hiver, chercher les signes du froid, même chez une personne qui a l'air ivre ou de mauvaise
- foi.** En hypothermie, on parle mal, on titube, on devient confus et on s'obstine sans logique : à travers une
- porte, la personne a l'air ivre ou agressive. Avec un seul de ces signes, ou si elle ne frissonne plus, la faire
- entrer, ou la mettre à l'abri dehors (section 7, « Réchauffer quelqu'un sans le faire entrer ») ; on parlera
- ensuite. Décider vite : à partir de −28 de refroidissement éolien, la peau exposée de la personne qui attend
- peut geler en 10 à 30 minutes, et plus vite quand il fait plus froid.
+7. {!froid} **Chercher les signes du froid, même chez une personne qui a l'air ivre ou de mauvaise foi.** En
+ hypothermie, on parle mal, on titube, on devient confus et on s'obstine sans logique : à travers une porte, la
+ personne a l'air ivre ou agressive. Avec un seul de ces signes, la faire entrer, ou la mettre à l'abri dehors
+ (section 7, « Réchauffer quelqu'un sans le faire entrer ») ; si elle ne frissonne plus, la porter couchée, sans
+ la faire marcher. On parlera ensuite. L'hiver, décider vite : à partir de −28 de refroidissement éolien, la peau
+ exposée de la personne qui attend peut geler en 10 à 30 minutes, et plus vite quand il fait plus froid.
 8. **La réchauffer** (ch. 25, étapes 5 à 14) : la coucher à l'abri du vent, sans gestes brusques, et lui enlever
  ses vêtements mouillés. Mettre la chaleur sur la tête, le cou, le tronc et l'aine, et les bouillottes sous les
  aisselles et sur le ventre ; rien sur les bras ni les jambes. Lui donner à boire chaud et sucré, à petites
@@ -87,8 +87,8 @@ destination.
  d'avance (ch. 15). Jamais dans l'emballage du magasin : la marque et le format montrent qu'on en a d'autres.
  Jamais une caisse, et jamais « prenez ce qu'il vous faut ». Pour donner avec ce qu'on a sans rien montrer :
  section 7, « Donner sans renseigner ».
- - {!mal-de-caribou} Donner du gras quand on en a, jamais le dernier : la famille ne peut pas vivre de viande
- maigre seule (ch. 19, ch. 21).
+ - {!mal-de-caribou} Donner du gras quand on en a, jamais le dernier : la viande maigre mangée sans gras donne le
+ mal de caribou, mortel en quelques semaines (ch. 19, ch. 21).
 10. {!froid} **Refuser, quand c'est la réponse : une seule fois, sans se justifier et sans mentir, en disant à la
  personne où aller, à quelle distance, et comment s'y rendre.** L'hiver, une personne renvoyée sans destination
  ni moyen d'y arriver peut geler en route.
@@ -103,10 +103,10 @@ destination.
  conversation ; ce qu'on donne passe par la fenêtre entrouverte.
 11. {!arme} **Si le visiteur ne part pas : rentrer, fermer et barrer la porte, et rester dedans.** Sans barre, caler une
  perche en biais sous la poignée (section 7, « La porte, et l'endroit où elle cède »). Noter l'heure. Prévenir
- les voisins ou le groupe par radio (ch. 14). Ne pas aller chercher l'arme, et ne pas la montrer : le visiteur
- voit l'adulte se retourner pour aller la prendre, il ne sait pas si l'arme est chargée, et il réagit comme si
- elle l'était, sans qu'on puisse prévoir comment. Il apprend aussi qu'il y a une arme dans la maison,
- et jusqu'où la famille est prête à aller. Une personne qu'on a fait reculer avec une arme peut revenir à une
+ les voisins ou le groupe par radio (ch. 14). Ne pas aller chercher l'arme, et ne pas la montrer. Pendant la
+ conversation, le visiteur voit l'adulte se retourner pour aller la chercher. Devant une arme montrée, il ne sait
+ pas si elle est chargée, et il réagit comme si elle l'était, sans qu'on puisse prévoir comment. Il apprend aussi
+ qu'il y a une arme dans la maison, et jusqu'où la famille est prête à aller. Une personne qu'on a fait reculer avec une arme peut revenir à une
  autre heure, et pas forcément seule. Au chalet, chemin fermé, retenir le visiteur sous la menace oblige à le nourrir,
  à le surveiller pendant qu'on dort et à le faire dormir près des enfants.
 12. **À tout moment, si le visiteur montre une arme, menace ou force la porte : arrêter de parler, emmener tout
@@ -128,9 +128,9 @@ destination.
 16. **À l'entrée, dès que les soins de l'étape 8 le permettent, lui faire laver les mains au savon
  pendant 20 secondes**, faire porter un masque si une maladie circule (ch. 30), et ne laisser personne s'approcher des
  enfants avant.
-17. **Loger le visiteur dans un espace séparé si le bâtiment le permet.** Dans une pièce fermée, pendant des
- heures, les virus respiratoires peuvent passer à plus de 2 m. Sinon, séparer au moins le couchage des enfants,
- et dire pourquoi (section 7, « Se séparer, et tenir la nuit »).
+17. **Loger le visiteur dans un espace séparé si le bâtiment le permet.** Dans une pièce fermée où plusieurs
+ personnes passent un long moment, les virus respiratoires peuvent passer à plus de 2 m. Sinon, séparer au moins
+ le couchage des enfants, et dire pourquoi (section 7, « Se séparer, et tenir la nuit »).
 18. {!co} {!generatrice} **Laisser dehors, à l'air libre, la génératrice, le réchaud et la chaufferette du
  visiteur** : jamais dans le hangar, le garage ou un véhicule, ni sous une toile ou un auvent. Les premiers signes
  du monoxyde (le mal de tête, la fatigue, la nausée, les étourdissements) sont ceux qu'on attend d'une personne qui
@@ -180,10 +180,10 @@ destination.
 | --- | --- | --- | --- |
 | Avant d'ouvrir | Les personnes en vue, comparées aux traces et aux véhicules | Les comptes concordent | Ne pas ouvrir. Demander à travers la porte combien ils sont, et écouter la réponse |
 | Premières phrases | La façon de parler et de bouger du visiteur | Des phrases suivies, des réponses qui correspondent aux questions | Hypothermie jusqu'à preuve du contraire : la soigner d'abord (étapes 7 et 8) |
-| Premières phrases | Les frissons | Présents chez une personne qui arrive du froid | Plus de frissons et somnolence : hypothermie grave, la vie est en jeu. La faire entrer et la réchauffer (étape 8 ; ch. 25) |
+| Premières phrases | Les frissons | Présents chez une personne qui arrive du froid | Plus de frissons et somnolence : hypothermie grave, la vie est en jeu. La porter couchée à l'abri, sans la faire marcher, et la réchauffer (étapes 7 et 8 ; ch. 25) |
 | Toute la visite | Les adultes de la maison qui parlent | **1** | Le deuxième adulte doit se taire et retourner à la fenêtre |
 | Toute la visite | La distance de la conversation dehors | Le repère, jamais à moins de 2 m | Reprendre la distance en nommant le repère, ou rentrer et parler par la fenêtre |
-| Toute la visite | La durée de la conversation dehors | L'hiver, 10 min au plus à partir de −28 de refroidissement éolien, moins quand il fait plus froid ; à moins de 2 m, moins de 15 min | Conclure : on met la personne à l'abri ou on la loge, ou on donne et la visite se termine |
+| Toute la visite | La durée de la conversation dehors | L'hiver, 10 min au plus à partir de −28 de refroidissement éolien, 5 min au plus à partir de −40 ; à partir de −48, aucune conversation dehors : décider par la fenêtre ; à moins de 2 m, moins de 15 min | Conclure : on met la personne à l'abri ou on la loge, ou on donne et la visite se termine |
 | À l'entrée | Le lavage des mains au savon | **20 s**, toutes les surfaces | Recommencer. Sur des mains sales, la solution hydroalcoolique à 60 % ne remplace pas le savon |
 | Repas partagé | Le gibier à cœur, au thermomètre à sonde | **74 °C** | Remettre au feu |
 | Après le départ | Les surfaces touchées, désinfectées | Javel à **0,1 %**, **1 min** de contact | Refaire avec une solution fraîche : une dilution vieillie n'a plus sa concentration |
@@ -328,9 +328,10 @@ faits une deuxième fois, dans un autre ordre, plus tard dans la soirée. Une pe
 le redit dans le désordre, avec des détails nouveaux ; une histoire apprise revient dans le même ordre, avec les
 mêmes mots. **Poser une question sur le territoire** dont on connaît la réponse : l'état d'un ponceau, le toit d'un
 camp, le nom de la personne qui reste au bout du chemin ; la réponse montre si la personne connaît le secteur.
-**Regarder l'équipement** : si la personne dit que sa motoneige est en panne, aller voir si elle est vide ou brisée.
-Le givre sur le cache-cou montre combien de temps elle a passé dehors ; la neige sur les épaules montre si elle a
-marché sous les arbres ou à découvert ; les traces montrent si elle arrive de la direction qu'elle annonce.
+**Regarder la personne et ce qu'elle porte** : le givre sur le cache-cou montre combien de temps elle a passé
+dehors ; la neige sur les épaules montre si elle a marché sous les arbres ou à découvert ; les traces montrent si
+elle arrive de la direction qu'elle annonce. Si elle dit que sa motoneige est en panne, lui demander ce qui est
+arrivé : la personne qui a manqué d'essence ne raconte pas la même chose que la personne dont la motoneige a brisé.
 
 On se sert de ces trois façons pour décider ce qu'on donne, jamais pour décider si on soigne une personne qui
 gèle.
@@ -381,8 +382,8 @@ couleurs (étape 2).
 ### Le refroidissement éolien
 
 Le refroidissement éolien est un indice sans unité : on écrit −28, pas −28 °C, pour ne pas le confondre avec la
-température de l'air. À chaque valeur correspond le temps que met la peau exposée à geler. Par un vent soutenu de
-plus de 50 km/h, la peau peut geler plus vite que ce temps (étape 7).
+température de l'air. À partir de −28, chaque plage de valeurs donne le temps que met la peau exposée à geler.
+Par un vent soutenu de plus de 50 km/h, la peau peut geler plus vite que ce temps (étape 7).
 
 ### Contagieux avant d'avoir l'air malade
 
@@ -395,5 +396,5 @@ longtemps que les adultes. La gastro se transmet tant que durent les signes, et 
 
 À la fin du 19e siècle, chez les Inuits de l'Ungava, le maître de la grande tente de peaux choisissait la place de
 l'invité ; pour lui faire honneur, il lui donnait la sienne, au fond, derrière une pièce de bois couchée en travers
-du plancher. Ce qui rendait la façon sûre : le maître décidait de la place. Avec un inconnu, lui céder sa place,
-c'est le faire dormir au fond, près des enfants (étape 17).
+du plancher. Les autres couchaient le long des côtés, seuls ou en groupes, selon leur parenté. Avec un inconnu,
+lui céder sa place, c'est le faire dormir au fond, près des enfants (étape 17).
