@@ -660,8 +660,8 @@ def main():
             open(f, 'w', encoding='utf-8').write(page_html(v, k, m, pal, fichiers, None, accent))
             rects = mesurer(f, m)
             can, bandes = composer(v, m, img, pal, o.fond_ppp)
-            can = motif_dos(k, v, can, rects, m, o.fond_ppp, img)
             can, n = nettoyer(can, rects + bandes, o.fond_ppp)
+            can = motif_dos(k, v, can, rects, m, o.fond_ppp, img)     # après : le nettoyage ne rogne pas les motifs
             fond = 'fond-%s.jpg' % v
             Image.fromarray(can).save(os.path.join(travail, fond), quality=92, subsampling=0)
             open(f, 'w', encoding='utf-8').write(page_html(v, k, m, pal, fichiers, fond, accent, o.guides))
