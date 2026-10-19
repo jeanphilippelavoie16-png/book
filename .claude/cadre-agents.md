@@ -201,16 +201,14 @@ Le cadre complet est `.claude/skills/planches/references/brief-agent.md`. En bre
   qui est nouveau ou qui change de sens : un chiffre ou un fait nouveau, une note En plus, une série orange réécrite,
   un danger déplacé qui perd son fait propre, une contradiction avec un autre chapitre ou les pages des dangers. Un
   chiffre qui ne fait que changer de section ne se rouvre pas. L'éditeur prend trois chapitres à la fois.
-- [ ] **Rien ne reste blanc** (JP, 19 octobre 2026 : « de la place pour du stock, genre photo ou note verte » ; « manque
-  de photos dans le livre, utilisons ces espaces pour en mettre » ; « tu commences à comprendre le principe ? ») :
-  une note verte au plus par page (« trop de notes vertes, c'est pas beau non plus ») ; le vide qui reste au bas d'une
-  page reçoit une photo (`images/vides/NN-*.jpg`, ce dont le chapitre parle, puis `images/pleine-page/tome-N/`), en
-  bande sur toute la largeur, seulement sur une page qui n'a ni note verte, ni planche, ni photo (« les pages qui ont
-  déjà du stock dedans, on rajoute pas de photo ») ; pas de pastilles tirées de l'image du tome (JP : « non, j'aime pas
-  ça les pastilles finalement, mets des photos ») ; une page blanche
-  devient une photo de la nature du Québec en pleine page, fond perdu (« genre pleine page, pas de blanc »). Une note
-  ne se pose jamais sous un titre resté seul (« note verte pour remplir un trou qui existe pas ») : le titre suit son
-  texte. JP aime les notes vertes avec des photos pour reconnaître (le sapin, l'épinette noire, le cèdre).
+- [ ] **Les photos vont seulement sur les pages complètement blanches** (JP, 19 octobre 2026 : « juste les pages vides »),
+  en pleine page, fond perdu (`images/pleine-page/tome-N/`, posées par l'assembleur) ; pas de photo dans le vide du bas
+  d'une page de texte. **Une page qui n'a que quelques lignes se résorbe** (« celles qui ont juste genre une phrase dans
+  une page, regarde pour compresser ») : le moteur refait le chapitre un peu plus serré (interligne 12,8 puis 12,6 pt)
+  et garde l'essai s'il fait une page de moins. Une note verte au plus par page (« trop de notes vertes, c'est pas beau
+  non plus »), jamais sous un titre resté seul (« note verte pour remplir un trou qui existe pas ») : le titre suit son
+  texte. Pas de pastilles tirées de l'image du tome. JP aime les notes vertes avec des photos pour reconnaître (le sapin,
+  l'épinette noire, le cèdre).
 - [ ] **Le courriel de JP** : permis comme contact dans l'en-tête User-Agent des requêtes à Wikimedia, qui en demande
   un (JP, 19 octobre 2026 : « c'est ben correct qu'ils prennent mon adresse ») ; ailleurs, il ne sort pas, et il ne
   s'écrit dans aucun fichier du dépôt.

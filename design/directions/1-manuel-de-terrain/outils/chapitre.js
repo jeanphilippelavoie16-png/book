@@ -535,28 +535,16 @@ function veuvesPage(f, q){   // pendant la mise en pages, quand la page continue
     if(resteSeule(f, vus)) annule();
   }
 }
-// Les vides : rien ne reste blanc au bas d'une page (JP, 19 octobre 2026 : « trop de notes vertes, c'est pas beau non
-// plus, faut trouver une autre solution pour remplir les vides » ; « de la place pour du stock, genre photo ou note
-// verte » ; « tu commences à comprendre le principe ? »). Après les notes (une au plus par page) : le dernier cadre qui
-// finit avant le bas s'équilibre sur ses deux colonnes, et le vide qui reste dessous, sur toute la largeur, reçoit une
-// photo : d'abord celles du chapitre, puis celles de la nature du tome. Plus de pastilles tirées de l'image du tome (JP,
-// même jour : « non, j'aime pas ça les pastilles finalement, mets des photos »).
-const PO = 96;                                   // px par pouce
-function remplirVides(){
-  const S = C.stock || {}, propres = (S.chapitre || []).slice(), photos = S.photos || [];
-  if(!propres.length && !photos.length) return;
-  const n0 = parseInt(String(C.num).replace(/\D/g, ''), 10) || 0;
-  let ip = n0 * 3;                               // d'un chapitre à l'autre, on ne recommence pas par la même image
-  const prochaine = () => propres.length ? propres.shift() : photos[ip++ % photos.length];
+// Les cadres d'une histoire qui continue et ne remplissent pas la page (le texte dans la colonne de gauche, la droite
+// vide : p12-17) s'équilibrent sur leurs deux colonnes. Pas de photo dans les vides du bas des pages : les photos vont
+// seulement sur les pages complètement blanches (l'assembleur), et une page qui n'a que quelques lignes se résorbe
+// (compresser(), plus bas) (JP, 19 octobre 2026 : « juste les pages vides ; celles qui ont juste genre une phrase dans
+// une page, regarde pour compresser »).
+function equilibrer(){
   PAGES.forEach(p => {
     if(p.kind !== 'text' && p.kind !== 'open') return;
-    // une page qui porte déjà du « stock » (une note verte, une planche, une photo) n'en reçoit pas d'autre (JP, 19
-    // octobre 2026 : « les pages qui ont déjà du stock dedans, on rajoute pas de photo »)
-    if(p.bl.querySelector('.extra, .fig, figure, img')) return;
     const kids = [...p.bl.children].filter(e => !e.classList.contains('fnz'));
     const der = kids[kids.length - 1]; if(!der) return;
-    const fnz = [...p.bl.children].find(e => e.classList.contains('fnz'));
-    // un cadre ouvert qui ne remplit pas la page (son texte dans la colonne de gauche, la droite vide : p12-17)
     // (son enveloppe .rg remplit aussi le bas de la page tant qu'elle n'est pas finie : elle se ferme avec lui ; une série
     // orange ou un encadré danger coupé garde sa pleine hauteur, « continue page … »)
     if(der.querySelector('.danger.full, .orange.full')) return;
@@ -566,17 +554,6 @@ function remplirVides(){
       fr.classList.add('auto'); if(rg) rg.classList.add('fin');
       if(OVER(fr) || !dansLeBloc(p)){ fr.classList.remove('auto'); if(rg) rg.classList.remove('fin'); }
     }
-    const bas = (fnz ? fnz.getBoundingClientRect().top : p.bl.getBoundingClientRect().bottom) - 4;
-    const vide = bas - Math.max(...kids.map(e => e.getBoundingClientRect().bottom)) - 10;
-    if(vide < 1.0 * PO || (!propres.length && !photos.length)) return;   // une bande de photo d'un pouce au moins
-    const d = document.createElement('div');
-    d.className = 'stock photo';
-    d.style.height = Math.floor(vide) + 'px';
-    const img = document.createElement('img'); img.alt = '';
-    img.src = prochaine();
-    d.appendChild(img);
-    if(fnz) p.bl.insertBefore(d, fnz); else p.bl.appendChild(d);
-    if(!dansLeBloc(p)) d.remove();
   });
 }
 function veuves(){   // entre les deux colonnes d'un cadre, après la mise en pages (rien ne peut plus changer de page)
@@ -917,9 +894,28 @@ Promise.all(faces.map(f => document.fonts.load(f, 'aéÀ§«»—'))).then(() =>
   };
   // les notes vont dans les trous seulement ; celles qui n'en trouvent pas ne s'impriment pas (JP, 19 octobre 2026)
   mettreEnPages();
+  // une dernière page de texte qui ne porte que quelques lignes se résorbe : le chapitre se refait un peu plus serré
+  // (l'interligne de 13 pt à 12,8 puis 12,6), et on garde l'essai seulement s'il fait une page de moins (JP, 19 octobre
+  // 2026 : « celles qui ont juste genre une phrase dans une page, regarde pour compresser »)
+  const presqueVide = () => {
+    const p = [...PAGES].reverse().find(q => q.kind === 'text' || q.kind === 'open');
+    if(!p || p.kind === 'open' || p.bl.querySelector('.fig, figure, .extra')) return false;
+    const b = p.bl.getBoundingClientRect(), kids = [...p.bl.children];
+    if(!kids.length) return false;
+    return Math.max(...kids.map(e => e.getBoundingClientRect().bottom)) - b.top < 0.3 * b.height;
+  };
+  if(presqueVide()){
+    const n0 = PAGES.length, racine = document.documentElement.style;
+    let gagne = false;
+    for(const lh of ['12.8pt', '12.6pt']){
+      racine.setProperty('--lh', lh); mettreEnPages();
+      if(PAGES.length < n0){ gagne = true; WARN.push('chapitre resserré (interligne ' + lh + ') : une page de moins'); break; }
+    }
+    if(!gagne){ racine.removeProperty('--lh'); mettreEnPages(); }
+  }
   EXTRAS.forEach(x => WARN.push('encadré « En plus » pas imprimé, aucun trou dans le chapitre : ' + ((x.querySelector('.xtit') || {}).textContent || '')));
   veuves();
-  remplirVides();
+  equilibrer();
   finishPages(); edges(); orienteAppels(); checks();
   // où chaque note s'est posée : page, étapes de la page, l'étape et l'intertitre qui la précèdent, dans un trou ou dans
   // le fil

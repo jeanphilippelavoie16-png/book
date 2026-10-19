@@ -140,10 +140,6 @@ p.pc .pmarge svg.picto{display:block;width:26pt;height:26pt;margin:0}
    au-dessous du texte de chaque case, le même corps de texte */
 table.serre td{padding-top:1.7pt;padding-bottom:1.9pt}
 
-/* ce qui remplit le vide du bas d'une page (chapitre.js, remplirVides ; JP, 19 octobre 2026) : une photo sur toute la
-   largeur */
-.stock{display:block;column-span:all;margin:10pt 0 0;break-inside:avoid;overflow:hidden}
-.stock.photo img{display:block;width:100%;height:100%;object-fit:cover}
 /* l'enveloppe d'une note posée dans un trou (chapitre.js, poser) : l'air du dessus en rembourrage, qui ne tombe pas à
    la coupure de colonne, et la bulle du « i » reste entière */
 .extra-env{display:block;padding-top:11pt;break-inside:avoid}
