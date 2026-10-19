@@ -419,9 +419,9 @@ l'été, au sec, avant de compter dessus.
 - La poussière noire s'accumule dans l'encoche et se met à fumer seule (repère 15) : c'est la braise. La
  faire tomber dans le nid et souffler (étape 16).
 
-Ce qu'on perd : l'arc demande beaucoup d'effort, qui coûte de la nourriture l'hiver (ch. 21) ; il faut du
-bois sec à cœur, rare dehors en février ; et il échoue plus souvent que les autres méthodes, même entre
-des mains habiles.
+Ce qu'on perd : l'effort est grand et coûte de la nourriture l'hiver (ch. 21) ; il faut du bois sec à
+cœur, rare dehors en février ; et l'arc échoue plus souvent que les autres méthodes, même entre des mains
+habiles.
 
 ### Ce qu'on ne peut pas remplacer
 

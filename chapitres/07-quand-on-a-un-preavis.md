@@ -459,16 +459,16 @@ raisons, qu'on règle sans pièce neuve (ch. 106).
  métal contre le bloc moteur et tirer le lanceur : on doit voir une étincelle bleue et franche. Tenir le trou de la
  bougie tourné vers l'extérieur : le cylindre souffle un brouillard d'essence à chaque coup. Nettoyer une bougie
  noire et humide au papier sablé fin, et la faire sécher ; une bougie aux électrodes arrondies est finie. Régler
- l'écartement d'après l'étiquette du moteur.
+ l'écart entre les électrodes d'après l'étiquette du moteur.
 - **Elle tourne bien, mais ne donne pas de courant** : pendant les mois d'arrêt, l'alternateur a perdu le reste
- d'aimantation dont il a besoin pour produire. La génératrice en marche et rien d'autre de branché, brancher une
- perceuse à fil dans sa prise, tenir la gâchette enfoncée et faire tourner le mandrin à la main, dans le sens
+ d'aimantation dont il a besoin pour produire. Pendant que la génératrice tourne, sans rien d'autre de branché,
+ brancher une perceuse à fil dans sa prise, tenir la gâchette enfoncée et faire tourner le mandrin à la main, dans le sens
  contraire de sa rotation : la perceuse devient une petite génératrice et renvoie assez de courant dans les bobines
  pour les réaimanter. Ça ne marche pas sur une génératrice à onduleur ; sur les autres, quand ça marche, c'est en
  quelques secondes.
 
-Remplacer la corde du lanceur cassée par une corde de même grosseur, avec un nœud simple au bout et un nœud dans la
-poignée. Réarmer le ressort en tournant la poulie à la main de quelques tours avant de passer la corde dans l'œillet.
+Quand la corde du lanceur casse, la remplacer par une corde de même grosseur, avec un nœud simple au bout et un nœud
+dans la poignée. Réarmer le ressort en tournant la poulie à la main de quelques tours avant de passer la corde dans l'œillet.
 
 ### Les nouvelles sans réseau cellulaire
 
