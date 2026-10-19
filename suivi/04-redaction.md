@@ -1211,3 +1211,14 @@ Le chapitre gagne des mots ailleurs (la pompe, environ 100 ; l'étape 26, enviro
   pareil, avec le renvoi) ; « la face tournée vers la pièce » deux fois dans la pompe (la même face, règle 6).
 - **Pronominaux** relus à la main : « les volets se plaquent », « le cadre revient seul » (la chose le fait seule) ;
   aucune consigne au pronominal.
+
+## Décisions de JP, 19 octobre 2026 (« oui pour les deux »)
+
+- **P2, les cheveux** (section 7, « Sans eau courante ni savon ») : « Couper aux ciseaux les cheveux qui gardent de la
+  poussière après le brossage, sans les raser : une coupure de rasoir laisse entrer la poussière. » Source : REMM
+  (`sources/04-remm-hhs-decontamination-externe.html`) : « Contaminated hair can be clipped if shampooing is
+  ineffective. Do not shave hair; avoid creating nicks, abrasions, breaks in skin. »
+- **P9, la dose suivante** (section 6, ligne des deux doses) : « … et donner la dose suivante à l'heure prévue. »
+  Source : FDA 2002, Q2 et Q4 (`sources/04-fda-2002-ki-questions-reponses.pdf`) : la dose se donne une fois par jour
+  (« dosed daily ») ; deux doses à partir de 4 ans restent sans danger. Le bébé de moins d'un mois garde son exception
+  (étape 16).

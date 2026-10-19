@@ -333,7 +333,7 @@ y rester 24 à 48 heures, protéger la thyroïde avec des comprimés d'iode, pui
 | Dans les deux semaines qui suivent, les cheveux tombent en touffes, de petites taches de sang apparaissent sous la peau ou dans la bouche, ou une diarrhée commence | Forte dose, pas forcément mortelle : la vie est en jeu pendant un à deux mois | La personne prend facilement une infection (ch. 35) : la faire reposer, lui donner des repas complets et garder propre l'endroit où elle est couchée |
 | Alarme de CO, mal de tête, somnolence ou confusion chez plusieurs personnes à la fois | Monoxyde de carbone dans l'abri fermé | Faire l'étape 18 tout de suite |
 | Poêle qui tire mal, fumée qui revient dans l'abri | Le bouchage a coupé l'air du poêle | Ouvrir une entrée d'air au même étage que le poêle, du côté du vent, et tendre dessus un filtre de fournaise ou deux épaisseurs de serviette de bain |
-| Un enfant a reçu deux doses d'iode en moins de 24 heures | Une dose de trop | Ne pas le faire vomir. À partir de 4 ans, deux doses font 130 mg, la dose d'un adulte, sans danger. Écrire l'heure et la quantité sur le cadre de porte. Ne plus en donner à un bébé de moins d'un mois (étape 16) |
+| Un enfant a reçu deux doses d'iode en moins de 24 heures | Une dose de trop | Ne pas le faire vomir. À partir de 4 ans, deux doses font 130 mg, la dose d'un adulte, sans danger. Écrire l'heure et la quantité sur le cadre de porte, et donner la dose suivante à l'heure prévue. Ne plus en donner à un bébé de moins d'un mois (étape 16) |
 | Comprimés d'iode jaunis, ou mouillés dans une plaquette ouverte | L'humidité de l'air les a abîmés | Ne pas donner un comprimé jauni : sa dose n'est plus sûre. On peut donner un comprimé intact resté dans sa plaquette fermée, même périmé : l'iodure de potassium ne se dégrade pas. S'il fond mal, l'écraser dans la boisson (étape 15) |
 | Le gibier a l'air normal, sent bon et goûte bon ; les champignons sont beaux et nombreux | Le césium ne se voit pas, ne se sent pas et ne se goûte pas | Seul le détecteur blindé de plomb d'un laboratoire peut le mesurer. Faire le tri, le trempage et la cuisson des étapes 28 à 32 |
 
@@ -532,7 +532,9 @@ de l'humidité dans la pièce fermée, et l'eau condense sur les murs froids.
 
 ### Sans eau courante ni savon
 
-Avant d'entrer, brosser à sec ses vêtements et sa peau, dos au vent, pour enlever une partie de la poussière. Pour
+Avant d'entrer, brosser à sec ses vêtements et sa peau, dos au vent, pour enlever une partie de la poussière. Couper
+aux ciseaux les cheveux qui gardent de la poussière après le brossage, sans les raser : une coupure de rasoir
+laisse entrer la poussière. Pour
 se rincer, faire fondre sur le poêle de la neige tombée après le passage des retombées et ramassée sur une surface
 qui n'en a pas reçu, comme une bâche étendue après le passage ; sinon, prendre l'eau de la réserve. Jeter l'eau de
 lavage loin du puits, du jardin et de la porte.
