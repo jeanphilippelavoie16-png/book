@@ -497,10 +497,10 @@ Il faut deux bouts de manche à balai, deux gros clous et un cordon (planche 15-
 
 On se déplace à la force des bras et des jambes : en raquettes et au toboggan sur la neige (ch. 89), en canot
 sur l'eau libre (ch. 90). On choisit le trajet où la neige est la moins profonde : les crêtes balayées par le
-vent, les chemins de coupe, les pistes d'orignal tassées, la rive d'un lac plutôt que sa traversée. Le plus
-fort marche devant pour casser la trace, et on le relaie souvent. On transporte la chaleur au lieu de la
-produire : des vêtements secs dans le sac, un thermos rempli au départ, un feu à chaque arrêt (ch. 13). Sans
-génératrice pour les recharger, on allume la radio et le téléphone seulement aux heures convenues avec les
+vent, les chemins de coupe, les pistes d'orignal tassées, la rive d'un lac plutôt que sa traversée. La personne
+la plus forte marche devant pour casser la trace, et on la relaie souvent. On emporte des vêtements secs dans le
+sac et un thermos rempli au départ, et on fait un feu à chaque arrêt (ch. 13). Sans génératrice pour les
+recharger, on allume la radio et le téléphone seulement aux heures convenues avec les
 voisins (ch. 14 et ch. 16) ; pour l'éclairage, voir le ch. 85.
 
 À la maison, la panne de carburant se voit moins. L'auto reste dans l'entrée, les voisins sont là, et tant que
