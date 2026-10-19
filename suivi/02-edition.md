@@ -27,7 +27,7 @@
 | Mots | 6 524 | 6 568 |
 | Tirets | 2 (titre et ligne de tome) | 2 (les mêmes) |
 | « § », mots bannis, vocabulaire d'IA, maximes | 0 | 0 |
-| Tournures, mises en relief | 0 | 0 (trois avis nés de l'édition, réglés : no 52, no 53, no 50) |
+| Tournures, mises en relief | 0 | 0 (trois avis nés de l'édition, réglés : nos 20, 50 et 52) |
 | Mots vides à juger | 38 | 37 |
 | Redites à juger | 5 | 5 : « une batterie qu'on vide gèle plus » réglée (no 44) ; nouvelle, « fermer les portes et les fenêtres » (étape 22, quand on part ; étape 38, sous la fumée : deux gestes, le même mot pour la même chose) ; les trois autres déjà jugées par le rédacteur |
 | Ancres introuvables | 0 | 0 |
