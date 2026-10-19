@@ -1222,3 +1222,155 @@ Le chapitre gagne des mots ailleurs (la pompe, environ 100 ; l'étape 26, enviro
   Source : FDA 2002, Q2 et Q4 (`sources/04-fda-2002-ki-questions-reponses.pdf`) : la dose se donne une fois par jour
   (« dosed daily ») ; deux doses à partir de 4 ans restent sans danger. Le bébé de moins d'un mois garde son exception
   (étape 16).
+
+## Corrections du vérificateur technique, 19 octobre 2026 : rédacteur
+
+Fiche du vérificateur : une erreur, huit points à préciser, sur les derniers changements (pompe à volets, section 6,
+étape 26, sacs de terre, P2 et P9). Les huit premiers sont appliqués ; le neuvième l'était déjà. Copie d'avant pour
+`controle.py` : le texte de HEAD (`0ff8199`). Les citations nouvelles sont ajoutées à
+`sources/04-ornl-kearny-pompe-a-volets-dessechant-neige.md`, vérifiées mot pour mot sur
+`sources/06-ornl-kearny-nwss-1987.pdf` (texte extrait par `pdftotext -layout`).
+
+### 1. Erreur : la largeur des volets (section 7, « La pompe à volets ») : appliqué
+
+- **Avant :** « Tailler les volets dans un grand sac à ordures, 9 cm de large (repère 8). Replier un ourlet sur le haut
+  de chacun, le fermer au ruban (repère 9), et y enfiler un fil de cintre redressé (repère 10). »
+- **Après :** « Tailler les volets dans un grand sac à ordures, en bandes de 11,5 cm de large (repère 8). Replier un
+  ourlet de 2,5 cm sur le haut de chaque bande, le fermer au ruban (repère 9), et y enfiler un fil de cintre redressé
+  (repère 10) : le volet fait alors 9 cm de large. » (Ordre naturel, règle 11 : « replier un ourlet de 2,5 cm sur le
+  haut de chaque bande », plutôt que « replier sur le haut de chacune un ourlet ».)
+- **Source :** ORNL, annexe B, p. 206 (« make the finished flaps only 3-1/2 inches wide and space their pivot-wires
+  3 inches apart ») ; p. 197 et 198 (la bande de 5½ po, « fold in a 1-in. hem. This makes the finished flap 4-1/2 in.
+  wide »). **Le calcul :** l'ourlet prend 1 po ; bande = 3½ + 1 = 4½ po = 11,4 cm, écrit 11,5 cm ; ourlet 1 po = 2,5 cm ;
+  volet fini 3½ po = 8,9 cm, écrit 9 cm ; fils tous les 3 po = 7,6 cm, écrits 7,5 cm. Le volet couvre celui du dessous
+  de 9 − 7,5 = 1,5 cm (l'ORNL : ½ po au plus, 1,3 cm). L'ORNL ne donne pas d'ourlet propre aux petites pompes : on garde
+  celui du modèle de 36 po. « Chaque volet doit couvrir un peu celui du dessous » redevient faisable.
+- **Planche 04-01b :** à reprendre (rapport à l'orchestrateur) : repère 8, « bande de sac de 115 mm » ; dans la coupe de
+  près, le volet fini fait 90 mm du pli de l'ourlet et couvre 15 mm du volet du dessous ; l'ourlet fait 25 mm.
+
+### 2. Section 6, dernière ligne (le gibier et les champignons) : appliqué
+
+- **Avant (colonne Action) :** « Seul le détecteur blindé de plomb d'un laboratoire peut le mesurer. Faire le tri, le
+  trempage et la cuisson des étapes 28 à 32 »
+- **Après :** « Seul le détecteur blindé de plomb d'un laboratoire peut le mesurer. Ne pas cueillir les champignons
+  (étape 28) ; trier, faire tremper et cuire le gibier et le poisson (étapes 29 à 32) »
+- Pas de rangée ajoutée. Plus rien, dans cette ligne lue seule, ne laisse croire qu'un champignon trempé et cuit se
+  mange (étape 28 ; « Sans aucune viande de confiance »).
+
+### 3. La fente du volet devant le nœud de la corde : appliqué
+
+- **Avant :** « Nouer la corde au montant du milieu, un peu sous les pentures (repère 13). Assis dans la pièce, tirer
+  la corde […] (repère 14). Laisser la corde lâche […] (repère 15). »
+- **Après :** deux puces. « Nouer la corde au montant du milieu, un peu sous les pentures (repère 13). Fendre le volet
+  qui pend devant le nœud, du bas vers le haut, assez haut pour qu'il se ferme à plat autour de la corde quand on
+  tire, et mettre du ruban sur le bout et les bords de la fente. » ; puis « Assis dans la pièce, tirer la corde […]
+  (repère 14). Laisser la corde lâche […] (repère 15). » La puce coupée en deux : nouer et fendre, c'est le montage ;
+  tirer, c'est le geste (cadre des agents, une sous-étape par geste, dans l'ordre des repères).
+- **Source :** ORNL, annexe B, p. 200, point 5.c (« Cut a slot in the flap above the connection of the pull-cord to the
+  vertical brace, deep enough so that this flap will close completely when the KAP is being pulled. Tape the end and
+  edges of the slot. »), ajoutée au fichier de sources. « Assez haut » rend « deep enough » ; « juste assez », proposé
+  par la fiche, disait un minimum que la source ne dit pas.
+- Pas de nouveau repère (la fente est sous le 13). Planche : facultatif, voir le rapport.
+
+### 4. Les entailles de l'ourlet : appliqué
+
+- **Avant :** « Entailler l'ourlet de chaque volet aux deux bouts et au milieu, là où le fil sera fixé aux montants
+  (repère 11) : le volet doit tourner librement sur son fil. »
+- **Après :** « Entailler l'ourlet de chaque volet aux deux bouts et au milieu, là où le fil sera fixé aux montants
+  (repère 11). Chaque entaille fait environ 1,3 cm de haut et dépasse le montant d'environ 6 mm de chaque côté, pour
+  que le volet tourne librement sur son fil sans frotter sur le bois. »
+- **Source :** ORNL, annexe B, p. 198 : aux coins, « extend downward about 1/2 in. and […] horizontally from the outer
+  edge of the flap to 1/4 in. inside the inner side of the frame » ; au milieu, « 1/2 in. downward and […] 1/4 in.
+  beyond each of the two sides of the vertical brace […] The notch MUST be wider than the brace ». ½ po = 1,27 cm,
+  « environ 1,3 cm » ; ¼ po = 6,35 mm, « environ 6 mm ». Aux deux bouts, l'entaille part du bord du volet et passe le
+  bord intérieur du montant de 6 mm : « de chaque côté » reste juste (le côté extérieur est ouvert).
+- La planche 04-01b a déjà ces cotes (`ENT = 6, PROF = 13` dans la vue « L'entaille du volet ») : rien à changer.
+
+### 5. Le cadre : sa hauteur et les traverses côté pièce : appliqué
+
+- **Avant :** « Faire un cadre de lattes 2,5 cm plus étroit que l'ouverture, avec un troisième montant au milieu
+  (repère 3). » ; « Doubler les trois montants : clouer une deuxième latte sur chacun, entre la traverse du haut et
+  celle du bas, sur la face tournée vers la pièce (repère 4). La face devient plate […] » ; « Une pompe de 60 cm de haut
+  suffit pour quelques personnes ; […] »
+- **Après :** « Faire un cadre de lattes de 60 cm de haut, 2,5 cm plus étroit que l'ouverture : poser trois montants,
+  un de chaque côté et un au milieu, et clouer les deux traverses par-dessus, sur la face qui sera tournée vers la pièce
+  (repère 3). » ; « Doubler les trois montants : clouer une deuxième latte sur chacun, entre les deux traverses
+  (repère 4). La face tournée vers la pièce devient plate […] » ; « Cette pompe suffit pour quelques personnes ; […] »
+- La fiche proposait des verbes absents (« et les deux traverses clouées par-dessus ») : « poser » et « clouer » les
+  rendent (règle 0). La puce du doublage ne change pas de sens ; elle perd seulement la troisième mention de « la face
+  tournée vers la pièce » (redite signalée par `controle.py`) : la latte « entre les deux traverses » est forcément sur
+  la face où sont les traverses, et la phrase suivante nomme cette face. La hauteur de 60 cm vient en tête, là où on
+  coupe les lattes ; la dernière puce ne la redit pas.
+- **Source :** ORNL, annexe B, p. 196, points 1.a et 1.b (« Figure 3 shows the back side of the frame » ; les lattes de
+  remplissage « on top of the 36-in. sides of the frame between the top and bottom horizontal boards ») ; p. 206 (les
+  volets de 3½ po et les fils à 3 po valent pour une pompe de 24 po au plus).
+- **Pour information, non appliqué :** dans une ouverture d'au moins 97 cm de haut (une porte), l'ORNL préfère une pompe
+  de 91 cm, plus efficace et moins vite tirée (p. 205, VII.A, citation ajoutée au fichier de sources). Le chapitre garde
+  60 cm, comme le propose la fiche : la p. 206 dit qu'elle suffit pour quelques personnes, et une seconde taille
+  doublerait les cotes de toute la liste et de la planche.
+- **Planche 04-01b :** elle dessine déjà ce montage (traverses d'une latte côté pièce, montant du milieu au dos sur toute
+  la hauteur, deuxième latte entre les traverses) : rien à changer.
+
+### 6. La fermeture du bas et le jeu du cadre : appliqué
+
+- **Avant :** « Le cadre doit passer à environ 1 cm du bas de l'ouverture et à 1 à 2,5 cm des côtés. »
+- **Après :** « Le cadre de la pompe doit passer à environ 1 cm au-dessus de la fermeture du bas, ou du bas de
+  l'ouverture quand ce n'est pas une porte, et à 1 à 2,5 cm des côtés. » La première puce ne change pas. La parenthèse
+  de la fiche (« (ou du bas de l'ouverture, hors d'une porte) ») devient une incise qui se dit à voix haute.
+- **Source :** ORNL, annexe B, p. 201, V.A (« swings only about 1/2 in. above the bottom of the opening and only 1/2 in.
+  to 1 in. from the sides of the opening »), ajoutée au fichier de sources ; annexe A, p. 173 (la fermeture du bas). La
+  planche 04-01b dessine déjà la fermeture 1 cm sous le cadre (`JEU = 10`) : rien à changer.
+
+### 7. Étape 26, le titre et la neige : appliqué, titre retouché
+
+- **Avant :** « **Dès la première pluie, ne pas jardiner ni laisser jouer les enfants aux endroits où l'eau amène la
+  poussière.** […] L'hiver, ne pas laisser les enfants jouer dans la neige qui était au sol quand les retombées sont
+  tombées, ni dans celle tombée pendant le passage : elle porte la poussière (étape 22). »
+- **Après :** « **Ne pas jardiner ni laisser jouer les enfants aux endroits où la pluie amène la poussière ; l'hiver, ne
+  pas les laisser jouer dans la neige qui a reçu les retombées.** […] La neige qui était au sol quand les retombées sont
+  tombées et la neige tombée pendant le passage portent la poussière (étape 22). »
+- Le titre de la fiche (« …ni, l'hiver, dans la neige qui l'a reçue ») faisait porter « ni dans la neige » aussi sur
+  « jardiner », et « l'a reçue » renvoyait à « la poussière », trois mots plus haut : à voix haute, ça accroche
+  (règle 0). Deux consignes séparées par un point-virgule disent la même chose clairement. « Celle tombée » devient
+  « la neige tombée » (le sujet se nomme).
+- **Source :** ORNL, chap. 8, p. 72, point 7 ; chap. 1, p. 12, et fig. 1.4, p. 15 (déjà au fichier de sources). Rien de
+  la fonte n'est écrit (aucune source).
+
+### 8. Les sacs de terre, l'ordre des repères : appliqué
+
+- **Avant :** « Remplir aux deux tiers de terre ou de sable (repère 10) des taies d'oreiller, des sacs de farine vides
+  ou des jambes de pantalon nouées à un bout (repère 9). »
+- **Après :** « Remplir des taies d'oreiller, des sacs de farine vides ou des jambes de pantalon nouées à un bout
+  (repère 9) aux deux tiers de terre ou de sable (repère 10). »
+- Planche 04-01a : rien à changer (le 9 est la taie, le 10 la terre aux deux tiers).
+
+### 9. P2 et P9 : déjà appliqués, une cellule de la section 5 alignée
+
+- P2 (« Couper aux ciseaux les cheveux qui gardent de la poussière après le brossage, sans les raser : une coupure de
+  rasoir laisse entrer la poussière ») et P9 (« et donner la dose suivante à l'heure prévue ») sont dans le chapitre
+  depuis le commit `47bdfea` (section « Décisions de JP, 19 octobre 2026 », plus haut) : la fiche a relu une version
+  d'avant. Rien à refaire. Le paragraphe « Sans eau courante ni savon » est seulement remis d'un bloc (une coupure de
+  ligne au milieu, « Pour / se rincer », sans effet sur le texte).
+- **Ce que la fiche demandait de surveiller :** la cible de la section 5 « Une dose par 24 h au plus » pouvait se lire
+  contre « la dose suivante à l'heure prévue » quand la dose de trop a été donnée moins de 24 h avant cette heure.
+  **Avant :** « Une dose par 24 h au plus, sauf dose unique (étape 16) ». **Après :** « Une dose par jour, à la même
+  heure, sauf dose unique (étape 16) », les mots de l'étape 14 (« la redonner chaque jour, à la même heure »). Source :
+  FDA 2002, Q2 et Q4 (`sources/04-fda-2002-ki-questions-reponses.pdf`), la dose quotidienne. « Ne pas doubler la dose
+  (étape 14) » reste dans la dernière colonne.
+
+### controle.py, avant et après
+
+- **Avant** (`0ff8199`) : 9 817 mots, 2 tirets (titre et ligne de tome), 49 mots vides, 20 redites.
+- **Après** : 9 939 mots (+122 : la pompe surtout), 2 tirets (les mêmes), 0 « § », 0 mot banni, 0 tournure, 0 mise en
+  relief, 0 maxime, 0 pronominal signalé ; 1 âge (« À partir de 4 ans », une dose : reste) ; 49 mots vides (les mêmes ;
+  « tous les 7,5 cm », « tout seul » portent le sens).
+- **Invariants :** « chiffre avec unité : 24 h » ; voulu (la cible de la section 5, point 9 : « par 24 h » devient « par
+  jour, à la même heure »). Les « 24 heures » des étapes 11, 14 et 24 restent.
+- **Redites :** 20 ; une nouvelle, jugée : « la neige tombée pendant le passage » (étapes 22 et 26 : la même neige, nommée
+  pareil, pour l'eau à boire à l'étape 22 et pour le jeu des enfants à l'étape 26, avec le renvoi). « La face tournée
+  vers la pièce » revient deux fois dans la pompe (la même face, règle 6 ; la troisième mention est coupée, point 5).
+- **Pronominaux relus à la main :** « les volets se plaquent », « le cadre revient seul », « il se ferme à plat » (le
+  volet le fait seul) ; « pour se rincer » (réfléchi) ; aucune consigne au pronominal.
+- **Ancres :** `placements-tome-1.json` (« **La pompe à volets** : on la pend… », « Si l'alerte tombe au chalet… »,
+  « **Trier le gibier…** ») : aucune phrase d'ancrage touchée. Logigramme : il ne reprend aucun des passages changés.
+- **Montage :** la pompe gagne environ 90 mots et une puce ; la section 7 est à revoir au montage.

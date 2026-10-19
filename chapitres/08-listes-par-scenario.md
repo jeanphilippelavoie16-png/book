@@ -2,237 +2,230 @@
 
 *Tome 1 — Tenir*
 
-**Les deux.** La maison pour ce qui se règle en jours, le chalet pour ce qui s'étire, la
-route entre les deux pour le neuvième. Chaque liste dit lequel des deux elle vise.
+**Les deux**
 
 ---
 
 ## 1. En une ligne
 
-Neuf sinistres plausibles, à la maison comme au chalet, et pour chacun la courte liste
-de ce qu'on sort du stock, dans quel ordre et dans quel délai, de la première heure
-jusqu'à la fin de l'événement.
+Sortir du stock ce qu'il faut et faire les gestes dans l'ordre et dans les délais, pour neuf sinistres qui peuvent
+arriver à la maison ou au chalet, de la première heure jusqu'à la fin de l'événement.
 
 ---
 
 ## 2. Quand l'utiliser
 
-**Le bon usage.** L'événement est identifié et il reste au moins dix minutes pour
-réfléchir : la panne dure depuis deux heures, la radio annonce un feu à 40 km, le
-congélateur est tiède au toucher. Une fois par année, hors sinistre, on vérifie que le
-stock couvre les neuf listes et pas seulement la première (rotation : ch. 5 ; achats et
-quantités : ch. 00b).
-
-**Le mauvais usage.** Trancher entre rester et partir : ça se décide au ch. 2, selon ce
-qui s'en vient, et non selon ce qu'on a sous la main. Découvrir une liste pendant le
-sinistre : le temps de lecture s'ajoute au délai de chaque ligne.
+- **Un sinistre est en cours, on sait lequel, et on a au moins dix minutes pour s'organiser** : la panne dure depuis
+ deux heures, la radio annonce un feu à 40 km, le congélateur est tiède (scénarios 1 à 9).
+- **Le sinistre n'est aucun des neuf** : on prend la liste du scénario qui lui ressemble (section 4).
+- **Une fois par année, hors sinistre** : on vérifie que le stock couvre les neuf listes, pas seulement la première
+ (section 5 ; rotation : ch. 5 ; achats : ch. 00b).
+- **Rien n'a été préparé** : ni réserve d'eau, ni piles neuves, ni avertisseur de CO, ni génératrice (section 7).
 
 ---
 
-## 3. Pourquoi ça marche
+## 3. Matériel
 
-Un ménage n'a pas neuf stocks : il en a un, que les neuf listes trient selon cinq
-questions. Où on est, si on reste ou on part, combien de temps ça dure, si l'air et l'eau
-du dehors sont utilisables, quel service lâche en premier. Deux événements qui répondent
-pareil demandent les mêmes gestes : devant un sinistre qui n'est aucun des neuf, on prend
-la liste qui répond pareil. La durée décide du lieu : ce qui se compte en jours se vit à
-la maison, ce qui s'étire finit au chalet. Chaque liste est ordonnée par délai, parce
-qu'une décision reportée coûte plus cher qu'un article manquant.
-
----
-
-## 4. Matériel : la tablette des deux minutes
-
-- **Eau prête à boire** : 4 L par personne par jour, boisson et hygiène confondues (→ §9 : chauffe-eau, neige).
-- **Javel non parfumée** : désinfecte l'eau sans feu.
-- **Avertisseur de CO à piles** : le seul détecteur du monoxyde. Ne se fabrique pas.
-- **Médicaments d'ordonnance** : 2 à 3 semaines, sans substitut. Voyagent avec le ménage, jamais sur la tablette.
-- **Thermomètre à sonde** : seul juge des 74 °C à cœur du gibier.
-- **Bois sec de réserve** : seul combustible de secours ; le bois vert chauffe mal et encrasse la cheminée de créosote.
+- **Eau prête à boire** : 4 L par personne et par jour, pour boire et se laver (sans réserve : section 7, « L'eau du bâtiment »).
+- **Eau de Javel non parfumée** : désinfecte l'eau quand on ne peut pas la faire bouillir (section 7).
+- **Avertisseur de CO à piles** : le seul moyen de savoir que l'air de la pièce contient du monoxyde (scénario 1).
+- **Médicaments d'ordonnance** : une réserve de 2 à 3 semaines, gardée dans le sac qui part avec la famille ; rien ne les remplace.
+- **Thermomètre à sonde** : le seul moyen de savoir que la viande est cuite à cœur (scénario 8).
+- **Bois sec de réserve** : chauffe quand le reste manque ; le bois vert chauffe mal et encrasse la cheminée.
 
 ---
 
-## 5. Les neuf listes
+## 4. Procédure
+
+Choisir le scénario qui ressemble à l'événement sur cinq questions : où on est, si on reste ou si on part, combien de
+temps ça va durer, si on peut se servir de l'air et de l'eau du dehors, et quel service lâche en premier. Devant
+un sinistre qui n'est aucun des neuf, prendre la liste du scénario qui répond de la même façon à ces cinq questions.
 
 ### Scénario 1. Panne majeure d'Hydro en janvier, on reste (**maison**)
 
-*Détaillé au ch. 3. Ce qui lâche : le chauffage électrique, l'eau chaude, l'électronique,
-puis le congélateur. Le chalet est hors réseau : ce qui lui ressemble là-bas, la
-génératrice ou le propane qui s'arrête, est au scénario 8 et au ch. 87.*
+*Détaillé au ch. 3. Le chauffage électrique, l'eau chaude et l'électronique lâchent d'abord, puis le congélateur. Au
+chalet, hors réseau, la génératrice ou le propane s'arrête : scénario 8 et ch. 87.*
 
 | Quand | Geste | Repère chiffré |
 | --- | --- | --- |
-| 0 à 15 min | Fermer la porte du frigo et du congélateur, y coller un ruban. Ne plus les ouvrir | Frigo fermé : environ 4 h. Congélateur plein : environ 48 h ; à demi rempli : environ 24 h |
-| 0 à 15 min | Passer au chauffage non électrique s'il y en a un (ch. 83), fermer les pièces qu'on n'habite pas, ramener tout le monde dans la plus petite | 19 °C ou plus dans la pièce habitée |
-| 0 à 30 min | Poser l'avertisseur de CO à piles dans la pièce où on va dormir |  |
-| 0 à 30 min | Génératrice, s'il y en a une : dehors, loin des portes et des fenêtres |  |
-| 0 à 30 min | Remplir tous les contenants d'eau pendant qu'il reste de la pression | 4 L par personne par jour |
-| 1 à 2 h | Sortir les lampes frontales, la radio, les piles. Un seul appareil allumé à la fois | 2 jeux de piles par lampe |
-| 2 à 4 h | Protéger ce qui gèle : tuyauterie, réservoir de toilette, bidons dans un bâtiment non chauffé. Prévoir l'heure de la vidange | Vidange à 5 °C dans la pièce la plus froide (ch. 3, étapes 20 à 23) |
-| 4 à 12 h | Si le dehors est sous 4 °C : mettre ce qui est périssable dans une glacière dehors, à l'ombre | Frigo : 4 °C ou moins |
-| 24 à 48 h | Si le congélateur approche de son autonomie : scénario 8 |  |
-| Au retour du courant | Trier : toute panne de plus de 6 heures impose un tri | Jeter tout aliment resté 2 heures ou plus à la température ambiante |
+| 0 à 15 min | Garder le frigo et le congélateur fermés : coller un ruban sur les portes pour que personne ne les ouvre | Frigo fermé : environ 4 h. Congélateur : scénario 8 |
+| 0 à 15 min | Chauffer sans électricité s'il y a un poêle (ch. 83), fermer les pièces qu'on n'habite pas et rassembler tout le monde dans la plus petite | 19 °C ou plus dans la pièce habitée |
+| 0 à 30 min | Remplir les contenants d'eau pendant qu'il reste de la pression (section 7, « L'eau du bâtiment ») | |
+| 0 à 30 min | Essayer l'avertisseur de CO au bouton et le poser dans la pièce où on va dormir | |
+| 0 à 30 min | Installer la génératrice dehors, s'il y en a une | |
+| 1 à 2 h | Sortir les lampes frontales, la radio et les piles. N'allumer qu'un appareil à la fois | 2 jeux de piles par lampe |
+| 2 à 4 h | Mettre à l'abri du gel la tuyauterie, le réservoir de la toilette et les bidons d'eau rangés dans un bâtiment non chauffé, et prévoir l'heure de la vidange | Vidanger quand la pièce la plus froide descend à 5 °C (ch. 3, étapes 21 à 24) |
+| 4 à 12 h | S'il fait moins de 4 °C dehors, mettre les aliments du frigo dans une glacière dehors, à l'ombre | 4 °C ou moins dans la glacière |
+| 24 à 48 h | Avant que le congélateur arrive au bout de son autonomie, passer au scénario 8 | |
+| Au retour du courant | Après une panne de plus de 6 h, trier le frigo et le congélateur | Jeter tout aliment resté 2 h ou plus à la température de la pièce |
+
+{!generatrice} {!co} Poser la génératrice à 6 m ou plus de la maison, l'échappement tourné à l'opposé, jamais dans le
+garage ni sous un auvent, même porte ouverte. Une maison chauffée aspire l'air du dehors par ses fentes du bas : une
+génératrice collée au mur ou posée devant une porte envoie ses gaz à l'intérieur comme si elle y était. Ne jamais
+prendre les piles de l'avertisseur de CO pour une lampe.
 
 ### Scénario 2. Route coupée, isolement de 2 à 8 semaines (**la bascule**)
 
-*Débâcle, glissement, verglas prolongé. Il commence à la maison et, si la route reste
-coupée, il finit au chalet. On décide de monter (ch. 2) pendant que la route passe
-encore.*
+*Débâcle, glissement de terrain, verglas qui dure. Le scénario commence à la maison et, si la route reste coupée, il
+finit au chalet : décider de monter (ch. 2) pendant que la route passe encore.*
 
 | Quand | Geste | Repère chiffré |
 | --- | --- | --- |
-| Jour 1 | Compter ce qui se mange en jours-personnes | 4 personnes × 30 jours = 120 jours-personnes |
-| Jour 1 | Mesurer le combustible : cordes de bois sec, litres de propane, litres d'essence | Mesuré, pas estimé |
-| Jour 1 | Prendre contact avec le voisinage et le groupe de chasse : qui a quoi, qui manque de quoi (ch. 16, 18) |  |
-| Jours 1 et 2 | Rationner dès le départ : un rationnement qui commence à moitié vide arrive trop tard |  |
-| Jour 2 | Mettre l'eau sur un régime stable. Au chalet : puiser, bouillir, entreposer (ch. 10). À la maison : bouillir aussi l'eau du robinet, même claire, parce qu'un défaut de traitement ne se voit pas (ch. 2) | Lac et neige : 5 min à gros bouillons ; robinet et puits : 1 min. Eau bouillie : 3 jours au frigo, 24 h à la température de la pièce |
-| Semaine 1 | Rationner les piles et le carburant plus serré que la nourriture : ils ne se remplacent pas sur le territoire |  |
-| Semaines 1 et 2 | Au chalet : ouvrir le calendrier de prélèvement (ch. 41) et poser les premiers collets |  |
-| Semaine 2 et après | Surveiller l'apport en gras : la viande maigre seule tue en quelques semaines | ch. 19 |
-| Semaine 2 et après | Surveiller la vitamine C : aiguilles de sapin baumier ou d'épinette, jamais de cèdre (thuya occidental, *Thuja occidentalis* ; ch. 20) | La thuyone du cèdre est toxique |
-| Continu | Tenir la routine des enfants : heures de repas, heures de coucher, une tâche par jour (ch. 39, 40) |  |
+| Jour 1 | Compter la nourriture en jours-personnes : le nombre de jours qu'elle peut nourrir une personne | 4 personnes pendant 30 jours : 120 jours-personnes |
+| Jour 1 | Mesurer le combustible qui reste : les cordes de bois sec, les litres de propane et d'essence | |
+| Jour 1 | Parler au voisinage et au groupe de chasse pour savoir qui a quoi et qui manque de quoi (ch. 16, 18) | |
+| Jour 1 | Commencer à rationner tout de suite, sans attendre que le stock baisse | |
+| Jour 2 | Organiser l'eau de chaque jour. Au chalet : la puiser, la faire bouillir et l'entreposer (ch. 10). À la maison : faire bouillir aussi l'eau du robinet, même claire, parce qu'un défaut de traitement ne se voit pas (ch. 2) | Lac et neige : 5 min à gros bouillons ; robinet et puits : 1 min. Eau bouillie : 3 jours au frigo, 24 h à la température de la pièce |
+| Semaine 1 | Rationner les piles et le carburant plus serré que la nourriture : on ne peut pas les refaire sur le territoire | |
+| Semaines 1 et 2 | Au chalet, regarder ce que la saison permet de prendre (ch. 41) et poser les premiers collets | |
+| Tout le temps | Garder la routine des enfants : les repas et le coucher aux mêmes heures, et une tâche chaque jour (ch. 39, 40) | |
 
-**Les semences restent au stock** (ch. 100) : elles se mangent en un repas ou deux et
-valent une saison de jardin.
+{!mal-de-caribou} Compter le gras du stock dès le jour 1, avec les jours-personnes : l'huile, le beurre, le saindoux,
+le suif. À partir de la deuxième semaine, mettre du gras à chaque repas de viande maigre : le lièvre, l'orignal et la
+truite du territoire sont trop maigres pour nourrir la famille sans gras ajouté (ch. 19).
+
+{!thuyone} À partir de la deuxième semaine, donner chaque jour une infusion d'aiguilles de sapin baumier ou d'épinette,
+pour la vitamine C (ch. 20). Ne jamais la faire avec du cèdre.
+
+**Garder les semences** (ch. 100), même quand la nourriture baisse : on les mangerait en un ou deux repas, et elles
+donnent une saison de jardin.
 
 ### Scénario 3. Évacuation avec préavis de quelques heures (**maison**)
 
-*Feu de forêt qui s'en vient. Détaillé au ch. 7. L'évacuation part le plus souvent de la
-maison. Le chalet est une destination possible si ni lui ni la route pour s'y rendre ne
-sont du côté du feu.*
+*Un feu de forêt qui s'en vient (ch. 7 ; le feu de forêt : ch. 11). L'évacuation part le plus souvent de la maison.
+Le chalet est une destination possible si ni lui ni la route pour s'y rendre ne sont du côté du feu.*
 
 | Quand | Geste | Repère chiffré |
 | --- | --- | --- |
-| 0 à 10 min | Faire le plein du véhicule : sans électricité, les pompes à essence ne débitent pas |  |
-| 10 à 30 min | Charger dans cet ordre : personnes, médicaments, papiers, eau, vêtements chauds, nourriture, reste | Médicaments : 2 à 3 semaines |
-| 10 à 30 min | Prendre la trousse d'évacuation telle qu'elle est, sans la compléter |  |
-| 30 à 60 min | En hiver : fermer l'entrée d'eau, vidanger la tuyauterie, antigel à plomberie non toxique dans la cuvette et le réservoir de toilette | ch. 3, étapes 22 et 23 |
-| 30 à 60 min | Fermer le propane à la bonbonne, couper l'entrée électrique |  |
-| Dernières minutes | Laisser un mot visible : qui est parti, quand, vers où, combien de personnes |  |
+| 0 à 10 min | Faire le plein de l'auto tout de suite, pendant que les pompes à essence ont du courant | |
+| 10 à 30 min | Charger l'auto dans cet ordre : les personnes, les médicaments, les papiers, l'eau, les vêtements chauds, la nourriture, puis le reste | |
+| 10 à 30 min | Prendre la trousse d'évacuation telle qu'elle est, sans la compléter | |
+| 30 à 60 min | L'hiver, fermer l'entrée d'eau, vidanger la tuyauterie et verser de l'antigel à plomberie non toxique dans la cuvette et le réservoir de la toilette | ch. 3, étapes 23 et 24 |
+| 30 à 60 min | Fermer le robinet de la bonbonne de propane et couper le disjoncteur principal | |
+| Dernières minutes | Laisser un mot bien en vue : qui est parti, quand, vers où, et combien de personnes | |
 
-**Du congélateur, on ne prend que ce qui tient dans une glacière.** Le reste ne se
-transporte pas sans froid, et le charger coûte les minutes qui servent à partir.
+{!feu-de-foret} Partir avec un seul chargement. Du congélateur, prendre seulement ce qui tient dans une glacière : le
+reste dégèle en route, et le charger prend les minutes qui servent à partir.
 
 ### Scénario 4. Feu dans le bâtiment, évacuation immédiate (**les deux**)
 
-*Détaillé au ch. 82. Personne ne vient éteindre : le bâtiment est perdu dès les premières
-minutes. En ville, la nuit se finit chez un voisin ; au chalet, la famille est dehors à
--35 °C. Au chalet, les clés du véhicule, un jeu de vêtements chauds et de quoi faire du
-feu se gardent hors du bâtiment.*
+*Détaillé au ch. 82. Personne ne vient éteindre : le bâtiment est perdu dès les premières minutes. En ville, on finit
+la nuit chez un voisin ; au chalet, la famille est dehors, l'hiver à −35 °C.*
 
 | Quand | Geste | Repère chiffré |
 | --- | --- | --- |
-| 0 à 3 s | Décider : un feu plus petit qu'une poubelle, extincteur en main et sortie derrière soi, s'éteint (ch. 82, étapes 2 à 4). Sinon, on sort |  |
-| 0 à 60 s | Réveiller, sortir, compter au point de rassemblement et pas dans la porte : le compte empêche de rentrer chercher quelqu'un qui est déjà sorti | Toutes les têtes, comptées à voix haute |
-| 1 à 5 min | Alerter : les voisins en ville ; au chalet, la radio, le téléphone satellite ou un voisin (ch. 14) |  |
-| 5 à 30 min | Se mettre au chaud : véhicule démarré **dehors**, remise, maison ou chalet du voisin | À -35 °C, les extrémités gèlent en quelques minutes |
-| Après 30 min | Passer au scénario 3 pour partir, au scénario 7 s'il y a un blessé |  |
+| 0 à 3 s | Décider : éteindre un feu plus petit qu'une poubelle si on a l'extincteur en main et la sortie dans le dos (ch. 82, « Le départ de feu »). Sinon, sortir | |
+| 0 à 60 s | Réveiller tout le monde, sortir, et compter les personnes au point de rassemblement, pas dans la porte, pour ne pas rentrer chercher quelqu'un qui est déjà dehors | Toutes les têtes, comptées à voix haute |
+| 1 à 5 min | Prévenir les voisins en ville ; au chalet, prévenir par la radio, le téléphone satellite ou un voisin (ch. 14) | |
+| 5 à 30 min | Mettre tout le monde au chaud, les enfants d'abord : dans l'auto démarrée **dehors**, la remise, la maison ou le chalet du voisin | |
+| Après 30 min | Passer au scénario 3 pour partir, au scénario 7 s'il y a un blessé | |
 
-**Personne ne rentre chercher un objet.** Les fumées d'un bâtiment qui brûle portent du
-monoxyde de carbone à une concentration qui tue en quelques respirations, et une pièce
-qui a l'air praticable peut en être pleine.
+{!incendie} {!froid} Au chalet, garder les clés de l'auto, un jeu de vêtements chauds pour chacun et de quoi faire du
+feu hors du bâtiment, dans la remise ou dans l'auto : quand le chalet brûle, on sort sans rien prendre, et c'est avec
+ça qu'on passe la nuit.
 
 ### Scénario 5. Épidémie, on se ferme (**maison ou chalet**)
 
-*Détaillé au ch. 30. L'eau, le chauffage et le courant tiennent ; l'accès aux soins et au
-ravitaillement lâche. Le chalet isole sans effort, mais il met des heures entre un malade
-et les soins. Tant que quelqu'un du ménage peut en avoir besoin (une maladie chronique, un
-jeune enfant), on se ferme à la maison ; on ne monte au chalet que si tout le monde est en
-santé et que le stock y est.*
+*Détaillé au ch. 30. L'eau, le chauffage et le courant tiennent ; ce qui manque, c'est l'accès aux soins et au
+ravitaillement. Le chalet isole sans effort, mais il met des heures entre un malade et les soins. Tant que quelqu'un de
+la famille peut en avoir besoin (une maladie chronique, un jeune enfant), on se ferme à la maison ; on ne monte au
+chalet que si tout le monde est en santé et que le stock y est.*
 
 | Quand | Geste | Repère chiffré |
 | --- | --- | --- |
-| Avant | Renouveler les ordonnances et monter la réserve | 2 à 3 semaines |
-| Jour 1 | Un seul adulte fait les contacts extérieurs ; les autres n'en font aucun |  |
-| Jour 1 | Préparer une chambre d'isolement : une pièce, une porte, une chaudière, un accès à l'eau |  |
-| Jour 1 | Sortir gants, masques et désinfectant, et les placer à l'entrée |  |
-| Continu | Eau et nourriture au régime ordinaire | 4 L par personne par jour |
-| Si quelqu'un tombe malade | Un seul soignant, toujours le même, qui ne fait plus rien d'autre : chaque adulte exposé de plus est un adulte de moins pour le bois, l'eau et les enfants |  |
+| Dès l'annonce | Renouveler les ordonnances et monter la réserve de médicaments | 2 à 3 semaines |
+| Jour 1 | Choisir un seul adulte pour les contacts avec l'extérieur ; les autres n'en ont aucun | |
+| Jour 1 | Préparer une chambre d'isolement : une pièce qui ferme, avec une chaudière et de l'eau à portée de la main | |
+| Jour 1 | Mettre les gants, les masques et le désinfectant à l'entrée | |
+| Si quelqu'un tombe malade | Choisir un seul soignant, toujours le même, qui ne fait plus rien d'autre : chaque adulte de plus qui tombe malade manque pour le bois, l'eau et les enfants | |
 
-**Les antibiotiques de la pharmacie** se prennent sur les signes que donne le ch. 32, pas
-sur une intuition.
+Donner les antibiotiques de la pharmacie seulement devant les signes que décrit le ch. 32.
 
 ### Scénario 6. Retombées radioactives, mise à l'abri (**là où on est, le plus souvent la maison**)
 
-*Détaillé au ch. 4. Ce qui lâche : l'usage du dehors (air, eau de surface, aliments
-frais). Monter au chalet pendant le passage expose à des heures de route dans le dépôt,
-dans une auto qui protège moins bien qu'une maison. Le territoire du chalet reste atteint le
-plus longtemps : lichen, champignons et orignal, pendant des décennies (ch. 4).*
+*Détaillé au ch. 4. On ne peut plus se servir de l'air, de l'eau de surface ni des aliments frais du dehors. Monter au
+chalet pendant le passage des retombées, c'est passer des heures sur la route dans la poussière radioactive, dans une
+auto qui protège moins bien qu'une maison. Le territoire du chalet reste atteint le plus longtemps : le lichen, les
+champignons et l'orignal, pendant des dizaines d'années (ch. 4).*
 
 | Quand | Geste | Repère chiffré |
 | --- | --- | --- |
-| 0 à 10 min | Rentrer tout le monde et les animaux |  |
-| 0 à 10 min | Fermer portes et fenêtres, couper la ventilation, le chauffage à air pulsé et la climatisation |  |
-| 0 à 30 min | Ceux qui étaient dehors : couche du dessus et chaussures enlevées à la porte, ensachées. Se laver à l'eau du robinet et au savon | ch. 4, étapes 5 et 10 |
-| 0 à 30 min | Descendre au sous-sol, contre un mur enterré ; au chalet, au caveau | ch. 4, étape 8 |
-| Continu | Rester à l'abri le temps compté depuis l'heure de l'éclair ou de l'alerte, pas jusqu'à ce que ça semble calme | 24 à 48 h (ch. 4, étape 24) |
-| Continu | Boire et cuisiner avec l'eau et les aliments qui étaient à l'intérieur, en contenants fermés |  |
-| Après quelques heures | Déboucher les ouvertures de la pièce d'abri et l'aérer | ch. 4, étape 18 |
-| À la sortie | Ensacher les filtres de la fournaise et les porter loin du bâtiment |  |
-| À la sortie | Le jardin et l'eau du lac passent au tri : le dépôt reste sur ce qui pousse et dans l'eau de surface | ch. 4, étapes 22 et 26 à 32 |
+| 0 à 10 min | Rentrer tout le monde, et les animaux qui sont à portée. Les gens qui étaient dehors doivent enlever leurs vêtements du dessus et leurs chaussures à la porte, et les mettre dans un sac fermé | ch. 4, étape 5 |
+| 0 à 10 min | Fermer les portes et les fenêtres, et arrêter l'échangeur d'air, la fournaise à air pulsé et le climatiseur | ch. 4, étape 7 |
+| 0 à 30 min | Descendre au sous-sol, contre un mur enterré ; au chalet, aller au caveau | ch. 4, étape 8 |
+| 0 à 30 min | Se laver à l'eau du robinet et au savon | ch. 4, étape 10 |
+| 0 à 30 min | Boucher les courants d'air de la pièce d'abri, sauf si un poêle y brûle | Quelques heures au plus (ch. 4, étape 18) |
+| Tout le temps | Rester à l'abri 24 h comptées depuis l'éclair ou l'alerte, et jusqu'à 48 h si la radio n'annonce pas que le rayonnement baisse | ch. 4, étape 24 |
+| Tout le temps | Boire et cuisiner avec l'eau et les aliments qui étaient à l'intérieur, en contenants fermés | ch. 4, étapes 21 et 22 |
+| Après quelques heures | Enlever ce qui bouche la pièce d'abri et l'aérer | ch. 4, étape 18 |
+| À la sortie | Remplacer les filtres de la fournaise et de l'échangeur d'air, et porter les vieux filtres dans un sac fermé loin du bâtiment | ch. 4, étape 25 |
+| À la sortie | Trier ce qui vient du jardin, du lac et de la chasse : la poussière radioactive reste sur ce qui pousse et dans l'eau de surface | ch. 4, étapes 22 et 26 à 32 |
 
-**L'iode.** Personne n'en distribue d'avance sur la Côte-Nord : la boîte s'achète
-(ch. 00b). Il ne protège que la thyroïde, contre l'iode radioactif ; la mise à l'abri
-protège tout le corps. Doses et délai : ch. 4, étapes 13 à 16.
+**L'iode.** Personne n'en distribue d'avance sur la Côte-Nord : il faut acheter la boîte (ch. 00b). Le comprimé ne
+protège que la thyroïde, contre l'iode radioactif ; l'abri protège tout le corps. Doses et délai : ch. 4, étapes 13
+à 16.
 
 ### Scénario 7. Blessure grave, loin de tout (**chalet**)
 
-*Détaillé aux ch. 26 et 35. Au chalet, le ménage est le seul soin.*
+*Détaillé aux ch. 26 et 35. Au chalet, il n'y a que la famille pour soigner.*
 
 | Quand | Geste | Repère chiffré |
 | --- | --- | --- |
-| 0 à 2 min | Sécuriser la scène avant de toucher au blessé : un deuxième blessé double le problème |  |
-| 0 à 5 min | Hémorragie d'abord : pression directe, puis garrot si la pression ne suffit pas (§9) |  |
-| 0 à 10 min | Lancer l'alerte avant de finir les soins : satellite, radio, voisin (ch. 14). Donner une position, pas une adresse : coordonnées, nom du lac, kilomètre du chemin | Position écrite d'avance, affichée près de la porte |
-| 0 à 10 min | Écrire sur la peau du blessé, au front ou sur l'avant-bras, l'heure de la blessure, de l'alerte et de chaque médicament donné | Au feutre, au crayon ou au charbon (§9) |
-| 10 à 30 min | Prévenir l'hypothermie : le blessé perd sa chaleur beaucoup plus vite qu'une personne saine. Isoler du sol, couvrir, abriter du vent | Une hypothermie modérée ou grave[^1] met la vie en jeu : manipulation minimale (ch. 25) |
-| 10 à 30 min | Si quelqu'un répond à l'alerte : préparer l'accès (déneiger, ouvrir la barrière, éclairer le chemin, poster quelqu'un). Sinon, sortir le blessé soi-même (ch. 16) |  |
-| Continu | Un adulte reste avec les enfants, à l'écart, et leur donne une tâche précise (ch. 40) |  |
+| 0 à 2 min | Avant de toucher au blessé, arrêter ou écarter ce qui l'a blessé (une scie qui tourne, un arbre qui peut encore tomber), pour ne pas faire un deuxième blessé | |
+| 0 à 5 min | Arrêter le saignement d'abord : appuyer directement sur la plaie, puis poser un garrot si la pression ne suffit pas | Sans trousse : section 7, « Le sang qui coule sans trousse » |
+| 0 à 10 min | Lancer l'alerte avant de finir les soins, par le téléphone satellite, la radio ou un voisin (ch. 14). Donner la position du chalet : ses coordonnées, le nom du lac, le kilomètre du chemin | |
+| 0 à 10 min | Écrire l'heure de la blessure, de l'alerte et de chaque médicament donné sur la peau du blessé, au front ou sur l'avant-bras | Au feutre, au crayon ou au charbon |
+| 10 à 30 min | Garder le blessé au chaud : il perd sa chaleur beaucoup plus vite qu'une personne en santé. L'isoler du sol, le couvrir et l'abriter du vent | Hypothermie modérée ou grave[^1] : la vie est en jeu ; le bouger le moins possible (ch. 25) |
+| 10 à 30 min | Si quelqu'un répond à l'alerte, préparer l'accès : déneiger, ouvrir la barrière, éclairer le chemin et poster quelqu'un pour guider les gens qui viennent. Sinon, sortir le blessé soi-même (ch. 16) | |
+| Tout le temps | Garder un adulte avec les enfants, à l'écart, et leur donner une tâche précise (ch. 40) | |
 
-**Pas d'alcool**, ni pour le blessé ni pour celui qui soigne : il abaisse la température
-du corps. Le tabac ne réchauffe pas non plus.
+{!froid} Ne donner d'alcool ni au blessé ni à la personne qui le soigne : l'alcool fait baisser la température du
+corps. Le tabac ne réchauffe pas non plus.
 
 ### Scénario 8. Le congélateur ou le propane lâche (**la maison, le chalet**)
 
-*Détaillé aux ch. 74 et 87. Le congélateur de la maison tient une année de viande
-d'orignal* (Alces americanus) *et d'omble de fontaine* (Salvelinus fontinalis), *et il la
-perd en deux jours. Au chalet, le propane lâche (ch. 87) ; de novembre à mars,
-le froid se reprend dehors (ch. 73).*
+*Détaillé aux ch. 74 et 87. Le congélateur de la maison garde une année de viande d'orignal et de truite, et il la
+perd en deux jours. Au chalet, le propane lâche (ch. 87) ; de novembre à mars, le froid du dehors peut
+prendre le relais (ch. 73).*
 
 | Quand | Geste | Repère chiffré |
 | --- | --- | --- |
-| 0 à 5 min | Ne pas ouvrir. Lire le thermomètre intérieur s'il y en a un | Congélateur plein : environ 48 h ; à demi rempli : environ 24 h |
-| 0 à 30 min | Remplir les vides avec des contenants d'eau gelée ou des sacs de neige tassée : plein, il tient deux fois plus longtemps |  |
-| 0 à 2 h | En hiver, sortir la viande dehors dans un contenant fermé, à l'abri des bêtes (ch. 73) | Congélation d'entreposage : -18 °C ou moins |
-| 12 à 24 h | Choisir, avant que la viande dégoutte : salaison à sec (ch. 68), saumure (ch. 69), fumage (ch. 70, 71) ou conserves (ch. 78) |  |
-| 24 à 48 h | Cuire en premier ce qui a le plus décongelé et se garde le moins | Gibier : 74 °C à cœur, thermomètre planté dans la partie la plus charnue, sans toucher l'os ni le gras |
-| Au retour du froid | Trier pièce par pièce avant de recongeler | Ce qui est encore givré ou partiellement congelé se recongèle ; ce qui a dépassé 4 °C se jette |
-| Au retour du froid | Cuire tout de suite les pièces restées à 4 °C ou moins | Jeter tout ce qui est resté 2 heures ou plus à la température ambiante |
+| 0 à 5 min | Ne pas ouvrir le congélateur. Lire le thermomètre qu'on y a laissé, s'il y en a un | Plein : environ 48 h ; à moitié plein : environ 24 h |
+| 0 à 30 min | Remplir les vides avec des contenants d'eau gelée ou des sacs de neige tassée, en ouvrant une seule fois : plein, le congélateur garde le froid deux fois plus longtemps | |
+| 0 à 2 h | L'hiver, sortir la viande dehors dans un contenant fermé, à l'abri des bêtes (ch. 73) | Pour garder la viande des mois : −18 °C ou moins |
+| 12 à 24 h | Avant que la viande dégoutte, choisir comment la garder : salaison à sec (ch. 68), saumure (ch. 69), fumage (ch. 70, 71) ou conserves (ch. 78) | |
+| 24 à 48 h | Cuire d'abord les pièces les plus dégelées et celles qui se gardent le moins longtemps | Gibier : 74 °C à cœur ; poisson : 70 °C tenu 1 min |
+| Quand le froid revient | Trier chaque pièce à la sonde, au centre, avant de la recongeler | Encore des cristaux de glace : la recongeler. Dégelée et restée à 4 °C ou moins : la cuire tout de suite. Passée au-dessus de 4 °C : la jeter |
 
-**Le foie et les reins des cervidés ne se mangent pas** : le cadmium s'y accumule, et un
-seul repas de reins contaminés peut dépasser de 100 fois la valeur guide. Poisson fumé,
-salé ou sous vide : §8.
+{!cuisson} {!trichine} Une viande d'ours ou de phoque qu'on sale, qu'on fume ou qu'on sèche pour la sauver du dégel
+porte encore la trichine : la cuire à 74 °C à cœur, mesurés au thermomètre, avant de la manger, ou la mettre en
+conserve à l'autoclave (ch. 78).
 
-### Scénario 9. Immobilisé en chemin, en véhicule ou en motoneige (**la route**)
+{!botulisme} Jeter sans y goûter le poisson salé, fumé, mariné ou sous vide qui est resté au-dessus de 3 °C pendant le
+dégel, même s'il sent bon.
 
-*Détaillé au ch. 15. À -35 °C, un véhicule dont le moteur ne tourne plus perd sa chaleur :
-la tôle et le verre n'isolent pas. Sur le trajet le plus répété, on oublie de dire qu'on
-part, et personne ne cherche un véhicule dont personne n'attend le retour.*
+{!abats} Jeter le foie et les reins d'orignal ou de caribou qui seraient dans le congélateur : ils accumulent le
+cadmium.
+
+### Scénario 9. Immobilisé en chemin, en auto ou en motoneige (**la route**)
+
+*Détaillé au ch. 15. À −35 °C, un véhicule dont le moteur ne tourne plus perd vite sa chaleur : la tôle et le verre
+n'isolent pas.*
 
 | Quand | Geste | Repère chiffré |
 | --- | --- | --- |
-| Avant de partir | Dire à quelqu'un le trajet et l'heure de retour prévue |  |
-| 0 à 5 min | Rester avec le véhicule : il se voit, une personne à pied ne se voit pas |  |
-| 0 à 10 min | Dégager le tuyau d'échappement **avant** de faire tourner le moteur |  |
-| 0 à 10 min | Se couvrir : plusieurs couches, la couche extérieure imperméable au vent et à l'eau |  |
-| Continu | Faire tourner le moteur par tranches, une fenêtre entrouverte du côté sous le vent |  |
-| Continu | Bouger les doigts, les orteils, le visage |  |
-| Continu | Se signaler : sifflet, feu de signalisation, chandelle dans un contenant profond |  |
+| Avant de partir | Dire à quelqu'un le trajet et l'heure de retour prévue, même pour le trajet de tous les jours : personne ne cherche un véhicule que personne n'attend | |
+| 0 à 5 min | Rester avec le véhicule : on le voit de loin, alors qu'une personne à pied passe inaperçue | |
+| 0 à 10 min | Mettre plusieurs couches de vêtements, celle du dessus coupe-vent et imperméable | |
+| Tout le temps | Bouger les doigts, les orteils et le visage | |
+| Tout le temps | Se faire voir et entendre : le sifflet, le feu de signalisation, la lampe | |
 
-La trousse du véhicule (ch. 00b) y reste toute l'année : une panne de juillet sur un
-chemin forestier se règle avec la même boîte. Son eau voyage en bouteilles de plastique,
-avec un vide d'air pour le gel (ch. 10, étape 24). La moitié de son contenu sert à être
-trouvé : sifflet, feu de signalisation, chandelle, lampe.
+{!generatrice} Avant chaque démarrage, faire le tour du véhicule et dégager le tuyau d'échappement : la neige qui le
+bouche renvoie les gaz dans l'habitacle. Faire tourner le moteur par périodes, une fenêtre entrouverte du côté sous le
+vent.
+
+Laisser la trousse du véhicule (ch. 00b) dedans toute l'année : une panne de juillet sur un chemin forestier demande la
+même boîte. Mettre son eau dans des bouteilles de plastique, en laissant un vide d'air pour le gel (ch. 10, étape 24).
 
 [^1]: Modérée : gestes maladroits, difficulté à parler, confusion. Grave : les frissons
 s'arrêtent, puis la personne perd conscience ; un blessé qui cesse de frissonner sans avoir
@@ -240,42 +233,40 @@ s'arrêtent, puis la personne perd conscience ; un blessé qui cesse de frissonn
 
 ---
 
-## 6. Points de contrôle
+## 5. Points de contrôle
 
 | Moment | Ce qu'on vérifie | Cible chiffrée | Si c'est hors cible |
 | --- | --- | --- | --- |
-| Chaque printemps | Les trois tablettes (maison, chalet, véhicule), article par article : dates de péremption, piles | Trois tablettes complètes, aucune date dépassée | Remplacer, noter la date sur le couvercle, racheter le manquant (ch. 00b) |
-| Chaque printemps | Réserve d'eau potable | 4 L × personnes × 3 jours au moins | Compléter avant le reste |
-| Chaque automne | Médicaments d'ordonnance en réserve | 2 à 3 semaines | Renouveler avant la première neige |
-| Chaque automne | Bois sec de la réserve de secours, sous abri, séparé du bois courant : au chalet, et à la maison si elle a un poêle | Volume mesuré, pas estimé | Fendre et abriter avant le gel |
-| Chaque automne | Avertisseurs de CO : bouton d'essai et date de fabrication | 1 par niveau habité, 1 près du poêle | Remplacer l'appareil, pas seulement les piles |
-| Chaque automne | Thermomètres à sonde : lecture dans l'eau bouillante | 100 °C ± 1 °C au niveau de la mer | Recalibrer ou jeter |
+| Chaque printemps | Les articles de la section 3, rangés ensemble sur une tablette à la maison, au chalet et dans l'auto : les dates et les piles | Les trois tablettes complètes, aucune date dépassée | Remplacer ce qui est périmé, écrire la date sur le contenant et racheter ce qui manque (ch. 00b) |
+| Chaque printemps | Réserve d'eau potable | 4 L × le nombre de personnes × 3 jours, au moins | La compléter avant le reste |
+| Chaque automne | Médicaments d'ordonnance en réserve | 2 à 3 semaines | Les renouveler avant la première neige |
+| Chaque automne | Bois sec de la réserve, sous abri, à part du bois de tous les jours : au chalet, et à la maison si elle a un poêle | Volume mesuré | Fendre et mettre à l'abri avant le gel |
+| Chaque automne | Avertisseurs de CO : bouton d'essai et date de remplacement écrite sur l'appareil | 1 par étage habité, 1 près du poêle | Si l'essai ne sonne pas ou que la date est passée, remplacer l'appareil, pas seulement les piles |
+| Chaque automne | Thermomètres à sonde, plantés dans l'eau qui bout | 100 °C ± 1 °C au niveau de la mer | Les régler, ou les jeter |
 | Chaque automne | Argent comptant en petites coupures | 2 à 3 semaines de besoins de base | Compléter |
-| Chaque mois d'hiver | Thermomètre laissé dans le congélateur | -18 °C ou moins | Passer au scénario 8 sans attendre |
-| Chaque mois d'hiver | Thermomètre laissé dans le frigo | 4 °C ou moins | Régler l'appareil |
-| Une fois par an | Exercice d'évacuation avec les enfants, chronométré, **dans les deux bâtiments**, jusqu'au point de rassemblement : visible, à l'écart du vent et des bonbonnes (ch. 39). La sortie et le point ne sont pas les mêmes aux deux endroits | Tout le monde au point de rassemblement en moins de 2 minutes, aux deux endroits | Simplifier le trajet, pas presser les enfants |
-| Une fois par an | Les deux adultes lisent les neuf listes à voix haute | Les deux savent où est chaque article, et dans lequel des deux lieux | Ranger autrement |
-| Pendant un sinistre | Eau consommée par jour | 4 L par personne par jour | Rationner dès le jour 1 |
-| Pendant un sinistre | Température de la pièce habitée | 19 °C ou plus | Fermer des pièces avant d'ajouter du combustible |
+| Chaque mois, l'hiver | Thermomètre laissé dans le congélateur | −18 °C ou moins | Passer au scénario 8 sans attendre |
+| Chaque mois, l'hiver | Thermomètre laissé dans le frigo | 4 °C ou moins | Régler le frigo |
+| Une fois par année | Exercice d'évacuation avec les enfants, chronométré, **dans les deux bâtiments**, jusqu'au point de rassemblement : un endroit qu'on voit, à l'écart du vent et des bonbonnes (ch. 39) | Tout le monde au point de rassemblement en moins de 2 min, aux deux endroits | Simplifier le trajet plutôt que presser les enfants |
+| Une fois par année | Les deux adultes lisent les neuf listes à voix haute | Les deux savent où est chaque article, et dans lequel des deux lieux | Ranger autrement |
+| Pendant un sinistre | Eau bue et utilisée chaque jour | 4 L par personne et par jour | Rationner dès le jour 1 |
+| Pendant un sinistre | Température de la pièce habitée | 19 °C ou plus | Fermer des pièces avant d'ajouter du bois |
 
 ---
 
-## 7. Signes d'échec
+## 6. Signes d'échec
 
 | Observation | Diagnostic | Action |
 | --- | --- | --- |
-| Il faut plus de deux minutes pour trouver un article de la tablette | La tablette est devenue un rangement | Tout sortir, ne remettre que la liste du §4, ranger le reste ailleurs |
-| L'article existe, mais il est dans l'autre bâtiment | Une tablette au lieu de trois | Doubler les articles bon marché (ch. 00b) |
-| Maux de tête, fatigue, nausées, vomissements, étourdissements chez plus d'une personne à la fois | Monoxyde de carbone jusqu'à preuve du contraire : plusieurs malades en même temps dans une même pièce, c'est la pièce, pas la grippe | Sortir tout le monde, couper tout appareil à combustion, alerter (ch. 14) |
-| L'avertisseur de CO sonne | Du CO dans l'air | Dehors, appareils coupés, bâtiment grand ouvert. L'alarme se tait quand l'air redescend sous son seuil, même si la source brûle encore : son silence ne permet pas de rentrer |
-| Somnolence inexpliquée chez un enfant, dans une pièce chauffée à l'appoint | Le CO agit plus vite sur un petit corps | Dehors tout de suite, appareil coupé, sans attendre de voir |
-| Le congélateur ne fait plus de bruit et la porte est tiède | L'autonomie est entamée depuis un moment | Scénario 8 tout de suite, sans ouvrir |
-| Un paquet de viande a coulé et la glace s'est refaite au fond du sac | Le lot a décongelé puis regelé | Jeter |
-| Le poisson fumé ou salé sent bon, a l'air normal et a séjourné au-dessus de 3 °C | Le botulisme de type E ne change ni l'odeur, ni le goût, ni l'apparence | Jeter sans goûter (§8 ; ch. 77) |
-| La conserve bombe, fuit, ou le couvercle claque[^2] | Du gaz s'est formé dans le contenant | Jeter le contenant fermé, sans l'ouvrir, hors de portée des animaux |
-| Après deux semaines de diète, faiblesse, diarrhée, maux de tête, fringale qui ne passe pas | Trop de protéines maigres, pas assez de gras : le mal de caribou | Ajouter du gras tout de suite (ch. 19, 72) |
-| Les enfants ne posent plus de questions et ne jouent plus | La peur s'installe ; ce n'est pas du calme | Rétablir la routine et les tâches (ch. 40) |
-| Le stock a tenu, mais personne n'a dormi | Le rationnement s'est fait sur le sommeil | Tours de garde de 4 h |
+| Il faut plus de deux minutes pour trouver un article de la tablette | La tablette est devenue un rangement | Tout sortir, et ne remettre que les articles de la section 3 ; ranger le reste ailleurs |
+| L'article existe, mais il est dans l'autre bâtiment | Une tablette au lieu de trois | Acheter en double les articles bon marché (ch. 00b) |
+| Mal de tête, fatigue, nausée ou envie de dormir chez plusieurs personnes à la fois, un enfant somnolent sans raison, ou l'avertisseur de CO qui sonne | Du monoxyde de carbone, même si l'alarme se tait ensuite | Sortir tout le monde à l'air libre tout de suite ; arrêter l'appareil seulement si on l'atteint sans rester dedans, et ne rien rallumer avant d'avoir trouvé la cause |
+| Le congélateur ne fait plus de bruit et sa porte est tiède | Il est arrêté depuis un moment | Passer au scénario 8 tout de suite, sans ouvrir |
+| Un paquet de viande a coulé, et la glace s'est refaite au fond du sac | La viande a dégelé puis regelé, pendant un temps qu'on ne connaît pas | La jeter |
+| Le poisson fumé ou salé sent bon, a l'air normal et est resté au-dessus de 3 °C | Le botulisme de type E ne change ni l'odeur, ni le goût, ni l'apparence | Le jeter sans y goûter (scénario 8 ; ch. 77) |
+| La conserve bombe ou fuit, le couvercle claque[^2], ou la boîte est rouillée ou bosselée sur le serti (le rebord où le couvercle est fixé) | Du gaz s'est formé dans le contenant, ou la fermeture n'est peut-être plus étanche | Jeter le contenant fermé, sans l'ouvrir, hors de portée des animaux |
+| Après une semaine ou plus de viande maigre : des repas de plus en plus gros, une faim qui revient vite, une envie de gras, puis la diarrhée | Trop de viande maigre, pas assez de gras : le mal de caribou | Ajouter du gras tout de suite (ch. 19, 72) |
+| Les enfants ne posent plus de questions et ne jouent plus | C'est la peur, pas du calme | Rétablir la routine et les tâches (ch. 40) |
+| Le stock a tenu, mais personne n'a dormi | Le rationnement s'est fait sur le sommeil | Organiser des tours de garde de 4 h |
 
 [^2]: On appuie au centre du couvercle : s'il remonte quand on lâche le doigt, le pot n'est
 plus scellé. Un couvercle scellé est légèrement creux au centre et sonne clair, aigu, tapé du
@@ -283,172 +274,186 @@ dos d'une cuillère ; plat, bombé ou qui sonne sourd, il ne l'est peut-être pl
 
 ---
 
-## 8. DANGER
+## 7. Variante d'urgence
 
-> **La génératrice, le réchaud, le barbecue, la chaufferette de camping et le moteur qui
-> tourne brûlent dehors.** Ils produisent du monoxyde de carbone par combustion
-> incomplète. Le CO prend la place de l'oxygène sur l'hémoglobine et la garde : le sang
-> circule encore, mais il ne transporte plus d'oxygène. On s'endort au lieu de suffoquer :
-> le gaz n'a ni odeur, ni couleur, ni goût, et ne donne aucune sensation d'étouffement. La
-> génératrice tourne dehors, loin des portes et des fenêtres, jamais dans un bâtiment, un
-> garage attenant ou détaché, une remise, un abri de toile, un habitacle, sous un auvent ou
-> dans une véranda fermée. Un bâtiment chauffé tire l'air du dehors par ses fentes basses :
-> une génératrice posée contre un mur ou devant une porte envoie ses gaz à l'intérieur
-> comme si elle y était. Les symptômes (maux de tête, fatigue, nausées, vomissements,
-> étourdissements) apparaissent en quelques minutes et ressemblent à une grippe ou à un
-> coup de fatigue de fin de journée. Un avertisseur de CO à piles est le seul détecteur :
-> ses piles ne vont jamais dans une lampe. Dans un véhicule immobilisé, le tuyau
-> d'échappement bouché par la neige renvoie les gaz dans l'habitacle : on le dégage avant
-> de démarrer, et le moteur tourne par tranches.
->
-> **Le botulisme de type E produit sa toxine dès 3 °C, donc au frigo.** C'est la bactérie
-> des eaux froides du Saint-Laurent : elle travaille à des températures où le poisson a
-> l'air frais. Un contenant fermé, sous vide ou sous huile, lui donne le manque d'oxygène
-> qu'elle demande. La toxine ne change ni l'odeur, ni le goût, ni l'apparence, ni la
-> texture : aucun sens humain ne la détecte. Elle bloque la transmission entre les nerfs
-> et les muscles : vision double, paupières tombantes, difficulté à avaler, puis paralysie
-> des muscles respiratoires. Tout poisson salé, fumé, mariné ou mis sous vide qui a passé
-> du temps au-dessus de 3 °C, y compris pendant un dégel de congélateur, se jette sans y
-> goûter.
->
-> **Le gibier se cuit à 74 °C à cœur**, mesuré au thermomètre. Ni le sel, ni le fumage à
-> froid, ni un congélateur domestique ne détruisent la trichinellose de l'ours ou du
-> phoque ; la chaleur la détruit.
->
-> **La viande maigre seule tue en quelques semaines.** Une diète presque uniquement faite
-> de protéines maigres (lièvre, longes d'orignal sans gras) dépasse ce que le foie peut
-> traiter d'azote. C'est le mal de caribou, et il est mortel. Tout rationnement de longue
-> durée se bâtit autour d'une source de gras (ch. 19, 72).
+### L'eau du bâtiment
+
+- Remplir tout ce qui tient l'eau pendant qu'il reste de la pression : d'abord des bidons, des chaudières et des
+ chaudrons avec un couvercle, pour boire ; ensuite la baignoire, pour la chasse d'eau et le lavage. On ne boit plus
+ l'eau de la baignoire dès qu'une main y a trempé.
+- Le chauffe-eau en contient le plus : de 180 à 280 L. Couper le disjoncteur du chauffe-eau, pour que l'élément ne
+ chauffe pas à vide, fermer l'entrée d'eau de la maison et ouvrir un robinet d'eau chaude à l'étage pour laisser entrer
+ l'air. Tirer ensuite l'eau par le robinet de vidange, au bas du réservoir.
+- Le réservoir de la toilette (le bloc derrière la cuvette) contient de l'eau du réseau, sauf si on y a mis de
+ l'antigel.
+- Vider la tuyauterie par le robinet le plus bas de la maison.
+
+### La neige et le lac
+
+Au chalet, prendre l'eau du lac sous la glace, ou faire fondre de la neige (ch. 10, étapes 36 à 41).
+
+- Mettre un fond d'eau dans le chaudron avant la neige : de la neige seule dans un chaudron sec isole le métal du feu,
+ et le fond brûle avant que la neige fonde. Ajouter la neige par poignées, sans la presser dans le chaudron.
+- Prendre de la neige tassée, en profondeur et à l'écart des sentiers : il faut de 10 à 25 L de neige fraîche pour
+ faire 1 L d'eau, et la neige tassée rend beaucoup plus.
+- Faire bouillir l'eau de neige ou de lac comme au scénario 2, et en faire chaque jour plutôt qu'une grosse quantité
+ d'un coup : hors du froid, on ne la garde que 24 h.
+
+### Désinfecter sans feu, et clarifier avant
+
+- S'il n'y a rien pour faire bouillir l'eau, mettre environ 2 gouttes (0,2 mL) d'eau de Javel non parfumée à 5,25 %
+ par litre, brasser et laisser reposer 30 minutes, pour une eau à la température de la pièce. Une eau froide ou
+ trouble demande le double de javel et une attente plus longue (ch. 10, étapes 19 à 22).
+- Une eau trouble use la javel sur la terre en suspension avant qu'elle atteigne les microbes. La laisser déposer dans
+ une chaudière, tirer le clair par-dessus sans remuer le fond, et le passer dans un linge serré ou dans un bas de laine
+ avant de mettre la javel : le linge enlève la terre, la javel tue les microbes.
+- Si l'eau a pu recevoir un produit chimique, prendre l'eau ailleurs : ni l'ébullition ni la javel n'enlèvent un
+ produit chimique.
+
+**Ce qu'on perd :** le temps et le bois de l'ébullition de chaque jour, et la marge d'une réserve faite d'avance.
+
+### Chauffer une seule pièce
+
+- Choisir la plus petite pièce, celle du poêle, et fermer les autres. Boucher le bas des portes avec des couvertures,
+ des vêtements ou des serviettes roulées.
+- Rétrécir encore dans la pièce : tendre une couverture du plafond autour du matelas, ou couvrir une table de
+ couvertures jusqu'au sol. On obtient un petit volume que les corps chauffent eux-mêmes, et la pièce n'a plus besoin
+ d'être chaude.
+- Doubler la fenêtre du côté du vent d'une feuille de plastique collée au ruban, en laissant une lame d'air entre le
+ plastique et la vitre : l'air immobile isole.
+- Sans poêle ni autre appareil qui chauffe, la maison refroidit chaque jour : lire le thermomètre matin et soir ; les
+ degrés perdus par jour décident du moment de partir (ch. 2).
+
+**Ce qu'on perd :** l'intimité. La tuyauterie des pièces fermées gèle : il faut la vidanger tout de suite si le
+sinistre dure (ch. 3, étapes 21 à 24).
+
+### La chaleur gardée pour la nuit
+
+- Pendant que le poêle chauffe, poser dessus des pierres sèches et un fer de fonte, et ranger autour des bouteilles et
+ des bidons d'eau.
+- La nuit, une fois le poêle éteint, sortir les pierres et la fonte avec des pinces et les rouler dans une couverture
+ au pied du lit. Laisser les contenants d'eau sur place : ils rendent leur chaleur toute la nuit.
+- {!projection} Prendre seulement des pierres gardées au sec depuis des jours : une pierre ramassée dans un ruisseau ou
+ sous la neige garde de l'eau dans ses fissures et peut éclater sur le poêle. Desserrer le bouchon des bouteilles et
+ des bidons avant de les poser près du poêle.
+
+### La lampe à gras
+
+On la monte en trois minutes, et elle éclaire comme une chandelle tant qu'il reste du gras (ch. 112).
+
+- Le contenant : une boîte de métal ou un pot de verre épais, qui ne casse pas à la chaleur.
+- {!mal-de-caribou} Le gras : de l'huile de cuisson d'abord. Garder la graisse de bête pour les repas tant que la
+ famille en manque : le gras brûlé dans la lampe manque dans la ration.
+- La mèche : une lanière de guenille de coton roulée serré, un lacet de botte ou une ficelle, tenue au bord par un bout
+ de fil de métal plié en crochet. Elle trempe dans le gras et dépasse à peine : plus elle dépasse, plus la flamme est
+ grosse, et une mèche trop longue fume et charbonne.
+
+### Le 12 volts de l'auto
+
+L'auto stationnée à côté est une réserve d'électricité, avec un alternateur pour la recharger.
+
+- Brancher une ampoule de plafonnier d'auto, un ruban DEL 12 V ou une lampe de travail de garage directement sur les
+ bornes de la batterie, avec deux pinces et un bout de fil. Charger les appareils USB sur la prise du tableau de bord.
+- {!generatrice} La même batterie démarre le moteur : faire tourner le moteur assez longtemps pour rendre ce
+ qu'on a pris, l'auto dehors et le tuyau d'échappement dégagé.
+- Vérifier la batterie au voltmètre, moteur arrêté depuis au moins six heures : vers 12,7 V, elle est pleine ; à
+ 12,1 V, elle est à moitié vide. Sous 12,4 V, faire tourner le moteur avant de tirer encore dessus : l'hiver, une
+ batterie à moitié vide peut geler dès −20 °C, et à −18 °C, elle ne rend que la moitié de sa capacité.
+- Deux batteries montées en série donnent 24 V, de quoi tirer un arc de soudure (ch. 107).
+
+### La frontale sur un bidon d'eau
+
+Sangler une lampe frontale sur un bidon de plastique translucide plein d'eau, le faisceau tourné vers le bidon : l'eau
+répand la lumière dans toute la pièce. Une seule lampe éclaire la table de toute la famille, et on use les piles d'une
+seule lampe.
+
+**Ce qu'on perd :** la lampe pour sortir ; on se déplace moins la nuit.
+
+### Le CO sans avertisseur
+
+{!co} N'allumer à l'intérieur que le poêle raccordé à sa cheminée. Quand le poêle chauffe fort, entrouvrir une fenêtre
+du côté sous le vent dans la pièce où on dort. Ne jamais laisser une personne dormir seule dans une pièce fermée où
+brûle un appareil : la personne intoxiquée ne se réveille pas, et sans avertisseur, la seule alarme est quelqu'un
+d'autre dans la même pièce.
+
+**Ce qu'on perd :** l'alarme qui réveille.
+
+### Manger dans l'ordre, et ouvrir les boîtes sans ouvre-boîte
+
+Manger ce qui est dans le frigo d'abord, puis le congélateur, et le garde-manger en dernier (la règle des 2 heures :
+scénario 1). Pour ouvrir une boîte de conserve sans ouvre-boîte, la frotter à l'envers, le couvercle sur une pierre
+plate ou sur du béton, jusqu'à user le serti ; quand un liseré humide apparaît, pincer les côtés de la boîte : le
+couvercle se lève.
+
+### Le froid du dehors, l'hiver
+
+- Poser une caisse de bois ou de plastique du côté nord du bâtiment, l'enterrer dans la neige et lester le couvercle.
+- Tasser de la neige par-dessus : au premier redoux, elle garde le contenu gelé, pour qu'il ne dégèle pas puis
+ regèle.
+- Protéger la caisse des bêtes : des chiens et des corneilles en ville ; au chalet, de toutes les bêtes, en la
+ suspendant ou en la lestant lourd.
+- Quand le dehors ne suffit plus à tout garder, cuire la viande et faire fondre le gras : la viande cuite se garde
+ mieux que la crue, et le gras fondu beaucoup plus longtemps que la bête (ch. 72).
+
+**Ce qu'on perd :** la variété des repas. Une réserve improvisée manque presque toujours de gras : la bâtir autour du
+gras qu'on a (scénario 2).
+
+### Le sang qui coule sans trousse
+
+{!coupure} Appuyer à pleine main sur la plaie, avec le tissu le plus propre qu'on a. Si la pression ne suffit pas,
+faire un garrot avec une sangle large : une ceinture de nylon, une sangle à cliquet, une bretelle de sac. Une corde, un
+fil ou un lacet coupent la peau au lieu de serrer.
+
+- Passer la sangle autour du membre, au-dessus de la plaie, et la nouer.
+- Glisser un bâton solide dans le nœud et le tourner jusqu'à ce que le saignement arrête.
+- Attacher le bâton pour qu'il ne se dévire pas.
+- Écrire l'heure de pose sur la peau du blessé, avec les autres heures (scénario 7). Le reste est au ch. 26.
+
+**Ce qu'on perd :** la propreté d'une vraie trousse. Une plaie pansée avec ce qu'on a s'infecte plus souvent : la
+surveiller les jours suivants (ch. 26).
+
+### Avoir des nouvelles et se faire trouver
+
+Sans radio à piles, écouter la radio de l'auto, moteur arrêté, par courtes périodes. Pour se faire voir : les feux de
+détresse, les phares allumés par périodes, le klaxon, un miroir ou un morceau de chrome tourné vers le soleil, un feu
+de branches vertes qui fume le jour et éclaire la nuit, un grand X piétiné dans la neige d'une clairière.
+
+### Ce qui ne se remplace pas
+
+- **L'avertisseur de CO** (« Le CO sans avertisseur »).
+- **Les médicaments d'ordonnance.**
+- **Le thermomètre à sonde** (scénario 8).
+- **L'avis de départ**, donné avant de prendre la route (scénario 9).
+
+### Ce qu'on perd
+
+Des heures de travail chaque jour, prises sur le sommeil, et la marge pour faire face à un deuxième problème en même
+temps que le premier.
 
 ---
 
-## 9. Variante d'urgence : rien n'a été préparé
+## En plus
 
-La tablette du §4 n'existe pas : ni trousse montée, ni eau embouteillée, ni piles neuves,
-ni avertisseur de CO, ni génératrice. À la maison, cette variante dure le temps d'une
-panne ; au chalet, elle devient le régime ordinaire.
+### Sécher la viande au-dessus du feu de la tente
 
-**L'eau du bâtiment d'abord.** On fait le tour de ce qui contient de l'eau. Le chauffe-eau
-en tient le plus : on coupe son alimentation pour que l'élément ne chauffe pas à vide, on
-ferme l'entrée d'eau du bâtiment, on ouvre un robinet d'eau chaude à l'étage pour laisser
-entrer l'air, et on tire par le robinet du bas du réservoir. Le réservoir de la toilette
-(le bloc arrière, pas la cuvette) contient de l'eau du réseau, sauf s'il a reçu de
-l'antigel à la fermeture du bâtiment. La tuyauterie garde ce qu'elle contient et se vide
-par le point le plus bas. Vient ensuite ce qu'on remplit pendant qu'il reste de la
-pression : la baignoire, les chaudrons, les chaudières, les bidons. Une baignoire remplie
-cesse d'être de l'eau à boire dès qu'une main y trempe : on tire d'abord ce qui se boit,
-dans des contenants fermés, et on garde le reste pour la chasse d'eau et le lavage.
+À la fin du 19e siècle, les Naskapis de l'Ungava détachaient des os la viande du caribou et la faisaient sécher sous
+la tente, dans la fumée et l'air chaud au-dessus du feu. Séchée vite, la viande perdait
+l'eau dont les bactéries ont besoin pour pousser (scénario 8). La façon devient dangereuse quand le feu est trop
+faible et laisse la viande tiède des heures : les bactéries y poussent le plus vite. Une viande d'ours séchée garde
+la trichine.
 
-**La neige et le lac.** Au chalet, c'est le lac sous la glace, ou la neige. La neige se
-fond dans un chaudron qui a un fond d'eau : de la neige seule dans un chaudron sec isole
-le métal du feu, et le fond brûle avant que la neige fonde. On ajoute par poignées, sans
-bourrer. Il faut de 10 à 25 L de neige fraîche pour faire un litre d'eau : un chaudron
-plein de poudreuse donne un fond. La neige tassée, prise en profondeur et à l'écart des
-sentiers, rend plus : on prend celle-là. L'eau de neige ou de lac bout 5 minutes à
-gros bouillons (ch. 10, étape 14). Elle se garde ensuite 24 heures à la température de la
-pièce, 3 jours au frais : on en fait chaque jour plutôt qu'une grosse fois.
+### Le caribou et sa moelle
 
-**Désinfecter sans feu, et clarifier avant.** S'il n'y a rien pour bouillir, l'eau de
-Javel non parfumée à 5,25 % désinfecte à raison d'environ 2 gouttes, soit 0,2 mL, par
-litre d'eau, remuée et laissée reposer 30 minutes (eau froide ou de lac : ch. 10,
-étapes 19 à 21). Une eau trouble use le désinfectant sur la matière en suspension avant
-qu'il atteigne les microbes : on la laisse décanter dans une chaudière, on tire le clair
-par-dessus sans remuer le fond, et on le passe dans un linge serré ou dans un bas de laine
-avant de traiter. Ce linge enlève la terre ; la javel fait le reste. Quand le doute porte
-sur un produit chimique, on change de source : ni l'ébullition ni la javel ne l'enlèvent.
-**Ce qu'on perd :** le temps et le combustible de l'ébullition quotidienne, et la marge
-d'une réserve faite d'avance.
+Chez les Naskapis de l'Ungava, le caribou faisait l'essentiel des repas. Sans lui, ils se disaient affamés, même avec
+du lagopède et du poisson en abondance. La moelle des os longs était la partie la plus recherchée de la bête : les
+années d'abondance, on abattait souvent des caribous pour leur moelle seule (scénario 2).
 
-**La chaleur : rétrécir avant de chauffer.** Une pièce, la plus petite, celle qui contient
-le poêle. Les autres se ferment. Les fentes se bouchent avec des couvertures, des
-vêtements, des serviettes roulées au bas des portes. On rétrécit encore dans la pièce :
-une couverture tendue du plafond autour du matelas, ou une table recouverte de couvertures
-jusqu'au sol, font un volume à la taille des corps qui le chauffent, et la pièce n'a plus
-besoin d'être chaude. La fenêtre du côté du vent se double d'une feuille de plastique
-fixée au ruban, avec une lame d'air entre les deux : l'air immobile isole. Un bâtiment
-sans appareil à combustion se ferme et refroidit, et la question devient celle du ch. 2.
-Les degrés perdus par jour, lus au thermomètre, décident du moment où on part.
+### Les piles au froid
 
-**La masse qui garde la chaleur.** La nuit, après que le poêle s'est éteint, la chaleur
-vient de ce qui l'a emmagasinée : des pierres sèches posées sur le dessus du poêle, un fer
-de fonte, des bouteilles et des bidons d'eau rangés autour. Pierres et fonte se sortent
-avec des pinces et se roulent dans une couverture au pied du lit ; les contenants d'eau
-restent sur place et rendent leur chaleur toute la nuit. Une pierre ramassée dans un lit
-de ruisseau ou sous la neige garde de l'eau dans ses fissures et peut éclater en
-chauffant : on ne monte sur le poêle que des pierres gardées au sec depuis des jours. Un
-contenant fermé chauffé au poêle monte en pression : on desserre le bouchon avant de le
-poser. **Ce qu'on perd :** l'intimité, et la tuyauterie des pièces non chauffées, qu'il
-faut vidanger tout de suite si le sinistre dure.
+Une pile alcaline AA fonctionne jusqu'à −18 °C ; une pile au lithium, jusqu'à −40 °C. Dans la lampe de la trousse de
+l'auto, qui passe l'hiver au froid, mettre des piles au lithium (scénario 9).
 
-**La lumière avec ce qui traîne.** La lampe à gras se monte en trois minutes et éclaire
-tant qu'il reste du gras : un contenant de métal ou de verre épais qui ne casse pas à la
-chaleur, du gras fondu, de l'huile de cuisson ou de la graisse de bête (ch. 112), et une
-mèche de coton (une lanière de guenille roulée serré, un lacet de botte, une ficelle). La
-mèche trempe dans le gras et ne dépasse presque pas : la longueur hors du liquide fait la
-taille de la flamme, et une mèche qui dépasse trop fume et charbonne. Un bout de fil de
-métal plié en crochet la tient au bord. Elle éclaire comme une chandelle.
+### Ce qu'on peut recongeler dégelé
 
-**Le 12 volts du véhicule.** Un véhicule stationné à côté est une réserve électrique avec
-un alternateur pour la remplir. Une ampoule de plafonnier d'auto, un ruban DEL 12 V, une
-lampe de travail de garage se pincent directement sur les bornes avec deux pinces et une
-longueur de fil, et tout ce qui se charge en USB se charge sur la prise du tableau de
-bord. C'est aussi la batterie qui démarre le moteur : on laisse tourner le moteur assez
-longtemps pour rendre ce qu'on a pris, véhicule dehors, tuyau d'échappement dégagé. On la
-surveille au voltmètre, moteur arrêté depuis six heures au moins : autour de 12,7 V, elle
-est pleine ; à 12,1 V, elle est à moitié vide. Sous 12,4 V, on fait tourner le moteur
-avant de tirer encore dessus : l'hiver, une batterie à moitié vide peut geler dès -20 °C,
-et au froid elle ne rend que la moitié de ce qu'elle a. Deux batteries montées en série
-donnent 24 V, de quoi tirer un arc de soudure (ch. 107).
-
-**Une lampe de poche qui éclaire une pièce.** Une lampe frontale sanglée autour d'un bidon
-translucide plein d'eau, faisceau vers l'intérieur, cesse d'être un pinceau et devient une
-lueur qui remplit la pièce. Une seule lampe éclaire la table pour toute la famille, et les
-piles s'usent sur une seule. **Ce qu'on perd :** la lumière portative pour aller dehors ;
-on se déplace moins la nuit.
-
-**Le CO sans avertisseur.** La protection devient mécanique. À l'intérieur, seul le poêle
-raccordé à sa cheminée brûle. Quand il tourne fort, on entrouvre une fenêtre du côté sous
-le vent dans la pièce où on dort. Personne ne dort seul dans une pièce fermée avec un
-appareil allumé : celui qui s'endort ne se réveille pas pour donner l'alerte, et le seul
-avertisseur qui reste est quelqu'un d'autre dans la même pièce. **Ce qu'on perd :** la
-détection.
-
-**La nourriture, dans l'ordre inverse de sa durée.** Le frigo se mange en premier, le
-congélateur ensuite, le garde-manger en dernier, avec la règle des 2 heures du
-scénario 1. Les boîtes s'ouvrent sans ouvre-boîte en frottant le dessus, à l'envers, sur
-une pierre plate ou du béton jusqu'à user le serti ; quand un liseré humide apparaît, on
-pince les côtés et le couvercle se lève.
-
-**Le froid dehors, en hiver, aux deux endroits.** Une caisse de bois ou de plastique,
-couvercle lesté, posée du côté nord et enterrée dans la neige. La neige tassée par-dessus
-garde le contenu gelé au premier redoux, pour qu'il ne dégèle pas puis regèle. En ville,
-on protège la caisse des chiens et des corneilles ; au chalet, de toutes les bêtes :
-suspendue ou lestée lourd. Quand le stock dépasse ce que le dehors peut garder, on cuit et
-on fond : la viande cuite se garde mieux que la crue, et le gras fondu se garde beaucoup
-plus longtemps que la bête dont il vient (ch. 72). **Ce qu'on perd :** la variété d'abord,
-l'équilibre ensuite. Une réserve improvisée est presque toujours pauvre en gras, ce qui
-ramène au mal de caribou.
-
-**Le sang qui coule sans trousse.** La pression directe se fait avec le tissu le plus
-propre à portée, à pleine main, sans soulever pour regarder : soulever défait le caillot
-qui commence. Si la pression ne suffit pas, le garrot s'improvise avec une sangle large :
-ceinture de nylon, sangle à cliquet, bretelle de sac. Une corde, un fil ou un lacet
-coupent au lieu de serrer. On passe la sangle au-dessus de la plaie, on y glisse un bâton
-solide, on tourne jusqu'à ce que le saignement arrête, et on bloque le bâton en
-l'attachant pour qu'il ne se dévire pas. On écrit l'heure de pose sur la peau du blessé,
-au crayon, au feutre ou au charbon. Un garrot posé ne se desserre pas pour voir. Le reste
-est au ch. 26. **Ce qu'on perd :** le stérile. Une plaie refermée avec ce qu'on a
-s'infecte plus souvent, et l'infection devient le problème du jour 3.
-
-**Le lien, et le fait d'être trouvé.** Sans radio à piles, le récepteur du véhicule sert,
-moteur éteint, par tranches courtes. Pour être vu : les feux de détresse, les phares
-allumés par tranches, le klaxon, un miroir ou un morceau de chrome orienté au soleil, un
-feu de branches vertes qui fume le jour et éclaire la nuit, un grand X piétiné dans la
-neige d'une clairière.
-
-**Ce qui ne se remplace pas.** L'avertisseur de CO. Les médicaments d'ordonnance. Le
-thermomètre à sonde : 74 °C à cœur ne se juge ni à l'œil ni à la couleur du jus. Et
-l'avis de départ, donné avant la route.
-
-**Ce qu'on perd :** des heures de travail par jour à des gens qui auraient pu dormir, et
-toute marge pour un deuxième problème par-dessus le premier.
+Le pain, les fromages fermes et les jus de fruits peuvent retourner au congélateur même complètement dégelés : ils
+risquent peu. La règle des 4 °C du scénario 8 vaut pour la viande, le poisson, le lait et les œufs.

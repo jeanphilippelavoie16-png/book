@@ -770,3 +770,170 @@ logigramme `images/logigrammes/10-eau.json` n'est pas touché (ses renvois sont 
 | Trop lavé, le sable laisse passer l'eau trop vite et filtre mal. | Un sable trop lavé laisse passer l'eau trop vite et filtre mal. |
 | - **Une bougie de céramique colmatée.** | - **Une bougie de céramique bouchée.** |
 | \| Laver les légumes et les fruits qui se mangent crus \| | \| Laver les légumes et les fruits qu'on mange crus \| |
+
+## Notes En plus, 19 octobre 2026
+
+Rôle 2, rédacteur. Brief : ajouter la section non numérotée « En plus » (4 à 8 notes, 30 à 80 mots, l'étape entre
+parenthèses ; la façon d'une nation du Nord, un fait, une photo pour reconnaître ; jamais de planche ni de redite) et
+vérifier les règles du cadre ajoutées le 18 octobre. Lu au complet : `.claude/cadre-agents.md`, `CLAUDE.md`, le skill
+`ecriture`, `gabarit-chapitre.md`, `roles.md`, les ch. 4 et 12 et leurs fiches, `plan/dangers-inventaire.md`
+(sections 1 et 3), `dangers/partie-1.md` et `partie-2.md`, `plan/premieres-minutes-inventaire.md`, la section
+« PAUSE du 15 octobre » de `suivi/plan-de-match.md`.
+
+**Aucune source nouvelle cherchée sur le web** (JP, 19 octobre 2026 : « fuck les sources, on a pas déjà fait ce
+travail-là ? »). Les six notes sont bâties sur des pages déjà enregistrées au dossier par d'autres chapitres, et les
+deux photos sur des fichiers déjà téléchargés, licence relue au téléchargement. Les extraits exacts, note par note,
+sont regroupés dans `sources/10-en-plus-notes-2026-10-19.md`. Rien d'autre du chapitre n'a bougé : section ajoutée
+après « Ce qu'on perd », fichier gardé en LF, aucune étape renumérotée.
+
+### Les six notes
+
+Comptes : mots et nombres, sans les deux-points ni les points-virgules.
+
+| Note | Genre | Étape | Mots | Faits imprimés | Provenance |
+| --- | --- | --- | ---: | --- | --- |
+| La sève de bouleau, en mai | La façon des Dénés de Fisherman Lake (T.N.-O.) | 1 (et ch. 94) | 76 | En mai, avant les feuilles ; entaille ; panier d'écorce ; bue. Pourquoi elle marche : presque toute de l'eau, 0,8 à 1,5 % de sucre. Ce qui la rend dangereuse : elle se gâte vite ; sous 5 °C, six jours au plus ; jetée si elle n'est plus claire | Kuhnlein et Turner, FAO (`autochtones/kuhnlein-turner-…`, l. 804) ; UAF FNH-00150 (`60-uaf-entaillage-bouleau.md`, texte intégral l. 88 à 97) |
+| Reconnaître un étang de castor | Photo | 2 | 72 | Le barrage retient l'eau en étang, parfois sur une grande étendue ; hutte au milieu de l'étang ou sur la berge ; souches taillées en pointe, traces de dents, gros copeaux ; bâtons écorcés dans l'eau ou sur le bord ; l'orignal y mange l'été les plantes sous l'eau | USDA PNW-GTR-332 (`35c-usda-fs-pnw-gtr-332-…`) ; HWW castor (`46-hww-castor-biologie.md`) et rat musqué (`43b-hww-rat-musque-texte.txt`, l. 111) ; NPS Isle Royale (`35d-agences-us-orignal-…`, section 5) |
+| Le seau d'épinette des Naskapis | La façon des Naskapis (Ungava) | 7 | 80 | Planches d'épinette ou de mélèze d'environ 8 mm (un tiers de pouce) ; vapeur ; pliées en rond, bouts qui chevauchent ; cousues de racines fendues ; fond creusé en plat dans une rainure près du bord du bas. Pourquoi elle marche : la vapeur rend le bois environ dix fois plus souple que du bois sec non chauffé. Aucun danger : la façon ne contredit aucune règle du livre | Turner 1894 (`autochtones/turner-1894-…`, l. 6045 à 6056) ; USDA AH125 (`20b-usda-ah125-cintrer-le-bois-massif.md`) |
+| Le manganèse et l'arsenic du roc | Fait | 27 | 74 | Présents naturellement dans le sol et la roche, dissous par l'eau souterraine : un puits loin de toute pollution peut en contenir. Plusieurs études ont associé une eau à 0,02 à 0,8 mg/L de manganèse, bue longtemps, à des effets subcliniques chez l'enfant (QI, mémoire, comportement, résultats scolaires, habileté des mains) | Dépliant du ministère de l'Environnement (`10-melccfp-ebullition-concentre-contaminants-chimiques.md`) ; INSPQ, fiche Manganèse (`13-quebec-manganese.md`, source 2) |
+| Le rat musqué sous la glace | Photo | 2 et 36 | 77 | Hutte : tas de quenouilles et de joncs séchés mêlés de boue, 0,5 à 1 m, dans un marais. Peu après le gel, trous dans la glace des baies jusqu'à 90 m de la hutte, recouverts de boue et de plantes ; il vit sous la glace l'hiver | HWW rat musqué (`49-hww-rat-musque-et-marmotte-biologie.md` ; `43b-hww-rat-musque-texte.txt`, l. 81, 85, 87, 99) |
+| Ce que retient le filtre à sable | Fait | section 7, « Le filtre à sable » | 71 | Sans film vivant, 30 à 70 % des microbes retenus (pris entre les grains ou collés à leur surface) ; avec le film, jusqu'à 99 % ; quelques jours d'adaptation quand l'eau change, donc toujours la même source | CAWST 2009 (`13-cawst-couche-biologique-filtre-a-sable.md`) |
+
+Rien de ces six notes n'est dit dans le chapitre : l'étape 2 nomme le castor, le rat musqué et l'orignal sans dire
+comment reconnaître leurs étangs et leurs huttes (la photo de la hutte de castor, déjà posée, n'est pas redite) ;
+l'étape 27 donne les valeurs, pas l'origine ni les effets ; « Le film vivant » de la section 7 dit qu'il fait le
+travail, sans chiffre ; le *Giardia* du rat musqué n'est pas redit (étape 2).
+
+**Ce qui a été coupé au resserrement** (pour tenir sous 80 mots) : la sève « doit être claire et goûter l'eau à peine
+sucrée » (gardé : « la jeter si elle n'est plus claire ») ; le seau « en rond ou en ovale », « des mêmes arbres »,
+« minces », « à la température de la pièce » (devient « non chauffé ») ; le rat musqué « au bord d'un lac »,
+« compact ». « Un petit tas […] veut donc dire qu'un rat musqué vit dessous » (une chose qui parle) devient « Quand
+on voit un petit tas de plantes sur la glace d'une baie, un rat musqué vit dessous ».
+
+**La façon des Dénés, et pas des Cris.** La FAO nomme les Cris des bois parmi les nations qui recueillaient la sève,
+mais la façon décrite (mai, rabat en V, panier, sève bue ou mise dans la soupe) est celle des Esclaves de Fisherman
+Lake (Lamont 1977), c'est-à-dire des Dénés. Les Cris des bois en faisaient du sirop. La note ne nomme que les Dénés.
+
+### Les deux photos
+
+| Fichier | Fait à partir de | Ce qu'on a fait | Taille |
+| --- | --- | --- | --- |
+| `images/extras/10-etang-castor.jpg` | `images/photos/manquantes/10-barrage-castor.jpg` (USFWS, domaine public) | Photo entière, ramenée à 1 500 px de haut, sans recadrage ni retouche | 2 247 × 1 500 |
+| `images/extras/10-hutte-rat-musque.jpg` | `images/photos/35c/35c-35-rat-musque-hutte.jpg` (Игорь Орлов, CC BY 3.0) | Recadrée en 3 × 2 sur la hutte (boîte 360, 450, 3360, 2450 sur l'original de 3 840 × 2 880), ce qui laisse hors du cadre l'horodatage orange du bas ; ramenée à 2 250 × 1 500 ; aucune autre retouche | 2 250 × 1 500 |
+
+Fait au PIL (`Image.LANCZOS`, JPEG qualité 88). Regardées à l'écran : le barrage de branches au premier plan, l'étang
+derrière ; la hutte enneigée dans un marais de quenouilles gelé. Pas de copie dans `images/extras/originaux/` : les
+originaux sont déjà au dossier, aux chemins ci-dessus. La photo du rat musqué sert aussi au ch. 43 (même fichier).
+La photo du barrage est celle que les placements du 29 septembre avaient laissée de côté (« le chapitre ne parle pas
+de barrage ») : la note lui donne sa place.
+
+**Crédits à ajouter à `images/credits.md`** (je n'y ai pas touché, fichier commun) : rendus à l'orchestrateur, section
+« Notes « En plus » du chapitre 10 ».
+
+### Lecture par le moteur
+
+`extras_html` de `build_chapitre.py` lit six notes, dont deux avec photo (`extra ximg`) ; étapes relevées : 1 ; 2 ; 7 ;
+27 ; 2 et 36 ; aucune pour le filtre à sable (renvoi de section seulement).
+
+**Montage d'essai** (`assembler-tome.py 1 --chapitres 10 --hors-ligne --sortie` dans le scratchpad ; rien dans
+`livre/`) : 21 pages de chapitre, ouverture à gauche. Cinq notes posées, une par page : la sève p. 10-1 (sous
+« Quand l'utiliser »), l'étang de castor p. 10-2 (à côté du Matériel, avant le logigramme), le manganèse p. 10-9
+(après l'étape 26), le rat musqué p. 10-12 (après l'étape 49), le filtre à sable p. 10-21 (sous « Réparer plutôt que
+remplacer »). **Le seau d'épinette ne trouve pas de page** (« sans trou où se poser ») : il reste dans la réserve.
+Aucune note ne touche le pied de page (regardé à l'image). Les deux avertissements « page à moitié vide » (p. 10-2
+et 10-9) ne viennent pas des notes : le moteur les pose dans des pages qui se ferment de toute façon.
+
+**Une planche loin de son appel, dans cet essai** (pas causé par les notes ; au metteur en pages) : 10-07 (pleine
+page) et 10-03 sont appelées toutes deux p. 10-18 ; 10-07 tombe p. 10-19, 10-03 p. 10-20, soit deux pages après son
+appel. À revoir au montage du tome, où le côté d'ouverture peut changer la coupe.
+
+### Les règles du 18 octobre, vérifiées sur tout le chapitre
+
+- **Série orange** : aucune, et c'est juste (`plan/premieres-minutes-inventaire.md` : « l'avis d'ébullition n'est pas
+  une affaire de minutes » ; refonte du 18 octobre, plus haut). Rien à mettre en tête de la section 4.
+- **Logigramme** juste après le Matériel (ancre « **Filtre à 1 µm ou moins** ») ; la procédure vient après lui (essai :
+  double page p. 10-3 et 10-4, l'étape 1 p. 10-5).
+- **Pictogrammes** : douze poses, chacune au début de la phrase de l'étape où le danger se présente, ids tous dans la
+  section 1 de l'inventaire : `selles` (étapes 2 et 19), `generatrice` (6), `chimie` (20 ; hypochlorite ; électrolyse),
+  `poison` (27), `glace` (36), `froid` (40), `plomb` (48), `co`, `pas-au-feu`, `projection`, `incendie`, `vapeurs`
+  (section 7). Aucun dans les notes En plus.
+- **Planches appelées** : 10-01 (étapes 8 et 14), 10-08 (étape 10), 10-02 (la buse), 10-07 (le filtre à sable),
+  10-03 (l'alambic), chacune une fois par phrase ; chaque ancre est un début de paragraphe unique (contrôle : aucune
+  ancre introuvable). La photo de la hutte de castor reste ancrée à l'étape 2.
+- **Inventaire des dangers à mettre à jour** (fichiers communs, pas touchés) : la ligne du ch. 10 de la section 3
+  donne encore les étapes d'avant la refonte (5, 1 ou 11, 10 et 16, 25, 42, 43), et la colonne « Chapitres » de la
+  section 1 n'a pas le 10 pour `vapeurs`, `incendie`, `pas-au-feu`, `projection`, `froid` et `glace` (déjà noté le
+  18 octobre). Le texte exact est rendu à l'orchestrateur, avec les lignes « Où il revient » des pages des dangers
+  qui ne nomment pas le ch. 10 (`co`, `generatrice`, `vapeurs`, `incendie`, `pas-au-feu`, `projection`, `froid`,
+  `glace`).
+
+### controle.py
+
+9 289 mots (8 764 avant les notes) ; 2 tirets (titre et ligne de tome, comme avant) ; 0 « § » ; 0 mot banni ; aucune
+tournure, maxime, pronominal ni mise en relief signalé dans la section En plus. Deux mots vides signalés dans les notes,
+jugés : « presque toute de l'eau » et « loin de toute pollution » (le mot porte le fait). Aucune redite nouvelle.
+Invariants contre la version d'avant les notes : rien n'a disparu.
+
+### Pistes regardées et non retenues
+
+- **La vieille glace de mer** (NSIDC, `13-nsidc-glace-de-mer-saumure.md` : la glace de plusieurs années est presque
+  douce, les expéditions polaires en tirent leur eau) : vrai, mais il n'y a pas de glace de plusieurs années devant la
+  Côte-Nord, et le reste redit « Dessaler par le gel ».
+- **Bouillir dans la panse d'une bête** (Speth 2015, qui cite Skinner sur les Cris) : la source nomme la façon sans la
+  décrire ; il aurait fallu une page nouvelle.
+- **La marmite de pierre à savon et les seaux de peau de phoque des Inuits** (Turner 1894, l. 3074 à 3108) : les
+  pierres chaudes sont déjà dans la section 7.
+- **Le thé du Labrador** (`34n-the-du-labrador-toxicite-et-usage.md`) : c'est le ch. 34.
+- **Reconnaître une chaudière galvanisée** (photo `images/photos/60/13-chaudiere-galvanisee.jpg`, CC BY-SA 3.0) : aucune
+  source au dossier ne dit à quoi on reconnaît le zinc ; le texte aurait été sans source.
+
+## Corrections après la vérification technique, 19 octobre 2026
+
+Rôle 2, rédacteur. Le vérificateur technique a relu la section « En plus » (trois points). **Aucune source nouvelle
+cherchée** (JP, 19 octobre 2026 : « fuck les sources, on a pas déjà fait ce travail-là ? ») : les trois points se
+règlent avec les pages déjà au dossier, relues ici aux lignes que le vérificateur cite. Les trois sont appliqués ;
+aucun n'est écarté.
+
+### 1. Le manganèse (erreur) : appliqué
+
+- **La note « Le manganèse et l'arsenic du roc ».** « une eau qui contient de 0,02 à 0,8 mg/L » devient « une eau qui
+  contient **en moyenne** de 0,02 à 0,8 mg/L ». Relu dans `sources/13-quebec-manganese.md`, source 2 (INSPQ, fiche
+  Manganèse) : « concentrations **moyennes** dans l'eau potable : 20 – 800 µg/L ». Sans le mot, la note se lisait
+  comme si une eau à 0,02 mg/L était liée aux effets chez l'enfant. 76 mots.
+- **Section 6, ligne « Taches noires sur la lessive et la porcelaine ».** L'action « Faire analyser l'eau ; à ce
+  niveau, le manganèse tache, sans danger pour la santé » devient « Faire analyser l'eau, et comparer le résultat aux
+  cibles de la section 5 pour la santé (0,06 et 0,12 mg/L) ». « Sans danger pour la santé » à 0,02 mg/L n'a pas de
+  source : le tableau « Trois seuils » de `sources/13-quebec-manganese.md` donne 0,02 mg/L comme objectif esthétique
+  (les taches), et les valeurs de santé à 0,06 mg/L (le bébé au biberon) et 0,12 mg/L. Écart de forme avec la
+  correction proposée (« Faire analyser l'eau ; à ce niveau, le manganèse tache ; pour la santé, comparer aux cibles
+  de la section 5 (0,06 et 0,12 mg/L) ») : « à ce niveau, le manganèse tache » redisait l'observation de la même
+  ligne (« Taches noires sur la lessive »), et trois morceaux entre points-virgules se lisaient en code (règle 0).
+  Le fond est le même : plus de « sans danger », renvoi aux deux cibles de santé.
+- Ce qui ne bouge pas : la section 5 (« taches sur la lessive dès 0,02 mg/L » ; cibles 0,06 et 0,12 mg/L), déjà juste.
+  Aucun autre chapitre ni le logigramme ne disent « sans danger » pour le manganèse (grep).
+
+### 2. Le rat musqué (à préciser) : appliqué
+
+« Quand on voit un petit tas de plantes sur la glace d'une baie, un rat musqué vit dessous (étape 36). » devient « Un
+petit tas de plantes posé sur la glace d'une baie couvre donc un de ces trous (étape 36). » Relu dans
+`sources/43b-hww-rat-musque-texte.txt` : l. 87, le rat musqué recouvre le trou de boue et de végétaux (la « cloche »)
+et « vient s'y reposer ou y manger » quand il sort sous la glace ; l. 99, la glace le confine « à sa hutte (ou
+terrier) ». Il ne vit donc pas sous le petit tas. Ce qui sert à l'étape 36 (`{!glace}`), c'est que la glace est
+ouverte dessous ; la note le dit maintenant. 76 mots. Le titre « Le rat musqué sous la glace » reste : la note parle
+toujours de ce qu'il fait l'hiver sous la glace. D'accord avec le ch. 43 (trous gardés ouverts jusqu'à 90 m de la
+hutte) ; `dangers/partie-1.md` ne parle que de la glace mince autour d'une hutte de castor, et la note ne la contredit pas.
+
+### 3. Les crédits des deux photos (à préciser) : rendu à l'orchestrateur
+
+`images/credits.md` est un fichier commun : je n'y touche pas. La section à ajouter, au mot près, est rendue à
+l'orchestrateur (« ## Notes « En plus » du chapitre 10 (19 octobre 2026) », deux lignes). Licences relues :
+`images/photos/registre-manquantes.md`, l. 43 (USFWS, Courtney Celley, domaine public) ; `images/photos/registre-35c.md`,
+l. 71 (Игорь Орлов, CC BY 3.0). La ligne de la hutte de rat musqué nomme l'auteur et dit la modification (recadrée,
+réduite), comme la CC BY 3.0 le demande. Tailles relues sur les fichiers : 2 247 × 1 500 et 2 250 × 1 500.
+
+### controle.py
+
+9 295 mots (9 289 avant ces corrections) ; 2 tirets (titre et ligne de tome, comme avant) ; 0 « § » ; 0 mot banni.
+Aucun avis nouveau dans les trois lignes touchées ; les avis restants sont ceux déjà jugés aux passes d'avant.
+Invariants contre la version d'avant ces corrections : rien n'a disparu. Aucune étape renumérotée, aucune ancre
+touchée.

@@ -359,7 +359,7 @@ jamais la désinfection.
 | Diarrhée qui commence de 3 à 25 jours après avoir bu, le plus souvent de 7 à 10 jours | Giardiase (*Giardia*) | Soigner et réhydrater (ch. 26). Chercher le castor ou le rat musqué en amont (ch. 50). Passer à l'ébullition |
 | Diarrhée alors que l'eau a été chlorée comme il faut | *Cryptosporidium* | Faire bouillir, ou passer au filtre à 1 µm |
 | Eau claire au robinet qui brunit après quelques minutes à l'air | Fer ou manganèse dissous, qui s'oxyde | Faire faire une analyse chimique ; comparer à 0,12 mg/L pour le manganèse |
-| Taches noires sur la lessive et la porcelaine | Manganèse au-dessus de 0,02 mg/L | Faire analyser l'eau ; à ce niveau, le manganèse tache, sans danger pour la santé |
+| Taches noires sur la lessive et la porcelaine | Manganèse au-dessus de 0,02 mg/L | Faire analyser l'eau, et comparer le résultat aux cibles de la section 5 pour la santé (0,06 et 0,12 mg/L) |
 | Goût salé | Eau salée entrée dans le puits, ou sel de déglaçage | Alambic, osmose inverse ou une autre source |
 | Filtre à 1 µm bouché en quelques jours | Eau trop trouble avant le filtre | Laisser reposer l'eau plus longtemps et la passer au coton. Récurer la bougie de céramique (le cylindre qui filtre) ; rincer la cartouche plissée à l'envers (section 7) |
 | Filtre de céramique qui coule beaucoup plus vite qu'avant, sans qu'on l'ait nettoyé | Fêlure, souvent invisible : l'eau passe par la fente sans être filtrée | Changer la bougie, et aussi quand on y voit une fêlure |
@@ -587,3 +587,54 @@ l'été.
  déshydrate (ch. 39 et 40).
 - **La marge d'erreur.** Quand on traite l'eau de deux façons, l'une rattrape une erreur sur l'autre. Avec une seule
  façon, une ébullition trop courte rend malades toutes les personnes qui boivent l'eau.
+
+---
+
+## En plus
+
+### La sève de bouleau, en mai
+
+En mai, avant que les feuilles sortent, les Dénés de Fisherman Lake, dans les Territoires du Nord-Ouest, entaillaient
+le bouleau à papier et recueillaient la sève dans un panier d'écorce, pour la boire. La sève est presque toute de
+l'eau, avec 0,8 à 1,5 % de sucre. Elle se gâte vite : la garder sous 5 °C, la boire en six jours au plus, et la jeter
+si elle n'est plus claire (étape 1 ; entailler : ch. 94).
+
+### Reconnaître un étang de castor
+
+![Un barrage de castor, au premier plan, et l'étang qu'il retient](images/extras/10-etang-castor.jpg)
+
+Le barrage du castor retient l'eau d'un cours d'eau en étang, parfois sur une grande étendue, et sa hutte est au
+milieu de l'étang ou sur la berge. Autour, on trouve des souches taillées en pointe, avec des traces de dents nettes
+et de gros copeaux au pied, et des bâtons écorcés dans l'eau ou sur le bord. L'été, l'orignal vient manger
+dans l'étang les plantes qui poussent sous l'eau (étape 2).
+
+### Le seau d'épinette des Naskapis
+
+Les Naskapis de l'Ungava faisaient leurs seaux à eau avec des planches d'épinette ou de mélèze, épaisses
+d'environ 8 mm (étape 7). Ils passaient les planches à la vapeur, les pliaient en rond en faisant chevaucher les
+bouts, et les cousaient avec des racines fendues. Le fond, un morceau de bois creusé en plat, entrait dans une
+rainure taillée près du bord du bas. La vapeur rend le bois environ dix fois plus souple que du bois sec, non chauffé.
+
+### Le manganèse et l'arsenic du roc
+
+Le manganèse et l'arsenic sont présents naturellement dans le sol et la roche, et l'eau souterraine les dissout : un
+puits creusé loin de toute pollution peut donc en contenir (étape 27). Plusieurs études ont associé une eau qui
+contient en moyenne de 0,02 à 0,8 mg/L de manganèse, bue longtemps, à des effets chez l'enfant que seuls des
+tests montrent : sur le quotient intellectuel, la mémoire, le comportement, les résultats à l'école et l'habileté
+des mains.
+
+### Le rat musqué sous la glace
+
+![Une hutte de rat musqué dans un marais de quenouilles gelé](images/extras/10-hutte-rat-musque.jpg)
+
+Dans un marais, un tas de quenouilles et de joncs séchés mêlés de boue, haut de 0,5 à 1 m, est une hutte de rat
+musqué (étape 2). Peu après le gel, le rat musqué ronge des trous dans la glace des baies, jusqu'à 90 m de sa hutte,
+et les recouvre de boue et de plantes. Un petit tas de plantes posé sur la glace d'une baie couvre donc un de ces
+trous (étape 36).
+
+### Ce que retient le filtre à sable
+
+Sans son film vivant, le sable retient de 30 à 70 % des microbes qui rendent malade : ils restent pris entre les
+grains ou collés à leur surface. Quand le film est formé, le filtre en retient jusqu'à 99 %. Quand on change de
+source d'eau, le film met plusieurs jours à s'adapter : il faut donc toujours remplir le filtre à la même source
+(section 7, « Le filtre à sable »).

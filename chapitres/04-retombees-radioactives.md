@@ -188,18 +188,17 @@ y rester 24 à 48 heures, protéger la thyroïde avec des comprimés d'iode, pui
  moteur) et l'éliminer. Éteindre la lampe à l'huile, le fanal, le réchaud, la chaufferette au propane et les
  chandelles. Arrêter le moteur qui tourne dans le garage ou près de la maison. Mettre dehors ce qui brûle et qu'on
  ne peut pas éteindre, comme un barbecue au charbon de bois.
- - {!espace-clos} Au caveau, où rien ne brûle, chercher d'abord du côté de l'air : les légumes et les gens y font
- du gaz carbonique et y consomment l'oxygène, et l'avertisseur de CO ne détecte ni le gaz carbonique ni le manque
- d'oxygène. Des gens qui respirent vite, dont le cœur s'emballe, ou qui deviennent maladroits ou fatigués manquent
- d'oxygène. Enlever les bouchons des deux conduits du caveau et aérer tout de suite (section 7).
+ - {!espace-clos} Au caveau, où rien ne brûle, penser d'abord à l'air qui manque : les légumes et les gens y font
+ du gaz carbonique et consomment l'oxygène, et l'avertisseur de CO ne détecte ni le gaz carbonique ni le manque
+ d'oxygène. Enlever les bouchons des deux conduits d'aération du caveau et l'aérer tout de suite (section 7).
  - Si de la fumée revient dans la maison, ou si rien d'autre ne brûle, la source est sans doute le poêle à bois :
  quand le feu tombe en braise, le poêle peut refouler du monoxyde avec peu de fumée. Remboîter le tuyau s'il s'est
  déboîté, ouvrir une entrée d'air au même étage que le poêle (section 6) et relancer une flamme claire avec du
- petit bois sec. Ne pas fermer l'arrivée d'air du poêle ni la clé du tuyau pour éteindre le feu : un feu qui manque
- d'air couve, et sa fumée peut fuir dans la maison même quand la porte du poêle est fermée. Si la fumée continue,
+ petit bois sec. Ne pas fermer l'arrivée d'air du poêle ni la clé du tuyau pour éteindre le feu : le feu se met
+ alors à couver, et sa fumée peut fuir dans la maison même quand la porte du poêle est fermée. Si la fumée continue,
  ou si le chiffre affiché par l'avertisseur ne baisse pas, sortir la braise dans une chaudière de métal et mettre
  la chaudière dehors : le feu est éteint quand il ne reste plus une braise rouge dans le poêle.
- - Ensuite, décider selon la situation s'il faut sortir à l'air libre, ou rester à l'intérieur, en ouvrant la
+ - Ensuite, selon la situation, décider s'il faut sortir à l'air libre, ou rester à l'intérieur en ouvrant la
  pièce d'abri sur le reste de la maison et en l'aérant avec la pompe à volets ou l'éventail (section 7).
  - Ce qui pousse à sortir : on ne trouve pas la source, ou on ne peut pas l'éliminer ; le chiffre affiché par
  l'avertisseur ne baisse pas une fois la source éliminée et la pièce ouverte ; l'abri est une maison de bois sans
@@ -208,10 +207,9 @@ y rester 24 à 48 heures, protéger la thyroïde avec des comprimés d'iode, pui
  Pour sortir, se couvrir le nez et la bouche d'un linge. Rentrer dès que l'abri a été aéré et que l'avertisseur ne
  sonne plus et n'affiche plus de chiffre ; en rentrant, enlever ses vêtements du dessus et se laver dans le coin
  de l'entrée (étape 20).
- - Ce qui pousse à rester : après une détonation, les retombées sont arrivées depuis peu, et dehors, on reçoit le
- plus de rayonnement pendant les premières heures, environ dix fois plus à la première heure après l'explosion
- qu'à la septième (étape 4) ; le panache passe encore, et dans la maison fermée, on respire beaucoup moins d'iode
- radioactif que dehors, ce qui compte surtout pour les personnes qui n'ont pas pris de comprimé d'iode (étape 12 ;
+ - Ce qui pousse à rester : les retombées d'une détonation sont arrivées depuis peu, et à la première heure après
+ l'explosion, le rayonnement dehors est environ dix fois plus fort qu'à la septième (étape 4) ; le panache passe
+ encore, et dans la maison fermée, on respire beaucoup moins d'iode radioactif que dehors, ce qui compte surtout pour les personnes qui n'ont pas pris de comprimé d'iode (étape 12 ;
  section 7, « Sans comprimés d'iode ») ; une fois la source éliminée, tout le monde est réveillé et répond ;
  l'abri est un sous-sol ou le caveau, qui protège beaucoup (étape 8).
 19. {!generatrice} **Laisser la génératrice arrêtée tant qu'on reste à l'abri.** Pour la faire tourner dehors, à
@@ -245,11 +243,10 @@ y rester 24 à 48 heures, protéger la thyroïde avec des comprimés d'iode, pui
  visage en rentrant (ch. 31). Laver les planchers à l'eau au lieu de les balayer : le balai soulève la poussière.
  Jeter l'eau de lavage à l'égout à la maison, et loin du puits et du jardin au chalet.
 26. **Ne pas jardiner ni laisser jouer les enfants aux endroits où la pluie amène la poussière ; l'hiver, ne pas
- les laisser jouer dans la neige qui a reçu les retombées.** La pluie entraîne la poussière du toit et du terrain vers
- les gouttières et le bas des descentes de gouttière, l'endroit où l'eau tombe du toit, les fossés, les flaques et
+ les laisser jouer dans la neige qui a reçu les retombées (étape 22).** La pluie entraîne la poussière du toit et
+ du terrain vers les gouttières et le bas des descentes de gouttière, l'endroit où l'eau tombe du toit, les fossés, les flaques et
  les creux, et le pied des arbres. Le ruisseau qui coule boueux après les premières grosses pluies est le plus
- chargé : ne pas y puiser. La neige qui était au sol quand les retombées sont tombées et la neige tombée pendant le
- passage portent la poussière (étape 22).
+ chargé : ne pas y puiser.
 27. **Jeter les légumes-feuilles du jardin qui étaient dehors au passage des retombées ; laver et peler les légumes
  qui se pèlent.** Juste après le passage, la poussière est en surface, et une partie part au lavage. Les
  légumes-racines, qui étaient sous terre, sont moins exposés (ch. 95).
@@ -325,15 +322,15 @@ y rester 24 à 48 heures, protéger la thyroïde avec des comprimés d'iode, pui
 
 | Observation | Diagnostic | Action |
 | --- | --- | --- |
-| Tout est blanc après l'éclair, puis une tache sombre reste dans la vue | Éblouissement par l'éclair | Attendre de voir clair pour conduire ou traverser une route (étape 3). Une tache aveugle qui ne part pas est une brûlure de la rétine, qui reste |
+| Tout est blanc après l'éclair, puis une tache sombre reste dans la vue | Éblouissement par l'éclair | Attendre de voir clair pour conduire ou traverser une route (étape 3). Une tache aveugle qui ne part pas est une brûlure de la rétine : elle ne guérit pas |
 | Peau rouge ou brûlée du côté tourné vers l'éclair, dans les minutes qui suivent | La chaleur de l'éclair | La soigner comme une brûlure (ch. 26) |
-| Poussière ou traces de pas poudreuses dans la pièce d'abri | Une ouverture mal bouchée, ou quelqu'un est entré avec ses vêtements du dehors | Laver à l'eau, sans balayer (étape 25). Faire passer les gens qui arrivent du dehors par le coin de l'entrée (étape 20). Passer dans la pièce voisine la mieux protégée |
+| Poussière ou traces de pas poudreuses dans la pièce d'abri | Une ouverture mal bouchée, ou quelqu'un est entré avec ses vêtements du dehors | Laver les surfaces à l'eau, sans balayer (étape 25). Faire passer les gens qui arrivent du dehors par le coin de l'entrée (étape 20). Passer dans la pièce voisine la mieux protégée |
 | La peau démange et brûle là où la poussière est restée, puis, quelques jours plus tard, elle brûle et change de couleur | La poussière fraîche est restée des dizaines de minutes sur la peau | Laver tout de suite (étape 10). La brûlure est peu profonde, mais elle met des semaines à guérir : la garder propre |
-| Nausées, vomissements, mal de tête et étourdissements quelques heures après l'exposition | Le début d'une irradiation, ou la peur | Rester à l'abri, faire boire la personne et la faire reposer. Ces signes passent en un ou deux jours. S'ils commencent dans la demi-heure, la dose peut être mortelle. La soigner n'expose pas la personne qui la soigne |
-| Dans les deux semaines qui suivent, les cheveux tombent en touffes, de petites taches de sang apparaissent sous la peau ou dans la bouche, ou une diarrhée commence | Forte dose, pas forcément mortelle : la vie est en jeu pendant un à deux mois | La personne prend facilement une infection (ch. 35) : la faire reposer, lui donner des repas complets et garder propre l'endroit où elle est couchée |
+| Nausées, vomissements, mal de tête et étourdissements quelques heures après l'exposition | Le début d'une irradiation, ou la peur | Rester à l'abri, faire boire la personne et la faire reposer. Ces signes passent en un ou deux jours. S'ils commencent dans la demi-heure, la dose peut être mortelle. Une personne irradiée n'expose pas les gens qui la soignent |
+| Dans les deux semaines qui suivent, les cheveux tombent en touffes, de petites taches de sang apparaissent sous la peau ou dans la bouche, ou une diarrhée commence | Forte dose, pas forcément mortelle : la vie est en jeu pendant un à deux mois | La personne attrape facilement une infection (ch. 35) : la faire reposer, lui donner des repas complets et garder propre l'endroit où elle est couchée |
 | Alarme de CO, mal de tête, somnolence ou confusion chez plusieurs personnes à la fois | Monoxyde de carbone dans l'abri fermé | Faire l'étape 18 tout de suite |
 | Poêle qui tire mal, fumée qui revient dans l'abri | Le bouchage a coupé l'air du poêle | Ouvrir une entrée d'air au même étage que le poêle, du côté du vent, et tendre dessus un filtre de fournaise ou deux épaisseurs de serviette de bain |
-| Un enfant a reçu deux doses d'iode en moins de 24 heures | Une dose de trop | Ne pas le faire vomir. À partir de 4 ans, deux doses font 130 mg, la dose d'un adulte, sans danger. Écrire l'heure et la quantité sur le cadre de porte, et donner la dose suivante à l'heure prévue. Ne plus en donner à un bébé de moins d'un mois (étape 16) |
+| Un enfant a reçu deux doses d'iode en moins de 24 heures | Une dose de trop | Ne pas le faire vomir. À partir de 4 ans, deux doses font 130 mg, la dose d'un adulte : c'est sans danger. Écrire l'heure et la quantité sur le cadre de porte, et donner la dose suivante à l'heure prévue. Ne plus en donner à un bébé de moins d'un mois (étape 16) |
 | Comprimés d'iode jaunis, ou mouillés dans une plaquette ouverte | L'humidité de l'air les a abîmés | Ne pas donner un comprimé jauni : sa dose n'est plus sûre. On peut donner un comprimé intact resté dans sa plaquette fermée, même périmé : l'iodure de potassium ne se dégrade pas. S'il fond mal, l'écraser dans la boisson (étape 15) |
 | Le gibier a l'air normal, sent bon et goûte bon ; les champignons sont beaux et nombreux | Le césium ne se voit pas, ne se sent pas et ne se goûte pas | Seul le détecteur blindé de plomb d'un laboratoire peut le mesurer. Ne pas cueillir les champignons (étape 28) ; trier, faire tremper et cuire le gibier et le poisson (étapes 29 à 32) |
 
@@ -480,18 +477,18 @@ faut faire entrer l'air du dehors même pendant les retombées, en arrêtant la 
 sans électricité (planche 04-01b). Ses volets se ferment quand on tire et s'ouvrent au retour : l'air avance dans
 un seul sens.
 
-- Choisir, pour la pompe, l'ouverture par où l'air entre déjà dans la pièce (repère 1). Dans une porte, fermer le
- bas, sous la pompe, avec un cadre de bâtons couvert de plastique qu'on peut enlever vite (repère 2) : sinon, une
- partie de l'air pompé revient en arrière par le bas.
+- Choisir l'ouverture où on pendra la pompe : celle par où l'air entre déjà dans la pièce (repère 1). Si c'est une
+ porte, fermer le bas de la porte, sous la pompe, avec un cadre de bâtons couvert de plastique qu'on peut enlever
+ vite (repère 2) : sinon, une partie de l'air pompé revient en arrière par le bas.
 - Faire un cadre de lattes de 60 cm de haut, 2,5 cm plus étroit que l'ouverture : poser trois montants, un de
- chaque côté et un au milieu, et clouer les deux traverses par-dessus, sur la face qui sera tournée vers la pièce
- (repère 3).
+ chaque côté et un au milieu, et clouer par-dessus une traverse en haut et une en bas, sur la face qui sera
+ tournée vers la pièce (repère 3).
 - Doubler les trois montants : clouer une deuxième latte sur chacun, entre les deux traverses (repère 4). La face
- tournée vers la pièce devient plate, et les volets ferment bien contre elle ; le cadre
- devient assez lourd pour revenir loin, tout seul, quand on lâche la corde.
+ tournée vers la pièce devient plate, et les volets ferment bien contre elle. Plus lourd, le cadre revient loin
+ en arrière tout seul quand on lâche la corde.
 - Clouer une planche en travers du haut de l'ouverture (repère 5), et y pendre le cadre par le haut, à deux
  pentures (repère 6). Le cadre de la pompe doit passer à environ 1 cm au-dessus de la fermeture du bas, ou du bas
- de l'ouverture quand ce n'est pas une porte, et à 1 à 2,5 cm des côtés.
+ de l'ouverture quand ce n'est pas une porte, et entre 1 et 2,5 cm des côtés.
 - Tendre des ficelles d'un côté à l'autre du cadre, sur la face tournée vers la pièce, en les fixant aussi au
  montant du milieu : elles arrêtent les volets (repère 7).
 - Tailler les volets dans un grand sac à ordures, en bandes de 11,5 cm de large (repère 8). Replier un ourlet de
@@ -510,7 +507,7 @@ un seul sens.
  cadre revient seul, les volets s'ouvrent, et l'air continue d'avancer (repère 15).
 - À l'entrée d'air, tendre sur un cadre de lattes un filtre de fournaise neuf, ou deux épaisseurs de serviette de
  bain, sur la plus grande surface possible (repère 16) : un petit filtre étouffe la pompe.
-- Cette pompe suffit pour quelques personnes ; par temps froid, elle suffit pour plus de monde.
+- Cette pompe suffit pour quelques personnes, et pour plus de monde par temps froid.
 - Sans lattes ni pentures : faire le cadre et son montant du milieu avec des bâtons d'environ 3 cm liés par des
  bandes de tissu (repère 17), et le pendre à des boucles de cuir, de sangle ou de corde (repère 18).
 
@@ -539,8 +536,8 @@ de l'humidité dans la pièce fermée, et l'eau condense sur les murs froids.
 
 ### Sans eau courante ni savon
 
-Avant d'entrer, brosser à sec ses vêtements et sa peau, dos au vent, pour enlever une partie de la poussière. Couper
-aux ciseaux les cheveux qui gardent de la poussière après le brossage, sans les raser : une coupure de rasoir
+Avant d'entrer, brosser à sec ses vêtements et sa peau, dos au vent, pour enlever une partie de la poussière. Avec
+des ciseaux, couper les cheveux qui gardent de la poussière après le brossage, sans les raser : une coupure de rasoir
 laisse entrer la poussière. Pour se rincer, faire fondre sur le poêle de la neige tombée après le passage des
 retombées et ramassée sur une surface qui n'en a pas reçu, comme une bâche étendue après le passage ; sinon, prendre
 l'eau de la réserve. Jeter l'eau de lavage loin du puits, du jardin et de la porte.

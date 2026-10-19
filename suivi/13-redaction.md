@@ -404,3 +404,144 @@ section 8). Petite planche 13-11 (lentille de glace) appelée une fois, au bout 
 déjà noté) ; le [À VÉRIFIER] du vent ; la lentille de glace, le réflecteur, la mine de crayon et l'écorce de bouleau
 qui brûle humide restent sans source (sans chiffre) ; 13-10 (étape 18) et 13-07 (étape 25) sont à environ une demi-page
 l'une de l'autre : vérifier au montage qu'elles ne tombent pas sur la même page.
+
+## Refonte au gabarit final, 19 octobre 2026
+
+Commande : « Monte le reste du tome 1 final » ; le chapitre passe au gabarit à **sept sections** plus « En plus », sur
+les modèles des ch. 4 et 12. Rédacteur (rôle 2). Aucun travail de source refait sur ce qui l'était déjà (JP, 19 octobre
+2026 : « fuck les sources, on a pas déjà fait ce travail-là ? ») : tout chiffre nouveau vient d'une page déjà
+enregistrée, recopiée dans `sources/13-refonte-2026-10-19-pyramide-et-en-plus.md` ; seule la photo de l'amadouvier
+est nouvelle. Fins de ligne LF gardées (aucun CR). Rien d'autre touché que mes fichiers : le chapitre, cette fiche,
+`sources/13-refonte-2026-10-19-pyramide-et-en-plus.md`, `sources/13-inaturalist-amadouvier-2026-10-19.json`, le
+logigramme et ses rendus, `images/extras/13-amadouvier-bouleau.jpg` et son original.
+
+### Ce qui a changé
+
+- **La section 7 « DANGER » sort** ; la Variante d'urgence devient la **section 7**. Renvois internes suivis : « section
+  8 » → « section 7 » (section 2, Matériel ×2, étapes 3, 5, 28, phrase après l'étape 17, section 6). Les étapes gardent
+  leurs numéros (1 à 29) : aucun renvoi d'un autre chapitre n'est à refaire (ch. 12 : étapes 11 et 29 ; ch. 15 :
+  étapes 1 à 7 ; les autres renvoient au chapitre sans étape ni section).
+- **« Comment ça marche »** : déjà sorti le 16 octobre (section « Passe du 16 octobre 2026 (soir) » plus haut, morceau
+  par morceau : étapes 2, 10, 12, 16). Rien à déplacer aujourd'hui.
+- « ch. 11, section 9 » (étape 8, la mousse qui craque) → « ch. 11, section 7 » : la mousse qui craque est dans la
+  variante d'urgence du ch. 11, qui devient la section 7 quand le ch. 11 passe au gabarit final. **Si le ch. 11 n'est
+  pas migré dans la même passe, remettre « section 9 ».**
+- Étape 8 : la première sous-étape dit maintenant où faire le feu (dehors, ou dans un poêle raccordé à son tuyau ;
+  la tente à poêle, ch. 12) ; la deuxième prend un verbe (« Le faire à l'abri du vent… »).
+- Étape 20 : les sous-étapes deviennent des phrases (majuscule, point), pour que le pictogramme ouvre une phrase.
+- Étapes 22 et 23 : les appels de la planche 13-11 sortent (voir « Planches ») ; l'étape 23 dit avec quoi on fait le
+  point (« avec une loupe ou une des lentilles de la section 7 »).
+- Section 7, « Garder le feu » : **le feu en pyramide** ajouté comme autre façon, dehors (FM 3-05.70, § 7-17, déjà
+  enregistré, `43b-us-army-fm3-05-70-survival-2002-texte.txt`). Le paragraphe du poêle perd son mécanisme (« le feu
+  couve et le CO refoule dans la pièce ») : c'est la page `co` (« le poêle qu'on étouffe pour la nuit »).
+- Section 7, l'amadouvier : « sur un bouleau mort » → « sur le tronc d'un bouleau, mort ou vivant » (RNCan, fiche
+  183 : « sur les feuillus vivants et morts » ; `59-rncan-carie-blanche-spongieuse-amadouvier.md`). Le ch. 93 dit déjà
+  la même chose.
+- « Thuya » → « cèdre » (le mot du livre et de la page `thuyone`) dans la liste d'amadou et pour la planchette de l'arc
+  à feu ; « (le thuya) » reste une fois entre parenthèses.
+- Logigramme qb : la précision en liste devient une phrase (« Une vieille lime, un ressort ou une tête de hache, mais
+  pas un couteau inoxydable »).
+
+### Où est allé chaque bloc de l'ancienne section 7, Danger
+
+| Bloc | Où il est allé | Ce qui saute, et pourquoi |
+| --- | --- | --- |
+| 1. Le feu dans un abri fermé | Étape 8, `{!co}`, première sous-étape : le feu dehors ou dans un poêle raccordé à son tuyau (ch. 12) ; jamais dans une tente, un abri de neige, une cabane de pêche ou la cabine d'un camion, « même pour se réchauffer vite » | Densité 0,96, sans odeur ni couleur, avertisseur entre 4,4 et 37,8 °C : dans la page `co`. La génératrice : page `generatrice`, aucune génératrice dans le chapitre. « Un appentis » sort de la liste : le ch. 12 fait le feu devant l'appentis ouvert |
+| 2. Jamais d'accélérant | Étape 12, `{!vapeurs}`, dernière sous-étape : faire prendre le bois mouillé avec les copeaux en frisure et le bois gras, jamais avec de l'essence ni de l'allume-feu liquide ou en gel ; rien sur une braise ; jamais de bidon entre soi et le feu | La vapeur qui remonte jusqu'au bidon et le −43 °C : dans la page `vapeurs` |
+| (hydrogène de la batterie, déjà à l'étape 20) | Étape 20, `{!vapeurs}`, troisième sous-étape | « un gaz explosif » : la page le dit ; le bac qui éclate et l'acide restent (propres au geste) |
+| 3. La personne en hypothermie s'obstine | Étape 7, `{!froid}` : elle continue d'essayer d'allumer sans voir qu'elle doit arrêter ; l'autre adulte doit lui faire arrêter l'essai au bout de 10 minutes | 35 °C, 28 à 32,2 °C : dans la page `froid` |
+| 4. La braise ne donne aucun repère pour cuire (74 °C, trichine, ch. 52) | Nulle part | Le chapitre n'a aucune étape de cuisson ; tout le bloc est dans les pages `cuisson` (74 °C, thermomètre, couleur, os et gras, « sur un poêle à bois, on ne connaît pas la chaleur ») et `trichine`. Pas de pictogramme sans étape. À confirmer par JP (question rendue) |
+| 5. Le thuya ne va jamais dans une tisane | Section 7, « L'amadou qu'on ramasse », ligne du cèdre, `{!thuyone}` : « Le cèdre ne va jamais dans une tisane : pour la vitamine C, prendre les aiguilles de sapin baumier ou d'épinette (ch. 20) » | « La thuyone qu'il contient est toxique » : la page le dit ; le rappel du tableau de CLAUDE.md reste dit en une phrase là où on manipule le cèdre |
+
+Le poêle étouffé pour la nuit (section 7, « Garder le feu ») reçoit aussi `{!co}` : c'est là que le danger se présente
+(on garde le feu la nuit).
+
+### Pictogrammes (étape → id)
+
+| Où | Id |
+| --- | --- |
+| Étape 7 | `froid` |
+| Étape 8 | `co` |
+| Étape 12, dernière sous-étape | `vapeurs` |
+| Étape 20, troisième sous-étape | `vapeurs` |
+| Section 7, « Garder le feu », paragraphe du poêle | `co` |
+| Section 7, « L'amadou qu'on ramasse », ligne du cèdre | `thuyone` |
+
+Six pictogrammes, quatre ids, un par étape. Vérifié au montage d'essai (`build_chapitre.py`, sortie dans le
+scratchpad) : co ×2, froid ×1, vapeurs ×2, thuyone ×1. Ne portent plus le ch. 13 : `generatrice`, `cuisson`,
+`trichine` (inventaire à corriger, rendu à l'orchestrateur).
+
+### Série orange
+
+Inchangée : « Il faut un feu tout de suite, par grand froid » `{.orange 10 min}`, étapes 1 à 7, en tête de la section 4,
+juste après le logigramme. Pastille : la durée de travail fin à mains nues au-delà de laquelle il faut réchauffer les
+mains (CSST, *Travailler au froid !*, `17-cnesst-travail-au-froid.md`). Seul ajout : à l'étape 7, la phrase de
+l'ancien danger 3 (l'autre adulte fait arrêter l'essai), qui est le geste de ces 10 minutes. Le doute du 16 octobre
+reste : la pastille est le temps des mains, pas un temps compté depuis le déclencheur.
+
+### Logigramme
+
+`images/logigrammes/13-feu-sans-allumettes.json` : « section 8 » → « section 7 » (renvois et sources) ; u3 ne dit
+plus « sortir l'amadou de sous ses vêtements » (l'étape 4 ne le dit plus depuis le 16 octobre : l'amadou se ramasse
+avec le bois, étape 3) ; u2 dit « ramasser le bois et l'amadou… et de l'écorce de bouleau » ; qb, précision en
+phrase. Pastille 10 min identique à l'orange. Colonnes de droite inchangées. Rendus : `env -u TMPDIR python3
+design/outils/logigramme.py …json` (svg, pdf, png) et `… --sans-entete --svg` (`-livre.svg`) : **0 erreur, 0 avis**
+les deux fois. Ancre inchangée : « **Eau, sable ou terre** », dernier item du Matériel.
+
+### Planches
+
+- Ancres de `placements-tome-1.json` (clé « 13 ») toutes intactes et uniques, chacune en début de paragraphe :
+  13-40 (étape 10), 13-10 (étape 18), 13-07 (étape 25), 13-08 (boîte à braise), 13-09 (briquet à pierre), 13-01 (arc
+  à feu), 13-11 (lentille de glace), la photo de l'écorce et de la gomme, le logigramme.
+- **13-11 (la lentille de glace, petite planche)** : appelée seulement en section 7, là où son geste arrive (la
+  lentille se fabrique là), repères 1 à 3 au paragraphe de la lentille, puis 4 à 6 à « La cible et le geste sont ceux
+  des étapes 22 à 24 ». Avant, les étapes 22 et 23 appelaient les repères 4 à 6, pages avant l'ancre et dans l'ordre
+  inverse des repères. `controle.py` compte donc un appel de moins (3 → 2) : voulu.
+- Toutes les planches du chapitre sont encore dans `images/a-valider/` (aucune dans `validees/`) : le montage d'essai
+  n'en trouve aucune (`planches: []`). Point 23 de la pause : 13-40 à refaire depuis zéro, les autres à faire valider.
+
+### Chiffres nouveaux et leurs sources
+
+| Chiffre | Où | Source (déjà enregistrée) |
+| --- | --- | --- |
+| Trois ou quatre rangs (feu en pyramide) | Section 7, « Garder le feu » | `43b-us-army-fm3-05-70-survival-2002-texte.txt`, § 7-17 |
+| 12 000 et 3 000 coups de grattoir | En plus, étape 15 | `17-light-my-fire-tiges-ferrocerium.md` |
+| 20 cm de haut, 30 ans et plus | En plus, l'amadouvier | `59-rncan-carie-blanche-spongieuse-amadouvier.md` |
+| Plus de 5 000 ans | En plus, la pyrite | `37-wikipedia-pyrite-en.html` (3350 à 3105 av. J.-C.) |
+
+Extraits recopiés dans `sources/13-refonte-2026-10-19-pyramide-et-en-plus.md`. Disparus avec la section Danger et
+portés par les pages des dangers : 0,96 ; 4,4 et 37,8 °C ; −43 °C ; 35 °C, 28 à 32,2 °C ; 74 °C ; le renvoi au ch. 52.
+
+### `[À VÉRIFIER]`
+
+Un seul, inchangé : étape 8, le feu dont on a besoin pour se réchauffer quand le vent dépasse 20 km/h (« le plus
+petit possible, derrière une butte, un rocher ou un mur de neige, et dégager plus large autour »). Aucune source ne
+tranche entre la règle du vent et le besoin de chaleur. Le FM 3-05.70 (§ 7-6, déjà enregistré) appuie seulement le
+mur de bûches ou de pierres qui coupe le vent et arrête les étincelles ; il ne dit rien du vent fort. À lever ou à
+couper avant l'impression : question rendue à JP.
+
+### Notes « En plus » (quatre)
+
+| Note | Genre | Étape | Provenance |
+| --- | --- | --- | --- |
+| Quatre fois plus de coups avec la grosse tige | Fait | 15 | `17-light-my-fire-tiges-ferrocerium.md` (le chiffre retiré du Matériel le 27 septembre revient hors du geste) |
+| La fumée d'amadouvier contre les moustiques | Façon des Métis : pourquoi ça marche (le champignon couve sans flamme et fume), ce qui la rend dangereuse (sous une toile, ce qui couve fait du monoxyde) | Section 7 | `30-uprety-2012-fichier-additionnel-1-texte.txt` (« Fruiting body burned to repell mosquitoes and flies [Metis: 13] ») ; page `co` |
+| Reconnaître l'amadouvier | Photo | Section 7 | Texte : `59-rncan-carie-blanche-spongieuse-amadouvier.md`. Photo : iNaturalist 63794378, photo 102445923, « (c) scaup », CC BY ; `images/extras/13-amadouvier-bouleau.jpg` (original dans `extras/originaux/`), réponse de l'API dans `sources/13-inaturalist-amadouvier-2026-10-19.json` |
+| La pyrite au lieu de l'acier | Fait | Section 7 | `37-wikipedia-pyrite-en.html` |
+
+Aucune façon des Innus : aucune page déjà enregistrée ne décrit comment les Innus allumaient ou portaient le feu
+(cherché dans `16c-turner-1894-…`, `80-turner-1894-…`, les fiches Nametau, Tipatshimuna, N360 et Uprety), et la
+commande était de ne pas refaire de recherche. Trois notes renvoient à la section 7, sans numéro d'étape :
+`chapitre.js` (placerNotes) les pose alors où il y a de la place, sans les rapprocher de la variante d'urgence.
+
+### `controle.py`, avant et après
+
+| | Avant (HEAD) | Après |
+| --- | --- | --- |
+| Mots (`controle.py`) | 5 588 | 5 624 |
+| Mots (`wc -w`) | 5 497 | 5 534 |
+| Tirets | 2 (titre et ligne de tome, lus par l'assembleur) | 2 (les mêmes) |
+| « § », mots bannis, vocabulaire d'IA, tournures, maximes, pronominaux | 0 | 0 |
+| Mots vides à juger | 23 | 22 (le « tout » de l'ancien danger 1 parti ; les autres portent le sens) |
+| Redites à juger | 11 | 11 (les mêmes : un même mot pour la même chose, ou « souffler (étape 16) », un renvoi) |
+| Invariants disparus | | 0,96, 4,4, 37,8 °C, 43 °C, 35 °C, 32,2 °C, 74 °C, ch. 52, génératrice, trichinellose : la section Danger, portée par les pages `co`, `vapeurs`, `froid`, `cuisson`, `trichine`, `generatrice`. Planche 13-11 : 3 → 2 appels, voulu (« Planches ») |

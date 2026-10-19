@@ -1,5 +1,5 @@
 {
-  "_note": "Logigramme du chapitre 15 (se déplacer et le carburant), double page, fait le 18 octobre 2026 sur le chapitre réécrit à huit sections, sur le modèle des 13 et 16. Page de gauche : la série orange « Quelqu'un passe à travers la glace » (étapes 1 à 10), pastille 10 min (la dizaine de minutes de mouvements utiles qui suit la première minute dans l'eau froide : Transports Canada, TP 511, sources/03-transports-canada-eau-froide.md ; Minnesota DNR, sources/20-minnesota-dnr-equipement-glace-pics.md). La fourche « Qui est dans l'eau ? » sépare se sortir soi-même et sortir quelqu'un d'autre ; les deux branches passent sur la page de droite, au réchauffement. Page de droite : la série orange « La machine s'arrête loin de tout, l'hiver » (étapes 11 à 18), pastille 30 min (le premier cycle du moteur, une dizaine de minutes par période de 30 minutes : Québec.ca, sources/19-quebec-trousse-urgence-et-auto.md). Aucun avertissement redit (ni le mécanisme du CO, ni la génératrice, ni la vapeur d'essence : ils restent dans l'étape et l'encadré danger). Rendu : env -u TMPDIR python3 design/outils/logigramme.py images/logigrammes/15-se-deplacer.json ; version du livre : --sans-entete --svg. « source » : les étapes du chapitre d'où vient chaque geste (ignoré au rendu). Se place après la section 3, Matériel.",
+  "_note": "Logigramme du chapitre 15 (se déplacer et le carburant), double page. Fait le 18 octobre 2026 ; remis d'accord le 19 octobre 2026 avec le chapitre refait au gabarit final (sept sections, plus de section Danger : les dangers sont des pictogrammes dans les étapes). Page de gauche : les deux séries orange de la glace, « On passe à travers la glace » (étapes 1 à 7) et « Quelqu'un d'autre passe à travers la glace » (étapes 8 à 10), chacune sa pastille de 10 min (la dizaine de minutes de mouvements utiles qui suit la première minute dans l'eau froide : Transports Canada, TP 511, sources/03-transports-canada-eau-froide.md ; Minnesota DNR, sources/20-minnesota-dnr-equipement-glace-pics.md). La fourche « Qui est dans l'eau ? » sépare les deux séries ; les deux branches passent sur la page de droite, au réchauffement (étapes 6 et 10). Page de droite : la série orange « La machine s'arrête loin de tout, l'hiver » (étapes 11 à 18), pastille 30 min (le premier cycle du moteur, une dizaine de minutes par période de 30 minutes : Québec.ca, sources/19-quebec-trousse-urgence-et-auto.md). Aucun avertissement redit (ni le mécanisme du CO, ni la génératrice, ni la vapeur d'essence : ils sont dans l'étape, avec leur pictogramme, et dans les pages des dangers du tome). Rendu : env -u TMPDIR python3 design/outils/logigramme.py images/logigrammes/15-se-deplacer.json ; version du livre : --sans-entete --svg. « source » : les étapes du chapitre d'où vient chaque geste (ignoré au rendu). Se place après la section 3, Matériel.",
   "format": "double",
   "tome": 1,
   "urgent": true,
@@ -115,7 +115,7 @@
       "rang": "g6",
       "ancre": "haut",
       "taille": 10,
-      "texte": "**Battre des jambes et se hisser à plat ventre**, les pics plantés près du bord, ou les bras écartés à plat.",
+      "texte": "**Battre des jambes et se hisser à plat ventre** en plantant les pics près du bord, ou, sans pics, en tirant sur les avant-bras posés à plat.",
       "renvoi": "ch. 15, étapes 3 et 5",
       "source": "étapes 3 et 5"
     },
@@ -147,9 +147,10 @@
       "rang": "g4",
       "ancre": "haut",
       "taille": 10,
-      "texte": "**Ne pas courir au trou.** Rester sur la glace qui a porté, se coucher, et lui crier de se tourner et de battre des jambes.",
+      "texte": "**Ne pas courir jusqu'au trou.** Rester sur la glace qui a porté, se coucher, et lui crier de se tourner et de battre des jambes.",
       "renvoi": "ch. 15, étape 8",
-      "source": "étape 8"
+      "source": "étape 8",
+      "temps": "10 min"
     },
     {
       "id": "o2",
@@ -158,7 +159,7 @@
       "rang": "g5",
       "ancre": "haut",
       "taille": 10,
-      "texte": "**Lui tendre ou lui lancer une corde, une perche ou des câbles**, qu'il se passe la corde sous les bras, et tirer pendant qu'il bat des jambes.",
+      "texte": "**Lui tendre ou lui lancer une corde, une perche ou des câbles**, lui faire passer la corde sous les bras, et tirer pendant qu'elle bat des jambes.",
       "renvoi": "ch. 15, étape 8",
       "source": "étape 8"
     },
@@ -169,7 +170,7 @@
       "rang": "g6",
       "ancre": "haut",
       "taille": 10,
-      "texte": "**Si rien ne l'atteint, aller le chercher couché**, en poussant le toboggan ou une échelle, attaché à une corde que tient un autre adulte.",
+      "texte": "**Si rien ne l'atteint, aller la chercher couché**, en poussant le toboggan ou une échelle, attaché à une corde que tient un autre adulte.",
       "renvoi": "ch. 15, étape 9",
       "source": "étape 9"
     },
@@ -180,7 +181,7 @@
       "rang": "d1",
       "ancre": "haut",
       "taille": 10.5,
-      "texte": "**Hors de l'eau, rester couché** : rouler loin du trou jusqu'à ses traces, ou traîner la personne qu'on a sortie, sans la remettre debout. À l'abri, des vêtements secs, un sac de couchage fermé, et la chaleur sur la poitrine et le dos.",
+      "texte": "**Hors de l'eau, rester couché** : rouler loin du trou jusqu'à ses traces, ou traîner la personne qu'on a sortie, sans la remettre debout. À l'abri, mettre des vêtements secs, se coucher dans un sac de couchage fermé, et mettre la chaleur sur la poitrine et le dos.",
       "renvoi": "ch. 15, étapes 6 et 10 ; ch. 25",
       "source": "étapes 6 et 10"
     },
@@ -232,7 +233,7 @@
       "rang": "d5",
       "ancre": "haut",
       "taille": 10,
-      "texte": "**Rester dans l'auto**, les feux de détresse allumés, tout le monde serré sous les couvertures, isolé du plancher.",
+      "texte": "**Rester dans l'auto** et allumer les feux de détresse. Se serrer sous les couvertures, sur quelque chose d'épais.",
       "renvoi": "ch. 15, étapes 14 à 16",
       "source": "étapes 14 à 16"
     },
@@ -255,8 +256,8 @@
       "ancre": "haut",
       "taille": 10,
       "texte": "**En motoneige ou en VTT, chercher la panne** et la réparer avec ce qu'on porte sur soi.",
-      "renvoi": "ch. 15, étape 18 ; section 8",
-      "source": "étape 18 ; section 8"
+      "renvoi": "ch. 15, étape 18 ; section 7",
+      "source": "étape 18 ; section 7"
     },
     {
       "id": "qn",

@@ -266,3 +266,168 @@ moins : le bois et le propane sont tirés à 10 m dans la même phrase (étape 8
 Logigramme : renvois vérifiés (« étapes 4 et 5 » pour le canot et les enfants, l'étape 6 étant la question) ;
 les trois boîtes « 1 min » reprennent les lignes de la série ; la boîte « Quand le front est passé » (étapes 20
 et 26) devient un geste, hors orange. Contrôle : 0 erreur, 0 avis.
+
+## Refonte au gabarit final, 19 octobre 2026
+
+Rédacteur (rôle 2), sur le modèle des ch. 4 et 12. Texte d'avant : `git show HEAD:chapitres/11-feu-de-foret.md`.
+JP, pour cette passe : « fuck les sources, on a pas déjà fait ce travail-là ? » Les chiffres déjà sourcés plus haut
+dans cette fiche n'ont pas été rouverts ; seul ce qui est nouveau a été cherché (le message texte, la photo).
+
+### Ce qui a changé
+
+- **Sept sections** : 1 En une ligne, 2 Quand l'utiliser, 3 Matériel, 4 Procédure, 5 Points de contrôle, 6 Signes
+  d'échec, 7 Variante d'urgence, puis « En plus ». L'ancienne section 3 (« Pourquoi ça marche ») et l'ancienne
+  section 8 (Danger) sont sorties ; où chaque bloc est allé : plus bas.
+- **Rien sous le titre que `**Les deux**`.** La note de lieu sort : l'exposition de la maison aux braises et celle du
+  chalet au front, à la fumée et au chemin unique sont dans les étapes 6 et 49 et dans la page `feu-de-foret` ; « la
+  saison de feu va du printemps à la fin de l'automne » passe en tête de « Chaque jour de la saison de feu » ; les
+  gestes de nuit gardent leur « La nuit » dans l'étape.
+- **Section 2** : seulement les situations, chacune avec ses étapes ; trois lignes ajoutées pour couvrir le chapitre
+  (la fumée qui entre, le retour, le printemps avant la saison).
+- **Les trois séries orange gardent leur place, leur titre et leur pastille** (1 h, 15 min, 1 min), en tête de la
+  procédure, juste après le logigramme. Les trois parties « … : le détail » sont entrées au complet dans l'étape
+  orange qu'elles expliquaient et ont disparu. Un sujet par série : le feu déclaré, le départ, le feu qui arrive.
+- **Les numéros d'étapes n'ont pas changé** (1 à 58) : aucun détail n'a demandé d'étape neuve, et les renvois des
+  autres chapitres et du logigramme restent bons.
+- **Consignes remises en consigne** : « tout le monde se couche », « les enfants portent », « l'autre adulte ferme…
+  il ferme », « ils jouent dehors », « les jeunes enfants évitent », « les remorques vont », « un des deux adultes
+  reste », « se traitent », « se gardent », « se tire », « ne se traverse pas » deviennent l'infinitif ou « doit ».
+- **Tournures sorties** : les trois « d'où » (« d'où vient la fumée », « d'où vient le vent », « la rive d'où vient
+  le vent ») ; « son odeur ne dit pas » ; « le vent, la pente et le chemin décident » ; la maxime de la note de bas de
+  page ; « une seule pièce bien tenue vaut mieux qu'une maison entière mal tenue » ; « le départ réussit ou il piège
+  la famille » ; « valent plus que tout le matériel de la section 4 » ; « la gravité ne donne pas un jet, elle donne
+  un filet » ; « le chargement a pris la place de la décision » (Signes d'échec) ; la phrase de cadrage qui ouvrait
+  la variante d'urgence (« ce qui est l'ordinaire d'un chalet hors réseau ») ; « Sans nouvelles du feu, on part au
+  premier signe » devient une phrase de « Lire le danger ».
+- **Redites coupées** : la chaleur qui traverse les vitres (gardée à l'étape 13, l'étape 21 y renvoie) ; les phares
+  de croisement (section 7 → étape 17, seul endroit) ; le dessous de galerie fermé (gardé à l'étape 52, avec ses
+  matériaux et le repère 3 ; le point de la section 7 sort) ; le masque d'un enfant (étape 33 ; la section 7 garde le
+  linge) ; les gilets et la pagaie (étape 4) ; les suies qui ne partent ni à l'ébullition ni à la Javel (étape 42 ; la
+  ligne des Signes d'échec y renvoie) ; la vitesse du feu, dite une fois (étape 1).
+- **Section 7 réorganisée** : « Faire de l'eau sous pression sans pompe » et « Fermer le bâtiment aux braises avec
+  ce qu'on a » deviennent une seule sous-section, « Parer le bâtiment aux braises avec ce qu'on a », dans l'ordre des
+  repères de la planche 11-03 (jute, vitres, baril, pompe de cale, évents) ; « La terre » passe dans « Au retour,
+  trouver le feu qui reste sans instrument » (« Éteindre à la terre ») ; « Ce qui ne se remplace pas » finit la
+  section. « Fabriquer les outils » garde son titre (le ch. 99 le cite). Rien de la variante n'est coupé, sauf les
+  redites ci-dessus et deux phrases déjà dans les pages des dangers (le feu de sol qui avance sans flamme, l'hiver
+  sous la neige : gardés en une phrase chacun, avec le geste).
+- **Noms latins sortis** : *Picea mariana*, *Cladonia* (cadre : pas de nom latin) ; la cladonie est expliquée à sa
+  première mention, étape 14 (« le lichen gris-blanc en tapis »).
+- **Matériel** : renvois « (→ section 9) » remplacés par l'étape et « section 7 ».
+
+### Où sont allés les blocs de l'ancien « Pourquoi ça marche »
+
+| Bloc | Où il est allé |
+| --- | --- |
+| Les braises allument les bâtiments ; le vent les porte jusqu'à 2 km ; elles prennent dans ce qui est fin, sec et aéré | « Fin, sec et aéré contre le mur » : étape 49, avec `{!feu-de-foret}`. Les 2 km : page `feu-de-foret` (dangers/partie-1.md), non redits |
+| Les gens meurent de la chaleur rayonnante ; distance, mur, auto, laine l'arrêtent | Étapes 19 (auto, laine), 24 (100 m, gros rocher) et 13 (vitres). Le mécanisme : page `feu-de-foret` |
+| L'épinette noire garde ses branches mortes jusqu'au sol ; espacer et élaguer | Étape 55 (le feu monte par les branches basses ; espacer l'empêche de passer d'une cime à l'autre). Nom latin sorti |
+
+### Où sont allés les blocs de l'ancienne section 8, Danger
+
+| Point | Où il est allé | Pictogramme |
+| --- | --- | --- |
+| 1. La fumée agit avant les flammes ; particules fines ; odeur et vue trompeuses ; l'enfant respire plus vite par kilo ; pas de N95 à sa taille | N95 de l'enfant : étape 33. Particules, odeur, vue, enfant : page `feu-de-foret`. La liste des gaz (CO, NO2, COV) sort : elle ne changeait aucun geste ; « le filtre n'arrête pas le gaz » reste en section 7 | `feu-de-foret` (33) |
+| 2. Le chemin se ferme par la fumée ; chemin unique ; auto prise sur un chemin étroit ; ne pas attendre l'odeur ni les flammes ; morts sur la route | Chemin étroit bordé de résineux : étape 6. Ne pas attendre l'odeur ni les flammes : étape 3. Morts sur la route, gens restés défendre : page. « Il réussit, ou il piège la famille » : coupé (formule) | `feu-de-foret` (6) |
+| 3. Plus de 90 % des maisons allumées par les braises ; colonne qui les soulève ; un lac ne les arrête pas ; la forêt à 50 m intacte | Fin, sec et aéré contre le mur ; le bâtiment brûle sans que les flammes du front l'aient touché : étape 49. 90 %, 2 km, par-dessus un lac : page. « À 50 m » : coupé, aucune source | `feu-de-foret` (49) |
+| 4. Bouteille de propane près d'un mur qui chauffe ; soupape ; propane plus lourd que l'air ; bidons hors du bâtiment | Soupape, 10 m, 3 m, bidons : étape 8. Densité, accumulation au sol : page `vapeurs` | `vapeurs` (8) |
+| 5. Génératrice jamais dans un bâtiment… ; 6 m ; échappement ; interrupteur principal ; le soir du retour ; plein moteur froid à la lampe | Étape 45 : jamais dans la maison, le garage, la remise ni sous un auvent (rappel de CLAUDE.md), 6 m, rallonges (ch. 3), avertisseur de CO. Échappement, plein à la lampe : page `generatrice` ; branchement : page `electrocution`. « (20 pi) » sort (impérial hors construction) ; la petite scène de la famille fatiguée sort | `generatrice` (45) |
+| 6. La chaleur tue avant la flamme ; traverse les vitres ; laine sèche, pas mouillée ; synthétique qui fond ; rester dans l'auto | Vitres : étape 13. Synthétique, laine, coton : étape 12. Laine sèche, rester dans l'auto : étape 19. Vapeur de la laine mouillée : page. Lara, 1969 : note « En plus » | `brulure` (12), `feu-de-foret` (19) |
+
+### Pictogrammes posés (étape → id)
+
+| Étape | Id | Ce qui est propre au chapitre |
+| --- | --- | --- |
+| 6 (partir dès qu'une des deux choses arrive) | `feu-de-foret` | Chemin étroit bordé de résineux : l'auto arrêtée ne peut plus avancer ni reculer |
+| 8 (dégager autour du bâtiment) | `vapeurs` | Bouteille à plus de 10 m, 3 m sans végétation ; la soupape relâche le gaz contre un mur qui chauffe ; bidons hors du bâtiment |
+| 12 (habiller les enfants) | `brulure` | Coton ou laine ; le synthétique prend feu vite et fond sur la peau |
+| 19 (dans l'auto, sous la laine) | `feu-de-foret` | Laine sèche, sous le niveau des vitres, moteur coupé quand le feu est proche ; rester dans l'auto |
+| 33 (les sorties des enfants) | `feu-de-foret` | 30, 100, 250 µg/m³ ; les N95 ne protègent pas un enfant |
+| 39 (le tour à pied au retour) | `electrocution` | Faire le tour avant d'entrer ; ne jamais marcher vers un fil tombé |
+| 40 (l'arbre brûlé) | `ecrasement` | Un tronc brûlé à la base tient jusqu'au premier vent ; le tirer à distance, hors de l'axe de chute |
+| 45 (le soir du retour) | `generatrice` | 6 m ; jamais dans la maison, le garage, la remise ni sous un auvent |
+| 49 (du mur à 1,5 m) | `feu-de-foret` | Les braises tombent dans ce qui est fin, sec et aéré contre le mur |
+| Section 7, « Tirer un arbre en travers du chemin » | `projection` | Chicot sous tension qui casse au lieu de pivoter ; le faire pivoter à l'auto |
+| Section 7, « Le ventilateur chauffe » | `incendie` | Près de 60 °C au moteur avec un filtre chargé ; un ventilateur d'avant 2012 ne tourne pas la nuit ni sans adulte éveillé |
+| Section 7, « Le filtre n'arrête pas le monoxyde » | `co` | La pièce d'air propre ne protège pas du monoxyde d'une flamme dans le chalet fermé |
+
+`ecrasement`, `projection` et `incendie` sont nouveaux pour le ch. 11 : à ajouter à la colonne « Chapitres » de
+`plan/dangers-inventaire.md`, section 1 (rendu à l'orchestrateur). Le point chaud de l'étape 26 n'a pas de
+pictogramme : le feu de sol est dans la page `feu-de-foret`, et un cinquième `feu-de-foret` aurait dilué les autres.
+
+### Les séries orange, leurs pastilles et leurs sources
+
+| Série | Étapes | Pastille | Sur quoi elle repose |
+| --- | --- | --- | --- |
+| Un feu est déclaré dans le secteur | 1 à 10 | 1 h | Ordre de grandeur : un feu de cimes à 10 km, vent vers nous, arrive en moins de 3 h (15 à 70 m/min, `11-stocks-2004-feux-de-cimes-boreal.md`) ; l'heure est le temps des gestes 1 à 10 avant de devoir partir. Approuvée par JP le 15 octobre |
+| Il faut partir | 11 à 17 | 15 min | 1 km à la vitesse haute d'un feu de cimes : 14 min (même source, calcul noté plus haut) |
+| Le feu arrive et on ne peut plus partir | 18 à 25 | 1 min | Le temps des gestes (s'arrêter, se coucher sous la laine, entrer, se coucher face contre terre) ; aucune durée de passage du front n'a été trouvée |
+
+Chaque étape orange porte maintenant son geste, son pourquoi et son détail : la liste des endroits où arrêter l'auto,
+quand sortir de l'auto, la pièce à deux sorties, la feuille PARTIS, le message texte, la fumée de nuit dans les creux,
+les phares de croisement. La scène a été rejouée (personne n'a rien préparé ; le canot à l'eau et la feuille de mai
+s'ajoutent sans être nécessaires).
+
+### Logigramme
+
+`images/logigrammes/11-feu-de-foret.json`, mis d'accord avec le texte refait : « Regarder d'où vient la fumée » →
+« Sortir regarder où est la fumée » ; la boîte de nuit dit « Quand on sent la fumée la nuit, le feu n'approche pas
+forcément » (l'odeur qui « ne dit pas » sort) ; la boîte du départ dit qui fait quoi (« Un adulte habille les enfants…
+L'autre ferme le bâtiment ») ; « allumer les phares de croisement » ; « Couper le moteur quand le feu est proche ».
+Renvois : les numéros d'étapes n'ont pas changé, tous justes. Pastilles identiques à l'orange (1 h, 15 min, 1 min ×
+3). Colonnes de droite telles quelles (8,9 à 15,5 po, couloir à 8,7 po) ; seul le rang de la boîte du bas passe de
+7,0 à 7,2 po pour la flèche qui partait de la boîte « auto », allongée d'une ligne. Rendu : `.svg`, `.pdf`, `.png`,
+`-livre.svg` ; contrôle 0 erreur, 0 avis.
+
+### Planches et ancres
+
+| Planche | Ancre (`apres`) | Repères appelés |
+| --- | --- | --- |
+| 11-03 | « 7. **Remplir tout ce qui tient l'eau** » (l'ancienne ancre, « **L'eau et le pourtour (étapes 7 à 9).** », n'existe plus) | 5 (étape 7), 8 à 12 (étape 9), 3 (étape 52) ; section 7 : 1, 2, 7 (jute), 4, 11, 12 (vitres), 5, 6 (baril), 8, 9, 10 (évents) |
+| 11-04 | « 35. **Au chalet, l'été, faire une pièce d'air propre » (inchangée) | Section 7 : 10, 11 (la pièce), 8, 9 (un filtre), 1 à 7 (le cube) |
+| 11-05 | « **Le râteau à feu.** » (inchangée) | 1 à 4 (râteau), 5 à 7 (battoir), 8 à 11 (perche), dans l'ordre |
+| Photo des colonnes | « **Une colonne qui monte droit et s'élargit en chou-fleur** » (inchangée) | |
+| Logigramme | « **Râteau à feu** », dernier item du Matériel (l'ancienne ancre était la ligne de la section 1) | |
+
+### Chiffres nouveaux et leurs sources
+
+| Fait | Où | Source |
+| --- | --- | --- |
+| Un message texte ou un courriel encombre moins le réseau qu'un appel ; il peut passer quand le réseau est saturé ou que le service d'appel est coupé | Étape 16 | `sources/11-isde-rester-connecte-messages-texte.md` (+ `.html`), nouvelle. L'ancienne phrase (« passe sur un signal faible et réessaie tout seul ») n'avait pas de source (plan de match, PAUSE, point 12) : ces deux morceaux sortent |
+| Les faits des notes « En plus » | En plus | `sources/11-en-plus-notes-et-photo.md` (reprend `00-cote-nord-feux-2025-et-evacuation-sept-iles-2023.md`, `11-cfa-pris-par-le-feu.md`, `99-bleuetiere-taille-par-le-feu.md`) |
+
+Aucun autre chiffre nouveau. Chiffres sortis : 2 km et 90 % (page `feu-de-foret`), « 20 pi », « à 50 m » (sans
+source). Concordance avec les pages des dangers : 100 m (page `feu-de-foret`) ; 6 m (page `generatrice`). **Écart à
+trancher** : la page `feu-de-foret` dit que le N95 « ne convient pas aux enfants de moins de 2 ans » (Santé Canada,
+`00b-sante-canada-masque-respiratoire-fumee-feux-foret.md`) ; l'étape 33 dit qu'il n'est pas fait pour le visage d'un
+enfant et ne le protège pas (EPA, `11-epa-guide-fumee-sante-publique-2019-texte.txt`, l. 1609 à 1622 : « Respirators
+are not made to fit children and will not protect them »). Les deux sont sourcés ; l'EPA dit plus.
+
+### [À VÉRIFIER]
+
+Aucun dans le texte.
+
+### Notes « En plus » (cinq)
+
+| Note | Genre | Étape | Mots | Provenance |
+| --- | --- | --- | --- | --- |
+| Sept-Îles, juin 2023 | Fait | 6 | 77 | Radio-Canada, 2 juin 2024 (`00-cote-nord-…`) |
+| Les autos de Lara, 1969 | Fait | 19 | 45 | CFA (`11-cfa-pris-par-le-feu.md`) |
+| Le brûlage de printemps des Cris et des Dénés | Façon d'une autre nation du Nord : pourquoi elle marche (la neige en lisière comme coupe-feu, le feu bas), ce qui la rend dangereuse si on change ses conditions (l'été, l'humus sec) | 56 | 80 | Christianson et al. 2022 (`99-bleuetiere-…`, section 2). Aucune source ne décrit un brûlage innu sur la Côte-Nord |
+| Les bleuets du brûlis | Fait | 46 | 57 | Nouveau-Brunswick, A.5.0 et A.2.0 (`99-bleuetiere-…`, section 1) |
+| Reconnaître la pessière à cladonie | Photo | 14, 55, 57 | 44 | Wikimedia Commons, « Grands-Jardins NP 09 », LBM1948, CC BY-SA 4.0 (`11-en-plus-notes-et-photo.md`) ; `images/extras/11-pessiere-a-cladonie.jpg` |
+
+### controle.py, avant et après
+
+- **Avant** : 8 006 mots, 2 tirets (titre et ligne de tome), 5 tournures (trois « d'où », « le chemin décident »,
+  « couche dans la pièce »), 1 maxime (la note de bas de page), 46 mots vides, 4 redites.
+- **Après** : 7 717 mots, 2 tirets (les mêmes, forme commune des chapitres), 1 tournure jugée (« les coucher dans la
+  pièce la mieux fermée » : verbe, objet, lieu, l'ordre naturel), 0 maxime, 0 mise en relief, 42 mots vides jugés
+  (« tout de suite », « tout le monde », « déjà en vue », « une fois pour toutes » portent le sens), 5 redites jugées
+  (deux renvois « étapes 32 et 35 », les 1,5 m et la bouteille à 10 m dits une fois dans l'urgence et une fois pour
+  l'aménagement, « tôle, solin ou panneau » pour deux objets différents).
+- **Ancre introuvable** : 11-03, l'ancienne ancre ; la nouvelle est rendue à l'orchestrateur.
+- **Invariants signalés et justifiés** : « 2 km » et « 90 » (page `feu-de-foret`) ; « 20 pi » (impérial hors
+  construction) ; « 50 m » (sans source) ; ch. 39 (respiration de l'enfant : page), ch. 82 et ch. 87 (anciens renvois
+  du Danger, points 4 et 5 : pages `vapeurs` et `generatrice`), un ch. 15 (le même renvoi reste aux étapes 2 et dans
+  les Points de contrôle) ; « génératrice » 4 → 2 (le rappel de CLAUDE.md est entier à l'étape 45).

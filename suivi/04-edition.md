@@ -277,3 +277,140 @@ Avant de rendre
 Les planches, le montage
 - [ ] Rôle des planches, du metteur en pages et de l'orchestrateur. Rien dessiné ni monté ici.
 - [x] Aucun vérificateur sécurité lancé ni consulté.
+
+---
+
+# Édition du 19 octobre 2026 : ce qui a changé depuis l'édition du 18
+
+- **Rôle :** 5, éditeur (n'a ni rédigé ni vérifié ces changements).
+- **Texte relu :** seulement ce qui a changé dans `chapitres/04-retombees-radioactives.md` depuis l'édition du 18 octobre
+  (`git diff 323e187 HEAD`) : l'étape 18 (décision de JP sur le monoxyde, commit `78b809c`, que l'édition du 18 avait
+  laissée de côté), puis les commits du 19 (`4be1732`, `62fa941`, `47bdfea`, `54f0953`) : étape 26, sections 5 et 6,
+  sacs de terre, électroscope, pompe à volets, « Sans eau courante ni savon », « La baisse du rayonnement ». Chaque
+  phrase changée lue à voix haute (règle 0), avec le tableau des corrections du skill `ecriture` et le cadre des agents.
+- **Lu avant :** `.claude/cadre-agents.md` au complet, `CLAUDE.md`, `roles.md` (rôle 5), le skill `ecriture` au complet,
+  `suivi/plan-de-match.md` (PAUSE du 15 octobre), les sections du 19 octobre de `suivi/04-redaction.md`, les pages
+  `co` et `espace-clos` de `dangers/partie-1.md`, les ancres du ch. 4 dans `design/epreuves-livre/placements-tome-1.json`.
+- **Aucun chiffre ni aucun fait changé.** Une phrase coupée parce qu'elle redisait la page du danger (no 3) ; une
+  phrase coupée parce qu'elle redisait l'étape 22 (no 9). Le logigramme n'est pas touché (hors du fichier relu).
+
+## Les phrases changées, avant et après
+
+| # | Où | Avant | Après | Règle |
+| --- | --- | --- | --- | --- |
+| 1 | Étape 18, caveau | « Au caveau, où rien ne brûle, chercher d'abord du côté de l'air » | « Au caveau, où rien ne brûle, penser d'abord à l'air qui manque » | Règle 0 : « du côté de l'air » ne dit pas quoi chercher ; le nom de la page du danger (« L'air qui manque ») |
+| 2 | Étape 18, caveau | « y font du gaz carbonique et y consomment l'oxygène » | « y font du gaz carbonique et consomment l'oxygène » | Le mot qui redit |
+| 3 | Étape 18, caveau | « Des gens qui respirent vite, dont le cœur s'emballe, ou qui deviennent maladroits ou fatigués manquent d'oxygène. » | *(coupé)* | Redite de la page `espace-clos` (« on respire vite, le cœur s'emballe, on devient maladroit et fatigué »), dont le pictogramme est posé sur la même puce : le mécanisme général du danger n'est pas redit dans le chapitre (cadre) |
+| 4 | Étape 18, caveau | « Enlever les bouchons des deux conduits du caveau et aérer tout de suite » | « Enlever les bouchons des deux conduits d'aération du caveau et l'aérer tout de suite » | On nomme la chose (les conduits ne sont pas décrits dans ce chapitre) ; aérer quoi |
+| 5 | Étape 18, poêle | « : un feu qui manque d'air couve, et sa fumée peut fuir… » | « : le feu se met alors à couver, et sa fumée peut fuir… » | La loi en formule : on part du geste qu'on vient d'interdire |
+| 6 | Étape 18, décider | « Ensuite, décider selon la situation s'il faut sortir à l'air libre, ou rester à l'intérieur, en ouvrant la pièce d'abri… » | « Ensuite, selon la situation, décider s'il faut sortir à l'air libre, ou rester à l'intérieur en ouvrant la pièce d'abri… » | Règle 11 : le complément entre le verbe et ce qu'il régit ; la virgule détachait « en ouvrant » de « rester » |
+| 7 | Étape 18, rester | « après une détonation, les retombées sont arrivées depuis peu, et dehors, on reçoit le plus de rayonnement pendant les premières heures, environ dix fois plus à la première heure après l'explosion qu'à la septième (étape 4) » | « les retombées d'une détonation sont arrivées depuis peu, et à la première heure après l'explosion, le rayonnement dehors est environ dix fois plus fort qu'à la septième (étape 4) » | Règle 0 : « dix fois plus » de quoi ; « on reçoit le plus de rayonnement pendant les premières heures » redit l'étape 4, à laquelle la phrase renvoie. Le chiffre et la condition (une détonation) restent |
+| 8 | Étape 26, titre | « …dans la neige qui a reçu les retombées.** » | « …dans la neige qui a reçu les retombées (étape 22).** » | Le renvoi remplace la phrase coupée au no 9 |
+| 9 | Étape 26 | « La neige qui était au sol quand les retombées sont tombées et la neige tombée pendant le passage portent la poussière (étape 22). » | *(coupé)* | Redite de l'étape 22, presque mot pour mot (`controle.py` : deux redites) ; un fait garde une place, ailleurs un renvoi |
+| 10 | Section 6, éblouissement | « Une tache aveugle qui ne part pas est une brûlure de la rétine, qui reste » | « …une brûlure de la rétine : elle ne guérit pas » | Règle 0 : « qui ne part pas… qui reste » se lit comme une redite, et la chute « qui reste » ne dit pas que c'est pour de bon. Le fait (une tache qui reste ; FEMA 2022) ne change pas |
+| 11 | Section 6, poussière | « Laver à l'eau, sans balayer (étape 25). » | « Laver les surfaces à l'eau, sans balayer (étape 25). » | Règle 0 : laver quoi (l'objet était tombé avec la retouche du 19) |
+| 12 | Section 6, nausées | « La soigner n'expose pas la personne qui la soigne » | « Une personne irradiée n'expose pas les gens qui la soignent » | « La » se rattachait à « la dose », juste avant ; on nomme la chose |
+| 13 | Section 6, forte dose | « La personne prend facilement une infection » | « La personne attrape facilement une infection » | Le mot de tous les jours |
+| 14 | Section 6, dose de trop | « deux doses font 130 mg, la dose d'un adulte, sans danger. » | « deux doses font 130 mg, la dose d'un adulte : c'est sans danger. » | Règle 0 : « sans danger » restait accroché au bout de la phrase |
+| 15 | Pompe à volets, ouverture | « Choisir, pour la pompe, l'ouverture par où l'air entre déjà dans la pièce (repère 1). Dans une porte, fermer le bas, sous la pompe, … » | « Choisir l'ouverture où on pendra la pompe : celle par où l'air entre déjà dans la pièce (repère 1). Si c'est une porte, fermer le bas de la porte, sous la pompe, … » | Règle 11 (le complément entre le verbe et l'objet) ; « Dans une porte, fermer le bas » se lisait en code. « La fermeture du bas », plus loin, renvoie à ce geste |
+| 16 | Pompe, le cadre | « et clouer les deux traverses par-dessus » | « et clouer par-dessus une traverse en haut et une en bas » | Règle 0 : où vont les traverses ; « les deux traverses » de la puce suivante se comprend ensuite |
+| 17 | Pompe, le doublage | « … ; le cadre devient assez lourd pour revenir loin, tout seul, quand on lâche la corde. » | « . Plus lourd, le cadre revient loin en arrière tout seul quand on lâche la corde. » | Règle 1 (deux faits, deux phrases) ; « revenir loin » ne dit pas dans quel sens ; « devient… devient » |
+| 18 | Pompe, le jeu | « et à 1 à 2,5 cm des côtés » | « et entre 1 et 2,5 cm des côtés » | « à 1 à » accroche à voix haute |
+| 19 | Pompe, le débit | « Cette pompe suffit pour quelques personnes ; par temps froid, elle suffit pour plus de monde. » | « Cette pompe suffit pour quelques personnes, et pour plus de monde par temps froid. » | « suffit… suffit » |
+| 20 | Sans eau courante ni savon | « Couper aux ciseaux les cheveux qui gardent de la poussière après le brossage » | « Avec des ciseaux, couper les cheveux qui gardent de la poussière après le brossage » | Règle 11 : le complément entre le verbe et l'objet |
+
+**Relu et gardé tel quel** : le reste de l'étape 18 (l'avertisseur au caveau sous 4,4 °C, la recherche de la source,
+le poêle qui refoule, ce qui pousse à sortir), les cellules des sections 5 et 6 non citées, les sacs de terre, le
+« compteur » de l'électroscope et de « Ce qu'on perd », « le détecteur d'un laboratoire », le reste de la pompe à
+volets (volets, entailles, fente, filtre, « Sans lattes ni pentures »), la phrase de la neige fondue, « La baisse du
+rayonnement ».
+
+## controle.py, avant et après
+
+| | Avant (texte de `HEAD`, `54f0953`) | Après |
+| --- | --- | --- |
+| Mots | 9 939 | 9 914 |
+| Tirets | 2 (titre et ligne de tome, la forme de tous les chapitres) | 2 (les mêmes) |
+| « § », mots bannis, tournures, maximes, pronominaux, mises en relief | 0 | 0 |
+| Âges à juger | 1 (« À partir de 4 ans », une dose) | 1 (le même) |
+| Mots vides à juger | 49 | 49 (les nouveaux « tout seul », « tous les 7,5 cm » portent le sens) |
+| Redites à juger | 20 | 18 (les deux de la neige, nos 8 et 9) |
+| Ancres introuvables | 0 | 0 |
+| Invariants disparus (`--avant`) | | rien |
+
+Redites gardées dans ce qui a changé : « le chiffre affiché par l'avertisseur ne baisse pas », deux fois dans
+l'étape 18 (deux moments : après la braise, et une fois la pièce ouverte) ; « se couvrir le nez et la bouche »
+(étape 4 en arrivant, étape 18 pour sortir dans la poussière : un geste qu'on fait à ce moment, sans revenir en
+arrière) ; « la face tournée vers la pièce » (pompe : le nom de la face, règle 6).
+
+## Signalé, sans rien changer
+
+1. **L'avertisseur « qui n'affiche plus de chiffre »** (étape 18) et la cible « 0 ppm affiché » (section 5) disent la
+   même chose de deux façons. Lequel affiche l'appareil sous son seuil (un 0, ou rien) ? Au rédacteur, avec la notice
+   de l'avertisseur, pour garder une seule façon (règle 6).
+2. **La phrase coupée au no 3** (les signes du manque d'oxygène) vit dans la page `espace-clos` du tome. Si JP veut
+   que le chapitre se suffise à cette étape, elle revient telle quelle ; ce n'est pas un fait perdu.
+3. **« Devant les ficelles »** (pompe, fixer les fils) : la retouche du 19 a retiré « du côté de la pièce ». Avec
+   la puce des ficelles juste avant, « devant » se lit du côté de la pièce, et la planche 04-01b le montre. Gardé.
+4. **Le logigramme**, nœud `co` : « Au caveau, ouvrir les conduits et aérer » reste cohérent avec le no 4 ; pas
+   relu ici (hors du fichier commandé).
+
+## Liste de contrôle du cadre (`.claude/cadre-agents.md`), pour ma partie
+
+Pour tout agent
+- [x] `CLAUDE.md`, le cadre, le skill `ecriture` (avec ses tableaux) et le rôle 5 lus au complet.
+- [x] `suivi/plan-de-match.md`, PAUSE du 15 octobre, relu ; rien de neuf à appliquer dans les phrases relues.
+- [x] Règle 1 : aucun chiffre ajouté, changé ni déplacé ; le « dix fois » du no 7 garde sa valeur et sa condition.
+- [x] Rien commité (l'orchestrateur commite).
+
+La forme du chapitre
+- [x] Sept sections et « En plus » : rien de déplacé. Pictogrammes `co` et `espace-clos` dans leur puce ; le
+  mécanisme général du danger n'est plus redit (no 3).
+- [x] Rien sous le titre que `**Les deux**` (pas touché).
+- [x] Section 2 : pas touchée.
+- [x] L'année : l'hiver et la neige restent marqués à l'étape 26 (titre), avec le renvoi à l'étape 22.
+
+L'urgence
+- [x] L'étape 18 relue comme une scène (la nuit, l'avertisseur qui sonne, maison ou caveau) : l'ordre chercher,
+  éliminer, puis décider reste celui de JP ; la décision sortir ou rester garde ses deux listes.
+- [x] Pastilles : pas touchées.
+- [x] Logigramme : pas touché ; ses boîtes ne sont pas dans le fichier relu (signalé, point 4).
+- [x] Double page du logigramme : pas touchée.
+- [x] Notes « En plus » : « La baisse du rayonnement » relue, gardée (son renvoi « étapes 18 et 24 » tombe juste).
+- [ ] Ordre du début du tome : hors de ma partie.
+
+La phrase
+- [x] Règle 0 : chaque phrase changée lue à voix haute ; 20 corrections.
+- [x] Pas de loi en formule (no 5) ni de « d'où ».
+- [x] Pas de formule « X passe là où Y ne passe pas ».
+- [x] Pas de maxime ni de chute (no 10) ; pas d'opposition fabriquée ; pas d'image.
+- [x] Aucune chose qui pense (« le cœur s'emballe » est sorti avec la redite du no 3).
+- [x] Pronominal : « le feu se met à couver » (no 5) est le feu qui le fait seul ; aucune consigne au pronominal.
+- [x] Consignes à l'infinitif ; aucun « ceux qui ».
+- [x] Le pronom qui oblige à chercher : no 12 ; on nomme la chose : nos 4, 15, 16.
+- [x] Mots de tous les jours : no 13.
+- [x] Aucun tiret dans le texte (les deux du titre et de la ligne de tome sont la forme commune) ; aucun « § ».
+- [x] Titres de sous-sections : aucun changé.
+- [x] Tournures des pages des dangers : aucune dans les phrases relues.
+
+La procédure
+- [x] Pompe à volets : une sous-étape par geste, repères 1 à 18 dans l'ordre ; nos 15 à 19 ne bougent aucun repère.
+- [x] « Autre façon » et « Sans lattes ni pentures : » marqués.
+- [x] L'urgence ne s'appuie pas sur une préparation : la pompe et l'éventail de l'étape 18 renvoient à la section 7,
+  où on les monte avec ce qu'on a.
+
+La répétition
+- [x] Inventaire des faits changés : la neige (étapes 22 et 26 : une place, un renvoi), les signes du manque d'oxygène
+  (page du danger), les premières heures (étape 4 : un renvoi), le « dix fois » (étape 18 seulement, depuis que
+  « La baisse du rayonnement » ne le dit plus).
+
+Les planches dans le texte
+- [x] Appels inchangés ; ancres intactes (04-01b sur « **La pompe à volets** : on la pend… », 04-41 sur « Sans
+  compteur, on ne sait pas… », déjà à jour dans `placements-tome-1.json`) ; `controle.py` : 0 ancre introuvable.
+
+Avant de rendre
+- [x] `controle.py` avant et après, et `--avant` : 0 tiret dans le texte, 0 « § », 0 mot banni, rien de disparu.
+
+Les planches, le montage
+- [ ] Rôle des planches, du metteur en pages et de l'orchestrateur. Rien dessiné ni monté ici.
+- [x] Aucun vérificateur sécurité lancé ni consulté.

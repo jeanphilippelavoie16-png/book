@@ -2,9 +2,7 @@
 
 *Tome 1 — Tenir*
 
-**Maison.** Les quatre horloges partent de la maison, là où l'on est quand ça arrive. Ce qui
-change au chalet est dit là où ça change. Passé 48 heures, l'horloge 4 décide, et elle mène au
-chalet (ch. 2).
+**Maison**
 
 ---
 
@@ -18,395 +16,362 @@ jusqu'au printemps.
 
 ## 2. Quand l'utiliser
 
-**C'est le bon réflexe quand :**
-
-- le courant tombe et que rien ne dit quand il revient ;
-- la route ferme, ou le pont de glace ne tient plus ;
-- la génératrice ou le propane lâche par temps froid ;
-- le congélateur a coulé pendant une absence et il faut décider quoi sauver ;
-- l'eau du réseau devient suspecte : rien ne se voit au robinet, et la glace et ce qu'on prépare
- avec cette eau deviennent suspects aussi ;
-- on hésite entre rester et partir : les quatre horloges donnent les mesures de la décision
- (ch. 2).
-
-**C'est le mauvais réflexe quand :**
-
-- il s'agit de bâtir le stock de l'année : ce qui s'achète d'avance est au ch. 00b ;
-- la panne dure vingt minutes et personne n'a rien allumé : le réfrigérateur tient 4 à 6 heures,
- et une maison chauffée ne perd pas un degré en vingt minutes. Dès qu'une génératrice, une
- chaufferette au propane ou un gril entre en service, l'horloge 1 part et se compte en minutes,
- quelle que soit la durée de la panne.
-
-**Au chalet**, deux choses changent. L'eau ne se remplit pas d'avance au robinet : elle se puise
-au trou, se transporte et se fait bouillir (ch. 10). L'horloge 4 est plus longue, parce que le
-bois, l'eau et le territoire sont là : c'est pour ça que la bascule du ch. 2 mène au chalet.
+- **Le courant tombe et on ne sait pas quand il reviendra** (étapes 1 à 15).
+- **La génératrice ou le propane lâche par temps froid** (étapes 2 et 6 à 16).
+- **La route ferme, ou le pont de glace ne tient plus**, et on ne sait pas pour combien de temps (étapes 16
+ et 26 à 29).
+- **Le congélateur a coulé pendant une absence**, et il faut décider quoi sauver (étapes 14 et 20 à 27).
+- **L'eau du réseau devient suspecte** (étapes 17 à 19).
+- **On hésite entre rester et partir** (étapes 16 et 29 ; ch. 2).
+- **Il n'y a ni génératrice, ni thermomètre, ni eau embouteillée** (section 7).
 
 ---
 
-## 3. Pourquoi ça marche
+## 3. Matériel
 
-Sous stress, on sauve le congélateur plein qu'on voit pendant que la maison refroidit. Les
-quatre horloges tournent en même temps, à des vitesses sans commune mesure : on traite d'abord
-celle dont l'échéance est la plus proche, même si l'enjeu est plus petit. Une horloge longue
-qu'on ne démarre pas aujourd'hui ne se rattrape pas plus tard. Et **les horloges se paient entre
-elles** : tenir le congélateur à la génératrice, c'est payer l'horloge 3 avec du carburant, donc
-avec l'horloge 4.
+- **Avertisseur de CO à pile** : le seul moyen de savoir qu'un appareil qui brûle remplit la pièce de monoxyde (étape 2).
+- **Thermomètre à sonde** : planté au cœur de l'aliment, il donne le 4 °C du tri et le 74 °C de la cuisson (étapes 20 et 21 ; sans sonde : section 7).
+- **Thermomètre médical** : pris dans la bouche, il montre l'hypothermie avant que ses signes se voient (étape 7 ; sans thermomètre : section 7).
+- **Montre à pile** : elle compte les heures depuis la panne sans user la batterie du téléphone (étape 1).
 
 ---
 
-## 4. Matériel
+## 4. Procédure
 
-- **Avertisseur de monoxyde de carbone à pile** : le seul détecteur de ce gaz sans odeur ni couleur. Ne se fabrique pas.
-- **Thermomètre à sonde** : se plante dans l'aliment ; 4 °C au tri, 74 °C à cœur (→ §9 : eau bouillante).
-- **Thermomètre médical buccal** : voit l'hypothermie avant les signes. Sans lui, un ventre froid alarme, des mains froides non (→ §9).
-- **Montre à pile** : chaque échéance se compte depuis l'heure de la panne ; le téléphone, lui, se vide.
+### Le courant vient de manquer {.orange 15 min}
 
----
+1. **Écrire l'heure sur la porte du congélateur.** L'écrire au marqueur, sur un bout de ruban. Les délais des
+ décisions des deux jours qui suivent partent de cette heure (étapes 20 à 25), et personne ne se souvient
+ de l'heure exacte d'une panne.
+2. {!co} **Avant d'allumer quoi que ce soit pour s'éclairer, chauffer ou cuire, préparer l'avertisseur de CO
+ et choisir l'appareil.**
+ - Appuyer sur le bouton d'essai de l'avertisseur et vérifier sa pile. Le bouton teste la pile et la
+ sirène, pas l'air de la pièce. L'avertisseur ne sonne pas pour une petite quantité de CO respirée
+ pendant des jours : pendant des jours de chauffage improvisé, son silence ne prouve pas que l'air est
+ bon (section 6). Sans avertisseur : section 7, « Ce qu'on perd ».
+ - Regarder la date écrite sur l'avertisseur : s'il a été installé il y a plus de 7 ans, faire comme si
+ on n'en avait pas.
+ - Poser l'avertisseur dans la pièce chauffée où la famille va dormir, à au moins 2 m de tout appareil
+ qui brûle.
+ - N'allumer dans la maison qu'un appareil fait pour l'intérieur. Le réchaud et la chaufferette de tente
+ qu'on garde au garage pour la chasse sont faits pour l'extérieur : allumés dans la maison, ils
+ remplissent la pièce de monoxyde.
+3. **Poser du ruban à masquer en travers des portes du réfrigérateur et du congélateur**, pour que
+ personne ne les ouvre. Chaque ouverture fait entrer de l'air chaud. Fermé, le réfrigérateur garde les
+ aliments froids environ 4 à 6 heures ; un congélateur plein les garde congelés environ 48 heures, et un
+ congélateur à moitié rempli, 24 heures.
+4. **Remplir d'eau tout ce qui peut en contenir, tout de suite, pendant que l'aqueduc donne** : la
+ baignoire, les chaudrons, les seaux, les cruches. Rien n'annonce le moment où la pression tombe. L'eau
+ qui coule après une baisse de pression peut être contaminée sans que ça se voie, et il faut la faire
+ bouillir (étape 17) ; l'eau tirée avant la baisse n'en a pas besoin. Compter au moins 4 L par personne
+ et par jour, dont 2 L à boire, pour au moins 3 jours.
+5. **Éteindre les appareils qui marchaient et débrancher l'électronique, en laissant une lumière allumée
+ par étage** : elle montrera que le courant est revenu. Le courant revient d'un coup, et la surtension du
+ retour entre par les prises.
 
-## 5. Procédure
+### Le courant ne revient pas {.orange 6 h}
+
+Faire ces gestes pendant les premières heures : passé 6 heures de panne, il faut trier le réfrigérateur
+(étape 20). **La nuit**, si la panne commence pendant que tout le monde dort et que la maison est encore
+chaude, ajouter une couverture et une tuque aux enfants, les laisser dormir, et faire cette série au
+réveil.
+
+6. **Vivre dans une seule pièce**, celle qui a la source de chaleur, même si les lits sont ailleurs.
+ Fermer les portes des autres pièces et rouler une couverture au bas des portes : un chauffage d'appoint
+ ne chauffe qu'une pièce fermée (ch. 83). Si un poêle ou un appareil d'appoint brûle dans la pièce, la
+ garder aérée, par exemple en entrouvrant une fenêtre : une pièce bien fermée garde le monoxyde (étape 2).
+7. {!froid} **L'hiver, habiller tout le monde en couches, avec une tuque, avant d'avoir froid.** Prendre la
+ température dans la bouche d'une personne qui a été dehors ou qui frissonne, et d'un enfant qui devient
+ tranquille (section 5).
+8. {!generatrice} **Si on a une génératrice, la faire tourner dehors, à au moins 6 m du bâtiment**, loin
+ des portes, des fenêtres et des prises d'air. Jamais dans un bâtiment, un garage, un abri ni sous un
+ auvent, même porte ouverte, même le temps de la démarrer.
+9. {!electrocution} **Avant de brancher quoi que ce soit sur la génératrice, mettre le disjoncteur
+ principal à OFF**, et coller dessus un ruban écrit au marqueur. Brancher ensuite les appareils
+ directement dans les prises de la génératrice, avec des rallonges. Sans commutateur de transfert, le
+ disjoncteur principal à OFF est la seule chose qui empêche le courant de la génératrice de remonter dans
+ la ligne de la rue. Un commutateur de transfert fait le même travail mécaniquement : il empêche de relier
+ la maison au réseau et à la génératrice en même temps. Revérifier le disjoncteur à chaque démarrage, même
+ à 2 h du matin (ch. 3, ch. 15).
+10. **Arrêter la génératrice 1 heure toutes les 8 heures**, et vérifier pendant l'arrêt le niveau d'huile
+ et la réserve de carburant (ch. 15). Laisser le moteur refroidir avant de faire le plein.
+11. **Mettre le combustible à couvert pendant qu'il fait clair** : le bois à portée de la porte, les
+ bonbonnes et les bidons dehors, sous un abri. Le bois enneigé qu'on va chercher à la noirceur brûle mal
+ toute la nuit (ch. 83).
+12. **L'hiver, prendre la température de la pièce chauffée chaque heure, et noter l'écart avec l'heure
+ d'avant.** En prolongeant cet écart jusqu'au matin, on voit si la pièce restera assez chaude pour la
+ nuit ; sinon, regrouper la famille pendant qu'il fait clair. Entre 18 et 24 °C, le risque est minimal pour
+ une personne qui bouge peu. Il n'existe aucune température reconnue à partir de laquelle il faut
+ partir : la famille en décide avec le ch. 2.
+13. **Faire l'inventaire du froid sans ouvrir les portes.** De mémoire, appareil par appareil : ce qui est
+ cru, ce qui est cuit, ce qui est du poisson, ce qui est du gras. Écrire en trois mots, sur le ruban de la
+ porte, ce qui passera en premier au tri (étape 20).
+14. **S'il faut quitter la maison, même une nuit, poser un témoin de dégel dans le congélateur** : un
+ verre d'eau gelée, avec une pièce de monnaie posée sur la glace. L'hiver, on peut faire geler le verre
+ dehors. Au retour, si la pièce est restée en surface, rien n'a dégelé ; si elle est au fond, tout a
+ dégelé puis regelé ; à mi-hauteur, le dégel a été partiel. Un thermomètre minimum-maximum donne la même
+ réponse en degrés. Sans l'un ou l'autre, un congélateur retrouvé froid ne prouve rien sur ce qui s'est
+ passé pendant l'absence.
+15. **Envoyer un message court à un proche** : où on est, combien on est, ce qui manque. Les tours
+ cellulaires tiennent quelques heures sur leurs batteries : envoyer le message dans les premières heures.
+ Quand les batteries baissent, les garder d'abord pour la radio et la messagerie satellite (ch. 14). À la
+ maison, aller voir les voisins : savoir lequel a un poêle à bois, lequel a une génératrice et lequel vit
+ seul (ch. 16, ch. 18).
 
 ### Les quatre horloges
 
-| # | Horloge | Ce qui s'épuise | Vitesse | Ce qui arrive au bout | Se rattrape ? |
-| --- | --- | --- | --- | --- | --- |
-| 1 | **Le corps** | Chaleur centrale et air respirable | Minutes à heures | Intoxication au CO, hypothermie | Non. C'est la seule qui tue le jour même |
-| 2 | **L'eau** | Eau potable, et la pression qui la livre | Heures à jours | Déshydratation, eau non potable, puis conduites éclatées | En partie, et jamais gratuitement |
-| 3 | **Le stock périssable** | Le froid déjà payé | Heures à jours | Frigo 4 à 6 h, congélateur 24 à 48 h, puis perte sèche | **Jamais.** Ce qui a dégelé ne se recongèle pas |
-| 4 | **Les calories et le combustible** | Gras, bois, propane, carburant | Semaines à mois | Faim, froid, moteurs à l'arrêt | Oui, mais seulement en la démarrant tôt |
+16. **Classer ce qui reste à faire selon les quatre horloges, et s'occuper d'abord de celle dont
+ l'échéance est la plus proche**, même si ce qu'elle protège vaut moins. Sous le stress, on a le réflexe
+ de sauver le congélateur plein qu'on voit pendant que la maison refroidit. Sauver une horloge en coûte
+ souvent à une autre : faire tourner le congélateur à la génératrice dépense le carburant de l'horloge 4
+ pour sauver l'horloge 3.
 
-Horloge 1 : l'hypothermie commence sous **35 °C** de température buccale. Horloge 3 : le
-réfrigérateur reste froid environ 4 à 6 heures ; un congélateur **plein** tient **48 heures**, à
-**demi rempli 24 heures**. Horloge 2 : la réserve de trousse est de **6 L par personne pour
-boire, plus 6 L pour la cuisine et l'hygiène, pour au moins 3 jours**, soit 4 L par personne et
-par jour. C'est un plancher, pas une cible.
+ | Horloge | Ce qui s'épuise | Vitesse | Ce qui arrive au bout | Peut-on se rattraper ? |
+ | --- | --- | --- | --- | --- |
+ | **1. Le corps** | La chaleur du corps et l'air qu'on respire | Minutes à heures | Intoxication au CO, hypothermie | Non. Elle seule peut tuer le jour même |
+ | **2. L'eau** | L'eau potable, et la pression qui l'amène | Heures à jours | Déshydratation, eau non potable, puis tuyaux éclatés | En partie, en dépensant du combustible pour faire bouillir l'eau ou fondre la neige |
+ | **3. Le stock périssable** | Le froid du réfrigérateur et du congélateur | Heures à jours | Réfrigérateur 4 à 6 h, congélateur 24 à 48 h, puis aliments perdus | Non. Ce qui a dégelé doit être cuit ou jeté (étape 20) |
+ | **4. Les calories et le combustible** | Le gras, le bois, le propane, le carburant | Semaines à mois | Faim, froid, moteurs arrêtés | Oui, à condition de commencer tôt (étapes 26 à 28) |
 
-**À la maison, l'horloge 2 est une affaire de qualité.** Le robinet peut couler pareil pendant
-que l'eau cesse d'être potable : un entretien, une réparation ou un bris du réseau suffit, et
-rien ne se voit ni ne se goûte. Tant qu'elle est suspecte, l'eau bout à gros bouillons au moins
-1 minute pour boire, préparer les aliments et les préparations pour nourrissons, se brosser les
-dents et faire la glace. La douche, le lavage des mains, la vaisselle et la lessive se font à
-l'eau du robinet, sans ébullition : ça ménage le combustible de l'horloge 4 pendant trois jours
-d'ébullition. Une eau contaminée par un produit **chimique** ne se règle pas à l'ébullition : le
-contaminant reste dans l'eau et s'y concentre.
+### L'eau du réseau
 
-### Heure 0 à heure 1 : le monoxyde, la génératrice, la pièce chauffée {.orange}
-
-1. **Compter les têtes à voix haute.** Dans le noir, un jeune enfant va vers ce qui fait du
- bruit et ne suit plus ses habitudes (ch. 39, ch. 40).
-2. **Écrire l'heure sur la porte du congélateur.** Au marqueur, sur un bout de ruban. Les
- décisions des deux prochains jours se comptent à partir de là, et personne ne se souvient de
- l'heure exacte d'une panne.
-3. **Avant d'allumer quoi que ce soit, régler le CO.** Génératrice, gril, moteur, et tout
- appareil d'extérieur ou de camping : **dehors**, jamais dans un bâtiment, un garage, un abri ni
- sous un auvent, loin des portes, des fenêtres et des prises d'air ; la génératrice à au moins
- 6 m du bâtiment. Un garage attenant reste un garage, porte entrouverte ou non. C'est le seul
- geste de cette liste qui tue le jour même s'il est sauté.
-4. **Vérifier que le chauffage d'appoint est conçu pour l'intérieur.** Un appareil d'extérieur
- ou de camping, allumé dedans, accumule du CO : le réchaud et la chaufferette de tente rangés au
- garage entre deux voyages de chasse sont ceux que la panne fait entrer dans le salon.
-5. **Tester l'avertisseur de CO au bouton** et vérifier sa pile, maintenant : c'est maintenant
- qu'on va allumer des appareils inhabituels. Le bouton teste l'alarme et la pile, **pas l'air de
- la pièce**. Un avertisseur est fait pour **ne pas** sonner avant **30 jours** passés dans
- **30 ppm** : son silence dit seulement qu'il n'y a pas eu assez de CO, assez longtemps, pour le
- déclencher, et une exposition basse pendant trois jours de chauffage improvisé passe sous ce
- seuil. Vérifier la date : l'appareil se remplace **84 mois** (7 ans) après l'installation.
-6. **Si une génératrice entre en service, mettre l'entrée principale à OFF d'abord**, et la
- marquer d'un ruban écrit au marqueur. Brancher les appareils directement dans les prises de la
- génératrice : jamais d'adaptateur mâle-mâle, jamais par une prise murale. Sans commutateur de
- transfert, l'entrée à OFF est la seule chose qui empêche le courant de remonter dans la ligne
- (§8). Un commutateur de transfert fait le même travail mécaniquement : il rend impossible de
- relier la maison au réseau et à la génératrice en même temps. Revérifier l'entrée à chaque
- démarrage, même à 2 h du matin (ch. 3, ch. 15).
-7. **Poser du ruban à masquer en travers des portes du réfrigérateur et du congélateur.** Chaque
- ouverture raccourcit l'horloge 3.
-8. **Vivre dans une seule pièce**, celle qui a la source de chaleur, pas celle qui a les lits :
- portes closes, couverture au bas des portes. Un chauffage d'appoint chauffe un volume, pas une
- maison (ch. 83).
-
-### Heure 1 à heure 6 : l'eau, le froid, le contact {.orange}
-
-9. **Remplir tout ce qui se remplit pendant que l'aqueduc donne** : contenants, chaudrons,
- baignoire, seaux. Une pression qui baisse est le premier signe d'un réseau en difficulté, et
- l'eau qui coule après la baisse se fait bouillir ; celle qu'on remplit avant n'a pas à l'être.
-10. **Faire l'inventaire du froid sans ouvrir les portes.** De mémoire, appareil par appareil :
- ce qui est cru, ce qui est cuit, ce qui est du poisson, ce qui est du gras. Ce qui passe en
- premier au tri de l'heure 6 s'écrit en trois mots sur le ruban de la porte.
-11. **Poser un témoin de dégel dans le congélateur s'il faut quitter la maison**, ne serait-ce
- qu'une nuit : un verre d'eau gelée avec une pièce de monnaie posée sur la glace. Au retour, la
- pièce en surface dit que rien n'a dégelé ; au fond, que tout a dégelé puis regelé ; à
- mi-hauteur, que le dégel a été partiel. Un thermomètre min-max donne la même réponse en degrés,
- et mieux. Sans l'un ou l'autre, un congélateur retrouvé froid ne prouve rien sur ce qui s'est
- passé pendant l'absence.
-12. **Prendre la température de la pièce chauffée chaque heure.** La pente dit si la nuit est
- tenable : une maison qui perd trois degrés à l'heure ne se garde pas comme une maison qui en
- perd un. Entre **18 et 24 °C**, le risque est minimal pour une personne sédentaire. Le seuil de
- départ est une décision de famille, écrite d'avance (ch. 2) : aucune température reconnue ne le
- donne.
-13. **Habiller tout le monde en couches, tuque comprise, avant d'avoir froid.** On s'habille
- pour l'heure qui vient.
-14. **Mettre le combustible à couvert pendant qu'il fait clair** : le bois à portée de la porte,
- les bonbonnes et les bidons dehors, sous un abri. Du bois enneigé, pris à la noirceur, brûle
- mal toute la nuit (ch. 83). La génératrice se laisse refroidir avant d'être remplie.
-15. **Si la génératrice tourne, l'éteindre 1 heure toutes les 8 heures**, et vérifier pendant ce
- temps le niveau d'huile et la réserve de carburant (ch. 15).
-16. **Éteindre les appareils qui tournaient et débrancher l'électronique**, en laissant une
- lumière allumée par étage : elle dit que le courant est revenu. Le débranchement protège de la
- surtension au rétablissement, qui arrive d'un coup.
-17. **Établir le contact.** Un message court : où on est, combien on est, ce qui manque. Quand
- la batterie baisse, la radio et le satellite passent avant le reste (ch. 14). À la maison, le
- contact le plus utile est le plus proche : savoir lequel des voisins a un poêle à bois, lequel
- a une génératrice et lequel est seul (ch. 16, ch. 18).
+17. **Faire bouillir l'eau du réseau tant qu'on ne sait pas qu'elle est bonne**, à gros bouillons, au
+ moins 1 minute. Le robinet peut couler comme d'habitude pendant que l'eau cesse d'être potable : un
+ entretien, une réparation ou un bris du réseau suffit, et rien ne se voit ni ne se goûte. Il faut de
+ l'eau bouillie pour boire, préparer les aliments et les biberons, se brosser les dents et faire de la
+ glace. On peut prendre sa douche, se laver les mains, laver la vaisselle et faire la lessive avec l'eau du
+ robinet, sans la faire bouillir : ça ménage le combustible. L'eau contaminée par un produit chimique ne
+ redevient pas bonne en bouillant : le produit reste dans l'eau et s'y concentre.
+18. **Vider la machine à glace et le bac à glaçons, et jeter cette glace** : la machine continue de faire
+ de la glace avec l'eau du réseau. Jeter aussi tout ce qui a été préparé ou reconstitué avec l'eau
+ suspecte.
+19. **Quand l'eau du réseau est redevenue bonne, la laisser couler au moins 5 minutes avant de la boire**,
+ pour rincer les tuyaux. L'hiver, si la maison a refroidi, ne remettre l'eau dans la plomberie qu'une fois
+ la pièce remontée à au moins 18 °C : un tuyau encore gelé éclate sous la pression (ch. 3).
 
 ### Heure 6 à heure 48 : le tri
 
-18. **Passé 6 heures de panne, trier le réfrigérateur.**
-19. **Trier au thermomètre, planté dans l'aliment.** Un aliment cru décongelé **resté à 4 °C ou
- moins** se cuit tout de suite ; un aliment périssable **exposé au-dessus de 4 °C** se jette.
- Entre **4 °C et 60 °C**, les bactéries se multiplient. L'air d'un congélateur ouvert se
- réchauffe bien avant le cœur d'une pièce épaisse, et se refroidit avant elle quand on referme :
- il ne dit rien de l'aliment.
-20. **Cuire d'abord ce qui a le moins de marge** : les abats comestibles, le poisson, la viande
- hachée. La viande hachée passe avant le rôti, même plus cher : hacher met dans toute la masse
- ce qui ne vivait qu'en surface. Tout le gibier sauvage se cuit à **74 °C** à cœur : orignal,
- ours noir, lièvre, castor, phoque. Le thermomètre va dans la partie la plus charnue, loin de
- l'os et du gras.
-21. **Si l'eau du réseau est suspecte, vider la machine à glace et le bac à glaçons.** La
- machine continue de faire de la glace avec cette eau. Cette glace se jette, comme tout ce qui a
- été préparé ou reconstitué avec l'eau suspecte. On l'oublie parce que la glace a l'air d'être
- du froid, pas de l'eau.
-22. **Jeter le foie et les reins d'orignal et de tout cervidé.** Ils accumulent le cadmium : un
- repas de reins de cervidés contaminés peut en contenir jusqu'à cent fois la quantité jugée
- tolérable (ch. 22).
-23. **Gants jetables pour manipuler le lièvre**, dégelé ou non : la tularémie entre par la
- bouche, mais aussi par la peau et les muqueuses (ch. 48). Faute de gants, des sacs de plastique
- serrés au poignet ; une coupure ou une gerçure aux mains annule la protection.
-24. **Sortir dans la neige ce qui est encore gelé** plutôt que de laisser un congélateur arrêté
- se réchauffer : bacs fermés, à l'ombre du côté nord, surélevés. Le froid du dehors ne coûte
- rien tant qu'il est là (ch. 73). En ville, un couvercle qui tient suffit contre le chien du
- voisin, le renard et la corneille. Le tri complet d'un congélateur plein est au ch. 74.
+20. {!zone-de-danger} **Passé 6 heures de panne, trier le réfrigérateur au thermomètre, planté au cœur de
+ l'aliment.** Cuire tout de suite un aliment cru dégelé resté à 4 °C ou moins. Jeter un aliment périssable
+ qui a dépassé 4 °C. Trier le congélateur de la même façon quand il arrive au bout de son temps
+ (étape 3). Le thermomètre d'air du congélateur ne sert pas au tri : quand on ouvre, l'air se réchauffe
+ bien avant le cœur d'une pièce épaisse, et quand on referme, il se refroidit avant elle.
+21. {!cuisson} **Cuire d'abord ce qui a le moins de marge** : les abats qu'on mange, le poisson, la viande
+ hachée. La viande hachée passe avant le rôti, même si le rôti coûte plus cher : le hachage a mêlé la surface
+ de la viande à toute la masse. Cuire tout le gibier sauvage à 74 °C à cœur, au thermomètre : orignal,
+ ours noir, lièvre, castor, phoque.
+22. {!botulisme} **Jeter le poisson fumé et le poisson sous vide qui ont dégelé ou passé la panne au
+ réfrigérateur, même s'ils ont l'air correct.** Le botulisme du poisson produit sa toxine dès 3 °C, donc
+ même au réfrigérateur, et il ne change ni l'odeur, ni le goût, ni l'apparence de l'aliment.
+23. {!abats} **Jeter le foie et les reins d'orignal et de tout cervidé au lieu de les cuire avec le
+ reste** : ils accumulent le cadmium (ch. 22).
+24. {!tularemie} **Mettre des gants pour toucher le lièvre du congélateur, gelé ou dégelé** : le gel ne tue pas
+ la bactérie de la tularémie (ch. 48).
+25. **L'hiver, sortir dans la neige ce qui est encore gelé** au lieu de laisser un congélateur arrêté se
+ réchauffer : dans des bacs fermés, à l'ombre, du côté nord, surélevés. Tant qu'il gèle dehors, ce froid
+ ne coûte ni courant ni carburant (ch. 73). En ville, un couvercle qui tient suffit contre les
+ animaux. Le tri complet d'un congélateur plein est au ch. 74.
 
 ### Après 48 heures : l'horloge longue
 
-25. **Refaire le calcul du combustible pour la semaine.** Compter ce qui a été consommé en
- 24 heures (brassées de bois, litres d'essence, bonbonnes de propane) et multiplier. L'appareil
- de la maison est le seul étalon : la dépense dépend du volume chauffé et de l'isolation, pas du
- modèle (ch. 83).
-26. **Convertir le sauvé en conservé.** Ce qui a été cuit se garde peu ; la salaison à sec
- (ch. 68) et la saumure (ch. 69) gardent des semaines, avec le sel du ch. 67.
-27. **Compter en gras, pas en kilos.** La viande maigre seule mène au mal de caribou, mortel en
- quelques semaines : le gras, la moelle et les graisses fondues font passer l'hiver (ch. 19,
- ch. 72).
-28. **Traiter l'eau du réseau comme suspecte tant qu'on ne sait pas qu'elle est bonne** : gros
- bouillons avant de boire. Au retour du réseau, laisser couler au moins 5 minutes pour rincer
- les conduites. Ne remettre la plomberie en eau qu'une fois la pièce remontée à **au moins
- 18 °C** : une tuyauterie encore prise éclate sous la pression (ch. 3).
-29. **Passé 48 heures, l'horloge 4 gouverne**, et la maison la perd la première : la ville
- entière est dans la même situation, avec des réserves faites pour trois jours. Prendre les
- quatre mesures et reprendre la décision de rester ou de partir (ch. 2).
+26. **Refaire le calcul du combustible pour la semaine.** Compter ce qu'on a brûlé en 24 heures
+ (brassées de bois, litres d'essence, bonbonnes de propane) et le multiplier par 7. Seule la mesure faite
+ dans la maison donne la dépense : elle dépend du volume chauffé et de l'isolation plus que de l'appareil
+ (ch. 83).
+27. {!trichine} **Saler ce qu'on a sauvé pour le garder.** La viande cuite se garde peu ; la salaison à sec
+ (ch. 68) et la saumure (ch. 69) gardent la viande des semaines, avec le sel du ch. 67. Ne pas saler ni
+ fumer l'ours ou le phoque d'un congélateur arrêté pour le garder : ni le sel, ni le fumage, ni le gel ne
+ tuent la trichine. Les cuire à 74 °C à cœur et les manger d'abord.
+28. {!mal-de-caribou} **Compter les réserves en gras, pas en kilos de viande.** La viande maigre seule
+ mène au mal de caribou, mortel en quelques semaines. Garder le gras, la moelle et les graisses fondues
+ pour l'hiver (ch. 19, ch. 72).
+29. **Passé 48 heures, reprendre la décision de rester ou de partir** (ch. 2), avec les quatre horloges de
+ l'étape 16. À ce moment, on décide surtout d'après les calories et le combustible. À la maison, ils
+ s'épuisent vite : toute la ville est dans la même situation, avec des réserves prévues pour trois jours.
+ Au chalet, ils durent plus longtemps, parce que le bois, l'eau et le gibier sont sur place.
 
 ---
 
-## 6. Points de contrôle
+## 5. Points de contrôle
 
 | Moment | Ce qu'on vérifie | Cible chiffrée | Si c'est hors cible |
 | --- | --- | --- | --- |
-| Heure 0 | Avertisseur de CO au bouton d'essai | Alarme sonore franche | Sortir tout le monde, aérer, ne rien rallumer avant d'avoir un avertisseur qui fonctionne |
-| Heure 0 | Emplacement de la génératrice | Dehors, à au moins 6 m, loin des portes, des fenêtres et des prises d'air | La sortir, même sous la pluie, même à -35 °C. Un garage entrouvert ne compte pas |
-| Heure 0 | Branchement de la génératrice | Entrée principale à OFF, appareils branchés directement dans la génératrice | Débrancher. Aucun adaptateur mâle-mâle, aucune prise murale |
-| Heure 0 | Emplacement des avertisseurs de CO | 1 par étage, 1 par chambre où l'on dort porte fermée, 1 près de la porte du garage attenant, jamais à moins de **2 m** d'un appareil à combustion | Déplacer avant d'allumer quoi que ce soit : mal placé, il ne voit pas le gaz |
-| Heure 0 | Date de l'avertisseur de CO | Remplacement à **84 mois** (7 ans) après l'installation | Le traiter comme absent et aérer en continu toute combustion |
-| Chaque heure | Température de la pièce chauffée | Repère **18 à 24 °C**, risque minimal pour une personne sédentaire. En appui : personne ne frissonne, personne ne dort en manteau | Réduire encore le volume chauffé, fermer une pièce de plus, regrouper les lits. Seuil de départ : celui de la fiche de famille (ch. 2) |
-| Chaque heure | Pente, et non valeur, de la température | L'écart en °C avec l'heure précédente | Projeter la pente jusqu'au seuil de la famille (ch. 2). Si l'heure obtenue tombe la nuit, regrouper pendant qu'il fait clair |
-| Chaque heure, si quelqu'un a été exposé | Température buccale | **35 °C ou plus**. Sous 35 °C, hypothermie | Réchauffement passif, sec, à l'abri. Sous 32,2 °C, la vie est en jeu (ch. 25, ch. 26) |
-| Heures 8, 16, 24 | Génératrice arrêtée | **1 heure d'arrêt toutes les 8 heures** | L'arrêter maintenant. Vérifier l'huile et le carburant |
-| Heure 6 | Réfrigérateur | Tri au-delà de **6 heures** de panne | Trier au thermomètre (étape 19) |
-| Heure 24 | Congélateur à demi rempli | **24 heures** de tenue | Sortir le contenu dans la neige (ch. 73) ou cuire |
-| Heure 48 | Congélateur plein | **48 heures** de tenue | Idem, et ouvrir le ch. 74 |
-| Au tri | Chaque aliment cru décongelé | **≤ 4 °C** → cuire tout de suite ; **> 4 °C** → jeter | Jeter. Il n'y a pas de zone grise entre les deux |
-| À la cuisson | Cœur de la viande de gibier | **74 °C** | Remettre au feu. Ni le temps ni la couleur ne remplacent le thermomètre |
-| Dans les 24 h suivant l'abattage | Carcasse | **7 °C** dans les 24 premières heures | Fractionner les quartiers pour accélérer le refroidissement (ch. 61) |
-| Réfrigérateur en service | Température de l'appareil | **0 à 4 °C** | Traiter le contenu comme périssable exposé |
-| Congélateur en service | Température de l'appareil | **-18 °C ou moins** | Idem |
-| Chaque jour | Eau par personne | Réserve de trousse : **4 L par personne et par jour, dont 2 L à boire, pour au moins 3 jours** | Remplir pendant que l'aqueduc donne. Au chalet : fondre de la neige, et accepter que ça se paie en bois |
-| Tant que l'eau du réseau est suspecte | Eau pour boire, les aliments, les dents, la glace et les préparations pour nourrissons | **Gros bouillons, au moins 1 minute** | Ne pas la servir. Douche, mains, vaisselle et lessive se font sans ébullition |
+| Les 15 premières minutes | Avertisseur de CO, au bouton d'essai | Une alarme franche | Faire comme sans avertisseur (section 7, « Ce qu'on perd ») |
+| Les 15 premières minutes | Place de l'avertisseur de CO | Dans la pièce chauffée où on dort, à au moins **2 m** de tout appareil qui brûle ; s'il y en a un deuxième, près de la porte du garage attenant | Le déplacer avant d'allumer quoi que ce soit |
+| Les 15 premières minutes | Date de l'avertisseur de CO | Installé depuis moins de **7 ans** | Faire comme sans avertisseur (section 7) |
+| Chaque heure | Température de la pièce chauffée | Repère : **18 à 24 °C**, risque minimal pour une personne qui bouge peu. Personne ne frissonne, personne ne dort en manteau | Réduire encore le volume chauffé, fermer une pièce de plus, rapprocher les lits. Décider du départ avec le ch. 2 |
+| Chaque heure | L'écart avec la température de l'heure d'avant | L'écart en °C | Le prolonger jusqu'au matin. Si la pièce ne restera pas assez chaude, regrouper la famille pendant qu'il fait clair |
+| Chaque heure, si quelqu'un a été dehors ou a froid | Température dans la bouche | **35 °C ou plus**. Sous 35 °C, hypothermie | Le réchauffer doucement, au sec, à l'abri. Sous **32,2 °C**, la vie est en jeu (ch. 25, ch. 26) |
+| Heures 8, 16, 24 | Génératrice | Arrêtée **1 heure toutes les 8 heures** | L'arrêter maintenant ; vérifier l'huile et le carburant |
+| Heure 6 | Réfrigérateur | Trié passé **6 heures** de panne | Trier au thermomètre (étape 20) |
+| Heure 24 | Congélateur à moitié rempli | **24 heures** de tenue | Sortir le contenu dans la neige (étape 25) ou le cuire |
+| Heure 48 | Congélateur plein | **48 heures** de tenue | Même chose, et ouvrir le ch. 74 |
+| Au tri | Chaque aliment cru dégelé, au thermomètre planté au cœur | **4 °C ou moins** : le cuire tout de suite ; **plus de 4 °C** : le jeter | Le jeter |
+| À la cuisson | Cœur du gibier | **74 °C** | Remettre au feu |
+| Réfrigérateur en marche | Température de l'appareil | **0 à 4 °C** | Traiter le contenu comme un aliment qui a dépassé 4 °C (étape 20) |
+| Congélateur en marche | Température de l'appareil | **-18 °C ou moins** | Même chose |
+| Chaque jour | Eau par personne | **4 L par personne et par jour, dont 2 L à boire, pour au moins 3 jours** | Remplir pendant que l'aqueduc donne (étape 4). Au chalet : puiser, ou faire fondre la neige (section 7) |
+| Tant que l'eau du réseau est suspecte | Eau pour boire, cuisiner, se brosser les dents, faire la glace et les biberons | **Gros bouillons, au moins 1 minute** | Ne pas la boire. La douche, les mains, la vaisselle et la lessive n'ont pas besoin d'eau bouillie |
 | Tant que l'eau du réseau est suspecte | Machine à glace et bac à glaçons | Vides | Jeter la glace faite avec cette eau |
-| Au rétablissement | Conduites de la maison | Laisser couler **au moins 5 minutes** | Ne pas boire avant |
-| Au rétablissement, sous zéro | Température de la pièce avant de remettre la plomberie | **Au moins 18 °C** | Attendre (étape 28) |
+| Quand l'eau du réseau est redevenue bonne | Tuyaux de la maison | Rincés **au moins 5 minutes** | Ne pas boire avant |
+| Quand l'eau revient, l'hiver | Température de la pièce avant de remettre l'eau dans la plomberie | **Au moins 18 °C** | Attendre (étape 19) |
 
 ---
 
-## 7. Signes d'échec
+## 6. Signes d'échec
 
 | Observation | Diagnostic | Action |
 | --- | --- | --- |
-| Deux personnes ou plus ont mal à la tête, la nausée ou des étourdissements dans la même pièce, et ça passe dehors | Monoxyde de carbone | Sortir tout le monde dehors immédiatement, laisser les accès ouverts. Ne pas chercher la source de l'intérieur (ch. 2, étape 1) |
-| Un enfant cesse de se plaindre du froid et devient tranquille | L'hypothermie progresse | Le mettre au sec, en couches, contre un adulte. Température buccale. Sous 32,2 °C, la vie est en jeu (ch. 39, ch. 26) |
-| Quelqu'un frissonnait et ne frissonne plus | Stade grave : l'arrêt des frissons apparaît sous **28 °C** buccal | La vie est en jeu. Le manipuler doucement, à plat, au sec (§8 ; ch. 25) |
-| Sac de petits fruits ou de crème glacée repris en bloc dur, cristaux gros comme du gros sel | Le contenu a dégelé puis regelé : le congélateur est passé au-dessus de 0 °C | Ne pas s'y fier pour juger le reste : tri complet au thermomètre |
-| Emballage de viande bombé, qui suinte, ou dont le jus a coulé au fond de l'appareil | Le jus a traversé la zone de danger et contaminé ce qui est en dessous | Jeter ce qui a reçu le jus, laver et désinfecter l'appareil avant de recharger |
-| Poisson fumé ou sous vide qui a l'air correct après une panne | Le botulisme ne s'annonce pas (§8) | Jeter |
-| Personne n'a uriné depuis le matin, ou l'urine est foncée | L'horloge 2 a pris de l'avance sur ce qu'on croyait | Faire boire avant d'avoir soif : la soif arrive en retard sur le besoin (ch. 21) |
-| La pile de bois intérieure a baissé de moitié en une nuit | L'horloge 4 tourne deux fois plus vite que le calcul | Réduire le volume chauffé avant d'en rentrer plus |
-| Une seule personne a mal à la tête et se sent mieux dehors, mais l'avertisseur de CO ne sonne pas | Sous son seuil, l'avertisseur se tait (étape 5) | Traiter comme du CO. Sortir, aérer, éteindre la combustion, sans attendre que l'appareil confirme |
-| La pression au robinet baisse, ou l'eau sort trouble ou colorée | Le réseau est en difficulté | Remplir tout de suite, puis bouillir 1 minute par défaut |
-| Un enfant a bu à un verre rempli de glaçons faits avec l'eau suspecte | Il a bu l'eau suspecte | Vider la machine à glace, guetter les symptômes digestifs (ch. 30, ch. 26) |
-| Personne ne sait quelle heure il était quand le courant est tombé | L'étape 2 a été sautée | Repartir de la dernière heure certaine et arrondir dans le sens défavorable |
-| On a mangé de la viande maigre et rien d'autre pendant plusieurs jours, et l'appétit est parti | Début du mal de caribou | Ajouter du gras, tout de suite (ch. 19, ch. 72) |
+| Deux personnes ou plus ont mal à la tête, la nausée ou des étourdissements dans la même pièce, ou un jeune enfant devient fatigué ou de mauvais caractère, et ça passe dehors | Monoxyde de carbone | Sortir tout le monde, sans chercher la source à l'intérieur, et laisser les portes ouvertes (ch. 2) |
+| Une seule personne a mal à la tête et se sent mieux dehors, mais l'avertisseur de CO ne sonne pas | L'avertisseur ne sonne pas pour une petite quantité de CO (étape 2) | Faire comme si c'était du CO : sortir, aérer, éteindre ce qui brûle, sans attendre que l'avertisseur sonne |
+| Un enfant cesse de se plaindre du froid et devient tranquille | L'hypothermie avance | Le mettre au sec, en couches, contre un adulte. Prendre sa température dans la bouche. Sous 32,2 °C, la vie est en jeu (ch. 26, ch. 39) |
+| Quelqu'un frissonnait et ne frissonne plus | Hypothermie grave : les frissons s'arrêtent sous **28 °C** dans la bouche | La vie est en jeu. Le manipuler doucement, couché à plat, au sec (ch. 25) |
+| Un sac de petits fruits ou de crème glacée a repris en un bloc dur, avec des cristaux gros comme du gros sel | Le contenu a dégelé puis regelé : le congélateur est passé au-dessus de 0 °C | Ne pas juger le reste à l'œil : tout trier au thermomètre (étape 20) |
+| Un emballage de viande est bombé ou suinte, ou du jus a coulé au fond de l'appareil | Le jus a passé des heures au-dessus de 4 °C et a coulé sur ce qui est en dessous | Jeter ce qui a reçu le jus, laver et désinfecter l'appareil avant de le remplir |
+| Un poisson fumé ou sous vide a l'air correct après une panne | Le botulisme ne se voit pas (étape 22) | Le jeter |
+| Personne n'a uriné depuis le matin, ou l'urine est foncée | La famille boit moins qu'il ne faut | Faire boire avant d'avoir soif : la soif arrive en retard sur le besoin (ch. 21) |
+| La pile de bois de la maison a baissé de moitié en une nuit | Le bois part deux fois plus vite que le calcul | Réduire le volume chauffé avant d'en rentrer plus (étape 26) |
+| La pression au robinet baisse, ou l'eau sort trouble ou colorée | Le réseau a un problème | Remplir tout de suite, puis faire bouillir l'eau au moins 1 minute (étape 17) |
+| Un enfant a bu un verre avec des glaçons faits avec l'eau suspecte | Il a bu l'eau suspecte | Vider la machine à glace (étape 18), et surveiller la diarrhée et les vomissements (ch. 30, ch. 26) |
+| Personne ne sait à quelle heure le courant a manqué | L'étape 1 a été sautée | Partir de la dernière heure dont on est sûr, et arrondir du côté le moins favorable |
+| On mange de la viande maigre et rien d'autre depuis plusieurs jours, on mange de plus en plus sans être rassasié, et on a envie de gras | Début du mal de caribou | Ajouter du gras à chaque repas, tout de suite (étape 28 ; ch. 19, ch. 72) |
 
 ---
 
-## 8. Danger
-
-> ### ⚠ DANGER
->
-> **1. Le monoxyde de carbone** ne se voit pas et ne se sent pas. Il prend la place de l'oxygène
-> dans le sang. Les premiers signes, maux de tête, fatigue, nausées, vomissements,
-> étourdissements, ressemblent à une grippe, et celui qui s'endort en s'intoxiquant ne se
-> réveille pas. Chez un enfant, ils ressemblent à de la fatigue ou à du mauvais caractère
-> (ch. 40). **Génératrice, gril, moteur, appareil de camping : jamais dans un bâtiment, un
-> garage, un abri ni sous un auvent, même le temps de le démarrer.** Seul un avertisseur détecte
-> ce gaz.
->
-> **2. L'aliment décongelé remonté au-dessus de 4 °C.** Entre **4 °C et 60 °C**, les bactéries
-> se multiplient. Recongeler ne stérilise rien : ça met les bactéries en pause et ça laisse
-> leurs toxines en place, et plusieurs de ces toxines résistent à la cuisson. La règle : **resté
-> à 4 °C ou moins → cuire tout de suite ; exposé au-dessus de 4 °C → jeter.** L'odeur ne tranche
-> pas.
->
-> **3. Le botulisme, et surtout le type E du poisson.** Les souches non protéolytiques de
-> *Clostridium botulinum*, dont le type E, **se multiplient et produisent leur toxine dès
-> 3 °C** : un réfrigérateur réglé entre 0 et 4 °C ne les arrête pas de façon fiable. Le poisson
-> fumé peut rendre malade même gardé au réfrigérateur et sans aucun signe de détérioration ;
-> sous vide, il n'y a même plus la pourriture ordinaire pour avertir. Le botulisme ne change ni
-> la couleur, ni l'odeur, ni le goût des aliments. Un poisson douteux ne se goûte pas : il se
-> jette.
->
-> **4. La trichinellose de l'ours et du phoque.** La salaison, le séchage, le fumage et le four
-> à micro-ondes ne tuent pas toujours les larves, et la plupart des espèces de *Trichinella*
-> trouvées dans la nature résistent à la congélation : saler ou fumer la viande d'ours d'un
-> congélateur arrêté ne règle rien. **Seule la cuisson à 74 °C à cœur règle la question.**
->
-> **5. L'hypothermie qui s'arrête de frissonner.** Sous **35 °C** de température buccale, la
-> personne est en hypothermie. Le jugement part avant la force : la personne atteinte est la
-> dernière à s'en apercevoir, et on surveille donc les autres plutôt que soi-même. **L'arrêt des
-> frissons n'est pas une amélioration** : c'est un signe du stade grave, sous 28 °C buccal. Ne
-> pas la frictionner, ne pas lui donner d'alcool, ne pas la plonger dans l'eau chaude.
->
-> **6. La rétroalimentation du réseau**, propre à la maison, tue quelqu'un d'autre que la
-> famille. Une génératrice branchée dans une prise murale sans commutateur de transfert renvoie
-> du courant dans la ligne du quartier ; le transformateur l'élève à la tension de distribution.
-> Les monteurs qui travaillent sur une ligne qu'ils ont mise hors tension et vérifiée peuvent en
-> être électrocutés, jusqu'à la mort. **Entrée principale à OFF, appareils branchés directement
-> dans la génératrice, aucun adaptateur mâle-mâle.**
-
----
-
-## 9. Variante d'urgence
+## 7. Variante d'urgence
 
 **À la maison, sans électricité, sans génératrice, sans thermomètre, sans eau embouteillée.**
 
-La maison se réduit à la pièce de l'étape 8, lits rapprochés ; les pièces vides se ferment et
-servent de tampon. Quand le robinet ne donne plus, il reste l'eau gardée dans la maison (plus
-bas) et les voisins (ch. 16, ch. 18), qui en manquent en même temps : c'est le motif de la
-bascule (ch. 2). Ce qui ne peut pas attendre se cuit tout de suite, puis se sale (ch. 67,
-ch. 68). La lumière se rationne (ch. 85).
+On vit dans la pièce de l'étape 6, les lits rapprochés, et on ferme les pièces vides : elles isolent la
+pièce habitée du froid du dehors. Quand le robinet ne donne plus, il reste l'eau des tuyaux et du
+chauffe-eau (plus bas), et les voisins (ch. 16, ch. 18), qui en manquent en même temps : c'est une raison
+de partir au chalet (ch. 2). On cuit tout de suite ce qui ne peut pas attendre, puis on le sale (ch. 67,
+ch. 68). On rationne la lumière (ch. 85).
 
-**Au chalet**, l'eau se prend au lac ou à la rivière, au trou refait chaque jour au même
-endroit, et bout de la même façon (ch. 10). La neige vient en dernier, et chaque chaudron se
-paie en bois (plus bas). Le feu se fait sans allumettes au besoin (ch. 13).
+**Au chalet**, on prend l'eau au lac ou à la rivière, au trou qu'on rouvre chaque jour au même endroit, et
+on la fait bouillir de la même façon (ch. 10). La neige vient en dernier : chaque chaudron de neige fondue
+coûte du bois (plus bas). Sans allumettes, on fait le feu comme au ch. 13.
 
 ### Lire les horloges sans instrument
 
-**Le 0 °C.** L'eau gèle à 0 °C. Un contenant d'eau dans le coin le plus froid de la pièce
-chauffée : tant qu'il reste liquide, le coin tient au-dessus de 0 ; une pellicule de glace au
-matin dit que la pièce y est descendue pendant la nuit, ce qu'un thermomètre ordinaire ne dit
-pas après coup. Un deuxième contenant, d'eau bien salée, gèle plus bas : quand il prend, la
-pièce est descendue nettement sous zéro, et la nuit suivante sera pire.
+**Le 0 °C.** Poser un contenant d'eau dans le coin le plus froid de la pièce chauffée. Tant que l'eau
+reste liquide, le coin est au-dessus de 0 °C. Une pellicule de glace au matin montre que la pièce est
+descendue à 0 °C pendant la nuit, ce qu'un thermomètre ordinaire ne montre pas après coup. Un deuxième
+contenant, d'eau très salée, gèle plus bas : s'il prend en glace, la pièce est descendue nettement sous
+zéro.
 
-**La pente se mesure en temps.** Un chaudron d'eau chaude, toujours le même, rempli pareil, posé
-à la même place : on note combien de temps il met à devenir tiède. Si le deuxième relevé va
-nettement plus vite que le premier, la maison a perdu quelque chose entre les deux (une vitre,
-un joint de porte, un feu qui baisse), et on le cherche avant d'ajouter une couverture.
+**La pente sans thermomètre.** Remplir le même chaudron d'eau chaude, à la même hauteur, le poser à la
+même place, et noter combien de temps il met à devenir tiède. Si le deuxième relevé va nettement plus vite
+que le premier, la pièce perd plus de chaleur qu'avant (une vitre, un joint de porte, un feu qui baisse) :
+chercher la cause avant d'ajouter une couverture.
 
-**L'hypothermie se lit sur la personne, dans cet ordre.** Frissons violents et parole nette : le
-corps se défend. Puis les gestes fins partent avant la force : attacher un bouton, gratter une
-allumette, ouvrir une fermeture éclair devient impossible alors que la personne marche droit.
-C'est le test le plus fiable sans thermomètre, et il se fait sans le dire : on lui tend une
-allumette et une boîte. Viennent ensuite la parole et le jugement : quelqu'un qui répond à côté,
-qui rit ou qui veut enlever son manteau est plus avancé que celui qui grelotte. L'arrêt des
-frissons vient après (§8). Le seuil de **35 °C** ne se voit pas : dans le doute, on traite comme
-si on était dessous.
+**L'hypothermie sans thermomètre.** On regarde la personne, dans cet ordre. D'abord, elle frissonne fort
+et parle bien. Ensuite, elle perd ses gestes fins avant sa force : elle n'arrive plus à attacher un bouton,
+à gratter une allumette ou à ouvrir une fermeture éclair, alors qu'elle marche droit. Ce test est le plus
+fiable sans thermomètre, et on le fait sans le lui dire : on lui tend une allumette et une boîte. Après
+viennent la parole et le jugement : une personne qui répond à côté, qui rit ou qui veut enlever son
+manteau est plus atteinte qu'une personne qui grelotte. On ne voit pas les 35 °C : dans le doute, on la
+traite comme si elle était en hypothermie. On peut aussi mettre la main sur son ventre, sous les
+vêtements : un ventre froid est un signe d'alarme, des mains froides non.
 
-**Le 74 °C sans sonde.** Une seule cuisson garantit le cœur sans mesurer : l'eau bouillante. Un
-bain qui bout est à 100 °C et n'en descend pas tant qu'il bout ; une pièce immergée, à couvert,
-assez longtemps pour être brûlante au centre, a dépassé 74 °C. Le temps dépend de l'épaisseur,
-et pas en proportion : un morceau **deux fois plus épais demande quatre fois plus de temps**
-pour que son centre arrive au même point. On tranche donc en morceaux d'épaisseur égale au lieu
-de mijoter un rôti entier. Le test de la lame donne un appoint, pas une preuve : une lame mince
-poussée au centre, laissée le temps qu'elle prenne la température de la viande, puis posée
-contre l'intérieur du poignet. Tiède, le centre est froid. Brûlante, le centre est chaud, ce qui
-ne veut pas dire 74. Pour l'ours et le phoque, porteurs de trichinellose que ni le sel, ni le
-fumage, ni le gel ne détruisent, le bain d'eau bouillante est la seule méthode sans
-thermomètre : la pièce rôtie près du feu est cuite dehors et crue dedans.
+**Le 74 °C sans sonde.** Seule la cuisson dans l'eau bouillante permet de savoir que le cœur a assez
+chauffé. Tant que l'eau bout, elle est à 100 °C. Une pièce de viande plongée dans l'eau qui bout, à
+couvert, assez longtemps pour être brûlante au centre, a dépassé 74 °C. Le temps dépend de l'épaisseur :
+un morceau deux fois plus épais demande quatre fois plus de temps pour que son centre arrive à la même
+température. On coupe donc la viande en morceaux d'égale épaisseur au lieu de faire mijoter un rôti
+entier. Le test de la lame aide sans prouver : pousser une lame mince au centre, la laisser le temps
+qu'elle prenne la température de la viande, puis la poser contre l'intérieur du poignet. Si elle est
+tiède, le centre est froid. Si elle est brûlante, le centre est chaud, mais pas forcément à 74 °C. Pour
+l'ours et le phoque (étape 27), le bain d'eau bouillante est la seule méthode sans thermomètre : une pièce
+rôtie près du feu peut être cuite dehors et crue dedans.
 
-### Remplir le congélateur pour le faire durer deux fois plus
+### Remplir le congélateur arrêté
 
-Un congélateur **plein** tient deux fois plus longtemps qu'à moitié rempli (§5). Un congélateur
-à moitié vide **se remplit**, tout de suite, avec ce qui ne se mange pas : sacs de neige tassée,
-blocs de glace taillés au lac, cruches et pots d'eau gelés dehors puis rentrés, vêtements
-d'hiver roulés pour boucher les vides. Chaque poche d'air est du froid qui tombe dès qu'on
-ouvre ; chaque bloc de glace est du froid en réserve. Le dessus et les côtés se couvrent de
-couvertures, de sacs de couchage ou de tapis : un appareil arrêté n'a besoin d'aucune
-ventilation. Cet isolant s'enlève au retour du courant, sinon le compresseur repart étouffé et
-chauffe.
+Un congélateur plein garde le froid deux fois plus longtemps qu'un congélateur à moitié rempli (étape 3).
+On remplit donc tout de suite un congélateur à moitié vide avec ce qui ne se mange pas : des sacs de neige
+tassée, des blocs de glace taillés au lac, des cruches et des pots d'eau gelés dehors puis rentrés, des
+vêtements d'hiver roulés pour boucher les vides. L'air d'un vide sort à chaque ouverture ; un bloc de
+glace garde son froid. On couvre le dessus et les côtés de couvertures, de sacs de couchage ou de tapis :
+un appareil arrêté n'a besoin d'aucune ventilation. On enlève cet isolant au retour du courant : sinon, le
+compresseur repart étouffé et chauffe.
 
-**La neige isole dans les deux sens.** Ce qu'on enterre creux dans un banc de neige ne gèle pas
-dur. **Pour geler, on expose** : bacs ouverts au nord, morceaux séparés, une nuit claire et du
-vent. **Pour garder gelé, on enterre**, avec une perche plantée dans la cache : une bordée
-efface un banc de neige et ce qu'il contient (ch. 73).
+**La neige isole.** Une viande qu'on enterre encore molle dans un banc de neige ne gèle pas dur. Pour la
+faire geler, on l'expose : des bacs ouverts au nord, les morceaux séparés, par une nuit claire et
+venteuse. Une fois la viande gelée, on l'enterre dans la neige pour la garder gelée, avec une perche
+plantée dans la cache : une bordée efface un banc de neige et ce qu'il contient (ch. 73).
 
 ### L'auto comme génératrice
 
 Une auto dans l'entrée, c'est une batterie de 12 V, un alternateur, un chauffage et une radio.
 
-**Rentrer la batterie.** Sortie de l'auto et montée à l'intérieur, elle alimente une lampe et
-une radio 12 V toute une nuit sans essence, et se recharge le lendemain en roulant. Déchargée,
-une batterie gèle : on ne la laisse dehors que pleine. Le montage est celui du 12 V du chalet
-(ch. 85, ch. 15).
+**Rentrer la batterie.** Sortie de l'auto et rentrée dans la maison, la batterie fait marcher une lampe
+et une radio 12 V toute une nuit sans essence ; on la recharge le lendemain en la remettant dans l'auto et
+en roulant. Une batterie déchargée gèle : on ne la laisse dehors que pleine. Le montage est celui du 12 V
+du chalet (ch. 85, ch. 15).
 
-**Une pause de chaleur pour les enfants dans l'auto**, moteur tournant **dehors**, jamais dans
-un garage ni sous un abri. **Dégager le tuyau d'échappement avant chaque démarrage** : bouché
-par la neige, il refoule les gaz sous l'auto, et ils remontent dans l'habitacle par le plancher.
-En tempête, la neige le rebouche vite. Chaque heure de ralenti dépense le réservoir qui servira
-à partir (ch. 2, ch. 15).
+{!generatrice} **Réchauffer les enfants dans l'auto**, moteur en marche, stationnée dehors, jamais dans le
+garage ni sous un abri. Dégager le tuyau d'échappement de la neige avant chaque démarrage ; en tempête, la
+neige le rebouche vite. Chaque heure au ralenti dépense l'essence qui servira à partir (ch. 2, ch. 15).
 
 ### L'eau quand la pression tombe
 
-Le réseau s'affaisse au lieu de s'arrêter net. L'eau qui reste dans la maison se récupère par
-gravité : ouvrir le robinet le **plus haut** pour laisser entrer l'air, puis le **plus bas**
-pour vider les colonnes dans un seau. Le chauffe-eau est le plus gros contenant de la maison,
-toujours plein ; sa valve de vidange est au bas du réservoir. Couper son alimentation **avant**
-de le vider : l'élément chauffé à sec brûle, et on perd l'eau chaude pour le reste de l'hiver.
-Viennent ensuite le réservoir de la toilette (le réservoir, pas la cuvette) et le jus des
+Quand la pression tombe, il reste de l'eau dans les tuyaux de la maison, et on la récupère par gravité :
+ouvrir le robinet le plus haut pour laisser entrer l'air, puis le plus bas pour vider les tuyaux dans un
+seau. Le chauffe-eau est le plus gros contenant de la maison, et il est toujours plein ; son robinet de
+vidange est au bas du réservoir. Couper le disjoncteur du chauffe-eau avant de le vider : si le courant
+revient pendant qu'il est vide, l'élément chauffe à sec et brûle, et on n'a plus d'eau chaude pour le reste
+de l'hiver. Prendre ensuite l'eau du réservoir de la toilette (le réservoir, pas la cuvette) et le jus des
 conserves de légumes.
 
-**Un fond d'eau d'abord, la neige ensuite**, par poignées, sans laisser le niveau redescendre à
-sec : de la neige seule ne touche le métal qu'en quelques points, et le fond chauffe à vide et
-brûle. À bois égal, la glace de lac rend beaucoup plus d'eau que la neige, qui est surtout de
-l'air : quand les deux sont à portée, on prend la glace. L'eau fondue se fait bouillir comme
-celle du robinet (§5) : la neige a lavé l'air en tombant.
+**Faire fondre la neige.** Mettre d'abord un fond d'eau dans le chaudron, puis la neige, par poignées,
+sans jamais laisser le fond à sec : la neige seule ne touche le métal qu'en quelques points, et le fond
+chauffe à vide et brûle. Pour le même bois, la glace de lac donne beaucoup plus d'eau que la neige, qui est
+surtout de l'air : quand on a les deux, on prend la glace. On fait bouillir l'eau fondue comme celle du
+robinet (étape 17) : en tombant, la neige ramasse ce qu'il y a dans l'air.
 
 **Ce qu'on perd :**
 
-- **La certitude sur le 4 °C.** Sans thermomètre, on ne sait pas si un aliment a franchi le
- seuil : on jette plus large, et on jettera de la nourriture encore bonne.
-- **La certitude sur le 74 °C, sauf par l'eau bouillante.** Le bain qui bout règle le cas des
- morceaux, pas celui des grosses pièces rôties, du fumage et de ce qui se cuit à sec, où la
- cuisson redevient une affaire d'œil. L'ours et le phoque se mijotent, ou ne se mangent pas.
-- **L'alerte au CO.** Sans avertisseur, il n'y a aucun signal avant les symptômes. Toute
- combustion se fait alors avec une fenêtre entrouverte au vent, et on accepte de chauffer moins.
- Personne ne dort seul dans une pièce chauffée à la flamme.
-- **Le rendement du congélateur.** Le froid naturel suit la météo et ne tient pas les -18 °C :
- un redoux de trois jours annule la réserve, et la conservation passe au sel et à la fumée.
-- **Le confort des enfants** : il décide s'ils dorment, donc si les adultes dorment, donc les
- décisions du lendemain (ch. 39, ch. 40).
+- **La certitude sur le 4 °C.** Sans thermomètre, on ne sait pas si un aliment a dépassé 4 °C : on jette
+ plus large, et on jette de la nourriture encore bonne.
+- **La certitude sur le 74 °C, sauf dans l'eau bouillante.** Le bain qui bout règle le cas des morceaux,
+ pas celui des grosses pièces rôties, du fumage et de ce qui cuit à sec : là, on juge la cuisson à l'œil.
+- **L'alerte au CO.** Sans avertisseur, rien n'avertit avant les symptômes. On ouvre plus grand la
+ fenêtre de l'étape 6, du côté du vent, et on accepte de chauffer moins. Personne ne doit dormir seul
+ dans une pièce chauffée à la flamme.
+- **Le rendement du congélateur.** Le froid naturel suit la météo et ne garde pas les -18 °C : un redoux de
+ trois jours fait dégeler la réserve, et il faut passer au sel et à la fumée.
+- **Le sommeil.** Un enfant qui a froid dort mal ; les adultes dorment mal à leur tour, et ils prennent de
+ moins bonnes décisions le lendemain (ch. 39, ch. 40).
+
+---
+
+## En plus
+
+### La viande en poudre des Innus
+
+Les Innus font sécher la viande de caribou ou d'orignal, puis la réduisent en poudre : le niuaikanat,
+qu'on mange avec un peu de graisse (étape 27). La viande séchée à fond garde trop peu d'eau pour que les
+microbes s'y multiplient, et la graisse apporte les calories qui manquent à la viande maigre. Avec de
+l'ours ou du phoque, la façon devient dangereuse : le séchage ne tue pas la trichine.
+
+### La maison refroidit vite, puis lentement
+
+Pendant le verglas de 1998, on a mesuré la température de 31 maisons restées sans chauffage, par environ
+-8 °C dehors. L'air a perdu ses premiers degrés en quelques heures, de 20 à 14 °C, puis il a refroidi
+beaucoup plus lentement : les murs, les meubles et la terre autour du sous-sol rendaient leur chaleur.
+Les maisons ont mis des jours, parfois des semaines, à passer sous zéro. Par grand froid, ça va plus vite
+(étape 12).
+
+### La glace qui fond
+
+Faire fondre 1 kg de glace demande autant de chaleur que réchauffer 1 kg d'eau de 0 à 80 °C, et la glace
+reste à 0 °C tant qu'elle fond. Un bloc de glace absorbe donc beaucoup de chaleur avant de disparaître :
+dans un congélateur arrêté, il retarde le moment où le reste se réchauffe (section 7, « Remplir le
+congélateur arrêté »).
+
+### Le temps qu'il faut pour geler la viande
+
+Même dans un tunnel de congélation, dans un air à -30 °C soufflé fort, une demi-carcasse de bœuf met 16 à
+20 heures à geler, et de la viande coupée, en boîte, environ 4 heures. Une pièce de viande est gelée quand
+son centre est à -12 °C ou moins. Plus le morceau est mince, plus il gèle vite : désosser et couper la
+viande avant de la faire geler dehors (section 7).

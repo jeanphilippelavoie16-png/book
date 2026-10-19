@@ -404,3 +404,246 @@ trempé »…).
 - La WMS a mis ses lignes directrices à jour en 2024 ; seul le résumé de 2019 a pu être lu.
 - « L'arme qui tue dans un camp de groupe est presque toujours celle… » (§8) : affirmation d'origine, non
   sourcée à cette fiche.
+
+## Refonte au gabarit final, 19 octobre 2026
+
+Numéros de chapitre **nouveaux** dans cette section. Texte d'avant : `git show HEAD:chapitres/16-le-voisinage-et-le-groupe-de.md`
+(copie de travail : la version du 15 octobre, avec le correctif des 18 à 24 porteurs). Modèles suivis : ch. 04 et ch. 12.
+Consigne de JP relayée avec la commande (« fuck les sources, on a pas déjà fait ce travail-là ? ») : **aucune recherche
+nouvelle sur le web**. Les chiffres d'avant ne sont pas rouverts ; ce qui est nouveau s'appuie sur des fichiers déjà dans
+`sources/`, et ce qui n'a pas de fichier est listé plus bas pour le vérificateur. Fins de ligne CRLF gardées (487 CRLF,
+aucun LF seul).
+
+### Ce qui a changé
+
+- **Sept sections, puis « En plus »** : 1 En une ligne, 2 Quand l'utiliser, 3 Matériel, 4 Procédure, 5 Points de
+  contrôle, 6 Signes d'échec, 7 Variante d'urgence. « Pourquoi ça marche » et la section 8 Danger sont sortis (où chaque
+  bloc est allé : plus bas). Séparateurs `---` entre les sections, comme aux ch. 04 et 12.
+- **Rien sous le titre que `**Les deux**`.** La phrase « La rue porte les jours courts ; le rang et le groupe de chasse
+  portent ce qui dure » est sortie (formule) ; son fait est à l'étape 15.
+- **Section 2** : seulement les situations, chacune avec ses étapes. La liste « C'est un mauvais choix quand » est
+  sortie ; ce qu'elle apprenait est allé dans l'étape qui sert : le risque contagieux et la chaîne des petits services
+  (étape 29, ch. 30) ; les retombées, où on ne va voir personne (étape 26, ch. 4) ; annoncer ce qu'on a (étape 17,
+  dernière phrase, ch. 17) ; la décision de partir, qu'on annonce sans demander (étape 28, ch. 2). Les chiffres
+  d'ambiance de l'ancienne section 2 sont sortis : « la maison d'à côté est à trente mètres », « vingt heures par jour »,
+  « deux heures », « une seule scie en état vaut mieux que cinq scies mortes ».
+- **Numérotation continue, 1 à 47**, sans lettres ni « § » : 1 à 5, la série orange ; 6 à 11, « La sortie » ; 12 à 14,
+  « Chaque heure de la sortie » ; 15 à 25, « Bâtir le réseau, avant la crise » ; 26 à 32, « Travailler et vivre à
+  plusieurs » ; 33 et 34, « La dette » ; 35 à 40, « Le groupe de chasse à l'orignal » ; 41 à 47, « Donner et recevoir la
+  viande ». Renvois internes : des numéros d'étape, « section 6 » ou « section 7 ».
+- **La série orange** : une seule, « Quelqu'un est blessé dans le bois `{.orange 10 min}` », étapes 1 à 5. L'ancienne
+  première étape (soigner sur place) est découpée en deux : 1, régler ce qui pourrait faire un deuxième blessé et
+  arrêter le saignement (pression, garrot : ch. 26, étapes 15 à 18) ; 2, isoler du sol, couvrir, noter l'heure, avec le
+  délai de gelure et l'été. L'alerte (3) passe avant la décision « couché ou pas » (4), dans l'ordre du logigramme ;
+  l'étape 2 roule le blessé d'un bloc, la tête dans l'axe, s'il faut glisser l'isolant avant de savoir. La ligne de
+  scène sous le titre (« Quelqu'un est blessé dans le bois, au bûchage… ») est sortie : le titre la dit. Pourquoi les
+  anciennes « La première heure » et « Chaque heure de la sortie `{.orange 1 h}` » ne sont plus en orange : voir « La
+  série orange et sa pastille ».
+- **L'année** (plan de match, PAUSE du 15 octobre, point 2) : la sortie valait pour la neige seulement. L'été est écrit
+  à l'étape 2 (le blessé couché se refroidit aussi, mouillé ou la nuit), à l'étape 5 (VTT avec remorque, canot, travois),
+  à l'étape 11 (le canot : couché au fond, veste de flottaison, pas attaché, le long de la rive ; sinon VTT ou travois ;
+  sinon l'abriter) et à la section 7 (« L'été, sans neige » : le traîneau de perches tiré en travois). La nuit est
+  marquée aux étapes 5, 10 et 14. Logigramme refait en conséquence.
+- **Étape nouvelle 22**, « Convenir de qui chasse, trappe et pêche où » : le ch. 42 (ligne 340) renvoie à « la
+  cohabitation (ch. 16) », que le chapitre ne disait pas. Aucune donnée chiffrée.
+- **L'ancienne étape 35** (machine, conducteur, garde des enfants nommés d'avance) passe dans « Bâtir le réseau »
+  (étape 24) : c'est un geste d'avant la crise.
+- **Retiré** : la note [^2] (signes du mal de caribou) : la page du pictogramme `mal-de-caribou` les décrit, et
+  l'étape 40 porte le pictogramme. « L'arme qui tue dans un camp de groupe est presque toujours celle… » (non sourcée,
+  doute de la fiche du 15 octobre). Les chiffres d'exemple sans source : « quinze camps… deux foyers en février »,
+  « à trois kilomètres », « six heures à 15 °C », « on le perd deux jours », « depuis trois ans ». Les formules et
+  maximes : « ce qui n'a pas été répété n'a pas été décidé », « Une vérification qu'une seule personne a vue n'a pas eu
+  lieu », « la discrétion a créé le problème », « la bête qui se perd est celle du groupe », « le refus est le
+  symptôme », « Un balisage qui ne se lit qu'à l'aller devient un piège au retour », « une cloche porte ce que le vent
+  veut bien », « là où la flamme ne se voit pas », « Le prix est moindre et il est ailleurs », l'introduction de la
+  section 9 (« Ce qui suit raccourcit cette marche, ou l'évite »). La pastille « 1 h ».
+- **Tournures corrigées** : consignes au présent qui décrit (« il marche », « deux personnes vont chercher », « on
+  cherche… », « le chien reste en longe ») ; pronominaux de consigne (« ne se répète pas », « le plan se décide »,
+  « tout ce qui suit se compte », « chaque trajet se fait à deux ») ; la chose qui décide ou connaît (« le receveur
+  décide », « que tout le rang connaît ») ; « Ceux qui tirent » (logigramme) ; « d'où vient un paquet » ; « c'est elle
+  qui » ; les « § » (15).
+- **Section 7** : les variantes ont chacune leur `###`. Le traîneau suit l'ordre des repères de la planche 16-08
+  (cadre 1 à 3, croisées 7 et 8, autre façon 12 et 13) ; « l'isolant va dessous » (redite de l'étape 6) sort ; le
+  pourquoi des brancards passe à l'étape 8, où les porteurs se placent ; « La règle des deux » se fond dans « Ce qu'on
+  perd », avec renvoi aux étapes 26 et 30.
+- **Sections 5 et 6** : les lignes ne redisent plus le mécanisme d'un danger (botulisme, arme, monoxyde) ; elles
+  renvoient à l'étape. La ligne du poisson fumé garde « le jeter » ; celle de la génératrice dit le geste (faire sortir
+  les gens, remettre la génératrice dehors).
+
+### Où sont allés les blocs de l'ancien « Pourquoi ça marche »
+
+| Bloc | Où il est allé |
+| --- | --- |
+| Deux maisons voisines manquent rarement de la même chose au même moment, à distance de marche à −35 °C | Étape 15, premier cercle |
+| Quand les services tombent, le voisinage utile devient le rang | Étape 15, second cercle |
+| Le froid d'un chalet est limité : un quartier donné devient une dette, qui tient le groupe plus longtemps qu'un paiement | Étape 33 |
+| Un second foyer est un second diagnostic | Sorti : aucune étape ne s'en sert ; la veille (26) et la réunion de crise (27) font le travail |
+| Un groupe tient s'il sait qui doit quoi, qui tranche, qui appelle qui | Sorti (formule) : les étapes 20, 21 et 27 le font |
+
+### Où sont allés les blocs de l'ancienne section 8, Danger
+
+| Point | Où il est allé | Pictogramme |
+| --- | --- | --- |
+| 1. L'arme dont personne ne répond ; chambre ouverte vue par les deux | Étape 36 (la carabine dans le coin, le propriétaire nommé) ; ligne des Signes d'échec qui y renvoie | `arme` (35, 36) |
+| 2. Viande reçue : 74 °C | Étape 44 | `cuisson` (44) |
+| 2. Foie et reins de cervidés offerts de bonne foi : cadmium | Étape 45 | `abats` (45) |
+| 2. Saucisson d'ours séché : trichinellose | Étape 44 | `trichine` (44) |
+| 2. Dépouiller les lièvres d'un autre : tularémie | Étape 46 | `tularemie` (46) |
+| 2. Poisson fumé offert : botulisme de type E, 3 °C, ne change ni l'odeur… | Étape 47 ; la ligne des Signes d'échec y renvoie | `botulisme` (47) |
+| 2. Le lot de maigre : le mal de caribou | Étape 40 (le gras se partage avant la viande) | `mal-de-caribou` (40) |
+| 3. La génératrice qu'on se prête : sous l'appentis, porte fermée à cause du bruit ; densité et signes du CO | Le cas propre au chapitre et les 6 m : étape 31. Densité, signes, fatigue : pages `co` et `generatrice` | `generatrice` (31) |
+| 3. Branchée sur une prise murale, elle électrocute le monteur | Étape 31 (rallonges, jamais une prise) ; le mécanisme : page `electrocution` | `electrocution` (31) |
+| 4. Le fil au sol après un verglas : 10 m, ne pas le déplacer ; tension de pas | Étape 32 (10 m, 3 m, marquer le secteur) ; la tension de pas : page `electrocution` | `electrocution` (32) |
+
+### Pictogrammes posés (étape → id)
+
+| Étape | Id | Ce qui est propre au chapitre |
+| --- | --- | --- |
+| 1 (regarder autour, arrêter ce qui saigne) | `coupure` | Le deuxième blessé (scie qui tourne, arbre en tension, glace) ; renvoi au garrot du ch. 26 |
+| 2 (isoler du sol, couvrir, noter l'heure) | `froid` | Le blessé couché sur la neige ; −30 °C et 10 km/h = −39, peau gelée en 10 à 30 min ; l'été aussi |
+| 13 (la halte de chaque heure) | `froid` | Le blessé immobile sur le traîneau ; confus ou sans frissons : à l'horizontale |
+| 30 (ne jamais bûcher seul) | `coupure` | Un autre foyer connaît le secteur et l'heure ; une personne lance la recherche ; l'heure par écrit |
+| 31 (la génératrice prêtée) | `generatrice`, `electrocution` | L'appentis et la porte fermée à cause du bruit ; 6 m ; rallonges |
+| 32 (l'arbre tombé chez le voisin) | `electrocution` | 10 m d'un fil tombé ; 3 m des fils restés en place, perche, échelle et branche comprises ; marquer le secteur |
+| 35 (le dossard) | `arme` | 2 580 cm², sac à dos compris ; l'accompagnateur et l'adolescent sans arme |
+| 36 (la chambre ouverte) | `arme` | À plusieurs, la carabine du coin ; le propriétaire nommé |
+| 38 (éviscérer) | `zone-de-danger` | 7 °C au cœur en 24 h ; tout le groupe s'y met |
+| 40 (le gras avant la viande) | `mal-de-caribou` | Le gras d'un orignal est à quelques endroits ; des parts égales ne le partagent pas |
+| 44 (cuire la viande reçue) | `cuisson`, `trichine` | 74 °C à la sonde ; le saucisson d'ours séché offert |
+| 45 (foie et reins) | `abats` | Offerts de bonne foi : refuser |
+| 46 (les lièvres d'un autre) | `tularemie` | Le service rendu expose avant toute cuisson |
+| 47 (le poisson fumé reçu) | `botulisme` | Sel, température et durée inconnus ; 3 °C ; ni odeur, ni goût, ni apparence |
+
+Les ids existent dans `plan/dangers-inventaire.md`, section 1, et dans `dangers/partie-1.md` et `partie-2.md`. Le ch. 16
+n'est pas dans la colonne « Chapitres » de `froid`, `coupure` et `zone-de-danger` : à ajouter (rendu à l'intégrateur).
+`co` n'est posé nulle part : le monoxyde ne vient ici que de la génératrice, qui a son pictogramme.
+
+**Rappels du tableau de `CLAUDE.md`** : 74 °C (étape 44, et le thermomètre du Matériel) ; foie et reins de cervidés
+(45) ; trichinellose, ni sel, ni fumage, ni gel (44) ; tularémie, gants (46) ; botulisme de type E dès 3 °C (47) ; le
+botulisme ne change ni l'odeur, ni le goût, ni l'apparence (47) ; viande maigre seule, mortel en quelques semaines (40) ;
+génératrice jamais sous un toit (31). Thuyone : sans objet.
+
+### La série orange et sa pastille
+
+- **Une série, un sujet** : « Quelqu'un est blessé dans le bois `{.orange 10 min}` », étapes 1 à 5, en tête de la
+  section 4, juste après le logigramme (ancré sur la dernière ligne du Matériel). Tout le détail y est : le geste, le
+  pourquoi, la note des signes du cou ([^1]) ; aucune partie « le détail ».
+- **La pastille « 10 min »** : le temps qu'on a pour arrêter le saignement et isoler le blessé. Le saignement d'une
+  grosse artère vide le corps « en quelques minutes » (page `coupure`, `plan/dangers-inventaire.md` 2.13) ; par −30 °C
+  et un vent de 10 km/h, le refroidissement éolien est de −39, et la peau exposée gèle en 10 à 30 minutes
+  (`sources/20-environnement-canada-refroidissement-eolien.md`, table et seuils ; page `froid`). La pastille prend le
+  bas de la fourchette. Avant : « 15 min » (« Les quinze premières minutes »), sans source à la fiche.
+- **« La sortie » (6 à 11) et « Chaque heure de la sortie » (12 à 14) ne sont plus en orange.** La règle du cadre :
+  la pastille dit le temps qu'on a, et ce temps est sourcé. Aucune source au dossier ne donne le temps qu'on a pour
+  emballer, sangler et partir (il dépend de l'heure de la noirceur) ; « 1 h » était la cadence des messages (ch. 14,
+  l'exemple « prochain message dans 1 h »), pas un temps qu'on a. Ces étapes restent dans la procédure, juste après la
+  série, avec le même contenu. À trancher par JP s'il les veut en orange (il faudrait une pastille ; voir la réponse).
+
+### Logigramme
+
+`images/logigrammes/16-sortir-un-blesse.json`, rendu `.svg`, `.pdf`, `.png` et `16-sortir-un-blesse-livre.svg`
+(`env -u TMPDIR python3 design/outils/logigramme.py … ` puis `--sans-entete --svg`) : **0 erreur, 0 avis** les deux
+fois ; regardé à l'image, aucune boîte ne déborde. Colonnes et rangs non touchés. Changements : les renvois suivent les
+nouvelles étapes (1 à 5 à gauche, 6 à 14 à droite) ; la pastille passe de 15 à 10 min, identique à la série ; les deux
+pastilles « 1 h » de la page de droite sortent, et les boîtes de la sortie passent de « urgent » à « geste » (la sortie
+n'est plus en orange) ; l'été entre dans deux questions (« Une motoneige, ou l'été un VTT avec une remorque… » ; « En
+traîneau, ou l'été en canot… ») et dans la boîte du chemin ; les boîtes disent la consigne à l'infinitif (« Le faire
+marcher », « Envoyer deux personnes chercher la machine ») ; « ceux qui tirent n'en peuvent plus » devient « les
+porteurs sont à bout ». La boîte rouge « Quand on change de porteurs » reste : elle change le geste (garder à
+l'horizontale). Les champs « source » ne disent plus « § ».
+
+### Planches : appels et ancres
+
+| Figure | Appel dans le texte | Ancre `apres` proposée (unique, vérifiée par script) |
+| --- | --- | --- |
+| Logigramme | (après le Matériel) | `**Toboggan ou traîneau**` (dernière ligne du Matériel) ; avant : « Quelqu'un est blessé dans le bois » |
+| 16-08 | Étape 6, repères 4 et 5 ; étape 7, repères 6 et 9 ; étape 8, repères 10 et 11 ; section 7, repères 1 et 2, 3, 7, 8, 12 et 13 | `6. **L'emballer avant de partir.**` ; avant : « *Deux brancards rigides valent mieux qu'une corde.* » (section 7) |
+| 16-07 | Section 7, « Le téléphone à fil, sans pile » : repères 1 et 2, 3, 4 et 5, 6, 7, dans l'ordre | `Deux haut-parleurs et deux fils font un téléphone qui ne demande aucune source de courant` ; avant : « **Où se prend le fil.** » |
+
+La 16-08 est appelée d'abord là où son geste arrive dans la procédure (l'emballage, étape 6). Les deux ancres anciennes
+n'existent plus dans le texte (controle.py les signale « introuvables » tant que `placements-tome-1.json` n'est pas mis à
+jour par l'intégrateur). Rien redessiné. Pour l'agent des planches : dans le livre, la 16-08 est lue dans l'ordre 4, 5,
+6, 9, 10, 11 (procédure), puis 1, 2, 3, 7, 8, 12, 13 (section 7) ; chaque partie suit l'ordre croissant. Le travois de
+l'été (section 7) et le blessé couché au fond du canot (étape 11) n'ont pas de dessin : candidats à une petite planche.
+
+### Chiffres nouveaux et leurs sources
+
+| Chiffre | Où | Source |
+| --- | --- | --- |
+| −30 °C et 10 km/h : refroidissement de −39 ; peau gelée en 10 à 30 min ; pastille 10 min | Étape 2, pastille | `sources/20-environnement-canada-refroidissement-eolien.md` (ECCC, table et seuils) ; page `froid` (concorde) |
+| Génératrice à 6 m de la maison | Étape 31 | `sources/10-sante-canada-generatrice-distance.md` ; page `generatrice` (concorde) |
+| Toboggan : rarement plus de 4 m, 45 cm au plus large, 13 à 18 cm au talon | En plus | Turner 1894 (13 pi, 18 po, 5 à 7 po, convertis), `sources/16-en-plus-extraits-autochtones.md` |
+| Repos du territoire : deux ou trois ans, au plus quatre | En plus | *Cree Trappers Speak*, même fiche |
+
+Les autres chiffres sont ceux d'avant, déjà sourcés (sections plus haut de cette fiche), redits sans changement de sens :
+4 à 6 fois le temps de marche (Longleaf) ; 2 580 cm² (Québec) ; 10 m et 3 m (Hydro-Québec) ; 7 °C en 24 h, 0 à 4 °C,
+−18 °C, 74 °C (MAPAQ) ; 3 °C (Santé Canada) ; 5,5 A, 2 Ω, 300 m, 20 Ω, 0,14 à 0,21 A, 7,5 V, bornes 30, 85, 86, 87
+(Hella, Gallagher) ; calibres 14 et 22, six fois (HyperPhysics) ; trois coups, trois feux (AdventureSmart, Transports
+Canada) ; la moitié de l'autonomie (règle du chapitre). Concordance avec les pages des dangers : 6 m (`generatrice`),
+10 m (`electrocution`), 7 °C en 24 h (`zone-de-danger`), 74 °C (`cuisson`), 3 °C (`botulisme`), délais de gelure
+(`froid`) : aucune différence.
+
+### Faits nouveaux sans chiffre, sans fichier au dossier (pour le vérificateur technique)
+
+- Étape 11 et section 7 : le blessé sorti en canot (couché au fond, veste de flottaison, pas attaché, le long de la
+  rive) s'appuie sur les faits sourcés des ch. 15 (étape 37) et 90 (étapes 31 et 33) ; le **travois** l'été (l'avant
+  levé par les brancards, le bout des perches qui traîne, la tête du côté des brancards, ça secoue sur les racines)
+  n'a pas de source au dossier. La recherche de l'été (plan de match, point 2) n'avait rien donné de solide ; JP a dit
+  de ne pas en refaire. Aucun chiffre.
+- Étape 2 : « le rouler d'un bloc sur le côté, à deux, en tenant sa tête dans l'axe du corps » : le roulé d'un bloc
+  vient du ch. 26 (section 9), le cou tenu de la WMS 2019 (`sources/21-wms-protection-moelle-2019.md`, « cou calé pour
+  limiter les mouvements passifs ») ; l'assemblage des deux est une application.
+- Étape 1 : « une branche cassée qui pend » s'ajoute aux exemples du ch. 26, étape 8.
+- Étape 22 : convention entre foyers, sans chiffre.
+- Note « Le toboggan » : « plus stable » pour un blessé plus large que le toboggan est une déduction (une base large
+  verse moins), pas une citation.
+
+### [À VÉRIFIER]
+
+Aucun dans le texte.
+
+### Notes « En plus » et leur provenance
+
+| Note | Genre | Étape | Mots | Provenance |
+| --- | --- | --- | --- | --- |
+| Le toboggan long et étroit | Façon des Innus et des Naskapis, avec ce qui change pour un blessé | 7 | 78 | Turner 1894, l. 6338 à 6396 |
+| Le canot d'écorce | Fait | 11 | 65 | Turner 1894, l. 6201 à 6211, 6309 à 6315, 6332 |
+| Deux par deux aux collets | Façon des Innus | 26 | 63 | Nametau innu, « Campement d'automne : le rôle de chacun » |
+| Le partage au campement d'automne | Façon des Innus | 39 | 64 | Même page |
+| Le maître de trappe cri | Façon des Cris, avec ce qui arrive quand un autre groupe ne la suit pas | 22 | 79 | *Cree Trappers Speak* (1989), repris dans *The Nation* (1995) |
+
+Extraits recopiés avec leurs lignes dans `sources/16-en-plus-extraits-autochtones.md` (fichier nouveau ; les pages
+sources étaient déjà dans `sources/autochtones/`). **Aucune photo** : l'API de Wikimedia Commons refusait les requêtes
+(« too many requests ») pendant la refonte, et la consigne de JP excluait de relancer une recherche. Candidate pour plus
+tard : un relais d'auto à quatre broches, bornes 30, 85, 86 et 87 lisibles (section 7). Aucune ligne à ajouter à
+`images/credits.md`.
+
+### Renvois vers ce chapitre à corriger ailleurs (rendus à l'intégrateur, non touchés)
+
+- ch. 38, l. 149, 519, 612, 680, 696 : « ch. 16, étape 5 » (le signal « venez ») → « ch. 16, étape 19 ».
+- ch. 38, l. 726 : « ch. 16, étape 18 » (jamais de bûchage seul) → « ch. 16, étape 30 ».
+- ch. 44, l. 343 : « ch. 16, étape 19 » (prévenir avant de chercher un gibier blessé la nuit) → « ch. 16, étape 37 ».
+- ch. 42, l. 340 : « Appliquer la cohabitation (ch. 16) » → « Appliquer la cohabitation (ch. 16, étape 22) ».
+
+Les renvois du ch. 16 vers les ch. 15 (étapes 37 et 38), 26 (étapes 8, 14, 15 à 18 ; section 9), 35 (section 9) et 25
+(étapes 5, 8, 10) suivent leur numérotation d'aujourd'hui ; le ch. 15 est refait dans le même lot et ses numéros
+peuvent bouger.
+
+### controle.py, avant et après
+
+- **Avant** : 6 789 mots, 2 tirets (titre et ligne de tome), 15 « § », 6 tournures, 42 mots vides, 0 redite listée.
+- **Après** : 7 210 mots, 2 tirets (les mêmes), 0 « § », 0 mot banni, 0 tournure, 0 mise en relief, 0 maxime, 44 mots
+  vides (jugés : « tout de suite », « tout le monde », « tous les foyers », « encore en marche », « déjà commencé »,
+  « ce qui glisse déjà », « savent vraiment faire » portent le sens), 2 redites (jugées : « le rouler d'un bloc » aux
+  étapes 2 et 7, deux gestes différents ; « l'heure du prochain message » aux étapes 3 et 12, le même mot pour la même
+  chose). Les mots montent de 421 : l'été (étapes 2, 5, 11, section 7), l'étape 22, les étapes 26 à 29 venues de
+  l'ancienne section 2, les quatre étapes de la viande reçue (44 à 47) et les cinq notes En plus (environ 350 mots) ;
+  sortent « Pourquoi ça marche », la section 8, la note [^2] et les redites.
+- **Ancres** : les deux ancres de `placements-tome-1.json` (16-07, 16-08) sont introuvables, par construction : les
+  nouvelles sont plus haut.
+- **Invariants signalés et justifiés** : « 0 °C » ×2 (« **0 °C et 4 °C** » devient « entre 0 et 4 °C », même fait) ;
+  « 1 h » (la pastille de l'ancienne série) ; un « 10 m » (le fil au sol était dit trois fois, il l'est deux : étape 32
+  et section 5) ; « 15 °C » (l'exemple « six heures à 15 °C », sans source) ; renvois ch. 19, ch. 2, ch. 3 ×3, ch. 35
+  ×3, ch. 77 (ils suivaient des phrases redites ou sorties ; chacun reste au moins une fois : ch. 19 étape 40, ch. 2
+  étape 28, ch. 3 étape 31, ch. 35 étapes 3, 10, 14, ch. 77 étape 47) ; note [^2] (page `mal-de-caribou`) ; cadmium
+  2 → 1 (dit une fois, étape 45).

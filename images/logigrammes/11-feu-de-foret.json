@@ -1,5 +1,5 @@
 {
-  "_note": "Logigramme du chapitre 11 (le feu de forêt), double page, fait le 15 octobre 2026 sur le chapitre réécrit, repris le même jour quand les séries orange ont pris leur temps (JP : « sois plus logique dans la gestion des temps »). Les pastilles suivent celles du chapitre : 1 h pour « Un feu est déclaré dans le secteur » (étapes 1 à 10), 15 min pour « Il faut partir » (étapes 11 à 17), 1 min pour « Le feu arrive et on ne peut plus partir » (étapes 18 à 25). L'étape 26 (après le passage du front) n'est plus orange : la boîte du bas est un geste. Page de gauche : le feu déclaré, le seuil, la nuit et le départ. Page de droite : le feu en vue, la route et les gestes de qui est pris par le feu. Le premier geste arrive sans question pour un feu déclaré, et en deux questions au plus pour un feu en vue. Aucun avertissement redit. Rendu : env -u TMPDIR python3 design/outils/logigramme.py images/logigrammes/11-feu-de-foret.json ; version du livre : --sans-entete --svg. « source » : les étapes du chapitre d'où vient chaque geste (ignoré au rendu).",
+  "_note": "Logigramme du chapitre 11 (le feu de forêt), double page, fait le 15 octobre 2026, repris le même jour quand les séries orange ont pris leur temps (JP : « sois plus logique dans la gestion des temps »), puis le 19 octobre 2026 à la refonte du chapitre au gabarit à sept sections (le détail des séries est entré dans l'orange ; les numéros d'étapes n'ont pas changé). Les pastilles suivent celles du chapitre : 1 h pour « Un feu est déclaré dans le secteur » (étapes 1 à 10), 15 min pour « Il faut partir » (étapes 11 à 17), 1 min pour « Le feu arrive et on ne peut plus partir » (étapes 18 à 25). L'étape 26 (après le passage du front) n'est pas orange : la boîte du bas est un geste. Page de gauche : le feu déclaré, les deux raisons de partir, la nuit et le départ. Page de droite : le feu en vue, la route et les gestes des gens pris par le feu ; colonnes de 8,9 à 15,5 po, le couloir du lien de page à 8,7 po. Aucun avertissement redit. Rendu : env -u TMPDIR python3 design/outils/logigramme.py images/logigrammes/11-feu-de-foret.json ; version du livre : --sans-entete --svg. « source » : les étapes du chapitre d'où vient chaque geste (ignoré au rendu).",
   "format": "double",
   "tome": 1,
   "urgent": true,
@@ -67,7 +67,7 @@
     "d3": 2.75,
     "d4": 4.15,
     "d5": 5.3,
-    "d6": 7.0
+    "d6": 7.2
   },
   "noeuds": [
     {
@@ -78,7 +78,7 @@
       "ancre": "haut",
       "taille": 15,
       "texte": "Un feu est déclaré dans le secteur",
-      "source": "§2 ; étape 1"
+      "source": "section 2 ; étape 1"
     },
     {
       "id": "u1",
@@ -88,7 +88,7 @@
       "ancre": "haut",
       "temps": "1 h",
       "taille": 10,
-      "texte": "**Regarder d'où vient la fumée et de quel côté elle penche.** Si le vent souffle du feu vers nous, un feu à 10 km peut arriver en moins de trois heures.",
+      "texte": "**Sortir regarder où est la fumée et de quel côté elle penche.** Si le vent souffle du feu vers nous, un feu à 10 km peut arriver en moins de trois heures.",
       "renvoi": "ch. 11, étape 1",
       "source": "étape 1"
     },
@@ -121,7 +121,7 @@
       "rang": "g6",
       "texte": "Il ne reste qu'un chemin pour sortir, ou la fumée entre dans la maison ?",
       "precision": "La fumée compte si les enfants n'ont pas de pièce d'air propre",
-      "source": "étape 9"
+      "source": "étape 6"
     },
     {
       "id": "reprendre",
@@ -148,7 +148,7 @@
       "col": "cote",
       "rang": "g7",
       "taille": 10,
-      "texte": "**Habiller les enfants, finir de charger l'auto et partir à la première clarté.** L'odeur de la fumée, la nuit, ne dit pas à elle seule que le feu approche.",
+      "texte": "**Habiller les enfants, finir de charger l'auto et partir à la première clarté.** Quand on sent la fumée la nuit, le feu n'approche pas forcément.",
       "renvoi": "ch. 11, étape 11",
       "source": "étape 11"
     },
@@ -160,7 +160,7 @@
       "ancre": "haut",
       "temps": "15 min",
       "taille": 10,
-      "texte": "**Un adulte attache les enfants dans l'auto**, habillés de coton ou de laine. **L'autre ferme le bâtiment** : il ferme les portes, les fenêtres et le propane, et décroche les rideaux. S'il reste du temps, arroser le toit, puis fermer l'eau. En sortant, couper le courant et afficher PARTIS sur la porte.",
+      "texte": "**Un adulte habille les enfants de coton ou de laine et les attache dans l'auto. L'autre ferme le bâtiment** : les portes, les fenêtres et le propane, et il décroche les rideaux. S'il reste du temps, arroser le toit, puis fermer l'eau. En sortant, couper le courant et afficher PARTIS sur la porte.",
       "renvoi": "ch. 11, étapes 12 à 15",
       "source": "étapes 12 à 15"
     },
@@ -172,7 +172,7 @@
       "ancre": "haut",
       "taille": 12,
       "texte": "Le feu est en vue : on voit les flammes, des braises tombent ou on sent sa chaleur",
-      "source": "étape 11, chapeau ; §7"
+      "source": "étape 11, chapeau ; section 6"
     },
     {
       "id": "qroute",
@@ -190,7 +190,7 @@
       "rang": "d3",
       "ancre": "haut",
       "taille": 10,
-      "texte": "**Monter dans l'auto et rouler loin du feu, jamais vers lui.** Fermer les vitres, mettre l'air en recirculation et allumer les phares. Prévenir par message texte. Si la fumée cache la route, faire demi-tour.",
+      "texte": "**Monter dans l'auto et rouler loin du feu, jamais vers lui.** Fermer les vitres, mettre l'air en recirculation et allumer les phares de croisement. Prévenir par message texte. Si la fumée cache la route, faire demi-tour.",
       "renvoi": "ch. 11, étapes 16 et 17",
       "source": "étapes 16 et 17"
     },
@@ -211,7 +211,7 @@
       "ancre": "haut",
       "temps": "1 min",
       "taille": 10,
-      "texte": "**S'arrêter là où rien ne brûle**, le devant tourné vers le feu. Fermer les vitres et les entrées d'air, couper le moteur, et se coucher au plancher sous une couverture de laine sèche.",
+      "texte": "**S'arrêter là où rien ne brûle**, le devant tourné vers le feu. Fermer les vitres et les entrées d'air, et se coucher au plancher sous une couverture de laine sèche. Couper le moteur quand le feu est proche.",
       "renvoi": "ch. 11, étapes 18 et 19",
       "source": "étapes 18 et 19"
     },

@@ -253,3 +253,161 @@ Numéros de chapitre **nouveaux** dans cette section. Passe du skill `ecriture` 
   Laissé tel quel ; à préciser si JP le veut.
 - §2, « une maison chauffée ne perd pas un degré en vingt minutes » : sans source notée, gardé (c'est un ordre de
   grandeur, pas une consigne).
+
+## Refonte au gabarit final, 19 octobre 2026
+
+Numéros **nouveaux** (chapitres et étapes). Texte d'avant : `git show HEAD:chapitres/01-les-quatre-horloges.md`.
+Rédacteur seul ; rien d'un autre fichier commun n'est touché (ce qu'il faut changer ailleurs est plus bas).
+Règle de JP du jour (« fuck les sources, on a pas déjà fait ce travail-là ? ») : aucun chiffre déjà vérifié n'est
+rouvert ; aucune recherche nouvelle sur le web. Les faits nouveaux viennent tous de pages **déjà enregistrées**
+dans `sources/` (pour d'autres chapitres), et chacun est listé plus bas pour que le vérificateur n'ait que ceux-là
+à regarder.
+
+### Ce qui a changé
+
+- **Sept sections et « En plus »** : la section 3 « Pourquoi ça marche » et la section 8 « Danger » sortent ; le
+  Matériel devient la section 3, la Procédure la 4, les Points de contrôle la 5, les Signes d'échec la 6, la
+  Variante d'urgence la 7. Aucun « § » ne reste.
+- **Sous le titre** : la ligne de lieu seule, `**Maison**`. La note (« Les quatre horloges partent de la maison…
+  Passé 48 heures, l'horloge 4 décide, et elle mène au chalet ») sort : le chalet est dit à l'étape 29.
+- **Section 2** : la liste « C'est le mauvais réflexe quand » sort (le stock de l'année, ch. 00b ; la panne de
+  vingt minutes). Sa dernière phrase (« dès qu'une génératrice… entre en service, l'horloge 1 part ») est portée
+  par l'étape 2 (« Avant d'allumer quoi que ce soit »). Le paragraphe « Au chalet » sort : l'eau du chalet est à la
+  section 7, l'horloge 4 plus longue au chalet est à l'étape 29. Chaque situation dit ses étapes, comme au ch. 4 ;
+  une ligne nouvelle renvoie à la section 7.
+- **Le tableau des quatre horloges** passe sous l'étape 16 (« Classer ce qui reste à faire selon les quatre
+  horloges ») : la série orange doit ouvrir la procédure (cadre). Le paragraphe de chiffres qui le suivait sort :
+  ses durées sont à l'étape 3, l'eau à l'étape 4, le 35 °C aux Points de contrôle. « C'est un plancher, pas une
+  cible » sort (opposition). La colonne « Se rattrape ? » ne dit plus « Ce qui a dégelé ne se recongèle pas »,
+  qui contredisait la page `zone-de-danger` (un aliment qui a encore des cristaux se remet au congélateur) : « Ce
+  qui a dégelé doit être cuit ou jeté ».
+- **Le paragraphe « À la maison, l'horloge 2 est une affaire de qualité »** devient l'étape 17.
+- **« Compter les têtes à voix haute »** (ancienne étape 1) sort : surveiller les enfants dans le noir est de la
+  sécurité domestique ordinaire (CLAUDE.md, « Le lecteur est un parent compétent »). Question à JP plus bas.
+- **84 mois (7 ans)** devient **7 ans** (cadre : « pas de notation que le lecteur n'emploie pas »). Même source.
+- **Les rangées de la génératrice** (emplacement, branchement) sortent des Points de contrôle : le skill
+  `ecriture` dit que « la génératrice ne revient pas en ligne de tableau ». La rangée de la carcasse à 7 °C en
+  24 h sort aussi : aucune étape du chapitre n'abat de bête, et la page `zone-de-danger` porte le chiffre.
+- **Les renvois aux sections** suivent la nouvelle numérotation (section 5, 6, 7) ; les renvois « (§8) » qui
+  menaient à l'encadré sortent ou deviennent le numéro de l'étape qui porte maintenant le fait.
+
+### Les étapes, ancien → nouveau
+
+Ancien 1 (compter les têtes) → coupé ; 2 → 1 ; 3 → 2 (appareils et gril) et 8 (génératrice) ; 4 → 2 ; 5 → 2 ;
+6 → 9 ; 7 → 3 ; 8 → 6 ; 9 → 4 ; 10 → 13 ; 11 → 14 ; 12 → 12 ; 13 → 7 ; 14 → 11 (« laisser refroidir avant le
+plein » → 10) ; 15 → 10 ; 16 → 5 ; 17 → 15 ; 18 et 19 → 20 ; 20 → 21 ; 21 → 18 ; 22 → 23 ; 23 → 24 ; 24 → 25 ;
+25 → 26 ; 26 → 27 ; 27 → 28 ; 28 → 17 et 19 ; 29 → 29 ; le tableau → 16 ; le paragraphe de l'horloge 2 → 17.
+Toujours 29 étapes. **Aucun renvoi d'un autre chapitre, d'un logigramme ou d'une page de danger ne vise une
+étape du ch. 1** (`grep` du 19 octobre) : rien à corriger ailleurs. La note de
+`design/epreuves-livre/placements-tome-1.json` (« 01-01 … après « 1. **Écrire l'heure sur la porte du
+congélateur.** » ») tombe toujours juste : l'étape garde son numéro 1 et son début.
+
+### Où est allé l'ancien « Pourquoi ça marche »
+
+| Phrase | Où |
+| --- | --- |
+| « Sous stress, on sauve le congélateur plein qu'on voit pendant que la maison refroidit » | Étape 16 |
+| « On traite d'abord celle dont l'échéance est la plus proche, même si l'enjeu est plus petit » | Étape 16, en gras (le geste) |
+| « Une horloge longue qu'on ne démarre pas aujourd'hui ne se rattrape pas plus tard » | Coupée (maxime) ; le fait est dans le tableau de l'étape 16 (« Oui, à condition de commencer tôt ») |
+| « Les horloges se paient entre elles : tenir le congélateur à la génératrice… » | Étape 16, redite sans métaphore (« dépense le carburant de l'horloge 4 pour sauver l'horloge 3 ») |
+
+### Où est allé l'ancien Danger
+
+| Bloc | Où | Ce qui sort parce que la page du danger le dit |
+| --- | --- | --- |
+| 1. Monoxyde | Étape 2 `{!co}` (bouton d'essai, pile, date, place à 2 m, appareils faits pour l'intérieur) ; étape 8 `{!generatrice}` (6 m, jamais dans un bâtiment, un garage, un abri ni sous un auvent, « même le temps de la démarrer ») ; Signes d'échec, rangée 1 (l'enfant fatigué ou de mauvais caractère) | Sans odeur ni couleur, fixation sur le sang, signes comme une grippe, on s'endort ; 30 ppm pendant 30 jours (le chapitre dit seulement que l'avertisseur ne sonne pas pour une petite quantité respirée des jours) |
+| 2. Aliment au-dessus de 4 °C | Étape 20 `{!zone-de-danger}` (cuire à 4 °C ou moins, jeter au-dessus ; le thermomètre d'air ne sert pas) | 4 à 60 °C, toxines qui restent, recongeler ne stérilise rien, l'odeur ne tranche pas |
+| 3. Botulisme de type E | Étape 22 `{!botulisme}` (jeter le poisson fumé ou sous vide ; dès 3 °C, donc au réfrigérateur ; ni l'odeur, ni le goût, ni l'apparence : les deux rappels de CLAUDE.md) | Le nom latin, le sous-vide sans pourriture pour avertir, « un poisson douteux ne se goûte pas » |
+| 4. Trichinellose | Étape 27 `{!trichine}` (ne pas saler ni fumer l'ours ou le phoque d'un congélateur arrêté ; ni le sel, ni le fumage, ni le gel ; 74 °C) ; section 7, « Le 74 °C sans sonde », renvoie à l'étape 27 | Micro-ondes, séchage, espèces de *Trichinella* |
+| 5. Hypothermie | Étape 7 `{!froid}` ; Points de contrôle (35 °C, 32,2 °C) ; Signes d'échec (28 °C, l'enfant tranquille) | Le jugement part avant la force ; ni friction, ni alcool, ni bain chaud |
+| 6. Rétroalimentation | Étape 9 `{!electrocution}` (disjoncteur principal à OFF, ruban, rallonges, commutateur de transfert, revérifier à chaque démarrage) | Les monteurs électrocutés ; le transformateur qui élève la tension ; l'adaptateur mâle-mâle |
+
+Hors encadré, aussi coupés parce que la page le dit : le « cent fois la quantité tolérable » du cadmium (étape 23,
+page `abats`) ; la sonde « loin de l'os et du gras » (étape 21, page `cuisson`) ; « la tularémie entre par la
+bouche, la peau et les muqueuses », les sacs de plastique au poignet, la gerçure (étape 24, page `tularemie`) ; le
+gaz qui remonte dans l'habitacle par le plancher (section 7, page `generatrice`).
+
+### Pictogrammes
+
+Étape 2 → `co` ; 7 → `froid` ; 8 → `generatrice` ; 9 → `electrocution` ; 20 → `zone-de-danger` ; 21 → `cuisson` ;
+22 → `botulisme` ; 23 → `abats` ; 24 → `tularemie` ; 27 → `trichine` ; 28 → `mal-de-caribou` ; section 7,
+« L'auto comme génératrice » → `generatrice`. Un seul par étape. Ids vérifiés dans `plan/dangers-inventaire.md`,
+section 1. Chiffres concordants avec `dangers/partie-*.md` : 6 m, 2 m, 35, 32,2 et 28 °C, 4 °C, 3 °C, 74 °C.
+
+### Les séries orange
+
+| Série | Pastille | Étapes | Ce qui fonde la pastille |
+| --- | --- | --- | --- |
+| « Le courant vient de manquer » | 15 min | 1 à 5 | Le temps des gestes (écrire l'heure, tester et placer l'avertisseur, poser le ruban, remplir l'eau, débrancher), comme la série du même nom au ch. 3 (`suivi/03-redaction.md`). Rien n'annonce la chute de pression : l'eau monte dans cette série |
+| « Le courant ne revient pas » | 6 h | 6 à 15 | Le réfrigérateur garde le froid 4 à 6 h et il faut trier passé 6 h (`01-quebec-panne-courant-aliments.md`, `01-quebec-panne-courant.md`) ; les tours cellulaires tiennent quelques heures (`19-cbc-2018-batteries-tours-cellulaires.md`) |
+
+Avant : « Heure 0 à heure 1 : le monoxyde, la génératrice, la pièce chauffée » et « Heure 1 à heure 6 : l'eau, le
+froid, le contact », deux séries à plusieurs sujets, et l'heure 1 n'avait pas de source. Maintenant, chaque série
+a un déclencheur, et la génératrice va dans la série de 6 h : on la démarre quand le courant ne revient pas, pour
+sauver le réfrigérateur dans ses 4 à 6 heures. La scène jouée : un soir de janvier, à la maison, de jeunes enfants,
+rien de préparé. La première chose qu'on allume, c'est de la lumière : l'avertisseur et le choix de l'appareil
+passent donc en étape 2, juste après l'heure (10 secondes, devant le congélateur). **La nuit**, la série de 6 h
+attend le réveil si la maison est encore chaude (même règle qu'au ch. 3).
+
+**Consigne confrontée** : « vivre dans une seule pièce, portes fermées, couverture au bas des portes » contre le
+monoxyde de l'appareil qui chauffe cette pièce. Québec.ca : « If you use a wood stove or an auxiliary heating
+system, make sure the room is well ventilated » (`07-quebec-froid-extreme-piece-19-c.md`, aussi
+`11-quebec-froid-extreme.md`). L'étape 6 garde la pièce aérée (une fenêtre entrouverte), et la section 7 (« Ce
+qu'on perd », l'alerte au CO) ouvre plus grand cette même fenêtre quand il n'y a pas d'avertisseur.
+
+### Logigramme
+
+Aucun, comme le 15 octobre : la série est une suite dans le temps, et ses seules questions (une génératrice
+va-t-elle servir ? l'aliment est-il resté à 4 °C ou moins ?) se règlent dans une étape chacune. La décision en
+branches (rester ou partir) est au ch. 2, la panne d'hiver en branches au ch. 3, qui ont chacun le leur. Pas
+d'ancre de logigramme.
+
+### Faits nouveaux, ou dont le sens change (pour le vérificateur : seulement ceux-ci)
+
+| Fait | Où | Source |
+| --- | --- | --- |
+| Pièce chauffée au poêle ou à l'appoint : la garder aérée | Étape 6 | `07-quebec-froid-extreme-piece-19-c.md` (Québec.ca, « make sure the room is well ventilated ») |
+| Les tours cellulaires tiennent quelques heures sur leurs batteries | Étape 15 | `19-cbc-2018-batteries-tours-cellulaires.md` (2 à 4 h, TELUS 4 à 10 h) |
+| Le gel ne tue pas la bactérie de la tularémie | Étape 24 | `13-tularemie-inactivation-thermique.md` (ASPC : lièvre congelé à −15 °C, infectieux plus de 3 ans) ; page `tularemie` |
+| Trier le congélateur comme le réfrigérateur quand il arrive au bout de ses 24 ou 48 h | Étape 20 | Déjà dans les Points de contrôle d'avant (heures 24 et 48) ; `01-quebec-panne-courant-aliments.md` |
+| Le verre du témoin de dégel : le faire geler dehors l'hiver | Étape 14 | Aucun chiffre ; répond au doute du 15 octobre (« comment l'obtenir en pleine panne ») |
+| Mal de caribou : « on mange de plus en plus sans être rassasié, on a envie de gras » au lieu de « l'appétit est parti », qui contredisait la page | Signes d'échec | `09-mal-de-caribou-signes.md` (Stefansson : « insatisfait quelle que soit la quantité » ; Hektoen : désir insatiable de gras) ; page `mal-de-caribou` |
+| Jeune enfant fatigué ou de mauvais caractère : signe du CO | Signes d'échec | Ancien Danger, point 1 ; page `co` |
+| Chauffe-eau : couper son disjoncteur avant de le vider « si le courant revient pendant qu'il est vide » | Section 7 | Même fait qu'avant (« l'élément chauffé à sec brûle »), dit avec sa condition |
+| Le calcul du combustible « multiplié par 7 » pour la semaine | Étape 26 | Arithmétique (l'ancien texte disait « et multiplier ») |
+
+Aucun `[À VÉRIFIER]` dans le chapitre, avant comme après.
+
+### Les notes « En plus »
+
+| Note | Genre | Étape | Source |
+| --- | --- | --- | --- |
+| La viande en poudre des Innus | Façon des Innus : le niuaikanat (viande de caribou ou d'orignal séchée, en poudre, avec un peu de graisse) ; pourquoi elle marche (peu d'eau, pas de croissance ; la graisse pour les calories) ; ce qui la rend dangereuse (l'ours ou le phoque : le séchage ne tue pas la trichine) | 27 | `14b-radio-canada-2019-cuisine-innue.html` (Lauréat Moreau, Musée Shaputuan : « La viande de caribou ou d'orignal est alors asséchée et transformée en poudre. Quand on y ajoute un peu de graisse… » ; lexique : « Niuaikanat - Poudre de viande de caribou ou d'orignal ») ; `67-acia-viandes-fermentees-et-sechees.md` (« la réduction de l'activité de l'eau … permet d'inhiber la croissance des microorganismes ») ; page `trichine` (« une viande séchée ou un pemmican d'ours sont aussi dangereux que la viande crue ») ; page `mal-de-caribou` |
+| La maison refroidit vite, puis lentement | Fait | 12 | `10-schl-refroidissement-maisons-panne-verglas-1998.md` (SCHL, 31 maisons, environ −8 °C, de 20 à 14 °C dans les premières heures, puis plus lentement ; jours ou semaines avant zéro ; « par grand froid, ça va plus vite » : le mécanisme du résumé, noté dans la fiche) |
+| La glace qui fond | Fait | Section 7 | `68-openstax-chaleur-latente-fusion-glace.md` (334 kJ/kg = 1 kg d'eau de 0 à 79,8 °C ; 0 °C pendant la fonte) |
+| Le temps qu'il faut pour geler la viande | Fait | Section 7 | `68-fao-entreposage-frigorifique-viande-congelation.md` (−30 à −35 °C, air à 2 à 4 m/s ; demi-carcasse 16 à 20 h ; viande en boîte environ 4 h ; gelée à −12 °C au centre ; couper et désosser avant) |
+
+Quatre notes, de 64 à 78 mots. Pas de photo : aucune photo libre au dossier ne montre ce qui se reconnaît dans ce
+chapitre (les cristaux de recongélation, le témoin de dégel). Aucune ligne de crédit.
+
+### controle.py
+
+| | Avant | Après |
+| --- | --- | --- |
+| Mots | 5 575 | 5 418 |
+| Tirets | 2 (titre et ligne de tome, forme de l'assembleur) | 2 (les mêmes) |
+| « § » | 8 | 0 |
+| Mots bannis, vocabulaire d'IA, tournures | 0 | 0 |
+| Mises en relief | 1 (« C'est la seule qui… », tableau) | 0 |
+| Maximes | 1 (« Un bain qui bout est à 100 °C… ») | 0 |
+| Redites signalées | 7 (toutes entre les étapes et l'encadré Danger) | 0 |
+| Mots vides à juger | 30 | 32 (« tout de suite », « tout le monde », « bien avant », « parle bien » : ils portent le sens) |
+| Ancres introuvables | 0 | 0 |
+
+Invariants disparus, chacun justifié : 24 h, 7 °C, ch. 61 (la rangée de la carcasse) ; 28 °C, 35 °C (×3), 4 °C
+(×3), 48 heures, 60 °C (×2), ch. 40 (×1), ch. 2 (×3), génératrice 21 → 13 (redites de l'encadré Danger, de la
+section 2 et des rangées de la génératrice ; chaque fait garde une place) ; 30 ppm, 30 jours (page `co`) ;
+84 mois (×2) → 7 ans ; 6 L (×2) (la même réserve dite par jour : 4 L, dont 2 L à boire, pour 3 jours) ; 6 m (×1,
+la rangée de la génératrice) ; ch. 00b, ch. 10 (×1), ch. 73 (×1) (section 2 et rangée « dans la neige », qui
+renvoie maintenant à l'étape 25) ; ch. 39, ch. 40 (l'étape « compter les têtes ») ; « 6 s » est « l'heure 6
+s'écrit » de l'ancienne étape 10. Le nombre d'étapes reste 29 ; tularémie 1 → 1.

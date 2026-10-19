@@ -1,5 +1,5 @@
 {
-  "_note": "Logigramme du chapitre 2 (rester ou partir), double page, fait le 15 octobre 2026 sur le chapitre réécrit, sur le modèle du 04-retombees. Page de gauche : l'alarme de CO (étape 1, en orange), puis la décision (étapes 2 à 4). Page de droite : la route, la destination, la première heure (étapes 8 et 9, en orange), la reprise à heure fixe (étape 10). Rendu : python3 design/outils/logigramme.py images/logigrammes/02-rester-ou-partir.json ; version du livre : --sans-entete --svg. « source » : les étapes du chapitre d'où vient chaque geste (ignoré au rendu). Réécrit le 15 octobre en phrases complètes, comme on le dirait à voix haute (JP : « personne parle comme ça »).",
+  "_note": "Logigramme du chapitre 2 (rester ou partir), double page, fait le 15 octobre 2026 sur le chapitre réécrit, sur le modèle du 04-retombees. Page de gauche : l'alarme de CO (étape 1, en orange), puis la décision (étapes 2 à 4). Page de droite : la route, la destination, la première heure (étapes 8 et 9, en orange), la reprise à heure fixe (étape 10). Rendu : python3 design/outils/logigramme.py images/logigrammes/02-rester-ou-partir.json ; version du livre : --sans-entete --svg. « source » : les étapes du chapitre d'où vient chaque geste (ignoré au rendu). Réécrit le 15 octobre en phrases complètes, comme on le dirait à voix haute (JP : « personne parle comme ça »). Refait le 19 octobre 2026 sur le chapitre remis au gabarit à sept sections (étapes numérotées de 1 à 45) : renvois aux nouvelles étapes, plus de « § » ; pastille « 1 min » sur la série du CO, comme au ch. 3 et au chapitre ; « 1 h » gardé sur les deux séries de la première heure ; les pastilles « 2 min » et « 15 min » des boîtes non orange retirées (le chapitre ne les donne plus) ; la boîte « Si on reste » ne redit plus l'avertissement de la génératrice et des appareils à combustible (étapes 9 et 10, pictogrammes) ; la boîte « En panne sur la route » garde la décision (rester dans l'auto) et le geste du moteur, sans redire le mécanisme. Colonnes et rangs inchangés.",
   "format": "double",
   "tome": 1,
   "urgent": true,
@@ -116,9 +116,10 @@
       "rang": "c1",
       "ancre": "haut",
       "texte": "**Sortir tout le monde, tout de suite**, et laisser la porte ouverte. Compter les gens une fois dehors.",
-      "renvoi": "ch. 2, étape 1, points 1 et 2",
-      "source": "étape 1, points 1 et 2",
-      "taille": 10
+      "renvoi": "ch. 2, étapes 1 et 2",
+      "source": "étapes 1 et 2",
+      "taille": 10,
+      "temps": "1 min"
     },
     {
       "id": "co2",
@@ -127,8 +128,8 @@
       "rang": "c2",
       "ancre": "haut",
       "texte": "**Mettre les enfants à l'abri du froid avec un adulte** : chez un voisin, ou dans l'auto, l'échappement dégagé.",
-      "renvoi": "ch. 2, étape 1, point 3",
-      "source": "étape 1, point 3",
+      "renvoi": "ch. 2, étape 3",
+      "source": "étape 3",
       "taille": 10
     },
     {
@@ -137,9 +138,9 @@
       "col": "co",
       "rang": "c3",
       "ancre": "haut",
-      "texte": "**Les gens qui ont des symptômes restent à l'air libre**, au chaud. Une personne confuse ou inconsciente se couche sur le côté, et on déclenche le SOS.",
-      "renvoi": "ch. 2, étape 1, point 4",
-      "source": "étape 1, point 4",
+      "texte": "**Garder à l'air libre et au chaud les gens qui ont des symptômes.** Coucher sur le côté une personne confuse ou inconsciente, et déclencher le SOS.",
+      "renvoi": "ch. 2, étape 4",
+      "source": "étape 4",
       "taille": 10
     },
     {
@@ -149,8 +150,8 @@
       "rang": "c4",
       "ancre": "haut",
       "texte": "**Couper la source**, si on sait laquelle : un adulte sans symptômes y va. Ouvrir les portes de l'extérieur.",
-      "renvoi": "ch. 2, étape 1, points 5 et 6",
-      "source": "étape 1, points 5 et 6",
+      "renvoi": "ch. 2, étapes 5 et 6",
+      "source": "étapes 5 et 6",
       "taille": 10
     },
     {
@@ -159,9 +160,9 @@
       "col": "co",
       "rang": "c5",
       "ancre": "haut",
-      "texte": "**Rentrer seulement quand l'avertisseur, laissé à l'intérieur, est revenu à la normale.** Ne rien rallumer tant que la cause n'est pas réglée, puis passer à l'étape 2.",
-      "renvoi": "ch. 2, étape 1, points 7 et 8",
-      "source": "étape 1, point 7",
+      "texte": "**Rentrer seulement quand l'avertisseur, laissé à l'intérieur, est revenu à la normale.** Ne rien rallumer avant d'avoir réglé la cause, puis passer à l'étape 25.",
+      "renvoi": "ch. 2, étapes 7 et 8",
+      "source": "étapes 7 et 8",
       "taille": 10
     },
     {
@@ -170,10 +171,9 @@
       "col": "mn",
       "rang": "m1",
       "ancre": "haut",
-      "temps": "2 min",
       "texte": "**Allumer la radio** : elle dit ce qu'on ne voit pas de la fenêtre, comme un feu, un pont fermé ou de la fumée.",
-      "renvoi": "ch. 2, étape 2",
-      "source": "étape 2",
+      "renvoi": "ch. 2, étape 25",
+      "source": "étape 25",
       "taille": 10
     },
     {
@@ -182,10 +182,9 @@
       "col": "mn",
       "rang": "m2",
       "ancre": "haut",
-      "temps": "15 min",
       "texte": "**Écrire les quatre horloges** : combien de temps il reste de chaleur, d'eau, de nourriture et de contact avec l'extérieur. Pour la chaleur, noter combien de degrés la maison perd en 2 h.",
-      "renvoi": "ch. 2, étape 3",
-      "source": "étape 3",
+      "renvoi": "ch. 2, étapes 26 à 30",
+      "source": "étapes 26 à 30",
       "taille": 10
     },
     {
@@ -195,9 +194,9 @@
       "rang": "m3",
       "ancre": "haut",
       "titre": "Signes d'hypothermie modérée",
-      "texte": "**Si quelqu'un est confus, maladroit ou parle mal, le mettre tout de suite dans un endroit chauffé.** Il ne prend plus la route et il ne participe plus aux décisions.",
-      "renvoi": "ch. 2, §2 ; ch. 25",
-      "source": "§2 ; §8, point 2 ; étape 6",
+      "texte": "**Si quelqu'un est confus, maladroit ou parle mal, le mettre tout de suite dans un endroit chauffé.** Il ne doit plus prendre la route ni participer aux décisions.",
+      "renvoi": "ch. 2, étape 40 ; ch. 25",
+      "source": "étape 40",
       "taille": 10
     },
     {
@@ -207,8 +206,8 @@
       "rang": "m4",
       "ancre": "haut",
       "texte": "**S'il reste moins de clarté que la durée du trajet**, passer la nuit sur place, sauf si un feu approche.",
-      "renvoi": "ch. 2, §2",
-      "source": "§2",
+      "renvoi": "ch. 2, étape 35",
+      "source": "étape 35",
       "taille": 10
     },
     {
@@ -218,7 +217,7 @@
       "rang": "qd",
       "texte": "Combien de temps tient la plus courte des quatre horloges ?",
       "precision": "La comparer à 72 h et à la durée du trajet",
-      "source": "étape 4"
+      "source": "étape 31"
     },
     {
       "id": "b3",
@@ -227,8 +226,8 @@
       "rang": "br",
       "ancre": "haut",
       "texte": "**Partir maintenant**, ou décider de rester pour de bon. Si un feu approche, partir tôt.",
-      "renvoi": "ch. 2, étapes 4 et 5",
-      "source": "étape 4 ; étape 5, feu de forêt",
+      "renvoi": "ch. 2, étapes 31 et 37",
+      "source": "étape 31 ; étape 37",
       "taille": 10
     },
     {
@@ -238,8 +237,8 @@
       "rang": "br",
       "ancre": "haut",
       "texte": "**Rester, avec un plan écrit** pour faire durer cette horloge avec ce qu'on a sur place.",
-      "renvoi": "ch. 2, étape 4",
-      "source": "étape 4",
+      "renvoi": "ch. 2, étape 31",
+      "source": "étape 31",
       "taille": 10
     },
     {
@@ -249,8 +248,8 @@
       "rang": "br",
       "ancre": "haut",
       "texte": "**Rester**, et continuer à mesurer les horloges.",
-      "renvoi": "ch. 2, étape 4",
-      "source": "étape 4",
+      "renvoi": "ch. 2, étape 31",
+      "source": "étape 31",
       "taille": 10
     },
     {
@@ -260,9 +259,9 @@
       "rang": "r1",
       "ancre": "haut",
       "temps": "1 h",
-      "texte": "**Si on reste** : la génératrice et tout ce qui brûle un carburant restent dehors, la génératrice à 6 m au moins. Tester l'avertisseur de CO, vivre dans une seule pièce chauffée et remplir tous les contenants d'eau. Prévenir quelqu'un et fixer l'heure du prochain contact.",
-      "renvoi": "ch. 2, étape 8",
-      "source": "étape 8",
+      "texte": "**Si on reste** : tester l'avertisseur de CO, vivre dans une seule pièce chauffée et remplir tous les contenants d'eau. Prévenir quelqu'un et fixer l'heure du prochain contact. Écrire sur la porte l'heure de la prochaine décision.",
+      "renvoi": "ch. 2, étapes 9 à 15",
+      "source": "étapes 9 à 15",
       "taille": 10
     },
     {
@@ -272,8 +271,8 @@
       "rang": "r3",
       "ancre": "haut",
       "texte": "**Si une fumée épaisse arrive au chalet chauffé au bois**, partir vers la maison : on ne peut pas fermer le chalet à la fumée et le chauffer en même temps.",
-      "renvoi": "ch. 2, étape 5",
-      "source": "étape 5, fumée sans feu visible",
+      "renvoi": "ch. 2, étape 38",
+      "source": "étape 38",
       "taille": 10
     },
     {
@@ -284,7 +283,7 @@
       "ancre": "haut",
       "texte": "La route est ouverte, le plein est fait et on arrive avant la nuit ?",
       "precision": "Et personne dans l'auto n'est confus ni maladroit",
-      "source": "étape 5 ; §2 ; §6"
+      "source": "étapes 33 à 36 ; étape 40"
     },
     {
       "id": "qou",
@@ -294,7 +293,7 @@
       "ancre": "haut",
       "texte": "Ça risque de durer ?",
       "precision": "L'eau du robinet n'a plus de pression, le retour du courant a été repoussé deux fois, les voisins sont partis",
-      "source": "étape 4, où aller"
+      "source": "étape 32"
     },
     {
       "id": "ville",
@@ -303,7 +302,7 @@
       "rang": "pv",
       "ancre": "haut",
       "texte": "**Aller en ville**, chez soi ou chez un proche.",
-      "source": "étape 4, où aller",
+      "source": "étape 32",
       "taille": 10
     },
     {
@@ -313,7 +312,7 @@
       "rang": "pv",
       "ancre": "haut",
       "texte": "**Aller au chalet**, de jour, avec le plein fait.",
-      "source": "étape 4, où aller ; étape 5",
+      "source": "étapes 32 et 35",
       "taille": 10
     },
     {
@@ -324,8 +323,8 @@
       "ancre": "haut",
       "temps": "1 h",
       "texte": "**Avant de partir** : habiller les enfants et garder des vêtements de rechange pour chacun à portée de main. Prendre la trousse et les papiers. Prévenir des proches et prévoir deux chemins. L'hiver, vidanger la maison. Écrire « PARTIS » sur la porte et faire le plein.",
-      "renvoi": "ch. 2, étape 9",
-      "source": "étape 9",
+      "renvoi": "ch. 2, étapes 16 à 24",
+      "source": "étapes 16 à 24",
       "taille": 10
     },
     {
@@ -335,9 +334,9 @@
       "rang": "pd",
       "ancre": "haut",
       "titre": "En panne sur la route",
-      "texte": "**Rester dans l'auto.** Faire tourner le moteur une dizaine de minutes par demi-heure, en dégageant l'échappement avant chaque démarrage et en entrouvrant une fenêtre du côté opposé au vent.",
-      "renvoi": "ch. 2, §8",
-      "source": "§8, points 1 et 2 ; §6",
+      "texte": "**Rester dans l'auto** au lieu de partir à pied chercher de l'aide. Faire tourner le moteur une dizaine de minutes par demi-heure, l'échappement dégagé.",
+      "renvoi": "ch. 2, étapes 3 et 45",
+      "source": "étapes 3 et 45",
       "taille": 10
     },
     {
@@ -347,8 +346,8 @@
       "rang": "bas",
       "ancre": "haut",
       "texte": "**Reprendre la décision à heure fixe** : au réveil, assez tôt pour pouvoir partir de jour, et chaque fois qu'une horloge change. Un seul adulte a le dernier mot.",
-      "renvoi": "ch. 2, étapes 7 et 10",
-      "source": "étapes 7 et 10"
+      "renvoi": "ch. 2, étapes 41 à 43",
+      "source": "étapes 41 à 43"
     }
   ],
   "liens": [

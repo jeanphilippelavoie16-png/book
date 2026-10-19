@@ -224,3 +224,161 @@ le même point du §8) ; l'ancre 09-08 (remplacée, voir plus haut). « Au nivea
   dans l'arrière-pays, en altitude, bout plus bas. Déjà relevé au ch. 8 (ancien 11) ; non chiffré ici.
 - §8 : « l'enfant de mauvais caractère » (le CO chez l'enfant) vient de `CLAUDE.md` ; aucune page
   officielle enregistrée ne nomme l'irritabilité (`sources/18b-reprises-sources-deja-enregistrees.md`).
+
+## Refonte au gabarit final, 19 octobre 2026
+
+Numéros de chapitre **nouveaux** dans cette section. Rédacteur seul (rôle 2) ; rien commité. Modèles : ch. 4 et
+ch. 12 et leurs fiches. Texte d'avant : `git show HEAD:chapitres/09-ce-qui-manque-toujours.md`.
+
+### Ce qui a changé
+
+- **Sept sections et « En plus »**, dans l'ordre du gabarit. La section 3 « Pourquoi ça marche » et la section 8
+  « DANGER » sortent ; le Matériel devient la section 3, la procédure la 4, les points de contrôle la 5, les signes
+  d'échec la 6, la variante d'urgence la 7.
+- **Sous le titre :** `**Les deux**` seul. La note de lieu (« à la maison, un manque est une commission ; au chalet,
+  un manque dure jusqu'à la réouverture du chemin ») va à l'étape 9.
+- **Section 2 :** une liste de cinq situations, avec leurs étapes. « Le mauvais moment » sort ; le fait qu'il portait
+  (les familles ne servent pas à choisir quoi acheter d'abord : on suivrait le coton à fromage avant le bois ; quand
+  l'argent manque, les paliers du ch. 00b tranchent) va à l'étape 1.
+- **La procédure en 26 étapes numérotées**, sans lettres ni « 5.1 » : les quatre familles deviennent les étapes 1 à 5
+  (le tableau est défait, une étape par famille) ; la couverture, 6 à 10 ; la rotation, 11 à 14 ; le tableau « Ce qui
+  meurt sans être touché », une étape par article, 15 à 23 ; la répartition, 24 à 26. Les renvois internes suivent
+  (« 5.2 » devient « étape 8 », « 9.1 » devient « section 7 », « §6 » devient « section 5 », etc.).
+- **Section 7 :** les sous-sections 9.1, 9.2, 9.3 deviennent des titres sans numéro (« Mesurer quand l'instrument est
+  mort », « Fabriquer ce qui manque », « Ce qui ne se remplace pas ») ; rien n'est raccourci. « Les joints, dans le
+  cuir gras » est découpé en six sous-étapes, une par geste, chacune avec ses repères de la planche 09-08, dans
+  l'ordre (1 à 12). « Le gras, dans l'animal » est découpé en trois puces, une par bête, chacune avec son
+  pictogramme.
+- **Les mots :** « 84 mois (7 ans) » devient « 7 ans » (cadre des agents : « pas de notation que le lecteur n'emploie
+  pas », l'exemple est cette phrase) ; « le seuil » devient « la mesure » ; « titre en chlore », « titrage », « vinaigre
+  titré » deviennent « la force », « l'acidité connue » ; « saponification » devient « la cuire avec du gras » ;
+  « graisse périrénale » devient « la graisse autour des reins » ; « le plastifiant migre » devient « le caoutchouc perd
+  ce qui le garde souple » ; « pouvoir germinatif » devient « taux de germination » ; « flue » devient « s'écrase
+  lentement » ; « se serre » (le moteur) devient « grippe » ; « anaérobie » devient « à l'abri de l'air ». Les noms
+  latins sortent (cadre : « pas de nom latin »).
+- **Les consignes au pronominal** deviennent des consignes (« les pourcentages de sel se calculent » : « calculer
+  les pourcentages » ; « la quantité ne se calcule pas, la date se gère » ; « le cuir se graisse » ; « la sonde […]
+  se jette » ; « ce qui se prépare se prépare avant » ; « une ligne de gaz se répare […] ou se ferme » ; etc.). Les
+  « d'où » (deux) et « la durée décide » sortent ; « le mou et l'effritement disent l'humidité reprise » (la chose
+  qui parle) devient « le comprimé mou ou friable a repris l'humidité ».
+- **Coupé :** « Ici : la méthode qui dit combien… » (phrase sur le chapitre) ; « Palier d'achat et lieu de chaque
+  article : ch. 00b » (redit l'étape 1) ; « C'est la seule famille où la marge multiplie » ; « doubler une dose
+  inconnue ne donne rien de connu » (chute) ; « une conserve peu acide […] reste une conserve peu acide » (chute,
+  devient le fait : elle peut porter la toxine du botulisme) ; « un appareil orphelin de son format est un appareil
+  mort avec une réserve pleine à côté » (redit en clair).
+- **Ajouté :** le thermomètre bout « un peu plus bas » plus haut dans les terres, et on se fie alors au verre de
+  glace (doute de la passe du 15 octobre ; aucun chiffre) ; la rouille du pied de la bouteille se regarde « robinet
+  fermé » ; la requalification s'explique en quatre mots ; deux renvois neufs, ch. 50 (castor) et ch. 88 (le pain) ;
+  « (ch. 78) » à l'acide des conserves (il était dans le DANGER, point 3).
+
+### Où est allé l'ancien « Pourquoi ça marche »
+
+| Phrase | Où elle est allée |
+| --- | --- |
+| « Un stock se bâtit en imaginant des repas, et ce qui manque en février ne se mange pas : le sel, le nitrite et le vinaigre… » | Étape 1 (« on oublie ce qui ne se mange pas ») |
+| « On stocke l'objet et on oublie son usure : la scie dure, sa chaîne et sa lime s'en vont » | Étape 3, famille 2 |
+| « Ce qui se dégrade en silence meurt sans changer d'apparence, qu'on s'en serve ou non » | Étape 5, famille 4 |
+| « La quantité juste se calcule sur le délai de réapprovisionnement : une heure en ville, l'hiver entier au chalet » | Étape 9 (avec la note de lieu) ; l'étape 13 y renvoie |
+
+### Où est allé l'ancien DANGER
+
+| Bloc | Où il est allé | Pictogramme |
+| --- | --- | --- |
+| 1. Monoxyde : mécanisme, inodore, hémoglobine | Coupé : page `co` | |
+| 1. Génératrice, réchaud, barbecue, chaufferette jamais sous un toit ; porte de garage ouverte | Étape 10 (génératrice dehors, à 6 m, la remise du carburant comprise) ; le reste, page `generatrice` | `generatrice` |
+| 1. Porte de chambre fermée, avertisseur dans chaque pièce où on dort | Étape 22 | `co` |
+| 1. Avertisseur silencieux, 30 ppm et 30 jours, plusieurs maux de tête, l'enfant de mauvais caractère | Coupé : page `co` (« à 30 ppm, il ne sonne pas avant 30 jours », « mauvais caractère ») | |
+| 1. Si l'alarme sonne : tout le monde dehors | Coupé : page `co`, « Ce qu'on fait », point 1 | |
+| 2. Mal de caribou | Étape 4, puce du gras (ration × jours jusqu'au dégel ; « tue en quelques semaines ») | `mal-de-caribou` |
+| 3. Le sel qui manque, botulisme, 3 °C, emballage, 14 jours, 9 % du produit fini, pourcentages sur la viande | Étape 2 : « traiter moins de viande au même taux », le botulisme sans odeur ni goût, 3 °C ; puce suivante, les 9 % et les 14 jours (teneur du poisson fini, pas un taux pour calculer le sel) ; l'emballage qui laisse passer l'air, coupé (page `botulisme`) | `botulisme` |
+| 4. Foie et reins de cervidés, cadmium, 100 fois la quantité tolérable | Section 7, « Le gras, dans l'animal », puce de l'orignal : prendre la graisse des reins sans les reins. Les 100 fois et le reste du mécanisme : page `abats` | `abats` |
+| 4. Ours, trichine, 74 °C, phoque | Section 7, puce du gras d'ours (74 °C à cœur ; ni sel, ni fumage, ni gel ; ch. 52 et 56) | `trichine` |
+| 4. Cèdre, thuyone | Section 7, « La vitamine C, dans les aiguilles » | `thuyone` |
+| 4. Lièvre, gants | Section 7, puce du gras de castor (gants imperméables). Le lièvre n'est pas dans ce chapitre : « ch. 48 » sort | `tularemie` |
+| Ligne finale : 74 °C, 82 °C, 70 °C, −18 °C | 74 °C : section 7, le thermomètre ; 82 et 70 °C : page `cuisson` ; −18 °C : page `zone-de-danger` | `cuisson` |
+
+### Pictogrammes (étape → id)
+
+| Où | Id | Ce qui est propre au chapitre |
+| --- | --- | --- |
+| Étape 2, puce « Quand le sel manque » | `botulisme` | Moins de viande au même taux, jamais moins de sel ; 3 °C pour le poisson |
+| Étape 4, puce du gras | `mal-de-caribou` | Le gras se calcule comme la famille 3 |
+| Étape 10 | `vapeurs`, `generatrice` | Remise détachée ; bidon qui suinte dans un cabanon attenant ; génératrice à 6 m, la remise comprise |
+| Étape 22 | `co` | 7 ans ; un par étage et un par chambre fermée |
+| Section 7, fléau, « Ce qu'on perd » | `poison` | Jamais le nitrite sur une balance improvisée |
+| Section 7, le thermomètre | `cuisson` | Les deux points fixes ; 74 °C |
+| Section 7, gras : orignal ; ours ; castor | `abats` ; `trichine` ; `tularemie` | La graisse des reins sans les reins ; le gras d'ours, 74 °C ; les gants pour le castor |
+| Section 7, la vitamine C | `thuyone` | Sapin baumier ou épinette |
+| Section 7, la lumière au suif | `co` | Aérer la pièce |
+| Section 7, le savon à la cendre | `chimie` | Savon caustique : linge et planchers |
+| Section 7, les joints, « Ce qu'on perd » | `vapeurs` | Aucun joint de fortune sur le gaz ou le carburant |
+| Section 7, l'acide des conserves | `botulisme` | Vinaigre d'acidité inconnue, sans autoclave |
+
+Trois ids ne sont pas inscrits au ch. 9 dans `plan/dangers-inventaire.md` (section 1) : `vapeurs`, `chimie`, `poison`.
+Les changements de l'inventaire et des « Où il revient » sont rendus à l'orchestrateur (fichiers communs, pas
+touchés). Les chiffres des étapes concordent avec les pages : 6 m (`generatrice`), 3 °C, 9 %, 14 jours
+(`botulisme`), 74 °C (`cuisson`, `trichine`), 7 °C en 24 h à la carcasse (`zone-de-danger`, section 5).
+
+### Séries orange et logigramme
+
+Aucune : le chapitre n'a pas de geste urgent (`plan/premieres-minutes-inventaire.md`, « Aucun geste urgent : 00b, 5, 6,
+9… »). Pas de logigramme : rien ne se décide en branches.
+
+### Chiffres nouveaux
+
+- **27 à 29 g de sel par litre** face à la Côte-Nord, un peu moins en surface au printemps, et donc **35 à 37 L
+  d'eau pour 1 kg de sel** (section 7, le sel du fleuve) : `sources/13-universite-laval-salinite-saint-laurent.md`,
+  déjà la source du même chiffre au ch. 10, étape 1 ; extraits et calcul repris dans
+  `sources/09-refonte-et-en-plus-2026-10-19.md`. Le « chiffre introuvable » de la levée du 24 septembre (salinité
+  au point de puisage) reste ce qu'il était : on la mesure sur place.
+- Aucun autre chiffre nouveau dans le corps du chapitre. Les chiffres déplacés gardent leur provenance (sections plus
+  haut de cette fiche).
+
+### [À VÉRIFIER]
+
+Aucun dans le chapitre.
+
+### Notes « En plus »
+
+| Note | Genre | Étape | Provenance |
+| --- | --- | --- | --- |
+| Le gras fondu, chez les Naskapis (65 mots) | Un fait (la façon d'une nation du Nord) | section 7 (« Le gras, dans l'animal ») | Turner 1894, `sources/autochtones/turner-1894-ethnologie-ungava-gutenberg.txt`, l. 5141 à 5150 (section « The Nenenot or Naskopie ») ; extraits dans `sources/09-refonte-et-en-plus-2026-10-19.md` |
+| La babiche des raquettes, chez les Innus (79 mots) | La façon des Innus | aucune (section 7) | `sources/20b-innu-raquettes-tipatshimuna-nametau.md` (Tipatshimuna : Manian Michel, VanStone d'après Strong ; Nametau innu : l'aboutage) |
+| Reconnaître une pile qui a coulé (49 mots, photo) | Photo pour reconnaître | 17 | Wikimedia Commons, Binarysequence, CC BY-SA 4.0 ; `sources/09-commons-pile-coulee-metadonnees-2026-10-19.json` ; `images/extras/09-pile-coulee.jpg` |
+| Combien de temps on garde une pile (42 mots) | Fait | 5 | Fiches techniques E91 et L91 : 10 et 25 ans à 21 °C (`sources/09-energizer-piles-lithium-alcaline-froid.md`) |
+
+Écartées : la moelle des os chez les Naskapis (le ch. 8 en a fait une note le même jour, « Le caribou et sa moelle », et le ch. 19 donne la composition de la moelle) ; l'annedda de Cartier (le ch. 20 porte son nom et le ch. 21 en parle) ; le niuaikanat, la viande séchée en
+poudre et la graisse (c'est le pemmican du ch. 72) ; le froid des piles au lithium (déjà aux ch. 5 et 6) ; le mukushan
+(cérémoniel, section 4.1 de `suivi/idees-savoirs-autochtones.md`).
+
+**À noter :** la note de la babiche dit, après la source, que des Innus jugent la babiche d'orignal peu résistante
+pour la raquette. Le ch. 103 bâtit sa babiche sur la peau d'orignal ; la contradiction est déjà relevée dans
+`suivi/idees-savoirs-autochtones.md` (section 4.3). La note ne parle que des raquettes.
+
+### Planche
+
+09-08, appelée une fois, dans le paragraphe qui commence par « **Les joints, dans le cuir gras.** » (ancre inchangée
+dans `placements-tome-1.json`), puis repère par repère dans les six sous-étapes, de 1 à 12, dans l'ordre. La ligne
+`danger` de la planche (« Le propane […] s'accumule dans le creux et attend l'étincelle. Une ligne de gaz qui fuit se
+ferme au robinet de la bouteille ») a une chose qui attend et une consigne au pronominal, et elle redit la page
+`vapeurs` : rendue à l'agent des planches.
+
+### controle.py
+
+| | Avant (HEAD) | Après |
+| --- | --- | --- |
+| Mots | 6 683 | 7 015 (dont 235 dans les notes « En plus ») |
+| Tirets | 2 (titre et ligne de tome) | 2 (les mêmes) |
+| « § » | 8 | 0 |
+| Tournures (« d'où », « la durée décide ») | 3 | 0 |
+| Vocabulaire d'IA (« au niveau de ») | 1 | 0 |
+| Mots vides | 15 | 19, jugés un par un : des « tout » qui veulent dire tout (« tout le reste », « tout de suite », « toute l'année »), « déjà perdu », « encore assez forte », « bien grattée » |
+| Maximes | 0 | 0 |
+| Redites | 0 | 1 : le renvoi « (section 7, « Le gras, dans l'animal ») », à l'étape 4 et dans la note du gras fondu ; c'est un renvoi, il reste |
+| Ancres de planches | intactes | intactes |
+
+Invariants signalés, tous voulus : **84 mois** (devient « 7 ans ») ; **30 ppm, 30 jours** (page `co`) ; **82 °C, 70 °C**
+(page `cuisson`) ; **−18 °C** (page `zone-de-danger`) ; **74 °C, 7 → 6** (la ligne finale du DANGER ; la règle reste au
+thermomètre, au gras d'ours et au nitrite) ; **génératrice, 4 → 3** (les deux mentions du DANGER deviennent une, à
+l'étape 10) ; **ch. 48** (le lièvre, absent du chapitre) ; les numéros de sous-section 5.1 à 9.3 (devenus des étapes et
+des titres).

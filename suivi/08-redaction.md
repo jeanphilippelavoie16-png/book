@@ -198,3 +198,161 @@ Il signale encore, et c'est voulu : « 1 minute » ×2 (lac à 5 min, robinet en
 « 2 à 3 semaines ») ; « 3 h » (la chute de 3 h du matin) ; « 4 ans » (âge des enfants) ; « 74 °C » 6 → 4,
 « cadmium » 2 → 1, « trichinellose » 2 → 1 (paragraphe de rappels coupé : étape et encadré). « Au niveau
 de la mer » est une vraie mesure.
+
+## Refonte au gabarit final, 19 octobre 2026
+
+Numéros de chapitre **nouveaux** dans cette section. Chapitre de référence : les neuf tableaux de scénario restent à la
+place d'étapes numérotées (gabarit, « Un chapitre de référence peut remplacer la procédure numérotée par des
+tableaux ») ; l'ordre des sections est celui du gabarit final. À la demande de JP (« on a pas déjà fait ce
+travail-là ? »), aucune page n'a été captée de nouveau : tout ce qui entre vient de fichiers déjà au dossier, listés
+dans `sources/08-reprises-sources-deja-enregistrees.md`.
+
+### Ce qui a changé
+
+- **Sept sections et « En plus »** : 1 En une ligne, 2 Quand l'utiliser, 3 Matériel, 4 Procédure (les neuf
+  scénarios), 5 Points de contrôle, 6 Signes d'échec, 7 Variante d'urgence. « Pourquoi ça marche » et « DANGER »
+  sortent. « § » devient « section » partout (7 signes).
+- **Sous le titre**, la ligne de lieu seule (`**Les deux**`) ; la note de lieu (« La maison pour ce qui se règle en
+  jours… ») sort.
+- **Section 2** en liste de situations ; le « mauvais usage » (trancher rester ou partir, découvrir une liste pendant
+  le sinistre) sort. Le sinistre qui n'est aucun des neuf devient une situation.
+- **Section 3** : le titre perd « la tablette des deux minutes » ; la « tablette » est dite dans les points de contrôle
+  et les signes d'échec (« les articles de la section 3, rangés ensemble sur une tablette »). Thermomètre : « cuite à
+  cœur » (le 74 °C reste au scénario 8). Médicaments : « gardés dans le sac qui part avec la famille » remplace « jamais
+  sur la tablette ».
+- **Section 4** s'ouvre sur le choix du scénario (les cinq questions de l'ancienne section 3).
+- **Variante d'urgence** : les titres en gras deviennent des `###`, les gestes passent à l'infinitif, en puces quand
+  un paragraphe tassait plusieurs gestes ; la phrase d'entrée (« La tablette du §4 n'existe pas… cette variante dure
+  le temps d'une panne… ») sort, son fait passe à la section 2. L'eau du bâtiment : on remplit d'abord, on vide le
+  chauffe-eau ensuite (l'ordre d'avant fermait l'entrée d'eau avant de remplir).
+- **Règle 0 et règle 11, ligne par ligne** : « Ceux qui étaient dehors : couche du dessus et chaussures enlevées à la
+  porte, ensachées » devient « Les gens qui étaient dehors doivent enlever leurs vêtements du dessus et leurs
+  chaussures à la porte, et les mettre dans un sac fermé » ; les noms sans verbe des tableaux (« Eau et nourriture au
+  régime ordinaire », « Préparer une chambre d'isolement : une pièce, une porte, une chaudière ») se disent par le
+  geste ; les pronominaux de consigne (« s'éteint », « se recongèle », « se jette », « se fond », « se ferment », « se
+  bouchent », « s'improvise », « se desserre », « la boîte s'achète », « se vide ») deviennent des infinitifs ; les
+  mises en relief et les chutes (« un rationnement qui commence à moitié vide arrive trop tard », « un deuxième blessé
+  double le problème », « personne ne cherche un véhicule dont personne n'attend le retour » gardé comme raison du
+  geste, « la variété d'abord, l'équilibre ensuite », « le problème du jour 3 ») sont dites en clair ou coupées.
+- **Noms latins** coupés (*Thuja occidentalis*, *Alces americanus*, *Salvelinus fontinalis*) : cadre des agents ;
+  « omble de fontaine » devient « truite ».
+- **Renvois** mis à jour : ch. 3, étapes 20 à 23 → 21 à 24 ; ch. 3, étapes 22 et 23 → 23 et 24 (numéros du ch. 3
+  d'aujourd'hui) ; ch. 82, étapes 2 à 4 → ch. 82, « Le départ de feu » (le ch. 82 numérote par sous-section et sera
+  renuméroté à sa refonte) ; ch. 10, étapes 19 à 21 → 19 à 22 ; neige et lac : ch. 10, étapes 36 à 41.
+- **Redites coupées** (un fait, une place) : congélateur 48 h et 24 h (scénario 8 seulement ; le scénario 1 y
+  renvoie) ; règle des 2 heures (scénario 1 ; la variante y renvoie) ; ébullition 5 min et garde de l'eau bouillie
+  (scénario 2 ; la variante y renvoie) ; 4 L par jour (Matériel et points de contrôle) ; 2 à 3 semaines de
+  médicaments (Matériel et scénario 5) ; l'heure écrite sur la peau (scénario 7 ; le garrot y renvoie) ; les trois
+  lignes du CO de la section 6 en une seule.
+- **Ce qui sort sans aller ailleurs** : « Personne ne rentre chercher un objet… » (page `incendie` : « Ne rien
+  prendre, et ne jamais retourner à l'intérieur » ; la fumée et le CO y sont) ; « À −35 °C, les extrémités gèlent en
+  quelques minutes » (la page `froid` donne le temps de gel au refroidissement éolien, et « quelques minutes » ne
+  concordait pas avec ses 10 à 30 min de −28 à −39) ; « Un garrot posé ne se desserre pas pour voir » et « sans soulever
+  pour regarder » (page `coupure`) ; « alerter (ch. 14) » dans la ligne du CO ; « Mesuré, pas estimé » ; « Eau et
+  nourriture au régime ordinaire » (épidémie : l'eau tient, déjà dit) ; « la chandelle » des signaux du scénario 9
+  (elle ne signale pas, et elle brûle dans l'habitacle) ; l'ouverture des sacs sous vide avant le dégel (page
+  `botulisme`, au mot près).
+
+### Où est allée l'ancienne section 3 (« Pourquoi ça marche »)
+
+| Bloc | Où il est allé |
+| --- | --- |
+| Un seul stock, trié selon cinq questions ; devant un sinistre qui n'est aucun des neuf, la liste qui répond pareil | Section 4, paragraphe d'ouverture ; section 2, deuxième puce |
+| « La durée décide du lieu : ce qui se compte en jours se vit à la maison… » | Coupé : c'est la règle de bascule (ch. 2), et le scénario 2 la dit pour son cas |
+| « Chaque liste est ordonnée par délai, parce qu'une décision reportée coûte plus cher… » | Coupé (maxime) : la colonne « Quand » le montre |
+
+### Où est allé l'ancien DANGER (section 8)
+
+| Bloc | Où il est allé | Ce qui est resté propre au chapitre |
+| --- | --- | --- |
+| Génératrice, réchaud, barbecue, chaufferette, moteur : dehors ; mécanisme du CO ; liste des abris interdits ; symptômes | Scénario 1, paragraphe `{!generatrice} {!co}` | 6 m (aligné sur la page), « jamais dans le garage ni sous un auvent, même porte ouverte » (rappel de `CLAUDE.md`), la maison chauffée qui aspire l'air par ses fentes du bas, les piles de l'avertisseur jamais dans une lampe. Le mécanisme, la liste et les symptômes sont à la page `co` |
+| Tuyau d'échappement bouché, moteur par tranches | Scénario 9, paragraphe `{!generatrice}` (les deux lignes du tableau y passent) | Faire le tour du véhicule avant chaque démarrage ; fenêtre entrouverte sous le vent |
+| Botulisme de type E, 3 °C, mécanisme, signes | Scénario 8, paragraphe `{!botulisme}` | Le poisson salé, fumé, mariné ou sous vide resté au-dessus de 3 °C pendant le dégel, jeté sans y goûter, même s'il sent bon. Mécanisme et signes : page `botulisme` |
+| Gibier à 74 °C ; trichinellose de l'ours et du phoque | Scénario 8 : tableau (74 °C, et 70 °C tenu 1 min pour le poisson) et paragraphe `{!cuisson} {!trichine}` | L'ours ou le phoque qu'on sale, fume ou sèche pour le sauver du dégel garde la trichine ; cuisson ou autoclave |
+| Viande maigre seule, mal de caribou | Scénario 2, paragraphe `{!mal-de-caribou}` | Compter le gras du stock au jour 1 ; du gras à chaque repas de viande maigre à partir de la deuxième semaine |
+| Cadmium (ancien paragraphe sous le scénario 8, avec « 100 fois la valeur guide ») | Scénario 8, paragraphe `{!abats}` | Le rappel de `CLAUDE.md` ; le « 100 fois » est à la page `abats` |
+
+### Pictogrammes (où → id)
+
+| Où | Id |
+| --- | --- |
+| Scénario 1, paragraphe sous le tableau | `generatrice`, `co` |
+| Scénario 2, premier paragraphe | `mal-de-caribou` |
+| Scénario 2, deuxième paragraphe (vitamine C) | `thuyone` |
+| Scénario 3, paragraphe | `feu-de-foret` |
+| Scénario 4, paragraphe | `incendie`, `froid` |
+| Scénario 7, paragraphe (alcool) | `froid` |
+| Scénario 8, trois paragraphes | `cuisson` et `trichine` ; `botulisme` ; `abats` |
+| Scénario 9, paragraphe | `generatrice` |
+| Section 7, « La chaleur gardée pour la nuit », 3e puce | `projection` |
+| Section 7, « La lampe à gras », 2e puce | `mal-de-caribou` |
+| Section 7, « Le 12 volts de l'auto », 2e puce | `generatrice` |
+| Section 7, « Le CO sans avertisseur » | `co` |
+| Section 7, « Le sang qui coule sans trousse » | `coupure` |
+
+Les pictogrammes sont posés dans des paragraphes sous les tableaux, pas dans les cellules : le moteur ne met la marge
+rose et le pictogramme en gros que sur un paragraphe (`build_chapitre.marge`). Les ids existent tous dans
+`images/pictos-dangers/` ; le rendu de `build_chapitre.py 08` en montre 15 paragraphes `pc` et aucun `{!` resté brut.
+
+**Rappels de `CLAUDE.md`** : 74 °C (scénario 8), foie et reins de cervidés (scénario 8), trichinellose (scénario 8),
+thuyone (scénario 2), botulisme de type E et botulisme sans odeur (scénario 8, section 6), viande maigre (scénario 2,
+section 6), génératrice (scénario 1) : présents. Tularémie : le chapitre pose des collets (scénario 2) mais ne manipule
+pas le lièvre ; pas de pictogramme (la manipulation est au ch. 48).
+
+**Contradiction corrigée dans le chapitre** : la lampe à gras brûlait la « graisse de bête » pendant que la même
+section disait la réserve improvisée pauvre en gras ; la page `mal-de-caribou` dit de ne pas brûler le gras qu'on
+pourrait manger. La lampe prend l'huile de cuisson d'abord.
+
+### Séries orange et logigramme
+
+Aucune. L'inventaire `plan/premieres-minutes-inventaire.md` classe le ch. 8 parmi les cas couverts ailleurs : chaque
+scénario renvoie au chapitre qui porte sa série orange et son logigramme (ch. 3, 4, 7, 11, 15, 26, 82). Un logigramme
+qui choisirait le scénario dirait l'évidence (le bâtiment brûle : scénario 4). Pas de planche ni de photo (clé « 08 »
+de `placements-tome-1.json` vide).
+
+### Chiffres nouveaux dans le chapitre, et leur source
+
+Tous viennent de fichiers déjà enregistrés ; détail et extraits dans `sources/08-reprises-sources-deja-enregistrees.md`.
+
+| Chiffre | Où | Source |
+| --- | --- | --- |
+| 6 m | Scénario 1 | `10-sante-canada-generatrice-distance.md` (page `generatrice`) |
+| 70 °C tenu 1 min (poisson) | Scénario 8 | `72-sante-canada-poisson-fume-barrieres-parasites-listeria.md` (page `cuisson`) |
+| 180 à 280 L (chauffe-eau) | Section 7 | `10-chauffe-eau-residentiel-volume.md` (ch. 10, étape 49) |
+| Une semaine à dix jours (signes du mal de caribou) | Section 6 | `21-speth-spielmann-1983-stefansson-mal-de-caribou.md` (page `mal-de-caribou`) |
+| −18 °C et −40 °C (piles) | En plus | `08-energizer-piles-au-froid.md`, `85-energizer-e91-fiche-technique.md` |
+
+Fait nouveau sans chiffre : la boîte rouillée ou bosselée sur le serti se jette (`08-mapaq-meilleur-avant-bon-apres.md`).
+Le diagnostic « la fermeture n'est peut-être plus étanche » est une lecture : la page dit de jeter, sans dire pourquoi.
+
+**`[À VÉRIFIER]`** : aucun.
+
+### Notes « En plus » et leur provenance
+
+| Note | Genre | Mots | Provenance |
+| --- | --- | --- | --- |
+| Sécher la viande au-dessus du feu de la tente | La façon des Naskapis (Innus de l'Ungava) : pourquoi elle marche (séchée vite, plus d'eau pour les bactéries), ce qui la rend dangereuse (feu faible, viande tiède des heures ; l'ours garde la trichine) | 80 | Turner 1894 (`80-turner-1894-ethnology-ungava-gutenberg.txt`) ; `61-clemson-activite-eau-teneur-eau.md` ; pages `zone-de-danger` et `trichine` |
+| Le caribou et sa moelle | Un fait | 55 | Turner 1894 |
+| Les piles au froid | Un fait | 36 | Fiches Energizer L91 et E91 |
+| Ce qu'on peut recongeler dégelé | Un fait | 40 | `11-quebec-aliments-panne-courant.md` |
+
+Pas de photo : aucune n'a été cherchée (aucune captation nouvelle). Les notes renvoient à un scénario, pas à une étape :
+le moteur les place donc par écart entre les pages, sans viser une étape.
+
+### controle.py, avant et après
+
+- **Avant** (copie du fichier au début de la refonte) : 6 363 mots, 2 tirets (titre et ligne de tome), 7 « § », 1
+  vocabulaire d'IA (« au niveau de la mer »), 1 tournure (« La durée décide »), 33 mots vides.
+- **Après** : 6 439 mots, 2 tirets (les mêmes), 0 « § », 0 tournure, 0 mise en relief, 0 maxime, 0 redite ; « au niveau
+  de la mer » gardé (une vraie mesure) ; 41 mots vides jugés (« tout le monde », « tout de suite », « tout le temps »,
+  « tous les jours », « porte encore la trichine », « pendant que la route passe encore », « déjà dehors » : ils portent
+  le sens).
+- **Invariants signalés, et pourquoi** : « 74 °C » 4 → 2 (Matériel dit « cuite à cœur », « Ce qui ne se remplace pas »
+  renvoie au scénario 8, l'encadré DANGER sort ; restent la ligne du scénario 8 et le paragraphe de la trichine) ;
+  « 3 °C » 3 → 2 (l'encadré sort ; restent le scénario 8 et la section 6) ; « génératrice » 6 → 5 (l'encadré) ;
+  « 2 heures » (la redite du scénario 8 ; le scénario 1 l'écrit « 2 h ») ; « 2 minutes », « 24 heures », « 6 heures »
+  (écrits « 2 min », « 24 h », « 6 h ») ; « 3 jours », « 5 minutes » (redites de la variante, gardées au scénario 2) ;
+  « 3 semaines », « 4 L », « 48 h » (redites coupées, voir plus haut) ; « 35 °C » (la ligne des extrémités qui gèlent,
+  voir plus haut) ; « 10 min » (la ligne du tuyau d'échappement passée au paragraphe du scénario 9) ; renvois ch. 2,
+  ch. 14, ch. 19 (une occurrence de moins chacun, les autres restent).
+- **Fins de ligne** : LF, comme avant.

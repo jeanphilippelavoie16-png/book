@@ -179,3 +179,197 @@ Verdicts : `suivi/verifications/09-verifications.md`. Six drapeaux, six appliqu�
 - §9.6, corps du texte : « mortel en deux à trois semaines » → **« mortel en quelques semaines »** (décision du livre ; la source dit « after several weeks », aucune fiche ne porte 2 à 3 semaines). `sources/09-hektoen-mal-de-caribou-delais.md`
 
 Compression §3 et §4 — 27 septembre 2026 : 543 mots → 164 mots ; matériel coupé : étiquettes et marqueur (et l'entaille au couteau sur le bac 1), substituts détaillés des bacs (caisse de lait, glacière, carton double), des sacs (taie d'oreiller ; la couverture roulée, la chaudière et le bandeau de portage restent au §9.1) et de la boîte étanche (pot Mason, sacs scellés à la cire : restent au §9.2), colonnes Quantité / Négociable, phrase de renvoi au ch. 00b, paragraphe sur le rangement près de la porte (déjà au §2) et sur l'eau, les médicaments liquides et les piles gardés hors du froid (déjà aux §5.3, §5.5, §5.6 et §7). §3 : exemples chiffrés (1 L = 1 kg, butane) coupés, déjà au §5 ; renvoi au ch. 1 (horloges) coupé. Aucun fait de sécurité n'était seul au §3 ou au §4.
+
+## Refonte au gabarit final, 19 octobre 2026
+
+Rédacteur (rôle 2), lot 05-06-07 du tome 1 final. Lu avant : `.claude/cadre-agents.md` au complet, `CLAUDE.md`, le
+skill `ecriture` et ses tableaux, `gabarit-chapitre.md`, `roles.md`, les ch. 04 et 12 et leurs fiches (`suivi/04-*`,
+`suivi/12-*`), `plan/dangers-inventaire.md` (section 1, et section 3, ch. 06), `dangers/partie-1.md` et
+`partie-2.md`, `plan/premieres-minutes-inventaire.md` (le ch. 6 est dans « Aucun geste urgent »),
+`suivi/plan-de-match.md` (PAUSE du 15 octobre). Les numéros de chapitre de cette section sont les **nouveaux**.
+
+**Consigne de JP pour cette refonte** (19 octobre 2026 : « fuck les sources, on a pas déjà fait ce travail-là ? ») :
+aucune recherche nouvelle sur le web. Chaque chiffre gardé a sa source dans les sections 2 et « Levée des
+[À VÉRIFIER] » plus haut ; chaque chiffre nouveau vient d'une page **déjà enregistrée** dans `sources/` (liste plus
+bas). Aucune page nouvelle enregistrée, aucun fichier `sources/06-…` créé (le préfixe 06 des sources est celui de
+l'ancien ch. 06, les retombées).
+
+### Ce qui a changé
+
+- **Sept sections** et « En plus ». La note « --- » entre la ligne de tome et la ligne de lieu est retirée (forme
+  des ch. 04 et 12). Ligne de lieu : `**Maison**`, gardée ; l'adaptation au chalet est l'étape 4.
+- **Section 2** : seulement quand l'utiliser, avec les étapes. La liste « C'est le mauvais outil quand » sort
+  (point 4 de la PAUSE). Ce qu'elle apprenait : « trois jours sont un minimum au chalet » va au tableau de
+  l'étape 4 ; « on n'emprunte pas à la trousse » est déjà au section 6 ; « vider l'une pour remplir l'autre est la
+  faute la plus courante » (sans source) sort. Coupé aussi : le paragraphe sur la maison qui « a l'aqueduc,
+  l'égout et des voisins » (justification que le lecteur connaît) et le cas « la maison reçoit du monde » (la
+  trousse est faite pour la famille ; la phrase était une formule).
+- **Section 3, Matériel** : les trois contenants, une ligne chacun, « § » remplacé par « section 7 ».
+- **Section 4, Procédure** : les sous-sections 5.1 à 5.10 deviennent 31 étapes numérotées, sous sept intertitres
+  (ranger et répartir, l'eau, le chaud, la nourriture, la lumière, les soins, les papiers, les enfants, l'auto).
+  Chapitre de référence : les tableaux restent dans leur étape (étapes 3, 4, 5, 12, 13).
+- **Pas de série orange ni de logigramme** : l'inventaire des premières minutes classe le ch. 6 dans « Aucun geste
+  urgent », et rien ne s'y décide en branches (la décision de partir est au ch. 2). Question posée à JP (rapport).
+- **Variante d'urgence** gardée au complet, mise en sous-sections à titres de choses ; ce qui redisait la
+  procédure ou le ch. 10 devient un renvoi (voir « Ce qui sort » plus bas).
+- **« En plus »** : quatre notes, toutes tirées de pages déjà enregistrées.
+- Mots : « village » (×4) devient « ville » ou sort ; « enfants de 4 et 6 ans » devient « les enfants », « un jeune
+  enfant » ; « § » (×3) devient « section » ; « quad » sort ; « naphta » devient « naphte » (le mot des pages des
+  dangers) ; les noms latins sortent (*Alces americanus*, *Betula papyrifera*, *Picea mariana*,
+  *Clostridium botulinum*) ; les citations entre guillemets des pages officielles deviennent des phrases du livre.
+- Fins de ligne : LF, comme avant (0 CR).
+
+### Où est allé l'ancien « Comment ça marche »
+
+| Ancien bloc | Où il est |
+| --- | --- |
+| « Une trousse préassemblée remplace une décision par un geste… la capacité de choisir s'effondre » | Coupé (justification, image) ; ce qu'il veut dire est la cible du section 5 : le bac sorti en 2 minutes (étape 1) |
+| Ce qui sert à la minute (chaleur, lumière, papiers) et dans la journée (eau, calories, soins) | Étape 2, répartition sacs, bac 1, bac 2, boîte |
+| « Ce qui pèse va au bac, pas au dos » | Étape 2 et étape 5 (« On ne porte pas ce poids à pied ») |
+| Le froid met hors d'usage l'eau liquide, les piles alcalines et le butane | Étapes 7 (eau), 18 (piles), 10 (butane) ; la formule « une trousse d'hiver n'est pas une trousse d'été… » sort |
+| « Une trousse qu'il faut assembler est une trousse qu'on n'a pas… le seul test… » | Maxime coupée ; le test est au section 5 (bac en 2 minutes, souper et nuit sur la trousse) |
+
+### Où est allé l'ancien Danger, et les pictogrammes
+
+| Ancien bloc | Où il est | Pictogramme |
+| --- | --- | --- |
+| CO : mécanisme (combustion incomplète, sans odeur, hémoglobine, on s'endort) | Page `co` du tome ; pas redit | |
+| CO : génératrice dans un bâtiment, 6 m | Page `generatrice` ; la génératrice ne fait pas partie de la trousse | |
+| CO : barbecue, réchaud, appareil au charbon à l'intérieur | Étape 11 | `co` |
+| CO : un avertisseur à pile dans chaque pièce où on dort ou chauffe | Étape 11 ; essai au changement d'heure : section 5 | `co` |
+| CO : le bouton teste la sirène, pas la cellule | Page `co` ; coupé de la ligne du section 5 | |
+| CO : s'il sonne, sortir, compter les têtes, ne pas chercher | Page `co` | |
+| CO : chandelle de survie dans l'auto fermée, fenêtre entrouverte ; échappement dégagé | Étape 31 et sa puce | `co`, `generatrice` |
+| Froid : temps de gel de la peau selon le refroidissement éolien | Page `froid` (mêmes chiffres) ; l'étape 12 garde le tableau des gestes, sans les temps | `froid` |
+| Froid : trois stades, « sous 32 °C, sous 30 °C », quelqu'un d'autre décide, l'enfant qui devient tranquille | Page `froid`. Les seuils 32 et 30 °C sortent : la page donne 35, 32,2 et 28 °C, d'une autre source ; on ne garde pas deux jeux de seuils dans le tome | |
+| Botulisme : mécanisme, conserve bombée à jeter sans goûter, doute sur la provenance | Page `botulisme` ; la ligne du section 6 renvoie à l'étape 16 | |
+| Botulisme : le gel ne détruit pas la toxine ; conserve gelée sortie de la trousse ; note du vide (note 1) ; le botulisme ne change ni l'odeur, ni le goût, ni l'apparence | Étape 16 | `botulisme` |
+| Gibier : 74 °C à cœur ; ni sel, ni fumée, ni gel contre la trichine | Étape 14 ; le thermomètre au centre, sans l'os ni le gras : page `cuisson` | `cuisson`, `trichine` |
+| Gibier : jamais le foie ni les reins de cervidés, cadmium | Étape 15 | `abats` |
+
+Pictogrammes ajoutés là où le danger se présente, hors de l'ancienne section Danger :
+
+| Où | Pictogramme | Ce qui est propre au chapitre |
+| --- | --- | --- |
+| Étape 24 | `poison` | La dose d'un enfant se calcule sur son poids, pas sur son âge (la double dose par deux boîtes est dans la page) |
+| Section 7, « La roche du poêle » | `projection` | La roche prise au bord de l'eau éclate en chauffant |
+| Section 7, « Le combustible de fortune » | `pas-au-feu` | La liste de ce qu'on brûle dans une maison : branches, planches brutes, meubles non vernis ; jamais palettes, bois traité, peint, verni, contreplaqué, carton ciré, plastique |
+| Section 7, « Le gras » | `mal-de-caribou` | Quand on rationne, réduire tout le reste avant le gras ; mortel en quelques semaines (rappel du tableau de `CLAUDE.md`) |
+| Section 7, « Cuire sans cuisinière » | `co`, `projection` | Le réchaud de fortune dehors seulement ; ouvrir la conserve avant de la chauffer |
+
+Rappels du tableau de `CLAUDE.md` présents : 74 °C (étape 14), foie et reins de cervidés (étape 15), trichine
+(étape 14), botulisme sans odeur ni goût (étape 16), mal de caribou (section 7, « Le gras »). La génératrice
+(« stock, carburant, électricité ») ne s'applique pas : la trousse n'en a pas ; le moteur de l'auto porte
+`generatrice` (étape 31).
+
+### Corrections de fond faites pendant la refonte (contradictions avec d'autres chapitres)
+
+1. **Le combustible de fortune** brûlait « palettes défaites, planches de remise, meubles, clôture ». La page
+   `pas-au-feu` interdit au poêle les palettes et le bois traité, peint, verni ou aggloméré. Corrigé : bois sec ni
+   traité, ni peint, ni verni, ni collé ; palettes dans la liste de ce qui ne va jamais au poêle. Le carton
+   « trempé dans du gras fondu » devient « dans de la cire fondue » (page `mal-de-caribou` : le gras se mange
+   quand il manque).
+2. **La radio** : « l'écouteur haute impédance … ne se bricole pas avec ce qu'il y a dans une maison », alors que le
+   ch. 4 (section 7, « Sans radio à piles ») donne la pastille piézo d'un avertisseur de fumée brisé, et le poste de
+   l'auto. Le paragraphe sort de « Ce qui ne se remplace pas » ; « La radio » renvoie au ch. 4.
+3. **L'ébullition** : « une minute à gros bouillons » pour toute eau, neige fondue comprise. Le ch. 10 (étape 14)
+   donne 5 minutes pour l'eau d'un lac, d'un ruisseau ou de la neige (tularémie). Étape 6 alignée ; source :
+   `sources/46-quebec-tularemie.md` (« bouillie pendant cinq minutes »), provenance au `suivi/10-redaction.md`.
+4. **L'attente après la javel** : « 30 minutes » partout ; le ch. 10 (étape 21) allonge l'attente dans l'eau
+   froide. Étape 6 : « plus longtemps dans une eau froide (ch. 10, étape 21) ». L'odeur de chlore et le redosage
+   renvoient au ch. 10, étapes 21 et 22, au lieu de « on recommence ».
+5. **La viande séchée d'orignal** « sèche, salée, stable » dans une trousse vérifiée une ou deux fois par année. Le
+   ch. 71 (étape 22) : la viande séchée maison se garde deux semaines à la température de la pièce dans un
+   contenant fermé. Étape 13 : la garder au congélateur et la mettre dans la trousse au départ.
+   Source : `sources/66-nchfp-viande-sechee-palier-de-chaleur.md` (aussi `89b-nchfp-viande-sechee.md`).
+6. **Le chauffe-eau** : ajout de « couper le disjoncteur du chauffe-eau électrique, et ne le remettre sous tension
+   qu'une fois plein », comme au ch. 3 (étapes 23 et 37 aujourd'hui) ; le reste de la vidange découpé en gestes
+   (règle du ch. 3, point 13 de la PAUSE). Le ch. 10, étape 49, renvoie ici pour le vider.
+7. **La courroie de front** : la charge « appuyée en haut du dos » devient « au creux des reins », comme le ch. 24
+   (étape 15) ; la tête doit pouvoir sortir de la courroie (ch. 24, étape 18). Renvoi au ch. 24.
+8. **Le réchaud de fortune** « dehors, ou sous une hotte qui tire » : la hotte de la cuisinière ne tire pas sans
+   courant ; « dehors seulement ».
+
+### Chiffres nouveaux et leur source (pages déjà enregistrées)
+
+| Chiffre | Où | Source |
+| --- | --- | --- |
+| Eau de lac, de ruisseau ou de neige : 5 minutes d'ébullition | Étape 6 | `sources/46-quebec-tularemie.md` ; ch. 10, étape 14 |
+| Viande séchée maison : deux semaines à la température de la pièce, contenant fermé | Étape 13 | `sources/66-nchfp-viande-sechee-palier-de-chaleur.md` |
+| Pile AA au lithium 15 g, alcaline 23 g ; 25 ans et 10 ans à 21 °C dans l'emballage | En plus, « La pile au lithium » | `sources/09-energizer-l91-lithium-fiche-technique-texte.txt` (« Typical Weight: 15 grams » ; « 25 years at 21°C ») et `09-energizer-e91-alcaline-fiche-technique-texte.txt` (« 23.0 grams » ; « 10 years at 21°C », colonnes réappariées comme le dit la fiche `09-energizer-piles-lithium-alcaline-froid.md`) |
+| Toboggans innus : un par personne qui marche, plus petits pour les enfants, bébés dessus dans des peaux, hommes devant à la trace, enfants derrière, la troisième ou la quatrième personne trouve une bonne piste ; 18e siècle (Cartwright, 1786) | En plus, « Un toboggan par personne » | `sources/20b-toboggan-innu-armitage-turner-tipatshimuna.md`, section 1, « Cartwright 1786 » ; l'avertissement (l'enfant refroidit plus vite et ne dit pas qu'il a froid ; regarder joues et nez) : page `froid` |
+| Stefansson : explorateur canadien, des années chez les peuples autochtones du Nord ; essai à l'hôpital Bellevue de New York sous des médecins de Cornell ; signes après 3 ou 4 jours de viande maigre, renversés par le gras ; un an ensuite de viande, poisson et gras, en santé | En plus, « L'essai de Stefansson » | `sources/09-hektoen-rabbit-starvation.html` (texte vérifié dans la page enregistrée) et `09-hektoen-mal-de-caribou-delais.md` |
+| Pemmican : du cri *pimikan*, « graisse préparée » ; viande séchée en poudre et gras à parts égales, parfois des petits fruits ; dense, riche en énergie, facile à conserver et à expédier ; voyageurs de la traite, surtout l'hiver | En plus, « Le pemmican » | `sources/67-encyclopedie-canadienne-pemmican.md` ; l'ours aussi dangereux que la viande crue : page `trichine` |
+
+Aucun `[À VÉRIFIER]` dans le chapitre.
+
+### Ce qui sort sans être déplacé (et pourquoi)
+
+- « vingt minutes » (×3) pour monter la trousse improvisée : durée sans source ; « dix minutes » de la chaudière
+  qui scie l'épaule : idem. Les phrases gardent le geste sans la durée.
+- « une lampe qui faiblit a déjà de l'électrolyte dans son compartiment » : sans source, et faux en général (la
+  lampe faiblit quand la pile se vide).
+- « c'est même celle qui sert le plus souvent » (la trousse improvisée) : sans source.
+- La redite du variante sur l'ébullition (« comptée à voix haute jusqu'à soixante… », « 24 heures ») : dite à
+  l'étape 6 et au ch. 10.
+- Le paragraphe « Faire fondre la neige » : le fond d'eau, la neige folle et la neige tassée sont au ch. 10,
+  étape 39 (renvoi) ; reste le truc de la taie d'oreiller, que le ch. 10 n'a pas.
+- « L'allumage » de la section 7 : le renvoi au ch. 13 est à l'étape 21.
+- « Le gibier, s'il y en a » de la section 7 : redite des étapes 14 et 15.
+- La génératrice dans « Cuire sans cuisinière » : hors sujet (page `generatrice`).
+- Note 2 (les signes du mal de caribou) : la page `mal-de-caribou` les décrit (« Comment on le reconnaît »).
+
+### Notes « En plus »
+
+| Note | Genre | Étape | Provenance |
+| --- | --- | --- | --- |
+| Le pemmican | Fait | 14 | `67-encyclopedie-canadienne-pemmican.md` ; page `trichine` |
+| La pile au lithium | Fait | 18 | `09-energizer-*` (fiches techniques du fabricant) |
+| Un toboggan par personne | Façon des Innus (pourquoi elle marche : la piste tassée par ceux qui vont devant ; ce qui la rend dangereuse : le bébé couché sur le toboggan refroidit plus vite que l'adulte qui tire) | Section 7, « Traîner au lieu de porter » | `20b-toboggan-innu-armitage-turner-tipatshimuna.md` (Cartwright 1786) ; page `froid` |
+| L'essai de Stefansson | Fait | Section 7, « Le gras » | `09-hektoen-*` |
+
+Pas de photo : la recherche sur Wikimedia Commons (pile alcaline qui a coulé) a reçu un refus du serveur (429), et
+JP a demandé de ne pas relancer le travail de sources. Une photo à ajouter si on la trouve : une pile alcaline
+qui a coulé, poudre blanche dans le compartiment (section 6).
+
+### Planches et logigramme
+
+Aucune planche du ch. 6 n'existe (`images/planches-src/06-*`, `validees/`, `a-valider/` : rien ; clé « 06 » de
+`placements-tome-1.json` vide) et le texte n'en appelle aucune. Candidate de l'audit (`images/audit-planches/
+tomes-1-2.md`, ligne 06, priorité moyenne) : « Traîner : traits aux deux coins, barres rigides, ceinture de
+couverture », pour la section 7, « Traîner au lieu de porter ». Pas de logigramme (voir plus haut).
+
+### controle.py, avant et après
+
+| | Avant | Après |
+| --- | --- | --- |
+| Mots | 7 858 | 6 480 |
+| Tirets | 56 (dont 2 de forme : titre, ligne de tome) | 2 (les mêmes) |
+| Mots bannis | 6 (« village » ×4, « 4 et 6 ans » ×2) | 0 |
+| « § » | 3 | 0 |
+| Vocabulaire d'IA | 3 (« essentiels ») | 0 |
+| Âges à juger | 2 | 0 |
+| Tournures | 4 | 1 (« la personne qui la monte oublie… » : le sujet est une personne, faux positif) |
+| Mises en relief | 21 | 0 |
+| Maximes | 5 | 0 |
+| Redites | | 0 |
+| Mots vides à juger | 46 | 25 (tous des « tout », « encore », « ainsi » qui portent le sens : « toute la famille », « garde encore de la chaleur », « Tout le contenu ») |
+
+Invariants signalés, chacun justifié :
+- chiffres disparus : les temps de gel de la peau (« 10 à 30 minutes », « 5 à 10 », « 2 à 5 », « moins de 2 ») et
+  les seuils « 32 °C », « 30 °C » : page `froid` ; « −35 °C » : la phrase « dormir à −35 °C » devient « dormir au
+  froid » ; « 4 ans », « 6 ans » : l'âge des enfants de JP ; « 72 heures » (×8) : « trois jours » dans le texte,
+  le titre garde 72 heures ; « 1 L », « 6 L », « 24 heures », « 30 minutes », « 74 °C » : une mention de moins
+  chacun (redites coupées), le chiffre reste ailleurs ; « 9.3 L » et les « 5.1 » à « 9.8 » : anciens numéros de
+  sous-sections ; « 100 » : « revenue à 100 % » devient « tout est remplacé ».
+- renvois : ch. 00b, 13, 14, 5 : une mention de moins chacun, le renvoi reste.
+- note 2 : page `mal-de-caribou`.
+- sécurité : « 74 °C » 3 → 2 et « cadmium » 2 → 1 (l'ancien Danger redisait l'étape) ; « génératrice » 3 → 0 (la
+  génératrice n'est pas dans la trousse ; page `generatrice` ; pictogramme à l'étape 31).
+
+### Signalé pour d'autres chapitres
+
+- Ch. 1, étape 5 : l'avertisseur « se remplace 84 mois (7 ans) après l'installation ». Le ch. 6 (section 5) dit 7 à
+  10 ans selon le modèle, comptés depuis la **date de fabrication** inscrite au dos
+  (`sources/09-avertisseurs-co-duree-de-vie.md`, Kidde). À aligner au ch. 1.
+- Ch. 10, l. 320 : « Pour le vider, voir le ch. 6. » peut devenir « voir le ch. 6, section 7 ».

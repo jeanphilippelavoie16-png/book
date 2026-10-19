@@ -24,15 +24,15 @@
 <path d="M861.83,330.80 L861.83,343.20 Q861.83,349.20 855.83,349.20 L722.32,349.20 Q716.32,349.20 716.32,355.20 L716.32,374.60" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
 <path d="M861.83,330.80 L861.83,343.20 Q861.83,349.20 867.83,349.20 L872.40,349.20 Q878.40,349.20 878.40,355.20 L878.40,374.60" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
 <path d="M861.83,330.80 L861.83,343.20 Q861.83,349.20 867.83,349.20 L1034.48,349.20 Q1040.48,349.20 1040.48,355.20 L1040.48,374.60" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
-<path d="M716.32,481.90 L716.31,497.00" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
-<path d="M878.40,481.90 L878.40,497.00" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
-<path d="M1040.48,469.60 L1040.49,497.00" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M716.32,494.20 L716.31,511.40" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M878.40,481.90 L878.40,511.40" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M1040.48,469.60 L1040.49,511.40" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
 </g>
 <g id="noeuds">
 <rect x="36.00" y="61.20" width="495.00" height="39.40" rx="0" fill="#2B5876"/>
 <text data-max="468.50" x="50.00" y="85.65" font-family="IBM Plex Sans Condensed" font-size="15" fill="#fff" text-anchor="start" xml:space="preserve"><tspan font-weight="700">Un feu est déclaré dans le secteur</tspan></text>
 <rect x="36.00" y="115.20" width="495.00" height="43.10" rx="0" fill="#FDE8D8" stroke="#EE7219" stroke-width="1.5"/>
-<text data-max="478.50" x="45.00" y="135.85" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">Regarder d’où vient la fumée et de quel côté elle penche.</tspan><tspan font-weight="500"> Si le vent souffle du feu vers nous, un feu à 10 km peut</tspan></text>
+<text data-max="478.50" x="45.00" y="135.85" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">Sortir regarder où est la fumée et de quel côté elle penche.</tspan><tspan font-weight="500"> Si le vent souffle du feu vers nous, un feu à 10 km peut</tspan></text>
 <text data-max="478.50" x="45.00" y="148.15" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">arriver en moins de trois heures.</tspan></text>
 <rect x="468.57" y="146.05" width="63.18" height="13.00" fill="#EE7219"/>
 <text x="473.57" y="155.60" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="8.5" fill="#000" xml:space="preserve" data-max="54.68">ch. 11, étape 1</text>
@@ -69,13 +69,13 @@
 <text data-max="197.10" x="145.80" y="478.92" font-family="IBM Plex Serif" font-size="9.5" font-style="italic" fill="#000" text-anchor="middle" xml:space="preserve"><tspan font-weight="400">et on ne sent pas de chaleur</tspan></text>
 <rect x="306.00" y="423.90" width="225.00" height="59.40" rx="0" fill="#FDE8D8" stroke="#EE7219" stroke-width="1.5"/>
 <text data-max="208.50" x="315.00" y="440.55" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">Habiller les enfants, finir de charger l’auto et</tspan></text>
-<text data-max="208.50" x="315.00" y="452.85" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">partir à la première clarté.</tspan><tspan font-weight="500"> L’odeur de la fumée, la</tspan></text>
-<text data-max="208.50" x="315.00" y="465.15" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">nuit, ne dit pas à elle seule que le feu approche.</tspan></text>
+<text data-max="208.50" x="315.00" y="452.85" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">partir à la première clarté.</tspan><tspan font-weight="500"> Quand on sent la</tspan></text>
+<text data-max="208.50" x="315.00" y="465.15" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">fumée la nuit, le feu n’approche pas forcément.</tspan></text>
 <rect x="463.98" y="471.05" width="67.77" height="13.00" fill="#EE7219"/>
 <text x="468.98" y="480.60" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="8.5" fill="#000" xml:space="preserve" data-max="59.27">ch. 11, étape 11</text>
 <rect x="36.00" y="532.80" width="495.00" height="55.40" rx="0" fill="#FDE8D8" stroke="#EE7219" stroke-width="1.5"/>
-<text data-max="478.50" x="45.00" y="553.45" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">Un adulte attache les enfants dans l’auto</tspan><tspan font-weight="500">, habillés de coton ou de laine.</tspan><tspan font-weight="700"> L’autre ferme le bâtiment</tspan><tspan font-weight="500"> : il ferme les</tspan></text>
-<text data-max="478.50" x="45.00" y="565.75" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">portes, les fenêtres et le propane, et décroche les rideaux. S’il reste du temps, arroser le toit, puis fermer l’eau. En</tspan></text>
+<text data-max="478.50" x="45.00" y="553.45" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">Un adulte habille les enfants de coton ou de laine et les attache dans l’auto. L’autre ferme le bâtiment</tspan><tspan font-weight="500"> : les</tspan></text>
+<text data-max="478.50" x="45.00" y="565.75" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">portes, les fenêtres et le propane, et il décroche les rideaux. S’il reste du temps, arroser le toit, puis fermer l’eau. En</tspan></text>
 <text data-max="478.50" x="45.00" y="578.05" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">sortant, couper le courant et afficher PARTIS sur la porte.</tspan></text>
 <rect x="442.95" y="575.95" width="88.80" height="13.00" fill="#EE7219"/>
 <text x="447.95" y="585.50" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="8.5" fill="#000" xml:space="preserve" data-max="80.30">ch. 11, étapes 12 à 15</text>
@@ -89,22 +89,23 @@
 <text data-max="261.14" x="782.62" y="161.80" font-family="IBM Plex Sans Condensed" font-size="13" fill="#000" text-anchor="middle" xml:space="preserve"><tspan font-weight="700">sans entrer dans la fumée ?</tspan></text>
 <rect x="640.80" y="198.00" width="283.64" height="63.70" rx="0" fill="#FDE8D8" stroke="#EE7219" stroke-width="1.5"/>
 <text data-max="267.14" x="649.80" y="214.65" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">Monter dans l’auto et rouler loin du feu, jamais vers lui.</tspan><tspan font-weight="500"> Fermer</tspan></text>
-<text data-max="267.14" x="649.80" y="226.95" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">les vitres, mettre l’air en recirculation et allumer les phares.</tspan></text>
-<text data-max="267.14" x="649.80" y="239.25" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">Prévenir par message texte. Si la fumée cache la route, faire</tspan></text>
-<text data-max="267.14" x="649.80" y="251.55" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">demi-tour.</tspan></text>
+<text data-max="267.14" x="649.80" y="226.95" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">les vitres, mettre l’air en recirculation et allumer les phares de</tspan></text>
+<text data-max="267.14" x="649.80" y="239.25" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">croisement. Prévenir par message texte. Si la fumée cache la</tspan></text>
+<text data-max="267.14" x="649.80" y="251.55" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">route, faire demi-tour.</tspan></text>
 <rect x="833.55" y="249.45" width="91.64" height="13.00" fill="#EE7219"/>
 <text x="838.55" y="259.00" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="8.5" fill="#000" xml:space="preserve" data-max="83.14">ch. 11, étapes 16 et 17</text>
 <rect x="640.80" y="298.80" width="475.20" height="32.00" rx="10" fill="#fff" stroke="#2B5876" stroke-width="1.75"/>
 <text data-max="452.70" x="878.40" y="319.10" font-family="IBM Plex Sans Condensed" font-size="13" fill="#000" text-anchor="middle" xml:space="preserve"><tspan font-weight="700">Où est-on quand le feu arrive ?</tspan></text>
-<rect x="640.80" y="381.60" width="151.03" height="100.30" rx="0" fill="#FDE8D8" stroke="#EE7219" stroke-width="1.5"/>
+<rect x="640.80" y="381.60" width="151.03" height="112.60" rx="0" fill="#FDE8D8" stroke="#EE7219" stroke-width="1.5"/>
 <text data-max="134.53" x="649.80" y="402.25" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">S’arrêter là où rien ne brûle</tspan><tspan font-weight="500">, le</tspan></text>
 <text data-max="134.53" x="649.80" y="414.55" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">devant tourné vers le feu.</tspan></text>
 <text data-max="134.53" x="649.80" y="426.85" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">Fermer les vitres et les entrées</tspan></text>
-<text data-max="134.53" x="649.80" y="439.15" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">d’air, couper le moteur, et se</tspan></text>
-<text data-max="134.53" x="649.80" y="451.45" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">coucher au plancher sous une</tspan></text>
-<text data-max="134.53" x="649.80" y="463.75" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">couverture de laine sèche.</tspan></text>
-<rect x="700.94" y="469.65" width="91.64" height="13.00" fill="#EE7219"/>
-<text x="705.94" y="479.20" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="8.5" fill="#000" xml:space="preserve" data-max="83.14">ch. 11, étapes 18 et 19</text>
+<text data-max="134.53" x="649.80" y="439.15" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">d’air, et se coucher au plancher</tspan></text>
+<text data-max="134.53" x="649.80" y="451.45" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">sous une couverture de laine</tspan></text>
+<text data-max="134.53" x="649.80" y="463.75" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">sèche. Couper le moteur quand</tspan></text>
+<text data-max="134.53" x="649.80" y="476.05" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">le feu est proche.</tspan></text>
+<rect x="700.94" y="481.95" width="91.64" height="13.00" fill="#EE7219"/>
+<text x="705.94" y="491.50" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="8.5" fill="#000" xml:space="preserve" data-max="83.14">ch. 11, étapes 18 et 19</text>
 <rect x="648.80" y="374.60" width="31.26" height="14.00" fill="#EE7219"/>
 <text x="653.80" y="384.80" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="9" fill="#000" xml:space="preserve" data-max="22.76">1 min</text>
 <rect x="802.89" y="381.60" width="151.03" height="100.30" rx="0" fill="#FDE8D8" stroke="#EE7219" stroke-width="1.5"/>
@@ -128,11 +129,11 @@
 <text x="1030.11" y="466.90" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="8.5" fill="#000" xml:space="preserve" data-max="83.14">ch. 11, étapes 24 et 25</text>
 <rect x="972.97" y="374.60" width="31.26" height="14.00" fill="#EE7219"/>
 <text x="977.97" y="384.80" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="9" fill="#000" xml:space="preserve" data-max="22.76">1 min</text>
-<rect x="640.80" y="504.00" width="475.20" height="39.10" rx="0" fill="#E8EDF0" stroke="#2B5876" stroke-width="1.5"/>
-<text data-max="458.70" x="649.80" y="520.65" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">Quand le front est passé, rester sous la laine jusqu’à ce que l’air refroidisse.</tspan><tspan font-weight="500"> Ensuite, aller sur le terrain brûlé</tspan></text>
-<text data-max="458.70" x="649.80" y="532.95" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">et éteindre ce qui brûle encore : gratter jusqu’à la terre, retourner et noyer.</tspan></text>
-<rect x="1025.11" y="530.85" width="91.64" height="13.00" fill="#2B5876"/>
-<text x="1030.11" y="540.40" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="8.5" fill="#fff" xml:space="preserve" data-max="83.14">ch. 11, étapes 20 et 26</text>
+<rect x="640.80" y="518.40" width="475.20" height="39.10" rx="0" fill="#E8EDF0" stroke="#2B5876" stroke-width="1.5"/>
+<text data-max="458.70" x="649.80" y="535.05" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">Quand le front est passé, rester sous la laine jusqu’à ce que l’air refroidisse.</tspan><tspan font-weight="500"> Ensuite, aller sur le terrain brûlé</tspan></text>
+<text data-max="458.70" x="649.80" y="547.35" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">et éteindre ce qui brûle encore : gratter jusqu’à la terre, retourner et noyer.</tspan></text>
+<rect x="1025.11" y="545.25" width="91.64" height="13.00" fill="#2B5876"/>
+<text x="1030.11" y="554.80" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="8.5" fill="#fff" xml:space="preserve" data-max="83.14">ch. 11, étapes 20 et 26</text>
 </g>
 <g id="pointes">
 <path d="M283.50,115.20 L279.70,107.20 L287.30,107.20 Z" fill="#000"/>
@@ -152,9 +153,9 @@
 <path d="M716.32,381.60 L712.52,373.60 L720.12,373.60 Z" fill="#000"/>
 <path d="M878.40,381.60 L874.60,373.60 L882.20,373.60 Z" fill="#000"/>
 <path d="M1040.48,381.60 L1036.68,373.60 L1044.28,373.60 Z" fill="#000"/>
-<path d="M716.31,504.00 L712.51,496.00 L720.11,496.00 Z" fill="#000"/>
-<path d="M878.40,504.00 L874.60,496.00 L882.20,496.00 Z" fill="#000"/>
-<path d="M1040.49,504.00 L1036.69,496.00 L1044.29,496.00 Z" fill="#000"/>
+<path d="M716.31,518.40 L712.51,510.40 L720.11,510.40 Z" fill="#000"/>
+<path d="M878.40,518.40 L874.60,510.40 L882.20,510.40 Z" fill="#000"/>
+<path d="M1040.49,518.40 L1036.69,510.40 L1044.29,510.40 Z" fill="#000"/>
 </g>
 <g id="pastilles">
 <rect x="260.60" y="330.90" width="29.17" height="15.00" rx="7.50" fill="#fff" stroke="#2B5876" stroke-width="1.25"/><text x="267.10" y="341.75" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="9.5" fill="#2B5876" xml:space="preserve" data-max="17.67">Non</text>

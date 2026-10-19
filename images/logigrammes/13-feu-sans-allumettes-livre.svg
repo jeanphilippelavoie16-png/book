@@ -9,8 +9,8 @@
 <g id="liens">
 <path d="M283.50,100.60 L283.50,108.20" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
 <path d="M283.50,158.30 L283.50,173.00" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
-<path d="M283.50,219.10 L283.50,237.80" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
-<path d="M283.50,283.90 L283.50,301.45" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M283.50,231.40 L283.50,237.80" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M283.50,271.60 L283.50,301.45" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
 <path d="M283.68,353.95 L283.68,372.00 Q283.68,378.00 277.68,378.00 L160.80,378.00 Q154.80,378.00 154.80,384.00 L154.80,425.00" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
 <path d="M283.68,353.95 L283.68,372.00 Q283.68,378.00 289.68,378.00 L406.20,378.00 Q412.20,378.00 412.20,384.00 L412.20,425.00" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
 <path d="M412.20,491.40 L412.20,529.40" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
@@ -33,16 +33,16 @@
 <text x="473.57" y="155.60" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="8.5" fill="#000" xml:space="preserve" data-max="54.68">ch. 13, étape 1</text>
 <rect x="44.00" y="108.20" width="36.12" height="14.00" fill="#EE7219"/>
 <text x="49.00" y="118.40" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="9" fill="#000" xml:space="preserve" data-max="27.62">10 min</text>
-<rect x="36.00" y="180.00" width="495.00" height="39.10" rx="0" fill="#FDE8D8" stroke="#EE7219" stroke-width="1.5"/>
-<text data-max="478.50" x="45.00" y="196.65" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">Mettre le briquet qui ne fait plus de flamme contre le ventre.</tspan><tspan font-weight="500"> Garder les mitaines pour ramasser le bois : les</tspan></text>
-<text data-max="478.50" x="45.00" y="208.95" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">branches mortes du bas des épinettes, en un tas de moins de 2 cm et un tas de 2 à 5 cm.</tspan></text>
-<rect x="449.29" y="206.85" width="82.46" height="13.00" fill="#EE7219"/>
-<text x="454.29" y="216.40" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="8.5" fill="#000" xml:space="preserve" data-max="73.96">ch. 13, étapes 2 et 3</text>
-<rect x="36.00" y="244.80" width="495.00" height="39.10" rx="0" fill="#FDE8D8" stroke="#EE7219" stroke-width="1.5"/>
-<text data-max="478.50" x="45.00" y="261.45" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">Faire le feu à l’abri du vent</tspan><tspan font-weight="500">, sur un lit de branches vertes s’il y a de la neige, et sortir l’amadou de sous ses</tspan></text>
-<text data-max="478.50" x="45.00" y="273.75" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">vêtements.</tspan></text>
-<rect x="449.29" y="271.65" width="82.46" height="13.00" fill="#EE7219"/>
-<text x="454.29" y="281.20" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="8.5" fill="#000" xml:space="preserve" data-max="73.96">ch. 13, étapes 4 et 8</text>
+<rect x="36.00" y="180.00" width="495.00" height="51.40" rx="0" fill="#FDE8D8" stroke="#EE7219" stroke-width="1.5"/>
+<text data-max="478.50" x="45.00" y="196.65" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">Mettre le briquet qui ne fait plus de flamme contre le ventre.</tspan><tspan font-weight="500"> Garder les mitaines pour ramasser le bois et</tspan></text>
+<text data-max="478.50" x="45.00" y="208.95" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">l’amadou : les branches mortes du bas des épinettes, en un tas de moins de 2 cm et un tas de 2 à 5 cm, et de</tspan></text>
+<text data-max="478.50" x="45.00" y="221.25" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">l’écorce de bouleau.</tspan></text>
+<rect x="449.29" y="219.15" width="82.46" height="13.00" fill="#EE7219"/>
+<text x="454.29" y="228.70" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="8.5" fill="#000" xml:space="preserve" data-max="73.96">ch. 13, étapes 2 et 3</text>
+<rect x="36.00" y="244.80" width="495.00" height="26.80" rx="0" fill="#FDE8D8" stroke="#EE7219" stroke-width="1.5"/>
+<text data-max="478.50" x="45.00" y="261.45" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">Faire le feu à l’abri du vent</tspan><tspan font-weight="500">, sur un lit de branches vertes s’il y a de la neige.</tspan></text>
+<rect x="449.29" y="259.35" width="82.46" height="13.00" fill="#EE7219"/>
+<text x="454.29" y="268.90" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="8.5" fill="#000" xml:space="preserve" data-max="73.96">ch. 13, étapes 4 et 8</text>
 <rect x="36.00" y="308.45" width="495.00" height="45.50" rx="10" fill="#fff" stroke="#2B5876" stroke-width="1.75"/>
 <text data-max="472.50" x="283.50" y="328.75" font-family="IBM Plex Sans Condensed" font-size="13" fill="#000" text-anchor="middle" xml:space="preserve"><tspan font-weight="700">Il fait plus froid que −17,5 °C, ou les doigts font mal ?</tspan></text>
 <text data-max="472.50" x="283.50" y="343.02" font-family="IBM Plex Serif" font-size="9.5" font-style="italic" fill="#000" text-anchor="middle" xml:space="preserve"><tspan font-weight="400">Des doigts qui ne sentent plus rien comptent aussi</tspan></text>
@@ -75,18 +75,18 @@
 <text data-max="194.55" x="913.95" y="136.05" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">un brin de cuivre, une mine de crayon ou un</tspan></text>
 <text data-max="194.55" x="913.95" y="148.35" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">filament d’ampoule, contre l’amadou.</tspan></text>
 <rect x="1010.20" y="154.25" width="106.55" height="13.00" fill="#2B5876"/>
-<text x="1015.20" y="163.80" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="8.5" fill="#fff" xml:space="preserve" data-max="98.05">ch. 13, étape 20 ; section 8</text>
+<text x="1015.20" y="163.80" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="8.5" fill="#fff" xml:space="preserve" data-max="98.05">ch. 13, étape 20 ; section 7</text>
 <rect x="621.00" y="201.35" width="241.75" height="72.50" rx="10" fill="#fff" stroke="#2B5876" stroke-width="1.75"/>
 <text data-max="219.25" x="741.87" y="221.65" font-family="IBM Plex Sans Condensed" font-size="13" fill="#000" text-anchor="middle" xml:space="preserve"><tspan font-weight="700">On a de l’amadou carbonisé ou de</tspan></text>
 <text data-max="219.25" x="741.87" y="237.15" font-family="IBM Plex Sans Condensed" font-size="13" fill="#000" text-anchor="middle" xml:space="preserve"><tspan font-weight="700">l’amadouvier, et un acier au carbone ?</tspan></text>
-<text data-max="219.25" x="741.87" y="251.42" font-family="IBM Plex Serif" font-size="9.5" font-style="italic" fill="#000" text-anchor="middle" xml:space="preserve"><tspan font-weight="400">Une vieille lime, un ressort, une tête</tspan></text>
-<text data-max="219.25" x="741.87" y="262.93" font-family="IBM Plex Serif" font-size="9.5" font-style="italic" fill="#000" text-anchor="middle" xml:space="preserve"><tspan font-weight="400">de hache : pas un couteau inoxydable</tspan></text>
+<text data-max="219.25" x="741.87" y="251.42" font-family="IBM Plex Serif" font-size="9.5" font-style="italic" fill="#000" text-anchor="middle" xml:space="preserve"><tspan font-weight="400">Une vieille lime, un ressort ou une tête de</tspan></text>
+<text data-max="219.25" x="741.87" y="262.93" font-family="IBM Plex Serif" font-size="9.5" font-style="italic" fill="#000" text-anchor="middle" xml:space="preserve"><tspan font-weight="400">hache, mais pas un couteau inoxydable</tspan></text>
 <rect x="904.95" y="211.90" width="211.05" height="51.40" rx="0" fill="#E8EDF0" stroke="#2B5876" stroke-width="1.5"/>
 <text data-max="194.55" x="913.95" y="228.55" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">Frapper l’acier vers le bas sur l’arête d’un</tspan></text>
 <text data-max="194.55" x="913.95" y="240.85" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">caillou de grève</tspan><tspan font-weight="500">, l’amadou pincé au ras de</tspan></text>
 <text data-max="194.55" x="913.95" y="253.15" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">l’arête.</tspan></text>
 <rect x="1047.97" y="251.05" width="68.78" height="13.00" fill="#2B5876"/>
-<text x="1052.97" y="260.60" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="8.5" fill="#fff" xml:space="preserve" data-max="60.28">ch. 13, section 8</text>
+<text x="1052.97" y="260.60" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="8.5" fill="#fff" xml:space="preserve" data-max="60.28">ch. 13, section 7</text>
 <rect x="621.00" y="322.40" width="241.75" height="32.00" rx="10" fill="#fff" stroke="#2B5876" stroke-width="1.75"/>
 <text data-max="219.25" x="741.87" y="342.70" font-family="IBM Plex Sans Condensed" font-size="13" fill="#000" text-anchor="middle" xml:space="preserve"><tspan font-weight="700">Le soleil est franc ?</tspan></text>
 <rect x="904.95" y="306.55" width="211.05" height="63.70" rx="0" fill="#E8EDF0" stroke="#2B5876" stroke-width="1.5"/>
@@ -100,14 +100,14 @@
 <text data-max="225.25" x="630.00" y="429.10" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">Faire un arc à feu</tspan><tspan font-weight="500"> : une planchette de bois tendre et</tspan></text>
 <text data-max="225.25" x="630.00" y="441.40" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">un foret de bois dur, secs à cœur.</tspan></text>
 <rect x="794.72" y="439.30" width="68.78" height="13.00" fill="#2B5876"/>
-<text x="799.72" y="448.85" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="8.5" fill="#fff" xml:space="preserve" data-max="60.28">ch. 13, section 8</text>
+<text x="799.72" y="448.85" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="8.5" fill="#fff" xml:space="preserve" data-max="60.28">ch. 13, section 7</text>
 <rect x="621.00" y="493.20" width="495.00" height="35.80" rx="0" fill="#2B5876"/>
 <text data-max="468.50" x="635.00" y="514.80" font-family="IBM Plex Sans Condensed" font-size="12" fill="#fff" text-anchor="start" xml:space="preserve"><tspan font-weight="700">Le feu a pris</tspan></text>
 <rect x="621.00" y="554.40" width="495.00" height="39.10" rx="0" fill="#E8EDF0" stroke="#2B5876" stroke-width="1.5"/>
 <text data-max="478.50" x="630.00" y="571.05" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">Le garder.</tspan><tspan font-weight="500"> Dehors, le couvrir de cendre pour la nuit. Au poêle, garder l’air ouvert et recharger à tour de rôle. Pour</tspan></text>
 <text data-max="478.50" x="630.00" y="583.35" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">partir, porter une braise dans une boîte percée.</tspan></text>
 <rect x="1047.97" y="581.25" width="68.78" height="13.00" fill="#2B5876"/>
-<text x="1052.97" y="590.80" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="8.5" fill="#fff" xml:space="preserve" data-max="60.28">ch. 13, section 8</text>
+<text x="1052.97" y="590.80" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="8.5" fill="#fff" xml:space="preserve" data-max="60.28">ch. 13, section 7</text>
 </g>
 <g id="pointes">
 <path d="M283.50,115.20 L279.70,107.20 L287.30,107.20 Z" fill="#000"/>

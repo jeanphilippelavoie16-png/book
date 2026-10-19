@@ -205,3 +205,212 @@ lignes ne touchent ni le légal ni un signe : laissées.
 - §9, rapport neige/eau : **chiffré.** Neige fraîche : 4 à 10 % d'eau, soit 10 à 25 L de neige
   pour 1 L d'eau. Source : `sources/13-nsidc-neige-equivalent-en-eau.md`.
 - Compression §3 et §4 — 27 septembre 2026 : 1067 mots → 230 mots (§3 : 312 → 116 ; §4 : 755 → 114) ; matériel coupé : étagères ancrées, bidons d'eau alimentaires, étiquettes et marqueur, extincteur ABC, bidons de carburant, pièges à rongeurs et laine d'acier, paragraphes d'introduction et de justification. Déplacé en §8 (DANGER carburants) : jamais de verre ni de plastique mince pour le carburant ; flaque de carburant en feu étouffée à l'extincteur ou au sable, jamais à l'eau. §9 : renvoi « tableau de la section 4 » corrigé.
+
+## Refonte au gabarit final, 19 octobre 2026
+
+Rédacteur (rôle 2), lot du tome 1 final (JP : « Monte le reste du tome 1 final »). Texte d'avant :
+`git show HEAD:chapitres/05-le-stock-permanent-du-chalet.md`. Les numéros de chapitre de cette section sont **les
+nouveaux**. Fin de ligne : LF, comme avant. Aucun autre fichier commun touché.
+
+Règle de JP pour la refonte (19 octobre : « fuck les sources, on a pas déjà fait ce travail-là ? ») : les chiffres qui
+ne font que changer de place n'ont pas été rouverts. Seul ce qui est neuf a été vérifié, toujours dans une page déjà
+enregistrée dans `/sources` (aucune recherche nouvelle sur le Web ; aucun fichier ajouté à `/sources`).
+
+### Ce qui a changé
+
+- **Sept sections, puis « En plus ».** « Pourquoi ça marche » et la section 8 Danger sortent (où chaque bloc est allé :
+  plus bas). La « méthode du stock » (anciennes sous-sections 5.1 à 5.10) devient la section 4, Procédure : 51 étapes
+  numérotées d'un bout à l'autre, sous neuf intertitres sans numéro (L'ordre et la place ; Calculer l'eau, les calories
+  et la durée ; Choisir les denrées sèches ; Le gras et le sel ; Les conserves, le poisson et le congélateur ; La
+  chaleur et le carburant ; La lumière et le feu ; Le stock des enfants ; Ce qui n'est pas de la nourriture ; La
+  rotation et le tour du stock). Les tableaux A à E restent, chacun dans l'étape qui s'en sert (étapes 6, 14, 18, 22,
+  28), comme le tableau des doses du ch. 4 (étape 13). Plus aucun renvoi « 5.1 », « la 5.8 », « § ».
+- **Section 2** : seulement les situations, avec leurs étapes. La liste « C'est le mauvais choix quand » sort ; ce
+  qu'elle apprenait est allé : le local qui gèle et le serti → étape 4 ; « un stock à moitié bâti mais complet en eau,
+  en gras et en chaleur » → étape 1 ; la trousse de 72 heures et le sac de départ → renvoi court à l'étape 2 ; « le
+  stock ne remplace pas le prélèvement, la viande se renouvelle (ch. 41) » coupé (contre-exemple que personne ne
+  confond). « Le stock remplace le magasin, pas le frigo » coupé (formule).
+- **Matériel** : même six lignes, au format « nom : ce qu'il fait », sans tiret, avec l'étape ou « sans : section 7 ».
+  Le thermomètre à sonde ne redit plus 74 °C (étape 26).
+- **Le texte s'ouvre à toute famille** : le tableau des calories passe de « Homme 19-30 / Femme 19-30 / Enfant de 6 ans /
+  Enfant de 4 ans » à un tableau par tranche d'âge (4-5, 6-7, 8-9, 19-30, 31-50 ans, fille ou femme, garçon ou homme),
+  tiré du même tableau 1 de `sources/08-msss-besoins-energetiques.md` ; l'exemple de la famille de quatre reste
+  (« un homme et une femme de 19 à 30 ans et deux enfants de 4 à 7 ans », 8 550 à 8 800 kcal). « Les deux enfants »
+  devient « les enfants ». Le contrôle des âges ne relève plus rien.
+- **Les mots** : « village » ×2 (le congélateur « au village ») → « à la maison » ; « Hydro » → « sur le réseau » ;
+  « courir un trapline » → « faire la tournée des pièges » ; les noms latins sortent (orignal, souris sylvestre,
+  bouleau à papier, épinette noire, sapin baumier, thuya, ours noir, *Clostridium botulinum* ; cadre, « Les mots de
+  tous les jours »).
+- **Tournures corrigées** : 69 tirets, 3 « § », « d'où », « l'ours et le phoque ne pardonnent pas », 15 mises en relief
+  (« c'est… qui »), les citations de source entre guillemets (solvants, « meilleur avant ») redites comme des faits,
+  les consignes au pronominal (« se jette », « se rechargent », « se monte »), « l'erreur ne pardonne pas »
+  (nitrite).
+- **Coupé, sans perte de geste** : « Deux cordes à 20 % battent trois cordes à 35 % » (comparaison chiffrée qu'aucune
+  source de la fiche ne donne, et chute en formule) ; « une réserve dix fois plus petite » (multiplicateur sans source,
+  faux pour l'exemple de la farine : 38 fois) ; « le chapitre le plus dangereux du livre » (ch. 77) ; « Le plastique
+  n'est pas une barrière, c'est un délai » ; « Le congélateur n'est pas un stock, c'est un pari sur le courant » ;
+  « Une scie à chaîne sans lime est un manche » ; « Un stock vide reste vide » ; « c'est la panne la plus bête du
+  stock » ; « La règle ne change pas parce qu'on est en urgence » (redite de l'étape 51) ; « Un congélateur plein tient
+  deux fois plus longtemps » (redite de 48 h et 24 h) ; « (1 po) » au parage d'une moisissure (impérial hors
+  construction) ; la phrase d'ouverture de la section 9 (« Ce qui suit, ce sont les gestes… », phrase sur le livre).
+- **Corrigé** : Points de contrôle, bois empilé, « Consommation mesurée de l'hiver précédent + 1 corde » → « plus une
+  marge ». Le « + 1 corde » avait été retiré du texte le 24 septembre (introuvable, plus haut) et était resté dans le
+  tableau.
+- **Le 9 000 kcal** : « Le ch. 21 fixe la majoration ; d'ici là… » était périmé, le ch. 21 l'a fixée (9 500 kcal par
+  jour pour un hiver de travail, `chapitres/21-…`, l. 112 ; provenance dans `suivi/21-redaction.md`). Le stock reste
+  bâti sur 9 000 kcal comme minimum, et l'étape 8 renvoie au 9 500 du ch. 21. Les 810 000 kcal de l'étape 11 ne
+  changent pas.
+- **Fichier canadien sur les éléments nutritifs** (une base en ligne) : gardé comme préparation faite pendant que tout
+  marche (CLAUDE.md, exception du 24 septembre) : on y cherche le vrac et on écrit le chiffre sur le contenant
+  (étape 10, renvoi à l'étape 48).
+- **Ajouté aux Points de contrôle** : une ligne « Jours d'autonomie calculés, 30 jours ou plus » (la cible de
+  l'étape 13, qui n'avait pas de ligne).
+
+### Où sont allés les blocs de l'ancien « Pourquoi ça marche »
+
+| Bloc | Où il est allé |
+| --- | --- |
+| Il rachète du temps et se bâtit dans l'ordre où le corps lâche : chaleur, eau, calories | Étape 1 (renvoi au ch. 1) |
+| Il dort au chalet parce que ce qui dure finit là, et que la route se coupe avant (ch. 2) | Étape 2 |
+| Il tient parce qu'il est redondant : deux moyens indépendants valent mieux que le double d'un seul | Étape 3, avec la règle de l'indépendance de l'ancienne 5.7 (les trois boîtes d'allumettes dans le même tiroir) |
+| Ce qui le détruit, c'est l'oubli : la date, l'humidité, la souris, le gel | Étape 4, troisième puce, qui renvoie aux étapes 47 à 51 |
+| Il se lit sans liste : chaque chose à la même place depuis deux ans | Étape 4, quatrième puce, avec « utilisable par quelqu'un d'autre » de l'ancienne section 2 |
+
+### Où sont allés les blocs de l'ancienne section 8, Danger
+
+| Bloc | Où il est allé | Pictogramme |
+| --- | --- | --- |
+| CO : incolore, inodore, hémoglobine, signes de grippe, le dormeur qui ne se réveille pas | Page `co` (dangers/partie-1.md) | |
+| Génératrice jamais dans un bâtiment, un garage, un cabanon, une tente ni sous un auvent ; « au moins 3 mètres » | Étape 33, **à 6 m** du chalet et du cabanon, jamais dans le cabanon où est le carburant (le reste : page `generatrice`) | `generatrice` |
+| La même règle pour le barbecue, le réchaud, la chaufferette, la laveuse à pression, la scie | Pages `co` et `generatrice` | |
+| Avertisseur à chaque étage, dans le corridor, et dans chaque chambre où on dort porte fermée ; 2 m d'un appareil ; pas de pièce humide ; lithium 10 ans ; la cellule meurt avant le boîtier ; date au dos | Étape 34 | `co` |
+| Le bouton test ne vérifie pas la cellule | Page `co` ; la ligne des Points de contrôle ne garde que « remplacer l'appareil qui a passé sa date (étape 34) » | |
+| Symptômes ou alarme : tout le monde dehors ; le sauveteur qui tombe à côté | Page `co` (« Ce qu'on fait », points 1 et 2) | |
+| Vapeurs d'essence plus lourdes que l'air, retour de flamme jusqu'à la flaque | Page `vapeurs` | |
+| L'espace vide du bidon (le bidon à moitié vide respire) ; dans le bâtiment, seulement ce qui se brûle dans la journée ; bidons pleins et bouchés, jamais de verre ni de plastique mince ; regarder sous le fond | Étape 31 | `vapeurs` |
+| Flaque de carburant en feu : extincteur ou sable, jamais d'eau | Page `vapeurs`, point 6 | |
+| Propane debout, dehors, jamais dans un bâtiment ni un cabanon fermé ; la soupape qui crache du liquide couchée | Étape 32 ; le mécanisme : page `vapeurs` (bouteille penchée à plus de 60°) | `vapeurs` |
+| Botulisme : milieu humide sans oxygène, toxine des plus puissantes | Page `botulisme` | |
+| Ne change ni la couleur, ni l'odeur, ni le goût | Étape 23 (rappel de CLAUDE.md, dit une fois ; la ligne « Une conserve… ne prouve rien » des Signes d'échec sort pour ne pas le dire trois fois) | `botulisme` |
+| Signes (note [^4]) et délai de 12 à 36 h | Page `botulisme`, qui donne 12 à 72 h : l'écart noté le 23 septembre (Santé Canada contre ASPC) ne se pose plus dans ce chapitre | |
+| pH 4,6, autoclave ; conserves maison dans l'année | Étape 23 (les aliments peu acides nommés, l'autoclave, ch. 78) ; le seuil de pH : page `botulisme` | `botulisme` |
+| Végétaux frais dans l'huile maison jetés après 7 jours | Page `botulisme` (7 jours aussi) ; étape 23 : l'huile maison n'entre pas au stock | |
+| Boîte bombée, rouillée ou bosselée sur le serti : sans ouvrir ni goûter | Étape 23 et section 6 | |
+| Type E dès 3 °C ; poisson fumé ou salé ; ch. 77 | Étape 24 | `botulisme` |
+
+Les autres faits de danger éparpillés dans l'ancien chapitre : le mal de caribou et sa note [^1] (5.4) → étape 19, la
+note → page `mal-de-caribou` ; 74 °C, 70 °C, « ce n'est pas 71 °C » (5.5) → étape 26, le 71 °C → page `cuisson` ; foie
+et reins (5.5) → étape 27 ; le congélateur et les 4 °C (5.5) → étape 25 ; l'essence qui fait de la vapeur par tout
+hiver et les « liquides combustibles » (tableau E) → page `vapeurs` ; la trichinellose et la thuyone (section 9) →
+section 7, « Ce qui ne se remplace pas » et « Les fermentés » ; le nitrite « dont l'erreur ne pardonne pas » (section
+9, fléau) → étape 21 et section 7, « Peser sans balance » (au dixième de gramme, chiffre de la page `poison`).
+
+### Pictogrammes posés (étape → id)
+
+| Étape | Id | Ce qui est propre au chapitre |
+| --- | --- | --- |
+| 19 (garder du gras au stock) | `mal-de-caribou` | Le gras du stock fait le lien jusqu'à la graisse de l'automne ; rotation rapide, jamais en réserve de fond |
+| 21 (sel nitrité, jamais de salpêtre) | `poison` | Le nitrite entre au stock à côté du sel de table ; il ne se remplace pas cuillère pour cuillère par le salpêtre (la page dit : peser au dixième de gramme, jeter la poudre sans étiquette) |
+| 23 (conserves maison dans l'année) | `botulisme` | L'année, l'huile maison hors du stock, la boîte du commerce rouillée ou bosselée sur le serti |
+| 24 (le poisson fumé ou salé) | `botulisme` | Hors des tablettes du stock ; dès 3 °C |
+| 25 (le congélateur de la maison) | `zone-de-danger` | 48 h plein, 24 h à moitié, réfrigérateur 4 à 6 h (compter 4) ; sortir la viande dehors en janvier |
+| 26 (cuire le gibier) | `cuisson` | 74 °C le gibier, 70 °C le poisson (rappel de CLAUDE.md) |
+| 27 (foie et reins) | `abats` | Ni au congélateur ni en conserve (rappel de CLAUDE.md) |
+| 31 (le carburant dans le chalet) | `vapeurs` | Seulement le carburant de la journée ; bidons pleins ; regarder sous le fond |
+| 32 (les bouteilles de propane) | `vapeurs` | Debout, dehors, jamais dans un cabanon fermé |
+| 33 (la génératrice) | `generatrice` | 6 m du chalet et du cabanon ; jamais dans le cabanon où est le carburant |
+| 34 (les avertisseurs) | `co` | Une par chambre où on dort porte fermée ; 2 m ; pièce humide ; lithium 10 ans ; date au dos |
+| 51 (le tour des souris) | `hantavirus` | Jeter ce que les souris ont touché ; fente de 10 ¢ |
+| Section 7, « Le gras remplace le couvercle » | `botulisme` | La viande sous la graisse reste au froid, jamais sur une tablette tiède (la page `botulisme` range « le confit ou la viande sous une couche de gras » parmi les risques) |
+| Section 7, « Les fermentés » | `thuyone` | Sapin baumier ou épinette, jamais le cèdre (rappel de CLAUDE.md) |
+| Section 7, « Ce qui ne se remplace pas » | `trichine` | Le thermomètre à sonde : seule la chaleur à cœur tue la trichine de l'ours et du phoque (rappel de CLAUDE.md) |
+
+`huile-en-feu`, que l'inventaire proposait pour la flaque de carburant, n'est pas posé : la flaque en feu est dans la
+page `vapeurs` (point 6), et le chapitre ne parle pas de gras de cuisson qui brûle. Ajouts à l'inventaire (colonne
+« Chapitres » de la section 1) : `cuisson`, `trichine`, `abats`, `zone-de-danger`, `mal-de-caribou`, `thuyone`,
+`hantavirus`, `poison` ; retrait : `huile-en-feu`. Le texte exact est rendu à l'orchestrateur.
+
+### Séries orange et logigramme
+
+Aucune. L'inventaire des premières minutes (`plan/premieres-minutes-inventaire.md`, « Les autres chapitres ») classe le
+ch. 5 parmi les chapitres sans geste urgent ; aucune décision du chapitre ne se prend en branches. Aucun logigramme
+n'existait (`images/logigrammes/05-*`), aucun n'est fait ; pas de clé `logigramme` dans `placements-tome-1.json`.
+
+### Planches et photo
+
+- **Planche 05-01** (la chaudière à bascule ; `images/planches-src/05-01.js`, PNG dans `images/a-valider/`) : appelée
+  une fois, section 7, « Les souris, sans piège ni laine d'acier » : « **La chaudière à bascule** (planche 05-01). »,
+  repères 1 à 5 dans l'ordre des gestes, puis 6 et 7 dans « Boucher ». Elle n'avait ni appel ni ancre (clé `"05"`,
+  `planches: []`). Ancre rendue : « **La chaudière à bascule** (planche 05-01). ». La correction demandée par JP au
+  15 octobre (plan de match, PAUSE, point 1 : « souris propres décalquées ou pas de souris ; l'ombre du flanc qui
+  déborde sous le fond ») n'est pas faite : rendue dans « planches », rien redessiné.
+- **Photo `images/photos/tri/05-boite-bombee.jpg`** : son ancre (« Toute boîte bombée, rouillée ou bosselée sur le
+  serti se jette », dans l'ancien encadré du botulisme) disparaît avec la section 8. Nouvelle ancre : l'étape 23,
+  « **Manger les conserves maison dans l'année qui suit la mise en conserve.** », qui nomme la boîte bombée. La légende
+  actuelle finit au pronominal (« Elle se jette sans être ouverte et sans être goûtée ») : proposée « Boîte bombée : le
+  gaz formé dedans pousse le couvercle. On la jette sans l'ouvrir et sans la goûter. » La note `_photos` de
+  `placements-tome-1.json` dit « section 8 » : à mettre à jour (« étape 23 »).
+
+### Chiffres nouveaux, avec leur source
+
+| Fait | Où | Source |
+| --- | --- | --- |
+| Génératrice à au moins 6 m du bâtiment (remplace les 3 m de Santé Montérégie) | Étape 33 | `sources/10-sante-canada-generatrice-distance.md` (« au moins 6 mètres (20 pieds) entre toute habitation ou tout bâtiment ») ; concorde avec la page `generatrice` ; demandé par `plan/dangers-inventaire.md` (ch. 05 et section 5) |
+| Besoins de 8-9 ans (1 850 / 2 000 kcal) et de 31-50 ans (2 250 / 2 900 kcal) | Étape 8, tableau | `sources/08-msss-besoins-energetiques.md`, tableau 1, niveau « actif » (même tableau que les autres lignes) |
+| Hiver de travail : environ 9 500 kcal par jour pour la famille | Étape 8 | Ch. 21, l. 112 (« Chiffre de planification : 9 500 kcal/jour ») ; provenance dans `suivi/21-redaction.md` |
+| Une souris passe par une fente de la taille d'une pièce de 10 ¢ | Étape 51 | `sources/15b-parcs-canada-souris-sylvestres.md` (« toute ouverture de la taille d'une pièce de 10 ¢ ») et `sources/15b-sante-canada-rats-souris.md` (« as small as a dime ») ; remplace « passe partout où son crâne passe », sans source |
+| La plupart des bois donnent la même énergie à masse sèche égale ; une corde d'épinette pèse moins qu'une corde de bouleau | Étape 29 | `sources/08-rncan-classes-bois-chauffage.md` (« La plupart des types de bois de chauffage affichent le même contenu en énergie lorsque l'on tient compte de la masse anhydre ») ; ch. 83, l. 86 (« une corde d'épinette et une corde de bouleau ne pèsent pas la même chose ») |
+| Le sel nitrité se pèse au dixième de gramme | Section 7, « Peser sans balance » | Page `poison` (dangers/partie-2.md : « le peser au dixième de gramme ») |
+
+Tous les autres chiffres sont ceux d'avant, déplacés sans changer de sens ; leur provenance est plus haut dans cette
+fiche (sections 1, « Levée des [À VÉRIFIER] » et la note du 23 septembre) ou dans les fiches des ch. 6 et 21 (4 L par
+personne et par jour, 9,8 L). Concordance avec les pages des dangers : génératrice 6 m ; huile maison 7 jours ;
+congélateur −18 °C, 4 °C ; 74 °C et 70 °C ; nitrite au dixième de gramme ; aucun écart.
+
+### [À VÉRIFIER]
+
+Aucun dans le texte. Deux formulations à regarder au vérificateur, sans chiffre : étape 29, « et on la brûle plus
+vite » (déduit des deux sources de la ligne ci-dessus, pas écrit tel quel) ; étape 36, « Au froid, une pile donne
+moins » (la fiche du 24 septembre confirme la plage de fonctionnement, pas une baisse chiffrée).
+
+### Notes « En plus » et leur provenance
+
+| Note | Genre | Mots | Étape | Source |
+| --- | --- | --- | --- | --- |
+| La bannique des Innus | Façon d'une nation du Nord : pourquoi elle marche (le sable sec garde la chaleur de la braise et cuit lentement, sans four ni chaudron) ; ce qui la rend dangereuse (un galet pris dans l'eau éclate) | 75 | 14 | `sources/14b-bannique-sable-innue.md` (Radio-Canada, Mme Bégin de Mashteuiatsh, trois quarts d'heure ; Tourisme Autochtone Québec ; OQLF) ; le galet qui éclate : ch. 88, section 9-C |
+| Le pemmican | Fait | 73 | 19 | `sources/67-encyclopedie-canadienne-pemmican.md` (*pimikan*, « graisse préparée » ; parts égales ; orignal et caribou ; « facilement conservée et expédiée » ; voyageurs de la traite, l'hiver) ; le pemmican d'ours aussi dangereux que la viande crue : page `trichine` |
+| Ranger les bocaux sans leur bague | Fait | 64 | 48 | `sources/08-nchfp-entreposage-conserves-maison.md` (« stored without ring bands to keep them dry as well as to allow for easier detection of any broken vacuum seals » ; « Dampness may corrode metal lids ») |
+| L'avertisseur qui bipe au froid | Fait | 50 | 34 | `sources/15b-kidde-avertisseur-co-bouton-et-temperature.md` (« the battery… may be affected by the cooler temperature. This can cause the alarm to chirp, indicating a 'Low' battery status » ; plage de 4,4 à 37,8 °C) |
+
+Quatre notes, sans photo. **Écartée** : « Le bocal qui risque de geler » (NCHFP : un bocal qui gèle ne se gâte pas s'il
+garde son vide ; l'emballer dans du journal, en carton épais) : elle contredit le ch. 84, étape 9 (« un bocal de
+conserve maison qui a gelé se jette, fendu ou non »). Question rendue à JP. **Photo** : aucune ; une photo de souris
+sylvestre ou de pyrale des fruits secs demandait une source de description nouvelle (la page du ministère était
+inaccessible) et un téléchargement que l'API de Wikimedia Commons refusait (limite de requêtes) : laissé pour ne pas
+rouvrir la recherche.
+
+### Renvois vers ce chapitre à corriger ailleurs (rendus à l'orchestrateur, rien touché)
+
+- ch. 84, l. 160 (CRLF) : « la chaudière à bascule du ch. 5 (§9) » → « la chaudière à bascule du ch. 5 (section 7) ».
+- ch. 88, l. 247 (CRLF) : « (ch. 5 §9) » → « (ch. 5, section 7) ».
+- ch. 98, l. 387, 426, 723 et 731 : « ch. 5 §9 » → « ch. 5, section 7 » (la balance des l. 387 et 731 est le fléau de
+  la section 7).
+- Les autres renvois au ch. 5 (ch. 3, 6, 8, 9, 11, 18, 20, 21, 30, 33, 36, 57, 66, 74, 76, 84, 88, 92, 95, 98, 100)
+  visent le chapitre entier : rien à changer.
+
+### controle.py, avant et après
+
+- **Avant** : 9 032 mots, 81 tirets (69 lignes), 2 mots bannis (« village »), 2 âges (4 et 6 ans), 3 « § », 3
+  tournures, 15 mises en relief, 55 mots vides, 8 redites.
+- **Après** : 8 212 mots, 2 tirets (titre et ligne de tome, comme aux ch. 4 et 12), 0 mot banni, 0 âge, 0 « § », 0
+  mise en relief, 0 maxime, 1 tournure (« On les oublie », étape 44 : faux positif, le sujet est « on »), 43 mots vides
+  (jugés : « tout de suite », « tout le reste », « tous les jours », « farine tout usage », « déjà » qui porte le sens),
+  2 redites (« tour du printemps et de l'automne » : le même nom pour le même tour, règle 6).
+- **Ancre introuvable** : la photo 05-boite-bombee (voir plus haut ; nouvelle ancre rendue).
+- **Invariants signalés et justifiés** : « 1 po » (impérial hors construction) ; « 16 L », « 3 jours », « 72 heures »
+  (redites dans le même calcul, dits une fois) ; « 36 heures », « 7 jours », « 4,6 » (délai du botulisme, huile
+  maison, pH : page `botulisme`) ; « 71 °C » ×2 (page `cuisson`) ; « 74 °C » 3 → 1 (le rappel dit à l'étape 26, avec
+  son pictogramme ; le Matériel et la section 7 y renvoient) ; « 4 ans », « 6 ans », « 8 ans » (le tableau par tranches
+  d'âge) ; « 8 pi » (la corde, dite une fois, étape 30) ; ch. 00b ×2, ch. 19, ch. 41 (renvois en double, et la liste
+  « mauvais choix ») ; notes [^3] et [^4] (renumérotées [^1] et [^2] ; l'ancienne [^1], mal de caribou, et [^4], signes
+  du botulisme, sont dans les pages des dangers) ; « 5.1 » à « 5.10 » (numéros des anciennes sous-sections).

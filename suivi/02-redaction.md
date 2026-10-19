@@ -308,3 +308,191 @@ proposée (`passe-t1/ancrages-p1.json`) : « Décider en moins d'une heure » (�
   distance comptée aux repères du chemin plutôt qu'au compteur ». À relire par JP.
 - Ch. 84 renvoie trois fois à « ch. 2, §9 » pour l'échappement dégagé à chaque redémarrage : ce détail est maintenant
   au §8 (le §9 garde « et l'échappement (§8) »). Les renvois tombent encore juste ; « ch. 2, §8 » serait plus précis.
+
+## Refonte au gabarit final, 19 octobre 2026
+
+Rôle 2, rédacteur. Lu avant : `.claude/cadre-agents.md` au complet, `CLAUDE.md`, le skill `ecriture` au complet (avec
+ses tableaux), `gabarit-chapitre.md`, `roles.md`, les ch. 04 et 12 et leurs fiches (`suivi/04-edition.md`,
+`suivi/12-technique.md`, `suivi/12-redaction.md`), `plan/dangers-inventaire.md` (section 1 et paragraphe du ch. 02),
+`dangers/partie-1.md` et `partie-2.md`, `plan/premieres-minutes-inventaire.md` (ligne du ch. 2), `suivi/plan-de-match.md`
+(PAUSE du 15 octobre). Numéros de chapitre **nouveaux** dans cette section. Fichier gardé en LF.
+
+**Aucune page nouvelle cherchée** (JP, 19 octobre : « on a pas déjà fait ce travail-là ? ») : les faits nouveaux
+viennent de fiches déjà au dossier, recopiées dans `sources/02-reprises-sources-deja-enregistrees.md`.
+
+### Ce qui a changé
+
+- **Sept sections.** « 3. Pourquoi ça marche » et « 8. Danger » sortent ; le Matériel devient la section 3, la
+  procédure la 4, les Points de contrôle la 5, les Signes d'échec la 6, la Variante d'urgence la 7 ; « En plus » à la fin.
+- **Sous le titre** : « **Les deux** » seul (la phrase « La décision se prend à la maison ou au chalet, et mène de l'une
+  à l'autre » sort).
+- **Section 2** : une liste de situations, chacune avec ses étapes ; « C'est la bonne procédure quand » et « C'est la
+  mauvaise procédure quand » sortent. Les deux faits de la liste « mauvaise » vont dans leur étape : moins de clarté que
+  le trajet → étape 35 ; confus, maladroit, parle mal → étape 40. Les deux paragraphes d'ouverture (court à la maison,
+  long au chalet ; le trajet inverse) vont à l'étape 32 et à la ligne « Au chalet, un blessé… » de la section 2.
+  « La décision a été prise il y a douze heures et rien n'a été remesuré depuis » sort (maxime, point 6 de la PAUSE) ;
+  il reste « L'heure fixée pour reprendre la décision arrive (étape 43) ».
+- **Étapes numérotées de 1 à 45**, sans « Étape N : » ni points qui recommencent. Les anciennes étapes deviennent des
+  intertitres `###` :
+
+| Avant | Après |
+| --- | --- |
+| Étape 1, points 1 à 8 (alarme de CO) | Étapes 1 à 8, série orange « L'avertisseur de CO sonne » |
+| Étape 8, points 1 à 7 (si on reste) | Étapes 9 à 15, série orange « On reste : la première heure » |
+| Étape 9, points 1 à 9 (si on part) | Étapes 16 à 24, série orange « On part : la première heure » (point 3 → étape 18 ; point 5 → 20 ; point 8 → 23) |
+| Étape 2 (radio) | Étape 25 |
+| Étape 3 (quatre horloges) | Étapes 26 à 30 (une horloge par étape) |
+| Étape 4 (délai, où aller) | Étapes 31 et 32 |
+| Étape 5 (route ; feu, fumée, panne longue) | Étapes 33 à 36 ; 37 à 39 |
+| Étape 6 (passagers) | Étape 40 |
+| Étape 7 (trancher) | Étapes 41 et 42 |
+| Étape 10 (reprendre à heure fixe) | Étape 43 |
+| §8, point 2 et §6 (en route, auto prise) | Étapes 44 et 45 |
+| §9 | Section 7, avec des intertitres `###` (« Mesurer sans instrument », « Savoir, quand plus rien n'arrive », etc.) ; les flèches « X → Y » deviennent « Sans X : » |
+
+- **Les trois séries orange en tête de la procédure**, juste après le logigramme (cadre, JP du 18 octobre), dans l'ordre
+  CO, on reste, on part ; la décision (étapes 25 à 43) suit, en noir. Les séries « on reste » et « on part » viennent
+  donc avant les mesures qui y mènent : le logigramme donne le chemin.
+- **Les durées des titres** « (2 minutes) », « (15 minutes) », « (10 minutes) » sortent : sans source, et la décision
+  demande de toute façon deux relevés à 2 h d'écart (étape 27).
+- **Maximes et formules réécrites** : « Une maison qui perd 1 °C à l'heure et une qui en perd 4 ne posent pas la même
+  question » (étape 27, le fait en clair) ; « Un plan qui commence par « j'irais chercher » est un déplacement… » (gardé
+  dans la section 6, coupé de l'étape 31) ; « Un trajet qu'on ne peut pas défaire se fait avec le plein et de jour, ou ne
+  se fait pas » (étape 35) ; « Le trajet du troisième jour… coûte moins cher que celui du huitième » (étape 32) ;
+  « Après douze heures sans mesure, elle est périmée » (sort, étape 43) ; « Un silence non planifié ne déclenche
+  rien… » (étape 14) ; « La deuxième décide » (étape 36) ; « pendant que la route existe » (étape 37) ; « Celui qui » ×3
+  (étapes 5, 45, section 7) ; « la fatigue décide », « l'anxiété décide » (section 6) ; consignes au pronominal (« se
+  jette », « se cuit », « se fait bouillir », « ne se fait pas », « se budgète »).
+
+### Où sont allés les blocs de l'ancienne section 3 (Pourquoi ça marche)
+
+| Bloc | Où |
+| --- | --- |
+| On retient l'option dont le pire scénario est le moins grave | Étape 41 (titre de l'étape) |
+| Le chalet autonome et loin ; la maison, voisins et hôpital, dépend de réseaux ; rester = parier sur un délai de réparation | Étape 32 |
+| Le trajet est le seul moment sans aucune des deux protections, à chiffrer contre le prix de rester | Étape 33 |
+| Chaque heure d'hésitation retire des options : le froid, la noirceur et la neige ferment la route | Étape 42 |
+
+### Où sont allés les blocs de l'ancienne section 8 (Danger)
+
+| Bloc | Où | Pictogramme |
+| --- | --- | --- |
+| CO : ni couleur, ni odeur ; hémoglobine ; premiers signes ; on se couche et on ne se réveille pas | Sort : page `co` (dangers/partie-1.md) | `co` à l'étape 1 |
+| Avertisseur muet : 70 ppm, 1 à 4 h ; 30 ppm, 30 jours ; réglé pour éviter les décès | Sort : page `co` (« à 70 ppm, il peut prendre jusqu'à 4 h… à 30 ppm, il ne sonne pas avant 30 jours ») | |
+| Génératrice : jamais dans un bâtiment, un garage ou sous un auvent ; 6 m, loin des portes et des fenêtres | Étape 9 (déjà là ; la redite sort) | `generatrice`, et `electrocution` pour le disjoncteur principal à OFF |
+| Aucun appareil à combustible dedans ; dans une tente, un abri ou une auto, il tue plus vite (petit volume) | Étape 10 ; le petit volume va à l'étape 45 (auto) | `co` aux étapes 10 et 45 |
+| Auto immobilisée : la neige bouche l'échappement, le CO monte par le plancher ; dégager avant chaque redémarrage, fenêtre opposée au vent, 10 min par 30 min | Étape 3 (première place où l'auto sert, série orange) ; l'étape 45 et la section 7 y renvoient | |
+| Pas de chandelle dans l'habitacle ; la flamme ne change pas devant le CO | Étape 45 | |
+| Le trajet : la peau qui gèle (étape 5) ; hypothermie sous 35 °C, 28 à 32,2 °C | Sort : page `froid` (les quatre temps de gel de la peau et les stades). L'étape 34 garde « sous −28, moins de 30 minutes », la cible de la section 5 | `froid` aux étapes 34, 40 et 45 |
+| Celui qui décide de laisser l'auto pour marcher décide le plus mal ; rester dans l'auto, feux de détresse, lumière intérieure, bouger | Étape 45 (la raison « la personne qui a froid juge mal » est sur la page `froid`) | |
+
+### Pictogrammes posés (étape → id)
+
+| Étape | Id | Ce que l'étape dit de propre au chapitre |
+| --- | --- | --- |
+| 1 | `co` | Sortir sans chercher la source ; la série entière est celle du CO |
+| 9 | `generatrice`, `electrocution` | 6 m ; disjoncteur principal à OFF avant de la démarrer, appareils branchés dans ses prises |
+| 10 | `co` | Aucun appareil à carburant dans la maison où on reste |
+| 34 | `froid` | Sous −28, la peau exposée gèle en moins de 30 minutes au bord de la route |
+| 37 | `feu-de-foret` | Les trois zones (0 à 1,5 m, 1,5 à 10 m, 10 à 30 m, 3 m, 2 m) ; partir tôt |
+| 40 | `froid` | Les signes qui empêchent une personne de voyager et de décider |
+| 45 | `froid`, `co` | Rester dans l'auto ; moteur et échappement comme à l'étape 3 ; ni chandelle ni réchaud |
+| Section 7, « Si on reste : vider le congélateur » | `cuisson`, `abats` | Orignal à 74 °C à cœur ; jamais le foie ni les reins d'un cervidé (rappels de CLAUDE.md) |
+| Section 7, « Faire démarrer l'auto » | `projection` | Batterie à plat gelée : ne pas la survolter ni la charger avant de la dégeler |
+| Section 7, « Faire démarrer l'auto » | `vapeurs` | Réchauffer la conduite d'essence sans approcher de flamme |
+
+### Les séries orange et leurs pastilles
+
+| Série | Pastille | Étapes | Ce qui fonde la pastille |
+| --- | --- | --- | --- |
+| L'avertisseur de CO sonne | 1 min | 1 à 8 | Le temps de sortir (temps du geste), comme la même série au ch. 3 (`suivi/03-redaction.md`, « L'avertisseur de CO sonne », 1 min). La pastille du 15 octobre, « 10 min », n'avait pas de source notée |
+| On reste : la première heure | 1 h | 9 à 15 | Le temps des gestes, gardé du 15 octobre (inventaire des premières minutes, « étapes 8 et 9 ») |
+| On part : la première heure | 1 h | 16 à 24 | Le temps des gestes : la vidange compte une heure ; le chargement en moins d'une heure est une règle de conduite du livre (section 1 de cette fiche) |
+
+Les faits de la série du CO restent ceux du 15 octobre (tableau plus haut, Kidde, First Alert, Québec.ca). Ce que la page
+`co` dit déjà sort de la série : la demi-vie de 3 à 5 h (étape 4 garde « même quand ils se sentent mieux »), l'enfant
+qui a l'air fatigué ou de mauvais caractère, la liste des sources de CO, l'effort qui fait absorber plus de CO (l'étape 5
+garde « en marchant »). L'étape 2 ajoute, comme la page `co` (point 2) : ouvrir grand la porte en restant dehors avant
+d'aller chercher quelqu'un. L'étape 7 garde 4,4 °C, parce que le geste en dépend (refermer et laisser la pièce
+remonter).
+
+### Le logigramme
+
+`images/logigrammes/02-rester-ou-partir.json` → `.svg`, `.pdf`, `.png`, et `02-rester-ou-partir-livre.svg`
+(`--sans-entete --svg`). Contrôle : 0 erreur, 3 avis (pointes de flèche à l'étroit, 9 à 11 pt ; 6 avis avant).
+Colonnes et rangs inchangés, colonnes de droite telles quelles (8,9 à 15,5 po, couloir à 8,7 po). Renvois aux étapes
+nouvelles, plus de « § ». Pastille « 1 min » ajoutée sur la première boîte du CO ; « 1 h » gardé sur « Si on reste » et
+« Avant de partir » ; « 2 min » et « 15 min » retirés des boîtes non orange. La boîte « Si on reste » ne redit plus
+l'avertissement de la génératrice et des appareils à combustible ; elle finit sur l'heure écrite sur la porte. La boîte
+« En panne sur la route » garde la décision et le geste du moteur. La boîte du CO (co3) ne dit plus « se couche sur le
+côté » ; la boîte de l'hypothermie dit « Il ne doit plus prendre la route ni participer aux décisions ».
+Ancre : le logigramme passe de « Décider en moins d'une heure » (section 1) au dernier item du Matériel,
+« **Fiche de décision remplie d'avance** » (rendu à l'intégrateur).
+
+### Chiffres et faits nouveaux, et leur source
+
+Tous tirés de fiches déjà au dossier (`sources/02-reprises-sources-deja-enregistrees.md`, extraits recopiés) :
+
+| Fait | Où | Fiche |
+| --- | --- | --- |
+| Congélateur à moitié plein : 24 h | Étape 29 ; section 5 | `01-quebec-panne-courant-aliments.md` |
+| Lait maternisé dans les usages de l'eau bouillie | Étape 28 | `02-inspq-avis-ebullition.md` |
+| 20 à 14 °C les premières heures, puis beaucoup plus lent ; masse de la maison ; plus l'écart est grand, plus vite | Étape 27 | `10-schl-refroidissement-maisons-panne-verglas-1998.md` |
+| L'été, ouvrir si trop chaud : la chaleur fait en général plus de tort que la fumée | Étape 38 | `02-sante-canada-fumee-feux-de-foret.md` |
+| −18 °C : 50 % de la capacité ; gel à −69, −15, −7 °C selon la charge | Section 7, « Faire démarrer l'auto » | `18b-trojan-batteries-plomb-froid-et-charge.md` |
+| Batterie gelée : ni survoltage ni charge ; parois bombées, ondulées ou fendues | Section 7, « Faire démarrer l'auto » | `15b-travail-securitaire-nb-batterie-gelee.md` |
+| Verdure prête, jetée sur le feu dès qu'on voit ou entend l'avion | Section 7, « Savoir » | `02-transports-canada-aim-signaux-sol-air.md` |
+| La bande AM plus loin la nuit (le fait était au chapitre sans source notée) | Section 7, « Savoir » | `03-uitr-p1321-ondes-am-nuit.md` |
+
+Repris tels quels, sans rouvrir la source (déjà vérifiés : sections plus haut) : 6 m, 4,4 °C, 6 minutes, 18 à 24 °C,
+4 L et 2 L par personne et par jour, 1 minute d'ébullition, 4 à 6 h et 48 h, 2 h au-dessus de 4 °C, 72 h, zones
+Intelli-feu, Cote air santé, antigel par appareil et 18 °C, code sol-air et 2,4 m, 350 mL pour 75 L et 99 %,
+10 minutes par 30 minutes, −28 et 30 minutes (page `froid`), 35 °C.
+
+**Sans source notée, gardé tel quel** (ni chiffre ni sens changé ; à sourcer si le vérificateur le demande) : la
+flamme de la chandelle qui ne change pas devant le CO et ne jaunit que quand l'oxygène manque (étape 45, au chapitre
+depuis septembre).
+
+**`[À VÉRIFIER]`** : aucun dans le texte.
+
+### Notes En plus
+
+| Note | Genre | Étape | Provenance |
+| --- | --- | --- | --- |
+| Le reste du code sol-air (N, Y, flèche ; LL, F, L, W ; 1 à 5 internationaux, 6 à 9 canadiens) | Fait | Section 7, « Savoir » | `02-transports-canada-aim-signaux-sol-air.md`, tableau 4.2 |
+| Trois feux en triangle ; un seul grand feu qui fume attire aussi l'attention | Fait | Section 7, « Savoir » | Même fiche, SAR 4.7.1 |
+| Les Innus, en petits groupes sur le territoire (neuf mois par année jusqu'aux années 1950, trois à cinq couples ; rassemblements courts où la nourriture abondait ; chacun apporte son travail) ; ce qui la rend dangereuse : une famille de deux adultes seuls n'a pas cette relève | Façon des Innus | Étape 32 | `38n-ward-2021-innu-territoire-et-bien-etre.md` (article fait avec les communautés de Sheshatshiu et Natuashish) |
+| L'onde AM, la nuit (absorbée le jour, réfléchie la nuit ; centaines de km, plus de 1 000 km) | Fait | Section 7, « Savoir » | `03-uitr-p1321-ondes-am-nuit.md` |
+
+Pas de photo : aucune image libre du dossier ne montre quelque chose qu'un parent ne reconnaît pas déjà (la photo d'un
+avertisseur de CO, `photos/60/14-avertisseur-co.jpg`, CC0, a été regardée et écartée : elle porte « Call 911 » et une
+marque, et n'apprend rien). Aucune ligne pour `images/credits.md`.
+
+### Planches
+
+Aucune planche au chapitre, et le texte n'en appelle aucune. L'audit (`images/audit-planches/tomes-1-2.md`) classe le
+code sol-air et les trois feux comme des données, pas des gestes.
+
+### controle.py
+
+| | Avant (texte du 15 octobre) | Après |
+| --- | --- | --- |
+| Mots | 6 066 | 6 483 |
+| Tirets | 2 (titre et ligne de tome) | 2 (les mêmes) |
+| « § » | 6 | 0 |
+| Tournures (« celui qui », « d'où », « la deuxième décide ») | 6 | 0 |
+| Maximes | 2 | 0 |
+| Mises en relief | 0 | 0 |
+| Mots vides à juger | 34 | 37, jugés : « tout de suite », « tout le monde », « tous les robinets », « encore gelé », « tout va bien » (le code sol-air), « bien avant » portent le sens |
+| Redites à juger | 3 (génératrice au §5 et au §8) | 4, jugées : la liste des quatre horloges (section 1 et étape 26, le même mot pour la même chose) ; « reprendre la décision à heure fixe » (section 1 et intertitre) ; « section 7, « Savoir, quand plus rien n'arrive » » dans trois notes (renvois) |
+
+Invariants signalés, justifiés : 30 ppm, 70 ppm, « 5 heures » (3 à 5 h), 32,2 °C, 37,8 °C, et les temps de gel de la
+peau (10 à 30 min, 5 à 10, 2 à 5, moins de 2 ; −40 à −47, −48 à −54, −55) sont sur les pages `co` et `froid` ; « 2 minutes »,
+« 15 minutes », « 10 minutes » des titres d'étape retirés ; « 1 °C » s'écrit « en perd 1 » (étape 27) ; une mention de
+« 6 m », de « 35 °C » et de « ch. 40 » en moins (l'encadré Danger et le signe de l'enfant au CO, sur la page `co`) ;
+génératrice 6 → 4 mentions (l'encadré Danger).
+
+### Pour l'intégrateur (fichiers communs, non touchés)
+
+Les ancres, les lignes de l'inventaire des dangers, les « Où il revient » et les renvois des autres chapitres sont
+rendus à l'orchestrateur dans la réponse de l'agent.
