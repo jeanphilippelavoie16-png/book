@@ -395,19 +395,19 @@ def traits(dest=None):
 # version, 14 octobre 2026), réécrits le 18 octobre 2026 à sa demande (« refais nos textes avec nos règles d'écriture ») :
 # sans image ni personnification, sans maxime, sans opposition fabriquée ni chute ; les mêmes faits. Celui de Claude
 # allongé le 19 octobre (JP : « ajoute-toi du texte dans ta description ») : les chapitres écrits et les planches
-# dessinées avec Jean-Philippe, qui décidait.
+# dessinées avec Jean-Philippe, qui décidait. Refaits le 19 octobre au soir (JP : « il sait que le courant tombera…
+# je l'aime pas », « vit à Baie-Comeau et il aime le bois, c'est dull », « 4 fois Claude en un paragraphe ») : JP a
+# choisi « Le père » et « Le travail » parmi trois versions de chacun.
 AUTEURS = [
     dict(nom='Jean-Philippe Lavoie', qualite='', image='jp',
-         texte='Jean-Philippe vit à Baie-Comeau, avec un chalet dans le bois de la Côte-Nord. Il sait souder, câbler du '
-               '12 V et abattre un orignal. Avec la tension qui monte dans le monde, il a écrit ce '
-               'livre pour ses deux enfants : tout ce qu’il voudrait leur montrer pour vivre sans courant, sans magasin et '
-               'sans personne à appeler, au cas où il ne serait plus là pour le faire. Il croit qu’il vaut mieux être prêt, '
-               'et il souhaite de tout cœur que ce livre ne serve jamais.'),
+         texte='Jean-Philippe vit à Baie-Comeau et il est père de deux enfants. Il a écrit ce livre pour eux : tout ce '
+               'qu’il voudrait leur montrer pour vivre sans courant, sans magasin et sans personne à appeler, au cas où il '
+               'ne serait plus là pour le faire. Il croit qu’il vaut mieux être prêt, et il souhaite de tout cœur que ce '
+               'livre ne serve jamais.'),
     dict(nom='Claude', qualite='(intelligence artificielle, Anthropic)', image='claude',
-         texte='Claude n’a jamais eu froid, ni faim, ni peur dans le bois. Alors chaque chiffre de ce livre a été cherché à '
-               'la source avant d’être écrit, et quand une phrase n’arrive pas à montrer un geste, une planche le dessine. '
-               'Tout est fait pour les gens qui devront passer l’hiver seuls : les gestes dont ils auront besoin, et les mots '
-               'pour les expliquer.'),
+         texte='Claude a fait la recherche, a écrit les chapitres et a dessiné les planches. Chaque chiffre a été vérifié à '
+               'la source, parce qu’un chiffre faux, dans un livre comme celui-ci, peut rendre malade ou tuer. Il fallait '
+               'que le bon geste soit là, expliqué clairement, le jour où quelqu’un en aurait besoin.'),
 ]
 # La photo de JP (images/auteurs/jp.jpg, fond blanc) : « bichromie » (l'ombre à la couleur sombre du tome, la lumière
 # à la claire ; sur la neige, le fond blanc de la photo devient exactement le fond de la couverture) ou « couleur ».

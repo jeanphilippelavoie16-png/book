@@ -109,6 +109,10 @@ La procédure
 La répétition
 - [ ] Inventaire des faits du chapitre : un fait garde une seule place ; les rappels de sécurité dans leur étape
   et à côté de leur pictogramme seulement ; la variante d'urgence n'apprend que du neuf.
+- [ ] Un nom ne revient pas à chaque phrase (JP, 19 octobre 2026, texte de Claude au dos : « 4 fois Claude en un
+  paragraphe ») : une phrase qui porte plusieurs verbes, ou une tournure qui n'a pas besoin du sujet. Et un texte
+  qui présente quelqu'un commence par ce qui le rend vivant, pas par une fiche (JP, sur « vit à Baie-Comeau et il
+  aime le bois » : « c'est dull »).
 
 Les planches dans le texte
 - [ ] Chaque planche est appelée « (planche NN-NN) » là où elle sert, une seule fois par phrase ; deux appels de

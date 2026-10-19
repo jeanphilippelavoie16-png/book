@@ -152,6 +152,13 @@ une bombe nucléaire pète. » ; « La bombe vient de tomber, on n'a pas encore 
 
 JP : « Dans les textes, y a beaucoup de répétition aussi, faut slaquer la répétition. »
 
+- **Un nom ne revient pas à chaque phrase** (JP, 19 octobre 2026, texte de Claude au dos des couvertures : « 4 fois
+  Claude en un paragraphe »). Une phrase porte plusieurs verbes (« Claude a fait la recherche, a écrit les chapitres
+  et a dessiné les planches »), ou la tournure se passe du sujet (« Chaque chiffre a été vérifié à la source »). Un
+  texte qui présente quelqu'un commence par ce qui le rend vivant, pas par une fiche (JP, sur « vit à Baie-Comeau et
+  il aime le bois » : « c'est dull » ; il a pris « vit à Baie-Comeau et il est père de deux enfants. Il a écrit ce
+  livre pour eux »).
+
 - **Un fait se dit une fois par chapitre**, à l'endroit où il sert. Ailleurs, un renvoi court
   (« étape 12 », « section 8 ») ou rien.
 - **Chaque section apporte du neuf.** « En une ligne », « Quand l'utiliser », « Pourquoi ça marche »,
