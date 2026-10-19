@@ -137,6 +137,10 @@ Le cadre complet est `.claude/skills/planches/references/brief-agent.md`. En bre
   « dans l'image le bonhomme est plus petit mais il gardait la même grosseur de bottes »). On prend l'échelle sur le
   corps rendu (le tibia, du genou à la cheville), pas sur l'échelle de la vue : voir `echelleBotte` de
   `images/planches-src/04-40.js`. Regarder chaque vignette de près, à la taille d'impression.
+- [ ] **Une matière se reconnaît à sa vraie fibre** (JP, 19 octobre 2026, planche 13-10 : « la laine d'acier, on dirait du
+  poil de pubis ») : la laine d'acier, ce sont des fibres de métal longues et presque droites, croisées en couches, avec du
+  jour au travers ; jamais des boucles ni des frisettes. Avant de poser une matière (laine d'acier, poil, herbe, copeaux,
+  corde), on la regarde en vrai ou en photo et on fait une feuille d'essai.
 - [ ] Une planche du tableau des signalées se refait au complet, jamais par retouche.
 - [ ] **Jamais de cheveux, et le visage seulement quand il sert** (JP, 18 octobre 2026 : « on met jamais les cheveux, je veux plus les voir ; le visage est affiché seulement quand le visage fait une action ou qu'il y a une interaction »). Le moteur des têtes ne dessine plus de cheveux. `visage: true` seulement si la bouche, les yeux ou le nez font le geste (souffler, boire, regarder un point) ou si deux personnes interagissent ; sinon la tête reste nue.
 - [ ] L'eau par `h.a.hachure('eau')` seulement : le bleu pâle et ses vaguelettes (JP, 18 octobre : « fais l'eau plus belle »).

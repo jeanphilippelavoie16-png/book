@@ -438,6 +438,10 @@ chauve « laid en tabarnak » : chaque fois, c'était une forme dessinée planch
   de côté sont toutes vraiment belles, élimine toutes les vues de face et de haut »). Le corps entier passe par
   `h.formes.corps` (la bibliothèque des corps simples, `scripts/corps/`). Une vue de dessus d'un objet seul
   reste, sans corps.
+- **Une matière se reconnaît à sa vraie fibre** (JP, 19 octobre 2026, planche 13-10 : « la laine d'acier, on dirait du
+  poil de pubis ») : la laine d'acier, ce sont des fibres de métal longues et presque droites, croisées en couches, avec du
+  jour au travers ; jamais des boucles ni des frisettes. On regarde la matière en vrai ou en photo, on fait une feuille
+  d'essai (`images/planches-src/_essai-*.js`), puis on la pose.
 - **Les gros plans de mains** passent par `h.formes.mainStock` : les mains Adobe Stock 116570613 que JP a choisies (18 octobre 2026 : « les bonnes mains »), tracés exacts de l'illustratrice au style du livre ; `scripts/mains/stock.js`, catalogue `scripts/mains/stock/catalogue.json`, noms `stock/noms.json`, feuille des ids `images/planches-src/_palette-mains-stock.js` (aperçu `livre/apercus-palette/mains-stock-ids.png`). Seules les mains gardées servent (nommées dans `noms.json`,
   sans « exclue » : JP, 18 octobre, « y a des mains vraiment weird » ; le moteur refuse les autres). On choisit la prise, on la
   place (`x`, `y`, `ancre`), on la tourne (`angle`), on la retourne (`miroir`) ; `objet: false` enlève l'objet du fichier et
