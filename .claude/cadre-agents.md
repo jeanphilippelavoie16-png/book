@@ -204,8 +204,9 @@ Le cadre complet est `.claude/skills/planches/references/brief-agent.md`. En bre
   devient une photo de la nature du Québec en pleine page, fond perdu (« genre pleine page, pas de blanc »). Une note
   ne se pose jamais sous un titre resté seul (« note verte pour remplir un trou qui existe pas ») : le titre suit son
   texte. JP aime les notes vertes avec des photos pour reconnaître (le sapin, l'épinette noire, le cèdre).
-- [ ] **Jamais le courriel de JP dans une requête** : ni dans l'en-tête User-Agent (Wikimedia en demande un ; on
-  écrit « ManuelDuNord/1.0 (projet privé) »), ni dans une adresse, ni dans un envoi. Il ne sort pas du dépôt.
+- [ ] **Le courriel de JP** : permis comme contact dans l'en-tête User-Agent des requêtes à Wikimedia, qui en demande
+  un (JP, 19 octobre 2026 : « c'est ben correct qu'ils prennent mon adresse ») ; ailleurs, il ne sort pas, et il ne
+  s'écrit dans aucun fichier du dépôt.
 - [ ] **Rien ne passe par-dessus le texte** (JP, 19 octobre 2026, p. 73 du tome 1 : « on dirait que le tableau est
   enligné sur l'autre texte ») : après chaque montage, `pdftotext -bbox` puis `python3 design/outils/chevauchements.py`
   doit dire « pages touchées : 0 ». Un tableau de cinq colonnes et plus prend toute la largeur, même sous une étape.
