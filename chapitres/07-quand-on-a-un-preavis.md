@@ -535,10 +535,9 @@ selles, peut entrer par leurs fuites (étape 42).
 ### La cache de pierres des Inuits de la Koksoak
 
 Les Inuits de la rivière Koksoak, en Ungava, gardaient pour l'hiver le caribou tué à l'automne : la bête posée sur
-quelques pierres, sous un mur de pierres contre les corbeaux, les renards, les loups et le carcajou. Ils marquaient
+des pierres, sous un mur de pierres contre les corbeaux, les renards, les loups et le carcajou. Ils marquaient
 l'endroit pour le retrouver sous la neige, et souvent ne le retrouvaient pas. Le froid garde la viande ; les premières
-bêtes, tuées quand il faisait encore chaud, se gâtaient et allaient aux chiens (section 7, « La caisse froide
-dehors »).
+bêtes, tuées par temps chaud, se gâtaient et allaient aux chiens (section 7, « La caisse froide dehors »).
 
 ### Lire la charge d'une batterie au voltmètre
 

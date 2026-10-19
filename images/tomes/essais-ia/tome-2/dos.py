@@ -390,12 +390,48 @@ def nettoyer_mur(can, x1, ppp):
     return can, k
 
 
+def desarmer(avant, can, boites, ppp):
+    """Le nettoyage des étoiles de couverture.py (après ce module) prend pour une étoile tout petit point plus clair
+    que son voisinage sombre, et le brouille. Près d'un trait foncé (un clou, le nœud d'une ficelle), un grain du mur
+    passe ce seuil. On baisse ces quelques grains de mur juste sous le seuil : quelques niveaux sur un ou deux
+    pixels, invisibles, et rien du dessin n'est brouillé. Mêmes règles que nettoyer() de couverture.py."""
+    t = int(0.09 * ppp) | 1
+    n = 0
+    for x0, y0, x1, y1 in boites:
+        p = int(0.3 * ppp)
+        a, b = max(0, int(y0 * ppp) - p), min(can.shape[0], int(y1 * ppp) + p)
+        c, d = max(0, int(x0 * ppp) - p), int(x1 * ppp) + p
+        for _ in range(3):
+            z = can[a:b, c:d].astype(np.float32)
+            L = z @ np.array([.2126, .7152, .0722], np.float32)
+            ouv = ndi.grey_opening(L, size=(t, t))
+            cand = ((L - ouv) > 12) & (ouv < 80)
+            lab, k = ndi.label(cand)
+            if not k:
+                break
+            taille = np.bincount(lab.ravel())
+            objs = ndi.find_objects(lab)
+            dessin = ndi.binary_dilation(np.any(z != avant[a:b, c:d], axis=2), iterations=int(0.1 * ppp))
+            petits = [i for i in range(1, k + 1) if taille[i] <= (0.12 * ppp) ** 2
+                      and objs[i - 1][0].stop - objs[i - 1][0].start <= 0.25 * ppp
+                      and objs[i - 1][1].stop - objs[i - 1][1].start <= 0.25 * ppp]
+            m = np.isin(lab, petits) & dessin & (L - ouv < 24)
+            if not m.any():
+                break
+            f = np.where(m, (ouv + 11) / np.maximum(L, 1), 1)[..., None]
+            can[a:b, c:d] = np.clip(np.rint(z * f), 0, 255).astype(np.uint8)
+            n += int(m.sum())
+    return n
+
+
 def motif(can, info):
     ppp = info['ppp']
     xt, xf, H = info['xt'] / ppp, info['xf'] / ppp, info['H'] / ppp
     img = info['image']
     ech = max(8.125 * ppp / img.size[0], 10.25 * ppp / img.size[1])     # l'échelle de l'image sur le devant
     can, n = nettoyer_mur(can, info['xf'], ppp)
+    avant = can.copy()
+    boites = []
     print('    dos : %d tache(s) du mur bouchée(s)' % n)
     obs = obstacles(info)
     g = grille(obs, info)
@@ -411,6 +447,7 @@ def motif(can, info):
     groupe = bh + 0.055 + 0.2 + 1.52 * k            # bocal, tablette, ficelle, bouquet
     haut = y0 + (y1 - y0 - groupe) * 0.42
     cal = Calque(xt, y0 - 0.1, xf, y1 + 0.1, ppp)
+    boites.append((xt, y0, xf, y1))
     y_tab = haut + bh
     cal.image(bocal, cx - bw / 2, haut)
     dessous = tablette(cal, cx - 0.31, cx + 0.31, y_tab)
@@ -428,6 +465,9 @@ def motif(can, info):
         larg = min(x1 - x0, 2.1)
         xa = (x0 + x1) / 2 - larg / 2
         cal = Calque(x0 - 0.05, y0 - 0.05, x1 + 0.05, y1 + 0.05, ppp)
+        boites.append((x0, y0, x1, y1))
         guirlande(cal, xa + 0.03, xa + larg - 0.03, y0, y1 - 0.05)
         cal.poser(can, [('fil', BRUN), ('tige', OR), ('or', OR), ('ficelle', CREME), ('clou', BRUN)])
+    g = desarmer(avant, can, boites, ppp)
+    print('    dos : %d grain(s) du mur baissé(s) sous le seuil des étoiles' % g)
     return can
