@@ -2,7 +2,7 @@
 autre solution pour remplir les vides » ; il a choisi « une vignette » : un petit dessin gravé tiré de l'image du tome,
 au centre du vide, comme dans les vieux livres, rien d'écrit).
 
-Chaque vignette est un médaillon découpé dans l'image de titre du tome (images/tomes/titre-tome-N.jpg, la linogravure
+Chaque vignette est une pastille ronde découpée dans l'image de titre du tome (images/tomes/titre-tome-N.jpg, la linogravure
 retenue) : un ovale ou un rond, cerné d'un filet à l'encre du tome et d'un second filet fin à l'extérieur. Les
 découpes sont données en coordonnées 768 × 960 (celles des retouches) ; l'image est en 3072 × 3840.
 
@@ -18,10 +18,11 @@ ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)
 
 # (nom, boîte x0 y0 x1 y1 en 768 × 960, forme, largeur imprimée en po)
 DECOUPES = {
-    1: [('chalet', (296, 676, 544, 846), 'ovale', 2.4),
-        ('lune', (470, 372, 694, 532), 'ovale', 2.2),
-        ('epinettes', (0, 700, 200, 900), 'rond', 1.8),
-        ('vallee', (100, 430, 500, 700), 'ovale', 2.4)],
+    # JP, 19 octobre 2026 : « c'est les pastilles de rappel de la page principale » : des ronds
+    1: [('chalet', (315, 665, 515, 865), 'rond', 1.7),
+        ('lune', (480, 350, 690, 560), 'rond', 1.7),
+        ('epinettes', (0, 700, 200, 900), 'rond', 1.7),
+        ('vallee', (190, 450, 450, 710), 'rond', 1.7)],
 }
 ENCRE = {1: (10, 26, 41)}      # le ciel des couvertures (couverture.py) : l'encre sombre du tome
 PPP = 300
