@@ -59,9 +59,55 @@ function orPages(){   // les planches de l'orange : pleine page sur leur propre 
 // relève seulement les pages qui ont de la place et les notes qui y tiennent ; placerNotes choisit à la fin, pour que
 // chaque note tombe près de l'étape dont elle parle et loin des autres. Une note sans page ne s'imprime pas
 // (avertissement).
+// Une note qui ne trouve aucun trou ne se perd plus (JP, 19 octobre 2026 : le ch. 04, dense, n'en posait aucune) : la
+// mise en pages recommence, et cette note entre dans le fil du texte, après la fin de l'étape qu'elle nomme (INLINE,
+// ANCRES) ; la pagination pousse le texte qui suit. Une seule note par page : celle qui arrive sur une page qui en porte
+// déjà une attend la page suivante (attenteNotes), où elle se glisse après la fin du paragraphe coupé.
 const NOTE_PLACES = [];
+let NOTES_X = [];             // les notes de la section En plus, dans l'ordre du chapitre
+let ANCRES = [];              // pour chaque note, la clé (data-k) du bloc après lequel elle entre dans le fil
+const INLINE = new Map();     // notes posées dans le fil : indice → clé du bloc
+let attenteNotes = [];        // notes du fil qui attendent la page suivante
+const aUneNote = p => !!p.bl.querySelector('.extra');
+const renvois = x => (x.dataset.etapes || '').split(' ').filter(Boolean).map(Number);
+const estTitre = el => /^H[1-6]$/.test(el.tagName) || (el.classList && el.classList.contains('kh'));
+function ancresNotes(flux){
+  // chaque bloc des histoires porte sa clé (histoire:rang), gardée par les clones et par les deux moitiés d'un
+  // paragraphe coupé
+  const blocs = [];
+  flux.forEach(([id, kind]) => { const t = document.getElementById('story-' + id); if(t) [...t.content.children].forEach((n, i) => { n.dataset.k = id + ':' + i; blocs.push({kind, el: n, id}); }); });
+  const num = el => { const s = el.querySelector && el.querySelector('.sn'); return s ? parseInt(s.textContent, 10) : NaN; };
+  const texte = b => (b.kind === 'main' || b.kind === 'e') && b.el.tagName === 'P' && !b.el.classList.contains('kh');
+  // la fin de l'étape : ses sous-étapes, ses tableaux et ses planches, jusqu'à l'étape ou au titre suivant
+  const fin = i => { let j = i; while(j + 1 < blocs.length && blocs[j + 1].id === blocs[i].id && !estTitre(blocs[j + 1].el) && isNaN(num(blocs[j + 1].el))) j++; return j; };
+  const sortir = i => {   // une étape de la série orange ou d'un encadré : la note attend le texte qui suit la série
+    if(texte(blocs[i])) return i;
+    let k = i; while(k < blocs.length && !texte(blocs[k])) k++;
+    if(k >= blocs.length){ k = i; while(k > 0 && !texte(blocs[k])) k--; }
+    return k;
+  };
+  const rangs = NOTES_X.map(x => {
+    const e = renvois(x); if(!e.length) return -1;
+    for(const a of e){ const i = blocs.findIndex(b => num(b.el) === a); if(i >= 0) return i; }
+    let i = -1, d0 = Infinity;     // l'étape nommée n'est pas dans le chapitre : la plus proche
+    blocs.forEach((b, k) => { const n = num(b.el); if(isNaN(n)) return; const d = Math.min(...e.map(a => Math.abs(a - n))); if(d < d0){ d0 = d; i = k; } });
+    return i;
+  });
+  // une note qui ne nomme aucune étape : le paragraphe de la procédure le plus loin des autres notes
+  const debut = Math.max(0, blocs.findIndex(b => !isNaN(num(b.el))));
+  rangs.forEach((r, n) => {
+    if(r >= 0) return;
+    let best = -1, g0 = -1;
+    blocs.forEach((b, k) => { if(k < debut || !texte(b)) return;
+      const autres = rangs.filter(x => x >= 0); const g = autres.length ? Math.min(...autres.map(x => Math.abs(x - k))) : Math.abs(k - (debut + blocs.length) / 2) * -1;
+      if(g > g0){ g0 = g; best = k; } });
+    rangs[n] = best;
+  });
+  return rangs.map(r => r < 0 ? null : blocs[fin(sortir(r))].el.dataset.k);
+}
 function fillExtras(p){
   if(!p || !EXTRAS.length || !(p.kind === 'text' || p.kind === 'open')) return false;
+  if(aUneNote(p)) return false;    // une seule note par page : celle du fil y est déjà
   // le dernier cadre de texte de la page, même si ses notes de bas de page le suivent
   let fr = p.bl.lastElementChild;
   if(fr && fr.classList.contains('fnz')) fr = fr.previousElementSibling;
@@ -98,9 +144,10 @@ function placerNotes(){
     pos.set(p, s.length ? s : [vu]); if(s.length) vu = Math.max(vu, ...s);
   });
   const idx = c => PAGES.indexOf(c.p);
-  const renvois = x => (x.dataset.etapes || '').split(' ').filter(Boolean).map(Number);
   const choix = [];                      // [note, page]
-  const ecart = c => choix.length ? Math.min(...choix.map(([, d]) => Math.abs(idx(d) - idx(c)))) : 99;
+  // les notes du fil comptent dans l'écart : les notes posées dans les trous se tiennent loin d'elles aussi
+  const fil = PAGES.map((p, i) => aUneNote(p) ? i : -1).filter(i => i >= 0);
+  const ecart = c => (choix.length || fil.length) ? Math.min(...choix.map(([, d]) => Math.abs(idx(d) - idx(c))), ...fil.map(i => Math.abs(i - idx(c)))) : 99;
   const cout = (x, c) => {
     const e = renvois(x), g = ecart(c);
     const pres = e.length ? Math.min(...e.map(a => Math.min(...pos.get(c.p).map(s => Math.abs(a - s))))) : 12 - Math.min(g, 10);
@@ -224,9 +271,20 @@ function region(p, kind, first){
 }
 function pour(f, q, p){
   if(orTop.length && !f.children.length && !pendingOr.length){ q.unshift(...orTop); orTop = []; }
+  const horsNotes = !!f.closest('.orange, .danger');   // jamais de note dans la série orange ni dans un encadré
+  // la note du fil qui attendait : sur cette page si elle n'en porte pas, après la fin du paragraphe coupé, ou après
+  // le premier titre et son paragraphe
+  if(attenteNotes.length && !horsNotes && !aUneNote(p)){
+    let k = 0;
+    if(q[0] && q[0].classList && q[0].classList.contains('cont')) k = 1;
+    else { while(q[k] && estTitre(q[k])) k++; if(k) k++; }
+    q.splice(k, 0, attenteNotes.shift());
+  }
   while(q.length){
     const b = q.shift();
     if(b.dataset && b.dataset.orpl){ pendingOr.push(b); continue; }
+    // une note du fil sur une page qui en porte déjà une : elle attend la page suivante
+    if(b.classList && b.classList.contains('extra') && (horsNotes || aUneNote(p))){ attenteNotes.push(b); continue; }
     if(b.dataset && b.dataset.plate === 'full'){ pendingPlates.push(b); continue; }
     // le logigramme vient tout de suite après le Matériel, et la procédure TOUJOURS après lui (JP, 18 octobre 2026 : « c'est
     // lui qu'on veut en premier » ; puis « la procédure va toujours APRÈS le diagramme ») : la page se ferme à l'ancre ;
@@ -250,6 +308,7 @@ function pour(f, q, p){
     if(!OVER(f)) continue;
     f.removeChild(b); syncNotes(f);
     if(b.classList.contains('fig')){ p.deferred.push(b); continue; }   // la figure attend, le texte continue
+    if(b.classList.contains('extra')){ attenteNotes.unshift(b); continue; }   // la note aussi : page suivante
     let parts = null;
     if(b.tagName === 'P') parts = splitPara(b, f); else if(b.tagName === 'TABLE') parts = splitTableBal(b, f);
     // une planche pleine page attend la fin de cette page : le paragraphe ne se coupe pas de part et d'autre
@@ -386,6 +445,8 @@ function story(id, kind, suite){   // kind : main, o, d, e ; suite : histoire re
   const q = Array.from(tpl.content.children).map(n => n.cloneNode(true));
   if(!q.length) return;
   q.forEach(n => { if(!(n.classList && n.classList.contains('fig'))){ appels(n); reperes(n); } });
+  // les notes du fil : après le bloc qui finit leur étape
+  INLINE.forEach((k, i) => { const j = q.findIndex(n => n.dataset && n.dataset.k === k); if(j >= 0) q.splice(j + 1, 0, NOTES_X[i].cloneNode(true)); });
   // une série orange qui suit une autre série : les planches de celle-ci passent avant elle, à la prochaine page
   if(kind === 'o') while(q[0] && q[0].dataset && q[0].dataset.orpl) pendingOr.push(q.shift());
   const H = P.bl.getBoundingClientRect().height;
@@ -515,22 +576,41 @@ const faces = ['400 10pt "IBM Plex Serif"','600 10pt "IBM Plex Serif"','700 10pt
 const imgs = Array.from(document.querySelectorAll('template')).flatMap(t => Array.from(t.content.querySelectorAll('img')).map(i => i.getAttribute('src')));
 const imgLoads = imgs.map(src => new Promise(res => { const i = new Image(); i.onload = i.onerror = res; i.src = src; }));
 Promise.all(faces.map(f => document.fonts.load(f, 'aéÀ§«»—'))).then(() => document.fonts.ready).then(() => Promise.all(imgLoads)).then(() => {
-  { const t = document.getElementById('extras'); EXTRAS = t ? Array.from(t.content.children).map(n => n.cloneNode(true)) : []; }
-  P = mkPage('open'); fitTitle();
-  (C.flux || [['main'], ['d'], ['e']]).forEach(f => story(f[0], f[1], f[2]));
-  fillExtras(P);
-  placerNotes();
-  EXTRAS.forEach(x => WARN.push('encadré « En plus » sans trou où se poser : ' + ((x.querySelector('.xtit') || {}).textContent || '')));
-  orPages();
-  if(orTop.length){ P = mkPage('text'); const fr = document.createElement('div'); fr.className = 'frame'; P.bl.appendChild(fr); orTop.forEach(b => fr.appendChild(b)); orTop = []; }
-  if(pendingPlates.length){ const pl = pendingPlates; pendingPlates = []; pl.forEach(b => { const pp = mkPage('plate', b); pp.story = 'e'; }); }
-  while(pendingSpreads.length){   // fin du chapitre : une page blanche au recto au besoin, puis la double page
-    const t = mkPage('text'); t.story = 'e';
-    if(t.el.classList.contains('verso')){ BOOK.removeChild(t.el); PAGES.pop(); }
-    mkSpread(pendingSpreads.shift(), 'e');
+  const FLUX = C.flux || [['main'], ['d'], ['e']];
+  { const t = document.getElementById('extras'); NOTES_X = t ? Array.from(t.content.children).map((n, i) => { const c = n.cloneNode(true); c.dataset.xi = i; return c; }) : []; }
+  ANCRES = ancresNotes(FLUX);
+  const mettreEnPages = () => {
+    BOOK.innerHTML = ''; WARN.length = 0; PAGES.length = 0; NOTE_PLACES.length = 0; P = null;
+    pendingPlates = []; pendingSpreads = []; pendingOr = []; orTop = []; attenteNotes = [];
+    EXTRAS = NOTES_X.filter((x, i) => !INLINE.has(i)).map(x => x.cloneNode(true));
+    P = mkPage('open'); fitTitle();
+    FLUX.forEach(f => story(f[0], f[1], f[2]));
+    EXTRAS.push(...attenteNotes); attenteNotes = [];   // une note du fil restée en attente à la fin : un trou, s'il y en a
+    fillExtras(P);
+    placerNotes();
+    orPages();
+    if(orTop.length){ P = mkPage('text'); const fr = document.createElement('div'); fr.className = 'frame'; P.bl.appendChild(fr); orTop.forEach(b => fr.appendChild(b)); orTop = []; }
+    if(pendingPlates.length){ const pl = pendingPlates; pendingPlates = []; pl.forEach(b => { const pp = mkPage('plate', b); pp.story = 'e'; }); }
+    while(pendingSpreads.length){   // fin du chapitre : une page blanche au recto au besoin, puis la double page
+      const t = mkPage('text'); t.story = 'e';
+      if(t.el.classList.contains('verso')){ BOOK.removeChild(t.el); PAGES.pop(); }
+      mkSpread(pendingSpreads.shift(), 'e');
+    }
+  };
+  // d'abord les trous ; chaque note qui n'en trouve pas passe dans le fil du texte, et la mise en pages recommence
+  for(let passe = 0; ; passe++){
+    mettreEnPages();
+    const sans = EXTRAS.filter(x => !INLINE.has(+x.dataset.xi) && ANCRES[+x.dataset.xi]);
+    if(!sans.length || passe > NOTES_X.length) break;
+    sans.forEach(x => INLINE.set(+x.dataset.xi, ANCRES[+x.dataset.xi]));
   }
+  EXTRAS.forEach(x => WARN.push('encadré « En plus » sans place où se poser : ' + ((x.querySelector('.xtit') || {}).textContent || '')));
   finishPages(); edges(); orienteAppels(); checks();
-  const st = {pages: PAGES.length, reste: 0, warn: WARN, mots: {}};
+  // où chaque note s'est posée : page, étapes de la page, dans un trou ou dans le fil
+  const notesPosees = [...document.querySelectorAll('.page .extra')].map(x => { const pg = x.closest('.page'); const p = PAGES.find(q => q.el === pg);
+    return {titre: (x.querySelector('.xtit') || {}).textContent || '', page: p ? p.n : null, fil: INLINE.has(+x.dataset.xi),
+            etapes: p ? [...p.bl.querySelectorAll('.sn')].map(e => +e.textContent) : []}; });
+  const st = {pages: PAGES.length, reste: 0, warn: WARN, mots: {}, notes: notesPosees};
   PAGES.forEach(p => st.mots[p.n] = words(p.bl.innerText));
   document.getElementById('stats').textContent = JSON.stringify(st);
   views();
