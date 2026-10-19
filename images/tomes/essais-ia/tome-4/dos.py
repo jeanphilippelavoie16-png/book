@@ -195,17 +195,19 @@ def plus_grand_vide(libre, y0, y1, x0, x1, pas=4):
     return (y0 + a * pas, x0 + b * pas, y0 + c * pas, x0 + d * pas)
 
 
-def poser(can, m, decoupe, trou, remplir=1.0, ou='centre'):
-    """Réduit la découpe pour qu'elle tienne dans le trou (y0, x0, y1, x1), la centre, et la rapetisse encore tant
-    qu'un seul de ses pixels tombe sur le masque interdit."""
+def poser(can, m, decoupe, trou, haut_max=None, ou='centre'):
+    """Réduit la découpe pour qu'elle tienne dans le trou (y0, x0, y1, x1) et pas plus haute que haut_max (px), la
+    place (centrée, ou calée à droite), et la rapetisse encore tant qu'un seul de ses pixels tombe sur le masque."""
     fg, al = decoupe
     ya, xa, yb, xb = trou
-    s = remplir * min((yb - ya) / al.shape[0], (xb - xa) / al.shape[1])
+    s = min((yb - ya) / al.shape[0], (xb - xa) / al.shape[1])
+    if haut_max:
+        s = min(s, haut_max / al.shape[0])
     while True:
         fg2, al2 = reduire(fg, al, s)
         al2[al2 < 0.01] = 0
         h, w = al2.shape
-        x = xa + (xb - xa - w) // 2
+        x = xb - w if ou == 'droite' else xa + (xb - xa - w) // 2
         y = ya + (yb - ya - h) // 2
         if not (m[y:y + h, x:x + w] & (al2 > 0)).any():
             break
@@ -226,13 +228,16 @@ def motif(can, info):
     poses = []
     haut = plus_grand_vide(libre, int(hd[3] * k), int(toc[3] * k), int(x_g), int(x_d))     # à droite de la présentation
     bas = plus_grand_vide(libre, int(toc[3] * k), int(aut[3] * k), int(x_g), int(x_d))     # sous le sommaire
+    pli = ppp / 16 + 0.06 * ppp                                                             # tolérance de coupe
+    tr = plus_grand_vide(libre, 0, info['H'], int(xt + pli), int(xf - pli))                # la tranche
     import os
-    if os.environ.get('INVERSE'):
-        poses.append(('feu', poser(can, m, feu(img), haut)))
-        poses.append(('séchoir', poser(can, m, sechoir(img), bas)))
-    else:
-        poses.append(('séchoir', poser(can, m, sechoir(img), haut)))
+    choix = os.environ.get('MOTIFS', 'sechoir,feu-bas').split(',')
+    if 'sechoir' in choix:
+        poses.append(('séchoir', poser(can, m, sechoir(img), haut, haut_max=0.8 * ppp, ou='droite')))
+    if 'feu-bas' in choix:
         poses.append(('feu', poser(can, m, feu(img), bas)))
+    if 'feu-tranche' in choix:
+        poses.append(('feu', poser(can, m, feu(img), tr)))
     for nom, (x, y, w, h) in poses:
         print('    %s : %.2f × %.2f po, à %.2f, %.2f po' % (nom, w / ppp, h / ppp, x / ppp, y / ppp))
     return can

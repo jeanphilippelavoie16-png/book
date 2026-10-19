@@ -55,10 +55,13 @@ règles du groupe de chasse, et sortir un blessé du bois à plusieurs : en tra�
  l'isolant, le rouler d'un bloc sur le côté, à deux, en tenant sa tête dans l'axe du corps.
  - Couvrir sa tête et son cou, en laissant le nez et la bouche libres. Par −30 °C et un vent de 10 km/h, le
  refroidissement éolien est d'environ −39, et la peau découverte gèle en 10 à 30 minutes.
- - L'été aussi, un blessé couché qui ne bouge pas se refroidit, surtout s'il est mouillé ou que la nuit vient.
+ - L'été aussi, un blessé couché qui ne bouge pas se refroidit, surtout s'il est mouillé ou que la nuit vient
+ (ch. 26, étape 19).
  - Écrire l'heure de l'accident : on compte tout ce qui suit à partir d'elle (ch. 26, étape 14).
-3. **Donner l'alerte tôt.** Par radio ou par message satellite, envoyer un message court : où on est, qui est blessé,
- ce qu'il a, ce qu'on fait, et l'heure du prochain message (ch. 14, étapes 14 et 15). Sans radio, envoyer deux
+3. **Donner l'alerte tôt.** Si la vie du blessé est en jeu, déclencher le SOS de l'appareil satellite ou la balise
+ sans attendre (ch. 14, étapes 1 et 2). Sinon, par radio ou par message satellite, envoyer un message court : où on
+ est, qui est blessé, ce qu'il a, ce qu'on fait, et l'heure du prochain message (ch. 14, étapes 5 et 6). Sans radio,
+ envoyer deux
  personnes porter le message écrit, jamais une seule : si une personne seule se blesse en route, le message
  n'arrive pas et il y a deux blessés (ch. 35, section 9).
 4. **Le laisser bouger seul, ou le sortir couché.** S'il est conscient, clair et n'a aucun des signes qui suivent, il
@@ -72,6 +75,8 @@ règles du groupe de chasse, et sortir un blessé du bois à plusieurs : en tra�
  Pour le sortir couché, le coucher sur une surface ferme, la tête calée entre deux rouleaux de vêtements (ch. 26,
  section 9). Ne pas lui fabriquer de collet rigide : rien ne montre qu'il protège, et il gêne la respiration.
 5. **Décider comment il sort, et envoyer chercher la machine tout de suite.**
+ - Si le SOS ou la balise est parti, rester sur place avec le blessé, l'abriter (étape 14) et laisser l'appareil
+ en marche jusqu'à ce que quelqu'un arrive (ch. 14, étape 3).
  - S'il peut marcher sans aggraver sa blessure, le faire marcher, soutenu, sans rien porter, avec quelqu'un à côté
  de lui.
  - Si une machine peut se rendre jusqu'à lui (l'hiver, une motoneige avec un traîneau ; l'été, un VTT avec une
@@ -79,8 +84,8 @@ règles du groupe de chasse, et sortir un blessé du bois à plusieurs : en tra�
  l'aller-retour de la machine est le trajet le plus long, et plus il commence tôt, plus le blessé sort tôt.
  - Sinon, l'hiver, le sortir couché sur un traîneau tiré sur la neige (étapes 6 à 10). L'été, le sortir en canot, ou
  le tirer en travois sur un sentier (étape 11).
- - Couché, un blessé sort en quatre à six fois le temps qu'on met à faire le même trajet à pied, et plus en
- terrain difficile. S'il ne peut pas arriver avant la noirceur, ou s'il n'y a pas assez de monde pour tirer et se
+ - Sur un traîneau, un blessé couché sort en quatre à six fois le temps qu'on met à faire le même trajet à pied, et
+ plus en terrain difficile. S'il ne peut pas arriver avant la noirceur, ou s'il n'y a pas assez de monde pour tirer et se
  relayer, l'abriter sur place (étape 14).
 
 [^1]: Appuyer du bout des doigts, une à une, sur les bosses des vertèbres, sur la ligne du milieu de la nuque, de la
@@ -92,7 +97,7 @@ règles du groupe de chasse, et sortir un blessé du bois à plusieurs : en tra�
 6. **L'emballer avant de partir.** Mettre des branches de sapin en couches croisées ou un matelas sous lui, puis
  le coucher dans un sac de couchage fermé, avec une tuque, le visage dégagé, et un pare-vapeur autour (planche 16-08,
  repères 4 et 5 ; ch. 25, étape 8). Sur le traîneau, il ne bouge pas et ne fait aucun effort : il gèle avant les
- gens qui tirent (ch. 15, étape 38).
+ gens qui tirent (ch. 15, étape 37).
 7. **Le sangler sur ce qui glisse** : un toboggan, un traîneau à bois, un capot retourné, une porte, ou le traîneau de
  perches de la section 7.
  - Passer les sangles autour des perches ou du traîneau (repère 6), en travers de la poitrine, du bassin et des
@@ -113,10 +118,12 @@ règles du groupe de chasse, et sortir un blessé du bois à plusieurs : en tra�
  Laisser une note sur la porte : qui est parti, à quelle heure, vers où, et dans quel état est le blessé. Épingler à
  ses vêtements un papier qui dit ce qu'on sait de lui : ses maladies, ses médicaments, ses allergies, et le nom de
  la personne à prévenir (ch. 26).
-11. **L'été, le sortir par l'eau quand un lac ou une rivière mène vers le camp.**
+11. {!eau-froide} **L'été, le sortir par l'eau quand un lac ou une rivière mène vers le camp.**
  - Le coucher au fond du canot, sur un matelas, la tête calée, avec une veste de flottaison attachée sur lui
- (ch. 90, étape 31).
- - Ne pas l'attacher au canot : si le canot chavire, il coule avec (ch. 15, étape 37).
+ (ch. 90, étape 31). Ouvrir le sac de couchage et le poser sur lui comme une couverture, les bras dehors : le sac
+ fermé sur ses bras l'entraîne au fond si le canot chavire.
+ - Ne pas l'attacher au canot : si le canot chavire, il reste pris sous la coque retournée, la tête dans l'eau
+ (ch. 15, étape 37 ; ch. 90, étape 34).
  - Suivre la rive (ch. 90, étape 33).
  - Sans eau qui mène au camp, prendre un VTT avec une remorque, ou tirer le traîneau de perches en travois sur le
  sentier (section 7, « L'été, sans neige »). Si rien de cela ne marche, l'abriter sur place et envoyer chercher une
@@ -125,11 +132,12 @@ règles du groupe de chasse, et sortir un blessé du bois à plusieurs : en tra�
 ### Chaque heure de la sortie
 
 12. **Envoyer le message à l'heure dite** : la position, l'état du blessé, l'heure d'arrivée prévue et l'heure du
- prochain message (ch. 14, étape 15). Un message manqué devient un signal seulement si son heure était fixée
- d'avance (ch. 14, étape 13).
-13. {!froid} **Faire une halte courte.** Resserrer les sangles et refermer le sac. Vérifier qu'il répond bien, et que
+ prochain message (ch. 14, étapes 6 et 8). Un message manqué devient un signal seulement si son heure était fixée
+ d'avance (ch. 14, étape 26).
+13. {!froid} **Faire une halte courte.** Resserrer les sangles et refermer le sac, sauf en canot (étape 11). Vérifier qu'il répond bien, et que
  les doigts sous une attelle restent roses et chauds (ch. 26). Ne lui donner à boire chaud et sucré que s'il est bien
- éveillé (ch. 25, étape 10). S'il devient confus ou arrête de frissonner, le garder à l'horizontale et le bouger
+ éveillé et avale bien (ch. 25, étape 10). S'il devient confus ou arrête de frissonner sans avoir été réchauffé,
+ le garder à l'horizontale et le bouger
  doucement (ch. 25, étape 5).
 14. **S'arrêter avant la nuit, ou avant que les porteurs soient à bout.** Faire un abri et un feu sur place, et
  garder le blessé emballé sur un sol isolé (ch. 12, étapes 1 à 14). Envoyer deux personnes chercher la machine ou des
@@ -204,12 +212,13 @@ règles du groupe de chasse, et sortir un blessé du bois à plusieurs : en tra�
 30. {!coupure} **Ne jamais bûcher seul.** Ne partir avec une scie à chaîne que si un autre foyer connaît le secteur et
  l'heure de retour, et qu'une personne est chargée de lancer la recherche passé cette heure (ch. 106). Laisser
  l'heure de retour par écrit.
-31. {!generatrice} {!electrocution} **Poser la génératrice qu'on prête ou qu'on reçoit dehors, à 6 m de la maison, sans
- toit ni bâche au-dessus.** L'erreur arrive avec le service rendu : le voisin apporte sa génératrice, on la met sous
+31. {!generatrice} {!electrocution} **Poser la génératrice qu'on prête ou qu'on reçoit dehors, à au moins 6 m de
+ toute maison, sans toit ni bâche au-dessus.** L'erreur arrive avec le service rendu : le voisin apporte sa génératrice, on la met sous
  l'appentis pour l'abriter de la neige, et on ferme la porte à cause du bruit. Brancher les appareils directement sur
  la génératrice, un par un, avec des rallonges, jamais par une prise de la maison (ch. 3).
 32. {!electrocution} **Dégager un arbre tombé chez un voisin après un verglas : regarder les fils avant l'arbre.**
- Rester à au moins 10 m d'un fil tombé, et ne pas essayer de le déplacer. Près des fils restés en place, garder 3 m
+ Rester à au moins 10 m d'un fil tombé et de l'arbre ou des branches qui le
+ touchent, et ne pas essayer de les déplacer. Près des fils restés en place, garder 3 m
  en tout temps, en comptant la perche, l'échelle et la branche qu'on manipule. Marquer le secteur pour la prochaine
  personne qui passe.
 
@@ -259,7 +268,8 @@ règles du groupe de chasse, et sortir un blessé du bois à plusieurs : en tra�
 44. {!cuisson} {!trichine} **Cuire à 74 °C à cœur toute viande de gibier qu'on reçoit, en mesurant à la sonde** : on ne
  sait pas comment elle a été gardée. Un saucisson d'ours séché, offert par un voisin, n'a pas été cuit ; le sel, le
  fumage, le séchage et le gel ne tuent pas la trichine. Le cuire à cœur, ou le refuser (ch. 52).
-45. {!abats} **Refuser le foie et les reins d'orignal, même offerts de bonne foi** : ils accumulent le cadmium, et la
+45. {!abats} **Refuser le foie et les reins d'orignal ou d'un autre cervidé (caribou, chevreuil), même offerts de
+ bonne foi** : ils accumulent le cadmium, et la
  cuisson ne l'enlève pas (ch. 22).
 46. {!tularemie} **Mettre des gants pour dépouiller les lièvres d'un autre foyer.** Rendre ce service expose à la
  tularémie avant toute cuisson : la bactérie entre par une coupure ou une gerçure aux mains (ch. 48).
@@ -301,7 +311,7 @@ règles du groupe de chasse, et sortir un blessé du bois à plusieurs : en tra�
 | Le groupe discute deux heures et ne décide rien | Personne n'a été nommé pour trancher, ou la personne nommée n'ose pas | Nommer tout de suite qui tranche quoi. Dire la décision à voix haute et la faire répéter |
 | Deux versions de la même entente circulent | L'entente n'a pas été répétée devant les deux parties | La refaire devant les deux parties, à partir de zéro, sans chercher qui avait raison |
 | Personne ne sait à qui est la carabine appuyée dans le coin | Personne n'en répond, et personne ne sait si elle est chargée | Ouvrir la chambre et nommer le propriétaire à voix haute, devant le groupe (étape 36) |
-| Le bruit de la génératrice du voisin change de place le soir | Il l'a rentrée dans un garage, une remise ou sous un auvent, à cause du bruit ou de la neige | Y aller tout de suite, faire sortir les gens de la maison à l'air libre et remettre la génératrice dehors (étape 31) |
+| Le bruit de la génératrice du voisin change de place le soir | Il l'a rentrée dans un garage, une remise ou sous un auvent, à cause du bruit ou de la neige | Y aller tout de suite et faire sortir les gens de la maison à l'air libre. Arrêter la génératrice si on peut l'atteindre sans rester à l'intérieur, et la remettre en marche seulement dehors (étape 31) |
 | Un voisin isolé refuse toute aide et se coupe des autres | Détresse, honte, ou début de confusion | Garder le contact sans négocier : passer, laisser quelque chose, revenir (ch. 36) |
 
 ---
@@ -423,9 +433,10 @@ prendre du fil de fer tordu à la pince (repère 8) ; le ruban adhésif durcit a
 contreplaqué, une tôle de toit. Le capot est le meilleur : il est bombé, et ses bords relevés ne poussent pas la neige
 devant lui (repères 12 et 13).
 
-*L'été, sans neige.* Tirer le même cadre en travois : une ou deux personnes lèvent l'avant par les brancards, et le
+*L'été, sans neige.* [À VÉRIFIER] Tirer le même cadre en travois : une ou deux personnes lèvent l'avant par les brancards, et le
 bout des perches traîne au sol, la tête du blessé du côté des brancards. Sur les racines et les roches, le travois
-secoue : aller au pas, et caler la tête du blessé.
+secoue : aller au pas, et caler la tête du blessé. S'il devient confus ou arrête de frissonner (étape 13),
+arrêter le travois, qui le tient incliné, et l'abriter sur place, couché à plat (étape 14).
 
 ### Ce qu'on perd
 
@@ -469,7 +480,7 @@ en route (étape 11).
 
 Chez les Innus, quand les hommes partaient chasser pour longtemps, les femmes allaient lever les collets et les lignes
 à pêche, souvent deux par deux, parfois avec des enfants en bas âge. Elles nettoyaient ensuite les prises et les
-faisaient sécher et boucaner. La veille d'un long trajet, on avertissait tout le monde de faire sécher ses bas et ses
+faisaient sécher et boucaner jusqu'à ce qu'elles soient bien sèches. La veille d'un long trajet, on avertissait tout le monde de faire sécher ses bas et ses
 mocassins (étape 26).
 
 ### Le partage au campement d'automne

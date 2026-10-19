@@ -95,9 +95,10 @@ def _source(img):
         plein = ndi.binary_fill_holes(m)
         e = _encre(L[b[0]:b[1], b[2]:b[3]])
         silh = ndi.binary_dilation(plein, iterations=2)
-        noirceur = np.where(silh, e, 0).astype(np.float32)                      # l'arbre, avec son bord doux
-        neige = np.where(ndi.binary_erosion(plein, iterations=2), 1 - e, 0).astype(np.float32)   # les taches de neige
-        arbres.append((noirceur, neige, silh.astype(np.float32)))
+        noir_arbre = float(np.median(e[m]))
+        noirceur = np.where(silh, np.clip(e / (.97 * noir_arbre), 0, 1), 0).astype(np.float32)   # bord doux
+        neige = np.where(ndi.binary_erosion(plein, iterations=2), np.clip((1 - e - .3) / .45, 0, 1), 0)
+        arbres.append((noirceur, neige.astype(np.float32)))
     return yS, traits, arbres
 
 
@@ -134,11 +135,12 @@ def _poser(dst, pat, y, x, op):
     dst[a:b, c:d] = op(dst[a:b, c:d], pat[a - y:b - y, c - x:d - x])
 
 
-def _echelle(p, f, miroir=False):
+def _echelle(p, f, miroir=False, etir=1.0):
     if miroir:
         p = p[:, ::-1]
     h, w = p.shape
-    im = Image.fromarray(np.ascontiguousarray(p, np.float32)).resize((max(1, round(w * f)), max(1, round(h * f))), Image.LANCZOS)
+    im = Image.fromarray(np.ascontiguousarray(p, np.float32)).resize((max(1, round(w * f * etir)), max(1, round(h * f))),
+                                                                     Image.LANCZOS)
     return np.clip(np.asarray(im), 0, 1)
 
 
@@ -172,7 +174,7 @@ def motif(can, info):
     near = prof([(-40, .30), (.06 * W_, .25), (.14 * W_, .23), (.21 * W_, .28), (.30 * W_, .42),
                  (.40 * W_, .60), (.47 * W_, .78)])
     far = prof([(.10 * W_, .70), (.19 * W_, .40), (.30 * W_, .16), (.40 * W_, .04), (.48 * W_, .0),
-                (.57 * W_, .02), (.67 * W_, .10), (.78 * W_, .24), (.88 * W_, .42), (.96 * W_, .64), (1.02 * W_, .90)])
+                (.57 * W_, .02), (.67 * W_, .10), (.78 * W_, .24), (.86 * W_, .42), (.93 * W_, .66), (.975 * W_, .92)])
     # un léger tremblé de gouge sur le bord des collines
     trem = ndi.gaussian_filter1d(rng.normal(0, 1, ww), 18 * SS) * 9
     near = near + trem
@@ -211,65 +213,88 @@ def motif(can, info):
         idx = np.nonzero(vis)[0]
         i0, i1 = idx[0], idx[-1]
         tt = np.clip((np.arange(ww) - i0) / max(1, i1 - i0), 0, 1)
-        ep = (2.4 * SS) * np.sin(np.pi * tt) ** .35 * (1 + .18 * ndi.gaussian_filter1d(rng.normal(0, 1, ww), 30 * SS))
+        ep = (3.4 * SS) * np.sin(np.pi * tt) ** .35 * (1 + .18 * ndi.gaussian_filter1d(rng.normal(0, 1, ww), 30 * SS))
         ep[~vis] = 0
     dist = np.abs(YY - near[None, :]) * SS
     a *= 1 - np.clip(ep[None, :] / 2 - dist + .5, 0, 1)
 
-    # la forêt : trois rangs d'épinettes, des petites au pied des collines aux grandes devant
-    fond_foret = np.zeros_like(a)                      # 1 là où un arbre couvre
-    rangs = []
-    # rang du fond : petites épinettes serrées, qui ferment le pied des collines
-    x = -30.0
+    # la forêt. Trois rangs : au pied des collines, de petites épinettes serrées qui ferment la forêt ; au milieu, des
+    # bouquets d'épinettes de tailles variées ; devant, quelques grandes. Plus un arbre est proche, plus il est grand
+    # et plus son pied est bas. Aucune pointe ne monte plus haut que le dessus des collines (une pointe dans le ciel ne
+    # se verrait pas).
+    def hauteur(choix, g):
+        return arbres[choix][0].shape[0] * s_dev * g
+    poses = []                                         # (ordre, x, pointe, g, choix, miroir, étirement)
+    x = -20.0
+    while x < Xe + 30:
+        choix = 2 if rng.random() < .6 else 1
+        g = rng.uniform(.26, .42) * (1 if choix == 2 else .5)
+        col = int(np.clip(x * SS, 0, ww - 1))
+        pointe = max(Yt + H * rng.uniform(.60, .70), dessus[col] + .10 * H)
+        poses.append((0, x, pointe, g, choix, rng.random() < .5, rng.uniform(.85, 1.15)))
+        x += rng.uniform(8, 22) * (g / .34 if choix == 2 else g / .17)
+    x = rng.uniform(-90, -30)
     while x < Xe + 40:
-        rangs.append((0, x, rng.uniform(.30, .40), rng.uniform(.64, .70)))
-        x += rng.uniform(16, 30)
-    x = -60.0
-    while x < Xe + 60:
-        rangs.append((1, x, rng.uniform(.42, .58), rng.uniform(.42, .56)))
-        x += rng.uniform(70, 125)
-    x = 20.0
-    while x < Xe + 60:
-        rangs.append((2, x, rng.uniform(.62, .80), rng.uniform(.58, .68)))
-        x += rng.uniform(150, 260)
+        for j in range(int(rng.choice([1, 2, 2, 3, 3, 4]))):
+            xi = x + rng.normal(0, 8)
+            choix = 0 if rng.random() < .5 else 1
+            g = rng.uniform(.34, .62)
+            pied_ = Yt + H * rng.uniform(1.0, 1.14)
+            col = int(np.clip(xi * SS, 0, ww - 1))
+            haut_max = pied_ - (dessus[col] + .12 * H)  # la plus grande hauteur permise ici
+            g = min(g, haut_max / (arbres[choix][0].shape[0] * s_dev))
+            if g >= .3:
+                poses.append((1 + (1.2 * H - pied_) / H, xi, pied_ - hauteur(choix, g), g, choix,
+                              rng.random() < .5, rng.uniform(.85, 1.15)))
+            x += rng.uniform(32, 70)
+        x += rng.uniform(40, 190)
+    for xi in (rng.uniform(.05, .10) * Xe, rng.uniform(.33, .40) * Xe, rng.uniform(.62, .70) * Xe):
+        choix = 0
+        pied_ = Yt + H * rng.uniform(1.22, 1.32)
+        col = int(np.clip(xi * SS, 0, ww - 1))
+        g = min(rng.uniform(.72, .88), (pied_ - (dessus[col] + .14 * H)) / (arbres[choix][0].shape[0] * s_dev))
+        poses.append((3, xi, pied_ - hauteur(choix, g), g, choix, rng.random() < .5, rng.uniform(.9, 1.1)))
+    poses.sort(key=lambda p: p[0])
+
     neige_tot = np.zeros_like(a)
-    for rang, xc, g, f_tip in rangs:
-        if rang == 0:
-            choix = 2 if rng.random() < .6 else 1
-        else:
-            choix = 0 if rng.random() < .55 else 1
-        noirceur, neige, silh = arbres[choix]
-        f = s_dev * SS * g * (0.55 if rang == 0 and choix != 2 else 1)
-        mir = rng.random() < .5
-        N = _echelle(noirceur, f, mir)
-        Ng = _echelle(neige, f, mir)
+    couv_fond = np.zeros_like(a)                       # ce que couvre le rang du fond
+    for ordre, xc, pointe, g, choix, mir, etir in poses:
+        noirceur, neige = arbres[choix]
+        f = s_dev * SS * g
+        N = _echelle(noirceur, f, mir, etir)
+        G = _echelle(neige, f, mir, etir) if ordre > 0 else np.zeros_like(N)
         h, w = N.shape
-        # la pointe : sous le dessus des collines, avec du crème au-dessus
-        cx = int(xc * SS)
-        col = np.clip(cx, 0, ww - 1)
-        tip = Yt + H * f_tip + rng.normal(0, .025) * H
-        tip = max(tip, dessus[col] + .14 * H)
-        ty = int((tip - oy) * SS)
-        lo = np.nonzero(N.max(axis=1) > .5)[0][0]       # la première ligne de l'arbre
-        py, px = ty - lo, cx - w // 2
+        lo = int(np.nonzero(N.max(axis=1) > .5)[0][0])  # la première ligne de l'arbre
+        py, px = int((pointe - oy) * SS) - lo, int(xc * SS) - w // 2
         _poser(a, N, py, px, lambda d, p: d * (1 - p))
-        if rang == 0:
-            Ng = Ng * 0
         _poser(neige_tot, N, py, px, lambda d, p: d * (1 - p))
-        _poser(neige_tot, Ng, py, px, lambda d, p: np.maximum(d, p))
-        _poser(fond_foret, N, py, px, np.maximum)
-    # la neige des arbres : seulement dans le haut de la forêt, et rien sous Yb
+        _poser(neige_tot, G, py, px, np.maximum)
+        if ordre == 0:
+            _poser(couv_fond, N, py, px, np.maximum)
+
+    # le pied des collines : dans chaque colonne, là où le rang du fond devient plein ; plus bas, la forêt est
+    # noire (le crème ne passe pas entre les troncs). Une colonne sans arbre prend la hauteur de ses voisines.
+    lim_dur = int((Yt + .86 * H - oy) * SS)
+    plein_ = couv_fond > .5
+    run = int(.06 * H * SS)
+    bloc = ndi.uniform_filter1d(plein_.astype(np.float32), run, axis=0, origin=-(run // 2)) > .999
+    bloc[lim_dur:] = True
+    debut = np.argmax(bloc, axis=0).astype(np.float32)
+    debut[debut >= lim_dur] = np.nan
+    ok = ~np.isnan(debut)
+    cols = np.arange(ww)
+    pied = np.interp(cols, cols[ok], debut[ok]) if ok.any() else np.full(ww, lim_dur, np.float32)
+    pied = np.minimum(pied, lim_dur)
+    a[np.arange(hh)[:, None] >= pied[None, :]] = 0
+
+    # la neige des arbres : seulement dans le haut de la forêt
     lab, n = ndi.label(neige_tot > .5)
     if n:
         cy = np.array(ndi.center_of_mass(neige_tot > .5, lab, range(1, n + 1)))
-        lim = (Yt + H * rng.uniform(.80, .93, n) - oy) * SS
-        ok = np.concatenate([[False], (cy[:, 0] < lim) & (cy[:, 1] < (Xe - oy * 0) * SS)])
-        garde = ok[lab]
-        garde = ndi.binary_dilation(garde, iterations=2)
+        lim = (Yt + H * rng.uniform(.78, .92, n) - oy) * SS
+        ok = np.concatenate([[False], (cy[:, 0] < lim) & (cy[:, 1] < Xe * SS - .03 * ppp * SS)])
+        garde = ndi.binary_dilation(ok[lab], iterations=2)
         a = np.maximum(a, np.where(garde, neige_tot, 0))
-    # sous le pied des collines, la forêt est noire : pas de crème qui passe entre les troncs
-    pied = (Yt + H * .80 - oy) * SS
-    a[int(pied):] = np.where(neige_tot[int(pied):] > 0, np.minimum(a[int(pied):], neige_tot[int(pied):]), 0)
     a[int((Yb - oy) * SS):] = 0
     a[:, int(Xe * SS):] = 0
 
