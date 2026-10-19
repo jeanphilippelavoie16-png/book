@@ -256,9 +256,9 @@ Si on part, écrire le nom de chaque enfant et un numéro de téléphone à l'in
 
 {!projection} **La roche du poêle.** Prendre une roche sèche, dans un champ, loin de l'eau, jamais dans le lit d'une rivière, sur une grève ou au bord d'un lac : l'eau prise dans une roche mouillée se change en vapeur quand on la chauffe, et la roche éclate en projetant des éclats coupants. La chauffer sur le poêle, l'enrouler dans une serviette et la mettre au fond du lit : elle garde sa chaleur plus longtemps que l'eau.
 
-{!pas-au-feu} **Le combustible de fortune.** Le poêle brûle le bois sec qui n'est ni traité, ni peint, ni verni, ni collé : branches mortes, meubles de bois massif sans peinture ni vernis. Un rouleau de carton ondulé serré, trempé dans de la cire fondue, brûle longtemps, et on le rallume facilement. Ne jamais brûler les palettes, le bois traité, peint ou verni, le contreplaqué ni le plastique. Ils encrassent aussi le tuyau, et un tuyau encrassé peut prendre feu (ch. 82). Ne pas brûler non plus le bois de démolition dont on ne connaît pas l'origine : en vieillissant, le bois traité d'une remise, d'une clôture ou d'une terrasse devient gris comme du bois ordinaire, et on ne le reconnaît pas à sa couleur.
+{!pas-au-feu} **Le combustible de fortune.** Mettre au poêle du bois sec et propre : des branches mortes, des meubles de bois massif sans peinture ni vernis. Un rouleau de carton ondulé serré, trempé dans de la cire fondue, brûle longtemps, et on le rallume facilement. Ne jamais brûler de palettes, de bois traité, peint, verni ou collé, de contreplaqué ni de plastique. Ils encrassent aussi le tuyau, et un tuyau encrassé peut prendre feu (ch. 82). Ne pas brûler non plus le bois de démolition dont on ne connaît pas l'origine : en vieillissant, le bois traité d'une remise, d'une clôture ou d'une terrasse devient gris comme du bois ordinaire, et on ne le reconnaît pas à sa couleur.
 
-### Lumière et piles
+### La lumière et les piles
 
 **La lampe à l'huile.** Prendre un pot de verre, de l'huile à cuisson et une mèche de coton : un lacet, une bande de vieux drap roulée ou une corde de coton. Tenir la mèche droite au centre avec un bouchon de liège percé ou un disque découpé dans une canette. La mèche ne doit presque pas dépasser : plus longue, elle fume et noircit le pot. L'huile à cuisson prend feu beaucoup moins facilement que le naphte. Les chandelles de gras et de suif : ch. 112.
 
@@ -266,7 +266,7 @@ Si on part, écrire le nom de chaque enfant et un numéro de téléphone à l'in
 
 **La lampe de poche qui éclaire une pièce.** Coucher une lampe de poche contre un bidon d'eau translucide : le bidon répand la lumière dans toute la pièce. Attachée sur la tête avec un élastique large ou du ruban, la même lampe sert de lampe frontale (étape 17).
 
-**Les piles qu'on croit mortes.** Une pile qui ne fait plus marcher un appareil qui demande beaucoup de courant fait encore marcher une radio ou une horloge pendant des jours. Prendre les piles des jouets, des télécommandes et des manettes avant d'ouvrir un paquet neuf. Une pile alcaline refroidie n'est pas vide : elle reprend quand elle se réchauffe. Une pile qui ne donne plus rien dehors redonne ce qu'il lui reste une fois réchauffée sous les vêtements (étape 18).
+**Les piles qu'on croit mortes.** Une pile qui ne fait plus marcher un appareil qui demande beaucoup de courant fait encore marcher une radio ou une horloge pendant des jours. Prendre les piles des jouets, des télécommandes et des manettes avant d'ouvrir un paquet neuf. Une pile alcaline refroidie n'est pas vide : la réchauffer sous les vêtements, et elle redonne ce qu'il lui reste (étape 18).
 
 **La radio.** Sans radio à piles, écouter le poste de l'auto branché sur sa batterie, ou monter un poste à galène (ch. 4, section 7, « Sans radio à piles »).
 
