@@ -23,9 +23,8 @@ avec nos règles d'écriture ») : liste `AUTEURS` de `design/directions/1-manue
 
 La bulle des photos des auteurs (JP : « travaille la bulle de nos images ») : `BULLES` et `BULLE` de `couverture.py`,
 ou `--bulle plate|medaillon|bulle|cuivre`. Par défaut, le médaillon : un filet clair détaché du disque par un mince
-anneau du fond, et une ombre. L'étincelle de Claude sourit (JP : « mets-toi un sourire, genre :) mais de l'autre sens ») :
-`images/auteurs/claude.svg`, les yeux et le sourire découpés dans le cœur de l'étincelle, agrandi ; elle prend 72 % du
-disque au lieu de 62 %.
+anneau du fond, et une ombre. L'étincelle de Claude est l'étincelle simple (`images/auteurs/claude.svg`), à 62 % du disque : le sourire essayé le
+18 octobre est retiré (JP, 19 octobre 2026 : « enlève le sourire dans le bonhomme de Claude, finalement c'est pas beau »).
 
 Sur le devant, « Tome N » est toujours à la même distance sous « Le Manuel du Nord » (JP, 19 octobre 2026 : « colle-le
 toujours à la même distance »), le titre juste dessous ; le titre rapetisse s'il descendrait sous 3,95 po, ou sous

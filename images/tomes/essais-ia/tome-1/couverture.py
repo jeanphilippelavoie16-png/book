@@ -252,7 +252,7 @@ body{-webkit-print-color-adjust:exact;print-color-adjust:exact}
 .back .ph{float:left;shape-outside:circle(50%);shape-margin:0.1in;margin:2pt 0.11in 0 0;width:0.78in;height:0.78in;border-radius:50%;
   overflow:hidden;display:flex;align-items:center;justify-content:center;background:var(--disque)}
 .back .ph img{display:block;width:100%;height:100%;object-fit:cover}
-.back .ph.claude img{width:72%;height:72%}
+.back .ph.claude img{width:62%;height:62%}
 .back .a p{margin:0;font:400 8.8pt/11.6pt var(--serif);hyphens:manual}
 .back .a .n{font:700 12.5pt/1 var(--bc);letter-spacing:.02em;display:inline-block;margin-bottom:4pt}
 .back .a .q{font:500 10pt/1 var(--bc);color:var(--douce)}
