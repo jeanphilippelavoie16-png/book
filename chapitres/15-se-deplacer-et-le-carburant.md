@@ -222,8 +222,8 @@ et se sortir vivant de la glace qui cède ou de la machine qui s'arrête loin de
 ### Décider de partir
 
 28. **Écrire en une phrase pourquoi on part** : ce qu'on va chercher (ch. 9) ou faire, et pourquoi ça ne
- peut pas attendre. Si on n'arrive pas à l'écrire, remettre la sortie : l'ennui et l'envie de bouger, on les
- règle autrement (ch. 36).
+ peut pas attendre. Si on n'arrive pas à l'écrire, remettre la sortie : on règle l'ennui et l'envie de
+ bouger autrement (ch. 36).
 29. **Savoir si le chemin est ouvert.** Sur un chemin forestier, personne ne donne l'état du chemin : se fier
  à la date du dernier passage connu et à ce qu'en dit la personne qui l'a fait (ch. 14 et ch. 16). Sans
  nouvelle récente, faire comme si le chemin était fermé.
@@ -233,32 +233,33 @@ et se sortir vivant de la glace qui cède ou de la machine qui s'arrête loin de
  moteur qu'on fait tourner pour se chauffer (étape 13). Si la réserve ne permet pas cette marge, ne pas
  partir.
 31. **Fixer l'heure de demi-tour, pas l'heure d'arrivée** : l'heure du coucher du soleil, moins deux fois le
- temps qu'a pris l'aller. À cette heure-là, on revient, qu'on ait fini ou non. La nuit, on répare une panne à
- la lampe, et on ne voit pas qu'on s'est trompé de trajet.
+ temps qu'a pris l'aller. À cette heure-là, faire demi-tour, qu'on ait fini ou non. La nuit, il faut réparer
+ une panne à la lampe, et on ne voit pas qu'on s'est trompé de chemin.
 32. **Écrire au mur, avant de partir** : la destination, le trajet, l'heure de départ, l'heure de retour
  prévue, l'heure à laquelle la personne qui reste doit s'inquiéter, et ce qu'elle doit faire alors : par où
- chercher, et avec quoi. Les moyens de donner l'alerte sont au ch. 14 ; aller chercher quelqu'un, au ch. 16.
-33. **Lire le refroidissement éolien du trajet, pas la température.** En motoneige, la vitesse compte comme
- du vent : à −20 °C sans vent, rouler à 50 km/h donne au visage un refroidissement de −35, et la peau
- exposée gèle en 10 à 30 minutes. À −40, elle gèle en 5 à 10 minutes : on part seulement si la sortie ne
- peut pas attendre, le visage couvert au complet.
+ chercher, et avec quoi. Les moyens de donner l'alerte sont au ch. 14 ; la façon d'aller chercher quelqu'un,
+ au ch. 16.
+33. **Se fier au refroidissement éolien du trajet, pas à la température.** En motoneige, la vitesse compte
+ comme du vent : à −20 °C sans vent, rouler à 50 km/h donne au visage un refroidissement de −35, et la peau
+ exposée gèle en 10 à 30 minutes. À −40, elle gèle en 5 à 10 minutes : partir seulement si la sortie ne peut
+ pas attendre, le visage couvert au complet.
 34. **Après une tempête, dégager le tuyau d'échappement avant de démarrer** (étape 11).
 
 ### Le trajet
 
-35. **Partir à deux machines quand c'est possible** : si l'une casse, l'autre ramène tout le monde. Seul,
- rester à une distance qu'on pourrait refaire à pied, en raquettes, avant la nuit.
-36. **Porter sur soi ce qui sauve** : les pics à glace au cou par-dessus le manteau, le sifflet, l'allumage,
+35. **Partir à deux machines quand c'est possible** : si l'une casse, l'autre ramène tout le monde. Avec une
+ seule machine, ne pas aller plus loin qu'une distance qu'on peut refaire à pied, en raquettes, avant la nuit.
+36. **Porter sur soi ce qui sauve** : les pics à glace au cou par-dessus le manteau, le sifflet, la trousse d'allumage,
  une lampe, le téléphone ou la radio (ch. 14). Ce qui est attaché sur la machine coule avec elle, et reste
  avec elle quand il faut marcher.
 37. **N'attacher personne à ce qui peut couler** : ni le passager au traîneau, ni le conducteur à la
  motoneige. Le passager du traîneau ne bouge pas et ne fait aucun effort : il se refroidit plus vite que le
  conducteur. L'habiller plus chaudement.
-38. {!froid} **Se regarder les visages à deux, à chaque arrêt, plus souvent que le délai de gelure du jour**
- (étape 33). La personne qui gèle au nez ou aux joues ne s'en rend souvent pas compte : l'autre le voit
+38. {!froid} **Se regarder le visage l'un l'autre à chaque arrêt, et s'arrêter plus souvent que le temps que
+ met la peau à geler ce jour-là** (étape 33). La personne qui gèle au nez ou aux joues ne s'en rend souvent pas compte : l'autre le voit
  à sa peau, qui devient jaunâtre ou gris blanc. Couvrir l'endroit d'une main chaude jusqu'à ce que la douleur
  revienne. Regarder aussi le visage des enfants, sans attendre qu'ils se plaignent (ch. 25, étape 32).
-39. **La nuit, rouler à une vitesse qui permet de s'arrêter dans ce qu'éclaire le phare.** Vers 25 km/h, on a
+39. **La nuit, rouler assez lentement pour pouvoir s'arrêter dans la distance qu'éclaire le phare.** Vers 25 km/h, on a
  le temps de s'arrêter devant un trou ou une crête de glace qu'on voit apparaître ; vers 55 km/h, on ne l'a
  pas.
 
@@ -268,7 +269,7 @@ et se sortir vivant de la glace qui cède ou de la machine qui s'arrête loin de
  - Commencer près de la rive : la glace y est souvent plus mince qu'au large.
  - Pelleter la neige jusqu'à la glace (planche 15-05, repère 1), pour voir aussi sa couleur (étape 41).
  - Percer à la tarière ou au ciseau jusqu'à l'eau (repère 2). Ne pas juger l'épaisseur à la facilité du
- perçage : la tarière passe vite, et on croit la glace plus épaisse qu'elle n'est.
+ perçage : le perçage va si vite qu'on croit facilement la glace plus épaisse qu'elle n'est.
  - Glisser le ruban dans le trou et passer son crochet sous la glace (repère 3).
  - Tirer le ruban vers le haut jusqu'à ce que le crochet accroche le dessous de la glace, et le garder
  tendu (repère 4).
@@ -289,17 +290,17 @@ et se sortir vivant de la glace qui cède ou de la machine qui s'arrête loin de
  porter. Rien ne le montre en surface.
  - L'eau sous la neige : des taches sombres et affaissées, une trace qui fonce et se remplit d'eau
  derrière soi (ch. 89).
- - La glace de marée du fleuve : aucune épaisseur publiée ne s'y applique, on ne la traverse pas.
+ - La glace de marée du fleuve : aucune des épaisseurs de l'étape 41 ne s'y applique ; ne pas la traverser.
  - Au printemps, la glace qui se défait en colonnes debout et casse presque sans effort : aucune épaisseur
- ne vaut pour elle, on n'y va pas.
+ ne la rend sûre ; ne pas y aller.
 43. **En auto sur la glace :**
  - avant d'y monter, baisser une fenêtre et déverrouiller les portières, pour sortir vite si la glace cède
  (étape 1) ;
  - ne pas porter de veste de flottaison dans l'auto : elle empêche de passer par la fenêtre ; la garder sur
  le siège, à portée de main ;
  - à l'arrêt, laisser au moins 15 m entre deux autos, et déplacer l'auto toutes les deux heures : immobile,
- elle fait plier la glace. Percer un trou à côté de l'auto ; si l'eau monte par le trou, la glace s'enfonce,
- et on déplace l'auto tout de suite.
+ elle fait plier la glace. Percer un trou à côté de l'auto ; si l'eau monte par le trou, la glace s'enfonce :
+ déplacer l'auto tout de suite.
 44. **Espacer les personnes et les machines** : deux machines côte à côte pèsent ensemble sur le même bout de
  glace.
 
@@ -328,9 +329,9 @@ et se sortir vivant de la glace qui cède ou de la machine qui s'arrête loin de
 | Avant chaque départ | Le carburant | Au moins **2 fois** ce que prend le trajet (étape 30) | On ne part pas |
 | Avant chaque départ | L'heure de demi-tour | Coucher du soleil moins **2 fois** le temps de l'aller | Partir plus tôt, ou le lendemain |
 | Avant chaque départ | Le refroidissement éolien du trajet | Au-dessus de **−40** | Partir seulement si la sortie ne peut pas attendre, le visage couvert |
-| Avant chaque départ | Le mot au mur | Destination, trajet, heures, ce qu'il faut faire | On ne part pas sans |
+| Avant chaque départ | Le mot au mur | Destination, trajet, heures, ce qu'il faut faire | Ne pas partir avant de l'avoir écrit |
 | Sur la glace, au moins tous les **45 m** | L'épaisseur, mesurée le jour même | Glace claire : **15 cm** à pied, **25 cm** en motoneige ou en auto, **33 cm** en camionnette ; le double sur glace blanche | Contourner, ou revenir dans sa trace |
-| Sur la glace | La couleur | Claire, transparente ou bleu pâle | Blanche : doubler l'épaisseur. Grise : demi-tour |
+| Sur la glace | La couleur | Claire, transparente ou bleu pâle | Blanche : doubler l'épaisseur. Grise ou foncée : faire demi-tour |
 | Auto arrêtée sur la glace | Le trou percé à côté | Pas d'eau qui monte | Déplacer l'auto tout de suite |
 | Auto prise dans la neige, à chaque démarrage | Le tuyau d'échappement et la fenêtre | Tuyau dégagé jusqu'au sol ; fenêtre entrouverte du côté opposé au vent | Couper le moteur, dégager le tuyau et entrouvrir la fenêtre |
 | Auto prise dans la neige, chaque heure | Le carburant qui reste | **0,5 à 1 L** par heure, moteur **10 min** par demi-heure | Allonger les arrêts du moteur, se serrer sous les couvertures |

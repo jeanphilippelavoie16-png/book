@@ -1,7 +1,7 @@
 # Tome 1 · Tenir — rapport d'assemblage
 
-- **Produit le :** 2026-10-19 02:02, par `design/outils/assembler-tome.py 1 --chapitres 15 --hors-ligne --sortie livre/apercus-ch15`
-- **Fichier :** `livre/tome-1/interieur.pdf` — 36 pages, 6.1 Mo
+- **Produit le :** 2026-10-19 02:07, par `design/outils/assembler-tome.py 1 --chapitres 15 --hors-ligne --sortie livre/apercus-ch15`
+- **Fichier :** `livre/tome-1/interieur.pdf` — 38 pages, 6.1 Mo
 - **Ouvertures :** au recto ou au verso (--verso)
 - **Placements :** design/epreuves-livre/placements.json, design/epreuves-livre/placements-tome-1.json
 - **Exigences de Blurb :** `sources/blurb-specifications.md` (relevées le 27 septembre 2026)
@@ -16,9 +16,9 @@
 | 6 | Comment le livre fonctionne (1) | 1 |
 | 7 | Comment le livre fonctionne (2) | 1 |
 | 8–16 | Les dangers | 9 |
-| 17–36 | ch. 15 — Se déplacer et le carburant | 20 |
-| | Pages blanches (verso de la page de titre, avant les ouvertures, fin du tome) | 2 |
-| | **Total** | **36** |
+| 18–38 | ch. 15 — Se déplacer et le carburant | 21 |
+| | Pages blanches (verso de la page de titre, avant les ouvertures, fin du tome) | 3 |
+| | **Total** | **38** |
 
 Aucune page de crédits (JP, 28 septembre 2026) : copie hors du livre dans `livre/apercus-ch15/credits/tome-1-credits.md` et `livre/apercus-ch15/credits/tome-1-credits.pdf`.
 
@@ -28,16 +28,16 @@ Marqueur `{.orange}` sur l'intertitre ### de la série, dans le Markdown (CLAUDE
 
 | Ch. | Pages du tome |
 | --- | --- |
-| 15 | 20, 21, 23, 24, 25 |
+| 15 | 22, 23, 25, 26, 27 |
 
 ## Notes « En plus »
 
 | Ch. | Note | Page du tome (du chapitre) | Renvoie à | Posée après | Où |
 | --- | --- | --- | --- | --- | --- |
-| 15 | Ne pas laisser la machine geler au sol | 25 (15-9) | étape(s) 18 | étape 19 (La réserve de carburant) | dans le fil du texte |
-| 15 | L’essence d’hiver | 26 (15-10) | étape(s) 20 | étape 25 (La réserve de carburant) | dans le fil du texte |
-| 15 | Les oiseaux et les poissons qui ouvrent la glace | 27 (15-11) | étape(s) 42 | étape 42 (Traverser un lac ou une rivière gelée) | dans le fil du texte |
-| 15 | Le bâton à sonder de la côte de l’Alaska | 29 (15-13) | étape(s) 42 | étape 48 (La génératrice) | dans le fil du texte |
+| 15 | Ne pas laisser la machine geler au sol | 27 (15-10) | étape(s) 18 | étape 19 (La réserve de carburant) | dans le fil du texte |
+| 15 | L’essence d’hiver | 28 (15-11) | étape(s) 20 | étape 25 (La réserve de carburant) | dans le fil du texte |
+| 15 | Les oiseaux et les poissons qui ouvrent la glace | 29 (15-12) | étape(s) 42 | étape 42 (Traverser un lac ou une rivière gelée) | dans le fil du texte |
+| 15 | Le bâton à sonder de la côte de l’Alaska | 31 (15-14) | étape(s) 42 | étape 48 (La génératrice) | dans le fil du texte |
 
 ## Contrôle Blurb
 
@@ -45,7 +45,7 @@ Marqueur `{.orange}` sur l'intertitre ### de la série, dans le Markdown (CLAUDE
 | --- | --- | --- | --- |
 | Taille de chaque page | 585 × 738 pt (8,125 × 10,25 po) | 585.0 × 738.0 pt | oui |
 | Rognage (TrimBox) | 8 × 10 po, fond perdu au bord extérieur | recto : reliure à gauche ; verso : à droite | oui |
-| Nombre de pages | pair, de 20 à 440 (papier Standard) | 36 | oui |
+| Nombre de pages | pair, de 20 à 440 (papier Standard) | 38 | oui |
 | Page 1 | à droite | page de titre | oui |
 | Polices incorporées | toutes | 24 police(s), 0 non incorporée(s) | oui |
 | Taille du fichier | 2 Go au plus | 6.1 Mo | oui |
@@ -64,7 +64,7 @@ Polices du fichier : BarlowCondensed-Bold, BarlowCondensed-ExtraBold, BarlowCond
 
 ## Tranche et couverture
 
-Calculateur non interrogé (--hors-ligne). Relevé du 27 septembre 2026 dans `sources/blurb-specifications.md` §2 ; pour 36 pages, prendre la ligne du tableau dont le palier couvre ce nombre, et revérifier au calculateur. [À VÉRIFIER]
+Calculateur non interrogé (--hors-ligne). Relevé du 27 septembre 2026 dans `sources/blurb-specifications.md` §2 ; pour 38 pages, prendre la ligne du tableau dont le palier couvre ce nombre, et revérifier au calculateur. [À VÉRIFIER]
 
 ## Figures
 
@@ -72,7 +72,7 @@ Les planches de `images/a-valider/` sont posées comme les validées (JP les rel
 
 | Ch. | Posées (page du tome) | Mentionnées dans le texte sans planche dessinée | À valider, non posées | Photos demandées encore à acquérir (credits.md) |
 | --- | --- | --- | --- | ---: |
-| 15 | 15-01 (22, pleine, à valider), 15-02 (32, pleine, à valider), 15-03 (28, à valider), 15-05 (29, à valider), 15-06 (34, à valider), 15-04 (35, à valider), 15-se-deplacer-livre (18, double page) | — | — | 8 (ancien 20) |
+| 15 | 15-01 (24, pleine, à valider), 15-02 (34, pleine, à valider), 15-03 (30, à valider), 15-05 (31, à valider), 15-06 (36, à valider), 15-04 (37, à valider), 15-se-deplacer-livre (20, double page) | — | — | 8 (ancien 20) |
 
 ## Crédits des images — hors du livre
 
@@ -82,7 +82,7 @@ Aucune photo posée dans ce tome. Les photos téléchargées sous les anciens nu
 
 ## Avertissements
 
-- ch. 15, paginateur : p15-5 : page à moitié vide
+- ch. 15, paginateur : p15-6 : page à moitié vide
 - ch. 15, constructeur : 15-03 : aucun ancrage trouvé, placé à la fin de la procédure
 - ch. 15, constructeur : 15-05 : aucun ancrage trouvé, placé à la fin de la procédure
 

@@ -1,6 +1,6 @@
 # Tome 1 · Tenir — rapport d'assemblage
 
-- **Produit le :** 2026-10-19 02:02, par `design/outils/assembler-tome.py 1 --chapitres 10 --hors-ligne --sortie livre/apercus-ch10`
+- **Produit le :** 2026-10-19 02:07, par `design/outils/assembler-tome.py 1 --chapitres 10 --hors-ligne --sortie livre/apercus-ch10`
 - **Fichier :** `livre/tome-1/interieur.pdf` — 40 pages, 12.3 Mo
 - **Ouvertures :** au recto ou au verso (--verso)
 - **Placements :** design/epreuves-livre/placements.json, design/epreuves-livre/placements-tome-1.json
@@ -31,7 +31,7 @@ Aucune page de crédits (JP, 28 septembre 2026) : copie hors du livre dans `livr
 | 10 | Le rat musqué sous la glace | 24 (10-5) | étape(s) 2, 36 | étape 2 (Choisir l’eau) | dans le fil du texte |
 | 10 | La chaudière d’épinette des Naskapis | 26 (10-7) | étape(s) 7 | étape 8 (Décanter et passer au tissu) | dans le fil du texte |
 | 10 | Le manganèse et l’arsenic du roc | 29 (10-10) | étape(s) 27 | étape 27 (Le puits : analyser, puis désinfecter) | dans le fil du texte |
-| 10 | Ce que retient le filtre à sable | 40 (10-21) | étape(s) — | étape 49 (Ce qui ne se remplace pas) | dans un trou de la page |
+| 10 | Ce que retient le filtre à sable | 40 (10-21) | étape(s) — | étape 49 (Réparer plutôt que remplacer) | dans un trou de la page |
 
 ## Contrôle Blurb
 
