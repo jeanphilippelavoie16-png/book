@@ -186,6 +186,12 @@ Le cadre complet est `.claude/skills/planches/references/brief-agent.md`. En bre
   touchent une lettre, une à une, avec la couleur du ciel autour. On regarde chaque détail comme JP : un objet qui
   n'a pas de sens part (JP, sur l'atelier : « le feu qui sort de l'affaire qu'on frappe dessus, ça pas rapport, pi la
   niche à côté non plus ») ; on l'enlève en recopiant la texture voisine de l'image, jamais en aplat.
+- [ ] **Les couvertures sont aux mesures Lulu Case Wrap du gabarit** (19 octobre 2026, gabarit de Lulu dans
+  `sources/lulu-captures/gabarit-couverture-tome-N-*.pdf`) : wrap de 0,625 po sur les quatre bords, planches de
+  8,75 × 11,5 po, tranche au tableau de la couverture rigide ; tout le texte de la quatrième et du devant dans la zone
+  sûre de 0,625 po en dedans du bord de chaque planche, rien d'écrit dans la zone du code-barres (en bas à droite de la
+  quatrième), le fond couvre le wrap. `couverture.py` le vérifie à chaque rendu (« hors de la zone sûre ») et
+  `--controle` pose le gabarit par-dessus ; mode d'emploi dans `images/tomes/couvertures/LISEZMOI.md`.
 
 ## Le montage et la vérification (orchestrateur)
 

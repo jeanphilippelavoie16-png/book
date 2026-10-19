@@ -79,8 +79,6 @@ FORMATS = {
     'blurb': dict(nom='Blurb, couverture souple 8 × 10', fp=0.125, pw=8.0, ph=10.0, surete=0.25, marge=0.5,
                   devant=0.5, cb=None),
 }
-FP = FORMATS['blurb']['fp']             # les cotes du gabarit CSS de base sont celles de Blurb ; Lulu les remplace
-                                        # (css_format)
 
 # La tranche de la couverture rigide, au tableau de Lulu (sources/lulu-specifications.md §3, guide de création, p. 14) :
 # (nombre de pages au plus, tranche en po). De 24 à 84 pages : 0,25 po.
@@ -242,7 +240,7 @@ def auteurs(fichiers):
 # nommé est dans un chapitre du tome.
 QUATRIEME = {
     1: "Le Manuel du Nord compte six tomes, et celui-ci est le premier. Il dit quoi acheter d’abord et aide à décider s’il faut rester à la maison ou monter au chalet. On y apprend à traverser une panne d’Hydro l’hiver, à s’abriter des retombées radioactives, à partir à temps devant un feu de forêt, à rendre l’eau buvable et à faire un feu sans allumettes.",
-    2: "Le Manuel du Nord compte six tomes, et celui-ci est le deuxième. On y apprend pourquoi la viande maigre seule peut tuer en quelques semaines, et comment nourrir la famille tout l’hiver sans manquer de gras ni de vitamine C. On y voit comment soigner une gelure, boucher le trou d’un plombage tombé, aider une femme à accoucher et rassurer les enfants avec une routine.",
+    2: "Le Manuel du Nord compte six tomes, et celui-ci est le deuxième. On y apprend pourquoi la viande maigre seule peut tuer en quelques semaines, et comment nourrir la famille tout l’hiver sans manquer de gras ni de vitamine\u00a0C. On y voit comment soigner une gelure, boucher le trou d’un plombage tombé, aider une femme à accoucher et rassurer les enfants avec une routine.",
     3: "Le Manuel du Nord compte six tomes, et celui-ci est le troisième. Il dit quoi chasser et pêcher chaque mois. On y apprend à lire les traces d’une bête, à retracer un orignal blessé, à prendre le lièvre au collet et le porc-épic sans arme à feu, à pêcher sous la glace et à faire un arc de mélèze quand il reste peu de balles.",
     4: "Le Manuel du Nord compte six tomes, et celui-ci est le quatrième. On y apprend à vider un orignal, à refroidir sa viande à 7 °C en 24 heures, à la découper muscle par muscle et à conserver chaque morceau jusqu’au printemps : salé, séché, gelé dehors ou en pemmican. On y voit comment fumer la truite, faire des conserves et garder les légumes au caveau.",
     5: "Le Manuel du Nord compte six tomes, et celui-ci est le cinquième. On y apprend à chauffer le chalet au bois sans encrasser la cheminée, à faire le pain au levain, à fabriquer des raquettes et à réparer un canot à la gomme d’épinette. On y voit comment cueillir les petits fruits, enrichir la terre avec la cendre et le varech, et garder ses semences.",
@@ -417,6 +415,7 @@ def css_format(m):
 .back{{left:{fp}in;width:{pw}in}}
 .front{{width:{pw}in}}
 .back .in{{inset:{mg + air:.4g}in {mg}in {bas}in {mg}in}}
+.back .txt{{max-width:{6.6 * (pw - 2 * mg) / (FORMATS['blurb']['pw'] - 2 * FORMATS['blurb']['marge']):.3f}in}}
 .spine .sp{{inset:{0.42 + d:.4g}in 0 {max(0.45 + d, su):.4g}in 0}}
 .hd-a{{top:calc(52px + {dv}in);left:calc(56px + {dv}in);right:calc(56px + {dv}in)}}
 .haut{{top:calc(104px + {dv}in);left:calc(50px + {dv}in);right:calc(56px + {dv}in);height:calc({y_devant(m, 4.45)}in - 104px - {dv}in)}}

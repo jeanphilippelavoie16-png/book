@@ -487,14 +487,18 @@ def motif(can, info):
     posee = []
     droite = int(max(r[2] for r in info['rects'] if r[4] == 0 and r[2] * q < xt) * q)    # le bout des filets
     bas_texte = int(max(r[3] for r in info['rects'] if r[4] >= 0 and r[0] * q < xt) * q)    # le bas de la barre des tomes
-    trou = _trou_quatrieme(occ, xt, ppp, BOIS_H[0] * ppp, BOIS_L * ppp, bord, droite, bas_texte)
+    oa, oc = _bois(src)
+    f_long = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'objet-corde-dos.png')
+    if os.path.exists(f_long):            # la corde longue (objets-bas/corde_dos.py) : JP, « plus de bois, pas plus
+        lo = np.asarray(Image.open(f_long).convert('RGBA')).astype(np.float32)   # haut, sur une plus grande largeur »
+        oa, oc = lo[..., 3] / 255.0, lo[..., :3]
+    # le trou doit tenir la corde entière à sa hauteur la plus basse (BOIS_H[0]) : sur la couverture Lulu, le bloc de
+    # texte plus large que le texte d'ouverture laissait à sa droite une colonne haute et étroite, où la corde tombait
+    # minuscule
+    l_min = max(BOIS_L * ppp, oa.shape[1] * BOIS_H[0] * ppp / oa.shape[0])
+    trou = _trou_quatrieme(occ, xt, ppp, BOIS_H[0] * ppp, l_min, bord, droite, bas_texte)
     if trou:
         qx0, qy0, qx1, qy1 = trou
-        oa, oc = _bois(src)
-        f_long = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'objet-corde-dos.png')
-        if os.path.exists(f_long):        # la corde longue (objets-bas/corde_dos.py) : JP, « plus de bois, pas plus
-            lo = np.asarray(Image.open(f_long).convert('RGBA')).astype(np.float32)   # haut, sur une plus grande largeur »
-            oa, oc = lo[..., 3] / 255.0, lo[..., :3]
         hb = BOIS_H[1] * ppp
         sb = min(1.0, hb / oa.shape[0], (qx1 - qx0) / oa.shape[1])
         OA, OC = _reduire(oa, oc, sb)
