@@ -303,7 +303,8 @@ sèches.
 La saison de feu va du printemps à la fin de l'automne.
 
 57. **Toucher le combustible du pied** (section 7). Quand les signes de sécheresse sont réunis :
- - ne plus faire aucun travail qui fait des étincelles : ni meulage, ni soudure, ni débroussailleuse (ch. 107) ;
+ - ne plus faire aucun travail qui fait des étincelles : ni meulage, ni soudure, ni débroussailleuse
+ (ch. 107) ;
  - refaire le plein chaque jour, et garder l'auto chargée et tournée vers le chemin (étapes 2 et 3) ;
  - garder toujours un des deux adultes au chalet, près de l'auto ;
  - faire du feu seulement dans un foyer muni d'un pare-étincelles.

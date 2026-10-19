@@ -126,8 +126,8 @@ Monter d'avance une trousse qu'une personne sort de la maison en 2 minutes, avec
 
 22. **Mettre des médicaments d'ordonnance pour quelques semaines, et faire renouveler les ordonnances d'avance**, à date fixe (section 5) : pendant une panne ou un départ, on ne peut plus le faire. Avec l'argent comptant (étape 26), les médicaments sont le seul article de la trousse prévu pour plus de trois jours.
 23. **Écrire sur papier la liste des médicaments, des doses et des allergies de chaque personne, et la mettre dans la boîte étanche.** Quand l'adulte qui connaît les doses est celui qui est malade, l'autre adulte doit pouvoir les donner.
-24. {!poison} **Doser les médicaments d'un enfant selon son poids, pas selon son âge** : deux enfants du même âge ne reçoivent pas la même dose. Les doses : ch. 32.
-25. **Ajouter ce qu'on oublie quand on n'en a pas besoin soi-même** : produits menstruels, couches et lingettes, lunettes ou verres de contact de rechange. Faire relire la liste du contenu par un autre adulte que celui qui a monté la trousse : la personne qui la monte oublie ce dont elle n'a pas besoin. L'hygiène quand la chasse d'eau ne marche plus : ch. 31.
+24. {!poison} **Doser les médicaments d'un enfant selon son poids, pas selon son âge** : deux enfants du même âge ne reçoivent pas la même dose s'ils n'ont pas le même poids. Les doses : ch. 32.
+25. **Ajouter ce qu'on oublie quand on n'en a pas besoin soi-même** : produits menstruels, couches et lingettes, lunettes ou verres de contact de rechange. Faire relire la liste du contenu par un autre adulte que celui qui a monté la trousse. L'hygiène quand la chasse d'eau ne marche plus : ch. 31.
 
 ### Les papiers, l'argent et les clés
 
