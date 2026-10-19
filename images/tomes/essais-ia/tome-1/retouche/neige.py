@@ -173,6 +173,8 @@ def appliquer(a, K=4):
     cloture = (xx_ >= 337.5 * K) & (xx_ <= 522 * K) & (yy > Y(776)) & (yy < Y(804))
     protege = (epais & ~dans_boucle) | cloture
     effacer = couloir & ndi.binary_dilation(sombre & couloir, _disque(3 * q)) & ~protege
+    # dans la boucle, tout ce qui est foncé et mince est un reste du fil doublé
+    effacer |= dans_boucle & ndi.binary_dilation(sombre & ~epais, _disque(3 * q)) & (xx_ > 250 * K)
     neige_ok = (champ | effacer) & (yy >= Y(722))
 
     # -- la neige du fond : sa marbrure lente (estimée loin de tout ce qui est foncé) et son grain
@@ -205,6 +207,14 @@ def appliquer(a, K=4):
     out[bord] = recompo[bord]
     # les deux fils : effacés, la neige refaite dessous
     out[effacer] = neuve[effacer]
+    # les miettes : un point foncé isolé sur la neige (un reste de fil, une poussière d'agrandissement) part
+    lab_m, nm = ndi.label(out.mean(2) < 160)
+    tailles = ndi.sum(np.ones_like(lab_m), lab_m, range(1, nm + 1))
+    miettes = np.isin(lab_m, 1 + np.nonzero(tailles < 60 * q * q)[0]) & (yy > Y(780))
+    miettes = ndi.binary_dilation(miettes, _disque(2 * q)) & ~protege
+    out[miettes] = neuve[miettes]
+    effacer |= miettes
+    neige_ok |= miettes
 
     # -- les deux bleus pâles des ombres
     clair_b = (1 - T_CLAIR) * neuve + T_CLAIR * COLLINE
@@ -258,8 +268,13 @@ def appliquer(a, K=4):
     larg = larg * (0.4 + 0.6 * np.clip((s_tr[-1] - s_tr) / (5 * K), 0, 1))  # la fin, sous la grande épinette
     levre = (1 - 0.6) * neuve + 0.6 * np.array([244, 248, 251], np.float32)
     poser(_raster([_bande(trace, -larg * 0.38, larg * 0.62)], h, w) * (larg[0] >= 0), levre)
-    poser(_raster([_bande(trace, larg / 2, larg / 2)], h, w), clair_b)
-    poser(_raster([_bande(trace, larg / 2, -larg * 0.12)], h, w), ombre_b)
+    rigole = (1 - 0.19) * neuve + 0.19 * COLLINE
+    poser(_raster([_bande(trace, larg / 2, larg / 2)], h, w), rigole)
+    poser(_raster([_bande(trace, larg / 2, -larg * 0.08)], h, w), (1 - 0.3) * neuve + 0.3 * COLLINE)
+    # le bord du fond, taillé : une ligne nette, effilée aux deux bouts, plus franche vers l'avant
+    trait = (0.22 + 0.5 * t) * K * np.clip(np.minimum(s_tr, s_tr[-1] - s_tr) / (6 * K), 0, 1)
+    poser(_raster([_bande(trace, larg / 2 + trait * 0.5, -larg / 2 + trait * 0.5)], h, w),
+          (1 - 0.5) * neuve + 0.5 * COLLINE)
     tg, nrm = _normales(trace)
     nrm = np.where(nrm[:, 1:2] < 0, -nrm, nrm)
     ells = []
@@ -274,7 +289,7 @@ def appliquer(a, K=4):
             ells.append((c[0], c[1], wl * 0.42, wl * 0.17, math.atan2(tg[i, 1], tg[i, 0])))
         s += max(1.5 * K, wl * 0.6)
         k += 1
-    creux = (1 - 0.23) * neuve + 0.23 * COLLINE
+    creux = (1 - 0.36) * neuve + 0.36 * COLLINE
     poser(_ellipses(ells, h, w), creux)
 
     # -- les entailles du creux du champ : des traits fins effilés, jamais sous le bloc des tomes

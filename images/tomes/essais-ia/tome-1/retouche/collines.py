@@ -261,17 +261,18 @@ def _epinette(x, yt, h, rng, K, neige=True):
             cote.extend(map(tuple, _bezier2(A, C1, T, 10)))
             cote.extend(map(tuple, _bezier2(T, C2, Bp, 8)[1:]))
             if neige and rng.random() < 0.85:
-                seg = _bezier2(A, C1, T, 12, rng.uniform(0.12, 0.3), rng.uniform(0.75, 0.97))
-                ep = max(1.3 * K, 0.24 * ht) * rng.uniform(0.85, 1.15)
-                e = ep * np.sin(np.pi * np.linspace(0, 1, len(seg))) ** 0.55
-                hp = seg.copy(); hp[:, 1] -= e * 0.6
-                bp = seg.copy(); bp[:, 1] += e * 0.4
+                seg = _bezier2(A, C1, T, 14, rng.uniform(0.08, 0.22), rng.uniform(0.8, 0.98))
+                ep = max(1.7 * K, 0.3 * ht) * rng.uniform(0.85, 1.15)
+                u = np.linspace(0, 1, len(seg))
+                e = ep * np.sin(np.pi * u) ** 0.5 * (0.75 + 0.25 * u)     # plus chargé vers le bout
+                hp = seg.copy(); hp[:, 1] -= e * 0.55
+                bp = seg.copy(); bp[:, 1] += e * 0.45
                 neiges.append(np.concatenate([hp, bp[::-1]]))
         cote.append((x + s * 0.08 * lg, yt + h + 10 * K))
     sil = np.array(cotes[1] + cotes[-1][::-1])
     if neige:
         s = rng.choice((1, -1))
-        cw = max(0.8 * K, y_cime * 0.22)
+        cw = max(1.0 * K, y_cime * 0.28)
         neiges.append(np.array([(x, yt + 0.3 * K), (x + s * cw, yt + y_cime * 0.95),
                                 (x - s * 0.15 * cw, yt + y_cime * 0.8)]))
     return sil, neiges
@@ -349,8 +350,22 @@ def appliquer(a, K=4):
     if n:
         tailles = ndi.sum(np.ones_like(lab), lab, range(1, n + 1))
         fond = ndi.binary_fill_holes(lab == (1 + int(np.argmax(tailles))))
-    a_fond = _forme(fond, 5 * q)
-    _poser(c, a_fond, FOND)
+    # son haut : une ligne de crête douce ; son pied : la lisière d'un bois sombre, en pointes d'épinettes
+    fx = np.nonzero(fond.any(0))[0]
+    a_fond = np.zeros((h, w), np.float32)
+    if len(fx):
+        ft = ndi.gaussian_filter1d(np.argmax(fond[:, fx], 0).astype(np.float32), 6 * K, mode='nearest')
+        fb = ndi.gaussian_filter1d((h - 1 - np.argmax(fond[::-1, fx], 0)).astype(np.float32), 3 * K, mode='nearest')
+        fm = np.zeros_like(fond)
+        for j, xx in enumerate(fx):
+            if fb[j] - ft[j] > 3 * K:
+                fm[int(round(ft[j])):int(round(fb[j] - 1.5 * K)), xx] = True
+        a_fond = _forme(fm, 2 * q)
+        _poser(c, a_fond, FOND)
+        ep_f = np.maximum(fb - ft, 0)
+        lisiere = _rangee_pointes(fb, fx[0] + 4 * K, fx[-1], fx[0], (3.0 * K, 4.6 * K), (4.0 * K, 9.0 * K),
+                                  (1.8 * K, 2.6 * K), rng, limite=0.4 * ep_f)
+        _poser(c, _raster(lisiere, h, w), CRETE)
 
     # -- les trois taches bleues de l'image : la colline de gauche, celle de droite, la vallée
     blanc = (ndi.gaussian_filter(L, 0.8 * q) > 110) & ~orange

@@ -148,20 +148,21 @@ def _traits(T, Bt, ep, pente, Hh, Wh):
     S0 = 0.04              # un flanc presque plat compte comme éclairé (les traits y penchent à gauche)
 
     # Le champ des directions, une valeur par colonne. Le sens (gauche ou droite) suit les grands flancs seulement
-    # (arête lissée sur 20 unités) : les petites bosses d'une arête ne font pas tourner les traits, et deux traits
-    # voisins restent parallèles.
+    # (arête lissée sur 20 unités) : les petites bosses d'une arête ne font pas tourner les traits. Sur un même flanc,
+    # tous les traits ont le même angle : ils restent parallèles du haut au bas, au même pas. Ils ne tournent qu'au
+    # sommet, en éventail.
     pente20 = np.gradient(ndimage.gaussian_filter1d(T, 20 * U, mode='nearest'))
     a20 = np.degrees(np.arctan(np.abs(pente20)))
     a_loc = np.degrees(np.arctan(np.abs(np.gradient(ndimage.gaussian_filter1d(T, 3 * U, mode='nearest')))))
-    a_loc = ndimage.maximum_filter1d(a_loc, 30 * U + 1)
-    # le trait est toujours plus raide que l'arête, sinon il ressort par-dessus la neige ; l'angle varie lentement le
-    # long d'un flanc, pour que les traits restent parallèles
-    mag = np.maximum(np.minimum(PENCHE + 0.3 * a20, 90 - np.maximum(a20, a_loc) - 20), 10)
-    mag = ndimage.gaussian_filter1d(mag, 10 * U, mode='nearest')
-    th = np.tanh((S0 - pente20) / 0.05)
+    signe = np.where(S0 - pente20 > 0, -1.0, 1.0)           # -1 : face éclairée, le trait penche à gauche
+    mag = np.zeros(W)
+    for seg in np.split(np.arange(W), np.nonzero(np.diff(signe))[0] + 1):
+        # plus penché sur un flanc raide, mais toujours plus raide que l'arête (sinon le trait ressort par la neige)
+        raide = 90 - np.percentile(np.maximum(a20[seg], a_loc[seg]), 85) - 20
+        mag[seg] = max(min(PENCHE + 0.3 * float(np.median(a20[seg])), raide), 10)
     # sur le flanc à l'ombre, le trait descend plus droit : il va chercher le pied au lieu de longer la neige
-    alpha = -th * np.radians(mag) * np.where(th > 0, 1.0, OMBRE_RAIDE)
-    alpha = ndimage.gaussian_filter1d(alpha, 8 * U, mode='nearest')     # l'éventail sous un sommet
+    alpha = signe * np.radians(mag) * np.where(signe < 0, 1.0, OMBRE_RAIDE)
+    alpha = ndimage.gaussian_filter1d(alpha, 4 * U, mode='nearest')     # l'éventail sous un sommet
     ecl_x = 0.5 * (1 + np.tanh((S0 - pente20) / 0.03))   # 1 sur la face éclairée, 0 sur le flanc à l'ombre
 
     def angle(x):          # depuis la verticale ; négatif = le trait descend vers la gauche
@@ -216,17 +217,21 @@ def _traits(T, Bt, ep, pente, Hh, Wh):
 
     # La face éclairée d'abord, le flanc à l'ombre ensuite : c'est l'ombre qui cède quand deux traits se rapprochent.
     ordre = [d for d in departs if d[2] >= 0.5] + [d for d in departs if d[2] < 0.5]
-    for (x0, al, ecl, k) in ordre:
-        ombre = ecl < 0.5
-        epx = float(np.interp(x0, xs, ep))
-        y0 = Tx(x0) + epx * 0.7            # le départ, sous la neige (la neige recouvre l'attaque)
+    jour = JOUR * U
+
+    def encre_en(px, py):
+        iy = np.clip(np.round(py).astype(int), 0, encre.shape[0] - 1)
+        ix = np.clip(np.round(px).astype(int) + MARGE, 0, encre.shape[1] - 1)
+        return encre[iy, ix]
+
+    def tracer(x0, y0, al, w0, frac_voulue, entree, attaque):
+        """Un trait : l'axe depuis (x0, y0) dans la direction al, jusqu'au pied (ou à l'encre d'un voisin), une
+        part frac_voulue de cette longueur, plein puis effilé ; entree > 0 effile aussi le départ (un trait qui naît
+        au milieu du flanc) ; attaque > 0 le remonte dans la neige. Rend False si le trait ne se pose pas."""
         courbe = -math.copysign(math.radians(4.0), al)    # une légère courbe vers la verticale, la même pour tous
-        w0 = LARG * U * (0.9 if ombre else 1.0) * (0.95 + 0.10 * rng.random())
-        dem = w0 / 2 + JOUR * U
-        pts = [(x0, y0)]
+        pts, dirs = [(x0, y0)], [(math.sin(al), math.cos(al))]
         xx, yy = x0, y0
         i = 0
-        bloque = False
         while True:
             a2 = al + courbe * min(1.0, i / (40.0 * U))
             sx, sy = math.sin(a2), math.cos(a2)
@@ -235,38 +240,66 @@ def _traits(T, Bt, ep, pente, Hh, Wh):
             i += 1
             if xx < -MARGE or xx >= W + MARGE - 1 or yy > Bx(xx) + 0.5 * U or yy < Tx(xx) + 0.3 * U:
                 break
-            if not (libre(xx, yy) and libre(xx + sy * dem, yy - sx * dem) and libre(xx - sy * dem, yy + sx * dem)):
-                bloque = True
+            if i > 2 and not libre(xx, yy):
                 break
             pts.append((xx, yy))
-        dispo = len(pts) - 1
+            dirs.append((sx, sy))
+        P = np.array(pts)
+        D = np.array(dirs)
+        Nn = np.stack([-D[:, 1], D[:, 0]], 1)
+        # la place libre de chaque côté de l'axe, sondée au demi-pixel : un trait qui s'approche d'un voisin s'amincit
+        # pour garder le jour entre les deux, au lieu de s'y coller ou de s'arrêter net
+        ks = np.arange(0.5, w0 / 2 + jour + 1.0, 0.5)
+        place = []
+        for sgn in (1, -1):
+            hit = encre_en(P[:, None, 0] + sgn * Nn[:, None, 0] * ks[None, :],
+                           P[:, None, 1] + sgn * Nn[:, None, 1] * ks[None, :])
+            premier = np.where(hit.any(1), ks[np.argmax(hit, 1)], ks[-1] + 1.0)
+            place.append(premier - jour - 0.5)
+        place_g, place_d = place
+        etroit = np.nonzero((place_g + place_d < 1.5) & (np.arange(len(P)) > 2))[0]
+        bloque = len(etroit) > 0
+        if bloque:
+            n0 = etroit[0]
+            P, Nn, place_g, place_d = P[:n0], Nn[:n0], place_g[:n0], place_d[:n0]
+        dispo = len(P) - 1
         if dispo < 3.5 * U:
-            continue                       # un bout de trait trop court ferait une dent
-        f_ecl = 0.95 + 0.05 * rng.random()
-        f_omb = 0.80 + 0.15 * rng.random()
-        frac = 1.0 if bloque else ecl * f_ecl + (1 - ecl) * f_omb
-        pts = pts[:max(int(dispo * frac), int(3.5 * U)) + 1]
-        ln = len(pts) - 1
-        # un trait court est aussi plus fin (une petite entaille, pas une dent)
-        w0 = min(w0, 0.4 * ln)
+            return False                   # un bout de trait trop court ferait une dent
+        frac = 1.0 if bloque else frac_voulue
+        n_pts = max(int(dispo * frac), int(3.5 * U)) + 1
+        P, Nn, place_g, place_d = P[:n_pts], Nn[:n_pts], place_g[:n_pts], place_d[:n_pts]
+        ln = len(P) - 1
+        w0 = min(w0, 0.4 * ln)             # un trait court est aussi plus fin (une petite entaille, pas une dent)
         # plein, puis effilé : la largeur tombe sans cassure jusqu'à une pointe (la gouge qui sort du bois) ; la pointe
         # est longue d'au moins trois largeurs, même sur un trait court
         l_eff = max((1 - PLEIN) * ln, min(0.85 * ln, 3.0 * w0))
-        g, d = [], []
-        for j, (px, py) in enumerate(pts):
-            t = max(0.0, (j - (ln - l_eff)) / l_eff)
-            w = w0 * (1 - t ** 1.8)
-            j0, j1 = max(0, j - 1), min(ln, j + 1)
-            tx, ty = pts[j1][0] - pts[j0][0], pts[j1][1] - pts[j0][1]
-            nn = math.hypot(tx, ty) or 1.0
-            nx, ny = -ty / nn, tx / nn
-            g.append((px + nx * w / 2, py + ny * w / 2))
-            d.append((px - nx * w / 2, py - ny * w / 2))
-        # l'attaque remonte dans la neige : le trait part de l'arête, sans jour
-        hx, hy = -math.sin(al) * epx * 0.9, -math.cos(al) * epx * 0.9
-        poly = [(g[0][0] + hx, g[0][1] + hy)] + g + d[::-1] + [(d[0][0] + hx, d[0][1] + hy)]
+        jj = np.arange(ln + 1)
+        t = np.clip((jj - (ln - l_eff)) / l_eff, 0, 1)
+        demi = w0 * (1 - t ** 1.8) / 2
+        if entree > 0:
+            l_in = entree * ln
+            demi = demi * (1 - np.clip(1 - jj / l_in, 0, 1) ** 1.8)
+        hg = np.minimum(demi, np.maximum(ndimage.minimum_filter1d(place_g, 5), 0))
+        hd = np.minimum(demi, np.maximum(ndimage.minimum_filter1d(place_d, 5), 0))
+        hg = np.minimum(ndimage.gaussian_filter1d(hg, 2.0), np.maximum(place_g, 0))
+        hd = np.minimum(ndimage.gaussian_filter1d(hd, 2.0), np.maximum(place_d, 0))
+        g = P + Nn * hg[:, None]
+        d = P - Nn * hd[:, None]
+        poly = [tuple(q) for q in g] + [tuple(q) for q in d[::-1]]
+        if attaque > 0:                    # l'attaque remonte dans la neige : le trait part de l'arête, sans jour
+            hx, hy = -math.sin(al) * attaque, -math.cos(al) * attaque
+            poly = [(g[0][0] + hx, g[0][1] + hy)] + poly + [(d[0][0] + hx, d[0][1] + hy)]
         dessin.polygon([(px * S, py * S) for px, py in poly], fill=255)
         poser(poly)
+        return True
+
+    for (x0, al, ecl, k) in ordre:
+        ombre = ecl < 0.5
+        epx = float(np.interp(x0, xs, ep))
+        w0 = LARG * U * (0.9 if ombre else 1.0) * (0.95 + 0.10 * rng.random())
+        frac = ecl * (0.95 + 0.05 * rng.random()) + (1 - ecl) * (0.80 + 0.15 * rng.random())
+        tracer(x0, Tx(x0) + epx * 0.7, al, w0, frac, 0.0, epx * 0.9)
+
     return np.asarray(img) > 127
 
 
