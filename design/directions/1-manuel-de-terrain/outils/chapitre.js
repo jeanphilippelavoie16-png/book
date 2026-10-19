@@ -61,8 +61,8 @@ function orPages(){   // les planches de l'orange : pleine page sur leur propre 
 // JAMAIS AU TRAVERS DU TEXTE (JP, 19 octobre 2026 : « les encadrés verts JAMAIS au travers du texte, c'est du
 // remplissage quand il reste de la place dans la page ») : une note se pose seulement dans un trou, à la fin du texte de
 // la page, après son dernier paragraphe ; jamais entre deux paragraphes, et jamais dans le fil (la mise en pages ne
-// pousse pas le texte pour elle). Une note qui ne trouve pas de trou près de son étape ne s'imprime pas : c'est de
-// l'extra. (Le fil, INLINE et attenteNotes, du matin du 19 octobre, ne sert plus : INLINE reste vide.)
+// pousse pas le texte pour elle). Une note qui ne trouve pas de trou près de son étape va dans un autre trou du
+// chapitre (le bas de la dernière page compris) ; sans trou, elle ne s'imprime pas : c'est de l'extra. (Le fil, INLINE et attenteNotes, du matin du 19 octobre, ne sert plus : INLINE reste vide.)
 const NOTE_PLACES = [];
 // tout ce qui s'imprime reste dans le bloc : les cadres, leurs enfants et les notes de bas de page, même dans l'enveloppe
 // de la variante d'urgence, qui garde sa hauteur quand son contenu déborde (p12-25 : la note de bas de page, poussée par
@@ -163,15 +163,17 @@ function placerNotes(){
     pos.set(p, s.length ? s : [vu]); if(s.length) vu = Math.max(vu, ...s);
   });
   const idx = c => PAGES.indexOf(c.p);
-  // un trou ne reçoit une note que près de son étape : sur la page de l'étape, ou à deux pages de texte au plus (les
-  // planches et le logigramme ne comptent pas) ; plus loin, la note ne s'imprime pas (JP : « près de l'étape qu'elles
-  // nomment »)
+  // une note va d'abord dans un trou près de son étape : sur la page de l'étape, ou à deux pages de texte au plus (les
+  // planches et le logigramme ne comptent pas ; JP : « près de l'étape qu'elles nomment »). Faute de trou près de son
+  // étape, elle va dans un autre trou du chapitre, celui du bas de la dernière page compris (JP, 19 octobre 2026, sur le
+  // bas de la dernière page du ch. 5 : « ça c'est des belles places pour mettre des encadrés verts »). Elle nomme son
+  // étape : on la retrouve.
   const TX = PAGES.filter(p => p.kind === 'text' || p.kind === 'open');
-  NOTE_PLACES.forEach(c => { c.tient = c.tient.filter(x => {
-    const e = renvois(x); if(!e.length) return true;
+  NOTE_PLACES.forEach(c => { c.loin = new Set(c.tient.filter(x => {
+    const e = renvois(x); if(!e.length) return false;
     const pe = TX.map((p, i) => [...p.bl.querySelectorAll('.sn')].some(s => e.includes(+s.textContent)) ? i : -1).filter(i => i >= 0);
-    return !pe.length || Math.min(...pe.map(i => Math.abs(i - TX.indexOf(c.p)))) <= 2;
-  }); });
+    return pe.length && Math.min(...pe.map(i => Math.abs(i - TX.indexOf(c.p)))) > 2;
+  })); });
   const choix = [];                      // [note, page]
   // les notes du fil comptent dans l'écart : les notes posées dans les trous se tiennent loin d'elles aussi
   const fil = PAGES.map((p, i) => aUneNote(p) ? i : -1).filter(i => i >= 0);
@@ -179,7 +181,8 @@ function placerNotes(){
   const cout = (x, c) => {
     const e = renvois(x), g = ecart(c);
     const pres = e.length ? Math.min(...e.map(a => Math.min(...pos.get(c.p).map(s => Math.abs(a - s))))) : 12 - Math.min(g, 10);
-    return pres + (g < 3 ? 60 : 0);      // deux notes ont au moins deux pages entre elles quand c'est possible
+    // deux notes ont au moins deux pages entre elles quand c'est possible ; un trou loin de l'étape vient en dernier
+    return pres + (g < 3 ? 60 : 0) + (c.loin.has(x) ? 200 : 0);
   };
   // d'abord placer le plus de notes possible, puis les mettre au meilleur endroit : chaque choix doit laisser assez de
   // pages pour les notes qui restent (couplage maximal, par chemins augmentants)
@@ -205,26 +208,34 @@ function placerNotes(){
     const bon = paires.find(([, x, c]) => couplage(libres.filter(n => n !== x), new Set([...pris, c])) === M - 1);
     choix.push([bon[1], bon[2]]);
   }
-  choix.sort((a, b) => idx(a[1]) - idx(b[1])).forEach(([x, c]) => {
+  // la note va à la fin du texte de la page, dans le trou : jamais entre deux paragraphes (JP, 19 octobre 2026)
+  const poser = (x, c) => {
+    const avant = c.fr.querySelector('.extra');
     if(c.ouvert) c.fr.classList.add('auto');
-    // la note va à la fin du texte de la page, dans le trou : jamais entre deux paragraphes (JP, 19 octobre 2026)
     c.fr.appendChild(x);
     const ok = () => {
       const b = c.p.bl.getBoundingClientRect().bottom + 0.5;
       return !OVER(c.fr) && x.getBoundingClientRect().bottom <= b && [...c.fr.children].every(e => e.getBoundingClientRect().bottom <= b)
         && c.p.bl.lastElementChild.getBoundingClientRect().bottom <= b && dansLeBloc(c.p);
     };
-    if(!ok()){ c.fr.removeChild(x); if(c.ouvert) c.fr.classList.remove('auto'); return; }
+    const non = () => { c.fr.removeChild(x); if(c.ouvert && !avant) c.fr.classList.remove('auto'); return false; };
+    if(!ok()) return non();
     // la note qui ouvre la deuxième colonne : sa marge du haut tombe à la coupure de colonne, et le haut du « i » à cheval
     // sur son coin passait au bas de la première colonne (un demi-rond vert sous le texte, le « i » coupé ; p02-2 et
     // p12-2, 19 octobre 2026). Une cale d'un pixel ouvre la colonne : la marge reste, le « i » tient dans sa colonne.
     const fb = c.fr.getBoundingClientRect(), xb = x.getBoundingClientRect();
     if(xb.left > fb.left + fb.width / 3 && xb.top - fb.top < 6){
       const cale = document.createElement('div'); cale.className = 'extra-cale'; c.fr.insertBefore(cale, x);
-      if(!ok()){ c.fr.removeChild(cale); c.fr.removeChild(x); if(c.ouvert) c.fr.classList.remove('auto'); return; }
+      if(!ok()){ c.fr.removeChild(cale); return non(); }
     }
     EXTRAS.splice(EXTRAS.indexOf(x), 1);
-  });
+    return true;
+  };
+  choix.sort((a, b) => idx(a[1]) - idx(b[1])).forEach(([x, c]) => poser(x, c));
+  // le bas de la dernière page du chapitre prend plusieurs notes, l'une sous l'autre, tant qu'elles tiennent (JP, 19
+  // octobre 2026, sur le bas de la dernière page du ch. 5 : « ça c'est des belles places pour mettre des encadrés verts »)
+  const fin = NOTE_PLACES.find(c => c.p === TX[TX.length - 1]);
+  if(fin) [...EXTRAS].forEach(x => poser(x, fin));
 }
 function nextPage(){
   fillExtras(P);
@@ -855,7 +866,7 @@ Promise.all(faces.map(f => document.fonts.load(f, 'aéÀ§«»—'))).then(() =>
   };
   // les notes vont dans les trous seulement ; celles qui n'en trouvent pas ne s'impriment pas (JP, 19 octobre 2026)
   mettreEnPages();
-  EXTRAS.forEach(x => WARN.push('encadré « En plus » pas imprimé, aucun trou près de son étape : ' + ((x.querySelector('.xtit') || {}).textContent || '')));
+  EXTRAS.forEach(x => WARN.push('encadré « En plus » pas imprimé, aucun trou dans le chapitre : ' + ((x.querySelector('.xtit') || {}).textContent || '')));
   veuves();
   finishPages(); edges(); orienteAppels(); checks();
   // où chaque note s'est posée : page, étapes de la page, l'étape et l'intertitre qui la précèdent, dans un trou ou dans

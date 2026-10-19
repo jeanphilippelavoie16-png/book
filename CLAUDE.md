@@ -202,7 +202,8 @@ chapitre, le pictogramme s'affiche dans l'étape où le danger se présente (`{!
 contrôle, 6 Signes d'échec, 7 Variante d'urgence. Tome 1 d'abord, puis les tomes 2 à 6. Après la section 7, une section non numérotée **« En plus »** garde des encadrés vert pâle (la façon des Innus, une
 photo pour reconnaître, un petit dessin) que la mise en pages pose dans les trous des pages (JP, 18 octobre 2026),
 **jamais au travers du texte** : c'est du remplissage quand il reste de la place dans la page, à la fin du texte de
-cette page, jamais entre deux paragraphes (JP, 19 octobre 2026) ;
+cette page, jamais entre deux paragraphes (JP, 19 octobre 2026) ; faute de trou près de son étape, elle va dans un
+autre trou du chapitre, et le bas de la dernière page en prend plusieurs (JP, même jour : « ça c'est des belles places ») ;
 c'est de l'extra, jamais ce que le geste exige. Un mécanisme qui apprend quelque chose va dans l'étape qu'il
 explique. La migration des 113 chapitres se fait à la grande passe (`suivi/plan-de-match.md`, point 21).
 Un chapitre de référence (listes, tableaux) peut remplacer la procédure numérotée par

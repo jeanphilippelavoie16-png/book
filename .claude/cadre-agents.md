@@ -60,7 +60,9 @@ L'urgence
   plus de notes possible, met chacune sur la page de l'étape dont elle parle ou la plus proche. **Jamais au travers du
   texte** (JP, 19 octobre 2026 : « les encadrés verts JAMAIS au travers du texte, c'est du remplissage quand il reste
   de la place dans la page ») : la note va dans le trou, à la fin du texte de la page, jamais entre deux paragraphes,
-  et la mise en pages ne pousse jamais le texte pour elle. Un **« i » blanc dans une petite bulle verte**, à cheval sur le coin en haut à gauche de chaque note (`XICO` de
+  et la mise en pages ne pousse jamais le texte pour elle. Faute de trou près de son étape, la note va dans un autre
+  trou du chapitre, et le bas de la dernière page en prend plusieurs, l'une sous l'autre (JP, 19 octobre 2026, sur le
+  bas de la dernière page du ch. 5 : « ça c'est des belles places pour mettre des encadrés verts »). Un **« i » blanc dans une petite bulle verte**, à cheval sur le coin en haut à gauche de chaque note (`XICO` de
   `build_chapitre.py`, `.extra .xico` de `chapitre.css` ; JP : « le i genre dans une petite bulle par-dessus notre bulle,
   en haut à gauche »), dit que c'est une note d'information ; il est expliqué sur la page « Comment le livre fonctionne » (JP, 19 octobre
   2026). Une note dit son étape entre parenthèses quand elle en a une (« (étape 29) »). Une réserve de **4 à 8** par chapitre ; une note qui ne trouve pas de page ne
