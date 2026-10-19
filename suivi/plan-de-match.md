@@ -22,6 +22,9 @@ Coût indicatif en tokens : un chapitre neuf complet ≈ 1 M ; une planche dessi
   couvertures (`build_couvertures_6.py`), `plan/tomes-6-proposition.md`. Le nom de fichier ne change pas. À la grande
   passe des tomes 2 à 6 : les « enfants de 4 et 6 ans » d'une trentaine de chapitres deviennent « de jeunes enfants »,
   sauf là où l'âge change le geste (une dose, un seuil) (CLAUDE.md, « Un livre ouvert »).
+- **Réponses de JP aux points du vérificateur** : le vent du ch. 13 (20 km/h, sourcé SOPFEU) **reste** ; la balance au
+  gramme va **au chalet**, avec le sel ; « **une famille de quatre** », comme exemple, vaut pour tout le livre (grande
+  passe des tomes 2 à 6 ; règle dans le skill `ecriture` et le cadre).
 - **Les encadrés verts JAMAIS au travers du texte** (JP : « c'est du remplissage quand il reste de la place dans la
   page ») : `chapitre.js` ne les pose plus que dans les trous, à la fin du texte de la page ; une note sans trou près
   de son étape ne s'imprime pas (ch. 04 : une note sur quatre). Règle dans CLAUDE.md et le cadre.

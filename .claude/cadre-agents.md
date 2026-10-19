@@ -137,6 +137,9 @@ Le cadre complet est `.claude/skills/planches/references/brief-agent.md`. En bre
   « dans l'image le bonhomme est plus petit mais il gardait la même grosseur de bottes »). On prend l'échelle sur le
   corps rendu (le tibia, du genou à la cheville), pas sur l'échelle de la vue : voir `echelleBotte` de
   `images/planches-src/04-40.js`. Regarder chaque vignette de près, à la taille d'impression.
+- [ ] **Un livre ouvert** (JP, 19 octobre 2026) : pas l'âge des enfants de JP (« de jeunes enfants », sauf un âge qui
+  change le geste) ; un calcul fait pour sa famille se dit « pour une famille de quatre », comme un exemple, mêmes
+  chiffres. Vaut pour tout le livre (grande passe des tomes 2 à 6).
 - [ ] **Une matière se reconnaît à sa vraie fibre** (JP, 19 octobre 2026, planche 13-10 : « la laine d'acier, on dirait du
   poil de pubis ») : la laine d'acier, ce sont des fibres de métal longues et presque droites, croisées en couches, avec du
   jour au travers ; jamais des boucles ni des frisettes. Avant de poser une matière (laine d'acier, poil, herbe, copeaux,

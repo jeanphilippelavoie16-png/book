@@ -300,7 +300,9 @@ lecture à voix haute.
 - [ ] Zéro tiret de ponctuation.
 - [ ] Chaque fait dit une seule fois ; les redites signalées par le script sont réglées.
 - [ ] Zéro « village », zéro « char » (on écrit « auto »), zéro « Baie-Comeau », zéro « JP », pas l'âge
-      des enfants de JP (« de jeunes enfants ») ; un âge qui est un fait (dose, seuil) reste.
+      des enfants de JP (« de jeunes enfants ») ; un âge qui est un fait (dose, seuil) reste. Un calcul fait pour la
+      famille de JP se dit « pour une famille de quatre », comme un exemple, avec les mêmes chiffres (JP, 19 octobre
+      2026 : « oui, c'est bon », pour tout le livre).
 - [ ] Le contrôle des invariants ne signale rien d'inexpliqué.
 - [ ] Les ancres de planches sont intactes, et chaque planche est appelée dans le texte (« planche NN-NN »).
 - [ ] Aucun chiffre nouveau sans source enregistrée dans `/sources`.
