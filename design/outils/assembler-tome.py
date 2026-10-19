@@ -1,15 +1,18 @@
 # -*- coding: utf-8 -*-
-"""Assemble un tome entier en un PDF intérieur prêt pour Blurb (livre photo « 20 × 25 cm »,
-Standard Portrait 8 × 10 po, téléversé par PDF to Book).
+"""Assemble un tome entier en un PDF intérieur prêt pour l'imprimeur : Lulu, Print Book, US Letter 8,5 × 11 po,
+couverture rigide Case Wrap (choix de JP, 19 octobre 2026 ; sources/lulu-specifications.md), ou Blurb, livre photo
+Standard Portrait 8 × 10 po (--format blurb-8x10 ; sources/blurb-specifications.md).
 
     python design/outils/assembler-tome.py 6
     python design/outils/assembler-tome.py 6 --chapitres 102,103      (essai sur quelques chapitres)
 
 Options :
+    --format lulu-letter|blurb-8x10   format d'impression (défaut : lulu-letter ; build_chapitre.py, FORMATS)
     --recto                un chapitre ouvre toujours à droite, avec une page blanche devant au besoin
                            (par défaut depuis le 18 octobre 2026 : un chapitre peut ouvrir à gauche)
-    --couverture souple|imagewrap|jaquette   type de couverture pour la tranche (défaut : souple)
-    --hors-ligne           ne pas interroger le calculateur de Blurb pour la tranche
+    --couverture souple|imagewrap|jaquette   Blurb : type de couverture pour la tranche (défaut : souple) ;
+                           Lulu : couverture rigide Case Wrap, tranche lue au tableau du guide de Lulu
+    --hors-ligne           Blurb : ne pas interroger le calculateur pour la tranche
     --sans-apercus         pas de PNG de contrôle
     --refaire              ignorer le travail déjà fait (cache de livre/tome-N/travail/)
     --placements FICHIER   placements supplémentaires, priorité sur tout le reste (pour un essai)
@@ -47,6 +50,9 @@ Placements : design/epreuves-livre/placements.json, puis placements-tome-N.json 
 élément par élément : planche par « id », photo par « fichier »), puis --placements. Une planche marquée
 « poser »: false n'est pas posée, même à valider (34-01).
 
+Exigences de Lulu : sources/lulu-specifications.md (page 8,75 × 11,25 po, fond perdu de 0,125 po sur les quatre
+côtés ; zone sûre de 0,5 po pour tout ce qui compte, numéros de page compris ; marge intérieure recommandée de 1 po
+de 151 à 400 pages ; 24 à 800 pages en Case Wrap ; polices incorporées ; transparence aplatie).
 Exigences de Blurb : sources/blurb-specifications.md (page 8,125 × 10,25 po avec fond perdu en tête,
 en pied et au bord extérieur ; nombre de pages pair, 20 à 440 en papier Standard ; polices incorporées).
 """
@@ -69,16 +75,45 @@ bc = v.bc                     # build_chapitre.py : moteur, table des tomes, Edg
 import pypdf                                   # noqa: E402
 from pypdf.generic import RectangleObject      # noqa: E402
 
-# ------------------------------------------------------------------ Blurb (sources/blurb-specifications.md)
+# ------------------------------------------------------------------ format d'impression
+# La grille (CSS) et les boîtes du PDF viennent de build_chapitre.py (FORMATS, boites) ; ici, ce que l'imprimeur
+# exige du fichier, pour le contrôle du rapport. regler_format() pose les valeurs du format choisi.
 PT = 72
-PAGE_W, PAGE_H = 585, 738          # 8,125 × 10,25 po : « Final, exported PDF should measure »
-TRIM_W, TRIM_H = 576, 720          # 8,0 × 10,0 po
-BLEED = 9                          # 0,125 po, en tête, en pied et au bord extérieur seulement
-SAFE_OUT = 18                      # 0,25 po : tête, pied, bord extérieur
-SAFE_BIND = 36                     # 0,5 po au petit fond (tableau du calculateur ; son texte dit 0,625)
-PAGES_MIN, PAGES_MAX, MULTIPLE = 20, 440, 2   # papier Standard ; « Even number of pages »
+IMPRIMEURS = {
+    # sources/lulu-specifications.md : 24 à 800 pages en Case Wrap (« Book Sizes ») ; le nombre pair est un choix du
+    # livre (la dernière page est une page de gauche), pas une exigence de Lulu
+    "lulu-letter": dict(imprimeur="Lulu", source="sources/lulu-specifications.md", releve="19 octobre 2026",
+                        pages_min=24, pages_max=800, sur=36, rel=72),   # zone sûre 0,5 po ; petit fond 1 po
+    # sources/blurb-specifications.md : « Even number of pages », 20 à 440 en papier Standard ; zone sûre 0,25 po,
+    # 0,5 po au petit fond (tableau du calculateur ; son texte dit 0,625)
+    "blurb-8x10": dict(imprimeur="Blurb", source="sources/blurb-specifications.md", releve="27 septembre 2026",
+                       pages_min=20, pages_max=440, sur=18, rel=36),
+}
+MULTIPLE = 2
+
+def regler_format(nom):
+    global PAGE_W, PAGE_H, PAGES_MIN, PAGES_MAX, IMP
+    bc.FORMAT = nom
+    PAGE_W, PAGE_H = bc.fmt()["page_pt"]
+    IMP = IMPRIMEURS[nom]
+    PAGES_MIN, PAGES_MAX = IMP["pages_min"], IMP["pages_max"]
+
 CALC_URL = "https://www.blurb.com/make/pdf_to_book/booksize_calculator"
 COUVERTURES = {"souple": "softcover", "imagewrap": "lithowrap", "jaquette": "hardcover"}
+# Lulu, couverture rigide : la tranche se lit au tableau du guide (p. 14), par paliers de pages
+# (sources/lulu-specifications.md, §3) : (dernière page du palier, tranche en po)
+TRANCHE_LULU_RIGIDE = [(84, "0.25"), (140, "0.5"), (168, "0.625"), (194, "0.688"), (222, "0.75"), (250, "0.813"),
+                       (278, "0.875"), (306, "0.938"), (334, "1"), (360, "1.063"), (388, "1.125"), (416, "1.188"),
+                       (444, "1.25"), (472, "1.313"), (500, "1.375"), (528, "1.438"), (556, "1.5"), (582, "1.563"),
+                       (610, "1.625"), (638, "1.688"), (666, "1.75"), (694, "1.813"), (722, "1.875"), (750, "1.938"),
+                       (778, "2"), (799, "2.063"), (800, "2.125")]
+
+def tranche_lulu(pages):
+    if pages < 24:
+        return None
+    return next((t for fin, t in TRANCHE_LULU_RIGIDE if pages <= fin), None)
+
+regler_format(bc.FORMAT)
 
 EPR = os.path.join(ROOT, "design", "epreuves-livre")
 
@@ -142,14 +177,16 @@ SIDE_NEW = "const n = PAGES.length + 1, side = (n + TOME.par) % 2 ? 'recto' : 'v
 FIN_OLD = "function finishPages(){"
 FIN_NEW = ("function finishPages(){\n  document.querySelectorAll('.pnum').forEach(s => { const n = TOME.dg[s.dataset.pg]; if(n) s.textContent = 'p. ' + n; });\n  if(TOME.off !== null) PAGES.forEach(p => { if(p.kind === 'open') return;"
            " const f = document.createElement('div'); f.className = 'fcont'; f.textContent = TOME.off + p.n; p.el.appendChild(f); });")
-# numéro de page du tome : en pied, à la hauteur de l'échelle des sections, dans la marge extérieure,
-# entre le bloc (0,5 po du rognage) et la limite sûre de Blurb (0,25 po du rognage)
+# numéro de page du tome : en pied, à la hauteur de l'échelle des sections, au bord extérieur. Blurb : dans la marge
+# extérieure, entre le bloc (0,5 po du rognage) et la limite sûre (0,25 po). Lulu : la marge extérieure est la zone
+# sûre (0,5 po, « page numbers » compris) ; le numéro entre dans la largeur du bloc, au bout du pied, que le format
+# raccourcit d'autant (build_chapitre.py, FORMATS : fc-r, fc-v, ft-r, ft-v, ftw)
 FCONT_CSS = """
 /* assembler-tome.py : numéro de page continu du tome */
-.fcont{position:absolute;top:9.52in;height:0.2in;width:0.2in;display:flex;align-items:center;
+.fcont{position:absolute;top:var(--ftt);height:0.2in;width:0.2in;display:flex;align-items:center;
   font:600 8pt/1 var(--sans);letter-spacing:.01em;color:var(--k70);white-space:nowrap;font-variant-numeric:lining-nums tabular-nums}
-.recto .fcont{left:7.565in;justify-content:flex-start}
-.verso .fcont{left:0.36in;justify-content:flex-end}
+.recto .fcont{left:var(--fc-r);justify-content:var(--fc-jr)}
+.verso .fcont{left:var(--fc-v);justify-content:var(--fc-jv)}
 """
 FOLIO_SECOURS_JS = r"""<script>
 (function(){
@@ -270,11 +307,13 @@ def pdf_args(page_url, cible):
     return ["--no-pdf-header-footer", "--print-to-pdf-no-header", f"--print-to-pdf={cible}", page_url]
 
 def png_args(page_url, cible):
-    return ["--force-device-scale-factor=2", "--window-size=768,960", f"--screenshot={cible}", page_url]
+    return ["--force-device-scale-factor=2", "--window-size=%d,%d" % bc.fmt()["px"], f"--screenshot={cible}", page_url]
 
 def lire_rapport(pdf):
-    txt = "".join((pg.extract_text() or "") for pg in pypdf.PdfReader(pdf).pages)
-    m = re.search(r"@@(.*?)@@", txt, re.S)
+    # le texte du rapport revient coupé en lignes, parfois au milieu du « @@ » de fin (ch. 16, 19 octobre 2026) :
+    # le base64 n'a pas de blanc, on les enlève tous avant de chercher
+    txt = re.sub(r"\s+", "", "".join((pg.extract_text() or "") for pg in pypdf.PdfReader(pdf).pages))
+    m = re.search(r"@@(.*?)@@", txt)
     if not m:
         return None
     try:
@@ -407,21 +446,22 @@ def tranche_blurb(pages, couverture):
 # ------------------------------------------------------------------ pages hors chapitres (titre, sommaire, crédits)
 ANNEXE_CSS = """
 /* assembler-tome.py : page de titre, sommaire, crédits */
-/* page de titre : l'affiche du Nord, la nuit d'hiver (JP, 18 octobre 2026, plan de match point 30). La scène
-   (images/tomes/titre-tome-N.svg) est en px de la page rognée, 768 × 960 (8 × 10 po) ; ce qui dépasse à droite et
-   en bas tombe dans le fond perdu. Le texte se pose sur le même repère. */
+/* page de titre : l'affiche du Nord, la nuit d'hiver (JP, 18 octobre 2026, plan de match point 30). L'image couvre la
+   page entière, fond perdu compris. Le texte se pose sur le repère de la page rognée (.tp-sc : 768 × 960 px en Blurb,
+   816 × 1056 px chez Lulu), à 0,5 po au moins du rognage chez Lulu et à 1 po du petit fond (--tp-g ; FORMATS de
+   build_chapitre.py). L'ancienne scène dessinée (images/tomes/titre-tome-N.svg) est en px de la page Blurb. */
 .page.tp{background:#15222B}
-.tp-sc{position:absolute;left:0;top:0.125in;width:768px;height:960px;font-family:"Barlow Condensed",var(--sans)}
+.tp-sc{position:absolute;left:var(--tp-x);top:var(--tp-y);width:var(--tp-w);height:var(--tp-h);font-family:"Barlow Condensed",var(--sans)}
 .tp-sc>svg{position:absolute;left:0;top:0;overflow:visible}
-.tp-img{position:absolute;left:0;top:0;width:8.125in;height:10.25in;object-fit:cover;object-position:center top;display:block}
-.tp-head{position:absolute;left:56px;right:56px;top:52px;display:flex;justify-content:space-between;padding-bottom:12px;
+.tp-img{position:absolute;left:0;top:0;width:var(--pw);height:var(--ph);object-fit:cover;object-position:center top;display:block}
+.tp-head{position:absolute;left:var(--tp-g);right:56px;top:52px;display:flex;justify-content:space-between;padding-bottom:12px;
   border-bottom:1px solid #4A6476;color:#E2E7EA;font-weight:600;font-size:16px;letter-spacing:.24em;text-transform:uppercase}
-.tp-haut{position:absolute;left:50px;right:56px;top:104px;display:flex;flex-direction:column;color:#E2E7EA}
+.tp-haut{position:absolute;left:var(--tp-gh);right:56px;top:104px;display:flex;flex-direction:column;color:#E2E7EA}
 .tp-title{margin:0;font-weight:800;font-size:var(--tpt,236px);line-height:.84;letter-spacing:.01em;text-transform:uppercase;hyphens:manual}
 .tp-haut.c .tp-title{align-self:stretch}
 .tp-haut.c .tp-sous{margin-left:0;max-width:480px}
 .tp-sous{margin:26px 0 0 8px;max-width:380px;text-indent:0;font-weight:500;font-size:23px;line-height:1.28;letter-spacing:.01em;color:#B9C7D1}
-.tp-bas{--bas:#15222B;--bas-txt:#fff;position:absolute;left:176px;right:176px;bottom:40px;display:flex;flex-direction:column;gap:12px;color:var(--bas)}
+.tp-bas{--bas:#15222B;--bas-txt:#fff;position:absolute;left:176px;right:176px;bottom:var(--tp-b);display:flex;flex-direction:column;gap:12px;color:var(--bas)}
 .tp-chap{display:flex;justify-content:space-between;font-weight:700;font-size:14px;letter-spacing:.16em;text-transform:uppercase}
 .tp-serie{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:6px;font-weight:600;font-size:10.5px;line-height:1.15;
   letter-spacing:.03em;text-transform:uppercase}
@@ -542,7 +582,7 @@ def pied(page_no, cote):
 def tete_html(titre_doc):
     """<head> des pages hors chapitres : gabarit, chapitre.css, couleur.css, pictogrammes, CSS de l'assembleur."""
     head_tpl = open(os.path.join(os.path.dirname(bc.__file__), "interieur.tpl.html"), encoding="utf-8").read()
-    head = head_tpl[:head_tpl.index("</style>")]
+    head = bc.appliquer_format(head_tpl[:head_tpl.index("</style>")])
     head = re.sub(r"<title>.*?</title>", f"<title>{e(titre_doc)}</title>", head)
     # la page de titre est en Barlow Condensed (direction B, 18 octobre 2026)
     head = head.replace("<style>", '<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&display=block" rel="stylesheet">\n<style>', 1)
@@ -605,16 +645,19 @@ def annexe_html(tome, chaps, plan, work):
         scene = ""
     sous = SOUS_TITRES.get(tome, "")
     fond = f'<img class="tp-img" src="{url(jpg)}" alt="">' if os.path.exists(jpg) else ""
+    # les retraits mesurés sur chaque image (TP_HAUT_MAX, TP_MISE) sont en px de la page Blurb de 10,25 po de haut ;
+    # l'image couvre la hauteur de la page, ils suivent son agrandissement (Lulu : 11,25 / 10,25)
+    k = bc.fmt()["page_pt"][1] / 738
     def mise_haut(t):
         st = []
         if t in TP_ENCRE: st.append(f"color:{TP_ENCRE[t][0]}")
         m = TP_MISE.get(t, {})
-        if m.get("droite"): st.append(f"right:{m['droite']}px")
-        if m.get("centre"): st.append("align-items:center;text-align:center;left:56px")
+        if m.get("droite"): st.append(f"right:{round(m['droite'] * k)}px")
+        if m.get("centre"): st.append("align-items:center;text-align:center;left:var(--tp-g)")
         return f' style="{";".join(st)}"' if st else ""
     pages.append(f'''<section class="page recto tp" id="a-titre">{fond}<div class="tp-sc">{scene}
 <div class="tp-head"{f' style="color:{TP_ENCRE[tome][0]};border-bottom-color:{TP_ENCRE[tome][2]}"' if tome in TP_ENCRE else ""}><span>Le Manuel du Nord</span><span>Tome {tome}</span></div>
-<div class="tp-haut{' c' if TP_MISE.get(tome, {}).get('centre') else ''}"{mise_haut(tome)}{f' data-max="{TP_HAUT_MAX[tome]}"' if tome in TP_HAUT_MAX else ""}><h1 class="tp-title">{e(titre_t)}</h1>{f'<p class="tp-sous"{chr(32) + "style=" + chr(34) + "color:" + (TP_ENCRE[tome][1] if tome in TP_ENCRE else TP_SOUS[tome]) + chr(34) if (tome in TP_ENCRE or tome in TP_SOUS) else ""}>{il(sous)}</p>' if sous else ""}</div>
+<div class="tp-haut{' c' if TP_MISE.get(tome, {}).get('centre') else ''}"{mise_haut(tome)}{f' data-max="{round(TP_HAUT_MAX[tome] * k)}"' if tome in TP_HAUT_MAX else ""}><h1 class="tp-title">{e(titre_t)}</h1>{f'<p class="tp-sous"{chr(32) + "style=" + chr(34) + "color:" + (TP_ENCRE[tome][1] if tome in TP_ENCRE else TP_SOUS[tome]) + chr(34) if (tome in TP_ENCRE or tome in TP_SOUS) else ""}>{il(sous)}</p>' if sous else ""}</div>
 <div class="tp-bas"{f' style="background:{TP_BAS_FOND[tome]};padding:9px 12px 8px;margin:0 -12px"' if tome in TP_BAS_FOND else (f' style="--bas:{TP_BAS_ENCRE[tome][0]};--bas-txt:{TP_BAS_ENCRE[tome][1]}"' if tome in TP_BAS_ENCRE else "")}><div class="tp-chap"><span>{f"Chapitres {aff(premier)} à {aff(dernier)}" if nb > 1 else f"Chapitre {aff(premier)}"}</span><span>{nb} chapitre{"s" if nb > 1 else ""}</span></div>
 <div class="tp-serie">{serie}</div></div></div></section>''')
     # --- dédicace (recto, après la page de titre ; JP, 14 octobre 2026 : « la première page, comme dans les livres »)
@@ -995,7 +1038,38 @@ def polices(reader):
                 non.add(nom)
     return vues, non
 
-POLICES_DU_LIVRE = ("IBMPlex", "NotoSans", "NotoSerif", "BarlowCondensed")   # interieur.tpl.html : Plex, et ses voisins pour les
+def pages_transparentes(reader):
+    """Pages (numéros du tome) qui portent de la transparence : état graphique à opacité < 1 ou à masque doux, image
+    à masque doux, groupe de transparence. Lulu demande de l'aplatir (« Flatten all transparent layers ») et dit en
+    réparer une partie (sources/lulu-specifications.md, §4 et §5)."""
+    def a_transp(res, vus):
+        res = res.get_object() if res is not None else None
+        if not res:
+            return False
+        for _, gs in (res.get("/ExtGState") or {}).items():
+            gs = gs.get_object()
+            sm = gs.get("/SMask")
+            if (sm is not None and str(sm) != "/None") or float(gs.get("/ca", 1)) < 1 or float(gs.get("/CA", 1)) < 1:
+                return True
+        for _, xo in (res.get("/XObject") or {}).items():
+            ident = getattr(xo, "idnum", None)
+            if ident is not None:
+                if ident in vus:
+                    continue
+                vus.add(ident)
+            x = xo.get_object()
+            if "/SMask" in x:
+                return True
+            if str(x.get("/Subtype")) == "/Form":
+                g = x.get("/Group")
+                if g is not None and str(g.get_object().get("/S")) == "/Transparency":
+                    return True
+                if a_transp(x.get("/Resources"), vus):
+                    return True
+        return False
+    return [i + 1 for i, pg in enumerate(reader.pages) if a_transp(pg.get("/Resources"), set())]
+
+POLICES_DU_LIVRE = ("IBMPlex","NotoSans", "NotoSerif", "BarlowCondensed")   # interieur.tpl.html : Plex, et ses voisins pour les
                                                           # caractères qu'il n'a pas (28 septembre 2026)
 
 def glyphes_de_secours(reader, pages_planche):
@@ -1031,6 +1105,10 @@ def main():
     # un chapitre peut ouvrir à gauche : plus de page blanche devant une ouverture (JP, 18 octobre 2026 : « beaucoup de
     # pages vides, faut optimiser l'espace ») ; --recto remet l'ouverture toujours à droite
     verso = "--recto" not in a
+    nom_format = opt("--format") or "lulu-letter"
+    if nom_format not in bc.FORMATS:
+        sys.exit(f"format inconnu : {nom_format} (connus : {', '.join(bc.FORMATS)})")
+    regler_format(nom_format)
     couverture = opt("--couverture") or "souple"
     extra = opt("--placements")
     if extra and not os.path.isabs(extra):
@@ -1254,10 +1332,12 @@ def main():
             if abs(float(mb.width) - PAGE_W) > 0.5 or abs(float(mb.height) - PAGE_H) > 0.5:
                 avert.append(f"page {i + 1} : imprimée à {float(mb.width):.1f} × {float(mb.height):.1f} pt")
             pg = w.add_page(src)
-        full = RectangleObject([0, 0, PAGE_W, PAGE_H])
+        page_b, rog_b = bc.boites(i)
+        full = RectangleObject(page_b)
         pg.mediabox = full; pg.cropbox = full; pg.bleedbox = full
-        # recto (page impaire) : reliure à gauche, fond perdu à droite ; verso : l'inverse
-        pg.trimbox = RectangleObject([0, BLEED, TRIM_W, BLEED + TRIM_H] if (i + 1) % 2 else [BLEED, BLEED, PAGE_W, BLEED + TRIM_H])
+        # recto (page impaire) : reliure à gauche ; verso : à droite (Blurb : fond perdu au bord extérieur seulement ;
+        # Lulu : sur les quatre côtés)
+        pg.trimbox = RectangleObject(rog_b)
     w.add_metadata({"/Title": f"Le Manuel du Nord — Tome {tome} · {bc.TOMES[tome][0]} — intérieur",
                     "/Author": "Le Manuel du Nord", "/Creator": "design/outils/assembler-tome.py"})
     pdf_final = os.path.join(sortie, "interieur.pdf")
@@ -1272,10 +1352,12 @@ def main():
     r = pypdf.PdfReader(pdf_final)
     tailles = {(round(float(p.mediabox.width), 2), round(float(p.mediabox.height), 2)) for p in r.pages}
     vues, non_inc = polices(r)
-    trims_ok = all([round(float(x)) for x in p.trimbox] == ([0, 9, 576, 729] if (i + 1) % 2 else [9, 9, 585, 729]) for i, p in enumerate(r.pages))
+    trims_ok = all([round(float(x)) for x in p.trimbox] == bc.boites(i)[1] for i, p in enumerate(r.pages))
+    transp = pages_transparentes(r)
     pages_planche = {c["debut"] + f["page"] - 1 for c in chaps for f in c["rapport"]["figs"] if f["id"] != "photo"}
     secours = glyphes_de_secours(r, pages_planche)
-    tr = None if "--hors-ligne" in a else tranche_blurb(total, couverture)
+    lulu = IMP["imprimeur"] == "Lulu"
+    tr = None if lulu or "--hors-ligne" in a else tranche_blurb(total, couverture)
 
     # 8. aperçus PNG
     apercus = []
@@ -1312,10 +1394,11 @@ def main():
     L = []
     L.append(f"# Tome {tome} · {bc.TOMES[tome][0]} — rapport d'assemblage\n")
     L.append(f"- **Produit le :** {time.strftime('%Y-%m-%d %H:%M')}, par `design/outils/assembler-tome.py {' '.join(a)}`")
-    L.append(f"- **Fichier :** `livre/tome-{tome}/interieur.pdf` — {total} pages, {taille / 1e6:.1f} Mo")
+    L.append(f"- **Fichier :** `{rel(pdf_final)}` — {total} pages, {taille / 1e6:.1f} Mo")
     L.append(f"- **Ouvertures :** {'au recto ou au verso (--verso)' if verso else 'toujours au recto (page de droite), une page blanche devant au besoin'}")
     L.append(f"- **Placements :** {', '.join(pl_sources)}")
-    L.append(f"- **Exigences de Blurb :** `sources/blurb-specifications.md` (relevées le 27 septembre 2026)\n")
+    L.append(f"- **Format :** `{bc.FORMAT}` : {bc.fmt()['nom']}")
+    L.append(f"- **Exigences de {IMP['imprimeur']} :** `{IMP['source']}` (relevées le {IMP['releve']})\n")
     L.append("## Pages\n")
     L.append("| Pages du tome | Contenu | Pages |\n| --- | --- | ---: |")
     for pp, lab, n in lignes_plan:
@@ -1351,19 +1434,35 @@ def main():
             L.append(f"| {c['num']} | {x.get('titre', '')} | {c['debut'] + x['page'] - 1} ({c['num']}-{x['page']}) | étape(s) {ren} | "
                      f"{apr or '—'} | {'dans le fil du texte' if x.get('fil') else 'dans un trou de la page'} |")
         L.append("")
-    L.append("## Contrôle Blurb\n")
+    L.append(f"## Contrôle {IMP['imprimeur']}\n")
     ok = lambda b: "oui" if b else "**NON**"
+    (pw_, ph_), (tw_, th_) = bc.fmt()["page_pt"], bc.fmt()["rog_pt"]
+    po = lambda x: f"{x / PT:g}".replace(".", ",")
     L.append("| Exigence | Valeur voulue | Ce fichier | Conforme |\n| --- | --- | --- | --- |")
-    L.append(f"| Taille de chaque page | 585 × 738 pt (8,125 × 10,25 po) | {', '.join(f'{x} × {y} pt' for x, y in sorted(tailles))} | {ok(tailles == {(585.0, 738.0)})} |")
-    L.append(f"| Rognage (TrimBox) | 8 × 10 po, fond perdu au bord extérieur | recto : reliure à gauche ; verso : à droite | {ok(trims_ok)} |")
-    L.append(f"| Nombre de pages | pair, de {PAGES_MIN} à {PAGES_MAX} (papier Standard) | {total} | {ok(total % 2 == 0 and PAGES_MIN <= total <= PAGES_MAX)} |")
-    L.append(f"| Page 1 | à droite | {'ouverture du chapitre 00' if plan['titre'] > 1 else 'page de titre'} | oui |")
-    L.append(f"| Polices incorporées | toutes | {len(vues)} police(s), {len(non_inc)} non incorporée(s) | {ok(not non_inc)} |")
-    L.append(f"| Taille du fichier | 2 Go au plus | {taille / 1e6:.1f} Mo | {ok(taille < 2e9)} |")
-    L.append("| Marques d'imprimeur | aucune | aucune | oui |")
-    L.append("| Couleur | CMJN ou sRVB, sans ton direct | sRVB (Edge) | oui |")
-    L.append("| Noir du texte | 100 % K | noir sRVB (0, 0, 0) : la conversion est faite chez Blurb | à juger sur épreuve |")
-    L.append("| PDF/X | plus exigé en 2026 (le guide de 2010 le demandait) | PDF 1.4 d'Edge, pas PDF/X | à surveiller au téléversement |\n")
+    L.append(f"| Taille de chaque page | {pw_} × {ph_} pt ({po(pw_)} × {po(ph_)} po) | {', '.join(f'{x} × {y} pt' for x, y in sorted(tailles))} | {ok(tailles == {(float(pw_), float(ph_))})} |")
+    if lulu:
+        L.append(f"| Rognage (TrimBox) | {po(tw_)} × {po(th_)} po, fond perdu de 0,125 po sur les quatre côtés | 9 pt de chaque bord, recto et verso | {ok(trims_ok)} |")
+        L.append(f"| Nombre de pages | de {PAGES_MIN} à {PAGES_MAX} (couverture rigide Case Wrap) ; pair par choix du livre | {total} | {ok(PAGES_MIN <= total <= PAGES_MAX and total % 2 == 0)} |")
+        L.append(f"| Page 1 | à droite ; les impaires à droite | {'ouverture du chapitre 00' if plan['titre'] > 1 else 'page de titre'} | oui |")
+        L.append("| Zone sûre | 0,5 po du rognage pour le texte, les images et les numéros de page | bloc, titre courant, pied et numéro du tome à 0,5 po au moins ; seuls les aplats de bord (onglets, repères de section, page de titre) vont au fond perdu | oui (grille) |")
+        L.append("| Petit fond | 0,2 po au moins ; 1 po recommandé de 151 à 400 pages | bloc à 1 po du rognage au petit fond | oui (grille) |")
+        L.append(f"| Polices incorporées | toutes | {len(vues)} police(s), {len(non_inc)} non incorporée(s) | {ok(not non_inc)} |")
+        L.append(f"| Transparence | aplatie (« Flatten all transparent layers ») ; Lulu en répare une partie | {len(transp)} page(s) avec transparence | {'oui' if not transp else 'à surveiller au téléversement'} |")
+        L.append("| Une page par page, sans marques de coupe ni mot de passe | oui | oui | oui |")
+        L.append("| Couleur | sRVB préféré, CMJN accepté ; noir plein à 100 % ; teintes de moins de 20 % à éviter | sRVB (Edge) ; aplats pâles (rose des étapes de danger, orange pâle, vert des notes) | à juger sur épreuve |\n")
+        if transp:
+            L.append("Pages avec transparence (ombre douce des notes « En plus », trames ou dessins à opacité) : "
+                     + ", ".join(map(str, transp)) + ".\n")
+    else:
+        L.append(f"| Rognage (TrimBox) | 8 × 10 po, fond perdu au bord extérieur | recto : reliure à gauche ; verso : à droite | {ok(trims_ok)} |")
+        L.append(f"| Nombre de pages | pair, de {PAGES_MIN} à {PAGES_MAX} (papier Standard) | {total} | {ok(total % 2 == 0 and PAGES_MIN <= total <= PAGES_MAX)} |")
+        L.append(f"| Page 1 | à droite | {'ouverture du chapitre 00' if plan['titre'] > 1 else 'page de titre'} | oui |")
+        L.append(f"| Polices incorporées | toutes | {len(vues)} police(s), {len(non_inc)} non incorporée(s) | {ok(not non_inc)} |")
+        L.append(f"| Taille du fichier | 2 Go au plus | {taille / 1e6:.1f} Mo | {ok(taille < 2e9)} |")
+        L.append("| Marques d'imprimeur | aucune | aucune | oui |")
+        L.append("| Couleur | CMJN ou sRVB, sans ton direct | sRVB (Edge) | oui |")
+        L.append("| Noir du texte | 100 % K | noir sRVB (0, 0, 0) : la conversion est faite chez Blurb | à juger sur épreuve |")
+        L.append("| PDF/X | plus exigé en 2026 (le guide de 2010 le demandait) | PDF 1.4 d'Edge, pas PDF/X | à surveiller au téléversement |\n")
     if non_inc:
         L.append("Polices non incorporées : " + ", ".join(sorted(non_inc)) + "\n")
     L.append("Polices du fichier : " + ", ".join(sorted({re.sub(r"^/[A-Z]{6}\+", "", x).replace("?", "Type 3 sans nom (texte des planches)") for x in vues})) + "\n")
@@ -1377,7 +1476,14 @@ def main():
                 L.append(f"| {ch} | U+{ord(ch):04X} | {nom} | {', '.join(map(str, sorted(pp)))} |")
         L.append("")
     L.append("## Tranche et couverture\n")
-    if tr:
+    if lulu:
+        t_l = tranche_lulu(total)
+        L.append(f"Couverture rigide Case Wrap, **{total} pages** : tranche de **{(t_l or '—').replace('.', ',')} po** au tableau du guide de "
+                 f"Lulu (p. 14 ; `sources/lulu-specifications.md`, §3)" + ("" if t_l else ", qui commence à 24 pages") + ". "
+                 "Le PDF de couverture est un seul fichier (plat arrière, tranche, plat avant), fond perdu de 0,125 po, "
+                 "**zone sûre de 0,75 po** en Case Wrap ; Lulu donne le gabarit à la taille exacte après le téléversement "
+                 "de l'intérieur. La couverture se fait **après** le dernier assemblage.\n")
+    elif tr:
         L.append(f"Calculateur de Blurb interrogé le {tr['date']} pour **{total} pages**, papier Standard, couverture "
                  f"**{couverture}** (`{COUVERTURES[couverture]}`), en pouces :\n")
         tranche = next((v2 for k2, v2 in tr["lignes"] if k2.startswith("Gutter / Spine")), "?")
@@ -1420,14 +1526,38 @@ def main():
                     manq.append(f"ch. {c['num']} : {f['src']}")
     if manq:
         L.append("**Fichiers de figure introuvables :** " + "; ".join(manq) + "\n")
-    faibles = []
+    faibles, sous300 = [], []
     for c, f in photos:
         if f.get("nw") and f.get("w"):
             ppi = f["nw"] / f["w"]
             if ppi < 150:
                 faibles.append(f"{os.path.basename(f['src'])} : {ppi:.0f} PPI")
+            elif ppi < 300:
+                sous300.append(f"{os.path.basename(f['src'])} : {ppi:.0f} PPI")
     if faibles:
         L.append("**Photos sous 150 PPI à la taille imprimée :** " + "; ".join(faibles) + "\n")
+    if sous300 and lulu:
+        L.append("**Photos entre 150 et 300 PPI** (Lulu demande 300 PPI ; 150, c'est son minimum pour un dessin "
+                 "simple) : " + "; ".join(sous300) + "\n")
+    if lulu:
+        # planches pleine page et demi-page : PNG posé sur la largeur du bloc (7 po), au plus
+        pl_ppi = {}
+        for c in chaps:
+            for f in c["rapport"]["figs"]:
+                if f["id"] == "photo" or f.get("taille") not in ("pleine", "demi") or not str(f.get("src", "")).endswith(".png"):
+                    continue
+                pth = os.path.normpath(os.path.join(os.path.dirname(c["dst"]), urllib.parse.unquote(f["src"])))
+                try:
+                    with open(pth, "rb") as fh:
+                        fh.seek(16); larg = int.from_bytes(fh.read(4), "big")      # en-tête IHDR du PNG
+                    pl_ppi[f["id"]] = round(larg / 7)
+                except OSError:
+                    pass
+        bas = {k: v for k, v in pl_ppi.items() if v < 300}
+        if bas:
+            L.append(f"**Planches sous 300 PPI à la largeur du bloc (7 po)** : {len(bas)} sur {len(pl_ppi)} "
+                     f"({', '.join(f'{k} : {v}' for k, v in sorted(bas.items()))}). Lulu demande 300 PPI : refaire le "
+                     "PNG depuis le SVG à 2100 px de large au moins.\n")
     L.append("## Crédits des images — hors du livre\n")
     L.append(f"Rien ne s'imprime (JP, 28 septembre 2026). Copie de sauvegarde : `{rel(cred_md)}` et `{rel(cred_pdf)}`.\n")
     if credits_lignes:
@@ -1463,16 +1593,27 @@ def main():
     L += [f"- {x}" for x in tous] or ["- aucun"]
     L.append("")
     L.append("## À savoir avant de téléverser\n")
-    L.append("- **Onglet de tranche.** Le numéro de chapitre de l'onglet (en haut, au bord extérieur) est imprimé à moins "
-             "de 0,1 po du rognage, hors de la zone sûre de Blurb (0,25 po) ; la coupe varie de 1/16 po. L'onglet est fait "
-             "pour déborder, mais le chiffre peut être entamé. À voir sur l'épreuve papier. Pour les chapitres à trois "
-             "chiffres (100 à 112), le chiffre est à 12 pt au lieu de 15 (à 15 pt, « 102 » dépasse le rognage) : réglage "
-             "de `couleur.css` depuis le 28 septembre 2026, le même dans les rendus de chapitre seuls.")
-    L.append("- **Petit fond.** Le bloc de texte est à 0,5 po de la reliure : conforme au tableau du calculateur (0,5), "
-             "pas au paragraphe de la même page (0,625). Le livre de 440 pages ouvre mal au centre : à juger sur épreuve.")
-    L.append("- **Page du logo Blurb.** Blurb ajoute une page de logo à la fin, hors compte, sauf option payante.")
-    L.append("- **Aperçus.** Les PNG de `apercus/` sont pris sur les pages HTML qui ont servi à l'impression, rognées "
-             "à 8 × 10 po (sans fond perdu).\n")
+    if lulu:
+        L.append("- **Onglet de tranche.** Le numéro de chapitre de l'onglet (en haut, au bord extérieur) est à environ "
+                 "0,1 po du rognage, hors de la zone sûre de Lulu (0,5 po) ; Lulu donne 0,125 po de tolérance de coupe. "
+                 "L'onglet est fait pour déborder, mais le chiffre peut être entamé : il se répète au titre courant de "
+                 "chaque page. À voir sur l'épreuve papier.")
+        L.append("- **Logigrammes en double page.** `design/outils/logigramme.py` les dessine encore en 8 × 10 po ; le "
+                 "moteur pose chaque moitié centrée en hauteur et écartée de 0,375 po du pli (colonnes à 1 po du pli, "
+                 "0,625 po du bord extérieur). Ils ne s'agrandissent pas avec la page.")
+        L.append("- **Aperçus.** Les PNG de `apercus/` sont pris sur les pages HTML qui ont servi à l'impression, rognées "
+                 "à 8,5 × 11 po (sans fond perdu).\n")
+    else:
+        L.append("- **Onglet de tranche.** Le numéro de chapitre de l'onglet (en haut, au bord extérieur) est imprimé à moins "
+                 "de 0,1 po du rognage, hors de la zone sûre de Blurb (0,25 po) ; la coupe varie de 1/16 po. L'onglet est fait "
+                 "pour déborder, mais le chiffre peut être entamé. À voir sur l'épreuve papier. Pour les chapitres à trois "
+                 "chiffres (100 à 112), le chiffre est à 12 pt au lieu de 15 (à 15 pt, « 102 » dépasse le rognage) : réglage "
+                 "de `couleur.css` depuis le 28 septembre 2026, le même dans les rendus de chapitre seuls.")
+        L.append("- **Petit fond.** Le bloc de texte est à 0,5 po de la reliure : conforme au tableau du calculateur (0,5), "
+                 "pas au paragraphe de la même page (0,625). Le livre de 440 pages ouvre mal au centre : à juger sur épreuve.")
+        L.append("- **Page du logo Blurb.** Blurb ajoute une page de logo à la fin, hors compte, sauf option payante.")
+        L.append("- **Aperçus.** Les PNG de `apercus/` sont pris sur les pages HTML qui ont servi à l'impression, rognées "
+                 "à 8 × 10 po (sans fond perdu).\n")
     rap = os.path.join(sortie, "rapport.md")
     open(rap, "w", encoding="utf-8").write("\n".join(L))
     log("rapport :", rap)

@@ -9,8 +9,9 @@ Ce qui change, et rien d'autre :
   dedans et des empreintes ovales à pas régulier ; elle passe derrière la petite épinette et entre dans la grande ;
 - le fil droit du toit à la grande épinette (457 à 657, y 757) devient le bord d'une congère : une ligne taillée,
   pleine au milieu et effilée aux deux bouts, avec son ombre bleu pâle sous elle ;
-- des ombres courtes et nettes, d'un bleu pâle tiré du bleu des collines, au pied de la rangée d'arbres, des petites
-  épinettes, de la grande et sous le chalet, vers l'avant et la gauche (la lune est en haut à droite) ;
+- des ombres courtes et nettes, d'un bleu pâle tiré du bleu des collines, vers l'avant et la gauche (la lune est en
+  haut à droite) : une bande festonnée au pied de la rangée d'arbres, une bande serrée sous le chalet, et un coin
+  sous la branche la plus basse des épinettes dont le pied tombe sous le bas de la page ;
 - quatre entailles fines qui suivent le creux du champ, hors du bloc des tomes (176 à 592, 830 à 925).
 La marbrure de la neige (3 niveaux) reste. Les formes fonce_es (chalet, clôture, épinettes, masse de la rangée)
 gardent leurs pixels : on ne peint que la neige.
@@ -52,6 +53,7 @@ OMBRES = [
     [(579, 954.5), (561, 960.5), (586, 960.5)],
     [(635, 955.5), (618, 960.5), (642, 960.5)],
 ]
+FERME = 5                                              # rayon qui referme le corps d'un arbre (px pour K = 4)
 BLOC = (176, 830, 592, 925)                            # le bloc des tomes de la page de titre : rien de fin dessous
 # la neige du toit du chalet (elle est au chalet, pas au champ)
 TOIT = [(392, 726), (450, 726), (459, 748), (463, 760), (463, 772), (452, 772), (397, 737)]
@@ -175,7 +177,7 @@ def appliquer(a, K=4):
     # pas le champ : elle ne bouge pas.
     fonce_ = sombre & ~effacer
     pad = int(9 * q) + 1
-    corps = ndi.binary_closing(np.pad(fonce_, pad, mode='edge'), _disque(8 * q))[pad:-pad, pad:-pad]
+    corps = ndi.binary_closing(np.pad(fonce_, pad, mode="edge"), _disque(FERME * q))[pad:-pad, pad:-pad]
     corps = ndi.binary_fill_holes(corps)
     corps |= _raster([px(TOIT)], h, w) > 0.5
     lab, n = ndi.label(~corps)
@@ -213,6 +215,10 @@ def appliquer(a, K=4):
     out[bord] = recompo[bord]
     # les deux fils : effacés, la neige refaite dessous
     out[effacer] = neuve[effacer]
+    # le long des deux fils, la neige est refaite d'un bord à l'autre du couloir (entre les deux fils de la boucle,
+    # le blanc trop vif du halo reste sinon)
+    refait = couloir & champ & ~protege
+    out[refait] = neuve[refait]
     # les miettes : un point fonce_ isolé sur la neige (un reste de fil, une poussière d'agrandissement) part
     lab_m, nm = ndi.label(out.mean(2) < 160)
     tailles = ndi.sum(np.ones_like(lab_m), lab_m, range(1, nm + 1))
@@ -274,7 +280,7 @@ def appliquer(a, K=4):
     larg = larg * (0.4 + 0.6 * np.clip((s_tr[-1] - s_tr) / (5 * K), 0, 1))  # la fin, sous la grande épinette
     levre = (1 - 0.6) * neuve + 0.6 * np.array([244, 248, 251], np.float32)
     poser(_raster([_bande(trace, -larg * 0.38, larg * 0.62)], h, w) * (larg[0] >= 0), levre)
-    rigole = (1 - 0.19) * neuve + 0.19 * COLLINE
+    rigole = (1 - 0.16) * neuve + 0.16 * COLLINE
     poser(_raster([_bande(trace, larg / 2, larg / 2)], h, w), rigole)
     poser(_raster([_bande(trace, larg / 2, -larg * 0.08)], h, w), (1 - 0.3) * neuve + 0.3 * COLLINE)
     # le bord du fond, taillé : une ligne nette, effilée aux deux bouts, plus franche vers l'avant
@@ -291,9 +297,9 @@ def appliquer(a, K=4):
         wl = larg[i]
         if wl > 1.8 * K:
             cote = 1 if k % 2 else -1
-            c = trace[i] + nrm[i] * cote * wl * 0.19
-            ells.append((c[0], c[1], wl * 0.42, wl * 0.17, math.atan2(tg[i, 1], tg[i, 0])))
-        s += max(1.5 * K, wl * 0.6)
+            c = trace[i] + nrm[i] * cote * wl * 0.17
+            ells.append((c[0], c[1], wl * 0.58, wl * 0.25, math.atan2(tg[i, 1], tg[i, 0])))
+        s += max(2.4 * K, wl * 1.2)
         k += 1
     creux = (1 - 0.36) * neuve + 0.36 * COLLINE
     poser(_ellipses(ells, h, w), creux)

@@ -303,7 +303,7 @@ def _rangee_pointes(ybase, xmin, xmax, x_de, pas, haut, larg, rng, limite=None):
 
 # ---------------------------------------------------------------- la retouche
 
-def appliquer(a, K=4, _debug=None):
+def appliquer(a, K=4):
     a = np.asarray(a)
     H, W = a.shape[:2]
     q = K / 4.0                                       # les rayons en pixels sont donnés pour K = 4
@@ -396,9 +396,14 @@ def appliquer(a, K=4, _debug=None):
     pp = (garde_pp > 0.5) & (yy < Y(690))
     gauche_m = remplir(gauche_brut | pp, 12 * q) & ~(pp & ~remplir(gauche_brut, 12 * q) & (_raster(
         [poly_px(PREMIER_PLAN[2])], h, w) > 0.5))
-    gauche_m0 = gauche_m.copy()                      # pour les bandes : sans le bas refait à la main
-    gauche_m |= (_raster([poly_px(GAUCHE_BAS)], h, w) > 0.5) & (yy < Y(690))
     droite_m = remplir(droite_brut | (pp & (_raster([poly_px(PREMIER_PLAN[2])], h, w) > 0.5)), 12 * q)
+    gauche_m0 = gauche_m.copy()                      # pour les bandes : sans le bas refait à la main
+    droite_m0 = droite_m.copy()
+    gauche_m |= (_raster([poly_px(GAUCHE_BAS)], h, w) > 0.5) & (yy < Y(690))
+    # une colline est un terrain : tout ce qui est sous son contour du haut lui appartient (les baies que le flou
+    # d'arbres gris creusait dans son bas se bouchent)
+    gauche_m = np.maximum.accumulate(gauche_m, axis=0) & (yy < Y(700))
+    droite_m = np.maximum.accumulate(droite_m, axis=0) & (yy < Y(700))
     vallee_m = remplir(vallee_brut, 6 * q)
 
     # le pied de la masse noire : le bas du bleu des collines, colonne par colonne, lissé
@@ -449,7 +454,7 @@ def appliquer(a, K=4, _debug=None):
 
     # -- les bandes sombres des collines -> des traits de gouge effilés, aux mêmes places
     interdit = _raster([poly_px(TRAINEE), poly_px(RECTANGLE)], h, w) > 0.01
-    for m_plein, m_brut, a_c in ((gauche_m0, gauche_brut, a_g), (droite_m, droite_brut, a_d)):
+    for m_plein, m_brut, a_c in ((gauche_m0, gauche_brut, a_g), (droite_m0, droite_brut, a_d)):
         sombre = m_plein & ~m_brut & ~ndi.binary_dilation(blanc, _disque(2 * q))
         sombre &= yy < (yb[None, :] - 4 * K)
         sombre &= ~interdit & (garde_pp < 0.01)
@@ -658,9 +663,6 @@ def appliquer(a, K=4, _debug=None):
     # -- la zone : sous l'orange, hors du premier plan et du chalet, au-dessus de la neige du champ
     zone = np.clip((yy - (yo[None, :] + 2 * q)) / (2 * q), 0, 1) * (yy >= Y(470)) * (yy < Y(760))
     zone = zone * (1 - garde) * (1 - a_neige)
-    if _debug is not None:
-        _debug.update(c=c, zone=zone, garde=garde, droite_m=droite_m, gauche_m=gauche_m, y_masse=y_masse,
-                      arbres=arbres, r0=r0)
     out = a.copy()
     sl = out[r0:r1].astype(np.float32)
     sl = sl * (1 - zone[..., None]) + c * zone[..., None]

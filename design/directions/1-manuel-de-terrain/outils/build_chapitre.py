@@ -2,7 +2,8 @@
 """Constructeur général d'un chapitre, direction 1 (manuel de terrain).
 
     python build_chapitre.py 10            -> design/epreuves-livre/10.html   (numéros NOUVEAUX, six tomes)
-    python build_chapitre.py 10 --rendu    -> + 10/page-XX.png (768 x 960, x2) + 10.pdf (8,125 x 10,25 po)
+    python build_chapitre.py 10 --rendu    -> + 10/page-XX.png (page rognée, x2) + 10.pdf (fond perdu compris)
+    python build_chapitre.py 10 --rendu --format blurb-8x10   (défaut : lulu-letter, 8,75 x 11,25 po ; FORMATS)
 
 Lit chapitres/NN-*.md (gabarit en neuf sections), réutilise md2blocks.py pour le texte
 (typographie, notes, renvois) et reprend tel quel le CSS et le paginateur de
@@ -35,6 +36,79 @@ OUTD = os.path.join(ROOT, "design", "epreuves-livre")
 EDGE = (r"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe" if os.name == "nt"
         else (sorted(glob.glob("/opt/pw-browsers/chromium-*/chrome-linux/chrome")) or ["chromium"])[-1])
 REL_ROOT = "../../"          # depuis design/epreuves-livre/ vers la racine du livre
+
+# ------------------------------------------------------------------ formats d'impression
+# Le format choisi par JP le 19 octobre 2026 : Lulu, Print Book, US Letter 8,5 × 11 po, couverture rigide Case Wrap
+# (sources/lulu-specifications.md). Blurb 8 × 10 reste possible (sources/blurb-specifications.md). Toute la grille
+# du livre est en variables CSS (interieur.tpl.html, bloc « format:debut » … « format:fin », remplacé ici) :
+#   pw, ph   page du PDF, fond perdu compris        tw, th   page rognée
+#   fpt      fond perdu en tête (et en pied)        fpi, fpe fond perdu au petit fond (reliure), au bord extérieur
+#   bx-r     bord gauche du bloc au recto           bx-v     au verso (coordonnées de la page PDF)
+#   bw, bt, bh  largeur, haut et hauteur du bloc    rht      haut du titre courant
+#   ftt      haut du pied (0,2 po de haut)          ft-r, ft-v, ftw  bord gauche et largeur du pied
+#   fc-*     numéro de page du tome (assembler-tome.py, FCONT_CSS) : bord gauche et alignement, recto et verso
+#   tp-*     page de titre du tome (assembler-tome.py) : repère de la scène (page rognée, en px) et retraits du texte
+# Lulu : bloc à 0,5 po du rognage au bord extérieur (zone sûre, « 0.50 in Safety Margin for all content ») et à 1 po
+# au petit fond (marge intérieure recommandée de 151 à 400 pages, guide p. 9) ; le titre courant (haut à 0,5 po du
+# rognage) et le pied (bas à 0,5 po) entrent dans la zone sûre, avec le même écart au bloc qu'en Blurb. La colonne
+# garde 7 po de large (la page gagne 0,5 po, la marge intérieure aussi) et passe de 8,5 à 9,14 po de haut.
+# logi : où se pose le logigramme en double page (design/outils/logigramme.py le dessine en 8 × 10 po, colonnes à
+# 0,625 po du pli et 0,5 po du bord) : ecart = écart ajouté au pli, haut = descente, en po ; fpi et pw (fond perdu au
+# petit fond, largeur de page) en découlent. Lulu : écarté de 0,375 po du pli (colonnes à 1 po du pli) et centré en
+# hauteur ; les liens qui passent le pli restent d'un trait (chapitre.js, mkSpread).
+FORMATS = {
+    "lulu-letter": dict(
+        nom="Lulu, US Letter 8,5 × 11 po, couverture rigide Case Wrap",
+        page_pt=(630, 810), rog_pt=(612, 792), fp_pt=9, fp_rel_pt=9, px=(816, 1056),
+        css=dict(pw="8.75in", ph="11.25in", tw="8.5in", th="11in", fpt="0.125in", fpi="0.125in", fpe="0.125in",
+                 **{"bx-r": "1.125in", "bx-v": "0.625in", "bw": "7in", "bt": "1.14in", "bh": "9.14in", "rht": "0.625in",
+                    "ftt": "10.425in", "ft-r": "1.125in", "ft-v": "0.925in", "ftw": "6.7in",
+                    "fc-r": "7.925in", "fc-v": "0.625in", "fc-jr": "flex-end", "fc-jv": "flex-start",
+                    "tp-x": "0.125in", "tp-y": "0.125in", "tp-w": "816px", "tp-h": "1056px",
+                    "tp-g": "96px", "tp-gh": "90px", "tp-b": "52px"}),
+        logi=dict(ecart=0.375, haut=0.5)),
+    "blurb-8x10": dict(
+        nom="Blurb, livre photo Standard Portrait 8 × 10 po",
+        page_pt=(585, 738), rog_pt=(576, 720), fp_pt=9, fp_rel_pt=0, px=(768, 960),
+        css=dict(pw="8.125in", ph="10.25in", tw="8in", th="10in", fpt="0.125in", fpi="0in", fpe="0.125in",
+                 **{"bx-r": "0.5in", "bx-v": "0.625in", "bw": "7in", "bt": "0.875in", "bh": "8.5in", "rht": "0.36in",
+                    "ftt": "9.52in", "ft-r": "0.5in", "ft-v": "0.625in", "ftw": "7in",
+                    "fc-r": "7.565in", "fc-v": "0.36in", "fc-jr": "flex-start", "fc-jv": "flex-end",
+                    "tp-x": "0in", "tp-y": "0.125in", "tp-w": "768px", "tp-h": "960px",
+                    "tp-g": "56px", "tp-gh": "50px", "tp-b": "40px"}),
+        logi=dict(ecart=0, haut=0)),
+}
+FORMAT = "lulu-letter"
+
+def fmt():
+    return FORMATS[FORMAT]
+
+def format_css():
+    f = fmt(); w, h = f["page_pt"]
+    return (f"/* format:debut ({FORMAT}, build_chapitre.py) */\n@page {{ size: {w}pt {h}pt; margin: 0; }}\n:root{{"
+            + ";".join(f"--{k}:{v}" for k, v in f["css"].items()) + "}\n/* format:fin */")
+
+def appliquer_format(head):
+    """Remplace le bloc de format du gabarit (interieur.tpl.html) par celui du format choisi."""
+    out, n = re.subn(r"/\* format:debut.*?/\* format:fin \*/", lambda m: format_css(), head, count=1, flags=re.S)
+    if n != 1:
+        sys.exit("interieur.tpl.html : bloc « format:debut … format:fin » introuvable")
+    return out
+
+def boites(i):
+    """MediaBox et TrimBox (pt) de la page d'indice i (0 = page 1, un recto : reliure à gauche)."""
+    f = fmt(); (W, H), (tw, th), fp, fr = f["page_pt"], f["rog_pt"], f["fp_pt"], f["fp_rel_pt"]
+    return [0, 0, W, H], ([fr, fp, fr + tw, fp + th] if i % 2 == 0 else [fp, fp, fp + tw, fp + th])
+
+def choisir_format(argv):
+    """--format NOM dans la ligne de commande (défaut : lulu-letter)."""
+    global FORMAT
+    if "--format" in argv:
+        nom = argv[argv.index("--format") + 1]
+        if nom not in FORMATS:
+            sys.exit(f"format inconnu : {nom} (connus : {', '.join(FORMATS)})")
+        FORMAT = nom
+    return FORMAT
 
 # Six tomes (24 septembre 2026). Le tome se lit dans plan/renumerotation.json (tomeDuNouveau), jamais
 # dans le numéro. Les photos de images/photos/ gardent l'ancien numéro : on les retrouve par l'inverse
@@ -719,7 +793,8 @@ def build(num):
     meta = dict(num=num, title=html.unescape(re.sub("<[^>]+>", "", il(ch["title"]))), tome=ch["tome"],
                 tnum=tn, tfond=TOMES[tn][1], tencre=TOMES[tn][2],
                 lieu=ch["lieu"] or "Les deux", dsub=il(dsubject) if dsubject else "",
-                secs={str(k): v for k, v in noms.items() if k in present}, nd=nd or 8, nv=nv or 9)
+                secs={str(k): v for k, v in noms.items() if k in present}, nd=nd or 8, nv=nv or 9,
+                fmt=dict(nom=FORMAT, logi=dict(fmt()["logi"], fpi=fmt()["fp_rel_pt"] / 72, pw=fmt()["page_pt"][0] / 72)))
     if n_or:
         meta["flux"] = flux     # [id de l'histoire, genre (main, o, d, e), 1 si c'est la suite d'une histoire coupée]
     lieu_opts = "".join(f'<span{" class=\"on\"" if o == meta["lieu"] else ""}>{o}</span>' for o in ("Maison", "Chalet", "Les deux"))
@@ -733,7 +808,7 @@ def build(num):
                f'<ol class="toc">{toc}</ol></div>{lieu_note}</header>')
 
     tpl = open(os.path.join(TOOLS, "interieur.tpl.html"), encoding="utf-8").read()
-    head = tpl[:tpl.index("</style>")]
+    head = appliquer_format(tpl[:tpl.index("</style>")])
     head = re.sub(r"<title>.*?</title>", f"<title>{num} — {html.escape(meta['title'])} — Le Manuel du Nord</title>", head)
     js0 = tpl.index("const OVER"); js1 = tpl.index("/* appels hors cadre")
     helpers = tpl[js0:js1]
@@ -788,10 +863,10 @@ def rendu(num, dst):
     time.sleep(1); shutil.rmtree(prof, ignore_errors=True)
     r = pypdf.PdfReader(pdf); w = pypdf.PdfWriter()
     for i, pg in enumerate(r.pages):
-        W, H = 585, 738
-        pg.mediabox = RectangleObject([0, 0, W, H]); pg.cropbox = RectangleObject([0, 0, W, H])
-        pg.bleedbox = RectangleObject([0, 0, W, H])
-        pg.trimbox = RectangleObject([0, 9, 576, 729] if i % 2 == 0 else [9, 9, 585, 729])
+        page, rog = boites(i)
+        pg.mediabox = RectangleObject(page); pg.cropbox = RectangleObject(page)
+        pg.bleedbox = RectangleObject(page)
+        pg.trimbox = RectangleObject(rog)
         w.add_page(pg)
     w.add_metadata({"/Title": f"Chapitre {num} — Le Manuel du Nord (épreuve de mise en pages)"})
     npages = len(r.pages)
@@ -804,7 +879,7 @@ def rendu(num, dst):
     while jobs or running:
         while jobs and len(running) < 4:
             k = jobs.pop(0); t = os.path.join(pdir, f"page-{k:02d}.png")
-            p, prof = edge(["--force-device-scale-factor=2", "--window-size=768,960", f"--screenshot={t}",
+            p, prof = edge(["--force-device-scale-factor=2", "--window-size=%d,%d" % fmt()["px"], f"--screenshot={t}",
                             url(dst, f"#page=p{num}-{k}")], t)
             running.append((p, prof, t, time.time()))
         time.sleep(0.5)
@@ -815,7 +890,7 @@ def rendu(num, dst):
     ctl = os.path.join(tempfile.gettempdir(), f"controle-{num}.png")
     if os.path.exists(ctl):
         os.remove(ctl)
-    p, prof = edge(["--force-device-scale-factor=1", "--window-size=768,960", f"--screenshot={ctl}", url(dst, "#stats")], ctl)
+    p, prof = edge(["--force-device-scale-factor=1", "--window-size=%d,%d" % fmt()["px"], f"--screenshot={ctl}", url(dst, "#stats")], ctl)
     p.wait(timeout=120)
     for _ in range(90):
         if os.path.exists(ctl) and os.path.getsize(ctl) > 0:
@@ -826,7 +901,8 @@ def rendu(num, dst):
     print("pdf :", pdf, npages, "pages | png :", len(glob.glob(os.path.join(pdir, "page-*.png"))), "dans", pdir)
 
 if __name__ == "__main__":
-    num = sys.argv[1] if len(sys.argv) > 1 else sys.exit("usage : build_chapitre.py NN [--rendu]")
+    num = sys.argv[1] if len(sys.argv) > 1 else sys.exit("usage : build_chapitre.py NN [--rendu] [--format lulu-letter|blurb-8x10]")
+    choisir_format(sys.argv)
     dst = build(num)
     if "--rendu" in sys.argv:
         rendu(num, dst)

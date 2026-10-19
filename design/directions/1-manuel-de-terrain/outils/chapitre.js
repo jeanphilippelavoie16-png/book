@@ -207,6 +207,14 @@ function placerNotes(){
         && c.p.bl.lastElementChild.getBoundingClientRect().bottom <= b;
     };
     if(!ok()){ c.fr.removeChild(x); if(c.ouvert) c.fr.classList.remove('auto'); return; }
+    // la note qui ouvre la deuxième colonne : sa marge du haut tombe à la coupure de colonne, et le haut du « i » à cheval
+    // sur son coin passait au bas de la première colonne (un demi-rond vert sous le texte, le « i » coupé ; p02-2 et
+    // p12-2, 19 octobre 2026). Une cale d'un pixel ouvre la colonne : la marge reste, le « i » tient dans sa colonne.
+    const fb = c.fr.getBoundingClientRect(), xb = x.getBoundingClientRect();
+    if(xb.left > fb.left + fb.width / 3 && xb.top - fb.top < 6){
+      const cale = document.createElement('div'); cale.className = 'extra-cale'; c.fr.insertBefore(cale, x);
+      if(!ok()){ c.fr.removeChild(cale); c.fr.removeChild(x); if(c.ouvert) c.fr.classList.remove('auto'); return; }
+    }
     EXTRAS.splice(EXTRAS.indexOf(x), 1);
   });
 }
@@ -237,13 +245,19 @@ function nextPage(){
   return P;
 }
 function mkSpread(b, story){   // le SVG du logigramme (build_chapitre.py, gabarit en ligne), une moitié par page
+  // logigramme.py le dessine en 8 × 10 po (deux moitiés de 585 × 738 pt, pli à x = 585). Le format d'impression
+  // (build_chapitre.py, FORMATS, logi) l'écarte du pli de « ecart » po et le descend de « haut » po ; la fenêtre de
+  // chaque moitié s'élargit d'autant au pli, fond perdu du petit fond compris, pour que les liens qui passent d'une
+  // page à l'autre restent d'un seul trait jusqu'au bord de la page
   const svg = document.getElementById(b.dataset.tpl).content.querySelector('svg');
-  [0, 585].forEach(x => {
+  const L = (C.fmt && C.fmt.logi) || {ecart: 0, fpi: 0, haut: 0, pw: 8.125};
+  const ext = L.ecart + L.fpi, wpt = 585 + ext * 72;
+  [[0, L.pw - L.fpi - L.ecart - 8.125], [585 - ext * 72, 0]].forEach(([x, gauche]) => {
     const p = mkPage('spread'); p.story = story; p.spread = b.dataset.id; p.or = b.dataset.or === '1';
     p.el.classList.add('spread'); p.el.dataset.spread = b.dataset.id;
     const s = svg.cloneNode(true);
-    s.setAttribute('viewBox', x + ' 0 585 738'); s.setAttribute('width', '8.125in'); s.setAttribute('height', '10.25in');
-    s.style.cssText = 'position:absolute;left:0;top:0';
+    s.setAttribute('viewBox', x + ' 0 ' + wpt + ' 738'); s.setAttribute('width', (8.125 + ext) + 'in'); s.setAttribute('height', '10.25in');
+    s.style.cssText = 'position:absolute;left:' + gauche + 'in;top:' + L.haut + 'in';
     p.el.insertBefore(s, p.el.firstChild);     // sous le titre courant, l'onglet et le pied
   });
 }
@@ -496,9 +510,14 @@ function veuvesPage(f, q){   // pendant la mise en pages, quand la page continue
 function veuves(){   // entre les deux colonnes d'un cadre, après la mise en pages (rien ne peut plus changer de page)
   PAGES.forEach(p => {
     if(p.kind !== 'text' && p.kind !== 'open') return;
+    // tous les cadres de la page, pas seulement celui qu'on corrige : un cadre « auto » (la série orange) qui grandit
+    // d'une ligne écrase le cadre du dessous, et son dernier paragraphe passait dans une troisième colonne cachée, perdu
+    // à l'impression (p02-7, 19 octobre 2026)
+    const deborde = g => (!g.classList.contains('auto') && OVER(g)) || g.scrollWidth > g.clientWidth + 1;
+    const avant = new Set([...p.bl.querySelectorAll('.frame')].filter(deborde));
     const tient = f => {
       const b = p.bl.getBoundingClientRect().bottom + 0.5;
-      return !(!f.classList.contains('auto') && OVER(f)) && f.scrollWidth <= f.clientWidth + 1
+      return !deborde(f) && [...p.bl.querySelectorAll('.frame')].every(g => avant.has(g) || !deborde(g))
         && [...p.bl.children, ...p.bl.querySelectorAll('.frame > *')].every(e => e.getBoundingClientRect().bottom <= b);
     };
     p.bl.querySelectorAll('.frame').forEach(f => {
@@ -645,7 +664,14 @@ function story(id, kind, suite){   // kind : main, o, d, e ; suite : histoire re
   while(q.length && guard++ < 120){
     // les demi-pages de l'orange ouvrent la page, au-dessus de ce qui vient, même une autre série orange
     if(orTop.length && P.kind === 'text' && !P.bl.children.length){
-      const fo = document.createElement('div'); fo.className = 'frame'; P.bl.appendChild(fo); orTop.forEach(b => fo.appendChild(b)); orTop = [];
+      // la petite planche (une colonne) ne va pas dans le cadre de tête : il partage la hauteur avec le texte qui suit,
+      // et elle s'y coupait entre son titre et son dessin, la première colonne vide dessous (p01-5, 19 octobre 2026).
+      // Elle ouvre la première colonne du texte qui suit (pour) ; devant une série orange, elle garde un cadre d'une
+      // colonne, à sa hauteur.
+      const petites = orTop.filter(b => b.classList.contains('petite')), autres = orTop.filter(b => !petites.includes(b));
+      if(autres.length){ const fo = document.createElement('div'); fo.className = 'frame'; P.bl.appendChild(fo); autres.forEach(b => fo.appendChild(b)); }
+      if(petites.length && kind === 'o'){ const fp = document.createElement('div'); fp.className = 'frame auto une-col'; P.bl.appendChild(fp); petites.forEach(b => fp.appendChild(b)); orTop = []; }
+      else orTop = petites;
     }
     const fr = free(P), fresh = P.kind === 'text' && !P.bl.children.length;
     // seuils de départ : l'encadré danger et la variante d'urgence ne commencent pas dans un fond de page

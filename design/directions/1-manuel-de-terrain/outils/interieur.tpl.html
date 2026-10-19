@@ -52,12 +52,24 @@
 /* polices-secours:fin */
 
 /* =====================================================================
-   GRILLE — 8 × 10 po rogné, fond perdu 0,125 po en tête, en pied et au
-   petit fond (bord extérieur). Page PDF : 8,125 × 10,25 po.
-   Zone utile : 7 × 8,5 po — 0,5 po sur les côtés, 0,75 po en tête et en
-   pied. C'est la zone des planches ; le texte s'y pose tel quel.
+   GRILLE — le format d'impression vit dans build_chapitre.py (FORMATS) ; le bloc
+   entre « format:debut » et « format:fin » est remplacé à la construction par
+   celui du format choisi (--format). Valeurs ci-dessous : lulu-letter, le défaut
+   (JP, 19 octobre 2026 ; sources/lulu-specifications.md) : US Letter 8,5 × 11 po
+   rogné, fond perdu 0,125 po sur les quatre côtés, page PDF 8,75 × 11,25 po ;
+   bloc à 0,5 po du rognage au bord extérieur (zone sûre de Lulu) et à 1 po au
+   petit fond (marge intérieure recommandée de 151 à 400 pages) ; titre courant,
+   pied et numéro de page dans la zone sûre. La colonne garde 7 po de large et
+   prend 9,14 po de haut. C'est la zone des planches ; le texte s'y pose tel quel.
    ===================================================================== */
-@page { size: 585pt 738pt; margin: 0; }
+/* format:debut */
+@page { size: 630pt 810pt; margin: 0; }
+:root{--pw:8.75in;--ph:11.25in;--tw:8.5in;--th:11in;--fpt:0.125in;--fpi:0.125in;--fpe:0.125in;
+  --bx-r:1.125in;--bx-v:0.625in;--bw:7in;--bt:1.14in;--bh:9.14in;--rht:0.625in;
+  --ftt:10.425in;--ft-r:1.125in;--ft-v:0.925in;--ftw:6.7in;
+  --fc-r:7.925in;--fc-v:0.625in;--fc-jr:flex-end;--fc-jv:flex-start;
+  --tp-x:0.125in;--tp-y:0.125in;--tp-w:816px;--tp-h:1056px;--tp-g:96px;--tp-gh:90px;--tp-b:52px}
+/* format:fin */
 :root{
   --red:#9B2C1E;          /* le seul rouge : danger, et rien d'autre */
   --or:#EE7219;           /* le seul orange : la série des premières minutes, et rien d'autre */
@@ -75,15 +87,17 @@ body{font-family:var(--serif);font-size:9.5pt;line-height:var(--lh);color:var(--
   font-variant-numeric:lining-nums;font-optical-sizing:auto;
   -webkit-print-color-adjust:exact;print-color-adjust:exact;
   text-rendering:geometricPrecision}
-.page{position:relative;width:8.125in;height:10.25in;overflow:hidden;background:#fff;break-after:page;page-break-after:always}
+.page{position:relative;width:var(--pw);height:var(--ph);overflow:hidden;background:#fff;break-after:page;page-break-after:always}
 .page:last-of-type{break-after:auto}
-/* recto : reliure à gauche, fond perdu à droite ; verso : l'inverse */
-.recto .block,.recto .rh,.recto .ft{left:0.5in}
-.verso .block,.verso .rh,.verso .ft{left:0.625in}
-.block{position:absolute;top:0.875in;width:7in;height:8.5in;display:flex;flex-direction:column}
+/* recto : reliure à gauche ; verso : à droite (le fond perdu au petit fond est nul en Blurb, 0,125 po chez Lulu) */
+.recto .block,.recto .rh{left:var(--bx-r)}
+.verso .block,.verso .rh{left:var(--bx-v)}
+.recto .ft{left:var(--ft-r)}
+.verso .ft{left:var(--ft-v)}
+.block{position:absolute;top:var(--bt);width:var(--bw);height:var(--bh);display:flex;flex-direction:column}
 
 /* ---------- titre courant ---------- */
-.rh{position:absolute;top:0.36in;width:7in;height:0.3in;display:flex;align-items:flex-end;justify-content:space-between;
+.rh{position:absolute;top:var(--rht);width:var(--bw);height:0.3in;display:flex;align-items:flex-end;justify-content:space-between;
   border-bottom:1.5pt solid var(--k);padding-bottom:3pt;font-family:var(--sans);text-transform:uppercase}
 .rh .fo{font-weight:700;font-size:12.5pt;letter-spacing:.02em;line-height:1}
 .rh .ch{font-weight:600;font-size:8.5pt;letter-spacing:.09em;line-height:1}
@@ -92,7 +106,7 @@ body{font-family:var(--serif);font-size:9.5pt;line-height:var(--lh);color:var(--
 .recto .rh,.recto .rh .grp{flex-direction:row-reverse}   /* recto : folio au bord extérieur, comme le pied */
 
 /* ---------- pied : échelle des neuf sections ---------- */
-.ft{position:absolute;top:9.52in;width:7in;height:0.2in;display:flex;align-items:center;justify-content:space-between;font-family:var(--sans)}
+.ft{position:absolute;top:var(--ftt);width:var(--ftw);height:0.2in;display:flex;align-items:center;justify-content:space-between;font-family:var(--sans)}
 .recto .ft{flex-direction:row-reverse}
 .lad{display:flex;align-items:center;gap:6pt}
 .recto .lad{flex-direction:row-reverse}
@@ -183,7 +197,7 @@ table.suite caption{display:none}
 .toc li.h{font-weight:700}
 
 /* ---------- planche ---------- */
-.planche{width:7in;height:8.5in;display:block}
+.planche{width:var(--bw);height:var(--bh);display:block}
 
 /* ---------- encadré DANGER ---------- */
 .danger{border:1.5pt solid var(--red);display:flex;flex-direction:column;min-height:0}
@@ -251,10 +265,10 @@ p.fn .fnn{position:absolute;left:0;top:0;font:700 7.8pt/10pt var(--sans)}
   body.contact{background:#cfcfcf;padding:0.6in}
   body.contact .sheet{zoom:.25;display:flex;flex-wrap:wrap;gap:1.2in 1.2in;width:33.3in}
   body.contact .spread{display:flex;gap:0;box-shadow:0 0 0 1px rgba(0,0,0,.25)}
-  .trim{position:relative;width:8in;height:10in;overflow:hidden;background:#fff}
+  .trim{position:relative;width:var(--tw);height:var(--th);overflow:hidden;background:#fff}
   .trim.empty{background:transparent;box-shadow:none}
-  .trim .page{position:absolute;top:-0.125in}
-  .trim.r .page{left:0}.trim.v .page{left:-0.125in}
+  .trim .page{position:absolute;top:calc(-1 * var(--fpt))}
+  .trim.r .page{left:calc(-1 * var(--fpi))}.trim.v .page{left:calc(-1 * var(--fpe))}
   .trim.r{box-shadow:inset 18px 0 22px -18px rgba(0,0,0,.35)}
   .trim.v{box-shadow:inset -18px 0 22px -18px rgba(0,0,0,.35)}
   body.single{background:#fff}

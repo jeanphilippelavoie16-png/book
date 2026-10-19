@@ -231,7 +231,7 @@ def ladder(n_on, total, label, lieu_k, lieu_txt, folio=None, cls_of=None):
 
 def entete_html(num, title, js_name, meta):
     tpl = open(os.path.join(TOOLS, "interieur.tpl.html"), encoding="utf-8").read()
-    head = tpl[:tpl.index("</style>")]
+    head = bc.appliquer_format(tpl[:tpl.index("</style>")])     # le format d'impression (build_chapitre.py, FORMATS)
     head = re.sub(r"<title>.*?</title>", f"<title>{num} — {html.escape(title)} — Le Manuel du Nord</title>", head)
     css = open(os.path.join(TOOLS, "chapitre.css"), encoding="utf-8").read()
     css += open(os.path.join(TOOLS, "ancrage.css"), encoding="utf-8").read()

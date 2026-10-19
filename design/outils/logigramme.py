@@ -91,10 +91,14 @@ GRILLE = (0.5 * PT, 0.75 * PT, 9.25 * PT)   # bloc du livre : 0,5 po des côtés
 
 # ------------------------------------------------------------------ jetons du livre
 def _bloc(texte, sel):
-    m = re.search(re.escape(sel) + r"\s*\{(.*?)\}", texte, re.S)
-    if not m:
+    # tous les blocs du sélecteur : le gabarit a deux :root (le format d'impression, puis les couleurs)
+    ms = list(re.finditer(re.escape(sel) + r"\s*\{(.*?)\}", texte, re.S))
+    if not ms:
         sys.exit(f"jetons introuvables : {sel}")
-    return dict(re.findall(r"(--[\w-]+)\s*:\s*([^;]+?)\s*;", m.group(1) + ";"))
+    out = {}
+    for m in ms:
+        out.update(re.findall(r"(--[\w-]+)\s*:\s*([^;]+?)\s*;", m.group(1) + ";"))
+    return out
 
 def jetons(tome):
     racine = _bloc(open(TPL, encoding="utf-8").read(), ":root")

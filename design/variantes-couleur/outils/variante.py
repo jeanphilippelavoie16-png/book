@@ -6,7 +6,7 @@ et pose par-dessus le CSS d'une variante (couleur.css).
     (numéros nouveaux, six tomes ; --tome force une couleur t1 … t6 pour comparer)
 
 -> design/variantes-couleur/NN-V.html, puis V-1-ouverture.png, V-2-procedure.png, V-3-urgence.png
-   (768 × 960, facteur 2, page rognée comme les épreuves). Les pages sont retrouvées par leur
+   (page rognée du format, facteur 2, comme les épreuves). Les pages sont retrouvées par leur
    contenu (la couleur change la hauteur de l'ouverture, donc la pagination) : voir CIBLES.
    Le rapport du paginateur (avertissements, pages trouvées) s'imprime dans le terminal.
 """
@@ -65,8 +65,11 @@ def _teinte(s, c):
     return re.sub(r"#000(?![0-9A-Fa-f])", c, s)
 
 def _jetons(texte, sel):
-    m = re.search(re.escape(sel) + r"\{([^}]*)\}", texte)
-    return dict(re.findall(r"(--[\w-]+):\s*([^;]+?)\s*(?:;|$)", m.group(1))) if m else {}
+    # tous les blocs du sélecteur : le gabarit a deux :root (le format d'impression, puis les couleurs)
+    out = {}
+    for m in re.finditer(re.escape(sel) + r"\{([^}]*)\}", texte):
+        out.update(re.findall(r"(--[\w-]+):\s*([^;]+?)\s*(?:;|$)", m.group(1)))
+    return out
 
 # Pictogrammes posés en image de fond, déjà teints (15 octobre 2026). Le masque CSS (mask-image teint par
 # currentColor) sortait du PDF d'Edge en masques de transparence imbriqués : filet gris au bord des pictos,
@@ -188,7 +191,7 @@ def rapport(dst, cib):
 
 def shoot(dst, pid, png):
     if os.path.exists(png): os.remove(png)
-    p, prof = bc.edge(["--force-device-scale-factor=2", "--window-size=768,960", f"--screenshot={png}", bc.url(dst, "#page=" + pid)], png)
+    p, prof = bc.edge(["--force-device-scale-factor=2", "--window-size=%d,%d" % bc.fmt()["px"], f"--screenshot={png}", bc.url(dst, "#page=" + pid)], png)
     return p, prof
 
 if __name__ == "__main__":

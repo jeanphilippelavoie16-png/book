@@ -30,7 +30,7 @@ p.step + table.tcol, p.stepc + table.tcol{margin-top:1pt}
 /* planches et photos dans le fil */
 .fig{margin:0;break-inside:avoid}
 .fig.pl.demi{column-span:all;margin:4pt 0 10pt}
-.fig.pl.demi img{display:block;width:7in}
+.fig.pl.demi img{display:block;width:var(--bw)}
 .fig.ph{margin:3pt 0 8pt}
 .fig.ph img{display:block;width:100%;height:auto;max-height:5.2in;object-fit:contain}   /* une photo en hauteur ne dépasse plus la page (ch. 33, 28 septembre 2026) : centrée, blanc de chaque côté */
 .fig.ph.demi{column-span:all}
@@ -84,7 +84,7 @@ p.step + table.tcol, p.stepc + table.tcol{margin-top:1pt}
 .pl-num{background:#9B2C1E;color:#fff;font:700 10pt/1 "IBM Plex Sans Condensed",sans-serif;letter-spacing:.07em;
   text-transform:uppercase;padding:3.5pt 6pt 3pt;white-space:nowrap}
 .pl-titre{font:700 14.5pt/1.1 "IBM Plex Sans Condensed",sans-serif;color:#1A1A1A}
-img.planche.avec-tete{height:calc(8.5in - .46in);width:7in;object-fit:contain;object-position:center top}
+img.planche.avec-tete{height:calc(var(--bh) - .46in);width:var(--bw);object-fit:contain;object-position:center top}
 .fig.pl.demi .pl-tete{height:.34in;margin-bottom:4pt}
 /* La petite planche : une colonne de large, dans le fil du texte (JP, 16 octobre 2026) */
 .fig.pl.petite{break-inside:avoid;margin:3pt 0 9pt}
@@ -123,6 +123,8 @@ p.pc .pmarge svg.picto{display:block;width:26pt;height:26pt;margin:0}
 .extra{position:relative;display:block;break-inside:avoid;margin:11pt 6pt 9pt;padding:7pt 10pt 8pt;background:#EDF4E6;
   border-radius:3pt;box-shadow:0 3pt 8pt rgba(36,58,30,.22),0 0.7pt 1.8pt rgba(36,58,30,.20)}
 .extra .xhead{margin:0 0 2.5pt;line-height:1.2}
+/* la cale qui ouvre la deuxième colonne devant une note (chapitre.js, placerNotes) : la marge du haut de la note reste */
+.extra-cale{display:block;height:1px;margin:0;break-before:column}
 /* le « i » dans sa petite bulle, à cheval sur le coin en haut à gauche (JP, 19 octobre 2026) */
 .extra .xico{position:absolute;top:-7pt;left:-7pt;width:16pt;height:16pt;box-sizing:border-box;border-radius:50%;
   background:#5F8C55;border:1.3pt solid #fff;box-shadow:0 1.5pt 3pt rgba(36,58,30,.32),0 .5pt 1pt rgba(36,58,30,.25)}
