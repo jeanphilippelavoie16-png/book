@@ -474,6 +474,7 @@ def motif(can, info):
     # la corde de bois, dans le plus haut trou de la quatrième (à droite du titre du sommaire, sous le texte
     # d'ouverture) : posée au bas du trou, au-dessus du filet du titre, et calée à droite sur le bout des filets
     bois = ''
+    posee = []
     trou = _trou_quatrieme(occ, xt, ppp, BOIS_H[0] * ppp, BOIS_L * ppp)
     if trou:
         qx0, qy0, qx1, qy1 = trou
@@ -484,12 +485,24 @@ def motif(can, info):
         droite = int(max(r[2] for r in info['rects'] if r[4] == 0 and r[2] * q < xt) * q)    # le bout des filets
         bx = min(qx1, droite) - OA.shape[1]
         if bx >= qx0:
-            _poser(can, OA, OC, bx, qy1 - OA.shape[0])
-            bois = ' ; corde de bois de %.2f × %.2f po, de %.2f à %.2f po du bord perdu, à %.2f po du haut' % (
-                OA.shape[1] / ppp, OA.shape[0] / ppp, bx / ppp, (bx + OA.shape[1]) / ppp, (qy1 - OA.shape[0]) / ppp)
+            # posée SUR le filet du titre « Dans ce tome » : son dessous est coupé droit, il touche la ligne (JP, 19 octobre
+            # 2026 : « le bois, colle-le sur la ligne parce qu'il est coupé ; si le bois du bas touche à la ligne, c'est
+            # correct »). Le filet est le bas du bloc du titre, 1,25 pt de haut (voir _occupe).
+            sous = [r for r in info['rects'] if r[4] == 0 and r[0] * q <= bx and r[2] * q >= bx + OA.shape[1]
+                    and r[3] * q >= qy1]
+            by = qy1 - OA.shape[0]
+            if sous:
+                filet = int(round((min(r[3] for r in sous) - 1.67) * q))   # le haut du filet
+                by = filet - OA.shape[0] + 1
+            _poser(can, OA, OC, bx, by)
+            posee.append((bx, by, bx + OA.shape[1], by + OA.shape[0]))
+            bois = ' ; corde de bois de %.2f × %.2f po, de %.2f à %.2f po du bord perdu, à %.2f po du haut, sur le filet' % (
+                OA.shape[1] / ppp, OA.shape[0] / ppp, bx / ppp, (bx + OA.shape[1]) / ppp, by / ppp)
 
     # contrôle : rien sur le devant, rien dans la marge du texte (hors des taches effacées du mur)
     chg = (can != avant).any(2)
+    for x0_, y0_, x1_, y1_ in posee:      # la corde touche le filet exprès : sa marge ne compte pas
+        chg[y0_:y1_, x0_:x1_] = False
     if chg[:, xf:].any() or (chg & occ).any():
         print('    dos 2 : ATTENTION, le motif touche le devant ou la marge du texte')
     print('    dos 2 : %d tache(s) du mur effacée(s) ; groupe de %.2f à %.2f po du haut (trou, marges ôtées : %.2f à '
