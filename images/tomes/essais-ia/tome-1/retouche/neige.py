@@ -2,8 +2,8 @@
 épinettes). Retouche demandée par JP le 19 octobre 2026 : « la même image, avec la rigueur des autres tomes ».
 
 Ce qui change, et rien d'autre :
-- le halo blanc autour de tout ce qui est foncé (la marque d'un agrandissement trop aiguisé) part : la neige voisine
-  est recopiée jusqu'au bord des formes foncées, sans flou, et le bord lui-même est refait sur la neige ;
+- le halo blanc autour de tout ce qui est fonce_ (la marque d'un agrandissement trop aiguisé) part : la neige voisine
+  est recopiée jusqu'au bord des formes fonce_es, sans flou, et le bord lui-même est refait sur la neige ;
 - la trace : le fil noir (1 à 2 px, doublé dans la boucle) devient une trace de raquettes taillée sur le même tracé,
   une rigole à deux bords nets qui s'élargit vers l'avant (1 unité près du chalet, 5,5 à droite), son ombre bleu pâle
   dedans et des empreintes ovales à pas régulier ; elle passe derrière la petite épinette et entre dans la grande ;
@@ -12,7 +12,7 @@ Ce qui change, et rien d'autre :
 - des ombres courtes et nettes, d'un bleu pâle tiré du bleu des collines, au pied de la rangée d'arbres, des petites
   épinettes, de la grande et sous le chalet, vers l'avant et la gauche (la lune est en haut à droite) ;
 - quatre entailles fines qui suivent le creux du champ, hors du bloc des tomes (176 à 592, 830 à 925).
-La marbrure de la neige (3 niveaux) reste. Les formes foncées (chalet, clôture, épinettes, masse de la rangée)
+La marbrure de la neige (3 niveaux) reste. Les formes fonce_es (chalet, clôture, épinettes, masse de la rangée)
 gardent leurs pixels : on ne peint que la neige.
 
     from neige import appliquer ; b = appliquer(a, 4)      (a : numpy RVB uint8, 3072 x 3840 ; K pixels par unité)
@@ -148,15 +148,9 @@ def appliquer(a, K=4):
     Y = lambda v: v * K - r0
     px = lambda pts: np.array([(x * K, Y(y)) for x, y in pts], float)
 
-    # -- le champ : la grande tache claire du bas, et ce qui est foncé dessus
+    # -- ce qui est fonce_ sur la neige, et ce que la retouche efface : le fil de la trace (doublé dans la boucle)
+    # et le fil du toit
     sombre = L < 120
-    # le champ : la tache claire qui touche le bas de l'image, par-dessus les fils minces qui la coupent
-    clair = ndi.gaussian_filter(L, 1.0 * q) > 150
-    p = int(5 * q) + 1
-    lab, n = ndi.label(ndi.binary_closing(np.pad(clair, p, mode='edge'), _disque(4 * q))[p:-p, p:-p])
-    v = lab[int(Y(900)), int(300 * K)]
-    champ = (lab == v) & clair
-    # ce que la retouche efface et refait : le fil de la trace (doublé dans la boucle) et le fil du toit
     trace = _catmull(px(TRACE), 10)
     s_tr = _abscisse(trace)
     boucle = np.exp(-((trace[:, 1] - Y(818)) / (14 * K)) ** 2) * (trace[:, 0] < 310 * K)
@@ -171,12 +165,22 @@ def appliquer(a, K=4):
     cloture = (xx_ >= 337.5 * K) & (xx_ <= 522 * K) & (yy > Y(776)) & (yy < Y(804))
     protege = (epais & ~dans_boucle) | cloture
     effacer = couloir & ndi.binary_dilation(sombre & couloir, _disque(3 * q)) & ~protege
-    # dans la boucle, tout ce qui est foncé et mince est un reste du fil doublé
+    # dans la boucle, tout ce qui est fonce_ et mince est un reste du fil doublé
     effacer |= dans_boucle & ndi.binary_dilation(sombre & ~epais, _disque(3 * q)) & (xx_ > 250 * K)
+
+    # -- le champ : la neige qui touche le bas de l'image, une fois les deux fils enlevés. La neige posée sur le
+    # toit du chalet et sur les branches des épinettes est enfermée par leur contour fonce_ : elle n'est pas le
+    # champ, et elle ne bouge pas.
+    fonce_ = sombre & ~effacer
+    libre = ~ndi.binary_dilation(fonce_, _disque(3 * q))
+    lab, n = ndi.label(libre)
+    v = lab[int(Y(900)), int(300 * K)]
+    _, (iy, ix) = ndi.distance_transform_edt(lab == 0, return_indices=True)
+    champ = (lab[iy, ix] == v) & ~fonce_
     neige_ok = (champ | effacer) & (yy >= Y(722))
 
-    # -- la neige du fond : sa marbrure lente (estimée loin de tout ce qui est foncé) et son grain
-    dist = ndi.distance_transform_edt(~sombre)
+    # -- la neige du fond : sa marbrure lente (estimée loin de tout ce qui est fonce_) et son grain
+    dist = ndi.distance_transform_edt(~fonce_)
     loin = champ & (dist > 18 * q) & ~couloir
     poids = ndi.gaussian_filter(loin.astype(np.float32), 30 * q)
     base = np.stack([ndi.gaussian_filter(z[..., c] * loin, 30 * q) for c in range(3)], -1)
@@ -192,10 +196,10 @@ def appliquer(a, K=4):
     neuve = base + grain
 
     out = z.copy()
-    # le halo : tout ce qui est clair à moins de 16 px d'une forme foncée reprend la neige voisine
+    # le halo : tout ce qui est clair à moins de 16 px d'une forme fonce_e reprend la neige voisine
     halo = neige_ok & (dist <= 16 * q) & (dist > 2.5 * q)
     out[halo] = neuve[halo]
-    # le bord lui-même : le pixel de transition garde sa part de foncé, posée sur la neige refaite
+    # le bord lui-même : le pixel de transition garde sa part de fonce_, posée sur la neige refaite
     bord = neige_ok & (dist <= 2.5 * q) & ~sombre & ~effacer
     Lmax = ndi.maximum_filter(L, int(5 * q) | 1)
     Lmin = ndi.minimum_filter(L, int(5 * q) | 1)
@@ -205,7 +209,7 @@ def appliquer(a, K=4):
     out[bord] = recompo[bord]
     # les deux fils : effacés, la neige refaite dessous
     out[effacer] = neuve[effacer]
-    # les miettes : un point foncé isolé sur la neige (un reste de fil, une poussière d'agrandissement) part
+    # les miettes : un point fonce_ isolé sur la neige (un reste de fil, une poussière d'agrandissement) part
     lab_m, nm = ndi.label(out.mean(2) < 160)
     tailles = ndi.sum(np.ones_like(lab_m), lab_m, range(1, nm + 1))
     miettes = np.isin(lab_m, 1 + np.nonzero(tailles < 60 * q * q)[0]) & (yy > Y(780))
