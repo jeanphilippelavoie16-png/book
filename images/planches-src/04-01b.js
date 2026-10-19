@@ -51,16 +51,23 @@ module.exports = (h) => {
     const yb = (z.h - Y1) / s1;                                      // le bas de la vue, en mm
     // l'ouverture : ce qu'on voit au-delà, en gris loin
     o.push(r1(-400, 0, 400, yb, A.loin));
-    // le bas de la porte, fermé sous la pompe : un cadre de bâtons, couvert de plastique du côté du dehors,
-    // calé entre les jambages ; la vue le coupe en bas
+    // le bas de la porte, fermé sous la pompe : un cadre de bâtons couvert de plastique (le plastique du côté du
+    // dehors, les bâtons du côté de la pièce), calé entre les jambages ; la vue le coupe en bas
     const B = 30;                                                    // un bâton d'environ 3 cm
     o.push(r1(-400, yFerme, 400, yb, A.blanc));
-    for (const [x0, x1, y0, y1] of [[-262, -40, yFerme + B + 6, yb], [40, 262, yFerme + B + 6, yb]]) {
-      // deux plis du plastique tendu, des bâtons du haut vers le bas
-      const a = p1(x0, y0), b = p1(x1, y1);
-      o.push(h.path(`M${a[0]} ${a[1]} Q${(a[0] + b[0]) / 2} ${a[1] + 2} ${b[0]} ${b[1]}`, A.detail));
+    // les reflets du plastique tendu : deux paires de traits courts en biais
+    for (const [x, y] of [[-150, yFerme + 120], [170, yFerme + 110]])
+      for (const d of [0, 26]) o.push(l1(x + d, y + 40, x + d + 40, y, A.detail));
+    // le bâton en écharpe, qui part du coin du haut ; puis les bâtons de côté, coupés par le bas de la vue
+    const e0 = -400 + B, ec = (yb - yFerme - B) * 0.58, eb = 35;
+    o.push(h.chemin([p1(e0, yFerme + B), p1(e0 + eb, yFerme + B), p1(e0 + eb + ec, yb), p1(e0 + ec, yb)], A.blanc, true));
+    o.push(l1(e0, yFerme + B, e0 + ec, yb, A.arete), l1(e0 + eb, yFerme + B, e0 + eb + ec, yb, A.arete));
+    for (const x of [-400, 400 - B]) {
+      o.push(r1(x, yFerme + B, x + B, yb, A.blanc));
+      o.push(l1(x, yFerme + B, x, yb, A.arete), l1(x + B, yFerme + B, x + B, yb, A.arete));
+      o.push(l1(x + 11, yFerme + B + 30, x + 11, yFerme + B + 90, A.detail));
     }
-    for (const x of [-400, 400 - B]) o.push(r1(x, yFerme + B, x + B, yb, W(A.arete)));
+    // le bâton du haut, d'un jambage à l'autre
     o.push(h.rect(...p1(-400, yFerme), 800 * s1, B * s1, `${W(A.arete)} rx="1.6"`));
     for (const [x0, x1] of [[-330, -180], [-60, 90], [170, 330]]) o.push(l1(x0, yFerme + 12, x1, yFerme + 12, A.detail));
     for (const [x0, x1] of [[-250, -90], [120, 260]]) o.push(l1(x0, yFerme + 20, x1, yFerme + 20, A.detail));
