@@ -496,3 +496,84 @@ génératrice 6 → 4 mentions (l'encadré Danger).
 
 Les ancres, les lignes de l'inventaire des dangers, les « Où il revient » et les renvois des autres chapitres sont
 rendus à l'orchestrateur dans la réponse de l'agent.
+
+## Corrections après la vérification technique, 19 octobre 2026
+
+Rôle 2, rédacteur, sur le rapport du vérificateur technique (12 points). Relu avant : `.claude/cadre-agents.md`,
+`CLAUDE.md`, le skill `ecriture`, `gabarit-chapitre.md`, la page `co` et la page `projection` (`dangers/partie-1.md`).
+**Aucune page nouvelle cherchée** (JP, 19 octobre : « on a pas déjà fait ce travail-là ? ») : chaque correction s'appuie
+sur une fiche déjà au dossier, citée par le vérificateur et relue ici.
+
+### Appliqué
+
+| # | Où | Avant | Après | Fiche |
+| --- | --- | --- | --- | --- |
+| 1 | Section 7, « Faire démarrer l'auto », batterie | Parois bombées, ondulées ou fendues : ne pas la survolter ni la charger **avant de l'avoir dégelée** | Parois bombées, ondulées ou fendues : ne plus la survolter ni la charger, **même une fois dégelée** ; une batterie gelée aux parois intactes dégèle au chaud avant | `15b-travail-securitaire-nb-batterie-gelee.md` (CAA-Québec : « Renoncez au survoltage si ses parois sont ondulées ou gonflées » ; « Paroi bombée ou fendue : elle ne sert plus ») ; `18b-trojan-batteries-plomb-froid-et-charge.md` (« irreparable damage ») ; page `projection`, point 4 |
+| 3 | Série du CO | Une série « 1 min » sur les étapes 1 à 8 | « L'avertisseur de CO sonne » `{.orange 1 min}` sur les étapes 1 à 4 ; « Tout le monde est dehors : couper la source et rentrer » `{.orange [À VÉRIFIER]}` sur les étapes 5 à 8. Numéros inchangés. La note [^1] (les bips) ferme la première série, près de son appel | 1 min : le temps de sortir, comme au ch. 3 (étapes 12 et 13). Seconde série : aucune fiche ne donne le temps qu'on a pour couper la source, aérer et rentrer (recherche dans les fiches du CO, Kidde, INSPQ, Québec.ca : rien sur la durée d'aération) ; question à JP |
+| 4 | Étape 7 | « L'avertisseur ne fonctionne pas sous 4,4 °C » | « L'avertisseur n'est fait pour fonctionner qu'au-dessus de 4,4 °C » | `15b-kidde-avertisseur-co-bouton-et-temperature.md` (« Operating Range » ; « Extreme temperatures may affect the sensitivity ») ; page `co` (« conçu pour fonctionner […] entre 4,4 et 37,8 °C ») |
+| 5 | Étape 27 | La masse de la maison seule explique le ralentissement | « l'écart avec le dehors avait diminué, et le béton, le gypse… » | `10-schl-refroidissement-maisons-panne-verglas-1998.md` (« the temperature differential of indoor to outdoor air is now lower. The thermal mass of the house also plays a role ») |
+| 6 | Section 7, « Sans radio à piles » | « une batterie qu'on vide gèle » | « une batterie qu'on vide gèle plus facilement » | `18b-trojan-batteries-plomb-froid-et-charge.md` (tableau 1 : −15 °C à 40 %, −7 °C à 20 %) |
+| 7 | Étape 37 | « espacés d'au moins 3 m […] (ch. 82) » | « espacés d'au moins 3 m entre les cimes […] (ch. 11, étapes 49 à 56) » | Ch. 11, étapes 49 à 56 (les trois zones ; étape 55 : 3 m entre les cimes). Le ch. 82 est le feu dans le bâtiment |
+| 8 | Étape 20 ; section 5 ; logigramme | « L'hiver, vidanger la maison » (ch. 3) | « L'hiver, vidanger le bâtiment qu'on quitte » (ch. 3 pour la maison, ch. 84 pour le chalet) ; ligne de la section 5 « Avant de quitter le bâtiment l'hiver » ; boîte « Avant de partir » du logigramme | Ch. 84, étape 3 (« Vider les points bas ») |
+| 9 | Étape 3 | Pas de pictogramme | `{!co}` en tête de l'étape : l'auto immobilisée (la neige rebouche l'échappement) y est le fait propre au chapitre | `plan/dangers-inventaire.md`, 2.1, « L'auto immobilisée » |
+| 10 | En plus, « Les Innus, en petits groupes sur le territoire » | « les Innus » | « les Innus du Labrador » (76 mots) | `38n-ward-2021-innu-territoire-et-bien-etre.md` (Sheshatshiu et Natuashish) |
+
+### Appliqué autrement
+
+- **Point 2, la chandelle (étape 45).** La phrase « La flamme d'une chandelle ne change pas devant le CO : elle ne jaunit
+  et ne fume que quand l'oxygène manque » est **coupée**, au lieu d'être remplacée par une phrase `[À VÉRIFIER]`. Raisons :
+  aucune fiche au dossier ne porte le fait (NON RETROUVÉ, comme au ch. 12, point 84 de `suivi/12-technique.md`) ;
+  « ne jaunit » est faux pour une chandelle et contredit `16c-etudes-monoxyde-tentes-et-abris-de-neige.md` (la flamme
+  jaune d'un réchaud fait plus de CO) ; le geste de l'étape (« N'allumer ni chandelle ni réchaud dans l'auto : leur
+  flamme fait du monoxyde ») ne dépend pas de cette phrase ; et ce qu'elle voulait dire est déjà dit deux fois avec
+  source : la page `co` (« On ne peut détecter le gaz qu'avec un avertisseur de monoxyde ») et la section 7 du chapitre
+  (« Ce qui ne se remplace pas », 1 : « aucun sens ne le remplace »). Un `[À VÉRIFIER]` de plus aurait bloqué le tome
+  pour une phrase qui n'apprend rien au geste.
+
+### Sans objet dans le chapitre (rendu à l'intégrateur)
+
+- **Point 11, les renvois des autres chapitres.** Le ch. 3 est déjà juste dans le fichier de travail (étape 43 ;
+  « étapes 4 à 8 du ch. 2 » ; « ch. 2, étape 4 ») : les lignes 163 et 180 citées par le vérificateur n'existent plus. Le
+  ch. 7 est juste. Restent ch. 11 (ligne 118), ch. 40 (ligne 283) et ch. 84 (lignes 389, 421, 452, 458, 548, 627, 723) :
+  rendus à l'orchestrateur, avec la correction mot pour mot.
+- **Point 12, ch. 14, « (ch. 2, « L'onde AM, la nuit ») ».** Le renvoi n'est plus dans le ch. 14 : le fait y est écrit
+  (ligne 144). Rien à faire.
+
+### Le logigramme
+
+`images/logigrammes/02-rester-ou-partir.json` → `.svg`, `.pdf`, `.png`, et `02-rester-ou-partir-livre.svg`
+(`--sans-entete --svg`). Pastille « 1 min » gardée sur co1 ; co4 porte la pastille `[À VÉRIFIER]` et ouvre la seconde
+série (co4 et co5, étapes 5 à 8) ; boîte « Avant de partir » : « L'hiver, vidanger le bâtiment qu'on quitte ».
+Contrôle : 0 erreur, 4 avis (pointes de flèche à l'étroit, 9 à 11 pt ; la pastille de co4 allonge la boîte de 4 pt,
+d'où l'avis co4 → co5). Regardé à l'image : rien ne déborde.
+
+### Pictogrammes, à jour
+
+Le tableau « Pictogrammes posés » de la refonte reste juste, avec deux lignes changées :
+
+| Étape | Id | Ce que l'étape dit de propre au chapitre |
+| --- | --- | --- |
+| 3 | `co` | L'auto qui abrite les enfants : dégager l'échappement avant chaque redémarrage, fenêtre entrouverte du côté opposé au vent, une dizaine de minutes par 30 minutes ; la neige rebouche le tuyau et le CO entre par le plancher |
+| Section 7, « Faire démarrer l'auto » | `projection` | Parois bombées, ondulées ou fendues : la batterie ne se survolte ni ne se charge plus, même dégelée ; aux parois intactes, la dégeler d'abord |
+
+L'étape 45 garde `froid` et `co` (rester dans l'auto ; ni chandelle ni réchaud ; moteur et échappement comme à
+l'étape 3), sans la phrase de la chandelle.
+
+### Les séries orange, à jour
+
+| Série | Pastille | Étapes | Ce qui fonde la pastille |
+| --- | --- | --- | --- |
+| L'avertisseur de CO sonne | 1 min | 1 à 4 | Le temps de sortir, comme au ch. 3 (étapes 12 et 13, « 1 min ») |
+| Tout le monde est dehors : couper la source et rentrer | `[À VÉRIFIER]` | 5 à 8 | Aucune fiche. Le moteur du livre n'imprime pas de pastille quand le marqueur ne donne pas de chiffre (avertissement au montage) ; le logigramme l'imprime. Question à JP |
+| On reste : la première heure | 1 h | 9 à 15 | Inchangé |
+| On part : la première heure | 1 h | 16 à 24 | Inchangé |
+
+### controle.py
+
+Comparé au texte d'avant ces corrections (`git show 17487ee^:chapitres/02-rester-ou-partir.md`) : 6 483 mots avant,
+6 524 après ; 2 tirets (titre et ligne de tome) ; 0 « § » ; 0 tournure, 0 maxime, 0 pronominal, 0 mise en relief.
+Mots vides : 38, jugés (le nouveau « Tout le monde est dehors » porte le sens). Redites : 5, jugées ; la nouvelle,
+« une batterie qu'on vide gèle plus » (section 7, deux fois), est le renvoi de « Sans radio à piles » vers « Faire
+démarrer l'auto », qui porte les chiffres. Invariants : seul « ch. 82 » disparaît (renvoi faux, remplacé par ch. 11).
+
+**`[À VÉRIFIER]`** dans le texte : 1 (la pastille de la seconde série du CO).
