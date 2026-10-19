@@ -223,8 +223,8 @@ trouve à la chaleur : passer le dos de la main au ras du sol, puis la glisser d
 39. {!electrocution} **Faire le tour à pied avant d'entrer** : chercher les fils électriques au sol,
  l'odeur de gaz, les gros débris et les points chauds. Ne jamais marcher vers un fil tombé ; si on est
  déjà près d'un fil, s'en éloigner à très petits pas, en traînant les pieds sans les lever.
-40. {!ecrasement} {!projection} **Ne pas travailler ni stationner sous un arbre brûlé.** Un tronc brûlé à la base tient
- debout jusqu'au premier vent, des jours ou des semaines après le feu. Tirer un chicot brûlé, un arbre
+40. {!ecrasement} {!projection} **Ne pas travailler ni stationner sous un arbre brûlé.** Un tronc brûlé à
+ la base tient debout jusqu'au premier vent, des jours ou des semaines après le feu. Tirer un chicot brûlé, un arbre
  encroué ou un arbre sous tension au treuil, au levier ou au câble, à distance et hors de l'axe de chute
  (section 7 ; ch. 106, ch. 109).
 41. **Se méfier des pentes et des talus.** Le feu a brûlé l'humus et les racines fines qui tenaient le

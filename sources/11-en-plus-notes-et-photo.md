@@ -29,3 +29,6 @@ rien d'autre.
 - **Licence lue sur l'API de Commons le 19 octobre 2026 (`extmetadata`, `LicenseShortName`) :** CC BY-SA 4.0
 - **Ce que la note en dit :** des épinettes noires espacées, leurs branches jusqu'au sol, sur un tapis gris-blanc de
   cladonie ; aucun autre fait que ceux du chapitre (étapes 14, 55, 57).
+- **Crédit :** la ligne de `images/credits.md` (section « Encadrés « En plus » du chapitre 11, le feu de forêt
+  (19 octobre 2026) ») est rendue à l'orchestrateur le 19 octobre 2026, après la vérification technique :
+  `images/credits.md` est un fichier commun, que le rédacteur ne touche pas pendant que d'autres agents travaillent.

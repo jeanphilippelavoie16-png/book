@@ -60,9 +60,9 @@ chalet, hors réseau, la génératrice ou le propane s'arrête : scénario 8 et 
 | Au retour du courant | Après une panne de plus de 6 h, trier le frigo et le congélateur | Jeter tout aliment resté 2 h ou plus à la température de la pièce |
 
 {!generatrice} {!co} Poser la génératrice dehors, à 6 m ou plus de tout bâtiment, l'échappement tourné à l'opposé :
-jamais dans un bâtiment, ni dans le garage ou la remise, ni sous un auvent, même porte ouverte. Une maison chauffée aspire l'air du dehors par ses fentes du bas : une
-génératrice collée au mur ou posée devant une porte envoie ses gaz à l'intérieur comme si elle y était. Ne jamais
-prendre les piles de l'avertisseur de CO pour une lampe.
+jamais dans un bâtiment, ni dans le garage ou la remise, ni sous un auvent, même porte ouverte. Une maison chauffée
+aspire l'air du dehors par ses fentes du bas : une génératrice collée au mur ou posée devant une porte envoie ses gaz
+à l'intérieur comme si elle y était. Ne jamais prendre les piles de l'avertisseur de CO pour une lampe.
 
 ### Scénario 2. Route coupée, isolement de 2 à 8 semaines (**la bascule**)
 
@@ -163,9 +163,9 @@ champignons et l'orignal, pendant des dizaines d'années (ch. 4).*
 
 {!co} {!espace-clos} Une fois la pièce d'abri bouchée, et au caveau, ne rien y faire brûler : ni lampe à l'huile, ni
 fanal, ni chaufferette, ni chandelle. Si l'avertisseur sonne, ou si plusieurs personnes ont mal à la tête ou envie de
-dormir en même temps, chercher d'abord la source et l'éliminer, puis juger s'il faut sortir (ch. 4, étape 18). Au
-caveau, où rien ne brûle, penser d'abord à l'air qui manque : enlever les bouchons des conduits d'aération et aérer
-tout de suite.
+dormir en même temps, chercher d'abord la source du monoxyde et l'éliminer, puis juger s'il faut sortir (ch. 4,
+étape 18). Au caveau, où rien ne brûle, ces signes viennent d'abord de l'air qui manque, et l'avertisseur de CO ne le
+détecte pas : enlever les bouchons des conduits d'aération du caveau et l'aérer tout de suite.
 
 **L'iode.** Personne n'en distribue d'avance sur la Côte-Nord : il faut acheter la boîte (ch. 00b). Le comprimé ne
 protège que la thyroïde, contre l'iode radioactif ; l'abri protège tout le corps. Doses et délai : ch. 4, étapes 13

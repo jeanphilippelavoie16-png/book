@@ -208,10 +208,11 @@ def motif(can, info):
         return can
     couches = [c[ys.min():ys.max() + 1] for c in couches]
     hb = couches[0].shape[0]
-    # le soleil monte jusqu'au haut du trou, la bande descend : on centre le tout dans le trou
-    y0 = int(round(gb - hb - (gb - ga - hb) / 2))
-    haut_soleil = ga + (gb - ga - hb) // 4
-    y0 += (gb - ga - hb) // 4 - int(round((gb - ga - hb) / 2)) + (gb - ga - hb) // 2
+    # le jeu e de la bande dans le trou se partage : la bande descend de e/2 sous le centre, le soleil monte à e/2 du
+    # haut du trou ; il reste autant de vide au-dessus du soleil que sous la dernière entaille
+    e = (gb - ga - hb) / 2
+    y0 = int(round(ga + 1.5 * e))
+    haut_soleil = ga + 0.5 * e
     haut, horizon = np.maximum.reduce(couches[:-1]), couches[-1]
 
     # la ligne du centre de l'horizon, colonne par colonne (px du fond)
@@ -219,14 +220,14 @@ def motif(can, info):
     m = horizon.sum(0)
     centre = np.where(m > 0.5, (horizon * yy).sum(0) / np.maximum(m, 1e-6), np.nan) + y0
 
-    # le soleil : sa place au devant, en miroir au pli du devant ; il monte jusqu'au haut du trou
+    # le soleil : sa place au devant, en miroir au pli du devant
     sa, sc, sg = _soleil(src)
     cx_dev = xf + (sg + sa.shape[1] / 2) * (can.shape[1] - xf) / iw
     cx = int(round(2 * xf - cx_dev))
     sw0 = sa.shape[1]
     span = slice(max(0, cx - sw0), cx + sw0)
     base = np.nanmax(centre[span]) + 1
-    ss = (base - ga) / sa.shape[0]
+    ss = (base - haut_soleil) / sa.shape[0]
     sw, sh = int(round(sa.shape[1] * ss)), int(round(sa.shape[0] * ss))
     sa_, sc_ = _reduire(sa, sw, sh), _reduire_rvb(sc, sw, sh)
     sx, sy = cx - sw // 2, int(round(base)) - sh
