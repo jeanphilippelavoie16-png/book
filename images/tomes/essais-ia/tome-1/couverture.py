@@ -351,6 +351,10 @@ SCRIPT = r'''<script>
       sheet.querySelectorAll('img,.ph,.serie i,.rule,.hd,h2,.tome i,.back .txt,.back .toc,.back .auteurs,.back .serie').forEach(e=>{
         const b=e.getBoundingClientRect(); out.push([b.left-o.left,b.top-o.top,b.right-o.left,b.bottom-o.top,0]);
       });
+      // le filet sous chaque ligne du sommaire : une étoile posée dessus se lit comme une tache (fs = -1, sans marge)
+      sheet.querySelectorAll('.back .toc li').forEach(e=>{
+        const b=e.getBoundingClientRect(); out.push([b.left-o.left,b.bottom-2-o.top,b.right-o.left,b.bottom+0.5-o.top,-1]);
+      });
       const p=document.createElement('pre'); p.id='mesure'; p.textContent=JSON.stringify(out); document.body.appendChild(p);
     }
     document.documentElement.dataset.ready='1';
@@ -498,18 +502,28 @@ def motif_dos(k, v, can, rects, m, ppp, img):
     return out
 
 
-def nettoyer(can, rects, ppp):
+def nettoyer(can, rects, ppp, serre=False):
     """Retire les étoiles qui touchent une lettre ou un filet : petites taches claires sur fond sombre (chapeau haut
     de forme), dont la tache entière touche la boîte d'un texte élargie d'une marge. Les crêtes, la lune et les traits
-    de neige sont trop grands pour être pris. Le trou se bouche à la moyenne locale du ciel sans étoiles."""
+    de neige sont trop grands pour être pris. Le trou se bouche à la moyenne locale du ciel sans étoiles.
+    serre (tome 1, JP, 19 octobre 2026 : « on peut rajouter des étoiles au travers du texte, tant qu'elles ne touchent
+    pas à des mots, sur les côtés du texte et partout ») : les blocs de texte entiers ne comptent plus, seulement
+    chaque ligne avec une petite marge, les filets du sommaire et les titres ; les étoiles restent entre les lignes, entre
+    les colonnes et autour des blocs."""
     H, W = can.shape[:2]
     k = 0.0104 * ppp                      # 1 px CSS en px de l'image
     zone = np.zeros((H, W), bool)
     po = 96                               # px CSS par pouce
+    lignes = [r for r in rects if r[4] > 0]
     for x0, y0, x1, y1, fs in rects:
+        if serre and fs == 0 and y1 - y0 > .35 * po and sum(1 for t in lignes if t[0] >= x0 - 3 and t[2] <= x1 + 3
+                                                         and t[1] >= y0 - 3 and t[3] <= y1 + 3) >= 2:
+            continue                      # un bloc de plusieurs lignes : ses lignes suffisent (un titre et son filet restent)
         # marge plus large sur la ligne du texte que dessus et dessous : une étoile au bout d'un mot se lit comme un point
         if fs < 0:
             mx = my = 0
+        elif fs and serre:
+            mx, my = min(max(.6 * fs, .08 * po), .15 * po), .03 * po
         elif fs:
             mx, my = min(max(1.0 * fs, .15 * po), .3 * po), min(max(.5 * fs, .12 * po), .2 * po)
         else:
@@ -672,7 +686,7 @@ def main():
             open(f, 'w', encoding='utf-8').write(page_html(v, k, m, pal, fichiers, None, accent))
             rects = mesurer(f, m)
             can, bandes = composer(v, m, img, pal, o.fond_ppp)
-            can, n = nettoyer(can, rects + bandes, o.fond_ppp)
+            can, n = nettoyer(can, rects + bandes, o.fond_ppp, serre=(k == 1))
             can = motif_dos(k, v, can, rects, m, o.fond_ppp, img)     # après : le nettoyage ne rogne pas les motifs
             fond = 'fond-%s.jpg' % v
             Image.fromarray(can).save(os.path.join(travail, fond), quality=92, subsampling=0)
