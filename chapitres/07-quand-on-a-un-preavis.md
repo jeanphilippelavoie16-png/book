@@ -412,7 +412,7 @@ le vent doux loin de la caisse : l'ombre compte plus que la température de l'ai
 balcon arrière ou dans le cabanon, pas en avant, à la vue des passants (ch. 17). Le froid naturel et ses limites :
 ch. 73 ; le congélateur plein qui dégèle : ch. 74.
 
-**Ce qu'on perd :** le réglage. Un redoux à +5 °C en février peut tout dégeler en une journée. Mettre un thermomètre
+**Ce qu'on perd :** le contrôle de la température. Un redoux à +5 °C en février peut tout dégeler en une journée. Mettre un thermomètre
 d'extérieur dans la caisse, ou, à défaut, un verre d'eau gelée avec une pièce de monnaie posée sur la glace : si on
 retrouve la pièce au fond du verre, la caisse a dégelé puis regelé pendant la nuit.
 
@@ -440,14 +440,14 @@ Sans génératrice, il reste l'auto.
 les communications, pas le froid ni le chauffage : une résistance chauffante vide une batterie d'auto vite, sans
 réchauffer la pièce. La caisse dehors prend le relais du congélateur.
 
-### La génératrice qui refuse de partir
+### La génératrice qui ne part pas
 
-Elle passe presque toute l'année arrêtée, et quand elle ne part pas, c'est souvent pour une de ces quatre raisons,
-qu'on règle sans pièce neuve (ch. 106).
+Une génératrice passe presque toute l'année arrêtée. Quand elle ne part pas, c'est souvent pour une de ces quatre
+raisons, qu'on règle sans pièce neuve (ch. 106).
 
 - **Elle tourne au lanceur, mais ne part pas** : c'est souvent l'essence. L'essence restée tout l'été dans le réservoir
  a laissé une gomme dans la cuve du carburateur. Fermer la valve d'essence, dévisser le bouchon de vidange sous la cuve
- et vider dans un pot. Si ce qui sort est verni, orangé ou plein de dépôt, le gicleur est bouché aussi. Le déboucher
+ et vider la cuve dans un pot. Si ce qui sort est verni, orangé ou plein de dépôt, le gicleur est bouché aussi. Le déboucher
  avec un brin de cuivre tiré d'un fil multibrins, jamais avec une mèche ni une broche d'acier : le gicleur est en
  laiton tendre, et un gicleur agrandi change le mélange pour de bon. Remplir avec de l'essence fraîche, pas avec
  celle qu'on vient de vider.
