@@ -10,9 +10,20 @@
 // braise, en gris loin. Pas de rouge : aucune flèche n'est un geste (l'eau, l'air, le
 // rayonnement restent noirs) et le chapitre ne donne pas de point à contrôler. L'eau liquide en
 // bleu, h.a.hachure('eau') : le baril, le bas de mur tenu mouillé, les gouttes du boyau et du jute.
+//
+// Reprise le 19 octobre 2026 (second regard) : l'eau au pied du mur est une bande basse et plate, du sol
+// jusque sous le trait du bas du mur, qui part de la bouche du boyau et s'amincit vers la gauche ; elle est
+// peinte sous le contour du solage, donc le trait du bas du mur et la dernière planche restent entiers. Les
+// gouttes du boyau sont dans la bande. Le renvoi 6 touche la bande à gauche des gouttes, juste sous sa surface ;
+// le renvoi 5 touche le haut de la paroi du baril : sa ligne de rappel ne traverse plus l'eau (son liseré blanc
+// y faisait une diagonale blanche).
 module.exports = (h) => {
   const wf = at => at.replace('fill="none"', 'fill="#ffffff"');
   const n1 = v => Math.round(v * 10) / 10;
+  // Le motif de l'eau calé de (tx, ty) : la forme est tracée décalée de (−tx, −ty) dans un groupe déplacé de
+  // (tx, ty) ; elle reste en place, seules les vaguelettes du motif bougent. On cale pour qu'aucune vaguelette
+  // ne soit coupée par le bord de la forme : un bout de vaguelette se lit comme un trait égaré.
+  const eauCalee = (tx, ty, dessin) => `<g transform="translate(${tx} ${ty})">\n${dessin(-tx, -ty)}\n</g>`;
   // Une goutte en larme, la pointe en haut, en bleu cernée d'un trait fin (toute l'eau en bleu, JP, 19 octobre 2026).
   const goutte = (x, y, r = 1.3) => h.path(`M${n1(x)},${n1(y - 1.8 * r)} C${n1(x + 0.3 * r)},${n1(y - 0.9 * r)} ${n1(x + r)},${n1(y - 0.2 * r)} ${n1(x + r)},${n1(y + 0.5 * r)} A${r},${r} 0 0 1 ${n1(x - r)},${n1(y + 0.5 * r)} C${n1(x - r)},${n1(y - 0.2 * r)} ${n1(x - 0.3 * r)},${n1(y - 0.9 * r)} ${n1(x)},${n1(y - 1.8 * r)} Z`, h.a.hachure('eau', 'fin'));
 
@@ -79,7 +90,16 @@ module.exports = (h) => {
     o.push(h.rect(60, 136, 360, 144, h.a.blanc));
     for (let y = 143; y < 280; y += 7) o.push(h.ligne(60, y, 420, y, h.a.fin));
     o.push(h.rect(60, 136, 6, 144, wf(h.a.arete)), h.rect(414, 136, 6, 144, wf(h.a.arete)));
-    o.push(h.rect(60, 280, 360, 12, wf(h.a.arete)));
+    // le solage ; le bas de mur tenu mouillé : une bande d'eau basse et plate au pied du mur, de la bouche du
+    // boyau (410) vers la gauche, du sol (292) jusqu'à 283,5, sous le trait du bas du mur (280) ; peinte avant
+    // le contour du solage, qui repasse sur elle. Calée de (0, 4) : une vaguelette entière, entre le bout aminci
+    // et le renvoi 6.
+    o.push(h.rect(60, 280, 360, 12, h.a.blanc));
+    o.push(eauCalee(0, 4, (dx, dy) => {
+      const p = (x, y) => `${n1(x + dx)},${n1(y + dy)}`;
+      return h.path(`M${p(410, 283.5)} L${p(344, 283.5)} Q${p(334, 283.5)} ${p(330, 292)} L${p(410, 292)} Z`, h.a.hachure('eau', 'aucun'));
+    }));
+    o.push(h.rect(60, 280, 360, 12, h.a.arete));
     // porte, derrière la galerie
     o.push(h.rect(168, 148, 44, 110, h.a.loin), h.rect(168, 148, 44, 110, h.a.arete));
     o.push(h.rect(175, 156, 30, 40, h.a.detail), h.rect(175, 204, 30, 46, h.a.detail));
@@ -111,8 +131,6 @@ module.exports = (h) => {
     for (let x = 84; x < 226; x += 4) o.push(h.ligne(x, 268.6, x, 290.4, h.a.fin));
     // jute trempé sur le rebord de la galerie
     o.push(...drap(96, 148, 256, 278, 21));
-    // le bas de mur tenu mouillé : une nappe d'eau au pied du mur, plus haute près de la bouche du boyau
-    o.push(h.path('M412,291 L412,272 Q404,269.5 396,272.5 T380,273.5 T365,276 Q354,277.5 352,283 Q350.5,287.5 351,291 Z', h.a.hachure('eau', 'aucun')));
     // échafaud
     const brace = (x1, y1, x2, y2) => {
       const dx = x2 - x1, dy = y2 - y1, L = Math.hypot(dx, dy), nx = (-dy / L) * 1.6, ny = (dx / L) * 1.6;
@@ -130,7 +148,7 @@ module.exports = (h) => {
     [166, 182].forEach(y => o.push(h.ligne(508.5, y, 511, y, h.a.arete), h.ligne(543, y, 545.5, y, h.a.arete)));
     // le boyau, en deux traits : piqué au fond du baril, il descend et court au pied du mur
     o.push(h.path('M515,193.2 L496,193.2 Q487.2,193.2 487.2,202 L487.2,280 Q487.2,288.8 482,288.8 L410,288.8 L410,285.2 L482,285.2 Q490.8,285.2 490.8,280 L490.8,202 Q490.8,196.8 496,196.8 L515,196.8 Z', wf(h.a.arete)));
-    [[404, 284.5], [399, 288], [394, 285.5]].forEach(([x, y]) => o.push(goutte(x, y)));
+    [[404, 287.4], [399, 289.4], [394, 287.8]].forEach(([x, y]) => o.push(goutte(x, y)));
     o.push(h.fleche('M478,277 L446,277', h.a.arete));
     return sol + `\n<g transform="translate(${n1(300 - 300 * K)},${n1(300 - 300 * K)}) scale(${K})">\n` + o.join('\n') + '\n</g>';
   };
@@ -251,8 +269,8 @@ module.exports = (h) => {
           { n: 2, rond: [20, 196], cible: T([108, 262]), texte: 'jute trempé sur la galerie' },
           { n: 3, rond: [20, 268], cible: T([84, 282]), texte: 'dessous de galerie fermé à la tôle' },
           { n: 4, rond: T([458, 172]), cible: T([399, 180]), texte: 'tôle vissée sur la vitre' },
-          { n: 5, rond: [578, 112], cible: T([530, 180]), texte: 'baril en hauteur, boyau au fond' },
-          { n: 6, rond: T([458, 240]), cible: T([392, 284]), texte: 'filet continu au pied du mur' },
+          { n: 5, rond: [578, 112], cible: T([543, 151]), texte: 'baril en hauteur, boyau au fond' },
+          { n: 6, rond: T([458, 240]), cible: T([384, 286]), texte: 'filet continu au pied du mur' },
         ],
       },
       bord: {

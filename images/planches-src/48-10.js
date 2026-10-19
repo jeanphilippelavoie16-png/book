@@ -28,11 +28,13 @@ module.exports = (h) => {
     return d + (ferme ? ' Z' : '');
   };
   // une brindille plantée, fendue en haut : de (x, yBas) à (x, yHaut), le fil pincé dans la fente
-  // (le fil passe dans la fente à yHaut + 9 : on le dessine avant, la fente ouverte le laisse voir)
+  // (le fil passe dans la fente à yHaut + 9 : on le dessine avant, la fente ouverte le laisse voir).
+  // Le bas est taillé en pointe et enfoncé dans la neige : yBas est le bout de la pointe, sous la surface.
   const brindille = (x, yBas, yHaut, e = 5) => {
     const fente = yHaut + 17;
-    return h.chemin([[x - e / 2, yBas], [x - e / 2, fente], [x - e / 2 - 2.2, yHaut], [x - 1.1, yHaut], [x, fente - 1], [x + 1.1, yHaut], [x + e / 2 + 2.2, yHaut], [x + e / 2, fente], [x + e / 2, yBas]], blanc(h.a.arete), true);
+    return h.chemin([[x, yBas], [x - e / 2, yBas - 5], [x - e / 2, fente], [x - e / 2 - 2.2, yHaut], [x - 1.1, yHaut], [x, fente - 1], [x + 1.1, yHaut], [x + e / 2 + 2.2, yHaut], [x + e / 2, fente], [x + e / 2, yBas - 5]], blanc(h.a.arete), true);
   };
+  const FICHE = 8;                                       // la pointe enfoncée sous la surface de la neige
   // des tours de fil sur un tronc vertical de demi-largeur w, à la hauteur y
   const tours = (x, y, w) => [0, 1, 2].map((i) => h.path(`M ${r1(x - w)} ${r1(y + i * 3.2 + 2)} Q ${r1(x)} ${r1(y + i * 3.2 + 4)} ${r1(x + w)} ${r1(y + i * 3.2 - 1)}`, h.a.arete)).join('\n');
 
@@ -76,7 +78,8 @@ module.exports = (h) => {
   const geo2 = (z) => {
     const c = 150, yS = 118, yT = yS + 9 * K2, w = 12.5 * K2, R = 5 * K2;
     const yC = yT - 6.5 * K2 - R;                          // le centre de la boucle
-    return { c, yS, yT, w, R, yC, xBr: c + w + 4, xSap: 290, rSap: 3 * K2 };
+    // la brindille sur le plat, passé le rebord de la gouttière (qui finit à c + w + 18), avant le tronc
+    return { c, yS, yT, w, R, yC, xBr: c + w + 14, xSap: 290, rSap: 3 * K2 };
   };
   const face = (z) => {
     const o = [];
@@ -92,7 +95,7 @@ module.exports = (h) => {
     const yF = yC - R - 4;
     // le fil : du tronc (tours) à la fente de la brindille, puis à l'œillet en haut de la boucle
     o.push(h.chemin([[c, yC - R], [c + 10, yF], [xBr, yF], [xSap - rSap, yF + 2]], h.a.arete));
-    o.push(brindille(xBr, yS + 2, yF - 9));
+    o.push(brindille(xBr, yS + FICHE, yF - 9));
     o.push(tours(xSap, yF - 2, rSap));
     // la boucle, ronde, et son œillet
     o.push(h.cercle(c, yC, R, h.a.contour));
@@ -110,7 +113,7 @@ module.exports = (h) => {
     o.push(h.rect(0, yS, z.l, z.h - 2 - yS, neige), h.ligne(0, yS, z.l, yS, h.a.contour));
     const xBr = c + R + 18;
     o.push(h.chemin([[c, yC - R], [c + 10, yC - R - 6], [xBr, yC - R - 6], [z.l - 4, yC - R - 8]], h.a.arete));
-    o.push(brindille(xBr, yS, yC - R - 15));
+    o.push(brindille(xBr, yS + FICHE, yC - R - 15));
     o.push(h.cercle(c, yC, R, h.a.contour), h.cercle(c, yC - R, 2.6, blanc(h.a.arete)));
     const xc = c - R - 20;
     o.push(h.ligne(c - R - 4, yC - R, xc - 4, yC - R, h.a.fin), h.ligne(c - 4, yC + R, xc - 4, yC + R, h.a.fin));

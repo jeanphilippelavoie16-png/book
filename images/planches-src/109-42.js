@@ -157,10 +157,11 @@ module.exports = (h) => {
     const r = 21, xT = 46, y1 = 34, y2 = z.h - 34, M_ = [z.l - 120, (y1 + y2) / 2];
     return { r, xT, y1, y2, M: M_ };
   };
-  const tronc = (c, r) => [h.cercle(c[0], c[1], r, blanc('contour')), h.cercle(c[0], c[1], r * 0.62, A.fin), h.cercle(c[0], c[1], r * 0.28, A.fin)].join('\n');
+  // un tronc vivant vu de dessus : un seul cercle d'écorce ; pas de cernes (ce serait une souche)
+  const tronc = (c, r) => h.cercle(c[0], c[1], r, blanc('contour'));
   const sangle = (c, r, vers) => {
     // la sangle passe derrière le tronc et ses deux bouts reviennent devant, côté charge
-    const u = uni(sub(vers, c)), n = nor(u), e = r + 3.5;
+    const u = uni(sub(vers, c)), n = nor(u), e = r + 4.5;
     const g = add(c, n, e), d = add(c, n, -e), dev = add(c, u, r + 14);
     return `M ${pt(dev)} L ${pt(add(g, u, 2))} A ${e} ${e} 0 1 1 ${pt(add(d, u, 2))} L ${pt(dev)}`;
   };
@@ -188,25 +189,38 @@ module.exports = (h) => {
 
   // ─── Vue 4 : un arbre, de côté ──────────────────────────────────────────────────────────
   const vueArbre = z => {
-    const out = [], yg = z.h - 16, xc = 60, w = 38;
+    const out = [], yg = z.h - 16, xc = 60, w = 38, xl = xc - w / 2, xr = xc + w / 2;
     out.push(h.rect(0, yg, z.l, z.h - yg - 1, A.hachure('terre', 'aucun')));
-    // le tronc, l'empattement des racines, l'ombre à droite
-    const tr = [[xc - w / 2, 0], [xc - w / 2, yg - 22], [xc - w / 2 - 10, yg], [xc + w / 2 + 10, yg], [xc + w / 2, yg - 22], [xc + w / 2, 0]];
-    out.push(h.path(poly(tr), A.blanc));
-    out.push(h.path(poly([[xc + w / 6, 0], [xc + w / 2, 0], [xc + w / 2, yg - 22], [xc + w / 2 + 10, yg], [xc + w / 6, yg]]), A.ombre));
-    out.push(h.path(poly(tr, false), A.contour));
-    for (const [x, a, b] of [[-8, 10, 60], [5, 30, 90], [-2, 80, 120]]) out.push(h.ligne(xc + x, a, xc + x, Math.min(b, yg - 40), A.fin));
+    // le tronc : droit jusqu'au-dessus des racines, puis il s'évase en courbes creuses ; deux racines s'en vont de
+    // chaque côté et entrent dans le sol en s'amincissant
+    const yE = yg - 30;
+    const tronc = `M ${pt([xl, 0])} L ${pt([xl, yE])}`
+      + ` C ${pt([xl, yg - 12])} ${pt([xl - 8, yg - 4])} ${pt([xl - 30, yg])}`
+      + ` L ${pt([xr + 26, yg])}`
+      + ` C ${pt([xr + 7, yg - 3])} ${pt([xr, yg - 12])} ${pt([xr, yE])}`
+      + ` L ${pt([xr, 0])} Z`;
+    out.push(h.path(tronc, A.blanc));
+    // l'ombre à droite, découpée par le contour du tronc
+    out.push(`<clipPath id="arbre-109-42"><path d="${tronc}" fill="none" stroke="none"/></clipPath>`);
+    out.push(`<g clip-path="url(#arbre-109-42)">${h.rect(xc + w / 6, 0, xr + 30 - xc - w / 6, yg, A.ombre)}</g>`);
+    // le contour, ouvert au sol (la racine entre dans la terre)
+    out.push(h.path(`M ${pt([xl, 0])} L ${pt([xl, yE])} C ${pt([xl, yg - 12])} ${pt([xl - 8, yg - 4])} ${pt([xl - 30, yg])}`, A.contour));
+    out.push(h.path(`M ${pt([xr, 0])} L ${pt([xr, yE])} C ${pt([xr, yg - 12])} ${pt([xr + 7, yg - 3])} ${pt([xr + 26, yg])}`, A.contour));
+    // une troisième racine, vers nous : ses deux arêtes descendent du tronc en s'écartant et entrent dans le sol en biais
+    out.push(h.path(`M ${pt([xc - 4, yE + 4])} C ${pt([xc - 5, yg - 14])} ${pt([xc - 9, yg - 6])} ${pt([xc - 15, yg])}`, A.arete));
+    out.push(h.path(`M ${pt([xc + 6, yE + 8])} C ${pt([xc + 7, yg - 12])} ${pt([xc + 10, yg - 5])} ${pt([xc + 14, yg])}`, A.detail));
+    for (const [x, a, b] of [[-8, 10, 60], [5, 30, 90], [-2, 80, 120]]) out.push(h.ligne(xc + x, a, xc + x, Math.min(b, yE - 24), A.fin));
     out.push(h.ligne(0, yg, z.l, yg, A.arete));
-    // la sangle large au pied du tronc, et le câble vers la charge
-    const ys = yg - 34;
-    out.push(h.rect(xc - w / 2 - 2, ys - 7, w + 4, 14, blanc('arete')));
-    out.push(h.ligne(xc - w / 2, ys - 2, xc + w / 2, ys - 2, A.fin), h.ligne(xc - w / 2, ys + 2, xc + w / 2, ys + 2, A.fin));
-    out.push(h.ligne(xc + w / 2 + 2, ys, z.l - 6, ys, CABLE));
+    // la sangle large au pied du tronc, juste au-dessus des racines, et le câble vers la charge
+    const ys = yE - 9;
+    out.push(h.rect(xl - 2, ys - 7, w + 4, 14, blanc('arete')));
+    out.push(h.ligne(xl, ys - 2, xr, ys - 2, A.fin), h.ligne(xl, ys + 2, xr, ys + 2, A.fin));
+    out.push(h.ligne(xr + 2, ys, z.l - 6, ys, CABLE));
     out.push(h.fleche(`M ${pt([z.l - 52, ys - 14])} L ${pt([z.l - 16, ys - 14])}`, A.arete));
     return out.join('\n');
   };
   const renvoisArbre = z => {
-    const yg = z.h - 16, ys = yg - 34;
+    const yg = z.h - 16, ys = yg - 30 - 9;
     return [
       { n: 12, rond: [118, ys - 52], cible: [80, ys - 7], texte: 'sangle large, le plus bas possible' },
     ];

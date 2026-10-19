@@ -9,6 +9,8 @@
 // fils, ou un seul brin de fil multibrin.
 // Aucune cote : le chapitre n'en donne pas (la pile de 9 V est dessinée à ses proportions, 48,5 × 26,5 × 17,5 mm).
 // Le rouge : la flèche du geste (repère 4), et rien d'autre.
+// 19 octobre 2026 : la matière de la laine refaite (repères 1, 2, 5, 7), des fils droits au lieu des boucles (voir laine) ;
+// la boule passe derrière le bord avant du creux du nid, et un rond blanc sous les rayons garde le point qui rougit lisible.
 
 module.exports = (h) => {
   const F = h.formes, A = h.a;
@@ -309,7 +311,7 @@ module.exports = (h) => {
           out.push(dansLeCreux(N, z, 'creux-1310b', laine(boule.cx, boule.cy, boule.rx, boule.ry, 9, { posee: true })));
           // la laine rougit sous les bornes
           const xc = bx + W * 0.3;
-          out.push(lueur(xc, bB + 3, 11));
+          out.push(lueur(xc, bB + 3, 10));
           out.push(rougit(xc, bB + 3, 6, 15, 10, 5));
           // la pile : la face avant, la face de droite à l'ombre, les deux bornes en bas
           const pile = [
@@ -363,7 +365,7 @@ module.exports = (h) => {
           const N = nid(n.cx, n.yG, n.w, n.H, 7);
           out.push(N.svg);
           out.push(dansLeCreux(N, z, 'creux-1310c', laine(boule.cx, boule.cy, boule.rx, boule.ry, 11, { posee: true })));
-          out.push(lueur(pz[0], yBas + 1, 10));
+          out.push(lueur(pz[0], yBas + 1, 8));
           out.push(fil(fA, 7), fil(fB, 7));
           out.push(rougit(pz[0], yBas + 1, 5, 14, 9, 9));
           // le trait de coupure : le fil est long, la batterie est à un bras du feu

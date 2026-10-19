@@ -12,7 +12,19 @@
 //      aucun contour, la silhouette naît des bouts des fils.
 //   B  couches : des nappes de fils presque parallèles, chacune sur une partie de la boule, qui se recouvrent et se croisent.
 //   C  bord en fils : un bord fait de longs fils droits tangents à la silhouette, et des fils droits croisés dedans.
-// Le rendu se fait dans le scratchpad (pas dans images/) : voir le rapport de l'agent.
+// Puis la façon retenue :
+//   D  la façon A, avec les réglages du module images/planches-src/_laine-acier.js, le même code que la planche 13-10
+//      pose : des fils longs presque droits (30° au plus, la moitié de la largeur de la boule au plus), de petits fils
+//      couchés le long de la silhouette sur les flancs, des bouts qui dépassent de 8 unités au plus, un tampon plus
+//      dense au milieu (aucun jour de plus de 2 unités).
+// Ce qu'on a vu à la taille d'impression et de près : A se lit en galette plate ; B fait des paquets sombres, un nœud au
+// centre ; C montre une ellipse dessinée (une pelote de fil de fer) ; D se lit en boule de fils droits, avec le reflet en
+// haut à gauche et l'ombre en bas à droite.
+// Le second regard du 19 octobre sur la première pose de D a relevé : une fente blanche au milieu du tampon ; des fils
+// qui traversaient toute la boule (un bout qui dépasse étirait le fil jusqu'au bout de sa corde) ; des faisceaux de
+// longues diagonales raides sur les flancs (la troisième direction à 46° et l'enroulement appliqué aux fils longs) ;
+// des bouts qui dépassaient de 18 unités. Le module les corrige ; les A, B et C restent tels quels, pour mémoire.
+// Le rendu se fait dans le scratchpad, pas dans images/ : le composeur sert seulement à mettre les vues en page.
 
 module.exports = (h) => {
   const f = v => Math.round(v * 10) / 10;
@@ -184,20 +196,23 @@ module.exports = (h) => {
   };
 
   const MODES = { A: 'droit', B: 'couches', C: 'bord', D: 'droit' };
+  // la façon retenue : le module partagé avec la planche 13-10 (le même code, les mêmes réglages)
+  const laineD = require('./_laine-acier.js')(h);
+  const dessine = (lettre, mode, cx, cy, rx, ry, graine, o) => lettre === 'D' ? laineD(cx, cy, rx, ry, graine, o) : laineAcier(cx, cy, rx, ry, graine, { mode, ...o });
   const vues = {};
   const disposition = [];
   for (const [lettre, mode] of Object.entries(MODES)) {
     vues[`tampon${lettre}`] = {
-      titre: `${lettre}, tampon`,
-      dessin: z => laineAcier(z.l / 2, z.h / 2, 38, 20, 4, { mode, lache: 0, enroule: lettre === 'D' ? 0.5 : 0 }),
+      titre: lettre === 'D' ? 'D, retenue : tampon' : `${lettre}, tampon`,
+      dessin: z => dessine(lettre, mode, z.l / 2, z.h / 2, 38, 20, 4, { lache: 0 }),
     };
     vues[`boule${lettre}`] = {
       titre: `${lettre}, boule sur le nid`,
-      dessin: z => [nid(z.l / 2, z.h - 6, 150, 46), laineAcier(z.l / 2, z.h - 6 - 46 - 14, 46, 30, 7, { mode, lache: 1, posee: true, enroule: lettre === 'D' ? 0.7 : 0 })].join('\n'),
+      dessin: z => [nid(z.l / 2, z.h - 6, 150, 46), dessine(lettre, mode, z.l / 2, z.h - 6 - 46 - 14, 46, 30, 7, { lache: 1, posee: true })].join('\n'),
     };
     vues[`loupe${lettre}`] = {
       titre: `${lettre}, la boule à la loupe`,
-      dessin: z => `<clipPath id="loupe-${lettre}"><rect x="0" y="0" width="${z.l}" height="${z.h}"/></clipPath><g clip-path="url(#loupe-${lettre})"><g transform="translate(${f(z.l / 2)} ${f(z.h / 2)}) scale(2) translate(-60 -40)">${laineAcier(60, 40, 46, 30, 7, { mode, lache: 1, enroule: lettre === 'D' ? 0.7 : 0 })}</g></g>`,
+      dessin: z => `<clipPath id="loupe-${lettre}"><rect x="0" y="0" width="${z.l}" height="${z.h}"/></clipPath><g clip-path="url(#loupe-${lettre})"><g transform="translate(${f(z.l / 2)} ${f(z.h / 2)}) scale(2) translate(-60 -40)">${dessine(lettre, mode, 60, 40, 46, 30, 7, { lache: 1 })}</g></g>`,
     };
     disposition.push([`tampon${lettre}`, `boule${lettre}`, `loupe${lettre}`]);
   }
@@ -206,7 +221,7 @@ module.exports = (h) => {
     ref: '13-10',
     fichier: '_essai-laine-acier.svg',
     titre: 'Essai, la laine d’acier',
-    desc: 'Trois façons de dessiner la laine d’acier fine : fils droits, couches, bord en fils. Chacune en tampon et en boule lâche sur le nid, à la taille de la planche 13-10, puis la boule à la loupe.',
+    desc: 'Trois façons de dessiner la laine d’acier fine (fils droits, couches, bord en fils), puis la façon retenue (fils droits qui se couchent vers le bord). Chacune en tampon et en boule lâche sur le nid, à la taille de la planche 13-10, puis la boule à la loupe.',
     format: 'pleine',
     disposition,
     largeurs: disposition.map(() => [0.8, 1, 1.3]),

@@ -104,22 +104,28 @@ module.exports = (h) => {
   // coupé en haut, le jarret, puis la cuisse. Une silhouette de repère, sans anatomie ; en mm, 0 au
   // crochet, y vers le bas (proportions prises sur le module commun _carcasse-orignal.js : un peu
   // plus d'un mètre du jarret à la coupe, un demi-mètre de large à la cuisse).
-  const QUARTIER_REP = [[-26, -112], [26, -112], [32, -40], [52, -8], [58, 22], [40, 70], [36, 160], [46, 262], [84, 382],
-    [152, 522], [214, 680], [236, 820], [212, 952], [150, 1052], [58, 1112], [-62, 1122], [-162, 1082], [-232, 984],
-    [-262, 842], [-242, 692], [-182, 542], [-112, 402], [-60, 282], [-44, 162], [-46, 72], [-40, 0], [-30, -40]];
-  // la courbe lisse, échantillonnée en points (pour l'aplat d'ombre qu'on découpe)
+  // Le bas est franc : c'est la coupe qui a séparé le quartier du reste de la carcasse, un trait droit un peu
+  // oblique entre deux coins, pour qu'on lise une pièce de viande et pas une goutte. Deux flancs en courbe
+  // lisse, deux coupes droites (le canon en haut, la hanche en bas).
+  const FLANC_D = [[178, 1010], [214, 950], [236, 840], [222, 690], [176, 528], [118, 384], [80, 262], [64, 160], [58, 70],
+    [66, 22], [56, -8], [36, -40], [30, -112]];
+  const FLANC_G = [[-30, -112], [-36, -40], [-52, 0], [-66, 72], [-72, 162], [-92, 282], [-138, 402], [-196, 542],
+    [-246, 692], [-264, 850], [-246, 984], [-200, 1060]];
+  // une courbe lisse ouverte qui passe par chaque point (Catmull-Rom, bouts tenus), échantillonnée en points
   const echantillon = (P, n = 8) => {
-    const N = P.length, g = i => P[(i + N) % N], out = [];
-    for (let i = 0; i < N; i++) {
+    const N = P.length, g = i => P[Math.max(0, Math.min(N - 1, i))], out = [];
+    for (let i = 0; i < N - 1; i++) {
       const p0 = g(i - 1), p1 = g(i), p2 = g(i + 1), p3 = g(i + 2);
       for (let j = 0; j < n; j++) {
         const t = j / n, t2 = t * t, t3 = t2 * t;
         out.push([0, 1].map(c => 0.5 * ((2 * p1[c]) + (-p0[c] + p2[c]) * t + (2 * p0[c] - 5 * p1[c] + 4 * p2[c] - p3[c]) * t2 + (-p0[c] + 3 * p1[c] - 3 * p2[c] + p3[c]) * t3)));
       }
     }
+    out.push(P[N - 1]);
     return out;
   };
-  const QUARTIER = echantillon(QUARTIER_REP);
+  const QUARTIER = [...echantillon(FLANC_D), ...echantillon(FLANC_G)];
+  const Q_BAS = Math.max(...QUARTIER.map(p => p[1]));
   // une forme découpée par le demi-plan x >= x0 (Sutherland-Hodgman)
   const aDroite = (P, x0) => {
     const out = [];
@@ -153,16 +159,25 @@ module.exports = (h) => {
     const bout = n => surPatte(n, 1 + 380 / LP);
     const pA = P(...pieds.A), pB = P(...pieds.B), pC = P(...pieds.C), S = P(...S3);
     const ph = P(0, 0, HS - 380), pb = P(0, 0, HS - 1100), qh = P(0, 0, HS - 1260);
-    const piedPoulie = P(...surPatte('A', 0.075));
+    // la poulie du pied : attachée à la patte A, du côté intérieur, assez loin d'elle pour que le brin qui y
+    // descend reste à l'écart de la patte sur toute sa longueur
+    const sA = surPatte('A', 0.07), iA = uni([-pieds.A[0], -pieds.A[1]]);
+    const piedPoulie = P(sA[0] + iA[0] * 340, sA[1] + iA[1] * 340, sA[2]);
+    const attache = P(...surPatte('A', 0.17));
     const xH = pA[0] - 2150 * k;
     const mP = [xH + 560 * k, pA[1] - 1020 * k];
-    return { k, x0, yg, P, S3, pieds, bout, surPatte, pA, pB, pC, S, ph, pb, qh, piedPoulie, xH, mP };
+    return { k, x0, yg, P, S3, pieds, bout, surPatte, pA, pB, pC, S, ph, pb, qh, piedPoulie, attache, xH, mP };
   };
-  // un piquet chassé contre le pied, du côté extérieur
-  const piquet = (q, n, at) => {
-    const p = q.pieds[n], o = uni([p[0], p[1]]);
-    const b = q.P(p[0] + o[0] * 150, p[1] + o[1] * 150, 0), t = q.P(p[0] + o[0] * 210, p[1] + o[1] * 210, 380);
-    return perche(b, t, 5.5, 5.5, at, { ecorce: false });
+  // un piquet chassé contre le pied, du côté extérieur : mince, debout, sa tête au-dessus du sol ; la partie
+  // enfoncée en tireté, jusqu'à la pointe ; un bout de sol marque où il entre
+  const piquet = (q, n) => {
+    const pB_ = q.P(...q.pieds[n]), wP = 130 * q.k, ep = 3.6, hV = 360 * q.k, hE = 260 * q.k;
+    const xg = pB_[0] + wP / 2 + 0.6, xd = xg + ep, y0 = pB_[1];
+    return [
+      h.ligne(pB_[0] - 2, y0, xd + 16, y0, A.detail),
+      h.path(`M ${f(xg)} ${f(y0)} L ${f(xg)} ${f(y0 + hE)} L ${f((xg + xd) / 2)} ${f(y0 + hE + 7)} L ${f(xd)} ${f(y0 + hE)} L ${f(xd)} ${f(y0)}`, A.cache),
+      h.path(poly([[xg, y0], [xg, y0 - hV], [xd, y0 - hV], [xd, y0]]), blanc('arete')),
+    ].join('\n');
   };
   const vueMonte = z => {
     const q = M(z), { k, P, pA, pB, pC, S, ph, pb, qh, piedPoulie, mP } = q, out = [];
@@ -178,10 +193,8 @@ module.exports = (h) => {
     // la patte du fond, en gris, son pied dans un trou
     out.push(h.ellipse(pC[0] + 1, pC[1] + 1, 9, 3, A.detail));
     out.push(perche(pC, P(...q.bout('C')), wP, wH, gris('arete')));
-    // le palan : les brins entre les poulies, le brin halé qui longe la patte A
+    // le palan : les deux brins entre les poulies
     out.push(h.ligne(ph[0] - 2.4, ph[1], pb[0] - 2.4, pb[1], A.detail), h.ligne(ph[0] + 2.4, ph[1], pb[0] + 2.4, pb[1], A.detail));
-    const sortie = add(ph, uni(sub(piedPoulie, ph)), 5);
-    out.push(h.ligne(sortie[0] - 2, sortie[1], piedPoulie[0] + 3, piedPoulie[1] - 4, A.arete));
     // l'élingue : du croisement à la poulie du haut
     out.push(h.path(`M ${pt([S[0] - 3.5, S[1] - 1])} L ${pt([ph[0] - 2, ph[1] - 7])} M ${pt([S[0] + 3.5, S[1] - 1])} L ${pt([ph[0] + 2, ph[1] - 7])}`, A.arete));
     out.push(poulie(ph, 8), poulie(pb, 7));
@@ -197,19 +210,25 @@ module.exports = (h) => {
     for (const dx of [-3, 0, 3]) out.push(h.ligne(bl[0] + dx, bl[1] - 4.5, bl[0] + dx, bl[1] + 4.5, A.fin));
     // le trou du pied A ; le piquet du pied B
     out.push(h.ellipse(pA[0] + 1, pA[1] + 1, 11, 3.6, A.detail));
-    out.push(piquet(q, 'B', blanc('arete')));
-    // la poulie du pied, amarrée à la patte A
-    out.push(poulie(piedPoulie, 6.5, 65));
-    // le brin qu'on hale, de la poulie du pied aux mains de l'homme, debout à côté
+    out.push(piquet(q, 'B'));
+    // la poulie du pied : son estrope fait deux tours sur la patte A et la tient du côté intérieur
+    const rp = 6.5, att = q.attache, uA = uni(sub(P(...q.bout('A')), pA)), nA = nor(uA);
+    for (const d of [-2, 2]) out.push(h.ligne(...add(add(att, uA, d), nA, -7), ...add(add(att, uA, d), nA, 7), A.detail));
+    out.push(h.ligne(att[0] + 6, att[1], piedPoulie[0] - 1, piedPoulie[1] - rp + 1, A.detail));
+    // le brin halé : de la poulie du haut, il descend à l'écart de la patte jusqu'au côté intérieur de la poulie du
+    // pied, passe dessous, et repart devant la patte vers les mains de l'homme
     const oH = { x: q.xH, y: pA[1], pose: 'tire-arriere', echelle: k };
     const axR = versDeg(mP, piedPoulie);
     oH.angles = poserBras(oH, { P: mP, L: [mP[0] - 8, mP[1] - 1] }, { P: axR, L: axR });
     const homme = F.corps(oH);
-    // la corde va aux poings réels du corps : du poing proche à la poulie, le bout qui pend du poing loin
     const fP = [homme.mainP.x, homme.mainP.y], fL = [homme.mainL.x, homme.mainL.y];
-    const dirR = uni(sub(fP, piedPoulie)), nR = nor(dirR);
-    out.push(h.ligne(piedPoulie[0] - 4, piedPoulie[1] - 1, fL[0], fL[1], A.arete));
+    const rr = rp * 0.62 + 1.4, tour = [];
+    for (let i = 0; i <= 10; i++) { const a = (0 + 180 * i / 10) * RAD; tour.push([piedPoulie[0] + rr * Math.cos(a), piedPoulie[1] + rr * Math.sin(a) * 1.4]); }
+    const sortie = add(ph, uni(sub(tour[0], ph)), 6);
+    out.push(h.path('M ' + [sortie, ...tour].map(pt).join(' L ') + ` L ${pt(fL)}`, A.arete));
     out.push(h.path(`M ${pt(fL)} C ${pt([fL[0] - 6, fL[1] + 8])} ${pt([fL[0] - 2, fL[1] + 22])} ${pt([fL[0] - 6, fL[1] + 34])}`, A.arete));
+    out.push(poulie(piedPoulie, rp, 0));
+    const dirR = uni(sub(fP, piedPoulie)), nR = nor(dirR);
     out.push(String(homme));
     const g0 = add(add(fP, dirR, -34), nR, 10), g1 = add(add(fP, dirR, -10), nR, 10);
     out.push(h.geste(`M ${pt(g0)} L ${pt(g1)}`));
@@ -219,14 +238,24 @@ module.exports = (h) => {
   };
   const renvoisMonte = z => {
     const q = M(z), { k, P, pA, pB, pC, S, ph, qh, piedPoulie } = q;
-    const brin = lerp(piedPoulie, ph, 0.4);
+    const sortie = add(ph, uni(sub(piedPoulie, ph)), 6);
+    const brin = lerp([piedPoulie[0] + 5.4, piedPoulie[1]], sortie, 0.42);
     const cBC = lerp(pB, pC, 0.55);
+    const cuisse = [qh[0] + 2, qh[1] + 880 * k];
+    // la flèche du geste, posée comme dans vueMonte
+    const oH = { x: q.xH, y: pA[1], pose: 'tire-arriere', echelle: k };
+    const axR = versDeg(q.mP, piedPoulie);
+    oH.angles = poserBras(oH, { P: q.mP, L: [q.mP[0] - 8, q.mP[1] - 1] }, { P: axR, L: axR });
+    const homme = F.corps(oH), fP = [homme.mainP.x, homme.mainP.y];
+    const dirR = uni(sub(fP, piedPoulie)), nR = nor(dirR);
+    const gm = add(add(fP, dirR, -22), nR, 10);
     return [
-      { n: 1, rond: [pB[0] + 62, pB[1] - 4], cible: [pB[0] + 13, pB[1] - 14], texte: 'pied dans un trou ou contre un piquet' },
+      { n: 1, rond: [pB[0] + 62, pB[1] - 6], cible: [pB[0] + 130 * k / 2 + 4.8, pB[1] - 14], texte: 'pied dans un trou ou contre un piquet' },
       { n: 2, rond: [cBC[0] + 84, cBC[1] - 22], cible: [cBC[0] + 1, cBC[1]], texte: 'corde tendue au ras du sol' },
-      { n: 3, rond: [qh[0] + 92, qh[1] + 34], cible: [qh[0] + 16, qh[1] + 34], texte: 'un quartier, à l’aplomb du sommet' },
-      { n: 4, rond: [brin[0] - 52, brin[1] - 22], cible: [brin[0] - 3, brin[1] - 1], texte: 'brin halé le long d’une patte' },
-      { n: 5, rond: [piedPoulie[0] - 30, piedPoulie[1] - 44], cible: [piedPoulie[0] - 3, piedPoulie[1] - 6], texte: 'haler depuis la poulie du pied' },
+      { n: 3, rond: [qh[0] + 104, cuisse[1] - 16], cible: cuisse, texte: 'un quartier, à l’aplomb du sommet' },
+      { n: 4, rond: [brin[0] - 64, brin[1] - 18], cible: [brin[0] - 1.5, brin[1]], texte: 'brin halé le long d’une patte' },
+      { n: 5, rond: [piedPoulie[0] + 40, piedPoulie[1] - 26], cible: [piedPoulie[0] + 4.6, piedPoulie[1] - 3], texte: 'poulie attachée au pied de la patte' },
+      { n: 6, rond: [gm[0] + 4, gm[1] - 26], cible: [gm[0], gm[1] - 2.5], texte: 'haler depuis la poulie du pied' },
     ];
   };
 
@@ -251,10 +280,16 @@ module.exports = (h) => {
     for (let i = 1; i < 8; i++) out.push(h.ligne(cx - lb / 2 + 2, cy - 9 + i * 2.25, cx + lb / 2 - 2, cy - 9 + i * 2.25, A.fin));
     // l'élingue : posée dans le creux au-dessus du brêlage, ses deux brins le long des perches
     const yP = z.h - 30, top = cy - 20, e = 2.6;
-    const brin = s => `M ${pt([cx + s * 8, top + 2])} C ${pt([cx + s * 15, top + 14])} ${pt([cx + s * (lb / 2 + 5), cy - 2])} ${pt([cx + s * (lb / 2 + 4), cy + 14])} C ${pt([cx + s * (lb / 2 + 3), cy + 40])} ${pt([cx + s * 6, yP - 32])} ${pt([cx + s * 3, yP - 13])}`;
-    const corde = dd => [h.path(dd, `fill="none" stroke="#1A1A1A" stroke-width="${e + 2.8}" stroke-linecap="round"`), h.path(dd, `fill="none" stroke="#FFFFFF" stroke-width="${e}" stroke-linecap="round"`)].join('\n');
-    out.push(corde(brin(-1)), corde(brin(1)));
-    out.push(corde(`M ${pt([cx - 8.5, top + 3])} C ${pt([cx - 6, top - 6])} ${pt([cx + 6, top - 6])} ${pt([cx + 8.5, top + 3])}`));
+    // un seul chemin : le brin de gauche monte de la poulie, l'élingue passe en arche sur le croisement, le brin
+    // de droite redescend à la poulie
+    const B0 = s => [cx + s * 3, yP - 13], B1 = s => [cx + s * (lb / 2 + 4), cy + 14], B2 = s => [cx + s * 8, top + 2];
+    const elingue = `M ${pt(B0(-1))} C ${pt([cx - 6, yP - 32])} ${pt([cx - (lb / 2 + 3), cy + 40])} ${pt(B1(-1))}`
+      + ` C ${pt([cx - (lb / 2 + 5), cy - 2])} ${pt([cx - 15, top + 14])} ${pt(B2(-1))}`
+      + ` C ${pt([cx - 4.5, top - 4])} ${pt([cx + 4.5, top - 4])} ${pt(B2(1))}`
+      + ` C ${pt([cx + 15, top + 14])} ${pt([cx + (lb / 2 + 5), cy - 2])} ${pt(B1(1))}`
+      + ` C ${pt([cx + (lb / 2 + 3), cy + 40])} ${pt([cx + 6, yP - 32])} ${pt(B0(1))}`;
+    out.push(h.path(elingue, `fill="none" stroke="#1A1A1A" stroke-width="${e + 2.8}" stroke-linecap="round" stroke-linejoin="round"`));
+    out.push(h.path(elingue, `fill="none" stroke="#FFFFFF" stroke-width="${e}" stroke-linecap="round" stroke-linejoin="round"`));
     // la poulie du haut, pendue à l'élingue
     out.push(poulie([cx, yP], 12));
     out.push(h.controle(cx, top - 2, 13));
@@ -263,8 +298,8 @@ module.exports = (h) => {
   const renvoisSommet = z => {
     const q = T(z), { cx, cy } = q;
     return [
-      { n: 6, rond: [cx + 58, cy + 40], cible: [cx + 15, cy + 6], texte: 'brêlage de trépied (ch. 110)' },
-      { n: 7, rond: [cx - 60, cy - 42], cible: [cx - 10, cy - 24], texte: 'élingue sur le croisement' },
+      { n: 7, rond: [cx + 58, cy + 40], cible: [cx + 15, cy + 6], texte: 'brêlage de trépied (ch. 110)' },
+      { n: 8, rond: [cx - 60, cy - 42], cible: [cx - 10, cy - 24], texte: 'l’élingue sur le croisement, pas sur le brêlage' },
     ];
   };
 
@@ -302,9 +337,9 @@ module.exports = (h) => {
   const renvoisPieds = z => {
     const q = D(z), { ys, yf, xA, xB, d } = q, xq = xB + d * 0.62 + 3;
     return [
-      { n: 8, rond: [xA + 44, z.h - 16], cible: [xA + d / 2 + 4, yf - 3], texte: 'trou jusqu’au sol ferme' },
-      { n: 9, rond: [xq - 30, ys + 46], cible: [xq - 2, ys + 14], texte: 'piquet du côté extérieur' },
-      { n: 10, rond: [xq + 12, ys - 52], cible: [xq + 20, ys - 18], texte: 'chaque pied pousse vers l’extérieur' },
+      { n: 9, rond: [xA + 44, z.h - 16], cible: [xA + d / 2 + 4, yf - 3], texte: 'trou jusqu’au sol ferme' },
+      { n: 10, rond: [xq - 30, ys + 46], cible: [xq - 2, ys + 14], texte: 'piquet du côté extérieur' },
+      { n: 11, rond: [xq + 12, ys - 52], cible: [xq + 20, ys - 18], texte: 'chaque pied pousse vers l’extérieur' },
     ];
   };
 
@@ -332,15 +367,17 @@ module.exports = (h) => {
     out.push(perche([gA, yg], add(S1, uni(sub(S1, [gA, yg])), 6), 7, 5, blanc('contour'), { ecorce: false }));
     out.push(perche([gB, yg - 1.5], add(S1, uni(sub(S1, [gB, yg])), 6), 7, 5, blanc('contour'), { ecorce: false }));
     // la zone sous le sommet : là où la charge tombe
-    out.push(h.path(`M ${f(cx - 26)} ${f(yg - 2)} L ${f(cx - 26)} ${f(S0[1] + 1260 * k + 1131 * k + 6)} L ${f(cx + 26)} ${f(S0[1] + 1260 * k + 1131 * k + 6)} L ${f(cx + 26)} ${f(yg - 2)}`, A.zone));
-    out.push(h.fleche(`M ${f(cx + e0 + 4)} ${f(yg - 10)} L ${f(gB - 6)} ${f(yg - 10)}`, A.arete));
+    out.push(h.path(`M ${f(cx - 26)} ${f(yg - 2)} L ${f(cx - 26)} ${f(S0[1] + 1260 * k + Q_BAS * k + 6)} L ${f(cx + 26)} ${f(S0[1] + 1260 * k + Q_BAS * k + 6)} L ${f(cx + 26)} ${f(yg - 2)}`, A.zone));
+    // le pied qui glisse : la flèche s'arrête avant la patte de droite
+    const yF = yg - 10, xPatte = gB + (S1[0] - gB) * (yg - yF) / (yg - S1[1]);
+    out.push(h.fleche(`M ${f(cx + e0 + 4)} ${f(yF)} L ${f(xPatte - 3.5 - 7)} ${f(yF)}`, A.arete));
     return out.join('\n');
   };
   const renvoisRate = z => {
     const q = R(z), { yg, cx, e0, gl } = q;
     return [
-      { n: 11, rond: [cx + e0 + gl - 6, yg - 46], cible: [cx + e0 + gl / 2, yg - 12], texte: 'un pied glisse, le sommet descend' },
-      { n: 12, rond: [cx - 58, yg - 44], cible: [cx - 27, yg - 30], texte: 'la charge tombe à l’aplomb' },
+      { n: 12, rond: [cx + e0 + gl - 6, yg - 46], cible: [cx + e0 + gl / 2, yg - 12], texte: 'un pied glisse, le sommet descend' },
+      { n: 13, rond: [cx - 58, yg - 44], cible: [cx - 27, yg - 30], texte: 'la charge tombe à l’aplomb' },
     ];
   };
 

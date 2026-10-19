@@ -9,11 +9,15 @@
 // le bouchon, le haut contre la solive, on frappe le haut le long de la solive jusqu'à l'aplomb, et elle se coince.
 // Le bouchon dépasse un peu du plancher : sinon l'étai porte sur le béton et non sur le bouchon.
 // Pas de main : à l'échelle de la scène, la main ferait un centimètre ; le marteau seul et la flèche rouge.
-// 19 octobre 2026 : le marteau pendait à côté du haut de l'étai sans le toucher. Il frappe : la panne contre le
-// chant de l'étai, le manche qui descend en biais vers la droite (la tête est perpendiculaire au manche ; pour un coup
-// vers la gauche, le manche ne peut pas être horizontal dans cette vue). Le marteau est à l'échelle de la scène.
+// 19 octobre 2026 : le marteau pendait à côté du haut de l'étai sans le toucher. Il frappe : la table (la face qui
+// frappe) à plat sur le chant de l'étai, sur toute sa hauteur ; la tête est tournée de l'angle de l'étai, le manche
+// descend en biais vers la droite, comme un marteau vu un peu de trois quarts (un manche horizontal ne frappe pas vers
+// la gauche dans cette vue, et un manche parallèle à l'étai se lit comme un marteau qui pend). Le marteau est à
+// l'échelle de la scène.
+// L'étai penché pose sur son coin bas de droite, sur le bouchon, et touche la solive par son coin haut de gauche :
+// aucun coin n'entre dans le bois.
 // Le marteau (refait le 15 octobre : un rectangle et un bâton) : un marteau de charpentier de côté, construit sur ses
-// proportions (tête, panne, pied-de-biche recourbé, manche galbé). Le chiffon se lit en coupe : une bande tissée
+// proportions (tête, table, pied-de-biche recourbé, manche galbé). Le chiffon se lit en coupe : une bande tissée
 // entre le bois du bouchon et la fonte du drain.
 // Le raté du texte (le sac de sable posé dessus) n'est pas dessiné : la planche montre ce qui tient.
 // Règle 11 (19 octobre) : le cercle rouge sur le bouchon a son repère (1) : le bouchon dépasse, l'étai porte dessus.
@@ -80,9 +84,9 @@ module.exports = (h) => {
     return { svg: o.join('\n'), g: { ...g, yBb, yC, wB, c } };
   };
 
-  // ─── Le marteau de charpentier, de côté : la tête à l'horizontale, la panne (le côté qui frappe) vers la
+  // ─── Le marteau de charpentier, de côté : la tête à l'horizontale, la table (la face qui frappe) vers la
   // gauche, le pied-de-biche recourbé à droite, le manche galbé qui descend. Construit en mm sur les proportions
-  // d'un marteau de 16 oz : tête de 125 mm, manche de 330 mm. (xF, yA) : le centre de la panne.
+  // d'un marteau de 16 oz : tête de 125 mm, manche de 330 mm. (xF, yA) : le centre de la table.
   const lisse = (pts, ferme = false) => {
     const n = pts.length, P = i => ferme ? pts[(i + n) % n] : pts[Math.max(0, Math.min(n - 1, i))];
     let d = `M${f1(pts[0][0])} ${f1(pts[0][1])}`;
@@ -92,28 +96,32 @@ module.exports = (h) => {
     }
     return ferme ? d + ' Z' : d;
   };
-  const marteau = (xF, yA, k, a = 0) => {
-    // u : de la panne vers le pied-de-biche ; v : vers le bas ; a : tourné de a degrés (négatif : le manche part à droite)
-    const ca = Math.cos(a * RAD), sa = Math.sin(a * RAD);
-    const T = ([u, v]) => [xF + (u * ca - v * sa) * k, yA + (u * sa + v * ca) * k];
+  const marteau = (xF, yA, k, aT = 0, aM = aT) => {
+    // u : de la table vers le pied-de-biche ; v : vers le bas ; la tête tournée de aT degrés, le manche de aM degrés
+    // autour de l'œil (négatif : le manche part à droite). Le haut du manche est caché sous la tête.
+    const ct = Math.cos(aT * RAD), st = Math.sin(aT * RAD), cm = Math.cos(aM * RAD), sm = Math.sin(aM * RAD);
+    const T = ([u, v]) => [xF + (u * ct - v * st) * k, yA + (u * st + v * ct) * k];
+    const oeil = T([50, 12]);
+    const M = ([u, v]) => [oeil[0] + ((u - 50) * cm - (v - 12) * sm) * k, oeil[1] + ((u - 50) * sm + (v - 12) * cm) * k];
     const o = [];
     // le manche : il part de l'œil, s'amincit, puis s'élargit dans la main et finit arrondi
-    const g = [[42, 12], [43, 70], [44, 150], [43, 230], [41, 292], [44, 318]], dr = [[58, 12], [57, 70], [56, 150], [59, 230], [63, 292], [60, 318]];
-    o.push(h.path(lisse(g.map(T)) + ` Q${T([52, 330]).map(f1).join(' ')} ${T(dr[5]).map(f1).join(' ')}` + lisse(dr.slice().reverse().map(T)).replace(/^M[^C]*/, ' L' + T(dr[5]).map(f1).join(' ')), W(A.arete)));
+    const g = [[42, 2], [42, 12], [43, 70], [44, 150], [43, 230], [41, 292], [44, 318]], dr = [[58, 2], [58, 12], [57, 70], [56, 150], [59, 230], [63, 292], [60, 318]];
+    const fin = dr[dr.length - 1];
+    o.push(h.path(lisse(g.map(M)) + ` Q${M([52, 330]).map(f1).join(' ')} ${M(fin).map(f1).join(' ')}` + lisse(dr.slice().reverse().map(M)).replace(/^M[^C]*/, ' L' + M(fin).map(f1).join(' ')), W(A.arete)));
     // la tête : la panne, le col, l'œil, le pied-de-biche recourbé vers le bas
     const tete = [[0, -12], [9, -12], [12, -9], [26, -9], [32, -13], [64, -13], [86, -10], [104, -3], [118, 8], [124, 20],
       [116, 14], [102, 7], [86, 5], [70, 9], [64, 13], [32, 13], [26, 9], [12, 9], [9, 12], [0, 12]];
     o.push(h.chemin(tete.map(T), W(A.contour).replace('stroke-width="2.4"', 'stroke-width="1.6"'), true));
-    o.push(h.ligne(...T([9, -12]), ...T([9, 12]), A.detail));                 // le bord de la panne
+    o.push(h.ligne(...T([9, -12]), ...T([9, 12]), A.detail));                 // le bord de la table
     o.push(h.path(lisse([[70, 1], [88, -1], [106, 4], [118, 14]].map(T)), A.fin));   // la fente du pied-de-biche
-    return { svg: o.join('\n'), manche: T([56, 200]), coin: T([0, -12]), dessus: T([64, -13]) };
+    return { svg: o.join('\n'), manche: M([56, 200]), coin: T([0, -12]), coinBas: T([0, 12]), dessus: T([64, -13]) };
   };
 
   // ─── La scène : le sous-sol, la solive vue de côté (0,24 unité par mm) ─────────────────────────
   const s = 0.24;
   const S = z => {
     const yP = 8, yJ = yP + 19 * s + 6, yJb = yJ + 184 * s;   // le plancher du dessus, la solive de 2 × 8
-    const yF = yJb + 2200 * s, xD = 70;                       // le plancher de béton ; le drain
+    const yF = yJb + 2200 * s, xD = 60;                       // le plancher de béton ; le drain
     return { yP, yJ, yJb, yF, xD, eE: 89 * s };
   };
   const scene = (z, penche) => {
@@ -133,11 +141,19 @@ module.exports = (h) => {
     const yBo = yF - 14 * s;
     const bouchon = [[xD - 12, yBo], [xD + 12, yBo], [xD + 9, yF + 10], [xD - 9, yF + 10]];
     o.push(h.chemin(bouchon, A.blanc, true), h.chemin(bouchon, A.hachure('bois', 'arete'), true));
-    // l'étai : le pied sur le bouchon ; penché, le haut contre la solive, décalé ; d'aplomb, droit
-    const H = yBo - yJb, L = H + 3;                     // juste trop long : 3 unités, environ 12 mm
-    const d = penche ? Math.sqrt(L * L - H * H) : 0;    // le décalage du haut quand il touche la solive
-    const top = [xD + d, yJb], pied = [xD, yBo];
-    const u = [(top[0] - pied[0]), (top[1] - pied[1])], n = Math.hypot(...u), nn = [-u[1] / n * eE / 2, u[0] / n * eE / 2];
+    // l'étai : le pied sur le bouchon ; d'aplomb, droit et de la hauteur H. Penché, il est à peine trop long (1 unité,
+    // environ 4 mm) : il pose sur son coin bas de droite, sur le bouchon, et son coin haut de gauche touche le dessous
+    // de la solive. Sa hauteur penchée, L cos th + eE sin th, vaut alors H.
+    const H = yBo - yJb;
+    let L = H, th = 0;
+    if (penche) {
+      L = H + 1;
+      th = Math.atan2(eE, L) + Math.acos(H / Math.hypot(L, eE));
+    }
+    const nn = [eE / 2 * Math.cos(th), eE / 2 * Math.sin(th)];
+    const pied = [xD, yBo - nn[1]];                       // le milieu du bout du bas
+    const top = [pied[0] + L * Math.sin(th), pied[1] - L * Math.cos(th)];
+    const u = [(top[0] - pied[0]), (top[1] - pied[1])];
     const etai = [[pied[0] + nn[0], pied[1] + nn[1]], [top[0] + nn[0], top[1] + nn[1]], [top[0] - nn[0], top[1] - nn[1]], [pied[0] - nn[0], pied[1] - nn[1]]];
     o.push(h.chemin(etai, W(A.contour), true));
     // le fil du bois de l'étai
@@ -148,13 +164,12 @@ module.exports = (h) => {
     }
     const P = { top, pied, etaiMilieu: [pied[0] + u[0] * 0.5 + nn[0], pied[1] + u[1] * 0.5 + nn[1]] };
     if (penche) {
-      // le marteau frappe le haut de l'étai vers l'aplomb : le coin du haut de la panne posé sur le chant droit de
-      // l'étai (les deux traits se touchent) ; la flèche rouge du coup, au-dessus de la tête
-      const bord = y => top[0] + nn[0] - (y - top[1] - nn[1]) * d / H;     // le chant droit de l'étai à la hauteur y
-      const k = 0.24, a = -20, yM = yJb + 34;
-      const essai = marteau(0, yM, k, a), c0 = essai.coin;
-      const xM = bord(c0[1]) + 1.6 - c0[0];
-      const mt = marteau(xM, yM, k, a);
+      // le marteau frappe le haut de l'étai vers l'aplomb : la tête tournée de l'angle de l'étai, la table à plat
+      // sur le chant droit (les deux traits se touchent sur toute la hauteur de la table) ; le manche à -20°, qui part
+      // de l'œil ; la flèche rouge du coup, au-dessus de la tête
+      const bord = y => top[0] + nn[0] - (y - top[1] - nn[1]) * Math.tan(th);   // le chant droit de l'étai à la hauteur y
+      const k = 0.24, aT = th / RAD, yM = yJb + 34;
+      const mt = marteau(bord(yM) + 0.8, yM, k, aT, -20);
       o.push(mt.svg);
       const yG = mt.dessus[1] - 9;
       o.push(h.geste(`M${f1(bord(yG) + 34)} ${f1(yG)} L${f1(bord(yG) + 5)} ${f1(yG)}`));
@@ -168,7 +183,7 @@ module.exports = (h) => {
   return {
     ref: '07-01',
     titre: 'L’obturateur de drain, étayé contre la solive',
-    desc: 'À gauche, en coupe, le drain de plancher : la grille ôtée, un bouchon de bois effilé enveloppé d’un chiffon est enfoncé dans la gorge du drain et dépasse un peu du plancher de béton ; sous lui, dans le tuyau et le siphon, l’eau qui refoule pousse vers le haut (flèches noires). Le pied d’une pièce de bois est posé sur le bouchon, cerclé de rouge. Au milieu, le sous-sol en entier : l’étai, un 2 × 4 coupé à peine plus long que la hauteur, est posé sur le bouchon et penché, le haut contre le dessous de la solive ; un marteau, la panne contre le chant de l’étai et le manche qui descend en biais, frappe le haut vers l’aplomb (flèche rouge). À droite, l’étai d’aplomb, coincé en force entre le bouchon et la solive ; le contact sous la solive est cerclé de rouge.',
+    desc: 'À gauche, en coupe, le drain de plancher : la grille ôtée, un bouchon de bois effilé enveloppé d’un chiffon est enfoncé dans la gorge du drain et dépasse un peu du plancher de béton ; sous lui, dans le tuyau et le siphon, l’eau qui refoule pousse vers le haut (flèches noires). Le pied d’une pièce de bois est posé sur le bouchon, cerclé de rouge. Au milieu, le sous-sol en entier : l’étai, un 2 × 4 coupé à peine plus long que la hauteur, est posé sur le bouchon et penché, le haut contre le dessous de la solive ; un marteau frappe le haut vers l’aplomb (flèche rouge), la tête du marteau à plat contre le chant de l’étai et le manche qui descend en biais. À droite, l’étai d’aplomb, coincé en force entre le bouchon et la solive ; le contact sous la solive est cerclé de rouge.',
     format: 'pleine',
     disposition: [['detail', 'biais', 'aplomb']],
     largeurs: [[1.2, 1, 1]],
@@ -193,7 +208,7 @@ module.exports = (h) => {
           const { g, P } = scene(z, true);
           return [
             { n: 4, rond: [z.l - 30, 330], cible: P.etaiMilieu, texte: 'un 2 × 4 à peine plus long que la hauteur' },
-            { n: 5, rond: [z.l - 14, g.yJb + 130], cible: P.marteau, texte: 'frapper le haut vers l’aplomb' },
+            { n: 5, rond: [z.l - 24, g.yJb + 130], cible: P.marteau, texte: 'frapper le haut vers l’aplomb' },
           ];
         },
       },

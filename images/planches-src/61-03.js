@@ -104,7 +104,9 @@ module.exports = (h) => {
 
   const vueGreement = {
     titre: 'Vu du ventre',
-    dessin: z => `<g transform="scale(${f(z.h / 230)})">` + [
+    // l'échelle exacte, la même que celle du rouge et des renvois : arrondie au dixième, elle décalait la
+    // croix de sonde dans son cercle
+    dessin: z => `<g transform="scale(${Math.round(z.h / 230 * 10000) / 10000})">` + [
       h.rect(0, 222, z.l * 230 / z.h, 8, h.a.hachure('terre', 'aucun')),
       h.ligne(0, 222, z.l * 230 / z.h, 222, h.a.arete),
       ...tronc,
@@ -126,7 +128,8 @@ module.exports = (h) => {
       { n: 1, rond: [14, 176], cible: [40, 196], texte: 'ancrage : deux tours au pied du tronc' },
       { n: 2, rond: [132, 200], cible: [f(G[0] - 14 * n[0]), f(G[1] - 14 * n[1])], texte: 'guindeau : tourner le bâton, le bloquer au tronc' },
       { n: 3, rond: [292, 160], cible: [C + 4, 160], texte: 'écarteur de bois vert en travers des côtes' },
-      { n: 4, rond: [292, 104], cible: sonde, texte: 'sonde au centre du cuissot, sans toucher l’os' },
+      // le repère s'accroche au bord droit du cercle rouge : la croix reste seule dedans
+      { n: 4, rond: [292, 104], cible: [sonde[0] + 10 * 230 / z.h, sonde[1]], texte: 'sonde au centre du cuissot, sans toucher l’os' },
     ].map(r => ({ ...r, rond: r.rond.map(v => f(v * z.h / 230)), cible: r.cible.map(v => f(v * z.h / 230)) })),
   };
   // La charte, hors de l'échelle de la vue pour garder l'épaisseur du rouge : le geste (on tord le

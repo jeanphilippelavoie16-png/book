@@ -11,19 +11,32 @@
 //      pliée en deux, attachée sous le bord, comme à la planche 10-01), puis lâché.
 // Le seau plus bas que l'eau de la chaudière : c'est la condition d'un siphon (géométrie des niveaux), le texte dit
 // « on en descend un ». Aucune cote, aucun chiffre.
-// Main : h.formes.mainStock 'poing-barre' (1-01), tournée de 164° (la main vient d'en haut à droite), sans son objet :
-// le boyau descend sur l'axe .objet rendu, traverse le poing fermé et finit sous le pouce, posé sur l'ouverture du bout.
-// (La 1-09 vue de dos faisait moufle ; la 1-01 tournée de -16° mettait le pouce à l'entrée du boyau : écartées.) Le bout resté dans l'eau n'a pas besoin du pouce pour
-// rester plein : il n'est pas dessiné avec une main.
+//
+// La main (revue le 19 octobre 2026 : la version d'avant faisait moufle, sans un doigt lisible, et son avant-bras finissait
+// en bout arrondi dans le vide) : h.formes.mainStock 'poing-barre' (1-01), tournée de 164° (la main vient d'en haut à
+// droite, le pouce refermé en bas), rien de redessiné, rien de déformé.
+//   - Le boyau descend dans le poing sur l'axe de l'objet du fichier et finit sous le pouce (repère 2).
+//   - Entre les doigts, le boyau est la pièce de l'objet du fichier qui passe devant la paume (le bout des doigts posé
+//     dessus), en blanc, découpée par la silhouette de la main : le reste de l'objet (au-dessus et sous le poing) n'est
+//     pas dessiné. Le boyau a la largeur de cet objet, dans les deux vignettes, pour que les deux se raccordent.
+//   - L'avant-bras continue les deux bords de la main (relevés sur le dessin de 1-01), se courbe doucement et sort par
+//     le bord de la vue ; un fond blanc couvre le bout arrondi du fichier.
+// (La 1-09 vue de dos faisait moufle ; la 2-07 laissait le bout du boyau entre l'index et le pouce, débouché : écartées.)
+// Le bout resté dans l'eau n'a pas besoin du pouce pour rester plein : il n'est pas dessiné avec une main.
 // Le rouge : la flèche du geste, descendre le bout sur le coton (repère 3).
 
 module.exports = (h) => {
   const A = h.a, F = h.formes;
   const f = v => Math.round(v * 10) / 10;
   const blanc = at => at.replace('fill="none"', 'fill="#FFFFFF"');
+  // la main : 1-01 « poing-barre », sa taille dans la vue, et la largeur de son objet à cette taille
+  const M101 = require('../../.claude/skills/planches/scripts/mains/stock.js').catalogue['1-01'];
+  const TAILLE = 80, ANGLE = 164;
+  const KM = TAILLE / Math.max(M101.boite[2] - M101.boite[0], M101.boite[3] - M101.boite[1]);
+  const LB = Math.round(M101.objet.largeur * KM * 10) / 10;      // la largeur du boyau : celle de l'objet tenu
   const boyau = d => [
-    h.path(d, 'fill="none" stroke="#1A1A1A" stroke-width="7" stroke-linecap="butt" stroke-linejoin="round"'),
-    h.path(d, 'fill="none" stroke="#FFFFFF" stroke-width="3.8" stroke-linecap="butt" stroke-linejoin="round"'),
+    h.path(d, `fill="none" stroke="#1A1A1A" stroke-width="${LB}" stroke-linecap="butt" stroke-linejoin="round"`),
+    h.path(d, `fill="none" stroke="#FFFFFF" stroke-width="${f(LB - 3.2)}" stroke-linecap="butt" stroke-linejoin="round"`),
   ];
   // une chaudière évasée, son eau
   const chaudiere = (c, yEau) => {
@@ -111,8 +124,43 @@ module.exports = (h) => {
     return { yS, bil, c, s, xIn, yIn, xP, yP, yC };
   };
   // le poing tenu d'en haut : l'axe de l'objet est vertical ; le pouce ferme le bas du poing
-  const poing = g => F.mainStock({ id: 'poing-barre', objet: false, angle: 164, taille: 70, x: g.xP, y: g.yP });
+  const optsMain = g => ({ id: 'poing-barre', objet: false, angle: ANGLE, taille: TAILLE, x: g.xP, y: g.yP });
+  const poing = g => F.mainStock(optsMain(g));
   const bout = o => o.y + o.longueur * 0.27;              // le bout du boyau, caché sous le pouce
+  // du fichier de la main à la vue : le même passage que mainStock (ancre : le centre de l'objet du fichier)
+  const versVue = g => {
+    const c = Math.cos(ANGLE * Math.PI / 180), s = Math.sin(ANGLE * Math.PI / 180), A0 = [M101.objet.x, M101.objet.y];
+    return ([px, py]) => { const u = KM * (px - A0[0]), v = KM * (py - A0[1]); return [g.xP + c * u - s * v, g.yP + s * u + c * v]; };
+  };
+  // l'avant-bras : chaque bord part dans la direction du bord de la main (le dessus de (167,2 ; 434,3), le dessous de
+  // (191,4 ; 596,1), relevés sur le dessin de 1-01), se courbe sur Lc jusqu'à l'axe de l'avant-bras en s'élargissant un
+  // peu, puis file droit hors de la vue ; un fond blanc couvre le bout arrondi du fichier
+  const avantBras = (g, Lc = 20, L = 200) => {
+    const T = versVue(g);
+    const dir = (p, d) => { const a = T(p), b = T([p[0] + d[0], p[1] + d[1]]), n = Math.hypot(b[0] - a[0], b[1] - a[1]); return [a, [(b[0] - a[0]) / n, (b[1] - a[1]) / n]]; };
+    const [t0, dt] = dir([167.234, 434.336], [-53.5, -1.9]), [b0, db] = dir([191.436, 596.078], [-52.1, 14.2]);
+    let ax = [dt[0] + db[0], dt[1] + db[1]]; const na = Math.hypot(ax[0], ax[1]); ax = [ax[0] / na, ax[1] / na];
+    const w = [t0[0] - b0[0], t0[1] - b0[1]], s = w[0] * ax[0] + w[1] * ax[1], np = [w[0] - ax[0] * s, w[1] - ax[1] * s];
+    const lw = Math.hypot(np[0], np[1]), n = [np[0] / lw, np[1] / lw], ev = lw * 0.05;
+    const bord = (p0, d, sg) => {
+      const e = [p0[0] + ax[0] * Lc + sg * n[0] * ev, p0[1] + ax[1] * Lc + sg * n[1] * ev];
+      return { c1: [p0[0] + d[0] * Lc / 2, p0[1] + d[1] * Lc / 2], c2: [e[0] - ax[0] * Lc / 2, e[1] - ax[1] * Lc / 2], e, fin: [e[0] + ax[0] * L, e[1] + ax[1] * L] };
+    };
+    const H = bord(t0, dt, 1), B = bord(b0, db, -1), P = p => `${f(p[0])},${f(p[1])}`;
+    const trait = 'fill="none" stroke="#1A1A1A" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"';
+    return [
+      h.path(`M${P(t0)} C${P(H.c1)} ${P(H.c2)} ${P(H.e)} L${P(H.fin)} L${P(B.fin)} L${P(B.e)} C${P(B.c2)} ${P(B.c1)} ${P(b0)} Z`, A.blanc),
+      h.path(`M${P(t0)} C${P(H.c1)} ${P(H.c2)} ${P(H.e)} L${P(H.fin)} M${P(b0)} C${P(B.c1)} ${P(B.c2)} ${P(B.e)} L${P(B.fin)}`, trait),
+    ].join('\n');
+  };
+  // le boyau entre les doigts : la même main avec son objet en blanc, découpée par la silhouette de la main ; il n'en
+  // reste que la pièce de l'objet qui passe devant la paume, sous le bout des doigts
+  const entreDoigts = g => {
+    const m = F.mainStock(Object.assign(optsMain(g), { objet: true, objetCouleur: '#FFFFFF' }));
+    const tr = String(m.svg).match(/transform="([^"]+)"/)[1];
+    const dMain = M101.chemins.find(c => c.role === 'main').d;
+    return `<clipPath id="poing-1008"><path d="${dMain}" transform="${tr}" fill="#FFFFFF" stroke="none"/></clipPath>\n<g clip-path="url(#poing-1008)">${m.svg}</g>`;
+  };
   const amorcer = z => {
     const g = geo2(z), out = [];
     out.push(...sol(z, g.yS));
@@ -134,7 +182,9 @@ module.exports = (h) => {
       + `L${f(o.x - 22)},${f(yHaut)} Q${f(o.x)},${f(yHaut)} ${f(o.x)},${f(yHaut + 22)} L${f(o.x)},${f(bout(o))}`;
     out.push(...boyau(d));
     out.push(...ch.bord, ...se.bord, ...taie(g.s, g.yC, o.x));
-    out.push(String(m.svg));
+    // la main, le boyau entre ses doigts, l'avant-bras qui sort par le bord de la vue
+    out.push(`<clipPath id="vue-amorcer-1008"><rect x="0" y="0" width="${z.l}" height="${z.h}" fill="#FFFFFF" stroke="none"/></clipPath>`);
+    out.push(`<g clip-path="url(#vue-amorcer-1008)">`, String(m.svg), entreDoigts(g), avantBras(g), '</g>');
     // le geste : descendre le bout sur le coton
     out.push(h.geste(`M${f(o.x)},${f(bout(o) + 6)} L${f(o.x)},${f(g.yC - 3)}`));
     return out.join('\n');
@@ -143,7 +193,7 @@ module.exports = (h) => {
   return {
     ref: '10-08',
     titre: 'Amorcer un siphon sans la bouche',
-    desc: 'Deux vignettes. En haut, une chaudière pleine d’eau, un dépôt au fond et, au-dessus sans le toucher, un boyau enroulé tout entier sous l’eau ; les dernières bulles sortent de son bout. En bas, la chaudière posée sur un billot : un bout du boyau reste dans l’eau, au-dessus du dépôt ; le boyau plein passe par-dessus le bord et descend tout droit dans un poing fermé, tenu d’en haut, dont le pouce bouche le bout ; le poing est au-dessus du seau du bas, coiffé d’une taie d’oreiller pliée en deux et attachée sous le bord, plus bas que l’eau de la chaudière. Une flèche rouge descend du bout jusqu’au creux du coton : on le descend, puis on le lâche.',
+    desc: 'Deux vignettes. En haut, une chaudière pleine d’eau, un dépôt au fond et, au-dessus sans le toucher, un boyau enroulé tout entier sous l’eau ; les dernières bulles sortent de son bout. En bas, la chaudière posée sur un billot : un bout du boyau reste dans l’eau, au-dessus du dépôt ; le boyau plein passe par-dessus le bord et descend tout droit dans un poing fermé, tenu d’en haut, l’avant-bras qui vient de la droite : le bout des doigts serre le boyau et le pouce, refermé sous le poing, bouche le bout ; le poing est au-dessus du seau du bas, coiffé d’une taie d’oreiller pliée en deux et attachée sous le bord, plus bas que l’eau de la chaudière. Une flèche rouge descend du bout jusqu’au creux du coton : on le descend, puis on le lâche.',
     format: 'quart',
     disposition: [['remplir'], ['amorcer']],
     hauteurs: [1.3, 2.1],

@@ -48,7 +48,6 @@ module.exports = (h) => {
     const xF = z.l - 2, ep = 9;
     const rw = 360 * k, roue = [xE + 92, yg - rw];
     out.push(h.cercle(roue[0], roue[1], rw, h.a.loin), h.cercle(roue[0], roue[1], rw, A.detail), h.cercle(roue[0], roue[1], rw * 0.5, A.detail));
-    out.push(h.rect(xE - 3, yP + ep + 3, 16, 12, blanc('arete')));
     out.push(h.path(poly([[xE, yP], [xF, yP], [xF, yP + ep], [xE, yP + ep]]), A.hachure('metal', 'contour')));
     // le madrier en rampe, du sol au rebord du plancher
     const md = [bas, add(bas, n, em), add(haut, n, em), haut];
@@ -82,15 +81,19 @@ module.exports = (h) => {
   };
   const renvoisProfil = z => {
     const q = Pr(z), { k, yg, yP, xE, x0, u, n, em, rr, bas, haut, S, R, C, ancre } = q;
-    const m = add(lerp(bas, haut, 0.18), n, em * 0.5);
+    const m = lerp(bas, haut, 0.5);                    // le dessous du madrier, à mi-pente
+    const passe = add(add(haut, n, em + 2 * (R + rr) + rr), u, 14);
+    const fin = add(passe, u, (z.l - 60 - passe[0]) / u[0]);
+    const gm = lerp(add(add(fin, u, -64), n, 11), add(add(fin, u, -18), n, 11), 0.5);
     const rc = R + rr, aSous = Math.atan2(-n[1], -n[0]) / RAD;
     const aval = add(C, [Math.cos((aSous + 90) * RAD), Math.sin((aSous + 90) * RAD)], rc + 1);
     const brF = lerp(add(haut, n, em + rr), add(C, n, -rc), 0.5);
     return [
-      { n: 1, rond: [m[0] + 34, m[1] + 18], cible: [m[0] + 6, m[1] + 2], texte: 'madrier en rampe, du sol au plancher' },
+      { n: 1, rond: [m[0] + 4, yg - 19], cible: [m[0] + 4, m[1] - 4 * Math.tan(q.ang) + 1.5], texte: 'madrier en rampe, du sol au plancher' },
       { n: 2, rond: [ancre[0] + 30, yP - 34], cible: [ancre[0] + 4, yP - 8], texte: 'corde frappée sur un point fixe' },
       { n: 3, rond: [brF[0] + 22, brF[1] + 32], cible: [brF[0] + 1, brF[1] + 3], texte: 'descendue sous la pièce' },
       { n: 4, rond: [aval[0] - 22, aval[1] - 44], cible: [aval[0] - 1, aval[1] - 3], texte: 'remontée par-devant' },
+      { n: 5, rond: [gm[0] + n[0] * 30, gm[1] + n[1] * 30], cible: [gm[0] + n[0] * 3, gm[1] + n[1] * 3], texte: 'tirer le bout remonté' },
     ];
   };
 
@@ -112,7 +115,8 @@ module.exports = (h) => {
     out.push(h.path(poly([[z.l - 2, cy - lb], [xE, cy - lb], [xE, cy + lb], [z.l - 2, cy + lb]], false), A.contour));
     // les madriers
     for (const s_ of [-1, 1]) out.push(h.rect(x0, cy + s_ * ec - lm / 2, xE + 8 - x0, lm, blanc('contour')));
-    for (const s_ of [-1, 1]) for (const [a, b, o] of [[0.1, 0.35, -0.2], [0.6, 0.85, 0.2]]) out.push(h.ligne(x0 + a * (xE - x0), cy + s_ * ec + o * lm, x0 + b * (xE - x0), cy + s_ * ec + o * lm, A.fin));
+    // le fil du bois : à gauche de la bille, près du bord du madrier et loin de la corde, pour ne pas la prolonger
+    for (const s_ of [-1, 1]) for (const [a, b, o] of [[0.03, 0.2, 0.36], [0.6, 0.85, 0.2]]) out.push(h.ligne(x0 + a * (xE - x0), cy + s_ * ec + o * lm, x0 + b * (xE - x0), cy + s_ * ec + o * lm, A.fin));
     // les cordes : le brin fixe, de l'anneau jusque sous la bille
     const ax = xE + 330 * k;
     for (const s_ of [-1, 1]) {
@@ -141,8 +145,8 @@ module.exports = (h) => {
   const renvoisFace = z => {
     const q = Fa(z), { cy, x0, xE, ec, lm, Rb, xb } = q;
     return [
-      { n: 5, rond: [x0 + 24, cy], cible: [x0 + 40, cy + ec - lm / 2 + 1], texte: 'une corde par madrier' },
-      { n: 6, rond: [xE + 22, cy + 2], cible: [xE + 22, cy + ec - 18], texte: 'tirer les deux bouts ensemble' },
+      { n: 6, rond: [x0 + 24, cy], cible: [x0 + 40, cy + ec - lm / 2 + 1], texte: 'une corde par madrier' },
+      { n: 7, rond: [xE + 22, cy + 2], cible: [xE + 22, cy + ec - 18], texte: 'tirer les deux bouts ensemble' },
     ];
   };
 

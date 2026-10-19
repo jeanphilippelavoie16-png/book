@@ -34,7 +34,8 @@ module.exports = (h) => {
       + ` L${r1(X(RN))} ${r1(Y(108))} C${r1(X(RN))} ${r1(Y(100))} ${r1(X(RB))} ${r1(Y(101))} ${r1(X(RB))} ${r1(Y(92))}`
       + ` L${r1(X(RB))} ${r1(Y(5))} Q${r1(X(RB))} ${r1(Y(0))} ${r1(X(RB - 4))} ${r1(Y(0))} Z`;
     out.push(h.path(d, blanc(A.arete)));
-    // le col sous la bague
+    // le col sous la bague : peint en blanc, sinon l'eau se voit entre le verre et la bague
+    out.push(h.rect(X(-RN), Y(111), 2 * RN * s, 3 * s, A.blanc));
     out.push(h.ligne(X(-RN), Y(108), X(-RN), Y(111), A.arete), h.ligne(X(RN), Y(108), X(RN), Y(111), A.arete));
     // la bague vissée, et le couvercle plat dessus
     out.push(h.rect(X(-RBague), Y(126), 2 * RBague * s, 15 * s, blanc(A.arete)));
@@ -43,10 +44,175 @@ module.exports = (h) => {
     return { svg: out.join('\n'), Y, X, yCol: Y(109.5), yHaut: Y(128), yBague: Y(111), yFond: Y(0) };
   };
 
+  // Le pot plein, en polygones (verre, col, bague, couvercle) : ce qui cache l'eau derrière lui.
+  const potPleins = (cx, yb, s) => {
+    const P = (x, y) => [cx + x * s, yb - y * s];
+    const q = (a, b, c, n = 6) => Array.from({ length: n }, (_, i) => { const t = (i + 1) / n, u = 1 - t; return [u * u * a[0] + 2 * u * t * b[0] + t * t * c[0], u * u * a[1] + 2 * u * t * b[1] + t * t * c[1]]; });
+    const cu = (a, b, c, d, n = 10) => Array.from({ length: n }, (_, i) => { const t = (i + 1) / n, u = 1 - t; return [u ** 3 * a[0] + 3 * u * u * t * b[0] + 3 * u * t * t * c[0] + t ** 3 * d[0], u ** 3 * a[1] + 3 * u * u * t * b[1] + 3 * u * t * t * c[1] + t ** 3 * d[1]]; });
+    const verre = [P(-RB + 4, 0), ...q(P(-RB + 4, 0), P(-RB, 0), P(-RB, 5)), P(-RB, 92), ...cu(P(-RB, 92), P(-RB, 101), P(-RN, 100), P(-RN, 108)),
+      P(RN, 108), ...cu(P(RN, 108), P(RN, 100), P(RB, 101), P(RB, 92)), P(RB, 5), ...q(P(RB, 5), P(RB, 0), P(RB - 4, 0))];
+    const rect = (x0, y0, x1, y1) => [P(x0, y0), P(x1, y0), P(x1, y1), P(x0, y1)];
+    return [verre, rect(-RN, 107, RN, 112), rect(-RBague, 111, RBague, 126), rect(-RBague + 1, 126, RBague - 1, 128)];
+  };
+
+  // ─── L'eau, sans vaguelette coupée ───────────────────────────────────────────────────────────
+  // Le motif « eau » du composeur est une tuile de 64 × 22 : deux rangs de vaguelettes, l'un partant de
+  // (4, 7), l'autre de (36, 18), chacune « q4 -2.4 8 0 t8 0 » (16 de long, 2,4 de haut). Posé d'un seul
+  // tenant, il en coupe contre ce qui est dans l'eau et contre le fond : une demi-vaguelette se lit comme
+  // une faute de dessin. Chaque région d'eau est donc découpée en bandes horizontales d'environ 11 de haut,
+  // une par rang de vaguelettes ; chaque bande est remplie du même motif, décalé (translate de son groupe)
+  // pour que son rang tombe au milieu de la bande et que chaque vaguelette soit entière, à MARGE au moins de
+  // tout trait, ou tout à fait cachée sous un objet plein. Les coutures entre bandes ne se voient pas : la
+  // teinte est la même et aucune vaguelette ne les croise. C'est toujours h.a.hachure('eau').
+  const eauSansCoupe = (() => {
+    const MARGE = 2.5, G = 0.5, BORD = 1, RECOUVRE = 0.5;   // MARGE depuis la géométrie : un trait de 1,4 en mange 0,7
+    const base = [];
+    for (let i = 0; i <= 8; i++) { const t = i / 8; base.push([8 * t, -4.8 * t * (1 - t)]); }
+    for (let i = 1; i <= 8; i++) { const t = i / 8; base.push([8 + 8 * t, 4.8 * t * (1 - t)]); }
+    const dedans = (x, y, P) => {
+      let c = false;
+      for (let i = 0, j = P.length - 1; i < P.length; j = i++) {
+        const xi = P[i][0], yi = P[i][1], xj = P[j][0], yj = P[j][1];
+        if ((yi > y) !== (yj > y) && x < (xj - xi) * (y - yi) / (yj - yi) + xi) c = !c;
+      }
+      return c;
+    };
+    const dSeg = (x, y, [ax, ay], [bx, by]) => {
+      const vx = bx - ax, vy = by - ay, L2 = vx * vx + vy * vy;
+      const t = L2 ? Math.max(0, Math.min(1, ((x - ax) * vx + (y - ay) * vy) / L2)) : 0;
+      return Math.hypot(x - ax - t * vx, y - ay - t * vy);
+    };
+    const boite = P => { const xs = P.map(p => p[0]), ys = P.map(p => p[1]); return [Math.min(...xs), Math.min(...ys), Math.max(...xs), Math.max(...ys)]; };
+    const aretes = P => P.map((p, i) => [p, P[(i + 1) % P.length]]);
+    // un polygone convexe coupé par la bande y0 ≤ y ≤ y1
+    const couper = (P, y0, y1) => {
+      const demi = (Q, garde, yc) => {
+        const R = [];
+        Q.forEach((a, i) => {
+          const b = Q[(i + 1) % Q.length], ga = garde(a[1]), gb = garde(b[1]);
+          if (ga) R.push(a);
+          if (ga !== gb) { const t = (yc - a[1]) / (b[1] - a[1]); R.push([a[0] + t * (b[0] - a[0]), yc]); }
+        });
+        return R;
+      };
+      return demi(demi(P, y => y >= y0, y0), y => y <= y1, y1);
+    };
+    // un polygone convexe grossi de d de tous les côtés (chaque arête poussée vers le dehors)
+    const grossir = (P, d) => {
+      const cx = P.reduce((t, p) => t + p[0], 0) / P.length, cy = P.reduce((t, p) => t + p[1], 0) / P.length;
+      const Q = P.filter((p, i) => Math.hypot(p[0] - P[(i + 1) % P.length][0], p[1] - P[(i + 1) % P.length][1]) > 1e-6);
+      const lignes = Q.map((a, i) => {
+        const b = Q[(i + 1) % Q.length], L = Math.hypot(b[0] - a[0], b[1] - a[1]);
+        let nx = -(b[1] - a[1]) / L, ny = (b[0] - a[0]) / L;
+        if ((a[0] - cx) * nx + (a[1] - cy) * ny < 0) { nx = -nx; ny = -ny; }
+        return [a[0] + nx * d, a[1] + ny * d, b[0] - a[0], b[1] - a[1]];
+      });
+      return lignes.map((l, i) => {
+        const m = lignes[(i + lignes.length - 1) % lignes.length];
+        const det = m[2] * l[3] - m[3] * l[2];
+        if (Math.abs(det) < 1e-9) return [l[0], l[1]];
+        const t = ((l[0] - m[0]) * l[3] - (l[1] - m[1]) * l[2]) / det;
+        return [m[0] + t * m[2], m[1] + t * m[3]];
+      });
+    };
+    // regions : polygones d'eau convexes ; pleins : polygones peints par-dessus l'eau (ils la cachent) ;
+    // traits : [a, b, demi-largeur], tracés par-dessus l'eau (ils ne la cachent pas, une vaguelette ne les touche pas)
+    return (regions, pleins, traits) => {
+      const tout = boite(regions.flat());
+      const X0 = tout[0] - 24, Y0 = tout[1] - 24, nx = Math.ceil((tout[2] + 24 - X0) / G) + 1, ny = Math.ceil((tout[3] + 24 - Y0) / G) + 1;
+      // la grille de ce qui est par-dessus l'eau : 1 caché sous un plein, 2 trop près d'un trait, 0 libre
+      const etat = new Uint8Array(nx * ny);
+      const tamponner = ([ax, ay], [cx, cy], r) => {
+        const n = Math.max(1, Math.ceil(Math.hypot(cx - ax, cy - ay) / (G / 2))), ri = Math.ceil(r / G) + 1;
+        for (let k = 0; k <= n; k++) {
+          const x = ax + (cx - ax) * k / n, y = ay + (cy - ay) * k / n;
+          const ci = Math.round((x - X0) / G), cj = Math.round((y - Y0) / G);
+          for (let dj = -ri; dj <= ri; dj++) for (let di = -ri; di <= ri; di++) {
+            const i = ci + di, j = cj + dj;
+            if (i < 0 || j < 0 || i >= nx || j >= ny) continue;
+            if ((X0 + i * G - x) ** 2 + (Y0 + j * G - y) ** 2 <= r * r) etat[j * nx + i] = 2;
+          }
+        }
+      };
+      pleins.forEach(P => aretes(P).forEach(([a, b]) => tamponner(a, b, MARGE)));
+      traits.forEach(([a, b, d]) => tamponner(a, b, MARGE + d));
+      pleins.forEach(P => {
+        const [x0, y0, x1, y1] = boite(P);
+        for (let j = Math.max(0, Math.floor((y0 - Y0) / G)); j <= Math.min(ny - 1, Math.ceil((y1 - Y0) / G)); j++)
+          for (let i = Math.max(0, Math.floor((x0 - X0) / G)); i <= Math.min(nx - 1, Math.ceil((x1 - X0) / G)); i++)
+            if (dedans(X0 + i * G, Y0 + j * G, P)) etat[j * nx + i] = 1;
+      });
+      const lire = (x, y) => {
+        const i = Math.round((x - X0) / G), j = Math.round((y - Y0) / G);
+        return i < 0 || j < 0 || i >= nx || j >= ny ? 0 : etat[j * nx + i];
+      };
+      const sorties = [];
+      let total = 0;
+      // le quinconce du motif d'origine : d'un rang au suivant, les vaguelettes se décalent d'une demi-tuile (32).
+      // La première bande d'une région prend le pas qui y garde le plus de vaguelettes entières ; chaque bande
+      // suivante, parmi les pas qui gardent les siennes entières, celui qui est le plus près du quinconce. Dans un
+      // vide étroit, ça laisse un rang sur deux sans vaguelette, comme dans le motif.
+      regions.forEach(R => {
+        const [, ya, , yb] = boite(R);
+        const nb = Math.max(1, Math.round((yb - ya) / 11)), hb = (yb - ya) / nb;
+        let avant = null;
+        for (let k = 0; k < nb; k++) {
+          const y0 = ya + k * hb, y1 = y0 + hb, B = couper(R, y0, y1);
+          if (B.length < 3) continue;
+          const Ar = aretes(B), [bx0, , bx1] = boite(B);
+          // une vaguelette : 1 entière et dégagée, 0 cachée ou hors de la bande, -1 coupée ou qui touche
+          const juger = (ox, oy) => {
+            let vu = 0, cache = 0;
+            for (const [px, py] of base) {
+              const x = ox + px, y = oy + py;
+              const e = lire(x, y);
+              if (e === 1) { cache++; continue; }
+              if (Ar.some(([a, b]) => dSeg(x, y, a, b) < BORD)) return -1;
+              if (!dedans(x, y, B)) { cache++; continue; }
+              if (e === 2) return -1;
+              vu++;
+            }
+            return vu && cache ? -1 : (vu ? 1 : 0);
+          };
+          let mieux = null;
+          const ecart = dx => { if (avant === null) return 0; const d = Math.abs(((dx - avant - 32) % 64 + 64) % 64); return Math.min(d, 64 - d); };
+          // le rang au milieu de la bande, ou un peu plus haut ou plus bas : il y reste à MARGE des bords,
+          // et les rangs voisins (à 11 au-dessus et au-dessous) restent dehors
+          const jeu = Math.min(hb / 2 - 1.2 - MARGE, 9 - hb / 2);
+          const decalages = [0, 0.75, -0.75, 1.5, -1.5, 2.25, -2.25].filter(o => Math.abs(o) <= jeu + 1e-9);
+          for (const o of decalages) {
+            const dy = Math.round((((y0 + y1) / 2 + o - 7) % 22 + 22) % 22 * 10) / 10;
+            for (let dx = 0; dx < 64; dx += 0.5) {
+              let ok = true, n = 0;
+              for (let b = Math.floor((y0 - 30 - dy) / 22); ok && 22 * b + dy < y1 + 8; b++)
+                for (let a = Math.floor((bx0 - 70 - dx) / 64); ok && 64 * a + dx < bx1 + 8; a++)
+                  for (const [vx, vy] of [[4, 7], [36, 18]]) {
+                    const r = juger(64 * a + dx + vx, 22 * b + dy + vy);
+                    if (r < 0) { ok = false; break; }
+                    n += r;
+                  }
+              if (ok && (!mieux || ecart(dx) < mieux.e || (ecart(dx) === mieux.e && n > mieux.n))) mieux = { dx, dy, n, e: ecart(dx) };
+            }
+          }
+          if (!mieux) throw new Error(`eau : aucun pas du motif ne garde les vaguelettes entières dans la bande ${boite(B).map(v => Math.round(v)).join(', ')}`);
+          total += mieux.n;
+          avant = mieux.dx;
+          // la bande peinte déborde de RECOUVRE de tous les côtés : deux aplats bord à bord laissent un fil clair à
+          // l'anticrénelage ; aucune vaguelette n'est à moins de BORD d'un bord de bande, le recouvrement n'en montre
+          // pas, et dehors il passe sous les parois et sous le trait de la surface
+          const dec = grossir(B, RECOUVRE).map(p => [p[0] - mieux.dx, p[1] - mieux.dy]);
+          sorties.push(`<g transform="translate(${mieux.dx} ${mieux.dy})">${h.chemin(dec, h.a.hachure('eau', 'aucun'), true)}</g>`);
+        }
+      });
+      return { svg: sorties.join('\n'), vaguelettes: total };
+    };
+  })();
+
   // ─── Vue 1 : la marmite en coupe ─────────────────────────────────────────────────────────────
-  // Trois pots, un vide d'environ 25 mm entre eux et contre la paroi (dessiné, pas coté).
+  // Trois pots, un vide entre eux et contre la paroi (dessiné, pas coté : le chapitre dit « sans qu'ils se
+  // touchent »). Le vide est assez large pour qu'une vaguelette d'eau y tienne entière.
   const M = z => {
-    const jeu = 26, n = 3;
+    const jeu = 36, n = 3;
     const Rmm = (n * 2 * RB + (n + 1) * jeu) / 2;      // rayon intérieur de la marmite, en mm
     const Hmm = 9 + 128 + 95 + 34;                      // grille, pot, une main d'eau, revanche
     const s = Math.min((z.h - 30) / Hmm, (z.l - 220) / (2 * Rmm));
@@ -56,22 +222,55 @@ module.exports = (h) => {
     const xs = Array.from({ length: n }, (_, i) => cx - Rmm * s + (jeu + RB + i * (2 * RB + jeu)) * s);
     return { jeu, n, s, cx, yb, e, R, yT, yG, yCouv, yE, xs };
   };
-  const marmite = z => {
+  // Les renvois de la coupe, calculés sur la géométrie seule : la recherche du pas de l'eau en a besoin
+  // (une vaguelette ne touche pas une ligne de rappel).
+  const renvoisCoupe = (m, rA, yC) => {
+    const xg = m.cx - m.R - 30;
+    const xBordPot = m.xs[0] - m.s * RB;
+    return [
+      // le point sur le bord gauche du cercle rouge : le dessous du pot posé sur la grille (règle 11)
+      { n: 1, rond: [xg, m.yG + 2], cible: [m.xs[0] - Math.sqrt(11 * 11 - 9), m.yG + 3], texte: 'grille au fond : l’eau passe dessous' },
+      { n: 2, rond: [xg, (m.yG + m.yCouv) / 2], cible: [xBordPot - 1, (m.yG + m.yCouv) / 2], texte: 'pots qui ne se touchent pas' },
+      { n: 3, rond: [xg, yC - 8], cible: [m.cx - m.R - 5, yC + 1], texte: 'marmite couverte' },
+    ];
+  };
+  const marmite = (z, { eau = false } = {}) => {
     const m = M(z), out = [];
     const { s, cx, yb, e, R, yT, yG, yCouv, yE, xs } = m;
+    const rA = 34 * s, yC = yT - 3;
+    const pots0 = xs.map(x => pot(x, yG, s));
     // la paroi d'en face, au-dessus de l'eau, en gris loin
     out.push(h.rect(cx - R + e, yT, 2 * (R - e), yE - yT, A.loin));
-    // l'eau, du fond jusqu'au niveau : elle passe sous les pots, entre les anneaux
-    out.push(h.rect(cx - R + e, yE, 2 * (R - e), yb - e - yE, A.blanc), h.rect(cx - R + e, yE, 2 * (R - e), yb - e - yE, A.hachure('eau', 'aucun')));
+    // l'eau, du fond jusqu'au niveau : elle passe sous les pots, entre les anneaux. Cinq morceaux : la nappe
+    // au-dessus des couvercles, et une colonne par vide (d'une paroi ou du milieu d'un pot au milieu du suivant).
+    const grille = xs.flatMap(x => [-1, 1].map(sg => [x + sg * rA - 2 * s, yG, 4 * s, 9 * s]));
+    if (eau) {
+      const x0 = cx - R + e, x1 = cx + R - e, yF = yb - e;
+      const rect = (a, b, c, d) => [[a, b], [c, b], [c, d], [a, d]];
+      out.push(h.rect(x0, yE, x1 - x0, yF - yE, A.blanc));
+      const morceaux = [rect(x0, yE, x1, yCouv), rect(x0, yCouv, xs[0], yF), rect(xs[0], yCouv, xs[1], yF), rect(xs[1], yCouv, xs[2], yF), rect(xs[2], yCouv, x1, yF)];
+      const pleins = [
+        ...xs.flatMap(x => potPleins(x, yG, s)),
+        ...grille.map(([gx, gy, gl, gh]) => rect(gx, gy, gx + gl, gy + gh)),
+        [[cx - R, yT], [cx - R, yb], [cx + R, yb], [cx + R, yT], [cx + R - e, yT], [cx + R - e, yb - e], [cx - R + e, yb - e], [cx - R + e, yT]],
+      ];
+      const cercle = [];
+      for (let i = 0; i < 36; i++) cercle.push([[xs[0] + 11 * Math.cos(i * Math.PI / 18), yG + 11 * Math.sin(i * Math.PI / 18)], [xs[0] + 11 * Math.cos((i + 1) * Math.PI / 18), yG + 11 * Math.sin((i + 1) * Math.PI / 18)], 0.8]);
+      const traits = [
+        [[x0, yE], [x1, yE], 0.7],
+        [[pots0[m.n - 1].X(RBague) + 2, yCouv], [x1, yCouv], 0.25],
+        ...cercle,
+        ...renvoisCoupe(m, rA, yC).map(r => [r.rond, r.cible, 1.5]),
+      ];
+      out.push(eauSansCoupe(morceaux, pleins, traits).svg);
+    }
     out.push(h.ligne(cx - R + e, yE, cx + R - e, yE, A.arete));
     // la grille d'anneaux, coupée : chaque anneau donne deux petites sections
-    const rA = 34 * s;
-    xs.forEach(x => [-1, 1].forEach(sg => out.push(h.rect(x + sg * rA - 2 * s, yG, 4 * s, 9 * s, A.plein))));
+    grille.forEach(([gx, gy, gl, gh]) => out.push(h.rect(gx, gy, gl, gh, A.plein)));
     // les pots, posés sur la grille, sans se toucher
-    const pots = xs.map(x => { const p = pot(x, yG, s); out.push(p.svg); return p; });
+    const pots = pots0.map(p => { out.push(p.svg); return p; });
     // la marmite : tôle mince coupée, couvercle posé
     out.push(h.path(poly([[cx - R, yT], [cx - R, yb], [cx + R, yb], [cx + R, yT], [cx + R - e, yT], [cx + R - e, yb - e], [cx - R + e, yb - e], [cx - R + e, yT]]), A.plein));
-    const yC = yT - 3;
     out.push(h.path(`M${r1(cx - R - 6)} ${r1(yT)} L${r1(cx - R - 6)} ${r1(yC)} Q${r1(cx)} ${r1(yC - 14)} ${r1(cx + R + 6)} ${r1(yC)} L${r1(cx + R + 6)} ${r1(yT)} Z`, blanc(A.contour)));
     out.push(h.path(`M${r1(cx - 12)} ${r1(yC - 10)} q0 -8 12 -8 q12 0 12 8`, A.arete));
     // la cote : une main d'eau au-dessus des couvercles, tirée hors de la marmite, à droite
@@ -84,13 +283,8 @@ module.exports = (h) => {
     return { svg: out.join('\n'), m, pots, rA, yC };
   };
   const marmiteRenvois = z => {
-    const r = marmite(z), m = r.m;
-    const xg = m.cx - m.R - 30;
-    return [
-      { n: 1, rond: [xg, m.yG + 2], cible: [m.xs[0] - r.rA - 2 * m.s - 1, m.yG + 4], texte: 'grille au fond : l’eau passe dessous' },
-      { n: 2, rond: [xg, (m.yG + m.yCouv) / 2], cible: [r.pots[0].X(-RB) - 1, (m.yG + m.yCouv) / 2], texte: 'pots qui ne se touchent pas' },
-      { n: 3, rond: [xg, r.yC - 8], cible: [m.cx - m.R - 5, r.yC + 1], texte: 'marmite couverte' },
-    ];
+    const r = marmite(z);
+    return renvoisCoupe(r.m, r.rA, r.yC);
   };
 
   // ─── Vue 2 : la grille d'anneaux, vue de dessus ──────────────────────────────────────────────
@@ -107,15 +301,20 @@ module.exports = (h) => {
       if (Math.hypot(x - cx, y - cy) + ra < Rm - 3) centres.push([x, y]);
     }
     centres.forEach(([x, y]) => out.push(h.cercle(x, y, ra, blanc(A.arete)), h.cercle(x, y, ri, A.detail)));
-    // le fil de fer : un tour serré à chaque point de contact entre deux anneaux
+    // le fil de fer : à chaque point de contact entre deux anneaux, une ligature de trois tours de fil fin
+    // passés par-dessus les deux bords, comme celles de la claie ; les vides restent blancs
     const liens = [];
     centres.forEach((a, i) => centres.forEach((b, j) => {
       if (j <= i) return;
       if (Math.abs(Math.hypot(a[0] - b[0], a[1] - b[1]) - pas) < 1) liens.push([(a[0] + b[0]) / 2, (a[1] + b[1]) / 2, Math.atan2(b[1] - a[1], b[0] - a[0])]);
     }));
     liens.forEach(([x, y, t]) => {
-      const ux = Math.cos(t), uy = Math.sin(t), nx = -uy, ny = ux, L = (ra - ri) * 2 + 9, w = 2.2;
-      out.push(h.path(poly([[x - ux * w - nx * L / 2, y - uy * w - ny * L / 2], [x + ux * w - nx * L / 2, y + uy * w - ny * L / 2], [x + ux * w + nx * L / 2, y + uy * w + ny * L / 2], [x - ux * w + nx * L / 2, y - uy * w + ny * L / 2]]), A.plein));
+      // u : d'un centre à l'autre, à travers le contact ; n : le long des deux bords qui se touchent
+      const ux = Math.cos(t), uy = Math.sin(t), nx = -uy, ny = ux, L = ra - ri + 1.6;
+      [-1.6, 0, 1.6].forEach(o => {
+        const cx0 = x + nx * o, cy0 = y + ny * o;
+        out.push(h.path(`M${r1(cx0 - ux * L - nx * 0.8)} ${r1(cy0 - uy * L - ny * 0.8)} L${r1(cx0 + ux * L + nx * 0.8)} ${r1(cy0 + uy * L + ny * 0.8)}`, A.detail));
+      });
     });
     return { svg: out.join('\n'), cx, cy, Rm, ra, centres, liens };
   };
@@ -231,9 +430,9 @@ module.exports = (h) => {
     format: 'pleine',
     disposition: [['marmite'], ['anneaux', 'claie'], ['leve', 'leveDessus']],
     hauteurs: [1.1, 0.75, 1.25],
-    largeurs: [[1], [1, 1], [1.2, 1]],
+    largeurs: [[1], [1, 1], [1, 1]],   // les deux colonnes alignées d'une rangée à l'autre
     vues: {
-      marmite: { titre: 'Le bain, en coupe', dessin: z => marmite(z).svg, renvois: marmiteRenvois },
+      marmite: { titre: 'Le bain, en coupe', dessin: z => marmite(z, { eau: true }).svg, renvois: marmiteRenvois },
       anneaux: { titre: 'La grille d’anneaux, vue de dessus', dessin: z => anneaux(z).svg, renvois: anneauxRenvois },
       claie: { titre: 'Sans anneaux : la claie', dessin: z => claie(z).svg, renvois: claieRenvois },
       leve: { titre: 'Le lève-pots de fil de fer', dessin: z => leve(z).svg, renvois: leveRenvois },

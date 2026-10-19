@@ -7,12 +7,18 @@ Dans le grand trou de la quatrième, entre le sommaire et « Les auteurs », l'h
   - les collines enneigées, avec leurs traits de gouge : la crête est celle du devant, lue en miroir (la grande colline
     de droite vient à gauche, la petite colline de gauche vient à droite ; le toit de l'atelier est sauté), un peu
     aplatie pour tenir dans le trou ; les traits sont ceux de l'image, lus à la même profondeur sous la crête ;
-  - la lisière d'épinettes enneigées au pied des collines : les cimes de la lisière de gauche du devant, découpées une à
-    une d'un creux à l'autre, avec leur neige, remises côte à côte ; deux grandes épinettes du devant la coupent ;
-  - le croissant de lune, en haut à droite du trou, au-dessus de la petite colline, comme sur le devant.
-Tout est découpé dans l'image du devant (images/tomes/titre-tome-6.jpg) et réduit, rien n'est agrandi ni redessiné ;
-une seule encre est posée, le crème de l'image, sur le ciel du dos. Le noir des épinettes est le ciel lui-même : sous
-la crête, on retire les étoiles. La lisière finit à droite là où la colline redescend derrière elle.
+  - la lisière d'épinettes enneigées au pied des collines : les six cimes de la lisière de gauche du devant, découpées
+    une à une d'un creux à l'autre avec leur neige, remises côte à côte dans un ordre tiré au sort (jamais deux fois la
+    même de suite), retournées une fois sur deux ; chacune s'approche de la précédente jusqu'à ce que leurs flancs se
+    couvrent, pour qu'aucun bord de découpe ne se voie sur la colline ;
+  - le croissant de lune, en haut à droite du trou, au-dessus de la colline qui redescend, comme sur le devant.
+À droite, la colline redescend derrière la lisière ; les épinettes rapetissent avec elle, le pied toujours au bas du
+trou, et le crème finit en pointe entre les dernières cimes.
+Tout est découpé dans l'image du devant (images/tomes/titre-tome-6.jpg) et réduit : rien n'est redessiné. Les collines
+seules sont étirées de LARGE en largeur pour couvrir la quatrième ; les épinettes et la lune gardent leurs proportions.
+Une seule encre est posée, le crème de l'image, sur le ciel du dos ; le noir des épinettes est le ciel lui-même, et on
+retire les étoiles qui tomberaient dans la forêt ou contre la lune. La neige des branches ne descend pas jusqu'au bas
+du trou, et une tache de neige qu'un bord de découpe couperait net part en entier.
 
 Rien ne touche le texte : on cherche le trou dans les boîtes mesurées par Chromium (info['rects']), élargies de MARGE,
 et on vérifie à la fin qu'aucun pixel changé n'y entre ni ne passe sur la tranche.
@@ -30,30 +36,28 @@ LC, LN = 236.0, 40.0                              # luminance du crème et du no
 # ---- dans l'image d'origine (3072 × 3840 px)
 CIEL = (1150, 2000)              # les lignes où l'on cherche la crête des collines contre le ciel
 TRAITS = (1220, 1880)            # les lignes des traits de gouge
-CRETE = [(3057, 1700), (1290, 0), (0, 520), (520, 120)]     # les colonnes lues de gauche à droite du dos : la
-                                 # grande colline de droite, en miroir ; puis la petite de gauche (le toit sauté) ;
-                                 # puis la petite colline aller et retour, pour finir la bande
+CRETE = [(3057, 1700), (1290, 0)]   # les colonnes lues de gauche à droite du dos : la grande colline de droite, en
+                                 # miroir, puis la petite de gauche (le toit de l'atelier sauté)
 LISIERE = (1700, 2200)           # les lignes de la lisière de gauche
 CIMES = [(116, 281), (281, 360), (360, 473), (473, 573), (573, 645), (645, 716)]   # les colonnes de chaque cime,
                                  # d'un creux à l'autre (la première, la plus haute, sert moins souvent)
-SOL = 2100                       # la ligne de l'image où la lisière touche le sol
-GRANDES = [(1395, 2150, 2765, 3008), (3045, 3560, 2632, 2995)]    # deux grandes épinettes : celle de droite derrière
-                                 # l'atelier, puis celle du premier plan à droite (y0, y1, x0, x1)
-SOL_GRANDES = [2150, 3540]
-LUNE = (380, 715, 2700, 3020)    # y0, y1, x0, x1
+SOL = 2180                       # la ligne de la lisière qui tombe au bas du trou (la forêt y est pleine)
+LUNE = (380, 715, 2700, 3020)    # le croissant, en haut à droite : y0, y1, x0, x1
 
 # ---- au dos (pouces)
 MARGE = 0.18                     # autour de ce qui est écrit ou tracé
 G = 0.80                         # l'échelle des pièces, par rapport au devant
-RELIEF = 0.55                    # la hauteur de la crête, de la grande colline à la petite
+RELIEF = 0.45                    # la hauteur de la crête, de la grande colline à la petite
 LUNE_H = 0.50                    # la hauteur du croissant
-LUNE_X = 7.05                    # le centre du croissant, depuis le bord perdu
-FIN = 7.55                       # la bande finit ici : la colline redescend derrière la lisière
-DESCENTE = 1.10                  # sur cette longueur avant FIN
+LUNE_X = 7.00                    # le centre du croissant, depuis le bord perdu
+FIN = 7.45                       # po du bord perdu : la colline redescend jusqu'au pied de la lisière
+DESCENTE = 1.60                  # po : sur cette longueur
+LARGE = 1.30                     # les collines sont étirées en largeur d'autant (les épinettes, non)
 GRAINE = 11
 SS = 2                           # on compose à double taille
-TAILLE = 1.35                    # les épinettes de la lisière, par rapport à G
-NEIGE = 0.07                     # po : la neige des branches s'arrête à peu près à cette hauteur du pied
+TAILLE = 1.40                    # les épinettes de la lisière, par rapport à G
+PLUS_PETITE = 0.25               # une cime ne rapetisse pas plus que ça : la lisière finit avant
+NEIGE = 0.05                     # po : la neige des branches s'arrête à peu près à cette hauteur du pied
 
 
 def _lum(a):
@@ -128,24 +132,24 @@ def _crete_et_traits(L):
     return yS, traits
 
 
-def _piece(L, y0, y1, x0, x1, grande=False):
-    """Une épinette (ou une cime de la lisière) : (alpha du crème, masque de la pièce), à la taille de l'image.
-    La pièce est le noir relié au bas du bloc et tout ce qui est sous son contour (la neige des branches) ; au-dessus,
-    rien (la colline du dos s'y voit). Pour une grande épinette, seulement le plus gros noir qui touche le bas."""
+def _piece(L, y0, y1, x0, x1):
+    """Une cime de la lisière : (alpha du crème, masque de la pièce), à la taille de l'image. La pièce est le noir relié
+    au bas du bloc et tout ce qui est sous son contour (la neige des branches) ; au-dessus, rien (la colline du dos s'y
+    voit)."""
     S = L[y0:y1, x0:x1]
     noir = S < 110
     lab, n = ndi.label(noir)
     bas = np.unique(lab[-1])
-    bas = bas[bas > 0]
-    if grande:                                         # le plus gros morceau qui touche le bas
-        i = bas[np.argmax(ndi.sum(noir, lab, bas))]
-        F = lab == i
-    else:
-        F = np.isin(lab, bas)
+    F = np.isin(lab, bas[bas > 0])
     haut = np.where(F.any(0), np.argmax(F, axis=0), S.shape[0])
     rr = np.arange(S.shape[0])[:, None]
     M = rr >= haut[None, :] - 2                         # deux lignes au-dessus : le bord adouci de l'image
     return _alpha(S), M
+
+
+def _contour(Me):
+    """La première ligne de la pièce dans chaque colonne (le bas si la colonne est vide)."""
+    return np.where((Me > 0.5).any(0), np.argmax(Me > 0.5, axis=0), Me.shape[0]).astype(np.float64)
 
 
 def _lune(src, L):
@@ -180,10 +184,10 @@ def _lire(segments, n, pas):
         m = (t >= bornes[j]) & (t < bornes[j + 1])
         u[m] = a + (t[m] - bornes[j]) * (1 if b > a else -1)
         seg[m] = j
-    return u, seg, bornes
+    return u, seg
 
 
-def _sans_etoiles(can, masque, ppp):
+def _sans_etoiles(can, masque, ppp, seuil=10):
     """Retire les étoiles (petites taches claires sur le ciel) dans le masque, bouchées à la moyenne du ciel voisin."""
     ys, xs = np.nonzero(masque)
     if not len(ys):
@@ -195,7 +199,7 @@ def _sans_etoiles(can, masque, ppp):
     L = _lum(z)
     t = int(0.09 * ppp) | 1
     ouvert = ndi.grey_opening(L, size=(t, t))
-    cand = ((L - ouvert) > 10) & (ouvert < 80)
+    cand = ((L - ouvert) > seuil) & (ouvert < 80)
     lab, n = ndi.label(cand)
     ids = np.unique(lab[cand & masque[a:b, c:d]])
     ids = ids[ids > 0]
@@ -213,14 +217,31 @@ def _sans_etoiles(can, masque, ppp):
 
 
 # ---------------------------------------------------------------- le motif
+def _poser_piece(M, fs, mir, s0, y0, x, crete, sol_c, marge_c):
+    """La pièce M (masque, à la taille de l'image) mise à l'échelle fs, la ligne s0 de l'image sur le sol, son bord
+    gauche à la colonne x de la toile : si une pointe passe à moins de marge_c sous la crête, la pièce rapetisse, le pied
+    toujours sur le sol. Rend (masque réduit, ligne du haut, colonne de gauche, échelle)."""
+    for _ in range(8):
+        Me = _echelle(M.astype(np.float32), fs, mir)
+        py = sol_c - (s0 - y0) * fs
+        px = int(round(x))
+        haut = np.where((Me > 0.5).any(0), np.argmax(Me > 0.5, axis=0), Me.shape[0]).astype(np.float64)
+        cols = np.nonzero(haut < Me.shape[0])[0]
+        cc = np.clip(np.rint(px + cols).astype(int), 0, len(crete) - 1)
+        r = ((sol_c - crete[cc] - marge_c) / np.maximum(sol_c - (py + haut[cols]), 1)).min()
+        if r >= 1:
+            break
+        fs *= max(r, 0.5)
+    return Me, py, px, fs
+
+
 def motif(can, info):
     rng = np.random.default_rng(GRAINE)
     ppp, xf, xt = info['ppp'], info['xf'], info['xt']
     H, W = can.shape[:2]
     q = ppp / 96.0
     avant = can.copy()
-    img = info['image']
-    src = np.asarray(img.convert('RGB'))
+    src = np.asarray(info['image'].convert('RGB'))
     if src.shape[:2] != (3840, 3072):
         raise ValueError('dos du tome 6 : image du devant attendue en 3072 × 3840')
     L = _lum(src)
@@ -231,134 +252,170 @@ def motif(can, info):
     ga, gb = _trou(occ, xt, H)
     yS, traits = _crete_et_traits(L)
 
-    # ---- la toile : les rangs du trou, de 0 à la tranche, à double taille
+    # ---- la toile : les rangs du trou, de 0 à la tranche, à double taille (px de la toile : px du fond × SS)
     oy = ga
-    hh, ww = (gb - ga + int(0.1 * ppp)) * SS, xt * SS
-    yy = (np.arange(hh)[:, None] + 0.5) / SS + oy              # px du fond
-    xx = (np.arange(ww) + 0.5) / SS
-    fin = FIN * ppp
-    sol = gb + 0.05 * ppp                                      # le pied de la lisière : sous la dernière neige
+    hh, ww = (gb - ga) * SS, xt * SS
+    sol_c = (gb - oy) * SS                                     # le bas du trou : la ligne SOL de la lisière y tombe
 
-    # ---- la crête : celle du devant, en miroir, aplatie de RELIEF ; elle redescend derrière la lisière avant FIN
-    u, seg, bornes = _lire(CRETE, ww, 1 / (f * SS))
+    # ---- la crête : celle du devant, en miroir, aplatie à RELIEF
+    u, seg = _lire(CRETE, ww, 1 / (f * SS * LARGE))
     ys_ = yS[np.clip(np.rint(u).astype(int), 0, len(yS) - 1)].astype(np.float64)
-    # le raccord du toit sauté : la marche entre les deux segments s'étale sur 0,4 po
-    j0 = np.searchsorted(seg, 1)
+    j0 = np.searchsorted(seg, 1)                               # le raccord du toit sauté : la marche s'étale
     marche = ys_[j0] - ys_[j0 - 1]
     d = np.abs(np.arange(ww) - j0 + 0.5) / (0.35 * ppp * SS)
-    poids = np.clip(1 - d, 0, 1) ** 2 * 0.5
-    ys_ = ys_ + np.where(np.arange(ww) < j0, marche, -marche) * poids
+    ys_ = ys_ + np.where(np.arange(ww) < j0, marche, -marche) * np.clip(1 - d, 0, 1) ** 2 * 0.5
     ys_ = ndi.gaussian_filter1d(ys_, 0.03 * ppp * SS)
-    k = RELIEF * ppp / (ys_.max() - ys_.min())
-    crete = oy + (ys_ - ys_.min()) * k
-    t = np.clip((xx - (fin - DESCENTE * ppp)) / (DESCENTE * ppp), 0, 1)
-    crete = crete + (sol - 0.12 * ppp - crete) * (t * t * (3 - 2 * t))
-    crete[xx > fin] = np.inf
+    crete = (ys_ - ys_.min()) * RELIEF * ppp * SS / (ys_.max() - ys_.min())     # px de la toile
+    fin = FIN * ppp * SS
+    t = np.clip((np.arange(ww) - fin + DESCENTE * ppp * SS) / (DESCENTE * ppp * SS), 0, 1)
+    crete = crete + (sol_c - 0.16 * ppp * SS - crete) * (1 - np.cos(np.pi * t)) / 2
+    marge_c = 0.05 * ppp * SS                                  # une pointe reste à cette distance sous la crête
+
+    # ---- la lisière : les cimes côte à côte, le pied sur le sol ; une cime trop haute pour la crête rapetisse
+    cimes = [_piece(L, LISIERE[0], LISIERE[1], x0, x1) for x0, x1 in CIMES]
+    poses = []                                                 # (A, M réduit, py, px, fs, miroir)
+    x, der = -0.15 * ppp * SS, -1
+    while True:
+        p = np.array([0.35] + [1.0] * (len(CIMES) - 1))
+        if der >= 0:
+            p[der] = 0
+        j = int(rng.choice(len(CIMES), p=p / p.sum()))
+        der = j
+        A, M = cimes[j]
+        mir = rng.random() < 0.5
+        fs0 = f * SS * TAILLE * rng.uniform(0.85, 1.15)
+        Me, py, px, fs = _poser_piece(M, fs0, mir, SOL, LISIERE[0], x, crete, sol_c, marge_c)
+        if fs < PLUS_PETITE * fs0 and poses:          # la colline est trop basse : la lisière finit ici
+            break
+        if poses:
+            # la cime se rapproche de la précédente jusqu'à ce que chacune couvre le flanc de l'autre : sinon le
+            # bord de la pièce, coupé droit, se verrait sur la colline
+            _, Ma, pya, pxa, _, _ = poses[-1]
+            ha, hb = _contour(Ma) + pya, _contour(Me) + py
+            ea = pxa + Ma.shape[1] - 1
+            xb = int(round(px))
+            while xb > pxa + Ma.shape[1] // 2:
+                c1 = ea + 1 - xb                       # les colonnes de B juste après le bord droit de A
+                c2 = xb - 1 - pxa                      # la colonne de A juste avant le bord gauche de B
+                b1, a2 = hb[max(0, c1):c1 + 3], ha[max(0, c2 - 2):max(0, c2 + 1)]
+                if (not len(b1) or b1.max() <= ha[-1] - 1) and (not len(a2) or a2.max() <= hb[0] - 1):
+                    break
+                xb -= 1
+            if xb != int(round(px)):
+                Me, py, px, fs = _poser_piece(M, fs, mir, SOL, LISIERE[0], xb, crete, sol_c, marge_c)
+        poses.append((A, Me, py, px, fs, mir))
+        x = px + Me.shape[1] * rng.uniform(0.70, 0.88)
+        if x + Me.shape[1] > fin:
+            break
+
+    # ---- le masque de la forêt, et les bords des pièces
+    foret = np.zeros((hh, ww), bool)
+    couture = np.zeros((2, hh, ww), bool)                      # les bords gauches et droits des pièces
+    boites = []
+    for A, Me, py, px, fs, mir in poses:
+        py, px = int(round(py)), int(round(px))
+        r0, r1, c0, c1 = max(0, py), min(hh, py + Me.shape[0]), max(0, px), min(ww, px + Me.shape[1])
+        boites.append((r0, r1, c0, c1, py, px))
+        if r0 < r1 and c0 < c1:
+            foret[r0:r1, c0:c1] |= Me[r0 - py:r1 - py, c0 - px:c1 - px] > 0.5
+            for c, cm, k in ((px, 0, 0), (px + Me.shape[1] - 1, Me.shape[1] - 1, 1)):    # les deux bords
+                if 1 <= c < ww - 1:
+                    couture[k][r0:r1, c] |= Me[r0 - py:r1 - py, cm] > 0.5
+
+    # ---- la fin, à droite : rien après la dernière cime de la lisière ; juste avant, la crête rejoint le haut de la
+    # forêt, et le crème finit en pointe entre les cimes
+    bout = boites[-1][3] - 1
+    haut_f = np.where(foret.any(0), np.argmax(foret, axis=0), hh).astype(np.float64)
+    long_ = max(2 * poses[-1][1].shape[1], 0.12 * ppp * SS)
+    t = np.clip((np.arange(ww) - (bout - long_)) / long_, 0, 1)
+    crete = crete + (np.maximum(crete, haut_f[min(bout, ww - 1)] + 3) - crete) * t * t
+    crete[np.arange(ww) > bout] = np.inf
 
     # ---- les collines et leurs traits : chaque colonne lit sa colonne de l'image, à la même profondeur sous la crête
-    crete_ = np.where(np.isfinite(crete), crete, 1e6)
-    prof = (yy - crete_[None, :]) / f                          # px de l'image sous la crête
+    crete_ = np.where(np.isfinite(crete), crete, 1e7)
+    prof = (np.arange(hh)[:, None] + 0.5 - crete_[None, :]) / (f * SS)      # px de l'image sous la crête
     v = yS[np.clip(np.rint(u).astype(int), 0, len(yS) - 1)][None, :] + prof
     tr = ndi.map_coordinates(traits, [v, np.broadcast_to(u[None, :], v.shape)], order=1, mode='constant')
-    a = np.clip((yy - crete_[None, :]) * SS + 0.5, 0, 1).astype(np.float32) * (1 - tr)
+    lab, n = ndi.label(tr > 0.3, structure=np.ones((3, 3)))      # un bout de trait trop court se lirait comme une
+    if n:                                                        # poussière : il part
+        objs = ndi.find_objects(lab)
+        court = np.array([False] + [o[1].stop - o[1].start < 0.04 * ppp * SS for o in objs])
+        tr = np.where(ndi.binary_dilation(court[lab], iterations=2), 0, tr)
+    a = np.clip(np.arange(hh)[:, None] + 0.5 - crete_[None, :], 0, 1).astype(np.float32) * (1 - tr)
 
-    # ---- la lisière : les cimes côte à côte, le pied sur le sol, la pointe toujours sous la crête
-    cimes = [_piece(L, LISIERE[0], LISIERE[1], x0, x1) for x0, x1 in CIMES]
-    poses = []
-    x, der = -0.15 * ppp, -1
-    while x < fin + 0.1 * ppp:
-        p = [0.35] + [1.0] * (len(CIMES) - 1)
-        p[der] = 0 if der >= 0 else p[der]
-        p = np.array(p) / sum(p)
-        j = int(rng.choice(len(CIMES), p=p))
-        der = j
-        g = TAILLE * rng.uniform(0.88, 1.12)
-        poses.append((j, x, g, rng.random() < 0.5, rng.uniform(-0.03, 0.03) * ppp))
-        x += (CIMES[j][1] - CIMES[j][0]) * f * g * rng.uniform(0.70, 0.85)
-    pieces = []
-    for j, x0, g, mir, dy in poses:
-        A, M = cimes[j]
-        pieces.append((A, M, x0, g, mir, LISIERE[0], SOL, dy, False))
-    # deux grandes épinettes, devant la lisière
-    for (y0, y1, x0, x1), s0, xc, gg in zip(GRANDES, SOL_GRANDES, (1.55, 4.15), (0.72, 1.0)):
-        A, M = _piece(L, y0, y1, x0, x1, grande=True)
-        pieces.append((A, M, xc * ppp - (x1 - x0) * f * gg / 2, gg, False, y0, s0, 0.0, True))
-
-    neige_tot = np.zeros((hh, ww), np.float32)
-    foret = np.zeros((hh, ww), bool)
-    for A, M, x0, g, mir, y0, s0, dy, grande in pieces:
-        fs = f * g * SS
-        Ae, Me = _echelle(A, fs, mir), _echelle(M.astype(np.float32), fs, mir)
-        py = int(round((sol + dy - oy) * SS - (s0 - y0) * fs))    # la ligne s0 de l'image tombe sur le sol
-        px = int(round(x0 * SS))
-        # la pointe sous la crête : sinon on descend la pièce
-        cols = np.nonzero((Me > 0.5).any(0))[0]
-        if not len(cols):
-            continue
-        hautp = np.argmax(Me > 0.5, axis=0)
-        cc = np.clip(px + cols, 0, ww - 1)
-        ecart = ((crete[cc] - oy) * SS + 0.06 * ppp * SS) - (py + hautp[cols])
-        ecart = ecart[np.isfinite(ecart)]
-        if len(ecart) and ecart.max() > 0:
-            py += int(np.ceil(ecart.max()))
-        h_, w_ = Ae.shape
-        r0, r1, c0, c1 = max(0, py), min(hh, py + h_), max(0, px), min(ww, px + w_)
+    # ---- les épinettes, par-dessus : le noir et la neige de l'image
+    for (A, Me, _, _, fs, mir), (r0, r1, c0, c1, py, px) in zip(poses, boites):
         if r0 >= r1 or c0 >= c1:
             continue
+        Ae = _echelle(A, fs, mir)
         Ae_, Me_ = Ae[r0 - py:r1 - py, c0 - px:c1 - px], Me[r0 - py:r1 - py, c0 - px:c1 - px]
         a[r0:r1, c0:c1] = a[r0:r1, c0:c1] * (1 - Me_) + Ae_ * Me_
-        foret[r0:r1, c0:c1] |= Me_ > 0.5
 
-    # ---- la neige des branches : rien sous le pied ; une tache qui descend trop bas part en entier
-    ysol = (sol - oy) * SS
-    bas_neige = ysol - NEIGE * ppp * SS
-    sous = foret & (np.arange(hh)[:, None] > 0)
-    lab, n = ndi.label((a > 0.35) & sous & ((np.arange(hh)[:, None] - (crete[None, :] - oy) * SS) > 3))
+    # ---- la neige des branches : une tache qui descend trop bas, qu'un bord de pièce coupe ou qui passe le bout
+    # part en entier
+    rr = np.arange(hh)[:, None]
+    lab, n = ndi.label((a > 0.35) & foret & (rr - crete_[None, :] > 3))
     if n:
+        objs = ndi.find_objects(lab)
         cy = np.array(ndi.center_of_mass(np.ones_like(lab), lab, range(1, n + 1)))
-        bas_ = np.array([s[0].stop for s in ndi.find_objects(lab)])
-        lim = bas_neige + rng.uniform(-0.05, 0.03, n) * ppp * SS
-        part = np.concatenate([[False], (cy[:, 0] > lim) | (bas_ > ysol - 0.02 * ppp * SS) |
-                               (cy[:, 1] > (fin - 0.05 * ppp) * SS)])
-        ote = ndi.binary_dilation(part[lab], iterations=2) & sous & ~ndi.binary_dilation(
-            (~part[lab]) & (lab > 0), iterations=1)
+        bas_ = np.array([s_[0].stop for s_ in objs])
+        droite = np.array([s_[1].stop for s_ in objs])
+        lim = sol_c - (NEIGE + rng.uniform(-0.04, 0.03, n)) * ppp * SS
+        # une tache coupée net par le bord d'une pièce (le crème d'un côté, le noir de l'autre, sur plus d'un pixel
+        # du fond de haut) se lirait comme une découpe : elle part
+        net = np.zeros((hh, ww), bool)
+        g = couture[0] & (np.abs(a - np.roll(a, 1, axis=1)) > 0.5)
+        d_ = couture[1] & (np.abs(a - np.roll(a, -1, axis=1)) > 0.5)
+        net |= g | np.roll(g, -1, axis=1) | d_ | np.roll(d_, 1, axis=1)
+        coupe = np.bincount(lab[net].ravel(), minlength=n + 1) >= 2 * SS
+        coupe[0] = False
+        colline = np.zeros(n + 1, bool)               # le crème qui touche la colline est la colline : il reste
+        colline[np.unique(lab[ndi.binary_dilation(~foret & (a > 0.35), iterations=2)])] = True
+        part = np.concatenate([[False], ((cy[:, 0] > lim) | (bas_ > sol_c - 0.03 * ppp * SS) | (droite > bout) |
+                                         coupe[1:]) & ~colline[1:]])
+        garde = (~part[lab]) & (lab > 0)
+        ote = ndi.binary_dilation(part[lab], iterations=2) & foret & ~ndi.binary_dilation(garde, iterations=1)
         a[ote] = 0
-    a[np.arange(hh) >= ysol - 0.02 * ppp * SS] = 0
-    a[:, xx > fin] = 0
+    a[:, int(bout) + 1:] = 0
+    a[sol_c - 2:] = 0
 
-    # ---- le croissant de lune
+    # ---- le croissant de lune, en haut à droite du trou
     lune = _lune(src, L)
-    fl = LUNE_H * ppp * SS / lune.shape[0]
-    Le = _echelle(lune, fl)
-    ly, lx = int(0.0 * ppp * SS), int(LUNE_X * ppp * SS - Le.shape[1] / 2)
-    zone_lune = np.zeros((hh, ww), bool)
+    Le = _echelle(lune, LUNE_H * ppp * SS / lune.shape[0])
+    ly, lx = 0, int(LUNE_X * ppp * SS - Le.shape[1] / 2)
     a[ly:ly + Le.shape[0], lx:lx + Le.shape[1]] = np.maximum(a[ly:ly + Le.shape[0], lx:lx + Le.shape[1]], Le)
-    zone_lune[max(0, ly - 30):ly + Le.shape[0] + 30, max(0, lx - 30):lx + Le.shape[1] + 30] = True
 
     # ---- sur le fond : d'abord les étoiles qui tomberaient dans la forêt ou contre la lune, puis le crème
+    # (une étoile collée à la crête ou à la lune se lirait comme une poussière : on la retire aussi dans la marge du
+    # texte, jamais dans la boîte du texte elle-même)
     hA, wA = hh // SS, ww // SS
-    sous_crete = np.zeros((H, W), bool)
-    cr = crete[:wA * SS].reshape(-1, SS).min(1)
-    rr = np.arange(oy, min(H, oy + hA))[:, None]
-    sous_crete[oy:oy + len(rr), :wA] = (rr > cr[None, :] - 0.02 * ppp) | (rr > sol - 0.45 * ppp)
-    sous_crete[oy:oy + hA, int(fin + 0.15 * ppp):] = False
-    zl = zone_lune.reshape(hA, SS, wA, SS).any((1, 3))
-    sous_crete[oy:oy + hA, :wA] |= zl
-    sous_crete &= ~occ
-    n_et = _sans_etoiles(can, sous_crete, ppp)
+    cr = crete_[:wA * SS].reshape(-1, SS).min(1) / SS + oy
+    p_ = int(0.1 * ppp)
+    r0_ = max(0, oy - p_)
+    rr = np.arange(r0_, oy + hA)[:, None]
+    zone = np.zeros((H, W), bool)
+    zone[r0_:oy + hA, :wA] = (rr > cr[None, :] - p_) & (np.arange(wA)[None, :] < bout / SS + p_)
+    zone[oy:oy + hA, :wA] |= ((np.arange(oy, oy + hA)[:, None] > oy + hA - 0.3 * ppp) &
+                              (np.arange(wA)[None, :] < bout / SS + 2 * p_))
+    zone[r0_:oy + Le.shape[0] // SS + p_, max(0, lx // SS - p_):(lx + Le.shape[1]) // SS + p_] = True
+    boites_texte = _occupe(info['rects'], q, (H, W), 0.06 * ppp)
+    zone &= ~boites_texte
+    avant_et = can.copy()
+    n_et = _sans_etoiles(can, zone, ppp, seuil=6)
+    etoiles = (can != avant_et).any(2)
     A = np.asarray(Image.fromarray(np.ascontiguousarray(a)).resize((wA, hA), Image.LANCZOS))
     A = np.clip(A, 0, 1)[..., None]
     z = can[oy:oy + hA, :wA].astype(np.float32)
     can[oy:oy + hA, :wA] = np.clip(np.rint(z * (1 - A) + CREME * A), 0, 255).astype(np.uint8)
 
-    # ---- contrôle : rien sur la tranche ni le devant, rien dans la marge du texte
+    # ---- contrôle : rien sur la tranche ni le devant ; rien du motif dans la marge du texte, aucune étoile retirée
+    # dans une boîte de texte
     chg = (can != avant).any(2)
-    chg_motif = np.zeros_like(chg)
-    chg_motif[oy:oy + hA, :wA] = A[..., 0] > 0.004
-    if chg[:, xt:].any() or (chg & occ).any():
+    if chg[:, xt:].any() or (chg & ~etoiles & occ).any() or (etoiles & boites_texte).any():
         print('    dos 6 : ATTENTION, le motif touche la tranche ou la marge du texte')
-    ys_, xs_ = np.nonzero(chg_motif)
-    print('    dos 6 : collines et lisière de %.2f à %.2f po du haut (le trou, marges ôtées : %.2f à %.2f po), de %.2f à '
-          '%.2f po du bord perdu ; %d étoiles retirées sous la crête' % (
-              ys_.min() / ppp, ys_.max() / ppp, ga / ppp, gb / ppp, xs_.min() / ppp, xs_.max() / ppp, n_et))
+    ys_, xs_ = np.nonzero(A[..., 0] > 0.004)
+    print('    dos 6 : collines, lisière et lune de %.2f à %.2f po du haut (le trou, marges ôtées : %.2f à %.2f po), '
+          'de %.2f à %.2f po du bord perdu ; %d étoiles retirées' % (
+              (ys_.min() + oy) / ppp, (ys_.max() + oy) / ppp, ga / ppp, gb / ppp, xs_.min() / ppp, xs_.max() / ppp,
+              n_et))
     return can

@@ -9,6 +9,9 @@
 // La charte : la flèche rouge, verser lentement sur le linge du dessus. Toute l'eau liquide en bleu, h.a.hachure('eau')
 // (JP, 19 octobre 2026) : l'eau versée au-dessus du linge, le jet de la casserole, les gouttes sous les trous, l'eau
 // recueillie dans le récipient du dessous.
+// Reprise le 19 octobre 2026 (second regard) : le motif de l'eau est calé pour qu'aucun bout de vaguelette ne tombe
+// dans le jet ni dans les gouttes (deux petites coches barraient le jet), et que les vaguelettes des deux masses
+// d'eau soient entières, sans crête coupée par la surface ou le fond. Rien d'autre ne change.
 // Le test du boudin (refait le 15 octobre, JP sur les mains qui tenaient la terre : « c'est butcher ») : sans main,
 // le boudin roulé posé seul sur une planche, vu de dessus ; entier pour l'argile, en bouts et en miettes pour le
 // sable. Le titre de chaque vignette dit le verdict.
@@ -25,11 +28,19 @@ module.exports = (h) => {
     + `<line x1="8" y1="4.5" x2="13" y2="4.5" stroke="#1A1A1A" stroke-width="0.7"/></pattern></defs>`;
   const argile = (t = 'arete') => t === 'aucun' ? 'fill="url(#vue-argile)" stroke="none"'
     : `fill="url(#vue-argile)" stroke="#1A1A1A" stroke-width="${{ contour: 2.4, arete: 1.4, detail: 0.7 }[t]}" stroke-linejoin="round"`;
-  // L'eau : la masse en bleu (h.a.hachure('eau')), sa surface d'un trait fin. pts : le contour, la surface en premier.
-  const eau = pts => [h.chemin(pts, A.hachure('eau', 'aucun'), true), h.ligne(pts[0][0], pts[0][1], pts[1][0], pts[1][1], A.detail)].join('\n');
+  // L'eau : la masse en bleu (h.a.hachure('eau')), sa surface d'un trait fin. pts : le contour, la surface en premier ;
+  // C : le calage du motif (voir cale, plus bas).
+  const eau = (pts, C) => [cale(C, (dx, dy) => h.chemin(pts.map(([x, y]) => [f1(x + dx), f1(y + dy)]), A.hachure('eau', 'aucun'), true)),
+    h.ligne(pts[0][0], pts[0][1], pts[1][0], pts[1][1], A.detail)].join('\n');
+  // Le motif de l'eau calé de C = [tx, ty] : la forme est tracée décalée de (−tx, −ty) dans un groupe déplacé de
+  // (tx, ty) ; elle reste en place, seules les vaguelettes du motif bougent. Un bout de vaguelette coupé par le bord
+  // d'une forme mince se lit comme un trait égaré.
+  const cale = ([tx, ty], dessin) => `<g transform="translate(${tx} ${ty})">\n${dessin(-tx, -ty)}\n</g>`;
   // Une goutte, la pointe en haut, en bleu cernée d'un trait fin.
   const goutte = (x, y) => h.path(`M${f1(x)} ${f1(y - 3.5)} Q${f1(x + 2.2)} ${f1(y + 1)} ${f1(x)} ${f1(y + 2.2)} Q${f1(x - 2.2)} ${f1(y + 1)} ${f1(x)} ${f1(y - 3.5)} Z`, A.hachure('eau', 'fin'));
-  // Un jet qui suit une courbe de Bézier cubique, en ruban bleu, de la largeur e0 au départ à e1 au bout.
+  // Un jet qui suit une courbe de Bézier cubique, en ruban bleu, de la largeur e0 au départ à e1 au bout. Il est trop
+  // long pour qu'un seul calage du motif l'évite partout : on le peint en deux morceaux qui se chevauchent (points 0
+  // à 16, puis 14 à 30), chacun calé pour qu'aucune vaguelette ne tombe dedans, puis on trace son contour d'un trait.
   const jet = (p0, p1, p2, p3, e0, e1) => {
     const B = (t, i) => (1 - t) ** 3 * p0[i] + 3 * (1 - t) ** 2 * t * p1[i] + 3 * (1 - t) * t * t * p2[i] + t ** 3 * p3[i];
     const D = (t, i) => 3 * (1 - t) ** 2 * (p1[i] - p0[i]) + 6 * (1 - t) * t * (p2[i] - p1[i]) + 3 * t * t * (p3[i] - p2[i]);
@@ -38,7 +49,9 @@ module.exports = (h) => {
       const t = k / 30, x = B(t, 0), y = B(t, 1), dx = D(t, 0), dy = D(t, 1), L = Math.hypot(dx, dy) || 1, e = e0 + (e1 - e0) * t;
       g.push([f1(x - dy / L * e), f1(y + dx / L * e)]); d.push([f1(x + dy / L * e), f1(y - dx / L * e)]);
     }
-    return h.chemin([...g, ...d.reverse()], A.hachure('eau', 'fin'), true);
+    const morceau = (a, b, C) => cale(C, (dx, dy) => h.chemin([...g.slice(a, b + 1), ...d.slice(a, b + 1).reverse()]
+      .map(([x, y]) => [f1(x + dx), f1(y + dy)]), A.hachure('eau', 'aucun'), true));
+    return [morceau(0, 16, [11, 3.5]), morceau(14, 30, [-6.5, 7.5]), h.chemin([...g, ...d.slice().reverse()], A.fin, true)].join('\n');
   };
 
   // ─── La coupe : la chaudière percée, ses couches, l'eau qui tombe dessous ────────────────────────
@@ -60,7 +73,7 @@ module.exports = (h) => {
     const rRb = rR - 2 * k;
     const yEauR = yRb - 8 * k;
     const rRe = rRb + (rR - rRb) * (yRb - yEauR) / (yRb - yR);
-    o.push(eau([[cx - rRe, yEauR], [cx + rRe, yEauR], [cx + rRb, yRb], [cx - rRb, yRb]]));
+    o.push(eau([[cx - rRe, yEauR], [cx + rRe, yEauR], [cx + rRb, yRb], [cx - rRb, yRb]], [-16, -2.5]));
     o.push(h.chemin([[cx - rR - 4, yR], [cx - rR, yR], [cx - rRb, yRb], [cx + rRb, yRb], [cx + rR, yR], [cx + rR + 4, yR]], A.contour));
 
     // les deux bâtons en travers du récipient (vus par le bout), la chaudière posée dessus
@@ -74,7 +87,7 @@ module.exports = (h) => {
       for (const dy of [10 + (i % 3) * 7, 34 + (i % 2) * 9]) {
         const yy = y1 + dy;
         if (yy > yEauR - 6) continue;
-        o.push(goutte(x, yy));
+        o.push(cale([-5, 1.5], (dx, dy) => goutte(x + dx, yy + dy)));
       }
     }
 
@@ -87,7 +100,7 @@ module.exports = (h) => {
       o.push(h.ligne(cx - rIn(y) + 2, y, cx + rIn(y) - 2, y, A.fin));
     }
     o.push(bande(yLh, yTe, W(A.detail)));
-    o.push(eau([[cx - rIn(yEau), yEau], [cx + rIn(yEau), yEau], [cx + rIn(yLh), yLh], [cx - rIn(yLh), yLh]]));
+    o.push(eau([[cx - rIn(yEau), yEau], [cx + rIn(yEau), yEau], [cx + rIn(yLh), yLh], [cx - rIn(yLh), yLh]], [0, -1.5]));
 
     // la chaudière en coupe : les parois et le fond percé, en noir plein
     const ep = 2.6;

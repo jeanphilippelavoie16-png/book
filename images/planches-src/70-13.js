@@ -129,7 +129,8 @@ module.exports = (h) => {
     return [
       { n: 1, rond: [g.x0 + g.S * 0.5, g.y0 + g.S + 26], cible: [g.x0 + g.S * 0.5, g.y0 + g.S + 1], texte: 'plateau de tôle' },
       { n: 2, rond: [xr, pRun[1] - g.w - 4], cible: [g.xb + g.p / 2 + g.w + 1, pRun[1] - g.p / 2], texte: 'grillage plié en U, monté en labyrinthe' },
-      { n: 4, rond: [12, p0[1] + 30], cible: [p0[0] - 6, p0[1] + 4], texte: 'allumer à un seul bout' },
+      // le point sur le bout de la bande, la paroi de grillage repliée qui ferme le couloir (la médiane part à s = 0)
+      { n: 4, rond: [12, p0[1] + 30], cible: [p0[0] - 2, p0[1] + 4], texte: 'allumer à un seul bout' },
       { n: 5, rond: [xr, g.y0 + 16], cible: [pf[0] + 6, pf[1] - g.w + 4], texte: 'le front couve d’un bout à l’autre' },
       { n: 6, rond: [xr, g.yNote - 14], cible: [g.x0 + g.bord + 14 + 76, g.yNote + 1], texte: 'noter la vitesse au crayon gras' },
     ];

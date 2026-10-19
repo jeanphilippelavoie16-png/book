@@ -41,7 +41,11 @@ module.exports = (h) => {
     for (let i = 1; i < 6; i++) {
       const y = y0 + W * i / 6 + (r() - 0.5) * 4;
       if (Math.abs(y - (y0 + tw)) < 4 || Math.abs(y - (y0 + W - tw)) < 4) continue;
-      out.push(h.path(`M${r1(x0 + 8 + r() * 30)} ${r1(y)} C${r1(x0 + L * 0.3)} ${r1(y - 2)} ${r1(x0 + L * 0.5)} ${r1(y + 3)} ${r1(x0 + L * 0.62 - r() * 40)} ${r1(y + 1)}`, A.fin));
+      const xa = x0 + 8 + r() * 30;
+      let xb = x0 + L * 0.62 - r() * 40;
+      // le fil qui passerait sous la pastille 2 (fente en travers) s'arrête avant elle
+      if (Math.abs(y - (ym + 2)) < 14) xb = Math.min(xb, xF - 70 - 16);
+      out.push(h.path(`M${r1(xa)} ${r1(y)} C${r1(xa + (xb - xa) * 0.35)} ${r1(y - 2)} ${r1(xa + (xb - xa) * 0.7)} ${r1(y + 3)} ${r1(xb)} ${r1(y + 1)}`, A.fin));
     }
     // la fente : on voit le vide (en noir, c'est un trou)
     out.push(h.rect(xF - fl / 2, ym - sl / 2, fl, sl, A.plein));
@@ -72,7 +76,7 @@ module.exports = (h) => {
     const d = dessus(z), g = d.g;
     const xr = g.x0 + g.L + 26;
     return [
-      { n: 1, rond: [g.x0 + g.L * 0.4, g.y0 + g.W + 48 > z.h - 10 ? z.h - 10 : g.y0 + g.W + 48], cible: [g.x0 + g.L * 0.4, g.y0 + g.W - g.tw - 6], texte: 'planche de bois franc' },
+      { n: 1, rond: [xr, (g.ym - 14 + g.y0 + g.W - 6) / 2], cible: [g.x0 + g.L + 1, (g.ym - 14 + g.y0 + g.W - 6) / 2], texte: 'planche de bois franc' },
       { n: 2, rond: [g.xF - 70, g.ym + 2], cible: [g.xF - g.fl / 2 - 1, g.ym + 2], texte: 'fente en travers' },
       { n: 3, rond: [xr, g.ym - 14], cible: [d.xl + g.bw + 1, g.ym - 14], texte: 'lame en travers, biseau en haut' },
       { n: 4, rond: [g.xF + 64, g.y0 - 12], cible: [d.xl + g.bw * 0.7 + 2, g.ym - g.bl / 2 + 8 * g.k - 2], texte: 'lame vissée ou rivée aux deux bouts' },
@@ -85,7 +89,7 @@ module.exports = (h) => {
   // chou, bien plus gros que ce qui est dessiné, sort de la vue en haut à gauche.
   const C = z => {
     const q = 5.2;
-    const yS = z.h * 0.42;                         // la face du dessus, où glisse le chou
+    const yS = z.h * 0.5;                          // la face du dessus, où glisse le chou
     const ep = 20 * q;                             // épaisseur de planche (dessinée, pas cotée)
     const xF = z.l * 0.62, fl = 16 * q;            // la fente
     const xA = xF - fl / 2, xB = xF + fl / 2;      // rebord amont, rebord aval
@@ -113,37 +117,50 @@ module.exports = (h) => {
       out.push(h.rect(xv - 1.5 * q, yC, 3 * q, cale + 12 * q, A.plein));
       out.push(h.path(`M${r1(xv - 3.4 * q)} ${r1(yLh)} Q${r1(xv)} ${r1(yLh - 2.8 * q)} ${r1(xv + 3.4 * q)} ${r1(yLh)} Z`, A.plein));
     }
-    // le chou : un quartier qui glisse sur la face amont, coupé par le bord de la vue ; son bas
-    // passe sous le fil, le reste monte sur la lame
-    const dChou = `M0 ${r1(yS)} L${r1(xFil - 1)} ${r1(yS)} L${r1(xFil + 1)} ${r1(yC + 1)}`
+    // le chou : un quartier qui glisse sur la face amont, coupé par le bord de la vue. Sous le fil, il
+    // n'a pas de contour : sa couche du bas continue en tranche, sous la lame.
+    const front = `M${r1(xFil)} ${r1(yC)}`
       + ` C${r1(xFil + 4 * q)} ${r1(yC - 3)} ${r1(xFil + 7 * q)} ${r1(yC - 18)} ${r1(xFil + 7 * q)} ${r1(yC - 40)}`
-      + ` C${r1(xFil + 7 * q)} ${r1(yC - 80)} ${r1(xFil - 20)} ${r1(yS - 150)} ${r1(xFil - 60)} 0 L0 0 Z`;
+      + ` C${r1(xFil + 7 * q)} ${r1(yC - 80)} ${r1(xFil - 20)} ${r1(yS - 150)} ${r1(xFil - 60)} 0`;
+    const dChou = `M0 ${r1(yS)} L${r1(xFil)} ${r1(yS)} L` + front.slice(1) + ' L0 0 Z';
     const clip = `vue-80-41-chou`;
     out.push(`<clipPath id="${clip}"><rect x="0" y="0" width="${r1(z.l)}" height="${r1(z.h)}"/></clipPath>`);
     out.push(`<g clip-path="url(#${clip})">`);
     out.push(h.path(dChou, A.blanc));
     // les feuilles serrées du chou coupé
     [0, 1, 2, 3, 4].forEach(i => out.push(h.path(`M0 ${r1(yS - 18 - i * 24)} C${r1(xA * 0.5)} ${r1(yS - 22 - i * 26)} ${r1(xFil - 20 + i * 4)} ${r1(yS - 30 - i * 30)} ${r1(xFil - 40 + i * 2)} ${r1(yS - 80 - i * 40)}`, A.fin)));
-    out.push(h.path(dChou.replace(/ L0 0 Z$/, ''), A.contour));
+    out.push(h.path(front, A.contour));
     out.push('</g>');
-    // la tranche qui passe sous le fil et tombe dans la fente, en se courbant
-    const tr = `M${r1(xFil + 1)} ${r1(yS - 0.5)} C${r1(xFil + 6 * q)} ${r1(yS + 12)} ${r1(xFil + 7 * q)} ${r1(yS + 46)} ${r1(xFil + 2 * q)} ${r1(yS + 84)}`
-      + ` L${r1(xFil - 2 * q)} ${r1(yS + 82)} C${r1(xFil + 2.5 * q)} ${r1(yS + 46)} ${r1(xFil + 1.5 * q)} ${r1(yS + 14)} ${r1(xFil - 4 * q)} ${r1(yS + 1)} Z`;
-    out.push(h.path(tr, blanc(A.arete)));
+    // la tranche : elle naît au fil, sa face du haut au fil, sa face du bas dans le plan de la face où glisse
+    // le chou ; elle passe sous la lame, puis se courbe dans la fente. On suit son axe et on l'épaissit.
+    const t = yS - yC, yc0 = (yS + yC) / 2, Lh = 1.6 * q, Rm = 3.4 * q;
+    const axeT = [];
+    for (let i = 0; i <= 4; i++) axeT.push([xFil + Lh * i / 4, yc0, 1, 0]);
+    for (let i = 1; i <= 18; i++) { const a = Math.PI / 2 * i / 18; axeT.push([xFil + Lh + Rm * Math.sin(a), yc0 + Rm - Rm * Math.cos(a), Math.cos(a), Math.sin(a)]); }
+    const xv0 = xFil + Lh + Rm, yv0 = yc0 + Rm;
+    for (let i = 1; i <= 16; i++) { const s_ = 9 * q * i / 16; axeT.push([xv0 - 0.006 * s_ * s_, yv0 + s_, -0.012 * s_, 1]); }
+    const bordT = sg => axeT.map(([x, y, tx, ty]) => { const l = Math.hypot(tx, ty); return [x + sg * (ty / l) * t / 2, y - sg * (tx / l) * t / 2]; });
+    const hautT = bordT(1), basT = bordT(-1);
+    out.push(h.path(poly([...hautT, ...basT.slice().reverse()]), A.blanc));
+    const ligneT = P_ => 'M' + P(P_).join(' L');
+    out.push(h.path(ligneT(hautT), A.arete));
+    out.push(h.path(ligneT([[xA, yS], ...basT]), A.arete));
+    out.push(h.path(ligneT([hautT[hautT.length - 1], basT[basT.length - 1]]), A.arete));
     // le chou qui avance vers la lame : une flèche noire ; le geste en rouge est dans la vue en place (repère 10)
     out.push(h.fleche(`M${r1(14)} ${r1(yS - 34)} L${r1(xFil - 46)} ${r1(yS - 34)}`, A.arete));
     // la cote : du dessus de la face amont au fil, prise à gauche de la fente, sous le chou
     out.push(h.ligne(xFil - 2, yC, xA - 58, yC, A.fin));
     out.push(h.cote(xA - 50, yC, xA - 50, yS, '3 à 5 mm', { cote: 'gauche' }));
     out.push(h.controle(xFil, yC + cale / 2, 13));
-    return { svg: out.join('\n'), c, yC, yb };
+    const finT = [(hautT[hautT.length - 1][0] + basT[basT.length - 1][0]) / 2, (hautT[hautT.length - 1][1] + basT[basT.length - 1][1]) / 2];
+    return { svg: out.join('\n'), c, yC, yb, finT, basT };
   };
   const coupeRenvois = z => {
     const d = coupe(z), c = d.c;
     return [
       { n: 6, rond: [z.l - 30, d.yC - 50], cible: [z.l - 40, d.yC + c.cale / 2], texte: 'cale sous la lame' },
       { n: 7, rond: [c.xFil + 52, d.yC - 30], cible: [c.xFil + 10, d.yC + 2], texte: 'le dépassement fixe l’épaisseur de la tranche' },
-      { n: 8, rond: [c.xFil - 80, c.yS + 70], cible: [c.xFil - 1 * c.q, c.yS + 60], texte: 'la tranche passe sous le fil' },
+      { n: 8, rond: [d.finT[0] - 2, d.finT[1] + 26], cible: [d.finT[0], d.finT[1] + 2], texte: 'la tranche passe sous le fil' },
     ];
   };
 
@@ -151,20 +168,38 @@ module.exports = (h) => {
   const place = z => {
     const out = [];
     const cx = z.l * 0.55, yb = z.h - 8;
-    const R = Math.min(z.l * 0.3, 90), Hc = Math.min(z.h - 130, 160);
+    const R = Math.min(z.l * 0.3, 90), Hc = Math.min(z.h - 150, 230);
     const yr = yb - Hc;                            // le bord de la cuve
     const e = 8;
     // la cuve en coupe : la paroi d'en face en gris loin, le chou tranché en tas au fond
     out.push(h.rect(cx - R + e, yr, 2 * (R - e), Hc - e, A.loin));
-    const yTas = yb - e - 52;
-    const tas = `M${r1(cx - R + e)} ${r1(yb - e)} L${r1(cx - R + e)} ${r1(yTas + 12)} Q${r1(cx)} ${r1(yTas - 12)} ${r1(cx + R - e)} ${r1(yTas + 10)} L${r1(cx + R - e)} ${r1(yb - e)} Z`;
-    out.push(h.path(tas, A.blanc));
+    // le chou tranché, au fond : un tas de lanières fines et courbes, comme celles qui tombent, posées en
+    // désordre les unes sur les autres ; elles restent dans la cuve
+    const yTas = yb - e - 56;
+    const xi0 = cx - R + e, xi1 = cx + R - e;
+    const dessusTas = x => { const t_ = (x - xi0) / (xi1 - xi0); return (1 - t_) * (1 - t_) * (yTas + 12) + 2 * t_ * (1 - t_) * (yTas - 12) + t_ * t_ * (yTas + 10); };
+    const lanieres = [];
     const r = alea(9);
-    for (let j = 0; j < 4; j++) for (let i = 0; i < 7; i++) {
-      const x = cx - R + e + 14 + i * (2 * R - 2 * e - 28) / 6 + (r() - 0.5) * 8, y = yTas + 12 + j * 11 + (r() - 0.5) * 4;
-      out.push(h.path(`M${r1(x - 6)} ${r1(y)} q6 -4 12 0`, A.detail));
+    for (let essai = 0; lanieres.length < 200 && essai < 9000; essai++) {
+      const x = xi0 - 6 + r() * (xi1 - xi0 + 12);
+      // une sur trois le long du dessus du tas, pour que ce soient les lanières qui en font le bord
+      const y = lanieres.length % 3 === 0 ? dessusTas(x) + 2 + r() * 9 : yTas - 6 + r() * (yb - e - yTas + 8);
+      if (y < dessusTas(x) + 2) continue;
+      // à peu près à plat, comme elles tombent et se tassent ; chacune tordue à sa façon (arc ou S)
+      const l = 14 + r() * 16;
+      lanieres.push([x, y, (r() - 0.5) * 1.5 + (r() < 0.5 ? 0 : Math.PI), l, (r() - 0.5) * 0.7 * l, (r() - 0.5) * 0.7 * l, 1.3 + r() * 0.6]);
     }
-    out.push(h.path(`M${r1(cx - R + e)} ${r1(yTas + 12)} Q${r1(cx)} ${r1(yTas - 12)} ${r1(cx + R - e)} ${r1(yTas + 10)}`, A.detail));
+    const laniere = ([x, y, a, l, c1, c2, w]) => {
+      const co = Math.cos(a), si = Math.sin(a), T_ = (u, v) => [x + u * co - v * si, y + u * si + v * co];
+      const p = [T_(-l / 2, -w / 2), T_(-l / 6, c1 - w / 2), T_(l / 6, c2 - w / 2), T_(l / 2, -w / 2),
+        T_(l / 2, w / 2), T_(l / 6, c2 + w / 2), T_(-l / 6, c1 + w / 2), T_(-l / 2, w / 2)].map(q_ => q_.map(r1));
+      return `<path d="M${p[0][0]} ${p[0][1]} C${p[1][0]} ${p[1][1]} ${p[2][0]} ${p[2][1]} ${p[3][0]} ${p[3][1]} L${p[4][0]} ${p[4][1]} C${p[5][0]} ${p[5][1]} ${p[6][0]} ${p[6][1]} ${p[7][0]} ${p[7][1]} Z" ${blanc(A.detail)}/>`;
+    };
+    const clipTas = 'vue-80-41-tas';
+    out.push(`<clipPath id="${clipTas}"><rect x="${r1(xi0)}" y="${r1(yr)}" width="${r1(xi1 - xi0)}" height="${r1(yb - e - yr)}"/></clipPath>`);
+    const tasBlanc = `M${r1(xi0)} ${r1(yb - e)} L${r1(xi0)} ${r1(yTas + 16)} Q${r1(cx)} ${r1(yTas - 8)} ${r1(xi1)} ${r1(yTas + 14)} L${r1(xi1)} ${r1(yb - e)} Z`;
+    out.push(h.path(tasBlanc, A.blanc));
+    out.push(`<g clip-path="url(#${clipTas})">`, ...lanieres.map(laniere), '</g>');
     out.push(h.path(poly([[cx - R, yr], [cx - R, yb], [cx + R, yb], [cx + R, yr], [cx + R - e, yr], [cx + R - e, yb - e], [cx - R + e, yb - e], [cx - R + e, yr]]), A.hachure('bois', 'contour')));
     // la planche en travers, posée sur les deux bords ; la fente au-dessus de l'ouverture
     const ep = 9, tH = 8;
@@ -186,14 +221,17 @@ module.exports = (h) => {
     out.push(h.path(ch, blanc(A.contour)));
     [0.3, 0.52, 0.72, 0.88].forEach(t => out.push(h.path(`M${r1(xc)} ${r1(yq - Rq * t)} A${r1(Rq * t)} ${r1(Rq * t)} 0 0 0 ${r1(xc - Rq * t)} ${r1(yq)}`, A.fin)));
     out.push(h.path(`M${r1(xc)} ${r1(yq)} L${r1(xc - 16)} ${r1(yq - 10)}`, A.detail));   // le trognon
-    out.push(h.geste(`M${r1(xc - Rq - 20)} ${r1(yP - Rq - 22)} L${r1(xc - 6)} ${r1(yP - Rq - 22)}`));
-    return { svg: out.join('\n'), cx, R, yr, yb, xg, xd, yP, xF, xc };
+    // on pousse le quartier par le dos, à mi-hauteur, vers la lame
+    const yG_ = yq - Rq * 0.5, xDos = xc - Rq * Math.cos(Math.PI / 6);
+    const g0 = [xDos - 48, yG_], g1 = [xDos - 5, yG_];
+    out.push(h.geste(`M${r1(g0[0])} ${r1(g0[1])} L${r1(g1[0])} ${r1(g1[1])}`));
+    return { svg: out.join('\n'), cx, R, yr, yb, xg, xd, yP, xF, xc, g0, g1 };
   };
   const placeRenvois = z => {
     const p = place(z);
     return [
       { n: 9, rond: [p.xd - 8, p.yP - 44], cible: [p.xd - 16, p.yP - 9], texte: 'planche posée en travers de la cuve' },
-      { n: 10, rond: [p.xc - 96, p.yP - 30], cible: [p.xc - 56, p.yP - 22], texte: 'pousser le quartier de chou vers la lame' },
+      { n: 10, rond: [p.g0[0] + 4, p.g0[1] - 38], cible: [p.g0[0] + 20, p.g0[1] - 2.5], texte: 'pousser le quartier de chou vers la lame' },
     ];
   };
 

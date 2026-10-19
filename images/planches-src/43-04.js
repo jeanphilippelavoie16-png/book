@@ -55,9 +55,20 @@ module.exports = (h) => {
     const at = style === 'net' ? h.a.arete.replace('fill="none"', 'fill="#E6E6E6"') : h.a.cache;
     return [-1, 1].map((sg) => h.path(courbeV(MOITIE.map(([u, v]) => [cx + (u - 0.5) * l, cy + sg * v * w]), MOITIE.map((p) => p[2] === 'v')), at)).join('\n');
   };
+  // L'écorce d'une branche (une matière se reconnaît à sa vraie fibre, JP, 19 octobre 2026) : des traits fins,
+  // courts et interrompus, dans le sens du bâton, comme les gerçures de l'écorce ; posés en motif, découpés par
+  // le contour. Le bois nu des fenêtres écorcées reste blanc. Un motif par vue (id distinct).
+  // Des traits de longueurs inégales, en trois rangs décalés : un motif régulier se lirait comme un tireté.
+  const ecorceMotif = (id) => `<defs><pattern id="${id}" width="72" height="7.2" patternUnits="userSpaceOnUse">`
+    + [[2, 11, 1.1], [15, 31, 1.2], [35, 42, 1.0], [47, 63, 1.2], [67, 72, 1.1], [0, 3, 1.1],
+      [6, 20, 3.6], [24, 30, 3.5], [34, 52, 3.7], [57, 68, 3.6],
+      [0, 5, 6.0], [9, 17, 6.1], [21, 38, 5.9], [42, 49, 6.0], [53, 69, 6.1]]
+      .map(([a, b, y]) => `<line x1="${a}" y1="${y}" x2="${b}" y2="${y}" stroke="${NOIR}" stroke-width="0.5" stroke-linecap="round"/>`).join('')
+    + '</pattern></defs>';
   // Le bâton couché le long de x : du gros bout xb à la pointe xt, au centre yc, épais de e.
-  // encoches : les x des encoches (entaillées sur le dessus) ; seules ces fenêtres sont écorcées.
-  const baton = (xb, xt, yc, e, encoches, { ecorce = true } = {}) => {
+  // encoches : les x des encoches (entaillées sur le dessus) ; seules ces fenêtres sont écorcées, sur fen de
+  // part et d'autre de l'encoche (2 cm, à l'échelle de la vue).
+  const baton = (xb, xt, yc, e, encoches, { motif, fen }) => {
     const o = [];
     const yh = yc - e / 2, yb = yc + e / 2, xp = xt - 2.2 * e;   // le cône de la pointe
     const ond = (x) => 0.6 * Math.sin(x / 23) + 0.4 * Math.sin(x / 9);
@@ -69,14 +80,14 @@ module.exports = (h) => {
     o.push(h.chemin(forme, h.a.blanc, true));
     // l'écorce : des bandes posées en motif, découpées par le contour du bâton ; les fenêtres écorcées
     // autour des encoches et la pointe restent nues
-    if (ecorce) {
-      const coupes = [xb, ...encoches.slice().sort((p, q) => p - q).flatMap((xe) => [xe - 13, xe + 13]), xp - 4];
+    {
+      const coupes = [xb, ...encoches.slice().sort((p, q) => p - q).flatMap((xe) => [xe - fen, xe + fen]), xp - 4];
       const bandes = [];
       for (let i = 0; i + 1 < coupes.length; i += 2) if (coupes[i + 1] - coupes[i] > 6) bandes.push([coupes[i], coupes[i + 1]]);
       bandes.forEach(([x0, x1]) => {
         const hh = haut.filter((p) => p[0] > x0 && p[0] < x1), bb = bas.filter((p) => p[0] > x0 && p[0] < x1);
         const zone = [[x0, yh + ond(x0)], ...hh, [x1, yh + ond(x1)], [x1, yb + ond(x1 + 40)], ...bb.slice().reverse(), [x0, yb + ond(x0 + 40)]];
-        o.push(h.chemin(zone, h.a.hachure('paille', 'aucun'), true));
+        o.push(h.chemin(zone, `fill="url(#${motif})" stroke="none"`, true));
         if (x0 > xb + 1) o.push(h.ligne(x0, yh + ond(x0) + 0.5, x0, yb + ond(x0 + 40) - 0.5, h.a.detail));
         o.push(h.ligne(x1, yh + ond(x1) + 0.5, x1, yb + ond(x1 + 40) - 0.5, h.a.detail));
       });
@@ -130,7 +141,7 @@ module.exports = (h) => {
   const vueBaton = (z) => {
     const o = [];
     const { e1, e2, e3, e4 } = enc2;
-    o.push(baton(XB2, XT2, YC2, E2, [e1, e2, e3, e4]));
+    o.push(ecorceMotif('ecorce-43-04-baton'), baton(XB2, XT2, YC2, E2, [e1, e2, e3, e4], { motif: 'ecorce-43-04-baton', fen: 2 * K2 }));
     const yH = YC2 - E2 / 2, yB = YC2 + E2 / 2, yc1 = 34, yc2 = 102, yc3 = 136;
     // les rappels : des encoches vers les cotes du dessus, de la pointe et des encoches vers celles du dessous
     [XT2, e1, e2, e4, e3].forEach((x) => o.push(h.ligne(x, x === XT2 ? YC2 - 3 : yH - 2, x, yc1 - 4, h.a.fin)));
@@ -145,7 +156,7 @@ module.exports = (h) => {
   };
 
   // ─── Vue 3 : la piste perdue ──────────────────────────────────────────────────────────────
-  // Pleine largeur, à une échelle où l'empreinte se lit sous le bâton : la troisième encoche sur son centre.
+  // Pleine largeur, à une échelle où l'empreinte se lit sous le bâton : l'encoche du pas sur son centre.
   const K3 = 6.0;
   const geo3 = (z) => {
     const xt = z.l - 34, X0 = xt - S * K3, Y0 = 62;
@@ -166,9 +177,10 @@ module.exports = (h) => {
     // la suivante, à peine visible : là où on cherche
     o.push(sabot(...suiv, K3, 'trace'));
     o.push(h.controle(suiv[0], suiv[1], 52));
-    // le bâton couché sur la piste, la troisième encoche sur le centre de la dernière sûre
+    // le bâton couché sur la piste, l'encoche du pas sur le centre de la dernière sûre
     const e3 = xt - S * K3, e1 = xt - L * K3, e2 = xt - (L + W) * K3, e4 = xt - (S - TW) * K3;
-    o.push(baton(xb, xt, sure[1], 12, [e1, e2, e3, e4], { ecorce: false }));
+    // le même bâton que plus haut, avec son écorce et ses fenêtres
+    o.push(ecorceMotif('ecorce-43-04-piste'), baton(xb, xt, sure[1], 12, [e1, e2, e3, e4], { motif: 'ecorce-43-04-piste', fen: 2 * K3 }));
     o.push(h.controle(e3, sure[1], 11));
     // de la pointe à la suivante : à la même hauteur, sur le côté
     o.push(h.ligne(xt, sure[1] + 9, xt, suiv[1] - 50, h.a.cache));
@@ -180,7 +192,7 @@ module.exports = (h) => {
   return {
     ref: '43-04',
     titre: 'Le bâton de pistage',
-    desc: 'En haut, une piste de cervidé au pas vue de dessus : trois empreintes de sabot, alternées de part et d’autre, et les quatre mesures qu’on prend sur la meilleure : sa longueur, sa largeur, le pas de centre à centre jusqu’à l’empreinte de l’autre pied, la largeur de la piste d’un bord à l’autre. Au milieu, le bâton d’environ 90 cm, pointu au bout, écorcé par endroits, ses quatre encoches comptées depuis la pointe : longueur, puis largeur depuis la première ; le pas depuis la pointe ; la largeur de piste reportée depuis la troisième vers la pointe. En bas, la piste perdue : la dernière empreinte sûre, marquée de trois cailloux, et le bâton couché dessus dans le sens de la marche, la troisième encoche sur son centre ; la pointe tombe à la hauteur de l’empreinte suivante, à peine visible, décalée sur le côté : on cherche là.',
+    desc: 'En haut, une piste de cervidé au pas vue de dessus : trois empreintes de sabot, alternées de part et d’autre, et les quatre mesures qu’on prend sur la meilleure : sa longueur, sa largeur, le pas de centre à centre jusqu’à l’empreinte de l’autre pied, la largeur de la piste d’un bord à l’autre. Au milieu, le bâton d’environ 90 cm, pointu au bout, écorcé par endroits, ses quatre encoches comptées depuis la pointe : longueur, puis largeur depuis la première ; le pas depuis la pointe ; la largeur de piste reportée depuis l’encoche du pas vers la pointe. En bas, la piste perdue : la dernière empreinte sûre, marquée de trois cailloux, et le bâton couché dessus dans le sens de la marche, l’encoche du pas sur son centre ; la pointe tombe à la hauteur de l’empreinte suivante, à peine visible, décalée sur le côté : on cherche là.',
     format: 'pleine',
     disposition: [['marquer'], ['baton'], ['chercher']],
     hauteurs: [3, 2.1, 3.3],
@@ -197,9 +209,11 @@ module.exports = (h) => {
         titre: 'Le bâton, marqué au couteau à partir de la pointe',
         dessin: vueBaton,
         renvois: (z) => [
-          { n: 2, rond: [z.l - 12, YC2 + 25], cible: [XT2 - 8, YC2 + 2], texte: 'tout mesurer à partir de la pointe' },
+          // la pastille à gauche du rappel vertical de la pointe, entre le dessous du bâton et la cote du pas
+          { n: 2, rond: [XT2 - 24, YC2 + 24], cible: [XT2 - 8, YC2 + 2], texte: 'tout mesurer à partir de la pointe' },
           { n: 3, rond: [enc2.e4 + 44, YC2 + 25], cible: [enc2.e4 + 1, YC2 + 2], texte: 'encoches au couteau' },
-          { n: 4, rond: [70, YC2 + 25], cible: [96, YC2 + 4], texte: 'écorcé par endroits' },
+          // le point dans la fenêtre écorcée de l'encoche du pas, à droite du trait de l'encoche
+          { n: 4, rond: [70, YC2 + 25], cible: [enc2.e3 + 7, YC2 + 4], texte: 'écorcé par endroits' },
         ],
       },
       chercher: {
@@ -209,7 +223,8 @@ module.exports = (h) => {
           const { sure, suiv, xt } = geo3(z);
           return [
             { n: 5, rond: [sure[0] - 92, sure[1] - 44], cible: [sure[0] - 62, sure[1] - 34], texte: 'trois cailloux : la dernière empreinte sûre' },
-            { n: 6, rond: [sure[0] - 20, sure[1] + 72], cible: [sure[0] - 6, sure[1] + 10], texte: 'poser la troisième encoche sur son centre' },
+            // l'encoche du pas est la plus loin de la pointe (la quatrième qu'on compte sur le bâton, la troisième taillée)
+            { n: 6, rond: [sure[0] - 20, sure[1] + 72], cible: [sure[0] - 6, sure[1] + 10], texte: 'poser l’encoche du pas sur son centre' },
             { n: 7, rond: [suiv[0] - 112, suiv[1] + 34], cible: [suiv[0] - 52, suiv[1] + 6], texte: 'à hauteur de la pointe : chercher là' },
           ];
         },

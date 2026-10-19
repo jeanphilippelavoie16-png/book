@@ -14,7 +14,9 @@
 <rect x="0" y="14" width="34" height="172" fill="url(#h-bois)" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round"/>
 <rect x="34" y="95" width="296" height="22" fill="url(#h-neige)" stroke="none"/>
 <path d="M330 95 Q336 106 330 117" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
-<rect x="331" y="107" width="169" height="10" fill="url(#h-eau)" stroke="none"/>
+<g transform="translate(-17 4)">
+<rect x="348" y="103" width="169" height="10" fill="url(#h-eau)" stroke="none"/>
+</g>
 <rect x="34" y="92" width="466" height="3" fill="#1A1A1A" stroke="none"/>
 <rect x="34" y="117" width="466" height="3" fill="#1A1A1A" stroke="none"/>
 <rect x="498" y="89" width="10" height="34" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
@@ -22,9 +24,15 @@
 <line x1="514" y1="136" x2="528" y2="136" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
 <rect x="519" y="79" width="8" height="12" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M504 73 L542 81 L541 85 L503 77 Z" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
-<rect x="519.6" y="140.5" width="2.8" height="21.5" fill="url(#h-eau)" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round"/>
-<path d="M521 168.4 Q523.6 173.6 521 174.6 Q518.4 173.6 521 168.4 Z" fill="url(#h-eau)" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round"/>
-<path d="M521 179.4 Q523.6 184.6 521 185.6 Q518.4 184.6 521 179.4 Z" fill="url(#h-eau)" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round"/>
+<g transform="translate(-17 4)">
+<rect x="536.6" y="136.5" width="2.8" height="21.5" fill="url(#h-eau)" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round"/>
+</g>
+<g transform="translate(-17 4)">
+<path d="M538 164.4 Q540.6 169.6 538 170.6 Q535.4 169.6 538 164.4 Z" fill="url(#h-eau)" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round"/>
+</g>
+<g transform="translate(-17 4)">
+<path d="M538 175.4 Q540.6 180.6 538 181.6 Q535.4 180.6 538 175.4 Z" fill="url(#h-eau)" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round"/>
+</g>
 <path d="M452 83 Q470 79 488 84 Q496 106 489 128 Q470 133 451 129 Q443 106 452 83 Z" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="5 3.5"/>
 <path d="M383 83 Q402 79 421 84 Q429 106 422 128 Q402 133 382 129 Q374 106 383 83 Z" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="5 3.5"/>
 <path d="M314 83 Q333 79 352 84 Q360 106 353 128 Q333 133 313 129 Q305 106 314 83 Z" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
@@ -37,7 +45,9 @@
 <path d="M344.2 46.8 Q340.1 47.5 338 45.2" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M402.8 26.2 L435.9 7.1 Q441.4 4.6 443 8.3 Q444.7 11.9 439.2 14.4 L405.3 31.6 Z" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <circle cx="436.6" cy="11.1" r="1.8" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M341.6 46 C337.6 60 332.6 57 332.6 83 L335.4 83 C335.4 57 342.4 60 346.4 46 Z" fill="url(#h-eau)" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round"/>
+<g transform="translate(-17 4)">
+<path d="M358.6 42 C354.6 56 349.6 53 349.6 79 L352.4 79 C352.4 53 359.4 56 363.4 42 Z" fill="url(#h-eau)" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round"/>
+</g>
 <path d="M367 34 q-4 -5 0 -10 q4 -5 0 -10" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M377 34 q-4 -5 0 -10 q4 -5 0 -10" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M488 148 L314 148" fill="none" stroke="#9B2C1E" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl-r)"/>
@@ -47,11 +57,13 @@
 <text x="40" y="274.7" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#1A1A1A">Raté : chauffé au milieu du bouchon</text>
 <g transform="translate(40 282.7)" data-vue="rate">
 <rect x="0" y="14" width="34" height="172" fill="url(#h-bois)" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round"/>
+<g transform="translate(-23.5 2.5)">
+<path d="M251.5 92.5 L323.5 92.5 Q317.5 103.5 323.5 114.5 L251.5 114.5 Q257.5 103.5 251.5 92.5 Z" fill="url(#h-eau)" stroke="none"/>
+</g>
 <rect x="34" y="95" width="194" height="22" fill="url(#h-neige)" stroke="none"/>
 <path d="M228 95 Q234 106 228 117" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
 <rect x="300" y="95" width="196" height="22" fill="url(#h-neige)" stroke="none"/>
 <path d="M300 95 Q294 106 300 117" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
-<rect x="231" y="96" width="66" height="20" fill="url(#h-eau)" stroke="none"/>
 <path d="M256 112 L232 112" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl)"/>
 <path d="M272 112 L296 112" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl)"/>
 <rect x="34" y="92" width="466" height="3" fill="#1A1A1A" stroke="none"/>
@@ -64,19 +76,33 @@
 <path d="M504 73 L542 81 L541 85 L503 77 Z" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M258 120 L260 125 L262 124" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M270 120 L268 126 L266 125" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M262.7 130.1 L259.7 143.7 L257.2 142.9 L262.2 129.9 Z" fill="url(#h-eau)" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round"/>
-<path d="M264.3 130 L265.3 144 L262.7 144 L263.8 130 Z" fill="url(#h-eau)" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round"/>
-<path d="M265.8 129.9 L270.8 142.9 L268.3 143.7 L265.3 130.1 Z" fill="url(#h-eau)" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round"/>
-<path d="M256 150.4 Q258.6 155.6 256 156.6 Q253.4 155.6 256 150.4 Z" fill="url(#h-eau)" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round"/>
-<path d="M271 154.4 Q273.6 159.6 271 160.6 Q268.4 159.6 271 154.4 Z" fill="url(#h-eau)" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round"/>
-<path d="M264 162.4 Q266.6 167.6 264 168.6 Q261.4 167.6 264 162.4 Z" fill="url(#h-eau)" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round"/>
+<g transform="translate(-23.5 2.5)">
+<path d="M286.2 127.6 L283.2 141.2 L280.7 140.4 L285.7 127.4 Z" fill="url(#h-eau)" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round"/>
+</g>
+<g transform="translate(-23.5 2.5)">
+<path d="M287.8 127.5 L288.8 141.5 L286.2 141.5 L287.3 127.5 Z" fill="url(#h-eau)" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round"/>
+</g>
+<g transform="translate(-23.5 2.5)">
+<path d="M289.3 127.4 L294.3 140.4 L291.8 141.2 L288.8 127.6 Z" fill="url(#h-eau)" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round"/>
+</g>
+<g transform="translate(-23.5 2.5)">
+<path d="M279.5 147.9 Q282.1 153.1 279.5 154.1 Q276.9 153.1 279.5 147.9 Z" fill="url(#h-eau)" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round"/>
+</g>
+<g transform="translate(-23.5 2.5)">
+<path d="M294.5 151.9 Q297.1 157.1 294.5 158.1 Q291.9 157.1 294.5 151.9 Z" fill="url(#h-eau)" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round"/>
+</g>
+<g transform="translate(-23.5 2.5)">
+<path d="M287.5 159.9 Q290.1 165.1 287.5 166.1 Q284.9 165.1 287.5 159.9 Z" fill="url(#h-eau)" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round"/>
+</g>
 <circle cx="264" cy="130" r="17" fill="none" stroke="#9B2C1E" stroke-width="1.6"/>
 <path d="M276 46 L285.4 67 Q288.2 73.4 294.6 70.6 L336.6 51.8 Q343 49 340.2 42.6 L330.8 21.6" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
 <line x1="274.2" y1="46.8" x2="332.6" y2="20.8" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M274.2 46.8 Q270.1 47.5 268 45.2" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M332.8 26.2 L365.9 7.1 Q371.4 4.6 373 8.3 Q374.7 11.9 369.2 14.4 L335.3 31.6 Z" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <circle cx="366.6" cy="11.1" r="1.8" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M271.6 46 C267.6 60 262.6 65.5 262.6 91.5 L265.4 91.5 C265.4 65.5 272.4 60 276.4 46 Z" fill="url(#h-eau)" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round"/>
+<g transform="translate(-14 0)">
+<path d="M285.6 46 C281.6 60 276.6 65.5 276.6 91.5 L279.4 91.5 C279.4 65.5 286.4 60 290.4 46 Z" fill="url(#h-eau)" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round"/>
+</g>
 <path d="M297 34 q-4 -5 0 -10 q4 -5 0 -10" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M307 34 q-4 -5 0 -10 q4 -5 0 -10" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
 </g>

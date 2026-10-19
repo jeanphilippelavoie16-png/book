@@ -16,10 +16,22 @@
 // d'avant, en tireté. Toute l'eau liquide en bleu, h.a.hachure('eau') (JP, 19 octobre 2026) : l'eau de fonte dans le
 // tuyau, le filet d'eau chaude, le filet et les gouttes du robinet, les jets et les gouttes de la fente. La glace
 // garde son pointillé.
+//
+// Reprise le 19 octobre 2026 (second regard) : dans le raté, la poche d'eau de fonte suit exactement les deux arcs
+// de glace (le même tracé que glace()) et les parois, sans liseré blanc ; elle est peinte avant la glace, dont les
+// arcs restent entiers. Dans chaque vue, le motif de l'eau est calé pour qu'aucune vaguelette ne soit coupée par le
+// bord d'une forme : plus de demi-arcs sur la paroi du bas, plus de barre en travers du filet du robinet.
 module.exports = (h) => {
   const A = h.a;
   const f1 = v => Math.round(v * 10) / 10;
   const W = at => at.replace('fill="none"', 'fill="#FFFFFF"');
+  // Le motif de l'eau calé de C = [tx, ty] : la forme est tracée décalée de (−tx, −ty) dans un groupe déplacé de
+  // (tx, ty) ; elle reste en place, seules les vaguelettes du motif bougent. Un bout de vaguelette coupé par le bord
+  // d'une forme mince se lit comme un trait égaré. CD : le dégel (deux vaguelettes entières dans l'eau du tuyau,
+  // aucune dans les filets et les gouttes) ; CR : le raté (deux vaguelettes entières dans la poche, à l'écart des
+  // flèches et du point du renvoi 6 ; aucune dans les jets et les gouttes) ; CF : le filet de la casserole du raté.
+  const CD = [-17, 4], CR = [-23.5, 2.5], CF = [-14, 0];
+  const cale = ([tx, ty], dessin) => `<g transform="translate(${tx} ${ty})">\n${dessin(-tx, -ty)}\n</g>`;
 
   // ─── Les pièces communes ─────────────────────────────────────────────────────────────────────────
   // Le même tuyau dans les deux rangées du haut : mur de 0 à XM, tuyau d'axe YT et de rayon R jusqu'au robinet en XR.
@@ -94,16 +106,16 @@ module.exports = (h) => {
   const degel = z => {
     const o = [mur(z)];
     o.push(glace(XM, XG));
-    o.push(h.rect(XG + 1, YT + 1, XR - XG - 1, R - EP - 1, A.hachure('eau', 'aucun')));
+    o.push(cale(CD, (dx, dy) => h.rect(XG + 1 + dx, YT + 1 + dy, XR - XG - 1, R - EP - 1, A.hachure('eau', 'aucun'))));
     o.push(parois(XM, XR), robinet());
     // l'eau qui sort : un filet, puis des gouttes
-    o.push(h.rect(XR + 19.6, YT + 34.5, 2.8, 21.5, A.hachure('eau', 'fin')));
-    for (const dy of [66, 77]) o.push(goutte(XR + 21, YT + dy));
+    o.push(cale(CD, (dx, dy) => h.rect(XR + 19.6 + dx, YT + 34.5 + dy, 2.8, 21.5, A.hachure('eau', 'fin'))));
+    for (const g of [66, 77]) o.push(cale(CD, (dx, dy) => goutte(XR + 21 + dx, YT + g + dy)));
     // les guenilles : les places d'avant en tireté, puis la place de maintenant, contre la glace
     o.push(guenilles(...RAGS[2], true), guenilles(...RAGS[1], true), guenilles(...RAGS[0]));
     // la casserole qui verse sur les guenilles
     const xb = 346, yb = 46;
-    o.push(casserole(xb, yb), filet(xb - 2, yb, 334, YT - R - 9), vapeur(xb + 27, 34));
+    o.push(casserole(xb, yb), cale(CD, (dx, dy) => filet(xb - 2 + dx, yb + dy, 334 + dx, YT - R - 9 + dy)), vapeur(xb + 27, 34));
     // le sens où l'on avance : du robinet vers la glace, d'une main à la fois
     o.push(h.geste(`M${RAGS[2][1] - 6} ${YF} L${RAGS[0][0] + 6} ${YF}`));
     for (const [a, b] of [RAGS[1], RAGS[2]]) o.push(h.ligne((a + b) / 2, YF - 5, (a + b) / 2, YF + 5, A.detail));
@@ -116,8 +128,13 @@ module.exports = (h) => {
   const P1 = 228, P2 = 300, XC = (P1 + P2) / 2;
   const rate = z => {
     const o = [mur(z)];
+    // la poche : d'un arc de glace à l'autre (le même tracé que glace()), entre les parois ; peinte avant la glace
+    const y1 = YT - R + EP, y2 = YT + R - EP;
+    o.push(cale(CR, (dx, dy) => {
+      const p = (x, y) => `${f1(x + dx)} ${f1(y + dy)}`;
+      return h.path(`M${p(P1, y1)} L${p(P2, y1)} Q${p(P2 - 6, YT)} ${p(P2, y2)} L${p(P1, y2)} Q${p(P1 + 6, YT)} ${p(P1, y1)} Z`, A.hachure('eau', 'aucun'));
+    }));
     o.push(glace(XM, P1), glace(P2, XR - 4, { frontG: true, frontD: false }));
-    o.push(h.rect(P1 + 3, YT - R + EP + 1, P2 - P1 - 6, 2 * (R - EP) - 2, A.hachure('eau', 'aucun')));
     o.push(h.fleche(`M${XC - 8} ${YT + 6} L${P1 + 4} ${YT + 6}`, A.arete), h.fleche(`M${XC + 8} ${YT + 6} L${P2 - 4} ${YT + 6}`, A.arete));
     o.push(parois(XM, XR, { trouBas: [XC - 6, XC + 6] }), robinet());
     // les lèvres de la fente, ouvertes vers le dehors, et l'eau qui en gicle
@@ -128,13 +145,14 @@ module.exports = (h) => {
       const t = a * Math.PI / 180, u = [Math.sin(t), Math.cos(t)], n = [Math.cos(t), -Math.sin(t)];
       const p0 = [XC + 5 * u[0], yb + 10], p1 = [XC + 18 * u[0], yb + 10 + 14 * u[1]];
       const e0 = 0.25, e1 = 1.3;
-      o.push(h.chemin([[p0[0] + n[0] * e0, p0[1] + n[1] * e0], [p1[0] + n[0] * e1, p1[1] + n[1] * e1], [p1[0] - n[0] * e1, p1[1] - n[1] * e1], [p0[0] - n[0] * e0, p0[1] - n[1] * e0]].map(q => q.map(f1)), A.hachure('eau', 'fin'), true));
+      const pts = [[p0[0] + n[0] * e0, p0[1] + n[1] * e0], [p1[0] + n[0] * e1, p1[1] + n[1] * e1], [p1[0] - n[0] * e1, p1[1] - n[1] * e1], [p0[0] - n[0] * e0, p0[1] - n[1] * e0]];
+      o.push(cale(CR, (dx, dy) => h.chemin(pts.map(([x, y]) => [f1(x + dx), f1(y + dy)]), A.hachure('eau', 'fin'), true)));
     }
-    for (const [dx, dy] of [[-8, 34], [7, 38], [0, 46]]) o.push(goutte(XC + dx, yb + dy));
+    for (const [gx, gy] of [[-8, 34], [7, 38], [0, 46]]) o.push(cale(CR, (dx, dy) => goutte(XC + gx + dx, yb + gy + dy)));
     o.push(h.controle(XC, yb + 10, 17));
     // la chaleur au milieu : la même casserole, qui verse sur le milieu du bouchon
     const xb = XC + 12, ybec = 46;
-    o.push(casserole(xb, ybec), filet(xb - 2, ybec, XC, YT - R - 0.5), vapeur(xb + 27, 34));
+    o.push(casserole(xb, ybec), cale(CF, (dx, dy) => filet(xb - 2 + dx, ybec + dy, XC + dx, YT - R - 0.5 + dy)), vapeur(xb + 27, 34));
     return o.join('\n');
   };
 
