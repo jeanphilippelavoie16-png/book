@@ -234,7 +234,22 @@ module.exports = (h) => {
               if (ok && (!mieux || ecart(dx) < mieux.e || (ecart(dx) === mieux.e && n > mieux.n))) mieux = { dx, dy, n, e: ecart(dx) };
             }
           }
-          if (!mieux) throw new Error(`eau : aucun pas du motif ne garde les vaguelettes entières dans la bande ${boite(B).map(v => Math.round(v)).join(', ')}`);
+          if (!mieux) {
+            // la bande est trop encombrée (des glaçons serrés) : on la remplit en deux demi-bandes de teinte seule,
+            // chacune posée entre deux rangs, sans vaguelette
+            [[y0, (y0 + y1) / 2], [(y0 + y1) / 2, y1]].forEach(([c0, c1]) => {
+              const D = couper(R, c0, c1);
+              if (D.length < 3) return;
+              const dy = Math.round((((c0 + c1) / 2 + 5.5 - 7) % 22 + 22) % 22 * 10) / 10;
+              for (let b = Math.floor((c0 - 30 - dy) / 22); 22 * b + dy < c1 + 8; b++)
+                for (const vy of [7, 18])
+                  if (base.some(([, py]) => { const y = 22 * b + dy + vy + py; return y > c0 - BORD && y < c1 + BORD; }))
+                    throw new Error(`eau : la demi-bande ${Math.round(c0)} à ${Math.round(c1)} est trop haute pour rester sans vaguelette`);
+              sorties.push(`<g transform="translate(0 ${dy})">${h.chemin(grossir(D, RECOUVRE).map(p => [p[0], p[1] - dy]), h.a.hachure('eau', 'aucun'), true)}</g>`);
+            });
+            avant = null;
+            continue;
+          }
           total += mieux.n;
           avant = mieux.dx;
           // la bande peinte déborde de RECOUVRE de tous les côtés : deux aplats bord à bord laissent un fil clair à
@@ -320,18 +335,22 @@ module.exports = (h) => {
     return { out: out.join('\n'), ...g };
   };
 
-  const bon = z => {
+  // les renvois sur la géométrie seule : le composeur les demande aussi pour une vue fictive, sans dessin
+  const renvoisBon = z => {
     const k = Math.min((z.h - 20) / 182, (z.l - 90) / 300);
     const cx = z.l / 2, yb = z.h - 4;
     const g = geo(cx, yb, k);
-    const renvois = [
+    return { k, cx, yb, g, renvois: [
       { n: 1, rond: [g.ch.xg(g.yC) - 26, g.yC + 2], cible: [g.xc0 + 2, g.yC], texte: 'claie de bâtons au fond du seau' },
       { n: 2, rond: [g.ch.xg(g.yPt) - 26, g.yPt + 6], cible: [cx - 50 * k, g.yPt + 12 * k], texte: 'poisson fumé enveloppé de papier' },
       { n: 3, rond: [g.ch.xg(g.ch.yt) - 26, g.ch.yt - 20], cible: [g.sh.xg(g.ch.yt - 20) - 1, g.ch.yt - 20], texte: 'seau debout dans une chaudière plus large' },
       { n: 4, rond: [g.xL1 + 34, (g.yLb + g.yLt) / 2 - 2], cible: [g.xL1 + 1, (g.yLb + g.yLt) / 2], texte: 'couvercle posé, pas vissé ni serré' },
       { n: 5, rond: [g.ch.xg(g.yE) - 30, g.yE + 8], cible: [g.ch.xg(g.yE) + g.ch.e + 4 * k, g.yE + 4], texte: 'glaçons qui flottent : recharger chaque jour' },
       { n: 6, rond: [g.ch.xd(g.yE) + 34, g.yE - 26], cible: [g.xNiv + 6, g.yE - 8], texte: 'surface de l’eau, plus haute que le paquet' },
-    ];
+    ] };
+  };
+  const bon = z => {
+    const { k, cx, yb, g, renvois } = renvoisBon(z);
     // le cercle rouge des glaçons, près de la paroi de gauche
     const ctl = [g.ch.xg(g.yE) + g.ch.e + 14 * k, g.yE + 2, 10];
     const cercle = Array.from({ length: 36 }, (_, i) => [[ctl[0] + ctl[2] * Math.cos(i * Math.PI / 18), ctl[1] + ctl[2] * Math.sin(i * Math.PI / 18)], [ctl[0] + ctl[2] * Math.cos((i + 1) * Math.PI / 18), ctl[1] + ctl[2] * Math.sin((i + 1) * Math.PI / 18)], 0.8]);
@@ -339,7 +358,7 @@ module.exports = (h) => {
     return { svg: [m.out, h.controle(...ctl)].join('\n'), renvois };
   };
 
-  const vue = f => ({ dessin: z => f(z).svg, renvois: z => f(z).renvois });
+  const vue = f => ({ dessin: z => f(z).svg, renvois: z => renvoisBon(z).renvois });
   return {
     ref: '77-01',
     titre: 'Le bain de glace du poisson fumé',

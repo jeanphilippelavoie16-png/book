@@ -21,6 +21,8 @@
 // de glace (le même tracé que glace()) et les parois, sans liseré blanc ; elle est peinte avant la glace, dont les
 // arcs restent entiers. Dans chaque vue, le motif de l'eau est calé pour qu'aucune vaguelette ne soit coupée par le
 // bord d'une forme : plus de demi-arcs sur la paroi du bas, plus de barre en travers du filet du robinet.
+// Le point du renvoi 6 est posé dans l'eau au-dessus des flèches : posé sur la pointe de la flèche de droite, son
+// liseré blanc la cassait.
 module.exports = (h) => {
   const A = h.a;
   const f1 = v => Math.round(v * 10) / 10;
@@ -231,7 +233,7 @@ module.exports = (h) => {
         titre: 'Raté : chauffé au milieu du bouchon',
         dessin: rate,
         renvois: z => [
-          { n: 6, rond: [XC + 92, YT + 44], cible: [P2 - 10, YT + 3], texte: 'eau de fonte prise entre deux glaces' },
+          { n: 6, rond: [XC + 92, YT + 44], cible: [P2 - 12, YT - 6], texte: 'eau de fonte prise entre deux glaces' },
           { n: 7, rond: [XC - 84, YT + 50], cible: [XC - 17, YT + R + 12], texte: 'la pression fend le cuivre' },
         ],
       },

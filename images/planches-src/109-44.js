@@ -43,7 +43,8 @@ module.exports = (h) => {
     return [
       { n: 1, rond: [cx + Rm + 26, 40], cible: [cx + Rm + 1, 52], texte: 'mandrin au diamètre du piston' },
       { n: 2, rond: [cx + Rt + 26, yF + 18], cible: [cx + Rt + 1, yF - 10], texte: 'trou au diamètre du cylindre' },
-      { n: 3, rond: [cx - Rt - 30, yT - 26], cible: [cx - Rt + 2, yT - 6], texte: 'presser le cuir gras chaud en godet' },
+      { n: 3, rond: [cx - Rt - 30, yT - 26], cible: [cx - Rt + 2, yT - 6], texte: 'cuir trempé dans le suif chaud' },
+      { n: 4, rond: [cx - 34, 16], cible: [cx - 2.5, 21], texte: 'enfoncer le mandrin dans le trou' },
     ];
   };
 
@@ -89,34 +90,65 @@ module.exports = (h) => {
     out.push(h.fleche(`M ${pt([cx, yP + hl + 46])} L ${pt([cx, yP + e + 16])}`, A.arete));
     return out.join('\n');
   };
+  // Le raté : le même godet que dans « Bon », au même diamètre, monté à l'envers sous le même piston : le fond vers
+  // l'huile, contre la paroi par son coin ; les lèvres montent vers le piston. L'huile pousse les lèvres vers
+  // l'intérieur, les décolle de la paroi et passe entre la lèvre et la paroi.
+  const R_ = z => {
+    const q = C(z), yF = q.yP + q.hl, g = 15, rc = 3;
+    return Object.assign(q, { yF, g, rc, yC: (q.yP + yF - 12) / 2 });
+  };
   const vueRate = z => {
-    const q = C(z), { cx, Rc, Rp, yP, e, hl, jeu } = q, out = [], yb = z.h - 4;
-    // le godet monté à l'envers : le fond face à l'huile, la lèvre qui monte vers le piston ;
-    // l'huile la décolle de la paroi et passe
-    const yF = yP + hl, ext = Rc - jeu;
+    const q = R_(z), { cx, Rc, Rp, yP, e, yF, g, rc } = q, out = [], yb = z.h - 4;
     huile(q, out, yP - 30, yb, cx - Rc, cx + Rc, 'h-huile-109-44-rate');
     cylindre(z, q, out);
-    // le piston : son bout, plus mince, est pris dans le godet
-    const rn = ext - e - 0.5;
-    out.push(h.path(poly([[cx - Rp, 4], [cx + Rp, 4], [cx + Rp, yP - 30], [cx + rn, yP - 26], [cx + rn, yF - e], [cx - rn, yF - e], [cx - rn, yP - 26], [cx - Rp, yP - 30]]), A.blanc));
-    out.push(h.path(poly([[cx - Rp, 4], [cx + Rp, 4], [cx + Rp, yP - 30], [cx + rn, yP - 26], [cx + rn, yF - e], [cx - rn, yF - e], [cx - rn, yP - 26], [cx - Rp, yP - 30]]), A.hachure('metal', 'contour')));
-    out.push(godet(cx, yF, ext, e, hl - 4, 1));
-    // l'huile qui passe entre la lèvre et la paroi
-    for (const s of [-1, 1]) out.push(h.fleche(`M ${pt([cx + s * (Rc - jeu / 2), yF + 30])} L ${pt([cx + s * (Rc - jeu / 2), yP - 22])}`, A.arete));
-    out.push(h.controle(cx + Rc - jeu / 2, yP + 8, 12));
+    // le piston, le même que dans « Bon »
+    out.push(h.path(poly([[cx - Rp, 4], [cx + Rp, 4], [cx + Rp, yP], [cx - Rp, yP]]), A.blanc));
+    out.push(h.path(poly([[cx - Rp, 4], [cx + Rp, 4], [cx + Rp, yP], [cx - Rp, yP]]), A.hachure('metal', 'contour')));
+    // le godet : x au bord extérieur (s = 1 à droite), lèvre droite de son coin jusqu'au piston, rabattue vers l'intérieur
+    const yR = yP + 0.6, et = e * 0.45;
+    const cote = s => ({
+      coin0: [cx + s * (Rc - rc), yF], coinC: [cx + s * Rc, yF], coin1: [cx + s * Rc, yF - rc],
+      haut: [cx + s * (Rc - g), yR], hautI: [cx + s * (Rc - g - et), yR], basI: [cx + s * (Rc - e), yF - e],
+      ctrl: [cx + s * (Rc - 6), (yF + yP) / 2], ctrlI: [cx + s * (Rc - 6 - e * 0.75), (yF + yP) / 2 + 2],
+    });
+    const D = cote(1), G = cote(-1);
+    // l'intérieur du godet, sous le piston : vide
+    out.push(h.path(`M ${pt(G.hautI)} Q ${pt(G.ctrlI)} ${pt(G.basI)} L ${pt(D.basI)} Q ${pt(D.ctrlI)} ${pt(D.hautI)} Z`, A.blanc));
+    const godetR = `M ${pt(G.coin0)} L ${pt(D.coin0)} Q ${pt(D.coinC)} ${pt(D.coin1)} Q ${pt(D.ctrl)} ${pt(D.haut)} L ${pt(D.hautI)}`
+      + ` Q ${pt(D.ctrlI)} ${pt(D.basI)} L ${pt(G.basI)} Q ${pt(G.ctrlI)} ${pt(G.hautI)} L ${pt(G.haut)} Q ${pt(G.ctrl)} ${pt(G.coin1)} Q ${pt(G.coinC)} ${pt(G.coin0)} Z`;
+    out.push(h.path(godetR, A.plein));
+    // la vis, au milieu du godet, et la rondelle qui le tient, sous le fond
+    out.push(h.rect(cx - 3.5, yP, 7, yF - e - yP, blanc('detail')));
+    out.push(h.ligne(cx - 3.5, yP - 20, cx - 3.5, yP, A.cache), h.ligne(cx + 3.5, yP - 20, cx + 3.5, yP, A.cache));
+    out.push(h.rect(cx - Rc * 0.5, yF, Rc, 6, blanc('arete')));
+    out.push(h.rect(cx - 6, yF + 6, 12, 5, blanc('arete')));
+    // l'huile passe au coin du fond, puis file au milieu de l'écart entre la lèvre décollée et la paroi, jusque sous
+    // le piston
+    for (const s_ of [-1, 1]) {
+      const S_ = cote(s_), P_ = [[cx + s_ * (Rc - 1.4), yF - 3]];
+      for (let i = 1; i <= 10; i++) {
+        const t = 0.12 + 0.8 * i / 10, m = (1 - t) * (1 - t), b = 2 * t * (1 - t), n = t * t;
+        const xl = m * S_.coin1[0] + b * S_.ctrl[0] + n * S_.haut[0], yl = m * S_.coin1[1] + b * S_.ctrl[1] + n * S_.haut[1];
+        if (yl < yP + 6) break;
+        P_.push([(xl + cx + s_ * Rc) / 2, yl]);
+      }
+      out.push(h.fleche('M ' + P_.map(pt).join(' L '), A.arete));
+    }
+    out.push(h.controle(cx + Rc - g / 2 - 1, q.yC, 12));
     return out.join('\n');
   };
   const renvoisBon = z => {
     const q = C(z), { cx, Rc, yP, e, hl } = q;
     return [
-      { n: 4, rond: [cx + Rc + 26, yP + hl + 30], cible: [cx + Rc - 2, yP + hl - 3], texte: 'la lèvre tournée vers la pression' },
-      { n: 5, rond: [cx - Rc - 26, yP + hl + 50], cible: [cx - Rc + 20, yP + e + hl * 0.6 + 2], texte: 'la pression plaque la lèvre' },
+      { n: 5, rond: [cx + Rc + 26, yP + hl + 30], cible: [cx + Rc - 2, yP + hl - 3], texte: 'la lèvre tournée vers la pression' },
+      { n: 6, rond: [cx - Rc - 26, yP + hl + 50], cible: [cx - Rc + 20, yP + e + hl * 0.6 + 2], texte: 'la pression plaque la lèvre' },
     ];
   };
   const renvoisRate = z => {
-    const q = C(z), { cx, Rc, yP, e, hl } = q;
+    const q = R_(z), { cx, Rc, g } = q, c0 = [cx + Rc - g / 2 - 1, q.yC], p0 = [cx + Rc + 26, q.yC + 44];
+    const u = [p0[0] - c0[0], p0[1] - c0[1]], l = Math.hypot(...u);
     return [
-      { n: 6, rond: [cx + Rc + 26, yP + hl + 40], cible: [cx + Rc - 4, yP + hl + 20], texte: 'à l’envers, l’huile passe' },
+      { n: 7, rond: p0, cible: [c0[0] + u[0] / l * 12.5, c0[1] + u[1] / l * 12.5], texte: 'à l’envers, l’huile décolle la lèvre' },
     ];
   };
 

@@ -7,6 +7,10 @@
 // gris loin (on voit le fond par la coupe) ; la face de droite des boîtes en perspective à
 // l'ombre. Le rouge : la marmite qu'on descend dans le nid, la couverture qu'on tire (une flèche
 // par vue) ; le lit sous la marmite et le niveau du raté, cerclés.
+//
+// Reprise le 19 octobre 2026 (second regard) : dans la marmite du raté, le motif de l'eau est calé (CALE_RATE) ; une
+// crête de vaguelette dépassait du fond, et la rangée du haut collait à la surface et à la paroi droite. La coupe
+// pleine n'a pas changé.
 module.exports = (h) => {
   const blanc = a => a.replace('fill="none"', h.a.blanc.split(' ')[0]);
   const ombre = a => a.replace('fill="none"', h.a.ombre.split(' ')[0]);
@@ -15,9 +19,14 @@ module.exports = (h) => {
 
   // La boîte en coupe, à l'échelle 1 de la vue principale
   const B = { W: 260, t: 9, H: 196, tl: 9, pw: 130, ph: 100, hb: 40 };
+  // Le calage du motif de l'eau dans la marmite du raté : quatre vaguelettes entières, à plus de 4 unités de la surface
+  // et du fond, à plus de 3 des parois, aucune dans le cercle rouge du niveau (cherché par calcul, regardé de près).
+  const CALE_RATE = [-2.5, -6.5];
 
   // ── La marmite coupée : paroi, contenu, couvercle bombé, poignée ──
-  const marmiteCoupe = (cx, yB, s, niveau) => {
+  // cale = [tx, ty] : le motif de l'eau calé (la forme tracée décalée de (−tx, −ty) dans un groupe déplacé de
+  // (tx, ty) ; elle reste en place, seules les vaguelettes bougent), pour qu'aucune ne soit coupée par un bord.
+  const marmiteCoupe = (cx, yB, s, niveau, cale = null) => {
     const w = B.pw * s, ht = B.ph * s;
     const xl = cx - w / 2, xr = cx + w / 2, yT = yB - ht, r = 8 * s, dome = 9 * s;
     const fond = `L ${r1(xl)},${r1(yB - r)} Q ${r1(xl)},${r1(yB)} ${r1(xl + r)},${r1(yB)} L ${r1(xr - r)},${r1(yB)} Q ${r1(xr)},${r1(yB)} ${r1(xr)},${r1(yB - r)}`;
@@ -27,7 +36,11 @@ module.exports = (h) => {
     }
     out.push(h.path(`M ${r1(xl)},${r1(yT)} ${fond} L ${r1(xr)},${r1(yT)} L ${r1(xr + 3 * s)},${r1(yT)} Q ${r1(cx)},${r1(yT - 2 * dome)} ${r1(xl - 3 * s)},${r1(yT)} Z`, h.a.blanc));
     out.push(h.rect(xl, yT, xr - xl, niveau - yT, h.a.loin));
-    out.push(h.path(`M ${r1(xl)},${r1(niveau)} ${fond} L ${r1(xr)},${r1(niveau)} Z`, h.a.hachure('eau', 'aucun')));
+    if (cale) {
+      const [tx, ty] = cale, dx = -tx, dy = -ty;
+      const fondC = `L ${r1(xl + dx)},${r1(yB - r + dy)} Q ${r1(xl + dx)},${r1(yB + dy)} ${r1(xl + r + dx)},${r1(yB + dy)} L ${r1(xr - r + dx)},${r1(yB + dy)} Q ${r1(xr + dx)},${r1(yB + dy)} ${r1(xr + dx)},${r1(yB - r + dy)}`;
+      out.push(`<g transform="translate(${tx} ${ty})">\n${h.path(`M ${r1(xl + dx)},${r1(niveau + dy)} ${fondC} L ${r1(xr + dx)},${r1(niveau + dy)} Z`, h.a.hachure('eau', 'aucun'))}\n</g>`);
+    } else out.push(h.path(`M ${r1(xl)},${r1(niveau)} ${fond} L ${r1(xr)},${r1(niveau)} Z`, h.a.hachure('eau', 'aucun')));
     out.push(h.ligne(xl, niveau, xr, niveau, h.a.detail));
     out.push(h.path(`M ${r1(xl)},${r1(yT)} ${fond} L ${r1(xr)},${r1(yT)}`, h.a.contour));
     out.push(h.path(`M ${r1(xl - 3 * s)},${r1(yT + 3 * s)} L ${r1(xl - 3 * s)},${r1(yT)} Q ${r1(cx)},${r1(yT - 2 * dome)} ${r1(xr + 3 * s)},${r1(yT)} L ${r1(xr + 3 * s)},${r1(yT + 3 * s)}`, h.a.arete));
@@ -53,14 +66,14 @@ module.exports = (h) => {
   };
 
   // ── La boîte coupée, bourrée, la marmite dedans ──
-  const boiteCoupe = (x0, G, s, niveauRel, avecCouvercle = true) => {
+  const boiteCoupe = (x0, G, s, niveauRel, avecCouvercle = true, caleEau = null) => {
     const W = B.W * s, t = B.t * s, H = B.H * s, tl = B.tl * s;
     const xiL = x0 + t, xiR = x0 + W - t, yiB = G - t, yT = G - H, cx = x0 + W / 2;
     const potB = yiB - B.hb * s, potT = potB - B.ph * s;
     const niveau = potT + niveauRel * B.ph * s;
     const out = [];
     out.push(h.rect(xiL, yT, xiR - xiL, yiB - yT, h.a.hachure('isolant', 'aucun')));
-    const m = marmiteCoupe(cx, potB, s, niveau);
+    const m = marmiteCoupe(cx, potB, s, niveau, caleEau);
     out.push(m.svg);
     // la couverture pliée en trois, posée par-dessus le couvercle
     const A = potT - 4 * s, e = 27 * s, Cb = 2 * (m.kt - 1 * s) - A;
@@ -182,12 +195,12 @@ module.exports = (h) => {
       rate: {
         titre: 'Raté : à moitié pleine',
         dessin: z => {
-          const s = Math.min(1, (z.l - 44) / B.W), G = z.h - 10, b = boiteCoupe(10, G, s, 0.5);
+          const s = Math.min(1, (z.l - 44) / B.W), G = z.h - 10, b = boiteCoupe(10, G, s, 0.5, true, CALE_RATE);
           // le niveau : là où le raté se joue
           return [plancher(0, z.l, G), b.svg, h.controle(b.m.xl + 26, b.niveau, 13)].join('\n');
         },
         renvois: z => {
-          const s = Math.min(1, (z.l - 44) / B.W), G = z.h - 10, b = boiteCoupe(10, G, s, 0.5);
+          const s = Math.min(1, (z.l - 44) / B.W), G = z.h - 10, b = boiteCoupe(10, G, s, 0.5, true, CALE_RATE);
           const y = (b.potT + b.niveau) / 2 + 4;
           return [
             { n: 5, rond: [z.l - 14, y], cible: [b.cx + 20, y], texte: 'moitié vide : refroidit bien plus vite' },

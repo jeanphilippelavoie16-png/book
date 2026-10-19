@@ -6,7 +6,7 @@
 // laisser qu'une bande : deux bandes font durer, mais éclairent mal.
 // Source : Gilbert White, lettre XXVI (sources/89-gilbert-white-selborne-chandelles-de-jonc.md) :
 // « one regular, narrow, even rib from top to bottom that may support the pith » ; les veilleuses
-// à deux côtes éclairent mal. La seule cote est celle du chapitre (70 cm).
+// à deux côtes éclairent mal. La seule cote est celle du chapitre (70 cm), écrite en mm (700 mm), comme toutes les cotes du livre.
 // Le jonc est grossi dans les deux premières rangées ; il est à l'échelle dans la dernière.
 module.exports = (h) => {
   const A = h.a;
@@ -39,16 +39,19 @@ module.exports = (h) => {
     out.push(h.ligne(xa - 4, y - r, x1, y - r, A.contour));
     // deux lanières qui se détachent vers le bas et vers l'avant, entre xa et xb
     // une lanière : un ruban qui part du bord de l'écorce, retombe et s'amincit au bout
-    const lan = (dy, l, chute, w = 6.5) => {
+    // une lanière : un ruban dont le bord du haut part du bord du bas de la moelle (là où était l'écorce),
+    // retombe et s'amincit au bout
+    const lan = (l, chute, w = 6.5) => {
       const P = [];
-      for (let i = 0; i <= 24; i++) {
-        const t = i / 24, x = xa + 2 + l * t, yy = y + dy + chute * t * t;
-        P.push([x, yy, w * (1 - 0.55 * t)]);
+      for (let i = 0; i <= 60; i++) {
+        const t = i / 60, x = xa + (l + 2) * t, ww = w * (1 - 0.8 * Math.exp(-t / 0.06)) * (1 - 0.55 * t), yy = y + r + ww / 2 + chute * t * t;
+        P.push([x, yy, ww]);
       }
       const haut = P.map(p => [p[0], p[1] - p[2] / 2]), bas = P.map(p => [p[0], p[1] + p[2] / 2]).reverse();
-      return h.path(poly([...haut, ...bas]), blanc('arete'));
+      // le bout attaché n'a pas de trait : la lanière sort du bord du bas de la moelle
+      return [h.path(poly([...haut, ...bas]), A.blanc), h.path(poly([...haut, ...bas], false), A.arete)].join('\n');
     };
-    out.push(lan(r - 5, xb - xa - 40, 18), lan(r - 1, xb - xa + 40, 50));
+    out.push(lan(xb - xa + 40, 50), lan(xb - xa - 40, 20));
     // l'écorce entière, à gauche : un tube vert, ses fibres en long
     out.push(h.path(poly([[x0, y - r], [xa, y - r], [xa, y + r], [x0, y + r]]), A.blanc));
     out.push(h.path(poly([[x0, y + r * 0.35], [xa, y + r * 0.35], [xa, y + r], [x0, y + r]]), A.ombre));
@@ -61,7 +64,7 @@ module.exports = (h) => {
   const renvoisPeler = z => {
     const q = P1(z), { y, r, xa, xb, x1, e } = q;
     return [
-      { n: 1, rond: [xa + 2 + (xb - xa + 40) * 0.55 - 30, z.h - 14], cible: [xa + 2 + (xb - xa + 40) * 0.55, y + r - 2 + 50 * 0.3025 + 2.2], texte: 'peler l’écorce verte en lanières' },
+      { n: 1, rond: [xa + (xb - xa + 42) * 0.72 - 34, z.h - 14], cible: [xa + (xb - xa + 42) * 0.72, y + r + 50 * 0.5184 + 6.5 * (1 - 0.55 * 0.72) + 1], texte: 'peler l’écorce verte en lanières' },
       { n: 2, rond: [x1 - 90, y - r - 26], cible: [x1 - 110, y - r + 1], texte: 'une seule bande, d’un bout à l’autre' },
       { n: 3, rond: [x1 - 40, y + r + 28], cible: [x1 - 60, y + 6], texte: 'la moelle sert de mèche' },
     ];
@@ -82,23 +85,36 @@ module.exports = (h) => {
   };
 
   // ─── Vue 4 : tremper ────────────────────────────────────────────────────────────────────
+  const T4 = z => {
+    const y0 = z.h * 0.42, y1 = z.h - 18, x0 = 16, x1 = z.l - 16, yG = y0 + 12;
+    const a = [x0 - 8, y0 - 12], b = [x1 - 26, y1 - 14], u = uni(sub(b, a)), n = nor(u);
+    // la flèche du geste : parallèle au jonc, au-dessus de sa partie qui sort, vers le gras
+    const g0 = add(add(a, u, 12), n, -12), g1 = add(add(a, u, 54), n, -12);
+    return { y0, y1, x0, x1, yG, a, b, u, n, g0, g1 };
+  };
   const vueTremper = z => {
-    const out = [], y0 = z.h * 0.42, y1 = z.h - 18, x0 = 16, x1 = z.l - 16, yG = y0 + 12;
-    // un plat long, en coupe, le gras fondu dedans : il garde sa trame de liquide en traits noirs, le bleu est
-    // réservé à l'eau (JP, 19 octobre 2026 : « toute l'eau en bleu sur les planches » ; le gras n'en est pas)
+    const { y0, y1, x0, x1, yG, a, b, n, g0, g1 } = T4(z), out = [];
+    // le jonc d'abord : la trame du gras passe par-dessus sa partie trempée. Son contour est plein au-dessus de la
+    // surface, fin dessous.
+    const J = [add(a, n, 2.5), add(b, n, 2.5), add(b, n, -2.5), add(a, n, -2.5)];
+    out.push(h.path(poly(J), A.blanc));
+    const coupe = (p, q_) => { const t = (yG - p[1]) / (q_[1] - p[1]); return [p[0] + (q_[0] - p[0]) * t, yG]; };
+    const s1 = coupe(J[0], J[1]), s2 = coupe(J[3], J[2]);
+    out.push(h.path(`M ${pt(s1)} L ${pt(J[0])} L ${pt(J[3])} L ${pt(s2)}`, A.arete));
+    out.push(h.path(`M ${pt(s1)} L ${pt(J[1])} L ${pt(J[2])} L ${pt(s2)}`, A.detail));
+    // le gras fondu, en coupe : il garde sa trame de liquide en traits noirs, le bleu est réservé à l'eau (JP,
+    // 19 octobre 2026 : « toute l'eau en bleu sur les planches » ; le gras n'en est pas)
     out.push(`<defs><pattern id="h-gras-112-42" width="16" height="7" patternUnits="userSpaceOnUse"><line x1="1" y1="2" x2="8" y2="2" stroke="#1A1A1A" stroke-width="0.5"/><line x1="9" y1="5.5" x2="15" y2="5.5" stroke="#1A1A1A" stroke-width="0.5"/></pattern></defs>`);
     out.push(h.rect(x0 + 6, yG, x1 - x0 - 12, y1 - yG - 6, 'fill="url(#h-gras-112-42)" stroke="none"'));
     out.push(h.ligne(x0 + 6, yG, x1 - 6, yG, A.detail));
+    // le plat long, en coupe
     out.push(h.path(poly([[x0, y0], [x0 + 6, y0], [x0 + 6, y1 - 6], [x1 - 6, y1 - 6], [x1 - 6, y0], [x1, y0], [x1, y1], [x0, y1]]), A.hachure('metal', 'contour')));
-    // le jonc couché dans le gras, un bout qui dépasse ; on le tire de long
-    const a = [x0 - 6, y0 - 14], b = [x1 - 30, yG + 8], u = uni(sub(b, a)), n = nor(u);
-    out.push(h.path(poly([add(a, n, 2.5), add(b, n, 2.5), add(b, n, -2.5), add(a, n, -2.5)]), blanc('arete')));
-    out.push(h.geste(`M ${pt(add(add(a, u, 70), n, -12))} L ${pt(add(add(a, u, 30), n, -12))}`));
+    out.push(h.geste(`M ${pt(g0)} L ${pt(g1)}`));
     return out.join('\n');
   };
   const renvoisTremper = z => {
-    const y0 = z.h * 0.42, yG = y0 + 12, x1 = z.l - 16;
-    return [{ n: 4, rond: [x1 - 40, y0 - 30], cible: [x1 - 50, yG + 6], texte: 'tremper le jonc dans le gras fondu' }];
+    const { n, g0, g1 } = T4(z), m = [(g0[0] + g1[0]) / 2, (g0[1] + g1[1]) / 2];
+    return [{ n: 4, rond: [m[0] - n[0] * 30 + 14, m[1] - n[1] * 30], cible: [m[0] - n[0] * 3, m[1] - n[1] * 3], texte: 'tremper le jonc dans le gras fondu' }];
   };
 
   // ─── Vue 5 : brûler, presque couché ─────────────────────────────────────────────────────
@@ -126,7 +142,7 @@ module.exports = (h) => {
     const w = 30 * k, yH = tete[1] - 16;
     out.push(h.path(poly([[xb - w / 2, yg - hb + 3], [xb - w / 2, yH], [xb - 1.5, yH - 3], [xb + 1.5, yH - 3], [xb + w / 2, yH], [xb + w / 2, yg - hb + 3]]), blanc('contour')));
     out.push(h.ligne(xb, yH - 2, xb, tete[1] + 22, A.detail));
-    out.push(h.ligne(xb - 3, tete[1] + 40, xb - 3, yg - hb - 14, A.fin));
+    out.push(h.ligne(xb - 3.5, tete[1] + 32, xb - 3.5, yg - hb - 4, A.fin));
     // la flamme, debout au bout du jonc
     const fl = add(fin, u, -3);
     const F = (x, y) => [fl[0] + x, fl[1] + y];
@@ -137,7 +153,7 @@ module.exports = (h) => {
     out.push(h.ligne(...c0, ...c1, A.detail));
     for (const p of [c0, c1]) out.push(h.ligne(...add(p, n, -6), ...add(p, n, 6), A.detail));
     const m = add([(c0[0] + c1[0]) / 2, (c0[1] + c1[1]) / 2], n, 14);
-    out.push(h.texte(m[0] + 40, m[1] + 4, '70 cm', { lisere: true }));
+    out.push(h.texte(m[0] + 40, m[1] + 4, '700 mm', { lisere: true }));
     return out.join('\n');
   };
   const renvoisBruler = z => {
@@ -152,7 +168,7 @@ module.exports = (h) => {
   return {
     ref: '112-42',
     titre: 'La chandelle de jonc',
-    desc: 'La chandelle de jonc, en trois temps. Peler : sur un bout de jonc grossi, l’écorce verte se détache en lanières et il ne reste qu’une seule bande, sur le dessus, d’un bout à l’autre ; elle tient droite la moelle blanche, qui fait la mèche. En coupe, la moelle avec une bande, et avec deux bandes, qui font durer mais éclairent mal. Tremper : le jonc sec tiré de long dans un plat de gras fondu. Brûler : un jonc de 70 cm pincé à un bout dans la fente d’un bâton planté dans une bûche, presque couché, la flamme au bout libre.',
+    desc: 'La chandelle de jonc, en trois temps. Peler : sur un bout de jonc grossi, l’écorce verte se détache en lanières et il ne reste qu’une seule bande, sur le dessus, d’un bout à l’autre ; elle tient droite la moelle blanche, qui fait la mèche. En coupe, la moelle avec une bande, et avec deux bandes, qui font durer mais éclairent mal. Tremper : le jonc sec couché dans un plat de gras fondu, la plus grande partie sous la surface, un bout qui dépasse par-dessus le bord ; on l’enfonce dans le gras. Brûler : un jonc de 700 mm pincé à un bout dans la fente d’un bâton planté dans une bûche, presque couché, la flamme au bout libre.',
     format: 'pleine',
     disposition: [['peler'], ['une', 'deux', 'tremper'], ['bruler']],
     hauteurs: [0.95, 0.85, 1.1],

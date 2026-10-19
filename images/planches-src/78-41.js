@@ -11,9 +11,12 @@
 // La pince de deux baguettes entaillées n'est pas dessinée : le chapitre n'en dit pas la forme, et deux
 // baguettes droites qui se rejoignent dans la main ne passent pas sous la bague sans des mâchoires
 // courbées qu'il faudrait inventer.
-// La charte : en coupe, la marmite en tôle mince (aplat noir), l'eau en trait, la paroi d'en face en
+// La charte : en coupe, la marmite en tôle mince (aplat noir), l'eau en bleu (h.a.hachure('eau'), posée par
+// bandes pour qu'aucune vaguelette ne soit coupée par un pot, la grille ou le fond), la paroi d'en face en
 // gris loin au-dessus de l'eau. Le rouge : la sortie du pot à la verticale (le geste) ; le dessous
 // du pot, posé sur la grille et pas sur le fond (point à contrôler).
+// La grille vue de dessus : les anneaux se touchent, une ligature de trois tours de fil fin à chaque contact,
+// comme celles de la claie ; les vides restent blancs.
 module.exports = (h) => {
   const A = h.a;
   const r1 = v => Math.round(v * 10) / 10;
@@ -194,7 +197,22 @@ module.exports = (h) => {
               if (ok && (!mieux || ecart(dx) < mieux.e || (ecart(dx) === mieux.e && n > mieux.n))) mieux = { dx, dy, n, e: ecart(dx) };
             }
           }
-          if (!mieux) throw new Error(`eau : aucun pas du motif ne garde les vaguelettes entières dans la bande ${boite(B).map(v => Math.round(v)).join(', ')}`);
+          if (!mieux) {
+            // la bande est trop encombrée (des glaçons serrés) : on la remplit en deux demi-bandes de teinte seule,
+            // chacune posée entre deux rangs, sans vaguelette
+            [[y0, (y0 + y1) / 2], [(y0 + y1) / 2, y1]].forEach(([c0, c1]) => {
+              const D = couper(R, c0, c1);
+              if (D.length < 3) return;
+              const dy = Math.round((((c0 + c1) / 2 + 5.5 - 7) % 22 + 22) % 22 * 10) / 10;
+              for (let b = Math.floor((c0 - 30 - dy) / 22); 22 * b + dy < c1 + 8; b++)
+                for (const vy of [7, 18])
+                  if (base.some(([, py]) => { const y = 22 * b + dy + vy + py; return y > c0 - BORD && y < c1 + BORD; }))
+                    throw new Error(`eau : la demi-bande ${Math.round(c0)} à ${Math.round(c1)} est trop haute pour rester sans vaguelette`);
+              sorties.push(`<g transform="translate(0 ${dy})">${h.chemin(grossir(D, RECOUVRE).map(p => [p[0], p[1] - dy]), h.a.hachure('eau', 'aucun'), true)}</g>`);
+            });
+            avant = null;
+            continue;
+          }
           total += mieux.n;
           avant = mieux.dx;
           // la bande peinte déborde de RECOUVRE de tous les côtés : deux aplats bord à bord laissent un fil clair à

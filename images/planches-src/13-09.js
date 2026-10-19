@@ -90,10 +90,17 @@ module.exports = (h) => {
     }
     // les faces du fond d'abord : celles dont le milieu est le plus loin dans le sens de D
     faces.sort((a, b) => ((a.p[0] + a.q[0]) * D[0] + (a.p[1] + a.q[1]) * D[1]) - ((b.p[0] + b.q[0]) * D[0] + (b.p[1] + b.q[1]) * D[1]));
+    // chaque face, de la plus loin à la plus proche : son aplat, le bord de son fond, et ses arêtes de côté aux vrais
+    // angles seulement (un coin arrondi fait de petites faces ne doit pas se lire en hachures)
+    const vue = new Set(faces.map(({ p }) => P.indexOf(p)));
+    const angle = i => { const e0 = sub(P[i], P[(i - 1 + n) % n]), e1 = sub(P[(i + 1) % n], P[i]); return (e0[0] * e1[0] + e0[1] * e1[1]) / (lon(e0) * lon(e1)); };
     faces.forEach(({ p, q, no }) => {
-      const ombre = no[0] > 0.6 * lon(no);
-      const pl = poly([p, q, add(q, D), add(p, D)].map(T));
-      out.push(h.path(pl, ombre ? A.ombre : A.blanc), h.path(pl, A.arete));
+      const ombre = no[0] > 0.6 * lon(no), gris = ombre ? '#CFCFCF' : '#FFFFFF';
+      out.push(h.path(poly([p, q, add(q, D), add(p, D)].map(T)), `fill="${gris}" stroke="${gris}" stroke-width="0.5" stroke-linejoin="round"`));
+      let d = M(T(add(p, D))) + Lp(T(add(q, D)));
+      const i = P.indexOf(p), j = (i + 1) % n;
+      [[i, (i - 1 + n) % n], [j, i]].forEach(([k, voisin]) => { if (!vue.has(k === i ? voisin : j) || angle(k) < 0.85) d += ' ' + M(T(P[k])) + Lp(T(add(P[k], D))); });
+      out.push(h.path(d, A.arete));
     });
     out.push(h.path(poly(P.map(T)), devant));
     return out.join('\n');
@@ -390,7 +397,7 @@ module.exports = (h) => {
         },
         renvois: z => {
           const { T } = fenetre(z, ...FD);
-          return [{ n: 9, rond: T(add(P(...CHUTE), [-90, -70])), cible: T(P(...CHUTE)), texte: 'la paillette brûle en tombant sur l’amadou' }];
+          return [{ n: 9, rond: T(add(P(...CHUTE), [-96, -56])), cible: T(P(...CHUTE)), texte: 'la paillette brûle en tombant sur l’amadou' }];
         },
       },
     },

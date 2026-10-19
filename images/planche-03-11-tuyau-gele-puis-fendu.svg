@@ -197,9 +197,9 @@
 <circle cx="190" cy="157" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
 <circle cx="170" cy="202" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="degel"/>
 <text x="170" y="206" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">5</text>
-<line x1="388.4" y1="428" x2="330" y2="391.7" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
-<line x1="388.4" y1="428" x2="330" y2="391.7" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
-<circle cx="330" cy="391.7" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
+<line x1="388.7" y1="427.4" x2="328" y2="382.7" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+<line x1="388.7" y1="427.4" x2="328" y2="382.7" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
+<circle cx="328" cy="382.7" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
 <circle cx="396" cy="432.7" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="rate"/>
 <text x="396" y="436.7" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">6</text>
 <line x1="228.5" y1="435.7" x2="287" y2="414.7" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>

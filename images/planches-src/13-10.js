@@ -9,15 +9,21 @@
 // fils, ou un seul brin de fil multibrin.
 // Aucune cote : le chapitre n'en donne pas (la pile de 9 V est dessinée à ses proportions, 48,5 × 26,5 × 17,5 mm).
 // Le rouge : la flèche du geste (repère 4), et rien d'autre.
-// 19 octobre 2026 : la matière de la laine refaite (repères 1, 2, 5, 7), des fils droits au lieu des boucles (voir laine) ;
-// la boule passe derrière le bord avant du creux du nid, et un rond blanc sous les rayons garde le point qui rougit lisible.
+// 19 octobre 2026 : la matière de la laine refaite (repères 1, 2, 5, 7), des fils droits au lieu des boucles (module
+// _laine-acier.js, partagé avec la feuille d'essai _essai-laine-acier.js) ; la boule passe derrière le bord avant du creux
+// du nid, et un rond blanc sous les rayons garde le point qui rougit lisible.
+// 19 octobre 2026, après le second regard : la matière corrigée (aucun fil plus long que la moitié de la boule, les fils
+// longs à 30° au plus, des bouts qui dépassent de 8 unités au plus, le tampon dense au milieu) ; la boule de la vue
+// « pile » plus haute (ry 44), presque entière au-dessus du bord du creux, la pile remontée pour que ses bornes touchent
+// le dessus ; les deux mains par h.formes.mainStock (2-13 « poing-cylindre » pour la pile dans le poing, 1-09
+// « poing-manche-debout » en miroir pour les fils), mainSimple étant retiré ; la flèche du geste passe à droite de la
+// pile, sous l'avant-bras, et le filet du repère 5 descend par la gauche de la pile jusque dans les rayons.
 
 module.exports = (h) => {
   const F = h.formes, A = h.a;
   const f = v => Math.round(v * 10) / 10;
   const blanc = a => a.replace('fill="none"', 'fill="#ffffff"');
   const gen = s => { let g = s; return () => (g = (g * 16807) % 2147483647) / 2147483647; };
-  const NOIR = '#1A1A1A';
 
   // Courbe lisse (Catmull-Rom) passant par chaque point.
   const lisse = (pts, ferme) => {
@@ -64,105 +70,9 @@ module.exports = (h) => {
     return { svg: out.join('\n'), creux: [cx, cy], rx, ry };
   };
 
-  // La laine d'acier (JP, 19 octobre 2026, sur la première version en petites boucles : « on dirait du poil de pubis »).
-  // En vrai, la laine d'acier fine, c'est un tampon de fibres de métal très fines, longues et presque droites, couchées
-  // en couches selon deux ou trois directions ; étirée en boule lâche, un nuage aéré de fils droits, avec du jour au
-  // travers. Choisie sur la feuille d'essai images/planches-src/_essai-laine-acier.js (façon D) :
-  //   la silhouette : un rond (boule) ou un coussin (tampon), déformé par quelques ondes lentes ;
-  //   les fils : des bouts de fils presque droits (une ondulation de moins de 4 % de leur longueur), couchés selon deux
-  //   ou trois directions dominantes, plus nombreux au centre (là où la boule est épaisse), clairsemés au bord ; vers le
-  //   bord, le fil se couche le long de la silhouette (une boule, pas une galette) ; quelques bouts droits dépassent ;
-  //   le métal : un voile de fils gris clair sous les fils gris foncé ; quelques fils noirs du côté de l'ombre, en bas à
-  //   droite ; quelques fils clairs par-dessus du côté de la lumière, en haut à gauche.
-  // lache : 0 (le tampon) à 1 (la boule lâche) ; posee : rien ne pend sous la boule (elle est dans le nid).
-  const FONCE = '#3A3A3A', CLAIR = '#CFCFCF';
-  const fibre = (c, ep) => `fill="none" stroke="${c}" stroke-width="${ep}" stroke-linecap="round" stroke-linejoin="round"`;
-  const laine = (cx, cy, rx, ry, graine, { lache = 1, posee = false } = {}) => {
-    const r = gen(graine * 7919 + 13), boule = lache > 0.5;
-    const forme = boule ? 2 : 3.2, enroule = boule ? 0.7 : 0.25;
-    const dirs = boule ? [-0.24, 0.18, 0.8] : [0, -0.12, 0.14], poids = boule ? [0.45, 0.4, 0.15] : [0.6, 0.2, 0.2];
-    const jit = boule ? 0.12 : 0.06, amp = boule ? 0.035 : 0.02, gam = boule ? 1.5 : 0.35;
-    const ondes = [2, 3, 4, 5].map(k => [k, (boule ? 0.07 : 0.025) / (k - 1) * (0.6 + r() * 0.8), r() * 6.283]);
-    const R = th => 1 + ondes.reduce((s, [k, a, p]) => s + a * Math.sin(k * th + p), 0);
-    const rho = (x, y) => {
-      const dx = (x - cx) / rx, dy = (y - cy) / ry;
-      return Math.pow(Math.pow(Math.abs(dx), forme) + Math.pow(Math.abs(dy), forme), 1 / forme) / R(Math.atan2(dy, dx));
-    };
-    const dedans = (x, y) => rho(x, y) <= 1;
-    const corde = (p, u) => {
-      const t = [0, 0];
-      for (const s of [-1, 1]) { let k = 0; while (k < 4 * Math.max(rx, ry) && dedans(p[0] + u[0] * k * s, p[1] + u[1] * k * s)) k += 0.75; t[s > 0 ? 1 : 0] = k * s; }
-      return t;
-    };
-    const tireDir = () => { let x = r(), i = 0; while (i < poids.length - 1 && x > poids[i]) { x -= poids[i]; i++; } return dirs[i] + (r() - 0.5) * 2 * jit; };
-    const tirePoint = () => {
-      for (let essai = 0; essai < 600; essai++) {
-        const x = cx + (r() * 2 - 1) * rx * 1.1, y = cy + (r() * 2 - 1) * ry * 1.1, q = rho(x, y);
-        if (q <= 1 && r() < Math.pow(Math.sqrt(Math.max(0, 1 - q * q)), gam)) return [x, y];
-      }
-      return [cx, cy];
-    };
-    const unFil = (a, b) => {
-      const L = Math.hypot(b[0] - a[0], b[1] - a[1]), u = [(b[0] - a[0]) / L, (b[1] - a[1]) / L], n = [-u[1], u[0]];
-      const e1 = (r() - 0.5) * 2 * amp * L, e2 = (r() - 0.5) * 2 * amp * L;
-      const c1 = [a[0] + u[0] * L / 3 + n[0] * e1, a[1] + u[1] * L / 3 + n[1] * e1];
-      const c2 = [a[0] + u[0] * 2 * L / 3 + n[0] * e2, a[1] + u[1] * 2 * L / 3 + n[1] * e2];
-      return `M ${f(a[0])} ${f(a[1])} C ${f(c1[0])} ${f(c1[1])} ${f(c2[0])} ${f(c2[1])} ${f(b[0])} ${f(b[1])} `;
-    };
-    const lDepasse = () => (boule ? 4 + r() * 10 : 2 + r() * 5) * Math.max(rx, ry) / 46;
-    // un fil de longueur visible L sur la corde de la silhouette qui passe par p ; rend la longueur posée
-    const pose = (liste, p, u, L, depasse) => {
-      const [t0, t1] = corde(p, u), C = t1 - t0;
-      if (C < 3) return 0;
-      L = Math.min(L, C);
-      let s0 = Math.max(t0, Math.min(t1 - L, (r() - 0.5) * L - L / 2)), s1 = s0 + L;
-      if (depasse) {
-        let bas = r() < 0.5;
-        if (posee && p[1] + u[1] * (bas ? t0 - depasse : t1 + depasse) > cy + ry * 0.35) bas = !bas;
-        if (posee && p[1] + u[1] * (bas ? t0 - depasse : t1 + depasse) > cy + ry * 0.35) depasse = 0;
-        if (bas) s0 = t0 - depasse; else s1 = t1 + depasse;
-      }
-      const a = [p[0] + u[0] * s0, p[1] + u[1] * s0], b = [p[0] + u[0] * s1, p[1] + u[1] * s1];
-      liste.push([unFil(a, b), (a[0] + b[0]) / 2, (a[1] + b[1]) / 2]);
-      return s1 - s0;
-    };
-    // la quantité de fil : un taux de couverture visé (trait de 0,5) sur l'aire de la silhouette
-    const aire = Math.PI * rx * ry, pDep = boule ? 0.12 : 0.07;
-    const longueur = () => (boule ? 0.16 + r() * 0.34 : 0.3 + r() * 0.45) * 2 * rx;
-    const remplir = (liste, encre) => {
-      let tot = 0, garde = 0;
-      while (tot < encre && garde++ < 4000) {
-        const p = tirePoint();
-        let th = tireDir();
-        const dx = (p[0] - cx) / rx, dy = (p[1] - cy) / ry, q = Math.min(1, rho(p[0], p[1]));
-        let tg = Math.atan2(Math.cos(Math.atan2(dy, dx)) * ry, -Math.sin(Math.atan2(dy, dx)) * rx);
-        while (tg - th > Math.PI / 2) tg -= Math.PI;
-        while (th - tg > Math.PI / 2) tg += Math.PI;
-        th += (tg - th) * enroule * q * q;
-        tot += pose(liste, p, [Math.cos(th), Math.sin(th)], longueur(), r() < pDep ? lDepasse() : 0);
-      }
-    };
-    const fonce = [], voile = [];
-    remplir(fonce, (boule ? 0.45 : 0.8) * aire / 0.5);
-    remplir(voile, (boule ? 0.35 : 0.3) * aire / 0.5);
-    let dFonce = '', dNoir = '', dClair = '', dVoile = '';
-    for (const [d, mx, my] of fonce) {
-      const lum = -((mx - cx) / rx + (my - cy) / ry) * 0.7;   // > 0 vers le haut à gauche, d'où vient la lumière
-      if (lum > 0.2 && r() < 0.22) dClair += d;
-      else if (lum < -0.25 && r() < 0.4) dNoir += d;
-      else dFonce += d;
-    }
-    for (const [d] of voile) dVoile += d;
-    // le blanc sous la laine : il cache le nid derrière, un peu en retrait des bouts de fils
-    const pts = [];
-    for (let k = 0; k < 64; k++) {
-      const th = k / 64 * 2 * Math.PI, c = Math.cos(th), s = Math.sin(th);
-      const q = R(th) * 0.84 / Math.pow(Math.pow(Math.abs(c), forme) + Math.pow(Math.abs(s), forme), 1 / forme);
-      pts.push([cx + c * rx * q, cy + s * ry * q]);
-    }
-    return [h.chemin(pts, A.blanc, true), h.path(dVoile, fibre(CLAIR, 0.5)), h.path(dFonce, fibre(FONCE, 0.5)),
-      h.path(dNoir, fibre(NOIR, 0.5)), h.path(dClair, fibre(CLAIR, 0.7))].join('\n');
-  };
+  // La laine d'acier : le module partagé avec la feuille d'essai (images/planches-src/_laine-acier.js, façon D). Des fils
+  // de métal fins, longs et presque droits, croisés selon deux directions, avec du jour au travers ; jamais de boucle.
+  const laine = require('./_laine-acier.js')(h);
 
   // La laine qui rougit : de petits traits qui rayonnent autour d'un point.
   const rougit = (x, y, r1, r2, n = 9, graine = 3) => {
@@ -220,26 +130,55 @@ module.exports = (h) => {
   const bout = (pts, nu) => { const [p, q] = [pts[pts.length - 2], pts[pts.length - 1]], L = Math.hypot(q[0] - p[0], q[1] - p[1]); return [q[0] + (q[0] - p[0]) / L * nu, q[1] + (q[1] - p[1]) / L * nu]; };
 
 
-  // Deux bouts de doigts en gros plan (la méthode de la 27-04) : chaque bout est le bout d'un doigt tendu de la main
-  // simple (pose pointe, vue du pouce), qui descend du haut de la vue ; sa pulpe (le point le plus à droite, ou le
-  // plus à gauche, dans les 20 mm du bout) tombe contre un côté de la pile. Le reste de la main sort par le haut.
-  const contourMain = m => {
-    const n = ((String(m.svg).match(/<path d="([^"]+)" fill="#FFFFFF"/) || [])[1] || '').match(/-?\d+(?:\.\d+)?/g) || [];
-    const P = [];
-    for (let i = 0; i + 1 < n.length; i += 2) P.push([+n[i], +n[i + 1]]);
-    return P;
-  };
-  const boutDoigt = (aDroite, ang, e, px, py, cote) => {
-    const o = { pose: 'pointe', vue: 'pouce', cote, echelle: e, angle: ang, ancre: 'bout' };
-    const pulpe = m => contourMain(m).filter(q => Math.hypot(q[0] - m.bout[0], q[1] - m.bout[1]) < 20 * e)
-      .reduce((a, q) => ((aDroite ? q[0] > a[0] : q[0] < a[0]) ? q : a));
-    const m0 = F.mainSimple({ ...o, x: px, y: py }), q = pulpe(m0);
-    return F.mainSimple({ ...o, x: 2 * px - q[0], y: 2 * py - q[1] });
-  };
   const dansVue = (z, id, contenu) => `<clipPath id="${id}"><rect x="0" y="0" width="${f(z.l)}" height="${f(z.h)}"/></clipPath>\n<g clip-path="url(#${id})">\n${contenu}\n</g>`;
 
-  // L'angle qui met l'axe de la prise (l'objet tenu) dans la direction voulue (degrés écran).
-  const poser = (o, dir) => dir - F.mainSimple({ ...o, x: 0, y: 0, angle: 0, avantbras: false }).prise.angle;
+  // ─── Les mains : h.formes.mainStock seulement (brief-agent.md), aucune main dessinée, aucune main déformée ────
+  // Le passage du fichier de la main à la vue, le même que mainStock (ancre : le centre de l'objet du fichier) : il sert
+  // à prolonger l'avant-bras à partir des bords relevés sur le dessin de la main.
+  const CAT = require('../../.claude/skills/planches/scripts/mains/stock.js').catalogue;
+  const versVue = (id, o) => {
+    const Mc = CAT[id], k = o.echelle, sx = o.miroir ? -1 : 1, A0 = [Mc.objet.x, Mc.objet.y];
+    const c = Math.cos((o.angle || 0) * Math.PI / 180), s = Math.sin((o.angle || 0) * Math.PI / 180);
+    return ([px, py]) => { const u = sx * k * (px - A0[0]), v = k * (py - A0[1]); return [o.x + c * u - s * v, o.y + s * u + c * v]; };
+  };
+
+  // La pile dans le poing : 2-13 « poing-cylindre », sans son objet (objet: false) ; la pile est posée sur l'axe de
+  // l'objet, avant la main, ses bornes en bas. Tournée de -114,9° : le cylindre du fichier, incliné de 24,9°, sort du
+  // poing vers le bas, et l'avant-bras part en haut à droite, hors de la vue. Échelle : 3,5 unités du fichier par mm
+  // (le cylindre de 2-13 fait 25 mm de large, la pile 26,5). Sur l'axe, le bord du poing est à 37 unités du fichier du
+  // centre de l'objet, du côté du poing (relevé sur le contour de 2-13) : la pile sort de « sort » unités sous ce bord.
+  const P213 = { id: 'poing-cylindre', angle: -114.9, bord: 37, mm: 3.5 };
+  const poingPile = g => {
+    const echelle = g.k / P213.mm;
+    return F.mainStock({ id: P213.id, objet: false, echelle, angle: P213.angle, x: g.xAxe, y: g.bB - g.sort + P213.bord * echelle });
+  };
+
+  // Les fils dans le poing : 1-09 « poing-manche-debout », en miroir (l'avant-bras part à droite), sans son objet ; les
+  // deux fils passent debout dans le poing, sur l'axe de l'objet. Sur cet axe, le poing va de 47 à 319 unités du
+  // fichier sous le centre de l'objet (relevé sur le contour de 1-09). L'avant-bras continue les bords de la main
+  // jusqu'au bord de la vue, comme dans la 13-08 (le dessus part de (5363,8 ; 440,7), le dessous de (5364,4 ; 639,9),
+  // relevés sur le dessin de 1-09) ; un fond blanc couvre la coupe du fichier.
+  const P109 = { id: 'poing-manche-debout', haut: 47, bas: 319 };
+  const poingFils = (xAxe, yMilieu, echelle, Lc = 10, Lb = 260) => {
+    const o = { id: P109.id, objet: false, miroir: true, echelle, x: xAxe, y: yMilieu - (P109.haut + P109.bas) / 2 * echelle };
+    const m = F.mainStock(o), T = versVue('1-09', o);
+    const dir = (p, d) => { const a = T(p), b = T([p[0] + d[0], p[1] + d[1]]), nn = Math.hypot(b[0] - a[0], b[1] - a[1]); return [a, [(b[0] - a[0]) / nn, (b[1] - a[1]) / nn]]; };
+    const [t1, dt] = dir([5363.75, 440.741], [-52.5, -7.8]), [b1, db] = dir([5364.38, 639.884], [-109.4, 12.7]);
+    const t0 = [t1[0] - dt[0] * 2, t1[1] - dt[1] * 2], b0 = [b1[0] - db[0] * 2, b1[1] - db[1] * 2];
+    let ax = [dt[0] + db[0], dt[1] + db[1]]; const na = Math.hypot(ax[0], ax[1]); ax = [ax[0] / na, ax[1] / na];
+    const w = [t0[0] - b0[0], t0[1] - b0[1]], sc = w[0] * ax[0] + w[1] * ax[1], np = [w[0] - ax[0] * sc, w[1] - ax[1] * sc];
+    const lw = Math.hypot(np[0], np[1]), nv = [np[0] / lw, np[1] / lw], ev = lw * 0.04;
+    const bord = (p0, d, sg) => {
+      const e = [p0[0] + ax[0] * Lc + sg * nv[0] * ev, p0[1] + ax[1] * Lc + sg * nv[1] * ev];
+      return { c1: [p0[0] + d[0] * Lc / 2, p0[1] + d[1] * Lc / 2], c2: [e[0] - ax[0] * Lc / 2, e[1] - ax[1] * Lc / 2], e, fin: [e[0] + ax[0] * Lb, e[1] + ax[1] * Lb] };
+    };
+    const Hd = bord(t0, dt, 1), Bd = bord(b0, db, -1), Q = p => `${f(p[0])} ${f(p[1])}`;
+    const trait = 'fill="none" stroke="#1A1A1A" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"';
+    return [m.svg,
+      h.path(`M ${Q(t0)} C ${Q(Hd.c1)} ${Q(Hd.c2)} ${Q(Hd.e)} L ${Q(Hd.fin)} L ${Q(Bd.fin)} L ${Q(Bd.e)} C ${Q(Bd.c2)} ${Q(Bd.c1)} ${Q(b0)} Z`, A.blanc),
+      h.path(`M ${Q(t0)} C ${Q(Hd.c1)} ${Q(Hd.c2)} ${Q(Hd.e)} L ${Q(Hd.fin)} M ${Q(b0)} C ${Q(Bd.c1)} ${Q(Bd.c2)} ${Q(Bd.e)} L ${Q(Bd.fin)}`, trait),
+    ].join('\n');
+  };
 
   // ─── Les géométries des vues ─────────────────────────────────────────────────────────────────────────
   const vA = z => {
@@ -250,13 +189,17 @@ module.exports = (h) => {
     return { n, tampon, boule };
   };
   const vB = z => {
-    const yG = z.h - 12, w = Math.min(240, z.l * 0.72), H = 62;
+    const yG = z.h - 12, w = Math.min(240, z.l * 0.72), H = 50;
     const n = { cx: Math.round(z.l * 0.44), yG, w, H };
-    const k = 1.55;                                      // unités de vue par mm : la pile, les doigts, la laine à la même échelle
+    const k = 1.55;                                      // unités de vue par mm : la pile et la main à la même échelle
     const L = 48.5 * k, W = 26.5 * k, D = 17.5 * k * 0.5;
-    const bx = n.cx - W / 2 + 6, bB = yG - H - 40;      // la pile, debout, les bornes en bas, posées sur la laine
-    const boule = { cx: n.cx, cy: yG - H - 14, rx: 66, ry: 34 };
-    return { n, k, L, W, D, bx, bB, bT: bB - L, boule };
+    // la boule, presque entière au-dessus du bord du creux (comme la boule de la vue « Préparer la laine ») ; la pile
+    // debout au-dessus, les bornes en bas, qui touchent le dessus de la boule
+    const boule = { cx: n.cx, cy: yG - H - 28, rx: 66, ry: 44 };
+    const bx = n.cx - W / 2 + 6, bB = boule.cy - boule.ry + 8;
+    const xc = bx + W * 0.3;                             // le point qui rougit, sous la borne ronde
+    const xF = bx + W + D + 14;                          // la flèche du geste, à droite de la pile, sous l'avant-bras
+    return { n, k, L, W, D, bx, bB, bT: bB - L, boule, xc, xF, xAxe: bx + (W + D) / 2, sort: 46 };
   };
   const vC = z => {
     const yG = z.h - 10, w = 120, H = 40;
@@ -270,7 +213,7 @@ module.exports = (h) => {
   return {
     ref: '13-10',
     titre: 'La pile et la laine d’acier',
-    desc: 'En haut, la méthode. Un tampon de laine d’acier la plus fine, puis la même laine étirée en boule lâche, grosse comme le poing, posée dans le creux d’un nid de fibres. Une pile de 9 V tenue dans le poing, debout, les deux bornes en bas posées sur la laine, une flèche rouge vers le bas : toucher ; autour du point touché, la laine rougit. En bas, après un filet, les autres façons. Sans pile de 9 V : la batterie de l’auto, un fil attaché à chaque borne ; les fils, coupés d’un trait pour dire qu’ils sont longs, finissent dans deux poings qui les tiennent par la gaine, et leurs bouts nus touchent la laine dans le nid. Sans laine : une mine de crayon posée en travers des deux fils nus, ou un seul brin de fil multibrin tendu d’un fil à l’autre.',
+    desc: 'En haut, la méthode. Un tampon de laine d’acier la plus fine, des fils de métal fins et droits serrés en couches, puis la même laine étirée en boule lâche, grosse comme le poing, posée dans le creux d’un nid de fibres. Une pile de 9 V tenue dans le poing, debout, le bas de la pile qui sort sous le poing, les deux bornes posées sur le dessus de la boule ; à côté, une flèche rouge vers le bas : toucher ; autour du point touché, la laine rougit. En bas, après un filet, les autres façons. Sans pile de 9 V : la batterie de l’auto, un fil attaché à chaque borne ; les fils, coupés d’un trait pour dire qu’ils sont longs, passent dans un poing qui les tient par la gaine, et leurs bouts nus touchent la laine dans le nid. Sans laine : une mine de crayon posée en travers des deux fils nus, ou un seul brin de fil multibrin tendu d’un fil à l’autre.',
     format: 'pleine',
     disposition: [['etirer', 'pile'], ['batterie', 'sanslaine']],
     hauteurs: [1, 1.08],
@@ -304,38 +247,37 @@ module.exports = (h) => {
       pile: {
         titre: 'Toucher avec la pile de 9 V',
         dessin: z => {
-          const g = vB(z), { n, k, L, W, D, bx, bB, bT, boule } = g, out = [];
+          const g = vB(z), { n, k, L, W, D, bx, bB, bT, boule, xc } = g, out = [];
           out.push(h.ligne(0, n.yG, z.l, n.yG, A.arete));
           const N = nid(n.cx, n.yG, n.w, n.H, 5);
           out.push(N.svg);
           out.push(dansLeCreux(N, z, 'creux-1310b', laine(boule.cx, boule.cy, boule.rx, boule.ry, 9, { posee: true })));
           // la laine rougit sous les bornes
-          const xc = bx + W * 0.3;
-          out.push(lueur(xc, bB + 3, 10));
-          out.push(rougit(xc, bB + 3, 6, 15, 10, 5));
+          out.push(lueur(xc, bB + 5, 13));
+          out.push(rougit(xc, bB + 5, 7, 18, 12, 5));
           // la pile : la face avant, la face de droite à l'ombre, les deux bornes en bas
           const pile = [
             h.chemin([[bx + W, bT], [bx + W + D, bT - D * 0.6], [bx + W + D, bB - D * 0.6], [bx + W, bB]], A.ombre, true),
             h.chemin([[bx + W, bT], [bx + W + D, bT - D * 0.6], [bx + W + D, bB - D * 0.6], [bx + W, bB]], A.arete, true),
             h.rect(bx, bT, W, L, blanc(A.contour)),
-            h.ligne(bx + 4, bT + L * 0.3, bx + W - 4, bT + L * 0.3, A.fin),
             // la borne ronde et la borne à six pans
             h.rect(bx + W * 0.2, bB, 4.4 * k, 2.6 * k, blanc(A.arete)),
             h.chemin([[bx + W * 0.62, bB], [bx + W * 0.62 + 5.6 * k, bB], [bx + W * 0.62 + 5.6 * k, bB + 2], [bx + W * 0.62 + 4.6 * k, bB + 2.6 * k], [bx + W * 0.62 + 1, bB + 2.6 * k], [bx + W * 0.62, bB + 2]], blanc(A.arete), true),
           ].join('\n');
-          // la pile pincée par le haut entre deux bouts de doigts (un poing la cacherait presque toute : elle fait 48,5 mm)
+          // la pile tenue dans le poing, le haut dedans, les bornes en bas : la pile d'abord, la main par-dessus
           out.push(pile);
-          const yp = bT + L * 0.22;
-          out.push(dansVue(z, 'doigts-1310', [boutDoigt(true, 84, k, bx - 0.5, yp, 'droite').svg, boutDoigt(false, 96, k * 1.06, bx + W + 0.5, yp, 'gauche').svg].join('\n')));
+          out.push(dansVue(z, 'poing-1310b', poingPile(g).svg));
           // toucher : la flèche du geste
-          out.push(h.geste(`M ${f(bx - 16)} ${f(bB - 42)} L ${f(bx - 16)} ${f(bB - 6)}`));
+          out.push(h.geste(`M ${f(g.xF)} ${f(bB - 40)} L ${f(g.xF)} ${f(bB - 6)}`));
           return out.join('\n');
         },
         renvois: z => {
-          const { bx, bB, W, boule } = vB(z);
+          const { bx, bB, xc, xF } = vB(z);
           return [
-            { n: 4, rond: [bx - 42, bB - 30], cible: [bx - 17, bB - 26], texte: 'poser les deux bornes sur la laine' },
-            { n: 5, rond: [boule.cx + boule.rx + 26, boule.cy + 6], cible: [bx + W * 0.3 + 16, bB + 4], texte: 'elle rougit : le feu avance seul' },
+            { n: 4, rond: [xF + 28, bB - 24], cible: [xF + 1.5, bB - 24], texte: 'poser les deux bornes sur la laine' },
+            // la cible dans les rayons, sous la borne ronde ; le filet descend par la gauche de la pile, là où il traverse
+            // le moins de fils
+            { n: 5, rond: [bx - 38, bB - 18], cible: [xc - 3, bB + 15], texte: 'elle rougit : le feu avance seul' },
           ];
         },
       },
@@ -373,8 +315,7 @@ module.exports = (h) => {
           for (const dx of [-3, 3]) out.push(h.ligne(xc + dx - 5, y - 52, xc + dx + 5, y - 22, A.arete));
           // le poing tient les deux fils par la gaine (le fil d'abord : le blanc du poing le cache dedans) ; l'avant-bras
           // part à droite et sort de la vue
-          const o = { pose: 'prise-corde', vue: 'paume', cote: 'droite', diametre: 12, echelle: 0.8 };
-          out.push(F.mainSimple({ ...o, x: pz[0], y: pz[1], angle: poser(o, 90), avantbras: { bord: { x0: 0, y0: 0, x1: z.l, y1: z.h }, longueur: 'bord', fin: [[z.l, 0], [z.l, z.h]] } }).svg);
+          out.push(dansVue(z, 'poing-1310c', poingFils(pz[0], pz[1], 0.23)));
           return out.join('\n');
         },
         renvois: z => {
