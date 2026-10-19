@@ -766,13 +766,16 @@ def mode_emploi(tome, titre_t, plan):
                "dangers** qui suivent celle-ci.")),
         # les encadrés « En plus » (JP, 18 octobre 2026 : « ajoute-le dans la page d'explication comme pour le orange et
         # le rouge ») : chapitre.css, .extra
-        rang('<span style="display:block;padding:4pt 8pt 5pt;background:#EFF5EA;border-radius:2pt;line-height:1.2">'
-             '<b style="font:700 6pt var(--sans);letter-spacing:.14em;text-transform:uppercase;color:#6F9A64">En plus</b> '
+        # le pictogramme « i » (JP, 19 octobre 2026 : « ajoute-le à la page d'explication »)
+        rang('<span style="display:flex;align-items:center;gap:3pt;padding:4pt 8pt 5pt;background:#EFF5EA;border-radius:2pt;line-height:1.2">'
+             + bc.XICO.replace('class="xico"', 'class="xico" style="width:12pt;height:12pt;flex:none"')
+             + '<b style="font:700 6pt var(--sans);letter-spacing:.14em;text-transform:uppercase;color:#6F9A64">En plus</b> '
              '<b style="font:600 8.8pt var(--sans);color:#2F4A2B">La façon des Innus</b></span>',
              "En plus",
-             p("Une note **vert pâle**, marquée **En plus**, laissée dans le texte, ajoute ce qui est bon à savoir sans être "
-               "nécessaire au geste : une façon de faire des Innus ou d'une autre nation du Nord, un fait, une photo pour "
-               "reconnaître un arbre ou une plante. On peut la sauter sans rien manquer de la procédure.")),
+             p("Une note **vert pâle**, marquée du **i** vert et des mots **En plus**, est une note d'information : ce qui "
+               "est bon à savoir sans être nécessaire au geste, comme une façon de faire des Innus ou d'une autre nation du "
+               "Nord, un fait, une photo pour reconnaître un arbre ou une plante. Elle se pose là où la page a de la place, "
+               "près de l'étape dont elle parle. On peut la sauter sans rien manquer de la procédure.")),
         rang('<span class="md-fn">… la peau prend une tache blanche<sup>1</sup> …</span>',
              "Les notes",
              p("Un signe qu'il faut savoir reconnaître (une couleur, une odeur, un son, un test) est décrit en note, en bas de "

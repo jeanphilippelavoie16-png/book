@@ -384,9 +384,15 @@ def extras_html(s):
         for m in re.finditer(r"étapes? (\d+)(?: (à|et) (\d+))?", " ".join(corps)):
             a, b = int(m.group(1)), int(m.group(3) or m.group(1))
             etapes += list(range(a, b + 1)) if m.group(2) == "à" and 0 <= b - a <= 12 else sorted({a, b})
-        boites.append(f'<div class="{cls}" data-etapes="{" ".join(map(str, etapes))}"><div class="xhead"><span class="xlab">En plus</span> '
+        boites.append(f'<div class="{cls}" data-etapes="{" ".join(map(str, etapes))}"><div class="xhead">{XICO}<span class="xlab">En plus</span> '
                       f'<span class="xtit">{il(x["t"])}</span></div>{fig}<div class="xtxt">{texte}</div></div>')
     return boites
+
+# le pictogramme des encadrés « En plus », en haut à gauche : un « i » blanc dans un carré vert, de la famille des
+# pictogrammes de danger (même carré aux coins ronds), pour dire que c'est une note d'information (JP, 19 octobre
+# 2026 : « ajoute un pictogramme dans le haut gauche du texte vert pour dire que c'est une bulle informative »)
+XICO = ('<svg class="xico" viewBox="0 0 20 20" aria-hidden="true"><rect width="20" height="20" rx="2.8" fill="#6F9A64"/>'
+        '<circle cx="10" cy="5.3" r="1.75" fill="#fff"/><path d="M7.6 8.6h3.6v6.9h1.5v1.6H7.3v-1.6h1.5v-5.3H7.6z" fill="#fff"/></svg>')
 
 def h2(n, title):
     if n is None:

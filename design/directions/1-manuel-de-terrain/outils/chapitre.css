@@ -122,7 +122,8 @@ p.pc .pmarge svg.picto{display:block;width:26pt;height:26pt;margin:0}
    par page (« pas cordés ») */
 .extra{position:relative;display:block;break-inside:avoid;margin:11pt 6pt 9pt;padding:7pt 10pt 8pt;background:#EDF4E6;
   border-radius:3pt;box-shadow:0 3pt 8pt rgba(36,58,30,.22),0 0.7pt 1.8pt rgba(36,58,30,.20)}
-.extra .xhead{margin:0 0 2.5pt;line-height:1.2}
+.extra .xhead{margin:0 0 2.5pt;line-height:1.2;display:flex;align-items:center;flex-wrap:wrap;column-gap:3pt}
+.extra .xico{flex:none;width:10.5pt;height:10.5pt;margin-right:1.5pt}
 .extra .xlab{font:700 6pt/1 "IBM Plex Sans Condensed",sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#6F9A64;margin-right:3pt}
 .extra .xtit{font:600 8.8pt/1.2 "IBM Plex Sans Condensed",sans-serif;color:#2F4A2B}
 .extra .xtxt p{text-indent:0;margin:0 0 2pt;font:400 8.4pt/11pt "IBM Plex Sans Condensed",sans-serif;color:#31452C}
