@@ -268,7 +268,14 @@ def _proteger(fond, couche, info):
         ouvert = ndi.grey_opening(L, size=(t, t))
         cand = ((L - ouvert) > 12) & (ouvert < 80)
         lab, _ = ndi.label(cand)
-        miettes = np.isin(lab, np.unique(lab[pris & cand])) & (lab > 0)
+        # les miettes que le nettoyage prend : petites (ses critères), et sous ce qu'il a changé ; jamais un trait
+        # entier (un trait fin est tout entier « candidat », mais trop long pour être pris)
+        taille = np.bincount(lab.ravel())
+        objets = ndi.find_objects(lab)
+        ids = [i for i in np.unique(lab[pris & cand]) if i > 0 and taille[i] <= (0.12 * ppp) ** 2 and
+               objets[i - 1][0].stop - objets[i - 1][0].start <= 0.25 * ppp and
+               objets[i - 1][1].stop - objets[i - 1][1].start <= 0.25 * ppp]
+        miettes = np.isin(lab, ids)
         if not miettes.any():
             break
         couche = np.where(miettes, np.minimum(couche, ndi.grey_opening(couche, size=(t, t))), couche)
