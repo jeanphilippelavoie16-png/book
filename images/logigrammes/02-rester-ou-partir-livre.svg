@@ -11,7 +11,7 @@
 <path d="M147.60,180.70 L147.60,182.36" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
 <path d="M147.60,240.76 L147.60,246.44" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
 <path d="M147.60,317.14 L147.60,322.76" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
-<path d="M147.60,381.16 L147.60,386.84" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M147.60,385.16 L147.60,386.84" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
 <path d="M409.50,111.70 L409.50,124.76" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
 <path d="M409.50,178.86 L409.50,188.84" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
 <path d="M309.60,259.54 L309.60,461.46" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
@@ -59,12 +59,14 @@
 <text data-max="206.70" x="45.00" y="306.99" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">le SOS.</tspan></text>
 <rect x="201.36" y="304.89" width="58.59" height="13.00" fill="#EE7219"/>
 <text x="206.36" y="314.44" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="8.5" fill="#000" xml:space="preserve" data-max="50.09">ch. 2, étape 4</text>
-<rect x="36.00" y="329.76" width="223.20" height="51.40" rx="0" fill="#FDE8D8" stroke="#EE7219" stroke-width="1.5"/>
-<text data-max="206.70" x="45.00" y="346.41" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">Couper la source</tspan><tspan font-weight="500">, si on sait laquelle : un adulte</tspan></text>
-<text data-max="206.70" x="45.00" y="358.71" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">sans symptômes y va. Ouvrir les portes de</tspan></text>
-<text data-max="206.70" x="45.00" y="371.01" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">l’extérieur.</tspan></text>
-<rect x="182.08" y="368.91" width="77.87" height="13.00" fill="#EE7219"/>
-<text x="187.08" y="378.46" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="8.5" fill="#000" xml:space="preserve" data-max="69.37">ch. 2, étapes 5 et 6</text>
+<rect x="36.00" y="329.76" width="223.20" height="55.40" rx="0" fill="#FDE8D8" stroke="#EE7219" stroke-width="1.5"/>
+<text data-max="206.70" x="45.00" y="350.41" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">Couper la source</tspan><tspan font-weight="500">, si on sait laquelle : un adulte</tspan></text>
+<text data-max="206.70" x="45.00" y="362.71" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">sans symptômes y va. Ouvrir les portes de</tspan></text>
+<text data-max="206.70" x="45.00" y="375.01" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">l’extérieur.</tspan></text>
+<rect x="182.08" y="372.91" width="77.87" height="13.00" fill="#EE7219"/>
+<text x="187.08" y="382.46" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="8.5" fill="#000" xml:space="preserve" data-max="69.37">ch. 2, étapes 5 et 6</text>
+<rect x="44.00" y="322.76" width="61.05" height="14.00" fill="#EE7219"/>
+<text x="49.00" y="332.96" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="9" fill="#000" xml:space="preserve" data-max="52.55">[À VÉRIFIER]</text>
 <rect x="36.00" y="393.84" width="223.20" height="63.70" rx="0" fill="#FDE8D8" stroke="#EE7219" stroke-width="1.5"/>
 <text data-max="206.70" x="45.00" y="410.49" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">Rentrer seulement quand l’avertisseur, laissé à</tspan></text>
 <text data-max="206.70" x="45.00" y="422.79" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">l’intérieur, est revenu à la normale.</tspan><tspan font-weight="500"> Ne rien</tspan></text>
@@ -160,8 +162,8 @@
 <text data-max="215.58" x="892.92" y="389.35" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">vêtements de rechange pour chacun à portée de</tspan></text>
 <text data-max="215.58" x="892.92" y="401.65" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">main. Prendre la trousse et les papiers. Prévenir</tspan></text>
 <text data-max="215.58" x="892.92" y="413.95" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">des proches et prévoir deux chemins. L’hiver,</tspan></text>
-<text data-max="215.58" x="892.92" y="426.25" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">vidanger la maison. Écrire « PARTIS » sur la porte et</tspan></text>
-<text data-max="215.58" x="892.92" y="438.55" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">faire le plein.</tspan></text>
+<text data-max="215.58" x="892.92" y="426.25" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">vidanger le bâtiment qu’on quitte. Écrire « PARTIS »</tspan></text>
+<text data-max="215.58" x="892.92" y="438.55" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">sur la porte et faire le plein.</tspan></text>
 <rect x="1032.54" y="436.45" width="84.21" height="13.00" fill="#EE7219"/>
 <text x="1037.54" y="446.00" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="8.5" fill="#000" xml:space="preserve" data-max="75.71">ch. 2, étapes 16 à 24</text>
 <rect x="891.92" y="349.40" width="21.63" height="14.00" fill="#EE7219"/>

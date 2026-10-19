@@ -75,6 +75,14 @@ Ligne 6332 : « A few minutes suffice to repair an apparently alarming hole. »
 > « La veille des longs trajets, il fallait avertir tout le monde de bien sécher leurs bas et leurs mocassins. »
 > (Marie-Clara Jourdain)
 
+Même page, sur la truite fumée (ajouté le 19 octobre 2026, pour la condition « jusqu'à ce qu'elles soient bien
+sèches » de la note, demandée par la vérification technique) :
+
+> « Pour conserver la truite le plus longtemps possible, les Innus la fumaient en utilisant une vieille souche
+> d'épinette, une technique éprouvée qui permettait au poisson de se conserver, bien sec, le temps nécessaire. »
+
+> « En cas de pluie, tous les moyens étaient bons pour garder ce poisson au sec. »
+
 ### Le partage (note « Le partage au campement d'automne », étape 39)
 
 > « Aussitôt sa tente montée, l'Innu partait à la chasse pour en revenir, tard dans la nuit, avec, très souvent, des

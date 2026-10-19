@@ -21,8 +21,11 @@
 > « Chaque printemps, l'eau douce du fleuve Saint-Laurent, du Saguenay et d'autres cours d'eau se trouvant près des
 > côtes vient se mélanger aux eaux du Golfe, produisant une couche de surface plus chaude »
 
-**Calcul du chapitre :** 1 000 g ÷ 29 g/L = 34,5 L ; 1 000 g ÷ 27 g/L = 37,0 L, écrit « de 35 à 37 L d'eau pour
-1 kg de sel ». Le résidu est l'ensemble des sels dissous, pas du chlorure de sodium pur, ce que la même phrase du
+**Calcul du chapitre :** 1 000 g ÷ 29 g/L = 34,5 L ; 1 000 g ÷ 27 g/L = 37,0 L, écrit « au moins 34 à 37 L d'eau
+pour 1 kg de sel » (corrigé le 19 octobre 2026 après la vérification technique : d'abord écrit « de 35 à 37 L »).
+Les 27 à 29 g/L comptent tous les sels dissous : c'est un plafond de rendement, et il faut plus d'eau dès qu'on
+écarte les premiers ou les derniers dépôts (`sources/13-universite-laval-salinite-saint-laurent.md`, « Ce que la
+fiche permet d'écrire »). Même forme qu'au ch. 76 (« au moins 34 à 37 L »). Le résidu est l'ensemble des sels dissous, pas du chlorure de sodium pur, ce que la même phrase du
 chapitre dit déjà (chlorures de magnésium et de calcium).
 
 ## 2. Note « Le gras fondu, chez les Naskapis »
@@ -59,7 +62,9 @@ chapitre dit déjà (chlorures de magnésium et de calcium).
     et en les passant l'un dans l'autre ; une fois sec, le raccord ne se voit presque plus.
 - **À savoir :** la même fiche note que la babiche d'orignal jugée faible contredit le ch. 103 (ancien 80), qui
   bâtit sa babiche sur la peau d'orignal (`suivi/idees-savoirs-autochtones.md`, section 4.3). La note du ch. 9 ne
-  parle que du laçage des raquettes.
+  parle que du laçage des raquettes ; depuis la vérification technique du 19 octobre 2026, elle dit ce que ça
+  change au lecteur (surveiller l'usure d'un laçage d'orignal, ch. 103), et la fin de la phrase de Nametau innu
+  (« une fois sec, le raccord ne se voit presque plus ») sort de la note, pour la tenir sous 80 mots.
 
 ## 4. Note « Combien de temps on garde une pile »
 

@@ -344,12 +344,12 @@ dans cette fiche n'ont pas été rouverts ; seul ce qui est nouveau a été cher
 | 19 (dans l'auto, sous la laine) | `feu-de-foret` | Laine sèche, sous le niveau des vitres, moteur coupé quand le feu est proche ; rester dans l'auto |
 | 33 (les sorties des enfants) | `feu-de-foret` | 30, 100, 250 µg/m³ ; les N95 ne protègent pas un enfant |
 | 39 (le tour à pied au retour) | `electrocution` | Faire le tour avant d'entrer ; ne jamais marcher vers un fil tombé |
-| 40 (l'arbre brûlé) | `ecrasement` | Un tronc brûlé à la base tient jusqu'au premier vent ; le tirer à distance, hors de l'axe de chute |
-| 45 (le soir du retour) | `generatrice` | 6 m ; jamais dans la maison, le garage, la remise ni sous un auvent |
+| 40 (l'arbre brûlé) | `ecrasement`, `projection` (ajouté le 19 octobre, après la vérification technique) | Un tronc brûlé à la base tient jusqu'au premier vent ; le tirer à distance, hors de l'axe de chute ; l'arbre encroué et le bois sous tension sont à la page `projection` |
+| 45 (le soir du retour) | `generatrice`, `electrocution` (ajouté le 19 octobre) | 6 m ; jamais dans un bâtiment, un garage, une remise ni sous un auvent ; disjoncteur principal à OFF, appareils branchés directement sur la génératrice |
 | 49 (du mur à 1,5 m) | `feu-de-foret` | Les braises tombent dans ce qui est fin, sec et aéré contre le mur |
 | Section 7, « Tirer un arbre en travers du chemin » | `projection` | Chicot sous tension qui casse au lieu de pivoter ; le faire pivoter à l'auto |
 | Section 7, « Le ventilateur chauffe » | `incendie` | Près de 60 °C au moteur avec un filtre chargé ; un ventilateur d'avant 2012 ne tourne pas la nuit ni sans adulte éveillé |
-| Section 7, « Le filtre n'arrête pas le monoxyde » | `co` | La pièce d'air propre ne protège pas du monoxyde d'une flamme dans le chalet fermé |
+| Section 7, « Le filtre n'arrête pas les gaz » | `co` | Le filtre n'arrête ni les gaz de la fumée du feu ni le monoxyde ; la pièce d'air propre ne protège pas du monoxyde d'une flamme dans le chalet fermé |
 
 `ecrasement`, `projection` et `incendie` sont nouveaux pour le ch. 11 : à ajouter à la colonne « Chapitres » de
 `plan/dangers-inventaire.md`, section 1 (rendu à l'orchestrateur). Le point chaud de l'étape 26 n'a pas de
@@ -411,10 +411,10 @@ Aucun dans le texte.
 
 | Note | Genre | Étape | Mots | Provenance |
 | --- | --- | --- | --- | --- |
-| Sept-Îles, juin 2023 | Fait | 6 | 77 | Radio-Canada, 2 juin 2024 (`00-cote-nord-…`) |
+| Sept-Îles, juin 2023 | Fait | 6 | 72 (corrigé le 19 octobre) | Radio-Canada, 2 juin 2024 (`00-cote-nord-…`) |
 | Les autos de Lara, 1969 | Fait | 19 | 45 | CFA (`11-cfa-pris-par-le-feu.md`) |
 | Le brûlage de printemps des Cris et des Dénés | Façon d'une autre nation du Nord : pourquoi elle marche (la neige en lisière comme coupe-feu, le feu bas), ce qui la rend dangereuse si on change ses conditions (l'été, l'humus sec) | 56 | 80 | Christianson et al. 2022 (`99-bleuetiere-…`, section 2). Aucune source ne décrit un brûlage innu sur la Côte-Nord |
-| Les bleuets du brûlis | Fait | 46 | 57 | Nouveau-Brunswick, A.5.0 et A.2.0 (`99-bleuetiere-…`, section 1) |
+| Les bleuets du brûlis | Fait | 46 | 62 (corrigé le 19 octobre) | Nouveau-Brunswick, A.5.0 et A.2.0 (`99-bleuetiere-…`, section 1) |
 | Reconnaître la pessière à cladonie | Photo | 14, 55, 57 | 44 | Wikimedia Commons, « Grands-Jardins NP 09 », LBM1948, CC BY-SA 4.0 (`11-en-plus-notes-et-photo.md`) ; `images/extras/11-pessiere-a-cladonie.jpg` |
 
 ### controle.py, avant et après

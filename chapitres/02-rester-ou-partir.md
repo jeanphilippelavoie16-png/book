@@ -55,7 +55,7 @@ la nausée ou des étourdissements en même temps, avec ou sans alarme.
  les chambres.
 2. **Compter les gens dehors, à voix haute.** S'il manque quelqu'un, ouvrir grand la porte en restant dehors. Puis
  un adulte qui n'a ni mal de tête ni nausée doit aller le chercher en marchant, droit à lui, et ressortir avec lui.
-3. **Mettre les enfants à l'abri du froid avec un adulte** : à la maison, chez un voisin ; au chalet, dans l'auto.
+3. {!co} **Mettre les enfants à l'abri du froid avec un adulte** : à la maison, chez un voisin ; au chalet, dans l'auto.
  Avant de démarrer le moteur, dégager le tuyau d'échappement à la pelle, jusqu'au sol, et entrouvrir une fenêtre du
  côté opposé au vent. Faire tourner le moteur une dizaine de minutes par période de 30 minutes, et dégager
  l'échappement de nouveau avant chaque redémarrage : la neige que le vent accumule derrière l'auto bouche de nouveau
@@ -64,6 +64,11 @@ la nausée ou des étourdissements en même temps, avec ou sans alarme.
  qui se réveille mal, qui est confuse ou qui perd connaissance : sa vie est en jeu. La coucher sur le côté si elle
  respire, ne plus la quitter des yeux, et déclencher le SOS de la messagerie satellite ou la balise (ch. 14). Si elle
  ne respire plus normalement : ch. 26, étape 11.
+
+[^1]: Chez certains fabricants, la série revient toutes les 5 secondes. L'alarme de fumée, elle, fait trois bips longs. Un bip seul toutes les 30 secondes ou toutes les minutes annonce une pile faible ; un groupe de deux à cinq bips à la même cadence, la fin de vie de l'appareil. Ces deux signaux ne sont pas des alarmes. Un appareil en fin de vie ne mesure plus de façon fiable.
+
+### Tout le monde est dehors : couper la source et rentrer {.orange [À VÉRIFIER]}
+
 5. **Couper la source, si on sait laquelle et qu'on l'atteint en quelques secondes.** Y envoyer une personne qui n'a
  pas eu mal à la tête ; elle doit y aller en marchant.
  - Génératrice dehors : l'arrêter, puis l'éloigner (étape 9).
@@ -75,13 +80,11 @@ la nausée ou des étourdissements en même temps, avec ou sans alarme.
 7. **Rentrer quand la source est coupée, la maison aérée et l'avertisseur revenu à la normale** : son voyant clignote
  seul, sans son. S'il sonne encore, appuyer sur le bouton de l'avertisseur en passant, et ressortir : s'il se remet à
  sonner dans les 6 minutes, le CO est encore fort. Sur un avertisseur à affichage, un chiffre, quel qu'il soit, veut
- dire qu'il reste du CO. L'avertisseur ne fonctionne pas sous 4,4 °C : si la maison aérée est descendue plus bas,
- refermer et laisser la pièce remonter avant de se fier à son silence.
+ dire qu'il reste du CO. L'avertisseur n'est fait pour fonctionner qu'au-dessus de 4,4 °C : si la maison aérée est
+ descendue plus bas, refermer et laisser la pièce remonter avant de se fier à son silence.
 8. **Ne rien rallumer avant d'avoir réglé ce qui a fait le CO** (pour un conduit bouché par la neige ou le givre :
  ch. 84). Si la source était le chauffage, l'horloge de la chaleur vient de raccourcir : reprendre la décision à
  l'étape 25.
-
-[^1]: Chez certains fabricants, la série revient toutes les 5 secondes. L'alarme de fumée, elle, fait trois bips longs. Un bip seul toutes les 30 secondes ou toutes les minutes annonce une pile faible ; un groupe de deux à cinq bips à la même cadence, la fin de vie de l'appareil. Ces deux signaux ne sont pas des alarmes. Un appareil en fin de vie ne mesure plus de façon fiable.
 
 ### On reste : la première heure {.orange 1 h}
 
@@ -110,7 +113,8 @@ tôt que prévu, l'essentiel est fait.
 18. **Prévenir des proches** : le nombre de personnes à bord, l'heure de départ, la destination et le chemin pris.
  Sans ce message, personne ne sait qu'il manque quelqu'un, ni où chercher.
 19. **Prévoir deux chemins** : un feu, la neige ou un pont fermé peuvent bloquer une route sans prévenir.
-20. **L'hiver, vidanger la maison.** Compter une heure (le détail : ch. 3).
+20. **L'hiver, vidanger le bâtiment qu'on quitte.** Compter une heure (le détail : ch. 3 pour la maison, ch. 84 pour
+ le chalet).
  - Fermer l'entrée d'eau.
  - Ouvrir tous les robinets, d'eau chaude et d'eau froide, et tirer la chasse de chaque toilette une dernière fois.
  - Vidanger les calorifères, les bouilloires et les réservoirs d'expansion du chauffage à eau chaude.
@@ -141,8 +145,9 @@ tôt que prévu, l'essentiel est fait.
  degrés par heure : une maison qui perd 4 °C à l'heure laisse quatre fois moins de temps qu'une maison qui en perd 1,
  même quand les deux affichent la même température.
  - La pente des premières heures est la plus forte. Dans des maisons sans chauffage mesurées par environ −8 °C
- dehors, l'air est passé de 20 à 14 °C dans les premières heures, puis il a baissé beaucoup plus lentement : le
- béton, le gypse, les meubles et la terre autour du sous-sol rendent leur chaleur lentement. Plus il fait froid
+ dehors, l'air est passé de 20 à 14 °C dans les premières heures, puis il a baissé beaucoup plus lentement : l'écart
+ avec le dehors avait diminué, et le béton, le gypse, les meubles et la terre autour du sous-sol rendent leur chaleur
+ lentement. Plus il fait froid
  dehors, plus la maison perd vite. Refaire la mesure à chaque reprise de la décision (étape 43).
  - À la maison chauffée à l'électricité, l'horloge de la chaleur est cette pente. Au chalet, on la compte en jours
  de bois sec qu'on peut aller chercher sans machine, au rythme où on chauffe (ch. 83).
@@ -202,7 +207,7 @@ tôt que prévu, l'essentiel est fait.
 
 37. {!feu-de-foret} **Devant un feu de forêt, rester au chalet seulement si le pourtour a été dégagé d'avance**, en
  trois zones : de 0 à 1,5 m, rien qui brûle ; de 1,5 à 10 m, aucune corde de bois ; de 10 à 30 m, des conifères
- espacés d'au moins 3 m et élagués jusqu'à 2 m du sol (ch. 82). Sans ces trois zones, un chalet dans une forêt
+ espacés d'au moins 3 m entre les cimes et élagués jusqu'à 2 m du sol (ch. 11, étapes 49 à 56). Sans ces trois zones, un chalet dans une forêt
  serrée d'épinettes noires ne se défend pas : partir tôt, avant que le feu ou la fumée ferment le chemin. À la
  maison, décider selon l'avance du feu vers la ville (ch. 11).
 38. **Devant une fumée sans feu visible, rester dedans, les portes et les fenêtres fermées, l'air recirculé ou
@@ -247,9 +252,8 @@ tôt que prévu, l'essentiel est fait.
 45. {!froid} {!co} **Si l'auto reste prise, rester dans l'auto.** Ne pas partir à pied chercher de l'aide : l'auto
  coupe le vent, et on la voit de loin. Allumer les feux de détresse, et la lumière intérieure la nuit pour être vu ;
  bouger pour ne pas s'endormir. Faire tourner le moteur et dégager l'échappement comme à l'étape 3. N'allumer ni
- chandelle ni réchaud dans l'auto : leur flamme fait du monoxyde, qui monte vite dans un si petit volume. La flamme
- d'une chandelle ne change pas devant le CO : elle ne jaunit et ne fume que quand l'oxygène manque. Pour garder la
- chaleur et sortir l'auto de la neige : ch. 15.
+ chandelle ni réchaud dans l'auto : leur flamme fait du monoxyde, qui monte vite dans un si petit volume. Pour garder
+ la chaleur et sortir l'auto de la neige : ch. 15.
 
 ---
 
@@ -268,7 +272,7 @@ tôt que prévu, l'essentiel est fait.
 | Avant de charger | Refroidissement éolien annoncé | Au-dessus de −28 | Plus froid : compter le temps de gel de la peau (étape 34) |
 | Avant de charger | Carburant | Plein | Faire le plein d'abord, ou rester |
 | Avant de charger | Clarté qui reste et durée du trajet | Arrivée avant la nuit | Rester, sauf devant un feu ou une urgence médicale |
-| Avant de quitter la maison l'hiver | Plomberie vidangée, antigel versé | Tous les appareils, de 0,5 à 2 L selon l'appareil | Pas le temps de tout faire : fermer l'entrée d'eau et ouvrir les robinets d'abord, verser l'antigel dans les renvois ensuite |
+| Avant de quitter le bâtiment l'hiver | Plomberie vidangée, antigel versé | Tous les appareils, de 0,5 à 2 L selon l'appareil | Pas le temps de tout faire : fermer l'entrée d'eau et ouvrir les robinets d'abord, verser l'antigel dans les renvois ensuite |
 | En route, aux 30 min | Chacun parle, répond, bouge | Réponses cohérentes de tous | Un des signes de l'étape 40 : premier abri chauffé (ch. 25) |
 | Auto immobilisée | Échappement, fenêtre, moteur | Échappement dégagé ; fenêtre entrouverte du côté opposé au vent ; moteur une dizaine de minutes par période de 30 minutes | Échappement bouché qu'on ne peut pas dégager : couper le moteur |
 | Deux fois par jour | Les quatre horloges et la décision | Quatre horloges remesurées, décision reprise | Pas de mesure neuve : remesurer avant de garder la décision de la veille |
@@ -316,7 +320,8 @@ route est peut-être coupée et personne ne sait qu'on est là.
 ### Savoir, quand plus rien n'arrive
 
 - **Sans radio à piles** : écouter la radio de l'auto, moteur coupé, par tranches de quelques minutes, en alternant
- avec l'éclairage pour ménager la batterie (une batterie qu'on vide gèle : « Faire démarrer l'auto », plus bas). Un
+ avec l'éclairage pour ménager la batterie (une batterie qu'on vide gèle plus facilement : « Faire démarrer l'auto »,
+ plus bas). Un
  fil de cuivre lancé dans un arbre et enroulé sur le brin d'antenne allonge la portée. La bande AM porte beaucoup
  plus loin après le coucher du soleil qu'à midi : on capte parfois à 22 h une station qu'on n'entendait pas à 14 h.
  Essayer le jour et le soir.
@@ -368,8 +373,9 @@ congélateur vidé en une journée de cuisson donne des repas froids pour les jo
  près du poêle et la remonter juste avant de partir suffit souvent. Une fois rentrée, elle peut aussi éclairer la
  maison, mais elle ne fera pas les deux : le démarrage passe avant. Une batterie qu'on vide gèle plus facilement :
  pleine, elle gèle vers −69 °C ; chargée à 40 %, vers −15 °C ; à 20 %, vers −7 °C.
-- {!projection} **Avant de survolter ou de charger une batterie à plat, la regarder** : si ses parois sont bombées,
- ondulées ou fendues, elle a gelé. Ne pas la survolter ni la charger avant de l'avoir dégelée au chaud.
+- {!projection} **Avant de survolter ou de charger une batterie à plat, la regarder.** Si ses parois sont bombées,
+ ondulées ou fendues, elle a gelé : ne plus la survolter ni la charger, même une fois dégelée. Une batterie gelée aux
+ parois intactes doit dégeler au chaud avant qu'on la survolte ou qu'on la charge.
 - Brancher deux batteries **en parallèle** pour démarrer : le plus avec le plus, le moins avec le moins. En série,
  les 12 V deviennent 24 V, de quoi souder, et l'électronique de l'auto grille. La batterie de la motoneige, de la
  génératrice ou du chalet fait l'affaire, en parallèle.
@@ -433,8 +439,8 @@ qui fait beaucoup de fumée attire aussi l'attention d'un avion (section 7, « S
 
 ### Les Innus, en petits groupes sur le territoire
 
-Jusqu'aux années 1950, les Innus passaient neuf mois par année sur le territoire, en groupes de trois à cinq couples
-avec leurs enfants. Ces groupes ne se réunissaient en grand nombre que peu de temps, aux endroits où la nourriture
+Jusqu'aux années 1950, les Innus du Labrador passaient neuf mois par année sur le territoire, en groupes de trois à
+cinq couples avec leurs enfants. Ces groupes ne se réunissaient en grand nombre que peu de temps, aux endroits où la nourriture
 abondait. Le groupe tenait parce que chacun y apportait son savoir-faire et son travail. Une famille de deux adultes
 seuls au chalet n'a pas cette relève (étape 32 ; ch. 18).
 

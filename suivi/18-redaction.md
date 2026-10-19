@@ -501,3 +501,11 @@ le nouveau, « de tout bâtiment » (étape 6), porte le sens. **Invariant signa
 note retirée ; la règle des 2 heures reste à l'étape 15, à la section 5 et à la section 7.
 
 **Chiffres** : aucun chiffre nouveau. Le 6 m change de référence (de tout bâtiment) sans changer de valeur ni de source.
+
+## Décisions de JP, 19 octobre 2026
+
+- Deux planches à dessiner, appelées dans la section 7 : 18-01, la crémaillère pour cuire dehors (deux fourches
+  plantées, une barre, des crochets de branche à différentes hauteurs, la marmite montée ou descendue d'un cran, le feu
+  bas sur des braises, le mur de neige du côté du vent) ; 18-02, refroidir la marmite dans une auge de neige (l'auge
+  dans la neige tassée, des plats larges et plats couchés dedans, une couche mince, la neige mouillée remplacée par de
+  la neige sèche, un panneau lesté par-dessus). Ancres à poser au montage.

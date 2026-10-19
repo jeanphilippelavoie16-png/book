@@ -223,7 +223,7 @@ Les Naskapis de l'Ungava faisaient fondre le gras du caribou dans un chaudron, s
 
 ### La babiche des raquettes, chez les Innus
 
-Pour lacer les raquettes, des Innus du Labrador prennent la peau de caribou, verte et non tannée, grattée puis tendue au piquet pour qu'elle gèle mouillée ; la peau de phoque bien grattée dure aussi. Ils jugent la babiche d'orignal peu résistante : elle ne dure pas comme celle du caribou. Pour abouter deux bouts, on fait une fente dans chacun et on les passe l'un dans l'autre ; une fois sec, le raccord ne se voit presque plus.
+Pour lacer les raquettes, des Innus du Labrador prennent la peau de caribou, verte et non tannée, grattée puis tendue au piquet pour qu'elle gèle mouillée ; la peau de phoque bien grattée dure aussi. Ils jugent la babiche d'orignal peu résistante : elle ne dure pas comme celle du caribou. Sur une raquette lacée à l'orignal (ch. 103), il faut surveiller l'usure du laçage. Pour abouter deux bouts, on fait une fente dans chacun et on les passe l'un dans l'autre.
 
 ### Reconnaître une pile qui a coulé
 

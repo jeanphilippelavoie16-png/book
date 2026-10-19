@@ -288,7 +288,8 @@ function pour(f, q, p){
     let k = 0;
     if(q[0] && q[0].classList && q[0].classList.contains('cont')) k = 1;
     while(q[k] && q[k].classList && q[k].classList.contains('fig')) k++;
-    const t0 = k; while(q[k] && estTitre(q[k])) k++; if(k > t0) k++;
+    // après un intertitre et son premier paragraphe, mais jamais dans la section suivante (titre de section h2)
+    const t0 = k; while(q[k] && estTitre(q[k]) && q[k].tagName !== 'H2') k++; if(k > t0) k++;
     // la note ne coupe pas la liste d'une étape : elle vient après ses puces
     for(let n = 0; n < 10 && q[k] && q[k].tagName === 'P' && q[k].classList.contains('li') && !q[k].querySelector('.sn'); n++) k++;
     q.splice(k, 0, attenteNotes.shift());

@@ -231,7 +231,7 @@ est trop tard pour dire non.
 {!co} Sans avertisseur qui marche, on ne fait du feu à l'intérieur que dans le poêle raccordé à sa cheminée, et on
 cuisine dehors, sur un feu bas et des braises, derrière un mur de neige tassée du côté du vent. À douze, les marmites
 sont lourdes : on plante deux branches fourchues, on pose une barre dessus et on y pend des crochets de branche à
-différentes hauteurs. On monte ou on descend la marmite d'un cran au lieu de la soulever. Une personne nommée doit
+différentes hauteurs (planche 18-01). On monte ou on descend la marmite d'un cran au lieu de la soulever. Une personne nommée doit
 aérer le chalet par deux ouvertures opposées, quelques minutes, à heures fixes (étape 8).
 
 ### Cuire au bouilli, sans thermomètre
@@ -255,7 +255,7 @@ Quand il reste de la marmite malgré tout, on la refroidit en couche mince : sur
 sa chaleur au centre pendant des heures. On creuse une auge dans la neige tassée et on y couche ce qu'on a de plus
 large et de plus plat : plats à rôtir, tôles, couvercles de chaudières, gamelles. On y verse une couche mince, on
 brasse deux ou trois fois, et on remplace la neige mouillée par de la neige sèche à mesure qu'elle fond : de la neige
-fondue autour d'un plat fait un bain tiède. On pose un panneau lesté par-dessus, contre les animaux. La règle des
+fondue autour d'un plat fait un bain tiède. On pose un panneau lesté par-dessus, contre les animaux (planche 18-02). La règle des
 2 heures hors du froid (étape 15) vaut sur la galerie comme sur le comptoir. L'été, sans neige ni glace, on cuit pour
 un seul repas.
 

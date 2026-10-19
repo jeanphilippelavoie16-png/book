@@ -647,3 +647,73 @@ peuvent bouger.
   ×3, ch. 77 (ils suivaient des phrases redites ou sorties ; chacun reste au moins une fois : ch. 19 étape 40, ch. 2
   étape 28, ch. 3 étape 31, ch. 35 étapes 3, 10, 14, ch. 77 étape 47) ; note [^2] (page `mal-de-caribou`) ; cadmium
   2 → 1 (dit une fois, étape 45).
+
+## Corrections après la vérification technique, 19 octobre 2026
+
+Rapport du vérificateur relayé par l'orchestrateur (18 points : 6 « erreur », 12 « à préciser »). Consigne de JP relayée
+avec la commande (« fuck les sources, on a pas déjà fait ce travail-là ? ») : **aucune recherche nouvelle sur le web**.
+Chaque correction s'appuie sur un chapitre du livre, une page des dangers ou un fichier déjà dans `sources/`. Fichiers
+touchés : `chapitres/16-le-voisinage-et-le-groupe-de.md` (CRLF gardé : 0 LF seul), `images/logigrammes/16-sortir-un-blesse.json`
+et ses rendus (`.svg`, `.pdf`, `.png`, `-livre.svg` ; contrôle 0 erreur, 0 avis les deux fois ; regardé à l'image),
+`sources/16-en-plus-extraits-autochtones.md` (deux extraits ajoutés). Aucune étape renumérotée ; aucune ancre de planche
+touchée.
+
+### Appliqués
+
+| # | Point du vérificateur | Ce qui est écrit maintenant | Appui |
+| --- | --- | --- | --- |
+| 1 | Étape 11 : le blessé dans un sac fermé, en canot | « Ouvrir le sac de couchage et le poser sur lui comme une couverture, les bras dehors : le sac fermé sur ses bras l'entraîne au fond si le canot chavire. » Étape 13 : « refermer le sac, sauf en canot (étape 11) », pour ne pas le faire refermer à la halte. Logigramme, « L'emballer » : « En canot, laisser le sac ouvert, les bras dehors. » | Page `eau-froide` (« un sac de couchage fermé sur les bras ») ; ch. 89 |
+| 2 | Section 6, génératrice rentrée : « remettre la génératrice dehors » | « Y aller tout de suite et faire sortir les gens de la maison à l'air libre. Arrêter la génératrice si on peut l'atteindre sans rester à l'intérieur, et la remettre en marche seulement dehors (étape 31) » | Page `co`, « Ce qu'on fait », points 2 et 3 (« si on peut l'atteindre sans rester à l'intérieur » repris mot pour mot) |
+| 3 | Étape 13 : « s'il est bien éveillé » | « que s'il est bien éveillé et avale bien (ch. 25, étape 10) » | Ch. 25, étape 10 ; page `froid`, point 5 |
+| 4 | Section 7, le travois : NON RETROUVÉ | « *L'été, sans neige.* [À VÉRIFIER] Tirer le même cadre en travois… ». Gardé plutôt que coupé : le travois est dans la liste que JP a donnée pour l'été (plan de match, PAUSE du 15 octobre, point 2). Aucun fichier de `sources/` n'en parle (recherche dans `sources/`, et dans le texte du FM 21-76 déjà au dossier : rien). À lever ou couper avant l'impression : question à JP | Aucun |
+| 5 | Étape 3 et logigramme : « ch. 14, étapes 14 et 15 » | « (ch. 14, étapes 5 et 6) » ; source du nœud « Donner l'alerte » mise à jour | Ch. 14 refait : étape 5 (avertir le correspondant), étape 6 (l'ordre du message) |
+| 6 | Étape 12 et logigramme : « ch. 14, étape 15 » et « étape 13 » | « (ch. 14, étapes 6 et 8) » ; « (ch. 14, étape 26) » ; source du nœud « Chaque heure » : « étapes 12 et 13 ; ch. 14, étapes 8 et 26 » | Ch. 14 refait : étape 8 (le message suivant à l'heure annoncée), étape 26 (l'heure fixée d'avance) |
+| 7 | Étapes 3 et 5 : le SOS que le ch. 14 fait déclencher, puis rester sur place | Étape 3 : « Si la vie du blessé est en jeu (il respire mal, saigne sans qu'on arrive à l'arrêter, se réveille mal ou devient confus) et qu'on a un appareil satellite ou une balise, déclencher le SOS sans attendre (ch. 14, étapes 1 et 2). Sinon, … » (sans appareil, on passe au message par radio ou porté à deux) Étape 5, premier tiret : « Si le SOS ou la balise est parti, rester sur place avec le blessé, l'abriter (étape 14) et laisser l'appareil en marche jusqu'à ce que quelqu'un arrive (ch. 14, étape 3). » Logigramme, « Donner l'alerte » : « Si sa vie est en jeu et qu'on a un appareil satellite ou une balise, déclencher le SOS, et rester sur place avec lui jusqu'à ce qu'on arrive. Sinon, … ». Appliqué pour que les deux chapitres disent la même chose ; le choix lui-même reste à JP (voir « Pour JP ») | Ch. 14, étapes 1 à 3 ; CLAUDE.md (la balise et le SOS restent) |
+| 8 | Section 7 : le travois tient le blessé incliné | « Quand il doit rester à l'horizontale (étape 13), arrêter le travois, qui le tient incliné, et l'abriter sur place (étape 14). » La condition n'est pas redite : renvoi à l'étape 13 (controle.py signalait la redite) | Ch. 25, étape 5 ; page `froid`, point 2 |
+| 9 | Étape 31 : « à 6 m de la maison » | « à au moins 6 m de toute maison » | `sources/10-sante-canada-generatrice-distance.md` ; page `generatrice` ; ch. 15, étapes 45 et 46 |
+| 10 | Étape 45 : l'orignal seul | « Refuser le foie et les reins d'orignal ou d'un autre cervidé (caribou, chevreuil), même offerts de bonne foi » | CLAUDE.md (cervidés) ; `sources/11-mapaq-gibier-cuisson-cadmium.md` (« cervids ») ; page `abats` |
+| 11 | Étape 11 : « il coule avec » | « Ne pas l'attacher au canot : si le canot chavire, il reste pris sous la coque retournée, la tête dans l'eau (ch. 15, étape 37 ; ch. 90, étape 34). » | Ch. 90, étape 34 (« rester avec le canot, qui flotte ») ; ch. 15, étape 37 |
+| 12 | Étape 11 sans pictogramme | `{!eau-froide}` posé en tête de l'étape 11. Le ch. 16 est à ajouter à la colonne « Chapitres » de `eau-froide` (rendu à l'intégrateur) | Page `eau-froide`, « Où il revient » : le canot |
+| 13 | Étape 32 : l'arbre qui touche le fil | « Rester à au moins 10 m d'un fil tombé et de l'arbre ou des branches qui le touchent, et ne pas essayer de les déplacer. » | Page `electrocution`, point 2 |
+| 14 | Logigramme, précision du nœud « En traîneau, ou l'été en canot… » | « En traîneau, il sort en 4 à 6 fois le temps de marche ». Même chose à l'étape 5, qui suivait la phrase sur le canot : « Sur un traîneau, un blessé couché sort en quatre à six fois le temps… » | `sources/21-longleaf-portage-quatre-a-six-fois.md`, section « Limite » (civière portée, étendue au traîneau par le livre) |
+| 15 | Étape 6 : « ch. 15, étape 38 » | « (ch. 15, étape 37) ». L'étape 8 garde « ch. 15, étape 38 » (les visages) ; l'étape 9 garde « ch. 15, étape 37 » (n'attacher personne) | Ch. 15 refait, étapes 37 et 38, relues |
+| 16 | Étape 13 : « sans avoir été réchauffé » perdu | Remis : « S'il devient confus ou arrête de frissonner sans avoir été réchauffé, le garder à l'horizontale… ». La boîte rouge du logigramme (« Quand on change de porteurs ») dit la même chose : « S'il est confus, ou s'il ne frissonne plus sans avoir été réchauffé, c'est le stade grave ». La ligne de la section 5 (« Confus ou sans frissons », à la relève, pendant la sortie) n'est pas touchée : à la relève, le blessé n'a pas été réchauffé | Ch. 25, étape 3 (l. 74 : « leur arrêt sans réchauffement est une aggravation ») et section 6 (l. 299) |
+| 17 | En plus, « Deux par deux aux collets » : le poisson boucané sans sa condition | « …et les faisaient sécher et boucaner jusqu'à ce qu'elles soient bien sèches. » (69 mots) | Nametau innu, même page : « permettait au poisson de se conserver, bien sec » ; « garder ce poisson au sec ». Extraits ajoutés à `sources/16-en-plus-extraits-autochtones.md`, section 2 |
+| 18 | Étape 2 : l'été, sans renvoi | « …ou que la nuit vient (ch. 26, étape 19). » | Ch. 26, étape 19 |
+
+### Écartés
+
+Aucun.
+
+### Logigramme
+
+Textes changés : « Donner l'alerte » (le SOS ou la balise, on reste sur place s'il est parti ; renvoi « ch. 16, étapes 3 et
+5 ; ch. 14 »), « L'emballer » (le sac ouvert en canot), la précision du nœud du traîneau, la boîte rouge (« sans avoir été
+réchauffé »), les champs « source » des nœuds de l'alerte, de l'emballage et de « Chaque heure ». Les boîtes ayant grandi,
+trois rangs ont bougé pour que les flèches ne soient pas à l'étroit : `g4` 3,28 → 3,40 (la question des signes du cou), son
+coude 4,2 → 4,38 ; `d2` 2,03 → 2,12 (sangler) ; `d3` 3,16 → 3,22 (porteurs). Colonnes inchangées. Contrôle : 0 erreur, 0 avis.
+
+### [À VÉRIFIER]
+
+Un dans le texte : le travois de l'été (section 7). Aucun chiffre.
+
+### Pour JP
+
+- **Rester ou sortir le blessé quand le SOS est parti.** Le ch. 14 (étapes 1 à 3) fait déclencher le SOS et rester sur
+  place jusqu'à ce que quelqu'un arrive ; le ch. 16 faisait sortir le blessé. Le ch. 16 suit maintenant le ch. 14. Le
+  ch. 08 (l. 179) dit déjà la suite logique : « Si quelqu'un répond à l'alerte, préparer l'accès… Sinon, sortir le
+  blessé soi-même (ch. 16) ». À trancher : combien de temps attendre sans réponse au SOS avant de sortir le blessé
+  soi-même, et le dire aux deux chapitres.
+- **Le travois de l'été** : `[À VÉRIFIER]`, sans source. Le garder (une recherche à faire, un jour) ou le couper ? Si on
+  coupe : étape 5, « L'été, le sortir en canot, ou le tirer en travois sur un sentier (étape 11). » devient « L'été, le
+  sortir en canot (étape 11). » ; étape 11, « prendre un VTT avec une remorque, ou tirer le traîneau de perches en travois
+  sur le sentier (section 7, « L'été, sans neige ») » devient « prendre un VTT avec une remorque » ; la section 7 perd
+  « L'été, sans neige » ; le logigramme ne nomme pas le travois.
+
+### controle.py après les corrections
+
+7 408 mots (7 210 avant), 2 tirets (titre et ligne de tome), 0 « § », 0 mot banni, 0 tournure, 0 maxime, 0 pronominal,
+46 mots vides (les deux nouveaux, « avale bien » et « bien sèches », portent le sens), 2 redites jugées (« le rouler d'un
+bloc », deux gestes différents ; « l'heure du prochain message », le même mot pour la même chose). Invariants : rien n'a
+disparu. Ancres 16-07 et 16-08 de `placements-tome-1.json` toujours introuvables, par construction (les nouvelles ancres
+sont rendues à l'intégrateur depuis la refonte).

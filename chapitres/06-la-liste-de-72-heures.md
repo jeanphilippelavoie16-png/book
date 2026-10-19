@@ -77,9 +77,9 @@ Monter d'avance une trousse qu'une personne sort de la maison en deux minutes, a
  | De quoi faire de l'eau | Un chaudron, de quoi faire du feu, un filtre, de la javel non parfumée et un compte-gouttes | Dans le bac 1 ; ça remplace l'eau qu'on ne peut pas porter |
 
 6. **Rendre buvable l'eau qu'on trouve en chemin ou au chalet** avec ce que contient le bac 1 (le détail : ch. 10).
- - À la javel : mettre 2 gouttes (0,2 mL) de javel à 5,25 % non parfumée par litre d'eau, mesurées au compte-gouttes, brasser, puis attendre 30 minutes, plus longtemps dans une eau froide (ch. 10, étape 21). Sans compte-gouttes : section 7.
+ - À la javel : passer d'abord l'eau d'un lac, d'un ruisseau ou de la neige au filtre à 1 µm, sinon la faire bouillir : la javel ne tue presque pas certains parasites de cette eau (ch. 10, étape 19). Mettre ensuite 2 gouttes (0,2 mL) de javel à 5,25 % non parfumée par litre d'eau, mesurées au compte-gouttes, et le double, 4 gouttes (0,4 mL), dans une eau froide, un peu trouble ou un peu colorée (ch. 10, étape 20). Brasser, puis attendre 30 minutes dans une eau à plus de 20 °C, au moins 1 heure dans une eau plus froide, et 2 heures ou plus sous 10 °C (ch. 10, étape 21). Sans compte-gouttes : section 7.
  - À l'ébullition : faire bouillir l'eau du robinet 1 minute à gros bouillons, et l'eau d'un lac, d'un ruisseau ou de la neige 5 minutes (ch. 10, étape 14). On peut garder l'eau bouillie 24 heures à la température de la pièce, ou 3 jours au réfrigérateur, dans un contenant propre et fermé.
-7. **Remplir les bidons aux quatre cinquièmes et les coucher sur le côté.** L'eau prend environ 9 % de volume en gelant, et un bidon rigide plein à ras bord fend dans un bac qui gèle. Un bidon gelé ne donne pas d'eau pendant des heures, et il faut du combustible pour faire fondre de la neige. Traiter l'eau de neige comme l'eau d'un lac (ch. 10, étape 41).
+7. **Remplir les bidons aux quatre cinquièmes et les coucher sur le côté.** L'eau prend environ 9 % de volume en gelant, et un bidon rigide plein à ras bord fend dans un bac qui gèle. Un bidon gelé ne donne pas d'eau pendant des heures, et il faut du combustible pour faire fondre de la neige.
 
 ### Le chaud
 
@@ -110,7 +110,7 @@ Monter d'avance une trousse qu'une personne sort de la maison en deux minutes, a
  | Lait en poudre, boisson chocolatée | On les boit chauds quand on a du feu | |
  | Ce que les enfants mangent d'habitude | Pas d'aliment nouveau pour eux pendant l'urgence | Ch. 40 |
 
-14. {!cuisson} {!trichine} **Cuire à 74 °C à cœur tout gibier qui entre dans la trousse**, en ragoût, en pot ou en viande séchée, et mesurer au thermomètre. Ni le sel, ni la fumée, ni le séchage, ni le gel ne tuent la trichine de l'ours : une viande d'ours séchée ou fumée qui n'est pas montée à 74 °C à cœur n'entre pas dans la trousse.
+14. {!cuisson} {!trichine} **Cuire à 74 °C à cœur tout gibier qui entre dans la trousse**, en ragoût, en pot ou en viande séchée, et mesurer au thermomètre. Ni le sel, ni la fumée, ni le séchage, ni le gel ne tuent la trichine de l'ours : mettre la viande d'ours dans la trousse en ragoût ou en pot seulement, jamais en viande séchée (ch. 71).
 15. {!abats} **Ne mettre ni le foie ni les reins d'un orignal, d'un caribou ou d'un cerf dans la trousse** : ils accumulent le cadmium (ch. 22).
 16. {!botulisme} **Garder les conserves dans la maison, à l'abri du gel, et sortir de la trousse une conserve qui a gelé.** En gelant, une boîte peut éclater et un pot peut perdre son vide[^1], et le gel ne détruit pas la toxine du botulisme. Le botulisme ne change ni l'odeur, ni le goût, ni l'apparence de la conserve (section 6). Les conserves maison : ch. 78.
 
@@ -205,7 +205,7 @@ Quand il faut une trousse le soir même, pour rester ou pour partir, on la monte
 
 **La chaudière en sac à dos.** Percer deux trous de chaque côté d'une chaudière de 20 L, sous le rebord, passer une corde dans chaque paire de trous et la nouer par en dedans : ce sont les bretelles. Le rebord fait vite mal à l'épaule : glisser un linge plié sous la corde. Une chaudière à couvercle vissé est étanche, on peut l'empiler, et on peut s'asseoir dessus en attendant.
 
-**La courroie de front.** Passer une sangle large comme la paume (une ceinture de robe de chambre, une courroie de sac de hockey, une lanière de babiche : ch. 103) sur le haut du front, et nouer ses bouts à la charge, qui s'appuie au creux des reins. Le poids descend par le cou et la colonne au lieu de tirer les épaules vers l'arrière, et les gens qui en ont l'habitude portent ainsi plus lourd qu'au sac à dos (ch. 24). Attacher la charge de façon que la tête puisse sortir de la courroie si on tombe. **Ce qu'on perd :** le cou porte toute la charge, on ne regarde que devant soi, et on se rattrape mal quand on tombe.
+**La courroie de front.** Passer une sangle large comme la paume (une ceinture de robe de chambre, une courroie de sac de hockey, une lanière de babiche : ch. 103) sur le haut du front, et nouer ses bouts à la charge, qui s'appuie au creux des reins. Le poids descend par le cou et la colonne au lieu de tirer les épaules vers l'arrière, et les gens qui en ont l'habitude portent ainsi plus lourd qu'au sac à dos (ch. 24). Attacher la charge de façon que la tête puisse sortir de la courroie si on tombe. Un adulte qui n'a jamais porté au front commence avec une charge légère, sur de courtes distances. Ne pas porter à la courroie de front avec un cou douloureux, des fourmis dans les bras, ou après un coup reçu au cou, et ne jamais mettre une charge d'adulte au front d'un enfant (ch. 24, étapes 17 et 19). **Ce qu'on perd :** le cou porte toute la charge, on ne regarde que devant soi, et on se rattrape mal quand on tombe.
 
 **Traîner au lieu de porter.** Sur la neige, on traîne ce qu'on ne peut pas porter. Prendre un traîneau d'enfant, un capot d'auto, une feuille de plastique ondulé, une porte sortie de ses pentures, un canot ou une tôle.
 
@@ -236,9 +236,9 @@ Si on part, écrire le nom et un numéro de téléphone au stylo, à l'intérieu
 
 **Le sac à ordures comme contenant.** Déposer un sac à ordures épais dans une chaudière, une boîte de carton ou un sac à dos : il devient un bidon souple qui prend la forme de son support. On ne peut pas le porter plein, parce qu'il ne tient pas sa forme ; il garde une réserve qui ne bouge pas, et il ne fend pas en gelant.
 
-**Faire fondre la neige sans brûler plus de bois.** Remplir de neige une taie d'oreiller ou un linge, et l'accrocher au-dessus d'un chaudron, près du poêle qui chauffe la maison : la neige fond et coule dans le chaudron. Pour la faire fondre plus vite sur le poêle, toujours mettre un fond d'eau dans le chaudron (ch. 10, étape 39).
+**Faire fondre la neige sans brûler plus de bois.** Remplir de neige une taie d'oreiller ou un linge, et l'accrocher au-dessus d'un chaudron, près du poêle qui chauffe la maison : la neige fond et coule dans le chaudron. Sur le poêle, toujours mettre un fond d'eau dans le chaudron avant d'y mettre la neige : sans eau, le métal surchauffe et la neige roussit au fond (ch. 10, étape 39).
 
-**Doser la javel sans compte-gouttes.** Faire un compte-gouttes avec une paille : la tremper dans la javel, boucher le bout du haut avec le doigt, la sortir, puis soulever le doigt un peu pour laisser tomber une goutte à la fois. Pour un grand volume, mesurer à la cuillère : la dose est de 0,2 mL de javel non parfumée à 5,25 % par litre, soit 4 mL pour un bidon de 20 L, un peu moins d'une cuillère à thé rase (5 mL). Lire la concentration sur la bouteille : une javel plus forte ou plus faible change la dose. Une javel parfumée, épaissie ou qui contient du savon ne convient pas. L'attente et l'odeur de chlore : ch. 10, étapes 21 et 22.
+**Doser la javel sans compte-gouttes.** Faire un compte-gouttes avec une paille : la tremper dans la javel, boucher le bout du haut avec le doigt, la sortir, puis soulever le doigt un peu pour laisser tomber une goutte à la fois. Pour un grand volume, mesurer à la cuillère : la dose est de 0,2 mL de javel non parfumée à 5,25 % par litre, soit 4 mL pour un bidon de 20 L, un peu moins d'une cuillère à thé rase (5 mL). Quand on double la dose (étape 6), mettre 8 mL pour 20 L. Lire la concentration sur la bouteille : une javel plus forte ou plus faible change la dose. Une javel parfumée, épaissie ou qui contient du savon ne convient pas. L'attente et l'odeur de chlore : ch. 10, étapes 21 et 22.
 
 **Filtrer l'eau trouble avant de la désinfecter.** La passer dans un linge serré, un filtre à café ou un bas propre, ou dans un bas rempli de sable et de charbon de bois du poêle. Ça n'enlève aucun microbe ; ça enlève la boue, qui cache les microbes au chlore et l'use. Si l'eau reste trouble, la faire bouillir plutôt que de la chlorer (ch. 10, étape 19).
 
@@ -256,7 +256,7 @@ Si on part, écrire le nom et un numéro de téléphone au stylo, à l'intérieu
 
 {!projection} **La roche du poêle.** Prendre une roche sèche, dans un champ, loin de l'eau, jamais dans le lit d'une rivière, sur une grève ou au bord d'un lac : l'eau prise dans une roche mouillée se change en vapeur quand on la chauffe, et la roche éclate en projetant des éclats coupants. La chauffer sur le poêle, l'enrouler dans une serviette et la mettre au fond du lit : elle garde sa chaleur plus longtemps que l'eau.
 
-{!pas-au-feu} **Le combustible de fortune.** Le poêle brûle le bois sec qui n'est ni traité, ni peint, ni verni, ni collé : branches mortes, planches brutes d'une remise, meubles de bois massif sans peinture ni vernis. Un rouleau de carton ondulé serré, trempé dans de la cire fondue, brûle longtemps, et on le rallume facilement. Ne jamais brûler les palettes, le bois traité, peint ou verni, le contreplaqué, le carton ciré ni le plastique. Ils encrassent aussi le tuyau, et un tuyau encrassé peut prendre feu (ch. 82).
+{!pas-au-feu} **Le combustible de fortune.** Le poêle brûle le bois sec qui n'est ni traité, ni peint, ni verni, ni collé : branches mortes, meubles de bois massif sans peinture ni vernis. Un rouleau de carton ondulé serré, trempé dans de la cire fondue, brûle longtemps, et on le rallume facilement. Ne jamais brûler les palettes, le bois traité, peint ou verni, le contreplaqué ni le plastique. Ils encrassent aussi le tuyau, et un tuyau encrassé peut prendre feu (ch. 82). Ne pas brûler non plus le bois de démolition dont on ne connaît pas l'origine : en vieillissant, le bois traité d'une remise, d'une clôture ou d'une terrasse devient gris comme du bois ordinaire, et on ne le reconnaît pas à sa couleur.
 
 ### Lumière et piles
 
@@ -299,7 +299,7 @@ Pour que cette version marche le soir où on en a besoin, la répéter une fois 
 
 ### Le pemmican
 
-Le mot vient du cri *pimikan*, « graisse préparée ». C'est de la viande séchée réduite en poudre et mêlée à parts égales de gras, parfois de petits fruits. Le pemmican est dense et riche en énergie ; on le gardait et on le transportait facilement, et la traite des fourrures en ravitaillait ses voyageurs l'hiver. Fait avec de l'ours, il est aussi dangereux que de la viande crue : le séchage ne tue pas la trichine (étape 14).
+Le mot vient du cri *pimikan*, « graisse préparée ». C'est de la viande séchée réduite en poudre et mêlée à parts égales de gras, parfois de petits fruits. Le pemmican est dense et riche en énergie ; on le gardait et on le transportait facilement, et la traite des fourrures en ravitaillait ses voyageurs dans les prairies, où la nourriture pouvait manquer, surtout l'hiver. Fait avec de l'ours, il est aussi dangereux que de la viande crue : le séchage ne tue pas la trichine (étape 14).
 
 ### La pile au lithium
 

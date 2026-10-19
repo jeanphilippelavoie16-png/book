@@ -449,8 +449,7 @@ batterie de 12 V dans de l'eau salée, entre deux électrodes de carbone. Le cou
 de l'hydrogène à l'autre ; le chlore reste dans l'eau salée sous forme d'hypochlorite.
 
 - Prendre des électrodes de carbone aux deux bornes, parce que le carbone ne réagit pas avec l'eau salée : les tiges
- de charbon d'une grosse pile sèche, ou des électrodes de gougeage. Une électrode d'acier ou de cuivre se dissout dans le liquide, et on boit le métal
- [À VÉRIFIER].
+ de charbon d'une grosse pile sèche, ou des électrodes de gougeage.
 - {!vapeurs} Faire le montage dans un contenant ouvert, dehors, au vent : l'hydrogène explose dès qu'il s'accumule
  sous un couvercle. {!chimie} Ne pas se pencher au-dessus : le chlore qui s'échappe de la surface brûle les
  poumons.

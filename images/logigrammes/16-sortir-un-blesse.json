@@ -1,5 +1,5 @@
 {
-  "_note": "Logigramme du chapitre 16 (le voisinage et le groupe de chasse) : sortir un blessé du bois. Double page, 15 octobre 2026, sur la série orange du chapitre réécrit. Réécrit le 15 octobre en phrases complètes, comme on le dirait à voix haute (JP : « personne parle comme ça »). Refait le 19 octobre 2026 sur le chapitre refait au gabarit final : renvois aux nouvelles étapes (série orange 1 à 5, la sortie 6 à 14), pastille 10 min identique à la série orange « Quelqu'un est blessé dans le bois », l'été ajouté (VTT, canot, travois), la page de droite en boîtes « geste » (la sortie n'est plus en orange dans le chapitre) ; colonnes de droite gardées telles quelles. Rendu : env -u TMPDIR python3 design/outils/logigramme.py images/logigrammes/16-sortir-un-blesse.json ; version du livre : --sans-entete --svg. « source » : les étapes du chapitre d'où vient chaque geste (ignoré au rendu).",
+  "_note": "Logigramme du chapitre 16 (le voisinage et le groupe de chasse) : sortir un blessé du bois. Double page, 15 octobre 2026, sur la série orange du chapitre réécrit. Réécrit le 15 octobre en phrases complètes, comme on le dirait à voix haute (JP : « personne parle comme ça »). Refait le 19 octobre 2026 sur le chapitre refait au gabarit final : renvois aux nouvelles étapes (série orange 1 à 5, la sortie 6 à 14), pastille 10 min identique à la série orange « Quelqu'un est blessé dans le bois », l'été ajouté (VTT, canot, travois), la page de droite en boîtes « geste » (la sortie n'est plus en orange dans le chapitre) ; colonnes de droite gardées telles quelles. Rendu : env -u TMPDIR python3 design/outils/logigramme.py images/logigrammes/16-sortir-un-blesse.json ; version du livre : --sans-entete --svg. « source » : les étapes du chapitre d'où vient chaque geste (ignoré au rendu). Corrigé le 19 octobre 2026 après la vérification technique : le SOS ou la balise dans l'alerte (on reste sur place s'il est parti, comme au ch. 14), le sac ouvert en canot, le 4 à 6 fois réservé au traîneau, « sans avoir été réchauffé » dans la relève, les sources au ch. 14 refait.",
   "format": "double",
   "tome": 1,
   "urgent": true,
@@ -58,13 +58,13 @@
     "g1": 1.11,
     "g2": 1.6,
     "g3": 2.45,
-    "g4": 3.28,
+    "g4": 3.4,
     "g5": 4.68,
     "g6": 5.85,
     "g7": 7.07,
     "d1": 0.85,
-    "d2": 2.03,
-    "d3": 3.16,
+    "d2": 2.12,
+    "d3": 3.22,
     "d4": 4.36,
     "d5": 5.49,
     "d6": 6.67,
@@ -99,9 +99,9 @@
       "col": "plein",
       "rang": "g3",
       "ancre": "haut",
-      "texte": "**Donner l'alerte tôt** : dire où on est, qui est blessé, ce qu'il a, ce qu'on fait, et à quelle heure viendra le prochain message. Sans radio, envoyer deux personnes porter le message écrit.",
-      "renvoi": "ch. 16, étape 3",
-      "source": "étape 3 ; ch. 14, étapes 14 et 15 ; ch. 35, section 9"
+      "texte": "**Donner l'alerte tôt.** Si sa vie est en jeu et qu'on a un appareil satellite ou une balise, déclencher le SOS et rester sur place jusqu'à ce qu'on arrive. Sinon, dire où on est, qui est blessé, ce qu'il a, ce qu'on fait et l'heure du prochain message. Sans radio, envoyer deux personnes porter le message écrit.",
+      "renvoi": "ch. 16, étapes 3 et 5 ; ch. 14",
+      "source": "étapes 3 et 5 ; ch. 14, étapes 1, 2, 3, 5 et 6 ; ch. 35, section 9"
     },
     {
       "id": "q1",
@@ -174,7 +174,7 @@
       "ancre": "haut",
       "taille": 11,
       "texte": "En traîneau, ou l'été en canot, on peut arriver avant la noirceur ?",
-      "precision": "Couché, il sort en 4 à 6 fois le temps de marche",
+      "precision": "En traîneau, il sort en 4 à 6 fois le temps de marche",
       "source": "étape 5"
     },
     {
@@ -194,9 +194,9 @@
       "col": "tronc2",
       "rang": "d1",
       "ancre": "haut",
-      "texte": "**L'emballer** : des branches de sapin ou un matelas sous lui, un sac de couchage fermé, une tuque et un pare-vapeur par-dessus.",
+      "texte": "**L'emballer** : des branches de sapin ou un matelas sous lui, un sac de couchage fermé, une tuque et un pare-vapeur par-dessus. En canot, laisser le sac ouvert, les bras dehors.",
       "renvoi": "ch. 16, étape 6 ; ch. 25",
-      "source": "étape 6 ; ch. 25, étape 8"
+      "source": "étapes 6 et 11 ; ch. 25, étape 8 ; dangers, page eau-froide"
     },
     {
       "id": "sangler",
@@ -235,7 +235,7 @@
       "rang": "dd",
       "ancre": "haut",
       "titre": "Quand on change de porteurs",
-      "texte": "**Regarder son visage et s'il répond bien.** Une plaque blanche ou cireuse sur la peau : la couvrir et la réchauffer contre une peau saine. S'il est confus ou ne frissonne plus, c'est le stade grave : le garder à l'horizontale, sans le secouer.",
+      "texte": "**Regarder son visage et s'il répond bien.** Une plaque blanche ou cireuse sur la peau : la couvrir et la réchauffer contre une peau saine. S'il est confus, ou s'il ne frissonne plus sans avoir été réchauffé, c'est le stade grave : le garder à l'horizontale, sans le secouer.",
       "renvoi": "ch. 16, étapes 8 et 13 ; ch. 25",
       "source": "étapes 8 et 13 ; section 5 ; ch. 25"
     },
@@ -247,7 +247,7 @@
       "ancre": "haut",
       "texte": "**Chaque heure**, envoyer le message à l'heure promise, puis faire une halte pour vérifier les sangles et le sac, et s'assurer qu'il répond.",
       "renvoi": "ch. 16, étapes 12 et 13",
-      "source": "étapes 12 et 13 ; ch. 14, étapes 13 et 15"
+      "source": "étapes 12 et 13 ; ch. 14, étapes 8 et 26"
     },
     {
       "id": "q5",
@@ -306,14 +306,14 @@
       "de": "q1",
       "vers": "couche",
       "etiquette": "Oui",
-      "coude": 4.2,
+      "coude": 4.38,
       "pos": "palier"
     },
     {
       "de": "q1",
       "vers": "q2",
       "etiquette": "Non",
-      "coude": 4.2,
+      "coude": 4.38,
       "pos": "palier"
     },
     {

@@ -44,6 +44,7 @@ SOLEIL = (1600, 2240, 2020, 2680)      # boîte de recherche du soleil
 
 MARGE = 0.14                           # po : distance minimale entre un nuage et une boîte de texte ou un bloc
 PLI = 0.12                             # po : rien à moins de ça du pli du devant
+PROTEGER = True
 SOLEIL_MAX = 0.46                      # po : diamètre du soleil de la tranche, au plus
 
 
@@ -240,32 +241,37 @@ def _couverture():
 
 
 def _proteger(fond, couche, info):
-    """Simule le nettoyage des étoiles sur le dos peint ; chaque pixel du motif qu'il changerait est une crête trop
-    fine pour son filtre (un carré de 0,09 po) : on l'arrondit à ce carré, à cet endroit seulement, et on recommence
-    jusqu'à ce que le nettoyage ne touche plus rien du motif."""
+    """Simule le nettoyage des étoiles sur le dos peint. Ce qu'il prendrait du motif, ce sont des miettes : une frange
+    d'un ou deux pixels sur une crête de nuage, un point orange resté dans la fente d'un trait. Il les remplacerait par
+    une tache floue ; on les rase nous-mêmes, pixel par pixel (la couche ramenée à son ouverture par le carré du
+    nettoyage, sur la miette seulement), et on recommence jusqu'à ce qu'il ne touche plus rien du motif."""
     cv = _couverture()
     if cv is None:
         return couche
     k, v, ppp = info['tome'], info['variante'], info['ppp']
-    m = cv.mesures(k)
     img = info['image']
     pal = cv.palette(v, k, cv.couleur_du_ciel(img))
     import io, contextlib
     with contextlib.redirect_stdout(io.StringIO()):
-        _, bandes = cv.composer(v, m, img, pal, ppp)
-    t = int(0.09 * ppp) | 1
+        _, bandes = cv.composer(v, cv.mesures(k), img, pal, ppp)
+    t = int(0.09 * ppp) | 1                  # le carré du nettoyage
+    proche = ndi.binary_dilation(couche > 0.01, iterations=8)
     for essai in range(6):
         peint = _peindre(fond, couche)
         net, _ = cv.nettoyer(peint.copy(), list(info['rects']) + bandes, ppp)
-        pris = (np.abs(net.astype(np.int16) - peint.astype(np.int16)).sum(-1) > 0)[:, :couche.shape[1]]
-        pris &= ndi.binary_dilation(couche > 0.01, iterations=8)
+        pris = (np.abs(net.astype(np.int16) - peint.astype(np.int16)).sum(-1) > 0)[:, :couche.shape[1]] & proche
         if not pris.any():
             if essai:
-                print('    dos : %d passe(s) pour mettre les crêtes à l\'abri du nettoyage' % essai)
+                print('    dos : %d passe(s) pour mettre les nuages à l\'abri du nettoyage' % essai)
             return couche
-        zone = ndi.binary_dilation(pris, iterations=t // 2 + 2)
-        ouv = ndi.grey_opening(couche, size=(t, t))
-        couche = np.where(zone, np.minimum(couche, ouv), couche)
+        L = peint[:, :couche.shape[1]].astype(np.float32) @ np.array([.2126, .7152, .0722], np.float32)
+        ouvert = ndi.grey_opening(L, size=(t, t))
+        cand = ((L - ouvert) > 12) & (ouvert < 80)
+        lab, _ = ndi.label(cand)
+        miettes = np.isin(lab, np.unique(lab[pris & cand])) & (lab > 0)
+        if not miettes.any():
+            break
+        couche = np.where(miettes, np.minimum(couche, ndi.grey_opening(couche, size=(t, t))), couche)
     print('    dos : attention, le nettoyage touche encore le motif')
     return couche
 
@@ -312,7 +318,7 @@ def motif(can, info):
              'le soleil')
     print('    dos : soleil de %.2f po sur la tranche, centré à %.2f po du haut' % (d / 96, c / 96))
 
-    couche = _proteger(can, couche, info)
+    couche = _proteger(can, couche, info) if PROTEGER else couche
     out = _peindre(can, couche)
     assert (out[:, xf:] == can[:, xf:]).all()
     return out

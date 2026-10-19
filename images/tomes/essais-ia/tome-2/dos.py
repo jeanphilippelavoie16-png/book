@@ -64,6 +64,18 @@ class Calque:
         for p in q:
             d.ellipse([p[0] - w / 2, p[1] - w / 2, p[0] + w / 2, p[1] + w / 2], fill=v)
 
+    def attacher(self, nom, appui):
+        """Retire de la couche nom les éclats que la gouge a détachés : ce qui ne touche plus la couche appui."""
+        a = np.asarray(self.c[nom]) > 96
+        b = np.asarray(self.c[appui]) > 96
+        lab, n = ndi.label(a | b)
+        bons = np.unique(lab[b])
+        perdu = a & ~np.isin(lab, bons[bons > 0])
+        if perdu.any():
+            m = np.asarray(self.c[nom]).copy()
+            m[ndi.binary_dilation(perdu, iterations=2) & ~b] = 0
+            self.c[nom] = Image.fromarray(m)
+
     def image(self, rgba, x, y):
         """Un objet découpé (RGBA, à la taille du fond), son coin haut gauche en (x, y) po."""
         self.images.append((rgba, x, y))
@@ -179,7 +191,7 @@ def feuille(cal, nom, base, ang, L, larg, courbe=0.0, asym=0.0, gorge=0.007, ner
     if nervure and L > 0.07:
         mil = [((a[0] + b[0]) / 2, (a[1] + b[1]) / 2) for a, b in zip(g, d)]
         n = len(mil) - 1
-        cal.trait(nom, mil[int(n * .12):int(n * .62)], max(0.006, larg * 0.11), v=0)
+        cal.trait(nom, mil[int(n * .26):int(n * .66)], max(0.005, larg * 0.1), v=0)
 
 
 def tige(x0, y0, a, L, courbe=0.0, n=24):
@@ -196,14 +208,16 @@ def tige(x0, y0, a, L, courbe=0.0, n=24):
 
 def bouquet(cal, noeud, k=1.0, graine=5, tiges=None):
     """Un bouquet d'herbes qui sèche la tête en bas, lié au point donné, gravé comme les plantes du cadre au mur :
-    des feuilles ovales à nervure creusée, qui tombent vers la pointe de leur tige."""
+    des feuilles ovales à nervure creusée, qui tombent vers la pointe de leur tige. Les tiges et les queues des
+    feuilles sont sur leur propre couche, que la gouge ne coupe jamais : chaque feuille reste attachée."""
     r = np.random.default_rng(graine)
     nx_, ny_ = noeud
     if tiges is None:
         tiges = [(-0.30, 0.95), (-0.17, 1.22), (-0.05, 1.05), (0.06, 1.38), (0.18, 1.12), (0.30, 0.9)]
+    et = 0.014 * k if k > 0.6 else 0.011
     # les bouts de tiges coupés au-dessus du lien
     for dx in (-0.034, -0.012, 0.01, 0.03):
-        cal.trait('or', [(nx_ + dx * k * .6, ny_ + 0.03 * k), (nx_ + dx * k * 1.25, ny_ - 0.075 * k)], 0.015 * k)
+        cal.trait('tige', [(nx_ + dx * k * .6, ny_ + 0.03 * k), (nx_ + dx * k * 1.25, ny_ - 0.075 * k)], et * 1.05)
     ordre = sorted(range(len(tiges)), key=lambda j: -tiges[j][1])      # les longues derrière
     for j in ordre:
         a, L = tiges[j]
@@ -211,28 +225,28 @@ def bouquet(cal, noeud, k=1.0, graine=5, tiges=None):
         L *= k
         courbe = -a * 0.35 + r.uniform(-0.05, 0.05)                  # elles pendent : la pointe revient vers l'axe
         pts = tige(nx_ + a * 0.08 * k, ny_ + 0.035 * k, a, L, courbe)
-        cal.trait('or', pts, 0.014 * k)
+        cal.trait('tige', pts, et)
         n = 7 if L > 1.0 * k else 6
         for i in range(n):
             t = 0.16 + 0.8 * i / (n - 1)
-            q = int(round(t * 24))
-            p = pts[q]
+            p = pts[int(round(t * 24))]
             at = a + courbe * t
             cote = 1 if (i + j) % 2 else -1
             fl = (0.21 - 0.09 * t) * k * r.uniform(0.85, 1.1)
-            feuille(cal, 'or', p, at + cote * r.uniform(0.55, 0.8), fl, fl * r.uniform(0.38, 0.46),
-                    courbe=-cote * r.uniform(0.1, 0.35), asym=r.uniform(-0.12, 0.12))
+            af = at + cote * r.uniform(0.55, 0.8)
+            feuille(cal, 'or', p, af, fl, fl * r.uniform(0.38, 0.46), courbe=-cote * r.uniform(0.1, 0.35),
+                    asym=r.uniform(-0.12, 0.12), gorge=0.007 if k > 0.6 else 0.005)
+            cal.trait('tige', [p, (p[0] + math.sin(af) * fl * .24, p[1] + math.cos(af) * fl * .24)], et * 0.9)
         # la pointe : une petite feuille dans l'axe
         at = a + courbe
-        feuille(cal, 'or', pts[-1], at, 0.1 * k, 0.04 * k, courbe=r.uniform(-.2, .2), nervure=False)
-    # le lien : trois tours de ficelle crème, détachés des tiges
+        feuille(cal, 'or', pts[-1], at, 0.1 * k, 0.04 * k, courbe=r.uniform(-.2, .2), nervure=False,
+                gorge=0.007 if k > 0.6 else 0.005)
+        cal.trait('tige', [pts[-1], (pts[-1][0] + math.sin(at) * 0.03 * k, pts[-1][1] + math.cos(at) * 0.03 * k)], et)
+    cal.attacher('or', 'tige')
+    # le lien : trois tours de ficelle crème
     for i in range(3):
         y = ny_ + (0.0 + 0.03 * i) * k
-        seg = [(nx_ - 0.055 * k, y), (nx_ + 0.055 * k, y + 0.012 * k)]
-        cal.trait('or', seg, 0.03 * k, v=0)
-    for i in range(3):
-        y = ny_ + (0.0 + 0.03 * i) * k
-        cal.trait('ficelle', [(nx_ - 0.05 * k, y), (nx_ + 0.05 * k, y + 0.012 * k)], 0.017 * k)
+        cal.trait('ficelle', [(nx_ - 0.05 * k, y), (nx_ + 0.05 * k, y + 0.012 * k)], max(0.017 * k, 0.011))
 
 
 def tablette(cal, x0, x1, y, k=1.0):
@@ -396,7 +410,7 @@ def motif(can, info):
     dessous = tablette(cal, cx - 0.31, cx + 0.31, y_tab)
     cal.trait('fil', [(cx - 0.004, dessous), (cx - 0.004, dessous + 0.2)], 0.011)
     bouquet(cal, (cx, dessous + 0.2), k)
-    cal.poser(can, [('bois', BRUN), ('liseré', FILET), ('images', None), ('fil', BRUN), ('or', OR), ('ficelle', CREME)])
+    cal.poser(can, [('bois', BRUN), ('liseré', FILET), ('images', None), ('fil', BRUN), ('tige', OR), ('or', OR), ('ficelle', CREME)])
 
     # la quatrième : la corde aux trois bouquets dans le grand trou du haut, à droite du texte
     # (la colonne du texte s'arrête au bord droit des filets : la corde aussi)
@@ -409,5 +423,5 @@ def motif(can, info):
         xa = (x0 + x1) / 2 - larg / 2
         cal = Calque(x0 - 0.05, y0 - 0.05, x1 + 0.05, y1 + 0.05, ppp)
         guirlande(cal, xa + 0.03, xa + larg - 0.03, y0, y1 - 0.05)
-        cal.poser(can, [('fil', BRUN), ('or', OR), ('ficelle', CREME), ('clou', BRUN)])
+        cal.poser(can, [('fil', BRUN), ('tige', OR), ('or', OR), ('ficelle', CREME), ('clou', BRUN)])
     return can

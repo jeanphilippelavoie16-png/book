@@ -28,7 +28,8 @@ Trois phases, une à la suite de l'autre (≈ 18 à 20 M au total) :
    chapitres du lot. Les agents ne touchent pas aux fichiers communs ; un intégrateur applique à la fin les ancres,
    l'inventaire des dangers, les crédits et les renvois entre chapitres, à partir de ce que les lots rendent.
    Fiches : section « Refonte au gabarit final, 19 octobre 2026 » de chaque suivi/NN-redaction.md.
-2. **Planches** : celles que les rédacteurs disent manquantes ou décalées, plus les priorités de
+2. **Planches** (dont 18-01, la crémaillère, et 18-02, l'auge de neige : oui de JP, appelées dans le texte) : celles
+   que les rédacteurs disent manquantes ou décalées, plus les priorités de
    `images/audit-planches/` pour le tome 1 ; les 28 planches du tome 1 dans `images/a-valider/` attendent JP.
 3. **Montage** : chaque chapitre monté et regardé page par page (notes posées, rien qui déborde, planches près de
    leur appel), puis le tome 1 entier (`design/outils/assembler-tome.py 1 --hors-ligne`), avec les pages du début

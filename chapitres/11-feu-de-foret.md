@@ -70,7 +70,8 @@ suite à l'étape 11.
  d'air propre (étapes 32 et 35).
 
  Sur un chemin étroit bordé de résineux, une auto arrêtée par la fumée ou par un arbre tombé ne peut plus
- avancer ni reculer. Un seul adulte décide du départ (ch. 2). Si la famille a écrit en mai ce qui la fait
+ avancer ni reculer. Un seul adulte décide du départ (ch. 2). On n'attend pas de voir les flammes pour partir :
+ une des deux raisons suffit. Si la famille a écrit en mai ce qui la fait
  partir (étape 47), la feuille sur la porte s'ajoute à ces deux raisons. Si une des deux raisons est déjà
  là, passer à l'étape 11. Sinon, faire les étapes 7 à 10 en restant prêt à partir.
 7. **Remplir tout ce qui tient l'eau** : le bain, les barils, les chaudières. Les remplir pendant que le
@@ -98,7 +99,7 @@ déjà le chemin, rester au bâtiment (étape 21).
  puis elle se lève le jour : quand on la sent la nuit, le feu n'approche pas forcément. Pour finir la
  nuit, habiller les enfants, les coucher dans la pièce la mieux fermée et finir de charger l'auto.
 12. {!brulure} **Habiller les enfants de coton ou de laine, et les attacher dans l'auto.** Un adulte reste
- avec eux. Leur mettre des pantalons et des manches longues, et des bottes ou des souliers fermés.
+ avec eux. Leur mettre des pantalons et des manches longues, et des bottes de cuir.
  Un vêtement synthétique prend feu vite et fond sur la peau ; la laine s'éteint hors de la flamme, et le
  coton brûle sans fondre. Un adulte seul installe d'abord les enfants, puis ferme le bâtiment.
 13. **L'autre adulte doit fermer le bâtiment** : fermer les portes, les fenêtres et le propane, décrocher
@@ -115,9 +116,9 @@ déjà le chemin, rester au bâtiment (étape 21).
  dans une maison brûlée et mouillée blesse la personne qui revient. Écrire la feuille au marqueur et la
  glisser sous plastique : PARTIS, les noms, le nombre de personnes, la date, l'heure, la destination et
  le chemin pris (ch. 2, étape 9). Au chalet, en laisser une deuxième à l'intérieur de la porte.
-16. **Envoyer un message texte qui dit où on va.** Un message texte ou un courriel encombre beaucoup moins
- le réseau qu'un appel : il peut passer quand les appels saturent le réseau, ou quand le service d'appel
- est coupé.
+16. **Envoyer un message texte qui dit où on va.** Un message texte ou un courriel encombre moins le réseau
+ qu'un appel : il peut passer quand les appels saturent le réseau, ou quand le service téléphonique est
+ interrompu.
 17. **Fermer les vitres, mettre l'air en recirculation, allumer les phares de croisement, et rouler
  lentement, loin du feu, jamais vers lui.** Dans la fumée, les phares de route éclairent la fumée et la
  lumière revient dans les yeux, comme dans la poudrerie ; les antibrouillards aident, s'il y en a. Si la
@@ -135,19 +136,19 @@ déjà le chemin, rester au bâtiment (étape 21).
  des vitres, le plus près possible du plancher. Mettre un linge sur le nez et la bouche, et boire de l'eau,
  même sans soif. Rester dans l'auto pendant que le front passe, même dans la fumée.
 20. **Rester couvert jusqu'à ce que l'air refroidisse, puis marcher vers le terrain brûlé.** Sortir la main
- de sous la couverture : si l'air chauffe la peau comme un gros coup de soleil, c'est trop tôt. Sortir de
+ de sous la couverture : si l'air chauffe la peau plus qu'un gros coup de soleil, c'est trop tôt. Sortir de
  l'auto toujours sous la laine.
 21. **Au bâtiment, rester dedans : remplir les éviers et le bain d'eau froide, arrêter le climatiseur et
  l'échangeur d'air.** L'eau sert à éteindre les braises qui entrent ; le climatiseur et l'échangeur d'air
- aspirent les braises. Fermer les rideaux contre la chaleur du front (étape 13). Habiller tout le monde de
- coton ou de laine, avec des bottes, et faire boire.
+ aspirent les braises. Fermer les rideaux ou les stores : ils protègent de la chaleur du front. Habiller
+ tout le monde de coton ou de laine, avec des bottes de cuir, et faire boire.
 22. **Se tenir dans une pièce qui a deux sorties vers l'extérieur, loin des vitres** : deux portes, ou une
  porte et une fenêtre. Regarder dehors souvent. Ne pas aller au sous-sol ni dans une pièce sans sortie :
  la pièce d'air propre de l'étape 35 sert contre la fumée, pas pendant le passage du front.
 23. **Éteindre les braises qui entrent. Si le bâtiment brûle, sortir vers le terrain brûlé.** Chercher les
  braises au grenier, sous la galerie et au pied des murs. Si le bâtiment prend feu, fermer la porte de la
- pièce qui brûle, s'en éloigner en fermant les portes derrière soi, et rester bas. S'il y a du terrain
- déjà brûlé dehors, ne pas rester dans un bâtiment qui brûle : sortir sous la laine vers ce terrain.
+ pièce qui brûle, s'en éloigner en fermant les portes derrière soi, et rester bas. Sortir sous la laine
+ vers le terrain déjà brûlé dès que le dehors est moins dangereux que le dedans.
 24. **À pied, aller là où rien ne brûle et se coucher face contre terre** : une gravière, un banc de sable,
  une grève, un lit de rivière large, un brûlis refroidi ou un lac, loin des arbres. Il faut pouvoir se
  tenir à 100 m au moins de tout arbre debout : la chaleur du front brûle la peau à cette distance. Sinon,
@@ -222,7 +223,7 @@ trouve à la chaleur : passer le dos de la main au ras du sol, puis la glisser d
 39. {!electrocution} **Faire le tour à pied avant d'entrer** : chercher les fils électriques au sol,
  l'odeur de gaz, les gros débris et les points chauds. Ne jamais marcher vers un fil tombé ; si on est
  déjà près d'un fil, s'en éloigner à très petits pas, en traînant les pieds sans les lever.
-40. {!ecrasement} **Ne pas travailler ni stationner sous un arbre brûlé.** Un tronc brûlé à la base tient
+40. {!ecrasement} {!projection} **Ne pas travailler ni stationner sous un arbre brûlé.** Un tronc brûlé à la base tient
  debout jusqu'au premier vent, des jours ou des semaines après le feu. Tirer un chicot brûlé, un arbre
  encroué ou un arbre sous tension au treuil, au levier ou au câble, à distance et hors de l'axe de chute
  (section 7 ; ch. 106, ch. 109).
@@ -237,9 +238,10 @@ trouve à la chaleur : passer le dos de la main au ras du sol, puis la glisser d
  vérifier les aliments avant de les manger ; pour le congélateur, voir le ch. 74.
 44. **Aérer plusieurs heures, fenêtres ouvertes**, une fois que l'air du dehors est meilleur que celui de
  la maison.
-45. {!generatrice} **Le soir du retour, s'il n'y a pas de courant, faire tourner la génératrice dehors, à
- au moins 6 m du bâtiment, jamais dans la maison, le garage, la remise ni sous un auvent.** Brancher les
- appareils sur la génératrice par des rallonges (ch. 3), et tester l'avertisseur de CO avant de dormir.
+45. {!generatrice} {!electrocution} **Le soir du retour, s'il n'y a pas de courant, faire tourner la
+ génératrice dehors, à au moins 6 m du bâtiment, jamais dans un bâtiment, un garage, une remise ni sous un
+ auvent.** Mettre le disjoncteur principal à OFF, brancher les appareils directement sur la génératrice par
+ des rallonges (ch. 3), et tester l'avertisseur de CO avant de dormir.
 46. **Refaire la zone défendable avant le reste.** Un brûlis laisse des milliers de tiges mortes debout
  et, deux ou trois ans plus tard, une repousse de feuillus serrée (ch. 42). Rétablir d'abord les 1,5 m
  autour des murs, puis les 10 m, et les 3 m autour du propane (étapes 49 à 56).
@@ -424,7 +426,7 @@ la sortie de la sécheuse et l'ouverture sous la galerie (planche 11-03).
  contreplaqué brûle, mais plus tard que le rideau derrière la vitre.
 - **Le baril en hauteur.** Monter un baril sur le toit d'une remise, sur un échafaud ou dans la boîte du
  pick-up, avec un boyau d'arrosage piqué au fond (repère 5). Par gravité, le boyau donne un filet continu,
- sans pression (repère 6). Ça suffit pour garder mouillés un bas de mur, un dessous de galerie ou une
+ pas un jet (repère 6). Ça suffit pour garder mouillés un bas de mur, un dessous de galerie ou une
  gouttière, et ça coule sans personne au bout pendant qu'on charge l'auto.
 - **Autre façon : la pompe de cale en 12 V.** Une pompe de cale de chaloupe, une pompe de transfert
  d'essence ou la pompe à eau d'une roulotte, branchée sur une batterie d'auto, donne un débit faible mais
@@ -480,8 +482,8 @@ purificateur à filtre HEPA, mais beaucoup mieux que rien (planche 11-04).
  sur une batterie d'auto, font le même travail plus lentement. Ils n'ont pas été mesurés : ils font moins,
  on ne sait pas combien. Ce qui compte, c'est le débit pour la taille de la pièce : plus la pièce est
  petite, plus un petit ventilateur suffit.
-- {!co} **Le filtre n'arrête pas le monoxyde de carbone**, qui est un gaz. Si un poêle ou une flamme brûle
- dans le chalet fermé, la pièce d'air propre ne protège pas de son monoxyde.
+- {!co} **Le filtre n'arrête pas les gaz** : ni ceux de la fumée du feu, ni le monoxyde de carbone. Si un
+ poêle ou une flamme brûle dans le chalet fermé, la pièce d'air propre ne protège pas de son monoxyde.
 
 ### Au retour, trouver le feu qui reste sans instrument
 
@@ -508,9 +510,8 @@ purificateur à filtre HEPA, mais beaucoup mieux que rien (planche 11-04).
 ### Sept-Îles, juin 2023
 
 Le 2 juin 2023, deux feux avançaient vers Sept-Îles à 35 ou 40 m à la minute, et plus de 5 000 personnes
-ont dû quitter leur maison. Vers l'est, la route était coupée : un pont était fermé. Vers l'ouest, on
-pouvait encore partir, mais un autre feu brûlait au nord de la ville. Si ce chemin se fermait aussi, il ne
-restait que la mer. Les gens sont rentrés quatre jours plus tard (étape 6).
+ont dû quitter leur maison. Vers l'est, on ne pouvait pas évacuer. Vers l'ouest, on pouvait encore partir,
+mais un feu brûlait au nord de la ville. Si ce chemin se fermait aussi, il ne restait que la mer. Les gens sont rentrés quatre jours plus tard (étape 6).
 
 ### Les autos de Lara, 1969
 
@@ -521,15 +522,16 @@ dans leur auto ont survécu (étape 19).
 ### Le brûlage de printemps des Cris et des Dénés
 
 Dans le nord de l'Alberta, les Cris des bois et les Dénés brûlaient les prés au printemps, quand la neige
-restait en lisière de la forêt : elle servait de coupe-feu, et le feu restait bas. Ils voulaient aussi
-brûler ainsi autour de leurs communautés, avant les mois chauds et secs. Un feu s'échappait
-parfois, petit et facile à éteindre. L'été, sans neige en lisière et sur un humus sec, le même feu part en
-feu de forêt (étape 56).
+restait en lisière de la forêt, et le feu restait bas. Ils voulaient brûler ainsi autour de leurs
+communautés, pour réduire le danger de feu des mois chauds et secs. Plus à l'ouest, à Fort Nelson, la neige
+servait de coupe-feu. L'été, sans cette neige et sur un humus sec, le même feu part en feu de forêt
+(étape 56).
 
 ### Les bleuets du brûlis
 
 Après un feu, le bleuet repart de ses tiges qui courent sous terre, dans l'humus. La première année, il ne
-fait que des feuilles ; la deuxième, ses tiges neuves donnent la plus grosse récolte. Là où le feu a brûlé
+fait que des feuilles ; la deuxième ou la troisième, selon l'espèce, ses tiges neuves donnent la plus grosse
+récolte. Là où le feu a brûlé
 l'humus jusqu'au sol minéral, ces tiges ont brûlé aussi, et le bleuet repart mal (étape 46).
 
 ### Reconnaître la pessière à cladonie

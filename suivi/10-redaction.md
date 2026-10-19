@@ -940,3 +940,10 @@ touchée.
 
 `sources/10-en-plus-notes-2026-10-19.md` suit : note 4, « concentrations moyennes » rendu par « en moyenne » ; note 5,
 « Ce que la note en tire » (le petit tas couvre un trou, le rat musqué vit dans sa hutte ou son terrier).
+
+## Décisions de JP, 19 octobre 2026
+
+- Section 7, l'électrolyse : la phrase « Une électrode d'acier ou de cuivre se dissout dans le liquide, et on boit le
+  métal [À VÉRIFIER] » est coupée (aucune source) ; la consigne des électrodes de carbone tient sans elle. Le chapitre
+  n'a plus de [À VÉRIFIER].
+- Étape 49 : « (40 ou 60 gallons) » reste : c'est ce qu'on lit sur l'étiquette du chauffe-eau.

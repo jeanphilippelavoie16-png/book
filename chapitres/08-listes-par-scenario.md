@@ -59,8 +59,8 @@ chalet, hors réseau, la génératrice ou le propane s'arrête : scénario 8 et 
 | 24 à 48 h | Avant que le congélateur arrive au bout de son autonomie, passer au scénario 8 | |
 | Au retour du courant | Après une panne de plus de 6 h, trier le frigo et le congélateur | Jeter tout aliment resté 2 h ou plus à la température de la pièce |
 
-{!generatrice} {!co} Poser la génératrice à 6 m ou plus de la maison, l'échappement tourné à l'opposé, jamais dans le
-garage ni sous un auvent, même porte ouverte. Une maison chauffée aspire l'air du dehors par ses fentes du bas : une
+{!generatrice} {!co} Poser la génératrice dehors, à 6 m ou plus de tout bâtiment, l'échappement tourné à l'opposé :
+jamais dans un bâtiment, ni dans le garage ou la remise, ni sous un auvent, même porte ouverte. Une maison chauffée aspire l'air du dehors par ses fentes du bas : une
 génératrice collée au mur ou posée devant une porte envoie ses gaz à l'intérieur comme si elle y était. Ne jamais
 prendre les piles de l'avertisseur de CO pour une lampe.
 
@@ -81,8 +81,8 @@ finit au chalet : décider de monter (ch. 2) pendant que la route passe encore.*
 | Tout le temps | Garder la routine des enfants : les repas et le coucher aux mêmes heures, et une tâche chaque jour (ch. 39, 40) | |
 
 {!mal-de-caribou} Compter le gras du stock dès le jour 1, avec les jours-personnes : l'huile, le beurre, le saindoux,
-le suif. À partir de la deuxième semaine, mettre du gras à chaque repas de viande maigre : le lièvre, l'orignal et la
-truite du territoire sont trop maigres pour nourrir la famille sans gras ajouté (ch. 19).
+le suif. Mettre du gras à chaque repas de viande maigre, dès le premier : le lièvre, l'orignal et la truite du
+territoire sont trop maigres pour nourrir la famille sans gras ajouté (ch. 19).
 
 {!thuyone} À partir de la deuxième semaine, donner chaque jour une infusion d'aiguilles de sapin baumier ou d'épinette,
 pour la vitamine C (ch. 20). Ne jamais la faire avec du cèdre.
@@ -154,12 +154,18 @@ champignons et l'orignal, pendant des dizaines d'années (ch. 4).*
 | 0 à 10 min | Fermer les portes et les fenêtres, et arrêter l'échangeur d'air, la fournaise à air pulsé et le climatiseur | ch. 4, étape 7 |
 | 0 à 30 min | Descendre au sous-sol, contre un mur enterré ; au chalet, aller au caveau | ch. 4, étape 8 |
 | 0 à 30 min | Se laver à l'eau du robinet et au savon | ch. 4, étape 10 |
-| 0 à 30 min | Boucher les courants d'air de la pièce d'abri, sauf si un poêle y brûle | Quelques heures au plus (ch. 4, étape 18) |
+| 0 à 30 min | Poser l'avertisseur de CO dans la pièce d'abri, puis boucher les courants d'air de la pièce, jamais si un appareil y brûle | Quelques heures au plus (ch. 4, étape 18) |
 | Tout le temps | Rester à l'abri 24 h comptées depuis l'éclair ou l'alerte, et jusqu'à 48 h si la radio n'annonce pas que le rayonnement baisse | ch. 4, étape 24 |
 | Tout le temps | Boire et cuisiner avec l'eau et les aliments qui étaient à l'intérieur, en contenants fermés | ch. 4, étapes 21 et 22 |
 | Après quelques heures | Enlever ce qui bouche la pièce d'abri et l'aérer | ch. 4, étape 18 |
 | À la sortie | Remplacer les filtres de la fournaise et de l'échangeur d'air, et porter les vieux filtres dans un sac fermé loin du bâtiment | ch. 4, étape 25 |
 | À la sortie | Trier ce qui vient du jardin, du lac et de la chasse : la poussière radioactive reste sur ce qui pousse et dans l'eau de surface | ch. 4, étapes 22 et 26 à 32 |
+
+{!co} {!espace-clos} Une fois la pièce d'abri bouchée, et au caveau, ne rien y faire brûler : ni lampe à l'huile, ni
+fanal, ni chaufferette, ni chandelle. Si l'avertisseur sonne, ou si plusieurs personnes ont mal à la tête ou envie de
+dormir en même temps, chercher d'abord la source et l'éliminer, puis juger s'il faut sortir (ch. 4, étape 18). Au
+caveau, où rien ne brûle, penser d'abord à l'air qui manque : enlever les bouchons des conduits d'aération et aérer
+tout de suite.
 
 **L'iode.** Personne n'en distribue d'avance sur la Côte-Nord : il faut acheter la boîte (ch. 00b). Le comprimé ne
 protège que la thyroïde, contre l'iode radioactif ; l'abri protège tout le corps. Doses et délai : ch. 4, étapes 13
@@ -197,15 +203,15 @@ prendre le relais (ch. 73).*
 | 24 à 48 h | Cuire d'abord les pièces les plus dégelées et celles qui se gardent le moins longtemps | Gibier : 74 °C à cœur ; poisson : 70 °C tenu 1 min |
 | Quand le froid revient | Trier chaque pièce à la sonde, au centre, avant de la recongeler | Encore des cristaux de glace : la recongeler. Dégelée et restée à 4 °C ou moins : la cuire tout de suite. Passée au-dessus de 4 °C : la jeter |
 
-{!cuisson} {!trichine} Une viande d'ours ou de phoque qu'on sale, qu'on fume ou qu'on sèche pour la sauver du dégel
-porte encore la trichine : la cuire à 74 °C à cœur, mesurés au thermomètre, avant de la manger, ou la mettre en
-conserve à l'autoclave (ch. 78).
+{!cuisson} {!trichine} Une viande d'ours ou de phoque porte encore la trichine après des mois au congélateur, et
+aussi après qu'on l'a salée, fumée ou séchée pour la sauver du dégel : la cuire à 74 °C à cœur, mesurés au
+thermomètre, avant de la manger, ou la mettre en conserve à l'autoclave (ch. 78).
 
 {!botulisme} Jeter sans y goûter le poisson salé, fumé, mariné ou sous vide qui est resté au-dessus de 3 °C pendant le
 dégel, même s'il sent bon.
 
-{!abats} Jeter le foie et les reins d'orignal ou de caribou qui seraient dans le congélateur : ils accumulent le
-cadmium.
+{!abats} Jeter le foie et les reins d'orignal, de caribou ou de cerf qui seraient dans le congélateur : ils
+accumulent le cadmium.
 
 ### Scénario 9. Immobilisé en chemin, en auto ou en motoneige (**la route**)
 
@@ -237,11 +243,11 @@ s'arrêtent, puis la personne perd conscience ; un blessé qui cesse de frissonn
 
 | Moment | Ce qu'on vérifie | Cible chiffrée | Si c'est hors cible |
 | --- | --- | --- | --- |
-| Chaque printemps | Les articles de la section 3, rangés ensemble sur une tablette à la maison, au chalet et dans l'auto : les dates et les piles | Les trois tablettes complètes, aucune date dépassée | Remplacer ce qui est périmé, écrire la date sur le contenant et racheter ce qui manque (ch. 00b) |
+| Chaque printemps | Les articles de la section 3, sauf les médicaments et le bois, rangés ensemble sur une tablette à la maison, au chalet et dans l'auto : les dates et les piles | Les trois tablettes complètes, aucune date dépassée | Remplacer ce qui est périmé, écrire la date sur le contenant et racheter ce qui manque (ch. 00b) |
 | Chaque printemps | Réserve d'eau potable | 4 L × le nombre de personnes × 3 jours, au moins | La compléter avant le reste |
 | Chaque automne | Médicaments d'ordonnance en réserve | 2 à 3 semaines | Les renouveler avant la première neige |
 | Chaque automne | Bois sec de la réserve, sous abri, à part du bois de tous les jours : au chalet, et à la maison si elle a un poêle | Volume mesuré | Fendre et mettre à l'abri avant le gel |
-| Chaque automne | Avertisseurs de CO : bouton d'essai et date de remplacement écrite sur l'appareil | 1 par étage habité, 1 près du poêle | Si l'essai ne sonne pas ou que la date est passée, remplacer l'appareil, pas seulement les piles |
+| Chaque automne | Avertisseurs de CO : le bouton d'essai, et la date de fabrication imprimée au dos | 1 par étage habité, 1 près du poêle ; chacun fabriqué il y a moins de 7 à 10 ans, selon le modèle | Si l'essai ne sonne pas, mettre une pile neuve ; s'il ne sonne toujours pas, ou si l'appareil a dépassé son âge, le remplacer (ch. 6) |
 | Chaque automne | Thermomètres à sonde, plantés dans l'eau qui bout | 100 °C ± 1 °C au niveau de la mer | Les régler, ou les jeter |
 | Chaque automne | Argent comptant en petites coupures | 2 à 3 semaines de besoins de base | Compléter |
 | Chaque mois, l'hiver | Thermomètre laissé dans le congélateur | −18 °C ou moins | Passer au scénario 8 sans attendre |
@@ -257,14 +263,14 @@ s'arrêtent, puis la personne perd conscience ; un blessé qui cesse de frissonn
 
 | Observation | Diagnostic | Action |
 | --- | --- | --- |
-| Il faut plus de deux minutes pour trouver un article de la tablette | La tablette est devenue un rangement | Tout sortir, et ne remettre que les articles de la section 3 ; ranger le reste ailleurs |
+| Il faut plus de deux minutes pour trouver un article de la tablette | La tablette est devenue un rangement | Tout sortir, et ne remettre que les articles prévus pour la tablette (section 5) ; ranger le reste ailleurs |
 | L'article existe, mais il est dans l'autre bâtiment | Une tablette au lieu de trois | Acheter en double les articles bon marché (ch. 00b) |
-| Mal de tête, fatigue, nausée ou envie de dormir chez plusieurs personnes à la fois, un enfant somnolent sans raison, ou l'avertisseur de CO qui sonne | Du monoxyde de carbone, même si l'alarme se tait ensuite | Sortir tout le monde à l'air libre tout de suite ; arrêter l'appareil seulement si on l'atteint sans rester dedans, et ne rien rallumer avant d'avoir trouvé la cause |
+| Mal de tête, fatigue, nausée ou envie de dormir chez plusieurs personnes à la fois, un enfant somnolent sans raison, ou l'avertisseur de CO qui sonne | Du monoxyde de carbone, même si l'alarme se tait ensuite | Sortir tout le monde à l'air libre tout de suite, sauf pendant des retombées (voir le scénario 6) ; arrêter l'appareil seulement si on l'atteint sans rester dedans, et ne rien rallumer avant d'avoir trouvé la cause |
 | Le congélateur ne fait plus de bruit et sa porte est tiède | Il est arrêté depuis un moment | Passer au scénario 8 tout de suite, sans ouvrir |
 | Un paquet de viande a coulé, et la glace s'est refaite au fond du sac | La viande a dégelé puis regelé, pendant un temps qu'on ne connaît pas | La jeter |
 | Le poisson fumé ou salé sent bon, a l'air normal et est resté au-dessus de 3 °C | Le botulisme de type E ne change ni l'odeur, ni le goût, ni l'apparence | Le jeter sans y goûter (scénario 8 ; ch. 77) |
 | La conserve bombe ou fuit, le couvercle claque[^2], ou la boîte est rouillée ou bosselée sur le serti (le rebord où le couvercle est fixé) | Du gaz s'est formé dans le contenant, ou la fermeture n'est peut-être plus étanche | Jeter le contenant fermé, sans l'ouvrir, hors de portée des animaux |
-| Après une semaine ou plus de viande maigre : des repas de plus en plus gros, une faim qui revient vite, une envie de gras, puis la diarrhée | Trop de viande maigre, pas assez de gras : le mal de caribou | Ajouter du gras tout de suite (ch. 19, 72) |
+| Après quelques jours de viande maigre : des repas de plus en plus gros, une faim qui revient vite, une envie de gras, puis la diarrhée, en général au bout d'une semaine à dix jours. Sur une viande sans aucun gras, les signes peuvent commencer dès le deuxième jour | Trop de viande maigre, pas assez de gras : le mal de caribou | Ajouter du gras tout de suite (ch. 19, 72) |
 | Les enfants ne posent plus de questions et ne jouent plus | C'est la peur, pas du calme | Rétablir la routine et les tâches (ch. 40) |
 | Le stock a tenu, mais personne n'a dormi | Le rationnement s'est fait sur le sommeil | Organiser des tours de garde de 4 h |
 
@@ -302,11 +308,15 @@ Au chalet, prendre l'eau du lac sous la glace, ou faire fondre de la neige (ch. 
 ### Désinfecter sans feu, et clarifier avant
 
 - S'il n'y a rien pour faire bouillir l'eau, mettre environ 2 gouttes (0,2 mL) d'eau de Javel non parfumée à 5,25 %
- par litre, brasser et laisser reposer 30 minutes, pour une eau à la température de la pièce. Une eau froide ou
- trouble demande le double de javel et une attente plus longue (ch. 10, étapes 19 à 22).
+ par litre, brasser et laisser reposer 30 minutes, pour une eau à plus de 20 °C. Une eau froide, un peu trouble ou
+ un peu colorée demande le double de javel : 0,4 mL par litre. Dans une eau plus froide que 20 °C, attendre au moins
+ 1 heure, et 2 heures sous 10 °C (ch. 10, étapes 19 à 22).
 - Une eau trouble use la javel sur la terre en suspension avant qu'elle atteigne les microbes. La laisser déposer dans
  une chaudière, tirer le clair par-dessus sans remuer le fond, et le passer dans un linge serré ou dans un bas de laine
- avant de mettre la javel : le linge enlève la terre, la javel tue les microbes.
+ avant de mettre la javel : le linge enlève la terre, et la javel tue les bactéries et les virus.
+- {!selles} La javel ne fait presque rien contre un des parasites de l'eau de lac, de ruisseau ou de neige. Passer
+ cette eau au filtre à 1 µm avant la javel, si on en a un (ch. 10, étape 19) ; sans filtre ni feu, ce parasite reste
+ dans l'eau.
 - Si l'eau a pu recevoir un produit chimique, prendre l'eau ailleurs : ni l'ébullition ni la javel n'enlèvent un
  produit chimique.
 
@@ -342,8 +352,9 @@ sinistre dure (ch. 3, étapes 21 à 24).
 On la monte en trois minutes, et elle éclaire comme une chandelle tant qu'il reste du gras (ch. 112).
 
 - Le contenant : une boîte de métal ou un pot de verre épais, qui ne casse pas à la chaleur.
-- {!mal-de-caribou} Le gras : de l'huile de cuisson d'abord. Garder la graisse de bête pour les repas tant que la
- famille en manque : le gras brûlé dans la lampe manque dans la ration.
+- {!mal-de-caribou} Le gras : du gras qui a ranci, ou le surplus quand la réserve dépasse ce que la famille mangera.
+ Tant que la famille manque de gras, l'huile de cuisson et la graisse de bête vont dans les repas, pas dans la lampe
+ (scénario 2).
 - La mèche : une lanière de guenille de coton roulée serré, un lacet de botte ou une ficelle, tenue au bord par un bout
  de fil de métal plié en crochet. Elle trempe dans le gras et dépasse à peine : plus elle dépasse, plus la flamme est
  grosse, et une mèche trop longue fume et charbonne.
@@ -456,4 +467,5 @@ l'auto, qui passe l'hiver au froid, mettre des piles au lithium (scénario 9).
 ### Ce qu'on peut recongeler dégelé
 
 Le pain, les fromages fermes et les jus de fruits peuvent retourner au congélateur même complètement dégelés : ils
-risquent peu. La règle des 4 °C du scénario 8 vaut pour la viande, le poisson, le lait et les œufs.
+risquent peu. La règle des 4 °C du scénario 8 vaut pour la viande, la volaille, le poisson, le lait et les autres
+produits laitiers, les œufs, et les plats qui en contiennent.

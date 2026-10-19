@@ -132,7 +132,7 @@ def coller(can, fg, al, x, y):
     can[y:y + h, x:x + w] = np.clip(np.rint(out), 0, 255).astype(np.uint8)
 
 
-def interdit(info, marge=0.14, marge_filet=0.2):
+def interdit(info, marge=0.14, marge_filet=0.16):
     """Le masque de ce qu'on ne touche pas, en px du fond : chaque texte, chaque filet, chaque photo, élargi d'une
     marge (en po). Les blocs qui ne servent qu'à regrouper (texte, sommaire, auteurs) ne comptent que par leur
     contenu ; les filets des lignes du sommaire, qui ne sont pas dans les boîtes, sont refaits ligne par ligne ; un
@@ -155,7 +155,7 @@ def interdit(info, marge=0.14, marge_filet=0.2):
                 for t in textes:
                     if dedans(b, t) and t[1] > b[1] + 0.3 * 96:
                         c0, c1 = (b[0], mid - 0.17 * 96) if t[0] < mid else (mid + 0.17 * 96, b[2])
-                        garder.append(((c0, t[3], c1, t[3] + 0.1 * 96, 0), marge_filet))
+                        garder.append(((c0, t[3], c1, t[3] + 0.08 * 96, 0), marge_filet))
             continue
         if b[3] - b[1] < 0.4 * 96 and b[2] - b[0] > 0.8 * larg:
             filets.append(b)

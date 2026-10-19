@@ -25,6 +25,7 @@ SS = 2                                          # on compose à double taille
 MARGE_HAUT = 0.25                               # po entre le dernier filet du sommaire et le haut des collines
 MARGE_BAS = 0.22                                # po entre la dernière tache de neige et « Les auteurs »
 GRAINE = 6
+DEBUG = False
 
 
 def _lum(a):
@@ -71,7 +72,9 @@ def _source(img):
     garde = np.zeros(n + 1, bool)
     for i, s in enumerate(ndi.find_objects(lab), 1):
         h, w = s[0].stop - s[0].start, s[1].stop - s[1].start
-        if sz[i] < 60 or sz[i] > 6000 or w > 560 or h > 150:
+        if sz[i] < 60 or sz[i] > 6000 or w > 560 or h > 150 or w < 1.6 * h:
+            continue                                   # ni arbre, ni crête : un trait est long et couché
+        if s[0].start == 0 or s[0].stop >= S.shape[0] - 1:
             continue
         a_, b_ = max(0, s[0].start - 4), min(S.shape[0], s[0].stop + 4)
         c_, d_ = max(0, s[1].start - 4), min(S.shape[1], s[1].stop + 4)
@@ -172,9 +175,9 @@ def motif(can, info):
     W_ = Xe
     # la colline de devant, basse, à gauche ; la grande colline derrière, qui monte, s'arrondit et redescend
     near = prof([(-40, .30), (.06 * W_, .25), (.14 * W_, .23), (.21 * W_, .28), (.30 * W_, .42),
-                 (.40 * W_, .60), (.47 * W_, .78)])
+                 (.40 * W_, .60), (.47 * W_, .78), (.56 * W_, 1.3)])
     far = prof([(.10 * W_, .70), (.19 * W_, .40), (.30 * W_, .16), (.40 * W_, .04), (.48 * W_, .0),
-                (.57 * W_, .02), (.67 * W_, .10), (.78 * W_, .24), (.86 * W_, .42), (.93 * W_, .66), (.975 * W_, .92)])
+                (.57 * W_, .02), (.67 * W_, .10), (.77 * W_, .25), (.85 * W_, .44), (.905 * W_, .66), (.95 * W_, .96)])
     # un léger tremblé de gouge sur le bord des collines
     trem = ndi.gaussian_filter1d(rng.normal(0, 1, ww), 18 * SS) * 9
     near = near + trem
@@ -225,12 +228,14 @@ def motif(can, info):
     def hauteur(choix, g):
         return arbres[choix][0].shape[0] * s_dev * g
     poses = []                                         # (ordre, x, pointe, g, choix, miroir, étirement)
+    onde = ndi.gaussian_filter1d(rng.normal(0, 1, ww), 90 * SS)
+    onde = .035 * onde / (np.abs(onde).max() + 1e-6)   # le pied de la forêt ondule doucement
     x = -20.0
     while x < Xe + 30:
         choix = 2 if rng.random() < .6 else 1
         g = rng.uniform(.26, .42) * (1 if choix == 2 else .5)
         col = int(np.clip(x * SS, 0, ww - 1))
-        pointe = max(Yt + H * rng.uniform(.60, .70), dessus[col] + .10 * H)
+        pointe = max(Yt + H * (rng.uniform(.61, .69) + onde[col]), min(dessus[col] + .10 * H, Yt + .80 * H))
         poses.append((0, x, pointe, g, choix, rng.random() < .5, rng.uniform(.85, 1.15)))
         x += rng.uniform(8, 22) * (g / .34 if choix == 2 else g / .17)
     x = rng.uniform(-90, -30)
@@ -238,14 +243,13 @@ def motif(can, info):
         for j in range(int(rng.choice([1, 2, 2, 3, 3, 4]))):
             xi = x + rng.normal(0, 8)
             choix = 0 if rng.random() < .5 else 1
-            g = rng.uniform(.34, .62)
-            pied_ = Yt + H * rng.uniform(1.0, 1.14)
+            g = rng.uniform(.36, .64)
             col = int(np.clip(xi * SS, 0, ww - 1))
-            haut_max = pied_ - (dessus[col] + .12 * H)  # la plus grande hauteur permise ici
-            g = min(g, haut_max / (arbres[choix][0].shape[0] * s_dev))
-            if g >= .3:
-                poses.append((1 + (1.2 * H - pied_) / H, xi, pied_ - hauteur(choix, g), g, choix,
-                              rng.random() < .5, rng.uniform(.85, 1.15)))
+            pointe = max(Yt + H * rng.uniform(.30, .56), dessus[col] + .12 * H)
+            if pointe < Yt + .62 * H:
+                pied_ = pointe + hauteur(choix, g)
+                poses.append((1 + (Yt + 2 * H - pied_) / H, xi, pointe, g, choix, rng.random() < .5,
+                              rng.uniform(.85, 1.15)))
             x += rng.uniform(32, 70)
         x += rng.uniform(40, 190)
     for xi in (rng.uniform(.05, .10) * Xe, rng.uniform(.33, .40) * Xe, rng.uniform(.62, .70) * Xe):
@@ -253,8 +257,11 @@ def motif(can, info):
         pied_ = Yt + H * rng.uniform(1.22, 1.32)
         col = int(np.clip(xi * SS, 0, ww - 1))
         g = min(rng.uniform(.72, .88), (pied_ - (dessus[col] + .14 * H)) / (arbres[choix][0].shape[0] * s_dev))
-        poses.append((3, xi, pied_ - hauteur(choix, g), g, choix, rng.random() < .5, rng.uniform(.9, 1.1)))
+        poses.append((9, xi, pied_ - hauteur(choix, g), g, choix, rng.random() < .5, rng.uniform(.9, 1.1)))
     poses.sort(key=lambda p: p[0])
+    if DEBUG:
+        for p_ in poses:
+            if -50 < p_[1] < 300: print("pose", [round(float(v), 3) if not isinstance(v, (bool, np.bool_)) else v for v in p_])
 
     neige_tot = np.zeros_like(a)
     couv_fond = np.zeros_like(a)                       # ce que couvre le rang du fond
@@ -291,7 +298,7 @@ def motif(can, info):
     lab, n = ndi.label(neige_tot > .5)
     if n:
         cy = np.array(ndi.center_of_mass(neige_tot > .5, lab, range(1, n + 1)))
-        lim = (Yt + H * rng.uniform(.78, .92, n) - oy) * SS
+        lim = (Yt + H * rng.uniform(.86, .98, n) - oy) * SS
         ok = np.concatenate([[False], (cy[:, 0] < lim) & (cy[:, 1] < Xe * SS - .03 * ppp * SS)])
         garde = ndi.binary_dilation(ok[lab], iterations=2)
         a = np.maximum(a, np.where(garde, neige_tot, 0))

@@ -58,11 +58,11 @@ règles du groupe de chasse, et sortir un blessé du bois à plusieurs : en tra�
  - L'été aussi, un blessé couché qui ne bouge pas se refroidit, surtout s'il est mouillé ou que la nuit vient
  (ch. 26, étape 19).
  - Écrire l'heure de l'accident : on compte tout ce qui suit à partir d'elle (ch. 26, étape 14).
-3. **Donner l'alerte tôt.** Si la vie du blessé est en jeu, déclencher le SOS de l'appareil satellite ou la balise
- sans attendre (ch. 14, étapes 1 et 2). Sinon, par radio ou par message satellite, envoyer un message court : où on
- est, qui est blessé, ce qu'il a, ce qu'on fait, et l'heure du prochain message (ch. 14, étapes 5 et 6). Sans radio,
- envoyer deux
- personnes porter le message écrit, jamais une seule : si une personne seule se blesse en route, le message
+3. **Donner l'alerte tôt.** Si la vie du blessé est en jeu (il respire mal, saigne sans qu'on arrive à l'arrêter, se
+ réveille mal ou devient confus) et qu'on a un appareil satellite ou une balise, déclencher le SOS sans attendre
+ (ch. 14, étapes 1 et 2). Sinon, par radio ou par message satellite, envoyer un message court : où on est, qui est blessé, ce
+ qu'il a, ce qu'on fait, et l'heure du prochain message (ch. 14, étapes 5 et 6). Sans radio, envoyer deux personnes
+ porter le message écrit, jamais une seule : si une personne seule se blesse en route, le message
  n'arrive pas et il y a deux blessés (ch. 35, section 9).
 4. **Le laisser bouger seul, ou le sortir couché.** S'il est conscient, clair et n'a aucun des signes qui suivent, il
  peut se déplacer seul, lentement, en évitant tout mouvement du cou qui fait mal ; ne pas le tirer ni le soulever
@@ -134,10 +134,10 @@ règles du groupe de chasse, et sortir un blessé du bois à plusieurs : en tra�
 12. **Envoyer le message à l'heure dite** : la position, l'état du blessé, l'heure d'arrivée prévue et l'heure du
  prochain message (ch. 14, étapes 6 et 8). Un message manqué devient un signal seulement si son heure était fixée
  d'avance (ch. 14, étape 26).
-13. {!froid} **Faire une halte courte.** Resserrer les sangles et refermer le sac, sauf en canot (étape 11). Vérifier qu'il répond bien, et que
- les doigts sous une attelle restent roses et chauds (ch. 26). Ne lui donner à boire chaud et sucré que s'il est bien
- éveillé et avale bien (ch. 25, étape 10). S'il devient confus ou arrête de frissonner sans avoir été réchauffé,
- le garder à l'horizontale et le bouger
+13. {!froid} **Faire une halte courte.** Resserrer les sangles et refermer le sac, sauf en canot (étape 11).
+ Vérifier qu'il répond bien, et que les doigts sous une attelle restent roses et chauds (ch. 26). Ne lui donner à
+ boire chaud et sucré que s'il est bien éveillé et avale bien (ch. 25, étape 10). S'il devient confus ou arrête de
+ frissonner sans avoir été réchauffé, le garder à l'horizontale et le bouger
  doucement (ch. 25, étape 5).
 14. **S'arrêter avant la nuit, ou avant que les porteurs soient à bout.** Faire un abri et un feu sur place, et
  garder le blessé emballé sur un sol isolé (ch. 12, étapes 1 à 14). Envoyer deux personnes chercher la machine ou des
@@ -435,8 +435,8 @@ devant lui (repères 12 et 13).
 
 *L'été, sans neige.* [À VÉRIFIER] Tirer le même cadre en travois : une ou deux personnes lèvent l'avant par les brancards, et le
 bout des perches traîne au sol, la tête du blessé du côté des brancards. Sur les racines et les roches, le travois
-secoue : aller au pas, et caler la tête du blessé. S'il devient confus ou arrête de frissonner (étape 13),
-arrêter le travois, qui le tient incliné, et l'abriter sur place, couché à plat (étape 14).
+secoue : aller au pas, et caler la tête du blessé. Quand il doit rester à l'horizontale (étape 13), arrêter le
+travois, qui le tient incliné, et l'abriter sur place (étape 14).
 
 ### Ce qu'on perd
 
