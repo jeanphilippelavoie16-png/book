@@ -454,7 +454,7 @@ quelques degrés plus bas. Le moteur manque de carburant, tousse et s'arrête.
 ### Réparer sur le chemin
 
 - **Câble d'accélérateur cassé.** Le remplacer par un câble de frein de vélo, un brin de fil à collet ou une
- corde à piano. Sans câble : visser la vis de ralenti du carburateur jusqu'à ce que la machine avance seule,
+ corde à piano. Sans câble de rechange, visser la vis de ralenti du carburateur jusqu'à ce que la machine avance seule,
  lentement, et conduire en coupant et en remettant le contact.
 - **Conduite d'essence percée.** Enfiler un bout de boyau pris ailleurs sur la machine par-dessus les deux
  bouts, et le serrer au fil de fer. Le tube de vinyle transparent ramollit dans l'essence : il sert le temps
