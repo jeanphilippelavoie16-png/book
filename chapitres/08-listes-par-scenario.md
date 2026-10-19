@@ -76,7 +76,7 @@ route reste coupée, on finit au chalet : décider de monter (ch. 2) pendant que
 | Jour 1 | Mesurer le combustible qui reste : les cordes de bois sec, les litres de propane et d'essence | |
 | Jour 1 | Parler au voisinage et au groupe de chasse pour savoir qui a quoi et qui manque de quoi (ch. 16, 18) | |
 | Jour 1 | Commencer à rationner tout de suite, sans attendre que le stock baisse | |
-| Jour 2 | Organiser l'eau de chaque jour. Au chalet : la puiser, la faire bouillir et l'entreposer (ch. 10). À la maison : faire bouillir aussi l'eau du robinet, même claire, parce qu'un défaut de traitement ne se voit pas (ch. 2) | Lac et neige : 5 min à gros bouillons ; robinet et puits : 1 min. Eau bouillie : 3 jours au frigo, 24 h à la température de la pièce |
+| Jour 2 | Organiser l'eau de chaque jour. Au chalet, la puiser, la faire bouillir et l'entreposer (ch. 10). À la maison, faire bouillir aussi l'eau du robinet, même claire, parce qu'un défaut de traitement ne se voit pas (ch. 2) | L'eau de lac et de neige bout 5 min à gros bouillons ; l'eau du robinet et du puits, 1 min. On garde l'eau bouillie 3 jours au frigo, 24 h à la température de la pièce |
 | Semaine 1 | Rationner les piles et le carburant plus serré que la nourriture : on ne peut pas les refaire sur le territoire | |
 | Semaines 1 et 2 | Au chalet, regarder ce que la saison permet de prendre (ch. 41) et poser les premiers collets | |
 | Tout le temps | Garder la routine des enfants : les repas et le coucher aux mêmes heures, et une tâche chaque jour (ch. 39, 40) | |
