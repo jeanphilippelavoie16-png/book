@@ -1,7 +1,7 @@
 # Tome 1 · Tenir — rapport d'assemblage
 
-- **Produit le :** 2026-10-19 14:25, par `design/outils/assembler-tome.py 1 --hors-ligne --refaire --sortie livre/tome-1-lulu`
-- **Fichier :** `livre/tome-1-lulu/interieur.pdf` — 354 pages, 103.1 Mo
+- **Produit le :** 2026-10-19 17:33, par `design/outils/assembler-tome.py 1 --hors-ligne --refaire --sortie livre/tome-1-lulu`
+- **Fichier :** `livre/tome-1-lulu/interieur.pdf` — 354 pages, 199.8 Mo
 - **Ouvertures :** au recto ou au verso (--verso)
 - **Placements :** design/epreuves-livre/placements.json, design/epreuves-livre/placements-tome-1.json
 - **Format :** `lulu-letter` : Lulu, US Letter 8,5 × 11 po, couverture rigide Case Wrap
@@ -120,11 +120,11 @@ Marqueur `{.orange}` sur l'intertitre ### de la série, dans le Markdown (CLAUDE
 | Zone sûre | 0,5 po du rognage pour le texte, les images et les numéros de page | bloc, titre courant, pied et numéro du tome à 0,5 po au moins ; seuls les aplats de bord (onglets, repères de section, page de titre) vont au fond perdu | oui (grille) |
 | Petit fond | 0,2 po au moins ; 1 po recommandé de 151 à 400 pages | bloc à 1 po du rognage au petit fond | oui (grille) |
 | Polices incorporées | toutes | 60 police(s), 0 non incorporée(s) | oui |
-| Transparence | aplatie (« Flatten all transparent layers ») ; Lulu en répare une partie | 68 page(s) avec transparence | à surveiller au téléversement |
+| Transparence | aplatie (« Flatten all transparent layers ») ; Lulu en répare une partie | 61 page(s) avec transparence | à surveiller au téléversement |
 | Une page par page, sans marques de coupe ni mot de passe | oui | oui | oui |
 | Couleur | sRVB préféré, CMJN accepté ; noir plein à 100 % ; teintes de moins de 20 % à éviter | sRVB (Edge) ; aplats pâles (rose des étapes de danger, orange pâle, vert des notes) | à juger sur épreuve |
 
-Pages avec transparence (ombre douce des notes « En plus », trames ou dessins à opacité) : 7, 11, 70, 71, 73, 81, 92, 93, 98, 100, 104, 105, 112, 140, 147, 150, 152, 159, 160, 161, 166, 168, 172, 174, 175, 176, 177, 179, 187, 189, 195, 199, 211, 213, 217, 222, 226, 235, 237, 244, 252, 253, 255, 262, 263, 267, 269, 273, 276, 279, 290, 294, 299, 301, 302, 304, 306, 307, 310, 312, 313, 315, 329, 331, 342, 343, 350, 353.
+Pages avec transparence (ombre douce des notes « En plus », trames ou dessins à opacité) : 7, 11, 70, 73, 81, 92, 93, 100, 105, 112, 140, 147, 150, 152, 159, 160, 161, 166, 168, 172, 174, 175, 176, 177, 179, 187, 189, 195, 199, 211, 213, 217, 222, 226, 235, 237, 244, 253, 255, 262, 263, 267, 269, 276, 279, 290, 294, 302, 304, 306, 307, 310, 312, 313, 315, 329, 331, 342, 343, 350, 353.
 
 Polices du fichier : BarlowCondensed-Bold, BarlowCondensed-ExtraBold, BarlowCondensed-Medium, BarlowCondensed-SemiBold, IBMPlexSansCond-Bold, IBMPlexSansCond-Italic, IBMPlexSansCond-Medium, IBMPlexSansCond-Regular, IBMPlexSansCond-SemiBold, IBMPlexSansCond-SemiBoldItalic, IBMPlexSerif-Bold, IBMPlexSerif-Italic, IBMPlexSerif-Regular, IBMPlexSerif-SemiBold, IBMPlexSerif-SemiBoldItalic, LiberationSerif, LiberationSerif-Italic, NotoSerif-Regular, Type 3 sans nom (texte des planches)
 
