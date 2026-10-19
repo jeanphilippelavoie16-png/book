@@ -1,7 +1,7 @@
 # Tome 1 · Tenir — rapport d'assemblage
 
-- **Produit le :** 2026-10-18 17:02, par `design/outils/assembler-tome.py 1 --chapitres 15 --hors-ligne --sortie livre/apercus-ch15`
-- **Fichier :** `livre/tome-1/interieur.pdf` — 28 pages, 5.0 Mo
+- **Produit le :** 2026-10-19 01:01, par `design/outils/assembler-tome.py 1 --chapitres 15 --hors-ligne --sortie livre/apercus-ch15`
+- **Fichier :** `livre/tome-1/interieur.pdf` — 36 pages, 6.1 Mo
 - **Ouvertures :** au recto ou au verso (--verso)
 - **Placements :** design/epreuves-livre/placements.json, design/epreuves-livre/placements-tome-1.json
 - **Exigences de Blurb :** `sources/blurb-specifications.md` (relevées le 27 septembre 2026)
@@ -10,14 +10,15 @@
 
 | Pages du tome | Contenu | Pages |
 | --- | --- | ---: |
-| 1 | Dédicace | 1 |
-| 3 | Page de titre | 1 |
+| 1 | Page de titre | 1 |
+| 3 | Dédicace | 1 |
 | 5 | Sommaire | 1 |
 | 6 | Comment le livre fonctionne (1) | 1 |
 | 7 | Comment le livre fonctionne (2) | 1 |
-| 9–28 | ch. 15 — Se déplacer et le carburant | 20 |
+| 8–16 | Les dangers | 9 |
+| 17–35 | ch. 15 — Se déplacer et le carburant | 19 |
 | | Pages blanches (verso de la page de titre, avant les ouvertures, fin du tome) | 3 |
-| | **Total** | **28** |
+| | **Total** | **36** |
 
 Aucune page de crédits (JP, 28 septembre 2026) : copie hors du livre dans `livre/apercus-ch15/credits/tome-1-credits.md` et `livre/apercus-ch15/credits/tome-1-credits.pdf`.
 
@@ -27,7 +28,7 @@ Marqueur `{.orange}` sur l'intertitre ### de la série, dans le Markdown (CLAUDE
 
 | Ch. | Pages du tome |
 | --- | --- |
-| 15 | 12, 13, 15, 17 |
+| 15 | 20, 21, 23, 24, 25 |
 
 ## Contrôle Blurb
 
@@ -35,16 +36,16 @@ Marqueur `{.orange}` sur l'intertitre ### de la série, dans le Markdown (CLAUDE
 | --- | --- | --- | --- |
 | Taille de chaque page | 585 × 738 pt (8,125 × 10,25 po) | 585.0 × 738.0 pt | oui |
 | Rognage (TrimBox) | 8 × 10 po, fond perdu au bord extérieur | recto : reliure à gauche ; verso : à droite | oui |
-| Nombre de pages | pair, de 20 à 440 (papier Standard) | 28 | oui |
-| Page 1 | à droite | ouverture du chapitre 00 | oui |
-| Polices incorporées | toutes | 21 police(s), 0 non incorporée(s) | oui |
-| Taille du fichier | 2 Go au plus | 5.0 Mo | oui |
+| Nombre de pages | pair, de 20 à 440 (papier Standard) | 36 | oui |
+| Page 1 | à droite | page de titre | oui |
+| Polices incorporées | toutes | 24 police(s), 0 non incorporée(s) | oui |
+| Taille du fichier | 2 Go au plus | 6.1 Mo | oui |
 | Marques d'imprimeur | aucune | aucune | oui |
 | Couleur | CMJN ou sRVB, sans ton direct | sRVB (Edge) | oui |
 | Noir du texte | 100 % K | noir sRVB (0, 0, 0) : la conversion est faite chez Blurb | à juger sur épreuve |
 | PDF/X | plus exigé en 2026 (le guide de 2010 le demandait) | PDF 1.4 d'Edge, pas PDF/X | à surveiller au téléversement |
 
-Polices du fichier : BarlowCondensed-Bold, BarlowCondensed-ExtraBold, BarlowCondensed-Medium, BarlowCondensed-SemiBold, IBMPlexSansCond-Bold, IBMPlexSansCond-Medium, IBMPlexSansCond-SemiBold, IBMPlexSansCond-SemiBoldItalic, IBMPlexSerif-Bold, IBMPlexSerif-Italic, IBMPlexSerif-Regular, IBMPlexSerif-SemiBold, LiberationSerif, LiberationSerif-Italic, Type 3 sans nom (texte des planches)
+Polices du fichier : BarlowCondensed-Bold, BarlowCondensed-ExtraBold, BarlowCondensed-Medium, BarlowCondensed-SemiBold, IBMPlexSansCond-Bold, IBMPlexSansCond-Medium, IBMPlexSansCond-Regular, IBMPlexSansCond-SemiBold, IBMPlexSansCond-SemiBoldItalic, IBMPlexSerif-Bold, IBMPlexSerif-Italic, IBMPlexSerif-Regular, IBMPlexSerif-SemiBold, LiberationSerif, LiberationSerif-Italic, Type 3 sans nom (texte des planches)
 
 **Caractères tombés hors des polices du livre** (IBM Plex, et les Noto chargées pour ce que Plex n'a pas) : le navigateur les a pris dans une police de secours (incorporée, donc imprimable, mais d'un autre dessin que le texte) :
 
@@ -54,7 +55,7 @@ Polices du fichier : BarlowCondensed-Bold, BarlowCondensed-ExtraBold, BarlowCond
 
 ## Tranche et couverture
 
-Calculateur non interrogé (--hors-ligne). Relevé du 27 septembre 2026 dans `sources/blurb-specifications.md` §2 ; pour 28 pages, prendre la ligne du tableau dont le palier couvre ce nombre, et revérifier au calculateur. [À VÉRIFIER]
+Calculateur non interrogé (--hors-ligne). Relevé du 27 septembre 2026 dans `sources/blurb-specifications.md` §2 ; pour 36 pages, prendre la ligne du tableau dont le palier couvre ce nombre, et revérifier au calculateur. [À VÉRIFIER]
 
 ## Figures
 
@@ -62,7 +63,7 @@ Les planches de `images/a-valider/` sont posées comme les validées (JP les rel
 
 | Ch. | Posées (page du tome) | Mentionnées dans le texte sans planche dessinée | À valider, non posées | Photos demandées encore à acquérir (credits.md) |
 | --- | --- | --- | --- | ---: |
-| 15 | 15-01 (14, pleine, à valider), 15-02 (25, pleine, à valider), 15-03 (16, à valider), 15-05 (20, à valider), 15-06 (27, à valider), 15-04 (28, à valider), 15-se-deplacer-livre (10, double page) | — | — | 8 (ancien 20) |
+| 15 | 15-01 (22, pleine, à valider), 15-02 (32, pleine, à valider), 15-05 (28, à valider), 15-03 (29, à valider), 15-06 (34, à valider), 15-04 (35, à valider), 15-se-deplacer-livre (18, double page) | — | — | 8 (ancien 20) |
 
 ## Crédits des images — hors du livre
 
@@ -73,6 +74,8 @@ Aucune photo posée dans ce tome. Les photos téléchargées sous les anciens nu
 ## Avertissements
 
 - ch. 15, paginateur : p15-5 : page à moitié vide
+- ch. 15, constructeur : 15-03 : aucun ancrage trouvé, placé à la fin de la procédure
+- ch. 15, constructeur : 15-05 : aucun ancrage trouvé, placé à la fin de la procédure
 
 ## À savoir avant de téléverser
 
