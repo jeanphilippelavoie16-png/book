@@ -123,7 +123,7 @@ elles n'arrivent pas.
  - Laisser au chalet, par écrit, le chemin qu'on prend et l'heure du retour.
  - S'il fait noir, partir au premier jour et suivre sa trace : une personne qui ne peut pas rentrer avant la nuit
  passe la nuit au bord de sa trace (ch. 15, étape 18).
- - S'il n'y a pas deux adultes pour partir, rester au chalet, garder la lumière et le feu, et écrire au
+ - S'il n'y a pas deux adultes pour partir, rester au chalet, garder la lumière allumée et le feu, et écrire au
  correspondant à chaque heure convenue.
  - Pour chercher et sortir quelqu'un du bois : ch. 16.
 
