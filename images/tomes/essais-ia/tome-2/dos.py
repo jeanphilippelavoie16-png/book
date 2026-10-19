@@ -38,6 +38,7 @@ verticales : le fil du bois continue).
 Rien ne touche le texte : chaque ligne, chaque filet, les photos et la barre des tomes, élargis de MARGE, sont
 interdits (_occupe), et on vérifie à la fin qu'aucun point changé, hors des taches effacées du mur, n'y entre.
 """
+import os
 import numpy as np
 from PIL import Image
 from scipy import ndimage as ndi
@@ -479,7 +480,11 @@ def motif(can, info):
     if trou:
         qx0, qy0, qx1, qy1 = trou
         oa, oc = _bois(src)
-        hb = min(BOIS_H[1] * ppp, qy1 - qy0)
+        f_long = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'objet-corde-dos.png')
+        if os.path.exists(f_long):        # la corde longue (objets-bas/corde_dos.py) : JP, « plus de bois, pas plus
+            lo = np.asarray(Image.open(f_long).convert('RGBA')).astype(np.float32)   # haut, sur une plus grande largeur »
+            oa, oc = lo[..., 3] / 255.0, lo[..., :3]
+        hb = BOIS_H[1] * ppp
         sb = min(1.0, hb / oa.shape[0], (qx1 - qx0) / oa.shape[1])
         OA, OC = _reduire(oa, oc, sb)
         droite = int(max(r[2] for r in info['rects'] if r[4] == 0 and r[2] * q < xt) * q)    # le bout des filets
