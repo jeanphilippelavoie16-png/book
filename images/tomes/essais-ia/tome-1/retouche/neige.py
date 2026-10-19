@@ -33,7 +33,7 @@ TRACE = [(336.5, 792.0), (322, 795.2), (306, 799.4), (292, 804.2), (280, 809.4),
          (588, 875.8), (612, 876.8), (636, 877.0), (650, 877.0), (664, 877.0)]
 LARG_TRACE = (1.0, 5.6)                                # largeur de la rigole au départ et au bout
 # le fil droit qui devient le bord d'une congère
-CONGERE = [(462, 759.8), (488, 757.0), (514, 756.2), (540, 754.4), (566, 753.8), (592, 752.4), (616, 753.0),
+CONGERE = [(457, 760.4), (462, 759.8), (488, 757.0), (514, 756.2), (540, 754.4), (566, 753.8), (592, 752.4), (616, 753.0),
            (638, 754.6), (660, 757.6)]
 # les entailles qui suivent le creux du champ (hors du bloc des tomes)
 ENTAILLES = [
@@ -46,13 +46,11 @@ ENTAILLES = [
 OMBRES = [
     # sous le chalet et sa clôture, vers l'avant et la gauche
     [(370, 797.0), (456, 797.0), (453, 799.4), (420, 800.6), (378, 801.4), (362, 800.6)],
-    # les petites épinettes du bas : leur ombre part du pied, vers l'avant et la gauche
-    [(596, 938), (612, 944), (606, 960), (572, 960)],
-    [(519, 944), (533, 950), (529, 960), (502, 960)],
-    # la grande épinette de droite
-    [(648, 905), (656, 925), (640, 960), (612, 960), (630, 930)],
-    # le pied des grandes épinettes de gauche
-    [(140, 938), (152, 944), (150, 960), (126, 960)],
+    # les petites épinettes et la grande de droite ont le pied sous le bas de la page : leur ombre n'en sort qu'un
+    # coin, sous la branche la plus basse, vers l'avant et la gauche
+    [(495, 955.5), (477, 960.5), (503, 960.5)],
+    [(579, 954.5), (561, 960.5), (586, 960.5)],
+    [(635, 955.5), (618, 960.5), (642, 960.5)],
 ]
 BLOC = (176, 830, 592, 925)                            # le bloc des tomes de la page de titre : rien de fin dessous
 

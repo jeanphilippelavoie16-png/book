@@ -48,7 +48,6 @@ PENTE_D = (606, 630)
 PAS = 5.0                  # le pas, perpendiculaire aux traits : celui de la crête de gauche d'origine
 LARG = 4.3                 # la largeur au départ
 PLEIN = 0.72               # la part du trait qui garde sa pleine largeur, avant de s'effiler
-ECART = 0.9                # le jour minimum entre deux traits qui se rapprochent
 PENCHE = 38.0              # l'angle depuis la verticale sur un flanc presque plat (degrés)
 OMBRE_RAIDE = 0.6          # sur le flanc à l'ombre, l'angle depuis la verticale est réduit d'autant
 JOUR = 0.25                # le jour minimum entre deux traits voisins (unités)
@@ -224,10 +223,10 @@ def _traits(T, Bt, ep, pente, Hh, Wh):
         ix = np.clip(np.round(px).astype(int) + MARGE, 0, encre.shape[1] - 1)
         return encre[iy, ix]
 
-    def tracer(x0, y0, al, w0, frac_voulue, entree, attaque):
+    def tracer(x0, y0, al, w0, frac_voulue, attaque):
         """Un trait : l'axe depuis (x0, y0) dans la direction al, jusqu'au pied (ou à l'encre d'un voisin), une
-        part frac_voulue de cette longueur, plein puis effilé ; entree > 0 effile aussi le départ (un trait qui naît
-        au milieu du flanc) ; attaque > 0 le remonte dans la neige. Rend False si le trait ne se pose pas."""
+        part frac_voulue de cette longueur, plein puis effilé ; attaque : de combien il remonte dans la neige.
+        Rend False si le trait ne se pose pas."""
         courbe = -math.copysign(math.radians(4.0), al)    # une légère courbe vers la verticale, la même pour tous
         pts, dirs = [(x0, y0)], [(math.sin(al), math.cos(al))]
         xx, yy = x0, y0
@@ -276,9 +275,6 @@ def _traits(T, Bt, ep, pente, Hh, Wh):
         jj = np.arange(ln + 1)
         t = np.clip((jj - (ln - l_eff)) / l_eff, 0, 1)
         demi = w0 * (1 - t ** 1.8) / 2
-        if entree > 0:
-            l_in = entree * ln
-            demi = demi * (1 - np.clip(1 - jj / l_in, 0, 1) ** 1.8)
         hg = np.minimum(demi, np.maximum(ndimage.minimum_filter1d(place_g, 5), 0))
         hd = np.minimum(demi, np.maximum(ndimage.minimum_filter1d(place_d, 5), 0))
         hg = np.minimum(ndimage.gaussian_filter1d(hg, 2.0), np.maximum(place_g, 0))
@@ -298,7 +294,7 @@ def _traits(T, Bt, ep, pente, Hh, Wh):
         epx = float(np.interp(x0, xs, ep))
         w0 = LARG * U * (0.9 if ombre else 1.0) * (0.95 + 0.10 * rng.random())
         frac = ecl * (0.95 + 0.05 * rng.random()) + (1 - ecl) * (0.80 + 0.15 * rng.random())
-        tracer(x0, Tx(x0) + epx * 0.7, al, w0, frac, 0.0, epx * 0.9)
+        tracer(x0, Tx(x0) + epx * 0.7, al, w0, frac, epx * 0.9)
 
     return np.asarray(img) > 127
 

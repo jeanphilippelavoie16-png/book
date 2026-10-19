@@ -316,6 +316,11 @@ def appliquer(a, K=4):
     Y = lambda v: v * K - r0                          # ordonnée 768 -> ligne du tableau de travail
     poly_px = lambda p: [(x * K, Y(y)) for x, y in p]
     rng = random.Random(7)
+    # la nuit des arbres : celle de l'image, mesurée sous la rangée (les pixels gardés autour du chalet et des
+    # grandes épinettes s'y raccordent sans couture)
+    nuit_px = z[int(Y(712)):int(Y(724)), int(100 * K):int(600 * K)].reshape(-1, 3)
+    nuit_px = nuit_px[nuit_px.mean(1) < 40]
+    NUIT_L = np.median(nuit_px, 0).astype(np.float32) if len(nuit_px) > 100 else NUIT
 
     # -- ce qui reste tel quel : l'orange et tout ce qui est au-dessus, le premier plan, le chalet
     orange = (R - B > 35) & (R > 50)
@@ -614,14 +619,14 @@ def appliquer(a, K=4):
         prol = (yy > bas_c[None, :] - 2 * K) & (yy < y_masse[None, :] + 3 * K) & has[None, :] & (yy > Y(600))
         _poser(c, _forme(prol, 1.5 * q) * (1 - a_bois_couvre), COLLINE)
     a_masse = np.clip(yy - y_masse[None, :] + 0.5, 0, 1)
-    _poser(c, a_masse, NUIT)
+    _poser(c, a_masse, NUIT_L)
     arbres.sort(key=lambda t: -t[2])
     for x, yt, hh in arbres:
         sil, neiges = _epinette(x, yt, hh, rng, K)
         r = _raster_local([sil], h, w)
         if r is not None:
             al, y0_, x0_ = r
-            _poser(c, al, NUIT, y0_, x0_)
+            _poser(c, al, NUIT_L, y0_, x0_)
         r = _raster_local(neiges, h, w)
         if r is not None:
             al, y0_, x0_ = r
