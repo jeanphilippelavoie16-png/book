@@ -73,7 +73,7 @@ EPINETTES = {
                 (742, 47.0), (790, 56.0), (860, 66.0), (985, 82.0)]),
         # la petite du milieu : ses étages relevés (côté, bout x, bout y, haut de l'attache, épaisseur)
         dict(nom='S2', coeur=0.24, cx=602.3, cx_bas=602.0, pointe=808.5, fleche=6.5, fleche_l=2.0, pied=962, tronc=2.0, graine=71,
-             neige=0.75, masque=dict(contour=[(556, 812), (644, 812), (644, 961), (556, 961)], haut=813.5, bas=961),
+             neige=0.75, masque=dict(contour=[(556, 812), (637, 812), (637, 961), (556, 961)], haut=813.5, bas=961),
              etages=[
                  (-1, 594.5, 836.0, 829.0, 5.0), (1, 612.0, 840.0, 830.5, 5.5),
                  (-1, 590.5, 851.0, 843.0, 5.5), (1, 613.5, 855.0, 845.5, 6.0),
@@ -106,10 +106,6 @@ BOITES = {'gauche': (0, 560, 160, 960), 'droite': (495, 585, 768, 960)}
 HORIZON = {'gauche': [(0, 756), (60, 754), (100, 752), (140, 750), (160, 747)],
            'droite': [(495, 749), (560, 744), (600, 740), (640, 735.5), (680, 733.5), (768, 733.5)]}
 
-# le haut de la nuit de la rangée d'arbres, derrière les grandes épinettes (au-dessus : le bleu des collines)
-HAUT_NUIT = {'gauche': [(0, 652), (40, 650), (160, 645)],
-             'droite': [(495, 650), (640, 645), (680, 641), (728, 637), (768, 636)]}
-
 # au-dessus de l'horizon, l'ancienne épinette est ce que la retouche des collines a laissé tel quel (PREMIER_PLAN de
 # collines.py, repris ici) : ce contour est rebouché en entier
 ANCIEN_HAUT = {
@@ -119,6 +115,7 @@ ANCIEN_HAUT = {
         [(66, 699), (84, 699), (90, 765), (60, 765)],
     ],
     'droite': [
+        [(659.5, 637.5), (668.0, 637.5), (668.0, 648.0), (659.5, 648.0)],
         [(697, 580), (702, 592), (707, 605), (713, 620), (717, 632), (725, 640), (732, 650), (740, 660), (744, 672),
          (749, 690), (751, 705), (753, 725), (759, 740), (768, 745), (768, 765), (640, 765), (648, 752), (652, 735),
          (655, 722), (660, 710), (665, 698), (667, 684), (672, 670), (679, 657), (681, 640), (681, 622), (684, 606),
@@ -296,16 +293,28 @@ def epinette(sp):
         if R.random() > part or L < 2:
             return
         bt = (1.2 if doigt else 0.62) * ep               # l épaisseur de la lame du haut, au tronc
-        e = (max(0.30 * bt, 0.8) if doigt else max(0.58 * bt, 0.95)) * u(0.85, 1.15) * (0.9 if fin else 1.0)
-        c, dl = u(0.34, 0.55), u(0.20, 0.32)
-        v0, v1 = max(0.08, c - dl), min(0.90, c + dl)
+        e = (max(0.30 * bt, 0.8) if doigt else max(0.66 * bt, 1.0)) * u(0.85, 1.15) * (0.9 if fin else 1.0)
         r0 = max(0.16 * bt + 0.3, 0.75) * u(0.85, 1.15) * (0.8 if doigt else 1.0)
-        couche[1].append(_croissant(hauts[0], v0, v1, lambda v: r0 * (1 - 0.35 * v), e, coussin=True))
-        if L > 12 and v0 > 0.2 and R.random() < 0.5:    # une petite tache près du tronc, sur les grandes branches
-            couche[1].append(_croissant(hauts[0], u(0.04, 0.07), v0 - u(0.05, 0.08), r0, e * 0.6, n=20))
-        if len(hauts) > 1 and L > 8 and R.random() < 0.55:  # la lame du dessous
-            c2 = u(0.45, 0.65)
-            couche[1].append(_croissant(hauts[1], c2 - 0.2, c2 + 0.2, r0 * 0.9, e * 0.7, n=24, coussin=True))
+        if doigt:
+            c, dl = u(0.34, 0.55), u(0.20, 0.32)
+            couche[1].append(_croissant(hauts[0], max(0.08, c - dl), min(0.9, c + dl), lambda v: r0 * (1 - 0.35 * v),
+                                        e, coussin=True))
+            return
+        # des taches franches et courtes posées sur le dessus, à des places inégales (comme au tome 6), pas un
+        # croissant le long de toute la branche
+        n = 1 if L < 7 else (2 if L < 15 else 3)
+        if n > 1 and R.random() < 0.3:
+            n -= 1
+        bornes = np.linspace(0.06, 0.92, n + 1)
+        for i in range(n):
+            lg = min(0.45, max(0.12, u(3.0, 6.4) / max(L, 1e-3)))
+            c = u(bornes[i] + lg / 2, max(bornes[i] + lg / 2, bornes[i + 1] - lg / 2))
+            ee = e * u(0.8, 1.2) * (1.12 if i == 0 else 1.0)
+            couche[1].append(_croissant(hauts[0], max(0.04, c - lg / 2), min(0.95, c + lg / 2),
+                                        lambda v, r=r0 * u(0.85, 1.15): r * (1 - 0.3 * v), ee, n=24))
+        if len(hauts) > 1 and L > 8 and R.random() < 0.5:   # une tache sur la lame du dessous
+            c2 = u(0.40, 0.70); lg = min(0.4, max(0.12, u(2.0, 4.0) / L))
+            couche[1].append(_croissant(hauts[1], c2 - lg / 2, c2 + lg / 2, r0 * 0.9, e * 0.75, n=20))
 
     if 'etages' in sp:                                  # la demi-largeur, tirée des étages relevés
         for cle, sg in (('D', 1), ('G', -1)):
@@ -338,9 +347,9 @@ def epinette(sp):
             pas = (sp['pas'][0] + (sp['pas'][1] - sp['pas'][0]) * t ** 0.8) * u(0.85, 1.15)
             ep = pas * u(0.62, 0.78)
             ch0 = sp['pente'] * _interp(prof, y) + 0.2 * ep
-            L = _interp(prof, y + ch0) * u(0.90, 1.05)
-            if k > 1 and R.random() < 0.10:
-                L *= u(0.75, 0.86)                      # une branche plus courte de temps en temps
+            L = _interp(prof, y + ch0) * u(0.86, 1.06)
+            if k > 1 and R.random() < 0.18:
+                L *= u(0.70, 0.86)                      # une branche plus courte de temps en temps
             if L > 0.8:
                 ch = (sp['pente'] * L + 0.2 * ep) * u(0.85, 1.15)
                 cx = cxf(y)
@@ -468,6 +477,29 @@ def _neige_doigts(sp, mo, boite, K):
     return polys
 
 
+def _haut_nuit(L, xs, ys, haut_old, K):
+    """Le haut de la nuit de la rangée d'arbres, colonne par colonne, relevé à côté de l'ancienne épinette : le premier
+    pixel, entre 600 et 760, sous lequel 6 unités de suite ne sont pas du bleu des collines (la nuit, ou les traits
+    blancs des petites épinettes de la rangée) ; les traits de gouge des collines, minces, ne comptent pas. Derrière
+    l'ancienne épinette, une droite d'un bord à l'autre."""
+    pas_bleu = (L < 30) | (L > 150)
+    n = int(6 * K)
+    suite = ndi.minimum_filter1d(pas_bleu.astype(np.uint8), n, axis=0, origin=-(n // 2)) > 0
+    fen = (ys >= 600) & (ys <= 760)
+    hn = np.full(len(xs), np.nan)
+    for j in range(len(xs)):
+        k = np.nonzero(suite[:, j] & fen)[0]
+        if len(k):
+            i = k[0]
+            if not haut_old[max(0, i - int(1 * K)):i + n, j].any():
+                hn[j] = ys[i] - 0.5 / K
+    ok = ~np.isnan(hn)
+    if ok.sum() < 4:
+        return np.full(len(xs), 650.0)
+    hn = np.interp(xs, xs[ok], hn[ok])
+    return ndi.median_filter(hn, int(3 * K) | 1, mode='nearest')
+
+
 def _zone(a, nom, K):
     x0, y0, x1, y1 = BOITES[nom]
     X0, Y0, X1, Y1 = int(x0 * K), int(y0 * K), int(x1 * K), int(y1 * K)
@@ -482,6 +514,7 @@ def _zone(a, nom, K):
 
     # -- l'ancienne épinette
     haut_old = _raster(ANCIEN_HAUT[nom], boite, K, 2) > 0.5
+    haut_old = ndi.binary_dilation(haut_old, _disque(0.75 * K))       # le liseré d'anticrénelage du contour
     zone_bas = _raster(ANCIEN_BAS[nom], boite, K, 2) > 0.5
     sombre = L < 150
     epais = ndi.binary_opening(sombre, _disque(1.6 * K))            # les fils minces partent, les branches restent
@@ -493,6 +526,12 @@ def _zone(a, nom, K):
     mince = (L < 185) & ~fils & ndi.binary_dilation(noyau, _disque(6 * K))
     ancien_bas = (ndi.binary_dilation(noyau, _disque(0.8 * K)) | ndi.binary_dilation(mince, _disque(0.6 * K)))
     ancien_bas &= zone_bas & champ
+    # les miettes noires de l'ancienne épinette restées juste hors du contour (dans les 3 unités autour) partent aussi
+    anneau = ndi.binary_dilation(haut_old, _disque(3 * K)) & ~haut_old & ~champ
+    lab, n = ndi.label((L < 30) & anneau)
+    if n:
+        touche = np.unique(lab[ndi.binary_dilation(haut_old, _disque(2)) & (lab > 0)])
+        haut_old = haut_old | np.isin(lab, touche[touche > 0])
     ancien = (haut_old & ~champ) | ancien_bas
     # le liseré clair de l'agrandissement autour de l'ancien noir (s'il est encore là) : plus clair que la neige voisine
     neige_ok = champ & (L > 150) & ~ancien
@@ -514,7 +553,7 @@ def _zone(a, nom, K):
         # la nuit et les collines : sous le haut de la rangée, la nuit (le noir de l'épinette s'y confond) ; au-dessus,
         # le bleu des collines, en aplat (la couleur moyenne des collines autour, sans leurs traits) ; la limite entre
         # les deux est une ligne nette
-        hn = np.interp(xs, [p[0] for p in HAUT_NUIT[nom]], [p[1] for p in HAUT_NUIT[nom]])
+        hn = _haut_nuit(L, xs, ys, haut_old, K)
         sous = (ys[:, None] > hn[None, :]).astype(np.float32)
         sous = ndi.gaussian_filter(sous, 0.3 * K)[..., None]
         haut_ok = ~champ & ~ancien

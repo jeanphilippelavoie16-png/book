@@ -167,10 +167,19 @@ def dessin():
 
     # les rondins du devant : des lignes crème, de part et d'autre de la porte
     hauteur = (BAS - SABLIERE) / 6
+    def rondin(xa, xb, y):
+        # un trait de gouge, parfois en deux reprises (la gouge repart un peu plus loin)
+        if R.random() < 0.3:
+            xm = xa + (xb - xa) * R.uniform(0.35, 0.65)
+            creme.append(_trait([(xa, y + j(0.06)), (xm - 0.5, y + j(0.06))], R.uniform(0.75, 0.95), (0.06, 0.15)))
+            creme.append(_trait([(xm + 0.4, y + j(0.06)), (xb, y + j(0.06))], R.uniform(0.75, 0.95), (0.15, 0.06)))
+        else:
+            creme.append(_trait([(xa, y + j(0.06)), ((xa + xb) / 2, y + j(0.1)), (xb, y + j(0.06))],
+                                R.uniform(0.78, 0.95), (0.06, 0.08)))
     for k in range(1, 6):
         y = SABLIERE + k * hauteur + j(0.1)
-        creme.append(_trait([(MUR_G + 2.6 + j(), y + j(0.08)), (PORTE[0] - 2.3 + j(), y + j(0.08))], 0.85, (0.06, 0.08)))
-        creme.append(_trait([(PORTE[2] + 2.3 + j(), y + j(0.08)), (MUR_D - 2.4 + j(), y + j(0.08))], 0.85, (0.08, 0.06)))
+        rondin(MUR_G + 2.6 + j(0.25), PORTE[0] - 2.3 + j(0.2), y)
+        rondin(PORTE[2] + 2.3 + j(0.2), MUR_D - 2.4 + j(0.25), y)
     # les rondins du côté : les lignes suivent la fuite du mur ; le haut reste noir (l'ombre de l'avant-toit)
     for k in range(1, 6):
         f = k / 6
@@ -249,13 +258,13 @@ def dessin():
     couches.append(('creme', creme)); creme = []
 
     # -- la clôture : poteaux réguliers coiffés de neige, deux perches nettes, une fin propre
-    def poteau(x, haut, bas_=796.6, w=1.45):
+    def poteau(x, haut, bas_=796.6, w=1.65):
         # le poteau, le haut arrondi un peu plus large : la calotte de neige s'y taille
         noir.append(np.concatenate([[(x - w / 2 + 0.1, bas_)], [(x - w / 2, haut + 1.0)],
                                     _cubique((x - w / 2 - 0.25, haut + 0.9), (x - w / 2 - 0.25, haut - 0.4),
                                              (x + w / 2 + 0.25, haut - 0.4), (x + w / 2 + 0.25, haut + 0.9), 16),
                                     [(x + w / 2, haut + 1.0)], [(x + w / 2 - 0.1, bas_)]]))
-    def perche(x0, x1, y, ep=1.15):
+    def perche(x0, x1, y, ep=1.3):
         noir.append(_trait([(x0, y + j(0.1)), ((x0 + x1) / 2, y + 0.25 + j(0.1)), (x1, y + j(0.1))], ep, (0.02, 0.02)))
     perche(338.9, MUR_G - 1.0, 787.8)
     perche(338.9, MUR_G - 1.0, 792.6)
@@ -277,10 +286,10 @@ def lueur():
     """La lueur de la porte sur la neige : des traits orange taillés à la gouge, couchés, en rangs qui s'élargissent
     devant le seuil et s'amincissent en s'éloignant (comme le reflet orange sur le lac du tome 4)."""
     cx = (PORTE[0] + PORTE[2]) / 2
-    rangs = [(797.7, [(-3.0, 4.8), (2.8, 4.4)], 0.62),
-             (799.0, [(-7.2, 4.6), (-0.6, 5.2), (6.4, 4.2)], 0.55),
-             (800.3, [(-4.4, 4.6), (3.8, 4.0), (10.2, 2.6)], 0.46),
-             (801.4, [(-9.6, 2.8), (0.2, 3.4)], 0.38)]
+    rangs = [(797.8, [(-3.2, 5.6), (3.0, 5.0)], 0.85),
+             (799.2, [(-7.6, 5.0), (-0.4, 6.0), (7.0, 4.6)], 0.72),
+             (800.5, [(-4.6, 5.2), (4.2, 4.6), (11.0, 3.0)], 0.6),
+             (801.6, [(-10.2, 3.2), (0.4, 4.0)], 0.48)]
     polys = []
     for y, traits, ep in rangs:
         for dx, L in traits:

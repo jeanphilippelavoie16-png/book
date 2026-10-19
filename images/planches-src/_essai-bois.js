@@ -11,7 +11,16 @@
 // objets-bas/corde.py), au trait et sans couleur.
 //
 // La fonction est celle de la planche (boisDe, dans images/planches-src/13-40.js) : la feuille montre les pièces seules
-// en grand, puis la vue de la planche à la taille d'impression, puis à la loupe, puis le tas 18 de la vue 6.
+// en grand, puis la vue de la planche à la taille d'impression, puis à la loupe.
+// Ce qu'on a vu, à la taille d'impression et à la loupe, et ce qui a changé :
+//   les tas de branches toutes au même angle faisaient un fagot d'allumettes : les branches se croisent (vers le fond à
+//   droite, puis vers le fond à gauche) et chacune repose sur celles qu'elle croise (empile) ;
+//   le bout d'une brindille avec l'anneau d'écorce faisait une paille : sous 2,6 de rayon, la moelle seule ;
+//   la fente de séchage se pinçait à mi-longueur et faisait un trait : un vrai coin, large à l'écorce ;
+//   le rouleau d'écorce avec un trou rond faisait une canne de conserve : la spirale lâche de la feuille, le creux qui
+//   suit le dernier tour, le bord libre le long du rouleau ;
+//   la pile sur une seule ligne de sol flottait (la bûche du fond au-dessus de la ligne) : un sol commun gris pâle,
+//   comme le sol du tipi, où chaque tas repose à sa profondeur.
 // Le rendu se fait dans le scratchpad, pas dans images/ : le composeur sert seulement à mettre les vues en page.
 module.exports = (h) => {
   const B = require('./13-40.js').bois(h);
@@ -35,13 +44,17 @@ module.exports = (h) => {
       titre: 'La vue de la planche, à la taille d’impression',
       dessin: z => `<g transform="translate(${(z.l - tasPlanche.l) / 2} 0)">${planche.vues.tas.dessin(tasPlanche)}</g>`,
     },
+    loupe1: {
+      titre: 'À la loupe (× 4), l’amadou et le bois fin',
+      dessin: z => loupe(z, 4, 0, 102 - z.h / 4, planche.vues.tas.dessin(tasPlanche), 'essai-bois-l1'),
+    },
     loupeG: {
-      titre: 'À la loupe (× 2,6), à gauche',
-      dessin: z => loupe(z, 2.6, 0, 20, planche.vues.tas.dessin(tasPlanche), 'essai-bois-lg'),
+      titre: 'À la loupe (× 2,6), le bois fin et les branches',
+      dessin: z => loupe(z, 2.6, 60, 102 - z.h / 2.6, planche.vues.tas.dessin(tasPlanche), 'essai-bois-lg'),
     },
     loupeD: {
-      titre: 'À la loupe (× 2,6), à droite',
-      dessin: z => loupe(z, 2.6, 367 - z.l / 2.6, 20, planche.vues.tas.dessin(tasPlanche), 'essai-bois-ld'),
+      titre: 'À la loupe (× 2,6), les bûches',
+      dessin: z => loupe(z, 2.6, 367 - z.l / 2.6, 102 - z.h / 2.6, planche.vues.tas.dessin(tasPlanche), 'essai-bois-ld'),
     },
   };
   return {
@@ -50,8 +63,8 @@ module.exports = (h) => {
     titre: 'Essai, le bois',
     desc: 'Le bois au trait de la planche 13-40 : une bûche ronde sciée, un quartier, une demie, une branche avec nœuds et rameaux, une brindille coupée en biais, un rouleau d’écorce de bouleau, une branche de bouleau ; puis la vue des quatre tas à la taille d’impression et à la loupe.',
     format: 'pleine',
-    disposition: [['pieces'], ['impression'], ['loupeG'], ['loupeD']],
-    hauteurs: [2.2, 0.9, 1.6, 1.6],
+    disposition: [['pieces'], ['impression'], ['loupe1'], ['loupeG'], ['loupeD']],
+    hauteurs: [1.5, 1.0, 1.5, 1.3, 1.5],
     vues,
   };
 };
