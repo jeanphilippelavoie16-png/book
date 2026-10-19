@@ -35,7 +35,7 @@
 </g>
 <g id="noeuds">
 <rect x="36.00" y="60.22" width="495.00" height="39.40" rx="0" fill="#2B5876"/>
-<text data-max="468.50" x="50.00" y="84.67" font-family="IBM Plex Sans Condensed" font-size="15" fill="#fff" text-anchor="start" xml:space="preserve"><tspan font-weight="700">Quelqu’un est blessé, malade ou pris loin de tout</tspan></text>
+<text data-max="468.50" x="50.00" y="84.67" font-family="IBM Plex Sans Condensed" font-size="15" fill="#fff" text-anchor="start" xml:space="preserve"><tspan font-weight="700">Il faut de l’aide, loin de tout</tspan></text>
 <rect x="36.00" y="115.20" width="495.00" height="45.50" rx="10" fill="#fff" stroke="#2B5876" stroke-width="1.75"/>
 <text data-max="472.50" x="283.50" y="135.50" font-family="IBM Plex Sans Condensed" font-size="13" fill="#000" text-anchor="middle" xml:space="preserve"><tspan font-weight="700">La vie de quelqu’un est en jeu maintenant ?</tspan></text>
 <text data-max="472.50" x="283.50" y="149.77" font-family="IBM Plex Serif" font-size="9.5" font-style="italic" fill="#000" text-anchor="middle" xml:space="preserve"><tspan font-weight="400">Il respire mal, saigne sans qu’on arrive à l’arrêter, se réveille mal, ou ne pourra pas passer la nuit à l’endroit où il est</tspan></text>
