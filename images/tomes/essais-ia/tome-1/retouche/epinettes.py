@@ -23,7 +23,10 @@ nouvelle, les pixels reçus restent.
     from epinettes import appliquer ; b = appliquer(a, 4)      (a : numpy RVB uint8, 3072 x 3840 ; K pixels par unité)
     python3 epinettes.py entree.png sortie.png
 """
+import functools
+import importlib.util
 import math
+import os
 import random
 import numpy as np
 from scipy import ndimage as ndi
@@ -31,6 +34,17 @@ from PIL import Image, ImageDraw
 
 NOIR = np.array([6, 17, 31], np.float32)        # #06111F, le noir des épinettes
 SS = 4                                            # suréchantillonnage du dessin
+ICI = os.path.dirname(os.path.abspath(__file__))
+
+# Les raccords avec les modules d'avant (la chaîne : ciel, cretes, collines, neige, chalet, epinettes). Là où
+# l'ancienne épinette est rebouchée et que la nouvelle ne couvre pas, ce que collines.py et neige.py ont dessiné
+# autour continue : la rangée d'arbres (les petites épinettes de collines.py, plantées sur le haut de la nuit), l'ombre
+# festonnée au pied de la rangée (neige.py) et la trace de raquettes jusque sous la grande de droite.
+T_CLAIR = 0.10                 # l'ombre au pied de la rangée : la part du bleu des collines (neige.py)
+PAS_TRACE = 12.2               # deux empreintes de la trace, de la petite du milieu à la grande de droite (unités) :
+                               # le décalage de la copie qui la prolonge, pour que les empreintes tombent en quinconce
+PENTE_TRAITS = 0.40            # la pente des deux grands traits blancs de la colline, près de la grande de gauche,
+TRAITS_G = [(23, 611.1), (23, 627.8)]   # et un point de chacun (unités), relevés sur eux
 
 # --------------------------------------------------------------------------- les épinettes (unités 768 x 960)
 # Chaque épinette : cx, cx_bas (le tronc en haut et au pied), pointe (y de la pointe), fleche (longueur de la flèche),
@@ -110,7 +124,10 @@ EPINETTES = {
 BOITES = {'gauche': (0, 560, 160, 960), 'droite': (495, 585, 768, 960)}
 
 # le bas de la rangée d'arbres (au-dessus : la nuit et les collines ; au-dessous : le champ de neige)
-HORIZON = {'gauche': [(0, 756), (60, 754), (100, 752), (140, 750), (160, 747)],
+# (à gauche, relevé sur la neige du champ entre les épinettes, de 50 à 160 : un horizon plus haut que la neige y faisait
+# une marche, et la nuit de la rangée rebouchée en neige au-dessus de l'ombre du pied)
+HORIZON = {'gauche': [(0, 756), (50, 755.0), (65, 754.8), (90, 754.3), (110, 754.2), (120, 753.5), (130, 752.2),
+                      (140, 750.5), (150, 748.8), (160, 746.8)],
            'droite': [(495, 749), (560, 744), (600, 740), (640, 735.5), (680, 733.5), (768, 733.5)]}
 
 # au-dessus de l'horizon, l'ancienne épinette est ce que la retouche des collines a laissé tel quel (PREMIER_PLAN de
@@ -527,6 +544,71 @@ def _haut_nuit(L, xs, ys, haut_old, K):
     return ndi.median_filter(hn, int(3 * K) | 1, mode='nearest')
 
 
+@functools.lru_cache(maxsize=1)
+def _collines():
+    spec = importlib.util.spec_from_file_location('t1_retouche_collines', os.path.join(ICI, 'collines.py'))
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    return mod
+
+
+def _raster_local(polys, boite, K, h, w, ss=SS):
+    """Comme _raster, mais seulement dans la boîte des polygones : rend (alpha, i0, j0) en pixels de la zone, ou None."""
+    pts = np.concatenate([np.asarray(p, float) for p in polys])
+    x0 = max(boite[0], math.floor(pts[:, 0].min()) - 1); x1 = min(boite[2], math.ceil(pts[:, 0].max()) + 1)
+    y0 = max(boite[1], math.floor(pts[:, 1].min()) - 1); y1 = min(boite[3], math.ceil(pts[:, 1].max()) + 1)
+    if x1 <= x0 or y1 <= y0:
+        return None
+    al = _raster(polys, (x0, y0, x1, y1), K, ss)
+    i0, j0 = int(round((y0 - boite[1]) * K)), int(round((x0 - boite[0]) * K))
+    al = al[:h - i0, :w - j0]
+    return al, i0, j0
+
+
+def _rangee(region, hn, hz, boite, K, graine):
+    """La rangée d'arbres de collines.py, continuée là où l'ancienne épinette a été rebouchée au-dessus du champ : des
+    petites épinettes noires chargées de neige (le dessin de collines.py), la pointe un peu au-dessus du haut de la
+    nuit, à 4,5 à 6,5 unités l'une de l'autre, comme les épinettes de remplissage de la rangée. Rend une liste
+    d'épinettes (silhouette, [neiges]) en unités, de la plus haute à la plus basse (l'ordre où on les pose)."""
+    col = _collines()
+    R = random.Random(graine)
+    x0, y0 = boite[0], boite[1]
+    w = region.shape[1]
+    arbres = []
+    x = x0 + R.uniform(0.5, 3.0)
+    while x < boite[2] - 0.5:
+        j = min(int((x - x0) * K), w - 1)
+        i0, i1 = int((hn[j] - 4 - y0) * K), int((hn[j] + 4 - y0) * K)
+        if region[max(0, i0):max(0, i1), j].any():
+            yt = hn[j] - R.uniform(2.0, 6.0)
+            hh = min(R.uniform(22, 34), hz[j] - 5 - yt)
+            if hh >= 12:
+                arbres.append((hh, x, yt))
+                x += R.uniform(4.5, 6.5)
+                continue
+        x += 1.0
+    arbres.sort(key=lambda t: -t[0])
+    return [col._epinette(x, yt, hh, R, 1) for hh, x, yt in arbres]
+
+
+def _ombre_pied(xs, K, graine):
+    """L'épaisseur (unités) de l'ombre festonnée au pied de la rangée, colonne par colonne : le dessin de neige.py
+    (chaque feston monte vite à droite et s'étire à gauche, la lune est en haut à droite)."""
+    R = np.random.RandomState(graine)
+    ep = np.full(len(xs), 0.9, np.float32)
+    x = float(xs[0]) - 10
+    while x < xs[-1]:
+        lg = R.uniform(7, 13)
+        hmax = R.uniform(1.8, 3.4)
+        u = (xs - x) / lg
+        uu = np.clip(u, -1, 0.35)
+        f = np.where((u > -1) & (u < 0), np.abs(np.sin(np.pi * (uu + 1) / 2)) ** 1.5,
+                     np.where((u >= 0) & (u < 0.35), np.cos(np.pi * uu / 0.7), 0))
+        ep = np.maximum(ep, 0.9 + hmax * f)
+        x += R.uniform(5, 10)
+    return ep
+
+
 def _zone(a, nom, K):
     x0, y0, x1, y1 = BOITES[nom]
     X0, Y0, X1, Y1 = int(x0 * K), int(y0 * K), int(x1 * K), int(y1 * K)
@@ -571,6 +653,7 @@ def _zone(a, nom, K):
 
     # -- le fond rebouché
     fond = z.copy()
+    rang = np.zeros((h, w), np.float32)          # la rangée d'arbres continuée (elle déborde un peu de l'ancienne)
     # la neige : chaque pixel prend la neige valide la plus proche, puis un léger lissage
     # (la trace de raquettes, plus foncée que la neige, ne se recopie pas dans le trou : elle s'y étirerait)
     valide_n = champ & ~ancien & (L > 212)
@@ -597,6 +680,59 @@ def _zone(a, nom, K):
         m = ancien & ~champ
         fond[m] = ps[m]
 
+        # -- les raccords avec ce que les modules d'avant ont dessiné autour de l'ancienne épinette
+        col = _collines()
+        # l'ombre festonnée au pied de la rangée (neige.py), sur la neige rebouchée, sous la limite du champ
+        ep = _ombre_pied(xs, K, 5 if nom == 'gauche' else 6)
+        a_om = np.clip((ep[None, :] - (ys[:, None] - hz[None, :])) * K + 0.5, 0, 1) * (ancien & champ)
+        a_om = a_om[..., None]
+        fond = fond * (1 - a_om) + ((1 - T_CLAIR) * fond + T_CLAIR * col.COLLINE) * a_om
+        # la trace de raquettes, derrière la petite du milieu et jusque sous la grande de droite : recopiée de deux
+        # empreintes plus à gauche, décalée en hauteur comme son tracé
+        if nom == 'droite':
+            cible = (_raster([_ruban(FILS[0], 4.5)], boite, K, 2) > 0.5) & ancien & champ & (xs[None, :] >= 556)
+            dx = int(round(PAS_TRACE * K))
+            fx, fy = np.array(FILS[0]).T
+            for j in np.nonzero(cible.any(0))[0]:
+                if j >= dx:
+                    dy = int(round((np.interp(xs[j], fx, fy) - np.interp(xs[j - dx], fx, fy)) * K))
+                    ii = np.nonzero(cible[:, j])[0]
+                    fond[ii, j] = fond[np.clip(ii - dy, 0, h - 1), j - dx]
+        # les deux grands traits blancs de la colline de gauche (collines.py) s'arrêtaient net au bord de l'ancienne
+        # épinette : ils continuent dans leur sens jusque sous la nouvelle, recopiés sur leur propre tracé au-delà de
+        # 6 unités du bord (le bout coupé et son ergot partent avec) ; rien d'autre ne bouge à plus de 3 unités d'eux
+        if nom == 'gauche':
+            marge = ndi.binary_dilation(ancien, _disque(6 * K))
+            sur_trait = np.zeros((h, w), bool)
+            for (x_, y_) in TRAITS_G:
+                sur_trait |= np.abs(ys[:, None] - (y_ + PENTE_TRAITS * (xs[None, :] - x_))) < 3.0
+            cible = marge & ~champ & sur_trait & (xs[None, :] < 40) & (ys[:, None] < hn[None, :] - 2)
+            iy, jx = np.nonzero(cible)
+            u = np.array([1.0, PENTE_TRAITS]) / math.hypot(1.0, PENTE_TRAITS)
+            sy, sx = iy.astype(float), jx.astype(float)
+            dedans = np.ones(len(iy), bool)
+            while dedans.any():
+                sx[dedans] += u[0]; sy[dedans] += u[1]
+                ry = np.clip(np.round(sy).astype(int), 0, h - 1); rx = np.clip(np.round(sx).astype(int), 0, w - 1)
+                dedans = marge[ry, rx] & (rx < w - 1) & (ry < h - 1)
+            src = fond[ry, rx]
+            Lb = pb_[iy, jx].mean(1)
+            al = np.clip((src.mean(1) - Lb) / (230.0 - Lb), 0, 1)[:, None]      # la part de blanc de la source
+            fond[iy, jx] = pb_[iy, jx] * (1 - al) + src * al
+        # la rangée d'arbres, derrière la nouvelle épinette : les petites épinettes de collines.py
+        au_dessus = (~champ).astype(np.float32)
+        for sil_r, neiges_r in _rangee(ancien & ~champ, hn, hz, boite, K, 17 if nom == 'gauche' else 29):
+            for polys, coul in (([sil_r], c_nuit), (neiges_r, col.BLANC)):
+                r = _raster_local(polys, boite, K, h, w) if len(polys) else None
+                if r is None:
+                    continue
+                al, i0, j0 = r
+                hh_, ww_ = al.shape
+                al = al * au_dessus[i0:i0 + hh_, j0:j0 + ww_]
+                blk = fond[i0:i0 + hh_, j0:j0 + ww_]
+                blk[:] = blk * (1 - al[..., None]) + coul * al[..., None]
+                rang[i0:i0 + hh_, j0:j0 + ww_] = np.maximum(rang[i0:i0 + hh_, j0:j0 + ww_], al)
+
     # -- les nouvelles épinettes, de l'arrière vers l'avant
     neige_coul = np.median(z[loin], 0) if loin.any() else np.array([219, 228, 234], np.float32)
     out = fond
@@ -618,7 +754,7 @@ def _zone(a, nom, K):
             total = np.maximum(total, an)
 
     # -- la zone : l'ancienne épinette et la nouvelle, rien d'autre
-    m = np.maximum(ancien.astype(np.float32), total)
+    m = np.maximum(np.maximum(ancien.astype(np.float32), total), rang)
     res = z * (1 - m[..., None]) + out * m[..., None]
     return (Y0, Y1, X0, X1), np.clip(np.round(res), 0, 255).astype(np.uint8)
 

@@ -21,11 +21,25 @@ plan, la cheminée et le toit du chalet, la neige du champ gardent les pixels re
 
     from collines import appliquer ; b = appliquer(a, 4)      (a : numpy RVB uint8, 3072 x 3840 ; K pixels par unité)
 """
+import functools
+import importlib.util
 import math
+import os
 import random
 import numpy as np
 from scipy import ndimage as ndi
 from PIL import Image, ImageDraw
+
+ICI = os.path.dirname(os.path.abspath(__file__))
+
+
+@functools.lru_cache(maxsize=1)
+def _bas_cretes():
+    """Le bas des crêtes refaites par cretes.py (pixels de l'image, une valeur par colonne, pour K = 4)."""
+    spec = importlib.util.spec_from_file_location('t1_retouche_cretes', os.path.join(ICI, 'cretes.py'))
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    return mod.contours()[1]
 
 # les encres, mesurées dans l'image d'origine
 CRETE = np.array([2, 12, 24], np.float32)       # la nuit de la crête sous l'orange et du bois entre les collines
@@ -307,7 +321,8 @@ def appliquer(a, K=4):
     a = np.asarray(a)
     H, W = a.shape[:2]
     q = K / 4.0                                       # les rayons en pixels sont donnés pour K = 4
-    r0, r1 = int(462 * K), int(768 * K)              # la bande de travail (un peu plus grande que la zone)
+    r0, r1 = int(456 * K), int(768 * K)              # la bande de travail (un peu plus grande que la zone : à droite
+                                                      # de la lune, le pied des crêtes remonte jusqu'à 458,5)
     z = a[r0:r1].astype(np.float32)
     h, w = z.shape[:2]
     R, G, B = z[..., 0], z[..., 1], z[..., 2]
@@ -327,6 +342,10 @@ def appliquer(a, K=4):
     haut = (orange | ((L > 90) & (yy < Y(505)))) & (yy < Y(548))
     yo = np.where(haut.any(0), h - 1 - np.argmax(haut[::-1], 0), -1).astype(np.float32)
     yo = ndi.maximum_filter1d(yo, int(3 * q) * 2 + 1)
+    # la crête refaite descend jusqu'à son pied, même là où ses traits de gouge s'arrêtent plus haut : son noir reste
+    # le sien (sinon la nuit de la crête sombre y entre par colonnes et fait des marches)
+    if K == 4 and W == len(_bas_cretes()):
+        yo = np.maximum(yo, _bas_cretes() - r0 - 1)
     garde_pp = _raster([poly_px(p) for p in PREMIER_PLAN], h, w)
     arbre_pp = ndi.binary_dilation((ndi.gaussian_filter(B, 1.0 * q) < 40) | (L > 110), _disque(2 * q))
     garde = np.maximum(garde_pp * _forme(arbre_pp, 1.0 * q), _raster([poly_px(p) for p in CHALET], h, w))
@@ -661,7 +680,8 @@ def appliquer(a, K=4):
             _poser(c, al, BLANC, y0_, x0_)
 
     # -- la zone : sous l'orange, hors du premier plan et du chalet, au-dessus de la neige du champ
-    zone = np.clip((yy - (yo[None, :] + 2 * q)) / (2 * q), 0, 1) * (yy >= Y(470)) * (yy < Y(760))
+    # (le haut de la zone est le pied des crêtes, pas une ligne droite : entre les deux, il restait l'image d'origine)
+    zone = np.clip((yy - (yo[None, :] + 2 * q)) / (2 * q), 0, 1) * (yy < Y(760))
     zone = zone * (1 - garde) * (1 - a_neige)
     out = a.copy()
     sl = out[r0:r1].astype(np.float32)
