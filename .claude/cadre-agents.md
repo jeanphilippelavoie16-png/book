@@ -191,6 +191,9 @@ Le cadre complet est `.claude/skills/planches/references/brief-agent.md`. En bre
   qui est nouveau ou qui change de sens : un chiffre ou un fait nouveau, une note En plus, une série orange réécrite,
   un danger déplacé qui perd son fait propre, une contradiction avec un autre chapitre ou les pages des dangers. Un
   chiffre qui ne fait que changer de section ne se rouvre pas. L'éditeur prend trois chapitres à la fois.
+- [ ] **Rien ne passe par-dessus le texte** (JP, 19 octobre 2026, p. 73 du tome 1 : « on dirait que le tableau est
+  enligné sur l'autre texte ») : après chaque montage, `pdftotext -bbox` puis `python3 design/outils/chevauchements.py`
+  doit dire « pages touchées : 0 ». Un tableau de cinq colonnes et plus prend toute la largeur, même sous une étape.
 - [ ] Le logigramme tombe juste après le Matériel, et **la procédure toujours après lui** (JP, 18 octobre : « c'est lui
   qu'on veut en premier » ; « la procédure va toujours APRÈS le diagramme ») : son ancre est le dernier item du
   Matériel ; le moteur ferme la page à l'ancre et la procédure attend la double page.

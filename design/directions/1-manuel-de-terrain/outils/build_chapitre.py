@@ -316,7 +316,10 @@ def table_html(rows, nested):
     body = [split_row(r) for r in rows[2:] if r.strip("| ")]
     nc = len(head)
     body = [(r + [""] * nc)[:nc] for r in body]
-    col = nested or nc <= 2
+    # sous une étape, le tableau reste dans la colonne ; à cinq colonnes et plus, il n'y tient pas et débordait sur
+    # l'autre colonne, par-dessus le texte (JP, 19 octobre 2026, ch. 1, les quatre horloges : « on dirait que le
+    # tableau est enligné sur l'autre texte ») : il prend toute la largeur
+    col = (nested and nc <= 4) or nc <= 2
     if [h.lower() for h in head[:4]] == ["item", "quantité", "substitution possible", "négociable"]:
         widths = [25, 11, 48, 16] + [10] * (nc - 4)
     else:
