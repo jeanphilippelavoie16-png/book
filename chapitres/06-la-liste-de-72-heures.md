@@ -282,7 +282,7 @@ Si on part, écrire le nom de chaque enfant et un numéro de téléphone à l'in
 
 - **Les médicaments d'ordonnance** (étape 22).
 - **L'avertisseur de CO.** On ne peut pas le fabriquer, et sans lui, rien ne signale le gaz.
-- **Les lunettes**, sauf pour lire de près. Un trou d'épingle percé dans un carton, tenu contre l'œil, rend l'image plus nette à une personne qui a perdu ses lunettes : le petit trou arrête les rayons obliques, qui font le flou. On y perd presque toute la lumière et tout le champ de vision : ça suffit pour lire l'étiquette d'un médicament, pas pour marcher dans le bois ni pour conduire.
+- **Les lunettes**, sauf pour lire de près. Percer un trou d'épingle dans un carton et le tenir contre l'œil : l'image devient plus nette pour une personne qui a perdu ses lunettes, parce que le petit trou arrête les rayons obliques, qui font le flou. On y perd presque toute la lumière et tout le champ de vision : ça suffit pour lire l'étiquette d'un médicament, pas pour marcher dans le bois ni pour conduire.
 
 ### Ce qu'on perd à monter la trousse le soir même
 
@@ -291,7 +291,7 @@ Si on part, écrire le nom de chaque enfant et un numéro de téléphone à l'in
 - **La répartition.** Sans sacs, tout finit dans un seul contenant qu'une seule personne peut porter. Si elle se blesse, la trousse ne bouge plus.
 - **Le compte.** On ne peut pas vérifier une trousse montée en vitesse : on découvre ce qui manque au moment où on en a besoin.
 
-Pour que cette version marche le soir où on en a besoin, la répéter une fois par année, un soir d'automne, sans urgence.
+Pour être capable de monter une trousse en une soirée le jour où il le faut, s'exercer une fois par année, un soir d'automne, sans urgence.
 
 ---
 
@@ -299,11 +299,11 @@ Pour que cette version marche le soir où on en a besoin, la répéter une fois 
 
 ### Le pemmican
 
-Le mot vient du cri *pimikan*, « graisse préparée ». C'est de la viande séchée réduite en poudre et mêlée à parts égales de gras, parfois de petits fruits. Dense et riche en énergie, le pemmican était facile à garder et à transporter : la traite des fourrures en ravitaillait ses voyageurs dans les prairies, surtout l'hiver. Fait avec de l'ours, il est aussi dangereux que de la viande crue : le séchage ne tue pas la trichine (étape 14).
+Le mot vient du cri *pimikan*, « graisse préparée ». C'est de la viande séchée réduite en poudre et mêlée à parts égales de gras, parfois de petits fruits. Dense et riche en énergie, le pemmican était facile à garder et à transporter : il ravitaillait les voyageurs de la traite des fourrures dans les prairies, surtout l'hiver. Fait avec de l'ours, il est aussi dangereux que de la viande crue : le séchage ne tue pas la trichine (étape 14).
 
 ### La pile au lithium
 
-Une pile AA au lithium pèse 15 g ; une alcaline, 23 g. Dans son emballage, à 21 °C, la pile au lithium reste bonne 25 ans, et l'alcaline 10 ans. Pour les piles de rechange qu'on porte sur soi et qu'on ne vérifie que deux fois par année, la pile au lithium est donc plus légère et se périme moins vite (étape 18).
+Une pile AA au lithium pèse 15 g ; une alcaline, 23 g. Dans son emballage, à 21 °C, la pile au lithium reste bonne 25 ans, et l'alcaline 10 ans. Elle convient donc aux piles de rechange qu'on porte sur soi et qu'on ne vérifie que deux fois par année (étape 18).
 
 ### Un toboggan par personne
 

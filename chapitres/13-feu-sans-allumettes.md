@@ -25,11 +25,11 @@ ou une braise qu'on a gardée, aussi longtemps qu'il reste de l'amadou sec.
 
 ## 3. Matériel
 
-- **Tige de ferrocérium** : ses étincelles allument l'amadou même quand la tige est mouillée et qu'il vente ; la plus grosse dure le plus longtemps (→ section 7).
+- **Tige de ferrocérium** : ses étincelles allument l'amadou même quand la tige est mouillée et qu'il vente ; la plus grosse dure le plus longtemps (sans tige : section 7).
 - **Grattoir à arête vive** : le dos d'un couteau meulé d'équerre ; l'arête vive arrache les étincelles de la tige (ch. 105).
-- **Amadou sec** : ouate, écorce de bouleau, barbe de quenouille, gardés dans un sac fermé ; il reçoit l'étincelle (→ section 7).
+- **Amadou sec** : il reçoit l'étincelle ; de l'ouate, de l'écorce de bouleau ou de la barbe de quenouille, gardées dans un sac fermé (ce qu'on ramasse dehors : section 7).
 - **Petit bois en deux grosseurs** : moins de 2 cm, puis 2 à 5 cm (étape 10).
-- **Eau, sable ou terre** : pour éteindre le feu, et ce qui prend dans la mousse ou l'humus (étapes 9 et 29).
+- **Eau, sable ou terre** : pour éteindre le feu, et le feu qui prend dans la mousse ou l'humus (étapes 9 et 29).
 
 ---
 
@@ -42,21 +42,21 @@ ou une braise qu'on a gardée, aussi longtemps qu'il reste de l'amadou sec.
  lui (ch. 25, étapes 5 à 9). S'il y a deux adultes, l'un s'occupe de la personne mouillée pendant que
  l'autre fait le feu. Une personne seule et mouillée doit mettre des vêtements secs avant d'allumer.
 2. **S'il y a un briquet au butane qui ne fait plus de flamme, le mettre sous ses vêtements, contre le
- ventre.** Sous
- 0 °C environ, le butane n'a plus assez de pression pour sortir du briquet (sous −11 °C pour un briquet à
+ ventre.** Sous 0 °C environ, le butane n'a plus assez de pression pour sortir du briquet (sous −11 °C pour un briquet à
  l'isobutane). Contre le ventre, le briquet se réchauffe et redonne une flamme. Dès qu'il en donne une,
  allumer le nid tout de suite, avant que le briquet refroidisse dans la main.
-3. **Garder les mitaines et ramasser le bois.** On peut casser les branches, les trier et fendre le bois
- avec les mitaines : les mains restent chaudes pour le geste fin de l'étape 6. Ramasser les branches mortes du bas des épinettes (étape 11), les casser et les trier
- en tas, par grosseur (étape 10), et ramasser quelques bûches. Ramasser l'amadou en même temps : de
- l'écorce de bouleau, de la barbe de vieillard (section 7, « L'amadou qu'on ramasse »). L'amadou qu'on avait sur soi sert en premier.
+3. **Garder les mitaines et ramasser le bois.** Ramasser les branches mortes du bas des épinettes
+ (étape 11), les casser et les trier en tas par grosseur (étape 10), et ramasser quelques bûches. On peut
+ faire tout ce travail avec les mitaines, même fendre le bois : les mains restent chaudes pour le geste fin
+ de l'étape 6. Ramasser l'amadou en même temps : de l'écorce de bouleau, de la barbe de vieillard
+ (section 7, « L'amadou qu'on ramasse »). Se servir d'abord de l'amadou qu'on avait sur soi.
 4. {!co} **Faire le feu dehors, ou dans un poêle raccordé à son tuyau** (la tente à poêle : ch. 12). Dehors, le
  faire à l'abri du vent, et sur un lit de branches vertes s'il y a de la neige (étape 8). Même pour se réchauffer
  vite, ne jamais faire de feu dans une tente fermée, un abri de neige, une cabane de pêche ou la cabine d'un
  camion : sans tuyau, le monoxyde du feu reste dedans. Sous un cône de bâches, on peut faire un feu à trois
  conditions : le sommet reste grand ouvert, la flamme reste claire, et quelqu'un reste éveillé toute la nuit pour
  la garder (ch. 12, étape 75).
-5. **Choisir la méthode selon les mains.**
+5. **Choisir la méthode selon l'état des mains.**
  - S'il fait plus froid que −17,5 °C, ou si les doigts font mal ou ne sentent plus rien : allumer à la pile
  ou à la batterie, avec de la laine d'acier (étapes 18 à 21). On touche la laine avec les deux bornes de
  la pile ou avec deux fils, et on peut le faire sans enlever les mitaines.
