@@ -129,13 +129,13 @@ elles n'arrivent pas.
 
 ### Avant, une fois : monter le plan
 
-14. **Écrire quatre questions sur une feuille, au mur, à côté de la radio**, et la source qui répond à chacune. *La
- route est-elle ouverte ? Le courant est-il revenu ? Est-ce que ça brûle, et où ? Est-ce que les nôtres vont bien ?*
- Pour les trois premières, écrire le nom et la fréquence de la station de radio qui donne ces nouvelles ; pour la
- dernière, le nom du correspondant (étape 18).
- - Au chalet hors réseau cellulaire, le téléphone ne reçoit pas les alertes d'urgence : il les reçoit seulement
- s'il est connecté à un réseau cellulaire LTE au moment où l'alerte part. Les mêmes alertes passent à la radio et à la télévision, et la
- radio à piles les reçoit.
+14. **Écrire quatre questions sur une feuille et l'afficher au mur, à côté de la radio**, avec, sous chacune, où
+ trouver la réponse. *La route est-elle ouverte ? Le courant est-il revenu ? Est-ce que ça brûle, et où ? Est-ce que
+ les nôtres vont bien ?* Pour les trois premières, écrire le nom et la fréquence de la station de radio qui donne
+ ces nouvelles ; pour la dernière, le nom du correspondant (étape 18).
+ - Le téléphone reçoit les alertes d'urgence seulement s'il est connecté à un réseau cellulaire LTE au moment où
+ l'alerte part : au chalet hors réseau cellulaire, il ne les reçoit pas. Les mêmes alertes passent à la radio et
+ à la télévision, et la radio à piles les reçoit.
  - À la maison, le téléphone reçoit les alertes tant que la tour cellulaire a du courant. Pendant une panne, les
  batteries d'une tour la font marcher le plus souvent de 2 à 4 h, parfois jusqu'à une journée ; certaines tours ont
  aussi une génératrice, d'autres non, et on ne sait pas laquelle dessert la maison.
@@ -145,7 +145,7 @@ elles n'arrivent pas.
  à quel endroit. La FM et la VHF vont en ligne droite : une colline entre l'émetteur et la radio les coupe. Le soir,
  l'onde AM rebondit sur le haut de l'atmosphère et redescend très loin : on entend alors des stations qu'on
  n'entendait pas le jour.
- - Écrire au feutre, sur la radio, les fréquences qui entrent.
+ - Écrire les fréquences qui entrent sur la radio, au feutre.
  - Noter les endroits où l'appareil satellite trouve vite le satellite et ceux où il cherche longtemps, et s'il y a
  la moindre barre de réseau cellulaire, et où.
  - À la maison, faire le même relevé dans le bâtiment, une fois : quelles stations entrent, dans quelle pièce, avec
@@ -156,7 +156,7 @@ elles n'arrivent pas.
  corde.
  - Faire descendre le fil jusqu'à la borne d'antenne de la radio sans qu'il touche le mur ni un clou.
  - Relier la borne de terre de la radio à une tige ou à un tuyau de fer enfoncé de 1 à 2 m (3 à 6 pi) dans le sol,
- jusqu'à la terre humide. L'hiver, quand on ne peut plus enfoncer la tige : le contrepoids de la section 7.
+ jusqu'à la terre humide. L'hiver, quand on ne peut plus enfoncer la tige, poser le contrepoids de la section 7.
  - Garder le fil loin des fils électriques et de tout ce qui conduit le courant.
  - Débrancher l'antenne pendant les orages : la foudre qui frappe l'antenne, ou tombe tout près, descend le fil
  jusqu'à la radio.
@@ -166,8 +166,7 @@ elles n'arrivent pas.
  - Décrire l'accès en mots : quel chemin, quel kilomètre, quel embranchement, la couleur du bâtiment.
  - Noter l'endroit dégagé le plus proche où un hélicoptère peut se poser et une motoneige arriver, et la distance
  jusqu'à la ville.
- - Afficher une copie plastifiée au mur, près de la radio, et en donner une au correspondant. Pendant une urgence,
- on lit mal des coordonnées qu'il faut d'abord chercher.
+ - Afficher une copie plastifiée au mur, près de la radio, et en donner une au correspondant.
  - À la maison, l'adresse remplace les coordonnées.
 18. **Choisir un correspondant, et lui donner sa consigne par écrit.** Choisir une personne qui ne vivra pas la
  même urgence que nous, et une deuxième personne pour la remplacer. Lui remettre sur papier la fiche
