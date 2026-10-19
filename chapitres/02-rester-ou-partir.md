@@ -207,8 +207,8 @@ tôt que prévu, l'essentiel est fait.
 
 37. {!feu-de-foret} **Devant un feu de forêt, rester au chalet seulement si le pourtour a été dégagé d'avance**, en
  trois zones : de 0 à 1,5 m, rien qui brûle ; de 1,5 à 10 m, aucune corde de bois ; de 10 à 30 m, des conifères
- espacés d'au moins 3 m entre les cimes et élagués jusqu'à 2 m du sol (ch. 11, étapes 49 à 56). Sans ces trois zones, un chalet dans une forêt
- serrée d'épinettes noires ne se défend pas : partir tôt, avant que le feu ou la fumée ferment le chemin. À la
+ espacés d'au moins 3 m entre les cimes et élagués jusqu'à 2 m du sol (ch. 11, étapes 49 à 56). Sans ces trois
+ zones, un chalet dans une forêt serrée d'épinettes noires ne se défend pas : partir tôt, avant que le feu ou la fumée ferment le chemin. À la
  maison, décider selon l'avance du feu vers la ville (ch. 11).
 38. **Devant une fumée sans feu visible, rester dedans, les portes et les fenêtres fermées, l'air recirculé ou
  filtré** ; la radio donne la Cote air santé[^2]. L'été, s'il fait trop chaud dedans, ouvrir les fenêtres : la
@@ -440,9 +440,9 @@ qui fait beaucoup de fumée attire aussi l'attention d'un avion (section 7, « S
 ### Les Innus, en petits groupes sur le territoire
 
 Jusqu'aux années 1950, les Innus du Labrador passaient neuf mois par année sur le territoire, en groupes de trois à
-cinq couples avec leurs enfants. Ces groupes ne se réunissaient en grand nombre que peu de temps, aux endroits où la nourriture
-abondait. Le groupe tenait parce que chacun y apportait son savoir-faire et son travail. Une famille de deux adultes
-seuls au chalet n'a pas cette relève (étape 32 ; ch. 18).
+cinq couples avec leurs enfants. Ces groupes ne se réunissaient en grand nombre que peu de temps, aux endroits où la
+nourriture abondait. Le groupe tenait parce que chacun y apportait son savoir-faire et son travail. Une famille de
+deux adultes seuls au chalet n'a pas cette relève (étape 32 ; ch. 18).
 
 ### L'onde AM, la nuit
 

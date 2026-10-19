@@ -58,7 +58,7 @@
     "g1": 1.11,
     "g2": 1.6,
     "g3": 2.45,
-    "g4": 3.5,
+    "g4": 3.4,
     "g5": 4.68,
     "g6": 5.85,
     "g7": 7.07,
@@ -99,7 +99,7 @@
       "col": "plein",
       "rang": "g3",
       "ancre": "haut",
-      "texte": "**Donner l'alerte tôt.** Si sa vie est en jeu et qu'on a un appareil satellite ou une balise, déclencher le SOS et rester sur place jusqu'à ce qu'on arrive. Sinon, dire où on est, qui est blessé, ce qu'il a, ce qu'on fait et l'heure du prochain message. Sans radio, envoyer deux personnes porter le message écrit.",
+      "texte": "**Donner l'alerte tôt.** Si sa vie est en jeu et qu'on a un appareil satellite ou une balise, déclencher le SOS et rester sur place. Sinon, dire où on est, qui est blessé, ce qu'il a, ce qu'on fait et l'heure du prochain message. Sans radio, envoyer deux personnes porter le message écrit.",
       "renvoi": "ch. 16, étapes 3 et 5 ; ch. 14",
       "source": "étapes 3 et 5 ; ch. 14, étapes 1, 2, 3, 5 et 6 ; ch. 35, section 9"
     },
@@ -306,14 +306,14 @@
       "de": "q1",
       "vers": "couche",
       "etiquette": "Oui",
-      "coude": 4.46,
+      "coude": 4.38,
       "pos": "palier"
     },
     {
       "de": "q1",
       "vers": "q2",
       "etiquette": "Non",
-      "coude": 4.46,
+      "coude": 4.38,
       "pos": "palier"
     },
     {

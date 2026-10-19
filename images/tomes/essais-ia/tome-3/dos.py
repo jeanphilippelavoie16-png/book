@@ -224,8 +224,7 @@ def motif(can, info):
     sa, sc, sg = _soleil(src)
     cx_dev = xf + (sg + sa.shape[1] / 2) * (can.shape[1] - xf) / iw
     cx = int(round(2 * xf - cx_dev))
-    sw0 = sa.shape[1]
-    span = slice(max(0, cx - sw0), cx + sw0)
+    span = slice(max(0, cx - int(0.6 * ppp)), cx + int(0.6 * ppp))      # le soleil fait autour de 1 po de large
     base = np.nanmax(centre[span]) + 1
     ss = (base - haut_soleil) / sa.shape[0]
     sw, sh = int(round(sa.shape[1] * ss)), int(round(sa.shape[0] * ss))
@@ -244,8 +243,8 @@ def motif(can, info):
     chg = (can != avant).any(2)
     if chg[:, xf:].any() or (chg & occ).any():
         print('    dos 3 : ATTENTION, le motif touche le devant ou la marge du texte')
-    print('    dos 3 : entailles et soleil entre %.2f et %.2f po du haut (trou %.2f-%.2f po), soleil %.2f po de large '
-          'centré à %.2f po du bord perdu ; entailles jusqu\'à %.2f po du devant' % (
-              y0 / ppp, (y0 + hb) / ppp, ga / ppp, gb / ppp, sw / ppp, cx / ppp,
-              (xf - np.nonzero(chg.any(0))[0].max()) / ppp))
+    ys_, xs_ = np.nonzero(chg)
+    print('    dos 3 : entailles et soleil de %.2f à %.2f po du haut (le trou, marges ôtées : %.2f à %.2f po) ; soleil de '
+          '%.2f po de large, centré à %.2f po du bord perdu ; entailles jusqu\'à %.2f po du devant' % (
+              ys_.min() / ppp, ys_.max() / ppp, ga / ppp, gb / ppp, sw / ppp, cx / ppp, (xf - xs_.max()) / ppp))
     return can

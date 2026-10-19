@@ -84,11 +84,12 @@ class Calque:
         im = self.c[nom].resize((self.w, self.h), Image.LANCZOS)
         return np.asarray(im, np.float32) / 255
 
-    def encre(self):
+    def encre(self, sauf=()):
         """Tout ce qui est posé, en alpha (pour l'ombre portée et la vérification)."""
         m = np.zeros((self.h, self.w), np.float32)
         for nom in self.c:
-            m = np.maximum(m, self.alpha(nom))
+            if nom not in sauf:
+                m = np.maximum(m, self.alpha(nom))
         for rgba, x, y in self.images:
             a = np.zeros_like(m)
             ox, oy = round((x - self.x0) * self.ppp), round((y - self.y0) * self.ppp)
@@ -97,13 +98,15 @@ class Calque:
             m = np.maximum(m, a)
         return m
 
-    def poser(self, can, ordre, decal=(0.035, 0.045)):
-        """Pose sur le fond : l'ombre portée de tout (décalée en bas à droite, comme celle du cadre), puis les
-        couches et les objets dans l'ordre donné (un nom de couche avec sa couleur, ou 'images')."""
+    def poser(self, can, ordre, decal=(0.035, 0.045), sans_ombre=('fil', 'clou', 'equerre')):
+        """Pose sur le fond : l'ombre portée (décalée en bas à droite, comme celle du cadre), puis les couches et les
+        objets dans l'ordre donné (un nom de couche avec sa couleur, ou 'images'). Les fils, les clous et les équerres
+        n'ont pas d'ombre, comme le fil du cadre : un trait foncé et son ombre laissent entre eux un filet de mur
+        clair que le nettoyage des étoiles prendrait pour une étoile."""
         ox, oy = round(self.x0 * self.ppp), round(self.y0 * self.ppp)
         zone = can[oy:oy + self.h, ox:ox + self.w].astype(np.float32)
         h, w = zone.shape[:2]
-        m = self.encre()
+        m = self.encre(sans_ombre)
         dx, dy = round(decal[0] * self.ppp), round(decal[1] * self.ppp)
         a = ndi.shift(m, (dy, dx), order=1)[:h, :w, None]
         zone = zone * (1 - a * (1 - OMBRE))
@@ -255,7 +258,7 @@ def tablette(cal, x0, x1, y, k=1.0):
     cal.rect('bois', x0, y, x1, y + ep)
     cal.rect('liseré', x0, y + 0.012 * k, x1, y + 0.02 * k)
     for xe in (x0 + 0.09 * k, x1 - 0.09 * k):
-        cal.poly('bois', [(xe - 0.018 * k, y + ep), (xe + 0.018 * k, y + ep), (xe + 0.018 * k, y + ep + 0.02 * k),
+        cal.poly('equerre', [(xe - 0.018 * k, y + ep), (xe + 0.018 * k, y + ep), (xe + 0.018 * k, y + ep + 0.02 * k),
                           (xe + 0.004 * k, y + ep + 0.15 * k), (xe - 0.018 * k, y + ep + 0.15 * k)])
     return y + ep
 
@@ -410,7 +413,7 @@ def motif(can, info):
     dessous = tablette(cal, cx - 0.31, cx + 0.31, y_tab)
     cal.trait('fil', [(cx - 0.004, dessous), (cx - 0.004, dessous + 0.2)], 0.011)
     bouquet(cal, (cx, dessous + 0.2), k)
-    cal.poser(can, [('bois', BRUN), ('liseré', FILET), ('images', None), ('fil', BRUN), ('tige', OR), ('or', OR), ('ficelle', CREME)])
+    cal.poser(can, [('equerre', BRUN), ('bois', BRUN), ('liseré', FILET), ('images', None), ('fil', BRUN), ('tige', OR), ('or', OR), ('ficelle', CREME)])
 
     # la quatrième : la corde aux trois bouquets dans le grand trou du haut, à droite du texte
     # (la colonne du texte s'arrête au bord droit des filets : la corde aussi)

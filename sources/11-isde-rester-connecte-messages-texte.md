@@ -23,9 +23,9 @@
 
 | Fait | Où |
 | --- | --- |
-| Un message texte ou un courriel encombre moins le réseau qu'un appel ; il peut passer quand le réseau est saturé ou que le service d'appel est coupé | ch. 11, étape 16 |
+| Un message texte ou un courriel encombre moins le réseau qu'un appel ; il peut passer quand les appels saturent le réseau, ou quand le service téléphonique est interrompu (les mots de la page : « encombrent moins », pas « beaucoup moins » ; corrigé le 19 octobre 2026 après la vérification technique) | ch. 11, étape 16 |
 
 **Ce que la page ne dit pas :** que le téléphone renvoie le message tout seul jusqu'à ce qu'il parte, ni qu'un
 message passe sur un signal plus faible qu'un appel. Ces deux morceaux de l'ancienne phrase du ch. 11 sortent.
-Le ch. 3 (« Un message texte passe là où un appel ne passe pas ») et le ch. 7, étape 5 (« il retente tout seul »)
-peuvent prendre la même phrase et la même source.
+Le ch. 3, étape 10, le ch. 7, étape 5, et le ch. 14, étape 25, peuvent prendre la même phrase et la même source ; le
+19 octobre, les ch. 3 et 7 disaient « beaucoup moins », que la page ne dit pas (rendu à l'orchestrateur).

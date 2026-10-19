@@ -282,9 +282,11 @@ dans `sources/08-reprises-sources-deja-enregistrees.md`.
 | Scénario 3, paragraphe | `feu-de-foret` |
 | Scénario 4, paragraphe | `incendie`, `froid` |
 | Scénario 7, paragraphe (alcool) | `froid` |
+| Scénario 6, paragraphe sous le tableau (ajouté à la correction du 19 octobre) | `co`, `espace-clos` |
 | Scénario 8, trois paragraphes | `cuisson` et `trichine` ; `botulisme` ; `abats` |
 | Scénario 9, paragraphe | `generatrice` |
 | Section 7, « La chaleur gardée pour la nuit », 3e puce | `projection` |
+| Section 7, « Désinfecter sans feu », 3e puce (ajoutée à la correction du 19 octobre) | `selles` |
 | Section 7, « La lampe à gras », 2e puce | `mal-de-caribou` |
 | Section 7, « Le 12 volts de l'auto », 2e puce | `generatrice` |
 | Section 7, « Le CO sans avertisseur » | `co` |
@@ -321,6 +323,10 @@ Tous viennent de fichiers déjà enregistrés ; détail et extraits dans `source
 | 180 à 280 L (chauffe-eau) | Section 7 | `10-chauffe-eau-residentiel-volume.md` (ch. 10, étape 49) |
 | Une semaine à dix jours (signes du mal de caribou) | Section 6 | `21-speth-spielmann-1983-stefansson-mal-de-caribou.md` (page `mal-de-caribou`) |
 | −18 °C et −40 °C (piles) | En plus | `08-energizer-piles-au-froid.md`, `85-energizer-e91-fiche-technique.md` |
+| −18 °C, la moitié de la capacité (batterie au plomb) | Section 7, « Le 12 volts de l'auto » | `18b-trojan-batteries-plomb-froid-et-charge.md` (déjà au suivi, levée du 24 septembre, ci-dessus) |
+| 0,4 mL par litre ; 30 min au-dessus de 20 °C, 1 h plus froid, 2 h sous 10 °C (javel) | Section 7, « Désinfecter sans feu » | Ch. 10, étapes 20 et 21 (`suivi/10-redaction.md`) ; ajouté à la correction du 19 octobre, voir plus bas |
+| 7 à 10 ans selon le modèle (avertisseur de CO) | Section 5 | `09-avertisseurs-co-duree-de-vie.md` ; ch. 6, section 5 ; ajouté à la correction du 19 octobre |
+| Dès le deuxième jour (viande sans aucun gras) | Section 6 | Page `mal-de-caribou` (`dangers/partie-2.md`) ; ch. 19, note du danger ; `21-speth-spielmann-1983-stefansson-mal-de-caribou.md` (« for the first few days ») ; ajouté à la correction du 19 octobre |
 
 Fait nouveau sans chiffre : la boîte rouillée ou bosselée sur le serti se jette (`08-mapaq-meilleur-avant-bon-apres.md`).
 Le diagnostic « la fermeture n'est peut-être plus étanche » est une lecture : la page dit de jeter, sans dire pourquoi.
