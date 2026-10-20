@@ -12,14 +12,27 @@ avoir repassé lui-même la même liste sur les pages montées.
 
 ## Pour tout agent
 
-- Lire `CLAUDE.md` au complet ; il prime.
+- `CLAUDE.md` est déjà chargé dans le contexte de l'agent : il prime, et on ne le relit pas.
 - Lire au complet le skill de sa partie, avec ses tableaux.
-- Lire `suivi/plan-de-match.md`, section « PAUSE du 15 octobre », points 1 à la fin : ce sont des décisions de JP
-  qui ne sont pas encore appliquées partout ; un chapitre qu'on touche les applique.
+- Dans `suivi/plan-de-match.md`, section « PAUSE du 15 octobre », lire seulement les points qui touchent sa tâche
+  (chercher le numéro du chapitre, de la planche ou le sujet) : ce sont des décisions de JP qui ne sont pas encore
+  appliquées partout ; un chapitre qu'on touche les applique.
 - Règle 1 : aucun chiffre sans source enregistrée dans `/sources` et notée dans `suivi/NN-redaction.md` ;
   `[À VÉRIFIER]` sinon. La source sert à vérifier un fait, jamais à copier une forme.
 - Ne rien commiter : l'orchestrateur commite.
 - Rapport court, en français, avec la liste de contrôle cochée.
+
+**Économiser les jetons** (JP, 20 octobre 2026 : « est-ce qu'il y a une façon de réduire le contexte ? »). Chaque appel
+d'un agent relit tout son contexte ; au 19 octobre, un agent relisait en moyenne 265 000 jetons par appel, et les
+agents faisaient plus de 80 % des jetons du projet.
+
+- [ ] Une tâche courte par agent : un chapitre, une planche ou un lot précis, jamais « tout le tome ».
+- [ ] Lire seulement ce que la tâche touche : chercher d'abord (grep), puis lire par plages ; jamais un dossier entier,
+  jamais `sources/` au complet, jamais un chapitre que la tâche ne touche pas.
+- [ ] Une image ne s'ouvre que si la tâche est de la juger, et une planche contact plutôt que dix images une à une :
+  chaque image reste dans le contexte jusqu'à la fin de l'agent.
+- [ ] Les sorties de commande se coupent (`head`, `tail`, `grep`) : un long journal reste aussi dans le contexte.
+- [ ] Le rapport dit ce qui a changé et où, avec la liste cochée ; il ne recopie jamais le texte ni le dessin.
 
 ## Le texte (skill `ecriture`)
 
@@ -196,6 +209,8 @@ Le cadre complet est `.claude/skills/planches/references/brief-agent.md`. En bre
 ## Le montage et la vérification (orchestrateur)
 
 - [ ] Aucun vérificateur sécurité : JP n'en veut jamais (18 octobre 2026).
+- [ ] Pas de workflow ni d'agent pour une tâche qui tient dans la conversation ; avant un gros travail, le coût est
+  donné à JP (20 octobre 2026). Pas de tour de relecture par agents : le regard qualité, c'est JP.
 - [ ] **À une refonte, le vérificateur technique ne revérifie pas ce qui l'a déjà été** (JP, 19 octobre 2026 : « fuck les
   sources, on a pas déjà fait ce travail-là ? »). Il compare au texte d'avant (git) et ne vérifie à la source que ce
   qui est nouveau ou qui change de sens : un chiffre ou un fait nouveau, une note En plus, une série orange réécrite,
