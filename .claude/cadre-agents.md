@@ -26,7 +26,9 @@ avoir repassé lui-même la même liste sur les pages montées.
 d'un agent relit tout son contexte ; au 19 octobre, un agent relisait en moyenne 265 000 jetons par appel, et les
 agents faisaient plus de 80 % des jetons du projet.
 
-- [ ] Une tâche courte par agent : un chapitre, une planche ou un lot précis, jamais « tout le tome ».
+- [ ] Un agent par sujet : un chapitre, une planche ou un lot précis, jamais « tout le tome ». Les petites corrections
+  d'un même fichier vont ensemble dans un seul agent (lancer un agent coûte quelques appels de démarrage) ; deux sujets
+  qui ne partagent pas leurs fichiers vont dans deux agents (le second relirait à chaque appel tout ce que le premier a lu).
 - [ ] Lire seulement ce que la tâche touche : chercher d'abord (grep), puis lire par plages ; jamais un dossier entier,
   jamais `sources/` au complet, jamais un chapitre que la tâche ne touche pas.
 - [ ] Une image ne s'ouvre que si la tâche est de la juger, et une planche contact plutôt que dix images une à une :
